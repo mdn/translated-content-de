@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft des **`DOMRectReadOnly`**-Interfaces repräsentiert die Höhe des `DOMRect`.
+Die **`height`** Schreibgeschützte Eigenschaft der **`DOMRectReadOnly`** Schnittstelle repräsentiert die Höhe des `DOMRect`.
 
 ## Wert
 
-Ein Double.
+Ein double.
 
 ## Spezifikationen
 

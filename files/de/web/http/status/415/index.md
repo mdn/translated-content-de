@@ -7,11 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`415 Unsupported Media Type`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage abgelehnt hat, weil das Format des [Inhalts](/de/docs/Glossary/HTTP_Content) der Nachricht nicht unterstützt wird.
+Der HTTP-Statuscode **`415 Unsupported Media Type`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage abgelehnt hat, weil das Nachrichten-[Format](/de/docs/Glossary/HTTP_Content) nicht unterstützt wird.
 
-Das Formatproblem könnte auf den angegebenen {{HTTPHeader("Content-Type")}} oder {{HTTPHeader("Content-Encoding")}} der Anfrage zurückzuführen sein oder als Ergebnis der Verarbeitung des Inhalts der Anfragenachricht auftreten.
-Einige Server sind möglicherweise strikt in Bezug auf den erwarteten `Content-Type` von Anfragen.
-Zum Beispiel könnte das Senden von `UTF8` anstelle von `UTF-8`, um das [UTF-8](/de/docs/Glossary/UTF-8)-Zeichensatz zu spezifizieren, dazu führen, dass der Server den Medientyp als ungültig ansieht.
+Das Formatproblem kann durch den in der Anfrage angegebenen {{HTTPHeader("Content-Type")}} oder {{HTTPHeader("Content-Encoding")}} verursacht werden oder als Ergebnis der Verarbeitung des Inhalts der Anfragenachricht auftreten. Einige Server können strenge Anforderungen an den erwarteten `Content-Type` für Anfragen haben. Zum Beispiel kann das Senden von `UTF8` anstelle von `UTF-8` zur Angabe des [UTF-8](/de/docs/Glossary/UTF-8) Zeichensatzes dazu führen, dass der Server den Medientyp als ungültig betrachtet.
 
 ## Status
 
@@ -36,7 +34,7 @@ Content-Length: 23
 }
 ```
 
-Wenn die Serverimplementierung mindestens einen MIME-Typ `Content-Type: application/json;` für die Anfrage an diesem Endpunkt erwartet, kann sie die folgende Antwort senden:
+Wenn die Server-Implementierung mindestens einen MIME-Typ `Content-Type: application/json;` für die Anfrage an diesem Endpunkt erwartet, kann er die folgende Antwort senden:
 
 ```http
 HTTP/1.1 415 Unsupported Media Type
@@ -48,7 +46,7 @@ Content-Length: 0
 
 ### Ungültiger Content-Type
 
-Im folgenden Beispiel ist der {{HTTPHeader("Content-Type")}}-Header falsch auf URL-codierte Formulardaten gesetzt, während sich der [Inhalt](/de/docs/Glossary/HTTP_Content) stattdessen im Anfragekörper befindet:
+Im folgenden Beispiel ist der {{HTTPHeader("Content-Type")}}-Header falsch auf URL-kodierte Formulardaten gesetzt, während sich der [Inhalt](/de/docs/Glossary/HTTP_Content) stattdessen im Anfragetext befindet:
 
 ```http
 POST /comments HTTP/1.1
@@ -62,7 +60,7 @@ Content-Type: application/x-www-form-urlencoded
 }
 ```
 
-In diesem Fall antwortet der Server mit einem 415-Status, wobei der erforderliche Inhaltstyp für die Anfrage im {{HTTPHeader("Accept-Post")}}-Header angegeben ist:
+In diesem Fall antwortet der Server mit einer 415-Antwort, wobei der erforderliche Inhaltstyp für die Anfrage im {{HTTPHeader("Accept-Post")}}-Header angegeben ist:
 
 ```http
 HTTP/1.1 415 Unsupported Media Type

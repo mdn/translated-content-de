@@ -9,9 +9,13 @@ l10n:
 {{APIRef}}
 
 Die
-**`CanvasRenderingContext2D.closePath()`**-Methode der Canvas 2D API versucht, eine gerade Linie vom aktuellen Punkt zum Anfang des aktuellen Unterpfads hinzuzufügen. Wenn die Form bereits geschlossen ist oder nur einen Punkt hat, tut diese Funktion nichts.
+**`CanvasRenderingContext2D.closePath()`**
+Methode der Canvas 2D API versucht, eine gerade Linie vom aktuellen Punkt zum
+Beginn des aktuellen Unterpfads hinzuzufügen. Wenn die Form bereits geschlossen wurde oder nur einen Punkt hat, macht diese Funktion nichts.
 
-Diese Methode zeichnet nichts direkt auf die Leinwand. Sie können den Pfad mit den Methoden [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) oder [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) rendern.
+Diese Methode zeichnet nichts direkt auf die Leinwand. Sie können den Pfad mit den
+[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) oder
+[`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) Methoden rendern.
 
 ## Syntax
 
@@ -31,7 +35,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Schließen eines Dreiecks
 
-Dieses Beispiel erstellt die ersten beiden (diagonalen) Seiten eines Dreiecks mithilfe der `lineTo()`-Methode. Danach wird die Basis des Dreiecks mit der Methode `closePath()` erstellt, die automatisch die ersten und letzten Punkte der Form verbindet.
+Dieses Beispiel erstellt die ersten zwei (diagonalen) Seiten eines Dreiecks mithilfe der
+`lineTo()` Methode. Danach wird die Basis des Dreiecks mit der
+`closePath()` Methode erstellt, die automatisch die ersten und letzten
+Punkte der Form verbindet.
 
 #### HTML
 
@@ -41,7 +48,7 @@ Dieses Beispiel erstellt die ersten beiden (diagonalen) Seiten eines Dreiecks mi
 
 #### JavaScript
 
-Die Ecken des Dreiecks befinden sich bei (20, 140), (120, 10) und (220, 140).
+Die Eckpunkte des Dreiecks befinden sich bei (20, 140), (120, 10) und (220, 140).
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -61,10 +68,10 @@ ctx.stroke();
 
 ### Schließen nur eines Unterpfads
 
-Dieses Beispiel zeichnet ein Smiley-Gesicht, das aus drei unverbundenen Unterpfaden besteht.
+Dieses Beispiel zeichnet ein Smiley-Gesicht, das aus drei getrennten Unterpfaden besteht.
 
 > [!NOTE]
-> Obwohl `closePath()` nach der Erstellung aller Bögen aufgerufen wird, wird nur der letzte Bogen (Unterpfad) geschlossen.
+> Obwohl `closePath()` aufgerufen wird, nachdem alle Bögen erstellt wurden, wird nur der letzte Bogen (Unterpfad) geschlossen.
 
 #### HTML
 
@@ -74,7 +81,7 @@ Dieses Beispiel zeichnet ein Smiley-Gesicht, das aus drei unverbundenen Unterpfa
 
 #### JavaScript
 
-Die ersten beiden Bögen bilden die Augen des Gesichts. Der letzte Bogen bildet den Mund.
+Die ersten zwei Bögen erstellen die Augen des Gesichts. Der letzte Bogen erstellt den Mund.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -105,5 +112,5 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath)

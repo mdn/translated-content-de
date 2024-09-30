@@ -1,5 +1,5 @@
 ---
-title: Verwenden von Shadern zur Anwendung von Farbe in WebGL
+title: Verwendung von Shadern zur Farbapplikation in WebGL
 slug: Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,16 +7,16 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context", "Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL")}}
 
-Nachdem im [vorherigen Beispiel](/de/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context) eine quadratische Fläche erstellt wurde, ist der nächste offensichtliche Schritt, ihr einen Farbtupfer hinzuzufügen. Dies können wir erreichen, indem wir die Shader überarbeiten.
+Nachdem im [vorangegangenen Demonstration](/de/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context) eine quadratische Fläche erstellt wurde, ist der nächste logische Schritt, ihr Farbe zu verleihen. Dies kann durch das Anpassen der Shader erreicht werden.
 
-## Anwendung von Farbe auf die Vertices
+## Farbe auf die Scheitelpunkte anwenden
 
-In WebGL werden Objekte mit Hilfe von Sätzen von Vertices aufgebaut, von denen jede eine Position und eine Farbe hat. Standardmäßig werden die Farben aller anderen Pixel (sowie all ihre anderen Attribute, einschließlich der Position) durch Interpolation berechnet, wodurch automatisch sanfte Farbverläufe entstehen. Bisher hat unser Vertex-Shader keine spezifischen Farben auf die Vertices angewandt. Zwischen diesem und dem Fragment-Shader, der jedem Pixel die feste Farbe Weiß zuweist, wurde das gesamte Quadrat als einfarbig weiß gerendert.
+In WebGL werden Objekte aus Sätzen von Scheitelpunkten aufgebaut, von denen jeder eine Position und eine Farbe hat. Standardmäßig werden alle anderen Pixel-Farben (und alle anderen Attribute, einschließlich der Position) mittels Interpolation berechnet, was automatisch sanfte Farbverläufe erzeugt. Zuvor hat unser Vertex-Shader keine spezifischen Farben auf die Scheitelpunkte angewandt. Da der Fragment-Shader jedem Pixel die feste Farbe Weiß zugewiesen hat, wurde das gesamte Quadrat als solides Weiß dargestellt.
 
-Angenommen, wir möchten einen Farbverlauf darstellen, bei dem jede Ecke des Quadrats eine andere Farbe hat: rot, blau, grün und weiß. Der erste Schritt besteht darin, diese Farben für die vier Vertices festzulegen. Dazu müssen wir zuerst ein Array von Vertex-Farben erstellen und es in einem WebGL-Puffer speichern.
+Angenommen, wir möchten einen Verlauf rendern, bei dem jede Ecke des Quadrats eine andere Farbe hat: Rot, Blau, Grün und Weiß. Der erste Schritt ist, diese Farben für die vier Scheitelpunkte festzulegen. Dazu müssen wir zuerst ein Array von Scheitelpunktfarben erstellen und dann in einen WebGL-Puffer speichern.
 
 > [!NOTE]
-> Fügen Sie Ihrem `init-buffers.js` Modul die folgende Funktion hinzu:
+> Fügen Sie die folgende Funktion zu Ihrem `init-buffers.js` Modul hinzu:
 
 ```js
 function initColorBuffer(gl) {
@@ -47,12 +47,12 @@ function initColorBuffer(gl) {
 }
 ```
 
-Dieses Code-Beispiel beginnt mit der Erstellung eines JavaScript-Arrays, das vier 4-Werte-Vektoren enthält, einen für jede Vertex-Farbe. Danach wird ein neuer WebGL-Puffer zugewiesen, um diese Farben zu speichern, und das Array wird in Fließkommazahlen konvertiert und im Puffer gespeichert.
+Dieser Code beginnt damit, ein JavaScript-Array mit vier 4-Werte-Vektoren zu erstellen, je einen für jede Scheitelpunktfarbe. Dann wird ein neuer WebGL-Puffer zugewiesen, um diese Farben zu speichern, und das Array wird in Gleitkommazahlen umgewandelt und im Puffer gespeichert.
 
-Natürlich müssen wir auch diese neue Funktion von `initBuffers()` aufrufen und den neuen Puffer zurückgeben, den sie erstellt.
+Natürlich müssen wir auch diese neue Funktion von `initBuffers()` aus aufrufen und den neuen Puffer zurückgeben, den sie erstellt.
 
 > [!NOTE]
-> Am Ende Ihrer `initBuffers()` Funktion fügen Sie den folgenden Code hinzu und ersetzen die vorhandene `return` Anweisung:
+> Fügen Sie am Ende Ihrer `initBuffers()` Funktion den folgenden Code hinzu und ersetzen Sie die vorhandene `return` Anweisung:
 
 ```js
 const colorBuffer = initColorBuffer(gl);
@@ -63,7 +63,7 @@ return {
 };
 ```
 
-Um diese Farben zu verwenden, muss der Vertex-Shader so aktualisiert werden, dass er die entsprechende Farbe aus dem Farb-Puffer übernimmt.
+Um diese Farben zu verwenden, muss der Vertex-Shader aktualisiert werden, um die passende Farbe aus dem Farbpuffer zu holen.
 
 > [!NOTE]
 > Aktualisieren Sie die `vsSource` Deklaration in Ihrer `main()` Funktion wie folgt:
@@ -87,11 +87,11 @@ const vsSource = `
   `;
 ```
 
-Der entscheidende Unterschied besteht hier darin, dass wir für jedes Vertex seine Farbe mittels eines `varying` an den Fragment-Shader übergeben.
+Der wesentliche Unterschied hier ist, dass wir für jeden Scheitelpunkt seine Farbe mittels eines `varying` an den Fragment-Shader übergeben.
 
-## Färben der Fragmente
+## Färbung der Fragmente
 
-Um die interpolierte Farbe für jedes Pixel abzurufen, müssen wir den Fragment-Shader ändern, damit er den Wert aus dem `vColor` varying abruft.
+Um die interpolierte Farbe für jedes Pixel zu erfassen, müssen wir den Fragment-Shader ändern, sodass er den Wert aus dem `vColor` varying abruft.
 
 > [!NOTE]
 > Aktualisieren Sie die `fsSource` Deklaration in Ihrer `main()` Funktion wie folgt:
@@ -108,11 +108,11 @@ const fsSource = `
   `;
 ```
 
-Jedes Fragment erhält die interpolierte Farbe basierend auf seiner Position relativ zu den Vertex-Positionen, anstatt eines festen Wertes.
+Jedes Fragment erhält die interpolierte Farbe basierend auf seiner Position relativ zu den Scheitelpunktpositionen anstelle eines festen Werts.
 
-## Zeichnen mit den Farben
+## Zeichnen unter Verwendung der Farben
 
-Als Nächstes müssen Sie Code hinzufügen, um den Attributstandort für die Farben abzurufen und dieses Attribut für das Shader-Programm einzurichten.
+Als nächstes müssen Sie Code hinzufügen, um den Attributstandort für die Farben zu ermitteln und dieses Attribut für das Shader-Programm einzurichten.
 
 > [!NOTE]
 > Aktualisieren Sie die `programInfo` Deklaration in Ihrer `main()` Funktion wie folgt:
@@ -135,10 +135,10 @@ const programInfo = {
 };
 ```
 
-Als Nächstes muss `drawScene()` diese Farben verwenden, wenn das Quadrat gezeichnet wird.
+Als nächstes muss `drawScene()` diese Farben verwenden, wenn das Quadrat gezeichnet wird.
 
 > [!NOTE]
-> Fügen Sie Ihrem `draw-scene.js` Modul die folgende Funktion hinzu:
+> Fügen Sie die folgende Funktion zu Ihrem `draw-scene.js` Modul hinzu:
 
 ```js
 // Tell WebGL how to pull out the colors from the color buffer
@@ -173,6 +173,6 @@ Das Ergebnis sollte nun so aussehen:
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample3/index.html', 670, 510) }}
 
-[Sehen Sie sich den vollständigen Code an](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample3) | [Öffnen Sie dieses Demo in einem neuen Fenster](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample3/)
+[Den vollständigen Code anzeigen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample3) | [Dieses Demo auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample3/)
 
 {{PreviousNext("Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context", "Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL")}}

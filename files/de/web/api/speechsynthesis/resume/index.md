@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: resume()-Methode"
+title: "SpeechSynthesis: resume() Methode"
 short-title: resume()
 slug: Web/API/SpeechSynthesis/resume
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`resume()`**-Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle versetzt das `SpeechSynthesis`-Objekt in einen nicht pausierten Zustand: Sie setzt es fort, wenn es bereits pausiert war.
+Die **`resume()`** Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces versetzt das `SpeechSynthesis`-Objekt in einen nicht pausierten Zustand: setzt es fort, wenn es bereits pausiert war.
 
 ## Syntax
 

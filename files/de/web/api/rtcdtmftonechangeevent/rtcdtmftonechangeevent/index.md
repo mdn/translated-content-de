@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCDTMFToneChangeEvent()`**-Konstruktor erstellt ein neues
-[`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)-Objekt.
+Der **`RTCDTMFToneChangeEvent()`** Konstruktor erstellt ein neues [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)-Objekt.
 
 ## Syntax
 
@@ -22,19 +21,18 @@ new RTCDTMFToneChangeEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß- und Kleinschreibung beachten, und Browser setzen es immer auf `tonechange`.
+    Er ist groß-/klein-schreibungssensitiv, und Browser setzen ihn immer auf `tonechange`.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
 
     - `tone` {{optional_inline}}
-      - : Ein String, der ein einzelnes DTMF-Tonzeichen enthält, das gerade begonnen hat zu spielen, oder ein leerer String (`""`), um anzuzeigen, dass der vorherige Ton aufgehört hat zu spielen. Standardmäßig ist es `""`.
-        Siehe [Tonzeichen](/de/docs/Web/API/RTCDTMFSender/toneBuffer#tone_buffer_format)
-        für Details zu den zulässigen Zeichen.
+      - : Ein String, der ein einzelnes DTMF-Tonzeichen enthält, das gerade zu spielen begonnen hat, oder ein leerer String (`""`), der anzeigt, dass der vorherige Ton aufgehört hat zu spielen. Standardmäßig ist es `""`.
+        Siehe [Tonzeichen](/de/docs/Web/API/RTCDTMFSender/toneBuffer#tone_buffer_format) für Details, welche Zeichen zulässig sind.
 
 ### Rückgabewert
 
-Ein neues [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)-Objekt, konfiguriert gemäß den angegebenen Optionen.
+Ein neues [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)-Objekt, das gemäß den angegebenen Optionen konfiguriert ist.
 
 ## Spezifikationen
 
@@ -48,4 +46,4 @@ Ein neues [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)-Ob
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
 - [Verwendung von DTMF mit WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
-- Üblicher Zieltyp: [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender).
+- Sein üblicheres Ziel: [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender).

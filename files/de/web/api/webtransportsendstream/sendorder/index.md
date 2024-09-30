@@ -1,5 +1,5 @@
 ---
-title: "WebTransportSendStream: sendOrder-Eigenschaft"
+title: "WebTransportSendStream: Eigenschaft sendOrder"
 short-title: sendOrder
 slug: Web/API/WebTransportSendStream/sendOrder
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`sendOrder`**-Eigenschaft der [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Schnittstelle gibt die Sendepriorität dieses Streams relativ zu anderen Streams an, für die der Wert festgelegt wurde.
+Die **`sendOrder`**-Eigenschaft der [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Schnittstelle gibt die Sendpriorität dieses Streams im Verhältnis zu anderen Streams an, für die der Wert festgelegt wurde.
 
-Zuerst werden die in der Warteschlange befindlichen Bytes für Streams gesendet, die einen höheren Wert haben. Wenn nicht festgelegt, hängt die Sendereihenfolge von der Implementierung ab.
+In den Warteschlangen befindliche Bytes werden zuerst für Streams mit einem höheren Wert gesendet. Wenn der Wert nicht festgelegt ist, hängt die Sendereihenfolge von der Implementierung ab.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl, die die relative Priorität dieses Streams beim Senden von Bytes angi
 
 ## Beispiele
 
-Das unten stehende Beispiel zeigt, wie Sie die anfängliche `sendOrder` festlegen können, wenn Sie [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) aufrufen, um den Sendestream zu erstellen, den Wert vom Stream lesen und dann die Reihenfolge ändern. Nach der Änderung der Reihenfolge würde die Priorität dieses Streams steigen und höher werden als bei jedem Stream mit einer Priorität von weniger als "596996858".
+Das folgende Beispiel zeigt, wie Sie den anfänglichen `sendOrder` festlegen können, wenn Sie [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) aufrufen, um den Sendstream zu erstellen, den Wert aus dem Stream lesen und dann die Reihenfolge ändern. Nach der Änderung der Reihenfolge würde die Priorität dieses Streams höher als jeder Stream mit einer Priorität von weniger als "596996858" werden.
 
 ```js
 async function writeData() {

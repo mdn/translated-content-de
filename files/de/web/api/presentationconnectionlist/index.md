@@ -7,19 +7,19 @@ l10n:
 
 {{securecontext_header}}{{SeeCompatTable}}{{APIRef("Presentation API")}}
 
-`PresentationConnectionList` ist die Sammlung von eingehenden Präsentationsverbindungen.
+`PresentationConnectionList` ist die Sammlung eingehender Präsentationsverbindungen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`PresentationConnectionList.connections`](/de/docs/Web/API/PresentationConnectionList/connections) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die nicht beendete Menge von [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)s in der [Menge von Präsentationssteuerungen](https://www.w3.org/TR/presentation-api/#dfn-set-of-presentation-controllers) zurück.
+  - : Gibt die nicht beendete Menge von [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)s in der [Menge der Präsentationscontroller](https://www.w3.org/TR/presentation-api/#dfn-set-of-presentation-controllers) zurück.
 
 ## Ereignisse
 
 - [`connectionavailable`](/de/docs/Web/API/PresentationConnectionList/connectionavailable_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wann immer eine neue [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) verfügbar wird.
+  - : Wird ausgelöst, wenn immer eine neue [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) verfügbar wird.
 
 ## Spezifikationen
 

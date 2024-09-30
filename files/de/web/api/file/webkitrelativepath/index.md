@@ -1,5 +1,5 @@
 ---
-title: "Datei: webkitRelativePath-Eigenschaft"
+title: "File: webkitRelativePath-Eigenschaft"
 short-title: webkitRelativePath
 slug: Web/API/File/webkitRelativePath
 l10n:
@@ -8,20 +8,16 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`webkitRelativePath`** des [`File`](/de/docs/Web/API/File)-Interfaces
-enthält einen String, der den relativen Pfad der Datei zum
-vom Benutzer in einem {{HTMLElement("input")}}-Element ausgewählten Verzeichnis angibt, bei dem das
-[`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut gesetzt ist.
+Die schreibgeschützte **`webkitRelativePath`**-Eigenschaft des [`File`](/de/docs/Web/API/File)-Interfaces
+enthält einen String, der den relativen Pfad der Datei zu dem vom Benutzer ausgewählten Verzeichnis in einem {{HTMLElement("input")}}-Element mit gesetztem [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut angibt.
 
 ## Wert
 
-Ein String, der den Pfad der Datei relativ zum vom Benutzer ausgewählten übergeordneten
-Verzeichnis enthält.
+Ein String, der den Pfad der Datei relativ zu dem vom Benutzer ausgewählten übergeordneten Verzeichnis enthält.
 
 ## Beispiel
 
-In diesem Beispiel wird ein Verzeichnisauswahlfeld angezeigt, das es dem Benutzer ermöglicht, ein oder mehrere
-Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, wird eine Liste aller Dateien erstellt und angezeigt, die in den ausgewählten Verzeichnishierarchien enthalten sind.
+In diesem Beispiel wird ein Verzeichnis-Auswahldialog angezeigt, der es dem Benutzer ermöglicht, ein oder mehrere Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis eintritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erzeugt und angezeigt.
 
 ### HTML
 

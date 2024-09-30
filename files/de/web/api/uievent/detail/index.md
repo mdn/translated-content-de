@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`UIEvent.detail`**-Eigenschaft ist schreibgeschützt und gibt, wenn sie ungleich null ist, die aktuelle (oder nächste, je nach Ereignis) Klickanzahl an.
+Die **`UIEvent.detail`**-Eigenschaft, die nur gelesen werden kann, gibt, wenn ungleich null, die aktuelle (oder nächste, je nach Ereignis) Klickanzahl an.
 
-Bei [`click`](/de/docs/Web/API/Element/click_event)- oder [`dblclick`](/de/docs/Web/API/Element/dblclick_event)-Ereignissen ist `UIEvent.detail` die aktuelle Klickanzahl.
+Bei [`click`](/de/docs/Web/API/Element/click_event) oder [`dblclick`](/de/docs/Web/API/Element/dblclick_event) Ereignissen ist `UIEvent.detail` die aktuelle Klickanzahl.
 
-Bei [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- oder [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignissen ist `UIEvent.detail` _1 plus_ die aktuelle Klickanzahl.
+Bei [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`mouseup`](/de/docs/Web/API/Element/mouseup_event) Ereignissen ist `UIEvent.detail` _1 plus_ die aktuelle Klickanzahl.
 
-Für alle anderen [`UIEvent`](/de/docs/Web/API/UIEvent)-Objekte ist `UIEvent.detail` immer null.
+Für alle anderen [`UIEvent`](/de/docs/Web/API/UIEvent) Objekte ist `UIEvent.detail` immer null.
 
 ## Spezifikationen
 

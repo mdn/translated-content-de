@@ -1,5 +1,5 @@
 ---
-title: "Element: hasAttributeNS()-Methode"
+title: "Element: hasAttributeNS() Methode"
 short-title: hasAttributeNS()
 slug: Web/API/Element/hasAttributeNS
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`hasAttributeNS()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element das angegebene Attribut mit dem angegebenen Namespace hat.
+Die **`hasAttributeNS()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element das angegebene Attribut mit dem angegebenen Namensraum besitzt.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespace angeben müssen, verwenden Sie stattdessen die [`hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)-Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`hasAttribute()`](/de/docs/Web/API/Element/hasAttribute) Methode.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ hasAttributeNS(namespace,localName)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace des Attributs angibt.
+  - : Ein String, der den Namensraum des Attributs angibt.
 - `localName`
   - : Der Name des Attributs.
 
 ### Rückgabewert
 
-Ein boolescher Wert.
+Ein Boolescher Wert.
 
 ## Beispiele
 

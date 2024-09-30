@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`headers`** schreibgeschützte Eigenschaft der
-[`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält das [`Headers`](/de/docs/Web/API/Headers)-Objekt, das mit der Antwort verknüpft ist.
+Die schreibgeschützte **`headers`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält das [`Headers`](/de/docs/Web/API/Headers)-Objekt, das mit der Antwort verknüpft ist.
 
 ## Wert
 
@@ -17,10 +16,10 @@ Ein [`Headers`](/de/docs/Web/API/Headers)-Objekt.
 
 ## Beispiele
 
-In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
-erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und übergeben ihm einen JPG-Pfad.
-Wir holen dann diese Anfrage mittels [`fetch()`](/de/docs/Web/API/Window/fetch) ein, extrahieren ein Blob aus der Antwort mittels [`Response.blob`](/de/docs/Web/API/Response/blob),
-erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen dies in einem {{htmlelement("img")}} an.
+In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
+erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, indem wir ihm einen JPG-Pfad übergeben.
+Wir holen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob),
+erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
 
 Beachten Sie, dass wir am Anfang des `fetch()`-Blocks die Antwort-Header in die Konsole protokollieren.
 

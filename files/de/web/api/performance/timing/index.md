@@ -10,10 +10,10 @@ l10n:
 
 Die veraltete, schreibgeschützte Eigenschaft **`Performance.timing`** gibt ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt zurück, das latenzbezogene Leistungsinformationen enthält.
 
-Diese Eigenschaft ist in Workern nicht verfügbar.
+Diese Eigenschaft ist in Web-Workern nicht verfügbar.
 
 > [!WARNING]
-> Diese Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
+> Diese Eigenschaft ist im [Navigation Timing Level 2 spec](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
 
 ## Wert
 
@@ -29,4 +29,4 @@ Ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt.
 
 ## Siehe auch
 
-- Das [`Performance`](/de/docs/Web/API/Performance) Interface, zu dem es gehört.
+- Das [`Performance`](/de/docs/Web/API/Performance)-Interface, zu dem es gehört.

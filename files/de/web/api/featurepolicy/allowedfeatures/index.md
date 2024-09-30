@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`allowedFeatures()`** Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy) Schnittstelle gibt eine Liste von Richtlinienschlüsseln aller Funktionen zurück, die durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) erlaubt sind. Dies ermöglicht eine Prüfung der einzelnen Richtlinien der Permissions Policy, auf der sie ausgeführt wird. Somit gibt die `allowedFeatures()` Methode eine Teilmenge der Richtlinien zurück, die von [`features()`](/de/docs/Web/API/FeaturePolicy/features) geliefert werden.
+Die **`allowedFeatures()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces gibt eine Liste von Direktivenamen aller durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) erlaubten Funktionen zurück. Dies ermöglicht eine Untersuchung der einzelnen Direktiven der Permissions Policy, auf der sie ausgeführt wird. Daher gibt die `allowedFeatures()`-Methode ein Subset der von [`features()`](/de/docs/Web/API/FeaturePolicy/features) zurückgegebenen Direktiven zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, die die Namen der Richtlinien der Permissions Policy darstellen, die von der Permissions Policy erlaubt sind, auf der diese Methode aufgerufen wird.
+Ein Array von Zeichenfolgen, das die Namen der von der Permissions Policy erlaubten Direktiven repräsentiert, auf die diese Methode angewendet wird.
 
 ## Beispiel
 
-Das folgende Beispiel protokolliert alle erlaubten Richtlinien für das aktuelle Dokument. Bitte beachten Sie, dass diese Funktionen durch die Permissions API eingeschränkt sein können, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
+Das folgende Beispiel protokolliert alle erlaubten Direktiven für das aktuelle Dokument. Bitte beachten Sie, dass diese Funktionen möglicherweise durch die Permissions API eingeschränkt sind, wenn der Benutzer die entsprechende Erlaubnis noch nicht erteilt hat.
 
 ```js
 // First, get the Permissions Policy object

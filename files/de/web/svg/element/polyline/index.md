@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<polyline>`** [SVG](/de/docs/Web/SVG)-Element ist eine SVG-Grundform, die gerade Linien verbindet und mehrere Punkte erstellt. Typischerweise wird ein `polyline` verwendet, um offene Formen zu erstellen, da der letzte Punkt nicht mit dem ersten Punkt verbunden sein muss. Für geschlossene Formen siehe das {{SVGElement("polygon")}}-Element.
+Das **`<polyline>`** [SVG](/de/docs/Web/SVG)-Element ist eine SVG-Grundform, die gerade Linien verbindet, die mehrere Punkte miteinander verbinden. Typischerweise wird ein `polyline` verwendet, um offene Formen zu erstellen, da der letzte Punkt nicht mit dem ersten Punkt verbunden sein muss. Für geschlossene Formen siehe das {{SVGElement("polygon")}}-Element.
 
 ## Beispiel
 
@@ -34,10 +34,10 @@ svg {
 ## Attribute
 
 - {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paare von x,y-Koordinaten), die benötigt werden, um die Polyline zu zeichnen.
+  - : Dieses Attribut definiert die Liste von Punkten (Paaren aus x,y-Koordinaten), die zur Zeichnung der Polyline erforderlich sind.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut erlaubt es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+  - : Dieses Attribut ermöglicht das Festlegen der Gesamtlänge für den Pfad in Benutzereinheiten.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext
@@ -54,5 +54,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG-Darstellungsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes), einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes), einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 - Andere SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, **{{ SVGElement('line') }}**, **{{ SVGElement('polygon') }}**, {{ SVGElement('rect') }}

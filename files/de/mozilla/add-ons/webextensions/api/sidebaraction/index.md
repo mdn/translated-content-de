@@ -7,39 +7,39 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft Eigenschaften der Sidebar einer Erweiterung ab und setzt diese.
+Ruft Eigenschaften der Seitenleiste einer Erweiterung ab und setzt diese.
 
-Eine [Sidebar](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) ist ein Bereich, der auf der linken oder rechten Seite des Browserfensters neben der Webseite angezeigt wird. Der Browser bietet eine Benutzeroberfläche, die es dem Benutzer ermöglicht, die derzeit verfügbaren Sidebars zu sehen und eine Sidebar zur Anzeige auszuwählen. Mithilfe des [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Schlüssels in der manifest.json kann eine Erweiterung ihre eigene Sidebar definieren. Mit der hier beschriebenen `sidebarAction`-API kann eine Erweiterung die Eigenschaften der Sidebar abrufen und festlegen.
+Eine [Seitenleiste](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) ist ein Bereich, der auf der linken oder rechten Seite des Browserfensters neben der Webseite angezeigt wird. Der Browser bietet eine Benutzeroberfläche, die dem Benutzer ermöglicht, die derzeit verfügbaren Seitenleisten zu sehen und eine Seitenleiste zur Anzeige auszuwählen. Mithilfe des Manifests [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) kann eine Erweiterung ihre eigene Seitenleiste definieren. Durch die hier beschriebene `sidebarAction` API kann eine Erweiterung die Eigenschaften der Seitenleiste abrufen und setzen.
 
-Die `sidebarAction`-API ist eng an die {{WebExtAPIRef("browserAction")}}-API angelehnt.
+Die `sidebarAction` API orientiert sich eng an der {{WebExtAPIRef("browserAction")}} API.
 
 Die sidebarAction API basiert auf Operas [sidebarAction API](https://help.opera.com/en/extensions/sidebar-action-api/). Beachten Sie jedoch, dass die folgenden Funktionen noch nicht unterstützt werden: `setBadgeText()`, `getBadgeText()`, `setBadgeBackgroundColor()`, `getBadgeBackgroundColor()`, `onFocus`, `onBlur`.
 
 ## Typen
 
 - {{WebExtAPIRef("sidebarAction.ImageDataType")}}
-  - : Pixeldaten für ein Bild. Muss ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt sein (zum Beispiel, von einem {{htmlelement("canvas")}}-Element).
+  - : Pixeldaten für ein Bild. Muss ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt sein (zum Beispiel von einem {{htmlelement("canvas")}}-Element).
 
 ## Funktionen
 
 - {{WebExtAPIRef("sidebarAction.close()")}}
-  - : Schließt die Sidebar.
+  - : Schließt die Seitenleiste.
 - {{WebExtAPIRef("sidebarAction.getPanel()")}}
-  - : Ruft das Panel der Sidebar ab.
+  - : Ruft das Panel der Seitenleiste ab.
 - {{WebExtAPIRef("sidebarAction.getTitle()")}}
-  - : Ruft den Titel der Sidebar ab.
+  - : Ruft den Titel der Seitenleiste ab.
 - {{WebExtAPIRef("sidebarAction.isOpen()")}}
-  - : Überprüft, ob die Sidebar geöffnet ist oder nicht.
+  - : Überprüft, ob die Seitenleiste geöffnet ist oder nicht.
 - {{WebExtAPIRef("sidebarAction.open()")}}
-  - : Öffnet die Sidebar.
+  - : Öffnet die Seitenleiste.
 - {{WebExtAPIRef("sidebarAction.setIcon()")}}
-  - : Setzt das Icon der Sidebar.
+  - : Setzt das Symbol der Seitenleiste.
 - {{WebExtAPIRef("sidebarAction.setPanel()")}}
-  - : Setzt das Panel der Sidebar.
+  - : Setzt das Panel der Seitenleiste.
 - {{WebExtAPIRef("sidebarAction.setTitle()")}}
-  - : Setzt den Titel der Sidebar. Dieser wird in jeder vom Browser bereitgestellten Benutzeroberfläche angezeigt, um Sidebars aufzulisten, wie in einem Menü.
+  - : Setzt den Titel der Seitenleiste. Dieser wird in jeder vom Browser bereitgestellten Benutzeroberfläche angezeigt, um Seitenleisten aufzulisten, wie z.B. in einem Menü.
 - {{WebExtAPIRef("sidebarAction.toggle()")}}
-  - : Schaltet die Sichtbarkeit der Sidebar um.
+  - : Schaltet die Sichtbarkeit der Seitenleiste um.
 
 ## Browser-Kompatibilität
 
@@ -51,33 +51,3 @@ Die sidebarAction API basiert auf Operas [sidebarAction API](https://help.opera.
 
 > [!NOTE]
 > Diese API basiert auf Operas [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->

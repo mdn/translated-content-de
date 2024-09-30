@@ -1,5 +1,5 @@
 ---
-title: "ImageBitmap: close()-Methode"
+title: "ImageBitmap: close() Methode"
 short-title: close()
 slug: Web/API/ImageBitmap/close
 l10n:
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -49,4 +49,4 @@ bitmap.close();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert, [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).
+- Die Schnittstelle, die diese Methode definiert, [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).

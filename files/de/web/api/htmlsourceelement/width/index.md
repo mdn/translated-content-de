@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der Schnittstelle [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) ist eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
 
-Die Eigenschaft hat nur dann eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
+Die Eigenschaft hat nur eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
 
 Sie spiegelt das `width`-Attribut des {{HTMLElement("source")}}-Elements wider.
 

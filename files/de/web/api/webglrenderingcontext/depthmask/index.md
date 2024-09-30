@@ -3,10 +3,10 @@ title: "WebGLRenderingContext: depthMask() Methode"
 short-title: depthMask()
 slug: Web/API/WebGLRenderingContext/depthMask
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.depthMask()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt fest, ob das Schreiben in den Tiefenpuffer aktiviert oder deaktiviert ist.
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.depthMask(false);
 ```
 
-Um die aktuelle Tiefenmaske abzurufen, fragen Sie die `DEPTH_WRITEMASK` Konstante ab, die einen booleschen Wert zurückgibt.
+Um die aktuelle Tiefenmaske zu ermitteln, fragen Sie die Konstante `DEPTH_WRITEMASK` ab, die einen booleschen Wert zurückgibt.
 
 ```js
 gl.getParameter(gl.DEPTH_WRITEMASK);

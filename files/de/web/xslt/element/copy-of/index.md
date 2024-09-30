@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:copy-of>`-Element erstellt eine Tiefenkopie (einschließlich der untergeordneten Knoten) von dem, was das `select`-Attribut für das Ausgabedokument angibt.
+Das `<xsl:copy-of>`-Element erstellt eine tiefe Kopie (einschließlich der Nachfahrenknoten) dessen, was das Attribut `select` angibt, im Ausgabedokument.
 
 ## Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: Submit-Button
+title: Submit button
 slug: Glossary/Submit_button
 l10n:
   sourceCommit: c9a87fc4010cef73c21c5f46662431f3c8ad2d28
@@ -15,7 +15,7 @@ Ein **Submit-Button** ist ein [Element](/de/docs/Glossary/element) in HTML, das 
 
 Zusätzlich zum Absenden eines Formulars kann ein Submit-Button das Verhalten des Formulars beeinflussen und welche Daten gesendet werden.
 
-## Überschreiben des Formularverhaltens
+## Überschreiben des Verhaltens des Formulars
 
 Submit-Buttons können das Absendeverhalten des Formulars durch verschiedene Attribute überschreiben:
 
@@ -25,13 +25,13 @@ Submit-Buttons können das Absendeverhalten des Formulars durch verschiedene Att
 - `{{HtmlElement("button#formnovalidate", "formnovalidate")}}`: Überschreibt das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut des Formulars.
 - `{{HtmlElement("button#formtarget", "formtarget")}}`: Überschreibt das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des Formulars.
 
-## Formulardateneinträge
+## Formulareintragsdaten
 
-Wenn der Submit-Button ein {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` ist und ein `name`-Attribut hat, wird das Formulardatenset einen Eintrag für seinen `name` und `value` enthalten.
+Wenn der Submit-Button ein {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` ist und ein `name`-Attribut hat, wird das Formulardatensatz einen Eintrag für seinen `name` und `value` enthalten.
 
-Wenn der Submit-Button ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, wird das Formulardatenset Einträge für die X- und Y-Koordinaten enthalten, auf die der Benutzer geklickt hat (z.B. `x=100&y=200` oder `buttonName.x=123&buttonName.y=234`).
+Wenn der Submit-Button ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, wird der Formulardatensatz Einträge für die X- und Y-Koordinaten enthalten, auf die der Benutzer geklickt hat (z.B. `x=100&y=200` oder `buttonName.x=123&buttonName.y=234`).
 
 ## Siehe auch
 
-- [Grundlegende native Formularelemente](/de/docs/Learn/Forms/Basic_native_form_controls)
-- [Formulardaten senden](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)
+- [Grundlegende native Formularkontrollen](/de/docs/Learn/Forms/Basic_native_form_controls)
+- [Senden von Formulardaten](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)

@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: max() Methode"
+title: "CSSNumericValue: max()-Methode"
 short-title: max()
 slug: Web/API/CSSNumericValue/max
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`max()`**-Methode der Schnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) gibt den höchsten Wert unter den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
+Die **`max()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den höchsten Wert zurück, der unter den übergebenen Werten liegt. Die übergebenen Werte müssen vom gleichen Typ sein.
 
 ## Syntax
 
@@ -28,11 +28,12 @@ Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 
 ## Beispiele
 
-Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele zeigen, was passiert, wenn sie es nicht sind.
+Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der
+folgenden Beispiele illustrieren, was passiert, wenn dies nicht der Fall ist.
 
 ```js
 // Prints "2cm"

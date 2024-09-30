@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`error`**-Eigenschaft der [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent)-Schnittstelle ist ein schreibgeschütztes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das Details über die Ausnahme bereitstellt, die von einer [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Instanz ausgelöst wurde.
+Die **`error`**-Eigenschaft (nur lesbar) des [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent)-Interfaces ist ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das Details über die vom [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Instanz ausgelöste Ausnahme bereitstellt.
 
-Wenn ein `MediaRecorderErrorEvent` auftritt, können Sie durch die Untersuchung der `error`-Eigenschaft innerhalb des von der [`error`](/de/docs/Web/API/MediaRecorder/error_event)-Ereignisbehandlung des `MediaRecorders` empfangenen `MediaRecorderErrorEvent`s feststellen, was schiefgelaufen ist, bis zu einem gewissen Grad.
+Wenn ein `MediaRecorderErrorEvent` auftritt, können Sie bis zu einem gewissen Grad feststellen, was schiefgelaufen ist, indem Sie die `error`-Eigenschaft im `MediaRecorderErrorEvent` untersuchen, das vom [`error`](/de/docs/Web/API/MediaRecorder/error_event)-Ereignishandler des `MediaRecorder`, [`onerror`](/de/docs/Web/API/MediaRecorder/error_event), empfangen wird.
 
 ## Wert
 
-Eine [`DOMException`](/de/docs/Web/API/DOMException), die den durch das Ereignis dargestellten Fehler beschreibt. Der Wert der [`name`](/de/docs/Web/API/DOMException/name)-Eigenschaft des Fehlers kann jede Ausnahme sein, die während der Medienaufzeichnung sinnvoll ist, einschließlich derer, die speziell durch die Spezifikation identifiziert wurden. Die Beschreibungen hier sind generisch; Sie finden spezifischere zu verschiedenen Szenarien, in denen sie auftreten können, in den entsprechenden Methodenreferenzen.
+Eine [`DOMException`](/de/docs/Web/API/DOMException), die den durch das Ereignis dargestellten Fehler beschreibt. Der Wert der `name`-Eigenschaft des Fehlers kann jede Ausnahme sein, die im Zusammenhang mit der Medienaufnahme sinnvoll ist, einschließlich derer, die in der Spezifikation ausdrücklich identifiziert sind. Die hier beschriebenen sind allgemein gehalten; spezifischere für verschiedene Szenarien, in denen sie auftreten können, finden Sie in den entsprechenden Methodenreferenzen.
 
 - `InvalidStateError`
-  - : Es wurde versucht, eine Operation in einem Kontext durchzuführen, in dem sie nicht erlaubt ist, oder es wurde eine Anfrage an ein Objekt gestellt, das gelöscht oder entfernt wurde.
+  - : Es wurde versucht, eine Operation in einem Kontext auszuführen, in dem sie nicht erlaubt ist, oder es wurde eine Anfrage an ein Objekt gestellt, das gelöscht oder entfernt wurde.
 - `NotSupportedError`
-  - : Ein `MediaRecorder` konnte nicht erstellt werden, weil die angegebenen Optionen ungültig waren. Das `message`-Attribut sollte zusätzliche Informationen liefern, falls vorhanden.
+  - : Ein `MediaRecorder` konnte nicht erstellt werden, da die angegebenen Optionen ungültig waren. Das `message`-Attribut sollte zusätzliche Informationen liefern, falls vorhanden.
 - `SecurityError`
-  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream) ist so konfiguriert, dass er die Aufnahme nicht zulässt. Dies kann beispielsweise der Fall sein, wenn mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) bezogene Quellen verwendet werden, wenn der Benutzer die Nutzung eines Eingabegeräts verweigert.
+  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream) ist so konfiguriert, dass die Aufnahme nicht erlaubt ist. Dies kann beispielsweise der Fall sein bei Quellen, die mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) bezogen wurden, wenn der Benutzer die Berechtigung zur Nutzung eines Eingabegeräts verweigert.
 - `InvalidModificationError`
-  - : Die Anzahl der Tracks im Stream, der aufgezeichnet wird, hat sich geändert. Sie können während der Medienaufzeichnung keine Tracks hinzufügen oder entfernen.
+  - : Die Anzahl der Spuren im Stream, der aufgenommen wird, hat sich geändert. Es ist nicht möglich, Spuren hinzuzufügen oder zu entfernen, während Medien aufgenommen werden.
 - `UnknownError`
-  - : Ein nicht sicherheitsbezogener Fehler ist aufgetreten, der anderweitig nicht kategorisiert werden kann. Die Aufnahme stoppt, der Status des `MediaRecorders` wird zu `inactive`, ein letztes [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignis wird an den `MediaRecorder` mit den verbleibenden empfangenen Daten gesendet und schließlich ein [`stop`](/de/docs/Web/API/MediaRecorder/stop_event)-Ereignis gesendet.
+  - : Ein nicht sicherheitsbezogener Fehler, der andernfalls nicht kategorisiert werden kann, ist aufgetreten. Die Aufnahme stoppt, der `state` des `MediaRecorder` wird `inactive`, ein letztes [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignis wird an den `MediaRecorder` mit den verbleibenden empfangenen Daten gesendet und schließlich wird ein [`stop`](/de/docs/Web/API/MediaRecorder/stop_event)-Ereignis gesendet.
 
 ## Beispiele
 
-### Grundlegendes Beispiel zur Fehlerbehandlung
+### Einfaches Fehlerbehandlungsbeispiel
 
-Diese Funktion erstellt und gibt einen `MediaRecorder` für einen gegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der so konfiguriert ist, dass Daten in ein Array gepuffert und auf Fehler überwacht werden.
+Diese Funktion erstellt und gibt einen `MediaRecorder` für einen bestimmten [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der so konfiguriert ist, dass Daten in einem Array gepuffert und auf Fehler überwacht werden.
 
 ```js
 function recordStream(stream) {

@@ -1,5 +1,5 @@
 ---
-title: "IDBIndex: isAutoLocale Eigenschaft"
+title: "IDBIndex: isAutoLocale-Eigenschaft"
 short-title: isAutoLocale
 slug: Web/API/IDBIndex/isAutoLocale
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}{{deprecated_header}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`isAutoLocale`** des [`IDBIndex`](/de/docs/Web/API/IDBIndex) Interface gibt einen booleschen Wert zurück, der angibt, ob der Index beim Erstellen einen `locale`-Wert von `auto` spezifiziert hatte (siehe den [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options) Parameter von [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex).)
+Die schreibgeschützte Eigenschaft **`isAutoLocale`** der Schnittstelle [`IDBIndex`](/de/docs/Web/API/IDBIndex) gibt einen booleschen Wert zurück, der angibt, ob das Index bei seiner Erstellung einen `locale`-Wert von `auto` spezifiziert hatte (siehe den [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options)-Parameter von [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex)).
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen grundlegenden Cursor auf dem Index mittels [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` mittels [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und holen dann den Index `lName` von einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen einfachen Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert werden.
 
-Der `isAutoLocale` Wert wird in der Konsole protokolliert.
+Der `isAutoLocale`-Wert wird in die Konsole protokolliert.
 
 ```js
 function displayDataByIndex() {
@@ -69,8 +69,8 @@ Derzeit nicht Teil einer Spezifikation.
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Daten abrufen und Änderungen vornehmen: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Cursors verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

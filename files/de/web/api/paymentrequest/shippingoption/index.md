@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das schreibgeschützte Attribut **`shippingOption`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt entweder die ID einer ausgewählten Versandoption, `null` (wenn keine Versandoption als ausgewählt festgelegt wurde) oder eine vom Benutzer ausgewählte Versandoption zurück. Es ist zunächst `null`, wenn keine "ausgewählte" Versandoption bereitgestellt wird.
+Das schreibgeschützte Attribut **`shippingOption`** der [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Schnittstelle gibt entweder die ID einer ausgewählten Versandoption, `null` (wenn keine Versandoption zur Auswahl festgelegt wurde) oder eine vom Benutzer ausgewählte Versandoption zurück. Es ist anfangs `null`, wenn keine „ausgewählten“ Versandoptionen bereitgestellt werden.
 
-Dieses Attribut wird nur gefüllt, wenn der Konstruktor mit dem `requestShipping`-Flag auf `true` gesetzt wird. Falls `requestShipping` `false` (oder fehlt), gibt `shippingOption` `null` zurück, selbst wenn der Entwickler eine ausgewählte Versandoption bereitstellt.
+Dieses Attribut wird nur befüllt, wenn der Konstruktor mit dem `requestShipping`-Flag auf `true` gesetzt aufgerufen wird. Wenn `requestShipping` `false` (oder nicht vorhanden) ist, gibt `shippingOption` `null` zurück, selbst wenn der Entwickler eine ausgewählte Versandoption bereitstellt.
 
 ## Wert
 
 ## Beispiele
 
-Im untenstehenden Beispiel werden die [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)- und die [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)-Ereignisse ausgelöst. Dabei wird in jedem Fall ein Aufruf von `updateDetails()` gemacht, einmal mit einem Promise und einmal mit einem einfachen JS-Objekt. Dies demonstriert synchrone und asynchrone Aktualisierungen eines Zahlungssheets.
+Im folgenden Beispiel werden die Ereignisse [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) und [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event) ausgelöst. In jedem Fall erfolgt ein Aufruf von `updateDetails()`, einmal mit einem Promise und einmal mit einem einfachen JS-Objekt. Dies demonstriert synchrone und asynchrone Aktualisierungen eines Zahlungsformulars.
 
 ```js
 const request = new PaymentRequest(methodData, details, options);

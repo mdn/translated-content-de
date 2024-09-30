@@ -1,5 +1,5 @@
 ---
-title: "Attr: specified-Eigenschaft"
+title: "Attr: specified Eigenschaft"
 short-title: specified
 slug: Web/API/Attr/specified
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_header}}
 
-Die schreibgeschützte **`specified`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces gibt immer `true` zurück.
+Die schreibgeschützte **`specified`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt immer `true` zurück.
 
 ## Wert
 

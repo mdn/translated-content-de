@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: reset()-Methode"
+title: "CanvasRenderingContext2D: reset() Methode"
 short-title: reset()
 slug: Web/API/CanvasRenderingContext2D/reset
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.reset()`**-Methode der Canvas 2D API setzt den Rendering-Kontext in seinen Standardzustand zurück, sodass er wiederverwendet werden kann, um etwas anderes zu zeichnen, ohne dass alle Eigenschaften explizit zurückgesetzt werden müssen.
+Die **`CanvasRenderingContext2D.reset()`** Methode der Canvas 2D API setzt den Rendering-Kontext in seinen Standardzustand zurück, sodass er für das Zeichnen von etwas anderem wiederverwendet werden kann, ohne dass alle Eigenschaften explizit zurückgesetzt werden müssen.
 
-Das Zurücksetzen löscht den Backing-Buffer, den Zeichenstatus-Stack, alle definierten Pfade und Stile.
-Dies umfasst die aktuelle [Transformationsmatrix](/de/docs/Web/API/CanvasRenderingContext2D#transformations), [Compositing](/de/docs/Web/API/CanvasRenderingContext2D#compositing)-Eigenschaften, den Clipping-Bereich, die Strichliste, [Linienstile](/de/docs/Web/API/CanvasRenderingContext2D#line_styles), [Textstile](/de/docs/Web/API/CanvasRenderingContext2D#text_styles), [Schatten](/de/docs/Web/API/CanvasRenderingContext2D#shadows), [Bildglättung](/de/docs/Web/API/CanvasRenderingContext2D#image_smoothing), [Filter](/de/docs/Web/API/CanvasRenderingContext2D#filters) und so weiter.
+Das Zurücksetzen löscht den Hintergrundpuffer, den Zeichenstatusstapel, alle definierten Pfade und Stile. Dies schließt die aktuelle [Transformationsmatrix](/de/docs/Web/API/CanvasRenderingContext2D#transformations), [Composing-Eigenschaften](/de/docs/Web/API/CanvasRenderingContext2D#compositing), den Clippingbereich, die Stricheliste, [Linienstile](/de/docs/Web/API/CanvasRenderingContext2D#line_styles), [Textstile](/de/docs/Web/API/CanvasRenderingContext2D#text_styles), [Schatten](/de/docs/Web/API/CanvasRenderingContext2D#shadows), [Bildglättung](/de/docs/Web/API/CanvasRenderingContext2D#image_smoothing), [Filter](/de/docs/Web/API/CanvasRenderingContext2D#filters) usw. ein.
 
 ## Syntax
 
@@ -25,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie wir `reset()` verwenden können, um den Kontext vollständig zu löschen, bevor wir neu zeichnen.
+Dieses Beispiel zeigt, wie wir `reset()` verwenden können, um den Kontext vollständig zu löschen, bevor neu gezeichnet wird.
 
-Zuerst definieren wir einen Button und ein Canvas.
+Zuerst definieren wir einen Button und eine Leinwand.
 
 ```css
 #toggle-reset {
@@ -44,8 +43,8 @@ Zuerst definieren wir einen Button und ein Canvas.
 <canvas id="my-house" width="500" height="200"></canvas>
 ```
 
-Der Code holt zuerst einen `2d`-Kontext für das Canvas.
-Dann werden Funktionen definiert, die den Kontext verwenden können, um ein Rechteck beziehungsweise einen Kreis zu zeichnen.
+Der Code holt sich zuerst einen `2d`-Kontext für die Leinwand.
+Dann definiert er Funktionen, die den Kontext zum Zeichnen eines Rechtecks bzw. eines Kreises verwenden können.
 
 ```js
 // Get the 2d context
@@ -80,7 +79,7 @@ function drawCircle() {
 ```
 
 Wir zeichnen dann das Rechteck mit seiner Funktion.
-Der Button schaltet das Zeichnen des Kreises und des Rechtecks um.
+Der Button wechselt zwischen dem Zeichnen des Kreises und des Rechtecks.
 Beachten Sie, wie `reset()` aufgerufen wird, bevor gezeichnet wird, um den Kontext zu löschen.
 
 ```js
@@ -101,7 +100,7 @@ mybutton.addEventListener("click", () => {
 });
 ```
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Examples", 500, 250)}}
 

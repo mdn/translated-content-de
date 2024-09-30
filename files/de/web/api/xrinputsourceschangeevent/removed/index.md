@@ -12,7 +12,7 @@ Die schreibgeschützte [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSou
 
 ## Wert
 
-Ein {{jsxref("Array")}} von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die jeweils ein aus dem XR-System entferntes Eingabegerät darstellen.
+Ein {{jsxref("Array")}} von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die jeweils ein Eingabegerät repräsentieren, das aus dem XR-System entfernt wurde.
 
 ## Beispiele
 

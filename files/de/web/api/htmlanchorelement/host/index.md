@@ -9,7 +9,9 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAnchorElement.host`**-Eigenschaft ist ein
-String, der den Host enthält, das ist der _Hostname_, und dann, wenn der _Port_ der URL nicht leer ist, ein `':'`, sowie den _Port_ der URL.
+String, der den Host enthält, also den _Hostname_, und dann,
+wenn der _Port_ der URL nicht leer ist, einen `':'`, und den _Port_
+der URL.
 
 ## Wert
 

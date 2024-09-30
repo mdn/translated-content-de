@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`resize`**-Ereignis wird ausgelöst, wenn die Dokumentenansicht (Fenster) in der Größe verändert wurde.
+Das **`resize`**-Ereignis wird ausgelöst, wenn die Dokumentansicht (Fenster) in ihrer Größe verändert wurde.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht nach oben weitergegeben.
+Dieses Ereignis ist nicht abbruchbar und propagiert nicht.
 
-In einigen älteren Browsern war es möglich, `resize`-Ereignishandler für jedes HTML-Element zu registrieren. Es ist weiterhin möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler für jedes Element festzulegen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d.h. auf das durch [`document.defaultView`](/de/docs/Web/API/Document/defaultView) zurückgegebene Objekt). Nur die auf dem `window`-Objekt registrierten Handler erhalten `resize`-Ereignisse.
+In einigen älteren Browsern war es möglich, `resize`-Ereignishandler auf jedem HTML-Element zu registrieren. Es ist weiterhin möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler auf einem Element zu setzen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d. h. zurückgegeben von [`document.defaultView`](/de/docs/Web/API/Document/defaultView)). Nur auf dem `window`-Objekt registrierte Handler erhalten `resize`-Ereignisse.
 
-Während das `resize`-Ereignis heutzutage nur für das Fenster ausgelöst wird, können Sie Resize-Benachrichtigungen für andere Elemente mittels der [ResizeObserver](/de/docs/Web/API/ResizeObserver)-API erhalten.
+Während das `resize`-Ereignis heutzutage nur für das Fenster ausgelöst wird, können Sie Resize-Benachrichtigungen für andere Elemente mithilfe der [ResizeObserver](/de/docs/Web/API/ResizeObserver)-API erhalten.
 
 Wenn das `resize`-Ereignis zu oft für Ihre Anwendung ausgelöst wird, lesen Sie [Optimizing window.onresize](https://bencentra.com/code/2015/02/27/optimizing-window-resize.html), um die Zeit zu steuern, nach der das Ereignis ausgelöst wird.
 
@@ -34,9 +34,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Fenstergrößen-Protokollierer
+### Fenstergrößen-Protokoll
 
-Das folgende Beispiel gibt die Fenstergröße jedes Mal aus, wenn das Fenster in der Größe verändert wird.
+Das folgende Beispiel meldet die Fenstergröße jedes Mal, wenn sie geändert wird.
 
 #### HTML
 
@@ -65,13 +65,13 @@ window.onresize = reportWindowSize;
 {{EmbedLiveSample("Window_size_logger")}}
 
 > [!NOTE]
-> Die Beispielausgabe hier befindet sich in einem {{HTMLElement("iframe")}}, daher sind die gemeldeten Breiten- und Höhenwerte für das `<iframe>`, nicht für das Fenster, in dem sich diese Seite befindet. Insbesondere wird es schwierig sein, die Fenstergröße so anzupassen, dass ein Unterschied in der gemeldeten Höhe sichtbar wird.
+> Die Beispielausgabe hier befindet sich in einem {{HTMLElement("iframe")}}, daher beziehen sich die gemeldeten Breiten- und Höhenwerte auf das `<iframe>`, nicht auf das Fenster, in dem sich diese Seite befindet. Insbesondere wird es schwierig sein, die Fenstergröße so anzupassen, dass ein Unterschied in der gemeldeten Höhe sichtbar wird.
 >
-> Der Effekt ist leichter zu erkennen, wenn Sie {{LiveSampleLink("Window_size_logger", "das Beispiel in einem eigenen Fenster anzeigen")}}.
+> Der Effekt ist leichter zu sehen, wenn Sie {{LiveSampleLink("Window_size_logger", "das Beispiel in einem eigenen Fenster anzeigen")}}.
 
 ### addEventListener-Äquivalent
 
-Sie könnten den Ereignishandler mit der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode einrichten:
+Sie könnten den Ereignis-Handler mit der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode einrichten:
 
 ```js
 window.addEventListener("resize", reportWindowSize);

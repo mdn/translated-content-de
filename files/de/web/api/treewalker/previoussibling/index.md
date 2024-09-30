@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: previousSibling()-Methode"
+title: "TreeWalker: previousSibling() Methode"
 short-title: previousSibling()
 slug: Web/API/TreeWalker/previousSibling
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.previousSibling()`**-Methode bewegt den aktuellen
-[`Node`](/de/docs/Web/API/Node) zum vorherigen Geschwisterelement, falls vorhanden, und gibt das gefundene Geschwisterelement zurück. Wenn kein solches Knoten vorhanden ist, gibt sie `null` zurück und der aktuelle Knoten bleibt unverändert.
+Die **`TreeWalker.previousSibling()`** Methode verschiebt das aktuelle [`Node`](/de/docs/Web/API/Node) zu seinem vorherigen Geschwisterknoten, falls vorhanden, und gibt das gefundene Geschwister zurück. Wenn es keinen solchen Knoten gibt, wird `null` zurückgegeben und der aktuelle Knoten bleibt unverändert.
 
 ## Syntax
 
@@ -51,4 +50,4 @@ const node = treeWalker.previousSibling(); // returns null as there is no previo
 
 ## Siehe auch
 
-- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface, zu dem es gehört.

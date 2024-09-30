@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit der Anfrage verknüpft ist.
+Die schreibgeschützte **`signal`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit der Anforderung verbunden ist.
 
 ## Wert
 

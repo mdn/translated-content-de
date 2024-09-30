@@ -1,5 +1,5 @@
 ---
-title: "WebTransportError: source-Eigenschaft"
+title: "WebTransportError: source Eigenschaft"
 short-title: source
 slug: Web/API/WebTransportError/source
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`source`**-Schreibgeschützte Eigenschaft der [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Schnittstelle gibt einen aufgezählten Wert zurück, der die Quelle des Fehlers angibt.
+Die **`source`**-Eigenschaft des [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Interfaces gibt einen aufzählbaren Wert zurück, der die Quelle des Fehlers angibt.
 
 ## Wert
 
-Ein aufgezählter Wert; kann entweder `stream` oder `session` sein.
+Ein aufzählbarer Wert; kann entweder `stream` oder `session` sein.
 
 ## Beispiele
 

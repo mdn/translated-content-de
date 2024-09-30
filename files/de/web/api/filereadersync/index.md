@@ -21,13 +21,13 @@ Diese Schnittstelle hat keine Eigenschaften.
 ## Instanzmethoden
 
 - [`FileReaderSync.readAsArrayBuffer()`](/de/docs/Web/API/FileReaderSync/readAsArrayBuffer)
-  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen {{jsxref("ArrayBuffer")}}, der die Eingabedaten als binären String darstellt.
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen {{jsxref("ArrayBuffer")}}, der die Eingabedaten als binäre Zeichenkette darstellt.
 - [`FileReaderSync.readAsBinaryString()`](/de/docs/Web/API/FileReaderSync/readAsBinaryString) {{deprecated_inline}}
-  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als binären String darstellt. Diese Methode ist veraltet, es wird empfohlen, stattdessen `readAsArrayBuffer()` zu verwenden.
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in eine Zeichenkette, die die Eingabedaten als binäre Zeichenkette darstellt. Diese Methode ist veraltet, erwägen Sie stattdessen `readAsArrayBuffer()` zu verwenden.
 - [`FileReaderSync.readAsText()`](/de/docs/Web/API/FileReaderSync/readAsText)
-  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als Text-String darstellt. Der optionale **`encoding`**-Parameter gibt die zu verwendende Kodierung an (z.B. iso-8859-1 oder UTF-8). Wenn nicht vorhanden, wendet die Methode einen Erkennungsalgorithmus dafür an.
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in eine Zeichenkette, die die Eingabedaten als Textzeichenkette darstellt. Der optionale **`encoding`**-Parameter gibt die zu verwendende Codierung an (z.B. iso-8859-1 oder UTF-8). Falls nicht vorhanden, wird die Methode einen Erkennungsalgorithmus anwenden.
 - [`FileReaderSync.readAsDataURL()`](/de/docs/Web/API/FileReaderSync/readAsDataURL)
-  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als Daten-URL darstellt.
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in eine Zeichenkette, die die Eingabedaten als Daten-URL darstellt.
 
 ## Spezifikationen
 

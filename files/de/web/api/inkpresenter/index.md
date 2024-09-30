@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Das **`InkPresenter`** Interface der [Ink API](/de/docs/Web/API/Ink_API) bietet die Möglichkeit, den OS-Level-Compositor anzuweisen, Tintenstriche zwischen der Verteilung von Zeigerereignissen zu rendern.
+Die **`InkPresenter`**-Schnittstelle der [Ink API](/de/docs/Web/API/Ink_API) bietet die Möglichkeit, dem Betriebssystem-Kompositor zu instruieren, Tintenstriche zwischen Zeigerereignis-Dispatches zu rendern.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
 - [`expectedImprovement`](/de/docs/Web/API/InkPresenter/expectedImprovement) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt einen Wert in Millisekunden zurück, der die zu erwartende Latenzverbesserung bei der Verwendung dieses Presenters angibt.
+  - : Gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die mit diesem Presenter erwartet werden kann.
 - [`presentationArea`](/de/docs/Web/API/InkPresenter/presentationArea) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, in dem das Rendern von Tintenstrichen eingeschlossen ist.
+  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, in dem die Darstellung der Tintenstriche eingeschränkt ist.
 
 ## Instanzmethoden
 
 - [`updateInkTrailStartPoint()`](/de/docs/Web/API/InkPresenter/updateInkTrailStartPoint) {{Experimental_Inline}}
-  - : Überträgt das [`PointerEvent`](/de/docs/Web/API/PointerEvent), das als letzter Rendering-Punkt für den aktuellen Frame verwendet wurde, sodass der OS-Level-Compositor einen delegierten Tintentrail vor dem nächsten zu verteilenden Zeigerereignis rendern kann.
+  - : Übermittelt das [`PointerEvent`](/de/docs/Web/API/PointerEvent), das als letzter Darstellungspunkt für den aktuellen Frame verwendet wurde, sodass der Betriebssystem-Kompositor eine delegierte Tintenlinie vor dem nächsten Zeigerereignis rendern kann.
 
 ## Beispiel
 
-In diesem Beispiel zeichnen wir einen Trail auf eine 2D-Leinwand. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben ihm die Leinwand als Präsentationsfläche, die er verwalten soll, und speichern das Versprechen, das er zurückgibt, in der Variablen `presenter`.
+In diesem Beispiel zeichnen wir eine Spur auf eine 2D-Leinwand. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben die Leinwand als Präsentationsbereich, um den es sich kümmern soll, und speichern das zurückgegebene Versprechen in der Variablen `presenter`.
 
-Später, im `pointermove`-Ereignislistener, wird die neue Position des Trailkopfs jedes Mal auf die Leinwand gezeichnet, wenn das Ereignis ausgelöst wird. Zusätzlich wird die `updateInkTrailStartPoint()`-Methode des `InkPresenter`-Objekts aufgerufen, das zurückgegeben wird, wenn das `presenter`-Versprechen erfüllt wird; es wird übergeben:
+Später, im `pointermove`-Ereignislistener, wird die neue Position des Startpunkts der Spur jedes Mal auf die Leinwand gezeichnet, wenn das Ereignis ausgelöst wird. Zusätzlich wird die `InkPresenter`-Objektaktualisierungsmethode [`updateInkTrailStartPoint()`](/de/docs/Web/API/InkPresenter/updateInkTrailStartPoint) aufgerufen, wenn das `presenter`-Versprechen erfüllt wird; dies wird übergeben:
 
-- Das letzte vertrauenswürdige Zeigerereignis, das den Rendering-Punkt für den aktuellen Frame darstellt.
-- Ein `style`-Objekt mit Farb- und Durchmessereinstellungen.
+- Das letzte vertrauenswürdige Zeigerereignis, das den Darstellungspunkt für den aktuellen Frame darstellt.
+- Ein `style`-Objekt, das Farb- und Durchmessereinstellungen enthält.
 
-Das Ergebnis ist, dass ein delegierter Tintentrail im Auftrag der App vor dem Standard-Browser-Rendering in dem angegebenen Stil gezeichnet wird, bis das nächste `pointermove`-Ereignis eintrifft.
+Das Ergebnis ist, dass eine delegierte Tintenlinie vor der Standard-Browserdarstellung im Auftrag der App in dem angegebenen Stil gezeichnet wird, bis das nächste Mal ein `pointermove`-Ereignis empfangen wird.
 
 ```js
 const ctx = canvas.getContext("2d");
@@ -78,7 +78,7 @@ canvas.height = window.innerHeight;
 ```
 
 > [!NOTE]
-> Sehen Sie dieses Beispiel live — [Delegated ink trail](https://mabian-ms.github.io/delegated-ink-trail.html).
+> Sehen Sie sich dieses Beispiel live an — [Delegierte Tintenlinie](https://mabian-ms.github.io/delegated-ink-trail.html).
 
 ## Spezifikationen
 
@@ -90,4 +90,4 @@ canvas.height = window.innerHeight;
 
 ## Siehe auch
 
-- [Enhancing Inking on the Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung der Tinte auf dem Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

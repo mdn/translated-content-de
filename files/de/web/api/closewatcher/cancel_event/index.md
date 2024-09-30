@@ -1,5 +1,5 @@
 ---
-title: "CloseWatcher: cancel Ereignis"
+title: "CloseWatcher: cancel Event"
 short-title: cancel
 slug: Web/API/CloseWatcher/cancel_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Ein `cancel`-Ereignis wird auf einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, damit das `close`-Ereignis bei Bedarf verhindert werden kann. Es wird durch alle Schließsignale ausgelöst (z. B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose).
+Ein `cancel`-Ereignis wird an einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, sodass `close` verhindert werden kann, falls notwendig. Es wird durch alle Schließsignale (z.B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
@@ -26,9 +26,9 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung des `cancel`-Ereignisses
+### Verwenden des `cancel`-Ereignisses
 
-In diesem Beispiel fragen wir den Benutzer, ob er das Element wirklich schließen möchte. Wenn nicht, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab, was verhindert, dass das `close`-Ereignis ausgelöst wird.
+In diesem Beispiel fragen wir den Benutzer, ob er das Schließen der Komponente wirklich bestätigen möchte. Wenn nicht, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab, was das Auslösen des `close`-Ereignisses verhindert.
 
 ```js
 watcher.addEventListener("cancel", (e) => {

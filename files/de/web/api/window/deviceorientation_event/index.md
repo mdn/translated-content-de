@@ -1,5 +1,5 @@
 ---
-title: "Window: deviceorientation Event"
+title: "Window: deviceorientation Ereignis"
 short-title: deviceorientation
 slug: Web/API/Window/deviceorientation_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`deviceorientation`**-Ereignis wird ausgelöst, wenn frische Daten von einem Orientierungssensor zur aktuellen Ausrichtung des Geräts im Vergleich zum Erdkoordinatensystem verfügbar sind. Diese Daten werden von einem Magnetometer im Gerät gesammelt.
+Das **`deviceorientation`** Ereignis wird ausgelöst, wenn neue Daten von einem Orientierungssensor über die aktuelle Orientierung des Geräts im Vergleich zum Erdkoordinatensystem verfügbar sind. Diese Daten werden von einem Magnetometer im Gerät erfasst.
 
-Details finden Sie unter [Erklärung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
+Siehe [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("deviceorientation", (event) => {});
@@ -33,17 +33,17 @@ Ein [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent). Erbt vo
 ## Ereigniseigenschaften
 
 - [`DeviceOrientationEvent.absolute`](/de/docs/Web/API/DeviceOrientationEvent/absolute) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der anzeigt, ob das Gerät absolute Orientierungsdaten liefert.
+  - : Ein boolescher Wert, der angibt, ob das Gerät Orientierungsdaten absolut liefert.
 - [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha) {{ReadOnlyInline}}
   - : Eine Zahl, die die Bewegung des Geräts um die z-Achse darstellt, ausgedrückt in Grad mit Werten von 0 (einschließlich) bis 360 (ausschließlich).
 - [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die x-Achse darstellt, ausgedrückt in Grad mit Werten von -180 (einschließlich) bis 180 (ausschließlich). Dies stellt die Vorwärts-Rückwärts-Bewegung des Geräts dar.
+  - : Eine Zahl, die die Bewegung des Geräts um die x-Achse darstellt, ausgedrückt in Grad mit Werten von -180 (einschließlich) bis 180 (ausschließlich). Dies repräsentiert die Vorwärts-Rückwärts-Bewegung des Geräts.
 - [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die y-Achse darstellt, ausgedrückt in Grad mit Werten von -90 (einschließlich) bis 90 (ausschließlich). Dies stellt die Links-Rechts-Bewegung des Geräts dar.
+  - : Eine Zahl, die die Bewegung des Geräts um die y-Achse darstellt, ausgedrückt in Grad mit Werten von -90 (einschließlich) bis 90 (ausschließlich). Dies repräsentiert die Links-Rechts-Bewegung des Geräts.
 - `DeviceOrientationEvent.webkitCompassHeading` {{Non-Standard_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die den Unterschied zwischen der Bewegung des Geräts um die z-Achse des Weltsystems und der Richtung nach Norden darstellt, ausgedrückt in Grad mit Werten von 0 bis 360.
+  - : Eine Zahl, die den Unterschied zwischen der Bewegung des Geräts um die z-Achse des Weltsystems und der Nordrichtung darstellt, ausgedrückt in Grad mit Werten von 0 bis 360.
 - `DeviceOrientationEvent.webkitCompassAccuracy` {{Non-Standard_Inline}} {{ReadOnlyInline}}
-  - : Die Genauigkeit des Kompasses, angegeben als positive oder negative Abweichung. Sie beträgt üblicherweise 10.
+  - : Die Genauigkeit des Kompasses, angegeben als positive oder negative Abweichung. In der Regel ist es 10.
 
 ## Beispiele
 
@@ -78,5 +78,5 @@ const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
 ## Siehe auch
 
 - [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)
-- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
-- [Erklärung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [Erkennung der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)

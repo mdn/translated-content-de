@@ -1,5 +1,5 @@
 ---
-title: "BroadcastChannel: close()-Methode"
+title: "BroadcastChannel: close() Methode"
 short-title: close()
 slug: Web/API/BroadcastChannel/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle beendet die Verbindung zum zugrunde liegenden Kanal und ermöglicht es dem Objekt, vom Garbage Collector bereinigt zu werden. Dies ist ein notwendiger Schritt, da es für einen Browser keine andere Möglichkeit gibt zu wissen, dass dieser Kanal nicht mehr benötigt wird.
+Die **`close()`**-Methode des [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Interfaces beendet die Verbindung zum zugrunde liegenden Kanal, sodass das Objekt vom Garbage Collector aufgeräumt werden kann. Dies ist ein notwendiger Schritt, da es keine andere Möglichkeit für einen Browser gibt zu wissen, dass dieser Kanal nicht mehr benötigt wird.
 
 ## Syntax
 
@@ -38,4 +38,4 @@ bc.close();
 
 ## Siehe auch
 
-- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die Schnittstelle, zu der sie gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), das Interface, zu dem es gehört.

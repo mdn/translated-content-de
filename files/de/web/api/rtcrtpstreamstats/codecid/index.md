@@ -12,7 +12,7 @@ Die **`codecId`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpS
 
 ## Wert
 
-Ein String, der das Objekt eindeutig identifiziert, aus dem die Inhalte der [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) des Streams abgeleitet sind.
+Ein String, der das Objekt eindeutig identifiziert, aus dem der Inhalt der [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) des Streams abgeleitet ist.
 
 ## Spezifikationen
 

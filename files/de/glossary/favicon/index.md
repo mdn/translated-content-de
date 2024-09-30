@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Favicon (Lieblings-Icon) ist ein winziges Icon, das zusammen mit einer Website bereitgestellt wird und an Stellen wie der Adressleiste des Browsers, den Seitentabs und im Lesezeichenmenü angezeigt wird.
+Ein Favicon (Favorite Icon) ist ein kleines Symbol, das zusammen mit einer Website angezeigt wird und an Orten wie der Adressleiste des Browsers, den Seitentabs und dem Lesezeichen-Menü erscheint.
 
-Beachten Sie jedoch, dass die meisten modernen Browser das Favicon in der Adressleiste durch ein Bild ersetzt haben, das anzeigt, ob die Website [HTTPS](/de/docs/Glossary/HTTPS) verwendet oder nicht.
+Beachten Sie jedoch, dass die meisten modernen Browser das Favicon aus der Adressleiste durch ein Bild ersetzt haben, das anzeigt, ob die Website [HTTPS](/de/docs/Glossary/HTTPS) verwendet oder nicht.
 
 In der Regel ist ein Favicon 16 x 16 Pixel groß und wird im [GIF](/de/docs/Glossary/GIF)-, [PNG](/de/docs/Glossary/PNG)- oder ICO-Dateiformat gespeichert.
 
-Sie werden verwendet, um die Benutzererfahrung zu verbessern und die Markenbeständigkeit zu verstärken. Wenn beispielsweise ein vertrautes Icon in der Adressleiste des Browsers gesehen wird, hilft es den Benutzern zu erkennen, dass sie an der richtigen Stelle sind.
+Favicons werden verwendet, um die Benutzererfahrung zu verbessern und die Marken-Konsistenz zu verstärken. Wenn ein vertrautes Symbol beispielsweise in der Adressleiste des Browsers sichtbar ist, hilft es den Benutzern zu erkennen, dass sie an der richtigen Stelle sind.
 
 ## Siehe auch
 
 - [Favicon](https://en.wikipedia.org/wiki/Favicon) auf Wikipedia
-- Die Dokumentation zum [link rel="icon"](/de/docs/Web/HTML/Attributes/rel#icon)-Element, das verwendet wird, um ein Favicon zu einer Seite hinzuzufügen.
-- Tools
+- Die Dokumentation zum [link rel="icon"](/de/docs/Web/HTML/Attributes/rel#icon)-Element, das verwendet wird, um einer Seite ein Favicon hinzuzufügen.
+- Werkzeuge
 
   - [Kostenloser Favicon-Generator](https://favicon.io/)
-  - [Favicon.ico und App-Icon-Generator](https://www.favicon-generator.org/)
+  - [Favicon.ico und & App-Icon-Generator](https://www.favicon-generator.org/)

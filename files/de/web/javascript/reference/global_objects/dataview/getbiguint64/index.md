@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getBigUint64()`** von Instanzen des {{jsxref("DataView")}} liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getBigUint64()`** Methode der {{jsxref("DataView")}} Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieser `DataView` und interpretiert sie als 64-Bit-Integer ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getbiguint64.html")}}
 
@@ -21,18 +21,18 @@ getBigUint64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
+  - : Der Offset, in Bytes, ab dem Start der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness)-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gebt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}} von 0 bis 2<sup>64</sup>-1, inklusive.
+Ein {{jsxref("BigInt")}} von 0 bis 2<sup>64</sup>-1, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so eingestellt ist, dass es über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus lesen würde.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ console.log(dataview.getBigUint64(1)); // 72623859790382856n
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript-TYPISIERTEN Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigUint64Array")}}

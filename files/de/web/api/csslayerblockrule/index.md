@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSLayerBlockRule`** repräsentiert eine {{cssxref("@layer")}} Blockregel.
+Der **`CSSLayerBlockRule`** repräsentiert eine {{cssxref("@layer")}}-Blockregel.
 
 {{InheritanceDiagram}}
 
@@ -69,4 +69,4 @@ item.textContent = `The CSSLayerBlockRule is for the "${layer.name}" layer`;
 
 - {{cssxref("@layer")}}
 - [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)
-- [CSS Kaskadenschichten lernen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
+- [Leitfaden zu CSS-Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)

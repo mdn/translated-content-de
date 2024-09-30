@@ -29,13 +29,13 @@ ruby-align: unset;
 ### Werte
 
 - `start`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby am Anfang des Basistextes ausgerichtet wird.
+  - : Ein Schlüsselwort, das angibt, dass die Ruby am Anfang des Basistextes ausgerichtet wird.
 - `center`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby in der Mitte des Basistextes ausgerichtet wird.
+  - : Ein Schlüsselwort, das angibt, dass die Ruby in der Mitte des Basistextes ausgerichtet wird.
 - `space-between`
-  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Ruby verteilt wird.
+  - : Ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen der Ruby verteilt wird.
 - `space-around`
-  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Ruby und darum verteilt wird.
+  - : Ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen der Ruby und um sie herum verteilt wird.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ ruby-align: unset;
 
 ## Beispiele
 
-### Ruby, das am Anfang des Basistextes ausgerichtet ist
+### Ruby am Anfang des Basistextes ausgerichtet
 
 #### HTML
 
@@ -70,7 +70,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_aligned_at_the_start_of_the_base_text", 180, 40)}}
 
-### Ruby, das in der Mitte des Basistextes ausgerichtet ist
+### Ruby in der Mitte des Basistextes ausgerichtet
 
 #### HTML
 
@@ -149,5 +149,5 @@ ruby {
 
 ## Siehe auch
 
-- HTML-Ruby-Elemente: {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}}.
-- CSS-Ruby-Eigenschaften: {{cssxref("ruby-position")}}, {{cssxref("ruby-merge")}}.
+- HTML Ruby Elemente: {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}}.
+- CSS Ruby Eigenschaften: {{cssxref("ruby-position")}}, {{cssxref("ruby-merge")}}.

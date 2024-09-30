@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`processingStart`**-Eigenschaft gibt die Zeit zurück, zu der der Event-Dispatch gestartet hat. Dies ist der Zeitpunkt, an dem Event-Handler kurz davor sind, ausgeführt zu werden.
+Die schreibgeschützte **`processingStart`**-Eigenschaft gibt die Zeit zurück, zu der die Ereignisverarbeitung begonnen hat. Dies ist der Zeitpunkt, an dem die Ereignis-Handler ausgeführt werden sollen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Zeitstempel.
 
 ### Verwendung der processingStart-Eigenschaft
 
-Die `processingStart`-Eigenschaft kann verwendet werden, wenn Ereignis-Timing-Einträge ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) beobachtet werden. Zum Beispiel, um Eingabeverzögerungen oder Ereignisverarbeitungszeiten zu berechnen.
+Die `processingStart`-Eigenschaft kann genutzt werden, wenn man Ereignis-Timingeinträge ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) beobachtet. Zum Beispiel, um Eingabeverzögerungen oder Ereignisverarbeitungszeiten zu berechnen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchRegistration: downloaded-Eigenschaft"
+title: "BackgroundFetchRegistration: downloaded Eigenschaft"
 short-title: downloaded
 slug: Web/API/BackgroundFetchRegistration/downloaded
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`downloaded`**-Eigenschaft (nur lesbar) des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt die Größe in Bytes zurück, die heruntergeladen wurde, zunächst `0`.
+Die schreibgeschützte Eigenschaft **`downloaded`** der Schnittstelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) gibt die Größe in Bytes zurück, die heruntergeladen wurde, anfangs `0`.
 
-Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event)-Ereignis beim zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt ausgelöst.
+Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event) Ereignis beim zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekt ausgelöst.
 
 ## Wert
 

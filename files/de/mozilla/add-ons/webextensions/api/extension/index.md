@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Hilfsmittel in Bezug auf Ihre Erweiterung. Erhalten Sie URLs zu Ressourcen, die mit Ihrer Erweiterung geliefert werden. Erhalten Sie das [`Window`](/de/docs/Web/API/Window)-Objekt für die Seiten Ihrer Erweiterung. Holen Sie sich die Werte für verschiedene Einstellungen.
+Dienstprogramme im Zusammenhang mit Ihrer Erweiterung. Erhalten Sie URLs zu Ressourcensammlungen mit Ihrer Erweiterung. Erhalten Sie das [`Window`](/de/docs/Web/API/Window)-Objekt für die Seiten Ihrer Erweiterung. Erhalten Sie die Werte für verschiedene Einstellungen.
 
-> **Note:** **Die Messaging-APIs in diesem Modul sind veraltet** zugunsten der entsprechenden APIs im [`runtime`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime)-Modul.
+> **Hinweis:** **Die Messaging-APIs in diesem Modul sind veraltet** zugunsten der entsprechenden APIs im [`runtime`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime) Modul.
 
 ## Typen
 
@@ -19,35 +19,35 @@ Hilfsmittel in Bezug auf Ihre Erweiterung. Erhalten Sie URLs zu Ressourcen, die 
 ## Eigenschaften
 
 - {{WebExtAPIRef("extension.lastError")}} {{deprecated_inline}}
-  - : Wird während der Lebensdauer eines Rückrufs gesetzt, wenn eine asynchrone Erweiterungs-API zu einem Fehler geführt hat. Wenn kein Fehler aufgetreten ist, ist `lastError` {{jsxref("undefined")}}.
+  - : Wird für die Lebensdauer eines Rückrufs gesetzt, wenn eine asynchrone Erweiterungs-API zu einem Fehler geführt hat. Wenn kein Fehler aufgetreten ist, wird `lastError` {{jsxref("undefined")}} sein.
 - {{WebExtAPIRef("extension.inIncognitoContext")}}
-  - : `True` für Inhalts-Skripte, die in Inkognito-Tabs ausgeführt werden, und für Erweiterungsseiten, die in einem Inkognito-Prozess ausgeführt werden. (Letzteres gilt nur für Erweiterungen mit dem '`split`' `incognito_behavior`.)
+  - : `True` für Inhalts-Skripte, die in Inkognito-Tabs ausgeführt werden, und für Erweiterungsseiten, die in einem Inkognito-Prozess ausgeführt werden. (Letzteres gilt nur für Erweiterungen mit '`split`' `incognito_behavior`.)
 
 ## Funktionen
 
 - {{WebExtAPIRef("extension.getBackgroundPage()")}}
-  - : Gibt das [`Window`](/de/docs/Web/API/Window)-Objekt für die Hintergrundseite zurück, die innerhalb der aktuellen Erweiterung ausgeführt wird. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn die Erweiterung keine Hintergrundseite hat.
+  - : Gibt das [`Window`](/de/docs/Web/API/Window)-Objekt für die Hintergrundseite zurück, die in der aktuellen Erweiterung ausgeführt wird. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn die Erweiterung keine Hintergrundseite hat.
 - {{WebExtAPIRef("extension.getExtensionTabs()")}} {{deprecated_inline}}
-  - : Gibt ein Array der JavaScript [Window](/de/docs/Web/API/Window)-Objekte für jede der Tabs zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden.
+  - : Gibt ein Array der JavaScript [Window](/de/docs/Web/API/Window)-Objekte für jeden der Tabs zurück, die in der aktuellen Erweiterung ausgeführt werden.
 - {{WebExtAPIRef("extension.getURL()")}} {{deprecated_inline}}
-  - : Wandelt einen relativen Pfad innerhalb eines Installationsverzeichnisses der Erweiterung in eine vollqualifizierte URL um.
+  - : Konvertiert einen relativen Pfad innerhalb eines Erweiterungs-Installationsverzeichnisses in eine vollständig qualifizierte URL.
 - {{WebExtAPIRef("extension.getViews()")}}
-  - : Gibt ein Array der [`Window`](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden.
+  - : Gibt ein Array der [`Window`](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die in der aktuellen Erweiterung ausgeführt werden.
 - {{WebExtAPIRef("extension.isAllowedIncognitoAccess()")}}
-  - : Ruft den Status des Zugriffs der Erweiterung auf den Inkognito-Modus ab (wie durch das benutzerkontrollierte '_Allowed in Incognito_'-Kontrollkästchen bestimmt).
+  - : Ruft den Status des Zugriffs der Erweiterung auf den Inkognito-Modus ab (wie vom benutzerkontrollierten '_In Inkognito erlaubt_' Kontrollkästchen festgelegt).
 - {{WebExtAPIRef("extension.isAllowedFileSchemeAccess()")}}
-  - : Ruft den Status des Zugriffs der Erweiterung auf das `file://`-Schema ab (wie durch das benutzerkontrollierte '_Allow access to File URLs_'-Kontrollkästchen bestimmt).
+  - : Ruft den Status des Zugriffs der Erweiterung auf das `file://` Schema ab (wie vom benutzerkontrollierten '_Zugriff auf Datei-URLs erlauben_' Kontrollkästchen festgelegt).
 - {{WebExtAPIRef("extension.sendRequest()")}} {{deprecated_inline}}
-  - : Sendet eine einzelne Anforderung an andere Listener innerhalb der Erweiterung.
+  - : Sendet eine einzelne Anfrage an andere Listener innerhalb der Erweiterung.
 - {{WebExtAPIRef("extension.setUpdateUrlData()")}}
-  - : Legt den Wert des `ap`-CGI-Parameters fest, der in der Update-URL der Erweiterung verwendet wird. Dieser Wert wird für Erweiterungen ignoriert, die im Store des Browseranbieters gehostet werden.
+  - : Setzt den Wert des ap CGI-Parameters, der in der Update-URL der Erweiterung verwendet wird. Dieser Wert wird für Erweiterungen ignoriert, die im Browser-Shop des Anbieters gehostet werden.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("extension.onRequest")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn eine Anforderung entweder von einem Erweiterungsprozess oder einem Inhalts-Skript gesendet wird.
+  - : Wird ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder einem Inhalts-Skript gesendet wird.
 - {{WebExtAPIRef("extension.onRequestExternal")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn eine Anforderung von einer anderen Erweiterung gesendet wird.
+  - : Wird ausgelöst, wenn eine Anfrage von einer anderen Erweiterung gesendet wird.
 
 ## Browser-Kompatibilität
 
@@ -56,7 +56,7 @@ Hilfsmittel in Bezug auf Ihre Erweiterung. Erhalten Sie URLs zu Ressourcen, die 
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension) von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension) API. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

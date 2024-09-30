@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stitchTiles`** Attribut definiert, wie sich die Perlin-Rausch-Tiles an der Grenze verhalten.
+Das **`stitchTiles`**-Attribut definiert, wie die Perlin-Rauschen-Kacheln an den Rändern verhalten.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -79,9 +79,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "220")}}
+{{EmbedLiveSample("Beispiel", "420", "220")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -101,9 +101,9 @@ svg {
 </table>
 
 - `noStitch`
-  - : Dieser Wert gibt an, dass kein Versuch unternommen wird, glatte Übergänge an den Rändern der Tiles zu erzielen, die eine Turbulenzfunktion enthalten. Manchmal wird das Ergebnis deutliche Diskontinuitäten an den Kachelrändern aufweisen.
+  - : Dieser Wert gibt an, dass kein Versuch unternommen wird, glatte Übergänge an den Rändern der Kacheln zu erreichen, die eine Turbulenzfunktion enthalten. Manchmal zeigen die Ergebnisse deutliche Diskontinuitäten an den Kachelrändern.
 - `stitch`
-  - : Dieser Wert gibt an, dass der Benutzeragent die x- und y-Werte der Basisfrequenz automatisch so anpasst, dass die Breite und Höhe des {{SVGElement("feTurbulence")}}-Knotens (d.h. die Breite und Höhe der aktuellen Subregion) eine ganze Anzahl der Kachelbreite und -höhe für die erste Oktave enthalten.
+  - : Dieser Wert gibt an, dass der Benutzeragent die x- und y-Werte der Basisfrequenz automatisch anpasst, sodass die Breite und Höhe des {{SVGElement("feTurbulence")}}-Knotens (d.h. die Breite und Höhe der aktuellen Subregion) eine ganzzahlige Anzahl der Kachelbreite und -höhe für die erste Oktave enthalten.
 
 ## Spezifikationen
 

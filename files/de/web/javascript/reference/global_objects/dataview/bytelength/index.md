@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteLength`** Zugriffsprojektion von {{jsxref("DataView")}} Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
+Die **`byteLength`** Accessor-Eigenschaft von {{jsxref("DataView")}}-Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
 
 {{EmbedInteractiveExample("pages/js/dataview-bytelength.html")}}
 
 ## Beschreibung
 
-Die `byteLength` Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessorfunktion auf `undefined` gesetzt ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` konstruiert wird und kann nicht geändert werden. Wenn das `DataView` weder einen Offset noch eine `byteLength` spezifiziert, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
+Die `byteLength`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen eines `DataView` festgelegt und kann nicht geändert werden. Wenn der `DataView` keinen Offset oder eine `byteLength` angibt, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
 
 ## Beispiele
 

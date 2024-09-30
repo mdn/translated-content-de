@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`encodedBodySize`**-Eigenschaft stellt die Größe (in Oktetten) dar, die vom Abruf (HTTP oder Cache) des Nutzlastkörpers empfangen wurde, bevor angewandte Inhaltskodierungen (wie gzip oder Brotli) entfernt werden. Wenn die Ressource aus einem Anwendungscache oder einer lokalen Ressource abgerufen wird, muss die Größe des Nutzlastkörpers vor dem Entfernen einer angewandten Inhaltskodierung zurückgegeben werden.
+Die schreibgeschützte Eigenschaft **`encodedBodySize`** repräsentiert die Größe (in Oktetten) des empfangenen Payload-Körpers aus dem Abruf (HTTP oder Cache), bevor jegliche angewandte Inhaltscodierungen (wie gzip oder Brotli) entfernt werden. Wenn die Ressource aus einem Anwendungscache oder einer lokalen Ressource abgerufen wird, muss die Größe des Payload-Körpers vor dem Entfernen jeglicher angewandten Inhaltscodierungen zurückgegeben werden.
 
 ## Wert
 
-Die `encodedBodySize`-Eigenschaft kann folgende Werte haben:
+Die `encodedBodySize`-Eigenschaft kann die folgenden Werte haben:
 
-- Eine Zahl, die die Größe (in Oktetten) darstellt, die vom Abruf (HTTP oder Cache) des Nutzlastkörpers empfangen wurde, bevor die angewandte Inhaltskodierung entfernt wird.
-- `0`, wenn es sich um eine Cross-Origin-Anfrage handelt und kein {{HTTPHeader("Timing-Allow-Origin")}}-HTTP-Antwortheader verwendet wird.
+- Eine Zahl, die die Größe (in Oktetten) des empfangenen Payload-Körpers aus dem Abruf (HTTP oder Cache) repräsentiert, bevor jegliche angewandten Inhaltscodierungen entfernt werden.
+- `0`, wenn die Ressource eine Cross-Origin-Anforderung ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Überprüfung, ob Inhalte komprimiert wurden
+### Überprüfen, ob der Inhalt komprimiert wurde
 
-Wenn die Eigenschaften `encodedBodySize` und [`decodedBodySize`](/de/docs/Web/API/PerformanceResourceTiming/decodedBodySize) nicht null sind und sich unterscheiden, wurden die Inhalte komprimiert (z. B. gzip oder Brotli).
+Wenn die Eigenschaften `encodedBodySize` und [`decodedBodySize`](/de/docs/Web/API/PerformanceResourceTiming/decodedBodySize) nicht null sind und sich unterscheiden, wurde der Inhalt komprimiert (zum Beispiel mit gzip oder Brotli).
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge informiert, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der Benachrichtigungen über neue `resource`-Performance-Einträge gibt, während sie in der Performance-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um Einträge aus der Zeit vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -39,7 +39,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -52,11 +52,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Informationen zur Größe von Cross-Origin-Inhalten
+### Informationen zur Größe von Inhalten über Cross-Origin-Anfragen
 
-Wenn der Wert der `encodedBodySize`-Eigenschaft `0` ist, könnte es sich um eine Cross-Origin-Anfrage handeln. Um Informationen zur Größe von Cross-Origin-Inhalten freizugeben, muss der HTTP-Antwortheader {{HTTPHeader("Timing-Allow-Origin")}} gesetzt sein.
+Wenn der Wert der `encodedBodySize`-Eigenschaft `0` ist, könnte es sich um eine Cross-Origin-Anforderung handeln. Um Informationen zur Größe von Cross-Origin-Inhalten offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header festgelegt sein.
 
-Zum Beispiel sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` die Ansicht der Inhaltsgrößen zu erlauben, senden:
+Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Inhaltsgrößen zu sehen, sollte die Cross-Origin-Ressource Folgendes senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

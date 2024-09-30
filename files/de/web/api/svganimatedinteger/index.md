@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG animierte Ganzzahl-Schnittstelle
+## SVG-Schnittstelle für animierte Ganzzahlen
 
-Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
+Die Schnittstelle `SVGAnimatedInteger` wird für Attribute des Basisdatentyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Auch implementieren</th>
+      <th scope="row">Implementiert auch</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@ Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<inte
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -59,25 +59,22 @@ Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<inte
       <td><code>baseVal</code></td>
       <td>long</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
+        Der Basiswert des gegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>long</td>
       <td>
-        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält
-        es den aktuellen animierten Wert des Attributs oder der Eigenschaft.
-        Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert
-        wird, enthält es denselben Wert wie <code>baseVal</code>.
+        Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die `SVGAnimatedInteger`-Schnittstelle bietet keine spezifischen Methoden.
+Die Schnittstelle `SVGAnimatedInteger` stellt keine spezifischen Methoden bereit.
 
 ## Spezifikationen
 

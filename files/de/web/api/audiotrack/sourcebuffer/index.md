@@ -11,9 +11,9 @@ l10n:
 Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
 Eigenschaft **`sourceBuffer`** gibt den
 [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der den Track erstellt hat, oder null, wenn der Track nicht
-von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem
-[`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Attribut der übergeordneten
-Medienquelle entfernt wurde.
+von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) wurde
+aus dem [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) Attribut seiner übergeordneten
+Medienquelle entfernt.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMap: delete() Methode"
+title: "StylePropertyMap: delete()-Methode"
 short-title: delete()
 slug: Web/API/StylePropertyMap/delete
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "VTTCue: vertikale Eigenschaft"
+title: "VTTCue: vertical Eigenschaft"
 short-title: vertical
 slug: Web/API/VTTCue/vertical
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`vertical`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle ist ein String, der die Schreibrichtung des Cues darstellt.
+Die **`vertical`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle ist ein Zeichenfolgenwert, der die Schreibrichtung des Cues darstellt.
 
 ## Wert
 
-Ein String, der einen der folgenden Werte enthält:
+Eine Zeichenfolge, die einen der folgenden Werte enthält:
 
-- `""` (ein leerer String)
-  - : Repräsentiert eine horizontale Schreibrichtung.
+- `""` (eine leere Zeichenfolge)
+  - : Stellt eine horizontale Schreibrichtung dar.
 - `"rl"`
-  - : Repräsentiert eine vertikale Schreibrichtung, die nach links wächst.
+  - : Stellt eine vertikale Schreibrichtung dar, die nach links wächst.
 - `"lr"`
-  - : Repräsentiert eine vertikale Schreibrichtung, die nach rechts wächst.
+  - : Stellt eine vertikale Schreibrichtung dar, die nach rechts wächst.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `vertical` auf `"rl"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und dann der Wert von `vertical` auf `"rl"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

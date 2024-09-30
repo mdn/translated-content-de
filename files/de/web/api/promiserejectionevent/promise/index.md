@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`promise`**-Eigenschaft des [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) Interfaces gibt das JavaScript
-{{jsxref("Promise")}} an, das abgelehnt wurde. Sie können die [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft des Events prüfen, um zu erfahren, warum die Promise abgelehnt wurde.
+Die schreibgeschützte Eigenschaft **`promise`** des [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)-Interfaces zeigt das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde. Sie können die [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft des Ereignisses untersuchen, um zu erfahren, warum das `Promise` abgelehnt wurde.
 
 ## Wert
 
-Das JavaScript {{jsxref("Promise")}}, das abgelehnt wurde und dessen Ablehnung unbehandelt blieb.
+Das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde und dessen Ablehnung unbehandelt blieb.
 
 ## Beispiele
 
-Dieses Beispiel hört auf unbehandelte Promises und richtet, falls der [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) ein Objekt mit einem `code`-Feld enthält, das den Text "Module not ready" enthält, einen Idle-Callback ein, der die Aufgabe, die nicht korrekt ausgeführt werden konnte, erneut versucht.
+Dieses Beispiel horcht auf unbehandelte `Promise`s und richtet, falls der [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) ein Objekt mit einem `code`-Feld ist, das den Text "Module not ready" enthält, einen Leerlaufrückruf ein, der die Aufgabe, die nicht korrekt ausgeführt werden konnte, erneut versucht.
 
-[`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) wird aufgerufen, um anzuzeigen, dass die Promise jetzt behandelt wurde.
+[`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) wird aufgerufen, um anzuzeigen, dass das `Promise` nun behandelt wurde.
 
 ```js
 window.onunhandledrejection = (event) => {

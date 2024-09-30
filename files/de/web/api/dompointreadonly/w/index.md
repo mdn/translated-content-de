@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle hat die Eigenschaft
-**`w`**, die den Perspektivenwert `w` eines schreibgeschützten Punktes im Raum hält.
+Die **`DOMPointReadOnly`**-Schnittstelle hat die
+**`w`**-Eigenschaft, die den Perspektivwert des Punktes,
+`w`, für einen schreibgeschützten Punkt im Raum enthält.
 
-Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)
+Wenn Ihr Skript die Möglichkeit erfordern sollte,
+den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)
 Objekt verwenden.
 
 ## Wert
 
-Ein Fließkommawert mit doppelter Genauigkeit, der den Perspektivenwert `w` für den Punkt angibt. Dieser Wert ist **nicht eingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (d.h. sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist `1.0`.
+Ein doppeltgenauer Gleitkommawert, der den `w`-Perspektivwert
+für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder
+{{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist `1.0`.
 
 ## Spezifikationen
 

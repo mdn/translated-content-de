@@ -10,8 +10,8 @@ l10n:
 Ein Input Method Editor (IME) ist ein Programm, das eine spezialisierte Benutzeroberfläche für die Texteingabe bereitstellt. Input Method Editors werden in vielen Situationen verwendet:
 
 - Um chinesischen, japanischen oder koreanischen Text mit einer lateinischen Tastatur einzugeben.
-- Um lateinischen Text mit einem Ziffernblock einzugeben.
-- Um Text auf einem Touchscreen mithilfe von Handschrifterkennung einzugeben.
+- Um lateinischen Text mit einem numerischen Tastenfeld einzugeben.
+- Um Text auf einem Touchscreen mittels Handschriftenerkennung einzugeben.
 
 ## Siehe auch
 

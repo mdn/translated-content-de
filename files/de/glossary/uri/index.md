@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **URI** _(Uniform Resource Identifier)_ ist eine Zeichenfolge, die auf eine Ressource verweist.
+Ein **URI** _(Uniform Resource Identifier)_ ist eine Zeichenkette, die sich auf eine Ressource bezieht.
 
-Die gebräuchlichsten sind [URLs](/de/docs/Glossary/URL), die die Ressource identifizieren, indem sie ihren Standort im Web angeben. [URNs](/de/docs/Glossary/URN) hingegen beziehen sich auf eine Ressource mittels eines Namens in einem bestimmten Namensraum, wie zum Beispiel der ISBN eines Buches.
+Am häufigsten sind [URLs](/de/docs/Glossary/URL), die die Ressource durch Angabe ihres Standorts im Web identifizieren. [URNs](/de/docs/Glossary/URN) hingegen beziehen sich auf eine Ressource durch einen Namen in einem gegebenen Namensraum, wie zum Beispiel die ISBN eines Buches.
 
 ## Siehe auch
 

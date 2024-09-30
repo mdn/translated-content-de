@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein [flexbox](/de/docs/Glossary/flexbox) Layout wird durch die Verwendung der Werte `flex` oder `inline-flex` der `display` Eigenschaft auf dem Elternelement definiert. Dieses Element wird dann zu einem **Flex-Container** und jedes seiner Kinder wird zu einem [Flex-Item](/de/docs/Glossary/flex_item).
+Ein [flexbox](/de/docs/Glossary/flexbox) Layout wird durch die Werte `flex` oder `inline-flex` der `display`-Eigenschaft am Elternelement definiert. Dieses Element wird dann zu einem **Flex-Container**, und jedes seiner Kinder wird zu einem [Flex-Item](/de/docs/Glossary/flex_item).
 
-Ein Wert von `flex` bewirkt, dass das Element zu einem Block-Level-Flex-Container wird, und `inline-flex` zu einem Inline-Level-Flex-Container. Diese Werte erstellen einen **Flex-Formatting-Kontext** für das Element, ähnlich einem Block-Formatting-Kontext, in dem Floats nicht in den Container eindringen, und die Ränder des Containers sich nicht mit denen der Elemente überlappen.
+Ein Wert von `flex` macht das Element zu einem Block-Level-Flex-Container und `inline-flex` zu einem Inline-Level-Flex-Container. Diese Werte schaffen einen **Flex-Formatierungskontext** für das Element, der ähnlich wie ein Block-Formatierungskontext funktioniert, indem `floats` nicht in den Container eindringen, und die Abstände (`margins`) des Containers nicht mit denen der Elemente zusammenfallen.
 
 ## Siehe auch
 
@@ -23,9 +23,9 @@ Ein Wert von `flex` bewirkt, dass das Element zu einem Block-Level-Flex-Containe
 - {{cssxref("flex-wrap")}}
 - {{cssxref("justify-content")}}
 
-### Weiterführende Literatur
+### Weiterführende Lektüre
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Meistern des Umbruchs von Flex-Items](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-- [CSS-Flexbox-Inspektor: Flexbox-Layouts untersuchen](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_flexbox_layouts/index.html)
+- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [CSS Flexbox-Inspektor: Untersuchen von Flexbox-Layouts](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_flexbox_layouts/index.html)

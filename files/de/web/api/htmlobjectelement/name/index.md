@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der
-[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt einen String zurück, der das [`name`](/de/docs/Web/HTML/Element/object#name)-HTML-Attribut widerspiegelt und den Namen des Browsing-Kontexts angibt.
+Die **`name`**-Eigenschaft des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das [`name`](/de/docs/Web/HTML/Element/object#name)-Attribut des HTML-Elements widerspiegelt und den Namen des Browsing-Kontexts angibt.
 
 ## Wert
 

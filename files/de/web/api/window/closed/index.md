@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Window.closed`** gibt an, ob das referenzierte Fenster geschlossen ist oder nicht.
+Die schreibgeschützte Eigenschaft **`Window.closed`** zeigt an, ob das referenzierte Fenster geschlossen ist oder nicht.
 
 ## Wert
 
@@ -19,9 +19,9 @@ Ein boolescher Wert. Mögliche Werte:
 
 ## Beispiele
 
-### Ändern der URL eines Fensters von einem Popup
+### Die URL eines Fensters aus einem Popup ändern
 
-Das folgende Beispiel zeigt, wie ein Popup-Fenster die URL des Fensters ändern kann, das es geöffnet hat. Bevor versucht wird, die URL zu ändern, wird überprüft, dass das aktuelle Fenster über eine [Hangstelle zum Öffnen](/de/docs/Web/API/Window/opener) verfügt und dass diese nicht geschlossen ist:
+Das folgende Beispiel zeigt, wie ein Popup-Fenster die URL des Fensters ändern kann, das es geöffnet hat. Bevor versucht wird, die URL zu ändern, wird überprüft, ob das aktuelle Fenster einen `opener` mit der [`window.opener`](/de/docs/Web/API/Window/opener)-Eigenschaft hat und dass der `opener` nicht geschlossen ist:
 
 ```js
 // Check that an opener exists and is not closed
@@ -32,9 +32,9 @@ if (window.opener && !window.opener.closed) {
 
 Beachten Sie, dass Popups nur auf das Fenster zugreifen können, das sie geöffnet hat.
 
-### Aktualisieren eines zuvor geöffneten Popups
+### Erneutes Laden eines zuvor geöffneten Popups
 
-In diesem Beispiel ruft die Funktion `refreshPopupWindow()` die Methode `reload()` des Location-Objekts des Popups auf, um dessen Daten zu aktualisieren. Falls das Popup noch nicht geöffnet wurde oder der Benutzer es geschlossen hat, wird ein neues Fenster geöffnet.
+In diesem Beispiel ruft die Funktion `refreshPopupWindow()` die Methode `reload()` des Location-Objekts des Popups auf, um dessen Daten zu aktualisieren. Wenn das Popup noch nicht geöffnet wurde oder der Benutzer es geschlossen hat, wird ein neues Fenster geöffnet.
 
 ```js
 let popupWindow = null;

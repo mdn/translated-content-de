@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Die **`readable`**-Eigenschaft des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die **`readable`**-Eigenschaft der [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 

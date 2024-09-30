@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`csp`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces legt die [Content Security Policy](/de/docs/Web/HTTP/CSP) fest, die ein eingebettetes Dokument selbst erzwingen muss.
+Die **`csp`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)
+Interfaces gibt die [Content Security Policy](/de/docs/Web/HTTP/CSP) an, die ein eingebettetes Dokument bei sich selbst durchsetzen muss.
 
 ## Wert
 

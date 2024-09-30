@@ -1,5 +1,5 @@
 ---
-title: "Selection: deleteFromDocument()-Methode"
+title: "Selection: Methode deleteFromDocument()"
 short-title: deleteFromDocument()
 slug: Web/API/Selection/deleteFromDocument
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`deleteFromDocument()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle ruft die [`Range.deleteContents()`](/de/docs/Web/API/Range/deleteContents)-Methode für den ausgewählten [`Range`](/de/docs/Web/API/Range) auf.
+Die **`deleteFromDocument()`**-Methode des [`Selection`](/de/docs/Web/API/Selection)-Interfaces ruft die [`Range.deleteContents()`](/de/docs/Web/API/Range/deleteContents)-Methode auf dem ausgewählten [`Range`](/de/docs/Web/API/Range) auf.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-None ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel ermöglicht es Ihnen, ausgewählten Text und/oder Knoten durch Klicken auf eine Schaltfläche zu löschen. Beim Klicken auf die Schaltfläche ruft die Methode [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) den ausgewählten Inhalt ab, und die Methode `deleteFromDocument()` entfernt ihn.
+Dieses Beispiel ermöglicht es Ihnen, durch Klicken auf eine Schaltfläche ausgewählten Text und/oder Knoten zu löschen. Beim Klicken auf die Schaltfläche wird die Methode [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) aufgerufen, um den ausgewählten Inhalt zu erhalten, und die Methode `deleteFromDocument()` entfernt ihn.
 
 ### HTML
 
@@ -65,4 +65,4 @@ function deleteSelection() {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, die diese Methode definiert
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, das diese Methode definiert

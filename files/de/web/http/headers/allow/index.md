@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Allow`** Header listet die Menge der von einer Ressource unterstützten Methoden auf.
+Der **`Allow`**-Header listet die Menge der von einer Ressource unterstützten Methoden auf.
 
-Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405")}} `Method Not Allowed` Statuscode antwortet, um anzuzeigen, welche Anfragemethoden verwendet werden können. Ein leerer `Allow`-Header deutet darauf hin, dass die Ressource keine Anfragemethoden erlaubt, was möglicherweise vorübergehend für eine bestimmte Ressource auftritt.
+Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405")}} `Method Not Allowed` Statuscode antwortet, um anzuzeigen, welche Anfragemethoden verwendet werden können. Ein leerer `Allow`-Header zeigt an, dass die Ressource keine Anfragemethoden zulässt, was beispielsweise vorübergehend für eine bestimmte Ressource auftreten kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Unzulässiger Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>

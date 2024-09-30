@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die **`interfaces`** schreibgeschützte Eigenschaft des [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Interfaces gibt ein Array zurück, das Instanzen von [`USBInterface`](/de/docs/Web/API/USBInterface) enthält, die jede von dieser Konfiguration unterstützte Schnittstelle beschreiben.
+Die schreibgeschützte **`interfaces`**-Eigenschaft des [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Interfaces gibt ein Array zurück, das Instanzen von [`USBInterface`](/de/docs/Web/API/USBInterface) enthält. Diese beschreiben jede Schnittstelle, die von dieser Konfiguration unterstützt wird.
 
 ## Wert
 

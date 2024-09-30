@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}
 
-Die **`trustedTypes`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt zurück, das mit dem globalen Objekt verknüpft ist. Dies bietet den Einstiegspunkt für die Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API).
+Die schreibgeschützte Eigenschaft **`trustedTypes`** der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt zurück, das mit dem globalen Objekt verknüpft ist. Dieses bietet den Einstiegspunkt für die Nutzung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API).
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: CSS View Transitions
+title: CSS view transitions
 slug: Web/CSS/CSS_view_transitions
 l10n:
   sourceCommit: ef793e5764cf3b6371f275233a8e278e692d2ff8
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transitions_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und zwischen Dokumenten zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudo-Elemente zur Gestaltung dieser Übergänge.
+Das **CSS view transitions** Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transitions_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und zwischen Dokumenten zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudoelemente zur Gestaltung dieser Übergänge.
 
 ## Referenz
 
@@ -16,14 +16,14 @@ Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition 
 - {{cssxref("view-transition-name")}} {{experimental_inline}}
 
 > [!NOTE]
-> Dieses Modul definiert auch die `view-transition-class`-Eigenschaft, jedoch wird sie derzeit in keinem Browser unterstützt.
+> Dieses Modul definiert auch die `view-transition-class` Eigenschaft, die derzeit in keinem Browser unterstützt wird.
 
-### At-Regeln und Deskriptoren
+### At-Rules und Deskriptoren
 
 - {{cssxref("@view-transition")}}
   - [`navigation`](/de/docs/Web/CSS/@view-transition#navigation) Deskriptor
 
-### Selektoren und Pseudo-Elemente
+### Selektoren und Pseudoelemente
 
 - {{cssxref("::view-transition")}} {{experimental_inline}}
 - {{cssxref("::view-transition-image-pair()")}} {{experimental_inline}}
@@ -32,7 +32,7 @@ Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition 
 - {{cssxref("::view-transition-old()")}} {{experimental_inline}}
 
 > [!NOTE]
-> Dieses Modul definiert auch die `:active-view-transition` und `:active-view-transition-type()` Pseudoklassen, jedoch werden sie derzeit in keinem Browser unterstützt.
+> Dieses Modul definiert auch die Pseudoklassen `:active-view-transition` und `:active-view-transition-type()`, die derzeit in keinem Browser unterstützt werden.
 
 ### Schnittstellen
 
@@ -46,9 +46,9 @@ Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition 
 
 ## Leitfäden
 
-- [Using the View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
+- [Verwendung der View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
 
-  - : Erklärt, wie View-Übergänge erstellt und Übergangsanimationen angepasst werden, einschließlich der Manipulation aktiver View-Übergänge.
+  - : Erklärt, wie man Übergänge erstellt und die Übergangsanimationen anpasst, einschließlich der Manipulation aktiver Übergänge.
 
 ## Verwandte Konzepte
 
@@ -56,15 +56,15 @@ Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition 
 - [`pageswap`](/de/docs/Web/API/PageSwapEvent) Ereignis
 - [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
 
-- [CSS Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
 
   - {{cssxref("animation")}}
   - {{cssxref("@keyframes")}}
   - [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)
   - [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
-  - [Web animations API](/de/docs/Web/API/Web_Animations_API)
+  - [Web-Animationen API](/de/docs/Web/API/Web_Animations_API)
 
-- [CSS Transforms](/de/docs/Web/CSS/CSS_transforms) Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
 
   - {{cssxref("transform")}}
   - {{cssxref("transform-function")}}
@@ -75,6 +75,6 @@ Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition 
 
 ## Siehe auch
 
-- [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
+- [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements)
 - [Funktionale Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes)
-- [CSS-Bausteine: Pseudoklassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+- [CSS-Bausteine: Pseudoklassen und Pseudoelemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)

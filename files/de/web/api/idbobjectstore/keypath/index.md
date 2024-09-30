@@ -1,5 +1,5 @@
 ---
-title: "IDBObjectStore: keyPath-Eigenschaft"
+title: "IDBObjectStore: keyPath Eigenschaft"
 short-title: keyPath
 slug: Web/API/IDBObjectStore/keyPath
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`keyPath`**-Eigenschaft des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt den [Key Path](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) dieses Objektspeichers zurück.
+Die **`keyPath`** schreibgeschützte Eigenschaft des
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt den [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) dieses Objekt-Speichers zurück.
 
 Wenn diese Eigenschaft null ist, muss die Anwendung einen Schlüssel für jede Änderungsoperation bereitstellen.
 
@@ -18,7 +19,8 @@ Jeder Werttyp.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen mit `add()` einige Daten zu einem Objektspeicher hinzu. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.keyPath` in der Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und fügen mit `add()` einige Daten zu einem Objekt-Speicher hinzu. Nachdem der Objekt-Speicher erstellt wurde, geben wir `objectStore.keyPath` in der Konsole aus. Für ein vollständiges, funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App
+([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -89,10 +91,10 @@ function addData() {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- [Verwenden von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Kursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern von Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

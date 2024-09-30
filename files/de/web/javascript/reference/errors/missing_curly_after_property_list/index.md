@@ -7,28 +7,28 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "missing } after property list" tritt auf, wenn ein Fehler in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax vorliegt. Es könnte tatsächlich eine fehlende geschweifte Klammer sein, aber auch ein fehlendes Komma.
+Die JavaScript-Ausnahme "missing } after property list" tritt auf, wenn ein Fehler in der Syntax des [Objektinitialisierers](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) vorliegt. Es könnte sich tatsächlich um eine fehlende geschweifte Klammer handeln, aber auch ein fehlendes Komma ist möglich.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: missing } after property list (Firefox)
 SyntaxError: Unexpected identifier 'c'. Expected '}' to end an object literal. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Es liegt ein Fehler in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax vor. Es könnte tatsächlich eine fehlende geschweifte Klammer sein, aber auch ein fehlendes Komma, zum Beispiel. Prüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind. Eine sauberere Einrückung oder Formatierung des Codes kann Ihnen ebenfalls helfen, den Überblick zu behalten.
+Es liegt ein Fehler in der Syntax des [Objektinitialisierers](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) vor. Es könnte sich tatsächlich um eine fehlende geschweifte Klammer handeln, aber auch ein fehlendes Komma, beispielsweise. Prüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind. Eine bessere Einrückung oder Formatierung des Codes kann ebenfalls helfen, den Fehler zu erkennen.
 
 ## Beispiele
 
 ### Vergessenes Komma
 
-Oftmals fehlt ein Komma in Ihrem Objektinitialisierer-Code:
+Häufig fehlt ein Komma in Ihrem Objektinitialisierungscode:
 
 ```js-nolint example-bad
 const obj = {

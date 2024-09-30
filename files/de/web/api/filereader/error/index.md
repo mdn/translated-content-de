@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`error`**-Eigenschaft der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle gibt den Fehler zurück, der beim Lesen der Datei auftrat.
+Die schreibgeschützte **`error`**-Eigenschaft der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle gibt den Fehler zurück, der beim Lesen der Datei aufgetreten ist.
 
 ## Wert
 

@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite der logischen Blockränder eines Elements, die je nach Schreibweise des Elements, Richtung und Textorientierung einer physikalischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}}, und {{cssxref("border-right-width")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+Die **`border-block-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite der logischen Blockränder eines Elements, die je nach Schreibrichtung, Richtung und Textorientierung des Elements einer physischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}} und {{cssxref("border-right-width")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
 {{EmbedInteractiveExample("pages/css/border-block-width.html")}}
 
-Die Randbreite in der anderen Dimension kann mit {{cssxref("border-inline-width")}} festgelegt werden, das {{cssxref("border-inline-start-width")}} und {{cssxref("border-inline-end-width")}} setzt.
+Die Randbreite in der anderen Dimension kann mit {{cssxref("border-inline-width")}} festgelegt werden, was {{cssxref("border-inline-start-width")}} und {{cssxref("border-inline-end-width")}} setzt.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ border-block-width: unset;
 ### Werte
 
 - `<'border-width'>`
-  - : Die Breite des Randes. Siehe {{cssxref("border-width")}}.
+  - : Die Breite des Randes. Siehe {{ cssxref("border-width") }}.
 
 ## Formale Definition
 
@@ -84,5 +84,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physikalischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- Diese Eigenschaft wird zu einer der physischen Randeigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

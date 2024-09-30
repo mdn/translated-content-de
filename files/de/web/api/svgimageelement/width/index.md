@@ -1,5 +1,5 @@
 ---
-title: "SVGImageElement: width-Eigenschaft"
+title: "SVGImageElement: Breite-Eigenschaft"
 short-title: width
 slug: Web/API/SVGImageElement/width
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`width`** Eigenschaft des
-[`SVGImageElement`](/de/docs/Web/API/SVGImageElement) Interfaces ist eine schreibgeschützte Eigenschaft und gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)
-zurück, das dem {{SVGAttr("width")}} Attribut des angegebenen {{SVGElement("image")}}
-Elements entspricht.
+Die **`width`** Schreibgeschützte Eigenschaft des [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("width")}} Attribut des angegebenen {{SVGElement("image")}} Elements entspricht.
 
 ## Wert
 

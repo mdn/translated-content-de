@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die **`errors`** Dateneigenschaft einer {{jsxref("AggregateError")}} Instanz enthält ein Array, das die zusammengefassten Fehler darstellt.
+Die **`errors`** Daten-Eigenschaft einer {{jsxref("AggregateError")}}-Instanz enthält ein Array, das die aggregierten Fehler darstellt.
 
 ## Wert
 
-Ein {{jsxref("Array")}}, das Werte in derselben Reihenfolge enthält wie das Iterable, das als erstes Argument des {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktors übergeben wurde.
+Ein {{jsxref("Array")}}, das Werte in der gleichen Reihenfolge enthält wie das Iterable, das als erstes Argument des {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktors übergeben wurde.
 
 {{js_property_attributes(1, 0, 1)}}
 
@@ -45,6 +45,6 @@ try {
 
 ## Siehe auch
 
-- [Kontrollfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
+- [Steuerfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
 - {{jsxref("AggregateError")}}
 - [`Error`: `cause`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)

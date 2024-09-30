@@ -7,9 +7,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`DocumentFragment`**-Schnittstelle repräsentiert ein minimales Dokumentobjekt, das keinen übergeordneten Knoten hat.
+Das **`DocumentFragment`**-Interface repräsentiert ein minimales Dokumentobjekt, das über kein übergeordnetes Element verfügt.
 
-Es wird als eine leichtgewichtige Version des [`Document`](/de/docs/Web/API/Document) verwendet, die ein Segment einer Dokumentstruktur speichert, das aus Knoten besteht, ähnlich wie ein Standarddokument. Der Hauptunterschied besteht darin, dass das Dokumentfragment nicht Teil der aktiven Dokumentbaumstruktur ist. Änderungen am Fragment beeinflussen das Dokument nicht.
+Es wird als leichtgewichtige Version eines [`Document`](/de/docs/Web/API/Document) verwendet, das ein Segment einer Dokumentstruktur enthält, das aus Knoten besteht, ähnlich wie ein Standarddokument. Der Hauptunterschied besteht darin, dass das Dokumentfragment nicht Teil der aktiven Dokumentbaumstruktur ist. Änderungen am Fragment wirken sich nicht auf das Dokument aus.
 
 {{InheritanceDiagram}}
 
@@ -18,47 +18,47 @@ Es wird als eine leichtgewichtige Version des [`Document`](/de/docs/Web/API/Docu
 - [`DocumentFragment()`](/de/docs/Web/API/DocumentFragment/DocumentFragment)
   - : Erstellt und gibt ein neues `DocumentFragment`-Objekt zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt jedoch die ihres Elternteils, [`Node`](/de/docs/Web/API/Node)._
+_Dieses Interface hat keine spezifischen Eigenschaften, erbt aber die des übergeordneten [`Node`](/de/docs/Web/API/Node)._
 
 - [`DocumentFragment.childElementCount`](/de/docs/Web/API/DocumentFragment/childElementCount) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Kind-[`Elemente`](/de/docs/Web/API/Element) zurück, die das `DocumentFragment` hat.
+  - : Gibt die Anzahl der Kind-[`Elemente`](/de/docs/Web/API/Element) des `DocumentFragment` zurück.
 - [`DocumentFragment.children`](/de/docs/Web/API/DocumentFragment/children) {{ReadOnlyInline}}
-  - : Gibt ein Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, das alle Objekte vom Typ [`Element`](/de/docs/Web/API/Element) enthält, die Kinder des `DocumentFragment`-Objekts sind.
+  - : Gibt eine aktuelle [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Objekte vom Typ [`Element`](/de/docs/Web/API/Element) enthält, die Kinder des `DocumentFragment`-Objekts sind.
 - [`DocumentFragment.firstElementChild`](/de/docs/Web/API/DocumentFragment/firstElementChild) {{ReadOnlyInline}}
-  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das erste Kind des `DocumentFragment`-Objekts ist, oder `null`, wenn kein solches existiert.
+  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das erste Kind des `DocumentFragment`-Objekts ist, oder `null`, wenn keines vorhanden ist.
 - [`DocumentFragment.lastElementChild`](/de/docs/Web/API/DocumentFragment/lastElementChild) {{ReadOnlyInline}}
-  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das letzte Kind des `DocumentFragment`-Objekts ist, oder `null`, wenn kein solches existiert.
+  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das letzte Kind des `DocumentFragment`-Objekts ist, oder `null`, wenn keines vorhanden ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden ihres Elternteils, [`Node`](/de/docs/Web/API/Node)._
+_Dieses Interface erbt die Methoden des übergeordneten [`Node`](/de/docs/Web/API/Node)._
 
 - [`DocumentFragment.append()`](/de/docs/Web/API/DocumentFragment/append)
-  - : Fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen nach dem letzten Kind des Dokumentfragments ein.
+  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen nach dem letzten Kind des Dokumentfragments ein.
 - [`DocumentFragment.prepend()`](/de/docs/Web/API/DocumentFragment/prepend)
-  - : Fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein.
+  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein.
 - [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector)
-  - : Gibt den ersten [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` in Dokumentreihenfolge zurück, der die angegebenen Selektoren erfüllt.
+  - : Gibt den ersten [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` zurück, in Dokumentreihenfolge, der den angegebenen Selektoren entspricht.
 - [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll)
-  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) aller [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` zurück, die die angegebenen Selektoren erfüllen.
+  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) aller [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` zurück, die den angegebenen Selektoren entsprechen.
 - [`DocumentFragment.replaceChildren()`](/de/docs/Web/API/DocumentFragment/replaceChildren)
-  - : Ersetzt die vorhandenen Kinder eines `DocumentFragment` durch eine angegebene neue Menge von Kindern.
+  - : Ersetzt die bestehenden Kinder eines `DocumentFragment` durch eine neue angegebene Menge von Kindern.
 - [`DocumentFragment.getElementById()`](/de/docs/Web/API/DocumentFragment/getElementById)
-  - : Gibt den ersten [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` in Dokumentreihenfolge zurück, der die angegebene ID erfüllt. Funktional äquivalent zu [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById).
+  - : Gibt den ersten [`Element`](/de/docs/Web/API/Element)-Knoten innerhalb des `DocumentFragment` zurück, in Dokumentreihenfolge, der der angegebenen ID entspricht. Funktional äquivalent zu [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById).
 
 ## Verwendungshinweise
 
-Eine häufige Verwendung für `DocumentFragment` besteht darin, eines zu erstellen, einen DOM-Teilbaum darin zusammenzubauen und dann das Fragment in den DOM mit Methoden der [`Node`](/de/docs/Web/API/Node) Schnittstelle wie [`appendChild()`](/de/docs/Web/API/Node/appendChild), [`append()`](/de/docs/Web/API/Element/append) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) anzuhängen oder einzufügen. Dadurch werden die Knoten des Fragments in den DOM verschoben, wodurch ein leeres `DocumentFragment` zurückbleibt.
+Eine häufige Verwendung für `DocumentFragment` besteht darin, eines zu erstellen, einen DOM-Teilbaum darin zusammenzustellen und dann das Fragment mit Methoden der [`Node`](/de/docs/Web/API/Node)-Schnittstelle wie [`appendChild()`](/de/docs/Web/API/Node/appendChild), [`append()`](/de/docs/Web/API/Element/append) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) in den DOM einzufügen. Dadurch werden die Knoten des Fragments in den DOM verschoben, und es bleibt ein leeres `DocumentFragment` übrig.
 
-Diese Schnittstelle ist auch bei Web-Komponenten sehr nützlich: {{HTMLElement("template")}}-Elemente enthalten ein `DocumentFragment` in ihrer [`HTMLTemplateElement.content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft.
+Dieses Interface ist auch bei Web-Komponenten sehr nützlich: {{HTMLElement("template")}}-Elemente enthalten ein `DocumentFragment` in ihrer [`HTMLTemplateElement.content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft.
 
 Ein leeres `DocumentFragment` kann mit der Methode [`document.createDocumentFragment()`](/de/docs/Web/API/Document/createDocumentFragment) oder dem Konstruktor erstellt werden.
 
 ## Leistung
 
-Der Leistungsvorteil von `DocumentFragment` wird oft überschätzt. Tatsächlich ist in einigen Engines die Verwendung eines `DocumentFragment` langsamer als das Anhängen an das Dokument in einer Schleife, wie in diesem [Benchmark](https://jsbench.me/02l63eic9j/1) gezeigt. Der Unterschied zwischen diesen Beispielen ist jedoch so gering, dass es besser ist, die Lesbarkeit als die Leistung zu optimieren.
+Der Leistungsnutzen von `DocumentFragment` wird oft überschätzt. Tatsächlich ist bei einigen Engines die Verwendung eines `DocumentFragment` langsamer als das Anhängen an das Dokument in einer Schleife, wie in [diesem Benchmark](https://jsbench.me/02l63eic9j/1) demonstriert wird. Der Unterschied zwischen diesen Beispielen ist jedoch so gering, dass es besser ist, auf Lesbarkeit als auf Leistung zu optimieren.
 
 ## Beispiel
 

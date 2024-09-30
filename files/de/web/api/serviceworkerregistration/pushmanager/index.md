@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`pushManager`** der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz auf die [`PushManager`](/de/docs/Web/API/PushManager)-Schnittstelle zum Verwalten von Push-Abonnements zurück; dies umfasst die Unterstützung für das Abonnieren, das Abrufen eines aktiven Abonnements und den Zugriff auf den Push-Berechtigungsstatus.
+Die **`pushManager`**-Eigenschaft des schreibgeschützten [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`PushManager`](/de/docs/Web/API/PushManager)-Interface zurück, das zur Verwaltung von Push-Abonnements verwendet wird; dies umfasst die Unterstützung für das Abonnieren, das Abrufen eines aktiven Abonnements und den Zugriff auf den Status der Push-Berechtigung.
 
 ## Wert
 

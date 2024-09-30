@@ -7,10 +7,10 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<math>`** [MathML](/de/docs/Web/MathML) Element ist das oberste MathML-Element und wird verwendet, um eine einzelne mathematische Formel zu schreiben. Es kann in HTML-Inhalten eingesetzt werden, wo [Flussinhalt](/de/docs/Web/HTML/Content_categories#flow_content) erlaubt ist.
+Das **`<math>`** [MathML](/de/docs/Web/MathML)-Element ist das oberste MathML-Element und wird verwendet, um eine einzelne mathematische Formel zu schreiben. Es kann in HTML-Inhalt platziert werden, wo [Flussinhalt](/de/docs/Web/HTML/Content_categories#flow_content) zulässig ist.
 
 > [!NOTE]
-> Besuchen Sie die [Seite zum Erstellen von MathML](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps zur richtigen Integration von MathML-Formeln in Ihre Webseiten und die [Beispielseite](/de/docs/Web/MathML/Examples) für weitere Demos.
+> Siehe die Seite [MathML-Seiten authoring](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps, wie Sie MathML-Formeln angemessen in Ihre Webseiten integrieren können, und die Seite [Beispiele](/de/docs/Web/MathML/Examples) für weitere Demos.
 
 ## Attribute
 
@@ -18,16 +18,16 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `display`
 
-  - : Dieses [enumerierte](/de/docs/Glossary/Enumerated) Attribut gibt an, wie das eingeschlossene MathML-Markup gerendert werden soll. Es kann einen der folgenden Werte haben:
+  - : Dieses [enumerierte](/de/docs/Glossary/Enumerated) Attribut gibt an, wie das umschlossene MathML-Markup dargestellt werden soll. Es kann einen der folgenden Werte haben:
 
-    - `block`, was bedeutet, dass dieses Element in einem eigenen Block außerhalb des aktuellen Textabschnitts angezeigt wird und mit [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt ist.
-    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textabschnitts angezeigt wird und mit [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt ist.
+    - `block`, was bedeutet, dass dieses Element in einem eigenen Block außerhalb des aktuellen Textbereichs mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt angezeigt wird.
+    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textbereichs angezeigt wird, mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt.
 
-    Wenn es nicht vorhanden ist, ist der Standardwert `inline`.
+    Wenn nicht vorhanden, ist der Standardwert `inline`.
 
 ## Beispiele
 
-Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert und nimmt so viel Platz ein, wie benötigt wird. Die zweite wird innerhalb des Absatzes des Textes gerendert, mit reduzierter Größe und Abständen, um ihre Höhe zu minimieren.
+Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert, der so viel Platz einnimmt, wie benötigt wird. Die zweite wird innerhalb des Textabsatzes dargestellt, mit reduzierter Größe und Abständen, um ihre Höhe zu minimieren.
 
 ```html
 <p>
@@ -80,5 +80,5 @@ Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen ze
 
 ## Siehe auch
 
-- HTML-Oberste-Ebene-Element: {{ HTMLElement("html") }}
-- SVG-Oberste-Ebene-Element: {{ SVGElement("svg") }}
+- HTML-Top-Level-Element: {{ HTMLElement("html") }}
+- SVG-Top-Level-Element: {{ SVGElement("svg") }}

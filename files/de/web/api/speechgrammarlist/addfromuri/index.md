@@ -1,5 +1,5 @@
 ---
-title: "SpeechGrammarList: addFromURI()-Methode"
+title: "SpeechGrammarList: addFromURI() Methode"
 short-title: addFromURI()
 slug: Web/API/SpeechGrammarList/addFromURI
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Die **`addFromURI()`**-Methode der
-[`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Schnittstelle nimmt eine Grammatik, die an einer bestimmten URI vorhanden ist, und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+Die **`addFromURI()`**-Methode des
+[`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces nimmt eine Grammatik, die an einer bestimmten URI vorhanden ist, und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
-Beachten Sie, dass einige Spracherkennungsdienste möglicherweise integrierte Grammatiken unterstützen, die durch URI spezifiziert werden können.
+Beachten Sie, dass einige Spracherkennungsdienste eingebaute Grammatiken unterstützen können, die durch eine URI angegeben werden können.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ addFromURI(src, weight)
 - `src`
   - : Ein String, der die URI der hinzuzufügenden Grammatik darstellt.
 - `weight` {{optional_inline}}
-  - : Ein Float, der das Gewicht der Grammatik im Verhältnis zu anderen vorhandenen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) darstellt. Das Gewicht bedeutet die Wichtigkeit dieser Grammatik oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; falls nicht angegeben, wird der Standardwert `1.0` verwendet.
+  - : Ein Float, der das Gewicht der Grammatik relativ zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) darstellt. Das Gewicht bedeutet die Bedeutung dieser Grammatik oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; wenn nicht angegeben, wird standardmäßig `1.0` verwendet.
 
 ### Rückgabewert
 

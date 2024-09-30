@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`TrustedScriptURL`**-Schnittstelle der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) repräsentiert einen String, den ein Entwickler in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, der als URL eines externen Skripts geparst wird. Diese Objekte werden über [`TrustedTypePolicy.createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) erstellt und haben daher keinen Konstruktor.
+Das **`TrustedScriptURL`**-Interface der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) repräsentiert einen String, den ein Entwickler in einen [Injection-Punkt](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, der ihn als URL eines externen Skripts interpretiert. Diese Objekte werden über [`TrustedTypePolicy.createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) erstellt und haben daher keinen Konstruktor.
 
-Der Wert eines `TrustedScriptURL`-Objekts wird bei der Erstellung des Objekts festgelegt und kann von JavaScript nicht geändert werden, da kein Setter verfügbar ist.
+Der Wert eines `TrustedScriptURL`-Objekts wird bei der Erstellung des Objekts festgelegt und kann nicht durch JavaScript geändert werden, da kein Setter bereitgestellt wird.
 
 ## Instanzmethoden
 
@@ -20,7 +20,7 @@ Der Wert eines `TrustedScriptURL`-Objekts wird bei der Erstellung des Objekts fe
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde.
 
 ```js
 const sanitized = scriptPolicy.createScriptURL(
@@ -39,4 +39,4 @@ console.log(sanitized); /* a TrustedScriptURL object */
 
 ## Siehe auch
 
-- [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
+- [DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types verhindern](https://web.dev/articles/trusted-types)

@@ -9,9 +9,8 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`fetchPriority`**-Eigenschaft des
-[`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) Interfaces stellt einen Hinweis für den Browser dar,
-wie er die Vormerkung der angegebenen Ressource im Vergleich zu anderen
-Ressourcen desselben
+[`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces stellt einen Hinweis für den Browser dar,
+wie er das Preload der angegebenen Ressource im Vergleich zu anderen Ressourcen des gleichen
 [Typs](/de/docs/Web/HTML/Attributes/rel/preload#what_types_of_content_can_be_preloaded) priorisieren sollte.
 
 ## Wert
@@ -19,20 +18,20 @@ Ressourcen desselben
 Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
 
 - `high`
-  - : Lädt die Vormerkungsressource mit hoher Priorität im Vergleich zu anderen Ressourcen
-    desselben Typs.
+  - : Die Preload-Ressource mit hoher Priorität im Vergleich zu anderen Ressourcen
+    des gleichen Typs abrufen.
 - `low`
-  - : Lädt die Vormerkungsressource mit niedriger Priorität im Vergleich zu anderen Ressourcen
-    desselben Typs.
+  - : Die Preload-Ressource mit niedriger Priorität im Vergleich zu anderen Ressourcen
+    des gleichen Typs abrufen.
 - `auto`
   - : Standardmodus, der keine Präferenz für
-    die Ladepriorität angibt. Der Browser entscheidet, was am besten für den Benutzer ist.
+    die Abrufpriorität angibt. Der Browser entscheidet, was am besten für den Benutzer ist.
 
-Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, Preloads mit hoher oder niedriger Priorität zu signalisieren. Dies kann nützlich sein, wenn es auf {{HTMLElement("link")}}-Elemente angewendet wird, um Preloads zu signalisieren, die für die Benutzererfahrung früh im Ladeprozess mehr oder weniger wichtig sind.
+Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, Preload-Abrufe mit hoher oder niedriger Priorität zu signalisieren. Dies kann nützlich sein, wenn es auf {{HTMLElement("link")}}-Elemente angewendet wird, um Preloads zu signalisieren, die früh im Ladeprozess mehr oder weniger wichtig für die Benutzererfahrung sind.
 
-Die Auswirkungen des Hinweises auf das Laden von Ressourcen sind browserspezifisch, daher sollten Sie Tests mit mehreren Browser-Engines durchführen.
+Die Auswirkungen des Hinweises auf das Laden von Ressourcen sind browserspezifisch, deshalb sollten Sie Tests auf mehreren Browser-Engines durchführen.
 
-Verwenden Sie diese Eigenschaft sparsam für Ausnahmefälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Methode zum Laden der Ressource zu erkennen. Eine Übernutzung kann zu einer Verschlechterung der Leistung führen.
+Verwenden Sie es sparsam in Ausnahmefällen, in denen der Browser möglicherweise nicht in der Lage ist, die beste Möglichkeit zum Laden der Ressource automatisch zu ermitteln. Eine übermäßige Nutzung kann die Leistung beeinträchtigen.
 
 ## Beispiele
 
@@ -45,7 +44,7 @@ preloadLink.fetchPriority = "high";
 document.head.appendChild(preloadLink);
 ```
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

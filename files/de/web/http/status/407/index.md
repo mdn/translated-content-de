@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`407 Proxy Authentication Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Anfrage nicht erfolgreich war, da sie keine gültigen Authentifizierungsnachweise für den [Proxy-Server](/de/docs/Glossary/proxy_server) enthält, der zwischen dem Client und dem Server mit Zugriff auf die angeforderte Ressource sitzt.
+Der HTTP-Statuscode **`407 Proxy Authentication Required`** ([Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses)) zeigt an, dass die Anfrage nicht erfolgreich war, da ihr gültige Authentifizierungsnachweise für den [Proxy-Server](/de/docs/Glossary/proxy_server) fehlen, der zwischen dem Client und dem Server mit Zugriff auf die angeforderte Ressource sitzt.
 
-Diese Antwort wird mit einem {{HTTPHeader("Proxy-Authenticate")}}-Header gesendet, der Informationen darüber enthält, wie Anfragen korrekt authentifiziert werden. Der Client kann die Anfrage mit einem neuen oder ersetzten {{HTTPHeader("Proxy-Authorization")}}-Header-Feld wiederholen.
+Diese Antwort wird mit einem {{HTTPHeader("Proxy-Authenticate")}}-Header gesendet, der Informationen darüber enthält, wie Anfragen korrekt authentifiziert werden können. Der Client kann die Anfrage mit einem neuen oder ersetzten {{HTTPHeader("Proxy-Authorization")}}-Headerfeld wiederholen.
 
 ## Status
 
@@ -28,7 +28,7 @@ GET /admin HTTP/1.1
 Host: example.com
 ```
 
-Auf dem Weg teilt ein Vermittler dem Client mit, dass Clients authentifiziert werden müssen und bietet Informationen über das Authentifizierungsschema an:
+Unterwegs informiert ein Vermittler den Client darüber, dass Clients authentifiziert werden müssen, und bietet Informationen über das Authentifizierungsschema:
 
 ```http
 HTTP/1.1 407 Proxy Authentication Required

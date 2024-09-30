@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`filter()`**-Methode von {{jsxref("Array")}}-Instanzen erstellt eine [flache Kopie](/de/docs/Glossary/Shallow_copy) eines Teils eines gegebenen Arrays. Diese wird gefiltert, sodass nur die Elemente des Arrays enthalten sind, die den in der bereitgestellten Funktion implementierten Test bestehen.
+Die **`filter()`** Methode von {{jsxref("Array")}} Instanzen erstellt eine [flache Kopie](/de/docs/Glossary/Shallow_copy) eines Teils eines gegebenen Arrays, gefiltert auf die Elemente des Arrays, die den durch die bereitgestellte Funktion implementierten Test bestehen.
 
 {{EmbedInteractiveExample("pages/js/array-filter.html", "shorter")}}
 
@@ -21,7 +21,7 @@ filter(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array auszuführen ist. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um das Element im resultierenden Array zu behalten, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um das Element im resultierenden Array zu behalten, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -33,21 +33,21 @@ filter(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Eine [flache Kopie](/de/docs/Glossary/Shallow_copy) des gegebenen Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn keine Elemente den Test bestehen, wird ein leeres Array zurückgegeben.
+Eine [flache Kopie](/de/docs/Glossary/Shallow_copy) des gegebenen Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres Array zurückgegeben.
 
 ## Beschreibung
 
-Die `filter()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte Funktion `callbackFn` einmal für jedes Element in einem Array auf und erstellt ein neues Array aus allen Werten, für die `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. Array-Elemente, die den `callbackFn`-Test nicht bestehen, sind nicht im neuen Array enthalten. Lesen Sie den Abschnitt zu [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `filter()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf und konstruiert ein neues Array mit allen Werten, für die `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. Array-Elemente, die den `callbackFn` Test nicht bestehen, werden nicht in das neue Array aufgenommen. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
-`callbackFn` wird nur für Array-Indizes mit zugewiesenen Werten aufgerufen. Er wird nicht für leere Stellen in [lückenhaften Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, die zugewiesene Werte haben. Es wird nicht für leere Slots in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 
-Die `filter()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat.
+Die `filter()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integerbasierte Schlüssel-Eigenschaften hat.
 
 ## Beispiele
 
 ### Herausfiltern aller kleinen Werte
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes Array zu erstellen, bei dem alle Elemente mit Werten kleiner als 10 entfernt wurden.
+Das folgende Beispiel verwendet `filter()`, um ein gefiltertes Array zu erstellen, bei dem alle Elemente mit Werten unter 10 entfernt sind.
 
 ```js
 function isBigEnough(value) {
@@ -58,7 +58,7 @@ const filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
 ```
 
-### Alle Primzahlen in einem Array finden
+### Finden aller Primzahlen in einem Array
 
 Das folgende Beispiel gibt alle Primzahlen im Array zurück:
 
@@ -77,9 +77,9 @@ function isPrime(num) {
 console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]
 ```
 
-### Ungültige Einträge aus JSON filtern
+### Filtern ungültiger Einträge aus JSON
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes JSON aller Elemente mit nicht-null, numerischem `id` zu erstellen.
+Das folgende Beispiel verwendet `filter()`, um ein gefiltertes JSON von allen Elementen mit nicht-null, numerischer `id` zu erstellen.
 
 ```js
 const arr = [
@@ -114,9 +114,9 @@ console.log("Number of Invalid Entries =", invalidEntries);
 // Number of Invalid Entries = 5
 ```
 
-### Im Array suchen
+### Suchen im Array
 
-Im folgenden Beispiel wird `filter()` verwendet, um den Inhalt eines Arrays basierend auf Suchkriterien zu filtern.
+Das folgende Beispiel verwendet `filter()`, um den Array-Inhalt basierend auf Suchkriterien zu filtern.
 
 ```js
 const fruits = ["apple", "banana", "grapes", "mango", "orange"];
@@ -132,9 +132,9 @@ console.log(filterItems(fruits, "ap")); // ['apple', 'grapes']
 console.log(filterItems(fruits, "an")); // ['banana', 'mango', 'orange']
 ```
 
-### Verwenden des dritten Arguments von callbackFn
+### Verwendung des dritten Arguments von callbackFn
 
-Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel wird zuerst `map()` verwendet, um die numerische ID aus jedem Namen zu extrahieren, und dann wird `filter()` verwendet, um die auszuwählen, die größer als ihre Nachbarn sind.
+Das `array` Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen wollen, insbesondere wenn Sie keine existierende Variable haben, die auf das Array verweist. Das folgende Beispiel verwendet zunächst `map()`, um die numerische ID aus jedem Namen zu extrahieren, und dann `filter()`, um diejenigen auszuwählen, die größer sind als ihre Nachbarn.
 
 ```js
 const names = ["JC63", "Bob132", "Ursula89", "Ben96"];
@@ -150,20 +150,20 @@ const greatIDs = names
 console.log(greatIDs); // [132, 96]
 ```
 
-Das `array`-Argument ist _nicht_ das Array, das erstellt wird – es gibt keinen Weg, auf das aus der Callback-Funktion erstellte Array zuzugreifen.
+Das `array` Argument ist _nicht_ das Array, das aufgebaut wird — es gibt keine Möglichkeit, auf das Array, das aufgebaut wird, aus der Callback-Funktion zuzugreifen.
 
-### Anwenden von filter() auf lückenhafte Arrays
+### Verwendung von filter() bei spärlichen Arrays
 
-`filter()` überspringt leere Stellen.
+`filter()` überspringt leere Slots.
 
 ```js
 console.log([1, , undefined].filter((x) => x === undefined)); // [undefined]
 console.log([1, , undefined].filter((x) => x !== 2)); // [1, undefined]
 ```
 
-### Aufrufen von filter() auf Nicht-Array-Objekten
+### Aufruf von filter() auf Nicht-Array-Objekten
 
-Die `filter()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist.
+Die `filter()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nichtnegativer Ganzzahlwert ist, der kleiner als `length` ist.
 
 ```js
 const arrayLike = {

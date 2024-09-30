@@ -1,5 +1,5 @@
 ---
-title: "Document: scrollend-Ereignis"
+title: "Document: scrollend Ereignis"
 short-title: scrollend
 slug: Web/API/Document/scrollend_event
 l10n:
@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Dokumentfenster das Scrollen abgeschlossen hat.
-Das Scrollen gilt als abgeschlossen, wenn die Scroll-Position keine ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
+Das **`scrollend`** Ereignis wird ausgelöst, wenn die Ansicht des Dokuments das Scrollen abgeschlossen hat. Das Scrollen gilt als abgeschlossen, wenn die Scroll-Position keine weiteren ausstehenden Updates mehr hat und der Benutzer seine Geste beendet hat.
 
-Zu den Aktualisierungen der Scroll-Position gehören sowohl gleichmäßiges als auch sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die die Scroll-Position aktualisieren.
-Benutzergesten wie Panoramabildschirmgesten oder das Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden.
-Wenn sich die Scroll-Position nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
+Updates der Scroll-Position umfassen sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die dazu führen, dass sich die Scroll-Position aktualisiert. Benutzer-Gesten wie das Berühren des Bildschirms oder das Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden. Wenn sich die Scroll-Position nicht geändert hat, wird kein `scrollend` Ereignis ausgelöst.
 
-Um festzustellen, wann das Scrollen innerhalb eines Elements abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis von `Element`.
+Um zu erkennen, wann das Scrollen innerhalb eines Elements abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event) Ereignis von `Element`.
 
 ## Syntax
 
@@ -33,11 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwenden von Document `scrollend` mit einem Event-Listener
+### Verwendung von Document `scrollend` mit einem Event Listener
 
-Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis mit einem Event-Listener verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
-Im Beispiel gibt es Inhalt im eingebetteten iframe, der höher und breiter als das iframe selbst ist, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
-Wenn der Benutzer das Scrollen beendet, wird das `scrollend`-Ereignis ausgelöst:
+Das folgende Beispiel zeigt, wie das `scrollend` Ereignis mit einem Event Listener verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten <iframe>, die höher und breiter als das <iframe> selbst sind, sodass das Scrollen innerhalb des <iframe> in beide Richtungen möglich ist. Wenn der Benutzer das Scrollen stoppt, wird das `scrollend` Ereignis ausgelöst:
 
 ```css hidden
 * {
@@ -89,11 +84,9 @@ document.addEventListener("scrollend", (event) => {
 
 {{EmbedLiveSample("Using_document_scrollend_with_an_event_listener", "100%", 200)}}
 
-### Verwenden der `onscrollend`-Ereignis-Handler-Eigenschaft
+### Verwendung der `onscrollend` Ereignis-Handler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie die `scrollend`-Ereignis-Handler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
-Im Beispiel gibt es Inhalt im eingebetteten iframe, der höher und breiter als das iframe selbst ist, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
-Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Event-Listeners:
+Das folgende Beispiel zeigt, wie die `scrollend` Ereignis-Handler-Eigenschaft verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten <iframe>, die höher und breiter als das <iframe> selbst sind, sodass das Scrollen innerhalb des <iframe> in beide Richtungen möglich ist. Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Event Listeners:
 
 ```css hidden
 * {
@@ -153,6 +146,6 @@ document.onscrollend = (event) => {
 
 ## Siehe auch
 
-- [Document `scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
-- [Element `scrollend`-Ereignis](/de/docs/Web/API/Element/scrollend_event)
-- [Element `scroll`-Ereignis](/de/docs/Web/API/Element/scroll_event)
+- [Document `scroll` Ereignis](/de/docs/Web/API/Document/scroll_event)
+- [Element `scrollend` Ereignis](/de/docs/Web/API/Element/scrollend_event)
+- [Element `scroll` Ereignis](/de/docs/Web/API/Element/scroll_event)

@@ -9,15 +9,16 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**-Eigenschaft
-**`enabled`** gibt an, ob der beschriebene Audiotrack derzeit zur Verwendung aktiviert ist. Wenn der Track deaktiviert wird, indem `enabled` auf `false` gesetzt wird, ist der Track stummgeschaltet und erzeugt keinen Ton.
+**`enabled`** gibt an, ob der beschriebene Audiotrack derzeit zur Verwendung aktiviert ist oder nicht. Wenn der Track durch Setzen von
+`enabled` auf `false` deaktiviert wird, wird der Track stummgeschaltet und erzeugt keinen Ton.
 
 ## Wert
 
-Die `enabled`-Eigenschaft ist ein Boolescher Wert, der `true` ist, wenn der Track aktiviert ist; aktivierte Tracks erzeugen Ton, während die Medien abgespielt werden. Das Setzen von `enabled` auf `false` schaltet den Audiotrack effektiv stumm und verhindert, dass er zum Klang der Medien beiträgt.
+Die `enabled`-Eigenschaft ist ein Boolean, dessen Wert `true` ist, wenn der Track aktiviert ist; aktivierte Tracks erzeugen Ton, während das Medium abgespielt wird. Wenn `enabled` auf `false` gesetzt wird, wird der Audiotrack effektiv stummgeschaltet und trägt nicht zur Audioleistung des Mediums bei.
 
 ## Beispiel
 
-Dieses Beispiel wechselt zwischen den Haupt- und Kommentaraudiotracks eines Medienelements.
+Dieses Beispiel wechselt zwischen dem Haupt- und dem Kommentar-Audiotrack eines Medienelements.
 
 ```js
 function swapCommentaryMain() {
@@ -41,15 +42,14 @@ function swapCommentaryMain() {
 }
 ```
 
-Die oben dargestellte `swapCommentaryMain()`-Funktion durchsucht die Audiotracks des {{HTMLElement("video")}}-Elements `"main-video"` nach den Audiotracks, deren [`kind`](/de/docs/Web/API/AudioTrack/kind)-Werte `"main"` und `"commentary"` sind. Diese repräsentieren den primären Audiotrack und den Kommentartrack.
+Die oben gezeigte Funktion `swapCommentaryMain()` sucht innerhalb der Audiotracks des {{HTMLElement("video")}}-Elements `"main-video"` nach den Audiotracks, deren [`kind`](/de/docs/Web/API/AudioTrack/kind)-Werte `"main"` und `"commentary"` sind. Diese repräsentieren den primären Audiotrack und den Kommentartrack.
 
 > [!NOTE]
-> Dieses Beispiel geht davon aus, dass im Video nur eine Art von
-> Track vorhanden ist, was jedoch nicht unbedingt der Fall ist.
+> Dieses Beispiel geht davon aus, dass es nur einen Track jeder Art im Video gibt, was jedoch nicht unbedingt der Fall ist.
 
-Anschließend werden die Audiotracks des Elements mit der JavaScript-Methode {{jsxref("Array.forEach", "forEach()")}} durchsucht (obwohl die [`audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)-Eigenschaft eines Medienelements tatsächlich kein JavaScript-Array ist, kann sie größtenteils wie eines angesprochen werden).
+Die Audiotracks des Elements werden dann mit der JavaScript-Methode {{jsxref("Array.forEach", "forEach()")}} durchsucht (obwohl die [`audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)-Eigenschaft eines Medienelements eigentlich kein JavaScript-Array ist, kann auf sie größtenteils wie auf ein solches zugegriffen werden).
 
-Der Scan sucht nach den Tracks, deren [`kind`](/de/docs/Web/API/AudioTrack/kind)-Werte `"main"` und `"commentary"` sind, und merkt sich diese [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte. Sobald diese gefunden wurden, werden die Werte der beiden `enabled`-Eigenschaften der Tracks vertauscht, was dazu führt, dass der aktive Track gewechselt wird.
+Die Durchsuchung sucht nach den Tracks, deren [`kind`](/de/docs/Web/API/AudioTrack/kind)-Werte `"main"` und `"commentary"` sind, und merkt sich diese [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte. Sobald diese gefunden wurden, werden die Werte der beiden `enabled`-Eigenschaften der Tracks ausgetauscht, was zu einem Wechsel führt, welcher der beiden Tracks gerade aktiv ist.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`XRAnchorSet`**-Schnittstelle stellt eine Sammlung von Ankern bereit. Ihre Instanzen werden durch [`XRFrame.trackedAnchors`](/de/docs/Web/API/XRFrame/trackedAnchors) zurückgegeben und sind [`Set`-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis).
+Die **`XRAnchorSet`**-Schnittstelle bietet Zugriff auf eine Sammlung von Ankern. Ihre Instanzen werden durch [`XRFrame.trackedAnchors`](/de/docs/Web/API/XRFrame/trackedAnchors) zurückgegeben und sind [`set`-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis).
 
 ## Instanz-Eigenschaften
 
@@ -19,7 +19,7 @@ Siehe {{jsxref("Set")}} für Details.
 
 ## Beispiele
 
-### Verlust der Ankerverfolgung handhaben
+### Umgang mit dem Verlust der Ankerverfolgung
 
 ```js
 const trackedAnchors = frame.trackedAnchors;

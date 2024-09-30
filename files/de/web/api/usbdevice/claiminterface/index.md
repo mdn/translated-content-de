@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`claimInterface()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das angeforderte Interface für exklusiven Zugriff beansprucht wird.
+Die **`claimInterface()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die angeforderte Schnittstelle für den exklusiven Zugriff beansprucht ist.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Ein {{jsxref("promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt `claimInterface()` im Kontext des Verbindens mit einem USB-Gerät.
+Das folgende Beispiel zeigt `claimInterface()` im Kontext der Verbindung mit einem USB-Gerät.
 
 ```js
 async function connectDevice(usbDevice) {

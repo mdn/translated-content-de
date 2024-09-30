@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **Trailer**-Antwortheader ermöglicht es dem Sender, zusätzliche Felder am Ende von chunked Nachrichten hinzuzufügen, um Metadaten bereitzustellen, die möglicherweise dynamisch generiert werden, während der Nachrichteninhalt gesendet wird, wie z. B. eine Nachrichten-Integritätsprüfung, eine digitale Signatur oder ein Nachbearbeitungsstatus.
+Der **Trailer**-Response-Header ermöglicht es dem Absender, zusätzliche Felder am Ende von Chunked-Nachrichten einzufügen, um Metadaten bereitzustellen, die möglicherweise dynamisch generiert werden, während der Nachrichteninhalt gesendet wird, wie z. B. eine Integritätsprüfung der Nachricht, digitale Signaturen oder der Status der Nachbearbeitung.
 
 > [!NOTE]
-> Der {{HTTPHeader("TE")}}-Anforderungsheader muss auf "trailers" gesetzt sein, um Trailer-Felder zuzulassen.
+> Der {{HTTPHeader("TE")}}-Request-Header muss auf "trailers" gesetzt werden, um Trailer-Felder zuzulassen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header),
-        [Content header](/de/docs/Glossary/Content_header)
+        [Request-Header](/de/docs/Glossary/Request_header),
+        [Response-Header](/de/docs/Glossary/Response_header),
+        [Content-Header](/de/docs/Glossary/Content_header)
       </td>
     </tr>
     <tr>
@@ -39,24 +39,25 @@ Trailer: header-names
 
 - `header-names`
 
-  - : HTTP-Headerfelder, die im Trailer-Teil von chunked Nachrichten vorhanden sein werden. Diese Header-Felder sind **nicht erlaubt**:
+  - : HTTP-Headerfelder, die im Trailer-Teil von Chunked-Nachrichten vorhanden sein werden.
+    Diese Headerfelder sind **nicht erlaubt**:
 
-    - Nachrichten-Rahmen-Header (z. B. {{HTTPHeader("Transfer-Encoding")}} und
+    - Nachrichtenrahmen-Header (z. B. {{HTTPHeader("Transfer-Encoding")}} und
       {{HTTPHeader("Content-Length")}}),
     - Routing-Header (z. B. {{HTTPHeader("Host")}}),
     - Anforderungsmodifikatoren (z. B. Steuerungen und Bedingungen, wie
-      {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Max-Forwards")}}, oder
+      {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Max-Forwards")}} oder
       {{HTTPHeader("TE")}}),
-    - Authentifizierungsheader (z. B. {{HTTPHeader("Authorization")}} oder
+    - Authentifizierungs-Header (z. B. {{HTTPHeader("Authorization")}} oder
       {{HTTPHeader("Set-Cookie")}}),
     - oder {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}},
       {{HTTPHeader("Content-Range")}} und `Trailer` selbst.
 
 ## Beispiele
 
-### Chunked Transfer-Encoding mit einem anhängenden Header
+### Chunked-Transfer-Encoding mit einem Trailer-Header
 
-In diesem Beispiel wird der {{HTTPHeader("Expires")}}-Header am Ende der chunked Nachricht verwendet und dient als anhängender Header.
+In diesem Beispiel wird der {{HTTPHeader("Expires")}}-Header am Ende der Chunked-Nachricht verwendet und dient als Trailer-Header.
 
 ```http
 HTTP/1.1 200 OK
@@ -87,4 +88,4 @@ Expires: Wed, 21 Oct 2015 07:28:00 GMT\r\n
 
 - {{HTTPHeader("Transfer-Encoding")}}
 - {{HTTPHeader("TE")}}
-- [Chunked Transfer-Encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)
+- [Chunkierte Transfer-Codierung](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)

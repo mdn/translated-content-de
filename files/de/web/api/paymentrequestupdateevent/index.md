@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Das **`PaymentRequestUpdateEvent`**-Interface wird für Ereignisse verwendet, die an eine [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz gesendet werden, wenn Änderungen an versandbezogenen Informationen für eine ausstehende [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) stattfinden. Diese Ereignisse sind:
+Das **`PaymentRequestUpdateEvent`** Interface wird für Ereignisse verwendet, die an eine [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz gesendet werden, wenn Änderungen an versandbezogenen Informationen für eine ausstehende [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) vorgenommen werden. Diese Ereignisse sind:
 
 - [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)
   - : Wird ausgelöst, wenn der Benutzer seine Versandadresse ändert.
@@ -23,14 +23,14 @@ Das **`PaymentRequestUpdateEvent`**-Interface wird für Ereignisse verwendet, di
 
 ## Instanz-Eigenschaften
 
-_Bietet nur die Eigenschaften, die von seiner Elternschnittstelle [`Event`](/de/docs/Web/API/Event) geerbt werden._
+_Bietet nur die von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) geerbten Eigenschaften._
 
 ## Instanz-Methoden
 
-_Zusätzlich zu Methoden, die von der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) geerbt werden, bietet `PaymentRequestUpdateEvent` die folgenden Methoden:_
+_Zusätzlich zu den von dem Eltern-Interface [`Event`](/de/docs/Web/API/Event) geerbten Methoden bietet `PaymentRequestUpdateEvent` die folgenden Methoden:_
 
 - [`PaymentRequestUpdateEvent.updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith)
-  - : Wenn der Ereignis-Handler feststellt, dass Informationen im Zahlungsantrag geändert oder neue Informationen hinzugefügt werden müssen, ruft er `updateWith()` mit den zu ersetzenden oder hinzuzufügenden Informationen auf.
+  - : Wenn der Ereignishandler feststellt, dass Informationen im Zahlungsanforderung geändert oder neue Informationen hinzugefügt werden müssen, ruft er `updateWith()` mit den Informationen auf, die ersetzt oder hinzugefügt werden müssen.
 
 ## Spezifikationen
 

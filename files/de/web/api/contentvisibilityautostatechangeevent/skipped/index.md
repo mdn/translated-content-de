@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Containment")}}
 
-Die schreibgeschützte Eigenschaft `skipped` der Schnittstelle [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent) gibt `true` zurück, wenn der Benutzer-Agent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), oder `false` andernfalls.
+Die schreibgeschützte Eigenschaft `skipped` der [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Schnittstelle gibt `true` zurück, wenn der Benutzeragent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), oder `false`, wenn nicht.
 
 ## Wert
 
-Ein boolean. Gibt `true` zurück, wenn der Benutzer-Agent den Inhalt des Elements überspringt, oder `false` andernfalls.
+Ein Boolean. Gibt `true` zurück, wenn der Benutzeragent den Inhalt des Elements überspringt, oder `false` andernfalls.
 
 ## Beispiele
 

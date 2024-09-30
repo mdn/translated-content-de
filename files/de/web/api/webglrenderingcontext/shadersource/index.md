@@ -1,15 +1,15 @@
 ---
-title: "WebGLRenderingContext: Methode shaderSource()"
+title: "WebGLRenderingContext: shaderSource() Methode"
 short-title: shaderSource()
 slug: Web/API/WebGLRenderingContext/shaderSource
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.shaderSource()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) setzt den Quellcode eines
-[`WebGLShader`](/de/docs/Web/API/WebGLShader).
+Die **`WebGLRenderingContext.shaderSource()`** Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt den Quellcode eines
+[`WebGLShader`](/de/docs/Web/API/WebGLShader) fest.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ shaderSource(shader, source)
 ### Parameter
 
 - `shader`
-  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, in welches der Quellcode gesetzt wird.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, in dem der Quellcode festgelegt wird.
 - `source`
-  - : Ein String, der den zu setzenden GLSL-Quellcode enthält.
+  - : Ein String, der den festzulegenden GLSL-Quellcode enthält.
 
 ### Rückgabewert
 

@@ -7,23 +7,23 @@ l10n:
 
 {{QuickLinksWithSubPages("/de/docs/Web/Media")}}
 
-Im vorherigen [Artikel über plattformübergreifende Videoplayer](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player) haben wir beschrieben, wie man einen plattformübergreifenden HTML-Videoplayer mit den Media- und Fullscreen-APIs erstellt. Dieser Folgeartikel behandelt, wie dieser benutzerdefinierte Player gestaltet wird, einschließlich der Anpassung an verschiedene Bildschirmgrößen.
+Im vorherigen [Artikel über Cross-Browser-Videoplayer](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player) haben wir beschrieben, wie man einen HTML-Videoplayer entwickelt, der in verschiedenen Browsern funktioniert, indem die Media- und Fullscreen-APIs verwendet werden. In diesem Folgeartikel geht es darum, wie dieser benutzerdefinierte Player gestylt wird, einschließlich der Anpassung seiner Responsivität.
 
 ## Das Beispiel in Aktion
 
-![Ein Videoplayer mit Steuerungen für Abspielen, Stoppen, Lautstärke und Vollbild, der ein Bild eines Soldaten zeigt.](video-player-styled.png)
+![Ein Videoplayer mit Play-, Stopp-, Lautstärke- und Vollbild-Steuerelementen, der ein Bild eines Soldaten zeigt.](video-player-styled.png)
 
-Den Code für das [aktualisierte, gestylte Beispiel](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player-styled) finden Sie auf GitHub und [hier können Sie es live sehen](https://iandevlin.github.io/mdn/video-player-styled/).
+Sie finden den Code für das [aktualisierte, gestylte Beispiel](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player-styled) auf GitHub und können sich [das Live-Beispiel ansehen](https://iandevlin.github.io/mdn/video-player-styled/).
 
 ## Vorläufige Änderungen am ursprünglichen Beispiel
 
-Dieser Abschnitt fasst die Änderungen zusammen, die am [ursprünglichen Videoplayer-Beispiel](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player) vorgenommen wurden, um die Stilgestaltungsaufgabe zu erleichtern, bevor der Großteil der Arbeit begonnen wurde.
+Dieser Abschnitt fasst die Änderungen zusammen, die am [ursprünglichen Videoplayer-Beispiel](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player) vorgenommen wurden, um die Styling-Aufgabe zu erleichtern, bevor der Großteil der Arbeit begann.
 
-### HTML Markup
+### HTML-Markup
 
-Es gab einige Änderungen am HTML-Markup, die im vorherigen Artikel gezeigt wurden. Die benutzerdefinierten Videosteuerungen und das {{htmlelement("progress")}}-Element sind jetzt innerhalb von {{htmlelement("div")}}-Elementen enthalten, anstatt innerhalb von ungeordneten Listenelementen.
+Es wurden einige Änderungen am HTML-Markup aus dem vorherigen Artikel vorgenommen. Die benutzerdefinierten Videosteuerungen und das {{htmlelement("progress")}}-Element sind nun innerhalb von {{htmlelement("div")}}-Elementen enthalten, anstatt in ungeordneten Listenelementen.
 
-Das Markup für die benutzerdefinierten Steuerungen sieht jetzt folgendermaßen aus:
+Das Markup für die benutzerdefinierten Steuerungen sieht nun wie folgt aus:
 
 ```html
 <div id="video-controls" class="controls" data-state="hidden">
@@ -41,26 +41,26 @@ Das Markup für die benutzerdefinierten Steuerungen sieht jetzt folgendermaßen 
 </div>
 ```
 
-### Zugehörige CSS-Änderung
+### Zugehörige CSS-Änderungen
 
-Der vorherige Artikel setzte die `display`-Eigenschaft der Videosteuerungen auf `block`, um sie anzuzeigen. Dies wurde nun geändert, um ein [`data-state` Attribut](https://ultimatecourses.com/blog/stop-toggling-classes-with-js-use-behaviour-driven-dom-manipulation-with-data-states) zu verwenden, welches bereits genutzt wird, um die [Fullscreen-Implementierung](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player#fullscreen) zu handhaben.
+Im vorherigen Artikel wurde die `display`-Eigenschaft der Videosteuerungen auf `block` gesetzt, um sie anzuzeigen. Dies wurde nun geändert, um ein [`data-state`-Attribut](https://ultimatecourses.com/blog/stop-toggling-classes-with-js-use-behaviour-driven-dom-manipulation-with-data-states) zu verwenden, das bereits in diesem Code zur Handhabung der [Vollbildimplementierung](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player#fullscreen) verwendet wird.
 
-Dieses "data-state"-Konzept wird auch zur Einstellung des aktuellen Zustands der Schaltflächen innerhalb der Videosteuerung verwendet, was eine spezifische Zustandsstilgestaltung ermöglicht.
+Diese "data-state"-Idee wird auch verwendet, um den aktuellen Status von Schaltflächen innerhalb des Videosteuerungssatzes festzulegen, was spezifisches Status-Styling ermöglicht.
 
 ### JavaScript
 
-Wie oben erwähnt, wird ein `data-state`-Attribut an verschiedenen Stellen zu Stylingzwecken verwendet und diese werden mit JavaScript gesetzt. Spezifische Implementierungen werden an geeigneten Stellen unten erwähnt.
+Wie oben erwähnt, wird ein `data-state`-Attribut an verschiedenen Stellen zu Styling-Zwecken verwendet, und diese werden mittels JavaScript gesetzt. Spezifische Implementierungen werden an geeigneten Stellen unten erwähnt.
 
-## Stilgestaltung
+## Styling
 
-Der resultierende Videoplayer-Stil, der hier verwendet wird, ist ziemlich einfach — dies ist beabsichtigt, da es darum geht zu zeigen, wie ein solcher Videoplayer gestaltet und ansprechend gemacht werden kann.
+Der hier verwendete Videoplayer-Stil ist ziemlich grundlegend — dies ist beabsichtigt, da es darum geht, zu zeigen, wie ein solcher Videoplayer gestylt und responsive gemacht werden kann.
 
 > [!NOTE]
-> In einigen Fällen wird hier auf Basis-CSS verzichtet, da seine Verwendung entweder offensichtlich oder nicht speziell relevant für die Stilgestaltung des Videoplayers ist.
+> In einigen Fällen wird hier in den Codebeispielen auf einige grundlegende CSS-Anweisungen verzichtet, da ihre Verwendung entweder offensichtlich oder nicht speziell für das Styling des Videoplayers relevant ist.
 
-### Grundlegende Stilgestaltung
+### Grundlegendes Styling
 
-Das HTML-Video und seine Steuerungen sind alle innerhalb eines {{htmlelement("figure")}}-Elements enthalten, dem eine maximale Breite und Höhe (basierend auf den Abmessungen des verwendeten Videos) gegeben und in der Mitte der Seite positioniert wird:
+Das HTML-Video und seine Steuerungen sind alle in einem {{htmlelement("figure")}}-Element enthalten, das eine maximale Breite und Höhe (basierend auf den Abmessungen des verwendeten Videos) hat und innerhalb der Seite zentriert ist:
 
 ```css
 figure {
@@ -74,7 +74,7 @@ figure {
 }
 ```
 
-Auch der Container der Videosteuerungen benötigt einige Stilgestaltungen, damit er korrekt eingerichtet ist:
+Die Container der Videosteuerungen benötigen ebenfalls Styling, um korrekt eingerichtet zu werden:
 
 ```css
 .controls {
@@ -84,9 +84,9 @@ Auch der Container der Videosteuerungen benötigt einige Stilgestaltungen, damit
 }
 ```
 
-Die Höhe der `.controls`-Klasse wird auf einen (sehr genauen!) Prozentsatz des umgebenden {{htmlelement("figure")}}-Elements eingestellt (dies wurde durch Experimente basierend auf der erforderlichen Schaltflächenhöhe ermittelt). Ihre Position wird auch spezifisch auf `relative` gesetzt, was für ihre Reaktionsfähigkeit erforderlich ist (mehr dazu später).
+Die Höhe der `.controls`-Klasse ist auf (einen sehr präzisen!) Prozentsatz des umschließenden {{htmlelement("figure")}}-Elements gesetzt (dies wurde mit Experimenten basierend auf der benötigten Buttonhöhe ermittelt). Ihre Position ist auch speziell auf `relative` gesetzt, was für ihre Responsivität erforderlich ist (mehr dazu später).
 
-Wie bereits erwähnt, wird nun ein `data-state`-Attribut verwendet, um anzuzeigen, ob die Videosteuerungen sichtbar sind oder nicht, und auch diese müssen gestylt werden:
+Wie bereits erwähnt, wird ein `data-state`-Attribut jetzt verwendet, um anzuzeigen, ob die Videosteuerungen sichtbar sind oder nicht und diese müssen ebenfalls gestylt werden:
 
 ```css
 .controls[data-state="hidden"] {
@@ -98,7 +98,7 @@ Wie bereits erwähnt, wird nun ein `data-state`-Attribut verwendet, um anzuzeige
 }
 ```
 
-Es gibt eine Reihe von Eigenschaften, die auch für alle Elemente innerhalb der Videosteuerungen festgelegt werden müssen:
+Es gibt eine Reihe von Eigenschaften, die für alle Elemente innerhalb der Videosteuerungen festgelegt werden müssen:
 
 ```css
 .controls > * {
@@ -114,9 +114,9 @@ Es gibt eine Reihe von Eigenschaften, die auch für alle Elemente innerhalb der 
 }
 ```
 
-Alle Elemente sind linksbündig, da sie nebeneinander ausgerichtet werden sollen, und jedes Element hat eine `width` von fast 4% (auch hier wurde der tatsächliche Wert basierend auf den erforderlichen Abmessungen der Schaltflächen berechnet) und eine `height` von 100%. Ein Wert für `margin-left` wird ebenfalls festgelegt, aber das erste Element (in diesem Fall die Abspiel-/Pause-Schaltfläche) hat diese Eigenschaft mit dem Wert 0 überschrieben.
+Alle Elemente sind linksbündig, da sie nebeneinander ausgerichtet werden sollen, und jedes Element ist so eingestellt, dass es eine `Breite` von fast 4 % hat (der tatsächliche Wert wurde erneut basierend auf den erforderlichen Maßen der Buttons berechnet) und eine `Höhe` von 100 %. Ein Wert für `margin-left` ist ebenfalls festgelegt, aber das erste Element (in diesem Fall die Play/Pause-Schaltfläche) hat diesen Wert auf 0 überschrieben.
 
-Der {{htmlelement("div")}}-Container für das {{htmlelement("progress")}}-Element erfordert ebenfalls einige spezifische Einstellungen; er wird viel breiter als die anderen Kindselemente eingestellt und sein Cursor-Wert wird auf Zeiger gesetzt:
+Der {{htmlelement("div")}}-Container für das {{htmlelement("progress")}}-Element benötigt ebenfalls einige spezifische Einstellungen; er ist deutlich breiter als die anderen Kindelemente und sein Cursor-Wert ist für die Zeigervorschau eingestellt:
 
 ```css
 .controls .progress {
@@ -127,7 +127,7 @@ Der {{htmlelement("div")}}-Container für das {{htmlelement("progress")}}-Elemen
 
 ### Schaltflächen
 
-Die erste große Gestaltung Aufgabe besteht darin, die Schaltflächen der Videosteuerung tatsächlich wie und als echte Schaltflächen aussehen und funktionieren zu lassen.
+Die erste große Styling-Aufgabe besteht darin, dass die Schaltflächen der Videosteuerung tatsächlich wie echte Schaltflächen aussehen und sich auch so verhalten.
 
 Jede Schaltfläche hat ein grundlegendes Styling:
 
@@ -141,9 +141,9 @@ Jede Schaltfläche hat ein grundlegendes Styling:
 }
 ```
 
-Standardmäßig haben alle {{htmlelement("button")}}-Elemente eine Umrandung, so dass diese entfernt wird. Da Hintergrundbilder zur Anzeige geeigneter Symbole verwendet werden, wird die Hintergrundfarbe der Schaltfläche auf transparent gesetzt, nicht wiederholt, und das Element soll das Bild vollständig enthalten.
+Standardmäßig haben alle {{htmlelement("button")}}-Elemente einen Rahmen, daher wird dieser entfernt. Da Hintergrundbilder verwendet werden, um geeignete Symbole anzuzeigen, wird die Hintergrundfarbe der Schaltfläche auf transparent gesetzt, nicht wiederholt, und das Element sollte das Bild vollständig enthalten.
 
-Einfache `:hover` und `:focus` Zustände werden dann für jede Schaltfläche festgelegt, die die Deckkraft der Schaltfläche ändert:
+Einfache `:hover`- und `:focus`-Zustände sind dann für jede Schaltfläche festgelegt, die die Transparenz der Schaltfläche ändern:
 
 ```css
 .controls button:hover,
@@ -152,11 +152,11 @@ Einfache `:hover` und `:focus` Zustände werden dann für jede Schaltfläche fes
 }
 ```
 
-Um geeignete Schaltflächenbilder zu erhalten, wurde ein Satz von kostenlosen gängigen Steuerungssymbolen aus dem Web heruntergeladen. Jedes Bild wurde dann in einen Base64-codierten String umgewandelt (unter Verwendung eines [Base64-Bildencoders online](https://www.base64-image.de/)), da die Bilder ziemlich klein sind, sind die resultierenden codierten Strings ziemlich kurz.
+Um geeignete Schaltflächenbilder zu erhalten, wurde ein Satz kostenloser allgemeiner Steuerungssymbolen aus dem Web heruntergeladen. Jedes Bild wurde dann in einen base64-codierten String konvertiert (mithilfe eines Online-[base64-Bildencoders](https://www.base64-image.de/)), da die Bilder ziemlich klein sind, sind die resultierenden kodierten Zeichenfolgen recht kurz.
 
-Da einige Schaltflächen Doppelfunktionalität haben, z.B. Abspielen/Pausieren und Stumm/Unstumm, haben diese Schaltflächen unterschiedliche Zustände, die gestaltet werden müssen. Wie bereits erwähnt, wird eine `data-state`-Variable verwendet, um anzugeben, in welchem Zustand sich solche Schaltflächen aktuell befinden.
+Da einige Schaltflächen eine Doppelfunktion haben, z. B. Play/Pause und Stumm/Aktivieren, haben diese Schaltflächen zwischen unterschiedliche Zustände, die gestylt werden müssen. Wie bereits erwähnt, wird eine `data-state`-Variable verwendet, um anzuzeigen, in welchem Zustand sich solche Schaltflächen derzeit befinden.
 
-Zum Beispiel hat die Abspielen/Pause-Schaltfläche die folgenden Hintergrundbilddefinitionen (die vollständigen Base64-Strings wurden der Kürze halber ausgelassen):
+Zum Beispiel hat die Play/Pause-Schaltfläche die folgenden Hintergrundbilddefinitionen (die vollständigen base64-Zeichenfolgen wurden der Kürze halber weggelassen):
 
 ```css
 .controls button[data-state="play"] {
@@ -168,11 +168,11 @@ Zum Beispiel hat die Abspielen/Pause-Schaltfläche die folgenden Hintergrundbild
 }
 ```
 
-Wenn der `data-state` der Schaltfläche geändert wird, wird auch das entsprechende Bild geändert. Alle anderen Schaltflächen werden auf ähnliche Weise behandelt.
+Wenn sich das `data-state` der Schaltfläche ändert, wird auch das entsprechende Bild geändert. Alle anderen Schaltflächen werden auf ähnliche Weise behandelt.
 
 ### Fortschrittsbalken
 
-Das {{htmlelement("progress")}}-Element hat das folgende Grundstil-Setup:
+Das {{htmlelement("progress")}}-Element hat das folgende grundlegende Styling:
 
 ```css
 .controls progress {
@@ -188,7 +188,7 @@ Das {{htmlelement("progress")}}-Element hat das folgende Grundstil-Setup:
 }
 ```
 
-Wie die {{htmlelement("button")}}-Elemente hat auch {{htmlelement("progress")}} einen Standardrahmen, der hier entfernt wird. Es wird auch eine leicht abgerundete Ecke aus ästhetischen Gründen hinzugefügt.
+Wie die {{htmlelement("button")}}-Elemente hat auch das {{htmlelement("progress")}}-Element standardmäßig einen Rahmen, der hier entfernt wird. Auch wird es aus ästhetischen Gründen leicht abgerundete Ecken erhalten.
 
 Wie im [vorherigen Artikel](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player) erwähnt, gibt es einen Fallback für Browser, die das {{htmlelement("progress")}}-Element nicht unterstützen; auch dieser muss entsprechend gestylt werden:
 
@@ -205,9 +205,9 @@ Wie im [vorherigen Artikel](/de/docs/Web/Media/Audio_and_video_delivery/cross_br
 }
 ```
 
-Eine `.data-state`-Klasse wird auch hier verwendet, wenn ein {{htmlelement("progress")}}-Element "gefälscht" wird; wenn es in diesem Zustand ist, muss die Hintergrundfarbe eingestellt werden. Das interne {{htmlelement("span")}}-Element, das als der tatsächliche fortschreitende Teil der gefälschten Fortschrittsleiste verwendet wird, hat seine Breite zunächst auf 0% gesetzt (es wird über JavaScript aktualisiert) und es hat auch seine Hintergrundfarbe gesetzt.
+Eine `.data-state`-Klasse wird hier auch verwendet, wenn ein {{htmlelement("progress")}}-Element "gefälscht" wird; wenn es in diesem Zustand ist, muss die Hintergrundfarbe gesetzt werden. Das interne {{htmlelement("span")}}-Element, das als der tatsächliche Fortschrittsteil der gefälschten Fortschrittsleiste verwendet wird, hat seine Breite zunächst auf 0 % gesetzt (es wird über JavaScript aktualisiert) und auch seine Hintergrundfarbe wird gesetzt.
 
-Es gibt einige browserspezifische Eigenschaften, die festgelegt werden müssen, um sicherzustellen, dass Firefox und Chrome die erforderliche Farbe für die Fortschrittsleiste verwenden:
+Es gibt einige browserspezifische Eigenschaften, die gesetzt werden müssen, um sicherzustellen, dass Firefox und Chrome die erforderliche Farbe für den Fortschrittsbalken verwenden:
 
 ```css
 .controls progress::-moz-progress-bar {
@@ -219,24 +219,24 @@ Es gibt einige browserspezifische Eigenschaften, die festgelegt werden müssen, 
 }
 ```
 
-Obwohl dieselben Eigenschaften auf denselben Wert eingestellt sind, müssen diese Regeln getrennt definiert werden, da sonst Chrome sie ignoriert.
+Obwohl die gleichen Eigenschaften auf den gleichen Wert gesetzt sind, müssen diese Regeln separat definiert werden, da Chrome sie sonst ignoriert.
 
 ## JavaScript
 
-Das war es im Wesentlichen für das sofortige Styling; die nächste Aufgabe besteht darin, eine Anzahl von JavaScript-Änderungen vorzunehmen, um sicherzustellen, dass alles wie erwartet funktioniert.
+Das war es wirklich mit dem unmittelbaren Styling; die nächste Aufgabe besteht darin, eine Reihe von JavaScript-Änderungen vorzunehmen, um sicherzustellen, dass alles wie erwartet funktioniert.
 
 ### Steuerungssichtbarkeit
 
-Die erste Änderung ist einfach: das `data-state` zum Anzeigen der Videosteuerungen, wenn JavaScript im Browser verfügbar ist, muss jetzt gesetzt werden:
+Die erste Änderung ist einfach: Das `data-state` zur Anzeige der Videosteuerungen, wenn JavaScript dem Browser zur Verfügung steht, muss nun gesetzt werden:
 
 ```js
 // Display the user defined video controls
 videoControls.setAttribute("data-state", "visible");
 ```
 
-### Unterstützung des Fortschrittsbalkens
+### Fortschrittsbalkenunterstützung
 
-Es muss auch eine Überprüfung vorgenommen werden, um den "gefälschten" Fortschrittsbalken einzurichten, falls der Browser das {{htmlelement("progress")}}-Element nicht unterstützt:
+Es muss auch überprüft werden, ob der "gefälschte" Fortschrittsbalken eingerichtet werden muss, wenn der Browser das {{htmlelement("progress")}}-Element nicht unterstützt:
 
 ```js
 const supportsProgress = document.createElement("progress").max !== undefined;
@@ -245,11 +245,11 @@ if (!supportsProgress) progress.setAttribute("data-state", "fake");
 
 ### Schaltflächenfunktionalität
 
-In diesem Abschnitt geht es um das JavaScript, das für die Implementierung der Schaltflächenfunktionalität erforderlich ist.
+In diesem Abschnitt wird das JavaScript beschrieben, das für die Implementierung der Schaltflächenfunktionalität erforderlich ist.
 
-#### Abspielen/Pausieren und Stummschaltung
+#### Play/Pause und Stummschalten
 
-Da jetzt die Schaltflächen tatsächlich wie Schaltflächen aussehen und Bilder haben, die anzeigen, was sie tun, müssen einige Änderungen vorgenommen werden, damit die "Dualfunktionalität"-Schaltflächen (wie die Abspielen/Pausieren-Schaltfläche) im richtigen "Zustand" sind und das richtige Bild anzeigen. Um dies zu erleichtern, wird eine neue Funktion definiert namens `changeButtonState()`, die eine Typvariable akzeptiert, die die Funktionalität der Schaltfläche angibt:
+Da die Schaltflächen jetzt tatsächlich wie Schaltflächen aussehen und Bilder haben, die anzeigen, was sie tun, müssen einige Änderungen vorgenommen werden, damit die "Doppelfunktionalitäts"-Schaltflächen (wie die Play/Pause-Schaltfläche) den richtigen "Zustand" haben und das korrekte Bild angezeigt werden. Um dies zu erleichtern, wird eine neue Funktion namens `changeButtonState()` definiert, die eine Typvariable akzeptiert, die die Funktion der Schaltfläche angibt:
 
 ```js
 function changeButtonState(type) {
@@ -267,7 +267,7 @@ function changeButtonState(type) {
 }
 ```
 
-Diese Funktion wird dann von den relevanten Ereignishandlern aufgerufen:
+Diese Funktion wird dann von den entsprechenden Ereignishandlern aufgerufen:
 
 ```js
 video.addEventListener(
@@ -301,7 +301,7 @@ mute.addEventListener("click", (e) => {
 });
 ```
 
-Sie haben vielleicht bemerkt, dass es neue Handler gibt, bei denen die `play`- und `pause`-Ereignisse beim Video berücksichtigt werden. Es gibt einen Grund dafür! Selbst wenn die Standard-Steuerung des Browsers deaktiviert wurde, machen viele Browser sie durch Rechtsklick auf das HTML-Video zugänglich. Dies bedeutet, dass ein Nutzer das Video über diese Steuerungen abspielen/pausieren könnte, wodurch die Schaltflächen des benutzerdefinierten Steuerungssatzes nicht synchron wären. Wenn ein Nutzer die Standardsteuerungen verwendet, werden die definierten Media-API-Ereignisse — wie `play` und `pause` — ausgelöst, was genutzt werden kann, um sicherzustellen, dass die benutzerdefinierten Steuerungsschaltflächen synchron bleiben. Um dies sicherzustellen, muss ein neuer Klick-Handler für die Abspielen/Pausieren-Schaltfläche definiert werden, sodass auch er die `play` und `pause`-Ereignisse auslöst:
+Sie haben vielleicht bemerkt, dass es neue Handler gibt, bei denen auf die `play`- und `pause`-Ereignisse im Video reagiert wird. Es gibt einen Grund dafür! Auch wenn das Standard-Steuerelementset des Browsers deaktiviert wurde, machen viele Browser sie zugänglich, indem sie mit der rechten Maustaste auf das HTML-Video klicken. Dies bedeutet, dass ein Benutzer das Video über diese Steuerelemente abspielen/anhalten könnte, was die benutzerdefinierten Kontrollschaltflächen dann asynchron machen würde. Wenn ein Benutzer die Standardsteuerungen verwendet, werden die definierten Media-API-Ereignisse — wie `play` und `pause` — ausgelöst, was genutzt werden kann, um sicherzustellen, dass die benutzerdefinierten Kontrollschaltflächen synchron bleiben. Dazu muss ein neuer Klick-Handler für die Play/Pause-Schaltfläche definiert werden, damit auch sie die `play`- und `pause`-Ereignisse auslöst:
 
 ```js
 playpause.addEventListener("click", (e) => {
@@ -315,7 +315,7 @@ playpause.addEventListener("click", (e) => {
 
 #### Lautstärke
 
-Die `alterVolume()`-Funktion, die aufgerufen wird, wenn die Lautstärkeschaltflächen des Players geklickt werden, ändert sich ebenfalls — sie ruft jetzt eine neue Funktion namens `checkVolume()` auf:
+Die `alterVolume()`-Funktion, die aufgerufen wird, wenn die Lautstärketasten des Players geklickt werden, ändert sich ebenfalls — sie ruft jetzt eine neue Funktion namens `checkVolume()` auf:
 
 ```js
 function checkVolume(dir) {
@@ -340,7 +340,7 @@ const alterVolume = (dir) => {
 };
 ```
 
-Diese neue `checkVolume()`-Funktion tut dasselbe wie `alterVolume()`, setzt aber auch den Zustand der Stummschalt-Schaltfläche basierend auf der aktuellen Lautstärkeeinstellung des Videos. `checkVolume()` wird auch aufgerufen, wenn das `volumechange`-Ereignis ausgelöst wird:
+Diese neue `checkVolume()`-Funktion tut dasselbe wie `alterVolume()`, setzt aber auch den Zustand der Stummschalt-Taste abhängig von der aktuellen Lautstärkeeinstellung des Videos. `checkVolume()` wird auch aufgerufen, wenn das `volumechange`-Ereignis ausgelöst wird:
 
 ```js
 video.addEventListener(
@@ -354,7 +354,7 @@ video.addEventListener(
 
 #### Fortschrittsbalken
 
-Auch der Klick-Handler für das {{htmlelement("progress")}}-Element muss leicht geändert werden. Da das umschließende {{htmlelement("figure")}}-Element jetzt `position:relative` auf sich gesetzt hat, sind die vom Klick-Handler vorgenommenen Berechnungen fehlerhaft. Jetzt muss auch die Offsetposition des Elternelements berücksichtigt werden:
+Eine kleine Änderung muss auch am Klick-Handler für das {{htmlelement("progress")}}-Element vorgenommen werden. Da das umschließende {{htmlelement("figure")}}-Element jetzt `position:relative` gesetzt hat, sind die Berechnungen, die dieser Klick-Handler vornimmt, nicht korrekt. Es muss auch die Versatzposition des übergeordneten Elements berücksichtigt werden:
 
 ```js
 progress.addEventListener("click", (e) => {
@@ -367,13 +367,13 @@ progress.addEventListener("click", (e) => {
 
 #### Vollbild
 
-Die [Vollbild-Implementierung](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player#fullscreen) hat sich nicht geändert.
+Die [Vollbildimplementierung](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player#fullscreen) hat sich nicht geändert.
 
-## Reaktionsfähiges Styling
+## Responsives Styling
 
-Da der Player nun sein grundlegendes Aussehen und Gefühl übernommen hat, müssen einige weitere Stiländerungen — unter Einbeziehung von Medienabfragen — vorgenommen werden, um ihn ansprechend zu machen.
+Nun, da der Player sein grundlegendes Aussehen hat, müssen einige weitere Styling-Änderungen — unter Verwendung von Media Queries — vorgenommen werden, um ihn responsive zu machen.
 
-Der Player funktioniert derzeit recht gut, bis er auf einem "mittleren" Bildschirm (z.B. 1024px/64em) oder kleiner angezeigt wird. In diesem Fall müssen die Ränder und Abstände auf dem {{htmlelement("figure")}}-Element entfernt werden, damit der gesamte verfügbare Platz genutzt wird, und die Schaltflächen sind etwas zu klein, sodass dies durch das Einstellen einer neuen Höhe auf dem Element mit der `.controls`-Klasse darauf geändert werden muss:
+Der Player funktioniert derzeit recht gut, bis er auf einem "mittelgroßen" Bildschirm (z. B. 1024px/64em) oder kleiner angezeigt wird. In diesem Fall müssen die Ränder und die Füllung auf dem {{htmlelement("figure")}}-Element entfernt werden, um den gesamten verfügbaren Platz zu nutzen, und die Schaltflächen sind etwas zu klein, daher muss dies geändert werden, indem eine neue Höhe auf dem Element gesetzt wird, das die `.controls`-Klasse darauf hat:
 
 ```css
 @media screen and (max-width: 64em) {
@@ -389,7 +389,7 @@ Der Player funktioniert derzeit recht gut, bis er auf einem "mittleren" Bildschi
 }
 ```
 
-Dies funktioniert gut genug, bis es auf einem kleineren Bildschirm (680px/42.5em) angezeigt wird, sodass hier ein weiterer Breakpoint gemacht wird. Da sich die Höhe des Elements der `.controls`-Klasse ändern wird, ist keine feste Höhe mehr erforderlich — es wird daher auf `auto` gesetzt. Die Definitionen für die Elemente innerhalb des `.controls`-Elements müssen nun ebenfalls geändert werden:
+Dies funktioniert gut genug, bis es auf einem kleineren Bildschirm (680px/42.5em) angezeigt wird, also wird hier ein weiterer Breakpoint gesetzt. Da sich die Höhe des `.controls`-Klassen-Elements nun ändert, wird eine feste Höhe nicht mehr benötigt — daher wird sie auf `auto` gesetzt. Die Definitionen für die Elemente innerhalb des `.controls`-Elements müssen jetzt ebenfalls geändert werden:
 
 ```css
 @media screen and (max-width: 42.5em) {
@@ -424,4 +424,4 @@ Dies funktioniert gut genug, bis es auf einem kleineren Bildschirm (680px/42.5em
 }
 ```
 
-Der `.progress`-Container wird jetzt über `position:absolute` an die Spitze des Steuerungssatzes verschoben, sodass er und alle Tasten breiter werden müssen. Darüber hinaus müssen die Schaltflächen unter den Fortschrittscontainer verschoben werden, damit sie sichtbar sind.
+Der `.progress`-Container wird jetzt über `position:absolute` an die Spitze des Steuerungssatzes verschoben, sodass er und alle Schaltflächen breiter sein müssen. Zusätzlich müssen die Schaltflächen unter den Fortschritts-Container verschoben werden, damit sie sichtbar sind.

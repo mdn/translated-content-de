@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „numbers out of order in {} quantifier“ tritt auf, wenn ein [Quantifier](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck die `{n,m}`-Syntax verwendet, aber `m` kleiner als `n` ist.
+Der JavaScript-Ausnahmefehler "numbers out of order in {} quantifier" tritt auf, wenn ein [Quantifier](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck die `{n,m}`-Syntax verwendet, aber `m` kleiner als `n` ist.
 
 ## Meldung
 
@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: numbers out of order in {} quantifier (
 
 ## Was ist schiefgelaufen?
 
-Die `{n,m}`-Syntax in einem regulären Ausdruck wird verwendet, um anzugeben, dass das vorhergehende Element mindestens `n`-mal, aber nicht mehr als `m`-mal gematcht werden soll. Wenn `m` kleiner als `n` ist, ist der Quantifizierer unsinnig, weil z.B. ein Zeichen nicht mindestens 2-mal, aber nicht mehr als 1-mal vorkommen kann. Daher wird ein Fehler ausgelöst.
+Die `{n,m}`-Syntax in einem regulären Ausdruck wird verwendet, um anzugeben, dass das vorhergehende Element mindestens `n`-mal, aber nicht mehr als `m`-mal vorkommen soll. Wenn `m` kleiner als `n` ist, ist der Quantifier unsinnig, weil beispielsweise ein Zeichen nicht mindestens 2-mal, aber nicht mehr als 1-mal vorkommen kann. Daher wird ein Fehler ausgelöst.
 
 ## Beispiele
 

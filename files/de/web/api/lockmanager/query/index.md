@@ -1,5 +1,5 @@
 ---
-title: "LockManager: query() Methode"
+title: "LockManager: query()-Methode"
 short-title: query()
 slug: Web/API/LockManager/query
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`query()`** Methode der [`LockManager`](/de/docs/Web/API/LockManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem Objekt aufgelöst wird, welches Informationen über gehaltene und ausstehende Sperren enthält.
+Die **`query()`**-Methode des [`LockManager`](/de/docs/Web/API/LockManager)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit einem Objekt aufgelöst wird, das Informationen über gehaltene und ausstehende Sperren enthält.
 
 ## Syntax
 
@@ -22,7 +22,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das mit einem Objekt aufgelöst wird, welches einen Schnappschuss des [`LockManager`](/de/docs/Web/API/LockManager)-Zustands enthält. Das Objekt hat folgende Eigenschaften:
+Ein {{jsxref('Promise')}}, das mit einem Objekt aufgelöst wird, das einen Schnappschuss des [`LockManager`](/de/docs/Web/API/LockManager)-Zustands enthält.
+Das Objekt hat die folgenden Eigenschaften:
 
 - `held`
   - : Ein Array von `LockInfo`-Objekten für gehaltene Sperren.
@@ -40,12 +41,12 @@ Das `LockInfo`-Objekt kann die folgenden Eigenschaften haben:
 
 ### Ausnahmen
 
-Diese Methode kann ein Promise zurückgeben, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen abgelehnt wird:
+Diese Methode kann ein Promise zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) folgenden Typs abgelehnt wird:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument der Umgebung nicht vollständig aktiv ist.
+  - : Wird ausgelöst, wenn das Umgebungsdokument nicht vollständig aktiv ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Lock-Manager für die aktuelle Umgebung nicht erhalten werden kann.
+  - : Wird ausgelöst, wenn ein Sperrmanager für die aktuelle Umgebung nicht erhalten werden kann.
 
 ## Beispiele
 

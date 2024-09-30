@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`start`**-Eigenschaft der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule)-Schnittstelle gibt einen String zurück, der den Wert des `@scope`-Regelsatzes im Scope-Root enthält.
+Die **`start`**-Eigenschaft der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule)-Schnittstelle gibt einen String zurück, der den Wert des `@scope`-At-Rules als Scope-Root enthält.
 
 ## Wert
 
-Ein String oder `null`, wenn der `@scope`-Regelsatz keinen Scope-Root definiert hat.
+Ein String oder `null`, wenn das `@scope`-At-Rule kein Scope-Root definiert hat.
 
 ## Beispiel
 
-Sehen Sie sich die Hauptseite der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule) für ein Beispiel an.
+Sehen Sie die Hauptseite der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule) für ein Beispiel.
 
 ## Spezifikationen
 

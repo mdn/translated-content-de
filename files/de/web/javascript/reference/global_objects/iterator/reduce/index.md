@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`reduce()`**-Methode von {{jsxref("Iterator")}}-Instanzen ähnelt der {{jsxref("Array.prototype.reduce")}}: Sie führt eine vom Benutzer bereitgestellte "Reducer"-Callback-Funktion bei jedem vom Iterator erzeugten Element aus und übergibt den Rückgabewert der Berechnung des vorherigen Elements. Das Endergebnis des Reducers über alle Elemente hinweg ist ein einzelner Wert.
+Die **`reduce()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich zu {{jsxref("Array.prototype.reduce")}}: Sie führt eine vom Benutzer bereitgestellte "Reducer"-Callback-Funktion auf jedem vom Iterator erzeugten Element aus und übergibt den Rückgabewert aus der Berechnung des vorhergehenden Elements. Das Endergebnis der Ausführung des Reducers über alle Elemente ist ein einzelner Wert.
 
 ## Syntax
 
@@ -19,34 +19,34 @@ reduce(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Ihr Rückgabewert wird der Wert des `accumulator`-Parameters bei der nächsten Ausführung von `callbackFn`. Bei der letzten Ausführung wird der Rückgabewert der Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Ihr Rückgabewert wird der Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert der Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der aus dem vorherigen Aufruf von `callbackFn` resultiert. Beim ersten Aufruf ist sein Wert `initialValue`, falls dieses angegeben ist, andernfalls ist es das erste Element des Iterators.
+      - : Der Wert, der sich aus dem vorherigen Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist dessen Wert `initialValue`, falls letzteres angegeben ist; andernfalls ist dessen Wert das erste Element des Iterators.
     - `currentValue`
-      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert das erste Element des Iterators, wenn `initialValue` angegeben ist, andernfalls ist es das zweite Element.
+      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist dessen Wert das erste Element des Iterators, wenn `initialValue` angegeben ist; andernfalls ist dessen Wert das zweite Element.
     - `currentIndex`
-      - : Der Index des `currentValue`. Beim ersten Aufruf ist sein Wert `0`, wenn `initialValue` angegeben ist, andernfalls `1`.
+      - : Die Indexposition von `currentValue`. Beim ersten Aufruf ist dessen Wert `0`, wenn `initialValue` angegeben ist, andernfalls `1`.
 - `initialValue` {{optional_inline}}
-  - : Ein Wert, auf den `accumulator` beim ersten Aufruf des Rückrufs initialisiert wird. Wenn `initialValue` angegeben ist, beginnt die Ausführung von `callbackFn` mit dem ersten Element als `currentValue`. Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` auf das erste Element gesetzt und `callbackFn` beginnt mit dem zweiten Element als `currentValue`. In diesem Fall, wenn der Iterator leer ist (sodass kein erster Wert als `accumulator` zurückgegeben werden kann), wird ein Fehler ausgelöst.
+  - : Ein Wert, auf den `accumulator` beim ersten Aufruf der Callback-Funktion initialisiert wird. Wenn `initialValue` angegeben ist, beginnt `callbackFn` mit dem ersten Element als `currentValue` auszuführen. Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` auf das erste Element initialisiert und `callbackFn` beginnt mit dem zweiten Element als `currentValue` auszuführen. In diesem Fall wird ein Fehler ausgelöst, wenn der Iterator leer ist (sodass es keinen ersten Wert gibt, der als `accumulator` zurückgegeben werden kann).
 
 ### Rückgabewert
 
-Der Wert, der sich aus dem vollständigen Ausführen der "Reducer"-Callback-Funktion über den gesamten Iterator ergibt.
+Der Wert, der aus der vollständigen Ausführung der "Reducer"-Callback-Funktion über den gesamten Iterator resultiert.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Iterator keine Elemente enthält und `initialValue` nicht bereitgestellt ist.
+  - : Wird ausgelöst, wenn der Iterator keine Elemente enthält und `initialValue` nicht bereitgestellt wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.reduce()")}} für Details darüber, wie `reduce()` funktioniert. Anders als die meisten anderen Iterator-Hilfsmethoden funktioniert es nicht gut mit unendlichen Iteratoren, da es nicht lazy ist.
+Siehe {{jsxref("Array.prototype.reduce()")}} für Details darüber, wie `reduce()` funktioniert. Im Gegensatz zu den meisten anderen Iterator-Hilfemethoden funktioniert es nicht gut mit unendlichen Iteratoren, da es nicht lazy ist.
 
 ## Beispiele
 
 ### Verwendung von reduce()
 
-Das folgende Beispiel erstellt einen Iterator, der Terme der Fibonacci-Sequenz erzeugt, und summiert dann die ersten zehn Terme:
+Im folgenden Beispiel wird ein Iterator erstellt, der Terme in der Fibonacci-Sequenz liefert, und dann werden die ersten zehn Terme summiert:
 
 ```js
 function* fibonacci() {

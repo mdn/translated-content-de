@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Contact Picker API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`contacts`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Interface zurück, das es Benutzern ermöglicht, Einträge aus ihrem Kontaktverzeichnis auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
+Die schreibgeschützte **`contacts`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt eine [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Schnittstelle zurück, die es Benutzern ermöglicht, Einträge aus ihrer Kontaktliste auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
 
 ## Wert
 
@@ -16,12 +16,10 @@ Ein [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Objekt. Zwei aufeinand
 
 ## Beispiele
 
-Der folgende Code prüft, ob die Contact Picker API unterstützt wird.
+Der folgende Code überprüft, ob die Contact Picker API unterstützt wird.
 
-```javascript
-if ("contacts" in navigator) {
-  console.log("The Contact Picker API is supported.");
-}
+```js
+const supported = "contacts" in navigator && "ContactsManager" in window;
 ```
 
 ## Spezifikationen

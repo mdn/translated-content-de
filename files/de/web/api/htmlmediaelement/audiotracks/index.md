@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: audioTracks Eigenschaft"
+title: "HTMLMediaElement: audioTracks-Eigenschaft"
 short-title: audioTracks
 slug: Web/API/HTMLMediaElement/audioTracks
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`audioTracks`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt zurück, das alle [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte auflistet, die die Audio-Spuren des Media-Elements darstellen.
+Die schreibgeschützte **`audioTracks`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt zurück, das alle [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte auflistet, die die Audio-Tracks des Media-Elements darstellen.
 
 Das Media-Element kann entweder ein {{HTMLElement("audio")}}-Element oder ein {{HTMLElement("video")}}-Element sein.
 
-Die zurückgegebene Liste ist _live_; das bedeutet, dass sich der Inhalt der Liste dynamisch ändert, sobald Spuren zum Media-Element hinzugefügt oder daraus entfernt werden. Sobald Sie eine Referenz zur Liste haben, können Sie sie überwachen, um festzustellen, wann neue Audio-Spuren hinzugefügt oder bestehende entfernt werden. Siehe [AudioTrackList Ereignisse](/de/docs/Web/API/AudioTrackList#events), um mehr darüber zu erfahren, wie man Änderungen an der Spur-Liste eines Media-Elements beobachtet.
+Die zurückgegebene Liste ist _live_; das heißt, wenn Tracks dem Media-Element hinzugefügt oder entfernt werden, ändert sich der Inhalt der Liste dynamisch. Sobald Sie eine Referenz zur Liste haben, können Sie sie überwachen, um Änderungen zu erkennen, wenn neue Audio-Tracks hinzugefügt oder vorhandene entfernt werden. Siehe [AudioTrackList-Ereignisse](/de/docs/Web/API/AudioTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen an der Track-Liste eines Media-Elements überwachen können.
 
 ## Wert
 
-Ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt, das die Liste der im Media-Element enthaltenen Audio-Spuren darstellt. Die Liste der Spuren kann mit Array-Notation oder mit der [`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById)-Methode des Objekts abgerufen werden.
+Ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt, das die Liste der im Media-Element enthaltenen Audio-Tracks darstellt. Auf die Liste der Tracks kann über Array-Notation oder über die [`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById)-Methode des Objekts zugegriffen werden.
 
-Jede Spur wird durch ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt dargestellt, das Informationen über die Spur bereitstellt.
+Jeder Track wird durch ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt dargestellt, das Informationen über den Track bietet.
 
 ## Beispiele
 
-In diesem Beispiel werden alle Audio-Spuren eines bestimmten Elements stummgeschaltet.
+In diesem Beispiel werden alle Audio-Tracks eines bestimmten Elements stummgeschaltet.
 
 ### HTML
 
-Das HTML legt das Element selbst fest.
+Das HTML stellt das Element selbst bereit.
 
 ```html
 <video id="video" src="somevideo.mp4"></video>
@@ -34,7 +34,7 @@ Das HTML legt das Element selbst fest.
 
 ### JavaScript
 
-Der JavaScript-Code behandelt das Stummschalten der Audio-Spuren des Video-Elements.
+Der JavaScript-Code kümmert sich um das Stummschalten der Audio-Tracks des Video-Elements.
 
 ```js
 const video = document.getElementById("video");

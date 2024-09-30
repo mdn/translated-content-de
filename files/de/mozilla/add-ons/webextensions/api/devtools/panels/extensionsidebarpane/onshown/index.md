@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das Seitenleistenfeld sichtbar wird, weil der Benutzer zu ihm wechselt.
+Wird ausgelöst, wenn das Seitenleistenfeld sichtbar wird, weil der Benutzer dorthin wechselt.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## Syntax von addListener
 
@@ -32,10 +32,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `window`
-      - : `object`. Das [`window`](/de/docs/Web/API/Window)-Objekt der Seitenleiste, wenn eine Seite mit {{WebExtAPIRef("devtools.panels.ExtensionSidebarPane.setPage()","setPage()")}} gesetzt wurde.
+      - : `object`. Das [`window`](/de/docs/Web/API/Window)-Objekt der Seitenleiste, falls eine Seite mit {{WebExtAPIRef("devtools.panels.ExtensionSidebarPane.setPage()","setPage()")}} festgelegt wurde.
 
 ## Browser-Kompatibilität
 
@@ -43,7 +43,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Show- und Hide-Ereignisse.
+Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Ereignisse zum Anzeigen und Verbergen.
 
 ```js
 function onCreated(sidebarPane) {
@@ -62,4 +62,4 @@ browser.devtools.panels.elements.createSidebarPane("My pane").then(onCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

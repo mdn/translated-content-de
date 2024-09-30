@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`audioTracks`** des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt eine Liste der aktuell im `SourceBuffer` enthaltenen Audiotracks zurück.
+Die **`audioTracks`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt eine Liste der Audiotracks zurück, die derzeit im `SourceBuffer` enthalten sind.
 
 ## Wert
 

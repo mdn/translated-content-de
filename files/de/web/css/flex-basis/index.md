@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex-basis`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Hauptgröße eines [Flex-Elements](/de/docs/Glossary/flex_item) fest. Sie legt die Größe des Inhaltsbereichs fest, es sei denn, es wurde anderweitig mit {{Cssxref("box-sizing")}} festgelegt.
+Die **`flex-basis`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Hauptgröße eines [Flex-Elements](/de/docs/Glossary/flex_item) fest. Sie bestimmt die Größe des Inhaltsbereichs, es sei denn, es wird mit {{Cssxref("box-sizing")}} anders festgelegt.
 
 > [!NOTE]
-> Es wird empfohlen, die {{cssxref("flex")}} Kurzschreibweise anstelle separater `flex-grow`, `flex-shrink` und `flex-basis` Deklarationen zu verwenden. Wir haben sie hier getrennt, da es in diesem Dokument um eine der Kurzformen geht: die `flex-basis` Eigenschaft.
+> Es wird empfohlen, das {{cssxref("flex")}} Kurzschreibweise anstelle einzelner `flex-grow`, `flex-shrink` und `flex-basis` Deklarationen zu verwenden. Wir haben sie hier getrennt, da es in diesem Dokument um eine der Kurzschreibkomponenten geht: die `flex-basis` Eigenschaft.
 
 {{EmbedInteractiveExample("pages/css/flex-basis.html")}}
 
-In diesem Beispiel sind die Eigenschaften {{cssxref("flex-grow")}} und {{cssxref("flex-shrink")}} auf allen drei Elementen auf `1` gesetzt, was anzeigt, dass das Flex-Element von der anfänglichen `flex-basis` aus wachsen und schrumpfen kann.
+In diesem Beispiel sind die Eigenschaften {{cssxref("flex-grow")}} und {{cssxref("flex-shrink")}} auf allen drei Elementen auf `1` gesetzt, was bedeutet, dass das Flex-Element von der anfänglichen `flex-basis` aus wachsen und schrumpfen kann.
 
-Die Demo ändert den `flex-basis`-Wert, der auf das erste Flex-Element gesetzt ist, wodurch es wächst oder schrumpft, um den verfügbaren Platz einzunehmen. Die anderen Flex-Elemente ändern ebenfalls ihre Größe; sie werden mindestens in `min-content`-Größe angezeigt. Zum Beispiel, wenn die `flex-basis` des ersten Elements auf `200px` gesetzt ist, startet es bei `200px`, schrumpft jedoch, um in den verfügbaren Raum zu passen.
+Die Demo ändert den `flex-basis` Wert, der auf das erste Flex-Element gesetzt ist, wodurch es wächst oder schrumpft, um den verfügbaren Platz zu füllen. Die anderen Flex-Elemente werden ebenfalls ihre Größe ändern; sie werden mindestens `min-content`-Größe haben. Wenn zum Beispiel die `flex-basis` des ersten Elements auf `200px` gesetzt ist, beginnt es bei `200px`, schrumpft dann aber, um in den verfügbaren Raum zu passen.
 
-Wenn `flex-basis` auf einen anderen Wert als `auto` gesetzt ist und eine `width` (oder `height` im Fall von `flex-direction: column`) für dasselbe Flex-Element gesetzt ist, hat der `flex-basis`-Wert Vorrang.
+Wenn `flex-basis` auf einen anderen Wert als `auto` gesetzt ist und eine `width` (oder `height` im Fall von `flex-direction: column`) für dasselbe Flex-Element festgelegt ist, hat der `flex-basis` Wert Vorrang.
 
 ## Syntax
 
@@ -45,23 +45,23 @@ flex-basis: revert-layer;
 flex-basis: unset;
 ```
 
-Die Eigenschaft `flex-basis` wird entweder als das Schlüsselwort `content` oder als `<'width'>` angegeben.
+Die `flex-basis` Eigenschaft wird entweder als das Schlüsselwort `content` oder als ein `<'width'>` angegeben.
 
 ### Werte
 
 - `<'width'>`
 
-  - : Beliebige der folgenden Einheiten:
+  - : Jeder der folgenden Einheiten:
     - {{cssxref("&lt;length&gt;")}} legt einen absoluten Wert fest.
-    - {{cssxref("&lt;percentage&gt;")}} legt einen Prozentsatz der Breite oder Höhe des Inhaltsbereichs des umgebenden Blocks fest. Prozentwerte von `flex-basis` werden im Verhältnis zum Flex-Container aufgelöst. Wenn die Größe des Flex-Containers undefiniert ist, wird der verwendete Wert für `flex-basis` auf `content` gesetzt.
-    - `auto` verwendet den Wert der {{cssxref("width")}} im horizontalen Schreibmodus und den Wert der {{cssxref("height")}} im vertikalen Schreibmodus; wenn der entsprechende Wert ebenfalls `auto` ist, wird stattdessen der `content`-Wert verwendet.
-    - {{cssxref("max-content")}} setzt die intrinsisch bevorzugte Breite.
-    - {{cssxref("min-content")}} setzt die intrinsisch minimale Breite.
-    - {{cssxref("fit-content")}} setzt die maximal mögliche Größe des Inhaltsbereichs eines umgebenden Blocks, begrenzt durch die `min-content`- und `max-content`-Werte, und basierend auf dem Inhalt des aktuellen Elements berechnet.
+    - {{cssxref("&lt;percentage&gt;")}} legt einen Prozentsatz der Breite oder Höhe des Inhaltsbereichs des umschließenden Blocks fest. Prozentwerte von `flex-basis` werden relativ zum Flex-Container aufgelöst. Wenn die Größe des Flex-Containers unbestimmt ist, wird der verwendete Wert für `flex-basis` als `content` behandelt.
+    - `auto` verwendet den Wert von {{cssxref("width")}} im horizontalen Schreibmodus und den Wert von {{cssxref("height")}} im vertikalen Schreibmodus; wenn der entsprechende Wert ebenfalls `auto` ist, wird stattdessen der `content` Wert verwendet.
+    - {{cssxref("max-content")}} legt die intrinsische bevorzugte Breite fest.
+    - {{cssxref("min-content")}} legt die intrinsische Mindestbreite fest.
+    - {{cssxref("fit-content")}} setzt die maximal mögliche Größe des Inhaltsbereichs eines umschließenden Blocks, begrenzt durch die `min-content` und `max-content` Werte, und berechnet basierend auf dem Inhalt des aktuellen Elements.
 
 - `content`
 
-  - : Zeigt an, dass die Größe automatisch festgelegt wird, basierend auf dem Inhalt des Flex-Elements.
+  - : Gibt eine automatische Größenbestimmung basierend auf dem Inhalt des Flex-Elements an.
 
 ## Formale Definition
 
@@ -73,7 +73,7 @@ Die Eigenschaft `flex-basis` wird entweder als das Schlüsselwort `content` oder
 
 ## Beispiele
 
-### Anfangsgrößen von Flex-Elementen festlegen
+### Einstellen der anfänglichen Größen von Flex-Elementen
 
 #### HTML
 
@@ -172,11 +172,11 @@ Die Eigenschaft `flex-basis` wird entweder als das Schlüsselwort `content` oder
 
 ### Flex-Basis `0` vs `0%`
 
-Dieses Beispiel zeigt den Unterschied zwischen einer `flex-basis` von `0` und einer `flex-basis` von `0%`, wenn `flex-direction` auf `column` gesetzt ist und die Flex-Container und Flex-Elemente keine festgelegte Höhe haben; während `0` eine absolute Länge ist, werden Prozentsatzwerte von `flex-basis` zu [`content`](#content) Werten aufgelöst.
+Dieses Beispiel zeigt den Unterschied zwischen einer `flex-basis` von `0` und einer `flex-basis` von `0%`, wenn `flex-direction` auf `column` gesetzt ist und die Flex-Container und Flex-Elemente keine festgelegte Höhe haben; während `0` eine absolute Länge ist, werden prozentuale `flex-basis` Werte zu [`content`](#content) Werten aufgelöst.
 
 #### HTML
 
-Wir schließen zwei Flex-Container mit derselben Struktur ein, die ähnlich gestylt werden, mit Ausnahme ihrer `flex-basis`-Werte. Die Container haben jeweils zwei Kinder: eine Überschrift `<div>` und ein `<section>`. Das `<section>`-Element hat ein Inhalts-`<div>`-Kind, das nicht als Flex-Element gesetzt wird, jedoch eine Höhe erhält.
+Wir fügen zwei Flex-Container mit derselben Struktur ein. Diese werden ähnlich gestylt, mit Ausnahme ihrer `flex-basis` Werte. Die Container haben jeweils zwei Kinder: eine Überschrift `<div>` und eine `<section>`. Das `<section>` Element hat ein Inhalts-`<div>` Kind, das nicht als Flex-Element gesetzt wird, aber eine Höhe erhält.
 
 ```html
 <div class="container basis-0">
@@ -197,7 +197,7 @@ Wir schließen zwei Flex-Container mit derselben Struktur ein, die ähnlich gest
 
 #### CSS
 
-Wir gestalten die Container als Inline-Flex-Container, die nebeneinander erscheinen sollen, um sie besser vergleichen zu können. Wir setzen die `flex-direction` auf die Spalte. Die Flex-Elemente des ersten Containers haben einen `flex-basis` Wert von `0` und die Flex-Elemente des zweiten Containers haben einen `flex-basis` Wert von `0%`. Weder die Flex-Container noch ihre Flex-Elemente haben eine explizit festgelegte Höhe, aber die Höhen der `section`-Elemente können `200px` nicht überschreiten, und ihre Kinder haben eine Höhe von `300px`.
+Wir stylen die Container als Inline-Flex-Container, die nebeneinander erscheinen werden, um den Vergleich zu erleichtern. Wir setzen die `flex-direction` auf Spalte. Die Flex-Elemente des ersten Containers haben einen `flex-basis` Wert von `0` und die des zweiten Containers einen `flex-basis` Wert von `0%`. Weder die Flex-Container noch ihre Flex-Elemente haben eine explizit festgelegte Höhe, aber die Höhen der `section` Elemente können `200px` nicht überschreiten und deren Kinder haben eine Höhe von `300px`.
 
 ```css
 .container {
@@ -233,7 +233,7 @@ section {
 
 {{EmbedLiveSample('flex_basis_0_vs_0', '100%', '400')}}
 
-Im ersten Container, mit `flex-basis: 0`, hat das `<section>` Element eine anfängliche Hauptgröße von null und wächst bis zur `200px` Höhenbegrenzung. Im zweiten Container, mit `flex-basis: 0%`, hat das `<section>`-Element eine anfängliche Hauptgröße von `300px`, da, da der Flex-Container keine festgelegte Höhe hat, die Prozentsatzwerte von `flex-basis` zum [`content`](#content) Wert aufgelöst werden.
+Im ersten Container, mit `flex-basis: 0`, hat das `<section>` Element eine anfängliche Hauptgröße von Null und wächst bis zur `200px` Höhenbegrenzung. Im zweiten Container, mit `flex-basis: 0%`, hat das `<section>` Element eine anfängliche Hauptgröße von `300px`, da die prozentualen `flex-basis` Werte zum [`content`](#content) Wert aufgelöst werden, wenn der Flex-Container keine festgelegte Höhe hat.
 
 ## Spezifikationen
 
@@ -247,6 +247,6 @@ Im ersten Container, mit `flex-basis: 0`, hat das `<section>` Element eine anfä
 
 - {{cssxref("flex")}} Kurzschreibweise
 - {{cssxref("inline-size")}}
-- [Grundkonzepte des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Grundlegende Konzepte des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Steuern der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
 - [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul

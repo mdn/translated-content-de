@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `Client`-Interface repräsentiert einen ausführbaren Kontext wie einen [`Worker`](/de/docs/Web/API/Worker) oder einen [`SharedWorker`](/de/docs/Web/API/SharedWorker). [`Window`](/de/docs/Web/API/Window)-Clients werden durch den spezifischeren [`WindowClient`](/de/docs/Web/API/WindowClient) dargestellt. Sie können `Client`/`WindowClient`-Objekte durch Methoden wie [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll) und [`Clients.get()`](/de/docs/Web/API/Clients/get) erhalten.
+Das `Client`-Interface repräsentiert einen ausführbaren Kontext wie einen [`Worker`](/de/docs/Web/API/Worker) oder einen [`SharedWorker`](/de/docs/Web/API/SharedWorker). [`Window`](/de/docs/Web/API/Window)-Clients werden durch das spezifischere [`WindowClient`](/de/docs/Web/API/WindowClient) repräsentiert. Sie können `Client`/`WindowClient`-Objekte von Methoden wie [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll) und [`Clients.get()`](/de/docs/Web/API/Clients/get) erhalten.
 
-## Instanzmethoden
+## Methoden der Instanz
 
 - [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)
   - : Sendet eine Nachricht an den Client.
 
-## Instanzeigenschaften
+### Eigenschaften der Instanz
 
 - [`Client.frameType`](/de/docs/Web/API/Client/frameType) {{ReadOnlyInline}}
-  - : Der Rahmen-Typ des Clients als Zeichenkette. Es kann `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"` sein.
+  - : Der Frame-Typ des Clients als Zeichenkette. Es kann `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"` sein.
 - [`Client.id`](/de/docs/Web/API/Client/id) {{ReadOnlyInline}}
-  - : Der universell eindeutige Bezeichner des Clients als Zeichenkette.
+  - : Der universell eindeutige Identifikator des Clients als Zeichenkette.
 - [`Client.type`](/de/docs/Web/API/Client/type) {{ReadOnlyInline}}
   - : Der Typ des Clients als Zeichenkette. Es kann `"window"`, `"worker"` oder `"sharedworker"` sein.
 - [`Client.url`](/de/docs/Web/API/Client/url) {{ReadOnlyInline}}
@@ -35,4 +35,4 @@ Das `Client`-Interface repräsentiert einen ausführbaren Kontext wie einen [`Wo
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Using Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

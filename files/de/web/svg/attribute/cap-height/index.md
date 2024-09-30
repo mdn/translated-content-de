@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`cap-height`**-Attribut definiert die Höhe von Großbuchstabenglyphen der Schriftart im Schriftart-Koordinatensystem.
+Das **`cap-height`** Attribut definiert die Höhe der Großbuchstabenglyphen der Schriftart innerhalb des Schriftartenkoordinatensystems.
 
 > [!NOTE]
-> Es wurde spezifiziert, um die Syntax und Semantik des veralteten `cap-height`-Deskriptors der {{cssxref("@font-face")}}-At-Regel zu teilen, die in einer frühen Version von CSS 2 definiert wurde.
+> Es wurde spezifiziert, um die Syntax und Semantik des veralteten `cap-height` Deskriptors der {{cssxref("@font-face")}} At-Regel zu teilen, die in einer frühen Version von CSS 2 definiert wurde.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -26,7 +26,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

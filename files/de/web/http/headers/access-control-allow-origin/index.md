@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit angeforderter Codierung von der angegebenen [Herkunft](/de/docs/Glossary/origin) geteilt werden kann.
+Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit dem anfragenden Code vom angegebenen [Origin](/de/docs/Glossary/origin) geteilt werden kann.
 
 <table class="properties">
   <tbody>
@@ -33,34 +33,36 @@ Access-Control-Allow-Origin: null
 ## Direktiven
 
 - `*`
-  - : Bei Anfragen _ohne Anmeldedaten_ kann der wörtliche Wert `*` als Platzhalter angegeben werden; der Wert teilt den Browsern mit, dass sie angeforderte Code von jeder Herkunft den Zugriff auf die Ressource erlauben sollen. Der Versuch, den Platzhalter mit Anmeldedaten zu verwenden, [führt zu einem Fehler](/de/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials).
+  - : Für Anfragen _ohne Anmeldedaten_ kann der Wert `*` als Platzhalter angegeben werden; dieser Wert teilt den Browsern mit, dass anfragender Code aus jedem Origin auf die Ressource zugreifen darf. Der Versuch, den Platzhalter mit Anmeldedaten zu verwenden, [führt zu einem Fehler](/de/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials).
+
 - `<origin>`
-  - : Gibt eine Herkunft an. Es kann nur eine einzelne Herkunft angegeben werden. Wenn der Server Clients aus mehreren Herkünften unterstützt, muss er die Herkunft des spezifischen Clients, der die Anfrage stellt, zurückgeben.
+  - : Gibt einen Origin an. Es kann nur ein einzelner Origin angegeben werden. Wenn der Server Clients von mehreren Origins unterstützt, muss er den Origin für den spezifischen Client, der die Anfrage stellt, zurückgeben.
+
 - `null`
 
-  - : Gibt die Herkunft "null" an.
+  - : Gibt den Origin "null" an.
 
-    > **Note:** `null` [sollte nicht verwendet werden](https://w3c.github.io/webappsec-cors-for-developers/#avoid-returning-access-control-allow-origin-null): "Es mag sicher erscheinen, `Access-Control-Allow-Origin: "null"` zurückzugeben, aber die Serialisierung der Herkunft einer Ressource, die ein nicht-hierarchisches Schema (wie `data:` oder `file:`) und sandboxed Dokumente verwendet, ist als "null" definiert. Viele Benutzeragenten gewähren solchen Dokumenten Zugriff auf eine Antwort mit einem `Access-Control-Allow-Origin: "null"` Header, und jede Herkunft kann ein feindliches Dokument mit einer "null" Herkunft erstellen. Der "null"-Wert für den ACAO-Header sollte daher vermieden werden."
+    > **Note:** `null` [sollte nicht verwendet werden](https://w3c.github.io/webappsec-cors-for-developers/#avoid-returning-access-control-allow-origin-null): "Es mag sicher erscheinen, `Access-Control-Allow-Origin: "null"` zurückzugeben, aber die Serialisierung des Origins einer Ressource, die ein nicht-hierarchisches Schema (wie `data:` oder `file:`) und sandboxed Dokumente verwendet, wird als "null" definiert. Viele Benutzeragenten gewähren solchen Dokumenten Zugriff auf eine Antwort mit einem `Access-Control-Allow-Origin: "null"` Header, und jede Origin kann ein feindliches Dokument mit einem "null" Origin erstellen. Der Wert "null" für den ACAO-Header sollte daher vermieden werden."
 
 ## Beispiele
 
-Eine Antwort, die dem Browser mitteilt, dass Code von jeder Herkunft auf eine Ressource zugreifen darf, wird Folgendes enthalten:
+Eine Antwort, die dem Browser mitteilt, dass Code von jedem Origin auf eine Ressource zugreifen darf, enthält Folgendes:
 
 ```http
 Access-Control-Allow-Origin: *
 ```
 
-Eine Antwort, die dem Browser mitteilt, dass angeforderter Code von der Herkunft `https://developer.mozilla.org` auf eine Ressource zugreifen darf, wird Folgendes enthalten:
+Eine Antwort, die dem Browser mitteilt, dass anfragender Code vom Origin `https://developer.mozilla.org` auf eine Ressource zugreifen darf, enthält Folgendes:
 
 ```http
 Access-Control-Allow-Origin: https://developer.mozilla.org
 ```
 
-Das Einschränken der möglichen `Access-Control-Allow-Origin` Werte auf eine Gruppe erlaubter Herkünfte erfordert Code auf der Serverseite, um den Wert des {{HTTPHeader("Origin")}} Anforderungs-Headers zu prüfen, diesen mit einer Liste erlaubter Herkünfte zu vergleichen und dann, wenn der {{HTTPHeader("Origin")}}-Wert in der Liste steht, den `Access-Control-Allow-Origin` Wert auf denselben Wert wie den {{HTTPHeader("Origin")}}-Wert zu setzen.
+Das Einschränken der möglichen `Access-Control-Allow-Origin` Werte auf eine Gruppe erlaubter Origins erfordert Code auf der Serverseite, um den Wert des {{HTTPHeader("Origin")}} Anforderungs-Headers zu überprüfen, diesen mit einer Liste erlaubter Origins zu vergleichen und dann, wenn der {{HTTPHeader("Origin")}} Wert in der Liste ist, den `Access-Control-Allow-Origin` Wert auf denselben Wert wie den {{HTTPHeader("Origin")}} Wert zu setzen.
 
 ### CORS und Caching
 
-Angenommen, der Server sendet eine Antwort mit einem `Access-Control-Allow-Origin`-Wert mit einer expliziten Herkunft (anstatt des `*` Platzhalters). In diesem Fall sollte die Antwort auch einen {{HTTPHeader("Vary")}} Antwort-Header mit dem Wert `Origin` enthalten – um Browser darauf hinzuweisen, dass Serverantworten je nach Wert des `Origin` Anforderungs-Headers unterschiedlich sein können.
+Angenommen, der Server sendet eine Antwort mit einem `Access-Control-Allow-Origin` Wert mit einem expliziten Origin (anstatt des `*` Platzhalters), sollte die Antwort auch einen {{HTTPHeader("Vary")}} Antwort-Header mit dem Wert `Origin` enthalten — um den Browsern anzuzeigen, dass Serverantworten basierend auf dem Wert des `Origin` Anforderungs-Headers unterschiedlich sein können.
 
 ```http
 Access-Control-Allow-Origin: https://developer.mozilla.org

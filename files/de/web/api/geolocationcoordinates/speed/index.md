@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`speed`**-Eigenschaft der [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Schnittstelle ist eine schreibgeschützte `double`, die die Geschwindigkeit des Geräts in Metern pro Sekunde darstellt. Dieser Wert ist `null`, wenn die Implementierung nicht in der Lage ist, ihn zu messen.
+Die **`speed`**-Eigenschaft des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist eine schreibgeschützte `double`-Eigenschaft, die die Geschwindigkeit des Geräts in Metern pro Sekunde darstellt. Dieser Wert ist `null`, wenn die Implementierung nicht in der Lage ist, die Geschwindigkeit zu messen.
 
 ## Wert
 
@@ -24,5 +24,5 @@ Ein `double`, der die Geschwindigkeit des Geräts in Metern pro Sekunde darstell
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
 - [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)

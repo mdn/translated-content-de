@@ -1,5 +1,5 @@
 ---
-title: "TypeError: X.prototype.y auf inkompatiblen Typ aufgerufen"
+title: "TypeError: X.prototype.y auf inkompatiblem Typ aufgerufen"
 slug: Web/JavaScript/Reference/Errors/Called_on_incompatible_type
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "auf inkompatiblen Ziel (oder Objekt) aufgerufen" tritt auf, wenn eine Funktion (auf einem bestimmten Objekt) mit einem `this`-Wert aufgerufen wird, der nicht dem von der Funktion erwarteten Typ entspricht.
+Die JavaScript-Ausnahme "auf inkompatiblem Ziel (oder Objekt) aufgerufen" tritt auf, wenn eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen wird, das nicht dem von der Funktion erwarteten Typ entspricht.
 
 ## Meldung
 
@@ -20,17 +20,17 @@ TypeError: Type error (Safari)
 TypeError: undefined is not an object (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("TypeError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schiefgegangen?
 
-Dieser Fehler tritt auf, wenn eine Funktion (auf einem bestimmten Objekt) mit einem `this`-Wert aufgerufen wird, der nicht dem von der Funktion erwarteten Typ entspricht.
+Wenn dieser Fehler ausgelöst wird, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen, das nicht dem von der Funktion erwarteten Typ entspricht.
 
 Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und ein `this`-Argument bereitgestellt wird, das nicht den erwarteten Typ hat.
 
-Das Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion sein, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder eine Lambda-Funktion bereitstellen, die den Aufruf vornimmt, oder die Funktion {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt zu erzwingen.
+Das Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion, wenn es von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder eine Lambda-Funktion bereitstellen, die den Aufruf durchführt, oder die Funktion {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt festzulegen.
 
 ## Beispiele
 

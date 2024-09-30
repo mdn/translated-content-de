@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`focus()`**-Methode der [`WindowClient`](/de/docs/Web/API/WindowClient)-Schnittstelle gibt dem aktuellen Client den Benutzereingabefokus und gibt ein {{jsxref("Promise")}} zurück, das auf den bestehenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
+Die **`focus()`**-Methode des [`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces gibt dem aktuellen Client den Benutzereingabefokus und gibt ein {{jsxref("Promise")}} zurück, das auf den bestehenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ Ein {{jsxref("Promise")}}, das auf den bestehenden [`WindowClient`](/de/docs/Web
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Promise wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App eine [transiente Aktivierung](/de/docs/Web/Security/User_activation) hat.
+  - : Das Versprechen wird mit dieser Ausnahme zurückgewiesen, wenn keines der Fenster im Ursprung der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) aufweist.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprung der App muss eine [transiente Aktivierung](/de/docs/Web/Security/User_activation) haben.
+- Mindestens ein Fenster im Ursprung der App muss eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) aufweisen.
 
 ## Beispiele
 

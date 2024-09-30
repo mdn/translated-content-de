@@ -19,9 +19,9 @@ new DOMRectReadOnly(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Die `x` Koordinate des Ursprungs von `DOMRectReadOnly`.
+  - : Die `x`-Koordinate des Ursprungs von `DOMRectReadOnly`.
 - `y`
-  - : Die `y` Koordinate des Ursprungs von `DOMRectReadOnly`.
+  - : Die `y`-Koordinate des Ursprungs von `DOMRectReadOnly`.
 - `width`
   - : Die Breite des `DOMRectReadOnly`.
 - `height`
@@ -29,7 +29,7 @@ new DOMRectReadOnly(x, y, width, height)
 
 ## Beispiele
 
-Um ein neues `DOMRectReadOnly` zu erstellen, könnten Sie eine Zeile Code wie folgt ausführen:
+Um ein neues `DOMRectReadOnly` zu erstellen, können Sie eine Zeile Code wie folgt ausführen:
 
 ```js
 const myDOMRect = new DOMRectReadOnly(0, 0, 100, 100);

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS **universelle Selektor** (`*`) passt zu Elementen jeglichen Typs.
+Der CSS-**universelle Selektor** (`*`) wählt Elemente jeglichen Typs aus.
 
 ```css
 /* Selects all elements */
@@ -16,11 +16,11 @@ Der CSS **universelle Selektor** (`*`) passt zu Elementen jeglichen Typs.
 }
 ```
 
-Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn man mit Dokumenten umgeht, die mehrere Namespaces enthalten, wie HTML mit inline SVG oder MathML oder XML, das mehrere Vokabulare mischt.
+Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher mit einem Namensraum versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|*` - entspricht allen Elementen im Namespace _ns_
-- `*|*` - entspricht allen Elementen
-- `|*` - entspricht allen Elementen ohne einen deklarierten Namespace
+- `ns|*` - wählt alle Elemente im Namensraum _ns_ aus
+- `*|*` - wählt alle Elemente aus
+- `|*` - wählt alle Elemente ohne einen deklarierten Namensraum aus
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_
 * { style properties }
 ```
 
-Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` äquivalent.
+Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
 
 ## Beispiele
 
@@ -72,9 +72,9 @@ Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warnin
 
 {{EmbedLiveSample('Examples')}}
 
-### Namespaces
+### Namensräume
 
-In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namespace ansprechen.
+In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namensraum auswählen.
 
 ```css
 @namespace example url(http://www.example.com/);

@@ -1,5 +1,5 @@
 ---
-title: "XRHitTestResult: createAnchor()-Methode"
+title: "XRHitTestResult: Methode createAnchor()"
 short-title: createAnchor()
 slug: Web/API/XRHitTestResult/createAnchor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`createAnchor()`**-Methode des [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Interfaces erstellt einen [`XRAnchor`](/de/docs/Web/API/XRAnchor) aus einem Treffertest-Ergebnis, das an ein reales Objekt angehängt ist.
+Die **`createAnchor()`**-Methode der [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Schnittstelle erstellt einen [`XRAnchor`](/de/docs/Web/API/XRAnchor) aus einem Treffergebnis, das einem realen Objekt zugeordnet ist.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein {{jsxref("Promise")}}, das mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor)
 
 ## Beispiele
 
-### Erstellen eines Ankers aus einem Treffertest-Ergebnis
+### Erstellen eines Anchors aus einem Treffergebnis
 
-Das folgende Beispiel beginnt mit einem [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult), das durch Aufrufen von [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) erhalten wurde. Nach dem Aufruf von `createAnchor()` wird das Promise mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor) aufgelöst, um ein virtuelles Objekt an diesem Ort zu befestigen.
+Das folgende Beispiel beginnt mit einem [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult), das durch Aufruf von [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) abgerufen wurde. Nach dem Aufruf von `createAnchor()` wird das Promise mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor) aufgelöst, um ein virtuelles Objekt an diesem Ort zu befestigen.
 
 ```js
 hitTestResult.createAnchor().then(

@@ -1,5 +1,5 @@
 ---
-title: "WorkletSharedStorage: get()-Methode"
+title: "WorkletSharedStorage: get() Methode"
 short-title: get()
 slug: Web/API/WorkletSharedStorage/get
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`get()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
+Die **`get()`** Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ get(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares darstellt, das Sie abrufen möchten.
+  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares repräsentiert, das Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das entweder mit einem String erfüllt wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder mit `undefined`, wenn der angegebene `key` nicht im gemeinsamen Speicher gefunden wird.
+Ein {{jsxref("Promise")}}, der entweder mit einem String aufgelöst wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder mit `undefined`, wenn der angegebene `key` nicht im gemeinsamen Speicher gefunden wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
     - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
-    - `key` die vom Browser definierte maximale Länge überschreitet.
-    - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
+    - `key` die vom Browser festgelegte maximale Länge überschreitet.
+    - Die aufrufende Stelle die Shared Storage API nicht erfolgreich in einem [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
 
 ## Beispiele
 
-### Messen der K+-Frequenz
+### Messung der K+ Frequenz
 
-Das folgende Beispiel misst die K+-Frequenz von Inhaltsaufrufen. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die Mindestanzahl von Ansichten, bevor ein Benutzer bestimmte Inhalte erkennen oder sich daran erinnern kann (oft im Kontext von Anzeigenansichten verwendet).
+Das folgende Beispiel misst die K+ Frequenz von Inhaltsansichten. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die Mindestanzahl von Ansichten, bevor ein Nutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet).
 
-Das Hauptseitenskript:
+Das Skript der Hauptseite:
 
 ```js
 // k-frequency-measurement.js
@@ -112,7 +112,7 @@ class KFreqMeasurementOperation {
 register("k-freq-measurement", KFreqMeasurementOperation);
 ```
 
-Weitere Details zu diesem Beispiel finden Sie unter [K+-Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Starseite für Links zu weiteren Beispielen.
+Für weitere Details zu diesem Beispiel siehe [K+ Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Besuchen Sie die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für Links zu weiteren Beispielen.
 
 ## Spezifikationen
 
@@ -125,4 +125,4 @@ Weitere Details zu diesem Beispiel finden Sie unter [K+-Frequenzmessung](https:/
 ## Siehe auch
 
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
-- [Noise und Skalierung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf developers.google.com (2023)
+- [Rauschen und Skalierung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf developers.google.com (2023)

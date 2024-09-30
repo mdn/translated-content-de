@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CR und LF** sind [Steuerzeichen](https://en.wikipedia.org/wiki/Control_character) oder [Bytecode](https://en.wikipedia.org/wiki/Bytecode), die verwendet werden können, um einen Zeilenumbruch in einer Textdatei zu markieren.
+**CR und LF** sind [Steuerzeichen](https://en.wikipedia.org/wiki/Control_character) oder [Bytecode](https://en.wikipedia.org/wiki/Bytecode), die verwendet werden können, um einen Zeilenumbruch in einer Textdatei zu kennzeichnen.
 
-- CR = **Carriage Return** (`\r`, `0x0D` in hexadezimal, 13 in dezimal) — bewegt den Cursor an den Anfang der Zeile, ohne zur nächsten Zeile zu springen.
-- LF = **Line Feed** (`\n`, `0x0A` in hexadezimal, 10 in dezimal) — bewegt den Cursor in die nächste Zeile, ohne zum Anfang der Zeile zurückzukehren.
+- CR = **Carriage Return** (`\r`, `0x0D` in hexadezimal, 13 in dezimal) — bewegt den Cursor an den Anfang der Zeile, ohne zur nächsten Zeile vorzurücken.
+- LF = **Line Feed** (`\n`, `0x0A` in hexadezimal, 10 in dezimal) — bewegt den Cursor zur nächsten Zeile, ohne zum Anfang der Zeile zurückzukehren.
 
-Ein CR unmittelbar gefolgt von einem LF (CRLF, `\r\n` oder `0x0D0A`) bewegt den Cursor an den Anfang der Zeile und dann in die nächste Zeile.
+Ein CR, das unmittelbar von einem LF gefolgt wird (CRLF, `\r\n` oder `0x0D0A`), bewegt den Cursor an den Anfang der Zeile und dann zur nächsten Zeile.
 
 ## Siehe auch
 

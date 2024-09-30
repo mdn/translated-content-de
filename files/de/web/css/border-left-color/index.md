@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-left-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des linken [Randes](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den CSS-Kurzschreibweisen {{cssxref("border-color")}} oder {{cssxref("border-left")}} eingestellt werden.
+Die **`border-left-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den verkürzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-left")}} gesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/border-left-color.html")}}
 
@@ -30,12 +30,12 @@ border-left-color: revert-layer;
 border-left-color: unset;
 ```
 
-Die Eigenschaft `border-left-color` wird als einzelner Wert angegeben.
+Die `border-left-color`-Eigenschaft wird als einzelner Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des linken Randes.
+  - : Die Farbe des linken Rahmens.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ Die Eigenschaft `border-left-color` wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein einfaches div mit einem Rahmen
+### Ein einfaches `<div>` mit einem Rahmen
 
 #### HTML
 
@@ -88,7 +88,7 @@ Die Eigenschaft `border-left-color` wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die CSS-Kurzschreibweisen für Rahmen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, und {{Cssxref("border-color")}}.
-- Die farbenbezogenen CSS-Eigenschaften für die anderen Ränder: {{Cssxref("border-right-color")}}, {{Cssxref("border-bottom-color")}}, und {{Cssxref("border-top-color")}}.
+- Die rahmenbezogenen CSS-Kurzschreibweisen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, und {{Cssxref("border-color")}}.
+- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{Cssxref("border-right-color")}}, {{Cssxref("border-bottom-color")}}, und {{Cssxref("border-top-color")}}.
 - Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-left-style")}} und {{cssxref("border-left-width")}}.
 - Der Standardfarbwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).

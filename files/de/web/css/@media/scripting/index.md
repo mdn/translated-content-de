@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Das **`scripting`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob Scripting (wie JavaScript) verfügbar ist.
+Die **`scripting`** [CSS](/de/docs/Web/CSS) [Medienabfrage](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob Skripte (wie JavaScript) verfügbar sind.
 
 > [!NOTE]
-> Die Erkennung erfolgt durch die Browser basierend auf den Benutzereinstellungen. Einige Browser-Erweiterungen können Skript-Blockierung mit unterschiedlichen Techniken implementieren. In solchen Fällen kann es sein, dass das `scripting` Media-Feature nicht wie erwartet funktioniert.
+> Die Erkennung erfolgt durch die Browser basierend auf den Benutzereinstellungen. Einige Browser-Erweiterungen können Skript-Blockierung mit unterschiedlichen Techniken implementieren. In solchen Fällen kann die `scripting` Medienabfrage möglicherweise nicht wie erwartet funktionieren.
 
 ## Syntax
 
-Das `scripting`-Feature wird als Schlüsselwortwert aus der folgenden Liste festgelegt.
+Das `scripting`-Feature wird als Schlüsselwortwert aus der folgenden Liste angegeben.
 
 - `none`
-  - : Scripting ist im aktuellen Dokument vollständig nicht verfügbar.
+  - : Skripting ist im aktuellen Dokument vollständig nicht verfügbar.
 - `initial-only`
-  - : Scripting ist während des initialen Seitenladens aktiviert, aber danach nicht mehr.
+  - : Skripting ist während des initialen Seitenladens aktiviert, aber danach nicht mehr.
 - `enabled`
-  - : Scripting wird im aktuellen Dokument unterstützt und ist aktiv.
+  - : Skripting wird im aktuellen Dokument unterstützt und ist aktiv.
 
 ## Beispiele
 
@@ -76,4 +76,4 @@ p {
 ## Siehe auch
 
 - [@media](/de/docs/Web/CSS/@media)
-- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)

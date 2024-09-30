@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("Pointer Events")}} {{secureContext_header}}
 
-Die **`getCoalescedEvents()`**-Methode des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die zu einem einzelnen [`pointermove`](/de/docs/Web/API/Element/pointermove_event) oder [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event)-Ereignis zusammengefasst (koalesziert) wurden. Anstelle eines Stroms von vielen [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignissen fassen Benutzeragenten mehrere Updates in ein einzelnes Ereignis zusammen. Dies hilft der Leistung, da der Benutzeragent weniger Ereignishandhabung durchführen muss, jedoch geht dabei die Granularität und Genauigkeit beim Tracking, insbesondere bei schnellen und großen Bewegungen, verloren.
+Die **`getCoalescedEvents()`**-Methode der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die zu einem einzelnen [`pointermove`](/de/docs/Web/API/Element/pointermove_event) oder [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event)-Ereignis zusammengefasst (koalesziert) wurden.
+Anstatt eines kontinuierlichen Stroms von vielen [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignissen fassen Benutzeragenten mehrere Aktualisierungen zu einem einzigen Ereignis zusammen.
+Dies hilft bei der Leistung, da der Benutzeragent weniger Ereignisbearbeitung durchführen muss, aber es gibt eine Verringerung der Granularität und Genauigkeit beim Tracking, insbesondere bei schnellen und großen Bewegungen.
 
-Die **`getCoalescedEvents()`**-Methode ermöglicht Anwendungen den Zugriff auf alle un-koaleszierten Positionsänderungen für eine präzise Handhabung der Zeigerbewegungsdaten, wo nötig. Un-koaleszierte Positionsänderungen sind beispielsweise in Zeichenanwendungen wünschenswert, da der Zugriff auf alle Ereignisse hilft, glattere Kurven zu bauen, die die Bewegung eines Zeigers besser nachbilden.
+Die **`getCoalescedEvents()`**-Methode ermöglicht es Anwendungen, auf alle nicht zusammengefassten Positionsänderungen zuzugreifen, um eine präzise Behandlung der Zeigerbewegungsdaten dort zu ermöglichen, wo es notwendig ist.
+Nicht zusammengefasste Positionsänderungen sind in Zeichenanwendungen wünschenswert, da der Zugriff auf alle Ereignisse hilft, glattere Kurven zu erzeugen, die besser der Zeigerbewegung entsprechen.
 
-Für eine Illustration von koaleszierten Ereignissen siehe [Abbildung 7 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_coalesced).
+Eine Darstellung der koaleszierten Ereignisse finden Sie in [Abbildung 7 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_coalesced).
 
 ## Syntax
 

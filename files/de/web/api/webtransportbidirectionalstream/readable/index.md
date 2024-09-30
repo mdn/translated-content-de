@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`readable`** des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces gibt eine Instanz von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream) zurück, die genutzt werden kann, um eingehende Daten zuverlässig zu lesen.
+Die schreibgeschützte **`readable`**-Eigenschaft der [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Schnittstelle gibt eine [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Instanz zurück, die verwendet werden kann, um eingehende Daten zuverlässig zu lesen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces.
+Siehe die Hauptseite der [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Schnittstelle.
 
 ## Spezifikationen
 

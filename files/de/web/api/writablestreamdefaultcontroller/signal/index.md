@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der Schnittstelle [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) gibt das mit dem Controller verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
+Die schreibgeschützte **`signal`**-Eigenschaft der [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController)-Schnittstelle gibt das mit dem Controller verknüpfte [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt.
 
 ### Abbrechen eines langen Schreibvorgangs
 
-In diesem Beispiel simulieren wir eine langsame Operation mit einem lokalen Sink: Wir tun nichts, wenn einige Daten geschrieben werden, außer eine Sekunde zu warten. Dies gibt uns genügend Zeit, die Methode `writer.abort()` aufzurufen und das Versprechen sofort abzulehnen.
+In diesem Beispiel simulieren wir einen langsamen Vorgang mit einem lokalen Sink: Wir tun nichts, wenn einige Daten geschrieben werden, außer eine Sekunde zu warten. Dies gibt uns genügend Zeit, die `writer.abort()`-Methode aufzurufen und das Versprechen sofort abzulehnen.
 
 ```js
 const writingStream = new WritableStream({
@@ -43,9 +43,9 @@ writer.write("Lorem ipsum test data");
 await writer.abort("Manual abort!");
 ```
 
-### Übertragen des `AbortSignal` an die zugrunde liegende Ebene
+### Übertragen des `AbortSignal` auf die darunterliegende Ebene
 
-In diesem Beispiel verwenden wir die [Fetch API](/de/docs/Web/API/Fetch_API), um die Nachricht tatsächlich an einen Server zu senden. Die Fetch API unterstützt auch [`AbortSignal`](/de/docs/Web/API/AbortSignal): Es ist möglich, dasselbe Objekt sowohl für die `fetch`-Methode als auch den [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) zu verwenden.
+In diesem Beispiel verwenden wir die [Fetch API](/de/docs/Web/API/Fetch_API), um die Nachricht tatsächlich an einen Server zu senden. Die Fetch API unterstützt ebenfalls [`AbortSignal`](/de/docs/Web/API/AbortSignal): Es ist möglich, dasselbe Objekt sowohl für die `fetch`-Methode als auch den [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) zu verwenden.
 
 ```js
 const endpoint = "https://www.example.com/api"; // Fake URL for example purpose

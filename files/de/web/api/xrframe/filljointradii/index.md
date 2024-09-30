@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`fillJointRadii()`**-Methode des [`XRFrame`](/de/docs/Web/API/XRFrame)-Interfaces füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenkräumen und gibt `true` zurück, wenn sie für alle Räume erfolgreich ist.
+Die **`fillJointRadii()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenkbereichen und gibt `true` zurück, wenn dies für alle Bereiche erfolgreich war.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ fillJointRadii(jointSpaces, radii)
 ### Parameter
 
 - `jointSpaces`
-  - : Ein Array von [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Objekten, für die die Radien erhalten werden sollen.
+  - : Ein Array von [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Objekten, für das die Radien bestimmt werden sollen.
 - `radii`
   - : Ein {{jsxref("Float32Array")}}, das mit den Radien der `jointSpaces` gefüllt wird.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob alle Räume eine gültige Pose haben.
+Ein Boolean-Wert, der angibt, ob alle Bereiche eine gültige Pose haben.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ Ein boolescher Wert, der angibt, ob alle Räume eine gültige Pose haben.
 
 ### Radien für alle Gelenke einer Hand erhalten
 
-Um effizient alle Radien für alle 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillJointRadii()`-Methode verwenden.
+Um effizient Radien für alle 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillJointRadii()`-Methode verwenden.
 
 ```js
 let radii1 = new Float32Array(25);

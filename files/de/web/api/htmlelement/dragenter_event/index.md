@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: dragenter Ereignis"
+title: "HTMLElement: dragenter-Ereignis"
 short-title: dragenter
 slug: Web/API/HTMLElement/dragenter_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel zum Ablegen betritt. Das Zielobjekt ist die _unmittelbare Benutzerauswahl_ (das Element, das direkt vom Benutzer als Ziel zum Ablegen angegeben wird) oder das {{HTMLElement("body")}}-Element.
+Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel für das Ablegen betritt. Das Zielobjekt ist die _unmittelbare Benutzerauswahl_ (das unmittelbar vom Benutzer als Ablageziel angegebene Element) oder das {{HTMLElement("body")}}-Element.
 
-Dieses Ereignis ist abbrechbar und kann weiter zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekt propagiert werden.
+Dieses Ereignis ist abbruchfähig und kann bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekten nach oben sprudeln.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("dragenter", (event) => {});
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Stilisieren von Ablagebereichen beim Dragenter
+### Styling von Ablagezonen bei dragenter
 
 In diesem Beispiel haben wir ein verschiebbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Wir hören auf das `dragenter`-Ereignis, um dem anderen Container einen lila Hintergrund zu geben, während sich das verschiebbare Element darüber befindet, um anzuzeigen, dass das Element in den Container abgelegt werden könnte.
+Wir hören auf das `dragenter`-Ereignis, um dem anderen Container einen violetten Hintergrund zu geben, während sich das verschiebbare Element darüber befindet, um zu signalisieren, dass das verschiebbare Element auf den Container abgelegt werden könnte.
 
-In diesem unvollständigen Beispiel haben wir das Ablegen jedoch nicht implementiert: Ein vollständiges Beispiel für Drag and Drop finden Sie auf der Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem Teilbeispiel haben wir das Ablegen jedoch nicht implementiert: Ein vollständiges Beispiel für Drag-and-Drop finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -113,7 +113,7 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Weitere Drag-and-Drop-Ereignisse:
+- Andere Drag-and-Drop-Ereignisse:
 
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)

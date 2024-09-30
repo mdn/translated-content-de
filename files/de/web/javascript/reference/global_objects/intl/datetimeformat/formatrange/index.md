@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`formatRange()`** von Instanzen von {{jsxref("Intl.DateTimeFormat")}} formatiert einen Datumsbereich auf die knappste Weise, basierend auf den beim Instanziieren dieses `Intl.DateTimeFormat`-Objekts angegebenen lokalen Gegebenheiten und Optionen.
+Die Methode **`formatRange()`** von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert einen Datumsbereich auf die knappste Weise, basierend auf den bei der Instanziierung dieses `Intl.DateTimeFormat`-Objekts angegebenen Sprachumgebungen und Optionen.
 
 {{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-formatrange.html", "taller")}}
 
@@ -26,13 +26,13 @@ formatRange(startDate, endDate)
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Datumsbereich gemäß den lokalen Gegebenheiten und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts formatiert darstellt.
+Ein String, der den angegebenen Datumsbereich formatiert gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts darstellt.
 
 ## Beispiele
 
-### Grundlegende Nutzung von formatRange
+### Grundlegende Verwendung von formatRange
 
-Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die knappste Weise basierend auf dem bei der Instanziierung von {{jsxref("Intl.DateTimeFormat")}} bereitgestellten `locale` und `options`.
+Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die knappste Weise, basierend auf dem bei der Instanziierung von {{jsxref("Intl.DateTimeFormat")}} angegebenen `locale` und den `options`.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT

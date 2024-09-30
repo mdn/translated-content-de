@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`rem`**-Anweisungen, kurz für _Remainder_, werden verwendet, um den Rest zu berechnen, der übrig bleibt, wenn eine ganze Zahl durch eine andere ganze Zahl geteilt wird, ähnlich dem **`%`**-Operator in anderen Sprachen. Die **`rem`**-Anweisungen sind nur für ganzzahlige Typen verfügbar und nicht für Gleitkomma-Typen.
+Die **`rem`**-Anweisungen, kurz für _Remainder_ (Rest), werden verwendet, um den Rest zu berechnen, der übrig bleibt, wenn eine ganze Zahl durch eine andere ganze Zahl geteilt wird, ähnlich dem Operator **`%`** in anderen Sprachen. Die **`rem`**-Anweisungen sind nur für die Ganzzahltypen verfügbar und nicht für die Gleitkommatypen.
 
 {{EmbedInteractiveExample("pages/wat/rem.html", "tabbed-taller")}}
 
@@ -24,9 +24,9 @@ i32.rem
 ;; the top item on the stack will now be 1 (10 % 3 = 1)
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.rem_s` | `0x6f`         |
-| `i32.rem_u` | `0x70`         |
-| `i64.rem_s` | `0x81`         |
-| `i64.rem_u` | `0x82`         |
+| Anweisung    | Binärer Opcode |
+| ------------ | -------------- |
+| `i32.rem_s`  | `0x6f`         |
+| `i32.rem_u`  | `0x70`         |
+| `i64.rem_s`  | `0x81`         |
+| `i64.rem_u`  | `0x82`         |

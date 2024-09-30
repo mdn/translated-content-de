@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß der lokalen Zeit zurück, wobei 0 den Sonntag darstellt. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
+Die Methode **`getDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß lokaler Zeit zurück, wobei 0 für Sonntag steht. Für den Kalendertag siehe {{jsxref("Date.prototype.getDate()")}}.
 
 {{EmbedInteractiveExample("pages/js/date-getday.html", "shorter")}}
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, zwischen 0 und 6, der den Wochentag für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 6, die den Wochentag für das angegebene Datum gemäß lokaler Zeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag usw. Gibt `NaN` zurück, wenn das Datum [ungültig ist](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date).
 
 ## Beschreibung
 
-Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist, um in Arrays von Tagen zu indizieren, zum Beispiel:
+Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist zum Indizieren in Arrays von Tagen, zum Beispiel:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -37,7 +37,7 @@ const dayNames = ["Sunday", "Monday", "Tuesday" /* , … */];
 console.log(dayNames[day]); // "Monday"
 ```
 
-Für Internationalisierungszwecke sollten Sie jedoch bevorzugt {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter verwenden.
+Allerdings sollten Sie für die Zwecke der Internationalisierung stattdessen {{jsxref("Intl.DateTimeFormat")}} mit dem Parameter `options` verwenden.
 
 ```js
 const options = { weekday: "long" };

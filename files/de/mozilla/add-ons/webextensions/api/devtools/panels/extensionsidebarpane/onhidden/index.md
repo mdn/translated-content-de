@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird aufgerufen, wenn das Seitenleistenfeld ausgeblendet wird, weil der Benutzer zu einem anderen Fenster wechselt.
+Wird aufgerufen, wenn das Seitenleistenfeld ausgeblendet wird, weil der Benutzer von diesem wegschaltet.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, und `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, und `false` andernfalls.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Ereignisse beim Anzeigen und Ausblenden.
+Erstellen Sie ein Seitenleistenfeld und protokollieren Sie die Ereignisse des Ein- und Ausblendens.
 
 ```js
 function onCreated(sidebarPane) {

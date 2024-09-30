@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`ascent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Aszendenz-Metrik für die Schriftart. Die Aszendenz-Metrik ist die Höhe über der Grundlinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext anzuordnen.
+Der **`ascent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}}-Regel definiert die Aszendent-Metrik für die Schriftart. Die Aszendent-Metrik ist die Höhe über der Grundlinie, die CSS zur Anordnung von Linienboxen in einem Inline-Formatierungskontext verwendet.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ ascent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftdatei entnommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftartdatei entnommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -33,9 +33,9 @@ ascent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben von Metriken einer Ersatzschriftart
+### Überschreiben der Metriken einer Ersatzschriftart
 
-Die `ascent-override`-Eigenschaft kann nützlich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden, um diese besser an eine primäre Webschriftart anzupassen.
+Die Eigenschaft `ascent-override` kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
 
 ```css
 @font-face {

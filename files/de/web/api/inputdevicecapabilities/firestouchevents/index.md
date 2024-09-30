@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Input Device Capabilities API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`firesTouchEvents`** des [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Gerät `touch events` auslöst.
+Die **`firesTouchEvents`**-Eigenschaft (schreibgeschützt) des [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Gerät Touch-Events auslöst.
 
-Diese Eigenschaft kann verwendet werden, um `mouse events` zu erkennen, die eine Aktion repräsentieren, die möglicherweise bereits von `touch event handlers` behandelt wurde. Dies bedeutet nicht unbedingt, dass das Gerät ein Touchscreen ist. Beispielsweise erzeugen Stift- und Mausgeräte typischerweise `touch events` auf mobilen Browsern.
+Sie können diese Eigenschaft verwenden, um Mausereignisse zu erkennen, die eine Aktion darstellen, die möglicherweise bereits von Touch-Event-Handlern verarbeitet wurde. Dies bedeutet nicht unbedingt, dass das Gerät ein Touchscreen ist. Zum Beispiel erzeugen Stift- und Mausgeräte typischerweise Touch-Events auf mobilen Browsern.
 
 ## Syntax
 

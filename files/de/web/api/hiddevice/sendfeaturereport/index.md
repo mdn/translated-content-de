@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`sendFeatureReport()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces sendet einen Feature-Bericht an das HID-Gerät. Feature-Berichte sind eine Möglichkeit, nicht standardisierte HID-Daten zwischen HID-Geräten und Anwendungen auszutauschen.
+Die **`sendFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle sendet einen Feature-Bericht an das HID-Gerät. Feature-Berichte sind ein Mittel für HID-Geräte und Anwendungen, um nicht standardisierte HID-Daten auszutauschen.
 
-Die `reportId` für jedes der vom Gerät unterstützten Berichtformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
+Die `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann von [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ sendFeatureReport(reportId, data)
 ### Parameter
 
 - `reportId`
-  - : Eine 8-Bit-Berichts-ID. Wenn das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
+  - : Eine 8-Bit-Berichts-ID. Falls das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}.
+  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Beric
 
 ## Beispiele
 
-Im folgenden Beispiel lässt `sendFeatureReport()` ein Gerät blinken. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
+Im folgenden Beispiel lässt `sendFeatureReport()` ein Gerät blinken. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 const reportId = 1;

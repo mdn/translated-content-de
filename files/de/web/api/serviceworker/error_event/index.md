@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorker: error-Ereignis"
+title: "ServiceWorker: error Ereignis"
 short-title: error
 slug: Web/API/ServiceWorker/error_event
 l10n:
@@ -12,7 +12,7 @@ Das `error`-Ereignis wird ausgelöst, wenn ein Fehler im Service Worker auftritt
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erhält einen Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
+Der folgende Codeausschnitt erhält eine Referenz auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
 
 ```js
 // in the page being controlled

@@ -8,16 +8,16 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der angibt, wo die verlinkte Ressource dargestellt werden soll.
+Die **`target`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist eine Zeichenkette, die angibt, wo die verlinkte Ressource angezeigt werden soll.
 
-Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut des {{HTMLElement("a")}}-Elements wider.
+Sie reflektiert das [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut des {{HTMLElement("a")}}-Elements.
 
 ## Wert
 
-Ein String, der das Ziel darstellt. Sein Wert kann sein:
+Eine Zeichenkette, die das Ziel darstellt. Ihr Wert kann sein:
 
 - Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Element/a#target): `_blank`, `_self`, `_parent` oder `_top`.
+- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Element/a#target): `_blank`, `_self`, `_parent`, oder `_top`.
 
 ## Beispiel
 
@@ -40,6 +40,6 @@ console.log(link.target); // output: "_blank"
 
 ## Siehe auch
 
-- [`HTMLBaseElement.target`](/de/docs/Web/API/HTMLBaseElement/target) Eigenschaft
-- [`HTMLFormElement.target`](/de/docs/Web/API/HTMLFormElement/target) Eigenschaft
-- [`HTMLAreaElement.target`](/de/docs/Web/API/HTMLAreaElement/target) Eigenschaft
+- [`HTMLBaseElement.target`](/de/docs/Web/API/HTMLBaseElement/target)-Eigenschaft
+- [`HTMLFormElement.target`](/de/docs/Web/API/HTMLFormElement/target)-Eigenschaft
+- [`HTMLAreaElement.target`](/de/docs/Web/API/HTMLAreaElement/target)-Eigenschaft

@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`cellIndex`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces
-repräsentiert die Position einer Zelle innerhalb ihrer Zeile ({{htmlelement("tr")}}). Die erste Zelle hat den Index `0`.
+Die **`cellIndex`** schreibgeschützte Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle
+repräsentiert die Position einer Zelle innerhalb ihrer Zeile ({{htmlelement("tr")}}). Die erste Zelle hat einen Index von `0`.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Gibt den Index der Zelle zurück oder `-1`, wenn die Zelle nicht Teil einer Zeil
 
 ## Beispiele
 
-Dieses Beispiel fügt allen Zellennummern der ersten Zeile des `tbody` ein Label hinzu.
+Dieses Beispiel fügt allen Zellnummern der ersten Zeile des `tbody` ein Label hinzu.
 
 ### HTML
 

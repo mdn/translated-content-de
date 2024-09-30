@@ -1,5 +1,5 @@
 ---
-title: "URL: protocol-Eigenschaft"
+title: "URL: protocol Eigenschaft"
 short-title: protocol
 slug: Web/API/URL/protocol
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`protocol`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
+Die **`protocol`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle
+ist ein String, der das Protokollschema der URL repräsentiert, einschließlich des
+abschließenden `':'`.
 
 ## Wert
 
@@ -33,4 +35,4 @@ console.log(url.protocol); // Logs "https:"
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

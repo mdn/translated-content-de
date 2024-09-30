@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**First Paint** ist die Zeit zwischen der Navigation und dem Zeitpunkt, an dem der Browser erstmals Pixel auf dem Bildschirm rendert, wobei etwas dargestellt wird, das sich visuell von der Standard- [Hintergrundfarbe](/de/docs/Web/CSS/background-color) des [body](/de/docs/Web/API/Document/body) unterscheidet. Es ist der erste wichtige Moment beim Laden einer Seite und beantwortet die Frage: "Hat der Browser begonnen, die Seite zu rendern?"
+**First Paint** ist die Zeit zwischen der Navigation und dem Moment, in dem der Browser erstmals Pixel auf den Bildschirm rendert, indem er etwas anzeigt, das sich visuell von der Standard-[Hintergrundfarbe](/de/docs/Web/CSS/background-color) des [`body`](/de/docs/Web/API/Document/body) unterscheidet. Es ist der erste Schlüsselmoment beim Seitenladen und beantwortet die Frage: "Hat der Browser begonnen, die Seite zu rendern?"
 
 ## Siehe auch
 

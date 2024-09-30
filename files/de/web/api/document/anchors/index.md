@@ -1,5 +1,5 @@
 ---
-title: "Document: anchors-Eigenschaft"
+title: "Document: anchors Eigenschaft"
 short-title: anchors
 slug: Web/API/Document/anchors
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}} {{Deprecated_Header}}
 
-Die schreibgeschützte **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste aller Anker im Dokument zurück.
+Die **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Liste aller Anker im Dokument zurückgibt.
 
 ## Wert
 
@@ -66,11 +66,11 @@ Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem An
 </html>
 ```
 
-[Im JSFiddle anzeigen](https://jsfiddle.net/S4yNp)
+[Auf JSFiddle ansehen](https://jsfiddle.net/S4yNp)
 
 ## Hinweise
 
-Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur die Anker, die mit dem `name`-Attribut erstellt wurden, nicht jene, die mit dem `id`-Attribut erstellt wurden.
+Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur solche, die mit dem `name`-Attribut erstellt wurden, nicht die, die mit dem `id`-Attribut erstellt wurden.
 
 ## Spezifikationen
 

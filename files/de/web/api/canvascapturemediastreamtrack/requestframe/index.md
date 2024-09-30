@@ -1,5 +1,5 @@
 ---
-title: "CanvasCaptureMediaStreamTrack: requestFrame() Methode"
+title: "CanvasCaptureMediaStreamTrack: requestFrame()-Methode"
 short-title: requestFrame()
 slug: Web/API/CanvasCaptureMediaStreamTrack/requestFrame
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`requestFrame()`**-Methode der [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack)-Schnittstelle fordert an, dass ein Frame von der Leinwand erfasst und an den Stream gesendet wird.
+Die **`requestFrame()`**-Methode der [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack)-Schnittstelle fordert an, dass ein Frame von der `<canvas>` erfasst und an den Stream gesendet wird.
 
-Anwendungen, die die Zeitsteuerung von Rendering und Frame-Erfassung präzise kontrollieren müssen, können `requestFrame()` verwenden, um direkt festzulegen, wann ein Frame erfasst werden soll.
+Anwendungen, die das Timing von Rendering und Frame-Erfassung sorgfältig steuern müssen, können `requestFrame()` verwenden, um direkt anzugeben, wann ein Frame erfasst werden soll.
 
-Um die automatische Erfassung von Frames zu verhindern, so dass Frames nur erfasst werden, wenn `requestFrame()` aufgerufen wird, geben Sie bei der Erstellung des Streams einen Wert von 0 für die [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream)-Methode an.
+Um eine automatische Erfassung von Frames zu verhindern, sodass Frames nur erfasst werden, wenn `requestFrame()` aufgerufen wird, geben Sie beim Erstellen des Streams einen Wert von 0 für die [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream)-Methode an.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ requestFrame()
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Derzeit gibt es im Spezifikationsentwurf einen Vermerk, der darauf hinweist, dass zum jetzigen Zeitpunkt keine Ausnahmen ausgelöst werden, wenn die Leinwand nicht origin-clean ist. Dies könnte sich in Zukunft ändern, daher wäre es klug, vorauszuplanen und auf Ausnahmen wie `SecurityError` zu achten (obwohl der spezifische Fehler, der möglicherweise ausgelöst wird, in der Spezifikation nicht erwähnt wird, ist dies ein wahrscheinlicher Kandidat).
+Derzeit gibt es im Spezifikationsentwurf einen Hinweis darauf, dass momentan keine Ausnahmen ausgelöst werden, wenn die `<canvas>` nicht origin-clean ist. Dies könnte sich in Zukunft ändern, daher wäre es klug, sich darauf vorzubereiten und auf Ausnahmen wie `SecurityError` zu achten (obwohl der spezifische Fehler, der ausgelöst werden könnte, nicht in der Spezifikation erwähnt wird, ist dies ein wahrscheinlicher Kandidat).
 
 ## Beispiel
 

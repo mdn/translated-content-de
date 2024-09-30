@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming) Objekts zurück.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming) Objekts ist.
 
-Das JSON enthält nicht die [`target`](/de/docs/Web/API/PerformanceEventTiming/target)-Eigenschaft, da diese vom Typ [`Node`](/de/docs/Web/API/Node) ist, der keine `toJSON()`-Operation bereitstellt.
+Das JSON enthält nicht die [`target`](/de/docs/Web/API/PerformanceEventTiming/target) Eigenschaft, da sie vom Typ [`Node`](/de/docs/Web/API/Node) ist, der keine `toJSON()`-Operation bereitstellt.
 
 ## Beispiele
 
 ### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceEventTiming`-Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceEventTiming` Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -56,7 +56,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft automatisch `toJSON()` auf.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

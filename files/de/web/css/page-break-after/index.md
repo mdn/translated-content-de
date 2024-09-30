@@ -8,9 +8,9 @@ l10n:
 {{CSSRef}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die {{cssxref("break-after")}}-Eigenschaft ersetzt.
+> Diese Eigenschaft wurde durch die {{cssxref("break-after")}} Eigenschaft ersetzt.
 
-Die **`page-break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _nach_ dem aktuellen Element an.
+Die **`page-break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft regelt Seitenumbrüche _nach_ dem aktuellen Element.
 
 {{EmbedInteractiveExample("pages/css/page-break-after.html")}}
 
@@ -34,30 +34,30 @@ page-break-after: revert-layer;
 page-break-after: unset;
 ```
 
-Diese Eigenschaft gilt für Block-Elemente, die eine Box erzeugen. Sie gilt nicht für ein leeres {{HTMLElement("div")}}, das keine Box generieren wird.
+Diese Eigenschaft gilt für Block-Elemente, die eine Box generieren. Sie wird nicht auf einen leeren {{HTMLElement("div")}} angewendet, der keine Box generiert.
 
 ### Werte
 
 - `auto`
-  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Standardwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `always`
-  - : Erzwingt immer Seitenumbrüche nach dem Element.
+  - : Erzwingen Sie immer Seitenumbrüche nach dem Element.
 - `avoid`
-  - : Vermeidet Seitenumbrüche nach dem Element.
+  - : Vermeiden Sie Seitenumbrüche nach dem Element.
 - `left`
-  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Dies ist die Seite, die auf der linken Seite des Buchrückens oder die Rückseite der Seite beim beidseitigen Drucken platziert ist.
+  - : Erzwingen Sie Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Dies ist die Seite, die auf der linken Seite des Buchrückens platziert wird oder die Rückseite der Seite beim Duplexdruck.
 - `right`
-  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Dies ist die Seite, die auf der rechten Seite des Buchrückens oder die Vorderseite der Seite beim beidseitigen Drucken platziert ist.
+  - : Erzwingen Sie Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Dies ist die Seite, die auf der rechten Seite des Buchrückens platziert wird oder die Vorderseite der Seite beim Duplexdruck.
 - `recto`
   - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `right`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `left`.
 - `verso`
   - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `left`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `right`.
 
-## Seitenumbruch-Aliasse
+## Seitenumbruch Aliasse
 
-Die `page-break-after`-Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-after")}} ersetzt wurde.
+Die `page-break-after` Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-after")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias von `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliasse behandelt werden:
+Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias für `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliasse behandelt werden:
 
 | page-break-after | break-after |
 | ---------------- | ----------- |

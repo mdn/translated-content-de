@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`RelativeOrientationSensor()`**
-Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)-Objekt, das die physische Orientierung des Geräts beschreibt.
+Der **`RelativeOrientationSensor()`** Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)-Objekt, das die physische Orientierung des Geräts beschreibt.
 
 ## Syntax
 
@@ -25,14 +24,14 @@ new RelativeOrientationSensor(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl an Proben pro Sekunde, die genommen werden soll, was bedeutet, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis so oft pro Sekunde aufgerufen wird. Eine Ganzzahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lesefrequenz hängt von der Hardware des Geräts ab und kann daher geringer als gewünscht sein.
+      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, was die Anzahl der Male bedeutet, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, wobei Letzteres für Frequenzen unter einer Sekunde gilt. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Verwendung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -44,4 +43,4 @@ new RelativeOrientationSensor(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

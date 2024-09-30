@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die Schnittstelle `VTTRegion` der [WebVTT API](/de/docs/Web/API/WebVTT_API) beschreibt einen Teil des Videos, auf dem ein [`VTTCue`](/de/docs/Web/API/VTTCue) gerendert werden soll.
+Die Schnittstelle `VTTRegion` der [WebVTT API](/de/docs/Web/API/WebVTT_API) beschreibt einen Teil des Videos, auf dem ein [`VTTCue`](/de/docs/Web/API/VTTCue) gerendert wird.
 
 ## Konstruktor
 
@@ -21,17 +21,17 @@ Die Schnittstelle `VTTRegion` der [WebVTT API](/de/docs/Web/API/WebVTT_API) besc
 - [`VTTRegion.width`](/de/docs/Web/API/VTTRegion/width)
   - : Repräsentiert die Breite der Region, als Prozentsatz des Videos.
 - [`VTTRegion.lines`](/de/docs/Web/API/VTTRegion/lines)
-  - : Repräsentiert die Höhe der Region, in der Anzahl von Zeilen.
+  - : Repräsentiert die Höhe der Region in Zeilenanzahl.
 - [`VTTRegion.regionAnchorX`](/de/docs/Web/API/VTTRegion/regionAnchorX)
   - : Repräsentiert den X-Versatz des Regionsankers, als Prozentsatz der Region.
 - [`VTTRegion.regionAnchorY`](/de/docs/Web/API/VTTRegion/regionAnchorY)
   - : Repräsentiert den Y-Versatz des Regionsankers, als Prozentsatz der Region.
 - [`VTTRegion.viewportAnchorX`](/de/docs/Web/API/VTTRegion/viewportAnchorX)
-  - : Repräsentiert den X-Versatz des Viewport-Ankers, als Prozentsatz des Videos.
+  - : Repräsentiert den X-Versatz des Ansichtsfensterankers, als Prozentsatz des Videos.
 - [`VTTRegion.viewportAnchorY`](/de/docs/Web/API/VTTRegion/viewportAnchorY)
-  - : Repräsentiert den Y-Versatz des Viewport-Ankers, als Prozentsatz des Videos.
+  - : Repräsentiert den Y-Versatz des Ansichtsfensterankers, als Prozentsatz des Videos.
 - [`VTTRegion.scroll`](/de/docs/Web/API/VTTRegion/scroll)
-  - : Ein Enum, das darstellt, wie durch das Hinzufügen einer neuen Cue bestehende Cues verschoben werden.
+  - : Ein Enum, das darstellt, wie das Hinzufügen eines neuen Cues bestehende Cues verschiebt.
 
 ## Beispiele
 

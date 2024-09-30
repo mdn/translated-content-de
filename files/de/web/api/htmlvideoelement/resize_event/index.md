@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`resize`**-Ereignis der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle wird ausgelöst, wenn eine oder beide der Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) gerade aktualisiert wurden.
+Das **`resize`**-Ereignis der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle wird ausgelöst, wenn eine oder beide Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) gerade aktualisiert wurden.
 
-Dieses Ereignis kann nicht abgebrochen werden, kann jedoch blubbern.
+Dieses Ereignis kann nicht abgebrochen werden, es kann jedoch ein Bubbling-Effekt auftreten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("resize", (event) => {});

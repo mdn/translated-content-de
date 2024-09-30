@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `strikethrough-position` stellt die ideale vertikale Position des Durchstreichens dar. Die Durchstreichposition wird im Koordinatensystem der Schrift ausgedrückt.
+Das Attribut `strikethrough-position` repräsentiert die ideale vertikale Position des Durchstreichens. Die Durchstreichposition wird im Koordinatensystem der Schrift ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -37,7 +37,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
         <a
           href="https://www.w3.org/TR/SVG/fonts.html#FontFaceElementStrikeThroughPositionAttribute"
           rel="external"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Ausgabe)</a
         >
       </td>
     </tr>

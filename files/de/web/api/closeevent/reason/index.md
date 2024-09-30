@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Die **`reason`**-Schreibgeschützte Eigenschaft des [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Interfaces gibt den [WebSocket-Verbindungsbeendigungsgrund](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) zurück, den der Server für das Schließen der Verbindung angegeben hat, das heißt, eine prägnante, für Menschen lesbare Erklärung des Grundes für das Schließen.
+Die **`reason`** schreibgeschützte Eigenschaft des [`CloseEvent`](/de/docs/Web/API/CloseEvent) Interfaces gibt den vom Server angegebenen [Beendigungsgrund der WebSocket-Verbindung](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) zurück; das heißt, eine prägnante, für Menschen verständliche Erklärung für die Schließung.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel druckt den Wert von `reason` in die Konsole.
+Das folgende Beispiel gibt den Wert von `reason` in der Konsole aus.
 
 ```js
 WebSocket.onclose = (event) => {

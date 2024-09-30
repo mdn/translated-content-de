@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wird zusammen mit der [`@import`](/de/docs/Web/CSS/@import) [At-Regel](/de/docs/Web/CSS/At-rule) verwendet, um die importierte Ressource in einer separaten, benannten [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu platzieren.
+Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wird zusammen mit der [`@import`](/de/docs/Web/CSS/@import) [At-Regel](/de/docs/Web/CSS/At-rule) verwendet, um die importierte Ressource in einer separaten benannten [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu platzieren.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 @import "dark.css" layer(framework.themes.dark);
 ```
 
-`framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert wird.
+`framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert würde.
 
 ## Formale Syntax
 

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: deleteShader()-Methode"
 short-title: deleteShader()
 slug: Web/API/WebGLRenderingContext/deleteShader
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteShader()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) markiert ein angegebenes [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt zur Löschung. Es wird dann gelöscht, sobald der Shader nicht mehr verwendet wird. Diese Methode hat keine Wirkung, wenn der Shader bereits gelöscht wurde, und der [`WebGLShader`](/de/docs/Web/API/WebGLShader) wird automatisch zur Löschung markiert, wenn er vom Garbage Collector zerstört wird.
+Die **`WebGLRenderingContext.deleteShader()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) markiert ein angegebenes [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt zur Löschung. Es wird dann gelöscht, wann immer der Shader nicht mehr verwendet wird. Diese Methode hat keine Wirkung, wenn der Shader bereits gelöscht wurde, und das [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt wird automatisch zur Löschung markiert, wenn es vom Garbage Collector zerstört wird.
 
 ## Syntax
 

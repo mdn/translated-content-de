@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fill`**-Attribut hat zwei verschiedene Bedeutungen. Für Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder alle SVG-Farbserver wie Verläufe oder Muster_) definiert, die zum Malen des Elements verwendet wird; für Animationen definiert es den Endzustand der Animation.
+Das **`fill`**-Attribut hat zwei unterschiedliche Bedeutungen. Für Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder jeden SVG-Malfarbspeicher wie Verlaufsfarben oder Muster_) definiert, mit der das Element gefärbt wird; für Animationen definiert es den Endzustand der Animation.
 
 Das SVG-Präsentationsattribut `fill` und die CSS-{{cssxref("fill")}}-Eigenschaft können mit den folgenden SVG-Elementen verwendet werden:
 
@@ -22,7 +22,7 @@ Das SVG-Präsentationsattribut `fill` und die CSS-{{cssxref("fill")}}-Eigenschaf
 - {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
-Das SVG-`fill`-Attribut kann verwendet werden, um den Endzustand einer Animation mit den folgenden SVG-Elementen zu definieren:
+Das SVG-`fill`-Attribut kann verwendet werden, um den finalen Animationszustand bei den folgenden SVG-Elementen zu definieren:
 
 - {{SVGElement('animate')}}
 - {{SVGElement('animateMotion')}}
@@ -31,7 +31,7 @@ Das SVG-`fill`-Attribut kann verwendet werden, um den Endzustand einer Animation
 
 ## Beispiele
 
-### Grundlegende Farben- und Verlaufsfüllungen sowie Animation
+### Grundlegende Farb- und Verlaufsfüllungen sowie Animationen
 
 ```css hidden
 html,
@@ -72,13 +72,13 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Grundlegende Farben- und Verlaufsfüllungen sowie Animation", '100%', 200)}}
+{{EmbedLiveSample("Grundlegende Farb- und Verlaufsfüllungen sowie Animationen", '100%', 200)}}
 
 ### `context-fill` Beispiel
 
-In diesem Beispiel definieren wir drei Formen mit {{SVGElement('path')}}-Elementen, von denen jedes eine andere [`stroke`](/de/docs/Web/SVG/Attribute/stroke) und `fill`-Farbe hat. Wir definieren auch ein {{SVGElement('circle')}}-Element als Markierung über das {{SVGElement('marker')}}-Element. Jede Form hat die Markierung über die `marker`-CSS-Eigenschaft angewendet.
+In diesem Beispiel definieren wir drei Formen mit {{SVGElement('path')}}-Elementen, jedes mit einem unterschiedlichen [`stroke`](/de/docs/Web/SVG/Attribute/stroke)- und `fill`-Farbensatz. Wir definieren auch ein {{SVGElement('circle')}}-Element als Marker über das {{SVGElement('marker')}}-Element. Jede Form hat den Marker über die `marker`-CSS-Eigenschaft angewendet.
 
-Der {{SVGElement('circle')}}-Element hat `stroke="context-stroke"` und `fill="context-fill"` gesetzt. Da er im Kontext der Formen als Markierung festgelegt ist, führen diese Attribute dazu, dass er die `fill`- und `stroke`-Werte von jedem {{SVGElement('path')}}-Element vererbt.
+Das {{SVGElement('circle')}} hat `stroke="context-stroke"` und `fill="context-fill"` auf sich gesetzt. Da es im Kontext der Formen als Marker gesetzt wird, bewirken diese Attribute, dass es den `fill` und `stroke` übernimmt, die auf dem jeweiligen {{SVGElement('path')}}-Element gesetzt sind.
 
 ```html-nolint
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90">
@@ -107,7 +107,7 @@ Die Ausgabe ist wie folgt:
 {{EmbedLiveSample("`context-stroke` Beispiel", '100%', 220)}}
 
 > [!NOTE]
-> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke`- und `fill`-Werte zu erben, wenn sie durch {{SVGElement('use')}}-Elemente referenziert werden.
+> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke`- und `fill`-Werte zu erben, wenn sie von {{SVGElement('use')}}-Elementen referenziert werden.
 
 ## animate
 
@@ -118,9 +118,9 @@ Für {{SVGElement('animate')}} definiert `fill` den Endzustand der Animation.
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens bei</em
+        <code>freeze</code> (<em>Halten Sie den Zustand des letzten Animationsrahmens</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens bei</em
+          >Halten Sie den Zustand des ersten Animationsrahmens</em
         >)
       </td>
     </tr>
@@ -144,9 +144,9 @@ Für {{SVGElement('animateMotion')}} definiert `fill` den Endzustand der Animati
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens bei</em
+        <code>freeze</code> (<em>Halten Sie den Zustand des letzten Animationsrahmens</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens bei</em
+          >Halten Sie den Zustand des ersten Animationsrahmens</em
         >)
       </td>
     </tr>
@@ -170,9 +170,9 @@ Für {{SVGElement('animateTransform')}} definiert `fill` den Endzustand der Anim
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens bei</em
+        <code>freeze</code> (<em>Halten Sie den Zustand des letzten Animationsrahmens</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens bei</em
+          >Halten Sie den Zustand des ersten Animationsrahmens</em
         >)
       </td>
     </tr>
@@ -213,7 +213,7 @@ Für {{SVGElement('circle')}} ist `fill` ein Präsentationsattribut, das die Far
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## ellipse
 
@@ -241,7 +241,7 @@ Für {{SVGElement('ellipse')}} ist `fill` ein Präsentationsattribut, das die Fa
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## path
 
@@ -269,7 +269,7 @@ Für {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## polygon
 
@@ -297,7 +297,7 @@ Für {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Fa
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## polyline
 
@@ -325,7 +325,7 @@ Für {{SVGElement('polyline')}} ist `fill` ein Präsentationsattribut, das die F
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## rect
 
@@ -353,7 +353,7 @@ Für {{SVGElement('rect')}} ist `fill` ein Präsentationsattribut, das die Farbe
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## set
 
@@ -364,9 +364,9 @@ Für {{SVGElement('set')}} definiert `fill` den Endzustand der Animation.
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens bei</em
+        <code>freeze</code> (<em>Halten Sie den Zustand des letzten Animationsrahmens</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens bei</em
+          >Halten Sie den Zustand des ersten Animationsrahmens</em
         >)
       </td>
     </tr>
@@ -407,7 +407,7 @@ Für {{SVGElement('text')}} ist `fill` ein Präsentationsattribut, das die Farbe
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## textPath
 
@@ -435,12 +435,12 @@ Für {{SVGElement('textPath')}} ist `fill` ein Präsentationsattribut, das die F
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## tref
 
 > [!WARNING]
-> Seit SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht mehr verwendet werden.
+> Ab SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht verwendet werden.
 
 Für {{SVGElement('tref')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes definiert.
 
@@ -466,7 +466,7 @@ Für {{SVGElement('tref')}} ist `fill` ein Präsentationsattribut, das die Farbe
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## tspan
 
@@ -494,7 +494,7 @@ Für {{SVGElement('tspan')}} ist `fill` ein Präsentationsattribut, das die Farb
 </table>
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill` als CSS-Eigenschaft genutzt werden.
 
 ## Spezifikationen
 

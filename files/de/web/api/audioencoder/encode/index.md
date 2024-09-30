@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`encode()`** Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
+Die **`encode()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle stellt eine Kontrollnachricht in die Warteschlange, um ein gegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
 
 ## Syntax
 

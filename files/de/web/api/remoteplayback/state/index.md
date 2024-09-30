@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Die **`state`**-Eigenschaft des [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Interfaces (nur lesbar) gibt den aktuellen Zustand der `RemotePlayback`-Verbindung zurück.
+Die schreibgeschützte **`state`**-Eigenschaft der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle gibt den aktuellen Zustand der `RemotePlayback`-Verbindung zurück.
 
 ## Wert
 
 Einer von:
 
 - `"connecting"`
-  - : Der Benutzeragent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu starten.
+  - : Der User-Agent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu starten.
 - `"connected"`
-  - : Der Wechsel von der lokalen zur Fernwiedergabe hat stattgefunden. Alle Befehle werden nun auf dem Ferngerät ausgeführt.
+  - : Der Übergang von lokaler zu Fernwiedergabe ist erfolgt. Alle Befehle werden nun auf dem entfernten Gerät ausgeführt.
 - `"disconnected"`
-  - : Die Fernwiedergabe wurde nicht gestartet, ist fehlgeschlagen oder wurde beendet.
+  - : Die Fernwiedergabe wurde nicht gestartet, konnte nicht gestartet werden oder wurde gestoppt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `RemotePlayback.state` in die Konsole ausgegeben, wenn der Benutzeragent erfolgreich eine Verbindung herstellt.
+Im folgenden Beispiel wird der Wert von `RemotePlayback.state` in die Konsole ausgegeben, wenn der User-Agent erfolgreich verbindet.
 
 ```js
 RemotePlayback.onconnect = () => {

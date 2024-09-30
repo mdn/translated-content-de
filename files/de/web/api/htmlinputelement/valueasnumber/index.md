@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: valueAsNumber Eigenschaft"
+title: "HTMLInputElement: valueAsNumber-Eigenschaft"
 short-title: valueAsNumber
 slug: Web/API/HTMLInputElement/valueAsNumber
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`valueAsNumber`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zahl oder `NaN`, wenn eine Umwandlung in einen numerischen Wert nicht möglich ist.
+Die **`valueAsNumber`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zahl oder `NaN`, wenn eine Umwandlung in einen numerischen Wert nicht möglich ist.
 
 Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl, die den Wert des Elements darstellt, oder `NaN`, wenn eine numerische Umwandlung unmöglich ist.
+Eine Zahl, die den Wert des Elements darstellt, oder `NaN`, wenn die numerische Konvertierung unmöglich ist.
 
 ## Beispiele
 
 ### Abrufen eines Zahlenwertes
 
-In diesem Beispiel zeigt das Log den aktuellen Wert des {{HTMLElement("input/number", "number")}}-Eingabefeldes an, wenn er geändert wird.
+In diesem Beispiel zeigt das Protokoll den aktuellen Wert des {{HTMLElement("input/number", "number")}}-Eingabefelds, wenn es geändert wird.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("input")}} vom Typ `number` und ein zugehöriges {{htmlelement("label")}} sowie einen {{htmlelement("pre")}}-Container für unsere Ausgabe ein.
+Wir fügen ein {{htmlelement("input")}} des Typs `number` und ein zugehöriges {{htmlelement("label")}} sowie einen {{htmlelement("pre")}}-Container für unsere Ausgabe ein.
 
 ```html
 <label for="number">Pick a number between 1 and 10:</label>
@@ -36,7 +36,7 @@ Wir fügen ein {{htmlelement("input")}} vom Typ `number` und ein zugehöriges {{
 
 #### JavaScript
 
-Das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird jedes Mal auf den aktuellen Wert des `<input>` aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
+Das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird bei jedem [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auf den aktuellen Wert des `<input>`-Elements aktualisiert.
 
 ```js
 const logElement = document.getElementById("log");
@@ -63,11 +63,11 @@ Wenn Sie die Zahl im Widget löschen, ist das Ergebnis `NaN`.
 
 ### Abrufen eines Datumswertes als Zahl
 
-Dieses Beispiel demonstriert die `valueAsNumber`-Eigenschaft eines `<input>`-Elements mit dem Typ {{HTMLElement("input/datetime-local", "datetime-local")}}.
+Dieses Beispiel demonstriert die `valueAsNumber`-Eigenschaft eines `<input>` mit dem Typ {{HTMLElement("input/datetime-local", "datetime-local")}}.
 
 #### HTML
 
-Wir fügen ein `<input>` vom Typ `datetime-local` ein:
+Wir fügen ein `<input>` des Typs `datetime-local` ein:
 
 ```html
 <label for="date">Pick a date and time:</label>
@@ -79,7 +79,7 @@ Wir fügen ein `<input>` vom Typ `datetime-local` ein:
 
 #### JavaScript
 
-Wenn kein Datum oder keine Uhrzeit ausgewählt ist, wird der leere String zu `NaN`. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst, das den `<pre>`-Inhalt aktualisiert und den [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) des Formularelements im Vergleich zu diesem Wert als Zahl anzeigt.
+Wenn kein Datum oder keine Uhrzeit ausgewählt ist, ergibt der leere String `NaN`. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst, das den Inhalt des `<pre>`-Elements aktualisiert und den [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) des Formularelements im Vergleich zu diesem Wert als Zahl anzeigt.
 
 ```js
 const logElement = document.getElementById("log");

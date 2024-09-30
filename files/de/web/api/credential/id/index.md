@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`id`**-Eigenschaft der [`Credential`](/de/docs/Web/API/Credential)-Schnittstelle gibt einen String zurück, der den Bezeichner der Anmeldeinformation enthält. Dies könnte eine GUID, ein Benutzername oder eine E-Mail-Adresse oder ein anderer Wert sein, abhängig vom Typ der Anmeldeinformation.
+Die **`id`**-Eigenschaft des schreibgeschützten [`Credential`](/de/docs/Web/API/Credential)-Interfaces gibt einen String zurück, der die Kennung des Berechtigungsnachweises enthält. Dies kann eine GUID, ein Benutzername, eine E-Mail-Adresse oder ein anderer Wert sein, abhängig vom Typ des Berechtigungsnachweises.
 
 ## Wert
 
-Ein String, der den Bezeichner der Anmeldeinformation enthält.
+Ein String, der die Kennung des Berechtigungsnachweises enthält.
 
 ## Spezifikationen
 

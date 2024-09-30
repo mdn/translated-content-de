@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: fillText()-Methode"
+title: "CanvasRenderingContext2D: fillText() Methode"
 short-title: fillText()
 slug: Web/API/CanvasRenderingContext2D/fillText
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`fillText()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), Teil der Canvas 2D API, zeichnet eine Textzeichenfolge an den angegebenen Koordinaten und füllt die Zeichen der Zeichenfolge mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle). Ein optionaler Parameter ermöglicht das Festlegen einer maximalen Breite für den gerenderten Text, die der [User-Agent](/de/docs/Glossary/user_agent) durch Komprimieren des Textes oder durch Verwendung einer kleineren Schriftart erreichen wird.
+Die Methode **`fillText()`** des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), die Teil der Canvas 2D API ist, zeichnet einen Textstring an den angegebenen Koordinaten und füllt die Zeichen des Strings mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle). Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der [User-Agent](/de/docs/Glossary/user_agent) erreichen wird, indem er den Text verdichtet oder eine kleinere Schriftgröße verwendet.
 
-Diese Methode zeichnet direkt auf die Canvas, ohne den aktuellen Pfad zu ändern. Daher haben alle nachfolgenden Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keine Auswirkung darauf.
+Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) darauf keine Wirkung haben.
 
-Der Text wird unter Verwendung der Schrift- und Textlayoutkonfiguration gerendert, die durch die Eigenschaften [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) definiert sind.
+Der Text wird unter Verwendung der Schrift- und Textlayoutkonfiguration gerendert, wie sie durch die Eigenschaften [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) definiert sind.
 
 > [!NOTE]
-> Um die Umrisse der Zeichen in einer Zeichenfolge zu zeichnen, rufen Sie die Methode [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) des Kontextes auf.
+> Um die Umrisse der Zeichen in einem String zu zeichnen, rufen Sie die Methode [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) des Kontextes auf.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ fillText(text, x, y, maxWidth)
 ### Parameter
 
 - `text`
-  - : Eine Zeichenkette, die die Textzeichenfolge spezifiziert, die in den Kontext gezeichnet werden soll. Der Text wird mit den Einstellungen gerendert, die von [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) angegeben werden.
+  - : Ein String, der den zu rendernden Textstring im Kontext angibt. Der Text wird unter Verwendung der durch [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) spezifizierten Einstellungen gerendert.
 - `x`
-  - : Die x-Achsenkoordinate des Punktes, an dem mit dem Zeichnen des Textes begonnen werden soll, in Pixel.
+  - : Die x-Koordinate des Punktes, an dem das Zeichnen des Textes beginnen soll, in Pixeln.
 - `y`
-  - : Die y-Achsenkoordinate der Basislinie, auf der das Zeichnen des Textes begonnen werden soll, in Pixel.
+  - : Die y-Koordinate der Basislinie, an der das Zeichnen des Textes beginnen soll, in Pixeln.
 - `maxWidth` {{optional_inline}}
-  - : Die maximale Anzahl von Pixeln, die der Text nach der Darstellung breit sein darf. Wenn nicht angegeben, gibt es keine Begrenzung für die Breite des Textes. Wenn jedoch dieser Wert angegeben wird, wird der User-Agent das Kerning anpassen, eine horizontal komprimiertere Schriftart auswählen (falls eine verfügbar ist oder erstellt werden kann, ohne Qualitätsverluste zu verursachen), oder zu einer kleineren Schriftgröße skalieren, um den Text innerhalb der angegebenen Breite anzupassen.
+  - : Die maximale Anzahl von Pixeln, die der Text bei der Darstellung breit sein darf. Wenn nicht angegeben, gibt es keine Begrenzung für die Breite des Textes. Wenn dieser Wert jedoch angegeben wird, wird der User-Agent das Kerning anpassen, eine stärker horizontal verdichtete Schriftart auswählen (falls verfügbar oder ohne Qualitätsverlust erzeugbar) oder die Schriftgröße verringern, um den Text in die angegebene Breite zu passen.
 
 ### Rückgabewert
 
@@ -41,13 +41,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Gefüllten Text zeichnen
+### Zeichnen von gefülltem Text
 
-Dieses Beispiel schreibt die Wörter "Hello world" mithilfe der `fillText()`-Methode.
+Dieses Beispiel schreibt die Worte "Hello world" unter Verwendung der `fillText()`-Methode.
 
 #### HTML
 
-Zuerst benötigen wir eine Canvas, in die wir zeichnen können. Dieser Code erstellt einen Kontext mit einer Breite von 400 Pixeln und einer Höhe von 150 Pixeln.
+Zunächst benötigen wir eine Leinwand, um darauf zu zeichnen. Dieser Code erstellt einen Kontext, der 400 Pixel breit und 150 Pixel hoch ist.
 
 ```html
 <canvas id="canvas" width="400" height="150"></canvas>
@@ -55,7 +55,7 @@ Zuerst benötigen wir eine Canvas, in die wir zeichnen können. Dieser Code erst
 
 #### JavaScript
 
-Der JavaScript-Code für dieses Beispiel sieht wie folgt aus.
+Der JavaScript-Code für dieses Beispiel folgt.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -67,15 +67,15 @@ ctx.fillText("Hello world", 50, 90);
 
 Dieser Code erhält eine Referenz auf das {{HTMLElement("canvas")}}, dann eine Referenz auf seinen 2D-Grafikkontext.
 
-Damit setzen wir die [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) auf 50 Pixel hohe "serif" (die serifenbetonte Standardschrift des Nutzers), und rufen `fillText()` auf, um den Text "Hello world" bei den Koordinaten (50, 90) zu zeichnen.
+Damit in der Hand setzen wir die [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) auf "serif" (das serifenbetonte Standardfont des Benutzers) mit 50 Pixel Höhe und rufen dann `fillText()` auf, um den Text "Hello world" zu zeichnen, beginnend bei den Koordinaten (50, 90).
 
 #### Ergebnis
 
 {{ EmbedLiveSample('Drawing_filled_text', 700, 180) }}
 
-### Textgröße beschränken
+### Einschränken der Textgröße
 
-Dieses Beispiel schreibt die Wörter "Hello world" und beschränkt deren Breite auf 140 Pixel.
+Dieses Beispiel schreibt die Worte "Hello world" und beschränkt deren Breite auf 140 Pixel.
 
 #### HTML
 
@@ -107,6 +107,6 @@ ctx.fillText("Hello world", 50, 90, 140);
 
 ## Siehe auch
 
-- [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
+- [Zeichnen von Text](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
 - [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText)

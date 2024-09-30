@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `string-length` Funktion gibt eine Zahl zurück, die der Anzahl der Zeichen in einem gegebenen String entspricht.
+Die Funktion `string-length` gibt eine Zahl zurück, die der Anzahl der Zeichen in einem gegebenen String entspricht.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ string-length( [string] )
 ### Parameter
 
 - `string` (optional)
-  - : Der zu überprüfende String. Wenn weggelassen, wird der Kontextknoten in einen String konvertiert und verwendet.
+  - : Der zu evaluierende String. Wenn ausgelassen, wird der String verwendet, der dem Kontextknoten entspricht, der in einen String umgewandelt wurde.
 
 ### Rückgabewert
 
-Eine Ganzzahl, die der Anzahl der Zeichen im String entspricht.
+Ein ganzzahliger Wert, der der Anzahl der Zeichen im String entspricht.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`get()`** Prototypmethode des [`WebAssembly.Table()`](/de/docs/WebAssembly/JavaScript_interface/Table)-Objekts ruft das Element ab, das an einem gegebenen Index gespeichert ist.
+Die **`get()`** Prototyp-Methode des [`WebAssembly.Table()`](/de/docs/WebAssembly/JavaScript_interface/Table)-Objekts ruft das Element ab, das an einem bestimmten Index gespeichert ist.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ get(index)
 
 ### Rückgabewert
 
-Abhängig vom Elementtyp der Tabelle kann es sich um eine Funktionsreferenz handeln — dies ist eine [exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions), eine JavaScript-Wrapperfunktion für eine zugrunde liegende Wasm-Funktion, oder es kann sich um eine Host-Referenz handeln.
+Je nach Elementtyp der Tabelle kann es sich um einen Funktionsverweis handeln — dies ist eine [exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions), ein JavaScript-Wrapper für eine zugrunde liegende Wasm-Funktion oder ein Host-Verweis.
 
 ### Ausnahmen
 
-Wenn der _Index_ größer oder gleich [`Table.prototype.length`](/de/docs/WebAssembly/JavaScript_interface/Table/length) ist, wird ein {{jsxref("RangeError")}} ausgelöst.
+Wenn der _index_ größer oder gleich [`Table.prototype.length`](/de/docs/WebAssembly/JavaScript_interface/Table/length) ist, wird ein {{jsxref("RangeError")}} ausgelöst.
 
 ## Beispiele
 
 ### Verwendung von get
 
-Das folgende Beispiel (siehe [table.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table.html) auf GitHub und [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/table.html)) kompiliert und instanziiert den geladenen table.wasm-Bytecode mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static). Es ruft dann die Referenzen ab, die in der exportierten Tabelle gespeichert sind.
+Das folgende Beispiel (siehe [table.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table.html) auf GitHub, und [sehen Sie es live](https://mdn.github.io/webassembly-examples/js-api-examples/table.html)) kompiliert und instanziiert den geladenen table.wasm-Bytecode mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static). Anschließend werden die Referenzen abgerufen, die in der exportierten Tabelle gespeichert sind.
 
 ```js
 WebAssembly.instantiateStreaming(fetch("table.wasm")).then((obj) => {
@@ -42,7 +42,7 @@ WebAssembly.instantiateStreaming(fetch("table.wasm")).then((obj) => {
 });
 ```
 
-Beachten Sie, dass Sie einen zweiten Funktionsaufrufsoperator am Ende des Accessors einfügen müssen, um tatsächlich den im Verweis gespeicherten Wert abzurufen (z.B. `get(0)()` anstelle von `get(0)`) — es handelt sich um eine Funktion und nicht um einen einfachen Wert.
+Beachten Sie, dass Sie am Ende des Accessors einen zweiten Funktionsaufrufsoperator einschließen müssen, um den tatsächlich im Verweis gespeicherten Wert abzurufen (z. B. `get(0)()` statt `get(0)`) — es handelt sich um eine Funktion und nicht um einen einfachen Wert.
 
 ## Spezifikationen
 
@@ -56,4 +56,4 @@ Beachten Sie, dass Sie einen zweiten Funktionsaufrufsoperator am Ende des Access
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

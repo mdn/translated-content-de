@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CSS** (Cascading Style Sheets) ist eine deklarative Sprache, die bestimmt, wie Webseiten im [Browser](/de/docs/Glossary/browser) aussehen.
+**CSS** (Cascading Style Sheets) ist eine deklarative Sprache, die steuert, wie Webseiten im [Browser](/de/docs/Glossary/browser) aussehen.
 
-Der Browser wendet CSS-Stildeklarationen auf ausgewählte Elemente an, um sie korrekt darzustellen. Eine Stildeklaration enthält die Eigenschaften und deren Werte, die das Aussehen einer Webseite bestimmen.
+Der Browser wendet CSS-Stildeklarationen auf ausgewählte Elemente an, um sie korrekt anzuzeigen. Eine Stildeklaration enthält die Eigenschaften und deren Werte, die bestimmen, wie eine Webseite aussieht.
 
-CSS ist eine der drei Kerntechnologien des Webs, zusammen mit [HTML](/de/docs/Glossary/HTML) und [JavaScript](/de/docs/Glossary/JavaScript). CSS wird normalerweise zur Gestaltung von [HTML-Elementen](/de/docs/Glossary/Element) verwendet, kann aber auch mit anderen Markup-Sprachen wie [SVG](/de/docs/Glossary/SVG) oder [XML](/de/docs/Glossary/XML) eingesetzt werden.
+CSS ist eine der drei Kerntechnologien des Webs, zusammen mit [HTML](/de/docs/Glossary/HTML) und [JavaScript](/de/docs/Glossary/JavaScript). CSS wird normalerweise verwendet, um [HTML-Elemente](/de/docs/Glossary/Element) zu stylen, kann jedoch auch mit anderen Auszeichnungssprachen wie [SVG](/de/docs/Glossary/SVG) oder [XML](/de/docs/Glossary/XML) genutzt werden.
 
-Eine CSS-Regel ist eine Gruppe von [Eigenschaften](/de/docs/Glossary/property/CSS), die mit einem [Selektor](/de/docs/Glossary/CSS_selector) verknüpft sind. Hier ist ein Beispiel, das jeden HTML-Absatz gelb auf schwarzem Hintergrund darstellt:
+Eine CSS-Regel ist eine Reihe von [Eigenschaften](/de/docs/Glossary/property/CSS), die mit einem [Selektor](/de/docs/Glossary/CSS_selector) verknüpft sind. Hier ist ein Beispiel, das jeden HTML-Absatz gelb auf einem schwarzen Hintergrund macht:
 
 ```css
 /* The selector "p" indicates that all paragraphs in the document will be affected by that rule */
@@ -26,11 +26,11 @@ p {
 }
 ```
 
-"Cascading" bezieht sich auf die Regeln, die die Priorisierung von Selektoren bestimmen, um das Erscheinungsbild einer Seite zu ändern. Dies ist eine sehr wichtige Funktion, da eine komplexe Website Tausende von CSS-Regeln enthalten kann.
+"Cascading" bezieht sich auf die Regeln, die festlegen, wie Selektoren priorisiert werden, um das Erscheinungsbild einer Seite zu ändern. Dies ist ein sehr wichtiges Merkmal, da eine komplexe Website Tausende von CSS-Regeln haben kann.
 
 ## Siehe auch
 
 - [CSS lernen](/de/docs/Learn/CSS)
 - [Die CSS-Dokumentation](/de/docs/Web/CSS)
 - [CSS](https://en.wikipedia.org/wiki/CSS) auf Wikipedia
-- [Die aktuelle Arbeit der CSS Working Group](https://www.w3.org/Style/CSS/current-work)
+- [Die aktuellen Arbeiten der CSS-Arbeitsgruppe](https://www.w3.org/Style/CSS/current-work)

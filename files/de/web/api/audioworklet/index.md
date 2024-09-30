@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{securecontext_header}}
 
-Das **`AudioWorklet`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) wird verwendet, um benutzerdefinierte Audiobearbeitungsskripte bereitzustellen, die in einem separaten Thread ausgeführt werden, um eine sehr niedrige Latenzzeit bei der Audiobearbeitung zu gewährleisten.
+Das **`AudioWorklet`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) wird verwendet, um benutzerdefinierte Audiobearbeitungsskripte bereitzustellen, die in einem separaten Thread ausgeführt werden, um eine sehr niedrige Latenz bei der Audiobearbeitung zu gewährleisten.
 
-Der Code der Worklet wird im globalen Ausführungskontext [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) ausgeführt, unter Verwendung eines separaten Web Audio-Threads, der von dem Worklet und anderen Audio-Knoten gemeinsam genutzt wird.
+Der Code des Worklets wird im globalen Ausführungskontext [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) ausgeführt und nutzt einen separaten Web Audio Thread, der von dem Worklet und anderen Audionodes gemeinsam genutzt wird.
 
-Greifen Sie über die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) auf die Instanz des `AudioWorklet` im Audiokontext zu.
+Der Zugriff auf die `AudioWorklet`-Instanz des Audiokontexts erfolgt über die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Das `AudioWorklet`-Interface definiert keine eigenen Eigenschaften, erbt jedoch die Eigenschaften von [`Worklet`](/de/docs/Web/API/Worklet)._
+_Das `AudioWorklet`-Interface definiert keine eigenen Eigenschaften, erbt jedoch Eigenschaften von [`Worklet`](/de/docs/Web/API/Worklet)._
 
 ## Instanz-Methoden
 
@@ -29,7 +29,7 @@ _`AudioWorklet` hat keine Ereignisse, auf die es reagiert._
 
 ## Beispiele
 
-Vollständige Beispiele zur Erstellung benutzerdefinierter Audio Nodes finden Sie unter [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode).
+Siehe [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) für vollständige Beispiele zur Erstellung benutzerdefinierter Audionodes.
 
 ## Spezifikationen
 

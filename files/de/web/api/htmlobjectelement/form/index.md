@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses Objekt-Element nicht von einem Formular besessen wird.
+Die **`form`** Lese-Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses Objekt-Element von keinem Formular besessen wird.
 
 ## Wert
 
@@ -27,4 +27,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("object")}}
-- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)

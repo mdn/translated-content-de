@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Sockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`WebSocket.extensions`** gibt die vom Server ausgewählten Erweiterungen zurück. Derzeit ist dies nur der leere String oder eine Liste von Erweiterungen, die während der Verbindung ausgehandelt wurden.
+Die schreibgeschützte Eigenschaft **`WebSocket.extensions`** gibt die vom Server ausgewählten Erweiterungen zurück. Derzeit ist dies nur der leere String oder eine Liste von Erweiterungen, wie sie durch die Verbindung ausgehandelt wurden.
 
 ## Wert
 

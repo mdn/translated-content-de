@@ -7,89 +7,89 @@ l10n:
 
 {{DefaultAPISidebar("Streams")}}{{AvailableInWorkers}}
 
-Die Streams API ermöglicht es JavaScript, programmgesteuert auf Datenströme zuzugreifen, die über das Netzwerk empfangen werden, und diese nach Belieben des Entwicklers zu verarbeiten.
+Die Streams API ermöglicht es JavaScript, programmgesteuert auf Datenströme zuzugreifen, die über das Netzwerk empfangen werden, und sie so zu verarbeiten, wie es der Entwickler wünscht.
 
 ## Konzepte und Verwendung
 
-Streaming beinhaltet das Aufteilen einer Ressource, die über ein Netzwerk empfangen werden soll, in kleine Teile, die dann stückweise verarbeitet werden. Browser machen dies bereits beim Empfangen von Medieninhalten — Videos puffern und spielen ab, während mehr Inhalt heruntergeladen wird, und manchmal sehen Sie Bilder, die nach und nach angezeigt werden, während sie geladen werden.
+Streaming beinhaltet das Zerlegen einer Ressource, die über ein Netzwerk empfangen werden soll, in kleine Teile und das anschließende Verarbeiten Stück für Stück. Browser tun dies bereits beim Empfangen von Medienressourcen — Videos puffern und spielen, während mehr Inhalte heruntergeladen werden, und manchmal sieht man Bilder, die allmählich angezeigt werden, während mehr geladen wird.
 
-Diese Fähigkeit war JavaScript jedoch bisher nie zugänglich. Bisher mussten wir, wenn wir eine Ressource irgendeiner Art (Video, Textdatei usw.) verarbeiten wollten, die gesamte Datei herunterladen, darauf warten, dass sie in ein geeignetes Format deserialisiert wird, und dann alle Daten verarbeiten.
+Diese Fähigkeit war jedoch bislang nie für JavaScript verfügbar. Bisher mussten wir, wenn wir eine Ressource irgendeiner Art (Video, Textdatei usw.) verarbeiten wollten, die gesamte Datei herunterladen, darauf warten, dass sie in ein geeignetes Format deserialisiert wurde, und dann die gesamten Daten verarbeiten.
 
-Mit der Streams API können Sie mit der Verarbeitung von Rohdaten in JavaScript stückweise beginnen, sobald sie verfügbar sind, ohne einen Puffer, String oder Blob zu generieren.
+Mit der Streams API können Sie mit JavaScript Rohdaten Stück für Stück verarbeiten, sobald sie verfügbar sind, ohne einen Puffer, eine Zeichenkette oder ein Blob erzeugen zu müssen.
 
-![Das grundlegende Konzept der Stream-API besteht darin, dass Daten in mehreren Datenpaketen aus dem Netzwerk geholt werden. Die Daten werden verarbeitet und dann in einem Strom von Datenpaketen an den Browser gesendet.](concept.png)
+![Das grundlegende Konzept der Streams API besteht darin, dass Daten in mehreren Datenpaketen aus dem Netzwerk abgerufen werden. Die Daten werden verarbeitet und dann in einem Stream von Datenpaketen an den Browser gesendet.](concept.png)
 
-Es gibt auch weitere Vorteile — Sie können erkennen, wann Streams beginnen oder enden, Streams miteinander verknüpfen, Fehler behandeln und Streams bei Bedarf abbrechen sowie auf die Geschwindigkeit reagieren, mit der der Stream gelesen wird.
+Es gibt noch weitere Vorteile — Sie können erkennen, wann Streams starten oder enden, Streams verketten, Fehler behandeln und Streams nach Bedarf abbrechen sowie auf die Geschwindigkeit reagieren, mit der der Stream gelesen wird.
 
-Die Nutzung von Streams basiert darauf, Antworten als Streams verfügbar zu machen. Zum Beispiel ist der Antwortkörper, der durch eine erfolgreiche [Fetch-Anfrage](/de/docs/Web/API/Window/fetch) zurückgegeben wird, ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der von einem mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erstellten Leser gelesen werden kann.
+Die Verwendung von Streams basiert darauf, Antworten als Streams verfügbar zu machen. Beispielsweise ist der Antwortkörper, der bei einer erfolgreichen [fetch-Anfrage](/de/docs/Web/API/Window/fetch) zurückgegeben wird, ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der von einem Leser gelesen werden kann, der mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erstellt wird.
 
-Komplexere Anwendungen beinhalten das Erstellen eines eigenen Streams mit dem [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor, um beispielsweise Daten innerhalb eines [Service Workers](/de/docs/Web/API/Service_Worker_API) zu verarbeiten.
+Kompliziertere Anwendungen beinhalten die Erstellung eines eigenen Streams mit dem [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor, beispielsweise um Daten innerhalb eines [Service Workers](/de/docs/Web/API/Service_Worker_API) zu verarbeiten.
 
-Sie können auch Daten in Streams schreiben, indem Sie [`WritableStream`](/de/docs/Web/API/WritableStream) verwenden.
+Sie können Daten auch mit [`WritableStream`](/de/docs/Web/API/WritableStream) in Streams schreiben.
 
 > [!NOTE]
-> Sie finden viele weitere Details zur Theorie und Praxis von Streams in unseren Artikeln — [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts), [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams), [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams), und [Verwendung von schreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams).
+> Sie finden viele weitere Details zur Theorie und Praxis von Streams in unseren Artikeln — [Streams API-Konzepte](/de/docs/Web/API/Streams_API/Concepts), [Verwenden von lesebaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams), [Verwenden von lesebaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) und [Verwenden von beschreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams).
 
-## Stream-Schnittstellen
+## Stream-Interfaces
 
-### Lesbare Streams
+### Readable Streams
 
 - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
-  - : Stellt einen lesbaren Strom von Daten dar. Er kann verwendet werden, um Antwortströme der [Fetch API](/de/docs/Web/API/Fetch_API) oder entwicklerdefinierte Streams (z.B. einen benutzerdefinierten [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor) zu handhaben.
+  - : Repräsentiert einen lesbaren Datenstrom. Er kann verwendet werden, um Antwortstreams der [Fetch API](/de/docs/Web/API/Fetch_API) oder vom Entwickler definierte Streams zu handhaben (z.B. ein benutzerdefinierter [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor).
 - [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)
-  - : Stellt einen Standardleser dar, der verwendet werden kann, um von einem Netzwerk bereitgestellte Streamdaten (z.B. eine Fetch-Anfrage) zu lesen.
+  - : Repräsentiert einen Standardleser, der verwendet werden kann, um aus einem über das Netzwerk bereitgestellten Datenstrom zu lesen (z.B. eine fetch-Anfrage).
 - [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)
-  - : Stellt einen Controller dar, der die Kontrolle über den Zustand eines [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Streams und dessen interne Warteschlange ermöglicht. Standard-Controller sind für Streams, die keine Bytestreams sind.
+  - : Repräsentiert einen Controller, der es ermöglicht, den Status und die interne Warteschlange eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu steuern. Standardcontroller sind für Streams, die keine Bytestreams sind.
 
-### Schreibbare Streams
+### Writable Streams
 
 - [`WritableStream`](/de/docs/Web/API/WritableStream)
-  - : Bietet eine Standardabstraktion für das Schreiben von Streaming-Daten zu einem Ziel, bekannt als Senke. Dieses Objekt verfügt über eine integrierte Rückdruck- und Warteschlangenverwaltung.
+  - : Bietet eine Standardabstraktion für das Beschreiben von Datenströmen zu einem Ziel, das als Senke bekannt ist. Dieses Objekt verfügt über integrierte Gegenstromkontrolle und Warteschlangen.
 - [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)
-  - : Stellt einen Standard-Schreibstream-Schreiber dar, der verwendet werden kann, um Datenstücke in einen schreibbaren Stream zu schreiben.
+  - : Repräsentiert einen Standard-Schreibstream-Schreiber, der verwendet werden kann, um Datenstücke in einen beschreibbaren Stream zu schreiben.
 - [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController)
-  - : Stellt einen Controller dar, der die Kontrolle über den Zustand eines [`WritableStream`](/de/docs/Web/API/WritableStream)-Streams ermöglicht. Beim Erstellen eines `WritableStream` wird der zugrunde liegenden Senke eine entsprechende `WritableStreamDefaultController`-Instanz zugewiesen, um damit zu arbeiten.
+  - : Repräsentiert einen Controller, der es ermöglicht, den Status eines [`WritableStream`](/de/docs/Web/API/WritableStream) zu steuern. Beim Konstruieren eines `WritableStream` wird der zugrunde liegenden Senke eine entsprechende `WritableStreamDefaultController`-Instanz zur Manipulation gegeben.
 
-### Transformationsströme
+### Transform Streams
 
 - [`TransformStream`](/de/docs/Web/API/TransformStream)
-  - : Stellt eine Abstraktion für ein Stream-Objekt dar, das Daten transformiert, während sie durch eine [Rohrkette](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) von Stream-Objekten fließen.
+  - : Repräsentiert eine Abstraktion für ein Stream-Objekt, das Daten transformiert, während es durch eine [Pipe-Kette](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) von Stream-Objekten fließt.
 - [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController)
-  - : Bietet Methoden zur Manipulation der [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream), die einem Transformstream zugeordnet sind.
+  - : Bietet Methoden zur Manipulation des [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream), die mit einem Transformstream verknüpft sind.
 
-### Mit Streams verwandte APIs und Operationen
+### Verwandte Stream-APIs und -Operationen
 
 - [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy)
-  - : Bietet eine eingebaute Bytelänge-Warteschlangenstrategie, die beim Erstellen von Streams verwendet werden kann.
+  - : Bietet eine eingebaute Bytelängenschlangen-Strategie, die beim Konstruieren von Streams verwendet werden kann.
 - [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)
-  - : Bietet eine eingebaute Stückzahl-Warteschlangenstrategie, die beim Erstellen von Streams verwendet werden kann.
+  - : Bietet eine eingebaute Stückzählungs-Schlangenstrategie, die beim Konstruieren von Streams verwendet werden kann.
 
 ### Erweiterungen für andere APIs
 
 - [`Request`](/de/docs/Web/API/Request)
-  - : Beim Erstellen eines neuen `Request`-Objekts können Sie ihm einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) im `body`-Eigenschaft seines `RequestInit`-Dictionaries übergeben. Diese `Request` könnte dann an einen [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden, um mit dem Streamabruf zu beginnen.
+  - : Wenn ein neues `Request`-Objekt konstruiert wird, kann man ihm über die `body`-Eigenschaft seines `RequestInit`-Dictionaries einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) übergeben. Diese `Request` kann dann an ein [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden, um das Abrufen des Streams zu beginnen.
 - [`Response.body`](/de/docs/Web/API/Response/body)
-  - : Der Antwortkörper, der durch eine erfolgreiche [Fetch-Anfrage](/de/docs/Web/API/Window/fetch) zurückgegeben wird, wird standardmäßig als [`ReadableStream`](/de/docs/Web/API/ReadableStream) angezeigt, und es kann ein Leser daran angehängt werden, usw.
+  - : Der Antwortkörper, der bei einer erfolgreichen [fetch-Anfrage](/de/docs/Web/API/Window/fetch) zurückgegeben wird, wird standardmäßig als [`ReadableStream`](/de/docs/Web/API/ReadableStream) bereitgestellt und kann einen an ihn angehängten Leser haben, etc.
 
 ### Bytestream-bezogene Schnittstellen
 
 - [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)
-  - : Stellt einen BYOB ("bring your own buffer")-Leser dar, der verwendet werden kann, um von einem Entwickler bereitgestellte Streamdaten zu lesen (z.B. ein benutzerdefinierter [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor).
+  - : Repräsentiert einen BYOB ("bring your own buffer")-Leser, der verwendet werden kann, um von einem vom Entwickler bereitgestellten Datenstrom zu lesen (z.B. ein benutzerdefinierter [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor).
 - [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)
-  - : Stellt einen Controller dar, der die Kontrolle über den Zustand eines [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Streams und dessen interne Warteschlange ermöglicht. Bytestream-Controller sind für Bytestreams.
+  - : Repräsentiert einen Controller, der es ermöglicht, den Status und die interne Warteschlange eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu steuern. Bytestream-Controller sind für Bytestreams.
 - [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest)
-  - : Repräsentiert einen Anfrage-Pull in einem [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController).
+  - : Repräsentiert eine Aufforderung zum Ziehen in einen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController).
 
 ## Beispiele
 
-Wir haben ein Verzeichnis mit Beispielen erstellt, das die Streams API-Dokumentation begleitet — siehe [mdn/dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams). Die Beispiele sind wie folgt:
+Wir haben ein Verzeichnis mit Beispielen zusammengestellt, um die Streams API-Dokumentation zu begleiten — siehe [mdn/dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams). Die Beispiele sind wie folgt:
 
-- [Einfacher Streampump](https://mdn.github.io/dom-examples/streams/simple-pump/): Dieses Beispiel zeigt, wie ein `ReadableStream` konsumiert und seine Daten an einen anderen weitergegeben werden können.
-- [PNG in Graustufen umwandeln](https://mdn.github.io/dom-examples/streams/grayscale-png/): Dieses Beispiel zeigt, wie ein `ReadableStream` eines PNG in Graustufen umgewandelt werden kann.
-- [Einfacher zufälliger Stream](https://mdn.github.io/dom-examples/streams/simple-random-stream/): Dieses Beispiel zeigt, wie ein benutzerdefinierter Stream verwendet wird, um zufällige Zeichenfolgen zu erzeugen, sie als Datenstücke in die Warteschlange zu stellen und dann wieder auszulesen.
-- [Einfaches Tee-Beispiel](https://mdn.github.io/dom-examples/streams/simple-tee-example/): Dieses Beispiel erweitert das Beispiel für einfache zufällige Streams und zeigt, wie ein Stream geteilt werden kann, sodass beide resultierenden Streams unabhängig voneinander gelesen werden können.
-- [Einfacher Schreiber](https://mdn.github.io/dom-examples/streams/simple-writer/): Dieses Beispiel zeigt, wie man in einen schreibbaren Stream schreibt, dann den Stream dekodiert und den Inhalt der Benutzeroberfläche schreibt.
-- [Chunks eines PNG entpacken](https://mdn.github.io/dom-examples/streams/png-transform-stream/): Dieses Beispiel zeigt, wie [`pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) verwendet werden kann, um einen `ReadableStream` in einen Strom anderer Datentypen zu transformieren, indem die Daten einer PNG-Datei in einen Strom von PNG-Chunks umgewandelt werden.
+- [Einfacher Stream-Pump](https://mdn.github.io/dom-examples/streams/simple-pump/): Dieses Beispiel zeigt, wie ein `ReadableStream` verbraucht und seine Daten an einen anderen übergeben werden können.
+- [Ein PNG in Graustufen umwandeln](https://mdn.github.io/dom-examples/streams/grayscale-png/): Dieses Beispiel zeigt, wie ein `ReadableStream` eines PNG in Graustufen umgewandelt werden kann.
+- [Einfacher Zufallsstrom](https://mdn.github.io/dom-examples/streams/simple-random-stream/): Dieses Beispiel zeigt, wie ein benutzerdefinierter Stream verwendet werden kann, um zufällige Zeichenfolgen zu generieren, sie als Datenstücke einzureihen und dann wieder auszulesen.
+- [Einfaches Tee-Beispiel](https://mdn.github.io/dom-examples/streams/simple-tee-example/): Dieses Beispiel erweitert das einfache Zufallsstrombeispiel und zeigt, wie ein Stream geteilt werden kann, sodass beide resultierenden Streams unabhängig gelesen werden können.
+- [Einfacher Schreiber](https://mdn.github.io/dom-examples/streams/simple-writer/): Dieses Beispiel zeigt, wie man in einen beschreibbaren Stream schreibt, dann den Stream dekodiert und die Inhalte an die Benutzeroberfläche schreibt.
+- [Pakete eines PNG entpacken](https://mdn.github.io/dom-examples/streams/png-transform-stream/): Dieses Beispiel zeigt, wie [`pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) verwendet werden kann, um einen `ReadableStream` in einen Stream anderer Datentypen zu transformieren, indem Daten einer PNG-Datei in einen Stream von PNG-Paketen umgewandelt werden.
 
 Beispiele von anderen Entwicklern:
 
@@ -105,7 +105,7 @@ Beispiele von anderen Entwicklern:
 
 ## Siehe auch
 
-- [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts)
-- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
-- [Verwendung von schreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams)
+- [Streams API-Konzepte](/de/docs/Web/API/Streams_API/Concepts)
+- [Verwenden von lesebaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [Verwenden von lesebaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwenden von beschreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams)

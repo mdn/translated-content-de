@@ -1,5 +1,5 @@
 ---
-title: "Request: Eigenschaft integrity"
+title: "Request: integrity-Eigenschaft"
 short-title: integrity
 slug: Web/API/Request/integrity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`integrity`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Wert der [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) des Anforderungs enthält.
+Die schreibgeschützte **`integrity`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Wert der [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) des Antrags.
 
 ## Wert
 
@@ -18,14 +18,14 @@ Wenn keine Integrität angegeben wurde, gibt die Eigenschaft `''` zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anforderung mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und lesen dann die Integrität der Anforderung. Da die Anforderung ohne spezifische Integrität erstellt wurde, gibt die Eigenschaft einen leeren String zurück.
+Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und lesen dann die Integrität der Anfrage aus. Da die Anfrage ohne spezifische Integrität erstellt wurde, gibt die Eigenschaft einen leeren String zurück.
 
 ```js
 const myRequest = new Request("flowers.jpg");
 console.log(myRequest.integrity); // ""
 ```
 
-Im folgenden Beispiel wurde die Anforderung mit einem bestimmten Integritätswert erstellt, sodass die Eigenschaft diesen Wert zurückgibt. Beachten Sie, dass es keine Validierung des Integritätswertes gibt; die Eigenschaft gibt genau das zurück, was übergeben wurde.
+Im unten stehenden Beispiel wurde die Anfrage mit einem spezifischen Integritätswert erstellt, sodass die Eigenschaft diesen Wert zurückgibt. Beachten Sie, dass es keine Validierung des Integritätswerts gibt; die Eigenschaft gibt genau das zurück, was übergeben wurde.
 
 ```js
 const myRequest = new Request("flowers.jpg", {

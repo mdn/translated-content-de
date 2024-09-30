@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`responseStatus`** repräsentiert den HTTP-Antwortstatuscode, der beim Abrufen der Ressource zurückgegeben wird.
+Die schreibgeschützte **`responseStatus`**-Eigenschaft repräsentiert den HTTP-Antwortstatuscode, der beim Abrufen der Ressource zurückgegeben wird.
 
-Diese Eigenschaft entspricht [`Response.status`](/de/docs/Web/API/Response/status) von der [Fetch API](/de/docs/Web/API/Fetch_API).
+Diese Eigenschaft entspricht [`Response.status`](/de/docs/Web/API/Response/status) aus der [Fetch API](/de/docs/Web/API/Fetch_API).
 
 ## Wert
 
 Die `responseStatus`-Eigenschaft kann die folgenden Werte haben:
 
-- Eine Zahl, die den beim Abrufen der Ressource zurückgegebenen [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status) angibt.
-- `0`, wenn die [CORS](/de/docs/Web/HTTP/CORS)-Überprüfung fehlschlägt.
-- `0` für Cross-Origin-{{HTMLElement("iframe")}}-Objekte.
+- Eine Zahl, die den [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status) angibt, der beim Abrufen der Ressource zurückgegeben wurde.
+- `0`, wenn die [CORS](/de/docs/Web/HTTP/CORS)-Prüfung fehlschlägt.
+- `0` für cross-origin {{HTMLElement("iframe")}}-Objekte.
 
 ## Beispiele
 
-### Prüfen, ob ein Cache-Treffer vorliegt
+### Überprüfen, ob ein Cache getroffen wurde
 
-Die `responseStatus`-Eigenschaft kann verwendet werden, um zwischengespeicherte Ressourcen mit einem {{HTTPStatus("304")}} `Not Modified` Antwortstatuscode zu überprüfen.
+Die `responseStatus`-Eigenschaft kann verwendet werden, um nach zwischengespeicherten Ressourcen mit einem {{HTTPStatus("304")}} `Not Modified`-Antwortstatuscode zu prüfen.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource` Performance-Einträge benachrichtigt, während sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -53,11 +53,11 @@ resources.forEach((entry) => {
 
 Alternativ, wenn `responseStatus` nicht verfügbar ist, können Sie überprüfen, ob die [`transferSize`](/de/docs/Web/API/PerformanceResourceTiming/transferSize)-Eigenschaft `0` zurückgegeben hat.
 
-### Statuscodes für Cross-Origin-Antworten
+### Cross-Origin-Antwortstatuscodes
 
-Wenn der Wert der `responseStatus`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um das Anzeigen von Statuscodes für Cross-Origin-Antworten zu ermöglichen, muss der [CORS](/de/docs/Web/HTTP/CORS) {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Wenn der Wert der `responseStatus`-Eigenschaft `0` ist, könnte es sich um eine cross-origin-Anfrage handeln. Um die Anzeige von cross-origin-Antwortstatuscodes zu ermöglichen, muss der [CORS](/de/docs/Web/HTTP/CORS) {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Antwortstatuscodes zu sehen, sollte die Cross-Origin-Ressource senden:
+Um beispielsweise `https://developer.mozilla.org` die Ansicht der Antwortstatuscodes zu erlauben, sollte die cross-origin-Ressource senden:
 
 ```http
 Access-Control-Allow-Origin: https://developer.mozilla.org

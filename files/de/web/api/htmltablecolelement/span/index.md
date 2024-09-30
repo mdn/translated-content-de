@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableColElement: span Eigenschaft"
+title: "HTMLTableColElement: span-Eigenschaft"
 short-title: span
 slug: Web/API/HTMLTableColElement/span
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`span`** Schreibgeschützte Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) Schnittstelle repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} überspannen muss; dies ermöglicht es der Spalte, Platz über mehrere Spalten der Tabelle einzunehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Element/col#span) Attribut wider.
+Die **`span`** Leseeigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces stellt die Anzahl der Spalten dar, die dieses {{htmlelement("col")}} oder dieser {{htmlelement("colgroup")}} überspannen muss; dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Element/col#span)-Attribut wider.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Bei der Festlegung eines neuen Wertes wird der Wert auf die nächstgelegene streng positive Zahl (bis zu 1000) _eingeklammert_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächste streng positive Zahl (bis zu 1000) _begrenzt_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenüberspannung der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenanzahl der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 

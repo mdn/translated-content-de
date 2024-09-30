@@ -1,5 +1,5 @@
 ---
-title: "Storage: length-Eigenschaft"
+title: "Storage: length Eigenschaft"
 short-title: length
 slug: Web/API/Storage/length
 l10n:
@@ -9,17 +9,15 @@ l10n:
 {{APIRef("Web Storage API")}}
 
 Die schreibgeschützte **`length`**-Eigenschaft der
-[`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt die Anzahl der Datenobjekte zurück, die in einem bestimmten
-`Storage`-Objekt gespeichert sind.
+[`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt die Anzahl der Datenelemente zurück, die in einem bestimmten `Storage`-Objekt gespeichert sind.
 
 ## Wert
 
-Die Anzahl der im `Storage`-Objekt gespeicherten Objekte.
+Die Anzahl der Elemente, die im `Storage`-Objekt gespeichert sind.
 
 ## Beispiele
 
-Die folgende Funktion fügt drei Datenobjekte zum lokalen Speicher der aktuellen
-Domain hinzu und gibt dann die Anzahl der Objekte im Speicher zurück:
+Die folgende Funktion fügt dem lokalen Speicher für die aktuelle Domain drei Datenelemente hinzu und gibt dann die Anzahl der Elemente im Speicher zurück:
 
 ```js
 function populateStorage() {
@@ -32,7 +30,7 @@ function populateStorage() {
 ```
 
 > [!NOTE]
-> Für ein praktisches Beispiel, siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Für ein Beispiel aus der Praxis siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

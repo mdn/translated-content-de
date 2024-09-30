@@ -8,13 +8,22 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`echoCancellation`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der im Objekt vorhanden ist (und auf `true` gesetzt ist), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, aber nur, wenn der [user agent](/de/docs/Glossary/user_agent) die `echoCancellation`-Beschränkung unterstützt. Wenn die Beschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` ist.
+Das Wörterbuch [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+enthält die schreibgeschützte Boolean-Eigenschaft **`echoCancellation`**, die im Objekt enthalten ist (und auf `true` gesetzt wird), das von
+[`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der
+[User-Agent](/de/docs/Glossary/user_agent) das `echoCancellation`-Constraint unterstützt. Wenn das
+Constraint nicht unterstützt wird, wird es nicht in die Liste aufgenommen, sodass dieser Wert niemals
+`false` sein wird.
 
-Sie können auf das unterstützte Beschränkungen-Wörterbuch zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das Wörterbuch der unterstützten Constraints zugreifen, indem Sie
+`navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der user agent die `echoCancellation`-Beschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Beschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert zu betrachten.
+Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`),
+wenn der User-Agent das `echoCancellation`-Constraint unterstützt. Wenn die Eigenschaft
+nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Constraints, und
+Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
 
 ## Beispiele
 

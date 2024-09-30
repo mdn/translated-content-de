@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTService: getCharacteristics()-Methode"
+title: "BluetoothRemoteGATTService: getCharacteristics() Methode"
 short-title: getCharacteristics()
 slug: Web/API/BluetoothRemoteGATTService/getCharacteristics
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Die **`BluetoothGATTService.getCharacteristics()`**-Methode
-gibt ein {{jsxref("Promise")}} auf eine Liste von [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)
-Instanzen für eine gegebene universell eindeutige Kennung (UUID) zurück.
+gibt ein {{jsxref("Promise")}} für eine Liste von [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)
+Instanzen für einen gegebenen universell eindeutigen Bezeichner (UUID) zurück.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getCharacteristics(characteristics)
 ### Parameter
 
 - `characteristics`
-  - : Die UUID einer Eigenschaft, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für die Herzfrequenzmessungs-Eigenschaft.
+  - : Die UUID einer Eigenschaft, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für die Herzfrequenzmessungseigenschaft.
 
 ### Rückgabewert
 

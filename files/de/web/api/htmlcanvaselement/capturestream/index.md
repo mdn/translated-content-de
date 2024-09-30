@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`captureStream()`**-Methode des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Interfaces gibt einen [`MediaStream`](/de/docs/Web/API/MediaStream) zurück,
-der einen [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack) enthält, welcher eine Echtzeit-Videoaufnahme der Inhalte des Canvas beinhaltet.
+Die **`captureStream()`**-Methode des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Interfaces gibt einen [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der einen [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack) enthält. Dieser umfasst eine Echtzeit-Videoaufnahme des Inhalts des Canvas.
 
 ## Syntax
 
@@ -21,11 +20,11 @@ captureStream(frameRate)
 ### Parameter
 
 - `frameRate` {{optional_inline}}
-  - : Ein Gleitkommawert mit doppelter Genauigkeit, der die Rate der Erfassung jedes Frames angibt. Wenn nicht festgelegt, wird ein neues Frame jedes Mal erfasst, wenn sich das Canvas ändert; wenn es auf `0` gesetzt ist, werden keine Frames automatisch erfasst; stattdessen werden sie nur erfasst, wenn die Methode [`requestFrame()`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack/requestFrame) des zurückgegebenen Tracks aufgerufen wird.
+  - : Ein doppelt präziser Gleitkommawert, der die Aufnahmerate jedes Frames angibt. Wenn dieser nicht festgelegt ist, wird ein neues Bild jedes Mal aufgenommen, wenn sich das Canvas ändert; wenn er auf `0` gesetzt ist, werden keine Bilder automatisch aufgenommen; stattdessen werden sie nur aufgenommen, wenn die `requestFrame()`-Methode des zurückgegebenen Tracks aufgerufen wird.
 
 ### Rückgabewert
 
-Ein Verweis auf ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das einen einzigen [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack) enthält.
+Eine Referenz auf ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das einen einzelnen [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack) enthält.
 
 ### Ausnahmen
 
@@ -34,7 +33,7 @@ Ein Verweis auf ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das ei
   - : Wird ausgelöst, wenn der Wert von `frameRate` negativ ist.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Bitmap des Canvas ist nicht ursprungsrein; zumindest einige Inhalte wurden möglicherweise von einer anderen Seite geladen als von der, von der das Dokument selbst geladen wurde.
+  - : Das Bitmap des Canvas ist nicht ursprungsrein; mindestens ein Teil seines Inhalts wurde oder könnte von einer anderen Seite geladen worden sein als der, von der das Dokument selbst geladen wurde.
 
 ## Beispiel
 
@@ -61,6 +60,6 @@ stream.getTracks().forEach((track) => pc.addTrack(track, stream));
 
 ## Siehe auch
 
-- [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream), die es ermöglicht, einen Stream von einem Media-Element zu erfassen.
+- [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream), das es ermöglicht, einen Stream von einem Media-Element aufzunehmen.
 - [`MediaStream`](/de/docs/Web/API/MediaStream)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)

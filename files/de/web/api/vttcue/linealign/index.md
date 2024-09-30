@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`lineAlign`** Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces stellt die Ausrichtung dieses VTT-Hinweises dar.
+Die **`lineAlign`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert die Ausrichtung dieses VTT-Cue.
 
 ## Wert
 
-Ein String, der einen der folgenden Werte enthält:
+Eine Zeichenkette, die einen der folgenden Werte enthält:
 
 - `"start"`
-  - : Start-Ausrichtung.
+  - : Startausrichtung.
 - `"center"`
-  - : Zentrum-Ausrichtung.
+  - : Mittige Ausrichtung.
 - `"end"`
-  - : End-Ausrichtung.
+  - : Endausrichtung.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `lineAlign` auf `"center"` gesetzt. Der Wert wird anschließend in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, und dann wird der Wert von `lineAlign` auf `"center"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`claim()`**-Methode der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle ermöglicht einem aktiven Service Worker, sich selbst als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für alle Clients innerhalb ihres [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) festzulegen. Dies löst ein `controllerchange`-Ereignis im [`navigator.serviceWorker`](/de/docs/Web/API/ServiceWorkerContainer) in allen Clients aus, die von diesem Service Worker kontrolliert werden.
+Die **`claim()`**-Methode des [`Clients`](/de/docs/Web/API/Clients)-Interfaces ermöglicht einem aktiven Service Worker, sich selbst als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für alle Clients innerhalb seines [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) festzulegen. Dies löst ein `controllerchange`-Ereignis auf [`navigator.serviceWorker`](/de/docs/Web/API/ServiceWorkerContainer) in allen Clients aus, die von diesem Service Worker kontrolliert werden.
 
-Wenn ein Service Worker zunächst registriert wird, nutzen Seiten ihn erst beim nächsten Laden. Die `claim()`-Methode bewirkt, dass diese Seiten sofort kontrolliert werden. Beachten Sie, dass Ihr Service Worker dadurch Seiten kontrolliert, die regulär über das Netzwerk oder möglicherweise über einen anderen Service Worker geladen wurden.
+Wenn ein Service Worker zunächst registriert wird, werden Seiten ihn erst beim nächsten Laden verwenden. Die `claim()`-Methode bewirkt, dass diese Seiten sofort kontrolliert werden. Beachten Sie, dass dies dazu führt, dass Ihr Service Worker Seiten kontrolliert, die regulär über das Netzwerk geladen wurden oder möglicherweise über einen anderen Service Worker.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf `undefined` auflöst.
+Ein {{jsxref("Promise")}}, das zu `undefined` aufgelöst wird.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `claim()` innerhalb des `activate`-Ereignislisteners des Service Workers verwendet, sodass Clients, die im gleichen Scope geladen werden, nicht neu geladen werden müssen, bevor ihre Abrufe über diesen Service Worker gehen.
+Im folgenden Beispiel wird `claim()` innerhalb des `activate`-Ereignislisteners des Service Workers verwendet, damit Clients, die im gleichen Bereich geladen wurden, nicht neu geladen werden müssen, bevor ihre Fetch-Anfragen über diesen Service Worker gehen.
 
 ```js
 self.addEventListener("activate", (event) => {
@@ -47,5 +47,5 @@ self.addEventListener("activate", (event) => {
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Der Lebenszyklus von Service Workern](https://web.dev/articles/service-worker-lifecycle)
+- [Der Lebenszyklus eines Service Workers](https://web.dev/articles/service-worker-lifecycle)
 - [`self.skipWaiting()`](/de/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting) - Überspringen der Wartephase des Service Workers

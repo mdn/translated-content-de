@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: Methode transformFeedbackVaryings()"
+title: "WebGL2RenderingContext: transformFeedbackVaryings() Methode"
 short-title: transformFeedbackVaryings()
 slug: Web/API/WebGL2RenderingContext/transformFeedbackVaryings
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.transformFeedbackVaryings()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legt fest, welche Werte in [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback) Puffern aufgezeichnet werden sollen.
+Die **`WebGL2RenderingContext.transformFeedbackVaryings()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legt Werte fest, die in [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Puffern aufgezeichnet werden sollen.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ transformFeedbackVaryings(program, varyings, bufferMode)
 - `program`
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 - `varyings`
-  - : Ein {{jsxref("Array")}} von Zeichenfolgen, die die Namen der zu verwendenden varianten Variablen angeben.
+  - : Ein {{jsxref("Array")}} von Strings, das die Namen der zu verwendenden varyings angibt.
 - `bufferMode`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Modus angibt, der beim Erfassen der varianten Variablen verwendet werden soll. Entweder `gl.INTERLEAVED_ATTRIBS` oder `gl.SEPARATE_ATTRIBS`.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Modus angibt, der beim Erfassen der varyings verwendet werden soll. Entweder `gl.INTERLEAVED_ATTRIBS` oder `gl.SEPARATE_ATTRIBS`.
 
 ### Rückgabewert
 

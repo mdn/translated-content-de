@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`dispatchEvent()`**-Methode von [`EventTarget`](/de/docs/Web/API/EventTarget) sendet ein [`Event`](/de/docs/Web/API/Event) an das Objekt und ruft dabei (synchron) die betroffenen Ereignis-Listener in der entsprechenden Reihenfolge auf. Die normalen Ereignisverarbeitungsregeln (einschließlich der Erfassungs- und optionalen Blasphase) gelten auch für Ereignisse, die manuell mit `dispatchEvent()` ausgelöst werden.
+Die **`dispatchEvent()`**-Methode von [`EventTarget`](/de/docs/Web/API/EventTarget) sendet ein [`Event`](/de/docs/Web/API/Event) an das Objekt und ruft dabei (synchron) die betroffenen Ereignislistener in der entsprechenden Reihenfolge auf. Die normalen Regeln der Ereignisverarbeitung (einschließlich der Capturing- und optionalen Bubbling-Phase) gelten auch für manuell mit `dispatchEvent()` ausgelöste Ereignisse.
 
-Der Aufruf von `dispatchEvent()` ist der letzte Schritt zum _Auslösen eines Ereignisses_. Das Ereignis sollte bereits erstellt und mit einem [`Event()`](/de/docs/Web/API/Event/Event) Konstruktor initialisiert worden sein.
+Ein Aufruf von `dispatchEvent()` ist der letzte Schritt, um ein Ereignis zu _lösen_. Das Ereignis sollte bereits mit einem [`Event()`](/de/docs/Web/API/Event/Event)-Konstruktor erstellt und initialisiert worden sein.
 
 > [!NOTE]
 > Beim Aufruf dieser Methode wird die [`Event.target`](/de/docs/Web/API/Event/target)-Eigenschaft auf das aktuelle `EventTarget` initialisiert.
 
-Im Gegensatz zu "nativen" Ereignissen, die vom Browser ausgelöst werden und Ereignishandler asynchron über die [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) aufrufen, ruft `dispatchEvent()` Ereignishandler _synchron_ auf. Alle anwendbaren Ereignishandler werden aufgerufen und abgeschlossen, bevor `dispatchEvent()` zurückkehrt.
+Im Gegensatz zu "nativen" Ereignissen, die vom Browser ausgelöst werden und Ereignishandler asynchron über die [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) aufrufen, ruft `dispatchEvent()` Ereignishandler _synchron_ auf. Alle anwendbaren Ereignishandler werden aufgerufen und kehren zurück, bevor `dispatchEvent()` zurückkehrt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ dispatchEvent(event)
 
 ### Rückgabewert
 
-`false`, wenn `event` abbruchfähig ist und mindestens einer der Ereignishandler, der `event` erhalten hat, [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen hat. Andernfalls `true`.
+`false`, wenn das `event` abbrechbar ist und mindestens einer der Ereignishandler, der das `event` erhalten hat, [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen hat. Andernfalls `true`.
 
 ### Ausnahmen
 
@@ -38,11 +38,11 @@ dispatchEvent(event)
   - : Wird ausgelöst, wenn der Ereignistyp während der Ereignisinitialisierung nicht angegeben wurde.
 
 > [!WARNING]
-> Von Ereignishandlern ausgelöste Ausnahmen werden als unbehandelte Ausnahmen gemeldet. Die Ereignishandler laufen in einem verschachtelten Aufrufstapel; sie blockieren den Aufrufer, bis sie abgeschlossen sind, aber Ausnahmen breiten sich nicht zum Aufrufer aus.
+> Von Ereignishandlern geworfene Ausnahmen werden als nicht abgefangene Ausnahmen gemeldet. Die Ereignishandler laufen in einem geschachtelten Aufrufstapel; sie blockieren den Anrufer, bis sie abgeschlossen sind, aber Ausnahmen propagieren nicht zum Anrufer.
 
 ## Beispiel
 
-Siehe [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
+Siehe [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events).
 
 ## Spezifikationen
 
@@ -54,4 +54,4 @@ Siehe [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and
 
 ## Siehe auch
 
-- Die [Ereignisobjekt-Referenz](/de/docs/Web/API/Event)
+- Das [Ereignisobjekt-Referenz](/de/docs/Web/API/Event)

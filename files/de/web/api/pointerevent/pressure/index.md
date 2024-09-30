@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die **`pressure`**-Eigenschaft der schreibgeschützten [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle zeigt den normalisierten Druck des Zeigereingangs an.
+Die **`pressure`**-Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt den normalisierten Druck des Zeigereingangs an.
 
 ## Wert
 
-Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, inklusive, wobei `0` und `1` den minimalen bzw. maximalen Druck darstellen, den die Hardware erkennen kann. Bei Hardware, die keinen Druck unterstützt, wie z.B. eine Maus, ist der Wert `0.5`, wenn der Zeiger aktiv in den Tastenstatus ist, und `0` andernfalls.
+Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, einschließlich, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann. Für Hardware, die keinen Druck unterstützt, wie z. B. eine Maus, beträgt der Wert `0.5`, wenn der Zeiger aktiviert ist, und `0` andernfalls.
 
 ## Beispiele
 
-In diesem Codeausschnitt wird, wenn ein [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis ausgelöst wird, je nach Wert der `pressure`-Eigenschaft des Ereignisses, eine andere Funktion aufgerufen.
+In diesem Beispiel werden bei einem [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis verschiedene Funktionen aufgerufen, abhängig vom Wert der `pressure`-Eigenschaft des Ereignisses.
 
 ```js
 someElement.addEventListener(

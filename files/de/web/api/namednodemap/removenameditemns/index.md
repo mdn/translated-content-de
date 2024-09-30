@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: removeNamedItemNS() Methode"
+title: "NamedNodeMap: removeNamedItemNS()-Methode"
 short-title: removeNamedItemNS()
 slug: Web/API/NamedNodeMap/removeNamedItemNS
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namensraum und lokalen Namen im Map entspricht.
+Die **`removeNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namespace und lokalen Namen entspricht, aus der Map.
 
 ## Syntax
 
@@ -20,8 +20,8 @@ removeNamedItem(namespace, localName)
 
 - `namespace`
 
-  - : Der Namensraum des Attributs, das aus der Map entfernt werden soll
-    > **Warning:** `namespace` ist der URI des Namensraums, nicht das Präfix.
+  - : Der Namespace des Attributs, das aus der Map entfernt werden soll.
+    > **Warning:** `namespace` ist der URI des Namespaces, nicht der Präfix.
 
 - `localName`
   - : Der lokale Name des Attributs, das aus der Map entfernt werden soll.
@@ -33,7 +33,7 @@ Das entfernte [`Attr`](/de/docs/Web/API/Attr).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namensraum und lokalen Namen vorhanden ist.
+  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namespace und lokalen Namen vorhanden ist.
 
 ## Beispiel
 

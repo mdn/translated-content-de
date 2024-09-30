@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<foreignObject>`** [SVG](/de/docs/Web/SVG)-Element enthält Elemente aus einem anderen XML-Namespace. Im Kontext eines Browsers ist es höchstwahrscheinlich (X)HTML.
+Das **`<foreignObject>`** [SVG](/de/docs/Web/SVG)-Element umfasst Elemente aus einem anderen XML-Namespace. Im Kontext eines Browsers ist es höchstwahrscheinlich (X)HTML.
 
 ## Beispiel
 
@@ -68,7 +68,7 @@ svg {
 > [!NOTE]
 > Ab SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLLinkElement: as-Eigenschaft"
+title: "HTMLLinkElement: as Eigenschaft"
 short-title: as
 slug: Web/API/HTMLLinkElement/as
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`as`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces gibt einen String zurück, der den Inhaltstyp repräsentiert, der von einem Link-Element vorgeladen werden soll.
+Die **`as`**-Eigenschaft der Schnittstelle [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gibt einen String zurück, der den Typ des Inhalts darstellt, der von einem Link-Element vorgeladen werden soll.
 
-Die `as`-Eigenschaft muss für Link-Elemente, die [`rel="preload"`](/de/docs/Web/HTML/Attributes/rel/preload) verwenden, einen Wert haben, da sonst die Ressource nicht abgerufen wird.
-Sie kann auch auf Link-Elemente angewendet werden, bei denen [`rel="modulepreload"`](/de/docs/Web/HTML/Attributes/rel/preload) verwendet wird; wird sie jedoch weggelassen, wird `script` als Standardwert verwendet.
-Die Eigenschaft sollte nicht für andere Arten von Link-Elementen, wie `rel="prefetch"`, gesetzt werden.
+Die `as`-Eigenschaft muss bei Link-Elementen einen Wert haben, wenn [`rel="preload"`](/de/docs/Web/HTML/Attributes/rel/preload) gesetzt ist, da sonst die Ressource nicht geladen wird. Sie kann auch bei Link-Elementen angewendet werden, bei denen [`rel="modulepreload"`](/de/docs/Web/HTML/Attributes/rel/preload) gesetzt ist, aber falls sie weggelassen wird, ist der Standardwert `script`. Die Eigenschaft sollte nicht für andere Arten von Link-Elementen gesetzt werden, wie beispielsweise bei `rel="prefetch"`.
 
 Diese Eigenschaft spiegelt den Wert des [`as`-Attributs](/de/docs/Web/HTML/Element/link#as) des HTML-Elements [`<link>`](/de/docs/Web/HTML/Element/link) wider.
 

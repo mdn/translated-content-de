@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Das **`XRAnchor`**-Interface erstellt Anker, die die Pose verfolgen, die relativ zur realen Welt fixiert ist. Mit Ankern können Sie Posen in der Welt angeben, die aktualisiert werden müssen, um das sich entwickelnde Verständnis der Welt korrekt widerzuspiegeln, sodass die Posen mit dem gleichen Ort in der physischen Welt ausgerichtet bleiben. Das hilft, die Illusion zu erzeugen, dass die platzierten Objekte wirklich in der Umgebung des Benutzers vorhanden sind.
+Die **`XRAnchor`**-Schnittstelle erstellt Anker, die die Pose verfolgen, die relativ zur realen Welt fixiert ist. Mit Ankern können Sie Posen in der Welt spezifizieren, die aktualisiert werden müssen, um das sich entwickelnde Verständnis der Welt korrekt widerzuspiegeln, sodass die Posen mit dem gleichen Ort in der physischen Welt ausgerichtet bleiben. Das hilft, die Illusion zu erzeugen, dass die platzierten Objekte wirklich in der Umgebung des Benutzers vorhanden sind.
 
 ## Instanzeigenschaften
 
@@ -21,7 +21,7 @@ Das **`XRAnchor`**-Interface erstellt Anker, die die Pose verfolgen, die relativ
 
 ## Beispiele
 
-### Anfordern einer Sitzung mit aktivierten Ankern
+### Eine Sitzung mit aktivierten Ankern anfordern
 
 ```js
 navigator.xr.requestSession("immersive-ar", {
@@ -29,7 +29,7 @@ navigator.xr.requestSession("immersive-ar", {
 });
 ```
 
-### Hinzufügen von Ankern
+### Anker hinzufügen
 
 Sie können [`XRFrame.createAnchor()`](/de/docs/Web/API/XRFrame/createAnchor) verwenden, um einen Anker zu erstellen.
 

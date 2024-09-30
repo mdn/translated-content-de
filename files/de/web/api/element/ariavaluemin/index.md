@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaValueMin`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)-Attributs wider, das den minimal zulässigen Wert für ein Range-Widget definiert.
+Die **`ariaValueMin`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)-Attributs wider, das den minimal zulässigen Wert für ein Bereichs-Widget definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-valuemin`-Attribut des Elements mit der ID `slider` auf "1" gesetzt. Mithilfe von `ariaValueMin` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das `aria-valuemin`-Attribut des Elements mit der ID `slider` auf "1" gesetzt. Mit `ariaValueMin` aktualisieren wir den Wert auf "2".
 
 ```html
 <div

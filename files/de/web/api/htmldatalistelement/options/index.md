@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`options`** schreibgeschützte Eigenschaft des [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Elementen zurück, die in einem {{htmlelement("datalist")}} enthalten sind. Die Nachkommen {{htmlelement("option")}}-Elemente bieten vordefinierte Optionen für das mit dem `<datalist>` verknüpfte {{htmlelement("input")}}-Steuerelement.
+Die **`options`** schreibgeschützte Eigenschaft des [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) Elementen zurück, die in einem {{htmlelement("datalist")}} enthalten sind. Die nachgeordneten {{htmlelement("option")}} Elemente bieten vordefinierte Optionen für das mit dem `<datalist>` verknüpfte {{htmlelement("input")}} Steuerelement.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Elementen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) Elementen.
 
 ## Spezifikationen
 

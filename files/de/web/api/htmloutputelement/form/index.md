@@ -28,4 +28,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("output")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/output#form)-Attribut
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)

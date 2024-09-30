@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`forEach()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle führt eine angegebene Funktion für jeden Wert im `FontFaceSet`-Objekt aus.
+Die **`forEach()`**-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces führt eine bereitgestellte Funktion für jeden Wert im `FontFaceSet`-Objekt aus.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente nimmt:
+  - : Funktion, die für jedes Element ausgeführt wird, mit drei Argumenten:
     - `value`, `key`
       - : Das aktuelle Element, das im `FontFaceSet` verarbeitet wird. Da es in einem `FontFaceSet` keine Schlüssel gibt, wird der Wert für beide Argumente übergeben.
     - `set`

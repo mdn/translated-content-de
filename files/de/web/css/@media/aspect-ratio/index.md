@@ -11,13 +11,13 @@ Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/
 
 ## Syntax
 
-Das `aspect-ratio`-Feature wird als {{cssxref("&lt;ratio&gt;")}}-Wert angegeben, der das Breite-zu-Höhe-Verhältnis des Viewports darstellt. Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden können, um Minimum- bzw. Maximumwerte abzufragen.
+Das `aspect-ratio`-Feature wird als ein {{cssxref("&lt;ratio&gt;")}} Wert angegeben, der das Breite-zu-Höhe-Verhältnis des Viewports darstellt. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden können, um minimale bzw. maximale Werte abzufragen.
 
 ## Beispiele
 
-Das untenstehende Beispiel ist in einem {{htmlElement("iframe")}} enthalten, das seinen eigenen Viewport erstellt. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
+Das untenstehende Beispiel befindet sich in einem {{htmlElement("iframe")}}, das seinen eigenen Viewport erstellt. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
 
-Beachten Sie, dass sich der Hintergrund weiß färbt, wenn keine der Medienabfrage-Bedingungen wahr ist, da keine der untenstehenden Regeln auf das `<div>` innerhalb des `<iframe>` angewendet wird. Finden Sie heraus, welche Breiten- und Höhenwerte dies auslösen!
+Beachten Sie, dass der Hintergrund weiß wird, wenn keine der Medienabfragebedingungen zutrifft, da keine der untenstehenden Regeln auf das `<div>` im `<iframe>` angewendet wird. Sehen Sie, ob Sie herausfinden können, welche Breiten- und Höhenwerte dies auslösen!
 
 ### HTML
 
@@ -85,7 +85,7 @@ h.onchange = h.oninput = () => {
 };
 ```
 
-{{ EmbedLiveSample('Result', '300px', '350px') }}
+{{ EmbedLiveSample('Ergebnis', '300px', '350px') }}
 
 ## Spezifikationen
 
@@ -99,4 +99,4 @@ h.onchange = h.oninput = () => {
 
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)
-- [Verständnis von `aspect-ratio`](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)

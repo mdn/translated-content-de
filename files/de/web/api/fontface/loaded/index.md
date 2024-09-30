@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`loaded`** schreibgeschützte Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird, wenn die im Konstruktor des Objekts angegebene Schriftart fertig geladen ist oder mit einem `SyntaxError` abgelehnt wird.
+Die **`loaded`** schreibgeschützte Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird, wenn die im Konstruktor des Objekts angegebene Schriftart fertig geladen ist, oder mit einem `SyntaxError` abgelehnt wird.
 
 ## Wert
 

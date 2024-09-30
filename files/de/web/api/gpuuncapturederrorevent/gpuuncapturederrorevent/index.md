@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUUncapturedErrorEvent()`** Konstruktor erstellt eine neue Instanz eines [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent) Objekt.
+Der **`GPUUncapturedErrorEvent()`** Konstruktor erstellt eine neue Instanz eines [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent) Objekts.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ new GPUUncapturedErrorEvent(type, options)
     - `"validation"`
       - : Der Fehler ist ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError).
 - `options`
-  - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
+  - : Ein Objekt, das folgende Eigenschaften enthalten kann:
     - `error`
       - : Eine Instanz eines [`GPUError`](/de/docs/Web/API/GPUError) Objekts, die Zugriff auf die Details des Fehlers bietet.
 
 ## Beispiele
 
-Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUUncapturedErrorEvent` Objekt zu erstellen. Der User-Agent verwendet diesen Konstruktor, um ein geeignetes Objekt zu erstellen, wenn das [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis ausgelöst wird, um das Erfassen eines unerwarteten Fehlers zu ermöglichen.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUUncapturedErrorEvent` Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn das [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis ausgelöst wird, um das Erreichen eines unerwarteten Fehlers zu ermöglichen.
 
 Siehe die Hauptseite [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent#examples) für ein Beispiel.
 
@@ -48,4 +48,4 @@ Siehe die Hauptseite [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedE
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [Beste Praktiken für WebGPU Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

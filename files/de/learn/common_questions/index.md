@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser Abschnitt des Lernbereichs ist darauf ausgelegt, Antworten auf häufige Fragen bereitzustellen, die aufkommen können und nicht unbedingt Teil der strukturierten Kernlernwege sind (z.B. die [HTML](/de/docs/Learn/HTML)- oder [CSS](/de/docs/Learn/CSS)-Lernartikel). Diese Artikel sind so gestaltet, dass sie eigenständig funktionieren.
+Dieser Abschnitt des Lernbereichs soll Antworten auf häufig auftretende Fragen bieten, die nicht zwingend Teil der strukturierten Kernlernpfade sind (z. B. die [HTML](/de/docs/Learn/HTML) oder [CSS](/de/docs/Learn/CSS) Lernartikel). Diese Artikel sind darauf ausgelegt, eigenständig zu funktionieren.
 
 - [HTML-Fragen](/de/docs/Learn/HTML/Howto)
 - [CSS-Fragen](/de/docs/Learn/CSS/Howto)

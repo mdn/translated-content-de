@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`badge`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt eine Zeichenkette zurück, die die URL eines Bildes enthält, um die Benachrichtigung darzustellen, wenn nicht genügend Platz zur Verfügung steht, um die Benachrichtigung selbst anzuzeigen, wie zum Beispiel in der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Badge-Bild eine Auflösung von bis zu 4x, ungefähr 96 mal 96 px, unterstützen, und das Bild wird automatisch maskiert.
+Die schreibgeschützte **`badge`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle liefert eine Zeichenkette, die die URL eines Bildes enthält, das die Benachrichtigung repräsentiert, wenn nicht genug Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen, wie zum Beispiel bei der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Badge Bilder bis zu einer Auflösung von 4x, etwa 96 mal 96 Pixel, unterstützen, und das Bild wird automatisch maskiert.
 
 ## Wert
 

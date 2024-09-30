@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Das `USBEndpoint`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert Informationen über einen vom USB-Gerät bereitgestellten Endpunkt. Ein Endpunkt repräsentiert einen unidirektionalen Datenstrom in ein Gerät hinein oder aus einem Gerät heraus.
+Das `USBEndpoint`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert Informationen über einen Endpunkt, der vom USB-Gerät bereitgestellt wird. Ein Endpunkt stellt einen unidirektionalen Datenstrom in oder aus einem Gerät dar.
 
 ## Konstruktor
 
 - [`USBEndpoint()`](/de/docs/Web/API/USBEndpoint/USBEndpoint) {{Experimental_Inline}}
-  - : Erstellt ein neues `USBEndpoint`-Objekt, das mit Informationen über den Endpunkt des bereitgestellten [`USBAlternateInterface`](/de/docs/Web/API/USBAlternateInterface) mit der gegebenen Endpunktnummer und Transfer-Richtung gefüllt wird.
+  - : Erstellt ein neues `USBEndpoint`-Objekt, das mit Informationen über den Endpunkt auf dem bereitgestellten [`USBAlternateInterface`](/de/docs/Web/API/USBAlternateInterface) mit der angegebenen Endpunktnummer und Übertragungsrichtung gefüllt wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`USBEndpoint.endpointNumber`](/de/docs/Web/API/USBEndpoint/endpointNumber) {{Experimental_Inline}}
-  - : Gibt die "Endpunktnummer" dieses Endpunkts zurück, ein Wert von 1 bis 15, der aus dem `bEndpointAddress`-Feld des Endpunktbeschreibers extrahiert wird, der diesen Endpunkt definiert. Dieser Wert wird verwendet, um den Endpunkt beim Aufrufen von Methoden auf `USBDevice` zu identifizieren.
+  - : Gibt die "Endpunktnummer" dieses Endpunkts zurück, ein Wert von 1 bis 15, der aus dem `bEndpointAddress`-Feld des Endpunktdeskriptors extrahiert wird, der diesen Endpunkt definiert. Dieser Wert wird verwendet, um den Endpunkt beim Aufrufen von Methoden auf `USBDevice` zu identifizieren.
 - [`USBEndpoint.direction`](/de/docs/Web/API/USBEndpoint/direction) {{Experimental_Inline}}
 
-  - : Gibt die Richtung zurück, in der dieser Endpunkt Daten überträgt, eine von:
+  - : Gibt die Richtung zurück, in der dieser Endpunkt Daten überträgt, einer von:
 
     - `"in"` - Daten werden vom Gerät zum Host übertragen.
     - `"out"` - Daten werden vom Host zum Gerät übertragen.
@@ -29,18 +29,18 @@ Das `USBEndpoint`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefer
 
   - : Gibt den Typ dieses Endpunkts zurück, einer von:
 
-    - `"bulk"` - Sorgt für zuverlässigen Datentransfer für große Datenmengen. Daten, die über einen Bulk-Endpunkt gesendet werden, werden entweder garantiert zugestellt oder ein Fehler wird erzeugt, können jedoch durch andere Datenverkehrsdaten unterbrochen werden.
-    - `"interrupt"` - Sorgt für zuverlässigen Datentransfer für kleine Datenmengen. Daten, die über einen Interrupt-Endpunkt gesendet werden, werden entweder garantiert zugestellt oder ein Fehler wird erzeugt und erhalten auch dedizierte Bus-Zeit für die Übertragung.
-    - `"isochronous"` - Sorgt für unzuverlässigen Datentransfer für Nutzdaten, die periodisch geliefert werden müssen. Sie erhalten dedizierte Bus-Zeit, aber wenn eine Frist überschritten wird, werden die Daten verworfen.
+    - `"bulk"` - Bietet zuverlässige Datenübertragung für große Nutzlasten. Daten, die über einen Bulk-Endpunkt gesendet werden, sind entweder garantiert lieferbar oder erzeugen einen Fehler, können aber von anderem Datenverkehr unterbrochen werden.
+    - `"interrupt"` - Bietet zuverlässige Datenübertragung für kleine Nutzlasten. Daten, die über einen Interrupt-Endpunkt gesendet werden, sind entweder garantiert lieferbar oder erzeugen einen Fehler und erhalten außerdem dedizierte Buszeit für die Übertragung.
+    - `"isochronous"` - Bietet unzuverlässige Datenübertragung für Nutzlasten, die periodisch geliefert werden müssen. Sie erhalten dedizierte Buszeit, aber wenn eine Frist verpasst wird, werden die Daten verworfen.
 
 - [`USBEndpoint.packetSize`](/de/docs/Web/API/USBEndpoint/packetSize) {{Experimental_Inline}}
-  - : Gibt die Größe der Pakete zurück, in die Daten geteilt werden, die über diesen Endpunkt gesendet werden.
+  - : Gibt die Größe der Pakete zurück, in die die über diesen Endpunkt gesendeten Daten unterteilt werden.
 
 ## Beispiele
 
-Während Entwickler manchmal im Voraus das genaue Layout der Endpunkte eines Geräts kennen, gibt es Fälle, in denen dies zur Laufzeit entdeckt werden muss. Beispielsweise muss ein USB-Seriengerät Bulk-Input- und Output-Endpunkte bereitstellen, aber ihre Endpunktnummern hängen davon ab, welche anderen Schnittstellen das Gerät bereitstellt.
+Während der Entwickler manchmal im Voraus das genaue Layout der Endpunkte eines Geräts kennt, gibt es Fälle, in denen dies zur Laufzeit ermittelt werden muss. Beispielsweise muss ein USB-Seriengerät Bulk-Ein- und Ausgabepunkte bereitstellen, aber deren Endpunktnummern hängen davon ab, welche anderen Schnittstellen das Gerät bietet.
 
-Dieser Code identifiziert die richtigen Endpunkte, indem er nach der Schnittstelle sucht, die die USB CDC-Schnittstellenklasse implementiert, und dann die Kandidatenendpunkte basierend auf ihrem Typ und ihrer Richtung identifiziert.
+Dieser Code identifiziert die richtigen Endpunkte, indem er nach der Schnittstelle sucht, die die USB-CDC-Schnittstellenklasse implementiert, und dann die Kandidatenendpunkte basierend auf ihrem Typ und ihrer Richtung identifiziert.
 
 ```js
 let inEndpoint = undefined;

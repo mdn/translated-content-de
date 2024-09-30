@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.port`**-Eigenschaft ist ein
-String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
+Die **`HTMLAnchorElement.port`**-Eigenschaft ist ein String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-### Erhalten des Ports von einem Ankerlink
+### Abrufen des Ports von einem Anker-Link
 
 ```js
 // An <a id="myAnchor" href="https://developer.mozilla.org:443/en-US/docs/HTMLAnchorElement"> element is in the document

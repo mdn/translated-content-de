@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte Eigenschaft **`intersectionRatio`** des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces gibt Ihnen an, wie viel vom Zielelement derzeit innerhalb des Schnittstellenverhältnisses der Wurzel sichtbar ist, als ein Wert zwischen 0,0 und 1,0.
+Die schreibgeschützte **`intersectionRatio`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces gibt an, wie viel vom Zielelement derzeit innerhalb des Schnittmengenverhältnisses des Wurzels sichtbar ist, als ein Wert zwischen 0,0 und 1,0.
 
 ## Wert
 
-Eine Zahl zwischen 0,0 und 1,0, die angibt, wie viel vom Zielelement tatsächlich innerhalb des Schnittrechtecks der Wurzel sichtbar ist. Genauer gesagt, ist dieser Wert das Verhältnis der Fläche des Schnittrechtecks ([`intersectionRect`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRect)) zur Fläche des Begrenzungsrechtecks des Ziels ([`boundingClientRect`](/de/docs/Web/API/IntersectionObserverEntry/boundingClientRect)).
+Eine Zahl zwischen 0,0 und 1,0, die angibt, wie viel vom Zielelement tatsächlich innerhalb des Schnittmengenrechtecks des Wurzels sichtbar ist. Genauer gesagt ist dieser Wert das Verhältnis der Fläche des Schnittmengenrechtecks ([`intersectionRect`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRect)) zur Fläche des Begrenzungsrechtecks des Ziels ([`boundingClientRect`](/de/docs/Web/API/IntersectionObserverEntry/boundingClientRect)).
 
-Falls die Fläche des Begrenzungsrechtecks des Ziels null ist, beträgt der zurückgegebene Wert 1, wenn [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) `true` ist, oder 0, wenn nicht.
+Wenn die Fläche des Begrenzungsrechtecks des Ziels null ist, wird der Wert 1 zurückgegeben, wenn [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) `true` ist oder 0, wenn nicht.
 
 ## Beispiele
 
-In diesem einfachen Beispiel setzt ein Schnittstellen-Rückruf die {{cssxref("opacity")}} jedes Zielelements auf das Schnittstellenverhältnis dieses Elements zur Wurzel.
+In diesem einfachen Beispiel setzt ein Schnittmengen-Callback die {{cssxref("opacity")}} jedes Zielelements auf das Schnittmengenverhältnis dieses Elements mit dem Wurzel.
 
 ```js
 function intersectionCallback(entries) {
@@ -28,8 +28,7 @@ function intersectionCallback(entries) {
 }
 ```
 
-Um ein konkreteres Beispiel zu sehen, werfen Sie einen Blick auf
-[Umgang mit Schnittänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes).
+Um ein konkreteres Beispiel zu sehen, werfen Sie einen Blick auf [Umgang mit Schnittmengenänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes).
 
 ## Spezifikationen
 

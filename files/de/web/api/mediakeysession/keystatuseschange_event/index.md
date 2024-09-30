@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySession: keystatuseschange Ereignis"
+title: "MediaKeySession: keystatuseschange-Ereignis"
 short-title: keystatuseschange
 slug: Web/API/MediaKeySession/keystatuseschange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Das **`keystatuseschange`** Ereignis der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession) API wird ausgelöst, wenn sich die Schlüssel oder deren Status innerhalb einer Sitzung geändert haben.
+Das **`keystatuseschange`**-Ereignis der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-API wird ausgelöst, wenn es in einer Sitzung eine Änderung der Schlüssel oder ihres Status gegeben hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("keystatuseschange", (event) => {});
@@ -28,7 +28,7 @@ Ein [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Erbt von [`Event`](/d
 
 ## Ereigniseigenschaften
 
-_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Implementiert keine spezifischen Eigenschaften, erbt aber Eigenschaften von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 

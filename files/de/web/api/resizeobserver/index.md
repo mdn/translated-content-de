@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`ResizeObserver`** Schnittstelle meldet Änderungen an den Abmessungen eines [`Element`](/de/docs/Web/API/Element)'s Inhalts- oder Rahmenbox oder des Begrenzungsrahmens eines [`SVGElement`](/de/docs/Web/API/SVGElement).
+Die **`ResizeObserver`**-Schnittstelle meldet Änderungen an den Abmessungen des Inhalts- oder Randrahmens eines [`Element`](/de/docs/Web/API/Element) oder des Begrenzungsrahmens eines [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 > [!NOTE]
-> Die Inhaltsbox ist der Bereich, in dem Inhalte platziert werden können, das heißt, die Rahmenbox abzüglich der Innenabstand- und Rahmenbreite. Die Rahmenbox umfasst den Inhalt, den Innenabstand und den Rahmen. Weitere Erklärungen finden Sie im [Boxmodell](/de/docs/Learn/CSS/Building_blocks/The_box_model).
+> Der Inhaltsrahmen ist der Bereich, in dem Inhalte platziert werden können, was bedeutet, dass der Randrahmen minus der Polsterung und Randbreite. Der Randrahmen umfasst den Inhalt, die Polsterung und den Rand. Weitere Erklärungen finden Sie im [Box-Modell](/de/docs/Learn/CSS/Building_blocks/The_box_model).
 
 ## Konstruktor
 
@@ -24,19 +24,19 @@ Keine.
 ## Instanz-Methoden
 
 - [`ResizeObserver.disconnect()`](/de/docs/Web/API/ResizeObserver/disconnect)
-  - : Beendet die Beobachtung aller beobachteten [`Element`](/de/docs/Web/API/Element) Ziele eines bestimmten Beobachters.
+  - : Überwacht alle beobachteten [`Element`](/de/docs/Web/API/Element)-Ziele eines bestimmten Beobachters nicht mehr.
 - [`ResizeObserver.observe()`](/de/docs/Web/API/ResizeObserver/observe)
-  - : Initiiert die Beobachtung eines angegebenen [`Element`](/de/docs/Web/API/Element).
+  - : Startet die Beobachtung eines angegebenen [`Element`](/de/docs/Web/API/Element).
 - [`ResizeObserver.unobserve()`](/de/docs/Web/API/ResizeObserver/unobserve)
   - : Beendet die Beobachtung eines angegebenen [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Im Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) verwenden wir den Resize Observer, um die {{cssxref("font-size")}} einer Überschrift und eines Absatzes zu ändern, wenn der Wert eines Sliders geändert wird und dadurch das enthaltende `<div>` seine Breite ändert. Dies zeigt, dass Sie auf Änderungen der Größe eines Elements reagieren können, selbst wenn diese nichts mit dem Ansichtsfenster zu tun haben.
+Im Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) verwenden wir den Resize-Observer, um die {{cssxref("font-size")}} eines Headers und eines Absatzes zu ändern, wenn der Wert eines Schiebereglers geändert wird und dadurch die Breite des enthaltenen `<div>` geändert wird. Dies zeigt, dass Sie auf Änderungen in der Größe eines Elements reagieren können, selbst wenn sie nichts mit dem Ansichtsfenster zu tun haben.
 
-Wir bieten auch ein Kontrollkästchen an, um den Beobachter ein- und auszuschalten. Wenn er ausgeschaltet ist, ändert sich der Text nicht, wenn sich die Breite des `<div>` ändert.
+Wir bieten auch ein Kontrollkästchen an, um den Beobachter ein- und auszuschalten. Wenn es ausgeschaltet ist, ändert sich der Text nicht als Reaktion auf die Änderung der Breite des `<div>`.
 
-Der JavaScript-Code sieht folgendermaßen aus:
+Das JavaScript sieht folgendermaßen aus:
 
 ```js
 const h1Elem = document.querySelector("h1");
@@ -88,11 +88,11 @@ checkbox.addEventListener("change", () => {
 
 ## Beobachtungsfehler
 
-Implementierungen, die der Spezifikation folgen, rufen Resize-Ereignisse vor dem Rendern auf (das heißt, bevor der Frame dem Benutzer präsentiert wird). Wenn ein Resize-Ereignis auftrat, werden Stil und Layout neu bewertet, was wiederum weitere Resize-Ereignisse auslösen kann. Unendliche Schleifen durch zyklische Abhängigkeiten werden dadurch gelöst, dass bei jeder Iteration nur Elemente tiefer im DOM verarbeitet werden. Resize-Ereignisse, die diese Bedingung nicht erfüllen, werden auf den nächsten Render-Vorgang verschoben, und ein Fehlerereignis wird beim [`Window`](/de/docs/Web/API/Window) Objekt mit der festgelegten Nachrichtenzeichenfolge ausgelöst:
+Implementierungen, die der Spezifikation folgen, rufen Resize-Ereignisse vor dem Rendern auf (d.h. bevor der Frame dem Benutzer angezeigt wird). Wenn es ein Resize-Ereignis gab, werden Stil und Layout neu bewertet — was wiederum mehr Resize-Ereignisse auslösen kann. Endlosschleifen aufgrund von zyklischen Abhängigkeiten werden adressiert, indem bei jeder Iteration nur Elemente tiefer im DOM verarbeitet werden. Resize-Ereignisse, die diese Bedingung nicht erfüllen, werden auf das nächste Rendern verschoben, und ein Fehlerereignis wird am [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, mit dem klar definierten Nachrichtenstring:
 
 **ResizeObserver loop completed with undelivered notifications.**
 
-Beachten Sie, dass dies nur ein Einfrieren des Benutzer-Agents verhindert, nicht die unendliche Schleife selbst. Zum Beispiel wird der folgende Code dazu führen, dass die Breite von `divElem` unbegrenzt wächst, wobei die obige Fehlermeldung in der Konsole jede Frame wiederholt wird:
+Beachten Sie, dass dies nur das Blockieren des Benutzeragenten verhindert, nicht die Endlosschleife selbst. Zum Beispiel wird der folgende Code dazu führen, dass die Breite von `divElem` unendlich wächst, mit der obigen Fehlermeldung, die im Konsolenfenster bei jedem Frame wiederholt wird:
 
 ```js
 const divElem = document.querySelector("body > div");
@@ -110,9 +110,9 @@ window.addEventListener("error", (e) => {
 });
 ```
 
-Solange das Fehlerereignis nicht unendlich oft ausgelöst wird, wird sich der Resize Observer beruhigen und ein stabiles, wahrscheinlich korrektes Layout liefern. Besucher könnten jedoch ein kurzes Aufblitzen eines fehlerhaften Layouts sehen, da eine Reihe von Änderungen, die in einem einzigen Frame auftreten sollten, stattdessen über mehrere Frames verteilt werden.
+Solange das Fehlerereignis nicht unendlich oft ausgelöst wird, wird der Resize-Observer sich beruhigen und ein stabiles, wahrscheinlich korrektes Layout erzeugen. Besucher könnten jedoch einen kurzen Moment eines fehlerhaften Layouts sehen, da eine Folge von Änderungen, die in einem einzigen Frame erwartet werden, stattdessen über mehrere Frames erfolgt.
 
-Wenn Sie diese Fehler vermeiden möchten, hängt die Lösung davon ab, welchen Effekt Sie beabsichtigen. Wenn Sie tatsächlich eine unendliche Schleife beabsichtigen, müssen Sie nur den Resizing-Code in Ihrem `ResizeObserver`-Callback auf danach verschieben, wenn der Browser neu gezeichnet hat. Sie können ihn in einen [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) Callback einfügen.
+Wenn Sie diese Fehler verhindern möchten, hängt die Lösung davon ab, was Ihr beabsichtigter Effekt ist. Wenn Sie tatsächlich eine Endlosschleife beabsichtigen, müssen Sie nur den Resize-Code in Ihrem `ResizeObserver`-Callback nach dem Neuzeichnen des Browsers aufschieben. Sie können es in einen [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Callback einfügen.
 
 ```js
 const divElem = document.querySelector("body > div");
@@ -132,7 +132,7 @@ window.addEventListener("error", (e) => {
 });
 ```
 
-Wenn Sie nicht beabsichtigen, eine unendliche Schleife zu haben, sollten Sie sicherstellen, dass Ihr Resize-Code nicht den Resize Observer Callback auslöst. Es gibt viele Möglichkeiten, dies zu tun, zum Beispiel, indem Sie eine "erwartete Größe" festlegen und keine Größenänderung durchführen, wenn die Größe bereits diesen Wert hat.
+Wenn Sie keine Endlosschleife beabsichtigen, sollten Sie sicherstellen, dass Ihr Resize-Code das `ResizeObserver`-Callback nicht auslöst. Es gibt viele Möglichkeiten, dies zu tun, z. B. indem Sie eine "erwartete Größe" festlegen und nicht ändern, wenn die Größe bereits diesen Wert hat.
 
 ```js
 const divElem = document.querySelector("body > div");
@@ -169,7 +169,7 @@ window.addEventListener("error", (e) => {
 
 ## Siehe auch
 
-- [Das Boxmodel](/de/docs/Learn/CSS/Building_blocks/The_box_model)
+- [Das Box-Modell](/de/docs/Learn/CSS/Building_blocks/The_box_model)
 - [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)
 - [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) (Teil der [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API))
-- Zukünftige [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) könnten eine praktikable Alternative zur Umsetzung von Responsive Design sein.
+- Zukünftige [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) könnten eine praktikable Alternative zur Implementierung von responsive Design sein.

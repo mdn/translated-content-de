@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}}{{AvailableInWorkers}}
 
-Die statische Methode **`console.timeLog()`** gibt den aktuellen Wert eines Timers aus, der zuvor durch einen Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) gestartet wurde.
+Die **`console.timeLog()`** statische Methode protokolliert den aktuellen Wert eines Timers, der zuvor durch Aufrufen von [`console.time()`](/de/docs/Web/API/Console/time_static) gestartet wurde.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ timeLog(label, val1, /* …, */ valN)
 ### Parameter
 
 - `label` {{optional_inline}}
-  - : Der Name des Timers, der in der Konsole protokolliert werden soll. Wenn dieser weggelassen wird, wird das Label "default" verwendet.
+  - : Der Name des Timers, der in der Konsole protokolliert werden soll. Wenn dieser weggelassen wird, wird der Standardname "default" verwendet.
 - `valN` {{optional_inline}}
   - : Zusätzliche Werte, die nach der Timer-Ausgabe in der Konsole protokolliert werden sollen.
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die Methode `console.timeLog()` gibt den aktuellen Wert eines Timers aus.
+Die `console.timeLog()` Methode protokolliert den aktuellen Wert eines Timers.
 
 Der Methode kann der Name eines Timers übergeben werden. Dies versucht, den Wert eines Timers zu protokollieren, der mit diesem Namen in einem vorherigen Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) erstellt wurde:
 
@@ -43,7 +43,7 @@ console.timeLog("reticulating splines");
 // reticulating splines: 650ms
 ```
 
-Wenn der Timername weggelassen wird, dann wird der Timer als `"default"` benannt:
+Wenn der Timername weggelassen wird, wird der Timer mit `"default"` benannt:
 
 ```js
 console.time();
@@ -74,7 +74,7 @@ console.timeLog("default", "Hello", "world");
 // default: 780ms Hello world
 ```
 
-Siehe [Timer](/de/docs/Web/API/console#timers) in der Dokumentation für weitere Details und Beispiele.
+Weitere Details und Beispiele finden Sie unter [Timer](/de/docs/Web/API/console#timers) in der Dokumentation.
 
 ## Beispiele
 
@@ -86,14 +86,14 @@ alert("Do a bunch of other stuff…");
 console.timeEnd("answer time");
 ```
 
-Die Ausgabe des obigen Beispiels zeigt die Zeit, die der Benutzer benötigt hat, um das erste Alert-Fenster zu schließen, gefolgt von der kumulierten Zeit, die der Benutzer benötigt hat, um beide Alerts zu schließen:
+Die Ausgabe des obigen Beispiels zeigt die Zeit, die der Benutzer benötigt hat, um das erste Alarmfenster zu schließen, gefolgt von der kumulativen Zeit, die der Benutzer benötigte, um beide Alarme zu schließen:
 
 ```plain
 answer time: 2542ms debugger eval code:3:9
 answer time: 4161ms - timer ended
 ```
 
-Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timerwert mit `console.timeLog()` protokolliert wird, und erneut, wenn er gestoppt wird. Darüber hinaus enthält der Aufruf von `console.timeEnd()` die zusätzliche Information "timer ended", um eindeutig zu machen, dass der Timer keine Zeit mehr misst.
+Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timerwert mit `console.timeLog()` protokolliert wird und erneut, wenn er gestoppt wird. Zusätzlich enthält der Aufruf von `console.timeEnd()` die zusätzliche Information "timer ended", um deutlich zu machen, dass der Timer keine Zeit mehr verfolgt.
 
 ## Spezifikationen
 
@@ -107,4 +107,4 @@ Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timerwert mit `c
 
 - [`console.time()`](/de/docs/Web/API/Console/time_static)
 - Siehe [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) für zusätzliche Beispiele
-- [Node.JS-Dokumentation für `console.timeLog()`](https://nodejs.org/docs/latest/api/console.html#consoletimeloglabel-data)
+- [Node.JS Dokumentation für `console.timeLog()`](https://nodejs.org/docs/latest/api/console.html#consoletimeloglabel-data)

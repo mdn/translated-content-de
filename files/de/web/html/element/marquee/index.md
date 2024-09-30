@@ -7,48 +7,48 @@ l10n:
 
 {{HTMLSidebar}}{{Deprecated_Header}}
 
-Das **`<marquee>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um einen scrollenden Textbereich einzufügen. Sie können mit seinen Attributen steuern, was passiert, wenn der Text die Ränder seines Inhaltsbereichs erreicht.
+Das **`<marquee>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um einen scrollenden Textbereich einzufügen. Sie können steuern, was passiert, wenn der Text die Ränder seines Inhaltsbereichs erreicht, indem Sie dessen Attribute verwenden.
 
 ## Attribute
 
 - `behavior` {{Deprecated_Inline}}
-  - : Legt fest, wie der Text innerhalb des Marquee gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, ist der Standardwert `scroll`.
+  - : Legt fest, wie der Text im Marquee gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, wird standardmäßig `scroll` verwendet.
 - `bgcolor` {{Deprecated_Inline}}
-  - : Legt die Hintergrundfarbe über einen Farbnamen oder einen Hexadezimalwert fest.
+  - : Legt die Hintergrundfarbe fest, entweder durch Farbnamen oder hexadezimale Werte.
 - `direction` {{Deprecated_Inline}}
-  - : Legt die Richtung des Scrollens innerhalb des Marquee fest. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Legt die Scrollrichtung innerhalb des Marquees fest. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, wird standardmäßig `left` verwendet.
 - `height` {{Deprecated_Inline}}
-  - : Legt die Höhe in Pixel oder Prozentwert fest.
+  - : Legt die Höhe in Pixeln oder Prozentwerten fest.
 - `hspace` {{Deprecated_Inline}}
   - : Legt den horizontalen Rand fest.
 - `loop` {{Deprecated_Inline}}
-  - : Legt die Anzahl der Male fest, die das Marquee scrollen wird. Wenn kein Wert angegeben ist, ist der Standardwert -1, was bedeutet, dass das Marquee kontinuierlich scrollt.
+  - : Legt fest, wie oft das Marquee scrollt. Wenn kein Wert angegeben ist, wird der Standardwert −1 verwendet, was bedeutet, dass das Marquee kontinuierlich scrollt.
 - `scrollamount` {{Deprecated_Inline}}
-  - : Legt die Menge des Scrollens bei jedem Intervall in Pixel fest. Der Standardwert ist 6.
+  - : Legt die Scrollmenge bei jedem Intervall in Pixeln fest. Der Standardwert ist 6.
 - `scrolldelay` {{Deprecated_Inline}}
-  - : Legt das Intervall zwischen jedem Scrollen in Millisekunden fest. Der Standardwert ist 85. Beachten Sie, dass ein Wert unter 60 ignoriert wird und der Wert 60 stattdessen verwendet wird, es sei denn, `truespeed` ist angegeben.
+  - : Legt das Intervall zwischen jeder Scroll-Bewegung in Millisekunden fest. Der Standardwert ist 85. Beachten Sie, dass alle Werte unter 60 ignoriert werden und stattdessen der Wert 60 verwendet wird, es sei denn, `truespeed` ist angegeben.
 - `truespeed` {{Deprecated_Inline}}
   - : Standardmäßig werden `scrolldelay`-Werte unter 60 ignoriert. Wenn `truespeed` vorhanden ist, werden diese Werte nicht ignoriert.
 - `vspace` {{Deprecated_Inline}}
-  - : Legt den vertikalen Rand in Pixel oder Prozentwert fest.
+  - : Legt den vertikalen Rand in Pixeln oder Prozentwerten fest.
 - `width` {{Deprecated_Inline}}
-  - : Legt die Breite in Pixel oder Prozentwert fest.
+  - : Legt die Breite in Pixeln oder Prozentwerten fest.
 
-## Ereignis-Handler
+## Ereignishandler
 
 - `onbounce` {{deprecated_inline}}
-  - : Wird ausgelöst, wenn das Marquee das Ende seiner Scrollposition erreicht hat. Es kann nur ausgelöst werden, wenn das behavior-Attribut auf `alternate` gesetzt ist.
+  - : Wird ausgelöst, wenn das Marquee das Ende seiner Scrollposition erreicht hat. Es kann nur ausgelöst werden, wenn das `behavior`-Attribut auf `alternate` gesetzt ist.
 - `onfinish` {{deprecated_inline}}
-  - : Wird ausgelöst, wenn das Marquee die im loop-Attribut festgelegte Menge des Scrollens abgeschlossen hat. Es kann nur ausgelöst werden, wenn das loop-Attribut auf eine Zahl gesetzt ist, die größer als 0 ist.
+  - : Wird ausgelöst, wenn das Marquee die im `loop`-Attribut festgelegte Anzahl von Scrolls abgeschlossen hat. Es kann nur ausgelöst werden, wenn das `loop`-Attribut auf eine Zahl größer als 0 gesetzt ist.
 - `onstart` {{deprecated_inline}}
   - : Wird ausgelöst, wenn das Marquee zu scrollen beginnt.
 
 ## Methoden
 
 - `start()` {{deprecated_inline}}
-  - : Startet das Scrollen des Marquee.
+  - : Startet das Scrollen des Marquees.
 - `stop()` {{deprecated_inline}}
-  - : Stoppt das Scrollen des Marquee.
+  - : Stoppt das Scrollen des Marquees.
 
 ## Beispiele
 

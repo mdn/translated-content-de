@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaExpanded`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein von diesem Element besessenes oder kontrolliertes Gruppierungselement erweitert oder reduziert ist.
+Die **`ariaExpanded`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein Gruppierungselement, das von diesem Element besessen oder kontrolliert wird, erweitert oder eingeklappt ist.
 
 ## Wert
 
@@ -17,13 +17,13 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist erweitert.
 - `"false"`
-  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist reduziert.
+  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist eingeklappt.
 - `"undefined"`
-  - : Das Element besitzt oder kontrolliert kein erweiterbares Gruppierungselement.
+  - : Das Element besitzt oder kontrolliert kein Gruppierungselement, das erweiterbar ist.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-expanded`-Attribut des Elements mit der ID `animal` auf "false" gesetzt. Mit `ariaExpanded` aktualisieren wir den Wert auf "true".
+In diesem Beispiel wird das `aria-expanded`-Attribut beim Element mit der ID `animal` auf "false" gesetzt. Mit `ariaExpanded` aktualisieren wir den Wert auf "true".
 
 ```html
 <div class="animals-combobox">

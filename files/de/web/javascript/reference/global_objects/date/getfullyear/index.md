@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`getFullYear()`**-Methode von {{jsxref("Date")}}-Instanzen gibt das Jahr für dieses Datum entsprechend der lokalen Zeit zurück.
+Die **`getFullYear()`**-Methode von {{jsxref("Date")}} Instanzen gibt das Jahr für dieses Datum gemäß der lokalen Zeit zurück.
 
-Verwenden Sie diese Methode anstelle der {{jsxref("Date/getYear", "getYear()")}}-Methode.
+Verwenden Sie diese Methode anstelle der {{jsxref("Date/getYear", "getYear()")}} Methode.
 
 {{EmbedInteractiveExample("pages/js/date-getfullyear.html", "shorter")}}
 
@@ -29,13 +29,13 @@ Eine ganze Zahl, die das Jahr für das angegebene Datum gemäß der lokalen Zeit
 
 ## Beschreibung
 
-Im Gegensatz zu {{jsxref("Date/getYear", "getYear()")}} ist der von `getFullYear()` zurückgegebene Wert eine absolute Zahl. Für Daten zwischen den Jahren 1000 und 9999 gibt `getFullYear()` eine vierstellige Zahl zurück, zum Beispiel 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass ein Jahr mit den Jahren nach 2000 kompatibel ist.
+Im Gegensatz zur {{jsxref("Date/getYear", "getYear()")}} Methode ist der von `getFullYear()` zurückgegebene Wert eine absolute Zahl. Für Daten zwischen den Jahren 1000 und 9999 gibt `getFullYear()` eine vierstellige Zahl zurück, zum Beispiel 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass ein Jahr nach 2000 konform ist.
 
 ## Beispiele
 
 ### Verwendung von getFullYear()
 
-Die Variable `fullYear` hat den Wert `1995`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
+Die Variable `fullYear` hat den Wert `1995`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

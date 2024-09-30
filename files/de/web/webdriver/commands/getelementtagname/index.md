@@ -1,5 +1,5 @@
 ---
-title: Element-Tag-Namen abrufen
+title: Get Element Tag Name
 slug: Web/WebDriver/Commands/GetElementTagName
 l10n:
   sourceCommit: 4a6dacf8c68925a8538585be3b2728bcb271241e
@@ -7,29 +7,29 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der _Get Element Tag Name_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Tag-Namen des referenzierten [Webelements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn das Element beispielsweise ein {{HTMLElement("img")}} ist, wird der zurückgegebene Tag-Name `"IMG"` sein, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Bei XML/XHTML-Dokumenten kann die Groß- und Kleinschreibung unterschiedlich sein.
+Der _Get Element Tag Name_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Tag-Namen des referenzierten [Web-Elements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn das Element zum Beispiel ein {{HTMLElement("img")}} ist, lautet der zurückgegebene Tag-Name `"IMG"`, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Bei XML/XHTML-Dokumenten kann er unterschiedlich großgeschrieben sein.
 
 ## Syntax
 
 | Methode | URI-Vorlage                                       |
-| ------- | ------------------------------------------------- |
+| ------  | ------------------------------------------------- |
 | `GET`   | `/session/{session id}/element/{element id}/name` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Identifikator der Sitzung.
 - `element id`
-  - : Bezeichner des [Webelements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Identifikator des [Web-Elements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
 
 ### Fehler
 
-- [Session not created](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+- [Session nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
   - : Sitzung existiert nicht.
-- [No such window](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
   - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass die Registerkarte oder das Fenster geschlossen wurde.
-- [Unexpected alert open](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Ein Benutzerdialog, wie etwa [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis er behandelt wird.
 
 ## Beispiele
 

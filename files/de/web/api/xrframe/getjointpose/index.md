@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: getJointPose() Methode"
+title: "XRFrame: Methode getJointPose()"
 short-title: getJointPose()
 slug: Web/API/XRFrame/getJointPose
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getJointPose()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt zurück, das die Pose eines Handgelenks (siehe [`XRHand`](/de/docs/Web/API/XRHand)) relativ zu einem gegebenen Basisspace bereitstellt.
+Die **`getJointPose()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt zurück, das die Pose eines Handgelenks (siehe [`XRHand`](/de/docs/Web/API/XRHand)) relativ zu einem gegebenen Basisraum bereitstellt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ getJointPose(joint, baseSpace)
 ### Parameter
 
 - `joint`
-  - : Ein [`XRJointSpace`](/de/docs/Web/API/XRJointSpace), das den Handgelenkraum angibt, für den ein [`XRJointPose`](/de/docs/Web/API/XRJointPose) zur Beschreibung der Position und Ausrichtung des Elements abgerufen werden soll.
+  - : Ein [`XRJointSpace`](/de/docs/Web/API/XRJointSpace), das den Gelenkraum der Hand angibt, für den eine [`XRJointPose`](/de/docs/Web/API/XRJointPose) beschrieben werden soll, die die Position und Orientierung des Elements umfasst.
 - `baseSpace`
-  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), der als Basis oder Ursprung für die relative Position und Ausrichtung verwendet wird.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), der als Basis oder Ursprung für die relative Position und Orientierung verwendet wird.
 
 ### Rückgabewert
 
-Ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt, das die Position und Ausrichtung des Handgelenks relativ zu dem durch `baseSpace` angegebenen [`XRSpace`](/de/docs/Web/API/XRSpace) angibt.
+Ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt, das die Position und Orientierung des Handgelenks, relativ zu dem durch `baseSpace` angegebenen [`XRSpace`](/de/docs/Web/API/XRSpace), spezifiziert.
 
 ## Beispiele
 

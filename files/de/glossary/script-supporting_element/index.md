@@ -1,5 +1,5 @@
 ---
-title: Script-supporting Element
+title: Script-supporting element
 slug: Glossary/Script-supporting_element
 l10n:
   sourceCommit: d267a8cb862c20277f81bbc223221b36b0c613e6
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem [HTML](/de/docs/Glossary/HTML)-Dokument sind **script-supporting elements** diejenigen Elemente, die nicht direkt zum Erscheinungsbild oder Layout der Seite beitragen; stattdessen sind es entweder Skripte oder sie enthalten Informationen, die nur von Skripten verwendet werden.
+In einem [HTML](/de/docs/Glossary/HTML)-Dokument sind **script-supporting elements** jene Elemente, die nicht direkt zur Darstellung oder zum Layout der Seite beitragen; stattdessen sind sie entweder Skripte oder enthalten Informationen, die nur von Skripten verwendet werden.
 
-Diese Elemente können wichtig sein, beeinflussen jedoch nicht die angezeigte Seite, es sei denn, die Skripte der Seite verursachen dies explizit.
+Diese Elemente können wichtig sein, haben jedoch keinen Einfluss auf die angezeigte Seite, es sei denn, die Skripte der Seite veranlassen sie ausdrücklich dazu.
 
 Es gibt nur zwei script-supporting elements: {{HTMLElement("script")}} und {{HTMLElement("template")}}.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.preventExtensions()`** Methode ist ein Trap für die `[[PreventExtensions]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.preventExtensions()")}} verwendet wird.
+Die Methode **`handler.preventExtensions()`** ist eine Falle für die `[[PreventExtensions]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.preventExtensions()")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-preventextensions.html", "taller")}}
 
@@ -22,22 +22,22 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird an die Methode `preventExtensions()` übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird an die `preventExtensions()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die Methode `preventExtensions()` muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob die Operation erfolgreich war oder nicht. Andere Werte werden zu Booleans [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `preventExtensions()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Operation erfolgreich war oder nicht. Andere Werte werden [zu Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, einschließlich {{jsxref("Object.preventExtensions()")}}, werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[PreventExtensions]]` `false` zurückgibt.
+Viele Operationen, einschließlich {{jsxref("Object.preventExtensions()")}}, werfen einen {{jsxref("TypeError")}}, wenn die `[[PreventExtensions]]`-interne Methode `false` zurückgibt.
 
 ## Beschreibung
 
-### Abfangen
+### Abfangen von Operationen
 
-Dieser Trap kann folgende Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
 - {{jsxref("Object.preventExtensions()")}}
 - {{jsxref("Reflect.preventExtensions()")}}
@@ -48,9 +48,9 @@ Oder jede andere Operation, die die `[[PreventExtensions]]` [interne Methode](/d
 
 ### Invarianten
 
-Die `[[PreventExtensions]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[PreventExtensions]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das Ergebnis ist nur `true`, wenn {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt `false` zurückgibt, nachdem `handler.preventExtensions()` aufgerufen wurde.
+- Das Ergebnis ist nur dann `true`, wenn {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt nach dem Aufrufen von `handler.preventExtensions()` `false` zurückgibt.
 
 ## Beispiele
 

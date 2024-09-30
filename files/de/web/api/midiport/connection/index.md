@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: connection Eigenschaft"
+title: "MIDIPort: connection-Eigenschaft"
 short-title: connection
 slug: Web/API/MIDIPort/connection
 l10n:
@@ -15,15 +15,15 @@ Die schreibgeschützte Eigenschaft **`connection`** des [`MIDIPort`](/de/docs/We
 Gibt einen String zurück, der den Verbindungsstatus des Ports enthält, einer von:
 
 - `"open"`
-  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
+  - : Das Gerät, das diesen `MIDIPort` darstellt, wurde geöffnet und ist verfügbar.
 - `"closed"`
-  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde nicht geöffnet oder ist geschlossen.
+  - : Das Gerät, das diesen `MIDIPort` darstellt, wurde nicht geöffnet oder wurde geschlossen.
 - `"pending"`
-  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet, aber anschließend getrennt.
+  - : Das Gerät, das diesen `MIDIPort` darstellt, wurde geöffnet, ist aber anschließend getrennt worden.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingangsports und gibt den Verbindungsstatus jedes einzelnen in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den Verbindungsstatus jedes einzelnen auf der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

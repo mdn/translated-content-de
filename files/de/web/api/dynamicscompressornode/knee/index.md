@@ -1,5 +1,5 @@
 ---
-title: "DynamicsCompressorNode: knee Eigenschaft"
+title: "DynamicsCompressorNode: knee-Eigenschaft"
 short-title: knee
 slug: Web/API/DynamicsCompressorNode/knee
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `knee`-Eigenschaft des [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Interfaces ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das einen Dezibelwert enthält, der den Bereich über der Schwelle darstellt, in dem die Kurve sanft zum komprimierten Teil übergeht.
+Die `knee`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das einen Dezibelwert enthält, der den Bereich über der Schwelle darstellt, in dem die Kurve reibungslos in den komprimierten Abschnitt übergeht.
 
-Der Standardwert der `knee`-Eigenschaft ist `30`, und sie kann zwischen `0` und `40` eingestellt werden.
+Der Standardwert der `knee`-Eigenschaft ist `30` und kann zwischen `0` und `40` eingestellt werden.
 
-![Beschreibt die Wirkung eines Knees und zeigt zwei Kurven, eine für ein hartes Knee und die andere für ein weiches Knee.](webaudioknee.png)
+![Beschreibt die Wirkung eines Knees und zeigt zwei Kurven, eine für ein hartes Knee, die andere für ein weiches Knee.](webaudioknee.png)
 
 ## Wert
 
 Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
+> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der Wert, den es repräsentiert, nicht.
 
 ## Beispiele
 

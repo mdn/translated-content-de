@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "ungültiger 'instanceof'-Operand" tritt auf, wenn die rechte Seite der Operanden des [`instanceof` Operators](/de/docs/Web/JavaScript/Reference/Operators/instanceof) nicht mit einem Konstruktorobjekt verwendet wird, d.h. einem Objekt, das eine `prototype`-Eigenschaft hat und aufrufbar ist.
+Die JavaScript-Ausnahme "ungültiger 'instanceof'-Operand" tritt auf, wenn der Operand auf der rechten Seite des [`instanceof` Operators](/de/docs/Web/JavaScript/Reference/Operators/instanceof) nicht mit einem Konstruktorobjekt verwendet wird, d. h. einem Objekt, das über eine `prototype`-Eigenschaft verfügt und aufrufbar ist.
 
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Right-hand side of 'instanceof' is not an object (V8-based)
@@ -29,13 +29,13 @@ TypeError: instanceof called on an object with an invalid prototype property. (S
 
 {{jsxref("TypeError")}}
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-Der [`instanceof` Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) erwartet, dass die Operanden auf der rechten Seite ein Konstruktorobjekt sind, d.h. ein Objekt, das eine `prototype`-Eigenschaft hat und aufrufbar ist. Es kann auch ein Objekt mit einer [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) Methode sein. Dieser Fehler kann auftreten, wenn:
+Der [`instanceof` Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) erwartet, dass der Operand auf der rechten Seite ein Konstruktorobjekt ist, d. h. ein Objekt, das eine `prototype`-Eigenschaft hat und aufrufbar ist. Es kann auch ein Objekt mit einer [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance)-Methode sein. Dieser Fehler kann auftreten, wenn:
 
 - Der Operand auf der rechten Seite kein Objekt ist.
-- Der Operand auf der rechten Seite nicht aufrufbar ist und keine `Symbol.hasInstance` Methode hat.
-- Der Operand auf der rechten Seite aufrufbar ist, aber seine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft kein Objekt ist. (Zum Beispiel haben [Arrow Functions](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) keine `prototype` Eigenschaft.)
+- Der Operand auf der rechten Seite nicht aufrufbar ist und keine `Symbol.hasInstance`-Methode hat.
+- Der Operand auf der rechten Seite aufrufbar ist, aber dessen [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft kein Objekt ist. (Zum Beispiel haben [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) keine `prototype`-Eigenschaft.)
 
 ## Beispiele
 

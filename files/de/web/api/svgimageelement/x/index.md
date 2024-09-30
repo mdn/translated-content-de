@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`x`** schreibgeschützte Eigenschaft des [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("image")}}-Elements entspricht.
+Die **`x`**-Eigenschaft der Lese-Schnittstelle des [`SVGImageElement`](/de/docs/Web/API/SVGImageElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
 
 ## Wert
 

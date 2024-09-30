@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`AudioData`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert eine Audioaufnahme.
+Die **`AudioData`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert eine Audio-Abtastung.
 
 `AudioData` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Beschreibung
 
-Ein Audiotrack besteht aus einem Strom von Audiodaten, wobei jede Probe einen aufgenommenen Moment des Klangs darstellt. Ein `AudioData`-Objekt ist eine Darstellung einer solchen Probe. In Zusammenarbeit mit den Schnittstellen der [Insertable Streams API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) können Sie einen Strom in einzelne `AudioData`-Objekte zerlegen, z.B. mit [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor), oder einen Audiotrack aus einem Strom von Frames mit [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) konstruieren.
+Eine Audiospur besteht aus einem Strom von Audio-Abtastungen, wobei jede Abtastung einen erfassten Moment eines Tons darstellt. Ein `AudioData`-Objekt ist eine Darstellung einer solchen Abtastung. In Verbindung mit den Schnittstellen der [Insertable Streams API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) können Sie einen Strom in einzelne `AudioData`-Objekte mit [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) aufteilen oder eine Audiospur aus einem Strom von Frames mit [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) konstruieren.
 
 > [!NOTE]
-> Erfahren Sie mehr über Audio im Web in [Digital audio concepts](/de/docs/Web/Media/Formats/Audio_concepts).
+> Erfahren Sie mehr über Audio im Web in [Digitale Audiokonzepten](/de/docs/Web/Media/Formats/Audio_concepts).
 
 ### Die Medienressource
 
-Ein `AudioData`-Objekt enthält einen Verweis auf eine angehängte **Medienressource**. Diese Medienressource enthält die tatsächlichen Audiodaten, die durch das Objekt beschrieben werden. Eine Medienressource wird vom Benutzeragenten beibehalten, bis sie nicht mehr von einem `AudioData`-Objekt referenziert wird, beispielsweise wenn [`AudioData.close()`](/de/docs/Web/API/AudioData/close) aufgerufen wird.
+Ein `AudioData`-Objekt enthält einen Verweis auf eine angehängte **Medienressource**. Diese Medienressource enthält die tatsächlichen Audio-Abtastungsdaten, die durch das Objekt beschrieben werden. Eine Medienressource wird vom Benutzeragenten verwaltet, bis sie nicht mehr von einem `AudioData`-Objekt referenziert wird, zum Beispiel, wenn [`AudioData.close()`](/de/docs/Web/API/AudioData/close) aufgerufen wird.
 
 ### Planes und Audioformat
 
-Um das Probenformat eines `AudioData` zu erhalten, verwenden Sie die Eigenschaft [`AudioData.format`](/de/docs/Web/API/AudioData/format). Das Format kann als **interleaved** oder **planar** beschrieben werden. In interleaved Formaten sind die Audiodaten der verschiedenen Kanäle in einem einzigen Puffer angeordnet, der als **Plane** bezeichnet wird. Diese Plane enthält eine Anzahl von Elementen entsprechend [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) \* [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels).
+Um das Abtastungsformat eines `AudioData` zurückzugeben, verwenden Sie die Eigenschaft [`AudioData.format`](/de/docs/Web/API/AudioData/format). Das Format kann als **interleaved** oder **planar** beschrieben werden. In interleaved Formaten werden die Audio-Abtastungen der verschiedenen Kanäle in einem einzigen Puffer angeordnet, der als **plane** beschrieben wird. Diese plane enthält eine Anzahl von Elementen, die gleich [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) \* [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels) ist.
 
-Im planar Format entspricht die Anzahl der Planes [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels), und jede Plane ist ein Puffer, der eine Anzahl von Elementen entsprechend [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) enthält.
+Im planen Format ist die Anzahl der Planes gleich [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels), und jede Plane ist ein Puffer mit einer Anzahl von Elementen, die gleich [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) ist.
 
 ## Konstruktor
 
 - [`AudioData()`](/de/docs/Web/API/AudioData/AudioData)
   - : Erstellt ein neues `AudioData`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`AudioData.format`](/de/docs/Web/API/AudioData/format) {{ReadOnlyInline}}
-  - : Gibt das Probenformat des Audios zurück.
+  - : Gibt das Abtastungsformat des Audios zurück.
 - [`AudioData.sampleRate`](/de/docs/Web/API/AudioData/sampleRate) {{ReadOnlyInline}}
   - : Gibt die Abtastrate des Audios in Hz zurück.
 - [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) {{ReadOnlyInline}}
@@ -48,16 +48,16 @@ Im planar Format entspricht die Anzahl der Planes [`AudioData.numberOfChannels`]
 - [`AudioData.timestamp`](/de/docs/Web/API/AudioData/timestamp) {{ReadOnlyInline}}
   - : Gibt den Zeitstempel des Audios in Mikrosekunden zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`AudioData.allocationSize()`](/de/docs/Web/API/AudioData/allocationSize)
-  - : Gibt die Anzahl der Bytes zurück, die erforderlich sind, um die Probe entsprechend den in die Methode übergebenen Optionen zu halten.
+  - : Gibt die Anzahl von Bytes zurück, die zur Aufnahme der Abtastung benötigt werden, gefiltert durch die in die Methode übergebenen Optionen.
 - [`AudioData.copyTo()`](/de/docs/Web/API/AudioData/copyTo)
-  - : Kopiert die Proben von der angegebenen Plane des `AudioData`-Objekts zum Ziel.
+  - : Kopiert die Abtastungen aus der angegebenen Plane des `AudioData`-Objekts zum Ziel.
 - [`AudioData.clone()`](/de/docs/Web/API/AudioData/clone)
-  - : Erstellt ein neues `AudioData`-Objekt mit einer Referenz auf dieselbe Medienressource wie das Original.
+  - : Erstellt ein neues `AudioData`-Objekt mit Verweis auf dieselbe Medienressource wie das Original.
 - [`AudioData.close()`](/de/docs/Web/API/AudioData/close)
-  - : Löscht alle Zustände und gibt die Referenz auf die Medienressource frei.
+  - : Löscht alle Zustände und gibt den Verweis auf die Medienressource frei.
 
 ## Spezifikationen
 

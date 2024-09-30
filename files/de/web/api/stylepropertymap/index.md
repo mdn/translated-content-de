@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`StylePropertyMap`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) bietet eine Darstellung eines CSS-Deklarationsblocks, die eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
+Die **`StylePropertyMap`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) bietet eine Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
+_Erbt Eigenschaften von ihrem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
+_Erbt Methoden von ihrem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
 
 - [`StylePropertyMap.append()`](/de/docs/Web/API/StylePropertyMap/append)
-  - : Fügt eine neue CSS-Deklaration zum `StylePropertyMap` mit der angegebenen Eigenschaft und dem Wert hinzu.
+  - : Fügt eine neue CSS-Deklaration mit der angegebenen Eigenschaft und dem Wert zur `StylePropertyMap` hinzu.
 - [`StylePropertyMap.clear()`](/de/docs/Web/API/StylePropertyMap/clear)
-  - : Entfernt alle Deklarationen im `StylePropertyMap`.
+  - : Entfernt alle Deklarationen in der `StylePropertyMap`.
 - [`StylePropertyMap.delete()`](/de/docs/Web/API/StylePropertyMap/delete)
   - : Entfernt die CSS-Deklaration mit der angegebenen Eigenschaft.
 - [`StylePropertyMap.set()`](/de/docs/Web/API/StylePropertyMap/set)

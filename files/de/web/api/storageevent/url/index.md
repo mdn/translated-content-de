@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`url`**-Eigenschaft der [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Schnittstelle gibt die URL des Dokuments zurück, dessen Speicher sich geändert hat.
+Die **`url`**-Eigenschaft des [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Interfaces gibt die URL des Dokuments zurück, dessen Speicher sich geändert hat.
 
 ## Wert
 

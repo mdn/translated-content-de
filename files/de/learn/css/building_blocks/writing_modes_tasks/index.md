@@ -7,20 +7,20 @@ l10n:
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, wie man [verschiedene Textrichtungen mit Schreibmodi und logischen Eigenschaften in CSS handhabt](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
+Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie verstehen, wie man [verschiedene Textausrichtungen mit Schreibmodi und logischen Eigenschaften in CSS handhaben kann](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe wird die Box mit einem horizontalen Schreibmodus angezeigt. Können Sie eine Zeile CSS hinzufügen, um sie so zu ändern, dass sie einen vertikalen Schreibmodus mit Text von rechts nach links verwendet?
+In dieser Aufgabe wird das Kästchen mit einem horizontalen Schreibmodus angezeigt. Können Sie eine CSS-Zeile hinzufügen, um es so zu ändern, dass ein vertikaler Schreibmodus mit Text von rechts nach links verwendet wird?
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Eine Box mit einem vertikalen Schreibmodus](mdn-writing-modes1.png)
+![Ein Kästchen mit einem vertikalen Schreibmodus](mdn-writing-modes1.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -32,11 +32,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe sollen Sie logische Eigenschaften verwenden, um `width` und `height` zu ersetzen, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) der Box beizubehalten, während sie vertikal gedreht wird.
+In dieser Aufgabe möchten wir, dass Sie logische Eigenschaften verwenden, um `width` und `height` zu ersetzen, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Kästchens bei vertikaler Drehung beizubehalten.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Zwei Boxen, eine horizontal und die andere vertikal](mdn-writing-modes2.png)
+![Zwei Kästchen, eines horizontal, das andere vertikal](mdn-writing-modes2.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -48,11 +48,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 3
 
-In dieser Aufgabe sollen Sie logische Versionen der Margin-, Border- und Padding-Eigenschaften verwenden, sodass sich die Kanten der Box auf den Text beziehen, anstatt oben, links, unten und rechts zu folgen.
+In dieser Aufgabe möchten wir, dass Sie die logischen Versionen der Eigenschaften für Rand, Rahmen und Abstand verwenden, sodass die Kanten des Kästchens nicht den oberen, linken, unteren und rechten Seiten folgen, sondern sich am Text orientieren.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Zwei Boxen, eine horizontal und eine vertikal mit unterschiedlichen Margin, Border und Padding](mdn-writing-modes3.png)
+![Zwei Kästchen, eines horizontal, eines vertikal mit unterschiedlichen Rändern, Rahmen und Abständen](mdn-writing-modes3.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 

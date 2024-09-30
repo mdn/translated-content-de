@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSRotate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Drehwert der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Die **`CSSRotate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Rotationswert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -16,20 +16,20 @@ Das **`CSSRotate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/
 - [`CSSRotate()`](/de/docs/Web/API/CSSRotate/CSSRotate)
   - : Erstellt ein neues `CSSRotate`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`x`](/de/docs/Web/API/CSSRotate/x)
-  - : Gibt den Wert der x-Achse zurück oder legt ihn fest.
+  - : Gibt den x-Achsenwert zurück oder setzt ihn.
 - [`y`](/de/docs/Web/API/CSSRotate/y)
-  - : Gibt den Wert der y-Achse zurück oder legt ihn fest.
+  - : Gibt den y-Achsenwert zurück oder setzt ihn.
 - [`z`](/de/docs/Web/API/CSSRotate/z)
-  - : Gibt den Wert der z-Achse zurück oder legt ihn fest.
+  - : Gibt den z-Achsenwert zurück oder setzt ihn.
 - [`angle`](/de/docs/Web/API/CSSRotate/angle)
-  - : Gibt den Winkelwert zurück oder legt ihn fest.
+  - : Gibt den Winkelwert zurück oder setzt ihn.
 
 ## Beispiele
 
-Noch zu erledigen.
+Noch zu machen.
 
 ## Spezifikationen
 

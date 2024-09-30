@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Schaltet die Sichtbarkeit der Sidebar im aktiven Fenster um, wenn die Sidebar zur Erweiterung gehört.
+Wechselt die Sichtbarkeit der Seitenleiste im aktiven Fenster, wenn die Seitenleiste zur Erweiterung gehört.
 
-Diese Funktion kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufgerufen werden.
+Sie können diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -33,7 +33,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Schaltet die Sidebar um, wenn der Benutzer ein Element aus dem Kontextmenü auswählt:
+Wechselt die Seitenleiste, wenn der Benutzer ein Element aus dem Kontextmenü auswählt:
 
 ```js
 browser.menus.create({

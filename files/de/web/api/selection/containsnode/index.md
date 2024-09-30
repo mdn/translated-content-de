@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.containsNode()`**-Methode zeigt an, ob ein bestimmter Node Teil der Auswahl ist.
+Die **`Selection.containsNode()`**-Methode zeigt an, ob ein bestimmter Knoten Teil der Auswahl ist.
 
 ## Syntax
 
@@ -21,29 +21,27 @@ containsNode(node, partialContainment)
 ### Parameter
 
 - `node`
-  - : Der Node, der in der Auswahl gesucht wird.
+  - : Der Knoten, der in der Auswahl gesucht wird.
 - `partialContainment` {{optional_inline}}
-  - : Wenn `true`, gibt `containsNode()` `true` zurück, wenn ein Teil des Nodes Teil der Auswahl ist. Wenn `false`, gibt `containsNode()` nur `true` zurück, wenn der gesamte Node Teil der Auswahl ist. Wenn nicht angegeben, wird der Standardwert `false` verwendet.
+  - : Wenn `true`, gibt `containsNode()` `true` zurück, wenn ein Teil des Knotens Teil der Auswahl ist. Wenn `false`, gibt `containsNode()` nur dann `true` zurück, wenn der gesamte Knoten Teil der Auswahl ist. Wenn nicht angegeben, wird der Standardwert `false` verwendet.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der angegebene Node Teil der Auswahl ist, andernfalls `false`.
+Gibt `true` zurück, wenn der angegebene Knoten Teil der Auswahl ist, und `false` andernfalls.
 
 ## Beispiele
 
-### Auswahl überprüfen
+### Auswahl prüfen
 
-Dieses Snippet überprüft, ob irgendetwas innerhalb des `<body>`-Elements ausgewählt ist.
+Dieses Snippet überprüft, ob etwas innerhalb des `<body>`-Elements ausgewählt ist.
 
 ```js
 console.log(window.getSelection().containsNode(document.body, true));
 ```
 
-### Finde das versteckte Wort
+### Das versteckte Wort finden
 
-In diesem Beispiel erscheint eine Nachricht, wenn Sie das geheime Wort auswählen. Es verwendet
-[`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf
-[`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignisse zu prüfen.
+In diesem Beispiel erscheint eine Nachricht, wenn Sie das geheime Wort auswählen. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignisse zu prüfen.
 
 #### HTML
 

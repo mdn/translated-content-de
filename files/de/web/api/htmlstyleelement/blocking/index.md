@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`blocking`**-Eigenschaft des [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen kritischer Subressourcen blockiert werden sollten.
+Die **`blocking`**-Eigenschaft des [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen kritischer Subressourcen blockiert werden sollen.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("style")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste von blockierenden Tokens sein, die unten aufgeführt sind und die Operationen angeben, die blockiert werden sollen:
+Ein String. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blocking-Tokens sein, die die zu blockierenden Operationen angeben:
 
 - `render`
-  - : Die Darstellung von Inhalten auf dem Bildschirm wird blockiert.
+  - : Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 

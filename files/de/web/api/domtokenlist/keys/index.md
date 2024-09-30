@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`keys()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
-gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen.
-Die Schlüssel sind ungesignierte Ganzzahlen.
+Die **`keys()`** Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Interfaces
+gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der das Durchlaufen aller in diesem Objekt enthaltenen Schlüssel ermöglicht.
+Die Schlüssel sind vorzeichenlose ganze Zahlen.
 
 ## Syntax
 
@@ -28,10 +28,10 @@ Gibt einen {{jsxref("Iteration_protocols","iterator","",1)}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der auf einem
-{{htmlelement("span")}} Element gesetzten Klassen als `DOMTokenList` ab, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Anschließend holen wir einen Iterator, der die Schlüssel enthält, mit `keys()`,
-und durchlaufen diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
-wobei jeder in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` Elements geschrieben wird.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
+{{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Wir rufen dann einen Iterator ab, der die Schlüssel enthält, indem wir `keys()` verwenden,
+und iterieren durch diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
+wobei wir jeden einzelnen an den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` schreiben.
 
 Zuerst das HTML:
 
@@ -39,7 +39,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.querySelector("span");

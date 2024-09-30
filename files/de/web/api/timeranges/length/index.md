@@ -1,5 +1,5 @@
 ---
-title: "TimeRanges: length-Eigenschaft"
+title: "TimeRanges: length Eigenschaft"
 short-title: length
 slug: Web/API/TimeRanges/length
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`TimeRanges.length`** gibt die
-Anzahl der Bereiche im Objekt zurück.
+Die **`TimeRanges.length`** schreibgeschützte Eigenschaft gibt die Anzahl der Bereiche im Objekt zurück.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Bei einem Videoelement mit der ID "myVideo":
+Gegeben ein `<video>`-Element mit der ID "myVideo":
 
 ```js
 const v = document.getElementById("myVideo");
@@ -35,7 +34,7 @@ if (buf.length === 1) {
 }
 ```
 
-Dieses Beispiel untersucht die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
+Dieses Beispiel betrachtet die Zeitbereiche und überprüft, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

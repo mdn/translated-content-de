@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "null (oder undefined) hat keine Eigenschaften" tritt auf, wenn Sie versuchen, auf Eigenschaften von [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} zuzugreifen. Sie haben keine.
+Der JavaScript-Ausnahmefehler "null (oder undefined) hat keine Eigenschaften" tritt auf, wenn Sie versuchen, auf Eigenschaften von [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} zuzugreifen. Diese haben keine.
 
 ## Nachricht
 
@@ -27,7 +27,7 @@ TypeError: Right side of assignment cannot be destructured (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sowohl [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als auch {{jsxref("undefined")}} haben keine Eigenschaften, auf die Sie zugreifen könnten. Daher können Sie keine [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) an ihnen verwenden oder sie [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+Sowohl [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als auch {{jsxref("undefined")}} haben keine Eigenschaften, auf die Sie zugreifen könnten. Daher können Sie keine [Eigenschaftszugriffe](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) auf sie anwenden oder sie [destruieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
 ## Beispiele
 

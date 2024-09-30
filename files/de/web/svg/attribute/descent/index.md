@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`descent`**-Attribut definiert die maximale ungewichtete Tiefe der Schriftart.
+Das **`descent`**-Attribut definiert die maximale unakzentuierte Tiefe der Schriftart.
 
 > [!NOTE]
-> Es war vorgesehen, die Syntax und Semantik des veralteten `descent`-Descriptors der {{cssxref("@font-face")}}-At-Regel in einer frühen Version von CSS 2 zu teilen.
+> Es wurde spezifiziert, um die Syntax und Semantik des veralteten `descent`-Descriptors der {{cssxref("@font-face")}}-At-Regel aus einer frühen Version von CSS 2 zu teilen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

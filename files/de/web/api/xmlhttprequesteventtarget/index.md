@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-`XMLHttpRequestEventTarget` ist das Interface, das die Ereignishandler beschreibt, die bei [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) gemeinsam genutzt werden.
+`XMLHttpRequestEventTarget` ist das Interface, das die gemeinsam genutzten Ereignishandler von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) beschreibt.
 
-Sie verwenden `XMLHttpRequestEventTarget` nicht direkt; stattdessen arbeiten Sie mit den Unterklassen.
+Sie verwenden `XMLHttpRequestEventTarget` nicht direkt; stattdessen interagieren Sie mit den Subklassen.
 
 ## Vererbung für `XMLHttpRequest`
 
 {{InheritanceDiagram("XMLHttpRequest")}}
 
-Die folgenden Ereignisse sind bei [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verfügbar:
+Die folgenden Ereignisse stehen für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) zur Verfügung:
 
 - [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
 - [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)
@@ -30,7 +30,7 @@ Die folgenden Ereignisse sind bei [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpReq
 
 {{InheritanceDiagram("XMLHttpRequestUpload")}}
 
-Die folgenden Ereignisse sind bei [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) verfügbar:
+Die folgenden Ereignisse stehen für [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) zur Verfügung:
 
 - [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
 - [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)

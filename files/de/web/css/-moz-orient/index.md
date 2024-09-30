@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`-moz-orient`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Ausrichtung des Elements, auf das sie angewendet wird.
+Die **`-moz-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung des Elements fest, auf das sie angewendet wird.
 
 ## Syntax
 
-Die `-moz-orient` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `-moz-orient`-Eigenschaft wird als einer der Schlüsselwortwerte aus der unten stehenden Liste angegeben.
 
 ### Werte
 
 - `inline`
-  - : Das Element wird in derselben Richtung wie die Achse des Textes gerendert: horizontal für horizontale Schreibrichtungen, vertikal für vertikale Schreibrichtungen.
+  - : Das Element wird in derselben Richtung wie die Achse des Textes gerendert: horizontal für horizontale Schreibmodi, vertikal für vertikale Schreibmodi.
 - `block`
-  - : Das Element wird orthogonal zur Achse des Textes gerendert: vertikal für horizontale Schreibrichtungen, horizontal für vertikale Schreibrichtungen.
+  - : Das Element wird orthogonal zur Achse des Textes gerendert: vertikal für horizontale Schreibmodi, horizontal für vertikale Schreibmodi.
 - `horizontal`
   - : Das Element wird horizontal gerendert.
 - `vertical`
@@ -63,7 +63,7 @@ Die `-moz-orient` Eigenschaft wird als eines der unten aufgeführten Schlüsselw
 
 ## Spezifikationen
 
-Teil keiner Norm. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) an das W3C, mit positivem Erstfeedback, ist diese Eigenschaft noch nicht Teil einer Spezifikation; derzeit handelt es sich um eine mozilla-spezifische Erweiterung (also `-moz-orient`).
+Nicht Teil eines Standards. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) bei der W3C, mit positiver anfänglicher Rückmeldung, ist diese Eigenschaft noch nicht Teil einer Spezifikation; derzeit ist dies eine Mozilla-spezifische Erweiterung (das heißt, `-moz-orient`).
 
 ## Browser-Kompatibilität
 

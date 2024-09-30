@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: periodicsync Ereignis"
+title: "ServiceWorkerGlobalScope: periodicsync-Ereignis"
 short-title: periodicsync
 slug: Web/API/ServiceWorkerGlobalScope/periodicsync_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`periodicsync`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interfaces wird in zeitlichen Abständen ausgelöst, die bei der Registrierung eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) festgelegt werden.
+Das **`periodicsync`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird in festgelegten Zeitintervallen ausgelöst, die bei der Registrierung eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) angegeben werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("periodicsync", (event) => {});
@@ -33,11 +33,11 @@ Ein [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent). Erbt von [`Event`
 _Erbt Eigenschaften von seinem Vorfahren, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`PeriodicSyncEvent.tag`](/de/docs/Web/API/PeriodicSyncEvent/tag) {{ReadOnlyInline}}
-  - : Gibt die vom Entwickler definierte Kennung für dieses `PeriodicSyncEvent` zurück. Mehrere Tags können von der Web-App verwendet werden, um verschiedene periodische Aufgaben mit unterschiedlichen Frequenzen auszuführen.
+  - : Gibt den entwicklerdefinierten Bezeichner für dieses `PeriodicSyncEvent` zurück. Mehrere Tags können von der Web-App verwendet werden, um verschiedene periodische Aufgaben mit unterschiedlichen Frequenzen auszuführen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man auf ein periodisches Synchronisationsereignis im Service Worker reagiert.
+Das folgende Beispiel zeigt, wie auf ein periodisches Synchronisierungsereignis im Service Worker reagiert wird.
 
 ```js
 self.addEventListener("periodicsync", (event) => {
@@ -47,7 +47,7 @@ self.addEventListener("periodicsync", (event) => {
 });
 ```
 
-Sie können den Ereignishandler auch mit der `onperiodicsync` Eigenschaft einrichten:
+Sie können den Ereignis-Handler auch mit der `onperiodicsync`-Eigenschaft einrichten:
 
 ```js
 self.onperiodicsync = (event) => {
@@ -65,5 +65,5 @@ self.onperiodicsync = (event) => {
 
 ## Siehe auch
 
-- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Periodic Background Sync Demo-App](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Richer Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

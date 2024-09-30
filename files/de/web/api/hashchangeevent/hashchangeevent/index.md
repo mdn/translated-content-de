@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`HashChangeEvent()`** Konstruktor erstellt ein neues [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent) Objekt, das vom [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignis verwendet wird, das am [`window`](/de/docs/Web/API/Window) Objekt ausgelöst wird, wenn sich das Fragment der URL ändert.
+Der **`HashChangeEvent()`** Konstruktor erstellt ein neues [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent) Objekt, das für das [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignis verwendet wird, welches ausgelöst wird, wenn sich das Fragment der URL im [`window`](/de/docs/Web/API/Window) Objekt ändert.
 
 > [!NOTE]
-> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignisse ausgelöst werden.
+> Ein Web-Entwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ new HashChangeEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Es ist case-sensitive und Browser setzen es auf `hashchange`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `oldURL` {{optional_inline}}
       - : Ein String, der die alte URL enthält. Der Standardwert ist der leere String (`""`).
     - `newURL` {{optional_inline}}

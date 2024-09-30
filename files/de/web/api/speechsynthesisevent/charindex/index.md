@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`charIndex`**-Eigenschaft des schreibgeschützten Interface [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) gibt die Indexposition des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+Die **`charIndex`** schreibgeschützte Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt die Indexposition des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gerade gesprochen wurde, als das Ereignis ausgelöst wurde.
 
 ## Wert
 

@@ -9,12 +9,9 @@ l10n:
 {{ APIRef("PerformanceTiming") }} {{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.requestStart`**
-schreibgeschützte Eigenschaft gibt einen `unsigned long long` zurück, der den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, zu dem der Browser die Anforderung gesendet hat, um das tatsächliche Dokument vom Server oder einem Cache zu erhalten. Wenn die Transportschicht nach dem Start der Anforderung fehlschlägt und die Verbindung erneut geöffnet wird, wird diese Eigenschaft auf die Zeit der neuen Anforderung gesetzt.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.requestStart`** gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, zu dem der Browser die Anfrage gesendet hat, um das tatsächliche Dokument vom Server oder aus einem Cache zu erhalten. Wenn die Transportschicht nach Beginn der Anfrage fehlschlägt und die Verbindung wiederhergestellt wird, wird diese Eigenschaft auf die Zeit der neuen Anfrage gesetzt.
 
 ## Wert
 
@@ -30,4 +27,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der es gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

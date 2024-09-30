@@ -1,5 +1,5 @@
 ---
-title: "RTCSctpTransport: Eigenschaft maxMessageSize"
+title: "RTCSctpTransport: maxMessageSize-Eigenschaft"
 short-title: maxMessageSize
 slug: Web/API/RTCSctpTransport/maxMessageSize
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`maxMessageSize`** schreibgeschützte Eigenschaft der [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Schnittstelle gibt die maximale Größe einer Nachricht an, die mithilfe der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
+Die schreibgeschützte Eigenschaft **`maxMessageSize`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces gibt die maximale Größe einer Nachricht an, die mit der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
 
 ## Wert
 
-Ein Ganzzahlenwert, der die maximale Größe in Bytes einer Nachricht angibt, die mithilfe der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
+Ein Ganzzahlwert, der die maximale Größe in Bytes angibt, einer Nachricht, die mit der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie möglicherweise einen String in kleine Teile aufteilen, um ihn basierend auf der maximalen Nachrichtenhöhe zu senden.
+Dieses Beispiel zeigt, wie Sie eine Zeichenfolge in kleine Teile aufteilen können, um sie basierend auf der maximalen Nachrichtenlänge zu senden.
 
 ```js
 // Function splits strings to a specified size and returns array.
@@ -52,4 +52,4 @@ channel.onopen = (event) => {
 ## Siehe auch
 
 - [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)
-- Abschnitt [Verstehen von Nachrichtenhöchstgrenzen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) von [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
+- Abschnitt [Verständnis von Nachrichten-Längenbegrenzungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) in der [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)

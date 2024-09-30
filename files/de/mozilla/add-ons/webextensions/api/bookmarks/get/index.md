@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Geben Sie die ID eines {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} oder ein Array solcher IDs an, damit die **`bookmarks.get()`**-Methode die passenden Knoten abruft.
+Gegeben die ID eines {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} oder ein Array solcher IDs, ruft die Methode **`bookmarks.get()`** die entsprechenden Knoten ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +22,11 @@ let getBookmarks = browser.bookmarks.get(
 ### Parameter
 
 - `idOrIdList`
-  - : Ein {{jsxref("string")}} oder ein {{jsxref("array")}} von Strings, die die IDs eines oder mehrerer {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}}-Objekte angeben, die abgerufen werden sollen.
+  - : Ein {{jsxref("string")}} oder {{jsxref("array")}} von Strings, die die IDs eines oder mehrerer {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}} Objekte spezifizieren, die abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) erfüllt wird, eines für jeden passenden Knoten. Separatoren sind nicht in den Ergebnissen enthalten. Falls keine Knoten gefunden werden konnten, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) erfüllt wird, je eines für jeden passenden Knoten. Trennzeichen sind in den Ergebnissen nicht enthalten. Wenn keine Knoten gefunden werden konnten, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

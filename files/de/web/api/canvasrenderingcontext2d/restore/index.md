@@ -10,9 +10,9 @@ l10n:
 
 Die
 **`CanvasRenderingContext2D.restore()`**
-Methode der Canvas 2D API stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem sie den obersten Eintrag im Zeichenstatus-Stack entfernt. Wenn kein Zustand gespeichert wurde, tut diese Methode nichts.
+Methode des Canvas 2D APIs stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem der oberste Eintrag im Zeichenstatusstapel abgerufen wird. Wenn kein gespeicherter Zustand vorhanden ist, tut diese Methode nichts.
 
-Für weitere Informationen über den [Zeichenstatus](/de/docs/Web/API/CanvasRenderingContext2D/save#the_drawing_state), siehe [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save).
+Weitere Informationen über den [Zeichenstatus](/de/docs/Web/API/CanvasRenderingContext2D/save#the_drawing_state) finden Sie unter [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save).
 
 ## Syntax
 
@@ -32,8 +32,7 @@ Keine ({{jsxref("undefined")}}).
 
 ### Wiederherstellung eines gespeicherten Zustands
 
-Dieses Beispiel verwendet die `save()` Methode, um den aktuellen Zustand zu speichern, und
-`restore()` um ihn später wiederherzustellen, sodass Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
+Dieses Beispiel verwendet die `save()` Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, sodass Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
 
 #### HTML
 
@@ -73,5 +72,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save)

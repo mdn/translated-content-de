@@ -1,5 +1,5 @@
 ---
-title: "GPURenderPassEncoder: setScissorRect()-Methode"
+title: "GPURenderPassEncoder: setScissorRect() Methode"
 short-title: setScissorRect()
 slug: Web/API/GPURenderPassEncoder/setScissorRect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setScissorRect()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt das Scherrechteck, das während der Rasterisierungsphase verwendet wird. Nach der Transformation in Viewport-Koordinaten werden alle Fragmente, die außerhalb des Scherrechtecks liegen, verworfen.
+Die **`setScissorRect()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt das Scherrechteck, das während der Rasterisierungsphase verwendet wird. Fragmente, die nach der Transformation in Viewport-Koordinaten außerhalb des Scherrechtecks liegen, werden verworfen.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ setScissorRect(x, y, width, height)
   - : Eine Zahl, die die Höhe des Scherrechtecks in Pixeln darstellt.
 
 > [!NOTE]
-> Wenn kein `setScissorRect()`-Aufruf gemacht wird, lauten die Standardwerte `(0, 0, Anhangsbreite, Anhangshöhe)` für jeden Render-Pass.
+> Wenn kein `setScissorRect()`-Aufruf erfolgt, sind die Standardwerte `(0, 0, attachment width, attachment height)` für jede Render-Pass gesetzt.
 
 ### Rückgabewert
 
@@ -36,19 +36,19 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Folgende Kriterien müssen beim Aufruf von **`setViewport()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`setViewport()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- `x` + `width` muss kleiner als oder gleich der Breite der Render-Anhänge des Render-Passes sein (siehe Hinweis unten).
-- `y` + `height` muss kleiner als oder gleich der Höhe der Render-Anhänge des Render-Passes sein (siehe Hinweis unten).
+- `x` + `width` ist kleiner oder gleich der Breite der Render-Pass-Render-Anhänge (siehe Hinweis unten).
+- `y` + `height` ist kleiner oder gleich der Höhe der Render-Pass-Render-Anhänge (siehe Hinweis unten).
 
 > [!NOTE]
-> Beachten Sie die in der Beschreibung von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) spezifizierten Farb- und Tiefen-/Stencil-Anhänge; die Breite und Höhe basieren auf dem [`GPUTexture`](/de/docs/Web/API/GPUTexture), von dem die `view`s stammen.
+> Siehe die Farb- und Tiefen/Stencil-Anhänge, die im Deskriptor von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben sind; die Breite und Höhe basieren auf der des [`GPUTexture`](/de/docs/Web/API/GPUTexture), von der ihre `view`s stammen.
 
 ## Beispiele
 
 ### Grundlegendes Beispiel
 
-In einem typischen Canvas-Render könnte das Folgende verwendet werden, um jede Darstellung außerhalb des oberen linken Viertels des Canvas zu verwerfen:
+In einem typischen Kanvas-Render könnte Folgendes verwendet werden, um das Rendern außerhalb des oberen linken Viertels des Kanvas zu verwerfen:
 
 ```js
 passEncoder.setScissorRect(0, 0, canvas.width / 2, canvas.height / 2);

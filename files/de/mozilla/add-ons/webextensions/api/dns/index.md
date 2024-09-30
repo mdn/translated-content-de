@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Ermöglicht einer Erweiterung, Domainnamen aufzulösen.
+Ermöglicht einer Erweiterung das Auflösen von Domainnamen.
 
-Um diese API zu verwenden, muss eine Erweiterung die "dns" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese API zu nutzen, muss eine Erweiterung die "dns"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
 
 > [!NOTE]
-> DNS schlägt mit NS_ERROR_UNKNOWN_PROXY_HOST fehl, wenn DNS über Socks-Proxying aktiviert ist.
+> DNS schlägt mit NS_ERROR_UNKNOWN_PROXY_HOST fehl, wenn das Proxieing von DNS über Socks aktiviert ist.
 
 ## Funktionen
 
 - {{WebExtAPIRef("dns.resolve()")}}
-  - : Löst den angegebenen Hostnamen zu einem DNS-Datensatz auf.
+  - : Löst den angegebenen Hostnamen in einen DNS-Datensatz auf.
 
 ## Browser-Kompatibilität
 

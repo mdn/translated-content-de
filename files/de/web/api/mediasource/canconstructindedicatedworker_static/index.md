@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die statische Eigenschaft **`canConstructInDedicatedWorker`** des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt `true` zurück, wenn `MediaSource`-Worker-Unterstützung implementiert ist. Dies bietet einen Mechanismus zur Erkennung von Funktionen mit niedriger Latenz.
+Die **`canConstructInDedicatedWorker`** statische Eigenschaft der [`MediaSource`](/de/docs/Web/API/MediaSource) Schnittstelle gibt `true` zurück, wenn die Unterstützung von `MediaSource`-Workern implementiert ist, und bietet damit einen Mechanismus zur Erkennung von Features mit niedriger Latenz.
 
-Wenn dies nicht verfügbar wäre, wäre die Alternative ein Ansatz mit wesentlich höherer Latenz, wie zum Beispiel der Versuch, ein `MediaSource`-Objekt aus einem dedizierten Worker zu erstellen und das Ergebnis zurück an den Haupt-Thread zu übertragen.
+Wenn dies nicht verfügbar wäre, wäre die Alternative ein Ansatz mit wesentlich höherer Latenz, wie der Versuch, ein `MediaSource`-Objekt von einem dedizierten Worker aus zu erstellen und das Ergebnis zurück an den Haupt-Thread zu übertragen.
 
 ## Wert
 
-Ein boolescher Wert. Gibt `true` zurück, wenn `MediaSource`-Worker-Unterstützung implementiert ist, oder `false` andernfalls.
+Ein Boolean. Gibt `true` zurück, wenn die Unterstützung von `MediaSource`-Workern implementiert ist, andernfalls `false`.
 
 ## Beispiele
 

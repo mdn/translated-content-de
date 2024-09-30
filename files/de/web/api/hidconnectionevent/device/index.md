@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`device`**-Eigenschaft, die nur lesbar ist, des [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)-Interfaces gibt das mit diesem Verbindungsevent verbundene [`HIDDevice`](/de/docs/Web/API/HIDDevice) zurück.
+Die **`device`**-Eigenschaft des [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)-Interfaces ist schreibgeschützt und gibt das [`HIDDevice`](/de/docs/Web/API/HIDDevice) zurück, das mit diesem Verbindungsevent verknüpft ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`HIDDevice`](/de/docs/Web/API/HIDDevice).
 
 ## Beispiele
 
-Das folgende Beispiel registriert Ereignis-Listener für die `connect`- und `disconnect`-Ereignisse und gibt dann den [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in der Konsole aus.
+Das folgende Beispiel registriert Ereignislistener für die Ereignisse `connect` und `disconnect` und gibt anschließend den [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in der Konsole aus.
 
 ```js
 navigator.hid.addEventListener("connect", ({ device }) => {

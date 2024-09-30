@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`entries()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
-gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der Ihnen erlaubt,
+Die **`entries()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle
+gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es Ihnen ermöglicht,
 alle Schlüssel/Wert-Paare in diesem Objekt zu durchlaufen. Die Werte sind
-{{jsxref("Array")}}s, die [Schlüssel, Wert]-Paare enthalten, wobei jedes Paar ein einzelnes Token darstellt.
+{{jsxref("Array")}}s mit [key, value]-Paaren, die jeweils ein einzelnes Token darstellen.
 
 ## Syntax
 
@@ -25,10 +25,12 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen, die auf einem
-{{htmlelement("span")}} Element gesetzt sind, als `DOMTokenList` mit
-[`Element.classList`](/de/docs/Web/API/Element/classList) ab. Dann erhalten wir einen Iterator, der die Schlüssel/Wert-Paare enthält, indem `entries()` verwendet wird, und iterieren durch jedes Paar mit einer {{jsxref("Statements/for...of", "for...of")}} Schleife, um sie in den
-`<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent) zu schreiben.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
+{{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, und zwar mit
+[`Element.classList`](/de/docs/Web/API/Element/classList). Dann holen wir uns einen Iterator, der die Schlüssel/Wert-Paare
+enthält, indem wir `entries()` verwenden. Anschließend iterieren wir mit einer
+{{jsxref("Statements/for...of", "for...of")}}-Schleife durch jedes Paar und schreiben sie in den
+`Node.textContent` des `<span>`-Elements.
 
 Zuerst das HTML:
 
@@ -36,7 +38,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Nun der JavaScript-Code:
 
 ```js
 const span = document.querySelector("span");

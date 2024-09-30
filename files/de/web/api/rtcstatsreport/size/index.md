@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`size`**-Eigenschaft des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Interfaces gibt die Anzahl der Elemente im aktuellen Bericht zurück.
+Die **`size`**-Eigenschaft des schreibgeschützten [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Interfaces gibt die Anzahl der Elemente im aktuellen Bericht zurück.
 
-Beachten Sie, dass jedes Element aus einem Schlüssel-Wert-Paar besteht, wobei die Schlüssel eindeutige `id`-Werte von überwachten Statistikobjekten sind, aus denen die Statistiken abgeleitet werden, und die zugeordneten Werte sind [Statistik-Dictionary-Objekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types).
+Beachten Sie, dass jedes Element aus einem Schlüssel-Wert-Paar besteht, wobei die Schlüssel eindeutige `id`-Werte für überwachte Statistikobjekte sind, aus denen die Statistiken abgeleitet werden, und die zugehörigen Werte [Statistik-Wörterbuchobjekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types) sind.
 
-Diese Eigenschaft entspricht ansonsten der {{jsxref("Map.prototype.size")}}.
+Diese Eigenschaft entspricht ansonsten {{jsxref("Map.prototype.size")}}.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Elemente in diesem Bericht angibt.
+Ein Ganzzahlwert, der die Anzahl der Elemente in diesem Bericht angibt.
 Der Wert ist null, wenn der Bericht leer ist.
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "RTCVideoSourceStats: Breite-Eigenschaft"
+title: "RTCVideoSourceStats: width-Eigenschaft"
 short-title: width
 slug: Web/API/RTCVideoSourceStats/width
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`width`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) Wörterbuchs gibt die Breite, in Pixeln, des letzten Frames an, der von dieser Quelle stammt.
+Die **`width`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) Wörterbuchs gibt die Breite, in Pixel, des letzten Bildes an, das von dieser Quelle stammt.
 
-Diese Eigenschaft wird erst am Statistikobjekt definiert, nachdem der erste Frame produziert wurde.
+Diese Eigenschaft wird erst am Statistikobjekt definiert, nachdem das erste Bild produziert wurde.
 
 ## Wert
 
-Eine positive Zahl, die die Breite in Pixeln angibt.
+Eine positive Zahl, die die Breite in Pixel angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das von `RTCRtpSender.getStats()` zurückgegebene Statistikobjekt iterieren könnten, um die Videodatenquellenstatistiken zu erhalten und dann die `width` extrahieren.
+Dieses Beispiel zeigt, wie Sie das Statistikobjekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, durchlaufen können, um die Videodatenquellenstatistiken zu erhalten und dann die `width` zu extrahieren.
 
 ```js
 // where sender is an RTCRtpSender

@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `comment` Rolle kennzeichnet semantisch einen Kommentar oder eine Reaktion auf einige Inhalte auf der Seite oder auf einen vorherigen Kommentar.
+Die `comment`-Rolle bezeichnet semantisch einen Kommentar/Reaktion zu einem Inhalt auf der Seite oder zu einem vorherigen Kommentar.
 
 > [!NOTE]
-> Die comment Rolle wird in WAI-ARIA 1.3 vorgeschlagen ([Aktuellster ARIA-Entwurf](https://w3c.github.io/aria/)), der sich noch in der Entwurfsphase befindet.
+> Die `comment`-Rolle wird in WAI-ARIA 1.3 vorgeschlagen ([Aktuellster ARIA-Entwurf](https://w3c.github.io/aria/)), der sich noch im Entwurf befindet.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mithilfe von `<span role="mark">` ausgezeichnet.
+Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` ausgezeichnet.
 
-Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in einem `<div>` mit `role="comment"` eingeschlossen ist.
+Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in einem `<div>` mit `role="comment"` enthalten ist.
 
 ```html
 <p>
@@ -32,11 +32,11 @@ Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in ein
 </div>
 ```
 
-Um den Kommentar mit dem Text, der kommentiert wird, zu verknüpfen, müssen wir den kommentierten Text mit einem Element umschließen, das das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) Attribut enthält, dessen Wert die ID des Kommentars sein sollte.
+Um den Kommentar mit dem kommentierten Text zu verbinden, müssen wir den kommentierten Text mit einem Element umfassen, das das Attribut [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) enthält, dessen Wert die ID des Kommentars sein sollte.
 
 ### Mehrere Kommentare
 
-Da `aria-details` nun mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Anmerkung verknüpfen, wie folgt:
+Da `aria-details` nun mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Anmerkung verbinden, wie folgt:
 
 ```html
 <p>
@@ -81,12 +81,12 @@ Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
 </div>
 ```
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheitsaspekte
 
 Keine
 
 ## Spezifikationen
 
-Wird Teil von WAI-ARIA 1.3 sein, das sich noch in der Entwurfsphase befindet.
+Wird Teil von WAI-ARIA 1.3 sein, das sich noch im Entwurf befindet.
 
 ## Siehe auch

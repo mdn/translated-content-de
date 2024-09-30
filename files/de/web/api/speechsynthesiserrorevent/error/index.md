@@ -8,50 +8,41 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`error`**-Eigenschaft des
-[`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent)-Interfaces gibt einen Fehlercode zurück, der anzeigt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
+Die **`error`** Eigenschaft des
+[`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent)-Interfaces gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
 
 ## Wert
 
 Ein String, der den Grund des Fehlers enthält. Mögliche Werte sind:
 
 - `canceled`
-  - : Ein Aufruf der [`SpeechSynthesis.cancel`](/de/docs/Web/API/SpeechSynthesis/cancel)-Methode hat verursacht, dass die
-    [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) aus der Warteschlange entfernt wurde, bevor sie
-    begonnen wurde, gesprochen zu werden.
+  - : Ein Aufruf der Methode [`SpeechSynthesis.cancel`](/de/docs/Web/API/SpeechSynthesis/cancel) führte dazu, dass die
+    [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) aus der Warteschlange entfernt wurde, bevor sie zu sprechen begann.
 - `interrupted`
-  - : Ein Aufruf der [`SpeechSynthesis.cancel`](/de/docs/Web/API/SpeechSynthesis/cancel)-Methode hat dazu geführt, dass die
-    [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) unterbrochen wurde, nachdem sie begonnen hatte,
-    gesprochen zu werden und bevor sie abgeschlossen war.
+  - : Ein Aufruf der Methode [`SpeechSynthesis.cancel`](/de/docs/Web/API/SpeechSynthesis/cancel) führte dazu, dass die
+    [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) unterbrochen wurde, nachdem sie zu sprechen begonnen hatte und bevor sie abgeschlossen wurde.
 - `audio-busy`
-  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, da der Benutzeragent das
-    Audiowiedergabegerät nicht verwenden konnte (zum Beispiel könnte der Benutzer dies korrigieren, indem er eine andere Anwendung schließt).
+  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, weil der User-Agent nicht auf das Audioausgabegerät zugreifen konnte (zum Beispiel muss der Benutzer möglicherweise eine andere Anwendung schließen).
 - `audio-hardware`
-  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, da der Benutzeragent kein
-    Audiowiedergabegerät identifizieren konnte (zum Beispiel muss der Benutzer möglicherweise einen Lautsprecher verbinden
-    oder die Systemeinstellungen konfigurieren).
+  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, weil der User-Agent kein Audioausgabegerät identifizieren konnte (zum Beispiel muss der Benutzer möglicherweise einen Lautsprecher anschließen oder die Systemeinstellungen konfigurieren).
 - `network`
-  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, weil eine erforderliche Netzwerkkommunikation
-    fehlgeschlagen ist.
+  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, weil eine erforderliche Netzwerkkommunikation fehlgeschlagen ist.
 - `synthesis-unavailable`
-  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, da kein Synthese-Engine verfügbar war (zum Beispiel
-    muss der Benutzer möglicherweise eine Synthese-Engine installieren oder konfigurieren).
+  - : Der Vorgang konnte zu diesem Zeitpunkt nicht abgeschlossen werden, weil keine Synthesemaschine verfügbar war (zum Beispiel muss der Benutzer möglicherweise eine Synthesemaschine installieren oder konfigurieren).
 - `synthesis-failed`
-  - : Der Vorgang schlug fehl, weil der Synthese-Engine einen Fehler meldete.
+  - : Der Vorgang schlug fehl, weil die Synthesemaschine einen Fehler verursacht hat.
 - `language-unavailable`
-  - : Es war keine geeignete Stimme für die in
-    [`SpeechSynthesisUtterance.lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang) festgelegte Sprache verfügbar. Sie können die Methode [`window.speechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) verwenden, um zu bestimmen, welche Stimmen und Sprachen im Browser des Benutzers unterstützt werden.
+  - : Keine passende Stimme war für die in [`SpeechSynthesisUtterance.lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang) gesetzte Sprache verfügbar. Sie können die Methode [`window.speechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) verwenden, um festzustellen, welche Stimmen und Sprachen im Browser des Benutzers unterstützt werden.
 - `voice-unavailable`
-  - : Die in [`SpeechSynthesisUtterance.voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice) festgelegte Stimme war nicht verfügbar.
+  - : Die in [`SpeechSynthesisUtterance.voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice) gesetzte Stimme war nicht verfügbar.
 - `text-too-long`
-  - : Der Inhalt des [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text)-Attributs war zu
-    lang, um synthetisiert zu werden.
+  - : Der Inhalt des Attributs [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) war zu lang, um synthetisiert zu werden.
 - `invalid-argument`
   - : Der Inhalt der Eigenschaft [`SpeechSynthesisUtterance.rate`](/de/docs/Web/API/SpeechSynthesisUtterance/rate),
     [`SpeechSynthesisUtterance.pitch`](/de/docs/Web/API/SpeechSynthesisUtterance/pitch) oder
     [`SpeechSynthesisUtterance.volume`](/de/docs/Web/API/SpeechSynthesisUtterance/volume) war nicht gültig.
 - `not-allowed`
-  - : Der Beginn der Operation war nicht erlaubt.
+  - : Der Start des Vorgangs war nicht erlaubt.
 
 ## Beispiele
 

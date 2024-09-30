@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Credential Management API")}}
 
-Die schreibgeschützte **`credentials`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt das [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Objekt zurück, das mit dem aktuellen Dokument verbunden ist und Methoden bereitstellt, um Anmeldedaten anzufordern. Das [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interface benachrichtigt auch den User-Agent, wenn ein interessantes Ereignis eintritt, wie z.B. eine erfolgreiche Anmeldung oder Abmeldung. Dieses Interface kann zur "Feature Detection" verwendet werden.
+Die schreibgeschützte **`credentials`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt das [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Objekt zurück, das mit dem aktuellen Dokument verknüpft ist und Methoden bereitstellt, um Anmeldeinformationen anzufordern. Das [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interface benachrichtigt auch den Benutzeragenten, wenn ein interessantes Ereignis eintritt, wie zum Beispiel eine erfolgreiche Anmeldung oder Abmeldung. Dieses Interface kann zur Feature-Erkennung verwendet werden.
 
 ## Wert
 

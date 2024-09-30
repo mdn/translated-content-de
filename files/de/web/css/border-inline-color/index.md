@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-inline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der logischen Inline-Ränder eines Elements, welche je nach Schreibmodus, Leserichtung und Textorientierung des Elements einer physischen Randfarbe zugeordnet wird. Sie entspricht entweder der {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}} oder der {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}}, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-inline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der logischen Inline-Ränder eines Elements fest, die je nach Schreibmodus, Richtung und Textorientierung des Elements auf eine physische Rahmenfarbe abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}}, oder {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}}, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/border-inline-color.html")}}
 
-Die Randfarbe in der anderen Dimension kann mit {{cssxref("border-block-color")}} festgelegt werden, was {{cssxref("border-block-start-color")}} und {{cssxref("border-block-end-color")}} festlegt.
+Die Rahmenfarbe in der anderen Dimension kann mit {{cssxref("border-block-color")}} festgelegt werden, das {{cssxref("border-block-start-color")}} und {{cssxref("border-block-end-color")}} setzt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ border-inline-color: unset;
 ### Werte
 
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Randes.
+  - : Die Farbe des Rands.
 
 ## Formale Definition
 
@@ -42,7 +42,7 @@ border-inline-color: unset;
 
 ## Beispiele
 
-### Randfarbe mit vertikalem Text
+### Rahmenfarbe mit vertikalem Text
 
 #### HTML
 
@@ -83,5 +83,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird den physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- Diese Eigenschaft wird auf die physischen Rahmen-Eigenschaften abgebildet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

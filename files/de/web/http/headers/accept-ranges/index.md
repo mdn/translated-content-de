@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Ranges`** HTTP-Antwort-Header ist ein Marker, der vom Server verwendet wird, um seine Unterstützung für teilweise Anfragen vom Client für Dateidownloads zu bewerben. Der Wert dieses Feldes gibt die Einheit an, die zur Definition eines Bereichs verwendet werden kann.
+Der **`Accept-Ranges`** HTTP-Antwortheader ist ein Hinweis, der vom Server verwendet wird, um seine Unterstützung für partielle Anfragen vom Client für Dateidownloads anzuzeigen. Der Wert dieses Feldes gibt die Einheit an, die verwendet werden kann, um einen Bereich zu definieren.
 
-Bei Vorhandensein eines `Accept-Ranges`-Headers kann der Browser versuchen, einen unterbrochenen Download fortzusetzen, anstatt ihn neu zu starten.
+Bei Vorhandensein eines `Accept-Ranges`-Headers kann der Browser versuchen, einen unterbrochenen Download _fortzusetzen_, anstatt den Download neu zu starten.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
@@ -34,9 +34,9 @@ Accept-Ranges: none
 ## Direktiven
 
 - `<range-unit>`
-  - : Definiert die Bereichseinheit, die der Server unterstützt. Obwohl `bytes` die einzige Bereichseinheit ist, die formal durch {{RFC("7233")}} definiert ist, können zusätzliche Bereichseinheiten im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert werden.
+  - : Definiert die Range-Einheit, die der Server unterstützt. Obwohl `bytes` die einzige durch {{RFC("7233")}} formal definierte Range-Einheit ist, können zusätzliche Range-Einheiten im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert werden.
 - `none`
-  - : Gibt an, dass keine Bereichseinheit unterstützt wird. Dies macht den Header äquivalent zu seiner eigenen Abwesenheit und wird daher selten verwendet. In einigen Browsern, wie IE9, wird diese Einstellung jedoch verwendet, um die Pausentasten im Download-Manager zu deaktivieren oder zu entfernen.
+  - : Gibt an, dass keine Range-Einheit unterstützt wird. Dies macht den Header äquivalent zu seiner Abwesenheit und wird daher selten verwendet. In einigen Browsern, wie z.B. IE9, wird diese Einstellung verwendet, um die Pause-Taste im Download-Manager zu deaktivieren oder zu entfernen.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "KeyboardEvent: getModifierState()-Methode"
+title: "KeyboardEvent: getModifierState() Methode"
 short-title: getModifierState()
 slug: Web/API/KeyboardEvent/getModifierState
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`KeyboardEvent.getModifierState()`**-Methode gibt den aktuellen Zustand der angegebenen Modifikatortaste zurück: `true`, wenn der Modifikator aktiv ist (d. h. die Modifikatortaste gedrückt oder verriegelt ist), andernfalls `false`.
+Die **`KeyboardEvent.getModifierState()`** Methode gibt den aktuellen Zustand der angegebenen Modifikatortaste zurück: `true`, wenn der Modifikator aktiv ist (d.h. die Modifikatortaste gedrückt oder gesperrt ist), andernfalls `false`.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getModifierState(key)
 ### Parameter
 
 - `key`
-  - : Ein Wert einer Modifikatortaste. Der Wert muss einer der [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key)-Werte sein, die Modifikatortasten repräsentieren, oder der String `"Accel"` {{deprecated_inline}}. Dies ist case-sensitiv.
+  - : Ein Wert für eine Modifikatortaste. Der Wert muss einer der [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) Werte sein, die Modifikatortasten darstellen, oder der String `"Accel"` {{deprecated_inline}}. Dies ist case-sensitiv.
 
 ### Rückgabewert
 
-Ein boolean.
+Ein boolescher Wert.
 
-## Modifikatortasten auf Firefox
+## Modifikator-Tasten in Firefox
 
-Wann gibt `getModifierState()` auf Firefox true zurück?
+Wann gibt `getModifierState()` in Firefox true zurück?
 
 <table class="standard-table">
   <thead>
@@ -43,16 +43,16 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
   <tbody>
     <tr>
       <th scope="row"><code>"Alt"</code></th>
-      <td>Entweder <kbd>Alt</kbd>- oder <kbd>AltGr</kbd>-Taste gedrückt</td>
+      <td>Entweder <kbd>Alt</kbd>-Taste oder <kbd>AltGr</kbd>-Taste gedrückt</td>
       <td><kbd>Alt</kbd>-Taste gedrückt</td>
       <td><kbd>⌥ Option</kbd>-Taste gedrückt</td>
-      <td colspan="2"><kbd>Alt</kbd>- oder <kbd>option</kbd>-Taste gedrückt</td>
+      <td colspan="2"><kbd>Alt</kbd>-Taste oder <kbd>Option</kbd>-Taste gedrückt</td>
     </tr>
     <tr>
       <th scope="row"><code>"AltGraph"</code></th>
       <td>
         <p>
-          Sowohl <kbd>Alt</kbd>- als auch <kbd>Ctrl</kbd>-Tasten sind gedrückt, oder
+          Beide <kbd>Alt</kbd>- und <kbd>Ctrl</kbd>-Tasten sind gedrückt oder
           <kbd>AltGr</kbd>-Taste ist gedrückt
         </p>
       </td>
@@ -67,16 +67,16 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
       <th scope="row"><code>"CapsLock"</code></th>
       <td colspan="3">Während LED für <kbd>⇪ Caps Lock</kbd> eingeschaltet</td>
       <td>❌ <em>Nicht unterstützt</em></td>
-      <td>Während <kbd>CapsLock</kbd> verriegelt ist</td>
+      <td>Während <kbd>CapsLock</kbd> gesperrt ist</td>
     </tr>
     <tr>
       <th scope="row"><code>"Control"</code></th>
-      <td>Entweder <kbd>Ctrl</kbd>- oder <kbd>AltGr</kbd>-Taste gedrückt</td>
+      <td>Entweder <kbd>Ctrl</kbd>-Taste oder <kbd>AltGr</kbd>-Taste gedrückt</td>
       <td><kbd>Ctrl</kbd>-Taste gedrückt</td>
       <td><kbd>control</kbd>-Taste gedrückt</td>
-      <td><kbd>menu</kbd>-Taste gedrückt.</td>
+      <td><kbd>menu</kbd>-Taste gedrückt</td>
       <td>
-        <kbd>Ctrl</kbd>-, <kbd>control</kbd>- oder <kbd>menu</kbd>-Taste
+        <kbd>Ctrl</kbd>-Taste, <kbd>control</kbd>-Taste oder <kbd>menu</kbd>-Taste
         gedrückt.
       </td>
     </tr>
@@ -87,7 +87,7 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
       <td>❌ <em>Nicht unterstützt</em></td>
       <td>❌ <em>Nicht unterstützt</em></td>
       <td>
-        <kbd>Function</kbd>-Taste ist gedrückt, aber wir sind uns nicht sicher, welche Taste den Modifikatorstatus aktiviert. Die <kbd>Fn</kbd>-Taste auf der Mac-Tastatur aktiviert diesen nicht.
+        <kbd>Function</kbd>-Taste ist gedrückt, aber es ist nicht sicher, welche Taste den Modifikatorstatus aktiviert. <kbd>Fn</kbd>-Taste auf Mac-Tastatur verursacht dies nicht.
       </td>
     </tr>
     <tr>
@@ -112,21 +112,20 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
       <td><kbd>Meta</kbd>-Taste gedrückt</td>
       <td><kbd>⌘ Command</kbd>-Taste gedrückt</td>
       <td>❌ <em>Nicht unterstützt</em></td>
-      <td><kbd>⊞ Windows Logo</kbd>- oder <kbd>command</kbd>-Taste gedrückt</td>
+      <td><kbd>⊞ Windows Logo</kbd>-Taste oder <kbd>command</kbd>-Taste gedrückt</td>
     </tr>
     <tr>
       <th scope="row"><code>"NumLock"</code></th>
       <td colspan="2">Während LED für <kbd>Num Lock</kbd> eingeschaltet</td>
       <td>Eine Taste auf dem Numpad gedrückt</td>
       <td>❌ <em>Nicht unterstützt</em></td>
-      <td>Während <kbd>NumLock</kbd> verriegelt ist</td>
+      <td>Während <kbd>NumLock</kbd> gesperrt ist</td>
     </tr>
     <tr>
       <th scope="row"><code>"OS"</code></th>
       <td><kbd>⊞ Windows Logo</kbd>-Taste gedrückt (vor Firefox 118)</td>
       <td>
-        <kbd>Super</kbd>- oder <kbd>Hyper</kbd>-Taste gedrückt (typischerweise, zugeordnet
-        zur <kbd>⊞ Windows Logo</kbd>-Taste)
+        <kbd>Super</kbd>-Taste oder <kbd>Hyper</kbd>-Taste gedrückt (normalerweise der <kbd>⊞ Windows Logo</kbd>-Taste zugeordnet)
       </td>
       <td>❌ <em>Nicht unterstützt</em></td>
       <td>❌ <em>Nicht unterstützt</em></td>
@@ -136,12 +135,11 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
       <th scope="row"><code>"ScrollLock"</code></th>
       <td>Während LED für <kbd>Scroll Lock</kbd> eingeschaltet</td>
       <td>
-        Während LED für <kbd>Scroll Lock</kbd> eingeschaltet, aber typischerweise wird dies
-        von der Plattform nicht unterstützt
+        Während LED für <kbd>Scroll Lock</kbd> eingeschaltet, aber normalerweise wird dies nicht von der Plattform unterstützt
       </td>
       <td>❌ <em>Nicht unterstützt</em></td>
       <td>❌ <em>Nicht unterstützt</em></td>
-      <td>Während <kbd>ScrollLock</kbd> verriegelt ist</td>
+      <td>Während <kbd>ScrollLock</kbd> gesperrt ist</td>
     </tr>
     <tr>
       <th scope="row"><code>"Shift"</code></th>
@@ -174,18 +172,17 @@ Wann gibt `getModifierState()` auf Firefox true zurück?
   </tbody>
 </table>
 
-- Auf den anderen Plattformen können "Alt", "Control" und "Shift" unterstützt werden.
-- Alle Modifikatoren (außer `"FnLock"`, `"Hyper"`, `"Super"` und `"Symbol"`, die definiert sind, nachdem Firefox dies implementiert) werden immer für nicht vertrauenswürdige Ereignisse auf Firefox unterstützt.
-  Dies hängt nicht von der Plattform ab.
+- Auf den anderen Plattformen könnten "Alt", "Control" und "Shift" unterstützt werden.
+- Alle Modifikatoren (außer `"FnLock"`, `"Hyper"`, `"Super"` und `"Symbol"`, die nach der Implementierung von Firefox definiert werden) werden immer für nicht vertrauenswürdige Ereignisse in Firefox unterstützt. Dies hängt nicht von der Plattform ab.
 
 ## `"Accel"` virtueller Modifikator
 
 > [!NOTE]
-> Der virtuelle Modifikator `"Accel"` wurde effektiv **veraltet** in aktuellen Entwürfen der DOM3 Events-Spezifikation.
+> Der `"Accel"` virtuelle Modifikator wurde in aktuellen Entwürfen der DOM3 Events-Spezifikation effektiv **veraltet**.
 
-`getModifierState()` akzeptiert auch einen veralteten virtuellen Modifikator namens `"Accel"`. `event.getModifierState("Accel")` gibt `true` zurück, wenn mindestens einer von [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) oder [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) `true` ist.
+`getModifierState()` akzeptiert auch einen veralteten virtuellen Modifikator namens `"Accel"`. `event.getModifierState("Accel")` gibt `true` zurück, wenn mindestens einer der [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) oder [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) `true` ist.
 
-In alten Implementierungen und veralteten Spezifikationen gab er `true` zurück, wenn ein Modifikator, der die typische Modifikatortaste für die Tastenkombination ist, gedrückt ist. Beispielsweise kann das Drücken der <kbd>Ctrl</kbd>-Taste auf Windows dazu führen, dass er `true` zurückgibt. Auf Mac kann das Drücken der <kbd>⌘ Command</kbd>-Taste dazu führen, dass er `true` zurückgibt. Beachten Sie, dass die Modifikatortaste, die `true` zurückgibt, von Plattformen, Browsern und Benutzereinstellungen abhängt. Beispielsweise können Firefox-Benutzer dies mit einer Voreinstellung, `"ui.key.accelKey"`, anpassen.
+In alten Implementierungen und veralteten Spezifikationen gab es `true` zurück, wenn ein Modifikator, der die typische Modifikatortaste für die Shortcut-Taste ist, gedrückt wurde. Zum Beispiel kann es auf Windows `true` zurückgeben, wenn die <kbd>Ctrl</kbd>-Taste gedrückt wird. Auf dem Mac kann das Drücken der <kbd>⌘ Command</kbd>-Taste dazu führen, dass es `true` zurückgibt. Beachten Sie, dass welche Modifikatortaste es wahr zurückgibt, von Plattformen, Browsern und Benutzereinstellungen abhängt. Beispielsweise können Firefox-Benutzer dies mit einer Präferenz `"ui.key.accelKey"` anpassen.
 
 ## Beispiele
 
@@ -265,9 +262,8 @@ function handleKeyboardEvent(event) {
 ```
 
 > [!NOTE]
-> Obwohl dieses Beispiel `.getModifierState()` mit `"Alt"`, `"Control"`, `"Meta"` und `"Shift"` verwendet, könnte die Verwendung von
-> `event.altKey`, `event.ctrlKey`, `event.metaKey` und
-> `event.shiftKey` vorzuziehen sein.
+> Obwohl dieses Beispiel `.getModifierState()` mit `"Alt"`,
+> `"Control"`, `"Meta"` und `"Shift"` verwendet, könnte es bevorzugter sein, `event.altKey`, `event.ctrlKey`, `event.metaKey` und `event.shiftKey` zu verwenden.
 
 ## Spezifikationen
 
@@ -279,5 +275,5 @@ function handleKeyboardEvent(event) {
 
 ## Siehe auch
 
-- Das [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), zu dem diese Methode gehört.
+- Das [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), dem diese Methode gehört.
 - [`MouseEvent.getModifierState`](/de/docs/Web/API/MouseEvent/getModifierState)

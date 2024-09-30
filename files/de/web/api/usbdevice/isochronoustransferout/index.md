@@ -19,9 +19,9 @@ isochronousTransferOut(endpointNumber, data, packetLengths)
 ### Parameter
 
 - `endpointNumber`
-  - : Die Nummer eines gerätespezifischen Endpunktes (Buffer).
+  - : Die Nummer eines gerätespezifischen Endpunkts (Buffer).
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die zu sendenden Daten an das Gerät enthält.
+  - : Ein {{jsxref("TypedArray")}}, das die an das Gerät zu sendenden Daten enthält.
 - `packetLengths`
   - : Ein Array von Längen für die zu übertragenden Pakete.
 

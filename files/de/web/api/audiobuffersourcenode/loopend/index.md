@@ -8,23 +8,23 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `loopEnd`-Eigenschaft der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) Schnittstelle gibt als Gleitkommazahl an, an welchem Offset beim Abspielen des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) die Wiedergabe zur durch die [`loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart)-Eigenschaft angegebenen Zeit zurückspringen soll. Dies wird nur verwendet, wenn die [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Eigenschaft `true` ist.
+Die `loopEnd`-Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ist eine Gleitkommazahl, die in Sekunden angibt, an welchem Offset die Wiedergabe des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zurück zur Zeit, die durch die [`loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart)-Eigenschaft angegeben wird, wiederholen soll. Dies wird nur verwendet, wenn die [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Eigenschaft `true` ist.
 
 ## Wert
 
-Eine Gleitkommazahl, die das Offset in Sekunden im Audiopuffer angibt, an dem jede Schleife zum Anfang der Schleife zurückkehrt (das heißt, die aktuelle Spielzeit wird auf [`AudioBufferSourceNode.loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) zurückgesetzt). Diese Eigenschaft wird nur verwendet, wenn die [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Eigenschaft `true` ist.
+Eine Gleitkommazahl, die das Offset in Sekunden im Audiopuffer angibt, bei dem jede Schleife wieder an den Anfang der Schleife zurückkehrt (das heißt, die aktuelle Abspielzeit wird auf [`AudioBufferSourceNode.loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) zurückgesetzt). Diese Eigenschaft wird nur verwendet, wenn die [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Eigenschaft `true` ist.
 
 Der Standardwert ist 0.
 
 ## Beispiele
 
-### Festlegen von `loopEnd`
+### `loopEnd` setzen
 
-In diesem Beispiel wird, wenn der Benutzer "Play" drückt, ein Audiotrack geladen, dekodiert und in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) eingefügt.
+In diesem Beispiel laden wir beim Drücken der "Play"-Taste einen Audiotrack, dekodieren ihn und legen ihn in einem [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab.
 
-Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, sodass der Track in einer Schleife abgespielt wird.
+Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, so dass der Track in einer Schleife wiedergegeben wird, und spielt den Track ab.
 
-Der Benutzer kann die `loopStart`- und `loopEnd`-Eigenschaften mit [Range-Reglern](/de/docs/Web/HTML/Element/input/range) einstellen.
+Der Benutzer kann die Eigenschaften `loopStart` und `loopEnd` mit [Bereichsreglern](/de/docs/Web/HTML/Element/input/range) einstellen.
 
 > [!NOTE]
 > Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer-source-node/loop/) (oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/audio-buffer-source-node/loop).)

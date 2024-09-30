@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Broadcast Channel API")}} {{AvailableInWorkers}}
 
-Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, dem jedes [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Ursprungs](/de/docs/Glossary/origin) beitreten kann. Es ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in verschiedenen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis an alle `BroadcastChannel`-Objekte gesendet, die den Kanal abhören, außer dem Objekt, das die Nachricht gesendet hat.
+Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, auf den jeder [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Ursprungs](/de/docs/Glossary/origin) zugreifen kann. Es ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in unterschiedlichen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis gesendet, das bei allen `BroadcastChannel`-Objekten ausgelöst wird, die den Kanal abhören, mit Ausnahme des Objekts, das die Nachricht gesendet hat.
 
 {{InheritanceDiagram}}
 
@@ -18,23 +18,23 @@ Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, dem j
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`BroadcastChannel.name`](/de/docs/Web/API/BroadcastChannel/name) {{ReadOnlyInline}}
-  - : Gibt einen String, den Namen des Kanals, zurück.
+  - : Gibt einen String zurück, den Namen des Kanals.
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`BroadcastChannel.postMessage()`](/de/docs/Web/API/BroadcastChannel/postMessage)
-  - : Sendet die Nachricht, die ein beliebiges Objekt sein kann, an jedes `BroadcastChannel`-Objekt, das denselben Kanal abhört.
+  - : Sendet die Nachricht, unabhängig vom Objekttyp, an jedes `BroadcastChannel`-Objekt, das denselben Kanal abhört.
 - [`BroadcastChannel.close()`](/de/docs/Web/API/BroadcastChannel/close)
-  - : Schließt das Kanalobjekt, was anzeigt, dass es keine neuen Nachrichten mehr erhält, und ermöglicht, dass es schließlich vom Garbage Collector entfernt wird.
+  - : Schließt das Kanalobjekt, zeigt an, dass es keine neuen Nachrichten mehr erhalten wird, und ermöglicht es, schließlich vom Garbage Collector bereinigt zu werden.
 
 ## Ereignisse
 
-_Dieses Interface erbt auch Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Ereignisse von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`message`](/de/docs/Web/API/BroadcastChannel/message_event)
   - : Wird ausgelöst, wenn eine Nachricht auf dem Kanal eintrifft.
@@ -53,5 +53,5 @@ _Dieses Interface erbt auch Ereignisse von seinem Elternteil, [`EventTarget`](/d
 
 ## Siehe auch
 
-- Eine andere, schwergewichtigere Möglichkeit der Kommunikation zwischen Browser-Kontexten: [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
+- Eine andere, umfangreichere Möglichkeit der Kommunikation zwischen Browser-Kontexten: [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
 - [Überblick über die Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API)

@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt jedes über die Methode {{WebExtAPIRef("theme.update()")}} angewendete Theme zurück.
+Setzt ein über die Methode {{WebExtAPIRef("theme.update()")}} angewendetes Theme zurück.
 
-Um diese Methode zu verwenden, muss eine Erweiterung die "theme"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese Methode zu verwenden, muss eine Erweiterung die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
 
-Beachten Sie, dass dadurch das Theme immer auf das ursprüngliche Standard-Theme zurückgesetzt wird, selbst wenn der Benutzer vor der Anwendung des Themes dieser Erweiterung ein anderes Theme ausgewählt hat (siehe [Bug 1415267](https://bugzil.la/1415267)).
+Beachten Sie, dass dies das Theme immer auf das ursprüngliche Standard-Theme zurücksetzt, auch wenn der Benutzer zuvor ein anderes Theme ausgewählt hat, bevor das Theme dieser Erweiterung angewendet wurde (siehe [Bug 1415267](https://bugzil.la/1415267)).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ browser.theme.reset(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, wird das auf dieses Fenster angewendete Theme zurückgesetzt. Wird es weggelassen, wird das Theme auf allen Fenstern zurückgesetzt.
+  - : `integer`. Die ID eines Fensters. Wenn diese angegeben ist, wird das auf dieses Fenster angewendete Theme zurückgesetzt. Wenn sie weggelassen wird, wird das Theme auf allen Fenstern zurückgesetzt.
 
 ## Beispiele
 
-Dieser Code wendet ein Theme an und entfernt es wieder, wenn der Benutzer auf eine Browser-Aktion klickt:
+Dieser Code wendet ein Theme an und entfernt es, wenn der Benutzer auf eine Browseraktion klickt:
 
 ```js
 browser.theme.update(themes.night);

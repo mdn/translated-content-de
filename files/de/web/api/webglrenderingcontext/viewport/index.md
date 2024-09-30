@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: viewport() Methode"
 short-title: viewport()
 slug: Web/API/WebGLRenderingContext/viewport
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.viewport()`** Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt den Viewport fest, der die affine Transformation von x und y von normalisierten Gerätekoordinaten zu Fensterkoordinaten spezifiziert.
+Die **`WebGLRenderingContext.viewport()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt den Viewport fest, der die affine Transformation von x und y von normalisierten Gerätekoordinaten zu Fensterkoordinaten spezifiziert.
 
 ## Syntax
 
@@ -29,28 +29,29 @@ viewport(x, y, width, height)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn entweder _width_ oder _height_ einen negativen Wert hat, wird ein `gl.INVALID_VALUE` Fehler geworfen.
+Falls entweder _width_ oder _height_ einen negativen Wert hat, wird ein
+`gl.INVALID_VALUE`-Fehler geworfen.
 
 ## Beispiele
 
-Wenn Sie zunächst einen WebGL-Kontext erstellen, entspricht die Größe des Viewports der Größe des Canvas. Falls Sie das Canvas jedoch skalieren, müssen Sie dem WebGL-Kontext eine neue Viewport-Einstellung mitteilen. In diesem Fall können Sie `gl.viewport` verwenden.
+Wenn Sie zuerst einen WebGL-Kontext erstellen, entspricht die Größe des Viewports der Größe des Canvas. Wenn Sie jedoch die Größe des Canvas ändern, müssen Sie dem WebGL-Kontext eine neue Viewport-Einstellung mitteilen. In dieser Situation können Sie `gl.viewport` verwenden.
 
 ```js
 gl.viewport(0, 0, canvas.width, canvas.height);
 ```
 
-Die Viewport-Breite und -Höhe werden auf einen Bereich begrenzt, der implementierungsabhängig ist. Um diesen Bereich zu erhalten, können Sie die Konstante `MAX_VIEWPORT_DIMS` verwenden, die ein {{jsxref("Int32Array")}} zurückgibt.
+Die Breite und Höhe des Viewports werden auf einen bereichsabhängigen Wert begrenzt, der von der Implementierung abhängt. Um diesen Bereich zu erhalten, können Sie die Konstante `MAX_VIEWPORT_DIMS` verwenden, die ein {{jsxref("Int32Array")}} zurückgibt.
 
 ```js
 gl.getParameter(gl.MAX_VIEWPORT_DIMS);
 // e.g. Int32Array[16384, 16384]
 ```
 
-Um den aktuellen Viewport zu erhalten, fragen Sie die `VIEWPORT` Konstante ab.
+Um den aktuellen Viewport zu erhalten, fragen Sie die Konstante `VIEWPORT` ab.
 
 ```js
 gl.getParameter(gl.VIEWPORT);

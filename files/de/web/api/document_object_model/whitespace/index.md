@@ -1,5 +1,5 @@
 ---
-title: Wie Leerzeichen von HTML, CSS und im DOM behandelt werden
+title: Wie Whitespace von HTML, CSS und im DOM behandelt wird
 slug: Web/API/Document_Object_Model/Whitespace
 l10n:
   sourceCommit: 8417bff6e7d518ec1548f8af6a85be3fc5f4950c
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("DOM")}}
 
-Das Vorhandensein von Leerzeichen im [DOM](/de/docs/Web/API/Document_Object_Model) kann zu Layoutproblemen führen und die Manipulation des Inhaltbaums auf unerwartete Weise erschweren, je nachdem, wo sie sich befinden. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können und welche Maßnahmen ergriffen werden können, um die daraus resultierenden Probleme zu mildern.
+Das Vorhandensein von Whitespace im [DOM](/de/docs/Web/API/Document_Object_Model) kann Layoutprobleme verursachen und die Manipulation des Inhaltbaums auf unerwartete Weise erschweren, abhängig davon, wo es sich befindet. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können und was getan werden kann, um die daraus resultierenden Probleme zu mildern.
 
-## Was sind Leerzeichen?
+## Was ist Whitespace?
 
-Leerzeichen sind jede Zeichenfolge, die nur aus Leerzeichen, Tabs oder Zeilenumbrüchen besteht (genauer gesagt, CRLF-Sequenzen, Wagenrücklauf oder Zeilenvorschübe). Diese Zeichen ermöglichen es Ihnen, Ihren Code so zu formatieren, dass er für Sie und andere Personen leicht lesbar ist. Tatsächlich ist ein großer Teil unseres Quellcodes voller dieser Leerzeichen, und wir neigen dazu, sie nur in einem Produktions-Build-Schritt zu entfernen, um die Größe des Code-Downloads zu reduzieren.
+Whitespace ist jede Zeichenfolge, die nur aus Leerzeichen, Tabs oder Zeilenumbrüchen besteht (genauer gesagt CRLF-Sequenzen, Wagenrückläufen oder Zeilenfeeds). Diese Zeichen ermöglichen es Ihnen, Ihren Code so zu formatieren, dass er für Sie und andere leicht lesbar ist. Tatsächlich ist ein Großteil unseres Quellcodes voller dieser Whitespace-Zeichen, und wir neigen dazu, ihn in einem Produktionsschritt zu entfernen, um die Code-Download-Größen zu reduzieren.
 
-### Ignoriert HTML weitgehend Leerzeichen?
+### Ignoriert HTML weitgehend Whitespace?
 
-Im Fall von HTML werden Leerzeichen weitgehend ignoriert – Leerzeichen zwischen Wörtern werden als einzelnes Zeichen behandelt, und Leerzeichen am Anfang und Ende von Elementen sowie außerhalb von Elementen werden ignoriert. Betrachten Sie das folgende minimale Beispiel:
+Im Fall von HTML wird Whitespace weitgehend ignoriert — Whitespace zwischen Wörtern wird als einzelnes Zeichen behandelt, und Whitespace am Anfang und Ende von Elementen und außerhalb von Elementen wird ignoriert. Nehmen Sie das folgende minimale Beispiel:
 
 ```html-nolint
 <!doctype html>
@@ -23,22 +23,22 @@ Im Fall von HTML werden Leerzeichen weitgehend ignoriert – Leerzeichen zwische
   <h1>      Hello      World!     </h1>
 ```
 
-Dieser Quellcode enthält ein paar Zeilenumbrüche nach dem `doctype` und eine Menge Leerzeichen vor, nach und innerhalb des `<h1>`-Elements, aber der Browser scheint es überhaupt nicht zu bemerken und zeigt einfach die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existieren würden:
+Dieser Quellcode enthält ein paar Zeilenumbrüche nach dem `doctype` und eine Reihe von Leerzeichen vor, nach und innerhalb des `<h1>`-Elements, aber der Browser scheint sich überhaupt nicht darum zu kümmern und zeigt einfach die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existierten:
 
 {{EmbedLiveSample('HTML_largely_ignores_whitespace')}}
 
-Dies geschieht, damit Leerzeichenzeichen das Layout Ihrer Seite nicht beeinflussen. Das Erstellen von Platz um und innerhalb von Elementen ist die Aufgabe von CSS.
+Dies soll verhindern, dass Whitespace-Zeichen das Layout Ihrer Seite beeinflussen. Platz um und innerhalb von Elementen zu schaffen, ist die Aufgabe von CSS.
 
-### Was passiert mit Leerzeichen?
+### Was passiert mit Whitespace?
 
 Sie verschwinden jedoch nicht einfach.
 
-Alle Leerzeichen, die sich im ursprünglichen Dokument außerhalb von HTML-Elementen befinden, sind im DOM vertreten. Dies ist intern erforderlich, damit der Editor die Formatierung von Dokumenten beibehalten kann. Das bedeutet, dass:
+Alle Whitespace-Zeichen, die sich außerhalb von HTML-Elementen im ursprünglichen Dokument befinden, werden im DOM dargestellt. Dies ist intern erforderlich, damit der Editor die Formatierung von Dokumenten beibehalten kann. Das bedeutet, dass:
 
-- Es einige Textknoten geben wird, die nur Leerzeichen enthalten, und
-- Einige Textknoten Leerzeichen am Anfang oder Ende haben.
+- Es einige Textknoten geben wird, die nur Whitespace enthalten, und
+- Einige Textknoten Whitespace am Anfang oder Ende haben werden.
 
-Betrachten Sie zum Beispiel das folgende Dokument:
+Nehmen Sie beispielsweise das folgende Dokument:
 
 ```html
 <!doctype html>
@@ -58,15 +58,15 @@ Der DOM-Baum dafür sieht so aus:
 
 ![Der DOM-Baum, der ein einfaches HTML-Dokument darstellt](dom-string.png)
 
-Die Bewahrung von Leerzeichen im DOM ist in vielerlei Hinsicht nützlich, aber es gibt bestimmte Stellen, an denen dies bestimmte Layouts schwieriger zu implementieren macht und Probleme für Entwickler verursacht, die durch Knoten im DOM iterieren möchten. Wir werden uns diese später ansehen und einige Lösungen betrachten.
+Das Bewahren von Whitespace-Zeichen im DOM ist auf viele Arten nützlich, aber es gibt bestimmte Stellen, an denen dies bestimmte Layouts schwieriger umsetzbar macht und Probleme für Entwickler verursacht, die durch Knoten im DOM iterieren möchten. Wir werden uns diese und einige Lösungen später noch genauer ansehen.
 
-### Wie verarbeitet CSS Leerzeichen?
+### Wie verarbeitet CSS Whitespace?
 
-Die meisten Leerzeichenzeichen werden ignoriert, nicht alle jedoch. Im früheren Beispiel existiert eines der Leerzeichen zwischen "Hello" und "World!" noch, wenn die Seite in einem Browser gerendert wird. Im Browser-Engine gibt es Regeln, die entscheiden, welche Leerzeichen nützlich und welche nicht sind – diese sind mindestens zum Teil im [CSS Text Module Level 3](https://www.w3.org/TR/css-text-3/) spezifiziert, insbesondere die Teile über die [CSS `white-space`-Eigenschaft](https://www.w3.org/TR/css-text-3/#white-space-property) und [Details zur Leerzeichenverarbeitung](https://www.w3.org/TR/css-text-3/#white-space-processing), aber wir bieten unten auch eine einfachere Erklärung.
+Die meisten Whitespace-Zeichen werden ignoriert, aber nicht alle. Im vorherigen Beispiel existiert einer der Leerzeichen zwischen "Hello" und "World!" immer noch, wenn die Seite in einem Browser gerendert wird. Es gibt Regeln in der Browser-Engine, die entscheiden, welche Whitespace-Zeichen nützlich sind und welche nicht — diese sind zumindest teilweise im [CSS Text Module Level 3](https://www.w3.org/TR/css-text-3/) spezifiziert, insbesondere die Teile über die [CSS `white-space` Eigenschaft](https://www.w3.org/TR/css-text-3/#white-space-property) und [Whitespace-Verarbeitungsdetails](https://www.w3.org/TR/css-text-3/#white-space-processing), aber wir bieten unten auch eine einfachere Erklärung.
 
 #### Beispiel
 
-Betrachten wir ein weiteres Beispiel. Um es einfacher zu machen, haben wir einen Kommentar hinzugefügt, der alle Leerzeichen mit ◦, alle Tabs mit ⇥ und alle Zeilenumbrüche mit ⏎ anzeigt:
+Nehmen wir ein weiteres Beispiel. Um es einfacher zu machen, haben wir einen Kommentar hinzugefügt, der alle Leerzeichen mit ◦, alle Tabs mit ⇥ und alle Zeilenumbrüche mit ⏎ zeigt:
 
 Dieses Beispiel:
 
@@ -92,11 +92,11 @@ Das `<h1>`-Element enthält nur Inline-Elemente. Tatsächlich enthält es:
 - Ein Inline-Element (das `<span>`, das ein Leerzeichen und das Wort "World!" enthält).
 - Einen weiteren Textknoten (bestehend nur aus Tabs und Leerzeichen).
 
-Aus diesem Grund bildet es einen sogenannten [Inline-Formatierungskontext](/de/docs/Web/CSS/Inline_formatting_context). Dies ist einer der möglichen Layout-Rendering-Kontexte, mit denen Browser-Engines arbeiten.
+Da es dies tut, wird ein Kontext namens [Inline-Formatierungskontext](/de/docs/Web/CSS/Inline_formatting_context) geschaffen. Dies ist einer der möglichen Layout-Rendering-Kontexte, mit denen Browser-Engines arbeiten.
 
-Innerhalb dieses Kontexts kann die Verarbeitung von Leerzeichencharakteren wie folgt zusammengefasst werden:
+Innerhalb dieses Kontexts kann die Verarbeitung von Whitespace-Zeichen wie folgt zusammengefasst werden:
 
-1. Zuerst werden alle Leerzeichen und Tabs sofort vor und nach einem Zeilenumbruch ignoriert, also wenn wir unser Beispiel-Markup von zuvor nehmen:
+1. Zuerst werden alle Leerzeichen und Tabs, die unmittelbar vor und nach einem Zeilenumbruch stehen, ignoriert, also, wenn wir unser Beispiel-Markup von vorher nehmen:
 
    ```html-nolint
    <h1>◦◦◦Hello◦⏎
@@ -110,46 +110,46 @@ Innerhalb dieses Kontexts kann die Verarbeitung von Leerzeichencharakteren wie f
    <span>◦World!</span>⇥◦◦</h1>
    ```
 
-2. Als nächstes werden alle Tab-Zeichen als Leerzeichen behandelt, sodass das Beispiel wird:
+2. Als nächstes werden alle Tab-Zeichen wie Leerzeichen behandelt, also wird das Beispiel zu:
 
    ```html-nolint
    <h1>◦◦◦Hello⏎
    <span>◦World!</span>◦◦◦</h1>
    ```
 
-3. Danach werden Zeilenumbrüche in Leerzeichen umgewandelt:
+3. Als nächstes werden Zeilenumbrüche in Leerzeichen konvertiert:
 
    ```html-nolint
    <h1>◦◦◦Hello◦<span>◦World!</span>◦◦◦</h1>
    ```
 
-4. Danach wird jedes Leerzeichen, das unmittelbar auf ein anderes Leerzeichen folgt (auch über zwei separate Inline-Elemente hinweg), ignoriert, sodass wir auf Folgendes enden:
+4. Danach wird jedes Leerzeichen, das unmittelbar auf ein anderes Leerzeichen folgt (auch über zwei getrennte Inline-Elemente hinweg), ignoriert, sodass wir am Ende Folgendes haben:
 
    ```html-nolint
    <h1>◦Hello◦<span>World!</span>◦</h1>
    ```
 
-5. Und schließlich werden Folgen von Leerzeichen am Anfang und Ende eines Elements entfernt, sodass wir letztendlich Folgendes erhalten:
+5. Und schließlich werden Folgen von Leerzeichen am Anfang und Ende eines Elements entfernt, sodass wir schließlich dies erhalten:
 
    ```html-nolint
    <h1>Hello◦<span>World!</span></h1>
    ```
 
-Deshalb sehen Personen, die die Webseite besuchen, den Satz "Hello World!" schön geschrieben oben auf der Seite, anstatt ein seltsam eingerücktes "Hello", gefolgt von einem noch seltsamer eingerückten "World!" in der Zeile darunter.
+Aus diesem Grund sehen Besucher der Webseite den Satz "Hello World!" schön oben auf der Seite geschrieben, anstatt ein merkwürdig eingerücktes "Hello" gefolgt von einem noch ungewöhnlicher eingerückten "World!" in der Zeile darunter.
 
-> **Hinweis:** [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützen das Hervorheben von Textknoten seit Version 52, was es einfacher macht, genau zu sehen, welche Knoten Leerzeichenzeichen enthalten. Reine Leerzeichenknoten sind mit einem "whitespace"-Label gekennzeichnet.
+> **Note:** Die [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützen seit Version 52 das Hervorheben von Textknoten, was es einfacher macht, genau zu sehen, in welchen Knoten sich Whitespace-Zeichen befinden. Reine Whitespace-Knoten sind mit einem "whitespace"-Label markiert.
 
-### Leerzeichen in Block-Formatierungskontexten
+### Whitespace in Block-Formatierungskontexten
 
-Oben haben wir uns nur Elemente angesehen, die Inline-Elemente enthalten, sowie Inline-Formatierungskontexte. Wenn ein Element mindestens ein Block-Element enthält, bildet es stattdessen einen sogenannten [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
+Oben haben wir nur Elemente betrachtet, die Inline-Elemente enthalten, und Inline-Formatierungskontexte. Wenn ein Element mindestens ein Block-Element enthält, dann etabliert es stattdessen, was als [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) bezeichnet wird.
 
-Innerhalb dieses Kontexts werden Leerzeichen sehr unterschiedlich behandelt.
+Innerhalb dieses Kontexts wird Whitespace ganz anders behandelt.
 
 #### Beispiel
 
-Schauen wir uns ein Beispiel an, um zu erklären, wie. Wir haben wie zuvor die Leerzeichenzeichen markiert.
+Schauen wir uns ein Beispiel an, um zu erklären, wie. Wir haben die Whitespace-Zeichen wie zuvor markiert.
 
-Wir haben 3 Textknoten, die nur Leerzeichen enthalten: einen vor dem ersten `<div>`, einen zwischen den beiden `<div>`s und einen nach dem zweiten `<div>`.
+Wir haben 3 Textknoten, die nur Whitespace enthalten: einen vor dem ersten `<div>`, einen zwischen den 2 `<div>`s und einen nach dem zweiten `<div>`.
 
 ```html-nolint
 <body>
@@ -173,9 +173,9 @@ Dies wird wie folgt gerendert:
 
 #### Erklärung
 
-Wir können zusammenfassen, wie hier die Leerzeichen behandelt werden (es können einige geringfügige Unterschiede im genauen Verhalten zwischen Browsern bestehen, aber grundsätzlich funktioniert es so):
+Wir können zusammenfassen, wie der Whitespace hier behandelt wird (es gibt möglicherweise einige geringfügige Unterschiede im genauen Verhalten zwischen verschiedenen Browsern, aber im Grunde funktioniert es so):
 
-1. Weil wir uns in einem Block-Formatierungskontext befinden, muss alles ein Block sein, also werden auch unsere 3 Textknoten zu Blöcken, genau wie die 2 `<div>`s. Blöcke nehmen die volle verfügbare Breite ein und sind übereinander gestapelt, was bedeutet, dass, ausgehend vom obigen Beispiel:
+1. Da wir uns in einem Block-Formatierungskontext befinden, muss alles ein Block sein, also werden unsere 3 Textknoten ebenfalls zu Blöcken, ähnlich wie die 2 `<div>`s. Blöcke besetzen die gesamte verfügbare Breite und werden übereinander gestapelt, was bedeutet, dass wir, beginnend mit dem obigen Beispiel:
 
    ```html-nolint
    <body>⏎
@@ -185,7 +185,7 @@ Wir können zusammenfassen, wie hier die Leerzeichen behandelt werden (es könne
    </body>
    ```
 
-   ...wir mit einem Layout mit dieser Liste von Blöcken enden:
+   ...mit einem Layout enden, das aus dieser Liste von Blöcken besteht:
 
    ```html
    <block>⏎⇥</block>
@@ -195,7 +195,7 @@ Wir können zusammenfassen, wie hier die Leerzeichen behandelt werden (es könne
    <block>◦◦⏎</block>
    ```
 
-2. Dies wird dann weiter vereinfacht, indem die Verarbeitungsregeln für Leerzeichen in Inline-Formatierungskontexten auf diese Blöcke angewendet werden:
+2. Dies wird dann weiter vereinfacht, indem die Verarbeitungsregeln für Whitespace in Inline-Formatierungskontexten auf diese Blöcke angewendet werden:
 
    ```html
    <block></block>
@@ -205,21 +205,21 @@ Wir können zusammenfassen, wie hier die Leerzeichen behandelt werden (es könne
    <block></block>
    ```
 
-3. Die 3 leeren Blöcke, die wir jetzt haben, werden im endgültigen Layout keinen Platz einnehmen, da sie nichts enthalten, also werden wir nur 2 Blöcke haben, die Platz auf der Seite beanspruchen. Personen, die die Webseite ansehen, sehen die Wörter "Hello" und "World!" auf 2 getrennten Zeilen, wie man erwartet, dass 2 `<div>`s angeordnet sind. Die Browser-Engine hat im Grunde alle Leerzeichen ignoriert, die im Quellcode hinzugefügt wurden.
+3. Die 3 leeren Blöcke, die wir jetzt haben, werden im endgültigen Layout keinen Platz einnehmen, da sie nichts enthalten, so dass wir am Ende nur 2 Blöcke haben, die auf der Seite Platz einnehmen. Die Leute, die die Webseite besuchen, sehen die Wörter "Hello" und "World!" auf 2 separaten Zeilen, so wie man es erwarten würde, dass 2 `<div>`s angeordnet sind. Die Browser-Engine hat im Wesentlichen den gesamten Whitespace ignoriert, der im Quellcode hinzugefügt wurde.
 
 ## Leerzeichen zwischen Inline- und Inline-Block-Elementen
 
-Schauen wir uns nun ein paar Probleme an, die durch Leerzeichen auftreten können, und was dagegen getan werden kann. Zuerst werden wir uns ansehen, was mit Leerzeichen zwischen Inline- und Inline-Block-Elementen passiert. Tatsächlich haben wir dies bereits in unserem allerersten Beispiel gesehen, als wir beschrieben haben, wie Leerzeichen in Inline-Formatierungskontexten verarbeitet werden.
+Kommen wir nun zu einigen Problemen, die durch Whitespace entstehen können, und was dagegen getan werden kann. Zuerst schauen wir uns an, was mit Leerzeichen zwischen Inline- und Inline-Block-Elementen passiert. Tatsächlich haben wir dies bereits in unserem allerersten Beispiel gesehen, als wir beschrieben haben, wie Whitespace in Inline-Formatierungskontexten verarbeitet wird.
 
-Wir haben gesagt, dass es Regeln gibt, um die meisten Zeichen zu ignorieren, aber dass Zeichen, die Wörter trennen, erhalten bleiben. Wenn Sie nur mit Block-Level-Elementen wie `<p>` zu tun haben, die nur Inline-Elemente wie `<em>`, `<strong>`, `<span>` usw. enthalten, kümmert Sie das normalerweise nicht, weil der zusätzliche Leerraum, der im Layout entsteht, hilfreich ist, um die Wörter im Satz zu trennen.
+Wir sagten, dass es Regeln gibt, um die meisten Zeichen zu ignorieren, aber dass worttrennende Zeichen verbleiben. Wenn Sie nur mit Block-Level-Elementen wie `<p>` arbeiten, die nur Inline-Elemente wie `<em>`, `<strong>`, `<span>`, usw. enthalten, kümmern Sie sich normalerweise nicht darum, da der zusätzliche Whitespace, der tatsächlich ins Layout gelangt, hilfreich ist, um die Wörter im Satz zu trennen.
 
-Es wird jedoch interessanter, wenn Sie anfangen, `inline-block`-Elemente zu verwenden. Diese Elemente verhalten sich von außen wie Inline-Elemente und von innen wie Blöcke und werden oft verwendet, um komplexere UI-Elemente als nur Text nebeneinander auf derselben Linie anzuzeigen, beispielsweise Navigationselemente.
+Es wird jedoch interessanter, wenn Sie beginnen, `inline-block`-Elemente zu verwenden. Diese Elemente verhalten sich von außen wie Inline-Elemente und von innen wie Blöcke und werden oft verwendet, um komplexere UI-Stücke als nur Text nebeneinander auf derselben Linie anzuzeigen, beispielsweise Navigationsmenüpunkte.
 
-Weil sie Blöcke sind, erwarten viele Menschen, dass sie sich auch so verhalten, aber das tun sie nicht. Wenn es Formatierungsleerzeichen zwischen benachbarten Inline-Elementen gibt, führt dies zu Leerraum im Layout, genau wie die Leerzeichen zwischen Wörtern im Text.
+Da sie Blöcke sind, erwarten viele Leute, dass sie sich entsprechend verhalten, aber in Wirklichkeit tun sie das nicht. Wenn zwischen benachbarten Inline-Elementen Format-Whitespace vorhanden ist, führt dies zu Platz im Layout, genau wie die Leerzeichen zwischen Wörtern im Text.
 
 ### Beispiel
 
-Betrachten Sie dieses Beispiel (nochmals, wir haben einen HTML-Kommentar hinzugefügt, der die Leerzeichenzeichen im HTML anzeigt):
+Betrachten Sie dieses Beispiel (wir haben erneut einen HTML-Kommentar eingefügt, der die Whitespace-Zeichen im HTML zeigt):
 
 ```css
 .people-list {
@@ -269,9 +269,9 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample('Example_3')}}
 
-Sie möchten wahrscheinlich nicht die Lücken zwischen den Blöcken – abhängig vom Anwendungsfall (ist dies eine Liste von Avataren oder horizontale Nav-Buttons?), möchten Sie wahrscheinlich, dass die Elementseiten bündig aneinander liegen und dass Sie jeden Abstand selbst kontrollieren können.
+Wahrscheinlich möchten Sie die Lücken zwischen den Blöcken nicht — je nach Anwendungsfall (ist dies eine Liste von Avataren oder horizontale Navigationsschaltflächen?), möchten Sie wahrscheinlich, dass die Elementseiten bündig nebeneinander liegen und dass Sie jegliche Abstände selbst steuern können.
 
-Der HTML-Inspektor der Firefox DevTools hebt Textknoten hervor und zeigt Ihnen auch genau an, welchen Bereich die Elemente einnehmen – nützlich, wenn Sie sich wundern, was das Problem verursacht, und vielleicht denken, Sie hätten dort einen zusätzlichen Rand oder so etwas!
+Der HTML-Inspektor von Firefox DevTools hebt Textknoten hervor und zeigt Ihnen genau, welchen Bereich die Elemente einnehmen — nützlich, wenn Sie sich fragen, was das Problem verursacht und vielleicht denken, dass Sie da irgendwelche zusätzlichen Ränder drin haben oder so etwas!
 
 ![Beispiel für die Anzeige von Leerzeichen zwischen Blöcken im Firefox DevTools HTML-Inspektor](whitespace-devtools.png)
 
@@ -290,7 +290,7 @@ ul {
 }
 ```
 
-Wenn Sie sich auf `inline-block` verlassen müssen, könnten Sie die [`font-size`](/de/docs/Web/CSS/font-size) der Liste auf 0 setzen. Dies funktioniert nur, wenn Ihre Blöcke nicht mit ems (basierend auf `font-size`, sodass die Blockgröße auch null wird) dimensioniert sind. rems wären hier eine gute Wahl:
+Wenn Sie sich auf `inline-block` verlassen müssen, könnten Sie die [`font-size`](/de/docs/Web/CSS/font-size) der Liste auf 0 setzen. Dies funktioniert nur, wenn Ihre Blöcke nicht mit ems (basiert auf der `font-size`, sodass die Blockgröße auch 0 wäre) dimensioniert sind. Rems wären hier eine gute Wahl:
 
 ```css
 ul {
@@ -306,7 +306,7 @@ li {
 }
 ```
 
-Oder Sie könnten negative Margen auf die Listenelemente setzen:
+Oder Sie könnten negativen Rand auf den Listenelementen setzen:
 
 ```css
 li {
@@ -317,21 +317,21 @@ li {
 }
 ```
 
-Sie können dieses Problem auch lösen, indem Sie Ihre Listenelemente alle in einer Zeile im Quellcode platzieren, wodurch die Leerzeichenknoten erst gar nicht erstellt werden:
+Sie können dieses Problem auch lösen, indem Sie Ihre Listenelemente alle auf derselben Linie im Quellcode platzieren, wodurch die Whitespace-Knoten erst gar nicht erstellt werden:
 
 ```html-nolint
 <li></li><li></li><li></li><li></li><li></li>
 ```
 
-## DOM-Traversierung und Leerzeichen
+## DOM-Traversierung und Whitespace
 
-Bei der [DOM](/de/docs/Web/API/Document_Object_Model)-Manipulation in JavaScript können Sie auch Probleme durch Leerzeichenknoten begegnen. Wenn Sie beispielsweise eine Referenz auf einen übergeordneten Knoten haben und dessen erstes Element-Kind mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) beeinflussen möchten, aber sich nur ein Leerzeichenknoten direkt nach dem öffnenden Eltern-Tag befindet, erhalten Sie nicht das erwartete Ergebnis. Der Textknoten würde anstelle des gewünschten Elements ausgewählt.
+Beim Versuch, in JavaScript [DOM](/de/docs/Web/API/Document_Object_Model)-Manipulationen durchzuführen, können Sie ebenfalls auf Probleme stoßen, weil Whitespace-Knoten vorhanden sind. Wenn Sie beispielsweise eine Referenz zu einem übergeordneten Knoten haben und dessen erstes Kind-Element mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) beeinflussen möchten, erhalten Sie, falls sich direkt nach dem öffnenden Elterntag ein ungewollter Whitespace-Knoten befindet, nicht das erwartete Ergebnis. Der Textknoten würde statt des Elements, das Sie beeinflussen möchten, ausgewählt.
 
-Als ein weiteres Beispiel: Wenn Sie ein bestimmtes Subset von Elementen haben, an denen Sie basierend darauf etwas tun möchten, ob sie leer sind (keine Kindknoten haben) oder nicht, könnten Sie überprüfen, ob jedes Element leer ist, indem Sie etwas wie [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden, aber wenn Ziel-Elemente Textknoten enthalten, könnten Sie falsche Ergebnisse erhalten.
+Ein weiteres Beispiel: Wenn Sie über einen bestimmten Satz von Elementen verfügen, auf die Sie basierend darauf etwas tun möchten, ob sie leer sind (keine Kindknoten haben) oder nicht, könnten Sie überprüfen, ob jedes Element leer ist, indem Sie beispielsweise [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden, aber erneut, wenn Ziel-Elemente Textknoten enthalten, könnten Sie falsche Ergebnisse erhalten.
 
-## Hilfsfunktionen für Leerzeichen
+## Whitespace-Hilfsfunktionen
 
-Der folgende JavaScript-Code definiert mehrere Funktionen, die den Umgang mit Leerzeichen im DOM erleichtern:
+Der folgende JavaScript-Code definiert mehrere Funktionen, die den Umgang mit Whitespace im DOM erleichtern:
 
 ```js
 /**
@@ -483,7 +483,7 @@ function data_of(txt) {
 
 ### Beispiel
 
-Der folgende Code zeigt die Nutzung der obigen Funktionen. Er iteriert über die Kinder eines Elements (dessen Kinder alle Elemente sind), um dasjenige zu finden, dessen Text `"This is the third paragraph"` ist, und ändert dann das Klassenattribut und den Inhalt dieses Absatzes.
+Der folgende Code demonstriert die Verwendung der obigen Funktionen. Es iteriert über die Kinder eines Elements (dessen Kinder alle Elemente sind), um dasjenige zu finden, dessen Text `"This is the third paragraph"` ist, und dann das Klassenattribut und den Inhalt dieses Absatzes zu ändern.
 
 ```js
 let cur = first_child(document.getElementById("test"));

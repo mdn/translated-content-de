@@ -8,9 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`password`** Schreibgeschützt-Eigenschaft
-des [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Interfaces gibt einen String zurück,
-der das Passwort der Anmeldeinformation enthält.
+Die schreibgeschützte Eigenschaft **`password`** der [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Schnittstelle gibt einen String zurück, der das Passwort des Anmeldedatensatzes enthält.
 
 ## Wert
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`pictureInPictureElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit in diesem `shadow tree` im Bild-im-Bild-Modus dargestellt wird, oder `null`, wenn der Bild-im-Bild-Modus derzeit nicht verwendet wird.
+Die schreibgeschützte **`pictureInPictureElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das aktuell im Bild-in-Bild-Modus in diesem Shadow-Tree dargestellt wird, oder `null`, wenn der Bild-in-Bild-Modus derzeit nicht verwendet wird.
 
 ## Wert
 
-Ein Verweis auf das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich derzeit im Bild-im-Bild-Modus befindet.
+Eine Referenz auf das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich aktuell im Bild-in-Bild-Modus befindet.
 
-Es wird `null` zurückgegeben, wenn der `shadow tree` kein zugeordnetes Element im Bild-im-Bild-Modus hat. Zum Beispiel gibt es kein Bild-im-Bild-Element, oder das Element befindet sich nicht im `shadow tree`.
+Gibt `null` zurück, wenn der Shadow-Tree kein zugeordnetes Element im Bild-in-Bild-Modus hat. Beispielsweise, wenn es kein Bild-in-Bild-Element gibt oder das Element nicht im Shadow-Tree ist.
 
 ## Beispiele
 

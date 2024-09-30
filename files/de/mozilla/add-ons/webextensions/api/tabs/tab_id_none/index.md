@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browsertabs sind (zum Beispiel Tabs in Entwicklerwerkzeugfenstern).
+Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (zum Beispiel Tabs in Entwicklungswerkzeug-Fenstern).
 
 ## Browser-Kompatibilität
 
@@ -16,7 +16,7 @@ Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browsertabs sind (zu
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE) API. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,7 +7,8 @@ l10n:
 
 {{HTTPSidebar}}
 
-Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Direktive beschränkt die URLs, die über Skriptschnittstellen geladen werden können. Die eingeschränkten APIs sind:
+Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`connect-src`**-Direktive schränkt die URLs ein, die über Skript-Schnittstellen geladen werden können. Die APIs, die eingeschränkt werden, sind:
 
 - {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping),
 - [`fetch()`](/de/docs/Web/API/Window/fetch),
@@ -16,7 +17,7 @@ Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Direk
 - [`EventSource`](/de/docs/Web/API/EventSource), und
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon).
 
-> **Note:** `connect-src 'self'` wird nicht in allen Browsern auf Websocket-Schemata aufgelöst, weitere Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
+> **Note:** `connect-src 'self'` löst sich nicht zu WebSocket-Schemata in allen Browsern auf, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -29,9 +30,9 @@ Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Direk
       <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User Agent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
         <code>default-src</code>-Direktive.
       </td>
     </tr>
@@ -40,7 +41,7 @@ Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Direk
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die connect-src-Richtlinie zugelassen werden:
+Eine oder mehrere Quellen können für die connect-src-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: connect-src <source>;
@@ -49,13 +50,13 @@ Content-Security-Policy: connect-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
 Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
 Angenommen, dieser CSP-Header:
 
@@ -63,7 +64,7 @@ Angenommen, dieser CSP-Header:
 Content-Security-Policy: connect-src https://example.com/
 ```
 
-Die folgenden Verbindungen werden blockiert und nicht geladen:
+Die folgenden Verbindungen werden blockiert und werden nicht geladen:
 
 ```html
 <a ping="https://not-example.com">

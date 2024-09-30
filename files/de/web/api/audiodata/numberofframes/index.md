@@ -12,11 +12,11 @@ Die schreibgeschützte Eigenschaft **`numberOfFrames`** des [`AudioData`](/de/do
 
 ## Wert
 
-Eine ganze Zahl.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `numberOfFrames` in der Konsole ausgegeben.
+Das folgende Beispiel gibt den Wert von `numberOfFrames` in der Konsole aus.
 
 ```js
 console.log(AudioData.numberOfFrames);

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`writable`**-Eigenschaft, die schreibgeschützte Eigenschaft des [`TransformStream`](/de/docs/Web/API/TransformStream)-Interfaces, gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem `TransformStream` gesteuert wird.
+Die **`writable`** schreibgeschützte Eigenschaft der [`TransformStream`](/de/docs/Web/API/TransformStream)-Schnittstelle gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem `TransformStream` kontrolliert wird.
 
 ## Wert
 

@@ -8,24 +8,21 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.lineDashOffset`**
-Eigenschaft der Canvas 2D API legt den Linienstrichelversatz oder „Phase“ fest.
+Die **`CanvasRenderingContext2D.lineDashOffset`**-Eigenschaft der Canvas 2D API legt den Linienstrichversatz oder die "Phase" fest.
 
 > [!NOTE]
-> Linien werden durch Aufruf der
+> Linien werden durch Aufrufen der
 > [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)-Methode gezeichnet.
 
 ## Wert
 
-Ein Float, der die Menge des Linienstrichelversatzes angibt. Der Standardwert ist `0.0`.
+Ein Float, der die Höhe des Linienstrichversatzes angibt. Der Standardwert ist `0.0`.
 
 ## Beispiele
 
-### Versatz eines Linienstrichels
+### Linienstrich versetzen
 
-Dieses Beispiel zeichnet zwei gestrichelte Linien. Die erste hat keinen Strichelversatz. Die zweite hat einen
-Strichelversatz von 4.
+Dieses Beispiel zeichnet zwei gestrichelte Linien. Die erste hat keinen Strichversatz. Die zweite hat einen Strichversatz von 4.
 
 #### HTML
 
@@ -58,15 +55,13 @@ ctx.stroke();
 
 #### Ergebnis
 
-Die Linie mit einem Strichelversatz wird in Rot gezeichnet.
+Die Linie mit Strichversatz wird in Rot gezeichnet.
 
 {{ EmbedLiveSample('Offsetting_a_line_dash', 700, 180) }}
 
 ### Marching Ants
 
-Der [Marching-Ants](https://en.wikipedia.org/wiki/Marching_ants)-Effekt ist
-eine Animationstechnik, die häufig in Auswahlwerkzeugen von Grafikprogrammen verwendet wird. Sie
-hilft dem Benutzer dabei, die Auswahlkante vom Bildhintergrund zu unterscheiden, indem sie die Kante animiert.
+Der [Marching Ants](https://en.wikipedia.org/wiki/Marching_ants)-Effekt ist eine Animationstechnik, die häufig in Auswahlwerkzeugen von Bildbearbeitungsprogrammen zu finden ist. Sie hilft dem Benutzer, den Auswahlrahmen vom Bildhintergrund zu unterscheiden, indem der Rahmen animiert wird.
 
 ```html hidden
 <canvas id="canvas"></canvas>
@@ -111,4 +106,4 @@ march();
 - Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.getLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/getLineDash)
 - [`CanvasRenderingContext2D.setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash)
-- [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- [Anwendung von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

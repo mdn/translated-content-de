@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte Eigenschaft `Touch.clientX` gibt die X-Koordinate des Berührungspunktes relativ zur Ansicht, ohne Scrollversatz, zurück.
+Die nur-lesbare `Touch.clientX`-Eigenschaft gibt die X-Koordinate des Berührungspunktes relativ zum Ansichtsfenster zurück, ohne jeglichen Scrollversatz einzuschließen.
 
 ## Wert
 
-Ein `double` Gleitkommawert, der die X-Koordinate des Berührungspunktes relativ zur Ansicht darstellt, ohne Scrollversatz.
+Ein `double`-Fließkommawert, der die X-Koordinate des Berührungspunktes relativ zum Ansichtsfenster darstellt, ohne jeglichen Scrollversatz einzuschließen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Eigenschaften `Touch.clientX` und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY) des [`Touch`](/de/docs/Web/API/Touch)-Objekts. Die Eigenschaft `Touch.clientX` ist die horizontale Koordinate eines Berührungspunktes relativ zum Ansichtsfenster des Browsers ohne Scrollversatz. Die Eigenschaft [`Touch.clientY`](/de/docs/Web/API/Touch/clientY) ist die vertikale Koordinate des Berührungspunktes relativ zum Ansichtsfenster des Browsers ohne Scrollversatz.
+Dieses Beispiel veranschaulicht die Verwendung der Eigenschaften `Touch.clientX` und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY) des [`Touch`](/de/docs/Web/API/Touch)-Objekts. Die `Touch.clientX`-Eigenschaft ist die horizontale Koordinate eines Berührungspunktes relativ zum Ansichtsfenster des Browsers, ohne jeden Scrollversatz. Die [`Touch.clientY`](/de/docs/Web/API/Touch/clientY)-Eigenschaft ist die vertikale Koordinate des Berührungspunktes relativ zum Ansichtsfenster des Browsers, ebenfalls ohne jeden Scrollversatz.
 
-In diesem Beispiel wird angenommen, dass der Benutzer eine Berührung auf einem Element mit der ID `source` startet, sich innerhalb des Elements bewegt oder das Element verlässt und dann den Kontakt mit der Oberfläche löst. Wenn der [`touchend`](/de/docs/Web/API/Element/touchend_event)-Ereignishandler aufgerufen wird, werden die Änderungen der `Touch.clientX`- und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY)-Koordinaten vom Start- bis zum Endberührungspunkt berechnet.
+In diesem Beispiel nehmen wir an, dass ein Benutzer eine Berührung auf einem Element mit der ID `source` initiiert, sich innerhalb des Elements oder aus dem Element herausbewegt und dann den Kontakt mit der Oberfläche beendet. Wenn der [`touchend`](/de/docs/Web/API/Element/touchend_event)-Ereignishandler aufgerufen wird, werden die Änderungen in den `Touch.clientX`- und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY)-Koordinaten vom Startpunkt der Berührung bis zum Endpunkt der Berührung berechnet.
 
 ```js
 // Register touchstart and touchend listeners for element 'source'

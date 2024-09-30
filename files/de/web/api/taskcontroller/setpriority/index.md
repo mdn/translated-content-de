@@ -1,5 +1,5 @@
 ---
-title: "TaskController: Methode setPriority()"
+title: "TaskController: setPriority()-Methode"
 short-title: setPriority()
 slug: Web/API/TaskController/setPriority
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **`setPriority()`**-Methode der [`TaskController`](/de/docs/Web/API/TaskController)-Schnittstelle kann aufgerufen werden, um eine neue [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) für das [`signal`](/de/docs/Web/API/TaskController#taskcontroller.signal) dieses Controllers festzulegen. Wenn eine priorisierte Aufgabe [konfiguriert](/de/docs/Web/API/Scheduler/postTask#signal) ist, das Signal zu verwenden, wird dadurch auch die Aufgabenpriorität geändert.
+Die **`setPriority()`**-Methode des [`TaskController`](/de/docs/Web/API/TaskController)-Interfaces kann aufgerufen werden, um eine neue [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) für das `signal` dieses Controllers festzulegen. Wenn eine priorisierte Aufgabe so [konfiguriert](/de/docs/Web/API/Scheduler/postTask#signal) ist, dass sie das Signal verwendet, wird dies auch die Priorität der Aufgabe ändern.
 
-Beobachter werden über Prioritätsänderungen benachrichtigt, indem ein [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis ausgelöst wird. Die Methode benachrichtigt nur dann, wenn sich die Priorität tatsächlich ändert (das Ereignis wird nicht ausgelöst, wenn die Priorität durch den Aufruf nicht geändert würde).
+Beobachter werden über Prioritätsänderungen benachrichtigt, indem ein [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Event ausgelöst wird. Die Methode benachrichtigt nur, wenn die Priorität tatsächlich geändert wird (das Ereignis wird nicht ausgelöst, wenn der Aufruf die Priorität nicht ändern würde).
 
-Beachten Sie, dass die Aufgabenpriorität nur für [Aufgaben mit veränderlichen Prioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) geändert werden kann. Ist die Aufgabe unveränderlich, wird der Funktionsaufruf ignoriert.
+Beachten Sie, dass die Aufgabenpriorität nur für [Aufgaben mit veränderlichen Prioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) geändert werden kann. Wenn die Aufgabe unveränderlich ist, wird der Funktionsaufruf ignoriert.
 
 ## Syntax
 
@@ -27,23 +27,23 @@ setPriority(priority)
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Eine Prioritätsänderung wurde gestartet, während bereits eine im Gange ist.
+  - : Eine Prioritätsänderung wurde gestartet, während bereits eine läuft.
 
 ## Beispiele
 
-Zuerst erstellen wir einen Task-Controller. In diesem Fall geben wir keine Priorität an, sodass sie standardmäßig auf `user-visible` eingestellt wird.
+Zuerst erstellen wir einen Task-Controller. In diesem Fall geben wir keine Priorität an, sodass sie standardmäßig `user-visible` ist.
 
 ```js
 // Create a TaskController with default priority: 'user-visible'
 const controller = new TaskController();
 ```
 
-Dann übergeben wir das Signal des Controllers an die Methode [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask#signal).
+Dann übergeben wir das Signal des Controllers an die [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask#signal)-Methode.
 
 ```js
 // Post task passing the controller's signal.
@@ -58,14 +58,14 @@ scheduler
   }); // Run on fail
 ```
 
-Der Controller kann dann verwendet werden, um die Priorität zu ändern
+Der Controller kann dann verwendet werden, um die Priorität zu ändern.
 
 ```js
 // Change the priority to 'background' using the controller
 controller.setPriority("background");
 ```
 
-Weitere Beispiele, einschließlich der Darstellung, wie das Ereignis gehandhabt wird, das aus der Änderung der Priorität resultiert, finden Sie unter: [Priorisierte Task-Scheduling-API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
+Weitere Beispiele, die zeigen, wie das Ereignis behandelt wird, das sich aus der Änderung der Priorität ergibt, finden Sie unter: [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
 
 ## Spezifikationen
 

@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaMultiSelectable`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attributs wider, welches angibt, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachfahren auswählen kann.
+Die **`ariaMultiSelectable`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attributs wider, das angibt, dass der Benutzer mehr als einen Eintrag aus den aktuell auswählbaren Nachkommen auswählen kann.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, standardmäßige Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die standardmäßigen Semantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model erklärt](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Mehr als ein Element kann gleichzeitig ausgewählt werden.
+  - : Es können mehrere Elemente gleichzeitig ausgewählt werden.
 - `"false"`
-  - : Nur ein Element kann ausgewählt werden.
+  - : Es kann nur ein Element ausgewählt werden.
 
 ## Beispiele
 
@@ -40,4 +40,4 @@ this.internals_.ariaMultiSelectable = "true";
 
 ## Siehe auch
 
-- [ARIA: listbox role](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role)
+- [ARIA: listbox-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role)

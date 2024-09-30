@@ -1,5 +1,5 @@
 ---
-title: "Document: adoptNode()-Methode"
+title: "Document: adoptNode() Methode"
 short-title: adoptNode()
 slug: Web/API/Document/adoptNode
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.adoptNode()`** Methode überträgt einen [Knoten](/de/docs/Glossary/node/dom) aus einem anderen [Dokument](/de/docs/Web/API/Document) in das Dokument der Methode. Der übernommene Knoten und sein Unterbaum werden aus ihrem ursprünglichen Dokument entfernt (falls vorhanden), und ihr [`ownerDocument`](/de/docs/Web/API/Node/ownerDocument) wird auf das aktuelle Dokument geändert. Der Knoten kann dann in das aktuelle Dokument eingefügt werden.
+Die **`Document.adoptNode()`** Methode überträgt einen [node](/de/docs/Glossary/node/dom) aus einem anderen [Document](/de/docs/Web/API/Document) in das Dokument der Methode.
+Der adoptierte `node` und sein Unterbaum werden aus ihrem ursprünglichen Dokument (falls vorhanden) entfernt, und ihr [`ownerDocument`](/de/docs/Web/API/Node/ownerDocument) wird auf das aktuelle Dokument geändert.
+Der `node` kann dann in das aktuelle Dokument eingefügt werden.
 
 ## Syntax
 
@@ -19,16 +21,18 @@ adoptNode(externalNode)
 ### Parameter
 
 - `externalNode`
-  - : Der Knoten aus einem anderen Dokument, der übernommen werden soll.
+  - : Der `node` aus einem anderen Dokument, der übernommen werden soll.
 
 ### Rückgabewert
 
-Der kopierte `importedNode` im Geltungsbereich des importierenden Dokuments.
+Der kopierte `importedNode` im Rahmen des importierenden Dokuments.
 
-Nach dem Aufrufen dieser Methode sind `importedNode` und `externalNode` dasselbe Objekt.
+Nach dem Aufruf dieser Methode sind `importedNode` und
+`externalNode` dasselbe Objekt.
 
 > **Note:** `importedNode`'s
-> [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) ist `null`, da er noch nicht in den Dokumentbaum eingefügt wurde!
+> [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) ist `null`, da er noch nicht in den
+> Dokumentenbaum eingefügt wurde!
 
 ## Beispiele
 
@@ -44,12 +48,12 @@ iframeImages.forEach((imgEl) => {
 
 ## Anmerkungen
 
-Bevor sie in das aktuelle Dokument eingefügt werden können, sollten Knoten aus externen Dokumenten entweder:
+Bevor `nodes` aus externen Dokumenten ins aktuelle Dokument eingefügt werden können, sollten sie entweder:
 
-- mit [`document.importNode()`](/de/docs/Web/API/Document/importNode) geklont; oder
-- mit `document.adoptNode()` übernommen werden.
+- geklont werden, indem [`document.importNode()`](/de/docs/Web/API/Document/importNode) verwendet wird; oder
+- durch `document.adoptNode()` adoptiert werden.
 
-Weitere Informationen zu den [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument)-Problemen finden Sie in den [W3C DOM FAQ](https://www.w3.org/DOM/faq.html#ownerdoc).
+Weitere Informationen zu den [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) Themen finden Sie in den [W3C DOM FAQ](https://www.w3.org/DOM/faq.html#ownerdoc).
 
 ## Spezifikationen
 

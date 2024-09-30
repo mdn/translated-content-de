@@ -1,5 +1,5 @@
 ---
-title: "MediaMetadata: artist-Eigenschaft"
+title: "MediaMetadata: Künstler-Eigenschaft"
 short-title: artist
 slug: Web/API/MediaMetadata/artist
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Media Session API")}}
 
 Die **`artist`**-Eigenschaft des
-[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt den Namen des Künstlers, der Gruppe, des Erstellers usw. des abzuspielenden Mediums zurück oder setzt diesen.
+[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt den Namen des Künstlers, der Gruppe, des Schöpfers usw. des abzuspielenden Mediums zurück oder setzt diesen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein {{jsxref("String")}}, der den Namen des Künstlers enthält.
 ## Beispiele
 
 Das folgende Beispiel überprüft die Browser-Kompatibilität und setzt die aktuellen Metadaten
-für die Media Session.
+für die Medien-Sitzung.
 
 ```js
 if ("mediaSession" in navigator) {

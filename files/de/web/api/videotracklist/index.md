@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`VideoTrackList`** Schnittstelle wird verwendet, um eine Liste der Videospuren darzustellen, die in einem {{HTMLElement("video")}} Element enthalten sind, wobei jede Spur durch ein separates [`VideoTrack`](/de/docs/Web/API/VideoTrack) Objekt in der Liste repräsentiert wird.
+Das **`VideoTrackList`**-Interface wird verwendet, um eine Liste der Videospuren darzustellen, die in einem {{HTMLElement("video")}}-Element enthalten sind. Jede Spur wird durch ein separates [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt in der Liste repräsentiert.
 
-Rufen Sie eine Instanz dieses Objekts mit [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) ab. Die einzelnen Spuren können beispielsweise mit Arraysyntax oder Funktionen wie {{jsxref("Array.forEach", "forEach()")}} zugegriffen werden.
+Eine Instanz dieses Objekts kann über [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) abgerufen werden. Auf die einzelnen Spuren kann mit Array-Syntax oder Funktionen wie {{jsxref("Array.forEach", "forEach()")}} zugegriffen werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`length`](/de/docs/Web/API/VideoTrackList/length) {{ReadOnlyInline}}
   - : Die Anzahl der Spuren in der Liste.
@@ -24,40 +24,40 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`Ev
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById)
-  - : Gibt die [`VideoTrack`](/de/docs/Web/API/VideoTrack) zurück, die innerhalb der `VideoTrackList` gefunden wurde und deren [`id`](/de/docs/Web/API/VideoTrack/id) mit der angegebenen Zeichenkette übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
+  - : Gibt die [`VideoTrack`](/de/docs/Web/API/VideoTrack) zurück, die innerhalb der `VideoTrackList` gefunden wird und deren [`id`](/de/docs/Web/API/VideoTrack/id) mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
 
 ## Ereignisse
 
 - [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)
-  - : Wird ausgelöst, wenn eine neue Videospur zum Medienelement hinzugefügt wurde.
-    Auch über die Eigenschaft `onaddtrack` verfügbar.
+  - : Wird ausgelöst, wenn eine neue Videospur zum Medien-Element hinzugefügt wurde.
+    Auch über die `onaddtrack`-Eigenschaft verfügbar.
 - [`change`](/de/docs/Web/API/VideoTrackList/change_event)
   - : Wird ausgelöst, wenn eine Videospur aktiv oder inaktiv gemacht wurde.
-    Auch über die Eigenschaft `onchange` verfügbar.
+    Auch über die `onchange`-Eigenschaft verfügbar.
 - [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-  - : Wird ausgelöst, wenn eine neue Videospur aus dem Medienelement entfernt wurde.
-    Auch über die Eigenschaft `onremovetrack` verfügbar.
+  - : Wird ausgelöst, wenn eine neue Videospur aus dem Medien-Element entfernt wurde.
+    Auch über die `onremovetrack`-Eigenschaft verfügbar.
 
 ## Hinweise zur Verwendung
 
-Zusätzlich zur direkten Zugriffsmöglichkeit auf die Videospuren eines Medienelements ermöglicht `VideoTrackList` das Setzen von Ereignis-Handlern für die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse, sodass Sie erkennen können, wann Spuren zum oder vom Medienstrom des Elements hinzugefügt oder entfernt werden.
+Zusätzlich zur direkten Zugriffsmöglichkeit auf die vorhandenen Videospuren eines Medien-Elements ermöglicht Ihnen `VideoTrackList`, Ereignishandler für die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)- und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)-Ereignisse festzulegen, sodass Sie erkennen können, wann Spuren dem Stream des Medien-Elements hinzugefügt oder daraus entfernt werden.
 
 ## Beispiele
 
-### Abrufen der Videospurenliste eines Medienelements
+### Die Videospurliste eines Medien-Elements abrufen
 
-Um die `VideoTrackList` eines Medienelements zu erhalten, verwenden Sie dessen [`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) Eigenschaft.
+Um die `VideoTrackList` eines Medien-Elements zu erhalten, verwenden Sie die [`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)-Eigenschaft.
 
 ```js
 const videoTracks = document.querySelector("video").videoTracks;
 ```
 
-### Überwachung von Änderungen der Spuranzahl
+### Änderung der Anzahl der Spuren überwachen
 
-In diesem Beispiel haben wir eine App, die Informationen über die Anzahl der verfügbaren Kanäle anzeigt. Um sie auf dem neuesten Stand zu halten, werden Handler für die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse eingerichtet.
+In diesem Beispiel haben wir eine App, die Informationen über die verfügbare Anzahl der Kanäle anzeigt. Um sie aktuell zu halten, werden Handler für die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)- und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)-Ereignisse eingerichtet.
 
 ```js
 videoTracks.onaddtrack = updateTrackCount;

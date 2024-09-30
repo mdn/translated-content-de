@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`text-decoration`** Attribut definiert, ob Text mit einer Unterlinie, Überlinie und/oder Durchstreichung verziert wird. Es ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}}.
+Das **`text-decoration`**-Attribut definiert, ob Text mit einer Unterstreichung, Überstreichen und/oder Durchstreichen dekoriert wird. Es ist eine Kurzform für die {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}} Eigenschaften.
 
 Die Füllung und der Umriss der Textdekoration werden durch die Füllung und den Umriss des Textes an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
-Die Reihenfolge des Zeichnens der Textdekoration, d.h. die Füllung und der Umriss, wird durch den Wert des Attributs {{SVGAttr("paint-order")}} an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
+Die Reihenfolge der Malung der Textdekoration, also die Füllung und der Umriss, wird durch den Wert des {{SVGAttr("paint-order")}}-Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `text-decoration` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("text-decoration")}}.
+> Als Präsentationsattribut kann `text-decoration` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("text-decoration")}}-Eigenschaft.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -42,7 +42,7 @@ svg {
 
 {{EmbedLiveSample("Example", "250", "100")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -70,7 +70,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Siehe individuelle Eigenschaften</td>
+      <td>Siehe einzelne Eigenschaften</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -79,7 +79,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
+Für eine Beschreibung der Werte beziehen Sie sich bitte auf die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
 
 ## Spezifikationen
 

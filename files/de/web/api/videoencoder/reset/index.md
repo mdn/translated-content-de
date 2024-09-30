@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: reset() Methode"
+title: "VideoEncoder: reset()-Methode"
 short-title: reset()
 slug: Web/API/VideoEncoder/reset
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle storniert synchron alle ausstehenden Kodierungen und Rückrufe, gibt alle zugrunde liegenden Ressourcen frei und setzt den [`state`](/de/docs/Web/API/VideoEncoder/state) auf "unconfigured". Nach dem Aufruf von `reset()` muss [`configure()`](/de/docs/Web/API/VideoEncoder/configure) aufgerufen werden, bevor `encode()`-Aufrufe wieder fortgesetzt werden können.
+Die **`reset()`**-Methode des [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Interfaces storniert synchron alle anstehenden Codierungen und Rückrufe, gibt alle zugrundeliegenden Ressourcen frei und setzt den [`state`](/de/docs/Web/API/VideoEncoder/state) auf "unconfigured".
+Nach dem Aufruf von `reset()` muss [`configure()`](/de/docs/Web/API/VideoEncoder/configure) aufgerufen werden, bevor Sie mit den Aufrufen von [`encode()`](/de/docs/Web/API/VideoEncoder/encode) fortfahren können.
 
 > [!NOTE]
-> Um zu vermeiden, dass über [`encode()`](/de/docs/Web/API/VideoEncoder/encode) eingereihtes Frames verworfen werden, sollte [`flush()`](/de/docs/Web/API/VideoEncoder/flush) aufgerufen und abgeschlossen werden, bevor `reset()` aufgerufen wird.
+> Um zu vermeiden, dass über [`encode()`](/de/docs/Web/API/VideoEncoder/encode) in die Warteschlange gestellte Frames verworfen werden, sollte [`flush()`](/de/docs/Web/API/VideoEncoder/flush) aufgerufen und abgeschlossen werden, bevor `reset()` aufgerufen wird.
 
 ## Syntax
 

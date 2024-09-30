@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: reportValidity() Methode"
+title: "HTMLOutputElement: Methode reportValidity()"
 short-title: reportValidity()
 slug: Web/API/HTMLOutputElement/reportValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interfaces führt die gleichen Validitätsprüfschritte durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity) Methode. Sie gibt immer `true` zurück, da {{HTMLElement("output")}} Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`reportValidity()`**-Methode des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces führt die gleichen Gültigkeitsprüfungen durch wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity). Sie gibt immer `true` zurück, da {{HTMLElement("output")}}-Elemente nie Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 

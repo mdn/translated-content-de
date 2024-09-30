@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.gpu`** gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browsing-Kontext zurück, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
+Die **`Navigator.gpu`** schreibgeschützte Eigenschaft gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browserkontext zurück, welcher der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
 
 ## Wert
 

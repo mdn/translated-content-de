@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`EditContext.updateSelectionBounds()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird verwendet, um das Betriebssystem über die Grenzen der Textauswahl innerhalb des bearbeitbaren Bereichs, der mit dem `EditContext`-Objekt verknüpft ist, zu informieren.
+Die **`EditContext.updateSelectionBounds()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird verwendet, um das Betriebssystem über die Grenzen der Textauswahl innerhalb des bearbeitbaren Bereichs zu informieren, der mit dem `EditContext`-Objekt verbunden ist.
 
-Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen der aktuellen Auswahl des Benutzers mitzuteilen. Sie sollten die Methode aufrufen, sobald sich die Auswahl des Benutzers im bearbeitbaren Bereich ändert. Die Auswahlgrenzen werden vom Betriebssystem verwendet, um bei der Positionierung des IME-Fensters oder anderer plattformabhängiger, mit der Bearbeitung zusammenhängender Benutzeroberflächenoberflächen zu helfen.
+Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen der aktuellen Auswahl des Nutzers mitzuteilen. Sie sollten die Methode aufrufen, wann immer sich die Auswahl des Nutzers im bearbeitbaren Bereich ändert. Die Auswahlgrenzen werden vom Betriebssystem verwendet, um das IME-Fenster oder andere plattformspezifische Benutzeroberflächen für das Bearbeiten zu positionieren.
 
 ## Syntax
 
@@ -25,8 +25,8 @@ updateSelectionBounds(selectionBounds)
 
 ### Ausnahmen
 
-- Wenn kein Argument bereitgestellt wird, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn das bereitgestellte Argument kein [`DOMRect`](/de/docs/Web/API/DOMRect) ist, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn kein Argument angegeben wird, wird eine `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn das angegebene Argument kein [`DOMRect`](/de/docs/Web/API/DOMRect) ist, wird eine `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ updateSelectionBounds(selectionBounds)
 
 ## Siehe auch
 
-- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der sie gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der es gehört.

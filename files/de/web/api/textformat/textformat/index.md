@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Der **`TextFormat()`** Konstruktor gibt ein neues [`TextFormat`](/de/docs/Web/API/TextFormat) Objekt zurück.
+Der **`TextFormat()`** Konstruktor gibt ein neues [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekt zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ new TextFormat(options)
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `rangeStart`
-      - : Eine Zahl, die die Startposition des zu formatierenden Textrahmens angibt.
+      - : Eine Zahl, die die Startposition des Textbereichs darstellt, der formatiert werden muss.
     - `rangeEnd`
-      - : Eine Zahl, die die Endposition des zu formatierenden Textrahmens angibt.
+      - : Eine Zahl, die die Endposition des Textbereichs darstellt, der formatiert werden muss.
     - `underlineStyle`
-      - : Ein String, der den Unterstreichungsstil des zu formatierenden Textrahmens darstellt.
+      - : Ein String, der den Unterstreichungsstil des Textbereichs darstellt, der formatiert werden muss.
     - `underlinerThickness`
-      - : Ein String, der die Unterstreichungsdicke des zu formatierenden Textrahmens darstellt.
+      - : Ein String, der die Unterstreichungsdicke des Textbereichs darstellt, der formatiert werden muss.
 
 ## Spezifikationen
 

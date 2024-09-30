@@ -12,7 +12,7 @@ Die **`port`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceC
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Netzwerkport angibt, der vom [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der durch das `RTCIceCandidateStats`-Objekt beschrieben wird, verwendet wird.
+Ein ganzzahliger Wert, der den Netzwerkport angibt, der von dem durch das `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) verwendet wird.
 
 ## Spezifikationen
 

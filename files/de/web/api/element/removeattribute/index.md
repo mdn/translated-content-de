@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die Methode **`removeAttribute()`** des [`Element`](/de/docs/Web/API/Element) entfernt das Attribut mit dem angegebenen Namen vom Element.
+Die [`Element`](/de/docs/Web/API/Element)-Methode **`removeAttribute()`** entfernt das Attribut mit dem angegebenen Namen aus dem Element.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ removeAttribute(attrName)
 ### Parameter
 
 - `attrName`
-  - : Ein String, der den Namen des Attributs angibt, das vom Element entfernt werden soll. Wenn das angegebene Attribut nicht existiert, kehrt `removeAttribute()` zurück, ohne einen Fehler zu erzeugen.
+  - : Ein Zeichenfolgenwert, der den Namen des zu entfernenden Attributs aus dem Element angibt. Wenn das angegebene Attribut nicht existiert, gibt `removeAttribute()` zurück, ohne einen Fehler zu erzeugen.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
-Sie sollten `removeAttribute()` verwenden, anstatt den Attributwert entweder direkt oder mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf `null` zu setzen. Viele Attribute werden nicht wie erwartet funktionieren, wenn Sie sie auf `null` setzen.
+Sie sollten `removeAttribute()` verwenden, anstatt den Attributwert entweder direkt oder mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf `null` zu setzen. Viele Attribute verhalten sich nicht wie erwartet, wenn Sie sie auf `null` setzen.
 
 ## Beispiele
 

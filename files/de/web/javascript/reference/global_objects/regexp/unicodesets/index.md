@@ -11,18 +11,18 @@ Die **`unicodeSets`** Accessor-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gi
 
 ## Beschreibung
 
-`RegExp.prototype.unicodeSets` hat den Wert `true`, wenn das `v`-Flag verwendet wurde; andernfalls `false`. Das `v`-Flag ist ein "Upgrade" zum [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)-Flag, das mehr Unicode-bezogene Funktionen ermöglicht. ("v" ist der nächste Buchstabe nach "u" im Alphabet.) Da `u` und `v` dieselben Regexes auf inkompatible Weise interpretieren, führt die Verwendung beider Flags zu einem {{jsxref("SyntaxError")}}. Mit dem `v`-Flag erhalten Sie alle in der Beschreibung des `u`-Flags genannten Funktionen sowie:
+`RegExp.prototype.unicodeSets` hat den Wert `true`, wenn das `v`-Flag verwendet wurde; andernfalls `false`. Das `v`-Flag ist ein "Upgrade" des [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)-Flags, das mehr Unicode-bezogene Funktionen ermöglicht. ("v" ist der nächste Buchstabe nach "u" im Alphabet.) Da `u` und `v` denselben regulären Ausdruck auf inkompatible Weise interpretieren, führt die Verwendung beider Flags zu einem {{jsxref("SyntaxError")}}. Mit dem `v`-Flag erhalten Sie alle in der `u`-Flag-Beschreibung erwähnten Funktionen, plus:
 
-- Die [`\p`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)-Escape-Sequenz kann zusätzlich verwendet werden, um Eigenschaften von Strings anstatt nur Zeichen zu matchen.
-- Die [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)-Syntax wird erweitert, um Schnittmengen-, Vereinigungs- und Subtraktionssyntax sowie das Matching mehrerer Unicode-Zeichen zu erlauben.
-- Die Komplement-Syntaxzeichenklasse `[^...]` erstellt eine Komplementklasse anstatt das Matchergebnis zu negieren, wodurch einige verwirrende Verhaltensweisen beim fallunempfindlichen Matching vermieden werden. Weitere Informationen finden Sie unter [Komplementklassen und fallunempfindliches Matching](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#complement_classes_and_case-insensitive_matching).
+- Die [`\p`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)-Escape-Sequenz kann zusätzlich verwendet werden, um Eigenschaften von Strings anstatt nur von Zeichen zu matchen.
+- Die [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)-Syntax wird aufgewertet, um Schnittmengen-, Vereinigungs- und Subtraktions-Syntaxen zu ermöglichen sowie mehrere Unicode-Zeichen zu matchen.
+- Die Komplement-Syntax der Zeichenklasse `[^...]` konstruiert eine Komplementklasse anstatt das Match-Ergebnis zu negieren, um einige verwirrende Verhaltensweisen bei der Groß- und Kleinschreibung zu vermeiden. Weitere Informationen finden Sie unter [Komplementklassen und unterscheidungslose Übereinstimmungen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#complement_classes_and_case-insensitive_matching).
 
-Einige gültige Regexes im `u`-Modus werden im `v`-Modus ungültig. Insbesondere ist die Zeichenklassensyntax unterschiedlich und einige Zeichen können nicht mehr wortwörtlich erscheinen. Weitere Informationen finden Sie unter [`v`-Modus-Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class).
+Einige gültige `u`-Modus-Reguläre Ausdrücke werden im `v`-Modus ungültig. Insbesondere ist die Syntax der Zeichenklassen unterschiedlich und einige Zeichen können nicht mehr buchstäblich erscheinen. Weitere Informationen finden Sie unter [`v`-Modus Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class).
 
 > [!NOTE]
-> Der `v`-Modus interpretiert Graphemcluster nicht als einzelne Zeichen; sie sind immer noch mehrere Codepunkte. Zum Beispiel kann `/[🇺🇳]/v` immer noch `"🇺"` matchen.
+> Der `v`-Modus interpretiert Graphem-Cluster nicht als einzelne Zeichen; sie sind weiterhin mehrere Codepunkte. Zum Beispiel kann `/[🇺🇳]/v` weiterhin `"🇺"` matchen.
 
-Der set-Accessor von `unicodeSets` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `unicodeSets` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ console.log(regex.unicodeSets); // true
 - {{jsxref("RegExp.prototype.source")}}
 - {{jsxref("RegExp.prototype.sticky")}}
 - {{jsxref("RegExp.prototype.unicode")}}
-- [RegExp v-Flag mit Mengenotation und Eigenschaften von Strings](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)
+- [RegExp v flag with set notation and properties of strings](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)

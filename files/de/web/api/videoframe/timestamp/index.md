@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`timestamp`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
+Die **`timestamp`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interface gibt einen Integer zurück, der den Zeitstempel des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Eine Ganzzahl.
+Ein Integer.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den `timestamp` in der Konsole aus.
+Das folgende Beispiel druckt den `timestamp` auf die Konsole.
 
 ```js
 console.log(VideoFrame.timestamp);

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Breite des Umrisses für Text an.
+Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des Umrisses für Text fest.
 
 ## Syntax
 
@@ -92,7 +92,7 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogpost zur Ankündigung dieser Funktion](https://webkit.org/blog/85/introducing-text-stroke/)
+- [Surfin' Safari Blogbeitrag, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
 - [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}

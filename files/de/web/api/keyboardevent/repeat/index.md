@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`repeat`**-Eigenschaft des [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-Interfaces gibt einen booleschen Wert zurück, der `true` ist, wenn die betreffende Taste gedrückt gehalten wird, sodass sie automatisch wiederholt wird.
+Die schreibgeschützte **`repeat`**-Eigenschaft der [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-Schnittstelle gibt einen booleschen Wert zurück, der `true` ist, wenn die gegebene Taste so lange gedrückt wird, dass sie sich automatisch wiederholt.
 
 ## Wert
 

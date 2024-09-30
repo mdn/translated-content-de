@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`add()`**-Methode von {{jsxref("Set")}}-Instanzen fügt ein neues Element mit einem angegebenen Wert in diese Menge ein, falls sich nicht bereits ein Element mit demselben Wert in dieser Menge befindet.
+Die **`add()`**-Methode von {{jsxref("Set")}}-Instanzen fügt ein neues Element mit einem angegebenen Wert in dieses Set ein, wenn nicht bereits ein Element mit demselben Wert in diesem Set vorhanden ist.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-add.html")}}
 
@@ -24,7 +24,7 @@ add(value)
 
 ### Rückgabewert
 
-Das `Set`-Objekt mit hinzugefügtem Wert.
+Das `Set`-Objekt mit dem hinzugefügten Wert.
 
 ## Beispiele
 

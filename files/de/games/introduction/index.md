@@ -7,13 +7,13 @@ l10n:
 
 {{GamesSidebar}}
 
-Das moderne Web ist schnell zu einer tragfähigen Plattform geworden, nicht nur um atemberaubende, hochwertige Spiele zu erstellen, sondern auch um diese Spiele zu verbreiten.
+Das moderne Web hat sich schnell zu einer tragfähigen Plattform entwickelt, nicht nur für die Erstellung beeindruckender, hochwertiger Spiele, sondern auch für deren Verbreitung.
 
-Die Bandbreite der erstellbaren Spiele ist vergleichbar mit Desktop- und nativen OS-Pendants. Mit modernen Webtechnologien und einem aktuellen Browser ist es durchaus möglich, beeindruckende Spitzen-Spiele für das Web zu entwickeln. Und wir sprechen nicht von einfachen Kartenspielen oder Multiplayer-Social-Spielen, die in früheren Zeiten mit Flash® umgesetzt wurden. Wir sprechen von 3D-Action-Shootern, Rollenspielen und mehr. Dank massiver Leistungsverbesserungen in der [JavaScript](/de/docs/Web/JavaScript) Just-in-Time-Compiler-Technologie und neuen APIs können Sie Spiele erstellen, die im Browser (oder auf [HTML5](/de/docs/Glossary/HTML5)-fähigen Geräten) laufen, ohne Kompromisse einzugehen.
+Die Bandbreite der möglichen Spiele ist mit Desktop- und nativen Betriebssystem-Pendants vergleichbar. Mit modernen Webtechnologien und einem aktuellen Browser ist es durchaus möglich, beeindruckende, erstklassige Spiele für das Web zu erstellen. Und wir sprechen hier nicht von einfachen Kartenspielen oder Multiplayer-Social-Games, die in früheren Zeiten mit Flash® umgesetzt wurden. Wir reden von 3D-Action-Shootern, Rollenspielen und mehr. Dank massiver Leistungsverbesserungen in der [JavaScript](/de/docs/Web/JavaScript)-Just-in-Time-Compiler-Technologie und neuen APIs können Sie Spiele erstellen, die im Browser (oder auf [HTML5](/de/docs/Glossary/HTML5)-fähigen Geräten) ohne Kompromisse laufen.
 
 ## Die HTML-Spielplattform
 
-Sie können das Web tatsächlich als bessere Zielplattform für Ihr Spiel betrachten. Wie wir gerne sagen: "Das Web ist die Plattform." Schauen wir uns den Kern der Webplattform an:
+Sie können das Web wahrhaftig als bessere Zielplattform für Ihr Spiel betrachten. Wie wir zu sagen pflegen: "Das Web ist die Plattform." Werfen wir einen Blick auf das Kernstück der Webplattform:
 
 <table class="no-markdown standard-table">
   <thead>
@@ -40,10 +40,9 @@ Sie können das Web tatsächlich als bessere Zielplattform für Ihr Spiel betrac
     <tr>
       <td><strong>Eingabe</strong></td>
       <td>
-        <a href="/de/docs/Web/API/Touch_events">Touch Events</a>,
+        <a href="/de/docs/Web/API/Touch_events">Touch-Events</a>,
         <a href="/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API"
-          >Gamepad API</a
-        >, Gerätesensoren, <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>,
+          >Gamepad API</a>, Gerätesensoren, <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>,
         <a href="/de/docs/Web/API/Fullscreen_API">Full Screen API</a>,
         <a href="/de/docs/Web/API/Pointer_Lock_API">Pointer Lock API</a>
       </td>
@@ -51,8 +50,8 @@ Sie können das Web tatsächlich als bessere Zielplattform für Ihr Spiel betrac
     <tr>
       <td><strong>Sprache</strong></td>
       <td>
-        <a href="/de/docs/Web/JavaScript">JavaScript</a> (oder C/C++ mit
-        <a href="https://github.com/emscripten-core/emscripten/wiki">Emscripten</a>, um nach JavaScript zu kompilieren)
+        <a href="/de/docs/Web/JavaScript">JavaScript</a> (oder C/C++ unter
+        Verwendung von <a href="https://github.com/emscripten-core/emscripten/wiki">Emscripten</a>, um in JavaScript zu kompilieren)
       </td>
     </tr>
     <tr>
@@ -63,7 +62,7 @@ Sie können das Web tatsächlich als bessere Zielplattform für Ihr Spiel betrac
       </td>
     </tr>
     <tr>
-      <td><strong>Speicher</strong></td>
+      <td><strong>Speicherung</strong></td>
       <td>
         <a href="/de/docs/Web/API/IndexedDB_API">IndexedDB</a> oder die "Cloud"
       </td>
@@ -79,49 +78,49 @@ Sie können das Web tatsächlich als bessere Zielplattform für Ihr Spiel betrac
   </tbody>
 </table>
 
-## Das Geschäftliche
+## Der geschäftliche Nutzen
 
-Als Spieleentwickler, ob Sie nun Einzelperson oder ein großes Spiele-Studio sind, wollen Sie wissen, warum es sinnvoll ist, das Web als Zielplattform für Ihr nächstes Spieleprojekt auszuwählen. Schauen wir uns an, wie das Web Ihnen helfen kann.
+Als Spieleentwickler, egal ob Sie als Einzelperson oder in einem großen Spielestudio arbeiten, möchten Sie wissen, warum es sinnvoll ist, das Web als Ziel für Ihr nächstes Spielprojekt zu wählen. Schauen wir uns an, wie das Web Ihnen helfen kann.
 
 1. Die Reichweite des Webs ist enorm; es ist überall. Spiele, die mit HTML erstellt wurden, funktionieren auf Smartphones, Tablets, PCs und Smart-TVs.
-2. Marketing und Auffindbarkeit sind verbessert. Sie sind nicht darauf beschränkt, Ihre App in einem fremden App-Store zu bewerben. Stattdessen können Sie Ihr Spiel überall im Web sowie in anderen Medien bewerben und promoten, indem Sie sich die inhärenten Verlinkungs- und Teilbarkeitsmöglichkeiten des Webs zunutze machen, um neue Kunden zu erreichen.
-3. Sie haben die Kontrolle, wo es wichtig ist: Zahlungen. Sie müssen nicht 30% Ihrer Einnahmen an jemand anderen abgeben, nur weil Ihr Spiel in deren Ökosystem ist. Stattdessen können Sie den Preis festlegen, den Sie möchten, und den von Ihnen bevorzugten Zahlungsabwicklungsdienst verwenden.
-4. Erneut mit mehr Kontrolle können Sie Ihr Spiel jederzeit aktualisieren. Kein atemloses Warten auf eine Genehmigung mehr, während jemand verborgen in einer anderen Firma entscheidet, ob Ihr kritischer Fehlerbehebung heute oder morgen ausgeliefert wird.
-5. Kontrollieren Sie Ihre Analysen! Anstatt sich auf jemanden anderen zu verlassen, um alle Entscheidungen darüber zu treffen, welche Analysen Sie benötigen, können Sie Ihre eigenen erfassen – oder den Drittanbieter auswählen, den Sie am besten finden – um Informationen über Ihre Verkäufe und die Reichweite Ihres Spiels zu sammeln.
-6. Sie können Ihre Kundenbeziehung enger in Ihrer eigenen Art und Weise gestalten. Kein mehr durch die begrenzten Mechanismen eines App-Stores gefiltertes Kundenfeedback. Treten Sie mit Ihren Kunden in der von Ihnen gewünschten Weise in Kontakt, ohne einen Zwischenhändler.
-7. Ihre Spieler können Ihr Spiel jederzeit und überall spielen. Da das Web allgegenwärtig ist, können Ihre Kunden den Status ihres Spiels auf ihren Handys, Tablets, ihren Heimcomputern, ihren Arbeitsdesktops oder auf jedem anderen Gerät überprüfen.
+2. Marketing und Auffindbarkeit werden verbessert. Sie sind nicht darauf beschränkt, Ihre App in den App Stores anderer zu bewerben. Stattdessen können Sie Ihr Spiel im gesamten Web sowie in anderen Medien bewerben und die inhärente Verlinkbarkeit und Teilbarkeit des Webs nutzen, um neue Kunden zu erreichen.
+3. Sie haben Kontrolle, wo es darauf ankommt: Zahlungen. Sie müssen nicht 30 % Ihrer Einnahmen an jemand anderen abtreten, nur weil Ihr Spiel in deren Ökosystem ist. Stattdessen können Sie berechnen, was Sie möchten, und den Zahlungsdienstanbieter Ihrer Wahl nutzen.
+4. Noch mehr Kontrolle: Sie können Ihr Spiel jederzeit aktualisieren. Keine bange Warterei auf Genehmigung, während jemand versteckt in einem anderen Unternehmen entscheidet, ob Ihr kritischer Bugfix heute oder morgen ausgeliefert wird.
+5. Kontrollieren Sie Ihre Analysen! Statt sich darauf verlassen zu müssen, dass jemand anderes alle Entscheidungen darüber trifft, welche Analysen Sie benötigen, können Sie Ihre eigenen sammeln — oder den Drittanbieter Ihrer Wahl wählen — um Informationen über Ihren Umsatz und die Reichweite Ihres Spiels zu sammeln.
+6. Sie können Ihre Kundenbeziehungen enger und auf Ihre eigene Art und Weise managen. Kein Filtern von Kundenfeedback mehr durch die begrenzten Mechanismen eines App Stores. Treten Sie mit Ihren Kunden in der gewünschten Weise in Kontakt, ohne einen Mittelsmann.
+7. Ihre Spieler können Ihr Spiel überall und jederzeit spielen. Da das Web allgegenwärtig ist, können Ihre Kunden den Status ihres Spiels auf ihren Handys, Tablets, Laptops zu Hause, Desktops am Arbeitsplatz oder auf jedem anderen Gerät überprüfen.
 
 ## Webtechnologien für Spieleentwickler
 
-Für die Technikinteressierten, schauen wir uns die APIs an, die das Web bietet und die auf Spieleentwickler zugeschnitten sind. Hier eine umfassende Liste, um Ihnen einen Vorgeschmack auf das zu geben, was das Web für Sie tun kann:
+Für die Technikbegeisterten, lassen Sie uns in die APIs eintauchen, die das Web bietet und speziell auf Spieleentwickler zugeschnitten sind. Hier ist eine umfassende Liste, die Ihnen einen Vorgeschmack darauf gibt, was das Web für Sie tun kann:
 
 - [Fetch API](/de/docs/Web/API/Fetch_API)
-  - : Senden und empfangen Sie beliebige Daten von einem Webserver, wie etwa das Herunterladen neuer Spielebenen und -grafiken bis hin zur Übertragung von nicht echtzeitfähigen Spielstatusinformationen.
+  - : Versenden und Empfangen jeder Art von Daten, die Sie von einem Webserver möchten, wie das Herunterladen neuer Spielebenen und Grafiken oder das Übertragen von nicht-echtzeitlicher Spielstatusinformation hin und her.
 - [Full Screen API](/de/docs/Web/API/Fullscreen_API)
-  - : Diese einfache API lässt Ihr Spiel den gesamten Bildschirm übernehmen, um den Spieler in die Aktion eintauchen zu lassen.
+  - : Diese einfache API ermöglicht es Ihrem Spiel, den gesamten Bildschirm zu übernehmen, um den Spieler vollständig in das Geschehen zu versetzen.
 - [Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
-  - : Wenn Sie möchten, dass Ihre Benutzer Gamepads oder andere Spielsteuerungen verwenden können, um Ihr Spiel zu betreiben, benötigen Sie diese API.
+  - : Wenn Sie möchten, dass Ihre Benutzer Gamepads oder andere Gamecontroller verwenden können, benötigen Sie diese API.
 - [HTML](/de/docs/Web/HTML) und [CSS](/de/docs/Web/CSS)
-  - : Zusammen lassen diese beiden Technologien Sie das Benutzerinterface Ihres Spiels erstellen, gestalten und anordnen. Teil von HTML ist das {{HTMLElement("canvas")}}-Element, das eine Möglichkeit bietet, 2D-Grafiken zu erstellen.
+  - : Zusammen ermöglichen Ihnen diese beiden Technologien den Aufbau, das Styling und das Layout Ihrer Spiele-Benutzeroberfläche. Zu HTML gehört auch das {{HTMLElement("canvas")}}-Element, das eine Möglichkeit zur Erstellung von 2D-Grafiken bietet.
 - [HTML audio](/de/docs/Web/HTML/Element/audio)
-  - : Das {{HTMLElement("audio")}}-Element ermöglicht es Ihnen, einfach Soundeffekte und Musik abzuspielen. Wenn Ihre Anforderungen umfangreicher sind, werfen Sie einen Blick auf die [Web Audio API](/de/docs/Web/API/Web_Audio_API) für echte Audiobearbeitungsleistung!
+  - : Das {{HTMLElement("audio")}}-Element ermöglicht es Ihnen, einfach Soundeffekte und Musik abzuspielen. Wenn Ihre Anforderungen komplexer sind, schauen Sie sich die [Web Audio API](/de/docs/Web/API/Web_Audio_API) für leistungsstarkes Audioprocessing an!
 - [IndexedDB](/de/docs/Web/API/IndexedDB_API)
-  - : Eine leistungsstarke Datenspeicher-API zur Verwaltung von Benutzerdaten auf deren eigenem Computer oder Gerät. Eine großartige Möglichkeit, den Spielstand und andere Informationen lokal zu speichern, damit sie nicht jedes Mal heruntergeladen werden müssen, wenn sie benötigt werden. Auch nützlich, um Ihr Spiel spielbar zu halten, selbst wenn der Benutzer nicht mit dem Web verbunden ist (z.B. wenn er stundenlang im Flugzeug festsitzt).
+  - : Eine leistungsstarke Datenspeicher-API zur Verwaltung von Benutzerdaten auf ihrem eigenen Computer oder Gerät. Eine großartige Möglichkeit, den Spielstatus und andere Informationen lokal zu speichern, sodass sie nicht jedes Mal neu heruntergeladen werden müssen, wenn sie benötigt werden. Auch nützlich, um Ihr Spiel spielbar zu machen, selbst wenn der Benutzer nicht mit dem Web verbunden ist (z. B. wenn er stundenlang im Flugzeug festsitzt).
 - [JavaScript](/de/docs/Web/JavaScript)
-  - : JavaScript, die auf dem Web verwendete Programmiersprache, ist in modernen Browsern blitzschnell und wird ständig schneller. Nutzen Sie seine Leistung, um den Code für Ihr Spiel zu schreiben, oder schauen Sie sich Technologien wie [Emscripten](https://github.com/emscripten-core/emscripten/wiki) oder [Asm.js](http://asmjs.org/spec/latest/) an, um Ihre bestehenden Spiele einfach zu portieren.
+  - : JavaScript, die im Web verwendete Programmiersprache, ist in modernen Browsern blitzschnell, und wird ständig schneller. Nutzen Sie seine Leistung, um den Code für Ihr Spiel zu schreiben, oder betrachten Sie Technologien wie [Emscripten](https://github.com/emscripten-core/emscripten/wiki) oder [Asm.js](http://asmjs.org/spec/latest/), um Ihre vorhandenen Spiele einfach zu portieren.
 - [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API)
-  - : Die Pointer Lock API ermöglicht es Ihnen, die Maus oder ein anderes Zeigegerät innerhalb der Benutzeroberfläche Ihres Spiels zu sperren, sodass Sie anstelle der absoluten Cursorposition Koordinatendeltas erhalten, die Ihnen genauere Messungen darüber geben, was der Benutzer tut, und verhindern, dass der Benutzer versehentlich seine Eingabe woandershin sendet und dadurch wichtige Aktionen verpasst.
+  - : Die Pointer Lock API ermöglicht es Ihnen, die Maus oder ein anderes Zeigegerät innerhalb der Benutzeroberfläche Ihres Spiels zu sperren, sodass Sie anstelle einer absoluten Cursorpositionierung die Koordinatendeltas erhalten, die Ihnen präzisere Messungen dessen ermöglichen, was der Benutzer tut, und verhindern, dass der Benutzer versehentlich seine Eingaben woanders hin sendet und damit wichtige Aktionen verpasst.
 - [SVG](/de/docs/Web/SVG) (Scalable Vector Graphics)
-  - : Erlaubt Ihnen, skalierbare Vektorgrafiken zu erstellen, die unabhängig von Größe oder Auflösung des Displays des Benutzers glatt skaliert werden.
+  - : Ermöglicht Ihnen den Aufbau von Vektorgrafiken, die unabhängig von Größe oder Auflösung des Benutzerbildschirms reibungslos skaliert werden.
 - [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
-  - : JavaScript Typed Arrays geben Ihnen Zugriff auf rohe Binärdaten innerhalb von JavaScript; dies erlaubt Ihnen, GL-Texturen, Spieldaten oder alles andere zu manipulieren, selbst wenn es nicht in einem nativen JavaScript-Format vorliegt.
+  - : JavaScript-Typed Arrays geben Ihnen Zugriff auf rohe Binärdaten aus JavaScript heraus; dies ermöglicht es Ihnen, GL-Texturen, Spieldaten oder alles andere zu manipulieren, auch wenn es sich nicht in einem nativen JavaScript-Format befindet.
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-  - : Diese API zur Steuerung der Wiedergabe, Synthese und Manipulation von Audio aus JavaScript-Code ermöglicht es Ihnen, großartige Soundeffekte zu erstellen sowie Musik in Echtzeit abzuspielen und zu manipulieren.
+  - : Diese API zur Steuerung der Wiedergabe, Synthese und Manipulation von Audio aus JavaScript-Code ermöglicht es Ihnen, beeindruckende Soundeffekte zu erzeugen sowie Musik in Echtzeit abzuspielen und zu manipulieren.
 - [WebGL](/de/docs/Web/API/WebGL_API)
-  - : Ermöglicht es Ihnen, Hochleistungs-3D- (und 2D-) Grafiken aus Webinhalten zu erstellen, die hardwarebeschleunigt sind. Dies ist eine vom Web unterstützte Implementierung von [OpenGL ES](https://www.khronos.org/opengles/) 2.0.
+  - : Ermöglicht es Ihnen, leistungsstarke, hardwarebeschleunigte 3D- (und 2D-) Grafiken aus Webinhalten zu erstellen. Dies ist eine von Web unterstützte Implementierung von [OpenGL ES](https://www.khronos.org/opengles/) 2.0.
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-  - : Die WebRTC (Real-Time Communications)-API gibt Ihnen die Macht, Audio- und Videodaten zu steuern, einschließlich der Telekonferenz und der Übertragung anderer Anwendungsdaten zwischen zwei Benutzern. Möchten Sie, dass Ihre Spieler miteinander sprechen können, während sie Monster besiegen? Dies ist die API für Sie.
+  - : Die WebRTC (Real-Time Communications) API gibt Ihnen die Möglichkeit, Audio- und Videodaten zu steuern, einschließlich Videokonferenzen und der Übertragung anderer Anwendungsdaten zwischen zwei Benutzern. Möchten Sie, dass Ihre Spieler miteinander sprechen können, während sie Monster besiegen? Dies ist die API für Sie.
 - [WebSockets](/de/docs/Web/API/WebSockets_API)
-  - : Die WebSocket API ermöglicht es Ihnen, Ihre App oder Website mit einem Server zu verbinden, um Daten in Echtzeit hin und her zu übertragen. Perfekt für Mehrspieler-Action, Chatdienste und dergleichen.
+  - : Die WebSocket-API ermöglicht es Ihnen, Ihre Anwendung oder Website mit einem Server zu verbinden, um Daten in Echtzeit hin und her zu übertragen. Perfekt für Multiplayer-Gaming-Action, Chat-Services und so weiter.
 - [Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
-  - : Workers geben Ihnen die Möglichkeit, Hintergrund-Threads zu erstellen, die ihren eigenen JavaScript-Code ausführen, um die modernen Mehrkernprozessoren auszunutzen.
+  - : Arbeiter ermöglichen es Ihnen, Hintergrund-Threads zu erzeugen, die ihren eigenen JavaScript-Code ausführen, um moderne, Multicore-Prozessoren zu nutzen.

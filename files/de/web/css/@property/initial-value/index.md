@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`initial-value`** [CSS](/de/docs/Web/CSS)-Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/At-rule) verwendet wird, es sei denn, die Syntax akzeptiert einen beliebigen gültigen Token-Stream. Er legt den Anfangswert für die Eigenschaft fest.
+Der **`initial-value`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird, es sei denn, die Syntax akzeptiert jeden gültigen Token-Stream. Er legt den Anfangswert für die Eigenschaft fest.
 
-Der als `initial-value` gewählte Wert muss gemäß der Syntaxdefinition korrekt geparst werden. Wenn die Syntax also `<color>` ist, muss der Anfangswert ein gültiger {{cssxref("color")}}-Wert sein.
+Der gewählte Wert als `initial-value` muss gemäß der Syntaxdefinition korrekt geparst werden. Wenn die Syntax also `<color>` ist, muss der initiale Wert ein gültiger {{cssxref("color")}}-Wert sein.
 
 ## Syntax
 
@@ -41,9 +41,9 @@ Ein String mit einem Wert, der ein korrekter Wert für die gewählte `syntax` is
 
 ## Beispiele
 
-Fügen Sie Typ-Prüfung für die `--my-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) hinzu, als Farbe, wobei der Anfangswert eine gültige Farbe ist:
+Fügen Sie der `--my-color` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) einen Typüberprüfung hinzu, als Farbe, wobei der Anfangswert eine gültige Farbe ist:
 
-Verwendung von [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [at-rule](/de/docs/Web/CSS/At-rule):
+Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule):
 
 ```css
 @property --my-color {

@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}
 
-Dieses Beispiel zeigt, wie Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert werden können, indem der Rendering-Kontext beim Klicken des Benutzers mit einer zufälligen Farbe gelöscht wird.
+Dieses Beispiel demonstriert, wie man Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert, indem der Rendering-Kontext mit einer zufälligen Farbe gelöscht wird, wenn der Benutzer klickt.
 
 ## Löschen des Rendering-Kontexts mit zufälligen Farben
 
 {{EmbedLiveSample("Clearing_the_rendering_context_with_random_colors",660,425)}}
 
-Dieses Beispiel bietet eine einfache Darstellung, wie [WebGL](/de/docs/Glossary/WebGL) mit Benutzerinteraktionen kombiniert werden kann. Jedes Mal, wenn der Benutzer auf die Leinwand oder den Button klickt, wird die Leinwand mit einer neu zufällig gewählten Farbe gelöscht.
+Dieses Beispiel liefert eine einfache Illustration, wie man [WebGL](/de/docs/Glossary/WebGL) und Benutzerinteraktion kombiniert. Jedes Mal, wenn der Benutzer auf das `<canvas>` oder den Button klickt, wird das `<canvas>` mit einer neu zufällig gewählten Farbe gelöscht.
 
-Beachten Sie, wie wir die [WebGL](/de/docs/Glossary/WebGL)-Funktionsaufrufe innerhalb der Ereignis-Handler-Funktion einbetten.
+Beachten Sie, wie wir die [WebGL](/de/docs/Glossary/WebGL)-Funktionsaufrufe innerhalb der Event-Handler-Funktion einbetten.
 
 ```html
 <p>

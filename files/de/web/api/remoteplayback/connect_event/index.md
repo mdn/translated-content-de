@@ -1,5 +1,5 @@
 ---
-title: "RemotePlayback: connect-Ereignis"
+title: "RemotePlayback: connect Ereignis"
 short-title: connect
 slug: Web/API/RemotePlayback/connect_event
 l10n:
@@ -12,7 +12,7 @@ Das **`connect`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlaybac
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("connect", (event) => {});

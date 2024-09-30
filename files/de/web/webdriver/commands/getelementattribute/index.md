@@ -1,5 +1,5 @@
 ---
-title: Attribut des Elements abrufen
+title: Get Element Attribute
 slug: Web/WebDriver/Commands/GetElementAttribute
 l10n:
   sourceCommit: ac24a64c0ab26d0185c7b768aca130f490ea8487
@@ -7,12 +7,12 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der _Get Element Attribute_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Web-Elements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn zum Beispiel das Element ein {{HTMLElement("img")}} ist, wird das zurückgegebene Attribut `"//TODO"` sein, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) auf dem Element entspricht. Für XML/XHTML-Dokumente kann es anders großgeschrieben sein.
+Der _Get Element Attribute_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Web-Elements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn das Element zum Beispiel ein {{HTMLElement("img")}} ist, dann ist das zurückgegebene Attribut `"//TODO"`, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) auf das Element entspricht. Bei XML/XHTML-Dokumenten kann es unterschiedlich großgeschrieben sein.
 
 ## Syntax
 
-| Methode | URI-Vorlage                                                   |
-| ------- | ------------------------------------------------------------- |
+| Methode | URI-Vorlage                                                  |
+| ------- | ------------------------------------------------------------ |
 | `GET`   | `/session/{session id}/element/{element id}/attribute/{name}` |
 
 ### URL-Parameter
@@ -20,18 +20,18 @@ Der _Get Element Attribute_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDri
 - `session id`
   - : Bezeichner der Sitzung.
 - `element id`
-  - : Bezeichner des [Web-Elements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Bezeichner des [Web-Elements](/de/docs/Web/WebDriver/WebElement), von dem der Tag-Name geholt werden soll.
 - `name`
-  - : Bezeichner des Attributs des [Web-Elements](/de/docs/Web/WebDriver/WebElement), das abgerufen werden soll.
+  - : Bezeichner des Attributs des [Web-Elements](/de/docs/Web/WebDriver/WebElement), das geholt werden soll.
 
 ### Fehler
 
-- [Session not created](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
-  - : Sitzung existiert nicht.
-- [No such window](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
+- [Session nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+  - : Die Sitzung existiert nicht.
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
   - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
-- [Unexpected alert open](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Ein Benutzer-Popup, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis es behandelt wird.
+- [Unerwartetes Alert geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis mit ihr umgegangen wird.
 
 ## Beispiele
 

@@ -8,20 +8,19 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte **`Window.screenTop`**-Eigenschaft gibt die vertikale Entfernung, in CSS-Pixeln, von der oberen Grenze des Browser-Viewports des Benutzers zur oberen Seite des Bildschirms zurück.
+Die schreibgeschützte Eigenschaft **`Window.screenTop`** gibt die vertikale Entfernung in CSS-Pixeln von der oberen Grenze des Benutzer-Browser-Viewports zur oberen Seite des Bildschirms zurück.
 
-> **Note:** `screenTop` ist ein Alias der älteren
-> [`Window.screenY`](/de/docs/Web/API/Window/screenY)-Eigenschaft. `screenTop` wurde ursprünglich nur in IE unterstützt, aber aufgrund seiner Beliebtheit überall eingeführt.
+> **Note:** `screenTop` ist ein Alias für die ältere
+> [`Window.screenY`](/de/docs/Web/API/Window/screenY)-Eigenschaft. `screenTop` wurde ursprünglich nur in IE unterstützt, war jedoch aufgrund seiner Beliebtheit überall eingeführt worden.
 
 ## Wert
 
-Eine Zahl, die der Anzahl der CSS-Pixel von der oberen Kante des Browser-Viewports zur oberen Kante des Bildschirms entspricht.
+Eine Zahl, die der Anzahl von CSS-Pixeln vom oberen Rand des Browser-Viewports zum oberen Rand des Bildschirms entspricht.
 
 ## Beispiele
 
-In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/)
-Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir `screenLeft`/`screenTop` zusammen mit
-[`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, auch wenn die Fensterposition verschoben wird.
+In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/) Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir `screenLeft`/`screenTop` zusammen mit
+[`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
 
 ```js
 initialLeft = window.screenLeft + canvasElem.offsetLeft;
@@ -56,8 +55,8 @@ function positionElem() {
 window.requestAnimationFrame(positionElem);
 ```
 
-Auch im Code enthalten wir einen Ausschnitt, der erkennt, ob `screenLeft` unterstützt wird, und falls nicht, `screenLeft`/`screenTop` mithilfe von
-[`Window.screenX`](/de/docs/Web/API/Window/screenX)/[`Window.screenY`](/de/docs/Web/API/Window/screenY) nachfüllt.
+Im Code finden Sie auch einen Ausschnitt, der erkennt, ob `screenLeft` unterstützt wird, und falls nicht, werden `screenLeft`/`screenTop` mithilfe von
+[`Window.screenX`](/de/docs/Web/API/Window/screenX)/[`Window.screenY`](/de/docs/Web/API/Window/screenY) ergänzt.
 
 ```js
 if (!window.screenLeft) {

@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Schnittstelle findet das [`Cache`](/de/docs/Web/API/Cache)-Objekt, das mit dem `cacheName` übereinstimmt, und löscht das [`Cache`](/de/docs/Web/API/Cache)-Objekt, sofern es gefunden wurde, und gibt ein {{jsxref("Promise")}} zurück, das auf `true` aufgelöst wird.
-Wenn kein [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden wird, wird es auf `false` aufgelöst.
+Die **`delete()`**-Methode der [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Schnittstelle findet das [`Cache`](/de/docs/Web/API/Cache)-Objekt, das mit dem `cacheName` übereinstimmt, und löscht es, falls es gefunden wird. Dabei wird ein {{jsxref("Promise")}} zurückgegeben, das auf `true` aufgelöst wird.
+Falls kein [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden wird, wird es auf `false` aufgelöst.
 
 Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches)-Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)-Eigenschaft in Workern zugreifen.
 
@@ -26,11 +26,15 @@ delete(cacheName)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf `true` aufgelöst wird, wenn das [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden und gelöscht wird, und auf `false` andernfalls.
+Ein {{jsxref("Promise")}}, das auf `true` aufgelöst wird, wenn das [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden und gelöscht wird, und andernfalls auf `false`.
 
 ## Beispiele
 
-In diesem Code-Snippet warten wir auf ein Aktivierungsereignis und führen dann einen [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Block aus, der alle alten, unbenutzten Caches löscht, bevor ein neuer Service Worker aktiviert wird. Hier haben wir ein Array von Cache-Namen, die wir behalten möchten (`cachesToKeep`). Wir geben die Schlüssel der Caches im [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt mit [`CacheStorage.keys`](/de/docs/Web/API/CacheStorage/keys) zurück und überprüfen dann jeden Schlüssel, um festzustellen, ob er sich im Array befindet. Wenn nicht, löschen wir es mit `delete()`.
+In diesem Code-Snippet warten wir auf ein Aktivierungsereignis und führen dann einen
+[`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Block aus, der alle alten,
+nicht verwendeten Caches bereinigt, bevor ein neuer Service Worker aktiviert wird. Hier haben wir ein Array von Cache-Namen, die wir behalten möchten (`cachesToKeep`). Wir geben die Schlüssel der Caches im
+[`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt mithilfe von [`CacheStorage.keys`](/de/docs/Web/API/CacheStorage/keys) zurück und überprüfen dann jeden Schlüssel, um festzustellen, ob er im Array enthalten ist. Falls nicht, löschen wir ihn mit
+`delete()`.
 
 ```js
 this.addEventListener("activate", (event) => {

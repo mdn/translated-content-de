@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das `svg`-Element ist ein Container, der ein neues Koordinatensystem und [Ansichtsfenster](/de/docs/Web/SVG/Attribute/viewBox) definiert. Es wird als äußerstes Element von SVG-Dokumenten verwendet, kann aber auch verwendet werden, um ein SVG-Fragment innerhalb eines SVG- oder HTML-Dokuments einzubetten.
+Das `svg`-Element ist ein Container, der ein neues Koordinatensystem und einen [Viewport](/de/docs/Web/SVG/Attribute/viewBox) definiert. Es wird als äußeres Element von SVG-Dokumenten verwendet, kann aber auch verwendet werden, um ein SVG-Fragment innerhalb eines SVG- oder HTML-Dokuments einzubetten.
 
 > [!NOTE]
-> Das `xmlns`-Attribut ist nur auf dem äußersten `svg`-Element von _SVG-Dokumenten_ oder innerhalb von HTML-Dokumenten mit XML-Serialisierung erforderlich. Es ist nicht notwendig für innere `svg`-Elemente oder innerhalb von HTML-Dokumenten mit HTML-Serialisierung.
+> Das `xmlns`-Attribut ist nur beim äußersten `svg`-Element von _SVG-Dokumenten_ oder innerhalb von HTML-Dokumenten mit XML-Serialisierung erforderlich. Es ist für innere `svg`-Elemente oder innerhalb von HTML-Dokumenten mit HTML-Serialisierung nicht erforderlich.
 
 ## Beispiele
 
@@ -43,9 +43,9 @@ svg {
 
 {{EmbedLiveSample('nested_svg-elements', 300, 100)}}
 
-### Verwendung dynamischer Ansichtsfenstereinheiten
+### Verwendung von dynamischen Viewport-Einheiten
 
-In diesem Beispiel sind die Attribute `height` und `width` des `svg`-Elements unter Verwendung des dynamischen Ansichtsfensterwertes `60vmin` festgelegt, was 60 % der Breite oder Höhe des Ansichtsfensters entspricht, je nachdem, welches kleiner ist.
+In diesem Beispiel werden die Attribute `height` und `width` des `svg`-Elements mit dem dynamischen Viewport-Wert `60vmin` festgelegt, was 60 % der Breite oder Höhe des Viewports, je nachdem welcher Wert kleiner ist, entspricht.
 
 ```html hidden
 <div class="resizer">
@@ -88,7 +88,7 @@ In diesem Beispiel sind die Attribute `height` und `width` des `svg`-Elements un
 
 {{EmbedLiveSample('using_dynamic_viewport_lengths', '100%', 500)}}
 
-Um die Dimensionen des iframe zu ändern, versuchen Sie, die gestrichelte rote Umrandung von der unteren rechten Ecke aus zu vergrößern.
+Um die Abmessungen des iframes zu ändern, versuchen Sie, den gestrichelten roten Rand von der rechten unteren Ecke aus zu vergrößern.
 
 ## Attribute
 
@@ -96,31 +96,31 @@ Um die Dimensionen des iframe zu ändern, versuchen Sie, die gestrichelte rote U
   - : Das minimale SVG-Sprachprofil, das das Dokument benötigt.
     _Werttyp_: **\<string>** ; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("height")}}
-  - : Die angezeigte Höhe des rechteckigen Ansichtsfensters. (Nicht die Höhe seines Koordinatensystems.)
+  - : Die angezeigte Höhe des rechteckigen Viewports. (Nicht die Höhe seines Koordinatensystems.)
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
   - : Wie das `svg`-Fragment verformt werden muss, wenn es mit einem anderen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) angezeigt wird.
     _Werttyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("version")}} {{deprecated_inline}}
-  - : Welche Version von SVG für den inneren Inhalt des Elements verwendet wird.
+  - : Welche SVG-Version für den inneren Inhalt des Elements verwendet wird.
     _Werttyp_: **[\<number>](/de/docs/Web/SVG/Content_type#number)** ; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("viewBox")}}
-  - : Die SVG-Ansichtsfensterkoordinaten für das aktuelle SVG-Fragment.
+  - : Die SVG-Viewport-Koordinaten für das aktuelle SVG-Fragment.
     _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Content_type#list-of-ts)** ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
-  - : Die angezeigte Breite des rechteckigen Ansichtsfensters. (Nicht die Breite seines Koordinatensystems.)
+  - : Die angezeigte Breite des rechteckigen Viewports. (Nicht die Breite seines Koordinatensystems.)
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
-  - : Die angezeigte x-Koordinate des svg-Containers. Keine Wirkung bei äußersten `svg`-Elementen.
+  - : Die angezeigte x-Koordinate des svg-Containers. Kein Effekt auf äußerste `svg`-Elemente.
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die angezeigte y-Koordinate des svg-Containers. Keine Wirkung bei äußersten `svg`-Elementen.
+  - : Die angezeigte y-Koordinate des svg-Containers. Kein Effekt auf äußerste `svg`-Elemente.
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 
 > [!NOTE]
 > Ab SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften verwendet werden können.
 
-## Verwendungszusammenhang
+## Nutzungskontext
 
 {{svginfo}}
 

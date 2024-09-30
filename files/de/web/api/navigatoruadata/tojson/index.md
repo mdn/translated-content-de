@@ -1,5 +1,5 @@
 ---
-title: "NavigatorUAData: toJSON()-Methode"
+title: "NavigatorUAData: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/NavigatorUAData/toJSON
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode der Schnittstelle [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData) ist ein _Serializer_, der eine JSON-Darstellung der _low entropy_-Eigenschaften des `NavigatorUAData`-Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Schnittstelle ist ein _Serializer_, der eine JSON-Darstellung der _Low Entropy_-Eigenschaften des `NavigatorUAData`-Objekts zurückgibt.
 
 > [!NOTE]
-> Die Begriffe _high entropy_ und _low entropy_ beziehen sich auf die Menge an Informationen, die diese Werte über den Browser preisgeben. Die low entropy-Werte, die von dieser Methode zurückgegeben werden, sind diejenigen, die keine Informationen offenbaren, die einen Benutzer identifizieren können. High entropy-Werte können nur durch die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) zurückgegeben werden.
+> Die Begriffe _High Entropy_ und _Low Entropy_ beziehen sich auf die Menge an Informationen, die diese Werte über den Browser preisgeben. Die von dieser Methode zurückgegebenen Low Entropy-Werte sind diejenigen, die keine Informationen offenbaren, die zur Identifizierung eines Benutzers fähig sind. High Entropy-Werte können nur durch die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) zurückgegeben werden.
 
 ## Syntax
 

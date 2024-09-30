@@ -11,13 +11,13 @@ Die **`SVGGElement`**-Schnittstelle entspricht dem {{SVGElement("g")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer Elternschnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Spezifikationen
 

@@ -8,12 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`altitude`** schreibgeschützte Eigenschaft der Schnittstelle [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) ist ein `double`, das die Höhe der Position in Metern über dem [WGS84](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf) Ellipsoid darstellt (welches die nominale Meeresspiegeloberfläche definiert). Dieser Wert ist `null`, wenn die Implementierung diese Daten nicht bereitstellen kann.
+Die schreibgeschützte Eigenschaft **`altitude`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein `double`, das die Höhe der Position in Metern über dem [WGS84](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf)-Ellipsoid darstellt (welches die nominale Meeresoberfläche definiert). Dieser Wert ist `null`, wenn die Implementierung diese Daten nicht bereitstellen kann.
 
 ## Wert
 
-Ein `double`, das die Höhe der Position in Metern über dem [WGS84](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf)
-Ellipsoid darstellt.
+Ein `double`, das die Höhe der Position in Metern über dem [WGS84](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf)-Ellipsoid darstellt.
 
 ## Spezifikationen
 
@@ -25,6 +24,6 @@ Ellipsoid darstellt.
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- Die Schnittstelle [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates), zu der sie gehört.
-- [National Imagery and Mapping Agency Technical Report 8350.2, Dritte Ausgabe (WGS84)](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf)
+- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- Das [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interface, zu dem es gehört.
+- [Technical Report der National Imagery and Mapping Agency 8350.2, Dritte Ausgabe (WGS84)](https://gis-lab.info/docs/nima-tr8350.2-wgs84fin.pdf)

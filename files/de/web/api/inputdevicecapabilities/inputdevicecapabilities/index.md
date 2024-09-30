@@ -1,5 +1,5 @@
 ---
-title: "InputDeviceCapabilities: InputDeviceCapabilities()-Konstruktor"
+title: "InputDeviceCapabilities: InputDeviceCapabilities() Konstruktor"
 short-title: InputDeviceCapabilities()
 slug: Web/API/InputDeviceCapabilities/InputDeviceCapabilities
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Input Device Capabilities API")}}{{SeeCompatTable}}
 
-Der `InputDeviceCapabilities()`-Konstruktor erstellt ein neues [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities)-Objekt, das Informationen über das physische Gerät bereitstellt, das für das Erzeugen eines Berührungsereignisses verantwortlich ist.
+Der `InputDeviceCapabilities()` Konstruktor erstellt ein neues [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities) Objekt, das Informationen über das physische Gerät bereitstellt, das für die Erzeugung eines Berührungsereignisses verantwortlich ist.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ new InputDeviceCapabilities(InputDeviceCapabilitiesInit)
 
 - `InputDeviceCapabilitiesInit` {{optional_inline}}
 
-  - : Ein Wörterbuch-Objekt, das eine Reihe von Geräteeigenschaften enthält. Es enthält die
+  - : Ein Wörterbuchobjekt, das eine Reihe von Gerätefunktionen enthält. Es enthält die
     folgende Eigenschaft.
 
     - `fireTouchEvents`: Ein boolescher Wert, der angibt,
@@ -29,7 +29,7 @@ new InputDeviceCapabilities(InputDeviceCapabilitiesInit)
 
 ### Rückgabewert
 
-Eine Instanz der [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities)-Schnittstelle.
+Eine Instanz der [`InputDeviceCapabilities`](/de/docs/Web/API/InputDeviceCapabilities) Schnittstelle.
 
 ## Spezifikationen
 

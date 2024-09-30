@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUDeviceLostInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert das Objekt, das zurückgegeben wird, wenn das [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird. Es liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
+Das **`GPUDeviceLostInfo`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert das Objekt, das zurückgegeben wird, wenn der [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird. Dies liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
 
-Weitere Informationen zum "verlorenen" Zustand finden Sie auf der Seite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost).
+Weitere Informationen über den "verlorenen" Status finden Sie auf der Seite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`message`](/de/docs/Web/API/GPUDeviceLostInfo/message) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der eine lesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
+  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
 - [`reason`](/de/docs/Web/API/GPUDeviceLostInfo/reason) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der den Grund angibt, warum das Gerät in einer maschinenlesbaren Weise verloren gegangen ist.
+  - : Ein enumerierter Wert, der den Grund angibt, warum das Gerät in maschinenlesbarer Form verloren gegangen ist.
 
 ## Beispiele
 

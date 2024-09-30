@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.entries()`** Methode
-gibt ein Array der eigenen aufzählbaren Eigenschafts-[key, value]-Paare eines gegebenen Objekts in der gleichen Reihenfolge zurück, wie sie von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypenkette aufzählt).
+Die **`CSSUnparsedValue.entries()`**-Methode
+gibt ein Array der eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts in derselben Reihenfolge zurück, wie sie von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird (mit dem Unterschied, dass eine for-in Schleife auch Eigenschaften in der Prototyp-Kette aufzählt).
 
 ## Syntax
 
@@ -20,11 +20,12 @@ entries(obj)
 ### Parameter
 
 - `obj`
-  - : Die [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), deren eigene aufzählbare Eigenschafts-[key, value]-Paare zurückgegeben werden sollen.
+  - : Der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), dessen eigene aufzählbare
+    `[key, value]`-Paare zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren Eigenschafts-[key, value]-Paare des gegebenen `CSSUnparsedValue` Objekts.
+Ein Array der eigenen aufzählbaren `[key, value]`-Paare des gegebenen `CSSUnparsedValue`-Objekts.
 
 ## Spezifikationen
 

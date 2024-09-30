@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`getDescriptor()`** statische Methode der [`BluetoothUUID`](/de/docs/Web/API/BluetoothUUID) Schnittstelle gibt eine UUID zurück, die einen registrierten Descriptor darstellt, wenn ein Name oder das 16- oder 32-Bit-UUID-Alias übergeben wird.
+Die statische Methode **`getDescriptor()`** der [`BluetoothUUID`](/de/docs/Web/API/BluetoothUUID)-Schnittstelle gibt eine UUID zurück, die einen registrierten Deskriptor darstellt, wenn ein Name oder das 16- oder 32-Bit-UUID-Alias übergeben wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ BluetoothUUID.getDescriptor(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen des Descriptors enthält.
+  - : Ein String, der den Namen des Deskriptors enthält.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Eine 128-Bit-UUID.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `name` nicht im Verzeichnis erscheint.
+  - : Wird ausgelöst, wenn `name` nicht im Register vorhanden ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die UUID zurückgegeben und in der Konsole ausgegeben, die den Descriptor mit dem Namen `time_trigger_setting` darstellt.
+Im folgenden Beispiel wird die UUID des Deskriptors mit dem Namen `time_trigger_setting` zurückgegeben und in der Konsole ausgegeben.
 
 ```js
 let result = BluetoothUUID.getDescriptor("time_trigger_setting");

@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scrollbar-gutter`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Autoren, Platz für die Scrollleiste zu reservieren. Dadurch werden unerwünschte Layoutänderungen verhindert, wenn der Inhalt wächst, ohne unnötige visuelle Elemente anzuzeigen, wenn kein Scrollen erforderlich ist.
+Die CSS-Eigenschaft **`scrollbar-gutter`** erlaubt es Autoren, Platz für die Scrollleiste zu reservieren, um unerwünschte Layout-Änderungen zu vermeiden, wenn der Inhalt wächst, während auch unnötige visuelle Elemente vermieden werden, wenn kein Scrollen erforderlich ist.
 
-Die _scrollbar gutter_ eines Elements ist der Raum zwischen dem inneren Rand und dem äußeren Padding-Rand, in dem der Browser eine Scrollleiste anzeigen kann. Wenn keine Scrollleiste vorhanden ist, wird der Gutter als Erweiterung des Paddings dargestellt.
+Die _scrollbar gutter_ eines Elements ist der Raum zwischen dem inneren Rand und der äußeren Auffüllkante, wo der Browser eine Scrollleiste anzeigen kann. Wenn keine Scrollleiste vorhanden ist, wird der Gutter als Erweiterung der Auffüllung dargestellt.
 
-Der Browser bestimmt, ob _klassische_ Scrollleisten oder _Overlay_ Scrollleisten verwendet werden:
+Der Browser bestimmt, ob _klassische_ oder _Overlay_-Scrollleisten verwendet werden:
 
 - Klassische Scrollleisten werden immer in einem Gutter platziert und nehmen Platz ein, wenn sie vorhanden sind.
-- Overlay Scrollleisten werden über dem Inhalt platziert, nicht in einem Gutter, und sind normalerweise teilweise transparent.
+- Overlay-Scrollleisten werden über dem Inhalt platziert, nicht in einem Gutter, und sind normalerweise teilweise transparent.
 
 ## Syntax
 
@@ -37,11 +37,11 @@ scrollbar-gutter: unset;
 ### Werte
 
 - `auto`
-  - : Der Anfangswert. Klassische Scrollleisten erzeugen einen Gutter, wenn `overflow` auf `scroll` gesetzt ist, oder wenn `overflow` `auto` ist und der Block überläuft. Overlay Scrollleisten nehmen keinen Platz ein.
+  - : Der anfängliche Wert. Klassische Scrollleisten erzeugen einen Gutter, wenn `overflow` auf `scroll` gesetzt ist oder wenn `overflow` auf `auto` gesetzt ist und die Box überläuft. Overlay-Scrollleisten beanspruchen keinen Platz.
 - `stable`
-  - : Bei der Verwendung von klassischen Scrollleisten ist der Gutter vorhanden, wenn `overflow` `auto`, `scroll` oder `hidden` ist, selbst wenn der Block nicht überläuft. Bei der Verwendung von Overlay Scrollleisten ist der Gutter nicht vorhanden.
+  - : Bei Verwendung klassischer Scrollleisten wird der Gutter vorhanden sein, wenn `overflow` auf `auto`, `scroll` oder `hidden` gesetzt ist, selbst wenn die Box nicht überläuft. Bei Verwendung von Overlay-Scrollleisten ist der Gutter nicht vorhanden.
 - `both-edges`
-  - : Wenn ein Gutter an einer der Inline-Start-/Endkanten des Blocks vorhanden wäre, wird ein weiterer auch auf der gegenüberliegenden Kante vorhanden sein.
+  - : Wenn ein Gutter auf einer der Inline-Start-/Endkanten der Box vorhanden wäre, wird ein weiterer auf der gegenüberliegenden Kante ebenfalls vorhanden sein.
 
 ## Formale Definition
 
@@ -53,14 +53,14 @@ scrollbar-gutter: unset;
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie die verschiedenen Werte der Eigenschaft `scrollbar-gutter` ein scrollbares `div`-Element (`.container`) mit einem oder mehreren Absätzen darin beeinflussen würden.
+Die folgenden Beispiele zeigen, wie die verschiedenen Werte für die `scrollbar-gutter`-Eigenschaft ein scrollbares `div`-Element (`.container`) mit einem oder mehreren darin enthaltenen Absätzen beeinflussen würden.
 
 > [!NOTE]
-> In den Bildern der Beispiele sind die Systemeinstellungen des Benutzers auf klassische Scrollleisten gesetzt (immer angezeigt).
+> In den Bildern für die Beispiele sind die Systemeinstellungen des Benutzers auf klassische Scrollleisten eingestellt (immer angezeigt).
 
 ### Beispiel 1
 
-Verhindern Sie unnötige Layoutänderungen, da durch Vergrößern oder Verkleinern des Inhalts die Scrollleiste erscheint/verschwindet, wird Platz dafür reserviert.
+Verhindern unnotwendiger Layout-Änderungen, da das Wachsen oder Schrumpfen des Inhalts das Erscheinen/Verschwinden der Scrollleiste verursacht, wird ein Platz dafür reserviert.
 
 ```css
 .container {
@@ -68,11 +68,11 @@ Verhindern Sie unnötige Layoutänderungen, da durch Vergrößern oder Verkleine
 }
 ```
 
-![Ein enthaltenes div-Element mit einem Textabsatz darin und einem Raum rechts, wo die Scrollleiste ist](stable-no-scroll.png)
+![Ein enthaltendes div-Element mit einem Absatz Text darin und einem Platz rechts, wo die Scrollleiste ist](stable-no-scroll.png)
 
 ### Beispiel 2
 
-Fügen Sie symmetrische Abstände zu beiden Seiten des Kastens hinzu, damit der Inhalt zentriert ist:
+Fügen Sie symmetrischen Abstand auf beiden Seiten der Box hinzu, damit der Inhalt zentriert ist:
 
 ```css
 .container {
@@ -80,12 +80,12 @@ Fügen Sie symmetrische Abstände zu beiden Seiten des Kastens hinzu, damit der 
 }
 ```
 
-![Ein enthaltenes div-Element mit einem Textabsatz darin, einem Raum rechts, wo die Scrollleiste ist, und einem passenden leeren Raum links](stable-both-edges.png)
+![Ein enthaltendes div-Element mit einem Absatz Text darin, einem Platz rechts, wo die Scrollleiste ist und einem übereinstimmenden leeren Raum links](stable-both-edges.png)
 
 ### Beispiel 3
 
-Richten Sie die Inhalte eines nicht scrollbaren Elements und eines scrollbaren Elements nebeneinander aus:
-Dieses Beispiel zeigt zwei Divs nebeneinander. Das linke hat keinen Scroll, das rechte schon. Beide haben `scrollbar-gutter` angewendet, welches auch Platz für das linke Div reserviert, das keinen scrollbaren Inhalt hat. Dies ist eine gute Technik, um die Breite des Inhalts konsistent zu halten.
+Richten Sie den Inhalt eines nicht scrollenden Elements und eines benachbart scrollenden Elements aus:
+Dieses Beispiel zeigt zwei nebeneinander liegende divs. Das auf der linken Seite hat keinen Scroll, aber das auf der rechten Seite schon. Beide haben `scrollbar-gutter` angewendet, was auch Platz für das div auf der linken Seite reserviert, welches keinen scrollbaren Inhalt hat. Dies ist eine gute Technik, um die Breite des Inhalts konsistent zu halten.
 
 ```css
 .container1 {
@@ -98,13 +98,13 @@ Dieses Beispiel zeigt zwei Divs nebeneinander. Das linke hat keinen Scroll, das 
 }
 ```
 
-![Zwei nebeneinander liegende Divs, die Text enthalten, beide mit Platz für eine Scrollleiste](side-by-side.png)
+![Zwei nebeneinander liegende divs mit Text, beide mit Platz für eine Scrollleiste](side-by-side.png)
 
-### Overlay Scrollleisten
+### Overlay-Scrollleisten
 
-Zur Referenz zeigt dieses Bild dasselbe div wie oben, jedoch mit den Systemeinstellungen des Benutzers auf Overlay Scrollleisten eingestellt. Beachten Sie hier, dass die Scrollleiste nur angezeigt wird, wenn der Benutzer scrollt und über dem Inhalt ist. Daher wird kein Platz für sie reserviert und die Eigenschaft `scrollbar-gutter` hat keine Auswirkung.
+Zum Vergleich zeigt dieses Bild dasselbe div wie oben, aber mit den System-Einstellungen des Benutzers auf Overlay-Scrollleisten. Beachten Sie hier, dass die Scrollleiste nur angezeigt wird, wenn der Benutzer scrollt und über dem Inhalt liegt, weshalb kein Platz dafür reserviert wird und die `scrollbar-gutter`-Eigenschaft keine Wirkung hat.
 
-![Ein Div mit Text, keine sichtbare Scrollleiste](for-ref-no-scroll.png)
+![Ein div mit Text, keine sichtbare Scrollleiste](for-ref-no-scroll.png)
 
 ## Spezifikationen
 
@@ -116,8 +116,8 @@ Zur Referenz zeigt dieses Bild dasselbe div wie oben, jedoch mit den Systemeinst
 
 ## Siehe auch
 
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Scrollleisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-width")}}
 - {{CSSxRef("scrollbar-color")}}

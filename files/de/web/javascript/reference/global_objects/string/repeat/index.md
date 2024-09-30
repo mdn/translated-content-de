@@ -7,7 +7,8 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`repeat()`** von {{jsxref("String")}}-Werten erstellt und gibt eine neue Zeichenkette zurück, die die angegebene Anzahl von Kopien dieser Zeichenkette enthält, zusammengefügt.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt eine neue Zeichenkette zurück,
+die die angegebene Anzahl von Kopien dieser Zeichenkette enthält, zusammengefügt.
 
 {{EmbedInteractiveExample("pages/js/string-repeat.html", "shorter")}}
 
@@ -20,7 +21,9 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die die Anzahl der Wiederholungen der Zeichenkette angibt.
+  - : Eine ganze Zahl zwischen `0` und
+    {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt,
+    wie oft die Zeichenkette wiederholt werden soll.
 
 ### Rückgabewert
 

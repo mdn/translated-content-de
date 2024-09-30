@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getNamedItem()`**-Methode der Schnittstelle [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) gibt das [`Attr`](/de/docs/Web/API/Attr) zurück, das dem angegebenen Namen entspricht, oder `null`, wenn kein entsprechendes Attribut vorhanden ist.
+Die **`getNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle gibt das [`Attr`](/de/docs/Web/API/Attr) zurück, das dem angegebenen Namen entspricht, oder `null`, wenn kein entsprechendes Attribut vorhanden ist.
 
 > [!NOTE]
 > Diese Methode wird auch aufgerufen, wenn Sie die Operator-`[]`-Syntax verwenden.
-> Somit ist `myMap[str]` äquivalent zu `myMap.getNamedItem(str)`, wobei `str` ein String ist.
+> Also ist `myMap[str]` gleichbedeutend mit `myMap.getNamedItem(str)`, wobei `str` ein String ist.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ getNamedItem(name)
 
 ### Rückgabewert
 
-Ein [`Attr`](/de/docs/Web/API/Attr), das dem im Parameter angegebenen `name` entspricht, oder `null`, wenn kein entsprechendes Attribut gefunden wurde.
+Ein [`Attr`](/de/docs/Web/API/Attr), das dem im Parameter angegebenen `name` entspricht, oder `null`, wenn keines gefunden wurde.
 
 ## Beispiel
 

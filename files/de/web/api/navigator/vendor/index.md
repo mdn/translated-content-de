@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Der Wert der **`vendor`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator) ist immer entweder `"Google Inc."`, `"Apple Computer, Inc."`, oder (in Firefox) die leere Zeichenfolge.
+Der Wert der [`Navigator`](/de/docs/Web/API/Navigator) **`vendor`**-Eigenschaft ist immer entweder `"Google Inc."`, `"Apple Computer, Inc."` oder (in Firefox) der leere String.
 
 ## Wert
 
-Entweder `"Google Inc."`, `"Apple Computer, Inc."`, oder (in Firefox) die leere Zeichenfolge.
+Entweder `"Google Inc."`, `"Apple Computer, Inc."` oder (in Firefox) der leere String.
 
 ## Spezifikationen
 

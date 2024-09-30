@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Generiert eine URL, die Sie als Redirect-URL verwenden können.
+Erzeugt eine URL, die Sie als Umleitungs-URL verwenden können.
 
-Die URL wird von der ID Ihrer Erweiterung abgeleitet. Wenn Sie diese Funktion verwenden, sollten Sie wahrscheinlich die ID Ihrer Erweiterung explizit mit dem Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) festlegen (andernfalls erhalten Sie jedes Mal, wenn Sie die [Erweiterung temporär installieren](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/), eine andere Redirect-URL).
+Die URL wird aus der ID Ihrer Erweiterung abgeleitet. Wenn Sie diese Funktion verwenden, sollten Sie wahrscheinlich die ID Ihrer Erweiterung explizit mit dem Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) festlegen (anderenfalls erhalten Sie jedes Mal beim [vorübergehenden Installieren der Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) eine andere Umleitungs-URL).
 
-Weitere Informationen zu Redirect-URLs finden Sie unter [Abrufen einer Redirect-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url).
+Siehe [Erhalten einer Umleitungs-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url) für weitere Informationen zu Umleitungs-URLs.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der den Wert einer Redirect-URL enthält.
+Ein String, der einen Umleitungs-URL-Wert enthält.
 
 ## Browser-Kompatibilität
 
@@ -33,7 +33,7 @@ Ein String, der den Wert einer Redirect-URL enthält.
 
 ## Beispiele
 
-Abrufen der Redirect-URL:
+Holen Sie sich die Umleitungs-URL:
 
 ```js
 let redirectURL = browser.identity.getRedirectURL();
@@ -42,4 +42,4 @@ let redirectURL = browser.identity.getRedirectURL();
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity) API.
+> Diese API basiert auf der [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity)-API von Chromium.

@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert das äußerste Container-Element des {{HTMLElement("progress")}}-Elements. Es ist das Elternelement des {{cssxref("::-webkit-progress-bar")}}-Pseudoelements.
+Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den äußersten Container des {{HTMLElement("progress")}}-Elements. Es ist das Elternelement des {{cssxref("::-webkit-progress-bar")}} Pseudo-Elements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
+> Damit `::-webkit-progress-value` Wirkung zeigt, muss {{cssxref("appearance")}} auf `none` beim `<progress>`-Element gesetzt sein.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudoelemen
 
 Diese Beispiele funktionieren nur in Blink und WebKit.
 
-### Einen schwarzen Rahmen um die Fortschrittsleiste hinzufügen
+### Einen schwarzen Rand um die Fortschrittsanzeige hinzufügen
 
-In diesem Beispiel wird ein 2px breiter schwarzer Rahmen um die Fortschrittsleiste hinzugefügt.
+In diesem Beispiel wird ein 2px schwarzer Rand um die Fortschrittsanzeige hinzugefügt.
 
 #### HTML
 
@@ -52,9 +52,9 @@ progress {
 
 #### Ergebnis-Screenshot
 
-Wenn Sie keinen Blink- oder WebKit-Browser verwenden, sieht die Fortschrittsleiste im obigen Code so aus:
+Falls Sie keinen Blink- oder WebKit-Browser verwenden, sieht der obige Code wie folgt aus: 
 
-![Progressbar ist eine lange grüne und graue Box mit einem schwarzen Rahmen. Die linken 20% der Box sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
+![Fortschrittsbalken ist ein langes grünes und graues Feld mit einem schwarzen Rand. Die linken 20% des Feldes sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
 
 ## Spezifikationen
 
@@ -66,7 +66,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
+- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
 
   - {{cssxref("::-webkit-progress-bar")}}
   - {{cssxref("::-webkit-progress-value")}}

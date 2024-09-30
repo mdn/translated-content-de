@@ -13,11 +13,11 @@ Die **`SVGSetElement`**-Schnittstelle entspricht dem {{SVGElement("set")}}-Eleme
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer Elternschnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

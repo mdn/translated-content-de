@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: error event"
+title: "ServiceWorkerContainer: error-Ereignis"
 short-title: error
 slug: Web/API/ServiceWorkerContainer/error_event
 l10n:
@@ -12,7 +12,7 @@ Das `error`-Ereignis wird ausgelöst, wenn ein Fehler im Service Worker auftritt
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("error", (event) => {});

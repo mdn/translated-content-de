@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: systemId-Eigenschaft"
+title: "DocumentType: systemId Eigenschaft"
 short-title: systemId
 slug: Web/API/DocumentType/systemId
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`systemId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt die URL des zugehörigen DTD zurück.
+Die schreibgeschützte **`systemId`**-Eigenschaft von [`DocumentType`](/de/docs/Web/API/DocumentType) liefert die URL der zugehörigen DTD zurück.
 
-Für synthetische `DocumentType`-Objekte spiegelt diese Eigenschaft den im Parameter von [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
+Für synthetische `DocumentType` spiegelt diese Eigenschaft den Wert wider, der als Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) übergeben wird.
 
-Bei HTML-Dokumenten setzen Browser diesen Wert immer auf `html`, unabhängig davon, was tatsächlich im `doctype` des Quellcodes steht. Bei SVG-Dokumenten kann es beispielsweise `"http://www.w3.org/2000/svg"` sein.
+Bei HTML-Dokumenten setzen Browser sie immer auf `html`, unabhängig vom tatsächlichen `doctype` im Quellcode. Bei SVG-Dokumenten kann sie zum Beispiel `"http://www.w3.org/2000/svg"` sein.
 
 ## Wert
 

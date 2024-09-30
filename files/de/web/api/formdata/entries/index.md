@@ -1,5 +1,5 @@
 ---
-title: "FormData: entries() Methode"
+title: "FormData: Methode entries()"
 short-title: entries()
 slug: Web/API/FormData/entries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.entries()`** Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle in der [`FormData`](/de/docs/Web/API/FormData) enthaltenen Schlüssel/Wert-Paare iteriert. Der Schlüssel jedes Paares ist ein String, und der Wert ist entweder ein String oder ein [`Blob`](/de/docs/Web/API/Blob).
+Die **`FormData.entries()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüssel/Wert-Paare im [`FormData`](/de/docs/Web/API/FormData) iteriert. Der Schlüssel jedes Paares ist ein String, und der Wert ist entweder ein String oder ein [`Blob`](/de/docs/Web/API/Blob).
 
 ## Syntax
 

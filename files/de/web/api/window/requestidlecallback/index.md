@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`window.requestIdleCallback()`**-Methode reiht eine Funktion zur Ausführung in den Leerlaufzeiten eines Browsers ein. Dies ermöglicht es Entwicklern, Hintergrundarbeiten und Arbeiten mit niedriger Priorität in der Hauptereignisschleife auszuführen, ohne latenzkritische Ereignisse wie Animationen und Eingaben zu beeinträchtigen. Funktionen werden im Allgemeinen in der Reihenfolge des Eingangs ausgeführt; allerdings können Rückrufe, für die eine `timeout`-Option angegeben ist, bei Bedarf außer der Reihe aufgerufen werden, um sie vor Ablauf des Zeitlimits auszuführen.
+Die **`window.requestIdleCallback()`**-Methode fügt eine Funktion in die Warteschlange ein, die während der Leerlaufzeiten eines Browsers aufgerufen werden soll. Dies ermöglicht Entwicklern, Hintergrund- und niedrig priorisierte Arbeiten in der Haupt-Ereignisschleife auszuführen, ohne latenzkritische Ereignisse wie Animationen und Eingaben zu beeinträchtigen. Funktionen werden im Allgemeinen in der Reihenfolge ihres Eingangs aufgerufen; jedoch können Rückruffunktionen, die eine `timeout`-Spezifikation haben, außerhalb dieser Reihenfolge aufgerufen werden, falls erforderlich, um sie vor Ablauf des Timeouts auszuführen.
 
-Sie können `requestIdleCallback()` innerhalb einer Leerlaufrückruffunktion aufrufen, um einen weiteren Rückruf zu planen, der frühestens in der nächsten Schleifeniteration stattfinden soll.
+Sie können `requestIdleCallback()` innerhalb einer Leerlauf-Rückruffunktion aufrufen, um eine weitere Rückrufaktion einzuplanen, die frühestens in der nächsten Schleifeniteration stattfinden soll.
 
 > [!NOTE]
-> Eine `timeout`-Option wird für erforderliche Arbeiten dringend empfohlen, da sonst mehrere Sekunden vergehen können, bevor der Rückruf ausgelöst wird.
+> Eine `timeout`-Option wird dringend für notwendige Arbeiten empfohlen, da andernfalls möglicherweise mehrere Sekunden vergehen, bevor der Rückruf ausgelöst wird.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ requestIdleCallback(callback, options)
 ### Parameter
 
 - `callback`
-  - : Eine Referenz zu einer Funktion, die in naher Zukunft aufgerufen werden soll, wenn die Ereignisschleife im Leerlauf ist. Der Rückruffunktion wird ein [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)-Objekt übergeben, das die verfügbare Zeit und ob der Rückruf ausgeführt wurde, weil die Zeitbegrenzung abgelaufen ist, beschreibt.
+  - : Eine Referenz auf eine Funktion, die in naher Zukunft aufgerufen werden soll, wenn die Ereignisschleife im Leerlauf ist. Der Rückruf wird ein [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)-Objekt übergeben, das die verfügbare Zeit und ob der Rückruf ausgeführt wurde, weil die Timeout-Phase abgelaufen ist, beschreibt.
 - `options` {{optional_inline}}
 
-  - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
+  - : Beinhaltet optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
 
     - `timeout`
-      - : Wenn die in Millisekunden angegebene Zeit abgelaufen ist und der Rückruf noch nicht aufgerufen wurde, wird eine Aufgabe zur Ausführung des Rückrufs in der Ereignisschleife eingereiht (auch wenn dies das Risiko einer negativen Leistungsbeeinträchtigung birgt). `timeout` muss einen positiven Wert haben, sonst wird er ignoriert.
+      - : Wenn die durch diesen Parameter dargestellte Anzahl von Millisekunden abgelaufen ist und der Rückruf noch nicht aufgerufen wurde, wird eine Aufgabe zum Ausführen des Rückrufs in der Ereignisschleife eingeplant (auch wenn dies ein negatives Leistungsrisiko birgt). `timeout` muss ein positiver Wert sein oder wird ignoriert.
 
 ### Rückgabewert
 
@@ -53,6 +53,6 @@ Siehe unser [vollständiges Beispiel](/de/docs/Web/API/Background_Tasks_API#exam
 
 - [`window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback)
 - [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)
-- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
-- [`setInterval()`](/de/docs/Web/API/SetInterval)
+- [`setTimeout()`](/de/docs/Web/API/Settimeout)
+- [`setInterval()`](/de/docs/Web/API/Setinterval)
 - [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)

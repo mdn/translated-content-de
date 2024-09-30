@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`prefix`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/prefix","prefix")}}-Deskriptors ab und setzt ihn. Wenn das Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`prefix`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) ruft den Wert des {{cssxref("@counter-style/prefix","prefix")}}-Descriptors ab und setzt diesen. Wenn für den Descriptor kein Wert festgelegt ist, gibt dieses Attribut eine leere Zeichenfolge zurück.
 
 ## Wert
 
-Ein String
+Eine Zeichenfolge
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `prefix` gibt uns den Wert "Chapter " zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Zurückgeben von `prefix` gibt uns den Wert "Chapter " zurück.
 
 ```css
 @counter-style chapters {

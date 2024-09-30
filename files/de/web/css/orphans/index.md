@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`orphans`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die am _unteren_ Ende einer [Seite](/de/docs/Web/CSS/CSS_paged_media), eines Bereichs oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
+Die **`orphans`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die minimale Anzahl von Zeilen in einem Block-Container fest, die unten auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einem Bereich oder in einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
 
-In der Typografie ist eine _Waise_ die erste Zeile eines Absatzes, die allein am unteren Ende einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
+In der Typografie ist eine _Waise_ die erste Zeile eines Absatzes, die allein am unteren Rand einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
 
 ## Syntax
 
@@ -29,7 +29,7 @@ orphans: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die minimale Anzahl von Zeilen, die am unteren Ende eines Fragments allein stehen bleiben können, bevor ein Fragmentierungsbruch erfolgt. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die vor einem Fragmentierungsbruch alleine am unteren Rand eines Fragments bleiben können. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -41,7 +41,7 @@ orphans: unset;
 
 ## Beispiele
 
-### Festlegen einer minimalen Waisengröße von drei Zeilen
+### Setzen einer minimalen Waisengröße von drei Zeilen
 
 #### HTML
 
@@ -93,4 +93,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("widows")}}
-- [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Paged Media](/de/docs/Web/CSS/CSS_paged_media)

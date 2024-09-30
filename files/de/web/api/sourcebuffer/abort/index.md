@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`abort()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
+Die **`abort()`**-Methode der Schnittstelle [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+bricht das aktuelle Segment ab und setzt den Segementparser zurück.
 
 ## Syntax
 
@@ -27,13 +28,19 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Eigenschaft [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) der übergeordneten Medienquelle nicht `open` ist oder wenn dieser `SourceBuffer` von der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
+  - : Wird ausgelöst, wenn die Eigenschaft [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) der
+    übergeordneten Media-Quelle nicht gleich `open` ist, oder dieser
+    `SourceBuffer` aus der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 
-Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend — betrachten Sie beispielsweise Schritt 1 von [reset parser state](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE API ist vollständig asynchron, aber dieser Schritt scheint eine synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
+Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend — betrachten Sie
+zum Beispiel Schritt 1 von [Reset Parser State](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE-API ist vollständig asynchron, aber dieser Schritt scheint eine
+synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
 
-Trotzdem können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie den aktuellen Append- (oder was auch immer) Vorgang auf einem Sourcebuffer stoppen und dann sofort wieder mit Operationen darauf beginnen möchten. Betrachten Sie zum Beispiel diesen Code:
+Trotzdem können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie
+die aktuelle Append- (oder eine andere) Operation beenden möchten, die auf einem Sourcebuffer erfolgt, und dann
+sofort wieder beginnen möchten, Operationen darauf durchzuführen. Beispielsweise betrachten Sie diesen Code:
 
 ```js
 sourceBuffer.addEventListener("updateend", (ev) => {
@@ -43,7 +50,12 @@ sourceBuffer.addEventListener("updateend", (ev) => {
 sourceBuffer.appendBuffer(buf);
 ```
 
-Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d. h. ein Puffer wird angehängt, aber die Operation ist noch nicht abgeschlossen), "scrubbt" ein Benutzer das Video, indem er zu einem neuen Zeitpunkt springt. In diesem Fall möchten Sie manuell `abort()` auf dem Sourcebuffer aufrufen, um die Dekodierung des aktuellen Puffers zu stoppen, und dann das neu angeforderte Segment abrufen und anhängen, das sich auf die aktuelle neue Position des Videos bezieht.
+Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das
+`updateend`-Ereignis ausgelöst wird (d. h. ein Puffer wird angehängt, aber die Operation
+ist noch nicht abgeschlossen), "spult" ein Benutzer das Video zu einem neuen Zeitpunkt. In
+diesem Fall möchten Sie manuell `abort()` auf dem Source-Buffer aufrufen, um
+das Decodieren des aktuellen Puffers zu stoppen und dann das neu angeforderte
+Segment abzurufen und anzuhängen, das der neuen aktuellen Position des Videos entspricht.
 
 ## Spezifikationen
 

@@ -28,11 +28,11 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 - `typeArg`
   - : Der Name des Ereignisses.
 - `canBubble` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob das Ereignis durch den DOM aufsteigt oder nicht.
+  - : Ein boolean, der angibt, ob das Ereignis innerhalb des DOM nach oben steigen kann oder nicht.
 - `cancelable` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
+  - : Ein boolean, der angibt, ob das Ereignis abgebrochen werden kann.
 - `key` {{optional_inline}}
-  - : Der Schlüssel, dessen Wert sich als Ergebnis dieses Ereignisses ändert.
+  - : Der Schlüssel, dessen Wert sich infolge dieses Ereignisses ändert.
 - `oldValue` {{optional_inline}}
   - : Der alte Wert des Schlüssels.
 - `newValue` {{optional_inline}}
@@ -40,7 +40,7 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 - `url` {{optional_inline}}
   - : Die URL des Dokuments, das die Änderung initiiert.
 - `storageArea` {{optional_inline}}
-  - : Das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den Speicherbereich darstellt, in dem dieses Ereignis aufgetreten ist.
+  - : Das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den Speicherbereich repräsentiert, in dem dieses Ereignis aufgetreten ist.
 
 ### Rückgabewert
 

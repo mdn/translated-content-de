@@ -11,7 +11,7 @@ Der `aural` [CSS](/de/docs/Web/CSS) [Medientyp](/de/docs/Web/CSS/@media#media_ty
 
 ## Syntax
 
-Der `aural` CSS-Medientyp wurde verwendet, um einen CSS-Block zu spezifizieren, der nur dann angewendet wird, wenn der Inhalt über ein Sprachsynthesegerät präsentiert wird.
+Der `aural` CSS-Medientyp wurde verwendet, um einen CSS-Block zu spezifizieren, der nur angewendet wird, wenn der Inhalt auf einem Sprachsynthesegerät präsentiert wird.
 
 ```css
 @media aural {
@@ -37,6 +37,6 @@ Der `aural` CSS-Medientyp wurde verwendet, um einen CSS-Block zu spezifizieren, 
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries)
+- [Media queries](/de/docs/Web/CSS/CSS_media_queries)
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [`@media`](/de/docs/Web/CSS/@media)

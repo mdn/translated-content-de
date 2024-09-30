@@ -7,22 +7,22 @@ l10n:
 
 {{AddonSidebar}}
 
-Beschreibung einer deklarativen Regel zur Ereignisbehandlung.
+Beschreibung einer deklarativen Regel zur Behandlung von Ereignissen.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `id` {{optional_inline}}
-  - : `string`. Eine optionale Kennung, die das Referenzieren dieser Regel ermöglicht.
+  - : `string`. Optionaler Bezeichner, mit dem diese Regel referenziert werden kann.
 - `tags` {{optional_inline}}
-  - : `array` von `string`. Tags können verwendet werden, um Regeln zu annotieren und Operationen auf Regelmengen durchzuführen.
+  - : `array` von `string`. Tags können verwendet werden, um Regeln zu annotieren und Operationen auf Regelmengen auszuführen.
 - `conditions`
   - : `array` von `any`. Liste von Bedingungen, die die Aktionen auslösen können.
 - `actions`
   - : `array` von `any`. Liste von Aktionen, die ausgelöst werden, wenn eine der Bedingungen erfüllt ist.
 - `priority` {{optional_inline}}
-  - : `integer`. Optionale Priorität dieser Regel. Standardmäßig 100.
+  - : `integer`. Optionale Priorität dieser Regel. Standardwert ist 100.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Rule) API. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Rule) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

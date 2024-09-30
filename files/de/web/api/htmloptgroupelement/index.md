@@ -7,22 +7,22 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLOptGroupElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (über die reguläre [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objektschnittstelle hinaus, die ihnen ebenfalls durch Vererbung zur Verfügung steht) zur Manipulation des Layouts und der Präsentation von {{HTMLElement("optgroup")}}-Elementen.
+Die Schnittstelle **`HTMLOptGroupElement`** bietet spezielle Eigenschaften und Methoden (über die reguläre [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle hinaus, die sie auch durch Vererbung zur Verfügung haben), um das Layout und die Darstellung von {{HTMLElement("optgroup")}}-Elementen zu manipulieren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLOptGroupElement.disabled`](/de/docs/Web/API/HTMLOptGroupElement/disabled)
-  - : Ein boolescher Wert, der darstellt, ob die gesamte Liste der Kindelemente {{HTMLElement("option")}} deaktiviert (true) oder nicht (false) ist.
+  - : Ein boolescher Wert, der angibt, ob die gesamte Liste der Kind-{{HTMLElement("option")}}-Elemente deaktiviert ist (true) oder nicht (false).
 - [`HTMLOptGroupElement.label`](/de/docs/Web/API/HTMLOptGroupElement/label)
-  - : Ein Zeichenkette, die das Label für die Gruppe darstellt.
+  - : Ein String, der das Label für die Gruppe darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

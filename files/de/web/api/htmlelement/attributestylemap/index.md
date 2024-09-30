@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: attributeStyleMap Eigenschaft"
+title: "HTMLElement: attributeStyleMap-Eigenschaft"
 short-title: attributeStyleMap
 slug: Web/API/HTMLElement/attributeStyleMap
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeStyleMap`** der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle gibt ein Live-Objekt vom Typ [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) zurück, das eine Liste von Stil-Eigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über das [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle per Skript zugewiesen wurden.
+Die schreibgeschützte **`attributeStyleMap`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle gibt ein aktives [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurück, das eine Liste von Stileigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über die [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle per Skript zugewiesen wurden.
 
-Kurzschreibweise-Eigenschaften werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden die Langschreibweise-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen gesetzt.
+Kurzschreibweisen werden erweitert. Wenn Sie `border-top: 1px solid black` festlegen, werden die Langschreibweisen-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen gesetzt.
 
 Der Hauptunterschied zwischen der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft und der `attributeStyleMap`-Eigenschaft besteht darin, dass die `style`-Eigenschaft ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurückgibt.
 
-Obwohl die Eigenschaft selbst nicht schreibbar ist, können Sie Inline-Stile durch das [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt, das sie zurückgibt, lesen und schreiben, genau wie durch das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
+Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie über das von ihr zurückgegebene [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt Inline-Stile lesen und schreiben, genau wie über das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
 
 ## Wert
 
-Ein Live-Objekt vom Typ [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap).
+Ein aktives [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Beziehung zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft:
+Der folgende Code-Schnipsel zeigt die Beziehung zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft:
 
 ```html
 <div style="white-space: pre-line;">

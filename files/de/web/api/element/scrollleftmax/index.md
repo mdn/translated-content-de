@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_header}}
 
-Die **`Element.scrollLeftMax`** schreibgeschützte Eigenschaft gibt eine Zahl zurück, die den maximal möglichen linken Scroll-Offset für das Element darstellt.
+Die schreibgeschützte Eigenschaft **`Element.scrollLeftMax`** gibt eine Zahl zurück, die den maximal möglichen linken Scrollversatz für das Element darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Spezifikationen
 
-_Diese Eigenschaft ist nicht Teil einer Spezifikation._
+_Diese Eigenschaft ist Teil keiner Spezifikation._
 
 ## Browser-Kompatibilität
 
@@ -24,4 +24,4 @@ _Diese Eigenschaft ist nicht Teil einer Spezifikation._
 
 ## Siehe auch
 
-- [`Element.scrollTopMax`](/de/docs/Web/API/Element/scrollTopMax), das dieselbe Information für die andere Achse gibt.
+- [`Element.scrollTopMax`](/de/docs/Web/API/Element/scrollTopMax), das dieselbe Information für die andere Achse liefert.

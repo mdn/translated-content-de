@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`WebAssembly.Module.imports()`** statische Methode gibt ein Array zurück, das Beschreibungen aller deklarierten Importe des angegebenen `Module` enthält.
+Die statische Methode **`WebAssembly.Module.imports()`** gibt ein Array zurück, das Beschreibungen aller deklarierten Importe des angegebenen `Module` enthält.
 
 ## Syntax
 
@@ -26,17 +26,15 @@ Ein Array, das Objekte enthält, die die importierten Funktionen des angegebenen
 
 ### Ausnahmen
 
-Wenn das Modul keine Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekts ist, wird ein
-{{jsxref("TypeError")}} ausgelöst.
+Wenn `module` keine Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekts ist, wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ## Beispiele
 
-### Verwenden von Imports
+### Verwendung von Imports
 
 Das folgende Beispiel kompiliert ein geladenes Wasm-Modul und fragt die Importe des Moduls ab.
 
-Siehe den Quellcode von imports.html [source code](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/imports.html) und
-[live version](https://mdn.github.io/webassembly-examples/js-api-examples/imports.html).
+Siehe den [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/imports.html) und die [Live-Version](https://mdn.github.io/webassembly-examples/js-api-examples/imports.html) von imports.html.
 
 ```js
 WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) => {
@@ -45,7 +43,7 @@ WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) => {
 });
 ```
 
-Der Konsolen-Log zeigt die folgende Beschreibung für das importierte Modul:
+Das Konsolenprotokoll zeigt die folgende Beschreibung für das importierte Modul:
 
 ```js
 { module: "my_namespace", name: "imported_func", kind: "function" }
@@ -63,4 +61,4 @@ Der Konsolen-Log zeigt die folgende Beschreibung für das importierte Modul:
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwenden der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

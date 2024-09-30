@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Der **`XSLTProcessor()`**-Konstruktor erstellt eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Objektinstanz.
+Der **`XSLTProcessor()`** Konstruktor erstellt eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Objektinstanz.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Objektinstanz.
+Eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Objektinstanz.
 
 ## Spezifikationen
 

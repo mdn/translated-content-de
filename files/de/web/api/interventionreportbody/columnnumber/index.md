@@ -11,11 +11,11 @@ l10n:
 Die schreibgeschützte Eigenschaft **`columnNumber`** der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle gibt die Spalte in der Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft ist zusammen mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile) und [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber) am nützlichsten, da sie es ermöglicht, den Ort der Spalte in dieser Datei und Zeile zu bestimmen, an der das Feature verwendet wird.
+> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile) und [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber), da sie die Bestimmung der Spaltenposition in dieser Datei und Zeile ermöglicht, wo das Feature verwendet wird.
 
 ## Wert
 
-Ein Integer oder `null`, wenn die Spalte nicht bekannt ist.
+Ein Ganzzahlwert oder `null`, wenn die Spalte nicht bekannt ist.
 
 ## Beispiele
 

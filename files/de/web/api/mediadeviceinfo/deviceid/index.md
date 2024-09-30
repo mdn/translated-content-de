@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`deviceId`** der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle gibt einen String zurück, der ein Identifikator für das dargestellte Gerät ist und über Sitzungen hinweg beibehalten wird.
+Die schreibgeschützte **`deviceId`**-Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle gibt einen String zurück, der ein Bezeichner für das dargestellte Gerät ist und über Sitzungen hinweg beibehalten wird.
 
-Er ist von anderen Anwendungen nicht erratbar und einzigartig für den Ursprung der aufrufenden Anwendung. Er wird zurückgesetzt, wenn der Benutzer Cookies löscht. Für privates Surfen wird ein anderer Identifikator verwendet, der nicht über Sitzungen hinweg beibehalten wird.
+Dieser Bezeichner kann von anderen Anwendungen nicht erraten werden und ist einzigartig für den Ursprung der aufrufenden Anwendung. Er wird zurückgesetzt, wenn der Benutzer Cookies löscht. Für privates Browsen wird ein anderer Bezeichner verwendet, der nicht über Sitzungen hinweg beibehalten wird.
 
 ## Wert
 

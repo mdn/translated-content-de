@@ -20,11 +20,12 @@ createElement(tagName, options)
 ### Parameter
 
 - `tagName`
-  - : Ein String, der den Typ des zu erstellenden Elements angibt. Der [`nodeName`](/de/docs/Web/API/Node/nodeName) des erstellten Elements wird mit dem Wert von _tagName_ initialisiert. Verwenden Sie keine qualifizierten Namen (wie "html:a") mit dieser Methode. Wenn sie auf ein HTML-Dokument angewendet wird, konvertiert `createElement()` _tagName_ in Kleinbuchstaben, bevor das Element erstellt wird. In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
+  - : Ein String, der den Typ des zu erstellenden Elements angibt. Der [`nodeName`](/de/docs/Web/API/Node/nodeName) des erstellten Elements wird mit dem Wert von _tagName_ initialisiert. Verwenden Sie keine qualifizierten Namen (wie "html:a") mit dieser Methode. Wenn die Methode auf einem HTML-Dokument aufgerufen wird, wandelt `createElement()` _tagName_ in Kleinbuchstaben um, bevor das Element erstellt wird. In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `is`
-      - : Der Tag-Name eines benutzerdefinierten Elements, das zuvor über `customElements.define()` definiert wurde. Weitere Details finden Sie im [Beispiel für ein Web-Component](#beispiel_für_ein_web-component).
+      - : Der Tag-Name eines benutzerdefinierten Elements, das zuvor über `customElements.define()` definiert wurde.
+        Weitere Details finden Sie im [Webkomponenten-Beispiel](#webkomponenten-beispiel).
 
 ### Rückgabewert
 
@@ -79,12 +80,12 @@ function addElement() {
 
 {{EmbedLiveSample("Basic_example", 500, 80)}}
 
-### Beispiel für ein Web-Component
+### Webkomponenten-Beispiel
 
 > [!NOTE]
-> Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für die Unterstützung und die [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attributreferenz für Hinweise zur Implementierungsrealität von benutzerdefinierten eingebauten Elementen.
+> Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützung und die [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attributreferenz für Hinweise zur Implementierungsrealität von benutzerdefinierten eingebauten Elementen.
 
-Der folgende Beispielcode stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component) Beispiel ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), das das {{htmlelement("ul")}}-Element darstellt.
+Der folgende Beispielcode stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component)-Beispiel ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), das das {{htmlelement("ul")}}-Element darstellt.
 
 ```js
 // Create a class for the element
@@ -102,16 +103,16 @@ class ExpandingList extends HTMLUListElement {
 customElements.define("expanding-list", ExpandingList, { extends: "ul" });
 ```
 
-Wenn wir eine Instanz dieses Elements programmgesteuert erstellen wollten, würden wir einen Aufruf in etwa folgender Form verwenden:
+Wenn wir ein solches Element programmatisch erstellen wollten, würden wir einen Aufruf wie den folgenden verwenden:
 
 ```js
 let expandingList = document.createElement("ul", { is: "expanding-list" });
 ```
 
-Dem neuen Element wird ein [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attribut zugewiesen, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
+Das neue Element erhält ein [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
 
 > [!NOTE]
-> Aus Gründen der Abwärtskompatibilität mit früheren Versionen der [Custom Elements-Spezifikation](https://www.w3.org/TR/custom-elements/) erlauben einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
+> Aus Gründen der Abwärtskompatibilität mit früheren Versionen der [Custom Elements Specification](https://www.w3.org/TR/custom-elements/) erlauben einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
 
 ## Spezifikationen
 
@@ -128,4 +129,4 @@ Dem neuen Element wird ein [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attrib
 - [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
 - [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)
 - [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes)
-- [`document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) — um explizit den Namespace-URI für das Element anzugeben.
+- [`document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) — um explizit den Namensraum-URI für das Element anzugeben.

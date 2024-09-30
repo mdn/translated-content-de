@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Löst aus, wenn sich ein oder mehrere Elemente in einem Speicherbereich ändern, und gibt Details zu den geänderten Schlüsseln zurück. Im Vergleich zu {{WebExtAPIRef("storage.onChanged")}} ermöglicht dieses Ereignis das Lauschen auf Änderungen in einem der Speicherbereiche: `local`, `managed`, `session` und `sync`.
+Wird ausgelöst, wenn sich ein oder mehrere Einträge in einem Speicherbereich ändern, und gibt Details zu den geänderten Schlüsseln zurück. Im Vergleich zu {{WebExtAPIRef("storage.onChanged")}} ermöglicht dieses Ereignis das Abhören von Änderungen in einem der Speicherbereiche: `local`, `managed`, `session` und `sync`.
 
 > [!NOTE]
-> In Firefox umfasst die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs. Zudem kann der Callback aufgerufen werden, wenn es keine Änderung an den zugrundeliegenden Daten gibt. Details zu den geänderten Elementen finden Sie, indem Sie jedes zurückgegebene Schlüsselobjekt {{WebExtAPIRef('storage.StorageChange')}} untersuchen. Siehe [Firefox Bug 1833153](https://bugzil.la/1833153).
+> In Firefox enthält die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs. Außerdem kann der Rückruf aufgerufen werden, wenn es keine Änderung an den zugrunde liegenden Daten gibt. Details zu den geänderten Elementen finden Sie, indem Sie jedes zurückgegebene {{WebExtAPIRef('storage.StorageChange')}} Objekt des Schlüssels untersuchen. Siehe [Firefox bug 1833153](https://bugzil.la/1833153).
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `changes`
-      - : `object`. Objekt, das die Änderung beschreibt. Es enthält eine Eigenschaft für jeden geänderten Schlüssel. Der Name der Eigenschaft ist der Name des geänderten Schlüssels, und sein Wert ist ein {{WebExtAPIRef('storage.StorageChange')}} Objekt, das die Änderung an diesem Element beschreibt.
+      - : `object`. Objekt, das die Änderung beschreibt. Dieses enthält eine Eigenschaft für jeden geänderten Schlüssel. Der Eigenschaftsname ist der Name des geänderten Schlüssels und sein Wert ist ein {{WebExtAPIRef('storage.StorageChange')}} Objekt, das die Änderung an diesem Element beschreibt.
 
 ## Beispiele
 
@@ -68,7 +68,7 @@ browser.storage.local.onChanged.addListener(logStorageChange);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-StorageArea-onChanged) API. Diese Dokumentation leitet sich von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-StorageArea-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

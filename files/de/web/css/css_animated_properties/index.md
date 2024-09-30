@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-[CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und [Übergänge](/de/docs/Web/CSS/CSS_transitions) beruhen auf dem Konzept der **animierbaren** Eigenschaften, wobei alle CSS-Eigenschaften animierbar sind, sofern nicht anders angegeben. Der _Animationstyp_ jeder Eigenschaft bestimmt, wie Werte [kombiniert](https://drafts.csswg.org/css-values/#combining-values) werden - interpolieren, addieren oder akkumulieren - für diese Eigenschaft. Übergänge beinhalten nur Interpolation, während Animationen alle drei Kombinationsmethoden verwenden können.
+[CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und [Transitionen](/de/docs/Web/CSS/CSS_transitions) basieren auf dem Konzept der **animierbaren** Eigenschaften, und alle CSS-Eigenschaften sind animierbar, sofern nicht anders angegeben. Der _Animationstyp_ jeder Eigenschaft bestimmt, wie Werte für diese Eigenschaft [kombiniert](https://drafts.csswg.org/css-values/#combining-values) werden - interpolieren, hinzufügen oder akkumulieren. Transitionen beinhalten nur Interpolation, während Animationen alle drei Kombinationstechniken verwenden können.
 
 > [!NOTE]
-> Der Animationstyp für jede CSS-Eigenschaft ist in ihrer Tabelle mit der "Formalen Definition" aufgeführt (z.B. {{CSSXref("color", "", "#formal_definition")}}).
+> Der Animationstyp für jede CSS-Eigenschaft ist in ihrer Tabelle "Formale Definition" aufgeführt (z. B., {{CSSXref("color", "", "#formal_definition")}}).
 
 > [!NOTE]
-> Die Interpolationsmethode für jeden CSS-Datentyp wird in seinem Abschnitt "Interpolation" beschrieben (z.B. {{CSSXref("&lt;length&gt;", "", "#interpolation")}}).
+> Die Interpolationsmethode für jeden CSS-Datentyp wird in seinem Abschnitt "Interpolation" beschrieben (z. B., {{CSSXref("&lt;length&gt;", "", "#interpolation")}}).
 
 ## Animationstypen
 
@@ -21,35 +21,35 @@ Es gibt hauptsächlich vier Animationstypen, wie in der [Web Animations](https:/
 
 - Nicht animierbar
 
-  - : Die Eigenschaft ist nicht animierbar. Sie wird nicht verarbeitet, wenn sie in einem Animations-Schlüsselbild aufgeführt ist, und wird nicht von Übergängen beeinflusst.
+  - : Die Eigenschaft ist nicht animierbar. Sie wird nicht verarbeitet, wenn sie in einem Animations-Schlüsselbild aufgeführt wird und ist von Transitionen nicht betroffen.
 
     > [!NOTE]
-    > Ein Animationseffekt, der nur auf Eigenschaften abzielt, die nicht animierbar sind, zeigt dennoch das übliche Verhalten eines Animationseffekts (z.B. das Auslösen des [`animationstart`](/de/docs/Web/API/Element/animationstart_event) Ereignisses).
+    > Ein Animationseffekt, der nur auf Eigenschaften abzielt, die nicht animierbar sind, zeigt dennoch das übliche Verhalten eines Animationseffekts (z. B., das Auslösen des [`animationstart`](/de/docs/Web/API/Element/animationstart_event)-Ereignisses).
 
 - Diskret
 
-  - : Die Werte der Eigenschaft sind nicht additiv, und die Interpolation wechselt bei `50%` vom Startwert zum Endwert. Speziell, wobei `p` den Fortschrittswert darstellt:
+  - : Die Werte der Eigenschaft sind nicht additiv, und die Interpolation wechselt vom Startwert zum Endwert bei `50%`. Konkret, unter Verwendung von `p` als Fortschrittswert:
 
     - Wenn `p < 0.5`, dann `V_result = V_start`;
     - Wenn `p ≥ 0.5`, dann `V_result = V_end`.
 
 - Nach berechnetem Wert
 
-  - : Entsprechende einzelne Komponenten der berechneten Werte werden unter Verwendung des angegebenen Verfahrens für diesen Wertetyp kombiniert. Wenn die Anzahl der Komponenten oder die Typen der entsprechenden Komponenten nicht übereinstimmen oder wenn ein beliebiger Komponentenwert eine diskrete Animation verwendet und die beiden entsprechenden Werte nicht übereinstimmen, werden die Eigenschaftswerte diskret kombiniert.
+  - : Entsprechende individuelle Komponenten der berechneten Werte werden unter Verwendung des angegebenen Verfahrens für diesen Wertetyp kombiniert. Wenn die Anzahl der Komponenten oder die Typen der entsprechenden Komponenten nicht übereinstimmen oder wenn ein Komponentenwert diskrete Animation verwendet und die beiden entsprechenden Werte nicht übereinstimmen, dann werden die Eigenschaftswerte diskret kombiniert.
 
 - Wiederholbare Liste
 
-  - : Dasselbe wie bei berechnetem Wert, außer dass, wenn die beiden Listen unterschiedliche Anzahlen von Elementen haben, sie zuerst auf die kleinste gemeinsame Vielfache Zahl von Elementen wiederholt werden. Jedes Element wird dann nach berechnetem Wert kombiniert. Wenn ein Paar von Werten nicht kombiniert werden kann oder ein beliebiger Komponentenwert eine diskrete Animation verwendet, werden die Eigenschaftswerte diskret kombiniert.
+  - : Gleich wie nach berechnetem Wert, außer dass, wenn die zwei Listen eine unterschiedliche Anzahl von Elementen haben, sie zuerst auf die kleinste gemeinsame Vielfache Anzahl von Elementen wiederholt werden. Jedes Element wird dann nach berechnetem Wert kombiniert. Wenn ein Paar von Werten nicht kombiniert werden kann oder ein Komponentenwert diskrete Animation verwendet, dann werden die Eigenschaftswerte diskret kombiniert.
 
-Einige Eigenschaften haben ein spezifisches Interpolationsverhalten, das nicht von diesen vier Typen abgedeckt wird. In diesem Fall konsultieren Sie den Abschnitt "Interpolation" der Eigenschaft (z.B. {{CSSXref("visibility", "", "#interpolation")}}).
+Einige Eigenschaften weisen ein spezifisches Interpolationsverhalten auf, das nicht durch diese vier Typen abgedeckt wird. In diesem Fall ist der Abschnitt "Interpolation" der Eigenschaft zu konsultieren (z. B., {{CSSXref("visibility", "", "#interpolation")}}).
 
-## Animieren benutzerdefinierter Eigenschaften
+## Animierung benutzerdefinierter Eigenschaften
 
-Für benutzerdefinierte Eigenschaften, die mit der Methode [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) registriert wurden, ist der Animationstyp nach berechnetem Wert, wobei der berechnete Wertetyp durch die Syntaxdefinition der Eigenschaft [bestimmt](https://drafts.css-houdini.org/css-properties-values-api/#calculation-of-computed-values) wird.
+Für benutzerdefinierte Eigenschaften, die mit der Methode [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) registriert wurden, ist der Animationstyp nach berechnetem Wert, wobei der Typ des berechneten Werts durch die Syntaxdefinition der Eigenschaft [bestimmt](https://drafts.css-houdini.org/css-properties-values-api/#calculation-of-computed-values) wird.
 
 Für nicht registrierte benutzerdefinierte Eigenschaften ist der Animationstyp diskret.
 
 ## Siehe auch
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Transitionen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)

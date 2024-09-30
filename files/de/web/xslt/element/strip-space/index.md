@@ -26,7 +26,7 @@ Keine.
 
 ### Typ
 
-Oberste Ebene, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Top-Level, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "FileReader: error-Ereignis"
+title: "FileReader: error Ereignis"
 short-title: error
 slug: Web/API/FileReader/error_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`error`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird ausgelöst, wenn das Lesen aufgrund eines Fehlers fehlschlägt (zum Beispiel, weil die Datei nicht gefunden oder nicht lesbar ist).
+Das **`error`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn das Lesen aufgrund eines Fehlers fehlschlug (zum Beispiel, weil die Datei nicht gefunden wurde oder nicht lesbar ist).
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Events in der Ereignishierarchie aus.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergegeben.
 
 ## Syntax
 
@@ -30,14 +30,14 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-`Event`_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Eine boolesche Kennzeichnung, die angibt, ob die gesamte zu verrichtende Arbeit und die bereits vom zugrunde liegenden Prozess verrichtete Arbeit berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
 - [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ungesichertes Ganzzahl-Wert, der die bereits vom zugrunde liegenden Prozess verrichtete Arbeit angibt. Das Verhältnis der verrichteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Body der HTTP-Nachricht und schließt Header und andere Overheads nicht mit ein.
+  - : Ein 64-Bit-Integerwert, der die Menge der bereits durch den zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und andere Überhead nicht ein.
 - [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ungesichertes Ganzzahl-Wert, der die Gesamtarbeit angibt, die der zugrunde liegende Prozess im Gange ist, zu leisten. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Bodys der Nachricht) und schließt die Header und anderen Overheads nicht ein.
+  - : Ein 64-Bit-Integer, das die Gesamtmenge der Arbeit repräsentiert, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt die Header und andere Überhead nicht ein.
 
 ## Beispiele
 

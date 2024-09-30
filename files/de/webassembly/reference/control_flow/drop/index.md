@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
+Die **`drop`**-Anweisung entnimmt einen Wert vom Stapel und verwirft ihn.
 
 {{EmbedInteractiveExample("pages/wat/drop.html", "tabbed-taller")}}
 

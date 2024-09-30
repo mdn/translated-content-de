@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.keys()`** Methode
+Die **`CSSUnparsedValue.keys()`**-Methode
 gibt ein neues _Array-Iterator_-Objekt zurück, das die Schlüssel
 für jeden Index im Array enthält.
 

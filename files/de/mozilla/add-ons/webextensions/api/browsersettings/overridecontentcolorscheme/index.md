@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrundeliegender Wert ein String ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein String ist.
 
-Firefox ermöglicht es Benutzern, ein Thema für die Browser-Oberfläche auszuwählen. Diese Themen wenden entweder ein helles oder dunkles Thema auf Webseiten an. Mit der Präferenz `layout.css.prefers-color-scheme.content-override` können Nutzer das Thema überschreiben und wählen, ob Webseiten in einem hellen oder dunklen Thema gerendert werden sollen oder ob sie dem Thema des Geräts folgen. Diese Browsereinstellung macht diese Präferenz zugänglich.
+Firefox ermöglicht es den Benutzern, ein Thema für die Benutzeroberfläche des Browsers auszuwählen. Diese Themen wenden entweder ein helles oder dunkles Thema auf Webseiten an. Mit der Einstellung `layout.css.prefers-color-scheme.content-override` können Benutzer das Thema überschreiben und wählen, Webseiten in einem hellen oder dunklen Thema anzuzeigen oder dem Thema des Geräts zu folgen. Diese Browser-Einstellung gibt diese Präferenz frei.
 
 Dieses Objekt nimmt folgende Werte an:
 
 - "light": Wendet ein helles Thema auf Webseiten an.
 - "dark": Wendet ein dunkles Thema auf Webseiten an.
-- "system": Wendet je nach Gerätethema ein helles oder dunkles Thema auf Webseiten an.
-- "browser": Wendet je nach Browser-Thema ein helles oder dunkles Thema auf Webseiten an.
+- "system": Wendet je nach Thema des Geräts ein helles oder dunkles Thema auf Webseiten an.
+- "browser": Wendet ein helles oder dunkles Thema auf Webseiten an, basierend auf dem Thema des Browsers.
 
 ## Browser-Kompatibilität
 

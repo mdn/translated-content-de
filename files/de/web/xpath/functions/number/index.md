@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `number`-Funktion konvertiert ein Objekt in eine Zahl und gibt die Zahl zurück.
+Die Funktion `number` konvertiert ein Objekt in eine Zahl und gibt die Zahl zurück.
 
 ## Syntax
 
@@ -26,15 +26,15 @@ Die resultierende Zahl nach der Konvertierung des Objekts.
 
 ## Beschreibung
 
-- Zeichenfolgen werden in eine Zahl umgewandelt, indem führende Leerzeichen in der Zeichenfolge vor der Zahl entfernt und Leerzeichen nach der Zahl ignoriert werden. Wenn die Zeichenfolge diesem Muster nicht entspricht, wird sie in NaN umgewandelt.
-- Wahrheitswerte werden folgendermaßen umgewandelt: Wahr wird zu 1, Falsch wird zu 0.
-- Eine Knotenmenge wird zuerst in eine Zeichenfolge umgewandelt, als ob der [string()](/de/docs/Web/XPath/Functions/string)-Funktion aufgerufen worden wäre, und dann auf dieselbe Weise wie ein Zeichenfolgenargument konvertiert.
-- Ein Objekt eines anderen Typs als der vier Grundtypen wird in einer von diesem Typ abhängigen Weise in eine Zahl umgewandelt.
+- Zeichenketten werden in eine Zahl umgewandelt, indem führende Leerzeichen in der Zeichenkette vor der Zahl entfernt werden und Leerzeichen nach der Zahl ignoriert werden. Wenn die Zeichenkette diesem Muster nicht entspricht, wird die Zeichenkette in NaN konvertiert.
+- Boolean true wird in 1 umgewandelt. False wird in 0 umgewandelt.
+- Eine Knotenmenge wird zuerst in eine Zeichenkette umgewandelt, als ob durch einen Aufruf der Funktion [string()](/de/docs/Web/XPath/Functions/string), und dann auf die gleiche Weise wie ein Zeichenkettenargument konvertiert.
+- Ein Objekt eines anderen Typs als der vier Basistypen wird in eine Zahl auf eine Weise konvertiert, die von diesem Typ abhängig ist.
 
 ## Spezifikationen
 
 [XPath 1.0 4.4](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-number)
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

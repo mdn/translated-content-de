@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`302 Found`** [Redirection Response](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die angeforderte Ressource vorübergehend zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
+Der HTTP-Statuscode **`302 Found`** [Umleitungsantwort](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die angeforderte Ressource vorübergehend zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
 
-Ein Browser, der diesen Status erhält, wird automatisch die Ressource an der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden keine Links zur ursprünglichen URL auf die neue Ressource übertragen, was bedeutet, dass kein [SEO](/de/docs/Glossary/SEO)-Wert auf die neue URL übertragen wird.
+Ein Browser, der diesen Status erhält, wird automatisch die Ressource an der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite umleiten. Suchmaschinen, die diese Antwort erhalten, werden Links nicht der ursprünglichen URL zuordnen, was bedeutet, dass kein [SEO](/de/docs/Glossary/SEO)-Wert auf die neue URL übertragen wird.
 
 > [!NOTE]
-> Im [Fetch Standard](https://fetch.spec.whatwg.org/#http-redirect-fetch), wenn ein Benutzeragent ein `302` als Antwort auf eine {{HTTPMethod("POST")}}-Anfrage erhält, verwendet er die Methode {{HTTPMethod("GET")}} in der darauffolgenden Umleitungsanforderung, wie es die HTTP-[Spezifikation](#spezifikationen) erlaubt.
-> Um zu vermeiden, dass Benutzeragenten die Anfrage ändern, verwenden Sie stattdessen {{HTTPStatus("307", "307 Temporary Redirect")}}, da das Ändern der Methode nach einer `307`-Antwort verboten ist.
+> Im [Fetch-Standard](https://fetch.spec.whatwg.org/#http-redirect-fetch), wenn ein User-Agent eine `302`-Antwort auf eine {{HTTPMethod("POST")}}-Anfrage erhält, wird die {{HTTPMethod("GET")}}-Methode in der nachfolgenden Umleitungsanfrage verwendet, wie es von der HTTP-[Spezifikation](#spezifikationen) erlaubt ist.
+> Um zu verhindern, dass User-Agents die Anfrage ändern, verwenden Sie stattdessen {{HTTPStatus("307", "307 Temporary Redirect")}}, da die Änderung der Methode nach einer `307`-Antwort untersagt ist.
 >
-> In Fällen, in denen Sie möchten, dass jede Anfragemethode in {{HTTPMethod("GET")}} geändert wird, verwenden Sie {{HTTPStatus("303", "303 See Other")}}.
-> Dies ist nützlich, wenn Sie eine Antwort auf eine {{HTTPMethod("PUT")}}-Methode geben möchten, die nicht die hochgeladene Ressource, sondern eine Bestätigungsnachricht ist, wie zum Beispiel: "Sie haben XYZ erfolgreich hochgeladen".
+> In Fällen, in denen Sie möchten, dass eine beliebige Anfragemethode in {{HTTPMethod("GET")}} geändert wird, verwenden Sie {{HTTPStatus("303", "303 See Other")}}.
+> Dies ist nützlich, wenn Sie auf eine {{HTTPMethod("PUT")}}-Methode antworten möchten, die nicht die hochgeladene Ressource ist, sondern eine Bestätigungsnachricht wie: "Sie haben XYZ erfolgreich hochgeladen".
 
 ## Status
 

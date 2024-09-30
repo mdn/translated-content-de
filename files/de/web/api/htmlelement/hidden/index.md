@@ -19,17 +19,17 @@ Dieses Attribut kann einen von drei Werten haben:
 - `false`
   - : Das Element ist nicht verborgen. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _verborgen bis es gefunden wird_, was bedeutet, dass es verborgen ist, aber enthüllt wird, wenn es über die Seitensuche gefunden oder über die Fragmentnavigation erreicht wird.
+  - : Das Element ist _verborgen bis es gefunden wird_, was bedeutet, dass es verborgen ist, aber angezeigt wird, wenn es durch die Seitensuche oder die Fragmentnavigation gefunden wird.
 
-Für Details zur Verwendung dieses Attributs siehe die Seite zum [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft widerspiegelt.
+Details zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) HTML-Attribut, das diese Eigenschaft widerspiegelt.
 
 ## Beispiele
 
-Hier ist ein Beispiel, bei dem ein verborgener Block verwendet wird, um eine 'Danke'-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, wo ein verborgener Block verwendet wird, um eine 'Dankeschön'-Nachricht einzuschließen, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Bereiche: ein Willkommensfeld, das die Benutzer auffordert, großartig zu sein, und ein Nachfolgefeld, das anfänglich verborgen ist.
+Das HTML enthält zwei Paneele: ein Willkommenspaneel, das die Benutzer bittet, damit einverstanden zu sein, großartig zu sein, und ein Folgepaneel, das anfangs verborgen ist.
 
 ```html
 <div id="welcome" class="panel">
@@ -46,7 +46,7 @@ Das HTML enthält zwei Bereiche: ein Willkommensfeld, das die Benutzer aufforder
 
 ### CSS
 
-Der Inhalt wird mit dem untenstehenden CSS gestaltet.
+Der Inhalt wird mit dem folgenden CSS gestaltet.
 
 ```css
 .panel {
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Ereignislistener zum "OK"-Button hinzu, der das "Willkommen"-Feld verbirgt und das "Großartig"-Feld anzeigt:
+Das JavaScript fügt einen Ereignis-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel verbirgt und das "Großartig"-Panel zeigt:
 
 ```js
 document.getElementById("okButton").addEventListener(
@@ -105,5 +105,5 @@ document.getElementById("okButton").addEventListener(
 
 ## Siehe auch
 
-- [hidden](/de/docs/Web/HTML/Global_attributes#hidden)-Attribut
+- [hidden](/de/docs/Web/HTML/Global_attributes#hidden) Attribut
 - {{cssxref("display")}}

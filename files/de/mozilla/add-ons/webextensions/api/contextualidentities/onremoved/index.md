@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine neue kontextbezogene Identität entfernt wird. Kontextbezogene Identitäten können durch Erweiterungen mithilfe der `contextualIdentities` API oder direkt durch den Benutzer über die Benutzeroberfläche des Browsers entfernt werden.
+Wird ausgelöst, wenn eine neue kontextuelle Identität entfernt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities`-API oder direkt vom Benutzer über die Benutzeroberfläche des Browsers entfernt werden.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beenden Sie das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stellt das Zuhören für dieses Ereignis ein. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn dieser zuhört, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `changeInfo`
-      - : `object`. Ein Objekt, das eine einzelne Eigenschaft enthält, `contextualIdentity`, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} Objekt ist, das die entfernte Identität repräsentiert.
+      - : `object`. Ein Objekt, das eine einzelne Eigenschaft `contextualIdentity` enthält, welche ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}}-Objekt ist, das die entfernte Identität darstellt.
 
 ## Browser-Kompatibilität
 

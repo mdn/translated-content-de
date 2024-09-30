@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:popover-open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein [Popover](/de/docs/Web/API/Popover_API)-Element (d. h. eines mit einem [`popover`-Attribut](/de/docs/Web/HTML/Global_attributes/popover)), das sich im angezeigten Zustand befindet. Sie können diese verwenden, um einem Popover-Element nur dann Stil zu verleihen, wenn es angezeigt wird.
+Die **`:popover-open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein [Popover](/de/docs/Web/API/Popover_API)-Element (d. h. eines mit einem [`popover`-Attribut](/de/docs/Web/HTML/Global_attributes/popover)), das sich im sichtbaren Zustand befindet. Sie können dies verwenden, um Stil nur auf Popover-Elemente anzuwenden, wenn sie angezeigt werden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Die **`:popover-open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-Standardmäßig erscheinen Popovers in der Mitte des Viewports. Das Standardstyling wird so im UA-Stylesheet erreicht:
+Standardmäßig erscheinen Popovers in der Mitte des Ansichtsfensters. Die Standardformatierung wird im UA-Stylesheet folgendermaßen erreicht:
 
 ```css
 [popover] {
@@ -36,7 +36,7 @@ Standardmäßig erscheinen Popovers in der Mitte des Viewports. Das Standardstyl
 }
 ```
 
-Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle im Viewport erscheinen zu lassen, müssen Sie möglicherweise die obigen Stile mit etwas Ähnlichem wie diesem überschreiben:
+Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle im Ansichtsfenster erscheinen zu lassen, könnten Sie die obigen Stile mit etwas wie diesem überschreiben:
 
 ```css
 :popover-open {
@@ -61,4 +61,4 @@ Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle i
 ## Siehe auch
 
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML-Globalattribut
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut

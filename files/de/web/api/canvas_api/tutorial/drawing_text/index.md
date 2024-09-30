@@ -14,13 +14,13 @@ Nachdem wir im vorherigen Kapitel gesehen haben, wie man [Stile und Farben anwen
 Der Canvas-Rendering-Kontext bietet zwei Methoden, um Text zu rendern:
 
 - [`fillText(text, x, y [, maxWidth])`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)
-  - : Füllt einen gegebenen Text an der angegebenen (x,y)-Position aus. Optional mit einer maximalen Breite zum Zeichnen.
+  - : Füllt einen gegebenen Text an der angegebenen (x,y)-Position. Optional mit einer maximalen Breite zum Zeichnen.
 - [`strokeText(text, x, y [, maxWidth])`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText)
-  - : Zeichnet die Umrisse eines gegebenen Textes an der angegebenen (x,y)-Position. Optional mit einer maximalen Breite zum Zeichnen.
+  - : Zeichnet den Umriss eines gegebenen Textes an der angegebenen (x,y)-Position. Optional mit einer maximalen Breite zum Zeichnen.
 
 ### Ein `fillText` Beispiel
 
-Der Text wird unter Verwendung des aktuellen `fillStyle` gefüllt.
+Der Text wird mit dem aktuellen `fillStyle` gefüllt.
 
 ```js
 function draw() {
@@ -42,7 +42,7 @@ draw();
 
 ### Ein `strokeText` Beispiel
 
-Der Text wird unter Verwendung des aktuellen `strokeStyle` gefüllt.
+Der Text wird mit dem aktuellen `strokeStyle` umrandet.
 
 ```js
 function draw() {
@@ -62,26 +62,26 @@ draw();
 
 {{EmbedLiveSample("A_strokeText_example", 310, 110)}}
 
-## Text gestalten
+## Textgestaltung
 
-In den obigen Beispielen verwenden wir bereits die `font`-Eigenschaft, um den Text etwas größer als die Standardgröße zu machen. Es gibt noch einige weitere Eigenschaften, die Ihnen ermöglichen, die Art und Weise anzupassen, wie der Text auf der Leinwand angezeigt wird:
+In den obigen Beispielen verwenden wir bereits die `font`-Eigenschaft, um den Text etwas größer als die Standardgröße zu machen. Es gibt einige weitere Eigenschaften, die Ihnen ermöglichen, die Art und Weise anzupassen, wie der Text auf der Leinwand angezeigt wird:
 
 - [`font = value`](/de/docs/Web/API/CanvasRenderingContext2D/font)
-  - : Der aktuelle Textstil, der beim Zeichnen von Text verwendet wird. Dieser String verwendet dieselbe Syntax wie die [CSS](/de/docs/Web/CSS) {{cssxref("font")}}-Eigenschaft. Die Standardschriftart ist 10px sans-serif.
+  - : Der aktuelle Textstil, der beim Zeichnen von Text verwendet wird. Dieser String verwendet die gleiche Syntax wie die [CSS](/de/docs/Web/CSS) {{cssxref("font")}}-Eigenschaft. Die Standard-Schriftart ist 10px sans-serif.
 - [`textAlign = value`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign)
-  - : Textausrichtungseinstellung. Mögliche Werte: `start`, `end`, `left`, `right` oder `center`. Der Standardwert ist `start`.
+  - : Einstellung der Textausrichtung. Mögliche Werte: `start`, `end`, `left`, `right` oder `center`. Der Standardwert ist `start`.
 - [`textBaseline = value`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)
-  - : Basislinienausrichtungseinstellung. Mögliche Werte: `top`, `hanging`, `middle`, `alphabetic`, `ideographic`, `bottom`. Der Standardwert ist `alphabetic`.
+  - : Einstellung der Grundlinienausrichtung. Mögliche Werte: `top`, `hanging`, `middle`, `alphabetic`, `ideographic`, `bottom`. Der Standardwert ist `alphabetic`.
 - [`direction = value`](/de/docs/Web/API/CanvasRenderingContext2D/direction)
-  - : Richtung. Mögliche Werte: `ltr`, `rtl`, `inherit`. Der Standardwert ist `inherit`.
+  - : Richtungsangabe. Mögliche Werte: `ltr`, `rtl`, `inherit`. Der Standardwert ist `inherit`.
 
-Diese Eigenschaften könnten Ihnen bekannt vorkommen, wenn Sie bereits mit CSS gearbeitet haben.
+Diese Eigenschaften könnten Ihnen vertraut sein, wenn Sie zuvor mit CSS gearbeitet haben.
 
-Das folgende Diagramm von der [WHATWG](https://whatwg.org/) demonstriert die verschiedenen Baselines, die von der `textBaseline`-Eigenschaft unterstützt werden.! [Der obere Rand des Em-Quadrats befindet sich ungefähr an der Oberseite der Glyphen in einer Schrift, die hängende Basislinie ist, wo einige Glyphen wie आ verankert sind, die Mitte ist auf halbem Weg zwischen der Ober- und Unterseite des Em-Quadrats, die alphabetische Basislinie ist, wo Zeichen wie Á, ÿ, f und Ω verankert sind, die ideographische Basislinie ist, wo Glyphen wie 私 und 達 verankert sind, und die Unterseite des Em-Quadrats liegt ungefähr am unteren Ende der Glyphen in einer Schrift. Der obere und untere Rand der Begrenzungsbox können weit von diesen Basislinien entfernt sein, da Glyphen weit außerhalb des Em-Quadrats verlängert werden.](baselines.png)
+Das folgende Diagramm von der [WHATWG](https://whatwg.org/) zeigt die verschiedenen Grundlinien, die von der `textBaseline`-Eigenschaft unterstützt werden.![Die Oberseite des Em-Quadrats befindet sich ungefähr am oberen Ende der Glyphen einer Schriftart, die hängende Grundlinie ist dort, wo einige Glyphen wie आ verankert sind. Die Mitte befindet sich auf halber Strecke zwischen der Oberseite und Unterseite des Em-Quadrats. Die alphabetische Grundlinie ist dort, wo Zeichen wie Á, ÿ, f und Ω verankert sind. Die ideographische Grundlinie ist dort, wo Glyphen wie 私 und 達 verankert sind. Und die Unterseite des Em-Quadrats befindet sich ungefähr am unteren Ende der Glyphen in einer Schriftart. Die Ober- und Unterseite des Begrenzungsrahmens können weit von diesen Grundlinien entfernt sein, da Glyphen weit außerhalb des Em-Quadrats reichen können.](baselines.png)
 
-### Ein textBaseline Beispiel
+### Ein `textBaseline` Beispiel
 
-Bearbeiten Sie den folgenden Code und sehen Sie, wie sich Ihre Änderungen live auf der Leinwand aktualisieren:
+Bearbeiten Sie den untenstehenden Code und sehen Sie, wie sich Ihre Änderungen live auf der Leinwand aktualisieren:
 
 ```html hidden
 <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>
@@ -126,12 +126,12 @@ window.addEventListener("load", drawCanvas);
 
 ## Erweiterte Textmessungen
 
-Für den Fall, dass Sie weitere Details über den Text erhalten müssen, ermöglicht Ihnen die folgende Methode, ihn zu messen.
+Falls Sie mehr Details über den Text benötigen, ermöglicht Ihnen die folgende Methode, ihn zu messen.
 
 - [`measureText()`](/de/docs/Web/API/CanvasRenderingContext2D/measureText)
   - : Gibt ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt zurück, das die Breite in Pixeln enthält, die der angegebene Text haben wird, wenn er im aktuellen Textstil gezeichnet wird.
 
-Der folgende Codeausschnitt zeigt, wie Sie einen Text messen und seine Breite erhalten können.
+Der folgende Codeausschnitt zeigt, wie Sie einen Text messen und seine Breite ermitteln können.
 
 ```js
 function draw() {
@@ -141,10 +141,10 @@ function draw() {
 }
 ```
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Das `<canvas>`-Element ist nur ein Bitmap und liefert keine Informationen über gezeichnete Objekte. Auf der Leinwand geschriebener Text kann Lesbarkeitsprobleme bei Benutzern verursachen, die auf Bildschirmlupen angewiesen sind. Die Pixel innerhalb eines `canvas`-Elements skalieren nicht und können bei Vergrößerung verschwommen werden. Dies liegt daran, dass sie keine Vektoren, sondern buchstabenförmige Pixelansammlungen sind. Beim Hineinzoomen werden die Pixel größer.
+Das `<canvas>`-Element ist lediglich ein Bitmap und liefert keine Informationen über gezeichnete Objekte. Text, der auf einer Leinwand geschrieben wird, kann Lesbarkeitsprobleme bei Nutzern verursachen, die auf Bildschirmvergrößerung angewiesen sind. Die Pixel innerhalb eines Canvas-Elements skalieren nicht und können bei Vergrößerung unscharf werden. Dies liegt daran, dass sie keine Vektoren sind, sondern eine buchstabenförmige Ansammlung von Pixeln. Bei der Vergrößerung werden die Pixel größer.
 
-Canvas-Inhalte werden nicht für Barrierefreiheitswerkzeuge verfügbar gemacht, wie es bei semantischem HTML der Fall ist. Im Allgemeinen sollten Sie die Verwendung von Canvas in einer barrierefreien Website oder App vermeiden. Eine Alternative besteht darin, HTML-Elemente oder SVG anstelle von Canvas zu verwenden.
+Canvas-Inhalte werden nicht wie semantisches HTML an Barrierefreiheitswerkzeuge weitergegeben. Im Allgemeinen sollten Sie die Verwendung von Canvas in einer zugänglichen Website oder App vermeiden. Eine Alternative wäre, HTML-Elemente oder SVG anstelle von Canvas zu verwenden.
 
 {{PreviousNext("Web/API/Canvas_API/Tutorial/Applying_styles_and_colors", "Web/API/Canvas_API/Tutorial/Using_images")}}

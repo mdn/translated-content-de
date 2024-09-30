@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebP** ist ein von Google entwickeltes Bildformat für verlustfreie und verlustbehaftete Komprimierung.
+**WebP** ist ein von Google entwickeltes Bildformat für verlustfreie und verlustbehaftete Kompression.
 
 ## Siehe auch
 

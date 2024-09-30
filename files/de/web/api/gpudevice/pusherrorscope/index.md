@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushErrorScope()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle fügt einen neuen GPU-Fehlerbereich zum Fehlerbereichsstapel des Geräts hinzu, sodass Sie Fehler eines bestimmten Typs erfassen können.
+Die **`pushErrorScope()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle fügt einen neuen GPU-Fehlerbereich zum Fehlerbereich-Stack des Geräts hinzu, wodurch Sie Fehler eines bestimmten Typs erfassen können.
 
-Sobald Sie mit der Fehlererfassung fertig sind, können Sie diese beenden, indem Sie [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) aufrufen. Dies entfernt den Bereich vom Stapel und gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn keine Fehler erfasst wurden.
+Sobald Sie mit der Erfassung von Fehlern fertig sind, können Sie die Erfassung beenden, indem Sie [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) aufrufen. Dadurch wird der Bereich aus dem Stapel entfernt und es wird ein {{jsxref("Promise")}} zurückgegeben, das zu einem Objekt aufgelöst wird, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn keine Fehler erfasst wurden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushErrorScope(filter)
 ### Parameter
 
 - `filter`
-  - : Ein enumerierter Wert, der angibt, welcher Fehlertyp in diesem speziellen Fehlerbereich erfasst wird. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der angibt, welcher Typ von Fehler in diesem speziellen Fehlerbereich erfasst wird. Mögliche Werte sind:
     - `"internal"`
       - : Der Fehlerbereich erfasst einen [`GPUInternalError`](/de/docs/Web/API/GPUInternalError).
     - `"out-of-memory"`
@@ -31,11 +31,11 @@ pushErrorScope(filter)
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in die Konsole zu protokollieren.
+Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in der Konsole auszugeben.
 
 ```js
 device.pushErrorScope("validation");

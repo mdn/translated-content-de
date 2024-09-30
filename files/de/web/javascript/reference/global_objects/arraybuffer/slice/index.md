@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`slice()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen gibt einen neuen `ArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `ArrayBuffer` von `start` (einschließlich) bis `end` (ausschließlich) ist. Wenn `start` oder `end` negativ ist, bezieht sich dies auf einen Index vom Ende des Arrays anstelle vom Anfang.
+Die **`slice()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen gibt ein neues `ArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `ArrayBuffer` von `start` bis, aber ausschließlich, `end` ist. Wenn entweder `start` oder `end` negativ ist, bezieht es sich auf einen Index vom Ende des Arrays, anstatt vom Anfang.
 
 {{EmbedInteractiveExample("pages/js/arraybuffer-slice.html")}}
 
@@ -22,20 +22,20 @@ slice(start, end)
 ### Parameter
 
 - `start` {{optional_inline}}
-  - : Index für den Start der Extraktion, basierend auf null, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Puffers zurück – wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
-    - Wenn `start < -buffer.length` oder `start` ausgelassen wird, wird `0` verwendet.
+  - : Der Null-basierte Index, an dem die Extraktion beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt rückwärts vom Ende des Puffers — wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
+    - Wenn `start < -buffer.length` oder `start` weggelassen wird, wird `0` verwendet.
     - Wenn `start >= buffer.length`, wird ein leerer Puffer zurückgegeben.
 - `end` {{optional_inline}}
-  - : Index zum Beenden der Extraktion, basierend auf null, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
-    - Ein negativer Index zählt vom Ende des Puffers zurück – wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
+  - : Der Null-basierte Index, an dem die Extraktion beendet wird, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
+    - Ein negativer Index zählt rückwärts vom Ende des Puffers — wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
     - Wenn `end < -buffer.length`, wird `0` verwendet.
-    - Wenn `end >= buffer.length` oder `end` ausgelassen wird, wird `buffer.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
-    - Wenn `end` eine Position vor oder an der von `start` implizierten Position angibt, wird ein leerer Puffer zurückgegeben.
+    - Wenn `end >= buffer.length` oder `end` weggelassen wird, wird `buffer.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
+    - Wenn `end` eine Position impliziert, die vor oder an der Position liegt, die `start` impliziert, wird ein leerer Puffer zurückgegeben.
 
 ### Rückgabewert
 
-Ein neuer {{jsxref("ArrayBuffer")}}, der die extrahierten Elemente enthält.
+Ein neues {{jsxref("ArrayBuffer")}}, das die extrahierten Elemente enthält.
 
 ## Beispiele
 

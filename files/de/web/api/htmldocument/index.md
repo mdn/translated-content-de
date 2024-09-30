@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Aus historischen Gründen haben [`Window`](/de/docs/Web/API/Window)-Objekte eine `window.HTMLDocument`-Eigenschaft, deren Wert die [`Document`](/de/docs/Web/API/Document)-Schnittstelle ist. Sie können `HTMLDocument` also als Alias für [`Document`](/de/docs/Web/API/Document) betrachten, und Sie können die Dokumentation zu den Mitgliedern von `HTMLDocument` unter der Dokumentation zur [`Document`](/de/docs/Web/API/Document)-Schnittstelle finden.
+Aus historischen Gründen haben [`Window`](/de/docs/Web/API/Window)-Objekte eine `window.HTMLDocument`-Eigenschaft, deren Wert das [`Document`](/de/docs/Web/API/Document)-Interface ist. Daher können Sie `HTMLDocument` als Alias für [`Document`](/de/docs/Web/API/Document) betrachten, und Sie finden Dokumentation für `HTMLDocument`-Mitglieder unter der Dokumentation für das [`Document`](/de/docs/Web/API/Document)-Interface.
 
 ## Spezifikationen
 

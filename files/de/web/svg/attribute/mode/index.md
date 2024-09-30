@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`mode`** definiert den Mischmodus auf der {{SVGElement("feBlend")}} Filterprimitive.
+Das **`mode`**-Attribut definiert den Mischmodus auf der {{SVGElement("feBlend")}} Filterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

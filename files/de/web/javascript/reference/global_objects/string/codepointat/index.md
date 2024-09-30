@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`codePointAt()`** Methode von {{jsxref("String")}}-Werten gibt eine nicht-negative Ganzzahl zurück, die den Unicode-Codepunkt-Wert des Zeichens an dem angegebenen Index darstellt. Beachten Sie, dass der Index immer noch auf UTF-16-Codeeinheiten basiert und nicht auf Unicode-Codepunkten.
+Die **`codePointAt()`**-Methode von {{jsxref("String")}}-Werten gibt eine nicht-negative Ganzzahl zurück, die den Unicode-Codepunkt-Wert des Zeichens darstellt, das an dem angegebenen Index beginnt. Beachten Sie, dass der Index immer noch auf UTF-16-Codeeinheiten basiert und nicht auf Unicode-Codepunkten.
 
 {{EmbedInteractiveExample("pages/js/string-codepointat.html", "shorter")}}
 
@@ -20,21 +20,21 @@ codePointAt(index)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index des zurückzugebenden Zeichens. [In eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 umgewandelt.
+  - : Nullbasierter Index des zurückzugebenden Zeichens. [In eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird zu 0 konvertiert.
 
 ### Rückgabewert
 
-Eine nicht-negative Ganzzahl, die den Codepunkt-Wert des Zeichens am angegebenen `index` darstellt.
+Eine nicht-negative Ganzzahl, die den Codepunkt-Wert des Zeichens an dem angegebenen `index` darstellt.
 
 - Wenn `index` außerhalb des Bereichs von `0` – `str.length - 1` liegt, gibt `codePointAt()` {{jsxref("undefined")}} zurück.
-- Wenn das Element bei `index` ein UTF-16 führendes Surrogat ist, gibt es den Codepunkt des Surrogatpaars zurück.
-- Wenn das Element bei `index` ein UTF-16 nachfolgendes Surrogat ist, gibt es _nur_ die nachfolgende Surrogat-Codeeinheit zurück.
+- Wenn das Element an `index` ein führendes Surrogat von UTF-16 ist, wird der Codepunkt des Surrogat-_Paars_ zurückgegeben.
+- Wenn das Element an `index` ein nachfolgendes Surrogat von UTF-16 ist, wird _nur_ die nachfolgende Surrogat-Codeeinheit zurückgegeben.
 
 ## Beschreibung
 
-Zeichen in einem String sind von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
+Zeichen in einem String werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0` und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
 
-Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit einem Wert von `0` – `65535`. Höhere Codepunkte werden durch _ein Paar_ von 16-Bit-Surrogat-Pseudozeichen dargestellt. Daher gibt `codePointAt()` einen Codepunkt zurück, der sich über zwei String-Indizes erstrecken kann. Für Informationen über Unicode siehe [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit einem Wert von `0` – `65535`. Höhere Codepunkte werden durch _ein Paar_ von 16-Bit-Surrogat-Pseudo-Zeichen dargestellt. Daher gibt `codePointAt()` einen Codepunkt zurück, der sich über zwei String-Indizes erstrecken kann. Für Informationen zu Unicode siehe [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jed
 
 ### Schleifen mit codePointAt()
 
-Da die Verwendung von String-Indizes zum Schleifen dazu führt, dass derselbe Codepunkt zweimal besucht wird (einmal für das führende Surrogat, einmal für das nachfolgende Surrogat) und `codePointAt()` beim zweiten Mal _nur_ das nachfolgende Surrogat zurückgibt, ist es besser, das Schleifen per Index zu vermeiden.
+Da bei der Verwendung von String-Indizes in Schleifen derselbe Codepunkt zweimal besucht wird (einmal für das führende Surrogat, einmal für das nachfolgende Surrogat), und `codePointAt()` beim zweiten Mal _nur_ das nachfolgende Surrogat zurückgibt, ist es besser, Schleifen nach Index zu vermeiden.
 
 ```js example-bad
 const str = "\ud83d\udc0e\ud83d\udc71\u2764";
@@ -68,7 +68,7 @@ for (let i = 0; i < str.length; i++) {
 // '1f40e', 'dc0e', '1f471', 'dc71', '2764'
 ```
 
-Stattdessen verwenden Sie eine [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement) Anweisung oder [spreaden Sie den String](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), die beide den String [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) aufrufen, welcher nach Codepunkten iteriert. Verwenden Sie dann `codePointAt(0)`, um den Codepunkt jedes Elements zu erhalten.
+Stattdessen verwenden Sie eine [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement)-Anweisung oder [streuen Sie den String](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), beide rufen den [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) des Strings auf, der nach Codepunkten iteriert. Dann verwenden Sie `codePointAt(0)`, um den Codepunkt jedes Elements zu erhalten.
 
 ```js
 for (const codePoint of str) {

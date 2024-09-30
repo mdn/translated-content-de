@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`201 Created`** zeigt an, dass die HTTP-Anfrage zur Erstellung einer Ressource geführt hat. Dieser Statuscode wird häufig als Ergebnis einer {{HTTPMethod("POST")}}-Anfrage gesendet.
+Der HTTP-Statuscode **`201 Created`** [Erfolgsantwort](/de/docs/Web/HTTP/Status#successful_responses) zeigt an, dass die HTTP-Anfrage zur Erstellung einer Ressource geführt hat. Dieser Statuscode wird häufig als Ergebnis einer {{HTTPMethod("POST")}}-Anfrage gesendet.
 
-Die neue Ressource oder eine Beschreibung und ein Link zur neuen Ressource werden erstellt, bevor die Antwort zurückgegeben wird. Die neu erstellten Elemente werden im Nachrichtentext zurückgegeben, entweder an der **URL der ursprünglichen Anfrage** oder an der URL im Wert des {{HTTPHeader("Location")}}-Headers in der Antwort.
+Die neue Ressource, oder eine Beschreibung und der Link zur neuen Ressource, wird erstellt, bevor die Antwort zurückgegeben wird. Die neu erstellten Elemente werden im Körper der Nachricht zurückgegeben, entweder unter der **URL der ursprünglichen Anfrage** oder der URL im Wert des {{HTTPHeader("Location")}} Headers in der Antwort.
 
 ## Status
 
@@ -19,9 +19,9 @@ Die neue Ressource oder eine Beschreibung und ein Link zur neuen Ressource werde
 
 ## Beispiele
 
-### Erhalt einer Antwort zur Benutzererstellung
+### Erhalten einer Antwort, die die Erstellung eines Benutzers anzeigt
 
-Angenommen, es gibt eine REST-API zur Verwaltung von Benutzern mit einem Endpunkt unter `http://example.com/users`. In diesem Beispiel senden wir eine `POST`-Anfrage mit folgendem Inhalt, um einen Benutzer zu erstellen:
+Angenommen, es gibt eine REST-API zur Verwaltung von Benutzern mit einem Endpunkt bei `http://example.com/users`. In diesem Beispiel senden wir eine `POST`-Anfrage mit folgendem Inhalt, um einen Benutzer zu erstellen:
 
 ```http
 POST /users HTTP/1.1
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 ```
 
-Nach erfolgreicher Benutzererstellung sieht die `201 Created`-Antwort wie folgt aus:
+Nach erfolgreicher Erstellung des Benutzers sieht die `201 Created`-Antwort so aus:
 
 ```http
 HTTP/1.1 201 Created

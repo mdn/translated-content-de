@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{deprecated_header}}{{securecontext_header}}{{Non-standard_header}}
 
-Der **`Content-DPR`** Antwort-Header wird verwendet, um das _Bild_ Verhältnis von Gerät zu Pixel in Anfragen zu bestätigen, bei denen der Bildschirm-{{HTTPHeader("DPR")}} [Client Hint](/de/docs/Web/HTTP/Client_hints) genutzt wurde, um eine Bildressource auszuwählen.
+Der **`Content-DPR`** Antwort-Header wird verwendet, um das _Bild_ Gerät-zu-Pixel-Verhältnis bei Anfragen zu bestätigen, bei denen der Bildschirm {{HTTPHeader("DPR")}} [Client-Hinweis](/de/docs/Web/HTTP/Client_hints) verwendet wurde, um eine Bildressource auszuwählen.
 
 <table class="properties">
   <tbody>
@@ -15,7 +15,7 @@ Der **`Content-DPR`** Antwort-Header wird verwendet, um das _Bild_ Verhältnis v
       <th scope="row">Header-Typ</th>
       <td>
         [Antwort-Header](/de/docs/Glossary/Response_header),
-        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -24,18 +24,18 @@ Der **`Content-DPR`** Antwort-Header wird verwendet, um das _Bild_ Verhältnis v
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherte Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        [CORS-geführte Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Wenn der {{HTTPHeader("DPR")}} Client Hint verwendet wird, um ein Bild auszuwählen, muss der Server `Content-DPR` in der Antwort angeben. Wenn der Wert in `Content-DPR` anders ist als der {{HTTPHeader("DPR")}} Wert in der Anfrage (d.h. Bild-DPR ist nicht dasselbe wie Bildschirm-DPR), muss der Client `Content-DPR` verwenden, um die intrinsische Bildgröße zu bestimmen und das Bild zu skalieren.
+Wenn der {{HTTPHeader("DPR")}} Client-Hinweis verwendet wird, um ein Bild auszuwählen, muss der Server `Content-DPR` in der Antwort spezifizieren. Wenn der Wert in `Content-DPR` sich von dem {{HTTPHeader("DPR")}} Wert in der Anfrage unterscheidet (d.h. Bild-DPR ist nicht dasselbe wie Bildschirm-DPR), muss der Client `Content-DPR` verwenden, um die intrinsische Bildgröße festzulegen und das Bild zu skalieren.
 
 Wenn der `Content-DPR` Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
 
-> **Note:** `Content-DPR` wurde aus der Client Hints Spezifikation in [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Die [Responsive Image Client Hints](https://wicg.github.io/responsive-image-client-hints/) Spezifikation schlägt vor, diesen Header durch die Angabe der intrinsischen Auflösung/Dimensionen in EXIF-Metadaten zu ersetzen.
+> **Note:** `Content-DPR` wurde aus der Client-Hinweise-Spezifikation in [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Die [Responsive Image Client Hints](https://wicg.github.io/responsive-image-client-hints/) Spezifikation schlägt vor, diesen Header durch die Angabe der intrinsischen Auflösung/Dimensionen in EXIF-Metadaten zu ersetzen.
 
 ## Syntax
 
@@ -46,7 +46,7 @@ Content-DPR: <number>
 ## Direktiven
 
 - `<number>`
-  - : Das Verhältnis von Gerät zu Pixel des Bildes, berechnet nach der folgenden Formel:
+  - : Das Gerät-Pixel-Verhältnis des Bildes, berechnet nach der folgenden Formel:
     Content-DPR = _Ausgewählte Bildressourcengröße_ / (_Breite_ / _DPR_)
 
 ## Beispiele
@@ -59,8 +59,8 @@ Siehe das [`DPR`](/de/docs/Web/HTTP/Headers/DPR#examples) Header-Beispiel.
 
 ## Siehe auch
 
-- [Verbesserung der Benutzer-Privatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- Geräte Client Hints
+- [Verbesserung des Datenschutzes der Nutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- Geräte-Client-Hinweise
 
   - {{HTTPHeader("Device-Memory")}}
   - {{HTTPHeader("DPR")}}
@@ -68,4 +68,4 @@ Siehe das [`DPR`](/de/docs/Web/HTTP/Headers/DPR#examples) Header-Beispiel.
   - {{HTTPHeader("Width")}}
 
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

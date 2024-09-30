@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSMathInvert()`** Konstruktor erstellt ein neues [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Objekt, das ein CSS {{CSSXref('calc','calc()')}} verwendet als `calc(1 / value)` darstellt.
+Der **`CSSMathInvert()`** Konstruktor erzeugt ein
+neues [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert) Objekt, das ein CSS
+{{CSSXref('calc','calc()')}} darstellt, verwendet als `calc(1 / value)`
 
 ## Syntax
 
@@ -24,7 +26,7 @@ new CSSMathInvert(arg)
 ### Ausnahmen
 
 - [`RangeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/RangeError)
-  - : Wird ausgelöst, wenn der Arg 0 oder -0 ist.
+  - : Wird ausgelöst, wenn der Arg-Wert 0 oder -0 ist.
 
 ## Beispiele
 

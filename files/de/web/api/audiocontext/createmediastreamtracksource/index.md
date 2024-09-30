@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: Methode createMediaStreamTrackSource()"
+title: "AudioContext: createMediaStreamTrackSource()-Methode"
 short-title: createMediaStreamTrackSource()
 slug: Web/API/AudioContext/createMediaStreamTrackSource
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`createMediaStreamTrackSource()`**-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle erstellt und gibt einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) zurück, der eine Audioquelle darstellt, deren Daten von dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen.
+Die **`createMediaStreamTrackSource()`**-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle erzeugt und gibt ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) zurück, das eine Audioquelle darstellt, deren Daten vom angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen.
 
-Dies unterscheidet sich von [`createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource), das einen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) erstellt, dessen Audio von der Tonspur in einem angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) kommt, dessen [`id`](/de/docs/Web/API/MediaStreamTrack/id) zuerst lexikografisch (alphabetisch) ist.
+Dies unterscheidet sich von der Methode [`createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource), die ein [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) erstellt, dessen Audio von der Audiospur in einem angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) kommt, dessen [`id`](/de/docs/Web/API/MediaStreamTrack/id) lexikografisch (alphabetisch) zuerst ist.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ createMediaStreamTrackSource(track)
 ### Parameter
 
 - `track`
-  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der als Quelle aller Audiodaten für den neuen Knoten verwendet werden soll.
+  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der als Quelle aller Audiodaten für den neuen Knoten verwendet wird.
 
 ### Rückgabewert
 
-Ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt, das als Quelle für Audiodaten der angegebenen Tonspur dient.
+Ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt, das als Quelle für Audiodaten in der angegebenen Audiospur dient.
 
 ## Beispiele
 
-In diesem Beispiel wird [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um Zugriff auf das Mikrofon des Benutzers anzufordern. Sobald dieser Zugriff gewährt wird, wird ein Audiokontext erstellt und ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) mittels `createMediaStreamTrackSource()` erstellt, der seinen Ton von der ersten Tonspur im Stream nimmt, der von `getUserMedia()` zurückgegeben wird.
+In diesem Beispiel wird [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um den Zugriff auf das Mikrofon des Benutzers anzufordern. Sobald dieser Zugriff gewährt wurde, wird ein Audiokontext erstellt und ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) mithilfe von `createMediaStreamTrackSource()` erstellt, dessen Audio von der ersten Audiospur im Stream stammt, der von `getUserMedia()` zurückgegeben wird.
 
-Dann wird ein [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) mit [`createBiquadFilter()`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter) erstellt, und es wird nach Bedarf konfiguriert, um einen Low-Shelf-Filter auf das Audiosignal der Quelle anzuwenden. Die Ausgabe des Mikrofons wird dann in den neuen Biquad-Filter geleitet, und die Ausgabe des Filters wird wiederum zum [`destination`](/de/docs/Web/API/BaseAudioContext/destination) des Audiokontexts geführt.
+Dann wird ein [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) erzeugt, indem [`createBiquadFilter()`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter) verwendet wird, und es wird so konfiguriert, dass ein Tiefenfilter auf das vom Quellknoten kommende Audio angewendet wird. Der Ausgang des Mikrofons wird dann in den neuen Biquad-Filter geleitet, und der Ausgang des Filters wiederum zum [`destination`](/de/docs/Web/API/BaseAudioContext/destination) des Audiokontextes.
 
 ```js
 navigator.mediaDevices

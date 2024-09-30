@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`notificationclose`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn ein Nutzer eine angezeigte Benachrichtigung schließt, die durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugt wurde.
+Das **`notificationclose`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces tritt ein, wenn ein Benutzer eine angezeigte Benachrichtigung schließt, die durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugt wurde.
 
-Benachrichtigungen, die im Hauptthread oder in Workern, die keine Service-Worker sind, mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor erzeugt werden, erhalten stattdessen ein [`close`](/de/docs/Web/API/Notification/close_event)-Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt selbst.
+Benachrichtigungen, die im Haupt-Thread oder in Workern, die keine Service-Worker sind, mithilfe des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors erstellt wurden, erhalten stattdessen ein [`close`](/de/docs/Web/API/Notification/close_event)-Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt selbst.
 
-Dieses Ereignis ist nicht abbrechbar und löst keine Ereigniskette (bubbling) aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("notificationclose", (event) => {});
@@ -37,7 +37,7 @@ _Erbt Eigenschaften von seinen Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/E
 - [`NotificationEvent.notification`](/de/docs/Web/API/NotificationEvent/notification) {{ReadOnlyInline}}
   - : Gibt ein [`Notification`](/de/docs/Web/API/Notification)-Objekt zurück, das die Benachrichtigung darstellt, die angeklickt wurde, um das Ereignis auszulösen.
 - [`NotificationEvent.action`](/de/docs/Web/API/NotificationEvent/action) {{ReadOnlyInline}}
-  - : Gibt die Zeichenfolgen-ID des Benachrichtigungsbuttons zurück, den der Nutzer angeklickt hat. Dieser Wert gibt einen leeren String zurück, wenn der Nutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsbutton angeklickt hat oder die Benachrichtigung keinen Button hat.
+  - : Gibt die stringbasierte ID des Benachrichtigungsbuttons zurück, den der Benutzer angeklickt hat. Dieser Wert ist ein leerer String, wenn der Benutzer die Benachrichtigung an einer Stelle angeklickt hat, die kein Aktionsbutton ist, oder wenn die Benachrichtigung keinen Button hat.
 
 ## Beispiel
 

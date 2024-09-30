@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`arrayBuffer()`**-Methode des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit dem Inhalt des Blobs als binäre Daten in einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Die **`arrayBuffer()`**-Methode des [`Blob`](/de/docs/Web/API/Blob)
+Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit dem Inhalt des Blobs als
+Binärdaten, die in einem {{jsxref("ArrayBuffer")}} enthalten sind, aufgelöst wird.
 
 ## Syntax
 
@@ -22,15 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird, das die Daten des Blobs in binärer Form enthält.
+Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird, der die Daten des Blobs
+in binärer Form enthält.
 
 ### Ausnahmen
 
-Obwohl diese Methode keine Ausnahmen auslöst, kann sie das Promise ablehnen. Dies kann zum Beispiel passieren, wenn der Reader, der verwendet wird, um die Blob-Daten abzurufen, eine Ausnahme auslöst. Alle Ausnahmen, die beim Abrufen der Daten auftreten, werden in Ablehnungen umgewandelt.
+Während diese Methode keine Ausnahmen auslöst, kann sie das Promise ablehnen. Dies kann geschehen,
+wenn z.B. der Leser, der verwendet wird, um die Daten des Blobs zu holen, eine Ausnahme auslöst. Alle
+Ausnahmen, die beim Abrufen der Daten ausgelöst werden, werden in Ablehnungen umgewandelt.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Während die Methode [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) ähnlich ist, gibt `arrayBuffer()` ein Promise zurück und ist nicht ereignisbasiert, wie es bei der Methode des `FileReader`-Interfaces der Fall ist.
+Während sie der [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer)-Methode ähnlich ist,
+gibt `arrayBuffer()` ein Promise zurück, anstatt eine ereignisbasierte API zu sein, wie es
+bei der Methode des `FileReader`-Interfaces der Fall ist.
 
 ## Spezifikationen
 

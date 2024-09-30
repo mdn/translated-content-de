@@ -12,7 +12,7 @@ Die **`organization`** schreibgeschützte Eigenschaft des [`ContactAddress`](/de
 
 ## Wert
 
-Ein String, dessen Wert der Name der Organisation oder des Unternehmens ist, das sich an der durch das `ContactAddress`-Objekt beschriebenen Adresse befindet.
+Ein String, dessen Wert der Name der Organisation oder Firma ist, die sich an der durch das `ContactAddress`-Objekt beschriebenen Adresse befindet.
 
 ## Spezifikationen
 

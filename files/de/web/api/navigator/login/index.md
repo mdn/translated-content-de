@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
 
-Die **`login`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces, die nur lesbar ist, bietet Zugriff auf das [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt des Browsers. Ein föderierter Identitätsanbieter (IdP) kann dieses verwenden, um seinen Anmeldestatus zu setzen, wenn ein Benutzer sich beim IdP ein- oder ausloggt.
+Die **`login`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle bietet Zugriff auf das [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt des Browsers, welches ein föderierter Identitätsanbieter (IdP) nutzen kann, um seinen Anmeldestatus festzulegen, wenn ein Benutzer sich bei oder von dem IdP anmeldet oder abmeldet.
 
-Weitere Details zur Nutzung finden Sie unter [Anmeldestatus mit der Login-Status-API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
+Siehe [Anmeldestatus mit der Login Status API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Details zur Nutzung.
 
 ## Wert
 

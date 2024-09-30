@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: getTexParameter() Methode"
+title: "WebGLRenderingContext: getTexParameter()-Methode"
 short-title: getTexParameter()
 slug: Web/API/WebGLRenderingContext/getTexParameter
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getTexParameter()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über die
-angegebene Textur zurück.
+Die **`WebGLRenderingContext.getTexParameter()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt Informationen über die angegebene Textur zurück.
 
 ## Syntax
 
@@ -22,33 +20,32 @@ getTexParameter(target, pname)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP`: Eine Würfel-Textur.
+    - `gl.TEXTURE_CUBE_MAP`: Eine Würfelmappen-Textur.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
-    stehen zusätzlich folgende Werte zur Verfügung:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}, sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragende Information angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragenden Informationen angibt. Mögliche Werte:
 
     <table class="standard-table">
       <thead>
         <tr>
           <th scope="col">pname</th>
-          <th scope="col">Rückgabetyp</th>
+          <th scope="col">Rückgabewerttyp</th>
           <th scope="col">Beschreibung</th>
           <th scope="col">Mögliche Rückgabewerte</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th colspan="4">Verfügbar in einem WebGL 1 Kontext</th>
+          <th colspan="4">Verfügbar in einem WebGL 1-Kontext</th>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_MAG_FILTER</code></td>
@@ -71,7 +68,7 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_WRAP_S</code></td>
           <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Wicklungsfunktion für Texturkoordinate <code>s</code></td>
+          <td>Wickelfunktion für Texturkoordinate <code>s</code></td>
           <td>
             <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
             <code>gl.MIRRORED_REPEAT</code>.
@@ -80,7 +77,7 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_WRAP_T</code></td>
           <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Wicklungsfunktion für Texturkoordinate <code>t</code></td>
+          <td>Wickelfunktion für Texturkoordinate <code>t</code></td>
           <td>
             <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
             <code>gl.MIRRORED_REPEAT</code>.
@@ -89,17 +86,17 @@ getTexParameter(target, pname)
         <tr>
           <th colspan="4">
             Zusätzlich verfügbar bei Verwendung der
-            [`EXT_texture_filter_anisotropic`](/de/docs/Web/API/EXT_texture_filter_anisotropic) Erweiterung
+            [`EXT_texture_filter_anisotropic`](/de/docs/Web/API/EXT_texture_filter_anisotropic)-Erweiterung
           </th>
         </tr>
         <tr>
           <td><code>ext.TEXTURE_MAX_ANISOTROPY_EXT</code></td>
           <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
           <td>Maximale Anisotropie für eine Textur</td>
-          <td>Beliebige float-Werte.</td>
+          <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
-          <th colspan="4">Zusätzlich verfügbar bei Verwendung eines WebGL 2 Kontextes</th>
+          <th colspan="4">Zusätzlich verfügbar bei Nutzung eines WebGL 2-Kontexts</th>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_BASE_LEVEL</code></td>
@@ -120,7 +117,7 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_COMPARE_MODE</code></td>
           <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Texturvergleichenmodus</td>
+          <td>Textur-Vergleichsmodus</td>
           <td>
             <code>gl.NONE</code> (Standardwert),
             <code>gl.COMPARE_REF_TO_TEXTURE</code>.
@@ -129,7 +126,7 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_IMMUTABLE_FORMAT</code></td>
           <td>[`GLboolean`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Unveränderbarkeit des Texturformates und -größe</td>
+          <td>Unveränderlichkeit des Texturformats und der Größe</td>
           <td>true oder false.</td>
         </tr>
         <tr>
@@ -147,19 +144,19 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_MAX_LOD</code></td>
           <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Maximaler Grad der Detailgenauigkeit der Textur</td>
-          <td>Beliebige float-Werte.</td>
+          <td>Maximaler Wert für die Textur-Detailstufe (Level-of-Detail)</td>
+          <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_MIN_LOD</code></td>
           <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Minimaler Grad der Detailgenauigkeit der Textur</td>
-          <td>Beliebige float-Werte.</td>
+          <td>Minimaler Wert für die Textur-Detailstufe (Level-of-Detail)</td>
+          <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_WRAP_R</code></td>
           <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Wicklungsfunktion für Texturkoordinate <code>r</code></td>
+          <td>Wickelfunktion für Texturkoordinate <code>r</code></td>
           <td>
             <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
             <code>gl.MIRRORED_REPEAT</code>.
@@ -170,8 +167,7 @@ getTexParameter(target, pname)
 
 ### Rückgabewert
 
-Liefert die angeforderte Texturinformation (wie mit `pname` angegeben). Wenn ein
-Fehler auftritt, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
+Gibt die angeforderten Texturinformationen zurück (wie durch `pname` angegeben). Tritt ein Fehler auf, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
 
 ## Beispiele
 

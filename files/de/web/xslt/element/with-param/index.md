@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:with-param>`-Element legt den Wert eines Parameters fest, der in eine Vorlage übergeben werden soll.
+Das `<xsl:with-param>`-Element setzt den Wert eines Parameters, der in eine Vorlage übergeben werden soll.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Das `<xsl:with-param>`-Element legt den Wert eines Parameters fest, der in eine 
 
 ### Typ
 
-Teilbefehl, erscheint immer innerhalb eines `<xsl:apply-templates>` oder eines `<xsl:call-template>` Elements.
+Unteranweisung, erscheint immer innerhalb eines `<xsl:apply-templates>` oder `<xsl:call-template>`-Elements.
 
 ## Spezifikationen
 

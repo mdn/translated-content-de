@@ -1,5 +1,5 @@
 ---
-title: "MediaSource: sourceBuffers-Eigenschaft"
+title: "MediaSource: sourceBuffers Eigenschaft"
 short-title: sourceBuffers
 slug: Web/API/MediaSource/sourceBuffers
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`sourceBuffers`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das die Liste der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die mit dieser `MediaSource` verknüpft sind.
+Die schreibgeschützte Eigenschaft **`sourceBuffers`** der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das die Liste von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten enthält, die mit diesem `MediaSource` verknüpft sind.
 
 ## Wert
 
-Ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList).
+Eine [`SourceBufferList`](/de/docs/Web/API/SourceBufferList).
 
 ## Beispiele
 
-Der folgende Codeausschnitt basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die komplette Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Der folgende Ausschnitt basiert auf einem einfachen Beispiel, das von Nick Desaulniers geschrieben wurde ([sehen Sie die vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die hier nicht definierte Funktion `getMediaSource()` gibt ein `MediaSource` zurück.
 
 ```js
 const mediaSource = getMediaSource();

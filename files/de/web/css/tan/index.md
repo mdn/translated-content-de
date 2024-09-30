@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`tan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Tangens einer Zahl zurückgibt, welcher ein Wert zwischen `−unendlich` und `unendlich` ist. Die Funktion enthält eine einzelne Berechnung, die entweder zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} ausgewertet werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird.
+Die **`tan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Tangens einer Zahl zurückgibt, ein Wert zwischen `−unendlich` und `unendlich`. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird.
 
 ## Syntax
 
@@ -28,14 +28,14 @@ width: calc(100px * tan(e));
 
 ### Parameter
 
-Die Funktion `tan(angle)` akzeptiert nur einen Wert als Parameter.
+Die `tan(angle)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} führt. Wenn sie einheitenlose Zahlen spezifizieren, werden sie als Anzahl von Bogenmaßen interpretiert, die einen {{cssxref("&lt;angle&gt;")}} darstellen.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Wenn einheitenlose Zahlen angegeben werden, werden sie als Anzahl von Radianten interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellen.
 
 ### Rückgabewert
 
-Der Tangens eines `angle` wird immer eine Zahl zwischen `−∞` und `+∞` zurückgeben.
+Der Tangens eines `angle` gibt immer eine Zahl zwischen `−∞` und `+∞` zurück.
 
 - Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 - Wenn `angle` `0⁻` ist, ist das Ergebnis `0⁻`.
@@ -49,7 +49,7 @@ Der Tangens eines `angle` wird immer eine Zahl zwischen `−∞` und `+∞` zur�
 
 ### Parallelogramme zeichnen
 
-Die `tan()` Funktion kann verwendet werden, um ein Parallelogramm mit einer gegebenen Begrenzungsbox zu zeichnen.
+Die `tan()` Funktion kann verwendet werden, um ein Parallelogramm mit einem gegebenen Begrenzungsrahmen zu zeichnen.
 
 #### HTML
 

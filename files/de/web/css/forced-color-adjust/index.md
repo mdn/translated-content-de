@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`forced-color-adjust`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Autoren, bestimmte Elemente vom erzwungenen Farbenmodus auszuschließen. Dadurch wird die Kontrolle über diese Werte wieder auf CSS übertragen.
+Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Autoren, bestimmte Elemente vom Zwangsfarbmodus auszunehmen. Dadurch wird die Kontrolle über diese Werte an CSS zurückgegeben.
 
 ## Syntax
 
@@ -23,18 +23,18 @@ forced-color-adjust: revert-layer;
 forced-color-adjust: unset;
 ```
 
-Der Wert der `forced-color-adjust`-Eigenschaft muss eines der folgenden Schlüsselwörter sein.
+Der Wert der Eigenschaft `forced-color-adjust` muss eines der folgenden Schlüsselwörter sein.
 
 ### Werte
 
 - `auto`
-  - : Die Farben des Elements werden im erzwungenen Farbenmodus vom [User Agent](/de/docs/Glossary/user_agent) angepasst. Dies ist der Standardwert.
+  - : Die Farben des Elements werden im Zwangsfarbmodus vom [User Agent](/de/docs/Glossary/user_agent) angepasst. Dies ist der Standardwert.
 - `none`
-  - : Die Farben des Elements werden im erzwungenen Farbenmodus nicht automatisch vom [User Agent](/de/docs/Glossary/user_agent) angepasst.
+  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom [User Agent](/de/docs/Glossary/user_agent) angepasst.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Diese Eigenschaft sollte nur verwendet werden, um Änderungen zu unterstützen, die den Farb- und Kontrastanforderungen eines Benutzers gerecht werden. Zum Beispiel, wenn Sie feststellen, dass die Farboptimierungen, die vom [User Agent](/de/docs/Glossary/user_agent) vorgenommen werden, zu einer schlechten Benutzererfahrung im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus optimieren, um eine bessere Erfahrung zu bieten. **Sie sollte nicht verwendet werden, um zu verhindern, dass Benutzerentscheidungen respektiert werden.**
+Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die die Farb- und Kontrastanforderungen eines Benutzers unterstützen. Zum Beispiel, wenn Sie feststellen, dass die vom [User Agent](/de/docs/Glossary/user_agent) vorgenommenen Farboptimierungen zu einem schlechten Erlebnis im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus anpassen, um ein besseres Erlebnis zu bieten. **Sie sollte nicht verwendet werden, um die Beachtung der Benutzerentscheidungen zu verhindern**.
 
 ## Formale Definition
 
@@ -46,11 +46,11 @@ Diese Eigenschaft sollte nur verwendet werden, um Änderungen zu unterstützen, 
 
 ## Beispiele
 
-### Farben erhalten
+### Farben beibehalten
 
-Im folgenden Beispiel wird die erste Box das Farbschema verwenden, das der Benutzer festgelegt hat. Zum Beispiel hat sie im Windows Hochkontrastmodus mit schwarzem Farbschema einen schwarzen Hintergrund und weißen Text. Die zweite Box wird die auf der `.box`-Klasse festgelegten Seitenfarben beibehalten.
+Im folgenden Beispiel wird bei der ersten Box das vom Benutzer eingestellte Farbschema verwendet. Im Windows Hochkontrastmodus mit dem schwarzen Schema hat es beispielsweise einen schwarzen Hintergrund und weißen Text. Die zweite Box wird die auf der `.box` Klasse festgelegten Webseitenfarben beibehalten.
 
-Durch die Verwendung des [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media Features können Sie zusätzlich zur `forced-color-adjust`-Eigenschaft weitere Optimierungen für den erzwungenen Farbenmodus hinzufügen.
+Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media Query können Sie neben der `forced-color-adjust` Eigenschaft weitere Optimierungen für den Zwangsfarbmodus hinzufügen.
 
 #### CSS
 
@@ -88,7 +88,7 @@ Durch die Verwendung des [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors
 
 Der folgende Screenshot zeigt das obige Bild im Windows Hochkontrastmodus:
 
-![Das obige Beispiel im Hochkontrastmodus zeigt die erste Box mit einem schwarzen Hintergrund und die zweite mit dem grauen Hintergrund der CSS.](windows-high-contrast.jpg)
+![Das obige Beispiel im Hochkontrastmodus zeigt die erste Box mit einem schwarzen Hintergrund, die zweite mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
 
 ## Spezifikationen
 
@@ -100,5 +100,5 @@ Der folgende Screenshot zeigt das obige Bild im Windows Hochkontrastmodus:
 
 ## Siehe auch
 
-- [Styling für Windows Hochkontrast mit Standards für erzwungene Farben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
+- [Styling für Windows Hochkontrast mit Standards für Zwangsfarben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
 - {{cssxref("print-color-adjust")}}

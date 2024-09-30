@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ruft den im Parameter angegebenen Callback für jedes Wertepaar in der Liste in Eingabe-Reihenfolge auf.
+Die **`forEach()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle
+ruft den im Parameter angegebenen Callback einmal für jedes Wertpaar in der Liste auf, in der
+Einfügereihenfolge.
 
 ## Syntax
 
@@ -21,17 +23,17 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird und letztendlich drei Argumente akzeptiert:
+  - : Die Funktion, die für jedes Element ausgeführt wird und schließlich drei Argumente annimmt:
 
     - `currentValue`
-      - : Das aktuelle Element, das im Array bearbeitet wird.
+      - : Das aktuelle Element, das im Array verarbeitet wird.
     - `currentIndex`
-      - : Der Index des aktuellen Elements, das im Array bearbeitet wird.
+      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
     - `listObj`
       - : Das Array, auf das `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der als {{jsxref("Operators/this", "this")}} beim Ausführen des `callback` verwendet wird.
+  - : Der Wert, der als {{jsxref("Operators/this", "this")}} beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -39,7 +41,11 @@ Keiner.
 
 ## Beispiel
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("pre")}}-Element als `DOMTokenList` festgelegt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList). Wir holen dann einen Iterator, der die Werte enthält, mit `forEach()` und schreiben jeden einzelnen in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<pre>`-Elements innerhalb der inneren `forEach()`-Funktion.
+Im folgenden Beispiel rufen wir die Liste der auf einem
+{{htmlelement("pre")}}-Element gesetzten Klassen als `DOMTokenList` ab, indem wir
+[`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Danach holen wir einen Iterator, der die Werte
+mithilfe von `forEach()` enthält, und schreiben jeden Wert in das `<pre>`-
+[`Node.textContent`](/de/docs/Web/API/Node/textContent) innerhalb der `forEach()`-Funktion.
 
 ### HTML
 

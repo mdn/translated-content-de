@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randbeginn, innerhalb des Randes oder innerhalb des Paddings.
+Die **`background-origin`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: von Beginn der Grenze, innerhalb der Grenze oder innerhalb des Polsters.
 
 {{EmbedInteractiveExample("pages/css/background-origin.html")}}
 
@@ -29,16 +29,16 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die Eigenschaft `background-origin` wird als eines der unten aufgef체hrten Schl체sselwortwerte angegeben.
+Die Eigenschaft `background-origin` wird als einer der unten aufgef체hrten Schl체sselwortwerte angegeben.
 
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund wird relativ zur Randbox positioniert.
+  - : Der Hintergrund ist relativ zum Randkasten positioniert.
 - `padding-box`
-  - : Der Hintergrund wird relativ zur Padding-Box positioniert.
+  - : Der Hintergrund ist relativ zum Polsterkasten positioniert.
 - `content-box`
-  - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
+  - : Der Hintergrund ist relativ zum Inhaltkasten positioniert.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die Eigenschaft `background-origin` wird als eines der unten aufgef체hrten Schl�
 
 ## Beispiele
 
-### Festlegen von Hintergrundurspr체ngen
+### Einstellungen der Hintergrundurspr체nge
 
 ```css
 .example {
@@ -82,9 +82,9 @@ div {
 }
 ```
 
-### Verwendung von zwei Verl채ufen
+### Verwendung von zwei Gradienten
 
-In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und daher sitzt der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Gradient verwendet den `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Rands. Der zweite verwendet den `content-box` und wird daher nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

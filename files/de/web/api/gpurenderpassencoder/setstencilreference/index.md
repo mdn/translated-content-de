@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setStencilReference()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt den Stencil-Referenzwert, der bei Stencil-Tests mit der `"replace"`-Stencil-Operation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode in den Eigenschaften definiert, die die verschiedenen Stencil-Operationen beschreiben).
+Die **`setStencilReference()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) Schnittstelle legt den Stencil-Referenzwert fest, der während Stencil-Tests mit der `"replace"`-Stencil-Operation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) Methode festgelegt, in den Eigenschaften, die die verschiedenen Stencil-Operationen definieren).
 
 ## Syntax
 
@@ -19,10 +19,10 @@ setStencilReference(reference)
 ### Parameter
 
 - `reference`
-  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Renderpass gesetzt werden soll.
+  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Renderdurchgang festgelegt werden soll.
 
 > [!NOTE]
-> Wenn kein Aufruf von `setStencilReference()` erfolgt, wird der Stencil-Referenzwert standardmäßig auf 0 für jeden Renderpass gesetzt.
+> Wenn kein Aufruf von `setStencilReference()` erfolgt, wird der Stencil-Referenzwert standardmäßig auf 0 für jeden Renderdurchgang gesetzt.
 
 ### Rückgabewert
 

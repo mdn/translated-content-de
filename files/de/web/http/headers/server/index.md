@@ -7,23 +7,23 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Server`**-Header beschreibt die Software, die vom Ursprungsserver verwendet wurde, um die Anfrage zu bearbeiten und eine Antwort zu generieren.
+Der **`Server`**-Header beschreibt die Software, die vom Ursprungsserver verwendet wurde, um die Anfrage zu bearbeiten und eine Antwort zu erzeugen.
 
-Die Vorteile der Angabe des Servertyps und der Version über diesen Header bestehen darin, dass sie bei der Analyse hilft und aufzeigt, wie verbreitet bestimmte Interoperabilitätsprobleme sind. Historisch gesehen haben Clients die Serverversionsinformationen verwendet, um bekannte Einschränkungen zu vermeiden, wie z.B. inkonsistente Unterstützung für [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) in bestimmten Softwareversionen.
+Die Vorteile, den Servertyp und die Version über diesen Header bekanntzugeben, liegen darin, dass es bei der Analyse und der Identifizierung der Verbreitung spezifischer Interoperabilitätsprobleme hilft. Historisch haben Clients die Versionsinformationen des Servers genutzt, um bekannte Einschränkungen zu umgehen, wie zum Beispiel die inkonsistente Unterstützung von [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) in bestimmten Softwareversionen.
 
 > [!WARNING]
-> Das Vorhandensein dieses Headers in Antworten, insbesondere wenn er detaillierte Implementierungsdetails über die Server-Software enthält, kann bekannte Schwachstellen leichter erkennbar machen.
+> Die Anwesenheit dieses Headers in Antworten, besonders wenn er detaillierte Implementierungsdetails zur Server-Software enthält, kann es erleichtern, bekannte Sicherheitslücken zu erkennen.
 
-Zu viele Details im `Server`-Header sind aus den oben genannten Gründen zur Antwortlatenz und Sicherheit nicht empfehlenswert. Es ist umstritten, ob das Verschleiern der Informationen in diesem Header einen großen Vorteil bietet, da das Fingerprinting von Server-Software auch auf andere Weise möglich ist. Allgemein ist ein robusterer Ansatz zur Serversicherheit sicherzustellen, dass die Software regelmäßig aktualisiert oder gegen bekannte Schwachstellen gepatcht wird.
+Zu viele Details im `Server`-Header werden aufgrund der oben genannten Gründe zur Antwortlatenz und Sicherheit nicht empfohlen. Es ist umstritten, ob das Verschleiern der Informationen in diesem Header viel Nutzen bietet, da das Fingerabdrucknehmen von Server-Software auch auf andere Weise möglich ist. Generell ist ein robusterer Ansatz zur Serversicherheit, sicherzustellen, dass die Software regelmäßig aktualisiert oder gegen bekannte Schwachstellen gepatcht wird.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>[Response header](/de/docs/Glossary/Response_header)</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -39,7 +39,7 @@ Server: <product>
 
 - `<product>`
   - : Ein Name der Software oder des Produkts, das die Anfrage bearbeitet hat.
-    Normalerweise in einem Format ähnlich {{HTTPHeader('User-Agent')}}.
+    Normalerweise in einem Format ähnlich dem {{HTTPHeader('User-Agent')}}.
 
 ## Beispiele
 
@@ -59,4 +59,4 @@ Server: Apache/2.4.1 (Unix)
 
 - {{HTTPHeader("Allow")}}
 - [HTTP Observatory](/en-US/observatory)
-- [Prevent information disclosure via HTTP headers](https://owasp.org/www-project-secure-headers/index.html#prevent-information-disclosure-via-http-headers) - OWASP Secure Headers Project
+- [Vermeidung der Informationsweitergabe über HTTP-Header](https://owasp.org/www-project-secure-headers/index.html#prevent-information-disclosure-via-http-headers) - OWASP Secure Headers Project

@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`ping`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist eine durch Leerzeichen getrennte Liste von URLs. Wenn der Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Body PING an die URLs.
+Die **`ping`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist eine durch Leerzeichen getrennte Liste von URLs. Wenn der Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Körper PING an die URLs.
 
-Diese Eigenschaft spiegelt das `ping`-Attribut des {{HTMLElement("area")}}-Elements wider.
+Sie spiegelt das `ping`-Attribut des {{HTMLElement("area")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft ist in Firefox nicht wirksam, und ihre Nutzung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
+> Diese Eigenschaft ist in Firefox nicht wirksam und ihre Verwendung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
 
 ## Beispiel
 

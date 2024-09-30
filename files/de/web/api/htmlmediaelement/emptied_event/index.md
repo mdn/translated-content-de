@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `emptied` Ereignis wird ausgelöst, wenn das Medium leer geworden ist; zum Beispiel wird dieses Ereignis gesendet, wenn das Medium bereits geladen (oder teilweise geladen) ist und die `load()`-Methode aufgerufen wird, um es neu zu laden.
+Das `emptied` Ereignis wird ausgelöst, wenn das Medium leer geworden ist; zum Beispiel wird dieses Ereignis gesendet, wenn das Medium bereits geladen (oder teilweise geladen) wurde und die `load()` Methode aufgerufen wird, um es neu zu laden.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Blasenbildung aus.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("emptied", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `emptied`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `emptied` Ereignis des HTMLMediaElement hinzu und posten eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("emptied", (event) => {
 });
 ```
 
-Verwendung der `onemptied`-Ereignishandlereigenschaft:
+Verwendung der `onemptied` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

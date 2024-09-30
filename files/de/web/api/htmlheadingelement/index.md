@@ -7,20 +7,20 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLHeadingElement`**-Schnittstelle repräsentiert die verschiedenen Überschriftselemente, [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements). Sie erbt Methoden und Eigenschaften von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Das **`HTMLHeadingElement`**-Interface repräsentiert die verschiedenen Überschriftselemente, [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements). Es erbt Methoden und Eigenschaften vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLHeadingElement.align`](/de/docs/Web/API/HTMLHeadingElement/align) {{deprecated_inline}}
-  - : Ein String, der ein Enumerationsattribut darstellt, das die Ausrichtung der Überschrift im Verhältnis zum umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
+  - : Ein String, der ein aufgezähltes Attribut darstellt, das die Ausrichtung der Überschrift in Bezug auf den umgebenden Kontext anzeigt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
 
 ## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](
 
 ## Siehe auch
 
-- Die {{HTMLElement("Heading_Elements", "HTML-Überschriftselemente")}}, `<h1>` bis `<h6>`, die dieser Schnittstelle entsprechen.
+- Die {{HTMLElement("Heading_Elements", "HTML Heading Elements")}}, `<h1>` bis `<h6>`, die diesem Interface entsprechen.

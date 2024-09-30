@@ -1,5 +1,5 @@
 ---
-title: "MediaList: item() Methode"
+title: "MediaList: item()-Methode"
 short-title: item()
 slug: Web/API/MediaList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`item()`** Methode der [`MediaList`](/de/docs/Web/API/MediaList) Schnittstelle gibt die Medienabfrage am angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
+Die **`item()`**-Methode des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces gibt die Medienabfrage am angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ item(index)
 ```
 
 > [!NOTE]
-> Die Klammer-Syntax (`[]`) kann anstelle der `item()` Syntax verwendet werden.
+> Die Klammer-Syntax (`[]`) kann anstelle der `item()`-Syntax verwendet werden.
 
 ### Parameter
 
@@ -31,7 +31,7 @@ Wenn die Klammer-Syntax (`[]`) verwendet wird und es keinen Eintrag für den ang
 
 ## Beispiele
 
-Das Folgende würde jede in der `MediaList` gespeicherte Medienabfrage protokollieren, die dem ersten auf das aktuelle Dokument angewendeten Stylesheet zugeordnet ist.
+Das folgende Beispiel protokolliert jede Medienabfrage, die in der `MediaList` gespeichert ist und mit dem ersten Stylesheet verknüpft ist, das auf das aktuelle Dokument angewendet wird, in die Konsole.
 
 ```js
 const stylesheet = document.styleSheets[0];

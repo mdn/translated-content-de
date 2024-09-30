@@ -10,9 +10,9 @@ l10n:
 
 Die **`type`**-Eigenschaft des [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats)-Wörterbuchs ist ein String mit dem Wert `"peer-connection"`.
 
-Unterschiedliche Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das von einem Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
-Der Typ gibt die Menge der verfügbaren Statistiken durch das Objekt in einem bestimmten Iterationsschritt an.
-Ein Wert von `"peer-connection"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats) definiert sind.
+Verschiedene Statistiken werden durch Iteration über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt abgerufen, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
+Der Typ gibt die Menge an Statistiken an, die in einem bestimmten Iterationsschritt durch das Objekt verfügbar sind.
+Ein Wert von `"peer-connection"` zeigt an, dass die in dem aktuellen Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats) definiert sind.
 
 ## Wert
 

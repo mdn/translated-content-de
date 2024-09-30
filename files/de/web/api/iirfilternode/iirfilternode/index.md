@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`IIRFilterNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekt, ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der einen allgemeinen Infinite Impulse Response-Filter implementiert.
+Der **`IIRFilterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
+[`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekt, welches ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor ist, der einen allgemeinen Infinite-Impulse-Response-Filter implementiert.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ new IIRFilterNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext).
+  - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options`
 
   - : Die Optionen sind wie folgt:
@@ -29,18 +30,19 @@ new IIRFilterNode(context, options)
     - `feedback`
       - : Eine Sequenz von Feedback-Koeffizienten.
     - `channelCount`
-      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden. (Weitere Informationen finden Sie unter [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount).) Die Nutzung und genaue
+      - : Stellt eine ganze Zahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle bei [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) verwendet werden, um Verbindungen zu Eingängen des Knotens herzustellen. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Nutzung und genaue
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für
-        weitere Informationen, einschließlich Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen
+        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für mehr
+        Informationen einschließlich der Standardwerte.)
     - `channelInterpretation`
-      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation definiert, wie das [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgt.
-        Mögliche Werte sind `"speakers"` oder `"discrete"`. (Weitere Informationen, einschließlich Standardwerte, finden Sie unter
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt werden. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
 
-Im Gegensatz zu anderen Knoten in der Web Audio API sind die Optionen, die beim Erstellen des IIR-Filters übergeben werden, nicht optional. Der Filter benötigt diese Werte, um zu funktionieren, und angesichts der Vielzahl von verfügbaren Filtern gibt es keinen Standard.
+Im Gegensatz zu anderen Knoten in der Web Audio API sind die Optionen, die beim Erstellen des IIR-Filters übergeben werden, nicht optional. Der Filter benötigt diese Werte zur Funktion und aufgrund des großen Spektrums verfügbarer Filter gibt es keine Vorgabewerte.
 
 ### Rückgabewert
 

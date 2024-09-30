@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das WebXR **`squeeze`** Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn eine der Eingabequellen der Sitzung eine [primäre Squeeze-Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) abgeschlossen hat. Beispiele für häufige Arten von primären Aktionen sind das Drücken von Auslösern oder Tasten, das Tippen auf ein Touchpad, das Sprechen eines Befehls oder das Ausführen einer erkennbaren Geste bei Verwendung eines Video-Trackingsystems oder eines Handheld-Controllers mit einem Beschleunigungssensor.
+Das WebXR **`squeeze`** Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn eine der Eingabequellen der Sitzung eine [primäre Squeeze-Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) abgeschlossen hat. Beispiele für gängige Arten von primären Aktionen sind das Drücken von Triggern oder Tasten durch Benutzer, das Antippen eines Touchpads, das Aussprechen eines Befehls oder das Ausführen einer erkennbaren Geste bei der Verwendung eines Video-Tracking-Systems oder eines tragbaren Controllers mit einem Beschleunigungssensor.
 
-Für Details darüber, wie die Ereignisse [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event), `squeeze` und [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) funktionieren und wie Sie darauf reagieren sollten, siehe [Inputs und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs#input_sources).
+Einzelheiten darüber, wie die Ereignisse [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event), `squeeze` und [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) funktionieren und wie Sie darauf reagieren sollten, finden Sie unter [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs#input_sources).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("squeeze", (event) => {});
@@ -30,24 +30,24 @@ Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent). Erbt von [`Even
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`frame`](/de/docs/Web/API/XRInputSourceEvent/frame) {{ReadOnlyInline}}
-  - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das die benötigten Informationen über das Ereignis-Frame bereitstellt, in dem das Ereignis aufgetreten ist. Dieses Frame kann in der Vergangenheit gerendert worden sein, anstatt ein aktuelles Frame zu sein. Da dies ein _Ereignis_-Frame und kein _Animations_-Frame ist, können Sie [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) nicht darauf aufrufen; stattdessen verwenden Sie [`getPose()`](/de/docs/Web/API/XRFrame/getPose).
+  - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das die benötigten Informationen über den Ereignisrahmen bereitstellt, währenddessen das Ereignis aufgetreten ist. Dieser Frame könnte in der Vergangenheit gerendert worden sein und nicht der aktuelle Frame sein. Da dies ein _Ereignis_-Frame und kein _Animations_-Frame ist, können Sie nicht [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) darauf aufrufen; stattdessen verwenden Sie [`getPose()`](/de/docs/Web/API/XRFrame/getPose).
 - [`inputSource`](/de/docs/Web/API/XRInputSourceEvent/inputSource) {{ReadOnlyInline}}
-  - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das angibt, welche Eingabequelle das Eingabeereignis erzeugt hat.
+  - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das angibt, welche Eingabequelle das Eingabeereignis generiert hat.
 
 ## Beschreibung
 
 ### Auslöser
 
-Ausgelöst, wenn Benutzer den Controller zusammendrücken, eine Handgeste machen, die das Greifen von etwas nachahmt, oder einen Auslöser verwenden (drücken).
+Ausgelöst, wenn Benutzer den Controller drücken, eine Handbewegung machen, die das Greifen von etwas mimt, oder einen Trigger verwenden (drücken).
 
 ### Anwendungsfälle
 
-Das [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) Ereignis zeigt an, dass der Benutzer eine Squeeze-Aktion begonnen hat.
+Das Ereignis [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) zeigt an, dass der Benutzer mit einer Squeeze-Aktion begonnen hat.
 
-Wenn die primäre Squeeze-Aktion erfolgreich endet, wird an die Sitzung ein `squeeze` Ereignis gesendet.
+Wenn die primäre Squeeze-Aktion erfolgreich endet, wird eine `squeeze`-Ereignis an die Sitzung gesendet.
 
 Ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) Ereignis wird gesendet, um anzuzeigen, dass die Squeeze-Aktion nicht mehr im Gange ist. Dies wird gesendet, unabhängig davon, ob die Squeeze-Aktion erfolgreich war oder nicht.
 
@@ -55,7 +55,7 @@ Ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) Ereignis wird ge
 
 Das folgende Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Handler für das `squeeze`-Ereignis einzurichten. Der Handler ruft die Pose ab, die den Zielstrahl für `tracked-pointer` Eingaben darstellt, und sendet die Transformation der Pose an eine Funktion namens `myHandleSqueezeWithRay()`.
 
-Dieser Code behandelt das Squeeze als eine sofortige Aktion, die keine Verfolgung einer laufenden Tätigkeit beinhaltet. Wenn Sie eine Squeeze-Aktion verfolgen müssen, die nicht sofortig ist, hören Sie die Ereignisse [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) und [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) ab, um zu erkennen, wann die Squeeze-Aktion beginnt und endet.
+Dieser Code behandelt das Squeeze als eine Momentaufnahme, die nicht ein fortlaufendes Tracking einer Aktivität beinhaltet. Wenn Sie ein Squeeze verfolgen müssen, das nicht sofortig ist, hören Sie auf die Ereignisse [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) und [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event), um festzustellen, wann die Squeeze-Aktion beginnt und endet.
 
 ```js
 xrSession.addEventListener("squeeze", (event) => {
@@ -71,7 +71,7 @@ xrSession.addEventListener("squeeze", (event) => {
 });
 ```
 
-Sie können auch einen Handler für `squeeze` Ereignisse einrichten, indem Sie die `onsqueeze` Ereignis-Handler-Eigenschaft des [`XRSession`](/de/docs/Web/API/XRSession)-Objekts auf eine Funktion setzen, die das Ereignis behandelt:
+Sie können auch einen Handler für `squeeze`-Ereignisse einrichten, indem Sie die `onsqueeze`-Ereignishandlereigenschaft des [`XRSession`](/de/docs/Web/API/XRSession)-Objekts auf eine Funktion setzen, die das Ereignis behandelt:
 
 ```js
 xrSession.onsqueeze = (event) => {

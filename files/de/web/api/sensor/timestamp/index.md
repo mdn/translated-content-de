@@ -8,7 +8,8 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die schreibgeschützte **`timestamp`**-Eigenschaft des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt den Zeitstempel der neuesten Sensormessung zurück.
+Die schreibgeschützte **`timestamp`**-Eigenschaft
+des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt den Zeitstempel der neuesten Sensorabfrage zurück.
 
 Da [`Sensor`](/de/docs/Web/API/Sensor) eine Basisklasse ist, kann `timestamp` nur von einer ihrer abgeleiteten Klassen gelesen werden.
 

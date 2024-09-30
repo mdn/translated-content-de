@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLAnchorElement.origin`** ist ein String, der die Unicode-Serialisierung des Ursprungs der dargestellten URL enthält.
+Die schreibgeschützte Eigenschaft **`HTMLAnchorElement.origin`** ist ein String, der die Unicode-Serialisierung des Ursprungs der repräsentierten URL enthält.
 
 Das bedeutet:
 
-- für URLs, die `http` oder `https` verwenden: das Schema, gefolgt von `':'//`, gefolgt von der Domain, gefolgt von `':'`, gefolgt vom Port (der Standardport, `80` und `443` entsprechend, falls explizit angegeben);
-- für URLs, die das `file:`-Schema verwenden, hängt der Wert vom Browser ab;
-- für URLs, die das `blob:`-Schema verwenden, der Ursprung der URL nach `blob:`. Zum Beispiel wird `"blob:https://mozilla.org"` den Ursprung `"https://mozilla.org"` haben.
+- Für URLs, die `http` oder `https` verwenden, das Schema gefolgt von `'://'`, gefolgt von der Domain, gefolgt von `':'`, gefolgt vom Port (der Standardport, `80` bzw. `443`, wenn ausdrücklich angegeben);
+- Für URLs, die das `file:`-Schema verwenden, ist der Wert browserabhängig;
+- Für URLs, die das `blob:`-Schema verwenden, der Ursprung der URL nach `blob:`. Zum Beispiel wird `"blob:https://mozilla.org"` den Ursprung `"https://mozilla.org"` haben.
 
 ## Wert
 

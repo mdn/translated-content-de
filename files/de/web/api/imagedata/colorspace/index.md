@@ -1,5 +1,5 @@
 ---
-title: "ImageData: colorSpace Eigenschaft"
+title: "ImageData: colorSpace-Eigenschaft"
 short-title: colorSpace
 slug: Web/API/ImageData/colorSpace
 l10n:
@@ -14,16 +14,16 @@ Der Farbraum kann während der `ImageData`-Initialisierung entweder mit dem [`Im
 
 ## Wert
 
-Diese Eigenschaft kann die folgenden Werte haben:
+Diese Eigenschaft kann folgende Werte haben:
 
-- `"srgb"` repräsentiert den [sRGB Farbraum](https://de.wikipedia.org/wiki/SRGB).
-- `"display-p3"` repräsentiert den [display-p3 Farbraum](https://de.wikipedia.org/wiki/DCI-P3).
+- `"srgb"` repräsentiert den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB).
+- `"display-p3"` repräsentiert den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3).
 
 ## Beispiele
 
-### Den Farbraum von Canvas-Bilddaten ermitteln
+### Ermitteln des Farbraums von Canvas-Bilddaten
 
-Die Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) erlaubt Ihnen, explizit einen Farbraum anzufordern. Wenn dieser nicht mit dem Farbraum übereinstimmt, mit dem das Canvas initialisiert wurde, wird eine Konvertierung durchgeführt. Verwenden Sie die `colorSpace`-Eigenschaft, um zu erfahren, in welchem Farbraum sich Ihr `ImageData`-Objekt befindet.
+Die [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData)-Methode ermöglicht es Ihnen, explizit einen Farbraum anzufordern. Falls dieser nicht mit dem Farbraum übereinstimmt, mit dem das Canvas initialisiert wurde, wird eine Umwandlung durchgeführt. Verwenden Sie die `colorSpace`-Eigenschaft, um zu wissen, in welchem Farbraum sich Ihr `ImageData`-Objekt befindet.
 
 ```js
 const context = canvas.getContext("2d", { colorSpace: "display-p3" });
@@ -50,6 +50,6 @@ console.log(srgbImageData.colorSpace); // "srgb"
 - [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)
 - [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData)
 - [`colorSpace` Einstellung in `canvas.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext#colorspace)
-- Festlegen von WebGL-Farbräumen:
+- Festlegung von WebGL-Farbräumen:
   - [`WebGLRenderingContext.drawingBufferColorSpace`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferColorSpace)
   - [`WebGLRenderingContext.unpackColorSpace`](/de/docs/Web/API/WebGLRenderingContext/unpackColorSpace)

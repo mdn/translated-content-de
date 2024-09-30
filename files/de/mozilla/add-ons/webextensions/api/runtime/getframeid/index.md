@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die Frame-ID eines beliebigen Fenster-Globals oder Frame-Elements zurück, wenn sie von einem Content Script oder einer Erweiterungsseite, einschließlich Hintergrundseiten, aufgerufen wird.
+Gibt die Frame-ID eines beliebigen Fensterglobals oder Frame-Elements zurück, wenn sie von einem Content-Skript oder einer Erweiterungsseite aufgerufen wird, einschließlich Hintergrundseiten.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ let gettingInfo = browser.runtime.getFrameId(
 ### Parameter
 
 - `target`
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy) oder ein [browsing context](/de/docs/Glossary/browsing_context) Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für den Ziel-Frame.
+  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy) oder ein [Browsing-Kontext](/de/docs/Glossary/browsing_context) Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Gibt die Frame-ID des Ziel-Frames zurück oder -1, wenn der Frame nicht existier
 
 ## Beispiele
 
-Dieser Code durchläuft rekursiv Nachkommen-Frames und ermittelt die übergeordneten Frame-IDs.
+Dieser Code durchläuft rekursiv Nachkomme-Frames und erhält übergeordnete Frame-IDs.
 
 ```js
 const parents = {};
@@ -59,4 +59,4 @@ visit(window);
 {{Compat}}
 
 > [!NOTE]
-> Die Kompatibilitätsdaten für Microsoft Edge werden von der Microsoft Corporation zur Verfügung gestellt und sind hier unter der Creative Commons Attribution 3.0 United States License enthalten.
+> Die Kompatibilitätsdaten für Microsoft Edge werden von der Microsoft Corporation bereitgestellt und sind hier unter der Creative Commons Attribution 3.0 United States License enthalten.

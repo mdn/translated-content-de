@@ -1,5 +1,5 @@
 ---
-title: Typselektoren
+title: Type Selectors
 slug: Web/CSS/Type_selectors
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,29 +7,59 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS-**Typselektor** wählt Elemente anhand des Knotennamens aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS-**Typ-Selektor** wählt Elemente basierend auf dem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
-Type-Selektoren können Namespaces verwenden, wenn {{CSSXref("@namespace")}} benutzt wird. Dies ist nützlich, wenn mit Dokumenten gearbeitet wird, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+```css
+/* All <a> elements. */
+a {
+  color: red;
+}
+```
 
-- `ns|h1` - entspricht `<h1>`-Elementen im Namespace _ns_
-- `*|h1` - entspricht allen `<h1>`-Elementen
-- `|h1` - entspricht allen `<h1>`-Elementen ohne einen deklarierten Namespace
+Typ-Selektoren können mit Namensräumen versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Das ist nützlich, wenn Dokumente bearbeitet werden, die mehrere Namensräume enthalten, wie HTML mit eingebetteten SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+
+- `ns|h1` - passt auf `<h1>`-Elemente im Namensraum _ns_
+- `*|h1` - passt auf alle `<h1>`-Elemente
+- `|h1` - passt auf alle `<h1>`-Elemente ohne einen deklarierten Namensraum
 
 ## Syntax
+
+```css
+element { style properties }
+```
 
 ## Beispiele
 
 ### CSS
 
+```css
+span {
+  background-color: skyblue;
+}
+```
+
 ### HTML
+
+```html
+<span>Here's a span with some text.</span>
+<p>Here's a p with some text.</p>
+<span>Here's a span with more text.</span>
+```
 
 ### Ergebnis
 
 {{EmbedLiveSample('Examples', '100%', 150)}}
 
-### Namespaces
+### Namensräume
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namensraum auswählen.
+In diesem Beispiel wird der Selektor nur auf `<h1>`-Elemente im Beispiel-Namensraum passen.
+
+```css
+@namespace example url(http://www.example.com/);
+example|h1 {
+  color: blue;
+}
+```
 
 ## Spezifikationen
 
@@ -41,5 +71,5 @@ In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namensraum 
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS Selectors](/de/docs/Web/CSS/CSS_selectors)
 - [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

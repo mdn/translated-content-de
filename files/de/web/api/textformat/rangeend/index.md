@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`rangeEnd`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Endposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden muss.
+Die **`rangeEnd`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Endposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden soll.
 
 ## Wert
 
-Ein {{jsxref("Number")}}.
+Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des zu formatierenden Textbereichs
+### Lesen des Textbereichs, der formatiert werden muss
 
-Das folgende Beispiel zeigt, wie die `rangeStart`- und `rangeEnd`-Eigenschaften des `textformatupdate`-Ereignisses verwendet werden, um den Textbereich zu bestimmen, der formatiert werden muss. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
+Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` des `textformatupdate`-Ereignisses verwendet werden können, um den Textbereich zu bestimmen, der formatiert werden muss. Beachten Sie, dass der Callback des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>

@@ -10,9 +10,9 @@ l10n:
 
 Das **`pointerlockchange`**-Ereignis wird ausgelöst, wenn der Zeiger gesperrt oder entsperrt wird.
 
-Der Ereignishandler kann [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) verwenden, um festzustellen, ob der Zeiger gesperrt ist und, falls ja, an welches Element er gesperrt ist.
+Der Ereignishandler kann [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) verwenden, um festzustellen, ob der Zeiger gesperrt ist und falls ja, an welches Element er gesperrt ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereigniskaskade aus.
+Dieses Ereignis kann nicht abgebrochen werden und tritt nicht auf (bubbled) auf.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ addEventListener("pointerlockchange", (event) => {
 });
 ```
 
-Verwendung der `onpointerlockchange` Ereignishandler-Eigenschaft:
+Verwendung der `onpointerlockchange`-Ereignishandler-Eigenschaft:
 
 ```js
 document.onpointerlockchange = (event) => {

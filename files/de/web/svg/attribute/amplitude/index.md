@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}
 
-Das **`amplitude`** Attribut steuert die Amplitude der Gammafunktion eines Komponententransfer-Elements, wenn dessen {{SVGAttr("type")}} Attribut auf `gamma` gesetzt ist.
+Das **`amplitude`**-Attribut steuert die Amplitude der Gammakorrekturfunktion eines Komponententransferelements, wenn dessen {{SVGAttr("type")}}-Attribut auf `gamma` gesetzt ist.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

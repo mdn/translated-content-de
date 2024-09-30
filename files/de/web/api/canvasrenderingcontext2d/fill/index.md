@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.fill()`**-Methode der Canvas 2D API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle).
+Die
+**`CanvasRenderingContext2D.fill()`**
+Methode der Canvas 2D API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen
+[`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle).
 
 ## Syntax
 
@@ -23,14 +26,14 @@ fill(path, fillRule)
 
 - `fillRule`
 
-  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb der Füllregion liegt.
+  - : Der Algorithmus, durch den bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Füllbereichs liegt.
     Mögliche Werte:
 
     - `nonzero`
-      - : Die [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
+      - : Die [Non-Zero-Wickelregel](https://en.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [even-odd winding rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [Even-Odd-Wickelregel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
   - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der gefüllt werden soll.
@@ -64,9 +67,9 @@ ctx.fill();
 
 {{ EmbedLiveSample('Filling_a_rectangle', 700, 180) }}
 
-### Spezifizieren eines Pfades und einer fillRule
+### Ein Pfad und eine fillRule angeben
 
-Dieses Beispiel speichert einige sich schneidende Linien in einem Path2D-Objekt. Die `fill()`-Methode wird dann verwendet, um das Objekt auf die Leinwand zu rendern. Ein Loch bleibt im Zentrum des Objekts ungefüllt, indem die `"evenodd"`-Regel verwendet wird; standardmäßig (mit der `"nonzero"`-Regel) würde das Loch ebenfalls gefüllt werden.
+Dieses Beispiel speichert einige sich schneidende Linien in einem `Path2D`-Objekt. Die `fill()`-Methode wird dann verwendet, um das Objekt auf der Leinwand darzustellen. Ein Loch wird in der Mitte des Objekts unbefüllt gelassen, indem die Regel `"evenodd"` verwendet wird; standardmäßig (mit der Regel `"nonzero"`) würde das Loch ebenfalls gefüllt.
 
 #### HTML
 

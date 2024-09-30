@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`clientY`** des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate innerhalb des [Viewports](/de/docs/Glossary/viewport) der Anwendung, an der das Ereignis auftrat (im Gegensatz zur Koordinate auf der Seite).
+Die **`clientY`**-Schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces bietet die vertikale Koordinate innerhalb des [Viewports](/de/docs/Glossary/viewport) der Anwendung, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
 
-Wenn Sie beispielsweise auf den oberen Rand des Viewports klicken, wird immer ein Mausereignis mit einem `clientY`-Wert von `0` generiert, unabhängig davon, ob die Seite vertikal gescrollt wird.
+Zum Beispiel wird ein Klick auf den oberen Rand des Viewports immer ein Mausereignis mit einem `clientY`-Wert von `0` ergeben, unabhängig davon, ob die Seite vertikal gescrollt ist oder nicht.
 
 ## Wert
 
-Ein `double` Gleitkommawert in Pixeln.
+Ein `double`-Gleitkommawert in Pixeln.
 
 ## Beispiele
 

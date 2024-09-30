@@ -1,5 +1,5 @@
 ---
-title: Zstandard Komprimierung
+title: Zstandard compression
 slug: Glossary/Zstandard_compression
 l10n:
   sourceCommit: 530c1f54e63834411aa38789b1ac82e3831c4dfa
@@ -7,21 +7,21 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Zstandard** ist ein allgemeiner verlustfreier Komprimierungsalgorithmus.
+**Zstandard** ist ein universeller verlustfreier Kompressionsalgorithmus.
 
-Zstandard, oder kurz `zstd`, ist ein schneller verlustfreier Komprimierungsalgorithmus, der auf Echtzeit-Komprimierungsszenarien auf zlib-Niveau und besseren Kompressionsverhältnissen abzielt. Es wird von einer sehr schnellen Entropiestufe unterstützt, bereitgestellt durch die [Huff0 und FSE-Bibliothek](https://github.com/Cyan4973/FiniteStateEntropy). Es bietet oft bessere Kompressionsverhältnisse als [brotli](/de/docs/Glossary/Brotli_compression) bei gleichwertigen CPU-Kosten oder bessere CPU-Kosten bei äquivalenten Kompressionsverhältnissen.
+Zstandard, oder in Kurzform `zstd`, ist ein schneller verlustfreier Kompressionsalgorithmus, der auf Echtzeit-Kompressionsszenarien mit zlib-Niveau und besseren Kompressionsverhältnissen abzielt. Er wird durch eine sehr schnelle Entropiestufe unterstützt, bereitgestellt von der [Huff0 und FSE Bibliothek](https://github.com/Cyan4973/FiniteStateEntropy). Er bietet oft bessere Kompressionsverhältnisse als [Brotli](/de/docs/Glossary/Brotli_compression) bei vergleichbaren CPU-Kosten, oder bessere CPU-Kosten bei gleichwertigen Kompressionsverhältnissen.
 
-Für Browser-Kompatibilität siehe [Content-Encoding: Browser-Kompatibilität](/de/docs/Web/HTTP/Headers/Content-Encoding#browser_compatibility).
+Für die Browser-Kompatibilität siehe [Content-Encoding: Browser-Kompatibilität](/de/docs/Web/HTTP/Headers/Content-Encoding#browser_compatibility).
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Verlustfreie Komprimierung](/de/docs/Glossary/Lossless_compression)
-  - [Verlustbehaftete Komprimierung](/de/docs/Glossary/Lossy_compression)
-  - [Brotli Komprimierung](/de/docs/Glossary/Brotli_compression)
-  - [Gzip Komprimierung](/de/docs/Glossary/Gzip_compression)
+  - [Verlustfreie Kompression](/de/docs/Glossary/Lossless_compression)
+  - [Verlustbehaftete Kompression](/de/docs/Glossary/Lossy_compression)
+  - [Brotli-Kompression](/de/docs/Glossary/Brotli_compression)
+  - [Gzip-Kompression](/de/docs/Glossary/Gzip_compression)
 - [Zstandard RFC](https://datatracker.ietf.org/doc/html/rfc8878)
-- [Zstandard Hauptseite](https://facebook.github.io/zstd/)
+- [Zstandard Homepage](https://facebook.github.io/zstd/)
 - [Zstandard GitHub-Repository](https://github.com/facebook/zstd)
 - [Zstandard](https://en.wikipedia.org/wiki/Zstandard) auf Wikipedia
 - [Zstandard auf Caniuse](https://caniuse.com/#feat=zstandard)

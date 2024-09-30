@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSVariableReferenceValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ermöglicht es Ihnen, einen benutzerdefinierten Namen für einen eingebauten CSS-Wert zu erstellen. Diese Objektfunktionalität wird manchmal als "CSS-Variable" bezeichnet und erfüllt denselben Zweck wie die {{cssxref("var", "var()")}}-Funktion. Der benutzerdefinierte Name muss mit zwei Bindestrichen beginnen.
+Das **`CSSVariableReferenceValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ermöglicht es Ihnen, einen benutzerdefinierten Namen für einen eingebauten CSS-Wert zu erstellen. Diese Objektfunktionalität wird manchmal als "CSS-Variable" bezeichnet und dient demselben Zweck wie die {{cssxref("var", "var()")}}-Funktion. Der benutzerdefinierte Name muss mit zwei Bindestrichen beginnen.
 
 ## Konstruktor
 
@@ -17,7 +17,7 @@ Das **`CSSVariableReferenceValue`**-Interface der [CSS Typed Object Model API](/
 ## Instanz-Eigenschaften
 
 - [`CSSVariableReferenceValue.variable`](/de/docs/Web/API/CSSVariableReferenceValue/variable)
-  - : Gibt den an den Konstruktor übergebenen benutzerdefinierten Namen zurück.
+  - : Gibt den benutzerdefinierten Namen zurück, der dem Konstruktor übergeben wurde.
 - [`CSSVariableReferenceValue.fallback`](/de/docs/Web/API/CSSVariableReferenceValue/fallback) {{ReadOnlyInline}}
   - : Gibt den eingebauten CSS-Wert für den benutzerdefinierten Namen zurück.
 

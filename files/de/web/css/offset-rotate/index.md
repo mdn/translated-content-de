@@ -37,13 +37,13 @@ offset-rotate: unset;
 ```
 
 - `auto`
-  - : Das Element wird in dem Winkel der Richtung des {{cssxref("offset-path")}} relativ zur positiven x-Achse gedreht. Dies ist der Standardwert.
+  - : Das Element wird um den Winkel der Richtung des {{cssxref("offset-path")}} relativ zur positiven x-Achse gedreht. Dies ist der Standardwert.
 - {{cssxref("&lt;angle&gt;")}}
-  - : Das Element erhält eine konstante im Uhrzeigersinn verlaufende Rotationsumwandlung, die um den angegebenen Rotationswinkel angewendet wird.
+  - : Das Element hat eine konstante im Uhrzeigersinn Rotationstransformation, die durch den angegebenen Rotationswinkel angewendet wird.
 - `auto <angle>`
-  - : Wenn `auto` von einem {{cssxref("&lt;angle&gt;")}} gefolgt wird, wird der berechnete Winkelwert zum berechneten Wert von `auto` hinzugefügt.
+  - : Wenn `auto` von einem {{cssxref("&lt;angle&gt;")}} gefolgt wird, wird der berechnete Wert des Winkels zum berechneten Wert von `auto` hinzugefügt.
 - `reverse`
-  - : Das Element wird ähnlich wie `auto` gedreht, außer dass es in die entgegengesetzte Richtung zeigt. Dies entspricht der Angabe eines Wertes von `auto 180deg`.
+  - : Das Element wird ähnlich wie bei `auto` gedreht, außer dass es in die entgegengesetzte Richtung zeigt. Es entspricht der Angabe eines Werts von `auto 180deg`.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ offset-rotate: unset;
 
 ## Beispiele
 
-### Einstellung der Elementorientierung entlang seines Offset-Pfads
+### Orientierung des Elements entlang seines Offset-Pfads festlegen
 
 #### HTML
 

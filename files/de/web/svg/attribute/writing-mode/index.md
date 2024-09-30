@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`writing-mode`**-Attribut gibt an, ob die anfängliche Inline-Progressionsrichtung für ein {{SVGElement("text")}}-Element von links nach rechts, von rechts nach links oder von oben nach unten verlaufen soll. Das `writing-mode`-Attribut gilt nur für {{SVGElement("text")}}-Elemente; das Attribut wird für {{SVGElement("tspan")}}, {{SVGElement("tref")}} und {{SVGElement("textPath")}}-Unterelemente ignoriert. (Beachten Sie, dass sich die Inline-Progressionsrichtung innerhalb eines {{SVGElement("text")}}-Elements aufgrund des Unicode-Bidirektional-Algorithmus und der Eigenschaften {{SVGAttr("direction")}} und {{SVGAttr("unicode-bidi")}} ändern kann.)
+Das **`writing-mode`** Attribut legt fest, ob die anfängliche Inline-Fortschrittsrichtung für ein {{SVGElement("text")}}-Element von links nach rechts, von rechts nach links oder von oben nach unten verlaufen soll. Das `writing-mode`-Attribut gilt nur für {{SVGElement("text")}}-Elemente; das Attribut wird bei {{SVGElement("tspan")}}, {{SVGElement("tref")}} und {{SVGElement("textPath")}}-Unterelementen ignoriert. (Beachten Sie, dass sich die Inline-Fortschrittsrichtung innerhalb eines {{SVGElement("text")}}-Elements aufgrund des Unicode-Bidirektional-Algorithmus und der Eigenschaften {{SVGAttr("direction")}} und {{SVGAttr("unicode-bidi")}} ändern kann.)
 
 > [!NOTE]
 > Als Präsentationsattribut kann `writing-mode` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("writing-mode")}}.
@@ -19,7 +19,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -42,11 +42,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `horizontal-tb`
-  - : Dieser Wert definiert eine Blockflussrichtung von oben nach unten. Sowohl der Schreibmodus als auch der typographische Modus sind horizontal.
+  - : Dieser Wert definiert eine Blockflussrichtung von oben nach unten. Sowohl der Schreibmodus als auch der typografische Modus sind horizontal.
 - `vertical-rl`
-  - : Dieser Wert definiert eine Blockflussrichtung von rechts nach links. Sowohl der Schreibmodus als auch der typographische Modus sind vertikal.
+  - : Dieser Wert definiert eine Blockflussrichtung von rechts nach links. Sowohl der Schreibmodus als auch der typografische Modus sind vertikal.
 - `vertical-lr`
-  - : Dieser Wert definiert eine Blockflussrichtung von links nach rechts. Sowohl der Schreibmodus als auch der typographische Modus sind vertikal.
+  - : Dieser Wert definiert eine Blockflussrichtung von links nach rechts. Sowohl der Schreibmodus als auch der typografische Modus sind vertikal.
 
 ## Spezifikationen
 

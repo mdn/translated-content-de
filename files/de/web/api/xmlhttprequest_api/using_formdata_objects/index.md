@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-Das [`FormData`](/de/docs/Web/API/FormData)-Objekt ermöglicht es Ihnen, ein Set von Schlüssel/Wert-Paaren zu erstellen, die mit der [Fetch](/de/docs/Web/API/Fetch_API)- oder [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API)-API gesendet werden können. Es ist in erster Linie zum Versenden von Formulardaten gedacht, kann aber auch unabhängig von Formularen verwendet werden, um getaggte Daten zu übertragen. Die übertragenen Daten haben dasselbe Format, das die `submit()`-Methode des Formulars verwenden würde, um die Daten zu senden, wenn der Kodierungstyp des Formulars auf `multipart/form-data` gesetzt wäre.
+Das [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData) Objekt ermöglicht es Ihnen, ein Set von Schlüssel/Wert-Paaren zusammenzustellen, um es mit der [Fetch](https://developer.mozilla.org/de/docs/Web/API/Fetch_API) oder [XMLHttpRequest](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest_API) API zu senden. Es ist in erster Linie für die Übermittlung von Formulardaten gedacht, kann aber unabhängig von Formularen verwendet werden, um Daten mit Schlüsseln zu übertragen. Die übermittelten Daten haben dasselbe Format, das die `submit()` Methode eines Formulars verwenden würde, wenn der Kodierungstyp des Formulars auf `multipart/form-data` gesetzt wäre.
 
 ## Erstellen eines `FormData`-Objekts von Grund auf
 
-Sie können ein `FormData`-Objekt selbst erstellen, indem Sie es instanziieren und dann Felder hinzufügen, indem Sie die Methode [`append()`](/de/docs/Web/API/FormData/append) aufrufen, wie folgt:
+Sie können ein `FormData`-Objekt selbst erstellen, indem Sie es instanziieren und dann Felder hinzufügen, indem Sie die [`append()`](https://developer.mozilla.org/de/docs/Web/API/FormData/append) Methode aufrufen, wie folgt:
 
 ```js
 const send = document.querySelector("#send");
@@ -39,15 +39,15 @@ send.addEventListener("click", async () => {
 ```
 
 > [!NOTE]
-> Die Felder `"avatar"` und `"webmasterfile"` enthalten beide eine Datei. Die Nummer, die dem Feld `"accountnum"` zugewiesen wird, wird sofort von der [`FormData.append()`](/de/docs/Web/API/FormData/append)-Methode in einen String umgewandelt (der Wert des Feldes kann ein [`Blob`](/de/docs/Web/API/Blob), [`File`](/de/docs/Web/API/File) oder ein String sein. Wenn der Wert weder ein `Blob` noch eine `File` ist, wird der Wert in einen String umgewandelt).
+> Die Felder `"avatar"` und `"webmasterfile"` enthalten beide eine Datei. Die der `"accountnum"` Felder zugewiesene Zahl wird von der [`FormData.append()`](https://developer.mozilla.org/de/docs/Web/API/FormData/append) Methode sofort in eine Zeichenkette umgewandelt (der Wert des Feldes kann ein [`Blob`](https://developer.mozilla.org/de/docs/Web/API/Blob), eine [`File`](https://developer.mozilla.org/de/docs/Web/API/File) oder eine Zeichenkette sein. Ist der Wert weder Blob noch File, wird der Wert in eine Zeichenkette konvertiert).
 
-Dieses Beispiel erstellt eine `FormData`-Instanz mit Werten für Felder mit den Namen `"username"`, `"accountnum"`, `"avatar"` und `"webmasterfile"` und verwendet dann [`fetch()`](/de/docs/Web/API/Window/fetch), um die Formulardaten zu senden. Das Feld `"webmasterfile"` ist ein [`Blob`](/de/docs/Web/API/Blob). Ein `Blob`-Objekt repräsentiert ein dateiähnliches Objekt aus unveränderlichen Rohdaten. `Blob`s repräsentieren Daten, die nicht unbedingt im nativen JavaScript-Format vorliegen. Das [`File`](/de/docs/Web/API/File)-Interface basiert auf `Blob`, erbt die Blob-Funktionalität und erweitert sie, um Dateien auf dem System des Benutzers zu unterstützen. Um ein `Blob` zu erstellen, können Sie den [„Blob()“-Konstruktor](/de/docs/Web/API/Blob/Blob) aufrufen.
+Dieses Beispiel erstellt eine `FormData` Instanz mit Werten für Felder mit den Namen `"username"`, `"accountnum"`, `"avatar"` und `"webmasterfile"` und verwendet dann [`fetch()`](https://developer.mozilla.org/de/docs/Web/API/Window/fetch), um die Formulardaten zu senden. Das Feld `"webmasterfile"` ist ein [`Blob`](https://developer.mozilla.org/de/docs/Web/API/Blob). Ein `Blob`-Objekt stellt ein dateiähnliches Objekt von unveränderlichen, rohen Daten dar. Blobs repräsentieren Daten, die nicht unbedingt im nativen JavaScript-Format vorliegen. Die [`File`](https://developer.mozilla.org/de/docs/Web/API/File) Schnittstelle basiert auf `Blob` und erweitert die Funktionalität, um Dateien auf dem System des Nutzers zu unterstützen. Um einen `Blob` zu erstellen, können Sie [den `Blob()` Konstruktor](https://developer.mozilla.org/de/docs/Web/API/Blob/Blob) aufrufen.
 
 ## Abrufen eines `FormData`-Objekts aus einem HTML-Formular
 
-Um ein `FormData`-Objekt zu erstellen, das die Daten eines vorhandenen {{ HTMLElement("form") }} enthält, geben Sie dieses Formularelement beim Erstellen des `FormData`-Objekts an:
+Um ein `FormData`-Objekt zu erstellen, das die Daten aus einem bestehenden {{ HTMLElement("form") }} enthält, geben Sie dieses Formularelement beim Erstellen des `FormData`-Objekts an:
 
-> **Hinweis:** `FormData` verwendet nur Eingabefelder, die das `name`-Attribut verwenden.
+> **Hinweis:** `FormData` verwendet nur Eingabefelder, die das `name` Attribut haben.
 
 ```js
 const formData = new FormData(someFormElement);
@@ -71,7 +71,7 @@ send.addEventListener("click", async () => {
 });
 ```
 
-Sie können auch zusätzliche Daten zum `FormData`-Objekt hinzufügen, nachdem Sie es aus einem Formular abgerufen haben und bevor Sie es versenden, wie folgt:
+Sie können auch zusätzliche Daten dem `FormData`-Objekt hinzufügen, nachdem es aus einem Formular abgerufen wurde, und bevor es gesendet wird, wie hier:
 
 ```js
 const send = document.querySelector("#send");
@@ -93,7 +93,7 @@ Dies ermöglicht es Ihnen, die Formulardaten vor dem Senden zu ergänzen, um zus
 
 ## Senden von Dateien mit einem `FormData`-Objekt
 
-Sie können auch Dateien mit `FormData` senden. Fügen Sie ein {{ HTMLElement("input") }}-Element vom Typ `file` in Ihrem {{htmlelement("form")}} ein:
+Sie können auch Dateien unter Verwendung von `FormData` senden. Fügen Sie ein {{ HTMLElement("input") }} Element vom Typ `file` in Ihr {{htmlelement("form")}} ein:
 
 ```html
 <form enctype="multipart/form-data" method="post" name="fileinfo" id="fileinfo">
@@ -128,7 +128,7 @@ Sie können auch Dateien mit `FormData` senden. Fügen Sie ein {{ HTMLElement("i
 </form>
 ```
 
-Dann können Sie es mit folgendem Code senden:
+Dann können Sie sie mit folgendem Code senden:
 
 ```js
 const form = document.querySelector("#fileinfo");
@@ -147,32 +147,32 @@ form.addEventListener("submit", async (event) => {
 ```
 
 > [!NOTE]
-> Wenn Sie eine Referenz auf das Formular übergeben, wird die im Formular angegebene [HTTP-Anfragemethode](/de/docs/Web/HTTP/Methods) über der in der `open()`-Anweisung angegebenen Methode verwendet.
+> Wenn Sie eine Referenz zum Formular übergeben, wird die im Formular angegebene [HTTP-Anfragemethode](https://developer.mozilla.org/de/docs/Web/HTTP/Methods) über die in dem `open()` Aufruf angegebene Methode verwendet.
 
 > [!WARNING]
-> Wenn Sie `FormData` verwenden, um POST-Anfragen mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder der [Fetch-API](/de/docs/Web/API/Fetch_API) mit dem Inhaltstyp `multipart/form-data` zu übermitteln (z. B. beim Hochladen von Dateien und Blobs auf den Server), _setzen Sie nicht_ explizit den [`Content-Type`](/de/docs/Web/HTTP/Headers/Content-Type)-Header in der Anfrage. Andernfalls kann der Browser den `Content-Type`-Header nicht mit dem Boundary-Ausdruck setzen, den er zum Begrenzen der Formularfelder im Anfragekörper verwendet.
+> Wenn Sie `FormData` verwenden, um POST-Anfragen mit [`XMLHttpRequest`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest) oder der [Fetch API](https://developer.mozilla.org/de/docs/Web/API/Fetch_API) mit dem `multipart/form-data` Inhaltstyp zu senden (z.B. beim Hochladen von Dateien und Blobs auf den Server), setzen Sie den [`Content-Type`](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/Content-Type) Header der Anfrage _nicht_ explizit. Andernfalls wird der Browser daran gehindert, den `Content-Type` Header mit dem zu verwendenden Grenzausdruck festzulegen, der die Formularfelder im Anfragetext abgrenzen wird.
 
-Sie können auch eine [`File`](/de/docs/Web/API/File) oder ein [`Blob`](/de/docs/Web/API/Blob) direkt dem [`FormData`](/de/docs/Web/API/FormData)-Objekt hinzufügen, wie folgt:
+Sie können auch eine [`File`](https://developer.mozilla.org/de/docs/Web/API/File) oder ein [`Blob`](https://developer.mozilla.org/de/docs/Web/API/Blob) direkt zu dem [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData) Objekt hinzufügen, wie folgt:
 
 ```js
 data.append("myfile", myBlob, "filename.txt");
 ```
 
-Bei der Verwendung der [`append()`](/de/docs/Web/API/FormData/append)-Methode ist es möglich, den dritten optionalen Parameter zu verwenden, um einen Dateinamen im `Content-Disposition`-Header zu übermitteln, der an den Server gesendet wird. Wenn kein Dateiname angegeben wird (oder der Parameter nicht unterstützt wird), wird der Name "blob" verwendet.
+Bei Verwendung der [`append()`](https://developer.mozilla.org/de/docs/Web/API/FormData/append) Methode ist es möglich, den dritten optionalen Parameter zu verwenden, um einen Dateinamen im `Content-Disposition` Header zu übergeben, der an den Server gesendet wird. Wenn kein Dateiname angegeben ist (oder der Parameter nicht unterstützt wird), wird der Name "blob" verwendet.
 
 ## Verwendung eines `formdata`-Ereignisses
 
-Das [`formdata`-Ereignis](/de/docs/Web/API/HTMLFormElement/formdata_event), das neuer als das [`FormData`](/de/docs/Web/API/FormData)-Objekt ist, wird auf einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt ausgelöst, nachdem die Eingabeliste, die die Formulardaten darstellt, erstellt wurde. Dies geschieht, wenn das Formular übermittelt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
+Das [`formdata` Ereignis](https://developer.mozilla.org/de/docs/Web/API/HTMLFormElement/formdata_event), das neuer ist als das [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData) Objekt, wird auf einem [`HTMLFormElement`](https://developer.mozilla.org/de/docs/Web/API/HTMLFormElement) Objekt ausgelöst, nachdem die Eintragsliste, die die Formulardaten darstellt, erstellt wurde. Dies geschieht, wenn das Formular übermittelt wird, kann jedoch auch durch Aufrufen eines [`FormData()`](https://developer.mozilla.org/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
 
-Dies ermöglicht es, ein [`FormData`](/de/docs/Web/API/FormData)-Objekt schnell als Reaktion auf ein `formdata`-Ereignis zu erhalten, anstatt es selbst zusammenstellen zu müssen.
+Dies ermöglicht es, ein [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData) Objekt schnell als Reaktion auf ein `formdata`-Ereignis zu erhalten, anstatt es selbst zusammenstellen zu müssen.
 
-Zum Beispiel können wir im JavaScript auf ein Formular referenzieren:
+Beispielsweise können wir im JavaScript auf ein Formular verweisen:
 
 ```js
 const formElem = document.querySelector("form");
 ```
 
-In unserem [`submit`-Ereignis](/de/docs/Web/API/HTMLFormElement/submit_event)-Handler verwenden wir [`preventDefault`](/de/docs/Web/API/Event/preventDefault), um die Standardformularübermittlung zu verhindern, und rufen dann einen [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktor auf, um das `formdata`-Ereignis auszulösen:
+In unserem [`submit` Ereignis](https://developer.mozilla.org/de/docs/Web/API/HTMLFormElement/submit_event) Handler verwenden wir [`preventDefault`](https://developer.mozilla.org/de/docs/Web/API/Event/preventDefault), um die Standard-Formularübermittlung zu stoppen, und rufen dann einen [`FormData()`](https://developer.mozilla.org/de/docs/Web/API/FormData/FormData) Konstruktor auf, um das `formdata`-Ereignis auszulösen:
 
 ```js
 formElem.addEventListener("submit", (e) => {
@@ -184,7 +184,7 @@ formElem.addEventListener("submit", (e) => {
 });
 ```
 
-Wenn das `formdata`-Ereignis ausgelöst wird, können wir über [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData) auf das [`FormData`](/de/docs/Web/API/FormData)-Objekt zugreifen und dann damit tun, was wir möchten (unten posten wir es mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) an den Server).
+Wenn das `formdata`-Ereignis ausgelöst wird, können wir auf das [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData) Objekt mit [`FormDataEvent.formData`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent/formData) zugreifen, um dann damit zu machen, was wir wollen (unten posten wir es auf den Server mit [`XMLHttpRequest`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest)).
 
 ```js
 formElem.addEventListener("formdata", (e) => {
@@ -204,13 +204,13 @@ formElem.addEventListener("formdata", (e) => {
 });
 ```
 
-## Stolperfallen
+## Tücken
 
-Das `FormData`-Objekt enthält keine Daten aus Feldern, die deaktiviert sind, oder Fieldsets, die deaktiviert sind.
+Das `FormData` Objekt enthält keine Daten von deaktivierten Feldern oder von deaktivierten Fieldsets.
 
 ## Siehe auch
 
-- [Verwendung der Fetch-API](/de/docs/Web/API/Fetch_API/Using_Fetch)
-- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
-- [`Blob`](/de/docs/Web/API/Blob)
-- [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Using the Fetch API](https://developer.mozilla.org/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [`HTMLFormElement`](https://developer.mozilla.org/de/docs/Web/API/HTMLFormElement)
+- [`Blob`](https://developer.mozilla.org/de/docs/Web/API/Blob)
+- [Typed Arrays](https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/Typed_arrays)

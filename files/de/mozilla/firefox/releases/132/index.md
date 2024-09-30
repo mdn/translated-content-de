@@ -7,11 +7,11 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die Entwickler betreffen. Firefox 132 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [29. Oktober 2024](https://whattrainisitnow.com/release/?version=132) veröffentlicht.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 132, die Entwickler betreffen. Firefox 132 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [29. Oktober 2024](https://whattrainisitnow.com/release/?version=132) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwicklerwerkzeuge
+### Entwicklertools
 
 ### HTML
 
@@ -65,7 +65,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die En
 
 ## Experimentelle Web-Features
 
-Diese Funktionen sind neu in Firefox 132 enthalten, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`. Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind neu in Firefox 132, aber standardmäßig deaktiviert. Um diese Funktionen auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite zu [Experimentellen Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`device`**-Eigenschaft des [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)-Interfaces gibt die [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz zurück, die die HID-Schnittstelle repräsentiert, die den Eingabereport gesendet hat.
+Die **`device`**-Eigenschaft der [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)-Schnittstelle gibt die [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz zurück, die die HID-Schnittstelle darstellt, welche den Eingabereport gesendet hat.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`HIDDevice`](/de/docs/Web/API/HIDDevice).
 
 ## Beispiele
 
-Im folgenden Beispiel ist `device` eine [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz, die das Gerät repräsentiert, das den Report sendet. Der `productName` dieses Geräts wird in die Konsole ausgegeben.
+Im folgenden Beispiel ist `device` eine [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz, die das Gerät darstellt, das den Report sendet. Der `productName` dieses Geräts wird in der Konsole protokolliert.
 
 ```js
 device.addEventListener("inputreport", (event) => {

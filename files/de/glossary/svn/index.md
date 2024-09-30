@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Apache Subversion (**SVN**) ist ein kostenloses Source-Control-Management-System ([SCM](/de/docs/Glossary/SCM)). Es ermöglicht Entwicklern, eine Historie von Text- und Codeänderungen zu führen. Obwohl SVN auch Binärdateien verarbeiten kann, empfehlen wir nicht, es für solche Dateien zu verwenden.
+Apache Subversion (**SVN**) ist ein kostenloses Versionskontrollsystem ([SCM](/de/docs/Glossary/SCM)). Es ermöglicht Entwicklern, eine Historie von Text- und Codeänderungen zu führen. Obwohl SVN auch Binärdateien verarbeiten kann, empfehlen wir, es nicht für solche Dateien zu verwenden.
 
 ## Siehe auch
 

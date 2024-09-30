@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`webglcontextlost`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent feststellt, dass der Zeichenpuffer, der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbunden ist, verloren gegangen ist.
+Das **`webglcontextlost`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent erkennt, dass der Zeichnungspuffer, der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbunden ist, verloren gegangen ist.
 
-Dieses Ereignis ist nicht bubble-fähig.
+Dieses Ereignis steigt nicht auf.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 
-## Ereigniseigenschaften
+## Eigenschaften des Ereignisses
 
-_Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Eltern-Interface, [`Event`](/de/docs/Web/API/Event)._
 
 - [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
   - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.

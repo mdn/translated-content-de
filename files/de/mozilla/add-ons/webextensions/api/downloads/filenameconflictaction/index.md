@@ -7,20 +7,20 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Typ `FilenameConflictAction` der {{WebExtAPIRef("downloads")}} API gibt an, was zu tun ist, wenn der Name einer heruntergeladenen Datei mit einer vorhandenen Datei in Konflikt steht.
+Der Typ `FilenameConflictAction` der {{WebExtAPIRef("downloads")}} API gibt an, was zu tun ist, wenn der Name einer heruntergeladenen Datei mit einer bereits vorhandenen Datei in Konflikt steht.
 
 Dieser Typ definiert die Werte, die für die Eigenschaft `conflictAction` des `options`-Parameters der Funktion {{WebExtAPIRef("downloads.download")}} verwendet werden können.
 
 ## Typ
 
-Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `"uniquify"`
   - : Der Browser wird den Dateinamen ändern, um ihn einzigartig zu machen.
 - `"overwrite"`
   - : Der Browser wird die alte Datei mit der neu heruntergeladenen Datei überschreiben.
 - `"prompt"`
-  - : Der Browser wird den Benutzer auffordern, auszuwählen, ob der Dateiname einzigartig gemacht oder überschrieben werden soll.
+  - : Der Browser wird den Benutzer auffordern zu wählen, ob er den Namen einzigartig machen oder überschreiben möchte.
 
 ## Browser-Kompatibilität
 
@@ -29,4 +29,4 @@ Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-FilenameConflictAction) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-FilenameConflictAction) API.

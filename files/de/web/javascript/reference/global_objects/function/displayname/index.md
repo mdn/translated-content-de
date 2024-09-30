@@ -7,32 +7,32 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die optionale **`displayName`** Eigenschaft einer {{jsxref("Function")}} Instanz spezifiziert den Anzeigenamen der Funktion.
+Die optionale **`displayName`**-Eigenschaft einer {{jsxref("Function")}}-Instanz legt den Anzeigenamen der Funktion fest.
 
 ## Wert
 
-Die `displayName` Eigenschaft ist anfänglich bei keiner Funktion vorhanden — sie wird von den Code-Autoren hinzugefügt. Zur Anzeige sollte es ein String sein.
+Die `displayName`-Eigenschaft ist anfangs bei keiner Funktion vorhanden — sie wird von den Codeautoren hinzugefügt. Für Anzeigezwecke sollte es sich um einen String handeln.
 
 ## Beschreibung
 
-Die `displayName` Eigenschaft wird, falls vorhanden, möglicherweise von Konsolen und Profilern dem {{jsxref("Function/name", "name")}} Attribut als Funktionsname vorgezogen.
+Die `displayName`-Eigenschaft, falls vorhanden, kann von Konsolen und Profilern gegenüber der {{jsxref("Function/name", "name")}}-Eigenschaft bevorzugt werden, um sie als Namen einer Funktion anzuzeigen.
 
-Unter den Browsern nutzt nur die Firefox-Konsole diese Eigenschaft. Die React-Entwicklertools verwenden auch die [`displayName`](https://legacy.reactjs.org/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) Eigenschaft beim Anzeigen des Komponentenbaums.
+Von den Browsern nutzt nur die Firefox-Konsole diese Eigenschaft. Auch die React Devtools verwenden die [`displayName`](https://legacy.reactjs.org/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging)-Eigenschaft, wenn sie den Komponententree anzeigen.
 
-Firefox versucht, das `displayName` zu verwenden, das möglicherweise durch den [anonymous JavaScript functions naming convention](https://johnjbarton.github.io/nonymous/index.html) Algorithmus generiert wurde. Die folgenden Muster werden erkannt:
+Firefox unternimmt einige grundlegende Versuche, die `displayName` zu dekodieren, die möglicherweise durch den Algorithmus der [anonymous JavaScript functions naming convention](https://johnjbarton.github.io/nonymous/index.html) generiert wurde. Die folgenden Muster werden erkannt:
 
-- Wenn `displayName` mit einer Folge von alphanumerischen Zeichen, `_`, und `$` endet, wird das längste solcher Suffixe angezeigt.
-- Wenn `displayName` mit einer Folge von durch `[]` eingeschlossenen Zeichen endet, wird diese Folge ohne die eckigen Klammern angezeigt.
-- Wenn `displayName` mit einer Folge von alphanumerischen Zeichen und `_` gefolgt von `/`, `.`, oder `<` endet, wird die Folge ohne die abschließenden `/`, `.`, oder `<` Zeichen angezeigt.
-- Wenn `displayName` mit einer Folge von alphanumerischen Zeichen und `_` gefolgt von `(^)` endet, wird die Folge ohne das `(^)` angezeigt.
+- Wenn `displayName` mit einer Sequenz von alphanumerischen Zeichen, `_` und `$` endet, wird das längste solche Suffix angezeigt.
+- Wenn `displayName` mit einer Sequenz von in `[]` eingeschlossenen Zeichen endet, wird diese Sequenz ohne die eckigen Klammern angezeigt.
+- Wenn `displayName` mit einer Sequenz von alphanumerischen Zeichen und `_` gefolgt von einigen `/`, `.`, oder `<` endet, wird die Sequenz ohne die abschließenden `/`, `.` oder `<`-Zeichen zurückgegeben.
+- Wenn `displayName` mit einer Sequenz von alphanumerischen Zeichen und `_` gefolgt von `(^)` endet, wird die Sequenz ohne das `(^)` angezeigt.
 
 Wenn keines der oben genannten Muster übereinstimmt, wird das gesamte `displayName` angezeigt.
 
 ## Beispiele
 
-### Festlegen eines displayName
+### Ein displayName setzen
 
-Durch Eingabe des folgenden in einer Firefox-Konsole sollte es als etwas wie `function MyFunction()` angezeigt werden:
+Wenn Sie das Folgende in einer Firefox-Konsole eingeben, sollte es als etwas wie `function MyFunction()` angezeigt werden:
 
 ```js
 const a = function () {};
@@ -41,7 +41,7 @@ a.displayName = "MyFunction";
 a; // function MyFunction()
 ```
 
-### Dynamisches Ändern des displayName
+### displayName dynamisch ändern
 
 Sie können den `displayName` einer Funktion dynamisch ändern:
 
@@ -59,9 +59,9 @@ object.someMethod("123");
 console.log(object.someMethod.displayName); // "someMethod (123)"
 ```
 
-### Reinigung des displayName
+### Bereinigung des displayName
 
-Die Firefox-Entwicklertools würden einige gängige Muster in der `displayName` Eigenschaft bereinigen, bevor sie angezeigt wird.
+Firefox Devtools würden einige häufige Muster in der `displayName`-Eigenschaft bereinigen, bevor sie angezeigt wird.
 
 ```js
 function foo() {}
@@ -87,7 +87,7 @@ testName("foo(^)"); // function foo()
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Nicht Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

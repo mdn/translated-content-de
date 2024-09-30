@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: outputLatency-Eigenschaft"
+title: "AudioContext: Eigenschaft `outputLatency`"
 short-title: outputLatency
 slug: Web/API/AudioContext/outputLatency
 l10n:
@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`outputLatency`** der
-[`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle bietet eine Schätzung der Ausgangslatenz
-des aktuellen Audio-Kontexts.
+Die **`outputLatency`** schreibgeschützte Eigenschaft der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle liefert eine Schätzung der Ausgabe-Latenz des aktuellen Audio-Kontexts.
 
-Dies ist die Zeit, in Sekunden, die zwischen dem Übergeben eines Audio-Puffers eines Audio-Diagramms vom Browser an das Audio-Untersystem des Host-Systems zum Abspielen liegt und dem Zeitpunkt, zu dem die erste Probe im Puffer tatsächlich vom Audioausgabegerät verarbeitet wird.
+Dies ist die Zeit in Sekunden, die vergeht, bis der Browser einen Audio-Puffer von einem Audiographen an das Audiosubsystem des Host-Systems zum Abspielen übergibt, und dem Zeitpunkt, an dem das erste Sample im Puffer tatsächlich vom Audioausgabegerät verarbeitet wird.
 
 Sie variiert je nach Plattform und verfügbarer Hardware.
 
 ## Wert
 
-Ein Double, das die Ausgangslatenz in Sekunden darstellt.
+Ein Double, das die Ausgabe-Latenz in Sekunden darstellt.
 
 ## Beispiele
 

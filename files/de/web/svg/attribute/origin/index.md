@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`origin`** Attribut bestimmt den Ursprung der Bewegung für eine Animation. Es hat keine Wirkung in SVG.
+Das **`origin`**-Attribut gibt den Ursprung der Bewegung für eine Animation an. Es hat keine Wirkung in SVG.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Fehler: Zugriff auf Eigenschaft "x" verweigert'
+title: "Fehler: Zugriff verweigert auf Eigenschaft \"x\""
 slug: Web/JavaScript/Reference/Errors/Property_access_denied
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -23,11 +23,11 @@ SecurityError: Blocked a frame with origin "x" from accessing a cross-origin fra
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domäne geladen wurde und gegen die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verstößt.
+Es wurde versucht, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domäne geladen wurde und bei dem Sie gegen die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verstoßen haben.
 
 ## Beispiele
 
-### Keine Berechtigung für den Zugriff auf das Dokument
+### Keine Berechtigung zum Zugriff auf das Dokument
 
 ```html
 <!doctype html>

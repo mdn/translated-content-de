@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: navigator-Eigenschaft"
+title: "WorkerGlobalScope: navigator property"
 short-title: navigator
 slug: Web/API/WorkerGlobalScope/navigator
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`navigator`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt den mit dem Worker verknüpften [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zurück. Es handelt sich um ein spezifisches Navigator-Objekt, das größtenteils ein Untersetzer des [`Navigator`](/de/docs/Web/API/Navigator) für Browserscopes ist, aber an Worker angepasst wurde.
+Die **`navigator`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt den dem Worker zugeordneten [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zurück. Es ist ein spezifisches Navigator-Objekt, größtenteils ein Teilmengenbereich des [`Navigator`](/de/docs/Web/API/Navigator) für Browserscopes, jedoch an Worker angepasst.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekt.
 
 ## Beispiele
 
-Wenn Sie das folgende innerhalb eines Workers aufrufen
+Wenn Sie das folgende aufrufen
 
 ```js
 console.log(navigator);
 ```
 
-(was im Wesentlichen das Äquivalent von `self.console.log(self.navigator);` wäre, da diese im Worker-Scope aufgerufen werden, der mit [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self) referenziert werden kann), wird ein [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekt in die Konsole geschrieben — etwas in der Art:
+innerhalb eines Workers (was im Grunde das Äquivalent zu `self.console.log(self.navigator);` wäre, da diese im Worker-Scope aufgerufen werden, der mit [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self) referenziert werden kann), erhalten Sie ein [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekt, das in die Konsole geschrieben wird — so etwas wie das Folgende:
 
 ```plain
 Object {onLine: true, userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) Ap…ML, like Gecko) Chrome/40.0.2214.93 Safari/537.36", product: "Gecko", platform: "MacIntel", appVersion: "5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKi…ML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"…}
@@ -37,7 +37,7 @@ Object {onLine: true, userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1
     __proto__: Object
 ```
 
-Sie könnten dieses Navigator-Objekt verwenden, um mehr Informationen über die Laufzeitumgebung zurückzugeben, so wie Sie es mit einem normalen [`Navigator`](/de/docs/Web/API/Navigator)-Objekt tun würden.
+Sie könnten dieses Navigator-Objekt verwenden, um mehr Informationen über die Laufzeitumgebung zurückzugeben, ähnlich wie Sie es mit einem normalen [`Navigator`](/de/docs/Web/API/Navigator)-Objekt tun könnten.
 
 ## Spezifikationen
 

@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und/oder {{cssxref("left")}} Eigenschaften entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
+Die **`inset`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine Abkürzung, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwertsyntax wie die Kurzschrift der {{cssxref("margin")}}-Eigenschaft.
 
-Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
+Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset.html")}}
 
-Obwohl sie Teil des Moduls der [CSS logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Offsets. Sie definiert _physische_ Offsets, unabhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements.
+Obwohl sie Teil des Moduls [CSS-Logik-Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Versätze. Sie definiert _physische_ Versätze, unabhängig vom Schreibrichtungsmodus des Elements, der Richtung und der Textorientierung.
 
-## Zusammengesetzte Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("top")}}
 - {{Cssxref("right")}}
@@ -51,7 +51,7 @@ inset: unset;
 
 ### Werte
 
-Die `inset` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -63,7 +63,7 @@ Die `inset` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eig
 
 ## Beispiele
 
-### Festlegen von Offsets für ein Element
+### Versätze für ein Element einstellen
 
 #### HTML
 
@@ -105,6 +105,6 @@ div {
 
 ## Siehe auch
 
-- Die Langform-Box-Offset-Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}.
-- Die zugeordneten logischen Kurzformen: {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
-- Die {{cssxref("margin")}} Kurzform-Mehrwert-Syntax.
+- Die Langform-Box-Versatzeigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}.
+- Die zugeordneten logischen Abkürzungen: {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
+- Die Mehrwertsyntax der {{cssxref("margin")}}-Kurzschrift.

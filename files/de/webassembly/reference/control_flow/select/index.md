@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`select`**-Anweisung wählt einen ihrer ersten beiden Operanden basierend darauf aus, ob ihr dritter Operand null ist oder nicht. Sie teilt einige Ähnlichkeiten mit dem ternären Operator in anderen Sprachen (z.B. `false ? 10 : 20`), jedoch findet keine [Kurzschlussauswertung](https://en.wikipedia.org/wiki/Short-circuit_evaluation) statt. Der Anweisung kann ein unmittelbarer Werttyp folgen: `select (result T)`. `select (result T)` verwendet einen anderen Binärcode und ermöglicht Typen neben denen, die durch den WebAssembly MVP eingeführt wurden (`i32`, `i64`, `f32`, `f64`). Zum Beispiel erlaubt es die Auswahl zwischen zwei `externref`-Werten.
+Die **`select`** Anweisung wählt einen ihrer ersten beiden Operanden basierend darauf aus, ob der dritte Operand null ist oder nicht. Sie weist einige Ähnlichkeiten mit dem ternären Operator in anderen Sprachen auf (z.B. `false ? 10 : 20`), ohne dass sie [kurzschließt](https://en.wikipedia.org/wiki/Short-circuit_evaluation). Der Anweisung kann ein unmittelbarer Werttyp folgen: `select (result T)`. `select (result T)` verwendet einen anderen binären Opcode und erlaubt Typen zusätzlich zu denen, die durch das WebAssembly MVP eingeführt wurden (`i32`, `i64`, `f32`, `f64`), beispielsweise erlaubt es die Auswahl zwischen zwei `externref` Werten.
 
 {{EmbedInteractiveExample("pages/wat/select.html", "tabbed-taller")}}
 
@@ -32,7 +32,7 @@ i32.const 0
 select (result f32)
 ```
 
-| Anweisung  | Binärcode |
-| ---------- | --------- |
-| `select`   | `0x1b`    |
-| `select t` | `0x1c`    |
+| Anweisung | Binärer Opcode |
+| ----------- | ------------- |
+| `select`    | `0x1b`        |
+| `select t`  | `0x1c`        |

@@ -9,20 +9,20 @@ l10n:
 
 Die **`GPUAdapterInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) enthält identifizierende Informationen über einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter).
 
-Eine Instanz eines `GPUAdapterInfo`-Objekts wird mit der Methode [`GPUAdapter.requestAdapterInfo()`](/de/docs/Web/API/GPUAdapter/requestAdapterInfo) angefordert.
+Ein `GPUAdapterInfo`-Objekt wird mit der Methode [`GPUAdapter.requestAdapterInfo()`](/de/docs/Web/API/GPUAdapter/requestAdapterInfo) angefordert.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`architecture`](/de/docs/Web/API/GPUAdapterInfo/architecture) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Der Name der Familie oder Klasse von GPUs, zu der der Adapter gehört. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+  - : Der Name der Familie oder Klasse von GPUs, zu der der Adapter gehört. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 - [`description`](/de/docs/Web/API/GPUAdapterInfo/description) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein menschenlesbarer String, der den Adapter beschreibt. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+  - : Ein menschenlesbarer String, der den Adapter beschreibt. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 - [`device`](/de/docs/Web/API/GPUAdapterInfo/device) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine herstellerspezifische Kennung für den Adapter. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+  - : Eine herstellerspezifische Kennung für den Adapter. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 - [`vendor`](/de/docs/Web/API/GPUAdapterInfo/vendor) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Der Name des Adapter-Herstellers. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+  - : Der Name des Adapter-Herstellers. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 
 ## Beispiele
 

@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Hello_vertex_attributes","Learn/WebGL/By_example/Video_textures")}}
 
-Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das heißt, mit Code Texturen zu erzeugen, die zur Schattierung von WebGL-Objekten verwendet werden.
+Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das bedeutet, Texturen mit Code zu generieren, um sie in der Schattierung von WebGL-Objekten zu verwenden.
 
-## Zeichnen von Texturen mit Code
+## Texturen mit Code zeichnen
 
 {{EmbedLiveSample("Drawing_textures_with_code", 660, 425)}}
 
-Texturierung eines Punktsprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
+Texturierung eines Punkt-Sprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
 
 ```html hidden
 <p>Texture from code. Simple demonstration of procedural texturing</p>

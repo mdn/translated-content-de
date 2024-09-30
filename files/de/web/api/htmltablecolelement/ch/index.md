@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`ch`**-Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Schnittstelle hat keine Funktion. Sie spiegelt das `char`-Attribut des {{HTMLElement("col")}}-Elements wider.
+Die **`ch`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces tut nichts. Sie spiegelt das `char`-Attribut des {{HTMLElement("col")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft wurde ursprünglich entwickelt, um die Möglichkeit zu bieten, Tabellenzelleninhalte an einem spezifischen Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
+> Diese Eigenschaft wurde entwickelt, um die Möglichkeit zu bieten, den Inhalt von Tabellenzellen an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenkettenwertes mit der {{cssxref("text-align")}} CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenfolgenwertes mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
 
 ## Wert
 

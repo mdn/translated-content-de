@@ -7,44 +7,44 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`DataTransfer`**-Objekt wird verwendet, um Daten zu halten, die zwischen Kontexten übertragen werden, wie z.B. bei einem Drag-and-Drop-Vorgang oder beim Lesen/Schreiben in die Zwischenablage. Es kann ein oder mehrere Datenobjekte enthalten, von denen jedes eine oder mehrere Datentypen haben kann.
+Das **`DataTransfer`**-Objekt wird verwendet, um Daten zwischen Kontexten zu übertragen, wie beispielsweise bei einem Drag-and-Drop-Vorgang oder beim Lesen/Schreiben der Zwischenablage. Es kann ein oder mehrere Datenelemente halten, wobei jedes Element einen oder mehrere Datentypen haben kann.
 
-`DataTransfer` wurde hauptsächlich für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) als die [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft entwickelt und ist nach wie vor im HTML-Drag-and-Drop-Abschnitt spezifiziert. Es wird jedoch nun auch von anderen APIs verwendet, wie z.B. [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Andere APIs verwenden jedoch nur bestimmte Teile der Schnittstelle und ignorieren Eigenschaften wie `dropEffect`. Die Dokumentation von `DataTransfer` wird sich hauptsächlich auf die Verwendung in Drag-and-Drop-Vorgängen konzentrieren, und Sie sollten die Dokumentation der anderen APIs für die Verwendung von `DataTransfer` in diesen Kontexten konsultieren.
+`DataTransfer` wurde ursprünglich für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entwickelt, als die Eigenschaft [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer), und ist immer noch im Bereich Drag-and-Drop im HTML-Standard spezifiziert. Es wird jedoch mittlerweile auch von anderen APIs wie [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer) verwendet. Andere APIs nutzen jedoch nur bestimmte Teile der Schnittstelle und ignorieren Eigenschaften wie `dropEffect`. Die Dokumentation von `DataTransfer` wird sich hauptsächlich mit der Verwendung bei Drag-and-Drop-Vorgängen befassen, und Sie sollten die Dokumentationen der anderen APIs für deren Einsatz von `DataTransfer` in diesen Kontexten konsultieren.
 
 ## Konstruktor
 
 - [`DataTransfer()`](/de/docs/Web/API/DataTransfer/DataTransfer)
   - : Erstellt und gibt ein neues `DataTransfer`-Objekt zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)
-  - : Ruft die Art des derzeit ausgewählten Drag-and-Drop-Vorgangs ab oder legt den Vorgang auf einen neuen Typ fest. Der Wert muss `none`, `copy`, `link` oder `move` sein.
+  - : Ruft den Typ des derzeit ausgewählten Drag-and-Drop-Vorgangs ab oder legt den Vorgang auf einen neuen Typ fest. Der Wert muss `none`, `copy`, `link` oder `move` sein.
 - [`DataTransfer.effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)
-  - : Gibt alle möglichen Arten von Vorgängen an. Muss einer von `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all` oder `uninitialized` sein.
+  - : Gibt alle Arten von möglichen Vorgängen an. Muss einer von `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all` oder `uninitialized` sein.
 - [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) {{ReadOnlyInline}}
-  - : Enthält eine Liste aller lokalen Dateien, die bei der Datenübertragung verfügbar sind. Wenn der Drag-Vorgang nicht das Ziehen von Dateien beinhaltet, ist diese Eigenschaft eine leere Liste.
+  - : Enthält eine Liste aller lokalen Dateien, die beim Datentransfer verfügbar sind. Wenn der Drag-Vorgang nicht das Ziehen von Dateien beinhaltet, ist diese Eigenschaft eine leere Liste.
 - [`DataTransfer.items`](/de/docs/Web/API/DataTransfer/items) {{ReadOnlyInline}}
-  - : Gibt ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das eine Liste aller Drag-Daten ist.
+  - : Gibt ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt zurück, das eine Liste aller Drag-Daten ist.
 - [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) {{ReadOnlyInline}}
-  - : Ein Array von Zeichenfolgen, das die Formate angibt, die im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis festgelegt wurden.
+  - : Ein Array von Strings, das die Formate angibt, die im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis festgelegt wurden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`DataTransfer.addElement()`](/de/docs/Web/API/DataTransfer/addElement) {{experimental_inline}} {{non-standard_inline}}
-  - : Legt die Drag-Quelle für das angegebene Element fest. Dies wird das Element sein, auf dem [`drag`](/de/docs/Web/API/HTMLElement/drag_event)- und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisse ausgelöst werden und nicht das Standardelement (der Knoten, der gezogen wurde). Firefox-spezifisch.
+  - : Legt die Drag-Quelle für das angegebene Element fest. Dies wird das Element sein, bei dem die Ereignisse [`drag`](/de/docs/Web/API/HTMLElement/drag_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) ausgelöst werden und nicht das Standardziel (der Knoten, der gezogen wurde). Firefox-spezifisch.
 - [`DataTransfer.clearData()`](/de/docs/Web/API/DataTransfer/clearData)
-  - : Entfernt die Daten, die mit einem gegebenen Typ verbunden sind. Das Typ-Argument ist optional. Wenn der Typ leer oder nicht angegeben ist, werden die Daten, die mit allen Typen verbunden sind, entfernt. Wenn keine Daten für den angegebenen Typ vorhanden sind oder die Datenübertragung keine Daten enthält, hat diese Methode keine Wirkung.
+  - : Entfernt die Daten, die mit einem bestimmten Typ verknüpft sind. Das Argument `type` ist optional. Wenn der Typ leer oder nicht angegeben ist, werden die Daten aller Typen entfernt. Wenn Daten für den angegebenen Typ nicht existieren oder der Datentransfer keine Daten enthält, hat diese Methode keine Wirkung.
 - [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData)
-  - : Ruft die Daten für einen bestimmten Typ ab oder eine leere Zeichenfolge, wenn keine Daten für diesen Typ vorhanden sind oder die Datenübertragung keine Daten enthält.
+  - : Ruft die Daten für einen gegebenen Typ ab oder gibt einen leeren String zurück, wenn keine Daten für diesen Typ existieren oder der Datentransfer keine Daten enthält.
 - [`DataTransfer.setData()`](/de/docs/Web/API/DataTransfer/setData)
-  - : Setzt die Daten für einen bestimmten Typ. Wenn keine Daten für den Typ existieren, wird er am Ende hinzugefügt, so dass das letzte Element in der Typenliste das neue Format ist. Wenn Daten für den Typ bereits existieren, werden die vorhandenen Daten an derselben Position ersetzt.
+  - : Setzt die Daten für einen bestimmten Typ. Wenn für den Typ keine Daten existieren, wird dieser am Ende hinzugefügt, sodass das letzte Element in der Typenliste das neue Format ist. Wenn Daten für den Typ bereits existieren, werden die vorhandenen Daten an derselben Position ersetzt.
 - [`DataTransfer.setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage)
-  - : Legt das Bild fest, das für das Ziehen verwendet werden soll, wenn ein benutzerdefiniertes gewünscht wird.
+  - : Setzt das Bild, das zum Ziehen verwendet werden soll, falls ein benutzerdefiniertes gewünscht wird.
 
 ## Beispiele
 
-Jede in diesem Dokument aufgelistete Methode und Eigenschaft hat ihre eigene Referenzseite, und jede Referenzseite enthält entweder direkt ein Beispiel der Schnittstelle oder hat einen Link zu einem Beispiel.
+Jede Methode und Eigenschaft, die in diesem Dokument aufgeführt ist, hat ihre eigene Referenzseite und jede Referenzseite enthält entweder direkt ein Beispiel der Schnittstelle oder einen Link zu einem Beispiel.
 
 ## Spezifikationen
 
@@ -56,7 +56,7 @@ Jede in diesem Dokument aufgelistete Methode und Eigenschaft hat ihre eigene Ref
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

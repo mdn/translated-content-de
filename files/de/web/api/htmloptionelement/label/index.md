@@ -10,7 +10,7 @@ l10n:
 
 Die **`label`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) stellt den Text dar, der für eine Option in einem {{htmlelement("select")}}-Element oder als Teil einer Liste von Vorschlägen in einem {{htmlelement("datalist")}}-Element angezeigt wird. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut des {{htmlelement("option")}}-Elements wider.
 
-Wenn das Attribut ausgelassen oder der leere String verwendet wird, gibt die `label`-Eigenschaft den [`text`](/de/docs/Web/API/HTMLOptionElement/text)-Inhalt des Elements zurück.
+Wenn das Attribut weggelassen wird oder es ein leerer String ist, gibt die `label`-Eigenschaft den [`text`](/de/docs/Web/API/HTMLOptionElement/text)-Inhalt des Elements zurück.
 
 ## Wert
 

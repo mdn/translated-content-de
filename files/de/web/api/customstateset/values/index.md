@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`values()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet`-Objekt in der Einfügereihenfolge liefert.
+Die **`values()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet`-Objekt in der Einfügereihenfolge liefert.
 
 ## Syntax
 

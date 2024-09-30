@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Der Wert der **`WorkerNavigator.appName`**-Eigenschaft ist in jedem Browser immer `"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`WorkerNavigator.appName`**-Eigenschaft ist in jedem Browser immer
+`"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
 > Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Browsernamen zurückgibt. Alle Browser geben `"Netscape"` als Wert dieser Eigenschaft zurück.

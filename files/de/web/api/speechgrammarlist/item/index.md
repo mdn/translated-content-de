@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Die **`item`**-Getter-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces ist ein standardmäßiger Getter — sie ermöglicht die Abfrage einzelner [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte aus der `SpeechGrammarList` mit Array-Syntax.
+Der **`item`**-Getter der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Schnittstelle ist ein Standard-Getter — er ermöglicht es, einzelne [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte mit Array-Syntax aus der `SpeechGrammarList` abzurufen.
 
 ## Syntax
 

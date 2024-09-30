@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: createGain()-Methode"
+title: "BaseAudioContext: createGain() Methode"
 short-title: createGain()
 slug: Web/API/BaseAudioContext/createGain
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createGain()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erstellt einen [`GainNode`](/de/docs/Web/API/GainNode), der verwendet werden kann, um die Gesamtverstärkung (oder Lautstärke) des Audiographen zu steuern.
+Die `createGain()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erzeugt ein [`GainNode`](/de/docs/Web/API/GainNode), das verwendet werden kann, um die Gesamtverstärkung (oder Lautstärke) des Audiografen zu steuern.
 
 > [!NOTE]
-> Der [`GainNode()`](/de/docs/Web/API/GainNode/GainNode)-Konstruktor ist die empfohlene Methode zur Erstellung eines [`GainNode`](/de/docs/Web/API/GainNode); siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`GainNode()`](/de/docs/Web/API/GainNode/GainNode)-Konstruktor ist die empfohlene Methode zur Erstellung eines [`GainNode`](/de/docs/Web/API/GainNode); siehe
+> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,13 +26,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`GainNode`](/de/docs/Web/API/GainNode), der als Eingabequellen ein oder mehrere Audiosignale akzeptiert und Audio ausgibt, dessen Lautstärke in der Verstärkung (Lautstärke) auf ein durch den [`GainNode.gain`](/de/docs/Web/API/GainNode/gain) [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Parameter des Knotens spezifiziertes Niveau angepasst wurde.
+Ein [`GainNode`](/de/docs/Web/API/GainNode), das als Eingabe eine oder mehrere Audioquellen übernimmt und dessen Lautstärke in der Verstärkung (Lautstärke) auf ein durch den [`GainNode.gain`](/de/docs/Web/API/GainNode/gain) [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Parameter spezifiziertes Niveau angepasst wurde.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `GainNode` zu erstellen, der dann verwendet wird, um das Audio stummzuschalten und die Stummschaltung aufzuheben, wenn eine Stummschalttaste durch Ändern des `gain`-Eigenschaftswerts angeklickt wird.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext) zur Erstellung eines `GainNode`, das dann verwendet wird, um den Ton stumm zu schalten und die Stummschaltung aufzuheben, wenn ein Stumm-Taste gedrückt wird, indem der Wert der `gain`-Eigenschaft geändert wird.
 
-Der unten stehende Codeausschnitt funktioniert nicht wie angegeben - für ein vollständiges funktionierendes Beispiel schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js).)
+Das untenstehende Snippet würde nicht funktionieren, wie es ist — für ein vollständiges funktionierendes Beispiel, schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an ([Quelltext anzeigen](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js).)
 
 ```html
 <div>

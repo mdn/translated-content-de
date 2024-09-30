@@ -1,5 +1,5 @@
 ---
-title: Befehle
+title: Commands
 slug: Web/WebDriver/Commands
 l10n:
   sourceCommit: ac24a64c0ab26d0185c7b768aca130f490ea8487

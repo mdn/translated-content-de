@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `ChannelSplitterNode`-Interface, das häufig in Verbindung mit seinem Gegenstück, dem [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode), verwendet wird, trennt die verschiedenen Kanäle einer Audioquelle in eine Reihe von Mono-Ausgängen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z.B. um Kanal-Mixing durchzuführen, bei dem die Verstärkung auf jedem Kanal separat gesteuert werden muss.
+Die `ChannelSplitterNode`-Schnittstelle, die häufig in Verbindung mit ihrem Gegenstück, dem [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode), verwendet wird, trennt die verschiedenen Kanäle einer Audioquelle in eine Reihe von Mono-Ausgängen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z.B. um Kanalmixing durchzuführen, bei dem die Verstärkung für jeden Kanal separat gesteuert werden muss.
 
-![Standard-ChannelSplitterNode mit einem einzelnen Eingang, der in 6 Mono-Ausgänge aufgeteilt wird.](webaudiosplitter.png)
+![Standard-Kanalsplitter-Knoten mit einem einzelnen Eingang, der in 6 Mono-Ausgänge unterteilt wird.](webaudiosplitter.png)
 
-Wenn Ihr `ChannelSplitterNode` immer nur einen einzelnen Eingang hat, wird die Anzahl der Ausgänge durch einen Parameter im Konstruktor und den Aufruf von [`AudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter) definiert. Falls kein Wert angegeben wird, ist der Standardwert `6`. Wenn es weniger Kanäle im Eingang gibt als Ausgänge, sind überzählige Ausgänge stummgeschaltet.
+Wenn Ihr `ChannelSplitterNode` immer einen einzigen Eingang hat, wird die Anzahl der Ausgänge durch einen Parameter in seinem Konstruktor und den Aufruf von [`AudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter) definiert. Falls kein Wert angegeben wird, beträgt der Standardwert `6`. Wenn es weniger Kanäle im Eingang gibt als Ausgänge, sind die zusätzlichen Ausgänge lautlos.
 
 {{InheritanceDiagram}}
 
@@ -23,24 +23,25 @@ Wenn Ihr `ChannelSplitterNode` immer nur einen einzelnen Eingang hat, wird die A
     </tr>
     <tr>
       <th scope="row">Anzahl der Ausgänge</th>
-      <td>variabel; Standardwert <code>6</code>.</td>
+      <td>variabel; Standardwert ist <code>6</code>.</td>
     </tr>
     <tr>
-      <th scope="row">Channel-Zählmodus</th>
+      <th scope="row">Channel count mode</th>
       <td>
-        <code>"explicit"</code> Ältere Implementierungen entsprechen früheren Versionen
-        der Spezifikation und verwenden <code>"max"</code>.
+        <code>"explicit"</code> Ältere Implementierungen gemäß früheren
+        Versionen der Spezifikation verwenden <code>"max"</code>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Channel-Zahl</th>
+      <th scope="row">Channel count</th>
       <td>
-        Festgelegt auf die Anzahl der Ausgänge. Ältere Implementierungen, entsprechend früherer
-        Versionen der Spezifikation, verwenden <code>2</code> (nicht im Standardzählmodus verwendet).
+        Festgelegt auf die Anzahl der Ausgänge. Ältere Implementierungen
+        gemäß früheren Versionen der Spezifikation verwenden <code>2</code> (nicht
+        verwendet im Standardzählmodus).
       </td>
     </tr>
     <tr>
-      <th scope="row">Channel-Interpretation</th>
+      <th scope="row">Channel interpretation</th>
       <td><code>"discrete"</code></td>
     </tr>
   </tbody>
@@ -49,19 +50,19 @@ Wenn Ihr `ChannelSplitterNode` immer nur einen einzelnen Eingang hat, wird die A
 ## Konstruktor
 
 - [`ChannelSplitterNode()`](/de/docs/Web/API/ChannelSplitterNode/ChannelSplitterNode)
-  - : Erstellt eine neue Instanz eines `ChannelSplitterNode`-Objekts.
+  - : Erstellt eine neue `ChannelSplitterNode`-Objektinstanz.
 
 ## Instanzeigenschaften
 
-_Keine spezifische Eigenschaft; erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Eigenschaft; erbt Eigenschaften von ihrem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Siehe [`BaseAudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter#examples) für Beispielcode.
+Sehen Sie sich [`BaseAudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter#examples) für Beispielcode an.
 
 ## Spezifikationen
 

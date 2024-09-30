@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-**OWASP** (Open Web Application Security Project) ist eine gemeinnützige Organisation und ein weltweites Netzwerk, das sich für Sicherheit in Freier Software einsetzt, insbesondere im Bereich Web.
+**OWASP** (Open Web Application Security Project) ist eine gemeinnützige Organisation und ein weltweites Netzwerk, das sich der Sicherheit in freier Software widmet, insbesondere im Web.
 
 ## Siehe auch
 
-- [Offizielle Webseite](https://owasp.org/)
+- [Offizielle Website](https://owasp.org/)

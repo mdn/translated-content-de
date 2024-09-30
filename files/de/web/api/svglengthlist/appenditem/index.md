@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle fügt ein neues Element am Ende der Liste hinzu. Wenn das angegebene Element bereits in einer Liste ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt. Das eingefügte Element ist das Element selbst und nicht eine Kopie.
+Die **`appendItem()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle fügt ein neues Element am Ende der Liste ein. Wenn das angegebene Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und nicht eine Kopie.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ appendItem(newItem)
 ### Parameter
 
 - `newItem`
-  - : Der [`SVGLength`](/de/docs/Web/API/SVGLength), der zur Liste hinzugefügt werden soll.
+  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Der [`SVGLength`](/de/docs/Web/API/SVGLength), der zur Liste hinzugefügt wurde.
+Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Der [`SVGLength`](/de/docs/Web/API/SVGLength), der zur Liste hinzugefügt wurde.
 
 ## Beispiele
 
-Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
+Ein vollständiges Beispiel finden Sie unter [`SVGLengthList`](/de/docs/Web/API/SVGLengthList).
 
 ## Spezifikationen
 

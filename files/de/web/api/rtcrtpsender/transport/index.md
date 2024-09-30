@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpSender: transport-Eigenschaft"
+title: "RTCRtpSender: transport Eigenschaft"
 short-title: transport
 slug: Web/API/RTCRtpSender/transport
 l10n:
@@ -8,28 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`transport`** Eigenschaft eines
-[`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekts liefert das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) Objekt,
-das zur Interaktion mit dem zugrunde liegenden Transport verwendet wird, über den der Sender
-Real-time Transport Control Protocol ([RTCP](/de/docs/Glossary/RTCP))-Pakete austauscht.
+Die schreibgeschützte **`transport`**-Eigenschaft eines [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekts liefert das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das zur Interaktion mit dem zugrunde liegenden Transport verwendet wird, über den der Sender Real-time Transport Control Protocol ([RTCP](/de/docs/Glossary/RTCP))-Pakete austauscht.
 
-Dieser Transport ist verantwortlich für den Empfang der Daten für die Medien auf dem [`track`](/de/docs/Web/API/RTCRtpReceiver/track) des Senders.
+Dieser Transport ist für den Empfang der Daten für die Medien auf dem `track` des Senders verantwortlich.
 
 ## Wert
 
-Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) Objekt, das den zugrunde liegenden Transport darstellt, der vom Sender verwendet wird, um Pakete mit dem entfernten Peer auszutauschen, oder `null`, wenn der Sender noch nicht mit einem Transport verbunden ist.
+Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den zugrunde liegenden Transport repräsentiert, den der Sender zum Austauschen von Paketen mit dem Remote-Peer verwendet, oder `null`, wenn der Sender noch nicht mit einem Transport verbunden ist.
 
 ## Beschreibung
 
-Wenn der `RTCRtpSender` erstmals erstellt wird, ist der Wert von
-`transport` `null`. Dies wird durch ein
-`RTCDtlsTransport` ersetzt, sobald der Transport des Senders eingerichtet ist.
+Wenn der `RTCRtpSender` zuerst erstellt wird, ist der Wert von `transport` `null`. Dieser wird durch ein `RTCDtlsTransport` ersetzt, sobald der Transport des Senders etabliert ist.
 
-Beachten Sie, dass, wenn Bundling in Kraft ist—das heißt, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
-mit einem Konfigurationsobjekt erstellt wurde, dessen `bundlePolicy` `max-compat`
-oder `max-bundle` ist—mehrere Sender möglicherweise den gleichen Transport teilen; in diesem
-Fall verwenden alle von ihnen die gleiche Verbindung zum Senden und/oder Empfangen
-von [RTP](/de/docs/Glossary/RTP)- und [RTCP](/de/docs/Glossary/RTCP)-Paketen.
+Beachten Sie, dass beim Bunden - das heißt, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) mit einem Konfigurationsobjekt erstellt wurde, dessen `bundlePolicy` `max-compat` oder `max-bundle` ist - mehrere Sender denselben Transport teilen können; in diesem Fall benutzen alle die gleiche Verbindung, um RTP und RTCP-Pakete zu senden und/oder zu empfangen.
 
 ## Spezifikationen
 

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUInternalError()`** Konstruktor erstellt eine neue
-[`GPUInternalError`](/de/docs/Web/API/GPUInternalError) Objektinstanz.
+Der **`GPUInternalError()`**-Konstruktor erstellt eine neue Instanz eines [`GPUInternalError`](/de/docs/Web/API/GPUInternalError)-Objekts.
 
 ## Syntax
 
@@ -20,13 +19,13 @@ new GPUInternalError(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der eine lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
+  - : Ein String, der eine für Menschen lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUInternalError` Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein interner Fehler durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis angezeigt wird.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUInternalError`-Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein interner Fehler durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis auftritt.
 
-Siehe die Hauptseite [`GPUInternalError`](/de/docs/Web/API/GPUInternalError#examples) für ein Beispiel mit einer `GPUInternalError` Objektinstanz.
+Sehen Sie sich die Hauptseite [`GPUInternalError`](/de/docs/Web/API/GPUInternalError#examples) für ein Beispiel mit einer `GPUInternalError`-Objektinstanz an.
 
 ## Spezifikationen
 
@@ -39,4 +38,4 @@ Siehe die Hauptseite [`GPUInternalError`](/de/docs/Web/API/GPUInternalError#exam
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlungs-Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [Best Practices zur Fehlerbehandlung im WebGPU](https://toji.dev/webgpu-best-practices/error-handling)

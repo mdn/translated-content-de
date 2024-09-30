@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: Wert-Eigenschaft"
+title: "HTMLOutputElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLOutputElement/value
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`** Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interfaces repräsentiert den Wert des {{htmlelement("output")}}-Elements als String, oder den leeren String, wenn kein Wert gesetzt ist. Sie gibt den Inhalt des Elements zurück oder setzt ihn, ähnlich der [`textContent`](/de/docs/Web/API/Node/textContent) Eigenschaft.
+Die **`value`**-Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces repräsentiert den Wert des {{htmlelement("output")}}-Elements als String oder den leeren String, wenn kein Wert gesetzt ist. Sie gibt den Inhalt des Elements zurück oder setzt ihn, ähnlich wie die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 > [!NOTE]
-> Wenn die `value` Eigenschaft eines `<output>` Elements gesetzt ist, wechselt das Element in den Wert-Modus und der Standardwert ist nur über die [`HTMLOutputElement.defaultValue`](/de/docs/Web/API/HTMLOutputElement/defaultValue) Eigenschaft zugänglich.
+> Wenn die `value`-Eigenschaft eines `<output>`-Elements gesetzt wird, wechselt das Element in den Wertmodus und der Standardwert ist nur über die [`HTMLOutputElement.defaultValue`](/de/docs/Web/API/HTMLOutputElement/defaultValue)-Eigenschaft zugänglich.
 
 ## Wert
 
-Ein String, der den Inhalt des {{htmlelement("output")}} Elements enthält.
+Ein String, der den Inhalt des {{htmlelement("output")}}-Elements enthält.
 
 ## Beispiele
 

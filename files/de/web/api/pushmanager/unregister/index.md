@@ -1,5 +1,5 @@
 ---
-title: "PushManager: unregister()-Methode"
+title: "PushManager: unregister() Methode"
 short-title: unregister()
 slug: Web/API/PushManager/unregister
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode wurde verwendet, um das System aufzufordern, den angegebenen Endpunkt zu deregistrieren und zu löschen.
+Die **`unregister()`**-Methode wurde verwendet, um das System aufzufordern, den angegebenen Endpunkt abzumelden und zu löschen.
 
 > [!NOTE]
-> In der aktualisierten API kann ein Abonnement über die Methode [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe) abgemeldet werden.
+> In der aktualisierten API kann ein Abonnement über die [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe)-Methode abgemeldet werden.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ unregister(pushEndpoint)
 ### Parameter
 
 - `pushEndpoint`
-  - : Ein zu deregistrierender pushEndpoint.
+  - : Ein `pushEndpoint`, der abgemeldet werden soll.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt zur Verwaltung des Erfolgs oder Misserfolgs des Methodenaufrufs.
+Ein `DOMRequest`-Objekt, um den Erfolg oder Misserfolg des Methodenaufrufs zu behandeln.
 
 Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage ein
-[PushRegistration](#pushregistration)-Objekt darstellen, das den Endpunkt repräsentiert, der deregistriert wurde.
+[PushRegistration](#pushregistration)-Objekt sein, das den Endpunkt repräsentiert, der abgemeldet wurde.
 
 ### PushRegistration
 
 Diese Objekte sind anonyme JavaScript-Objekte mit den folgenden Eigenschaften:
 
 - `pushEndpoint`
-  - : Ein String, der die URL des deregistrierten Endpunkts darstellt.
+  - : Ein String, der die URL des abgemeldeten Endpunkts darstellt.
 - `version`
   - : `Undefined`, wenn `unregister.onsuccess` aufgerufen wird.
 
@@ -57,7 +57,7 @@ req.onerror = (e) => {
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr darauf ausgelegt, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

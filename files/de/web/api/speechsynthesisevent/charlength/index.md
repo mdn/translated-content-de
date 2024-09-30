@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`charLength`**-Eigenschaft der [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle gibt die Anzahl der Zeichen zurück, die nach dem Zeichen an der [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex)-Position noch gesprochen werden sollen.
+Die schreibgeschützte **`charLength`**-Eigenschaft der [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle gibt die Anzahl der Zeichen zurück, die nach dem Zeichen an der [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex)-Position noch gesprochen werden müssen.
 
-Wenn die Sprach-Engine dies nicht bestimmen kann, gibt sie 0 zurück.
+Wenn die Sprachausgabe-Engine es nicht bestimmen kann, wird 0 zurückgegeben.
 
 ## Wert
 
-Ein Ganzzahlwert.
+Eine Ganzzahl.
 
 ## Beispiele
 

@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`white-space-collapse`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert, wie [Leerraum](/de/docs/Glossary/whitespace) innerhalb eines Elements reduziert wird.
+Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie [Leerzeichen](/de/docs/Glossary/whitespace) innerhalb eines Elements reduziert werden.
 
 > [!NOTE]
-> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap")}} können zusammen mit der Kurzschreibweise {{CSSxRef("white-space")}} deklariert werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap")}} können gemeinsam mit der Abkürzungseigenschaft {{CSSxRef("white-space")}} deklariert werden.
 
 ## Syntax
 
@@ -30,38 +30,38 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die `white-space-collapse`-Eigenschaft wird als Schlüsselwort aus der folgenden Liste von Werten angegeben.
+Die `white-space-collapse`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der unten stehenden Werteliste angegeben.
 
 ### Werte
 
 - `collapse`
-  - : Leerraumsequenzen werden [reduziert](#reduzierung_von_leerraum).
+  - : Leerzeichensequenzen werden [reduziert](#reduzierung_von_leerzeichen).
 - `preserve`
-  - : Leerraumsequenzen und Segmentabbruchzeichen bleiben bestehen.
+  - : Leerzeichensequenzen und Segmentumbruch-Zeichen werden beibehalten.
 - `preserve-breaks`
-  - : Leerraumsequenzen werden reduziert, während Segmentabbruchzeichen erhalten bleiben.
+  - : Leerzeichensequenzen werden reduziert, während Segmentumbruch-Zeichen beibehalten werden.
 - `preserve-spaces`
-  - : Leerraumsequenzen bleiben erhalten, während Tabs und Segmentabbruchzeichen in Leerzeichen umgewandelt werden.
+  - : Leerzeichensequenzen werden beibehalten, während Tabs und Segmentumbruch-Zeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
-  - : Das Verhalten ist identisch mit `preserve`, außer dass:
-    - Jede Folge von erhaltenem Leerraum nimmt immer Platz ein, auch am Ende der Zeile.
-    - Eine Gelegenheit zum Zeilenumbruch besteht nach jedem erhaltenen Leerzeichen, auch zwischen Leerzeichen.
-    - Erhaltene Leerzeichen nehmen Platz ein und hängen nicht herunter, was die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
+  - : Das Verhalten ist identisch zu `preserve`, außer dass:
+    - Jede Folge von beibehaltenen Leerzeichen immer Platz beansprucht, einschließlich am Ende der Zeile.
+    - Eine Zeilenumbruchmöglichkeit nach jedem beibehaltenen Leerzeichen besteht, auch zwischen Leerzeichen.
+    - Beibehaltene Leerzeichen Platz beanspruchen und nicht hängen, was somit die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
 
-> **Hinweis:** _Segmentabbruchzeichen_ sind Zeichen wie Zeilenenden, die Text dazu bringen, in neuen Zeilen fortzufahren.
+> **Hinweis:** _Segmentumbruch-Zeichen_ sind Zeichen wie Zeilenumbrüche, die bewirken, dass der Text auf neue Zeilen wechselt.
 
-## Reduzierung von Leerraum
+## Reduzierung von Leerzeichen
 
-Benutzeragenten behandeln die Reduzierung von Leerraum wie folgt:
+Benutzeragenten handhaben die Reduzierung von Leerzeichen wie folgt:
 
-- Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
+- Tabs werden in der Regel in Leerzeichen umgewandelt.
 - Wenn Segmentumbrüche reduziert werden sollen:
   - Folgen von Segmentumbrüchen werden auf einen einzigen Segmentumbruch reduziert.
-  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder in Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), ganz entfernt.
+  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder bei Sprachen, die keine Leerzeichen verwenden (wie Chinesisch), vollständig entfernt.
 - Wenn Leerzeichen reduziert werden sollen:
   - Leerzeichen oder Tabs vor oder nach Segmentumbrüchen werden entfernt.
-  - Folgen von Leerzeichen werden in ein einziges Leerzeichen umgewandelt oder "reduziert".
-- Wenn Leerzeichen erhalten bleiben, werden Folgen von Leerzeichen als nicht umbrechend behandelt, außer dass sie am Ende jeder Folge weich umgebrochen werden — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces`-Werts könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
+  - Folgen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt oder "reduziert".
+- Wenn Leerzeichen beibehalten werden, werden Folgen von Leerzeichen als nicht-umbruchend behandelt, außer dass sie am Ende jeder Sequenz weich umbrochen werden — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces`-Werts kann ein weicher Umbruch jedoch potenziell nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ## Formale Definition
 
@@ -126,5 +126,5 @@ h2 {
 
 ## Siehe auch
 
-- Kurzschreibweise für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die Eigenschaft {{CSSxRef("white-space")}}.
-- [CSS-Textmodul](/de/docs/Web/CSS/CSS_text)
+- Abkürzung für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die {{CSSxRef("white-space")}}-Eigenschaft.
+- [CSS Textmodul](/de/docs/Web/CSS/CSS_text)

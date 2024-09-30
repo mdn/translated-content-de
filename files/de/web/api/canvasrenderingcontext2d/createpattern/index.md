@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.createPattern()`**-Methode der Canvas 2D API erstellt ein Muster mit dem angegebenen Bild und der Wiederholung. Diese Methode gibt ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) zurück.
+Die **`CanvasRenderingContext2D.createPattern()`**-Methode der Canvas 2D API erstellt ein Muster unter Verwendung des angegebenen Bildes und der Wiederholung.
+Diese Methode gibt ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) zurück.
 
-Diese Methode zeichnet nichts direkt auf die Leinwand. Das erstellte Muster muss den Eigenschaften [`CanvasRenderingContext2D.fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`CanvasRenderingContext2D.strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden, wonach es auf alle folgenden Zeichnungen angewendet wird.
+Diese Methode zeichnet nichts direkt auf das Canvas.
+Das erstellte Muster muss den Eigenschaften [`CanvasRenderingContext2D.fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`CanvasRenderingContext2D.strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden, wonach es auf alle nachfolgenden Zeichnungen angewendet wird.
 
 ## Syntax
 
@@ -22,11 +24,12 @@ createPattern(image, repetition)
 
 - `image`
 
-  - : Ein Bild, das als Musterbild verwendet werden soll. Es kann eines der folgenden sein:
+  - : Ein Bild, das als Musterbild verwendet werden soll.
+    Es kann eines der folgenden sein:
 
     - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ({{HTMLElement("img")}})
     - [`SVGImageElement`](/de/docs/Web/API/SVGImageElement) ({{SVGElement("image")}})
-    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) ({{HTMLElement("video")}}, bei Verwendung der Aufnahme des Videos)
+    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) ({{HTMLElement("video")}}, durch die Verwendung der Aufnahme des Videos)
     - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ({{HTMLElement("canvas")}})
     - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
     - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
@@ -34,14 +37,15 @@ createPattern(image, repetition)
 
 - `repetition`
 
-  - : Ein String, der angibt, wie das Musterbild wiederholt werden soll. Mögliche Werte sind:
+  - : Ein String, der angibt, wie das Musterbild wiederholt werden soll.
+    Mögliche Werte sind:
 
-    - `"repeat"` (beide Richtungen)
+    - `"repeat"` (in beide Richtungen)
     - `"repeat-x"` (nur horizontal)
     - `"repeat-y"` (nur vertikal)
-    - `"no-repeat"` (keine Richtung)
+    - `"no-repeat"` (in keine Richtung)
 
-    Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`): Beide sind Synonyme für `"repeat"`.
+    Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`): beide sind Synonyme für `"repeat"`.
 
 ### Rückgabewert
 
@@ -54,9 +58,10 @@ Wenn das `image` nicht vollständig geladen ist ([`HTMLImageElement.complete`](/
 
 ### Erstellen eines Musters aus einem Bild
 
-Dieses Beispiel verwendet die `createPattern()`-Methode, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit einem sich wiederholenden Quellbild zu erstellen. Sobald das Muster erstellt ist, wird es dem Füllstil des Canvas-Kontextes zugewiesen und auf ein Rechteck angewendet.
+Dieses Beispiel verwendet die `createPattern()`-Methode, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit einem sich wiederholenden Quellbild zu erstellen.
+Sobald das Muster erstellt ist, wird es als Füllstil des Canvas-Kontexts zugewiesen und auf ein Rechteck angewendet.
 
-Das ursprüngliche Bild sieht folgendermaßen aus:
+Das Originalbild sieht folgendermaßen aus:
 
 ![Ein blumiges Muster](canvas_createpattern.png)
 
@@ -86,7 +91,8 @@ img.onload = () => {
 
 ### Erstellen eines Musters aus einem Canvas
 
-In diesem Beispiel erstellen wir ein Muster aus dem Inhalt eines Offscreen-Canvas. Anschließend wenden wir es auf den Füllstil unseres primären Canvas an und füllen diesen mit dem Muster.
+In diesem Beispiel erstellen wir ein Muster aus dem Inhalt eines Offscreen-Canvas.
+Wir wenden es dann auf den Füllstil unseres primären Canvas an und füllen dieses Canvas mit dem Muster.
 
 #### JavaScript
 
@@ -130,5 +136,5 @@ document.body.appendChild(canvas);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)

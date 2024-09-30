@@ -8,23 +8,21 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.search`**-Eigenschaft ist ein Suchstring,
-auch _Abfragezeichenfolge_ genannt, der eine Zeichenkette ist, die
-ein `'?'` enthält, gefolgt von den Parametern der URL.
+Die **`HTMLAreaElement.search`**-Eigenschaft ist ein Suchstring, auch als _Query-String_ bezeichnet, der eine Zeichenkette ist, die ein `'?'` gefolgt von den Parametern der URL enthält.
 
-Moderne Browser stellen
+Moderne Browser bieten
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
-bereit, um das Parsen der Parameter aus dem Abfragezeichenfolge zu erleichtern.
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
+um das Parsen der Parameter aus dem Query-String zu erleichtern.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Abrufen des Suchstrings von einem Bereichslink
+### Den Suchstring aus einem Area-Link abrufen
 
 ```js
 // An <area id="myArea" href="/en-US/docs/HTMLAreaElement?q=123"> element is in the document
@@ -51,4 +49,4 @@ let q = parseInt(params.get("q")); // returns the number 123
 
 ## Siehe auch
 
-- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

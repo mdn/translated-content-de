@@ -7,17 +7,17 @@ l10n:
 
 {{jsSidebar("Functions")}}
 
-Die Eigenschaft **`arguments.length`** enthält die Anzahl der an die Funktion übergebenen Argumente.
+Die Daten-Eigenschaft **`arguments.length`** enthält die Anzahl der an die Funktion übergebenen Argumente.
 
 ## Wert
 
-Eine nicht-negative Ganzzahl.
+Eine nicht-negative ganze Zahl.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Die Eigenschaft `arguments.length` liefert die Anzahl der tatsächlich an eine Funktion übergebenen Argumente. Dies kann mehr oder weniger sein als die Anzahl der definierten Parameter (siehe {{jsxref("Function.prototype.length")}}). Beispielsweise für die folgende Funktion:
+Die Eigenschaft `arguments.length` gibt die Anzahl der tatsächlich an eine Funktion übergebenen Argumente an. Diese kann mehr oder weniger als die Anzahl der definierten Parameter sein (siehe {{jsxref("Function.prototype.length")}}). Zum Beispiel, für die folgende Funktion:
 
 ```js
 function func1(a, b, c) {
@@ -25,13 +25,13 @@ function func1(a, b, c) {
 }
 ```
 
-`func1.length` gibt `3` zurück, da `func1` drei formale Parameter deklariert. Wird jedoch `func1(1, 2, 3, 4, 5)` aufgerufen, protokolliert es `5`, da `func1` mit fünf Argumenten aufgerufen wurde. Ähnlich protokolliert `func1(1)` `1`, da `func1` mit einem Argument aufgerufen wurde.
+`func1.length` gibt `3` zurück, weil `func1` drei formale Parameter deklariert. Wenn jedoch `func1(1, 2, 3, 4, 5)` aufgerufen wird, wird `5` protokolliert, weil `func1` mit fünf Argumenten aufgerufen wurde. Ähnlich wird bei `func1(1)` `1` protokolliert, weil `func1` mit einem Argument aufgerufen wurde.
 
 ## Beispiele
 
 ### Verwendung von arguments.length
 
-In diesem Beispiel definieren wir eine Funktion, die zwei oder mehr Zahlen zusammen addieren kann.
+In diesem Beispiel definieren wir eine Funktion, die zwei oder mehr Zahlen zusammenaddieren kann.
 
 ```js
 function adder(base /*, num1, …, numN */) {

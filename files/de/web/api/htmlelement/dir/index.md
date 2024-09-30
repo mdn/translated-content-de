@@ -8,24 +8,24 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLElement.dir`**-Eigenschaft gibt die Schreibrichtung des Inhalts des aktuellen Elements an. Sie spiegelt das [`dir`](/de/docs/Web/HTML/Global_attributes/dir)-Attribut des Elements wider.
+Die **`HTMLElement.dir`**-Eigenschaft gibt die Schreibrichtung des Textes des aktuellen Elements an. Sie spiegelt das [`dir`](/de/docs/Web/HTML/Global_attributes/dir)-Attribut des Elements wider.
 
-Beachten Sie, dass, wenn das `dir`-Attribut nicht angegeben ist, das Element selbst die Richtung möglicherweise von seinem Elternteil erbt. Diese vererbte Richtung wird jedoch nicht durch den Wert dieser Eigenschaft widergespiegelt.
+Beachten Sie, dass, wenn das `dir`-Attribut nicht angegeben ist, das Element selbst die Richtung möglicherweise trotzdem vom übergeordneten Element erbt. Diese vererbte Richtung wird jedoch nicht durch den Wert dieser Eigenschaft widergespiegelt.
 
-Die Schreibrichtung eines Elements bestimmt, in welche Richtung der Text verläuft (zur Unterstützung unterschiedlicher Sprachsysteme). Arabische und hebräische Sprachen sind typische Beispiele für Sprachen mit RTL-Schreibrichtung.
+Die Schreibrichtung eines Elements bestimmt, in welche Richtung der Text fließt (zur Unterstützung verschiedener Sprachsysteme). Arabische Sprachen und Hebräisch sind typische Sprachen, die die RTL-Richtung verwenden.
 
 ## Wert
 
 Einer der folgenden:
 
 - `"ltr"`
-  - : Schreibstil von links nach rechts.
+  - : Schreibrichtung von links nach rechts.
 - `"rtl"`
-  - : Schreibstil von rechts nach links.
+  - : Schreibrichtung von rechts nach links.
 - `"auto"`
-  - : Die Richtung des Elements muss basierend auf dem Inhalt des Elements bestimmt werden.
+  - : Die Richtung des Elements muss anhand des Inhalts des Elements bestimmt werden.
 - `""`
-  - : Der Standardwert; die Richtung wird vom Elternelement geerbt.
+  - : Der Standardwert; die Schreibrichtung wird vom übergeordneten Element geerbt.
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ parg.dir = "rtl";
 
 - [`document.dir`](/de/docs/Web/API/Document/dir)
 - HTML [`dir`](/de/docs/Web/HTML/Global_attributes/dir)
-  Global-Attribut
-- CSS {{cssxref("direction")}} Eigenschaft
-- CSS {{cssxref(":dir")}} Pseudo-Klasse
+  globales Attribut
+- CSS {{cssxref("direction")}}-Eigenschaft
+- CSS {{cssxref(":dir")}}-Pseudoklasse

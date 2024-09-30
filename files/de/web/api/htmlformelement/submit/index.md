@@ -8,18 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.submit()`** Methode übermittelt ein gegebenes {{HtmlElement("form")}}.
+Die **`HTMLFormElement.submit()`** Methode sendet ein gegebenes
+{{HtmlElement("form")}}.
 
-Diese Methode ist ähnlich, aber nicht identisch mit der Aktivierung eines Submit-{{HtmlElement("button")}} eines Formulars. Beim direkten Aufruf dieser Methode gilt jedoch:
+Diese Methode ist ähnlich, aber nicht identisch mit der Aktivierung eines Absende-{{HtmlElement("button")}} eines Formulars. Wenn diese Methode direkt aufgerufen wird:
 
-- Es wird kein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis ausgelöst. Insbesondere wird der `onsubmit`-Ereignishandler des Formulars nicht ausgeführt.
+- Kein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event) Ereignis wird ausgelöst. Insbesondere wird der `onsubmit`-Ereignishandler des Formulars nicht ausgeführt.
 - Die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) wird nicht ausgelöst.
 
-Die Methode [`HTMLFormElement.requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit) ist identisch mit der Aktivierung eines Submit-{{HtmlElement("button")}} eines Formulars und weist diese Unterschiede nicht auf.
+Die [`HTMLFormElement.requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit) Methode ist identisch mit der Aktivierung eines
+Absende-{{HtmlElement("button")}} eines Formulars und hat diese Unterschiede nicht.
 
-Ein Formularelement (wie eine Schaltfläche zum Absenden) mit einem `name` oder `id` von `submit` wird die `submit`-Methode des Formulars maskieren. Der Versuch, `myForm.submit();` aufzurufen, führt zu einem Fehler "submit is not a function", da in diesem Fall `submit` auf das Formularelement verweist, das einen `name` oder `id` von `submit` hat.
+Ein Formularsteuerlement (wie ein Absende-Button) mit einem `name` oder `id` von `submit` wird die `submit` Methode des Formulars verdecken. Der Versuch, `myForm.submit();` aufzurufen, wirft einen Fehler "submit is not a function", da in diesem Fall `submit` auf das Formularsteuerlement verweist, welches einen `name` oder `id` von `submit` hat.
 
-Ein {{HtmlElement("input")}} mit dem Attribut type="submit" wird nicht mit dem Formular übermittelt, wenn Sie **`HTMLFormElement.submit()`** verwenden, aber es würde übermittelt werden, wenn Sie es mit dem ursprünglichen HTML-Formular-Submit tun.
+{{HtmlElement("input")}} mit dem Attribut type="submit" wird nicht mit dem Formular gesendet, wenn **`HTMLFormElement.submit()`** verwendet wird, aber es würde gesendet, wenn man das ursprüngliche HTML-Formular-Submit verwendet.
 
 ## Syntax
 
@@ -33,7 +35,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 

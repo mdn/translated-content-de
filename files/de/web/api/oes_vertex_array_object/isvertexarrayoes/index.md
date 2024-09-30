@@ -1,5 +1,5 @@
 ---
-title: "OES_vertex_array_object: isVertexArrayOES() Methode"
+title: "OES_vertex_array_object: isVertexArrayOES()-Methode"
 short-title: isVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/isVertexArrayOES
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`OES_vertex_array_object.isVertexArrayOES()`** der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn
-das übergebene Objekt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt ist.
+Die **`OES_vertex_array_object.isVertexArrayOES()`**-Methode des
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt ist.
 
 ## Syntax
 
@@ -53,4 +52,4 @@ ext.isVertexArrayOES(vao);
 
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
-- Äquivalent in WebGL2: [`WebGL2RenderingContext.isVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/isVertexArray)
+- WebGL2-Äquivalent: [`WebGL2RenderingContext.isVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/isVertexArray)

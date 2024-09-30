@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("Set")}}-Instanzen führt eine bereitgestellte Funktion einmal für jeden Wert in diesem Set in Einfügereihenfolge aus.
+Die **`forEach()`**-Methode von {{jsxref("Set")}}-Instanzen führt eine bereitgestellte Funktion einmal für jeden Wert in diesem Set in der Einfügereihenfolge aus.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-foreach.html")}}
 
@@ -29,7 +29,7 @@ forEach(callbackFn, thisArg)
     - `set`
       - : Das Set, das durchlaufen wird.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet werden soll.
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
 
 ### Rückgabewert
 
@@ -37,25 +37,25 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `forEach()`-Methode führt die bereitgestellte `callback`-Funktion einmal für jeden Wert aus, der tatsächlich im `Set`-Objekt existiert. Sie wird nicht für Werte aufgerufen, die gelöscht wurden. Sie wird jedoch ausgeführt für Werte, die vorhanden sind, aber den Wert `undefined` haben.
+Die `forEach()`-Methode führt die bereitgestellte `callback`-Funktion einmal für jeden tatsächlich im `Set`-Objekt vorhandenen Wert aus. Sie wird nicht für Werte aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 `callback` wird mit **drei Argumenten** aufgerufen:
 
-- dem **Elementwert**
-- dem **Elementschlüssel**
-- dem durchlaufenen **`Set`-Objekt**
+- der **Elementwert**
+- der **Elementschlüssel**
+- das durchlaufene **`Set`-Objekt**
 
-Es gibt in `Set`-Objekten keine Schlüssel, daher sind die ersten beiden Argumente beide **Werte**, die im {{jsxref("Set")}} enthalten sind. Dies geschieht, um Konsistenz mit anderen `forEach()`-Methoden für {{jsxref("Map/foreach", "Map")}} und {{jsxref("Array/forEach", "Array")}} herzustellen.
+Es gibt keine Schlüssel in `Set`-Objekten, daher sind die ersten beiden Argumente beide **Werte**, die im {{jsxref("Set")}} enthalten sind. Dies soll es konsistent mit anderen `forEach()`-Methoden für {{jsxref("Map/foreach", "Map")}} und {{jsxref("Array/forEach", "Array")}} machen.
 
-Wenn ein `thisArg`-Parameter an `forEach()` übergeben wird, wird er an `callback` übergeben, wenn es aufgerufen wird, damit es als dessen `this`-Wert verwendet werden kann. Andernfalls wird der Wert `undefined` für die Verwendung als sein `this`-Wert übergeben. Der letztendlich von `callback` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des von einer Funktion gesehenen `this`](/de/docs/Web/JavaScript/Reference/Operators/this) ermittelt.
+Wenn ein `thisArg`-Parameter an `forEach()` übergeben wird, wird er beim Aufruf an `callback` weitergegeben, um ihn als `this`-Wert zu verwenden. Andernfalls wird der Wert `undefined` für die Verwendung als `this`-Wert übergeben. Der letztendlich von `callback` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des von einer Funktion gesehenen `this`](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
 
-Jeder Wert wird einmal besucht, außer in dem Fall, dass er gelöscht und neu hinzugefügt wurde, bevor `forEach()` beendet ist. `callback` wird nicht für Werte aufgerufen, die vor ihrem Besuch gelöscht wurden. Neue Werte, die hinzugefügt werden, bevor `forEach()` beendet ist, werden besucht.
+Jeder Wert wird einmal besucht, außer im Fall, dass er gelöscht und wieder hinzugefügt wurde, bevor `forEach()` abgeschlossen ist. `callback` wird nicht für Werte aufgerufen, die vor dem Besuch gelöscht wurden. Neue Werte, die hinzugefügt wurden, bevor `forEach()` abgeschlossen ist, werden besucht.
 
-`forEach()` führt die `callback`-Funktion einmal für jedes Element im `Set`-Objekt aus; sie gibt keinen Wert zurück.
+`forEach()` führt die `callback`-Funktion einmal für jedes Element im `Set`-Objekt aus; es gibt keinen Wert zurück.
 
 ## Beispiele
 
-### Protokollieren des Inhalts eines Set-Objekts
+### Protokollieren der Inhalte eines Set-Objekts
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem `Set`-Objekt:
 

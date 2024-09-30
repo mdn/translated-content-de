@@ -7,10 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`**-Direktive beschränkt die URLs, die als Ziel für Formularübermittlungen aus einem gegebenen Kontext verwendet werden können.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`**-Direktive beschränkt die URLs, die als Ziel von Formularübermittlungen aus einem bestimmten Kontext verwendet werden können.
 
 > [!WARNING]
-> Ob `form-action` Umleitungen nach einer Formularübermittlung blockieren sollte, wird [diskutiert](https://github.com/w3c/webappsec-csp/issues/8) und die Implementierungen in Browsern sind in diesem Aspekt uneinheitlich (z.B. blockiert Firefox 57 die Umleitungen nicht, während Chrome 63 dies tut).
+> Ob `form-action` Weiterleitungen nach einer Formularübermittlung blockieren sollte, wird [diskutiert](https://github.com/w3c/webappsec-csp/issues/8), und die Implementierungen dieser Funktion sind in den Browsern uneinheitlich (z.B. blockiert Firefox 57 die Weiterleitungen nicht, während Chrome 63 dies tut).
 
 <table class="properties">
   <tbody>
@@ -19,19 +19,19 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`**-Direk
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
+      <th scope="row">Direktiv-Typ</th>
       <td>[Navigationsdirektive](/de/docs/Glossary/Navigation_directive)</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
-      <td>Nein. Wenn dies nicht gesetzt ist, wird alles erlaubt.</td>
+      <td>Nein. Wird dies nicht gesetzt, ist alles erlaubt.</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-Für die `form-action`-Richtlinie können eine oder mehrere Quellen festgelegt werden:
+Eine oder mehrere Quellen können für die `form-action`-Richtlinie festgelegt werden:
 
 ```http
 Content-Security-Policy: form-action <source>;
@@ -40,9 +40,9 @@ Content-Security-Policy: form-action <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+`<source>` kann jeder der in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
@@ -68,7 +68,7 @@ add_header Content-Security-Policy "form-action 'none';"
 
 ### Verstoßfall
 
-Die Verwendung eines {{HTMLElement("form")}}-Elements mit einer auf inline JavaScript gesetzten Aktion wird zu einem CSP-Verstoß führen.
+Die Verwendung eines {{HTMLElement("form")}}-Elements mit einer Aktion, die auf Inline-JavaScript gesetzt ist, führt zu einem CSP-Verstoß.
 
 ```html example-bad
 <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />

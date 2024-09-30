@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUBindGroup`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) basiert auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) und definiert eine Gruppe von Ressourcen, die zusammen gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
+Die **`GPUBindGroup`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) basiert auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) und definiert eine Gruppe von Ressourcen, die zusammen gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
 
-Ein `GPUBindGroup`-Objektinstanz wird mit der Methode [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) erstellt.
+Eine Instanz eines `GPUBindGroup`-Objekts wird mit der Methode [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPUBindGroup/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der eine Bezeichnung bietet, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ Ein `GPUBindGroup`-Objektinstanz wird mit der Methode [`GPUDevice.createBindGrou
 
 ### Einfaches Beispiel
 
-Unser [einfaches Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für die Erstellung eines Bindungsgruppenenlayouts und dessen Verwendung als Vorlage beim Erstellen einer Bindungsgruppe.
+Unser [einfaches Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für die Erstellung eines Bind-Group-Layouts und dessen Verwendung als Vorlage bei der Erstellung einer Bind-Group.
 
 ```js
 // ...

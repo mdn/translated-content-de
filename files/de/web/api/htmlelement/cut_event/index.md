@@ -12,7 +12,7 @@ Das **`cut`** Ereignis wird ausgelöst, wenn der Benutzer eine Ausschneideaktion
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("cut", (event) => {});
@@ -28,14 +28,14 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt, das die vom benutzerinitiierten `cut`, [`copy`](/de/docs/Web/API/HTMLElement/copy_event) oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Vorgang betroffenen Daten zusammen mit ihrem MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt, das die von der benutzerinitiierten `cut`, [`copy`](/de/docs/Web/API/HTMLElement/copy_event) oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Operation betroffenen Daten zusammen mit ihrem MIME-Typ enthält.
 
 ## Beispiel
 
-Dieses Beispiel erlaubt das Kopieren von Text aus dem {{htmlElement("textarea")}}, verhindert jedoch das Ausschneiden von Text. Außerdem wird jeder Kopier- und Ausschneidevorgang protokolliert.
+Dieses Beispiel erlaubt das Kopieren von Text aus der {{htmlElement("textarea")}}, erlaubt jedoch nicht das Ausschneiden von Text. Es protokolliert auch jeden Kopier- und Ausschneideversuch.
 
 ### HTML
 

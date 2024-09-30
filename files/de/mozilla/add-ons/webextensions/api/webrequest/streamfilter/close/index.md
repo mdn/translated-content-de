@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Schließt die Anfrage. Nachdem dies aufgerufen wurde, werden keine weiteren Antwortdaten an die Rendering-Engine des Browsers übergeben und keine weiteren Filterereignisse an die Erweiterung gesendet.
+Schließt die Anfrage. Nachdem dies aufgerufen wurde, werden keine weiteren Antwortdaten an die Rendering-Engine des Browsers übermittelt und keine weiteren Filterereignisse an die Erweiterung gegeben.
 
-Beachten Sie den Unterschied zwischen dieser Funktion und {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}. Mit `disconnect()` wird der Browser weiterhin alle weiteren Antwortdaten verarbeiten, sie sind jedoch nicht mehr über den Filter zugänglich. Bei `close()` ignoriert der Browser jegliche Antwortdaten, die nicht bereits an die Rendering-Engine weitergeleitet wurden.
+Beachten Sie den Unterschied zwischen dieser Funktion und {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}. Mit `disconnect()` wird der Browser fortfahren, weitere Antwortdaten zu verarbeiten, aber sie werden nicht über den Filter zugänglich sein. Mit `close()` wird der Browser alle Antwortdaten ignorieren, die noch nicht an die Rendering-Engine übergeben wurden.
 
 Sie sollten immer `close()` oder `disconnect()` aufrufen, sobald Sie nicht mehr mit der Antwort interagieren müssen.
 
-Diese Funktion kann erst aufgerufen werden, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
+Sie können diese Funktion nicht aufrufen, bevor das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner.
+Keine.
 
 ## Browser-Kompatibilität
 
@@ -35,7 +35,7 @@ Keiner.
 
 ## Beispiele
 
-Dieses Beispiel ersetzt den Seiteninhalt durch "replacement text":
+Dieses Beispiel ersetzt den Seiteninhalt mit "replacement text":
 
 ```js
 function listener(details) {

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:variable>`-Element deklariert eine globale oder lokale Variable in einem Stylesheet und weist ihr einen Wert zu. Da XSLT keine Seiteneffekte erlaubt, bleibt der Wert der Variablen unverändert, sobald er festgelegt wurde, bis die Variable außerhalb des Gültigkeitsbereichs gerät.
+Das `<xsl:variable>`-Element deklariert eine globale oder lokale Variable in einem Stylesheet und weist ihr einen Wert zu. Da XSLT keine Seiteneffekte erlaubt, bleibt der Wert der Variablen unverändert, sobald er festgelegt wurde, bis die Variable ausserhalb des Gültigkeitsbereichs fällt.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Das `<xsl:variable>`-Element deklariert eine globale oder lokale Variable in ein
 ### Erforderliche Attribute
 
 - `name`
-  - : Gibt der Variablen einen Namen.
+  - : Gibt der Variable einen Namen.
 
 ### Optionale Attribute
 
@@ -29,7 +29,7 @@ Das `<xsl:variable>`-Element deklariert eine globale oder lokale Variable in ein
 
 ### Typ
 
-Top-Level oder Anweisung. Wenn es als Top-Level-Element auftritt, ist die Variable global im Gültigkeitsbereich und kann im gesamten Dokument erreicht werden. Wenn es innerhalb einer Vorlage auftritt, ist die Variable lokal im Gültigkeitsbereich und nur innerhalb der Vorlage zugänglich, in der sie erscheint.
+Top-Level oder Anweisung. Wenn es als Top-Level-Element auftritt, ist die Variable global und kann im gesamten Dokument verwendet werden. Wenn es innerhalb einer Vorlage auftritt, ist die Variable lokal und nur innerhalb der Vorlage zugänglich, in der sie erscheint.
 
 ## Spezifikationen
 

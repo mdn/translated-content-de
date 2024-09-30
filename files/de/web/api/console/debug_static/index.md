@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.debug()`** statische Methode gibt eine Nachricht auf der Konsole auf der "Debug"-Protokollebene aus. Die Nachricht wird dem Benutzer nur angezeigt, wenn die Konsole so konfiguriert ist, dass Debug-Ausgaben angezeigt werden. In den meisten Fällen wird die Protokollebene innerhalb der Konsolen-Benutzeroberfläche konfiguriert. Diese Protokollebene könnte der `Debug` oder `Verbose` Protokollebene entsprechen.
+Die statische Methode **`console.debug()`** gibt eine Nachricht auf der Konsole auf der Protokollebene "debug" aus. Die Nachricht wird nur dem Benutzer angezeigt, wenn die Konsole so konfiguriert ist, dass sie Debug-Ausgaben anzeigt. In den meisten Fällen wird die Protokollebene in der Konsole UI konfiguriert. Diese Protokollebene kann der `Debug`- oder `Verbose`-Protokollebene entsprechen.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ debug(msg, subst1, /* …, */ substN)
 ### Parameter
 
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art Trennung zwischen ihnen an die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird in der in der Liste angegebenen Reihenfolge auf die Konsole ausgegeben, wobei eine Art von Trennung zwischen ihnen erfolgt. Es gibt einen Sonderfall, wenn `obj1` eine Zeichenkette ist, der anschließend beschrieben wird.
 - `msg`
-  - : Ein JavaScript-String, der null oder mehr Ersetzungsstrings enthält, die der Reihe nach von `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungsstrings. Siehe [Verwendung von Zeichenfolgenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Eine JavaScript-Zeichenkette, die null oder mehr Ersetzungszeichenketten enthält, die in aufeinanderfolgender Reihenfolge mit `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungszeichenketten. Siehe [Verwendung von Zeichenkettenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst auf die Konsole geschrieben, nach der detaillierten Assert-Nachricht, auf die gleiche Weise, wie wenn es keinen Formatstring gibt.
+  - : JavaScript-Werte, mit denen Ersetzungszeichenketten innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungszeichenketten gibt, werden die zusätzlichen Werte selbst auf die Konsole geschrieben, nachrichtenspezifische Ausgabe ohne Formatzeichenkette.
 
-Siehe [Ausgabe von Text auf die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Ausgabe von Text an die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
 
 ### Rückgabewert
 
@@ -44,6 +44,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edge Dokumentation für `console.debug()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#debug)
-- [Node.JS Dokumentation für `console.debug()`](https://nodejs.org/docs/latest/api/console.html#consoledebugdata-args)
-- [Google Chrome Dokumentation für `console.debug()`](https://developer.chrome.com/docs/devtools/console/api/#debug)
+- [Microsoft Edges Dokumentation zu `console.debug()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#debug)
+- [Node.JS Dokumentation zu `console.debug()`](https://nodejs.org/docs/latest/api/console.html#consoledebugdata-args)
+- [Google Chromes Dokumentation zu `console.debug()`](https://developer.chrome.com/docs/devtools/console/api/#debug)

@@ -1,5 +1,5 @@
 ---
-title: "FileSystemHandle: isSameEntry() Methode"
+title: "FileSystemHandle: isSameEntry()-Methode"
 short-title: isSameEntry()
 slug: Web/API/FileSystemHandle/isSameEntry
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`isSameEntry()`** Methode der Schnittstelle [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) vergleicht zwei [`Handles`](/de/docs/Web/API/FileSystemHandle), um zu überprüfen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
+Die **`isSameEntry()`**-Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle vergleicht zwei [`Handles`](/de/docs/Web/API/FileSystemHandle), um zu überprüfen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ isSameEntry(fileSystemHandle)
 ### Parameter
 
 - [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)
-  - : Der `FileSystemHandle`, der mit dem Handle verglichen werden soll, auf dem die Methode aufgerufen wird.
+  - : Das `FileSystemHandle`, das mit dem Handle, auf dem die Methode aufgerufen wird, abgeglichen werden soll.
 
 ### Rückgabewert
 
@@ -27,8 +27,7 @@ Ein Promise, das mit einem {{jsxref('Boolean')}} erfüllt wird.
 
 ## Beispiele
 
-Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein
-{{jsxref("Promise")}} zurück, das sich mit einem neuen Array erfüllt, bei dem alle übereinstimmenden Einträge entfernt wurden.
+Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein {{jsxref("Promise")}} zurück, das mit einem neuen Array erfüllt wird, bei dem alle übereinstimmenden Einträge entfernt sind.
 
 ```js
 async function removeMatches(fileEntry, entriesArr) {
@@ -53,4 +52,4 @@ async function removeMatches(fileEntry, entriesArr) {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

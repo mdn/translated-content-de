@@ -8,7 +8,12 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.createContextualFragment()`**-Methode gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, indem der HTML-Fragment-Parsing-Algorithmus oder der XML-Fragment-Parsing-Algorithmus mit dem Start der Range (dem _Elternteil_ des ausgewählten Knotens) als Kontextknoten aufgerufen wird. Der HTML-Fragment-Parsing-Algorithmus wird verwendet, wenn die Range zu einem `Document` gehört, dessen HTML-Bit gesetzt ist. Im HTML-Fall, wenn der Kontextknoten `html` wäre, wird aus historischen Gründen der Fragment-Parsing-Algorithmus stattdessen mit `body` als Kontext aufgerufen.
+Die **`Range.createContextualFragment()`** Methode gibt ein
+[`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, indem der HTML-Fragment-Parsing-Algorithmus oder der
+XML-Fragment-Parsing-Algorithmus mit dem Anfang des Ranges (dem _Elternteil_ des
+ausgewählten Knotens) als Kontextknoten aufgerufen wird. Der HTML-Fragment-Parsing-Algorithmus wird verwendet, wenn der
+Bereich zu einem `Document` gehört, dessen HTMLness-Bit gesetzt ist. Im HTML-Fall, wenn
+der Kontextknoten `html` wäre, wird aus historischen Gründen der Fragment-Parsing-Algorithmus mit `body` als Kontext stattdessen aufgerufen.
 
 ## Syntax
 
@@ -23,7 +28,7 @@ createContextualFragment(tagString)
 
 ### Rückgabewert
 
-Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) Objekt.
 
 ## Beispiele
 
@@ -47,4 +52,4 @@ document.body.appendChild(documentFragment);
 
 ## Siehe auch
 
-- [Die DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

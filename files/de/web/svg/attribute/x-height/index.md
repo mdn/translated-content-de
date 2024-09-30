@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`x-height`**-Attribut gibt die Höhe der Kleinbuchstabenglyphen im Schriftarten-Koordinatensystem an.
+Das **`x-height`**-Attribut gibt die Höhe der Kleinbuchstaben-Glyphen in der Schrift innerhalb des Koordinatensystems der Schrift an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Höhe der Kleinbuchstabenglyphen an.
+  - : Dieser Wert gibt die Höhe der Kleinbuchstaben-Glyphen an.
 
 ## Spezifikationen
 

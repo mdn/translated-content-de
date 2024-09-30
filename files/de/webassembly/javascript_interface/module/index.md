@@ -7,10 +7,10 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Ein **`WebAssembly.Module`**-Objekt enthält zustandslosen WebAssembly-Code, der bereits vom Browser kompiliert wurde — dieser kann effizient [mit Workers geteilt](/de/docs/Web/API/Worker/postMessage) und mehrfach instanziiert werden.
+Ein **`WebAssembly.Module`**-Objekt enthält zustandslosen WebAssembly-Code, der bereits vom Browser kompiliert wurde — dieser kann effizient [mit Arbeitern geteilt werden](/de/docs/Web/API/Worker/postMessage) und mehrfach instanziiert werden.
 
 > [!NOTE]
-> Das `WebAssembly.Module`-Objekt ist nicht mit dem [`Module`](https://emscripten.org/docs/api_reference/module.html)-Objekt aus Emscripten verwandt.
+> Das `WebAssembly.Module`-Objekt ist nicht mit dem [`Module`](https://emscripten.org/docs/api_reference/module.html)-Objekt in Emscripten verwandt.
 
 ## Konstruktor
 
@@ -20,17 +20,17 @@ Ein **`WebAssembly.Module`**-Objekt enthält zustandslosen WebAssembly-Code, der
 ## Statische Methoden
 
 - [`WebAssembly.Module.customSections()`](/de/docs/WebAssembly/JavaScript_interface/Module/customSections_static)
-  - : Nimmt ein `Module` und einen String entgegen und gibt eine Kopie des Inhalts aller benutzerdefinierten Abschnitte im Modul mit dem angegebenen Namen zurück.
+  - : Gibt, basierend auf einem `Module` und einem String, eine Kopie der Inhalte aller benutzerdefinierten Abschnitte im Modul mit dem angegebenen Stringnamen zurück.
 - [`WebAssembly.Module.exports()`](/de/docs/WebAssembly/JavaScript_interface/Module/exports_static)
-  - : Nimmt ein `Module` entgegen und gibt ein Array mit Beschreibungen aller deklarierten Exporte zurück.
+  - : Gibt, basierend auf einem `Module`, ein Array mit Beschreibungen aller deklarierten Exporte zurück.
 - [`WebAssembly.Module.imports()`](/de/docs/WebAssembly/JavaScript_interface/Module/imports_static)
-  - : Nimmt ein `Module` entgegen und gibt ein Array mit Beschreibungen aller deklarierten Importe zurück.
+  - : Gibt, basierend auf einem `Module`, ein Array mit Beschreibungen aller deklarierten Importe zurück.
 
 ## Beispiele
 
 ### Senden eines kompilierten Moduls an einen Worker
 
-Das folgende Beispiel kompiliert den geladenen `simple.wasm`-Bytecode mit der Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) und sendet die resultierende `Module`-Instanz an einen [Worker](/de/docs/Web/API/Web_Workers_API) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage).
+Das folgende Beispiel kompiliert den geladenen `simple.wasm`-Bytecode mit der Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) und sendet die resultierende `Module`-Instanz mithilfe von [`postMessage()`](/de/docs/Web/API/Worker/postMessage) an einen [Worker](/de/docs/Web/API/Web_Workers_API).
 
 Siehe den `index-compile.html` [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index-compile.html) oder [sehen Sie ihn live](https://mdn.github.io/webassembly-examples/js-api-examples/index-compile.html).
 
@@ -42,7 +42,7 @@ WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) =>
 );
 ```
 
-Die Worker-Funktion [`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js) definiert ein Import-Objekt, das vom Modul verwendet werden soll. Die Funktion richtet dann einen Ereignishandler ein, um das Modul vom Haupt-Thread zu empfangen. Bei Empfang des Moduls erstellen wir eine Instanz daraus mittels der Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) und rufen eine darin enthaltene exportierte Funktion auf.
+Die Worker-Funktion [`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js) definiert ein Importobjekt, das das Modul verwenden soll. Die Funktion richtet dann einen Ereignishandler ein, um das Modul aus dem Haupt-Thread zu erhalten. Wenn das Modul empfangen wird, erstellen wir eine Instanz daraus mit der Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) und rufen eine exportierte Funktion darin auf.
 
 ```js
 const importObject = {
@@ -73,6 +73,6 @@ onmessage = (e) => {
 
 ## Siehe auch
 
-- Übersichtsseite [WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

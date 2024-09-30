@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`resolution`** [CSS](/de/docs/Web/CSS) [Medienabfrage-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
+Die **`resolution`**- [CSS](/de/docs/Web/CSS) [Medienabfrage](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts repräsentiert. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um minimale und maximale Werte abzufragen.
+Das `resolution`-Merkmal wird als ein {{cssxref("&lt;resolution&gt;")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts darstellt. Es handelt sich um ein Bereichs-Merkmal, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um jeweils Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 

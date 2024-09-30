@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das WebXR-**`reflectionchange`**-Ereignis wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Cube-Map ändert. Dies geschieht als Reaktion auf Benutzerbewegungen durch unterschiedliche Lichtverhältnisse oder auf direkte Änderungen der Beleuchtung selbst. Dieses Ereignis kann nicht abgebrochen werden.
+Das WebXR **`reflectionchange`**-Ereignis wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Cube-Map ändert. Dies geschieht als Reaktion auf Bewegungen von Anwendern durch verschiedene Lichtverhältnisse oder auf direkte Änderungen der Beleuchtung selbst. Dieses Ereignis ist nicht abbrechbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("reflectionchange", (event) => {});
@@ -28,7 +28,7 @@ onreflectionchange = (event) => {};
 
 ### Verwendung des `reflectionchange`-Ereignisses
 
-Wann immer das `reflectionchange`-Ereignis bei einer Lichtsonde ausgelöst wird, können Sie eine aktualisierte Cube-Map abrufen, indem Sie [`XRWebGLBinding.getReflectionCubeMap()`](/de/docs/Web/API/XRWebGLBinding/getReflectionCubeMap) aufrufen. Dies ist weniger ressourcenintensiv als das Abrufen von Beleuchtungsinformationen bei jedem [`XRFrame`](/de/docs/Web/API/XRFrame).
+Immer wenn das `reflectionchange`-Ereignis bei einer Lichtsonde ausgelöst wird, können Sie eine aktualisierte Cube-Map abrufen, indem Sie [`XRWebGLBinding.getReflectionCubeMap()`](/de/docs/Web/API/XRWebGLBinding/getReflectionCubeMap) aufrufen. Dies ist weniger aufwändig, als bei jedem [`XRFrame`](/de/docs/Web/API/XRFrame) Beleuchtungsinformationen abzurufen.
 
 ```js
 const glBinding = new XRWebGLBinding(xrSession, gl);
@@ -40,9 +40,9 @@ lightProbe.addEventListener("reflectionchange", () => {
 });
 ```
 
-### Die `onreflectionchange`-Ereignis-Handler-Eigenschaft
+### Die `onreflectionchange`-Ereignishandler-Eigenschaft
 
-Das `reflectionchange`-Ereignis ist auch über die `onreflectionchange`-Ereignis-Handler-Eigenschaft verfügbar.
+Das `reflectionchange`-Ereignis ist auch über die `onreflectionchange`-Ereignishandler-Eigenschaft verfügbar.
 
 ```js
 lightProbe.onreflectionchange = (event) => {

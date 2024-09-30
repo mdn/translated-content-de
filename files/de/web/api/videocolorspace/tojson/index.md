@@ -26,7 +26,7 @@ Ein JSON-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Dieses Objekt wird dann als JSON in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Dieses Objekt wird dann als JSON in die Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

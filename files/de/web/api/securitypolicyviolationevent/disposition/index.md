@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`disposition`**-Eigenschaft (nur lesen) der Schnittstelle [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) vom Benutzeragenten behandelt werden soll.
+Die **`disposition`** schreibgeschützte Eigenschaft der Schnittstelle [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) vom Benutzeragenten behandelt werden soll.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `"enforce"`
-  - : Die Richtlinie wird durchgesetzt und die Ressourcenanforderung wird blockiert.
+  - : Die Richtlinie wird durchgesetzt und die Ressourcenanfrage wird blockiert.
 - `"report"`
-  - : Der Verstoß wird gemeldet, aber die Ressourcenanforderung wird nicht blockiert.
+  - : Der Verstoß wird gemeldet, aber die Ressourcenanfrage wird nicht blockiert.
 
 ## Beispiele
 

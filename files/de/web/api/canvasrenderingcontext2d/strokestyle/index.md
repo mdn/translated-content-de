@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: strokeStyle Eigenschaft"
+title: "CanvasRenderingContext2D: strokeStyle-Eigenschaft"
 short-title: strokeStyle
 slug: Web/API/CanvasRenderingContext2D/strokeStyle
 l10n:
@@ -8,21 +8,22 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.strokeStyle`**-Eigenschaft der Canvas 2D API gibt die Farbe, den Verlauf oder das Muster an, die für die Umrisse von Formen verwendet werden. Der Standardwert ist `#000` (schwarz).
+Die **`CanvasRenderingContext2D.strokeStyle`**-Eigenschaft der Canvas 2D API gibt die Farbe, den Verlauf oder das Muster an, das für die Umrandungen (Konturen) von Formen verwendet werden soll. Der Standardwert ist `#000` (schwarz).
 
 > [!NOTE]
-> Weitere Beispiele für Umriss- und Füllstile finden Sie unter [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Leitfaden](/de/docs/Web/API/Canvas_API/Tutorial).
+> Weitere Beispiele für Umriss- und Füllstile finden Sie unter [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
 Einer der folgenden:
 
 - `color`
-  - : Ein als [CSS](/de/docs/Web/CSS) {{cssxref("&lt;color&gt;")}}-Wert analysierter String.
+  - : Ein String, der als [CSS](/de/docs/Web/CSS)
+    {{cssxref("&lt;color&gt;")}}-Wert interpretiert wird.
 - `gradient`
   - : Ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt (ein linearer oder radialer Verlauf).
 - `pattern`
-  - : Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein wiederholtes Bild).
+  - : Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein sich wiederholendes Bild).
 
 ## Beispiele
 
@@ -50,9 +51,10 @@ ctx.strokeRect(10, 10, 100, 100);
 
 {{ EmbedLiveSample('Changing_the_stroke_color_of_a_shape', 700, 160) }}
 
-### Erstellen mehrerer Umrissfarben mit Schleifen
+### Erstellen mehrerer Umrissfarben mit Hilfe von Schleifen
 
-In diesem Beispiel verwenden wir zwei `for`-Schleifen und die [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc)-Methode, um ein Raster von Kreisen zu zeichnen, wobei jeder Kreis eine andere Umrissfarbe hat. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um eine einzigartige RGB-Farbe für jeden Kreis zu erzeugen, wobei nur die Grün- und Blauwerte modifiziert werden. (Der Rotkanal hat einen festen Wert.)
+In diesem Beispiel verwenden wir zwei `for`-Schleifen und die Methode
+[`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc), um ein Raster von Kreisen zu zeichnen, von denen jeder eine andere Umrissfarbe hat. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um eine eindeutige RGB-Farbe für jeden Kreis zu generieren, und ändern nur die grünen und blauen Werte. (Der Rotkanal hat einen festen Wert.)
 
 ```html hidden
 <canvas id="canvas" width="150" height="150"></canvas>
@@ -88,7 +90,8 @@ Das Ergebnis sieht so aus:
 
 ### WebKit/Blink-spezifische Anmerkung
 
-In WebKit- und Blink-basierten Browsern ist die nicht standardisierte und veraltete Methode `ctx.setStrokeColor()` zusätzlich zu dieser Eigenschaft implementiert.
+In WebKit- und Blink-basierten Browsern ist die nicht standardmäßige und veraltete Methode
+`ctx.setStrokeColor()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ```js
 setStrokeColor(color);

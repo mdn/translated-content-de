@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: forEach() Methode"
+title: "KeyboardLayoutMap: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/KeyboardLayoutMap/forEach
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}
 
-Die **`forEach()`** Methode der
-[`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Schnittstelle führt eine bereitgestellte Funktion einmal für jedes Element der Map aus.
+Die **`forEach()`**-Methode des
+[`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Interfaces führt eine bereitgestellte Funktion einmal für jedes Element der Karte aus.
 
-Die Methode ist ansonsten dieselbe wie {{jsxref("Map.prototype.forEach()")}}.
+Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.forEach()")}}.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird, nimmt drei Argumente entgegen:
+  - : Die Funktion, die für jedes Element ausgeführt werden soll, mit drei Argumenten:
 
     - `currentValue`
-      - : Der Wert des aktuellen Elements, das verarbeitet wird.
+      - : Der Wert des aktuell verarbeiteten Elements.
     - `index` {{optional_inline}}
-      - : Der Index des aktuellen Elements, das verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements.
     - `array` {{optional_inline}}
-      - : Die KeyboardLayoutMap, auf der `forEach()` aufgerufen wird.
+      - : Das KeyboardLayoutMap, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der als **`this`** (d.h., die Referenz
+  - : Wert, der als **`this`** (d. h. die Referenz
     `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
@@ -43,7 +43,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über jeden orts- oder layoutspezifischen String und den zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel iteriert über jeden standort- oder layout-spezifischen String und seinen zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

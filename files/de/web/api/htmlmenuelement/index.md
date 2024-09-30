@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLMenuElement`** Interface bietet zusätzliche Eigenschaften (über die von dem [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface geerbten hinaus) zur Manipulation eines {{HTMLElement("menu")}}-Elements. `<menu>` ist eine semantische Alternative zum {{HTMLElement("ul")}}-Element.
+Die **`HTMLMenuElement`**-Schnittstelle bietet zusätzliche Eigenschaften (über die von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle geerbten hinaus) zur Manipulation eines {{HTMLElement("menu")}}-Elements. `<menu>` ist eine semantische Alternative zum {{HTMLElement("ul")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -16,7 +16,7 @@ Das **`HTMLMenuElement`** Interface bietet zusätzliche Eigenschaften (über die
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement), und seinen Vorfahren._
 
 - [`HTMLMenuElement.compact`](/de/docs/Web/API/HTMLMenuElement/compact) {{deprecated_inline}}
-  - : Ein boolean, der bestimmt, ob das Menü kompakt angezeigt wird.
+  - : Ein boolescher Wert, der bestimmt, ob das Menü kompakt angezeigt wird.
 
 ## Instanz-Methoden
 

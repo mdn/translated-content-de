@@ -17,14 +17,14 @@ browser.sessions.onChanged.removeListener(listener)
 browser.sessions.onChanged.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, sonst `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## Syntax von addListener
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Diese sehr lästige Erweiterung lauscht auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, wodurch es unmöglich wird, Fenster oder Tabs zu schließen:
+Diese sehr nervige Erweiterung hört auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, wodurch es unmöglich ist, Fenster oder Tabs zu schließen:
 
 ```js
 function restoreSession(sessionInfos) {

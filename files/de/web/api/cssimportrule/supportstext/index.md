@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`supportsText`**-Eigenschaft des [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Interfaces gibt die Supports-Bedingung zurück, die durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) angegeben wird.
+Die schreibgeschützte **`supportsText`**-Eigenschaft des [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Interfaces gibt die Bedingung zurück, die durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) angegeben wird.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String oder `null`.
 
 ## Beispiele
 
-Das Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet, wenn `display: flex` unterstützt wird. Die zweite Deklaration importiert ein Stylesheet, wenn der `:has`-Selektor unterstützt wird. Die dritte Deklaration importiert ein Stylesheet ohne eine Supports-Bedingung.
+Das einzige Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet, wenn `display: flex` unterstützt wird. Die zweite Deklaration importiert ein Stylesheet, wenn der `:has`-Selektor unterstützt wird. Die dritte Deklaration importiert ein Stylesheet ohne eine Bedingung.
 
-Die `supportsText`-Eigenschaft gibt die Importbedingungen zurück, die mit der At-Regel verbunden sind.
+Die `supportsText`-Eigenschaft gibt die Importbedingungen zurück, die mit der At-Regel verknüpft sind.
 
 ```css
 @import url("style1.css") supports(display: flex);
@@ -43,5 +43,5 @@ console.log(myRules[2].supportsText); // returns `null`
 
 ## Siehe auch
 
-- [Verwendung von Feature-Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- [Verwendung von Feature-Anfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
 - {{cssxref("@import")}} und {{cssxref("@supports")}}

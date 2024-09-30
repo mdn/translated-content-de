@@ -7,20 +7,20 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `BrowserSetting` ist ein Objekt, das eine Browsereinstellung darstellt.
+Ein `BrowserSetting` ist ein Objekt, das eine Browsereinstellung repräsentiert.
 
-Es bietet Methoden, um den zugrunde liegenden Wert der Einstellung zu setzen und abzurufen, jede von Ihnen vorgenommene Änderung zu löschen und auf Änderungen ihres Wertes zu reagieren.
+Es bietet Methoden, um den zugrunde liegenden Wert der Einstellung festzulegen und abzurufen, Änderungen daran rückgängig zu machen und Änderungen des Wertes zu überwachen.
 
-Beachten Sie, dass dieses Objekt zwar auf dem [ChromeSetting](https://developer.chrome.com/docs/extensions/reference/api/types#type-ChromeSetting)-Typ basiert, dieses Objekt jedoch nicht zwischen dem Setzen des Wertes in normalen und in privaten Browsing-Fenstern unterscheidet. Das bedeutet, dass alle Teile der API im Zusammenhang mit dem privaten Browsen (wie z. B. die `scope`-Option von `ChromeSetting.set()`) nicht implementiert sind.
+Beachten Sie, dass dieses Objekt zwar auf dem [ChromeSetting](https://developer.chrome.com/docs/extensions/reference/api/types#type-ChromeSetting)-Typ basiert, es jedoch keinen Unterschied zwischen dem Setzen des Wertes in normalen Browsing-Fenstern und in privaten Browsing-Fenstern macht. Dies bedeutet, dass alle Teile der API, die sich auf privates Browsen beziehen (wie die `scope` Option zu `ChromeSetting.set()`), nicht implementiert sind.
 
 ## Methoden
 
 - {{WebExtAPIRef("types.BrowserSetting.get()")}}
-  - : Holen Sie den aktuellen Wert der Einstellung und eine Aufzählung, die darstellt, wie die Einstellung momentan gesteuert wird.
+  - : Den aktuellen Wert der Einstellung erhalten und eine Aufzählung, die zeigt, wie die Einstellung derzeit kontrolliert wird.
 - {{WebExtAPIRef("types.BrowserSetting.set()")}}
-  - : Setzen Sie die Einstellung auf einen neuen Wert.
+  - : Die Einstellung auf einen neuen Wert setzen.
 - {{WebExtAPIRef("types.BrowserSetting.clear()")}}
-  - : Löschen Sie jede von dieser Erweiterung vorgenommene Änderung der Einstellung.
+  - : Alle von dieser Erweiterung vorgenommenen Änderungen an der Einstellung entfernen.
 
 ## Ereignisse
 

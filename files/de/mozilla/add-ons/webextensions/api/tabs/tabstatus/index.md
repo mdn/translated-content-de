@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt an, ob das Tab das Laden abgeschlossen hat.
+Gibt an, ob der Tab das Laden abgeschlossen hat.
 
 ## Typ
 
@@ -20,7 +20,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"loading"` und `"co
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-TabStatus). Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-TabStatus) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

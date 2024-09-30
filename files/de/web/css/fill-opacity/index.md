@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`fill-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft der Maloperation (Farbe, Verlauf, Muster usw.), die auf SVG-Formen oder Textinhaltelemente angewendet wird, um das Element zu füllen. Die Eigenschaft definiert nur die Deckkraft des `fill` des Elements; sie beeinflusst nicht den `stroke`. Falls vorhanden, überschreibt sie das {{SVGAttr("fill-opacity")}} Attribut des Elements.
+Die **`fill-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Opazität des Malvorgangs (Farbe, Verlauf, Muster usw.), der auf SVG-Formen oder Textinhalts-Elemente angewendet wird, um das Element zu füllen. Die Eigenschaft definiert nur die Opazität des `fill` des Elements; sie hat keinen Einfluss auf den Stroke. Wenn vorhanden, überschreibt sie das {{SVGAttr("fill-opacity")}} Attribut des Elements.
 
 > [!NOTE]
-> Die `fill-opacity` Eigenschaft gilt nur für {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} Elemente, die in einem {{SVGElement("svg")}} eingebettet sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `fill-opacity` Eigenschaft gilt nur für {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("text")}}, {{SVGElement("textPath")}}, und {{SVGElement("tspan")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG, HTML oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,17 +29,17 @@ fill-opacity: unset;
 
 ### Werte
 
-Die Werte {{cssxref("number")}} und {{cssxref("percentage")}} geben die Deckkraft des `fill` des Elements an.
+Die {{cssxref("number")}} und {{cssxref("percentage")}} Werte geben die Opazität des `fill` des Elements an.
 
 - {{cssxref("number")}}
 
-  - : Ein numerischer Wert zwischen `0` und `1`, inklusiv.
+  - : Ein numerischer Wert zwischen `0` und `1`, einschließlich.
 
 - {{cssxref("percentage")}}
 
-  - : Ein Prozentwert zwischen `0%` und `100%`, inklusiv.
+  - : Ein Prozentwert zwischen `0%` und `100%`, einschließlich.
 
-Mit `0` oder `0%` ist das Element vollständig transparent. Mit `1` oder `100%` ist das Element vollständig opak. Mit Werten dazwischen ist das Element halbtransparent, sodass Inhalte hinter dem Element sichtbar sind.
+Bei `0` oder `0%` ist das Element vollständig transparent. Bei `1` oder `100%` ist das Element vollständig opak. Bei Werten dazwischen ist das Element halbtransparent, dabei ist der Inhalt hinter dem Element sichtbar.
 
 ## Formale Definition
 
@@ -51,13 +51,13 @@ Mit `0` oder `0%` ist das Element vollständig transparent. Mit `1` oder `100%` 
 
 ## Beispiele
 
-### Definition der Füllungsdeckkraft von SVG-Elementen
+### Definieren der Fill-Opazität von SVG-Elementen
 
-Dieses Beispiel demonstriert die grundlegende Verwendung von `fill-opacity` und wie die CSS `fill-opacity` Eigenschaft Vorrang vor dem `fill-opacity` Attribut hat und keine Auswirkungen auf einen auf eine Form angewandten `stroke` hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `fill-opacity` und wie die CSS `fill-opacity` Eigenschaft Vorrang vor dem `fill-opacity` Attribut hat und keine Auswirkung auf einen Stroke hat, der auf eine Form angewendet wird.
 
 #### HTML
 
-Wir fügen mehrere verschiedene SVG-Grafikelemente ein und setzen das `fill-opacity` Attribut jedes einzelnen auf `1` (außer `line`), was bedeutet, dass die Füllung jedes Elements opak ist. Das `fill-opacity` SVG-Attribut gilt nicht für {{SVGElement("line")}}.
+Wir fügen mehrere verschiedene SVG-Grafikelemente ein und setzen das `fill-opacity` Attribut jedes einzelnen auf `1` (außer `line`), was bedeutet, dass das Fill jedes Elements opak ist. Das `fill-opacity` SVG-Attribut gilt nicht für {{SVGElement("line")}}.
 
 ```html
 <svg viewbox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
@@ -75,11 +75,11 @@ Wir fügen mehrere verschiedene SVG-Grafikelemente ein und setzen das `fill-opac
 
 #### CSS
 
-Mit CSS verwenden wir die `fill-opacity` Eigenschaft, um den Wert des SVG {{SVGAttr("fill-opacity")}} Attributs zu überschreiben und jedem SVG-Element einen anderen Wert zuzuweisen.
+Mit CSS verwenden wir die `fill-opacity` Eigenschaft, um den Wert des SVG {{SVGAttr("fill-opacity")}} Attributs zu überschreiben und jedem SVG-Element einen anderen Wert zu geben.
 
-Wir fügen einem Kreis und einer Ellipse einen {{cssxref("stroke")}} hinzu, um zu demonstrieren, dass die Deckkraft des Strichs von der `fill-opacity` Eigenschaft nicht beeinflusst wird.
+Wir fügen einen {{cssxref("stroke")}} zum Kreis und zur Ellipse hinzu, um zu demonstrieren, dass die Opazität des Stroke nicht von der `fill-opacity` Eigenschaft beeinflusst wird.
 
-Andere SVG-Stile werden gesetzt, einschließlich eines Hintergrundbildes, um die Deckkraft jedes Elements leichter sichtbar zu machen. Diese werden der Kürze halber nicht gezeigt.
+Andere SVG-Stile werden festgelegt, einschließlich eines Hintergrundbildes, um die Opazität jedes Elements sichtbarer zu machen. Diese werden der Kürze halber nicht angezeigt.
 
 ```css hidden
 svg {
@@ -127,7 +127,7 @@ ellipse {
 
 {{EmbedLiveSample("Defining the fill opacity of SVG elements", "300", "360")}}
 
-Nur zwei Elemente sind vollständig opak: das erste Rechteck und die Linie. Das erste Rechteck wird von keinem der Selektoren erfasst, daher wird kein CSS angewendet und das `fill` ist vollständig opak. Die Linie wird erfasst, mit `fill-opacity: 10%` gesetzt. Allerdings hat die Linie keine `fill` Maloperation - nur der `stroke` ist sichtbar - daher hat die Deklaration keine Wirkung.
+Nur zwei Elemente sind vollständig opak: das erste Rechteck und die Linie. Das erste Rechteck wird von keinem der Selektoren erfasst, daher wird kein CSS angewendet und das `fill` ist vollständig opak. Die Linie ist erfasst, mit `fill-opacity: 10%` gesetzt. Da die Linie jedoch keine `fill` Maloperation hat — nur der Stroke ist sichtbar — hat die Deklaration keine Wirkung.
 
 ## Spezifikationen
 

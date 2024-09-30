@@ -1,5 +1,5 @@
 ---
-title: "CSSPropertyRule: name-Eigenschaft"
+title: "CSSPropertyRule: name Eigenschaft"
 short-title: name
 slug: Web/API/CSSPropertyRule/name
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle repräsentiert den Eigenschaftsnamen, dies ist die Serialisierung des Namens, der der benutzerdefinierten Eigenschaft in der Präambel der {{cssxref("@property")}}-Regel gegeben wurde.
+Die schreibgeschützte **`name`**-Eigenschaft des [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Interfaces repräsentiert den Eigenschaftsnamen, wobei es sich um die Serialisierung des Namens handelt, der der benutzerdefinierten Eigenschaft in der Einleitung der {{cssxref("@property")}}-Regel gegeben wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel darstellt. Die `name`-Eigenschaft gibt den String `"--property-name"` zurück, welcher der benutzerdefinierten Eigenschaft in CSS gegeben wurde.
+Dieses Stylesheet enthält eine einzige {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel repräsentiert. Die `name`-Eigenschaft gibt den String `"--property-name"` zurück, welcher der benutzerdefinierten Eigenschaft in CSS gegeben wurde.
 
 ```css
 @property --property-name {

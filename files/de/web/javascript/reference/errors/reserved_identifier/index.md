@@ -1,5 +1,5 @@
 ---
-title: 'SyntaxError: "x" ist ein reservierter Bezeichner'
+title: "SyntaxError: \"x\" ist ein reservierter Bezeichner"
 slug: Web/JavaScript/Reference/Errors/Reserved_identifier
 l10n:
   sourceCommit: a71b8929628a2187794754c202ad399fe357141b
@@ -9,7 +9,7 @@ l10n:
 
 Die JavaScript-Ausnahme "_variable_ ist ein reservierter Bezeichner" tritt auf, wenn [reservierte Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) als Bezeichner verwendet werden.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Unexpected reserved word (V8-based)
@@ -21,13 +21,13 @@ SyntaxError: Cannot use the reserved word 'implements' as a variable name. (Safa
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-[Reservierte Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) verursachen einen Fehler, wenn sie als Bezeichner verwendet werden. Diese sind im strikten und im nicht-strikten Modus reserviert:
+[Reservierte Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) werden einen Fehler auslösen, wenn sie als Bezeichner verwendet werden. Diese sind im strikten Modus und im nachlässigen Modus reserviert:
 
 - `enum`
 
-Die folgenden Schlüsselwörter sind nur reserviert, wenn sie im strikten Modus verwendet werden:
+Die folgenden sind nur reserviert, wenn sie im strikten Modus gefunden werden:
 
 - `implements`
 - `interface`
@@ -42,7 +42,7 @@ Die folgenden Schlüsselwörter sind nur reserviert, wenn sie im strikten Modus 
 
 ### Strikte und nicht-strikte reservierte Schlüsselwörter
 
-Das `enum` ist im Allgemeinen ein reservierter Bezeichner.
+Der Bezeichner `enum` ist generell reserviert.
 
 ```js-nolint example-bad
 const enum = { RED: 0, GREEN: 1, BLUE: 2 };
@@ -66,8 +66,7 @@ const list = ["potatoes", "rice", "fries"];
 
 ### Aktualisieren Sie ältere Browser
 
-Wenn Sie einen älteren Browser verwenden, der noch kein [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder
-[`class`](/de/docs/Web/JavaScript/Reference/Statements/class) implementiert, sollten Sie auf eine aktuellere Browserversion aktualisieren, die diese neuen Sprachmerkmale unterstützt.
+Wenn Sie einen älteren Browser verwenden, der noch nicht [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) implementiert, sollten Sie auf eine aktuellere Browserversion aktualisieren, die diese neuen Sprachfunktionen unterstützt.
 
 ```js
 "use strict";

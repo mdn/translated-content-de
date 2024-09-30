@@ -16,14 +16,14 @@ Das **`AudioEncoder`**-Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_
 - [`AudioEncoder()`](/de/docs/Web/API/AudioEncoder/AudioEncoder)
   - : Erstellt ein neues `AudioEncoder`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) {{ReadOnlyInline}}
-  - : Eine ganze Zahl, die die Anzahl der Codierungsanfragen in der Warteschlange darstellt.
+  - : Eine Ganzzahl, die die Anzahl der Anfragen in der Kodierungswarteschlange darstellt.
 - [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) {{ReadOnlyInline}}
-  - : Repräsentiert den Zustand des zugrundeliegenden Codecs und ob er für die Kodierung konfiguriert ist.
+  - : Repräsentiert den Status des zugrunde liegenden Codec und ob er für die Kodierung konfiguriert ist.
 
 ### Ereignisse
 
@@ -33,20 +33,20 @@ _Erbt Eigenschaften von seinem übergeordneten Element, [`EventTarget`](/de/docs
 ## Statische Methoden
 
 - [`AudioEncoder.isConfigSupported()`](/de/docs/Web/API/AudioEncoder/isConfigSupported_static)
-  - : Gibt ein Versprechen zurück, das angibt, ob die bereitgestellte `AudioEncoderConfig` unterstützt wird.
+  - : Gibt ein Promise zurück, das anzeigt, ob die bereitgestellte `AudioEncoderConfig` unterstützt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioEncoder.configure()`](/de/docs/Web/API/AudioEncoder/configure)
-  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder für die Kodierung von Chunks zu konfigurieren.
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder zur Kodierung von Chunks zu konfigurieren.
 - [`AudioEncoder.encode()`](/de/docs/Web/API/AudioEncoder/encode)
-  - : Stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um gegebene [`AudioData`](/de/docs/Web/API/AudioData)-Objekte zu kodieren.
 - [`AudioEncoder.flush()`](/de/docs/Web/API/AudioEncoder/flush)
-  - : Gibt ein Versprechen zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
+  - : Gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
 - [`AudioEncoder.reset()`](/de/docs/Web/API/AudioEncoder/reset)
-  - : Setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
+  - : Setzt alle Zustände einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichten-Warteschlange und alle ausstehenden Rückrufe zurück.
 - [`AudioEncoder.close()`](/de/docs/Web/API/AudioEncoder/close)
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 

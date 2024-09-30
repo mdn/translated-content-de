@@ -51,7 +51,7 @@ p:last-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Eine Liste stylen
+### Styling einer Liste
 
 #### HTML
 

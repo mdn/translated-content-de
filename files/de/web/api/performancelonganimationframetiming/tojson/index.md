@@ -1,5 +1,5 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: Methode toJSON()"
+title: "PerformanceLongAnimationFrameTiming: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceLongAnimationFrameTiming/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der Schnittstelle [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceLongAnima
 
 ## Beispiele
 
-### Verwendung der Methode `toJSON`
+### Verwendung der `toJSON`-Methode
 
 In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
 
@@ -73,7 +73,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

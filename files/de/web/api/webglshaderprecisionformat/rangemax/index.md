@@ -3,12 +3,12 @@ title: "WebGLShaderPrecisionFormat: rangeMax-Eigenschaft"
 short-title: rangeMax
 slug: Web/API/WebGLShaderPrecisionFormat/rangeMax
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMax`**-Eigenschaft gibt den Basis-2-Logarithmus des absoluten Wertes des maximal darstellbaren Wertes zurück.
+Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMax`**-Eigenschaft gibt den Basis-2-Logarithmus des absoluten Werts des maximal darstellbaren Wertes zurück.
 
 ## Beispiele
 

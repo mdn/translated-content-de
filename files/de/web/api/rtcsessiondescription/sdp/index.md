@@ -20,7 +20,7 @@ sessionDescription.sdp = value
 
 ### Wert
 
-Der Wert ist ein String, der eine SDP-Nachricht wie diese hier enthält:
+Der Wert ist ein String, der eine SDP-Nachricht wie diese enthält:
 
 ```plain
 v=0
@@ -55,4 +55,4 @@ alert(pc.remoteDescription.sdp);
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Der Standard zur Verwendung von SDP in einem Angebot-/Antwortprotokoll {{rfc("3264")}}.
+- Der Standard für die Verwendung von SDP in einem Offer/Answer-Protokoll {{rfc("3264")}}.

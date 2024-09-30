@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`timestamp`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine ganze Zahl zurück, die den Zeitstempel des Audios in Mikrosekunden angibt.
+Die **`timestamp`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt einen ganzzahligen Wert zurück, der den Zeitstempel des Audios in Mikrosekunden angibt.
 
 ## Wert
 
-Eine ganze Zahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 

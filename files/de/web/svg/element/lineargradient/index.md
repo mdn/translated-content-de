@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<linearGradient>`**-Element ermöglicht es Autoren, lineare Verläufe zu definieren, die auf andere SVG-Elemente angewendet werden können.
+Das **`<linearGradient>`**-Element ermöglicht es Autoren, lineare Verläufe zu definieren, die auf andere SVG-Elemente angewendet werden.
 
 ## Beispiel
 
@@ -44,13 +44,13 @@ svg {
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute `x1`, `x2`, `y1`, `y2`.
     _Werttyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("gradientTransform")}}
-  - : Dieses Attribut bietet eine zusätzliche [Transformation](/de/docs/Web/SVG/Attribute/transform) für das Gradientenkoordinatensystem.
-    _Werttyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)** ; _Standardwert_: _identische Transformation_; _Animierbar_: **ja**
+  - : Dieses Attribut bietet eine zusätzliche [Transformation](/de/docs/Web/SVG/Attribute/transform) für das Gradienten-Koordinatensystem.
+    _Werttyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)** ; _Standardwert_: _Identitätstransformierung_; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Dieses Attribut definiert einen Verweis auf ein anderes `<linearGradient>`-Element, das als Vorlage verwendet wird.
-    _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Dieses Attribut definiert eine Referenz auf ein anderes `<linearGradient>`-Element, das als Vorlage verwendet wird.
+    _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("spreadMethod")}}
-  - : Dieses Attribut gibt an, wie sich der Gradient verhält, wenn er innerhalb der Begrenzungen der Form, die den Gradient enthält, beginnt oder endet.
+  - : Dieses Attribut gibt an, wie sich der Verlauf verhält, wenn er innerhalb der Grenzen der Form beginnt oder endet, die den Verlauf enthält.
     _Werttyp_: `pad`|`reflect`|`repeat` ; _Standardwert_: `pad`; _Animierbar_: **ja**
 - {{SVGAttr("x1")}}
   - : Dieses Attribut definiert die x-Koordinate des Startpunkts des Vektorverlaufs, entlang dem der lineare Verlauf gezeichnet wird.
@@ -59,8 +59,8 @@ svg {
   - : Dieses Attribut definiert die x-Koordinate des Endpunkts des Vektorverlaufs, entlang dem der lineare Verlauf gezeichnet wird.
     _Werttyp_: {{cssxref("length-percentage")}} | {{cssxref("number")}}; _Standardwert_: `100%`; _Animierbar_: **ja**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Ein [\<IRI>](/de/docs/Web/SVG/Content_type#iri)-Verweis auf ein anderes `<linearGradient>`-Element, das als Vorlage verwendet wird.
-    _Werttyp_: [**\<IRI>**](/de/docs/Web/SVG/Content_type#iri) ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Eine [\<IRI>](/de/docs/Web/SVG/Content_type#iri)-Referenz auf ein anderes `<linearGradient>`-Element, das als Vorlage verwendet wird.
+    _Werttyp_: [**\<IRI>**](/de/docs/Web/SVG/Content_type#iri) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("y1")}}
   - : Dieses Attribut definiert die y-Koordinate des Startpunkts des Vektorverlaufs, entlang dem der lineare Verlauf gezeichnet wird.
     _Werttyp_: {{cssxref("length-percentage")}} | {{cssxref("number")}}; _Standardwert_: `0%`; _Animierbar_: **ja**
@@ -68,7 +68,7 @@ svg {
   - : Dieses Attribut definiert die y-Koordinate des Endpunkts des Vektorverlaufs, entlang dem der lineare Verlauf gezeichnet wird.
     _Werttyp_: {{cssxref("length-percentage")}} | {{cssxref("number")}}; _Standardwert_: `0%`; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

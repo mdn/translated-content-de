@@ -23,18 +23,18 @@ observe(target, options)
   - : Eine Referenz zu einem [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement), das beobachtet werden soll.
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, mit dem Sie Optionen für die Beobachtung festlegen können. Derzeit gibt es nur eine mögliche Option, die festgelegt werden kann:
+  - : Ein Optionsobjekt, das es Ihnen ermöglicht, Optionen für die Beobachtung festzulegen. Derzeit gibt es nur eine mögliche Option, die festgelegt werden kann:
 
     - `box`
 
-      - : Legt fest, welches Boxmodell der Beobachter auf Änderungen beobachtet. Mögliche Werte sind:
+      - : Legt fest, welches Box-Modell der Beobachter beobachten wird. Mögliche Werte sind:
 
-        - `content-box` (der Standard)
-          - : Größe des Inhaltsbereichs, wie in CSS definiert.
+        - `content-box` (Standardwert)
+          - : Größe des Inhaltsbereichs, wie im CSS definiert.
         - `border-box`
-          - : Größe des Box-Randbereichs, wie in CSS definiert.
+          - : Größe des Box-Randbereichs, wie im CSS definiert.
         - `device-pixel-content-box`
-          - : Die Größe des Inhaltsbereichs, wie in CSS definiert, in Gerätepixeln, bevor CSS-Transformationen auf das Element oder seine Vorfahren angewendet werden.
+          - : Die Größe des Inhaltsbereichs, wie im CSS definiert, in Gerätepixeln, bevor CSS-Transformationen auf das Element oder dessen Vorfahren angewendet werden.
 
 ### Rückgabewert
 
@@ -46,8 +46,8 @@ Keine.
 
 ## Beispiele
 
-Der folgende Codeausschnitt stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html)
-([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)):
+Das folgende Snippet stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html)
+([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)):
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
@@ -87,7 +87,7 @@ const resizeObserver = new ResizeObserver((entries) => {
 resizeObserver.observe(divElem);
 ```
 
-Ein `observe()`-Aufruf mit einem Optionsobjekt könnte wie folgt aussehen:
+Ein `observe()`-Aufruf mit einem Optionsobjekt würde wie folgt aussehen:
 
 ```js
 resizeObserver.observe(divElem, { box: "border-box" });

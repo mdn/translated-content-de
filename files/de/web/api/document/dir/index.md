@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`Document.dir`**-Eigenschaft ist ein String, der die Textausrichtung des Dokuments darstellt, ob von links nach rechts (Standard) oder von rechts nach links. Mögliche Werte sind `'rtl'`, von rechts nach links, und `'ltr'`, von links nach rechts.
+Die **`Document.dir`**-Eigenschaft ist ein String, der die Richtung des Textes im Dokument darstellt, ob von links nach rechts (Standard) oder von rechts nach links. Mögliche Werte sind `'rtl'`, von rechts nach links, und `'ltr'`, von links nach rechts.
 
 ## Wert
 

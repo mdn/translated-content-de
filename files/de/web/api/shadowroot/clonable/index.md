@@ -10,10 +10,10 @@ l10n:
 
 Die schreibgeschützte **`clonable`**-Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt `true` zurück, wenn der Shadow-Root klonbar ist, und `false` andernfalls.
 
-Wenn der Wert `true` ist, enthält ein mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) geklonter Shadow-Host eine Kopie des Shadow-Roots.
+Wenn der Wert `true` ist, beinhaltet ein mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) geklonter Shadow-Host eine Kopie des Shadow-Roots.
 
 Standardmäßig ist der Wert `false`.
-Er kann auf `true` gesetzt werden, indem die Option `clonable` der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) oder durch Setzen des Attributes [`shadowrootclonable`](/de/docs/Web/HTML/Element/template#shadowrootclonable) im `<template>`-Element gesetzt wird, das verwendet wird, um einen Shadow-Root deklarativ anzufügen.
+Er kann auf `true` gesetzt werden, indem die Option `clonable` der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) verwendet oder das Attribut [`shadowrootclonable`](/de/docs/Web/HTML/Element/template#shadowrootclonable) des `<template>`-Elements, das verwendet wird, um deklarativ einen Shadow-Root anzuhängen, gesetzt wird.
 
 ## Wert
 

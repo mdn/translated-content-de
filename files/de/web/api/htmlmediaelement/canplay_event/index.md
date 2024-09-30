@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `canplay`-Ereignis wird ausgelöst, wenn der Benutzeragent das Medium abspielen kann, aber schätzt, dass nicht genügend Daten geladen wurden, um das Medium bis zum Ende abzuspielen, ohne für weiteres Puffern anzuhalten.
+Das `canplay` Ereignis wird ausgelöst, wenn der Benutzeragent das Medium wiedergeben kann, jedoch schätzt, dass nicht genügend Daten geladen wurden, um das Medium bis zum Ende abzuspielen, ohne für weiteres Zwischenspeichern stoppen zu müssen.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `canplay`-Ereignis des HTMLMediaElements hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `canplay` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 

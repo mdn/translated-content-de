@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode des [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Interfaces beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle beendet alle anstehenden Arbeiten und gibt die Systemressourcen frei.
 
 ## Syntax
 

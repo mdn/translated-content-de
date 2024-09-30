@@ -7,41 +7,41 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Getting_started_with_the_web/CSS_basics", "Learn/Getting_started_with_the_web/Publishing_your_website", "Learn/Getting_started_with_the_web")}}
 
-JavaScript ist eine Programmiersprache, die Interaktivität zu Ihrer Webseite hinzufügt. Dies geschieht in Spielen, im Verhalten von Antworten, wenn Tasten gedrückt werden, oder bei der Dateneingabe in Formulare; mit dynamischem Styling; mit Animationen usw. Dieser Artikel hilft Ihnen, mit JavaScript zu beginnen und Ihr Verständnis dafür zu vertiefen, was möglich ist.
+JavaScript ist eine Programmiersprache, die Interaktivität zu Ihrer Website hinzufügt. Dies geschieht in Spielen, im Verhalten von Antworten, wenn Schaltflächen gedrückt werden oder bei der Dateneingabe in Formulare; mit dynamischem Styling; mit Animationen usw. Dieser Artikel hilft Ihnen, mit JavaScript zu beginnen und Ihr Verständnis dafür zu vertiefen, was möglich ist.
 
 ## Was ist JavaScript?
 
-[JavaScript](/de/docs/Glossary/JavaScript) ist eine leistungsstarke Programmiersprache, die Interaktivität zu einer Webseite hinzufügen kann. Sie wurde von Brendan Eich erfunden.
+[JavaScript](/de/docs/Glossary/JavaScript) ist eine leistungsstarke Programmiersprache, die einer Website Interaktivität hinzufügen kann. Es wurde von Brendan Eich erfunden.
 
-JavaScript ist vielseitig und anfängerfreundlich. Mit mehr Erfahrung werden Sie in der Lage sein, Spiele, animierte 2D- und 3D-Grafiken, umfassende datenbankgesteuerte Apps und vieles mehr zu erstellen!
+JavaScript ist vielseitig und einsteigerfreundlich. Mit mehr Erfahrung können Sie Spiele, animierte 2D- und 3D-Grafiken, umfassende datenbankgesteuerte Anwendungen und vieles mehr erstellen!
 
-JavaScript selbst ist relativ kompakt, aber sehr flexibel. Entwickler haben eine Vielzahl von Werkzeugen auf der Grundlage der Kernsprache JavaScript geschrieben, die eine riesige Menge an Funktionalität mit minimalem Aufwand freischalten. Dazu gehören:
+JavaScript selbst ist relativ kompakt, aber sehr flexibel. Entwickler haben eine Vielzahl von Tools auf Basis der Kern-JavaScript-Sprache entwickelt, die eine große Menge an Funktionalität mit minimalem Aufwand freischalten. Dazu gehören:
 
-- Anwendungsprogrammierschnittstellen ([APIs](/de/docs/Glossary/API)) im Browser, die Funktionalitäten wie das dynamische Erstellen von HTML und das Setzen von CSS-Stilen, das Sammeln und Verarbeiten eines Videostreams von der Webcam eines Benutzers oder das Erzeugen von 3D-Grafiken und Tonmustern bereitstellen.
-- Drittanbieter-APIs, die es Entwicklern ermöglichen, Funktionalitäten von anderen Inhaltsanbietern in Websites zu integrieren, wie [Disqus](https://disqus.com/) oder Facebook.
-- Drittanbieter-Frameworks und Bibliotheken, die Sie auf HTML anwenden können, um die Arbeit beim Erstellen von Sites und Anwendungen zu beschleunigen.
+- Browseranwendungsprogrammierschnittstellen ([APIs](/de/docs/Glossary/API)), die in Webbrowser integriert sind und Funktionen wie das dynamische Erstellen von HTML und das Festlegen von CSS-Stilen bieten; das Erfassen und Manipulieren eines Videostreams von der Webcam eines Benutzers oder das Generieren von 3D-Grafiken und Audiobeispielen.
+- Drittanbieter-APIs, die es Entwicklern ermöglichen, Funktionen von anderen Inhaltsanbietern wie [Disqus](https://disqus.com/) oder Facebook in Websites zu integrieren.
+- Drittanbieter-Frameworks und -Bibliotheken, die Sie auf HTML anwenden können, um die Arbeit beim Erstellen von Websites und Anwendungen zu beschleunigen.
 
-Es ist außerhalb des Umfangs dieses Artikels – als leichte Einführung in JavaScript – die Details, wie sich die Kernsprache JavaScript von den oben genannten Werkzeugen unterscheidet, zu präsentieren. Sie können mehr darüber im [JavaScript-Lernbereich](/de/docs/Learn/JavaScript) von MDN sowie in anderen Teilen von MDN erfahren.
+Es liegt außerhalb des Rahmens dieses Artikels – als leichten Einstieg in JavaScript – die Details darüber zu präsentieren, wie sich die Kern-JavaScript-Sprache von den oben aufgeführten Tools unterscheidet. Sie können mehr im MDN [JavaScript-Lernbereich](/de/docs/Learn/JavaScript) sowie in anderen Teilen von MDN lernen.
 
-Der Abschnitt unten führt einige Aspekte der Kernsprache ein und bietet die Möglichkeit, mit einigen Funktionen der Browser-API zu spielen. Viel Spaß!
+Der untenstehende Abschnitt stellt einige Aspekte der Kernsprache vor und bietet die Möglichkeit, sich auch mit einigen Funktionen von Browser-APIs zu beschäftigen. Viel Spaß!
 
-## Ein "Hallo Welt!" Beispiel
+## Ein "Hallo Welt!"-Beispiel
 
-JavaScript ist eine der beliebtesten modernen Webtechnologien! Mit zunehmenden JavaScript-Kenntnissen erhalten Ihre Websites eine neue Dimension von Leistung und Kreativität.
+JavaScript ist eine der beliebtesten modernen Webtechnologien! Während Ihre JavaScript-Fähigkeiten wachsen, werden Ihre Websites eine neue Dimension von Leistung und Kreativität erreichen.
 
-Allerdings ist es schwieriger, sich in JavaScript wohlzufühlen, als in HTML und CSS. Möglicherweise müssen Sie klein anfangen und sich allmählich steigern. Um zu beginnen, lassen Sie uns untersuchen, wie man JavaScript zu Ihrer Seite hinzufügt, um ein _Hallo Welt!_ Beispiel zu erstellen. (_Hallo Welt!_ ist [der Standard für einführende Programmierbeispiele](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program).)
+Sich mit JavaScript vertraut zu machen, ist jedoch herausfordernder als mit HTML und CSS. Sie müssen möglicherweise klein anfangen und sich schrittweise verbessern. Beginnen wir damit, wie Sie JavaScript zu Ihrer Seite hinzufügen, um ein _Hallo Welt!_ Beispiel zu erstellen. (_Hallo Welt!_ ist [der Standard für einführende Programmierbeispiele](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program).)
 
 > [!WARNING]
-> Wenn Sie dem Rest unseres Kurses nicht gefolgt sind, [laden Sie dieses Beispielcode herunter](https://codeload.github.com/mdn/beginner-html-site-styled/zip/refs/heads/gh-pages) und verwenden Sie es als Ausgangspunkt.
+> Wenn Sie dem Rest unseres Kurses nicht gefolgt sind, [laden Sie diesen Beispielcode herunter](https://codeload.github.com/mdn/beginner-html-site-styled/zip/refs/heads/gh-pages) und verwenden Sie ihn als Ausgangspunkt.
 
-1. Gehen Sie zu Ihrer Testseite und erstellen Sie einen neuen Ordner namens `scripts`. Erstellen Sie innerhalb des Scripts-Ordners ein neues Textdokument namens `main.js` und speichern Sie es.
-2. Geben Sie in Ihrer `index.html`-Datei diesen Code in einer neuen Zeile ein, unmittelbar vor dem schließenden `</body>`-Tag:
+1. Gehen Sie zu Ihrer Test-Website und erstellen Sie einen neuen Ordner mit dem Namen `scripts`. Erstellen Sie innerhalb des Scripts-Ordners ein neues Textdokument namens `main.js` und speichern Sie es.
+2. Geben Sie in Ihrer `index.html`-Datei diesen Code in einer neuen Zeile unmittelbar vor dem schließenden `</body>`-Tag ein:
 
    ```html
    <script src="scripts/main.js"></script>
    ```
 
-3. Dies übernimmt die gleiche Funktion wie das {{htmlelement("link")}}-Element für CSS. Es wendet das JavaScript auf die Seite an, sodass es einen Effekt auf das HTML haben kann (zusammen mit dem CSS und allem anderen auf der Seite).
+3. Dies erfüllt denselben Zweck wie das {{htmlelement("link")}}-Element für CSS. Es wendet das JavaScript auf die Seite an, sodass es Auswirkungen auf das HTML (zusammen mit dem CSS und allem anderen auf der Seite) haben kann.
 4. Fügen Sie diesen Code in die Datei `scripts/main.js` ein:
 
    ```js
@@ -49,44 +49,44 @@ Allerdings ist es schwieriger, sich in JavaScript wohlzufühlen, als in HTML und
    myHeading.textContent = "Hello world!";
    ```
 
-5. Stellen Sie sicher, dass die HTML- und JavaScript-Dateien gespeichert sind. Laden Sie dann `index.html` in Ihrem Browser. Sie sollten etwas ähnliches sehen:
+5. Stellen Sie sicher, dass die HTML- und JavaScript-Dateien gespeichert sind. Laden Sie dann `index.html` in Ihrem Browser. Sie sollten etwas Ähnliches wie dies sehen:
 
 ![Überschrift "hello world" über einem Firefox-Logo](hello-world.png)
 
 > [!NOTE]
-> Der Grund, warum die Anleitungen (oben) das {{htmlelement("script")}}-Element in den unteren Bereich der HTML-Datei platzieren, ist, dass **der Browser den Code in der Reihenfolge liest, in der er in der Datei erscheint**.
+> Der Grund, warum die Anweisungen oben das {{htmlelement("script")}}-Element nahe am Ende der HTML-Datei platzieren, ist, dass **der Browser den Code in der Reihenfolge liest, in der er in der Datei erscheint**.
 >
-> Wenn das JavaScript zuerst geladen wird und es soll das HTML beeinflussen, das noch nicht geladen ist, könnte es Probleme geben. Das Platzieren von JavaScript in den unteren Bereich einer HTML-Seite ist eine Möglichkeit, diese Abhängigkeit zu berücksichtigen. Um mehr über alternative Ansätze zu erfahren, lesen Sie [Strategien zum Laden von Skripten](/de/docs/Learn/JavaScript/First_steps/What_is_JavaScript#script_loading_strategies).
+> Wenn das JavaScript zuerst lädt und es angenommen wird, dass es das HTML beeinflusst, das noch nicht geladen wurde, könnte es zu Problemen kommen. Das Platzieren von JavaScript nahe am Ende einer HTML-Seite ist eine Möglichkeit, diese Abhängigkeit zu berücksichtigen. Um mehr über alternative Ansätze zu erfahren, siehe [Script-Ladestrategien](/de/docs/Learn/JavaScript/First_steps/What_is_JavaScript#script_loading_strategies).
 
 ### Was ist passiert?
 
-Der Überschriftstext hat sich mit JavaScript in _Hallo Welt!_ geändert. Dies haben Sie erreicht, indem Sie eine Funktion namens [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwendet haben, um eine Referenz auf Ihre Überschrift zu erhalten und sie in einer Variablen namens `myHeading` zu speichern. Dies ist ähnlich wie das, was wir mit CSS-Selektoren gemacht haben. Wenn Sie etwas mit einem Element machen wollen, müssen Sie es zuerst auswählen.
+Der Text der Überschrift wurde mit JavaScript in _Hello world!_ geändert. Sie haben dies erreicht, indem Sie eine Funktion namens [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwendet haben, um eine Referenz auf Ihre Überschrift zu erhalten und dann in einer Variablen namens `myHeading` zu speichern. Dies ist ähnlich zu dem, was wir mit CSS-Selektoren gemacht haben. Wenn Sie etwas mit einem Element tun möchten, müssen Sie es zuerst auswählen.
 
-Anschließend hat der Code den Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft der Variablen `myHeading` (die den Inhalt der Überschrift darstellt) auf _Hallo Welt!_ gesetzt.
+Anschließend setzte der Code den Wert der `textContent`-Eigenschaft der `myHeading`-Variable (die den Inhalt der Überschrift repräsentiert) auf _Hello world!_.
 
 > [!NOTE]
-> Beide in dieser Übung verwendeten Funktionen sind Bestandteile des [Document Object Model (DOM) API](/de/docs/Web/API/Document_Object_Model), das über die Fähigkeit verfügt, Dokumente zu manipulieren.
+> Beide der Funktionen, die Sie in dieser Übung verwendet haben, sind Teile des [Document Object Model (DOM) API](/de/docs/Web/API/Document_Object_Model), das die Fähigkeit hat, Dokumente zu manipulieren.
 
-## Sprachgrundlagen im Schnellkurs
+## Grundlagen der Sprache Crash-Kurs
 
-Um Ihnen ein besseres Verständnis dafür zu vermitteln, wie JavaScript funktioniert, erklären wir einige der Kernfunktionen der Sprache. Es ist erwähnenswert, dass diese Funktionen allen Programmiersprachen gemeinsam sind. Wenn Sie diese Grundlagen beherrschen, haben Sie einen Vorsprung beim Programmieren in anderen Sprachen!
+Um Ihnen ein besseres Verständnis dafür zu geben, wie JavaScript funktioniert, lassen Sie uns einige der Kernfunktionen der Sprache erklären. Es ist erwähnenswert, dass diese Funktionen in allen Programmiersprachen üblich sind. Wenn Sie diese Grundlagen meistern, haben Sie einen Vorsprung beim Programmieren in anderen Sprachen!
 
 > [!WARNING]
-> In diesem Artikel versuchen Sie, die Beispielcodezeilen in Ihre JavaScript-Konsole einzugeben, um zu sehen, was passiert. Für weitere Details zu JavaScript-Konsolen, siehe [Entdecken von Browser-Entwicklertools](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools).
+> In diesem Artikel sollten Sie versuchen, die Beispielcodes in Ihre JavaScript-Konsole einzugeben, um zu sehen, was passiert. Für weitere Details zu JavaScript-Konsolen siehe [Entdecken Sie die Entwickler-Tools des Browsers](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools).
 
 ### Variablen
 
-[Variablen](/de/docs/Glossary/Variable) sind Container, die Werte speichern. Sie beginnen damit, eine Variable mit dem Schlüsselwort [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) zu deklarieren, gefolgt von dem Namen, den Sie der Variablen geben:
+[Variablen](/de/docs/Glossary/Variable) sind Container, die Werte speichern. Sie beginnen mit der Deklaration einer Variablen mit dem Schlüsselwort [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), gefolgt von dem Namen, den Sie der Variablen geben:
 
 ```js
 let myVariable;
 ```
 
-Ein Semikolon am Ende einer Zeile zeigt an, wo eine Anweisung endet. Es ist nur erforderlich, wenn Sie Anweisungen in einer einzigen Zeile trennen müssen. Einige Leute glauben jedoch, dass es eine gute Praxis ist, Semikolons am Ende jeder Anweisung zu haben. Es gibt andere Regeln dafür, wann Sie Semikolons verwenden sollten und wann nicht. Für weitere Details siehe [Ihr Leitfaden zu Semikolons in JavaScript](https://www.codecademy.com/resources/blog/your-guide-to-semicolons-in-javascript/).
+Ein Semikolon am Ende einer Zeile zeigt an, wo eine Anweisung endet. Es ist nur erforderlich, wenn Sie Anweisungen in einer einzigen Zeile trennen müssen. Einige Leute glauben jedoch, dass es eine gute Praxis ist, Semikolons am Ende jeder Anweisung zu haben. Es gibt andere Regeln dafür, wann man Semikolons verwenden sollte und wann nicht. Weitere Details finden Sie in [Ihr Leitfaden zu Semikolons in JavaScript](https://www.codecademy.com/resources/blog/your-guide-to-semicolons-in-javascript/).
 
-Sie können eine Variable nahezu beliebig benennen, es gibt jedoch einige Einschränkungen. (Siehe [dieser Abschnitt über Benennungsregeln](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variables).) Wenn Sie unsicher sind, können Sie [Ihren Variablennamen überprüfen](https://mothereff.in/js-variables), um zu sehen, ob er gültig ist.
+Sie können einer Variablen fast jeden Namen geben, aber es gibt einige Einschränkungen. (Siehe [diesen Abschnitt über Namensregeln](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variables).) Wenn Sie sich unsicher sind, können Sie [Ihren Variablennamen überprüfen](https://mothereff.in/js-variables), um zu sehen, ob er gültig ist.
 
-JavaScript ist case-sensitiv. Das bedeutet `myVariable` ist nicht dasselbe wie `myvariable`. Wenn Sie Probleme in Ihrem Code haben, überprüfen Sie die Groß- und Kleinschreibung!
+JavaScript ist case-sensitiv. Das bedeutet, `myVariable` ist nicht dasselbe wie `myvariable`. Wenn Sie Probleme in Ihrem Code haben, überprüfen Sie die Groß- und Kleinschreibung!
 
 Nachdem Sie eine Variable deklariert haben, können Sie ihr einen Wert zuweisen:
 
@@ -94,26 +94,26 @@ Nachdem Sie eine Variable deklariert haben, können Sie ihr einen Wert zuweisen:
 myVariable = "Bob";
 ```
 
-Sie können auch beide Operationen in einer einzigen Zeile durchführen:
+Außerdem können Sie beide Operationen in derselben Zeile ausführen:
 
 ```js
 let myVariable = "Bob";
 ```
 
-Sie können den Wert abrufen, indem Sie den Variablennamen aufrufen:
+Sie rufen den Wert ab, indem Sie den Variablennamen aufrufen:
 
 ```js
 myVariable;
 ```
 
-Nachdem Sie einer Variable einen Wert zugewiesen haben, können Sie ihn später im Code ändern:
+Nachdem Sie einer Variablen einen Wert zugewiesen haben, können Sie ihn später im Code ändern:
 
 ```js
 let myVariable = "Bob";
 myVariable = "Steve";
 ```
 
-Beachten Sie, dass Variablen Werte unterschiedlicher [Datentypen](/de/docs/Web/JavaScript/Data_structures) enthalten können:
+Beachten Sie, dass Variablen Werte mit unterschiedlichen [Datentypen](/de/docs/Web/JavaScript/Data_structures) haben können:
 
 <table class="standard-table">
   <thead>
@@ -126,56 +126,37 @@ Beachten Sie, dass Variablen Werte unterschiedlicher [Datentypen](/de/docs/Web/J
   <tbody>
     <tr>
       <th scope="row">[String](/de/docs/Glossary/String)</th>
-      <td>
-        Dies ist eine Textfolge, die als String bekannt ist. Um zu kennzeichnen, dass
-        der Wert ein String ist, umschließen Sie ihn in einfache oder doppelte Anführungszeichen.
-      </td>
+      <td>Dies ist eine Textfolge, die als String bekannt ist. Um anzuzeigen, dass der Wert ein String ist, schließen Sie ihn in einfache oder doppelte Anführungszeichen ein.</td>
       <td><code>let myVariable = 'Bob';</code> oder <br/><code>let myVariable = "Bob";</code></td>
     </tr>
     <tr>
       <th scope="row">[Number](/de/docs/Glossary/Number)</th>
-      <td>Dies ist eine Zahl. Zahlen haben keine Anführungszeichen um sich herum.</td>
+      <td>Dies ist eine Zahl. Zahlen haben keine Anführungszeichen.</td>
       <td><code>let myVariable = 10;</code></td>
     </tr>
     <tr>
       <th scope="row">[Boolean](/de/docs/Glossary/Boolean)</th>
-      <td>
-        Dies ist ein Wahr/Falsch-Wert. Die Wörter <code>true</code> und
-        <code>false</code> sind spezielle Schlüsselwörter, die keine Anführungszeichen benötigen.
-      </td>
+      <td>Dies ist ein Wahr/Falsch-Wert. Die Wörter <code>true</code> und <code>false</code> sind spezielle Schlüsselwörter, die keine Anführungszeichen benötigen.</td>
       <td><code>let myVariable = true;</code></td>
     </tr>
     <tr>
       <th scope="row">[Array](/de/docs/Glossary/Array)</th>
-      <td>
-        Dies ist eine Struktur, die es ermöglicht, mehrere Werte in einer einzigen
-        Referenz zu speichern.
-      </td>
-      <td>
-        <code>let myVariable = [1,'Bob','Steve',10];</code><br />Greifen Sie auf
-        jedes Element des Arrays so zu:<br /><code>myVariable[0]</code>,
-        <code>myVariable[1]</code> usw.
-      </td>
+      <td>Dies ist eine Struktur, die es Ihnen ermöglicht, mehrere Werte in einer einzigen Referenz zu speichern.</td>
+      <td><code>let myVariable = [1,'Bob','Steve',10];</code><br />Beziehen Sie sich auf jedes Mitglied des Arrays so:<br /><code>myVariable[0]</code>, <code>myVariable[1]</code> usw.</td>
     </tr>
     <tr>
       <th scope="row">[Object](/de/docs/Glossary/Object)</th>
-      <td>
-        Dies kann alles sein. Alles in JavaScript ist ein Objekt und kann
-        in einer Variable gespeichert werden. Behalten Sie dies im Hinterkopf, während Sie lernen.
-      </td>
-      <td>
-        <code>let myVariable = document.querySelector('h1');</code><br />All die
-        oben genannten Beispiele auch.
-      </td>
+      <td>Dies kann alles sein. Alles in JavaScript ist ein Objekt und kann in einer Variablen gespeichert werden. Denken Sie daran, während Sie lernen.</td>
+      <td><code>let myVariable = document.querySelector('h1');</code><br />All die obigen Beispiele ebenfalls.</td>
     </tr>
   </tbody>
 </table>
 
-Warum brauchen wir also Variablen? Variablen sind notwendig, um in der Programmierung etwas Interessantes zu tun. Wenn sich Werte nicht ändern könnten, könnten Sie nichts Dynamisches tun, wie z.B. eine Begrüßungsnachricht personalisieren oder ein Bild in einer Bildergalerie ändern.
+Warum brauchen wir Variablen? Variablen sind notwendig, um etwas Interessantes in der Programmierung zu machen. Wenn Werte sich nicht ändern könnten, dann könnten Sie nichts Dynamisches tun, wie z.B. eine Begrüßungsnachricht personalisieren oder ein in einer Bildgalerie angezeigtes Bild ändern.
 
 ### Kommentare
 
-Kommentare sind Textschnipsel, die zusammen mit dem Code hinzugefügt werden können. Der Browser ignoriert Texte, die als Kommentare markiert sind. Sie können Kommentare in JavaScript genauso schreiben wie in CSS:
+Kommentare sind Textschnipsel, die zusammen mit dem Code hinzugefügt werden können. Der Browser ignoriert Text, der als Kommentare markiert ist. Sie können Kommentare in JavaScript genau wie in CSS schreiben:
 
 ```js
 /*
@@ -183,7 +164,7 @@ Everything in between is a comment.
 */
 ```
 
-Wenn Ihr Kommentar keine Zeilenumbrüche enthält, besteht die Möglichkeit, ihn hinter zwei Schrägstrichen zu setzen, wie hier:
+Wenn Ihr Kommentar keine Zeilenumbrüche enthält, können Sie ihn hinter zwei Schrägstrichen platzieren, wie folgt:
 
 ```js
 // This is a comment
@@ -191,7 +172,7 @@ Wenn Ihr Kommentar keine Zeilenumbrüche enthält, besteht die Möglichkeit, ihn
 
 ### Operatoren
 
-Ein `[operator](/de/docs/Glossary/operator)` ist ein mathematisches Symbol, das auf der Grundlage von zwei Werten (oder Variablen) ein Ergebnis erzeugt. In der folgenden Tabelle sehen Sie einige der einfachsten Operatoren zusammen mit einigen Beispielen, die Sie in der JavaScript-Konsole ausprobieren können.
+Ein `[Operator](/de/docs/Glossary/operator)` ist ein mathematisches Symbol, das ein Ergebnis basierend auf zwei Werten (oder Variablen) liefert. In der folgenden Tabelle sehen Sie einige der einfachsten Operatoren, zusammen mit einigen Beispielen, die Sie in der JavaScript-Konsole ausprobieren können.
 
 <table class="standard-table">
   <thead>
@@ -205,77 +186,50 @@ Ein `[operator](/de/docs/Glossary/operator)` ist ein mathematisches Symbol, das 
   <tbody>
     <tr>
       <th scope="row">Addition</th>
-      <td>Zwei Zahlen zusammenzählen oder zwei Strings zusammenführen.</td>
+      <td>Zwei Zahlen zusammenzählen oder zwei Strings kombinieren.</td>
       <td><code>+</code></td>
-      <td>
-        <code>6 + 9;<br />'Hello ' + 'world!';</code>
-      </td>
+      <td><code>6 + 9;<br />'Hallo ' + 'Welt!';</code></td>
     </tr>
     <tr>
       <th scope="row">Subtraktion, Multiplikation, Division</th>
-      <td>Diese tun, was Sie in der Grundmathematik erwarten würden.</td>
+      <td>Diese tun, was Sie im grundlegenden Mathematikunterricht erwarten würden.</td>
       <td><code>-</code>, <code>*</code>, <code>/</code></td>
-      <td>
-        <code
->9 - 3;<br />8 * 2; // multiplizieren in JS ist ein Sternchen<br />9 / 3;</code
-        >
-      </td>
+      <td><code>9 - 3;<br />8 * 2; // Multiplikation in JS ist ein Sternchen<br />9 / 3;</code></td>
     </tr>
     <tr>
       <th scope="row">Zuweisung</th>
-      <td>Wie Sie bereits gesehen haben: dies weist einer Variablen einen Wert zu.</td>
+      <td>Wie Sie bereits gesehen haben: Dies weist einer Variablen einen Wert zu.</td>
       <td><code>=</code></td>
       <td><code>let myVariable = 'Bob';</code></td>
     </tr>
     <tr>
       <th scope="row">Strikte Gleichheit</th>
-      <td>
-        Dies führt einen Test durch, um zu sehen, ob zwei Werte gleich und vom selben Datentyp sind. Es gibt ein
-        <code>true</code>/<code>false</code> (Boolean) Ergebnis zurück.
-      </td>
+      <td>Dies führt einen Test durch, um zu sehen, ob zwei Werte gleich und vom gleichen Datentyp sind. Es liefert ein <code>true</code>/<code>false</code> (Boolean) Ergebnis zurück.</td>
       <td><a href="/de/docs/Web/JavaScript/Reference/Operators/Strict_equality"><code>===</code></a></td>
-      <td>
-        <code>let myVariable = 3;<br />myVariable === 4;</code>
-      </td>
+      <td><code>let myVariable = 3;<br />myVariable === 4;</code></td>
     </tr>
     <tr>
       <th scope="row">Nicht, Ungleich</th>
-      <td>
-        Dies gibt den logisch entgegengesetzten Wert von dem zurück, was es vorangeht. Es wandelt
-        ein <code>true</code> in ein <code>false</code> usw. um. Wenn es zusammen mit dem Gleichheitsoperator verwendet wird,
-        testet der Negationsoperator, ob zwei Werte <em>nicht</em> gleich sind.
-      </td>
+      <td>Dies liefert den logischen Gegenteilswert dessen, was es voransteht. Es verwandelt ein <code>true</code> in ein <code>false</code> usw. Wenn es zusammen mit dem Gleichheitsoperator verwendet wird, testet der Negationsoperator, ob zwei Werte <em>nicht</em> gleich sind.</td>
       <td><code>!</code>, <code>!==</code></td>
       <td>
-        <p>
-          Bei "Nicht" ist der Basisausdruck <code>true</code>, aber der
-          Vergleich ergibt <code>false</code>, da wir ihn negieren:
-        </p>
-        <p>
-          <code>let myVariable = 3;<br />!(myVariable === 3);</code>
-        </p>
-        <p>
-          "Ungleich" ergibt im Grunde dasselbe Ergebnis mit anderem
-          Syntax. Hier testen wir "ist <code>myVariable</code> NICHT gleich
-          3?". Dies gibt <code>false</code> zurück, weil <code>myVariable</code> gleich
-          3 ist:
-        </p>
-        <p>
-          <code>let myVariable = 3;<br />myVariable !== 3;</code>
-        </p>
+        <p>Für "Nicht" ist der grundlegende Ausdruck <code>true</code>, aber der Vergleich liefert <code>false</code> zurück, weil wir ihn negieren:</p>
+        <p><code>let myVariable = 3;<br />!(myVariable === 3);</code></p>
+        <p>"Ungleich" liefert im Grunde dasselbe Ergebnis mit unterschiedlicher Syntax. Hier testen wir, ob <code>myVariable</code> NICHT gleich 3 ist. Dies liefert <code>false</code> zurück, weil <code>myVariable</code> IST gleich 3:</p>
+        <p><code>let myVariable = 3;<br />myVariable !== 3;</code></p>
       </td>
     </tr>
   </tbody>
 </table>
 
-Es gibt viele weitere Operatoren zu erkunden, aber das ist erst einmal genug. Siehe [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Reference/Operators) für eine vollständige Liste.
+Es gibt noch viele weitere Operatoren zu erkunden, aber das reicht für jetzt. Siehe [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Reference/Operators) für eine vollständige Liste.
 
 > [!NOTE]
-> Das Mischen von Datentypen kann zu einigen seltsamen Ergebnissen führen, wenn Berechnungen durchgeführt werden. Achten Sie darauf, dass Sie auf Ihre Variablen richtig verweisen und die Ergebnisse erhalten, die Sie erwarten. Geben Sie zum Beispiel `'35' + '25'` in Ihre Konsole ein. Warum erhalten Sie nicht das erwartete Ergebnis? Weil die Anführungszeichen die Zahlen in Strings umwandeln. Sie haben folglich Strings anstatt Zahlen zusammengeführt. Wenn Sie `35 + 25` eingeben, erhalten Sie die Summe der beiden Zahlen.
+> Das Mischen von Datentypen kann zu seltsamen Ergebnissen führen, wenn Berechnungen durchgeführt werden. Achten Sie darauf, dass Sie Ihre Variablen korrekt ansprechen und die Ergebnisse erhalten, die Sie erwarten. Geben Sie beispielsweise `'35' + '25'` in Ihre Konsole ein. Warum erhalten Sie nicht das Ergebnis, das Sie erwartet haben? Weil die Anführungszeichen die Zahlen in Strings verwandeln, sodass Sie Strings verkettet haben, anstatt Zahlen zu addieren. Wenn Sie `35 + 25` eingeben, erhalten Sie die Summe der beiden Zahlen.
 
-### Bedingte Anweisungen
+### Bedingungen
 
-Bedingte Anweisungen sind Code-Strukturen, die verwendet werden, um zu testen, ob ein Ausdruck wahr oder falsch ist. Eine sehr häufige Form von bedingten Anweisungen ist die `if...else`-Anweisung. Zum Beispiel:
+Bedingungen sind Code-Strukturen, die verwendet werden, um zu testen, ob ein Ausdruck wahr oder nicht ist. Eine sehr häufige Form von Bedingungen ist die `if...else`-Anweisung. Zum Beispiel:
 
 ```js
 let iceCream = "chocolate";
@@ -286,11 +240,11 @@ if (iceCream === "chocolate") {
 }
 ```
 
-Der Ausdruck innerhalb der `if ()` ist der Test. Dies verwendet den strikt Gleichheitsoperator (wie oben beschrieben), um die Variable `iceCream` mit dem String `chocolate` zu vergleichen, um zu sehen, ob die beiden gleich sind. Wenn dieser Vergleich `true` zurückgibt, wird der erste Codeblock ausgeführt. Wenn der Vergleich nicht wahr ist, wird der zweite Codeblock – nach dem `else`-Schlüsselwort – stattdessen ausgeführt.
+Der Ausdruck innerhalb `if ()` ist der Test. Dieser verwendet den strikten Gleichheitsoperator (wie oben beschrieben), um die Variable `iceCream` mit dem String `chocolate` zu vergleichen, um zu sehen, ob die beiden gleich sind. Wenn dieser Vergleich `true` zurückgibt, wird der erste Codeblock ausgeführt. Wenn der Vergleich nicht zutrifft, wird stattdessen der zweite Codeblock – nach dem Schlüsselwort `else` – ausgeführt.
 
 ### Funktionen
 
-[Funktionen](/de/docs/Glossary/Function) sind eine Möglichkeit, Funktionalitäten zu verpacken, die Sie wiederverwenden möchten. Es ist möglich, einen Codekörper als Funktion zu definieren, die ausgeführt wird, wenn Sie den Funktionsnamen in Ihrem Code aufrufen. Dies ist eine gute Alternative dazu, denselben Code wiederholt zu schreiben. Sie haben bereits einige Verwendungen von Funktionen gesehen. Zum Beispiel:
+[Funktionen](/de/docs/Glossary/Function) sind eine Möglichkeit, Funktionalität zu verpacken, die Sie wiederverwenden möchten. Es ist möglich, einen Codekörper als Funktion zu definieren, der beim Aufruf des Funktionsnamens in Ihrem Code ausgeführt wird. Dies ist eine gute Alternative, um denselben Code wiederholt zu schreiben. Sie haben bereits einige Verwendungen von Funktionen gesehen. Zum Beispiel:
 
 ```js
 let myVariable = document.querySelector("h1");
@@ -300,13 +254,13 @@ let myVariable = document.querySelector("h1");
 alert("hello!");
 ```
 
-Diese Funktionen, `document.querySelector` und `alert`, sind im Browser eingebaut.
+Diese Funktionen, `document.querySelector` und `alert`, sind in den Browser eingebaut.
 
-Wenn Sie etwas sehen, das wie ein Variablenname aussieht, dem aber Klammern folgen — `()` — handelt es sich wahrscheinlich um eine Funktion. Funktionen nehmen oft [Argumente](/de/docs/Glossary/Argument) an: Daten, die sie benötigen, um ihre Aufgabe zu erledigen. Argumente gehen innerhalb der Klammern, getrennt durch Kommas, wenn es mehr als ein Argument gibt.
+Wenn Sie etwas sehen, das wie ein Variablenname aussieht, aber Klammern folgen – `()` – ist es wahrscheinlich eine Funktion. Funktionen nehmen oft [Argumente](/de/docs/Glossary/Argument) an: Datenteile, die sie für ihre Aufgabe benötigen. Argumente kommen in die Klammern, getrennt durch Kommas, wenn es mehr als ein Argument gibt.
 
-Zum Beispiel lässt die `alert()`-Funktion ein Popup-Fenster innerhalb des Browserfensters erscheinen, aber wir müssen ihr einen String als Argument geben, um der Funktion zu sagen, welche Nachricht angezeigt werden soll.
+Zum Beispiel lässt die Funktion `alert()` ein Pop-up-Fenster im Browserfenster erscheinen, aber wir müssen ihr einen String als Argument geben, um der Funktion mitzuteilen, welche Nachricht angezeigt werden soll.
 
-Sie können auch Ihre eigenen Funktionen definieren. Im nächsten Beispiel erstellen wir eine einfache Funktion, die zwei Zahlen als Argumente annimmt und sie multipliziert:
+Sie können auch Ihre eigenen Funktionen definieren. Im nächsten Beispiel erstellen wir eine einfache Funktion, die zwei Zahlen als Argumente nimmt und sie multipliziert:
 
 ```js
 function multiply(num1, num2) {
@@ -315,7 +269,7 @@ function multiply(num1, num2) {
 }
 ```
 
-Versuchen Sie, dies in der Konsole auszuführen; testen Sie dann mit mehreren Argumenten. Zum Beispiel:
+Versuchen Sie, dies in der Konsole auszuführen; testen Sie es dann mit mehreren Argumenten. Zum Beispiel:
 
 ```js
 multiply(4, 7);
@@ -324,11 +278,11 @@ multiply(0.5, 3);
 ```
 
 > [!NOTE]
-> Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung teilt dem Browser mit, die `result`-Variable aus der Funktion zurückzugeben, sodass sie verfügbar ist. Dies ist notwendig, weil Variablen, die innerhalb von Funktionen definiert sind, nur innerhalb dieser Funktionen verfügbar sind. Dies nennt man Variablen-[Sichtbarkeit](/de/docs/Glossary/Scope). (Lesen Sie mehr über [Variablen-Sichtbarkeit](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope).)
+> Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung weist den Browser an, die Variable `result` aus der Funktion zurückzugeben, sodass sie verfügbar ist, um sie zu verwenden. Dies ist notwendig, weil Variablen, die in Funktionen definiert sind, nur innerhalb dieser Funktionen verfügbar sind. Dies nennt man Variablen[Skopierung](/de/docs/Glossary/Scope). (Lesen Sie mehr über [Variablen-Skopierung](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope).)
 
 ### Ereignisse
 
-Echte Interaktivität auf einer Website erfordert Ereignis-Handler. Dies sind Code-Strukturen, die auf Aktivität im Browser hören und im Gegenzug Code ausführen. Das offensichtlichste Beispiel ist das Behandeln von [Klickereignissen](/de/docs/Web/API/Element/click_event), die vom Browser ausgelöst werden, wenn Sie auf etwas mit Ihrer Maus klicken. Um dies zu demonstrieren, geben Sie das Folgende in Ihre Konsole ein, klicken Sie dann auf die aktuelle Webseite:
+Echte Interaktivität auf einer Website erfordert Ereignishandler. Dies sind Code-Strukturen, die auf Aktivitäten im Browser lauschen und als Reaktion darauf Code ausführen. Das offensichtlichste Beispiel ist die Behandlung des [Klickereignisses](/de/docs/Web/API/Element/click_event), das vom Browser ausgelöst wird, wenn Sie mit Ihrer Maus auf etwas klicken. Um dies zu demonstrieren, geben Sie Folgendes in Ihre Konsole ein und klicken Sie dann auf die aktuelle Webseite:
 
 ```js
 document.querySelector("html").addEventListener("click", function () {
@@ -336,9 +290,9 @@ document.querySelector("html").addEventListener("click", function () {
 });
 ```
 
-Es gibt eine Reihe von Möglichkeiten, einen Ereignis-Handler an ein Element anzuhängen. Hier wählen wir das {{htmlelement("html")}}-Element. Dann rufen wir seine Funktion [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf, wobei wir den Namen des Ereignisses (`'click'`) und eine Funktion, die ausgeführt wird, wenn das Ereignis eintritt, übergeben.
+Es gibt eine Reihe von Möglichkeiten, einem Element einen Ereignishandler zuzuweisen. Hier wählen wir das {{htmlelement("html")}}-Element aus. Dann rufen wir dessen [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Funktion auf, geben den Namen des zu hörenden Ereignisses (`'click'`) ein und eine Funktion, die ausgeführt werden soll, wenn das Ereignis eintritt.
 
-Die Funktion, die wir hier gerade an `addEventListener()` übergeben haben, nennt man eine _anonyme Funktion_, weil sie keinen Namen hat. Es gibt eine alternative Möglichkeit, anonyme Funktionen zu schreiben, die wir _Pfeilfunktion_ nennen. Eine Pfeilfunktion verwendet `() =>` anstelle von `function ()`:
+Die Funktion, die wir gerade an `addEventListener()` übergeben haben, wird eine _anonyme Funktion_ genannt, weil sie keinen Namen hat. Es gibt eine alternative Möglichkeit, anonyme Funktionen zu schreiben, die wir _Pfeilfunktion_ nennen. Eine Pfeilfunktion verwendet `() =>` anstelle von `function ()`:
 
 ```js
 document.querySelector("html").addEventListener("click", () => {
@@ -346,17 +300,17 @@ document.querySelector("html").addEventListener("click", () => {
 });
 ```
 
-## Unser Beispiel-Website aufmotzen
+## Unsere Beispiel-Website aufpeppen
 
-Mit diesem Überblick über die Grundlagen von JavaScript, lassen Sie uns ein paar neue Funktionen zu unserer Beispiel-Website hinzufügen.
+Mit diesem Überblick über die JavaScript-Grundlagen (oben) fügen wir unserer Beispiel-Website einige neue Funktionen hinzu.
 
-Bevor Sie fortfahren, löschen Sie den aktuellen Inhalt Ihrer `main.js`-Datei — den Teil, den Sie vorher während des "Hallo Welt!"-Beispiels hinzugefügt haben — und speichern Sie die leere Datei. Andernfalls wird der vorhandene Code mit dem neuen Code, den Sie hinzufügen möchten, in Konflikt geraten.
+Bevor Sie fortfahren, löschen Sie den aktuellen Inhalt Ihrer `main.js`-Datei – den Teil, den Sie zuvor während des "Hallo Welt!"-Beispiels hinzugefügt haben – und speichern Sie die leere Datei. Wenn Sie dies nicht tun, wird der vorhandene Code mit dem neuen Code, den Sie hinzufügen werden, kollidieren.
 
-### Ein Bildwechsler hinzufügen
+### Hinzufügen eines Bildwechslers
 
-In diesem Abschnitt lernen Sie, wie Sie JavaScript und DOM-API-Funktionen verwenden, um die Anzeige von einem von zwei Bildern zu wechseln. Diese Änderung erfolgt, wenn ein Benutzer auf das angezeigte Bild klickt.
+In diesem Abschnitt lernen Sie, wie Sie JavaScript- und DOM-API-Funktionen verwenden, um die Anzeige eines von zwei Bildern zu ändern. Diese Änderung erfolgt, wenn ein Benutzer auf das angezeigte Bild klickt.
 
-1. Wählen Sie ein Bild aus, das Sie auf Ihrer Beispielseite zeigen möchten. Idealerweise hat das Bild dieselbe Größe wie das zuvor hinzugefügte Bild oder ist so nah wie möglich.
+1. Wählen Sie ein Bild aus, das Sie auf Ihrer Beispiel-Website präsentieren möchten. Idealerweise sollte das Bild die gleiche Größe haben wie das zuvor hinzugefügte Bild oder möglichst ähnlich sein.
 2. Speichern Sie dieses Bild in Ihrem `images`-Ordner.
 3. Benennen Sie das Bild in _firefox2.png_ um.
 4. Fügen Sie den folgenden JavaScript-Code in Ihre `main.js`-Datei ein.
@@ -374,34 +328,34 @@ In diesem Abschnitt lernen Sie, wie Sie JavaScript und DOM-API-Funktionen verwen
    };
    ```
 
-5. Speichern Sie alle Dateien und laden Sie `index.html` im Browser. Jetzt sollten Sie, wenn Sie auf das Bild klicken, sehen, dass es sich in das andere Bild ändert.
+5. Speichern Sie alle Dateien und laden Sie `index.html` im Browser. Jetzt sollten Sie beim Klicken auf das Bild sehen, dass es zum anderen wechselt.
 
-Dies ist passiert. Sie haben eine Referenz auf Ihr {{htmlelement("img")}}-Element in `myImage` gespeichert. Als nächstes haben Sie die `onclick`-Ereignis-Handler-Eigenschaft auf eine Funktion ohne Namen (eine "anonyme" Funktion) gesetzt. Jedes Mal, wenn dieses Element geklickt wird:
+Das ist passiert. Sie haben in `myImage` eine Referenz auf Ihr {{htmlelement("img")}}-Element gespeichert. Als nächstes haben Sie seine `onclick`-Ereignishandler-Eigenschaft auf eine Funktion ohne Namen (eine "anonyme" Funktion) gesetzt. Jedes Mal, wenn auf dieses Element geklickt wird:
 
-1. Ruft der Code den Wert des `src`-Attributs des Bildes ab.
-2. Der Code verwendet eine Bedingungsanweisung, um zu überprüfen, ob der `src`-Wert dem Pfad des ursprünglichen Bildes entspricht:
+1. Der Code ruft den Wert des `src`-Attributs des Bildes ab.
+2. Der Code verwendet eine Bedingung, um zu überprüfen, ob der `src`-Wert dem Pfad des Originalbildes entspricht:
 
-   1. Wenn dies der Fall ist, ändert der Code den `src`-Wert auf den Pfad des zweiten Bildes, wodurch das andere Bild im {{htmlelement("img")}}-Element geladen wird.
-   2. Wenn nicht (was bedeutet, dass es sich bereits geändert haben muss), kehrt der `src`-Wert zurück zum ursprünglichen Bildpfad, zum ursprünglichen Zustand.
+   1. Wenn ja, ändert der Code den `src`-Wert zum Pfad des zweiten Bildes, sodass das andere Bild im {{htmlelement("img")}}-Element geladen wird.
+   2. Wenn nicht (was bedeutet, dass es sich bereits geändert haben muss), wechselt der `src`-Wert zurück zum Pfad des Originalbildes, in den ursprünglichen Zustand.
 
-### Eine personalisierte Willkommensnachricht hinzufügen
+### Hinzufügen einer personalisierten Willkommensnachricht
 
-Als nächstes ändern wir den Seitentitel in eine personalisierte Willkommensnachricht, wenn der Benutzer die Seite zum ersten Mal besucht. Diese Willkommensnachricht bleibt bestehen. Sollte der Benutzer die Seite verlassen und später zurückkehren, speichern wir die Nachricht mithilfe der [Web Storage API](/de/docs/Web/API/Web_Storage_API). Wir werden auch eine Option hinzufügen, um den Benutzer zu ändern und somit auch die Willkommensnachricht.
+Als nächstes wollen wir den Seitentitel in eine personalisierte Willkommensnachricht ändern, wenn der Benutzer die Seite zum ersten Mal besucht. Diese Willkommensnachricht wird bestehen bleiben. Sollte der Benutzer die Seite verlassen und später zurückkehren, speichern wir die Nachricht mit der [Web Storage API](/de/docs/Web/API/Web_Storage_API). Wir werden auch eine Option einschließen, um den Benutzer zu ändern und damit die Willkommensnachricht.
 
-1. Fügen Sie in `index.html` die folgende Zeile direkt vor dem {{htmlelement("script")}}-Element hinzu:
+1. Fügen Sie in `index.html` direkt vor dem {{htmlelement("script")}}-Element die folgende Zeile hinzu:
 
    ```html
    <button>Change user</button>
    ```
 
-2. Platzieren Sie in `main.js` den folgenden Code am Ende der Datei, genau wie er geschrieben ist. Dies nimmt Referenzen auf den neuen Button und die Überschrift und speichert jeden in Variablen:
+2. Platzieren Sie in `main.js` diesen Code am unteren Rand der Datei, exakt so, wie er geschrieben ist. Dies nimmt Referenzen auf die neue Schaltfläche und die Überschrift und speichert jede in Variablen:
 
    ```js
    let myButton = document.querySelector("button");
    let myHeading = document.querySelector("h1");
    ```
 
-3. Fügen Sie die folgende Funktion hinzu, um die personalisierte Begrüßung festzulegen. Dies wird noch nichts tun, aber dies wird sich bald ändern.
+3. Fügen Sie die folgende Funktion hinzu, um die personalisierte Begrüßung festzulegen. Diese wird noch nichts tun, aber das ändert sich bald.
 
    ```js
    function setUserName() {
@@ -411,9 +365,9 @@ Als nächstes ändern wir den Seitentitel in eine personalisierte Willkommensnac
    }
    ```
 
-   Die `setUserName()`-Funktion enthält eine [`prompt()`](/de/docs/Web/API/Window/prompt)-Funktion, die ein Dialogfeld anzeigt, ähnlich wie `alert()`. Diese `prompt()`-Funktion macht mehr als `alert()`, sie fordert den Benutzer auf, Daten einzugeben, und speichert sie in einer Variablen, nachdem der Benutzer auf _OK_ geklickt hat. In diesem Fall bitten wir den Benutzer, einen Namen einzugeben. Als nächstes ruft der Code eine API `localStorage` auf, die es uns ermöglicht, Daten im Browser zu speichern und später abzurufen. Wir verwenden die `setItem()`-Funktion von localStorage, um ein Datenobjekt namens `'name'` zu erstellen und zu speichern, dessen Wert wir auf die Variable `myName` gesetzt haben, die den Benutzereintrag für den Namen enthält. Schließlich setzen wir den `textContent` der Überschrift auf einen String plus den neu gespeicherten Namen des Benutzers.
+   Die `setUserName()`-Funktion enthält eine [`prompt()`](/de/docs/Web/API/Window/prompt)-Funktion, die ein Dialogfenster anzeigt, ähnlich wie `alert()`. Diese `prompt()`-Funktion tut mehr als `alert()`, indem sie den Benutzer auffordert, Daten einzugeben und diese in einer Variablen zu speichern, nachdem der Benutzer auf _OK_ geklickt hat. In diesem Fall bitten wir den Benutzer, einen Namen einzugeben. Als nächstes ruft der Code eine API `localStorage` auf, die es uns ermöglicht, Daten im Browser zu speichern und später abzurufen. Wir verwenden die `setItem()`-Funktion von localStorage, um ein Datenobjekt namens `'name'` zu erstellen und zu speichern, wobei der Wert auf die `myName`-Variable gesetzt wird, die den Eintrag des Benutzers für den Namen enthält. Schließlich setzen wir den `textContent` der Überschrift auf einen String plus den neu gespeicherten Namen des Benutzers.
 
-4. Fügen Sie den folgenden Bedingungsblock nach der Funktionsdeklaration hinzu. Wir könnten dies Initialisierungscode nennen, da es die App strukturiert, wenn sie erstmals geladen wird.
+4. Fügen Sie nach der Funktionsdeklaration den folgenden Bedingungsblock hinzu. Wir könnten dies Initialisierungscode nennen, da es die App strukturiert, wenn sie das erste Mal geladen wird.
 
    ```js
    if (!localStorage.getItem("name")) {
@@ -424,9 +378,9 @@ Als nächstes ändern wir den Seitentitel in eine personalisierte Willkommensnac
    }
    ```
 
-   Die erste Zeile dieses Blocks verwendet den Negationsoperator (logisches NICHT, dargestellt durch das `!`), um zu überprüfen, ob die `name`-Daten existieren. Wenn nicht, wird die `setUserName()`-Funktion ausgeführt, um sie zu erstellen. Falls sie existieren (d.h. der Benutzer einen Benutzernamen bei einem früheren Besuch gesetzt hat), rufen wir den gespeicherten Namen mit `getItem()` ab und setzen den `textContent` der Überschrift auf einen String plus den Namen des Benutzers, wie wir es in `setUserName()` getan haben.
+   Die erste Zeile dieses Blocks verwendet den Negationsoperator (logisches NICHT, dargestellt durch das `!`), um zu überprüfen, ob die `name`-Daten existieren. Wenn nicht, führt die `setUserName()`-Funktion aus, um sie zu erstellen. Wenn es existiert (das heißt, der Benutzer hat während eines vorherigen Besuchs einen Benutzernamen festgelegt), rufen wir den gespeicherten Namen mit `getItem()` ab und setzen den `textContent` der Überschrift auf einen String plus den Benutzernamen, wie wir es in `setUserName()` getan haben.
 
-5. Setzen Sie diesen `onclick`-Ereignis-Handler (unten) auf den Button. Wenn darauf geklickt wird, wird `setUserName()` ausgeführt. Dadurch kann der Benutzer einen anderen Namen eingeben, indem er auf die Schaltfläche drückt.
+5. Setzen Sie diesen `onclick`-Ereignishandler (unten) auf die Schaltfläche. Wenn darauf geklickt wird, führt `setUserName()` aus. Dies ermöglicht es dem Benutzer, einen anderen Namen einzugeben, indem er die Schaltfläche drückt.
 
    ```js
    myButton.onclick = () => {
@@ -436,11 +390,11 @@ Als nächstes ändern wir den Seitentitel in eine personalisierte Willkommensnac
 
 ### Ein Benutzername von null?
 
-Wenn Sie das Beispiel ausführen und das Dialogfeld erhalten, das Sie auffordert, Ihren Benutzernamen einzugeben, versuchen Sie, die _Abbrechen_-Taste zu drücken. Sie sollten mit einem Titel enden, der _Mozilla ist cool, null_ lautet. Dies passiert, weil—wenn Sie das Eingabefeld abbrechen—der Wert als [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) gespeichert wird. _Null_ ist ein spezieller Wert in JavaScript, der auf das Fehlen eines Wertes verweist.
+Wenn Sie das Beispiel ausführen und das Dialogfeld erhalten, das Sie auffordert, Ihren Benutzernamen einzugeben, versuchen Sie, die _Abbrechen_-Taste zu drücken. Sie sollten mit einem Titel enden, der _Mozilla ist cool, null_ lesen. Dies passiert, weil – wenn Sie den Prompt abbrechen – der Wert als [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) gesetzt wird. _Null_ ist ein spezieller Wert in JavaScript, der das Fehlen eines Wertes bezeichnet.
 
-Versuchen Sie auch, ohne einen Namen einzugeben, auf _OK_ zu klicken. Sie sollten mit einem Titel enden, der _Mozilla ist cool,_ lautet, aus ziemlich offensichtlichen Gründen.
+Versuchen Sie auch, auf _OK_ zu klicken, ohne einen Namen einzugeben. Sie sollten mit einem Titel enden, der _Mozilla ist cool,_ liest, aus ziemlich offensichtlichen Gründen.
 
-Um diese Probleme zu vermeiden, könnten Sie überprüfen, dass der Benutzer keinen leeren Namen eingegeben hat. Aktualisieren Sie Ihre `setUserName()`-Funktion auf diese:
+Um diese Probleme zu vermeiden, könnten Sie überprüfen, ob der Benutzer keinen leeren Namen eingegeben hat. Aktualisieren Sie Ihre `setUserName()`-Funktion auf dies:
 
 ```js
 function setUserName() {
@@ -454,23 +408,23 @@ function setUserName() {
 }
 ```
 
-In menschlicher Sprache bedeutet dies: Wenn `myName` keinen Wert hat, führen Sie `setUserName()` erneut von vorne aus. Wenn es einen Wert hat (wenn die obige Anweisung nicht wahr ist), speichern Sie den Wert in `localStorage` und setzen ihn als Text der Überschrift.
+In menschlicher Sprache bedeutet dies: Wenn `myName` keinen Wert hat, führen Sie `setUserName()` erneut von Anfang an aus. Wenn es einen Wert hat (wenn die obige Aussage nicht wahr ist), dann speichern Sie den Wert in `localStorage` und setzen ihn als Text der Überschrift.
 
 ## Fazit
 
-Wenn Sie alle Anweisungen in diesem Artikel befolgt haben, sollten Sie mit einer Seite enden, die in etwa dem Bild unten entspricht. Sie können sich auch [unsere Version ansehen](https://mdn.github.io/beginner-html-site-scripted/).
+Wenn Sie alle Anweisungen in diesem Artikel befolgt haben, sollten Sie mit einer Seite enden, die ungefähr so aussieht wie das Bild unten. Sie können auch [unsere Version ansehen](https://mdn.github.io/beginner-html-site-scripted/).
 
-![Endgültiges Aussehen der HTML-Seite nach der Erstellung von Elementen: ein Header, ein großes zentriertes Logo, Inhalt und ein Button](website-screen-scripted.png)
+![Endgültiges Aussehen der HTML-Seite nach dem Erstellen von Elementen: eine Überschrift, ein großes zentriertes Logo, Inhalt und eine Schaltfläche](website-screen-scripted.png)
 
-Wenn Sie stecken bleiben, können Sie Ihre Arbeit mit unserem [fertigen Beispielcode auf GitHub](https://github.com/mdn/beginner-html-site-scripted/blob/main/scripts/main.js) vergleichen.
+Falls Sie irgendwo feststecken, können Sie Ihre Arbeit mit unserem [fertigen Beispielcode auf GitHub](https://github.com/mdn/beginner-html-site-scripted/blob/main/scripts/main.js) vergleichen.
 
-Wir haben nur an der Oberfläche von JavaScript gekratzt. Wenn es Ihnen Spaß gemacht hat zu spielen und Sie weitergehen möchten, nutzen Sie die unten aufgeführten Ressourcen.
+Wir haben nur einen kleinen Teil von JavaScript behandelt. Wenn Ihnen das Spielen Spaß gemacht hat und Sie weiter machen möchten, nutzen Sie die unten aufgeführten Ressourcen.
 
 ## Siehe auch
 
-- [Dynamische klientseitige Programmierung mit JavaScript](/de/docs/Learn/JavaScript)
+- [Dynamisches clientseitiges Skripting mit JavaScript](/de/docs/Learn/JavaScript)
   - : Tauchen Sie viel tiefer in JavaScript ein.
-- [JavaScript lernen](https://learnjavascript.online/)
-  - : Dies ist eine hervorragende Ressource für angehende Webentwickler! Lernen Sie JavaScript in einer interaktiven Umgebung mit kurzen Lektionen und interaktiven Tests, geleitet durch eine automatische Bewertung. Die ersten 40 Lektionen sind kostenlos. Der vollständige Kurs ist gegen eine kleine einmalige Zahlung erhältlich.
+- [Lernen Sie JavaScript](https://learnjavascript.online/)
+  - : Dies ist eine ausgezeichnete Ressource für angehende Webentwickler! Lernen Sie JavaScript in einer interaktiven Umgebung, mit kurzen Lektionen und interaktiven Tests, begleitet von einer automatisierten Bewertung. Die ersten 40 Lektionen sind kostenlos. Der vollständige Kurs ist gegen eine kleine Einmalzahlung verfügbar.
 
 {{PreviousMenuNext("Learn/Getting_started_with_the_web/CSS_basics", "Learn/Getting_started_with_the_web/Publishing_your_website", "Learn/Getting_started_with_the_web")}}

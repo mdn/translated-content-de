@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Der Textinhalt für ein {{SVGElement("text")}} [SVG](/de/docs/Web/SVG) Element kann entweder als Zeichendaten direkt innerhalb des {{SVGElement("text")}} Elements eingebettet sein oder als Zeichendateninhalt eines referenzierten Elements, wobei die Referenzierung mit einem **`<tref>`** Element spezifiziert wird.
+Der textuelle Inhalt für ein {{SVGElement("text")}} [SVG](/de/docs/Web/SVG) Element kann entweder als Zeicheninhalt direkt innerhalb des {{SVGElement("text")}}-Elements eingebettet sein oder der Zeicheninhalt eines referenzierten Elements, wobei die Referenzierung mit einem **`<tref>`**-Element angegeben wird.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -19,7 +19,7 @@ Der Textinhalt für ein {{SVGElement("text")}} [SVG](/de/docs/Web/SVG) Element k
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) Schnittstelle.
+Dieses Element implementiert die [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement)-Schnittstelle.
 
 ## Beispiel
 

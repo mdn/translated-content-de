@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Ansichtsbereichs_ des Scrollport: der Bereich, der als Zielregion verwendet wird, um Elemente in den Blick des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderen Inhalten verdeckt sind (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Ansichtsbereichs_ des Scrollports: den Bereich, der als Zielregion für das Platzieren von Elementen in der Sicht des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder um mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-right.html")}}
 
@@ -33,9 +33,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein Offset nach innen von der oberen Kante des Scrollports, als gültige Länge oder Prozentangabe.
+  - : Ein innerer Versatz vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Das Offset wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, allerdings kann ein Benutzeragent etwas anderes erkennen und anwenden, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein nicht-null-Wert angemessener ist.
 
 ## Formale Definition
 
@@ -56,4 +56,4 @@ scroll-padding-right: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

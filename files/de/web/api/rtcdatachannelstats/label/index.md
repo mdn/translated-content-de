@@ -10,11 +10,11 @@ l10n:
 
 Die **`label`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt das [`label`](/de/docs/Web/API/RTCDataChannel/label) des zugehörigen Datenkanals zurück.
 
-Der Wert des Labels muss nicht eindeutig sein, und seine Bedeutung wird von der Website oder App festgelegt, wenn der Datenkanal erstellt wird.
+Der Wert des Labels muss nicht einzigartig sein, und seine Bedeutung wird von der Website oder App festgelegt, wenn der Datenkanal erstellt wird.
 
 ## Wert
 
-Ein String, der denselben Wert enthält wie die [`RTCDataChannel.label`](/de/docs/Web/API/RTCDataChannel/label)-Eigenschaft des zugehörigen Datenkanals.
+Ein String, der denselben Wert wie die [`RTCDataChannel.label`](/de/docs/Web/API/RTCDataChannel/label)-Eigenschaft des zugehörigen Datenkanals enthält.
 
 ## Spezifikationen
 

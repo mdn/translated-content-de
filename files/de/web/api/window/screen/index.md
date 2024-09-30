@@ -1,5 +1,5 @@
 ---
-title: "Window: screen Eigenschaft"
+title: "Window: screen-Eigenschaft"
 short-title: screen
 slug: Web/API/Window/screen
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die [`Window`](/de/docs/Web/API/Window) Eigenschaft **`screen`** gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster verknüpft ist. Das `screen`-Objekt, das die [`Screen`](/de/docs/Web/API/Screen) Schnittstelle implementiert, ist ein spezielles Objekt zur Untersuchung der Eigenschaften des Bildschirms, auf dem das aktuelle Fenster gerendert wird.
+Die [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`screen`** gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster assoziiert ist. Das `screen`-Objekt, das die [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle implementiert, ist ein spezielles Objekt, um Eigenschaften des Bildschirms zu untersuchen, auf dem das aktuelle Fenster angezeigt wird.
 
 ## Wert
 
-Ein [`Screen`](/de/docs/Web/API/Screen) Objekt.
+Ein [`Screen`](/de/docs/Web/API/Screen)-Objekt.
 
 ## Beispiele
 

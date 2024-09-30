@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replace()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle
-ersetzt ein bestehendes Token durch ein neues Token.
-Falls das erste Token nicht existiert, gibt `replace()` sofort `false` zurück,
-ohne das neue Token zur Token-Liste hinzuzufügen.
+Die **`replace()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ersetzt ein bestehendes Token durch ein neues Token. Wenn das erste Token nicht existiert, gibt `replace()` sofort `false` zurück, ohne das neue Token zur Tokenliste hinzuzufügen.
 
 ## Syntax
 
@@ -28,15 +25,11 @@ replace(oldToken, newToken)
 
 ### Rückgabewert
 
-Ein boolean Wert, der `true` ist, wenn `oldToken`
-erfolgreich ersetzt wurde, oder `false`, wenn nicht.
+Ein boolescher Wert, der `true` ist, wenn `oldToken` erfolgreich ersetzt wurde, oder `false`, wenn nicht.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
-{{htmlelement("span")}}-Element als `DOMTokenList` mit
-[`Element.classList`](/de/docs/Web/API/Element/classList) eingestellt sind. Wir ersetzen dann ein Token in der Liste und schreiben die
-Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
+Im folgenden Beispiel rufen wir die Liste der auf einem {{htmlelement("span")}}-Element gesetzten Klassen als `DOMTokenList` mit [`Element.classList`](/de/docs/Web/API/Element/classList) ab. Dann ersetzen wir ein Token in der Liste und schreiben die Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 
@@ -55,7 +48,7 @@ const result = classes.replace("c", "z");
 span.textContent = result ? classes : "token not replaced successfully";
 ```
 
-Die Ausgabe sieht so aus:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

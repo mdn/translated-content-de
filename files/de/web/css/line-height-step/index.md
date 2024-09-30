@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`line-height-step`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Schritteinheit für Linienboxhöhen fest. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Linienboxen auf das nächste Vielfache der Einheit aufgerundet.
+Die **`line-height-step`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Schrittweite für die Linienboxhöhen fest. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Linienbox auf das nächste Vielfache der Einheit aufgerundet.
 
 ## Syntax
 
@@ -23,14 +23,14 @@ line-height-step: revert-layer;
 line-height-step: unset;
 ```
 
-Die Eigenschaft `line-height-step` wird als eine der folgenden Optionen angegeben:
+Die `line-height-step` Eigenschaft wird als eine der folgenden Optionen angegeben:
 
 - eine `<length>`.
 
 ### Werte
 
 - `<length>`
-  - : Das angegebene {{cssxref("&lt;length&gt;")}} wird bei der Berechnung des Linienboxhöhe-Schritts verwendet.
+  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird in die Berechnung der Schrittweite der Linienboxhöhe einbezogen.
 
 ## Formale Definition
 
@@ -42,9 +42,9 @@ Die Eigenschaft `line-height-step` wird als eine der folgenden Optionen angegebe
 
 ## Beispiele
 
-### Einstellung der Schritteinheit für Linienboxhöhen
+### Einstellung der Schrittweite für die Linienboxhöhe
 
-Im folgenden Beispiel wird die Höhe der Linienbox in jedem Absatz auf die Schritteinheit aufgerundet. Die Linienbox in `<h1>` passt nicht in eine Schritteinheit und belegt deshalb zwei, ist aber dennoch innerhalb der zwei Schritteinheiten zentriert.
+Im folgenden Beispiel wird die Höhe der Linienbox in jedem Absatz auf die Schrittweite aufgerundet. Die Linienbox in `<h1>` passt nicht in eine Schrittweite und nimmt daher zwei ein, ist aber immer noch innerhalb der zwei Schrittweiten zentriert.
 
 ```css
 :root {
@@ -58,9 +58,9 @@ h1 {
 }
 ```
 
-Das Ergebnis dieser Regeln ist im folgenden Screenshot zu sehen:
+Das Ergebnis dieser Regeln wird unten im folgenden Screenshot gezeigt:
 
-![Wie die line-height-step-Eigenschaft das Erscheinungsbild von Text beeinflusst.](line-grid-center.png)
+![Wie sich die line-height-step Eigenschaft auf das Erscheinungsbild von Text auswirkt.](line-grid-center.png)
 
 ## Spezifikationen
 

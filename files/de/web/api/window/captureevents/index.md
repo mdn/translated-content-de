@@ -11,7 +11,7 @@ l10n:
 Die **`Window.captureEvents()`**-Methode macht nichts.
 
 > [!NOTE]
-> Dies ist eine Methode, die schon lange aus der Spezifikation entfernt wurde. Sie wird in Browsern beibehalten, um Codebrüche zu verhindern, hat aber keine Funktion.
+> Dies ist eine Methode, die seit langem aus der Spezifikation entfernt wurde. Sie bleibt in Browsern erhalten, um Codebrüche zu verhindern, macht jedoch nichts.
 
 ## Syntax
 

@@ -39,7 +39,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -59,29 +59,29 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<language-tags>`
-  - : Der Wert ist eine Menge von kommagetrennten Tokens, von denen jedes ein Sprach-Tag sein muss, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert.
+  - : Der Wert ist ein Satz von durch Kommas getrennten Tokens, von denen jedes ein Sprach-Tag sein muss, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert.
 
-`systemLanguage` wird oft in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn das Attribut in anderen Situationen verwendet wird, stellt es einen einfachen Schalter auf dem gegebenen Element dar, ob das Element gerendert werden soll oder nicht.
-
-> [!NOTE]
-> Wenn mehrere alternative Sprachobjekte in einem `<switch>` eingeschlossen sind und keines davon übereinstimmt, kann dies zu Situationen führen, in denen kein Inhalt angezeigt wird. Es wird daher empfohlen, am Ende eines solchen `<switch>` eine "Abfangoption" zu haben, die in allen Fällen akzeptabel ist.
-
-Das Attribut wertet zu "wahr" aus, wenn eines der durch die Benutzereinstellungen angegebenen Sprach-Tags eine nicht fallunterscheidende Übereinstimmung oder ein Präfix (gefolgt von einem "-") eines der in diesem Parameterwert angegebenen Sprach-Tags ist. Andernfalls wertet es zu "falsch" aus.
+`systemLanguage` wird häufig in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn das Attribut in anderen Situationen verwendet wird, stellt es einen einfachen Schalter am gegebenen Element dar, ob das Element gerendert wird oder nicht.
 
 > [!NOTE]
-> Die Präfix-Übereinstimmungsregel impliziert nicht, dass ein Benutzer, der eine Sprache mit einem bestimmten Tag versteht, auch alle Sprachen mit diesem Tag als Präfix verstehen wird.
+> Wenn mehrere alternative Sprachobjekte in einem `<switch>` eingeschlossen sind und keines davon übereinstimmt, kann dies zu Situationen führen, in denen kein Inhalt angezeigt wird. Es wird daher empfohlen, am Ende eines solchen `<switch>` eine "Catch-all"-Option einzufügen, die in allen Fällen akzeptabel ist.
 
-Ist das Attribut nicht vorhanden, wertet es implizit zu "wahr" aus. Wird ein Null-String oder ein leerer String-Wert angegeben, wertet das Attribut zu "falsch" aus.
+Das Attribut wird als "true" bewertet, wenn eines der durch die Benutzereinstellungen angegebenen Sprach-Tags eine nicht fallunterscheidende Übereinstimmung oder ein Präfix (gefolgt von einem "-") mit einem der im Wert dieses Parameters angegebenen Sprach-Tags ist. Andernfalls wird es als "false" bewertet.
 
-Die Präfixregel erlaubt die Verwendung von Präfix-Tags, wenn dies der Fall ist.
+> [!NOTE]
+> Die Präfix-Matching-Regel impliziert nicht, dass wenn ein Benutzer eine Sprache mit einem bestimmten Tag versteht, der Benutzer auch alle Sprachen mit dem Tag als Präfix versteht.
 
-Mehrere Sprachen können für Inhalte aufgelistet werden, die für mehrere Zielgruppen bestimmt sind. Beispiel: Inhalte, die gleichzeitig in der ursprünglichen Maori-Version und in Englisch präsentiert werden, würden verlangen:
+Wenn das Attribut nicht vorhanden ist, wird es implizit als "true" bewertet. Wenn ein Null- oder Leerstring-Wert angegeben wird, wird das Attribut als "false" bewertet.
+
+Die Präfix-Regel erlaubt die Verwendung von Präfix-Tags, wenn dies der Fall ist.
+
+Mehrere Sprachen können für Inhalte aufgelistet werden, die für mehrere Zielgruppen bestimmt sind. Zum Beispiel, Inhalte, die gleichzeitig in der originalen Maori- und der englischen Version präsentiert werden, würde folgendes erfordern:
 
 ```html
 <text systemLanguage="mi, en"><!-- content goes here --></text>
 ```
 
-Nur weil jedoch mehrere Sprachen in dem Objekt vorhanden sind, auf dem sich das `systemLanguage`-Testattribut befindet, bedeutet dies nicht, dass es für mehrere sprachliche Zielgruppen bestimmt ist. Ein Beispiel wäre ein Sprachprimer für Anfänger, wie "Eine erste Lektion in Latein", der eindeutig für eine englischsprachige Zielgruppe bestimmt ist. In diesem Fall sollte das Attribut nur `en` enthalten.
+Allerdings bedeutet dies nicht, dass, nur weil innerhalb des Objekts, auf dem sich das `systemLanguage`-Testattribut befindet, mehrere Sprachen vorhanden sind, dieses auch für mehrere Sprachzielgruppen bestimmt ist. Ein Beispiel wäre ein Sprachlehrbuch für Anfänger, wie "Eine erste Lektion in Latein", das eindeutig für ein englischsprachiges Publikum gedacht ist. In diesem Fall sollte das Attribut nur `en` enthalten.
 
 ## Spezifikationen
 

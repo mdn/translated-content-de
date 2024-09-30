@@ -1,5 +1,5 @@
 ---
-title: "RangeError: repeat count must be less than infinity"
+title: "RangeError: repeat count muss kleiner als unendlich sein"
 slug: Web/JavaScript/Reference/Errors/Resulting_string_too_large
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "repeat count must be less than infinity" tritt auf, wenn die Methode {{jsxref("String.prototype.repeat()")}} mit einem `count`-Argument verwendet wird, das unendlich ist.
+Die JavaScript-Ausnahme "repeat count muss kleiner als unendlich sein" tritt auf, wenn die Methode {{jsxref("String.prototype.repeat()")}} mit einem `count`-Argument verwendet wird, das unendlich ist.
 
 ## Meldung
 
@@ -25,9 +25,9 @@ RangeError: String.prototype.repeat argument must be greater than or equal to 0 
 
 ## Was ist schiefgelaufen?
 
-Die Methode {{jsxref("String.prototype.repeat()")}} wurde verwendet. Sie hat einen `count`-Parameter, der die Anzahl der Wiederholungen des Strings angibt. Dieser muss zwischen 0 und weniger als positiver {{jsxref("Infinity")}} liegen und darf keine negative Zahl sein. Der Bereich der zulässigen Werte kann so beschrieben werden: \[0, +∞).
+Die Methode {{jsxref("String.prototype.repeat()")}} wurde verwendet. Sie hat einen `count`-Parameter, der angibt, wie oft der String wiederholt werden soll. Der Wert muss zwischen 0 und kleiner als positive {{jsxref("Infinity")}} liegen und darf keine negative Zahl sein. Der Bereich der zulässigen Werte kann so beschrieben werden: \[0, +∞).
 
-Der resultierende String darf außerdem nicht größer als die maximale Stringgröße sein, die in JavaScript-Engines variieren kann. In Firefox (SpiderMonkey) beträgt die maximale Stringgröße 2<sup>30</sup> - 2 (\~2GiB).
+Der resultierende String kann auch nicht größer als die maximale Stringgröße sein, die in JavaScript-Engines variieren kann. In Firefox (SpiderMonkey) beträgt die maximale Stringgröße 2<sup>30</sup> - 2 (\~2GiB).
 
 ## Beispiele
 

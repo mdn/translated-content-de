@@ -2,18 +2,18 @@
 title: WebGLShader
 slug: Web/API/WebGLShader
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Der **WebGLShader** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und kann entweder ein Vertex- oder ein Fragment-Shader sein. Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) benötigt beide Shader-Typen.
+Der **WebGLShader** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und kann entweder ein Vertex- oder ein Fragment-Shader sein. Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) erfordert beide Typen von Shadern.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Um einen **WebGLShader** zu erstellen, verwenden Sie [`WebGLRenderingContext.createShader`](/de/docs/Web/API/WebGLRenderingContext/createShader), verbinden Sie den GLSL-Quellcode mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und rufen Sie schließlich [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) auf, um den Shader abzuschließen und zu kompilieren. Zu diesem Zeitpunkt ist der **WebGLShader** noch nicht in einer verwendbaren Form und muss noch an ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) angehängt werden.
+Um einen **WebGLShader** zu erstellen, verwenden Sie [`WebGLRenderingContext.createShader`](/de/docs/Web/API/WebGLRenderingContext/createShader), dann verbinden Sie den GLSL-Quellcode mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource), und schließlich rufen Sie [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) auf, um den Shader fertigzustellen und zu kompilieren. An diesem Punkt ist der **WebGLShader** noch nicht in einer verwendbaren Form und muss noch an ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) angehängt werden.
 
 ```js
 function createShader(gl, sourceCode, type) {
@@ -36,7 +36,7 @@ Siehe [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) für Informationen zum Anh
 
 ### Erstellen eines Vertex-Shaders
 
-Beachten Sie, dass es viele andere Strategien für das Schreiben und Zugreifen auf Shader-Quelltextzeichenfolgen gibt. Diese Beispiele dienen nur der Veranschaulichung.
+Beachten Sie, dass es viele andere Strategien zum Schreiben und Zugreifen auf Quellcode-Strings für Shader gibt. Diese Beispiele dienen nur zu Illustrationszwecken.
 
 ```js
 const vertexShaderSource =

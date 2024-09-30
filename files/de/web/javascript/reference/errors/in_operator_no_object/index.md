@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Der 'in'-Operator kann nicht verwendet werden, um nach 'x' in 'y' zu suchen"
+title: "TypeError: kann den 'in'-Operator nicht verwenden, um nach 'x' in 'y' zu suchen"
 slug: Web/JavaScript/Reference/Errors/in_operator_no_object
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "die rechte Seite des 'in'-Operators sollte ein Objekt sein" tritt auf, wenn der
-[`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in)
-verwendet wurde, um in Strings, Zahlen oder anderen primitiven Typen zu suchen. Er kann nur
+Die JavaScript-Ausnahme "right-hand side of 'in' should be an object" tritt auf, wenn der
+[`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in)
+verwendet wurde, um in Zeichenfolgen, Zahlen oder anderen primitiven Typen zu suchen. Er kann nur
 verwendet werden, um zu prüfen, ob eine Eigenschaft in einem Objekt vorhanden ist.
 
 ## Meldung
@@ -20,36 +20,36 @@ TypeError: right-hand side of 'in' should be an object, got null (Firefox)
 TypeError: "y" is not an Object. (evaluating '"x" in "y"') (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("TypeError")}}
 
 ## Was ist schiefgelaufen?
 
-Der [`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) kann nur verwendet werden,
+Der [`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) kann nur verwendet werden,
 um zu prüfen, ob eine Eigenschaft in einem Objekt vorhanden ist.
-Sie können nicht in Strings, Zahlen oder anderen primitiven Typen suchen.
+Man kann nicht in Zeichenfolgen, Zahlen oder anderen primitiven Typen suchen.
 
 ## Beispiele
 
-### Suchen in Strings
+### Suche in Zeichenfolgen
 
-Anders als in anderen Programmiersprachen (z.B. Python) können Sie in JavaScript nicht in Strings mit dem
-[`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) suchen.
+Im Gegensatz zu anderen Programmiersprachen (z.B. Python) können Sie nicht in Zeichenfolgen mit dem
+[`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) suchen.
 
 ```js example-bad
 "Hello" in "Hello World";
 // TypeError: cannot use 'in' operator to search for 'Hello' in 'Hello World'
 ```
 
-Stattdessen sollten Sie {{jsxref("String.prototype.includes()")}} verwenden, zum Beispiel.
+Stattdessen müssen Sie {{jsxref("String.prototype.includes()")}} verwenden, zum Beispiel.
 
 ```js example-good
 "Hello World".includes("Hello");
 // true
 ```
 
-### Der Operand darf nicht null oder undefined sein
+### Der Operant darf nicht null oder undefined sein
 
 Stellen Sie sicher, dass das Objekt, das Sie überprüfen, nicht tatsächlich [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder
 {{jsxref("undefined")}} ist.
@@ -61,7 +61,7 @@ const foo = null;
 // TypeError: right-hand side of 'in' should be an object, got null (Firefox)
 ```
 
-Der `in` Operator erwartet immer ein Objekt.
+Der `in`-Operator erwartet immer ein Objekt.
 
 ```js example-good
 const foo = { baz: "bar" };
@@ -71,10 +71,10 @@ const foo = { baz: "bar" };
 "pi" in Math; // false
 ```
 
-### Suchen in Arrays
+### Suche in Arrays
 
-Seien Sie vorsichtig, wenn Sie den `in` Operator verwenden, um in {{jsxref("Array")}}
-Objekten zu suchen. Der `in` Operator überprüft die Indexnummer, nicht den Wert an diesem
+Seien Sie vorsichtig, wenn Sie den `in`-Operator verwenden, um in {{jsxref("Array")}}
+Objekten zu suchen. Der `in`-Operator überprüft die Indexnummer, nicht den Wert an diesem
 Index.
 
 ```js

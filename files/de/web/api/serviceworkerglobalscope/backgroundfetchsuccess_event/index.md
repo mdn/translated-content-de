@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: backgroundfetchsuccess Ereignis"
+title: "ServiceWorkerGlobalScope: backgroundfetchsuccess-Ereignis"
 short-title: backgroundfetchsuccess
 slug: Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`backgroundfetchsuccess`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interface wird ausgelöst, wenn eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API) Operation erfolgreich abgeschlossen wurde: das bedeutet, wenn alle Netzwerk-Anfragen im Fetch erfolgreich beendet wurden.
+Das **`backgroundfetchsuccess`**-Ereignis der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) wird ausgelöst, wenn ein [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Vorgang erfolgreich abgeschlossen wurde, das heißt, wenn alle Netzwerk-Anfragen in dem Fetch erfolgreich abgeschlossen wurden.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht hochgebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und es blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("backgroundfetchsuccess", (event) => {});
@@ -30,24 +30,24 @@ Ein [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEve
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent)._
+Erbt Eigenschaften von seinem Elternteil, [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent).
 
 - [`BackgroundFetchUpdateUIEvent.updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI)
-  - : Aktualisiert die Benutzeroberfläche des Elements, das der Browser anzeigt, um den Fortschritt der Fetch-Operation darzustellen.
+  - : Aktualisiert die Benutzeroberfläche des Elements, das der Browser anzeigt, um den Fortschritt des Fetch-Vorgangs zu zeigen.
 
 ## Beschreibung
 
-Wenn eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API) Operation erfolgreich abgeschlossen wird (bedeutet, dass alle einzelnen Netzwerk-Anfragen erfolgreich abgeschlossen wurden), startet der Browser den Service Worker, falls erforderlich, und löst das `backgroundfetchsuccess` Ereignis im globalen Bereich des Service Workers aus.
+Wenn ein [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Vorgang erfolgreich abgeschlossen wird (was bedeutet, dass alle einzelnen Netzwerk-Anfragen erfolgreich abgeschlossen wurden), startet der Browser den Service Worker, falls erforderlich, und löst das `backgroundfetchsuccess`-Ereignis im globalen Bereich des Service Workers aus.
 
-Im Handler für dieses Ereignis kann der Service Worker die Antworten abrufen und speichern (zum Beispiel mit der [`Cache`](/de/docs/Web/API/Cache) API). Um auf die Antwortdaten zuzugreifen, verwendet der Service Worker die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration) Eigenschaft des Ereignisses.
+Im Handler für dieses Ereignis kann der Service Worker die Antworten abrufen und speichern (zum Beispiel unter Verwendung der [`Cache`](/de/docs/Web/API/Cache)-API). Um auf die Antwortdaten zuzugreifen, verwendet der Service Worker die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration)-Eigenschaft des Ereignisses.
 
-In der Background Fetch API zeigt der Browser dem Benutzer ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Im `backgroundfetchsuccess` Handler kann der Service Worker dieses UI aktualisieren, um anzuzeigen, dass die Operation erfolgreich abgeschlossen wurde. Dazu ruft der Handler die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) Methode des Ereignisses auf und übergibt einen neuen Titel und/oder Symbole.
+In der Background Fetch API zeigt der Browser ein UI-Element an, um den Fortschritt des Vorgangs anzuzeigen. Im `backgroundfetchsuccess`-Handler kann der Service Worker dieses UI-Element aktualisieren, um anzuzeigen, dass der Vorgang erfolgreich abgeschlossen wurde. Dazu ruft der Handler die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI)-Methode des Ereignisses auf, wobei er einen neuen Titel und/oder Symbole übergibt.
 
 ## Beispiele
 
 ### Antworten speichern und UI aktualisieren
 
-Dieser Ereignis-Handler speichert alle Antworten im Cache und aktualisiert das UI.
+Dieser Ereignishandler speichert alle Antworten im Cache und aktualisiert die Benutzeroberfläche.
 
 ```js
 addEventListener("backgroundfetchsuccess", (event) => {

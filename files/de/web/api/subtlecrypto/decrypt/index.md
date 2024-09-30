@@ -1,5 +1,5 @@
 ---
-title: "SubtleCrypto: decrypt() Methode"
+title: "SubtleCrypto: decrypt()-Methode"
 short-title: decrypt()
 slug: Web/API/SubtleCrypto/decrypt
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`decrypt()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle entschlüsselt verschlüsselte Daten.
-Sie nimmt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zur Entschlüsselung, einige optionale zusätzliche Parameter und die zu entschlüsselnden Daten (auch als "Chiffretext" bekannt).
-Sie gibt ein {{jsxref("Promise")}} zurück, das mit den entschlüsselten Daten (auch als "Klartext" bekannt) erfüllt wird.
+Die **`decrypt()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces entschlüsselt einige verschlüsselte Daten.
+Sie nimmt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zum Entschlüsseln, einige optionale zusätzliche Parameter und die zu entschlüsselnden Daten (auch bekannt als "Chiffretext").
+Sie gibt ein {{jsxref("Promise")}} zurück, das mit den entschlüsselten Daten (auch bekannt als "Klartext") erfüllt wird.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ decrypt(algorithm, key, data)
 - `algorithm`
 
   - : Ein Objekt, das den zu verwendenden [Algorithmus](#unterstützte_algorithmen) und alle erforderlichen zusätzlichen Parameter angibt.
-    Die Werte für die zusätzlichen Parameter müssen mit denen übereinstimmen, die in den entsprechenden [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt) Aufruf übergeben wurden.
-    - Für die Verwendung von [RSA-OAEP](#rsa-oaep) übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams) Objekt.
-    - Für die Verwendung von [AES-CTR](#aes-ctr) übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams) Objekt.
-    - Für die Verwendung von [AES-CBC](#aes-cbc) übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams) Objekt.
-    - Für die Verwendung von [AES-GCM](#aes-gcm) übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams) Objekt.
+    Die angegebenen Werte für die zusätzlichen Parameter müssen mit denen übereinstimmen, die beim entsprechenden [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt)-Aufruf übergeben wurden.
+    - Um [RSA-OAEP](#rsa-oaep) zu verwenden, übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams)-Objekt.
+    - Um [AES-CTR](#aes-ctr) zu verwenden, übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams)-Objekt.
+    - Um [AES-CBC](#aes-cbc) zu verwenden, übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams)-Objekt.
+    - Um [AES-GCM](#aes-gcm) zu verwenden, übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams)-Objekt.
 
 - `key`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den für die Entschlüsselung zu verwendenden Schlüssel enthält.
-    Bei der Verwendung von RSA-OAEP ist dies die `privateKey` Eigenschaft des [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) Objekts.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den zu verwendenden Schlüssel für die Entschlüsselung enthält.
+    Bei Verwendung von RSA-OAEP ist dies die `privateKey`-Eigenschaft des [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair)-Objekts.
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, der die zu entschlüsselnden Daten enthält (auch als [Chiffretext](/de/docs/Glossary/ciphertext) bekannt).
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die zu entschlüsselnden Daten enthält (auch bekannt als [Chiffretext](/de/docs/Glossary/ciphertext)).
 
 ### Rückgabewert
 
@@ -44,18 +44,18 @@ Ein {{jsxref("Promise")}}, das mit einem {{jsxref("ArrayBuffer")}} erfüllt wird
 Das Promise wird abgelehnt, wenn die folgenden Ausnahmen auftreten:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angeforderte Operation für den bereitgestellten Schlüssel nicht gültig ist (z.B. ungültiger Verschlüsselungsalgorithmus oder ungültiger Schlüssel für den angegebenen Verschlüsselungsalgorithmus).
+  - : Wird ausgelöst, wenn die angeforderte Operation für den bereitgestellten Schlüssel nicht gültig ist (z. B. ungültiger Verschlüsselungsalgorithmus oder ungültiger Schlüssel für den angegebenen Verschlüsselungsalgorithmus).
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Operation aus einem operationsspezifischen Grund fehlgeschlagen ist (z.B. Algorithmenparameter ungültiger Größen oder ein Fehler bei der Entschlüsselung des Chiffretextes).
+  - : Wird ausgelöst, wenn die Operation aus einem operationsspezifischen Grund fehlgeschlagen ist (z. B. Algorithmusparameter ungültiger Größen oder es gab einen Fehler beim Entschlüsseln des Chiffretexts).
 
 ## Unterstützte Algorithmen
 
-Die `decrypt()` Methode unterstützt die gleichen Algorithmen wie die [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) Methode.
+Die `decrypt()`-Methode unterstützt dieselben Algorithmen wie die [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms)-Methode.
 
 ## Beispiele
 
 > [!NOTE]
-> Sie können [die funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html).
+> Sie können [die funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html) auf GitHub ausprobieren.
 
 ### RSA-OAEP
 
@@ -122,7 +122,7 @@ function decryptMessage(key, ciphertext) {
 
 - [`SubtleCrypto.encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt).
 - [RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447) spezifiziert RSAOAEP.
-- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert CTR-Modus.
-- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert CBC-Modus.
-- [NIST SP800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) spezifiziert GCM-Modus.
+- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert den CTR-Modus.
+- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert den CBC-Modus.
+- [NIST SP800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) spezifiziert den GCM-Modus.
 - [FIPS 198-1](https://csrc.nist.gov/files/pubs/fips/198-1/final/docs/fips-198-1_final.pdf) spezifiziert HMAC.

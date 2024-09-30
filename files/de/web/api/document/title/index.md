@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`document.title`**-Eigenschaft ruft den aktuellen Titel des Dokuments ab oder setzt ihn. Wenn vorhanden, entspricht sie standardmäßig dem Wert des [`<title>`](/de/docs/Web/HTML/Element/title).
+Die **`document.title`**-Eigenschaft ruft den aktuellen Titel des Dokuments ab oder legt ihn fest. Wenn vorhanden, wird standardmäßig der Wert des [`<title>`](/de/docs/Web/HTML/Element/title) verwendet.
 
 ## Wert
 
-Ein String, der den Titel des _Dokuments_ enthält. Wenn der Titel durch das Setzen von `document.title` überschrieben wurde, enthält er diesen Wert. Andernfalls enthält er den Titel, der im [`<title>`](/de/docs/Web/HTML/Element/title)-Element angegeben ist.
+Ein String, der den Titel des _Dokuments_ enthält. Wenn der Titel durch das Setzen von `document.title` überschrieben wurde, enthält er diesen Wert. Andernfalls enthält er den im [`<title>`](/de/docs/Web/HTML/Element/title)-Element angegebenen Titel.
 
 ```js
 document.title = newTitle;
 ```
 
-`newTitle` ist der neue Titel des Dokuments. Die Zuweisung wirkt sich auf den Rückgabewert von `document.title` aus, auf den angezeigten Titel des Dokuments (z. B. in der Titelleiste des Fensters oder Tabs) und es wirkt sich auch auf das DOM des Dokuments aus (z. B. den Inhalt des `<title>`-Elements in einem HTML-Dokument).
+`newTitle` ist der neue Titel des Dokuments. Die Zuweisung beeinflusst den Rückgabewert von `document.title`, den angezeigten Titel des Dokuments (z.B. in der Titelleiste des Fensters oder Tabs) und sie beeinflusst auch das DOM des Dokuments (z.B. den Inhalt des `<title>`-Elements in einem HTML-Dokument).
 
 ## Beispiele
 

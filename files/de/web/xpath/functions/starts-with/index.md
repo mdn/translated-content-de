@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-`starts-with` überprüft, ob der erste String mit dem zweiten String beginnt, und gibt true oder false zurück.
+Der `starts-with`-Funktion überprüft, ob der erste String mit dem zweiten String beginnt und gibt true oder false zurück.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ starts-with(haystack, needle)
 ### Parameter
 
 - `haystack`
-  - : Der String, in dem gesucht wird.
+  - : Der String, in dem gesucht werden soll.
 - `needle`
-  - : Der zu suchende String.
+  - : Der String, nach dem gesucht werden soll.
 
 ### Rückgabewert
 
@@ -32,4 +32,4 @@ starts-with(haystack, needle)
 
 ## Gecko-Unterstützung
 
-Wird unterstützt.
+Unterstützt.

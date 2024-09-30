@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der [`FormData`](/de/docs/Web/API/FormData)-Schnittstelle löscht einen Schlüssel und dessen Wert(e) aus einem `FormData`-Objekt.
+Die **`delete()`**-Methode des [`FormData`](/de/docs/Web/API/FormData)-Interfaces löscht einen Schlüssel und dessen Wert(e) aus einem `FormData`-Objekt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ delete(name)
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Sie können einen Schlüssel und seine Werte mit `delete()` löschen:
+Sie können einen Schlüssel und dessen Werte mit `delete()` löschen:
 
 ```js
 formData.delete("username");

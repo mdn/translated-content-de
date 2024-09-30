@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **operator für bitweise UND-Zuweisung (`&=`)** führt ein [bitweises UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Operator für bitweise UND-Zuweisung (`&=`)** führt [bitweise UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-bitwise-and-assignment.html", "shorter")}}
 
@@ -19,11 +19,11 @@ x &= y
 
 ## Beschreibung
 
-`x &= y` ist äquivalent zu `x = x & y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x &= y` ist gleichbedeutend mit `x = x & y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung von bitweiser UND-Zuweisung
+### Verwendung der bitweisen UND-Zuweisung
 
 ```js
 let a = 5;

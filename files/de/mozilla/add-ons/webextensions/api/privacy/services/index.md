@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Die `privacy.services`-Eigenschaft enthält datenschutzbezogene Einstellungen zur Steuerung von Diensten, die vom Browser oder von Drittanbietern angeboten werden. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
+Die Eigenschaft `privacy.services` enthält datenschutzbezogene Einstellungen zur Steuerung von vom Browser oder von Drittanbietern angebotenen Diensten. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt.
 
 ## Eigenschaften
 
 - `passwordSavingEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolescher Wert ist. Wenn `true`, wird der Passwort-Manager des Browsers anbieten, Passwörter zu speichern, wenn der Benutzer sie eingibt. Standardmäßig `true`.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `true`, bietet der Passwortmanager des Browsers an, Passwörter zu speichern, wenn der Benutzer diese eingibt. Standardmäßig auf `true` gesetzt.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Die `privacy.services`-Eigenschaft enthält datenschutzbezogene Einstellungen zu
 
 ## Beispiele
 
-Den Passwort-Manager deaktivieren, wenn möglich.
+Deaktivieren Sie den Passwortmanager, wenn möglich.
 
 ```js
 function onSet(result) {
@@ -51,4 +51,4 @@ getting.then((got) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API.
+> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API von Chromium.

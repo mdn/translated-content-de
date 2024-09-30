@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`sysexEnabled`** des [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Interfaces gibt an, ob die Unterstützung für systemexklusive Nachrichten (system exclusive) in der aktuellen MIDIAccess-Instanz aktiviert ist.
+Die schreibgeschützte Eigenschaft **`sysexEnabled`** des [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Interfaces gibt an, ob die System-Exklusiv-Unterstützung für die aktuelle MIDIAccess-Instanz aktiviert ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt erfüllt wird. Das Ausdrucken des Werts von `sysexEnabled` in der Konsole gibt einen booleschen Wert zurück, der `true` ist, wenn die Unterstützung für systemexklusive Nachrichten aktiviert ist.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Versprechen zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt aufgelöst wird. Das Drucken des Wertes von `sysexEnabled` in die Konsole gibt einen booleschen Wert zurück, der `true` ist, wenn die System-Exklusiv-Unterstützung aktiviert ist.
 
 ```js
 navigator.requestMIDIAccess().then((access) => {

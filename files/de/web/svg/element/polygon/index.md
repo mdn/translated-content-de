@@ -36,11 +36,11 @@ svg {
 ## Attribute
 
 - {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y` absoluten Koordinaten), die erforderlich sind, um das Polygon zu zeichnen.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Liste der Punkte (Paarungen von `x,y`-Koordinaten), die benötigt werden, um das Polygon zu zeichnen.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut erlaubt es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext
 
@@ -56,7 +56,7 @@ svg {
 
 ## Siehe auch
 
-- [SVG Präsentations-Attribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 
 - **Weitere grundlegende SVG-Formen:**
 

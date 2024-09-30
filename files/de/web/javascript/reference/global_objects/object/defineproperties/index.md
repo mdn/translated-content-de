@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.defineProperties()`** definiert neue oder
+Die **statische Methode `Object.defineProperties()`** definiert neue oder
 modifiziert bestehende Eigenschaften direkt auf einem Objekt und gibt das Objekt zurück.
 
 {{EmbedInteractiveExample("pages/js/object-defineproperties.html")}}
@@ -26,52 +26,52 @@ Object.defineProperties(obj, props)
 
   - : Ein Objekt, dessen Schlüssel die Namen der zu definierenden oder zu modifizierenden Eigenschaften darstellen und
     dessen Werte Objekte sind, die diese Eigenschaften beschreiben. Jeder Wert in `props`
-    muss entweder ein Daten- oder ein Accessor-Deskriptor sein; es kann nicht beides sein (siehe
+    muss entweder ein Datendeskriptor oder ein Accessor-Deskriptor sein; es kann nicht beides sein (siehe
     {{jsxref("Object.defineProperty()")}} für weitere Details).
 
     Daten- und Accessor-Deskriptoren können optional die folgenden Schlüssel enthalten:
 
     - `configurable`
       - : `true`, wenn und nur wenn der Typ dieses Eigenschaftsdeskriptors geändert werden darf
-        und wenn die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
-        **Standard ist `false`.**
+        und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden darf.
+        **Standardwert ist `false`.**
     - `enumerable`
-      - : `true`, wenn und nur wenn diese Eigenschaft bei der Auflistung der
-        Eigenschaften des entsprechenden Objekts angezeigt wird.
-        **Standard ist `false`.**
+      - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der Eigenschaften
+        auf dem entsprechenden Objekt angezeigt wird.
+        **Standardwert ist `false`.**
 
-    Ein Daten-Deskriptor enthält außerdem die folgenden optionalen Schlüssel:
+    Ein Datendeskriptor hat außerdem die folgenden optionalen Schlüssel:
 
     - `value`
-      - : Der Wert, der der Eigenschaft zugeordnet ist. Kann jeder gültige JavaScript-Wert sein
+      - : Der Wert, der mit der Eigenschaft verknüpft ist. Kann jeder gültige JavaScript-Wert sein
         (Zahl, Objekt, Funktion, etc.).
-        **Standard ist {{jsxref("undefined")}}.**
+        **Standardwert ist {{jsxref("undefined")}}.**
     - `writable`
-      - : `true`, wenn und nur wenn der der Eigenschaft zugeordnete Wert mit einem
-        {{jsxref("Operators", "Zuweisungsoperator", "assignment_operators", 1)}} geändert werden darf.
-        **Standard ist `false`.**
+      - : `true`, wenn und nur wenn der mit der Eigenschaft verknüpfte Wert
+        mit einem {{jsxref("Operators", "Zuweisungsoperator", "assignment_operators", 1)}} geändert werden darf.
+        **Standardwert ist `false`.**
 
-    Ein Accessor-Deskriptor enthält außerdem die folgenden optionalen Schlüssel:
+    Ein Accessor-Deskriptor hat außerdem die folgenden optionalen Schlüssel:
 
     - `get`
       - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}
-        wenn es keinen Getter gibt. Der Rückgabewert der Funktion wird als Wert der
-        Eigenschaft verwendet.
-        **Standard ist {{jsxref("undefined")}}.**
+        wenn es keinen Getter gibt. Der Rückgabewert der Funktion wird als der Wert der
+        Eigenschaft genutzt.
+        **Standardwert ist {{jsxref("undefined")}}.**
     - `set`
       - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}
         wenn es keinen Setter gibt. Die Funktion erhält als einziges Argument den neuen
-        zugewiesenen Wert der Eigenschaft.
-        **Standard ist {{jsxref("undefined")}}.**
+        Wert, der der Eigenschaft zugewiesen wird.
+        **Standardwert ist {{jsxref("undefined")}}.**
 
-    Wenn ein Deskriptor weder `value`, `writable`,
-    `get` noch `set` Schlüssel hat, wird er als Daten-Deskriptor behandelt. Wenn ein
+    Wenn einem Deskriptor weder `value`, `writable`,
+    `get` noch `set` Schlüssel zugewiesen sind, wird er als Datendeskriptor behandelt. Wenn ein
     Deskriptor sowohl `value` oder `writable` als auch `get`
     oder `set` Schlüssel hat, wird eine Ausnahme ausgelöst.
 
 ### Rückgabewert
 
-Das an die Funktion übergebene Objekt.
+Das Objekt, das an die Funktion übergeben wurde.
 
 ## Beispiele
 

@@ -3,15 +3,15 @@ title: "WebGLContextEvent: WebGLContextEvent() Konstruktor"
 short-title: WebGLContextEvent()
 slug: Web/API/WebGLContextEvent/WebGLContextEvent
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Der **`WebGLContextEvent()`** Konstruktor erstellt ein neues [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent) Objekt.
 
 > [!NOTE]
-> In der Regel benötigen Sie diesen Konstruktor nicht aufzurufen; der Browser erstellt diese Objekte automatisch, wenn WebGL-Kontextereignisse ausgelöst werden. Um ein `webglcontextlost`-Ereignis manuell auszulösen, verwenden Sie [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext).
+> In der Regel müssen Sie diesen Konstruktor nicht aufrufen; der Browser erstellt diese Objekte automatisch, wenn WebGL-Kontext-Ereignisse ausgelöst werden. Um ein `webglcontextlost`-Ereignis manuell auszulösen, verwenden Sie [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext).
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new WebGLContextEvent(type, options)
 
 - `type`
   - : Ein String, der den Typ des Ereignisses angibt.
-    Er ist case-sensitiv und sollte einer von `webglcontextcreationerror`, `webglcontextlost` oder `webglcontextrestored` sein.
+    Es ist case-sensitiv und sollte eines der folgenden sein: `webglcontextcreationerror`, `webglcontextlost` oder `webglcontextrestored`.
 - `options` {{Optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften besitzt:
     - `statusMessage` {{Optional_inline}}
-      - : Ein String mit zusätzlichen Statusinformationen. Es ist standardmäßig der leere String (`""`).
+      - : Ein String mit zusätzlichen Statusinformationen. Standardmäßig ist dies der leere String (`""`).
 
 ### Rückgabewert
 

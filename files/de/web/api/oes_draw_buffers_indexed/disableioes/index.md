@@ -1,5 +1,5 @@
 ---
-title: "OES_draw_buffers_indexed: disableiOES() Methode"
+title: "OES_draw_buffers_indexed: disableiOES()-Methode"
 short-title: disableiOES()
 slug: Web/API/OES_draw_buffers_indexed/disableiOES
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `disableiOES()` Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung deaktiviert das Blending für einen bestimmten Draw-Buffer.
+Die `disableiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung deaktiviert das Blending für einen bestimmten Zeichnungspuffer.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ disableiOES(target, index)
 - `target`
   - : Muss `gl.BLEND` sein.
 - `index`
-  - : Ein ganzzahliger Wert `i`, der den mit der Konstante `gl.DRAW_BUFFERi` verknüpften Draw-Buffer spezifiziert, siehe [WebGL Draw-Buffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Ein ganzzahliger `i`, der den Zeichnungspuffer angegeben wird, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist, siehe [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `target` nicht `gl.BLEND` ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
-- Wenn `index` kein gültiger Wert ist, wird ein `gl.INVALID_VALUE` Fehler ausgelöst.
+- Wenn `target` nicht `gl.BLEND` ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
+- Wenn `index` kein gültiger Wert ist, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
 
 ## Beispiele
 
-### Deaktivieren des Blending für Draw-Buffer
+### Deaktivierung des Blendings für Zeichnungspuffer
 
-Die folgenden zwei Aufrufe deaktivieren das Blending für die Draw-Buffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
+Die folgenden beiden Aufrufe deaktivieren das Blending für die Zeichnungspuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -56,4 +56,4 @@ ext.disableiOES(gl.BLEND, 1);
 ## Siehe auch
 
 - [`OES_draw_buffers_indexed.enableiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/enableiOES)
-- [WebGL Draw-Buffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)
+- [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)

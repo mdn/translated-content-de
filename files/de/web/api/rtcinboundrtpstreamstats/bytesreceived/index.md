@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`bytesReceived`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein Ganzzahlenwert, der die Gesamtzahl der bisher von dieser Synchronisationsquelle (SSRC) empfangenen Bytes angibt.
+Die **`bytesReceived`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein ganzzahliger Wert, der die Gesamtanzahl der bisher von dieser Synchronisationsquelle (SSRC) empfangenen Bytes angibt.
 
 ## Wert
 
-Ein nicht signierter Ganzzahlenwert, der die bisher über diesen RTP-Stream empfangene Gesamtanzahl von Bytes angibt, ausgenommen Header- und Auffüllbytes. Dieser Wert kann verwendet werden, um eine Annäherung an die durchschnittliche Mediendatenrate zu berechnen:
+Ein vorzeichenloser ganzzahliger Wert, der die Gesamtanzahl der bisher in diesem RTP-Stream empfangenen Bytes angibt, ohne Header- und Padding-Bytes. Dieser Wert kann verwendet werden, um eine Näherung der durchschnittlichen Mediendatenrate zu berechnen:
 
 ```js
 avgDataRate = rtcInboundRtpStreamStats.bytesReceived / elapsedTime;

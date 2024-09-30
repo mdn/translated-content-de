@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: deleteTHead()-Methode"
+title: "HTMLTableElement: deleteTHead() Methode"
 short-title: deleteTHead()
 slug: Web/API/HTMLTableElement/deleteTHead
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteTHead()`** entfernt das
-{{HTMLElement("thead")}}-Element aus einem gegebenen {{HtmlElement("table")}}.
+Die **`HTMLTableElement.deleteTHead()`** Methode entfernt das {{HTMLElement("thead")}}-Element aus einem gegebenen {{HtmlElement("table")}}.
 
 ## Syntax
 
@@ -27,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um den Tabellenkopf zu löschen.
+Dieses Beispiel verwendet JavaScript, um den Header einer Tabelle zu löschen.
 
 ### HTML
 

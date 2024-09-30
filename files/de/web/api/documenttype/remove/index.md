@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: remove() Methode"
+title: "DocumentType: remove()-Methode"
 short-title: remove()
 slug: Web/API/DocumentType/remove
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.remove()`**-Methode entfernt den `doctype` eines Dokuments.
+Die **`DocumentType.remove()`**-Methode entfernt eine `doctype` eines Dokuments.
 
 ## Syntax
 

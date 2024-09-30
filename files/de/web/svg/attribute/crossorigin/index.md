@@ -11,13 +11,13 @@ Das `crossorigin`-Attribut, gültig für die {{SVGElement("image")}}- und {{SVGE
 
 Diese Tabelle zeigt mögliche Schlüsselwörter und deren Bedeutung:
 
-| Schlüsselwort     | Beschreibung                                                                                                                 |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `anonymous`       | Client-CORS-Anfragen für dieses Element werden das `credentials`-Flag auf 'same-origin' gesetzt haben.                       |
-| `use-credentials` | Client-CORS-Anfragen für dieses Element werden das `credentials`-Flag auf 'include' gesetzt haben.                           |
-| `""`              | Setzt den Attributnamen auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, was dem Wert `anonymous` entspricht. |
+| Schlüsselwort     | Beschreibung                                                                                                     |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `anonymous`       | CORS-Anfragen des Clients für dieses Element werden das Credentials-Flag auf 'same-origin' gesetzt haben.         |
+| `use-credentials` | CORS-Anfragen des Clients für dieses Element werden das Credentials-Flag auf 'include' gesetzt haben.             |
+| `""`              | Das Setzen des Attributnamens auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, entspricht `anonymous`. |
 
-Es folgen die gleichen Verarbeitungsregeln wie beim HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin).
+Es folgt denselben Verarbeitungsregeln wie das HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin).
 
 ## Beispiel
 

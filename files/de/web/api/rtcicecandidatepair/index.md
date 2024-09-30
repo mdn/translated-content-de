@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceCandidatePair`**-Wörterbuch beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer brauchbaren Verbindung zwischen zwei WebRTC-Endpunkten darstellen. Es wird als Rückgabewert von [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) verwendet, um das vom ICE-Agenten aktuell ausgewählte Kandidatenpaar zu identifizieren.
+Das **`RTCIceCandidatePair`**-Wörterbuch beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer möglichen Verbindung zwischen zwei WebRTC-Endpunkten darstellen. Es wird als Rückgabewert von [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) verwendet, um das derzeit vom ICE-Agenten ausgewählte Kandidatenpaar zu identifizieren.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`local`](/de/docs/Web/API/RTCIceCandidatePair/local)
-  - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des lokalen Endes der Verbindung beschreibt.
+  - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), das die Konfiguration des lokalen Endes der Verbindung beschreibt.
 - [`remote`](/de/docs/Web/API/RTCIceCandidatePair/remote)
   - : Der **`RTCIceCandidate`**, der die Konfiguration des entfernten Endes der Verbindung beschreibt.
 
 ## Beispiele
 
-Siehe [`RTCIceTransport.onselectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event#examples) für Beispielcode.
+Beispielcode finden Sie unter [`RTCIceTransport.onselectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event#examples).
 
 ## Spezifikationen
 

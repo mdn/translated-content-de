@@ -18,7 +18,7 @@ Ein {{jsxref("String")}}, der den Namen des Albums enthält.
 ## Beispiele
 
 Das folgende Beispiel überprüft die Browser-Kompatibilität und setzt die aktuellen Metadaten
-für die Mediensitzung.
+für die Media-Sitzung.
 
 ```js
 if ("mediaSession" in navigator) {

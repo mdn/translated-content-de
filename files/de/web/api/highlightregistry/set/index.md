@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`set()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen zum Registry hinzu oder aktualisiert dieses.
+Die **`set()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen in das Register ein oder aktualisiert es.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Map.set()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.set()")}}.
 
 ## Syntax
 
@@ -40,7 +40,7 @@ CSS.highlights.set("foo", fooHighlight);
 
 ### Verwendung von set() mit Verkettung
 
-Da die `set()`-Methode die Registry zurückgibt, können Sie den Methodenaufruf wie unten verkettet:
+Da die `set()`-Methode das Register zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
 
 ```js
 const fooHighlight = new Highlight();
@@ -64,4 +64,4 @@ CSS.highlights
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

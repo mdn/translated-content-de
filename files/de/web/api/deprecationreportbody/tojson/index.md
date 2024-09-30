@@ -1,5 +1,5 @@
 ---
-title: "DeprecationReportBody: toJSON()-Methode"
+title: "DeprecationReportBody: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/DeprecationReportBody/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces ist ein _Serializer_ und gibt eine JSON-Darstellung des `InterventionReportBody`-Objekts zurück.
+Die **`toJSON()`** Methode der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody) Schnittstelle ist ein _Serializer_ und gibt eine JSON-Darstellung des `InterventionReportBody` Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Objekts darstellt.
+Ein JSON-Objekt, das die Serialisierung des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody) Objekts darstellt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltetheitsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsmeldungen zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
 
 ```js
 let options = {

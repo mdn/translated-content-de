@@ -14,9 +14,9 @@ Der Typ `StringDelta` der {{WebExtAPIRef("downloads")}} API repräsentiert den U
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `current` {{optional_inline}}
-  - : Eine `string`, die den aktuellen Zeichenfolgenwert darstellt.
+  - : Ein `string`, der den aktuellen Zeichenfolgenwert darstellt.
 - `previous` {{optional_inline}}
-  - : Eine `string`, die den vorherigen Zeichenfolgenwert darstellt.
+  - : Ein `string`, der den vorherigen Zeichenfolgenwert darstellt.
 
 ## Browser-Kompatibilität
 

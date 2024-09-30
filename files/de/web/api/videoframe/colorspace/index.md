@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`colorSpace`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt ein [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Objekt zurück, das den Farbraum des Videos darstellt.
+Die **`colorSpace`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt ein [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Objekt zurück, das den Farbraum des Videos repräsentiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel gibt die `colorSpace` in der Konsole aus.
+Das folgende Beispiel gibt die `colorSpace`-Eigenschaft in der Konsole aus.
 
 ```js
 const cnv = document.createElement("canvas");

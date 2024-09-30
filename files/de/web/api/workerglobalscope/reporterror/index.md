@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`reportError()`** Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Schnittstelle kann verwendet werden, um Fehler an die Konsole oder Ereignishandler globaler Bereiche zu melden, ähnlich wie bei einer nicht abgefangenen JavaScript-Ausnahme.
+Die **`reportError()`** Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface kann verwendet werden, um Fehler an die Konsole oder die Ereignishandler globaler Bereiche zu melden und dabei eine nicht abgefangene JavaScript-Ausnahme zu simulieren.
 
-Diese Funktion ist in erster Linie für benutzerdefinierte Bibliotheken zur Ereignisverteilung oder Callback-Manipulation gedacht. Bibliotheken können diese Funktion verwenden, um Fehler im Callback-Code abzufangen und sie an den Top-Level-Handler weiterzuleiten. Dies stellt sicher, dass eine Ausnahme in einem Callback nicht verhindert, dass andere behandelt werden, und gleichzeitig sichergestellt wird, dass Stack-Trace-Informationen für das Debugging auf Top-Level-Ebene leicht verfügbar sind.
+Dieses Feature ist in erster Linie für benutzerdefinierte Event-Dispatching- oder Callback-Manipulations-Bibliotheken vorgesehen.
+Bibliotheken können dieses Feature nutzen, um Fehler im Callback-Code abzufangen und auf den obersten Ebenen erneut auszulösen.
+Dies stellt sicher, dass eine Ausnahme in einem Callback andere nicht daran hindert, behandelt zu werden, während gleichzeitig sichergestellt wird, dass Stack-Trace-Informationen für das Debugging auf oberster Ebene weiterhin leicht verfügbar sind.
 
 ## Syntax
 
@@ -42,7 +44,8 @@ if (typeof self.reportError === "function") {
 }
 ```
 
-Der folgende Code zeigt, wie Sie möglicherweise einen Fehler erstellen und melden und wie er entweder mit der `onerror` Ereignishandlereigenschaft oder durch Hinzufügen eines Listeners für das `error` Ereignis abgefangen werden kann. Beachten Sie, dass der Handler, der `onerror` zugewiesen ist, `true` zurückgeben muss, um die weitere Propagierung des Ereignisses zu stoppen.
+Der folgende Code zeigt, wie Sie einen Fehler erstellen und melden können und wie er entweder mit der `onerror`-Ereignishandler-Eigenschaft oder durch Hinzufügen eines Listeners für das `error`-Ereignis abgefangen werden kann.
+Beachten Sie, dass der Handler, der `onerror` zugewiesen ist, `true` zurückgeben muss, um zu verhindern, dass das Ereignis weiter propagiert wird.
 
 ```js
 const newError = new Error("Some error message", "someFile.js", 11);

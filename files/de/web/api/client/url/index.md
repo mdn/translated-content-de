@@ -1,5 +1,5 @@
 ---
-title: "Client: url Eigenschaft"
+title: "Client: url-Eigenschaft"
 short-title: url
 slug: Web/API/Client/url
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`url`** der [`Client`](/de/docs/Web/API/Client)
-Schnittstelle gibt die URL des aktuellen Service Worker Clients zurück.
+Die schreibgeschützte **`url`**-Eigenschaft der [`Client`](/de/docs/Web/API/Client)-Schnittstelle gibt die URL des aktuellen Service-Worker-Clients zurück.
 
 ## Wert
 

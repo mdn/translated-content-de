@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`padding-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe des [Abstandsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) oben an einem Element fest.
+Die **`padding-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe des [Abstandsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) am oberen Rand eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/padding-top.html")}}
 
-Der Abstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rand.
+Der Abstandbereich eines Elements ist der Platz zwischen seinem Inhalt und seinem Rand.
 
-![Die Wirkung der CSS padding-top Eigenschaft auf das Elementkästchen](padding-top.svg)
+![Die Wirkung der CSS-Eigenschaft padding-top auf das Element-Box-Modell](padding-top.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um die Abstände an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration Abstände an allen vier Seiten eines Elements festzulegen.
 
 ## Syntax
 
@@ -37,14 +37,14 @@ padding-top: revert-layer;
 padding-top: unset;
 ```
 
-Die `padding-top` Eigenschaft wird als einzelner Wert aus der untenstehenden Liste angegeben. Im Gegensatz zu Rändern sind negative Werte für Abstände nicht erlaubt.
+Die `padding-top` Eigenschaft wird als ein einzelner Wert aus der unten aufgeführten Liste angegeben. Im Gegensatz zu Rändern sind negative Werte für Abstände nicht zulässig.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss unnegativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block). Muss unnegativ sein.
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ Die `padding-top` Eigenschaft wird als einzelner Wert aus der untenstehenden Lis
 
 ## Beispiele
 
-### Obenliegende Abstände mit Pixeln und Prozentwerten festlegen
+### Festlegen des oberen Abstands mit Pixeln und Prozentsätzen
 
 ```css
 .content {
@@ -77,6 +77,6 @@ Die `padding-top` Eigenschaft wird als einzelner Wert aus der untenstehenden Lis
 
 ## Siehe auch
 
-- [Einführung in das grundlegende CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} und die Kurzform {{cssxref("padding")}}
+- [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} und die {{cssxref("padding")}} Kurzform
 - Die zugeordneten logischen Eigenschaften: {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}} und die Kurzformen {{cssxref("padding-block")}} und {{cssxref("padding-inline")}}

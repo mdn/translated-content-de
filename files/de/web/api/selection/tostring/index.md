@@ -8,7 +8,8 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.toString()`** Methode gibt einen String zurück, der aktuell durch das Auswahlobjekt dargestellt wird, d. h. den derzeit ausgewählten Text.
+Die **`Selection.toString()`** Methode gibt einen String zurück,
+der derzeit durch das Selection-Objekt dargestellt wird, d.h. den aktuell ausgewählten Text.
 
 ## Syntax
 
@@ -22,13 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Auswahl darstellt.
+Ein String, der die Auswahl repräsentiert.
 
 ## Beschreibung
 
 Diese Methode gibt den aktuell ausgewählten Text zurück.
 
-In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn eine Funktion, an die das Auswahlobjekt übergeben wird, einen String benötigt:
+In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn
+eine Funktion, der das Selection-Objekt übergeben wird, einen String erfordert:
 
 ```js
 alert(window.getSelection()); // What is called

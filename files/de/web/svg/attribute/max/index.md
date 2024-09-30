@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`max`** Attribut gibt den maximalen Wert der aktiven Animationsdauer an.
+Das **`max`**-Attribut gibt den Höchstwert der aktiven Animationsdauer an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -47,7 +47,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "200", "200")}}
+{{EmbedLiveSample("Beispiel", "200", "200")}}
 
 ## Nutzungshinweise
 
@@ -75,7 +75,7 @@ svg {
 </table>
 
 - `<clock-value>`
-  - : Gibt die Länge des maximalen Wertes der aktiven Dauer an, gemessen in lokaler Zeit. Der Wert muss größer als 0 sein.
+  - : Gibt die Länge des Höchstwerts der aktiven Dauer an, gemessen in lokaler Zeit. Der Wert muss größer als 0 sein.
 
 ## Spezifikationen
 

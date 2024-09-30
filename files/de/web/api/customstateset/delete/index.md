@@ -1,5 +1,5 @@
 ---
-title: "CustomStateSet: delete()-Methode"
+title: "CustomStateSet: delete() Methode"
 short-title: delete()
 slug: Web/API/CustomStateSet/delete
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`delete()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle löscht einen einzelnen Wert aus dem `CustomStateSet`.
+Die **`delete()`** Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle entfernt einen einzelnen Wert aus dem `CustomStateSet`.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ delete(value)
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `value` im `CustomStateSet` war; ansonsten `false`.
+Gibt `true` zurück, wenn sich `value` im `CustomStateSet` befand; andernfalls `false`.
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Feature Policy")}}{{SeeCompatTable}}
 
-Die **`featurePolicy`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interface zurück, das eine einfache API zum Überprüfen der auf ein bestimmtes Dokument angewendeten [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) bietet.
+Die schreibgeschützte **`featurePolicy`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt die [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle zurück, welche eine einfache API zur Verfügung stellt, um die [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) zu inspizieren, die auf ein bestimmtes Dokument angewendet werden.
 
 ## Wert
 
-Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die auf das Dokument angewendeten Einstellungen der Permissions Policy zu überprüfen.
+Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die auf das Dokument angewendeten Einstellungen der Permissions Policy zu inspizieren.
 
 ## Spezifikationen
 

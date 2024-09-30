@@ -3,16 +3,16 @@ title: "WebGLContextEvent: statusMessage-Eigenschaft"
 short-title: statusMessage
 slug: Web/API/WebGLContextEvent/statusMessage
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebGLContextEvent.statusMessage`**-Eigenschaft enthält zusätzliche Informationen zum Ereignisstatus oder ist ein leerer String, falls keine zusätzlichen Informationen verfügbar sind.
+Die schreibgeschützte **`WebGLContextEvent.statusMessage`**-Eigenschaft enthält zusätzliche Statusinformationen zu einem Ereignis oder ist ein leerer String, wenn keine zusätzlichen Informationen verfügbar sind.
 
 ## Beispiele
 
-Die `statusMessage`-Eigenschaft kann eine plattformabhängige Zeichenkette mit Details zu einem Ereignis enthalten. Dies kann zum Beispiel geschehen, wenn das [`webglcontextcreationerror`](/de/docs/Web/API/HTMLCanvasElement/webglcontextcreationerror_event)-Ereignis ausgelöst wird.
+Die `statusMessage`-Eigenschaft kann einen plattformabhängigen String mit Details zu einem Ereignis enthalten. Dies kann beispielsweise auftreten, wenn das [`webglcontextcreationerror`](/de/docs/Web/API/HTMLCanvasElement/webglcontextcreationerror_event)-Ereignis ausgelöst wird.
 
 ```js
 const canvas = document.getElementById("canvas");

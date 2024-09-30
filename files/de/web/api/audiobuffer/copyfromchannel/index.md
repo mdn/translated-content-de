@@ -1,5 +1,5 @@
 ---
-title: "AudioBuffer: Methode copyFromChannel()"
+title: "AudioBuffer: copyFromChannel()-Methode"
 short-title: copyFromChannel()
 slug: Web/API/AudioBuffer/copyFromChannel
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die Methode **`copyFromChannel()`** des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Interfaces kopiert die Audio-Sampledaten aus dem angegebenen Kanal des `AudioBuffer` in einen angegebenen {{jsxref("Float32Array")}}.
+Die **`copyFromChannel()`**-Methode des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Interfaces kopiert die Audiodatenproben vom angegebenen Kanal des `AudioBuffer` in ein angegebenes {{jsxref("Float32Array")}}.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ copyFromChannel(destination, channelNumber, startInChannel)
 ### Parameter
 
 - `destination`
-  - : Ein {{jsxref("Float32Array")}} zum Kopieren der Samples des Kanals.
+  - : Ein {{jsxref("Float32Array")}}, in das die Proben des Kanals kopiert werden.
 - `channelNumber`
-  - : Die Kanalnummer des aktuellen `AudioBuffer`, aus dem die Kanal-Daten kopiert werden sollen.
+  - : Die Kanalnummer des aktuellen `AudioBuffer`, aus dem die Kanaldaten kopiert werden sollen.
 - `startInChannel` {{optional_inline}}
-  - : Ein optionaler Offset in den Puffer des Quellkanals, von dem aus begonnen werden soll, die Samples zu kopieren. Wenn nicht angegeben, wird standardmäßig ein Wert von 0 (der Anfang des Puffers) angenommen.
+  - : Ein optionaler Versatz in den Puffer des Quellkanals, von dem aus mit dem Kopieren der Proben begonnen werden soll. Wenn nicht angegeben, wird standardmäßig ein Wert von 0 (der Beginn des Puffers) angenommen.
 
 ### Rückgabewert
 
@@ -33,14 +33,14 @@ Keiner ({{jsxref("undefined")}}).
 
 - `indexSizeError`
 
-  - : Einer der Eingabeparameter hat einen Wert, der außerhalb des akzeptierten Bereichs liegt:
+  - : Einer der Eingabewerte hat einen Wert, der außerhalb des akzeptierten Bereichs liegt:
 
-    - Der Wert von `channelNumber` gibt eine Kanalnummer an, die nicht existiert (das heißt, er ist größer als oder gleich dem Wert von [`numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) auf dem Kanal).
-    - Der Wert von `startInChannel` liegt außerhalb des aktuellen Bereichs der Samples, die bereits im Quellpuffer existieren; das heißt, er ist größer als seine aktuelle [`length`](/de/docs/Web/API/AudioBuffer/length).
+    - Der Wert von `channelNumber` gibt eine Kanalnummer an, die nicht existiert (d. h. er ist größer oder gleich dem Wert von [`numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) auf dem Kanal).
+    - Der Wert von `startInChannel` liegt außerhalb des aktuellen Bereichs der bereits im Quellpuffer vorhandenen Proben; das heißt, er ist größer als dessen aktuelle [`length`](/de/docs/Web/API/AudioBuffer/length).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen neuen Audio-Puffer und kopiert dann die Samples aus einem anderen Kanal in diesen.
+Dieses Beispiel erstellt einen neuen Audiopuffer und kopiert die Proben aus einem anderen Kanal hinein.
 
 ```js
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);

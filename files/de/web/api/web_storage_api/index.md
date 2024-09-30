@@ -7,54 +7,54 @@ l10n:
 
 {{DefaultAPISidebar("Web Storage API")}}
 
-Die **Web Storage API** bietet Mechanismen, durch die Browser Schlüssel/Wert-Paare auf eine wesentlich intuitivere Weise speichern können als mit [Cookies](/de/docs/Glossary/cookie).
+Die **Web Storage API** bietet Mechanismen, durch die Browser Schlüssel/Wert-Paare speichern können, auf eine viel intuitivere Weise als mit [Cookies](/de/docs/Glossary/cookie).
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die beiden Mechanismen innerhalb von Web Storage sind wie folgt:
+Die zwei Mechanismen innerhalb des Web Storage sind wie folgt:
 
-- `sessionStorage` hält einen separaten Speicherbereich für jeden bestimmten [Origin](/de/docs/Glossary/origin) bereit, der für die Dauer der Seitensitzung verfügbar ist (solange der Browser-Tab geöffnet ist, einschließlich Seiten-Neuladen und -Wiederherstellung).
+- `sessionStorage` hält einen separaten Speicherbereich für jeden gegebenen [Origin](/de/docs/Glossary/origin) bereit, der für die Dauer der Sitzung der Seite verfügbar ist (solange der Browser-Tab geöffnet bleibt, einschließlich Seitenreloads und -wiederherstellungen).
 
-- `localStorage` tut dasselbe, aber bleibt erhalten, auch wenn der Browser geschlossen und wieder geöffnet wird.
+- `localStorage` erfüllt die gleiche Funktion, bleibt aber auch bestehen, wenn der Browser geschlossen und erneut geöffnet wird.
 
-Diese Mechanismen sind über die Eigenschaften [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) verfügbar. Das Aufrufen einer dieser Eigenschaften gibt eine Instanz eines [`Storage`](/de/docs/Web/API/Storage)-Objekts zurück, über das Datenelemente gesetzt, abgerufen und entfernt werden können. Ein unterschiedliches Speicherobjekt wird für `sessionStorage` und `localStorage` für jeden Origin verwendet — sie funktionieren und werden separat gesteuert.
+Diese Mechanismen sind über die [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) Eigenschaften verfügbar. Der Aufruf einer dieser Eigenschaften gibt eine Instanz eines [`Storage`](/de/docs/Web/API/Storage)-Objekts zurück, über das Datenobjekte gesetzt, abgerufen und entfernt werden können. Ein unterschiedliches Speicherobjekt wird für `sessionStorage` und `localStorage` für jeden Origin verwendet — sie funktionieren und werden separat gesteuert.
 
-Um mehr über die verfügbare Speichermenge mittels der APIs zu erfahren und was passiert, wenn Speichergrenzen überschritten werden, siehe [Storage quotas and eviction criteria](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
+Um mehr über die verfügbare Speichermenge mithilfe der APIs zu lernen und was passiert, wenn Speicherlimits überschritten werden, siehe [Storage-Quoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
 
-Sowohl `sessionStorage` als auch `localStorage` im Web Storage sind synchroner Natur. Das bedeutet, dass beim Setzen, Abrufen oder Entfernen von Daten aus diesen Speichermethoden die Operationen synchron durchgeführt werden, wodurch die Ausführung anderer JavaScript-Codes blockiert wird, bis die Operation abgeschlossen ist. Dieses synchrone Verhalten kann möglicherweise die Leistung der Webanwendung beeinträchtigen, insbesondere wenn eine große Menge an Daten gespeichert oder abgerufen wird.
+Sowohl `sessionStorage` als auch `localStorage` im Web Storage sind synchroner Natur. Dies bedeutet, dass, wenn Daten in diesen Speichermechanismen gesetzt, abgerufen oder entfernt werden, die Operationen synchron durchgeführt werden und die Ausführung anderer JavaScript-Codes blockieren, bis die Operation abgeschlossen ist. Dieses synchrone Verhalten kann potenziell die Leistung der Web-Anwendung beeinträchtigen, insbesondere wenn eine große Datenmenge gespeichert oder abgerufen wird.
 
-Entwickler sollten vorsichtig sein, wenn sie Operationen auf `sessionStorage` oder `localStorage` durchführen, die eine signifikante Menge an Daten oder rechnerisch intensive Aufgaben umfassen. Es ist wichtig, den Code zu optimieren und synchrone Operationen zu minimieren, um die Benutzeroberfläche nicht zu blockieren und Verzögerungen in der Reaktionsfähigkeit der Anwendung zu vermeiden.
+Entwickler sollten vorsichtig sein, wenn sie Operationen mit `sessionStorage` oder `localStorage` durchführen, die eine erhebliche Datenmenge oder rechenintensive Aufgaben beinhalten. Es ist wichtig, den Code zu optimieren und synchrone Operationen zu minimieren, um die Benutzeroberfläche nicht zu blockieren und Verzögerungen in der Reaktionsfähigkeit der Anwendung zu verhindern.
 
-Asynchrone Alternativen wie [IndexedDB](/de/docs/Web/API/IndexedDB_API) können geeigneter sein für Szenarien, in denen Leistung eine Rolle spielt oder größere Datensätze verarbeitet werden. Diese Alternativen ermöglichen nicht blockierende Operationen, die zu reibungsloseren Benutzererfahrungen und besserer Leistung in Webanwendungen führen.
+Asynchrone Alternativen, wie beispielsweise [IndexedDB](/de/docs/Web/API/IndexedDB_API), könnten geeigneter für Szenarien sein, in denen Leistung von Bedeutung ist oder wenn mit größeren Datensätzen gearbeitet wird. Diese Alternativen ermöglichen nicht-blockierende Operationen, die flüssigere Benutzererfahrungen und bessere Leistung in Webanwendungen bieten.
 
 > [!NOTE]
-> Der Zugriff auf Web Storage aus Drittanbieter-IFrames wird verweigert, wenn der Benutzer [Drittanbieter-Cookies deaktiviert](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) hat.
+> Der Zugriff auf Web Storage aus Third-Party-IFrames wird verweigert, wenn der Benutzer [Third-Party-Cookies deaktiviert](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) hat.
 
-## Bestimmen des Zugriffs auf Speicher durch Dritte
+## Bestimmung des Speicherzugriffs durch Dritte
 
-Jeder Origin hat seinen eigenen Speicher — dies gilt sowohl für Web Storage als auch für [Shared Storage](/de/docs/Web/API/Shared_Storage_API). Der Zugriff auf geteilten Speicher durch Drittanbieter-Code (d.h. eingebetteter Code) hängt von seinem [Browsing-Kontext](/de/docs/Glossary/Browsing_context) ab. Der Kontext, in dem Drittanbieter-Code aus einem anderen Origin ausgeführt wird, bestimmt den Speicherzugriff des Drittanbieter-Codes.
+Jeder Origin hat seinen eigenen Speicher — dies gilt sowohl für Web Storage als auch für [Shared Storage](/de/docs/Web/API/Shared_Storage_API). Der Zugriff von Third-Party- (also eingebettetem) Code auf geteilten Speicher hängt von seinem [Browsing-Kontext](/de/docs/Glossary/Browsing_context) ab. Der Kontext, in dem ein Third-Party-Code eines anderen Origins ausgeführt wird, bestimmt den Speicherzugriff des Third-Party-Codes.
 
-![Ein Boxdiagramm, das einen obersten Browsing-Kontext namens publisher.com zeigt, mit darin eingebettetem Drittanbieter-Content](embedded-content.png)
+![Eine Kasten-Diagramm zeigt einen obersten Browsing-Kontext namens publisher.com, mit eingebettetem Third-Party-Inhalt](embedded-content.png)
 
-Drittanbieter-Code kann auf einer anderen Seite hinzugefügt werden, indem er mit einem {{htmlelement("script")}}-Element injiziert wird oder indem die Quelle eines {{htmlelement("iframe")}} auf eine Site gesetzt wird, die Drittanbieter-Code enthält. Die verwendete Methode zur Integration von Drittanbieter-Code bestimmt den Browsing-Kontext des Codes.
+Third-Party-Code kann einer anderen Website hinzugefügt werden, indem er mit einem {{htmlelement("script")}}-Element injiziert wird, oder indem die Quelle eines {{htmlelement("iframe")}} auf eine Website eingestellt wird, die Third-Party-Code enthält. Die Methode, die zur Integration von Third-Party-Code verwendet wird, bestimmt den Browsing-Kontext des Codes.
 
-- Wenn Ihr Drittanbieter-Code mit einem `<script>`-Element auf einer anderen Seite hinzugefügt wird, wird Ihr Code im Browsing-Kontext des Einbettenden ausgeführt. Wenn Sie also [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) oder [`SharedStorage.set()`](/de/docs/Web/API/SharedStorage/set) aufrufen, wird das Schlüssel/Wert-Paar in den Speicher des Einbettenden geschrieben. Aus der Perspektive des Browsers gibt es keinen Unterschied zwischen Erstanbieter- und Drittanbieter-Code, wenn ein `<script>`-Tag verwendet wird.
-- Wenn Ihr Drittanbieter-Code innerhalb eines `<iframe>` auf einer anderen Seite hinzugefügt wird, wird der Code innerhalb des `<iframe>` mit dem Origin des Browsing-Kontexts des `<iframe>` ausgeführt. Wenn der Code innerhalb des `<iframe>` [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) aufruft, werden die Daten in den lokalen oder Session-Speicher des Origins des `<iframe>` geschrieben. Wenn der `<iframe>`-Code [`SharedStorage.set()`](/de/docs/Web/API/SharedStorage/set) aufruft, werden die Daten in den geteilten Speicher des Origins des `<iframe>` geschrieben.
+- Wenn Ihr Third-Party-Code mit einem `<script>`-Element zu einer anderen Seite hinzugefügt wird, wird Ihr Code im Browsing-Kontext des Einbettenden ausgeführt. Daher wird, wenn Sie [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) oder [`SharedStorage.set()`](/de/docs/Web/API/SharedStorage/set) aufrufen, das Schlüssel/Wert-Paar im Speicher des Einbettenden geschrieben. Aus der Sicht des Browsers gibt es keinen Unterschied zwischen First-Party-Code und Third-Party-Code, wenn ein `<script>`-Tag verwendet wird.
+- Wenn Ihr Third-Party-Code innerhalb eines `<iframe>` zu einer anderen Seite hinzugefügt wird, wird der Code innerhalb des `<iframe>` mit dem Origin des Browsing-Kontexts des `<iframe>` ausgeführt. Ruft der Code innerhalb des `<iframe>` [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) auf, werden die Daten in den lokalen oder Session Storage des Origins des `<iframe>` geschrieben. Wenn der `<iframe>`-Code [`SharedStorage.set()`](/de/docs/Web/API/SharedStorage/set) aufruft, werden die Daten in den Shared Storage des Origins des `<iframe>` geschrieben.
 
 ## Web Storage Schnittstellen
 
 - [`Storage`](/de/docs/Web/API/Storage)
-  - : Erlaubt es Ihnen, Daten für eine bestimmte Domain und einen bestimmten Speichertyp (Session oder lokal) zu setzen, abzurufen und zu entfernen.
+  - : Ermöglicht es Ihnen, Daten für eine bestimmte Domain und einen bestimmten Speichertyp (Session oder Lokal) zu setzen, abzurufen und zu entfernen.
 - [`Window`](/de/docs/Web/API/Window)
-  - : Die Web Storage API erweitert das [`Window`](/de/docs/Web/API/Window)-Objekt um zwei neue Eigenschaften — [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) — die Zugriff auf die Session- und lokalen [`Storage`](/de/docs/Web/API/Storage)-Objekte der aktuellen Domain bieten, sowie einen [`storage`](/de/docs/Web/API/Window/storage_event)-Ereignishandler, der ausgelöst wird, wenn sich ein Speicherbereich ändert (z.B. wenn ein neues Element gespeichert wird).
+  - : Die Web Storage API erweitert das [`Window`](/de/docs/Web/API/Window)-Objekt mit zwei neuen Eigenschaften — [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) — die Zugriff auf die Session- und lokalen [`Storage`](/de/docs/Web/API/Storage)-Objekte der aktuellen Domain bieten und einen [`storage`](/de/docs/Web/API/Window/storage_event)-Ereignis-Handler, der ausgelöst wird, wenn sich ein Speicherbereich ändert (z.B. wenn ein neuer Eintrag gespeichert wird).
 - [`StorageEvent`](/de/docs/Web/API/StorageEvent)
   - : Das `storage`-Ereignis wird auf dem `Window`-Objekt eines Dokuments ausgelöst, wenn sich ein Speicherbereich ändert.
 
 ## Beispiele
 
-Um einige typische Nutzungen des Web Storage zu veranschaulichen, haben wir ein einfaches Beispiel erstellt, das fantasievoll [Web Storage Demo](https://github.com/mdn/dom-examples/tree/main/web-storage) genannt wird. Die [Startseite](https://mdn.github.io/dom-examples/web-storage/) bietet Steuerelemente zur Anpassung von Farbe, Schriftart und dekorativem Bild. Wenn Sie verschiedene Optionen wählen, wird die Seite sofort aktualisiert; zusätzlich werden Ihre Auswahlmöglichkeiten in `localStorage` gespeichert, sodass Ihre Auswahl beibehalten wird, wenn Sie die Seite verlassen und später erneut laden.
+Um einige typische Anwendungsfälle von Web Storage zu veranschaulichen, haben wir ein einfaches Beispiel erstellt, das kreativ [Web Storage Demo](https://github.com/mdn/dom-examples/tree/main/web-storage) genannt wird. Die [Startseite](https://mdn.github.io/dom-examples/web-storage/) bietet Steuerungen, mit denen die Farbe, die Schriftart und das dekorative Bild angepasst werden können. Wenn Sie verschiedene Optionen wählen, wird die Seite sofort aktualisiert; zusätzlich werden Ihre Entscheidungen in `localStorage` gespeichert, sodass Ihre Entscheidungen gespeichert werden, wenn Sie die Seite verlassen und später erneut laden.
 
-Zusätzlich haben wir eine [Ereignisausgabeseite](https://mdn.github.io/dom-examples/web-storage/event.html) bereitgestellt — wenn Sie diese Seite in einem anderen Tab laden und dann Änderungen an Ihren Auswahlmöglichkeiten auf der Startseite vornehmen, sehen Sie die aktualisierten Speicherinformationen ausgegeben, wenn das [`StorageEvent`](/de/docs/Web/API/StorageEvent) ausgelöst wird.
+Des Weiteren haben wir eine [Ereignisausgabeseite](https://mdn.github.io/dom-examples/web-storage/event.html) bereitgestellt — wenn Sie diese Seite in einem anderen Tab laden und dann Änderungen an Ihren Entscheidungen auf der Startseite vornehmen, wird die aktualisierte Speichernformation ausgegeben, sobald das [`StorageEvent`](/de/docs/Web/API/StorageEvent) ausgelöst wird.
 
 ## Spezifikationen
 
@@ -64,11 +64,11 @@ Zusätzlich haben wir eine [Ereignisausgabeseite](https://mdn.github.io/dom-exam
 
 {{Compat}}
 
-## Private Browsing / Inkognito-Modi
+## Private Browsing / Inkognito-Modus
 
-Private Fenster, Inkognito-Modus und ähnlich benannte Datenschutz-Browsing-Optionen speichern keine Daten wie Verlauf und Cookies. Im privaten Modus wird `localStorage` wie `sessionStorage` behandelt. Die Speicher-APIs sind weiterhin verfügbar und voll funktionsfähig, aber alle Daten, die im privaten Fenster gespeichert werden, werden gelöscht, wenn der Browser oder der Browser-Tab geschlossen wird.
+Private Fenster, der Inkognito-Modus und ähnlich benannte Datenschutzoptionen speichern keine Daten wie Verlauf und Cookies. Im privaten Modus wird `localStorage` wie `sessionStorage` behandelt. Die Storage-APIs sind weiterhin verfügbar und vollständig funktional, aber alle im privaten Fenster gespeicherten Daten werden gelöscht, wenn der Browser oder der Browser-Tab geschlossen wird.
 
 ## Siehe auch
 
-- [Using the Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Browser storage quotas and eviction criteria](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria)
+- [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [Browser-Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria)

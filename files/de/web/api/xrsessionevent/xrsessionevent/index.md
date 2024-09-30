@@ -1,5 +1,5 @@
 ---
-title: "XRSessionEvent: XRSessionEvent()-Konstruktor"
+title: "XRSessionEvent: XRSessionEvent() Konstruktor"
 short-title: XRSessionEvent()
 slug: Web/API/XRSessionEvent/XRSessionEvent
 l10n:
@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Der Konstruktor der WebXR Device API
-**`XRSessionEvent()`** erstellt und gibt ein neues
-[`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt zurück. Diese Objekte repräsentieren Ereignisse, die
-Zustandsänderungen in einer [`XRSession`](/de/docs/Web/API/XRSession) ankündigen, welche eine erweiterte oder virtuelle
-Realitätssitzung darstellt.
+Der **`XRSessionEvent()`** Konstruktor der WebXR Device API erstellt und gibt ein neues [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt zurück. Diese Objekte repräsentieren Ereignisse, die Zustandsänderungen in einer [`XRSession`](/de/docs/Web/API/XRSession) ankündigen, die eine Augmented-Reality- oder Virtual-Reality-Sitzung darstellt.
 
 ## Syntax
 
@@ -24,15 +20,15 @@ new XRSessionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß-/kleinschreibungssensitiv und Browser setzen es auf `end` oder `visibilitychange`.
+    Dieser ist groß- und kleinschreibungssensitiv und wird von Browsern auf `end` oder `visibilitychange` gesetzt.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `session`
-      - : Die [`XRSession`](/de/docs/Web/API/XRSession), an die das Ereignis übermittelt werden soll.
+      - : Die [`XRSession`](/de/docs/Web/API/XRSession), an die das Ereignis geliefert werden soll.
 
 ### Rückgabewert
 
-Ein neues [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt, das einen Objekttyp repräsentiert und wie im `options`-Parameter beschrieben konfiguriert ist.
+Ein neues [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt, das ein Objekt des angegebenen Typs darstellt und gemäß den durch den `options`-Parameter beschriebenen Konfigurationen erstellt wird.
 
 ## Beispiele
 

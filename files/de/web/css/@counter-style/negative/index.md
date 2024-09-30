@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`negative`** Deskriptor der {{cssxref("@counter-style")}} At-Regel ermöglicht es Ihnen, festzulegen, wie negative Zählerwerte dargestellt werden, wenn Sie benutzerdefinierte Zählerstile definieren. Der Wert des `negative` Deskriptors definiert die Symbole, die vor und nach der Zählerdarstellung hinzugefügt werden, wenn der Wert des Zählers negativ ist.
+Der **`negative`** Deskriptor der @-Regel {{cssxref("@counter-style")}} ermöglicht es Ihnen, zu definieren, wie negative Zählerwerte dargestellt werden, wenn benutzerdefinierte Zählerstile definiert werden. Der Wert des `negative` Deskriptors definiert die Symbole, die vor und nach der Zählerdarstellung hinzugefügt werden, wenn der Zählerwert negativ ist.
 
 ## Syntax
 
@@ -24,25 +24,25 @@ negative: "(" ")"; /* Adds '(- before and ')' after if counter value is negative
 Der `negative` Deskriptor akzeptiert bis zu zwei [`<symbol>`](/de/docs/Web/CSS/@counter-style/symbols#values) Werte.
 
 - `<symbol>`
-  - : Wenn nur ein Wert angegeben ist, wird er vor der Zählerdarstellung hinzugefügt, wenn der Zähler negativ ist. Wenn zwei Werte angegeben sind, wird der erste Wert vor der Zählerdarstellung und der zweite danach hinzugefügt, wenn der Zähler negativ ist.
+  - : Wenn nur ein Wert angegeben wird, wird er vor der Zählerdarstellung hinzugefügt, wenn der Zähler negativ ist. Wenn zwei Werte angegeben werden, wird der erste vor und der zweite nach der Zählerdarstellung hinzugefügt, wenn der Zähler negativ ist.
 
 ## Beschreibung
 
-Wenn der Zählerwert negativ ist, wird das angegebene `<symbol>` für den `negative` Deskriptor vor der Zählerdarstellung hinzugefügt und ersetzt das Standard-`-` für negative Werte. Das zweite `<symbol>`, sofern angegeben, wird nach der Zählerdarstellung hinzugefügt.
+Falls der Zählerwert negativ ist, wird das angegebene `<symbol>` für den `negative` Deskriptor vor der Zählerdarstellung hinzugefügt und ersetzt das Standard-`-` für negative Werte. Das zweite `<symbol>`, falls angegeben, wird nach der Zählerdarstellung hinzugefügt.
 
-Der `negative` Deskriptor ist in zwei Fällen relevant: Wenn Zählerstile den `system` Wert `symbolic`, `alphabetic`, `numeric` und `additive` haben und der Wert negativ ist; sowie wenn der `system` Wert `extends` ist und der erweiterte Zählerstil selbst ein Minuszeichen verwendet. Für Systeme, die keine negativen Zählerwerte unterstützen, hat das Angeben des `negative` Deskriptors keine Wirkung und wird ignoriert.
+Der `negative` Deskriptor ist in zwei Fällen relevant: Wenn Zählerstile den `system`-Wert von `symbolic`, `alphabetic`, `numeric` und `additive` haben und der Zähler negativ ist; und wenn der `system`-Wert `extends` ist und der erweiterte Zählerstil das negative Zeichen selbst verwendet. Für Systeme, die keine negativen Zählerwerte unterstützen, hat die Angabe des `negative` Deskriptors keine Wirkung und wird ignoriert.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Darstellen negativer Zähler
+### Darstellung negativer Zähler
 
 Dieses Beispiel [erweitert](/de/docs/Web/CSS/@counter-style/system#extends) den [`decimal`](/de/docs/Web/CSS/list-style-type#decimal) Listenstil. Der `negative` Deskriptor wird verwendet, um `(-` und `)` vor und nach negativen Zählerwerten hinzuzufügen.
 
@@ -76,7 +76,7 @@ ol {
 
 {{ EmbedLiveSample('Rendering negative counters') }}
 
-Das als Wert des `negative` Deskriptors aufgeführte Präfix und Suffix wird nur zum Marker hinzugefügt, wenn der Zählerwert kleiner als null ist.
+Das Präfix und Suffix, die als Wert des `negative` Deskriptors gelistet sind, werden dem Marker nur hinzugefügt, wenn der Zählerwert kleiner als null ist.
 
 ## Spezifikationen
 
@@ -88,8 +88,8 @@ Das als Wert des `negative` Deskriptors aufgeführte Präfix und Suffix wird nur
 
 ## Siehe auch
 
-- {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
-- Listenstil-Eigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}} Funktion zur Erstellung anonymer Zählerstile
+- Deskriptoren von {{cssxref("@counter-style")}}: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
+- Listeneigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
+- {{cssxref("symbols", "symbols()")}} Funktion zum Erstellen anonymer Zählerstile
 - [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
 - [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul

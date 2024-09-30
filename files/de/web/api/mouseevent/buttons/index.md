@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.buttons`** zeigt an, welche Tasten der Maus (oder eines anderen Eingabegeräts) gedrückt sind, wenn ein Mausereignis ausgelöst wird.
+Die schreibgeschützte Eigenschaft **`MouseEvent.buttons`** zeigt an, welche Tasten auf der Maus (oder einem anderen Eingabegerät) gedrückt sind, wenn ein Mausereignis ausgelöst wird.
 
-Jede drückbare Taste wird durch eine bestimmte Zahl dargestellt (siehe unten).
-Wenn mehr als eine Taste gedrückt wird, werden die Tastenwerte addiert, um eine neue Zahl zu erzeugen.
-Zum Beispiel, wenn die sekundäre (`2`) und die Hilfstaste (`4`) gleichzeitig gedrückt werden, ist der Wert `6` (d.h. `2 + 4`).
+Jede Taste, die gedrückt werden kann, wird durch eine bestimmte Zahl repräsentiert (siehe unten).
+Wenn mehr als eine Taste gedrückt wird, werden die Werte der Tasten addiert, um eine neue Zahl zu erzeugen.
+Wenn beispielsweise die sekundäre (`2`) und die zusätzliche (`4`) Taste gleichzeitig gedrückt werden, ist der Wert `6` (d.h. `2 + 4`).
 
 > [!NOTE]
-> Verwechseln Sie diese Eigenschaft nicht mit der [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) Eigenschaft.
-> Die `MouseEvent.buttons`-Eigenschaft gibt den Zustand der gedrückten Tasten während eines Mausereignisses an,
-> während die [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) Eigenschaft nur bei Mausereignissen durch das Drücken oder Freigeben einer oder mehrerer Tasten den korrekten Wert garantiert.
+> Verwechseln Sie diese Eigenschaft nicht mit der [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button)-Eigenschaft.
+> Die `MouseEvent.buttons`-Eigenschaft gibt den Zustand der gedrückten Tasten während eines beliebigen Mausereignisses an,
+> während die [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button)-Eigenschaft nur für Mausereignisse, die durch das Drücken oder Loslassen einer oder mehrerer Tasten verursacht werden, den korrekten Wert garantiert.
 
 ## Wert
 
 Eine Zahl, die eine oder mehrere Tasten darstellt.
-Wenn mehr als eine Taste gleichzeitig gedrückt wird, werden die Werte kombiniert (z.B. `3` ist primär + sekundär).
+Wenn mehrere Tasten gleichzeitig gedrückt sind, werden die Werte kombiniert (z.B. `3` ist primär + sekundär).
 
 - `0`: Keine Taste oder nicht initialisiert
 - `1`: Primäre Taste (normalerweise die linke Taste)
 - `2`: Sekundäre Taste (normalerweise die rechte Taste)
-- `4`: Hilfstaste (normalerweise die Mausradtaste oder die mittlere Taste)
-- `8`: 4. Taste (typischerweise die "Browser Zurück" Taste)
-- `16`: 5. Taste (typischerweise die "Browser Vor" Taste)
+- `4`: Zusatztaste (normalerweise die Mausradtaste oder mittlere Taste)
+- `8`: 4. Taste (typischerweise die "Browser Zurück"-Taste)
+- `16`: 5. Taste (typischerweise die "Browser Vorwärts"-Taste)
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die `buttons`-Eigenschaft, wenn Sie ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis auslösen.
+Dieses Beispiel protokolliert die `buttons`-Eigenschaft, wenn Sie ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis auslösen.
 
 ### HTML
 
@@ -69,7 +69,7 @@ document.addEventListener("mouseup", logButtons);
 document.addEventListener("mousedown", logButtons);
 ```
 
-### Ergebnis
+### Resultat
 
 {{EmbedLiveSample("Examples")}}
 
@@ -83,17 +83,16 @@ document.addEventListener("mousedown", logButtons);
 
 ### Firefox Anmerkungen
 
-Firefox unterstützt das `buttons`-Attribut unter Windows, Linux (GTK) und macOS
-mit den folgenden Einschränkungen:
+Firefox unterstützt das `buttons`-Attribut auf Windows, Linux (GTK) und macOS mit den folgenden Einschränkungen:
 
-- Werkzeuge erlauben die Anpassung der Tastenaktionen.
-  Daher muss die _Primärtaste_ nicht unbedingt die linke Taste des Geräts sein, die _Sekundärtaste_ nicht unbedingt die rechte Taste und so weiter.
-  Darüber hinaus sind die mittlere (Rad-)Taste, die 4. Taste und die 5. Taste möglicherweise nicht zugewiesen, selbst wenn sie gedrückt sind.
-- Geräte mit einer Taste können zusätzliche Tasten mit Kombinationen aus Taste und Tastaturanschlägen emulieren.
-- Touch-Geräte können Tasten mit konfigurierbaren Gesten emulieren (z.B. Ein-Finger-Berührung für _primär_, Zwei-Finger-Berührung für _sekundär_, usw.).
-- Unter Linux (GTK) werden die 4. und 5. Taste nicht unterstützt.
-  Zusätzlich enthält ein [`mouseup`](/de/docs/Web/API/Element/mouseup_event) Ereignis immer die loslassende Tasteninformation im `buttons`-Wert.
-- Auf Mac OS X 10.5 gibt das `buttons`-Attribut immer `0` zurück, da es keine Plattform-API gibt, um diese Funktion zu implementieren.
+- Dienstprogramme erlauben die Anpassung der Tastenaktionen.
+  Daher muss die _primäre_ Taste nicht die linke Taste am Gerät sein, die _sekundäre_ muss nicht die rechte Taste sein, usw.
+  Zudem kann die mittlere (Rad-)Taste, 4. Taste und 5. Taste möglicherweise keinen Wert zugewiesen bekommen, auch wenn sie gedrückt werden.
+- Ein-Tasten-Geräte können zusätzliche Tasten mit Kombinationen aus Tasten- und Tastaturdrücken emulieren.
+- Touch-Geräte können Tasten mit konfigurierbaren Gesten emulieren (z.B. Ein-Finger-Touch für _primär_, Zwei-Finger-Touch für _sekundär_, etc.).
+- Auf Linux (GTK) werden die 4. und 5. Taste nicht unterstützt.
+  Außerdem enthält ein [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignis immer die Information über die freigegebene Taste im `buttons`-Wert.
+- Auf Mac OS X 10.5 gibt das `buttons`-Attribut immer `0` zurück, da es keine Plattform-API zur Implementierung dieses Features gibt.
 
 ## Siehe auch
 

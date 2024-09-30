@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Web MIDI API")}}{{SecureContext_Header}}
 
-Die **`MIDIOutputMap`**-Schnittstelle des [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) stellt die Menge der derzeit verfügbaren MIDI-Ausgabeports bereit.
+Das schreibgeschützte Interface **`MIDIOutputMap`** der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) stellt die Menge der aktuell verfügbaren MIDI-Ausgabeports bereit.
 
-Eine `MIDIOutputMap`-Instanz ist ein schreibgeschütztes [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel die ID-Zeichenfolge für MIDI-Ausgabe ist und der zugehörige Wert das entsprechende [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Objekt.
+Eine Instanz von `MIDIOutputMap` ist ein schreibgeschütztes [karteähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel die ID-Zeichenkette für die MIDI-Ausgabe ist und der zugehörige Wert das entsprechende [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Objekt ist.
 
 ## Spezifikationen
 

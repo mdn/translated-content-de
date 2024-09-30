@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`alpha`** des [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Interfaces gibt die Rotation des Geräts um die Z-Achse zurück; das heißt, die Anzahl der Grad, um die das Gerät um die Mitte des Bildschirms verdreht wird. Siehe [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details.
+Die **`alpha`** schreibgeschützte Eigenschaft des [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Interfaces gibt die Rotation des Geräts um die Z-Achse zurück; das heißt, die Anzahl der Grad, um die das Gerät um die Mitte des Bildschirms gedreht wird. Details finden Sie unter [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
 
 ## Wert
 
@@ -24,7 +24,7 @@ Eine Zahl.
 
 ## Siehe auch
 
-- [Erkennung der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erkennen der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
 - [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
 - [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis
 - [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event)-Ereignis

@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts ist.
 
 ### Beispiele
 
@@ -44,7 +44,7 @@ if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
 }
 ```
 
-Dies könnte folgendes erzeugen:
+Dies könnte ergeben:
 
 ```bash
 Object { deviceId: "HJtTemQTM64Bivxv3ZEyKjCi1VR8042lPNpmXKObKJE=", kind: "videoinput", label: "", groupId: "Okm2l1YZTrwy8awTxE8QSLNFoVMdIXx++wLh68tbmv0=" }

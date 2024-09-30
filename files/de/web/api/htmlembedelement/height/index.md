@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft des [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Interfaces gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die dargestellte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Ein String, der die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
+Ein String, der die dargestellte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Beispiele
 

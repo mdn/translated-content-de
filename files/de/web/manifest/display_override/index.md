@@ -7,47 +7,47 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-Das [`display`](/de/docs/Web/Manifest/display)-Mitglied wird verwendet, um den bevorzugten Anzeigemodus eines Entwicklers für eine Website festzulegen. Es folgt einem Prozess, bei dem der Browser auf den nächsten Anzeigemodus zurückgreift, wenn der angeforderte nicht unterstützt wird. In einigen fortgeschrittenen Anwendungsfällen reicht dieser Fallback-Prozess möglicherweise nicht aus.
+Der [`display`](/de/docs/Web/Manifest/display)-Member wird verwendet, um den bevorzugten Anzeigemodus für eine Website festzulegen. Es folgt einem Prozess, bei dem der Browser auf den nächsten Anzeigemodus zurückgreift, wenn der angeforderte nicht unterstützt wird. In einigen fortgeschrittenen Anwendungsfällen reicht dieser Fallback-Prozess möglicherweise nicht aus.
 
-Das `display_override`-Mitglied löst dieses Problem, indem es dem Entwickler ermöglicht, eine Reihe von Anzeigemodi anzugeben, die der Browser in Betracht zieht, bevor er das `display`-Mitglied benutzt. Sein Wert ist ein Array von Anzeigemodi, die der Reihe nach berücksichtigt werden, und der erste unterstützte Anzeigemodus wird angewendet.
+Der `display_override`-Member löst dieses Problem, indem er dem Entwickler ermöglicht, eine Abfolge von Anzeigemodi bereitzustellen, die der Browser in Betracht ziehen soll, bevor er den `display`-Member verwendet. Sein Wert ist ein Array von Anzeigemodi, die nacheinander betrachtet werden, und der erste unterstützte Anzeigemodus wird angewendet.
 
 ### Werte
 
-Display-Override-Objekte sind Anzeige-Modus-Strings, die möglichen Werte sind:
+Display-Override-Objekte sind Anzeigemodus-Strings, die möglichen Werte sind:
 
 - `browser`
 
-  - : Die Anwendung öffnet sich in einem herkömmlichen Browser-Tab oder einem neuen Fenster, abhängig vom Browser und der Plattform.
-    Dies ist die Standardeinstellung.
+  - : Die Anwendung öffnet sich in einem herkömmlichen Browser-Tab oder -Fenster, abhängig vom Browser und Betriebssystem.
+    Dies ist der Standard.
 
 - `fullscreen`
 
-  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird keine Benutzeroberfläche [chrome](/de/docs/Glossary/chrome) angezeigt.
+  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird keine Benutzeroberfläche des Benutzeragenten [chrome](/de/docs/Glossary/chrome) angezeigt.
 
 - `minimal-ui`
 
-  - : Die Anwendung wirkt wie eine eigenständige Anwendung mit einem minimalen Satz von UI-Elementen zur Steuerung der Navigation.
+  - : Die Anwendung wird wie eine eigenständige Anwendung mit einem minimalen Satz von UI-Elementen zur Steuerung der Navigation aussehen und sich so anfühlen.
     Die Elemente variieren je nach Browser.
 
 - `standalone`
 
-  - : Die Anwendung wirkt wie eine eigenständige Anwendung.
-    Dies kann bedeuten, dass die Anwendung ein eigenes Fenster hat, ein eigenes Symbol im Anwendungsstarter, usw.
-    In diesem Modus wird die Browser-Oberfläche zur Steuerung der Navigation ausgeschlossen, jedoch können andere UI-Elemente wie eine Statusleiste enthalten sein.
+  - : Die Anwendung wird wie eine eigenständige Anwendung aussehen und sich so anfühlen.
+    Dies kann umfassen, dass die Anwendung ein eigenes Fenster hat, ihr eigenes Symbol im Anwendungsstarter etc.
+    In diesem Modus wird der Benutzeragent UI-Elemente zur Steuerung der Navigation ausschließen, kann aber andere UI-Elemente wie eine Statusleiste einschließen.
 
 - `tabbed` {{experimental_inline}}
 
-  - : Die Anwendung kann mehrere Anwendungs-Kontexte innerhalb eines einzigen Betriebssystem-Fensters enthalten.
-    Unterstützende Browser können wählen, wie diese Kontexte angezeigt werden, aber ein üblicher Ansatz ist, eine Tableiste bereitzustellen, um zwischen ihnen zu wechseln.
+  - : Die Anwendung kann mehrere Anwendungskontexte in einem einzelnen Betriebssystemfenster enthalten.
+    Unterstützende Browser können wählen, wie diese Kontexte angezeigt werden sollen, aber ein häufiger Ansatz ist, eine Tab-Leiste bereitzustellen, um zwischen ihnen zu wechseln.
 
 - `window-controls-overlay` {{experimental_inline}}
 
-  - : Dieser Anzeigemodus gilt nur, wenn die Anwendung in einem separaten PWA-Fenster und auf einem Desktop-Betriebssystem ist.
-    Die Anwendung wird sich für das Window Controls Overlay-Feature anmelden, bei dem die gesamte Fensterfläche für den Web-Content der App verfügbar ist und die Fenstertasten (Maximieren, Minimieren, Schließen und andere PWA-spezifische Tasten) als Overlay über dem Web-Content erscheinen.
+  - : Dieser Anzeigemodus gilt nur, wenn sich die Anwendung in einem separaten PWA-Fenster und auf einem Desktop-Betriebssystem befindet.
+    Die Anwendung wird sich für das Window Controls Overlay-Feature entscheiden, bei dem die gesamte Fensterfläche für den Webinhalt der App verfügbar ist und die Fenstersteuerungsschaltflächen (maximieren, minimieren, schließen und andere PWA-spezifische Schaltflächen) als Overlay über dem Webinhalt erscheinen.
 
 ## Beispiele
 
-Im untenstehenden Beispiel wird der Browser die folgende Anzeigemodus-Fallback-Kette in dieser Reihenfolge berücksichtigen: `fullscreen` → `minimal-ui` → `standalone`.
+Im folgenden Beispiel wird der Browser die folgende Kette von Anzeigemodus-Fallbacks in dieser Reihenfolge berücksichtigen: `fullscreen` → `minimal-ui` → `standalone`.
 
 ```json
 {
@@ -66,5 +66,5 @@ Im untenstehenden Beispiel wird der Browser die folgende Anzeigemodus-Fallback-K
 
 ## Siehe auch
 
-- [Vorbereitung auf die Anzeigemodi von morgen](https://developer.chrome.com/docs/capabilities/display-override)
-- [Anpassen des Fenstersteuerungs-Overlays in der Titelleiste Ihrer PWA](https://web.dev/articles/window-controls-overlay)
+- [Preparing for the display modes of tomorrow](https://developer.chrome.com/docs/capabilities/display-override)
+- [Customize the window controls overlay of your PWA's title bar](https://web.dev/articles/window-controls-overlay)

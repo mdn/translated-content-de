@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`supports()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
-gibt `true` zurück, wenn ein gegebener `token` in den unterstützten Tokens des zugehörigen Attributs enthalten ist.
-Diese Methode ist dazu gedacht, die Funktionsfeature-Erkennung zu unterstützen.
+Die **`supports()`**-Methode der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) gibt `true` zurück, wenn ein gegebener `token` in den unterstützten Tokens des zugehörigen Attributs enthalten ist. Diese Methode soll die Funktionsüberprüfung unterstützen.
 
 ## Syntax
 
@@ -21,11 +19,11 @@ supports(token)
 ### Parameter
 
 - `token`
-  - : Ein String, der den zu prüfenden Token enthält.
+  - : Ein String, der den abzufragenden Token enthält.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der anzeigt, ob der Token gefunden wurde.
+Ein boolescher Wert, der angibt, ob der Token gefunden wurde.
 
 ## Beispiel
 

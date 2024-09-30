@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaSort`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-sort)-Attributs wider, das angibt, ob Elemente in einer Tabelle oder einem Raster aufsteigend oder absteigend sortiert sind.
+Die **`ariaSort`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-sort)-Attributs wider, welches angibt, ob Elemente in einer Tabelle oder einem Raster in auf- oder absteigender Reihenfolge sortiert sind.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, aber stellen Sie sicher, dass die Standardsemantik beibehalten wird, sollte der Autor diese Attribute löschen oder überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von Aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein Zeichenfolgenwert mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `"ascending"`
   - : Elemente sind in aufsteigender Reihenfolge nach dieser Spalte sortiert.
@@ -24,7 +24,7 @@ Ein Zeichenfolgenwert mit einem der folgenden Werte:
 - `"none"`
   - : Es ist keine definierte Sortierung auf die Spalte angewendet.
 - `"other"`
-  - : Ein anderes Sortierverfahren als aufsteigend oder absteigend wurde angewendet.
+  - : Ein anderes Sortierverfahren als auf- oder absteigend wurde angewendet.
 
 ## Beispiele
 
@@ -44,4 +44,4 @@ this.internals_.ariaSort = "ascending";
 
 ## Siehe auch
 
-- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

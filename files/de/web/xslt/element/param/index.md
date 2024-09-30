@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:param>`-Element legt einen Parameter nach Namen fest und optional einen Standardwert für diesen Parameter. Wenn es als oberstes Element verwendet wird, ist der Parameter global. Wenn es innerhalb eines `<xsl:template>`-Elements verwendet wird, ist der Parameter lokal für diese Vorlage. In diesem Fall muss es das erste Kindelement der Vorlage sein.
+Das `<xsl:param>`-Element legt einen Parameter nach Name und optional einen Standardwert für diesen Parameter fest. Wenn es als oberste Ebene verwendet wird, ist der Parameter global. Wenn es innerhalb eines `<xsl:template>`-Elements verwendet wird, ist der Parameter lokal für dieses Template. In diesem Fall muss es das erste Kindelement des Templates sein.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Das `<xsl:param>`-Element legt einen Parameter nach Namen fest und optional eine
 ### Optionale Attribute
 
 - `select`
-  - : Verwendet einen XPath-Ausdruck, um einen Standardwert bereitzustellen, wenn keiner angegeben ist.
+  - : Verwendet einen XPath-Ausdruck, um einen Standardwert bereitzustellen, falls keiner angegeben ist.
 
 ### Typ
 
-Anweisung, kann als oberstes Element oder innerhalb einer Vorlage erscheinen.
+Anweisung, kann als oberste Elemente oder innerhalb eines Templates erscheinen.
 
 ## Spezifikationen
 

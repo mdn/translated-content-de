@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`FileSystemFileEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction) repräsentiert eine Datei in einem Dateisystem. Sie bietet Eigenschaften, die die Attribute der Datei beschreiben, sowie die Methode [`file()`](/de/docs/Web/API/FileSystemFileEntry/file), die ein [`File`](/de/docs/Web/API/File)-Objekt erstellt, das zum Lesen der Datei verwendet werden kann.
+Das **`FileSystemFileEntry`** Interface der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction) repräsentiert eine Datei in einem Dateisystem. Es bietet Eigenschaften zur Beschreibung der Dateiattribute sowie die [`file()`](/de/docs/Web/API/FileSystemFileEntry/file)-Methode, die ein [`File`](/de/docs/Web/API/File)-Objekt erstellt, das verwendet werden kann, um die Datei zu lesen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt die Eigenschaften der übergeordneten Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), hat jedoch keine Eigenschaften, die für diese Schnittstelle einzigartig sind._
+_Erbt die Eigenschaften seines Eltern-Interfaces, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), hat jedoch keine einzigartigen Eigenschaften für dieses Interface._
 
 ## Instanzmethoden
 
 - [`createWriter()`](/de/docs/Web/API/FileSystemFileEntry/createWriter) {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt ein [`FileWriter`](/de/docs/Web/API/FileWriter)-Objekt zurück, das verwendet werden kann, um Daten in die durch den Verzeichniseintrag repräsentierte Datei zu schreiben.
+  - : Gibt ein [`FileWriter`](/de/docs/Web/API/FileWriter)-Objekt zurück, das verwendet werden kann, um Daten in die von dem Verzeichniseintrag repräsentierte Datei zu schreiben.
 - [`file()`](/de/docs/Web/API/FileSystemFileEntry/file)
-  - : Erstellt ein neues [`File`](/de/docs/Web/API/File)-Objekt, das zum Lesen der Datei verwendet werden kann.
+  - : Erstellt ein neues [`File`](/de/docs/Web/API/File)-Objekt, das verwendet werden kann, um die Datei zu lesen.
 
 ## Spezifikationen
 

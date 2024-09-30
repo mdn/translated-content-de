@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`end`**-Eigenschaft des [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule) Interface gibt einen String zurück, der den Wert der `@scope`-at-rule's Gültigkeitsgrenze enthält.
+Die **`end`**-Eigenschaft der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule)-Schnittstelle gibt einen String zurück, der den Wert des `@scope`-At-Regel-Scope-Limits enthält.
 
 ## Wert
 
-Ein String, oder `null`, wenn die `@scope`-at-rule keine Gültigkeitsgrenze definiert hat.
+Ein String oder `null`, wenn die `@scope`-At-Regel kein definiertes Scope-Limit besitzt.
 
 ## Beispiel
 

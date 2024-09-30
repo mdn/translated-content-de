@@ -8,11 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`usbVersionMajor`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist eine von drei Eigenschaften, die die von dem Gerät unterstützte USB-Protokollversion angeben. Die anderen beiden Eigenschaften sind USBDevice.usbVersionMinor und USBDevice.usbVersionSubminor.
+Die schreibgeschützte Eigenschaft **`usbVersionMajor`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren. Die anderen beiden Eigenschaften sind USBDevice.usbVersionMinor und USBDevice.usbVersionSubminor.
 
 ## Wert
 
-Die letzte von drei Eigenschaften, die die von dem Gerät unterstützte USB-Protokollversion angeben.
+Die letzte von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren.
 
 ## Spezifikationen
 

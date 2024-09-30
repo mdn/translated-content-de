@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des oberen {{CSSxRef("border")}} eines Elements fest.
+Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie des oberen {{CSSxRef("border")}} eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-top-style.html")}}
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie Ränder unterschiedlicher Stile in den Ecken verbunden werden.
+> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ border-top-style: revert-layer;
 border-top-style: unset;
 ```
 
-Die Eigenschaft `border-top-style` wird als einzelner {{cssxref("line-style")}}-Schlüsselwortwert angegeben.
+Die Eigenschaft `border-top-style` wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -134,5 +134,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Randeigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
-- Die anderen oberen Randeigenschaften: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.
+- Die anderen stilbezogenen Rand-Eigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
+- Die anderen Eigenschaften, die sich auf den oberen Rand beziehen: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.

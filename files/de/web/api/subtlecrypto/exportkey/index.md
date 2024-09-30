@@ -1,5 +1,5 @@
 ---
-title: "SubtleCrypto: exportKey() Methode"
+title: "SubtleCrypto: exportKey()-Methode"
 short-title: exportKey()
 slug: Web/API/SubtleCrypto/exportKey
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`exportKey()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle exportiert einen Schlüssel: Das bedeutet, sie nimmt ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt als Eingabe und gibt den Schlüssel in einem externen, portablen Format aus.
+Die **`exportKey()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces exportiert einen Schlüssel: Das heißt, sie nimmt als Eingabe ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt und gibt Ihnen den Schlüssel in einem externen, portablen Format aus.
 
 Um einen Schlüssel zu exportieren, muss [`CryptoKey.extractable`](/de/docs/Web/API/CryptoKey/extractable) auf `true` gesetzt sein.
 
-Schlüssel können in mehreren Formaten exportiert werden: siehe [Unterstützte Formate](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) auf der Seite [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) für Details.
+Schlüssel können in mehreren Formaten exportiert werden: Details finden Sie unter [Unterstützte Formate](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) auf der Seite [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey).
 
-Schlüssel werden nicht in einem verschlüsselten Format exportiert: Um Schlüssel beim Exportieren zu verschlüsseln, verwenden Sie stattdessen die [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) API.
+Schlüssel werden nicht in einem verschlüsselten Format exportiert: Um Schlüssel beim Exportieren zu verschlüsseln, verwenden Sie stattdessen die [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey)-API.
 
 ## Syntax
 
@@ -25,8 +25,8 @@ exportKey(format, key)
 ### Parameter
 
 - `format`
-  - : Ein Zeichenfolgewert, der das Datenformat beschreibt, in dem der Schlüssel exportiert werden soll. Es kann eines der folgenden sein:
-    - `raw`: [Raw](/de/docs/Web/API/SubtleCrypto/importKey#raw)-Format.
+  - : Ein String-Wert, der das Datenformat beschreibt, in dem der Schlüssel exportiert werden soll. Es kann eines der folgenden sein:
+    - `raw`: [Rohformat](/de/docs/Web/API/SubtleCrypto/importKey#raw).
     - `pkcs8`: [PKCS #8](/de/docs/Web/API/SubtleCrypto/importKey#pkcs_8)-Format.
     - `spki`: [SubjectPublicKeyInfo](/de/docs/Web/API/SubtleCrypto/importKey#subjectpublickeyinfo)-Format.
     - `jwk`: [JSON Web Key](/de/docs/Web/API/SubtleCrypto/importKey#json_web_key)-Format.
@@ -42,7 +42,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 ### Ausnahmen
 
-Das Promise wird abgelehnt, wenn eine der folgenden Ausnahmen auftritt:
+Das Promise wird zurückgewiesen, wenn eine der folgenden Ausnahmen auftritt:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn versucht wird, einen nicht extrahierbaren Schlüssel zu exportieren.
@@ -54,11 +54,11 @@ Das Promise wird abgelehnt, wenn eine der folgenden Ausnahmen auftritt:
 ## Beispiele
 
 > [!NOTE]
-> Sie können [die funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/export-key/index.html).
+> Sie können [die funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/export-key/index.html) auf GitHub ausprobieren.
 
-### Rohexport
+### Roh-Export
 
-Dieses Beispiel exportiert einen AES-Schlüssel als `ArrayBuffer`, der die Bytes für den Schlüssel enthält. [Siehe den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/raw.js).
+Dieses Beispiel exportiert einen AES-Schlüssel als `ArrayBuffer`, der die Bytes für den Schlüssel enthält. [Sehen Sie den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/raw.js).
 
 ```js
 /*
@@ -93,9 +93,9 @@ window.crypto.subtle
   });
 ```
 
-### Export im PKCS #8-Format
+### PKCS #8-Export
 
-Dieses Beispiel exportiert einen RSA-Privatschlüssel für das Signieren als PKCS #8-Objekt. Der exportierte Schlüssel wird dann PEM-codiert. [Siehe den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/pkcs8.js).
+Dieses Beispiel exportiert einen RSA-privaten Signaturschlüssel als PKCS #8-Objekt. Der exportierte Schlüssel wird dann PEM-codiert. [Sehen Sie den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/pkcs8.js).
 
 ```js
 /*
@@ -143,9 +143,9 @@ window.crypto.subtle
   });
 ```
 
-### Export im SubjectPublicKeyInfo-Format
+### SubjectPublicKeyInfo-Export
 
-Dieses Beispiel exportiert einen RSA-öffentlichen Verschlüsselungsschlüssel als PEM-codiertes SubjectPublicKeyInfo-Objekt. [Siehe den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/spki.js).
+Dieses Beispiel exportiert einen RSA-öffentlichen Verschlüsselungsschlüssel als PEM-codiertes SubjectPublicKeyInfo-Objekt. [Sehen Sie den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/spki.js).
 
 ```js
 /*
@@ -193,9 +193,9 @@ window.crypto.subtle
   });
 ```
 
-### Export eines JSON Web Keys
+### JSON Web Key-Export
 
-Dieses Beispiel exportiert einen ECDSA-Privatschlüssel zum Signieren als JSON Web Key-Objekt. [Siehe den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/jwk.js).
+Dieses Beispiel exportiert einen ECDSA-privaten Signaturschlüssel als JSON Web Key-Objekt. [Sehen Sie den vollständigen Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/export-key/jwk.js).
 
 ```js
 /*

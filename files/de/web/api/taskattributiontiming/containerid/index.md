@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`containerId`**-Schreibgeschützte Eigenschaft des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces gibt das `id`-Attribut des Containers zurück. Ein Container ist das `<iframe>`, `<embed>` oder `<object>` etc., das im Allgemeinen für eine lange Aufgabe verantwortlich gemacht wird.
+Die **`containerId`** schreibgeschützte Eigenschaft des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces gibt das `id`-Attribut des Containers zurück. Ein Container ist das `<iframe>`, `<embed>` oder `<object>` usw., das insgesamt für eine lange Aufgabe verantwortlich gemacht wird.
 
 ## Wert
 
-Ein String, der das `id`-HTML-Attribut des Containers enthält.
+Ein String, der das HTML-Inhaltsattribut [`id`](/de/docs/Web/HTML/Global_attributes/id) des Containers enthält.
 
 ## Spezifikationen
 

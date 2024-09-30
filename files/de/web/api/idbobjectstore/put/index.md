@@ -1,5 +1,5 @@
 ---
-title: "IDBObjectStore: put() Methode"
+title: "IDBObjectStore: put()-Methode"
 short-title: put()
 slug: Web/API/IDBObjectStore/put
 l10n:
@@ -8,14 +8,13 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`put()`**-Methode des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces aktualisiert einen gegebenen Eintrag in einer Datenbank oder fügt einen neuen Eintrag hinzu, wenn der gegebene Eintrag nicht bereits existiert.
+Die **`put()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle aktualisiert einen bestimmten Datensatz in einer Datenbank oder fügt einen neuen Datensatz hinzu, wenn der angegebene Eintrag noch nicht existiert.
 
-Sie gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des Wertes. Dieser geklonte Wert wird dann im Objekt-Store gespeichert. Dies dient dazu, neue Datensätze hinzuzufügen oder bestehende Datensätze in einem Objekt-Store zu aktualisieren, wenn der Modus der Transaktion `readwrite` ist. Wenn der Datensatz erfolgreich gespeichert wird, wird ein Erfolgsevent auf dem zurückgegebenen Anforderungsobjekt ausgelöst, wobei das `result` auf den Schlüssel des gespeicherten Datensatzes und `transaction` auf die Transaktion gesetzt wird, in der sich dieser Objekt-Store befindet.
+Sie gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des Wertes und speichert den geklonten Wert im Objekt-Store. Dies dient dem Hinzufügen neuer oder dem Aktualisieren vorhandener Datensätze in einem Objekt-Store, wenn der Modus der Transaktion `readwrite` ist. Wenn der Datensatz erfolgreich gespeichert wurde, wird ein Erfolgsevent auf dem zurückgegebenen Anforderungsobjekt ausgelöst, wobei das `result` auf den Schlüssel des gespeicherten Datensatzes gesetzt ist und die `transaction` auf die Transaktion gesetzt ist, in der dieser Objekt-Store geöffnet ist.
 
-Die put-Methode ist eine _Aktualisierungs- oder Einfügemethode_.
-Siehe die [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add)-Methode für eine _Nur-Einfüge-Methode_.
+Die put-Methode ist eine _Update- oder Insert_-Methode. Sehen Sie sich die [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add)-Methode für eine _Nur-Insert_-Methode an.
 
-Beachten Sie, dass wenn Sie einen [`IDBCursor`](/de/docs/Web/API/IDBCursor) für den Datensatz haben, den Sie aktualisieren möchten, es vorzuziehen ist, diesen mit [`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update) zu aktualisieren, anstatt `IDBObjectStore.put()` zu verwenden. Dadurch wird deutlich, dass ein bestehender Datensatz aktualisiert wird, anstatt einen neuen Datensatz einzufügen.
+Beachten Sie, dass, wenn Sie einen [`IDBCursor`](/de/docs/Web/API/IDBCursor) auf den Datensatz haben, den Sie aktualisieren möchten, es vorzuziehen ist, ihn mit [`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update) zu aktualisieren, anstatt `IDBObjectStore.put()` zu verwenden. Auf diese Weise wird deutlich, dass ein vorhandener Datensatz aktualisiert wird, anstatt dass ein neuer Datensatz eingefügt wird.
 
 ## Syntax
 
@@ -27,7 +26,7 @@ put(item, key)
 ### Parameter
 
 - `item`
-  - : Das Element, das Sie aktualisieren (oder einfügen) möchten.
+  - : Der Eintrag, den Sie aktualisieren (oder einfügen) möchten.
 - `key` {{optional_inline}}
   - : Der Primärschlüssel des Datensatzes, den Sie aktualisieren möchten (z.B. von [`IDBCursor.primaryKey`](/de/docs/Web/API/IDBCursor/primaryKey)).
 
@@ -35,30 +34,30 @@ put(item, key)
 
 Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der `result`-Eigenschaft der Anforderung der Schlüssel für den neuen oder aktualisierten Datensatz.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anforderung der Schlüssel für den neuen oder aktualisierten Datensatz.
 
 ### Ausnahmen
 
-Diese Methode kann einen der folgenden Typen von [`DOMException`](/de/docs/Web/API/DOMException) auslösen:
+Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die mit dieser Operation verbundene Transaktion im Lese-<a href="/de/docs/Web/API/IDBTransaction#mode_constants">Modus</a> ist.
+  - : Wird ausgelöst, wenn die mit dieser Operation verbundene Transaktion im <a href="/de/docs/Web/API/IDBTransaction#mode_constants">Nur-Lese-Modus</a> ist.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden Bedingungen zutrifft:
-    - Der Objekt-Store verwendet [in-line keys](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#in-line_key) oder hat einen [key generator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator), und ein `key`-Parameter wurde bereitgestellt.
-    - Der Objekt-Store verwendet out-of-line keys und hat keinen key generator, und kein `key`-Parameter wurde bereitgestellt.
-    - Der Objekt-Store verwendet in-line keys, hat aber keinen key generator, und der key path des Objekt-Stores ergibt keinen gültigen Schlüssel.
+    - Der Objekt-Store verwendet [Inline-Schlüssel](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#in-line_key) oder hat einen [Schlüsselgenerator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator), und ein `key`-Parameter wurde bereitgestellt.
+    - Der Objekt-Store verwendet Out-of-Line-Schlüssel und hat keinen Schlüsselgenerator, und es wurde kein `key`-Parameter bereitgestellt.
+    - Der Objekt-Store verwendet Inline-Schlüssel, aber keinen Schlüsselgenerator, und der Schlüsselpfad des Objekt-Stores ergibt keinen gültigen Schlüssel.
     - Der `key`-Parameter wurde bereitgestellt, enthält aber keinen gültigen Schlüssel.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
+  - : Wird ausgelöst, wenn das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die zu speichernden Daten nicht durch den internen strukturierten Klon-Algorithmus geklont werden konnten.
+  - : Wird ausgelöst, wenn die zu speichernden Daten nicht durch den internen strukturierten Klonalgorithmus geklont werden konnten.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein bestimmter Datensatztitel angefordert; wenn diese Anforderung erfolgreich ist, ruft die `onsuccess`-Funktion den zugehörigen Datensatz von dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) ab (verfügbar als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt dann den aktualisierten Datensatz in einer weiteren Anforderung mit `put()` zurück in den Objekt-Store. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Das folgende Beispiel fordert einen bestimmten Datensatz-Titel an; wenn diese Anforderung erfolgreich ist, ruft die `onsuccess`-Funktion den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) ab (verfügbar gemacht als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und fügt dann den aktualisierten Datensatz in einer weiteren Anforderung mit `put()` zurück in den Objekt-Store ein. Für ein vollständig funktionierendes Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -104,9 +103,9 @@ objectStoreTitleRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Einstellen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Zeigern: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inert`** spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn vorhanden, bewirkt, dass der Browser Benutzereingabeveranstaltungen für das Element "ignoriert", einschließlich Fokussierung und Ereignissen von unterstützenden Technologien. Der Browser kann auch die Seitensuche und die Textauswahl im Element ignorieren. Dies kann nützlich sein, wenn Sie Benutzeroberflächen wie Modale erstellen, bei denen der Fokus im sichtbaren Modal "eingefangen" werden soll.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inert`** spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn er vorhanden ist, den Browser veranlasst, Benutzereingabeereignisse für das Element zu "ignorieren", einschließlich Fokuserereignissen und Ereignissen von unterstützenden Technologien. Der Browser kann auch die Seitensuche und die Textauswahl im Element ignorieren. Dies kann nützlich sein, wenn man Benutzeroberflächen wie Modals erstellt, bei denen der Fokus im sichtbaren Modal "eingeschlossen" werden soll.
 
 > [!NOTE]
-> Verschachteln Sie keine interaktiven Elemente oder wichtigen Inhalte in Elementen mit dem `inert`-Attribut, da inerte Inhalte und deren Nachkommen weder fokussierbar noch für alle Benutzer wahrnehmbar sind.
+> Legen Sie keine interaktiven Elemente oder wichtigen Inhalte in Elemente mit dem `inert`-Attribut, da inerte Inhalte und deren Nachkommen für alle Benutzer weder fokussierbar noch wahrnehmbar sind.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist der Wert `false`.
+Ein Boolean, der `true` ist, wenn das Element inert ist; andernfalls ist der Wert `false`.
 
 ## Beispiel
 
@@ -43,7 +43,7 @@ Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist
 {{ EmbedLiveSample('Example', 560, 200) }}
 
 > [!NOTE]
-> Dieses Attribut allein wird keine visuelle Änderung des Inhalts im Browser bewirken. Im obigen Beispiel wurde CSS angewendet, sodass jeder direkte Nachkomme eines Elements mit dem inert-Attribut halbtransparent dargestellt wird.
+> Dieses Attribut führt allein zu keiner visuellen Änderung des Inhalts, wie er im Browser angezeigt wird. Im obigen Beispiel wurde CSS angewendet, sodass alle direkten Nachkommen eines Elements mit dem inert-Attribut halbtransparent dargestellt werden.
 
 ## Spezifikationen
 

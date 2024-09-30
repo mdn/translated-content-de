@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das bestimmt, ob das FTP-Protokoll im Browser aktiviert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das bestimmt, ob das FTP-Protokoll im Browser aktiviert ist.
 
-Der zugrunde liegende Wert ist ein Boolescher Wert.
+Der zugrunde liegende Wert ist ein boolescher Wert.
 
 > [!NOTE]
-> Ab der Firefox-Version 88 ist diese Einstellung schreibgeschützt.
+> Ab Firefox-Version 88 ist diese Einstellung schreibgeschützt.
 
 ## Browser-Kompatibilität
 

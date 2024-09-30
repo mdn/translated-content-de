@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Fähigkeit des Benutzers zu aktivieren oder zu deaktivieren, einen Tab durch Doppelklicken zu schließen.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Fähigkeit des Benutzers, einen Tab durch Doppelklicken zu schließen, zu aktivieren oder zu deaktivieren.
 
 Der zugrunde liegende Wert ist ein boolescher Wert.
 
-Standardmäßig ist `closeTabsByDoubleClick` false. Die Einstellung kann vom Benutzer in about:config geändert werden.
+Standardmäßig ist `closeTabsByDoubleClick` auf false gesetzt. Die Einstellung kann vom Benutzer in `about:config` geändert werden.
 
 ## Browser-Kompatibilität
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`style`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interface ruft den Stil der Schriftart ab oder setzt ihn.
+Die **`style`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces holt oder setzt den Stil der Schriftart.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-style", "font-style")}}-Deskriptor.
 

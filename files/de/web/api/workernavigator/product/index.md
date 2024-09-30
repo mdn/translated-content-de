@@ -8,11 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Der Wert der **`WorkerNavigator.product`**-Eigenschaft ist immer
-`"Gecko"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`WorkerNavigator.product`**-Eigenschaft ist in jedem Browser immer `"Gecko"`. Diese Eigenschaft wird lediglich aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser liefern `"Gecko"` als Wert dieser Eigenschaft.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser geben `"Gecko"` als Wert dieser Eigenschaft zurück.
 
 ## Wert
 

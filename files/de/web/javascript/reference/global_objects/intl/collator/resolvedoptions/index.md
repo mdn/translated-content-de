@@ -2,12 +2,12 @@
 title: Intl.Collator.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/resolvedOptions
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.Collator")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses Collator-Objekts berechneten Sprach- und Sortieroptionen widerspiegeln.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.Collator")}} Instanzen gibt ein neues Objekt zurück, dessen Eigenschaften die während der Initialisierung dieses `Collator`-Objekts berechneten Optionen widerspiegeln.
 
 {{EmbedInteractiveExample("pages/js/intl-collator-prototype-resolvedoptions.html")}}
 
@@ -23,20 +23,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung des gegebenen {{jsxref("Intl.Collator")}}-Objekts berechneten Sprach- und Sortieroptionen widerspiegeln.
-
-## Beschreibung
-
-Das resultierende Objekt hat die folgenden Eigenschaften:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Collator`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften in der angegebenen Reihenfolge:
 
 - `locale`
-  - : Das BCP 47-Sprachtag für die tatsächlich verwendete Sprache. Wenn im Eingabe-BCP 47-Sprachtag angeforderte Unicode-Erweiterungswerte zu dieser Sprache führten, sind die angeforderten und für diese Sprache unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
-- `usage`, `sensitivity`, `ignorePunctuation`
-  - : Die für diese Eigenschaften im `options`-Argument angegebenen oder als Standardwerte eingesetzten Werte.
+  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Gebietsschema, bestimmt durch den [Sprachverhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur die Unicode-Erweiterungsschlüssel `co`, `kn` und `kf`, wenn angefordert und unterstützt, können in der Ausgabe enthalten sein.
+- `usage`
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, wobei Standardwerte bei Bedarf ergänzt werden. Er ist entweder `"sort"` oder `"search"`. Der Standardwert ist `"sort"`.
+- `sensitivity`
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, wobei Standardwerte bei Bedarf ergänzt werden. Er ist entweder `"base"`, `"accent"`, `"case"` oder `"variant"`. Der Standardwert ist `"variant"` für die Verwendung `"sort"`; es ist vom Gebietsschema abhängig für die Verwendung `"search"`.
+- `ignorePunctuation`
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, wobei Standardwerte bei Bedarf ergänzt werden. Es ist ein boolean. Der Standardwert ist `true` für Thai (`th`) und `false` für alle anderen Sprachen.
 - `collation`
-  - : Der mit dem Unicode-Erweiterungsschlüssel `"co"` angeforderte Wert, sofern er für `locale` unterstützt wird, oder `"default"`.
-- `numeric`, `caseFirst`
-  - : Die für diese Eigenschaften im `options`-Argument oder mithilfe der Unicode-Erweiterungsschlüssel `"kn"` und `"kf"` angeforderten oder als Standardwerte eingesetzten Werte. Wenn die Implementierung diese Eigenschaften nicht unterstützt, werden sie weggelassen.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"co"`, wobei Standardwerte bei Bedarf ergänzt werden. Es ist ein unterstützter [Kollationstyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getCollations#supported_collation_types) für dieses Gebietsschema. Der Standardwert ist `"default"`.
+- `numeric`
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"kn"`, wobei Standardwerte bei Bedarf ergänzt werden. Es ist ein boolean. Der Standardwert ist `false`. Wenn die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft ausgelassen.
+- `caseFirst`
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wird, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"kf"`, wobei Standardwerte bei Bedarf ergänzt werden. Er ist entweder `"upper"`, `"lower"` oder `"false"`. Der Standardwert ist `"false"`. Wenn die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft ausgelassen.
 
 ## Beispiele
 

@@ -12,14 +12,15 @@ l10n:
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Bevor Sie diese Bewertung versuchen, sollten Sie bereits alle Artikel in diesem Modul durchgearbeitet haben und auch ein Verständnis für HTML-Grundlagen besitzen (lernen Sie
+        Bevor Sie diese Bewertung versuchen, sollten Sie bereits alle Artikel in diesem Modul durchgearbeitet haben und auch die Grundlagen von HTML verstehen (lesen Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
-          >Einführung in HTML</a>).
+          >Einführung in HTML</a
+        >).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Mit etwas MathML experimentieren und Ihr neu gewonnenes Wissen testen.</td>
+      <td>Ein wenig mit MathML zu experimentieren und Ihr neu erworbenes Wissen zu testen.</td>
     </tr>
   </tbody>
 </table>
@@ -28,9 +29,9 @@ l10n:
 
 Das Ziel ist es, den folgenden Mathematikartikel mit HTML und MathML neu zu schreiben:
 
-![Screenshot des von XeLaTeX generierten PDF-Ausgangs](xelatex-output.png)
+![Screenshot der durch XeLaTeX erzeugten PDF-Ausgabe](xelatex-output.png)
 
-Auch wenn Sie nicht mit [LaTeX](https://en.wikipedia.org/wiki/LaTeX) vertraut sein müssen, könnte es nützlich sein, den LaTeX-Quelltext zu kennen, aus dem es generiert wurde:
+Auch wenn Sie mit [LaTeX](https://en.wikipedia.org/wiki/LaTeX) nicht vertraut sein müssen, könnte es nützlich sein, den LaTeX-Quellcode zu kennen, aus dem er erzeugt wurde:
 
 ```latex
 \documentclass{article}
@@ -86,7 +87,7 @@ using the following expression:
 
 ## Ausgangspunkt
 
-Um diese Bewertung zu starten, können Sie auf unsere übliche HTML-Vorlage zurückgreifen. Diese verwendet standardmäßig UTF-8-Codierung, spezielle Web-Schriftarten für die `<body>`- und `<math>`-Tags (mit einem ähnlichen Erscheinungsbild wie die LaTeX-Ausgabe). Das Ziel ist es, die Fragezeichen `???` durch tatsächlichen MathML-Inhalt zu ersetzen.
+Um mit dieser Bewertung zu beginnen, können Sie auf unsere übliche HTML-Vorlage zurückgreifen. Standardmäßig wird UTF-8-Kodierung verwendet, spezielle Webfonts für die `<body>` und `<math>` Tags (mit ähnlichem Look & Feel wie die LaTeX-Ausgabe). Das Ziel ist es, die Fragezeichen `???` durch tatsächlichen MathML-Inhalt zu ersetzen.
 
 ```html
 <!doctype html>
@@ -119,13 +120,13 @@ Um diese Bewertung zu starten, können Sie auf unsere übliche HTML-Vorlage zur�
 
 ## Hinweise und Tipps
 
-- Beginnen Sie mit dem Einfügen leerer `<math>`-Tags und entscheiden Sie, ob sie ein Attribut `display="block"` haben sollen oder nicht.
+- Beginnen Sie mit dem Einfügen leerer `<math>` Tags und entscheiden Sie, ob sie ein `display="block"` Attribut haben sollen oder nicht.
 - Überprüfen Sie den verwendeten Text und finden Sie deren [Unicode-Zeichen](https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode) ("−", "ℂ", "∑", ...).
-- Analysieren Sie die Semantik jedes Textabschnitts (Variable? Operator? Zahl?) und bestimmen Sie das entsprechende Token-Element für jeden davon.
-- Suchen Sie nach fortgeschrittenen Konstruktionen (Brüche? Wurzeln? Skripte? Matrizen?) und bestimmen Sie das entsprechende MathML-Element für jeden davon.
-- Vergessen Sie nicht, `<mrow>` für das Gruppieren von Unterausdrücken zu verwenden.
-- Achten Sie auf streckbare und große Operatoren!
+- Analysieren Sie die Semantik jedes Textabschnitts (Variable? Operator? Zahl?) und bestimmen Sie das richtige Tokenelement, das Sie verwenden sollen.
+- Suchen Sie nach erweiterten Konstruktionen (Brüche? Wurzeln? Indizes? Matrizen?) und bestimmen Sie das passende MathML-Element für jede davon.
+- Vergessen Sie nicht, `<mrow>` zu verwenden, um Unterausdrücke zu gruppieren.
+- Achten Sie auf dehnbare und große Operatoren!
 - Verwenden Sie den [W3C-Validator](https://validator.w3.org/nu/), um unbeabsichtigte Fehler in Ihrem HTML/MathML-Markup zu erkennen.
-- Wenn Sie feststecken oder feststellen, wie mühsam es ist, MathML von Hand zu schreiben, können Sie Werkzeuge benutzen, um [MathML zu schreiben](/de/docs/Web/MathML/Authoring), wie [TeXZilla](https://fred-wang.github.io/TeXZilla/).
+- Wenn Sie nicht weiterkommen oder feststellen, wie schmerzhaft es ist, MathML von Hand zu schreiben, zögern Sie nicht, Tools zu nutzen, um [MathML zu schreiben](/de/docs/Web/MathML/Authoring) wie [TeXZilla](https://fred-wang.github.io/TeXZilla/).
 
 {{LearnSidebar}}{{PreviousMenu("Learn/MathML/First_steps/Tables", "Learn/MathML/First_steps")}}

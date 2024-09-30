@@ -10,7 +10,8 @@ l10n:
 
 Die Methode
 **`CanvasRenderingContext2D.quadraticCurveTo()`**
-des Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Es werden zwei Punkte benötigt: Der erste ist ein Kontrollpunkt und der zweite der Endpunkt. Der Startpunkt ist der letzte Punkt im aktuellen Pfad, der mit [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) geändert werden kann, bevor die quadratische Bézier-Kurve erstellt wird.
+der Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Sie benötigt zwei Punkte: Der erste ist ein Kontrollpunkt und der zweite ist
+der Endpunkt. Der Startpunkt ist der zuletzt festgelegte Punkt im aktuellen Pfad, der mit [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) geändert werden kann, bevor die quadratische Bézier-Kurve erstellt wird.
 
 ## Syntax
 
@@ -73,7 +74,8 @@ ctx.fill();
 
 #### Ergebnis
 
-In diesem Beispiel ist der Kontrollpunkt rot, und die Start- und Endpunkte sind blau.
+In diesem Beispiel ist der Kontrollpunkt rot und die
+Start- und Endpunkte sind blau.
 
 {{ EmbedLiveSample('How_quadraticCurveTo_works', 315, 165) }}
 
@@ -90,7 +92,7 @@ Dieses Beispiel zeichnet eine einfache quadratische Bézier-Kurve mit
 
 #### JavaScript
 
-Die Kurve beginnt an dem Punkt, der durch `moveTo()` angegeben wird: (20, 110). Der Kontrollpunkt befindet sich bei (230, 150). Die Kurve endet bei (250, 20).
+Die Kurve beginnt an dem von `moveTo()` angegebenen Punkt: (20, 110). Der Kontrollpunkt befindet sich bei (230, 150). Die Kurve endet bei (250, 20).
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -116,5 +118,5 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [Bézier-Kurve](/de/docs/Glossary/Bezier_curve)

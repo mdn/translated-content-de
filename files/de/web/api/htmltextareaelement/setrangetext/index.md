@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: setRangeText() Methode"
+title: "HTMLTextAreaElement: setRangeText()-Methode"
 short-title: setRangeText()
 slug: Web/API/HTMLTextAreaElement/setRangeText
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`setRangeText()`**-Methode der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ersetzt einen Textbereich in einem {{HTMLElement("textarea")}}-Element durch neuen Text, der als Argument übergeben wird.
+Die **`setRangeText()`**-Methode der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ersetzt einen Textbereich in einem {{HTMLElement("textarea")}}-Element mit neuem Text, der als Argument übergeben wird.
 
-Zusätzliche optionale Parameter beinhalten den Anfang des zu ändernden Textabschnitts, das Ende des Abschnitts und ein Schlüsselwort, das definiert, welcher Teil des `<textarea>` nach der Aktualisierung des Textes ausgewählt werden soll. Wenn die `startSelection`- und `endSelection`-Argumente nicht angegeben sind, wird angenommen, dass der Bereich die Auswahl ist.
+Zusätzliche optionale Parameter umfassen den Beginn des zu ändernden Textabschnitts, das Ende des Abschnitts und ein Schlüsselwort, das definiert, welcher Teil des `<textarea>` nach der Aktualisierung des Textes ausgewählt werden soll. Wenn die Argumente `startSelection` und `endSelection` nicht angegeben sind, wird angenommen, dass der Bereich die Auswahl ist.
 
-Das letzte Argument bestimmt, wie die Auswahl eingestellt wird, nachdem der Text ersetzt wurde. Die möglichen Werte sind `"select"`, welches den neu eingefügten Text auswählt, `"start"`, das die Auswahl direkt vor den eingefügten Text verschiebt, `"end"`, das die Auswahl direkt nach den eingefügten Text verschiebt, oder standardmäßig `"preserve"`, welches versucht, die Auswahl beizubehalten.
+Das letzte Argument bestimmt, wie die Auswahl nach dem Ersetzen des Textes gesetzt wird. Mögliche Werte sind `"select"`, das den neu eingefügten Text auswählt, `"start"`, das die Auswahl direkt vor den eingefügten Text verschiebt, `"end"`, das die Auswahl direkt nach den eingefügten Text verschiebt, oder der Standardwert `"preserve"`, der versucht, die Auswahl beizubehalten.
 
-Zusätzlich werden die [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event)- und [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignisse ausgelöst.
+Zusätzlich werden die [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) und [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) Ereignisse ausgelöst.
 
 ## Syntax
 
@@ -30,12 +30,14 @@ setRangeText(replacement, startSelection, endSelection, selectMode)
 - `replacement`
   - : Der einzufügende String.
 - [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) {{optional_inline}}
-  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Wertes des Elements ist, wird behandelt, als ob er auf das Ende des Wertes zeigt.
+  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer ist als die Länge
+    des Wertes des Elements, wird behandelt, als wäre er am Ende des Wertes.
 - [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) {{optional_inline}}
   - : Der Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein
-    Index, der größer als die Länge des Wertes des Elements ist, wird behandelt, als ob er auf das Ende des Wertes zeigt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
+    Index, der größer ist als die Länge des Wertes des Elements, wird behandelt, als wäre er am Ende
+    des Wertes. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
 - `selectMode` {{optional_inline}}
-  - : Ein Schlüsselwort, entweder `select`, `start`, `end` oder standardmäßig `preserve`, das definiert, wie die Auswahl eingestellt werden soll, nachdem der Text ersetzt wurde.
+  - : Ein Schlüsselwort, entweder `select`, `start`, `end` oder der Standardwert `preserve`, das definiert, wie die Auswahl nach dem Ersetzen des Textes gesetzt werden soll.
 
 ### Rückgabewert
 
@@ -43,7 +45,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (ausgewählt).
+Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird danach hervorgehoben (ausgewählt).
 
 ### HTML
 

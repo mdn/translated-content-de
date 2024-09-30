@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`** Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diesen Zahlenwert darstellt.
+Die **`toString()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diesen Zahlenwert darstellt.
 
 {{EmbedInteractiveExample("pages/js/number-tostring.html")}}
 
@@ -21,11 +21,11 @@ toString(radix)
 ### Parameter
 
 - `radix` {{optional_inline}}
-  - : Eine ganze Zahl im Bereich von `2` bis `36`, die die Basis angibt, die zur Darstellung des Zahlenwerts verwendet werden soll. Standardmäßig ist dies 10.
+  - : Ein ganzzahliger Wert im Bereich von `2` bis `36`, der die Basis angibt, die für die Darstellung des Zahlenwerts verwendet werden soll. Standardmäßig ist die Basis 10.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den angegebenen Zahlenwert darstellt. Wissenschaftliche Notation wird verwendet, wenn der Radix 10 ist und der Betrag der Zahl (ohne das Vorzeichen) größer oder gleich 10<sup>21</sup> oder kleiner als 10<sup>-6</sup> ist.
+Eine Zeichenkette, die den angegebenen Zahlenwert darstellt. Wissenschaftliche Notation wird verwendet, wenn die Basis 10 ist und die Größe der Zahl (ohne Vorzeichen) größer oder gleich 10<sup>21</sup> oder kleiner als 10<sup>-6</sup> ist.
 
 ### Ausnahmen
 
@@ -36,34 +36,33 @@ Eine Zeichenkette, die den angegebenen Zahlenwert darstellt. Wissenschaftliche N
 
 ## Beschreibung
 
-Das {{jsxref("Number")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht
-{{jsxref("Object.prototype.toString()")}}. Für `Number`-Werte gibt die `toString`-Methode eine Zeichenkettenrepräsentation des Werts in der angegebenen Basis zurück.
+Das {{jsxref("Number")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht {{jsxref("Object.prototype.toString()")}}. Für `Number`-Werte gibt die `toString`-Methode eine Zeichenkettendarstellung des Wertes in der angegebenen Basis zurück.
 
-Für Basen über 10 geben die Buchstaben des Alphabets Ziffern größer als 9 an. Zum Beispiel werden für Hexadezimalzahlen (Basis 16) `a` bis `f` verwendet.
+Für Basen über 10 geben die Buchstaben des Alphabets Ziffern größer als 9 an. Zum Beispiel werden für hexadezimale Zahlen (Basis 16) `a` bis `f` verwendet.
 
-Wenn der angegebene Zahlenwert negativ ist, bleibt das Vorzeichen erhalten. Dies ist auch der Fall, wenn die Basis 2 ist; die zurückgegebene Zeichenkette ist die positive binäre Darstellung des Zahlenwerts, vorangestellt mit einem `-` Zeichen, **nicht** das Zweierkomplement des Zahlenwerts.
+Wenn der angegebene Zahlenwert negativ ist, bleibt das Vorzeichen erhalten. Dies ist selbst dann der Fall, wenn die Basis 2 ist; die zurückgegebene Zeichenkette ist die positive binäre Darstellung des Zahlenwerts, dem ein `-` vorangestellt ist, **nicht** das Zweierkomplement des Zahlenwerts.
 
-Sowohl `0` als auch `-0` haben `"0"` als ihre Zeichenkettenrepräsentation. {{jsxref("Infinity")}} gibt `"Infinity"` zurück und {{jsxref("NaN")}} gibt `"NaN"` zurück.
+Sowohl `0` als auch `-0` haben `"0"` als ihre Zeichenketten-Darstellung. {{jsxref("Infinity")}} gibt `"Infinity"` zurück und {{jsxref("NaN")}} gibt `"NaN"` zurück.
 
-Wenn die Zahl keine ganze Zahl ist, wird der Dezimalpunkt `.` verwendet, um die Dezimalstellen zu trennen. [Wissenschaftliche Notation](/de/docs/Web/JavaScript/Reference/Lexical_grammar#exponential) wird verwendet, wenn der Radix 10 ist und der Betrag der Zahl (ohne das Vorzeichen) größer oder gleich 10<sup>21</sup> oder kleiner als 10<sup>-6</sup> ist. In diesem Fall spezifiziert die zurückgegebene Zeichenkette immer explizit das Vorzeichen des Exponenten.
+Wenn die Zahl keine ganze Zahl ist, wird das Dezimalkomma `.` verwendet, um die Dezimalstellen zu trennen. [Wissenschaftliche Notation](/de/docs/Web/JavaScript/Reference/Lexical_grammar#exponential) wird verwendet, wenn die Basis 10 ist und die Größe der Zahl (ohne Vorzeichen) größer oder gleich 10<sup>21</sup> oder kleiner als 10<sup>-6</sup> ist. In diesem Fall gibt die zurückgegebene Zeichenkette immer explizit das Vorzeichen des Exponenten an.
 
 ```js
 console.log((10 ** 21.5).toString()); // "3.1622776601683794e+21"
 console.log((10 ** 21.5).toString(8)); // "526665530627250154000000"
 ```
 
-Die zugrunde liegende Darstellung für Gleitkommazahlen ist die Basis-2 wissenschaftliche Notation (siehe [Zahlenkodierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding)). Die `toString()`-Methode verwendet jedoch nicht direkt diese genaueste Darstellung des Zahlenwerts. Stattdessen verwendet der Algorithmus die kleinste Anzahl von signifikanten Ziffern, die erforderlich sind, um die Ausgabe von benachbarten Zahlenwerten zu unterscheiden. Zum Beispiel, wenn die Zahl groß ist, wird es viele äquivalente Zeichenkettenrepräsentationen der gleichen Gleitpunktzahl geben, und `toString()` wählt die mit den meisten Nullen rechts aus (für jede gegebene Basis).
+Die zugrunde liegende Darstellung für Gleitkommazahlen ist die Basis-2-Wissenschaftsnotation (siehe [Zahlenkodierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding)). Allerdings verwendet die `toString()`-Methode diese genaueste Darstellung des Zahlenwerts nicht direkt. Stattdessen verwendet der Algorithmus die geringste Anzahl signifikanter Stellen, die erforderlich ist, um die Ausgabe von benachbarten Zahlenwerten zu unterscheiden. Wenn die Zahl beispielsweise groß ist, gibt es viele gleichwertige Zeichenketten-Darstellungen derselben Gleitkommazahl, und `toString()` wählt diejenige mit den meisten 0en auf der rechten Seite (für jede gegebene Basis).
 
 ```js
 console.log((1000000000000000128).toString()); // "1000000000000000100"
 console.log(1000000000000000100 === 1000000000000000128); // true
 ```
 
-Andererseits erlauben {{jsxref("Number.prototype.toFixed()")}} und {{jsxref("Number.prototype.toPrecision()")}} Ihnen, die Genauigkeit anzugeben und können präziser sein als `toString()`.
+Auf der anderen Seite erlauben Ihnen {{jsxref("Number.prototype.toFixed()")}} und {{jsxref("Number.prototype.toPrecision()")}}, die Genauigkeit zu spezifizieren und können präziser als `toString()` sein.
 
-Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `Number`-Primitive oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} aus für andere `this`-Werte, ohne zu versuchen, sie in Zahlenwerte zu zwingen.
+Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `Number`-Primitiv oder Wrapper-Objekt ist. Sie löst eine {{jsxref("TypeError")}} aus, wenn andere `this`-Werte ohne den Versuch, sie in Zahlenwerte umzuwandeln, verwendet werden.
 
-Da `Number` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) Methode hat, ruft JavaScript die `toString()`-Methode automatisch auf, wenn ein `Number`-Objekt in einem Kontext verwendet wird, der eine Zeichenkette erwartet, wie z.B. in einem [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals). Jedoch konsultieren `Number`-Primitive-Werte die `toString()`-Methode nicht, um [zu Zeichenketten gezwungen zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) — stattdessen werden sie direkt unter Verwendung des gleichen Algorithmus wie die anfängliche `toString()`-Implementierung konvertiert.
+Da `Number` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode hat, ruft JavaScript automatisch die `toString()`-Methode auf, wenn ein `Number`-Objekt in einem Kontext verwendet wird, der eine Zeichenkette erwartet, wie in einem [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals). Allerdings konsultieren `Number`-Primitive die `toString()`-Methode nicht, um in [Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zu werden — stattdessen werden sie direkt mit demselben Algorithmus wie die initiale `toString()`-Implementierung umgewandelt.
 
 ```js
 Number.prototype.toString = () => "Overridden";
@@ -89,16 +88,16 @@ console.log((-10).toString(2)); // "-1010"
 console.log((-0xff).toString(2)); // "-11111111"
 ```
 
-### Umrechnung der Basis von Zahlenzeichenketten
+### Umwandlung der Basis von Zahlenzeichenketten
 
-Wenn Sie eine Zeichenkette haben, die eine Zahl in einer nicht-dezimalen Basis darstellt, können Sie [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) und `toString()` verwenden, um sie in eine andere Basis zu konvertieren.
+Wenn Sie eine Zeichenkette haben, die eine Zahl in einer nicht-dezimalen Basis darstellt, können Sie [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) und `toString()` verwenden, um sie in eine andere Basis umzuwandeln.
 
 ```js
 const hex = "CAFEBABE";
 const bin = parseInt(hex, 16).toString(2); // "11001010111111101011101010111110"
 ```
 
-Achten Sie auf den Verlust von Präzision: Wenn die ursprüngliche Zahlenzeichenkette zu groß ist (größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER), zum Beispiel), sollten Sie stattdessen ein [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) verwenden. Allerdings unterstützt der `BigInt`-Konstruktor nur Zeichenketten, die Nummernliterale darstellen (d.h. Zeichenketten, die mit `0b`, `0o`, `0x` beginnen). Falls Ihre ursprüngliche Basis nicht eine der binären, oktalen, dezimalen oder hexadezimalen ist, müssen Sie möglicherweise Ihren eigenen Basisumrechner schreiben oder eine Bibliothek verwenden.
+Achten Sie auf Präzisionsverluste: Wenn die ursprüngliche Zahlzeichenkette zu groß ist (größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER), zum Beispiel), sollten Sie stattdessen ein [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) verwenden. Allerdings unterstützt der `BigInt`-Konstruktor nur Zeichenketten, die Zahlenliterale darstellen (d. h. Zeichenketten, die mit `0b`, `0o`, `0x` beginnen). Falls Ihre ursprüngliche Basis nicht binär, oktal, dezimal oder hexadezimal ist, müssen Sie möglicherweise Ihren Radix-Konverter selbst schreiben oder eine Bibliothek verwenden.
 
 ## Spezifikationen
 

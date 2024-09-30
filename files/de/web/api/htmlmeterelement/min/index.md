@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`min`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement) Schnittstelle repräsentiert den Minimalwert des {{htmlelement("meter")}}-Elements als eine Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Element/meter#min) Attribut des Elements wider oder `0`, wenn kein `min` definiert ist.
+Die **`min`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement) Interfaces repräsentiert den minimalen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Element/meter#min) Attribut des Elements wider, oder `0`, wenn kein `min` definiert ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung zu bestimmen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 

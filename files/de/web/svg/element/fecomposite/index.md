@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feComposite>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv führt die Kombination von zwei Eingabebildern pixelweise im Bildraum unter Verwendung einer der Porter-Duff-Kompositionsoperationen durch: `over`, `in`, `atop`, `out`, `xor`, `lighter` oder `arithmetic`.
+Der SVG-Filterprimitive **`<feComposite>`** führt die Kombination von zwei Eingabebildern pixelweise im Bildraum durch, indem einer der Porter-Duff-Kompositionsoperationen verwendet wird: `over`, `in`, `atop`, `out`, `xor`, `lighter` oder `arithmetic`.
 
-Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-Logos, das mit einem roten Kreis kombiniert wird:
+Die nachstehende Tabelle zeigt jede dieser Operationen mit einem Bild des MDN-Logos, das mit einem roten Kreis kombiniert wird:
 
 <table class="no-markdown">
   <tbody>
@@ -24,10 +24,11 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
       <td>
         Die durch das {{SVGAttr("in")}}-Attribut definierte Quellgrafik
         (das MDN-Logo) wird über die durch das
-        {{SVGAttr("in2")}}-Attribut definierte Zielgrafik (den Kreis) gelegt.
+        {{SVGAttr("in2")}}-Attribut definierte Zielgrafik
+        (der Kreis) gelegt.
         <p>
-          Dies ist die <em>Standardoperation</em>, die verwendet wird, wenn keine
-          Operation oder eine nicht unterstützte Operation angegeben ist.
+          Dies ist die <em>Standardoperation</em>, die verwendet wird, wenn
+          keine Operation oder eine nicht unterstützte Operation angegeben ist.
         </p>
       </td>
     </tr>
@@ -37,7 +38,7 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
       </td>
       <td>
         Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
-        die sich mit der in dem <code>in2</code>-Attribut definierten Zielgrafik überlappen,
+        die die im <code>in2</code>-Attribut definierte Zielgrafik überlappen,
         ersetzen die Zielgrafik.
       </td>
     </tr>
@@ -47,8 +48,8 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
       </td>
       <td>
         Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
-        die außerhalb der in dem <code>in2</code>-Attribut definierten Zielgrafik liegen,
-        werden angezeigt.
+        die außerhalb der im <code>in2</code>-Attribut definierten Zielgrafik
+        liegen, werden angezeigt.
       </td>
     </tr>
     <tr>
@@ -56,10 +57,10 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
         <p>atop <img src="operation_atop.png" alt="atop operator" /></p>
       </td>
       <td>
-        Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
-        die sich mit der in dem <code>in2</code>-Attribut definierten Zielgrafik überlappen,
+        Die Teile der im <code>in</code>-Attribut definierten Quellgrafik, die
+        die im <code>in2</code>-Attribut definierte Zielgrafik überlappen,
         ersetzen die Zielgrafik. Die Teile der Zielgrafik, die nicht mit der
-        Quellgrafik überlappen, bleiben unverändert.
+        Quellgrafik überlappen, bleiben unberührt.
       </td>
     </tr>
     <tr>
@@ -67,9 +68,9 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
         <p>xor <img src="operation_xor.png" alt="xor operator" /></p>
       </td>
       <td>
-        Die nicht überlappenden Bereiche der durch das <code>in</code>-Attribut
-        definierten Quellgrafik und der in dem <code>in2</code>-Attribut definierten
-        Zielgrafik werden kombiniert.
+        Die nicht überlappenden Bereiche der im <code>in</code>-Attribut
+        definierten Quellgrafik und der im <code>in2</code>-Attribut
+        definierten Zielgrafik werden kombiniert.
       </td>
     </tr>
     <tr>
@@ -79,8 +80,8 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
         </p>
       </td>
       <td>
-        Die Summe der durch das <code>in</code>-Attribut definierten Quellgrafik
-        und der in dem <code>in2</code>-Attribut definierten Zielgrafik wird
+        Die Summe der im <code>in</code>-Attribut definierten Quellgrafik
+        und der im <code>in2</code>-Attribut definierten Zielgrafik wird
         angezeigt.
       </td>
     </tr>
@@ -93,24 +94,25 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
       </td>
       <td>
         <p>
-          Die <code>arithmetic</code>-Operation ist nützlich, um die
-          Ausgabe aus den Filtern {{SVGElement("feDiffuseLighting")}} und
-          {{SVGElement("feSpecularLighting")}} mit Texturdaten zu kombinieren. Wenn die
-          <code>arithmetic</code>-Operation gewählt wird, wird jeder Ergebnispixel
-          mit der folgenden Formel berechnet:
+          Die <code>arithmetic</code>-Operation ist nützlich zur Kombination
+          der Ausgabe von den
+          {{SVGElement("feDiffuseLighting")}}- und
+          {{SVGElement("feSpecularLighting")}}-Filtern mit Texturdaten. Wenn
+          die <code>arithmetic</code>-Operation gewählt wird, wird jedes
+          Ergebnispixel mit der folgenden Formel berechnet:
         </p>
         <pre class="brush: plain">result = k1*i1*i2 + k2*i1 + k3*i2 + k4</pre>
-        <p>wo:</p>
+        <p>wobei:</p>
         <ul>
           <li>
-            <code>i1</code> und <code>i2</code> stehen für die entsprechenden
-            Pixelkanalwerte des Eingabebildes, die auf
-            {{SVGAttr("in")}} und {{SVGAttr("in2")}} abbilden
+            <code>i1</code> und <code>i2</code> die entsprechenden
+            Pixelkanalwerte des Eingabebilds angeben, die auf
+            {{SVGAttr("in")}} und {{SVGAttr("in2")}} abgebildet sind.
           </li>
           <li>
             {{SVGAttr("k1")}}, {{SVGAttr("k2")}},
-            {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} stehen für die
-            Werte der Attribute mit denselben Namen.
+            {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die
+            Werte der Attribute mit demselben Namen.
           </li>
         </ul>
       </td>
@@ -118,26 +120,26 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
   </tbody>
 </table>
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## Attribute
 
-- {{SVGAttr("in")}}: Erstes Eingabebild für das gegebene Filter-Primitiv.
-- {{SVGAttr("in2")}}: Zweites Eingabebild für das gegebene Filter-Primitiv (funktioniert genauso wie das `in`-Attribut).
+- {{SVGAttr("in")}}: Erstes Eingabewert für den angegebenen Filterprimitive.
+- {{SVGAttr("in2")}}: Zweites Eingabewert für den angegebenen Filterprimitive (funktioniert genauso wie das `in`-Attribut).
 - {{SVGAttr("operator")}}: `over` | `in` | `out` | `atop` | `xor` | `lighter` | `arithmetic`
-- {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, {{SVGAttr("k4")}}: Werte, die zur Berechnung des Ergebnispixels im `arithmetic` {{SVGAttr("operator")}} Filter-Primitiv verwendet werden.
+- {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, {{SVGAttr("k4")}}: Werte, die zur Berechnung des Ergebnispixels in `arithmetic`-{{SVGAttr("operator")}}-Filterprimitiven verwendet werden.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)-Schnittstelle.
 
 ## Beispiel
 
-Dieses Beispiel definiert Filter für jede der unterstützten Operationen (`over`, `atop`, `lighter`, etc.), die ein Eingabe-`SourceGraphic` mit einem Bild des MDN-Logos komponieren. Die Filter werden jeweils auf ein Kreiselement angewendet, das dann als `SourceGraphic` verwendet wird.
+Dieses Beispiel definiert Filter für jede der unterstützten Operationen (`over`, `atop`, `lighter`, etc.), die ein Eingabe-`SourceGraphic` mit einem Bild des MDN-Logos kombinieren. Die Filter werden jeweils auf ein Kreis-Element angewendet, das dann als `SourceGraphic` verwendet wird.
 
-> **Note:** `BackgroundImage` kann in modernen Browsern nicht als Kompositionsquelle verwendet werden, daher können wir keinen Filter definieren, der eine Komposition mit beliebigen Pixeln, die als eine der Quellen unter dem Filter liegen, verwendet. Der hier gewählte Ansatz ist ein [Workaround, da wir `BackgroundImage` nicht verwenden können](/de/docs/Web/SVG/Attribute/in#workaround_for_backgroundimage).
+> **Hinweis:** `BackgroundImage` kann in modernen Browsern nicht als Kompositionsquelle verwendet werden, daher können wir keinen Filter definieren, der als eine der Quellen mit den Pixeln arbeitet, die sich zufällig unter dem Filter befinden. Der hier verwendete Ansatz ist ein [Workaround, da wir `BackgroundImage` nicht verwenden können](/de/docs/Web/SVG/Attribute/in#workaround_for_backgroundimage).
 
 ### SVG
 
@@ -262,7 +264,7 @@ Dieses Beispiel definiert Filter für jede der unterstützten Operationen (`over
 
 ## Siehe auch
 
-- [SVG Filter-Primitiv-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitivenattribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}

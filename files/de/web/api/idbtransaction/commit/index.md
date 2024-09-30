@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`commit()`**-Methode der [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Schnittstelle führt die Transaktion aus, wenn sie auf eine aktive Transaktion aufgerufen wird.
+Die **`commit()`**-Methode des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces bestätigt die Transaktion, wenn sie auf einer aktiven Transaktion aufgerufen wird.
 
-Beachten Sie, dass `commit()` normalerweise nicht _gerufen_ werden muss – eine Transaktion wird automatisch abgeschlossen, wenn alle ausstehenden Anfragen erfüllt wurden und keine neuen Anfragen gestellt wurden. `commit()` kann verwendet werden, um den Abschlussprozess zu starten, ohne auf Ereignisse von ausstehenden Anfragen zu warten.
+Beachten Sie, dass `commit()` normalerweise nicht _aufgerufen werden muss_ – eine Transaktion wird automatisch bestätigt, wenn alle ausstehenden Anfragen erfüllt sind und keine neuen Anfragen gestellt wurden. `commit()` kann verwendet werden, um den Bestätigungsprozess zu starten, ohne auf Ereignisse von ausstehenden Anfragen zu warten.
 
-Wenn sie auf einer Transaktion aufgerufen wird, die nicht aktiv ist, wird ein `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+Wenn es auf einer Transaktion aufgerufen wird, die nicht aktiv ist, wird ein `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Transaktionsstatus nicht aktiv ist.
+  - : Wird ausgelöst, wenn der Transaktionszustand nicht aktiv ist.
 
 ## Beispiele
 
@@ -82,7 +82,7 @@ transaction.commit();
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

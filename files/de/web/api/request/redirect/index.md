@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`redirect`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält den Modus, wie Umleitungen gehandhabt werden.
+Die schreibgeschützte **`redirect`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Modus, wie Umleitungen behandelt werden.
 
 ## Wert
 
@@ -18,11 +18,11 @@ Ein `RequestRedirect`-Enum-Wert, der einer der folgenden Strings sein kann:
 - `error`
 - `manual`
 
-Falls nicht spezifiziert, wenn die Anfrage erstellt wird, erhält er den Standardwert `follow`.
+Wenn bei der Erstellung der Anforderung nicht anders angegeben, erhält es den Standardwert `follow`.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann den `redirect`-Wert der Anfrage in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anforderung mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann den `redirect`-Wert der Anforderung in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein [`ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel)-Objekt, das den HTML/CSS-Inspektor des Browsers repräsentiert.
+Ein [`ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel)-Objekt, das den HTML/CSS-Inspektor des Browsers darstellt.
 
 ## Browser-Kompatibilität
 

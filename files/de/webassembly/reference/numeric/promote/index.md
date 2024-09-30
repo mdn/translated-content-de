@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die Anweisung **`promote`** wird verwendet, um Zahlen vom Typ `f32` in den Typ `f64` umzuwandeln (zu "promoten").
+Die **`promote`**-Anweisung wird verwendet, um Zahlen des Typs `f32` in den Typ `f64` zu konvertieren (promote).
 
 {{EmbedInteractiveExample("pages/wat/promote.html", "tabbed-taller")}}
 
@@ -23,6 +23,6 @@ f64.promote_f32
 ;; the top item on the stack will now be the value 10.5 of type f64
 ```
 
-| Anweisung         | Binärer Opcode |
-| ----------------- | -------------- |
-| `f64.promote_f32` | `0xbb`         |
+| Anweisung          | Binärer Opcode |
+| ------------------ | -------------- |
+| `f64.promote_f32`  | `0xbb`         |

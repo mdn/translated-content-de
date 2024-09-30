@@ -1,5 +1,5 @@
 ---
-title: "GPUCompilationInfo: Eigenschaft messages"
+title: "GPUCompilationInfo: messages-Eigenschaft"
 short-title: messages
 slug: Web/API/GPUCompilationInfo/messages
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`messages`** der Schnittstelle [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) ist ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, von denen jedes die Details einer individuellen Shader-Kompilierungsnachricht enthält. Nachrichten können informativ, Warnungen oder Fehler sein.
+Die **`messages`** schreibgeschützte Eigenschaft der
+[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Schnittstelle ist ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, von denen jedes die Details einer einzelnen Shader-Kompilierungsnachricht enthält. Nachrichten können informationell, Warnungen oder Fehler sein.
 
 ## Wert
 
@@ -16,7 +17,7 @@ Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-
 
 ## Beispiele
 
-Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel.
+Sehen Sie das Hauptbeispiel auf der Seite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel.
 
 ## Spezifikationen
 

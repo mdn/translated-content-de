@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`getItem()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt, wenn sie mit einem Schlüsselnamen aufgerufen wird, den Wert dieses Schlüssels zurück oder `null`, falls der Schlüssel im angegebenen `Storage`-Objekt nicht existiert.
+Die **`getItem()`**-Methode des [`Storage`](/de/docs/Web/API/Storage)-Interfaces liefert, wenn sie mit einem Schlüsselnamen aufgerufen wird, den Wert dieses Schlüssels oder `null`, wenn der Schlüssel im angegebenen `Storage`-Objekt nicht existiert.
 
 ## Syntax
 
@@ -23,12 +23,11 @@ getItem(keyName)
 
 ### Rückgabewert
 
-Ein String, der den Wert des Schlüssels enthält. Wenn der Schlüssel nicht existiert,
-wird `null` zurückgegeben.
+Ein String, der den Wert des Schlüssels enthält. Wenn der Schlüssel nicht existiert, wird `null` zurückgegeben.
 
 ## Beispiele
 
-Die folgende Funktion ruft drei Datenobjekte aus dem lokalen Speicher ab und verwendet sie dann, um benutzerdefinierte Stile auf einer Seite festzulegen.
+Die folgende Funktion ruft drei Datenobjekte aus dem lokalen Speicher ab und verwendet sie dann, um benutzerdefinierte Styles auf einer Seite festzulegen.
 
 ```js
 function setStyles() {
@@ -47,7 +46,7 @@ function setStyles() {
 ```
 
 > [!NOTE]
-> Um dies in einem realen Beispiel zu sehen, besuchen Sie unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Um dies in einem realen Beispiel zu sehen, siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

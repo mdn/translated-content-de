@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Computer programming** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese geben einem Computer/Software-Programm vor, was zu tun ist, in einer Sprache, die der Computer versteht. Diese Anweisungen kommen in Form vieler verschiedener Sprachen wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
+**Computer Programming** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese Anweisungen geben einem Computer/Softwareprogramm vor, was es in einer Sprache, die der Computer versteht, zu tun hat. Diese Anweisungen liegen in Form vieler verschiedener Sprachen vor, wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
 
-Mit einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Zum Beispiel ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die riesige Datenmengen speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen ermöglicht, Animationsfilme zu erstellen.
+Mit einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Beispielsweise ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die große Mengen an Daten speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen ermöglicht, animierte Filme zu erstellen.
 
 ## Siehe auch
 

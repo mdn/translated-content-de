@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das `gradientTransform`-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradienten-Koordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht es, zum Beispiel den Gradienten zu verzerren. Diese zusätzliche Transformationsmatrix wird zu bereits definierten Transformationen hinzugefügt (d.h. rechts eingefügt), einschließlich der notwendigen impliziten Transformation von Objektbegrenzungsrahmen-Einheiten in den Benutzerbereich.
+Das `gradientTransform`-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradienten-Koordinatensystem auf das Ziel-Koordinatensystem (z. B. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht beispielsweise das Schrägstellen des Gradienten. Diese zusätzliche Transformationsmatrix wird nachträglich in die (d. h. rechts von) zuvor definierten Transformationen eingefügt, einschließlich der impliziten Transformation, die erforderlich ist, um von Einheiten des Objektumrandungsrahmens in den Benutzerbereich überzugehen.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -65,7 +65,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -85,7 +85,7 @@ svg {
 </table>
 
 - `<transform-list>`
-  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradienten-Koordinatensystem auf das Zielkoordinatensystem spezifizieren.
+  -: Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradienten-Koordinatensystem auf das Ziel-Koordinatensystem spezifizieren.
 
 ## Spezifikationen
 

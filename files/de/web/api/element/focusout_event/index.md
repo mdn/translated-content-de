@@ -1,5 +1,5 @@
 ---
-title: "Element: focusout-Ereignis"
+title: "Element: focusout Ereignis"
 short-title: focusout
 slug: Web/API/Element/focusout_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`focusout`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verloren hat, nach dem [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis. Der Unterschied zwischen den beiden Ereignissen liegt darin, dass `focusout` weitergegeben wird, während `blur` dies nicht tut.
+Das **`focusout`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verloren hat, nach dem [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis. Die beiden Ereignisse unterscheiden sich darin, dass `focusout` aufsteigt, während `blur` dies nicht tut.
 
-Das Gegenteil von `focusout` ist das [`focusin`](/de/docs/Web/API/Element/focusin_event)-Ereignis, das ausgelöst wird, wenn das Element den Fokus erhält.
+Das Gegenteil von `focusout` ist das [`focusin`](/de/docs/Web/API/Element/focusin_event)-Ereignis, das ausgelöst wird, wenn das Element den Fokus erhalten hat.
 
 Das `focusout`-Ereignis kann nicht abgebrochen werden.
 
@@ -28,7 +28,7 @@ Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/W
 
 {{InheritanceDiagram("FocusEvent")}}
 
-## Ereignis-Eigenschaften
+## Ereigniseigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)_.
 
@@ -77,7 +77,7 @@ form.addEventListener("focusout", (event) => {
 {{Specifications}}
 
 > [!NOTE]
-> Die _UI Events_-Spezifikation beschreibt eine [Reihenfolge der Fokusevents](/de/docs/Web/API/FocusEvent#order_of_events), die von den aktuellen Browsern unterschiedlich implementiert wird.
+> Die _UI Events_-Spezifikation beschreibt eine [Reihenfolge von Fokusereignissen](/de/docs/Web/API/FocusEvent#order_of_events), die von den aktuellen Browsern unterschiedlich implementiert wird.
 
 ## Browser-Kompatibilität
 

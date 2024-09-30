@@ -8,22 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **[`AudioTrackList`](/de/docs/Web/API/AudioTrackList)**
-Eigenschaft **`length`** gibt die Anzahl der Einträge in der
-`AudioTrackList` zurück, von denen jeder ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)
-darstellt, der einen Audiotrack im Media-Element repräsentiert. Ein Wert von 0 zeigt an, dass
-keine Audiotracks im Medium vorhanden sind.
+Die schreibgeschützte **[`AudioTrackList`](/de/docs/Web/API/AudioTrackList)**-Eigenschaft **`length`** gibt die Anzahl der Einträge in der `AudioTrackList` zurück, von denen jeder ein [`AudioTrack`](/de/docs/Web/API/AudioTrack) darstellt, welches einen Audio-Track im Media-Element repräsentiert. Ein Wert von 0 zeigt an, dass im Medium keine Audio-Tracks vorhanden sind.
 
 ## Wert
 
-Eine Zahl, die angibt, wie viele Audiotracks in der
-`AudioTrackList` enthalten sind. Jeder Track kann durch die Behandlung der
-`AudioTrackList` als ein Array von Objekten des Typs [`AudioTrack`](/de/docs/Web/API/AudioTrack) abgerufen werden.
+Eine Zahl, die angibt, wie viele Audio-Tracks in der `AudioTrackList` enthalten sind. Jeder Track kann abgerufen werden, indem die `AudioTrackList` als ein Array von Objekten vom Typ [`AudioTrack`](/de/docs/Web/API/AudioTrack) behandelt wird.
 
 ## Beispiele
 
-Dieses Snippet ermittelt die Anzahl der Audiotracks im ersten {{HTMLElement("video")}}
-Element, das im [DOM](/de/docs/Glossary/DOM) durch [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
+Dieses Snippet ermittelt die Anzahl der Audio-Tracks im ersten {{HTMLElement("video")}}-Element, das im [DOM](/de/docs/Glossary/DOM) mit [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const videoElem = document.querySelector("video");
@@ -34,7 +27,7 @@ if (videoElem.audioTracks) {
 }
 ```
 
-Beachten Sie, dass dieses Beispiel prüft, ob [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) definiert ist, um ein Scheitern bei Browsern ohne Unterstützung für [`AudioTrack`](/de/docs/Web/API/AudioTrack) zu vermeiden.
+Beachten Sie, dass dieses Beispiel sicherstellt, dass [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) definiert ist, um Fehler bei Browsern zu vermeiden, die keine Unterstützung für [`AudioTrack`](/de/docs/Web/API/AudioTrack) bieten.
 
 ## Spezifikationen
 

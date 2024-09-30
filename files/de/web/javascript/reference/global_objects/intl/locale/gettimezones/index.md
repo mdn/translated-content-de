@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die **`getTimeZones()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt eine Liste der unterstützten Zeitzonen für diese Locale zurück.
+Die **`getTimeZones()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt eine Liste unterstützter Zeitzonen für dieses Locale zurück.
 
 > [!NOTE]
-> In einigen Versionen mancher Browser wurde diese Methode als Zugriffseigenschaft `timeZones` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgibt, wird sie jetzt als Methode implementiert, um zu verhindern, dass `locale.timeZones === locale.timeZones` `false` ergibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+> In einigen Versionen einiger Browser wurde diese Methode als Zugriffsproperty namens `timeZones` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgibt, wird sie jetzt als Methode implementiert, um die Situation zu vermeiden, dass `locale.timeZones === locale.timeZones` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Zeichenfolgen, das die unterstützten Zeitzonen für das zugehörige `Locale` darstellt, wobei jeder Wert ein [IANA-Zeitzonen-Canonical-Name](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) ist, sortiert in alphabetischer Reihenfolge. Wenn der Locale-Identifier kein Region-Subtag enthält, ist der zurückgegebene Wert `undefined`.
+Ein Array von Zeichenketten, das unterstützte Zeitzonen für das zugehörige `Locale` repräsentiert, wobei jeder Wert ein [kanonischer IANA-Zeitzonenname](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) ist, sortiert in alphabetischer Reihenfolge. Wenn der Locale-Identifier kein Region-Subtag enthält, ist der zurückgegebene Wert `undefined`.
 
-Beachten Sie, dass sich die IANA-Datenbank von Zeit zu Zeit ändert, [die Unicode-CLDR-Datenbank (die von Browsern verwendet wird) jedoch alte Zeitzonennamen zur Stabilität beibehält](https://unicode.org/reports/tr35/#Time_Zone_Identifiers). Zum Beispiel sind hier einige bemerkenswerte Namensänderungen:
+Beachten Sie, dass sich die IANA-Datenbank von Zeit zu Zeit ändert, [die Unicode CLDR-Datenbank (die von Browsern verwendet wird) alte Zeitzonennamen jedoch aus Stabilitätsgründen beibehält](https://unicode.org/reports/tr35/#Time_Zone_Identifiers). Hier sind einige bemerkenswerte Namensänderungen:
 
 | Aktueller IANA-Name              | CDLR-Datenbank         |
 | -------------------------------- | ---------------------- |
@@ -35,13 +35,13 @@ Beachten Sie, dass sich die IANA-Datenbank von Zeit zu Zeit ändert, [die Unicod
 | `Asia/Ho_Chi_Minh`               | `Asia/Saigon`          |
 | `Europe/Kyiv`                    | `Europe/Kiev`          |
 
-Einige Browser (Firefox) überschreiben diese veralteten Namen, während andere das nicht tun (Safari und Chrome). Für weitere Informationen sehen Sie in der [CLDR-Datenbank](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json) nach. (IANA-Namen sind mit `"_iana"` markiert, falls abweichend.) Es gibt [eine Initiative in TC39, um diese kanonischen Bezeichner korrekt zu handhaben](https://github.com/tc39/proposal-canonical-tz), die auch Links zu verwandten CLDR-Problemen enthält.
+Einige Browser (Firefox) überschreiben diese alten Namen, während andere dies nicht tun (Safari und Chrome). Weitere Informationen finden Sie in der [CLDR-Datenbank](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json). (IANA-Namen sind mit `"_iana"` markiert, wenn sie unterschiedlich sind.) Es gibt [eine Anstrengung in TC39, diese kanonischen Bezeichner richtig zu behandeln](https://github.com/tc39/proposal-canonical-tz), die auch Links zu verwandten CLDR-Problemen enthält.
 
 ## Beispiele
 
-### Ermitteln unterstützter Zeitzonen
+### Ermitteln von unterstützten Zeitzonen
 
-Liste der unterstützten Zeitzonen für ein bestimmtes `Locale`.
+Listen Sie unterstützte Zeitzonen für ein gegebenes `Locale` auf.
 
 ```js
 const arEG = new Intl.Locale("ar-EG");

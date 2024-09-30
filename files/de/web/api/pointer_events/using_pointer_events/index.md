@@ -7,27 +7,27 @@ l10n:
 
 {{DefaultAPISidebar("Pointer Events")}}
 
-Dieser Leitfaden zeigt, wie Sie [Pointer Events](/de/docs/Web/API/Pointer_events) und das HTML-{{HTMLElement("canvas")}}-Element verwenden, um eine Multi-Touch-fähige Zeichenanwendung zu erstellen. Dieses Beispiel basiert auf dem im [Touch-Events-Überblick](/de/docs/Web/API/Touch_events), verwendet jedoch das Eingabemodell der {{domxref("PointerEvent","pointer events", "", 1)}}. Ein weiterer Unterschied ist, dass die Anwendung, da Pointer Events geräteunabhängig sind, koordinatenbasierte Eingaben von einer Maus, einem Stift oder einer Fingerspitze mit demselben Code akzeptiert.
+Dieser Leitfaden zeigt, wie man [Pointer Events](/de/docs/Web/API/Pointer_events) und das HTML-{{HTMLElement("canvas")}}-Element verwendet, um eine Multi-Touch-fähige Zeichenanwendung zu erstellen. Dieses Beispiel basiert auf dem in der [Übersicht zu Touch Events](/de/docs/Web/API/Touch_events), verwendet jedoch das Eingabe-Ereignismodell der {{domxref("PointerEvent","Pointer Events", "", 1)}}. Ein weiterer Unterschied ist, dass die Anwendung aufgrund der Geräteunabhängigkeit von Pointer Events koordinatenbasierte Eingaben von einer Maus, einem Stift oder einem Finger mit demselben Code akzeptiert.
 
 Diese Anwendung funktioniert nur in einem Browser, der Pointer Events unterstützt.
 
 ## Definitionen
 
 - Oberfläche
-  - : Eine berührungsempfindliche Oberfläche. Dies kann ein Trackpad, ein Touchscreen oder sogar eine virtuelle Abbildung der Schreibtischoberfläche (oder des Mauspads) eines Benutzers mit dem physischen Bildschirm sein.
+  - : Eine berührungsempfindliche Oberfläche. Dies kann ein Trackpad, ein Touchscreen oder sogar eine virtuelle Abbildung der Schreibtischoberfläche (oder des Mauspads) des Benutzers mit dem physischen Bildschirm sein.
 - Berührungspunkt
-  - : Ein Kontaktpunkt mit der Oberfläche. Dies kann ein Finger (oder Ellbogen, Ohr, Nase, was auch immer, aber typischerweise ein Finger), ein Stift, eine Maus oder jede andere Methode zum Spezifizieren eines einzelnen Punktes auf der Oberfläche sein.
+  - : Ein Kontaktpunkt mit der Oberfläche. Dies kann ein Finger (oder Ellbogen, Ohr, Nase, was auch immer, aber typischerweise ein Finger), ein Stift, eine Maus oder eine andere Methode zur Angabe eines einzelnen Punkts auf der Oberfläche sein.
 
 ## Beispiele
 
 > [!NOTE]
-> Der nachfolgende Text verwendet den Begriff "Finger", um den Kontakt mit der Oberfläche zu beschreiben, aber es könnte natürlich auch ein Stift, eine Maus oder eine andere Methode zum Zeigen auf eine Stelle sein.
+> Der untenstehende Text verwendet den Begriff "Finger", um den Kontakt mit der Oberfläche zu beschreiben, es könnte natürlich auch ein Stift, eine Maus oder eine andere Methode sein, um auf einen Ort zu zeigen.
 
 ### Zeichenanwendung
 
 #### HTML
 
-Das HTML besteht aus einem einzigen {{HTMLElement("canvas")}}-Element. Kurven werden in Reaktion auf die Berührungsgesten des Benutzers gezeichnet. Ein Button ist ebenfalls enthalten, um die Zeichenfläche zu löschen.
+Das HTML besteht aus einem einzigen {{HTMLElement("canvas")}}-Element. Kurven werden als Reaktion auf die Berührungsgesten des Benutzers gezeichnet. Ein Button ist ebenfalls enthalten, um die Leinwand zu löschen.
 
 ```html
 <canvas id="canvas" width="600" height="600">
@@ -38,7 +38,7 @@ Das HTML besteht aus einem einzigen {{HTMLElement("canvas")}}-Element. Kurven we
 
 #### CSS
 
-Die {{cssxref("touch-action")}}-Eigenschaft ist auf `none` gesetzt, um zu verhindern, dass der Browser sein Standard-Touch-Verhalten auf die Anwendung anwendet.
+Die {{cssxref("touch-action")}}-Eigenschaft ist auf `none` gesetzt, um zu verhindern, dass der Browser seine standardmäßige Touch-Verhalten auf die Anwendung anwendet.
 
 ```css
 #canvas {
@@ -50,7 +50,7 @@ Die {{cssxref("touch-action")}}-Eigenschaft ist auf `none` gesetzt, um zu verhin
 
 #### JavaScript
 
-Wir werden alle laufenden Berührungen verfolgen und Linien für jede davon zeichnen. Die `colors` werden verwendet, um verschiedene Finger zu unterscheiden.
+Wir werden alle laufenden Berührungen verfolgen und Linien für jede von ihnen zeichnen. Die `colors` werden verwendet, um zwischen verschiedenen Fingern zu unterscheiden.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -61,7 +61,7 @@ const ongoingTouches = new Map();
 const colors = ["red", "green", "blue"];
 ```
 
-Die Funktion `handleStart` hört auf das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Event und zeichnet einen Kreis am Beginn der Berührung.
+Die Funktion `handleStart` hört auf das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis und zeichnet einen Kreis am Start der Berührung.
 
 ```js
 function handleStart(event) {
@@ -81,7 +81,7 @@ function handleStart(event) {
 canvas.addEventListener("pointerdown", handleStart, false);
 ```
 
-Die Funktion `handleEnd` hört auf das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Event und zeichnet ein Quadrat am Ende der Berührung.
+Die Funktion `handleEnd` hört auf das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignis und zeichnet ein Quadrat am Ende der Berührung.
 
 ```js
 function handleEnd(event) {
@@ -104,7 +104,7 @@ function handleEnd(event) {
 canvas.addEventListener("pointerup", handleEnd, false);
 ```
 
-Die Funktion `handleCancel` hört auf das [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Event und stoppt die Verfolgung der Berührung.
+Die Funktion `handleCancel` hört auf das [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignis und stoppt die Verfolgung der Berührung.
 
 ```js
 function handleCancel(event) {
@@ -121,7 +121,7 @@ function handleCancel(event) {
 canvas.addEventListener("pointercancel", handleCancel, false);
 ```
 
-Die Funktion `handleMove` hört auf das [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Event und zeichnet eine Linie zwischen dem Start- und Endpunkt der Berührung.
+Die Funktion `handleMove` hört auf das [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignis und zeichnet eine Linie zwischen dem Start und Ende der Berührung.
 
 ```js
 function handleMove(event) {
@@ -151,7 +151,7 @@ function handleMove(event) {
 canvas.addEventListener("pointermove", handleMove, false);
 ```
 
-Abschließend fügen Sie eine Löschfunktion hinzu.
+Schließlich fügen Sie eine Löschfunktion hinzu.
 
 ```js
 document.getElementById("clear").addEventListener("click", () => {

@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("Pointer Events")}}
 
-Pointer-Ereignisse erweitern DOM-Eingabe-Ereignisse, um verschiedene Zeige-Eingabegeräte wie Stift/Stylus und Touchscreens sowie die Maus zu unterstützen. Der _Pointer_ ist ein hardwareunabhängiges Gerät, das einen bestimmten Satz von Bildschirmkoordinaten anvisieren kann. Ein einheitliches Ereignismodell für Pointer kann die Erstellung von Websites und Anwendungen vereinfachen und eine gute Benutzererfahrung bieten, unabhängig von der Hardware des Nutzers.
+Pointer Events erweitern DOM-Ereignisse, um verschiedene Zeigeeingabegeräte wie Stift/Stylus und Touchscreens sowie Maus zu unterstützen. Der _Pointer_ ist ein hardware-unabhängiges Gerät, das auf eine bestimmte Reihe von Bildschirmkoordinaten zielen kann. Ein einheitliches Ereignismodell für Zeiger kann die Erstellung von Websites und Anwendungen vereinfachen und ein gutes Benutzererlebnis bieten, unabhängig von der Hardware des Benutzers.
 
-Pointer-Ereignisse weisen viele Ähnlichkeiten mit Mausereignissen auf, unterstützen jedoch mehrere gleichzeitige Pointer wie mehrere Finger auf einem Touchscreen. Diese zusätzliche Funktion kann genutzt werden, um reichhaltigere Benutzer-Interaktionsmodelle bereitzustellen, jedoch auf Kosten zusätzlicher Komplexität in der Handhabung von Multi-Touch-Interaktionen. Dieses Dokument demonstriert anhand von Beispielcode, wie man Pointer-Ereignisse mit verschiedenen Multi-Touch-Interaktionen verwendet.
+Pointer Events weisen viele Gemeinsamkeiten mit Mausereignissen auf, unterstützen jedoch mehrere gleichzeitige Zeiger, wie beispielsweise mehrere Finger auf einem Touchscreen. Diese zusätzliche Funktion kann verwendet werden, um reichhaltigere Benutzerinteraktionsmodelle bereitzustellen, jedoch auf Kosten zusätzlicher Komplexität bei der Handhabung von Multi-Touch-Interaktionen. Dieses Dokument demonstriert anhand von Beispielcode die Verwendung von Pointer Events für verschiedene Multi-Touch-Interaktionen.
 
-Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/pointerevents/Multi-touch_interaction.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/blob/main/pointerevents/Multi-touch_interaction.html); Pull-Anfragen und [Fehlermeldungen](https://github.com/mdn/dom-examples/issues) sind willkommen.
+Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/pointerevents/Multi-touch_interaction.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/blob/main/pointerevents/Multi-touch_interaction.html); wir freuen uns über Pull-Requests und [Fehlermeldungen](https://github.com/mdn/dom-examples/issues).
 
 ## Beispiel
 
-Dieses Beispiel demonstriert die Verwendung verschiedener Ereignistypen von Pointer-Ereignissen ([`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) usw.) für verschiedene Multi-Touch-Interaktionen.
+Dieses Beispiel demonstriert die Verwendung verschiedener Event-Typen von Pointer Events ([`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) usw.) für unterschiedliche Multi-Touch-Interaktionen.
 
 ### Berührungsziele definieren
 
@@ -44,7 +44,7 @@ Die Anwendung verwendet {{HTMLElement("div")}}, um drei verschiedene Berührungs
 
 ### Globaler Zustand
 
-Um die Multi-Touch-Interaktion zu unterstützen, muss der Ereignisstatus eines Pointers während verschiedener Ereignisphasen beibehalten werden. Diese Anwendung verwendet drei Arrays, um den Ereignisstatus zu zwischenspeichern, ein Cache pro Ziel-Element.
+Um die Multi-Touch-Interaktion zu unterstützen, ist es erforderlich, den Ereigniszustand eines Pointers während verschiedener Ereignisphasen beizubehalten. Diese Anwendung verwendet drei Arrays, um den Ereigniszustand zwischenzuspeichern, ein Cache pro Ziel-Element.
 
 ```js
 // Log events flag
@@ -56,9 +56,9 @@ const evCache2 = [];
 const evCache3 = [];
 ```
 
-### Ereignis-Handler registrieren
+### Ereignishandler registrieren
 
-Ereignis-Handler werden für die folgenden Pointer-Ereignisse registriert: [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerup`](/de/docs/Web/API/Element/pointerup_event). Der Handler für [`pointerup`](/de/docs/Web/API/Element/pointerup_event) wird auch für die Ereignisse [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerout`](/de/docs/Web/API/Element/pointerout_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) verwendet, da diese vier Ereignisse in dieser Anwendung die gleichen Semantiken haben.
+Ereignishandler werden für die folgenden Pointer Events registriert: [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerup`](/de/docs/Web/API/Element/pointerup_event). Der Handler für [`pointerup`](/de/docs/Web/API/Element/pointerup_event) wird auch für die Ereignisse [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerout`](/de/docs/Web/API/Element/pointerout_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) verwendet, da diese vier Ereignisse in dieser Anwendung die gleiche Semantik haben.
 
 ```js
 function setHandlers(name) {
@@ -84,9 +84,9 @@ function init() {
 
 ### Pointer down
 
-Das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis wird ausgelöst, wenn ein Pointer (Maus, Stift/Stylus oder Berührungspunkt auf einem Touchscreen) Kontakt mit der _Kontaktfläche_ macht. Der Status des Ereignisses muss zwischengespeichert werden, falls dieses Down-Ereignis Teil einer Multi-Touch-Interaktion ist.
+Das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignis wird ausgelöst, wenn ein Zeiger (Maus, Stift/Stylus oder Berührungspunkt auf einem Touchscreen) Kontakt mit der _Kontaktfläche_ aufnimmt. Der Zustand des Ereignisses muss zwischengespeichert werden, falls dieses `down`-Ereignis Teil einer Multi-Touch-Interaktion ist.
 
-In dieser Anwendung ändert sich die Hintergrundfarbe des Elements, wenn ein Pointer auf einem Element platziert wird, abhängig von der Anzahl der aktiven Berührungspunkte, die das Element hat. Weitere Einzelheiten zu den Farbänderungen finden Sie in der Funktion [`update_background`](#hintergrundfarbe_aktualisieren).
+In dieser Anwendung ändert sich die Hintergrundfarbe des Elements, wenn ein Pointer auf ein Element gesetzt wird, je nach Anzahl der aktiven Berührungspunkte, die das Element hat. Weitere Details zu den Farbänderungen finden Sie in der Funktion [`update_background`](#hintergrundfarbe_aktualisieren).
 
 ```js
 function pointerdownHandler(ev) {
@@ -103,9 +103,9 @@ function pointerdownHandler(ev) {
 
 ### Pointer move
 
-Der [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Handler wird aufgerufen, wenn sich der Pointer bewegt. Er kann mehrmals aufgerufen werden (z. B. wenn der Benutzer den Pointer bewegt), bevor ein anderer Ereignistyp ausgelöst wird.
+Der [`pointermove`](/de/docs/Web/API/Element/pointermove_event) Handler wird aufgerufen, wenn der Zeiger bewegt wird. Er kann mehrfach aufgerufen werden (zum Beispiel, wenn der Benutzer den Zeiger bewegt), bevor ein anderer Ereignistyp ausgelöst wird.
 
-In dieser Anwendung wird eine Pointer-Bewegung dadurch dargestellt, dass der Rand des Ziels auf `dashed` gesetzt wird, um eine klare visuelle Anzeige zu bieten, dass das Element dieses Ereignis erhalten hat.
+In dieser Anwendung wird eine Zeigerbewegung durch das Setzen des Rahmens des Ziels auf `dashed` dargestellt, um eine klare visuelle Anzeige zu bieten, dass das Element dieses Ereignis empfangen hat.
 
 ```js
 function pointermoveHandler(ev) {
@@ -124,7 +124,7 @@ function pointermoveHandler(ev) {
 
 ### Pointer up
 
-Das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignis wird ausgelöst, wenn ein Pointer von der _Kontaktfläche_ abgehoben wird. Wenn dies geschieht, wird das Ereignis aus dem zugehörigen Ereignis-Cache entfernt.
+Das [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignis wird ausgelöst, wenn ein Pointer von der _Kontaktfläche_ angehoben wird. Wenn dies geschieht, wird das Ereignis aus dem zugehörigen Ereignis-Cache entfernt.
 
 In dieser Anwendung wird dieser Handler auch für die Ereignisse [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) verwendet.
 
@@ -143,9 +143,9 @@ function pointerupHandler(ev) {
 
 ### Anwendungs-UI
 
-Die Anwendung verwendet {{HTMLElement("div")}}-Elemente für die Berührungsbereiche und bietet Schaltflächen zum Aktivieren des Logging und zum Löschen des Logs.
+Die Anwendung verwendet {{HTMLElement("div")}}-Elemente für die Berührungsbereiche und bietet Schaltflächen zum Aktivieren des Loggings und zum Löschen des Logs.
 
-Um zu verhindern, dass das Standardverhalten des Browsers bei Berührungen die Zeigersteuerung dieser Anwendung überschreibt, wird die {{cssxref("touch-action")}}-Eigenschaft auf das {{HTMLElement("body")}}-Element angewendet.
+Um zu verhindern, dass das Standard-Touch-Verhalten des Browsers die Pointer-Verarbeitung dieser Anwendung überschreibt, wird die {{cssxref("touch-action")}}-Eigenschaft auf das {{HTMLElement("body")}}-Element angewendet.
 
 ```html
 <body onload="init();" style="touch-action:none">
@@ -163,7 +163,7 @@ Um zu verhindern, dass das Standardverhalten des Browsers bei Berührungen die Z
 
 ### Verschiedene Funktionen
 
-Diese Funktionen unterstützen die Anwendung, sind jedoch nicht direkt am Ereignisfluss beteiligt.
+Diese Funktionen unterstützen die Anwendung, sind jedoch nicht direkt am Ereignisverlauf beteiligt.
 
 #### Cache-Verwaltung
 
@@ -202,7 +202,7 @@ function removeEvent(ev) {
 
 #### Hintergrundfarbe aktualisieren
 
-Die Hintergrundfarbe der Berührungsbereiche ändert sich wie folgt: keine aktiven Berührungen sind `weiß`; eine aktive Berührung ist `gelb`; zwei gleichzeitige Berührungen sind `rosa` und drei oder mehr gleichzeitige Berührungen sind `hellblau`.
+Die Hintergrundfarbe der Berührungsbereiche ändert sich wie folgt: keine aktiven Berührungen ist `white`; eine aktive Berührung ist `yellow`; zwei gleichzeitige Berührungen ist `pink` und drei oder mehr gleichzeitige Berührungen ist `lightblue`.
 
 ```js
 function updateBackground(ev) {
@@ -235,7 +235,7 @@ function updateBackground(ev) {
 
 #### Ereignisprotokollierung
 
-Diese Funktionen werden verwendet, um Ereignisaktivitäten an das Anwendungsfenster zu senden (um das Debugging und das Lernen über den Ereignisfluss zu unterstützen).
+Diese Funktionen werden verwendet, um Ereignisaktivitäten an das Anwendungsfenster zu senden (um das Debuggen zu unterstützen und den Ereignisverlauf kennenzulernen).
 
 ```js
 // Log events flag

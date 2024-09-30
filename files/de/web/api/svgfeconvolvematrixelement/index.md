@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEConvolveMatrixElement`**-Schnittstelle entspricht dem {{SVGElement("feConvolveMatrix")}}-Element.
+Das **`SVGFEConvolveMatrixElement`**-Interface entspricht dem {{SVGElement("feConvolveMatrix")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -24,7 +24,7 @@ Die **`SVGFEConvolveMatrixElement`**-Schnittstelle entspricht dem {{SVGElement("
       <td><code>SVG_EDGEMODE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert in diesen Typ zu ändern.
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert in diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -47,14 +47,14 @@ Die **`SVGFEConvolveMatrixElement`**-Schnittstelle entspricht dem {{SVGElement("
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem Eltern-Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFEConvolveMatrixElement.bias`](/de/docs/Web/API/SVGFEConvolveMatrixElement/bias) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("bias")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEConvolveMatrixElement.divisor`](/de/docs/Web/API/SVGFEConvolveMatrixElement/divisor) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("divisor")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEConvolveMatrixElement.edgeMode`](/de/docs/Web/API/SVGFEConvolveMatrixElement/edgeMode) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("edgeMode")}}-Attribut des gegebenen Elements entspricht. Nimmt einen der `SVG_EDGEMODE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("edgeMode")}}-Attribut des gegebenen Elements entspricht. Nimmt einen der `SVG_EDGEMODE_*`-Konstanten an, die in diesem Interface definiert sind.
 - [`SVGFEConvolveMatrixElement.height`](/de/docs/Web/API/SVGFEConvolveMatrixElement/height) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEConvolveMatrixElement.in1`](/de/docs/Web/API/SVGFEConvolveMatrixElement/in1) {{ReadOnlyInline}}
@@ -86,13 +86,13 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SV
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine speziellen Methoden, implementiert jedoch diejenigen ihrer Eltern, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface stellt keine spezifischen Methoden bereit, implementiert jedoch die Methoden seines Eltern-Interfaces, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browser-Kompatibilität 
 
 {{Compat}}
 

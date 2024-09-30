@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}}{{Non-standard_header}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.timeStamp()`** fügt dem Performance-Tool des Browsers ([Firefox](https://profiler.firefox.com/docs/#/), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)) einen einzelnen Marker hinzu. Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit den anderen Ereignissen auf der Zeitleiste zu korrelieren, wie z.B. Layout- und Malereignisse.
+Die **`console.timeStamp()`** statische Methode fügt einen einzelnen Marker im Performance-Tool des Browsers hinzu ([Firefox](https://profiler.firefox.com/docs/#/), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)). Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit den anderen in der Zeitleiste aufgezeichneten Ereignissen, wie Layout- und Paint-Ereignissen, zu korrelieren.
 
 Sie können optional ein Argument angeben, um den Zeitstempel zu beschriften, und diese Beschriftung wird dann neben dem Marker angezeigt.
 
@@ -36,4 +36,4 @@ Keiner ({{jsxref("undefined")}}).
 - [`console.time()`](/de/docs/Web/API/Console/time_static)
 - [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static)
 - [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static)
-- [Hinzufügen von Markern mit der Console API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)
+- [Hinzufügen von Markern mit der Konsole API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)

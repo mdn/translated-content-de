@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`ray()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert das [`offset-path`](/de/docs/Web/CSS/offset-path) Liniensegment, dem ein animiertes Element folgen kann. Das Liniensegment wird als "Ray" bezeichnet. Der Ray beginnt von einer {{cssxref("offset-position")}} aus und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Rays kann durch Angabe einer Größe und die Verwendung des Schlüsselworts `contain` begrenzt werden.
+Die **`ray()`**- [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert das [offset-path](/de/docs/Web/CSS/offset-path)-Liniensegment, dem ein animiertes Element folgen kann. Das Liniensegment wird als "Strahl" bezeichnet. Der Strahl beginnt bei einer {{cssxref("offset-position")}} und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Strahls kann durch die Angabe einer Größe und die Verwendung des `contain`-Schlüsselworts eingeschränkt werden.
 
 ## Syntax
 
@@ -28,37 +28,37 @@ Die Parameter können in beliebiger Reihenfolge angegeben werden.
 
 - [`<angle>`](/de/docs/Web/CSS/angle)
 
-  - : Gibt die Richtung an, in der sich das Liniensegment von der Offset-Startposition aus erstreckt. Der Winkel `0deg` liegt auf der y-Achse und zeigt nach oben, und positive Winkel nehmen im Uhrzeigersinn zu.
+  - : Gibt die Richtung an, in die sich das Liniensegment vom Offset-Ausgangspunkt erstreckt. Der Winkel `0deg` liegt auf der y-Achse nach oben, und positive Winkel nehmen im Uhrzeigersinn zu.
 
 - `<size>`
 
-  - : Gibt die Länge des Liniensegments an, also die Entfernung zwischen {{cssxref("offset-distance")}} `0%` und `100%`, relativ zum umgebenden Block. Dies ist ein optionaler Parameter (`closest-side` wird verwendet, wenn keine `<size>` angegeben ist). Es akzeptiert einen der folgenden Schlüsselwortwerte:
+  - : Gibt die Länge des Liniensegments an, das die Entfernung zwischen {{cssxref("offset-distance")}} `0%` und `100%` relativ zur umschließenden Box ist. Dies ist ein optionaler Parameter (`closest-side` wird verwendet, wenn keine `<size>` angegeben ist). Es werden folgende Schlüsselwortwerte akzeptiert:
 
-    `closest-side`: Abstand zwischen dem Ausgangspunkt des Rays und der nächstgelegenen Seite des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block) des Elements. Wenn der Ausgangspunkt des Rays auf einem Rand des umgebenden Blocks liegt, beträgt die Länge des Liniensegments null. Wenn der Ausgangspunkt des Rays außerhalb des umgebenden Blocks liegt, wird der Rand des umgebenden Blocks als unendlich verlängert betrachtet. Dies ist der Standardwert.
+    `closest-side`: Entfernung zwischen dem Startpunkt des Strahls und der nächstgelegenen Seite des [Umschließungsblocks](/de/docs/Web/CSS/Containing_block) des Elements. Liegt der Startpunkt des Strahls auf einer Kante des Umschließungsblocks, beträgt die Länge des Liniensegments null. Liegt der Startpunkt des Strahls außerhalb des Umschließungsblocks, wird die Kante des Umschließungsblocks als ins Unendliche verlängert betrachtet. Dies ist der Standardwert.
 
-    `closest-corner`: Abstand zwischen dem Ausgangspunkt des Rays und der nächstgelegenen Ecke im umgebenden Block des Elements. Wenn der Ausgangspunkt des Rays auf einer Ecke des umgebenden Blocks liegt, beträgt die Länge des Liniensegments null.
+    `closest-corner`: Entfernung zwischen dem Startpunkt des Strahls und der nächsten Ecke im Umschließungsblock des Elements. Liegt der Startpunkt des Strahls auf einer Ecke des Umschließungsblocks, beträgt die Länge des Liniensegments null.
 
-    `farthest-side`: Abstand zwischen dem Ausgangspunkt des Rays und der am weitesten entfernten Seite des umgebenden Blocks des Elements. Wenn der Ausgangspunkt des Rays außerhalb des umgebenden Blocks liegt, wird der Rand des umgebenden Blocks als unendlich verlängert betrachtet.
+    `farthest-side`: Entfernung zwischen dem Startpunkt des Strahls und der entferntesten Seite des Umschließungsblocks des Elements. Liegt der Startpunkt des Strahls außerhalb des Umschließungsblocks, wird die Kante des Umschließungsblocks als ins Unendliche verlängert betrachtet.
 
-    `farthest-corner`: Abstand zwischen dem Ausgangspunkt des Rays und der am weitesten entfernten Ecke im umgebenden Block des Elements.
+    `farthest-corner`: Entfernung zwischen dem Startpunkt des Strahls und der entferntesten Ecke im Umschließungsblock des Elements.
 
-    `sides`: Abstand zwischen dem Ausgangspunkt des Rays und dem Punkt, an dem das Liniensegment die Begrenzung des umgebenden Blocks durchdringt. Wenn der Ausgangspunkt auf oder außerhalb der Begrenzung des umgebenden Blocks liegt, beträgt die Länge des Liniensegments null.
+    `sides`: Entfernung zwischen dem Startpunkt des Strahls und dem Punkt, an dem das Liniensegment die Grenze des Umschließungsblocks schneidet. Liegt der Startpunkt auf oder außerhalb der Grenze des Umschließungsblocks, beträgt die Länge des Liniensegments null.
 
 - `contain`
 
-  - : Reduziert die Länge des Liniensegments, damit das Element auch bei `offset-distance: 100%` innerhalb des umgebenden Blocks bleibt. Konkret wird die Länge des Segments um die Hälfte der Breite oder der Höhe des Randkastens des Elements reduziert, je nachdem, welcher Wert größer ist, und niemals kleiner als null. Dies ist ein optionaler Parameter.
+  - : Reduziert die Länge des Liniensegments so, dass das Element auch bei `offset-distance: 100%` innerhalb des Umschließungsblocks bleibt. Konkret wird die Länge des Segments um die Hälfte der Breite oder die Hälfte der Höhe der Border-Box des Elements reduziert, je nachdem, was größer ist, und niemals weniger als null. Dies ist ein optionaler Parameter.
 
 - `at <position>`
-  - : Gibt den Punkt an, an dem der Ray beginnt und an dem das Element in seinem umgebenden Block platziert wird. Dies ist ein optionaler Parameter. Wenn er enthalten ist, muss der `<position>`-Wert dem Schlüsselwort `at` vorangestellt werden. Wenn er weggelassen wird, wird der für das Element verwendete `offset-position`-Wert verwendet. Wenn er weggelassen wird und das Element keinen `offset-position`-Wert hat, wird für die Startposition des Rays der Wert `offset-position: normal` verwendet, der das Element in der Mitte (oder `50% 50%`) des umgebenden Blocks platziert.
+  - : Gibt den Punkt an, an dem der Strahl beginnt und wo das Element in seinem Umschließungsblock platziert wird. Dies ist ein optionaler Parameter. Falls angegeben, muss dem `<position>`-Wert das Schlüsselwort `at` vorangestellt werden. Wenn es weggelassen wird, wird der Wert der `offset-position` des Elements verwendet. Wenn weggelassen und das Element keinen `offset-position`-Wert hat, wird für die Startposition des Strahls `offset-position: normal` verwendet, was das Element in der Mitte (oder `50% 50%`) des Umschließungsblocks platziert.
 
 ## Beschreibung
 
-Die `ray()`-Funktion positioniert ein Element entlang eines Pfads, indem sie seine Position in einem zweidimensionalen Raum durch einen Winkel und eine Entfernung von einem Referenzpunkt (Polarkoordinaten) angibt. Diese Funktion ist nützlich, um 2D-Raumübergänge zu erstellen. Im Vergleich zu der Methode, einen Punkt durch seine horizontalen und vertikalen Abstände von einem festen Ursprung (rechteckige Koordinaten) anzugeben, die von der {{cssxref("translate","translate()")}}-Funktion verwendet wird, und der Bewegung eines Elements entlang eines definierten Pfades durch Animation, verläuft diese Methode anders.
+Die Funktion `ray()` positioniert ein Element entlang eines Pfades, indem sie seinen Ort in einem zweidimensionalen Raum durch einen Winkel und eine Entfernung von einem Referenzpunkt (Polarkoordinaten) angibt. Diese Funktion macht die `ray()` Funktion nützlich für die Erstellung von zweidimensionalen räumlichen Übergängen. Zum Vergleich: Dieser Ansatz unterscheidet sich von der Methode, einen Punkt durch seine horizontale und vertikale Entfernung von einem festen Ursprung (rechtwinklige Koordinaten) zu spezifizieren, wie sie von der {{cssxref("translate","translate()")}}-Funktion verwendet wird, und davon, ein Element entlang eines definierten Pfades durch Animation zu bewegen.
 
-Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die Anfangsposition als auch die Orientierung des Elements zu berücksichtigen. Wenn die `ray()`-Funktion als `offset-path`-Wert auf ein Element angewendet wird, können diese Aspekte wie folgt gesteuert werden:
+Da `ray()` im zweidimensionalen Raum arbeitet, ist es wichtig, sowohl die Ausgangsposition als auch die Ausrichtung des Elements zu berücksichtigen. Wenn die `ray()`-Funktion als `offset-path`-Wert auf ein Element angewendet wird, können Sie diese Aspekte folgendermaßen steuern:
 
-- Das Element wird initial positioniert, indem der [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Punkt des Elements zur Offset-Startposition des Elements verschoben wird. Standardmäßig wird die Startposition des Rays durch den {{cssxref("offset-position")}}-Wert bestimmt. Wenn `offset-position` explizit als `normal` angegeben ist (oder weggelassen und auf `normal` zurückgesetzt wird), wird das Element im `center` (oder `50% 50%`) seines umgebenden Blocks positioniert. Die Angabe von `offset-position: auto` setzt die Startposition in die obere linke Ecke (oder `0 0`) der Elementposition.
-- Das Element wird initial so gedreht, dass seine [Inline-Achse](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout#the_two_axes_of_a_grid_layout) — die Richtung des Textflusses — mit dem von `ray()` angegebenen Winkel übereinstimmt. Zum Beispiel wird bei einem `ray()`-Winkel von `0deg`, der auf der y-Achse nach oben zeigt, die Inline-Achse des Elements vertikal gedreht, um den Winkel des Rays zu treffen. Das Element behält diese Drehung entlang seines Pfads bei. Um dieses Verhalten anzupassen, verwenden Sie die {{cssxref("offset-rotate")}}-Eigenschaft, die es ermöglicht, einen anderen Drehwinkel oder eine andere Richtung für das Element anzugeben, was eine präzisere Kontrolle über sein Erscheinungsbild beim Folgen des Pfads ermöglicht. Zum Beispiel wird das Setzen von `offset-rotate: 0deg` jede durch `ray()` angewendete Drehung entfernen und die Inline-Achse des Elements wieder mit der Flussrichtung des Textes in Einklang bringen.
+- Das Element wird zunächst durch Verschieben des [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Punkts des Elements auf die Offset-Startposition des Elements positioniert. Standardmäßig wird die Startposition des Strahls durch den {{cssxref("offset-position")}}-Wert bestimmt. Wenn `offset-position` ausdrücklich als `normal` (oder weggelassen und erlaubt, auf `normal` zu standardisieren) angegeben ist, wird das Element in der Mitte (oder `50% 50%`) seines Umschließungsblocks positioniert. Die Angabe von `offset-position: auto` setzt die Startposition in die obere linke Ecke (oder `0 0`) der Elementposition.
+- Das Element wird anfänglich so gedreht, dass seine [Inline-Achse](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout#the_two_axes_of_a_grid_layout) — seine Textflussrichtung — mit dem durch `ray()` angegebenen Winkel ausgerichtet ist. Zum Beispiel wird mit dem `ray()`-Winkel von `0deg`, der auf der y-Achse nach oben liegt, die Inline-Achse des Elements vertikal gedreht, um den Winkel des Strahls zu erreichen. Das Element behält diese Drehung während seines gesamten Pfades bei. Um dieses Verhalten anzupassen, verwenden Sie die {{cssxref("offset-rotate")}}-Eigenschaft, die es Ihnen erlaubt, einen anderen Drehwinkel oder eine andere Richtung für das Element anzugeben und so eine genauere Kontrolle über sein Erscheinungsbild zu ermöglichen, während es dem Pfad folgt. Zum Beispiel wird durch das Festlegen von `offset-rotate: 0deg` jede von `ray()` angewendete Drehung entfernt, sodass die Inline-Achse des Elements wieder mit der Textflussrichtung ausgerichtet wird.
 
 ## Formale Syntax
 
@@ -66,9 +66,9 @@ Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die Anfangsposition als a
 
 ## Beispiele
 
-### Definition des Winkels und der Startposition für einen Ray
+### Den Winkel und den Startpunkt eines Strahls definieren
 
-Dieses Beispiel zeigt, wie mit der Startposition eines Elements gearbeitet wird und wie die Orientierung des Elements durch den angegebenen Winkel des Rays beeinflusst wird.
+Dieses Beispiel zeigt, wie mit der Startposition eines Elements gearbeitet wird und wie die Orientierung des Elements durch den angegebenen Strahlwinkel beeinflusst wird.
 
 #### CSS
 
@@ -193,27 +193,27 @@ pre {
 </div>
 ```
 
-Ähnlich wie bei {{cssxref("transform-origin")}} ist der Standard-Ankerpunkt in der Mitte eines Elements. Dieser Ankerpunkt kann mit der [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Eigenschaft geändert werden.
+Ähnlich wie bei {{cssxref("transform-origin")}} ist der Standardankerpunkt im Zentrum eines Elements. Dieser Ankerpunkt kann mit der [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Eigenschaft geändert werden.
 
-In diesem Beispiel werden verschiedene `offset-path: ray()`-Werte auf die mit `1` bis `5` nummerierten Kästchen angewendet. Der "umgebende Block" jedes Kästchens wird mit einem gestrichelten Rand dargestellt. Ein verblasstes Kästchen in der oberen linken Ecke zeigt die Standardposition jedes Kästchens ohne angewendete `offset-position` oder `offset-path`, was einen direkten Vergleich ermöglicht. Der obere Rand jedes Kästchens ist mit einem `soliden` Rand hervorgehoben, um Unterschiede in den Startpunkten und Orientierungen des Rays zu veranschaulichen. Nach der Positionierung am Startpunkt des Rays wird ein Kästchen in Richtung des angegebenen Ray-Winkels ausgerichtet. Wenn {{cssxref("offset-position")}} nicht angegeben ist, ist die Standard-Offset-Startposition des Rays die Mitte (oder `50% 50%`) des umgebenden Blocks des Kästchens.
+In diesem Beispiel werden verschiedene `offset-path: ray()`-Werte auf die mit `1` bis `5` nummerierten Kästchen angewendet. Der "umschließende Block" jedes Kästchens wird mit einer gestrichelten Umrandung dargestellt. Ein verblasstes Kästchen in der oberen linken Ecke zeigt die Standardposition jedes Kästchens ohne angewendete `offset-position` oder `offset-path`, um einen Seitenvergleich zu ermöglichen. Die Oberseite jedes Kästchens ist mit einer `solid` Umrandung hervorgehoben, um Unterschiede in den Strahlstartpunkten und Ausrichtungen zu illustrieren. Nachdem das Box an den Startpunkt des Strahls positioniert ist, stimmt es mit der Richtung des angegebenen Strahlwinkels überein. Wenn {{cssxref("offset-position")}} nicht angegeben ist, liegt der Standardversatz-Startpunkt des Strahls im Zentrum (oder `50% 50%`) des umschließenden Blocks des Kästchens.
 
 #### Ergebnis
 
 {{EmbedLiveSample('Giving an angle to the ray', '100%', 1100)}}
 
-- `box1` wird zunächst so positioniert, dass sein Ankerpunkt (sein Zentrum) an der Standard-Offset-Startposition (`50% 50%` des umgebenden Blocks) liegt. `box1` wird auch gedreht, um sich in Richtung des `0deg`-Winkels des Rays zu orientieren. Dies wird nun der Startpunkt des Pfades sein. Sie können die Veränderung in der Position und Drehung des Kästchens im Vergleich zum verblassten `box0` auf der linken Seite beobachten. Das Kästchen wird gedreht, um den `0deg`-Winkel entlang der y-Achse nach oben zu zeigen. Die Drehung des Kästchens ist durch die Orientierung der Nummer im Inneren des Kästchens offensichtlich.
+- `box1` wird zunächst so positioniert, dass sein Ankerpunkt (sein Zentrum) am Standardversatz-Startpunkt (`50% 50%` des umschließenden Blocks) liegt. `box1` wird auch gedreht, damit es in Richtung des `0deg` Winkels des Strahls ausgerichtet wird. Dies wird jetzt der Ausgangspunkt des Pfades sein. Sie können die Änderung der Position und Drehung der Box beobachten, indem Sie diese mit dem verblassten `box0` auf der linken Seite vergleichen. Die Box wird gedreht, um den `0deg` Winkel entlang der y-Achse nach oben zu erreichen. Die Drehung der Box wird durch die Orientierung der Zahl innerhalb der Box deutlich.
 
-- Bei `box2` wird ein größerer positiver Winkel von `150deg` auf den Ray angewendet, um zu demonstrieren, wie der Strahlwinkel funktioniert. Ausgehend von der oberen linken Ecke wird das Kästchen im Uhrzeigersinn gedreht, um den angegebenen Winkel von `150deg` zu erreichen.
+- In `box2` wird ein größerer positiver Winkel von `150deg` auf den Strahl angewendet, um zu zeigen, wie der Strahlwinkel funktioniert. Ausgehend von der oberen linken Ecke wird die Box im Uhrzeigersinn gedreht, um den angegebenen Winkel von `150deg` zu erreichen.
 
-- `box2` und `box3` haben die gleichen `offset-path`-Werte. Bei `box3` wird dem Element ein [`offset-rotate`](/de/docs/Web/CSS/offset-rotate) von `0deg` hinzugefügt. Infolgedessen bleibt das Element entlang des Strahlpfades bei diesem spezifischen Winkel gedreht, und das Element dreht sich nicht in Richtung des Pfades. Beachten Sie bei `box3`, dass der Strahlpfad bei `150deg` liegt, aber die Orientierung des Kästchens sich entlang des Pfades nicht ändern wird, weil `offset-rotate` angewendet wird. Beachten Sie auch, dass die `offset-path`-Eigenschaft von `box3` keine Start-`<position>` angibt, sodass die Startposition des Rays von der `offset-position` des Elements abgeleitet wird, die in diesem Fall `top 20% left 40%` ist.
+- `box2` und `box3` haben die gleichen `offset-path`-Werte. In `box3` wird auch eine [`offset-rotate`](/de/docs/Web/CSS/offset-rotate) von `0deg` auf das Element angewendet. Infolgedessen bleibt das Element in diesem bestimmten Winkel auf dem Strahlweg gedreht, und das Element wird sich nicht in Richtung des Weges drehen. Beachten Sie in `box3`, dass der Strahlweg bei `150deg` liegt, aber die Box-Ausrichtung sich auf dem Weg nicht ändert, weil `offset-rotate` angewandt wurde. Beachten Sie auch, dass die `offset-path`-Eigenschaft von `box3` keine Anfangs-`<position>` angibt, sodass die Startposition des Strahls von der `offset-position` des Elements abgeleitet wird, die in diesem Fall `top 20% left 40%` ist.
 
-- Die `offset-position` von `box4` ist auf die obere linke Ecke (`0 0`) des umgebenden Blocks gesetzt, sodass der Ankerpunkt des Elements und die Offset-Startposition zusammenfallen. Der Strahlwinkel von `0deg` wird bei diesem Startpunkt auf das Element angewendet.
+- Die `offset-position` von `box4` ist auf die obere linke Ecke (`0 0`) des umschließenden Blocks gesetzt, und infolgedessen fallen der Ankerpunkt des Elements und die Offset-Startposition zusammen. Der Strahlwinkel von `0deg` wird auf das Element an diesem Startpunkt angewendet.
 
-- Bei `box5` gibt die `offset-path`-Eigenschaft den `at <position>`-Wert an, der das Kästchen an der `bottom`- und `right`-Kante des umgebenden Blocks des Elements platziert, und `60deg` wird auf den Winkel des Rays angewendet.
+- In `box5` gibt die `offset-path`-Eigenschaft den `at <position>` Wert an, der die Box an der unteren und rechten Kante des umschließenden Blocks des Elements platziert und `60deg` auf den Winkel des Strahls angewendet wird.
 
-### Animation eines Elements entlang des Rays
+### Ein Element entlang des Strahls animieren
 
-In diesem Beispiel wird die erste Form als Referenz für ihre Position und Orientierung gezeigt. Ein Strahlanimationspfad wird auf die anderen Formen angewendet.
+In diesem Beispiel wird die erste Form als Referenz für ihre Position und Ausrichtung gezeigt. Ein Strahlenbewegungspfad wird auf die anderen Formen angewendet.
 
 #### CSS
 
@@ -323,7 +323,7 @@ offset-rotate: 0deg;</pre>
 
 {{EmbedLiveSample('Animating an element along the ray', '100%', 750)}}
 
-In den ersten beiden Beispielen, in denen `offset-path` angewendet wird, beachten Sie die Orientierung der Form ohne {{cssxref("offset-rotate")}} und mit `offset-rotate`. Beide Beispiele verwenden den Standard-{{cssxref("offset-position")}}-Wert `normal`, und daher beginnt die Pfadbewegung von `50% 50%`. Die letzten beiden `offset-path`-Beispiele zeigen die Auswirkung der `<size>`-Werte für die Ecke: `closest-corner` und `farthest-corner`. Der `closest-corner`-Wert erzeugt einen sehr kurzen Offset-Pfad, weil die Form bereits an der Ecke ist (`offset-position: auto`). Der `farthest-corner`-Wert erzeugt den längsten Offset-Pfad, der von der oberen linken Ecke des umgebenden Blocks zur unteren rechten Ecke verläuft.
+In den ersten beiden Beispielen, in denen `offset-path` angewendet wird, beachten Sie die Orientierung der Form ohne {{cssxref("offset-rotate")}} und mit `offset-rotate`. Beide Beispiele verwenden den Standardwert {{cssxref("offset-position")}} `normal`, und daher beginnt die Pfadbewegung von `50% 50%`. Die letzten beiden `offset-path`-Beispiele zeigen die Auswirkungen von Eck-`<size>`-Werten: `closest-corner` und `farthest-corner`. Der `closest-corner`-Wert erzeugt einen sehr kurzen Offset-Pfad, da die Form bereits an der Ecke (`offset-position: auto`) ist. Der `farthest-corner`-Wert erzeugt den längsten Offset-Pfad, der von der oberen linken Ecke des Umschließungsblocks zur unteren rechten Ecke geht.
 
 ## Spezifikationen
 

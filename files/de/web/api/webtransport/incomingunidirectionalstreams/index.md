@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`incomingUnidirectionalStreams`** schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces repräsentiert einen oder mehrere unidirektionale Streams, die vom Server geöffnet werden. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Jedes dieser Objekte kann verwendet werden, um zuverlässig Daten vom Server zu lesen.
+Die schreibgeschützte Eigenschaft **`incomingUnidirectionalStreams`** der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle repräsentiert einen oder mehrere unidirektionale Streams, die vom Server geöffnet wurden. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Jeder dieser Objekte kann verwendet werden, um Daten zuverlässig vom Server zu lesen.
 
-„Zuverlässig“ bedeutet, dass die Übertragung und Reihenfolge der Daten garantiert sind. Dies bietet eine langsamere Übermittlung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie z.B. bei Chat-Anwendungen.
+"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies sorgt für langsamere Zustellung (wenn auch schneller als bei WebSockets) im Vergleich zu [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiv
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um die [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Jedes Objekt wird dann an eine andere Funktion weitergegeben, um aus diesen Streams zu lesen.
+Eine anfängliche Funktion wird verwendet, um die [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Jedes Objekt wird dann an eine weitere Funktion übergeben, um aus diesen Streams zu lesen.
 
 ```js
 async function receiveUnidirectional() {

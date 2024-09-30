@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`normalize()`** Methode der {{jsxref("String")}} Werte gibt die Unicode-Normalisierungsform dieses Strings zurück.
+Die **`normalize()`**-Methode von {{jsxref("String")}}-Werten gibt die Unicode-Normalisierungsform dieses Strings zurück.
 
 {{EmbedInteractiveExample("pages/js/string-normalize.html", "taller")}}
 
@@ -22,34 +22,36 @@ normalize(form)
 
 - `form` {{optional_inline}}
 
-  - : Einer der Werte `"NFC"`, `"NFD"`, `"NFKC"` oder `"NFKD"`, der die Unicode-Normalisierungsform angibt. Wenn ausgelassen oder {{jsxref("undefined")}}, wird `"NFC"` verwendet.
+  - : Eines von `"NFC"`, `"NFD"`, `"NFKC"` oder
+    `"NFKD"`, das die Unicode-Normalisierungsform angibt. Wenn es weggelassen oder
+    {{jsxref("undefined")}} ist, wird `"NFC"` verwendet.
 
-    Diese Werte bedeuten:
+    Diese Werte haben die folgenden Bedeutungen:
 
     - `"NFC"`
-      - : Kanonische Zersetzung, gefolgt von kanonischer Zusammensetzung.
+      - : Kanonische Dekomposition, gefolgt von kanonischer Komposition.
     - `"NFD"`
-      - : Kanonische Zersetzung.
+      - : Kanonische Dekomposition.
     - `"NFKC"`
-      - : Kompatibilitätszersetzung, gefolgt von kanonischer Zusammensetzung.
+      - : Kompatibilitäts-Dekomposition, gefolgt von kanonischer Komposition.
     - `"NFKD"`
-      - : Kompatibilitätszersetzung.
+      - : Kompatibilitäts-Dekomposition.
 
 ### Rückgabewert
 
-Ein String, der die Unicode-Normalisierungsform des gegebenen Strings enthält.
+Ein String, der die Unicode-Normalisierungsform des angegebenen Strings enthält.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `form` nicht einer der oben angegebenen Werte ist.
+  - : Wird ausgelöst, wenn `form` nicht eines der oben angegebenen Werte ist.
 
 ## Beschreibung
 
-Unicode weist jedem Zeichen einen eindeutigen numerischen Wert zu, der als _Codepunkt_ bezeichnet wird. Zum Beispiel hat das Zeichen `"A"` den Codepunkt U+0041. Manchmal können jedoch mehr als ein Codepunkt oder eine Sequenz von Codepunkten dasselbe abstrakte Zeichen darstellen – das Zeichen `"ñ"` zum Beispiel, kann durch:
+Unicode weist jedem Zeichen einen eindeutigen numerischen Wert zu, der als _Codepunkt_ bezeichnet wird. Zum Beispiel wird der Codepunkt für `"A"` als U+0041 angegeben. Manchmal können jedoch mehr als ein Codepunkt oder eine Sequenz von Codepunkten dasselbe abstrakte Zeichen darstellen — das Zeichen `"ñ"` kann beispielsweise durch einen der folgenden dargestellt werden:
 
-- den einzelnen Codepunkt U+00F1,
-- den Codepunkt für `"n"` (U+006E) gefolgt von dem Codepunkt für die kombinierte Tilde (U+0303) dargestellt werden.
+- Der einzelne Codepunkt U+00F1.
+- Der Codepunkt für `"n"` (U+006E), gefolgt vom Codepunkt für die kombinierende Tilde (U+0303).
 
 ```js
 const string1 = "\u00F1";
@@ -59,7 +61,7 @@ console.log(string1); // ñ
 console.log(string2); // ñ
 ```
 
-Da die Codepunkte unterschiedlich sind, wird die Zeichenfolgenvergleichsfunktion sie jedoch nicht als gleich behandeln. Und da die Anzahl der Codepunkte in jeder Version unterschiedlich ist, haben sie sogar unterschiedliche Längen.
+Da die Codepunkte unterschiedlich sind, behandelt der Stringvergleich diese nicht als gleich. Und da die Anzahl der Codepunkte in jeder Version unterschiedlich ist, haben sie sogar unterschiedliche Längen.
 
 ```js
 const string1 = "\u00F1"; // ñ
@@ -70,13 +72,13 @@ console.log(string1.length); // 1
 console.log(string2.length); // 2
 ```
 
-Die `normalize()`-Methode hilft, dieses Problem zu lösen, indem sie einen String in eine normalisierte Form umwandelt, die für alle Sequenzen von Codepunkten, die dieselben Zeichen darstellen, üblich ist. Es gibt zwei Haupt-Normalisierungsformen, eine basierend auf **kanonischer Äquivalenz** und die andere basierend auf **Kompatibilität**.
+Die `normalize()`-Methode hilft, dieses Problem zu lösen, indem sie einen String in eine normalisierte Form umwandelt, die für alle Sequenzen von Codepunkten, die dieselben Zeichen darstellen, gemeinsam ist. Es gibt zwei Hauptnormalisierungsformen, eine basierend auf der **kanonischen Äquivalenz** und die andere auf der **Kompatibilität**.
 
-### Kanonische Äquivalenznormalisierung
+### Kanonische Äquivalenz-Normalisierung
 
-In Unicode haben zwei Sequenzen von Codepunkten kanonische Äquivalenz, wenn sie dieselben abstrakten Zeichen darstellen und immer dasselbe visuelle Erscheinungsbild und Verhalten haben sollten (zum Beispiel sollten sie immer auf dieselbe Weise sortiert werden).
+In Unicode haben zwei Sequenzen von Codepunkten eine kanonische Äquivalenz, wenn sie dieselben abstrakten Zeichen darstellen und immer dasselbe visuelle Erscheinungsbild und Verhalten aufweisen sollten (zum Beispiel sollten sie immer in derselben Weise sortiert werden).
 
-Sie können `normalize()` mit den Argumenten `"NFD"` oder `"NFC"` verwenden, um eine Form des Strings zu erzeugen, die für alle kanonisch äquivalenten Strings gleich sein wird. Im folgenden Beispiel normalisieren wir zwei Darstellungen des Zeichens `"ñ"`:
+Sie können `normalize()` mit den Argumenten `"NFD"` oder `"NFC"` verwenden, um eine Form des Strings zu erzeugen, die für alle kanonisch äquivalenten Strings gleich ist. Im folgenden Beispiel normalisieren wir zwei Darstellungen des Zeichens `"ñ"`:
 
 ```js
 let string1 = "\u00F1"; // ñ
@@ -92,9 +94,9 @@ console.log(string2.length); // 2
 
 #### Zusammengesetzte und zerlegte Formen
 
-Beachten Sie, dass die Länge der normalisierten Form unter `"NFD"` `2` beträgt. Das liegt daran, dass `"NFD"` die **zerlegte** Version der kanonischen Form liefert, bei der einzelne Codepunkte in mehrere kombinierte aufgeteilt werden. Die zerlegte kanonische Form für `"ñ"` ist `"\u006E\u0303"`.
+Beachten Sie, dass die Länge der normalisierten Form unter `"NFD"` `2` ist. Das liegt daran, dass `"NFD"` Ihnen die **zerlegte** Version der kanonischen Form gibt, in der einzelne Codepunkte in mehrere kombinierende gespalten werden. Die zerlegte kanonische Form für `"ñ"` ist `"\u006E\u0303"`.
 
-Sie können `"NFC"` angeben, um die **zusammengesetzte** kanonische Form zu erhalten, bei der mehrere Codepunkte, wo möglich, durch einzelne Codepunkte ersetzt werden. Die zusammengesetzte kanonische Form für `"ñ"` ist `"\u00F1"`:
+Sie können `"NFC"` angeben, um die **zusammengesetzte** kanonische Form zu erhalten, in der mehrere Codepunkte durch einzelne Codepunkte ersetzt werden, wo möglich. Die zusammengesetzte kanonische Form für `"ñ"` ist `"\u00F1"`:
 
 ```js
 let string1 = "\u00F1"; // ñ
@@ -109,18 +111,21 @@ console.log(string2.length); // 1
 console.log(string2.codePointAt(0).toString(16)); // f1
 ```
 
-### Kompatibilitätsnormalisierung
+### Kompatibilitäts-Normalisierung
 
-In Unicode sind zwei Sequenzen von Codepunkten kompatibel, wenn sie dieselben abstrakten Zeichen darstellen und in einigen – aber nicht notwendig allen – Anwendungen gleich behandelt werden sollten.
+In Unicode sind zwei Sequenzen von Codepunkten kompatibel, wenn sie dieselben abstrakten Zeichen darstellen und möglicherweise in einigen Anwendungen gleich behandelt werden sollten — aber nicht unbedingt in allen.
 
 Alle kanonisch äquivalenten Sequenzen sind auch kompatibel, aber nicht umgekehrt.
 
 Zum Beispiel:
 
-- Der Codepunkt U+FB00 stellt die [Ligatur](/de/docs/Glossary/Ligature) `"ﬀ"` dar. Er ist kompatibel mit zwei aufeinanderfolgenden U+0066 Codepunkten (`"ff"`).
-- Der Codepunkt U+24B9 stellt das Symbol `"Ⓓ"` dar. Er ist kompatibel mit dem U+0044 Codepunkt (`"D"`).
+- Der Codepunkt U+FB00 stellt die [Ligatur](/de/docs/Glossary/Ligature) `"ﬀ"` dar. Es ist kompatibel
+  mit zwei aufeinanderfolgenden U+0066 Codepunkten (`"ff"`).
+- Der Codepunkt U+24B9 stellt das Symbol
+  `"Ⓓ"` dar.
+  Es ist kompatibel mit dem U+0044 Codepunkt (`"D"`).
 
-In gewisser Hinsicht (wie dem Sortieren) sollten sie als gleichwertig behandelt werden—andere (wie visuelles Erscheinungsbild) nicht, sodass sie nicht kanonisch äquivalent sind.
+In einigen Aspekten (wie Sortierung) sollten sie als gleichwertig behandelt werden — und in einigen (wie visuelle Erscheinung) nicht, daher sind sie nicht kanonisch äquivalent.
 
 Sie können `normalize()` mit den Argumenten `"NFKD"` oder `"NFKC"` verwenden, um eine Form des Strings zu erzeugen, die für alle kompatiblen Strings gleich ist:
 
@@ -144,9 +149,9 @@ console.log(string1.length); // 2
 console.log(string2.length); // 2
 ```
 
-Bei der Anwendung von Kompatibilitätsnormalisierung ist es wichtig zu überlegen, was Sie mit den Strings beabsichtigen, da die normalisierte Form möglicherweise nicht für alle Anwendungen geeignet ist. Im obigen Beispiel ist die Normalisierung für die Suche geeignet, da sie es einem Benutzer ermöglicht, den String durch Suche nach `"f"` zu finden. Aber sie könnte für die Darstellung nicht geeignet sein, da die visuelle Repräsentation unterschiedlich ist.
+Bei der Anwendung der Kompatibilitäts-Normalisierung ist es wichtig zu überlegen, was Sie mit den Strings beabsichtigen, da die normalisierte Form möglicherweise nicht für alle Anwendungen geeignet ist. Im obigen Beispiel ist die Normalisierung für die Suche geeignet, da sie einem Benutzer ermöglicht, den String durch Eingabe von `"f"` zu finden. Aber es ist möglicherweise nicht für die Anzeige geeignet, da die visuelle Darstellung unterschiedlich ist.
 
-Wie bei der kanonischen Normalisierung, können Sie nach zerlegten oder zusammengesetzten kompatiblen Formen fragen, indem Sie `"NFKD"` oder `"NFKC"`, entsprechend übergeben.
+Wie bei der kanonischen Normalisierung können Sie zwischen zerlegten oder zusammengesetzten kompatiblen Formen wählen, indem Sie `"NFKD"` bzw. `"NFKC"` angeben.
 
 ## Beispiele
 
@@ -197,4 +202,4 @@ str.normalize("NFKD"); // '\u0073\u0323\u0307'
 ## Siehe auch
 
 - [Unicode Standard Annex #15, Unicode Normalization Forms](https://www.unicode.org/reports/tr15/)
-- [Unicode equivalence](https://en.wikipedia.org/wiki/Unicode_equivalence) auf Wikipedia
+- [Unicode-Äquivalenz](https://en.wikipedia.org/wiki/Unicode_equivalence) auf Wikipedia

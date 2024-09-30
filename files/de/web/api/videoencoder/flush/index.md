@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: flush()-Methode"
+title: "VideoEncoder: flush() Methode"
 short-title: flush()
 slug: Web/API/VideoEncoder/flush
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle erzwingt die Fertigstellung aller ausstehenden Kodierungen.
+Die **`flush()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle zwingt alle ausstehenden Encodes zur Fertigstellung.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald die Initialisierung des E
 
 ## Beispiele
 
-Das folgende Beispiel führt einen Flush des `VideoEncoder` aus.
+Das folgende Beispiel leert den `VideoEncoder`.
 
 ```js
 VideoEncoder.flush();

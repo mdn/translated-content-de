@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: close-Ereignis"
+title: "Notification: close Ereignis"
 short-title: close
 slug: Web/API/Notification/close_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`close`**-Ereignis des [`Notification`](/de/docs/Web/API/Notification)-Interfaces tritt auf, wenn eine [`Notification`](/de/docs/Web/API/Notification) geschlossen wird.
+Das **`close`** Ereignis des [`Notification`](/de/docs/Web/API/Notification) Interfaces wird ausgelöst, wenn eine [`Notification`](/de/docs/Web/API/Notification) geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("close", (event) => {});

@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}{{Non-standard_header}}
 
-Das **`href`**-[Globalattribut](/de/docs/Web/MathML/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
+Das **`href`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) erzeugt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
 
 ## Beispiel
 

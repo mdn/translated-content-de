@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`outline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Kontur eines Elements fest.
+Die **`outline-color`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Farbe des Rands eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/outline-color.html")}}
 
@@ -27,30 +27,30 @@ outline-color: revert-layer;
 outline-color: unset;
 ```
 
-Die `outline-color` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die Eigenschaft `outline-color` wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Kontur, angegeben als `<color>`.
+  - : Die Farbe des Rands, angegeben als `<color>`.
 
-Die Spezifikation listet außerdem einen zusätzlichen Wert, `auto`, auf, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `auto` zu [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) berechnet, es sei denn, [`outline-style`](/de/docs/Web/CSS/outline-style) ist auf `auto` gesetzt, dann wird es zur [Akzentfarbe](/de/docs/Web/CSS/accent-color) berechnet.
+Die Spezifikation listet auch einen zusätzlichen Wert `auto`, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `auto` zu [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) berechnet, es sei denn, [`outline-style`](/de/docs/Web/CSS/outline-style) ist auf `auto` gesetzt, dann wird es zur [Akzentfarbe](/de/docs/Web/CSS/accent-color) berechnet.
 
 ## Beschreibung
 
-Eine Kontur ist eine Linie, die um ein Element gezogen wird, außerhalb des {{cssxref("border")}}. Anders als der Rand des Elements wird die Kontur außerhalb des Rahmens des Elements gezeichnet und kann anderen Inhalt überlappen. Der Rand hingegen verändert das Layout der Seite tatsächlich, um sicherzustellen, dass er passt, ohne etwas anderes zu überlappen (es sei denn, es wurde explizit so eingestellt, dass er überlappt).
+Ein Rand ist eine Linie, die um ein Element außerhalb des {{cssxref("border")}} gezeichnet wird. Anders als der Rand des Elements wird der Rand außerhalb des Rahmens des Elements gezeichnet und kann andere Inhalte überlappen. Der Rand hingegen wird das Layout der Seite tatsächlich so verändern, dass er passt, ohne etwas anderes zu überlappen (es sei denn, Sie setzen es explizit so, dass es überlappt).
 
-Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Aussehen einer Kontur definiert wird.
+Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn man das Erscheinungsbild eines Rands definiert.
 
 ## Barrierefreiheit
 
-Benutzerdefinierte [Fokus-Stile](/de/docs/Web/CSS/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}}-Eigenschaft. Wenn die Farbe der Kontur angepasst wird, ist es wichtig sicherzustellen, dass der Kontrast zwischen ihr und dem Hintergrund, über den die Kontur gelegt wird, hoch genug ist, damit Menschen mit Sehbehinderungen sie wahrnehmen können.
+Angepasste [Fokus-Stile](/de/docs/Web/CSS/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}}-Eigenschaft. Wenn die Farbe des Rands angepasst wird, ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen ihm und dem Hintergrund, über dem der Rand platziert ist, hoch genug ist, damit Personen mit Sehbehinderungen es wahrnehmen können.
 
-Der Farbkontrast wird bestimmt, indem die Leuchtkraft der Text- und Hintergrundfarbenwerte verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Textinhalt und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer oder 24px oder größer definiert.
+Das Farbkontrastverhältnis wird ermittelt, indem die Leuchtkraft der Text- und Hintergrundfarben verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Textinhalte und 3:1 für größere Texte wie Überschriften erforderlich. Großer Text wird definiert als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer oder 24px oder größer.
 
-- [WebAIM: Farbkontrast-Prüfer](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [MDN-Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
 
@@ -62,7 +62,7 @@ Der Farbkontrast wird bestimmt, indem die Leuchtkraft der Text- und Hintergrundf
 
 ## Beispiele
 
-### Ein festes blaues Outline setzen
+### Festlegen eines festen blauen Rands
 
 #### HTML
 

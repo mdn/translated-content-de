@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die **Benutzeroberfläche** (UI) ist alles, was die Interaktion zwischen einem Benutzer und einer Maschine erleichtert. In der Welt der Computer kann dies alles sein, von einer Tastatur, einem Joystick, einem Bildschirm oder einem Programm. Im Falle von Computersoftware kann es eine Befehlszeilen-Eingabeaufforderung, eine Webseite, ein Benutzer-Eingabeformular oder das Frontend einer Anwendung sein.
+**Benutzeroberfläche** (UI) ist alles, was die Interaktion zwischen einem Benutzer und einer Maschine erleichtert. In der Welt der Computer kann dies alles von einer Tastatur, einem Joystick, einem Bildschirm oder einem Programm sein. Im Falle von Computersoftware kann es ein Befehlszeilenprompt, eine Webseite, ein Benutzer-Eingabeformular oder das Front-End einer Anwendung sein.
 
 ## Siehe auch
 

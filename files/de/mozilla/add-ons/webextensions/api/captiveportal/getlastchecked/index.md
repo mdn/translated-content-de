@@ -17,7 +17,7 @@ let state = browser.captivePortal.getLastChecked()
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer ganzen Zahl erfüllt wird, die die Zeit in Millisekunden darstellt.
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Ganzzahl erfüllt wird, die die Zeit in Millisekunden darstellt.
 
 {{WebExtExamples}}
 

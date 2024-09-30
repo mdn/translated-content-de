@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-margin-inline-end`-Eigenschaft definiert den Außenabstand des Scroll-Snap-Bereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Element an den Snap-Port anzudocken. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmen des Begrenzungsrechtecks (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt und die angegebenen Abstände hinzugefügt werden.
+Die Eigenschaft `scroll-margin-inline-end` definiert den Außenabstand des Scroll-Schnappbereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Element an den Snapport zu schnappen. Der Scroll-Schnappbereich wird durch das Transformieren des Randrahmens und das Finden seines rechteckigen Begrenzungsrahmens (achsenparallel im Koordinatenraum des Scrollcontainers) bestimmt, dann werden die angegebenen Abstände hinzugefügt.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-inline-end.html")}}
 
@@ -29,7 +29,7 @@ scroll-margin-inline-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Außenabstand vom Inline-Ende des Scroll-Containers.
+  - : Ein Abstand vom Inline-Ende des Scrollcontainers.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ scroll-margin-inline-end: unset;
 
 ### Einfache Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert ist.
 
-Das Ziel hier ist es, vier horizontal-scrollbare Blöcke zu erstellen, von denen der zweite und dritte in Position einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
+Das Ziel hier ist es, vier horizontal scrollbare Blöcke zu erstellen, wobei der zweite und dritte Block in Position einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
@@ -62,7 +62,7 @@ Das HTML, das die Blöcke darstellt, ist sehr einfach:
 
 #### CSS
 
-Lassen Sie uns die CSS durchgehen. Der äußere Container wird folgendermaßen gestaltet:
+Sehen wir uns das CSS an. Der äußere Container wird wie folgt gestaltet:
 
 ```css
 .scroller {
@@ -77,9 +77,9 @@ Lassen Sie uns die CSS durchgehen. Der äußere Container wird folgendermaßen g
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snappen relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, was festlegt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss, und das Scrollen immer an einem Snap-Punkt endet.
+Die Hauptbestandteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Schnappunkt zum Stillstand kommt.
 
-Die Kindelemente werden wie folgt gestylt:
+Die Kindelemente sind wie folgt gestaltet:
 
 ```css
 .scroller > div {
@@ -100,7 +100,7 @@ Die Kindelemente werden wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, was angibt, dass die rechten Kanten (die "Ends" entlang der x-Achse, in unserem Fall) die vorgesehenen Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, wodurch spezifiziert wird, dass die rechten Ränder (die "Enden" entlang der X-Achse, in unserem Fall) die bestimmten Schnappunkte sind.
 
 Zuletzt spezifizieren wir die Scroll-Margin-Werte, unterschiedliche für das zweite und dritte Kindelement:
 
@@ -114,7 +114,7 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, unterschiedliche für das zwe
 }
 ```
 
-Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen `1rem` außerhalb des Inline-Endes des zweiten `<div>` und `2rems` außerhalb des Inline-Endes des dritten `<div>` einrastet.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen bei `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` einrastet und bei `2rems` außerhalb des Inline-Endrandes des dritten `<div>`.
 
 #### Ergebnis
 

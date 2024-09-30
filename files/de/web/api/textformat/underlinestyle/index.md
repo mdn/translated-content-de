@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineStyle`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt den Stil der Unterstreichung an, der auf den zu formatierenden Textrahmen angewendet werden soll.
+Die **`underlineStyle`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interfaces gibt den Stil der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
 
 ## Wert
 
@@ -23,9 +23,9 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 
 ## Beispiele
 
-### Lesen des zu verwendenden Unterstreichungsstils
+### Die zu applizierende Unterstreichung lesen
 
-Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Events verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den formatierten Text angewendet werden soll. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Textkomposition verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>
@@ -57,4 +57,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.
+- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.

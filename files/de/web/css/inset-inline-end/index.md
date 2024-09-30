@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-End-Offset eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-inline-end`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-End-Abstand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}-Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht-positionierte Elemente.
+Diese [Einfüge-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-end.html")}}
 
@@ -36,11 +36,11 @@ inset-inline-end: revert-layer;
 inset-inline-end: unset;
 ```
 
-Die Kurzform für {{cssxref("inset-inline-start")}} und `inset-inline-end` ist {{cssxref("inset-inline")}}.
+Die Kurzschreibweise für {{cssxref("inset-inline-start")}} und `inset-inline-end` ist {{cssxref("inset-inline")}}.
 
 ### Werte
 
-Die `inset-inline-end` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}} Eigenschaft.
+Die `inset-inline-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `inset-inline-end` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref
 
 ## Beispiele
 
-### Inline End-Versatz einstellen
+### Einstellung des Inline-End-Offsets
 
 #### HTML
 
@@ -93,6 +93,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}} und {{cssxref("inset-inline-start")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
+- Die Eigenschaften, die andere Einfügungen definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}} und {{cssxref("inset-inline-start")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`newState`**-Eigenschaft der [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist eine schreibgeschützte Zeichenkette, die den Zustand darstellt, zu dem das Element wechselt.
+Die schreibgeschützte Eigenschaft **`newState`** des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Interfaces ist ein String, der den Zustand darstellt, in den das Element wechselt.
 
 ## Wert
 
-Eine Zeichenkette. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird versteckt).
+Ein String. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird ausgeblendet).
 
 ## Beispiele
 

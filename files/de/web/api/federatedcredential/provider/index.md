@@ -9,12 +9,11 @@ l10n:
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
 Die **`provider`**-Eigenschaft der
-[`FederatedCredential`](/de/docs/Web/API/FederatedCredential) Schnittstelle gibt einen String
-zurück, der den föderierten Identitätsanbieter eines Berechtigungsnachweises enthält.
+[`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Schnittstelle gibt einen String zurück, der den föderierten Identitätsanbieter eines Anmeldedatensatzes enthält.
 
 ## Wert
 
-Ein String, der den föderierten Identitätsanbieter eines Berechtigungsnachweises enthält.
+Ein String, der den föderierten Identitätsanbieter eines Anmeldedatensatzes enthält.
 
 ## Beispiele
 

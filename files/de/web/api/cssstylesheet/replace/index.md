@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`replace()`**-Methode der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Schnittstelle ersetzt asynchron den Inhalt des Stylesheets mit dem übergebenen Inhalt. Diese Methode gibt ein Versprechen zurück, das sich mit dem `CSSStyleSheet`-Objekt auflöst.
+Die **`replace()`**-Methode des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Interfaces ersetzt asynchron den Inhalt des Stylesheets mit dem übergebenen Inhalt. Die Methode gibt ein Promise zurück, das mit dem `CSSStyleSheet`-Objekt erfüllt wird.
 
-Die Methoden `replace()` und [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) können nur auf einem Stylesheet verwendet werden, das mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde.
+Die `replace()`- und [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync)-Methoden können nur auf ein Stylesheet angewendet werden, das mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde.
 
 ## Syntax
 
@@ -22,25 +22,25 @@ replace(text)
 
 - `text`
 
-  - : Ein String, der die Stilregeln enthält, um den Inhalt des Stylesheets zu ersetzen. Wenn der String keine parsebare Liste von Regeln enthält, wird der Wert auf einen leeren String gesetzt.
+  - : Ein String, der die Stilregeln enthält, um den Inhalt des Stylesheets zu ersetzen. Wenn der String keine analysierbare Liste von Regeln enthält, wird der Wert auf einen leeren String gesetzt.
 
     > [!NOTE]
-    > Wenn einer der in `text` übergebenen Regeln ein externes Stylesheet ist, das mit der {{cssxref("@import")}}-Regel importiert wurde, werden diese Regeln entfernt und eine Warnung wird in der Konsole ausgegeben.
+    > Wenn eine der in `text` übergebenen Regeln ein externes Stylesheet ist, das mit der {{cssxref("@import")}}-Regel importiert wird, werden diese Regeln entfernt und eine Warnung wird in der Konsole ausgegeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit dem [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) auflöst.
+Ein {{jsxref("Promise")}}, das mit dem [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) erfüllt wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine der folgenden Bedingungen erfüllt ist:
-    - Das Stylesheet wurde nicht mithilfe des [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktors erstellt.
+  - : Wird geworfen, wenn eine der beiden Bedingungen erfüllt ist:
+    - Das Stylesheet wurde nicht mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt.
     - Das Stylesheet ist als nicht modifizierbar gekennzeichnet.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues Stylesheet erstellt und es werden zwei CSS-Regeln mit `replace()` hinzugefügt. Die erste Regel wird dann in der Konsole ausgegeben, was folgendes zurückgibt: `body { font-size: 1.4em; }`
+Im folgenden Beispiel wird ein neues Stylesheet erstellt und zwei CSS-Regeln werden mit `replace()` hinzugefügt. Die erste Regel wird dann in der Konsole ausgegeben, was zurückgibt: `body { font-size: 1.4em; }`
 
 ```js
 const stylesheet = new CSSStyleSheet();
@@ -65,5 +65,5 @@ stylesheet
 
 ## Siehe auch
 
-- [Constructable Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
+- [Konstruktorfähige Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
 - [Verwendung des Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)

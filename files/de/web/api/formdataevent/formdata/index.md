@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte `formData`-Eigenschaft des [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Interfaces enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Daten repräsentiert, die im Formular enthalten sind, als das Ereignis ausgelöst wurde.
+Die schreibgeschützte `formData`-Eigenschaft des [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Interfaces enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Daten darstellt, die im Formular enthalten sind, als das Ereignis ausgelöst wurde.
 
 ## Wert
 

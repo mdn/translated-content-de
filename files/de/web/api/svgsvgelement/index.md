@@ -7,77 +7,77 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGSVGElement`** Schnittstelle bietet Zugang zu den Eigenschaften von {{SVGElement("svg")}}-Elementen sowie zu Methoden, um diese zu manipulieren. Diese Schnittstelle enthält außerdem verschiedene häufig verwendete Hilfsmethoden, wie Matrixoperationen und die Möglichkeit, die Zeit des Redraws auf visuellen Darstellungseinrichtungen zu steuern.
+Die **`SVGSVGElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften der {{SVGElement("svg")}}-Elemente sowie Methoden, um sie zu manipulieren. Diese Schnittstelle enthält auch verschiedene häufig verwendete Hilfsmethoden, wie Matrixoperationen und die Möglichkeit, die Zeit der Neuzeichnung auf visuellen Ausgabegeräten zu steuern.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 - [`SVGSVGElement.x`](/de/docs/Web/API/SVGSVGElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}} Attribut des gegebenen {{SVGElement("svg")}} Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}} Attribut des angegebenen {{SVGElement("svg")}} Elements entspricht.
 - [`SVGSVGElement.y`](/de/docs/Web/API/SVGSVGElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}} Attribut des gegebenen {{SVGElement("svg")}} Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}} Attribut des angegebenen {{SVGElement("svg")}} Elements entspricht.
 - [`SVGSVGElement.width`](/de/docs/Web/API/SVGSVGElement/width) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}} Attribut des gegebenen {{SVGElement("svg")}} Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}} Attribut des angegebenen {{SVGElement("svg")}} Elements entspricht.
 - [`SVGSVGElement.height`](/de/docs/Web/API/SVGSVGElement/height) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}} Attribut des gegebenen {{SVGElement("svg")}} Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}} Attribut des angegebenen {{SVGElement("svg")}} Elements entspricht.
 - [`SVGSVGElement.pixelUnitToMillimeterX`](/de/docs/Web/API/SVGSVGElement/pixelUnitToMillimeterX) {{Deprecated_Inline}}
-  - : Eine float-Zahl, die die Größe der Pixeleinheit (wie von CSS2 definiert) entlang der x-Achse des Ansichtsports darstellt. Diese repräsentiert eine Einheit im Bereich von 70dpi bis 120dpi, und auf Systemen, die dies unterstützen, könnte sie tatsächlich die Eigenschaften des Zielmediums widerspiegeln. Auf Systemen, bei denen es unmöglich ist, die Größe eines Pixels zu kennen, wird eine passende Standard-Pixelgröße bereitgestellt.
+  - : Ein Float, der die Größe der Pixeleinheit (wie in CSS2 definiert) entlang der x-Achse des Viewports darstellt, was eine Einheit irgendwo im Bereich von 70dpi bis 120dpi repräsentiert und auf Systemen, die dies unterstützen, möglicherweise den Eigenschaften des Zielmediums entspricht. Auf Systemen, auf denen es unmöglich ist, die Größe eines Pixels zu kennen, wird eine geeignete Standardpixelgröße bereitgestellt.
 - [`SVGSVGElement.pixelUnitToMillimeterY`](/de/docs/Web/API/SVGSVGElement/pixelUnitToMillimeterY) {{Deprecated_Inline}}
-  - : Eine float-Zahl, die die Größe einer Pixeleinheit entlang der y-Achse des Ansichtsports darstellt.
+  - : Ein Float, der die Größe einer Pixeleinheit entlang der y-Achse des Viewports darstellt.
 - [`SVGSVGElement.screenPixelToMillimeterX`](/de/docs/Web/API/SVGSVGElement/screenPixelToMillimeterX) {{Deprecated_Inline}}
-  - : Benutzeroberflächenereignisse (UI) in DOM Level 2 geben die Bildschirmpositionen an, an denen das gegebene UI-Ereignis aufgetreten ist. Wenn der Browser tatsächlich die physische Größe einer „Bildschirmeinheit“ kennt, wird dieser float-Attribut diese Information ausdrücken; andernfalls liefern Benutzeragenten einen passenden Standardwert (z. B. `.28mm`).
+  - : Benutzeroberflächenereignisse (UI) in DOM Level 2 geben die Bildschirmpositionen an, an denen das gegebene UI-Ereignis auftrat. Wenn der Browser tatsächlich die physische Größe einer „Bildschirmeinheit“ kennt, drückt dieses Float-Attribut diese Information aus; andernfalls stellen Benutzeragenten einen geeigneten Standardwert bereit (z. B. `.28mm`).
 - [`SVGSVGElement.screenPixelToMillimeterY`](/de/docs/Web/API/SVGSVGElement/screenPixelToMillimeterY) {{Deprecated_Inline}}
-  - : Entsprechende Größe eines Bildschirmpixels entlang der y-Achse des Ansichtsports.
+  - : Entsprechende Größe eines Bildschirmpixels entlang der y-Achse des Viewports.
 - [`SVGSVGElement.useCurrentView`](/de/docs/Web/API/SVGSVGElement/useCurrentView) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Die anfängliche Ansicht (d. h. vor Vergrößerung und Schwenken) des aktuellen innersten SVG-Dokumentfragments kann entweder die "Standard"-Ansicht sein, d. h. basierend auf Attributen des {{SVGElement("svg")}} Elements wie {{SVGAttr("viewBox")}}) oder auf einer "benutzerdefinierten" Ansicht (d. h. ein Hyperlink zu einem bestimmten {{SVGElement("view")}} oder anderem Element). Wenn die anfängliche Ansicht die "Standard"-Ansicht ist, ist dieses Attribut `false`. Wenn die anfängliche Ansicht eine "benutzerdefinierte" Ansicht ist, ist dieses Attribut `true`.
+  - : Die initiale Ansicht (d.h. vor Vergrößerung und Schwenken) des aktuellen, innersten SVG-Dokumentfragments kann entweder die „Standard“-Anschicht sein, d.h. basierend auf Attributen des {{SVGElement("svg")}} Elements wie {{SVGAttr("viewBox")}}) oder auf einer „benutzerdefinierten“ Ansicht (d.h. ein Hyperlink zu einem bestimmten {{SVGElement("view")}} oder anderen Elementen). Wenn die initiale Ansicht die „Standard“-Ansicht ist, dann ist dieses Attribut `false`. Wenn die initiale Ansicht eine „benutzerdefinierte“ Ansicht ist, dann ist dieses Attribut `true`.
 - [`SVGSVGElement.currentView`](/de/docs/Web/API/SVGSVGElement/currentView) {{Deprecated_Inline}} {{Non-standard_Inline}}
 
-  - : Ein [`SVGViewSpec`](/de/docs/Web/API/SVGViewSpec), der die anfängliche Ansicht (d. h. vor Vergrößerung und Schwenken) des aktuellen innersten SVG-Dokumentfragments definiert. Die Bedeutung hängt von der Situation ab: Wenn die anfängliche Ansicht eine "Standard"-Ansicht war, dann:
+  - : Ein [`SVGViewSpec`](/de/docs/Web/API/SVGViewSpec), das die initiale Ansicht (d.h. vor Vergrößerung und Schwenken) des aktuellen, innersten SVG-Dokumentfragments definiert. Die Bedeutung hängt von der Situation ab: Wenn die initiale Ansicht eine „Standard“-Ansicht war, dann:
 
-    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den Werten für die entsprechenden DOM-Attribute, die direkt auf `SVGSVGElement` vorhanden sind
-    - ist der Wert für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} `null`
+    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den Werten für die entsprechenden DOM-Attribute, die direkt auf `SVGSVGElement` liegen
+    - der Wert für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} wird `null` sein
 
-    Wenn die anfängliche Ansicht ein Link zu einem {{SVGElement("view")}}-Element war, dann:
+    Wenn die initiale Ansicht ein Link zu einem {{SVGElement("view")}} Element war, dann:
 
-    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den entsprechenden Attributen für das gegebene {{SVGElement("view")}}-Element
-    - ist der Wert für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} `null`
+    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den entsprechenden Attributen für das gegebene {{SVGElement("view")}} Element
+    - der Wert für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} wird `null` sein
 
-    Wenn die anfängliche Ansicht ein Link zu einem anderen Element war (d. h. außer einem {{SVGElement("view")}}), dann:
+    Wenn die initiale Ansicht ein Link zu einem anderen Element war (d. h., außer einem {{SVGElement("view")}}), dann:
 
-    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den Werten für die entsprechenden DOM-Attribute, die direkt am nächsten Vorfahren-{{SVGElement("svg")}}-Element vorhanden sind
-    - sind die Werte für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} `null`
+    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}} und {{SVGAttr("zoomAndPan")}} innerhalb von {{SVGAttr("currentView")}} den Werten für die entsprechenden DOM-Attribute, die direkt auf `SVGSVGElement` für das nächste Vorfahrelement {{SVGElement("svg")}} liegen
+    - die Werte für {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} werden `null` sein
 
-    Wenn die anfängliche Ansicht ein Link in das SVG-Dokumentfragment unter Verwendung eines SVG-View-Spezifikationsfragmentidentifikators (d. h. `#svgView(…)`) war, dann:
+    Wenn die initiale Ansicht ein Link in das SVG-Dokumentfragment mit einem SVG-Ansichtsspezifikations-Fragmentbezeichner war (d. h. `#svgView(…)`), dann:
 
-    - entsprechen die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}}, {{SVGAttr("zoomAndPan")}}, {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} den Werten aus dem SVG-View-Spezifikationsfragmentidentifikator
+    - werden die Werte für {{SVGAttr("viewBox")}}, {{SVGAttr("preserveAspectRatio")}}, {{SVGAttr("zoomAndPan")}}, {{SVGAttr("transform")}} innerhalb von {{SVGAttr("currentView")}} den Werten aus dem Fragmentbezeichner der SVG-Ansichtsspezifikation entsprechen
 
 - [`SVGSVGElement.currentScale`](/de/docs/Web/API/SVGSVGElement/currentScale)
-  - : Bei einem äußersten {{SVGElement("svg")}}-Element gibt dieses float-Attribut den aktuellen Skalierungsfaktor relativ zur anfänglichen Ansicht an, um Benutzermagnifikations- und Schwenkoperationen zu berücksichtigen. Die DOM-Attribute `currentScale` und `currentTranslate` entsprechen der 2×3-Matrix `[a b c d e f] = [currentScale 0 0 currentScale currentTranslate.x currentTranslate.y]`. Wenn "Vergrößerung" aktiviert ist (d. h. `zoomAndPan="magnify"`), dann ist der Effekt so, als ob eine zusätzliche Transformation auf der äußersten Ebene des SVG-Dokumentfragments platziert worden wäre (d. h. außerhalb des äußersten {{SVGElement("svg")}}-Elements).
+  - : Bei einem äußersten {{SVGElement("svg")}} Element zeigt dieses Float-Attribut den aktuellen Skalierungsfaktor relativ zur initialen Ansicht an, um die Vergrößerung und Schwenkoperationen des Benutzers zu berücksichtigen. DOM-Attribute `currentScale` und `currentTranslate` sind äquivalent zur 2×3-Matrix `[a b c d e f] = [currentScale 0 0 currentScale currentTranslate.x currentTranslate.y]`. Wenn "Vergrößerung" aktiviert ist (d. h. `zoomAndPan="magnify"`), dann entspricht die Wirkung dem Platzieren einer zusätzlichen Transformation auf der äußersten Ebene des SVG-Dokumentfragments (d. h. außerhalb des äußersten {{SVGElement("svg")}} Elements).
 - [`SVGSVGElement.currentTranslate`](/de/docs/Web/API/SVGSVGElement/currentTranslate) {{ReadOnlyInline}}
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint), der den Translationsfaktor repräsentiert, der die Benutzermagnifikation berücksichtigt und einem äußersten {{SVGElement("svg")}}-Element entspricht. Das Verhalten ist für `<svg>`-Elemente, die sich nicht auf der äußersten Ebene befinden, undefiniert.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint), der den Übersetzungsfaktor darstellt, der die Benutzer-"Vergrößerung" für ein äußerstes {{SVGElement("svg")}} Element berücksichtigt. Das Verhalten ist für `<svg>` Elemente, die nicht auf der äußersten Ebene liegen, nicht definiert.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 - [`SVGSVGElement.suspendRedraw()`](/de/docs/Web/API/SVGSVGElement/suspendRedraw) {{Deprecated_Inline}}
 
-  - : Nimmt einen Timeout-Wert, der angibt, dass kein Redraw erfolgen soll, bis:
+  - : Nimmt einen Timeout-Wert, der angibt, dass keine Neuzeichnung stattfinden soll, bis:
 
-    der entsprechende `unsuspendRedraw()`-Aufruf erfolgt ist, ein `unsuspendRedrawAll()`-Aufruf getätigt wurde oder sein Timer abgelaufen ist.
+    der entsprechende `unsuspendRedraw()`-Aufruf erfolgt ist, ein `unsuspendRedrawAll()`-Aufruf erfolgt ist oder sein Timer abgelaufen ist.
 
-    In Umgebungen, die keine Interaktivität unterstützen (z. B. Druckmedien), soll das Redraw nicht ausgesetzt werden. Aufrufe von `suspendRedraw()` und `unsuspendRedraw()` sollten, müssen aber nicht, in ausgeglichenen Paaren erfolgen.
+    In Umgebungen, die keine Interaktivität unterstützen (z. B. Druckmedien), darf die Neuzeichnung nicht ausgesetzt werden. Aufrufe von `suspendRedraw()` und `unsuspendRedraw()` sollten paarweise erfolgen, müssen es aber nicht.
 
-    Um Redraw-Aktionen auszusetzen, während eine Sammlung von SVG-DOM-Änderungen auftritt, gehen Sie den Änderungen im SVG-DOM mit einem Methodenaufruf wie:
+    Um Neuzeichnungsaktionen bei einer Sammlung von SVG-DOM-Änderungen auszusetzen, gehen Sie den Änderungen am SVG-DOM mit einem Methodenaufruf wie dem folgenden voraus:
 
     ```js
     const suspendHandleID = suspendRedraw(maxWaitMilliseconds);
     ```
 
-    voraus und folgen Sie den Änderungen mit einem Methodenaufruf wie:
+    und folgen Sie den Änderungen mit einem Methodenaufruf wie dem folgenden:
 
     ```js
     unsuspendRedraw(suspendHandleID);
@@ -86,91 +86,91 @@ _Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`SVGGraphicsEleme
     Beachten Sie, dass mehrere `suspendRedraw()`-Aufrufe gleichzeitig verwendet werden können und dass jeder dieser Methodenaufrufe unabhängig von den anderen `suspendRedraw()`-Methodenaufrufen behandelt wird.
 
 - [`SVGSVGElement.unsuspendRedraw()`](/de/docs/Web/API/SVGSVGElement/unsuspendRedraw) {{Deprecated_Inline}}
-  - : Hebt ein angegebenes `suspendRedraw()` mit einer eindeutigen Suspend-Handle-ID auf, die von einem vorherigen `suspendRedraw()`-Aufruf zurückgegeben wurde.
+  - : Hebt eine angegebene `suspendRedraw()` durch Bereitstellung einer eindeutigen Aussetzungs-Handle-ID auf, die von einem früheren `suspendRedraw()`-Aufruf zurückgegeben wurde.
 - [`SVGSVGElement.unsuspendRedrawAll()`](/de/docs/Web/API/SVGSVGElement/unsuspendRedrawAll) {{Deprecated_Inline}}
-  - : Hebt alle aktuell aktiven `suspendRedraw()`-Methodenaufrufe auf. Diese Methode ist besonders nützlich am Ende eines Satzes von SVG-DOM-Aufrufen, um sicherzustellen, dass alle ausstehenden `suspendRedraw()`-Methodenaufrufe aufgehoben wurden.
+  - : Hebt alle derzeit aktiven `suspendRedraw()`-Methodenaufrufe auf. Diese Methode ist am nützlichsten am Ende einer Reihe von SVG-DOM-Aufrufen, um sicherzustellen, dass alle ausstehenden `suspendRedraw()`-Methodenaufrufe aufgehoben wurden.
 - [`SVGSVGElement.forceRedraw()`](/de/docs/Web/API/SVGSVGElement/forceRedraw) {{Deprecated_Inline}}
-  - : In Rendering-Umgebungen, die Interaktivität unterstützen, zwingt den Benutzeragenten, alle Bereiche des Ansichtsports, die aktualisiert werden müssen, sofort neu zu zeichnen.
+  - : Erzwingt in Rendering-Umgebungen, die Interaktivität unterstützen, dass der Benutzeragent alle Bereiche des Viewports, die aktualisiert werden müssen, sofort neu zeichnet.
 - [`SVGSVGElement.pauseAnimations()`](/de/docs/Web/API/SVGSVGElement/pauseAnimations)
-  - : Setzt alle aktuell laufenden Animationen, die im SVG-Dokumentfragment definiert sind, das diesem {{SVGElement("svg")}}-Element entspricht, aus (d. h. pausiert sie), sodass die Animationsuhr, die diesem Dokumentfragment entspricht, stillsteht, bis sie wieder gestartet wird.
+  - : Setzt alle derzeit laufenden Animationen, die im SVG-Dokumentfragment definiert sind, das diesem {{SVGElement("svg")}}-Element entspricht, aus (d.h. pausiert sie), wodurch die Animationsuhr dieses Dokumentfragments stillsteht, bis sie fortgesetzt wird.
 - [`SVGSVGElement.unpauseAnimations()`](/de/docs/Web/API/SVGSVGElement/unpauseAnimations)
-  - : Setzt aktuell laufende Animationen, die im SVG-Dokumentfragment definiert sind, fort (d. h. hebt die Pause auf), sodass die Animationsuhr ab dem Zeitpunkt weiterläuft, zu dem sie ausgesetzt wurde.
+  - : Nimmt derzeit laufende Animationen, die innerhalb des SVG-Dokumentfragments definiert sind, wieder auf (d.h. setzt sie fort), wodurch die Animationsuhr ab dem Zeitpunkt weiterläuft, an dem sie pausiert wurde.
 - [`SVGSVGElement.animationsPaused()`](/de/docs/Web/API/SVGSVGElement/animationsPaused)
-  - : Gibt `true` zurück, wenn dieses SVG-Dokumentfragment sich in einem pausierten Zustand befindet.
+  - : Gibt `true` zurück, wenn dieses SVG-Dokumentfragment in einem pausierten Zustand ist.
 - [`SVGSVGElement.getCurrentTime()`](/de/docs/Web/API/SVGSVGElement/getCurrentTime)
-  - : Gibt die aktuelle Zeit in Sekunden relativ zur Startzeit für das aktuelle SVG-Dokumentfragment zurück. Wenn `getCurrentTime()` aufgerufen wird, bevor die Dokumentzeitleiste begonnen hat (zum Beispiel durch ein Skript, das in einem {{SVGElement("script")}}-Element ausgeführt wird, bevor das `SVGLoad`-Ereignis des Dokuments ausgelöst wird), wird `0` zurückgegeben.
+  - : Gibt die aktuelle Zeit in Sekunden relativ zur Startzeit für das aktuelle SVG-Dokumentfragment zurück. Wenn `getCurrentTime()` aufgerufen wird, bevor die Dokumentzeitachse begonnen hat (zum Beispiel durch ein Skript, das in einem {{SVGElement("script")}}-Element ausgeführt wird, bevor das `SVGLoad`-Ereignis des Dokuments abgesendet wird), wird `0` zurückgegeben.
 - [`SVGSVGElement.setCurrentTime()`](/de/docs/Web/API/SVGSVGElement/setCurrentTime)
-  - : Passt die Uhr für dieses SVG-Dokumentfragment an und stellt eine neue aktuelle Zeit fest. Wenn `setCurrentTime()` aufgerufen wird, bevor die Dokumentzeitleiste begonnen hat (zum Beispiel durch ein Skript, das in einem {{SVGElement("script")}}-Element ausgeführt wird, bevor das `SVGLoad`-Ereignis des Dokuments ausgelöst wird), gibt der Wert der Sekunden in der letzten Methode die Zeit an, zu der das Dokument springt, wenn die Dokumentzeitleiste beginnt.
+  - : Passt die Uhr für dieses SVG-Dokumentfragment an und stellt eine neue aktuelle Zeit ein. Wenn `setCurrentTime()` aufgerufen wird, bevor die Dokumentzeitachse begonnen hat (zum Beispiel durch ein Skript, das in einem {{SVGElement("script")}}-Element ausgeführt wird, bevor das `SVGLoad`-Ereignis des Dokuments abgesendet wird), gibt der Wert der Sekunden im letzten Aufruf dieser Methode die Zeit an, zu der das Dokument zurückspringt, sobald die Dokumentzeitachse begonnen hat.
 - [`SVGSVGElement.getIntersectionList()`](/de/docs/Web/API/SVGSVGElement/getIntersectionList)
-  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Grafik-Elementen zurück, deren gerenderter Inhalt das angegebene Rechteck schneidet. Jedes potenzielle Grafik-Element wird nur dann als Übereinstimmung betrachtet, wenn dasselbe Grafik-Element ein Ziel für Zeigereignisse sein kann, wie in der Verarbeitung von {{SVGAttr("pointer-events")}} definiert ist.
+  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Grafikelementen zurück, deren gerenderter Inhalt das angegebene Rechteck schneidet. Jedes in Frage kommende Grafikelement ist nur dann als Übereinstimmung zu betrachten, wenn dasselbe Grafikelement ein Ziel von Zeigerereignissen im Sinne der {{SVGAttr("pointer-events")}}-Verarbeitung sein kann.
 - [`SVGSVGElement.getEnclosureList()`](/de/docs/Web/API/SVGSVGElement/getEnclosureList)
-  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Grafik-Elementen zurück, deren gerenderter Inhalt vollständig innerhalb des angegebenen Rechtecks enthalten ist. Jedes potenzielle Grafik-Element wird nur dann als Übereinstimmung betrachtet, wenn dasselbe Grafik-Element ein Ziel für Zeigereignisse sein kann, wie in der Verarbeitung von {{SVGAttr("pointer-events")}} definiert ist.
+  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Grafikelementen zurück, deren gerenderter Inhalt vollständig innerhalb des angegebenen Rechtecks enthalten ist. Jedes in Frage kommende Grafikelement ist nur dann als Übereinstimmung zu betrachten, wenn dasselbe Grafikelement ein Ziel von Zeigerereignissen im Sinne der {{SVGAttr("pointer-events")}}-Verarbeitung sein kann.
 - [`SVGSVGElement.checkIntersection()`](/de/docs/Web/API/SVGSVGElement/checkIntersection)
-  - : Gibt `true` zurück, wenn der gerenderte Inhalt des gegebenen Elements das angegebene Rechteck schneidet. Jedes potenzielle Grafik-Element wird nur dann als Übereinstimmung betrachtet, wenn dasselbe Grafik-Element ein Ziel für Zeigereignisse sein kann, wie in der Verarbeitung von {{SVGAttr("pointer-events")}} definiert ist.
+  - : Gibt `true` zurück, wenn der gerenderte Inhalt des angegebenen Elements das angegebene Rechteck schneidet. Jedes in Frage kommende Grafikelement ist nur dann als Übereinstimmung zu betrachten, wenn dasselbe Grafikelement ein Ziel von Zeigerereignissen im Sinne der {{SVGAttr("pointer-events")}}-Verarbeitung sein kann.
 - [`SVGSVGElement.checkEnclosure()`](/de/docs/Web/API/SVGSVGElement/checkEnclosure)
-  - : Gibt `true` zurück, wenn der gerenderte Inhalt des gegebenen Elements vollständig innerhalb des angegebenen Rechtecks enthalten ist. Jedes potenzielle Grafik-Element wird nur dann als Übereinstimmung betrachtet, wenn dasselbe Grafik-Element ein Ziel für Zeigereignisse sein kann, wie in der Verarbeitung von {{SVGAttr("pointer-events")}} definiert ist.
+  - : Gibt `true` zurück, wenn der gerenderte Inhalt des angegebenen Elements vollständig im angegebenen Rechteck enthalten ist. Jedes in Frage kommende Grafikelement ist nur dann als Übereinstimmung zu betrachten, wenn dasselbe Grafikelement ein Ziel von Zeigerereignissen im Sinne der {{SVGAttr("pointer-events")}}-Verarbeitung sein kann.
 - [`SVGSVGElement.deselectAll()`](/de/docs/Web/API/SVGSVGElement/deselectAll)
-  - : Hebt die Auswahl aller ausgewählten Objekte auf, einschließlich der Auswahl von Textzeichenfolgen und Eingabemarken.
+  - : Hebt die Auswahl aller ausgewählten Objekte auf, einschließlich aller Auswahl von Textzeichenfolgen und Tipp-Eingabebalken.
 - [`SVGSVGElement.createSVGNumber()`](/de/docs/Web/API/SVGSVGElement/createSVGNumber)
-  - : Erstellt ein [`SVGNumber`](/de/docs/Web/API/SVGNumber) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf `0` initialisiert.
+  - : Erstellt ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf `0` initialisiert.
 - [`SVGSVGElement.createSVGLength()`](/de/docs/Web/API/SVGSVGElement/createSVGLength)
-  - : Erstellt ein [`SVGLength`](/de/docs/Web/API/SVGLength) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf `0` Benutzer-Einheiten initialisiert.
+  - : Erstellt ein [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf `0` Benutzereinheiten initialisiert.
 - [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle)
-  - : Erstellt ein [`SVGAngle`](/de/docs/Web/API/SVGAngle) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf einen Wert von `0` Grad (einheitenlos) initialisiert.
+  - : Erstellt ein [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf einen Wert von `0` Grad (ohne Einheit) initialisiert.
 - [`SVGSVGElement.createSVGPoint()`](/de/docs/Web/API/SVGSVGElement/createSVGPoint)
-  - : Erstellt ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf den Punkt `(0,0)` im Benutzersystem initialisiert.
+  - : Erstellt ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf den Punkt `(0,0)` im Benutzerkoordinatensystem initialisiert.
 - [`SVGSVGElement.createSVGMatrix()`](/de/docs/Web/API/SVGSVGElement/createSVGMatrix)
-  - : Erstellt ein [`SVGMatrix`](/de/docs/Web/API/DOMMatrix) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf die Identitätsmatrix initialisiert.
+  - : Erstellt ein [`SVGMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf die Einheitsmatrix initialisiert.
 - [`SVGSVGElement.createSVGRect()`](/de/docs/Web/API/SVGSVGElement/createSVGRect)
-  - : Erstellt ein [`SVGRect`](/de/docs/Web/API/SVGRect) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird so initialisiert, dass alle Werte auf `0` Benutzer-Einheiten gesetzt sind.
+  - : Erstellt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird so initialisiert, dass alle Werte auf `0` Benutzereinheiten gesetzt sind.
 - [`SVGSVGElement.createSVGTransform()`](/de/docs/Web/API/SVGSVGElement/createSVGTransform)
-  - : Erstellt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf eine Identitätsmatrizen-Transformation (`SVG_TRANSFORM_MATRIX`) initialisiert.
+  - : Erstellt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf eine Identitätsmatrix-Transformation (`SVG_TRANSFORM_MATRIX`) initialisiert.
 - [`SVGSVGElement.createSVGTransformFromMatrix()`](/de/docs/Web/API/SVGSVGElement/createSVGTransformFromMatrix)
-  - : Erstellt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform) Objekt außerhalb jeglicher Dokumentbäume. Das Objekt wird auf die gegebene Matrizen-Transformation initialisiert (d. h. `SVG_TRANSFORM_MATRIX`). Die Werte der Parameter-Matrix werden kopiert, die Matrix-Parameter werden nicht als `SVGTransform::matrix` übernommen.
+  - : Erstellt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt außerhalb von Dokumentbäumen. Das Objekt wird auf die gegebene Matrix-Transformation (d.h. `SVG_TRANSFORM_MATRIX`) initialisiert. Die Werte der Parameter-Matrix werden kopiert, die Matrix-Parameter werden nicht als `SVGTransform::matrix` übernommen.
 - [`SVGSVGElement.getElementById()`](/de/docs/Web/API/SVGSVGElement/getElementById)
-  - : Sucht in diesem SVG-Dokumentfragment (d. h. die Suche ist auf einen Teilbaum des Dokuments beschränkt) nach einem Element, dessen `id` dem Wert `elementId` entspricht. Wenn ein Element gefunden wird, wird dieses Element zurückgegeben. Wenn kein solches Element existiert, wird `null` zurückgegeben. Das Verhalten ist nicht definiert, wenn mehr als ein Element diese ID hat.
+  - : Durchsucht dieses SVG-Dokumentfragment (d.h. die Suche beschränkt sich auf einen Teilbaum des Dokuments) nach einem Element, dessen `id` durch `elementId` angegeben wird. Wenn ein Element gefunden wird, wird dieses Element zurückgegeben. Wenn kein solches Element existiert, wird `null` zurückgegeben. Das Verhalten ist nicht definiert, wenn mehr als ein Element diese id hat.
 
 ## Ereignis-Handler
 
-Die folgenden [`Window`](/de/docs/Web/API/Window) `onXYZ` Ereignis-Handler-Eigenschaften sind auch als Aliase verfügbar, die auf das `window`-Objekt abzielen. Es wird jedoch empfohlen, diese direkt auf dem `window`-Objekt statt auf `SVGSVGElement` zu hören.
+Die folgenden [`Window`](/de/docs/Web/API/Window) `onXYZ` Ereignis-Handler-Eigenschaften sind auch als Aliase verfügbar, die auf das `window`-Objekt abzielen. Es wird jedoch empfohlen, sie direkt auf dem `window`-Objekt anstatt auf `SVGSVGElement` zu hören.
 
 > [!NOTE]
-> Die Verwendung von `addEventListener()` auf `SVGSVGElement` funktioniert nicht für die unten aufgeführten `onXYZ` Ereignis-Handler. Hören Sie stattdessen auf die Ereignisse des [`window`](/de/docs/Web/API/Window)-Objekts.
+> Die Verwendung von `addEventListener()` auf `SVGSVGElement` funktioniert nicht für die unten aufgeführten `onXYZ` Ereignis-Handler. Hören Sie stattdessen die Ereignisse auf dem [`window`](/de/docs/Web/API/Window)-Objekt ab.
 
 - [`SVGSVGElement.onafterprint`](/de/docs/Web/API/Window/afterprint_event)
   - : Wird ausgelöst, nachdem das zugehörige Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
 - [`SVGSVGElement.onbeforeprint`](/de/docs/Web/API/Window/beforeprint_event)
-  - : Wird ausgelöst, wenn das zugehörige Dokument gedruckt oder für das Drucken in der Vorschau angezeigt werden soll.
+  - : Wird ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau geöffnet werden soll.
 - [`SVGSVGElement.onbeforeunload`](/de/docs/Web/API/Window/beforeunload_event)
   - : Wird ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen entladen werden sollen.
 - [`SVGSVGElement.ongamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)
-  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder zum ersten Mal eine Taste/Achse des Gamepads verwendet wird.
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder zum ersten Mal ein Button/eine Achse des Gamepads verwendet wird.
 - [`SVGSVGElement.ongamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)
   - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
 - [`SVGSVGElement.onhashchange`](/de/docs/Web/API/Window/hashchange_event)
-  - : Wird ausgelöst, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und darauf folgt).
+  - : Wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und folgt).
 - [`SVGSVGElement.onlanguagechange`](/de/docs/Web/API/Window/languagechange_event)
   - : Wird ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 - [`SVGSVGElement.onmessage`](/de/docs/Web/API/Window/message_event)
-  - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, z. B. von einem Aufruf an [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
+  - : Wird ausgelöst, wenn das Fenster eine Nachricht empfängt, zum Beispiel durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
 - [`SVGSVGElement.onmessageerror`](/de/docs/Web/API/Window/messageerror_event)
   - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, die nicht deserialisiert werden kann.
 - [`SVGSVGElement.onoffline`](/de/docs/Web/API/Window/offline_event)
-  - : Wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk verloren hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
+  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk verloren hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
 - [`SVGSVGElement.ononline`](/de/docs/Web/API/Window/online_event)
-  - : Wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk wiedererlangt hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
+  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk erlangt hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
 - [`SVGSVGElement.onpagehide`](/de/docs/Web/API/Window/pagehide_event)
-  - : Wird ausgelöst, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
+  - : Wird ausgelöst, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus der Sitzungsgeschichte anzuzeigen.
 - [`SVGSVGElement.onpageshow`](/de/docs/Web/API/Window/pageshow_event)
   - : Wird ausgelöst, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
 - [`SVGSVGElement.onpopstate`](/de/docs/Web/API/Window/popstate_event)
-  - : Wird ausgelöst, wenn sich der aktive Verlaufseintrag ändert, während der Benutzer den Sitzungsverlauf durchsucht.
+  - : Wird ausgelöst, wenn der aktuelle Verlaufseintrag geändert wird, während der Benutzer durch die Verlaufssitzung navigiert.
 - [`SVGSVGElement.onrejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
-  - : Wird ausgelöst, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird und die Ablehnung behandelt wurde.
+  - : Wird jedes Mal ausgelöst, wenn ein JavaScript {{jsxref("Promise")}} abgelehnt wird und die Ablehnung gehandhabt wurde.
 - [`SVGSVGElement.onstorage`](/de/docs/Web/API/Window/storage_event)
   - : Wird ausgelöst, wenn ein Speicherbereich (`localStorage`) im Kontext eines anderen Dokuments geändert wurde.
 - [`SVGSVGElement.onunhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
-  - : Wird ausgelöst, wenn ein {{jsxref("Promise")}} abgelehnt wird, aber die Ablehnung nicht behandelt wurde.
+  - : Wird jedes Mal ausgelöst, wenn ein {{jsxref("Promise")}} abgelehnt wird, die Ablehnung jedoch nicht gehandhabt wurde.
 - [`SVGSVGElement.onunload`](/de/docs/Web/API/Window/unload_event)
   - : Wird ausgelöst, wenn das Dokument entladen wird.
 

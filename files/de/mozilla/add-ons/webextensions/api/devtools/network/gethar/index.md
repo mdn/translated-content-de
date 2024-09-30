@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Holen Sie ein [HAR-Log](http://www.softwareishard.com/blog/har-12-spec/#log) für die im aktuellen Tab geladene Seite.
+Holen Sie sich ein [HAR-Protokoll](http://www.softwareishard.com/blog/har-12-spec/#log) für die Seite, die im aktuellen Tab geladen ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das das HAR-Log für den aktuellen Tab enthält. Einzelheiten darüber, was das Log-Objekt enthält, finden Sie in der [HAR-Spezifikation](http://www.softwareishard.com/blog/har-12-spec/#log).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches das HAR-Protokoll für den aktuellen Tab enthält. Für Details, was das Protokoll-Objekt enthält, lesen Sie die [HAR-Spezifikation](http://www.softwareishard.com/blog/har-12-spec/#log).
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie die URLs von Anfragen, die im HAR-Log enthalten sind:
+Protokollieren Sie die URLs von Anfragen, die im HAR-Protokoll enthalten sind:
 
 ```js
 async function logRequests() {
@@ -48,7 +48,7 @@ logRequestsButton.addEventListener("click", logRequests);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [Chromium `chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
+> Diese API basiert auf Chromium's [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

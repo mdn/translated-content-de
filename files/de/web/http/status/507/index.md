@@ -7,11 +7,13 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`507 Insufficient Storage`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass eine Aktion nicht ausgeführt werden konnte, weil der Server nicht über genügend verfügbaren Speicher verfügt, um die Anforderung erfolgreich abzuschließen.
+Der HTTP-Statuscode **`507 Insufficient Storage`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass eine Aktion nicht ausgeführt werden konnte, da der Server nicht über genügend verfügbaren Speicherplatz verfügt, um die Anfrage erfolgreich abzuschließen.
 
-Dieser Statuscode wurde zuerst im Kontext des Web-basierten verteilten Autorings und Versionierens ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet, hat sich jedoch auch auf andere Anwendungsfälle ausgeweitet, um Situationen zu beschreiben, in denen Server-Ressourcen erschöpft sind. Häufige Ursachen für diesen Fehler können darin bestehen, dass Serververzeichnisse keinen verfügbaren Speicherplatz mehr haben, nicht genügend RAM für einen Vorgang verfügbar ist oder interne Grenzen erreicht werden (wie anwendungsspezifische Speicherbeschränkungen, zum Beispiel). Die Anforderung, die diesen Fehler verursacht, muss nicht unbedingt Inhalte enthalten, da es sich um eine Anforderung handeln kann, die ein Ressource auf dem Server erstellen würde, wenn sie erfolgreich wäre.
+Dieser Statuscode wurde zuerst im Kontext von Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet, hat sich jedoch in andere Anwendungsfälle hinein verbreitet, um Situationen zu beschreiben, in denen Serverressourcen erschöpft sind.
+Häufige Ursachen für diesen Fehler können darin bestehen, dass Serververzeichnisse keinen verfügbaren Speicherplatz mehr haben, nicht genügend RAM für einen Vorgang vorhanden ist oder interne Grenzen erreicht wurden (wie beispielsweise anwendungsspezifische Speichergrenzen).
+Die Anfrage, die diesen Fehler verursacht, muss nicht unbedingt Inhalt enthalten, da es sich um eine Anfrage handeln kann, die bei Erfolg eine Ressource auf dem Server erstellen würde.
 
-Dieses Problem wird als vorübergehend angesehen, im Gegensatz zu einem {{HTTPStatus("413", "413 Content Too Large")}}, der anzeigt, dass die Client-Anforderung unabhängig von den Serverressourcenbeschränkungen zu groß ist, um sie zu verarbeiten.
+Dieses Problem wird als vorübergehend angesehen, im Gegensatz zu einem {{HTTPStatus("413", "413 Content Too Large")}}, der anzeigt, dass die Clientanfrage zu groß ist, als dass der Server sie unabhängig von Ressourceneinschränkungen des Servers verarbeiten könnte.
 
 ## Status
 
@@ -23,7 +25,8 @@ Dieses Problem wird als vorübergehend angesehen, im Gegensatz zu einem {{HTTPSt
 
 ### 507-Antwort, die Speicherprobleme anzeigt
 
-Die folgende Anfrage versucht, eine Datei auf einen Server hochzuladen, der über nicht ausreichenden Speicherplatz verfügt. Der Server antwortet mit einem `507`, um anzuzeigen, dass seine Ressourcen erschöpft sind:
+Die folgende Anfrage versucht, eine Datei auf einen Server hochzuladen, der nicht genügend Speicherplatz zur Verfügung hat.
+Der Server antwortet mit einem `507`, um anzuzeigen, dass seine Ressourcen erschöpft sind:
 
 ```http
 POST /upload HTTP/1.1

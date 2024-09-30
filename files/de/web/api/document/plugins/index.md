@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`plugins`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt zurück, das ein oder mehrere [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement) enthält, welche die {{HTMLElement("embed")}}-Elemente im aktuellen Dokument repräsentieren.
+Die **`plugins`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt zurück, das ein oder mehrere [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)s enthält, die die {{HTMLElement("embed")}}-Elemente im aktuellen Dokument repräsentieren.
 
 > [!NOTE]
 > Für eine Liste der installierten Plugins verwenden Sie stattdessen [Navigator.plugins](/de/docs/Web/API/Navigator/plugins).
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Spezifikationen
 

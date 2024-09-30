@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Secure Sockets Layer, oder SSL, war die alte Standard-Sicherheitstechnologie zur Erstellung einer verschlüsselten Netzwerkverbindung zwischen einem Server und einem Client, die sicherstellt, dass alle übertragenen Daten privat und sicher sind. Die aktuelle Version von SSL ist Version 3.0, die 1996 von Netscape veröffentlicht wurde, und wurde durch das [Transport Layer Security (TLS)](/de/docs/Glossary/TLS)-Protokoll abgelöst.
+Secure Sockets Layer, oder SSL, war die alte Standard-Sicherheitstechnologie zur Herstellung einer verschlüsselten Netzwerkverbindung zwischen einem Server und einem Client, wodurch sichergestellt wird, dass alle Daten, die übermittelt werden, privat und sicher sind. Die aktuelle Version von SSL ist Version 3.0, die 1996 von Netscape veröffentlicht wurde und durch das [Transport Layer Security (TLS)](/de/docs/Glossary/TLS)-Protokoll abgelöst wurde.
 
 ## Siehe auch
 
-- [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (Wikipedia)
-- [Transport Layer Security (TLS) Protokoll](/de/docs/Web/Security/Transport_Layer_Security)
+- [Transport Layer Security](https://de.wikipedia.org/wiki/Transport_Layer_Security) (Wikipedia)
+- [Transport Layer Security (TLS) protocol](/de/docs/Web/Security/Transport_Layer_Security)
 - Verwandte Glossarbegriffe:
   - [HTTPS](/de/docs/Glossary/HTTPS)
   - [TLS](/de/docs/Glossary/TLS)

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Benutzer werden als **privilegiert** bezeichnet, wenn ihnen zusätzliche Rechte auf ein System gewährt werden oder sie im Vergleich zu normalen Benutzern ultimativen Zugriff auf Inhalte einer höheren Prioritätsstufe erhalten.
+Benutzer gelten als **privilegiert**, wenn ihnen zusätzliche Rechte auf ein System gewährt werden oder sie im Vergleich zu normalen Benutzern endgültigen Zugang zu Inhalten auf einer höheren Prioritätsstufe erhalten.
 
 ## Siehe auch
 

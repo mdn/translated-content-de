@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Request-Header** ist ein [HTTP-Header](/de/docs/Glossary/HTTP_header), der in einer HTTP-Anfrage verwendet werden kann, um Informationen über den Anfragekontext bereitzustellen, sodass der Server die Antwort entsprechend anpassen kann. Zum Beispiel geben die {{HTTPHeader("Accept", "Accept-*")}}-Header die erlaubten und bevorzugten Formate der Antwort an. Weitere Header können verwendet werden, um Authentifizierungsdaten (z. B. {{HTTPHeader("Authorization")}}) bereitzustellen, um das Caching zu steuern oder um Informationen über den User-Agent oder Referrer zu erhalten, etc.
+Ein **Request Header** ist ein [HTTP-Header](/de/docs/Glossary/HTTP_header), der in einem HTTP-Request verwendet werden kann, um Informationen über den Anfragekontext bereitzustellen, sodass der Server die Antwort anpassen kann. Die {{HTTPHeader("Accept", "Accept-*")}}-Header beispielsweise geben die erlaubten und bevorzugten Formate der Antwort an. Andere Header können verwendet werden, um Authentifizierungsdaten bereitzustellen (z.B. {{HTTPHeader("Authorization")}}), um das Caching zu steuern oder um Informationen über den User-Agent oder Referrer zu erhalten usw.
 
-Nicht alle Header, die in einer Anfrage erscheinen können, werden in der Spezifikation als _Request-Header_ bezeichnet. Zum Beispiel wird der {{HTTPHeader("Content-Type")}}-Header als [Representation-Header](/de/docs/Glossary/representation_header) bezeichnet.
+Nicht alle Header, die in einer Anfrage erscheinen können, werden von der Spezifikation als _Request Header_ bezeichnet. Der {{HTTPHeader("Content-Type")}}-Header wird beispielsweise als [Repräsentations-Header](/de/docs/Glossary/representation_header) bezeichnet.
 
-Darüber hinaus definiert [CORS](/de/docs/Glossary/CORS) eine Untergruppe von Request-Headern als [einfache Header](/de/docs/Glossary/CORS-safelisted_request_header), Header, die immer als autorisiert betrachtet werden und nicht explizit in Antworten auf [Preflight-Anfragen](/de/docs/Glossary/preflight_request) aufgeführt werden.
+Darüber hinaus definiert [CORS](/de/docs/Glossary/CORS) eine Teilmenge von Request-Headern als [einfache Header](/de/docs/Glossary/CORS-safelisted_request_header), Request-Header, die immer als autorisiert gelten und nicht explizit in Antworten auf [Preflight](/de/docs/Glossary/preflight_request)-Anfragen aufgeführt werden.
 
 Die folgende HTTP-Nachricht zeigt einige Request-Header nach einer {{HTTPMethod("GET")}}-Anfrage:
 
@@ -33,4 +33,4 @@ Cache-Control: max-age=0
 ## Siehe auch
 
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
-- [RFC 9110, Abschnitt 6.3: Header Fields](https://httpwg.org/specs/rfc9110.html#header.fields)
+- [RFC 9110, Abschnitt 6.3: Header-Felder](https://httpwg.org/specs/rfc9110.html#header.fields)

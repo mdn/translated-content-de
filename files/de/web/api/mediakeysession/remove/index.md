@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die `remove()`-Methode der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, nachdem alle mit dem aktuellen Objekt verbundenen Sitzungsdaten entfernt wurden.
+Die `remove()`-Methode der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, nachdem alle Sitzungsdaten entfernt wurden, die mit dem aktuellen Objekt verbunden sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das sich zu {{jsxref("undefined")}} auflöst.
+Ein {{jsxref('Promise')}}, das sich auf {{jsxref("undefined")}} auflöst.
 
 ## Spezifikationen
 

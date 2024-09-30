@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Server-Timing`** Header kommuniziert eine oder mehrere Metriken und Beschreibungen für einen gegebenen Anfrage-Antwort-Zyklus. Er wird verwendet, um Backend-Server-Timing-Metriken (z.B. Datenbank lesen/schreiben, CPU-Zeit, Dateizugriff usw.) in den Entwicklerwerkzeugen im Browser des Benutzers oder in der [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) Schnittstelle sichtbar zu machen.
+Der **`Server-Timing`**-Header kommuniziert eine oder mehrere Metriken und Beschreibungen für einen gegebenen Anfrage-Antwort-Zyklus. Er wird verwendet, um Backend-Server-Timing-Metriken (z. B. Datenbank-Lesen/Schreiben, CPU-Zeit, Dateisystemzugriff usw.) in den Entwicklerwerkzeugen im Browser des Benutzers oder in der [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle anzuzeigen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -24,14 +24,13 @@ Der **`Server-Timing`** Header kommuniziert eine oder mehrere Metriken und Besch
 
 ## Syntax
 
-Die Syntax des `Server-Timing` Headers ermöglicht es, Metriken auf verschiedene Weise zu kommunizieren: nur der Name der Servermetrik, Metrik mit Wert, Metrik mit Wert und Beschreibung, und Metrik mit Beschreibung.
+Die Syntax des `Server-Timing`-Headers ermöglicht es Ihnen, Metriken auf verschiedene Arten zu kommunizieren: nur der Servermetriken-Name, Metriken mit Wert, Metriken mit Wert und Beschreibung sowie Metriken mit Beschreibung.
 
-Dieser Header kann eine oder mehrere Metriken enthalten, die durch Kommas getrennt sind. Jede Metrik hat einen Namen, eine optionale Dauer und eine optionale Beschreibung. Diese Komponenten sind durch Semikolons getrennt.
+Dieser Header kann eine oder mehrere Metriken enthalten, die durch Kommas getrennt sind. Jede Metrik hat einen Namen, eine optionale Dauer und eine optionale Beschreibung. Diese Komponenten werden durch Semikolons getrennt.
 
-Die Dauerkomponente besteht aus dem String `"dur"`, gefolgt von `"="`, gefolgt vom Wert, wie `"dur=23.2"`.
-Die Beschreibungs-Komponente besteht aus dem String `"desc"`, gefolgt von `"="`, gefolgt vom Wert, wie `"desc=DB lookup"`.
+Die Komponente für die Dauer besteht aus dem String `"dur"`, gefolgt von `"="`, gefolgt vom Wert, wie `"dur=23.2"`. Die Komponente für die Beschreibung besteht aus dem String `"desc"`, gefolgt von `"="`, gefolgt vom Wert, wie `"desc=DB lookup"`.
 
-Die Spezifikation empfiehlt, dass Namen und Beschreibungen so kurz wie möglich gehalten werden sollten (verwenden Sie Abkürzungen und lassen Sie optionale Werte weg, wo möglich), um den HTTP-Overhead zu minimieren.
+Die Spezifikation empfiehlt, dass Namen und Beschreibungen so kurz wie möglich gehalten werden sollten (verwenden Sie Abkürzungen und lassen Sie optionale Werte nach Möglichkeit weg), um den HTTP-Overhead zu minimieren.
 
 ```http
 // Single metric without value
@@ -54,13 +53,13 @@ Server-Timing: total;dur=123.4
 
 ## Datenschutz und Sicherheit
 
-Der `Server-Timing` Header kann potenziell sensible Informationen über Anwendung und Infrastruktur preisgeben. Erwägen Sie, zu kontrollieren, welche Metriken wann und an wen auf der Serverseite zurückgegeben werden. Zum Beispiel könnten Sie nur authentifizierten Benutzern Metriken anzeigen und nichts an die Öffentlichkeit.
+Der `Server-Timing`-Header kann potenziell sensible Anwendungs- und Infrastrukturdaten preisgeben. Überlegen Sie, welche Metriken wann und an wen auf Serverseite zurückgegeben werden. Zum Beispiel könnten Sie Metriken nur authentifizierten Benutzern anzeigen und der Öffentlichkeit nichts zeigen.
 
 ## PerformanceServerTiming-Schnittstelle
 
-Zusätzlich dazu, dass `Server-Timing` Header-Metriken in den Entwicklerwerkzeugen des Browsers erscheinen, ermöglicht die [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) Schnittstelle Tools die automatische Sammlung und Verarbeitung von Metriken über JavaScript. Diese Schnittstelle ist auf den gleichen Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}} Header verwenden, um die Domänen festzulegen, die Zugriff auf die Servermetriken haben dürfen. Die Schnittstelle ist in einigen Browsern nur in sicheren Kontexten (HTTPS) verfügbar.
+Zusätzlich zur Darstellung von `Server-Timing`-Header-Metriken in den Entwicklerwerkzeugen des Browsers ermöglicht die [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle Werkzeugen, Metriken automatisch aus JavaScript zu sammeln und zu verarbeiten. Diese Schnittstelle ist auf denselben Ursprung beschränkt, Sie können jedoch den {{HTTPHeader("Timing-Allow-Origin")}}-Header verwenden, um die Domänen anzugeben, die auf die Servermetriken zugreifen dürfen. Die Schnittstelle ist nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar.
 
-Die Komponenten des `Server-Timing` Headers werden diesen [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) Eigenschaften zugeordnet:
+Die Komponenten des `Server-Timing`-Headers entsprechen den [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Eigenschaften wie folgt:
 
 - `"name"` -> [`PerformanceServerTiming.name`](/de/docs/Web/API/PerformanceServerTiming/name)
 - `"dur"` -> [`PerformanceServerTiming.duration`](/de/docs/Web/API/PerformanceServerTiming/duration)

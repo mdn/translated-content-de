@@ -7,40 +7,40 @@ l10n:
 
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
-Die veraltete **`PerformanceNavigation`**-Schnittstelle repräsentiert Informationen darüber, wie die Navigation zum aktuellen Dokument durchgeführt wurde.
+Das veraltete **`PerformanceNavigation`**-Interface stellt Informationen darüber dar, wie die Navigation zum aktuellen Dokument erfolgte.
 
 > [!WARNING]
-> Diese Schnittstelle ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
-> Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
+> Dieses Interface ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) als veraltet eingestuft.
+> Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Interface.
 
-Ein Objekt dieses Typs kann durch Aufrufen des schreibgeschützten Attributs [`Performance.navigation`](/de/docs/Web/API/Performance/navigation) erhalten werden.
+Ein Objekt dieses Typs kann durch Aufruf des schreibgeschützten Attributs [`Performance.navigation`](/de/docs/Web/API/Performance/navigation) erhalten werden.
 
 ## Instanz-Eigenschaften
 
-_Die `PerformanceNavigation`-Schnittstelle erbt keine Eigenschaften._
+_Das `PerformanceNavigation`-Interface erbt keine Eigenschaften._
 
 - [`PerformanceNavigation.type`](/de/docs/Web/API/PerformanceNavigation/type) {{ReadOnlyInline}} {{deprecated_inline}}
 
-  - : Ein `unsigned short`, der anzeigt, wie die Navigation zu dieser Seite ausgeführt wurde. Mögliche Werte sind:
+  - : Ein `unsigned short`, der angibt, wie die Navigation zu dieser Seite erfolgt ist. Mögliche Werte sind:
 
     - `TYPE_NAVIGATE` (0)
-      - : Die Seite wurde durch das Folgen eines Links, eines Lesezeichens, einer Formularübermittlung oder eines Skripts oder durch Eingabe der URL in die Adressleiste aufgerufen.
+      - : Die Seite wurde durch das Folgen eines Links, eines Lesezeichens, durch das Absenden eines Formulars oder eines Skripts oder durch Eingabe der URL in die Adressleiste aufgerufen.
     - `TYPE_RELOAD` (1)
-      - : Die Seite wurde durch Klicken auf die Schaltfläche "Neu Laden" oder über die [`Location.reload()`](/de/docs/Web/API/Location/reload)-Methode aufgerufen.
+      - : Die Seite wurde durch Klicken auf die Schaltfläche Neu laden oder über die Methode [`Location.reload()`](/de/docs/Web/API/Location/reload) aufgerufen.
     - `TYPE_BACK_FORWARD` (2)
       - : Die Seite wurde durch Navigation in der Historie aufgerufen.
     - `TYPE_RESERVED` (255)
-      - : Jede andere Art und Weise.
+      - : Jede andere Weise.
 
 - [`PerformanceNavigation.redirectCount`](/de/docs/Web/API/PerformanceNavigation/redirectCount) {{ReadOnlyInline}} {{deprecated_inline}}
   - : Ein `unsigned short`, der die Anzahl der REDIRECTs darstellt, die vor dem Erreichen der Seite durchgeführt wurden.
 
 ## Instanz-Methoden
 
-_Die `Performance`-Schnittstelle erbt keine Methoden._
+_Das `Performance`-Interface erbt keine Methoden._
 
 - [`PerformanceNavigation.toJSON()`](/de/docs/Web/API/PerformanceNavigation/toJSON) {{deprecated_inline}}
-  - : Ein [Serializer](/de/docs/Glossary/Serialization), der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt darstellt.
+  - : Ein [Serializer](/de/docs/Glossary/Serialization), der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt repräsentiert.
 
 ## Spezifikationen
 
@@ -52,5 +52,5 @@ _Die `Performance`-Schnittstelle erbt keine Methoden._
 
 ## Siehe auch
 
-- Die [`Performance`](/de/docs/Web/API/Performance), die den Zugriff auf ein Objekt dieses Typs ermöglicht.
-- [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) (Teil von Navigation Timing Level 2), die diese API abgelöst hat.
+- Das [`Performance`](/de/docs/Web/API/Performance), das den Zugriff auf ein Objekt dieses Typs ermöglicht.
+- [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) (Teil der Navigation Timing Level 2), das diese API abgelöst hat.

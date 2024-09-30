@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`z`**-Eigenschaft der
-[`CSSScale`](/de/docs/Web/API/CSSScale)-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element in Richtung des Betrachters, und ein negativer Wert weiter weg.
+Die **`z`**-Eigenschaft des
+[`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces repräsentiert die z-Komponente des Translationsvektors. Ein positiver Wert bewegt das Element zum Betrachter hin, und ein negativer Wert entfernt es weiter.
 
-Wenn dieser Wert vorhanden ist, handelt es sich bei der Transformation um eine 3D-Transformation und die `is2D`-Eigenschaft wird auf false gesetzt.
+Wenn dieser Wert vorhanden ist, dann handelt es sich um eine 3D-Transformation, und die `is2D`-Eigenschaft wird auf false gesetzt.
 
 ## Wert
 
-Ein Double-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-Zu erledigen
+In Bearbeitung
 
 ## Spezifikationen
 

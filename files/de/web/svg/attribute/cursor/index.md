@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-[SVG-Attribut-Referenz Startseite](/de/docs/Web/SVG/Attribute)
+[SVG Attributreferenz Startseite](/de/docs/Web/SVG/Attribute)
 
-Das `cursor`-Attribut legt den Mauszeiger fest, der angezeigt wird, wenn der Mauszeiger über einem Element schwebt.
+Das `cursor` Attribut gibt den Mauszeiger an, der angezeigt wird, wenn sich der Mauszeiger über einem Element befindet.
 
-Dieses Attribut verhält sich genau wie die CSS-{{cssxref("cursor")}}-Eigenschaft, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie es mit der [\<funciri>](/de/docs/Web/SVG/Content_type#funciri)-Notation verwenden können sollten.
+Dieses Attribut verhält sich genau wie die CSS-Eigenschaft {{cssxref("cursor")}}, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie es mit der [\<funciri>](/de/docs/Web/SVG/Content_type#funciri)-Notation verwenden können.
 
 Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets als Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("cursor")}}.
 
@@ -49,7 +49,7 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
 
 ## Elemente
 
-Die folgenden Elemente können das `cursor`-Attribut verwenden
+Die folgenden Elemente können das `cursor` Attribut verwenden
 
 - [Container-Elemente](/de/docs/Web/SVG/Element#container_elements)
 - [Grafik-Elemente](/de/docs/Web/SVG/Element#graphics_elements)

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`target`**-Eigenschaft der [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle repräsentiert das Element oder Pseudo-Element, das animiert wird. Sie kann `null` für Animationen sein, die kein spezifisches Element ansprechen. Sie funktioniert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS erzeugt werden.
+Die **`target`**-Eigenschaft des [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Interfaces repräsentiert das Element oder Pseudo-Element, das animiert wird. Sie kann `null` sein für Animationen, die kein spezifisches Element anvisieren. Sie fungiert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS generiert werden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Element`](/de/docs/Web/API/Element) oder `null`.
 
 ## Beispiele
 
-Im folgenden Beispiel wurde `emoji` als `target`-Element festgelegt, das animiert werden soll:
+Im folgenden Beispiel wurde `emoji` als `target`-Element gesetzt, das animiert werden soll:
 
 ```js
 const emoji = document.querySelector("div"); // element to animate
@@ -61,7 +61,7 @@ div {
 }
 ```
 
-{{ EmbedLiveSample("Examples", "100%", "120") }}
+{{ EmbedLiveSample("Beispiele", "100%", "120") }}
 
 ## Spezifikationen
 

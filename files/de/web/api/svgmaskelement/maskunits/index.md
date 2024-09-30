@@ -11,18 +11,18 @@ l10n:
 Die schreibgeschützte **`maskUnits`**-Eigenschaft der [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Schnittstelle spiegelt das {{SVGAttr("maskUnits")}}-Attribut eines {{SVGElement("mask")}}-Elements wider, welches das Koordinatensystem definiert, das für die Maske des Elements verwendet wird.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, enthält sie lediglich zwei Werte, die Sie ändern können, [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
 
 ## Wert
 
-Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem darstellt. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
+Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das das Koordinatensystem darstellt. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
 
 - `0` (`SVG_UNIT_TYPE_UNKNOWN`)
-  - : Der Typ ist keiner der vordefinierten Typen.
+  - : Der Typ ist nicht einer der vordefinierten Typen.
 - `1` (`SVG_UNIT_TYPE_USERSPACEONUSE`)
-  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung der Maske definiert wurde. Es ist der Standardwert.
+  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als die Maske erstellt wurde. Es ist der Standardwert.
 - `2` (`SVG_UNIT_TYPE_OBJECTBOUNDINGBOX`)
-  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zur Begrenzungsbox des Elements sind, auf das die Maske angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als eine Einheit betrachtet werden.
+  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zum Begrenzungsrahmen des Elements sind, auf das die Maske angewendet wird. Es bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Begrenzungsrahmens des Objekts ist und die Breite und Höhe des Begrenzungsrahmens des Objekts als eine Länge von 1 Einheitswert betrachtet werden.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: outerText Eigenschaft"
+title: "HTMLElement: outerText-Eigenschaft"
 short-title: outerText
 slug: Web/API/HTMLElement/outerText
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`outerText`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt denselben Wert zurück wie [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText).
-Wenn sie als Setter verwendet wird, ersetzt sie den gesamten aktuellen Knoten durch den angegebenen Text (dies unterscheidet sich von `innerText`, welches den Inhalt _innerhalb_ des aktuellen Knotens ersetzt).
+Die **`outerText`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle liefert denselben Wert wie [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText).
+Wenn sie als Setter verwendet wird, ersetzt sie das gesamte aktuelle Element durch den angegebenen Text (dies unterscheidet sich von `innerText`, welches den Inhalt _innerhalb_ des aktuellen Elements ersetzt).
 
 Siehe [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) für weitere Informationen und Beispiele, die zeigen, wie beide Eigenschaften als Getter verwendet werden.
 
@@ -17,18 +17,18 @@ Siehe [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) für wei
 
 Ein String, der den angezeigten Textinhalt eines Elements und seiner Nachkommen darstellt.
 
-Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder aus der Ansicht ausgeblendet ist), ist der zurückgegebene Wert derselbe wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
+Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder aus der Ansicht ausgeblendet ist), entspricht der zurückgegebene Wert der [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
-Bei Verwendung als Setter ersetzt sie den aktuellen Knoten durch den angegebenen Text und wandelt dabei alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente um.
+Wenn sie als Setter verwendet wird, ersetzt sie das aktuelle Element durch den angegebenen Text, wobei alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente umgewandelt werden.
 
 ## Beispiele
 
-Dieses Beispiel hebt den grundlegenden Unterschied zwischen `outerText` und `innerText` hervor, wenn sie als Setter verwendet werden (sie sind gleich, wenn sie als Getter verwendet werden).
+Dieses Beispiel zeigt den grundlegenden Unterschied zwischen `outerText` und `innerText`, wenn sie als Setter verwendet werden (als Getter sind sie identisch).
 
 > [!NOTE]
-> Das Beispiel ist eine modifizierte Version von [What is the difference between innerText and outerText?](https://stackoverflow.com/questions/18481382/what-is-the-difference-between-innertext-and-outertext/18481435#18481435) (Stack Overflow) von [codingintrigue](https://stackoverflow.com/users/571194/codingintrigue), lizenziert unter [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+> Das Beispiel ist eine modifizierte Version von [What is the difference between innerText and outerText?](https://stackoverflow.com/questions/18481382/what-is-the-difference-between-innertext-and-outertext/18481435#18481435) (Stack overflow) von [codingintrigue](https://stackoverflow.com/users/571194/codingintrigue), lizenziert unter [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
-Betrachten Sie eine Seite, die den folgenden HTML-Code enthält:
+Betrachten Sie eine Seite, die das folgende HTML enthält:
 
 ```html
 <div>
@@ -36,7 +36,7 @@ Betrachten Sie eine Seite, die den folgenden HTML-Code enthält:
 </div>
 ```
 
-`outerText` ersetzt das gesamte ausgewählte Element, daher ersetzt das JavaScript `p.outerText = "Whole element replaced"` das gesamte ausgewählte `p`-Element:
+`outerText` ersetzt das gesamte ausgewählte Element, sodass das JavaScript `p.outerText = "Whole element replaced"` das gesamte ausgewählte `p`-Element ersetzt:
 
 ```html
 <div>Whole element replaced</div>

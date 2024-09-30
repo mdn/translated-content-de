@@ -7,26 +7,27 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`MediaKeys`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) repräsentiert eine Gruppe von Schlüsseln, die ein zugeordneter [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
+Die **`MediaKeys`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) repräsentiert einen Satz von Schlüsseln, die ein zugeordnetes [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Keine.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`MediaKeys.createSession()`](/de/docs/Web/API/MediaKeys/createSession)
-  - : Gibt ein neues [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Objekt zurück, das einen Kontext für den Nachrichtenaustausch mit einem Content Decryption Module (CDM) darstellt.
+  - : Gibt ein neues [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Objekt zurück, das einen Kontext für den Nachrichtenaustausch mit einem Content-Decryption-Modul (CDM) darstellt.
 - [`MediaKeys.getStatusForPolicy()`](/de/docs/Web/API/MediaKeys/getStatusForPolicy)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das auf einen Status-String aufgelöst wird, der angibt, ob das CDM die Präsentation verschlüsselter Mediendaten mit den Schlüsseln erlauben würde, basierend auf festgelegten Richtlinienanforderungen.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Status-String auflöst, der anzeigt, ob das CDM die Präsentation von verschlüsselten Mediendaten mit den Schlüsseln unter Berücksichtigung der angegebenen Richtlinienanforderungen zulässt.
 - [`MediaKeys.setServerCertificate()`](/de/docs/Web/API/MediaKeys/setServerCertificate)
-  - : Gibt ein {{jsxref("Promise")}} eines Serverzertifikats zurück, das zur Verschlüsselung von Nachrichten an den Lizenzserver verwendet werden soll.
+  - : Gibt ein {{jsxref("Promise")}} auf ein Serverzertifikat zurück, das zur Verschlüsselung von Nachrichten an den Lizenzserver verwendet werden soll.
 
 ## Beispiele
 
 ### Überprüfen, ob Schlüssel mit HDCP-Einschränkung verwendbar sind
 
-Dieses Beispiel zeigt, wie `getStatusForPolicy()` verwendet werden kann, um zu prüfen, ob Schlüssel ein bestimmtes Videoformat in einem Setup entschlüsseln können, das eine Mindest-HDCP-Version von `2.2` erfordert. Weitere Informationen finden Sie in der Dokumentation zur [MediaKeys: getStatusForPolicy() Methode](/de/docs/Web/API/MediaKeys/getStatusForPolicy).
+Dieses Beispiel zeigt, wie `getStatusForPolicy()` verwendet werden kann, um zu überprüfen, ob Schlüssel ein bestimmtes Videoformat in einer Konfiguration entschlüsseln können, die eine minimale HDCP-Version von `2.2` erfordert.
+Weitere Informationen finden Sie in der Dokumentation zur Methode [MediaKeys: getStatusForPolicy()](/de/docs/Web/API/MediaKeys/getStatusForPolicy).
 
 #### HTML
 

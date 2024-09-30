@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: error-Eigenschaft"
+title: "IDBTransaction: error Eigenschaft"
 short-title: error
 slug: Web/API/IDBTransaction/error
 l10n:
@@ -8,23 +8,26 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`IDBTransaction.error`**-Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces
-gibt die Art des Fehlers zurück, wenn eine Transaktion nicht erfolgreich ist.
+Die **`IDBTransaction.error`** Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Interfaces
+gibt den Fehlertyp zurück, wenn eine Transaktion erfolglos ist.
 
 ## Wert
 
-Ein [`DOMException`](/de/docs/Web/API/DOMException), der den relevanten Fehler enthält, oder `null`, wenn es keine gibt.
+Ein [`DOMException`](/de/docs/Web/API/DOMException), das den relevanten Fehler enthält, oder `null`, falls keiner vorhanden ist.
 
-Es kann sich um einen Verweis auf denselben Fehler handeln wie beim Anfrageobjekt, das ihn ausgelöst hat, oder um ein Scheitern der Transaktion (zum Beispiel `QuotaExceededError`).
+Es kann ein Verweis auf denselben Fehler wie das Anforderungsobjekt sein, das ihn ausgelöst hat, oder ein Transaktionsfehler
+(zum Beispiel `QuotaExceededError`).
 
-Diese Eigenschaft ist `null`, wenn die Transaktion nicht abgeschlossen ist oder erfolgreich abgeschlossen wurde.
+Diese Eigenschaft ist `null`, wenn die Transaktion nicht abgeschlossen ist oder abgeschlossen und
+erfolgreich festgeschrieben wurde.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen
-einer Objekt-Speicherung einige Daten hinzu. Beachten Sie auch die Funktionen, die an Transaktionsereignis-Handler angehängt sind, um den Ausgang der Transaktionsöffnung im Falle eines Erfolgs oder Misserfolgs zu melden. Beachten Sie den Block `transaction.onerror = (event) => { };`, der
-`transaction.error` verwendet, um zu melden, was schiefgelaufen ist, wenn die
-Transaktion nicht erfolgreich war. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen
+einem Objektspeicher einige Daten hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignishandler angehängt sind, um das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder
+Fehlschlags zu berichten. Beachten Sie den Block `transaction.onerror = (event) => { };`,
+der `transaction.error` verwendet, um zu helfen, zu berichten, was schiefgelaufen ist, wenn die
+Transaktion erfolglos war. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -100,10 +103,10 @@ function addData() {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen von und Änderungen an Ihren Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwenden von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

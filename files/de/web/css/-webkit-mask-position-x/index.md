@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Kante des Box-Innenabstands angibt. Prozentwerte werden basierend auf der horizontalen Dimension des Box-Innenabstands berechnet. Ein Wert von `0%` bedeutet, dass die linke Kante des Bildes mit der linken Kante des Box-Innenabstands ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die rechte Kante des Bildes mit der rechten Kante des Box-Innenabstands ausgerichtet ist.
+  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Rand der Box-Padding-Kante angibt. Prozentwerte werden relativ zur horizontalen Dimension der Box-Padding-Fläche berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Rand der Box-Padding-Kante ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Rand der Box-Padding-Kante ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`

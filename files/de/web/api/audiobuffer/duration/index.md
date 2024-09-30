@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`duration`**-Eigenschaft der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt einen Double-Wert zurück, der die Dauer in Sekunden der im Puffer gespeicherten PCM-Daten repräsentiert.
+Die **`duration`**-Eigenschaft des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Interfaces gibt ein Double zurück, das die Dauer in Sekunden der im Puffer gespeicherten PCM-Daten darstellt.
 
 ## Wert
 

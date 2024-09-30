@@ -8,29 +8,28 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`videoHeight`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces gibt die [intrinsische Höhe](#über_intrinsische_breite_und_höhe) des Videos in CSS-Pixeln an. Einfach ausgedrückt, dies ist die Höhe des Mediums in seiner natürlichen Größe.
+Die schreibgeschützte **`videoHeight`**-Eigenschaft der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle gibt die [intrinsische Höhe](#über_intrinsische_breite_und_höhe) des Videos an, ausgedrückt in CSS-Pixeln. Einfach gesagt, dies ist die Höhe des Mediums in seiner natürlichen Größe.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die intrinsische Höhe des Videos in CSS-Pixeln angibt. Wenn der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements `HTMLMediaElement.HAVE_NOTHING` ist, beträgt der Wert dieser Eigenschaft 0, da weder Video- noch Poster-Frame-Größeninformationen verfügbar sind.
+Ein ganzzahliger Wert, der die intrinsische Höhe des Videos in CSS-Pixeln angibt. Wenn der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements `HTMLMediaElement.HAVE_NOTHING` ist, dann ist der Wert dieser Eigenschaft 0, da weder Video- noch Posterrahmengröße-Informationen verfügbar sind.
 
 ### Über intrinsische Breite und Höhe
 
-Ein [User Agent](/de/docs/Glossary/user_agent) berechnet die intrinsische Breite und Höhe des Medienelements, indem er mit der Rohpixel-Breite und -Höhe des Mediums beginnt und dann Faktoren berücksichtigt, darunter:
+Ein [User Agent](/de/docs/Glossary/user_agent) berechnet die intrinsische Breite und Höhe der Medienelemente, indem er mit der Rohpixelbreite und -höhe des Mediums beginnt und dann Faktoren wie berücksichtigt:
 
 - Das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Mediums.
-- Die saubere Blende des Mediums (das innerhalb des Mediums zentrierte Unterrechteck, das dem Ziel-Seitenverhältnis entspricht).
+- Die saubere Blende des Mediums (das Unterrechteck in der Mitte des Mediums, das dem Zielseitenverhältnis entspricht).
 - Die Auflösung des Zielgeräts.
-- Alle weiteren Faktoren, die das Medienformat erfordert.
+- Alle anderen vom Medienformat geforderten Faktoren.
 
-Wenn das Element derzeit den Poster-Frame anstelle von gerendertem Video anzeigt, wird die intrinsische Größe des Poster-Frames als die Größe des `<video>`-Elements betrachtet.
+Wenn das Element derzeit den Posterrahmen anzeigt und nicht das gerenderte Video, wird die intrinsische Größe des Posterrahmens als die Größe des `<video>`-Elements betrachtet.
 
-Sollte sich die intrinsische Größe des Mediums ändern und der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements nicht `HAVE_NOTHING` sein, wird ein [`resize`](/de/docs/Web/API/HTMLVideoElement/resize_event)-Ereignis an das `<video>`-Element gesendet.
-Dies kann passieren, wenn das Element vom Anzeigen des Poster-Frames zum Anzeigen von Videoinhalten oder beim Wechsel des angezeigten Videotracks wechselt.
+Wenn sich zu irgendeinem Zeitpunkt die intrinsische Größe des Mediums ändert und der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements nicht `HAVE_NOTHING` ist, wird ein [`resize`](/de/docs/Web/API/HTMLVideoElement/resize_event)-Ereignis an das `<video>`-Element gesendet. Dies kann passieren, wenn das Element vom Anzeigen des Posterrahmens zum Anzeigen von Videoinhalten wechselt oder wenn der angezeigte Videotrack wechselt.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Handler für das [`resize`](/de/docs/Web/API/HTMLVideoElement/resize_event)-Ereignis, der das {{HTMLElement("video")}}-Element an die intrinsische Größe seiner Inhalte anpasst.
+Dieses Beispiel erstellt einen Handler für das [`resize`](/de/docs/Web/API/HTMLVideoElement/resize_event)-Ereignis, der das {{HTMLElement("video")}}-Element so anpasst, dass es die intrinsische Größe seiner Inhalte entspricht.
 
 ```js
 let v = document.getElementById("myVideo");
@@ -50,8 +49,7 @@ v.addEventListener(
 );
 ```
 
-Beachten Sie, dass dies nur dann Änderungen anwendet, wenn sowohl die `videoWidth` als auch die `videoHeight` ungleich null sind.
-Dies verhindert die Anwendung ungültiger Änderungen, wenn noch keine echten Informationen über die Abmessungen verfügbar sind.
+Beachten Sie, dass dies nur die Änderung anwendet, wenn sowohl `videoWidth` als auch `videoHeight` ungleich null sind. Dies verhindert das Anwenden ungültiger Änderungen, wenn noch keine echten Informationen zu den Abmessungen verfügbar sind.
 
 ## Spezifikationen
 

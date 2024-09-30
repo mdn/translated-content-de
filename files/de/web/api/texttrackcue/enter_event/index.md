@@ -1,5 +1,5 @@
 ---
-title: "TextTrackCue: enter Ereignis"
+title: "TextTrackCue: enter-Ereignis"
 short-title: enter
 slug: Web/API/TextTrackCue/enter_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Das **`enter`** Ereignis wird ausgelöst, wenn ein Cue aktiv wird. Im Fall von Untertiteln oder einer Bildunterschrift ist dies, wenn sie über dem Medium angezeigt werden.
+Das **`enter`**-Ereignis wird ausgelöst, wenn eine Cue aktiv wird. Im Falle von Untertiteln oder einer Bildunterschrift ist dies der Zeitpunkt, an dem sie über dem Medium angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("enter", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiel
 
-Im folgenden Beispiel wird `cue1` an die Konsole ausgegeben, wenn es das aktive Cue ist.
+Im folgenden Beispiel wird `cue1` in die Konsole geschrieben, wenn es die aktive Cue ist.
 
 ```js
 cue1.addEventListener("enter", (event) => {

@@ -11,16 +11,16 @@ l10n:
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSPageRule.selectorText`](/de/docs/Web/API/CSSPageRule/selectorText)
-  - : Stellt den Text des Seitenselectors dar, der mit der At-Regel verknüpft ist.
+  - : Repräsentiert den Text des Seiten-Selectors, der mit der At-Regel verknüpft ist.
 - [`CSSPageRule.style`](/de/docs/Web/API/CSSPageRule/style) {{ReadOnlyInline}}
   - : Gibt den [Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) zurück, der mit der At-Regel verknüpft ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
@@ -28,7 +28,7 @@ _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGrou
 
 ### Filtern nach Seitenregeln
 
-Dieses Beispiel zeigt, wie Sie `CSSPageRule`-Objekte für {{cssxref("@page")}}-Regeln finden können, die von dem Dokument geladen wurden.
+Dieses Beispiel zeigt, wie Sie `CSSPageRule`-Objekte für {{cssxref("@page")}}-Regeln finden können, die vom Dokument geladen werden.
 
 ```html hidden
 <pre id="log"></pre>
@@ -53,7 +53,7 @@ function log(text) {
 
 #### CSS
 
-Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@page")}}-Regel.
+Unten definieren wir Stile für die Seite mit einer {{cssxref("@page")}}-Regel.
 
 ```css
 @page {
@@ -63,7 +63,7 @@ Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@pag
 
 #### JavaScript
 
-Der Code durchläuft alle Sheets im Dokument und alle `cssRules` in jedem Sheet und protokolliert den Sheet-Index, die Anzahl der Regeln und den Typ jedes Regelobjekts. Danach erkennen wir `CSSPageRule`-Objekte anhand ihres Typs (und tun nichts mit der Information).
+Der Code iteriert durch alle Blätter im Dokument und durch alle `cssRules` in jedem Blatt, wobei der Blattindex, die Anzahl der Regeln und der Typ jedes Regelobjekts protokolliert werden. Wir erkennen dann `CSSPageRule`-Objekte anhand ihres Typs (tun jedoch nichts mit der Information).
 
 ```js
 for (
@@ -87,7 +87,7 @@ for (
 
 #### Ergebnisse
 
-Die Ergebnisse sind unten gezeigt. Wie Sie sehen können, gibt es zwei Sheets, die diesem Hauptdokument und dem Beispiel-Code-Rahmen entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
+Die Ergebnisse sind unten gezeigt. Wie Sie sehen können, gibt es zwei Blätter, die diesem Hauptdokument und dem Beispielcode-Rahmen entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
 
 {{EmbedLiveSample("Filtering for page rules", "100%", "300px")}}
 

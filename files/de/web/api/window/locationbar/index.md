@@ -1,5 +1,5 @@
 ---
-title: "Window: locationbar-Eigenschaft"
+title: "Window: locationbar Eigenschaft"
 short-title: locationbar
 slug: Web/API/Window/locationbar
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Gibt das `locationbar`-Objekt zurück.
+Gibt das `locationbar` Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war oder nicht.
+Dies ist eines der `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war oder nicht.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` ansonsten.
 
 ## Wert
 
 Ein Objekt mit einer einzigen Eigenschaft:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false` wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` ansonsten.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft `initial-letter` setzt das Styling für versenkte, angehobene und gesenkte Initialbuchstaben fest.
+Die CSS-Eigenschaft `initial-letter` legt das Styling für hervorstehende, erhabene und versenkte Initialen fest.
 
 ## Syntax
 
@@ -36,9 +36,9 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 - `normal`
   - : Kein spezieller Initialbuchstaben-Effekt. Text verhält sich normal.
 - `<number>`
-  - : Definiert die Größe des Initialbuchstabens, in Bezug auf die Anzahl der Zeilen, die er einnimmt. Negative Werte sind nicht erlaubt.
+  - : Definiert die Größe des Initialbuchstabens in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
 - `<integer>`
-  - : Definiert die Anzahl der Zeilen, in die der Initialbuchstabe eintauchen soll, wenn seine Größe angegeben wird. Werte müssen größer als null sein. Wenn weggelassen, wird der Größenwert dupliziert und auf die nächstgelegene positive ganze Zahl gerundet.
+  - : Definiert die Anzahl der Zeilen, die der Initialbuchstabe einnehmen soll, wenn seine Größe angegeben ist. Werte müssen größer als null sein. Wird dieser Wert weggelassen, wird er auf den nächsten positiven Ganzzahlwert der Größenangabe abgerundet.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 
 ## Beispiele
 
-### Festlegen der Initialbuchstabengröße
+### Initialbuchstabengröße einstellen
 
 #### HTML
 
@@ -93,4 +93,4 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 
 ## Siehe auch
 
-- [Drop caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/)
+- [Drop Caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/)

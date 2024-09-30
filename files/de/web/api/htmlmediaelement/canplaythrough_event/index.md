@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `canplaythrough`-Ereignis wird ausgelöst, wenn der Benutzeragent das Medium abspielen kann und schätzt, dass genügend Daten geladen wurden, um das Medium bis zum Ende abzuspielen, ohne für zusätzliches Puffern anhalten zu müssen.
+Das `canplaythrough` Ereignis wird ausgelöst, wenn der Benutzeragent das Medium abspielen kann und schätzt, dass genügend Daten geladen wurden, um das Medium bis zum Ende ohne weitere Unterbrechungen für das Puffern abzuspielen.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
+Dieses Ereignis ist nicht abbrechbar und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("canplaythrough", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `canplaythrough`-Ereignis von HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `canplaythrough` Ereignis von HTMLMediaElement hinzu und geben dann eine Nachricht aus, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -42,7 +42,7 @@ video.addEventListener("canplaythrough", (event) => {
 });
 ```
 
-Verwendung der `oncanplaythrough` Ereignis-Handler-Eigenschaft:
+Verwendung der `oncanplaythrough` Ereignishandlereigenschaft:
 
 ```js
 const video = document.querySelector("video");

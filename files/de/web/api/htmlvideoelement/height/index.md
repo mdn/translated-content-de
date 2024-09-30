@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle gibt eine Ganzzahl zurück, die das `height`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt und die dargestellte Höhe der Ressource in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces gibt eine ganze Zahl zurück, die das `height`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Eine positive Ganzzahl oder 0.
+Eine positive ganze Zahl oder 0.
 
 ## Beispiele
 

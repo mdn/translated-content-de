@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: reset()-Methode"
+title: "AudioDecoder: reset() Methode"
 short-title: reset()
 slug: Web/API/AudioDecoder/reset
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode des [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interfaces setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
+Die **`reset()`**-Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und alle ausstehenden Rückrufe.
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt einen Wert zurück, der angibt, ob der Video-Chunk ein Schlüssel-Chunk ist, der nicht auf andere Frames für die Dekodierung angewiesen ist.
+Die **`type`**-Eigenschaft des schreibgeschützten [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt einen Wert zurück, der angibt, ob das Video-Chunk ein Schlüssel-Chunk ist, welches für die Dekodierung nicht auf andere Frames angewiesen ist.
 
 ## Wert
 

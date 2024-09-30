@@ -8,20 +8,21 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`referrerPolicy`** schreibgeschützte Eigenschaft der
+Die schreibgeschützte Eigenschaft **`referrerPolicy`** der
 [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt die Referrer-Policy zurück, die bestimmt, welche
-Referrer-Informationen im {{HTTPHeader("Referer")}}-Header mit der Anfrage gesendet werden sollen.
+Referrer-Informationen, die im {{HTTPHeader("Referer")}}-Header gesendet werden, mit der Anfrage
+eingeschlossen werden sollen.
 
 ## Wert
 
-Ein String, der die `referrerPolicy` der Anfrage repräsentiert. Für
-weitere Informationen und mögliche Werte siehe die Seite zum {{HTTPHeader("Referrer-Policy")}} HTTP-Header.
+Ein Zeichenfolgenwert, der die `referrerPolicy` der Anfrage darstellt. Für
+weitere Informationen und mögliche Werte siehe die Seite zum {{HTTPHeader("Referrer-Policy")}}-HTTP-Header.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mithilfe des
-[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors (für eine Bilddatei im selben Verzeichnis wie
-das Skript) und speichern dann die Referrer-Policy der Anfrage in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem
+[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie
+das Skript) und speichern die Anfrage-Referrer-Policy in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

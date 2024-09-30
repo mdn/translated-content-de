@@ -9,14 +9,14 @@ l10n:
 
 Erstellt und zeigt eine Benachrichtigung an.
 
-Übergeben Sie eine {{WebExtAPIRef("notifications.NotificationOptions")}} um den Inhalt und das Verhalten der Benachrichtigung zu definieren.
+Übergeben Sie eine {{WebExtAPIRef("notifications.NotificationOptions")}}, um den Inhalt und das Verhalten der Benachrichtigung zu definieren.
 
-Sie können optional eine ID für die Benachrichtigung angeben. Wenn Sie die ID weglassen, wird eine ID generiert. Sie können die ID verwenden, um die Benachrichtigung mit {{WebExtAPIRef("notifications.update()", "update")}} oder {{WebExtAPIRef("notifications.clear()", "clear")}} zu aktualisieren oder zu löschen.
+Sie können optional eine ID für die Benachrichtigung angeben. Wenn Sie die ID weglassen, wird eine ID generiert. Sie können die ID verwenden, um die Benachrichtigung zu {{WebExtAPIRef("notifications.update()", "update")}} oder zu {{WebExtAPIRef("notifications.clear()", "clear")}}.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 > [!WARNING]
-> Wenn Sie `notifications.create()` mehrmals schnell hintereinander aufrufen, kann es sein, dass Firefox überhaupt keine Benachrichtigung anzeigt.
+> Wenn Sie `notifications.create()` mehrmals in schneller Folge aufrufen, kann es sein, dass Firefox überhaupt keine Benachrichtigung anzeigt.
 
 ## Syntax
 
@@ -30,13 +30,13 @@ let creating = browser.notifications.create(
 ### Parameter
 
 - `id` {{optional_inline}}
-  - : `string`. Dies wird verwendet, um diese Benachrichtigung in {{WebExtAPIRef("notifications.update()")}}, {{WebExtAPIRef("notifications.clear()")}} und Ereignis-Listenern zu referenzieren. Wenn Sie dieses Argument weglassen oder einen leeren String übergeben, wird eine neue ID für diese Benachrichtigung generiert. Wenn die von Ihnen angegebene ID mit der ID einer bestehenden Benachrichtigung aus dieser Erweiterung übereinstimmt, wird die andere Benachrichtigung gelöscht.
+  - : `string`. Diese wird verwendet, um auf diese Benachrichtigung in {{WebExtAPIRef("notifications.update()")}}, {{WebExtAPIRef("notifications.clear()")}} und in Ereignis-Listenern zu verweisen. Wenn Sie dieses Argument weglassen oder einen leeren String übergeben, wird eine neue ID für diese Benachrichtigung generiert. Wenn die von Ihnen angegebene ID mit der ID einer vorhandenen Benachrichtigung dieser Erweiterung übereinstimmt, wird die andere Benachrichtigung gelöscht.
 - `options`
   - : {{WebExtAPIRef('notifications.NotificationOptions')}}. Definiert den Inhalt und das Verhalten der Benachrichtigung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Benachrichtigung erstellt und der Anzeigeprozess gestartet wurde, was vor der tatsächlichen Anzeige der Benachrichtigung an den Benutzer ist. Es wird mit einem String erfüllt, der die ID der Benachrichtigung darstellt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Benachrichtigung erstellt und der Anzeigeprozess gestartet wurde, was vor der tatsächlichen Anzeige der Benachrichtigung für den Benutzer erfolgt. Es wird mit einem String erfüllt, der die ID der Benachrichtigung darstellt.
 
 ## Beispiele
 
@@ -82,4 +82,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications#method-create) API.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications#method-create)-API von Chromium.

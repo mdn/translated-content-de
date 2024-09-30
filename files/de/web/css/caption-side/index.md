@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`caption-side`**-[CSS](/de/docs/Web/CSS)-Eigenschaft platziert den Inhalt einer {{HTMLElement("caption")}} einer Tabelle auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert den Inhalt des {{HTMLElement("caption")}} einer Tabelle auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{EmbedInteractiveExample("pages/css/caption-side.html")}}
 
@@ -26,17 +26,17 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
+Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `top`
-  - : Die caption box sollte an der Block-Startseite der Tabelle positioniert werden.
+  - : Die Beschriftungsbox sollte an der Blockanfangsseite der Tabelle positioniert werden.
 - `bottom`
-  - : Die caption box sollte an der Block-Endseite der Tabelle positioniert werden.
+  - : Die Beschriftungsbox sollte an der Blockendseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die caption box an der Inline-Anfangskante bzw. Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul definiert zwei logische Werte, `inline-start` und `inline-end`, um die Beschriftungsbox am Inline-Anfangsrand bzw. am Inline-Endrand der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Die `caption-side`-Eigenschaft wird als eines der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Captions oben und unten einstellen
+### Beschriftungen oberhalb und unterhalb festlegen
 
 #### HTML
 

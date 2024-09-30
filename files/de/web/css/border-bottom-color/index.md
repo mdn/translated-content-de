@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-bottom-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des unteren [Randes](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschrift-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-bottom")}} festgelegt werden.
+Die **`border-bottom-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des unteren [Randes](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweisen der CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-bottom")}} gesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/border-bottom-color.html")}}
 
@@ -30,7 +30,7 @@ border-bottom-color: revert-layer;
 border-bottom-color: unset;
 ```
 
-Die `border-bottom-color`-Eigenschaft wird als einzelner Wert angegeben.
+Die `border-bottom-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ### Werte
 
@@ -47,7 +47,7 @@ Die `border-bottom-color`-Eigenschaft wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein einfaches div mit einem Rand
+### Ein einfaches Div mit einem Rand
 
 #### HTML
 
@@ -88,7 +88,7 @@ Die `border-bottom-color`-Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die CSS-Kurzschrift-Eigenschaften für Rahmen: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, und {{Cssxref("border-color")}}.
-- Die farbbezogenen CSS-Eigenschaften für die anderen Ränder: {{Cssxref("border-right-color")}}, {{Cssxref("border-top-color")}}, und {{Cssxref("border-left-color")}}.
-- Die anderen randbezogenen CSS-Eigenschaften, die auf denselben Rand angewendet werden: {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-width")}}.
-- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die border-bezogenen CSS-Kurzschreibweisen: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, und {{Cssxref("border-color")}}.
+- Die farbbezüglichen CSS-Eigenschaften für die anderen Ränder: {{Cssxref("border-right-color")}}, {{Cssxref("border-top-color")}}, und {{Cssxref("border-left-color")}}.
+- Die anderen border-bezogenen CSS-Eigenschaften, die auf denselben Rand angewendet werden: {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-width")}}.
+- Der Standardfarbwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).

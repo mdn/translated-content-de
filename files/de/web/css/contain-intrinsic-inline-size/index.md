@@ -9,7 +9,8 @@ l10n:
 
 Die **`contain-intrinsic-inline-size`** [CSS](/de/docs/Web/CSS) [logische Eigenschaft](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert die Inline-Größe eines Elements, die ein Browser für das Layout verwenden kann, wenn das Element einer [Größenbegrenzung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) unterliegt.
 
-Inline-Größe ist die Größe des Elements in der Dimension, die parallel zum Textfluss innerhalb einer Zeile verläuft. In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/writing-mode) wie dem Standard-Englisch ist die Inline-Größe die horizontale Dimension (Breite); bei einem vertikalen Schreibmodus ist die Inline-Größe die vertikale Dimension.
+Inline-Größe ist die Größe des Elements in der Dimension, die parallel zum Textfluss innerhalb einer Zeile verläuft.
+In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/writing-mode) wie dem Standard-Englisch ist die Inline-Größe die horizontale Dimension (Breite); bei einem vertikalen Schreibmodus ist die Inline-Größe die vertikale Dimension.
 
 ## Syntax
 
@@ -41,16 +42,20 @@ Die folgenden Werte können für die intrinsische Inline-Größe eines Elements 
 - `<length>`
   - : Das Element hat die angegebene Inline-Größe ({{cssxref("&lt;length&gt;")}}).
 - `auto <length>`
-  - : Wenn das Element eine Größenbegrenzung hat und seine Inhalte übersprungen werden (zum Beispiel, wenn es außerhalb des Bildschirms ist und `content-visibility: auto` gesetzt ist), wird die Inline-Größe aus der tatsächlichen Größe des Elements, als es zuletzt in der Lage war, seine Kind-Elemente zu rendern, gespeichert.
-    Wenn das Element seine Kind-Elemente noch nie gerendert hat und daher keinen gespeicherten Wert für die normalerweise gerenderte Elementgröße hat, oder wenn es seine Inhalte nicht überspringt, ist die Inline-Größe die angegebene `<length>`.
+  - : Wenn das Element einer Größenbegrenzung unterliegt und seine Inhalte übersprungen werden (zum Beispiel, wenn es außerhalb des Bildschirms ist und `content-visibility: auto` gesetzt ist), wird die Inline-Größe aus der tatsächlichen Größe des Elements gespeichert, wenn es zuletzt seine Kindelemente rendern konnte.
+    Wenn das Element niemals seine Kindelemente gerendert hat und somit keinen gespeicherten Wert für die normalerweise gerenderte Elementgröße hat, oder wenn es seine Inhalte nicht überspringt, ist die Inline-Größe die angegebene `<length>`.
 
 ## Beschreibung
 
-Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die eine Größenbegrenzung auslösen können, wie zum Beispiel [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility).
+Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die Größenbegrenzungen auslösen können, wie [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility).
 
-Größenbegrenzung erlaubt es einem Benutzeragenten, ein Element so zu layouten, als hätte es eine feste Größe, wodurch unnötige Neuanordnungen vermieden werden, indem das erneute Rendern von Kind-Elementen zur Bestimmung der tatsächlichen Größe verhindert wird (was die Benutzererfahrung verbessert). Standardmäßig behandelt die Größenbegrenzung Elemente so, als hätten sie keine Inhalte, und kann das Layout auf die gleiche Weise reduzieren, als hätten die Inhalte keine Breite oder Höhe. Die Eigenschaft `contain-intrinsic-inline-size` ermöglicht es Autoren, einen geeigneten Wert festzulegen, der als Inline-Größe für das Layout verwendet wird.
+Größenbegrenzung ermöglicht es einem User-Agent, ein Element so anzuordnen, als hätte es eine feste Größe, und unnötige Neuanordnungen zu verhindern, indem das Neurendern von Kindelementen zur Bestimmung der tatsächlichen Größe vermieden wird (dadurch wird die Benutzererfahrung verbessert).
+Standardmäßig behandelt die Größenbegrenzung Elemente so, als hätten sie keine Inhalte, und kann das Layout in gleicher Weise zusammenklappen, als hätten die Inhalte keine Breite oder Höhe.
+Die Eigenschaft `contain-intrinsic-inline-size` ermöglicht es Autoren, einen geeigneten Wert anzugeben, der als Inline-Größe für das Layout verwendet wird.
 
-Der Wert `auto <length>` erlaubt es, die Inline-Größe des Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kind-Elementen), und dann anstelle des angegebenen Wertes verwendet zu werden, wenn das Element seine Inhalte überspringt. Dies ermöglicht es, dass Offscreen-Elemente mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility) von der Größenbegrenzung profitieren können, ohne dass Entwickler so präzise in ihren Schätzungen der Elementgröße sein müssen. Der gespeicherte Wert wird nicht verwendet, wenn die Kind-Elemente gerendert werden (wenn die Größenbegrenzung aktiviert ist, wird die `<length>` verwendet).
+Der Wert `auto <length>` ermöglicht es, die Inline-Größe des Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kindelementen), und dann anstelle des angegebenen Werts verwendet wird, wenn das Element seine Inhalte überspringt.
+Dies ermöglicht es Elementen außerhalb des Bildschirms mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility) von der Größenbegrenzung zu profitieren, ohne dass Entwickler ihre Schätzungen der Elementgröße so genau festlegen müssen.
+Der gespeicherte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden (wenn die Größenbegrenzung aktiviert ist, wird der `<length>`-Wert verwendet).
 
 ## Formale Definition
 
@@ -62,9 +67,9 @@ Der Wert `auto <length>` erlaubt es, die Inline-Größe des Elements zu speicher
 
 ## Beispiele
 
-### Einstellen der intrinsischen Inline-Größe
+### Festlegen der intrinsischen Inline-Größe
 
-Der HTML-Code unten definiert ein Element "contained_element", das einer Größenbegrenzung unterliegt und ein Kind-Element enthält.
+Das folgende HTML definiert ein Element "contained_element", das einer Größenbeschränkung unterliegt und ein Kindelement enthält.
 
 ```html
 <div id="contained_element">
@@ -72,7 +77,8 @@ Der HTML-Code unten definiert ein Element "contained_element", das einer Größe
 </div>
 ```
 
-Der CSS-Code unten setzt die [`content-visibility`](/de/docs/Web/CSS/content-visibility) von `contained_element` auf `auto`, sodass das Element bei Ausblenden größenbegrenzt wird. Die intrinsische Blockgröße und Inline-Größe, die bei Größenbeschränkung verwendet werden, werden gleichzeitig mit `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
+Das folgende CSS setzt die [`content-visibility`](/de/docs/Web/CSS/content-visibility) von `contained_element` auf `auto`, sodass, wenn das Element ausgeblendet ist, es einer Größenbeschränkung unterliegt.
+Die intrinsische Blockgröße und Inline-Größe, die verwendet werden, wenn es beschränkt ist, werden gleichzeitig mit `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
 
 ```css
 #contained_element {

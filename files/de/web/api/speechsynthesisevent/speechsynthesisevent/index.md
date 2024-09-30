@@ -11,7 +11,7 @@ l10n:
 Der **`SpeechSynthesisEvent()`** Konstruktor erstellt ein neues [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) Objekt.
 
 > [!NOTE]
-> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn er Ereignisse auslöst.
+> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -23,19 +23,19 @@ new SpeechSynthesisEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Die Groß- und Kleinschreibung wird beachtet, und Browser setzen ihn auf `start`, `end`, `error`, `pause`, `resume`, `mark` oder `boundary`.
+    Er ist case-sensitiv und Browser setzen ihn auf `start`, `end`, `error`, `pause`, `resume`, `mark` oder `boundary`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften besitzt:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `utterance`
-      - : Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekt, welches die Sprachanforderung ist, auf die das Ereignis ausgelöst wurde.
+      - : Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekt, auf das sich die Sprechanforderung bezieht, die das Ereignis ausgelöst hat.
     - `charIndex` {{Optional_inline}}
-      - : Die Position des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text), das gesprochen wurde, als das Ereignis ausgelöst wurde. Der Standardwert ist `0`.
+      - : Die Indexposition des Charakters in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text), die gesprochen wurde, als das Ereignis ausgelöst wurde. Der Standardwert ist `0`.
     - `charLength` {{Optional_inline}}
-      - : Die Anzahl der Zeichen, die nach dem Zeichen an der [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex)-Position noch gesprochen werden müssen. Der Standardwert ist `0`.
+      - : Die Anzahl der Zeichen, die nach dem Zeichen an der [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex) Position noch gesprochen werden sollen. Der Standardwert ist `0`.
     - `elapsedTime` {{Optional_inline}}
-      - : Die verstrichene Zeit in Sekunden, nachdem das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) begonnen hat, gesprochen zu werden, zu der das Ereignis ausgelöst wurde. Der Standardwert ist `0`.
+      - : Die verstrichene Zeit in Sekunden, nachdem [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen hat, zu der das Ereignis ausgelöst wurde. Der Standardwert ist `0`.
     - `name` {{Optional_inline}}
-      - : Der mit bestimmten Arten von Ereignissen verbundene Name: der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2) Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event) Ereignisses erreicht wurde, oder die Art des erreichten Grenzwerts im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event) Ereignisses. Standardmäßig ist dies der leere String (`""`).
+      - : Der Name, der mit bestimmten Arten von Ereignissen assoziiert ist: der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2) Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event) Ereignisses erreicht wurde, oder der Typ von Grenze, die im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event) Ereignisses erreicht wurde. Der Standardwert ist der leere String (`""`).
 
 ### Rückgabewert
 

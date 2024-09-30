@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`ExtendableEvent.waitUntil()`**-Methode signalisiert dem Ereignis-Dispatcher, dass eine Aufgabe noch im Gange ist. Sie kann auch verwendet werden, um festzustellen, ob diese Arbeit erfolgreich war. In Service-Workern teilt `waitUntil()` dem Browser mit, dass die Arbeit bis zur Erfüllung des `Promise` im Gange ist, und der Service-Worker nicht beendet werden sollte, wenn diese Arbeit abgeschlossen werden soll.
+Die **`ExtendableEvent.waitUntil()`**-Methode informiert den Ereignis-Dispatcher darüber, dass Arbeit im Gange ist. Sie kann auch verwendet werden, um festzustellen, ob diese Arbeit erfolgreich war. In Service-Workern teilt `waitUntil()` dem Browser mit, dass Arbeit im Gange ist, bis das Promise erfüllt wird, und er sollte den Service-Worker nicht beenden, wenn er möchte, dass diese Arbeit abgeschlossen wird.
 
-Die [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignisse in [Service-Workern](/de/docs/Web/API/ServiceWorkerGlobalScope) verwenden `waitUntil()`, um den Service-Worker in der [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Phase zu halten, bis Aufgaben abgeschlossen sind. Wenn das an `waitUntil()` übergebene `Promise` abgelehnt wird, gilt die Installation als fehlgeschlagen und der installierende Service-Worker wird verworfen. Dies wird hauptsächlich verwendet, um sicherzustellen, dass ein Service-Worker erst als installiert gilt, wenn alle wesentlichen Caches, die er benötigt, erfolgreich gefüllt sind.
+Die [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignisse in [Service-Workern](/de/docs/Web/API/ServiceWorkerGlobalScope) verwenden `waitUntil()`, um den Service-Worker in der [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Phase zu halten, bis die Aufgaben abgeschlossen sind. Wenn das an `waitUntil()` übergebene Promise abgelehnt wird, gilt die Installation als fehlgeschlagen und der installierende Service-Worker wird verworfen. Dies wird hauptsächlich verwendet, um sicherzustellen, dass ein Service-Worker nicht als installiert gilt, bis alle Kern-Caches, von denen er abhängt, erfolgreich gefüllt sind.
 
-Die [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignisse in [Service-Workern](/de/docs/Web/API/ServiceWorkerGlobalScope) verwenden `waitUntil()`, um funktionale Ereignisse wie `fetch` und `push` so lange zu puffern, bis das an `waitUntil()` übergebene `Promise` erfüllt ist. Dies gibt dem Service-Worker Zeit, Datenbankschemata zu aktualisieren und veraltete [`caches`](/de/docs/Web/API/Cache) zu löschen, sodass sich andere Ereignisse auf einen vollständig aktualisierten Zustand verlassen können.
+Die [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignisse in [Service-Workern](/de/docs/Web/API/ServiceWorkerGlobalScope) verwenden `waitUntil()`, um funktionale Ereignisse wie `fetch` und `push` zu puffern, bis das an `waitUntil()` übergebene Promise erfüllt ist. Dies gibt dem Service-Worker Zeit, Datenbankschemata zu aktualisieren und veraltete [`caches`](/de/docs/Web/API/Cache) zu löschen, sodass sich andere Ereignisse auf einen vollständig aktualisierten Zustand verlassen können.
 
-Die `waitUntil()`-Methode muss zunächst innerhalb des Ereignis-Callbacks aufgerufen werden, aber danach kann sie mehrfach aufgerufen werden, bis alle an sie übergebenen `Promise` erfüllt sind.
+Die `waitUntil()`-Methode muss ursprünglich innerhalb des Ereignis-Rückrufs aufgerufen werden, kann aber danach mehrfach aufgerufen werden, bis alle an sie übergebenen Promises erfüllt sind.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ waitUntil(promise)
 ### Parameter
 
 - `promise`
-  - : Ein {{jsxref("Promise")}}, das die Lebenszeit des Ereignisses verlängert.
+  - : Ein {{jsxref("Promise")}}, das die Lebensdauer des Ereignisses verlängert.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Verwendung von `waitUntil()` innerhalb des `install`-Ereignisses eines Service-Workers:
+Verwendung von `waitUntil()` innerhalb eines `install`-Ereignisses eines Service-Workers:
 
 ```js
 addEventListener("install", (event) => {
@@ -55,4 +55,4 @@ addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service-Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

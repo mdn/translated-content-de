@@ -7,11 +7,11 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `definition` ARIA-Rolle zeigt an, dass das Element eine Definition eines Begriffs oder Konzepts ist.
+Die `definition` ARIA-Rolle gibt an, dass das Element eine Definition eines Begriffs oder Konzepts ist.
 
 ## Beschreibung
 
-Die `definition` ARIA-Rolle kann auf ein Element angewendet werden, das eine Definition eines Begriffs oder Konzepts darstellt, ähnlich dem nativen {{HTMLElement('dfn')}}-Element. Um die Definition mit dem definierten `term` zu verknüpfen und um einen zugänglichen Namen bereitzustellen, beziehen Sie sich auf den definierten Begriff mit `role="term"` und verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
+Die `definition` ARIA-Rolle kann auf ein Element angewendet werden, das eine Definition eines Begriffs oder Konzepts ist, ähnlich wie das native {{HTMLElement('dfn')}}-Element. Um die Definition mit dem definierten `term` zu verknüpfen und einen zugänglichen Namen bereitzustellen, referenzieren Sie den definierten Begriff mit `role="term"`, unter Verwendung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
 
 ```html-nolint
 <p>
@@ -25,7 +25,7 @@ Die `definition` ARIA-Rolle kann auf ein Element angewendet werden, das eine Def
 ```
 
 > [!NOTE]
-> Anstatt eines `<span>` mit den Rollen [`term`](/de/docs/Web/Accessibility/ARIA/Roles/term_role) und `definition` verwenden Sie das {{HTMLElement('dfn')}}-Element. **Verwenden Sie immer native Elemente, wenn verfügbar.**
+> Anstelle eines `<span>` mit den Rollen [`term`](/de/docs/Web/Accessibility/ARIA/Roles/term_role) und `definition`, verwenden Sie das {{HTMLElement('dfn')}}-Element. **Verwenden Sie immer das native Element, wenn verfügbar.**
 
 ```html
 <p>

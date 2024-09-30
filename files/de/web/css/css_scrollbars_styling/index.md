@@ -1,5 +1,5 @@
 ---
-title: CSS-Scrollbars-Styling
+title: CSS Scrollbar-Styling
 slug: Web/CSS/CSS_scrollbars_styling
 l10n:
   sourceCommit: a4ae225903c2784a3d74b43f311e05f208e42c91
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Scrollbars-Styling** Modul definiert Eigenschaften, die Sie für das visuelle Styling von Scrollbars verwenden können. Sie können die Breite der Scrollbar nach Bedarf anpassen. Sie können auch die Farbe des Scrollbar-_Tracks_, das ist der Hintergrund der Scrollbar, und die Farbe des Scrollbar-_Thumbs_, das ist der ziehbare Griff der Scrollbar, anpassen.
+Das Modul **CSS Scrollbar-Styling** definiert Eigenschaften, die Sie für die visuelle Gestaltung von Scrollleisten verwenden können. Sie können die Breite der Scrollleiste nach Bedarf anpassen. Sie können auch die Farbe des Scrollleisten-_Tracks_ anpassen, der den Hintergrund der Scrollleiste darstellt, und die Farbe des Scrollleisten-_Thumbs_, welches der verschiebbare Griff der Scrollleiste ist.
 
-## Scrollbar-Styling in Aktion
+## Scrollleisten-Styling in Aktion
 
-Dieses Beispiel zeigt eine dünne Scrollbar mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollbar sichtbar ist, bewegen Sie den Mauszeiger darüber, um den Track zu sehen.
+Dieses Beispiel definiert eine dünne Scrollleiste mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollleiste sichtbar ist, fahren Sie mit der Maus darüber, um den Track zu sehen.
 
 ```css hidden
 .poem {
@@ -59,7 +59,7 @@ for us to breathe.
 {{EmbedLiveSample("Scrollbar_styling_in_action")}}
 
 > [!NOTE]
-> Wenn Sie Scrollbars anpassen, stellen Sie sicher, dass Thumb und Track genügend Kontrast zum umgebenden Hintergrund haben. Stellen Sie auch sicher, dass der Trefferbereich der Scrollbar groß genug für Personen ist, die Touch-Eingaben verwenden.
+> Beim Anpassen von Scrollleisten sollten Sie darauf achten, dass Thumb und Track ausreichend Kontrast zum umgebenden Hintergrund haben. Außerdem sollte der Trefferbereich der Scrollleiste groß genug für Personen sein, die Touch-Eingaben verwenden.
 
 ## Referenz
 
@@ -83,7 +83,7 @@ for us to breathe.
 - {{cssxref("scroll-snap-align")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft
-- {{CSSxRef("::-webkit-scrollbar")}} Pseudoelement
+- {{CSSxRef("::-webkit-scrollbar")}} Pseudo-Element
 - [scroll container](/de/docs/Glossary/scroll_container) Glossarbegriff
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
 

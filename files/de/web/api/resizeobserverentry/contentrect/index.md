@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die schreibgeschützte Eigenschaft `contentRect` der Schnittstelle [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry) gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die neue Größe des beobachteten Elements enthält, wenn der Callback ausgeführt wird. Beachten Sie, dass dies besser unterstützt wird als [`ResizeObserverEntry.borderBoxSize`](/de/docs/Web/API/ResizeObserverEntry/borderBoxSize) oder [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize), aber es stammt aus einer früheren Implementierung der Resize Observer API, ist weiterhin in der Spezifikation für Web-Kompatibilitätsgründe enthalten und kann in zukünftigen Versionen veraltet sein.
+Die schreibgeschützte Eigenschaft `contentRect` der [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry) Schnittstelle gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die neue Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird. Beachten Sie, dass dies besser unterstützt wird als [`ResizeObserverEntry.borderBoxSize`](/de/docs/Web/API/ResizeObserverEntry/borderBoxSize) oder [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize), aber es ist ein Überbleibsel einer früheren Implementierung der Resize Observer API, wird aus Gründen der Web-Kompatibilität noch in der Spezifikation berücksichtigt und könnte in zukünftigen Versionen veraltet sein.
 
 ## Wert
 
-Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das die neue Größe des Elements enthält, das durch die [`target`](/de/docs/Web/API/ResizeObserverEntry/target)-Eigenschaft angegeben wird.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das die neue Größe des durch die [`target`](/de/docs/Web/API/ResizeObserverEntry/target)-Eigenschaft angegebenen Elements enthält.
 
-Wenn das `target` ein HTML-[`Element`](/de/docs/Web/API/Element) ist, ist das zurückgegebene `contentRect` die Inhaltsbox des Elements. Wenn das `target` ein [`SVGElement`](/de/docs/Web/API/SVGElement) ist, ist das zurückgegebene `contentRect` die Bounding-Box des SVGs.
+Wenn das `target` ein HTML-[`Element`](/de/docs/Web/API/Element) ist, ist das zurückgegebene `contentRect` der Inhaltsbereich des Elements. Wenn das `target` ein [`SVGElement`](/de/docs/Web/API/SVGElement) ist, ist das zurückgegebene `contentRect` der Begrenzungsrahmen des SVG.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)). Dies verwendet einen einfachen Funktionsnachweis-Test, um zu sehen, ob der Browser die neuere [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize)-Eigenschaft unterstützt — falls dies der Fall ist, wird diese verwendet, um die benötigten Größeninformationen zu erhalten. Andernfalls wird `contentRect` verwendet.
+Das folgende Snippet stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)). Es verwendet einen einfachen Feature-Detection-Test, um zu überprüfen, ob der Browser die neuere [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize)-Eigenschaft unterstützt — falls ja, wird diese verwendet, um die benötigten Größeninformationen zu erhalten. Ist dies nicht der Fall, wird `contentRect` verwendet.
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

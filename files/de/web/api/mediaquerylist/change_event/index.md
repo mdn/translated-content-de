@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das **`change`** Ereignis der Schnittstelle [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) wird ausgelöst, wenn sich der Status der Unterstützung für Media Queries ändert.
+Das **`change`** Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle wird ausgelöst, wenn sich der Status der Unterstützung einer Medienabfrage ändert.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ Ein [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent). Erbt von [`Ev
 
 ## Ereigniseigenschaften
 
-_Die Schnittstelle `MediaQueryListEvent` erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit der Media Query Liste entspricht, oder `false`, wenn nicht.
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit die Medienabfrageliste erfüllt, oder `false`, wenn nicht.
 - [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Media Query darstellt.
+  - : Ein String, der eine serialisierte Medienabfrage darstellt.
 
 ## Beispiel
 

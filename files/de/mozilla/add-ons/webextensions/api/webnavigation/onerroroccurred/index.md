@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist oder der Benutzer die Navigation abgebrochen hat.
+Wird ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist oder der Benutzer die Navigation abgebrochen hat.
 
 ## Syntax
 
@@ -29,50 +29,50 @@ Ereignisse haben drei Funktionen:
   - : Fügt diesem Ereignis einen Listener hinzu.
 
 - `removeListener(listener)`
-  - : Das Abhören dieses Ereignisses beenden. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt wird.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es abgehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die ausgeführt wird, wenn dieses Ereignis auftritt.
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt.
 
     Die `listener`-Funktion wird mit diesen Argumenten aufgerufen:
 
     - `details`
 
-      - : [`object`](#details). Details über das Navigationsevent. **`details`** besitzt die folgenden Eigenschaften:
+      - : [`object`](#details). Details über das Navigationsereignis. **`details`** hat die folgenden Eigenschaften:
 
         - `tabId`
           - : `integer`. Die ID des Tabs, in dem die Navigation stattfand.
         - `url`
-          - : `string`. Die URL, zu der das gegebene Frame navigierte.
+          - : `string`. Die URL, zu der der gegebene Frame navigierte.
         - `processId` {{optional_inline}} {{deprecated_inline}}
-          - : `integer`. Dieser Wert wird in modernen Browsern nie gesetzt. Er stellte früher die ID des Prozesses dar, der den Renderer für diesen Tab ausführte.
+          - : `integer`. Dieser Wert wird in modernen Browsern nie gesetzt. Früher repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
         - `frameId`
 
           - : `integer`. Frame, in dem die Navigation stattfand.
 
-            `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs stattfand, nicht in einem geschachtelten {{HTMLElement("iframe")}}.
+            `0` zeigt an, dass die Navigation im oberen Browsing-Kontext des Tabs stattgefunden hat, nicht in einem verschachtelten {{HTMLElement("iframe")}}.
 
-            Ein positiver Wert zeigt an, dass die Navigation in einem geschachtelten iframe stattfand.
+            Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattgefunden hat.
 
-            Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
+            Frame-IDs sind einzigartig für einen bestimmten Tab und Prozess.
 
         - `timeStamp`
-          - : `number`. Die Zeit, zu der der Fehler aufgetreten ist, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+          - : `number`. Die Zeit, zu der der Fehler auftrat, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
         - `error`
-          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und ist nicht garantiert, gleich zu bleiben oder von einem Browser zum anderen konsistent zu sein.
+          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und es wird nicht garantiert, dass er dasselbe bleibt oder zwischen verschiedenen Browsern konsistent ist.
 
 - `filter` {{optional_inline}}
 
-  - : `object`. Ein Objekt mit einer einzelnen Eigenschaft `url`, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist.
+  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}}-Objekten ist.
 
-    Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen.
+    Wenn Sie diesen Parameter angeben, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen.
 
     Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
@@ -82,7 +82,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs für `onErrorOccurred`, wenn der `hostname` der Ziel-URL `"example.com"` enthält oder mit `"developer"` beginnt.
+Protokolliert die Ziel-URLs für `onErrorOccurred`, falls der `hostname` der Ziel-URL „example.com“ enthält oder mit „developer“ beginnt.
 
 ```js
 const filter = {
@@ -100,7 +100,7 @@ browser.webNavigation.onErrorOccurred.addListener(logOnErrorOccurred, filter);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

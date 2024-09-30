@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Unterschiedliche Wege, eine Int32Array zu erstellen
+### Verschiedene Wege, um ein Int32Array zu erstellen
 
 ```js
 // From a length

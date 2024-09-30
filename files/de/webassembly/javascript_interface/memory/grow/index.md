@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`grow()`**-Prototypmethode des [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory)-Objekts erhöht die Größe der Speicherinstanz um eine angegebene Anzahl von WebAssembly-Seiten.
+Die **`grow()`** Prototyp-Methode des [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) Objekts erhöht die Größe der Speicherinstanz um eine angegebene Anzahl von WebAssembly-Seiten.
 
 ## Syntax
 
@@ -18,21 +18,21 @@ grow(delta)
 ### Parameter
 
 - `delta`
-  - : Die Anzahl der WebAssembly-Seiten, um die Sie den Speicher vergrößern möchten (jede ist 64KiB groß).
+  - : Die Anzahl von WebAssembly-Seiten, um die Sie den Speicher vergrößern möchten (jede Seite ist 64KiB groß).
 
 ### Rückgabewert
 
-Die vorherige Größe des Speichers, in Einheiten von WebAssembly-Seiten.
+Die vorherige Größe des Speichers in Einheiten von WebAssembly-Seiten.
 
 ### Ausnahmen
 
-- {{jsxref("RangeError")}}: Wenn die aktuelle Größe, addiert mit `delta`, die maximale Kapazität der Speicherinstanz überschreitet.
+- {{jsxref("RangeError")}}: Wenn die aktuelle Größe zusammen mit `delta` die maximale Kapazität der Memory-Instanz überschreitet.
 
 ## Beispiele
 
-### Verwendung von grow
+### Nutzung von grow
 
-Das folgende Beispiel erstellt eine neue WebAssembly-Speicherinstanz mit einer anfänglichen Größe von 1 Seite (64KiB) und einer maximalen Größe von 10 Seiten (640KiB).
+Im folgenden Beispiel wird eine neue WebAssembly-Speicherinstanz mit einer Anfangsgröße von 1 Seite (64KiB) und einer maximalen Größe von 10 Seiten (640KiB) erstellt.
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -41,7 +41,7 @@ const memory = new WebAssembly.Memory({
 });
 ```
 
-Wir können die Instanz dann um eine Seite wie folgt vergrößern:
+Wir können dann die Instanz um eine Seite wie folgt vergrößern:
 
 ```js
 const bytesPerPage = 64 * 1024;
@@ -52,11 +52,9 @@ console.log(memory.buffer.byteLength / bytesPerPage); // "2"
 
 Beachten Sie, dass der Rückgabewert von `grow()` hier die vorherige Anzahl von WebAssembly-Seiten ist.
 
-### Abtrennung beim Wachsen
+### Ablösung beim Vergrößern
 
-Jeder Aufruf von `grow` trennt alle Verweise auf den alten `buffer`, selbst bei `grow(0)`!
-Abtrennung bedeutet, dass die `byteLength` des {{jsxref("ArrayBuffer")}} null wird und keine Bytes mehr für JavaScript zugänglich sind.
-Der Zugriff auf die `buffer`-Eigenschaft nach dem Aufruf von `grow` liefert einen `ArrayBuffer` mit der korrekten Länge.
+Jeder Aufruf von `grow` löst alle Referenzen zum alten `buffer`, selbst bei `grow(0)`. Ablösung bedeutet, dass die `byteLength` des {{jsxref("ArrayBuffer")}} null wird und er keine Bytes mehr hat, auf die JavaScript zugreifen kann. Der Zugriff auf die `buffer` Eigenschaft nach dem Aufruf von `grow` liefert einen `ArrayBuffer` mit der richtigen Länge.
 
 ```js example-bad
 const memory = new WebAssembly.Memory({
@@ -79,7 +77,7 @@ console.log(currentMemoryView); // Uint8Array(131072) [ 0, 0, 0, ... ]
 // 131072 = 64KiB * 2
 ```
 
-Bei einer geteilten `Memory`-Instanz wird der ursprüngliche `buffer` (der in einem solchen Fall ein [`SharedArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) wäre) nicht abgetrennt, sondern seine Länge wird nicht aktualisiert. Der Zugriff auf die `buffer`-Eigenschaft nach dem Wachsen liefert einen größeren `SharedArrayBuffer`, der auf einen größeren Speicherbereich zugreifen kann als der Puffer vor dem Wachstum der `Memory`. Jeder `SharedArrayBuffer` von der `buffer`-Eigenschaft bezieht sich auf den Beginn desselben Speicheradressbereichs und manipuliert somit dieselben Daten.
+Bei einer freigegebenen `Memory`-Instanz wird der initiale `buffer` (in diesem Fall ein [`SharedArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)) nicht abgelöst, sondern seine Länge wird nicht aktualisiert. Zugriffe auf die `buffer` Eigenschaft nach dem Wachsen geben einen größeren `SharedArrayBuffer` zurück, der möglicherweise auf einen größeren Speicherbereich zugreifen kann als der Buffer vor dem Wachsen der `Memory`. Jeder `SharedArrayBuffer` aus der `buffer` Eigenschaft bezieht sich auf den Anfang desselben Speicheradressbereichs und manipuliert somit dieselben Daten.
 
 ## Spezifikationen
 
@@ -93,4 +91,4 @@ Bei einer geteilten `Memory`-Instanz wird der ursprüngliche `buffer` (der in ei
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

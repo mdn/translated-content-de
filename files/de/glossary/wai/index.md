@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die **Web Accessibility Initiative (WAI)** ist ein Bestreben des [W3C](/de/docs/Glossary/W3C), Standards und Richtlinien zu entwickeln, um allen, die das Web gestalten, dabei zu helfen, die [Barrierefreiheit](/de/docs/Glossary/accessibility) für Menschen mit verschiedenen Herausforderungen sicherzustellen und zu verbessern.
+Die **Web Accessibility Initiative (WAI)** ist eine Initiative des [W3C](/de/docs/Glossary/W3C) zur Entwicklung von Standards und Richtlinien, die allen, die das Web gestalten, helfen sollen, die [Zugänglichkeit](/de/docs/Glossary/accessibility) für Menschen mit verschiedenen Einschränkungen sicherzustellen und zu verbessern.
 
-WAI entwickelt Richtlinien und andere technische Berichte durch denselben Prozess wie andere Teile des W3C. WAI entwickelt Barrierefreiheitsrichtlinien für Webinhalte ([WCAG](/de/docs/Glossary/WCAG)), Autorentools ([ATAG](/de/docs/Glossary/ATAG)) und Benutzeragenten ([UAAG](/de/docs/Glossary/UAAG)). WAI entwickelt auch die Suite von Technologien für Accessible Rich Internet Applications ([ARIA](/de/docs/Glossary/ARIA)), um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen. Es hilft insbesondere bei dynamischen Inhalten und fortschrittlichen Benutzeroberflächensteuerungen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
+WAI entwickelt Richtlinien und andere technische Berichte nach demselben Prozess wie andere Teile des W3C. WAI entwickelt Zugänglichkeitsrichtlinien für Webinhalte ([WCAG](/de/docs/Glossary/WCAG)), Autorentools ([ATAG](/de/docs/Glossary/ATAG)) und Benutzeragenten ([UAAG](/de/docs/Glossary/UAAG)). WAI entwickelt auch die Suite von Technologien für Accessible Rich Internet Applications ([ARIA](/de/docs/Glossary/ARIA)), um Webinhalte und Webanwendungen für Menschen mit Behinderungen besser zugänglich zu machen. Dies hilft insbesondere bei dynamischen Inhalten und fortschrittlichen Benutzeroberflächensteuerungen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
 
 ## Siehe auch
 
@@ -17,7 +17,7 @@ WAI entwickelt Richtlinien und andere technische Berichte durch denselben Prozes
 - [Web Accessibility Initiative](https://en.wikipedia.org/wiki/Web_Accessibility_Initiative) auf Wikipedia
 - Glossar
   - [W3C](/de/docs/Glossary/W3C)
-  - [Barrierefreiheit](/de/docs/Glossary/Accessibility)
+  - [Zugänglichkeit](/de/docs/Glossary/Accessibility)
   - [WCAG](/de/docs/Glossary/WCAG)
   - [ATAG](/de/docs/Glossary/ATAG)
   - [UAAG](/de/docs/Glossary/UAAG)

@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft die UI-Sprache des Browsers ab. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getAcceptLanguages')}}, welcher die bevorzugten Benutzersprachen zurückgibt.
+Ermittelt die UI-Sprache des Browsers. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getAcceptLanguages')}}, welche die bevorzugten Sprachen des Benutzers zurückgibt.
 
-Besuchen Sie die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Nutzung dieser Funktion.
+Siehe die [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization)-Seite für einen Leitfaden zur Verwendung dieser Funktion.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-`string`. Der Sprachcode der Browser-Oberfläche als {{WebExtAPIRef("i18n.LanguageCode")}}.
+`string`. Der UI-Sprachcode des Browsers als {{WebExtAPIRef("i18n.LanguageCode")}}.
 
 ## Browser-Kompatibilität
 
@@ -41,7 +41,7 @@ console.log(uiLanguage);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getUILanguage) API von Chromium. Diese Dokumentation wurde von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getUILanguage) API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,25 +7,25 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLLabelElement`**-Schnittstelle ermöglicht den Zugriff auf Eigenschaften, die spezifisch für {{HTMLElement("label")}}-Elemente sind. Sie erbt Methoden und Eigenschaften von der Basis-[`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Das **`HTMLLabelElement`**-Interface bietet Zugriff auf Eigenschaften, die spezifisch für {{HTMLElement("label")}}-Elemente sind. Es erbt Methoden und Eigenschaften von der Basisklasse [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLLabelElement.control`](/de/docs/Web/API/HTMLLabelElement/control) {{ReadOnlyInline}}
-  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement), das das Steuerelement darstellt, mit dem das Label verbunden ist.
+  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement), das die Steuerung darstellt, mit der das Label verbunden ist.
 - [`HTMLLabelElement.form`](/de/docs/Web/API/HTMLLabelElement/form) {{ReadOnlyInline}}
-  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt, das das Formular darstellt, mit dem das markierte Steuerelement verbunden ist, oder `null`, wenn kein verbundenes Steuerelement vorhanden ist oder wenn dieses Steuerelement nicht mit einem Formular verbunden ist. Mit anderen Worten, dies ist nur eine Abkürzung für `HTMLLabelElement.control.form`.
+  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt, das das Formular darstellt, mit dem die gekennzeichnete Steuerung verbunden ist, oder `null`, wenn keine Steuerung zugeordnet ist oder wenn diese Steuerung keinem Formular zugeordnet ist. In anderen Worten, dies ist nur eine Abkürzung für `HTMLLabelElement.control.form`.
 - [`HTMLLabelElement.htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor)
-  - : Ein String, der die ID des markierten Steuerelements enthält. Dies spiegelt das [`for`](/de/docs/Web/HTML/Element/label#for)-Attribut wider.
+  - : Ein String, der die ID der gekennzeichneten Steuerung enthält. Dies spiegelt das [`for`](/de/docs/Web/HTML/Element/label#for)-Attribut wider.
 
 > [!NOTE]
-> Um das `for`-Attribut programmgesteuert festzulegen, verwenden Sie [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor).
+> Um das `for`-Attribut programmatisch zu setzen, verwenden Sie [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor).
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
@@ -39,6 +39,6 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("label")}}
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("label")}}
 - {{HTMLElement("form")}}
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)

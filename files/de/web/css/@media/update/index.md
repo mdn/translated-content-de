@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`update`** [CSS](/de/docs/Web/CSS) [Medienabfrageeigenschaft](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie häufig (falls überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild des Inhalts nach der Darstellung zu ändern.
+Die **`update`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu prüfen, wie häufig (wenn überhaupt) das Ausgabegerät das Aussehen von Inhalten nach der Wiedergabe ändern kann.
 
 ```css
 @media (update: < none | slow | fast >) {
@@ -20,11 +20,11 @@ Die **`update`** [CSS](/de/docs/Web/CSS) [Medienabfrageeigenschaft](/de/docs/Web
 Die `update`-Eigenschaft wird als ein einzelner Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Sobald das Layout gerendert wurde, kann es nicht mehr aktualisiert werden. Beispiel: auf Papier gedruckte Dokumente.
+  - : Nach der Wiedergabe kann das Layout nicht mehr aktualisiert werden. Beispiel: auf Papier gedruckte Dokumente.
 - `slow`
-  - : Das Layout kann sich gemäß den üblichen CSS-Regeln dynamisch ändern, aber das Ausgabegerät kann Änderungen nicht schnell genug rendern oder anzeigen, um als flüssige Animation wahrgenommen zu werden. Beispiele: E-Book-Reader oder stark leistungsschwache Geräte.
+  - : Das Layout kann sich dynamisch gemäß den üblichen CSS-Regeln ändern, aber das Ausgabegerät kann die Änderungen nicht schnell genug rendern oder anzeigen, um sie als flüssige Animation wahrzunehmen. Beispiele: E-Book-Reader oder extrem leistungsschwache Geräte.
 - `fast`
-  - : Das Layout kann sich gemäß den üblichen CSS-Regeln dynamisch ändern, und das Ausgabegerät ist in der Geschwindigkeit nicht ungewöhnlich eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computerbildschirme.
+  - : Das Layout kann sich dynamisch gemäß den üblichen CSS-Regeln ändern, und das Ausgabegerät ist nicht ungewöhnlich in der Geschwindigkeit eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computerbildschirme.
 
 ## Beispiele
 
@@ -71,5 +71,5 @@ Die `update`-Eigenschaft wird als ein einzelner Schlüsselwortwert angegeben, de
 
 ## Siehe auch
 
-- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

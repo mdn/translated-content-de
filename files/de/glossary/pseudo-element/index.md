@@ -1,5 +1,5 @@
 ---
-title: Pseudo-Element
+title: Pseudo-element
 slug: Glossary/Pseudo-element
 l10n:
   sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-In CSS, a **Pseudoelement**-Selektor wendet Styles auf Teile Ihres Dokumentinhalts an, in denen es kein spezifisches HTML-Element zur Auswahl gibt. Zum Beispiel können Sie, anstatt den ersten Buchstaben jedes Absatzes in ein eigenes Element zu setzen, diese alle mit {{Cssxref("::first-letter", "p::first-letter")}} stylen.
+In CSS wird ein **Pseudo-Element**-Selektor verwendet, um Teile Ihres Dokumenteninhalts zu stylen, insbesondere in Szenarien, in denen es kein spezifisches HTML-Element gibt, das ausgewählt werden kann. Anstatt beispielsweise den ersten Buchstaben jedes Absatzes in ein eigenes Element zu setzen, können Sie alle mit {{Cssxref("::first-letter", "p::first-letter")}} gestalten.
 
 ## Siehe auch
 
-- [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements)
+- [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)

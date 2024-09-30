@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **`PressureRecord`**-Schnittstelle ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und beschreibt den Drucktrend einer Quelle zu einem bestimmten Übergangszeitpunkt.
+Das **`PressureRecord`**-Interface ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und beschreibt den Druckverlauf einer Quelle zu einem bestimmten Übergangszeitpunkt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`PressureRecord.source`](/de/docs/Web/API/PressureRecord/source) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein String, der die Ursprungsquelle angibt, von der der Datensatz stammt.
+  - : Ein String, der die Ursprungsquelle angibt, von der der Eintrag stammt.
 - [`PressureRecord.state`](/de/docs/Web/API/PressureRecord/state) {{ReadOnlyInline}} {{experimental_inline}}
   - : Ein String, der den aufgezeichneten Druckzustand angibt.
 - [`PressureRecord.time`](/de/docs/Web/API/PressureRecord/time) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des Datensatzes angibt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des Eintrags angibt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`PressureRecord.toJSON()`](/de/docs/Web/API/PressureRecord/toJSON) {{experimental_inline}}
   - : Gibt eine JSON-Darstellung des `PressureRecord`-Objekts zurück.
@@ -27,7 +27,7 @@ Die **`PressureRecord`**-Schnittstelle ist Teil der [Compute Pressure API](/de/d
 
 ### Verwendung des `PressureRecord`-Objekts
 
-Im folgenden Beispiel protokollieren wir die Eigenschaften des `PressureRecord`-Objekts im Rückruf des Druck-Beobachters.
+Im folgenden Beispiel protokollieren wir die Eigenschaften des `PressureRecord`-Objekts im Callback des Druckbeobachters.
 
 ```js
 function callback(records) {

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die schreibgeschützte **`prevValue`**-Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück. Bei `DOMAttrModified`-Ereignissen stellt sie den vorherigen Wert des [`Attr`](/de/docs/Web/API/Attr)-Knotens dar. Bei `DOMCharacterDataModified`-Ereignissen enthält sie den vorherigen Wert des [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen gibt sie den leeren String (`""`) zurück.
+Die schreibgeschützte Eigenschaft **`prevValue`** der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück. Bei `DOMAttrModified`-Ereignissen stellt sie den vorherigen Wert des [`Attr`](/de/docs/Web/API/Attr)-Knotens dar. Bei `DOMCharacterDataModified`-Ereignissen enthält sie den vorherigen Wert des [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen gibt sie den leeren String (`""`) zurück.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "Touch: identifier Eigenschaft"
+title: "Touch: Identifier-Eigenschaft"
 short-title: identifier
 slug: Web/API/Touch/identifier
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Der **`Touch.identifier`** gibt einen Wert zurück, der diesen Berührungspunkt auf der Berührungsoberfläche eindeutig identifiziert. Dieser Wert bleibt für jedes Ereignis, das mit der Bewegung dieses Fingers (oder Stylus) auf der Oberfläche zusammenhängt, gleich, bis er von der Oberfläche gehoben wird.
+Die **`Touch.identifier`**-Eigenschaft gibt einen Wert zurück, der diesen Berührungspunkt auf der Oberfläche eindeutig identifiziert. Dieser Wert bleibt bei jedem Ereignis im Zusammenhang mit der Bewegung dieses Fingers (oder des Stifts) auf der Oberfläche konsistent, bis er von der Oberfläche abgehoben wird.
 
 ## Wert
 

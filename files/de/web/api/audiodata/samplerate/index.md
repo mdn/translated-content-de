@@ -1,5 +1,5 @@
 ---
-title: "AudioData: sampleRate-Eigenschaft"
+title: "AudioData: sampleRate Eigenschaft"
 short-title: sampleRate
 slug: Web/API/AudioData/sampleRate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`sampleRate`**-Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Abtastrate in Hz zurück.
+Die **`sampleRate`** schreibgeschützte Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData) Interfaces gibt die Abtastrate in Hz zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein Dezimalwert.
 
 ## Beispiele
 
-Das unten stehende Beispiel gibt den Wert von `sampleRate` in der Konsole aus.
+Das folgende Beispiel druckt den Wert von `sampleRate` in die Konsole.
 
 ```js
 console.log(audioData.sampleRate);

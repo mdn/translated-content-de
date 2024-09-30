@@ -17,7 +17,7 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement).
 ## Beispiele
 
 Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente innerhalb eines Formulars mit der ID `myForm`.
-Das Ausdrucken von `form.length` in die Konsole gibt uns den Wert von [`HTMLFormElement.length`](/de/docs/Web/API/HTMLFormElement/length).
+Das Ausdrucken von `form.length` in die Konsole gibt uns den Wert von [`HTMLFormElement.length`](/de/docs/Web/API/HTMLFormElement/length) zurück.
 
 ```html
 <form id="myForm">

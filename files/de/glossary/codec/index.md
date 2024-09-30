@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Codec** (ein Kofferwort aus "**Co**der-**dec**oder") ist ein Programm, Algorithmus oder Gerät, das einen Datenstrom enkodiert oder dekodiert. Ein bestimmter Codec weiß, wie man mit einer spezifischen Enkodierungs- oder Kompressionstechnologie umgeht.
+Ein **Codec** (ein Kofferwort aus "**Co**der-**Dec**oder") ist ein Programm, Algorithmus oder Gerät, das einen Datenstrom kodiert oder dekodiert. Ein gegebener Codec weiß, wie er eine spezifische Kodierungs- oder Kompressionstechnologie handhaben kann.
 
 ## Siehe auch
 
 - [Codec](https://en.wikipedia.org/wiki/Codec) auf Wikipedia
-- [Web-Video-Codec-Leitfaden](/de/docs/Web/Media/Formats/Video_codecs)
+- [Webvideo-Codec-Leitfaden](/de/docs/Web/Media/Formats/Video_codecs)
 - [Web-Audio-Codec-Leitfaden](/de/docs/Web/Media/Formats/Audio_codecs)
 - [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Formats)

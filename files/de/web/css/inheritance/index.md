@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-In CSS steuert die **Vererbung**, was passiert, wenn für eine Eigenschaft auf einem Element kein Wert festgelegt ist.
+In CSS steuert die **Vererbung**, was passiert, wenn für eine Eigenschaft auf einem Element kein Wert angegeben ist.
 
-CSS-Eigenschaften können in zwei Typen kategorisiert werden:
+CSS-Eigenschaften lassen sich in zwei Typen kategorisieren:
 
-- **Vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) des Elternelements gesetzt sind
-- **Nicht-vererbte Eigenschaften**, die standardmäßig auf den [Initialwert](/de/docs/Web/CSS/initial_value) der Eigenschaft gesetzt sind
+- **vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) des übergeordneten Elements eingestellt sind
+- **nicht vererbte Eigenschaften**, die standardmäßig auf den [Anfangswert](/de/docs/Web/CSS/initial_value) der Eigenschaft eingestellt sind
 
-Lesen Sie die Definition jeder [CSS-Eigenschaft](/de/docs/Web/CSS/Reference#index), um zu sehen, ob eine bestimmte Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
+Schauen Sie sich die Definition [jeder CSS-Eigenschaft](/de/docs/Web/CSS/Reference#index) an, um zu sehen, ob eine bestimmte Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
 
 ## Vererbte Eigenschaften
 
-Wenn für eine **vererbte Eigenschaft** auf einem Element kein Wert festgelegt wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/computed_value) dieser Eigenschaft des Elternelements. Nur das Wurzelelement des Dokuments erhält den [Initialwert](/de/docs/Web/CSS/initial_value), der in der Eigenschaften-Zusammenfassung angegeben ist.
+Wenn für eine **vererbte Eigenschaft** auf einem Element kein Wert angegeben wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/computed_value) dieser Eigenschaft vom übergeordneten Element. Nur das Wurzelelement des Dokuments erhält den in der Eigenschaftszusammenfassung angegebenen [Anfangswert](/de/docs/Web/CSS/initial_value).
 
 Ein typisches Beispiel für eine vererbte Eigenschaft ist die [`color`](/de/docs/Web/CSS/color)-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
@@ -34,13 +34,13 @@ p {
 
 {{EmbedLiveSample("Inherited properties","",40)}}
 
-Die Worte "emphasized text" erscheinen grün, da das `em` Element den Wert der [`color`](/de/docs/Web/CSS/color)-Eigenschaft vom `p` Element geerbt hat. Es erhält _nicht_ den Initialwert der Eigenschaft (was die Farbe ist, die für das Wurzelelement verwendet wird, wenn die Seite keine Farbe angibt).
+Die Wörter "emphasized text" erscheinen grün, da das `em`-Element den Wert der [`color`](/de/docs/Web/CSS/color)-Eigenschaft vom `p`-Element geerbt hat. Es erhält _nicht_ den Anfangswert der Eigenschaft (welcher die Farbe ist, die für das Wurzelelement verwendet wird, wenn die Seite keine Farbe festlegt).
 
-## Nicht-vererbte Eigenschaften
+## Nicht vererbte Eigenschaften
 
-Wenn für eine **nicht-vererbte Eigenschaft** auf einem Element kein Wert festgelegt wurde, erhält das Element den [Initialwert](/de/docs/Web/CSS/initial_value) dieser Eigenschaft (wie in der Eigenschaften-Zusammenfassung angegeben).
+Wenn für eine **nicht vererbte Eigenschaft** auf einem Element kein Wert angegeben wurde, erhält das Element den [Anfangswert](/de/docs/Web/CSS/initial_value) dieser Eigenschaft (wie in der Eigenschaftszusammenfassung angegeben).
 
-Ein typisches Beispiel für eine nicht-vererbte Eigenschaft ist die {{ Cssxref("border") }}-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
+Ein typisches Beispiel für eine nicht vererbte Eigenschaft ist die {{ Cssxref("border") }}-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
 ```css
 p {
@@ -54,13 +54,13 @@ p {
 
 {{EmbedLiveSample("Non-inherited properties","",40)}}
 
-Die Wörter "emphasized text" werden keinen zusätzlichen Rahmen haben (da der Initialwert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
+Die Wörter "emphasized text" werden keinen zusätzlichen Rahmen haben (da der Anfangswert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
 
 ## Hinweise
 
-Das [`inherit`](/de/docs/Web/CSS/inherit)-Schlüsselwort ermöglicht es Autoren, die Vererbung explizit anzugeben. Es funktioniert sowohl bei vererbten als auch bei nicht-vererbten Eigenschaften.
+Das [`inherit`](/de/docs/Web/CSS/inherit)-Schlüsselwort ermöglicht es Autoren, Vererbung ausdrücklich zu spezifizieren. Es funktioniert sowohl bei vererbten als auch bei nicht vererbten Eigenschaften.
 
-Sie können die Vererbung für alle Eigenschaften gleichzeitig mit der [`all`](/de/docs/Web/CSS/all)-Kurzschreibweise steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
+Sie können die Vererbung für alle Eigenschaften auf einmal mit der [`all`](/de/docs/Web/CSS/all)-Kurzform-Eigenschaft steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
 
 ```css
 p {
@@ -70,11 +70,11 @@ p {
 }
 ```
 
-Dies setzt den Stil der Schriftart des Absatzes auf den Standard des Benutzer-Agents zurück, es sei denn, es existiert ein Benutzer-Stilblatt, in welchem Fall dieses verwendet wird. Dann wird die Schriftgröße verdoppelt und eine [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` angewendet.
+Dies setzt den Stil der [`font`](/de/docs/Web/CSS/font)-Eigenschaft der Absätze auf den Standard des Benutzer-Agents zurück, es sei denn, es existiert ein Benutzer-Stylesheet, in welchem Fall dieses verwendet wird. Anschließend verdoppelt es die Schriftgröße und wendet ein [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` an.
 
-### Vererbung überschreiben, ein Beispiel
+### Überschreiben der Vererbung, ein Beispiel
 
-Anhand unseres vorherigen Beispiels mit [`border`](/de/docs/Web/CSS/border), wenn wir die Vererbung explizit mit `inherit` setzen, erhalten wir Folgendes:
+Verwenden wir unser vorheriges Beispiel mit [`border`](/de/docs/Web/CSS/border), wenn wir die Vererbung ausdrücklich auf `inherit` setzen, erhalten wir Folgendes:
 
 ```css
 p {
@@ -92,19 +92,19 @@ em {
 
 {{EmbedLiveSample("Overriding inheritance, an example","",40)}}
 
-Hier sehen wir einen weiteren Rahmen um das Wort "emphasized text".
+Hier sehen wir einen zusätzlichen Rahmen um das Wort "emphasized text".
 
 ## Siehe auch
 
 - CSS-Werte zur Steuerung der Vererbung: [`inherit`](/de/docs/Web/CSS/inherit), [`initial`](/de/docs/Web/CSS/initial), [`revert`](/de/docs/Web/CSS/revert), [`revert-layer`](/de/docs/Web/CSS/revert-layer), und [`unset`](/de/docs/Web/CSS/unset)
 - [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
-- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Cascade)
-- [Bausteine: die CSS-Kaskade](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
-- [Bausteine: Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul
-- [CSS-Syntax](/de/docs/Web/CSS/Syntax) Leitfaden
+- [Einführung in den CSS-Cascade](/de/docs/Web/CSS/Cascade)
+- [Bausteine: der CSS-Cascade](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
+- [Bausteine: Cascade-Layer](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
+- [CSS-Cascade und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul
+- [CSS-Syntax](/de/docs/Web/CSS/Syntax)-Leitfaden
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul
-- [At-Regeln](/de/docs/Web/CSS/At-rule)
-- [Initial](/de/docs/Web/CSS/initial_value), [berechnet](/de/docs/Web/CSS/computed_value), [benutzt](/de/docs/Web/CSS/used_value), und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
-- [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [CSS-Einrückungsmodul](/de/docs/Web/CSS/CSS_nesting)
+- [At-Rules](/de/docs/Web/CSS/At-rule)
+- [Initial](/de/docs/Web/CSS/initial_value), [computed](/de/docs/Web/CSS/computed_value), [used](/de/docs/Web/CSS/used_value), und [actual](/de/docs/Web/CSS/actual_value) Werte
+- [Wertdefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)

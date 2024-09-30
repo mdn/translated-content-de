@@ -1,5 +1,5 @@
 ---
-title: "PushSubscription: toJSON() Methode"
+title: "PushSubscription: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/PushSubscription/toJSON
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die `toJSON()`-Methode des [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Interfaces ist ein
-Standard-Serializer: Sie gibt eine JSON-Darstellung der Abonnement-Eigenschaften zurück und bietet somit eine nützliche Abkürzung.
+Die `toJSON()`-Methode der [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle ist ein
+standardmäßiger Serializer: Sie gibt eine JSON-Darstellung der Abonnementseigenschaften zurück und bietet damit eine nützliche Abkürzung.
 
 ## Syntax
 
@@ -23,8 +23,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt. Es enthält den Abonnement-Endpunkt, `expirationTime` und öffentliche Schlüssel als ein
-`endpoint`-Element, ein `expirationTime`-Element und ein `keys`-Element.
+Ein JSON-Objekt. Es enthält den Abonnement-Endpunkt, `expirationTime` und öffentliche Schlüssel als
+ein `endpoint`-Mitglied, ein `expirationTime`-Mitglied und ein `keys`-Mitglied.
 
 ## Beispiele
 

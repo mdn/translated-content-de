@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `preserveAlpha` gibt an, wie ein {{SVGElement("feConvolveMatrix")}}-Element die Alpha-Transparenz behandelt.
+Das `preserveAlpha` Attribut gibt an, wie ein {{SVGElement("feConvolveMatrix")}} Element mit Alpha-Transparenz umgeht.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
@@ -47,7 +47,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "200")}}
+{{EmbedLiveSample("Beispiel", "420", "200")}}
 
 ## Verwendungshinweise
 
@@ -69,9 +69,9 @@ svg {
 </table>
 
 - `true`
-  - : Dieser Wert gibt an, dass die Faltung nur auf die Farbkanäle angewendet wird. In diesem Fall entfernt der Filter vorübergehend die Alpha-Vormultiplikation von den Farbkomponentenwerten, wendet den Kernel an und führt dann als letzten Schritt die Alpha-Vormultiplikation erneut aus.
+  - : Dieser Wert gibt an, dass die Faltung nur auf die Farbkanäle angewendet wird. In diesem Fall entfernt der Filter vorübergehend die Alpha-Präkomposition von den Farbkomponentenwerten, wendet den Kernel an und setzt die Alpha-Präkomposition dann als letzten Schritt wieder ein.
 - `false`
-  - : Dieser Wert gibt an, dass die Faltung auf alle Kanäle, einschließlich des Alpha-Kanals, angewendet wird.
+  - : Dieser Wert gibt an, dass die Faltung auf alle Kanäle angewendet wird, einschließlich des Alpha-Kanals.
 
 ## Spezifikationen
 

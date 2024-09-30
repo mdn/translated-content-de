@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der [`AbortController`](/de/docs/Web/API/AbortController)-Schnittstelle gibt eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz zurück, die verwendet werden kann, um mit einer asynchronen Operation zu kommunizieren oder diese nach Bedarf abzubrechen.
+Die schreibgeschützte Eigenschaft **`signal`** der [`AbortController`](/de/docs/Web/API/AbortController)-Schnittstelle gibt eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts zurück, die verwendet werden kann, um eine asynchrone Operation nach Bedarf zu kommunizieren oder abzubrechen.
 
 ## Wert
 
-Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz.
+Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts.
 
 ## Beispiele
 
-Im folgenden Beispiel möchten wir ein Video mit der [Fetch API](/de/docs/Web/API/Fetch_API) herunterladen.
+Im folgenden Beispiel versuchen wir, ein Video mithilfe der [Fetch API](/de/docs/Web/API/Fetch_API) herunterzuladen.
 
-Zuerst erstellen wir einen Controller mit dem [`AbortController()`](/de/docs/Web/API/AbortController/AbortController)-Konstruktor und holen dann eine Referenz zu seinem zugehörigen [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt über die `AbortController.signal`-Eigenschaft.
+Zuerst erstellen wir einen Controller mit dem [`AbortController()`](/de/docs/Web/API/AbortController/AbortController)-Konstruktor und greifen dann über die `AbortController.signal`-Eigenschaft auf das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt zu.
 
-Wenn die [fetch-Anfrage](/de/docs/Web/API/Window/fetch) gestartet wird, übergeben wir das `AbortSignal` als Option innerhalb des Optionsobjekts der Anfrage (das `{signal}` unten). Dies verknüpft das Signal und den Controller mit der fetch-Anfrage und ermöglicht es uns, sie durch Aufruf von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) abzubrechen, wie unten im zweiten Event-Listener zu sehen ist.
+Wenn die [Fetch-Anfrage](/de/docs/Web/API/Window/fetch) initiiert wird, übergeben wir das `AbortSignal` als Option innerhalb des Optionsobjekts der Anfrage (das `{signal}` unten). Dies verknüpft das Signal und den Controller mit der Fetch-Anfrage und ermöglicht es uns, die Anfrage durch Aufrufen von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) abzubrechen, wie im zweiten Event-Listener unten gezeigt.
 
 ```js
 const controller = new AbortController();
@@ -49,9 +49,9 @@ function fetchVideo() {
 ```
 
 > [!NOTE]
-> Wird `abort()` aufgerufen, lehnt das `fetch()`-Versprechen mit einem `AbortError` ab.
+> Wenn `abort()` aufgerufen wird, wird das `fetch()`-Promise mit einem `AbortError` abgelehnt.
 
-Ein [vollständig funktionierendes Beispiel finden Sie auf GitHub](https://github.com/mdn/dom-examples/tree/main/abort-api); Sie können es auch [live sehen](https://mdn.github.io/dom-examples/abort-api/).
+Sie finden ein [voll funktionsfähiges Beispiel auf GitHub](https://github.com/mdn/dom-examples/tree/main/abort-api); Sie können es auch [live ausführen](https://mdn.github.io/dom-examples/abort-api/).
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`getAttributeType()`** Methode des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Interfaces ermöglicht Webentwicklern zu überprüfen, ob ein Trusted Type für ein Element erforderlich ist und wenn ja, welcher Trusted Type verwendet wird.
+Die **`getAttributeType()`** Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) Schnittstelle ermöglicht es Webentwicklern zu überprüfen, ob ein Trusted Type für ein Element erforderlich ist und welcher Trusted Type verwendet wird.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ getAttributeType(tagName, attribute, elementNS, attrNS)
 - `attribute`
   - : Ein String, der ein Attribut enthält.
 - `elementNS` {{optional_inline}}
-  - : Ein String, der einen Namensraum enthält, bei leerem Wert wird der HTML-Namensraum als Standard verwendet.
+  - : Ein String, der einen Namespace enthält; wenn leer, wird der HTML-Namespace verwendet.
 - `attrNS` {{optional_inline}}
-  - : Ein String, der einen Namensraum enthält, bei leerem Wert wird null als Standard verwendet.
+  - : Ein String, der einen Namespace enthält; wenn leer, wird null verwendet.
 
 ### Rückgabewert
 
@@ -37,11 +37,11 @@ Ein String mit einem der folgenden Werte:
 - `"TrustedScript"`
 - `"TrustedScriptURL"`
 
-Oder null.
+Oder, null.
 
 ## Beispiele
 
-In diesem Beispiel wird für das {{htmlelement("script")}}-Element und das `src`-Attribut der Rückgabewert "TrustedScriptURL" von `getAttributeType()` gegeben.
+In diesem Beispiel gibt das Übergeben des {{htmlelement("script")}} Elements und des `src` Attributs an `getAttributeType()` "TrustedScriptURL" zurück.
 
 ```js
 console.log(trustedTypes.getAttributeType("script", "src")); // "TrustedScriptURL"

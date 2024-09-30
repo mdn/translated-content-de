@@ -1,5 +1,5 @@
 ---
-title: "GPURenderBundleEncoder: drawIndirect() Methode"
+title: "GPURenderBundleEncoder: drawIndirect()-Methode"
 short-title: drawIndirect()
 slug: Web/API/GPURenderBundleEncoder/drawIndirect
 l10n:
@@ -23,7 +23,7 @@ drawIndirect(indirectBuffer, indirectOffset)
 
 - `indirectBuffer`
 
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die für die Durchführung der Zeichenoperation erforderlich sind. Der Puffer muss einen eng gepackten Block aus vier 32-Bit-unsigned integer-Werten enthalten, die die Werte darstellen (insgesamt 16 Bytes), in der gleichen Reihenfolge wie die Argumente für [`GPURenderBundleEncoder.draw()`](/de/docs/Web/API/GPURenderBundleEncoder/draw). Zum Beispiel:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die zum Ausführen der Zeichnungsoperation erforderlich sind. Der Puffer muss einen dicht gepackten Block aus vier 32-Bit-Integer-Werten enthalten (insgesamt 16 Bytes), die in der gleichen Reihenfolge wie die Argumente für [`GPURenderBundleEncoder.draw()`](/de/docs/Web/API/GPURenderBundleEncoder/draw) angegeben sind. Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(4);
@@ -37,7 +37,7 @@ drawIndirect(indirectBuffer, indirectOffset)
     ```
 
 - `indirectOffset`
-  - : Der Offset in Bytes im `indirectBuffer`, wo die Werte beginnen.
+  - : Der Offset in Bytes in `indirectBuffer`, an dem die Wertedaten beginnen.
 
 ### Rückgabewert
 
@@ -45,10 +45,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen bei einem Aufruf von **`drawIndirect()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
+Es müssen die folgenden Kriterien erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- `indirectBuffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.INDIRECT`-Flag.
-- `indirectOffset` + die durch die Werteparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `indirectBuffer`.
+- [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` plus die durch die Wertparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele

@@ -1,5 +1,5 @@
 ---
-title: "Screen: Eigenschaft colorDepth"
+title: "Screen: colorDepth-Eigenschaft"
 short-title: colorDepth
 slug: Web/API/Screen/colorDepth
 l10n:

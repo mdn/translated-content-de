@@ -1,5 +1,5 @@
 ---
-title: "PresentationAvailability: Eigenschaft value"
+title: "PresentationAvailability: value-Eigenschaft"
 short-title: value
 slug: Web/API/PresentationAvailability/value
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`value`**-Attribut _MUSS_ den letzten Wert zurückgeben, auf den es gesetzt wurde. Der Wert wird durch den Algorithmus zum [Überwachen der Liste verfügbarer Präsentationsbildschirme](https://www.w3.org/TR/presentation-api/#dfn-monitor-the-list-of-available-presentation-displays) aktualisiert.
+Das **`value`**-Attribut _MUSS_ den zuletzt gesetzten Wert zurückgeben. Der Wert wird durch den Algorithmus [die Liste der verfügbaren Präsentationsdisplays überwachen](https://www.w3.org/TR/presentation-api/#dfn-monitor-the-list-of-available-presentation-displays) aktualisiert.
 
 Das `onchange`-Attribut ist ein [Ereignishandler](https://www.w3.org/TR/presentation-api/#dfn-event-handler), dessen entsprechender [Ereignishandler-Ereignistyp](https://www.w3.org/TR/presentation-api/#dfn-event-handler-event-type) `change` ist.
 

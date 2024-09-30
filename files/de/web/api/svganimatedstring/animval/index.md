@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das `animVal`-Attribut oder die `animVal`-Eigenschaft enthält denselben Wert wie die [`SVGAnimatedString.baseVal`](/de/docs/Web/API/SVGAnimatedString/baseVal)-Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
+Das `animVal`-Attribut oder die animVal-Eigenschaft enthält denselben Wert wie die [`SVGAnimatedString.baseVal`](/de/docs/Web/API/SVGAnimatedString/baseVal)-Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
 
 > [!NOTE]
 > Die **animVal**-Eigenschaft ist eine schreibgeschützte Eigenschaft.

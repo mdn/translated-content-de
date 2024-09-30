@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformComponent: toMatrix()-Methode"
+title: "CSSTransformComponent: Methode toMatrix()"
 short-title: toMatrix()
 slug: Web/API/CSSTransformComponent/toMatrix
 l10n:
@@ -13,7 +13,7 @@ Die **`toMatrix()`**-Methode der [`CSSTransformComponent`](/de/docs/Web/API/CSST
 Alle Transformationsfunktionen können mathematisch als 4x4-Transformationsmatrix dargestellt werden.
 
 > [!NOTE]
-> Die Eigenschaft `is2D` beeinflusst, welche Transformation und somit welcher Typ von Matrix zurückgegeben wird. CSS-2D- und 3D-Transformationen unterscheiden sich aus historischen Gründen. Eine kurze Erklärung zu 2D- versus 3D-Transformationen finden Sie unter [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms).
+> Die `is2D`-Eigenschaft beeinflusst, welche Transformation und somit welche Art von Matrix zurückgegeben wird. CSS 2D- und 3D-Transformationen unterscheiden sich aus historischen Gründen. Eine kurze Erklärung von 2D- vs. 3D-Transformationen finden Sie unter [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms).
 
 ## Syntax
 
@@ -32,11 +32,12 @@ Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn Längen, die an der Erzeugung der Matrix beteiligt sind, nicht mit px kompatible Einheiten sind (wie relative Längen oder Prozentangaben).
+  - : Wird ausgelöst, wenn Längen, die bei der Erstellung der Matrix beteiligt sind, nicht kompatible Einheiten
+    mit px sind (wie relative Längen oder Prozentsätze).
 
 ## Beispiele
 
-In Bearbeitung
+In Arbeit
 
 ## Spezifikationen
 

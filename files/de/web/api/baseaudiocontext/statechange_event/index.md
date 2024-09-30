@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: statechange Ereignis"
+title: "BaseAudioContext: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/BaseAudioContext/statechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Ein `statechange` Ereignis wird auf einem [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) Objekt ausgelöst, wenn sich dessen [`state`](/de/docs/Web/API/BaseAudioContext/state)-Mitglied ändert.
+Ein `statechange`-Ereignis wird bei einem [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Objekt ausgelöst, wenn sich sein [`state`](/de/docs/Web/API/BaseAudioContext/state)-Element ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("statechange", (event) => { })
@@ -26,8 +26,8 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus unserer [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Der `onstatechange` Handler wird verwendet, um den aktuellen
-[`state`](/de/docs/Web/API/BaseAudioContext/state) jedes Mal in die Konsole zu protokollieren, wenn er sich ändert.
+Der folgende Codeausschnitt stammt aus unserem [AudioContext-Zustände-Demo](https://github.com/mdn/webaudio-examples) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Der `onstatechange`-Handler wird verwendet, um den aktuellen
+[`state`](/de/docs/Web/API/BaseAudioContext/state) in der Konsole zu protokollieren, jedes Mal, wenn er sich ändert.
 
 ```js
 audioCtx.onstatechange = () => {

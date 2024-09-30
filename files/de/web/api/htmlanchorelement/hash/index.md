@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLAnchorElement.hash`**-Eigenschaft gibt einen String zurück, der ein `'#'` gefolgt vom Fragmentbezeichner der URL enthält.
+Die **`HTMLAnchorElement.hash`**-Eigenschaft gibt einen String zurück, der ein `'#'` enthält, gefolgt vom Fragmentbezeichner der URL.
 
-Das Fragment ist [prozent-codiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
+Das Fragment ist [prozentkodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ## Beispiele
 
-### Den Hash von einem Ankerlink holen
+### Den Hash aus einem Ankerlink erhalten
 
 Gegeben dieses HTML
 
@@ -45,4 +45,4 @@ anchor.hash; // '#examples'
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

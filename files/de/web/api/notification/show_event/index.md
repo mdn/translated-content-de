@@ -1,5 +1,5 @@
 ---
-title: "Notification: show Ereignis"
+title: "Benachrichtigung: show-Ereignis"
 short-title: show
 slug: Web/API/Notification/show_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`show`** Ereignis des [`Notification`](/de/docs/Web/API/Notification)-Interfaces wird ausgelöst, wenn eine [`Notification`](/de/docs/Web/API/Notification) angezeigt wird.
+Das **`show`**-Ereignis der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle wird ausgelöst, wenn eine [`Notification`](/de/docs/Web/API/Notification) angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("show", (event) => {});

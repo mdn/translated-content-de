@@ -1,5 +1,5 @@
 ---
-title: "Request: text() Methode"
+title: "Request: text()-Methode"
 short-title: text()
 slug: Web/API/Request/text
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`text()`** Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces
-liest den Request-Body und gibt ihn als ein Promise zurück, das mit einem {{jsxref("String")}} aufgelöst wird. Die Antwort wird _immer_ mit UTF-8 dekodiert.
+Die **`text()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragekörper aus und gibt ihn als ein Promise zurück, das mit einem {{jsxref("String")}} aufgelöst wird. Die Antwort wird _immer_ mit UTF-8 dekodiert.
 
 ## Syntax
 

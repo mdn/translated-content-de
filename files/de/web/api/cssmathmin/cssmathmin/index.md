@@ -8,7 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSMathMin()`** Konstruktor erstellt ein neues [`CSSMathMin`](/de/docs/Web/API/CSSMathMin) Objekt, das die CSS {{CSSXref('min','min()')}} Funktion repräsentiert.
+Der **`CSSMathMin()`**-Konstruktor erstellt ein
+neues [`CSSMathMin`](/de/docs/Web/API/CSSMathMin)-Objekt, das die CSS
+{{CSSXref('min','min()')}}-Funktion darstellt.
 
 ## Syntax
 
@@ -19,16 +21,16 @@ new CSSMathMin(args)
 ### Parameter
 
 - `args`
-  - : Eine Liste von Werten für das [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) Objekt, entweder als Gleitkommazahl oder als [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+  - : Eine Liste von Werten für das [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)-Objekt, die entweder ein Gleitkommazahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein können.
 
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Wird ausgelöst, wenn ein _Fehler_ beim Hinzufügen aller Werte in `args` auftritt.
+  - : Wird ausgelöst, wenn beim Hinzufügen aller Werte in args ein _Fehler_ auftritt.
 
 ## Beispiele
 
-To do
+In Arbeit
 
 ## Spezifikationen
 

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`name`**-Eigenschaft der Schnittstelle [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) ist eine schreibgeschützte Eigenschaft, die den Namen zurückgibt, den der [`Worker`](/de/docs/Web/API/Worker) (optional) beim Erstellen erhalten hat. Dies ist der Name, den der [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor übergeben kann, um eine Referenz auf den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) zu erhalten.
+Die **`name`**-Eigenschaft des
+[`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Namen zurückgibt, der dem [`Worker`](/de/docs/Web/API/Worker) (optional) bei seiner Erstellung gegeben wurde. Dies ist der Name, den der [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor übergeben kann, um eine Referenz auf den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) zu erhalten.
 
 ## Wert
 
@@ -16,19 +17,19 @@ Ein String.
 
 ## Beispiele
 
-Wenn ein Worker mit einem Konstruktor mit einer `name`-Option erstellt wird:
+Wenn ein Worker mit einem Konstruktor unter Verwendung einer `name`-Option erstellt wird:
 
 ```js
 const myWorker = new Worker("worker.js", { name: "myWorker" });
 ```
 
-wird der [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) nun den Namen "myWorker" haben, der durch Ausführen von
+wird der [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) nun einen Namen "myWorker" haben, der durch Ausführen von
 
 ```js
 self.name;
 ```
 
-innerhalb des Workers zurückgegeben werden kann.
+im Inneren des Workers zurückgegeben werden kann.
 
 ## Spezifikationen
 

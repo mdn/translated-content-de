@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLStyleElement.type`**-Eigenschaft gibt den Typ des aktuellen Stils zurück. Der Wert spiegelt das [`type`-Attribut des HTML `<style>`-Elements](/de/docs/Web/HTML/Element/style#type) wider.
+Die **`HTMLStyleElement.type`**-Eigenschaft gibt den Typ des aktuellen Styles zurück.
+Der Wert entspricht dem [`type`-Attribut des HTML `<style>`-Elements](/de/docs/Web/HTML/Element/style#type).
 
 Autoren sollten diese Eigenschaft nicht verwenden oder sich auf den Wert verlassen.
 
 ## Wert
 
-Die zulässigen Werte sind ein leerer String oder eine Groß- und Kleinschreibung ignorierende Übereinstimmung für "text/css".
+Die zulässigen Werte sind ein leerer String oder eine Groß- und Kleinschreibung ignorierende Übereinstimmung mit "text/css".
 
 ## Spezifikationen
 

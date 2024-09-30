@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`transcript`**-Eigenschaft des
-[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces gibt eine Zeichenkette zurück, die das
-Transkript des erkannten Wortes oder der erkannten Wörter enthält.
+Die schreibgeschützte Eigenschaft **`transcript`** der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Schnittstelle gibt einen String zurück, der das Transkript des erkannten Wortes oder der erkannten Wörter enthält.
 
-Bei kontinuierlicher Erkennung wird führendes oder nachfolgendes Leerzeichen bei Bedarf hinzugefügt, sodass die Verkettung aufeinanderfolgender [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)s ein korrektes Transkript der Sitzung ergibt.
+Bei kontinuierlicher Erkennung wird führendes oder nachfolgendes Leerzeichen dort eingefügt, wo es notwendig ist, damit die Verkettung aufeinander folgender [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)s ein richtiges Transkript der Sitzung ergibt.
 
 ## Wert
 
@@ -20,8 +18,7 @@ Ein String.
 
 ## Beispiele
 
-Dieser Code ist aus unserem
-[Speech-Farbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
+Dieses Code-Beispiel stammt aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {

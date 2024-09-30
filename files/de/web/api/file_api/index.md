@@ -11,31 +11,31 @@ l10n:
 
 Die File API ermöglicht es Webanwendungen, auf Dateien und deren Inhalte zuzugreifen.
 
-Webanwendungen können auf Dateien zugreifen, wenn der Benutzer sie verfügbar macht, entweder mit einem [Datei-`<input>`-Element](/de/docs/Web/HTML/Element/input/file) oder [per Drag-and-Drop](/de/docs/Web/API/DataTransfer/files).
+Webanwendungen können auf Dateien zugreifen, wenn der Benutzer sie verfügbar macht, entweder durch ein [Datei-`<input>`-Element](/de/docs/Web/HTML/Element/input/file) oder [durch Drag-and-Drop](/de/docs/Web/API/DataTransfer/files).
 
-Sätze von Dateien, die auf diese Weise verfügbar gemacht werden, werden als [`FileList`](/de/docs/Web/API/FileList)-Objekte dargestellt, die es einer Webanwendung ermöglichen, einzelne [`File`](/de/docs/Web/API/File)-Objekte abzurufen. Diese [`File`](/de/docs/Web/API/File)-Objekte bieten wiederum Zugriff auf Metadaten wie den Dateinamen, die Größe, den Typ und das Datum der letzten Änderung.
+Dateien, die auf diese Weise verfügbar gemacht werden, werden als [`FileList`](/de/docs/Web/API/FileList)-Objekte dargestellt, die es einer Webanwendung ermöglichen, einzelne [`File`](/de/docs/Web/API/File)-Objekte abzurufen. [`File`](/de/docs/Web/API/File)-Objekte bieten wiederum Zugriff auf Metadaten wie den Dateinamen, die Größe, den Typ und das Datum der letzten Änderung.
 
-[`File`](/de/docs/Web/API/File)-Objekte können an [`FileReader`](/de/docs/Web/API/FileReader)-Objekte übergeben werden, um auf den Inhalt der Datei zuzugreifen. Das [`FileReader`](/de/docs/Web/API/FileReader)-Interface ist asynchron, aber eine synchrone Version, die nur in [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar ist, wird durch das [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Interface bereitgestellt.
+[`File`](/de/docs/Web/API/File)-Objekte können an [`FileReader`](/de/docs/Web/API/FileReader)-Objekte übergeben werden, um auf die Inhalte der Datei zuzugreifen. Die [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle arbeitet asynchron, aber eine synchrone Version, die nur in [Web-Arbeitern](/de/docs/Web/API/Web_Workers_API) verfügbar ist, wird durch die [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle bereitgestellt.
 
 ## Schnittstellen
 
 - [`Blob`](/de/docs/Web/API/Blob)
-  - : Repräsentiert ein "Binary Large Object", also ein dateiähnliches Objekt von unveränderlichen, rohen Daten; ein [`Blob`](/de/docs/Web/API/Blob) kann als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) konvertiert werden, sodass dessen Methoden zur Verarbeitung der Daten verwendet werden können.
+  - : Repräsentiert ein "Binary Large Object", also ein dateiähnliches Objekt mit unveränderlichen, rohen Daten; ein [`Blob`](/de/docs/Web/API/Blob) kann als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) konvertiert werden, so dass seine Methoden zur Verarbeitung der Daten verwendet werden können.
 - [`File`](/de/docs/Web/API/File)
-  - : Stellt Informationen über eine Datei bereit und ermöglicht JavaScript auf einer Webseite den Zugriff auf deren Inhalt.
+  - : Bietet Informationen über eine Datei und erlaubt JavaScript auf einer Webseite, auf deren Inhalt zuzugreifen.
 - [`FileList`](/de/docs/Web/API/FileList)
-  - : Wird von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben; damit können Sie auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien zugreifen. Es wird auch für eine Liste von Dateien verwendet, die mithilfe der Drag-and-Drop-API in Webinhalte fallen gelassen werden; siehe das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt für Details zu dieser Nutzung.
+  - : Wird von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben; damit können Sie auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien zugreifen. Sie wird auch für eine Liste von Dateien verwendet, die durch die Nutzung der Drag-and-Drop-API in Webinhalte gezogen wurden; siehe das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt für Details zur Nutzung.
 - [`FileReader`](/de/docs/Web/API/FileReader)
-  - : Ermöglicht es Webanwendungen, die Inhalte von Dateien (oder Rohdatenpuffern), die auf dem Computer des Benutzers gespeichert sind, asynchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die Datei oder Daten zum Lesen anzugeben.
+  - : Ermöglicht es Webanwendungen, den Inhalt von Dateien (oder rohen Datenpuffern), die auf dem Computer des Nutzers gespeichert sind, asynchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die zu lesende Datei oder Daten anzugeben.
 - [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)
-  - : Ermöglicht es Webanwendungen, die Inhalte von Dateien (oder Rohdatenpuffern), die auf dem Computer des Benutzers gespeichert sind, synchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die Datei oder Daten zum Lesen anzugeben.
+  - : Ermöglicht es Webanwendungen, den Inhalt von Dateien (oder rohen Datenpuffern), die auf dem Computer des Nutzers gespeichert sind, synchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die zu lesende Datei oder Daten anzugeben.
 
-### Erweiterungen für andere Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
 - [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
-  - : Erstellt eine URL, die zum Abrufen eines [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekts verwendet werden kann.
+  - : Erstellt eine URL, die verwendet werden kann, um ein [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekt abzurufen.
 - [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
-  - : Hebt eine vorhandene Objekt-URL auf, die zuvor durch Aufrufen von [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt wurde.
+  - : Hebt eine bestehende Objekt-URL auf, die zuvor durch Aufruf von [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt wurde.
 
 ## Beispiele
 
@@ -75,9 +75,9 @@ fileInput.addEventListener("change", async () => {
 });
 ```
 
-### Ergebnis
+### Resultat
 
-{{EmbedLiveSample("Reading a file", "", "300")}}
+{{EmbedLiveSample("Eine Datei lesen", "", "300")}}
 
 ## Spezifikationen
 
@@ -85,6 +85,6 @@ fileInput.addEventListener("change", async () => {
 
 ## Siehe auch
 
-- [`<input type="file">`](/de/docs/Web/HTML/Element/input/file): das Datei-Input-Element
+- [`<input type="file">`](/de/docs/Web/HTML/Element/input/file): das Dateieingabeelement
 - [`Blob.text()`](/de/docs/Web/API/Blob/text)
 - Die [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle

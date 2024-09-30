@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: validationMessage-Eigenschaft"
+title: "HTMLTextAreaElement: validationMessage property"
 short-title: validationMessage
 slug: Web/API/HTMLTextAreaElement/validationMessage
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`**-Eigenschaft des schreibgeschützten [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt eine Zeichenfolge zurück, die eine lokalisierte Nachricht darstellt, die die Validierungseinschränkungen beschreibt, die das {{htmlelement("textarea")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenfolge, wenn das Steuerelement kein Kandidat für die Einschränkungsvalidierung ist ([`HTMLTextAreaElement.willValidate`](/de/docs/Web/API/HTMLTextAreaElement/willValidate) ist `false`) oder seine Einschränkungen erfüllt.
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungseinschränkungen beschreibt, die das {{htmlelement("textarea")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement kein Kandidat für die Einschränkungsvalidierung ist ([`HTMLTextAreaElement.willValidate`](/de/docs/Web/API/HTMLTextAreaElement/willValidate) ist `false`) oder wenn es seine Einschränkungen erfüllt.
 
-Wenn das `<textarea>`-Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Einschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des [`HTMLTextAreaElement.validity`](/de/docs/Web/API/HTMLTextAreaElement/validity)-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer während der Validierung angezeigt würde.
+Wenn das `<textarea>`-Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Einschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des [`HTMLTextAreaElement.validity`](/de/docs/Web/API/HTMLTextAreaElement/validity)-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer bei der Validierung angezeigt würde.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Beispiel
 

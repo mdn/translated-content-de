@@ -1,5 +1,5 @@
 ---
-title: "OffscreenCanvasRenderingContext2D: commit() Methode"
+title: "OffscreenCanvasRenderingContext2D: commit()-Methode"
 short-title: commit()
 slug: Web/API/OffscreenCanvasRenderingContext2D/commit
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`OffscreenCanvasRenderingContext2D.commit()`**-Methode der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) war dazu gedacht, das Bitmap des Rendering-Kontexts in das Bitmap des Platzhalter-{{HtmlElement("canvas")}}-Elements des zugehörigen `OffscreenCanvas`-Objekts zu kopieren. Die Kopieroperation erfolgt synchron. Das Aufrufen dieser Methode ist nicht notwendig für die Übertragung, da sie automatisch während der Ausführung der Ereignisschleife geschieht.
+Die Methode **`OffscreenCanvasRenderingContext2D.commit()`** der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) war gedacht, um das Bitmap des Rendering-Kontexts auf das Bitmap des Platzhalter-{{HtmlElement("canvas")}}-Elements des zugehörigen `OffscreenCanvas`-Objekts zu kopieren. Der Kopiervorgang ist synchron. Das Aufrufen dieser Methode ist für die Übertragung nicht erforderlich, da sie automatisch während der Ausführung der Ereignisschleife erfolgt.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ ctx.commit();
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -41,4 +41,4 @@ Teil keiner Spezifikation.
 
 ## Siehe auch
 
-- Das Interface, welches diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)

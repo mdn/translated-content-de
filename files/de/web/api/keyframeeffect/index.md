@@ -14,37 +14,37 @@ Die **`KeyframeEffect`**-Schnittstelle der [Web Animations API](/de/docs/Web/API
 ## Konstruktor
 
 - [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect)
-  - : Gibt eine neue `KeyframeEffect`-Objektinstanz zurück und ermöglicht es Ihnen auch, eine bestehende Keyframe-Effekt-Objektinstanz zu klonen.
+  - : Gibt eine neue `KeyframeEffect`-Objektinstanz zurück und ermöglicht es auch, eine bestehende Keyframe-Effekt-Objektinstanz zu klonen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`KeyframeEffect.target`](/de/docs/Web/API/KeyframeEffect/target)
-  - : Ruft das Element oder das Ursprungs-Element des Pseudo-Elements ab, das von diesem Objekt animiert wird, und legt es fest. Dies kann `null` sein für Animationen, die kein bestimmtes Element oder Pseudo-Element anvisieren.
+  - : Ruft das Element ab und setzt es, oder das Ursprungselement des Pseudo-Elements, das von diesem Objekt animiert wird. Dies kann `null` sein für Animationen, die kein bestimmtes Element oder Pseudo-Element anvisieren.
 - [`KeyframeEffect.pseudoElement`](/de/docs/Web/API/KeyframeEffect/pseudoElement)
-  - : Ruft den Selektor des Pseudo-Elements ab, das von diesem Objekt animiert wird, und legt diesen fest. Dies kann `null` sein für Animationen, die kein Pseudo-Element anvisieren.
+  - : Ruft den Selektor des Pseudo-Elements ab und setzt ihn, das von diesem Objekt animiert wird. Dies kann `null` sein für Animationen, die kein Pseudo-Element anvisieren.
 - [`KeyframeEffect.iterationComposite`](/de/docs/Web/API/KeyframeEffect/iterationComposite)
-  - : Ruft die Iterationskompositionsoperation ab und legt diese fest, um die Eigenschaftswertänderungen dieses Keyframe-Effekts aufzulösen.
+  - : Ruft die Iterationskompositionsoperation ab und setzt sie zur Auflösung der Eigenschaftswertänderungen dieses Keyframe-Effekts.
 - [`KeyframeEffect.composite`](/de/docs/Web/API/KeyframeEffect/composite)
-  - : Ruft die Kompositionsoperationseigenschaft ab und legt diese fest, um die Eigenschaftswertänderungen zwischen diesem und anderen Keyframe-Effekten aufzulösen.
+  - : Ruft die Kompositionsoperation-Eigenschaft ab und setzt sie zur Auflösung der Eigenschaftswertänderungen zwischen diesem und anderen Keyframe-Effekten.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt einige ihrer Methoden von ihrem Elternteil, [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)._
+_Diese Schnittstelle erbt einige ihrer Methoden von ihrem Elternelement, [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)._
 
 - [`AnimationEffect.getComputedTiming()`](/de/docs/Web/API/AnimationEffect/getComputedTiming)
-  - : Gibt die berechneten, aktuellen Zeitwerte für diesen Keyframe-Effekt zurück.
+  - : Gibt die berechneten, aktuellen Timing-Werte für diesen Keyframe-Effekt zurück.
 - [`KeyframeEffect.getKeyframes()`](/de/docs/Web/API/KeyframeEffect/getKeyframes)
-  - : Gibt die berechneten Keyframes zurück, die diesen Effekt ausmachen, zusammen mit ihren berechneten Keyframe-Offsets.
+  - : Gibt die berechneten Keyframes zurück, die diesen Effekt ausmachen, zusammen mit deren berechneten Keyframe-Verschiebungen.
 - [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming)
-  - : Gibt das mit der Animation assoziierte Objekt zurück, das alle Zeitwerte der Animation enthält.
+  - : Gibt das mit der Animation verknüpfte Objekt zurück, das alle Timing-Werte der Animation enthält.
 - [`KeyframeEffect.setKeyframes()`](/de/docs/Web/API/KeyframeEffect/setKeyframes)
-  - : Ersetzt den Satz von Keyframes, die diesen Effekt ausmachen.
+  - : Ersetzt die Menge der Keyframes, die diesen Effekt ausmachen.
 - [`AnimationEffect.updateTiming()`](/de/docs/Web/API/AnimationEffect/updateTiming)
-  - : Aktualisiert die angegebenen Zeitgebereigenschaften.
+  - : Aktualisiert die angegebenen Timing-Eigenschaften.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `KeyframeEffect`-Konstruktor verwendet, um eine Reihe von Keyframes zu erstellen, die bestimmen, wie das Rofl-Emoji über den Boden rollen soll:
+Im folgenden Beispiel wird der `KeyframeEffect`-Konstruktor verwendet, um eine Reihe von Keyframes zu erstellen, die diktieren, wie das Rofl-Emoji über den Boden rollen soll:
 
 ```js
 const emoji = document.querySelector("div"); // element to animate

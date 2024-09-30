@@ -1,5 +1,5 @@
 ---
-title: "FileSystemWritableFileStream: seek() Methode"
+title: "FileSystemWritableFileStream: seek()-Methode"
 short-title: seek()
 slug: Web/API/FileSystemWritableFileStream/seek
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`seek()`** Methode der [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Schnittstelle aktualisiert den aktuellen Dateizeiger-Versatz auf die Position (in Byte), die beim Aufrufen der Methode angegeben wurde.
+Die **`seek()`**-Methode der [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Schnittstelle aktualisiert den aktuellen Dateicurser-Offset auf die beim Aufruf der Methode angegebene Position (in Byte).
 
 ## Syntax
 
@@ -34,13 +34,13 @@ Ein {{jsxref('Promise')}}, das `undefined` zurückgibt.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird mithilfe der Methode [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) ein beschreibbarer Stream erstellt.
+Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird mit der Methode [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) ein beschreibbarer Stream erstellt.
 
 Anschließend schreiben wir in den Stream:
 
-1. Ein Textstring wird in den Stream geschrieben.
+1. Eine Textzeichenfolge wird in den Stream geschrieben.
 2. Die `seek()`-Methode wird verwendet, um den Cursor an den Anfang des Streams zu setzen.
-3. Ein zweiter Textstring wird an den Anfang des Streams geschrieben, wodurch der erste Schreibvorgang überschrieben wird.
+3. Eine zweite Textzeichenfolge wird an den Anfang des Streams geschrieben und überschreibt das erste Schreiben.
 
 Der Stream wird dann geschlossen.
 
@@ -66,7 +66,7 @@ async function saveFile() {
 }
 ```
 
-Wenn Sie die obige Funktion ausführen und dann die erstellte Datei auf der Festplatte öffnen, sollten Sie den Text "My second file content" sehen.
+Wenn Sie die obige Funktion ausführen und dann die auf der Festplatte erstellte Datei öffnen, sollten Sie den Text "My second file content" sehen.
 
 ## Spezifikationen
 
@@ -79,4 +79,4 @@ Wenn Sie die obige Funktion ausführen und dann die erstellte Datei auf der Fest
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Das File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

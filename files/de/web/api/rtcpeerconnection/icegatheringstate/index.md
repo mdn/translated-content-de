@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`iceGatheringState`** des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt einen String zurück, der den gesamten ICE-Sammlungstatus für diese Verbindung beschreibt. Dies ermöglicht es Ihnen beispielsweise zu erkennen, wann die Sammlung von ICE-Kandidaten abgeschlossen ist.
+Die schreibgeschützte **`iceGatheringState`**-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt einen String zurück, der den allgemeinen ICE-Sammlungssstatus für diese Verbindung beschreibt. Dies ermöglicht Ihnen zum Beispiel zu erkennen, wann die Sammlung der ICE-Kandidaten abgeschlossen ist.
 
-Sie können erkennen, wann sich der Wert dieser Eigenschaft ändert, indem Sie ein Ereignis vom Typ [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) beobachten.
+Sie können erkennen, wann sich der Wert dieser Eigenschaft ändert, indem Sie auf ein Ereignis des Typs [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) achten.
 
-Beachten Sie, dass **`iceGatheringState`** den gesamten Sammelstatus der Verbindung darstellt, einschließlich jedes [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das von jedem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und jedem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) in der gesamten Verbindung verwendet wird. Dies steht im Gegensatz zu [`RTCIceTransport.gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState), das den Sammelstatus für einen einzelnen Transport darstellt.
+Beachten Sie, dass **`iceGatheringState`** den allgemeinen Sammlungssstatus der Verbindung darstellt, einschließlich jedes [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das von jedem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und jedem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) der gesamten Verbindung verwendet wird. Dies steht im Gegensatz zu [`RTCIceTransport.gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState), das den Sammlungssstatus für einen einzelnen Transport darstellt.
 
 ## Wert
 
@@ -21,10 +21,10 @@ Die möglichen Werte sind:
 - `new`
   - : Die Peer-Verbindung wurde gerade erstellt und hat noch keine Netzwerkaktivitäten durchgeführt.
 - `gathering`
-  - : Der ICE-Agent sammelt derzeit Kandidaten für die Verbindung.
+  - : Der ICE-Agent sammelt gerade Kandidaten für die Verbindung.
 - `complete`
-  - : Der ICE-Agent hat das Sammeln von Kandidaten abgeschlossen.
-    Wenn etwas passiert, das das Sammeln neuer Kandidaten erfordert, wie z. B. das Hinzufügen einer neuen Schnittstelle oder das Hinzufügen eines neuen ICE-Servers, wird der Status auf `gathering` zurückgesetzt, um diese Kandidaten zu sammeln.
+  - : Der ICE-Agent hat die Kandidatensammlung abgeschlossen.
+    Wenn etwas passiert, das das Sammeln neuer Kandidaten erfordert, wie das Hinzufügen einer neuen Schnittstelle oder eines neuen ICE-Servers, wird der Status auf `gathering` zurückgesetzt, um diese Kandidaten zu sammeln.
 
 ## Beispiel
 

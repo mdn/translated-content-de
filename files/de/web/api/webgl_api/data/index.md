@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-Shader-Programme haben Zugriff auf drei Arten der Datenspeicherung, die jeweils einen spezifischen Anwendungsfall haben. Jede Art von Variable ist in einem oder beiden Shader-Programmen zugänglich (abhängig vom Datenspeichertyp) und möglicherweise durch den JavaScript-Code der Seite, abhängig von der speziellen Art der Variable.
+Shaderprogramme haben Zugriff auf drei Arten der Datenspeicherung, von denen jede eine spezifische Anwendung hat. Jede Art von Variable ist durch eine oder beide Arten von Shader-Programmen zugänglich (abhängig vom Typ der Datenspeicherung) und möglicherweise durch den JavaScript-Code der Website, abhängig vom spezifischen Typ der Variable.
 
 ## GLSL-Datentypen
 
@@ -15,11 +15,11 @@ Siehe [Datentypen](<https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)>) in de
 
 ## GLSL-Variablen
 
-Es gibt drei Arten von "Variablen" oder Datenspeicher in GLSL, die jeweils ihren eigenen Zweck und Anwendungsfall haben: **[attributes](#attributes)**, **[varyings](#varyings)** und **[uniforms](#uniforms)**.
+In GLSL gibt es drei Arten von "Variablen" oder Datenspeicher, die jeweils ihren eigenen Zweck und Anwendungsfälle haben: **[Attribute](#attribute)**, **[Varyings](#varyings)** und **[Uniforms](#uniforms)**.
 
-### Attributes
+### Attribute
 
-**Attributes** sind GLSL-Variablen, die nur für den Vertex-Shader (als Variablen) und den JavaScript-Code verfügbar sind. Attributes werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und alle anderen berechneten oder abgerufenen Daten zu speichern, die zwischen dem JavaScript-Code und dem Vertex-Shader geteilt werden müssen.
+**Attribute** sind GLSL-Variablen, die nur dem Vertex-Shader (als Variablen) und dem JavaScript-Code zur Verfügung stehen. Attribute werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und alle anderen berechneten oder abgerufenen Daten zu speichern, die zwischen JavaScript-Code und dem Vertex-Shader ausgetauscht werden müssen.
 
 ```js
 // init colors
@@ -59,20 +59,20 @@ void main()
 
 ### Varyings
 
-**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und dazu dienen, Daten vom Vertex-Shader an den Fragment-Shader zu übergeben. Dies wird häufig verwendet, um den [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertex zu teilen, nachdem er vom Vertex-Shader berechnet wurde.
+**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und verwendet werden, um Daten vom Vertex-Shader an den Fragment-Shader zu übertragen. Dies wird häufig verwendet, um den [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertexes zu teilen, nachdem er vom Vertex-Shader berechnet wurde.
 
-<\<anleitung verwenden>>
+<\<Anleitung zur Verwendung>>
 
 ### Uniforms
 
-**Uniforms** werden vom JavaScript-Code gesetzt und sind für sowohl den Vertex- als auch den Fragment-Shader verfügbar. Sie werden genutzt, um Werte bereitzustellen, die für alles im Frame gleich sein werden, wie z. B. Positionen und Größenordnungen von Lichtquellen, globale Transformations- und Perspektivdetails usw.
+**Uniforms** werden durch den JavaScript-Code festgelegt und stehen sowohl dem Vertex- als auch dem Fragment-Shader zur Verfügung. Sie werden verwendet, um Werte bereitzustellen, die für alles, was im Frame gezeichnet wird, gleich bleiben, wie beispielsweise Beleuchtungspositionen und -stärken, globale Transformations- und Perspektivendetails und so weiter.
 
-<\<details hinzufügen>>
+<\<Details hinzufügen>>
 
 ## Buffers
 
-<\<informationen hinzufügen>>
+<\<Informationen hinzufügen>>
 
 ## Textures
 
-<\<informationen hinzufügen>>
+<\<Informationen hinzufügen>>

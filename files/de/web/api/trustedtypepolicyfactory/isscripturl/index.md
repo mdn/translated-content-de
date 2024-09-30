@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`isScriptURL()`**-Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle gibt `true` zurück, wenn ein gültiges [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt übergeben wird.
+Die **`isScriptURL()`**-Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle gibt true zurück, wenn sie ein gültiges [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt übergeben bekommt.
 
 > [!NOTE]
-> Der Zweck der Funktionen `isScriptURL()`, [`isHTML()`](/de/docs/Web/API/TrustedTypePolicyFactory/isHTML) und [`isScript()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScript) besteht darin, zu überprüfen, ob das Objekt ein gültiges TrustedType-Objekt ist, das durch eine konfigurierte Richtlinie erstellt wurde.
+> Der Zweck der Funktionen `isScriptURL()`, [`isHTML()`](/de/docs/Web/API/TrustedTypePolicyFactory/isHTML) und [`isScript()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScript) besteht darin, zu überprüfen, ob das Objekt ein gültiges TrustedType-Objekt ist, das von einer konfigurierten Richtlinie erstellt wurde.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ isScriptURL(value)
 
 ### Rückgabewert
 
-Ein {{jsxref("boolean")}}, der `true` ist, wenn das Objekt ein gültiges [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt ist.
+Ein {{jsxref("boolean")}}, der true ist, wenn das Objekt ein gültiges [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wurde die Konstante `url` durch eine Richtlinie erstellt, daher gibt `isScriptURL()` `true` zurück. Das zweite Beispiel ist ein Versuch, ein Objekt zu fälschen, und das dritte ist ein String. Beide werden `false` zurückgeben, wenn sie an `isScriptURL()` übergeben werden.
+Im untenstehenden Beispiel wurde die Konstante `url` durch eine Richtlinie erstellt und daher gibt `isScriptURL()` true zurück. Im zweiten Beispiel wird versucht, ein Objekt zu fälschen, und im dritten handelt es sich um einen String. Beide geben false zurück, wenn sie an `isScriptURL()` übergeben werden.
 
 ```js
 const url = policy.createScriptURL("https://example.com/myscript.js");

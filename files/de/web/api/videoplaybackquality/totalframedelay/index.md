@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte **`VideoPlaybackQuality.totalFrameDelay`**-Eigenschaft gibt ein `double` zurück, das die Summe der Frame-Verzögerung seit der Erstellung des zugehörigen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält. Die Frame-Verzögerung ist die Differenz zwischen der theoretischen Präsentationszeit eines Frames und seiner tatsächlichen Anzeigezeit.
+Die schreibgeschützte Eigenschaft **`VideoPlaybackQuality.totalFrameDelay`** gibt ein `double` zurück, das die Summe der Bildverzögerung seit der Erstellung des zugehörigen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält. Die Bildverzögerung ist die Differenz zwischen der theoretischen Präsentationszeit eines Bildes und seiner tatsächlichen Anzeigedauer.
 
 ## Wert
 

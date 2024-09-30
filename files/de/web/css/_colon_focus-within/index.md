@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf ein Element zu, wenn das Element selbst oder eines seiner Nachkommen fokussiert ist. Mit anderen Worten, sie repräsentiert ein Element, das selbst von der {{CSSxRef(":focus")}} Pseudoklasse getroffen wird oder einen Nachkommen hat, der von `:focus` getroffen wird. (Dies schließt Nachkommen in [Shadow-Bäumen](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf ein Element zu, wenn das Element oder eines seiner Nachfahren fokussiert ist. Mit anderen Worten repräsentiert sie ein Element, das selbst durch die {{CSSxRef(":focus")}}-Pseudoklasse getroffen wird oder einen Nachfahren hat, der durch `:focus` getroffen wird. (Dies schließt Nachfahren in [Shadow-Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-focus-within.html", "tabbed-shorter")}}
 
-Dieser Selektor ist nützlich, um ein häufiges Beispiel zu nennen, um einen gesamten {{HTMLElement("form")}}-Container hervorzuheben, wenn der Benutzer eines seiner {{HTMLElement("input")}}-Felder fokussiert.
+Dieser Selektor ist nützlich, um ein gängiges Beispiel zu nennen, wenn Sie den gesamten {{HTMLElement("form")}}-Container hervorheben möchten, wenn der Benutzer auf eines seiner {{HTMLElement("input")}}-Felder fokussiert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Dieser Selektor ist nützlich, um ein häufiges Beispiel zu nennen, um einen ges
 
 ## Beispiele
 
-In diesem Beispiel erhält das Formular spezielle Farb-Stile, wenn eines der Textfelder fokussiert wird.
+In diesem Beispiel erhält das Formular spezielle Farbgebungsstile, wenn entweder ein Texteingabefeld fokussiert wird.
 
 ### HTML
 
@@ -74,4 +74,4 @@ input {
 
 - {{CSSxRef(":focus")}}
 - {{CSSxRef(":focus-visible")}}
-- [Erregen Sie die Aufmerksamkeit Ihrer Benutzer mit dem focus-within-Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)
+- [Erregen Sie die Aufmerksamkeit Ihrer Benutzer mit dem focus-within Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)

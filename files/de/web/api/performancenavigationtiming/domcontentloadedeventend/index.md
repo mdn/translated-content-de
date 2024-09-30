@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`domContentLoadedEventEnd`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurückgibt, der den Zeitpunkt unmittelbar nach Abschluss des `DOMContentLoaded`-Eventhandlers des aktuellen Dokuments darstellt.
+Die schreibgeschützte Eigenschaft **`domContentLoadedEventEnd`** gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt unmittelbar nach Abschluss des Event-Handlers des aktuellen Dokuments für das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis darstellt.
 
-Typischerweise warten Frameworks und Bibliotheken auf das `DOMContentLoaded`-Ereignis, bevor sie ihren Code ausführen. Wir können die Eigenschaften `domContentLoadedEventEnd` und [`domContentLoadedEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/domContentLoadedEventStart) verwenden, um zu berechnen, wie lange das Ausführen dauert.
+Typischerweise warten Frameworks und Bibliotheken auf das `DOMContentLoaded`-Ereignis, bevor sie ihren Code ausführen. Wir können die `domContentLoadedEventEnd`- und die [`domContentLoadedEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/domContentLoadedEventStart)-Eigenschaften verwenden, um zu berechnen, wie lange die Ausführung dauert.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt unmittelbar nach Abschluss des `DOMContentLoaded`-Eventhandlers des aktuellen Dokuments darstellt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt unmittelbar nach Abschluss des Event-Handlers des aktuellen Dokuments für das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis darstellt.
 
 ## Beispiele
 
-### Messung der Zeit des `DOMContentLoaded`-Eventhandlers
+### Messung der Dauer des `DOMContentLoaded`-Event-Handlings
 
-Die `domContentLoadedEventEnd`-Eigenschaft kann verwendet werden, um zu messen, wie lange die Verarbeitung des `DOMContentLoaded`-Eventhandlers dauert.
+Die `domContentLoadedEventEnd`-Eigenschaft kann verwendet werden, um zu messen, wie lange die Verarbeitung des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Event-Handlers dauert.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der benachrichtigt wird, wenn neue `navigation`-Leistungseinträge in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -38,7 +38,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Performance-Einträge anzeigt, die in der Performance-Zeitleiste des Browsers zum Zeitpunkt des Aufrufs dieser Methode vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");

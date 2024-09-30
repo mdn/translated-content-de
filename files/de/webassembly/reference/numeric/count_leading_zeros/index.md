@@ -1,5 +1,5 @@
 ---
-title: Anzahl führender Nullen
+title: Zählung führender Nullen
 slug: WebAssembly/Reference/Numeric/Count_leading_zeros
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`clz`**-Instruktionen, kurz für _count leading zeros_, werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung der Zahl zu zählen.
+Die Anweisungen **`clz`**, kurz für _count leading zeros_, werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung einer Zahl zu zählen.
 
 {{EmbedInteractiveExample("pages/wat/clz.html", "tabbed-taller")}}
 
@@ -23,7 +23,7 @@ i32.clz
 ;; the top item on the stack will now be 8
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.clz` | `0x67`         |
-| `i64.clz` | `0x79`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.clz`   | `0x67`         |
+| `i64.clz`   | `0x79`         |

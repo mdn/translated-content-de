@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`pauseDuration`** schreibgeschützte Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, die das Skript für das "Pausieren" synchroner Operationen aufgewendet hat (zum Beispiel bei Aufrufen von [`Window.alert()`](/de/docs/Web/API/Window/alert) oder synchronen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
+Die schreibgeschützte Eigenschaft **`pauseDuration`** der Schnittstelle [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming) gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Gesamtzeit in Millisekunden angibt, die das Skript mit dem "Pausieren" von synchronen Operationen verbracht hat (zum Beispiel, [`Window.alert()`](/de/docs/Web/API/Window/alert)-Aufrufe oder synchrone [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Sehen Sie sich [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele in Bezug auf die Long Animation Frames API an.
+Siehe [Lange Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die sich auf die Long Animation Frames API beziehen.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Sehen Sie sich [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API
 
 ## Siehe auch
 
-- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Lange Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

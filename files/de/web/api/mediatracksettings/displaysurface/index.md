@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`displaySurface`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs gibt den Typ der Anzeigeoberfläche an, die erfasst wird.
+Die **`displaySurface`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) Dictionaries gibt den Typ der Anzeigefläche an, die erfasst wird.
 
 ## Wert
 
-Der Wert von `displaySurface` ist ein String, der aus dem `DisplayCaptureSurfaceType`-Aufzählungstyp stammt und eines der folgenden ist:
+Der Wert von `displaySurface` ist eine Zeichenfolge, die aus dem `DisplayCaptureSurfaceType`-Aufzählungstyp stammt und einer der folgenden ist:
 
 - `browser`
-  - : Der Videostream zeigt den gesamten Inhalt eines einzelnen Browser-Tabs, den der Benutzer während des Aufrufs von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) ausgewählt hat.
+  - : Der Videostream präsentiert den gesamten Inhalt eines einzelnen Browser-Tabs, den der Benutzer während des Aufrufs von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) ausgewählt hat.
 - `monitor`
-  - : Der Videostream präsentiert den vollständigen Inhalt eines oder mehrerer Bildschirme des Benutzers. Jeder leere Raum (falls die Anzeigen unterschiedliche Dimensionen haben) wird mit einem vom User Agent ausgewählten Hintergrund gefüllt.
+  - : Der Videostream präsentiert die vollständigen Inhalte eines oder mehrerer Benutzerbildschirme. Jeder leere Raum (wenn die Displays unterschiedliche Dimensionen haben) wird mit einem vom Benutzeragenten gewählten Hintergrund gefüllt.
 - `window`
-  - : Der Videostream zeigt den Inhalt eines einzelnen Fensters, das vom Benutzer ausgewählt wurde. Das Fenster kann von jeder Anwendung stammen, nicht notwendigerweise nur vom User Agent.
+  - : Der Videostream präsentiert die Inhalte eines einzelnen Fensters, das vom Benutzer ausgewählt wurde. Das Fenster kann von jeder Anwendung sein, nicht unbedingt nur vom Benutzeragenten.
 
-Nicht alle User Agents unterstützen alle diese Oberflächentypen.
+Nicht alle Benutzeragenten unterstützen alle diese Oberflächenarten.
 
 ## Spezifikationen
 

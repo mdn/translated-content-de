@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<line>`** Element ist eine SVG-Grundform, die verwendet wird, um eine Linie zu erzeugen, die zwei Punkte verbindet.
+Das **`<line>`**-Element ist eine Grundform in SVG, die verwendet wird, um eine Linie zu erstellen, die zwei Punkte verbindet.
 
 ## Beispiel
 
@@ -45,7 +45,7 @@ svg {
   - : Definiert die y-Achsen-Koordinate des Endpunkts der Linie.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Definiert die gesamte Pfadlänge in Benutzereinheiten.
+  - : Definiert die Gesamtlänge des Pfades in Benutzereinheiten.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext

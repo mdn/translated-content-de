@@ -1,5 +1,5 @@
 ---
-title: "NodeList: forEach() Methode"
+title: "NodeList: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/NodeList/forEach
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`** Methode der [`NodeList`](/de/docs/Web/API/NodeList)-Schnittstelle ruft den im Parameter angegebenen Callback einmal für jedes Wertpaar in der Liste in Einfügereihenfolge auf.
+Die **`forEach()`**-Methode der [`NodeList`](/de/docs/Web/API/NodeList)
+Schnittstelle ruft den im Parameter angegebenen Callback einmal für jedes Wertpaar in der Liste in Einfüge-Reihenfolge auf.
 
 ## Syntax
 
@@ -26,12 +27,15 @@ forEach(callback, thisArg)
     - `currentValue`
       - : Das aktuelle Element, das in `someNodeList` verarbeitet wird.
     - `currentIndex` {{Optional_inline}}
-      - : Der Index des `currentValue`, das in `someNodeList` verarbeitet wird.
+      - : Der Index des `currentValue`, das in
+        `someNodeList` verarbeitet wird.
     - `listObj` {{Optional_inline}}
       - : Die `someNodeList`, auf die `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwendet wird, wenn `callback` ausgeführt wird.
+  - : Wert, der als
+    [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)
+    beim Ausführen des `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -56,7 +60,7 @@ list.forEach(function (currentValue, currentIndex, listObj) {
 }, "myThisArg");
 ```
 
-Der obige Code ergibt folgendes:
+Der obige Code führt zu folgendem Ergebnis:
 
 ```plain
 [object HTMLParagraphElement], 0, myThisArg

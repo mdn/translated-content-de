@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`bodyUsed`**-Eigenschaft der
-[`Request`](/de/docs/Web/API/Request)-Schnittstelle ist ein boolescher Wert, der anzeigt,
-ob der Anforderungskörper bereits gelesen wurde.
+Die schreibgeschützte **`bodyUsed`**-Eigenschaft des
+[`Request`](/de/docs/Web/API/Request)-Interfaces ist ein boolescher Wert, der anzeigt,
+ob der Anfragetext bereits gelesen wurde.
 
 ## Wert
 

@@ -7,6 +7,6 @@ l10n:
 
 {{PWASidebar}}
 
-Auf dieser Seite finden Sie Leitfäden zur PWA-Technologie. Leitfäden bieten konzeptionelle Erklärungen zu verschiedenen Aspekten von PWAs. Sie sollen Ihnen helfen zu verstehen, welche Möglichkeiten mit PWAs gegeben sind, und genügend Hinweise geben, um zu verstehen, wie man diese erreichen kann.
+Diese Seite listet Leitfäden zur PWA-Technologie auf. Leitfäden bieten konzeptionelle Erklärungen zu verschiedenen Aspekten von PWAs. Sie sollen Ihnen helfen zu verstehen, welche Arten von Dingen mit PWAs möglich sind und genügend Hinweise geben, um zu verstehen, wie Sie diese erreichen können.
 
 {{ListSubpages}}

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`pointer-events`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, unter welchen Umständen (falls überhaupt) ein bestimmtes grafisches Element das [Ziel](/de/docs/Web/API/Event/target) von Zeigerereignissen werden kann.
+Die **`pointer-events`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, unter welchen Umständen (falls überhaupt) ein bestimmtes grafisches Element das [Target](/de/docs/Web/API/Event/target) von Zeigerereignissen werden kann.
 
 {{EmbedInteractiveExample("pages/css/pointer-events.html")}}
 
@@ -42,44 +42,44 @@ Die `pointer-events` Eigenschaft wird als einzelnes Schlüsselwort aus der unten
 ### Werte
 
 - `auto`
-  - : Das Element verhält sich so, als ob die `pointer-events` Eigenschaft nicht angegeben wäre. In SVG-Inhalten haben dieser Wert und der Wert `visiblePainted` die gleiche Wirkung.
+  - : Das Element verhält sich so, als wäre die `pointer-events` Eigenschaft nicht angegeben. In SVG-Inhalten haben dieser Wert und der Wert `visiblePainted` die gleiche Wirkung.
 - `none`
 
-  - : Das Element selbst ist niemals das [Ziel](/de/docs/Web/API/Event/target) von Zeigerereignissen. Sein Teilbaum kann jedoch durch Setzen von `pointer-events` auf einen anderen Wert weiterhin als Ziel ansprechbar bleiben. In diesen Fällen werden Zeigerereignisse entsprechende Ereignislistener auf diesem übergeordneten Element auf ihrem Weg zu oder von dem Nachfahren während der Ereigniserfassungs- und [Blasen](/de/docs/Web/API/Event/bubbles) Phasen auslösen.
+  - : Das Element selbst ist niemals das [Target](/de/docs/Web/API/Event/target) von Zeigerereignissen. Der Unterbaum kann jedoch weiterhin anvisierbar gemacht werden, indem `pointer-events` auf einen anderen Wert gesetzt wird. In diesen Umständen werden Zeigerereignisse Ereignislistener auf diesem Elternelement auslösen, wenn sie auf ihrem Weg zu oder von dem Nachkommen während der Ereignisaufnahme und [Bubbel](/de/docs/Web/API/Event/bubbles) Phasen sind.
 
     > [!NOTE]
-    > Die `pointerenter` und `pointerleave` Ereignisse werden ausgelöst, wenn ein Zeigegerät in ein Element oder einen seiner Nachfahren hineinbewegt wird. Selbst wenn `pointer-events: none` auf das übergeordnete Element angewendet wird und nicht auf die Kinder, werden die Ereignisse auf dem übergeordneten Element ausgelöst, nachdem der Zeiger in einen oder aus einem Nachfahren bewegt wird.
+    > Die `pointerenter` und `pointerleave` Ereignisse werden ausgelöst, wenn ein Zeigegerät in ein Element oder einen seiner Nachkommen bewegt wird. Auch wenn `pointer-events: none` auf das Elternteil und nicht auf die Kinder gesetzt ist, werden die Ereignisse auf dem Elternteil ausgelöst, nachdem der Zeiger in oder aus einem Nachkommen bewegt wurde.
 
 #### Nur SVG (experimentell für HTML)
 
 - `visiblePainted`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z. B. ein Mauszeiger über dem Inneren (d. h. 'fill') des Elements ist und die `fill` Eigenschaft auf einen Wert ungleich `none` gesetzt ist oder wenn ein Mauszeiger über dem Umfang (d. h. 'stroke') des Elements ist und die `stroke` Eigenschaft auf einen Wert ungleich `none` gesetzt ist.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z.B. wenn ein Mauszeiger über das Innere (d.h. 'fill') des Elements fährt und die `fill` Eigenschaft auf einen anderen Wert als `none` gesetzt ist, oder wenn ein Mauszeiger über den Umfang (d.h. 'stroke') des Elements fährt und die `stroke` Eigenschaft auf einen anderen Wert als `none` gesetzt ist.
 - `visibleFill`
-  - : Nur SVG. Das Element kann nur Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z. B. ein Mauszeiger über dem Inneren (d. h. Fill) des Elements ist. Der Wert der `fill` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z.B. ein Mauszeiger über das Innere (d.h. Füllung) des Elements fährt. Der Wert der `fill` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
 - `visibleStroke`
-  - : Nur SVG. Das Element kann nur Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z. B. der Mauszeiger über dem Umfang (d. h. Stroke) des Elements ist. Der Wert der `stroke` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z.B. wenn der Mauszeiger über den Umfang (d.h. Strich) des Elements fährt. Der Wert der `stroke` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
 - `visible`
-  - : Nur SVG (experimentell für HTML). Das Element kann das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z. B. der Mauszeiger über entweder dem Inneren (d.h. Fill) oder dem Umfang (d.h. Stroke) des Elements ist. Die Werte von `fill` und `stroke` beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann das Ziel eines Zeigerereignisses sein, wenn die `visibility` Eigenschaft auf `visible` gesetzt ist und z.B. der Mauszeiger über das Innere (d.h. fill) oder den Umfang (d.h. stroke) des Elements fährt. Die Werte von `fill` und `stroke` beeinflussen die Ereignisverarbeitung nicht.
 - `painted`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn z. B. der Mauszeiger über dem Inneren (d. h. 'fill') des Elements ist und die `fill` Eigenschaft auf einen Wert ungleich `none` gesetzt ist oder wenn der Mauszeiger über dem Umfang (d. h. 'stroke') des Elements ist und die `stroke` Eigenschaft auf einen Wert ungleich `none` gesetzt ist. Der Wert der `visibility` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn z.B. der Mauszeiger über das Innere (d.h. 'fill') des Elements fährt und die `fill` Eigenschaft auf einen anderen Wert als `none` gesetzt ist, oder wenn der Mauszeiger über den Umfang (d.h. 'stroke') des Elements fährt und die `stroke` Eigenschaft auf einen anderen Wert als `none` gesetzt ist. Der Wert der `visibility` Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
 - `fill`
-  - : Nur SVG. Das Element kann nur Ziel eines Zeigerereignisses sein, wenn der Zeiger über dem Inneren (d. h. Fill) des Elements ist. Die Werte der `fill` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über das Innere (d.h. Füllung) des Elements fährt. Die Werte der `fill` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
 - `stroke`
-  - : Nur SVG. Das Element kann nur Ziel eines Zeigerereignisses sein, wenn der Zeiger über dem Umfang (d. h. Stroke) des Elements ist. Die Werte der `stroke` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über den Umfang (d.h. Strich) des Elements fährt. Die Werte der `stroke` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
 - `bounding-box`
-  - : Nur SVG. Das Element kann nur Ziel eines Zeigerereignisses sein, wenn der Zeiger über der [Bounding-Box](/de/docs/Glossary/Bounding_box) des Elements ist.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über die [Umrandungsbox](/de/docs/Glossary/Bounding_box) des Elements fährt.
 - `all`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über dem Inneren (d. h. Fill) oder dem Umfang (d. h. Stroke) des Elements ist. Die Werte der `fill`, `stroke` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über das Innere (d.h. fill) oder den Umfang (d.h. stroke) des Elements fährt. Die Werte der `fill`, `stroke`, und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
 
 ## Beschreibung
 
-Wenn diese Eigenschaft nicht angegeben wird, gelten die gleichen Merkmale des `visiblePainted` Werts für SVG-Inhalte.
+Wenn diese Eigenschaft nicht angegeben ist, gelten für SVG-Inhalte die gleichen Eigenschaften des `visiblePainted` Werts.
 
-Zusätzlich dazu, dass sie angibt, dass das Element nicht das Ziel von Zeigerereignissen ist, weist der Wert `none` das Zeigerereignis an, "durch" das Element zu gehen und stattdessen das, was "unter" diesem Element ist, zu zielen.
+Zusätzlich dazu, dass das Element nicht das Ziel von Zeigerereignissen ist, weist der Wert `none` das Zeigerereignis an, durch das Element "hindurch" zu gehen und stattdessen das, was "darunter" liegt, zum Ziel zu machen.
 
-Beachten Sie, dass das Verhindern, dass ein Element durch `pointer-events` das Ziel von Zeigerereignissen wird, _nicht_ unbedingt bedeutet, dass Zeiger-Ereignislistener auf diesem Element _nicht_ ausgelöst werden können oder _nicht_ ausgelöst werden. Wenn eines der Kinder des Elements `pointer-events` explizit so gesetzt hat, dass dieses Kind Ziel von Zeigerereignissen sein darf, werden alle Ereignisse, die auf dieses Kind zielen, über die Elternkette auf dem Elternteil ausgelöst und Ereignislistener auf dem Elternteil wie angemessen auslösen. Natürlich wird jede Zeigeraktivität an einem Punkt auf dem Bildschirm, der vom Elternteil, aber nicht vom Kind abgedeckt wird, weder vom Kind noch vom Elternteil erfasst (sie geht "durch" das Elternteil und richtet sich auf das, was darunter liegt).
+Beachten Sie, dass die Verhinderung, dass ein Element das Ziel von Zeigerereignissen durch Verwendung von `pointer-events` wird, _nicht_ notwendigerweise bedeutet, dass Zeigerereignis-Listener auf diesem Element _nicht_ ausgelöst werden können oder nicht ausgelöst werden. Wenn für eines der Kinder des Elements `pointer-events` explizit so gesetzt wird, dass das Kind das Ziel von Zeigerereignissen sein darf, dann werden alle Ereignisse, die auf dieses Kind abzielen, durch das Elternteil hindurchgehen, während das Ereignis entlang der Elternkette reist, und Ereignis-Listener auf dem Elternteil entsprechend auslösen. Natürlich wird jede Zeigeraktivität an einem Punkt auf dem Bildschirm, der vom Elternteil, aber nicht vom Kind überdeckt ist, weder vom Kind noch vom Elternteil erfasst (sie wird durch das Elternteil hindurchgehen und das darunterliegende Ziel zum Ziel machen).
 
-Elemente mit `pointer-events: none` können weiterhin durch sequentielle Tastaturnavigation mit der <kbd>Tab</kbd>-Taste fokussiert werden.
+Elemente mit `pointer-events: none` erhalten durch sequentielle Tastaturnavigation über die <kbd>Tab</kbd>-Taste weiterhin den Fokus.
 
 ## Formale Definition
 
@@ -91,9 +91,9 @@ Elemente mit `pointer-events: none` können weiterhin durch sequentielle Tastatu
 
 ## Beispiele
 
-### Deaktivierung von Zeigerereignissen bei allen Bildern
+### Deaktivieren von Zeigerereignissen für alle Bilder
 
-Dieses Beispiel deaktiviert Zeigerereignisse (Klicken, Ziehen, Überfahren usw.) bei allen Bildern.
+Dieses Beispiel deaktiviert Zeigerereignisse (Klicken, Ziehen, Schweben usw.) für alle Bilder.
 
 ```css
 img {
@@ -101,9 +101,9 @@ img {
 }
 ```
 
-### Deaktivierung von Zeigerereignissen auf einem einzelnen Link
+### Deaktivieren von Zeigerereignissen für einen einzelnen Link
 
-Dieses Beispiel deaktiviert Zeigerereignisse auf dem Link zu `http://example.com`.
+Dieses Beispiel deaktiviert Zeigerereignisse für den Link zu `http://example.com`.
 
 #### HTML
 
@@ -140,5 +140,5 @@ a[href="http://example.com"]
 - Das SVG-Attribut {{SVGAttr("pointer-events")}}
 - Das SVG-Attribut {{SVGAttr("visibility")}}
 - Die [`PointerEvent`](/de/docs/Web/API/PointerEvent) API
-- [WebKit Specs PointerEventsProperty](https://webkit.org/specs/PointerEventsProperty.html) erweitert für die Verwendung in (X)HTML-Inhalten
+- [WebKit Spezifikationen PointerEventsProperty](https://webkit.org/specs/PointerEventsProperty.html) erweitert für die Verwendung in (X)HTML-Inhalten
 - {{cssxref("user-select")}} - steuert, ob der Benutzer Text auswählen kann

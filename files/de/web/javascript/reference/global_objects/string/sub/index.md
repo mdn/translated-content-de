@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`sub()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("sub")}}-Element (`<sub>str</sub>`) einbettet, wodurch dieser String als Tiefgestellt angezeigt wird.
+Die **`sub()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("sub")}}-Element (`<sub>str</sub>`) einbettet, wodurch dieser String als Tiefschrift angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<sub>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</sub>`-End-Tag endet.
+Ein String, der mit einem `<sub>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</sub>`-Ende-Tag abschließt.
 
 ## Beispiele
 
@@ -38,13 +38,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.sub();
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erstellt das folgende HTML:
 
 ```html
 <sub>Hello, world</sub>
 ```
 
-Anstelle von `sub()` und dem direkten Erstellen von HTML-Text sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Anstatt `sub()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

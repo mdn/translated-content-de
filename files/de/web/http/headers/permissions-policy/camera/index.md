@@ -7,10 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
-Die `camera`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Videoeingabegeräte zu verwenden.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `camera`-Direktive steuert, ob das aktuelle Dokument Videoeingabegeräte verwenden darf.
 
-Speziell, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehlschlägt.
+Konkret, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt wird.
 
 ## Syntax
 
@@ -19,11 +18,11 @@ Permissions-Policy: camera=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `camera` ist `self`.
+Die Standard-`allowlist` für `camera` ist `self`.
 
 ## Spezifikationen
 

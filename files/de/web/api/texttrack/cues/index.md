@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte **`cues`**-Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt zurück, das alle Cues des Tracks enthält.
+Die **`cues`**-Eigenschaft des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces ist schreibgeschützt und gibt ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt zurück, das alle Cues des Tracks enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel werden einem Video-Text-Track zwei Cues mit `addCue()` hinzugefügt. Der Wert von `cues` wird in die Konsole ausgegeben. Das zurückgegebene [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt enthält die beiden Cues.
+Im folgenden Beispiel werden zwei Cues mit `addCue()` zu einem Video-Texttrack hinzugefügt. Der Wert von `cues` wird in die Konsole ausgegeben. Das zurückgegebene [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt enthält die beiden Cues.
 
 ```js
 let video = document.querySelector("video");

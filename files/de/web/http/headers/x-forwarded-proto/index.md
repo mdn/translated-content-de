@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`X-Forwarded-Proto`** (XFP) Header ist ein de-facto Standard-Header zur Identifizierung des Protokolls (HTTP oder HTTPS), das ein Client verwendet hat, um eine Verbindung zu Ihrem Proxy oder Load Balancer herzustellen. Ihre Server-Zugriffsprotokolle enthalten das Protokoll, das zwischen dem Server und dem Load Balancer verwendet wurde, aber nicht das Protokoll, das zwischen dem Client und dem Load Balancer verwendet wurde. Um das zwischen dem Client und dem Load Balancer verwendete Protokoll zu ermitteln, kann der `X-Forwarded-Proto` Anforderungs-Header verwendet werden.
+Der **`X-Forwarded-Proto`** (XFP)-Header ist ein de-facto Standard-Header zur Identifizierung des Protokolls (HTTP oder HTTPS), das ein Client verwendet hat, um sich mit Ihrem Proxy oder Load Balancer zu verbinden. Ihre Server-Zugriffsprotokolle enthalten das Protokoll, das zwischen dem Server und dem Load Balancer verwendet wurde, aber nicht das Protokoll, das zwischen dem Client und dem Load Balancer verwendet wurde. Um das zwischen dem Client und dem Load Balancer verwendete Protokoll zu bestimmen, kann der `X-Forwarded-Proto`-Anforderungs-Header verwendet werden.
 
 Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded")}} Header.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <th scope="row">Headertyp</th>
+      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Unzulässiger Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -54,8 +54,7 @@ X-Url-Scheme: https
 
 ## Spezifikationen
 
-Nicht Teil einer aktuellen Spezifikation. Die standardisierte Version dieses Headers ist
-{{HTTPHeader("Forwarded")}}.
+Nicht Teil einer aktuellen Spezifikation. Die standardisierte Version dieses Headers ist {{HTTPHeader("Forwarded")}}.
 
 ## Siehe auch
 

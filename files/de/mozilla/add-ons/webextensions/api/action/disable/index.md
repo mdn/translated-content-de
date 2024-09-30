@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht angeklickt werden kann, wenn dieser Tab aktiv ist.
+Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht geklickt werden kann, wenn dieser Tab aktiv ist.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -27,7 +27,7 @@ browser.action.disable(
 
 ## Beispiele
 
-Deaktivieren Sie die Browser-Aktion beim Klicken und aktivieren Sie sie erneut, jedes Mal wenn ein neuer Tab geöffnet wird:
+Deaktivieren Sie die Browser-Aktion, wenn sie geklickt wird, und aktivieren Sie sie erneut, jedes Mal, wenn ein neuer Tab geöffnet wird:
 
 ```js
 browser.tabs.onCreated.addListener(() => {
@@ -54,40 +54,34 @@ browser.action.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-disable). Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-disable) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
-// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Verwendung in nicht-veränderter oder
-// veränderter Form, mit oder ohne Modifikationen, sind unter den
-// folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitung von Quellcode muss das obige Urheberrecht
-// den Bedingungen und den folgenden Disclaimer enthalten.
-//    * Weiterverbreitung in binärer Form muss das obige Urheberrecht
-// den Bedingungen und den folgenden Disclaimer in der Dokumentation
-// und/oder anderen Materialien enthalten, die mit der
-// Weiterverbreitung zur Verfügung gestellt werden.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Beitragszahler dürfen benutzt werden, um Produkte, die von
-// dieser Software abgeleitet wurden, ohne spezifische vorherige
-// schriftliche Erlaubnis zu unterstützen oder zu promoten.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND
-// BEITRAGSLEISTERN "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE
-// AUSDRÜCKLICHEN ODER IMPLIZITEN GEWÄHRLEISTUNGEN, EINSCHLIESSLICH,
-// ABER NICHT BESCHRÄNKT AUF, DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER
-// MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN
-// ABGELEHNT. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER
-// BEITRAGSLEISTER VERANTWORTLICH FÜR JEGLICHE DIREKTE, INDIREKTE,
-// ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
-// ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN;
-// NUTZUNGSVERLUST, DATENVERLUST ODER ENTGANGENER GEWINN ODER
-// UNTERBRECHUNG VON GESCHÄFTSTÄTIGKEITEN) WIE AUCH IMMER VERURSACHT
-// UND UNTER JEGLICHER THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER
-// HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT
-// ODER ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER VERWENDUNG
-// DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT
-// SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: validationMessage-Eigenschaft"
+title: "HTMLInputElement: validationMessage Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLInputElement/validationMessage
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt eine Zeichenfolge zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("input")}}-Steuerelement nicht erfüllt (falls vorhanden).
+Die **`validationMessage`** schreibgeschützte Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("input")}}-Steuerungselement nicht erfüllt (falls vorhanden).
 
-Wenn das `<input>`-Element kein Kandidat für die Einschränkungsvalidierung ist ([`HTMLInputElement.willValidate`](/de/docs/Web/API/HTMLInputElement/willValidate) ist `false`), oder es seine Beschränkungen erfüllt, ist der Wert die leere Zeichenfolge (`""`).
+Wenn das `<input>`-Element kein Kandidat für die Einschränkungsvalidierung ist ([`HTMLInputElement.willValidate`](/de/docs/Web/API/HTMLInputElement/willValidate) ist `false`), oder es seine Beschränkungen erfüllt, ist der Wert die leere Zeichenkette (`""`).
 
-Falls das Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Beschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des [`HTMLInputElement.validity`](/de/docs/Web/API/HTMLInputElement/validity)-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Nutzer während der Validierung angezeigt werden würde.
+Wenn das Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Beschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des [`HTMLInputElement.validity`](/de/docs/Web/API/HTMLInputElement/validity) Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer während der Validierung angezeigt würde.
 
 ## Wert
 
-Eine Zeichenfolge.
+Eine Zeichenkette.
 
 ## Beispiel
 

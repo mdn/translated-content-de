@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`sampleSize`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), der die gewünschten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der beschränkbaren Eigenschaft [`sampleSize`](/de/docs/Web/API/MediaTrackSettings/sampleSize) angewendet werden.
+Die **`sampleSize`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), der die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`sampleSize`](/de/docs/Web/API/MediaTrackSettings/sampleSize)-einstellbaren Eigenschaft angewendet werden.
 
-Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleSize`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleSize) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
+Falls notwendig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleSize`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleSize) überprüfen, wie er von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser alle Einschränkungen ignorieren, mit denen sie nicht vertraut sind.
 
 ## Wert
 
-Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Sample-Größe (in Bits pro linearem Sample) so nahe wie möglich an dieser Zahl liegt, gegeben die Fähigkeiten der Hardware und die anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den Benutzeragenten dabei unterstützen, eine exakte Übereinstimmung mit der erforderlichen Sample-Größe bereitzustellen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und denselben Wert haben) oder einen bestmöglichen Wert.
+Wenn dieser Wert eine Zahl ist, wird der User Agent versuchen, Medien zu erhalten, deren Sample-Größe (in Bits pro linearem Sample) so nah wie möglich an dieser Zahl liegt, angesichts der Fähigkeiten der Hardware und der anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den User Agent bei dem Bemühen leiten, eine exakte Übereinstimmung mit der geforderten Sample-Größe (wenn `exact` angegeben ist oder sowohl `min` als auch `max` angegeben sind und den gleichen Wert haben) oder einen bestmöglichen Wert zu liefern.
 
 > [!NOTE]
-> Da diese Eigenschaft nur lineare Sample-Größen darstellen kann, kann diese Einschränkung nur von Geräten erfüllt werden, die Audio mit linearen Samples erzeugen können.
+> Da diese Eigenschaft nur lineare Sample-Größen repräsentieren kann, kann diese Einschränkung nur von Geräten erfüllt werden, die Audio mit linearen Samples erzeugen können.
 
 ## Beispiele
 
-Siehe das [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) Beispiel.
+Siehe das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
 
 ## Spezifikationen
 

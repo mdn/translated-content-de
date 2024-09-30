@@ -25,27 +25,26 @@ Error(message, fileName)
 Error(message, fileName, lineNumber)
 ```
 
-> **Note:** `Error()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erstellen eine neue `Error` Instanz.
+> **Note:** `Error()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Optionen erzeugen eine neue `Error` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine lesbare Beschreibung des Fehlers.
+  - : Eine verständliche Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften besitzt:
     - `cause` {{optional_inline}}
-      - : Ein Wert, der die spezifische Ursache des Fehlers angibt, wiedergegeben in der {{jsxref("Error/cause", "cause")}}-Eigenschaft. Wenn man einen Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung auffängt und erneut wirft, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Ein Wert, der die spezifische Ursache des Fehlers angibt, dargestellt in der {{jsxref("Error/cause", "cause")}} Eigenschaft. Beim Fangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Pfad zur Datei, die diesen Fehler verursacht hat, wiedergegeben in der {{jsxref("Error/fileName", "fileName")}}-Eigenschaft. Standardmäßig ist dies der Name der Datei, die den `Error()` Konstruktor aufgerufen hat.
+  - : Der Pfad zur Datei, die diesen Fehler ausgelöst hat, dargestellt in der {{jsxref("Error/fileName", "fileName")}} Eigenschaft. Standardmäßig ist dies der Name der Datei, die den `Error()` Konstruktor aufgerufen hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer innerhalb der Datei, an der der Fehler ausgelöst wurde, wiedergegeben in der {{jsxref("Error/lineNumber", "lineNumber")}}-Eigenschaft. Standardmäßig ist dies die Zeilennummer, welche die `Error()`-Konstruktoraufruf enthält.
+  - : Die Zeilennummer innerhalb der Datei, in der der Fehler ausgelöst wurde, dargestellt in der {{jsxref("Error/lineNumber", "lineNumber")}} Eigenschaft. Standardmäßig ist dies die Zeilennummer, die den Aufruf des `Error()` Konstruktors enthält.
 
 ## Beispiele
 
 ### Funktionsaufruf oder neue Konstruktion
 
-Wenn `Error` als Funktion verwendet wird, das heißt ohne {{jsxref("Operators/new", "new")}}, wird ein `Error` Objekt zurückgegeben.
-Ein einfacher Aufruf von `Error` erzeugt somit dasselbe Ergebnis wie die Erstellung eines `Error` Objekts mit dem `new` Schlüsselwort.
+Wenn `Error` als Funktion verwendet wird, d.h. ohne {{jsxref("Operators/new", "new")}}, wird es ein `Error` Objekt zurückgeben. Ein einfacher Aufruf von `Error` wird daher das gleiche Ergebnis liefern wie die Konstruktion eines `Error` Objekts über das `new` Schlüsselwort.
 
 ```js
 const x = Error("I was created using a function call!");
@@ -54,9 +53,9 @@ const x = Error("I was created using a function call!");
 const y = new Error('I was constructed via the "new" keyword!');
 ```
 
-### Einen Fehler mit einer Ursache erneut auslösen
+### Erneutes Werfen eines Fehlers mit einer Ursache
 
-Es ist manchmal nützlich, einen Fehler abzufangen und ihn mit einer neuen Meldung erneut auszulösen. In diesem Fall sollten Sie den ursprünglichen Fehler dem Konstruktor für den neuen `Error` übergeben, wie gezeigt.
+Es ist manchmal nützlich, einen Fehler zu fangen und ihn mit einer neuen Nachricht erneut zu werfen. In diesem Fall sollten Sie den ursprünglichen Fehler an den Konstruktor des neuen `Error` übergeben, wie gezeigt.
 
 ```js
 try {
@@ -66,11 +65,11 @@ try {
 }
 ```
 
-Ein detaillierteres Beispiel finden Sie unter [Error > Unterschiedliche Fehler unterscheiden](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
+Für ein detaillierteres Beispiel siehe [Error > Unterschied zwischen ähnlichen Fehlern erkennen](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
 
-### Auslassen des options-Arguments
+### Weglassen des options Arguments
 
-JavaScript versucht nur dann, `options.cause` zu lesen, wenn `options` ein Objekt ist — dies vermeidet Mehrdeutigkeiten mit der anderen nicht-standardmäßigen `Error(message, fileName, lineNumber)` Signatur, die erfordert, dass der zweite Parameter ein String ist. Wenn Sie `options` auslassen, einen primitiven Wert als `options` übergeben oder ein Objekt ohne die `cause` Eigenschaft übergeben, dann wird das erstellte `Error` Objekt keine `cause` Eigenschaft haben.
+JavaScript versucht nur dann `options.cause` zu lesen, wenn `options` ein Objekt ist — dies vermeidet Mehrdeutigkeiten mit der anderen nicht-standardisierten `Error(message, fileName, lineNumber)` Signatur, die den zweiten Parameter als Zeichenfolge erfordert. Wenn Sie `options` weglassen, einen primitiven Wert als `options` übergeben oder ein Objekt ohne die `cause` Eigenschaft übergeben, wird das erstellte `Error` Objekt keine `cause` Eigenschaft haben.
 
 ```js
 // Omitting options
@@ -99,4 +98,4 @@ console.log("cause" in error3); // false
 - [Polyfill von `Error` mit `cause` Unterstützung in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)
 - {{jsxref("Statements/throw", "throw")}}
 - {{jsxref("Statements/try...catch", "try...catch")}}
-- [Error Causes](https://v8.dev/features/error-cause) auf v8.dev (2021)
+- [Error causes](https://v8.dev/features/error-cause) auf v8.dev (2021)

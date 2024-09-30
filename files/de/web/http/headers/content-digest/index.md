@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Content-Digest`** Antwort- oder Anfrage-Header bietet einen [digest](/de/docs/Glossary/digest) des eigentlichen Nachrichteninhalts, des Stroms von Oktetten, die in einer HTTP-Nachricht eingerahmt sind. Als solcher hängt `Content-Digest` unter anderem von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}} ab, jedoch nicht beispielsweise von HTTP/1.1's {{HTTPHeader("Transfer-Encoding")}}. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Repräsentation in einer einzelnen Nachricht gesendet wurde.
+Der **`Content-Digest`** Antwort- oder Anfrage-Header liefert einen [Digest](/de/docs/Glossary/digest) des eigentlichen Nachrichteninhalts, des in einer HTTP-Nachricht gerahmten Oktettstroms. Somit ist `Content-Digest` unter anderem abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}, jedoch nicht abhängig, beispielsweise, von {{HTTPHeader("Transfer-Encoding")}} von HTTP/1.1. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Repräsentation in einer einzelnen Nachricht gesendet wurde.
 
-In diesem Zusammenhang bezieht sich _content_ auf eine bestimmte Oktett-Repräsentation der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
+In diesem Kontext bezieht sich _Inhalt_ auf eine bestimmte Oktett-Darstellung der [ausgewählten Darstellung](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
 
-Ein Client kann verlangen, dass ein Server einen `Content-Digest` ausgibt, indem er {{HTTPHeader("Want-Content-Digest")}} anfordert.
+Ein Client kann anfordern, dass ein Server einen `Content-Digest` sendet, indem er {{HTTPHeader("Want-Content-Digest")}} verwendet.
 
 <table class="properties">
   <tbody>
@@ -28,10 +28,10 @@ Ein Client kann verlangen, dass ein Server einen `Content-Digest` ausgibt, indem
 
 ## Syntax
 
-`Content-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), wobei seine Schlüssel Namen von Digest-Algorithmen sind und seine Werte den Digest in Bytes (oder einen ganzzahligen Digest für ältere Digest-Algorithmen) darstellen.
+`Content-Digest` beschreibt ein [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit Schlüsseln, die Namen von Digest-Algorithmen sind, und Werten, die den Digest in Bytes darstellen (oder einen ganzzahligen Digest für ältere Digest-Algorithmen).
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-codierten Digest-Bytes in Doppelpunkte (`:`, ASCII 0x3A) als Teil der [Wörterbuchsyntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) eingeschlossen.
+> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-codierten Digest-Bytes als Teil der [Dictionary-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen.
 
 ```http
 Content-Digest: <digest-algorithm>=:<standard-padded-base64-digest-value>:, ...

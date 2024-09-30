@@ -1,5 +1,5 @@
 ---
-title: "SVGMarkerElement: setOrientToAngle() Methode"
+title: "SVGMarkerElement: setOrientToAngle()-Methode"
 short-title: setOrientToAngle()
 slug: Web/API/SVGMarkerElement/setOrientToAngle
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`setOrientToAngle()`** Methode der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement) Schnittstelle setzt den Wert des `orient` Attributs auf den Wert des übergebenen [`SVGAngle`](/de/docs/Web/API/SVGAngle).
+Die **`setOrientToAngle()`**-Methode der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle setzt den Wert des `orient`-Attributs auf den Wert des übergebenen [`SVGAngle`](/de/docs/Web/API/SVGAngle).
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert des `orient` Attributs mittels `setOrientToAngle()` aktualisiert, wobei ein [`SVGAngle`](/de/docs/Web/API/SVGAngle) verwendet wird, das mit [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) erstellt wurde.
+Im folgenden Beispiel wird der Wert des `orient`-Attributs mit `setOrientToAngle()` aktualisiert, wobei ein [`SVGAngle`](/de/docs/Web/API/SVGAngle) verwendet wird, der mit [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) erstellt wurde.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("WebDriver")}}
 
-Die schreibgeschützte **`webdriver`**-Eigenschaft des [`navigator`](/de/docs/Web/API/Navigator)-Interfaces zeigt an, ob der User-Agent durch Automatisierung gesteuert wird.
+Die schreibgeschützte **`webdriver`**-Eigenschaft
+der [`navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt an, ob der Benutzeragent durch Automatisierung gesteuert wird.
 
-Sie definiert eine standardisierte Methode, mit der kooperierende User-Agents das Dokument darüber informieren können, dass es durch [WebDriver](/de/docs/Web/WebDriver) gesteuert wird, damit beispielsweise alternative Codepfade während der Automatisierung ausgelöst werden können.
+Sie definiert eine standardisierte Methode, mit der kooperierende Benutzeragenten das Dokument darüber informieren können, dass es durch [WebDriver](/de/docs/Web/WebDriver) gesteuert wird, beispielsweise um alternative Codepfade während der Automatisierung zu aktivieren.
 
-Die `navigator.webdriver`-Eigenschaft ist wahr, wenn:
+Die `navigator.webdriver`-Eigenschaft ist wahr, wenn in:
 
 - Chrome
-  - : Das `--enable-automation`- oder das `--headless`-Flag oder der
+  - : Das `--enable-automation` oder das `--headless` Flag oder der
     `--remote-debugging-port` verwendet wird.
 - Firefox
-  - : Die `marionette.enabled`-Einstellung oder das `--marionette`-Flag
-    übergeben wird.
+  - : Die `marionette.enabled` Einstellung oder das `--marionette` Flag wird
+    übergeben.
 
 ## Wert
 

@@ -7,54 +7,56 @@ l10n:
 
 {{HTTPSidebar}}
 
-**Komprimierung** ist eine wichtige Methode, um die Leistung einer Website zu steigern. Für einige Dokumente reduziert sich die Größe um bis zu 70 %, wodurch der Bandbreitenbedarf sinkt. Im Laufe der Jahre wurden die Algorithmen effizienter und neue werden von Clients und Servern unterstützt.
+**Komprimierung** ist eine wichtige Methode, um die Leistung einer Website zu erhöhen. Bei einigen Dokumenten reduziert die Größenverringerung um bis zu 70 % den Bandbreitenbedarf. Im Laufe der Jahre wurden die Algorithmen effizienter, und neue werden von Clients und Servern unterstützt.
 
-In der Praxis müssen Webentwickler keine Komprimierungsmechanismen implementieren, da sowohl Browser als auch Server sie bereits implementiert haben. Sie müssen jedoch sicherstellen, dass der Server ordnungsgemäß konfiguriert ist. Komprimierung erfolgt auf drei verschiedenen Ebenen:
+In der Praxis müssen Webentwickler keine Komprimierungsmechanismen implementieren, sowohl Browser als auch Server haben diese bereits implementiert. Sie müssen jedoch sicherstellen, dass der Server angemessen konfiguriert ist. Komprimierung erfolgt auf drei verschiedenen Ebenen:
 
-- Zuerst werden einige Dateiformate mit spezifischen optimierten Methoden komprimiert,
-- dann kann eine allgemeine Verschlüsselung auf HTTP-Ebene stattfinden (die Ressource wird von Ende zu Ende komprimiert übertragen),
-- und schließlich kann die Komprimierung auf der Verbindungsebene zwischen zwei Knoten einer HTTP-Verbindung definiert werden.
+- Zunächst werden einige Dateiformate mit spezifischen, optimierten Methoden komprimiert.
+- Dann kann eine allgemeine Verschlüsselung auf HTTP-Ebene erfolgen (die Ressource wird von Ende zu Ende komprimiert übertragen).
+- Schließlich kann die Komprimierung auf Verbindungsebene zwischen zwei Knoten einer HTTP-Verbindung definiert werden.
 
-## Dateiformat-Komprimierung
+## Dateiformatkomprimierung
 
-Jeder Datentyp enthält eine gewisse Redundanz, also _verschwendeten Speicherplatz_. Wenn Text typischerweise bis zu 60 % Redundanz aufweisen kann, kann dieser Wert bei anderen Medien wie Audio und Video viel höher sein. Im Gegensatz zu Text benötigen diese anderen Medientypen viel Speicherplatz, um ihre Daten zu speichern, und der Bedarf an Optimierung des Speicherplatzes war schon früh offensichtlich. Ingenieure entwickelten den optimierten Komprimierungsalgorithmus, der von Dateiformaten verwendet wird, die speziell für diesen Zweck entwickelt wurden. Komprimierungsalgorithmen für Dateien können in zwei große Kategorien unterteilt werden:
+Jeder Datentyp enthält eine gewisse Redundanz, also _verschwendeten Speicherplatz_. Bei Text kann die Redundanz typischerweise bis zu 60 % betragen, dieser Wert kann jedoch bei anderen Medien wie Audio und Video wesentlich höher sein. Anders als Text benötigen diese anderen Medientypen viel Speicherplatz zur Speicherung ihrer Daten, und der Bedarf an Speicheroptimierung war schon früh erkennbar. Ingenieure entwickelten die optimierten Komprimierungsalgorithmen für Dateiformate, die speziell für diesen Zweck entworfen wurden. Komprimierungsalgorithmen für Dateien können in zwei Hauptkategorien unterteilt werden:
 
-- _Verlustfreie Komprimierung_, bei der der Komprimierungs-Entkomprimierungs-Zyklus die wiederhergestellten Daten nicht verändert. Diese entsprechen Byte für Byte dem Original.
+- _Verlustfreie Komprimierung_, bei der der Komprimierungs-Entkomprimierungs-Zyklus die wiederhergestellten Daten nicht verändert. Diese stimmen (bytegenau) mit dem Original überein.
   Für Bilder verwenden `gif` oder `png` verlustfreie Komprimierung.
-- _Verlustbehaftete Komprimierung_, bei der der Zyklus die Originaldaten auf eine für den Benutzer hoffentlich unmerkliche Weise verändert.
-  Videoformate im Web sind verlustbehaftet; das Bildformat `jpeg` ist ebenfalls verlustbehaftet.
+- _Verlustbehaftete Komprimierung_, bei der der Zyklus die Originaldaten auf eine (hoffentlich) für den Benutzer unmerkliche Weise verändert.
+  Videoformate im Web sind verlustbehaftet; das `jpeg`-Bildformat ist ebenfalls verlustbehaftet.
 
-Einige Formate können sowohl für verlustfreie als auch verlustbehaftete Komprimierung verwendet werden, wie `webp`, und in der Regel kann der verlustbehaftete Algorithmus so konfiguriert werden, dass mehr oder weniger komprimiert wird, was natürlich zu mehr oder weniger Qualität führt. Für eine bessere Leistung einer Website ist es ideal, so viel wie möglich zu komprimieren und gleichzeitig ein akzeptables Qualitätsniveau beizubehalten. Bei Bildern könnte ein von einem Tool generiertes Bild nicht ausreichend für das Web optimiert sein; es wird empfohlen, Tools zu verwenden, die so weit wie möglich mit der erforderlichen Qualität komprimieren. Es gibt [zahlreiche spezialisierte Tools](https://www.creativebloq.com/design/image-compression-tools-1132865) dafür.
+Einige Formate können sowohl für verlustfreie als auch für verlustbehaftete Komprimierung verwendet werden, wie `webp`, und in der Regel kann der verlustbehaftete Algorithmus so konfiguriert werden, dass er mehr oder weniger komprimiert, was natürlich zu weniger oder mehr Qualität führt. Für bessere Leistung einer Website ist es ideal, so viel wie möglich zu komprimieren, während ein akzeptables Qualitätsniveau beibehalten wird. Bei Bildern könnte ein von einem Tool generiertes Bild nicht ausreichend für das Web optimiert sein; es wird empfohlen, Tools zu verwenden, die so stark komprimieren, wie es die erforderliche Qualität zulässt. Es gibt [zahlreiche spezialisierte Tools](https://www.creativebloq.com/design/image-compression-tools-1132865) dafür.
 
-Verlustbehaftete Komprimierungsalgorithmen sind normalerweise effizienter als verlustfreie.
+Verlustbehaftete Komprimierungsalgorithmen sind in der Regel effizienter als verlustfreie.
 
 > [!NOTE]
-> Da die Komprimierung auf einer bestimmten Art von Dateien besser funktioniert, bringt es in der Regel nichts, sie ein zweites Mal zu komprimieren. Tatsächlich ist dies oft kontraproduktiv, da die Kosten für den Overhead (Algorithmen benötigen normalerweise ein Wörterbuch, das zur ursprünglichen Größe hinzukommt) höher sein können als der zusätzliche Gewinn durch die Komprimierung, was zu einer größeren Datei führt. Verwenden Sie die folgenden Techniken nicht für Dateien in einem bereits komprimierten Format.
+> Da Komprimierung bei einer spezifischen Art von Dateien besser funktioniert, bringt es normalerweise nichts, sie ein zweites Mal zu komprimieren. Tatsächlich ist dies oft kontraproduktiv, da die Kosten des Overheads (Algorithmen benötigen in der Regel ein Wörterbuch, das die Anfangsgröße erhöht) höher sein können als der zusätzliche Gewinn bei der Komprimierung, was zu einer größeren Datei führt. Verwenden Sie die folgenden Techniken nicht für bereits komprimierte Dateien.
 
 ## End-to-End-Komprimierung
 
-Bei der Komprimierung liegt die größte Leistungsverbesserung von Websites bei der End-to-End-Komprimierung. End-to-End-Komprimierung bezieht sich auf die Komprimierung des Nachrichtentextes, die vom Server durchgeführt wird und unverändert bleibt, bis sie den Client erreicht. Welche Zwischenknoten auch immer beteiligt sind, sie lassen den Nachrichtentext unangetastet.
+Für die Komprimierung ist End-to-End-Komprimierung dort, wo die größten Leistungsverbesserungen für Websites liegen. End-to-End-Komprimierung bezieht sich auf eine Komprimierung des Nachrichtentexts, die vom Server durchgeführt wird und unverändert bleibt, bis sie den Client erreicht. Unabhängig von den Zwischenknoten bleibt der Nachrichtentext unberührt.
 
-![Ein Server, der einen komprimierten HTTP-Text an einen Client über Netzwerkknoten sendet. Der Text wird an keinem Netzwerk-Hop dekomprimiert, bis er den Client erreicht.](httpenco1.svg)
+![Ein Server sendet einen komprimierten HTTP-Text an einen Client über Netzwerkknoten. Der Text wird auf keinem Hop im Netzwerk dekomprimiert, bis er den Client erreicht.](httpenco1.svg)
 
-Alle modernen Browser und Server unterstützen dies, und das einzige, was zu verhandeln ist, ist der zu verwendende Komprimierungsalgorithmus. Diese Algorithmen sind für Text optimiert. In den 1990er Jahren entwickelten sich Komprimierungstechnologien rasch weiter, und zahlreiche aufeinanderfolgende Algorithmen wurden zu den möglichen Auswahlmöglichkeiten hinzugefügt. Heutzutage sind nur noch zwei relevant: `gzip`, die gebräuchlichste, und `br`, der neue Herausforderer.
+Alle modernen Browser und Server unterstützen dies, und das Einzige, was verhandelt werden muss, ist der zu verwendende Komprimierungsalgorithmus. Diese Algorithmen sind für Text optimiert. In den 1990er Jahren entwickelte sich die Komprimierungstechnologie rasant weiter, und zahlreiche nachfolgende Algorithmen wurden in den Satz möglicher Auswahlmöglichkeiten aufgenommen. Heutzutage sind nur noch zwei relevant: `gzip`, der am häufigsten verwendete, und `br`, der neue Herausforderer.
 
-Um den zu verwendenden Algorithmus auszuwählen, nutzen Browser und Server die [proaktive Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation). Der Browser sendet einen {{HTTPHeader("Accept-Encoding")}}-Header mit den unterstützten Algorithmen und ihrer Rangfolge, der Server wählt einen aus, verwendet ihn zur Komprimierung des Antworttexts und verwendet den {{HTTPHeader("Content-Encoding")}}-Header, um dem Browser den ausgewählten Algorithmus mitzuteilen. Da die Inhaltsverhandlung zur Auswahl einer Darstellung basierend auf ihrer Kodierung verwendet wurde, muss der Server einen {{HTTPHeader("Vary")}}-Header mit mindestens {{HTTPHeader("Accept-Encoding")}} zusammen mit diesem Header in der Antwort senden, sodass Caches die verschiedenen Darstellungen der Ressource zwischenspeichern können.
+Zur Auswahl des zu verwendenden Algorithmus verwenden Browser und Server die [proaktive Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation). Der Browser sendet einen {{HTTPHeader("Accept-Encoding")}}-Header mit den unterstützten Algorithmen und deren Priorität, der Server wählt einen aus, verwendet ihn, um den Nachrichtentext der Antwort zu komprimieren und verwendet den {{HTTPHeader("Content-Encoding")}}-Header, um dem Browser den gewählten Algorithmus mitzuteilen. Da die Inhaltsaushandlung verwendet wurde, um eine Darstellung basierend auf der Kodierung auszuwählen, muss der Server einen {{HTTPHeader("Vary")}}-Header senden, der mindestens {{HTTPHeader("Accept-Encoding")}} enthält, zusammen mit diesem Header in der Antwort; so können Caches die verschiedenen Darstellungen der Ressource zwischenspeichern.
 
-![Ein Client fordert Inhalt mit einem 'Accept-Encoding: br, gzip'-Header an. Der Server antwortet mit einem mit dem Brotli-Algorithmus komprimierten Text und den erforderlichen 'Content-Encoding'- und 'Vary'-Headern.](httpcompression1.svg)
+![Ein Client fordert Inhalte mit einem 'Accept-Encoding: br, gzip'-Header an. Der Server antwortet mit einem Text, der mittels Brotli-Algorithmus komprimiert wurde, sowie den notwendigen 'Content-Encoding' und 'Vary'-Headern.](httpcompression1.svg)
 
-Da die Komprimierung erhebliche Leistungsverbesserungen bringt, wird empfohlen, sie für alle Dateien außer bereits komprimierten wie Bilder, Audiodateien und Videos zu aktivieren.
+Da die Komprimierung erhebliche Leistungsverbesserungen bringt, wird empfohlen, sie für alle Dateien zu aktivieren, außer für bereits komprimierte, wie Bilder, Audiodateien und Videos.
 
 Apache unterstützt Komprimierung und verwendet [mod_deflate](https://httpd.apache.org/docs/current/mod/mod_deflate.html); für Nginx gibt es das [ngx_http_gzip_module](https://nginx.org/en/docs/http/ngx_http_gzip_module.html); für IIS das [`<httpCompression>`](https://learn.microsoft.com/en-us/iis/configuration/system.webServer/httpCompression/)-Element.
 
-## Hop-by-Hop-Komprimierung
+## Hop-by-hop Komprimierung
 
-Die Hop-by-Hop-Komprimierung ähnelt zwar der End-to-End-Komprimierung, unterscheidet sich jedoch in einem grundlegenden Element: Die Komprimierung erfolgt nicht auf der Ressource im Server, indem eine spezifische Darstellung erstellt wird, die dann übertragen wird, sondern auf dem Nachrichtentext zwischen zwei beliebigen Knoten auf dem Weg zwischen dem Client und dem Server. Die Verbindungen zwischen aufeinanderfolgenden Zwischenknoten können eine _andere_ Komprimierung anwenden.
+Hop-by-hop Komprimierung, obwohl ähnlich zur End-to-End Komprimierung, unterscheidet sich in einem grundlegenden Element: Die Komprimierung erfolgt nicht auf der Ressource im Server, die eine spezifische Darstellung erzeugt, die dann übertragen wird, sondern auf dem Nachrichtentext zwischen zwei beliebigen Knoten auf dem Weg zwischen Client und Server. Die Verbindungen zwischen aufeinanderfolgenden Zwischenknoten können eine _unterschiedliche_ Komprimierung anwenden.
 
-![Ein Server, der einen unkomprimierten HTTP-Text an einen Client über Netzwerkknoten sendet. Der Text wird von Knoten im Netzwerk je nach 'Transfer-Encoding'-Headern komprimiert und dekomprimiert, bevor er den Client erreicht.](httpte1.svg)
+![Ein Server sendet einen unkomprimierten HTTP-Text an einen Client über Netzwerkknoten. Der Text wird durch Knoten im Netzwerk je nach 'Transfer-Encoding'-Headern komprimiert und dekomprimiert, bevor er den Client erreicht.](httpte1.svg)
 
-Um dies zu tun, verwendet HTTP einen Mechanismus ähnlich der Inhaltsverhandlung für die End-to-End-Komprimierung: Der Knoten, der die Anfrage überträgt, zeigt seinen Wunsch mit dem {{HTTPHeader("TE")}}-Header an, und der andere Knoten wählt die geeignete Methode, wendet sie an und gibt seine Wahl mit dem {{HTTPHeader("Transfer-Encoding")}}-Header an.
+Um dies zu erreichen, verwendet HTTP einen ähnlichen Mechanismus wie die Inhaltsverhandlung für die End-to-End Komprimierung: Der Knoten, der die Anforderung überträgt, kündigt seine Bereitschaft mit dem {{HTTPHeader("TE")}}-Header an, und der andere Knoten wählt die geeignete Methode, wendet sie an und zeigt seine Wahl mit dem {{HTTPHeader("Transfer-Encoding")}}-Header an.
 
-In der Praxis ist die Hop-by-Hop-Komprimierung für den Server und den Client transparent und wird selten verwendet. {{HTTPHeader("TE")}} und {{HTTPHeader("Transfer-Encoding")}} werden hauptsächlich verwendet, um eine Antwort in Teilen zu senden, was es ermöglicht, mit der Übertragung einer Ressource zu beginnen, ohne ihre Länge zu kennen.
+![Ein Client fordert Inhalte von einem Server ohne Komprimierungs-bezogene Header an. Der Server antwortet mit einem unkomprimierten Text. Der Text wird von Knoten im Netzwerk komprimiert und dekomprimiert, bevor er den Client erreicht.](httpcomp2.svg)
 
-Beachten Sie, dass die Verwendung von {{HTTPHeader("Transfer-Encoding")}} und Komprimierung auf Hop-Ebene so selten ist, dass die meisten Server wie Apache, Nginx oder IIS keine einfache Möglichkeit haben, sie zu konfigurieren. Eine solche Konfiguration erfolgt normalerweise auf Proxy-Ebene.
+In der Praxis ist die Hop-by-hop Komprimierung für den Server und den Client transparent und wird selten verwendet. {{HTTPHeader("TE")}} und {{HTTPHeader("Transfer-Encoding")}} werden hauptsächlich verwendet, um eine Antwort in Teilen zu senden, was es ermöglicht, eine Ressource zu übertragen, ohne deren Länge zu kennen.
+
+Beachten Sie, dass die Verwendung von {{HTTPHeader("Transfer-Encoding")}} und Komprimierung auf Hop-Ebene so selten ist, dass die meisten Server, wie Apache, Nginx oder IIS, keine einfache Möglichkeit zur Konfiguration haben. Solche Konfigurationen erfolgen normalerweise auf Proxy-Ebene.

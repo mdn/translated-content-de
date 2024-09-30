@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`Serial.requestPort()`**-Methode der [`Serial`](/de/docs/Web/API/Serial)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird, die das vom Benutzer gewählte Gerät repräsentiert oder abgelehnt wird, wenn kein Gerät ausgewählt wurde.
+Die **`Serial.requestPort()`**-Methode der [`Serial`](/de/docs/Web/API/Serial)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird, die das vom Benutzer ausgewählte Gerät darstellt, oder abgelehnt wird, wenn kein Gerät ausgewählt wurde.
 
 ## Syntax
 
@@ -25,12 +25,12 @@ requestPort(options)
 
     - `filters`
 
-      - : Eine Liste von Objekten, die Vendor- und Produkt-IDs enthalten, die verwendet werden, um nach angeschlossenen Geräten zu suchen. Das [USB Implementors Forum](https://www.usb.org/) weist IDs bestimmten Unternehmen zu. Jedes Unternehmen vergibt IDs an seine Produkte. Filter enthalten die folgenden Werte:
+      - : Eine Liste von Objekten, die Hersteller- und Produkt-IDs enthalten, die verwendet werden, um nach angeschlossenen Geräten zu suchen. Das [USB Implementors Forum](https://www.usb.org/) weist bestimmten Unternehmen IDs zu. Jedes Unternehmen weist seinen Produkten IDs zu. Filter enthalten die folgenden Werte:
 
         - `usbVendorId`
-          - : Eine vorzeichenlose kurze Ganzzahl, die einen USB-Geräteanbieter identifiziert.
+          - : Eine kurze ganze Zahl ohne Vorzeichen, die einen USB-Gerätehersteller identifiziert.
         - `usbProductId`
-          - : Eine vorzeichenlose kurze Ganzzahl, die ein USB-Gerät identifiziert.
+          - : Eine kurze ganze Zahl ohne Vorzeichen, die ein USB-Gerät identifiziert.
 
 ### Rückgabewert
 
@@ -39,17 +39,17 @@ Ein {{jsxref("Promise")}}, das mit einer Instanz von [`SerialPort`](/de/docs/Web
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das zurückgegebene `Promise` wird mit diesem Fehler abgelehnt, wenn eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung dieser Funktion blockiert oder eine Berechtigungsanfrage des Benutzers abgelehnt wurde.
+  - : Das zurückgegebene `Promise` wird mit diesem Fehler abgelehnt, wenn eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung dieser Funktion blockiert oder eine Benutzerberechtigung verweigert wurde.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das zurückgegebene `Promise` wird abgelehnt, wenn der Benutzer bei der Aufforderung keinen Port auswählt.
 
 ## Sicherheit
 
-Eine [vorübergehende Aktivierung](/de/docs/Glossary/Transient_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Es ist eine [vorübergehende Aktivierung](/de/docs/Glossary/Transient_activation) erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Filter mit einer USB-Vendor-ID an `requestPort()` übergeben wird, um die dem Benutzer angezeigte Gerätemenge auf nur USB-Geräte eines bestimmten Herstellers zu begrenzen. Wenn dieser Filter weggelassen würde, könnte der Benutzer jeden verfügbaren Port auswählen.
+Das folgende Beispiel zeigt einen Filter, der an `requestPort()` mit einer USB-Hersteller-ID übergeben wird, um die vom Benutzer angezeigte Menge an Geräten auf nur USB-Geräte eines bestimmten Herstellers zu beschränken. Wenn dieser Filter weggelassen würde, könnte der Benutzer jeden verfügbaren Port auswählen.
 
 ```js
 button.addEventListener("click", () => {

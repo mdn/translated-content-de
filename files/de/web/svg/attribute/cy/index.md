@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`cy`**-Attribut definiert die Koordinate der y-Achse eines Mittelpunktes.
+Das **`cy`**-Attribut definiert die y-Achsenkoordinate eines Mittelpunktes.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -16,7 +16,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("radialGradient")}}
 
 > [!NOTE]
-> Als _Geometrieeigenschaft_ kann {{cssxref("cy")}} auch als CSS-Eigenschaft für `<circle>` und `<ellipse>` verwendet werden.
+> Als _Geometrie-Eigenschaft_ kann {{cssxref("cy")}} auch als CSS-Eigenschaft für `<circle>` und `<ellipse>` verwendet werden.
 
 ## Beispiel
 
@@ -45,7 +45,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} definiert `cy` die Koordinate der y-Achse des Mittelpunkts der Form.
+Für {{SVGElement('circle')}} definiert `cy` die y-Achsenkoordinate des Mittelpunkts der Form.
 
 <table class="properties">
   <tbody>
@@ -65,11 +65,11 @@ Für {{SVGElement('circle')}} definiert `cy` die Koordinate der y-Achse des Mitt
 </table>
 
 > [!NOTE]
-> Die Koordinate der y-Achse des Mittelpunkts des `<circle>` kann auch mit der {{cssxref("cy")}} _Geometrieeigenschaft_ definiert werden. Wenn sie im CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
+> Die y-Achsenkoordinate des Mittelpunkts des `<circle>` kann auch mit der {{cssxref("cy")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} definiert `cy` die Koordinate der y-Achse des Mittelpunkts der Form.
+Für {{SVGElement('ellipse')}} definiert `cy` die y-Achsenkoordinate des Mittelpunkts der Form.
 
 <table class="properties">
   <tbody>
@@ -89,11 +89,11 @@ Für {{SVGElement('ellipse')}} definiert `cy` die Koordinate der y-Achse des Mit
 </table>
 
 > [!NOTE]
-> Die Koordinate der y-Achse des Mittelpunkts des `<ellipse>` kann auch mit der {{cssxref("cy")}} _Geometrieeigenschaft_ definiert werden. Wenn sie im CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
+> Die y-Achsenkoordinate des Mittelpunkts der `<ellipse>` kann auch mit der {{cssxref("cy")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
 
 ## radialGradient
 
-Für {{SVGElement('radialGradient')}} definiert `cy` die Koordinate der y-Achse des Endkreises für den radialen Verlauf.
+Für {{SVGElement('radialGradient')}} definiert `cy` die y-Achsenkoordinate des Endkreises für den radialen Verlauf.
 
 <table class="properties">
   <tbody>
@@ -180,4 +180,4 @@ svg {
 - {{SVGAttr("r")}}
 - {{SVGAttr("rx")}}
 - {{SVGAttr("ry")}}
-- Geometrieeigenschaften: {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- Geometrie-Eigenschaften: {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}

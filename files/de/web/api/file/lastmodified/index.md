@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`lastModified`** schreibgeschützte Eigenschaft der [`File`](/de/docs/Web/API/File)-Schnittstelle liefert das Datum der letzten Änderung der Datei als Anzahl von Millisekunden seit der Unix-Epoche (1. Januar 1970 um Mitternacht). Dateien ohne bekanntes Änderungsdatum geben das aktuelle Datum zurück.
+Die **`lastModified`**-Schreibgeschützte Eigenschaft des [`File`](/de/docs/Web/API/File)-Interfaces liefert das Datum der letzten Änderung der Datei als Anzahl der Millisekunden seit dem Unix-Epoch (1. Januar 1970 um Mitternacht). Dateien ohne ein bekanntes Änderungsdatum geben das aktuelle Datum zurück.
 
 ## Wert
 
-Eine Zahl, die die Anzahl der Millisekunden seit der Unix-Epoche darstellt.
+Eine Zahl, die die Anzahl der Millisekunden seit dem Unix-Epoch darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft die von Ihnen ausgewählten Dateien und gibt aus, ob jede Datei innerhalb des letzten Jahres geändert wurde.
+Im folgenden Beispiel wird durch die ausgewählten Dateien iteriert und angezeigt, ob jede Datei innerhalb des letzten Jahres geändert wurde.
 
 ### HTML
 
@@ -60,7 +60,7 @@ filepicker.addEventListener("change", (event) => {
 
 ### Dynamisch erstellte Dateien
 
-Wenn eine Datei dynamisch erstellt wird, kann die Zeit der letzten Änderung im [`File()`](/de/docs/Web/API/File/File)-Konstruktor übergeben werden. Falls diese fehlt, erbt `lastModified` die aktuelle Zeit von {{jsxref("Date.now()")}} in dem Moment, in dem das `File`-Objekt erstellt wird.
+Wenn eine Datei dynamisch erstellt wird, kann die Zeit der letzten Änderung im `File()`-Konstruktor angegeben werden. Fehlt diese, übernimmt `lastModified` die aktuelle Zeit von {{jsxref("Date.now()")}} in dem Moment, in dem das `File`-Objekt erstellt wird.
 
 ```js
 const fileWithDate = new File([], "file.bin", {
@@ -72,11 +72,11 @@ const fileWithoutDate = new File([], "file.bin");
 console.log(fileWithoutDate.lastModified); // returns current time
 ```
 
-## Reduzierte Zeitgenauigkeit
+## Reduzierte Zeitpräzision
 
-Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, könnte die Genauigkeit von `someFile.lastModified` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Genauigkeit 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Genauigkeit von `someFile.lastModified` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2ms voreingestellt. Sie können auch `privacy.resistFingerprinting` aktivieren, in welchem Fall die Präzision 100ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist, beträgt.
 
-Zum Beispiel wird mit reduzierter Zeitgenauigkeit das Ergebnis von `someFile.lastModified` immer ein Vielfaches von 2 oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
+Zum Beispiel ist bei reduzierter Zeitpräzision das Ergebnis von `someFile.lastModified` immer ein Vielfaches von 2, oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
 
 ```js
 // reduced time precision (2ms) in Firefox 60

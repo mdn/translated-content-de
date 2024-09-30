@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**HTTPS RR** (**_HTTPS Resource Records_**) sind eine Art von DNS-Einträgen, die Konfigurationsinformationen und Parameter dafür bereitstellen, wie man auf einen Dienst über [HTTPS](/de/docs/Glossary/HTTPS) zugreift.
+**HTTPS RR** (**_HTTPS Resource Records_**) sind eine Art von DNS-Eintrag, der Konfigurationsinformationen und Parameter liefert, wie ein Dienst über [HTTPS](/de/docs/Glossary/HTTPS) zu erreichen ist.
 
-Ein _HTTPS RR_ kann verwendet werden, um den Prozess der Verbindung zu einem Dienst über HTTPS zu optimieren. Darüber hinaus signalisiert das Vorhandensein eines _HTTPS RR_, dass alle nützlichen [HTTP](/de/docs/Glossary/HTTP)-Ressourcen auf dem Ursprungsserver über HTTPS erreichbar sind, was wiederum bedeutet, dass ein Browser Verbindungen zur Domain sicher von HTTP auf HTTPS hochstufen kann.
+Ein _HTTPS RR_ kann verwendet werden, um den Prozess der Verbindung zu einem Dienst über HTTPS zu optimieren. Außerdem signalisiert das Vorhandensein eines _HTTPS RR_, dass alle nützlichen [HTTP](/de/docs/Glossary/HTTP)-Ressourcen auf der Herkunft über HTTPS erreichbar sind, was wiederum bedeutet, dass ein Browser Verbindungen zur Domain sicher von HTTP auf HTTPS aktualisieren kann.
 
 ### Siehe auch
 

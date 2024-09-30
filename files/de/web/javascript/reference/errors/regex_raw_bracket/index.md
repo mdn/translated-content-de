@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Raw-Klammer ist im regulären Ausdruck mit Unicode-Flag nicht erlaubt"
+title: "SyntaxError: Raw-Klammern sind im regulären Ausdruck mit Unicode-Flag nicht erlaubt"
 slug: Web/JavaScript/Reference/Errors/Regex_raw_bracket
 l10n:
   sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "raw bracket is not allowed in regular expression with unicode flag" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdruck Muster eine rohe Klammer (`{`, `}`, `]`) enthält, die nicht Teil eines [Quantors](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) oder einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) ist.
+Die JavaScript-Ausnahme "raw bracket is not allowed in regular expression with unicode flag" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) reguläres Ausdrucksmuster eine rohe Klammer (`{`, `}`, `]`) enthält, die nicht Teil eines [Quantors](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) oder einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) ist.
 
 ## Nachricht
 
@@ -22,11 +22,11 @@ SyntaxError: Invalid regular expression: unmatched ] or } bracket for Unicode pa
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was schiefgelaufen ist
 
-Im nicht Unicode-bewussten Modus werden `{`, `}` und `]`, die nicht Teil eines Quantors oder einer Zeichenklasse sind, als literale Zeichen behandelt. Dies kann Fehler in Ihrem Code verbergen und ist daher veraltet und im Unicode-bewussten Modus nicht erlaubt. Sie sollten entweder überprüfen, ob Sie ungültige Syntax haben, oder Sie sollten die Zeichen [maskieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape), um sie wörtlich zu erfassen.
+Im Unicode-unbewussten Modus werden `{`, `}` und `]`, die nicht Teil eines Quantors oder einer Zeichenklasse sind, als literale Zeichen behandelt. Dies kann Fehler in Ihrem Code verbergen und ist daher im Unicode-bewussten Modus veraltet und nicht erlaubt. Sie sollten entweder überprüfen, ob Sie eine ungültige Syntax haben, oder Sie sollten die Zeichen [escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape), um sie wörtlich zu erfassen.
 
-Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) akzeptiert, wird es als Beginn eines Quantors behandelt. Wenn dem nichts folgt, was ein gültiger Quantor ist, wird ein anderer Syntaxfehler, [unvollständiger Quantor](/de/docs/Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier), ausgelöst.
+Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) akzeptiert, wird es als der Beginn eines Quantors behandelt. Wenn das Folgende kein gültiger Quantor ist, wird ein anderer Syntaxfehler, [unvollständiger Quantor](/de/docs/Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier), ausgelöst.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript
 
 ### Gültige Fälle
 
-<!-- Note: the {} need to be double-escaped, once for Yari -->
+<!-- Hinweis: die {} müssen doppelt maskiert werden, einmal für Yari -->
 
 ```js example-good
 // All { and } need to be escaped
@@ -52,5 +52,5 @@ Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichenmaskierung: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichenescape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Quantor: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

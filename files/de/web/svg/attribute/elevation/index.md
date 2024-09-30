@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`elevation`**-Attribut gibt den Richtungswinkel für die Lichtquelle von der XY-Ebene zur Z-Achse an, in Grad. Beachten Sie, dass die positive Z-Achse zum Betrachter des Inhalts zeigt.
+Das **`elevation`**-Attribut gibt den Richtungswinkel für die Lichtquelle von der XY-Ebene zur Z-Achse in Grad an. Beachten Sie, dass die positive Z-Achse auf den Betrachter des Inhalts zeigt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -47,7 +47,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

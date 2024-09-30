@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`backgroundfetchclick`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interfaces wird ausgelöst, wenn der Benutzer auf die vom Browser bereitgestellte Benutzeroberfläche klickt, um dem Benutzer den Fortschritt der [Hintergrundabruf](/de/docs/Web/API/Background_Fetch_API) Operation anzuzeigen.
+Das **`backgroundfetchclick`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn der Benutzer auf die vom Browser bereitgestellte Benutzeroberfläche klickt, die den Fortschritt der [Background-Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation anzeigt.
 
-Dieses Ereignis ist nicht abbruchsicher und blubbert nicht.
+Dieses Ereignis ist nicht deaktivierbar und wird nicht gebubbelt.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ Ein [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent).
 _Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)._
 
 - [`BackgroundFetchEvent.registration`](/de/docs/Web/API/BackgroundFetchEvent/registration)
-  - : Gibt die [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) zurück, deren Fortschrittsdialogfeld der Benutzer angeklickt hat.
+  - : Gibt die [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) zurück, deren Fortschrittsdialog der Benutzer angeklickt hat.
 
 ## Beschreibung
 
-Wenn eine [Hintergrundabruf](/de/docs/Web/API/Background_Fetch_API) Operation startet, zeigt der Browser dem Benutzer ein UI-Element, um den Fortschritt der Operation anzuzeigen. Wenn der Benutzer auf dieses Element klickt, startet der Browser den Service Worker, falls erforderlich, und löst das `backgroundfetchclick` Ereignis im globalen Bereich des Service Workers aus.
+Wenn eine [Background-Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation gestartet wird, zeigt der Browser dem Benutzer ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Wenn der Benutzer auf dieses Element klickt, startet der Browser den Service Worker, falls nötig, und löst das `backgroundfetchclick`-Ereignis im globalen Bereich des Service Workers aus.
 
-Eine häufige Aufgabe für den Handler in dieser Situation besteht darin, ein Fenster zu öffnen, das dem Benutzer mehr Details über die Abrufoperation bietet.
+Eine häufige Aufgabe für den Handler in dieser Situation ist es, ein Fenster zu öffnen, das dem Benutzer mehr Details über die Fetch-Operation bietet.
 
 ## Beispiele
 
-### Öffnen eines Fensters mit mehr Details
+### Öffnen eines Fensters mit weiteren Details
 
-Dieser Ereignishandler verwendet die globale [`clients`](/de/docs/Web/API/ServiceWorkerGlobalScope/clients) Eigenschaft, um ein Fenster zu öffnen, das dem Benutzer mehr Details über den Abruf bietet. Es öffnet ein anderes Fenster, je nachdem, ob der Abruf abgeschlossen ist oder nicht.
+Dieser Ereignis-Handler verwendet die globale [`clients`](/de/docs/Web/API/ServiceWorkerGlobalScope/clients)-Eigenschaft, um ein Fenster zu öffnen, das dem Benutzer mehr Details über den Fetch gibt. Es öffnet ein anderes Fenster, je nachdem, ob der Fetch abgeschlossen ist oder nicht.
 
 ```js
 addEventListener("backgroundfetchclick", (event) => {

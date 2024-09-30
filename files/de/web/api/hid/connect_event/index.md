@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Das **`connect`**-Ereignis der [`HID`](/de/docs/Web/API/HID)-Schnittstelle wird ausgelöst, wenn der Benutzeragent eine Verbindung zu einem HID-Gerät herstellt.
+Das **`connect`**-Ereignis der [`HID`](/de/docs/Web/API/HID)-Schnittstelle tritt auf, wenn der Benutzeragent eine Verbindung zu einem HID-Gerät herstellt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("connect", (event) => {});
@@ -28,14 +28,14 @@ Ein [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent). Erbt von [`Even
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`device`](/de/docs/Web/API/HIDConnectionEvent/device) {{ReadOnlyInline}}
   - : Das [`HIDDevice`](/de/docs/Web/API/HIDDevice), für das das Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein Ereignislistener registriert, um die Verbindung eines Geräts abzuhören. Der Name des Geräts wird dann unter Verwendung von [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein Ereignis-Listener registriert, um die Verbindung eines Geräts zu überwachen. Der Name des Geräts wird dann mithilfe von [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in die Konsole ausgegeben.
 
 ```js
 navigator.hid.addEventListener("connect", ({ device }) => {

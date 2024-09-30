@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toString()`**-Methode des [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Interfaces gibt einen String zurück, der sicher in ein [Injection-Sink](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
+Die **`toString()`**-Methode der [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Schnittstelle gibt einen String zurück, der sicher in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
 
 ## Syntax
 

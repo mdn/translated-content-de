@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}
 
-Ein **`payerdetailchange`** Ereignis wird von der [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt ausgelöst, wenn der Benutzer Änderungen an seinen persönlichen Informationen vornimmt, während er ein Zahlungsformular ausfüllt. Dies kann passieren, wenn der Zahler versucht, seine Daten nach der Erkennung eines Fehlers erneut einzugeben.
+Ein **`payerdetailchange`** Ereignis wird von der [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Objekt ausgelöst, wenn der Benutzer Änderungen an seinen persönlichen Informationen vornimmt, während er ein Zahlungsanforderungsformular ausfüllt. Dies kann passieren, wenn der Zahler versucht, seine Daten nach einem erkannten Fehler erneut zu übermitteln.
 
-Der Ereignis-Handler für `payerdetailchange` sollte jeden Wert im Formular prüfen, der geändert wurde, und sicherstellen, dass die Werte gültig sind. Wenn irgendwelche Werte ungültig sind, sollten entsprechende Fehlermeldungen konfiguriert werden, und die Methode [`retry()`](/de/docs/Web/API/PaymentResponse/retry) sollte auf dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) aufgerufen werden, um den Benutzer zu bitten, die ungültigen Einträge zu aktualisieren.
+Der Event-Handler für `payerdetailchange` sollte jeden Wert im Formular überprüfen, der sich geändert hat, und sicherstellen, dass die Werte gültig sind. Wenn einige ungültig sind, sollten entsprechende Fehlermeldungen konfiguriert werden und die [`retry()`](/de/docs/Web/API/PaymentResponse/retry) Methode sollte auf dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) aufgerufen werden, um den Benutzer zu bitten, die ungültigen Einträge zu aktualisieren.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine weitere Verarbeitung durch den DOM-Baum aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("payerdetailchange", async (event) => {});
@@ -26,13 +26,13 @@ onpayerdetailchange = async (event) => {};
 
 ## Ereignistyp
 
-Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent). Erbte von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PaymentRequestUpdateEvent")}}
 
 ## Ereigniseigenschaften
 
-Obwohl dieser Ereignistyp ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) ist, implementiert er keine Eigenschaft, die nicht bereits auf [`Event`](/de/docs/Web/API/Event) vorhanden ist.
+Obwohl dieser Ereignistyp [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) ist, implementiert er keine Eigenschaft, die nicht bereits auf [`Event`](/de/docs/Web/API/Event) vorhanden ist.
 
 ## Beispiele
 
@@ -109,9 +109,9 @@ await response.retry({
 });
 ```
 
-### addEventListener-Äquivalent
+### addEventListener Äquivalent
 
-Sie könnten den Ereignis-Handler auch mit der Methode `addEventListener()` einrichten:
+Sie könnten den Event-Handler auch mit der Methode `addEventListener()` einrichten:
 
 ```js
 response.addEventListener("payerdetailchange", async (ev) => {
@@ -130,7 +130,7 @@ response.addEventListener("payerdetailchange", async (ev) => {
 ## Siehe auch
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
-- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [Die Payment Request API verwenden](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)
 - [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)
 - [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)

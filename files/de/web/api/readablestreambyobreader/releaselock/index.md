@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`releaseLock()`**-Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle löst die Sperre des Lesers auf dem Stream. Nach dem Freigeben der Sperre ist der Leser nicht mehr aktiv.
+Die **`releaseLock()`**-Methode des [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Interfaces gibt die Sperre des Readers auf dem Stream frei. Nachdem die Sperre gelöst wurde, ist der Reader nicht mehr aktiv.
 
-Der Leser erscheint fehlerhaft, wenn der zugehörige Stream fehlerhaft ist, wenn die Sperre freigegeben wird; andernfalls erscheint der Leser geschlossen.
+Der Reader erscheint als fehlerhaft, wenn der zugehörige Stream fehlerhaft ist, wenn die Sperre freigegeben wird; andernfalls erscheint der Reader als geschlossen.
 
-Wenn die Sperre des Lesers freigegeben wird, während er noch ausstehende Leseanfragen hat, werden die durch die Methode [`ReadableStreamBYOBReader.read()`](/de/docs/Web/API/ReadableStreamBYOBReader/read) des Lesers zurückgegebenen Versprechen sofort mit einem `TypeError` abgelehnt. Ungeklärte Teile verbleiben in der internen Warteschlange des Streams und können später durch Erwerb eines neuen Lesers gelesen werden.
+Wenn die Sperre des Readers freigegeben wird, während er noch ausstehende Leseanfragen hat, werden die Versprechen, die von der `ReadableStreamBYOBReader.read()`-Methode des Readers zurückgegeben werden, sofort mit einem `TypeError` abgelehnt. Ungelesene Chunks verbleiben in der internen Warteschlange des Streams und können später durch das Erhalten eines neuen Readers gelesen werden.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Ein triviales Beispiel wird unten gezeigt. Eine Sperre wird erstellt, sobald der Leser auf dem Stream erstellt wird.
+Ein triviales Beispiel wird unten gezeigt. Eine Sperre wird erstellt, sobald der Reader auf dem Stream erstellt wird.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
@@ -53,4 +53,4 @@ reader.releaseLock();
 ## Siehe auch
 
 - [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
-- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

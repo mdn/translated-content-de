@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`activationStart`** stellt die Zeitspanne zwischen dem Beginn des Prerenderings eines Dokuments und dessen Aktivierung dar.
+Die **`activationStart`**-Eigenschaft, die nur gelesen werden kann, stellt die Zeitspanne dar, die zwischen dem Beginn des Prerendering eines Dokuments und seiner Aktivierung liegt.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer zwischen Beginn des Prerenderings des Dokuments und der Aktivierung in Millisekunden darstellt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer zwischen dem Start des Prerendering des Dokuments und der Aktivierung in Millisekunden darstellt.
 
 Der Wert ist `0`, wenn die Seite nicht prerendert wurde oder sich noch im Prerendering befindet.
 
 ## Beispiele
 
-### Erkennung prerenderter Seiten
+### Erkennung von prerendered Seiten
 
-Wenn ein prerendertes Dokument aktiviert wird, wird `activationStart` auf die aktuelle Zeit gesetzt. Die folgende Funktion kann überprüfen, ob eine Seite [`prerendering`](/de/docs/Web/API/Document/prerendering) ist oder bereits prerendert wurde:
+Wenn ein dokumentiert prerenderte Dokument aktiviert wird, wird `activationStart` auf die aktuelle Zeit gesetzt. Die folgende Funktion kann überprüfen, ob eine Seite [`prerendering`](/de/docs/Web/API/Document/prerendering) ist oder bereits prerendert wurde:
 
 ```js
 function pagePrerendered() {
@@ -31,9 +31,9 @@ function pagePrerendered() {
 }
 ```
 
-### Messung von leistungsrelevanten Meilensteinen aus Benutzersicht
+### Messung von leistungsbezogenen Meilensteinen, die von Nutzern wahrgenommen werden
 
-Bei prerenderten Seiten kann eine Seite lange vor ihrer tatsächlichen Navigation erstellt worden sein. Bei der Verwendung der [Performance API](/de/docs/Web/API/Performance_API) auf prerenderten Seiten ist es entscheidend, zurückgegebene Werte mit `activationStart` zu vergleichen, um irreführende Messungen zu vermeiden.
+Bei prerendered Seiten könnte eine Seite schon lange vor der eigentlichen Navigation erstellt worden sein. Wenn die [Performance API](/de/docs/Web/API/Performance_API) auf prerendered Seiten verwendet wird, ist es wichtig, die zurückgegebenen Werte mit `activationStart` zu vergleichen, um irreführende Messungen zu vermeiden.
 
 ```js
 // Time to when activation occurred

@@ -9,9 +9,9 @@ l10n:
 
 Polymorphismus ist die Bereitstellung einer Schnittstelle für mehrere Datentypen.
 
-Beispielsweise sind Integer, Floats und Doubles implizit polymorph: Unabhängig von ihren unterschiedlichen Typen können sie alle addiert, subtrahiert, multipliziert und so weiter werden.
+Zum Beispiel sind Ganzzahlen, Gleitkommazahlen und Doppelte implizit polymorph: Unabhängig von ihren unterschiedlichen Typen können sie alle addiert, subtrahiert, multipliziert und so weiter werden.
 
-Im Fall von [OOP](/de/docs/Glossary/OOP), indem man die [Klasse](/de/docs/Glossary/class) für ihren eigenen Code sowie ihre eigenen Daten verantwortlich macht, kann Polymorphismus so erreicht werden, dass jede Klasse ihre eigene [Funktion](/de/docs/Glossary/function) hat, die (einmal aufgerufen) korrekt für jedes [Objekt](/de/docs/Glossary/object) funktioniert.
+Im Falle der [OOP](/de/docs/Glossary/OOP), indem die [Klasse](/de/docs/Glossary/class) für ihren eigenen Code sowie ihre eigenen Daten verantwortlich gemacht wird, kann Polymorphismus erreicht werden, indem jede Klasse ihre eigene [Funktion](/de/docs/Glossary/function) hat, die (einmal aufgerufen) für jedes [Objekt](/de/docs/Glossary/object) korrekt funktioniert.
 
 ## Siehe auch
 

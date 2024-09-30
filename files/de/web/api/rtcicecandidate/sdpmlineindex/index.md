@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidate: sdpMLineIndex-Eigenschaft"
+title: "RTCIceCandidate: Eigenschaft sdpMLineIndex"
 short-title: sdpMLineIndex
 slug: Web/API/RTCIceCandidate/sdpMLineIndex
 l10n:
@@ -8,21 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sdpMLineIndex`**-Eigenschaft auf der [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Schnittstelle
-ist ein nullbasiertes Index der m-line, die die Medien beschreibt, die mit dem Kandidaten verbunden sind.
+Die schreibgeschützte **`sdpMLineIndex`**-Eigenschaft des [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Interfaces ist ein nullbasierter Index der m-Line, die die Medien beschreibt, die mit dem Kandidaten verbunden sind.
 
-Diese Eigenschaft kann konfiguriert werden, indem der Wert der `sdpMLineIndex`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben wird, das an den Konstruktor [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate) übergeben wird.
-Wenn Sie den Konstruktor mit einem m-line-String anstelle des Optionsobjekts aufrufen, wird der Wert von `sdpMLineIndex` aus dem angegebenen Kandidaten-m-line-String extrahiert.
+Diese Eigenschaft kann konfiguriert werden, indem der Wert der `sdpMLineIndex`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben wird, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Wenn Sie den Konstruktor mit einer m-Line-Zeichenkette anstelle des Optionsobjekts aufrufen, wird der Wert von `sdpMLineIndex` aus der angegebenen Kandidaten-m-Line-Zeichenkette extrahiert.
 
 ## Wert
 
-Eine Zahl, die einen nullbasierten Index in die Menge der m-lines enthält, die Medienbeschreibungen liefern, und angibt, welche Medienquelle mit dem Kandidaten verbunden ist, oder `null`, wenn keine solche Zuordnung verfügbar ist.
+Eine Zahl, die einen nullbasierten Index in dem Satz von m-Lines enthält, die Medienbeschreibungen bieten und angibt, welche Medienquelle mit dem Kandidaten verbunden ist, oder `null`, wenn keine solche Zuordnung verfügbar ist.
 
 > [!NOTE]
-> Der Versuch, einen Kandidaten hinzuzufügen (mithilfe von
-> [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)), der einen
-> Wert von `null` für entweder `sdpMid` oder
-> `sdpMLineIndex` hat, wird eine {{jsxref("TypeError")}}-Ausnahme auslösen.
+> Der Versuch, einen Kandidaten hinzuzufügen (mit
+> [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)), der entweder für `sdpMid` oder
+> `sdpMLineIndex` den Wert `null` hat, wird eine {{jsxref("TypeError")}}-Ausnahme auslösen.
 
 ## Spezifikationen
 

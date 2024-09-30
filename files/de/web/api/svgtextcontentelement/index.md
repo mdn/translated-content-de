@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`SVGTextContentElement`** Interface wird von Elementen implementiert, die das Rendern von untergeordneten Textinhalten unterstützen. Es wird von verschiedenen textbezogenen Schnittstellen geerbt, wie [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement), [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) und [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement).
+Das **`SVGTextContentElement`**-Interface wird von Elementen implementiert, die das Rendern von Kindtextinhalten unterstützen. Es wird von verschiedenen textbezogenen Schnittstellen, wie [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement), [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) und [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement) geerbt.
 
 {{InheritanceDiagram}}
 
@@ -38,45 +38,45 @@ Das **`SVGTextContentElement`** Interface wird von Elementen implementiert, die 
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 - [`SVGTextContentElement.textLength`](/de/docs/Web/API/SVGTextContentElement/textLength) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das das {{SVGAttr("textLength")}} Attribut des angegebenen Elements widerspiegelt.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das das Attribut {{SVGAttr("textLength")}} des angegebenen Elements widerspiegelt.
 - [`SVGTextContentElement.lengthAdjust`](/de/docs/Web/API/SVGTextContentElement/lengthAdjust) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das das {{SVGAttr("lengthAdjust")}} Attribut des angegebenen Elements widerspiegelt. Die numerischen Typwerte repräsentieren einen der oben genannten Konstantenwerte.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das das Attribut {{SVGAttr("lengthAdjust")}} des angegebenen Elements widerspiegelt. Die numerischen Typwerte repräsentieren einen der oben genannten konstanten Werte.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 - [`SVGTextContentElement.getNumberOfChars()`](/de/docs/Web/API/SVGTextContentElement/getNumberOfChars)
-  - : Gibt ein `long` zurück, das die Gesamtzahl der adressierbaren Zeichen darstellt, die innerhalb des aktuellen Elements gerendert werden können, unabhängig davon, ob sie gerendert werden.
+  - : Gibt eine lange Zahl zurück, die die Gesamtzahl der adressierbaren Zeichen darstellt, die innerhalb des aktuellen Elements für das Rendern verfügbar sind, unabhängig davon, ob sie gerendert werden.
 - [`SVGTextContentElement.getComputedTextLength()`](/de/docs/Web/API/SVGTextContentElement/getComputedTextLength)
-  - : Gibt einen `float` zurück, der die berechnete Länge des Textes innerhalb des Elements darstellt.
+  - : Gibt eine Gleitkommazahl zurück, die die berechnete Länge des Textes innerhalb des Elements darstellt.
 - [`SVGTextContentElement.getSubStringLength()`](/de/docs/Web/API/SVGTextContentElement/getSubStringLength)
-  - : Gibt einen `float` zurück, der die berechnete Länge des formatierten Textvorschubabstands für ein Text-Substring innerhalb des Elements darstellt. Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und jeden zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften 'letter-spacing' und 'word-spacing' eingefügt wird. Visuelle Abstandsverschiebungen, die durch das 'x' Attribut vorgenommen wurden, werden ignoriert.
+  - : Gibt eine Gleitkommazahl zurück, die die berechnete Länge des formatierten Textvorschubbetrags für einen Textabschnitt innerhalb des Elements darstellt. Beachten Sie, dass diese Methode nur die Breiten der Zeichen im Abschnitt und jeden zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften 'letter-spacing' und 'word-spacing' eingefügt wird. Visuelle Abstandsanpassungen, die durch das 'x'-Attribut vorgenommen werden, werden ignoriert.
 - [`SVGTextContentElement.getStartPositionOfChar()`](/de/docs/Web/API/SVGTextContentElement/getStartPositionOfChar)
 
-  - : Gibt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) zurück, das die Position eines typografischen Zeichens nach erfolgtem Textlayout darstellt.
+  - : Gibt einen [`DOMPoint`](/de/docs/Web/API/DOMPoint) zurück, der die Position eines typografischen Zeichens nach erfolgtem Textlayout darstellt.
 
     > [!NOTE]
-    > In SVG 1.1 gab diese Methode ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) zurück.
+    > In SVG 1.1 gab diese Methode einen [`SVGPoint`](/de/docs/Web/API/SVGPoint) zurück.
 
 - [`SVGTextContentElement.getEndPositionOfChar()`](/de/docs/Web/API/SVGTextContentElement/getEndPositionOfChar)
 
-  - : Gibt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) zurück, das die Endposition eines typografischen Zeichens nach erfolgtem Textlayout darstellt.
+  - : Gibt einen [`DOMPoint`](/de/docs/Web/API/DOMPoint) zurück, der die Endposition eines typografischen Zeichens nach erfolgtem Textlayout darstellt.
 
     > [!NOTE]
-    > In SVG 1.1 gab diese Methode ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) zurück.
+    > In SVG 1.1 gab diese Methode einen [`SVGPoint`](/de/docs/Web/API/SVGPoint) zurück.
 
 - [`SVGTextContentElement.getExtentOfChar()`](/de/docs/Web/API/SVGTextContentElement/getExtentOfChar)
-  - : Gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect) zurück, das die berechnete enge Begrenzungsbox der Glyphenzelle darstellt, die einem bestimmten typografischen Zeichen entspricht.
+  - : Gibt einen [`DOMRect`](/de/docs/Web/API/DOMRect) zurück, der den berechneten engen Begrenzungsrahmen der Glyphezelle darstellt, die einem gegebenen typografischen Zeichen entspricht.
 - [`SVGTextContentElement.getRotationOfChar()`](/de/docs/Web/API/SVGTextContentElement/getRotationOfChar)
-  - : Gibt einen `float` zurück, der die Drehung eines typografischen Zeichens darstellt.
+  - : Gibt eine Gleitkommazahl zurück, die die Rotation eines typografischen Zeichens darstellt.
 - [`SVGTextContentElement.getCharNumAtPosition()`](/de/docs/Web/API/SVGTextContentElement/getCharNumAtPosition)
-  - : Gibt ein `long` zurück, das das Zeichen darstellt, welches ein Textglyphe an einer bestimmten Position im Koordinatensystem verursacht hat. Da die Beziehung zwischen Zeichen und Glyphen nicht eins zu eins ist, wird nur das erste Zeichen des relevanten typografischen Zeichens zurückgegeben.
+  - : Gibt eine lange Zahl zurück, die das Zeichen darstellt, das verursacht hat, dass eine Textglyphe an einer gegebenen Position im Koordinatensystem gerendert wurde. Da die Beziehung zwischen Zeichen und Glyphen nicht eins zu eins ist, wird nur das erste Zeichen des relevanten typografischen Zeichens zurückgegeben.
 - [`SVGTextContentElement.selectSubString()`](/de/docs/Web/API/SVGTextContentElement/selectSubString) {{deprecated_inline}}
   - : Wählt Text innerhalb des Elements aus.
 

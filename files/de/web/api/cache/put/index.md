@@ -8,26 +8,42 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`put()`** Methode des [`Cache`](/de/docs/Web/API/Cache)-Interfaces ermöglicht es, Schlüssel/Wert-Paare dem aktuellen [`Cache`](/de/docs/Web/API/Cache)-Objekt hinzuzufügen.
+Die **`put()`**-Methode der
+[`Cache`](/de/docs/Web/API/Cache)-Schnittstelle ermöglicht es, Schlüssel/Wert-Paare zum aktuellen
+[`Cache`](/de/docs/Web/API/Cache)-Objekt hinzuzufügen.
 
-Oft möchten Sie einfach einen oder mehrere Anfragen mit [`fetch()`](/de/docs/Web/API/Window/fetch) abholen und das Ergebnis direkt in Ihrem Cache hinzufügen. In solchen Fällen ist es besser, [`Cache.add()`](/de/docs/Web/API/Cache/add)/[`Cache.addAll()`](/de/docs/Web/API/Cache/addAll) zu verwenden, da sie Abkürzungsmethoden für eine oder mehrere dieser Operationen sind.
+Häufig möchten Sie einfach nur eine oder mehrere Anfragen mit [`fetch()`](/de/docs/Web/API/Window/fetch) abrufen und das Ergebnis direkt zu Ihrem Cache hinzufügen. In solchen Fällen ist es besser, 
+[`Cache.add()`](/de/docs/Web/API/Cache/add)/[`Cache.addAll()`](/de/docs/Web/API/Cache/addAll) zu verwenden, da dies Kurzfunktionen für eine oder mehrere dieser Operationen sind.
 
-> **Note:** `put()` überschreibt jedes zuvor im Cache gespeicherte Schlüssel/Wert-Paar, das mit der Anfrage übereinstimmt.
+```js
+fetch(url).then((response) => {
+  if (!response.ok) {
+    throw new TypeError("Bad response status");
+  }
+  return cache.put(url, response);
+});
+```
 
-> **Note:** [`Cache.add`](/de/docs/Web/API/Cache/add)/[`Cache.addAll`](/de/docs/Web/API/Cache/addAll) speichern keine Antworten mit `Response.status`-Werten außerhalb des 200-Bereichs, während `Cache.put` es Ihnen ermöglicht, jedes Anfrage-/Antwort-Paar zu speichern. Infolgedessen können [`Cache.add`](/de/docs/Web/API/Cache/add)/[`Cache.addAll`](/de/docs/Web/API/Cache/addAll) nicht verwendet werden, um opake Antworten zu speichern, während `Cache.put` dies kann.
+> **Note:** `put()` überschreibt jedes zuvor im Cache gespeicherte Schlüssel/Wert-Paar, das der Anfrage entspricht.
+
+> **Note:** [`Cache.add`](/de/docs/Web/API/Cache/add)/[`Cache.addAll`](/de/docs/Web/API/Cache/addAll) cachen keine Antworten mit `Response.status`-Werten, die nicht im 200-Bereich liegen, während `Cache.put` jede Anfrage-/Antwort-Paarung speichern lässt. Infolgedessen können [`Cache.add`](/de/docs/Web/API/Cache/add)/[`Cache.addAll`](/de/docs/Web/API/Cache/addAll) nicht verwendet werden, um undurchsichtige Antworten zu speichern, während `Cache.put` dies kann.
 
 ## Syntax
+
+```js-nolint
+put(request, response)
+```
 
 ### Parameter
 
 - `request`
   - : Das [`Request`](/de/docs/Web/API/Request)-Objekt oder die URL, die Sie dem Cache hinzufügen möchten.
 - `response`
-  - : Die [`Response`](/de/docs/Web/API/Response), die Sie mit der Anfrage abgleichen möchten.
+  - : Die [`Response`](/de/docs/Web/API/Response), die Sie der Anfrage zuordnen möchten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ### Ausnahmen
 
@@ -36,12 +52,27 @@ Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird.
 
 ## Beispiele
 
-Dieses Beispiel stammt aus dem MDN [Simple-Service-Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [simple-service-worker live ausführen](https://bncb2v.csb.app/)).
-Hier warten wir, bis ein [`FetchEvent`](/de/docs/Web/API/FetchEvent) ausgelöst wird. Wir erstellen eine benutzerdefinierte Antwort wie folgt:
+Dieses Beispiel stammt aus dem MDN [simple-service-worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [simple-service-worker live](https://bncb2v.csb.app/)).
+Hier warten wir auf das Auftreten eines [`FetchEvent`](/de/docs/Web/API/FetchEvent). Wir konstruieren eine benutzerdefinierte Antwort wie folgt:
 
-1. Prüfen, ob im [`CacheStorage`](/de/docs/Web/API/CacheStorage) über [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match) eine Übereinstimmung für die Anfrage gefunden wird. Wenn ja, wird diese bereitgestellt.
-2. Wenn nicht, öffnen Sie den `v1` Cache mit `open()`, fügen Sie die Standard-Netzwerkanfrage mit `Cache.put()` in den Cache ein und geben Sie einen Klon der Standard-Netzwerkanfrage mit `return response.clone()` zurück. Der Klon wird benötigt, weil `put()` den Antwortkörper konsumiert.
-3. Falls dies fehlschlägt (z.B. weil das Netzwerk ausgefallen ist), wird eine Ausweichantwort zurückgegeben.
+1. Prüfen, ob ein Treffer für die Anfrage im [`CacheStorage`](/de/docs/Web/API/CacheStorage) mithilfe von [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match) gefunden wird. Wenn ja, diese bereitstellen.
+2. Falls nicht, den `v1`-Cache mit `open()` öffnen, die Standard-Netzwerkanfrage mit `Cache.put()` in den Cache legen und eine Kopie der Standard-Netzwerkanfrage mit `return response.clone()` zurückgeben. Clone ist erforderlich, da `put()` den Antwortkörper verbraucht.
+3. Sollte dies fehlschlagen (z.B. weil das Netzwerk nicht verfügbar ist), eine Ersatzantwort zurückgeben.
+
+```js
+let response;
+const cachedResponse = caches
+  .match(event.request)
+  .then((r) => (r !== undefined ? r : fetch(event.request)))
+  .then((r) => {
+    response = r;
+    caches.open("v1").then((cache) => {
+      cache.put(event.request, response);
+    });
+    return response.clone();
+  })
+  .catch(() => caches.match("/gallery/myLittleVader.jpg"));
+```
 
 ## Spezifikationen
 

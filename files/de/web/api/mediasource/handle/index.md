@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`handle`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zurückgibt. Dieses Objekt fungiert als Proxy für den `MediaSource`, der von einem dedizierten Worker zurück in den Haupt-Thread übertragen und über die [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Media-Element angehängt werden kann.
+Die read-only Eigenschaft **`handle`** des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zurück, einen Proxy für die `MediaSource`, der von einem dedizierten Worker an den Hauptthread übertragen und über die [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Medien-Element angehängt werden kann.
 
 > **Note:** `handle` ist nur bei [`MediaSource`](/de/docs/Web/API/MediaSource)-Instanzen innerhalb von dedizierten Workern sichtbar.
 
-Jedes innerhalb eines dedizierten Workers erstellte `MediaSource`-Objekt hat sein eigenes, eindeutiges `MediaSourceHandle`. Der `handle`-Getter gibt immer die `MediaSourceHandle`-Instanz zurück, die spezifisch für die zugehörige dedizierte Worker-`MediaSource`-Instanz ist. Wenn der Handle bereits mit [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) an den Haupt-Thread übertragen wurde, ist die Handle-Instanz im Worker technisch getrennt und kann nicht erneut übertragen werden.
+Jedes `MediaSource`-Objekt, das innerhalb eines dedizierten Workers erstellt wird, hat sein eigenes, einzigartiges `MediaSourceHandle`. Der `handle`-Getter gibt immer die `MediaSourceHandle`-Instanz zurück, die spezifisch für die zugehörige `MediaSource`-Instanz im dedizierten Worker ist. Wenn das Handle bereits mit [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) an den Hauptthread übertragen wurde, ist die Handle-Instanz im Worker technisch entkoppelt und kann nicht erneut übertragen werden.
 
 ## Wert
 
-Eine Instanz des [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekts.
+Eine [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objektinstanz.
 
 ## Beispiele
 
-Die `handle`-Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden, und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Haupt-Thread):
+Die `handle`-Eigenschaft kann innerhalb eines dedizierten Workers zugegriffen werden, und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread, der den Worker erstellt hat (in diesem Fall der Hauptthread), übertragen:
 
 ```js
 // Inside dedicated worker
@@ -37,7 +37,7 @@ mediaSource.addEventListener("sourceopen", () => {
 });
 ```
 
-Im Haupt-Thread empfangen wir den Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, hängen ihn an ein {{htmlelement("video")}} über dessen [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
+Im Hauptthread empfangen wir das Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Event-Handler, hängen es an ein {{htmlelement("video")}} über dessen [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
 
 ```js
 worker.addEventListener("message", (msg) => {
@@ -47,7 +47,7 @@ worker.addEventListener("message", (msg) => {
 });
 ```
 
-> **Note:** [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)s können nicht erfolgreich in oder über einen Shared Worker oder Service Worker übertragen werden.
+> **Note:** [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle) können nicht erfolgreich in oder über einen Shared Worker oder Service Worker übertragen werden.
 
 ## Spezifikationen
 

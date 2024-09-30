@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_debug_renderer_info`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt zwei Konstanten mit Informationen über den Grafiktreiber für Debugging-Zwecke zur Verfügung.
+Die **`WEBGL_debug_renderer_info`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt zwei Konstanten mit Informationen über den Grafiktreiber für Debugging-Zwecke bereit.
 
-Abhängig von den Datenschutzeinstellungen des Browsers kann diese Erweiterung nur in privilegierten Kontexten verfügbar sein. Generell sollten die Informationen über den Grafiktreiber nur in Ausnahmefällen zur Optimierung Ihres WebGL-Inhalts oder zur Behebung von GPU-Problemen verwendet werden. Die Methode [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) kann Ihnen helfen, zu erkennen, welche Funktionen unterstützt werden, und das Kontextattribut [`failIfMajorPerformanceCaveat`](/de/docs/Web/API/HTMLCanvasElement/getContext) ermöglicht es Ihnen zu steuern, ob ein Kontext überhaupt zurückgegeben werden soll, wenn die Leistung dramatisch niedrig wäre.
+Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein. Im Allgemeinen sollten die Informationen über den Grafiktreiber nur in Ausnahmefällen genutzt werden, um Ihre WebGL-Inhalte zu optimieren oder um Probleme mit der GPU zu debuggen. Die Methode [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) kann Ihnen helfen, zu erkennen, welche Funktionen unterstützt werden, und das Attribut [`failIfMajorPerformanceCaveat`](/de/docs/Web/API/HTMLCanvasElement/getContext) ermöglicht Ihnen zu steuern, ob ein Kontext überhaupt zurückgegeben werden soll, wenn die Leistung drastisch langsam wäre.
 
-WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Abhängig von den Datenschutzeinstellungen des Browsers kann diese Erweiterung nur in privilegierten Kontexten verfügbar sein oder gar nicht funktionieren. In Firefox ist diese Erweiterung deaktiviert, wenn `privacy.resistFingerprinting` auf `true` gesetzt ist.
+> Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar oder überhaupt nicht funktionsfähig sein. In Firefox wird diese Erweiterung deaktiviert, wenn `privacy.resistFingerprinting` auf `true` gesetzt ist.
 >
 > Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
 
@@ -28,7 +28,7 @@ WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`
 
 ## Beispiele
 
-Mit Hilfe dieser Erweiterung können privilegierte Kontexte Debugging-Informationen über den Grafikkartentreiber des Benutzers abrufen:
+Mit Hilfe dieser Erweiterung können privilegierte Kontexte Debug-Informationen über den Grafiktreiber des Benutzers abrufen:
 
 ```js
 const canvas = document.getElementById("canvas");

@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**LTR** (**Left To Right**) ist eine [Locale](/de/docs/Glossary/locale)-Eigenschaft, die angibt, dass Text von links nach rechts geschrieben wird. Zum Beispiel gibt die `en-US` Locale (für US Englisch) die Schreibrichtung von links nach rechts an.
+**LTR** (**Left To Right**) ist eine [locale](/de/docs/Glossary/locale)-Eigenschaft, die anzeigt, dass Text von links nach rechts geschrieben wird. Zum Beispiel gibt die `en-US` locale (für US-Englisch) die Schreibrichtung von links nach rechts an.
 
-Die meisten westlichen Sprachen sowie viele andere weltweit werden von links nach rechts geschrieben.
+Die meisten westlichen Sprachen sowie viele andere auf der ganzen Welt werden LTR geschrieben.
 
-Das Gegenteil von LTR, [RTL](/de/docs/Glossary/RTL) (Right To Left), wird in anderen häufig verwendeten Sprachen verwendet, darunter Arabisch (`ar`) und Hebräisch (`he`).
+Das Gegenteil von LTR, [RTL](/de/docs/Glossary/RTL) (Right To Left), wird in anderen verbreiteten Sprachen wie Arabisch (`ar`) und Hebräisch (`he`) verwendet.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - [Locale](/de/docs/Glossary/Locale)
-  - [Lokalisierung](/de/docs/Glossary/Localization)
+  - [Localization](/de/docs/Glossary/Localization)
   - [RTL](/de/docs/Glossary/RTL)
   - [BiDi](/de/docs/Glossary/BiDi)
 - [HTML globale Attribute](/de/docs/Web/HTML/Global_attributes)

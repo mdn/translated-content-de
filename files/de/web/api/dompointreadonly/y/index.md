@@ -8,19 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle hat die
-Eigenschaft **`y`**, die die vertikale Koordinate, y, für einen
+Die **`DOMPointReadOnly`** Schnittstelle hat die
+**`y`**-Eigenschaft, die die vertikale Koordinate, y, für einen
 schreibgeschützten Punkt im Raum enthält.
 
-Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt verwenden.
+Falls Ihr Skript den Wert dieser Eigenschaft ändern können muss, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt verwenden.
 
-Im Allgemeinen bedeuten positive Werte von `y` nach unten und negative Werte von
-`y` nach oben, vorausgesetzt, es wurden keine Transformationen durchgeführt, die eine Umkehrung zur Folge haben.
+Im Allgemeinen bedeuten positive Werte von `y` nach unten, und negative Werte von `y` nach oben, vorausgesetzt, dass keine Transformationen zu einer Umkehrung geführt haben.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der y-Koordinate für den
-Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der y-Koordinate des Punktes angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (d. h. sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -32,6 +30,6 @@ Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er unendlich 
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPointReadOnly/x),
-  [`z`](/de/docs/Web/API/DOMPointReadOnly/z) und der Perspektivwert,
+- Die anderen Koordinateigenschaften: [`x`](/de/docs/Web/API/DOMPointReadOnly/x),
+  [`z`](/de/docs/Web/API/DOMPointReadOnly/z) und den Perspektivwert,
   [`w`](/de/docs/Web/API/DOMPointReadOnly/w).

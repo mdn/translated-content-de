@@ -7,23 +7,23 @@ l10n:
 
 {{learnsidebar}}
 
-Das Ziel dieses Fähigkeitstests besteht darin, zu bewerten, ob Sie unseren Artikel zu [Anderen Formularsteuerelementen](/de/docs/Learn/Forms/Other_form_controls) verstanden haben.
+Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie unseren Artikel [Andere Formularelemente](/de/docs/Learn/Forms/Other_form_controls) verstanden haben.
 
 > [!NOTE]
-> Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) versuchen.
 >
-> Wenn Sie stecken bleiben, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Andere Steuerelemente 1
 
-In unserer ersten Bewertung zu "anderen Steuerelementen" werden Sie dazu gebracht, ein mehrzeiliges Texteingabefeld zu erstellen.
+In unserer ersten Bewertung zu "anderen Steuerelementen" werden wir Sie dazu bringen, ein mehrzeiliges Texteingabefeld zu erstellen.
 
-1. Erstellen Sie eine grundlegende mehrzeilige Texteingabe.
-2. Verknüpfen Sie sie semantisch mit dem bereitgestellten "Kommentar"-Label.
-3. Geben Sie der Eingabe 35 Spalten und 10 Zeilen Platz für Kommentare.
-4. Begrenzen Sie die Kommentaranzahl auf maximal 100 Zeichen.
+1. Erstellen Sie ein grundlegendes mehrzeiliges Texteingabefeld.
+2. Verknüpfen Sie es semantisch mit dem bereitgestellten "Kommentar"-Label.
+3. Geben Sie dem Eingabefeld 35 Spalten und 10 Zeilen Platz, um Kommentare hinzuzufügen.
+4. Begrenzen Sie die Kommentare auf eine maximale Länge von 100 Zeichen.
 
-Um die Eingabe zu erstellen, aktualisieren Sie den HTML-Code im folgenden Editor:
+Um das Eingabefeld zu erstellen, aktualisieren Sie den HTML-Code im Editor unten:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/other-controls/other-controls1.html", '100%', 500)}}
 
@@ -33,13 +33,13 @@ Um die Eingabe zu erstellen, aktualisieren Sie den HTML-Code im folgenden Editor
 
 ## Andere Steuerelemente 2
 
-Nun ist es an der Zeit, ein Dropdown-Auswahlmenü zu implementieren, das einem Benutzer ermöglicht, sein Lieblingsessen aus den bereitgestellten Optionen auszuwählen.
+Jetzt ist es Zeit, ein Dropdown-Auswahlmenü zu implementieren, damit ein Benutzer sein Lieblingsessen aus den bereitgestellten Optionen auswählen kann.
 
-1. Erstellen Sie die Grundstruktur Ihrer Auswahlliste.
+1. Erstellen Sie die grundlegende Struktur der Auswahlliste.
 2. Verknüpfen Sie sie semantisch mit dem bereitgestellten "Essen"-Label.
-3. Teilen Sie die Optionen in der Liste in 2 Untergruppen — "Hauptgerichte" und "Snacks" — auf.
+3. Teilen Sie die Auswahlmöglichkeiten in der Liste in 2 Untergruppen auf — "Hauptgerichte" und "Snacks".
 
-Um das Menü zu erstellen, aktualisieren Sie den HTML-Code im folgenden Editor:
+Um das Menü zu erstellen, aktualisieren Sie den HTML-Code im Editor unten:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/other-controls/other-controls2.html", '100%', 500)}}
 
@@ -49,13 +49,13 @@ Um das Menü zu erstellen, aktualisieren Sie den HTML-Code im folgenden Editor:
 
 ## Andere Steuerelemente 3
 
-In unserer letzten Aufgabe dieser Reihe beginnen wir mit einer ähnlichen Liste von Essensoptionen. Dieses Mal wollen wir jedoch einen anderen Ansatz verfolgen:
+In unserer letzten Aufgabe dieser Reihe beginnen wir mit fast derselben Liste von Essensauswahlmöglichkeiten. Dieses Mal wollen wir jedoch anders vorgehen:
 
-1. Erstellen Sie eine grundlegende Texteingabe, die semantisch mit dem bereitgestellten Label verknüpft ist.
-2. Fügen Sie die Essensoptionen in eine Liste ein, die mit einer Formulareingabe verknüpft werden kann.
-3. Verknüpfen Sie die Liste mit Ihrer Texteingabe, sodass beim Eingeben von Zeichen alle Listenoptionen, die mit der Zeichenfolge übereinstimmen, als Autovervollständigungsvorschläge in einem Dropdown angezeigt werden.
+1. Erstellen Sie ein grundlegendes Texteingabefeld, das semantisch mit dem bereitgestellten Label verknüpft ist.
+2. Geben Sie die Essensauswahlmöglichkeiten in eine Liste ein, die mit einem Formulareingabefeld verknüpft werden kann.
+3. Verknüpfen Sie die Liste mit Ihrem Texteingabefeld, sodass beim Eintippen von Zeichen alle Listeneinträge, die mit der Zeichenfolge übereinstimmen, in einer Dropdown-Liste als Autovervollständigungsvorschläge angezeigt werden.
 
-Um die Eingabe zu erstellen, aktualisieren Sie den HTML-Code im folgenden Editor:
+Um das Eingabefeld zu erstellen, aktualisieren Sie den HTML-Code im Editor unten:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/other-controls/other-controls3.html", '100%', 500)}}
 

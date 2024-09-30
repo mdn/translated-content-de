@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In jeder Programmiersprache ist ein String eine Sequenz von [Zeichen](/de/docs/Glossary/character), die verwendet wird, um Text darzustellen.
+In jeder Programmiersprache ist ein String eine Folge von [Zeichen](/de/docs/Glossary/character), die zur Darstellung von Text verwendet wird.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist ein `String` einer der [primitiven Werte](/de/docs/Glossary/Primitive) und das {{jsxref("String")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen String-Primitiv.
+In [JavaScript](/de/docs/Glossary/JavaScript) ist ein String einer der [Primitiven Werte](/de/docs/Glossary/Primitive) und das {{jsxref("String")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen String-Primitive.
 
 ## Siehe auch
 
-- [String (Informatik)](<https://de.wikipedia.org/wiki/String_(Informatik)>) auf Wikipedia
+- [String (Computerwissenschaft)](<https://en.wikipedia.org/wiki/String_(computer_science)>) auf Wikipedia
 - [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures#string_type)

@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.offsetLeft`** schreibgeschützte Eigenschaft gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links verschoben ist.
+Die schreibgeschützte Eigenschaft **`HTMLElement.offsetLeft`** gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements nach links innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens verschoben ist.
 
-Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Border-Box eines Elements relativ zum `offsetParent`.
+Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` den Rahmen eines Elements relativ zum `offsetParent`.
 
-Für Inline-Elemente (wie **span**), die von einer Linie zur nächsten umbrechen können, beschreiben `offsetTop` und `offsetLeft` die Positionen der _ersten_ Border-Box (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um deren Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen der _umgebenden_ Border-Box beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um deren Position zu erhalten). Daher wird eine Box mit dem linken, oberen, breiten und hohen Wert von `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Begrenzungsbox für ein span mit umbrochenem Text darstellen.
+Bei Inline-Elementen (wie **span**), die von einer Zeile zur nächsten umbrochen werden können, beschreiben `offsetTop` und `offsetLeft` die Positionen des _ersten_ Rahmenkastens (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um seine Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen des _umschließenden_ Rahmenkastens beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um seine Position zu erhalten). Daher wird ein Kasten mit den Ecken `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` kein umschließender Kasten für ein Span mit umbrochenem Text sein.
 
 ## Wert
 
@@ -29,9 +29,9 @@ if (tOLeft > 5) {
 }
 ```
 
-Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines div mit einem blauen Rand umbrochen wird, und ein rotes Kästchen, das die Grenzen des span beschreiben sollte.
+Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Div mit blauem Rahmen umbrochen wird, und eine rote Box, von der man denken könnte, dass sie die Grenzen des Spans beschreibt.
 
-![Ein Satz, der lautet: Kurzes span. Dieser Text befindet sich vollständig innerhalb eines div mit einem blauen Rand. Ein Satz, der lautet: Langer span, der innerhalb dieses div umbrochen wird. Die Wörter "langer span, der umbrochen wird" befinden sich innerhalb eines Kästchens mit einem roten Rand. Die Wörter "innerhalb dieses div" befinden sich innerhalb des div mit dem blauen Rand. ](offsetleft.jpg)
+![Ein Satz, der lautet: Kurzer Span. Dieser Text befindet sich vollständig innerhalb eines Div mit blauem Rahmen. Ein Satz, der lautet: Langer Span, der innerhalb dieses Div umbrochen wird. Die Wörter "langer Span, der umbrochen wird" befinden sich in einer Box mit rotem Rahmen. Die Wörter "innerhalb dieses Div" befinden sich im Div mit dem blauen Rahmen.](offsetleft.jpg)
 
 ```html
 <div

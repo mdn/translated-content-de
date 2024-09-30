@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:apply-templates>`-Element wählt eine Reihe von Knoten im Eingabebaum aus und weist den Prozessor an, die entsprechenden Vorlagen auf sie anzuwenden.
+Das `<xsl:apply-templates>`-Element wählt eine Menge von Knoten im Eingabebaum aus und weist den Prozessor an, die entsprechenden Vorlagen auf sie anzuwenden.
 
 ## Syntax
 
@@ -25,18 +25,18 @@ Keine.
 ### Optionale Attribute
 
 - `select`
-  - : Verwendet einen XPath-Ausdruck, der die zu verarbeitenden Knoten angibt. Ein Sternchen (`*`) wählt die gesamte Knotenmenge aus. Wenn dieses Attribut nicht gesetzt ist, werden alle Kindknoten des aktuellen Knotens ausgewählt.
+  - : Verwendet einen XPath-Ausdruck, der die zu verarbeitenden Knoten spezifiziert. Ein Sternchen (`*`) wählt die gesamte Knotenmenge aus. Wenn dieses Attribut nicht gesetzt ist, werden alle Kindknoten des aktuellen Knotens ausgewählt.
 - `mode`
-  - : Wenn es mehrere Verarbeitungsweisen für denselben Knoten gibt, unterscheidet zwischen ihnen.
+  - : Wenn es mehrere Möglichkeiten der Verarbeitung für denselben Knoten gibt, unterscheidet es zwischen ihnen.
 
 ### Typ
 
-Anweisung, erscheint innerhalb einer Vorlage.
+Instruktion, erscheint innerhalb einer Vorlage.
 
 ## Spezifikationen
 
 XSLT Abschnitt 5.4.
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

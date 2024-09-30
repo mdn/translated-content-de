@@ -1,5 +1,5 @@
 ---
-title: "Response: status Eigenschaft"
+title: "Response: status-Eigenschaft"
 short-title: status
 slug: Web/API/Response/status
 l10n:
@@ -8,20 +8,22 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`status`** schreibgeschützte Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces enthält die [HTTP-Statuscodes](/de/docs/Web/HTTP/Status) der Antwort.
+Die **`status`** schreibgeschützte Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält die [HTTP-Statuscodes](/de/docs/Web/HTTP/Status) der Antwort.
 
-Zum Beispiel `200` für Erfolg, `404`, wenn die Ressource nicht gefunden werden konnte.
+Zum Beispiel `200` bei Erfolg, `404`, wenn die Ressource nicht gefunden werden konnte.
 
 ## Wert
 
-Eine nicht unterschriebene kurze Zahl. Dies ist einer der [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status).
+Eine nicht signierte kurze Zahl.
+Dies ist einer der [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status).
 
 ## Beispiele
 
-In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt unter Verwendung des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors und übergeben ihm einen JPG-Pfad.
-Wir holen diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
+erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors, indem wir ihm einen JPG-Pfad übergeben.
+Wir holen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den `status`-Wert der Antwort in die Konsole protokollieren.
+Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den `status`-Wert der Antwort in der Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

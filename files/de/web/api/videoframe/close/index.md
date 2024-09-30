@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: close()-Methode"
+title: "VideoFrame: Methode close()"
 short-title: close()
 slug: Web/API/VideoFrame/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle löscht alle Zustände und gibt die Referenz auf die Medienressource frei.
+Die **`close()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle löscht alle Zustände und gibt die Referenz zur Medienressource frei.
 
 ## Syntax
 

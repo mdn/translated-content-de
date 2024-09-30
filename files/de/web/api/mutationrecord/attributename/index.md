@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: attributeName-Eigenschaft"
+title: "MutationRecord: Eigenschaft attributeName"
 short-title: attributeName
 slug: Web/API/MutationRecord/attributeName
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeName`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält den Namen eines geänderten Attributs, das zu einem Knoten gehört, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
+Die schreibgeschützte Eigenschaft **`attributeName`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält den Namen eines geänderten Attributs eines Knotens, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `attributes` ist, ist dies ein String, der den Namen des veränderten Attributs des Mutationsziels darstellt.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes `attributes` ist, stellt dies eine Zeichenkette dar, die den Namen des mutierten Attributs des Mutationsziels repräsentiert.
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) nicht `attributes` ist, ist dies `null`.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes nicht `attributes` ist, ist dies `null`.
 
 ## Beispiele
 
 ### Namen des zuletzt aktualisierten Attributs abrufen
 
-Im folgenden Beispiel gibt es vier Schaltflächen: zwei ändern das `style`-Attribut des `h1`-Elements, und zwei ändern das `class`-Attribut des `h1`-Elements. Das Skript verwendet einen [`MutationObserver`](/de/docs/Web/API/MutationObserver), um die Änderungen zu erkennen und aktualisiert den Text darunter auf den Namen des zuletzt geänderten Attributs.
+Im folgenden Beispiel gibt es vier Schaltflächen: Zwei ändern das `style`-Attribut des `<h1>`-Elements, und zwei ändern das `class`-Attribut des `<h1>`-Elements. Das Skript verwendet einen [`MutationObserver`](/de/docs/Web/API/MutationObserver) zur Erkennung der Änderungen und aktualisiert den darunter liegenden Text mit dem Namen des zuletzt geänderten Attributs.
 
 #### HTML
 

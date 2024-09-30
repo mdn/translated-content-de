@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "BigInt negative exponent" tritt auf, wenn ein {{jsxref("BigInt")}} mit einem negativen BigInt-Wert potenziert wird.
+Die JavaScript-Ausnahme "BigInt negative exponent" tritt auf, wenn ein {{jsxref("BigInt")}} auf die Potenz eines negativen BigInt-Wertes erhoben wird.
 
-## Meldung
+## Nachricht
 
 ```plain
 RangeError: Exponent must be positive (V8-based)
@@ -23,7 +23,7 @@ RangeError: Negative exponent is not allowed (Safari)
 
 ## Was ist schiefgelaufen?
 
-Der Exponent einer [Potenzierungsoperation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) muss positiv sein. Da negative Exponenten den Kehrwert der Basis nehmen würden, liegt das Ergebnis in fast allen Fällen zwischen -1 und 1, was auf `0n` gerundet wird. Um Fehler zu vermeiden, sind negative Exponenten nicht erlaubt. Überprüfen Sie, ob der Exponent nicht negativ ist, bevor Sie die Potenzierung durchführen.
+Der Exponent einer [Potenzierungsoperation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) muss positiv sein. Da negative Exponenten den Kehrwert der Basis nehmen würden, liegt das Ergebnis in fast allen Fällen zwischen -1 und 1, was auf `0n` gerundet wird. Um Fehler zu vermeiden, sind negative Exponenten nicht erlaubt. Überprüfen Sie, ob der Exponent vor der Potenzierung nicht negativ ist.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ const c = a ** b;
 // RangeError: BigInt negative exponent
 ```
 
-Stattdessen sollten Sie zuerst prüfen, ob der Exponent negativ ist und entweder einen Fehler mit einer besseren Nachricht ausgeben oder auf einen anderen Wert, wie `0n` oder `undefined`, zurückgreifen.
+Stattdessen sollten Sie zuerst prüfen, ob der Exponent negativ ist, und entweder mit einer besseren Fehlermeldung reagieren oder auf einen anderen Wert wie `0n` oder `undefined` zurückgreifen.
 
 ```js example-good
 const a = 1n;

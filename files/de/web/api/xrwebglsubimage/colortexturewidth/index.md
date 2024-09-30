@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`colorTextureWidth`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces ist eine Zahl, die die Breite in Pixeln des GL-Anhangs darstellt.
+Die schreibgeschützte **`colorTextureWidth`**-Eigenschaft der [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Schnittstelle ist eine Zahl, die die Breite in Pixeln des GL-Aufsatzes darstellt.
 
 ## Wert
 

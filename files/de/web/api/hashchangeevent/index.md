@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Schnittstelle **`HashChangeEvent`** repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL ändert.
+Die **`HashChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL geändert hat.
 
-Der Fragmentbezeichner ist der Teil der URL, der dem `#`-Symbol folgt (und dieses einschließt).
+Der Fragmentbezeichner ist der Teil der URL, der auf das Symbol `#` folgt (und es einschließt).
 
 {{InheritanceDiagram}}
 
@@ -20,16 +20,16 @@ Der Fragmentbezeichner ist der Teil der URL, der dem `#`-Symbol folgt (und diese
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch die Eigenschaften ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
 - [`HashChangeEvent.newURL`](/de/docs/Web/API/HashChangeEvent/newURL) {{ReadOnlyInline}}
   - : Die neue URL, zu der das Fenster navigiert.
 - [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
-  - : Die vorherige URL, von der aus das Fenster navigierte.
+  - : Die vorherige URL, von der das Fenster navigiert wurde.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 

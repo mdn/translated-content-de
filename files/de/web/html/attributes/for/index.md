@@ -8,19 +8,19 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`for`**-Attribut ist ein zulässiges Attribut für {{htmlelement("label")}} und {{htmlelement("output")}}. Wenn es in einem `<label>`-Element verwendet wird, gibt es das Formular-Element an, das durch dieses Label beschrieben wird. Bei Verwendung in einem `<output>`-Element ermöglicht es eine explizite Beziehung zwischen den Elementen, die Werte repräsentieren, die im Output verwendet werden.
+Das **`for`**-Attribut ist ein erlaubtes Attribut für {{htmlelement("label")}} und {{htmlelement("output")}}. Wenn es auf ein `<label>`-Element angewendet wird, zeigt es das Formularelement an, das durch dieses Label beschrieben wird. Wenn es auf ein `<output>`-Element angewendet wird, ermöglicht es eine explizite Beziehung zwischen den Elementen, die Werte darstellen, die in der Ausgabe verwendet werden.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-for.html", "tabbed-shorter")}}
 
 ## Verwendung
 
-Wenn das `for`-Attribut als Attribut von `<label>` verwendet wird, hat es einen Wert, der die `id` des Formular-Elements ist, auf das es sich bezieht.
+Wenn es als Attribut von `<label>` verwendet wird, hat das `for`-Attribut einen Wert, der der `id` des Formularelements entspricht, auf das es sich bezieht.
 
 ```html
 <label for="username">Your name</label> <input type="text" id="username" />
 ```
 
-Wenn das `for`-Attribut als Attribut von `<output>` verwendet wird, hat es einen Wert, der eine durch Leerzeichen getrennte Liste der `id`-Werte der Elemente ist, die verwendet werden, um den Output zu erzeugen.
+Wenn es als Attribut von `<output>` verwendet wird, hat das `for`-Attribut einen Wert, der eine durch Leerzeichen getrennte Liste der `id`-Werte der Elemente ist, die zur Erstellung der Ausgabe verwendet werden.
 
 ```html
 <input type="range" id="b" name="b" value="50" /> +

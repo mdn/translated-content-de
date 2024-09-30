@@ -23,9 +23,9 @@ let count = browser.declarativeNetRequest.setExtensionActionOptions(
 
   - : Ein Objekt, das die Konfigurationsdetails für die Aktionsanzahl für Tabs enthält.
     - `displayActionCountAsBadgeText` {{optional_inline}}
-      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badge-Text der Erweiterung angezeigt wird. Diese Präferenz bleibt über Sitzungen hinweg bestehen.
+      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badge-Text der Erweiterung angezeigt wird. Diese Präferenz bleibt über Sitzungen hinweg erhalten.
     - `tabUpdate` {{optional_inline}}
-      - : `object`. Details, wie die Aktionsanzahl des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
+      - : `object`. Details darüber, wie die Aktionsanzahl des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -38,7 +38,7 @@ let count = browser.declarativeNetRequest.setExtensionActionOptions(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn die Anforderung fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are

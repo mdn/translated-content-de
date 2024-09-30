@@ -1,5 +1,5 @@
 ---
-title: "LaunchQueue: setConsumer()-Methode"
+title: "LaunchQueue: setConsumer() Methode"
 short-title: setConsumer()
 slug: Web/API/LaunchQueue/setConsumer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die **`setConsumer()`**-Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Schnittstelle wird verwendet, um den Callback zu deklarieren, der die benutzerdefinierte Startnavigation in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) bearbeiten wird. Solch eine benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Manifest/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
+Die **`setConsumer()`**-Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Schnittstelle wird verwendet, um den Rückruf zu deklarieren, der die benutzerdefinierte Startnavigation in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) behandelt. Eine solche benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Manifest/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setConsumer(callback)
 ### Parameter
 
 - `callback`
-  - : Eine Callback-Funktion, die die benutzerdefinierte Navigation für die PWA behandelt. Der Callback wird eine [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter übergeben.
+  - : Eine Rückruffunktion, die die benutzerdefinierte Navigation für die PWA behandelt. Der Rückruf erhält eine [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter.
 
 ### Rückgabewert
 

@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`431 Request Header Fields Too Large`** ([Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses)) gibt an, dass der Server die Anfrage ablehnt, weil die [HTTP-Header](/de/docs/Web/HTTP/Headers) der Anfrage zu lang sind.
-Die Anfrage kann erneut gestellt werden, nachdem die Größe der Anfrage-Header reduziert wurde.
+Der HTTP-Statuscode **`431 Request Header Fields Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage nicht verarbeiten kann, da die [HTTP-Header](/de/docs/Web/HTTP/Headers) der Anfrage zu lang sind.
+Die Anfrage kann erneut gesendet werden, nachdem die Größe der Anfrage-Header verringert wurde.
 
 431 kann verwendet werden, wenn die Gesamtgröße der Anfrage-Header zu groß ist oder wenn ein einzelnes Header-Feld zu groß ist.
-Um Clients zu helfen, die auf diesen Fehler stoßen, geben Sie im Antwortkörper an, welches der beiden Probleme vorliegt und idealerweise, welche Header zu groß sind.
-Dies ermöglicht es den Nutzern, das Problem zu beheben, z.B. durch das Löschen von Cookies.
+Um Clients zu helfen, die auf diesen Fehler stoßen, sollte im Antworttext angegeben werden, welches der beiden Probleme vorliegt und idealerweise, welche Header zu groß sind.
+Dies ermöglicht es den Personen, das Problem zu beheben, beispielsweise durch das Löschen von Cookies.
 
 Server erzeugen diesen Status häufig, wenn:
 
@@ -29,7 +29,7 @@ Server erzeugen diesen Status häufig, wenn:
 
 ### Header-Feld zu groß
 
-Im folgenden Beispiel ist der {{httpheader("Cookie")}}-Header in der Anfrage zu groß:
+Im folgenden Beispiel ist der {{httpheader("Cookie")}}-Header zu groß in der Anfrage:
 
 ```http
 GET /doc HTTP/1.1
@@ -37,7 +37,7 @@ Host: example.com
 Cookie: cookie1=value1; cookie2=value2; cookie3=[…]
 ```
 
-Der Server antwortet mit einer Meldung, die angibt, welcher Header problematisch war:
+Der Server antwortet mit einer Nachricht, die angibt, welcher Header problematisch war:
 
 ```http
 HTTP/1.1 431 Request Header Fields Too Large
@@ -60,6 +60,6 @@ Content-Type: text/html
 
 ## Siehe auch
 
-- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("414", "414 URI Too Long")}}
 - [Anfrage-Header](/de/docs/Glossary/Request_header)

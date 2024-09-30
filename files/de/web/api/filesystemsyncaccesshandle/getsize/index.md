@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`getSize()`**-Methode des [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Interfaces gibt die Größe der mit dem Handle verknüpften Datei in Bytes zurück.
+Die **`getSize()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle gibt die Größe der mit dem Handle verbundenen Datei in Bytes zurück.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), `getSize()`, und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden festgelegt, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), `getSize()` und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden angegeben, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Aktuelle Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
 
 ## Syntax
 
@@ -30,17 +30,17 @@ Eine Zahl, die die Größe der Datei in Bytes darstellt.
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
+  - : Wird ausgelöst, wenn das zugehörige Zugriffshandle bereits geschlossen ist.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignis-Handler-Funktion befindet sich in einem Web Worker. Beim Empfang einer Nachricht aus dem Hauptthread:
+Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Bei Empfang einer Nachricht vom Hauptthread wird:
 
-- Erzeugt sie ein synchrones Datei-Zugriffs-Handle.
-- Ermittelt sie die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}} zur Aufnahme dieser.
-- Liest sie den Dateiinhalt in den Puffer.
-- Codiert sie die Nachricht und schreibt sie ans Ende der Datei.
-- Speichert sie die Änderungen auf der Festplatte und schließt das Zugriffs-Handle.
+- Ein synchrones Datei-Zugriffshandle erstellt.
+- Die Größe der Datei ermittelt und ein {{jsxref("ArrayBuffer")}} erstellt, der sie enthält.
+- Der Dateiinhalte in den Puffer gelesen.
+- Die Nachricht codiert und ans Ende der Datei geschrieben.
+- Die Änderungen auf die Festplatte übermittelt und das Zugriffshandle geschlossen.
 
 ```js
 onmessage = async (e) => {
@@ -83,4 +83,4 @@ onmessage = async (e) => {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

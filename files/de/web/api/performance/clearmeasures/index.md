@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`clearMeasures()`**-Methode entfernt alle oder spezifische [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte aus der Leistungstimeline des Browsers.
+Die **`clearMeasures()`** Methode entfernt alle oder spezifische [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte aus der Performance-Zeitleiste des Browsers.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ clearMeasures(name)
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Ein Zeichenfolgenwert, der den [`name`](/de/docs/Web/API/PerformanceEntry/name) des [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekts darstellt. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"` entfernt.
+  - : Ein String, der den [`name`](/de/docs/Web/API/PerformanceEntry/name) des [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekts repräsentiert. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"` entfernt.
 
 ### Rückgabewert
 
@@ -28,9 +28,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Entfernen von Maßnahmen
+### Entfernen von Messungen
 
-Um alle Performance-Maßnahmen oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMeasures()`-Methode wie folgt:
+Um alle Performance-Messungen oder nur spezifische Einträge zu bereinigen, verwenden Sie die Methode `clearMeasures()` wie folgt:
 
 ```js
 // Create a bunch of measures

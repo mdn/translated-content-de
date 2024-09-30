@@ -7,16 +7,16 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die Schnittstelle `CaretPosition` stellt die Caret-Position dar, einen Indikator für den Texteinfügepunkt. Sie können eine `CaretPosition` mit der Methode [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint) erhalten.
+Das `CaretPosition`-Interface repräsentiert die Caret-Position, einen Indikator für die Text-Einfügestelle. Sie können eine `CaretPosition` mithilfe der [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint) Methode erhalten.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt keine Eigenschaften._
+_Dieses Interface erbt keine Eigenschaften._
 
 - [`CaretPosition.offsetNode`](/de/docs/Web/API/CaretPosition/offsetNode) {{ReadOnlyInline}}
-  - : Gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der den gefundenen Knoten an der Caret-Position enthält.
+  - : Gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der den am Caret-Position gefundene Knoten enthält.
 - [`CaretPosition.offset`](/de/docs/Web/API/CaretPosition/offset) {{ReadOnlyInline}}
-  - : Gibt ein `long` zurück, das den Zeichenoffset im Caret-Positionsknoten darstellt.
+  - : Gibt einen `long` zurück, der den Zeichen-Offset im Caret-Positionsknoten repräsentiert.
 
 ## Instanz-Methoden
 

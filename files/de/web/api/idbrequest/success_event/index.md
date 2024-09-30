@@ -1,5 +1,5 @@
 ---
-title: "IDBRequest: success Ereignis"
+title: "IDBRequest: success-Ereignis"
 short-title: success
 slug: Web/API/IDBRequest/success_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Das `success` Ereignis wird ausgelöst, wenn eine `IDBRequest` erfolgreich abgeschlossen wird. Im `success` Ereignis-Handler können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen an dieselbe Transaktion stellen.
+Das `success`-Ereignis wird ausgelöst, wenn ein `IDBRequest` erfolgreich ist. Im `success`-Ereignishandler können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen an dieselbe Transaktion stellen.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("success", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel wird versucht, eine Datenbank zu öffnen und auf das `success` Ereignis mit `addEventListener()` gehört:
+Dieses Beispiel versucht, eine Datenbank zu öffnen und hört das `success`-Ereignis mit `addEventListener()` ab:
 
 ```js
 // Open the database
@@ -59,7 +59,7 @@ openRequest.addEventListener("success", (event) => {
 });
 ```
 
-Dasselbe Beispiel, aber mit der `onsuccess` Ereignis-Handler-Eigenschaft:
+Das gleiche Beispiel, aber unter Verwendung der `onsuccess`-Ereignishandler-Eigenschaft:
 
 ```js
 // Open the database

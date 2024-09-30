@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Der **`item`**-Getter der [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Schnittstelle ist ein Standard-Getter — er ermöglicht den Zugriff auf [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste über Array-Syntax.
+Der **`item`**-Getter der
+[`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Schnittstelle ist ein Standard-Getter – er ermöglicht den Zugriff auf
+[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste über die Array-Syntax.
 
 ## Syntax
 
@@ -27,7 +29,8 @@ Ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekt
 
 ## Beispiele
 
-Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem
+[Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {

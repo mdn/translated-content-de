@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`tabindex`** Attribut ermöglicht es Ihnen zu steuern, ob ein Element fokussierbar ist und die relative Reihenfolge des Elements für sequentielle Fokusnavigation zu definieren.
+Das **`tabindex`**-Attribut ermöglicht es Ihnen, zu steuern, ob ein Element fokussierbar ist, und die relative Reihenfolge des Elements für die Zwecke der sequenziellen Fokussierung zu definieren.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -31,7 +31,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "260", "260")}}
+{{EmbedLiveSample("Beispiel", "260", "260")}}
 
 ## Nutzungshinweise
 
@@ -55,7 +55,7 @@ svg {
 </table>
 
 - gültige Ganzzahl
-  - : Relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokusnavigation.
+  - : Relative Reihenfolge des Elements für die Zwecke der sequenziellen Fokussierung.
 
 ## Spezifikationen
 

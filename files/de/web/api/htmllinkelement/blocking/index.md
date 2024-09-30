@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`blocking`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollten.
+Die **`blocking`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollen.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungs-Token sein, die die zu blockierenden Operationen angeben:
+Ein String. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blockierungs-Tokens sein, die die zu blockierenden Operationen angeben:
 
 - `render`
-  - : Die Darstellung des Inhalts auf dem Bildschirm wird blockiert.
+  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 

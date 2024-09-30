@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpTransceiver: stop() Methode"
+title: "RTCRtpTransceiver: stop()-Methode"
 short-title: stop()
 slug: Web/API/RTCRtpTransceiver/stop
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`stop()`**-Methode im [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Interface stoppt den Transceiver dauerhaft, indem sowohl der zugehörige [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) als auch der
-[`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gestoppt werden.
+Die **`stop()`**-Methode der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Schnittstelle stoppt dauerhaft den Transceiver, indem sowohl der zugehörige [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) als auch der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gestoppt werden.
 
 ## Syntax
 
@@ -32,15 +31,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Wenn Sie `stop()` auf einem Transceiver aufrufen, hört der Sender sofort auf, Medien zu senden, und jeder seiner RTP-Ströme wird mit der [RTCP](/de/docs/Glossary/RTCP) `"BYE"`-Nachricht geschlossen.
-Der Empfänger stellt dann den Empfang von Medien ein; die [`track`](/de/docs/Web/API/RTCRtpReceiver/track) des Empfängers wird gestoppt, und die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers wird auf `stopped` gesetzt.
+Wenn Sie `stop()` auf einem Transceiver aufrufen, stoppt der Sender sofort das Senden von Medien, und jeder seiner RTP-Streams wird mithilfe der [RTCP](/de/docs/Glossary/RTCP)-`"BYE"`-Nachricht geschlossen.
+Der Empfänger hört dann auf, Medien zu empfangen; der [`track`](/de/docs/Web/API/RTCRtpReceiver/track) des Empfängers wird gestoppt, und die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers wird auf `stopped` geändert.
 Eine Neuverhandlung wird ausgelöst, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Transceivers gesendet wird, damit die Verbindung sich an die Änderung anpassen kann.
 
 Die Methode tut nichts, wenn der Transceiver bereits gestoppt ist.
-Sie können überprüfen, ob er gestoppt wurde, indem Sie [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) mit `"stopped"` vergleichen.
+Sie können überprüfen, ob er gestoppt ist, indem Sie [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) mit `"stopped"` vergleichen.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation verwendeten die veraltete [`stopped`](/de/docs/Web/API/RTCRtpTransceiver/stopped) {{deprecated_inline}}-Eigenschaft, um anzugeben, ob der Transceiver gestoppt wurde.
+> Frühere Versionen der Spezifikation verwendeten die veraltete [`stopped`](/de/docs/Web/API/RTCRtpTransceiver/stopped) {{deprecated_inline}} Eigenschaft, um anzuzeigen, ob der Transceiver gestoppt wurde.
 
 ## Spezifikationen
 

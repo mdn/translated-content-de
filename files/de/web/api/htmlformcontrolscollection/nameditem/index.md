@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
+Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt das [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
 
-Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Version verdeckt. Wie jene können Sie in JavaScript die Array-Klammer-Syntax mit einem {{jsxref("String")}}, z.B. `collection["value"]`, verwenden, was äquivalent zu `collection.namedItem("value")` ist.
+Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Version verbirgt. Wie diese, ist es in JavaScript, das Array-Klammer-Syntax mit einem {{jsxref("String")}} zu verwenden, wie `collection["value"]`, gleichbedeutend mit `collection.namedItem("value")`.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ namedItem(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der verwendet wird, um mit den `name`- oder `id`-Attributen der Steuerelemente in diesem `HTMLFormControlsCollection`-Objekt übereinzustimmen.
+  - : Ein String, der verwendet wird, um mit den `name` oder `id` Attributen der Steuerelemente in diesem `HTMLFormControlsCollection` Objekt zu vergleichen.
 
 ### Rückgabewert
 
-- Eine [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), ein [`Element`](/de/docs/Web/API/Element) oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+- Ein [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), [`Element`](/de/docs/Web/API/Element) oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Interfaces gibt die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Schnittstelle gibt die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste zurück.
 
 ## Wert
 
-Ein Ganzzahlwert, der die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste darstellt.
+Ein ganzzahliger Wert, der die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste darstellt.
 
 ## Beispiele
 
-Zu erledigen
+To Do
 
 ## Spezifikationen
 

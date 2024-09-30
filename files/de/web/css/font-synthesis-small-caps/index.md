@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-small-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen festzulegen, ob der Browser eine Small-Caps-Schriftart synthetisieren darf, wenn diese in einer Schriftfamilie fehlt. Small-Caps-Glyphen verwenden in der Regel die Form von Großbuchstaben, sind jedoch auf die Größe von Kleinbuchstaben reduziert.
+Die **`font-synthesis-small-caps`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, festzulegen, ob der Browser Kleinbuchstaben in Versalien generieren darf, wenn sie in einer Schriftfamilie fehlen. Kleinbuchstaben verwenden typischerweise die Form von Großbuchstaben, sind aber auf die Größe von Kleinbuchstaben reduziert.
 
-Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftartensynthesewerte zu steuern.
+Oft ist es praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte für die Schriftartensynthese zu steuern.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ font-synthesis-small-caps: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass die fehlende Small-Caps-Schriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlenden Kleinbuchstaben vom Browser bei Bedarf synthetisiert werden können.
 - `none`
-  - : Gibt an, dass die Synthese der fehlenden Small-Caps-Schriftart durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese der fehlenden Kleinbuchstaben durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ font-synthesis-small-caps: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese von Small-Caps-Schriftarten
+### Deaktivieren der Synthese von Kleinbuchstaben
 
-Dieses Beispiel zeigt, wie die Synthese der Small-Caps-Schriftart durch den Browser in der `Montserrat`-Schriftart deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese von Kleinbuchstaben durch den Browser in der Schrift `Montserrat` deaktiviert wird.
 
 #### HTML
 
@@ -91,6 +91,6 @@ Dieses Beispiel zeigt, wie die Synthese der Small-Caps-Schriftart durch den Brow
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Shorthand, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-weight")}}
-- [CanvasRenderingContext2D: fontVariantCaps-Eigenschaft](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)
+- [CanvasRenderingContext2D: fontVariantCaps Eigenschaft](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)

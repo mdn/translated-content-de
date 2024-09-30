@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Das **`WebTransportDatagramDuplexStream`**-Interface der [WebTransport API](/de/docs/Web/API/WebTransport_API) repräsentiert einen Duplex-Stream, der für den unzuverlässigen Transport von Datagrammen zwischen Client und Server verwendet werden kann. Es bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Datagramme, einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Datagramme und verschiedene Einstellungen und Statistiken im Zusammenhang mit dem Stream.
+Das **`WebTransportDatagramDuplexStream`** Interface der [WebTransport API](/de/docs/Web/API/WebTransport_API) repräsentiert einen Duplex-Stream, der für den unzuverlässigen Transport von Datagrammen zwischen Client und Server genutzt werden kann. Es bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Datagramme, einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Datagramme sowie verschiedene Einstellungen und Statistiken in Bezug auf den Stream.
 
-Dies ist über die [`WebTransport.datagrams`](/de/docs/Web/API/WebTransport/datagrams)-Eigenschaft zugänglich.
+Der Zugriff erfolgt über die [`WebTransport.datagrams`](/de/docs/Web/API/WebTransport/datagrams) Eigenschaft.
 
-"Unzuverlässig" bedeutet, dass die Übertragung von Daten nicht garantiert wird, noch eine bestimmte Reihenfolge des Eintreffens. Dies ist in einigen Situationen akzeptabel und ermöglicht eine sehr schnelle Zustellung. Zum Beispiel könnte man regelmäßige Spielstandsaktualisierungen übertragen, bei denen jede Nachricht die letzte eingetroffene überschreibt und die Reihenfolge unwichtig ist.
+„Unzuverlässig“ bedeutet, dass die Datenübertragung nicht garantiert ist, noch die Reihenfolge des Eintreffens. Dies ist in einigen Situationen in Ordnung und ermöglicht eine sehr schnelle Lieferung. Beispielsweise könnten Sie regelmäßige Aktualisierungen des Spielstands übertragen wollen, bei denen jede Nachricht die letzte übertrifft, und die Reihenfolge nicht wichtig ist.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
 - [`incomingHighWaterMark`](/de/docs/Web/API/WebTransportDatagramDuplexStream/incomingHighWaterMark)
-  - : Holt oder setzt den "High Water Mark" für eingehende Datenblöcke — dies ist die maximale Größe in Blöcken, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll gilt. Weitere Informationen finden Sie unter [Interne Warteschlangen und Wartestrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
+  - : Ruft die High-Water-Mark für eingehende Datenblöcke ab oder setzt diese — dies ist die maximale Größe in Datenblöcken, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll betrachtet wird. Siehe [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für weitere Informationen.
 - [`incomingMaxAge`](/de/docs/Web/API/WebTransportDatagramDuplexStream/incomingMaxAge)
-  - : Holt oder setzt das maximale Alter für eingehende Datagramme in Millisekunden. Gibt `null` zurück, wenn kein maximales Alter festgelegt wurde.
+  - : Ruft das maximale Alter für eingehende Datagramme in Millisekunden ab oder setzt es. Gibt `null` zurück, wenn kein maximales Alter festgelegt wurde.
 - [`maxDatagramSize`](/de/docs/Web/API/WebTransportDatagramDuplexStream/maxDatagramSize) {{ReadOnlyInline}}
-  - : Gibt die maximal zulässige Größe von ausgehenden Datagrammen in Bytes zurück, die in [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) geschrieben werden können.
+  - : Gibt die maximale zulässige Größe ausgehender Datagramme in Bytes zurück, die in [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) geschrieben werden können.
 - [`outgoingHighWaterMark`](/de/docs/Web/API/WebTransportDatagramDuplexStream/outgoingHighWaterMark)
-  - : Holt oder setzt den "High Water Mark" für ausgehende Datenblöcke — dies ist die maximale Größe in Blöcken, die die interne Warteschlange des ausgehenden [`WritableStream`](/de/docs/Web/API/WritableStream) erreichen kann, bevor sie als voll gilt. Weitere Informationen finden Sie unter [Interne Warteschlangen und Wartestrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
+  - : Ruft die High-Water-Mark für ausgehende Datenblöcke ab oder setzt diese — dies ist die maximale Größe in Datenblöcken, die die interne Warteschlange des ausgehenden [`WritableStream`](/de/docs/Web/API/WritableStream) erreichen kann, bevor sie als voll betrachtet wird. Siehe [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für weitere Informationen.
 - [`outgoingMaxAge`](/de/docs/Web/API/WebTransportDatagramDuplexStream/outgoingMaxAge)
-  - : Holt oder setzt das maximale Alter für ausgehende Datagramme in Millisekunden. Gibt `null` zurück, wenn kein maximales Alter festgelegt wurde.
+  - : Ruft das maximale Alter für ausgehende Datagramme in Millisekunden ab oder setzt es. Gibt `null` zurück, wenn kein maximales Alter festgelegt wurde.
 - [`readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable) {{ReadOnlyInline}}
-  - : Gibt eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die verwendet werden kann, um eingehende Datagramme aus dem Stream zu lesen.
+  - : Gibt eine [`ReadableStream`](/de/docs/Web/API/ReadableStream) Instanz zurück, die verwendet werden kann, um eingehende Datagramme aus dem Stream zu lesen.
 - [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) {{ReadOnlyInline}}
-  - : Gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die verwendet werden kann, um ausgehende Datagramme in den Stream zu schreiben.
+  - : Gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream) Instanz zurück, die verwendet werden kann, um ausgehende Datagramme in den Stream zu schreiben.
 
 ## Beispiele
 
 ### Schreiben ausgehender Datagramme
 
-Die [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable)-Eigenschaft gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurück, in das Sie Daten mithilfe eines Writers für die Übertragung an den Server schreiben können:
+Die [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) Eigenschaft gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream) Objekt zurück, in das Sie Daten mit einem Writer schreiben können, um sie an den Server zu senden:
 
 ```js
 const writer = transport.datagrams.writable.getWriter();
@@ -48,7 +48,7 @@ writer.write(data2);
 
 ### Lesen eingehender Datagramme
 
-Die [`readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable)-Eigenschaft gibt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt zurück, mit dem Sie Daten vom Server empfangen können:
+Die [`readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable) Eigenschaft gibt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) Objekt zurück, das Sie verwenden können, um Daten vom Server zu empfangen:
 
 ```js
 async function readData() {
@@ -74,7 +74,7 @@ async function readData() {
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

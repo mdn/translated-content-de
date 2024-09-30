@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft der
-[`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle gibt die Anzahl der Elemente in der Drag-Item-Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle gibt die Anzahl der Elemente in der Drag-Elementenliste zurück, die sich aktuell darin befinden.
 
 ## Wert
 
-Die Anzahl der Drag-Datenobjekte in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Item-Liste gilt als deaktiviert, wenn das `DataTransfer`-Objekt der Elementliste nicht mit einem Drag-Daten-Speicher verknüpft ist.
+Die Anzahl der Drag-Daten-Elemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Elementenliste wird als deaktiviert betrachtet, wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt der Elementliste nicht mit einem Drag-Daten-Speicher verknüpft ist.
 
 ## Beispiele
 

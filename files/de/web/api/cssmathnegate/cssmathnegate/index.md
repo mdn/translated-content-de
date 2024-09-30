@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSMathNegate()`** Konstruktor erstellt ein neues [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate) Objekt, das den übergebenen Wert negiert.
+Der **`CSSMathNegate()`** Konstruktor erstellt ein
+neues [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate) Objekt, das den übergebenen Wert negiert.
 
 ## Syntax
 
@@ -23,7 +24,7 @@ new CSSMathNegate(arg)
 
 ## Beispiele
 
-To do
+Noch zu erstellen
 
 ## Spezifikationen
 

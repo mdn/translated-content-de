@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Fenster verknüpft wird. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getWindowValue")}} abrufen.
+Speichert ein Schlüssel/Wert-Paar, das einem bestimmten Fenster zugeordnet wird. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getWindowValue")}} abrufen.
 
 Beachten Sie, dass diese Daten nur für die Erweiterung sichtbar sind, die sie gesetzt hat, und nicht für andere Erweiterungen.
 
@@ -26,15 +26,15 @@ let storing = browser.sessions.setWindowValue(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, mit dem Sie die Daten verknüpfen möchten. Es wird ein Fehler ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Fensters, dem Sie die Daten zuordnen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, den Sie später verwenden können, um diesen speziellen Datenwert abzurufen.
+  - : `string`. Schlüssel, den Sie später verwenden können, um diesen bestimmten Datenwert abzurufen.
 - `value`
-  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringifiziert](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Objektmethoden zum Beispiel weggelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
+  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringifiziert](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass beispielsweise Objektmethoden weggelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -42,7 +42,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Setzen Sie einen Wert im aktiven Fenster, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die "menus"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
+Setzen Sie einen Wert auf dem aktiven Fenster, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die "menus" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
 
 ```js
 async function setOnActiveWindow() {

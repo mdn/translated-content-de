@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_color_buffer_float`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die Möglichkeit hinzu, in 32-Bit-Gleitkomma-Farbpuffer zu rendern.
+Die **`WEBGL_color_buffer_float`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die Fähigkeit hinzu, zu 32-Bit-Gleitkommafarbpuffern zu rendern.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
 > Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}}-Kontexte verfügbar. Für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} verwenden Sie die [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung.
 >
-> Die [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung aktiviert implizit diese Erweiterung.
+> Die [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung aktiviert diese Erweiterung implizit.
 
 ## Konstanten
 
 - `ext.RGBA32F_EXT`
-  - : RGBA 32-Bit-Gleitkomma-farbwiedergebbares Format.
+  - : RGBA 32-Bit Gleitkomma-Farb-Renderformat.
 - `ext.RGB32F_EXT` ({{deprecated_inline}})
-  - : RGB 32-Bit-Gleitkomma-farbwiedergebbares Format.
+  - : RGB 32-Bit Gleitkomma-Farb-Renderformat.
 - `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`
   - : ?
 - `ext.UNSIGNED_NORMALIZED_EXT`

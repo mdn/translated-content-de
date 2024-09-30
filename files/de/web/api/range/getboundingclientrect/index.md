@@ -1,5 +1,5 @@
 ---
-title: "Range: getBoundingClientRect()-Methode"
+title: "Range: getBoundingClientRect() Methode"
 short-title: getBoundingClientRect()
 slug: Web/API/Range/getBoundingClientRect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.getBoundingClientRect()`**-Methode gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt zurück, das den Inhalt des Bereichs eingrenzt; dies ist ein Rechteck, das die Vereinigung der Begrenzungsrechtecke aller Elemente im Bereich umschließt.
+Die **`Range.getBoundingClientRect()`** Methode gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt zurück, das den Inhalt des Bereichs umfasst; dies ist ein Rechteck, das die Vereinigung der Begrenzungsrechtecke aller Elemente im Bereich umschließt.
 
 Diese Methode ist nützlich, um die Ansichtskoordinaten des Cursors oder der Auswahl innerhalb eines Textfelds zu bestimmen. Siehe [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) für Details zum zurückgegebenen Wert.
 
@@ -83,6 +83,6 @@ highlight.style.height = `${clientRect.height}px`;
 
 ## Siehe auch
 
-- [`Range.getClientRects()`](/de/docs/Web/API/Range/getClientRects) - detailliertere Ergebnisse für nicht-rechteckige Bereiche (z.B. wenn die Auswahl auf die nächste Zeile umbricht);
+- [`Range.getClientRects()`](/de/docs/Web/API/Range/getClientRects) - detailliertere Ergebnisse für nicht-rechteckige Bereiche (z. B. wenn die Auswahl in die nächste Zeile umbricht);
 - [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)
-- [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint) - um den (Knoten, Versatz) aus den Ansichtskoordinaten zu erhalten.
+- [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint) - um die (Node, Offset) von Ansichtskoordinaten zu erhalten.

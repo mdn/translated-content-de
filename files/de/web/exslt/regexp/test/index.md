@@ -20,20 +20,20 @@ regexp:test(testString, regExpString[, flagsString])
 - `testString`
   - : Der zu prüfende String.
 - `regExpString`
-  - : Der zu bewertende reguläre Ausdruck im JavaScript-Stil.
+  - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet werden soll.
 - `flagsString` {{optional_inline}}
   - : Ein optionaler String, der Zeichenflags enthält.
 
 Die Zeichenflags sind:
 
 - `g`
-  - : Globale Übereinstimmung. Hat keine Auswirkung für diese Funktion; es ist erlaubt, um Konsistenz mit anderen `regexp`-Funktionen zu gewährleisten.
+  - : Globaler Match. Hat keine Wirkung für diese Funktion; erlaubt zur Konsistenz mit anderen regexp-Funktionen.
 - `i`
-  - : Groß-/Kleinschreibung ignorieren. Wenn dieses Flag angegeben wird, erfolgt die Übereinstimmung ohne Beachtung der Groß-/Kleinschreibung.
+  - : Groß-/Kleinschreibung ignorieren. Wenn dieses Flag angegeben ist, wird die Übereinstimmung ohne Berücksichtigung der Groß-/Kleinschreibung durchgeführt.
 
 ### Rückgabewert
 
-`true`, wenn der angegebene `regexp` mit dem Teststring übereinstimmt.
+`true`, wenn der angegebene reguläre Ausdruck mit dem Teststring übereinstimmt.
 
 ## Spezifikationen
 

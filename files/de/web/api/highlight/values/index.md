@@ -1,5 +1,5 @@
 ---
-title: "Highlight: Werte() Methode"
+title: "Highlight: values() Methode"
 short-title: values()
 slug: Web/API/Highlight/values
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`values()`** Methode der [`Highlight`](/de/docs/Web/API/Highlight) Schnittstelle liefert ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Objekt, das die Werte für jedes `Range` Objekt im `Highlight` Objekt in der Einfügereihenfolge enthält.
+Die **`values()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jedes `Range`-Objekt im `Highlight`-Objekt in der Einfügereihenfolge enthält.
 
 > [!NOTE]
-> Die **`keys()`** Methode ist ein Alias für diese Methode. Sie verhält sich genau gleich und liefert **Werte** der `Highlight` Elemente.
+> Die **`keys()`**-Methode ist ein Alias für diese Methode. Sie verhält sich exakt gleich und gibt **Werte** der `Highlight`-Elemente zurück.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Set.values()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.values()")}}.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ values()
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das jedes `Range` Objekt im gegebenen `Highlight` in der Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das jedes `Range`-Objekt im angegebenen `Highlight` in Einfügereihenfolge enthält.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie man ein neues `Highlight` Objekt mit drei `Range` Objekten erstellt und den vom `values()`-Methodeniterator zurückgegebenen Iterator verwendet, um die drei Bereiche zu protokollieren:
+Der folgende Codeausschnitt zeigt, wie ein neues `Highlight`-Objekt mit drei `Range`-Objekten erstellt wird und wie der Iterator verwendet wird, der von der `values()`-Methode zurückgegeben wird, um die drei Bereiche zu protokollieren:
 
 ```js
 const myHighlight = new Highlight();
@@ -53,4 +53,4 @@ for (value of iter) {
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

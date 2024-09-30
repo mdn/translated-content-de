@@ -7,11 +7,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die **`Accelerometer`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Ablesung die Beschleunigung, die auf das Gerät entlang aller drei Achsen angewendet wird.
+Das **`Accelerometer`**-Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'accelerometer'`, Geräte-Sensor über die [Permissions-API](/de/docs/Web/API/Permissions_API) erteilen.
+Um diesen Sensor zu verwenden, muss der Benutzer über die [Permissions API](/de/docs/Web/API/Permissions_API) die Berechtigung für den `'accelerometer'`-Gerätesensor erteilen.
 
-Diese Funktion kann durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist.
+Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -33,7 +33,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften erbt `Accelerometer` Eigen
 
 ## Instanz-Methoden
 
-_`Accelerometer` hat keine eigenen Methoden. Es erbt jedoch Methoden seiner übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`Accelerometer` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
@@ -41,7 +41,7 @@ _`Accelerometer` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von sei
 
 ## Beispiel
 
-Die Beschleunigung wird normalerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback gelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });

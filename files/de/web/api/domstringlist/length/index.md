@@ -1,5 +1,5 @@
 ---
-title: "DOMStringList: length Eigenschaft"
+title: "DOMStringList: length-Eigenschaft"
 short-title: length
 slug: Web/API/DOMStringList/length
 l10n:

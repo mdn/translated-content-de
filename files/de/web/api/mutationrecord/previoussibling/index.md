@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`previousSibling`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das vorherige Geschwister eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
+Die schreibgeschützte Eigenschaft **`previousSibling`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das vorhergehende Geschwisterknoten eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
 
 ## Wert
 
-Wenn ein Knoten dem [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das vorherige Geschwister des hinzugefügten oder entfernten Knotens ist: also der Knoten, der sich direkt vor diesem in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des Elternteils befindet.
+Wenn ein Knoten zum [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das vorherige Geschwister des hinzugefügten oder entfernten Knotens ist: das heißt, der Knoten, der sich unmittelbar vor diesem im [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des Elternteils befindet.
 
-Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt wurden oder wenn der Knoten das erste Kind seines Elternteils ist.
+Der Wert ist `null`, wenn es keine hinzugefügten oder entfernten Knoten gibt oder wenn der Knoten das erste Kind seines Elternteils ist.
 
 ## Beispiele
 
-### Protokollieren des vorherigen Geschwisters einer Mutation
+### Das vorherige Geschwister einer Mutation protokollieren
 
-Dies fügt bei jedem Klick auf den Button einen Knoten hinzu. Dann protokolliert der Beobachter den `textContent` des `previousSibling` des hinzugefügten Knotens.
+Dies fügt jedes Mal, wenn Sie auf den Button klicken, einen Knoten hinzu. Dann protokolliert der Beobachter den `textContent` des `previousSibling` des hinzugefügten Knotens.
 
 #### HTML
 
@@ -72,7 +72,7 @@ observer.observe(target, { childList: true });
 
 #### Ergebnis
 
-{{EmbedLiveSample("Protokollieren des vorherigen Geschwisters einer Mutation", "", 250)}}
+{{EmbedLiveSample("Das vorherige Geschwister einer Mutation protokollieren", "", 250)}}
 
 ## Spezifikationen
 

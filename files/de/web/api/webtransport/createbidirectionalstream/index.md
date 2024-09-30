@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`createBidirectionalStream()`**-Methode des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces öffnet und gibt asynchron einen bidirektionalen Stream zurück.
+Die **`createBidirectionalStream()`**-Methode der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle öffnet asynchron und gibt einen bidirektionalen Stream zurück.
 
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt aufgelöst wird, das über `readable`- und `writable`-Eigenschaften verfügt, die verwendet werden können, um zuverlässig Daten vom Server zu lesen und zu schreiben.
-"Zuverlässig" bedeutet, dass die Übertragung und Reihenfolge der Daten garantiert sind.
-Dies bietet eine langsamere Lieferung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist aber in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
+Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt führt, welches `readable`- und `writable`-Eigenschaften hat, die verwendet werden können, um zuverlässig vom Server zu lesen und zu schreiben.
+"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert werden.
+Dies bietet eine langsamere Lieferung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen notwendig, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
 
-Die relative Reihenfolge, in der aufgestaute Bytes aus erstellten Streams geleert werden, kann mit der `sendOrder`-Option angegeben werden.
-Falls festgelegt, werden in Streams mit einer höheren Sendereihenfolge aufgestaute Bytes garantiert vor aufgestauten Bytes von Streams mit einer niedrigeren Sendereihenfolge gesendet.
-Wenn die Ordnungsnummer nicht gesetzt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab.
-Beachten Sie jedoch, dass Bytes aus Streams mit höherer Sendereihenfolge zwar zuerst gesendet, aber möglicherweise nicht zuerst empfangen werden.
+Die relative Reihenfolge, in der die in erstellten Streams eingereihten Bytes geleert werden, kann mit der `sendOrder`-Option festgelegt werden.
+Ist sie gesetzt, werden eingereihte Bytes in Streams mit einer höheren Sendereihenfolge garantiert vor den in Streams mit einer niedrigeren Sendereihenfolge gesendeten Bytes gesendet.
+Falls die Ordnungsnummer nicht festgelegt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab.
+Beachten Sie jedoch, dass selbst wenn Bytes aus Streams mit höherer Sendereihenfolge zuerst gesendet werden, sie möglicherweise nicht zuerst ankommen.
 
 ## Syntax
 
@@ -33,22 +33,22 @@ createBidirectionalStream(options)
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
 
     - `sendOrder` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der die Sendepriorität dieses Streams im Verhältnis zu anderen Streams angibt, für die der Wert festgelegt wurde.
-        Aufgestaute Bytes werden zuerst für Streams gesendet, die einen höheren Wert haben.
+      - : Ein ganzzahliger Wert, der die Sendepriorität dieses Streams relativ zu anderen Streams angibt, für die der Wert festgelegt wurde.
+        Eingereihte Bytes werden zuerst für Streams mit einem höheren Wert gesendet.
         Wenn nicht festgelegt, hängt die Sendereihenfolge von der Implementierung ab.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt führt.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `createBidirectionalStream()` aufgerufen wird, während der `WebTransport` geschlossen oder fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn `createBidirectionalStream()` aufgerufen wird, während das `WebTransport` geschlossen oder fehlgeschlagen ist.
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um Referenzen auf die [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable)- und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Eigenschaften zu erhalten. Diese sind Verweise auf `WebTransportReceiveStream`- und `WebTransportSendStream`-Instanzen, die lesbare und beschreibbare Streams sind, die verwendet werden können, um Daten vom Server zu lesen und zu schreiben.
+Eine anfängliche Funktion wird verwendet, um Referenzen zu den [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable)- und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Eigenschaften zu erhalten. Diese sind Referenzen zu Instanzen von `WebTransportReceiveStream` und `WebTransportSendStream`, die lesbare und beschreibbare Streams sind, die zum Lesen von und Schreiben an den Server verwendet werden können.
 
 ```js
 async function setUpBidirectional() {
@@ -65,7 +65,7 @@ async function setUpBidirectional() {
 }
 ```
 
-Lesen vom `WebTransportReceiveStream` kann dann wie folgt erfolgen:
+Das Lesen vom `WebTransportReceiveStream` kann dann wie folgt erfolgen:
 
 ```js
 async function readData(readable) {
@@ -81,7 +81,7 @@ async function readData(readable) {
 }
 ```
 
-Und Schreiben in den `WebTransportSendStream` kann so erfolgen:
+Und das Schreiben am `WebTransportSendStream` kann so erfolgen:
 
 ```js
 async function writeData(writable) {
@@ -103,7 +103,7 @@ async function writeData(writable) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)

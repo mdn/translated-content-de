@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`type`**-Eigenschaft des [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Interfaces gibt an, welche Form der [Wellenform](https://en.wikipedia.org/wiki/Waveform) der Oszillator ausgeben wird. Es stehen mehrere gängige Wellenformen zur Verfügung, sowie eine Option, eine benutzerdefinierte Wellenform festzulegen. Die Form der Wellenform beeinflusst den erzeugten Ton.
+Die **`type`**-Eigenschaft des [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Interfaces gibt an, welche Form der [Wellenform](https://en.wikipedia.org/wiki/Waveform) der Oszillator ausgibt. Es stehen mehrere gängige Wellenformen zur Verfügung sowie eine Option, eine benutzerdefinierte Wellenform festzulegen. Die Form der Wellenform beeinflusst den erzeugten Ton.
 
 ## Wert
 
@@ -17,22 +17,22 @@ Ein String, der die Form der Oszillatorwelle angibt. Die verschiedenen verfügba
 - `sine`
   - : Eine [Sinuswelle](https://en.wikipedia.org/wiki/Sine_wave). Dies ist der Standardwert.
 - `square`
-  - : Eine [Rechteckwelle](https://en.wikipedia.org/wiki/Square_wave) mit einem [Tastverhältnis](https://en.wikipedia.org/wiki/Duty_cycle) von 0,5; das heißt, das Signal ist für die Hälfte jeder Periode "hoch".
+  - : Eine [Rechteckwelle](https://en.wikipedia.org/wiki/Square_wave) mit einem [Tastverhältnis](https://en.wikipedia.org/wiki/Duty_cycle) von 0.5; das heißt, das Signal ist für die Hälfte jedes Zeitraums "hoch".
 - `sawtooth`
   - : Eine [Sägezahnwelle](https://en.wikipedia.org/wiki/Sawtooth_wave).
 - `triangle`
-  - : Eine [Dreieckwelle](https://en.wikipedia.org/wiki/Triangle_wave).
+  - : Eine [Dreieckswelle](https://en.wikipedia.org/wiki/Triangle_wave).
 - `custom`
-  - : Eine benutzerdefinierte Wellenform. Sie setzen `type` niemals manuell auf `custom`; stattdessen verwenden Sie die Methode [`setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave), um die Daten bereitzustellen, die die Wellenform darstellen. Dies setzt den `type` automatisch auf `custom`.
+  - : Eine benutzerdefinierte Wellenform. Sie setzen `type` nie manuell auf `custom`; stattdessen verwenden Sie die Methode [`setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave), um die Daten bereitzustellen, die die Wellenform repräsentieren. Dadurch wird `type` automatisch auf `custom` gesetzt.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert `custom` angegeben wurde. Um eine benutzerdefinierte Wellenform festzulegen, rufen Sie einfach [`setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave) auf. Dies setzt den Typ automatisch für Sie fest.
+  - : Wird ausgelöst, wenn der Wert `custom` angegeben wurde. Um eine benutzerdefinierte Wellenform festzulegen, rufen Sie einfach [`setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave) auf. Dadurch wird der Typ automatisch für Sie festgelegt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Nutzung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen Oszillator-Knoten zu erstellen. Für ein angewandtes Beispiel sehen Sie sich unser [Violent Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für relevanten Code) an.
+Das folgende Beispiel zeigt die grundlegende Nutzung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen Oszillator-Knoten zu erstellen. Für ein praktisches Beispiel schauen Sie sich unser [Violent Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) an ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für den relevanten Code).
 
 ```js
 // create web audio api context

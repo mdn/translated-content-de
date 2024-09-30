@@ -27,9 +27,9 @@ math-style: unset;
 ### Werte
 
 - `normal`
-  - : Der Anfangswert gibt eine normale Darstellung an.
+  - : Der Anfangswert, zeigt normale Darstellung an.
 - `compact`
-  - : Das mathematische Layout auf den Nachkommen versucht, die logische Höhe zu minimieren.
+  - : Das mathematische Layout auf Nachkommen versucht, die logische Höhe zu minimieren.
 
 ## Formale Definition
 
@@ -41,7 +41,7 @@ math-style: unset;
 
 ## Beispiele
 
-### Den Stil einer Formel auf kompakt ändern
+### Ändern des Stils einer Formel zu kompakt
 
 #### CSS
 

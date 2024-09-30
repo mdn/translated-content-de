@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), um die Verwendung zu verstehen.
+> See [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) to understand usage.
 
 ## Syntax
 
@@ -24,12 +24,12 @@ handle.createObjectURL(object)
 
 ### Rückgabewert
 
-Ein String, der eine nicht partitionierte Objekt-URL enthält, die verwendet werden kann, um auf den Inhalt des angegebenen Quell-`object` zu verweisen.
+Ein String, der eine unpartitionierte Objekt-URL enthält, die verwendet werden kann, um auf den Inhalt des angegebenen Quell-`object` zuzugreifen.
 
 ### Ausnahmen
 
 - `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
-  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
+  - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
 
 Siehe [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
 
@@ -48,7 +48,7 @@ document.requestStorageAccess({ createObjectURL: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ document.requestStorageAccess({ createObjectURL: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

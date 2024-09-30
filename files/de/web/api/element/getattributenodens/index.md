@@ -1,5 +1,5 @@
 ---
-title: "Element: getAttributeNodeNS() Methode"
+title: "Element: Methode getAttributeNodeNS()"
 short-title: getAttributeNodeNS()
 slug: Web/API/Element/getAttributeNodeNS
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`getAttributeNodeNS()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface gibt den namespacedefinierten [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements zurück.
+Die **`getAttributeNodeNS()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt den namensraumbezogenen [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements zurück.
 
-Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften des namespacedefinierten Attributs benötigen. Wenn Sie nur den Wert des namespacedefinierten Attributs benötigen, können Sie stattdessen die [`getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS) Methode verwenden.
+Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften des namensraumbezogenen Attributs benötigen. Wenn Sie nur den Wert des namensraumbezogenen Attributs benötigen, können Sie stattdessen die [`getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS) Methode verwenden.
 
-Wenn Sie den [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements in HTML-Dokumenten benötigen und das Attribut nicht namespacedefiniert ist, verwenden Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode.
+Wenn Sie den [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements in HTML-Dokumenten benötigen und das Attribut nicht namensraumbezogen ist, verwenden Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ getAttributeNodeNS(namespace, nodeName)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace des Attributs angibt.
+  - : Ein String, der den Namensraum des Attributs angibt.
 - `nodeName`
   - : Ein String, der den Namen des Attributs angibt.
 
@@ -33,7 +33,7 @@ Der Knoten für das angegebene Attribut.
 
 ## Hinweise
 
-`getAttributeNodeNS` ist spezifischer als [getAttributeNode](/de/docs/Web/API/Element/getAttributeNode), da es Ihnen erlaubt, Attribute anzugeben, die Teil eines bestimmten Namespaces sind. Die entsprechende Setzermethode ist [setAttributeNodeNS](/de/docs/Web/API/Element/setAttributeNodeNS).
+`getAttributeNodeNS` ist spezifischer als [getAttributeNode](/de/docs/Web/API/Element/getAttributeNode), da es Ihnen erlaubt, Attribute zu spezifizieren, die Teil eines bestimmten Namensraums sind. Die entsprechende Setter-Methode ist [setAttributeNodeNS](/de/docs/Web/API/Element/setAttributeNodeNS).
 
 ## Spezifikationen
 

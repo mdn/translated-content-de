@@ -7,98 +7,98 @@ l10n:
 
 {{HTTPSidebar}}
 
-**Permissions Policy** bietet Mechanismen, mit denen Webentwickler explizit erklären können, welche Funktionalitäten auf einer Website verwendet werden dürfen und welche nicht. Sie definieren eine Reihe von "Richtlinien", die einschränken, auf welche APIs der Code der Website zugreifen kann oder das Standardverhalten des Browsers für bestimmte Funktionen ändern. Dies ermöglicht es Ihnen, bewährte Praktiken durchzusetzen, auch wenn sich der Code weiterentwickelt, und Drittanbieterinhalte sicherer einzubinden.
+**Permissions Policy** bietet Mechanismen für Webentwickler, um explizit zu deklarieren, welche Funktionalitäten auf einer Website verwendet werden können und welche nicht. Sie definieren eine Reihe von "Richtlinien", die einschränken, auf welche APIs der Code der Website zugreifen kann oder das Standardverhalten des Browsers für bestimmte Funktionen modifizieren. Dies ermöglicht es Ihnen, bewährte Praktiken durchzusetzen, selbst wenn sich der Code weiterentwickelt – und Drittanbieterinhalte sicherer zusammenzustellen.
 
-Die Permissions Policy ist vergleichbar mit der [Content Security Policy](/de/docs/Glossary/CSP), kontrolliert jedoch Funktionen anstatt Sicherheitsverhalten.
+Die Permissions Policy ist ähnlich der [Content Security Policy](/de/docs/Glossary/CSP), jedoch werden hier Funktionen statt Sicherheitsverhalten kontrolliert.
 
-Beispiele für das, was Sie mit der Permissions Policy tun können:
+Beispiele dafür, was Sie mit der Permissions Policy tun können:
 
-- Ändern Sie das Standardverhalten von `autoplay` auf mobilen Geräten und bei Drittanbietervideos.
-- Beschränken Sie eine Website auf die Nutzung sensibler Geräte wie Kamera, Mikrofon oder Lautsprecher.
-- Erlauben Sie `iframes`, die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) zu verwenden.
-- Verhindern Sie, dass Elemente geskriptet werden, wenn sie nicht im Ansichtsfenster sichtbar sind, um die Leistung zu verbessern.
-
-> [!NOTE]
-> Permissions Policy hieß früher Feature Policy. Der Name wurde geändert, ebenso die Syntax des HTTP-Headers, was Sie beachten sollten, wenn Sie in der Vergangenheit Feature Policy verwendet haben. Prüfen Sie die Browser-Kompatibilitätstabellen. Die Syntax `<iframe allow=" ... ">` bleibt unverändert.
-
-## Konzepte und Verwendung
-
-Das Web bietet Funktionalitäten und APIs, die bei Missbrauch Risiken für Privatsphäre oder Sicherheit bergen können. In solchen Fällen möchten Sie möglicherweise streng einschränken, wie Funktionalitäten auf einer Website genutzt werden. In jedem Fall sollte es einen intuitiven oder nicht störenden Weg für Webentwickler geben, Fälle zu erkennen und zu bearbeiten, in denen eine Funktion deaktiviert ist.
-
-Einige Ansätze umfassen:
-
-- "Zugriff verweigert" wird für JavaScript-APIs zurückgegeben, die Benutzerberechtigungen erfordern.
-- JavaScript-APIs, die Zugriff auf Funktionen gewähren, geben `false`-Werte zurück oder werfen einen Fehler.
-- APIs werden nicht einmal bereitgestellt, als ob sie nicht existieren.
-- Optionen, die das Verhalten der Funktion steuern, haben unterschiedliche Standardwerte.
+- Ändern Sie das Standardverhalten der automatischen Wiedergabe bei mobilen und Drittanbieter-Videos.
+- Einschränken einer Website hinsichtlich der Nutzung sensibler Geräte wie Kamera, Mikrofon oder Lautsprecher.
+- Erlauben von iframes die Nutzung der [Fullscreen API](/de/docs/Web/API/Fullscreen_API).
+- Verhindern, dass Elemente geskriptet werden, wenn sie nicht im sichtbaren Bereich sind, um die Leistung zu verbessern.
 
 > [!NOTE]
-> Neu eingeführte Funktionen können eine explizite API haben, um den Zustand zu signalisieren. Bestehende Funktionen, die später in die Permissions Policy integriert werden, verwenden in der Regel bestehende Mechanismen.
+> Permissions Policy wurde früher Feature Policy genannt. Der Name hat sich geändert, ebenso wie die Syntax des HTTP-Headers. Denken Sie daran, wenn Sie in der Vergangenheit Feature Policy verwendet haben, und überprüfen Sie die Browserunterstützungstabellen. Die Syntax `<iframe allow=" ... ">` hat sich nicht verändert.
 
-Permissions Policy ermöglicht Ihnen die Kontrolle darüber, welche Ursprünge welche Funktionen nutzen dürfen, sowohl auf der obersten Ebene der Seite als auch in eingebetteten {{htmlelement("iframe")}}s. Das Ziel ist es, bewährte Praktiken für gute Nutzererlebnisse durchzusetzen und granulare Kontrolle über _sensible_ oder _leistungsfähige_ Funktionen zu bieten (was bedeutet, dass ein Benutzer zunächst eine ausdrückliche Erlaubnis zur Nutzung geben muss, bevor der zugehörige Code ausgeführt werden kann).
+## Konzepte und Nutzung
 
-Permissions Policy bietet zwei Möglichkeiten, Richtlinien festzulegen:
+Das Web bietet Funktionalitäten und APIs, die bei Missbrauch potenzielle Risiken für die Privatsphäre oder Sicherheit darstellen können. In solchen Fällen möchten Sie eventuell die Nutzung der Funktionalität auf einer Website streng einschränken. In jedem Fall sollte es eine intuitive oder nicht störende Möglichkeit für Webentwickler geben, Fälle zu erkennen und zu handhaben, in denen eine Funktion deaktiviert ist.
 
-- Der {{httpheader("Permissions-Policy")}} HTTP-Header, um die Funktionalität in empfangenen Antworten und eingebetteten Inhalten auf der Seite zu steuern (einschließlich {{htmlelement("iframe")}}s).
-- Das {{htmlelement("iframe")}} [`allow`](/de/docs/Web/HTML/Element/iframe#attributes) Attribut, um die Funktionalität nur in bestimmten {{htmlelement("iframe")}}s zu kontrollieren.
+Einige Ansätze sind:
 
-Diese sind separat, aber verbunden — siehe [Vererbung von Richtlinien für eingebettete Inhalte](#vererbung_von_richtlinien_für_eingebettete_inhalte) für Details.
+- "Permission denied" wird für JavaScript-APIs zurückgegeben, die Benutzergenehmigungen erfordern.
+- JavaScript-APIs, die Zugriff auf Funktionen bieten, geben `false` Werte zurück oder werfen einen Fehler.
+- APIs werden gar nicht erst offengelegt, als ob sie nicht existieren.
+- Optionen, die das Funktionsverhalten steuern, haben unterschiedliche Standardwerte.
 
 > [!NOTE]
-> Skripte können programmgesteuert Informationen über die Berechtigungsrichtlinie über das [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy) Objekt abfragen, das sich entweder in [`Document.featurePolicy`](/de/docs/Web/API/Document/featurePolicy) oder [`HTMLIFrameElement.featurePolicy`](/de/docs/Web/API/HTMLIFrameElement/featurePolicy) befindet.
+> Neu eingeführte Funktionen können eine explizite API haben, die den Status signalisiert. Bestehende Funktionen, die später in die Permissions Policy integriert werden, verwenden typischerweise bestehende Mechanismen.
 
-Um jede Funktion zu steuern, schreiben Sie eine Richtlinie, die besteht aus:
+Die Permissions Policy ermöglicht es Ihnen, zu kontrollieren, welche Ursprünge welche Funktionen nutzen können, sowohl auf der obersten Ebene der Seite als auch in eingebetteten {{htmlelement("iframe")}}s. Ziel ist es, bewährte Praktiken für eine gute Benutzererfahrung durchzusetzen und eine detaillierte Kontrolle über _sensitive_ oder _leistungsstarke_ Funktionen bereitzustellen (d. h. Funktionen, für die ein Benutzer die ausdrückliche Erlaubnis geben muss, bevor der zugehörige Code ausgeführt werden kann).
 
-- Einer **Direktive**, die den Namen der zu steuernden Funktion identifiziert. Siehe die [Liste der verschiedenen verfügbaren Direktiven](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives).
-- Einer **Zugriffsliste**, die eine Liste von Ursprüngen enthält, in denen die Funktion gesteuert werden soll. Sie können eine Funktion für alle oder bestimmte Ursprünge aktivieren oder ihre Nutzung in allen Ursprüngen blockieren.
+Die Permissions Policy bietet zwei Möglichkeiten, Richtlinien zu definieren:
+
+- Der {{httpheader("Permissions-Policy")}} HTTP-Header, um die Nutzung von Funktionen in erhaltenen Antworten und allen eingebetteten Inhalten auf der Seite zu kontrollieren (einschließlich {{htmlelement("iframe")}}s).
+- Das {{htmlelement("iframe")}} [`allow`](/de/docs/Web/HTML/Element/iframe#attributes)-Attribut, um die Nutzung von Funktionen nur in bestimmten {{htmlelement("iframe")}}s zu kontrollieren.
+
+Diese sind getrennt, aber miteinander verbunden – siehe [Vererbung von Richtlinien für eingebettete Inhalte](#vererbung_von_richtlinien_für_eingebettete_inhalte) für Details.
+
+> [!NOTE]
+> Skripte können programmatisch Informationen über die Berechtigungsrichtlinie über das [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt abfragen, das entweder unter [`Document.featurePolicy`](/de/docs/Web/API/Document/featurePolicy) oder [`HTMLIFrameElement.featurePolicy`](/de/docs/Web/API/HTMLIFrameElement/featurePolicy) zu finden ist.
+
+Um jede Funktion zu steuern, schreiben Sie eine Richtlinie, die aus besteht:
+
+- Einem **Directive**, das den Namen der zu steuernden Funktion identifiziert. Siehe die [Liste der verschiedenen verfügbaren Direktiven](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives).
+- Einer **Erlaubtenliste**, die eine Liste von Ursprüngen enthält, in denen die Funktion kontrolliert werden soll. Sie können eine Funktion für alle oder spezifische Ursprünge aktivieren oder ihre Nutzung in allen Ursprüngen blockieren.
 
 Siehe unten für mehrere Beispiele.
 
 ## Beziehung zur Permissions API
 
-Permissions Policy und die [Permissions API](/de/docs/Web/API/Permissions_API) sind eng verwandt, aber unterschiedlich. Die Funktionen, deren Berechtigungen von beiden Technologien gesteuert werden, überschneiden sich.
+Permissions Policy und die [Permissions API](/de/docs/Web/API/Permissions_API) sind eng verwandt, aber unterschiedlich. Die Funktionen, deren Berechtigungen von beiden Technologien kontrolliert werden, überschneiden sich.
 
-- Permissions Policy erlaubt es einem Server, festzulegen, ob eine Funktion in einem bestimmten Dokument (oder eingebetteten `<frame>`s darin) verwendet werden kann. Diese werden als **richtliniengesteuerte** Funktionen bezeichnet — siehe die [Liste der Permissions Policy Direktiven](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives).
-- Die Permissions API steuert den Zugriff auf Funktionen basierend auf vom Benutzer erteilten Berechtigungen. Diese Funktionen werden im [Permissions Registry](https://w3c.github.io/permissions-registry/) erfasst.
+- Permissions Policy ermöglicht es einem Server, festzulegen, ob eine Funktion in einem bestimmten Dokument (oder darin eingebetteten `<frame>`s) verwendet werden kann. Diese werden als **richtliniengesteuerte** Funktionen bezeichnet – siehe die [Liste der Permissions Policy-Direktiven](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives).
+- Die Permissions API steuert den Zugriff auf Funktionen basierend auf Benutzerfreigaben. Diese Funktionen sind im [Permissions Registry](https://w3c.github.io/permissions-registry/) aufgeführt.
 
-Der Identifikationsstring, der für jede Funktion verwendet wird, bleibt in beiden Technologien konsistent, z.B. `geolocation` für die [Geolocation API](/de/docs/Web/API/Geolocation_API). Die meisten der API-Funktionen im Permissions Registry haben auch eine entsprechende Permissions Policy Direktive. Eine Ausnahme ist die [Notifications API](/de/docs/Web/API/Notifications_API).
+Der Identifikationsstring für jede Funktion ist in beiden konsistent gehalten, zum Beispiel `geolocation` für die [Geolocation API](/de/docs/Web/API/Geolocation_API). Die meisten API-Funktionen im Permissions Registry haben auch eine entsprechende Permissions Policy-Direktive. Eine Ausnahme ist die [Notifications API](/de/docs/Web/API/Notifications_API).
 
-Im Allgemeinen, wenn eine Permissions Policy die Nutzung einer leistungsstarken Funktion blockiert, wird der Benutzer nicht einmal um Erlaubnis für deren Nutzung gebeten, und die `query()`-Methode der Permissions API [`query()`](/de/docs/Web/API/Permissions/query) wird einen `state`-Wert von `denied` zurückgeben.
+Im Allgemeinen wird der Benutzer, wenn eine Permissions Policy die Nutzung einer leistungsstarken Funktion blockiert, nicht einmal um Erlaubnis gefragt, und die `query()`-Methode der Permissions API gibt einen `state`-Wert von `denied` zurück.
 
-Siehe auch [Permissions > Verhältnis zur Permissions Policy Spezifikation](https://w3c.github.io/permissions/#relationship-to-permissions-policy).
+Siehe auch [Permissions > Beziehung zur Permissions Policy-Spezifikation](https://w3c.github.io/permissions/#relationship-to-permissions-policy).
 
-## Zugriffsliste
+## Erlaubtenlisten
 
-Eine Zugriffsliste ist eine Liste von Ursprüngen, die einen oder mehrere der folgenden Werte in Klammern, durch Leerzeichen getrennt, enthält:
+Eine Erlaubtenliste ist eine Liste von Ursprüngen, die einen oder mehrere der folgenden Werte in Klammern, getrennt durch Leerzeichen, enthält:
 
-- `*`: Die Funktion wird in diesem Dokument und allen verschachtelten Browsing-Kontexten (`<iframe>`s) unabhängig von deren Ursprüngen erlaubt.
-- `()` (leere Zugriffsliste): Die Funktion ist in oberster Ebene und verschachtelten Browsing-Kontexten deaktiviert. Das Äquivalent für das `<iframe>` `allow` Attribut ist `'none'`.
-- `self`: Die Funktion wird in diesem Dokument sowie in allen verschachtelten Browsing-Kontexten (`<iframe>`s) im gleichen Ursprung erlaubt. Die Funktion ist in fremden Dokumenten in verschachtelten Browsing-Kontexten nicht erlaubt. `self` kann als Kurzform für `https://your-site.example.com` betrachtet werden. Das Äquivalent für das `<iframe>` `allow` Attribut ist `'self'`.
-- `'src'`: Die Funktion wird in diesem `<iframe>` erlaubt, solange das Dokument, das dort geladen wird, aus dem gleichen Ursprung stammt wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}} Attribut. Dieser Wert wird nur im `<iframe>` `allow` Attribut verwendet und ist der _Standard_ Zugriffswert in `<iframe>`s.
-- `"<origin>"`: Die Funktion ist für spezifische Ursprünge (zum Beispiel, `"https://a.example.com"`) erlaubt. Ursprünge sollten durch Leerzeichen getrennt werden. Beachten Sie, dass Ursprünge in `<iframe>` `allow` Attributen nicht in Anführungszeichen gesetzt werden.
+- `*`: Die Funktion wird in diesem Dokument und allen verschachtelten Browsing-Kontexten (`<iframe>`s) unabhängig von ihrem Ursprung erlaubt.
+- `()` (leere Erlaubtenliste): Die Funktion ist in obersten und verschachtelten Browsing-Kontexten deaktiviert. Das Äquivalent für das `<iframe>` `allow`-Attribut ist `'none'`.
+- `self`: Die Funktion wird in diesem Dokument und in allen verschachtelten Browsing-Kontexten (`<iframe>`s) nur im selben Ursprung erlaubt. Die Funktion ist in dokumentübergreifenden Dokumenten in verschachtelten Browsing-Kontexten nicht erlaubt. `self` kann als Abkürzung für `https://your-site.example.com` betrachtet werden. Das Äquivalent für das `<iframe>` `allow`-Attribut ist `'self'`.
+- `'src'`: Die Funktion wird in diesem `<iframe>` erlaubt, solange das darin geladene Dokument vom selben Ursprung wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}}-Attribut kommt. Dieser Wert wird nur im `<iframe>` `allow`-Attribut verwendet und ist der _Standard_ Erlaubtenlistenwert in `<iframe>`s.
+- `"<origin>"`: Die Funktion ist für bestimmte Ursprünge erlaubt (z. B. `"https://a.example.com"`). Ursprünge sollten durch Leerzeichen getrennt sein. Beachten Sie, dass Ursprünge in `<iframe>` allow-Attributen nicht in Anführungszeichen stehen.
 
-Die Werte `*` und `()` dürfen nur alleine verwendet werden, während `self` und `src` in Kombination mit einem oder mehreren Ursprüngen verwendet werden können.
+Die Werte `*` und `()` dürfen nur alleine verwendet werden, während `self` und `src` mit einem oder mehreren Ursprüngen kombiniert werden können.
 
 > [!NOTE]
-> Direktiven haben eine Standardzugriffsliste, die immer einer der Werte `*`, `self` oder `none` für den `Permissions-Policy` HTTP-Header ist und das Standardverhalten steuert, wenn sie nicht explizit in einer Richtlinie aufgeführt sind. Diese sind auf den jeweiligen [Direktiv-Referenzseiten](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives) angegeben. Für `<iframe>` `allow` Attribute ist das Standardverhalten immer `src`.
+> Direktiven haben eine Standard-Erlaubtenliste, die immer eines von `*`, `self`, oder `none` für den `Permissions-Policy` HTTP-Header ist und das Standardverhalten steuert, wenn sie nicht explizit in einer Richtlinie aufgeführt sind. Diese sind auf den individuellen [Direktiven-Referenzseiten](/de/docs/Web/HTTP/Headers/Permissions-Policy#directives) angegeben. Für `<iframe>` `allow`-Attribute ist das Standardverhalten immer `src`.
 
-Wo unterstützbar, können Sie in Permissions Policy Ursprünge Platzhalterzeichen verwenden. Dies bedeutet, dass Sie nicht zwingend mehrere verschiedene Subdomains in einer Zugriffsliste explizit angeben müssen, sondern alle in einem einzigen Ursprung mit einem Platzhalterzeichen spezifizieren können.
+Wo unterstützt, können Sie Platzhalter in Permissions Policy-Ursprüngen verwenden. Das heißt, anstatt mehrere verschiedene Subdomains explizit in einer Erlaubtenliste anzugeben, können Sie sie alle in einem einzigen Ursprung mit einem Platzhalter spezifizieren.
 
-Anstelle von
+Statt also folgendes anzugeben:
 
 ```http
 ("https://example.com" "https://a.example.com" "https://b.example.com" "https://c.example.com")
 ```
 
-Können Sie folgenden Vorteil nutzen
+Können Sie folgendes angeben:
 
 ```http
 ("https://example.com" "https://*.example.com")
 ```
 
-> **Hinweis:** `"https://*.example.com"` stimmt nicht mit `"https://example.com"` überein.
+> **Anmerkung:** `"https://*.example.com"` entspricht nicht `"https://example.com"`.
 
-Zugriffsliste Beispiele:
+Beispiele für Erlaubtenlisten:
 
 - `*`
 - `()`
@@ -112,27 +112,27 @@ Zugriffsliste Beispiele:
 
 ## Permissions-Policy Header-Syntax
 
-Die allgemeine Syntax sieht wie folgt aus:
+Die allgemeine Syntax sieht so aus:
 
 ```http
 Permissions-Policy: <directive>=<allowlist>
 ```
 
-Um beispielsweise den gesamten Zugriff auf Geolocation zu blockieren, können Sie dies so tun:
+Um zum Beispiel den gesamten Zugriff auf Geolokalisierung zu blockieren, würden Sie dies tun:
 
 ```http
 Permissions-Policy: geolocation=()
 ```
 
-Um den Zugriff auf eine Teilmenge von Ursprüngen zuzulassen, können Sie dies so tun:
+Um den Zugriff auf eine Teilmenge von Ursprüngen zu erlauben, würden Sie folgendes tun:
 
 ```http
 Permissions-Policy: geolocation=(self "https://a.example.com" "https://b.example.com")
 ```
 
-Mehrere Funktionen können gleichzeitig kontrolliert werden, indem der Header mit einer kommagetrennten Liste von Richtlinien gesendet wird oder indem ein separater Header für jede Richtlinie gesendet wird.
+Mehrere Funktionen können gleichzeitig kontrolliert werden, indem der Header mit einer durch Kommas getrennten Liste von Richtlinien gesendet wird, oder indem ein separater Header für jede Richtlinie gesendet wird.
 
-Zum Beispiel sind die folgenden äquivalent:
+Zum Beispiel sind die folgenden gleichwertig:
 
 ```http
 Permissions-Policy: picture-in-picture=(), geolocation=(self "https://example.com"), camera=*;
@@ -144,7 +144,7 @@ Permissions-Policy: camera=*
 
 ## Eingebettete Frame-Syntax
 
-Damit eine {{htmlelement("iframe")}}-Funktion aktiviert wird, muss der erlaubte Ursprung auch in der Zugriffsliste für die übergeordnete Seite enthalten sein. Aufgrund dieses [Vererbungsschemas](#vererbung_von_richtlinien_für_eingebettete_inhalte) ist es eine gute Idee, die breiteste akzeptable Unterstützung für eine Funktion im HTTP-Header anzugeben und dann das notwendige Maß an Unterstützung für jedes `<iframe>` zu spezifizieren.
+Damit ein {{htmlelement("iframe")}} eine Funktion aktiviert hat, muss der erlaubte Ursprung auch in der Erlaubtenliste für die übergeordnete Seite sein. Aufgrund dieses [Vererbungsverhaltens](#vererbung_von_richtlinien_für_eingebettete_inhalte) ist es eine gute Idee, die breiteste akzeptable Unterstützung für eine Funktion im HTTP-Header anzugeben und dann das Unterset von Unterstützung, das Sie in jedem `<iframe>` benötigen, festzulegen.
 
 Die allgemeine Syntax sieht so aus:
 
@@ -152,13 +152,13 @@ Die allgemeine Syntax sieht so aus:
 <iframe src="<origin>" allow="<directive> <allowlist>"></iframe>
 ```
 
-Um beispielsweise den gesamten Zugriff auf Geolocation zu blockieren, könnten Sie dies so tun:
+Um also zum Beispiel den gesamten Zugriff auf Geolokalisierung zu blockieren, würden Sie dies tun:
 
 ```html
 <iframe src="https://example.com" allow="geolocation 'none'"></iframe>
 ```
 
-Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, könnten Sie dies so tun:
+Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, würden Sie dies tun:
 
 ```html
 <iframe
@@ -166,9 +166,9 @@ Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, könnten Si
   allow="geolocation 'self' https://a.example.com https://b.example.com"></iframe>
 ```
 
-Dies ist wichtig: standardmäßig, wenn ein `<iframe>` zu einem anderen Ursprung navigiert, wird die Richtlinie nicht auf den Ursprung angewendet, zu dem das `<iframe>` navigiert. Indem Sie den Ursprung, zu dem das `<iframe>` navigiert, im `allow` Attribut auflisten, wird die Permissions Policy, die auf das ursprüngliche `<iframe>` angewendet wurde, auf den Ursprung angewendet, zu dem das `<iframe>` navigiert.
+Dies ist wichtig: Standardmäßig wird eine Richtlinie nicht auf einen anderen Ursprung angewendet, wenn ein `<iframe>` zu einem anderen Ursprung navigiert. Indem Sie den Ursprung, auf den das `<iframe>` navigiert, im `allow`-Attribut auflisten, wird die ursprünglich auf das `<iframe>` angewendete Permissions Policy auf den Ursprung angewendet, zu dem das `<iframe>` navigiert.
 
-Mehrere Funktionen können gleichzeitig kontrolliert werden, indem eine durch Semikolon getrennte Liste von Richtlinien-Direktiven im `allow` Attribut aufgenommen wird.
+Mehrere Funktionen können gleichzeitig durch Einschließen einer mit Semikolons getrennten Liste von Richtlinien-Direktiven innerhalb des `allow`-Attributs gesteuert werden.
 
 ```html
 <iframe
@@ -176,7 +176,7 @@ Mehrere Funktionen können gleichzeitig kontrolliert werden, indem eine durch Se
   allow="geolocation 'self' https://a.example.com https://b.example.com; fullscreen 'none'"></iframe>
 ```
 
-Es lohnt sich, dem `src` Wert besondere Erwähnung zu geben. Wir haben oben erwähnt, dass die Verwendung dieses Zugriffswerts bedeutet, dass die zugehörige Funktion in diesem `<iframe>` erlaubt wird, solange das darin geladene Dokument aus dem gleichen Ursprung stammt wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}} Attribut. Dieser Wert ist der _Standardzugriffswert_ für die in `allow` aufgeführten Funktionen, daher sind folgende äquivalent:
+Es ist erwähnenswert, dass der `src`-Wert speziell behandelt wird. Wir haben oben erwähnt, dass die Verwendung dieses Erlaubtenlistenwerts bedeutet, dass die zugehörige Funktion in diesem `<iframe>` erlaubt wird, solange das darin geladene Dokument vom selben Ursprung wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}}-Attribut kommt. Dieser Wert ist der _Standard_ Erlaubtenlistenwert für Funktionen, die in `allow` aufgeführt sind, daher sind die folgenden äquivalent:
 
 ```html
 <iframe src="https://example.com" allow="geolocation 'src'">
@@ -185,39 +185,39 @@ Es lohnt sich, dem `src` Wert besondere Erwähnung zu geben. Wir haben oben erw�
 ```
 
 > [!NOTE]
-> Wie Sie bemerkt haben, unterscheidet sich die Syntax für `<iframe>`-Richtlinien etwas von der Syntax für `Permissions-Policy`-Header. Erstere verwendet immer noch die gleiche Syntax wie die ältere Feature Policy-Spezifikation, die durch Permissions Policy ersetzt wurde.
+> Wie Sie bemerkt haben, unterscheidet sich die Syntax für `<iframe>`-Richtlinien ein wenig von der Syntax für `Permissions-Policy`-Header. Erstere verwendet immer noch die gleiche Syntax wie die ältere Feature-Policy-Spezifikation, die von der Permissions Policy abgelöst wurde.
 
-### Eingezäunte Frames und Berechtigungsrichtlinien
+### Fenced Frames und Permissions Policy
 
-{{htmlelement("fencedframe")}}s interagieren mit Berechtigungsrichtlinien auf die gleiche Weise wie `<iframe>`s, jedoch in deutlich eingeschränkterem Umfang. Nur spezifische Funktionen, die dafür ausgelegt sind, in `<fencedframes>` verwendet zu werden, können über auf sie gesetzte Berechtigungsrichtlinien aktiviert werden; andere richtliniengesteuerte Funktionen sind in diesem Kontext nicht verfügbar.
+{{htmlelement("fencedframe")}} interagieren in einer ähnlichen Weise mit Berechtigungsrichtlinien wie `<iframe>`, jedoch in einem viel restriktiveren Umfang. Nur spezifische Funktionen, die zur Verwendung in `<fencedframe>`s entwickelt wurden, können über Berechtigungsrichtlinien aktiviert werden, die auf ihnen gesetzt sind; andere richtliniengesteuerte Funktionen sind in diesem Kontext nicht verfügbar.
 
-Für weitere Details siehe [Berechtigungsrichtlinien verfügbar für eingefasste Frames](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames).
+Siehe [Erlaubte Berechtigungsrichtlinien für Fenced Frames](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) für weitere Details.
 
 ## Vererbung von Richtlinien für eingebettete Inhalte
 
-Skripte erben die Richtlinie ihres Browsing-Kontextes, unabhängig von ihrem Ursprung. Das bedeutet, dass Top-Level-Skripte die Richtlinie des Hauptdokuments erben.
+Skripte erben die Politik ihres Browsing-Kontexts, unabhängig von ihrem Ursprung. Das bedeutet, dass oberste Skripte die Politik vom Hauptdokument erben.
 
-Alle `<iframe>`s erben die Richtlinie ihrer übergeordneten Seite. Wenn das `<iframe>` ein `allow`-Attribut _und_ die übergeordnete Seite ein {{HTTPHeader("Permissions-Policy")}} hat, werden die Richtlinien der übergeordneten Seite und des `allow`-Attributs kombiniert, wobei die restriktivste Teilmenge verwendet wird. Damit ein `<iframe>` eine Funktion aktiviert, muss der Ursprung sowohl in der Zugriffsliste der übergeordneten Seite als auch im `allow`-Attribut enthalten sein.
+Alle `<iframe>`s erben die Politik ihrer übergeordneten Seite. Wenn das `<iframe>` ein `allow`-Attribut _und_ die übergeordnete Seite einen {{HTTPHeader("Permissions-Policy")}} hat, werden die Politiken der übergeordneten Seite und des `allow`-Attributs kombiniert, wobei der restriktivste Teil verwendet wird. Damit ein `<iframe>` eine Funktion aktiviert hat, muss der Ursprung sowohl in der Erlaubtenliste der übergeordneten Seite als auch im `allow`-Attribut sein.
 
-Das Deaktivieren einer Funktion in einer Richtlinie ist ein Ein-Weg-Schalter. Wenn eine Funktion für einen untergeordneten Frame von seinem übergeordneten Frame deaktiviert wurde, kann das Kind sie nicht erneut aktivieren, und auch keine der Nachkommen des Kindes.
+Das Deaktivieren einer Funktion in einer Richtlinie ist ein einmaliger Schalter. Wenn eine Funktion durch ihren übergeordneten Rahmen für einen untergeordneten Rahmen deaktiviert wurde, kann das Kind sie nicht wieder aktivieren, und keines der Nachkommen des Kindes ebenfalls nicht.
 
 ## Beispiele
 
-### Kombinieren von HTTP-Header- und `<iframe>`-Richtlinien
+### Kombination von HTTP-Header und `<iframe>`-Richtlinien
 
-Angenommen, wir möchten die Nutzung von Geolocation in unserem eigenen Ursprung und in eingebetteten Inhalten von unserem vertrauenswürdigen Werbenetzwerk erlauben. Wir könnten die seitenweite Permissions Policy so einrichten:
+Wenn wir zum Beispiel die Nutzung von Geolokalisierungen auf unserem eigenen Ursprung und in eingebetteten Inhalten von unserem vertrauenswürdigen Werbenetzwerk aktivieren wollten, könnten wir die seitenweite Permissions Policy so einrichten:
 
 ```http
 Permissions-Policy: geolocation=(self "https://trusted-ad-network.com")
 ```
 
-In unseren Werbe-`<iframe>`s könnten wir den Zugriff auf den `https://trusted-ad-network.com` Ursprung so festlegen:
+In unseren Werbe-`<iframe>`s könnten wir den Zugriff auf den Ursprung `https://trusted-ad-network.com` so einrichten:
 
 ```html
 <iframe src="https://trusted-ad-network.com" allow="geolocation"></iframe>
 ```
 
-Wenn ein anderer Ursprung im `<iframe>` geladen würde, hätte er keinen Zugriff auf Geolocation:
+Wenn ein anderer Ursprung in das `<iframe>` geladen wird, hätte er keinen Zugriff auf die Geolokalisierung:
 
 ```html
 <iframe src="https://rogue-origin-example.com" allow="geolocation"></iframe>
@@ -234,7 +234,7 @@ Wenn ein anderer Ursprung im `<iframe>` geladen würde, hätte er keinen Zugriff
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}} HTTP-Header
-- {{HTMLElement("iframe", "allow", "#Attributes")}} Attribut in iframes
-- [Steuern von Browserfunktionen mit Permissions Policy](https://developer.chrome.com/docs/privacy-security/permissions-policy): Leitfaden mit mehreren Demos.
-- [Berechtigungen/Funktion Richtlinien auf chromestatus.com](https://chromestatus.com/features#component%3A%20Blink%3EFeaturePolicy)
+- {{HTMLElement("iframe", "allow", "#Attributes")}}-Attribut bei Iframes
+- [Steuerung von Browserfunktionen mit Permissions Policy](https://developer.chrome.com/docs/privacy-security/permissions-policy): Anleitung, die auch mehrere Demo-Links enthält.
+- [Permissions/Feature Richtlinien auf chromestatus.com](https://chromestatus.com/features#component%3A%20Blink%3EFeaturePolicy)
 - [Privatsphäre, Berechtigungen und Informationssicherheit](/de/docs/Web/Privacy)

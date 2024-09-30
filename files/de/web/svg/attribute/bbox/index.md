@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das Attribut **`bbox`** definiert den maximalen Begrenzungsrahmen einer Schriftart.
+Das **`bbox`**-Attribut definiert die maximale Begrenzungsbox einer Schriftart.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -23,7 +23,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -33,7 +33,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<string>`
-  - : Eine kommagetrennte Liste von genau vier Zahlen, die in der Reihenfolge den unteren linken x-Wert, unteren linken y-Wert, oberen rechten x-Wert und oberen rechten y-Wert des Begrenzungsrahmens für die gesamte Schriftart angeben.
+  - : Eine durch Kommas getrennte Liste von genau vier Zahlen, die in der Reihenfolge das untere linke x, das untere linke y, das obere rechte x und das obere rechte y der Begrenzungsbox für die vollständige Schriftart angeben.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`511 Network Authentication Required`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Client authentifiziert werden muss, um Netzwerkzugang zu erhalten. Dieser Status wird nicht von Ursprungsservern generiert, sondern von abfangenden [Proxies](/de/docs/Glossary/Proxy_server), die den Zugang zu einem Netzwerk kontrollieren.
+Der HTTP-Statuscode **`511 Network Authentication Required`** ([Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses)) zeigt an, dass der Client sich authentifizieren muss, um Zugang zum Netzwerk zu erhalten. Dieser Status wird nicht von Ursprungsservern generiert, sondern von abfangenden [Proxies](/de/docs/Glossary/Proxy_server), die den Zugang zu einem Netzwerk kontrollieren.
 
-Netzbetreiber verlangen manchmal eine Authentifizierung, die Annahme von Bedingungen oder eine andere Benutzerinteraktion, bevor sie Zugang gewähren (zum Beispiel in einem Internet-Café oder am Flughafen). Sie identifizieren oft Clients, die dies nicht getan haben, anhand ihrer Media Access Control (MAC)-Adressen.
+Netzwerkbetreiber verlangen manchmal eine Authentifizierung, die Akzeptanz von Bedingungen oder andere Benutzerinteraktionen, bevor sie Zugang gewähren (zum Beispiel in einem Internetcafé oder an einem Flughafen). Sie identifizieren oft Clients, die dies nicht getan haben, anhand ihrer Media Access Control (MAC)-Adressen.
 
 ## Status
 
@@ -21,7 +21,7 @@ Netzbetreiber verlangen manchmal eine Authentifizierung, die Annahme von Bedingu
 
 ### 511-Antwort für eine GET-Anfrage
 
-Im folgenden Beispiel versucht ein Client, auf eine Ressource in einem Netzwerk zuzugreifen. Die Anfrage ist nicht authentifiziert, und ein Proxy sendet einen `511`-Statuscode, um den Besucher aufzufordern, sich einzuloggen. Der `511`-Status stellt sicher, dass non-browser Clients die Antwort nicht als von dem Ursprungsserver kommend interpretieren. Browser werden automatisch über das {{HTMLelement("meta")}}-Tag nach 10 Sekunden weitergeleitet oder durch Klicken auf den Link im Antworttext:
+Im folgenden Beispiel versucht ein Client, auf eine Ressource in einem Netzwerk zuzugreifen. Die Anfrage ist nicht authentifiziert, und ein Proxy sendet einen `511`-Statuscode, um den Besucher zur Anmeldung aufzufordern. Der `511` stellt sicher, dass Nicht-Browser-Clients die Antwort nicht als jene des Ursprungsservers interpretieren. Browser werden automatisch über das {{HTMLelement("meta")}}-Tag nach 10 Sekunden umgeleitet, oder durch Klicken auf den Link im Antworttext:
 
 ```http
 GET /document HTTP/1.1
@@ -49,5 +49,5 @@ Content-Type: text/html
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- [Proxy-Server](/de/docs/Glossary/Proxy_server)
+- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- [Proxyserver](/de/docs/Glossary/Proxy_server)

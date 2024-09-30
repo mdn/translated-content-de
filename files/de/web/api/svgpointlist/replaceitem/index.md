@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`** Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces ersetzt einen [`point`](/de/docs/Web/API/SVGPoint) in der Liste.
+Die **`replaceItem()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle ersetzt einen [`point`](/de/docs/Web/API/SVGPoint) in der Liste.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ replaceItem(obj, index)
 ### Parameter
 
 - `obj`
-  - : Ein [`point`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des einzufügenden Punkts enthält.
+  - : Ein [`point`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des einzufügenden Punktes enthält.
 - `index`
   - : Der Index des zu ersetzenden Elements.
 

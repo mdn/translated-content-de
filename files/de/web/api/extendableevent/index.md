@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das **`ExtendableEvent`**-Interface verlängert die Lebensdauer der [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)- und [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignisse, die im globalen Gültigkeitsbereich als Teil des Service Worker-Lebenszyklus ausgelöst werden. Dies stellt sicher, dass keine funktionalen Ereignisse (wie [`FetchEvent`](/de/docs/Web/API/FetchEvent)) ausgelöst werden, bevor Datenbankschemata aktualisiert und veraltete Cache-Einträge gelöscht werden.
+Das **`ExtendableEvent`**-Interface verlängert die Lebensdauer der [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) und [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) Ereignisse, die im globalen Kontext als Teil des Service-Worker-Lebenszyklus ausgelöst werden. Dies stellt sicher, dass keine funktionalen Ereignisse (wie [`FetchEvent`](/de/docs/Web/API/FetchEvent)) gesendet werden, bis Datenbankschemata aktualisiert und veraltete Cache-Einträge gelöscht wurden.
 
-Wenn [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) außerhalb des `ExtendableEvent`-Handlers aufgerufen wird, sollte der Browser einen `InvalidStateError` auslösen; beachten Sie auch, dass sich mehrere Aufrufe stapeln, und die resultierenden Versprechen zur Liste der [Erweiterten-Lebensdauer-Versprechen](https://w3c.github.io/ServiceWorker/#extendableevent-extend-lifetime-promises) hinzugefügt werden.
+Wenn [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) außerhalb des `ExtendableEvent`-Handlers aufgerufen wird, sollte der Browser einen `InvalidStateError` werfen; beachten Sie auch, dass mehrfache Aufrufe gestapelt werden, und die resultierenden Versprechen der Liste der [Lebenszeit-Verlängerungsversprechen](https://w3c.github.io/ServiceWorker/#extendableevent-extend-lifetime-promises) hinzugefügt werden.
 
 Dieses Interface erbt vom [`Event`](/de/docs/Web/API/Event)-Interface.
 
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> Dieses Interface ist nur verfügbar, wenn der globale Gültigkeitsbereich eine [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ist. Es ist nicht verfügbar, wenn es sich um ein [`Window`](/de/docs/Web/API/Window) oder den Gültigkeitsbereich eines anderen Arbeitertyps handelt.
+> Dieses Interface ist nur verfügbar, wenn der globale Kontext ein [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ist. Es ist nicht verfügbar, wenn es ein [`Window`](/de/docs/Web/API/Window) oder der Kontext einer anderen Art von Worker ist.
 
 ## Konstruktor
 
@@ -25,23 +25,23 @@ Dieses Interface erbt vom [`Event`](/de/docs/Web/API/Event)-Interface.
 
 ## Instanz-Eigenschaften
 
-_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Implementiert keine spezifischen Eigenschaften, erbt aber Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Instanz-Methoden
 
 _Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)
-  - : Verlängert die Lebensdauer des Ereignisses. Es soll im [Ereignishandler](/de/docs/Web/Events/Event_handlers) von [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) für den [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Worker und im [Ereignishandler](/de/docs/Web/Events/Event_handlers) von [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) für den [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active)-Worker aufgerufen werden.
+  - : Verlängert die Lebensdauer des Ereignisses. Es soll im [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Worker und im [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker aufgerufen werden.
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt aus dem [Service Worker Prefetch-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch-Beispiel live](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Workers als installiert, bis das übergebene Versprechen erfolgreich aufgelöst wird. Das Versprechen wird aufgelöst, wenn alle Ressourcen abgerufen und im Cache gespeichert wurden oder wenn ein Ausnahmefall auftritt.
+Dieses Codebeispiel stammt aus dem [Service Worker Prefetch Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch Beispiel live](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Workers als installiert, bis das übergebene Versprechen erfolgreich aufgelöst wird. Das Versprechen wird aufgelöst, wenn alle Ressourcen abgerufen und im Cache gespeichert wurden oder wenn eine Ausnahme auftritt.
 
-Der Codeausschnitt zeigt auch eine bewährte Methode zur Versionierung von Caches, die vom Service Worker verwendet werden. Obwohl in diesem Beispiel nur ein Cache vorhanden ist, kann derselbe Ansatz für mehrere Caches verwendet werden. Er ordnet einem Cache einen spezifischen, versionierten Cachename zu.
+Der Code zeigt auch eine bewährte Methode zur Versionsverwaltung von Caches, die vom Service Worker verwendet werden. Obwohl es in diesem Beispiel nur einen Cache gibt, kann derselbe Ansatz für mehrere Caches verwendet werden. Es ordnet eine Kurzbezeichnung für einen Cache einem bestimmten, versionierten Cache-Namen zu.
 
 > [!NOTE]
-> In Chrome sind Protokollierungsaussagen über die "Untersuchen"-Schnittstelle für den entsprechenden Service Worker zugänglich unter chrome://serviceworker-internals.
+> In Chrome sind Protokollierungsaussagen über die "Inspect"-Schnittstelle für den relevanten Service Worker zugänglich unter chrome://serviceworker-internals sichtbar.
 
 ```js
 const CACHE_VERSION = 1;
@@ -95,6 +95,6 @@ self.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Arbeiten mit Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

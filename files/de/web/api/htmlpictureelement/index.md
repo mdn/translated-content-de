@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLPictureElement`**-Interface repräsentiert ein {{HTMLElement("picture")}} HTML-Element. Es implementiert keine spezifischen Eigenschaften oder Methoden.
+Die **`HTMLPictureElement`**-Schnittstelle repräsentiert ein {{HTMLElement("picture")}} HTML-Element. Sie implementiert keine spezifischen Eigenschaften oder Methoden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Keine spezifische Eigenschaft, aber erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Eigenschaft, aber erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode, aber erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode, aber erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -29,5 +29,5 @@ _Keine spezifische Methode, aber erbt Methoden von seinem Elternteil, [`HTMLElem
 
 ## Siehe auch
 
-- Das {{HTMLElement("picture")}} HTML-Element, das es implementiert.
-- Die Schnittstellen [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) und [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement), die oft in Verbindung mit einem {{HTMLElement("picture")}}-Element verwendet werden.
+- Das {{HTMLElement("picture")}} HTML-Element, das sie implementiert.
+- Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) und [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) Schnittstellen, die oft zusammen mit einem {{HTMLElement("picture")}}-Element verwendet werden.

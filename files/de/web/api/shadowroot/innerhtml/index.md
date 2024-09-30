@@ -8,13 +8,15 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`innerHTML`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces setzt oder gibt eine Referenz auf den DOM-Baum innerhalb des `ShadowRoot` zurück.
+Die **`innerHTML`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)
+Interfaces setzt oder gibt eine Referenz auf den DOM-Baum innerhalb des
+`ShadowRoot` zurück.
 
 ## Wert
 
 Ein String.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, daher ist `sr.innerHTML = null` äquivalent zu `sr.innerHTML = ""`.
+Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `sr.innerHTML = null` gleichbedeutend mit `sr.innerHTML = ""` ist.
 
 ## Beispiele
 

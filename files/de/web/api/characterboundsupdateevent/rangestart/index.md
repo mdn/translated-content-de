@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`CharacterBoundsUpdateEvent.rangeStart`** repräsentiert den Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs, für den das Betriebssystem die Grenzen benötigt.
+Die schreibgeschützte Eigenschaft **`CharacterBoundsUpdateEvent.rangeStart`** repräsentiert den Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs, für den das Betriebssystem die Begrenzungen benötigt.
 
 ## Wert
 
-Eine {{jsxref("Number")}}.
+Ein {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des `rangeStart`-Werts
+### Den `rangeStart`-Wert lesen
 
-Dieses Beispiel zeigt, wie Sie das `characterboundsupdate`-Ereignis verwenden und den Wert der `rangeStart`- und `rangeEnd`-Eigenschaften lesen.
+Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis verwendet wird und wie die Werte der Eigenschaften `rangeStart` und `rangeEnd` gelesen werden können.
 
 ```js
 const editContext = new EditContext();

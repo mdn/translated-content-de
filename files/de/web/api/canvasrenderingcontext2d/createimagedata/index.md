@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: Methode createImageData()"
+title: "CanvasRenderingContext2D: createImageData() Methode"
 short-title: createImageData()
 slug: Web/API/CanvasRenderingContext2D/createImageData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`CanvasRenderingContext2D.createImageData()`** der Canvas 2D API erstellt ein neues, leeres [`ImageData`](/de/docs/Web/API/ImageData)-Objekt mit den angegebenen Abmessungen. Alle Pixel im neuen Objekt sind transparent schwarz.
+Die **`CanvasRenderingContext2D.createImageData()`** Methode der Canvas 2D API erstellt ein neues, leeres [`ImageData`](/de/docs/Web/API/ImageData)-Objekt mit den angegebenen Abmessungen. Alle Pixel im neuen Objekt sind transparent schwarz.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ createImageData(imagedata)
 ### Parameter
 
 - `width`
-  - : Die Breite, die dem neuen `ImageData`-Objekt gegeben wird. Ein negativer Wert spiegelt das Rechteck an der vertikalen Achse.
+  - : Die Breite, die dem neuen `ImageData`-Objekt gegeben werden soll. Ein negativer Wert dreht das Rechteck entlang der vertikalen Achse.
 - `height`
-  - : Die Höhe, die dem neuen `ImageData`-Objekt gegeben wird. Ein negativer Wert spiegelt das Rechteck an der horizontalen Achse.
+  - : Die Höhe, die dem neuen `ImageData`-Objekt gegeben werden soll. Ein negativer Wert dreht das Rechteck entlang der horizontalen Achse.
 - `settings` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `colorSpace`: Gibt den Farbraum der Bilddaten an. Kann auf `"srgb"` für den [sRGB Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3 Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden.
 - `imagedata`
-  - : Ein vorhandenes `ImageData`-Objekt, von dem die Breite und Höhe kopiert werden. Das Bild selbst wird **nicht** kopiert.
+  - : Ein bestehendes `ImageData`-Objekt, von dem die Breite und Höhe kopiert werden. Das Bild selbst wird **nicht** kopiert.
 
 ### Rückgabewert
 
@@ -43,13 +43,13 @@ Ein neues [`ImageData`](/de/docs/Web/API/ImageData)-Objekt mit der angegebenen B
 
 ### Erstellen eines leeren ImageData-Objekts
 
-Dieses Snippet erstellt ein leeres `ImageData`-Objekt mithilfe der `createImageData()`-Methode.
+Dieses Snippet erstellt ein leeres `ImageData`-Objekt mit der `createImageData()`-Methode.
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Das erzeugte Objekt ist 100 Pixel breit und 50 Pixel hoch, was insgesamt 5.000 Pixel ergibt. Jedes Pixel in einem `ImageData`-Objekt besteht aus vier Array-Werten, sodass die [`data`](/de/docs/Web/API/ImageData/data)-Eigenschaft des Objekts eine Länge von 4 × 5.000, also 20.000 hat.
+Das erzeugte Objekt ist 100 Pixel breit und 50 Pixel hoch, also insgesamt 5.000 Pixel. Jedes Pixel innerhalb eines `ImageData`-Objekts besteht aus vier Array-Werten, sodass die [`data`](/de/docs/Web/API/ImageData/data)-Eigenschaft des Objekts eine Länge von 4 × 5.000 oder 20.000 hat.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -68,7 +68,7 @@ Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit lila Pixeln
 <canvas id="canvas"></canvas>
 ```
 
-Da jedes Pixel aus vier Werten besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die Array-Werte, die jedem Pixel zugeordnet sind, sind R (rot), G (grün), B (blau) und A (alpha), in dieser Reihenfolge.
+Da jedes Pixel aus vier Werten besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die Array-Werte, die jedem Pixel zugeordnet sind, sind R (rot), G (grün), B (blau) und A (alpha) in dieser Reihenfolge.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -94,7 +94,7 @@ ctx.putImageData(imageData, 20, 20);
 
 ### Weitere Beispiele
 
-Weitere Beispiele zur Verwendung von `createImageData()` und dem `ImageData`-Objekt finden Sie unter [Pixel-Manipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas) und [`ImageData.data`](/de/docs/Web/API/ImageData/data).
+Für weitere Beispiele zur Verwendung von `createImageData()` und dem `ImageData`-Objekt siehe [Pixelmanipulation mit canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas) und [`ImageData.data`](/de/docs/Web/API/ImageData/data).
 
 ## Spezifikationen
 
@@ -108,4 +108,4 @@ Weitere Beispiele zur Verwendung von `createImageData()` und dem `ImageData`-Obj
 
 - Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`ImageData`](/de/docs/Web/API/ImageData)
-- [Pixel-Manipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
+- [Pixelmanipulation mit canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)

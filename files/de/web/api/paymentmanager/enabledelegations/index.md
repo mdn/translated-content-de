@@ -1,5 +1,5 @@
 ---
-title: "PaymentManager: enableDelegations()-Methode"
+title: "PaymentManager: enableDelegations() Methode"
 short-title: enableDelegations()
 slug: Web/API/PaymentManager/enableDelegations
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`enableDelegations()`**-Methode der [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Schnittstelle delegiert die Verantwortung für die Bereitstellung verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungs-App, anstatt sie vom Browser zu sammeln (zum Beispiel über Autofill).
+Die **`enableDelegations()`** Methode der [`PaymentManager`](/de/docs/Web/API/PaymentManager) Schnittstelle delegiert die Verantwortung für die Bereitstellung verschiedener Teile der benötigten Zahlungsinformationen an die Zahlungs-App, anstatt diese vom Browser zu sammeln (zum Beispiel über die automatische Vervollständigung).
 
-Wenn beispielsweise die Option `requestShipping` im Optionsobjekt auf `true` gesetzt ist, während der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufgerufen wird, wird eine Versandadresse zurückgegeben.
+Wenn beispielsweise die `requestShipping`-Option im Optionsobjekt auf `true` gesetzt ist, wenn der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufgerufen wird, wird eine Versandadresse zurückgegeben.
 
 - Wenn `enableDelegations()` verwendet wurde, um `shippingAddress` zu delegieren, kommt diese Adresse von der Zahlungs-App.
-- Andernfalls kommt sie vom Browser-Autofill.
+- Andernfalls kommt sie aus der automatischen Vervollständigung des Browsers.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ enableDelegations(delegations)
 ### Parameter
 
 - `delegations` {{optional_inline}}
-  - : Ein Array, das einen oder mehrere enumerierte Werte enthält, die die Zahlungsinformationen angeben, die Sie an die Zahlungs-App delegieren möchten. Mögliche Werte können sein:
+  - : Ein Array, das einen oder mehrere enumerierte Werte enthält, die angeben, welche Zahlungsinformationen Sie an die Zahlungs-App delegieren möchten. Mögliche Werte können sein:
     - `payerEmail`
-      - : Die Zahlungs-App wird die E-Mail-Adresse des Zahlers bereitstellen, wann immer sie benötigt wird.
+      - : Die Zahlungs-App wird die E-Mail des Zahlenden bereitstellen, wann immer sie benötigt wird.
     - `payerName`
-      - : Die Zahlungs-App wird den Namen des Zahlers bereitstellen, wann immer er benötigt wird.
+      - : Die Zahlungs-App wird den Namen des Zahlenden bereitstellen, wann immer er benötigt wird.
     - `payerPhone`
-      - : Die Zahlungs-App wird die Telefonnummer des Zahlers bereitstellen, wann immer sie benötigt wird.
+      - : Die Zahlungs-App wird die Telefonnummer des Zahlenden bereitstellen, wann immer sie benötigt wird.
     - `shippingAddress`
       - : Die Zahlungs-App wird die Versandadresse bereitstellen, wann immer sie benötigt wird.
 
@@ -66,7 +66,7 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Leben einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

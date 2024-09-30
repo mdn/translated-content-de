@@ -10,7 +10,7 @@ l10n:
 > [!WARNING]
 > Diese Funktion ist veraltet. Bitte verwenden Sie [`runtime.getURL`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL).
 
-Konvertiert einen relativen Pfad innerhalb des Installationsverzeichnisses einer Erweiterung in eine vollqualifizierte URL.
+Konvertiert einen relativen Pfad innerhalb des Installationsverzeichnisses einer Erweiterung in eine vollständig qualifizierte URL.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ browser.extension.getURL(
 ### Parameter
 
 - `path`
-  - : `string`. Ein Pfad zu einer Ressource innerhalb einer Erweiterung, der relativ zu ihrem Installationsverzeichnis ausgedrückt wird.
+  - : `string`. Ein Pfad zu einer Ressource innerhalb einer Erweiterung, ausgedrückt relativ zu ihrem Installationsverzeichnis.
 
 ### Rückgabewert
 
-`string`. Die vollqualifizierte URL zur Ressource.
+`string`. Die vollständig qualifizierte URL zur Ressource.
 
 ## Browser-Kompatibilität
 
@@ -35,7 +35,7 @@ browser.extension.getURL(
 
 ## Beispiele
 
-Angenommen, eine Datei, die mit dem Add-on verpackt ist, befindet sich unter "beasts/frog.html", um die vollständige URL wie folgt zu erhalten:
+Angenommen, eine Datei ist mit dem Add-on unter "beasts/frog.html" verpackt, erhalten Sie die vollständige URL wie folgt:
 
 ```js
 let fullURL = browser.extension.getURL("beasts/frog.html");
@@ -47,4 +47,4 @@ let fullURL = browser.extension.getURL("beasts/frog.html");
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getURL) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getURL). Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.

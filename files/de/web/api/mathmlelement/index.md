@@ -13,16 +13,16 @@ Die **`MathMLElement`**-Schnittstelle repräsentiert jedes [MathML](/de/docs/Web
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von ihrem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
+_Erbt auch Eigenschaften von seinem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
 
 - [`MathMLElement.attributeStyleMap`](/de/docs/Web/API/MathMLElement/attributeStyleMap) {{ReadOnlyInline}}
-  - : Ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap), das die Deklarationen des `style`-Attributs des Elements repräsentiert.
+  - : Ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap), das die Deklarationen des `style`-Attributs des Elements darstellt.
 - [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
-  - : Eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), die die Deklarationen des `style`-Attributs des Elements repräsentiert.
+  - : Eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), die die Deklarationen des `style`-Attributs des Elements darstellt.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
+_Diese Schnittstelle hat keine Methoden, erbt aber Methoden von ihrem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
 
 ## Beispiele
 

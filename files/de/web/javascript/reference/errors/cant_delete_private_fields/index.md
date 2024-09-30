@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "SyntaxError: private fields können nicht gelöscht werden" tritt auf, wenn [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) auf eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) einer Klasse oder eines Objekts angewendet wird.
+Die JavaScript-Ausnahme "SyntaxError: private fields können nicht gelöscht werden" tritt auf, wenn [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) bei einer [privaten Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) einer Klasse oder eines Objekts verwendet wird.
 
 ## Nachricht
 
@@ -21,9 +21,9 @@ SyntaxError: Cannot delete private field X (Safari)
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was lief schief?
 
-Es gibt Code, der versucht, eine private Eigenschaft (Feld oder Methode) eines Objekts oder einer Klasse zu `delete`. Dies ist in JavaScript verboten—private Eigenschaften können nicht spontan hinzugefügt oder entfernt werden.
+Es gibt Code, der versucht, eine private Eigenschaft (Feld oder Methode) eines Objekts oder einer Klasse zu `löschen`. Dies ist in JavaScript verboten—private Eigenschaften können nicht spontan hinzugefügt oder entfernt werden.
 
 ## Beispiele
 

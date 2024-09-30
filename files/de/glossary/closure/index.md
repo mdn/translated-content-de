@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Bereich der Computerprogrammierung ist ein **Closure** eine Technik zur Implementierung lexikalisch [abgegrenzter](/de/docs/Glossary/scope) Namensbindung in einer Sprache mit [erstklassigen Funktionen](/de/docs/Glossary/first-class_function). In [JavaScript](/de/docs/Glossary/JavaScript) erstellt eine [Funktion](/de/docs/Glossary/function) einen Closure-Kontext.
+Im Bereich der Programmierung ist ein **closure** (Abschluss) eine Technik zur Implementierung von lexikalisch [geboostertem](/de/docs/Glossary/scope) Namensbindung in einer Sprache mit [first-class functions](/de/docs/Glossary/first-class_function). In [JavaScript](/de/docs/Glossary/JavaScript) erstellt eine [function](/de/docs/Glossary/function) einen closure-Kontext.
 
 ## Siehe auch
 

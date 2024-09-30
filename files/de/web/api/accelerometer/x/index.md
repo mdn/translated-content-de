@@ -1,5 +1,5 @@
 ---
-title: "Accelerometer: x Eigenschaft"
+title: "Accelerometer: x-Eigenschaft"
 short-title: x
 slug: Web/API/Accelerometer/x
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die **`x`** schreibgeschützte Eigenschaft des [`Accelerometer`](/de/docs/Web/API/Accelerometer) Interface gibt eine Zahl zurück, die die Beschleunigung des Geräts entlang seiner x-Achse angibt.
+Die schreibgeschützte **`x`**-Eigenschaft des [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Interfaces gibt eine Zahl zurück, die die Beschleunigung des Geräts entlang seiner x-Achse angibt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis-Callback ausgelesen. Im folgenden Beispiel passiert dies sechzig Mal pro Sekunde.
+Beschleunigungswerte werden typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 const accelerometer = new Accelerometer({ frequency: 60 });

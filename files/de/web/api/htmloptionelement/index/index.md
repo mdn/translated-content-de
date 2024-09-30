@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`index`**-Eigenschaft der [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Schnittstelle gibt den 0-basierten Index des Elements an; das heißt, die Position des {{HTMLElement("option")}} innerhalb der Liste von Optionen, zu der es gehört, in Baumreihenfolge, als Ganzzahl. Wenn das `<option>` nicht Teil einer Optionsliste ist, ist der Wert `0`.
+Die schreibgeschützte **`index`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt den 0-basierten Index des Elements an; das heißt, die Position des {{HTMLElement("option")}} innerhalb der Liste der Optionen, zu der es gehört, in Baumreihenfolge, als ganzzahlige Zahl. Wenn das `<option>` nicht Teil einer Optionsliste ist, beträgt der Wert `0`.
 
 ## Wert
 

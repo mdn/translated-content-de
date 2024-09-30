@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`PageSwapEvent`**-Ereignisobjekt ist in den Handler-Funktionen für das [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis verfügbar.
+Das **`PageSwapEvent`**-Ereignisobjekt steht in Handler-Funktionen für das [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis zur Verfügung.
 
-Das `pageswap`-Ereignis wird ausgelöst, wenn Sie zwischen Dokumenten navigieren, während das vorherige Dokument gerade entladen wird. Während einer Cross-Dokument-Navigation ermöglicht Ihnen das `PageSwapEvent`-Ereignisobjekt, den zugehörigen [View-Übergang](/de/docs/Web/API/View_Transitions_API) (mit Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt) von dem Dokument, von dem aus navigiert wird, zu manipulieren, falls die Navigation einen View-Übergang ausgelöst hat. Es ermöglicht außerdem den Zugriff auf Informationen zum Navigationstyp sowie zu den aktuellen und Ziel-Dokumenten.
+Das `pageswap`-Ereignis wird ausgelöst, wenn Sie zwischen Dokumenten navigieren, sobald das vorherige Dokument entladen werden soll. Während einer Überlagerung von Dokumenten bei der Navigation ermöglicht das `PageSwapEvent`-Objekt die Manipulation des zugehörigen [View Transition](/de/docs/Web/API/View_Transitions_API) (es stellt Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt) aus dem Dokument bereit, das navigiert wird _von_, wenn eine View-Übergang durch die Navigation ausgelöst wurde. Es bietet auch Zugriff auf Informationen über den Navigationstyp sowie das aktuelle und das Zielformular-Dokument.
 
 ## Konstruktor
 
 - [`PageSwapEvent()`](/de/docs/Web/API/PageSwapEvent/PageSwapEvent) {{experimental_inline}}
-  - : Erstellt eine neue Instanz des `PageSwapEvent`-Objekts.
+  - : Erstellt eine neue Instanz eines `PageSwapEvent`-Objekts.
 
 ## Instanz-Eigenschaften
 
 - [`activation`](/de/docs/Web/API/PageSwapEvent/activation) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie aktuelle und Ziel-Dokumentenhistorieinträge für eine Same-Origin-Navigation enthält. Wenn die Navigation eine Cross-Origin-URL irgendwo in der Umleitungskette hat, wird `null` zurückgegeben.
+  - : Enthält ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die Einträge in der Historie des aktuellen und des Ziel-Dokuments für eine Navigation mit demselben Ursprung enthält. Wenn die Navigation eine cross-origin URL in der Redirect-Kette aufweist, wird `null` zurückgegeben.
 - [`viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven View-Übergang für die Cross-Dokument-Navigation darstellt.
+  - : Enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven View-Übergang für die Überlagerung von Dokumenten bei der Navigation darstellt.
 
 ## Beispiele
 
@@ -76,7 +76,7 @@ window.addEventListener("pageswap", async (e) => {
 ```
 
 > [!NOTE]
-> Siehe [Liste der Chrome DevRel Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
+> Siehe [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
 
 ## Spezifikationen
 

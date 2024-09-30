@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`message`** schreibgeschützte Eigenschaft des [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Interfaces liefert eine menschenlesbare Nachricht, die erklärt, warum das Gerät verloren gegangen ist.
+Die **`message`** schreibgeschützte Eigenschaft des [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Interfaces liefert eine menschenlesbare Nachricht, die erklärt, warum das Gerät verloren ging.
 
 ## Wert
 

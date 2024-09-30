@@ -1,5 +1,5 @@
 ---
-title: "BluetoothCharacteristicProperties: Notify-Eigenschaft"
+title: "BluetoothCharacteristicProperties: notify-Eigenschaft"
 short-title: notify
 slug: Web/API/BluetoothCharacteristicProperties/notify
 l10n:

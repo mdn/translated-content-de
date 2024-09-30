@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser den fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
+Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser einen fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
 
-Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftabschnitts-Synthese-Werte zu steuern.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schrifttypensynthese zu steuern.
 
 ## Syntax
 
@@ -43,9 +43,9 @@ font-synthesis-weight: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese des fetten Schriftschnitts
+### Deaktivierung der Synthese des fetten Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der Schriftart `Montserrat` deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
 
 #### HTML
 
@@ -76,7 +76,7 @@ Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Bro
 
 #### Ergebnis
 
-{{EmbedLiveSample('Disabling synthesis of bold typeface', '', '100')}}
+{{EmbedLiveSample('Deaktivierung der Synthese des fetten Schriftschnitts', '', '100')}}
 
 ## Spezifikationen
 
@@ -88,5 +88,5 @@ Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Bro
 
 ## Siehe auch
 
-- Die [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzform, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

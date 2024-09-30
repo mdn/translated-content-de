@@ -1,5 +1,5 @@
 ---
-title: Ändern einer Webseite
+title: Eine Webseite modifizieren
 slug: Mozilla/Add-ons/WebExtensions/Modify_a_web_page
 l10n:
   sourceCommit: 668b38a4f6cd96609b9a969fe4653b46aec4e712
@@ -7,22 +7,22 @@ l10n:
 
 {{AddonSidebar}}
 
-Eine der häufigsten Anwendungen für eine Erweiterung ist das Ändern einer Webseite. Zum Beispiel könnte eine Erweiterung den Stil einer Seite ändern, bestimmte DOM-Knoten ausblenden oder zusätzliche DOM-Knoten in die Seite einfügen wollen.
+Ein häufiger Anwendungsfall für eine Erweiterung ist die Modifikation einer Webseite. Beispielsweise könnte eine Erweiterung den Stil einer Seite ändern, bestimmte DOM-Knoten ausblenden oder zusätzliche DOM-Knoten in die Seite einfügen.
 
 Es gibt zwei Möglichkeiten, dies mit den WebExtensions-APIs zu tun:
 
-- **Deklarativ**: Definieren Sie ein Muster, das eine Reihe von URLs abgleicht, und laden Sie eine Reihe von Skripten in Seiten, deren URL diesem Muster entspricht.
-- **Programmgesteuert**: Verwenden Sie eine JavaScript-API, um ein Skript in die Seite zu laden, die von einem bestimmten Tab gehostet wird.
+- **Deklarativ**: Definieren Sie ein Muster, das auf eine Menge von URLs zutrifft, und laden Sie eine Menge von Skripten in Seiten, deren URL zu diesem Muster passt.
+- **Programmatisch**: Verwenden Sie eine JavaScript-API, um ein Skript in die von einem bestimmten Tab gehostete Seite zu laden.
 
-In beiden Fällen werden diese Skripte als _Inhalts-Skripte_ bezeichnet und unterscheiden sich von den anderen Skripten, die eine Erweiterung ausmachen:
+In beiden Fällen werden diese Skripte _Content-Skripte_ genannt und unterscheiden sich von den anderen Skripten, aus denen eine Erweiterung besteht:
 
 - Sie haben nur Zugriff auf einen kleinen Teil der WebExtension-APIs.
-- Sie haben direkten Zugriff auf die Webseite, in die sie geladen sind.
+- Sie haben direkten Zugriff auf die Webseite, in der sie geladen sind.
 - Sie kommunizieren mit dem Rest der Erweiterung über eine Messaging-API.
 
 In diesem Artikel betrachten wir beide Methoden zum Laden eines Skripts.
 
-## Seiten ändern, die einem URL-Muster entsprechen
+## Seiten modifizieren, die mit einem URL-Muster übereinstimmen
 
 Erstellen Sie zunächst ein neues Verzeichnis namens "modify-page". Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" mit folgendem Inhalt:
 
@@ -41,15 +41,15 @@ Erstellen Sie zunächst ein neues Verzeichnis namens "modify-page". Erstellen Si
 }
 ```
 
-Der [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Schlüssel wird verwendet, um Skripte in Seiten zu laden, die URL-Mustern entsprechen. In diesem Fall weist `content_scripts` den Browser an, ein Skript namens "page-eater.js" in alle Seiten unter [https://developer.mozilla.org/](/) zu laden.
+Der [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Schlüssel ist die Methode, mit der Sie Skripte in Seiten laden, die URL-Mustern entsprechen. In diesem Fall weist `content_scripts` den Browser an, ein Skript namens "page-eater.js" in alle Seiten unter [https://developer.mozilla.org/](/) zu laden.
 
 > [!NOTE]
-> Da die Eigenschaft `"js"` von `content_scripts` ein Array ist, können Sie sie verwenden, um mehr als ein Skript in passende Seiten einzufügen. In diesem Fall teilen sich die Seiten denselben Gültigkeitsbereich, genau wie mehrere vom Benutzer geladene Skripte, und sie werden in der Reihenfolge geladen, in der sie im Array aufgeführt sind.
+> Da die `"js"`-Eigenschaft von `content_scripts` ein Array ist, können Sie damit mehr als ein Skript in übereinstimmende Seiten injizieren. Wenn Sie dies tun, teilen die Seiten denselben Geltungsbereich, genau wie mehrere Skripte, die von einer Seite geladen sind, und sie werden in der Reihenfolge geladen, in der sie im Array aufgeführt sind.
 
 > [!NOTE]
-> Der `content_scripts` Schlüssel hat auch eine `"css"` Eigenschaft, die Sie verwenden können, um CSS Stylesheets einzufügen.
+> Der `content_scripts` Schlüssel hat auch eine `"css"`-Eigenschaft, mit der Sie CSS-Stylesheets injizieren können.
 
-Erstellen Sie nun eine Datei namens "page-eater.js" im "modify-page" Verzeichnis und geben Sie ihr den folgenden Inhalt:
+Erstellen Sie als nächstes eine Datei namens "page-eater.js" innerhalb des Verzeichnisses "modify-page" und fügen Sie den folgenden Inhalt ein:
 
 ```js
 document.body.textContent = "";
@@ -59,15 +59,15 @@ header.textContent = "This page has been eaten";
 document.body.appendChild(header);
 ```
 
-Installieren Sie nun [die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) und besuchen Sie [https://developer.mozilla.org/](/). Die Seite sollte so aussehen:
+Nun [installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/), und besuchen Sie [https://developer.mozilla.org/](/). Die Seite sollte so aussehen:
 
-![developer.mozilla.org Seite "verschlungen" vom Skript](eaten_page.png)
+![developer.mozilla.org Seite "gegessen" vom Skript](eaten_page.png)
 
-## Seiten programmgesteuert ändern
+## Seiten programmgesteuert modifizieren
 
-Was, wenn Sie Seiten nur dann verschlingen wollen, wenn der Benutzer Sie darum bittet? Lassen Sie uns dieses Beispiel aktualisieren, damit wir das Inhalts-Skript nur laden, wenn der Benutzer auf ein Kontextmenüelement klickt.
+Was ist, wenn Sie trotzdem Seiten "essen" möchten, aber nur, wenn der Benutzer Sie dazu auffordert? Aktualisieren wir dieses Beispiel, sodass wir das Content-Skript injizieren, wenn der Benutzer einen Kontextmenüpunkt anklickt.
 
-Aktualisieren Sie zunächst "manifest.json", sodass es folgenden Inhalt hat:
+Aktualisieren Sie zunächst "manifest.json", damit es den folgenden Inhalt hat:
 
 ```json
 {
@@ -85,10 +85,10 @@ Aktualisieren Sie zunächst "manifest.json", sodass es folgenden Inhalt hat:
 
 Hier haben wir den `content_scripts` Schlüssel entfernt und zwei neue Schlüssel hinzugefügt:
 
-- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions): Um Skripte in Seiten einzufügen, benötigen wir Berechtigungen für die Seite, die wir ändern. Die [`activeTab` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) ist eine Möglichkeit, diese vorübergehend für den aktuell aktiven Tab zu erhalten. Wir benötigen auch die `contextMenus` Berechtigung, um Kontextmenüelemente hinzufügen zu können.
-- [`background`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background): Wir verwenden dies, um ein dauerhaftes ["Hintergrund-Skript"](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) namens `background.js` zu laden, in dem wir das Kontextmenü einrichten und das Inhalts-Skript einfügen.
+- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions): Um Skripte in Seiten zu injizieren, benötigen wir Berechtigungen für die Seite, die wir modifizieren. Die [`activeTab` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) ist eine Möglichkeit, diese temporär für den aktuell aktiven Tab zu erhalten. Wir benötigen auch die `contextMenus` Berechtigung, um Kontextmenüeinträge hinzufügen zu können.
+- [`background`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background): Wir verwenden dies, um ein persistentes ["Background Script"](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) namens `background.js` zu laden, in dem wir das Kontextmenü einrichten und das Content-Skript injizieren werden.
 
-Lassen Sie uns diese Datei erstellen. Erstellen Sie eine neue Datei namens `background.js` im `modify-page` Verzeichnis und geben Sie ihr den folgenden Inhalt:
+Lassen Sie uns diese Datei erstellen. Erstellen Sie eine neue Datei namens `background.js` im Verzeichnis `modify-page` und fügen Sie den folgenden Inhalt ein:
 
 ```js
 browser.contextMenus.create({
@@ -105,9 +105,9 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 });
 ```
 
-In diesem Skript erstellen wir ein [Kontextmenüelement](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/create), geben ihm eine spezifische ID und einen Titel (den Text, der im Kontextmenü angezeigt werden soll). Dann richten wir einen Ereignis-Listener ein, sodass wenn der Benutzer auf ein Kontextmenüelement klickt, wir überprüfen, ob es unser `eat-page` Element ist. Wenn dem so ist, fügen wir "page-eater.js" in den aktuellen Tab mit der API [`tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript) ein. Diese API nimmt optional eine Tab-ID als Argument: Wir haben die Tab-ID weggelassen, was bedeutet, dass das Skript in den derzeit aktiven Tab eingefügt wird.
+In diesem Skript erstellen wir einen [Kontextmenüeintrag](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/create), vergeben ihm eine spezifische ID und einen Titel (der Text, der im Kontextmenü angezeigt wird). Dann richten wir einen Event-Listener ein, sodass, wenn der Benutzer einen Kontextmenüpunkt anklickt, wir prüfen, ob es sich um unseren `eat-page` Eintrag handelt. Wenn ja, injizieren wir "page-eater.js" in den aktuellen Tab mit der [`tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript) API. Diese API nimmt optional eine Tab-ID als Argument: wir haben die Tab-ID weggelassen, was bedeutet, dass das Skript in den aktuell aktiven Tab injiziert wird.
 
-Zu diesem Zeitpunkt sollte die Erweiterung so aussehen:
+An diesem Punkt sollte die Erweiterung so aussehen:
 
 ```plain
 modify-page/
@@ -116,23 +116,23 @@ modify-page/
     page-eater.js
 ```
 
-Laden Sie nun [die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on), öffnen Sie eine Seite (diesmal beliebig), aktivieren Sie das Kontextmenü und wählen Sie "Eat this page":
+Nun [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on), öffnen Sie eine Seite (diesmal irgendeine Seite), aktivieren Sie das Kontextmenü und wählen Sie "Eat this page":
 
-![Option, um eine Seite im Kontextmenü zu verschlingen](eat_from_menu.png)
+![Option eine Seite im Kontextmenü zu essen](eat_from_menu.png)
 
-## Messaging
+## Nachrichtenübermittlung
 
-Inhalts-Skripte und Hintergrund-Skripte können nicht direkt auf den Zustand des jeweils anderen zugreifen. Sie können jedoch kommunizieren, indem sie Nachrichten senden. Ein Ende richtet einen Nachrichten-Listener ein, und das andere Ende kann ihm dann eine Nachricht senden. Die folgende Tabelle fasst die beteiligten APIs auf jeder Seite zusammen:
+Content-Skripte und Hintergrund-Skripte können nicht direkt auf den Zustand des jeweils anderen zugreifen. Sie können jedoch kommunizieren, indem sie Nachrichten senden. Ein Ende richtet einen Nachrichten-Listener ein, und das andere Ende kann ihm dann eine Nachricht senden. Die folgende Tabelle fasst die auf jeder Seite verwendeten APIs zusammen:
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="row"></th>
-      <th scope="col">Im Inhalts-Skript</th>
-      <th scope="col">Im Hintergrund-Skript</th>
+      <th scope="col">Im Content-Skript</th>
+      <th scope="col">Im Background-Skript</th>
     </tr>
     <tr>
-      <th scope="row">Nachricht senden</th>
+      <th scope="row">Eine Nachricht senden</th>
       <td>
         <code
           ><a
@@ -151,7 +151,7 @@ Inhalts-Skripte und Hintergrund-Skripte können nicht direkt auf den Zustand des
       </td>
     </tr>
     <tr>
-      <th scope="row">Nachricht empfangen</th>
+      <th scope="row">Eine Nachricht empfangen</th>
       <td>
         <code
           ><a
@@ -173,11 +173,11 @@ Inhalts-Skripte und Hintergrund-Skripte können nicht direkt auf den Zustand des
 </table>
 
 > [!NOTE]
-> Zusätzlich zu dieser Methode der Kommunikation, die einmalige Nachrichten sendet, können Sie auch einen [Verbindungs-basierten Ansatz zum Nachrichtenaustausch](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging) verwenden. Für Ratschläge zur Auswahl zwischen den Optionen siehe [Choosing between one-off messages and connection-based messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
+> Zusätzlich zu dieser Methode der Kommunikation, die Einmalnachrichten sendet, können Sie auch einen [Verbindungsansatz zum Austausch von Nachrichten verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging). Für Ratschläge zur Auswahl zwischen den Optionen siehe [Wahl zwischen Einmalnachrichten und verbindungsbasiertem Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
 
-Lassen Sie uns unser Beispiel aktualisieren, um zu zeigen, wie man eine Nachricht vom Hintergrund-Skript sendet.
+Lassen Sie uns unser Beispiel aktualisieren, um zu zeigen, wie man eine Nachricht vom Background-Skript sendet.
 
-Bearbeiten Sie zuerst `background.js`, sodass es diesen Inhalt hat:
+Bearbeiten Sie zuerst `background.js`, sodass es folgenden Inhalt hat:
 
 ```js
 browser.contextMenus.create({
@@ -209,9 +209,9 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 });
 ```
 
-Jetzt verwenden wir nach dem Einfügen von `page-eater.js` [`tabs.query()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query), um den aktuell aktiven Tab zu erhalten, und dann verwenden wir [`tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage), um eine Nachricht an die Inhalts-Skripte zu senden, die in diesen Tab geladen sind. Die Nachricht hat die Nutzlast `{replacement: "Message from the extension!"}`.
+Jetzt verwenden wir nach dem Injizieren von `page-eater.js` [`tabs.query()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query), um den derzeit aktiven Tab zu erhalten, und anschließend [`tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage), um eine Nachricht an die in diesen Tab geladenen Content-Skripte zu senden. Die Nachricht hat die Nutzlast `{replacement: "Message from the extension!"}`.
 
-Aktualisieren Sie als Nächstes `page-eater.js` wie folgt:
+Aktualisieren Sie als nächstes `page-eater.js` wie folgt:
 
 ```js
 function eatPageReceiver(request, sender, sendResponse) {
@@ -223,16 +223,16 @@ function eatPageReceiver(request, sender, sendResponse) {
 browser.runtime.onMessage.addListener(eatPageReceiver);
 ```
 
-Nun, anstatt die Seite sofort zu verschlingen, hört das Inhalts-Skript auf eine Nachricht, indem es [`runtime.onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage) verwendet. Wenn eine Nachricht eintrifft, führt das Inhalts-Skript im Wesentlichen denselben Code aus wie zuvor, außer dass der Ersetzungstext aus `request.replacement` entnommen wird.
+Jetzt hört das Content-Skript, anstatt die Seite sofort zu "essen", auf eine Nachricht mit [`runtime.onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage). Wenn eine Nachricht eintrifft, führt das Content-Skript im Wesentlichen denselben Code wie zuvor aus, außer dass der Ersetzungstext aus `request.replacement` stammt.
 
-Da [`tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript) eine asynchrone Funktion ist und um sicherzustellen, dass wir die Nachricht erst senden, wenn der Listener in `page-eater.js` hinzugefügt wurde, verwenden wir `onExecuted()`, das aufgerufen wird, nachdem `page-eater.js` ausgeführt wurde.
+Da [`tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript) eine asynchrone Funktion ist und um sicherzustellen, dass wir die Nachricht nur senden, nachdem der Listener in `page-eater.js` hinzugefügt wurde, verwenden wir `onExecuted()`, das nach der Ausführung von `page-eater.js` aufgerufen wird.
 
 > [!NOTE]
-> Drücken Sie <kbd>Strg</kbd>+<kbd>Umschalt</kbd>+<kbd>J</kbd> (oder <kbd>Cmd</kbd>+<kbd>Umschalt</kbd>+<kbd>J</kbd> auf macOS) ODER `web-ext run --bc`, um die [Browser-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html) zu öffnen, um `console.log` im Hintergrund-Skript anzuzeigen.
+> Drücken Sie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> (oder <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> auf macOS) ODER `web-ext run --bc`, um die [Browser-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html) zu öffnen und `console.log` im Hintergrundskript anzuzeigen.
 >
-> Alternativ verwenden Sie [Add-on Debugger](/de/docs/Mozilla/Add-ons/Add-on_Debugger), der es Ihnen erlaubt, Breakpoints zu setzen. Derzeit gibt es keine Möglichkeit, [Add-on Debugger direkt von web-ext zu starten](https://github.com/mozilla/web-ext/issues/759).
+> Alternativ verwenden Sie den [Add-on Debugger](/de/docs/Mozilla/Add-ons/Add-on_Debugger), der es Ihnen ermöglicht, Breakpoints zu setzen. Es gibt derzeit keine Möglichkeit, den [Add-on Debugger direkt von web-ext zu starten](https://github.com/mozilla/web-ext/issues/759).
 
-Wenn wir Nachrichten vom Inhalts-Skript zurück zur Hintergrundseite senden wollen, würden wir [`runtime.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage) anstelle von [`tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage) verwenden, z.B.:
+Wenn wir Nachrichten vom Content-Skript zurück zur Hintergrundseite senden möchten, würden wir [`runtime.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage) anstelle von [`tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage) verwenden, z.B.:
 
 ```js
 browser.runtime.sendMessage({
@@ -241,13 +241,13 @@ browser.runtime.sendMessage({
 ```
 
 > [!NOTE]
-> Diese Beispiele injizieren alle JavaScript; Sie können auch CSS programmatisch mit der Funktion [`tabs.insertCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) einfügen.
+> Diese Beispiele injizieren alle JavaScript; Sie können auch CSS programmatisch mithilfe der [`tabs.insertCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) Funktion injizieren.
 
-## Mehr erfahren
+## Erfahren Sie mehr
 
-- [Leitfaden für Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
-- [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) manifest Schlüssel
-- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) manifest Schlüssel
+- [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) Leitfaden
+- [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Manifest Schlüssel
+- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) Manifest Schlüssel
 - [`tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript)
 - [`tabs.insertCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS)
 - [`tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage)

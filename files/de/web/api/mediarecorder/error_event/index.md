@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: Fehlerereignis"
+title: "MediaRecorder: error Ereignis"
 short-title: error
 slug: Web/API/MediaRecorder/error_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`error`**-Ereignis der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle wird ausgelöst, wenn ein Fehler auftritt: zum Beispiel, weil die Aufnahme nicht erlaubt war oder ein nicht unterstützter Codec verwendet wurde.
+Das **`error`** Ereignis des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird ausgelöst, wenn ein Fehler auftritt: zum Beispiel, weil die Aufnahme nicht erlaubt war oder mit einem nicht unterstützten Codec versucht wurde.
 
-Dieses Ereignis ist nicht anullierbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -30,27 +30,27 @@ Ein [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent). Erbt 
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`error`](/de/docs/Web/API/MediaRecorderErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das Informationen über den aufgetretenen Fehler enthält.
+  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der Informationen über den aufgetretenen Fehler enthält.
 
 ## Beschreibung
 
 ### Auslöser
 
-Eine Funktion, die immer dann aufgerufen wird, wenn während der Lebensdauer des Recorders ein Fehler auftritt. Zusätzlich zu anderen allgemeinen Fehlern, die auftreten können, sind die folgenden Fehler speziell beim Verwenden der MediaStream Recording API möglich; um festzustellen, welcher aufgetreten ist, überprüfen Sie den Wert von [`MediaRecorderErrorEvent.error.name`](/de/docs/Web/API/DOMException/name).
+Eine Funktion, die immer dann aufgerufen wird, wenn während der Lebensdauer des Rekorders ein Fehler auftritt. Neben anderen allgemeinen Fehlern, die auftreten können, sind folgende Fehler beim Einsatz der MediaStream Recording-API speziell möglich; um festzustellen, welcher aufgetreten ist, überprüfen Sie den Wert von [`MediaRecorderErrorEvent.error.name`](/de/docs/Web/API/DOMException/name).
 
 - `SecurityError`
-  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream) ist so konfiguriert, dass er Aufnahmen nicht zulässt. Dies kann zum Beispiel der Fall sein, wenn Quellen mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten werden und der Benutzer die Erlaubnis zur Nutzung eines Eingabegeräts verweigert.
+  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream) ist so konfiguriert, dass die Aufnahme nicht erlaubt ist. Dies kann beispielsweise der Fall sein, wenn Quellen mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) bezogen werden und der Benutzer die Berechtigung zur Nutzung eines Eingabegeräts verweigert.
 - `InvalidModificationError`
-  - : Die Anzahl der Spuren im aufgezeichneten Stream hat sich geändert. Sie können keine Spuren hinzufügen oder entfernen, während Medien aufgezeichnet werden.
+  - : Die Anzahl der Tracks im aufgenommenen Stream hat sich geändert. Sie können keine Tracks hinzufügen oder entfernen, während Medien aufgenommen werden.
 - `UnknownError`
-  - : Ein nicht sicherheitsbezogener Fehler ist aufgetreten, der ansonsten nicht kategorisiert werden kann. Die Aufnahme stoppt, der `MediaRecorder`-`state` (/de/docs/Web/API/MediaRecorder/state) wird `inactive`, ein letztes [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) Ereignis wird an den `MediaRecorder` gesendet mit den restlichen empfangenen Daten, und schließlich wird ein [`stop`](/de/docs/Web/API/MediaRecorder/stop_event) Ereignis gesendet.
+  - : Ein nicht sicherheitsrelevanter Fehler ist aufgetreten, der sonst nicht kategorisiert werden kann. Die Aufnahme wird gestoppt, der [`state`](/de/docs/Web/API/MediaRecorder/state) des `MediaRecorder` wird zu `inactive`, ein letztes [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) Ereignis wird an den `MediaRecorder` mit den verbleibenden empfangenen Daten gesendet, und schließlich wird ein [`stop`](/de/docs/Web/API/MediaRecorder/stop_event) Ereignis gesendet.
 
 ## Beispiele
 
-Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zum Lauschen auf `error`-Ereignisse:
+Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um `error` Ereignisse abzuhören:
 
 ```js
 async function record() {
@@ -65,7 +65,7 @@ async function record() {
 record();
 ```
 
-Dasselbe, aber unter Verwendung der `onerror`-Ereignis-Handler-Eigenschaft:
+Das Gleiche, aber mit der `onerror` Ereignis-Handler-Eigenschaft:
 
 ```js
 async function record() {

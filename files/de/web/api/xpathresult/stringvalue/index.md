@@ -1,5 +1,5 @@
 ---
-title: "XPathResult: Eigenschaft stringValue"
+title: "XPathResult: stringValue Eigenschaft"
 short-title: stringValue
 slug: Web/API/XPathResult/stringValue
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`stringValue`**-Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den String-Wert eines Ergebnisses zurück, wobei
+Die schreibgeschützte **`stringValue`** Eigenschaft der
+[`XPathResult`](/de/docs/Web/API/XPathResult) Schnittstelle gibt den Zeichenfolgenwert eines Ergebnisses zurück, wenn
 [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `STRING_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der String-Wert des von
-[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
+Der Rückgabewert ist der Zeichenfolgenwert des `XPathResult`, der von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 
@@ -26,7 +26,7 @@ Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht 
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `stringValue`-Eigenschaft.
+Das folgende Beispiel zeigt die Verwendung der `stringValue` Eigenschaft.
 
 ### HTML
 

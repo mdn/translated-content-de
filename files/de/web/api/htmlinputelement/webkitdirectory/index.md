@@ -8,18 +8,25 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`HTMLInputElement.webkitdirectory`**-Eigenschaft spiegelt das [`webkitdirectory`](/de/docs/Web/HTML/Element/input/file#webkitdirectory) HTML-Attribut wider und zeigt an, dass das {{HTMLElement("input")}}-Element es dem Benutzer ermöglichen sollte, Verzeichnisse anstelle von Dateien auszuwählen. Wenn ein Verzeichnis ausgewählt wird, werden das Verzeichnis und die gesamte Hierarchie seiner Inhalte in die Menge der ausgewählten Elemente aufgenommen. Die ausgewählten Dateisystemeinträge können mittels der [`webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries)-Eigenschaft abgerufen werden.
+Die **`HTMLInputElement.webkitdirectory`** ist eine Eigenschaft,
+die das [`webkitdirectory`](/de/docs/Web/HTML/Element/input/file#webkitdirectory) HTML-Attribut widerspiegelt
+und anzeigt, dass das {{HTMLElement("input")}}-Element dem Benutzer das Auswählen von Verzeichnissen anstelle von Dateien ermöglichen soll.
+Wenn ein Verzeichnis ausgewählt wird, werden das Verzeichnis und seine gesamte Inhaltsstruktur in die Auswahl der ausgewählten Elemente einbezogen.
+Die ausgewählten Dateisystemeinträge können mithilfe der [`webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries)-Eigenschaft abgerufen werden.
 
 > [!NOTE]
-> Diese Eigenschaft wird in der Spezifikation `webkitdirectory` genannt, aufgrund ihrer Herkunft als Google Chrome-spezifische API. Es ist wahrscheinlich, dass sie eines Tages umbenannt wird.
+> Diese Eigenschaft wird in der Spezifikation `webkitdirectory` genannt, da sie
+> ursprünglich als Google Chrome-spezifische API entwickelt wurde. Es ist wahrscheinlich, dass sie eines Tages umbenannt wird.
 
 ## Wert
 
-Ein Boolean; `true`, wenn das {{HTMLElement("input")}}-Element es ermöglichen sollte, nur Verzeichnisse auszuwählen, oder `false`, wenn nur Dateien auswählbar sein sollten.
+Ein Boolean; `true`, wenn das {{HTMLElement("input")}}-Element nur Verzeichnisse zulassen soll, oder `false`, wenn nur Dateien auswählbar sein sollen.
 
 ## Verständnis der Ergebnisse
 
-Nachdem der Benutzer eine Auswahl getroffen hat, hat jedes [`File`](/de/docs/Web/API/File)-Objekt in `files` seine Eigenschaft [`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath) auf den relativen Pfad innerhalb des ausgewählten Verzeichnisses gesetzt, an dem sich die Datei befindet. Betrachten Sie zum Beispiel dieses Dateisystem:
+Nachdem der Benutzer eine Auswahl getroffen hat, hat jedes [`File`](/de/docs/Web/API/File)-Objekt in `files`
+seine [`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)-Eigenschaft auf den relativen Pfad innerhalb
+des ausgewählten Verzeichnisses gesetzt, an dem sich die Datei befindet. Beispielsweise betrachten Sie dieses Dateisystem:
 
 - PhotoAlbums
 
@@ -48,14 +55,22 @@ Nachdem der Benutzer eine Auswahl getroffen hat, hat jedes [`File`](/de/docs/Web
       - PIC5684.jpg
       - PIC5712.jpg
 
-Wenn der Benutzer `PhotoAlbums` auswählt, enthält die von files gemeldete Liste [`File`](/de/docs/Web/API/File)-Objekte für jede oben aufgeführte Datei, aber nicht die Verzeichnisse. Der Eintrag für `PIC2343.jpg` hat einen `webkitRelativePath` von `PhotoAlbums/Birthdays/Don's 40th birthday/PIC2343.jpg`. Dies ermöglicht es, die Hierarchie zu kennen, obwohl die [`FileList`](/de/docs/Web/API/FileList) flach ist.
+Wenn der Benutzer `PhotoAlbums` auswählt, enthält die Liste, die von files berichtet wird,
+[`File`](/de/docs/Web/API/File)-Objekte für jede der oben aufgelisteten Dateien, aber nicht die Verzeichnisse.
+Der Eintrag für `PIC2343.jpg` wird einen `webkitRelativePath` von
+`PhotoAlbums/Birthdays/Don's 40th birthday/PIC2343.jpg` haben. Dies ermöglicht es,
+die Hierarchie zu kennen, obwohl die [`FileList`](/de/docs/Web/API/FileList) flach ist.
 
 > [!NOTE]
-> Das Verhalten von `webkitRelativePath` ist in _Chromium < 72_ unterschiedlich. Sehen Sie [dieses Problem](https://crbug.com/124187) für weitere Details.
+> Das Verhalten von `webkitRelativePath` ist unterschiedlich
+> in _Chromium < 72_. Sehen Sie [dieses Problem](https://crbug.com/124187) für
+> weitere Details.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Verzeichnis-Auswahlfenster präsentiert, das es dem Benutzer ermöglicht, ein oder mehrere Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, wird eine Liste aller in den ausgewählten Verzeichnishierarchien enthaltenen Dateien erstellt und angezeigt.
+In diesem Beispiel wird ein Verzeichniswähler präsentiert, der dem Benutzer erlaubt, ein oder mehrere
+Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, wird eine Liste aller Dateien innerhalb
+der ausgewählten Verzeichnishierarchien erstellt und angezeigt.
 
 ### HTML
 

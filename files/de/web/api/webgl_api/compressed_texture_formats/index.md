@@ -7,30 +7,30 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-Die WebGL-API bietet Methoden zur Verwendung komprimierter Texturformate. Diese sind nützlich, um die Texturdetails zu erhöhen, während der zusätzliche benötigte Videospeicher begrenzt wird. Standardmäßig sind keine komprimierten Formate verfügbar: Eine entsprechende Erweiterung für komprimierte Texturformate muss zuerst aktiviert werden.
+Die WebGL-API bietet Methoden zur Nutzung von komprimierten Texturformaten. Diese sind nützlich, um den Detailgrad von Texturen zu erhöhen, während der zusätzliche Videoarbeitsspeicher begrenzt wird. Standardmäßig sind keine komprimierten Formate verfügbar: Es muss zuerst eine entsprechende Erweiterung für komprimierte Texturformate aktiviert werden.
 
 ## Nutzung
 
 Sofern nicht anders angegeben, gilt dieser Artikel sowohl für WebGL 1- als auch 2-Kontexte.
 
-Wenn unterstützt, können Texturen im Videospeicher in einem komprimierten Format gespeichert werden. Dies erlaubt zusätzliche Details, während der benötigte zusätzliche Videospeicher begrenzt wird. Texturen werden bei Zugriffen eines Shaders direkt unkomprimiert. Beachten Sie, dass dieser Vorteil nicht auf die Netzbandbreite übertragbar ist: Während die Formate besser als unkomprimierte Daten sind, sind sie im Allgemeinen viel schlechter als Standardbildformate wie PNG und JPG.
+Wenn unterstützt, können Texturen im Videoarbeitsspeicher in einem komprimierten Format gespeichert werden. Dies erlaubt zusätzlichen Detailreichtum, während der benötigte zusätzliche Videoarbeitsspeicher begrenzt wird. Texturen werden während des Zugriffs durch einen Shader automatisch dekomprimiert. Beachten Sie, dass sich dieser Vorteil nicht auf die Netzwerkauslastung bezieht: Während die Formate besser als unkomprimierte Daten sind, sind sie im Allgemeinen weit schlechter als Standardbildformate wie PNG und JPG.
 
-Da komprimierte Texturen Hardwareunterstützung erfordern, sind keine spezifischen Formate für WebGL vorgeschrieben; stattdessen kann ein Kontext je nach Hardwareunterstützung verschiedene Formate verfügbar machen. [Diese Seite](https://toji.github.io/texture-tester/) zeigt, welche Formate im verwendeten Browser unterstützt werden.
+Da komprimierte Texturen Hardware-Unterstützung erfordern, sind von WebGL keine spezifischen Formate erforderlich; stattdessen kann ein Kontext je nach Hardware-Unterstützung verschiedene Formate verfügbar machen. [Diese Seite](https://toji.github.io/texture-tester/) zeigt, welche Formate im verwendeten Browser unterstützt werden.
 
-Die Nutzung komprimierter Formate erfordert zunächst die Aktivierung der jeweiligen Erweiterung mit [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Wenn Unterstützung vorhanden ist, wird ein Erweiterungsobjekt mit Konstanten für die hinzugefügten Formate zurückgegeben, und die Formate werden auch durch Aufrufe von `gl.getParameter(gl.COMPRESSED_TEXTURE_FORMATS)` zurückgegeben. (Z.B. `ext.COMPRESSED_RGBA_S3TC_DXT1_EXT` für die [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc) Erweiterung.) Diese können dann mit [`compressedTexImage[23]D`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) oder [`compressedTexSubImage[23]D`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D) anstelle von `texImage2D`-Aufrufen verwendet werden.
+Die Nutzung von komprimierten Formaten erfordert zuerst die Aktivierung der jeweiligen Erweiterung mit [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Wenn unterstützt, gibt es ein Erweiterungsobjekt mit Konstanten für die hinzugefügten Formate zurück, und die Formate werden auch durch Aufrufe von `gl.getParameter(gl.COMPRESSED_TEXTURE_FORMATS)` zurückgegeben. (Zum Beispiel `ext.COMPRESSED_RGBA_S3TC_DXT1_EXT` für die [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc)-Erweiterung.) Diese können dann mit [`compressedTexImage[23]D`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) oder [`compressedTexSubImage[23]D`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D) anstelle von `texImage2D`-Aufrufen verwendet werden.
 
-Beachten Sie, dass WebGL keine Funktionalität zum Komprimieren oder Dekomprimieren von Texturen bietet: Diese müssen bereits in einem komprimierten Format vorliegen und können dann direkt in den Videospeicher hochgeladen werden.
+Beachten Sie, dass WebGL keine Funktionalitäten zur Komprimierung oder Dekomprimierung von Texturen bereitstellt: Sie müssen bereits in einem komprimierten Format vorliegen und können dann direkt in den Videoarbeitsspeicher hochgeladen werden.
 
-Alle Formate unterstützen 2D-Texturen. Welche Formate `TEXTURE_2D_ARRAY` und `TEXTURE_3D`-Ziele (in Kombination mit `compressedTexImage3D`) unterstützen, sind in der folgenden Tabelle vermerkt.
+Alle Formate unterstützen 2D-Texturen. Welche Formate `TEXTURE_2D_ARRAY` und `TEXTURE_3D` Ziele (in Kombination mit `compressedTexImage3D`) unterstützen, sind in der folgenden Tabelle vermerkt.
 
-| Erweiterung                        | Anmerkungen                                                     | TEXTURE_2D_ARRAY | TEXTURE_3D |
-| ---------------------------------- | --------------------------------------------------------------- | ---------------- | ---------- |
-| WEBGL_compressed_texture_astc      |                                                                 | Ja               | Ja         |
-| WEBGL_compressed_texture_etc       |                                                                 | Ja               | Nein       |
-| WEBGL_compressed_texture_etc1\*    | Nicht verwendbar mit compressedTexSubImage2D/copyTexSubImage2D. | Nein             | Nein       |
-| WEBGL_compressed_texture_pvrtc     | Breite und Höhe müssen Potenzen von 2 sein.                     | Nein             | Nein       |
-| WEBGL_compressed_texture_s3tc      | Breite und Höhe müssen Vielfache von 4 sein.                    | Ja               | Nein       |
-| WEBGL_compressed_texture_s3tc_srgb | Breite und Höhe müssen Vielfache von 4 sein.                    | ?                | Nein       |
+| Erweiterung                        | Hinweise                                                   | TEXTURE_2D_ARRAY | TEXTURE_3D |
+| ---------------------------------- | ---------------------------------------------------------- | ---------------- | ---------- |
+| WEBGL_compressed_texture_astc      |                                                            | Ja               | Ja         |
+| WEBGL_compressed_texture_etc       |                                                            | Ja               | Nein       |
+| WEBGL_compressed_texture_etc1\*    | Nicht nutzbar mit compressedTexSubImage2D/copyTexSubImage2D. | Nein             | Nein       |
+| WEBGL_compressed_texture_pvrtc     | Breite und Höhe müssen Potenzen von 2 sein.                | Nein             | Nein       |
+| WEBGL_compressed_texture_s3tc      | Breite und Höhe müssen Vielfache von 4 sein.               | Ja               | Nein       |
+| WEBGL_compressed_texture_s3tc_srgb | Breite und Höhe müssen Vielfache von 4 sein.               | ?                | Nein       |
 
 ## Beispiele
 

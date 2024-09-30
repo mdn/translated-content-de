@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Findet Text auf einer Webseite und hebt Übereinstimmungen hervor.
+Findet Text auf einer Webseite und hebt die Übereinstimmungen hervor.
 
-Um diese API zu verwenden, benötigen Sie die Berechtigung "find" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu verwenden, müssen Sie die Berechtigung "find" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
 
 ## Funktionen
 
 - {{WebExtAPIRef("find.find()")}}
   - : Findet Text auf einer Webseite.
 - {{WebExtAPIRef("find.highlightResults()")}}
-  - : Hebt die letzte Gruppe gefundener Übereinstimmungen hervor.
+  - : Hebt die zuletzt gefundenen Übereinstimmungen hervor.
 - {{WebExtAPIRef("find.removeHighlighting()")}}
-  - : Entfernt jegliche Hervorhebungen.
+  - : Entfernt alle Hervorhebungen.
 
 ## Browser-Kompatibilität
 

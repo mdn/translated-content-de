@@ -8,25 +8,25 @@ l10n:
 {{jsSidebar("Functions")}}{{Deprecated_Header}}
 
 > [!NOTE]
-> Der Zugriff auf `arguments.callee` im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) löst einen {{jsxref("TypeError")}} aus. Wenn eine Funktion sich selbst referenzieren muss, geben Sie entweder dem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) einen Namen oder verwenden Sie eine [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function).
+> Der Zugriff auf `arguments.callee` im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) führt zu einer {{jsxref("TypeError")}}. Wenn eine Funktion sich selbst referenzieren muss, geben Sie entweder dem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) einen Namen oder verwenden Sie eine [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function).
 
-Die **`arguments.callee`** Daten-Eigenschaft enthält die gerade ausgeführte Funktion, zu der die Argumente gehören.
+Die **`arguments.callee`** Dateneigenschaft enthält die derzeit ausgeführte Funktion, zu der die Argumente gehören.
 
 ## Wert
 
-Ein Verweis auf die gerade ausgeführte Funktion.
+Ein Verweis auf die derzeit ausgeführte Funktion.
 
 {{js_property_attributes(1, 0, 1)}}
 
-> **Hinweis:** `callee` ist eine Daten-Eigenschaft nur in nicht-strikten Funktionen mit einfachen Parametern (in diesem Fall wird das `arguments`-Objekt auch [automatisch synchronisiert](/de/docs/Web/JavaScript/Reference/Functions/arguments#assigning_to_indices)). Andernfalls ist es eine Accessor-Eigenschaft, deren Getter und Setter beide einen {{jsxref("TypeError")}} auslösen.
+> **Hinweis:** `callee` ist nur eine Dateneigenschaft in nicht-strikten Funktionen mit einfachen Parametern (in diesem Fall wird das `arguments`-Objekt auch [automatisch synchronisiert](/de/docs/Web/JavaScript/Reference/Functions/arguments#assigning_to_indices)). Andernfalls ist es eine Zugriffseigenschaft, deren Getter und Setter beide eine {{jsxref("TypeError")}} auslösen.
 
 ## Beschreibung
 
-`callee` ist eine Eigenschaft des `arguments`-Objekts. Es kann verwendet werden, um innerhalb des Funktionskörpers der aktuellen Funktion auf diese zu verweisen. Dies ist nützlich, wenn der Name der Funktion unbekannt ist, z.B. innerhalb eines Funktionsausdrucks ohne Namen (auch "anonyme Funktionen" genannt).
+`callee` ist eine Eigenschaft des `arguments`-Objekts. Es kann verwendet werden, um innerhalb des Funktionskörpers der aktuell ausgeführten Funktion auf diese zu verweisen. Dies ist nützlich, wenn der Name der Funktion unbekannt ist, wie beispielsweise innerhalb eines Funktionsausdrucks ohne Namen (auch als "anonyme Funktionen" bezeichnet).
 
-(Der folgende Text ist größtenteils von [einer Antwort auf Stack Overflow von olliej](https://stackoverflow.com/questions/103598/why-was-the-arguments-callee-caller-property-deprecated-in-javascript/235760) adaptiert)
+(Der folgende Text ist größtenteils von [einer Antwort von olliej auf Stack Overflow](https://stackoverflow.com/questions/103598/why-was-the-arguments-callee-caller-property-deprecated-in-javascript/235760) adaptiert)
 
-Frühe Versionen von JavaScript erlaubten keine benannten Funktionsausdrücke, weshalb man keine rekursiven Funktionsausdrücke erstellen konnte.
+Frühe Versionen von JavaScript erlaubten keine benannten Funktionsausdrücke, und aus diesem Grund konnte man keinen rekursiven Funktionsausdruck erstellen.
 
 Zum Beispiel funktionierte diese Syntax:
 
@@ -46,7 +46,7 @@ aber:
 });
 ```
 
-tat es nicht. Um dieses Problem zu umgehen, wurde `arguments.callee` hinzugefügt, sodass man Folgendes tun konnte:
+nicht. Um dies zu umgehen, wurde `arguments.callee` hinzugefügt, sodass man dies tun konnte
 
 ```js
 [1, 2, 3, 4, 5].map(function (n) {
@@ -54,7 +54,7 @@ tat es nicht. Um dieses Problem zu umgehen, wurde `arguments.callee` hinzugefüg
 });
 ```
 
-Das Design von `arguments.callee` weist jedoch mehrere Probleme auf. Das erste Problem ist, dass der rekursive Aufruf einen anderen `this`-Wert erhält. Zum Beispiel:
+Allerdings hat das Design von `arguments.callee` mehrere Probleme. Das erste Problem ist, dass der rekursive Aufruf einen anderen `this`-Wert erhält. Zum Beispiel:
 
 ```js
 const global = this;
@@ -76,7 +76,7 @@ sillyFunction();
 // This is: [object Arguments]
 ```
 
-Darüber hinaus machen Verweise auf `arguments.callee` Inlining und Tail-Recursion im Allgemeinen unmöglich. (Man kann es in ausgewählten Fällen durch Tracing usw. erreichen, aber selbst der beste Code ist suboptimal aufgrund von Prüfungen, die ansonsten nicht notwendig wären.)
+Darüber hinaus machen Verweise auf `arguments.callee` Inlining und Tail-Rekursion im allgemeinen Fall unmöglich. (Man kann es in ausgewählten Fällen durch Tracing usw. erreichen, aber selbst der beste Code ist suboptimal aufgrund von Prüfungen, die sonst nicht erforderlich wären.)
 
 ECMAScript 3 löste diese Probleme, indem benannte Funktionsausdrücke erlaubt wurden. Zum Beispiel:
 
@@ -89,10 +89,10 @@ ECMAScript 3 löste diese Probleme, indem benannte Funktionsausdrücke erlaubt w
 Dies hat zahlreiche Vorteile:
 
 - Die Funktion kann wie jede andere innerhalb Ihres Codes aufgerufen werden.
-- Sie erstellt keine Variable im äußeren Geltungsbereich ([außer bei IE 8 und darunter](https://kangax.github.io/nfe/#example_1_function_expression_identifier_leaks_into_an_enclosing_scope)).
+- Sie erstellt keine Variable im äußeren Geltungsbereich ([mit Ausnahme von IE 8 und darunter](https://kangax.github.io/nfe/#example_1_function_expression_identifier_leaks_into_an_enclosing_scope)).
 - Sie hat eine bessere Leistung als der Zugriff auf das `arguments`-Objekt.
 
-Der Strict-Modus hat andere Eigenschaften verboten, die Stack-Informationen preisgeben, wie die [`caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller)-Eigenschaft von Funktionen. Dies liegt daran, dass das Betrachten des Call-Stacks eine einzige große Auswirkung hat: Es macht eine große Anzahl von Optimierungen unmöglich oder erheblich schwieriger. Beispielsweise ist es nicht möglich, `f` inline zu setzen, wenn Sie nicht garantieren können, dass eine Funktion `f` keine unbekannte Funktion aufruft.
+Der strikte Modus hat andere Eigenschaften verboten, die Informationen über den Stapel freigeben, wie die [`caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller)-Eigenschaft von Funktionen. Dies liegt daran, dass das Betrachten des Aufrufstapels eine große Anzahl von Optimierungen unmöglich oder viel schwieriger macht. Wenn Sie zum Beispiel nicht garantieren können, dass eine Funktion `f` keine unbekannte Funktion aufruft, ist es nicht möglich, `f` inline zu verwenden.
 
 ```js
 function f(a, b, c, d, e) {
@@ -100,15 +100,15 @@ function f(a, b, c, d, e) {
 }
 ```
 
-Wenn der JavaScript-Interpreter nicht garantieren kann, dass alle bereitgestellten Argumente zum Zeitpunkt des Aufrufs Zahlen sind, muss er entweder Prüfungen für alle Argumente vor dem Inline-Code einfügen oder kann die Funktion nicht inline setzen. Dies bedeutet, dass jede Rufstelle, die trivial inline sein könnte, eine große Anzahl von Guards anhäuft. In diesem speziellen Fall sollte ein intelligenter Interpreter in der Lage sein, die Prüfungen so zu optimieren, dass keine Werte überprüft werden, die nicht verwendet werden würden. In vielen Fällen ist das jedoch einfach nicht möglich, und daher wird es unmöglich, inline zu setzen.
+Wenn der JavaScript-Interpreter nicht garantieren kann, dass alle angegebenen Argumente Zahlen sind, zu dem Zeitpunkt, an dem der Aufruf erfolgt, muss er entweder Überprüfungen für alle Argumente vor dem inlined-Code einfügen oder kann die Funktion nicht inline setzen. Dies bedeutet, dass jede Aufrufstelle, die möglicherweise trivial inlinable war, eine große Anzahl von Schutzvorrichtungen ansammelt. Nun sollte in diesem besonderen Fall ein intelligenter Interpreter in der Lage sein, die Prüfungen optimaler anzuordnen und keine Werte zu überprüfen, die nicht verwendet würden. In vielen Fällen ist dies jedoch einfach nicht möglich und daher wird das Inlining unmöglich.
 
 ## Beispiele
 
 ### Verwendung von arguments.callee in einer anonymen rekursiven Funktion
 
-Eine rekursive Funktion muss in der Lage sein, sich selbst zu referenzieren. Typischerweise bezieht sich eine Funktion durch ihren Namen auf sich selbst. Eine anonyme Funktion (die durch einen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder den [`Function`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) erstellt werden kann) hat jedoch keinen Namen. Wenn es keine zugängliche Variable gibt, die auf sie verweist, kann die Funktion nur über `arguments.callee` auf sich selbst verweisen.
+Eine rekursive Funktion muss in der Lage sein, sich selbst zu referenzieren. Typischerweise referenziert eine Funktion sich selbst durch ihren Namen. Eine anonyme Funktion (die durch einen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder den [`Function`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) erstellt werden kann) hat jedoch keinen Namen. Wenn es also keine zugängliche Variable gibt, die auf sie verweist, ist `arguments.callee` die einzige Möglichkeit, wie die Funktion sich selbst referenzieren kann.
 
-Das folgende Beispiel definiert eine Funktion, die wiederum eine Fakultätsfunktion definiert und zurückgibt. Dieses Beispiel ist nicht sehr praktisch, und es gibt kaum Fälle, in denen dasselbe Ergebnis nicht mit [benannten Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function) erreicht werden kann.
+Das folgende Beispiel definiert eine Funktion, die ihrerseits eine Faktorialfunktion definiert und zurückgibt. Dieses Beispiel ist nicht sehr praktisch, und es gibt beinahe keine Fälle, in denen das gleiche Ergebnis nicht mit [benannten Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function) erreicht werden kann.
 
 ```js
 function create() {
@@ -125,7 +125,7 @@ const result = create()(5); // returns 120 (5 * 4 * 3 * 2 * 1)
 
 ### Rekursion anonymer Funktionen mit einem Y-Kombinator
 
-Obwohl Funktionsausdrücke jetzt benannt werden können, bleiben [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) immer anonym, was bedeutet, dass sie sich ohne Zuweisung an eine Variable nicht selbst referenzieren können. Glücklicherweise gibt es in der Lambda-Kalkulation eine sehr gute Lösung, die es einer Funktion ermöglicht, sowohl anonym als auch selbstreferenziell zu sein. Die Technik wird als [Y-Kombinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator) bezeichnet. Hier wird nicht erklärt, _wie_ es funktioniert, sondern nur _dass_ es funktioniert.
+Obwohl Funktionsausdrücke jetzt benannt werden können, bleiben [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) immer anonym, was bedeutet, dass sie sich nicht selbst referenzieren können, ohne zuerst einer Variablen zugewiesen zu werden. Glücklicherweise gibt es im Lambda-Kalkül eine sehr gute Lösung, die es einer Funktion ermöglicht, sowohl anonym als auch selbstreferenziell zu sein. Die Technik wird [Y-Kombinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator) genannt. Hier werden wir nicht erklären, _wie_ er funktioniert, sondern nur, _dass_ er funktioniert.
 
 ```js
 // The Y-combinator: a utility function!
@@ -142,7 +142,7 @@ console.log(
 ```
 
 > [!NOTE]
-> Diese Methode erstellt eine neue Closure für jede Iteration, was den Speicherverbrauch erheblich erhöhen kann. Sie wird hier nur zur Veranschaulichung der Möglichkeit gezeigt, sollte aber in der Produktion vermieden werden. Verwenden Sie stattdessen eine temporäre Variable oder einen benannten Funktionsausdruck.
+> Diese Methode allokiert bei jeder Iteration eine neue Closure, was den Speicherverbrauch erheblich erhöhen kann. Sie wird hier nur gezeigt, um die Möglichkeit zu demonstrieren, sollte aber in der Produktion vermieden werden. Verwenden Sie stattdessen eine temporäre Variable oder einen benannten Funktionsausdruck.
 
 ## Spezifikationen
 

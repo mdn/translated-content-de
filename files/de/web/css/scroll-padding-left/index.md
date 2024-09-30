@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-padding-left`-Eigenschaft definiert Versätze für die linke Seite des optimalen Anzeigebereichs des Scrollports: den Bereich, der als Zielregion zum Platzieren von Elementen im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie feststehende Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Sichtbereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Elemente in das Sichtfeld des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-left.html")}}
 
@@ -33,9 +33,9 @@ scroll-padding-left: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der linken Kante des Scrollports, als gültige Länge oder Prozentangabe.
+  - : Ein innerer Versatz von der linken Kante des Scrollports, angegeben als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent ist in der Lage zu erkennen und etwas anderes zu tun, wenn ein ungleich Null-Wert angemessener ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein von null abweichender Wert angemessener ist.
 
 ## Formale Definition
 
@@ -55,5 +55,5 @@ scroll-padding-left: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [Kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)

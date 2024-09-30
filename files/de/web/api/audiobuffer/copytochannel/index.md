@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `copyToChannel()` der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle kopiert die Samples aus dem Quellarray in den angegebenen Kanal des `AudioBuffer`.
+Die Methode `copyToChannel()` des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Interfaces kopiert die Samples aus dem Quellarray in den angegebenen Kanal des `AudioBuffer`.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ copyToChannel(source, channelNumber, startInChannel)
 - `source`
   - : Ein {{jsxref("Float32Array")}}, aus dem die Kanaldaten kopiert werden.
 - `channelNumber`
-  - : Die Kanalnummer des aktuellen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in den die Kanaldaten kopiert werden sollen. Wenn _channelNumber_ größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
+  - : Die Kanalnummer des aktuellen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in die die Kanaldaten kopiert werden sollen. Wenn _channelNumber_ größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
 - `startInChannel` {{optional_inline}}
-  - : Ein optionaler Offset, an den die Daten kopiert werden sollen. Wenn _startInChannel_ größer als [`AudioBuffer.length`](/de/docs/Web/API/AudioBuffer/length) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
+  - : Ein optionaler Offset, zu dem die Daten kopiert werden sollen. Wenn _startInChannel_ größer als [`AudioBuffer.length`](/de/docs/Web/API/AudioBuffer/length) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
 
 ### Rückgabewert
 

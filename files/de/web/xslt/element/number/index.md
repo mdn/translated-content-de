@@ -31,22 +31,22 @@ Keine.
 ### Optionale Attribute
 
 - `count`
-  - : Gibt an, was im Quellbaum sequenziell nummeriert werden soll. Es wird ein XPath-Ausdruck verwendet.
+  - : Bestimmt, was im Quellbaum sequenziell nummeriert werden soll. Es verwendet einen XPath-Ausdruck.
 - `level`
 
-  - : Definiert, wie Ebenen des Quellbaums beim Erzeugen von Sequenznummern berücksichtigt werden sollen. Es gibt drei gültige Werte: `single`, `multiple` und `any`. Der Standardwert ist `single`:
+  - : Definiert, wie Ebenen des Quellbaums bei der Generierung von fortlaufenden Nummern berücksichtigt werden sollen. Es gibt drei gültige Werte: `single`, `multiple` und `any`. Der Standardwert ist `single`:
 
     - `single`
-      - : Nummeriert Geschwisternoten sequenziell, wie bei den Elementen einer Liste. Der Prozessor geht zum ersten Knoten in der [`ancestor-or-self`](/de/docs/Web/XPath/Axes#ancestor-or-self)-Achse, der mit dem `count`-Attribut übereinstimmt, und zählt diesen Knoten plus alle seine vorhergehenden Geschwister, die ebenfalls mit dem `count`-Attribut übereinstimmen (und stoppt, wenn er eine Übereinstimmung mit dem `from`-Attribut findet, falls vorhanden). Wenn keine Übereinstimmung gefunden wird, ist die Sequenz eine leere Liste.
+      - : Nummeriert Knoten fortlaufend, wie die Punkte in einer Liste. Der Prozessor geht zum ersten Knoten in der [`ancestor-or-self`](/de/docs/Web/XPath/Axes#ancestor-or-self)-Achse, der mit dem `count`-Attribut übereinstimmt, und zählt dann diesen Knoten plus alle vorhergehenden Geschwister (stoppt, wenn er auf ein `from`-Attribut-Match trifft, falls vorhanden), die auch mit dem `count`-Attribut übereinstimmen. Falls keine Übereinstimmung gefunden wird, wird die Sequenz eine leere Liste sein.
     - `multiple`
-      - : Nummeriert Knoten als zusammengesetzte Sequenz, die die hierarchische Position des Knotens widerspiegelt, z.B. 1.2.2.5. (Das verschachtelte Format kann mit dem `format`-Attribut angegeben werden, z.B. A.1.1). Der Prozessor betrachtet alle [`ancestors`](/de/docs/Web/XPath/Axes#ancestor) des aktuellen Knotens und den aktuellen Knoten selbst und stoppt, wenn er eine Übereinstimmung für das `from`-Attribut findet, falls vorhanden. Für jeden Knoten in dieser Liste, der mit dem `count`-Attribut übereinstimmt, zählt der Prozessor, wie viele passende Vorgänger es gibt, und addiert einen für den Knoten selbst. Wenn keine Übereinstimmung gefunden wird, ist die Sequenz eine leere Liste.
+      - : Nummeriert Knoten als Zusammengesetzte Sequenz, die die hierarchische Position des Knotens widerspiegelt, z.B. 1.2.2.5. (Das verschachtelte Format kann mit dem `format`-Attribut angegeben werden, z.B. A.1.1). Der Prozessor betrachtet alle [`ancestors`](/de/docs/Web/XPath/Axes#ancestor) des aktuellen Knotens und den aktuellen Knoten selbst und stoppt, wenn er auf ein Match für das `from`-Attribut trifft, falls vorhanden. Für jeden Knoten in dieser Liste, der mit dem `count`-Attribut übereinstimmt, zählt der Prozessor, wie viele vorhergehende übereinstimmende Geschwister es gibt, und fügt eins für den Knoten selbst hinzu. Wenn keine Übereinstimmung gefunden wird, wird die Sequenz eine leere Liste sein.
     - `any` (Zurzeit nicht unterstützt.)
-      - : Nummeriert alle passenden Knoten unabhängig von der Ebene sequenziell. Die [`ancestor`](/de/docs/Web/XPath/Axes#ancestor), [`self`](/de/docs/Web/XPath/Axes#self), und [`preceding`](/de/docs/Web/XPath/Axes#preceding) Achsen werden alle berücksichtigt. Der Prozessor beginnt am aktuellen Knoten und fährt in umgekehrter Dokumentreihenfolge fort, stoppt jedoch, wenn er eine Übereinstimmung mit einem `from`-Attribut findet. Wenn keine Übereinstimmung mit dem `count`-Attribut gefunden wird, ist die Sequenz eine leere Liste. Diese Ebene wird zurzeit nicht unterstützt.
+      - : Nummeriert alle übereinstimmenden Knoten, unabhängig von der Ebene, fortlaufend. Die [`ancestor`](/de/docs/Web/XPath/Axes#ancestor)-, [`self`](/de/docs/Web/XPath/Axes#self)- und [`preceding`](/de/docs/Web/XPath/Axes#preceding)-Achsen werden alle berücksichtigt. Der Prozessor beginnt beim aktuellen Knoten und fährt in umgekehrter Dokumentenreihenfolge fort, stoppt, wenn er auf ein Match zu irgendwelchen `from`-Attributen trifft. Wenn kein Match zum `count`-Attribut gefunden wird, wird die Sequenz eine leere Liste sein. Diese Ebene wird zurzeit nicht unterstützt.
 
 - `from`
-  - : Gibt an, wo die Nummerierung beginnen oder neu beginnen soll. Die Sequenz beginnt mit dem ersten Nachkommen des Knotens, der mit dem `from`-Attribut übereinstimmt.
+  - : Gibt an, wo die Nummerierung beginnen oder neu gestartet werden soll. Die Sequenz beginnt mit dem ersten Nachkommen des Knotens, der dem `from`-Attribut entspricht.
 - `value`
-  - : Wendet ein gegebenes Format auf eine Zahl an. Dies ist eine schnelle Möglichkeit, eine vom Benutzer bereitgestellte Zahl (im Gegensatz zu einer Knotensequenznummer) in einem der standardmäßigen `<xsl:number>`-Formate zu formatieren.
+  - : Wendet ein bestimmtes Format auf eine Zahl an. Dies ist eine schnelle Möglichkeit, eine vom Benutzer gelieferte Zahl (im Gegensatz zu einer Knotensequenznummer) in einem der Standard-`<xsl:number>`-Formate zu formatieren.
 - `format`
 
   - : Definiert das Format der generierten Zahl:
@@ -65,17 +65,17 @@ Keine.
       - : `I II III IV V . . .`
 
 - `lang` (Zurzeit nicht unterstützt.)
-  - : Gibt an, welches Alphabet bei buchstabenbasierten Nummerierungsformaten verwendet werden soll.
+  - : Gibt an, welches Alphabet der Sprache in buchstabenbasierten Nummerierungsformaten verwendet werden soll.
 - `letter-value`
   - : Unterscheidet zwischen Nummerierungssequenzen, die Buchstaben verwenden. Einige Sprachen haben mehr als ein Nummerierungssystem, das Buchstaben verwendet. Wenn beide Systeme mit demselben Token beginnen, kann es zu Mehrdeutigkeiten kommen. Dieses Attribut kann den Wert `alphabetic` oder `traditional` haben. Der Standardwert ist `alphabetic`.
 - `grouping-separator`
-  - : Gibt an, welches Zeichen als Gruppierungszeichen (z.B. Tausendertrennzeichen) verwendet werden soll. Der Standardwert ist das Komma (`,`).
+  - : Gibt an, welches Zeichen als Gruppen-Trennzeichen (z.B. Tausender) verwendet werden soll. Der Standard ist das Komma (`,`).
 - `grouping-size`
-  - : Gibt die Anzahl an Ziffern an, die eine numerische Gruppe bilden. Der Standardwert ist `3`.
+  - : Gibt die Anzahl der Ziffern an, die eine numerische Gruppe bilden. Der Standardwert ist `3`.
 
 ### Typ
 
-Anweisung, erscheint innerhalb einer Vorlage.
+Anweisung, erscheint innerhalb eines Templates.
 
 ## Spezifikationen
 
@@ -83,4 +83,4 @@ XSLT, Abschnitt 7.7
 
 ## Gecko-Unterstützung
 
-Teilweise Unterstützung. Siehe obenstehende Kommentare.
+Teilweise Unterstützung. Siehe obige Kommentare.

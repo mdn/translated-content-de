@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimalen Farbsyntax_ einer [sRGB](/de/docs/Glossary/RGB) Farbe unter Verwendung ihrer Hauptfarbkomponenten (Rot, Grün, Blau), die als hexadezimale Zahlen geschrieben werden, sowie ihrer Transparenz.
+Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimale Farbsyntax_ einer [sRGB](/de/docs/Glossary/RGB)-Farbe anhand ihrer Primärfarbenkomponenten (Rot, Grün, Blau), die als Hexadezimalzahlen geschrieben sind, sowie ihrer Transparenz.
 
-Ein `<hex-color>` Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
+Ein `<hex-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ Ein `<hex-color>` Wert kann überall dort verwendet werden, wo ein [`<color>`](/
 ### Wert
 
 - `R` oder `RR`
-  - : Die _rote_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `1` bedeutet `11`.
+  - : Die _rote_ Komponente der Farbe, als nicht case-sensitiven Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `1` bedeutet `11`.
 - `G` oder `GG`
-  - : Die _grüne_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `c` bedeutet `cc`.
+  - : Die _grüne_ Komponente der Farbe, als nicht case-sensitiven Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `c` bedeutet `cc`.
 - `B` oder `BB`
-  - : Die _blaue_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `9` bedeutet `99`.
+  - : Die _blaue_ Komponente der Farbe, als nicht case-sensitiven Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `9` bedeutet `99`.
 - `A` oder `AA` {{optional_inline}}
-  - : Die _alpha_ Komponente der Farbe, die ihre Transparenz angibt, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `e` bedeutet `ee`. `0`, oder `00`, repräsentiert eine vollständig transparente Farbe, und `f`, oder `ff`, eine vollständig opake.
+  - : Die _alpha_-Komponente der Farbe, die ihre Transparenz angibt, als nicht case-sensitiven Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `e` bedeutet `ee`. `0` oder `00` repräsentiert eine vollständig transparente Farbe, und `f` oder `ff` eine vollständig opake.
 
 > [!NOTE]
-> Die Syntax ist nicht case-sensitive: `#00ff00` ist dasselbe wie `#00FF00`.
+> Die Syntax ist nicht case-sensitiv: `#00ff00` ist dasselbe wie `#00FF00`.
 
 ## Beispiele
 
-### Hexadezimales Pink
+### Hexadezimales Rosa
 
-Dieses Beispiel zeigt vier pinke Quadrate mit vollständig opaken oder halbtransparenten Hintergründen, erstellt mit vier unterschiedlich langen, nicht fall-sensitiven Hex-Color-Syntaxen.
+Dieses Beispiel zeigt vier rosa Quadrate mit vollständig opaken oder halbtransparenten Hintergründen, die mit vier unterschiedlich langen und case-unabhängigen hex-color-Syntaxen erstellt wurden.
 
 #### HTML
 
@@ -63,7 +63,7 @@ Dieses Beispiel zeigt vier pinke Quadrate mit vollständig opaken oder halbtrans
 
 #### CSS
 
-Die pinkfarbenen Hintergrundfarben werden unter Verwendung der drei-, vier-, sechs- und achtwertigen Hex-Notationen erstellt, wobei sowohl Groß- als auch Kleinbuchstaben verwendet werden.
+Die rosa Hintergrundfarben werden mit den drei-, vier-, sechs- und achtstelligen hexadezimalen Notationen erstellt, wobei sowohl Groß- als auch Kleinbuchstaben verwendet werden.
 
 ```css hidden
 body {

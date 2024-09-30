@@ -20,15 +20,15 @@ Reflect.ownKeys(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, von dem die eigenen Schlüssel erhalten werden sollen.
+  - : Das Zielobjekt, von dem die eigenen Schlüssel abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} der eigenen Eigenschaften-Schlüssel des `target` Objekts, einschließlich Strings und Symbole. Für die meisten Objekte wird das Array in folgender Reihenfolge sein:
+Ein {{jsxref("Array")}} der eigenen Eigenschaften-Schlüssel des `target` Objekts, einschließlich Strings und Symbole. Für die meisten Objekte wird das Array in der Reihenfolge sein von:
 
-1. Nicht-negative ganze Zahlen-Indizes in aufsteigender numerischer Reihenfolge (aber als Zeichenfolgen)
-2. Andere String-Schlüssel in der Reihenfolge der Eigenschaftserstellung
-3. Symbol-Schlüssel in der Reihenfolge der Eigenschaftserstellung.
+1. Nicht-negative Ganzzahlindizes in aufsteigender numerischer Reihenfolge (aber als Strings)
+2. Andere Zeichenfolgeschlüssel in der Reihenfolge der Erstellung der Eigenschaften
+3. Symbolschlüssel in der Reihenfolge der Erstellung der Eigenschaften.
 
 ### Ausnahmen
 
@@ -37,7 +37,7 @@ Ein {{jsxref("Array")}} der eigenen Eigenschaften-Schlüssel des `target` Objekt
 
 ## Beschreibung
 
-`Reflect.ownKeys()` bietet die reflektive Semantik zum Abrufen aller Eigenschaftsschlüssel eines Objekts. Es ist der einzige Weg, um alle eigenen Eigenschaften – aufzählbar und nicht aufzählbar, Strings und Symbole – in einem Aufruf zu erhalten, ohne zusätzliche Filterlogik. Zum Beispiel nimmt {{jsxref("Object.getOwnPropertyNames()")}} den Rückgabewert von `Reflect.ownKeys()` und filtert nur String-Werte, während {{jsxref("Object.getOwnPropertySymbols()")}} nur Symbolwerte filtert. Da normale Objekte `[[OwnPropertyKeys]]` implementieren, um zuerst alle String-Schlüssel vor Symbol-Schlüsseln zurückzugeben, ist `Reflect.ownKeys(target)` normalerweise gleichwertig mit `Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))`. Wenn jedoch das Objekt eine benutzerdefinierte `[[OwnPropertyKeys]]`-Methode hat (wie durch einen Proxy's [`ownKeys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys) Handler), könnte die Reihenfolge der Schlüssel unterschiedlich sein.
+`Reflect.ownKeys()` bietet die reflektive Semantik zum Abrufen aller Eigenschaften-Schlüssel eines Objekts. Es ist der einzige Weg, um alle eigenen Eigenschaften – aufzählbar und nicht aufzählbar, Strings und Symbole – in einem Aufruf zu erhalten, ohne zusätzliche Filterlogik. Zum Beispiel nimmt {{jsxref("Object.getOwnPropertyNames()")}} den Rückgabewert von `Reflect.ownKeys()` und filtert nur String-Werte, während {{jsxref("Object.getOwnPropertySymbols()")}} nur Symbolwerte filtert. Da normale Objekte `[[OwnPropertyKeys]]` implementieren, um alle String-Schlüssel vor Symbolschlüsseln zurückzugeben, ist `Reflect.ownKeys(target)` normalerweise äquivalent zu `Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))`. Wenn das Objekt jedoch eine benutzerdefinierte `[[OwnPropertyKeys]]`-Methode hat (wie durch einen Proxy's [`ownKeys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys) Handler), kann die Reihenfolge der Schlüssel abweichen.
 
 `Reflect.ownKeys()` ruft die `[[OwnPropertyKeys]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 

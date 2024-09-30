@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`getLineDash()`** Methode der `Canvas 2D API`-Schnittstelle [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) erhält das aktuelle Muster der gestrichelten Linie.
+Die **`getLineDash()`** Methode der Canvas 2D API's [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle erhält das aktuelle Strichmuster.
 
 ## Syntax
 
@@ -22,13 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Zahlen, die Entfernungen angeben, um abwechselnd eine Linie und einen Abstand (in Einheiten des Koordinatenraums) zu zeichnen. Wenn die Zahl bei der Festlegung der Elemente ungerade ist, werden die Elemente des Arrays kopiert und miteinander verknüpft. Zum Beispiel führt das Festlegen des Linienstrichmusters auf `[5, 15, 25]` zu einer Rückgabe von `[5, 15, 25, 5, 15, 25]`.
+Ein {{jsxref("Array")}} von Zahlen, das die Abstände angibt, um abwechselnd eine Linie zu zeichnen und
+eine Lücke (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente ungerade ist, werden
+die Elemente des Arrays kopiert und verknüpft. Zum Beispiel führt das Festlegen des Strichmusters auf
+`[5, 15, 25]` dazu, dass man
+`[5, 15, 25, 5, 15, 25]` zurückbekommt.
 
 ## Beispiele
 
-### Abrufen der aktuellen Linienstreifen-Einstellung
+### Das aktuelle Strichmuster abfragen
 
-Dieses Beispiel demonstriert die `getLineDash()` Methode.
+Dieses Beispiel demonstriert die Nutzung der `getLineDash()` Methode.
 
 #### HTML
 
@@ -38,7 +42,8 @@ Dieses Beispiel demonstriert die `getLineDash()` Methode.
 
 #### JavaScript
 
-Wie durch [`setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash) festgelegt, bestehen Striche aus Linien, die 10 Einheiten breit sind, mit Abständen von 20 Einheiten zwischen jeder Linie.
+Wie durch [`setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash) festgelegt, bestehen Striche aus Linien, die 10 Einheiten breit sind, mit Abständen von 20 Einheiten zwischen jeder
+Linie.
 
 ```js
 const canvas = document.getElementById("canvas");

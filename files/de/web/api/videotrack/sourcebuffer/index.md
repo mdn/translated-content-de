@@ -10,9 +10,7 @@ l10n:
 
 Die schreibgeschützte **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**
 Eigenschaft **`sourceBuffer`** gibt den
-[`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der den Track erstellt hat, oder null, wenn der Track nicht
-von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder wenn der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem
-[`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) Attribut der übergeordneten Medienquelle entfernt wurde.
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der die Spur erstellt hat, oder null, wenn die Spur nicht von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem Attribut [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) seiner übergeordneten Medienquelle entfernt wurde.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "MediaSource: removeSourceBuffer() Methode"
+title: "MediaSource: Methode removeSourceBuffer()"
 short-title: removeSourceBuffer()
 slug: Web/API/MediaSource/removeSourceBuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`removeSourceBuffer()`** Methode der [`MediaSource`](/de/docs/Web/API/MediaSource) Schnittstelle entfernt den angegebenen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus der [`SourceBufferList`](/de/docs/Web/API/SourceBufferList), die mit diesem `MediaSource`-Objekt verknüpft ist.
+Die **`removeSourceBuffer()`**-Methode des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces entfernt den angegebenen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus der [`SourceBufferList`](/de/docs/Web/API/SourceBufferList), die mit diesem `MediaSource`-Objekt verbunden ist.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeSourceBuffer(sourceBuffer)
 ### Parameter
 
 - `sourceBuffer`
-  - : Das [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Objekt, das entfernt werden soll.
+  - : Das zu entfernende [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte sourceBuffer nicht in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) vorhanden ist.
+  - : Wird ausgelöst, wenn der angegebene sourceBuffer nicht in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) existiert.
 
 ## Beispiele
 

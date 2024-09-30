@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt alle Hintergrundstileigenschaften gleichzeitig fest, wie Farbe, Bild, Ursprung und Größe oder Wiederholungsmethode. Komponenteneigenschaften, die im `background` Shorthand-Wert nicht festgelegt sind, werden auf ihre Standardwerte gesetzt.
+Die **`background`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt alle Hintergrund-Stileigenschaften auf einmal fest, wie Farbe, Bild, Ursprung und Größe oder Wiederholungsmethode. Komponenten-Eigenschaften, die im `background`-Shorthand-Wert nicht gesetzt sind, werden auf ihre Standardwerte zurückgesetzt.
 
 {{EmbedInteractiveExample("pages/css/background.html")}}
 
-## Zusammengesetzte Eigenschaften
+## Zusätzliche Eigenschaften
 
 Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
@@ -47,11 +47,11 @@ background: revert-layer;
 background: unset;
 ```
 
-Die `background`-Eigenschaft wird als eine oder mehrere Hintergrundebenen angegeben, getrennt durch Kommata.
+Die `background`-Eigenschaft wird als eine oder mehrere Hintergrundschichten angegeben, getrennt durch Kommata.
 
-Die Syntax jeder Ebene ist wie folgt:
+Die Syntax jeder Schicht ist wie folgt:
 
-- Jede Ebene kann null oder eine Vorkommen der folgenden Werte enthalten:
+- Jede Schicht kann null oder einmalig jede der folgenden Werte enthalten:
 
   - `<attachment>`
   - `<bg-image>`
@@ -59,9 +59,9 @@ Die Syntax jeder Ebene ist wie folgt:
   - `<bg-size>`
   - `<repeat-style>`
 
-- Der `<bg-size>` Wert darf nur unmittelbar nach `<position>`, getrennt durch das '/' Zeichen, angegeben werden, wie folgt: `center/80%`.
-- Der `<box>` Wert kann null, einmal oder zweimal enthalten sein. Wenn einmal enthalten, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn er zweimal enthalten ist, setzt das erste Vorkommen {{cssxref("background-origin")}} und das zweite setzt {{cssxref("background-clip")}}.
-- Der `<background-color>` Wert darf nur in der zuletzt angegebenen Ebene enthalten sein.
+- Der Wert `<bg-size>` darf nur direkt nach `<position>` enthalten sein und muss mit dem '/'-Zeichen getrennt werden, zum Beispiel: `center/80%`.
+- Der Wert `<box>` kann null, einmal oder zweimal enthalten sein. Wenn er einmal enthalten ist, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn er zweimal enthalten ist, setzt der erste Vorkommens {{cssxref("background-origin")}}, und der zweite setzt {{cssxref("background-clip")}}.
+- Der Wert `<background-color>` darf nur in der zuletzt angegebenen Schicht enthalten sein.
 
 ### Werte
 
@@ -80,7 +80,7 @@ Die Syntax jeder Ebene ist wie folgt:
 - `<bg-size>`
   - : Siehe {{cssxref("background-size")}}. Standard: `auto`.
 
-Die folgenden drei Zeilen CSS sind äquivalent:
+Die folgenden drei CSS-Zeilen sind gleichwertig:
 
 ```css
 background: none;
@@ -98,14 +98,14 @@ background: repeat scroll 0% 0% / auto padding-box border-box none transparent;
 
 ## Barrierefreiheit
 
-Browser liefern keine speziellen Informationen über Hintergrundbilder an unterstützende Technologien. Dies ist besonders wichtig für Screenreader, da ein Screenreader seine Anwesenheit nicht ankündigt und daher den Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des gesamten Zwecks der Seite sind, ist es besser, sie semantisch im Dokument zu beschreiben.
+Browser stellen keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien bereit. Dies ist hauptsächlich für Bildschirmlesegeräte wichtig, da ein Bildschirmleser seine Anwesenheit nicht ankündigt und daher seinen Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des allgemeinen Zwecks der Seite sind, ist es besser, diese semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis WCAG, Leitlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis Erfolgskriterium 1.1.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html)
+- [MDN Verständnis von WCAG, Erklärung der Richtlinie 1.1](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html)
 
 ## Beispiele
 
-### Hintergründe mit Farbkeywords und Bildern setzen
+### Hintergründe mit Farbstichwörtern und Bildern festlegen
 
 #### HTML
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:dir()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht Elementen basierend auf der Schreibrichtung des in ihnen enthaltenen Textes.
+Die **`:dir()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf der Richtung des in ihnen enthaltenen Textes aus.
 
 ```css
 /* Selects any element with right-to-left text */
@@ -16,17 +16,17 @@ Die **`:dir()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 }
 ```
 
-Die `:dir()` Pseudoklasse verwendet nur den _semantischen_ Wert der Schreibrichtung, d.h., den im Dokument selbst definierten. Sie berücksichtigt nicht die _stilistische_ Schreibrichtung, also die Schreibrichtung, die durch CSS-Eigenschaften wie {{cssxref("direction")}} festgelegt wird.
+Die `:dir()` Pseudo-Klasse verwendet nur den _semantischen_ Wert der Richtung, d.h. den im Dokument selbst definierten. Sie berücksichtigt nicht die _stilistische_ Richtung, d.h. die durch CSS-Eigenschaften wie {{cssxref("direction")}} festgelegte Richtung.
 
 > [!NOTE]
-> Beachten Sie, dass das Verhalten der `:dir()` Pseudoklasse nicht mit dem der `[dir=…]` [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) identisch ist. Letztere entsprechen dem HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) und ignorieren Elemente, die es nicht haben — selbst wenn sie eine Richtung von ihrem Elternteil erben. (Ebenso werden `[dir=rtl]` und `[dir=ltr]` den Wert `auto` nicht berücksichtigen.) Im Gegensatz dazu entspricht `:dir()` dem vom [User-Agent](/de/docs/Glossary/user_agent) berechneten Wert, selbst wenn er geerbt wurde.
+> Beachten Sie, dass das Verhalten der `:dir()` Pseudo-Klasse nicht dem der `[dir=…]` [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) entspricht. Letztere wählen das HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) aus und ignorieren Elemente, denen es fehlt - auch wenn sie eine Richtung von ihrem Elternteil erben. (Ebenso passen `[dir=rtl]` und `[dir=ltr]` nicht zum Wert `auto`.) Im Gegensatz dazu wird `:dir()` den vom [User Agent](/de/docs/Glossary/user_agent) berechneten Wert auswählen, selbst wenn er geerbt ist.
 
 > [!NOTE]
-> In HTML wird die Richtung durch das [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut bestimmt. Andere Dokumenttypen können unterschiedliche Methoden haben.
+> In HTML wird die Richtung durch das [`dir`](/de/docs/Web/HTML/Global_attributes#dir) Attribut bestimmt. Andere Dokumenttypen können unterschiedliche Methoden haben.
 
 ## Syntax
 
-Die `:dir()` Pseudoklasse erfordert einen Parameter, der die Schreibrichtung darstellt, die Sie anvisieren möchten.
+Die `:dir()` Pseudo-Klasse erfordert einen Parameter, der die gewünschte Textrichtung angibt.
 
 ```css-nolint
 :dir([ltr | rtl]) {
@@ -37,9 +37,9 @@ Die `:dir()` Pseudoklasse erfordert einen Parameter, der die Schreibrichtung dar
 ### Parameter
 
 - `ltr`
-  - : Zielt auf von links nach rechts verlaufende Elemente ab.
+  - : Zielt auf von links nach rechts gerichtete Elemente.
 - `rtl`
-  - : Zielt auf von rechts nach links verlaufende Elemente ab.
+  - : Zielt auf von rechts nach links gerichtete Elemente.
 
 ## Beispiele
 
@@ -81,6 +81,6 @@ Die `:dir()` Pseudoklasse erfordert einen Parameter, der die Schreibrichtung dar
 
 ## Siehe auch
 
-- Sprachbezogene Pseudoklassen: {{cssxref(":lang")}}
-- HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang)
-- HTML-Attribut [`translate`](/de/docs/Web/HTML/Global_attributes#translate)
+- Sprachbezogene Pseudo-Klassen: {{cssxref(":lang")}}
+- HTML [`lang`](/de/docs/Web/HTML/Global_attributes#lang) Attribut
+- HTML [`translate`](/de/docs/Web/HTML/Global_attributes#translate) Attribut

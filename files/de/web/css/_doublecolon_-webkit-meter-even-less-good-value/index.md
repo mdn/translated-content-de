@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-meter-even-less-good-value`** styliert das {{htmlelement("meter")}}-Element, wenn die Wert- und Optimum-Attribute außerhalb des Niedrig-Hoch-Bereichs liegen, aber in entgegengesetzten Zonen. Zum Beispiel wird es angewendet, wenn _value_ < _low_ < _high_ < _optimum_ oder _value_ > _high_ > _low_ > _optimum_.
+Der **`::-webkit-meter-even-less-good-value`** stilisiert das {{htmlelement("meter")}}-Element, wenn die value- und die optimum-Attribute außerhalb des low-high-Bereichs, aber in entgegengesetzten Zonen liegen. Zum Beispiel gilt es, wenn _value_ < _low_ < _high_ < _optimum_ oder _value_ > _high_ > _low_ > _optimum_.
 
 Rot ist die Standardfarbe.
 
@@ -85,7 +85,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind wie folgt:
+Die von WebKit/Blink verwendeten Pseudo-Elemente zum Stilisieren anderer Teile eines {{htmlelement("meter")}}-Elements sind wie folgt:
 
 - {{cssxref("::-webkit-meter-inner-element")}}
 - {{cssxref("::-webkit-meter-bar")}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`negative`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle holt und setzt den Wert des {{cssxref("@counter-style/negative","negative")}} Deskriptors. Wenn das Deskriptor keinen festgelegten Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`negative`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle liest und setzt den Wert des {{cssxref("@counter-style/negative","negative")}}-Descriptors. Wenn der Descriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und der Rückgabewert von `negative` gibt uns den Wert "-".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel; das Aufrufen von `negative` gibt uns den Wert "-".
 
 ```css
 @counter-style neg {

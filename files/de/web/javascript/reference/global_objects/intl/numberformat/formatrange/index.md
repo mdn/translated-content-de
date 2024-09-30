@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`formatRange()`**-Methode von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert einen Bereich von Zahlen gemäß den Gebietsschema- und Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
+Die Methode **`formatRange()`** von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert einen Bereich von Zahlen gemäß der Lokalisierung und den Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ formatRange(startRange, endRange)
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Zahlenbereich darstellt, formatiert gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts.
+Ein String, der den angegebenen Bereich von Zahlen darstellt, formatiert gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts.
 
 ### Ausnahmen
 
@@ -35,7 +35,7 @@ Ein String, der den angegebenen Zahlenbereich darstellt, formatiert gemäß den 
 
 ## Beschreibung
 
-Die `formatRange`-Getter-Funktion formatiert einen Bereich von Zahlen in einen String, der gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts, von dem sie aufgerufen wird, dargestellt wird.
+Die `formatRange`-Getter-Funktion formatiert einen Bereich von Zahlen in einen String gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts, von dem sie aufgerufen wird.
 
 ## Beispiele
 

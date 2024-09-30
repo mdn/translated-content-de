@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: createBiquadFilter()-Methode"
+title: "BaseAudioContext: createBiquadFilter() Methode"
 short-title: createBiquadFilter()
 slug: Web/API/BaseAudioContext/createBiquadFilter
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createBiquadFilter()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erzeugt einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), der einen zweiten Ordnung-Filter darstellt, der als mehrere verschiedene häufig verwendete Filtertypen konfigurierbar ist.
+Die `createBiquadFilter()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), der einen zweiten Ordnungsfilter darstellt, der als verschiedene gängige Filtertypen konfigurierbar ist.
 
 > [!NOTE]
-> Der [`BiquadFilterNode()`](/de/docs/Web/API/BiquadFilterNode/BiquadFilterNode)-Konstruktor wird empfohlen, um einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) zu erstellen; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`BiquadFilterNode()`](/de/docs/Web/API/BiquadFilterNode/BiquadFilterNode)-Konstruktor wird empfohlen, um einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Ein [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filter-Knotens. Für vollständigere angewendete Beispiele/Informationen schauen Sie sich unsere [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filterknotens. Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die Eigenschaft `math-shift` gibt an, ob Hochstellen in MathML-Formeln durch eine normale oder kompakte Verschiebung angehoben werden sollen.
+Die Eigenschaft `math-shift` gibt an, ob Hochzahlen in MathML-Formeln durch eine normale oder kompakte Verschiebung angehoben werden sollen.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ math-shift: unset;
 ### Werte
 
 - `normal`
-  - : Der Anfangswert, der normales Rendering anzeigt. Hochstellen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup) Parameter aus der OpenType MATH-Tabelle.
+  - : Der Anfangswert, der normales Rendering anzeigt. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup) Parameter aus der OpenType MATH-Tabelle.
 - `compact`
-  - : Zeigt kompaktes Rendering an. Hochstellen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped) Parameter aus der OpenType MATH-Tabelle, der in der Regel kleiner ist.
+  - : Zeigt kompaktes Rendering an. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped) Parameter aus der OpenType MATH-Tabelle, der in der Regel kleiner ist.
 
 ## Formale Definition
 
@@ -51,7 +51,7 @@ math {
 
 ### MathML
 
-Das folgende MathML zeigt zwei Versionen von "x im Quadrat" unter Verwendung einer Schriftart mit einer OpenType MATH-Tabelle. Browser, die die Eigenschaft `math-shift` implementieren, sollten die Hochstellen mit leicht unterschiedlichen Verschiebungen anheben.
+Das folgende MathML zeigt zwei Versionen von "x hoch zwei" unter Verwendung einer Schriftart mit einer OpenType MATH-Tabelle. Browser, die die Eigenschaft `math-shift` implementieren, sollten die Hochzahlen mit leicht unterschiedlichen Verschiebungen anheben.
 
 ```html
 <math style="font-size: 64pt;">

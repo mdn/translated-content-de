@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die **`device`**-Eigenschaft des [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent)-Interfaces ist schreibgeschützt und gibt ein [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekt zurück, das das verbundene oder getrennte Gerät darstellt.
+Die **`device`**-Schreibgeschützte Eigenschaft des [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent)-Interfaces gibt ein [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekt zurück, das das verbundene oder getrennte Gerät darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekt.
 
 ## Beispiele
 
-Das Verbinden eines USB-Geräts löst das `connect`-Ereignis aus. Das aktuelle [`USBDevice`](/de/docs/Web/API/USBDevice) wird durch den Aufruf von `event.device` zurückgegeben.
+Das Anschließen eines USB-Geräts löst das `connect`-Ereignis aus. Das aktuelle [`USBDevice`](/de/docs/Web/API/USBDevice) wird durch Aufrufen von `event.device` zurückgegeben.
 
 ```js
 navigator.usb.addEventListener("connect", (event) => {

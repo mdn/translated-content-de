@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Die **`XRMediaBinding`** Schnittstelle wird verwendet, um Ebenen zu erstellen, die den Inhalt eines [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) anzeigen.
+Das **`XRMediaBinding`** Interface wird verwendet, um Ebenen zu erstellen, die den Inhalt eines [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) anzeigen.
 
 > [!NOTE]
 > Nur die Videoframes werden in der Ebene angezeigt. Videosteuerungen müssen separat implementiert und in einer anderen Ebene gezeichnet werden.

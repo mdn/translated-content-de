@@ -7,11 +7,11 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `suggestion`-Rolle kennzeichnet semantisch eine einzelne vorgeschlagene Änderung an einem bearbeitbaren Dokument. Diese sollte auf ein Element angewendet werden, das sowohl ein Element mit der `insertion`-Rolle als auch eines mit der `deletion`-Rolle umschließt.
+Die `suggestion`-Rolle kennzeichnet semantisch eine einzelne vorgeschlagene Änderung an einem bearbeitbaren Dokument. Diese sollte auf einem Element verwendet werden, das ein Element mit der `insertion`-Rolle und eines mit der `deletion`-Rolle umschließt.
 
 ## Beispiele
 
-Wenn Sie eine Inhaltsänderung haben, die sowohl eine Einfügung als auch eine Löschung beinhaltet, gibt es keine Möglichkeit für einen Screenreader-Benutzer, herauszufinden, ob die beiden miteinander in Beziehung stehen oder nicht. Hier kommt `role="suggestion"` ins Spiel, das auf ein Element gesetzt werden sollte, das beide umschließt wie folgt:
+Wenn eine Inhaltsänderung sowohl eine Einfügung als auch eine Löschung umfasst, kann ein Screenreader-Benutzer nicht feststellen, ob die beiden zusammenhängen oder nicht. Hierfür ist `role="suggestion"` zuständig, das auf einem Element gesetzt werden sollte, das beide umschließt, wie folgt:
 
 ```html
 <p>
@@ -23,7 +23,7 @@ Wenn Sie eine Inhaltsänderung haben, die sowohl eine Einfügung als auch eine L
 </p>
 ```
 
-Wir könnten sogar eine Informationsbox bereitstellen, die angibt, wer den Vorschlag gemacht hat und wann, und diese mit dem Vorschlag über [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) verknüpfen:
+Wir könnten sogar ein Informationsfeld bereitstellen, das sagt, wer den Vorschlag gemacht hat und wann, und es mit dem Vorschlag über [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) verknüpfen:
 
 ```html
 <p>
@@ -40,13 +40,13 @@ Wir könnten sogar eine Informationsbox bereitstellen, die angibt, wer den Vorsc
 </div>
 ```
 
-Browser neigen dazu, standardmäßig einen schwarzen Durchstreichungseffekt für Löschungen und eine schwarze Unterstreichung für Einfügungen bereitzustellen, wenn Sie die HTML-Elemente verwenden, die implizit diese Rollen ausgeben. Wenn ARIA-Rollen jedoch explizit zur Modifizierung von HTML-Elementen verwendet werden, wie z.B. von `divs`, müssen Sie CSS verwenden, um das visuelle Styling für solche Löschungen und Einfügungen anzupassen.
+Browser neigen dazu, eine standardmäßige schwarze Durchstreichung für Löschungen und eine schwarze Unterstreichung für Einfügungen bereitzustellen, wenn die HTML-Elemente verwendet werden, die diese Rollen implizit darstellen. Bei der Verwendung expliziter ARIA-Rollen zur Modifikation von HTML-Elementen, wie z.B. divs, müssen Sie CSS verwenden, um das visuelle Styling für solche Löschungen und Einfügungen anzupassen.
 
 ## Beste Praktiken
 
 ### HTML bevorzugen
 
-Die Verwendung der [`<ins>`](/de/docs/Web/HTML/Element/ins) und [`<del>`](/de/docs/Web/HTML/Element/del) Elemente wird automatisch mitteilen, dass ein Abschnitt die Rolle `insertion` oder `deletion` hat. Wenn möglich, sollten Sie die HTML-Elemente bevorzugen.
+Die Verwendung der [`<ins>`](/de/docs/Web/HTML/Element/ins) und [`<del>`](/de/docs/Web/HTML/Element/del) Elemente kommuniziert automatisch, dass ein Abschnitt die Rolle `insertion` oder `deletion` hat. Wenn möglich, bevorzugen Sie die Verwendung der HTML-Elemente.
 
 ## Spezifikationen
 

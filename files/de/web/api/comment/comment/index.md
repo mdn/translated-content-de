@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Der **`Comment()`** Konstruktor gibt ein neu erstelltes [`Comment`](/de/docs/Web/API/Comment)-Objekt zurück, mit der optional als Parameter angegebenen Zeichenkette als seinem Textinhalt.
+Der **`Comment()`** Konstruktor gibt ein neu erstelltes [`Comment`](/de/docs/Web/API/Comment)-Objekt mit dem optional übergebenen String als Textinhalt zurück.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ new Comment(content)
 ### Parameter
 
 - `content` {{optional_inline}}
-  - : Eine Zeichenkette, die den Textinhalt des Kommentars repräsentiert.
+  - : Ein String, der den Textinhalt des Kommentars darstellt.
 
 ### Rückgabewert
 
-Ein neues [`Comment`](/de/docs/Web/API/Comment), das `content` enthält, oder eine leere Zeichenkette, wenn kein Parameter angegeben wurde.
+Ein neues [`Comment`](/de/docs/Web/API/Comment), das `content` enthält, oder ein leerer String, wenn kein Parameter angegeben wurde.
 
 ## Beispiel
 
@@ -42,5 +42,5 @@ const comment = new Comment("Test");
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
 - [`Document.createComment()`](/de/docs/Web/API/Document/createComment) ist eine veraltete Alternative zu diesem Konstruktor.

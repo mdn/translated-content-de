@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: crypto Eigenschaft"
+title: "WorkerGlobalScope: crypto-Eigenschaft"
 short-title: crypto
 slug: Web/API/WorkerGlobalScope/crypto
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`crypto`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt für diesen Worker zurück. Dieses Objekt ermöglicht Arbeitern den Zugriff auf bestimmte kryptografische Dienste.
+Die **`crypto`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt für diesen Worker zurück. Dieses Objekt ermöglicht es Workern, auf bestimmte kryptographische Dienste zuzugreifen.
 
 Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden ihres
-Kindobjekts [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig
-für Angriffe durch [polyfill](/de/docs/Glossary/polyfill).
+Unterobjekts, [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig
+für Angriffe durch [Polyfill](/de/docs/Glossary/polyfill).
 
-Obwohl `crypto` in allen Workern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt nur eine nutzbare Funktion in unsicheren Kontexten: die [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)-Methode. Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten nutzen.
+Obwohl `crypto` in allen Workern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt in unsicheren Kontexten nur eine nutzbare Funktion: die [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)-Methode. Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten verwenden.
 
 ## Wert
 
-Eine Instanz des [`Crypto`](/de/docs/Web/API/Crypto)-Interfaces, die Zugang zu allgemeinen kryptografischen Funktionen und einem starken Zufallszahlengenerator bietet.
+Eine Instanz des [`Crypto`](/de/docs/Web/API/Crypto)-Interfaces, die Zugriff auf allgemeine Kryptografie und einen starken Zufallszahlengenerator bietet.
 
 ## Beispiele
 

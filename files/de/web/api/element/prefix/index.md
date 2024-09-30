@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`Element.prefix`**-Eigenschaft gibt das Namensraum-Präfix des angegebenen Elements zurück oder `null`, wenn kein Präfix angegeben ist.
+Die schreibgeschützte Eigenschaft **`Element.prefix`** gibt das Namespace-Präfix des angegebenen Elements zurück oder `null`, wenn kein Präfix angegeben ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel gibt "x" in die Konsole aus.
+Das folgende Beispiel gibt "x" in der Konsole aus.
 
 ```xml
 <x:div onclick="console.log(this.prefix)"/>
@@ -24,7 +24,7 @@ Das folgende Beispiel gibt "x" in die Konsole aus.
 
 ## Hinweise
 
-Dies funktioniert nur, wenn ein namenspraesser-fähiger Parser verwendet wird, d.h. wenn ein Dokument mit einem XML-MIME-Typ bereitgestellt wird. Dies funktioniert nicht für HTML-Dokumente.
+Dies funktioniert nur, wenn ein namespace-fähiger Parser verwendet wird, d.h. wenn ein Dokument mit einem XML-MIME-Typ ausgeliefert wird. Dies funktioniert nicht für HTML-Dokumente.
 
 ## Spezifikationen
 

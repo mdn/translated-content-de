@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Das **`SyntaxError`**-Objekt stellt einen Fehler dar, wenn versucht wird, syntaktisch ungültigen Code zu interpretieren. Es wird ausgelöst, wenn die JavaScript-Engine Token oder eine Tokenreihenfolge antrifft, die beim Parsen des Codes nicht der Syntax der Sprache entspricht.
+Das **`SyntaxError`**-Objekt repräsentiert einen Fehler, der auftritt, wenn syntaktisch ungültiger Code interpretiert wird. Dieser Fehler wird ausgelöst, wenn die JavaScript-Engine beim Parsen von Code auf Token oder eine Token-Reihenfolge stößt, die nicht mit der Syntax der Sprache übereinstimmen.
 
-`SyntaxError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mithilfe von [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`SyntaxError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `SyntaxError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -25,17 +25,17 @@ _Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
 Diese Eigenschaften sind auf `SyntaxError.prototype` definiert und werden von allen `SyntaxError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "SyntaxError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `SyntaxError`-Instanzen ist der Anfangswert der {{jsxref("SyntaxError/SyntaxError", "SyntaxError")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `SyntaxError`-Instanzen ist der Anfangswert der {{jsxref("SyntaxError/SyntaxError", "SyntaxError")}}-Konstruktor.
 - {{jsxref("Error/name", "SyntaxError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Bei `SyntaxError.prototype.name` ist der Anfangswert `"SyntaxError"`.
+  - : Repräsentiert den Namen des Fehlertyps. Für `SyntaxError.prototype.name` ist der Anfangswert `"SyntaxError"`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Instanzmethoden von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}_.
 
 ## Beispiele
 
-### Abfangen eines SyntaxError
+### Einen SyntaxError abfangen
 
 ```js
 try {
@@ -48,7 +48,7 @@ try {
 }
 ```
 
-### Erstellen eines SyntaxError
+### Einen SyntaxError erstellen
 
 ```js
 try {

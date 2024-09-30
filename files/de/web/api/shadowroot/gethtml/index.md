@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: getHTML() Methode"
+title: "ShadowRoot: getHTML()-Methode"
 short-title: getHTML()
 slug: Web/API/ShadowRoot/getHTML
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getHTML()`** Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle wird verwendet, um den DOM eines Shadow-Roots in einen HTML-String zu serialisieren.
+Die **`getHTML()`**-Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces wird verwendet, um den DOM eines Shadow-Roots als HTML-String zu serialisieren.
 
-Die Methode bietet ein Optionsargument, das die Serialisierung von Kindknoten ermöglicht, die Shadow-Roots sind. Die Optionen können verwendet werden, um verschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) gesetzt wurden, und/oder ein spezifiziertes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
+Die Methode bietet ein Optionsargument, das die Serialisierung von Kindknoten ermöglicht, die Shadow-Roots sind. Die Optionen können verwendet werden, um verschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) festgelegt wurden, und/oder ein angegebenes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
 
-Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich genauso wie das Lesen des Wertes von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
+Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich genauso wie das Auslesen des Wertes von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
 ## Syntax
 
@@ -27,12 +27,9 @@ const html = shadowRoot.getHTML(options)
   - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
 
     - `serializableShadowRoots`
-      - : Ein boolescher Wert, der angibt, ob [serializable](/de/docs/Web/API/ShadowRoot/serializable) Shadow-Roots eingeschlossen werden sollen.
-        Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob [serialisierbare](/de/docs/Web/API/ShadowRoot/serializable) Shadow-Roots eingeschlossen werden sollen. Der Standardwert ist `false`.
     - `shadowRoots`
-      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten zur Serialisierung.
-        Diese werden unabhängig davon, ob sie als `serializable` markiert sind, oder ob sie offen oder geschlossen sind, eingeschlossen.
-        Der Standardwert ist ein leeres Array.
+      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die zu serialisieren sind. Diese werden unabhängig davon eingeschlossen, ob sie als `serializable` markiert sind oder ob sie offen oder geschlossen sind. Der Standardwert ist ein leeres Array.
 
 ### Rückgabewert
 

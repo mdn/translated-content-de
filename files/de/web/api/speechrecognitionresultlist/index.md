@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechRecognitionResultList`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekten oder ein einzelnes Objekt, wenn Ergebnisse im [`non-continuous`](/de/docs/Web/API/SpeechRecognition/continuous) Modus erfasst werden.
+Die **`SpeechRecognitionResultList`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekten, oder ein einzelnes Objekt, wenn Ergebnisse im [`non-continuous`](/de/docs/Web/API/SpeechRecognition/continuous)-Modus erfasst werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SpeechRecognitionResultList.length`](/de/docs/Web/API/SpeechRecognitionResultList/length) {{ReadOnlyInline}}
   - : Gibt die Länge des "Arrays" zurück — die Anzahl der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`SpeechRecognitionResultList.item`](/de/docs/Web/API/SpeechRecognitionResultList/item)
-  - : Ein standardmäßiger Getter, der es erlaubt, auf [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste über die Array-Syntax zuzugreifen.
+  - : Ein Standard-Getter, der es ermöglicht, auf [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste über Array-Syntax zuzugreifen.
 
 ## Beispiele
 

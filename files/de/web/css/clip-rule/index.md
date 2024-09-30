@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`clip-rule`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie festgelegt wird, welche Pixel in einem Maskenkasten innerhalb der durch einen [clip path](/de/docs/Web/CSS/clip-path) definierten Schnittform und welche außerhalb liegen, wenn sich Teile des Pfades überlappen. Insbesondere wählt sie zwischen den Methoden "non-zero" und "even-odd" zur Bestimmung der Inklusion. `clip-rule` kann auf alle SVG-Elemente angewendet werden, hat jedoch nur Auswirkungen auf solche, die Teil eines Clip-Pfads sind. CSS-Werte der `clip-rule` Eigenschaft können SVG-Werte des {{SVGAttr("clip-rule")}} Attributs überschreiben.
+Die **`clip-rule`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie bestimmt wird, welche Pixel in einem Maskenkasten innerhalb der durch einen [Clip-Pfad](/de/docs/Web/CSS/clip-path) definierten Schnittform und welche außerhalb liegen, wenn Teile des Pfades andere Teile überlappen. Insbesondere wählt sie zwischen den Methoden "non-zero" und "even-odd", um die Einbeziehung zu bestimmen. `clip-rule` kann auf alle SVG-Elemente angewendet werden, hat jedoch nur Auswirkungen auf diejenigen, die Teil eines Clip-Pfades sind. CSS-Werte der `clip-rule` Eigenschaft können SVG-Werte des {{SVGAttr("clip-rule")}} Attributs überschreiben.
 
 ## Syntax
 
@@ -28,21 +28,21 @@ clip-rule: unset;
 
 - `nonzero`
 
-  - : Für jeden Punkt in der Box der Clip-Maske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl mit einem Teil des Clip-Pfades schneidet, wird eine Zählung um eins erhöht, wenn sich der Pfadteil von links nach rechts über den Strahl bewegt, und sie wird um eins verringert, wenn sich der Pfadteil von rechts nach links über den Strahl bewegt. Wenn die endgültige Summe der Zählung null ist, liegt der Punkt außerhalb der Form des Pfades. Andernfalls liegt er innerhalb der Form des Pfades.
+  - : Für jeden Punkt im Schnittmaskenkasten wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl mit einem Teil des Clip-Pfades kreuzt, wird der Zähler um eins erhöht, wenn der Teil des Clip-Pfades von links nach rechts über den Strahl verläuft, und um eins verringert, wenn der Pfadteil von rechts nach links über den Strahl verläuft. Ist der endgültige Gesamtwert des Zählers null, liegt der Punkt außerhalb der Form des Pfades. Andernfalls liegt er innerhalb der Form des Pfades.
 
 - `even-odd`
 
-  - : Für jeden Punkt in der Box der Clip-Maske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl mit einem Teil des Clip-Pfades schneidet, wird eine Zählung um eins erhöht. Wenn die endgültige Summe der Zählung gerade ist, liegt der Punkt außerhalb der Form des Pfades; andernfalls liegt er innerhalb der Form des Pfades. Null wird als gerade genommen.
+  - : Für jeden Punkt im Schnittmaskenkasten wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl mit einem Teil des Clip-Pfades kreuzt, wird der Zähler um eins erhöht. Ist der endgültige Gesamtwert des Zählers gerade, liegt der Punkt außerhalb der Form des Pfades; andernfalls liegt er innerhalb der Form des Pfades. Null wird als gerade betrachtet.
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Auswahl zwischen Regeln für einen Pfad mit allen im Uhrzeigersinn verlaufenden Pfaden
+### Wahl zwischen Regeln für einen Pfad mit ausschließlich im Uhrzeigersinn gezeichneten Pfaden
 
-In diesem SVG-Bild haben wir zwei Rechtecke, die beschnitten sind, einmal mit jeder Schnittregel. Es gibt zwei {{SVGElement("clipPath")}} Elemente, sodass eines auf die Verwendung der "non-zero" Schnittregel eingestellt werden kann und das andere die "even-odd" Regel verwendet. Beide Pfade werden im Uhrzeigersinn sowohl für ihre inneren als auch äußeren Teile gezeichnet.
+In diesem SVG-Bild haben wir zwei Rechtecke, die jeweils mit einer der Schnittregeln zugeschnitten werden. Es gibt zwei {{SVGElement("clipPath")}} Elemente, sodass eines auf die non-zero Schnittregel eingestellt werden kann und das andere die even-odd Regel verwendet. Beide Pfade werden im Uhrzeigersinn sowohl für ihre inneren als auch äußeren Teile gezeichnet.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
@@ -71,7 +71,7 @@ In diesem SVG-Bild haben wir zwei Rechtecke, die beschnitten sind, einmal mit je
 </svg>
 ```
 
-Bei den auf die beschnittenen Rechtecke angewandten Clip-Pfaden wird die CSS-Eigenschaft `clip-rule` verwendet, um einen Pfad auf die Verwendung der `nonzero` Regeln und den anderen auf die Verwendung der `evenodd` Regel einzustellen. Diese überschreiben die Werte der `clip-path` Attribute im SVG, die absichtlich auf die entgegengesetzten Werte wie die CSS festgelegt sind.
+Für die auf die zugeschnittenen Rechtecke angewandten Clip-Pfade wird die CSS `clip-rule` Eigenschaft verwendet, um einen Pfad so einzustellen, dass er die `nonzero` Regeln verwendet, und den anderen, dass er die `evenodd` Regel verwendet. Diese überschreiben die Werte der `clip-path` Attribute im SVG, die absichtlich auf entgegengesetzte Werte gesetzt wurden, wie sie die CSS vorschreibt.
 
 ```css
 #clipper1 {
@@ -82,13 +82,13 @@ Bei den auf die beschnittenen Rechtecke angewandten Clip-Pfaden wird die CSS-Eig
 }
 ```
 
-Da sich sowohl die inneren als auch die äußeren Teile des Pfades im Uhrzeigersinn (von links nach rechts) bewegen, wird die resultierende Clip-Form zwischen den beiden Schnittregeln unterschiedlich sein. Bei `nonzero` wird jeder Strahl innerhalb des äußeren Teils der Form zu einem Wert über null führen, da er auf ein oder mehrere von links nach rechts verlaufende Pfadfragmente stößt. Bei `even-odd` werden Punkte zwischen den beiden Teilen des Pfades eine ungerade Anzahl in der Zählung haben, während jeder Punkt, der entweder im inneren Pfad liegt oder außerhalb des äußeren Teils, eine gerade Anzahl in der Zählung haben wird.
+Da sowohl die inneren als auch äußeren Teile des Pfades im Uhrzeigersinn (von links nach rechts) verlaufen, wird sich die resultierende Schnittform zwischen den beiden Schnittregeln unterscheiden. Bei `nonzero` wird jeder Strahl innerhalb des äußeren Teils der Form auf einen Wert über null gezählt, da er auf einen oder mehrere von links nach rechts verlaufende Teile des Pfades trifft. Bei `even-odd` haben Punkte zwischen den beiden Teilen des Pfades eine ungerade Nummer im Zähler, während jeder Punkt sowohl innerhalb des inneren Pfades als auch außerhalb des äußeren Teils eine gerade Nummer im Zähler aufweist.
 
-{{EmbedLiveSample("Auswahl zwischen Regeln für einen Pfad mit allen im Uhrzeigersinn verlaufenden Pfaden", "500", "200")}}
+{{EmbedLiveSample("Wahl zwischen Regeln für einen Pfad mit ausschließlich im Uhrzeigersinn gezeichneten Pfaden", "500", "200")}}
 
-### Auswahl zwischen Regeln für einen Pfad mit unterschiedlichen Wicklungen
+### Wahl zwischen Regeln für einen Pfad mit unterschiedlichen Wickelrichtungen
 
-Dieses Beispiel verwendet das gleiche SVG wie das vorherige Beispiel, mit der Änderung, dass der innere Teil des Clip-Pfades in einer gegen den Uhrzeigersinn verlaufenden Richtung verläuft.
+Dieses Beispiel verwendet das gleiche SVG wie das vorhergehende Beispiel, mit der Änderung, dass der innere Teil des Clip-Pfades in eine gegen den Uhrzeigersinn verlaufende Richtung geht.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
@@ -115,7 +115,7 @@ Dieses Beispiel verwendet das gleiche SVG wie das vorherige Beispiel, mit der Ä
 </svg>
 ```
 
-Wir wenden dieselbe CSS wie zuvor an.
+Wir wenden dasselbe CSS wie zuvor an.
 
 ```css
 #clipper1 {
@@ -126,9 +126,9 @@ Wir wenden dieselbe CSS wie zuvor an.
 }
 ```
 
-In diesem Fall wird die resultierende Clip-Form, weil sich der äußere Teil des Pfades im Uhrzeigersinn (von links nach rechts) und der innere Teil im Gegenuhrzeigersinn (von rechts nach links) bewegt, unabhängig davon, welche Schnittregel verwendet wird, gleich sein.
+In diesem Fall wird die resultierende Schnittform unabhängig davon, welche Schnittregel verwendet wird, gleich sein, da der äußere Teil des Pfades im Uhrzeigersinn (von links nach rechts) und der innere Teil des Pfades gegen den Uhrzeigersinn (von rechts nach links) verläuft.
 
-{{EmbedLiveSample("Auswahl zwischen Regeln für einen Pfad mit unterschiedlichen Wicklungen", "500", "200")}}
+{{EmbedLiveSample("Wahl zwischen Regeln für einen Pfad mit unterschiedlichen Wickelrichtungen", "500", "200")}}
 
 ## Spezifikationen
 

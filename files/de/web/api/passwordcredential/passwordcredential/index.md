@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Der **`PasswordCredential()`**
-Konstruktor erstellt ein neues [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse `credential` aus dem `init`-Objekt für den globalen [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
+Konstruktor erstellt ein neues [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential` aus dem `init`-Objekt für den globalen [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben bekommen.
 
 ## Syntax
 
@@ -20,27 +20,25 @@ new PasswordCredential(form)
 
 ### Parameter
 
-Einer der folgenden:
+Eines der folgenden:
 
 - `data`
 
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `iconURL` {{optional_inline}}
-      - : Eine Zeichenkette, die die URL eines Symbols oder Avatars darstellt, das mit der Berechtigung verknüpft wird.
+      - : Ein String, der die URL eines Icons oder Avatars darstellt, das mit den Anmeldeinformationen verknüpft werden soll.
     - `id`
-      - : Eine Zeichenkette, die eine eindeutige ID für die Berechtigung darstellt.
+      - : Ein String, der eine eindeutige ID für die Anmeldeinformationen darstellt.
     - `name` {{optional_inline}}
-      - : Eine Zeichenkette, die den Benutzernamen der Berechtigung darstellt.
+      - : Ein String, der den Benutzernamen der Anmeldeinformationen darstellt.
     - `origin`
-      - : Eine Zeichenkette, die den Ursprung der Berechtigung darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekte sind ursprungsgebunden, was bedeutet, dass sie nur auf dem angegebenen Ursprung verwendet werden können, für den sie vorgesehen sind.
+      - : Ein String, der die Herkunft der Anmeldeinformationen darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekte sind herkunftsgebunden, was bedeutet, dass sie nur an dem spezifischen Herkunftsbereich verwendet werden können, für den sie bestimmt sind.
     - `password`
-      - : Eine Zeichenkette, die das Passwort der Berechtigung darstellt.
+      - : Ein String, der das Passwort der Anmeldeinformationen darstellt.
 
 - `form`
-  - : Eine Referenz zu einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) mit geeigneten Eingabefeldern. Das
-    Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein
-    CSRF-Token erfordern.
+  - : Ein Verweis auf ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) mit geeigneten Eingabefeldern. Das Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein CSRF-Token erforderlich sein.
 
 ### Ausnahmen
 
@@ -49,10 +47,9 @@ Einer der folgenden:
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) eingerichtet wird, um Daten zu erfassen,
-die wir zur Erstellung eines [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekts verwenden werden.
+Dieses Beispiel zeigt, wie man ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) einrichtet, um Daten zu erfassen, die wir verwenden, um ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt zu erstellen.
 
-Beginnend mit dem Formularelement.
+Beginnen Sie mit dem Formularelement.
 
 ```html
 <form id="form" method="post">
@@ -64,8 +61,8 @@ Beginnend mit dem Formularelement.
 </form>
 ```
 
-Dann eine Referenz zu diesem Formularelement, die zur Erstellung eines
-[`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekts verwendet und im Passwortsystem des Browsers gespeichert wird.
+Dann eine Referenz zu diesem Formularelement, die verwendet wird, um ein
+[`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt zu erstellen und es im Passwortsystem des Browsers zu speichern.
 
 ```js
 const form = document.querySelector("#form");

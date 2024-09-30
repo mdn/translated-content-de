@@ -1,5 +1,5 @@
 ---
-title: "WebTransportBidirectionalStream: schreibbare Eigenschaft"
+title: "WebTransportBidirectionalStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/WebTransportBidirectionalStream/writable
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`writable`** schreibgeschützte Eigenschaft des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces gibt eine [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Instanz zurück, die zum Schreiben von ausgehenden Daten verwendet werden kann.
+Die schreibgeschützte **`writable`**-Eigenschaft der [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Schnittstelle gibt eine [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Instanz zurück, die zum Senden ausgehender Daten verwendet werden kann.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces.
+Siehe die Hauptseite der Schnittstelle [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream).
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite des [`WebTransportBidirectionalStream`](/de/docs/Web/API/We
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- [WebSockets API](/de/docs/Web/API/WebSockets_API)
-- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebSockets-API](/de/docs/Web/API/WebSockets_API)
+- [Streams-API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

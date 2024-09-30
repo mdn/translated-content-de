@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:stalled`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn die Wiedergabe ins Stocken geraten ist. Eine Ressource gilt als gestockt, wenn der Benutzer die Wiedergabe an einer spezifischen Stelle in der Medienressource angefordert hat, aber über eine gewisse Zeitspanne keine Daten empfangen wurden. Dies unterscheidet sich von {{cssxref(":buffering")}} darin, dass das Medienelement unerwartet keine Daten lädt, wenn es gestockt ist (z. B. aufgrund eines Netzwerkfehlers) für etwa 3 Sekunden (die genaue Zeit ist [vom Benutzeragenten abhängig](https://html.spec.whatwg.org/multipage/media.html#stall-timeout)).
+Der **`:stalled`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)-Selektor repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn die Wiedergabe ins Stocken geraten ist. Eine Ressource wird als ins Stocken geraten angesehen, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, diese jedoch für eine bestimmte Zeitspanne keine Daten empfangen hat. Dies unterscheidet sich von {{cssxref(":buffering")}} dadurch, dass das Media-Element unerwartet keine Daten lädt, wenn es ins Stocken gerät (z. B. aufgrund eines Netzwerkfehlers) für etwa 3 Sekunden (die genaue Zeit ist [benutzeragentenabhängig](https://html.spec.whatwg.org/multipage/media.html#stall-timeout)).
 
 > [!NOTE]
-> Wie bei der {{cssxref(":buffering")}}-Pseudoklasse wird das Element weiterhin als "spielend" betrachtet, wenn es "gestockt" ist.
-> Wenn `:stalled` auf ein Element zutrifft, wird {{cssxref(":playing")}} ebenfalls auf dieses Element zutreffen.
+> Wie bei der {{cssxref(":buffering")}}-Pseudoklasse wird das Element immer noch als "abspielend" betrachtet, wenn es "ins Stocken geraten" ist.
+> Wenn `:stalled` mit einem Element übereinstimmt, passt auch {{cssxref(":playing")}} auf dieses Element.
 
 ## Syntax
 
@@ -52,4 +52,4 @@ audio:stalled {
 - {{cssxref(":seeking")}}
 - {{cssxref(":volume-locked")}}
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event) Event
+- [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event) Ereignis

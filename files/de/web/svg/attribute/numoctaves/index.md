@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`numOctaves`** Attribut definiert die Anzahl der Oktaven für die Rauschfunktion des {{SVGElement("feTurbulence")}} Primitivs.
+Das Attribut **`numOctaves`** definiert die Anzahl der Oktaven für die Rauschfunktion der {{SVGElement("feTurbulence")}}-Primitive.
 
-Eine Oktave ist eine Rauschfunktion, die durch ihre Frequenz und Amplitude definiert ist. Eine Turbulenz entsteht durch das Akkumulieren mehrerer Oktaven mit zunehmenden Frequenzen und abnehmenden Amplituden. Je höher die Anzahl der Oktaven, desto natürlicher sieht das Rauschen aus. Allerdings erfordern mehr Oktaven auch mehr Berechnungen, was sich negativ auf die Leistung auswirkt.
+Eine Oktave ist eine Rauschfunktion, die durch ihre Frequenz und Amplitude definiert wird. Eine Turbulenz wird gebildet, indem mehrere Oktaven mit zunehmenden Frequenzen und abnehmenden Amplituden akkumuliert werden. Je höher die Anzahl der Oktaven, desto natürlicher wirkt das Rauschen. Mehr Oktaven erfordern jedoch auch mehr Berechnungen, was sich negativ auf die Leistung auswirkt.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feTurbulence")}}
 
@@ -46,7 +46,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel 1", "420", "200")}}
+{{EmbedLiveSample("Example 1", "420", "200")}}
 
 ### Beispiel 2
 
@@ -70,7 +70,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel 2", "220", "250")}}
+{{EmbedLiveSample("Example 2", "220", "250")}}
 
 ## Verwendungshinweise
 

@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte `performance.eventCounts`-Eigenschaft ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map, die die Anzahl der Ereignisse enthält, die pro Ereignistyp ausgelöst wurden.
+Die schreibgeschützte Eigenschaft `performance.eventCounts` ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map, die die Anzahl der Ereignisse enthält, die pro Ereignistyp ausgelöst wurden.
 
-Nicht alle Ereignistypen werden angezeigt. Sie können nur Zählungen zu Ereignistypen abrufen, die von der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle unterstützt werden.
+Nicht alle Ereignistypen werden angezeigt. Sie können nur Zählungen für Ereignistypen erhalten, die von der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle unterstützt werden.
 
 ## Wert
 
 Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map.
-(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()`, und `set()`).
+(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()` und `set()`).
 
 ## Beispiele
 
-### Meldung von Ereignistypen und deren Zählungen
+### Ereignistypen und deren Zählungen berichten
 
-Wenn Sie die Ereigniszählungen an Ihre Analysen senden möchten, könnten Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Map entnimmt und dann die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
+Wenn Sie Ereigniszählungen an Ihre Analysen senden möchten, können Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Map entnimmt und dann den [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
 
 ```js
 // Report all exposed events

@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Ein **`DeviceMotionEventRotationRate`**-Interface der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Geschwindigkeit, mit der sich das Gerät um alle drei Achsen dreht.
+Die Schnittstelle **`DeviceMotionEventRotationRate`** der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Rate, mit der sich das Gerät um alle drei Achsen dreht.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`DeviceMotionEventRotationRate.alpha`](/de/docs/Web/API/DeviceMotionEventRotationRate/alpha) {{ReadOnlyInline}}
   - : Die Rotationsmenge um die Z-Achse, in Grad pro Sekunde.

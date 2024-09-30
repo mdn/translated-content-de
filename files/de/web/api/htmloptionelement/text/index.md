@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`text`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) stellt den Text innerhalb des {{htmlelement("option")}}-Elements dar. Diese Eigenschaft repräsentiert die gleiche Information wie [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+Die **`text`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) repräsentiert den Text innerhalb des {{htmlelement("option")}}-Elements. Diese Eigenschaft stellt die gleiche Information wie [`Node.textContent`](/de/docs/Web/API/Node/textContent) dar.
 
 > [!NOTE]
-> Wenn das Element ein `label` hat, wird der Text innerhalb des {{htmlelement("option")}} nicht visuell dargestellt. In diesem Fall kann die `text`-Eigenschaft weiterhin verwendet werden, um den Inhalt festzulegen, aber dies wird keine sichtbare Wirkung haben.
+> Wenn das Element ein `label` hat, wird der Text innerhalb des {{htmlelement("option")}}-Elements nicht visuell dargestellt. In diesem Fall kann die `text`-Eigenschaft weiterhin verwendet werden, um den Inhalt festzulegen, aber dies hat keine sichtbare Wirkung.
 
 ## Wert
 

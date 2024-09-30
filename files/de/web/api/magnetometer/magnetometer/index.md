@@ -1,5 +1,5 @@
 ---
-title: "Magnetometer: Magnetometer()-Konstruktor"
+title: "Magnetometer: Magnetometer() Konstruktor"
 short-title: Magnetometer()
 slug: Web/API/Magnetometer/Magnetometer
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`Magnetometer()`**-Konstruktor erstellt ein neues [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Objekt, das Informationen über das Magnetfeld liefert, wie es vom Hauptmagnetometersensor eines Geräts erkannt wird.
+Der **`Magnetometer()`** Konstruktor
+erstellt ein neues [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Objekt, das Informationen über das
+Magnetfeld liefert, wie es vom primären Magnetometersensor eines Geräts erfasst wird.
 
 ## Syntax
 
@@ -21,17 +23,21 @@ new Magnetometer(options)
 
 - `options` {{optional_inline}}
 
-  - : Die Optionen sind wie folgt:
+  - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Messungen pro Sekunde, was bedeutet, wie oft das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis pro Sekunde aufgerufen wird. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letzterer für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Hardware des Geräts ab und kann daher geringer als angefordert sein.
+      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, bedeutet die Anzahl der Male pro Sekunde, dass das
+        [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann
+        verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz
+        hängt von der Gerätehardware ab und kann folglich geringer als gewünscht sein.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
+      - : Entweder `'device'` oder
+        `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -43,4 +49,4 @@ new Magnetometer(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

@@ -1,5 +1,5 @@
 ---
-title: "<i>: Das Idiomatische Textelement"
+title: "<i>: Das idiomatische Textelement"
 slug: Web/HTML/Element/i
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<i>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus irgendeinem Grund vom normalen Text abgesetzt ist, wie zum Beispiel idiomatische Ausdrücke, technische Begriffe, taxonomische Bezeichnungen und andere. Historisch wurden diese mit kursiver Schrift dargestellt, was die ursprüngliche Quelle der `<i>` Benennung dieses Elements ist.
+Das **`<i>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus bestimmten Gründen vom normalen Text abgesetzt ist, wie z.B. idiomatischer Text, Fachbegriffe, taxonomische Bezeichnungen und andere. Historisch gesehen wurden diese mit kursiver Schrift dargestellt, was die ursprüngliche Quelle für die Benennung des `<i>`-Elements ist.
 
 {{EmbedInteractiveExample("pages/tabbed/i.html", "tabbed-shorter")}}
 
@@ -17,28 +17,28 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Anwendungshinweise
 
-- Verwenden Sie das `<i>` Element für Texte, die aus Gründen der Lesbarkeit vom normalen Fließtext abgesetzt sind. Dies wäre ein Bereich von Text mit einer anderen semantischen Bedeutung als der umgebende Text. Zu den Anwendungsfällen für das `<i>` Element gehören Textbereiche, die eine andere Qualität oder Modus des Textes repräsentieren, wie zum Beispiel:
+- Verwenden Sie das `<i>`-Element für Text, der aus Lesbarkeitsgründen vom normalen Fließtext abgesetzt ist. Dies wäre ein Textbereich mit unterschiedlicher semantischer Bedeutung als der umgebende Text. Zu den Anwendungsfällen für das `<i>`-Element gehören Textbereiche, die eine andere Qualität oder Art des Textes repräsentieren, wie zum Beispiel:
 
   - Alternative Stimme oder Stimmung
-  - Taxonomische Bezeichnungen (wie das Genus und Species "_Homo sapiens_")
-  - Idiomatische Begriffe aus einer anderen Sprache (wie "_et cetera_"); diese sollten das [`lang`](/de/docs/Web/HTML/Global_attributes#lang) Attribut beinhalten, um die Sprache zu identifizieren
-  - Technische Begriffe
-  - Transliterationen
-  - Gedanken (wie "Sie fragte sich, _Was meint dieser Schriftsteller eigentlich?_")
-  - Schiffsnamen in westlichen Schriftsystemen (wie "Sie durchsuchten die Docks nach der _Empress of the Galaxy_, dem Schiff, dem sie zugeteilt waren.")
+  - Taxonomische Bezeichnungen (wie die Gattung und Art "_Homo sapiens_")
+  - Idiomatische Begriffe aus einer anderen Sprache (wie "_et cetera_"); diese sollten das [`lang`](/de/docs/Web/HTML/Global_attributes#lang) Attribut enthalten, um die Sprache zu kennzeichnen.
+  - Fachbegriffe
+  - Transliteration
+  - Gedanken (wie "Sie fragte sich, _Wovon spricht dieser Autor eigentlich?_")
+  - Schiffs- oder Schiffsnamen in westlichen Schriftsystemen (wie "Sie durchsuchten die Docks nach der _Empress of the Galaxy_, dem Schiff, dem sie zugewiesen waren.")
 
-- In früheren Versionen der HTML-Spezifikation war das `<i>` Element lediglich ein Präsentationselement, das Text kursiv darstellt, ähnlich wie das `<b>` Element verwendet wurde, um Text fett darzustellen. Dies ist nicht mehr zutreffend, da diese Tags nun Semantik statt typografisches Erscheinungsbild definieren. Ein Browser zeigt normalerweise noch den Inhalt des `<i>` Elements in kursiver Schrift an, ist jedoch per Definition nicht mehr dazu verpflichtet. Um Text in kursiver Schrift darzustellen, sollten Autoren die CSS {{cssxref("font-style")}} Eigenschaft verwenden.
-- Stellen Sie sicher, dass der betreffende Text nicht tatsächlich besser mit einem anderen Element ausgezeichnet ist.
+- In früheren Versionen der HTML-Spezifikationen war das `<i>`-Element lediglich ein Präsentationselement, das Text kursiv darstellte, ähnlich wie das `<b>`-Element Text fett darstellte. Dies ist nicht mehr der Fall, da diese Tags jetzt Semantik statt typografischem Aussehen definieren. Ein Browser wird in der Regel den Inhalt des `<i>`-Elements weiterhin kursiv darstellen, ist aber per Definition nicht mehr dazu verpflichtet. Um Text kursiv darzustellen, sollten Autoren die CSS {{cssxref("font-style")}} Eigenschaft verwenden.
+- Stellen Sie sicher, dass der betreffende Text nicht tatsächlich besser mit einem anderen Element ausgezeichnet wird.
 
-  - Verwenden Sie {{HTMLElement("em")}}, um betonte Hervorhebung anzuzeigen.
-  - Verwenden Sie {{HTMLElement("strong")}}, um Wichtigkeit, Ernsthaftigkeit oder Dringlichkeit anzuzeigen.
-  - Verwenden Sie {{HTMLElement("mark")}}, um Relevanz anzuzeigen.
-  - Verwenden Sie {{HTMLElement("cite")}}, um den Namen eines Werkes, wie ein Buch, ein Theaterstück oder ein Lied, auszuzeichnen.
-  - Verwenden Sie {{HTMLElement("dfn")}}, um die definierende Instanz eines Begriffs auszuzeichnen.
+  - Verwenden Sie {{HTMLElement("em")}} um Hervorhebung durch Betonung anzuzeigen.
+  - Verwenden Sie {{HTMLElement("strong")}} um Wichtigkeit, Ernsthaftigkeit oder Dringlichkeit anzuzeigen.
+  - Verwenden Sie {{HTMLElement("mark")}} um Relevanz anzuzeigen.
+  - Verwenden Sie {{HTMLElement("cite")}} um den Namen eines Werkes zu kennzeichnen, wie ein Buch, ein Theaterstück oder ein Lied.
+  - Verwenden Sie {{HTMLElement("dfn")}} um die definierende Instanz eines Begriffs zu kennzeichnen.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert den Gebrauch des `<i>` Elements, um Text zu markieren, der in einer anderen Sprache ist.
+Dieses Beispiel demonstriert die Verwendung des `<i>`-Elements, um Text zu markieren, der in einer anderen Sprache vorliegt.
 
 ```html
 <p>
@@ -63,31 +63,31 @@ Dieses Beispiel demonstriert den Gebrauch des `<i>` Elements, um Text zu markier
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Verlaufskategorie</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierender Inhalt</a
-        >, greifbarer Inhalt.
+          >Phrasenkategorie</a
+        >, spürbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierender Inhalt</a
+          >Phrasenkategorie</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierenden Inhalt</a
+          >Phrasenkategorie</a
         > akzeptiert.
       </td>
     </tr>
@@ -102,8 +102,8 @@ Dieses Beispiel demonstriert den Gebrauch des `<i>` Elements, um Text zu markier
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Alle</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

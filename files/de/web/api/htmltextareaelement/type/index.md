@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`type`** des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt den String `"textarea"` zurück.
+Die schreibgeschützte **`type`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt den String `"textarea"` zurück.
 
 ## Wert
 

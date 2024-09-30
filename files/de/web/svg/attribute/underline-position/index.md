@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `underline-position` gibt die ideale vertikale Position der Unterstreichung an. Die Position der Unterstreichung wird im Koordinatensystem der Schriftart ausgedrückt.
+Das Attribut `underline-position` stellt die ideale vertikale Position der Unterstreichung dar. Die Position der Unterstreichung wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -37,7 +37,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
         <a
           href="https://www.w3.org/TR/SVG/fonts.html#FontFaceElementUnderlinePositionAttribute"
           rel="external"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>

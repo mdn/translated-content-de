@@ -1,5 +1,5 @@
 ---
-title: "TextTrackList: length-Eigenschaft"
+title: "TextTrackList: length Eigenschaft"
 short-title: length
 slug: Web/API/TextTrackList/length
 l10n:
@@ -10,19 +10,20 @@ l10n:
 
 Die schreibgeschützte **[`TextTrackList`](/de/docs/Web/API/TextTrackList)**
 Eigenschaft **`length`** gibt die Anzahl der Einträge in der
-`TextTrackList` zurück, von denen jeder ein [`TextTrack`](/de/docs/Web/API/TextTrack) darstellt, das eine Spur im Media-Element repräsentiert.
+`TextTrackList` zurück, von denen jeder ein [`TextTrack`](/de/docs/Web/API/TextTrack) darstellt, das eine Spur im Medien-Element repräsentiert.
 
-Ein Wert von 0 gibt an, dass keine Textspuren im Medium vorhanden sind.
+Ein Wert von 0 zeigt an, dass keine Textspuren im Medium vorhanden sind.
 
 ## Wert
 
 Eine Zahl, die angibt, wie viele Textspuren in der
-`TextTrackList` enthalten sind. Auf jede Spur kann zugegriffen werden, indem die
-`TextTrackList` wie ein Array von Objekten vom Typ [`TextTrack`](/de/docs/Web/API/TextTrack) behandelt wird.
+`TextTrackList` enthalten sind. Jede Spur kann durch Behandeln der
+`TextTrackList` als ein Array von Objekten des Typs [`TextTrack`](/de/docs/Web/API/TextTrack) zugegriffen werden.
 
 ## Beispiele
 
-Dieses Codebeispiel ermittelt die Anzahl der Textspuren im ersten Media-Element, das im [DOM](/de/docs/Glossary/DOM) mithilfe von [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
+Dieses Beispiel ermittelt die Anzahl der Textspuren im ersten Medien-Element, das im
+[DOM](/de/docs/Glossary/DOM) durch [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const mediaElem = document.querySelector("video, audio");
@@ -33,7 +34,7 @@ if (mediaElem.textTracks) {
 }
 ```
 
-Beachten Sie, dass dieses Beispiel sicherstellt, dass [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) definiert ist, um zu vermeiden, dass es bei Browsern ohne Unterstützung für [`TextTrack`](/de/docs/Web/API/TextTrack) fehlschlägt.
+Beachten Sie, dass dieses Beispiel prüft, ob [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) definiert ist, um zu vermeiden, dass es in Browsern ohne Unterstützung für [`TextTrack`](/de/docs/Web/API/TextTrack) fehlschlägt.
 
 ## Spezifikationen
 

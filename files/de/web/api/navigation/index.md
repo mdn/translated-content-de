@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`Navigation`**-Interface der [Navigation API](/de/docs/Web/API/Navigation_API) ermöglicht die Kontrolle über alle Navigationsaktionen für das aktuelle `window` an einem zentralen Ort. Dazu gehört das programmgesteuerte Initiieren von Navigationen, das Untersuchen von Navigationseinträgen in der Historie und das Verwalten von Navigationen, während sie stattfinden.
+Das **`Navigation`**-Interface der [Navigation API](/de/docs/Web/API/Navigation_API) ermöglicht die Kontrolle über alle Navigationsaktionen für das aktuelle `window` an einem zentralen Ort, einschließlich der programmatischen Einleitung von Navigationen, der Untersuchung von Navigationseinträgen in der Historie und der Verwaltung von Navigationen während ihres Ablaufs.
 
-Es wird über die [`Window.navigation`](/de/docs/Web/API/Window/navigation)-Eigenschaft erreicht.
+Es wird über die [`Window.navigation`](/de/docs/Web/API/Window/navigation)-Eigenschaft aufgerufen.
 
-Die Navigation API zeigt nur jene Historieneinträge an, die im aktuellen Browsing-Kontext erstellt wurden und den gleichen Ursprung wie die aktuelle Seite haben (d.h. keine Navigationen innerhalb eingebetteter {{htmlelement("iframe")}}s oder cross-origin Navigationen), wodurch eine genaue Liste aller vorherigen Historieneinträge nur für Ihre App bereitgestellt wird. Dies macht das Durchqueren der Historie weitaus weniger anfällig für Fehler als mit der älteren [History API](/de/docs/Web/API/History_API).
+Die Navigation API gibt nur Historieeinträge der aktuellen Browsing-Kontextes frei, die denselben Ursprung wie die aktuelle Seite haben (z.B. keine Navigationen in eingebetteten {{htmlelement("iframe")}}s oder externe Cross-Origin-Navigationen) und bietet eine genaue Liste aller vorherigen Historieeinträge nur für Ihre Anwendung. Dies macht das Durchschreiten der Historie wesentlich robuster als mit der älteren [History API](/de/docs/Web/API/History_API).
 
 {{InheritanceDiagram}}
 
@@ -20,48 +20,48 @@ Die Navigation API zeigt nur jene Historieneinträge an, die im aktuellen Browsi
 _Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`canGoBack`](/de/docs/Web/API/Navigation/canGoBack) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie rückwärts zu navigieren
-    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Historien-Eintragsliste),
-    und `false`, wenn dies nicht möglich ist.
+  - : Gibt `true` zurück, wenn es möglich ist, in der Navigation zurückzugehen
+    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Liste der Historieeinträge),
+    und `false`, wenn es nicht möglich ist.
 - [`canGoForward`](/de/docs/Web/API/Navigation/canGoForward) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren
-    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Historien-Eintragsliste),
-    und `false`, wenn dies nicht möglich ist.
+  - : Gibt `true` zurück, wenn es möglich ist, in der Navigation vorwärts zu gehen
+    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Liste der Historieeinträge),
+    und `false`, wenn es nicht möglich ist.
 - [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Standort repräsentiert, zu dem der Benutzer derzeit navigiert ist.
+  - : Gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort repräsentiert, zu dem der Nutzer derzeit navigiert ist.
 - [`transition`](/de/docs/Web/API/Navigation/transition) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt zurück, das den Status einer in Bearbeitung befindlichen Navigation repräsentiert, das zur Verfolgung verwendet werden kann. Gibt `null` zurück, wenn derzeit keine Navigation in Bearbeitung ist.
+  - : Gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt zurück, das den Status einer laufenden Navigation darstellt,
+    das zur Verfolgung verwendet werden kann. Gibt `null` zurück, wenn derzeit keine Navigation im Gange ist.
 
 ## Instanz-Methoden
 
 _Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`back()`](/de/docs/Web/API/Navigation/back) {{Experimental_Inline}}
-  - : Navigiert um einen Eintrag in der Navigationshistorie rückwärts.
+  - : Navigiert um einen Eintrag in der Navigation zurück.
 - [`entries()`](/de/docs/Web/API/Navigation/entries) {{Experimental_Inline}}
-  - : Gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Historieneinträge repräsentieren.
+  - : Gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Historieeinträge repräsentieren.
 - [`forward()`](/de/docs/Web/API/Navigation/forward) {{Experimental_Inline}}
-  - : Navigiert um einen Eintrag in der Navigationshistorie vorwärts.
+  - : Navigiert um einen Eintrag in der Navigation vorwärts.
 - [`navigate()`](/de/docs/Web/API/Navigation/navigate) {{Experimental_Inline}}
-  - : Navigiert zu einer spezifischen URL und aktualisiert jeden bereitgestellten Zustand in der Historieneintragsliste.
+  - : Navigiert zu einer spezifischen URL und aktualisiert gegebenenfalls den Zustand in der Historieeintragsliste.
 - [`reload()`](/de/docs/Web/API/Navigation/reload) {{Experimental_Inline}}
-  - : Lädt die aktuelle URL neu und aktualisiert jeden bereitgestellten Zustand in der Historieneintragsliste.
+  - : Lädt die aktuelle URL neu und aktualisiert gegebenenfalls den Zustand in der Historieeintragsliste.
 - [`traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) {{Experimental_Inline}}
-  - : Navigiert zu einem bestimmten [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry), der durch [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) identifiziert ist.
+  - : Navigiert zu einem spezifischen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry), identifiziert durch [`key`](/de/docs/Web/API/NavigationHistoryEntry/key).
 - [`updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) {{Experimental_Inline}}
-  - : Aktualisiert den Zustand des [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry); wird
-    in Fällen verwendet, in denen die Zustandsänderung unabhängig von einer Navigation oder einem Neuladen sein wird.
+  - : Aktualisiert den Zustand des [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry); wird in Fällen verwendet, in denen die Zustandsänderung unabhängig von einer Navigation oder einem Neustart sein wird.
 
 ## Ereignisse
 
 - [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn sich der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) geändert hat.
 - [`navigate`](/de/docs/Web/API/Navigation/navigate_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, was es Ihnen ermöglicht, diese nach Bedarf abzufangen.
+  - : Wird ausgelöst, wenn [irgendeine Form der Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, sodass Sie sie bei Bedarf abfangen können.
 - [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn eine Navigation fehlschlägt.
 - [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn eine erfolgreiche Navigation abgeschlossen ist.
+  - : Wird ausgelöst, wenn eine erfolgreiche Navigation abgeschlossen wurde.
 
 ## Beispiele
 
@@ -89,7 +89,7 @@ async function forwardHandler() {
 }
 ```
 
-### Traversierung zu einem bestimmten Historieneintrag
+### Durchlaufen eines bestimmten Historieeintrags
 
 ```js
 // On JS startup, get the key of the first loaded page
@@ -101,7 +101,7 @@ backToHomeButton.onclick = () => navigation.traverseTo(key);
 await navigation.navigate("/another_url").finished;
 ```
 
-### Navigation und Statusaktualisierung
+### Navigieren und Aktualisieren des Zustands
 
 ```js
 navigation.navigate(url, { state: newState });
@@ -113,7 +113,7 @@ Oder
 navigation.reload({ state: newState });
 ```
 
-Oder wenn der Zustand unabhängig von einer Navigation oder einem Neuladen ist:
+Oder wenn der Zustand unabhängig von einer Navigation oder einem Neustart ist:
 
 ```js
 navigation.updateCurrentEntry({ state: newState });
@@ -129,6 +129,6 @@ navigation.updateCurrentEntry({ state: newState });
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routenerstellung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicola's [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

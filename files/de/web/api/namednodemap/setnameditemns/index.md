@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: Methode setNamedItemNS()"
+title: "NamedNodeMap: setNamedItemNS() Methode"
 short-title: setNamedItemNS()
 slug: Web/API/NamedNodeMap/setNamedItemNS
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle
+Die **`setNamedItemNS()`** Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) Schnittstelle
 fügt das durch seinen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) in die Map ein.
-Falls bereits ein [`Attr`](/de/docs/Web/API/Attr) mit demselben Namen in der Map vorhanden war,
-wird dieses _ersetzt_.
+Wenn sich bereits ein [`Attr`](/de/docs/Web/API/Attr) mit demselben Namen in der Map befindet,
+wird es _ersetzt_.
 
 > [!NOTE]
-> Diese Methode ist ein Alias von `setNamedItem()`, Sie können beide
+> Diese Methode ist ein Alias von `setNamedItem()`, Sie können sie
 > austauschbar verwenden.
 
 ## Syntax
@@ -75,7 +75,7 @@ for (const attr of attrMap) {
 pre.textContent = result;
 ```
 
-{{EmbedLiveSample("Example", "100%", 200)}}
+{{EmbedLiveSample("Beispiel", "100%", 200)}}
 
 ## Spezifikationen
 

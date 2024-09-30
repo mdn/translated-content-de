@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: screenX-Eigenschaft"
+title: "MouseEvent: screenX Eigenschaft"
 short-title: screenX
 slug: Web/API/MouseEvent/screenX
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`screenX`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
+Die **`screenX`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent) Interfaces liefert die horizontale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 
 > [!NOTE]
-> In einer Umgebung mit mehreren Bildschirmen, die horizontal ausgerichtet sind, werden die Bildschirme als ein einziges Gerät behandelt, und daher vergrößert sich der Wertebereich von `screenX` auf die kombinierte Breite der Bildschirme.
+> In einer Multi-Screen-Umgebung werden Bildschirme, die horizontal ausgerichtet sind, als ein einzelnes Gerät behandelt, und somit wird der Bereich des `screenX`-Werts auf die kombinierte Breite der Bildschirme erweitert.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double` Fließkommawert in Pixeln.
 
 Frühere Versionen der Spezifikation definierten dies als eine ganze Zahl, die sich auf die Anzahl der Pixel bezieht.
 
@@ -47,9 +47,9 @@ function logKey(e) {
 
 {{EmbedLiveSample("Examples")}}
 
-### Routing eines Ereignisses
+### Ein Ereignis routen
 
-Wenn Sie Ereignisse im Fenster, Dokument oder anderen großen Elementen erfassen, können Sie die Koordinaten dieses Ereignisses (z. B. ein Klick) abrufen und ordnungsgemäß routen, wie das folgende Beispiel zeigt:
+Wenn Sie Ereignisse im Fenster, Dokument oder anderen großen Elementen abfangen, können Sie die Koordinaten dieses Ereignisses (z.B. ein Klick) erfassen und es korrekt routen, wie das folgende Beispiel zeigt:
 
 ```js
 function checkClickMap(e) {

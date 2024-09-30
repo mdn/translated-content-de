@@ -48,4 +48,4 @@ if (s.rangeCount > 1) {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.

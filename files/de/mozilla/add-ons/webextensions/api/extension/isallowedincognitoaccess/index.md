@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Überprüfen, ob die Erweiterung Zugriff auf Tabs im Modus des privaten Surfens hat.
+Überprüfen Sie, ob die Erweiterung Zugriff auf Registerkarten im "Privaten Browsing"-Modus hat.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem booleschen Wert erfüllt wird: `true`, wenn die Erweiterung Zugriff auf private Tabs hat, ansonsten `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird: `true`, wenn die Erweiterung Zugriff auf private Registerkarten hat, andernfalls `false`.
 
 ## Beispiele
 
@@ -43,7 +43,7 @@ isAllowed.then(logIsAllowed);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-isAllowedIncognitoAccess) API von Chromium. Diese Dokumentation ist aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-isAllowedIncognitoAccess) API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "Window: isSecureContext-Eigenschaft"
+title: "Window: isSecureContext Eigenschaft"
 short-title: isSecureContext
 slug: Web/API/Window/isSecureContext
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`isSecureContext`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt einen booleschen Wert zurück, der anzeigt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Secure_Contexts) (`true`) oder nicht (`false`).
+Die **`isSecureContext`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Secure_Contexts) (`true`) oder nicht (`false`).
 
 ## Wert
 

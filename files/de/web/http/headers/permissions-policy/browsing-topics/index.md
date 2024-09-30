@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `browsing-topics`-Direktive steuert den Zugriff auf die [Topics API](/de/docs/Web/API/Topics_API).
+Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `browsing-topics` kontrolliert den Zugriff auf die [Topics API](/de/docs/Web/API/Topics_API).
 
-Wenn eine Richtlinie die Nutzung der Topics API ausdrücklich verbietet, schlägt jeder Versuch, die Methode [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) aufzurufen oder eine Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) fehl.
+Wenn eine Richtlinie die Nutzung der Topics API ausdrücklich untersagt, schlagen alle Versuche, die Methode [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) aufzurufen oder eine Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ Permissions-Policy: browsing-topics=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-`allowlist` für `browsing-topics` ist `*`.
+Die standardmäßige Erlaubnisliste für `browsing-topics` ist `*`.
 
 ## Spezifikationen
 
-Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Dieses Feature ist Teil eines inoffiziellen Standards und wird im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert.
 
 ## Browser-Kompatibilität
 

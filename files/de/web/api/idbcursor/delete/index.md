@@ -1,5 +1,5 @@
 ---
-title: "IDBCursor: delete() Methode"
+title: "IDBCursor: delete()-Methode"
 short-title: delete()
 slug: Web/API/IDBCursor/delete
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`delete()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest) Objekt zurück und löscht in einem separaten Thread den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern. Sobald der Datensatz gelöscht ist, wird der Wert des Cursors auf null gesetzt.
+Die **`delete()`**-Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread
+den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern.
+Sobald der Datensatz gelöscht ist, wird der Wert des Cursors auf null gesetzt.
 
-Beachten Sie, dass `delete()` (oder
-[`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update)) nicht für Cursor aufgerufen werden kann, die von
+Beachten Sie, dass Sie `delete()` (oder
+[`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update)) nicht für Cursor aufrufen können, die mit
 [`IDBIndex.openKeyCursor()`](/de/docs/Web/API/IDBIndex/openKeyCursor) erhalten wurden. Für solche Anforderungen müssen Sie stattdessen
 [`IDBIndex.openCursor()`](/de/docs/Web/API/IDBIndex/openCursor) verwenden.
 
@@ -28,10 +30,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest) Objekt, auf dem nachfolgende Ereignisse zu dieser
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser
 Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result) Eigenschaft der Anfrage `undefined`.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage `undefined`.
 
 ### Ausnahmen
 
@@ -42,19 +44,19 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folg
 - `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Transaktionsmodus schreibgeschützt ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, gerade iteriert wird oder seine Endposition überschritten hat.
+  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, derzeit iteriert wird oder über sein Ende hinaus iteriert wurde.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen
-Cursor, um alle Datensätze im Objekt-Store zu durchlaufen. Wenn der
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen
+Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Wenn der
 `albumTitle` des aktuellen Cursors "Grace under pressure" ist, löschen wir diesen
 gesamten Datensatz mit `const request = cursor.delete();`.
 
 Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle
-greifen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen
-Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein komplettes
-funktionsfähiges Beispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Daten abrufen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen
+Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges
+funktionierendes Beispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function deleteResult() {
@@ -96,9 +98,9 @@ function deleteResult() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

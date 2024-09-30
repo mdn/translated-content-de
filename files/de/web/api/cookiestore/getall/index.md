@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`getAll()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle gibt eine Liste von Cookies zurück, die dem übergebenen `name` oder `options` entsprechen. Ohne Parameter werden alle Cookies für den aktuellen Kontext zurückgegeben.
+Die **`getAll()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle gibt eine Liste von Cookies zurück, die dem übergebenen `name` oder `options` entsprechen. Werden keine Parameter übergeben, werden alle Cookies für den aktuellen Kontext zurückgegeben.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Oder
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das enthält:
+  - : Ein Objekt, das Folgendes enthält:
 
     - `name`
       - : Ein String mit dem Namen eines Cookies.
@@ -34,11 +34,11 @@ Oder
       - : Ein String mit der URL eines Cookies.
 
 > [!NOTE]
-> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL eingegrenzt ist. Servicearbeiter können Cookies abrufen, die an jede URL unter ihrem Geltungsbereich gesendet würden. Von einem Dokument aus können Sie nur die Cookies an der aktuellen URL abrufen, sodass die einzige gültige URL im Dokumentenkontext die URL des Dokuments ist.
+> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL liegt. Service-Worker können Cookies erhalten, die an jede URL unter ihrem Geltungsbereich gesendet würden. Aus einem Dokument heraus können Sie nur die Cookies an der aktuellen URL erhalten, daher ist die einzige gültige URL im Dokumentenkontext die URL des Dokuments.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die Cookies repräsentieren, die dem angegebenen `name` oder `options` entsprechen.
+Ein {{jsxref("Promise")}}, das bei Erfolg mit einem Array von Objekten aufgelöst wird, die die Cookies darstellen, die dem gegebenen `name` oder `options` entsprechen.
 
 Jedes Objekt enthält die folgenden Eigenschaften:
 
@@ -56,7 +56,7 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `partitioned`
 
-  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängiger partitionierter Zustandsverwaltung (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
 
 - `path`
 
@@ -67,15 +67,15 @@ Jedes Objekt enthält die folgenden Eigenschaften:
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
     - `"strict"`
-      - : Cookies werden nur in einem Erstanbieter-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites.
+      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Websites initiiert wurden.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Subanfragen (z. B. zum Laden von Bildern oder Frames in ein Drittanbieter-Site) nicht gesendet, aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d. h. beim Folgen eines Links).
+      - : Cookies werden bei normalen Cross-Site-Subrequests nicht gesendet (zum Beispiel zum Laden von Bildern oder Frames auf eine Drittanbieter-Website), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (z.B. beim Folgen eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `secure`
 
-  - : Ein boolescher Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
+  - : Ein Boolean-Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
 
 - `value`
   - : Ein String, der den Wert des Cookies enthält.
@@ -83,12 +83,12 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisierbar](/de/docs/Glossary/Serialization) ist.
+  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Die `url`-Option vorhanden ist und nicht gleich der Erstellungs-URL ist, falls im Hauptthread.
-    - Die `url`-Option vorhanden ist und ihr Ursprung nicht derselbe ist wie der Ursprung der Erstellungs-URL.
-    - Die Abfrage der Cookies, die durch den angegebenen `name` oder `options` dargestellt werden, fehlschlägt.
+    - Die `url`-Option vorhanden ist und nicht mit der Erstellungs-URL übereinstimmt, wenn im Hauptthread.
+    - Die `url`-Option vorhanden ist und ihr Ursprung nicht derselbe wie der Ursprung der Erstellungs-URL ist.
+    - Die Abfrage von Cookies, die durch den gegebenen `name` oder `options` dargestellt werden, fehlschlägt.
 
 ## Beispiele
 

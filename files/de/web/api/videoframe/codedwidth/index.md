@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`codedWidth`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Breite des `VideoFrame` in Pixeln zurück, möglicherweise einschließlich nicht sichtbarer Auffüllung und vor der Berücksichtigung potenzieller Verhältnisänderungen.
+Die **`codedWidth`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Breite des `VideoFrame` in Pixeln zurück, wobei möglicherweise nicht sichtbare Polsterung enthalten ist und bevor potenzielle Verhältnis-Anpassungen berücksichtigt werden.
 
 ## Wert
 
-Eine ganze Zahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 

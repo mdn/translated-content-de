@@ -8,30 +8,28 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.fontKerning`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt an, wie Informationen zum Schriftarten-Kerning verwendet werden.
+Die **`CanvasRenderingContext2D.fontKerning`**-Eigenschaft der [Canvas-API](/de/docs/Web/API/Canvas_API) legt fest, wie Schrift-Kerning-Informationen verwendet werden.
 
-Kerning passt den Abstand zwischen benachbarten Buchstaben in einer proportionalen Schriftart an, sodass sie in den visuellen Bereich des anderen ragen können, wenn Platz verfügbar ist.
-In gut gekernten Schriftarten verschachteln sich beispielsweise die Zeichen `AV`, `Ta` und `We` und sorgen für einen gleichmäßigeren und angenehmeren Schriftbild als der entsprechende Text ohne Kerning.
+Kerning passt den Abstand zwischen benachbarten Buchstaben in einer Proportionalschriftart an, sodass sie in den visuellen Bereich des anderen überlappen können, wenn Platz verfügbar ist. Bei gut durchgekernten Schriftarten verschmelzen beispielsweise die Zeichen `AV`, `Ta` und `We` miteinander und machen den Zeichenabstand einheitlicher und angenehmer zu lesen als der entsprechende Text ohne Kerning.
 
 Die Eigenschaft entspricht der [`font-kerning`](/de/docs/Web/CSS/font-kerning) CSS-Eigenschaft.
 
 ## Wert
 
-Die Eigenschaft kann verwendet werden, um den Wert abzurufen oder festzulegen.
+Die Eigenschaft kann verwendet werden, um den Wert zu erhalten oder festzulegen.
 
-Zulässige Werte sind:
+Erlaubte Werte sind:
 
 - `auto`
-  - : Der Browser bestimmt, ob das Schriftarten-Kerning verwendet werden soll oder nicht.
-    Einige Browser deaktivieren beispielsweise das Kerning bei kleinen Schriftarten, da die Lesbarkeit des Textes beeinträchtigt werden könnte.
+  - : Der Browser bestimmt, ob Schrift-Kerning verwendet werden soll oder nicht. Zum Beispiel deaktivieren einige Browser das Kerning bei kleinen Schriftarten, da die Lesbarkeit des Textes beeinträchtigt werden könnte.
 - `normal`
-  - : Informationen zum Schriftarten-Kerning, die in der Schriftart gespeichert sind, müssen angewendet werden.
+  - : Schrift-Kerning-Informationen, die in der Schrift gespeichert sind, müssen angewendet werden.
 - `none`
-  - : Informationen zum Schriftarten-Kerning, die in der Schriftart gespeichert sind, werden deaktiviert.
+  - : Schrift-Kerning-Informationen, die in der Schrift gespeichert sind, werden deaktiviert.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "AVA Ta We" unter Verwendung jedes der unterstützten Werte der `textRendering`-Eigenschaft.
+In diesem Beispiel wird der Text "AVA Ta We" unter Verwendung jedes der unterstützten Werte der `textRendering`-Eigenschaft angezeigt.
 
 ### HTML
 
@@ -60,7 +58,7 @@ ctx.fillText(`AVA Ta We (${ctx.fontKerning})`, 5, 110);
 
 ### Ergebnis
 
-Beachten Sie, dass der letzte String das Schriftarten-Kerning deaktiviert hat, sodass benachbarte Zeichen gleichmäßig verteilt sind.
+Beachten Sie, dass bei der letzten Zeichenfolge das Schrift-Kerning deaktiviert ist, sodass benachbarte Zeichen gleichmäßig verteilt sind.
 
 {{ EmbedLiveSample('Examples', 700, 150) }}
 

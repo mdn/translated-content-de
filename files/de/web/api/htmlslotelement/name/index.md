@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`name`**-Eigenschaft des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Interfaces gibt den Slot-Namen zurück oder legt diesen fest. Ein Slot ist ein Platzhalter innerhalb eines Web-Components, den Benutzer mit ihrem eigenen Markup füllen können.
+Die **`name`**-Eigenschaft der [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Schnittstelle gibt den Slot-Namen zurück oder setzt ihn. Ein Slot ist ein Platzhalter innerhalb eines Web-Komponenten, den Benutzer mit ihrem eigenen Markup füllen können.
 
 ## Wert
 
-Ein Zeichenfolge.
+Ein String.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus unserem [slotchange-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) ([Live-Demo ansehen](https://mdn.github.io/web-components-examples/slotchange/)).
+Der folgende Ausschnitt stammt aus unserem [Slotwechsel-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) ([Live ansehen](https://mdn.github.io/web-components-examples/slotchange/)).
 
 ```js
 let slots = this.shadowRoot.querySelectorAll("slot");
@@ -28,9 +28,9 @@ slots[1].addEventListener("slotchange", (e) => {
 });
 ```
 
-Hier greifen wir auf Verweise auf alle Slots zu und fügen dann einen `slotchange`-Ereignis-Listener zum zweiten Slot im Template hinzu – dies ist derjenige, dessen Inhalte im Beispiel ständig geändert werden.
+Hier holen wir Referenzen zu allen Slots und fügen dann einen `slotchange`-Event-Listener zum zweiten Slot im Template hinzu — das ist der Slot, dessen Inhalt im Beispiel immer wieder geändert wird.
 
-Jedes Mal, wenn sich das Element im Slot ändert, protokollieren wir einen Bericht in der Konsole, der angibt, welcher Slot sich geändert hat und welches das neue Node im Slot ist.
+Jedes Mal, wenn das Element im Slot geändert wird, protokollieren wir einen Bericht in die Konsole, der angibt, welcher Slot sich geändert hat und welches neue Element sich im Slot befindet.
 
 ## Spezifikationen
 

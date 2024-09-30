@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`state`**-Eigenschaft ist ein String, der den Status der Checkliste angibt, deren Mitglied das Kandidatenpaar ist.
+Die **`state`**-Eigenschaft ist ein Zeichenfolge, die den Zustand der Checkliste angibt, zu der das Kandidatenpaar gehört.
 
 ## Wert
 
-Ein String, dessen Wert einer der folgenden ist:
+Eine Zeichenfolge, deren Wert einer der folgenden ist:
 
 - `failed`
-  - : Eine Überprüfung dieses Paares wurde durchgeführt, ist jedoch fehlgeschlagen. Ein Fehler kann entweder auftreten, weil keine Antwort empfangen wurde, oder weil die Antwort darauf hinwies, dass ein nicht behebbare Fehler aufgetreten ist.
+  - : Ein Check für dieses Paar wurde durchgeführt, ist aber fehlgeschlagen. Ein Fehler kann auftreten, entweder weil keine Antwort empfangen wurde oder weil die Antwort angezeigt hat, dass ein nicht behebbarer Fehler aufgetreten ist.
 - `frozen`
-  - : Für dieses Kandidatenpaar wurde noch keine Überprüfung durchgeführt, und die Durchführung der Überprüfung ist blockiert, bis eine andere Überprüfung erfolgreich ist. Sobald diese Prüfung erfolgreich war, wird dieses Paar aufgetaut und geht in den `waiting`-Status über.
+  - : Für dieses Kandidatenpaar wurde noch kein Check durchgeführt, und der Check ist blockiert, bis ein anderer Check erfolgreich ist. Sobald dieser Check erfolgreich war, wird dieses Paar enteist und wechselt in den `waiting`-Zustand.
 - `in-progress`
-  - : Eine Überprüfung für dieses Paar wurde initiiert, aber die Transaktion der Überprüfung ist noch im Gange.
+  - : Ein Check wurde für dieses Paar initiiert, aber die Transaktion des Checks ist noch im Gange.
 - `succeeded`
-  - : Eine Überprüfung für dieses Paar wurde erfolgreich abgeschlossen.
+  - : Ein Check für dieses Paar wurde erfolgreich abgeschlossen.
 - `waiting`
-  - : Dieses Paar wurde noch nicht überprüft, aber die Überprüfung kann durchgeführt werden, sobald dieses Paar das verbleibende Paar mit der höchsten Priorität im `waiting`-Status ist.
+  - : Dieses Paar wurde noch nicht geprüft, aber der Check kann durchgeführt werden, sobald dieses Paar das höchste verbleibende Paar im `waiting`-Zustand ist.
 
 ## ICE-Checklisten
 
-Während der ICE-Verhandlung erstellt die ICE-Schicht eine _Checkliste_, eine Liste potenzieller Paarungen von ICE-Kandidaten. Jedes Paar hat einen Status, der durch ein String-Literal dargestellt wird.
+Während der ICE-Negotiation baut die ICE-Schicht eine _Checkliste_ auf, die eine Liste potenzieller Paarungen von ICE-Kandidaten darstellt. Jedes Paar hat einen Zustand, der durch ein Zeichenfolgen-Literal dargestellt wird.
 
-![Ein Diagramm, das zeigt, wie sich die Zustände von ICE-Kandidatenpaaren ändern, wenn die Checkliste analysiert wird](ice-check-list-states.svg)
+![Ein Diagramm, das zeigt, wie sich die Zustände von ICE-Kandidatenpaaren ändern, während die Checkliste analysiert wird](ice-check-list-states.svg)
 
-Wenn ein Kandidatenpaar zur Checkliste hinzugefügt wird, beginnt es im `frozen`-Status. Sobald keine laufenden Prüfungen mehr vorhanden sind, die das Paar daran hindern, analysiert zu werden, wird es aufgetaut und wechselt in den `waiting`-Status. Dies kann sofort geschehen, sobald es zur Checkliste hinzugefügt wurde.
+Wenn ein Kandidatenpaar zur Checkliste hinzugefügt wird, beginnt es im `frozen`-Zustand. Sobald keine Checks mehr am Laufen sind, die das Paar daran hindern, analysiert zu werden, wird es enteist und wechselt in den `waiting`-Zustand. Dies kann sofort beim Hinzufügen zur Checkliste geschehen.
 
-Jedes Mal, wenn ein Kandidatenpaar überprüft wird, wechselt das nächst höchste Prioritätspaar auf der Checkliste vom `waiting`-Status in den `in-progress`-Status und seine Prüfung beginnt. Wenn die Überprüfung aus irgendeinem Grund fehlschlägt, wechselt das Paar in seinen Endzustand, `failed`. Wenn die Überprüfung erfolgreich ist, endet das Paar im `succeeded`-Status. Der ICE-Checklistenstatus für ein gegebenes Paar von ICE-Kandidaten kann in der entsprechenden `state`-Eigenschaft gefunden werden.
+Jedes Mal, wenn ein Kandidatenpaar überprüft wird, wechselt das nächsthöhere Prioritätenpaar in der Checkliste aus dem `waiting`-Zustand in den `in-progress`-Zustand, und sein Check beginnt. Wenn der Check aus irgendeinem Grund fehlschlägt, wechselt das Paar in seinen Endzustand, `failed`. Wenn der Check erfolgreich ist, erreicht das Paar den `succeeded`-Zustand. Der ICE-Checklisten-Zustand für ein Paar von ICE-Kandidaten kann in der entsprechenden `state`-Eigenschaft gefunden werden.
 
 ## Spezifikationen
 

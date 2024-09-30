@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`indexOf()`** von {{jsxref("Array")}}-Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist.
+Die **`indexOf()`** Methode von {{jsxref("Array")}} Instanzen gibt den ersten Index zurück, an dem ein bestimmtes Element im Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist.
 
 {{EmbedInteractiveExample("pages/js/array-indexof.html")}}
 
@@ -21,12 +21,12 @@ indexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im Array gesucht werden soll.
+  - : Element, das im Array gefunden werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche gestartet wird, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt ab dem Ende des Arrays zurück — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. Beachten Sie, dass in diesem Fall das Array immer noch von vorne nach hinten durchsucht wird.
-    - Wenn `fromIndex < -array.length` oder `fromIndex` ausgelassen wird, wird `0` verwendet, wodurch das gesamte Array durchsucht wird.
-    - Wenn `fromIndex >= array.length` ist, wird das Array nicht durchsucht und `-1` zurückgegeben.
+  - : Nullbasierter Index, bei dem die Suche beginnen soll, [konvertiert zu einer ganzen Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. Beachten Sie, dass das Array in diesem Fall dennoch von vorne nach hinten durchsucht wird.
+    - Wenn `fromIndex < -array.length` oder `fromIndex` weggelassen wird, wird `0` verwendet, wodurch das gesamte Array durchsucht wird.
+    - Wenn `fromIndex >= array.length`, wird das Array nicht durchsucht und `-1` zurückgegeben.
 
 ### Rückgabewert
 
@@ -34,17 +34,17 @@ Der erste Index von `searchElement` im Array; `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Die `indexOf()`-Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung von [strikter Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (dem gleichen Algorithmus, der vom `===`-Operator verwendet wird). [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN)-Werte werden nie als gleich verglichen, daher gibt `indexOf()` immer `-1` zurück, wenn `searchElement` `NaN` ist.
+Die `indexOf()` Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung der [strikten Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (dem gleichen Algorithmus, der vom `===` Operator verwendet wird). [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) Werte werden nie als gleich verglichen, daher gibt `indexOf()` immer `-1` zurück, wenn `searchElement` `NaN` ist.
 
-Die `indexOf()`-Methode überspringt leere Stellen in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+Die `indexOf()` Methode überspringt leere Stellen in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
 
-Die `indexOf()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlenschlüsselige Eigenschaften hat.
+Die `indexOf()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Schlüsselwerteigenschaften hat.
 
 ## Beispiele
 
 ### Verwendung von indexOf()
 
-Das folgende Beispiel verwendet `indexOf()`, um Werte in einem Array zu lokalisieren.
+Im folgenden Beispiel wird `indexOf()` verwendet, um Werte in einem Array zu lokalisieren.
 
 ```js
 const array = [2, 9, 9];
@@ -62,7 +62,7 @@ const array = [NaN];
 array.indexOf(NaN); // -1
 ```
 
-### Alle Vorkommen eines Elements finden
+### Finden aller Vorkommen eines Elements
 
 ```js
 const indices = [];
@@ -77,7 +77,7 @@ console.log(indices);
 // [0, 2, 4]
 ```
 
-### Überprüfen, ob ein Element im Array existiert oder nicht und das Array aktualisieren
+### Überprüfen, ob ein Element im Array existiert oder nicht und Aktualisieren des Arrays
 
 ```js
 function updateVegetablesCollection(veggies, veggie) {
@@ -97,17 +97,17 @@ updateVegetablesCollection(veggies, "spinach");
 // spinach already exists in the veggies collection.
 ```
 
-### Verwendung von indexOf() auf sparse Arrays
+### Verwendung von indexOf() bei sparse arrays
 
-Sie können `indexOf()` nicht verwenden, um nach leeren Stellen in sparse Arrays zu suchen.
+Sie können `indexOf()` nicht verwenden, um nach leeren Stellen in sparse arrays zu suchen.
 
 ```js
 console.log([1, , 3].indexOf(undefined)); // -1
 ```
 
-### Aufrufen von indexOf() bei nicht-Array-Objekten
+### Aufruf von indexOf() bei Nicht-Array-Objekten
 
-Die `indexOf()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
+Die `indexOf()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -134,7 +134,7 @@ console.log(Array.prototype.indexOf.call(arrayLike, 5));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.indexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.findIndex()")}}
 - {{jsxref("Array.prototype.findLastIndex()")}}

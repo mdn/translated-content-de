@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich der [Fragment-Bezeichner](https://en.wikipedia.org/wiki/Fragment_identifier) einer Seite ändert. Wenn beispielsweise eine Seite ein Inhaltsverzeichnis mit Fragmenten implementiert und der Benutzer auf einen Eintrag im Inhaltsverzeichnis klickt, wird dieses Ereignis ausgelöst. Alle zukünftigen Ereignisse für diesen Frame verwenden die aktualisierte URL.
+Wird ausgelöst, wenn der [Fragment-Identifier](https://en.wikipedia.org/wiki/Fragment_identifier) einer Seite geändert wird. Wenn eine Seite beispielsweise ein Inhaltsverzeichnis mit Fragmenten implementiert und der Benutzer auf einen Eintrag im Inhaltsverzeichnis klickt, wird dieses Ereignis ausgelöst. Alle zukünftigen Ereignisse für diesen Frame verwenden die aktualisierte URL.
 
 ## Syntax
 
@@ -25,23 +25,23 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Das Hören auf dieses Ereignis beenden. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details zum Navigationsereignis. Weitere Informationen finden Sie im Abschnitt [details](#details_2).
+      - : `object`. Details über das Navigationsevent. Weitere Informationen finden Sie im Abschnitt [details](#details_2).
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter angeben, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt mit einer einzelnen Eigenschaft `url`, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter angeben, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
@@ -52,15 +52,15 @@ Ereignisse haben drei Funktionen:
 - `url`
   - : `string`. Die URL, zu der der gegebene Frame navigieren wird.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` zeigt an, dass die Navigation im obersten Browsingkontext des Tabs und nicht in einem verschachtelten {{HTMLElement("iframe")}} erfolgt. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe erfolgt. Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
+  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` bedeutet, dass die Navigation im obersten Browsing-Kontext des Tabs stattfindet, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattfindet. Frame-IDs sind einzigartig für einen bestimmten Tab und Prozess.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der der Fragment-Bezeichner der Seite geändert wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, zu der der Fragment-Identifier der Seite geändert wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `transitionType`
   - : `{{WebExtAPIRef("webNavigation.transitionType", "transitionType")}}`. Der Grund für die Navigation: zum Beispiel `"link"`, wenn der Benutzer auf einen Link geklickt hat.
 - `transitionQualifiers`
-  - : `Array` von {{WebExtAPIRef("webNavigation.transitionQualifier", "transitionQualifier")}}. Zusätzliche Informationen über die Navigation: zum Beispiel, ob es eine server- oder clientseitige Umleitung gab.
+  - : `Array` von {{WebExtAPIRef("webNavigation.transitionQualifier", "transitionQualifier")}}. Zusätzliche Informationen über die Navigation: zum Beispiel, ob es eine Server- oder Client-Weiterleitung gab.
 
 ## Browser-Kompatibilität
 
@@ -68,7 +68,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs und zusätzliche Übergangsinformationen für `onReferenceFragmentUpdated`, wenn der Hostname der Ziel-URL "example.com" enthält oder mit "developer" beginnt.
+Protokolliert die Ziel-URLs und zusätzliche Übergangsinformationen für `onReferenceFragmentUpdated`, falls der Hostname der Ziel-URL "example.com" enthält oder mit "developer" beginnt.
 
 ```js
 const filter = {
@@ -90,4 +90,4 @@ browser.webNavigation.onReferenceFragmentUpdated.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API von Chromium. Diese Dokumentation stammt von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.

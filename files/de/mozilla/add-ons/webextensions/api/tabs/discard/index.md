@@ -9,11 +9,11 @@ l10n:
 
 Verwirft einen oder mehrere Tabs.
 
-Einige Browser "verwerfen" automatisch ungenutzte Tabs, um Speicher freizugeben. Verwarfene Tabs bleiben im Tabstreifen sichtbar. Der Browser merkt sich den Zustand des Tabs und stellt ihn wieder her, wenn der Benutzer den Tab auswählt. Die Details, wann Tabs verworfen werden und was verworfen wird, sind browserspezifisch.
+Einige Browser "verwerfen" automatisch nicht genutzte Tabs, um Speicher freizugeben. Verwirrte Tabs bleiben im Tabstreifen sichtbar. Der Browser speichert den Zustand des Tabs und stellt ihn wieder her, wenn der Benutzer den Tab auswählt. Die Details, wann Tabs verworfen werden und was verworfen wird, sind browserspezifisch.
 
-Sie können steuern, ob der Browser oder diese API einen Tab verwirft, indem Sie seine `autoDiscardable`-Eigenschaft in {{WebExtAPIRef("tabs.update")}} auf `false` setzen. Diese Einstellung verhindert, dass der Browser den Tab verwirft. Der Tab kann dann nur mit dieser API verworfen werden.
+Sie können steuern, ob der Browser oder diese API einen Tab verwirft, indem Sie dessen `autoDiscardable`-Eigenschaft in {{WebExtAPIRef("tabs.update")}} auf `false` setzen. Diese Einstellung verhindert, dass der Browser den Tab verwirft. Der Tab kann dann nur mit dieser API verworfen werden.
 
-Es ist nicht möglich, den aktiven Tab oder einen Tab zu verwerfen, dessen Dokument einen [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Listener enthält, der eine Eingabeaufforderung anzeigen würde.
+Es ist nicht möglich, den aktiven Tab oder einen Tab zu verwerfen, dessen Dokument einen [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Listener enthält, der eine Eingabeaufforderung anzeigen würde.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,13 +28,13 @@ let discarding = browser.tabs.discard(
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer`. Die IDs des zu verwerfenden Tabs oder der zu verwerfenden Tabs.
+  - : `integer` oder `array` von `integer`. Die IDs des Tabs oder der Tabs, die verworfen werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle angegebenen Tabs verworfen wurden. Wenn ein Fehler auftritt (z.B. ungültige Tab-IDs), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle angegebenen Tabs verworfen wurden. Wenn ein Fehler auftritt (zum Beispiel ungültige Tab-IDs), wird das Promise mit einer Fehlermeldung abgelehnt.
 
-Wenn die ID des aktiven Tabs übergeben wird, wird dieser nicht verworfen, aber das Promise wird erfüllt und alle anderen übergebenen Tabs werden verworfen.
+Wenn die ID des aktiven Tabs übergeben wird, wird er nicht verworfen, aber das Promise wird erfüllt und alle anderen übergebenen Tabs werden verworfen.
 
 ## Beispiele
 
@@ -75,4 +75,4 @@ discarding.then(onDiscarded, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-discard)-API.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-discard) API.

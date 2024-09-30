@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für die SVG-animierte Transformationsliste
+## Schnittstelle für animierte Transformationslisten in SVG
 
-Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen erfordern und animiert werden können.
+Die Schnittstelle `SVGAnimatedTransformList` wird für Attribute verwendet, die eine Liste von Zahlen annehmen und animiert werden können.
 
-### Schnittstellenübersicht
+### Überblick über die Schnittstelle
 
 <table class="no-markdown">
   <tbody>
@@ -43,7 +43,7 @@ Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die 
       <td>
         <a
           href="https://www.w3.org/TR/SVG/coords.html#InterfaceSVGAnimatedTransformList"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Ausgabe)</a
         >
       </td>
     </tr>
@@ -65,14 +65,14 @@ Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die 
       <td><code>baseVal</code></td>
       <td>[`SVGTransformList`](/de/docs/Web/API/SVGTransformList)</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
+        Der Basiswert des angegebenen Attributs, bevor Animationen angewendet werden.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>[`SVGTransformList`](/de/docs/Web/API/SVGTransformList)</td>
       <td>
-        Eine schreibgeschützte [`SVGTransformList`](/de/docs/Web/API/SVGTransformList), die den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, dann hat die [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) denselben Inhalt wie <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt ist immer von dem durch <code>baseVal</code> referenzierten Objekt getrennt, selbst wenn das Attribut nicht animiert ist.
+        Eine schreibgeschützte [`SVGTransformList`](/de/docs/Web/API/SVGTransformList), die den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat die [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) denselben Inhalt wie <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt ist immer von dem durch <code>baseVal</code> referenzierten Objekt zu unterscheiden, selbst wenn das Attribut nicht animiert wird.
       </td>
     </tr>
   </tbody>
@@ -80,7 +80,7 @@ Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die 
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedTransformList`-Schnittstelle bietet keine spezifischen Methoden.
+Die Schnittstelle `SVGAnimatedTransformList` stellt keine spezifischen Methoden zur Verfügung.
 
 ## Spezifikationen
 

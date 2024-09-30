@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die `target`-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces ist ein String, der das Standard-Zieltabs darstellt, in dem das Ergebnis für Hyperlinks und Formularelemente angezeigt wird.
+Die `target`-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces ist ein String, der den Standard-Ziel-Tab angibt, in dem das Ergebnis für Hyperlinks und Formularelemente angezeigt werden soll.
 
 Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/base#target)-Attribut des {{HTMLElement("base")}}-Elements wider.
 

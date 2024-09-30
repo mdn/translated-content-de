@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Erstellt eine Daten-URL, die das Bild eines Bereichs des angegebenen Tabs kodiert. Sie müssen die Berechtigung `<all_urls>` haben, um diese Methode zu verwenden. Weitere Informationen finden Sie unter [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Erstellt eine Daten-URL, die das Bild eines Bereichs des angegebenen Tabs codiert. Sie müssen die `<all_urls>` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben, um diese Methode zu verwenden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,13 +23,13 @@ let capturing = browser.tabs.captureTab(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. ID des Tabs, der erfasst werden soll. Standardmäßig der aktive Tab im aktuellen Fenster.
+  - : `integer`. ID des Tabs, der erfasst werden soll. Standardmäßig ist der aktive Tab im aktuellen Fenster.
 - `options` {{optional_inline}}
   - : {{WebExtAPIRef('extensionTypes.ImageDetails')}}.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, die das aufgenommene Bild kodiert. Es kann der 'src'-Eigenschaft eines HTML-Image-Elements zur Anzeige zugewiesen werden. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, welche das erfasste Bild codiert. Diese kann der 'src'-Eigenschaft eines HTML-Image-Elements zur Anzeige zugewiesen werden. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API von Chromium. Diese Dokumentation ist aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,22 +7,22 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu prüfen, ob Sie unseren Artikel [Code-Schleifen](/de/docs/Learn/JavaScript/Building_blocks/Looping_code) verstanden haben.
+Das Ziel dieses Fähigkeitstests ist zu beurteilen, ob Sie unseren Artikel [Schleifen im Code](/de/docs/Learn/JavaScript/Building_blocks/Looping_code) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) platzieren.
+> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und ihn in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie stecken bleiben, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## DOM-Manipulation: als nützlich erachtet
+## DOM-Manipulation: als nützlich betrachtet
 
-Einige der unten stehenden Fragen erfordern von Ihnen, etwas [DOM](/de/docs/Glossary/DOM)-Manipulationscode zu schreiben, um sie zu vervollständigen – zum Beispiel neue HTML-Elemente zu erstellen, deren Textinhalte auf bestimmte Zeichenfolgenwerte zu setzen und diese in vorhandene Elemente auf der Seite einzufügen – alles über JavaScript.
+Einige der folgenden Fragen erfordern, dass Sie etwas [DOM](/de/docs/Glossary/DOM)-Manipulationscode schreiben, um sie zu vervollständigen — wie das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln dieser Elemente innerhalb bestehender Elemente auf der Seite — alles über JavaScript.
 
-Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die dies verwenden, und wir möchten, dass Sie etwas recherchieren, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Manipulating documents](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die es benutzen, und wir möchten, dass Sie ein wenig recherchieren, welche DOM-APIs Sie brauchen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Dokumente manipulieren](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
 
 ## Schleifen 1
 
-In unserer ersten Schleifenaufgabe möchten wir, dass Sie mit einer einfachen Schleife beginnen, die alle Elemente im bereitgestellten `myArray` durchläuft und sie auf dem Bildschirm innerhalb von Listenelementen (d.h. [`<li>`](/de/docs/Web/HTML/Element/li) Elemente), die an die bereitgestellte `list` angehängt werden, ausgibt.
+In unserer ersten Schleifenaufgabe möchten wir, dass Sie mit einer einfachen Schleife beginnen, die alle Elemente im bereitgestellten `myArray` durchläuft und sie innerhalb von Listenelementen (das heißt, [`<li>`](/de/docs/Web/HTML/Element/li)-Elementen) auf dem Bildschirm ausgibt, die der bereitgestellten `list` hinzugefügt werden.
 
 > [!CALLOUT]
 >
@@ -30,15 +30,15 @@ In unserer ersten Schleifenaufgabe möchten wir, dass Sie mit einer einfachen Sc
 
 ## Schleifen 2
 
-Bei dieser nächsten Aufgabe möchten wir, dass Sie ein einfaches Programm schreiben, das, gegeben einen Namen, ein Array von [Objekte](/de/docs/Glossary/Object) mit Namen und Telefonnummern (`phonebook`) durchsucht und, wenn es den Namen findet, den Namen und die Telefonnummer in den Absatz (`para`) ausgibt und dann die Schleife beendet, bevor sie ihren Lauf beendet hat.
+In dieser nächsten Aufgabe möchten wir, dass Sie ein einfaches Programm schreiben, das, bei Eingabe eines Namens, ein Array von [Objekten](/de/docs/Glossary/Object) durchsucht, das Namen und Telefonnummern (`phonebook`) enthält. Wenn es den Namen findet, soll es den Namen und die Telefonnummer in den Absatz (`para`) ausgeben und dann die Schleife beenden, bevor sie vollständig durchlaufen wurde.
 
-Wenn Sie noch nichts über Objekte gelesen haben, machen Sie sich keine Sorgen! Im Moment müssen Sie nur wissen, wie Sie auf ein Element-Wert-Paar zugreifen können. Sie können sich im Tutorial [JavaScript-Objekt-Grundlagen](/de/docs/Learn/JavaScript/Objects/Basics) darüber informieren.
+Wenn Sie noch nicht über Objekte gelesen haben, machen Sie sich keine Sorgen! Für den Moment müssen Sie nur wissen, wie Sie auf ein Mitglieder-Werte-Paar zugreifen. Sie können mehr über Objekte im Tutorial [JavaScript-Objektgrundlagen](/de/docs/Learn/JavaScript/Objects/Basics) lesen.
 
-Es werden Ihnen drei Variablen zur Verfügung gestellt:
+Ihnen werden drei Variablen zur Verfügung gestellt:
 
 - `name` — enthält einen Namen, nach dem gesucht werden soll
-- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse anzuzeigen
-- `phonebook` - enthält die Telefonbucheinträge, die durchsucht werden sollen.
+- `para` — enthält einen Verweis auf einen Absatz, der benutzt wird, um die Ergebnisse anzuzeigen
+- `phonebook` - enthält die Telefonbuch-Einträge, die durchsucht werden sollen.
 
 Sie sollten einen Schleifentyp verwenden, den Sie in der vorherigen Aufgabe nicht verwendet haben.
 
@@ -48,15 +48,15 @@ Sie sollten einen Schleifentyp verwenden, den Sie in der vorherigen Aufgabe nich
 
 ## Schleifen 3
 
-In dieser letzten Aufgabe werden Ihnen Folgendes bereitgestellt:
+In dieser letzten Aufgabe wird Ihnen Folgendes zur Verfügung gestellt:
 
 - `i` — beginnt mit einem Wert von 500; soll als Iterator verwendet werden.
-- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse anzuzeigen.
-- `isPrime()` — eine Funktion, die, wenn sie eine Zahl übergeben bekommt, `true` zurückgibt, wenn die Zahl eine Primzahl ist, und `false`, wenn nicht.
+- `para` — enthält einen Verweis auf einen Absatz, der benutzt wird, um die Ergebnisse anzuzeigen.
+- `isPrime()` — eine Funktion, die bei Übermittlung einer Zahl `true` zurückgibt, wenn die Zahl eine Primzahl ist, und `false`, wenn nicht.
 
-Sie müssen eine Schleife verwenden, um die Zahlen von 2 bis 500 rückwärts durchzugehen (1 wird nicht als Primzahl gezählt) und die bereitgestellte Funktion `isPrime()` darauf auszuführen. Für jede Zahl, die keine Primzahl ist, fahren Sie mit der nächsten Schleifeniteration fort. Für jede, die eine Primzahl ist, fügen Sie sie der `textContent` des Absatzes zusammen mit einer Art von Separator hinzu.
+Sie müssen eine Schleife verwenden, um die Zahlen von 2 bis 500 rückwärts zu durchlaufen (1 wird nicht als Primzahl gezählt), und die bereitgestellte Funktion `isPrime()` auf sie anwenden. Für jede Zahl, die keine Primzahl ist, fahren Sie mit der nächsten Schleifeniteration fort. Für jede Zahl, die eine Primzahl ist, fügen Sie sie zusammen mit einer Art Trennzeichen dem `textContent` des Absatzes hinzu.
 
-Sie sollten einen Schleifentyp verwenden, den Sie in den vorherigen beiden Aufgaben nicht verwendet haben.
+Sie sollten einen Schleifentyp verwenden, den Sie in den beiden vorherigen Aufgaben nicht verwendet haben.
 
 > [!CALLOUT]
 >

@@ -1,5 +1,5 @@
 ---
-title: "SVGMaskElement: Breite-Eigenschaft"
+title: "SVGMaskElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGMaskElement/width
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("width")}}-Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte **`width`**-Eigenschaft der Schnittstelle [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("width")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, handelt es sich dabei lediglich um einen Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 

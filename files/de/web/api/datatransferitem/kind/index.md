@@ -8,17 +8,16 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransferItem.kind`**-Eigenschaft gibt den Typ–ein `string` oder eine Datei–des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das _Drag-Daten-Element_ darstellt.
+Die schreibgeschützte **`DataTransferItem.kind`**-Eigenschaft gibt den Typ–einen String oder eine Datei–des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das _Drag-Datenobjekt_ darstellt.
 
 ## Wert
 
-Ein `string`, der den Typ des Drag-Daten-Elements darstellt.
-Es muss einer der folgenden Werte sein:
+Ein String, der den Typ des Drag-Datenobjekts repräsentiert. Er muss einer der folgenden Werte sein:
 
 - `'file'`
-  - : Wenn das Drag-Daten-Element eine Datei ist.
+  - : Wenn das Drag-Datenobjekt eine Datei ist.
 - `'string'`
-  - : Wenn der Typ des Drag-Daten-Elements ein _einfacher Unicode-String_ ist.
+  - : Wenn das Drag-Datenobjekt eine _einfache Unicode-Zeichenkette_ ist.
 
 ## Beispiele
 
@@ -57,7 +56,7 @@ function dropHandler(ev) {
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Aktionen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

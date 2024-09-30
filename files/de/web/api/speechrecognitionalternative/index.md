@@ -18,7 +18,7 @@ Die **`SpeechRecognitionAlternative`**-Schnittstelle der [Web Speech API](/de/do
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem
+Dieser Code stammt aus unserem
 [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
 
 ```js

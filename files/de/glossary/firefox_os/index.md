@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Firefox OS ist ein eingestelltes, quelloffenes Betriebssystem für Mobilgeräte, das von Mozilla entwickelt wurde. Weitere Informationen finden Sie bei [Firefox OS](https://en.wikipedia.org/wiki/Firefox_OS).
+Firefox OS ist ein eingestelltes Open-Source-Mobilbetriebssystem, das von Mozilla entwickelt wurde. Weitere Informationen finden Sie unter [Firefox OS](https://en.wikipedia.org/wiki/Firefox_OS).
 
-Firefox OS wurde oft auch als Boot2Gecko bezeichnet, bevor das Projekt einen offiziellen Namen erhielt.
+Firefox OS wurde auch oft Boot2Gecko genannt, bevor das Projekt einen offiziellen Namen hatte.

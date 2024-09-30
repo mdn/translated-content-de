@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`sandbox`**-Eigenschaft der schreibgeschützten [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die zusätzliche Einschränkungen für das Verhalten des verschachtelten Inhalts angibt.
+Die **`sandbox`**-Eigenschaft (nur lesbar) des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Interface gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die zusätzliche Einschränkungen für das Verhalten des verschachtelten Inhalts angibt.
 
 Sie spiegelt das `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements wider.
 
 ## Wert
 
-Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList). Jedes Element muss einer der Token sein, die im `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements aufgeführt sind.
+Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList). Jedes Element muss einer der im `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements aufgeführten Token sein.
 
 ## Beispiele
 

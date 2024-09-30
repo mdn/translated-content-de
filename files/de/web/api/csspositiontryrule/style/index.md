@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die Deklarationen repräsentiert, die im Körper der `@position-try`-Regel festgelegt sind.
+Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der Deklaration des `@position-try`-Regelsatzes festgelegten Anweisungen darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Ob
 
 ## Beispiele
 
-Die CSS enthält eine `@position-try`-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält einen `@position-try`-Regelsatz mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -47,6 +47,6 @@ console.log(tryOption.style.positionArea); // ""; no position-area specified
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [Modul für CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)
-- [Verwendung von CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Verarbeiten von Overflow: try-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
+- [CSS-Anker-Positionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Überlauf: Optionen versuchen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

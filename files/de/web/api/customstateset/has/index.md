@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`has()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob ein Element mit dem angegebenen Wert vorhanden ist.
+Die **`has()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle gibt ein {{jsxref("Boolean")}} zurück, das bestätigt, ob ein Element mit dem angegebenen Wert vorhanden ist.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der zu überprüfende Wert im `CustomStateSet`-Objekt.
+  - : Der Wert, nach dem im `CustomStateSet`-Objekt gesucht werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, `true`, wenn `value` im `CustomStateSet` existiert.
+Ein {{jsxref("Boolean")}}, `true` wenn `value` im `CustomStateSet` vorhanden ist.
 
 ## Spezifikationen
 

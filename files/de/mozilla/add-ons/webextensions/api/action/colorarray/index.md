@@ -9,12 +9,12 @@ l10n:
 
 ## Typ
 
-Ein `array` von vier Ganzzahlen im Bereich 0-255, das eine RGBA-Farbe definiert. Die vier Werte legen die folgenden Kanäle fest:
+Ein `array` von vier Ganzzahlen im Bereich von 0-255, das eine RGBA-Farbe definiert. Die vier Werte geben die folgenden Kanäle an:
 
 1. Rot
 2. Grün
 3. Blau
-4. Alpha (Transparenz).
+4. Alpha (Deckkraft).
 
 Zum Beispiel ist undurchsichtiges Rot `[255, 0, 0, 255]`.
 
@@ -25,7 +25,7 @@ Zum Beispiel ist undurchsichtiges Rot `[255, 0, 0, 255]`.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#type-ColorArray). Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#type-ColorArray)-API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

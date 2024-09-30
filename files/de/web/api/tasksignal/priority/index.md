@@ -10,17 +10,21 @@ l10n:
 
 Die schreibgeschützte **`priority`**-Eigenschaft der [`TaskSignal`](/de/docs/Web/API/TaskSignal)-Schnittstelle gibt die Signal-[Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) an.
 
-Der anfängliche Wert wird im zugehörigen [`TaskController`](/de/docs/Web/API/TaskController) festgelegt, indem er als Argument an den [`TaskController`-Konstruktor](/de/docs/Web/API/TaskController/TaskController) übergeben wird (standardmäßig ist es `"user-visible"`). Die Priorität des Signals kann geändert werden, indem [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) auf dem zugehörigen Controller aufgerufen wird.
+Der Anfangswert wird im zugehörigen [`TaskController`](/de/docs/Web/API/TaskController) festgelegt, indem er als Argument an den [`TaskController` Konstruktor](/de/docs/Web/API/TaskController/TaskController) übergeben wird (standardmäßig ist er `"user-visible"`).
+Die Priorität des Signals kann geändert werden, indem [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) am zugehörigen Controller aufgerufen wird.
 
-Bei [Aufgaben mit veränderbarer Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) wird dieser Wert verwendet, um die anfängliche Aufgabenpriorität festzulegen und später zu ändern. Aufgaben mit unveränderlicher Priorität ignorieren den Wert.
+Für [Aufgaben mit veränderlicher Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) wird dieser Wert verwendet, um die anfängliche Aufgabenpriorität festzulegen und später zu ändern.
+Aufgaben mit unveränderlicher Priorität ignorieren den Wert.
 
 ## Wert
 
-Ein String, der die Signal-[Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) angibt. Dies wird einer der folgenden sein: `"user-blocking"`, `"user-visible"`, `"background"`.
+Ein String, der die Signal-[Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) angibt.
+Dies wird einer der folgenden sein: `"user-blocking"`, `"user-visible"`, `"background"`.
 
 ## Beispiele
 
-Die `priority`-Eigenschaft wird am häufigsten von Entwicklern verwendet, um die neue Priorität nach [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignissen zu bestimmen. Siehe [TaskSignal: prioritychange-Ereignis](/de/docs/Web/API/TaskSignal/prioritychange_event#examples) für ein Live-Beispiel.
+Die `priority` wird am häufigsten von Entwicklern verwendet, um die neue Priorität nach [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignissen zu bestimmen.
+Siehe [TaskSignal: prioritychange Ereignis](/de/docs/Web/API/TaskSignal/prioritychange_event#examples) für ein Live-Beispiel.
 
 ## Spezifikationen
 

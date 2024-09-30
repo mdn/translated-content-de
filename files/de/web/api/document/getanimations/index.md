@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die `getAnimations()`-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Array aller derzeit wirksamen [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, deren Zielelemente Nachkommen des Dokuments sind. Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
+Die `getAnimations()`-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein Array aller aktuell wirksamen [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, deren Ziel-Elemente Nachkommen des Dokuments sind. Dieses Array schließt [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API) ein.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, von denen jedes eine Animation darstellt, die derzeit mit Elementen verknüpft ist, die Nachkommen des [`Document`](/de/docs/Web/API/Document) sind, auf dem sie aufgerufen wird.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, die jeweils eine Animation darstellen, die aktuell mit Elementen verknüpft ist, welche Nachkommen des [`Document`](/de/docs/Web/API/Document) sind, auf dem es aufgerufen wird.
 
 ## Beispiele
 
-Das folgende Codebeispiel wird alle Animationen auf einer Seite verlangsamen, indem es ihre [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) halbiert.
+Das folgende Code-Snippet verlangsamt alle Animationen auf einer Seite, indem es ihre [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) halbiert.
 
 ```js
 document.getAnimations().forEach((animation) => {
@@ -47,5 +47,5 @@ document.getAnimations().forEach((animation) => {
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
 - [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)
-- [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) - Holen Sie sich nur die Animationen eines einzelnen [`Element`](/de/docs/Web/API/Element) und seiner Nachkommen.
+- [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) - Nur die Animationen auf einem einzigen [`Element`](/de/docs/Web/API/Element) und dessen Nachkommen abrufen.
 - [`Animation`](/de/docs/Web/API/Animation)

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent) Eigenschaft **`referenceSpace`** gibt den Referenzraum an, der der Ursprung des Ereignisses ist.
+Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent)-Eigenschaft **`referenceSpace`** gibt den Bezugspunkt an, der die Quelle des Ereignisses ist.
 
 ## Wert
 
-Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), das die Quelle des Ereignisses angibt.
+Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), der die Quelle des Ereignisses angibt.
 
 ## Beispiele
 

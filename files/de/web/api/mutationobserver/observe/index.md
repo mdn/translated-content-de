@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Die Methode **`observe()`** von [`MutationObserver`](/de/docs/Web/API/MutationObserver) konfiguriert den `MutationObserver`,
-um damit zu beginnen, Benachrichtigungen über Änderungen am DOM zu erhalten, die den angegebenen Optionen entsprechen.
+Die Methode **`observe()`** des [`MutationObserver`](/de/docs/Web/API/MutationObserver) konfiguriert den `MutationObserver`
+Callback, um Benachrichtigungen über Änderungen am DOM zu erhalten, die den angegebenen Optionen entsprechen.
 
-Je nach Konfiguration kann der Beobachter einen einzelnen [`Node`](/de/docs/Web/API/Node) im DOM-Baum beobachten oder diesen Knoten und einige oder alle seiner Nachkommenknoten. Der gleiche Knoten kann von mehreren Beobachtern beobachtet werden, und derselbe `MutationObserver` kann für Änderungen an verschiedenen Teilen des DOM-Baums und/oder verschiedene Arten von Änderungen durch mehrmaliges Aufrufen von `observe()` am gleichen `MutationObserver` beobachten.
+Abhängig von der Konfiguration kann der Observer einen einzelnen [`Node`](/de/docs/Web/API/Node) im DOM-Baum überwachen, oder diesen Knoten und einige oder alle seiner Nachkommenknoten. Derselbe Knoten kann von mehreren Observers beobachtet werden, und derselbe `MutationObserver` kann Änderungen an verschiedenen Teilen des DOM-Baums und/oder verschiedene Arten von Änderungen beobachten, indem er `observe()` mehrfach auf dem gleichen
+`MutationObserver` aufruft.
 
-Um den `MutationObserver` zu stoppen (damit keine seiner Callbacks mehr ausgelöst werden), rufen Sie [`MutationObserver.disconnect()`](/de/docs/Web/API/MutationObserver/disconnect) auf.
+Um den `MutationObserver` zu stoppen (damit keiner seiner Callbacks mehr ausgelöst wird), rufen Sie [`MutationObserver.disconnect()`](/de/docs/Web/API/MutationObserver/disconnect) auf.
 
 ## Syntax
 
@@ -24,57 +25,58 @@ observe(target, options)
 ### Parameter
 
 - `target`
-  - : Ein DOM [`Node`](/de/docs/Web/API/Node) (der ein [`Element`](/de/docs/Web/API/Element) sein kann) innerhalb des DOM-Baums, der auf Änderungen überwacht werden soll, oder als Wurzel eines Unterbaums von Knoten fungieren soll, die beobachtet werden.
+  - : Ein DOM [`Node`](/de/docs/Web/API/Node) (der ein [`Element`](/de/docs/Web/API/Element) sein kann) innerhalb des DOM-Baums, der auf Änderungen überwacht werden soll, oder der als Wurzel eines Unterbaums von Knoten dient, die überwacht werden sollen.
 - `options`
 
-  - : Ein Objekt, das Optionen bietet, die beschreiben, welche DOM-Mutationen dem `callback` von `mutationObserver` gemeldet werden sollen. Mindestens eines von `childList`, `attributes` und/oder `characterData` muss `true` sein, wenn Sie `observe()` aufrufen. Andernfalls wird eine `TypeError`-Ausnahme ausgelöst.
+  - : Ein Objekt, das Optionen bereitstellt, die beschreiben, welche DOM-Mutationen dem `callback` von `mutationObserver` gemeldet werden sollen.
+    Mindestens eines von `childList`, `attributes` und/oder `characterData` muss `true` sein, wenn Sie `observe()` aufrufen.
+    Andernfalls wird eine `TypeError`-Ausnahme ausgelöst.
 
-    Optionen sind wie folgt:
+    Die Optionen sind wie folgt:
 
     - `subtree` {{optional_inline}}
-      - : Auf `true` setzen, um die Überwachung auf den gesamten Unterbaum von Knoten zu erweitern, der bei `target` verwurzelt ist.
-        Alle anderen Eigenschaften werden dann auf alle Knoten im Unterbaum erweitert, anstatt nur auf den `target`-Knoten anzuwenden. Der Standardwert ist `false`. Beachten Sie, dass, wenn ein Nachkomme von `target` entfernt wird, Änderungen in diesem Nachkommen-Unterbaum weiterhin beobachtet werden, bis die Benachrichtigung über die Entfernung selbst zugestellt wurde.
+      - : Auf `true` setzen, um die Überwachung auf den gesamten Unterbaum von Knoten auszuweiten, der bei `target` verankert ist.
+        Alle anderen Eigenschaften werden dann auf alle Knoten im Unterbaum ausgedehnt, anstatt nur auf den `target`-Knoten anzuwenden. Der Standardwert ist `false`. Beachten Sie, dass wenn ein Nachkomme von `target` entfernt wird, Änderungen in diesem Nachkommenunterbaum weiterhin beobachtet werden, bis die Benachrichtigung über die Entfernung selbst zugestellt wurde.
     - `childList` {{optional_inline}}
-      - : Auf `true` setzen, um den Zielknoten (und, wenn `subtree` `true` ist, seine Nachkommen) auf das Hinzufügen neuer Kindknoten oder das Entfernen vorhandener Kindknoten zu überwachen.
+      - : Auf `true` setzen, um den Zielknoten (und, falls `subtree` `true` ist, seine Nachkommen) auf das Hinzufügen neuer untergeordneter Knoten oder das Entfernen bestehender untergeordneter Knoten zu überwachen.
         Der Standardwert ist `false`.
     - `attributes` {{optional_inline}}
-      - : Auf `true` setzen, um Änderungen am Wert von Attributen des überwachten Knotens oder der überwachten Knoten zu verfolgen. Der Standardwert ist `true`, wenn entweder `attributeFilter` oder `attributeOldValue` angegeben ist, andernfalls ist der Standardwert `false`.
+      - : Auf `true` setzen, um Änderungen der Attributwerte am überwachten Knoten oder Knoten zu verfolgen. Der Standardwert ist `true`, wenn entweder `attributeFilter` oder `attributeOldValue` angegeben ist, andernfalls ist der Standardwert `false`.
     - `attributeFilter` {{optional_inline}}
-      - : Ein Array spezifischer Attributnamen, die überwacht werden sollen.
+      - : Ein Array bestimmter Attributnamen, die überwacht werden sollen.
         Wenn diese Eigenschaft nicht enthalten ist, führen Änderungen an allen Attributen zu Mutationsbenachrichtigungen.
     - `attributeOldValue` {{optional_inline}}
-      - : Auf `true` setzen, um den vorherigen Wert eines Attributs aufzuzeichnen, das sich ändert, wenn der Knoten oder die Knoten auf Attributänderungen überwacht werden.
-        Siehe [Überwachung von Attributwerten](#überwachung_von_attributwerten) für ein Beispiel zum Beobachten von Attributänderungen und Aufzeichnen von Werten.
+      - : Auf `true` setzen, um den vorherigen Wert eines Attributs aufzuzeichnen, das sich ändert, wenn die Knoten oder Knoten auf Attributänderungen überwacht werden;
+        Siehe [Überwachen von Attributwerten](#überwachen_von_attributwerten) für ein Beispiel zum Überwachen von Attributänderungen und Aufzeichnen von Werten.
         Der Standardwert ist `false`.
     - `characterData` {{optional_inline}}
-      - : Auf `true` setzen, um den angegebenen Zielknoten (und, wenn `subtree` `true` ist, seine Nachkommen) auf Änderungen an den Zeichenfelddaten im Knoten oder in den Knoten zu überwachen.
+      - : Auf `true` setzen, um den angegebenen Zielknoten (und, falls `subtree` `true` ist, seine Nachkommen) auf Änderungen der innerhalb des Knoten oder Knoten enthaltenen Zeichendaten zu überwachen.
         Der Standardwert ist `true`, wenn `characterDataOldValue` angegeben ist, andernfalls ist der Standardwert `false`.
     - `characterDataOldValue` {{optional_inline}}
-      - : Auf `true` setzen, um den vorherigen Wert des Textes eines Knotens aufzuzeichnen, wann immer sich der Text an überwachten Knoten ändert.
+      - : Auf `true` setzen, um jedes Mal den vorherigen Textwert eines Knotens aufzuzeichnen, wenn sich der Text an den überwachten Knoten ändert.
         Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - {{jsxref('TypeError')}}
 
-  - : In einem der folgenden Fälle ausgelöst:
+  - : Wird in einem der folgenden Fälle ausgelöst:
 
-    - Die `options` sind so konfiguriert, dass tatsächlich nichts überwacht wird.
+    - Die `options` sind so konfiguriert, dass nichts tatsächlich überwacht wird.
       (Zum Beispiel, wenn `childList`, `attributes` und `characterData` alle `false` sind.)
     - Der Wert von `options.attributes` ist `false` (was darauf hinweist, dass Attributänderungen nicht überwacht werden sollen), aber `attributeOldValue` ist `true` und/oder
       `attributeFilter` ist vorhanden.
-    - Die Option `characterDataOldValue` ist `true`, aber `characterData` ist `false` (was darauf hinweist, dass Änderungen an Zeichen nicht überwacht werden sollen).
+    - Die Option `characterDataOldValue` ist `true`, aber `characterData` ist `false` (was darauf hinweist, dass Zeichendatenänderungen nicht überwacht werden sollen).
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-In diesem Beispiel demonstrieren wir, wie die Methode **`observe()`** auf einer Instanz von [`MutationObserver`](/de/docs/Web/API/MutationObserver) aufgerufen wird, nachdem diese eingerichtet wurde, indem ein Ziel-Element
-und ein `options`-Objekt übergeben werden.
+In diesem Beispiel demonstrieren wir, wie die Methode **`observe()`** auf einer Instanz des [`MutationObserver`](/de/docs/Web/API/MutationObserver) aufgerufen wird, nachdem sie eingerichtet wurde, indem ein Zielelement und ein `options`-Objekt übergeben werden.
 
 ```js
 // create a new instance of `MutationObserver` named `observer`,
@@ -92,9 +94,10 @@ observer.observe(document.querySelector("#element-to-observe"), {
 
 ### Entfernte Nachkommen bei Verwendung von `subtree`
 
-Wenn Sie einen Knoten mit der Option `subtree` beobachten, erhalten Sie weiterhin Benachrichtigungen über Änderungen an den Nachkommen des Knotens, selbst nachdem ein Teil des Unterbaums entfernt wurde. Sobald jedoch die Benachrichtigung über die Entfernung zugestellt wird, werden weitere Änderungen am gelösten Unterbaum den Beobachter nicht mehr auslösen.
+Wenn Sie einen Knoten mit der `subtree`-Option überwachen, erhalten Sie weiterhin Benachrichtigungen über Änderungen an den Nachkommen des Knotens, auch nachdem ein Teil des Unterbaums entfernt wurde. Sobald die Benachrichtigung über die Entfernung zugestellt ist, lösen jedoch weitere Änderungen am abgetrennten Unterbaum den Beobachter nicht mehr aus.
 
-Dies verhindert, dass Ihnen Änderungen entgehen, die nach der Trennung auftreten und bevor Sie die Gelegenheit haben, den verschobenen Knoten oder Unterbaum speziell auf Änderungen zu überwachen. Theoretisch bedeutet dies, dass Sie, wenn Sie die [`MutationRecord`](/de/docs/Web/API/MutationRecord)-Objekte, die die Änderungen beschreiben, verfolgen, in der Lage sein sollten, die Änderungen "rückgängig zu machen" und den DOM auf seinen ursprünglichen Zustand zurückzusetzen.
+Dies verhindert, dass Sie Änderungen verpassen, die nach der Trennung der Verbindung auftreten und bevor Sie die Möglichkeit haben, den verschobenen Knoten oder Unterbaum gezielt auf Änderungen zu überwachen. Theoretisch bedeutet dies, dass Sie, wenn Sie die [`MutationRecord`](/de/docs/Web/API/MutationRecord)-Objekte, die die Änderungen beschreiben, verfolgen, die Änderungen "rückgängig machen" können,
+indem Sie das DOM zurück in seinen Ursprungszustand versetzen.
 
 ```html
 <div id="target">
@@ -138,9 +141,7 @@ child.setAttribute("data-foo", "");
 ### Verwendung von `attributeFilter`
 
 In diesem Beispiel wird ein Mutation Observer eingerichtet, um Änderungen an den
-`status`- und `username`-Attributen in allen Elementen innerhalb eines Unterbaums zu beobachten, der die Namen der Benutzer in einem Chat-Raum anzeigt. Dadurch kann der Code
-zum Beispiel Änderungen an Benutzernamen widerspiegeln oder markieren, ob sie abwesend von der Tastatur
-(AFK) oder offline sind.
+`status`- und `username`-Attributen in beliebigen Elementen innerhalb eines Unterbaums zu überwachen, der die Namen der Benutzer in einem Chatraum anzeigt. Dadurch kann der Code zum Beispiel Änderungen an den Spitznamen der Benutzer reflektieren oder sie als "nicht an der Tastatur" (AFK) oder offline markieren.
 
 ```js
 function callback(mutationList) {
@@ -170,9 +171,9 @@ observer.observe(userListElement, {
 });
 ```
 
-### Überwachung von Attributwerten
+### Überwachen von Attributwerten
 
-In diesem Beispiel beobachten wir ein Element auf Änderungen der Attributwerte und fügen eine Schaltfläche hinzu, die das [`dir`](/de/docs/Web/HTML/Global_attributes/dir)-Attribut des Elements zwischen `"ltr"` und `"rtl"` umschaltet. Im Callback des Beobachters protokollieren wir den alten Wert des Attributs.
+In diesem Beispiel beobachten wir ein Element auf Änderungen der Attributwerte und fügen einen Button hinzu, der das [`dir`](/de/docs/Web/HTML/Global_attributes/dir)-Attribut des Elements zwischen `"ltr"` und `"rtl"` umschaltet. Im Callback des Beobachters protokollieren wir den alten Wert des Attributs.
 
 #### HTML
 

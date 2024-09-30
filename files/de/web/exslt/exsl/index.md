@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT Common-Paket bietet grundlegende Funktionen, die die Fähigkeiten von XSLT erweitern. Der Namensraum für das Common-Paket ist `http://exslt.org/common`.
+Das EXSLT Common-Paket bietet grundlegende Funktionen, die die Möglichkeiten von XSLT erweitern. Der Namensraum für das Common-Paket ist `http://exslt.org/common`.
 
 {{SubpagesWithSummaries}}

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`result`** definiert den zugewiesenen Namen für diese Filterprimitiv. Wenn es angegeben ist, können die Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, von einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}}-Elementes durch ein {{SVGAttr("in")}}-Attribut referenziert werden. Wenn kein Wert bereitgestellt wird, steht die Ausgabe nur für die Wiederverwendung als impliziter Eingang in das nächste Filterprimitiv zur Verfügung, sofern dieses Filterprimitiv keinen Wert für sein `in`-Attribut liefert.
+Das **`result`**-Attribut definiert den zugewiesenen Namen für diesen Filter-Primitive. Wenn angegeben, können die Grafiken, die aus der Verarbeitung dieses Filter-Primitive resultieren, durch ein {{SVGAttr("in")}}-Attribut in einem nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben wird, steht die Ausgabe nur als impliziter Eingang für das nächste Filter-Primitive zur Verfügung, sofern dieses Filter-Primitive keinen Wert für sein `in`-Attribut bereitstellt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -61,7 +61,7 @@ svg {
 
 {{EmbedLiveSample("Example", 220, 220)}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ svg {
 </table>
 
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für das Filterprimitiv. Er ist nur innerhalb eines gegebenen {{SVGElement("filter")}}-Elements von Bedeutung und hat daher nur lokalen Geltungsbereich. Es ist zulässig, dass dieselbe `<filter-primitive-reference>` mehrfach innerhalb desselben `<filter>`-Elements erscheint. Beim Referenzieren wird dieser Wert das nächste vorhergehende Filterprimitiv mit dem angegebenen Ergebnis verwenden.
+  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für das Filter-Primitive. Er ist nur innerhalb eines gegebenen {{SVGElement("filter")}}-Elements bedeutungsvoll und hat daher nur lokale Reichweite. Es ist zulässig, dass dieselbe `<filter-primitive-reference>` mehrmals innerhalb desselben `<filter>`-Elements auftaucht. Wenn referenziert, wird dieser Wert das nächst vorhergehende Filter-Primitive mit dem gegebenen Resultat verwenden.
 
 ## Spezifikationen
 

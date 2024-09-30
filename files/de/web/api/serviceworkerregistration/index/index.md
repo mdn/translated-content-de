@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`index`** Schreibgeschütz-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interface zurück, die das Indizieren von Offline-Inhalten ermöglicht.
+Die **`index`**-Schreibgeschützte Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt einen Verweis auf das [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interface zurück, das die Indizierung von Offline-Inhalten ermöglicht.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Objekt.
 
 ## Beispiele
 
-Sie können die Eigenschaft sowohl von Ihrem Hauptskript als auch vom registrierten Service Worker aus aufrufen.
+Sie können die Eigenschaft entweder aus Ihrem Hauptskript oder dem registrierten Service Worker aufrufen.
 
 Hier ist ein Beispiel aus dem Hauptskript:
 
@@ -31,7 +31,7 @@ if ("index" in registration) {
 }
 ```
 
-Vom [Service Worker](/de/docs/Web/API/ServiceWorker):
+Aus dem [Service Worker](/de/docs/Web/API/ServiceWorker):
 
 ```js
 // service worker script
@@ -50,4 +50,4 @@ const contentIndex = self.registration.index;
 ## Siehe auch
 
 - [Content Index API](/de/docs/Web/API/Content_Index_API)
-- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Ein einführender Artikel über die Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)

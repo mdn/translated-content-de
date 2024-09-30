@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-**`PerformanceMeasure`** ist eine _abstrakte_ Schnittstelle für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"`. Einträge dieses Typs werden erstellt, indem [`performance.measure()`](/de/docs/Web/API/Performance/measure) aufgerufen wird, um einen _benannten_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (das _Maß_) zwischen zwei _Markierungen_ zur _Leistungszeitachse_ des Browsers hinzuzufügen.
+**`PerformanceMeasure`** ist eine _abstrakte_ Schnittstelle für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"`. Einträge dieser Art werden durch Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt, um einen _benannten_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (die _Messung_) zwischen zwei _Marks_ zur _Leistungstimeline_ des Browsers hinzuzufügen.
 
 {{InheritanceDiagram}}
 
@@ -16,18 +16,18 @@ l10n:
 Diese Schnittstelle definiert:
 
 - [`PerformanceMeasure.detail`](/de/docs/Web/API/PerformanceMeasure/detail)
-  - : Enthält beliebige Metadaten über das Maß.
+  - : Enthält beliebige Metadaten über die Messung.
 
-Darüber hinaus erweitert sie die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem sie die Eigenschaften wie folgt qualifiziert/einschränkt:
+Zusätzlich erweitert es die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem die Eigenschaften folgendermaßen qualifiziert/eingeschränkt werden:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
   - : Gibt `"measure"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name)
-  - : Gibt den Namen zurück, der dem Maß bei der Erstellung durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) gegeben wurde.
+  - : Gibt den Namen zurück, der der Messung beim Erstellen durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) gegeben wurde.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)
-  - : Gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der dem Maß gegeben wurde, als [`performance.measure()`](/de/docs/Web/API/Performance/measure) aufgerufen wurde.
+  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der der Messung beim Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) gegeben wurde.
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration)
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des Maßes ist (typischerweise der Endmarkierungs-Zeitstempel des Maßes minus seines Startmarkierungs-Zeitstempels).
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer der Messung ist (typischerweise der Zeitstempel der Endmarkierung der Messung minus dem Zeitstempel der Startmarkierung).
 
 ## Instanz-Methoden
 
@@ -35,7 +35,7 @@ Diese Schnittstelle hat keine Methoden.
 
 ## Beispiel
 
-Siehe das Beispiel in [Using the User Timing API](/de/docs/Web/API/Performance_API/User_timing).
+Siehe das Beispiel in [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ Siehe das Beispiel in [Using the User Timing API](/de/docs/Web/API/Performance_A
 ## Siehe auch
 
 - [User Timing (Übersicht)](/de/docs/Web/API/Performance_API/User_timing)
-- [Using the User Timing API](/de/docs/Web/API/Performance_API/User_timing)
+- [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing)

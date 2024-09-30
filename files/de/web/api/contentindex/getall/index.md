@@ -1,5 +1,5 @@
 ---
-title: "ContentIndex: Methode getAll()"
+title: "ContentIndex: getAll() Methode"
 short-title: getAll()
 slug: Web/API/ContentIndex/getAll
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`getAll()`** Methode des
-[`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Content-Index-Einträgen aufgelöst wird.
+Die **`getAll()`**-Methode des [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Inhaltsindexeinträgen aufgelöst wird.
 
 ## Syntax
 
@@ -23,12 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von
-`contentDescription`-Elementen aufgelöst wird.
+Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `contentDescription`-Elementen aufgelöst wird.
 
 - `contentDescription`
 
-  - : Jedes zurückgegebene Element ist ein {{jsxref('Object')}}, das die folgenden Daten enthält:
+  - : Jedes zurückgegebene Element ist ein {{jsxref('Object')}} mit den folgenden Daten:
 
     - `id`
       - : Ein eindeutiger {{jsxref('String')}}-Bezeichner.
@@ -40,13 +38,13 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von
         Wird in benutzerfreundlichen Inhaltslisten verwendet.
     - `url`
       - : Ein {{jsxref('String')}} mit der URL des entsprechenden HTML-Dokuments.
-        Muss unter dem Gültigkeitsbereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
+        Muss im Bereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
     - `category` {{Optional_Inline}}
 
       - : Ein {{jsxref('String')}}, das die Kategorie des Inhalts definiert.
         Kann sein:
 
-        - `''` Ein leerer {{jsxref('String')}}, dies ist der Standardwert.
+        - `''` Ein leerer {{jsxref('String')}}, dies ist der Standard.
         - `homepage`
         - `article`
         - `video`
@@ -57,23 +55,21 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von
       - : Ein {{jsxref('Array')}} von Bildressourcen, definiert als ein {{jsxref('Object')}} mit den folgenden Daten:
 
         - `src`
-          - : Eine URL-{{jsxref('String')}} der Quellgrafik.
+          - : Eine URL-{{jsxref('String')}} der Quelldatei.
         - `sizes` {{Optional_Inline}}
           - : Eine {{jsxref('String')}}-Darstellung der Bildgröße.
         - `type` {{Optional_Inline}}
           - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) des Bildes.
         - `label` {{Optional_Inline}}
-          - : Eine Zeichenkette, die den zugänglichen Namen des Icons darstellt.
+          - : Ein String, der den zugänglichen Namen des Icons darstellt.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen ausgelöst. Wenn keine Elemente im Content Index vorhanden sind, wird ein leeres
-{{jsxref('Array')}} zurückgegeben.
+Es werden keine Ausnahmen ausgelöst. Wenn keine Elemente im Inhaltsindex vorhanden sind, wird ein leeres {{jsxref('Array')}} zurückgegeben.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente innerhalb des
-[Content Index](/de/docs/Web/API/Content_Index_API) abruft und über jeden Eintrag iteriert, um eine Liste für die Benutzeroberfläche zu erstellen.
+Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente aus dem [Inhaltsindex](/de/docs/Web/API/Content_Index_API) abruft und über jeden Eintrag iteriert, um eine Liste für die Schnittstelle zu erstellen.
 
 ```js
 async function createReadingList() {
@@ -123,5 +119,5 @@ async function createReadingList() {
 
 ## Siehe auch
 
-- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Ein einführender Artikel über die Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
 - [Service Worker API, zusammen mit Informationen über Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)

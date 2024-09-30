@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Der **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filterprimitive verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Kurve der Normalverteilung definiert.
+Der **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verschwimmt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Glockenkurve definiert.
 
 ## Verwendungskontext
 
@@ -49,7 +49,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 {{EmbedLiveSample("Simple_example", "", "130")}}
 
-### Beispiel für Schlagschatten
+### Schlagschatten-Beispiel
 
 #### SVG
 
@@ -86,7 +86,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 ## Siehe auch
 
-- [SVG Filter-Primitivattribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}

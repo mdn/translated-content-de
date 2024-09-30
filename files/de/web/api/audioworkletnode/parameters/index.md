@@ -8,33 +8,19 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`parameters`**-Eigenschaft des
-[`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Interfaces gibt das zugehörige
-[`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück – das ist eine sammlungsähnliche `Map`
-von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden während der Erstellung
-des zugrunde liegenden [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) gemäß seinem
-statischen Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)
-instanziiert.
+Die schreibgeschützte **`parameters`**-Eigenschaft der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle gibt die zugehörige [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück — also eine `Map`-ähnliche Sammlung von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden während der Erstellung des zugrunde liegenden [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) gemäß seinem [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) statischen Getter instanziiert.
 
 ## Wert
 
-Das [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) Objekt, das [`AudioParam`](/de/docs/Web/API/AudioParam)-Instanzen enthält. Diese können auf die gleiche Weise automatisiert werden wie bei Standard-`AudioNode`s, und ihre berechneten Werte können in der [`process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode Ihres [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) verwendet werden.
+Das [`AudioParamMap`](/de/docs/Web/API/AudioParamMap)-Objekt, das [`AudioParam`](/de/docs/Web/API/AudioParam)-Instanzen enthält. Sie können auf die gleiche Weise wie bei Standard-`AudioNode`s automatisiert werden, und ihre berechneten Werte können in der [`process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode Ihres [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) verwendet werden.
 
 ## Beispiele
 
-Um die Erstellung und Verwendung benutzerdefinierter `AudioParam`s zu demonstrieren, erweitern wir das
-Beispiel von der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Seite. Dort haben wir einen einfachen Node
-erstellt, der weißes Rauschen ausgibt. Hier erstellen wir zusätzlich einen benutzerdefinierten Gain-Parameter, sodass
-wir die Lautstärke des Outputs direkt ändern können (obwohl Sie auch
-[`GainNode`](/de/docs/Web/API/GainNode) dafür verwenden könnten).
+Um die Erstellung und Verwendung benutzerdefinierter `AudioParam`s zu demonstrieren, erweitern wir das Beispiel von der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Seite. Dort haben wir einen einfachen Knoten erstellt, der weißes Rauschen ausgibt. Hier werden wir zusätzlich einen benutzerdefinierten Gain-Parameter erstellen, damit wir die Lautstärke des Outputs direkt ändern können (obwohl Sie dafür auch [`GainNode`](/de/docs/Web/API/GainNode) verwenden könnten).
 
-Zuerst müssen wir einen benutzerdefinierten `AudioWorkletProcessor` definieren und registrieren.
-Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
+Zuerst müssen wir einen benutzerdefinierten `AudioWorkletProcessor` definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
 
-Wir erweitern den Prozessor, indem wir einen statischen
-[`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)
-Getter hinzufügen. Dieser wird intern vom `AudioWorkletNode`-Konstruktor verwendet, um seine
-`parameters` mit instanziierten `AudioParam`-Objekten zu füllen.
+Wir erweitern den Prozessor, indem wir einen statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) Getter hinzufügen. Dieser wird intern vom `AudioWorkletNode`-Konstruktor verwendet, um seine `parameters` mit instanziierten `AudioParam`-Objekten zu füllen.
 
 ```js
 // white-noise-processor.js
@@ -72,9 +58,7 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
 registerProcessor("white-noise-processor", WhiteNoiseProcessor);
 ```
 
-Als nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von
-`AudioWorkletNode` und übergeben ihm den Namen des Prozessors, und verbinden den Node
-mit einem Audio-Graphen.
+Als nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von `AudioWorkletNode`, übergeben ihm den Namen des Prozessors und verbinden den Knoten mit einem Audiographen.
 
 ```js
 const audioContext = new AudioContext();
@@ -86,7 +70,7 @@ const whiteNoiseNode = new AudioWorkletNode(
 whiteNoiseNode.connect(audioContext.destination);
 ```
 
-Jetzt können wir den Gain am Knoten wie folgt ändern:
+Nun können wir den Gain am Knoten so ändern:
 
 ```js
 const gainParam = whiteNoiseNode.parameters.get("customGain");

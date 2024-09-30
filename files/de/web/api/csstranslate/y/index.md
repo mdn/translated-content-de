@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft der [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Schnittstelle erhält und setzt die Ordinate oder y-Achse des Übersetzungvektors.
+Die **`y`**-Eigenschaft des
+[`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Interfaces erhält und setzt die Ordinate oder y-Achse des Übersetzungsvektors.
 
 ## Wert
 

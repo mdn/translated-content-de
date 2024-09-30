@@ -1,5 +1,5 @@
 ---
-title: "FileSystemHandle: name-Eigenschaft"
+title: "FileSystemHandle: name Eigenschaft"
 short-title: name
 slug: Web/API/FileSystemHandle/name
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle gibt den Namen des durch den Handle dargestellten Eintrags zurück.
+Die schreibgeschützte Eigenschaft **`name`** der
+[`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle gibt den Namen des durch das Handle dargestellten Eintrags zurück.
 
 ## Wert
 

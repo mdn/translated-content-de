@@ -1,5 +1,5 @@
 ---
-title: "PaymentResponse: Eigenschaft shippingOption"
+title: "PaymentResponse: shippingOption-Eigenschaft"
 short-title: shippingOption
 slug: Web/API/PaymentResponse/shippingOption
 l10n:
@@ -8,11 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`shippingOption`** schreibgeschützte Eigenschaft der
-`PaymentRequest`-Schnittstelle gibt das ID-Attribut der Versandoption zurück, die vom Benutzer ausgewählt wurde. Diese Option ist nur vorhanden, wenn die
-`requestShipping`-Option auf `true` im
-`options`-Objekt gesetzt ist, das an den
-[`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird.
+Die schreibgeschützte Eigenschaft **`shippingOption`** des `PaymentRequest`-Interface gibt das ID-Attribut der vom Benutzer ausgewählten Versandoption zurück. Diese Option ist nur vorhanden, wenn die `requestShipping`-Option im `options`-Objekt, das dem [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird, auf `true` gesetzt ist.
 
 ## Wert
 
@@ -20,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird das [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)-Ereignis aufgerufen. Es ruft `updateDetails()` auf, um zwischen der Versandart "standard" und "express" zu wechseln.
+Im unten stehenden Beispiel wird das [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)-Ereignis aufgerufen. Es ruft `updateDetails()` auf, um die Versandmethode zwischen "standard" und "express" umzuschalten.
 
 ```js
 // Initialization of PaymentRequest arguments are excerpted for brevity.

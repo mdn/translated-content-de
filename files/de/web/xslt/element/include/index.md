@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:include>`-Element fügt den Inhalt eines Stylesheets mit einem anderen zusammen. Im Gegensatz zum Fall von `<xsl:import>` haben die Inhalte eines eingeschlossenen Stylesheets genau die gleiche Priorität wie die Inhalte des einbeziehenden Stylesheets.
+Das `<xsl:include>`-Element verbindet den Inhalt eines Stylesheets mit einem anderen. Im Gegensatz zum Fall von `<xsl:import>` hat der Inhalt eines inkludierten Stylesheets exakt die gleiche Priorität wie der Inhalt des inkludierenden Stylesheets.
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`newURL`**-Eigenschaft des [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)-Interfaces ist eine schreibgeschützte Eigenschaft, die die neue URL zurückgibt, zu der das Fenster navigiert.
+Die **`newURL`**-Eigenschaft der [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)-Schnittstelle gibt die neue URL zurück, zu der das Fenster navigiert. Diese Eigenschaft ist nur lesbar.
 
 ## Wert
 

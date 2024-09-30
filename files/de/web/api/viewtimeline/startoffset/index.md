@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die **`startOffset`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurückgibt. Dieser Wert repräsentiert die Start- (0 % Fortschritt) Scrollposition der Zeitleiste als Offset vom Anfang des überfüllten Bereichs des Inhalts im Scroller.
+Die schreibgeschützte Eigenschaft **`startOffset`** des [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Interfaces gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Startposition (0% Fortschritt) des Scrollens der Zeitleiste als Offset vom Anfang des überlaufenden Inhaltsbereichs im Scrollbereich darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline).
 
 ## Spezifikationen
 

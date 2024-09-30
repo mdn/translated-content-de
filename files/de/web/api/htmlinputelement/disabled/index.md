@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/input#disabled)-HTML-Attribut widerspiegelt, welches anzeigt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist unbenutzbar und kann nicht angeklickt werden.
+Die **`HTMLInputElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das HTML-Attribut [`disabled`](/de/docs/Web/HTML/Element/input#disabled) widerspiegelt und angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, akzeptiert es keine Klicks. Ein deaktiviertes Element ist nicht nutzbar und nicht anklickbar.
 
 ## Wert
 

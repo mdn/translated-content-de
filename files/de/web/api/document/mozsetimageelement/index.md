@@ -1,5 +1,5 @@
 ---
-title: "Document: mozSetImageElement() Methode"
+title: "Document: mozSetImageElement()-Methode"
 short-title: mozSetImageElement()
 slug: Web/API/Document/mozSetImageElement
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ ApiRef("DOM") }}{{ non-standard_header() }}
 
-Die **`Document.mozSetImageElement()`** Methode ändert das Element, das als CSS-Hintergrund für einen Hintergrund mit einer bestimmten Hintergrundelement-ID verwendet wird.
+Die **`Document.mozSetImageElement()`**-Methode ändert das
+Element, das als CSS-Hintergrund für einen Hintergrund mit einer gegebenen Hintergrundelement-ID verwendet wird.
 
 ## Syntax
 
@@ -19,17 +20,17 @@ mozSetImageElement(imageElementId, imageElement)
 ### Parameter
 
 - `imageElementId`
-  - : Ein String, der den Namen eines Elements angibt, das als Hintergrundbild mit der {{ cssxref("element", "-moz-element") }} CSS-Funktion festgelegt wurde.
+  - : Ein String, der den Namen eines Elements angibt, das als Hintergrundbild mit der {{ cssxref("element", "-moz-element") }} CSS-Funktion spezifiziert wurde.
 - `imageElement`
-  - : Das neue Element, das als Hintergrund für diesen Bildelement-String verwendet werden soll. Geben Sie `null` an, um das Hintergrundelement zu entfernen.
+  - : Das neue Element, das als Hintergrund entsprechend diesem Bild-Element-String verwendet werden soll. Geben Sie `null` an, um das Hintergrundelement zu entfernen.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel ändert den Hintergrund eines {{ HTMLElement("div") }} Blocks jedes Mal, wenn der Block von der Benutzerin oder dem Benutzer angeklickt wird.
+Dieses Beispiel ändert den Hintergrund eines {{ HTMLElement("div") }}-Blocks jedes Mal, wenn der Block vom Benutzer angeklickt wird.
 
 [Sehen Sie sich dieses Beispiel live an](https://mdn.dev/archives/media/samples/domref/mozSetImageElement.html).
 
@@ -45,7 +46,7 @@ Dieses Beispiel ändert den Hintergrund eines {{ HTMLElement("div") }} Blocks je
 </style>
 ```
 
-Die vom {{ HTMLElement("style") }} Block oben definierte CSS wird von unserem {{ HTMLElement("div") }} verwendet, um ein Element mit der ID "canvasbg" als Hintergrund zu verwenden.
+Das im {{ HTMLElement("style") }}-Block definierte CSS wird von unserem {{ HTMLElement("div") }} verwendet, um ein Element mit der ID "canvasbg" als Hintergrund zu nutzen.
 
 ```js
 let c = 0x00;
@@ -67,13 +68,13 @@ function clicked() {
 }
 ```
 
-Der hier gezeigte Code wird jedes Mal aufgerufen, wenn die Benutzerin oder der Benutzer das {{ HTMLElement("div") }} Element anklickt. Er erstellt ein neues {{ HTMLElement("canvas") }} mit einer Breite und Höhe von 100 Pixeln und zeichnet dann ein Quadrat von 50 mal 50 Pixeln darin. Jedes Mal, wenn die Funktion aufgerufen wird, erhält das Quadrat eine andere Farbe (seine Rotkomponente wird jedes Mal erhöht), sodass bei jedem Klick auf das Element der Hintergrund mit einem immer helleren Muster roter Kacheln gefüllt wird.
+Der hier vorgestellte Code wird jedes Mal aufgerufen, wenn der Benutzer das {{ HTMLElement("div") }}-Element anklickt. Es erstellt ein neues {{ HTMLElement("canvas") }} mit einer Breite und Höhe von 100 Pixeln und zeichnet dann ein 50 mal 50 Pixel großes Quadrat. Jedes Mal, wenn die Funktion aufgerufen wird, hat das Quadrat eine andere Farbe (seine Rotkomponente wird jedes Mal erhöht), sodass jedes Mal, wenn der Benutzer das Element anklickt, der Hintergrund mit einem immer helleren Muster aus roten Kacheln gefüllt wird.
 
 Sobald das Canvas gezeichnet ist, wird `document.mozSetImageElement()` aufgerufen, um den Hintergrund für jedes CSS, das die ID "canvasbg" als Hintergrundelement-ID verwendet, auf unser neues Canvas zu setzen.
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorageWorklet`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert das Shared Storage Worklet für den aktuellen Ursprung.
+Das **`SharedStorageWorklet`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert das geteilte Speicher-Worklet für den aktuellen Ursprung.
 
-`SharedStorageWorklet` besitzt keine eigenen Eigenschaften oder Methoden. Vielmehr erbt es die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) von der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle. Diese Methode wird verwendet, um ein Modul hinzuzufügen.
+`SharedStorageWorklet` hat keine eigenen Eigenschaften oder Methoden. Es erbt vielmehr die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) von der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle. Diese Methode wird verwendet, um ein Modul hinzuzufügen.
 
-Im Gegensatz zu einem regulären [`Worklet`](/de/docs/Web/API/Worklet):
+Anders als ein reguläres [`Worklet`](/de/docs/Web/API/Worklet):
 
-- Wenn die aufrufende Stelle die Shared Storage API nicht in einen [Privacy Sandbox Registrierungsvorgang](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) einbezogen hat, werden Aufrufe von `sharedStorageWorklet.addModule()` abgelehnt.
-- `SharedStorageWorklet` erlaubt aus Datenschutzgründen nur das Hinzufügen eines einzigen Moduls. Selbst bei einer erfolgreichen Registrierung werden wiederholte Aufrufe von `addModule()` auf dasselbe Shared Storage Worklet abgelehnt.
+- Wenn die aufrufende Stelle die Shared Storage API nicht in einem [Privacy Sandbox-Enrolment-Prozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat, werden Aufrufe von `sharedStorageWorklet.addModule()` abgelehnt.
+- `SharedStorageWorklet` erlaubt aus Datenschutzgründen nur das Hinzufügen eines einzelnen Moduls. Selbst bei erfolgreicher Registrierung werden wiederholte Aufrufe von `addModule()` auf demselben geteilten Speicher-Worklet abgelehnt.
 
 Auf `SharedStorageWorklet` wird über [`WindowSharedStorage.worklet`](/de/docs/Web/API/WindowSharedStorage/worklet) zugegriffen.
 
@@ -56,7 +56,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen an.
+Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Einstiegsseite für eine ausführliche Anleitung zu diesem Beispiel und Links zu anderen Beispielen an.
 
 ## Spezifikationen
 

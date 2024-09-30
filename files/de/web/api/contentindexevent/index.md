@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`ContentIndexEvent`**-Schnittstelle der [Content Index API](/de/docs/Web/API/Content_Index_API) definiert das Objekt, das das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis darstellt.
+Die **`ContentIndexEvent`**-Schnittstelle der [Content Index API](/de/docs/Web/API/Content_Index_API) definiert das Objekt, das das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis repräsentiert.
 
-Dieses Ereignis wird an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorkers`](/de/docs/Web/API/ServiceWorker) gesendet. Es enthält die ID des zu entfernenden indizierten Inhalts.
+Dieses Ereignis wird an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet. Es enthält die ID des indizierten Inhalts, der entfernt werden soll.
 
 Das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis wird nur ausgelöst, wenn die Löschung durch Interaktion mit der integrierten Benutzeroberfläche des Browsers erfolgt. Es wird nicht ausgelöst, wenn die Methode [`ContentIndex.delete`](/de/docs/Web/API/ContentIndex/delete) aufgerufen wird.
 
@@ -22,18 +22,18 @@ Das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_ev
 
 ## Instanz-Eigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)._
 
 - [`id`](/de/docs/Web/API/ContentIndexEvent/id) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{jsxref('String')}}, das den gelöschten Inhaltsindex über seine `id` identifiziert.
+  - : Ein {{jsxref('String')}}, der den gelöschten Content-Index über seine `id` identifiziert.
 
 ## Instanz-Methoden
 
-_Obwohl `ContentIndexEvent` keine eigenen Methoden bietet, erbt es alle von seiner Elternschnittstelle [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) festgelegten._
+_Obwohl `ContentIndexEvent` keine eigenen Methoden anbietet, erbt es alle von seiner Elternschnittstelle, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent), angegebenen._
 
 ## Beispiele
 
-Dieses Beispiel zeigt das Skript des [Service Workers](/de/docs/Web/API/ServiceWorker), das auf das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis hört und die ID des entfernten Inhaltsindex protokolliert.
+Dieses Beispiel zeigt das Skript eines [Service Workers](/de/docs/Web/API/ServiceWorker), das auf das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis hört und die ID des entfernten Content-Indexes protokolliert.
 
 ```js
 self.addEventListener("contentdelete", (event) => {

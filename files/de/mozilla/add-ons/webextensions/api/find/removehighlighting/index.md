@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernen Sie jegliche Hervorhebung, die durch einen vorherigen Aufruf von {{WebExtAPIRef("find.highlightResults()")}} oder durch die native Benutzeroberfläche des Browsers angewendet wurde.
+Entfernen Sie jegliche Hervorhebung einer vorherigen Suche, die durch einen vorherigen Aufruf von {{WebExtAPIRef("find.highlightResults()")}} oder durch die native Benutzeroberfläche des Browsers angewendet wurde.
 
 ## Syntax
 

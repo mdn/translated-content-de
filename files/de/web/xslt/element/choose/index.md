@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:choose>`-Element definiert eine Auswahl zwischen mehreren Alternativen. Es verhält sich ähnlich wie eine switch-Anweisung in prozeduralen Sprachen.
+Das `<xsl:choose>`-Element definiert eine Auswahl zwischen mehreren Alternativen. Es verhält sich wie eine `switch`-Anweisung in prozeduralen Programmiersprachen.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keine.
 
 ### Typ
 
-Instruktion, erscheint mit einer Vorlage. Es enthält ein oder mehrere `<xsl:when>`-Elemente und optional ein abschließendes `<xsl:otherwise>`-Element.
+Anweisung, erscheint mit einem Template. Es enthält ein oder mehrere `<xsl:when>`-Elemente und optional ein abschließendes `<xsl:otherwise>`-Element.
 
 ## Spezifikationen
 

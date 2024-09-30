@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: voiceschanged Ereignis"
+title: "SpeechSynthesis: voiceschanged-Ereignis"
 short-title: voiceschanged
 slug: Web/API/SpeechSynthesis/voiceschanged_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`voiceschanged`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte, die von der Methode [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben würde, ändert (wenn das `voiceschanged`-Ereignis ausgelöst wird).
+Das **`voiceschanged`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte geändert hat, die durch die Methode [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben werden würde (wenn das `voiceschanged`-Ereignis ausgelöst wird).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-Dies könnte verwendet werden, um eine Liste von Stimmen, zwischen denen der Benutzer wählen kann, neu zu erstellen, wenn das Ereignis ausgelöst wird. Sie können das `voiceschanged`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Dies könnte verwendet werden, um eine Liste von Stimmen neu zu füllen, zwischen denen der Benutzer wählen kann, wenn das Ereignis ausgelöst wird. Sie können das `voiceschanged`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 const synth = window.speechSynthesis;
@@ -43,7 +43,7 @@ synth.addEventListener("voiceschanged", () => {
 });
 ```
 
-Oder Sie verwenden die `onvoiceschanged`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die `onvoiceschanged`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const synth = window.speechSynthesis;

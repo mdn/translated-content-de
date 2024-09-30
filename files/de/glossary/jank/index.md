@@ -7,4 +7,4 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Jank** bezieht sich auf Trägheit in einer Benutzeroberfläche, die in der Regel durch die Ausführung langer Aufgaben im Haupt-Thread, das Blockieren des Renderings oder den übermäßigen Einsatz von Prozessorleistung für Hintergrundprozesse verursacht wird.
+**Jank** bezieht sich auf die Trägheit in einer Benutzeroberfläche, die in der Regel durch die Ausführung langer Aufgaben im Haupt-Thread verursacht wird, welche das Rendering blockieren oder zu viel Prozessorleistung für Hintergrundprozesse aufwenden.

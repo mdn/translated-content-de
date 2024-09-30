@@ -7,54 +7,54 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das `aria-owns` Attribut identifiziert ein Element (oder Elemente), um eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem Eltern- und seinen Kindelementen zu definieren, wenn die DOM-Hierarchie nicht verwendet werden kann, um die Beziehung darzustellen.
+Das Attribut `aria-owns` identifiziert ein Element (oder mehrere Elemente), um eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem übergeordneten und seinen untergeordneten Elementen zu definieren, wenn die DOM-Hierarchie nicht zur Darstellung der Beziehung verwendet werden kann.
 
 ## Beschreibung
 
-Jedes Element ist das Elternteil, Geschwister oder Kind eines anderen Elements. Das Dokumentenobjekt, bestehend aus HTML-Elementen und Textknoten, bildet die Grundlage des DOM-Baums. Das Accessibility Object Model (<abbr>AOM</abbr>) basiert auf einem gut strukturierten DOM, um unterstützenden Technologien zu ermöglichen, den Benutzern sinnvolle Informationen über die Inhalte eines Dokuments zu vermitteln.
+Jedes Element ist Elternteil, Geschwister oder Kind eines anderen Elements. Das Dokumentobjekt, bestehend aus HTML-Elementen und Textknoten, bildet die Grundlage des DOM-Baumes. Das Accessibility Object Model (<abbr>AOM</abbr>) basiert auf einem gut aufgebauten DOM, um assistive Technologien in die Lage zu versetzen, den Benutzern sinnvolle Informationen über den Inhalt eines Dokuments zu übermitteln.
 
-Es gibt Umstände, in denen das auf dem Bildschirm angezeigte Layout von der zugrunde liegenden DOM-Struktur abweichen kann, da JavaScript in der Lage ist, Inhalte zu ändern und CSS das Layout ändern kann. In diesem Fall kann das `aria-owns` Attribut verwendet werden, um eine sinnvolle Beziehung für unterstützende Technologien, die das DOM konsumieren, wiederherzustellen.
+Es gibt Umstände, bei denen das Layout, das auf dem Bildschirm erscheint, aufgrund der Fähigkeit von JavaScript, Inhalte zu ändern, und von CSS, Layouts zu ändern, von der zugrunde liegenden DOM-Struktur abweichen kann. In diesem Fall kann das Attribut `aria-owns` verwendet werden, um eine sinnvolle Beziehung für assistive Technologien, die das DOM nutzen, wiederherzustellen.
 
-Wenn Elemente visuell miteinander in Beziehung stehen, aber im DOM nicht assoziiert sind, ermöglicht das `aria-owns` Attribut, die auf dem Bildschirm erscheinende Beziehung in der Barrierefreiheitsschicht für die Verwendung durch unterstützende Technologien zu erstellen. Der **einzige** Grund, `aria-owns` einzuschließen, besteht darin, eine Eltern-Kind-Kontextbeziehung gegenüber unterstützenden Technologien offenzulegen, wenn die Konstruktion des DOM diese Beziehung nicht bereitstellen kann.
+Wenn Elemente visuell miteinander verbunden erscheinen, aber nicht im DOM assoziiert sind, ermöglicht das Attribut `aria-owns`, die auf dem Bildschirm erscheinende Beziehung in der Zugänglichkeitsebene für die Verwendung durch assistive Technologien zu erstellen. Der **einzige** Grund, `aria-owns` zu verwenden, ist, um assistiven Technologien eine übergeordnete/untergeordnete kontextuelle Beziehung zu zeigen, wenn die Konstruktion des DOM diese Beziehung nicht bereitstellen kann.
 
-Ein "besitzendes Element" ist ein beliebiger DOM-Vorfahre eines Elements. Wenn ein Element visuell, funktional oder kontextuell erscheint, ein Element zu "besitzen" (ein Vorfahre zu sein), das im DOM jedoch kein tatsächlicher Vorfahre des Elements ist, fügen Sie das `aria-owns` hinzu, um diese Beziehung zu erstellen. Fügen Sie das Attribut dem besitzenden Element hinzu mit einem Verweis auf das nicht-kindliche besessene Element (oder die Elemente), um unterstützenden Technologien zu sagen, dass ein Element als Kind behandelt werden soll.
+Ein "besitzendes Element" ist ein beliebiger DOM-Vorfahr eines Elements. Wenn ein Element visuell, funktionell oder kontextuell den Anschein erweckt, ein Element zu "besitzen" (ein Vorfahr zu sein), aber tatsächlich kein Vorfahr des Elements im DOM ist, fügen Sie `aria-owns` hinzu, um diese Beziehung zu erstellen. Fügen Sie das Attribut dem besitzenden Element hinzu, unter Bezugnahme auf das nicht-kindliche besessene Element (oder Elemente), um assistiven Technologien mitzuteilen, dass ein Element als Kind behandelt werden sollte.
 
-Durch das Referenzieren der ID von einem oder mehreren Elementen kann jedes Element ein anderes Element mit einer `aria-owns`-Deklaration "besitzen". Der Wert des `aria-owns` Attributs ist eine durch Leerzeichen getrennte ID-Referenzliste, die sich auf die IDs von einem oder mehreren Elementen im Dokument bezieht.
+Durch die Referenzierung der ID eines oder mehrerer Elemente kann jedes Element ein anderes Element mit einer `aria-owns`-Deklaration "besitzen". Der Wert des Attributs `aria-owns` ist eine durch Leerzeichen getrennte Liste von ID-Referenzen, die sich auf die IDs eines oder mehrerer Elemente im Dokument bezieht.
 
 > [!NOTE]
-> Ein "besessenes" Element ist ein beliebiger DOM-Nachkomme des Elements, jedes Element, das als Kind über `aria-owns` angegeben wurde, oder jeder DOM-Nachkomme des besessenen Kindes. Das `aria-owns`-besessene Element sollte ein Element sein, das zu einem separaten Elterbaum im DOM gehört, aber als Kind des aktuellen Elements behandelt werden sollte.
+> Ein "besessenes" Element ist ein beliebiger DOM-Nachfahre des Elements, ein beliebiges über `aria-owns` als Kind spezifiziertes Element oder ein beliebiger DOM-Nachfahre des besessenen Kindes. Das von `aria-owns` besessene Element sollte ein Element sein, das zu einem separaten Elternbaum im DOM gehört, aber als Kind des aktuellen Elements behandelt werden sollte.
 
 Verwenden Sie `aria-owns` nicht als Ersatz für die DOM-Hierarchie. Wenn die Beziehung im DOM dargestellt ist, verwenden Sie `aria-owns` nicht.
 
-Ein Kind-Element wird standardmäßig von seinem DOM-Elternteil besessen: in diesem Fall sollte `aria-owns` nicht verwendet werden. Vermeiden Sie die Verwendung des `aria-owns` Attributs, um bestehende Kindelemente in eine andere Reihenfolge zu bringen.
+Ein Kind-Element wird standardmäßig von seinem DOM-Elternteil besessen: in diesem Fall sollte `aria-owns` nicht verwendet werden. Vermeiden Sie es, das Attribut `aria-owns` zu verwenden, um bestehende Kind-Elemente in eine andere Reihenfolge zu bringen.
 
-Stellen Sie sicher, dass Sie bei der Verwendung von `aria-owns` [die Fokusreihenfolge verwalten](https://css-tricks.com/focus-management-and-inert/). Stellen Sie sicher, dass die visuelle Fokusreihenfolge dieser Lesereihenfolge für unterstützende Technologien entspricht.
+Wenn Sie `aria-owns` verwenden, stellen Sie sicher, dass Sie die [Fokusreihenfolge verwalten](https://css-tricks.com/focus-management-and-inert/). Stellen Sie sicher, dass die visuelle Fokussierungsreihenfolge mit dieser Leserichtung der assistiven Technologie übereinstimmt.
 
-Ein Beispiel für die Verwendung von `aria-owns` umfasst Popup-Untermenüs, die visuell in der Nähe eines übergeordneten Menüs erscheinen, im DOM jedoch nicht innerhalb des übergeordneten Menüs verschachtelt werden können, da dies die visuelle Darstellung beeinträchtigen würde. Verwenden Sie in diesem Fall `aria-owns`, um das Untermenü als ein Kind des übergeordneten Menüs für einen Bildschirmleser darzustellen.
+Ein Beispiel für die Verwendung von `aria-owns` sind Pop-up-Untermenüs, die optisch in der Nähe eines übergeordneten Menüs erscheinen, aber nicht innerhalb des übergeordneten Menüs im DOM verschachtelt werden können, da dies die visuelle Darstellung beeinflussen würde. In diesem Fall verwenden Sie `aria-owns`, um das Untermenü als Kind des übergeordneten Menüs einem Bildschirmleser zu präsentieren.
 
 > [!NOTE]
-> Das `aria-owns` Attribut sollte nur verwendet werden, wenn die Eltern-Kind-Beziehung aus dem DOM nicht erkannt werden kann.
+> Das Attribut `aria-owns` sollte nur verwendet werden, wenn die übergeordnete/untergeordnete Beziehung nicht aus dem DOM bestimmt werden kann.
 
 Wenn ein Element sowohl `aria-owns` als auch DOM-Kinder hat, ist die Reihenfolge der Kindelemente:
 
-1. Die tatsächlichen DOM-Kinder zuerst,
+1. Zuerst die tatsächlichen DOM-Kinder,
 2. Dann die in `aria-owns` referenzierten Elemente.
 
-Diese Reihenfolge kann geändert werden, indem die ID-Referenzen zu den tatsächlichen DOM-Kindern im `aria-owns` Wert eingeschlossen werden.
+Diese Reihenfolge kann geändert werden, indem die ID-Referenzen der tatsächlichen DOM-Kinder im `aria-owns`-Wert enthalten sind.
 
-Die {{CSSXRef('order')}} Eigenschaft, Teil von Flex- oder Grid-Layouts, kann verwendet werden, um die Reihenfolge von Flex- und Gitterelementen zu ändern, sodass sie in einer anderen Reihenfolge erscheinen als in der Quelldokumentation. Während es verlockend sein mag, die Barrierefreiheitsschicht an die von der CSS {{CSSXRef('order')}} Eigenschaft erzeugte Ordnungsänderung anzupassen, ist es am besten, sowohl auf die `order` Eigenschaft als auch das `aria-owns` Attribut zu verzichten.
+Die {{CSSXRef('order')}}-Eigenschaft, Teil von Flex- oder Grid-Layouts, kann verwendet werden, um die Reihenfolge von Flex- und Grid-Elementen zu ändern, wodurch sie in einer anderen Reihenfolge erscheinen als in ihrem Ursprungdokument, eine Abweichung der logischen Reihenfolge der Elemente entsteht. Auch wenn es verlockend sein mag, die Zugänglichkeitsschicht in die gleiche Ordnung zu bringen, die durch die CSS-{{CSSXref('order')}}-Eigenschaft erzeugt wird, ist es am besten, sowohl die `order`-Eigenschaft als auch das `aria-owns`-Attribut zu vermeiden.
 
-Stellen Sie sicher, dass Ihre besessenen Elemente nur einen Besitzer haben. Geben Sie die `id` eines Elements nicht in mehr als einem anderen Element-`aria-owns` Attribut an. Ein Element kann nur einen Besitzer haben.
+Stellen Sie sicher, dass Ihre besessenen Elemente nur einen Besitzer haben. Geben Sie die `id` eines Elements nicht in mehr als einem anderen Element in das `aria-owns`-Attribut ein. Ein Element kann nur einen Besitzer haben.
 
 > [!WARNING]
-> Während [`aria-owns` jetzt unterstützt wird](https://a11ysupport.io/tech/aria/aria-owns_attribute) in allen modernen Browsern, wird `aria-owns` möglicherweise für Benutzer von MacOS und iOS mit VoiceOver vor iOS 17.3 und macOS 14.3 nicht angezeigt.
+> Obwohl [`aria-owns` jetzt unterstützt wird](https://a11ysupport.io/tech/aria/aria-owns_attribute) in allen modernen Browsern, wird `aria-owns` möglicherweise Benutzern von MacOS und iOS mit VoiceOver vor iOS 17.3 und macOS 14.3 nicht angezeigt.
 
 ## Werte
 
-- `id` Liste
-  - : Durch Leerzeichen getrennte Liste von einem oder mehreren ID-Werten, die die von dem aktuellen Element besessenen Elemente referenzieren
+- `id`-Liste
+  - : Durch Leerzeichen getrennte Liste von einer oder mehreren ID-Werten, die die Elemente referenzieren, die vom aktuellen Element besessen werden
 
-## Zugeordnete Rollen
+## Zugehörige Rollen
 
 Wird in **ALLEN** Rollen verwendet.
 

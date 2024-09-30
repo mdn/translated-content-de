@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode des
-[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces hebt die Registrierung der periodischen Synchronisierungsanfrage auf, die dem angegebenen Tag entspricht, und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Abmeldung abgeschlossen ist.
+Die **`unregister()`** Methode der [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) Schnittstelle hebt die Registrierung der periodischen Synchronisierungsanforderung für die angegebene Kennung auf und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Abmeldung abgeschlossen ist.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ unregister(tag)
 ### Parameter
 
 - tag
-  - : Der eindeutige {{jsxref('String')}}-Descriptor für die spezifische Hintergrundsynchronisation.
+  - : Der eindeutige {{jsxref('String')}}-Bezeichner für die spezifische Hintergrundsynchronisierung.
 
 ### Rückgabewert
 
@@ -50,5 +49,5 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ## Siehe auch
 
-- [Umfassendere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [A Periodic Background Sync demo app](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`defaultChecked`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt den standardmäßigen Anwendungsstatus des Elements an. Diese Eigenschaft spiegelt das [`checked`](/de/docs/Web/HTML/Element/input#checked)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`defaultChecked`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt den standardmäßigen Aktivierungszustand des Elements an. Diese Eigenschaft spiegelt das [`checked`](/de/docs/Web/HTML/Element/input#checked)-Attribut des {{htmlelement("input")}}-Elements wider.
 
 Das boolesche [`checked`](/de/docs/Web/HTML/Element/input#checked)-Attribut ist für die Eingabetypen `radio` ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)) und `checkbox` ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) gültig. Das Vorhandensein des Attributs setzt die `defaultChecked`-Eigenschaft auf `true`.
 
@@ -34,5 +34,5 @@ console.log(inputElement.defaultChecked);
 ## Siehe auch
 
 - {{HTMLElement("input")}}
-- {{cssxref(":default")}} Pseudo-Klasse
-- {{cssxref(":checked")}} Pseudo-Klasse
+- {{cssxref(":default")}} Pseudoklasse
+- {{cssxref(":checked")}} Pseudoklasse

@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die im aktuellen Add-on ausgeführt werden. Dies umfasst zum Beispiel:
+Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Dazu gehören beispielsweise:
 
-- die Hintergrundseite, wenn eine definiert ist
-- alle Popup-Seiten, wenn definiert und geladen
-- alle Optionsseiten, wenn definiert und geladen
-- alle Browser-Tabs, die Inhalte des Add-ons hosten
+- die Hintergrundseite, falls eine definiert ist
+- alle Pop-up-Seiten, falls definiert und geladen
+- alle Optionsseiten, falls definiert und geladen
+- alle Browser-Tabs, die Inhalte der Erweiterung hosten
 
-In Firefox wird der Rückgabewert dieser Methode, wenn sie von einer Seite aus aufgerufen wird, die Teil eines privaten Fensters ist, wie etwa einer Seitenleiste in einem privaten Fenster oder einem Popup, das aus einem privaten Fenster geöffnet wurde, die Hintergrundseite des Add-ons nicht einschließen.
+In Firefox wird der Rückgabewert, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browserfensters ist, wie zum Beispiel eine Seitenleiste in einem privaten Fenster oder ein Pop-up, das von einem privaten Fenster geöffnet wird, die Hintergrundseite der Erweiterung nicht enthalten.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ let windows = browser.extension.getViews(
 
 - `fetchProperties` {{optional_inline}}
 
-  - : Ein Objekt mit folgenden Eigenschaften:
+  - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `type` {{optional_inline}}
-      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}} zur Angabe des Typs der anzufordernden Ansicht. Wird weggelassen, gibt diese Funktion alle Ansichten zurück.
+      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}}, der den Typ der abzurufenden Ansicht angibt. Falls weggelassen, gibt diese Funktion alle Ansichten zurück.
     - `windowId` {{optional_inline}}
-      - : `integer`. Das Fenster, auf das sich die Suche beschränken soll. Wird weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox Version 92 und früher werden Seitenleistenansichten nicht abgeglichen und daher nicht zurückgegeben.
+      - : `integer`. Das Fenster, auf das die Suche beschränkt werden soll. Falls weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox Version 92 und früher werden Seitenleisten-Ansichten nicht berücksichtigt und daher nicht zurückgegeben.
 
 ### Rückgabewert
 
@@ -45,7 +45,7 @@ let windows = browser.extension.getViews(
 
 ## Beispiele
 
-Alle Fenster gehören zu diesem Add-on abrufen und ihre URLs protokollieren:
+Alle Fenster dieser Erweiterung abrufen und deren URLs protokollieren:
 
 ```js
 const windows = browser.extension.getViews();
@@ -55,13 +55,13 @@ for (const extensionWindow of windows) {
 }
 ```
 
-Nur Fenster in Browser-Tabs, die Inhalte des Add-ons hosten, abrufen:
+Nur Fenster in Browser-Tabs abrufen, die Inhalte der Erweiterung hosten:
 
 ```js
 const windows = browser.extension.getViews({ type: "tab" });
 ```
 
-Nur Fenster in Popups abrufen:
+Nur Fenster in Pop-ups abrufen:
 
 ```js
 const windows = browser.extension.getViews({ type: "popup" });
@@ -70,7 +70,7 @@ const windows = browser.extension.getViews({ type: "popup" });
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews). Diese Dokumentation stammt aus der Datei [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews)-API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

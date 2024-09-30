@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`symbols()`** CSS-Funktion ermöglicht das Definieren von Zählerstilen direkt als Wert von Eigenschaften wie {{cssxref("list-style")}}, was eine weniger leistungsfähige, aber einfachere Alternative zur Methode {{cssxref("@counter-style")}} zur Definition eines Zählerstils bietet.
+Die CSS-Funktion **`symbols()`** ermöglicht es, Zählerstile direkt als Wert von Eigenschaften wie {{cssxref("list-style")}} inline zu definieren und bietet eine weniger leistungsstarke, aber einfachere Alternative zur Methode {{cssxref("@counter-style")}}, um einen Zählerstil zu definieren.
 
-Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h., er kann nur einmal verwendet werden). Diese Funktion akzeptiert Zeichenfolgen und Bilder als Werte. Im Vergleich dazu akzeptiert der [`symbols`](/de/docs/Web/CSS/@counter-style/symbols) Deskriptor von {{cssxref("@counter-style")}} auch Bezeichner.
+Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h. es kann nur einmal verwendet werden). Diese Funktion akzeptiert Zeichenfolgen und Bilder als Werte. Im Vergleich dazu akzeptiert der {{cssxref("@counter-style")}}-Deskriptor [`symbols`](/de/docs/Web/CSS/@counter-style/symbols) auch Identifikatoren.
 
 ## Syntax
 
@@ -19,10 +19,10 @@ symbols() = symbols( <symbols-type>? [ <string> | <image> ]+ );
 
 `<symbols-type>` kann einer der folgenden sein:
 
-- `cyclic`: Das System durchläuft die angegebenen Werte in der Reihenfolge ihrer Definition und kehrt beim Erreichen des Endes zum Anfang zurück.
-- `numeric`: Das System interpretiert die angegebenen Werte als aufeinanderfolgende Einheiten eines Stellenwert-Zahlensystems.
-- `alphabetic`: Das System interpretiert die angegebenen Werte als Stellen eines alphabetischen Zahlensystems, ähnlich einem Stellenwert-Zahlensystem, jedoch ohne `0`.
-- `symbolic`: Das System durchläuft die Werte und druckt sie bei jedem Zyklus zusätzlich aus (einmal für den ersten Zyklus, zweimal für den zweiten usw.).
+- `cyclic`: Das System durchläuft die angegebenen Werte in der Reihenfolge ihrer Definition und kehrt zum Anfang zurück, wenn es das Ende erreicht.
+- `numeric`: Das System interpretiert die angegebenen Werte als aufeinanderfolgende Einheiten eines Stellenwert-Zahlsystems.
+- `alphabetic`: Das System interpretiert die angegebenen Werte als Ziffern eines alphabetischen Zahlsystems, ähnlich einem Stellenwert-Zahlsystem, jedoch ohne `0`.
+- `symbolic`: Das System durchläuft die Werte, wobei es ihnen bei jedem Durchlauf eine zusätzliche Wiederholung hinzufügt (einmal für den ersten Durchlauf, zweimal für den zweiten usw.).
 - `fixed`: Das System durchläuft die angegebenen Werte einmal und fällt dann auf arabische Ziffern zurück.
 
 ## Beispiele
@@ -61,7 +61,7 @@ ol {
 
 ## Siehe auch
 
-- {{cssxref("@counter-style")}}-Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
-- Listeneigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-type")}}
-- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists) Modul
+- {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
+- Listenstil-Eigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-type")}}
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul

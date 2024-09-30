@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`high`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die obere Grenze des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie entspricht dem [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut des Elements oder dem Wert von `max`, wenn nicht definiert. Der Wert von `high` wird durch die Werte `low` und `max` begrenzt.
+Die **`high`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die obere Grenze des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie spiegelt das [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut des Elements wider oder den Wert von `max`, falls nicht definiert. Der Wert von `high` wird durch die Werte von `low` und `max` eingegrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, z. B. um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel, um einen Standardwert basierend auf einer Bedingung zu setzen.
 
 ## Wert
 
-Eine Zahl, die nicht kleiner ist als [`HTMLMeterElement.low`](/de/docs/Web/API/HTMLMeterElement/low) und nicht größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max).
+Eine Zahl, die weder kleiner als [`HTMLMeterElement.low`](/de/docs/Web/API/HTMLMeterElement/low) noch größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max) ist.
 
 ## Beispiele
 

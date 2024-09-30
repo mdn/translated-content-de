@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`fullscreenElement`** schreibgeschützte Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt das Element innerhalb des Schattenbaums zurück, das derzeit im Vollbildmodus angezeigt wird.
+Die **`fullscreenElement`** schreibgeschützte Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element innerhalb des Schattenbaums zurück, das momentan im Vollbild angezeigt wird.
 
 ## Wert
 
-Das [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird, oder `null`, wenn es kein Vollbildelement gibt.
+Das [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird, oder `null`, wenn kein Vollbild-Element vorhanden ist.
 
 ## Beispiele
 

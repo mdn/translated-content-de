@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`repeatEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements wiederholt wird. Es wird jedes Mal ausgelöst, wenn das Element sich wiederholt, nach der ersten Iteration.
+Das **`repeatEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements wiederholt wird. Es wird jedes Mal ausgelöst, wenn das Element wiederholt wird, nach der ersten Iteration.
 
 > [!NOTE]
-> Mit dem `repeatEvent`-Ereignis ist ein Ganzzahlwert verbunden, der angibt, welche Wiederholungsiteration beginnt; dieser Wert kann in der `detail`-Eigenschaft des Ereignisobjekts gefunden werden. Der Wert ist eine 0-basierte Ganzzahl, aber das Wiederholungsereignis wird nicht für die erste Iteration ausgelöst, sodass die beobachteten Werte >= 1 sind. Dies wird in Firefox unterstützt, aber nicht in Chrome.
+> Mit dem `repeatEvent`-Ereignis ist eine ganze Zahl verknüpft, die angibt, welche Wiederholungsiteration beginnt; diese kann in der `detail`-Eigenschaft des Ereignisobjekts gefunden werden. Der Wert ist eine 0-basierte Ganzzahl, aber das Wiederholungsereignis wird nicht für die erste Iteration ausgelöst, sodass die beobachteten Werte >= 1 sind. Dies wird in Firefox unterstützt, aber nicht in Chrome.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchbar und löst sich nicht in der Ereignisblase auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisverarbeitungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("repeatEvent", (event) => {});
@@ -34,7 +34,7 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ## Ereigniseigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt er die Wiederholungsnummer der Animation an.
+  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt er die Wiederholungsnummer für die Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
   - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, von dem das Ereignis generiert wurde.
 
@@ -88,9 +88,9 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '270')}}
 
-### Äquivalente Ereignisverarbeitungs-Eigenschaft
+### Ereignishandler-Eigenschaft Äquivalent
 
-Beachten Sie, dass Sie auch einen Ereignislistener für das `repeat`-Ereignis mit der Ereignisverarbeitungs-Eigenschaft `onrepeat` erstellen können:
+Beachten Sie, dass Sie einen Ereignislistener für das `repeat`-Ereignis auch mit der `onrepeat`-Ereignishandler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onrepeat = () => {
@@ -109,5 +109,5 @@ animateElem.onrepeat = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)
-- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event) Ereignis
-- [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event) Ereignis
+- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event)-Ereignis
+- [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)-Ereignis

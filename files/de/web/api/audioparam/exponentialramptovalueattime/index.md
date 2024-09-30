@@ -1,5 +1,5 @@
 ---
-title: "AudioParam: exponentialRampToValueAtTime()-Methode"
+title: "AudioParam: Methode exponentialRampToValueAtTime()"
 short-title: exponentialRampToValueAtTime()
 slug: Web/API/AudioParam/exponentialRampToValueAtTime
 l10n:
@@ -8,11 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`exponentialRampToValueAtTime()`**-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine allmähliche exponentielle Änderung des Wertes des [`AudioParam`](/de/docs/Web/API/AudioParam). Die Änderung beginnt zum Zeitpunkt des vorherigen Ereignisses, folgt einer exponentiellen Rampe zum neuen Wert, der im `value`-Parameter angegeben ist, und erreicht den neuen Wert zum Zeitpunkt, der im `endTime`-Parameter angegeben ist.
+Die **`exponentialRampToValueAtTime()`**-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine allmähliche exponentielle Änderung des Wertes des [`AudioParam`](/de/docs/Web/API/AudioParam).
+Die Änderung beginnt zu der für das _vorherige_ Ereignis angegebenen Zeit, folgt einer exponentiellen Rampe zum neuen Wert, der im `value`-Parameter angegeben ist, und erreicht den neuen Wert zur im
+`endTime`-Parameter angegebenen Zeit.
 
 > [!NOTE]
-> Exponentielle Rampen gelten als nützlicher beim Ändern von
-> Frequenzen oder Wiedergaberaten als lineare Rampen, aufgrund der Funktionsweise des menschlichen Ohrs.
+> Exponentielle Rampen gelten als nützlicher beim Ändern
+> von Frequenzen oder Wiedergaberaten als lineare Rampen, da das menschliche Ohr anders
+> funktioniert.
 
 ## Syntax
 
@@ -23,17 +26,18 @@ exponentialRampToValueAtTime(value, endTime)
 ### Parameter
 
 - `value`
-  - : Eine Gleitkommazahl, die den Wert darstellt, auf den das `AudioParam` bis zu dem angegebenen Zeitpunkt ansteigen wird.
+  - : Eine Gleitkommazahl, die den Wert darstellt, zu dem das `AudioParam` bis zur angegebenen Zeit gerampt wird.
 - `endTime`
-  - : Eine Gleitkommazahl, die die genaue Zeit (in Sekunden) darstellt, nachdem die Rampe beginnt, zu der die Änderung des Wertes stoppt.
+  - : Ein Double, das die genaue Zeit (in Sekunden) angibt, nach der das Ramping beginnt und die Änderung des Wertes endet.
 
 ### Rückgabewert
 
-Ein Verweis auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
+Ein Verweis auf dieses `AudioParam`-Objekt. In einigen älteren Browserimplementierungen dieser Schnittstelle wird {{jsxref('undefined')}} zurückgegeben.
 
 ## Beispiele
 
-In diesem Beispiel haben wir eine Medienquelle mit zwei Steuertasten (sehen Sie sich den [audio-param Repo](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode an oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn diese Tasten gedrückt werden, wird `exponentialRampToValueAtTime()` verwendet, um den Gain-Wert auf 1.0 anzuheben und auf 0 abzusenken. Dies ist ziemlich nützlich für Einblende-/Ausblendeffekte:
+In diesem Beispiel haben wir eine Medienquelle mit zwei Steuerungsknöpfen (siehe das [audio-param Repo](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode oder [sehen Sie das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn diese Knöpfe gedrückt werden, wird `exponentialRampToValueAtTime()`
+verwendet, um den Gain-Wert auf 1.0 hochzufahren und auf 0 herunterzufahren. Das ist ziemlich nützlich für Ein- und Ausblendeffekte:
 
 ```js
 // create audio context
@@ -69,8 +73,9 @@ expRampMinus.onclick = () => {
 ```
 
 > [!NOTE]
-> Ein Wert von 0.01 wurde für den Wert verwendet, um in der
-> letzten Funktion abzusinken, anstatt 0, da ein _ungültiger oder illegaler Zeichenfolgen_-Fehler ausgelöst wird, wenn 0 verwendet wird — der Wert muss positiv sein.
+> Ein Wert von 0.01 wurde für den Wert verwendet, auf den in der
+> letzten Funktion gerampt wird, anstatt 0, da ein _ungültiger oder rechtswidriger Zeichenfolgenfehler_ ausgelöst wird,
+> wenn 0 verwendet wird — der Wert muss positiv sein.
 
 ## Spezifikationen
 

@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Cache** (Web-Cache oder HTTP-Cache) ist eine Komponente, die HTTP-Antworten vorübergehend speichert, sodass sie für nachfolgende HTTP-Anfragen verwendet werden können, solange bestimmte Bedingungen erfüllt sind.
+Ein **Cache** (Webcache oder HTTP-Cache) ist eine Komponente, die HTTP-Antworten vorübergehend speichert, damit sie für nachfolgende HTTP-Anfragen genutzt werden können, solange bestimmte Bedingungen erfüllt sind.
 
 ## Siehe auch
 
-- [Web-Cache](https://en.wikipedia.org/wiki/Web_cache) auf Wikipedia
+- [Webcache](https://en.wikipedia.org/wiki/Web_cache) auf Wikipedia

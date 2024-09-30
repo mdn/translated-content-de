@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Grid-Bereich** ist eine oder mehrere [Gitternetz-Zellen](/de/docs/Glossary/grid_cell), die einen rechteckigen Bereich im Gitternetz bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder wenn Sie Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+Ein **Grid-Bereich** ist eine oder mehrere [Grid-Zellen](/de/docs/Glossary/grid_cell), die zusammen einen rechteckigen Bereich im Grid bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
 
-![Bild, das einen hervorgehobenen Grid-Bereich zeigt](1_grid_area.png)
+![Bild zeigt einen hervorgehobenen Grid-Bereich](1_grid_area.png)
 
 Grid-Bereiche _müssen_ rechteckig sein; es ist nicht möglich, zum Beispiel einen T- oder L-förmigen Grid-Bereich zu erstellen.
 
 ## Beispiel
 
-Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und sie dann mit {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erstellt zwei Grid-Bereiche, einer umfasst vier Gitternetz-Zellen, der andere zwei.
+Im untenstehenden Beispiel habe ich ein Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}} Eigenschaft benannt und dann mit {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erstellt zwei Grid-Bereiche, einer, der vier Grid-Zellen umfasst, der andere zwei.
 
 ```css hidden
 * {
@@ -65,7 +65,7 @@ Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich
 
 ## Siehe auch
 
-### Referenz für Eigenschaften
+### Property-Referenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -76,7 +76,7 @@ Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich
 
 ### Weiterführende Literatur
 
-- CSS-Grid-Layout-Leitfaden:
-  - [Grundkonzepte des Gitternetz-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Grid-Template-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Definition von Grid-Bereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)
+- CSS Grid-Layout-Leitfaden:
+  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+  - [Grid Template Areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Definition von Grid-Bereichen in der CSS Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)

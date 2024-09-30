@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Grid-Track** ist der Raum zwischen zwei benachbarten [Grid-Linien](/de/docs/Glossary/grid_lines). Sie werden im _expliziten Grid_ definiert, indem die {{cssxref("grid-template-columns")}}- und {{cssxref("grid-template-rows")}}-Eigenschaften oder die Kurzform {{cssxref("grid")}} oder {{cssxref("grid-template")}} verwendet werden. Tracks werden auch im _impliziten Grid_ erstellt, indem ein Grid-Element außerhalb der im expliziten Grid erstellten Tracks positioniert wird.
+Ein **Grid Track** ist der Raum zwischen zwei benachbarten [Grid Lines](/de/docs/Glossary/grid_lines). Diese werden im _expliziten Grid_ durch die Verwendung der {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} Eigenschaften oder der Kurzformen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Tracks werden auch im _impliziten Grid_ erstellt, indem ein Grid-Item außerhalb der im expliziten Grid erstellten Tracks positioniert wird.
 
-Das untenstehende Bild zeigt das erste Zeilentrack in einem Grid.
+Das folgende Bild zeigt den ersten Zeilen-Track auf einem Grid.
 
-![Diagramm, das einen Grid-Track zeigt.](1_grid_track.png)
+![Diagramm zeigt einen Grid Track.](1_grid_track.png)
 
-## Track-Größen im expliziten Grid
+## Track-Sizing im expliziten Grid
 
-Beim Definieren von Grid-Tracks mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede Längeneinheit verwenden sowie die Flex-Einheit `fr`, die einen Anteil des verfügbaren Raums im Grid-Container angibt.
+Beim Definieren von Grid Tracks mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede beliebige Längeneinheit verwenden sowie die Flex-Einheit `fr`, die einen Anteil des verfügbaren Platzes im Grid-Container angibt.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt ein Grid mit drei Spaltentracks: einer mit 200 Pixeln, der zweite mit 1fr, der dritte mit 3fr. Nachdem die 200 Pixel vom verfügbaren Raum im Grid-Container abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Ein Teil wird der Spalte 2 und drei Teile der Spalte 3 zugewiesen.
+Das untenstehende Beispiel demonstriert ein Grid mit drei Spaltentracks, einer mit 200 Pixeln, der zweite mit 1fr, der dritte mit 3fr. Nachdem die 200 Pixel vom verfügbaren Raum im Grid-Container abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Ein Teil wird Spalte 2 zugewiesen, 3 Teile der Spalte 3.
 
 ```css hidden
 * {
@@ -60,14 +60,14 @@ Das folgende Beispiel zeigt ein Grid mit drei Spaltentracks: einer mit 200 Pixel
 
 {{ EmbedLiveSample('Example', '500', '230') }}
 
-## Track-Größen im impliziten Grid
+## Track-Sizing im impliziten Grid
 
-Tracks, die im impliziten Grid erstellt werden, sind standardmäßig automatisch dimensioniert, jedoch können Sie eine Größe für diese Tracks mit den Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} definieren.
+Die im impliziten Grid erstellten Tracks werden standardmäßig automatisch dimensioniert, jedoch können Sie eine Größe für diese Tracks mit den Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} definieren.
 
 ## Siehe auch
 
-- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Definition von Grid-Tracks in der CSS Grid Layout Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
+- [Grundlagen des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Definition von Grid-Tracks in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
 - Eigenschaftsreferenz
 
   - {{cssxref("grid-template-columns")}}

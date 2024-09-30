@@ -7,17 +7,17 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`RsaOaepParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter an [`SubtleCrypto.encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt), [`SubtleCrypto.decrypt()`](/de/docs/Web/API/SubtleCrypto/decrypt), [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) oder [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) übergeben werden sollte, wenn der [RSA_OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep)-Algorithmus verwendet wird.
+Das **`RsaOaepParams`**-Dictionary der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in [`SubtleCrypto.encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt), [`SubtleCrypto.decrypt()`](/de/docs/Web/API/SubtleCrypto/decrypt), [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) oder [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) übergeben werden sollte, wenn der [RSA_OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep)-Algorithmus verwendet wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - `name`
-  - : Ein String. Dies sollte auf `RSA-OAEP` gesetzt werden.
+  - : Ein String. Dieser sollte auf `RSA-OAEP` gesetzt werden.
 - `label` {{optional_inline}}
 
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} — ein Array von Bytes, das nicht selbst verschlüsselt werden muss, aber an den Chiffretext gebunden sein sollte. Ein Digest des Labels ist Teil der Eingabe für den Verschlüsselungsvorgang.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder eine {{jsxref("DataView")}} — ein Array von Bytes, das selbst nicht verschlüsselt werden muss, aber mit dem Chiffretext verbunden sein sollte. Ein Digest des Labels ist Teil der Eingabe für die Verschlüsselungsoperation.
 
-    Sofern Ihre Anwendung kein Label erfordert, können Sie dieses Argument einfach weglassen, und es wird die Sicherheit des Verschlüsselungsvorgangs nicht beeinträchtigen.
+    Sofern Ihre Anwendung kein Label verlangt, können Sie dieses Argument einfach weglassen, und es wird sich nicht auf die Sicherheit der Verschlüsselungsoperation auswirken.
 
 ## Beispiele
 

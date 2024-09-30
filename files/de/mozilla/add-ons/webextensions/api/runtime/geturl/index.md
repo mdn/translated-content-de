@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Angenommen Sie haben einen relativen Pfad von der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zu einer mit der Erweiterung verpackten Ressource, geben Sie eine vollständig qualifizierte URL zurück.
+Angenommen, es gibt einen relativen Pfad von der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zu einer mit der Erweiterung verpackten Ressource, wird eine vollständig qualifizierte URL zurückgegeben.
 
 Diese Funktion überprüft _nicht_, ob die Ressource tatsächlich unter dieser URL existiert.
 
@@ -26,7 +26,7 @@ browser.runtime.getURL(
 
 ### Rückgabewert
 
-`string`. Die vollständig qualifizierte URL zu der Ressource innerhalb der Erweiterung.
+`string`. Die vollständig qualifizierte URL zur Ressource innerhalb der Erweiterung.
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ browser.runtime.getURL(
 
 ## Beispiele
 
-Angenommen, eine Datei ist mit der Erweiterung unter "beasts/frog.html" verpackt, erhalten Sie die vollständige URL so:
+Angenommen, eine mit der Erweiterung verpackte Datei befindet sich unter "beasts/frog.html", erhalten Sie die vollständige URL wie folgt:
 
 ```js
 let fullURL = browser.runtime.getURL("beasts/frog.html");
@@ -46,7 +46,7 @@ console.log(fullURL);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getURL). Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) aus dem Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getURL). Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

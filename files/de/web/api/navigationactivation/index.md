@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`NavigationActivation`**-Schnittstelle der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert eine kürzlich erfolgte dokumentübergreifende Navigation. Sie enthält den Navigationstyp sowie die ausgehenden und eingehenden Dokumentverlaufeinträge.
+Das **`NavigationActivation`** Interface der [Navigation-API](/de/docs/Web/API/Navigation_API) repräsentiert eine kürzlich erfolgte dokumentenübergreifende Navigation. Es enthält den Navigationstyp sowie die Ausgangs- und Eingangs-Dokumentverlaufeinträge.
 
-Auf dieses Objekt wird über die Eigenschaften [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation) und [`Navigation.activation`](/de/docs/Web/API/Navigation/activation) zugegriffen. Beachten Sie, dass in jedem Fall die `NavigationActivation` eine unterschiedliche Navigation darstellt:
+Dieses Objekt wird über die Eigenschaften [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation) und [`Navigation.activation`](/de/docs/Web/API/Navigation/activation) aufgerufen. Beachten Sie, dass in jedem Fall die `NavigationActivation` eine andere Navigation repräsentiert:
 
 - `Navigation.activation` repräsentiert Informationen über die Navigation zur aktuellen Seite.
 - `PageSwapEvent.activation` repräsentiert Informationen über die Navigation zur nächsten Seite.
@@ -17,11 +17,11 @@ Auf dieses Objekt wird über die Eigenschaften [`PageSwapEvent.activation`](/de/
 ## Instanz-Eigenschaften
 
 - [`entry`](/de/docs/Web/API/NavigationActivation/entry) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das eingehende ("zu") Dokument in der Navigation darstellt. Dies entspricht der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)-Eigenschaft in dem Moment, in dem das eingehende Dokument aktiviert wurde.
+  - : Enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekt, das den Verlaufeintrag für das eingehende ("zu") Dokument in der Navigation repräsentiert. Dies entspricht der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) Eigenschaft zu dem Zeitpunkt, zu dem das eingehende Dokument aktiviert wurde.
 - [`from`](/de/docs/Web/API/NavigationActivation/from) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das ausgehende ("von") Dokument in der Navigation darstellt.
+  - : Enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekt, das den Verlaufeintrag für das ausgehende ("von") Dokument in der Navigation repräsentiert.
 - [`navigationType`](/de/docs/Web/API/NavigationActivation/navigationType) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält eine Zeichenkette, die den Typ der Navigation angibt.
+  - : Enthält einen String, der den Typ der Navigation angibt.
 
 ## Beispiele
 
@@ -77,7 +77,7 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Sehen Sie sich die [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo an, aus der dieser Code stammt.
+> Siehe [Liste der Chrome DevRel Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo, von der dieser Code stammt.
 
 ## Spezifikationen
 
@@ -89,5 +89,5 @@ window.addEventListener("pagereveal", async (e) => {
 
 ## Siehe auch
 
-- [Navigation API](/de/docs/Web/API/Navigation_API)
+- [Navigation-API](/de/docs/Web/API/Navigation_API)
 - [View Transitions API](/de/docs/Web/API/View_Transitions_API)

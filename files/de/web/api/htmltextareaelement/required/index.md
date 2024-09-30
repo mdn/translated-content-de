@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: required Eigenschaft"
+title: "HTMLTextAreaElement: required-Eigenschaft"
 short-title: required
 slug: Web/API/HTMLTextAreaElement/required
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`required`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt an, dass der Benutzer einen Wert eingeben muss, bevor ein Formular gesendet wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/textarea#required)-Attribut des {{htmlelement("textarea")}}-Elements wider.
+Die **`required`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, dass der Benutzer einen Wert eingeben muss, bevor ein Formular abgeschickt wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/textarea#required)-Attribut des {{htmlelement("textarea")}}-Elements wider.
 
 ## Wert
 
-Ein boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ console.log(textArea.required);
 
 - {{HTMLElement("textarea")}}
 - [`HTMLTextAreaElement.validity`](/de/docs/Web/API/HTMLTextAreaElement/validity)
-- {{cssxref(":required")}} Pseudoklasse
+- {{cssxref(":required")}} Pseudo-Klasse

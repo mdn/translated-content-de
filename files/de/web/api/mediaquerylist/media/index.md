@@ -10,16 +10,16 @@ l10n:
 
 Die **`media`** schreibgeschützte Eigenschaft der
 [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle ist ein String, der eine
-serialisierte Media Query darstellt.
+serialisierte Media-Query darstellt.
 
 ## Wert
 
-Ein String, der eine serialisierte Media Query darstellt.
+Ein String, der eine serialisierte Media-Query darstellt.
 
 ## Beispiele
 
-Dieses Beispiel führt die Media Query `(max-width: 600px)` aus und zeigt den
-Wert der resultierenden `media`-Eigenschaft der `MediaQueryList` in einem
+Dieses Beispiel führt die Media-Query `(max-width: 600px)` aus und zeigt den
+Wert der resultierenden `media`-Eigenschaft des `MediaQueryList` in einem
 {{HTMLElement("span")}} an.
 
 ### JavaScript
@@ -30,7 +30,8 @@ let mql = window.matchMedia("(max-width: 600px)");
 document.querySelector(".mq-value").innerText = mql.media;
 ```
 
-Der JavaScript-Code übergibt die Media Query an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu erstellen, und setzt dann das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
+Der JavaScript-Code übergibt die zu testende Media-Query an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu kompilieren, und setzt dann die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der resultierenden
+`media`-Eigenschaft.
 
 ### HTML
 
@@ -38,7 +39,7 @@ Der JavaScript-Code übergibt die Media Query an [`matchMedia()`](/de/docs/Web/A
 <span class="mq-value"></span>
 ```
 
-Ein einfaches `<span>`, um die Ausgabe zu empfangen.
+Ein einfaches `<span>`, um die Ausgabe zu erhalten.
 
 ```css hidden
 .mq-value {
@@ -67,7 +68,7 @@ Ein einfaches `<span>`, um die Ausgabe zu empfangen.
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

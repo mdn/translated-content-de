@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`PushEvent`**-Interface der [Push-API](/de/docs/Web/API/Push_API) repräsentiert eine Push-Nachricht, die empfangen wurde. Dieses Ereignis wird an den [globalen Geltungsbereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet. Es enthält die Informationen, die von einem Anwendungsserver an ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet werden.
+Das **`PushEvent`**-Interface der [Push-API](/de/docs/Web/API/Push_API) repräsentiert eine empfangene Push-Nachricht. Dieses Ereignis wird an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet. Es enthält die Informationen, die von einem Anwendungsserver an ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet wurden.
 
 {{InheritanceDiagram}}
 
@@ -16,20 +16,20 @@ Das **`PushEvent`**-Interface der [Push-API](/de/docs/Web/API/Push_API) repräse
 - [`PushEvent()`](/de/docs/Web/API/PushEvent/PushEvent)
   - : Erstellt ein neues `PushEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Zusätzliche Eigenschaften:_
 
 - [`PushEvent.data`](/de/docs/Web/API/PushEvent/data) {{ReadOnlyInline}}
   - : Gibt eine Referenz auf ein [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Objekt zurück, das Daten enthält, die an das [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet wurden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Erbt Methoden von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 ## Beispiele
 
-Das folgende Beispiel nimmt Daten von einem `PushEvent` und zeigt sie in allen Clients des Service Workers an.
+Das folgende Beispiel entnimmt Daten aus einem `PushEvent` und zeigt diese auf allen Clients des Service Workers an.
 
 ```js
 self.addEventListener("push", (event) => {

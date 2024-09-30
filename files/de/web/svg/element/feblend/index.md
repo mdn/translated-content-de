@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Der **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Objekte miteinander, gesteuert durch einen bestimmten Mischmodus. Dies ist ähnlich zu dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das {{SVGAttr("mode")}} Attribut definiert.
+Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filterprimitive fügt zwei Objekte gemäß einem bestimmten Überblendmodus zusammen. Dies ist vergleichbar mit dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Der **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Obj
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -71,7 +71,7 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -90,4 +90,4 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

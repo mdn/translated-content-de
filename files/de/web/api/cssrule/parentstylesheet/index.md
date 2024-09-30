@@ -1,5 +1,5 @@
 ---
-title: "CSSRule: parentStyleSheet-Eigenschaft"
+title: "CSSRule: parentStyleSheet Eigenschaft"
 short-title: parentStyleSheet
 slug: Web/API/CSSRule/parentStyleSheet
 l10n:

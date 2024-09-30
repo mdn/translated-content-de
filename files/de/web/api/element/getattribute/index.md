@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getAttribute()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
+Die **`getAttribute()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
 
-Wenn das angegebene Attribut nicht existiert, wird der Wert `null` zurückgegeben.
+Wenn das angegebene Attribut nicht existiert, wird der zurückgegebene Wert `null` sein.
 
-Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr)-Knotens inspizieren müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)-Methode verwenden.
+Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr) Knotens untersuchen müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode verwenden.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ getAttribute(attributeName)
 ### Parameter
 
 - `attributeName`
-  - : Der Name des Attributs, dessen Wert Sie erhalten möchten.
+  - : Der Name des Attributs, dessen Wert Sie abfragen möchten.
 
 ### Rückgabewert
 
@@ -50,21 +50,20 @@ const align = div1.getAttribute("align");
 
 ## Beschreibung
 
-### Kleinbuchstaben
+### Kleinschreibung
 
-Wenn `getAttribute()` an einem HTML-Element in einem DOM, das als HTML-Dokument markiert ist, aufgerufen wird, wandelt die Methode ihr Argument in Kleinbuchstaben um, bevor sie fortfährt.
+Wenn es auf einem HTML-Element in einem DOM aufgerufen wird, das als HTML-Dokument markiert ist, wandelt `getAttribute()` sein Argument in Kleinbuchstaben um, bevor es fortfährt.
 
 ### Abrufen von Nonce-Werten
 
-Aus Sicherheitsgründen werden [CSP](/de/docs/Web/HTTP/CSP)-Nonces, die nicht aus Skriptquellen stammen, wie CSS-Selektoren, und `.getAttribute("nonce")`-Aufrufe verborgen.
+Aus Sicherheitsgründen sind [CSP](/de/docs/Web/HTTP/CSP)-Nonces aus Nicht-Skript-Quellen, wie z.B. CSS-Selektoren, und `.getAttribute("nonce")` Aufrufe versteckt.
 
 ```js example-bad
 let nonce = script.getAttribute("nonce");
 // returns empty string
 ```
 
-Anstatt die Nonce aus dem Inhaltsattribut abzurufen, verwenden Sie die
-[`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft:
+Anstatt die Nonce vom Inhaltsattribut abzurufen, verwenden Sie die [`nonce`](/de/docs/Web/API/HTMLElement/nonce) Eigenschaft:
 
 ```js
 let nonce = script.nonce;

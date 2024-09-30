@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Element.lastElementChild`** gibt das letzte Kindelement eines [`Element`](/de/docs/Web/API/Element) zurück oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte **`Element.lastElementChild`**-Eigenschaft gibt das letzte Kind-`Element` eines Elements zurück oder `null`, wenn es keine Kindelemente gibt.
 
-`Element.lastElementChild` umfasst nur Elementknoten. Um alle Kindknoten zu erhalten, einschließlich Nicht-Elementknoten wie Text- und Kommentarknoten, verwenden Sie [`Node.lastChild`](/de/docs/Web/API/Node/lastChild).
+`Element.lastElementChild` umfasst nur Elemente. Um alle Knoten, einschließlich nicht-elementarer Knoten wie Text- und Kommentarknoten, zu erhalten, verwenden Sie [`Node.lastChild`](/de/docs/Web/API/Node/lastChild).
 
 ## Wert
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **[`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)**-Wörterbuchs **`password`**-Eigenschaft gibt das ICE-Passwort an, das zusammen mit dem [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) eine ICE-Sitzung für deren gesamte Dauer eindeutig identifiziert.
+Die **[`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)**-Wörterbuchs **`password`**-Eigenschaft gibt das ICE-Passwort an, das zusammen mit dem [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) eine ICE-Sitzung für ihre gesamte Dauer eindeutig identifiziert.
 
 ## Wert
 
-Ein String, der das Passwort enthält, das dem `usernameFragment`-String des Transports entspricht
+Ein String, der das Passwort enthält, das dem `usernameFragment`-String des Transports entspricht.
 
 ## Spezifikationen
 

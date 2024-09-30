@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("CSSOM")}}{{Deprecated_header}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`CSSRule`](/de/docs/Web/API/CSSRule)-Schnittstelle ist eine veraltete Eigenschaft, die eine Ganzzahl zurückgibt, die angibt, welche Art von Regel die [`CSSRule`](/de/docs/Web/API/CSSRule) darstellt.
+Die schreibgeschützte **`type`**-Eigenschaft der
+[`CSSRule`](/de/docs/Web/API/CSSRule)-Schnittstelle ist eine veraltete Eigenschaft, die eine ganze Zahl zurückgibt, die angibt, welcher Typ von Regel die [`CSSRule`](/de/docs/Web/API/CSSRule) darstellt.
 
-Wenn Sie verschiedene Arten von CSS-Regeln unterscheiden müssen, ist eine gute Alternative die Verwendung von [`constructor.name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name):
+Wenn Sie zwischen verschiedenen Typen von CSS-Regeln unterscheiden müssen, ist eine gute Alternative die Verwendung von [`constructor.name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name):
 
 ```js
 const sheets = Array.from(document.styleSheets);
@@ -26,7 +27,7 @@ for (const rule of rules) {
 - `CSSRule.STYLE_RULE` (`1`)
   - : Die Regel ist eine [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule), die häufigste Art von Regel: `selector { prop1: val1; prop2: val2; }`.
 - `CSSRule.IMPORT_RULE` (`3`)
-  - : Die Regel ist eine [`CSSImportRule`](/de/docs/Web/API/CSSImportRule) und repräsentiert eine {{cssxref("@import")}}-Regel.
+  - : Die Regel ist eine [`CSSImportRule`](/de/docs/Web/API/CSSImportRule) und stellt eine {{cssxref("@import")}}-Regel dar.
 - `CSSRule.MEDIA_RULE` (`4`)
   - : Die Regel ist eine [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule).
 - `CSSRule.FONT_FACE_RULE` (`5`)
@@ -46,7 +47,7 @@ for (const rule of rules) {
 - `CSSRule.FONT_FEATURE_VALUES_RULE` (`14`)
   - : Die Regel ist eine [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule).
 
-Die Werte `CSSRule.UNKNOWN_RULE` (`0`), `CSSRule.CHARSET_RULE` (`2`), `CSSRule.DOCUMENT_RULE` (`13`), `CSSRule.VIEWPORT_RULE` (`14`) und `CSSRule.REGION_STYLE_RULE` (`16`) können nicht mehr abgerufen werden.
+Die Werte `CSSRule.UNKNOWN_RULE` (`0`), `CSSRule.CHARSET_RULE` (`2`), `CSSRule.DOCUMENT_RULE` (`13`), `CSSRule.VIEWPORT_RULE` (`14`) und `CSSRule.REGION_STYLE_RULE` (`16`) können nicht mehr erlangt werden.
 
 ## Beispiele
 

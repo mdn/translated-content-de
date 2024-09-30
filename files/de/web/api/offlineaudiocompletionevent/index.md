@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die Schnittstelle `OfflineAudioCompletionEvent` der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert Ereignisse, die auftreten, wenn die Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet wird. Das [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event) Ereignis verwendet diese Schnittstelle.
+Die Schnittstelle `OfflineAudioCompletionEvent` der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert Ereignisse, die auftreten, wenn die Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet ist. Das [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)-Ereignis verwendet diese Schnittstelle.
 
 > [!NOTE]
-> Diese Schnittstelle ist als veraltet markiert; sie wird aus Kompatibilitätsgründen weiterhin unterstützt, aber sie wird bald abgelöst, wenn die Promise-Version von [`OfflineAudioContext.startRendering`](/de/docs/Web/API/OfflineAudioContext/startRendering) in Browsern unterstützt wird, die sie nicht mehr benötigen werden.
+> Diese Schnittstelle ist als veraltet markiert; sie wird aus Kompatibilitätsgründen weiterhin unterstützt, aber sie wird bald durch die Promise-Version von [`OfflineAudioContext.startRendering`](/de/docs/Web/API/OfflineAudioContext/startRendering) ersetzt werden, die in Browsern unterstützt werden wird und diese nicht mehr benötigen wird.
 
 {{InheritanceDiagram}}
 
@@ -19,16 +19,16 @@ Die Schnittstelle `OfflineAudioCompletionEvent` der [Web Audio API](/de/docs/Web
 - [`OfflineAudioCompletionEvent()`](/de/docs/Web/API/OfflineAudioCompletionEvent/OfflineAudioCompletionEvent)
   - : Erstellt eine neue Instanz des `OfflineAudioCompletionEvent`-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`OfflineAudioCompletionEvent.renderedBuffer`](/de/docs/Web/API/OfflineAudioCompletionEvent/renderedBuffer) {{ReadOnlyInline}}
   - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das Ergebnis der Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Methoden von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 

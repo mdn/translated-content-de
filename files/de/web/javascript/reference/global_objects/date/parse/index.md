@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Date.parse()`** analysiert eine String-Darstellung eines Datums und gibt den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des Datums zurück.
+Die statische Methode **`Date.parse()`** analysiert eine Zeichenfolgendarstellung eines Datums und gibt den [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des Datums zurück.
 
-Nur das [Date Time String Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) ist ausdrücklich spezifiziert zu unterstützen. Andere Formate sind implementationsspezifisch und funktionieren möglicherweise nicht in allen Browsern. Eine Bibliothek kann helfen, wenn viele verschiedene Formate unterstützt werden sollen.
+Nur das Format [date time string format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) ist explizit als unterstützt angegeben. Andere Formate sind implementierungsabhängig und funktionieren möglicherweise nicht in allen Browsern. Eine Bibliothek kann helfen, wenn viele verschiedene Formate unterstützt werden sollen.
 
 {{EmbedInteractiveExample("pages/js/date-parse.html")}}
 
@@ -22,23 +22,23 @@ Date.parse(dateString)
 ### Parameter
 
 - `dateString`
-  - : Ein String im [Date Time String Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format). Beachten Sie den verlinkten Verweis für Einschränkungen zur Verwendung unterschiedlicher Formate.
+  - : Eine Zeichenfolge im [date time string format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format). Siehe die verlinkte Referenz für Hinweise zur Verwendung verschiedener Formate.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des angegebenen Datums darstellt. Wenn `dateString` nicht als gültiges Datum analysiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
+Eine Zahl, die den [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des angegebenen Datums darstellt. Wenn `dateString` nicht als gültiges Datum analysiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Diese Funktion ist nützlich, um Datumswerte basierend auf String-Werten festzulegen, beispielsweise in Verbindung mit der {{jsxref("Date/setTime", "setTime()")}}-Methode.
+Diese Funktion ist nützlich, um Datumswerte basierend auf Zeichenfolgenwerten festzulegen, zum Beispiel in Verbindung mit der Methode {{jsxref("Date/setTime", "setTime()")}}.
 
-Da `parse()` eine statische Methode von `Date` ist, verwenden Sie sie immer als `Date.parse()` und nicht als Methode eines von Ihnen erstellten `Date` Objekts.
+Da `parse()` eine statische Methode von `Date` ist, verwenden Sie sie immer als `Date.parse()` und nicht als Methode eines von Ihnen erstellten `Date`-Objekts.
 
 ## Beispiele
 
 ### Verwendung von Date.parse()
 
-Die folgenden Aufrufe geben alle `1546300800000` zurück. Der erste wird die UTC-Zeit implizieren, da er nur das Datum enthält, und die anderen geben explizit die UTC-Zeitzone an.
+Die folgenden Aufrufe geben alle `1546300800000` zurück. Der erste impliziert die UTC-Zeit, da es sich nur um ein Datum handelt, und die anderen geben die UTC-Zeitzone explizit an.
 
 ```js
 Date.parse("2019-01-01");
@@ -46,21 +46,21 @@ Date.parse("2019-01-01T00:00:00.000Z");
 Date.parse("2019-01-01T00:00:00.000+00:00");
 ```
 
-Der folgende Aufruf, der keine Zeitzone angibt, wird auf 2019-01-01 um 00:00:00 in der lokalen Zeitzone des Systems gesetzt, da er sowohl Datum als auch Uhrzeit enthält.
+Der folgende Aufruf, der keine Zeitzone angibt, wird auf den 2019-01-01 um 00:00:00 in der lokalen Zeitzone des Systems festgelegt, da sowohl Datum als auch Uhrzeit vorhanden sind.
 
 ```js
 Date.parse("2019-01-01T00:00:00");
 ```
 
-### Nicht-standardisierte Datumsstrings
+### Nicht-standardisierte Datumszeichenfolgen
 
 > [!NOTE]
-> Dieser Abschnitt enthält Implementierungsspezifisches Verhalten, das über Implementierungen hinweg inkonsistent sein kann.
+> Dieser Abschnitt enthält implementierungsspezifisches Verhalten, das zwischen Implementierungen inkonsistent sein kann.
 
-Implementierungen verwenden normalerweise die lokale Zeitzone, wenn der Datumsstring nicht standardisiert ist. Für Konsistenz werden wir annehmen, dass der Code die UTC-Zeitzone verwendet.
+Implementierungen verwenden normalerweise die lokale Zeitzone, wenn die Datumszeichenfolge nicht standardisiert ist. Zur Konsistenz nehmen wir an, dass der Code die UTC-Zeitzone verwendet.
 
 > [!NOTE]
-> Der Zeitzonenversatz der lokalen Zeit wird aus der Systemeinstellung des Geräts übernommen und dann auf das zu analysierende Datum angewendet. [Sommerzeit (DST) der lokalen Zeitzone kann ebenfalls Auswirkungen darauf haben](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset#varied_results_in_daylight_saving_time_dst_regions).
+> Die Zeitzonenverschiebung der lokalen Zeitzone stammt von den Systemeinstellungen des Geräts und wird dann auf das zu analysierende Datum angewendet. [Die Sommerzeit (DST) der lokalen Zeitzone kann ebenfalls Einfluss darauf haben](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset#varied_results_in_daylight_saving_time_dst_regions).
 
 ```js
 Date.parse("Jan 1, 1970"); // 0 in all implementations

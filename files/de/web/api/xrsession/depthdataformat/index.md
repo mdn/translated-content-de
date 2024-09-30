@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`depthDataFormat`**-Eigenschaft einer `immersive-ar`-[`XRSession`](/de/docs/Web/API/XRSession) beschreibt, welches Tiefensensor-Datenformat verwendet wird.
+Die _schreibgeschützte_ **`depthDataFormat`**-Eigenschaft einer `immersive-ar` [`XRSession`](/de/docs/Web/API/XRSession) beschreibt, welches Tiefensensor-Datenformat verwendet wird.
 
 ## Wert
 
 Diese Eigenschaft kann die folgenden Werte zurückgeben:
 
 - `luminance-alpha`
-  - : 2-Byte-unsigned integer Datenpuffer (`LUMINANCE_ALPHA` `GLEnum`).
-    CPU-Nutzung: Interpretieren von [`XRCPUDepthInformation.data`](/de/docs/Web/API/XRCPUDepthInformation/data) als {{jsxref("Uint8Array")}}.
-    GPU-Nutzung: Kanal für Luminanz und Alpha inspizieren, um einen einzelnen Wert zusammenzusetzen.
+  - : 2-Byte-unsigned-Integer-Datenpuffer (`LUMINANCE_ALPHA` `GLEnum`).
+    CPU-Nutzung: Interpretieren Sie [`XRCPUDepthInformation.data`](/de/docs/Web/API/XRCPUDepthInformation/data) als {{jsxref("Uint8Array")}}.
+    GPU-Nutzung: Untersuchen Sie die Luminanz- und Alphakanäle, um einen einzelnen Wert wiederherzustellen.
 - `float32`
   - : 4-Byte-Gleitkomma-Datenpuffer (`R32F` `GLEnum`).
-    CPU-Nutzung: Interpretieren von [`XRCPUDepthInformation.data`](/de/docs/Web/API/XRCPUDepthInformation/data) als {{jsxref("Float32Array")}}.
-    GPU-Nutzung: Rotkanal inspizieren und den Wert verwenden.
+    CPU-Nutzung: Interpretieren Sie [`XRCPUDepthInformation.data`](/de/docs/Web/API/XRCPUDepthInformation/data) als {{jsxref("Float32Array")}}.
+    GPU-Nutzung: Untersuchen Sie den Rotkanal und nutzen Sie den Wert.
 
 ## Beispiele
 
-Um das gewünschte Datenformat anzufordern, müssen Sie eine `dataFormatPreference` angeben, wenn Sie eine Sitzung mit [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern. Hier kann der Aufrufer sowohl "luminance-alpha" als auch "float32"-Formate verarbeiten. Die Reihenfolge zeigt die Präferenz für "luminance-alpha" an:
+Um das gewünschte Datenformat anzufordern, müssen Sie eine `dataFormatPreference` angeben, wenn Sie eine Sitzung mit [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern. Hier ist der Aufrufer in der Lage, sowohl das "luminance-alpha"- als auch das "float32"-Format zu verarbeiten. Die Reihenfolge gibt die Präferenz für "luminance-alpha" an:
 
 ```js
 navigator.xr.requestSession("immersive-ar", {
@@ -37,7 +37,7 @@ navigator.xr.requestSession("immersive-ar", {
 });
 ```
 
-Um zu prüfen, welches Datenformat vom Benutzeragenten ausgewählt wurde, können Sie die `depthDataFormat`-Eigenschaft aufrufen:
+Um zu überprüfen, welches Datenformat vom Benutzeragenten ausgewählt wurde, können Sie die `depthDataFormat`-Eigenschaft aufrufen:
 
 ```js
 console.log(session.depthDataFormat); // either "luminance-alpha" or "float32"

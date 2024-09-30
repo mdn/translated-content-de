@@ -8,19 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`navigator.hardwareConcurrency`** gibt die Anzahl der logischen Prozessoren zurück, die auf dem Computer des Benutzers für das Ausführen von Threads verfügbar sind.
+Die schreibgeschützte Eigenschaft **`navigator.hardwareConcurrency`**
+gibt die Anzahl der logischen Prozessoren zurück, die für das Ausführen von Threads auf dem Computer des Benutzers verfügbar sind.
 
 ## Wert
 
-Eine Zahl zwischen 1 und der Anzahl der logischen Prozessoren, die potenziell für den User-Agent verfügbar sind.
+Eine Zahl zwischen 1 und der Anzahl der logischen Prozessoren, die dem Benutzeragenten potenziell zur Verfügung stehen.
 
-Moderne Computer haben mehrere physische Prozessorkerne in ihrer CPU (zwei oder vier Kerne sind typisch), aber jeder physische Kern kann normalerweise mehr als einen Thread gleichzeitig mit fortschrittlichen Planungstechniken ausführen. So kann eine CPU mit vier Kernen beispielsweise acht **logische Prozessorkerne** bieten. Die Anzahl der logischen Prozessorkerne kann verwendet werden, um die Anzahl der Threads zu messen, die effektiv gleichzeitig ausgeführt werden können, ohne dass sie kontextuell wechseln müssen.
+Moderne Computer verfügen über mehrere physische Prozessorkerne in ihrer CPU (zwei oder vier Kerne sind typisch), aber jeder physische Kern kann normalerweise auch mehr als einen Thread gleichzeitig ausführen, indem er fortschrittliche Zeitplanungstechniken verwendet. Ein Vier-Kern-CPU könnte zum Beispiel acht **logische Prozessorkerne** bieten. Die Anzahl der logischen Prozessorkerne kann genutzt werden, um die Anzahl der Threads zu messen, die effektiv gleichzeitig ausgeführt werden können, ohne dass diese den Kontext wechseln müssen.
 
-Der Browser kann jedoch wählen, eine niedrigere Anzahl logischer Kerne zu melden, um genauer die Anzahl der [`Worker`](/de/docs/Web/API/Worker) darzustellen, die gleichzeitig ausgeführt werden können. Daher sollten Sie dies nicht als absolute Messung der Anzahl der Kerne im System des Benutzers betrachten.
+Der Browser kann jedoch auch eine niedrigere Anzahl logischer Kerne melden, um die Anzahl der [`Worker`](/de/docs/Web/API/Worker)s, die gleichzeitig ausgeführt werden können, genauer darzustellen. Daher sollte dies nicht als absolute Messung der Kerne im System des Benutzers betrachtet werden.
 
 ## Beispiele
 
-In diesem Beispiel wird ein [`Worker`](/de/docs/Web/API/Worker) für jeden vom Browser gemeldeten logischen Prozessor erstellt, und ein Datensatz wird erstellt, der eine Referenz auf den neuen Worker sowie einen booleschen Wert enthält, der angibt, ob wir diesen Worker bereits nutzen oder nicht; diese Objekte werden ihrerseits in einem Array für die spätere Verwendung gespeichert. Dies erstellt einen Pool von Workern, den wir später zur Bearbeitung von Anfragen nutzen können.
+In diesem Beispiel wird ein [`Worker`](/de/docs/Web/API/Worker) für jeden vom Browser gemeldeten logischen Prozessor erstellt und ein Datensatz erstellt, der eine Referenz auf den neuen Worker sowie einen booleschen Wert enthält, der angibt, ob wir diesen Worker bereits verwenden; diese Objekte werden wiederum in einem Array für die spätere Verwendung gespeichert. Dies erzeugt einen Pool von Workern, die wir später zur Bearbeitung von Anfragen verwenden können.
 
 ```js
 let workerList = [];

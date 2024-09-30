@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`writable`** schreibgeschützte Eigenschaft des [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
+Die schreibgeschützte Eigenschaft **`writable`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
 
 ## Wert
 

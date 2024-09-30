@@ -18,13 +18,13 @@ set:has-same-node(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Die erste Knotenmenge, die überprüft werden soll.
+  - : Die erste Knotenmengen, die geprüft werden soll.
 - `nodeSet2`
-  - : Die zweite Knotenmenge, die überprüft werden soll.
+  - : Die zweite Knotenmengen, die geprüft werden soll.
 
 ### Rückgabewert
 
-`true`, wenn die beiden Knotenmengen gemeinsame Knoten haben; ansonsten `false`.
+`true`, wenn die beiden Knotenmengen gemeinsame Knoten haben; andernfalls `false`.
 
 ## Spezifikationen
 

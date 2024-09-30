@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`image-resolution`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die intrinsische Auflösung aller Rasterbilder fest, die im oder auf dem Element verwendet werden. Sie betrifft Inhaltsbilder wie ersetzte Elemente und generierte Inhalte sowie dekorative Bilder wie `background-image`-Bilder.
+Die **`image-resolution`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die intrinsische Auflösung aller Rasterbilder an, die im oder auf dem Element verwendet werden. Sie beeinflusst Inhaltsbilder wie ersetzte Elemente und erzeugten Inhalt sowie dekorative Bilder wie `background-image`.
 
-Die Bildauflösung wird als Anzahl der Bildpixel pro Längeneinheit definiert, z.B. Pixel pro Zoll. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS-px-Einheit aus; die `image-resolution`-Eigenschaft ermöglicht jedoch die Spezifikation einer anderen Auflösung.
+Die Bildauflösung wird als die Anzahl der Bildpixel pro Längeneinheit definiert, z.B. Pixel pro Inch. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS-Px-Einheit aus; jedoch erlaubt die `image-resolution`-Eigenschaft, eine andere Auflösung anzugeben.
 
 ## Syntax
 
@@ -32,9 +32,9 @@ image-resolution: unset;
 - {{cssxref("&lt;resolution&gt;")}}
   - : Gibt die intrinsische Auflösung explizit an.
 - `from-image`
-  - : Verwendet die intrinsische Auflösung, wie sie vom Bildformat angegeben wird. Wenn das Bild keine eigene Auflösung angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls wird der Standardwert `1dppx` (1 Bildpixel pro CSS-px-Einheit) angenommen.
+  - : Verwendet die intrinsische Auflösung, wie sie im Bildformat angegeben ist. Wenn das Bild keine eigene Auflösung angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls wird auf `1dppx` (1 Bildpixel pro CSS-Px-Einheit) zurückgegriffen.
 - `snap`
-  - : Wenn das Schlüsselwort `snap` angegeben ist, wird die berechnete Auflösung auf den nächstgelegenen Wert gerundet, der ein Bildpixel einer ganzen Zahl von Gerätepixeln zuordnet. Wenn die Auflösung vom Bild übernommen wird, wird die verwendete intrinsische Auflösung ähnlich angepasste native Auflösung des Bildes verwendet.
+  - : Wenn das `snap`-Schlüsselwort angegeben ist, wird die berechnete Auflösung auf den nächstgelegenen Wert gerundet, der ein Bildpixel auf eine ganze Anzahl von Gerätepixeln abbilden würde. Wenn die Auflösung vom Bild übernommen wird, ist die verwendete intrinsische Auflösung die native Auflösung des Bildes, entsprechend angepasst.
 
 > [!NOTE]
 > Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keine Auswirkung auf Vektorbilder.
@@ -49,9 +49,9 @@ image-resolution: unset;
 
 ## Beispiele
 
-### Einstellung einer hohen dpi für den Druck
+### Einstellung einer hohen DPI für den Druck
 
-Beim Drucken des Dokuments eine höhere Auflösung verwenden.
+Beim Drucken des Dokuments sollte eine höhere Auflösung verwendet werden.
 
 ```css
 @media print {
@@ -61,9 +61,9 @@ Beim Drucken des Dokuments eine höhere Auflösung verwenden.
 }
 ```
 
-### Verwendung der Bildauflösung mit Fallback
+### Bildauflösung mit Fallback verwenden
 
-Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle des Standardwerts von 1dppx.
+Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle der Standardauflösung von 1dppx.
 
 ```css
 .myimage {
@@ -82,4 +82,4 @@ Derzeit unterstützt kein Browser diese Eigenschaft.
 ## Siehe auch
 
 - Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}.
-- [Chromium Bug: 1086473](https://crbug.com/1086473).
+- [Chromium-Fehler: 1086473](https://crbug.com/1086473).

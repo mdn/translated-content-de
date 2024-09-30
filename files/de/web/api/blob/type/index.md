@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`Blob`](/de/docs/Web/API/Blob)-Schnittstelle gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) der Datei zurück.
+Die schreibgeschützte **`type`**-Eigenschaft des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) der Datei zurück.
 
 > [!NOTE]
-> Basierend auf der aktuellen Implementierung lesen Browser den Bytestream einer Datei nicht tatsächlich, um ihren Medientyp zu bestimmen.
-> Es wird basierend auf der Dateiendung angenommen; eine PNG-Bilddatei, die in .txt umbenannt wird, würde "_text/plain_" und nicht "_image/png_" ergeben. Darüber hinaus ist `blob.type` in der Regel nur für gängige Dateitypen wie Bilder, HTML-Dokumente, Audio und Video zuverlässig.
-> Ungewöhnliche Dateiendungen würden eine leere Zeichenfolge zurückgeben.
-> Die Konfiguration des Clients (zum Beispiel der Windows-Registry) kann zu unerwarteten Werten selbst bei gängigen Typen führen. **Entwicklern wird geraten, sich nicht ausschließlich auf diese Eigenschaft als Validierungsschema zu verlassen.**
+> Basierend auf der aktuellen Implementierung lesen Browser den Bytestream einer Datei nicht, um den Medientyp zu bestimmen.
+> Er wird basierend auf der Dateiendung angenommen; eine PNG-Bilddatei, die in .txt umbenannt wurde, würde "_text/plain_" und nicht "_image/png_" liefern. Darüber hinaus ist `blob.type` im Allgemeinen nur für gängige Dateitypen wie Bilder, HTML-Dokumente, Audio und Video zuverlässig.
+> Unübliche Dateiendungen würden einen leeren String zurückgeben.
+> Die Konfiguration des Clients (zum Beispiel die Windows-Registry) kann sogar bei gängigen Typen zu unerwarteten Werten führen. **Entwickler werden darauf hingewiesen, sich nicht ausschließlich auf diese Eigenschaft als Validierungsschema zu verlassen.**
 
 ## Wert
 
-Eine Zeichenkette, die den MIME-Typ der Datei enthält, oder eine leere Zeichenkette, wenn der Typ nicht bestimmt werden konnte.
+Ein String, der den MIME-Typ der Datei enthält, oder ein leerer String, wenn der Typ nicht bestimmt werden konnte.
 
 ## Beispiele
 
-In diesem Beispiel wird der Benutzer aufgefordert, eine Anzahl von Dateien auszuwählen. Dann wird überprüft, ob jede Datei zu einem bestimmten Satz von Bilddateitypen gehört.
+Dieses Beispiel bittet den Benutzer, eine Anzahl von Dateien auszuwählen, und überprüft dann jede Datei, um sicherzustellen, dass sie zu einer bestimmten Menge von Bilddateitypen gehört.
 
 ### HTML
 

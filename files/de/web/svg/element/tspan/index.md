@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG **`<tspan>`**-Element definiert einen Untertext innerhalb eines {{SVGElement('text')}}-Elements oder eines anderen `<tspan>`-Elements. Es ermöglicht die Anpassung des Stils und/oder der Position dieses Untertextes nach Bedarf.
+Das SVG-Element **`<tspan>`** definiert einen Untertext innerhalb eines {{SVGElement('text')}}-Elements oder eines anderen `<tspan>`-Elements. Es ermöglicht die Anpassung des Stils und/oder der Position dieses Untertexts bei Bedarf.
 
 > [!NOTE]
-> Das `<tspan>`-Element bricht standardmäßig nicht um, um dies zu erreichen, muss es mit der CSS-Eigenschaft {{CSSXRef("white-space")}} gestylt werden.
+> Das `<tspan>`-Element umbricht standardmäßig nicht; um dies zu erreichen, muss es mit der CSS-Eigenschaft {{CSSXRef("white-space")}} gestylt werden.
 
 ## Beispiel
 
@@ -47,26 +47,26 @@ svg {
 ## Attribute
 
 - {{SVGAttr("x")}}
-  - : Die x-Koordinate des Startpunkts der Textbasislinie oder die x-Koordinate jedes einzelnen Glyphen, wenn eine Liste von Werten bereitgestellt wird.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die x-Koordinate des Startpunkts der Textgrundlinie oder die x-Koordinate eines jeden individuellen Zeichens, wenn eine Liste von Werten angegeben wird.
+    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die y-Koordinate des Startpunkts der Textbasislinie oder die y-Koordinate jedes einzelnen Glyphen, wenn eine Liste von Werten bereitgestellt wird.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die y-Koordinate des Startpunkts der Textgrundlinie oder die y-Koordinate eines jeden individuellen Zeichens, wenn eine Liste von Werten angegeben wird.
+    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("dx")}}
-  - : Verschiebt die Textposition horizontal von einem vorherigen Textelement oder verschiebt die Position jedes einzelnen Glyphen, wenn eine Liste von Werten bereitgestellt wird.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Verschiebt die Textposition horizontal ab einem vorherigen Textelement oder verschiebt die Position eines jeden individuellen Zeichens, wenn eine Liste von Werten angegeben wird.
+    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)); _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("dy")}}
-  - : Verschiebt die Textposition vertikal von einem vorherigen Textelement oder verschiebt die Position jedes einzelnen Glyphen, wenn eine Liste von Werten bereitgestellt wird.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Verschiebt die Textposition vertikal ab einem vorherigen Textelement oder verschiebt die Position eines jeden individuellen Zeichens, wenn eine Liste von Werten angegeben wird.
+    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)); _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("rotate")}}
-  - : Dreht die Ausrichtung jedes einzelnen Glyphen. Kann Glyphen individuell drehen.
-    _Wertetyp_: [**\<list-of-number>**](/de/docs/Web/SVG/Content_type#list-of-ts) ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Dreht die Orientierung jedes individuellen Zeichens. Kann Zeichen individuell drehen.
+    _Wertetyp_: [**\<list-of-number>**](/de/docs/Web/SVG/Content_type#list-of-ts); _Standardwert_: none; _Animierbar_: **ja**
 - {{SVGAttr("lengthAdjust")}}
-  - : Wie der Text gedehnt oder komprimiert wird, um die durch das `textLength`-Attribut definierte Breite zu erfüllen.
+  - : Wie der Text gedehnt oder gestaucht wird, um in die Breite zu passen, die durch das `textLength`-Attribut definiert wird.
     _Wertetyp_: `spacing`|`spacingAndGlyphs`; _Standardwert_: `spacing`; _Animierbar_: **ja**
 - {{SVGAttr("textLength")}}
-  - : Eine Breite, auf die der Text skaliert werden soll, um zu passen.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Eine Breite, auf die der Text skaliert werden soll.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext
 

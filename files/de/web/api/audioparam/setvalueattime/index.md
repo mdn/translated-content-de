@@ -1,5 +1,5 @@
 ---
-title: "AudioParam: setValueAtTime()-Methode"
+title: "AudioParam: Methode setValueAtTime()"
 short-title: setValueAtTime()
 slug: Web/API/AudioParam/setValueAtTime
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `setValueAtTime()`-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine sofortige Änderung des `AudioParam`-Wertes zu einem genauen Zeitpunkt, gemessen an [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime). Der neue Wert wird im Wert-Parameter angegeben.
+Die Methode `setValueAtTime()` der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine sofortige Änderung des `AudioParam`-Werts zu einem genauen Zeitpunkt, gemessen an [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime). Der neue Wert wird im Parameter "value" angegeben.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ setValueAtTime(value, startTime)
 ### Parameter
 
 - `value`
-  - : Eine Fließkommazahl, die den Wert darstellt, auf den sich das AudioParam zum angegebenen Zeitpunkt ändern wird.
+  - : Eine Gleitkommazahl, die den Wert darstellt, zu dem `AudioParam` zu dem gegebenen Zeitpunkt geändert wird.
 - `startTime`
-  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) zuerst erstellt wurde, zu der die Wertänderung stattfinden wird. Wenn die Zeit kleiner als [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) ist, erfolgt die Änderung sofort. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn dieser Wert negativ ist.
+  - : Ein Double, das die Zeit (in Sekunden) nach der Erstellung des [`AudioContext`](/de/docs/Web/API/AudioContext) angibt, zu der die Wertänderung erfolgt. Wenn die Zeit kleiner ist als [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime), erfolgt die Änderung sofort. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn dieser Wert negativ ist.
 
 ### Rückgabewert
 
-Eine Referenz auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
+Ein Verweis auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 
-In diesem einfachen Beispiel gibt es eine Media-Elementquelle mit zwei Steuertasten (sehen Sie sich den Quellcode in unserem [webaudio-examples Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) an oder [sehen Sie sich das Beispiel an](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn die Tasten gedrückt werden, wird die Variable `currGain` um 0,25 erhöht oder verringert, dann wird die `setValueAtTime()`-Methode verwendet, um den Gain-Wert auf `currGain` eine Sekunde von jetzt an (`audioCtx.currentTime + 1`) zu setzen.
+Dieses einfache Beispiel zeigt eine Medienquellenkomponente mit zwei Steuerschaltflächen (siehe unser [webaudio-examples-Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) für den Quellcode oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn die Schaltflächen gedrückt werden, wird die Variable `currGain` um 0,25 erhöht/verringert, und dann wird die Methode `setValueAtTime()` verwendet, um den Verstärkungswert auf `currGain` zu setzen, eine Sekunde von jetzt an (`audioCtx.currentTime + 1`).
 
 ```js
 // create audio context

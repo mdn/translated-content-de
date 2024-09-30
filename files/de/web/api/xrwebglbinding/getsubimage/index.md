@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: getSubImage()-Methode"
+title: "XRWebGLBinding: Methode getSubImage()"
 short-title: getSubImage()
 slug: Web/API/XRWebGLBinding/getSubImage
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getSubImage()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die zu rendernde WebGL-Textur repräsentiert.
+Die **`getSubImage()`** Methode des [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Interfaces gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die zu rendernde WebGL-Textur darstellt.
 
 ## Syntax
 
@@ -20,17 +20,18 @@ getSubImage(layer, frame, eye)
 ### Parameter
 
 - `layer`
-  - : Der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), der zum Rendern verwendet werden soll (kann alle Arten von `XRCompositionLayer`-Objekten außer [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) sein, siehe [`XRWebGLBinding.getViewSubImage()`](/de/docs/Web/API/XRWebGLBinding/getViewSubImage) für das Rendern von Projektionsschichten).
+  - : Der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), der für das Rendering verwendet werden soll (kann alle Arten von `XRCompositionLayer`-Objekten außer [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) sein, siehe [`XRWebGLBinding.getViewSubImage()`](/de/docs/Web/API/XRWebGLBinding/getViewSubImage) für die Projektion von Schichten).
 - `frame`
-  - : Der [`XRFrame`](/de/docs/Web/API/XRFrame)-Frame, der zum Rendern verwendet werden soll.
+  - : Der [`XRFrame`](/de/docs/Web/API/XRFrame)-Frame, der für das Rendering verwendet werden soll.
 - `eye` {{optional_inline}}
-  - : Ein optionales [`XRView.eye`](/de/docs/Web/API/XRView/eye), das angibt, welches Auge der Ansicht zum Rendern verwendet werden soll. Mögliche Werte:
+  - : Ein optionales [`XRView.eye`](/de/docs/Web/API/XRView/eye), das angibt, welches Auge der Ansicht für das Rendering verwendet werden soll. Mögliche Werte:
     - `left`
-      - : Die [`XRView`](/de/docs/Web/API/XRView) repräsentiert den Blickwinkel des linken Auges des Betrachters.
+      - : Die [`XRView`](/de/docs/Web/API/XRView) repräsentiert die Perspektive des linken Auges des Betrachters.
     - `right`
       - : Die Ansicht repräsentiert das rechte Auge des Betrachters.
     - `none`
-      - : Die Ansicht beschreibt eine monokulare Sicht oder repräsentiert ansonsten nicht den Blickwinkel eines bestimmten Auges. Standardmäßig `none`.
+      - : Die Ansicht beschreibt eine monokulare Ansicht oder repräsentiert anderweitig nicht die Perspektive eines bestimmten Auges.
+        Standardwert ist `none`.
 
 ### Rückgabewert
 
@@ -40,10 +41,10 @@ Ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt.
 
 Ein {{jsxref("TypeError")}} wird ausgelöst,
 
-- wenn `layer` nicht im [Session-`layer`-Array](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) enthalten ist.
+- wenn `layer` sich nicht im [Session-`layer` Array](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) befindet.
 - wenn `layer` ein [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) ist.
-- wenn die [`layout`](/de/docs/Web/API/XRCompositionLayer/layout)-Eigenschaft des Layers `default` ist.
-- wenn die [`layout`](/de/docs/Web/API/XRCompositionLayer/layout)-Eigenschaft des Layers `stereo` ist und `eye` `none` ist.
+- wenn die Eigenschaft [`layout`](/de/docs/Web/API/XRCompositionLayer/layout) des Layers `default` ist.
+- wenn die Eigenschaft [`layout`](/de/docs/Web/API/XRCompositionLayer/layout) des Layers `stereo` ist und `eye` `none` ist.
 
 ## Beispiele
 

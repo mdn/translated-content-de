@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-_WebSocket_ ist ein [Protokoll](/de/docs/Glossary/protocol), das eine persistente [TCP](/de/docs/Glossary/TCP)-Verbindung zwischen [Server](/de/docs/Glossary/Server) und Client ermöglicht, sodass sie jederzeit Daten austauschen können.
+_WebSocket_ ist ein [Protokoll](/de/docs/Glossary/protocol), das eine permanente [TCP](/de/docs/Glossary/TCP)-Verbindung zwischen [Server](/de/docs/Glossary/Server) und Client ermöglicht, sodass sie jederzeit Daten austauschen können.
 
-Jede Client- oder Serveranwendung kann WebSocket verwenden, hauptsächlich jedoch Web[browser](/de/docs/Glossary/Browser) und Webserver. Durch WebSocket können Server Daten an einen Client senden, ohne dass eine vorherige Anfrage des Clients erforderlich ist, was dynamische Inhaltsaktualisierungen ermöglicht.
+Jede Client- oder Serveranwendung kann WebSocket verwenden, aber hauptsächlich Web-[Browser](/de/docs/Glossary/Browser) und Web-Server. Durch WebSocket können Server Daten an einen Client senden, ohne dass eine vorherige Anforderung des Clients erforderlich ist, wodurch dynamische Inhaltsaktualisierungen ermöglicht werden.
 
 ## Siehe auch
 

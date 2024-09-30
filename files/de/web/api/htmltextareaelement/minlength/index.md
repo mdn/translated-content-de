@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`minLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16-Code-Einheiten) an, die erforderlich sind, damit der Wert des {{HTMLElement("textarea")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Element/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Mindestlängenanforderung gibt.
+Die **`minLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16 Code-Einheiten) an, die erforderlich sind, damit der Wert des {{HTMLElement("textarea")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Element/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
 
 > [!NOTE]
-> Wenn das Textfeld einen Wert hat und dieser Wert weniger Zeichen enthält als das im `minlength`-Attribut angegebene Minimum, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) ist `true`.
+> Wenn das `<textarea>`-Element einen Wert hat und dieser Wert weniger Zeichen enthält als das `minlength`-Attribut erfordert, wird das Element als ungültig angesehen und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl, die das `minlength` des Elements darstellt, falls vorhanden, oder `-1
 
 ## Beispiel
 
-Angenommen, folgendes HTML ist gegeben:
+Mit folgendem HTML:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Angenommen, folgendes HTML ist gegeben:
 </p>
 ```
 
-Sie können die `minLength`-Eigenschaft verwenden, um den Wert des `minlength`-Attributs des `<textarea>` abzurufen oder festzulegen:
+Sie können die `minLength`-Eigenschaft verwenden, um den Wert des `minlength`-Attributs des `<textarea>` zu erhalten oder festzulegen:
 
 ```js
 const textareaElement = document.querySelector("#comment");

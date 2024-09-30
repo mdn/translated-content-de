@@ -1,5 +1,5 @@
 ---
-title: "OfflineAudioCompletionEvent: `renderedBuffer` Eigenschaft"
+title: "OfflineAudioCompletionEvent: renderedBuffer-Eigenschaft"
 short-title: renderedBuffer
 slug: Web/API/OfflineAudioCompletionEvent/renderedBuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`renderedBuffer`** der [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent) Schnittstelle ist ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das Ergebnis der Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) enthält.
+Die schreibgeschützte **`renderedBuffer`**-Eigenschaft der [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent)-Schnittstelle ist ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das Ergebnis der Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) enthält.
 
 ## Wert
 

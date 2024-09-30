@@ -3,12 +3,13 @@ title: "WebGLRenderingContext: useProgram() Methode"
 short-title: useProgram()
 slug: Web/API/WebGLRenderingContext/useProgram
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.useProgram()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt das angegebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) als Teil des aktuellen Rendering-Zustands fest.
+Die **`WebGLRenderingContext.useProgram()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt das angegebene
+[`WebGLProgram`](/de/docs/Web/API/WebGLProgram) als Teil des aktuellen Rendering-Zustands.
 
 ## Syntax
 

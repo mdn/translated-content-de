@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLSelectElement.labels`** gibt ein
+Die **`HTMLSelectElement.labels`**-Eigenschaft gibt eine schreibgeschützte
 [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
 {{HTMLElement("select")}}-Element verknüpft sind.
 
 ## Wert
 
-Ein [`NodeList`](/de/docs/Web/API/NodeList), das die `<label>`-Elemente enthält, die mit dem `<select>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<select>`-Element verknüpft sind.
 
 ## Beispiele
 

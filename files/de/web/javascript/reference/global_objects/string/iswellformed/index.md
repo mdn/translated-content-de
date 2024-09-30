@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`isWellFormed()`**-Methode von {{jsxref("String")}}-Werten gibt einen booleschen Wert zurück, der angibt, ob dieser String irgendwelche [einsamen Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
+Die **`isWellFormed()`**-Methode von {{jsxref("String")}}-Werten gibt einen booleschen Wert zurück, der angibt, ob dieser String [lone surrogates](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält oder nicht.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn dieser String keine einsamen Surrogate enthält, andernfalls `false`.
+Gibt `true` zurück, wenn dieser String keine lone surrogates enthält, andernfalls `false`.
 
 ## Beschreibung
 
-Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept der _Surrogatpaare_, welches im Abschnitt [UTF-16 characters, Unicode code points, and grapheme clusters](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich beschrieben wird.
+Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept der _surrogate pairs_, welches im Abschnitt [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich erläutert wird.
 
-`isWellFormed()` ermöglicht es Ihnen zu testen, ob ein String wohlgeformt ist (d.h. keine einsamen Surrogate enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Repräsentation von Strings zugreifen können. Wenn Sie einen String in einen wohlgeformten String umwandeln müssen, verwenden Sie die Methode {{jsxref("String/toWellFormed", "toWellFormed()")}}. `isWellFormed()` ermöglicht es Ihnen, fehlerhaft geformte Strings anders zu behandeln als wohlgeformte, wie z.B. das Auslösen eines Fehlers oder die Markierung als ungültig.
+`isWellFormed()` erlaubt es Ihnen zu überprüfen, ob ein String wohlgeformt ist (d.h. keine lone surrogates enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Darstellung von Strings zugreifen können. Wenn Sie einen String in einen wohlgeformten String umwandeln müssen, verwenden Sie die Methode {{jsxref("String/toWellFormed", "toWellFormed()")}}. `isWellFormed()` ermöglicht es Ihnen, schlecht geformte Strings anders zu behandeln als wohlgeformte, z.B. durch Auslösen eines Fehlers oder Markieren als ungültig.
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ for (const str of strings) {
 // true
 ```
 
-### Fehler in encodeURI() vermeiden
+### Vermeidung von Fehlern in encodeURI()
 
 {{jsxref("encodeURI")}} löst einen Fehler aus, wenn der übergebene String nicht wohlgeformt ist. Dies kann vermieden werden, indem `isWellFormed()` verwendet wird, um den String zu testen, bevor er an `encodeURI()` übergeben wird.
 

@@ -9,8 +9,8 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`sub()`**-Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle zieht eine angegebene Zahl von dem
-`CSSNumericValue` ab.
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle subtrahiert eine angegebene Zahl von der
+`CSSNumericValue`.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ sub(number)
 ### Parameter
 
 - `number`
-  - : Entweder eine Zahl oder ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
+  - : Entweder eine Zahl oder eine [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 
 ### Rückgabewert
 

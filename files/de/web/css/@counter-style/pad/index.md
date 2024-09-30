@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`pad`** Deskriptor der {{cssxref("@counter-style")}} At-Regel wird verwendet, um eine Mindestlänge für Markenrepräsentationen festzulegen.
+Der **`pad`** Deskriptor der {{cssxref("@counter-style")}} At-Regel wird verwendet, um eine Mindestlänge für Markerdarstellungen festzulegen.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ pad: "+" 5;
 
 ### Werte
 
-Der Deskriptor akzeptiert die folgenden zwei Werte, die durch ein Leerzeichen getrennt sind und in beliebiger Reihenfolge angegeben werden können:
+Der Deskriptor akzeptiert die folgenden zwei Werte, die durch ein Leerzeichen getrennt und in beliebiger Reihenfolge angegeben werden können:
 
 - {{cssxref("integer")}}
 
-  - : Gibt die Mindestlänge an, die alle Markenrepräsentationen erreichen müssen. Der Wert muss nicht negativ sein. Im Falle des `pad` Deskriptor ist dieser Wert auch als _Pad-Länge_ bekannt.
+  - : Gibt die Mindestlänge an, die alle Markerdarstellungen erreichen müssen. Der Wert muss nicht negativ sein. Im Fall des `pad` Deskriptors ist dieser Wert auch als _Polsterlänge_ bekannt.
 
 - [`<symbol>`](/de/docs/Web/CSS/@counter-style/symbols#symbol)
-  - : Gibt das Symbol an, das für das Auffüllen verwendet werden soll, wenn die durch den `<integer>` definierte Mindestlänge nicht erreicht wird. Im Falle des `pad` Deskriptor ist dieser Wert auch als _Auffüllsymbol_ bekannt.
+  - : Gibt das Symbol an, das für das Polstern verwendet werden soll, wenn die durch den `<integer>` definierte Mindestlänge nicht erreicht wird. Im Fall des `pad` Deskriptors ist dieser Wert auch als _Polster-Symbol_ bekannt.
 
 ## Beschreibung
 
-Verwenden Sie den `pad` Deskriptor, wenn Sie möchten, dass die Markenrepräsentationen eine Mindestlänge haben. Wenn eine Markenrepräsentation kürzer als die angegebene Pad-Länge ist, wird die Markenrepräsentation mit dem angegebenen Auffüllsymbol aufgefüllt. Markenrepräsentationen, die länger als die Pad-Länge sind, werden ohne zusätzliches Auffüllen angezeigt.
+Verwenden Sie den `pad` Deskriptor, wenn Sie möchten, dass die Markerdarstellungen eine Mindestlänge haben. Ist eine Markerdarstellung kürzer als die angegebene Polsterlänge, wird die Markerdarstellung mit dem angegebenen Polster-Symbol aufgefüllt. Markerdarstellungen, die länger als die Polsterlänge sind, werden ohne zusätzliche Auffüllung angezeigt.
 
-Der `pad` Deskriptor nimmt ein `<integer>` für die minimale Markerlänge und ein `<symbol>` für das Auffüllen. Ein häufiger Anwendungsfall des `pad` Deskriptors besteht darin, wenn Sie eine Liste benötigen, die mit der Nummerierung `01` beginnt und mit `02`, `03`, `04` usw. fortfährt, anstatt einfach `1`, `2`, `3` und `4`. Indem Sie in diesem Fall den `pad` Deskriptor als `pad: 2 "0"` festlegen, stellt der Browser sicher, dass der Zähler mindestens zwei Zeichen lang ist und fügt ein Auffüllen mit `0` hinzu, um die Mindestlänge von zwei Zeichen zu erreichen, wo dies erforderlich ist. Zähler, die in diesem Beispiel bereits zwei oder mehr Zeichen lang sind, werden normal ohne Auffüllen angezeigt.
+Der `pad` Deskriptor nimmt ein `<integer>` für die minimale Marker-Länge und ein `<symbol>` für das Polstern. Ein gängiger Anwendungsfall für den `pad` Deskriptor ist, wenn Sie möchten, dass eine Liste mit der Nummerierung `01` beginnt und mit `02`, `03`, `04` usw. fortfährt, anstatt einfach `1`, `2`, `3` und `4`. Indem Sie in diesem Fall den `pad` Deskriptor als `pad: 2 "0"` angeben, stellt der Browser sicher, dass der Zähler mindestens zwei Zeichen lang ist und fügt ein Polster mit `0` hinzu, um die minimale Zweizahligkeit zu erreichen, wo dies erforderlich ist. Zähler, die in diesem Beispiel bereits zwei oder mehr Zeichen lang sind, werden normal ohne Polstern angezeigt.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ Der `pad` Deskriptor nimmt ein `<integer>` für die minimale Markerlänge und ei
 
 ## Beispiele
 
-### Auffüllen eines Zählers
+### Einen Zähler auffüllen
 
-Dieses Beispiel erweitert das `decimal` {{cssxref("@counter-style/system","system")}}, um einen Zähler zu erstellen, der mindestens drei Zeichen lang ist, und kürzere Zähler mit `0` auffüllt, um diese Mindestlänge zu erreichen. Ein {{cssxref("@counter-style/suffix", "suffix")}} Deskriptor wurde hinzugefügt, um die Ausgabe lesbarer zu machen.
+Dieses Beispiel erweitert das `decimal` {{cssxref("@counter-style/system","system")}} um einen Zähler zu erstellen, der mindestens drei Zeichen lang ist, indem kürzere Zähler mit `0` aufgefüllt werden, um diese Mindestlänge zu erreichen. Ein {{cssxref("@counter-style/suffix", "suffix")}} Deskriptor wurde hinzugefügt, um die Ausgabe lesbarer zu machen.
 
 #### HTML
 
@@ -91,7 +91,7 @@ ul {
 ## Siehe auch
 
 - {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
-- Listenstil-Eigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}} Funktion, um anonyme Zählerstile zu erstellen
-- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- Listeneigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
+- {{cssxref("symbols", "symbols()")}} Funktion zur Erstellung anonymer Zählerstile
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul

@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-[TCP](/de/docs/Glossary/TCP) Slow Start hilft, die Übertragungsgeschwindigkeit an die Fähigkeiten des Netzwerks anzupassen. Es tut dies, ohne anfänglich zu wissen, welche Fähigkeiten das Netzwerk hat und ohne Staus zu verursachen. [TCP](/de/docs/Glossary/TCP) Slow Start ist ein Algorithmus, der die verfügbare Bandbreite für die Paketübertragung erkennt und die Geschwindigkeit einer Netzwerkverbindung ausgleicht. Er verhindert das Auftreten von Netzwerkstau, deren Fähigkeiten anfänglich unbekannt sind, und erhöht langsam das übertragene Informationsvolumen, bis die maximale Kapazität des Netzwerks erreicht ist.
+[TCP](/de/docs/Glossary/TCP) Slow Start hilft, die Übertragungsgeschwindigkeiten an die Fähigkeiten des Netzwerks anzupassen. Dies geschieht, ohne die Kenntnisse über diese Fähigkeiten zu Beginn zu haben und ohne Staus zu verursachen. [TCP](/de/docs/Glossary/TCP) Slow Start ist ein Algorithmus, der die verfügbare Bandbreite für die Paketübertragung erkennt und die Geschwindigkeit einer Netzwerkverbindung ausbalanciert. Er verhindert das Auftreten von Netzstau, dessen Kapazitäten anfangs unbekannt sind, und erhöht langsam das übertragene Datenvolumen, bis die maximale Netzwerkkapazität gefunden ist.
 
-Um TCP Slow Start umzusetzen, setzt das Stau-Fenster (_cwnd_) ein oberes Limit für die Datenmenge, die eine Quelle über das Netzwerk senden kann, bevor sie eine Bestätigung (ACK) erhält. Die Slow Start-Schwelle (_ssthresh_) bestimmt die (De-)Aktivierung von Slow Start. Wenn eine neue Verbindung hergestellt wird, wird cwnd auf ein TCP-Daten- oder Bestätigungspaket initialisiert und wartet auf eine Bestätigung oder ACK. Wenn dieses ACK empfangen wird, wird das Stau-Fenster inkrementiert, bis _cwnd_ größer als _ssthresh_ ist. Slow Start endet auch, wenn ein Stau festgestellt wird.
+Um TCP Slow Start zu implementieren, setzt das "congestion window" (_cwnd_) eine Obergrenze für die Datenmenge, die eine Quelle über das Netzwerk senden kann, bevor eine Bestätigung (ACK) empfangen wird. Der Schwellenwert für den langsamen Start (_ssthresh_) bestimmt die (De)Aktivierung des langsamen Starts. Wenn eine neue Verbindung hergestellt wird, wird cwnd auf ein TCP-Daten- oder Bestätigungspaket initialisiert und wartet auf eine Bestätigung, oder ACK. Wenn diese ACK empfangen wird, wird das "congestion window" inkrementiert, bis das _cwnd_ größer als _ssthresh_ ist. Der Slow-Start endet auch, wenn Staus auftreten.
 
 ## Staukontrolle
 
-Stau selbst ist ein Zustand, der innerhalb einer Netzwerkschicht auftritt, wenn der Nachrichtenverkehr so stark ist, dass die Antwortzeit des Netzwerks verlangsamt wird. Der Server sendet Daten in TCP-Paketen, der Client des Benutzers bestätigt die Lieferung, indem er Bestätigungen, oder ACKs, zurücksendet. Die Verbindung hat eine begrenzte Kapazität, abhängig von Hardware und Netzwerkbedingungen. Wenn der Server zu viele Pakete zu schnell sendet, werden sie verworfen, was bedeutet, dass es keine Bestätigung geben wird. Der Server registriert dies als fehlende ACKs. Staukontrollalgorithmen verwenden diesen Fluss gesendeter Pakete und ACKs, um eine Sendegeschwindigkeit zu bestimmen.
+Stau selbst ist ein Zustand, der innerhalb einer Netzwerkschicht auftritt, wenn der Nachrichtenverkehr so stark ist, dass er die Netzwerkantwortzeit verlangsamt. Der Server sendet Daten in TCP-Paketen, der Client des Benutzers bestätigt dann die Lieferung, indem er Bestätigungen oder ACKs zurücksendet. Die Verbindung hat eine begrenzte Kapazität, abhängig von der Hardware und den Netzwerkbedingungen. Wenn der Server zu viele Pakete zu schnell sendet, werden sie verworfen. Das bedeutet, es gibt keine Bestätigung. Der Server registriert dies als fehlende ACKs. Staukontrollalgorithmen verwenden diesen Fluss von gesendeten Paketen und ACKs, um eine Sendegeschwindigkeit zu bestimmen.
 
 ## Siehe auch
 
-- [Populating the page: how browsers work](/de/docs/Web/Performance/How_browsers_work)
-- [http overview](/de/docs/Web/HTTP/Overview)
+- [Die Seite laden: wie Browser funktionieren](/de/docs/Web/Performance/How_browsers_work)
+- [HTTP-Übersicht](/de/docs/Web/HTTP/Overview)

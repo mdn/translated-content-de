@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentFragment.prepend()`**-Methode
-fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die **`DocumentFragment.prepend()`**-Methode fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode fügt ein Kind zu einem `DocumentFragment` voran. Um einem beliebigen Element im Baum etwas voranzustellen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
+Diese Methode fügt ein Kind zu einem `DocumentFragment` hinzu. Um ein beliebiges Element im Baum voranzustellen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
 
 ## Syntax
 
@@ -24,7 +23,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -33,11 +32,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
-### Einem Dokumentfragment ein Element voranstellen
+### Ein Element einem Dokumentfragment voranstellen
 
 ```js
 let fragment = new DocumentFragment();

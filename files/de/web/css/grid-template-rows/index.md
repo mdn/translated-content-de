@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Liniennamen und Spurgrößenfunktionen der [Grid-Reihen](/de/docs/Glossary/grid_row).
+Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Größenfunktionen der [Rasterzeilen](/de/docs/Glossary/grid_row).
 
 {{EmbedInteractiveExample("pages/css/grid-template-rows.html")}}
 
@@ -50,46 +50,46 @@ grid-template-rows: unset;
 
 Diese Eigenschaft kann wie folgt angegeben werden:
 
-- entweder als Schlüsselwortwert `none`
-- oder als `<track-list>`-Wert
-- oder als `<auto-track-list>`-Wert.
+- entweder der Schlüsselwortwert `none`
+- oder ein `<track-list>` Wert
+- oder ein `<auto-track-list>` Wert.
 
 ### Werte
 
 - `none`
-  - : Ein Schlüsselwort, das bedeutet, dass es kein explizites Grid gibt. Alle Reihen werden implizit generiert und ihre Größe wird durch die {{cssxref("grid-auto-rows")}}-Eigenschaft bestimmt.
+  - : Ist ein Schlüsselwort, das bedeutet, dass kein explizites Raster vorhanden ist. Alle Zeilen werden implizit generiert und ihre Größe wird durch die Eigenschaft {{cssxref("grid-auto-rows")}} bestimmt.
 - `[linename]`
-  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/custom-ident), der einen Namen für die Linie an dieser Position angibt. Die Identifikatoren können jede gültige Zeichenfolge sein, außer den reservierten Wörtern `span` und `auto`. Linien können mehrere Namen haben, die durch ein Leerzeichen in den eckigen Klammern getrennt sind, z.B. `[line-name-a line-name-b]`.
+  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/custom-ident), das einen Namen für die Linie an dieser Stelle angibt. Das Ident kann beliebige gültige Zeichenfolgen außer den reservierten Wörtern `span` und `auto` sein. Linien können mehrere Namen haben, die innerhalb der eckigen Klammern durch ein Leerzeichen getrennt sind, beispielsweise `[line-name-a line-name-b]`.
 - {{cssxref("&lt;length&gt;")}}
   - : Ist eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert, relativ zur Blockgröße des Grid-Containers. Wenn die Größe des Grid-Containers von der Größe seiner Spuren abhängt, muss der Prozentsatz für die Berechnung der intrinsischen Größe des Grid-Containers als `auto` behandelt werden. Er muss dann in Bezug auf die resultierende Größe des Grid-Containers aufgelöst werden, um das Grid und seine Elemente zu layouten. Die intrinsischen Größenbeiträge der Spur können an die Größe des Grid-Containers angepasst werden und die endgültige Größe der Spur um das Mindestmaß erhöhen, das erforderlich ist, um den Prozentsatz zu honorieren.
+  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}} Wert, relativ zur Blockgröße des Rastercontainers. Wenn die Größe des Rastercontainers von der Größe seiner Spuren abhängt, muss der Prozentsatz für die Berechnung der intrinsischen Größe des Rastercontainers als `auto` behandelt werden. Er muss dann für das Layout des Rasters und seiner Elemente gegen die resultierende Größe des Rastercontainers aufgelöst werden. Die intrinsischen Größenbeiträge der Spur können an die Größe des Rastercontainers angepasst werden und die endgültige Größe der Spur um den minimalen Betrag erhöhen, der erforderlich ist, um den Prozentsatz zu berücksichtigen.
 - {{cssxref("&lt;flex_value&gt;","&lt;flex&gt;")}}
-  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-große Spur nimmt einen Anteil des verbleibenden Raums im Verhältnis zu ihrem Flex-Faktor ein. Wenn sie außerhalb einer `minmax()`-Notation erscheint, impliziert sie ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
+  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-große Spur nimmt einen Anteil des verbleibenden Raums im Verhältnis zu ihrem Flex-Faktor ein. Wenn sie außerhalb einer `minmax()` Notation erscheint, impliziert sie ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 - {{cssxref("max-content")}}
-  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Grid-Elemente darstellt, die die Grid-Spur einnehmen.
+  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Rasterelemente repräsentiert, die die Rasterspur besetzen.
 - {{cssxref("min-content")}}
-  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Grid-Elemente darstellt, die die Grid-Spur einnehmen.
+  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Rasterelemente repräsentiert, die die Rasterspur besetzen.
 - {{cssxref("minmax", "minmax(min, max)")}}
-  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion als _min_ behandelt. Als Maximum legt ein `<flex>`-Wert den Flex-Faktor der Spur fest. Es ist ungültig als Minimum.
+  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>` Wert den Flex-Faktor der Spur. Es ist ungültig als Minimum.
 - `auto`
 
-  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}}-Größe der Elemente in dieser Spur.
+  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}} Größe der Elemente in dieser Spur.
 
-    Als Minimum repräsentiert es die größte Mindestgröße der Elemente in dieser Spur (angegeben durch die {{cssxref("min-width")}} / {{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer die {{cssxref("min-content")}}-Größe.
+    Als Minimum repräsentiert es die größte minimale Größe der Elemente in dieser Spur (angegeben durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}} Größe.
 
-    Wenn außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
+    Wenn außerhalb der {{cssxref("minmax", "minmax()")}} Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
 
-    > **Note:** `auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt eine `auto`-große Spur standardmäßig jeglichen verbleibenden Platz im Grid-Container ein.
+    > **Hinweis:** `auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher wird eine `auto`-große Spur standardmäßig jeden verbleibenden Raum im Rastercontainer einnehmen.
 
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Spurgröße an _argument_ geklammert wird, wenn sie größer als das `auto` Minimum ist.
+  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Spurgröße bei _argument_ begrenzt wird, wenn es größer als das `auto` Minimum ist.
 - {{cssxref("repeat", "repeat( [ &lt;positive-integer&gt; | auto-fill | auto-fit ] , &lt;track-list&gt; )")}}
-  - : Repräsentiert ein wiederholtes Fragment der Spurliste, wodurch eine große Anzahl von Reihen, die ein wiederkehrendes Muster zeigen, in kompakterer Form geschrieben werden kann.
+  - : Repräsentiert ein wiederholtes Fragment der Spurliste, das es ermöglicht, eine große Anzahl von Zeilen, die ein wiederkehrendes Muster aufweisen, in kompakterer Form zu schreiben.
 - [`masonry`](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout)
-  - : Der Travail-Wert zeigt an, dass diese Achse gemäß dem Travails-Algorithmus angeordnet werden soll.
+  - : Der `masonry` Wert bedeutet, dass diese Achse nach dem Mauerwerksalgorithmus ausgelegt werden soll.
 - [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)
-  - : Der `subgrid`-Wert zeigt an, dass das Grid den überdeckten Teil seines übergeordneten Grids auf dieser Achse übernimmt. Anstatt explizit festgelegt zu werden, werden die Größen der Grid-Reihen/Spalten aus der Definition des übergeordneten Grids übernommen.
+  - : Der `subgrid` Wert bedeutet, dass das Raster den gespannten Abschnitt seines übergeordneten Rasters auf dieser Achse übernimmt. Anstatt explizit angegeben zu werden, werden die Größen der Rasterzeilen/-spalten aus der Definition des übergeordneten Rasters übernommen.
 
 ## Formale Definition
 
@@ -101,7 +101,7 @@ Diese Eigenschaft kann wie folgt angegeben werden:
 
 ## Beispiele
 
-### Festlegung der Größen von Grid-Reihen
+### Spezifizieren von Rasterzeilengrößen
 
 #### HTML
 
@@ -147,6 +147,6 @@ Diese Eigenschaft kann wie folgt angegeben werden:
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
 - {{cssxref("grid-template")}}
-- [Grundlegende Konzepte des Grid-Layouts: Grid-Spuren](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_tracks)
+- [Grundkonzepte des Rasters: Rasterspuren](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_tracks)
 - Video: [Defining a grid](https://gridbyexample.com/video/series-define-a-grid/)
 - [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)

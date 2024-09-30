@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `change`-Ereignis wird ausgelöst, wenn ein Audio-Track aktiviert oder deaktiviert wird, zum Beispiel durch Ändern der [`enabled`](/de/docs/Web/API/AudioTrack/enabled)-Eigenschaft des Tracks.
+Das `change`-Ereignis wird ausgelöst, wenn ein Audiotrack aktiviert oder deaktiviert wird, z. B. durch Ändern der [`enabled`](/de/docs/Web/API/AudioTrack/enabled)-Eigenschaft des Tracks.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("change", (event) => { })
@@ -44,7 +44,7 @@ toggleTrackButton.addEventListener("click", () => {
 });
 ```
 
-Verwendung der `onchange`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onchange`-Ereignishandler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -71,6 +71,6 @@ toggleTrackButton.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
-- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt ab: [`change`](/de/docs/Web/API/VideoTrackList/change_event)
+- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Zielen: [`change`](/de/docs/Web/API/VideoTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`dispatchWorkgroupsIndirect()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle verteilt ein Raster von Arbeitsgruppen, das durch die Parameter eines [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) definiert wird, um die Arbeit auszuführen, die vom aktuellen [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) durchgeführt wird (d. h. gesetzt durch [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline)).
+Die **`dispatchWorkgroupsIndirect()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle dispatcht ein Raster von Workgroups, das durch die Parameter eines [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) definiert ist, um die Arbeit auszuführen, die durch die aktuelle [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) (d.h. gesetzt über [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline)) durchgeführt wird.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ dispatchWorkgroupsIndirect(indirectBuffer, indirectOffset)
 
 - `indirectBuffer`
 
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die X-, Y- und Z-Dimensionen des Rasters von Arbeitsgruppen enthält, die verteilt werden sollen. Der Puffer muss einen eng gepackten Block von drei 32-Bit-Unsigned-Integer-Werten enthalten, die die Dimensionen repräsentieren (insgesamt 12 Bytes), und in der gleichen Reihenfolge wie die Argumente für [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) angegeben werden. Ein Beispiel:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die X-, Y- und Z-Dimensionen des Rasters von Workgroups enthält, die dispatcht werden sollen. Der Buffer muss einen dicht gepackten Block von drei 32-Bit-unsigned-Integer-Werten enthalten, die die Dimensionen darstellen (insgesamt 12 Bytes), in der gleichen Reihenfolge wie die Argumente für [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups). Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(3);
@@ -33,10 +33,10 @@ dispatchWorkgroupsIndirect(indirectBuffer, indirectOffset)
     ```
 
 - `indirectOffset`
-  - : Der Versatz, in Bytes, in `indirectBuffer`, an dem die Dimensionsdaten beginnen.
+  - : Der Offset in Bytes in `indirectBuffer`, wo die Dimensionsdaten beginnen.
 
 > [!NOTE]
-> Die X-, Y- und Z-Dimensionswerte, die an [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) und `dispatchWorkgroupsIndirect()` übergeben werden, sind die Anzahl der Arbeitsgruppen, die für jede Dimension verteilt werden sollen, nicht die Anzahl der Shader-Aufrufe, die über jede Dimension ausgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, dass wenn ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und die Arbeit damit durch den Aufruf `dispatchWorkgroupsIndirect(indirectBuffer);` verteilt wird, wobei `indirectBuffer` X- und Y-Dimensionen von 8 und 8 angibt, der Einstiegspunkt insgesamt 1024 Mal aufgerufen wird — ein 4 x 4 Arbeitsgruppe wird 8 Mal sowohl entlang der X- als auch der Y-Achse verteilt. `4 * 4 * 8 * 8 = 1024`.
+> Die X-, Y- und Z-Dimensionswerte, die an [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) und `dispatchWorkgroupsIndirect()` übergeben werden, sind die Anzahl der Workgroups, die für jede Dimension dispatched werden sollen, nicht die Anzahl der Shader-Invokationen, die über jede Dimension durchgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, dass wenn ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und Arbeit mit dem Aufruf `dispatchWorkgroupsIndirect(indirectBuffer);` dispatched wird, wobei `indirectBuffer` die X- und Y-Dimensionen von 8 und 8 angibt, der Einstiegspunkt insgesamt 1024 Mal aufgerufen wird — ein 4 x 4 Workgroup wird 8 Mal entlang der X- und Y-Achsen dispatched. `4 * 4 * 8 * 8 = 1024`.
 
 ### Rückgabewert
 
@@ -44,10 +44,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`dispatchWorkgroupsIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`dispatchWorkgroupsIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
-- `indirectOffset` + die durch die `X`-, `Y`- und `Z`-Dimensionen angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
+- `indirectBuffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` plus die durch die `X`, `Y` und `Z` Dimensionen angegebene Gesamtsumme ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele

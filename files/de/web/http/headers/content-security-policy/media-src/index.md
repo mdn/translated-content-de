@@ -7,8 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`media-src`** Direktive gibt gültige Quellen für das Laden von Medien mittels der {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente an.
+Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`media-src`**-Richtlinie gibt gültige Quellen zum Laden von
+Medien mit den {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen an.
 
 <table class="properties">
   <tbody>
@@ -17,14 +18,14 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>[Abrufrichtlinie](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
-        <code>default-src</code> Direktive.
+        Ja. Wenn diese Richtlinie fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code>-Richtlinie.
       </td>
     </tr>
   </tbody>
@@ -32,7 +33,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Einer oder mehrere Quellen können für die `media-src` Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `media-src`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: media-src <source>;
@@ -43,20 +44,20 @@ Content-Security-Policy: media-src <source> <source>;
 
 `<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
 
-Beachten Sie, dass dieselbe Reihe von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und in einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieses gleiche Set von Werten in allen [Abrufrichtlinien](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Gegeben dieser CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: media-src https://example.com/
 ```
 
 Die folgenden {{HTMLElement("audio")}}, {{HTMLElement("video")}} und
-{{HTMLElement("track")}} Elemente sind blockiert und werden nicht geladen:
+{{HTMLElement("track")}}-Elemente werden blockiert und nicht geladen:
 
 ```html
 <audio src="https://not-example.com/audio"></audio>

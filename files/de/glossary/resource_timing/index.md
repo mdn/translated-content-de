@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Um Leistungsprobleme zu diagnostizieren, sind Leistungsdaten auf der Granularität der Ressource erforderlich. Die [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) ist eine JavaScript-API, die Timing-Informationen für jede einzelne Ressource erfassen kann, die beim Laden einer Seite abgerufen wird.
+Zur Diagnose von Leistungsproblemen sind Leistungsdaten auf der Granularität der Ressource erforderlich. Die [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) ist eine JavaScript-API, die in der Lage ist, Timing-Informationen für jede einzelne Ressource zu erfassen, die geladen wird, wenn eine Seite geladen wird.
 
 ## Siehe auch
 

@@ -2,12 +2,12 @@
 title: WebGLTransformFeedback
 slug: Web/API/WebGLTransformFeedback
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLTransformFeedback`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und ermöglicht das Transform-Feedback, den Prozess der Erfassung von Primitiven, die durch die Vertex-Verarbeitung erzeugt werden. Sie erlaubt es, den Nach-Transformations-Renderzustand eines Objekts zu bewahren und diese Daten mehrfach erneut einzureichen.
+Das **`WebGLTransformFeedback`**-Interface ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und ermöglicht Transformations-Feedback, welches der Prozess ist, Primitive zu erfassen, die durch die Vertex-Verarbeitung erzeugt werden. Es erlaubt, den Post-Transformations-Rendering-Zustand eines Objekts zu bewahren und diese Daten mehrmals erneut einzureichen.
 
 {{InheritanceDiagram}}
 

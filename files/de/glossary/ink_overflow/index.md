@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Ink Overflow** eines Kastens bezieht sich auf den Teil des Kastens und seiner Inhalte, der einen visuellen Effekt außerhalb des Rahmenkastens erzeugt. Da es sich nur um einen visuellen Effekt handelt, beeinflusst Ink Overflow das Layout nicht, da es keine Auswirkungen auf die Eigenschaften des Boxmodells hat.
+Der **Ink overflow** eines Kastens bezieht sich auf den Teil des Kastens und seines Inhalts, der einen visuellen Effekt außerhalb des Randbereichs des Kastens erzeugt. Da es sich nur um einen visuellen Effekt handelt, beeinflusst der Ink overflow nicht das Layout, da er keine Auswirkungen auf die Boxmodell-Eigenschaften hat.
 
-Ink Overflow ist das Überlaufen von Maleffekten wie [Box-Schatten](/de/docs/Web/CSS/box-shadow), [Rahmenbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders), [Textdekorationen](/de/docs/Web/CSS/CSS_text_decoration), [Konturen](/de/docs/Web/CSS/outline) usw., die das Layout nicht beeinflussen oder den scrollbaren Überlaufbereich nicht erweitern. Ink Overflow ist auch das Überhängen von Glyphen, wie Auf- und Abstriche, die außerhalb des Em-Kastens reichen.
+Ink overflow ist das Überlaufen von Malereffekten wie z.B. [Box-Schatten](/de/docs/Web/CSS/box-shadow), [Randbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders), [Textdekoration](/de/docs/Web/CSS/CSS_text_decoration), [Umrisse](/de/docs/Web/CSS/outline), etc., die das Layout nicht beeinflussen oder den scrollbar überfließenden Bereich nicht erweitern. Ink overflow ist auch das Überlappen von Glyphen wie Auf- und Abstrichen, die außerhalb des Em-Kastens hinausragen.
 
-Da [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) immer einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts) etablieren, ist jeder Überlauf von ersetzten Inhalten immer Ink Overflow (im Gegensatz zu [scrollbarem Überlauf](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)).
+Da [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) immer einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts) etablieren, ist jegliches Überlaufen von ersetzten Inhalten immer Ink overflow (im Gegensatz zu [scrollbarem Overflow](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)).
 
 ## Siehe auch
 
-- [CSS Overflow-Modul](/de/docs/Web/CSS/CSS_overflow)
+- [CSS overflow Modul](/de/docs/Web/CSS/CSS_overflow)

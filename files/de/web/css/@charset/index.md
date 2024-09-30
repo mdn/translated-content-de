@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@charset`** [CSS](/de/docs/Web/CSS)-Regel gibt die im Stylesheet verwendete Zeichenkodierung an. Diese Syntax ist nützlich, wenn in einigen CSS-Eigenschaften, wie z.B. {{ cssxref("content") }}, nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen verwendet werden. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer das Unicode-Byte-Order-Mark, sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
+Die **`@charset`**-Regel in [CSS](/de/docs/Web/CSS) legt die Zeichenkodierung fest, die im Stylesheet verwendet wird. Diese Syntax ist nützlich, wenn nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen in einigen CSS-Eigenschaften verwendet werden, wie z.B. {{ cssxref("content") }}. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer dem Unicode-Byte-Order-Mark, sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
 
-Wenn ein `@charset` nicht als Charset-Deklaration erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul veraltet dieses Fallback-Verhalten und definiert es als unerkannte Legacy-Regel, die verworfen werden soll, wenn ein Stylesheet einer Grammatikprüfung unterzogen wird.
+Wenn ein `@charset` nicht als Charset-Deklaration erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul hebt dieses Fallback-Verhalten auf und definiert es als unerkannte Legacy-Regel, die beim Grammatik-Checken eines Stylesheets entfernt werden soll.
 
-Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu definieren, wird der Browser die folgenden Methoden in der folgenden Reihenfolge versuchen (und aufhören, sobald eine ein Ergebnis liefert):
+Da es mehrere Methoden gibt, um die Zeichenkodierung eines Stylesheets festzulegen, versucht der Browser die folgenden Methoden in der folgenden Reihenfolge (und stoppt, sobald eine ein Ergebnis liefert):
 
-1. Der Wert des [Unicode-Byte-Order](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens, das am Anfang der Datei platziert wird.
-2. Der Wert, der durch das `charset`-Attribut des `Content-Type:`-HTTP-Headers oder das Äquivalent im Protokoll, das zum Bereitstellen des Stylesheets verwendet wird, angegeben wird.
+1. Der Wert des [Unicode-Byte-Order](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens, das am Anfang der Datei platziert ist.
+2. Der Wert, der durch das `charset`-Attribut des `Content-Type:`-HTTP-Headers oder das entsprechende Attribut im verwendeten Protokoll zur Übertragung des Stylesheets angegeben wird.
 3. Die `@charset`-CSS-Deklaration.
-4. Verwenden Sie die Zeichenkodierung, die im verweisenden Dokument definiert ist: das `charset`-Attribut des {{ HTMLElement("link") }}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
+4. Verwendung der im referenzierenden Dokument definierten Zeichenkodierung: das `charset`-Attribut des {{ HTMLElement("link") }}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
 5. Annahme, dass das Dokument UTF-8 ist.
 
 ## Syntax
@@ -33,7 +33,7 @@ Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu def
 ```
 
 - _charset_
-  - : Ein {{cssxref("&lt;string&gt;")}}, der die zu verwendende Zeichenkodierung angibt. Es muss der Name einer web-sicheren Zeichenkodierung sein, die im [IANA-Register](https://www.iana.org/assignments/character-sets/character-sets.xhtml) definiert ist, und muss in doppelte Anführungszeichen gesetzt werden, wobei genau ein Leerzeichen (U+0020) folgt und sofort mit einem Semikolon abgeschlossen wird. Wenn mehrere Namen mit einer Kodierung verbunden sind, darf nur derjenige verwendet werden, der mit _preferred_ gekennzeichnet ist.
+  - : Ein {{cssxref("&lt;string&gt;")}}, das die zu verwendende Zeichenkodierung angibt. Es muss der Name einer web-sicheren Zeichenkodierung sein, die im [IANA-Register](https://www.iana.org/assignments/character-sets/character-sets.xhtml) definiert ist und muss doppelt angeführt werden. Es muss genau ein Leerzeichen (U+0020) folgen und sofort mit einem Semikolon abgeschlossen werden. Wenn mehrere Namen mit einer Kodierung verknüpft sind, darf nur derjenige verwendet werden, der als _bevorzugt_ markiert ist.
 
 ## Beispiele
 
@@ -60,5 +60,5 @@ Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu def
 
 ## Siehe auch
 
-- [Zeichensatz](/de/docs/Glossary/Character_set) Glossareintrag
-- [Unicode](/de/docs/Glossary/Unicode) Glossareintrag
+- Eintrag im Glossar: [Zeichensatz](/de/docs/Glossary/Character_set)
+- Eintrag im Glossar: [Unicode](/de/docs/Glossary/Unicode)

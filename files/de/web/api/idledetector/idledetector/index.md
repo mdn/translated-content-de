@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Der **`IdleDetector()`** Konstruktor erstellt ein neues [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Objekt, das Ereignisse bereitstellt, die anzeigen, wenn der Benutzer nicht mehr mit seinem Gerät interagiert oder der Bildschirm gesperrt ist.
+Der **`IdleDetector()`** Konstruktor erstellt ein neues [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Objekt, das Ereignisse bereitstellt, die anzeigen, wann der Benutzer nicht mehr mit seinem Gerät interagiert oder der Bildschirm gesperrt ist.
 
 ## Syntax
 

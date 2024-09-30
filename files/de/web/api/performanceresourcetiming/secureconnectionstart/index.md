@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`secureConnectionStart`**-Eigenschaft ist schreibgeschützt und gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor dem Beginn des Handshake-Prozesses des Browsers zurück, um die aktuelle Verbindung zu sichern. Wenn keine sichere Verbindung verwendet wird, gibt die Eigenschaft null zurück.
+Die schreibgeschützte Eigenschaft **`secureConnectionStart`** gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser den Handshake-Prozess startet, um die aktuelle Verbindung zu sichern, zurück. Wenn keine sichere Verbindung verwendet wird, gibt die Eigenschaft null zurück.
 
 ## Wert
 
-Die `secureConnectionStart`-Eigenschaft kann die folgenden Werte haben:
+Die Eigenschaft `secureConnectionStart` kann folgende Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar vor dem Beginn des Handshake-Prozesses des Browsers angibt, um die aktuelle Verbindung zu sichern, falls die Ressource über eine sichere Verbindung abgerufen wird.
+- Einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar bevor der Browser den Handshake-Prozess startet, um die aktuelle Verbindung zu sichern, angibt, wenn die Ressource über eine sichere Verbindung abgerufen wird.
 - `0`, wenn keine sichere Verbindung verwendet wird.
 - `0`, wenn die Ressource sofort aus einem Cache abgerufen wurde.
-- `0`, wenn die Ressource eine Cross-Origin-Anforderung ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
+- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Messung der TLS-Verhandlungszeit
+### Messen der TLS-Verhandlungszeit
 
-Die `secureConnectionStart`- und [`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart)-Eigenschaften können verwendet werden, um zu messen, wie lange die TLS-Verhandlung dauert.
+Die Eigenschaften `secureConnectionStart` und [`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart) können verwendet werden, um zu messen, wie lange die TLS-Verhandlung dauert.
 
 ```js
 const tls = entry.requestStart - entry.secureConnectionStart;
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der neue `resource`-Leistungseinträge benachrichtigt, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -44,7 +44,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge zeigt, die in der Leistungstimeline des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die sich zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers befinden:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -56,11 +56,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Cross-Origin-Zeitinformationen
+### Cross-Origin Zeitinformationen
 
-Wenn der Wert der `secureConnectionStart`-Eigenschaft `0` ist, wird entweder keine sichere Verbindung verwendet oder es handelt sich um eine Cross-Origin-Anforderung. Um das Anzeigen von Cross-Origin-Zeitinformationen zu ermöglichen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Wenn der Wert der Eigenschaft `secureConnectionStart` `0` ist, wird die Ressource entweder nicht über eine sichere Verbindung abgerufen oder es handelt sich um eine Cross-Origin-Anfrage. Um die Anzeige von Cross-Origin-Zeitinformationen zu ermöglichen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt sein.
 
-Zum Beispiel, um `https://developer.mozilla.org` das Anzeigen von Zeitressourcen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
+Beispielsweise sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, Folgendes senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

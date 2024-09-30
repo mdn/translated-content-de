@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.replace`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen dieses Symbol im ersten Argument, um die Methode zu erhalten, die Teilstrings ersetzt, die vom aktuellen Objekt übereinstimmen.
+Die statische Dateneigenschaft **`Symbol.replace`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen dieses Symbol im ersten Argument nach der Methode, die durch das aktuelle Objekt übereinstimmende Unterstrings ersetzt.
 
 Für weitere Informationen siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), {{jsxref("String.prototype.replace()")}}, und {{jsxref("String.prototype.replaceAll()")}}.
 

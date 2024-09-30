@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`cy`**-Schreibgeschützte Eigenschaft des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement) Interfaces spiegelt das {{SVGAttr("cy")}} Attribut eines {{SVGElement("circle")}} Elements wider und definiert damit die y-Koordinate des Mittelpunkts des Kreises.
+Die **`cy`** schreibgeschützte Eigenschaft des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement) Interfaces spiegelt das {{SVGAttr("cy")}} Attribut eines {{SVGElement("circle")}}-Elements wider und definiert somit die y-Koordinate des Kreismittelpunkts.
 
-Wenn nicht angegeben, wird dies so behandelt, als ob der Wert auf `0` gesetzt ist.
+Falls nicht angegeben, wirkt es, als wäre der Wert auf `0` gesetzt.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der die y-Koordinate des Mittelpunkts des Kreises darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das die y-Koordinate des Kreismittelpunkts darstellt.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ const circle = document.getElementById("circle");
 console.log(circle.cy);
 ```
 
-{{EmbedLiveSample("Examples", "200", "200")}}
+{{EmbedLiveSample("Beispiele", "200", "200")}}
 
 ## Spezifikationen
 

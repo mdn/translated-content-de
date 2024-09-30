@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSMathInvert`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS {{CSSXref('calc','calc()')}}-Funktion, die als `calc(1 / <value>)` verwendet wird. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Die **`CSSMathInvert`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert ein CSS {{CSSXref('calc','calc()')}} verwendet als `calc(1 / <value>).` Sie erbt Eigenschaften und Methoden von ihrem übergeordneten [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
@@ -31,7 +31,7 @@ _Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle, [
 
 ## Beispiele
 
-To do
+Noch zu tun
 
 ## Spezifikationen
 

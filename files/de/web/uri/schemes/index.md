@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/URI")}}
 
-Das **Schema** einer URI ist der erste Teil der URI, vor dem `:` Zeichen. Es zeigt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der Rest der URI strukturiert und interpretiert wird.
+Das **Schema** eines URI ist der erste Teil des URI vor dem `:`-Zeichen. Es gibt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der Rest des URI strukturiert und interpretiert wird.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ protocol:
 ```
 
 - Protokoll
-  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Es sollte nur aus alphanumerischen Zeichen und den Zeichen `+`, `-` und `.` bestehen. Gängige Schemata sind:
+  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Es sollte nur aus alphanumerischen Zeichen sowie den Zeichen `+`, `-` und `.` bestehen. Häufige Schemata sind:
     - [`blob`](/de/docs/Web/API/URL/createObjectURL_static)
       - : Binary Large Object; ein Zeiger auf ein großes Objekt im Speicher
     - [`data`](/de/docs/Web/URI/Schemes/data)
@@ -28,11 +28,11 @@ protocol:
     - `http` / `https`
       - : Hypertext-Übertragungsprotokoll (Sicher) ([HTTP](/de/docs/Glossary/HTTP)/[HTTPS](/de/docs/Glossary/HTTPS))
     - [`javascript`](/de/docs/Web/URI/Schemes/javascript)
-      - : In die URL eingebetteter JavaScript-Code
+      - : In der URL eingebetteter JavaScript-Code
     - `mailto`
-      - : Elektronische Mailadresse
+      - : Elektronische Mail-Adresse
     - [`resource`](/de/docs/Web/URI/Schemes/resource) {{Non-standard_inline}}
-      - : Firefox und Firefox-Browsererweiterungen zum internen Laden von Ressourcen
+      - : Firefox und Firefox-Browser-Erweiterungen zum internen Laden von Ressourcen
     - `ssh`
       - : Secure Shell
     - `tel`

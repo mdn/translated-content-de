@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.lineCap`**
-Eigenschaft des Canvas 2D API bestimmt die Form, die verwendet wird, um die Endpunkte von Linien zu zeichnen.
+Die **`CanvasRenderingContext2D.lineCap`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um die Endpunkte von Linien zu zeichnen.
 
 > [!NOTE]
 > Linien können mit den Methoden
-> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke), [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect),
+> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke), [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect)
 > und [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) gezeichnet werden.
 
 ## Wert
@@ -22,18 +20,17 @@ Eigenschaft des Canvas 2D API bestimmt die Form, die verwendet wird, um die Endp
 Einer der folgenden:
 
 - `"butt"`
-  - : Die Enden der Linien sind an den Endpunkten abgeflacht. Standardwert.
+  - : Die Enden von Linien werden an den Endpunkten abgeschnitten. Standardwert.
 - `"round"`
-  - : Die Enden der Linien sind abgerundet.
+  - : Die Enden von Linien sind abgerundet.
 - `"square"`
-  - : Die Enden der Linien sind abgeflacht, indem ein Kasten mit gleicher Breite und halber
-    Höhe der Dicke der Linie hinzugefügt wird.
+  - : Die Enden von Linien werden durch Hinzufügen einer Box mit gleicher Breite und halber Höhe der Linienstärke abgeschrägt.
 
 ## Beispiele
 
-### Ändern der Form der Linienenden
+### Ändern der Form von Linienenden
 
-Dieses Beispiel rundet die Endkappen einer geraden Linie ab.
+Dieses Beispiel rundet die Enden einer geraden Linie ab.
 
 #### HTML
 
@@ -59,15 +56,11 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Changing_the_shape_of_line_caps', 700, 180) }}
 
-### Vergleich der Linienenden
+### Vergleich von Linienenden
 
-In diesem Beispiel werden drei Linien gezeichnet, jede mit einem anderen Wert für die
-`lineCap`-Eigenschaft. Zwei Leitlinien werden hinzugefügt, um die genauen Unterschiede zwischen den drei zu sehen. Jede dieser Linien beginnt und endet genau auf diesen Leitlinien.
+In diesem Beispiel werden drei Linien gezeichnet, jede mit einem anderen Wert für die `lineCap`-Eigenschaft. Zwei Leitlinien werden hinzugefügt, um die genauen Unterschiede zwischen den dreien zu erkennen. Jede dieser Linien beginnt und endet genau auf diesen Leitlinien.
 
-Die Linie auf der linken Seite verwendet die Standardeinstellung `"butt"`. Sie wird komplett bündig mit den Leitlinien gezeichnet. Die zweite ist so eingestellt, dass sie die Option `"round"` verwendet. Dies
-fügt am Ende einen Halbkreis hinzu, der einen Radius hat, der halb so breit ist wie die Linie. Die Linie auf
-der rechten Seite verwendet die Option `"square"`. Dies fügt ein Kasten mit gleicher Breite und
-halber Höhe der Liniendicke hinzu.
+Die Linie auf der linken Seite verwendet die Standardoption `"butt"`. Sie wird vollständig bündig mit den Leitlinien gezeichnet. Die zweite ist auf die Option `"round"` eingestellt. Dies fügt ein Halbkreis an das Ende hinzu, der einen Radius hat, der halb so breit wie die Linie ist. Die Linie auf der rechten Seite verwendet die Option `"square"`. Dies fügt eine Box mit gleicher Breite und halber Höhe der Linienstärke hinzu.
 
 ```html hidden
 <canvas id="canvas" width="150" height="150"></canvas>
@@ -110,11 +103,11 @@ ctx.strokeStyle = "black";
 
 ### WebKit/Blink-spezifische Hinweise
 
-- In auf WebKit- und Blink-basierenden Browsern ist zusätzlich zu dieser Eigenschaft eine nicht standardisierte und veraltete Methode `ctx.setLineCap()` implementiert.
+- In WebKit- und Blink-basierten Browsern ist zusätzlich zu dieser Eigenschaft eine nicht standardisierte und veraltete Methode `ctx.setLineCap()` implementiert.
 
 ## Siehe auch
 
 - Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)
 - [`CanvasRenderingContext2D.lineJoin`](/de/docs/Web/API/CanvasRenderingContext2D/lineJoin)
-- [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- [Stile und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

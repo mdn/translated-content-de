@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`label`**-Eigenschaft der [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Schnittstelle ist ein String-Wert, der das [`label`](/de/docs/Web/HTML/Element/optgroup#label)-Attribut des {{htmlelement("optgroup")}}-Elements widerspiegelt und eine textuelle Bezeichnung für die Gruppe von Optionen bereitstellt.
+Die **`label`**-Eigenschaft der [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Schnittstelle ist ein Zeichenkettenwert, der das [`label`](/de/docs/Web/HTML/Element/optgroup#label)-Attribut des {{htmlelement("optgroup")}}-Elements widerspiegelt, welches eine textuelle Bezeichnung für die Gruppe von Optionen bereitstellt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ optionGroup.label = `${optionGroup.label} (${optionGroup.children.length})`;
 ## Siehe auch
 
 - {{htmlelement("optgroup")}}
-- HTML [`label`](/de/docs/Web/HTML/Element/optgroup#label)-Attribut
+- HTML [`label`](/de/docs/Web/HTML/Element/optgroup#label) Attribut

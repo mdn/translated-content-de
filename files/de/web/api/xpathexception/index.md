@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}{{Deprecated_Header}}
 
-Im [DOM XPath API](/de/docs/Web/XPath) repräsentiert die **`XPathException`**-Schnittstelle Ausnahmebedingungen, die bei der Durchführung von XPath-Operationen auftreten können.
+In der [DOM XPath API](/de/docs/Web/XPath) repräsentiert das **`XPathException`** Interface Ausnahmebedingungen, die bei der Durchführung von XPath-Operationen auftreten können.
 
 ## Instanz-Eigenschaften
 
@@ -29,7 +29,7 @@ Im [DOM XPath API](/de/docs/Web/XPath) repräsentiert die **`XPathException`**-S
       <td><code>INVALID_EXPRESSION_ERR</code></td>
       <td><code>51</code></td>
       <td>
-        Wenn der Ausdruck einen Syntaxfehler enthält oder anderweitig kein legaler
+        Wenn der Ausdruck einen Syntaxfehler hat oder anderweitig kein gültiger
         Ausdruck gemäß den Regeln des spezifischen
         [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) ist oder spezialisierte
         Erweiterungsfunktionen oder Variablen enthält, die von dieser Implementierung nicht unterstützt werden.
@@ -39,7 +39,7 @@ Im [DOM XPath API](/de/docs/Web/XPath) repräsentiert die **`XPathException`**-S
       <td><code>TYPE_ERR</code></td>
       <td><code>52</code></td>
       <td>
-        Wenn der Ausdruck nicht in den angegebenen Typ konvertiert werden kann.
+        Wenn der Ausdruck nicht in den angegebenen Rückgabetyp konvertiert werden kann.
       </td>
     </tr>
   </tbody>

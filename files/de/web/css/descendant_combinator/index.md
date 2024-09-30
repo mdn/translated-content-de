@@ -1,5 +1,5 @@
 ---
-title: Descendant Kombinator
+title: Descendant combinator
 slug: Web/CSS/Descendant_combinator
 l10n:
   sourceCommit: 7fa9b134e7a886b47bd8c6e3135ba329ee0ddf09
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **Descendant Kombinator** — typischerweise durch ein einzelnes Leerzeichen (" ") dargestellt — kombiniert zwei Selektoren so, dass Elemente, die mit dem zweiten Selektor übereinstimmen, ausgewählt werden, wenn sie einen Vorfahren (Eltern, Eltern des Elternteils, Elternteil des Elternteils des Elternteils, usw.) haben, der mit dem ersten Selektor übereinstimmt. Selektoren, die einen Descendant Kombinator verwenden, werden _Descendant-Selektoren_ genannt.
+Der **Descendant-Kombinator** — typischerweise durch ein einzelnes Leerzeichen (" ") dargestellt — kombiniert zwei Selektoren so, dass Elemente, die vom zweiten Selektor getroffen werden, ausgewählt werden, wenn sie ein Vorfahrelement (Elternteil, Elternteil des Elternteils, Elternteil des Elternteils des Elternteils, usw.) haben, das dem ersten Selektor entspricht. Selektoren, die einen Descendant-Kombinator verwenden, werden _Descendant-Selektoren_ genannt.
 
 ```css
 /* List items that are descendants of the "my-things" list */
@@ -16,7 +16,7 @@ ul.my-things li {
 }
 ```
 
-Der Descendant Kombinator besteht technisch aus einem oder mehreren [CSS](/de/docs/Glossary/CSS) Leerzeichenzeichen — dem Leerzeichen und/oder einem von vier Steuerzeichen: Wagenrücklauf, Seitenvorschub, Zeilenumbruch und Tabulatorzeichen — zwischen zwei Selektoren in Abwesenheit eines anderen Kombinators. Darüber hinaus können die Leerzeichen, aus denen der Kombinator besteht, beliebig viele CSS-Kommentare enthalten.
+Der Descendant-Kombinator besteht technisch aus einem oder mehreren [CSS](/de/docs/Glossary/CSS)-Leerzeichen — dem Leerzeichen oder einem von vier Steuerzeichen: Wagenrücklauf, Form Feed, Zeilenumbruch und Tabulatorzeichen — zwischen zwei Selektoren, wenn kein anderer Kombinator vorhanden ist. Zusätzlich können die Leerzeichen, aus denen der Kombinator besteht, beliebig viele CSS-Kommentare enthalten.
 
 ## Syntax
 
@@ -75,4 +75,4 @@ li li {
 
 ## Siehe auch
 
-- [Child Kombinator](/de/docs/Web/CSS/Child_combinator)
+- [Child-Kombinator](/de/docs/Web/CSS/Child_combinator)

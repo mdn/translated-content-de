@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`start()`**-Methode der [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Schnittstelle gibt den Zeitversatz zurück, bei dem ein angegebener Zeitbereich beginnt.
+Die **`start()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz zurück, bei dem ein bestimmter Zeitbereich beginnt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ start(index)
 ### Parameter
 
 - `index`
-  - : Die Nummer des Bereichs, für den die Startzeit zurückgegeben werden soll.
+  - : Die Bereichsnummer, für die die Startzeit zurückgegeben werden soll.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Eine Zahl.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der angegebene Index keinem existierenden Bereich entspricht.
+  - : Wird ausgelöst, wenn der angegebene Index keinem bestehenden Bereich entspricht.
 
 ## Beispiele
 
-Angenommen, es gibt ein Video-Element mit der ID "myVideo":
+Angenommen, es gibt ein Videoelement mit der ID "myVideo":
 
 ```js
 const v = document.getElementById("myVideo");
@@ -50,7 +50,7 @@ if (buf.length === 1) {
 }
 ```
 
-Dieses Beispiel untersucht die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
+In diesem Beispiel werden die Zeitbereiche betrachtet, um festzustellen, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

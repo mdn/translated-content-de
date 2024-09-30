@@ -1,5 +1,5 @@
 ---
-title: "Worker: message Ereignis"
+title: "Worker: message-Ereignis"
 short-title: message
 slug: Web/API/Worker/message_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `message` Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker) Objekt ausgelöst, wenn der übergeordnete Prozess eines Workers eine Nachricht von seinem Worker erhält (d.h. wenn der Worker eine Nachricht mit [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
+Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn der übergeordnete Prozess des Workers eine Nachricht von seinem Worker erhält (d. h. wenn der Worker eine Nachricht mit [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -33,19 +33,19 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die von dem Nachrichtensender gesendeten Daten.
+  - : Die vom Nachrichtenemitter gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
+  - : Ein String, der den Ursprung des Nachrichtenemitters darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (das ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann), das den Nachrichtensender darstellt.
+  - : Ein `MessageEventSource` (das ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenemitter darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort) Objekten, die die mit dem Kanal, über den die Nachricht gesendet wird, verbundenen Ports darstellen (wo zutreffend, z.B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen gemeinsamen Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die mit dem Kanal verbundenen Ports darstellt, über den die Nachricht gesendet wird (wo zutreffend, z. B. beim Channel Messaging oder beim Senden einer Nachricht an einen geteilten Worker).
 
 ## Beispiele
 
-Dieser Code erstellt einen neuen Worker und hört Nachrichten von ihm mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Dieser Code erstellt einen neuen Worker und lauscht Nachrichten von ihm unter Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 const worker = new Worker("static/scripts/worker.js");
@@ -55,7 +55,7 @@ worker.addEventListener("message", (event) => {
 });
 ```
 
-Alternativ könnte er mit der `onmessage`-Ereignishandler-Eigenschaft hören:
+Alternativ könnte er über die `onmessage`-Ereignis-Handler-Eigenschaft lauschen:
 
 ```js
 const worker = new Worker("static/scripts/worker.js");

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)-Schnittstelle repräsentiert den Namen der zugehörigen Kaskadenebene.
+Die schreibgeschützte **`name`**-Eigenschaft des [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)-Interfaces repräsentiert den Namen der zugehörigen Kaskadenschicht.
 
 ## Wert
 
-Ein String, der den Namen der Ebene enthält, oder `""`, wenn die Ebene anonym ist.
+Ein String, der den Namen der Schicht enthält, oder `""`, wenn die Schicht anonym ist.
 
 ## Beispiele
 
@@ -72,5 +72,5 @@ item2.textContent = `A second CSSLayerBlockRule defines a layer with the followi
 
 ## Siehe auch
 
-- Die Deklarationserklärung einer {{cssxref("@layer")}} wird durch eine [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule) dargestellt.
-- Anleitung zum [Erstellen benannter Kaskadenebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#creating_cascade_layers) in CSS.
+- Die Deklaration einer {{cssxref("@layer")}}-Anweisung wird durch eine [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule) dargestellt.
+- Anleitung zum [Erstellen benannter Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#creating_cascade_layers) in CSS.

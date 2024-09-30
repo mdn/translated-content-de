@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleDeclaration: removeProperty()-Methode"
+title: "CSSStyleDeclaration: removeProperty() Methode"
 short-title: removeProperty()
 slug: Web/API/CSSStyleDeclaration/removeProperty
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSStyleDeclaration.removeProperty()`**-Methodenschnittstelle entfernt eine Eigenschaft aus einem CSS-Stildeklarationsobjekt.
+Die Schnittstelle der Methode **`CSSStyleDeclaration.removeProperty()`** entfernt eine Eigenschaft aus einem CSS-Stildeklarationsobjekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeProperty(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Namen der zu entfernenden Eigenschaft darstellt. Mehrwortige Eigenschaftsnamen sind mit Bindestrichen versehen ([kebab-case](/de/docs/Glossary/kebab_case)) und nicht in [camelCase](/de/docs/Glossary/camel_case).
+  - : Ein String, der den Namen der zu entfernenden Eigenschaft repräsentiert. Mehrwortige Eigenschaftsnamen sind mit Bindestrichen verbunden ([kebab-case](/de/docs/Glossary/kebab_case)) und nicht im [camel-cased](/de/docs/Glossary/camel_case).
 
 ### Rückgabewert
 
@@ -32,8 +32,7 @@ Ein String, der dem Wert der CSS-Eigenschaft entspricht, bevor sie entfernt wurd
 
 ## Beispiele
 
-Der folgende JavaScript-Code entfernt die `background-color` CSS-Eigenschaft
-aus einer Selektorregel:
+Der folgende JavaScript-Code entfernt die CSS-Eigenschaft `background-color` aus einer Selektorregel:
 
 ```js
 const declaration = document.styleSheets[0].rules[0].style;

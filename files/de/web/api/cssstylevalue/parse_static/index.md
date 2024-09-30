@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`parse()`** statische Methode der [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)
-Schnittstelle setzt eine spezifische CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten
-Wert als ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) Objekt zurück.
+Die **`parse()`** statische Methode der [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) Schnittstelle setzt eine spezifische CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten Wert als ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) Objekt zurück.
 
 ## Syntax
 
@@ -21,10 +19,9 @@ CSSStyleValue.parse(property, cssText)
 ### Parameter
 
 - `property`
-  - : Eine CSS-Eigenschaft, die gesetzt werden soll.
+  - : Eine zu setzende CSS-Eigenschaft.
 - `cssText`
-  - : Ein durch Kommas getrennter String, der einen oder mehrere Werte enthält, die auf die angegebene
-    Eigenschaft angewendet werden.
+  - : Ein durch Kommas getrennter String, der einen oder mehrere Werte enthält, die auf die angegebene Eigenschaft angewendet werden sollen.
 
 ### Rückgabewert
 
@@ -32,8 +29,7 @@ Ein `CSSStyleValue` Objekt, das den ersten angegebenen Wert enthält.
 
 ## Beispiele
 
-Der folgende Code analysiert eine Reihe von Deklarationen für die `transform`-Eigenschaft.
-Der zweite Codeblock zeigt die Struktur des zurückgegebenen Objekts, wie es in der Entwicklerwerkzeugkonsole angezeigt würde.
+Der untenstehende Code analysiert eine Reihe von Deklarationen für die `transform`-Eigenschaft. Der zweite Codeblock zeigt die Struktur des zurückgegebenen Objekts, wie es in der Entwicklerkonsole dargestellt würde.
 
 ```js
 const css = CSSStyleValue.parse(
@@ -58,5 +54,5 @@ CSSTransformValue {0: CSSTranslate, 1: CSSScale, length: 2, is2D: false}
 
 - [`CSSStyleValue.parseAll()`](/de/docs/Web/API/CSSStyleValue/parseAll_static)
 
-- [Die CSS Typed OM verwenden](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

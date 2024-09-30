@@ -1,5 +1,5 @@
 ---
-title: fr
+title: fr-Attribut
 slug: Web/SVG/Attribute/fr
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Verlauf.
+Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Farbverlauf.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -23,9 +23,9 @@ svg {
 }
 ```
 
-### Änderung des Wertes von `fr`
+### Ändern des Wertes von `fr`
 
-Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` hat.
+Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` und der andere Kreis hat `fr` auf `25%` gesetzt.
 
 ```html
 <svg
@@ -72,7 +72,7 @@ Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, w�
 
 ### Die Beziehung des Brennpunkts zu `(fx, fy)`
 
-In diesem Beispiel ist `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die als solche im SVG gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) bestimmt, wann der erste Farbüberlauf, in diesem Fall die Farbe Rot, in den anderen Farbüberlauf, in diesem Fall die Farbe Blau, übergehen soll.
+In diesem Beispiel ist `fr` gleich `5%` und stellt dar, wie die Attribute `fx` und `fy` (die als solche im SVG gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Farbverlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbverlaufspunkt, in diesem Fall die Farbe Rot, beginnen sollte, in den anderen Farbverlaufspunkt zu übergehen, der in diesem Fall die Farbe Blau ist.
 
 ```html
 <svg
@@ -125,7 +125,7 @@ In diesem Beispiel ist `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `f
 
 {{EmbedLiveSample("the_focal_points_relationship_to_fx_fy", "200", "200")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -139,7 +139,7 @@ In diesem Beispiel ist `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `f
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>None</td>
+      <td>Keiner</td>
     </tr>
   </tbody>
 </table>

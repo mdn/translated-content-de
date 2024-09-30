@@ -1,5 +1,5 @@
 ---
-title: "Navigator: registerProtocolHandler()-Methode"
+title: "Navigator: registerProtocolHandler() Methode"
 short-title: registerProtocolHandler()
 slug: Web/API/Navigator/registerProtocolHandler
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{securecontext_header}}
 
-Die **[`Navigator`](/de/docs/Web/API/Navigator)**-Methode **`registerProtocolHandler()`** ermöglicht es Webseiten, ihre Fähigkeit zur Öffnung oder Handhabung bestimmter URL-Schemata (auch als Protokolle bekannt) zu registrieren.
+Die **[`Navigator`](/de/docs/Web/API/Navigator)** Methode **`registerProtocolHandler()`** ermöglicht es Webseiten, ihre Fähigkeit zu registrieren, bestimmte URL-Schemata (auch bekannt als Protokolle) zu öffnen oder zu bearbeiten.
 
-Diese API erlaubt es beispielsweise, dass Webmail-Seiten `mailto:`-URLs öffnen oder VoIP-Seiten `tel:`-URLs öffnen.
+Diese API ermöglicht es beispielsweise Webmail-Seiten, `mailto:` URLs zu öffnen, oder VoIP-Seiten, `tel:` URLs zu öffnen.
 
-Um einen Protokoll-Handler zu registrieren, ruft eine Website `registerProtocolHandler()` auf und übergibt dabei das zu registrierende Protokoll und eine Vorlage-URL.
+Um einen Protokoll-Handler zu registrieren, ruft eine Webseite `registerProtocolHandler()` auf und übergibt das zu registrierende Protokoll und eine URL-Vorlage.
 
-Wenn der Benutzer einen Link aktiviert, der das registrierte Protokoll verwendet, wird der Browser das [`href`](/de/docs/Web/HTML/Element/a#href) vom aktivierten Link in die während der Registrierung bereitgestellte URL-Vorlage einfügen und zu der resultierenden URL navigieren.
+Wenn der Benutzer auf einen Link klickt, der das registrierte Protokoll verwendet, fügt der Browser den [`href`](/de/docs/Web/HTML/Element/a#href) des aktivierten Links in die URL-Vorlage ein, die bei der Handler-Registrierung bereitgestellt wurde, und navigiert die aktuelle Seite zur resultierenden URL.
 
-Der Browser kann den Benutzer bitten, zu bestätigen, dass die Seite das Protokoll handhaben darf, entweder bei der Registrierung des Protokolls oder wenn der Benutzer den Link aktiviert.
+Der Browser kann den Benutzer bitten zu bestätigen, dass die Seite berechtigt werden soll, das Protokoll zu bearbeiten, entweder wenn das Protokoll registriert wird oder wenn der Benutzer den Link aktiviert.
 
 ## Syntax
 
@@ -28,13 +28,13 @@ registerProtocolHandler(scheme, url)
 
 - `scheme`
 
-  - : Ein String, der das Schema für das Protokoll enthält, welches die Seite handhaben möchte.
+  - : Ein String, der das Schema für das Protokoll enthält, das die Seite handhaben möchte.
 
-    Dies kann ein benutzerdefiniertes Schema sein, in welchem Fall der Name des Schemas:
+    Dies kann ein benutzerdefiniertes Schema sein, in diesem Fall gilt für den Namen des Schemas:
 
-    - Mit `web+` beginnt
-    - Mindestens einen Buchstaben nach dem `web+`-Präfix enthält
-    - Nur Kleinbuchstaben [ASCII](/de/docs/Glossary/ASCII) enthält.
+    - Beginnt mit `web+`
+    - Enthält mindestens einen Buchstaben nach dem `web+` Präfix
+    - Enthält nur Kleinbuchstaben des [ASCII](/de/docs/Glossary/ASCII).
 
     Andernfalls muss das Schema eines der folgenden sein:
 
@@ -63,14 +63,14 @@ registerProtocolHandler(scheme, url)
     - `wtai`
     - `xmpp`
 
-    <!-- This must match: https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme -->
+    <!-- Dies muss übereinstimmen: https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme -->
 
 - `url`
 
   - : Ein String, der die URL des Handlers enthält.
-    Diese URL muss `%s` als Platzhalter enthalten, der durch die [escapete](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird, die gehandhabt werden soll.
+    Diese URL muss `%s` als Platzhalter enthalten, der durch die [escapte](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird, die bearbeitet werden soll.
 
-    Die Handler-URL muss das `https`-Schema verwenden und muss vom selben [Origin](/de/docs/Glossary/origin) sein wie die Webseite, die versucht, den Handler zu registrieren.
+    Die Handler-URL muss das `https` Schema verwenden und muss aus dem gleichen [Ursprung](/de/docs/Glossary/origin) stammen wie die Webseite, die versucht, den Handler zu registrieren.
 
 ### Rückgabewert
 
@@ -80,39 +80,39 @@ Keiner ({{jsxref("undefined")}}).
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Der User Agent blockierte die Registrierung.
+  - : Die Registrierung wurde vom User Agent blockiert.
     Dies kann passieren, wenn:
 
-    - Das registrierte Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst behandelt (`https:`, `about:`, etc.)
-    - Der [Origin](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Origin der Seite übereinstimmt, die diese API aufruft.
+    - Das registrierte Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst handhabt (`https:`, `about:`, etc.)
+    - Der [Ursprung](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
     - Das Schema der Handler-URL nicht `https` ist.
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der `%s`-Platzhalter fehlt in der Handler-URL.
+  - : Der `%s` Platzhalter fehlt in der Handler-URL.
 
 ## Beispiele
 
-### Registrierung eines Handlers für das Mailto-Protokoll
+### Registrierung eines Handlers für das mailto-Protokoll
 
-Es ist ziemlich üblich, dass Webseiten Ressourcen mit nicht-`https`-Protokollen verknüpfen. Ein Beispiel ist das `mailto:`-Protokoll. Webautoren können einen `mailto`-Link verwenden, wenn sie eine bequeme Möglichkeit bieten möchten, dass Benutzer direkt von der Webseite aus eine E-Mail senden können:
+Es ist relativ häufig, dass Webseiten Links zu Ressourcen unter Verwendung von nicht-`https` Protokollen setzen. Ein Beispiel ist das `mailto:` Protokoll. Webseitenautoren können einen `mailto` Link verwenden, um Benutzern eine praktische Möglichkeit zu bieten, direkt von der Webseite aus eine E-Mail zu senden:
 
 ```html
 <a href="mailto:webmaster@example.com">Web Master</a>
 ```
 
-Wenn der Link aktiviert wird, sollte der Browser die Standardanwendung auf dem Desktop für die E-Mail-Bearbeitung starten. Man kann dies als _Desktop-basierter_ Protokoll-Handler betrachten.
+Wird der Link aktiviert, sollte der Browser die Standard-Desktopanwendung für das Bearbeiten von E-Mails starten. Sie können dies als einen _desktopbasierten_ Protokoll-Handler ansehen.
 
-Webbasierte Protokoll-Handler ermöglichen es webbasierten Anwendungen ebenfalls, am Prozess teilzunehmen. Eine E-Mail-Webanwendung unter `mail.example.org` kann sich registrieren, um `mailto`-Links mit einem Code wie diesem zu handhaben:
+Webbasierte Protokoll-Handler erlauben es webbasierten Anwendungen ebenfalls, sich am Prozess zu beteiligen. Eine E-Mail-Web-App bei `mail.example.org` kann mit folgendem Code registriert werden, um `mailto` Links zu bearbeiten:
 
 ```js
 navigator.registerProtocolHandler("mailto", "https://mail.example.org/?to=%s");
 ```
 
-Nachdem, wenn der Benutzer auf einen `mailto`-Link auf irgendeiner Webseite klickt, wird der Browser (möglicherweise nach Bestätigung) zu `https://mail.example.org/?to=mailto:webmaster@example.com` navigieren. Diese Seite könnte den URL-Parameter parsen, um die Adresse zu extrahieren, und diese verwenden, um eine E-Mail zu initialisieren.
+Anschließend wird der Browser (nachdem möglicherweise der Browser um Bestätigung gebeten wurde) zu `https://mail.example.org/?to=mailto:webmaster@example.com` navigieren, wenn der Benutzer auf einen `mailto` Link auf einer beliebigen Webseite klickt. Diese Seite könnte den URL-Parameter parsen, um die Adresse zu extrahieren und diese verwenden, um eine E-Mail zu initialisieren.
 
 ### Registrierung eines Handlers für ein benutzerdefiniertes Protokoll
 
-In diesem Beispiel registriert eine Seite einen Handler für das `web+burger`-Protokoll mit einem Code wie diesem:
+In diesem Beispiel registriert eine Seite einen Handler für das `web+burger` Protokoll mit folgendem Code:
 
 ```js
 navigator.registerProtocolHandler(
@@ -127,7 +127,7 @@ Anschließend besucht der Benutzer eine Seite mit einem Link wie diesem:
 <a href="web+burger:cheeseburger">cheeseburger</a>
 ```
 
-Wenn der Benutzer den `web+burger`-Link aktiviert, wird der Browser (möglicherweise nach Bestätigung) zu `https://burgers.example.org/?burger=web+burger:cheeseburger` navigieren.
+Wenn der Benutzer auf den `web+burger` Link klickt, wird der Browser (nachdem möglicherweise der Benutzer um Bestätigung gebeten wurde) zu `https://burgers.example.org/?burger=web+burger:cheeseburger` navigieren.
 
 ## Spezifikationen
 

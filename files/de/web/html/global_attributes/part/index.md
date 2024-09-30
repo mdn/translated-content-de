@@ -7,9 +7,9 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`part`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält eine durch Leerzeichen getrennte Liste der Teilnamen des Elements. Teilnamen ermöglichen es CSS, spezifische Elemente in einem Schattenbaum über das {{CSSxRef("::part")}} Pseudoelement auszuwählen und zu stylen.
+Das **`part`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält eine durch Leerzeichen getrennte Liste der Teile-Namen des Elements. Teile-Namen ermöglichen es CSS, spezifische Elemente in einem Shadow-Baum über das {{CSSxRef("::part")}} Pseudoelement auszuwählen und zu stylen.
 
-Siehe das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/exportparts) für ein Anwendungsbeispiel.
+Sehen Sie sich das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/exportparts) für ein Anwendungsbeispiel an.
 
 ## Spezifikationen
 
@@ -27,4 +27,4 @@ Siehe das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/exportpar
 - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
 - [`Element.part`](/de/docs/Web/API/Element/part) Eigenschaft
 - [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
-- [CSS-Einschränkungen](/de/docs/Web/CSS/CSS_scoping) Modul
+- [CSS-Eingrenzung](/de/docs/Web/CSS/CSS_scoping) Modul

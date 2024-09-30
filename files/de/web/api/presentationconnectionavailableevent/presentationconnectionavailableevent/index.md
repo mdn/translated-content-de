@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`PresentationConnectionAvailableEvent()`**-Konstruktor erstellt ein neues [`PresentationConnectionAvailableEvent`](/de/docs/Web/API/PresentationConnectionAvailableEvent)-Objekt.
+Der **`PresentationConnectionAvailableEvent()`** Konstruktor erstellt ein neues [`PresentationConnectionAvailableEvent`](/de/docs/Web/API/PresentationConnectionAvailableEvent) Objekt.
 
 ## Syntax
 
@@ -19,15 +19,16 @@ new PresentationConnectionAvailableInit(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Events. Es ist case-sensitive und von Browsern wird es auf `connectionavailable` gesetzt.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitive und Browser setzen es auf `connectionavailable`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `connection`
-      - : Das zugeordnete [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Objekt.
+      - : Das zugeordnete [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) Objekt.
 
 ### Rückgabewert
 
-Ein neues [`PresentationConnectionAvailableEvent`](/de/docs/Web/API/PresentationConnectionAvailableEvent)-Objekt.
+Ein neues [`PresentationConnectionAvailableEvent`](/de/docs/Web/API/PresentationConnectionAvailableEvent) Objekt.
 
 ## Spezifikationen
 

@@ -7,18 +7,18 @@ l10n:
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}} Elemente vom Typ **`reset`** werden als Schaltflächen dargestellt, mit einem Standard-[`click`](/de/docs/Web/API/Element/click_event)-Ereignishandler, der alle Eingaben im Formular auf ihre Anfangswerte zurücksetzt.
+{{HTMLElement("input")}}-Elemente vom Typ **`reset`** werden als Schaltflächen dargestellt, mit einem Standard-[`click`](/de/docs/Web/API/Element/click_event)-Ereignishandler, der alle Eingabefelder im Formular auf ihre Anfangswerte zurücksetzt.
 
 {{EmbedInteractiveExample("pages/tabbed/input-reset.html", "tabbed-standard")}}
 
 > [!NOTE]
-> Sie sollten in der Regel darauf verzichten, Zurücksetzen-Schaltflächen in Ihre Formulare einzufügen. Sie sind selten nützlich und frustrieren eher die Benutzer, die sie versehentlich anklicken (oft beim Versuch, die [Absenden-Schaltfläche](/de/docs/Web/HTML/Element/input/submit) zu klicken).
+> Normalerweise sollten Sie keine Zurücksetzen-Schaltflächen in Ihre Formulare einfügen. Sie sind selten nützlich und neigen eher dazu, Benutzer zu frustrieren, die sie versehentlich anklicken (oft, während sie versuchen, die [Absenden-Schaltfläche](/de/docs/Web/HTML/Element/input/submit) zu klicken).
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type="reset">`-Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche verwendet wird und der Schaltfläche eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) verleiht. Schaltflächen wie `reset` haben ansonsten keinen Wert.
+Das `value`-Attribut eines `<input type="reset">`-Elements enthält einen String, der als Beschriftung für die Schaltfläche verwendet wird und der Schaltfläche eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) bietet. Schaltflächen wie `reset` haben sonst keinen Wert.
 
-### Das value-Attribut festlegen
+### Das Value-Attribut setzen
 
 ```html
 <input type="reset" value="Reset the form" />
@@ -26,9 +26,9 @@ Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type
 
 {{EmbedLiveSample("Setting_the_value_attribute", 650, 30)}}
 
-### Das value-Attribut weglassen
+### Das Value-Attribut weglassen
 
-Wenn Sie keinen `value` angeben, erhalten Sie eine Schaltfläche mit der Standardbeschriftung (typischerweise "Reset", dies kann jedoch je nach [User-Agent](/de/docs/Glossary/user_agent) variieren):
+Wenn Sie keinen `value` angeben, erhalten Sie eine Schaltfläche mit der Standardbeschriftung (typischerweise "Reset", dies kann jedoch je nach [User Agent](/de/docs/Glossary/user_agent) variieren):
 
 ```html
 <input type="reset" />
@@ -38,11 +38,11 @@ Wenn Sie keinen `value` angeben, erhalten Sie eine Schaltfläche mit der Standar
 
 ## Verwendung von Zurücksetzen-Schaltflächen
 
-`<input type="reset">`-Schaltflächen werden verwendet, um Formulare zurückzusetzen. Wenn Sie eine benutzerdefinierte Schaltfläche erstellen möchten und das Verhalten über JavaScript anpassen wollen, sollten Sie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button) verwenden, oder besser noch ein {{htmlelement("button")}}-Element.
+`<input type="reset">`-Schaltflächen werden zum Zurücksetzen von Formularen verwendet. Wenn Sie eine benutzerdefinierte Schaltfläche erstellen und dann das Verhalten mit JavaScript anpassen möchten, sollten Sie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button) oder besser noch ein {{htmlelement("button")}}-Element verwenden.
 
 ### Eine einfache Zurücksetzen-Schaltfläche
 
-Wir beginnen mit der Erstellung einer einfachen Zurücksetzen-Schaltfläche:
+Wir beginnen mit einer einfachen Zurücksetzen-Schaltfläche:
 
 ```html
 <form>
@@ -56,17 +56,17 @@ Wir beginnen mit der Erstellung einer einfachen Zurücksetzen-Schaltfläche:
 </form>
 ```
 
-Diese wird so dargestellt:
+So sieht das aus:
 
 {{EmbedLiveSample("A_simple_reset_button", 650, 100)}}
 
-Versuchen Sie, etwas Text in das Textfeld einzugeben und dann die Zurücksetzen-Schaltfläche zu drücken.
+Versuchen Sie, Text in das Eingabefeld einzugeben und dann die Zurücksetzen-Schaltfläche zu drücken.
 
-### Eine Tastenkombination für das Zurücksetzen hinzufügen
+### Hinzufügen einer Zurücksetzen-Tastenkombination
 
-Um eine Tastenkombination zu einer Zurücksetzen-Schaltfläche hinzuzufügen – genau wie bei jedem {{HTMLElement("input")}}, für das dies sinnvoll ist – verwenden Sie das globale Attribut [`accesskey`](/de/docs/Web/HTML/Global_attributes#accesskey).
+Um einer Zurücksetzen-Schaltfläche eine Tastenkombination hinzuzufügen — genau wie bei jedem anderen geeigneten {{HTMLElement("input")}} — verwenden Sie das [`accesskey`](/de/docs/Web/HTML/Global_attributes#accesskey)-globale Attribut.
 
-In diesem Beispiel wird <kbd>r</kbd> als Zugriffstaste angegeben (Sie müssen <kbd>r</kbd> plus die speziellen Modifikatortasten für Ihre Browser-/Betriebssystemkombination drücken; siehe [`accesskey`](/de/docs/Web/HTML/Global_attributes#accesskey) für eine nützliche Liste dieser Tasten).
+In diesem Beispiel wird <kbd>r</kbd> als Zugriffstaste angegeben (Sie müssen <kbd>r</kbd> plus die entsprechenden Modifikatortasten für Ihre Browser/OS-Kombination drücken; siehe [`accesskey`](/de/docs/Web/HTML/Global_attributes#accesskey) für eine nützliche Liste dieser).
 
 ```html
 <form>
@@ -82,9 +82,9 @@ In diesem Beispiel wird <kbd>r</kbd> als Zugriffstaste angegeben (Sie müssen <k
 
 {{EmbedLiveSample("Adding_a_reset_keyboard_shortcut", 650, 100)}}
 
-Das Problem mit dem obigen Beispiel ist, dass der Benutzer nicht wissen kann, was die Zugriffstaste ist! Dies gilt insbesondere, da die Modifikatoren in der Regel nicht standardmäßig sind, um Konflikte zu vermeiden. Wenn Sie eine Website erstellen, stellen Sie sicher, dass diese Informationen auf eine Weise bereitgestellt werden, die das Design der Website nicht beeinträchtigt (zum Beispiel durch einen leicht zugänglichen Link, der auf Informationen zu den Zugriffstasten der Website verweist). Das Hinzufügen eines Tooltips zur Schaltfläche (mithilfe des [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attributs) kann ebenfalls hilfreich sein, obwohl es keine vollständige Lösung für die Barrierefreiheit darstellt.
+Das Problem bei obigem Beispiel ist, dass der Benutzer nicht wissen kann, was die Zugriffstaste ist! Dies ist besonders problematisch, da die Modifikatoren normalerweise nicht standardisiert sind, um Konflikte zu vermeiden. Beim Erstellen einer Website sollten Sie diese Informationen so bereitstellen, dass sie das Design der Website nicht stören (zum Beispiel, indem Sie einen leicht zugänglichen Link bereitstellen, der auf Informationen verweist, was die Zugriffstasten der Website sind). Das Hinzufügen eines Tooltips zur Schaltfläche (mithilfe des [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attributs) kann ebenfalls helfen, obwohl es keine vollständige Lösung für Zugänglichkeitszwecke ist.
 
-### Eine Zurücksetzen-Schaltfläche deaktivieren und aktivieren
+### Deaktivieren und Aktivieren einer Zurücksetzen-Schaltfläche
 
 Um eine Zurücksetzen-Schaltfläche zu deaktivieren, geben Sie das [`disabled`](/de/docs/Web/HTML/Element/input#disabled)-Attribut an, wie folgt:
 
@@ -92,18 +92,18 @@ Um eine Zurücksetzen-Schaltfläche zu deaktivieren, geben Sie das [`disabled`](
 <input type="reset" value="Disabled" disabled />
 ```
 
-Sie können Schaltflächen zur Laufzeit aktivieren und deaktivieren, indem Sie `disabled` auf `true` oder `false` setzen; in JavaScript sieht das so aus: `btn.disabled = true` oder `btn.disabled = false`.
+Sie können Schaltflächen zur Laufzeit aktivieren und deaktivieren, indem Sie `disabled` auf `true` oder `false` setzen; in JavaScript sieht das aus wie `btn.disabled = true` oder `btn.disabled = false`.
 
 > [!NOTE]
 > Weitere Ideen zum Aktivieren und Deaktivieren von Schaltflächen finden Sie auf der Seite [`<input type="button">`](/de/docs/Web/HTML/Element/input/button#disabling_and_enabling_a_button).
 
 ## Validierung
 
-Schaltflächen nehmen nicht an der Constraint-Validierung teil; sie haben keinen echten Wert, der eingeschränkt werden kann.
+Schaltflächen nehmen nicht an der Einschränkungsvalidierung teil; sie haben keinen wirklichen Wert, der eingeschränkt werden könnte.
 
 ## Beispiele
 
-Wir haben oben einfache Beispiele aufgenommen. Es gibt wirklich nicht viel mehr über Zurücksetzen-Schaltflächen zu sagen.
+Die oben genannten einfachen Beispiele sind bereits enthalten. Es gibt eigentlich nichts Weiteres zur Funktionsweise von Zurücksetzen-Schaltflächen zu sagen.
 
 ## Technische Zusammenfassung
 
@@ -111,14 +111,14 @@ Wir haben oben einfache Beispiele aufgenommen. Es gibt wirklich nicht viel mehr 
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Eine Zeichenkette, die als Beschriftung der Schaltfläche verwendet wird</td>
+      <td>Ein String, der als Schaltflächenbeschriftung verwendet wird</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
       <td>[`click`](/de/docs/Web/API/Element/click_event)</td>
     </tr>
     <tr>
-      <td><strong>Unterstützte allgemeine Attribute</strong></td>
+      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Element/input#type"><code>type</code></a> und
         <a href="/de/docs/Web/HTML/Element/input#value"><code>value</code></a>
@@ -133,7 +133,7 @@ Wir haben oben einfache Beispiele aufgenommen. Es gibt wirklich nicht viel mehr 
       <td><p>[`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)</p></td>
     </tr>
     <tr>
-      <td><strong>Methoden</strong></td>
+      <td><strong>Methode</strong></td>
       <td>Keine</td>
     </tr>
     <tr>
@@ -156,5 +156,5 @@ Wir haben oben einfache Beispiele aufgenommen. Es gibt wirklich nicht viel mehr 
 - {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
 - [Formulare und Schaltflächen](/de/docs/Learn/Forms/Basic_native_form_controls#actual_buttons)
 - [HTML-Formulare](/de/docs/Learn/Forms)
-- Das {{HTMLElement("button")}} Element
+- Das {{HTMLElement("button")}}-Element
 - [Kompatibilität von CSS-Eigenschaften](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)

@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSS`** Schnittstelle enthält nützliche CSS-bezogene Methoden. Es werden keine Objekte mit dieser Schnittstelle implementiert: Sie enthält nur statische Methoden und ist daher eine funktionale Schnittstelle.
+Das **`CSS`**-Interface enthält nützliche CSS-bezogene Methoden. Es gibt keine Objekte mit diesem Interface: Es enthält nur statische Methoden und ist daher ein utilitäres Interface.
 
 ## Statische Eigenschaften
 
 - [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static)
   - : Bietet Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) zu stylen.
 - [`CSS.paintWorklet`](/de/docs/Web/API/CSS/paintWorklet_static) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Bietet Zugriff auf das Worklet, das für alle Klassen im Zusammenhang mit dem Malen verantwortlich ist.
+  - : Bietet Zugriff auf das Worklet, das für alle Klassen verantwortlich ist, die mit dem Malen zu tun haben.
 
 ## Instanzeigenschaften
 
-_Die CSS-Schnittstelle ist eine Dienstschnittstelle und es kann kein Objekt dieses Typs erstellt werden: Es sind nur statische Eigenschaften darauf definiert._
+_Das CSS-Interface ist ein Dienstleistungsinterface und es kann kein Objekt dieses Typs erstellt werden: Es sind nur statische Eigenschaften darauf definiert._
 
 ## Statische Methoden
 
 _Keine geerbten statischen Methoden_.
 
 - [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static)
-  - : Registriert [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*), die Typprüfung der Eigenschaften, Standardwerte und Eigenschaften ermöglichen, die ihren Wert vererben oder nicht.
+  - : Registriert [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und ermöglicht das Prüfen von Eigenschaftstypen, Standardwerten und Eigenschaften, die ihren Wert erben oder nicht.
 - [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static)
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das Paar _Eigenschaft-Wert_ oder die im Parameter angegebene Bedingung unterstützt wird.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Paar _Eigenschaft-Wert_ oder die Bedingung, die im Parameter gegeben ist, unterstützt wird.
 - [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static)
-  - : Kann verwendet werden, um eine Zeichenkette hauptsächlich für die Verwendung als Teil eines CSS-Selektors zu escapen.
-- [CSS-Fabrikfunktionen](/de/docs/Web/API/CSS/factory_functions_static)
+  - : Kann verwendet werden, um einen String zu escapen, hauptsächlich für die Verwendung als Teil eines CSS-Selektors.
+- [CSS-Factory-Funktionen](/de/docs/Web/API/CSS/factory_functions_static)
 
-  - : Kann verwendet werden, um einen neuen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit einem Wert der Parameternummer der Einheiten des Namens der verwendeten Fabrikfunktionenmethode zurückzugeben.
+  - : Kann verwendet werden, um einen neuen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit einem Wert der angegebenen Anzahl von Einheiten des Namens der verwendeten Factory-Funktionsmethode zurückzugeben.
 
     ```js
     CSS.em(3); // CSSUnitValue {value: 3, unit: "em"}
@@ -40,7 +40,7 @@ _Keine geerbten statischen Methoden_.
 
 ## Instanzmethoden
 
-_Die CSS-Schnittstelle ist eine Dienstschnittstelle und es kann kein Objekt dieses Typs erstellt werden: Es sind nur statische Methoden darauf definiert._
+_Das CSS-Interface ist ein Dienstleistungsinterface und es kann kein Objekt dieses Typs erstellt werden: Es sind nur statische Methoden darauf definiert._
 
 ## Spezifikationen
 

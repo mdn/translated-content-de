@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Das **`function`** Schlüsselwort kann verwendet werden, um eine Funktion innerhalb eines Ausdrucks zu definieren.
+Das **`function`**-Schlüsselwort kann verwendet werden, um eine Funktion innerhalb eines Ausdrucks zu definieren.
 
-Sie können auch Funktionen unter Verwendung der [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) oder der [Pfeilsyntax](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definieren.
+Sie können Funktionen auch mithilfe der [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) oder der [Pfeilsyntax](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definieren.
 
 {{EmbedInteractiveExample("pages/js/expressions-functionexpression.html", "shorter")}}
 
@@ -38,24 +38,24 @@ function name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Ein [Ausdrucksstatement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Verwechslungen mit einer [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) zu vermeiden. Das `function` Schlüsselwort beginnt nur dann einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
+> Eine [Ausdrucks-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Verwechslungen mit einer [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) zu vermeiden. Das `function`-Schlüsselwort beginnt nur dann einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
 
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Der Funktionsname. Kann weggelassen werden, dann ist die Funktion _anonym_. Der Name ist nur lokal für den Funktionskörper.
+  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur lokal für den Funktionskörper.
 - `paramN` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Für die Parametersyntax siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters für die Funktion. Zur Syntax der Parameter siehe das [Referenzdokument zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
   - : Die Anweisungen, die den Körper der Funktion bilden.
 
 ## Beschreibung
 
-Ein `function` Ausdruck ist sehr ähnlich zu und hat fast die gleiche Syntax wie eine [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function). Der Hauptunterschied zwischen einem `function` Ausdruck und einer `function` Deklaration ist der _Funktionsname_, der in `function` Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `function` Ausdruck kann als ein [IIFE](/de/docs/Glossary/IIFE) (Sofortig Ausgeführter Funktionsausdruck) verwendet werden, der ausgeführt wird, sobald er definiert ist. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
+Ein `function`-Ausdruck ist dem [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) sehr ähnlich und hat fast die gleiche Syntax. Der Hauptunterschied zwischen einem `function`-Ausdruck und einer `function`-Deklaration ist der _Funktionsname_, der bei `function`-Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erzeugen. Ein `function`-Ausdruck kann als [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression) verwendet werden, das ausgeführt wird, sobald es definiert ist. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
 
-### Funktionsexpression Hoisting
+### Hoisting von Funktionsausdrücken
 
-Funktionsexpressionen in JavaScript werden nicht gehoben, im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function#hoisting). Sie können Funktionsexpressionen nicht verwenden, bevor Sie sie erstellen:
+Funktionsausdrücke in JavaScript werden, anders als [Funktionserklärungen](/de/docs/Web/JavaScript/Reference/Statements/function#hoisting), nicht gehoben. Sie können Funktionsausdrücke nicht verwenden, bevor Sie sie erstellen:
 
 ```js
 console.log(notHoisted); // undefined
@@ -68,9 +68,9 @@ var notHoisted = function () {
 };
 ```
 
-### Benannte Funktionsexpression
+### Benannter Funktionsausdruck
 
-Wenn Sie innerhalb des Funktionskörpers auf die aktuelle Funktion verweisen möchten, müssen Sie eine benannte Funktionsexpression erstellen. Dieser Name ist dann nur lokal für den Funktionskörper (Scope). Dies vermeidet die Verwendung der veralteten {{jsxref("Functions/arguments/callee", "arguments.callee")}} Eigenschaft, um die Funktion rekursiv aufzurufen.
+Wenn Sie innerhalb des Funktionskörpers auf die aktuelle Funktion verweisen möchten, müssen Sie einen benannten Funktionsausdruck erstellen. Dieser Name ist dann nur lokal zum Funktionskörper (Umfang). Dadurch wird die Verwendung der veralteten {{jsxref("Functions/arguments/callee", "arguments.callee")}}-Eigenschaft vermieden, um die Funktion rekursiv aufzurufen.
 
 ```js
 const math = {
@@ -86,9 +86,9 @@ const math = {
 math.factit(3); //3;2;1;
 ```
 
-Wenn eine Funktionsexpression benannt ist, wird die [`name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name) Eigenschaft der Funktion auf diesen Namen gesetzt, anstatt auf den impliziten Namen, der aus der Syntax abgeleitet wird (wie die Variable, der die Funktion zugewiesen wird).
+Wenn ein Funktionsausdruck benannt ist, wird die [`name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name)-Eigenschaft der Funktion auf diesen Namen gesetzt, anstelle des impliziten Namens, der aus der Syntax abgeleitet wird (z. B. die Variable, der die Funktion zugewiesen wird).
 
-Im Gegensatz zu Deklarationen ist der Name der Funktionsexpressionen schreibgeschützt.
+Im Gegensatz zu Deklarationen ist der Name der Funktionsausdrücke schreibgeschützt.
 
 ```js
 function foo() {
@@ -103,9 +103,9 @@ console.log(foo); // 1
 
 ## Beispiele
 
-### Verwendung der Funktionsexpression
+### Verwendung eines Funktionsausdrucks
 
-Das folgende Beispiel definiert eine unbenannte Funktion und weist sie `x` zu. Die Funktion gibt das Quadrat ihres Arguments zurück:
+Das folgende Beispiel definiert eine nicht benannte Funktion und weist sie `x` zu. Die Funktion gibt das Quadrat ihres Arguments zurück:
 
 ```js
 const x = function (y) {
@@ -113,9 +113,9 @@ const x = function (y) {
 };
 ```
 
-### Verwendung einer Funktion als Callback
+### Verwendung einer Funktion als Rückruf
 
-Häufiger wird sie als [Callback](/de/docs/Glossary/Callback_function) verwendet:
+In der Praxis wird sie häufig als [Rückruf](/de/docs/Glossary/Callback_function) verwendet:
 
 ```js
 button.addEventListener("click", function (event) {
@@ -123,7 +123,7 @@ button.addEventListener("click", function (event) {
 });
 ```
 
-### Verwendung eines Sofortig Ausgeführten Funktionsausdrucks (IIFE)
+### Verwendung eines sofort ausgeführten Funktionsausdrucks (IIFE)
 
 Eine anonyme Funktion wird erstellt und aufgerufen:
 

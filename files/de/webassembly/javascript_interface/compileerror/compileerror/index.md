@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues WebAssembly `CompileError` Objekt, das einen Fehler während der WebAssembly-Dekodierung oder -Validierung anzeigt.
+Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues WebAssembly `CompileError` Objekt, welches einen Fehler während des WebAssembly-Decodings oder zur Validierung anzeigt.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers anzeigt. Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -36,7 +36,7 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen CompileError-Instanz
 
-Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert seine Details in der Konsole:
+Das folgende Snippet erstellt eine neue `CompileError`-Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {

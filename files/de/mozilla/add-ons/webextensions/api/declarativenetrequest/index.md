@@ -7,38 +7,38 @@ l10n:
 
 {{AddonSidebar}}
 
-Diese API ermöglicht es Erweiterungen, Bedingungen und Aktionen festzulegen, die beschreiben, wie Netzwerkanforderungen gehandhabt werden sollen. Diese deklarativen Regeln ermöglichen dem Browser, Netzwerkanforderungen zu evaluieren und zu modifizieren, ohne die Erweiterungen über einzelne Netzwerkanforderungen zu benachrichtigen.
+Diese API ermöglicht es Erweiterungen, Bedingungen und Aktionen festzulegen, die beschreiben, wie Netzwerkanforderungen gehandhabt werden sollen. Diese deklarativen Regeln ermöglichen es dem Browser, Netzwerkanforderungen zu bewerten und zu ändern, ohne die Erweiterungen über einzelne Netzwerkanforderungen zu benachrichtigen.
 
 ## Berechtigungen
 
-Um diese API zu nutzen, muss eine Erweiterung die Berechtigung `"declarativeNetRequest"` oder `"declarativeNetRequestWithHostAccess"` in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
+Um diese API zu verwenden, muss eine Erweiterung die Berechtigung `"declarativeNetRequest"` oder `"declarativeNetRequestWithHostAccess"` im [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern. 
 
-Die `"declarativeNetRequest"` Berechtigung erlaubt es Erweiterungen, Anfragen zu blockieren und aufzuwerten, ohne dass [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) erforderlich sind. Host-Berechtigungen sind erforderlich, wenn die Erweiterung Anfragen umleiten oder Header von Anfragen ändern möchte oder wenn die `"declarativeNetRequestWithHostAccess"` Berechtigung anstelle der `"declarativeNetRequest"` Berechtigung verwendet wird. Um in diesen Fällen auf Anfragen zu reagieren, sind Host-Berechtigungen für die URL der Anfrage erforderlich. Für alle Anfragen, außer Navigationsanfragen (d.h. Ressourcentyp `main_frame` und `sub_frame`), sind auch Host-Berechtigungen für den Initiator der Anfrage erforderlich. Der Initiator einer Anfrage ist normalerweise das Dokument oder der Worker, der die Anfrage ausgelöst hat.
+Die Berechtigung `"declarativeNetRequest"` erlaubt es Erweiterungen, Anforderungen zu blockieren und zu aktualisieren, ohne Hostberechtigungen zu benötigen. Hostberechtigungen sind erforderlich, wenn die Erweiterung Anforderungen umleiten oder Header von Anforderungen ändern möchte oder wenn die Berechtigung `"declarativeNetRequestWithHostAccess"` anstelle von `"declarativeNetRequest"` verwendet wird. Um in diesen Fällen auf Anforderungen zu reagieren, sind Hostberechtigungen für die Anforderungs-URL erforderlich. Für alle Anforderungen, außer für Navigationsanforderungen (d.h. Ressourcentyp `main_frame` und `sub_frame`), sind auch Hostberechtigungen für den Initiator der Anforderung erforderlich. Der Initiator einer Anforderung ist normalerweise das Dokument oder der Worker, der die Anforderung ausgelöst hat.
 
-Einige Anfragen sind beschränkt und können nicht von Erweiterungen abgeglichen werden. Dazu gehören privilegierte Browseranfragen, Anfragen zu oder von [eingeschränkten Domains](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#restricted_domains) und Anfragen von anderen Erweiterungen.
+Einige Anforderungen sind eingeschränkt und können von Erweiterungen nicht übereinstimmen. Dazu gehören privilegierte Browseranfragen, Anfragen an oder von [eingeschränkten Domains](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#restricted_domains) und Anfragen von anderen Erweiterungen.
 
-Die `"declarativeNetRequestFeedback"` Berechtigung ist erforderlich, um {{WebExtAPIRef("declarativeNetRequest.getMatchedRules","getMatchedRules")}} und {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug","onRuleMatchedDebug")}} zu nutzen, da sie Informationen zu abgeglichenen deklarativen Regeln zurückgeben. Siehe [Testen](#testen) für weitere Informationen.
+Die Berechtigung `"declarativeNetRequestFeedback"` ist erforderlich, um {{WebExtAPIRef("declarativeNetRequest.getMatchedRules","getMatchedRules")}} und {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug","onRuleMatchedDebug")}} zu verwenden, da sie Informationen zu übereinstimmenden deklarativen Regeln zurückgeben. Siehe [Testen](#testen) für weitere Informationen.
 
 ## Regeln
 
-Die deklarativen Regeln sind durch vier Felder definiert:
+Die deklarativen Regeln werden durch vier Felder definiert:
 
-- `id` – Eine ID, die eine Regel innerhalb eines Regelsets eindeutig identifiziert. Verpflichtend und sollte >= 1 sein.
-- `priority` – Die Regelpriorität. Wenn angegeben, sollte sie >= 1 sein. Standardmäßig 1. Siehe [Übereinstimmende Präzedenzfälle](#übereinstimmende_präzedenzfälle) für Details darüber, wie die Priorität beeinflusst, welche Regeln angewendet werden.
-- `condition` – Die {{WebExtAPIRef("declarativeNetRequest.RuleCondition","Bedingung")}}, unter der diese Regel ausgelöst wird.
-- `action` – Die {{WebExtAPIRef("declarativeNetRequest.RuleAction","Aktion")}}, die ausgeführt wird, wenn die Regel abgeglichen wird. Regeln können eines von diesen Dingen tun:
-  - Eine Netzwerkanforderung blockieren.
-  - Eine Netzwerkanforderung umleiten.
-  - Header von einer Netzwerkanforderung modifizieren.
-  - Verhindern, dass eine andere passende Regel angewendet wird.
+- `id` – Eine ID, die eine Regel innerhalb eines Regelsatzes eindeutig identifiziert. Erforderlich und sollte >= 1 sein.
+- `priority` – Die Regelpriorität. Wenn angegeben, sollte sie >= 1 sein. Standardmäßig 1. Siehe [Übereinstimmende Präzedenzfälle](#übereinstimmende_präzedenzfälle) für Details, wie die Priorität beeinflusst, welche Regeln angewendet werden.
+- `condition` – Die {{WebExtAPIRef("declarativeNetRequest.RuleCondition","condition")}}, unter der diese Regel ausgelöst wird.
+- `action` – Die {{WebExtAPIRef("declarativeNetRequest.RuleAction","action")}}, die ausgeführt werden soll, wenn die Regel zutrifft. Regeln können eine der folgenden Aktionen ausführen:
+  - eine Netzwerkanforderung blockieren.
+  - eine Netzwerkanforderung umleiten.
+  - Header von einer Netzwerkanforderung ändern.
+  - verhindern, dass eine andere Übereinstimmungsregel angewendet wird.
 
 > [!NOTE]
-> Eine Umleitungsaktion leitet die Anfrage nicht um, und die Anfrage setzt normal fort, wenn:
+> Eine Umleitungsaktion leitet die Anfrage nicht um, und die Anfrage wird wie gewohnt fortgesetzt, wenn:
 >
-> - Die Aktion die Anfrage nicht ändert.
-> - Die Umleitungs-URL ungültig ist (z.B. der Wert von {{WebExtAPIRef("declarativeNetRequest.redirect","redirect.regexSubstitution")}} keine gültige URL ist).
+> - die Aktion die Anfrage nicht ändert.
+> - die Umleitungs-URL ungültig ist (z.B. der Wert von {{WebExtAPIRef("declarativeNetRequest.redirect","redirect.regexSubstitution")}} ist keine gültige URL).
 
-Dies ist eine Beispielregel, die alle Skriptanfragen blockiert, die von `"foo.com"` zu einer beliebigen URL mit `"abc"` als Teilstring stammen:
+Dies ist ein Beispiel für eine Regel, die alle Skriptanforderungen von `"foo.com"` an jede URL mit `"abc"` als Teilzeichenkette blockiert:
 
 ```json
 {
@@ -53,14 +53,14 @@ Dies ist eine Beispielregel, die alle Skriptanfragen blockiert, die von `"foo.co
 }
 ```
 
-Das `urlFilter`-Feld einer Regelbedingung wird verwendet, um das Muster zu spezifizieren, das gegen die Anfrage-URL abgeglichen wird. Siehe {{WebExtAPIRef("declarativeNetRequest.RuleCondition","RuleCondition")}} für Details. Einige Beispiele für URL-Filter sind:
+Das `urlFilter`-Feld einer Regelbedingung wird verwendet, um das Muster anzugeben, das gegen die Anforderungs-URL abgeglichen wird. Siehe {{WebExtAPIRef("declarativeNetRequest.RuleCondition","RuleCondition")}} für Details. Einige Beispiele für URL-Filter sind:
 
 <table>
 <tbody>
 <tr>
 <th><code>urlFilter</code></th>
-<th>Entspricht</th>
-<th>Entspricht nicht</th>
+<th>Übereinstimmungen</th>
+<th>Keine Übereinstimmung</th>
 </tr>
 <tr>
 <td><code>"abc"</code></td>
@@ -85,167 +85,167 @@ Das `urlFilter`-Feld einer Regelbedingung wird verwendet, um das Muster zu spezi
 </tbody>
 </table>
 
-## Regelsets
+## Regelsätze
 
-Regeln sind in Regelsets organisiert:
+Regeln sind in Regelsätzen organisiert:
 
-- **statische Regelsets**: Sammlungen von Regeln, die mit dem [`"declarative_net_request"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssel definiert sind und in der Erweiterung gespeichert werden. Eine Erweiterung kann statische Regelsets mit {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets","updateEnabledRulesets")}} aktivieren und deaktivieren. Der Satz von aktivierten statischen Regelsets bleibt über Sitzungen hinweg erhalten, nicht jedoch über Erweiterungs-Updates. Die aktivierten statischen Regelsets bei der Installation und Aktualisierung der Erweiterung werden durch den Inhalt des `"declarative_net_request"` Manifest-Schlüssels bestimmt.
-- **dynamisches Regelset**: Regeln, die mit {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules","updateDynamicRules")}} hinzugefügt oder entfernt werden. Diese Regeln bleiben über Sitzungen und Erweiterungs-Updates hinweg erhalten.
-- **Session-Regelset**: Regeln, die mit {{WebExtAPIRef("declarativeNetRequest.updateSessionRules","updateSessionRules")}} hinzugefügt oder entfernt werden. Diese Regeln bleiben nicht über Browsersitzungen hinweg erhalten.
+- **statische Regelsätze**: Sammlungen von Regeln, die mit dem Manifest-Schlüssel [`"declarative_net_request"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) definiert und in der Erweiterung gespeichert sind. Eine Erweiterung kann statische Regelsätze mit {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets","updateEnabledRulesets")}} aktivieren und deaktivieren. Die Menge der aktivierten statischen Regelsätze wird zwischen Sitzungen, aber nicht zwischen Erweiterungsaktualisierungen beibehalten. Die aktivierten statischen Regelsätze bei der Erweiterungsinstallation und -aktualisierung werden durch den Inhalt des Manifestschlüssels `"declarative_net_request"` bestimmt.
+- **dynamischer Regelsatz**: Regeln, die mit {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules","updateDynamicRules")}} hinzugefügt oder entfernt werden. Diese Regeln bleiben sowohl zwischen Sitzungen als auch bei Erweiterungsaktualisierungen bestehen.
+- **Sitzungsregelsatz**: Regeln, die mit {{WebExtAPIRef("declarativeNetRequest.updateSessionRules","updateSessionRules")}} hinzugefügt oder entfernt werden. Diese Regeln bleiben nicht über Browsersitzungen hinweg bestehen.
 
 > [!NOTE]
-> Fehler und Warnungen über ungültige statische Regeln werden nur während des [Tests](#testen) angezeigt. Ungültige statische Regeln in dauerhaft installierten Erweiterungen werden ignoriert. Daher ist es wichtig, zu überprüfen, ob Ihre statischen Regelsets durch Tests gültig sind.
+> Fehler und Warnungen zu ungültigen statischen Regeln werden nur während des [Testens](#testen) angezeigt. Ungültige statische Regeln in dauerhaft installierten Erweiterungen werden ignoriert. Daher ist es wichtig, zu überprüfen, ob Ihre statischen Regelsätze gültig sind, indem Sie Tests durchführen.
 
-## Beschränkungen
+## Einschränkungen
 
-### Beschränkungen für statische Regelsets
+### Begrenzungen für statische Regelsätze
 
 Eine Erweiterung kann:
 
-- statische Regelsets im [`"declarative_net_request"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssel bis zu dem Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS","MAX_NUMBER_OF_STATIC_RULESETS")}} spezifizieren.
-- statische Regelsets (im `"declarative_net_request"` Manifest-Schlüssel oder programmgesteuert) aktivieren, sodass die Anzahl der Regeln (aktiviert oder deaktiviert), die diese enthalten, den Wert von {{WebExtAPIRef("declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES","GUARANTEED_MINIMUM_STATIC_RULES")}} nicht überschreiten und die Anzahl der aktivierten statischen Regelsets nicht den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS","MAX_NUMBER_OF_ENABLED_STATIC_RULESETS")}} überschreitet.
+- Statische Regelsätze im Manifest-Schlüssel [`"declarative_net_request"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) bis zu dem Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS","MAX_NUMBER_OF_STATIC_RULESETS")}} angeben.
+- Statische Regelsätze aktivieren (im `"declarative_net_request"` Manifest-Schlüssel oder programmgesteuert), sodass die Anzahl der (aktivierten oder deaktivierten) Regeln, die sie enthalten, den Wert von {{WebExtAPIRef("declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES","GUARANTEED_MINIMUM_STATIC_RULES")}} nicht überschreitet und die Anzahl der aktivierten statischen Regelsätze den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS","MAX_NUMBER_OF_ENABLED_STATIC_RULESETS")}} nicht überschreitet.
   > [!NOTE]
-  > Die Anzahl der Regeln in aktivierten statischen Regelsets für alle Erweiterungen darf das globale Limit nicht überschreiten. Erweiterungen sollten sich nicht darauf verlassen, dass das globale Limit einen bestimmten Wert hat; stattdessen sollten sie {{WebExtAPIRef("declarativeNetRequest.getAvailableStaticRuleCount","getAvailableStaticRuleCount")}} verwenden, um die Anzahl der zusätzlichen Regeln zu finden, die sie aktivieren können.
-- Regeln in statischen Regelsets deaktivieren bis zu dem Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}}. Diese deaktivierten Regeln zählen jedoch zu den {{WebExtAPIRef("declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES","GUARANTEED_MINIMUM_STATIC_RULES")}}.
+  > Die Anzahl der Regeln in aktivierten statischen Regelsätzen für alle Erweiterungen darf das globale Limit nicht überschreiten. Erweiterungen sollten nicht darauf setzen, dass das globale Limit einen bestimmten Wert hat; stattdessen sollten sie {{WebExtAPIRef("declarativeNetRequest.getAvailableStaticRuleCount","getAvailableStaticRuleCount")}} verwenden, um die Anzahl zusätzlicher Regeln zu ermitteln, die sie aktivieren können.
+- Regeln in statischen Regelsätzen bis zum Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} deaktivieren. Diese deaktivierten Regeln zählen jedoch zu den {{WebExtAPIRef("declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES","GUARANTEED_MINIMUM_STATIC_RULES")}}.
 
-### Dynamische und session-bezogene Regeln
+### Dynamische und sitzungsbezogene Regeln
 
-Die Anzahl der dynamischen und session-bezogenen Regeln, die eine Erweiterung hinzufügen kann, ist beschränkt auf:
+Die Anzahl der dynamischen und sitzungsbezogenen Regeln, die eine Erweiterung hinzufügen kann, ist begrenzt auf:
 
-- In Safari und bis Chrome 119 und Firefox 127, den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}}.
-- Ab Chrome 120 und Firefox 128, die Werte von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES","MAX_NUMBER_OF_DYNAMIC_RULES")}} und {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES","MAX_NUMBER_OF_SESSION_RULES")}}.
+- In Safari und bis Chrome 119 sowie Firefox 127, den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}}.
+- Ab Chrome 120 und Firefox 128, die Werte von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES","MAX_NUMBER_OF_DYNAMIC_RULES")}} und {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES","MAX_NUMBER_OF_SESSION_RULES")}}
 
 ## Übereinstimmende Präzedenzfälle
 
-Wenn der Browser bewertet, wie Anfragen behandelt werden sollen, prüft er die Regeln jeder Erweiterung, die eine Bedingung hat, die mit der Anfrage übereinstimmt, und wählt diejenige, die in folgender Reihenfolge in Betracht gezogen wird:
+Wenn der Browser bewertet, wie Anfragen behandelt werden sollen, überprüft er die Regeln jeder Erweiterung, die eine Bedingung haben, die mit der Anfrage übereinstimmt und wählt diejenige aus, die in Erwägung gezogen wird wie folgt:
 
-1. die Regelpriorität, wobei 1 die niedrigste Priorität ist (und Regeln standardmäßig auf 1 gesetzt werden, wenn keine Priorität angegeben ist).<br>
-   Wenn dies nicht zu einer anzuwendenden Regel führt:
-2. die Regelaktion, in folgender Reihenfolge der Präzedenz:
+1. die Regelpriorität, wobei 1 die niedrigste Priorität ist (und Regeln standardmäßig auf 1 gesetzt sind, wenn keine Priorität festgelegt ist).<br>
+   Wenn dies nicht zu einer Regel führt, die angewendet werden soll:
+2. die Regelaktion, in der folgenden Reihenfolge der Priorität:
    1. "allow", was bedeutet, dass alle anderen verbleibenden Regeln ignoriert werden.
-   2. "allowAllRequests" (nur für "main_frame" und "sub_frame" Ressourcentypen) hat die gleiche Wirkung wie "allow", gilt aber auch für zukünftige Unterressourcen-Ladungen im Dokument (einschließlich Nachkommen-Frames), die aus der Anfrage erzeugt werden.
+   2. "allowAllRequests" (nur für main_frame und sub_frame resourceTypes) hat die gleiche Wirkung wie "allow", gilt jedoch auch für zukünftige Unterressourcen in dem Dokument (einschließlich Nachkomme-Frames), die aus der Anfrage generiert werden.
    3. "block" storniert die Anfrage.
    4. "upgradeScheme" aktualisiert das Schema der Anfrage.
    5. "redirect" leitet die Anfrage um.
-   6. "modifyHeaders" schreibt entweder Anfragen- oder Antwort-Header oder beide um.
+   6. "modifyHeaders" schreibt Anforderungs- oder Antwortheader oder beides um.
 
 > [!NOTE]
-> Wenn mehrere übereinstimmende Regeln denselben Regelpriorität und Regelaktionstyp haben, kann das Ergebnis mehrdeutig sein, wenn die unterstützten Aktionen zusätzliche Eigenschaften haben. Diese Eigenschaften können zu Ergebnissen führen, die nicht kombiniert werden können. Zum Beispiel:
+> Wenn mehrere passende Regeln die gleiche Regelpriorität und Regelaktionstyp haben, kann das Ergebnis unklar sein, wenn die übereinstimmende Aktion zusätzliche Eigenschaften unterstützt. Diese Eigenschaften können zu Ergebnissen führen, die nicht kombiniert werden können. Zum Beispiel:
 >
-> - Die "block"-Aktion unterstützt keine zusätzlichen Eigenschaften, und daher gibt es keine Mehrdeutigkeit: Alle übereinstimmenden "block"-Aktionen würden zum selben Ergebnis führen.
-> - Die "redirect"-Aktion leitet eine Anfrage zu einem Ziel um. Wenn mehrere "redirect"-Aktionen übereinstimmen, wird alle bis auf eine "redirect"-Aktion ignoriert. Es ist immer noch möglich, wiederholt umzuleiten, wenn die umgeleitete Anfrage eine andere Regelbedingung erfüllt.
-> - Mehrere "modifyHeaders"-Aktionen können unabhängig voneinander angewendet werden, wenn sie unterschiedliche Header betreffen. Das Ergebnis ist mehrdeutig, wenn sie denselben Header betreffen, da einige Kombinationen von Operationen nicht erlaubt sind (wie in {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}} erklärt). Die Auswertungsreihenfolge von "modifyHeaders"-Aktionen ist daher wichtig.
+> - Die "block"-Aktion unterstützt keine zusätzlichen Eigenschaften und es gibt daher keine Mehrdeutigkeit: Alle übereinstimmenden "block"-Aktionen würden zum gleichen Ergebnis führen.
+> - Die "redirect"-Aktion leitet eine Anfrage zu einem Ziel um. Wenn mehrere "redirect"-Aktionen übereinstimmen, wird jede bis auf eine "redirect"-Aktion ignoriert. Es ist weiterhin möglich, wiederholt umzuleiten, wenn die umgeleitete Anfrage einer anderen Regelbedingung entspricht.
+> - Mehrere "modifyHeaders"-Aktionen können unabhängig angewendet werden, wenn sie verschiedene Header bearbeiten. Das Ergebnis ist unklar, wenn sie denselben Header betreffen, da einige Kombinationen von Operationen nicht erlaubt sind (wie in {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}} erklärt). Die Reihenfolge der Auswertung der "modifyHeaders"-Aktionen ist daher wichtig.
 >
-> Um die Reihenfolge der angewendeten Aktionen zu kontrollieren, weisen Sie Regeln, deren Reihenfolge wichtig ist, unterschiedliche `priority` Werte zu.
+> Um die Reihenfolge zu kontrollieren, in der Aktionen angewendet werden, weisen Sie Regeln, deren Rangfolge wichtig ist, unterschiedliche `priority`-Werte zu.
 
 > [!NOTE]
-> Nach der Regelpriorität und Regelaktion betrachtet Firefox das Regelset, zu dem die Regel gehört, in dieser Reihenfolge der Präzedenz: Sitzung > dynamisch > Sitzung-Regelsets.
-> Dies kann nicht browserübergreifend verlässlich verwendet werden, siehe [WECG issue 280](https://github.com/w3c/webextensions/issues/280).
+> Nach Regelpriorität und Regelaktion berücksichtigt Firefox den Regelsatz, zu dem die Regel gehört, in dieser Reihenfolge der Priorität: Sitzungsregeln > dynamische > statische Regelsätze.
+> Darauf kann nicht browserspezifisch vertraut werden, siehe [WECG issue 280](https://github.com/w3c/webextensions/issues/280).
 
-Wenn nur eine Erweiterung eine Regel für die Anfrage bereitstellt, wird diese Regel angewendet. Wo jedoch mehr als eine Erweiterung eine übereinstimmende Regel hat, wählt der Browser diejenige, die in dieser Reihenfolge der Präzedenz angewendet wird:
+Wenn nur eine Erweiterung eine Regel für die Anfrage bereitstellt, wird diese Regel angewendet. Wenn jedoch mehr als eine Erweiterung eine übereinstimmende Regel hat, wählt der Browser diejenige aus, die in dieser Reihenfolge der Priorität angewendet werden soll:
 
 1. "block"
 2. "redirect" und "upgradeScheme"
 3. "allow" und "allowAllRequests"
 
-Wenn die Anfrage nicht blockiert oder umgeleitet wurde, werden die übereinstimmenden `modifyHeaders` Aktionen angewendet, wie in {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}} dokumentiert.
+Wenn die Anfrage nicht blockiert oder umgeleitet wurde, werden die passenden `modifyHeaders`-Aktionen angewendet, wie in {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}} dokumentiert.
 
 ## Testen
 
-{{WebExtAPIRef("declarativeNetRequest.testMatchOutcome","testMatchOutcome")}}, {{WebExtAPIRef("declarativeNetRequest.getMatchedRules","getMatchedRules")}}, und {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug","onRuleMatchedDebug")}} stehen zur Verfügung, um beim Testen von Regeln und Regelsets zu helfen. Diese APIs erfordern die `"declarativeNetRequestFeedback"` [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Zusätzlich:
+{{WebExtAPIRef("declarativeNetRequest.testMatchOutcome","testMatchOutcome")}}, {{WebExtAPIRef("declarativeNetRequest.getMatchedRules","getMatchedRules")}}, und {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug","onRuleMatchedDebug")}} stehen zur Verfügung, um beim Testen von Regeln und Regelsätzen zu helfen. Diese APIs erfordern die `"declarativeNetRequestFeedback"` [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Zudem:
 
-- in Chrome sind diese APIs nur für entpackte Erweiterungen verfügbar.
-- in Firefox sind diese APIs nur verfügbar, nachdem die `extensions.dnr.feedback` Einstellung auf `true` gesetzt wurde. Diese Einstellung erfolgt über `about:config` oder das [`--pref` Argument des `web-ext` CLI-Tools](https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#pref).
+- in Chrome sind diese APIs nur für nicht gepackte Erweiterungen verfügbar.
+- in Firefox sind diese APIs nur verfügbar, nachdem die `extensions.dnr.feedback`-Präferenz auf `true` gesetzt wurde. Setzen Sie diese Präferenz mit `about:config` oder dem [`--pref`-Befehl des `web-ext` CLI-Tools](https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#pref).
 
 ## Vergleich mit der webRequest API
 
-- Die declarativeNetRequest API bewertet Netzwerkanforderungen im Browser selbst. Dies macht sie leistungsfähiger als die webRequest API, bei der jede Netzwerkanforderung im JavaScript-Prozess der Erweiterung bewertet wird.
-- Da die Anfragen nicht durch den Erweiterungsprozess abgefangen werden, wird durch declarativeNetRequest die Notwendigkeit eines Hintergrundprozesses für die Erweiterungen entfernt.
-- Anders als die webRequest API erfordert das Blockieren oder Aufwerten von Anfragen mit der declarativeNetRequest API keine Host-Berechtigungen, wenn die `declarativeNetRequest` Berechtigung verwendet wird.
+- Die declarativeNetRequest API bewertet Netzwerkanforderungen direkt im Browser. Dadurch ist sie leistungsstärker als die webRequest API, bei der jede Netzwerkanforderung in JavaScript im Erweiterungsprozess bewertet wird.
+- Da die Anfragen nicht vom Erweiterungsprozess abgefangen werden, entfällt bei der declarativeNetRequest API die Notwendigkeit für Erweiterungen, eine Hintergrundseite zu haben.
+- Im Gegensatz zur webRequest API erfordert das Blockieren oder Aktualisieren von Anfragen mit der declarativeNetRequest API keine Hostberechtigungen, wenn die Berechtigung `declarativeNetRequest` verwendet wird.
 - Die declarativeNetRequest API bietet den Nutzern besseren Datenschutz, da Erweiterungen die im Namen des Nutzers gestellten Netzwerkanforderungen nicht lesen.
-- (Nur Chrome:) Im Gegensatz zu der webRequest API werden alle Bilder oder Iframes, die mit der declarativeNetRequest API blockiert werden, im DOM automatisch entfernt.
-- Beim Entscheidungsprozess, ob eine Anfrage blockiert oder umgeleitet werden soll, hat die declarativeNetRequest API Priorität über die webRequest API, da sie eine synchrone Abfangmöglichkeit bietet. Ebenso sind alle über die declarativeNetRequest API entfernten Header nicht für Webanfrage-Erweiterungen sichtbar.
-- Die webRequest API ist flexibler als die declarativeNetRequest API, da sie es Erweiterungen erlaubt, eine Anfrage programmatisch zu bewerten.
+- (Nur Chrome:) Im Gegensatz zur webRequest API werden alle Bilder oder iframes, die mit der declarativeNetRequest API blockiert werden, automatisch im DOM zusammengeklappt.
+- Bei der Entscheidung, ob eine Anfrage blockiert oder umgeleitet werden soll, hat die declarativeNetRequest API Vorrang vor der webRequest API, da sie eine synchrone Abfangmöglichkeit bietet. Ebenso werden alle Header, die durch die declarativeNetRequest API entfernt werden, Anfragen von Web-Erweiterungen nicht sichtbar gemacht.
+- Die webRequest API ist flexibler als die declarativeNetRequest API, da sie es Erweiterungen ermöglicht, eine Anfrage programmatisch zu bewerten.
 
 ## Typen
 
 - {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}
-  - : Details einer abgeglichenen Regel.
+  - : Details einer übereinstimmenden Regel.
 - {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}
-  - : Die Anfragen- oder Antwort-Header, die für die Anfrage modifiziert werden sollen.
+  - : Die Anforderungs- oder Antwortheader, die für die Anfrage geändert werden sollen.
 - {{WebExtAPIRef("declarativeNetRequest.Redirect")}}
-  - : Details, wie die Umleitung durchgeführt werden soll. Nur gültig für Umleitungsregeln.
+  - : Details dazu, wie die Umleitung durchgeführt werden soll. Nur für Umleitungsregeln gültig.
 - {{WebExtAPIRef("declarativeNetRequest.ResourceType")}}
   - : Der Ressourcentyp einer Anfrage.
 - {{WebExtAPIRef("declarativeNetRequest.Rule")}}
-  - : Ein Objekt, das Details einer Regel enthält.
+  - : Ein Objekt, das Details zu einer Regel enthält.
 - {{WebExtAPIRef("declarativeNetRequest.RuleAction")}}
-  - : Ein Objekt zur Definition der Aktion, die ausgeführt wird, wenn eine Regel übereinstimmt.
+  - : Ein Objekt, das die Aktion definiert, die ausgeführt werden soll, wenn eine Regel zutrifft.
 - {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}}
-  - : Ein Objekt zur Definition der Bedingung, unter der eine Regel ausgelöst wird.
+  - : Ein Objekt, das die Bedingung definiert, unter der eine Regel ausgelöst wird.
 - {{WebExtAPIRef("declarativeNetRequest.URLTransform")}}
-  - : Ein Objekt, das Details einer URL-Transformation für eine Umleitungsaktion enthält.
+  - : Ein Objekt, das Details zu einer URL-Transformation enthält, die für eine Umleitungsaktion ausgeführt werden soll.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("declarativeNetRequest.DYNAMIC_RULESET_ID")}}
-  - : Regelset-ID für die dynamischen Regeln, die von der Erweiterung hinzugefügt werden.
+  - : Regelsatz-ID für die von der Erweiterung hinzugefügten dynamischen Regeln.
 - {{WebExtAPIRef("declarativeNetRequest.GETMATCHEDRULES_QUOTA_INTERVAL")}}
-  - : Das Zeitintervall, innerhalb dessen {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}} {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} Aufrufe gemacht werden können.
+  - : Das Zeitintervall, innerhalb dessen {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}} {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}}-Anrufe gemacht werden können.
 - {{WebExtAPIRef("declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES")}}
-  - : Die Mindestanzahl der statischen Regeln, die einer Erweiterung über ihre aktivierten statischen Regelsets garantiert sind.
+  - : Die Mindestanzahl statischer Regeln, die einer Erweiterung über ihre aktivierten statischen Regelsätze garantiert werden.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}}
   - : Die Anzahl der Male, die {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} innerhalb eines Zeitraums von {{WebExtAPIRef("declarativeNetRequest.GETMATCHEDRULES_QUOTA_INTERVAL")}} aufgerufen werden kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES")}}
-  - : Die maximale Anzahl der statischen Regeln, die in jedem statischen Regelset deaktiviert werden können.
+  - : Die maximale Anzahl an statischen Regeln, die in jedem statischen Regelsatz deaktiviert werden können.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}} {{deprecated_inline}}
-  - : Die maximale Anzahl der dynamischen und session-bezogenen Regeln, die eine Erweiterung hinzufügen kann.
+  - : Die maximale Anzahl an dynamischen und sitzungsbezogenen Regeln, die eine Erweiterung hinzufügen kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES")}}
-  - : Die maximale Anzahl der dynamischen Regeln, die eine Erweiterung hinzufügen kann.
+  - : Die maximale Anzahl an dynamischen Regeln, die eine Erweiterung hinzufügen kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS")}}
-  - : Die maximale Anzahl der statischen Regelsets, die eine Erweiterung aktivieren kann.
+  - : Die maximale Anzahl an statischen Regelsätzen, die eine Erweiterung aktivieren kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_REGEX_RULES")}}
-  - : Die maximale Anzahl an regulären Ausdrucksregeln, die eine Erweiterung hinzufügen kann.
+  - : Die maximale Anzahl an regulären Ausdrucks-Regeln, die eine Erweiterung hinzufügen kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES")}}
-  - : Die maximale Anzahl der session-bezogenen Regeln, die eine Erweiterung hinzufügen kann.
+  - : Die maximale Anzahl an sitzungsbezogenen Regeln, die eine Erweiterung hinzufügen kann.
 - {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS")}}
-  - : Die maximale Anzahl der statischen Regelsets, die eine Erweiterung im Rahmen des [`declarative_net_request.rule_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssels spezifizieren kann.
+  - : Die maximale Anzahl an statischen Regelsätzen, die durch den Manifest-Schlüssel [`declarative_net_request.rule_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) von einer Erweiterung angegeben werden können.
 - {{WebExtAPIRef("declarativeNetRequest.SESSION_RULESET_ID")}}
-  - : Die Regelset-ID für die session-bezogenen Regeln, die von der Erweiterung hinzugefügt werden.
+  - : Die Regelsatz-ID für die sitzungsbezogenen Regeln, die von der Erweiterung hinzugefügt werden.
 
 ## Funktionen
 
 - {{WebExtAPIRef("declarativeNetRequest.getAvailableStaticRuleCount()")}}
   - : Gibt die Anzahl der statischen Regeln zurück, die eine Erweiterung aktivieren kann, bevor das globale statische Regel-Limit erreicht wird.
 - {{WebExtAPIRef("declarativeNetRequest.getDisabledRuleIds()")}}
-  - : Gibt die IDs der deaktivierten Regeln in einem statischen Regelset zurück.
+  - : Gibt die IDs der in einem statischen Regelsatz deaktivierten Regeln zurück.
 - {{WebExtAPIRef("declarativeNetRequest.getDynamicRules()")}}
   - : Gibt die Menge der dynamischen Regeln für die Erweiterung zurück.
 - {{WebExtAPIRef("declarativeNetRequest.getEnabledRulesets()")}}
-  - : Gibt die IDs für die Menge der aktivierten statischen Regelsets zurück.
+  - : Gibt die IDs für die Menge der aktivierten statischen Regelsätze zurück.
 - {{WebExtAPIRef("declarativeNetRequest.getMatchedRules()")}}
-  - : Gibt alle abgeglichenen Regeln für die Erweiterung zurück.
+  - : Gibt alle Regeln zurück, die für die Erweiterung getroffen wurden.
 - {{WebExtAPIRef("declarativeNetRequest.getSessionRules()")}}
-  - : Gibt die Menge der session-bezogenen Regeln für die Erweiterung zurück.
+  - : Gibt die Menge der sitzungsbezogenen Regeln für die Erweiterung zurück.
 - {{WebExtAPIRef("declarativeNetRequest.isRegexSupported()")}}
   - : Überprüft, ob ein regulärer Ausdruck als {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}}`.regexFilter` Regelbedingung unterstützt wird.
 - {{WebExtAPIRef("declarativeNetRequest.setExtensionActionOptions()")}}
-  - : Konfiguriert, wie das Aktionszählung für Tabs gehandhabt wird.
+  - : Konfiguriert Optionen zur Verwaltung der Aktionsanzahl für Tabs.
 - {{WebExtAPIRef("declarativeNetRequest.testMatchOutcome()")}}
-  - : Überprüft, ob eine der `declarativeNetRequest` Regeln der Erweiterung eine hypothetische Anfrage abgleichen würde.
+  - : Überprüft, ob eine der `declarativeNetRequest`-Regeln der Erweiterung mit einer hypothetischen Anfrage übereinstimmt.
 - {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules()")}}
-  - : Modifiziert die aktive Menge der dynamischen Regeln für die Erweiterung.
+  - : Ändert die aktive Menge dynamischer Regeln für die Erweiterung.
 - {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets()")}}
-  - : Aktualisiert die aktive Menge der statischen Regelsets für die Erweiterung.
+  - : Aktualisiert die Menge der aktiven statischen Regelsätze für die Erweiterung.
 - {{WebExtAPIRef("declarativeNetRequest.updateSessionRules()")}}
-  - : Modifiziert die Menge der session-bezogenen Regeln für die Erweiterung.
+  - : Ändert die Menge der sitzungsbezogenen Regeln für die Erweiterung.
 - {{WebExtAPIRef("declarativeNetRequest.updateStaticRules()")}}
-  - : Modifiziert den aktivierten Zustand von Regeln in einem statischen Regelset.
+  - : Ändert den aktivierten Zustand von Regeln in einem statischen Regelsatz.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug")}}
-  - : Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt, während eine Erweiterung mit der "declarativeNetRequestFeedback"-Berechtigung debuggt wird.
+  - : Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt, wenn eine Erweiterung mit der Berechtigung "declarativeNetRequestFeedback" im Debug-Modus ist.
 
 {{WebExtExamples("h2")}}
 

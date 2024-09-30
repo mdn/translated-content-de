@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: getDepthInformation()-Methode"
+title: "XRWebGLBinding: getDepthInformation() Methode"
 short-title: getDepthInformation()
 slug: Web/API/XRWebGLBinding/getDepthInformation
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getDepthInformation()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Objekt zurück, das WebGL-Tiefeninformationen enthält.
+Die **`getDepthInformation()`** Methode des [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding) Interfaces gibt ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation) Objekt zurück, das WebGL-Tiefeninformationen enthält.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ getDepthInformation(view)
 ### Parameter
 
 - `view`
-  - : Ein [`XRView`](/de/docs/Web/API/XRView)-Objekt, das aus einer Betrachterpose gewonnen wird.
+  - : Ein [`XRView`](/de/docs/Web/API/XRView) Objekt, das aus einer Betrachterpose erhalten wurde.
 
 ### Rückgabewert
 
-Ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Objekt.
+Ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation) Objekt.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `"depth-sensing"` nicht in der Liste der aktivierten Funktionen für diese [`XRSession`](/de/docs/Web/API/XRSession) enthalten ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das `XRFrame` weder aktiv noch animiert ist. Das Gewinnen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Callbacks gültig.
+  - : Wird ausgelöst, wenn das `XRFrame` nicht aktiv oder animiert ist. Das Abrufen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) Rückrufs gültig.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die [`depthUsage`](/de/docs/Web/API/XRSession/depthUsage) der Sitzung nicht `"gpu-optimized"` ist.
 
 ## Beispiele
 
-### WebGL-Tiefeninformationen gewinnen
+### Abrufen von WebGL-Tiefeninformationen
 
 ```js
 const canvasElement = document.querySelector(".output-canvas");

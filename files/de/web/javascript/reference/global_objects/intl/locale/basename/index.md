@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die **`baseName`** Accessor-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt eine Teilzeichenfolge der Zeichenfolgedarstellung dieses Standorts zurück, die Kerninformationen über diesen Standort enthält, einschließlich der Sprache sowie des Skripts und der Region, falls verfügbar.
+Die **`baseName`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt einen Teilstring der Zeichenfolgenrepräsentation dieser Lokalisierung zurück, der grundlegende Informationen über diese Lokalisierung enthält, einschließlich der Sprache sowie des Skripts und der Region, falls verfügbar.
 
 ## Beschreibung
 
-`baseName` gibt die `language ["-" script] ["-" region] *("-" variant)` Teilsequenz der [unicode_language_id Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Sie enthält nur Informationen, die im Konstruktor explizit angegeben wurden, entweder durch den Locale-Identifier-String oder das Optionsobjekt.
+`baseName` gibt die `language ["-" script] ["-" region] *("-" variant)` Untersequenz der [unicode_language_id Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Es enthält nur Informationen, die explizit im Konstruktor angegeben wurden, entweder durch die Lokalisierungsbezeichner-Zeichenfolge oder das Optionen-Objekt.
 
 Der Set-Accessor von `baseName` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
@@ -25,7 +25,7 @@ console.log(myLoc.toString()); // Prints out "fr-Latn-CA-u-ca-gregory"
 console.log(myLoc.baseName); // Prints out "fr-Latn-CA"
 ```
 
-### Beispiel mit Optionen im Eingabestring
+### Beispiel mit Optionen in der Eingabezeichenfolge
 
 ```js
 // Sets language to Japanese, region to Japan,
@@ -36,7 +36,7 @@ console.log(japan.toString()); // Prints out "ja-JP-u-ca-gregory-hc-h24"
 console.log(japan.baseName); // Prints out "ja-JP"
 ```
 
-### Beispiel mit Optionen, die den Eingabestring überschreiben
+### Beispiel mit Optionen, die die Eingabezeichenfolge überschreiben
 
 ```js
 // Input string indicates language as Dutch and region as Belgium,

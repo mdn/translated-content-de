@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen den Rändern benachbarter Zellen in einem {{htmlelement("table")}} fest. Diese Eigenschaft wird nur angewendet, wenn {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
+Die **`border-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen den Rändern benachbarter Zellen in einem {{htmlelement("table")}} fest. Diese Eigenschaft gilt nur, wenn {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
 
 {{EmbedInteractiveExample("pages/css/border-spacing.html")}}
 
-Der `border-spacing` Wert wird auch entlang des äußeren Randes der Tabelle verwendet, wobei der Abstand zwischen dem Rand der Tabelle und den Zellen in der ersten/letzten Spalte oder Zeile die Summe des entsprechenden (horizontalen oder vertikalen) `border-spacing` und des entsprechenden (oben, rechts, unten oder links) {{cssxref("padding")}} der Tabelle ist.
+Der Wert von `border-spacing` wird auch am äußeren Rand der Tabelle verwendet, wobei der Abstand zwischen dem Rand der Tabelle und den Zellen in der ersten/letzten Spalte oder Zeile die Summe des entsprechenden (horizontalen oder vertikalen) `border-spacing` und der entsprechenden (oberen, rechten, unteren oder linken) {{cssxref("padding")}} der Tabelle ist.
 
 > [!NOTE]
 > Die `border-spacing` Eigenschaft entspricht dem veralteten `cellspacing` Attribut des `<table>` Elements, außer dass `border-spacing` einen optionalen zweiten Wert hat, der verwendet werden kann, um unterschiedliche horizontale und vertikale Abstände festzulegen.
@@ -35,8 +35,8 @@ border-spacing: unset;
 
 Die `border-spacing` Eigenschaft kann entweder mit einem oder zwei Werten angegeben werden.
 
-- Wenn **ein** `<length>` Wert angegeben wird, definiert er sowohl den horizontalen als auch den vertikalen Abstand zwischen den Zellen.
-- Wenn **zwei** `<length>` Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h., den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h., den Abstand zwischen Zellen in benachbarten _Reihen_).
+- Wenn **ein** `<length>` Wert angegeben wird, definiert dieser sowohl den horizontalen als auch den vertikalen Abstand zwischen den Zellen.
+- Wenn **zwei** `<length>` Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h., den Abstand zwischen den Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h., den Abstand zwischen den Zellen in benachbarten _Zeilen_).
 
 ### Werte
 
@@ -55,7 +55,7 @@ Die `border-spacing` Eigenschaft kann entweder mit einem oder zwei Werten angege
 
 ### Abstand und Polsterung von Tabellenzellen
 
-Dieses Beispiel wendet einen vertikalen Abstand von `.5em` und einen horizontalen Abstand von `1em` zwischen den Zellen einer Tabelle an. Beachten Sie, wie entlang der Außenkanten der Tabelle die `padding` Werte zu ihren `border-spacing` Werten addiert werden.
+Dieses Beispiel wendet einen Abstand von `.5em` vertikal und `1em` horizontal zwischen den Zellen einer Tabelle an. Beachten Sie, wie am äußeren Rand der Tabelle die `padding`-Werte zu den `border-spacing` Werten hinzugefügt werden.
 
 #### HTML
 

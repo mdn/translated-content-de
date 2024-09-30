@@ -2,12 +2,12 @@
 title: WebGLContextEvent
 slug: Web/API/WebGLContextEvent
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLContextEvent**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt eine Schnittstelle für ein Ereignis dar, das als Reaktion auf einen Statuswechsel des WebGL-Rendering-Kontexts erzeugt wird.
+Die **WebGLContextEvent**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt eine Schnittstelle für ein Ereignis dar, das als Reaktion auf eine Statusänderung im WebGL-Rendering-Kontext erzeugt wird.
 
 {{InheritanceDiagram}}
 
@@ -25,11 +25,11 @@ _Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle,
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle definiert keine eigenen Methoden, erbt aber Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle definiert keine eigenen Methoden, sondern erbt Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Mithilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweiterung können Sie die Ereignisse [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) simulieren:
+Mit der Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweiterung können Sie die Ereignisse [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

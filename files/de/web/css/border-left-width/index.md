@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-left-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des linken Rahmens eines Elements fest.
+Die **`border-left-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des linken Rahmens eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-left-width.html")}}
 
@@ -36,14 +36,14 @@ border-left-width: unset;
 
 - `<line-width>`
 
-  - : Definiert die Breite des Rahmens, entweder als explizite positive {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
+  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
 
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angegeben wird, nicht definiert, ist das genaue Ergebnis bei der Verwendung eines dieser Begriffe implementierungsspezifisch. Sie folgen jedoch immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines einzelnen Dokuments konstant.
+> Da die Spezifikation die exakte Dicke, die von jedem Schlüsselwort bezeichnet wird, nicht definiert, ist das genaue Ergebnis bei der Verwendung eines dieser Werte implementierungsspezifisch. Nichtsdestotrotz folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines einzelnen Dokuments konstant.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ border-left-width: unset;
 
 ## Beispiele
 
-### Vergleich von Rahmenbreiten
+### Vergleich der Rahmenbreiten
 
 #### HTML
 
@@ -94,5 +94,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen rahmenbreitenbezogenen CSS-Eigenschaften: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen linksrahmenbezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Rahmenbreite beziehen: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den linken Rahmen beziehen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.

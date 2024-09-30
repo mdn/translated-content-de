@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-search-results-button`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine Schaltfläche (den "Suchergebnisschalter") am linken Rand eines {{HTMLElement("input")}} vom `type="search"`, die bei Klick ein Menü anzeigt, das es dem Benutzer ermöglicht, aus zuvor eingegebenen Suchanfragen zu wählen. Diese Schaltfläche und das Pseudoelement sind nicht standardisiert und werden nur in WebKit und Blink unterstützt, daher der Herstellerpräfix. Der Suchergebnisschalter wird nur bei Such-{{HTMLElement("input")}}-Elementen angezeigt, die ein [`results`](/de/docs/Web/HTML/Element/input#results)-Attribut besitzen.
+Das **`::-webkit-search-results-button`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine Schaltfläche (die "Suchergebnisse-Schaltfläche") am linken Rand eines {{HTMLElement("input")}} mit `type="search"`, die beim Klicken ein Menü anzeigt, das es dem Benutzer ermöglicht, aus früheren Suchanfragen auszuwählen. Diese Schaltfläche und das Pseudoelement sind nicht standardisiert und werden nur in WebKit und Blink unterstützt, daher das Hersteller-Präfix. Die Suchergebnis-Schaltfläche wird nur bei {{HTMLElement("input")}}-Elementen vom Typ `search` angezeigt, die ein [`results`](/de/docs/Web/HTML/Element/input#results)-Attribut haben.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ selector::-webkit-search-results-button {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

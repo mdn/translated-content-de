@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getDate()`**-Methode der {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum gemäß der Ortszeit zurück.
+Die **`getDate()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum basierend auf der lokalen Zeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getdate.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl, zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein ganzzahliger Wert zwischen 1 und 31, der den Tag des Monats für das gegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getDate()
 
-Die Variable `day` hat den Wert `25`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
+Die `day`-Variable hat den Wert `25`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

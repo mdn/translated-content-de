@@ -1,5 +1,5 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: Eigenschaft renderStart"
+title: "PerformanceLongAnimationFrameTiming: renderStart-Eigenschaft"
 short-title: renderStart
 slug: Web/API/PerformanceLongAnimationFrameTiming/renderStart
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`renderStart`** der Schnittstelle [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Renderzyklus angibt. Dieser umfasst Rückrufe von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die Berechnung von Stil und Layout, Rückrufe von [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) und Rückrufe von [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver).
+Die schreibgeschützte Eigenschaft **`renderStart`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Rendering-Zyklus anzeigt. Dieser umfasst die Rückrufe von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die Berechnung von Stil und Layout, Rückrufe von [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) und Rückrufe von [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver).
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Langzeit-Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die mit der Long Animation Frames API zusammenhängen.
+Siehe [Langzeit-Animationsrahmentiming](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Langzeit-Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_a
 
 ## Siehe auch
 
-- [Langzeit-Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Langzeit-Animationsrahmentiming](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

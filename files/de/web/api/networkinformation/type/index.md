@@ -1,5 +1,5 @@
 ---
-title: "NetworkInformation: type Eigenschaft"
+title: "NetworkInformation: type-Eigenschaft"
 short-title: type
 slug: Web/API/NetworkInformation/type
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{apiref("Network Information API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle gibt den Verbindungstyp zurück, den ein Gerät zur Kommunikation mit dem Netzwerk verwendet.
+Die schreibgeschützte **`type`**-Eigenschaft des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Interfaces gibt den Verbindungstyp zurück, den ein Gerät verwendet, um mit dem Netzwerk zu kommunizieren.
 
 ## Wert
 

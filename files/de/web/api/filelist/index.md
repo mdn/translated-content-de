@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`FileList`**-Schnittstelle stellt ein Objekt dieses Typs dar, das von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben wird. Dies ermöglicht den Zugriff auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien. Sie wird auch für eine Liste von Dateien verwendet, die beim Verwenden der Drag-and-Drop-API in Webinhalte gezogen werden. Weitere Details zur Verwendung finden Sie im [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt.
+Die **`FileList`** Schnittstelle stellt ein Objekt dar, das von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben wird. Dies ermöglicht den Zugriff auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien. Sie wird auch für eine Liste von Dateien verwendet, die in Webinhalte gezogen wurden, wenn die Drag-and-Drop-API verwendet wird; siehe das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt für Details zu diesem Anwendungsfall.
 
-Alle `<input>`-Elementknoten haben ein `files`-Attribut vom Typ `FileList`, das den Zugriff auf die Elemente in dieser Liste ermöglicht. Wenn das HTML beispielsweise das folgende Datei-Eingabefeld enthält:
+Alle `<input>`-Elementknoten haben ein `files`-Attribut vom Typ `FileList`, das den Zugriff auf die Elemente in dieser Liste ermöglicht. Wenn das HTML beispielsweise die folgende Datei-Eingabe enthält:
 
 ```html
 <input id="fileItem" type="file" />
@@ -21,9 +21,9 @@ Die folgende Codezeile ruft die erste Datei in der Dateiliste des Knotens als [`
 const file = document.getElementById("fileItem").files[0];
 ```
 
-Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um Code nicht zu brechen, der sie bereits verwendet. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegt werden (wie zum Beispiel das Festlegen ihrer Elemente als schreibgeschützt).
+Diese Schnittstelle war ein [Versuch, eine nicht modifizierbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird weiterhin unterstützt, um bestehenden Code nicht zu brechen, der sie bereits verwendet. Moderne APIs stellen Listenstrukturen mit Typen dar, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden, während gleichzeitig zusätzliche Semantiken für ihre Verwendung auferlegt werden (wie das Festlegen ihrer Elemente auf "read-only").
 
-Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `FileList` vermeiden sollten. Sie erstellen `FileList`-Objekte nicht selbst, sondern erhalten sie von APIs wie [`HTMLInputElement.files`](/de/docs/Web/API/HTMLInputElement/files), und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig mit den semantischen Unterschieden zu einem realen Array.
+Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `FileList` vermeiden sollten. Sie erstellen keine `FileList`-Objekte selbst, sondern erhalten sie von APIs wie [`HTMLInputElement.files`](/de/docs/Web/API/HTMLInputElement/files), und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig mit den semantischen Unterschieden zu einem echten Array.
 
 ## Instanz-Eigenschaften
 
@@ -33,13 +33,13 @@ Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `FileList` ve
 ## Instanz-Methoden
 
 - [`item()`](/de/docs/Web/API/FileList/item)
-  - : Gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das die Datei an dem angegebenen Index in der Dateiliste darstellt.
+  - : Gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das die Datei am angegebenen Index in der Dateiliste darstellt.
 
 ## Beispiel
 
 ### Dateinamen protokollieren
 
-In diesem Beispiel protokollieren wir die Namen aller vom Benutzer ausgewählten Dateien.
+In diesem Beispiel protokollieren wir die Namen aller Dateien, die vom Benutzer ausgewählt wurden.
 
 #### HTML
 
@@ -85,6 +85,6 @@ fileInput.addEventListener("change", () => {
 
 ## Siehe auch
 
-- [Verwenden von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+- [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
 - [`File`](/de/docs/Web/API/File)
 - [`FileReader`](/de/docs/Web/API/FileReader)

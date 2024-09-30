@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft einen Alarm anhand seines Namens ab.
+Ruft einen Alarm ab, basierend auf seinem Namen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,7 +26,7 @@ let getAlarm = browser.alarms.get(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('alarms.Alarm', "Alarm")}}`-Objekt erfüllt wird. Dies repräsentiert den Alarm, dessen Name mit `name` übereinstimmt. Wenn keine Alarme übereinstimmen, wird dies `undefined` sein.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem `{{WebExtAPIRef('alarms.Alarm', "Alarm")}}`-Objekt erfüllt wird. Dies repräsentiert den Alarm, dessen Name mit `name` übereinstimmt. Wenn keine Alarme übereinstimmen, wird dies `undefined` sein.
 
 ## Beispiele
 

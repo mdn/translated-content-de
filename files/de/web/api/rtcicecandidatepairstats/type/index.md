@@ -10,9 +10,9 @@ l10n:
 
 Die **`type`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs ist ein String mit dem Wert `"candidate-pair"`.
 
-Verschiedene Statistiken werden durch das Durchlaufen des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts, welches durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, erhalten.
-Der Typ gibt die Menge der durch das Objekt in einem bestimmten Iterationsschritt verfügbaren Statistiken an.
-Ein Wert von `"candidate-pair"` zeigt an, dass die in dem aktuellen Schritt verfügbaren Statistiken die im [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) definierten sind.
+Verschiedene Statistiken werden durch Iteration über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt abgerufen, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
+Der Typ gibt an, welche Statistikmenge durch das Objekt in einem bestimmten Iterationsschritt verfügbar ist.
+Ein Wert von `"candidate-pair"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) definiert sind.
 
 ## Wert
 

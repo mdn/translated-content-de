@@ -9,10 +9,10 @@ l10n:
 
 Löscht gespeicherte Passwörter.
 
-Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
+Sie können den Parameter `removalOptions`, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, verwenden, um:
 
-- nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden
-- zu steuern, ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden, oder ob auch Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
+- nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden,
+- zu steuern, ob Passwörter, die auf normalen Webseiten gespeichert wurden, gelöscht werden sollen, oder auch Passwörter, die in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ let removing = browser.browsingData.removePasswords(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden, oder ob auch Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und um zu steuern, ob Passwörter, die auf normalen Webseiten oder in gehosteten Apps und Erweiterungen gespeichert wurden, gelöscht werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Löschvorgang abgeschlossen ist. Bei Auftreten eines Fehlers wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Löschen abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Löschen Sie Passwörter, die in der letzten Woche gespeichert wurden:
+Passwörter löschen, die in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -57,7 +57,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Löschen Sie alle gespeicherten Passwörter:
+Alle gespeicherten Passwörter löschen:
 
 ```js
 function onRemoved() {
@@ -78,34 +78,36 @@ browser.browsingData.removePasswords({}).then(onRemoved, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitungen in binärer Form müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Verteilung einhergehen.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Beitragszahler dürfen ohne vorherige ausdrückliche schriftliche Genehmigung
+// verwendet werden, um Produkte, die aus dieser Software hervorgehen zu
+// befürworten oder zu fördern.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" ZUR VERFÜGUNG GESTELLT, UND JEGLICHE AUSDRÜCKLICHE ODER
+// IMPLIZITE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// IMPLIZITEN GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK, SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE
+// URHEBERRECHTSINHABER ODER BEITRAGENDEN HAFTBAR FÜR JEDWEDE DIREKTE, INDIREKTE,
+// ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER
+// NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN;
+// NUTZUNGSAUSFALL, DATENVERLUST ODER GEWINNVERLUST; ODER BETRIEBSUNTERBRECHUNG)
+// WIE AUCH IMMER VERURSACHT UND UNTER WELCHER HAFTUNGSTHEORIE AUCH IMMER, OB
+// IN VERTRAG, STRAFRECHTLICHER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
+// FAHRLÄSSIGKEIT ODER ANDERWEITIGES) AUS DER NUTZUNG DER SOFTWARE ENTSTANDEN,
+// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

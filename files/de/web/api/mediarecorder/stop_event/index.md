@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: stop Ereignis"
+title: "MediaRecorder: stop-Ereignis"
 short-title: stop
 slug: Web/API/MediaRecorder/stop_event
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`stop`**-Ereignis der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle wird ausgelöst, wenn
-[`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) aufgerufen wird oder wenn der aufgenommene Medienstrom endet. In jedem Fall geht dem `stop`-Ereignis ein `dataavailable`-Ereignis voraus, das den bis zu diesem Zeitpunkt aufgenommenen [`Blob`](/de/docs/Web/API/Blob) verfügbar macht, den Sie in Ihrer Anwendung verwenden können.
+Das **`stop`**-Ereignis der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle wird ausgelöst, wenn [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) aufgerufen wird oder wenn der aufgenommene Medienstream endet. In jedem Fall geht dem `stop`-Ereignis ein `dataavailable`-Ereignis voraus, was den bis zu diesem Punkt aufgenommenen [`Blob`](/de/docs/Web/API/Blob) verfügbar macht, damit Sie ihn in Ihrer Anwendung nutzen können.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("stop", (event) => {});
@@ -55,7 +54,6 @@ mediaRecorder.ondataavailable = (e) => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Source auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
 - [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

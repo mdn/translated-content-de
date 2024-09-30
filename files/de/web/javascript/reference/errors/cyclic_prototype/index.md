@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "TypeError: can't set prototype: it would cause a prototype chain cycle" tritt auf, wenn das Prototyp eines Objekts so gesetzt wird, dass die [Prototypkette](/de/docs/Learn/JavaScript/Objects/Object_prototypes#the_prototype_chain) zirkulär wird (`a` und `b` haben sich gegenseitig in ihren Prototypketten).
+Die JavaScript-Ausnahme "TypeError: can't set prototype: it would cause a prototype chain cycle" tritt auf, wenn das Prototyp eines Objekts so eingestellt wird, dass die [Prototypenkette](/de/docs/Learn/JavaScript/Objects/Object_prototypes#the_prototype_chain) zyklisch wird (`a` und `b` haben sich gegenseitig in ihren Prototypketten).
 
 ## Meldung
 
@@ -23,9 +23,9 @@ TypeError: cyclic __proto__ value (Safari)
 
 ## Was ist schiefgelaufen?
 
-Eine Schleife, auch Zyklus genannt, wurde in eine Prototypkette eingeführt. Das bedeutet, dass beim Durchlaufen dieser Prototypkette immer wieder derselbe Punkt aufgerufen wird, anstatt schließlich `null` zu erreichen.
+In einer Prototypenkette wurde ein Schleife, auch Zyklus genannt, eingeführt. Das bedeutet, dass beim Durchlaufen dieser Prototypenkette immer wieder derselbe Punkt erreicht würde, anstatt schließlich `null` zu erreichen.
 
-Dieser Fehler wird ausgelöst, wenn das Prototyp gesetzt wird. In einer Operation wie `Object.setPrototypeOf(a, b)`, falls `a` bereits in der Prototypkette von `b` existiert, wird dieser Fehler ausgelöst.
+Dieser Fehler wird beim Setzen des Prototyps ausgelöst. Bei einem Vorgang wie `Object.setPrototypeOf(a, b)`, wenn `a` bereits in der Prototypenkette von `b` existiert, wird dieser Fehler ausgelöst.
 
 ## Beispiele
 
@@ -47,5 +47,5 @@ Object.setPrototypeOf(c, a);
 
 ## Siehe auch
 
-- [Objektprototypen](/de/docs/Learn/JavaScript/Objects/Object_prototypes)
-- [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [Objekt-Prototypen](/de/docs/Learn/JavaScript/Objects/Object_prototypes)
+- [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)

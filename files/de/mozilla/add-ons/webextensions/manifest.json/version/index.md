@@ -28,34 +28,34 @@ Die **Versionszeichenfolge** für die Erweiterung.
 
 ## Versionsformat
 
-Die Versionszeichenfolge besteht aus 1 bis 4 Zahlen, die durch Punkte getrennt sind, zum Beispiel `1.2.3.4`. Zahlen ungleich Null dürfen keine führende Null enthalten. Zum Beispiel ist `2.01` nicht erlaubt; jedoch sind `0.2`, `2.0.1` und `2.10` erlaubt.
+Die Versionszeichenfolge besteht aus 1 bis 4 Zahlen, die durch Punkte getrennt sind, zum Beispiel `1.2.3.4`. Zahlen ungleich null dürfen nicht mit einer führenden Null beginnen. Zum Beispiel ist `2.01` nicht erlaubt; jedoch sind `0.2`, `2.0.1` und `2.10` erlaubt.
 
-Erweiterungsspeicher und Browser können durchsetzen oder warnen, wenn die Versionszeichenfolge nicht diesem Format entspricht. Sie können auch Einschränkungen für den verfügbaren Zahlenbereich auferlegen. Zum Beispiel:
+Erweiterungsspeicher und Browser können erzwingen oder warnen, wenn die Versionszeichenfolge nicht diesem Format entspricht. Sie können auch Einschränkungen hinsichtlich des Zahlenumfangs auferlegen. Zum Beispiel:
 
-- [addons.mozilla.org](https://addons.mozilla.org/) (AMO) erlaubt Versionszeichenfolgen mit Zahlen von bis zu neun Ziffern, entsprechend diesem regulären Ausdruck `^(0|[1-9][0-9]{0,8})([.](0|[1-9][0-9]{0,8})){0,3}$`. Ab Firefox 108 wird auch eine Warnung angezeigt, wenn eine Erweiterung mit einer Versionsnummer installiert wird, die nicht diesem Format entspricht.
-- Der Chrome Web Store erfordert [Zahlen zwischen 0 und 65535](https://developer.chrome.com/docs/extensions/reference/manifest/version) und erlaubt keine vollständig nullen Erweiterungszeichenfolgen. Zum Beispiel sind 0.0 oder 0.0.0.0 nicht erlaubt.
+- [addons.mozilla.org](https://addons.mozilla.org/) (AMO) erlaubt Versionszeichenfolgen mit Zahlen bis zu neun Ziffern, die diesem regulären Ausdruck entsprechen: `^(0|[1-9][0-9]{0,8})([.](0|[1-9][0-9]{0,8})){0,3}$`. Außerdem wird ab Firefox 108 eine Warnung ausgegeben, wenn eine Erweiterung mit einer Versionsnummer installiert wird, die diesem Format nicht entspricht.
+- Der Chrome Web Store erfordert [Zahlen zwischen 0 und 65535](https://developer.chrome.com/docs/extensions/reference/manifest/version) und erlaubt keine Erweiterungszeichenfolgen, die nur aus Nullen bestehen. Zum Beispiel sind 0.0 oder 0.0.0.0 nicht erlaubt.
 
-Es könnte möglich sein, eine Erweiterung zu erstellen, die beim Ausführen in einem Browser eine gültige Versionsnummer hat, aber nicht den Anforderungen des Stores entspricht. Besondere Vorsicht ist geboten, wenn plattformübergreifende Erweiterungen entwickelt werden, die große Zahlenwerte verwenden.
+Es könnte möglich sein, eine Erweiterung zu erstellen, die in einem Browser eine gültige Versionsnummer zu haben scheint, aber nicht den Anforderungen der Stores entspricht. Besondere Vorsicht ist geboten, wenn Sie Browser-übergreifende Erweiterungen entwickeln, die große Zahlenelemente verwenden.
 
-Einige Browser und Webstores erkennen den [version_name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version_name) Schlüssel. Dieser Schlüssel ermöglicht es Ihnen, eine beschreibende Versionszeichenfolge anzugeben, die möglicherweise anstelle der Versionsnummer angezeigt wird. Zum Beispiel `1.0 beta`.
+Einige Browser und Webshops erkennen den Schlüssel [version_name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version_name). Mit diesem Schlüssel können Sie eine beschreibende Versionszeichenfolge angeben, die möglicherweise anstelle der Versionsnummer angezeigt wird. Zum Beispiel `1.0 beta`.
 
 ### Versionen vergleichen
 
-Um zu bestimmen, welche von zwei Erweiterungsversionen die aktuellste ist, werden die Zahlen der Versionszeichenfolge von links nach rechts verglichen. Ein fehlendes Element der Versionszeichenfolge entspricht `0`. Zum Beispiel ist 1.0 gleichbedeutend mit 1.0.0.0. Die erste Versionszeichenfolge mit einer Zahl, die größer ist als die entsprechende Zahl in der anderen Versionszeichenfolge, ist die aktuellste. Zum Beispiel ist 1.10 eine aktuellere Version als 1.9.
+Um festzustellen, welche von zwei Erweiterungsversionen die aktuellste ist, werden die Zahlen der Versionszeichenfolge von links nach rechts verglichen. Ein fehlendes Versionszeichenfolgenelement entspricht `0`. Zum Beispiel ist 1.0 gleichbedeutend mit 1.0.0.0. Die erste Versionszeichenfolge mit einer Zahl, die größer ist als die entsprechende Zahl in der anderen Versionszeichenfolge, ist die aktuellste. Zum Beispiel ist 1.10 eine aktuellere Version als 1.9.
 
-## Legacy-Versionsformate
+## Veraltete Versionsformate
 
-Siehe [Legacy-Versionsformate](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version/format) für Details zu zuvor unterstützten Versionszeichenfolgen.
+Details zu zuvor unterstützten Versionszeichenfolgen finden Sie unter [Veraltete Versionsformate](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version/format).
 
-## Zugriff auf die Versionsnummer im Code
+## Auf die Versionsnummer im Code zugreifen
 
-Sie erhalten die Erweiterungsversion in Ihrem JavaScript-Code mit:
+Sie erhalten die Erweiterungsversion in Ihrem JavaScript-Code mithilfe von:
 
 ```js
 console.log(browser.runtime.getManifest().version);
 ```
 
-Wenn das Manifest enthält:
+Wenn das Manifest Folgendes enthält:
 
 ```json
 "version": "0.1"

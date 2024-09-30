@@ -1,5 +1,5 @@
 ---
-title: "URLPattern: exec() Methode"
+title: "URLPattern: exec()-Methode"
 short-title: exec()
 slug: Web/API/URLPattern/exec
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`exec()`**-Methode der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle nimmt eine URL oder ein Objekt mit URL-Teilen entgegen und gibt entweder ein Objekt zurück, das die Ergebnisse des Abgleichs der URL mit dem Muster enthält, oder `null`, wenn die URL nicht mit dem Muster übereinstimmt.
+Die **`exec()`**-Methode der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle nimmt eine URL oder ein Objekt von URL-Teilen und gibt entweder ein Objekt zurück, das die Ergebnisse des Abgleichs der URL mit dem Muster enthält, oder `null`, wenn die URL nicht mit dem Muster übereinstimmt.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ exec(input, baseURL)
 ### Parameter
 
 - `input`
-  - : Die URL oder URL-Teile, die abgeglichen werden sollen. Dies kann entweder ein String oder ein Objekt sein, das die einzelnen URL-Teile bereitstellt. Die Objektmitglieder können beliebige der folgenden sein: `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL`. Ausgelassene Teile im Objekt werden als leere Strings behandelt. Wenn die Eingabe nicht analysiert werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
+  - : Die URL oder die URL-Teile, die verglichen werden sollen. Dies kann entweder ein String oder ein Objekt sein, das die einzelnen URL-Teile bereitstellt. Die Objektmitglieder können `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL` sein. Ausgelassene Teile im Objekt werden als leere Strings behandelt. Wenn die Eingabe nicht geparst werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
 - `baseURL` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `input` eine relative URL ist. Wenn nicht angegeben, ist sie standardmäßig `undefined`. Wenn dieser Parameter nicht analysiert werden kann, gibt die Methode `null` zurück.
+  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `input` eine relative URL ist. Wird dieser Wert nicht angegeben, wird er standardmäßig auf `undefined` gesetzt. Wenn dieser Parameter nicht geparst werden kann, gibt die Methode `null` zurück.
 
 ### Rückgabewert
 
-Ein {{jsxref("object")}} mit einem `inputs`-Schlüssel, der das Array der in die Funktion übergebenen Argumente enthält, und Schlüsseln für jeden der URL-Teile, die den abgeglichenen Input und abgeglichene Gruppen für diesen Teil enthalten.
+Ein {{jsxref("object")}} mit einem `inputs`-Schlüssel, der das Array der an die Funktion übergebenen Argumente enthält, sowie Schlüsseln für jeden der URL-Teile, die die übereinstimmende Eingabe und die übereinstimmenden Gruppen für diesen Teil enthalten.
 
 ## Beispiele
 
@@ -80,4 +80,4 @@ pattern.exec({
 
 ## Siehe auch
 
-- Ein Polyfill für `URLPattern` ist [auf GitHub](https://github.com/kenchris/urlpattern-polyfill) verfügbar.
+- Ein Polyfill von `URLPattern` ist verfügbar [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)

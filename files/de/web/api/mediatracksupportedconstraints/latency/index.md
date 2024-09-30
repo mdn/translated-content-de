@@ -1,5 +1,5 @@
 ---
-title: "MediaTrackSupportedConstraints: Latency-Eigenschaft"
+title: "MediaTrackSupportedConstraints: latency-Eigenschaft"
 short-title: latency
 slug: Web/API/MediaTrackSupportedConstraints/latency
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`latency`**-Eigenschaft des Dictionaries [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints) ist ein schreibgeschützter Boolean-Wert, der in dem von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt vorhanden ist (und auf `true` gesetzt), wenn und nur wenn der [user agent](/de/docs/Glossary/user_agent) die `latency`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
+Das **`latency`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolescher Wert, der in dem von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt enthalten ist (und auf `true` gesetzt wird), wenn und nur wenn der [Benutzeragent](/de/docs/Glossary/user_agent) die `latency`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
 
-Sie können auf das unterstützte Einschränkungen-Dictionary zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
 ## Wert
 
-Diese Eigenschaft ist im Dictionary vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `latency`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im unterstützten Einschränkungen-Dictionary, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert anzusehen.
+Dieses Eigenschaft befindet sich im Wörterbuch (und ihr Wert ist immer `true`), wenn der Benutzeragent die `latency`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert zu betrachten.
 
 ## Beispiele
 

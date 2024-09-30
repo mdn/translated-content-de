@@ -7,19 +7,19 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das globale `aria-live`-Attribut gibt an, dass ein Element aktualisiert wird und beschreibt die Art der Updates, die Benutzeragenten, unterstützende Technologien und Benutzer von der Live-Region erwarten können.
+Das globale `aria-live`-Attribut zeigt an, dass ein Element aktualisiert wird, und beschreibt die Arten von Updates, die die Benutzeragenten, Unterstützungstechnologien und der Benutzer von dem Live-Bereich erwarten können.
 
 ## Beschreibung
 
-Wenn sich der Inhalt nach dem ersten Laden ändert, können Benutzer von unterstützender Technologie (AT) die Änderungen möglicherweise nicht "sehen". Einige Änderungen sind wichtig, andere nicht. Mit dem `aria-live`-Attribut können Entwickler den Benutzer über Updates informieren und basierend auf Wichtigkeit und Dringlichkeit wählen, ob sie AT-Benutzer sofort, proaktiv oder passiv über Änderungen des Inhalts informieren möchten.
+Wenn sich Inhalte nach dem ersten Laden ändern, sehen Benutzer von Unterstützungstechnologien (AT) die Änderungen möglicherweise nicht. Einige Änderungen sind wichtig, andere nicht. Das `aria-live`-Attribut ermöglicht es Entwicklern, den Benutzer über Updates zu informieren und je nach Wichtigkeit und Dringlichkeit zu entscheiden, ob AT-Benutzern sofort, proaktiv oder passiv über Änderungen am Inhalt informiert werden soll.
 
-Wenn ein Abschnitt des Bildschirms aktualisiert wird und dieser so gestaltet ist, dass er auffällt, werden die meisten sehenden Benutzer Live-Updates im Allgemeinen bemerken. Screenreader hingegen konzentrieren sich nur auf einen Teil der Seite gleichzeitig, und dieser Teil ist möglicherweise nicht dort, wo das Update ist. Das `aria-live`-Attribut bietet Entwicklern die Möglichkeit, solche Änderungen basierend auf Ereignisauslösern, die vom Entwickler und nicht durch Benutzerinitiierten Aktionen gesetzt werden, AT anzukündigen, damit sie darüber informiert werden, dass sich der Inhalt geändert hat.
+Wenn ein Abschnitt des Bildschirms aktualisiert wird und er so gestaltet ist, dass er bemerkbar ist, werden die meisten sehenden Benutzer Live-Updates im Allgemeinen bemerken. Bildschirmleser hingegen konzentrieren sich immer nur auf einen Teil der Seite; und dieser Teil ist möglicherweise nicht dort, wo sich das Update befindet. Das `aria-live`-Attribut bietet Entwicklern eine Möglichkeit, solche Änderungen an AT aufgrund von vom Entwickler festgelegten Ereignis-Triggern und nicht durch benutzerinitiierte Aktionen bekannt zu geben, damit sie darauf aufmerksam gemacht werden, dass sich der Inhalt geändert hat.
 
 ```html
 <div id="announce" aria-live="polite"></div>
 ```
 
-Das `aria-live`-Attribut wird auf ein **leeres** Element gesetzt. Wenn eine Aktualisierung der Seite erfolgt, sollte das leere Element mit diesem `aria-live`-Attribut mit einer kurzen Ankündigung aktualisiert werden, um den Benutzer darüber zu informieren, dass ein Update vorgenommen wurde.
+Das `aria-live`-Attribut wird auf einem **leeren** Element gesetzt. Wenn eine Aktualisierung der Seite erfolgt, sollte das leere Element mit diesem `aria-live`-Attribut mit einer kurzen Ankündigung aktualisiert werden, die den Benutzer darüber informiert, dass ein Update erfolgt ist.
 
 ```html
 <div id="announce" aria-live="polite">
@@ -27,45 +27,45 @@ Das `aria-live`-Attribut wird auf ein **leeres** Element gesetzt. Wenn eine Aktu
 </div>
 ```
 
-Wenn die Zugänglichkeits-API eine Änderung der obigen Live-Region erkennt, wird sie den Inhalt dieser Live-Region basierend auf dem Wert des Attributs ankündigen. Das Element erhält **nicht** den Fokus.
+Wenn die Zugangs-API eine Änderung des oben genannten Live-Bereichs erkennt, wird sie den Inhalt dieses Live-Bereichs auf der Grundlage des Wertes des Attributs ankündigen. Dem Element wird **nicht** der Fokus gegeben.
 
-Wenn Sie möchten, dass alle Inhalte der Live-Region gelesen werden, verwenden Sie [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic). Verwenden Sie [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant), um nur die Abschnitte eines Updates zu definieren, die dem Benutzer erneut vorgelesen werden müssen. Verwenden Sie [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy), um Ankündigungen zu verhindern, während Updates noch vorgenommen werden.
+Wenn Sie möchten, dass alle Inhalte des Live-Bereichs gelesen werden, verwenden Sie [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic). Verwenden Sie [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant), um nur die Abschnitte eines Updates zu definieren, die dem Benutzer erneut vorgelesen werden müssen. Verwenden Sie [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy), um Ankündigungen zu verhindern, während Updates noch stattfinden.
 
-### Wahl des `aria-live`-Wertes
+### Wahl des `aria-live`-Werts
 
-Da einige Benutzer von unterstützenden Technologien Live-Updates nicht "sehen" können, wird das `aria-live`-Attribut verwendet, um zu definieren, welche aktualisierten Informationen dem Benutzer sein sollen:
+Da einige Benutzer von Unterstützungstechnologien Live-Updates nicht "sehen" können, wird das `aria-live`-Attribut verwendet, um zu definieren, welche aktualisierten Informationen dem Benutzer:
 
-- Sofort zur Kenntnis gebracht,
-- Informiert, wenn sich Gelegenheit bietet, und
-- Proaktiv informiert, aber sie können es erfahren, wenn sie sich auf den aktualisierten Bereich konzentrieren.
+- Unmittelbar bekannt gemacht werden sollten,
+- Bei Gelegenheit mitgeteilt werden sollten, und
+- proaktiv mitgeteilt werden sollten, wobei der Benutzer lernen kann, wann sie sich auf den aktualisierten Bereich konzentrieren.
 
-Der Wert von `aria-live` beschreibt die Art der Updates, die von den Benutzeragenten, unterstützenden Technologien und Benutzern aus der Live-Region erwartet werden können, und wird verwendet, um die Wichtigkeitsgrade auszudrücken.
+Der Wert von `aria-live` beschreibt die Arten von Updates, die die Benutzeragenten, Unterstützungstechnologien und der Benutzer aus dem Live-Bereich erwarten können, und wird verwendet, um die Wichtigkeit zu definieren.
 
-Wenn das `aria-live`-Attribut auf `polite` gesetzt ist, benachrichtigen unterstützende Technologien die Benutzer über Updates, unterbrechen jedoch im Allgemeinen nicht die aktuelle Aufgabe, wobei die Updates eine niedrige Priorität haben. Wenn es auf `assertive` gesetzt ist, benachrichtigen unterstützende Technologien den Benutzer sofort, was möglicherweise die Sprach-Warteschlange vorheriger Updates löscht.
+Wenn das `aria-live`-Attribut auf `polite` gesetzt ist, werden Unterstützungstechnologien Benutzer über Updates benachrichtigen, unterbrechen jedoch im Allgemeinen die aktuelle Aufgabe nicht, wobei die Updates eine niedrige Priorität haben. Bei `assertive` benachrichtigen Unterstützungstechnologien Benutzer sofort, möglicherweise werden die vorherigen Updates aus der Sprachwarteschlange gelöscht.
 
-Screenreader puffern Inhalte, wenn die Seite geladen wird. Aus diesem Grund werden Inhalte, die nach dem ersten Aufbau des Barrierefreiheitsbaums hinzugefügt werden, möglicherweise nicht bemerkt, da AT-Benutzer beginnen, Inhalte zu konsumieren, bevor dynamische Widgets gefüllt sind – Benutzer wissen möglicherweise nicht, dass die Seite oder der Inhalt aktualisiert wird, während Widgets geladen werden. In diesem Fall können Sie den Benutzern mitteilen, dass die Seite aktualisiert wurde, indem Sie `aria-live="polite"` setzen.
+Bildschirmleser puffern Inhalte, wenn die Seite geladen wird. Aus diesem Grund werden Inhalte, die nach dem initialen Aufbau des Zugänglichkeitsbaums hinzugefügt werden, möglicherweise nicht bemerkt, da AT-Benutzer beginnen, Inhalte zu konsumieren, bevor dynamische Widgets gefüllt sind - Benutzer wissen möglicherweise nicht, dass die Seite oder der Inhalt aktualisiert wird, während Widgets geladen werden. In dieser Situation können Sie die Benutzer darüber informieren, dass die Seite aktualisiert wurde, indem Sie `aria-live="polite"` setzen.
 
-Vollständig gefüllte Seiten können ebenfalls Updates haben. Beispiele sind Inhalte wie Echtzeitsport-Ergebnisse, Nachrichtenläufe und Börsenticker. Sofern diese Arten von Updates nicht die Hauptfunktion der Seite sind, möchten Sie den Benutzer möglicherweise nicht jedes Mal informieren, wenn sie aktualisiert werden, aber sie darüber informieren, dass das Widget aktualisiert wird. Hier würden Sie `aria-live="off"` setzen. In diesen Szenarien gibt es keinen Grund, den Benutzer über Updates zu informieren, es sei denn, sie konzentrieren sich auf die Live-Region.
+Vollständig gepopulierte Seiten können ebenfalls Updates haben. Beispiele sind Inhalte wie Echtzeitsportergebnisse, Nachrichtenticker und Börsenkurse. Es sei denn, diese Arten von Updates sind die Hauptfunktion der Seite, Sie möchten den Benutzer wahrscheinlich nicht jedes Mal darüber informieren, wenn es aktualisiert wird, aber Sie möchten ihm mitteilen, dass das Widget aktualisiert wird. Hier würden Sie `aria-live="off"` setzen. In diesen Szenarien gibt es keinen Grund, den Benutzer über Updates zu informieren, es sei denn, sie fokussieren den Live-Bereich.
 
-Einige Live-Updates sind wichtig und zeitkritisch. Zum Beispiel, wenn Sie Konzertkarten verkaufen und der Benutzer eine begrenzte Zeit hat, um den Kauf abzuschließen, möchten Sie nicht bis zu einer ruhigen Phase warten, um ihm mitzuteilen, dass seine Zeit fast abgelaufen ist (oder bereits vorbei). Wenn es notwendig ist, so schnell wie möglich informiert zu werden, setzen Sie `aria-live="assertive"`. Wenn die aktualisierten Informationen eine [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role) sind, wird das `aria-live`-Attribut nicht benötigt.
+Einige Live-Updates sind wichtig und zeitkritisch. Wenn Sie zum Beispiel Konzerttickets verkaufen und der Benutzer nur begrenzt Zeit hat, um den Kauf abzuschließen, möchten Sie nicht warten, bis eine Pause in der Aktivität eintritt, um ihnen mitzuteilen, dass ihre Zeit fast abgelaufen ist (oder bereits abgelaufen ist). Wenn es notwendig ist, sofort informiert zu werden, setzen Sie `aria-live="assertive"`. Wenn die aktualisierten Informationen eine [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role) sind, ist das `aria-live`-Attribut nicht notwendig.
 
-In diesem Zeitlimit-Szenario müssen Sie, um barrierefrei zu sein, auch [eine Möglichkeit bieten, die verfügbare Zeit zu verlängern oder den Timer vollständig auszuschalten](https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html).
+In diesem Zeitlimit-Szenario müssen Sie, um zugänglich zu sein, auch [eine Möglichkeit bieten, die verfügbare Zeit zu verlängern oder den Timer vollständig auszuschalten](https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html).
 
 ### Verwendung von `aria-live`
 
-Eine Live-Region umfasst das Element und alle seine Nachkommen. Wenn es nicht auf dem aktualisierten Inhalt gesetzt ist, stammt der Wert von `aria-live` von dem nächstgelegenen Vorfahren mit einem gültigen `aria-live`-Attributwert. Wenn auf `off` gesetzt oder wenn das Attribut auf dem aktualisierten Element und allen Vorfahrenknoten im DOM-Baum vollständig weggelassen wird, wird der Benutzer nicht informiert. Die Benutzer können die Updates jedoch hören, wenn sie zur Live-Region navigieren.
+Ein Live-Bereich umfasst das Element und alle seine Nachkommen. Wenn er nicht auf zu aktualisierenden Inhalten gesetzt ist, kommt der Wert von `aria-live` vom nächsten Vorfahren mit einem gültigen `aria-live`-Attributwert. Wenn der Wert auf `off` gesetzt ist, oder wenn das Attribut auf dem aktualisierten Element und allen Vorfahrenknoten im DOM-Baum weggelassen wird, wird der Benutzer nicht informiert. Benutzer werden die Updates dennoch hören, wenn sie zum Live-Bereich navigieren.
 
 > [!WARNING]
-> Da eine Unterbrechung die Benutzer verwirren oder dazu führen kann, dass sie ihre aktuelle Aufgabe nicht abschließen, verwenden Sie den Wert `assertive` nur dann, wenn die Unterbrechung zwingend erforderlich ist.
+> Da eine Unterbrechung dazu führen kann, dass Benutzer verwirrt werden oder ihre aktuelle Aufgabe nicht abschließen, verwenden Sie den Wert `assertive` nur, wenn die Unterbrechung zwingend notwendig ist.
 
 ## Werte
 
 - `assertive`
   - : Gibt an, dass Updates der Region die höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
 - `off` (Standard)
-  - : Gibt an, dass Updates der Region dem Benutzer **nicht** präsentiert werden sollten, es sei denn, der Benutzer fokussiert die Region aktuell.
+  - : Gibt an, dass Updates der Region dem Benutzer **nicht** präsentiert werden sollten, es sei denn, der Benutzer konzentriert sich derzeit auf diese Region.
 - `polite`
-  - : Gibt an, dass Updates der Region bei der nächsten günstigen Gelegenheit präsentiert werden sollten, zum Beispiel am Ende des aktuellen Satzes oder wenn der Benutzer eine Tipp-Pause macht.
+  - : Gibt an, dass Updates der Region bei der nächsten günstigen Gelegenheit präsentiert werden sollten, beispielsweise am Ende des Lesens des aktuellen Satzes oder wenn der Benutzer eine Tipp-Pause einlegt.
 
 ## Zugehörige Schnittstellen
 
@@ -87,4 +87,4 @@ Wird in **ALLEN** Rollen verwendet.
 - [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)
 - [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
-- [`alert` role](/de/docs/Web/Accessibility/ARIA/Roles/alert_role)
+- [`alert` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/alert_role)

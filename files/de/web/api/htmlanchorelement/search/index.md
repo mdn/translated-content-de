@@ -1,5 +1,5 @@
 ---
-title: "HTMLAnchorElement: search Eigenschaft"
+title: "HTMLAnchorElement: search-Eigenschaft"
 short-title: search
 slug: Web/API/HTMLAnchorElement/search
 l10n:
@@ -8,21 +8,17 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.search`** Eigenschaft ist eine Suchzeichenkette, auch _Query String_ genannt, die eine Zeichenkette enthält, die mit einem `'?'` beginnt, gefolgt von den Parametern der URL.
+Die **`HTMLAnchorElement.search`**-Eigenschaft ist ein Suchstring, auch _query string_ genannt, der ein String ist, der ein `'?'` gefolgt von den Parametern der URL enthält.
 
-Moderne Browser stellen
-[`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
-und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
-bereit, um das einfache Parsen der Parameter aus der Suchzeichenkette zu ermöglichen.
+Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), um das einfache Parsen der Parameter aus dem Query-String zu ermöglichen.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Abrufen der Suchzeichenkette von einem Ankerlink
+### Abrufen des Suchstrings von einem Ankerlink
 
 ```js
 // An <a id="myAnchor" href="/en-US/docs/HTMLAnchorElement?q=123"> element is in the document
@@ -49,4 +45,4 @@ let q = parseInt(params.get("q")); // returns the number 123
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

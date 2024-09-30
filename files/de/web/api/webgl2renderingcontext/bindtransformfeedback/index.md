@@ -1,12 +1,12 @@
 ---
-title: "WebGL2RenderingContext: bindTransformFeedback() Methode"
+title: "WebGL2RenderingContext: bindTransformFeedback()-Methode"
 short-title: bindTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/bindTransformFeedback
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.bindTransformFeedback()`**-Methode
 der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein
@@ -21,14 +21,13 @@ bindTransformFeedback(target, transformFeedback)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel (Bindepunkt) angibt. Muss
-    `gl.TRANSFORM_FEEDBACK` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel (den Bindungspunkt) angibt. Muss `gl.TRANSFORM_FEEDBACK` sein.
 - `transformFeedback`
   - : Ein [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keinen ({{jsxref("undefined")}}).
 
 ## Beispiele
 

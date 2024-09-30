@@ -1,5 +1,5 @@
 ---
-title: "KeyframeEffect: Die setKeyframes()-Methode"
+title: "KeyframeEffect: setKeyframes()-Methode"
 short-title: setKeyframes()
 slug: Web/API/KeyframeEffect/setKeyframes
 l10n:
@@ -20,9 +20,9 @@ setKeyframes(keyframes)
 
 - `keyframes`
 
-  - : Ein Keyframe-Objekt oder `null`. Wenn auf `null` gesetzt, werden die Keyframes durch eine Sequenz leerer Keyframes ersetzt.
+  - : Ein Keyframe-Objekt oder `null`. Wenn `null` gesetzt ist, werden die Keyframes durch eine Sequenz leerer Keyframes ersetzt.
 
-    Weitere Informationen über das Format eines Keyframe-Objekts finden Sie unter [Format](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats#syntax).
+    Mehr Informationen über das [Format](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats#syntax) eines Keyframe-Objekts.
 
 ### Rückgabewert
 
@@ -34,25 +34,25 @@ Keiner ({{jsxref("undefined")}}).
   <thead>
     <tr>
       <th scope="col">Ausnahme</th>
-      <th scope="col">Erklärung</th>
+      <th scope="col">Erläuterung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>TypeError</code></td>
       <td>
-        Eines oder mehrere der Frames waren nicht vom richtigen Objekttyp, die
+        Eines oder mehrere der Frames waren nicht vom korrekten Objekttyp, die
         Keyframes waren nicht
         <a href="https://w3c.github.io/web-animations/#loosely-sorted-by-offset"
-          >ungefähr nach Versatz sortiert</a
-        >, oder ein Keyframe existierte mit einem Versatz von weniger als 0 oder mehr als 1.
+          >lose nach Offset sortiert</a
+        >, oder ein Keyframe existierte mit einem Offset von weniger als 0 oder mehr als 1.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Wenn die Keyframes nicht verarbeitet werden können oder fehlerhaft sind, werden die Keyframes des `KeyframeEffect` nicht modifiziert.
+> Wenn die Keyframes nicht verarbeitet werden können oder fehlerhaft sind, werden die Keyframes des `KeyframeEffect` nicht verändert.
 
 ## Beispiele
 

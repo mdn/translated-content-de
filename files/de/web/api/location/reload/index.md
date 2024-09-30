@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`reload()`** Methode der [`Location`](/de/docs/Web/API/Location) Schnittstelle lädt die aktuelle URL neu, ähnlich wie die Aktualisieren-Schaltfläche.
+Die **`reload()`** Methode des [`Location`](/de/docs/Web/API/Location) Interfaces lädt die aktuelle URL neu, ähnlich wie die Aktualisieren-Schaltfläche.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ reload()
 ### Parameter
 
 - `forceGet` {{non-standard_inline}}
-  - : Übergeben Sie `true`, um ein Neuladen zu erzwingen, das den Cache umgeht. Der Standardwert ist `false`. Wird nur in Firefox unterstützt.
+  - : Übergeben Sie `true`, um ein Neuladen zu erzwingen, das den Cache umgeht. Standardmäßig auf `false`. Nur in Firefox unterstützt.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [origin](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht der [same origin](/de/docs/Glossary/Same-origin_policy) der Seite entspricht, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wurde, hauptsächlich wenn das Skript in einer anderen Domain gehostet wird.
+  - : Wird ausgelöst, wenn der [Ursprung](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht der [selbe Ursprung](/de/docs/Glossary/Same-origin_policy) der Seite ist, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wird, meist wenn das Skript auf einer anderen Domain gehostet wird.
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ window.location.reload();
 
 ## Siehe auch
 
-- Die [`Location`](/de/docs/Web/API/Location) Schnittstelle, zu der es gehört.
+- Das [`Location`](/de/docs/Web/API/Location) Interface, zu dem es gehört.
 - Ähnliche Methoden: [`Location.assign()`](/de/docs/Web/API/Location/assign) und
   [`Location.replace()`](/de/docs/Web/API/Location/replace).

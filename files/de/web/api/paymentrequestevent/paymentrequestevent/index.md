@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequestEvent: PaymentRequestEvent()-Konstruktor"
+title: "PaymentRequestEvent: PaymentRequestEvent() Konstruktor"
 short-title: PaymentRequestEvent()
 slug: Web/API/PaymentRequestEvent/PaymentRequestEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`PaymentRequestEvent`**-Konstruktor erstellt eine neue Instanz des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Objekts.
+Der **`PaymentRequestEvent`** Konstruktor erstellt eine neue Instanz des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent) Objekts.
 
 ## Syntax
 
@@ -20,29 +20,30 @@ new PaymentRequestEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Er ist case-sensitiv und Browser setzen ihn auf `paymentrequest`.
+  - : Ein Zeichenkette mit dem Namen des Ereignisses.
+    Sie ist groß- und kleinschreibungssensitiv und Browser setzen sie auf `paymentrequest`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften die folgenden Eigenschaften haben kann:
     - `methodData`
-      - : Ein Array von `PaymentMethodData`-Objekten (siehe [`methodData` > Wert](/de/docs/Web/API/PaymentRequestEvent/methodData#value)), das Zahlungsmodus-Identifikatoren für die von der Website akzeptierten Zahlungsmethoden und alle damit verbundenen zahlungsspezifischen Daten enthält.
+      - : Ein Array von `PaymentMethodData` Objekten (siehe [`methodData` > Wert](/de/docs/Web/API/PaymentRequestEvent/methodData#value)), das Zahlungsarten-Identifikatoren für die von der Website akzeptierten Zahlungsarten und zugehörige, zahlungsspezifische Daten enthält.
     - `modifiers`
       - : Ein Array von Objekten, das Änderungen an Zahlungsdetails enthält.
     - `paymentRequestId`
-      - : Die ID des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts.
+      - : Die ID des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekts.
     - `paymentRequestOrigin`
-      - : Der Ursprung, an dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
+      - : Der Ursprung, bei dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt initialisiert wurde.
     - `topOrigin`
-      - : Der oberste Ursprung, an dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
+      - : Der oberste Ursprung, bei dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt initialisiert wurde.
     - `total`
       - : Der Gesamtbetrag, der zur Zahlung angefordert wird.
 
 ### Rückgabewert
 
-Ein neues [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Objekt.
+Ein neues [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent) Objekt.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PaymentRequestEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PaymentRequestEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event) Ereignisses aufgerufen wird.
 
 ```js
 self.addEventListener("paymentrequest", (e) => {
@@ -60,7 +61,7 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)

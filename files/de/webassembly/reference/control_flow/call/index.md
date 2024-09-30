@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, wobei `return_call_indirect` ebenfalls die Tail-Call-Version ist.
+**`call`** ruft eine Funktion auf, wobei `return_call` die Version dafür als Tail-Call ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, ebenfalls mit der `return_call_indirect` Version als Tail-Call.
 
 {{EmbedInteractiveExample("pages/wat/call.html", "tabbed-standard")}}
 
@@ -17,7 +17,7 @@ l10n:
 call $greet
 ```
 
-| Anweisung              | Binärer Opcode |
+| Instruktion            | Binärer Opcode |
 | ---------------------- | -------------- |
 | `call`                 | `0x10`         |
 | `call_indirect`        | `0x11`         |
@@ -27,4 +27,4 @@ call $greet
 ## Siehe auch
 
 - [Überblick über den Tail Call Extension Vorschlag](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
-- [V8 über die Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)
+- [V8 zur Unterstützung von WebAssembly Tail Calls](https://v8.dev/blog/wasm-tail-call)

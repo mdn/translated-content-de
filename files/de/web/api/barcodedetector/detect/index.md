@@ -1,5 +1,5 @@
 ---
-title: "BarcodeDetector: detect() Methode"
+title: "BarcodeDetector: detect()-Methode"
 short-title: detect()
 slug: Web/API/BarcodeDetector/detect
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`detect()`**-Methode der
-[`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von erkannten Barcodes in einem Bild erfüllt wird.
+Die **`detect()`**-Methode der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von erkannten Barcodes in einem Bild erfüllt wird.
 
 ## Syntax
 
@@ -24,32 +23,29 @@ detect(imageBitmapSource)
 
 ### Rückgabewert
 
-Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von
-`DetectedBarcode`-Objekten mit den folgenden Eigenschaften erfüllt wird:
+Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von `DetectedBarcode`-Objekten mit folgenden Eigenschaften erfüllt wird:
 
 - `boundingBox`
-  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das die
-    Abmessungen eines Rechtecks zurückgibt, das den Umfang eines erkannten Barcodes im Bild darstellt.
+  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das die Abmessungen eines Rechtecks zurückgibt, das den Umfang eines erkannten Barcodes darstellt, ausgerichtet mit dem Bild.
 - `cornerPoints`
-  - : Die x- und y-Koordinaten der vier Eckpunkte des erkannten Barcodes relativ zum Bild, beginnend mit der oberen linken Ecke im Uhrzeigersinn. Dies kann aufgrund von perspektivischen Verzerrungen im Bild nicht quadratisch sein.
+  - : Die x- und y-Koordinaten der vier Eckpunkte des erkannten Barcodes relativ zum Bild, beginnend mit der oberen linken Ecke und im Uhrzeigersinn. Aufgrund von perspektivischen Verzerrungen im Bild muss dies möglicherweise nicht quadratisch sein.
 - `format`
-  - : Das erkannte Barcode-Format. (Eine vollständige Liste der Formate finden Sie unter den [unterstützten Barcode-Formaten](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)).
+  - : Das erkannte Barcode-Format. (Für eine vollständige Liste der Formate siehe die [unterstützten Barcode-Formate](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)).
 - `rawValue`
-  - : Ein aus den Barcode-Daten dekodierter String.
+  - : Ein Zeichenfolge, die aus den Barcodedaten dekodiert wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `type` nicht der eines `ImageBitmapSource` ist.
+  - : Wird ausgelöst, wenn kein Parameter angegeben wird oder der `type` nicht dem eines `ImageBitmapSource` entspricht.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `imageBitmapSource` einen Ursprung hat, der nicht mit dem Ursprungsdokument übereinstimmt, oder wenn `imageBitmapSource` ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ist und dessen [origin-clean](https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-origin-clean)-Flag auf `false` gesetzt ist.
+  - : Wird ausgelöst, wenn die `imageBitmapSource` einen Ursprung hat, der nicht mit dem Ursprung des Dokuments übereinstimmt, oder wenn die `imageBitmapSource` ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ist und das [Origin-Clean](https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-origin-clean)-Flag auf `false` gesetzt ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `imageBitmapSource` ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist und nicht vollständig dekodiert wurde oder die Dekodierung fehlgeschlagen ist, oder wenn es ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) ist und dessen [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) `HAVE_NOTHING` oder `HAVE_METADATA` ist.
+  - : Wird ausgelöst, wenn die `imageBitmapSource` ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist und nicht vollständig decodiert ist oder das Decodieren fehlgeschlagen ist, oder wenn sie ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) ist und der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) `HAVE_NOTHING` oder `HAVE_METADATA` ist.
 
 ## Beispiele
 
-Dieses Beispiel verwendet die `detect()`-Methode, um die Barcodes innerhalb des
-gegebenen Bildes zu erkennen. Diese werden durchlaufen und die Barcode-Daten werden in der Konsole protokolliert.
+Dieses Beispiel verwendet die `detect()`-Methode, um die Barcodes im angegebenen Bild zu erkennen. Diese werden iteriert und die Barcodedaten werden in der Konsole protokolliert.
 
 ```js
 barcodeDetector

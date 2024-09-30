@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "x kann nicht in BigInt konvertiert werden" tritt auf, wenn versucht wird, einen {{jsxref("Symbol")}}, [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} Wert in ein {{jsxref("BigInt")}} zu konvertieren, oder wenn eine Operation, die ein BigInt-Parameter erwartet, eine Zahl erhält.
+Die JavaScript-Ausnahme "x kann nicht in BigInt konvertiert werden" tritt auf, wenn versucht wird, einen {{jsxref("Symbol")}}, [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder einen {{jsxref("undefined")}}-Wert in einen {{jsxref("BigInt")}} zu konvertieren oder wenn ein Vorgang, der ein BigInt-Parameter erwartet, eine Zahl erhält.
 
 ## Nachricht
 
@@ -23,13 +23,13 @@ TypeError: Invalid argument type in ToBigInt operation (Safari)
 
 ## Was ist schiefgelaufen?
 
-Beim Verwenden der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) Funktion, um einen Wert in ein BigInt zu konvertieren, würde der Wert zuerst in einen primitiven Wert umgewandelt. Dann, wenn es sich nicht um eine BigInt, einen String, eine Zahl oder einen Boolean handelt, wird der Fehler ausgelöst.
+Bei der Verwendung der Funktion [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt), um einen Wert in ein BigInt zu konvertieren, wird der Wert zunächst in einen primitiven Wert umgewandelt. Wenn es sich dabei nicht um BigInt, String, Number oder Boolean handelt, wird der Fehler ausgegeben.
 
-Einige Operationen, wie [`BigInt.asIntN`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asIntN), erfordern, dass der Parameter ein BigInt ist. Wenn in diesem Fall eine Zahl übergeben wird, wird ebenfalls dieser Fehler ausgelöst.
+Einige Operationen, wie zum Beispiel [`BigInt.asIntN`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asIntN), erfordern, dass der Parameter ein BigInt ist. Wenn in diesem Fall eine Zahl übergeben wird, wird ebenfalls dieser Fehler ausgelöst.
 
 ## Beispiele
 
-### Verwenden von BigInt() mit ungültigen Werten
+### Verwendung von BigInt() mit ungültigen Werten
 
 ```js example-bad
 const a = BigInt(null);
@@ -48,9 +48,9 @@ const d = BigInt(Symbol("1").description);
 ```
 
 > [!NOTE]
-> Einfaches Umschreiben des Wertes in einen String oder eine Zahl mit Hilfe von [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String) oder [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number), bevor er an `BigInt()` übergeben wird, reicht normalerweise nicht aus, um alle Fehler zu vermeiden. Wenn der String keine gültige Ganzzahl-Zeichenkette ist, wird ein [SyntaxError](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst; wenn die Zahl keine Ganzzahl ist (insbesondere {{jsxref("NaN")}}), wird ein [RangeError](/de/docs/Web/JavaScript/Reference/Errors/Cant_be_converted_to_BigInt_because_it_isnt_an_integer) ausgelöst. Wenn der Bereich der Eingabe unbekannt ist, validieren Sie ihn ordnungsgemäß, bevor Sie `BigInt()` verwenden.
+> Einfaches Umwandeln des Wertes in einen String oder eine Zahl mit [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String) oder [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number), bevor er an `BigInt()` übergeben wird, reicht in der Regel nicht aus, um alle Fehler zu vermeiden. Wenn der String keine gültige Ganzzahl-String-Darstellung ist, wird ein [SyntaxError](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgegeben; wenn die Zahl keine Ganzzahl (insbesondere {{jsxref("NaN")}}) ist, wird ein [RangeError](/de/docs/Web/JavaScript/Reference/Errors/Cant_be_converted_to_BigInt_because_it_isnt_an_integer) ausgelöst. Wenn der Bereich der Eingabedaten unbekannt ist, sollten diese ordnungsgemäß validiert werden, bevor `BigInt()` verwendet wird.
 
-### Übergeben einer Zahl an eine Funktion, die ein BigInt erwartet
+### Eine Zahl an eine Funktion übergeben, die ein BigInt erwartet
 
 ```js example-bad
 const a = BigInt.asIntN(4, 8);

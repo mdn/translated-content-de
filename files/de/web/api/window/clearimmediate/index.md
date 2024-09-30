@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{deprecated_header}}{{non-standard_header}}
 
-Diese Methode löscht die Aktion, die durch [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) festgelegt wurde.
+Diese Methode löscht die Aktion, die durch [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) angegeben wurde.
 
 ## Syntax
 
@@ -40,8 +40,9 @@ document.getElementById("button").addEventListener(() => {
 
 ## Spezifikationen
 
-Nicht Teil aktueller Spezifikationen.
-Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate)-Spezifikation wird nicht mehr weiterentwickelt.
+Nicht Teil einer aktuellen Spezifikation.
+Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate)
+Spezifikation wird nicht mehr bearbeitet.
 
 ## Browser-Kompatibilität
 

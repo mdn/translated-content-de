@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: URLSearchParams() Konstruktor"
+title: "URLSearchParams: URLSearchParams()-Konstruktor"
 short-title: URLSearchParams()
 slug: Web/API/URLSearchParams/URLSearchParams
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Der **`URLSearchParams()`** Konstruktor erstellt und gibt ein neues [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekt zurück.
+Der **`URLSearchParams()`**-Konstruktor erstellt und gibt ein neues [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt zurück.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ new URLSearchParams(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Eine der folgenden Möglichkeiten:
-    - Ein String, der aus dem `application/x-www-form-urlencoded` Format geparst wird. Ein führendes `'?'` Zeichen wird ignoriert.
-    - Eine literale Sequenz von Namens-Wert-Paaren als String oder ein beliebiges Objekt — wie ein [`FormData`](/de/docs/Web/API/FormData) Objekt — mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), der eine Sequenz von String-Paaren erzeugt. Beachten Sie, dass [`File`](/de/docs/Web/API/File) Einträge als `[object File]` serialisiert werden, anstatt als ihr Dateiname (wie sie es in einem `application/x-www-form-urlencoded` Formular wären).
-    - Ein Register von String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelung nicht unterstützt wird.
+  - : Eines der folgenden:
+    - Ein String, der aus dem `application/x-www-form-urlencoded`-Format geparst wird. Ein führendes `'?'`-Zeichen wird ignoriert.
+    - Eine wörtliche Sequenz von Namenswert-Paaren als Strings oder ein beliebiges Objekt — wie zum Beispiel ein [`FormData`](/de/docs/Web/API/FormData)-Objekt — mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), der eine Sequenz von String-Paaren erzeugt. Beachten Sie, dass [`File`](/de/docs/Web/API/File)-Einträge als `[object File]` und nicht als ihr Dateiname serialisiert werden (wie sie es in einem `application/x-www-form-urlencoded`-Formular wären).
+    - Ein Datensatz von String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelungen nicht unterstützt werden.
 
 ### Rückgabewert
 
-Eine Instanz des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekts.
+Eine Instanz des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekts.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekt aus verschiedenen Eingaben erstellt.
+Das folgende Beispiel zeigt, wie ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt aus verschiedenen Eingaben erstellt wird.
 
 ```js
 // Retrieve params via url.search, passed into constructor
@@ -55,7 +55,7 @@ const params3 = new URLSearchParams([
 const params4 = new URLSearchParams({ foo: "1", bar: "2" });
 ```
 
-Dieses Beispiel zeigt, wie man eine neue URL mit einem Objekt von Suchparametern aus einer bestehenden URL, die Suchparameter enthält, erstellt.
+Dieses Beispiel zeigt, wie eine neue URL mit einem Objekt von Suchparametern aus einer existierenden URL erstellt wird, die Suchparameter enthält.
 
 ```js
 const url = new URL("https://example.com/?a=hello&b=world");

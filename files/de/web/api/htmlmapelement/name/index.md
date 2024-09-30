@@ -1,5 +1,5 @@
 ---
-title: "HTMLMapElement: name Eigenschaft"
+title: "HTMLMapElement: name-Eigenschaft"
 short-title: name
 slug: Web/API/HTMLMapElement/name
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement) stellt den eindeutigen Namen des `<map>`-Elements dar.
-Ihr Wert kann mit dem `useMap`-Attribut des {{HTMLElement("img")}}-Elements verwendet werden, um ein `<map>`-Element zu referenzieren.
+Die **`name`**-Eigenschaft des [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement) stellt den eindeutigen Namen des `<map>`-Elements dar. Ihr Wert kann mit dem `useMap`-Attribut des {{HTMLElement("img")}}-Elements verwendet werden, um auf ein `<map>`-Element zu verweisen.
 
 Wenn ein `id`-Attribut auf dem {{HTMLElement("map")}}-Element gesetzt ist, sollte diese `name`-Eigenschaft mit dieser `id` identisch sein.
 
@@ -40,5 +39,5 @@ console.log(mapElement.name); // output: "image-map"
 
 ## Siehe auch
 
-- [`HTMLImageElement.useMap`](/de/docs/Web/API/HTMLImageElement/useMap) Eigenschaft
-- [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Element
+- [`HTMLImageElement.useMap`](/de/docs/Web/API/HTMLImageElement/useMap)-Eigenschaft
+- [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Element

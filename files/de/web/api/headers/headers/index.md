@@ -21,7 +21,7 @@ new Headers(init)
 ### Parameter
 
 - `init` {{optional_inline}}
-  - : Ein Objekt, das beliebige [HTTP-Header](/de/docs/Web/HTTP/Headers) enthält, mit denen Sie Ihr `Headers`-Objekt vorab füllen möchten. Dies kann ein einfaches Objektliteral mit {{jsxref("String")}}-Werten, ein Array von Namens-Wert-Paaren, wobei jedes Paar ein 2-Element-String-Array ist, oder ein bestehendes `Headers`-Objekt sein. Im letzten Fall kopiert das neue `Headers`-Objekt seine Daten aus dem bestehenden `Headers`-Objekt.
+  - : Ein Objekt, das beliebige [HTTP-Header](/de/docs/Web/HTTP/Headers) enthält, mit denen Sie Ihr `Headers`-Objekt vorbelegen möchten. Dies kann ein einfaches Objektliteral mit {{jsxref("String")}}-Werten sein, ein Array von Namens-Wert-Paaren, wobei jedes Paar ein String-Array mit 2 Elementen ist, oder ein bestehendes `Headers`-Objekt. Im letzten Fall kopiert das neue `Headers`-Objekt seine Daten aus dem bestehenden `Headers`-Objekt.
 
 ## Beispiele
 
@@ -31,15 +31,14 @@ Ein leeres `Headers`-Objekt zu erstellen ist einfach:
 const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten diesem einen Header hinzufügen, indem Sie [`Headers.append`](/de/docs/Web/API/Headers/append) verwenden:
+Sie könnten diesem mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
 myHeaders.get("Content-Type"); // Returns 'image/jpeg'
 ```
 
-Oder Sie können die gewünschten Header hinzufügen, wenn das `Headers`-Objekt erstellt wird. Im
-folgenden Code-Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt und fügen einige Header hinzu, indem wir dem Konstruktor ein `init`-Objekt als Argument übergeben:
+Oder Sie können die gewünschten Header hinzufügen, während das `Headers`-Objekt erstellt wird. Im folgenden Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt und fügen einige Header hinzu, indem wir dem Konstruktor ein Init-Objekt als Argument übergeben:
 
 ```js
 const httpHeaders = {
@@ -49,16 +48,14 @@ const httpHeaders = {
 const myHeaders = new Headers(httpHeaders);
 ```
 
-Sie können jetzt ein weiteres `Headers`-Objekt erstellen, indem Sie ihm das erste
-`Headers`-Objekt als sein `init`-Objekt übergeben:
+Sie können jetzt ein weiteres `Headers`-Objekt erstellen, indem Sie ihm das erste `Headers`-Objekt als Init-Objekt übergeben:
 
 ```js
 const secondHeadersObj = new Headers(myHeaders);
 secondHeadersObj.get("Content-Type"); // Would return 'image/jpeg' — it inherits it from the first headers object
 ```
 
-Sie können die gewünschten Header auch hinzufügen, indem Sie bei der Erstellung des `Headers`-Objekts ein zweidimensionales Array verwenden, um mehrere Header mit denselben Werten hinzuzufügen. Im
-folgenden Code-Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt mit mehreren `Set-Cookie`-Headern, indem wir dem Konstruktor ein `init`-Array als Argument übergeben:
+Sie können die gewünschten Header auch hinzufügen, während das `Headers`-Objekt erstellt wird, indem Sie ein zweidimensionales Array verwenden, um mehrere Header mit denselben Werten hinzuzufügen. Im folgenden Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt mit mehreren `Set-Cookie`-Headern, indem wir dem Konstruktor ein Init-Array als Argument übergeben:
 
 ```js
 const headers = [

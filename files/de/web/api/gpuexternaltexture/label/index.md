@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Angabe einer `label`-Eigenschaft im Deskriptionsobjekt festgelegt werden, das in den ursprünglichen Aufruf von [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) übergeben wird. Sie können es auch direkt auf dem `GPUExternalTexture`-Objekt abfragen und festlegen.
+Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das beim ursprünglichen Aufruf von [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) übergeben wird. Alternativ können Sie es direkt am `GPUExternalTexture`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn dieser nicht wie oben beschrieben zuvor gesetzt wurde, ist er ein leerer String.
+Ein String. Wenn dies, wie oben beschrieben, nicht vorher festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ externalTexture.label = "myExtTexture";
 console.log(externalTexture.label); // "myExtTexture"
 ```
 
-Festlegen eines Labels über den ursprünglichen [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture)-Aufruf und dann Abrufen über `GPUExternalTexture.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) und dann Abrufen über `GPUExternalTexture.label`:
 
 ```js
 // ...

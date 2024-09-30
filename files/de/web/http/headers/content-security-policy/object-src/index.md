@@ -8,11 +8,14 @@ l10n:
 {{HTTPSidebar}}
 
 Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}}
-**`object-src`** legt gültige Quellen für die
-{{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente fest.
+**`object-src`** gibt gültige Quellen für die
+{{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente an.
 
 > [!NOTE]
-> Elemente, die durch `object-src` gesteuert werden, werden möglicherweise zufällig als veraltete HTML-Elemente betrachtet und erhalten keine neuen standardisierten Funktionen (wie z. B. die Sicherheitsattribute `sandbox` oder `allow` für `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z.B. explizit `object-src 'none'` festzulegen, wenn möglich).
+> Die von `object-src` kontrollierten Elemente werden vielleicht zufällig
+> als veraltete HTML-Elemente betrachtet und erhalten keine neuen standardisierten Merkmale (wie
+> die Sicherheitsattribute `sandbox` oder `allow` für
+> `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z.B. `object-src 'none'` explizit zu setzen, wenn möglich).
 
 <table class="properties">
   <tbody>
@@ -25,10 +28,10 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}}
       <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}}-Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
-        <code>default-src</code>-Direktive.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code> Direktive.
       </td>
     </tr>
   </tbody>
@@ -36,7 +39,7 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}}
 
 ## Syntax
 
-Für die `object-src`-Richtlinie können eine oder mehrere Quellen zugelassen werden:
+Für die `object-src`-Richtlinie können eine oder mehrere Quellen erlaubt werden:
 
 ```http
 Content-Security-Policy: object-src <source>;
@@ -45,9 +48,9 @@ Content-Security-Policy: object-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
+`<source>` kann einer der in [CSP Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass diese gleiche Menge an Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
@@ -59,7 +62,7 @@ Angenommen, dieser CSP-Header:
 Content-Security-Policy: object-src https://example.com/
 ```
 
-Die folgenden {{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente werden blockiert und nicht geladen:
+Die folgenden {{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente werden blockiert und nicht geladen:
 
 ```html
 <embed src="https://not-example.com/flash"></embed>

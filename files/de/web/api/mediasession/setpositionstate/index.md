@@ -1,5 +1,5 @@
 ---
-title: "MediaSession: setPositionState() Methode"
+title: "MediaSession: Methode setPositionState()"
 short-title: setPositionState()
 slug: Web/API/MediaSession/setPositionState
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`setPositionState()`** Methode der
-[`MediaSession`](/de/docs/Web/API/MediaSession)-Schnittstelle wird verwendet, um die aktuelle
-Medienwiedergabeposition und -geschwindigkeit des Dokuments zu aktualisieren, damit sie von
-Benutzergeräten in jeder Art von Schnittstelle angezeigt werden können, die Details zu laufenden Medien bereitstellt. Dies kann besonders nützlich sein, wenn Ihr Code einen Player für Medientypen implementiert, die vom Browser nicht direkt unterstützt werden.
+Die **`setPositionState()`**-Methode des
+[`MediaSession`](/de/docs/Web/API/MediaSession)-Interfaces wird verwendet, um die Medienwiedergabeposition und -geschwindigkeit des aktuellen Dokuments für die Präsentation durch das Gerät des Benutzers in jeder Art von Schnittstelle zu aktualisieren, die Details über laufende Medien bereitstellt. Dies kann besonders nützlich sein, wenn Ihr Code einen Player für Medientypen implementiert, die vom Browser nicht direkt unterstützt werden.
 
-Rufen Sie diese Methode auf dem `navigator`-Objekt der
-[`mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Objekt auf.
+Rufen Sie diese Methode am `navigator`-Objekt auf, das
+[`mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Objekt enthält.
 
 ## Syntax
 
@@ -27,17 +25,14 @@ setPositionState(stateDict)
 
 - `stateDict` {{optional_inline}}
 
-  - : Ein Objekt, das aktualisierte Informationen zur Wiedergabeposition und -geschwindigkeit
-    der laufenden Medien des Dokuments bereitstellt. Wenn das Objekt leer ist, werden die vorhandenen
-    Wiedergabeinformationen gelöscht. Dieses Objekt kann folgende
-    Parameter enthalten:
+  - : Ein Objekt, das aktualisierte Informationen über die Wiedergabeposition und -geschwindigkeit der laufenden Medien des Dokuments bereitstellt. Wenn das Objekt leer ist, werden die vorhandenen Wiedergabezustandsinformationen gelöscht. Dieses Objekt kann die folgenden Parameter enthalten:
 
     - `duration` {{optional_inline}}
-      - : Ein Gleitkommawert, der die Gesamtdauer des aktuellen Mediums in Sekunden angibt. Dies sollte immer eine positive Zahl sein, wobei positive Unendlichkeit ({{jsxref("Infinity")}}) Medien ohne definiertes Ende, wie z.B. einen Live-Stream, anzeigt.
+      - : Ein Gleitkommawert, der die Gesamtdauer der aktuellen Medien in Sekunden angibt. Dies sollte immer eine positive Zahl sein, wobei positiv unendlich ({{jsxref("Infinity")}}) für Medien ohne definiertes Ende steht, wie ein Live-Stream.
     - `playbackRate` {{optional_inline}}
-      - : Ein Gleitkommawert, der die Geschwindigkeit angibt, mit der das Medium abgespielt wird, im Verhältnis zu seiner normalen Wiedergabegeschwindigkeit. Ein Wert von 1 bedeutet normale Geschwindigkeit, 2 bedeutet doppelte Geschwindigkeit, und so weiter. Negative Werte bedeuten, dass das Medium rückwärts abgespielt wird; -1 bedeutet Wiedergabe mit normaler Geschwindigkeit, aber rückwärts, -2 bedeutet doppelte Geschwindigkeit rückwärts, und so weiter.
+      - : Ein Gleitkommawert, der die Geschwindigkeit angibt, mit der die Medien abgespielt werden, als Verhältnis relativ zu ihrer normalen Wiedergabegeschwindigkeit. Ein Wert von 1 bedeutet normale Geschwindigkeit, 2 doppelte Geschwindigkeit und so weiter. Negative Werte bedeuten, dass die Medien rückwärts abgespielt werden; -1 bedeutet Wiedergabe mit normaler Geschwindigkeit rückwärts, -2 doppelte Geschwindigkeit rückwärts und so weiter.
     - `position` {{optional_inline}}
-      - : Ein Gleitkommawert, der die zuletzt gemeldete Wiedergabeposition des Mediums in Sekunden angibt. Dies muss immer ein positiver Wert sein.
+      - : Ein Gleitkommawert, der die zuletzt gemeldete Wiedergabeposition der Medien in Sekunden angibt. Dies muss immer ein positiver Wert sein.
 
 ### Rückgabewert
 
@@ -47,11 +42,11 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("TypeError")}}
 
-  - : Dieser Fehler kann in verschiedenen Situationen auftreten:
+  - : Dieser Fehler kann unter verschiedenen Umständen auftreten:
 
-    - Die angegebene `duration` des Objekts fehlt, ist negativ oder `null`.
-    - Seine `position` ist entweder negativ oder größer als `duration`.
-    - Sein `playbackRate` ist null.
+    - Das angegebene Objekt hat `duration` nicht, ist negativ oder `null`.
+    - `position` ist entweder negativ oder größer als `duration`.
+    - `playbackRate` ist null.
 
 ## Beispiele
 
@@ -68,7 +63,7 @@ function updatePositionState() {
 }
 ```
 
-Wir können diese Funktion verwenden, wenn wir [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) aktualisieren und innerhalb von Rückruffunktionen für Aktionen, wie unten gezeigt.
+Wir können diese Funktion beim Aktualisieren von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) und innerhalb von Rückruffunktionen für Aktionen nutzen, wie im folgenden Beispiel.
 
 ```js
 navigator.mediaSession.setActionHandler("seekbackward", (details) => {

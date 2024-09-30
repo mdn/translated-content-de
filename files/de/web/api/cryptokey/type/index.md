@@ -1,5 +1,5 @@
 ---
-title: "CryptoKey: type Eigenschaft"
+title: "CryptoKey: Eigenschaft type"
 short-title: type
 slug: Web/API/CryptoKey/type
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Interfaces gibt an, welche Art von Schlüssel durch das Objekt repräsentiert wird. Sie kann die folgenden Werte haben:
+Die schreibgeschützte **`type`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt an, welche Art von Schlüssel durch das Objekt dargestellt wird. Sie kann die folgenden Werte haben:
 
 - `"secret"`: Dieser Schlüssel ist ein geheimer Schlüssel zur Verwendung mit einem [symmetrischen Algorithmus](/de/docs/Glossary/Symmetric-key_cryptography).
-- `"private"`: Dieser Schlüssel ist die private Hälfte eines [asymmetrischen Algorithmus](/de/docs/Glossary/Public-key_cryptography)'s [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair).
-- `"public"`: Dieser Schlüssel ist die öffentliche Hälfte eines [asymmetrischen Algorithmus](/de/docs/Glossary/Public-key_cryptography)'s [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair).
+- `"private"`: Dieser Schlüssel ist die private Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines [asymmetrischen Algorithmus'](/de/docs/Glossary/Public-key_cryptography).
+- `"public"`: Dieser Schlüssel ist die öffentliche Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines [asymmetrischen Algorithmus'](/de/docs/Glossary/Public-key_cryptography).
 
 ## Wert
 
-Einer der folgenden Strings: `"secret"`, `"private"` oder `"public"`.
+Einer der folgenden Zeichenfolgen: `"secret"`, `"private"`, oder `"public"`.
 
 ## Beispiele
 
-Diese Funktion überprüft eine Nachricht mit [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify) und einem im Parameter angegebenen öffentlichen Schlüssel. Wenn der Schlüssel kein öffentlicher Schlüssel ist, gibt sie immer `"invalid"` zurück, da eine solche Überprüfung grundlegend unsicher ist.
+Diese Funktion überprüft eine Nachricht mit [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify) und einem im Parameter angegebenen öffentlichen Schlüssel. Wenn der Schlüssel kein öffentlicher Schlüssel ist, wird stets `"invalid"` zurückgegeben, da eine solche Verifizierung grundsätzlich unsicher ist.
 
 ```js
 async function verifyMessage(publicKey) {

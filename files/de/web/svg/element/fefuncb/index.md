@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feFuncB>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Transferfunktion für die Blaukomponente der Eingabegrafik des übergeordneten {{SVGElement("feComponentTransfer")}} Elements.
+Das **`<feFuncB>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Übertragungsfunktion für die blaue Komponente der Eingabegrafik seines übergeordneten {{SVGElement("feComponentTransfer")}} Elements.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -27,7 +27,7 @@ Dieses Element implementiert die [`SVGFEFuncBElement`](/de/docs/Web/API/SVGFEFun
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}
@@ -37,4 +37,4 @@ Dieses Element implementiert die [`SVGFEFuncBElement`](/de/docs/Web/API/SVGFEFun
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncG")}}
-- [SVG Anfängertutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

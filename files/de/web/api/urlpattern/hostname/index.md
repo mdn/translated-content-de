@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`hostname`**-Eigenschaft der Schnittstelle [`URLPattern`](/de/docs/Web/API/URLPattern) ist schreibgeschützt und enthält eine Zeichenkette, die das Muster zur Übereinstimmung mit dem Hostnamen-Teil einer URL darstellt. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe im Konstruktor unterscheiden.
+Die schreibgeschützte **`hostname`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein String, der das Muster enthält, das zur Übereinstimmung des Hostname-Teils einer URL verwendet wird. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe in den Konstruktor unterscheiden.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `*.example.org` für den `hostname`-Teil erstellt. Dieses Muster entspricht jedem Hostnamen, der eine direkte Subdomain von `example.org` ist.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `*.example.org` für den `hostname`-Teil. Dieses Muster passt zu jedem Hostname, der eine direkte Subdomain von `example.org` ist.
 
 ```js
 const pattern = new URLPattern("https://*.example.org");

@@ -7,12 +7,12 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erzeugt einen String, der diesen String in einem {{HTMLElement("a")}}-Element mit einem Namen einbettet (`<a name="...">str</a>`).
+Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("a")}}-Element mit einem Namen einbettet (`<a name="...">str</a>`).
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model), wie z.B. [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 >
-> Die HTML-Spezifikation erlaubt dem {{HTMLElement("a")}}-Element nicht mehr, ein `name`-Attribut zu haben, sodass diese Methode nicht einmal gültiges Markup erstellt.
+> Die HTML-Spezifikation erlaubt es dem {{HTMLElement("a")}}-Element nicht mehr, ein `name`-Attribut zu haben, sodass diese Methode nicht einmal gültiges Markup erzeugt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ anchor(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der einen `name`-Wert darstellt, der in den generierten `<a name="...">`-Start-Tag eingefügt werden soll.
+  - : Ein String, der einen `name`-Wert darstellt, der in das generierte `<a name="...">`-Start-Tag eingefügt werden soll.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<a name="name">`-Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), gefolgt vom Text `str`, und dann ein `</a>`-End-Tag.
+Ein String, der mit einem `<a name="name">`-Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), dann der Text `str` und dann ein `</a>`-End-Tag.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.anchor("hello");
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erzeugt folgendes HTML:
 
 ```html
 <a name="hello">Hello, world</a>
@@ -50,7 +50,7 @@ Dies wird das folgende HTML erzeugen:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `name` kein gültiges Attribut des {{HTMLElement("a")}}-Elements mehr ist.
 
-Anstatt `anchor()` zu verwenden und HTML-Text direkt zu erzeugen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Anstatt `anchor()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

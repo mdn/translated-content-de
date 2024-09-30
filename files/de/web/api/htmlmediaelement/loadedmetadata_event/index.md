@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: loadedmetadata Ereignis"
+title: "HTMLMediaElement: loadedmetadata-Ereignis"
 short-title: loadedmetadata
 slug: Web/API/HTMLMediaElement/loadedmetadata_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `loadedmetadata` Ereignis wird ausgelöst, wenn die Metadaten geladen wurden.
+Das `loadedmetadata`-Ereignis wird ausgelöst, wenn die Metadaten geladen wurden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js
 addEventListener("loadedmetadata", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `loadedmetadata` Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf die Auslösung des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `loadedmetadata`-Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("loadedmetadata", (event) => {
 });
 ```
 
-Verwendung der `onloadedmetadata` Ereignishandlereigenschaft:
+Verwendung der `onloadedmetadata`-Ereignisbehandlungs-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

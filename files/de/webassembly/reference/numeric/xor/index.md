@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`xor`** Anweisungen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
+Die **`xor`** Anweisungen werden verwendet, um eine bitweise XOR-Operation durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/xor.html", "tabbed-taller")}}
 
@@ -24,7 +24,7 @@ i32.xor
 ;; the top item on the stack will now be 6 (00000110)
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.xor` | `0x73`         |
-| `i64.xor` | `0x85`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.xor`   | `0x73`         |
+| `i64.xor`   | `0x85`         |

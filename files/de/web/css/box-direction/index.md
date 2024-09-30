@@ -8,9 +8,9 @@ l10n:
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft aus dem ursprünglichen Entwurf des CSS-Flexible-Box-Moduls und wurde durch einen neueren Standard ersetzt. Das `-moz-box-direction` wird nur für XUL verwendet, während der frühere Standard `box-direction` durch `flex-direction` ersetzt wurde. Weitere Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexiblen Box-Layout-Moduls und wurde durch einen neueren Standard ersetzt. Der `-moz-box-direction` wird nur für XUL verwendet, während der frühere Standard `box-direction` durch `flex-direction` ersetzt wurde. Weitere Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die **`box-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Kasten seine Inhalte normal (vom oberen oder linken Rand) oder umgekehrt (vom unteren oder rechten Rand) anordnet.
+Die **`box-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Box-Layout ihre Inhalte normal (von der oberen oder linken Kante) oder umgekehrt (von der unteren oder rechten Kante) anordnet.
 
 ## Syntax
 
@@ -27,25 +27,25 @@ box-direction: revert-layer;
 box-direction: unset;
 ```
 
-Die `box-direction`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-direction` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte spezifiziert.
 
 ### Werte
 
 - `normal`
-  - : Der Kasten ordnet seine Inhalte vom Anfang (der linken oder oberen Kante) an.
+  - : Die Box ordnet ihre Inhalte von Beginn an (die linke oder obere Kante) an.
 - `reverse`
-  - : Der Kasten ordnet seine Inhalte vom Ende (der rechten oder unteren Kante) an.
+  - : Die Box ordnet ihre Inhalte vom Ende an (die rechte oder untere Kante) an.
 
 ## Anmerkungen
 
-Der Rand des Kastens, der für Layoutzwecke als _Start_ festgelegt ist, hängt von der Ausrichtung des Kastens ab:
+Die Kante der Box, die für Layoutzwecke als _Start_ bezeichnet wird, hängt von der Ausrichtung der Box ab:
 
 - Für horizontale Elemente ist der _Start_ die obere Kante.
 - Für vertikale Elemente ist der _Start_ die linke Kante.
 
-Der der Startkante gegenüberliegende Rand wird als _Ende_ bezeichnet.
+Die dem Start gegenüberliegende Kante wird als _Ende_ bezeichnet.
 
-Wenn die Richtung durch das `dir`-Attribut des Elements festgelegt ist, wird der Stil ignoriert.
+Wenn die Richtung über das `dir`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 
@@ -60,7 +60,7 @@ box-direction =
 
 ## Beispiele
 
-### Festlegen der Box-Richtung
+### Box-Richtung festlegen
 
 ```css
 .example {
@@ -73,7 +73,7 @@ box-direction =
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

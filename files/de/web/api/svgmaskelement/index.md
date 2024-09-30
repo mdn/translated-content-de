@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`SVGMaskElement`** Interface bietet Zugriff auf die Eigenschaften der {{SVGElement("mask")}}-Elemente sowie Methoden, um diese zu manipulieren.
+Die **`SVGMaskElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("mask")}}-Elementen sowie Methoden, um sie zu manipulieren.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGMaskElement.maskUnits`](/de/docs/Web/API/SVGMaskElement/maskUnits) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("maskUnits")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem Attribut {{SVGAttr("maskUnits")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt eine der Konstanten ein, die in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definiert sind.
 - [`SVGMaskElement.maskContentUnits`](/de/docs/Web/API/SVGMaskElement/maskContentUnits) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("maskContentUnits")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem Attribut {{SVGAttr("maskContentUnits")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt eine der Konstanten ein, die in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definiert sind.
 - [`SVGMaskElement.x`](/de/docs/Web/API/SVGMaskElement/x) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem Attribut {{SVGAttr("x")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht.
 - [`SVGMaskElement.y`](/de/docs/Web/API/SVGMaskElement/y) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("y")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem Attribut {{SVGAttr("y")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht.
 - [`SVGMaskElement.width`](/de/docs/Web/API/SVGMaskElement/width) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("width")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem Attribut {{SVGAttr("width")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht.
 - [`SVGMaskElement.height`](/de/docs/Web/API/SVGMaskElement/height) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem Attribut {{SVGAttr("height")}} des angegebenen {{SVGElement("mask")}}-Elements entspricht.
 
 ## Instanz-Methoden
 
-_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

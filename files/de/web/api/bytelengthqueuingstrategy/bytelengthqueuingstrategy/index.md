@@ -25,9 +25,9 @@ new ByteLengthQueuingStrategy(options)
 
     - `highWaterMark`
 
-      - : Die Gesamtanzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor ein Gegendruck ausgeübt wird.
+      - : Die Gesamtanzahl von Bytes, die in der internen Warteschlange enthalten sein können, bevor Druck auf die Datenquelle ausgeübt wird.
 
-        Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei dem `highWaterMark` eine einfache Anzahl von Chunks angibt, gibt `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ an – genauer gesagt, bei einem Strom von Chunks, wie viele Bytes dieser Chunks (anstelle der Anzahl dieser Chunks) in der internen Warteschlange enthalten sein können, bevor ein Gegendruck ausgeübt wird.
+        Im Gegensatz zur [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei der `highWaterMark` eine einfache Zählung der Anzahl der Datenblöcke angibt, spezifiziert `highWaterMark` bei `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ — insbesondere, bei einem Datenstrom von Blöcken, wie viele Bytes dieser Blöcke (anstatt der Zählung der Blöcke) in der internen Warteschlange enthalten sein können, bevor Druck auf die Datenquelle ausgeübt wird.
 
 ### Rückgabewert
 
@@ -72,4 +72,4 @@ const size = queuingStrategy.size(chunk);
 
 ## Siehe auch
 
-- [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) Schnittstelle
+- Schnittstelle [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy)

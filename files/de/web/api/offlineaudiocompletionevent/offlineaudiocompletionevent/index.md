@@ -12,9 +12,9 @@ Der **`OfflineAudioCompletionEvent()`** Konstruktor der [Web Audio API](/de/docs
 [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent) Objekt.
 
 > [!NOTE]
-> Sie würden den Konstruktor in der Regel nicht manuell verwenden.
-> `OfflineAudioCompletionEvent`-Ereignisse werden aus Gründen der Abwärtskompatibilität an
-> [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Instanzen gesendet.
+> In der Regel würden Sie den Konstruktor nicht manuell verwenden.
+> `OfflineAudioCompletionEvent` Ereignisse werden aus historischen Gründen an
+> [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) Instanzen gesendet.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ new OfflineAudioCompletionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß-/kleinheitsunempfindlich, und Browser setzen es auf `complete`.
+    Es ist groß-/kleinschreibungssensitiv und Browser setzen es auf `complete`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `renderedBuffer`

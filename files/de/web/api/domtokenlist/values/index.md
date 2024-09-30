@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: values()-Methode"
+title: "DOMTokenList: values() Methode"
 short-title: values()
 slug: Web/API/DOMTokenList/values
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`values()`**-Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Interfaces
+Die **`values()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
 gibt einen {{jsxref("Iteration_protocols",'iterator')}}
-zurück, der es dem Aufrufer ermöglicht, alle in der `DOMTokenList` enthaltenen Werte durchzugehen.
-Die einzelnen Werte sind Strings.
+zurück, der es dem Aufrufer ermöglicht, alle in der `DOMTokenList` enthaltenen Werte zu durchlaufen.
+Die einzelnen Werte sind Zeichenketten.
 
 ## Syntax
 
@@ -29,11 +29,11 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel holen wir die Liste der Klassen, die auf einem
-{{htmlelement("span")}}-Element gesetzt sind, als `DOMTokenList` mittels
-[`Element.classList`](/de/docs/Web/API/Element/classList). Dann holen wir uns einen Iterator, der die Werte enthält,
-mithilfe von `values()`, und durchlaufen diese Werte mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife,
-um jeden einzelnen in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` zu schreiben.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
+{{htmlelement("span")}}-Element als `DOMTokenList` festgelegt sind, indem wir
+[`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Wir rufen dann einen Iterator ab, der die Werte
+mittels `values()` enthält, und iterieren durch diese Werte mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
+wobei jeder Wert in die [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben wird.
 
 Zuerst das HTML:
 
@@ -41,7 +41,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -53,7 +53,7 @@ for (const value of iterator) {
 }
 ```
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

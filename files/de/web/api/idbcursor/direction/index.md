@@ -8,29 +8,29 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`direction`** schreibgeschützte Eigenschaft der [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Schnittstelle ist ein String, der die Richtung der Bewegung des Cursors zurückgibt (eingestellt mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), zum Beispiel). Siehe den [Werte](#wert)-Abschnitt unten für mögliche Werte.
+Die schreibgeschützte Eigenschaft **`direction`** des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces ist ein String, der die Richtung der Traversierung des Cursors zurückgibt (zum Beispiel festgelegt durch [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor)). Siehe den Abschnitt [Werte](#wert) unten für mögliche Werte.
 
 ## Wert
 
 Ein String, der die Richtung angibt, in der der Cursor die Daten durchläuft. Mögliche Werte sind:
 
 - `next`
-  - : Diese Richtung führt dazu, dass der Cursor am Start der Quelle geöffnet wird.
+  - : Diese Richtung bewirkt, dass der Cursor am Anfang der Quelle geöffnet wird.
 - `nextunique`
-  - : Diese Richtung führt dazu, dass der Cursor am Start der Quelle geöffnet wird. Für jeden Schlüssel mit doppelten Werten wird nur der zuerst besuchte Datensatz (nächst dem Start) geliefert.
+  - : Diese Richtung bewirkt, dass der Cursor am Anfang der Quelle geöffnet wird. Bei jedem Schlüssel mit doppelten Werten wird nur der zuerst erfasste Datensatz (der dem Anfang am nächsten ist) ausgegeben.
 - `prev`
-  - : Diese Richtung führt dazu, dass der Cursor am Ende der Quelle geöffnet wird.
+  - : Diese Richtung bewirkt, dass der Cursor am Ende der Quelle geöffnet wird.
 - `prevunique`
-  - : Diese Richtung führt dazu, dass der Cursor am Ende der Quelle geöffnet wird. Für jeden Schlüssel mit doppelten Werten wird nur der zuerst besuchte Datensatz (nächst dem Ende) geliefert.
+  - : Diese Richtung bewirkt, dass der Cursor am Ende der Quelle geöffnet wird. Bei jedem Schlüssel mit doppelten Werten wird nur der zuerst erfasste Datensatz (der dem Ende am nächsten ist) ausgegeben.
 
 ## Beispiele
 
-In diesem einfachen Beispiel erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Innerhalb jeder Iteration protokollieren wir die Richtung des Cursors.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen Cursor, um alle Datensätze im Objekt-Store zu durchlaufen. In jeder Iteration protokollieren wir die Richtung des Cursors.
 
 > [!NOTE]
-> Wir können die Reiserichtung des Cursors nicht mithilfe der `direction`-Eigenschaft ändern, da sie schreibgeschützt ist. Wir geben die Reiserichtung mit dem 2. Argument von [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor) an.
+> Wir können die Reiserichtung des Cursors nicht mit der `direction`-Eigenschaft ändern, da sie schreibgeschützt ist. Wir geben die Reiserichtung mit dem zweiten Argument von [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor) an.
 
-Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` erfassen können. Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können sie einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` erfassen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function backwards() {
@@ -67,7 +67,7 @@ function backwards() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselsortiments: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Festlegung eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern von Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

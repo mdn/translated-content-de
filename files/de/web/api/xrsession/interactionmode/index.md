@@ -1,5 +1,5 @@
 ---
-title: "XRSession: interactionMode-Eigenschaft"
+title: "XRSession: Eigenschaft interactionMode"
 short-title: interactionMode
 slug: Web/API/XRSession/interactionMode
 l10n:
@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ Eigenschaft **`interactionMode`** des [`XRSession`](/de/docs/Web/API/XRSession)-Interfaces beschreibt den besten Raum (laut des Benutzeragenten) für die Anwendung, um eine interaktive Benutzeroberfläche für die aktuelle Sitzung zu zeichnen.
+Die _schreibgeschützte_ Eigenschaft **`interactionMode`** des [`XRSession`](/de/docs/Web/API/XRSession)-Interfaces
+beschreibt den besten Raum (laut dem Benutzeragenten), in dem die Anwendung eine interaktive Benutzeroberfläche für die aktuelle Sitzung zeichnen sollte.
 
 ## Wert
 
-Ein String, der den besten Raum (laut des Benutzeragenten) für die Anwendung beschreibt, um eine interaktive Benutzeroberfläche für die aktuelle Sitzung zu zeichnen.
+Ein String, der den besten Raum (laut dem Benutzeragenten) beschreibt, in dem die Anwendung eine interaktive Benutzeroberfläche für die aktuelle Sitzung zeichnen sollte.
 
 Mögliche Werte sind:
 
 - `screen-space`
   - : Gibt an, dass die Benutzeroberfläche direkt auf dem Bildschirm ohne Projektion gezeichnet werden sollte. Dies ist typischerweise der Modus, der von Handheld-Geräten gemeldet wird.
 - `world-space`
-  - : Gibt an, dass die Benutzeroberfläche in der Welt gezeichnet werden sollte, etwas entfernt vom Benutzer, damit sie mit Controllern interagieren können. Dies ist typischerweise der Modus, der von tragbaren Geräten gemeldet wird.
+  - : Gibt an, dass die Benutzeroberfläche in der Welt, in einer gewissen Entfernung vom Benutzer gezeichnet werden sollte, sodass sie mit Controllern interagieren können. Dies ist typischerweise der Modus, der von kopfgetragenen Geräten gemeldet wird.
 
 ## Beispiele
 

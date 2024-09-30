@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`cookieStore`** des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück, das mit diesem Service Worker verknüpft ist.
+Die **`cookieStore`** schreibgeschützte Eigenschaft der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück, das mit diesem Service Worker verbunden ist.
 
 ## Wert
 
-Eine Instanz eines [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekts.
+Eine Instanz des [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekts.
 
 ## Spezifikationen
 

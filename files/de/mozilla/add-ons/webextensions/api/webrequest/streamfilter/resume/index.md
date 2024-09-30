@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt eine Anfrage fort, die zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehalten wurde.
+Setzt eine Anforderung fort, die zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehalten wurde.
 
-Sie können diese Funktion erst aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
+Diese Funktion kann erst aufgerufen werden, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet suspend/resume, um eine Webanfrage zu verzögern.
+Dieses Beispiel verwendet suspend/resume, um eine Webanforderung zu verzögern.
 
 ```js
 function listener(details) {

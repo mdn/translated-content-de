@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: id Eigenschaft"
+title: "MediaStream: id-Eigenschaft"
 short-title: id
 slug: Web/API/MediaStream/id
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`id`** schreibgeschützte Eigenschaft der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle ist ein String, der 36 Zeichen enthält und eine eindeutige Kennung (GUID) für das Objekt angibt.
+Die **`id`**-Schreibschutz-Eigenschaft der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle ist ein
+String mit 36 Zeichen, der eine eindeutige Kennung (GUID)
+für das Objekt darstellt.
 
 ## Wert
 

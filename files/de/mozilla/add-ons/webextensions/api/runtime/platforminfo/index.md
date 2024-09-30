@@ -18,7 +18,7 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten:
 - `arch`
   - : {{WebExtAPIRef('runtime.PlatformArch')}}. Die Prozessorarchitektur der Plattform.
 - `nacl_arch`
-  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die Native Client-Architektur. Diese kann sich bei einigen Plattformen von `arch` unterscheiden.
+  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die Native-Client-Architektur. Diese kann auf einigen Plattformen von `arch` abweichen.
 
 ## Browser-Kompatibilität
 
@@ -27,7 +27,7 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformInfo) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformInfo) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "DataTransferItem: getAsFile()-Methode"
+title: "DataTransferItem: Methode getAsFile()"
 short-title: getAsFile()
 slug: Web/API/DataTransferItem/getAsFile
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn das Element eine Datei ist, gibt die Methode **`DataTransferItem.getAsFile()`** das [`File`](/de/docs/Web/API/File)-Objekt des Ziehdatenobjekts zurück. Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
+Wenn das Element eine Datei ist, gibt die Methode **`DataTransferItem.getAsFile()`** das [`File`](/de/docs/Web/API/File)-Objekt des Drag-Datenpunktes zurück. Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ Keine.
 ### Rückgabewert
 
 - [`File`](/de/docs/Web/API/File)
-  - : Wenn das Ziehdatenobjekt eine Datei ist, wird ein [`File`](/de/docs/Web/API/File)-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
+  - : Wenn das Drag-Datenobjekt eine Datei ist, wird ein [`File`](/de/docs/Web/API/File)-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `getAsFile()`-Methode in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
+Dieses Beispiel zeigt die Verwendung der `getAsFile()`-Methode in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignishandler.
 
 ```js
 function dropHandler(ev) {

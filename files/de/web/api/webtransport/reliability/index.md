@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`reliability`** der Schnittstelle [`WebTransport`](/de/docs/Web/API/WebTransport) gibt an, ob die Verbindung nur zuverlässige Transportwege unterstützt oder ob sie auch unzuverlässige Transportwege (wie z.B. UDP) unterstützt.
+Die schreibgeschützte **`reliability`**-Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt an, ob die Verbindung nur zuverlässige Transporte unterstützt oder ob sie auch unzuverlässige Transporte (wie zum Beispiel UDP) unterstützt.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein String mit einem der folgenden Werte:
   - : Die Verbindung wurde noch nicht hergestellt.
     Die Zuverlässigkeit ist noch nicht bekannt.
 - `reliable-only`
-  - : Die Verbindung unterstützt nur zuverlässige Transportwege.
+  - : Die Verbindung unterstützt nur zuverlässige Transporte.
 - `supports-unreliable`
-  - : Die Verbindung unterstützt sowohl unzuverlässige als auch zuverlässige Transportwege.
+  - : Die Verbindung unterstützt sowohl unzuverlässige als auch zuverlässige Transporte.
 
 ## Beispiele
 

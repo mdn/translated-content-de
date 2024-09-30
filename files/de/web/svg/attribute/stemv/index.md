@@ -7,17 +7,17 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`stemv`**-Attribut gibt die vertikale Stammstärke der Schriftart an.
+Das **`stemv`** Attribut gibt die vertikale Stamm-Breite der Schriftart an.
 
-Die vertikale Stammstärke ist die Breite der vertikalen (oder nahezu vertikalen) Stämme von [Glyphen](/de/docs/Glossary/glyph). Diese Information hängt häufig mit der Hinting-Technik zusammen und ist möglicherweise in einigen Schriftartenformaten nicht direkt zugänglich. Das Maß ist für den dominanten vertikalen Stamm in der Schriftart gedacht, da es unterschiedliche Gruppierungen von vertikalen Stämmen geben kann (z.B. einen Hauptstamm und einen leichteren Stamm wie bei einem großen "M" oder "N").
+Die vertikale Stamm-Breite ist die Breite von vertikalen (oder nahezu vertikalen) Stämmen von [Glyphen](/de/docs/Glossary/glyph). Diese Information ist oft mit der Hinting-Technik verbunden und möglicherweise in einigen Schriftformaten nicht direkt zugänglich. Die Messung ist für den dominanten vertikalen Stamm in der Schrift gedacht, da es unterschiedliche Gruppierungen von vertikalen Stämmen geben kann (z.B. einen Hauptstamm und einen leichteren Stamm für einen Großbuchstaben "M" oder "N").
 
-Wird dieses Attribut verwendet, muss auch das {{SVGAttr("units-per-em")}} verwendet werden.
+Wenn dieses Attribut verwendet wird, muss auch das {{SVGAttr("units-per-em")}} verwendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die vertikale Stammstärke der Schriftart an.
+  - : Dieser Wert gibt die vertikale Stamm-Breite der Schriftart an.
 
 ## Spezifikationen
 

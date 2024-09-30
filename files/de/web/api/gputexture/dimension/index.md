@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`dimension`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces repräsentiert die Dimension des Sets von Texeln für jede `GPUTexture`-Subressource.
+Die **`dimension`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Dimension der Texelmengen für jede `GPUTexture`-Subressource darstellt.
 
-Diese wird über die `dimension`-Eigenschaft im Deskriptor-Objekt gesetzt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Standardmäßig ist sie auf `"2d"` gesetzt, wenn sie weggelassen wird.
+Diese wird über die `dimension`-Eigenschaft im Deskripturobjekt festgelegt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird und standardmäßig auf `"2d"` gesetzt wird, wenn sie nicht angegeben wird.
 
 ## Wert
 
 Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"1d"`: Eine eindimensionale Textur mit einer einzigen Dimension, der Breite.
-- `"2d"`: Eine zweidimensionale Textur mit Breite und Höhe, die auch Schichten haben kann. Nur `"2d"`-Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen/Stencil-Format verwenden und als Render-Anhang verwendet werden.
+- `"2d"`: Eine zweidimensionale Textur mit Breite und Höhe, die auch Schichten haben kann. Nur `"2d"`-Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen-/Stencil-Format verwenden und als Render-Anhang verwendet werden.
 - `"3d"`: Eine dreidimensionale Textur mit Breite, Höhe und Tiefe.
 
 ## Beispiele

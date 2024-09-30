@@ -1,5 +1,5 @@
 ---
-title: "FormData: values()-Methode"
+title: "FormData: values() Methode"
 short-title: values()
 slug: Web/API/FormData/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.values()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der alle in den [`FormData`](/de/docs/Web/API/FormData) enthaltenen Werte durchläuft. Die Werte sind entweder Zeichenfolgen oder [`Blob`](/de/docs/Web/API/Blob)-Objekte.
+Die **`FormData.values()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Werte iteriert, die in der [`FormData`](/de/docs/Web/API/FormData) enthalten sind. Die Werte sind Strings oder [`Blob`](/de/docs/Web/API/Blob)-Objekte.
 
 ## Syntax
 
@@ -54,5 +54,5 @@ value2
 
 ## Siehe auch
 
-- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [Verwenden von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

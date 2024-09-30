@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Schnittstelle ist eine nicht-negative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft der [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Schnittstelle ist eine nichtnegative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
 
 Die Eigenschaft hat nur dann eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
 
@@ -16,7 +16,7 @@ Sie spiegelt das `height`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
 ## Wert
 
-Eine nicht-negative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
+Eine nichtnegative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ console.log(Array.from(sources).map((el) => el.height)); // Output: [400, 800, 8
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browser-Kompatibilität 
 
 {{Compat}}
 

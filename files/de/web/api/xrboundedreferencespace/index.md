@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`XRBoundedReferenceSpace`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) beschreibt einen virtuellen Welt-[Referenzraum](/de/docs/Web/API/WebXR_Device_API/Geometry) mit voreingestellten Begrenzungen. Dies erweitert [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), welcher einen im Wesentlichen unbeschränkten Raum um die Position des Betrachters beschreibt. Diese Begrenzungen werden unter Verwendung eines Arrays von Punkten definiert, von denen jeder einen Scheitelpunkt in einem Polygon beschreibt, innerhalb dessen sich der Benutzer bewegen darf.
+Die Schnittstelle **`XRBoundedReferenceSpace`** der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) beschreibt einen virtuellen Welt-Referenzraum, der vordefinierte Grenzen hat. Diese erweitert [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), welche einen im Wesentlichen uneingeschränkten Raum um die Position des Betrachters beschreibt. Diese Grenzen werden durch ein Array von Punkten definiert, von denen jeder einen Scheitelpunkt in einem Polygon darstellen, innerhalb dessen sich der Benutzer bewegen darf.
 
-Dies wird typischerweise verwendet, wenn das XR-System in der Lage ist, die physische Bewegung des Benutzers innerhalb einer begrenzten Entfernung von seiner Ausgangsposition zu verfolgen. Die angegebenen Begrenzungen können tatsächlich die Form und Größe des Raumes beschreiben, in dem sich der Benutzer befindet, um der WebXR-Site oder -Anwendung zu ermöglichen, zu verhindern, dass der Benutzer mit den Wänden oder anderen Hindernissen in der realen Welt kollidiert. Mindestens geben die Begrenzungen den Bereich an, in dem das XR-Gerät die Bewegung des Benutzers verfolgen kann. Lesen Sie den Artikel [Verwendung von begrenzten Referenzräumen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces) für Details darüber, wie begrenzte Räume funktionieren und warum sie nützlich sind.
+Dies wird typischerweise verwendet, wenn das XR-System in der Lage ist, die physische Bewegung des Benutzers innerhalb einer begrenzten Entfernung von seiner Startposition zu verfolgen. Die angegebenen Grenzen können tatsächlich die Form und Größe des Raumes beschreiben, in dem sich der Benutzer befindet, um der WebXR-Website oder -Anwendung zu ermöglichen, den Benutzer daran zu hindern, mit Wänden oder anderen Hindernissen in der realen Welt zu kollidieren. Mindestens zeigen die Grenzen den Bereich an, in dem das XR-Gerät in der Lage ist, die Bewegung des Benutzers zu verfolgen. Siehe den Artikel [Verwendung von begrenzten Referenzräumen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces) für Details darüber, wie begrenzte Räume funktionieren und warum sie nützlich sind.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Neben den Eigenschaften von [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) umfasst `XRBoundedReferenceSpace` folgende Eigenschaften:_
+_Zusätzlich zu den Eigenschaften von [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) enthält `XRBoundedReferenceSpace` die folgenden:_
 
 - [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Array von [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekten, von denen jedes einen Scheitelpunkt im Polygon definiert, das die Begrenzungen beschreibt, innerhalb derer sich der Benutzer aufhalten muss. Diese Scheitelpunkte _müssen_ so sortiert sein, dass sie sich _im Uhrzeigersinn_ um die Position des Betrachters bewegen.
+  - : Ein Array von [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekten, von denen jedes einen Scheitelpunkt in dem Polygon definiert, das die Grenzen beschreibt, innerhalb derer sich der Benutzer aufhalten muss. Diese Scheitelpunkte _müssen_ so sortiert sein, dass sie sich _im Uhrzeigersinn_ um die Position des Betrachters bewegen.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_`XRBoundedReferenceSpace` erbt die Methoden seiner Elternschnittstelle, [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace). Es hat keine weiteren Methoden._
+_`XRBoundedReferenceSpace` erbt die Methoden der übergeordneten Schnittstelle, [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace). Sie hat keine weiteren Methoden._
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ _`XRBoundedReferenceSpace` erbt die Methoden seiner Elternschnittstelle, [`XRRef
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
 - [Geometrie und Referenzräume in WebXR](/de/docs/Web/API/WebXR_Device_API/Geometry)
-- [Blickpunkte und Betrachter: Kameras in WebXR simulieren](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Blickpunkte und Betrachter: Kamerasimulation in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)

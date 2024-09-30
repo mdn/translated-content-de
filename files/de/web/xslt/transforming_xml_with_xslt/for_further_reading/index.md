@@ -13,14 +13,14 @@ l10n:
 
 ### Bücher
 
-- **XSLT: Programmer's Reference, Second Edition**
+- **XSLT: Programmer's Reference, Zweite Auflage**
 
   - **Autor**: Michael H. Kay
   - **Umfang**: 992 Seiten
   - **Verlag**: Wrox; 2. Ausgabe (3. Mai 2001)
   - **ISBN**: 0764543814
 
-    - Michael Kay ist Mitglied der W3C XSL-Arbeitsgruppe und Entwickler seines eigenen Open-Source-XSLT-Prozessors, Saxon. Er ist auch der Autor des einzigen Buches zu diesem Thema, das eine zweite Auflage erreicht hat. Dieses sehr umfangreiche Buch ist gut strukturiert und erschöpfend detailreich, wenn auch manchmal ermüdend, und behandelt jede mögliche Facette der XSLT-Geschichte.
+    - Michael Kay ist Mitglied der W3C XSL Arbeitsgruppe und Entwickler seines eigenen Open-Source-XSLT-Prozessors Saxon. Er ist auch der Autor des einzigen Buches zu diesem Thema, das eine zweite Auflage erreicht hat. Dies ist ein sehr großes Buch, gut strukturiert und erschöpfend, wenn auch manchmal ermüdend in den Details, und deckt alle möglichen Aspekte der XSLT-Geschichte ab.
 
 <https://www.amazon.com/XSLT-Programmers-Reference-Programmer/dp/0764543814>
 
@@ -31,39 +31,39 @@ l10n:
   - **Verlag**: O'Reilly Media; 1. Ausgabe (15. August 2001)
   - **ISBN**: 0596000537
 
-    - Doug Tidwell ist ein leitender Entwickler bei IBM und ein führender Befürworter von XML-Technologien im Allgemeinen. Er ist Autor mehrerer Artikel und Tutorials zu verschiedenen Aspekten von XML auf IBMs umfangreicher XML-Entwicklerplattform. Dieses Buch ist etwas weniger umfassend als das von Michael Kay, deckt jedoch die Grundlagen gut ab und bietet einige spannende Beispiele.
+    - Doug Tidwell ist ein Senior Developer bei IBM und ein prominenter Evangelist für XML-Technologien im Allgemeinen. Er ist Autor mehrerer Artikel und Tutorials zu verschiedenen Aspekten von XML auf IBM's umfangreicher XML-Entwicklerseite. Dieses Buch ist etwas weniger umfassend als das von Michael Kay, deckt aber die Grundlagen gut ab und bietet einige faszinierende Beispiele.
 
 <https://www.amazon.com/Xslt-Doug-Tidwell/dp/0596000537>
 
-- **Learning XML, Second Edition**
+- **Learning XML, Zweite Auflage**
 
   - **Autor**: Erik T. Ray
   - **Umfang**: 432 Seiten
   - **Verlag**: O'Reilly Media; 2. Ausgabe (22. September 2003)
   - **ISBN**: 0596004206
 
-    - Wie der Titel nahelegt, gibt dieses Buch eine allgemeine Einführung in XML. Kapitel 6 ist speziell XSLT gewidmet.
+    - Wie der Titel andeutet, ist dies ein Überblick über XML im Allgemeinen. Kapitel 6 ist speziell XSLT gewidmet.
 
 <https://www.amazon.com/gp/product/0596004206>
 
 ## Digital
 
-### Websites
+### Webseiten
 
 - **World Wide Web Consortium**
 
   - **Die W3C-Homepage**: <https://www.w3.org>
   - **Die Hauptseite zu XSL**: <https://www.w3.org/Style/XSL/>
-  - **Überblick über die XSLT-Spezifikationen**: <https://www.w3.org/TR/xslt/>
-  - **Archiv öffentlicher Stil- (CSS und XSLT) Diskussionen**: [https://lists.w3.org/Archives/Public/www-style/](https://lists.w3.org/Archives/Public/www-style/)
-  - **Überblick über die XPath-Spezifikationen**: <https://www.w3.org/TR/xpath/>
+  - **Übersicht der XSLT-Spezifikationen**: <https://www.w3.org/TR/xslt/>
+  - **Archiv öffentlicher Stil (CSS und XSLT) Diskussionen**: [https://lists.w3.org/Archives/Public/www-style/](https://lists.w3.org/Archives/Public/www-style/)
+  - **Übersicht der XPath-Spezifikationen**: <https://www.w3.org/TR/xpath/>
 
-    - Das World Wide Web Consortium ist das Gremium, das Empfehlungen für eine Reihe webbasierter Technologien veröffentlicht, von denen viele zum de-facto Standard werden.
+    - Das World Wide Web Consortium ist die Organisation, die Empfehlungen für eine Reihe von web-basierten Technologien veröffentlicht, von denen viele zum de-facto Standard werden.
 
 ### Artikel
 
 - [Hands-on XSL](https://developer.ibm.com/technologies/web-development/) von Don R. Day
-- [What is XSLT?](https://www.xml.com/pub/a/2000/08/holman/index.html) von G. Ken Holman
+- [Was ist XSLT?](https://www.xml.com/pub/a/2000/08/holman/index.html) von G. Ken Holman
 
 ### Tutorials/Beispiele
 
@@ -74,7 +74,7 @@ l10n:
 ### Sonstiges
 
 - [Extensible Stylesheet Language (XSL)](https://xml.coverpages.org/xsl.html)
-- **XSL-List**
+- **XSL-Liste**
 
   - **Abonnieren**: <https://www.mulberrytech.com/xsl/xsl-list/index.html>
   - **Archive**: <https://www.biglist.com/lists/xsl-list/archives/>

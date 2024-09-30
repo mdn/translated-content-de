@@ -1,5 +1,5 @@
 ---
-title: "Element: fullscreenerror-Ereignis"
+title: "Element: fullscreenerror Ereignis"
 short-title: fullscreenerror
 slug: Web/API/Element/fullscreenerror_event
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Fullscreen API")}}
 
-Das **`fullscreenerror`**-Ereignis wird ausgelöst, wenn der Browser nicht in den Vollbildmodus wechseln kann.
+Das **`fullscreenerror`** Ereignis wird ausgelöst, wenn der Browser nicht in der Lage ist, in den Vollbildmodus zu wechseln.
 
-Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Element/fullscreenchange_event) werden zwei `fullscreenerror`-Ereignisse ausgelöst; das erste wird an das [`Element`](/de/docs/Web/API/Element) gesendet, das den Moduswechsel nicht erfolgreich durchführen konnte, und das zweite wird an das [`Dokument`](/de/docs/Web/API/Document) gesendet, dem dieses Element gehört.
+Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Element/fullscreenchange_event) werden zwei `fullscreenerror` Ereignisse ausgelöst; das erste wird an das [`Element`](/de/docs/Web/API/Element) gesendet, das den Modus nicht ändern konnte, und das zweite wird an das [`Document`](/de/docs/Web/API/Document) gesendet, dem dieses Element gehört.
 
-Einige Gründe, warum der Wechsel in den Vollbildmodus scheitern könnte, finden Sie im [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide).
+Für einige Gründe, warum der Wechsel in den Vollbildmodus fehlschlagen könnte, siehe [den Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide).
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("fullscreenchange", (event) => {});
@@ -59,4 +59,4 @@ requestor.requestFullscreen();
 
 - [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
-- [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide)
+- [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)

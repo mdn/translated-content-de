@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("EyeDropper API")}}{{SeeCompatTable}}
 
-Der **`EyeDropper()`**-Konstruktor gibt ein neues [`EyeDropper`](/de/docs/Web/API/EyeDropper)-Objekt zurück.
+Der **`EyeDropper()`** Konstruktor gibt ein neues [`EyeDropper`](/de/docs/Web/API/EyeDropper)-Objekt zurück.
 
 ## Syntax
 
@@ -26,4 +26,4 @@ new EyeDropper()
 
 ## Siehe auch
 
-- Die [`EyeDropper`](/de/docs/Web/API/EyeDropper) Schnittstelle, zu der es gehört.
+- Die [`EyeDropper`](/de/docs/Web/API/EyeDropper)-Schnittstelle, zu der es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: incomingBidirectionalStreams Eigenschaft"
+title: "WebTransport: incomingBidirectionalStreams-Eigenschaft"
 short-title: incomingBidirectionalStreams
 slug: Web/API/WebTransport/incomingBidirectionalStreams
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`incomingBidirectionalStreams`** schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces repräsentiert einen oder mehrere bidirektionale Streams, die vom Server geöffnet wurden. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten zurück. Jeder davon kann verwendet werden, um zuverlässig Daten vom Server zu lesen und Daten zurückzuschreiben.
+Die **`incomingBidirectionalStreams`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces stellt einen oder mehrere vom Server geöffnete bidirektionale Streams dar. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten zurück. Jeder dieser Streams kann verwendet werden, um zuverlässig Daten vom Server zu lesen und Daten an diesen zurückzuschreiben.
 
-"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies sorgt für eine langsamere Übermittlung (wenn auch schneller als mit WebSockets) als bei [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie in Chat-Anwendungen.
+"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies bietet eine langsamere Lieferung (wenn auch schneller als mit WebSockets) als [`Datagramme`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidire
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um die [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Für jedes dieser Objekte werden die Werte [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable) und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable) an andere Funktionen übergeben, um von diesen Streams zu lesen und in diese zu schreiben.
+Eine anfängliche Funktion wird verwendet, um die [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Für jedes wird die [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable) und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Werte an andere Funktionen übergeben, um von diesen Streams zu lesen bzw. in diese zu schreiben.
 
 ```js
 async function receiveBidirectional() {

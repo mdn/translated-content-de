@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@counter-style`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, vordefinierte Listenstile zu erweitern und eigene Zählerstile zu definieren, die nicht Teil der vordefinierten Stilsets sind. Die `@counter-style`-Regel enthält [Deskriptoren](#deskriptoren), die definieren, wie der Zählerwert in eine Zeichenfolgenrepräsentation umgewandelt wird.
+Die **`@counter-style`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) erlaubt es Ihnen, vordefinierte Listenstile zu erweitern und eigene Zählerstile zu definieren, die nicht Teil des vordefinierten Stilsatzes sind. Die `@counter-style` Regel enthält [Deskriptoren](#deskriptoren), die definieren, wie der Zählerwert in eine String-Darstellung umgewandelt wird.
 
 ```css
 @counter-style thumbs {
@@ -21,61 +21,61 @@ ul {
 }
 ```
 
-Während CSS viele nützliche vordefinierte Zählerstile bietet, ermöglicht die `@counter-style` At-Regel eine offene Methode zur Erstellung von Zählern. Diese At-Regel bedient die Anforderungen weltweiter Typografie, indem sie Autoren erlaubt, eigene Zählerstile zu definieren, wenn die vordefinierten Stile ihren Anforderungen nicht entsprechen.
+Obwohl CSS viele nützliche vordefinierte Zählerstile bietet, bietet die `@counter-style` At-Regel eine offene Methode zur Erstellung von Zählern. Diese At-Regel geht auf die Bedürfnisse der weltweiten Typografie ein, indem sie Autoren erlaubt, ihre eigenen Zählerstile zu definieren, wenn die vordefinierten Stile nicht ihren Anforderungen entsprechen.
 
 ## Syntax
 
-Die `@counter-style` At-Regel wird durch einen [Zählerstilnamen](#zählerstilname) identifiziert, und der Stil des benannten Zählers kann mithilfe einer `<declaration-list>` feinjustiert werden, die aus einem oder mehreren [Deskriptoren](#deskriptoren) und deren Werten besteht.
+Die `@counter-style` At-Regel wird durch einen [Zählerstilnamen](#zählerstilname) identifiziert, und der Stil des benannten Zählers kann mit einer `<declaration-list>` fein abgestimmt werden, die aus einem oder mehreren [Deskriptoren](#deskriptoren) und ihren Werten besteht.
 
 ### Zählerstilname
 
 - `<counter-style-name>`
 
-  - : Gibt einen Namen für Ihren Zählerstil an. Er wird als groß- und kleinschreibungssensitiver {{cssxref("custom-ident")}} ohne Anführungszeichen angegeben. Der Wert darf nicht `none` entsprechen. Wie alle benutzerdefinierten Bezeichner darf der Wert Ihres Zählerstils kein [CSS-weites Schlüsselwort](/de/docs/Web/CSS/CSS_Types#css-wide_keywords) sein. Vermeiden Sie andere aufgezählte CSS-Property-Werte, einschließlich Werten von [list](/de/docs/Web/CSS/CSS_lists#properties) und [counter style](/de/docs/Web/CSS/CSS_counter_styles#properties) Eigenschaften. Der Name Ihres Zählers darf nicht den groß- und kleinschreibungsunabhängigen {{cssxref("list-style-type")}} Property-Werten `decimal`, `disc`, `square`, `circle`, `disclosure-open` und `disclosure-closed` entsprechen.
+  - : Bietet einen Namen für Ihren Zählerstil. Es wird als case-sensitives {{cssxref("custom-ident")}} ohne Anführungszeichen angegeben. Der Wert sollte nicht gleich `none` sein. Wie bei allen benutzerdefinierten Bezeichnern kann der Wert Ihres Zählerstils kein [CSS-weiter Schlüsselwort](/de/docs/Web/CSS/CSS_Types#css-wide_keywords) sein. Vermeiden Sie andere aufgezählte CSS-Eigenschaftswerte, einschließlich Werte von [list](/de/docs/Web/CSS/CSS_lists#properties) und [counter style](/de/docs/Web/CSS/CSS_counter_styles#properties) Eigenschaften. Der Name Ihres Zählers kann nicht gleich den case-insensitiven {{cssxref("list-style-type")}} Eigenschaftswerten `decimal`, `disc`, `square`, `circle`, `disclosure-open` und `disclosure-closed` sein.
 
     > [!NOTE]
-    > Die nicht überschreibbaren Zählerstilenamen `decimal`, `disc`, `square`, `circle`, `disclosure-open` und `disclosure-closed` können nicht als Name eines benutzerdefinierten Zählers verwendet werden. Sie sind jedoch in anderen Kontexten gültig, in denen der `<counter-style-name>` Datentyp erwartet wird, wie in `system: extends <counter-style-name>`.
+    > Die nicht überschreibbaren Zählerstilnamen `decimal`, `disc`, `square`, `circle`, `disclosure-open` und `disclosure-closed` können nicht als Name eines benutzerdefinierten Zählers verwendet werden. Sie sind jedoch in anderen Kontexten gültig, in denen der Daten Typ `<counter-style-name>` erwartet wird, z. B. in `system: extends <counter-style-name>`.
 
 ### Deskriptoren
 
 - {{cssxref("@counter-style/system", "system")}}
 
-  - : Gibt den Algorithmus an, der für die Umwandlung des ganzzahligen Wertes eines Zählers in eine Zeichenfolgenrepräsentation verwendet wird. Wenn der Wert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss auch der `symbols`-Deskriptor angegeben werden. Wenn der Wert `additive` ist, muss der `additive-symbols`-Deskriptor ebenfalls angegeben werden.
+  - : Gibt den Algorithmus an, der zur Umwandlung des ganzzahligen Wertes eines Zählers in eine String-Darstellung verwendet wird. Wenn der Wert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss auch der Deskriptor `symbols` angegeben werden. Wenn der Wert `additive` ist, muss der Deskriptor `additive-symbols` ebenfalls angegeben werden.
 
 - {{cssxref("@counter-style/symbols", "symbols")}}
 
-  - : Gibt die Symbole an, die für die Markierungsdarstellungen verwendet werden sollen. Symbole können Zeichenfolgen, Bilder oder benutzerdefinierte Bezeichner enthalten. Dieser Deskriptor ist erforderlich, wenn der `system`-Deskriptor auf `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` gesetzt ist.
+  - : Legt die Symbole fest, die für die Markerdarstellungen verwendet werden sollen. Symbole können Strings, Bilder oder benutzerdefinierte Bezeichner enthalten. Dieser Deskriptor ist erforderlich, wenn der Deskriptor `system` auf `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` gesetzt ist.
 
 - {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}
 
-  - : Definiert die _additiven Tupel_ für additive Systeme. Während die im `symbols`-Deskriptor angegebenen Symbole zur Konstruktion der Markierungsdarstellung durch die meisten Algorithmen verwendet werden, bestehen additive Zähler wie römische Zahlen aus einer Reihe gewichteter Symbole. Die Deskriptoren sind eine Liste von Zählersymbolen zusammen mit ihren nicht-negativen Ganzzahlgewichten in absteigender Reihenfolge. Dieser Deskriptor ist erforderlich, wenn der `system`-Deskriptor auf `additive` gesetzt ist.
+  - : Definiert die _additiven Tupel_ für additive Systeme. Während die im Deskriptor `symbols` angegebenen Symbole für die Konstruktion der Markerdarstellung durch die meisten Algorithmen verwendet werden, bestehen additive Zähler Systeme, wie römische Zahlen, aus einer Reihe von gewichteten Symbolen. Der Deskriptor ist eine Liste von Zählersymbolen zusammen mit ihren nicht-negativen ganzzahligen Gewichten, aufgelistet nach Gewicht in absteigender Reihenfolge. Dieser Deskriptor ist erforderlich, wenn der Deskriptor `system` auf `additive` gesetzt ist.
 
 - {{cssxref("@counter-style/negative", "negative")}}
 
-  - : Gibt Symbole an, die in die Zählerdarstellung eingefügt oder vorangestellt werden, wenn der Wert negativ ist.
+  - : Gibt Symbole an, die an die Zählerdarstellung angehängt oder vorangestellt werden sollen, wenn der Wert negativ ist.
 
 - {{cssxref("@counter-style/prefix", "prefix")}}
 
-  - : Gibt ein Symbol an, das der Markierungsdarstellung vorangestellt werden soll. Präfixe werden in der letzten Phase hinzugefügt, bevor alle durch den `negative`-Deskriptor hinzugefügten Zeichen negativer Zählerwerte erscheinen.
+  - : Gibt ein Symbol an, das der Markerdarstellung vorangestellt werden soll. Präfixe werden der Darstellung in der Endphase hinzugefügt, vor allen Zeichen, die durch den Deskriptor `negative` hinzugefügt werden.
 
 - {{cssxref("@counter-style/suffix", "suffix")}}
 
-  - : Gibt, ähnlich wie der Präfix-Deskriptor, ein Symbol an, das der Markierungsdarstellung angehängt wird. Suffixe kommen nach der Markierungsdarstellung, einschließlich nach allen durch den `negative`-Deskriptor hinzugefügten Zeichen negativer Zählerwerte.
+  - : Gibt, ähnlich wie der Präfix-Deskriptor, ein Symbol an, das der Markerdarstellung nachgestellt wird. Suffixe kommen nach der Markerdarstellung, einschließlich nach allen Zeichen, die durch den Deskriptor `negative` hinzugefügt werden.
 
 - {{cssxref("@counter-style/range", "range")}}
 
-  - : Definiert den Wertebereich, über den der Zählerstil anwendbar ist. Wenn ein Zählerstil verwendet wird, um einen Zählerwert außerhalb der durch diesen Deskriptor definierten Bereiche darzustellen, fällt der Zählerstil auf seinen `fallback`-Stil zurück.
+  - : Definiert den Wertebereich, über den der Zählerstil anwendbar ist. Wenn ein Zählerstil verwendet wird, um einen Zählerwert darzustellen, der außerhalb der durch diesen Deskriptor definierten Bereiche liegt, fällt der Zählerstil auf seinen `fallback` Stil zurück.
 
 - {{cssxref("@counter-style/pad", "pad")}}
 
-  - : Wird verwendet, wenn Sie möchten, dass die Markierungsdarstellungen eine Mindestlänge haben. Wenn Sie zum Beispiel wünschen, dass die Zähler bei 01 beginnen und über 02, 03, 04 usw. fortlaufen, dann sollte der `pad`-Deskriptor verwendet werden. Für Darstellungen, die größer sind als der angegebene `pad`-Wert, wird die Markierung normal konstruiert.
+  - : Wird verwendet, wenn Sie möchten, dass die Markerdarstellungen eine Mindestlänge haben. Wenn Sie beispielsweise möchten, dass die Zähler bei 01 beginnen und über 02, 03, 04 usw. gehen, dann muss der Deskriptor `pad` verwendet werden. Für Darstellungen, die größer als der angegebene `pad` Wert sind, wird der Marker normal konstruiert.
 
 - {{cssxref("@counter-style/speak-as", "speak-as")}}
 
-  - : Beschreibt, wie Sprachsynthesizer, wie Bildschirmlesegeräte, den Zählerstil ansagen sollten. Zum Beispiel kann der Wert des Listenelementmarkers basierend auf dem Wert dieses Deskriptors als Zahlen oder Buchstaben für geordnete Listen oder als Audiohinweise für ungeordnete Listen ausgegeben werden.
+  - : Beschreibt, wie Sprachsynthesizer, wie Bildschirmlesegeräte, den Zählerstil ankündigen sollten. Zum Beispiel kann der Wert des Listenmarkierers als Zahlen oder Buchstaben für geordnete Listen oder als akustische Signale für ungeordnete Listen vorgelesen werden, basierend auf dem Wert dieses Deskriptors.
 
 - {{cssxref("@counter-style/fallback", "fallback")}}
-  - : Gibt den Zählernamen des Systems an, auf den zurückgegriffen werden soll, wenn das angegebene System entweder nicht in der Lage ist, die Darstellung eines Zählerwerts zu konstruieren, oder wenn der Zählerwert außerhalb des angegebenen `range` liegt. Wenn der Fallback-Zähler auch nicht in der Lage ist, den Wert darzustellen, wird der Fallback dieses Zählers verwendet, falls einer angegeben ist. Wenn entweder keine Fallback-Zähler beschrieben sind oder wenn die Kette von Fallback-Systemen nicht in der Lage ist, einen Zählerwert darzustellen, wird letztendlich auf den `decimal`-Stil zurückgegriffen.
+  - : Gibt den Namen des Zählerstils an, auf den zurückgegriffen werden soll, wenn entweder das angegebene System die Darstellung eines Zählerwertes nicht konstruieren kann oder wenn der Zählerwert außerhalb des angegebenen `range` liegt. Wenn auch der Fallback-Zähler den Wert nicht darstellen kann, wird der Fallback dieses Zählers verwendet, wenn einer angegeben ist. Wenn weder Fallback-Zähler beschrieben sind noch die Kette von Fallback-Systemen den Zählerwert darstellen kann, wird letztendlich auf den `decimal` Stil zurückgegriffen.
 
 ## Formale Syntax
 
@@ -83,7 +83,7 @@ Die `@counter-style` At-Regel wird durch einen [Zählerstilnamen](#zählerstilna
 
 ## Beispiele
 
-### Symbole mit counter-style spezifizieren
+### Symbole mit counter-style angeben
 
 ```css
 @counter-style circled-alpha {
@@ -93,7 +93,7 @@ Die `@counter-style` At-Regel wird durch einen [Zählerstilnamen](#zählerstilna
 }
 ```
 
-Die obige Zählerstilregel kann auf Listen wie folgt angewendet werden:
+Die obige Zählerstilregel kann auf Listen wie diese angewendet werden:
 
 ```css
 .items {
@@ -120,15 +120,15 @@ Der obige Code erzeugt folgendes Ergebnis:
 </ol>
 ```
 
-{{EmbedLiveSample('Symbole mit counter-style spezifizieren', '', '300')}}
+{{EmbedLiveSample('Specifying symbols with counter-style', '', '300')}}
 
 Sehen Sie mehr Beispiele auf der [Demoseite](https://mdn.github.io/css-examples/counter-style-demo/) ([Code](https://github.com/mdn/css-examples/tree/main/counter-style-demo)).
 
 ### Fertige Zählerstile
 
-Finden Sie eine Sammlung von über 100 `counter-style`-Code-Snippets im Dokument [Vordefinierte Zählerstile](https://www.w3.org/TR/predefined-counter-styles/). Dieses Dokument bietet Zähler, die den Bedürfnissen von Sprachen und Kulturen weltweit gerecht werden.
+Finden Sie eine Sammlung von über 100 `counter-style` Codefragmenten im Dokument [Fertige Zählerstile](https://www.w3.org/TR/predefined-counter-styles/). Dieses Dokument bietet Zähler, die den Bedürfnissen von Sprachen und Kulturen auf der ganzen Welt entsprechen.
 
-Der [Zählerstile-Konverter](https://r12a.github.io/app-counters/) zieht aus dieser Liste, um Copy-and-Paste-Code für Zählerstile zu testen und zu erstellen.
+Der [Zählerstil-Konverter](https://r12a.github.io/app-counters/) zieht aus dieser Liste, um Code für Zählerstile zu testen und zu erstellen, der kopiert und eingefügt werden kann.
 
 ## Spezifikationen
 
@@ -144,4 +144,4 @@ Der [Zählerstile-Konverter](https://r12a.github.io/app-counters/) zieht aus die
 - {{Cssxref("counters", "counters()")}}
 - {{cssxref("symbols", "symbols()")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}, {{Cssxref("list-style-type")}}
-- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

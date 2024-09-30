@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Verwenden Sie die `topSites` API, um ein Array zu erhalten, das Seiten enthält, die der Benutzer häufig besucht hat.
+Verwenden Sie die `topSites` API, um ein Array mit Seiten zu erhalten, die der Benutzer häufig besucht hat.
 
-Browser pflegen dies, um dem Benutzer zu helfen, leicht zu diesen Orten zurückzukehren. Firefox bietet standardmäßig eine Liste der am häufigsten besuchten Seiten auf der "Neuer Tab"-Seite.
+Browser pflegen dies, um dem Benutzer zu helfen, leicht zu diesen Orten zurückzukehren. Beispielsweise bietet Firefox standardmäßig eine Liste der am häufigsten besuchten Seiten auf der Seite "Neuer Tab" an.
 
-Um die `topSites` API zu verwenden, müssen Sie die "topSites" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) besitzen.
+Um die `topSites` API zu verwenden, müssen Sie die "topSites" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
 
 ## Typen
 
@@ -21,7 +21,7 @@ Um die `topSites` API zu verwenden, müssen Sie die "topSites" [API-Berechtigung
 ## Methoden
 
 - {{WebExtAPIRef("topSites.get()")}}
-  - : Ruft ein Array ab, das alle auf der "Neuer Tab"-Seite des Browsers aufgeführten Seiten enthält. Beachten Sie, dass die Anzahl der hier zurückgegebenen Seiten browser-spezifisch ist und die speziellen Seiten wahrscheinlich benutzerspezifisch sein werden, basierend auf ihrem Browserverlauf.
+  - : Gibt ein Array zurück, das alle auf der "Neuer Tab"-Seite des Browsers aufgelisteten Seiten enthält. Beachten Sie, dass die Anzahl der hier zurückgegebenen Seiten browserspezifisch ist und die zurückgegebenen Seiten wahrscheinlich benutzerspezifisch sind, basierend auf ihrem Browserverlauf.
 
 ## Browser-Kompatibilität
 

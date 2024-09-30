@@ -1,5 +1,5 @@
 ---
-title: "RTCIceTransport: selectedcandidatepairchange Ereignis"
+title: "RTCIceTransport: selectedcandidatepairchange-Ereignis"
 short-title: selectedcandidatepairchange
 slug: Web/API/RTCIceTransport/selectedcandidatepairchange_event
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der [ICE](/de/docs/Glossary/ICE)-Agent ein neues Paar von Kandidaten auswählt, das die Endpunkte einer brauchbaren Verbindung beschreibt.
+Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der [ICE](/de/docs/Glossary/ICE)-Agent ein neues Paar von Kandidaten auswählt, die die Endpunkte einer tragfähigen Verbindung beschreiben.
 
 Das Paar von Kandidaten wird wiederum durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, welches das lokale Ende der Verbindung darstellt, und ein weiteres, das das entfernte Ende der Verbindung darstellt.
 
-Zusammen können die Kandidaten verwendet werden, um eine Verbindung herzustellen, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und in der Folge von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt wird.
+Zusammen können die Kandidaten zur Einrichtung einer Verbindung verwendet werden, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und im weiteren Sinne von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt werden kann.
 
-Dieses Ereignis ist nicht abbruchfähig und verbreitet sich nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("selectedcandidatepairchange", (event) => {});
@@ -32,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Ereignis-Handler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert, die dem Benutzer Informationen über den Fortschritt der ICE-Verhandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` bereitstellt.
+Dieses Beispiel erstellt einen Ereignis-Handler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert, die dem Benutzer Informationen über den Fortschritt der ICE-Aushandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` liefert.
 
 ```js
 let iceTransport = pc.getSenders[0].transport.iceTransport;
@@ -50,7 +50,7 @@ iceTransport.addEventListener(
 );
 ```
 
-Dies kann auch durch direktes Setzen der `onselectedcandidatepairchange`-Ereignishandler-Eigenschaft durchgeführt werden.
+Dies kann auch direkt durch Setzen der `onselectedcandidatepairchange`-Ereignis-Handler-Eigenschaft erfolgen.
 
 ```js
 let iceTransport = pc.getSenders[0].transport.iceTransport;
@@ -75,14 +75,14 @@ iceTransport.onselectedcandidatepairchange = (ev) => {
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [WebRTC Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
+- [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
 
-### Verwandte RTCIceTransport Ereignisse
+### Verwandte RTCIceTransport-Ereignisse
 
 - [`statechange`](/de/docs/Web/API/RTCIceTransport/statechange_event)
 - [`gatheringstatechange`](/de/docs/Web/API/RTCIceTransport/gatheringstatechange_event)
 
-### Verwandte RTCPeerConnection Ereignisse
+### Verwandte RTCPeerConnection-Ereignisse
 
 - [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
 - [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)

@@ -1,5 +1,5 @@
 ---
-title: "XRCompositionLayer: Eigenschaft blendTextureSourceAlpha"
+title: "XRCompositionLayer: blendTextureSourceAlpha-Eigenschaft"
 short-title: blendTextureSourceAlpha
 slug: Web/API/XRCompositionLayer/blendTextureSourceAlpha
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`blendTextureSourceAlpha`**-Eigenschaft des [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Interfaces ist ein boolean, der den Alpha-Kanal der Textur der Ebene aktiviert.
+Die **`blendTextureSourceAlpha`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist ein Boolean, der den Alpha-Kanal der Textur des Layers aktiviert.
 
 ## Wert
 
-Ein boolean. `true` aktiviert den Alpha-Kanal, `false` deaktiviert ihn.
+Ein Boolean. `true` aktiviert den Alpha-Kanal, `false` deaktiviert ihn.
 
 ## Beispiele
 
-### Einstellung des Alpha-Kanals einer Ebene
+### Einstellen des Alpha-Kanals einer Textur eines Layers
 
-Der folgende Code-Schnipsel schaltet eine Ebene opak und zurück.
+Der folgende Codeausschnitt schaltet einen Layer auf undurchsichtig und zurück.
 
 ```js
 myLayer.blendTextureSourceAlpha = !myLayer.blendTextureSourceAlpha;

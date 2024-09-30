@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, welcher ein Wert zwischen `-1` und `1` ist. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` stellen alle denselben Wert dar, ungefähr `0.707`.
+Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, wobei der Wert zwischen `-1` und `1` liegt. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` stellen alle denselben Wert dar, ungefähr `0.707`.
 
 ## Syntax
 
@@ -28,16 +28,16 @@ width: calc(100px * cos(e / 2));
 
 ### Parameter
 
-Die `cos(angle)` Funktion akzeptiert nur einen Wert als Parameter.
+Die `cos(angle)`-Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} auflöst. Wenn zahlenlose Werte angegeben werden, werden diese als eine Anzahl von Bogenmaß interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellt.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Bei angabe von zahlen ohne einheit werden sie als Bogenmaß interpretiert, das einen {{cssxref("&lt;angle&gt;")}} darstellt.
 
 ### Rückgabewert
 
 Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
 
-- Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
+- Falls `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 
 ### Formale Syntax
 
@@ -45,13 +45,13 @@ Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
 
 ## Beispiele
 
-### Behalten Sie die Größe einer gedrehten Box
+### Behalten Sie die Größe einer gedrehten Box bei
 
-Die `cos()` Funktion kann verwendet werden, um die Größe einer gedrehten Box beizubehalten.
+Die `cos()`-Funktion kann verwendet werden, um die Größe einer gedrehten Box beizubehalten.
 
-Wenn das Element mit Hilfe von {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, überschreitet es seine ursprüngliche Größe. Um dies zu beheben, verwenden wir `cos()`, um die Elementgröße zu aktualisieren.
+Wenn das Element mit Hilfe von {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dieses Problem zu beheben, verwenden wir `cos()`, um die Elementgröße zu aktualisieren.
 
-Beispielsweise, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird der Diamant, der entsteht, breiter und höher als das ursprüngliche Quadrat sein. Um den Diamanten auf die Boxgröße des ursprünglichen Quadrats zu verkleinern, müssten Sie den Diamanten mit dieser Formel verkleinern: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch die {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
+Zum Beispiel, wenn Sie ein `100px`/`100px` großes Quadrat um `45deg` drehen, wird der dadurch entstandene Diamant breiter und höher als das ursprüngliche Quadrat. Um den Diamanten auf die Größe der ursprünglichen Quadratbox zu verkleinern, müssen Sie den Diamanten mit dieser Formel skalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
 
 #### HTML
 

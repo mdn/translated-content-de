@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: bezierCurveTo() Methode"
+title: "CanvasRenderingContext2D: Methode bezierCurveTo()"
 short-title: bezierCurveTo()
 slug: Web/API/CanvasRenderingContext2D/bezierCurveTo
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.bezierCurveTo()`** Methode der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Es erfordert drei Punkte: die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der letzte Punkt im aktuellen Pfad, der durch Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor Erstellen der Bézier-Kurve geändert werden kann.
+Die Methode
+**`CanvasRenderingContext2D.bezierCurveTo()`**
+der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Sie benötigt drei Punkte: die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der zuletzt definierte Punkt im aktuellen Pfad, der durch die Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor dem Erstellen der Bézier-Kurve geändert werden kann.
 
 ## Syntax
 
@@ -19,17 +21,17 @@ bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
 ### Parameter
 
 - `cp1x`
-  - : Die x-Koordinate des ersten Kontrollpunkts.
+  - : Die x-Achsen-Koordinate des ersten Kontrollpunkts.
 - `cp1y`
-  - : Die y-Koordinate des ersten Kontrollpunkts.
+  - : Die y-Achsen-Koordinate des ersten Kontrollpunkts.
 - `cp2x`
-  - : Die x-Koordinate des zweiten Kontrollpunkts.
+  - : Die x-Achsen-Koordinate des zweiten Kontrollpunkts.
 - `cp2y`
-  - : Die y-Koordinate des zweiten Kontrollpunkts.
+  - : Die y-Achsen-Koordinate des zweiten Kontrollpunkts.
 - `x`
-  - : Die x-Koordinate des Endpunkts.
+  - : Die x-Achsen-Koordinate des Endpunkts.
 - `y`
-  - : Die y-Koordinate des Endpunkts.
+  - : Die y-Achsen-Koordinate des Endpunkts.
 
 ### Rückgabewert
 
@@ -99,7 +101,7 @@ Dieses Beispiel zeichnet eine einfache Bézier-Kurve mit `bezierCurveTo()`.
 
 #### JavaScript
 
-Die Kurve beginnt bei dem durch `moveTo()` angegebenen Punkt: (30, 30). Der erste Kontrollpunkt wird bei (120, 160) platziert und der zweite bei (180, 10). Die Kurve endet bei (220, 140).
+Die Kurve beginnt an dem durch `moveTo()` angegebenen Punkt: (30, 30). Der erste Kontrollpunkt befindet sich bei (120, 160) und der zweite bei (180, 10). Die Kurve endet bei (220, 140).
 
 ```js
 const canvas = document.getElementById("canvas");

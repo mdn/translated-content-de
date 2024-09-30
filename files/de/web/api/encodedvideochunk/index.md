@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`EncodedVideoChunk`**-Schnittstelle des [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert einen Abschnitt von kodierten Videodaten.
+Die **`EncodedVideoChunk`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert ein Segment von kodierten Videodaten.
 
 ## Konstruktor
 
@@ -17,13 +17,13 @@ Die **`EncodedVideoChunk`**-Schnittstelle des [WebCodecs API](/de/docs/Web/API/W
 ## Instanzeigenschaften
 
 - [`EncodedVideoChunk.type`](/de/docs/Web/API/EncodedVideoChunk/type) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der angibt, ob dieser Datenabschnitt ein Schlüsselabschnitt ist.
+  - : Gibt einen String zurück, der angibt, ob dieses Datensegment ein Schlüssel-Chunk ist.
 - [`EncodedVideoChunk.timestamp`](/de/docs/Web/API/EncodedVideoChunk/timestamp) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden darstellt.
+  - : Gibt eine ganze Zahl zurück, die den Zeitstempel des Videos in Mikrosekunden darstellt.
 - [`EncodedVideoChunk.duration`](/de/docs/Web/API/EncodedVideoChunk/duration) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden darstellt.
+  - : Gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden darstellt.
 - [`EncodedVideoChunk.byteLength`](/de/docs/Web/API/EncodedVideoChunk/byteLength) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Länge des Videos in Bytes darstellt.
+  - : Gibt eine ganze Zahl zurück, die die Länge des Videos in Bytes darstellt.
 
 ## Instanzmethoden
 

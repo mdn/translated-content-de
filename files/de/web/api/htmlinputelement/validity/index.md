@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: validity-Eigenschaft"
+title: "HTMLInputElement: Validity-Eigenschaft"
 short-title: validity
 slug: Web/API/HTMLInputElement/validity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt. Diese Eigenschaft ist nur lesbar.
+Die schreibgeschützte **`validity`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel ermittelt den Gültigkeitszustand eines Eingabeelements und verarbeitet es, falls es ungültig ist:
+Das folgende Beispiel ruft den Gültigkeitszustand eines Eingabefelds ab und verarbeitet es, wenn es nicht gültig ist:
 
 ```js
 const input = document.getElementById("myInput");
@@ -39,5 +39,5 @@ if (!validityState.valid) {
 - [`HTMLInputElement.checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

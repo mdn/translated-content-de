@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`syntax`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird und beschreibt die erlaubte Syntax für die Eigenschaft.
+Der **`syntax`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird und beschreibt die zulässige Syntax für die Eigenschaft.
 
 ## Syntax
 
-Die folgenden sind alle gültigen Syntax-Strings:
+Die folgenden sind alle gültigen Syntaxzeichenfolgen:
 
 ```css
 syntax: "<color>"; /* accepts a color */
@@ -25,7 +25,7 @@ syntax: "*"; /* any valid token */
 
 ## Werte
 
-Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definiert ist. Unterstützte Syntaxen sind eine Untergruppe der [CSS-Typen](/de/docs/Web/CSS/CSS_Types). Diese können allein verwendet werden, oder es können mehrere Typen kombiniert werden.
+Ein String mit einer unterstützten Syntax, wie sie durch die Spezifikation definiert ist. Unterstützte Syntaxen sind ein Teil der [CSS-Typen](/de/docs/Web/CSS/CSS_Types). Diese können allein verwendet werden, oder eine Anzahl von Typen kann in Kombination verwendet werden.
 
 - `"<length>"`
   - : Alle gültigen {{cssxref("&lt;length&gt;")}} Werte.
@@ -66,7 +66,7 @@ Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definie
 
 ## Beispiele
 
-Typüberprüfung zur `--my-color` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) hinzufügen, unter Verwendung der `<color>` Syntax:
+Fügen Sie Typüberprüfung für die `--my-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) hinzu, indem Sie die `<color>` Syntax verwenden:
 
 Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule):
 

@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`insertData()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData) Schnittstelle fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Knotens an der angegebenen Verschiebung vom Anfang der vorhandenen Daten ein. Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
+Die **`insertData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces
+fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Knotens ein,
+an dem angegebenen Offset ab dem Anfang der vorhandenen Daten.
+Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
 
 ## Syntax
 
@@ -19,7 +22,8 @@ characterData.insertData(offset, data)
 ### Parameter
 
 - `offset`
-  - : Die Versatzanzahl von Zeichen, an der die bereitgestellten Daten eingefügt werden sollen. `0` ist das erste Zeichen der Zeichenkette.
+  - : Die Anzahl der Zeichen, an denen die bereitgestellten Daten eingesetzt werden sollen.
+    `0` ist das erste Zeichen der Zeichenkette.
 - `data`
   - : Die einzufügenden Daten.
 
@@ -30,7 +34,7 @@ Keiner.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Versatz negativ oder größer als die Länge der enthaltenen Daten ist.
+  - : Wird ausgelöst, wenn der Offset negativ oder größer als die Länge der enthaltenen Daten ist.
 
 ## Beispiel
 

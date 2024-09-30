@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "nothing to repeat" oder "invalid quantifier in regular expression" tritt auf, wenn ein [Quantifier](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck auf nichts angewendet wird oder auf eine [Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) angewendet wird.
+Die JavaScript-Ausnahme "nothing to repeat" oder "invalid quantifier in regular expression" tritt auf, wenn ein [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck auf nichts angewandt wird oder auf eine [Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) angewandt wird.
 
 ## Meldung
 
@@ -25,9 +25,9 @@ SyntaxError: Invalid regular expression: nothing to repeat (Safari)
 
 ## Was ist schiefgelaufen?
 
-[Quantifiers](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden verwendet, um anzugeben, wie oft ein Zeichen oder eine Gruppe von Zeichen in einem regulären Ausdruck erscheinen kann. Zum Beispiel passt `a{3}` genau dreimal auf das Zeichen `a`. Wenn also das Element, das dem Quantifier vorausgeht, nichts ist, das Zeichen übereinstimmt, ist der Quantifier ungültig. Beispielsweise: Quantifiers am Anfang einer [capturing group](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group), am Anfang einer [disjunction alternative](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction), etc., können nichts wiederholen. [Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) konsumieren keine Zeichen, daher macht es auch keinen Sinn, sie zu wiederholen.
+[Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden verwendet, um anzugeben, wie oft ein Zeichen oder eine Gruppe von Zeichen in einem regulären Ausdruck erscheinen kann. Zum Beispiel entspricht `a{3}` dem Zeichen `a` genau dreimal. Wenn also das, was dem Quantifizierer vorausgeht, nichts ist, das Zeichen übereinstimmt, ist der Quantifizierer ungültig. Zum Beispiel: Quantifizierer am Anfang einer [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group), am Anfang einer [Disjunktionsalternative](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction), usw., können nichts wiederholen. [Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) konsumieren keine Zeichen, daher macht es auch keinen Sinn, sie zu wiederholen.
 
-Im [Unicode-unaware mode](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) gibt es eine veraltete Syntax, die es erlaubt, [lookahead assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) zu quantifizieren. Diese Syntax ist veraltet und sollte nicht verwendet werden.
+Im [Unicode-unaware mode](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) gibt es eine veraltete Syntax, die es zulässt, dass [Lookahead-Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) quantifiziert werden. Dies ist eine veraltete Syntax und Sie sollten sich nicht darauf verlassen.
 
 ## Beispiele
 
@@ -48,4 +48,4 @@ Im [Unicode-unaware mode](/de/docs/Web/JavaScript/Reference/Global_Objects/RegEx
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Quantifier: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
+- [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

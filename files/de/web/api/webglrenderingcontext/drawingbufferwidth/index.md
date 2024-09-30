@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: drawingBufferWidth Eigenschaft"
+title: "WebGLRenderingContext: drawingBufferWidth-Eigenschaft"
 short-title: drawingBufferWidth
 slug: Web/API/WebGLRenderingContext/drawingBufferWidth
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebGLRenderingContext.drawingBufferWidth`**
-Eigenschaft repräsentiert die tatsächliche Breite des aktuellen Zeichenpuffers. Sie sollte mit dem
-`width`-Attribut des mit diesem Kontext verbundenen {{HTMLElement("canvas")}} Elements übereinstimmen, kann jedoch abweichen, wenn die Implementierung nicht in der Lage ist, die angeforderte Breite bereitzustellen.
+Die schreibgeschützte **`WebGLRenderingContext.drawingBufferWidth`**-Eigenschaft gibt die tatsächliche Breite des aktuellen Zeichenpuffers an. Sie sollte mit dem `width`-Attribut des {{HTMLElement("canvas")}}-Elements übereinstimmen, das mit diesem Kontext verknüpft ist, kann jedoch abweichen, falls die Implementierung nicht in der Lage ist, die angeforderte Breite bereitzustellen.
 
 ## Wert
 
@@ -18,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}} Element:
+Angenommen, folgendes {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>

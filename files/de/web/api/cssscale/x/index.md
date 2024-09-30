@@ -13,11 +13,11 @@ Die **`x`**-Eigenschaft der
 
 ## Wert
 
-Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein Doppelganzzahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-To Do
+Zu erledigen
 
 ## Spezifikationen
 

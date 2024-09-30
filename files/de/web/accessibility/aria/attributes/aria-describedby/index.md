@@ -7,22 +7,22 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das globale `aria-describedby`-Attribut identifiziert das Element (oder die Elemente), das/die das Element beschreibt/beschreiben, auf dem das Attribut gesetzt ist.
+Das globale Attribut `aria-describedby` identifiziert das Element (oder die Elemente), das/die das Element beschreibt/beschreiben, auf dem das Attribut gesetzt ist.
 
 ## Beschreibung
 
-Das `aria-describedby`-Attribut listet die [`ID`](/de/docs/Web/HTML/Global_attributes#id)s der Elemente auf, die das Objekt beschreiben. Es wird verwendet, um eine Beziehung zwischen Widgets oder Gruppen und dem Text, der sie beschreibt, herzustellen.
+Das Attribut `aria-describedby` listet die [`id`](/de/docs/Web/HTML/Global_attributes#id)s der Elemente auf, die das Objekt beschreiben. Es wird verwendet, um eine Beziehung zwischen Widgets oder Gruppen und dem Text herzustellen, der sie beschreibt.
 
-Das `aria-describedby`-Attribut ist nicht auf Formularelemente beschränkt. Es kann auch verwendet werden, um statischen Text mit Widgets, Elementgruppen, Regionen mit einer Überschrift, Definitionen und mehr zu verknüpfen. Das `aria-describedby`-Attribut kann mit semantischen HTML-Elementen und mit Elementen verwendet werden, die eine ARIA-[`role`](/de/docs/Web/Accessibility/ARIA/Roles) haben.
+Das Attribut `aria-describedby` ist nicht auf Formularelemente beschränkt. Es kann auch verwendet werden, um statischen Text mit Widgets, Gruppen von Elementen, Regionen mit einer Überschrift, Definitionen und mehr zu verknüpfen. Das Attribut `aria-describedby` kann mit semantischen HTML-Elementen und mit Elementen verwendet werden, die eine ARIA-[`role`](/de/docs/Web/Accessibility/ARIA/Roles) besitzen.
 
-Das `aria-describedby`-Attribut ist dem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut sehr ähnlich. Während `aria-labelledby` die `id`s der Labels oder Elemente auflistet, die das Wesen eines Objekts beschreiben, listet `aria-describedby` die `id`s der Beschreibungen oder Elemente auf, die zusätzliche Informationen bereitstellen, die der Benutzer benötigen könnte. Sowohl `aria-labelledby` als auch `aria-describedby` verweisen auf andere Elemente, um eine Textalternative zu berechnen, aber ein Label sollte prägnant sein, während eine Beschreibung ausführlichere Informationen liefern soll; ein Label beschreibt das Wesentliche eines Objekts, während eine Beschreibung zusätzliche Informationen liefert, die der Benutzer benötigen könnte.
+Das `aria-describedby`-Attribut ist dem Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) sehr ähnlich. Während `aria-labelledby` die `id`s der Labels oder Elemente auflistet, die das Wesen eines Objekts beschreiben, listet `aria-describedby` die `id`s der Beschreibungen oder Elemente auf, die weitere Informationen bieten, die der Benutzer möglicherweise benötigt. Sowohl `aria-labelledby` als auch `aria-describedby` verweisen auf andere Elemente, um eine Textalternative zu berechnen, aber ein Label sollte prägnant sein, während eine Beschreibung dazu gedacht ist, umfassendere Informationen bereitzustellen; ein Label beschreibt das Wesen eines Objekts, während eine Beschreibung mehr Informationen bereitstellt, die der Benutzer eventuell benötigt.
 
-Die über `aria-describedby` verknüpften Elemente müssen nicht sichtbar sein. Es ist möglich, ein Element zu referenzieren, auch wenn dieses Element ausgeblendet ist. Zum Beispiel kann ein Formularelement eine Beschreibung haben, die standardmäßig ausgeblendet ist und auf Anfrage über ein Offenlegungs-Widget wie ein "mehr Informationen"-Symbol angezeigt wird. Der sehende Benutzer klickt auf das Symbol; für Benutzer von unterstützender Technologie wird die Beschreibung direkt aus diesem Formularfeld mit `aria-describedby` referenziert.
+Die über `aria-describedby` verknüpften Elemente müssen nicht sichtbar sein. Es ist möglich, auf ein Element zu verweisen, auch wenn dieses Element verborgen ist. Zum Beispiel kann ein Formularfeld eine Beschreibung haben, die standardmäßig versteckt ist und auf Anfrage über ein Aufklapp-Widget wie ein "mehr Informationen"-Symbol angezeigt wird. Der sehende Benutzer klickt auf das Symbol; für Benutzer von Hilfstechnologien wird die Beschreibung direkt von diesem Formularfeld über `aria-describedby` referenziert.
 
-Die `aria-describedby`-Eigenschaft ist geeignet, wenn die zugehörigen Inhalte Beschreibungen enthalten, die als Klartext verarbeitet werden. Wenn der Inhalt eine große Menge an Inhalt, nützliche Semantik oder eine komplexe Struktur enthält, die eine Benutzernavigation erfordert, verwenden Sie [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details). `aria-details` ermöglicht es Benutzern von unterstützender Technologie, die zugehörigen strukturierten Inhalte zu besuchen und zusätzliche Navigationsbefehle bereitzustellen, was das Verständnis der Struktur erleichtert oder das Erleben der Informationen in kleineren Abschnitten ermöglicht.
+Die Eigenschaft `aria-describedby` ist geeignet, wenn der zugehörige Inhalt Beschreibungen als reinen Text enthält. Wenn der Inhalt eine große Menge an Inhalten, nützliche Semantiken oder eine komplexe Struktur enthält, die Benutzernavigation erfordert, verwenden Sie [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details). `aria-details` ermöglicht es Benutzern von Hilfstechnologien, den zugehörigen strukturierten Inhalt zu besuchen und zusätzliche Navigationsbefehle bereitzustellen, wodurch das Verständnis der Struktur erleichtert oder das Erleben der Informationen in kleineren Stücken ermöglicht wird.
 
 > [!NOTE]
-> Der `aria-describedby`-Inhalt sollte nur eine Textzeichenfolge sein. Wenn es wichtige zugrundeliegende Semantiken in dem Inhalt gibt, ziehen Sie die Verwendung von [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) in Betracht.
+> Der Inhalt von `aria-describedby` sollte nur eine Textzeichenkette sein. Wenn es wichtige zugrunde liegende Semantiken im Inhalt gibt, ziehen Sie in Betracht, [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) zu verwenden.
 
 ## Beispiel
 
@@ -35,7 +35,7 @@ Die `aria-describedby`-Eigenschaft ist geeignet, wenn die zugehörigen Inhalte B
 ```
 
 > [!NOTE]
-> Das `aria-describedby`-Attribut ist nicht dafür ausgelegt, Beschreibungen aus externen Quellen zu referenzieren. Da sein Wert eine oder mehrere `id`s (durch Leerzeichen getrennt, wenn mehrere) ist, muss es auf Elemente im selben DOM-Dokument verweisen.
+> Das `aria-describedby` Attribut ist nicht dafür vorgesehen, Beschreibungen von externen Ressourcen zu referenzieren. Da sein Wert eine oder mehrere `id`s ist (durch Leerzeichen getrennt, falls mehrfach), muss es auf Elemente im selben DOM-Dokument verweisen.
 
 ## Werte
 
@@ -44,7 +44,7 @@ Die `aria-describedby`-Eigenschaft ist geeignet, wenn die zugehörigen Inhalte B
 
 ## Zugehörige Rollen
 
-Verwendet in **allen** Rollen. Verwendbar in allen HTML-Elementen.
+Wird in **allen** Rollen verwendet. In allen HTML-Elementen nutzbar.
 
 ## Spezifikationen
 
@@ -56,4 +56,4 @@ Verwendet in **allen** Rollen. Verwendbar in allen HTML-Elementen.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 - [`aria-description`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-description)
 - [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details)
-- [Browser- und AT-Unterstützung für `aria-describedby`](https://a11ysupport.io/tech/aria/aria-describedby_attribute)
+- [Browser-Kompatibilität und AT-Unterstützung für `aria-describedby`](https://a11ysupport.io/tech/aria/aria-describedby_attribute)

@@ -16,9 +16,9 @@ Ein [`XRSpace`](/de/docs/Web/API/XRSpace).
 
 ## Beispiele
 
-### Festlegen von Dimension und Position einer Ebene
+### Festlegen der Dimension und Position einer Ebene
 
-Dieses Beispiel positioniert die Ebene zwei Meter von `newSpace` entfernt mit einer `height` und `width` von 1,5 Metern.
+Dieses Beispiel positioniert die Ebene in zwei Metern Entfernung von `newSpace` mit einer `height` und `width` von 1,5 Metern.
 
 ```js
 const quadLayer = xrGlBinding.createQuadLayer({

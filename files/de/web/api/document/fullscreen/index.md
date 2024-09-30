@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Fullscreen API")}}{{Deprecated_Header}}
 
-Die veraltete [`Document`](/de/docs/Web/API/Document)-Schnittstelle hat die schreibgeschützte **`fullscreen`**-Eigenschaft, die angibt, ob das Dokument derzeit Inhalte im Vollbildmodus anzeigt.
+Die veraltete Lesezeichen-Eigenschaft **`fullscreen`** des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt an, ob das Dokument derzeit Inhalte im Vollbildmodus anzeigt.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird kein Fehler ausgelöst, wenn sie geändert wird (auch im strengen Modus); der Setter ist eine No-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird beim Versuch, sie zu ändern, keine Ausnahme ausgelöst (selbst im Strict-Modus); der Setter ist eine No-Operation und wird ignoriert.
 
 > [!NOTE]
-> Da diese Eigenschaft veraltet ist, können Sie feststellen, ob der Vollbildmodus im Dokument aktiv ist, indem Sie überprüfen, ob [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) nicht `null` ist.
+> Da diese Eigenschaft veraltet ist, können Sie prüfen, ob der Vollbildmodus aktiv ist, indem Sie überprüfen, ob [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) nicht `null` ist.
 
 ## Wert
 
@@ -21,7 +21,7 @@ Ein Boolean-Wert, der `true` ist, wenn das Dokument derzeit ein Element im Vollb
 
 ## Beispiele
 
-Diese einfache Funktion zeigt an, ob der Vollbildmodus derzeit aktiv ist, indem die veraltete `fullscreen`-Eigenschaft verwendet wird.
+Diese einfache Funktion berichtet, ob der Vollbildmodus derzeit aktiv ist, indem die veraltete `fullscreen`-Eigenschaft verwendet wird.
 
 ```js
 function isDocumentInFullScreenMode() {
@@ -29,7 +29,7 @@ function isDocumentInFullScreenMode() {
 }
 ```
 
-Das nächste Beispiel hingegen verwendet die aktuelle `fullscreenElement`-Eigenschaft, um dasselbe festzustellen:
+Dieses nächste Beispiel verwendet hingegen die aktuelle `fullscreenElement`-Eigenschaft, um dasselbe festzustellen:
 
 ```js
 function isDocumentInFullScreenMode() {
@@ -37,7 +37,7 @@ function isDocumentInFullScreenMode() {
 }
 ```
 
-Wenn `fullscreenElement` nicht `null` ist, wird `true` zurückgegeben, was darauf hinweist, dass der Vollbildmodus aktiv ist.
+Wenn `fullscreenElement` nicht `null` ist, wird `true` zurückgegeben, was darauf hinweist, dass der Vollbildmodus aktiviert ist.
 
 ## Spezifikationen
 

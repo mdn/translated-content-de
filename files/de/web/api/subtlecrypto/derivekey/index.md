@@ -1,5 +1,5 @@
 ---
-title: "SubtleCrypto: deriveKey()-Methode"
+title: "SubtleCrypto: deriveKey() Methode"
 short-title: deriveKey()
 slug: Web/API/SubtleCrypto/deriveKey
 l10n:
@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`deriveKey()`**-Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle kann verwendet werden, um einen geheimen Schlüssel von einem Hauptschlüssel abzuleiten.
+Die **`deriveKey()`** Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Interfaces kann verwendet werden, um einen geheimen Schlüssel aus einem Hauptschlüssel abzuleiten.
 
-Sie nimmt als Argumente einige initiale Schlüsselinformationen, den zu verwendenden Ableitungsalgorithmus und die gewünschten Eigenschaften des abzuleitenden Schlüssels.
-Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einem [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt erfüllt wird, das den neuen Schlüssel repräsentiert.
+Als Argumente nimmt sie einige anfängliche Schlüsselmaterialien, den zu verwendenden Ableitungsalgorithmus und die gewünschten Eigenschaften für den abzuleitenden Schlüssel.
+Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einem [`CryptoKey`](/de/docs/Web/API/CryptoKey) Objekt, das den neuen Schlüssel darstellt, erfüllt wird.
 
-Es ist erwähnenswert, dass die unterstützten Schlüsselerzeugungsalgorithmen sehr unterschiedliche Eigenschaften haben und in ganz unterschiedlichen Situationen geeignet sind. Siehe [Unterstützte Algorithmen](#unterstützte_algorithmen) für weitere Details hierzu.
+Es ist erwähnenswert, dass die unterstützten Schlüsselableitungsalgorithmen recht unterschiedliche Eigenschaften haben und in ganz unterschiedlichen Situationen angemessen sind.
+Siehe [Unterstützte Algorithmen](#unterstützte_algorithmen) für weitere Details dazu.
 
 ## Syntax
 
@@ -25,27 +26,31 @@ deriveKey(algorithm, baseKey, derivedKeyAlgorithm, extractable, keyUsages)
 
 - `algorithm`
   - : Ein Objekt, das den zu verwendenden [Ableitungsalgorithmus](#unterstützte_algorithmen) definiert.
-    - Um [ECDH](#ecdh) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams)-Objekt und geben Sie den String `ECDH` als `name`-Eigenschaft an.
-    - Um [HKDF](#hkdf) zu verwenden, übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams)-Objekt.
-    - Um [X25519](#x25519) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams)-Objekt und geben Sie den String `X25519` als `name`-Eigenschaft an.
+    - Um [ECDH](#ecdh) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams) Objekt und geben Sie den String `ECDH` als `name` Eigenschaft an.
+    - Um [HKDF](#hkdf) zu verwenden, übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams) Objekt.
+    - Um [X25519](#x25519) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams) Objekt und geben Sie den String `X25519` als `name` Eigenschaft an.
 - `baseKey`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den Input für den Ableitungsalgorithmus darstellt. Wenn `algorithm` ECDH oder X25519 ist, dann wird dies der ECDH- oder X25519-Privatschlüssel sein. Andernfalls handelt es sich um das initiale Schlüsselmateriel für die Ableitungsfunktion: Beispielsweise könnte es sich für PBKDF2 um ein Passwort handeln, das als `CryptoKey` mithilfe von [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) importiert wurde.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den Eingang zum Ableitungsalgorithmus darstellt.
+    Wenn `algorithm` ECDH oder X25519 ist, dann wird dies der ECDH- oder X25519-Private-Key sein.
+    Andernfalls wird es das anfängliche Schlüsselmaterial für die Derivationsfunktion sein: zum Beispiel könnte es sich bei PBKDF2 um ein Passwort handeln, das als `CryptoKey` mit [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) importiert wurde.
 - `derivedKeyAlgorithm`
   - : Ein Objekt, das den Algorithmus definiert, für den der abgeleitete Schlüssel verwendet wird:
-    - Für [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac) übergeben Sie ein [`HmacKeyGenParams`](/de/docs/Web/API/HmacKeyGenParams)-Objekt.
-    - Für [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr), [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc), [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm), oder [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw) übergeben Sie ein [`AesKeyGenParams`](/de/docs/Web/API/AesKeyGenParams)-Objekt.
-    - Für [HKDF](#hkdf) übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams)-Objekt.
-    - Für [PBKDF2](#pbkdf2) übergeben Sie ein [`Pbkdf2Params`](/de/docs/Web/API/Pbkdf2Params)-Objekt.
+    - Für [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac) übergeben Sie ein [`HmacKeyGenParams`](/de/docs/Web/API/HmacKeyGenParams) Objekt.
+    - Für [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr), [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc), [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) oder [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw) übergeben Sie ein [`AesKeyGenParams`](/de/docs/Web/API/AesKeyGenParams) Objekt.
+    - Für [HKDF](#hkdf), übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams) Objekt.
+    - Für [PBKDF2](#pbkdf2), übergeben Sie ein [`Pbkdf2Params`](/de/docs/Web/API/Pbkdf2Params) Objekt.
 - `extractable`
-  - : Ein boolescher Wert, der angibt, ob es möglich sein wird, den Schlüssel mithilfe von [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) zu exportieren.
+  - : Ein boolean-Wert, der angibt, ob es möglich sein wird, den Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) zu exportieren.
 - `keyUsages`
-  - : Ein {{jsxref("Array")}}, das angibt, was mit dem abgeleiteten Schlüssel gemacht werden kann. Beachten Sie, dass die Verwendungsmöglichkeiten des Schlüssels durch den in `derivedKeyAlgorithm` festgelegten Algorithmus erlaubt sein müssen. Mögliche Werte des Arrays sind:
+  - : Ein {{jsxref("Array")}}, das angibt, was mit dem abgeleiteten Schlüssel gemacht werden kann.
+    Beachten Sie, dass die Schlüsselverwendungen durch den im `derivedKeyAlgorithm` festgelegten Algorithmus erlaubt sein müssen.
+    Mögliche Werte des Arrays sind:
     - `encrypt`: Der Schlüssel kann verwendet werden, um Nachrichten zu [verschlüsseln](/de/docs/Web/API/SubtleCrypto/encrypt).
     - `decrypt`: Der Schlüssel kann verwendet werden, um Nachrichten zu [entschlüsseln](/de/docs/Web/API/SubtleCrypto/decrypt).
     - `sign`: Der Schlüssel kann verwendet werden, um Nachrichten zu [signieren](/de/docs/Web/API/SubtleCrypto/sign).
     - `verify`: Der Schlüssel kann verwendet werden, um Signaturen zu [verifizieren](/de/docs/Web/API/SubtleCrypto/verify).
-    - `deriveKey`: Der Schlüssel kann verwendet werden, um einen neuen Schlüssel abzuleiten.
-    - `deriveBits`: Der Schlüssel kann verwendet werden, um [Bits abzuleiten](/de/docs/Web/API/SubtleCrypto/deriveBits).
+    - `deriveKey`: Der Schlüssel kann bei der Ableitung eines neuen Schlüssels verwendet werden.
+    - `deriveBits`: Der Schlüssel kann zur [Ableitung von Bits](/de/docs/Web/API/SubtleCrypto/deriveBits) verwendet werden.
     - `wrapKey`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [verpacken](/de/docs/Web/API/SubtleCrypto/wrapKey).
     - `unwrapKey`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [entpacken](/de/docs/Web/API/SubtleCrypto/unwrapKey).
 
@@ -55,67 +60,68 @@ Ein {{jsxref("Promise")}}, das mit einem [`CryptoKey`](/de/docs/Web/API/CryptoKe
 
 ### Ausnahmen
 
-Das Promise wird abgelehnt, wenn eine der folgenden Ausnahmen auftreten:
+Das `Promise` wird abgelehnt, wenn eine der folgenden Ausnahmen auftreten:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Hauptschlüssel kein Schlüssel für den angeforderten Ableitungsalgorithmus ist oder wenn der `keyUsages`-Wert dieses Schlüssels nicht `deriveKey` enthält.
+  - : Ausgelöst, wenn der Hauptschlüssel kein Schlüssel für den angeforderten Ableitungsalgorithmus ist oder wenn der `keyUsages`-Wert dieses Schlüssels `deriveKey` nicht enthält.
 - `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt oder nicht für Ableitungen geeignet ist, oder wenn der für den abgeleiteten Schlüssel angeforderte Algorithmus keine Schlüssellänge definiert.
+  - : Ausgelöst, wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt ist oder sich nicht für die Ableitung eignet, oder wenn der angeforderte Algorithmus für den abgeleiteten Schlüssel keine Schlüssellänge definiert.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `keyUsages` leer ist, aber der unverpackte Schlüssel vom Typ `secret` oder `private` ist.
+  - : Ausgelöst, wenn `keyUsages` leer ist, aber der unverdeckte Schlüssel vom Typ `secret` oder `private` ist.
 
 ## Unterstützte Algorithmen
 
-Die von `deriveKey()` unterstützten Algorithmen haben sehr unterschiedliche Merkmale und sind in verschiedenen Situationen geeignet.
+Die von `deriveKey()` unterstützten Algorithmen haben ganz unterschiedliche Eigenschaften und sind in verschiedenen Situationen angemessen.
 
-### Schlüsselerzeugungsalgorithmen
+### Schlüsselableitungsalgorithmen
 
 #### HKDF
 
 HKDF ist eine _Schlüsselableitungsfunktion_.
-Sie ist dafür konzipiert, Schlüsselmateriel aus einem hoch-entropischen Input abzuleiten, wie zum Beispiel der Ausgabe eines ECDH-Schlüsselaustauschoperationsprozesses.
+Es ist dafür ausgelegt, Schlüsselmaterial aus einer hochentropischen Eingabe abzuleiten, wie zum Beispiel dem Ergebnis eines ECDH-Schlüsselaustauschvorgangs.
 
-Sie ist _nicht_ dafür gedacht, Schlüssel aus relativ niedrig-entropischen Inputs wie Passwörtern abzuleiten. Dafür sollte PBKDF2 verwendet werden.
+Es ist _nicht_ dafür ausgelegt, Schlüssel aus relativ wenig entropischen Eingaben wie Passwörtern abzuleiten.
+Verwenden Sie dafür PBKDF2.
 
-HKDF wird in [RFC 5869](https://datatracker.ietf.org/doc/html/rfc5869) spezifiziert.
+HKDF ist in [RFC 5869](https://datatracker.ietf.org/doc/html/rfc5869) spezifiziert.
 
 #### PBKDF2
 
 PBKDF2 ist ebenfalls eine _Schlüsselableitungsfunktion_.
-Sie ist dafür konzipiert, Schlüsselmateriel aus einem relativ niedrig-entropischen Input, wie einem Passwort, abzuleiten.
-Sie leitet Schlüsselmateriel ab, indem sie eine Funktion wie HMAC auf das Input-Passwort zusammen mit etwas Salt anwendet und diesen Prozess viele Male wiederholt.
-Je öfter der Prozess wiederholt wird, desto rechenintensiver ist die Schlüsselerzeugung: Dies erschwert es einem Angreifer, den Schlüssel durch einen Brute-Force-Ansatz mit einem Wörterbuchangriff zu entdecken.
+Es ist dafür ausgelegt, Schlüsselmaterial aus einer relativ wenig entropischen Eingabe abzuleiten, wie zum Beispiel einem Passwort.
+Es leitet Schlüsselmaterial ab, indem es eine Funktion wie HMAC auf das Eingabepasswort zusammen mit etwas Salz anwendet und diesen Prozess viele Male wiederholt.
+Je öfter der Prozess wiederholt wird, desto rechenintensiver ist die Schlüsselerstellung: Dies erschwert es einem Angreifer, mittels Brute-Force durch einen Wörterbuchangriff den Schlüssel zu entdecken.
 
-PBKDF2 wird in [RFC 2898](https://datatracker.ietf.org/doc/html/rfc2898) spezifiziert.
+PBKDF2 ist in [RFC 2898](https://datatracker.ietf.org/doc/html/rfc2898) spezifiziert.
 
-### Schlüsselvereinbarungsalgorithmen
+### Schlüsselaustauschalgorithmen
 
 #### ECDH
 
-ECDH (Elliptic Curve Diffie-Hellman) ist ein _Schlüsselvereinbarungsalgorithmus_.
-Er ermöglicht es zwei Personen, die jeweils ein ECDH-Öffentlich/Privater-Schlüsselpaar besitzen, ein gemeinsames Geheimnis zu erzeugen: also ein Geheimnis, das sie – und niemand sonst – teilen.
-Sie können dann dieses gemeinsame Geheimnis als symmetrischen Schlüssel verwenden, um ihre Kommunikation zu sichern, oder das Geheimnis als Eingang verwenden, um einen solchen Schlüssel abzuleiten (zum Beispiel mit dem HKDF-Algorithmus).
+ECDH (Elliptic Curve Diffie-Hellman) ist ein _Schlüsselaustauschalgorithmus_.
+Es ermöglicht zwei Personen, die jeweils ein ECDH-Public/Private-Key-Paar haben, ein gemeinsames Geheimnis zu erzeugen: das heißt, ein Geheimnis, das sie – und niemand sonst – teilen.
+Sie können dann dieses gemeinsame Geheimnis als symmetrischen Schlüssel verwenden, um ihre Kommunikation zu sichern, oder das Geheimnis als Eingabe zur Ableitung eines solchen Schlüssels verwenden (zum Beispiel unter Verwendung des HKDF-Algorithmus).
 
-ECDH wird in [RFC 6090](https://datatracker.ietf.org/doc/html/rfc6090) spezifiziert.
+ECDH ist in [RFC 6090](https://datatracker.ietf.org/doc/html/rfc6090) spezifiziert.
 
 #### X25519
 
-X25519 ist ein Schlüsselvereinbarungsalgorithmus wie ECDH, jedoch basierend auf der [Curve25519](https://en.wikipedia.org/wiki/Curve25519) Elliptische-Kurve, die Teil der Edwards-Curve Digital Signature Algorithm (EdDSA)-Familie der Algorithmen ist, die in {{rfc("8032")}} definiert sind.
+X25519 ist ein Schlüsselaustauschalgorithmus ähnlich ECDH, jedoch basierend auf der [Curve25519](https://en.wikipedia.org/wiki/Curve25519) elliptischen Kurve, die Teil der Familie der Edwards-Kurven-Signaturalgorithmen (EdDSA) ist, die in {{rfc("8032")}} definiert sind.
 
-Die Curve25519-Algorithmen werden weit in der Kryptographie verwendet und gelten als einige der effizientesten/schnellsten verfügbaren. Im Vergleich zu den vom NIST (National Institute of Standards and Technology) genutzten Kurvenschlüsselaustauschalgorithmen, die mit ECDH verwendet werden, ist Curve25519 einfacher zu implementieren, und sein nicht-staatlicher Ursprung bedeutet, dass die Entscheidungen hinter seinen Designauswahlen transparent und offen sind.
+Die Curve25519-Algorithmen sind weit verbreitet in der Kryptographie und gelten als einige der effizientesten/schnellsten verfügbaren. Im Vergleich zu den NIST (National Institute of Standards and Technology) Kurven-Schlüsselaustauschalgorithmen, die mit ECDH verwendet werden, ist Curve25519 einfacher zu implementieren, und seine nicht-staatliche Herkunft bedeutet, dass die Entscheidungen hinter den Designauswahl transparent und offen sind.
 
-X25519 wird in {{rfc("7748")}} spezifiziert.
+X25519 ist in {{rfc("7748")}} spezifiziert.
 
 ## Beispiele
 
 > [!NOTE]
 > Sie können die [funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/derive-key/index.html).
 
-### ECDH: gemeinsames geheimes Schlüssel ableiten
+### ECDH: gemeinsamer geheimer Schlüssel ableiten
 
-In diesem Beispiel erzeugen Alice und Bob jeweils ein ECDH-Schlüsselpaar und tauschen dann öffentliche Schlüssel aus.
-Sie verwenden anschließend `deriveKey()`, um einen gemeinsamen AES-Schlüssel abzuleiten, den sie verwenden könnten, um Nachrichten zu verschlüsseln.
-[Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js)
+In diesem Beispiel erzeugen Alice und Bob jeweils ein ECDH-Schlüsselpaar und tauschen dann die öffentlichen Schlüssel aus.
+Sie verwenden dann `deriveKey()`, um einen gemeinsamen AES-Schlüssel abzuleiten, den sie zum Verschlüsseln von Nachrichten verwenden könnten.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/ecdh.js)
 
 ```js
 /*
@@ -187,14 +193,15 @@ async function agreeSharedSecretKey() {
 }
 ```
 
-### X25519: gemeinsames geheimes Schlüssel ableiten
+### X25519: gemeinsamer geheimer Schlüssel ableiten
 
-In diesem Beispiel erzeugen Alice und Bob jeweils ein X25519-Schlüsselpaar und tauschen dann öffentliche Schlüssel aus.
-Sie verwenden dann jeweils `deriveKey()`, um einen gemeinsamen AES-Schlüssel aus ihrem eigenen privaten Schlüssel und dem öffentlichen Schlüssel des jeweils anderen abzuleiten. Sie können diesen gemeinsamen Schlüssel zum Verschlüsseln und Entschlüsseln von Nachrichten verwenden, die sie austauschen.
+In diesem Beispiel erzeugen Alice und Bob jeweils ein X25519-Schlüsselpaar und tauschen dann die öffentlichen Schlüssel aus.
+Sie verwenden dann jeweils `deriveKey()`, um einen gemeinsamen AES-Schlüssel aus ihrem eigenen privaten Schlüssel und dem öffentlichen Schlüssel des jeweils anderen abzuleiten.
+Sie können diesen gemeinsamen Schlüssel verwenden, um Nachrichten, die sie austauschen, zu verschlüsseln und zu entschlüsseln.
 
 #### HTML
 
-Zuerst definieren wir ein HTML-{{HTMLElement("input")}}, das Sie verwenden werden, um die Klartextnachricht einzugeben, die "Alice" senden wird, und eine Schaltfläche, die Sie klicken können, um den Verschlüsselungsprozess zu starten.
+Zuerst definieren wir ein HTML {{HTMLElement("input")}}, das Sie verwenden, um die Klartextnachricht einzugeben, die "Alice" senden wird, sowie einen Button, den Sie klicken können, um den Verschlüsselungsprozess zu starten.
 
 ```html
 <label for="message">Plaintext message from Alice (Enter):</label>
@@ -207,7 +214,7 @@ Zuerst definieren wir ein HTML-{{HTMLElement("input")}}, das Sie verwenden werde
 <input id="encrypt-button" type="button" value="Encrypt" />
 ```
 
-Darauf folgen zwei weitere Elemente, um den Chiffretext anzuzeigen, nachdem Alice den Klartext mit ihrer Kopie des geheimen Schlüssels verschlüsselt hat, und um den Text anzuzeigen, nachdem Bob ihn mit seiner Kopie des geheimen Schlüssels entschlüsselt hat.
+Dies wird gefolgt von zwei weiteren Elementen, um den Chiffretext anzuzeigen, nachdem Alice den Klartext mit ihrer Kopie des geheimen Schlüssels verschlüsselt hat, und um den Text anzuzeigen, nachdem Bob ihn mit seiner Kopie des geheimen Schlüssels entschlüsselt hat.
 
 ```html
 <div id="results">
@@ -266,11 +273,11 @@ function log(text) {
 }
 ```
 
-Der untenstehende Code zeigt, wie wir `deriveKey()` verwenden.
-Wir übergeben den X25519-Public-Key der entfernten Partei, den X25519-Privatschlüssel der lokalen Partei und spezifizieren, dass der abgeleitete Schlüssel ein AES-GCM-Schlüssel sein soll.
-Wir setzen auch fest, dass der abgeleitete Schlüssel nicht extrahierbar und geeignet für Verschlüsselung und Entschlüsselung ist.
+Der untenstehende Code zeigt, wie `deriveKey()` verwendet wird.
+Wir übergeben den X25519-Public-Key der entfernten Partei, den X25519-Private-Key der lokalen Partei und spezifizieren, dass der abgeleitete Schlüssel ein AES-GCM-Schlüssel sein soll.
+Wir legen auch fest, dass der abgeleitete Schlüssel nicht-extrahierbar und für die Verschlüsselung und Entschlüsselung geeignet ist.
 
-Wir verwenden diese Funktion weiter unten im Code, um gemeinsame Schlüssel für Bob und Alice zu erstellen.
+Diese Funktion verwenden wir weiter unten im Code, um gemeinsame Schlüssel für Bob und Alice zu erstellen.
 
 ```js
 /*
@@ -295,9 +302,11 @@ function deriveSecretKey(privateKey, publicKey) {
 }
 ```
 
-Anschließend definieren wir die Funktionen, die Alice verwenden wird, um ihre Klartextnachricht im [UTF-8](/de/docs/Glossary/UTF-8) zu codieren und dann zu verschlüsseln, und die Bob verwenden wird, um die Nachricht zu entschlüsseln und dann zu dekodieren. Beide nehmen als Argumente den gemeinsamen AES-Schlüssel, einen [Initialisierungsvektor](/de/docs/Web/API/AesGcmParams#iv) und den Text, der verschlüsselt oder entschlüsselt werden soll.
+Als nächstes definieren wir die Funktionen, die Alice verwenden wird, um ihre Klartextnachricht [UTF-8](/de/docs/Glossary/UTF-8) zu kodieren und dann zu verschlüsseln, und die Bob verwenden wird, um die Nachricht zu entschlüsseln und dann zu dekodieren.
+Beide nehmen als Argumente den gemeinsamen AES-Schlüssel, einen [Initialisierungsvektor](/de/docs/Web/API/AesGcmParams#iv) und den zu verschlüsselnden oder zu entschlüsselnden Text.
 
-Der gleiche Initialisierungsvektor muss für Verschlüsselung und Entschlüsselung verwendet werden, muss aber nicht geheim sein, daher wird er normalerweise zusammen mit der verschlüsselten Nachricht gesendet. In diesem Fall jedoch, da wir keine Nachricht tatsächlich senden, machen wir sie einfach direkt verfügbar.
+Der gleiche Initialisierungsvektor muss für die Verschlüsselung und Entschlüsselung verwendet werden, aber er muss nicht geheim sein, daher wird er normalerweise zusammen mit der verschlüsselten Nachricht gesendet.
+In diesem Fall machen wir ihn jedoch direkt verfügbar, da wir tatsächlich keine Nachricht senden.
 
 ```js
 async function encryptMessage(key, initializationVector, message) {
@@ -334,7 +343,9 @@ async function decryptMessage(key, initializationVector, ciphertext) {
 }
 ```
 
-Die Funktion `agreeSharedSecretKey()`, die unten gezeigt wird, wird beim Laden aufgerufen, um Paare und gemeinsame Schlüssel für Alice und Bob zu generieren. Sie fügt auch einen Klick-Handler für die "Verschlüsseln"-Schaltfläche hinzu, der die Verschlüsselung und dann die Entschlüsselung des in der ersten `<input>` definierten Textes auslöst. Beachten Sie, dass der gesamte Code innerhalb eines `try...catch`-Handlers eingeschlossen ist, um sicherzustellen, dass wir den Fall protokollieren können, wenn die Schlüsselerstellung fehlschlägt, weil der X25519-Algorithmus nicht unterstützt wird.
+Die `agreeSharedSecretKey()`-Funktion unten wird beim Laden aufgerufen, um Paare und gemeinsame Schlüssel für Alice und Bob zu erzeugen.
+Sie fügt außerdem einen Click-Handler für die "Verschlüsseln"-Schaltfläche hinzu, die die Verschlüsselung und dann die Entschlüsselung des im ersten `<input>` definierten Textes auslöst.
+Beachten Sie, dass der gesamte Code innerhalb eines `try...catch`-Handlers sitzt, um sicherzustellen, dass wir den Fall protokollieren können, in dem die Schlüsselerstellung fehlschlägt, weil der X25519-Algorithmus nicht unterstützt wird.
 
 ```js
 async function agreeSharedSecretKey() {
@@ -445,14 +456,15 @@ agreeSharedSecretKey();
 
 #### Ergebnis
 
-Drücken Sie die Verschlüsseln-Schaltfläche, um den Text im oberen `<input>`-Element zu verschlüsseln und den verschlüsselten Chiffretext und entschlüsselten Chiffretext in den folgenden beiden Elementen anzuzeigen. Der Protokollbereich am unteren Rand bietet Informationen über die von dem Code generierten Schlüssel.
+Drücken Sie die "Verschlüsseln"-Schaltfläche, um den Text im oberen `<input>`-Element zu verschlüsseln, und zeigen Sie den verschlüsselten Chiffretext und den entschlüsselten Chiffretext in den folgenden beiden Elementen an.
+Der Protokollbereich am unteren Rand liefert Informationen über die Schlüssel, die vom Code generiert werden.
 
 {{EmbedLiveSample("X25519 abgeleiteter gemeinsamer Schlüssel", "100%", "400px")}}
 
 ### PBKDF2: AES-Schlüssel aus Passwort ableiten
 
-In diesem Beispiel bitten wir den Benutzer um ein Passwort, verwenden es dann, um mit PBKDF2 einen AES-Schlüssel abzuleiten und verwenden dann den AES-Schlüssel, um eine Nachricht zu verschlüsseln.
-[Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/pbkdf2.js)
+In diesem Beispiel bitten wir den Benutzer um ein Passwort, verwenden es dann, um einen AES-Schlüssel mit PBKDF2 abzuleiten, und verwenden den AES-Schlüssel dann, um eine Nachricht zu verschlüsseln.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/pbkdf2.js)
 
 ```js
 /*
@@ -492,8 +504,9 @@ async function encrypt(plaintext, salt, iv) {
 
 ### HKDF: AES-Schlüssel aus gemeinsamem Geheimnis ableiten
 
-In diesem Beispiel verschlüsseln wir eine Nachricht `plainText` mit einem gemeinsamen Geheimnis `secret`, das selbst mit einem Algorithmus wie ECDH abgeleitet worden sein könnte. Anstatt das gemeinsame Geheimnis direkt zu verwenden, verwenden wir es als Schlüsselmateriel für die HKDF-Funktion, um einen AES-GCM-Verschlüsselungsschlüssel abzuleiten, den wir dann verwenden, um die Nachricht zu verschlüsseln.
-[Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/hkdf.js)
+In diesem Beispiel verschlüsseln wir eine Nachricht `plainText` mit einem gemeinsamen Geheimnis `secret`, das selbst möglicherweise unter Verwendung eines Algorithmus wie ECDH abgeleitet wurde.
+Anstatt das gemeinsame Geheimnis direkt zu verwenden, nutzen wir es als Schlüsselmaterial für die HKDF-Funktion, um einen AES-GCM-Verschlüsselungsschlüssel abzuleiten, den wir dann verwenden, um die Nachricht zu verschlüsseln.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-key/hkdf.js)
 
 ```js
 /*
@@ -547,6 +560,6 @@ async function encrypt(secret, plainText) {
 ## Siehe auch
 
 - [HKDF-Spezifikation](https://datatracker.ietf.org/doc/html/rfc5869).
-- [NIST-Richtlinien für passwortbasierte Schlüsselerzeugung](https://csrc.nist.gov/pubs/sp/800/132/final).
-- [Passwortspeicher-Cheat-Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+- [NIST-Richtlinien für passwortbasierte Schlüsselableitung](https://csrc.nist.gov/pubs/sp/800/132/final).
+- [Cheat Sheet zur Passwortspeicherung](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 - [Ratschläge zur Auswahl einer Iterationsanzahl für PBKDF2](https://security.stackexchange.com/questions/3959/recommended-of-iterations-when-using-pbkdf2-sha256/3993#3993).

@@ -9,7 +9,7 @@ l10n:
 
 Das **`::-webkit-meter-optimum-value`** CSS-[Pseudo-Element](/de/docs/Glossary/Pseudo-element) gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert innerhalb des Low-High-Bereichs liegt oder wenn der Wert dem optimalen Wert entspricht.
 
-Grün ist die Standardfarbe.
+Die Standardfarbe ist Grün.
 
 ## Syntax
 
@@ -79,7 +79,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

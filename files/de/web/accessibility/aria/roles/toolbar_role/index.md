@@ -1,5 +1,5 @@
 ---
-title: "ARIA: toolbar-Rolle"
+title: "ARIA: toolbar Rolle"
 slug: Web/Accessibility/ARIA/Roles/toolbar_role
 l10n:
   sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
@@ -7,90 +7,90 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `toolbar`-Rolle definiert das enthaltende Element als eine Sammlung häufig verwendeter Funktionsschaltflächen oder Steuerungen, die in einer kompakten visuellen Form dargestellt sind.
+Die `toolbar`-Rolle definiert das enthaltende Element als eine Sammlung von häufig verwendeten Funktionsschaltflächen oder Steuerelementen, die in kompakter visueller Form dargestellt werden.
 
 ## Beschreibung
 
-Eine Werkzeugleiste ist eine Sammlung häufig verwendeter Steuerungen, wie z. B. Schaltflächen oder Kontrollkästchen, die in einer kompakten visuellen Form gruppiert sind. Die `toolbar`-Rolle kann verwendet werden, um das Vorhandensein und den Zweck einer solchen Gruppierung für Bildschirmleseprogramme zu kommunizieren und kann helfen, die Anzahl der Tabstopps für Tastaturnutzer zu verringern. Verwenden Sie die `toolbar`-Rolle nur, um 3 oder mehr Steuerungen zu gruppieren.
+Eine Toolbar ist eine Sammlung von häufig verwendeten Steuerelementen, wie Schaltflächen oder Kontrollkästchen, die in kompakter visueller Form gruppiert sind. Die `toolbar`-Rolle kann verwendet werden, um das Vorhandensein und den Zweck einer solchen Gruppierung den Benutzern von Screenreadern mitzuteilen und kann helfen, die Anzahl der Tab-Stops für Tastaturbenutzer zu reduzieren. Verwenden Sie die `toolbar`-Rolle nur, um drei oder mehr Steuerelemente zu gruppieren.
 
-Die Werkzeugleiste ist häufig eine Untereinheit von Funktionen, die in einer `menubar` zu finden sind, um den Benutzungsaufwand zu reduzieren. Wenn Sie mehr als eine Werkzeugleiste in einer Menüleiste haben, benötigt jede Werkzeugleiste ein Label, das Sie mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) einfügen können.
+Die Toolbar ist normalerweise eine Teilmenge der Funktionen, die in einer `menubar` zu finden sind, um die Benutzeranstrengungen zu reduzieren. Wenn Sie mehr als eine Toolbar in einer Menüleiste haben, benötigt jede Toolbar eine Bezeichnung; diese können Sie mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) einfügen.
 
-Beim Erstellen einer Werkzeugleiste müssen Sie das Fokusmanagement und die Tastaturinteraktionen innerhalb der Werkzeugleiste implementieren, insbesondere wenn dieselben Tastaturinteraktionen sowohl in der Werkzeugleiste als auch in enthaltenen nativen Steuerungen verwendet werden. Die <kbd>Linke Pfeiltaste</kbd> und die <kbd>Rechte Pfeiltaste</kbd> sollten verwendet werden, um zwischen den Steuerungen innerhalb einer horizontalen Werkzeugleiste zu navigieren. Die <kbd>Oben Pfeiltaste</kbd> und die <kbd>Unten Pfeiltaste</kbd> sollten verwendet werden, wenn die Werkzeugleiste vertikal ist — in diesem Fall sollten Sie auch `aria-orientation="vertical"` einfügen — oder in einer horizontalen Werkzeugleiste können sie für die Bedienung von Steuerungen reserviert werden, wie z. B. Spin-Schaltflächen, die vertikale Pfeiltasten erfordern.
+Wenn Sie eine Toolbar erstellen, müssen Sie das Fokusmanagement und die Tastaturinteraktionen innerhalb der Toolbar implementieren, insbesondere wenn dieselben Tastaturinteraktionen sowohl in der Toolbar als auch in den enthaltenen nativen Steuerelementen verwendet werden. Die Pfeiltasten <kbd>Links</kbd> und <kbd>Rechts</kbd> sollten verwendet werden, um zwischen den Steuerelementen innerhalb einer horizontalen Toolbar zu navigieren. Die Pfeiltasten <kbd>Oben</kbd> und <kbd>Unten</kbd> sollten verwendet werden, wenn die Toolbar vertikal ist — in welchem Fall Sie auch `aria-orientation="vertical"` einfügen möchten — oder können in einer horizontalen Toolbar reserviert werden, um Steuerelemente zu bedienen, wie Spin-Buttons, die vertikale Pfeiltasten zur Bedienung erfordern.
 
-Vermeiden Sie die Aufnahme von Steuerungen, deren Bedienung Pfeiltasten erfordert, die für die Navigation in der Werkzeugleiste verwendet werden. Wenn Sie eine solche Steuerung einfügen müssen, machen Sie sie zur letzten Steuerung in der Werkzeugleiste. Zum Beispiel könnte in einer horizontalen Werkzeugleiste ein Textfeld als letztes Element eingefügt werden.
+Vermeiden Sie die Aufnahme von Steuerelementen, deren Bedienung die für die Toolbar-Navigation verwendeten Pfeiltasten erfordert. Wenn Sie ein solches Steuerelement einfügen müssen, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingefügt werden.
 
-Wenn einer der sonst interaktiven Elemente innerhalb der Werkzeugleiste vorübergehend deaktiviert ist, sollten Sie in Betracht ziehen, sie fokussierbar zu lassen, damit Benutzer von Bildschirmleseprogrammen auf ihre Anwesenheit aufmerksam gemacht werden können.
+Wenn eines der ansonsten interaktiven Elemente in der Toolbar vorübergehend deaktiviert ist, ziehen Sie in Betracht, sie fokussierbar zu lassen, damit Benutzer von Screenreadern auf ihre Anwesenheit aufmerksam gemacht werden können.
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)
 
   - : Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation`-Wert von horizontal.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) / [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)
-  - : Wenn die Werkzeugleiste eine sichtbare Beschriftung hat, verweisen Sie mit der ID auf die `aria-labelledby`-Eigenschaft. Andernfalls geben Sie ein `aria-label` an. Wenn es mehr als eine Werkzeugleiste in einem Menü gibt, ist eine Benennung erforderlich.
+  - : Wenn die Toolbar eine sichtbare Beschriftung hat, referenzieren Sie diese mit dem `aria-labelledby`-Attribut per ID. Andernfalls geben Sie ein `aria-label` an. Wenn es mehr als eine Toolbar in einem Menü gibt, ist eine Benennung erforderlich.
 
 ### Tastaturinteraktionen
 
-Implementieren Sie das Fokusmanagement so, dass die Tastatur-Tab-Sequenz einen Stopp für die Werkzeugleiste umfasst und die Pfeiltasten den Fokus zwischen den Steuerungen in der Werkzeugleiste verschieben.
+Implementieren Sie das Fokusmanagement so, dass die Tastatur-Tab-Sequenz einen Stopp für die Toolbar enthält und die Pfeiltasten den Fokus zwischen den Steuerelementen innerhalb der Toolbar verschieben.
 
-- <kbd>Tab</kbd> und <kbd>Umschalt + Tab</kbd>
+- <kbd>Tab</kbd> und <kbd>Shift + Tab</kbd>
 
-  - : Bewegen Sie den Fokus in die und aus der Werkzeugleiste. Wenn der Fokus in eine Werkzeugleiste wechselt:
+  - : Bewegen Sie den Fokus in und aus der Toolbar. Wenn sich der Fokus in eine Toolbar bewegt:
 
-    - Wenn der Fokus zum ersten Mal in die Werkzeugleiste wechselt, wird der Fokus auf das erste Steuerungselement gesetzt, das nicht deaktiviert ist.
-    - Wenn die Werkzeugleiste zuvor den Fokus enthalten hat, wird der Fokus optional auf die Steuerung gesetzt, die zuletzt den Fokus hatte. Andernfalls wird er auf das erste Steuerungselement gesetzt, das nicht deaktiviert ist.
+    - Wenn sich der Fokus erstmals in die Toolbar bewegt, wird der Fokus auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
+    - Wenn die Toolbar zuvor den Fokus enthielt, wird der Fokus optional auf das Steuerelement gesetzt, das zuletzt den Fokus hatte. Andernfalls wird er auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
 
 - <kbd>Home</kbd> (Optional)
 
   - : Verschiebt den Fokus auf das erste Element.
 
-- <kbd>Ende</kbd> (Optional)
+- <kbd>End</kbd> (Optional)
   - : Verschiebt den Fokus auf das letzte Element.
 
-#### Horizontale Werkzeugleiste
+#### Horizontale Toolbar
 
-Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation`-Wert von horizontal. Wenn die Werkzeugleiste tatsächlich diese Ausrichtung hat, müssen folgende Tastaturinteraktionen implementiert werden:
+Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation`-Wert von horizontal. Wenn die Toolbar tatsächlich diese Orientierung hat, müssen folgende Tastaturinteraktionen implementiert werden:
 
-- <kbd>Linke Pfeiltaste</kbd> (Für eine horizontale Werkzeugleiste (die Standardeinstellung)
+- <kbd>Pfeil links</kbd> (Für eine horizontale Toolbar (der Standard)
 
-  - : Verschiebt den Fokus auf die vorherige Steuerung. Optional kann die Fokusbewegung vom ersten Element zum letzten Element umspringen.
+  - : Verschiebt den Fokus auf das vorherige Steuerelement. Optional kann die Fokusbewegung von dem ersten Element auf das letzte Element springen.
 
-- <kbd>Rechte Pfeiltaste</kbd> (Für eine horizontale Werkzeugleiste (die Standardeinstellung)
-  - : Verschiebt den Fokus auf die nächste Steuerung. Optional kann die Fokusbewegung vom letzten Element zum ersten Element umspringen.
+- <kbd>Pfeil rechts</kbd> (Für eine horizontale Toolbar (der Standard)
+  - : Verschiebt den Fokus auf das nächste Steuerelement. Optional kann die Fokusbewegung von dem letzten Element auf das erste Element springen.
 
-In Werkzeugleisten mit mehreren Reihen von Steuerungen erlauben Sie, dass die linken und rechten Pfeiltasten von Reihe zu Reihe umspringen, wobei die Möglichkeit besteht, vertikale Pfeiltasten für die Bedienung von Steuerungen zu reservieren, wie z. B. das Navigieren zwischen Radio-Buttons oder das Erhöhen/Verringern eines numerischen Spinners.
+In Toolbars mit mehreren Reihen von Steuerelementen erlauben Sie es den linken und rechten Pfeilen, von Reihe zu Reihe zu springen, und lassen die Möglichkeit, die vertikalen Pfeiltasten für die Bedienung von Steuerelementen zu reservieren, wie z.B. die Navigation zwischen Radioknöpfen oder die Erhöhung/Verringerung eines numerischen Spinners.
 
-#### Vertikale Werkzeugleiste
+#### Vertikale Toolbar
 
-Wenn die Werkzeugleiste vertikal ist, stellen Sie sicher, dass `aria-orientation="vertical"` gesetzt ist, und die folgenden Tastaturinteraktionen werden implementiert:
+Wenn die Toolbar vertikal ist, stellen Sie sicher, dass `aria-orientation="vertical"` gesetzt ist, und die folgenden Tastaturinteraktionen implementiert werden:
 
-- <kbd>Unten Pfeiltaste</kbd> (Für eine horizontale Werkzeugleiste (die Standardeinstellung)
+- <kbd>Pfeil nach unten</kbd> (Für eine horizontale Toolbar (der Standard)
 
-  - : Verschiebt den Fokus auf die vorherige Steuerung. Optional kann die Fokusbewegung vom ersten Element zum letzten Element umspringen.
+  - : Verschiebt den Fokus auf das vorherige Steuerelement. Optional kann die Fokusbewegung von dem ersten Element auf das letzte Element springen.
 
-- <kbd>Oben Pfeiltaste</kbd> (Für eine horizontale Werkzeugleiste (die Standardeinstellung)
-  - : Verschiebt den Fokus auf die nächste Steuerung. Optional kann die Fokusbewegung vom letzten Element zum ersten Element umspringen.
+- <kbd>Pfeil nach oben</kbd> (Für eine horizontale Toolbar (der Standard)
+  - : Verschiebt den Fokus auf das nächste Steuerelement. Optional kann die Fokusbewegung von dem letzten Element auf das erste Element springen.
 
 ### Erforderliche JavaScript-Funktionen
 
-Implementieren Sie das Fokusmanagement so, dass die Tastatur-Tab-Sequenz einen Stopp für die Werkzeugleiste umfasst und die Pfeiltasten den Fokus zwischen den Steuerungen in der Werkzeugleiste verschieben. Beim Tabben in die Werkzeugleiste kehrt der Fokus auf die Steuerung zurück, die zuletzt den Fokus hatte.
+Implementieren Sie das Fokusmanagement so, dass die Tastatur-Tab-Sequenz einen Stopp für die Toolbar enthält und die Pfeiltasten den Fokus zwischen den Steuerelementen in der Toolbar verschieben. Beim Tabben in die Toolbar kehrt der Fokus zum Steuerelement zurück, das zuletzt den Fokus hatte.
 
-Während das Werkzeugleiste-Element selbst keinen Fokus erhält, muss der Fokus beim Eintritt, Verlassen und innerhalb der Werkzeugleiste verwaltet werden. Beim Laden hat das erste Element in der Tabulatorsequenz innerhalb der Werkzeugleiste `tabindex="0"` und `tabindex="-1"` wird auf alle anderen fokussierbaren Elemente innerhalb der Werkzeugleiste gesetzt. Abhängig von der [Tastaturinteraktion], das Element, das den Fokus erhält, wird auf `tabindex="0"` gesetzt, und das Element, das gerade den Fokus verloren hat, wird wieder auf `tabindex="-1"` gesetzt. Setzen Sie den Fokus, `element.focus()`, auf das Element, das `tabindex="0"` hat. Dies wird "roving tabindex" genannt. Ein Vorteil der Verwendung von roving tabindex zur Verwaltung des Fokus ist, dass der Browser das neu fokussierte Element in den Sichtbereich scrollt.
+Während das Toolbar-Element selbst keinen Fokus erhält, muss der Fokus auf die Bewegung hinein, heraus und innerhalb der Toolbar verwaltet werden. Beim Laden hat das erste Element in der Tab-Reihenfolge innerhalb der Toolbar `tabindex="0"` mit `tabindex="-1"` auf allen anderen fokussierbaren Elementen in der Toolbar. Abhängig von der [Tastaturinteraktion] wird das Element, das den Fokus erhält, auf `tabindex="0"` gesetzt, und das Element, das gerade den Fokus verloren hat, wird zurück auf `tabindex="-1"` gewechselt. Setzen Sie den Fokus mit `element.focus()` auf das Element, das `tabindex="0"` hat. Dies wird als "roving tabindex" bezeichnet. Ein Vorteil der Verwendung von roving tabindex zur Verwaltung des Fokus ist, dass der Browser das neu fokussierte Element in den Blick scrollen wird.
 
-Wenn das Design erfordert, dass ein bestimmtes Element das nächste Mal fokussiert wird, wenn der Benutzer den Fokus mit <kbd>Tab</kbd> oder <kbd>Umschalt + Tab</kbd> in die Werkzeugleiste bewegt, überprüfen Sie, ob dieses Ziel-Element `tabindex="0"` hat, wenn die Werkzeugleiste den Fokus verliert.
+Wenn das Design verlangt, dass ein bestimmtes Element fokussiert wird, das nächste Mal, wenn der Benutzer den Fokus mit <kbd>Tab</kbd> oder <kbd>Shift + Tab</kbd> in die Toolbar bewegt, überprüfen Sie, ob dieses Ziel-Element `tabindex="0"` hat, wenn die Toolbar den Fokus verliert.
 
-Wenn die Werkzeugleiste den Fokus innerhalb hat, stellen Sie visuelle Hinweise bereit. Wenn ein Element innerhalb der Werkzeugleiste Fokus hat, muss ein visueller Hinweis sowohl auf der Werkzeugleiste selbst - um zu unterstützen, dass die Werkzeugleiste eine Richtung mit den Pfeiltasten unterstützt - als auch auf der Steuerung, die den Fokus hat, enthalten sein. Die CSS-Pseudoklassen `:focus` und `:focus-within` können verwendet werden, um beide Elemente zu markieren.
+Sobald die Toolbar Fokus innerhalb hat, bieten Sie visuelle Hinweise. Wenn ein Element innerhalb der Toolbar Fokus hat, muss sowohl auf der Toolbar selbst - um die directionale Navigation mit den Pfeiltasten zu unterstützen - als auch auf dem Steuerelement, das Fokus hat, ein visueller Hinweis enthalten sein. Die CSS-Pseudoklassen von `:focus` und `:focus-within` können verwendet werden, um beide Elemente zu zielen.
 
 ## Beispiele
 
-[Beispiel für eine Werkzeugleiste von <abbr>W3C</abbr>, dem World Wide Web Consortium](https://www.w3.org/TR/wai-aria-practices-1.2/examples/toolbar/toolbar.html)
+[Toolbar-Beispiel vom <abbr>W3C</abbr>, dem World Wide Web Consortium](https://www.w3.org/TR/wai-aria-practices-1.2/examples/toolbar/toolbar.html)
 
-## Barrierefreiheit
+## Barrierefreiheitshinweise
 
-Vermeiden Sie die Aufnahme von Steuerungen, deren Bedienung Pfeiltasten erfordert, die für die Navigation in der Werkzeugleiste verwendet werden (rechte und linke Pfeile oder oben und unten für vertikale Werkzeugleisten). Wenn Sie eine solche Steuerung einfügen müssen, machen Sie sie zur letzten Steuerung in der Werkzeugleiste. Zum Beispiel könnte in einer horizontalen Werkzeugleiste ein Textfeld als letztes Element eingefügt werden.
+Vermeiden Sie die Aufnahme von Steuerelementen, deren Bedienung die für die Toolbar-Navigation verwendeten Pfeiltasten erfordert (rechts und links Pfeile, oder oben und unten für vertikale Toolbars). Wenn Sie ein solches Steuerelement einfügen müssen, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingefügt werden.
 
-Wenn einer der interaktiven Elemente innerhalb der Werkzeugleiste deaktiviert ist, sollten Sie in Betracht ziehen, sie fokussierbar zu lassen, damit Benutzer von Bildschirmleseprogrammen auf ihre Anwesenheit aufmerksam gemacht werden können.
+Wenn eines der ansonsten interaktiven Elemente in der Toolbar deaktiviert ist, ziehen Sie in Betracht, sie fokussierbar zu lassen, damit Benutzer von Screenreadern auf ihre Anwesenheit aufmerksam gemacht werden können.
 
 ## Spezifikationen
 
@@ -98,5 +98,5 @@ Wenn einer der interaktiven Elemente innerhalb der Werkzeugleiste deaktiviert is
 
 ## Siehe auch
 
-- [Die CSS-Pseudoklasse `:focus`](/de/docs/Web/CSS/:focus)
-- [Die CSS-Pseudoklasse `:focus-within`](/de/docs/Web/CSS/:focus-within)
+- [Die CSS `:focus` Pseudoklasse](/de/docs/Web/CSS/:focus)
+- [Die CSS `:focus-within` Pseudoklasse](/de/docs/Web/CSS/:focus-within)

@@ -1,5 +1,5 @@
 ---
-title: "ReportingObserver: Methode takeRecords()"
+title: "ReportingObserver: takeRecords() Methode"
 short-title: takeRecords()
 slug: Web/API/ReportingObserver/takeRecords
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`takeRecords()`**-Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle gibt die aktuelle Liste von Berichten zurück, die sich in der Berichts-Warteschlange des Observers befinden, und leert die Warteschlange.
+Die **`takeRecords()`** Methode der
+[`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Schnittstelle gibt die aktuelle Liste der Berichte zurück, die in der Berichtswarteschlange des Observers enthalten sind, und leert die Warteschlange.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`Report`](/de/docs/Web/API/Report)-Objekten.
+Ein Array von [`Report`](/de/docs/Web/API/Report) Objekten.
 
 ## Beispiele
 

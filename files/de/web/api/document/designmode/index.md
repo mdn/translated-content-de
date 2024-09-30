@@ -1,5 +1,5 @@
 ---
-title: "Dokument: designMode-Eigenschaft"
+title: "Document: designMode Eigenschaft"
 short-title: designMode
 slug: Web/API/Document/designMode
 l10n:
@@ -8,17 +8,11 @@ l10n:
 
 {{APIRef}}
 
-**`document.designMode`** steuert, ob das gesamte Dokument
-bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der
-Spezifikation soll diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox befolgt
-diesen Standard. Die früheren Versionen von Chrome und IE verwenden standardmäßig `"inherit"`.
-Seit Chrome 43 ist der Standardwert `"off"`, und `"inherit"` wird
-nicht mehr unterstützt. In IE6-10 wird der Wert großgeschrieben.
+**`document.designMode`** steuert, ob das gesamte Dokument bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der Spezifikation sollte diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox hält sich an diesen Standard. Frühere Versionen von Chrome und IE haben standardmäßig `"inherit"` verwendet. Ab Chrome 43 ist der Standard `"off"`, und `"inherit"` wird nicht mehr unterstützt. In IE6-10 wird der Wert großgeschrieben.
 
 ## Wert
 
-Ein String, der angibt, ob `designMode` auf on oder off gesetzt ist (oder gesetzt werden sollte).
-Gültige Werte sind `on` und `off`.
+Ein String, der angibt, ob `designMode` auf on oder off gesetzt ist (oder sein sollte). Gültige Werte sind `on` und `off`.
 
 ## Beispiele
 

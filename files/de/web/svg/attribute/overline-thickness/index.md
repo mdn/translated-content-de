@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `overline-thickness` repräsentiert die ideale Dicke der Überlinie. Die Dicke der Überlinie wird im Koordinatensystem der Schriftart ausgedrückt.
+Das Attribut `overline-thickness` repräsentiert die ideale Dicke der Überlinie. Die Überlinien-Dicke wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -19,7 +19,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   <tbody>
     <tr>
       <th scope="row">Kategorien</th>
-      <td><em>Keiner</em></td>
+      <td><em>Keine</em></td>
     </tr>
     <tr>
       <th scope="row">Wert</th>

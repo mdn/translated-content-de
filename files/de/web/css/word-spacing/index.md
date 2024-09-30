@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`word-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen Wörtern und zwischen Tags fest.
+Die **`word-spacing`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Länge des Abstands zwischen Wörtern und zwischen Tags fest.
 
 {{EmbedInteractiveExample("pages/css/word-spacing.html")}}
 
@@ -34,16 +34,16 @@ word-spacing: unset;
 - `normal`
   - : Der normale Wortzwischenraum, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
 - {{cssxref("length")}}
-  - : Gibt zusätzlichen Abstand zusätzlich zum intrinsischen Wortzwischenraum an, der durch die Schriftart definiert ist.
+  - : Gibt zusätzlichen Abstand an, zusätzlich zu dem intrinsischen Wortzwischenraum, der durch die Schriftart definiert ist.
 
 ## Barrierefreiheit
 
-Ein sehr großer positiver oder negativer `word-spacing` Wert macht die Sätze, auf die das Styling angewendet wird, unleserlich. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Wörter so weit voneinander entfernt, dass es nicht mehr wie ein Satz erscheint. Bei Text, der mit einem großen negativen Wert gestylt ist, überlappen sich die Wörter so stark, dass Anfang und Ende jedes Wortes nicht mehr erkennbar sind.
+Ein großer positiver oder negativer `word-spacing`-Wert macht die Sätze, auf die das Styling angewendet wird, unlesbar. Bei Texten, die mit einem sehr großen positiven Wert gestylt sind, werden die Wörter so weit auseinander sein, dass es nicht mehr als Satz erscheint. Bei Texten mit einem großen negativen Wert überlappen sich die Wörter so stark, dass der Anfang und das Ende jedes Wortes unkenntlich werden.
 
-Lesbarer `word-spacing` muss fallweise bestimmt werden, da verschiedene Schriftarten unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der automatisch sicherstellt, dass alle Schriftarten ihre Lesbarkeit behalten.
+Lesbarer `word-spacing` muss von Fall zu Fall bestimmt werden, da unterschiedliche Schriftarten unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der automatisch sicherstellt, dass alle Schriftarten ihre Lesbarkeit behalten.
 
-- [MDN Verständnis von WCAG, Leitlinie 1.4 Erläuterungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN-Verstehen der WCAG, Erklärung zu Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C-Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Beispiele
 

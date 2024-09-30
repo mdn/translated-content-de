@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLOutputElement.labels`** gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("output")}}-Element verknüpft sind.
+Die **`HTMLOutputElement.labels`** Eigenschaft gibt eine schreibgeschützte
+[`NodeList`](/de/docs/Web/API/NodeList) von den {{HTMLElement("label")}}-Elementen zurück, die mit dem
+{{HTMLElement("output")}}-Element verknüpft sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<output>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<output>`-Element
+verknüpft sind.
 
 ## Beispiele
 

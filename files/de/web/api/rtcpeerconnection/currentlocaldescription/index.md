@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`currentLocalDescription`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das das lokale Ende der Verbindung beschreibt, wie es seit der letzten erfolgreichen Aushandlung beschrieben wurde, seitdem die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) das Aushandeln und Verbinden mit einem entfernten Peer abgeschlossen hat. Ebenfalls enthalten ist eine Liste von ICE-Kandidaten, die möglicherweise bereits vom ICE-Agenten generiert wurden, seitdem das Offer oder Answer, das in der Beschreibung repräsentiert ist, zuerst instanziiert wurde.
+Die schreibgeschützte Eigenschaft **`currentLocalDescription`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das das lokale Ende der Verbindung beschreibt, wie es zuletzt erfolgreich ausgehandelt wurde, seit das letzte Mal die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) mit einem entfernten Peer ausgehandelt und verbunden wurde. Ebenfalls enthalten ist eine Liste von ICE-Kandidaten, die möglicherweise bereits vom ICE-Agenten generiert wurden, seit das Angebot oder die Antwort, die durch die Beschreibung dargestellt wird, erstmals instanziiert wurde.
 
-Um die `currentLocalDescription` zu ändern, rufen Sie [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) auf, was eine Reihe von Ereignissen auslöst, die dazu führen, dass dieser Wert gesetzt wird. Details dazu, was genau passiert und warum die Änderung nicht unbedingt sofort erfolgt, finden Sie unter [Pending and current descriptions](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Connectivity-Seite.
+Um die `currentLocalDescription` zu ändern, rufen Sie [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) auf, was eine Reihe von Ereignissen auslöst, die dazu führen, dass dieser Wert gesetzt wird. Für Details darüber, was genau passiert und warum die Änderung nicht unbedingt sofort erfolgt, siehe [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 > [!NOTE]
-> Im Gegensatz zu [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) repräsentiert dieser Wert den tatsächlichen aktuellen Zustand des lokalen Endes der Verbindung; `localDescription` kann eine Beschreibung angeben, auf die die Verbindung derzeit umgeschaltet wird.
+> Im Gegensatz zu [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) stellt dieser Wert den tatsächlichen aktuellen Zustand des lokalen Endes der Verbindung dar; `localDescription` kann eine Beschreibung angeben, zu der die Verbindung gerade wechselt.
 
 ## Wert
 
-Die aktuelle Beschreibung des lokalen Endes der Verbindung, falls eine gesetzt wurde. Wenn keine erfolgreich gesetzt wurde, ist dieser Wert `null`.
+Die aktuelle Beschreibung des lokalen Endes der Verbindung, falls eine gesetzt wurde. Falls keine erfolgreich gesetzt wurde, ist dieser Wert `null`.
 
 ## Beispiele
 
-Dieses Beispiel betrachtet die `currentLocalDescription` und zeigt eine Warnung an, die die `type`- und `sdp`-Felder des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
+Dieses Beispiel betrachtet die `currentLocalDescription` und zeigt einen Alarm an, der die `type`- und `sdp`-Felder des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
 
 ```js
 const pc = new RTCPeerConnection();

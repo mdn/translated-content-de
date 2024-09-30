@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`numberOfChannels`** schreibgeschützte Eigenschaft der [`AudioData`](/de/docs/Web/API/AudioData)-Schnittstelle gibt die Anzahl der Kanäle im `AudioData`-Objekt zurück.
+Die schreibgeschützte Eigenschaft **`numberOfChannels`** des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Anzahl der Kanäle im `AudioData`-Objekt zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine ganze Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `numberOfChannels` in der Konsole ausgegeben.
+Das folgende Beispiel gibt den Wert von `numberOfChannels` in der Konsole aus.
 
 ```js
 console.log(AudioData.numberOfChannels);

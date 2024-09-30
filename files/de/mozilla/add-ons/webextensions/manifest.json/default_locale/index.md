@@ -16,7 +16,7 @@ l10n:
     <tr>
       <th scope="row">Verpflichtend</th>
       <td>
-        Abhängig: muss vorhanden sein, wenn das _locales-Unterverzeichnis vorhanden ist,
+        Bedingt: muss vorhanden sein, wenn das Verzeichnis _locales vorhanden ist,
         muss andernfalls fehlen.
       </td>
     </tr>
@@ -27,9 +27,9 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel muss vorhanden sein, wenn die Erweiterung das \_locales-Verzeichnis enthält, und muss andernfalls fehlen. Er identifiziert ein Unterverzeichnis von \_locales, und dieses Unterverzeichnis wird verwendet, um die Standardzeichenfolgen für Ihre Erweiterung zu finden.
+Dieser Schlüssel muss vorhanden sein, wenn die Erweiterung das Verzeichnis \_locales enthält, und muss andernfalls fehlen. Er identifiziert ein Unterverzeichnis von \_locales, und dieses Unterverzeichnis wird verwendet, um die Standardzeichenfolgen für Ihre Erweiterung zu finden.
 
-Siehe [Internationalization](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization).
+Siehe [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization).
 
 ## Beispiel
 

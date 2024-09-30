@@ -2,21 +2,21 @@
 title: WebGLShaderPrecisionFormat
 slug: Web/API/WebGLShaderPrecisionFormat
 l10n:
-  sourceCommit: 73b724ad82b94d2a4c314924218367cea2740e97
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLShaderPrecisionFormat**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt die Informationen dar, die durch den Aufruf der Methode [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat) zurückgegeben werden.
+Die **WebGLShaderPrecisionFormat**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt die Informationen dar, die beim Aufruf der Methode [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat) zurückgegeben werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`WebGLShaderPrecisionFormat.rangeMin`](/de/docs/Web/API/WebGLShaderPrecisionFormat/rangeMin) {{ReadOnlyInline}}
-  - : Der Basis-2-Logarithmus des absoluten Wertes des minimal darstellbaren Wertes.
+  - : Der Logarithmus zur Basis 2 des absoluten Wertes des minimalen darstellbaren Werts.
 - [`WebGLShaderPrecisionFormat.rangeMax`](/de/docs/Web/API/WebGLShaderPrecisionFormat/rangeMax) {{ReadOnlyInline}}
-  - : Der Basis-2-Logarithmus des absoluten Wertes des maximal darstellbaren Wertes.
+  - : Der Logarithmus zur Basis 2 des absoluten Wertes des maximalen darstellbaren Werts.
 - [`WebGLShaderPrecisionFormat.precision`](/de/docs/Web/API/WebGLShaderPrecisionFormat/precision) {{ReadOnlyInline}}
-  - : Die Anzahl der Bits der Genauigkeit, die dargestellt werden können. Für Ganzzahlformate ist dieser Wert immer 0.
+  - : Die Anzahl der darstellbaren Präzisionsbits. Für ganzzahlige Formate ist dieser Wert immer 0.
 
 ## Beispiele
 

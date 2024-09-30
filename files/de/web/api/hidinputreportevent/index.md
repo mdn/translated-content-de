@@ -7,28 +7,28 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`HIDInputReportEvent`** Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) wird beim [`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event)-Ereignis von `HIDDevice` übergeben, wenn ein Eingabereport von einem zugehörigen HID-Gerät empfangen wird.
+Die **`HIDInputReportEvent`** Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) wird dem [`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event) Ereignis von `HIDDevice` übergeben, wenn ein Eingabereport von einem verbundenen HID-Gerät empfangen wird.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 - [`HIDInputReportEvent.data`](/de/docs/Web/API/HIDInputReportEvent/data) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{jsxref("DataView")}}, das die Daten des Eingabereports ohne die `reportId` enthält, wenn die HID-Schnittstelle Report-IDs verwendet.
+  - : Ein {{jsxref("DataView")}}, das die Daten des Eingabereports enthält, mit Ausnahme der `reportId`, wenn die HID-Schnittstelle Report-IDs verwendet.
 - [`HIDInputReportEvent.device`](/de/docs/Web/API/HIDInputReportEvent/device) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz, die die HID-Schnittstelle repräsentiert, die den Eingabereport gesendet hat.
+  - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz, die die HID-Schnittstelle darstellt, die den Eingabereport gesendet hat.
 - [`HIDInputReportEvent.reportId`](/de/docs/Web/API/HIDInputReportEvent/reportId) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Das ein-Byte-Identifikationspräfix für diesen Report oder 0, wenn die HID-Schnittstelle keine Report-IDs verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt Methoden von ihrem übergeordneten Objekt, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie auf ein `inputReport` gehört wird, sodass die Anwendung erkennen kann, welcher Knopf auf einem Joy-Con-Rechts-Gerät gedrückt wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt das Lauschen auf ein `inputReport`, das es der Anwendung ermöglicht zu erkennen, welcher Knopf auf einem Joy-Con Right Gerät gedrückt wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 device.addEventListener("inputreport", (event) => {

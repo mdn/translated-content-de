@@ -1,5 +1,5 @@
 ---
-title: "Crypto: getRandomValues() Methode"
+title: "Crypto: Methode getRandomValues()"
 short-title: getRandomValues()
 slug: Web/API/Crypto/getRandomValues
 l10n:
@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{AvailableInWorkers}}
 
-Die **`Crypto.getRandomValues()`**-Methode ermöglicht es Ihnen, kryptografisch starke Zufallswerte zu erhalten. Das als Parameter angegebene Array wird mit Zufallszahlen gefüllt (im kryptografischen Sinne zufällig).
+Die **`Crypto.getRandomValues()`**-Methode ermöglicht es Ihnen, kryptographisch starke Zufallswerte zu erhalten.
+Das als Parameter übergebene Array wird mit Zufallszahlen (im kryptographischen Sinne zufällig) gefüllt.
 
-Um eine ausreichende Leistung zu gewährleisten, verwenden Implementierungen keinen echten Zufallszahlengenerator, sondern einen pseudozufälligen Zahlengenerator, der mit einem ausreichend entropiereichen Wert _initialisiert_ wird. Der Algorithmus des Pseudozufallszahlengenerators (PRNG) kann zwischen [User Agents](/de/docs/Glossary/user_agent) variieren, ist jedoch für kryptografische Zwecke geeignet.
+Um ausreichende Leistung zu gewährleisten, verwenden Implementierungen keinen echten Zufallszahlengenerator, sondern einen Pseudozufallszahlengenerator, der mit einem ausreichend entropiereichen Wert _gesät_ wird. Der Algorithmus des Pseudozufallszahlengenerators (PRNG) kann zwischen verschiedenen [User Agents](/de/docs/Glossary/user_agent) variieren, ist jedoch für kryptographische Zwecke geeignet.
 
-`getRandomValues()` ist das einzige Mitglied der `Crypto`-Schnittstelle, das in einem unsicheren Kontext verwendet werden kann.
+`getRandomValues()` ist das einzige Element des `Crypto`-Interfaces, das in einem unsicheren Kontext verwendet werden kann.
 
 ## Syntax
 
@@ -23,7 +24,7 @@ getRandomValues(typedArray)
 ### Parameter
 
 - `typedArray`
-  - : Ein integerbasiertes {{jsxref("TypedArray")}}, das eines der folgenden ist: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein ganzzahlig basiertes {{jsxref("TypedArray")}}, das eines der folgenden sein kann: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Uint8ClampedArray")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}},
     {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}},
     {{jsxref("BigUint64Array")}} (aber **nicht** `Float32Array` noch `Float64Array`).
@@ -31,18 +32,23 @@ getRandomValues(typedArray)
 
 ### Rückgabewert
 
-Dasselbe Array, das als `typedArray` übergeben wurde, jedoch mit den neu generierten Zufallszahlen gefüllt. Beachten Sie, dass `typedArray` direkt verändert wird und keine Kopie erstellt wird.
+Das gleiche Array, das als `typedArray` übergeben wurde, aber mit neu generierten Zufallszahlen ersetzt.
+Beachten Sie, dass `typedArray` an Ort und Stelle modifiziert wird und keine Kopie erstellt wird.
 
 ### Ausnahmen
 
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die {{jsxref("TypedArray.byteLength", "byteLength")}} von `typedArray` 65.536 überschreitet.
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
-Bevorzugen Sie die Methode [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) zur Schlüsselerzeugung, die sicher in einem geschützten Kontext läuft.
+Bevorzugen Sie die Methode [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) zur Schlüsselerzeugung, die garantiert in einem sicheren Kontext ausgeführt wird.
 
-Es gibt keinen Mindestgrad an Entropie, der durch die Spezifikation der Web-Kryptografie vorgeschrieben ist. Stattdessen werden die User Agents aufgefordert, die bestmögliche Entropie bereitzustellen, die sie beim Generieren von Zufallszahlen können, und zwar mit einem klar definierten, effizienten Pseudozufallszahlengenerator, der im User Agent selbst eingebaut ist, aber mit Werten initialisiert wird, die aus einer externen Quelle für Pseudozufallszahlen stammen, wie z.B. einer plattformspezifischen Zufallszahlfunktion, dem Unix- `/dev/urandom`-Gerät oder einer anderen Quelle für Zufalls- oder Pseudozufallsdaten.
+Es gibt keinen minimalen Grad an Entropie, der durch die Web Cryptography-Spezifikation vorgeschrieben wird.
+Stattdessen werden User Agents gedrängt, die bestmögliche Entropie zu bieten, die sie können, wenn sie Zufallszahlen generieren,
+unter Verwendung eines gut definierten, effizienten Pseudorandom-Zahlengenerators, der in den User Agent selbst eingebaut ist,
+jedoch gesät mit Werten, die von einer externen Quelle für Pseudorandom-Zahlen stammen, wie z. B. eine plattformspezifische Zufallszahlen-Funktion,
+das Unix-`/dev/urandom`-Gerät oder andere Quellen von zufälligen oder pseudorandom Daten.
 
 ## Beispiele
 
@@ -67,4 +73,4 @@ for (const num of array) {
 ## Siehe auch
 
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
-- {{jsxref("Math.random")}}, eine nicht-kryptografische Quelle für Zufallszahlen.
+- {{jsxref("Math.random")}}, eine nicht-kryptographische Quelle von Zufallszahlen.

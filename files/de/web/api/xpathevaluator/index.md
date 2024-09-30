@@ -17,15 +17,15 @@ Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von [XP
 ## Instanzmethoden
 
 - [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression)
-  - : Erstellt einen geparsten XPath-Ausdruck mit aufgelösten Namensräumen.
+  - : Erstellt einen geparsten XPath-Ausdruck mit aufgelösten Namespaces.
 - [`XPathEvaluator.createNSResolver()`](/de/docs/Web/API/XPathEvaluator/createNSResolver) {{deprecated_inline}}
   - : Gibt die Eingabe unverändert zurück.
 - [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate)
-  - : Wertet eine XPath-Ausdruckszeichenkette aus und gibt, wenn möglich, ein Ergebnis des angegebenen Typs zurück.
+  - : Bewertet einen XPath-Ausdrucksstring und gibt, wenn möglich, ein Ergebnis des angegebenen Typs zurück.
 
 ## Beispiel
 
-### Zählen Sie die Anzahl der `<div>`-Elemente
+### Zählen der Anzahl von `<div>`-Elementen
 
 Das folgende Beispiel zeigt die Verwendung des `XPathEvaluator`-Interfaces.
 

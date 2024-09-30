@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getFloat16()`** Methode von {{jsxref("DataView")}} Instanzen liest 2 Bytes beginnend beim angegebenen Byte-Offset dieses `DataView` und interpretiert sie als eine 16-Bit Gleitpunktzahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getFloat16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes, beginnend am angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 16-Bit-Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getfloat16.html")}}
 
@@ -21,18 +21,18 @@ getFloat16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, von dem aus die Daten gelesen werden, ausgehend vom Anfang der Ansicht.
+  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format vorliegen. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Eine Gleitpunktzahl von `-65504` bis `65504`.
+Eine Gleitkommazahl von `-65504` bis `65504`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass darüber hinaus vom Ende der Ansicht gelesen wird.
+  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 

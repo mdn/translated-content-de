@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte **`sources`**-Eigenschaft des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten zurück, die auf die DOM-Elemente hinweisen, die sich während der Layoutverschiebung bewegt haben.
+Die **`sources`** schreibgeschützte Eigenschaft des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten zurück, die die DOM-Elemente angeben, die sich während der Layoutverschiebung bewegt haben.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Array")}} von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutSh
 
 ## Beispiele
 
-### Protokollierung von Layoutverschiebungsquellen
+### Quellen der Layoutverschiebung protokollieren
 
 ```js
 const observer = new PerformanceObserver((list) => {

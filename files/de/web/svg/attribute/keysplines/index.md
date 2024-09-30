@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`keySplines`**-Attribut definiert eine Reihe von [Bézierkurven](/de/docs/Glossary/Bezier_curve)-Kontrollpunkten, die mit der {{SVGAttr("keyTimes")}}-Liste verknüpft sind und eine kubische Bézierfunktion festlegen, die die Intervallsteuerung übernimmt.
+Das **`keySplines`**-Attribut definiert eine Reihe von [Bézier-Kurven](/de/docs/Glossary/Bezier_curve)-Kontrollpunkten, die mit der {{SVGAttr("keyTimes")}}-Liste verbunden sind und eine kubische Bézier-Funktion darstellen, die den Verlauf des Intervalls steuert.
 
 Dieses Attribut wird ignoriert, es sei denn, das {{SVGAttr("calcMode")}}-Attribut ist auf `spline` gesetzt.
 
-Wenn es irgendwelche Fehler in der keySplines-Spezifikation gibt (schlechte Werte, zu viele oder zu wenige Werte), wird die Animation nicht ausgeführt.
+Wenn es Fehler in der keySplines-Spezifikation gibt (schlechte Werte, zu viele oder zu wenige Werte), wird die Animation nicht ausgeführt.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -76,16 +76,16 @@ svg {
   </tbody>
 </table>
 
-Der Attributwert ist eine durch Semikolon getrennte Liste von Kontrollpunktbeschreibungen.
+Der Attributwert ist eine durch Semikolons getrennte Liste von Kontrollpunktbeschreibungen.
 
 - `<control-point>`
 
-  - : Jede Kontrollpunktbeschreibung ist eine Menge von vier Werten: `x1 y1 x2 y2`, die die Bézier-Kontrollpunkte für ein Zeitsegment beschreiben. Die {{SVGAttr("keyTimes")}}-Werte, die das zugehörige Segment definieren, sind die Bézier-"Ankerpunkte", und die `keySplines`-Werte sind die Kontrollpunkte. Daher muss es ein Kontrollpunktsatz weniger als die Anzahl der {{SVGAttr("keyTimes")}} geben.
+  - : Jede Kontrollpunktbeschreibung besteht aus einer Gruppe von vier Werten: `x1 y1 x2 y2`, die die Bézier-Kontrollpunkte für ein Zeitsegment beschreiben. Die {{SVGAttr("keyTimes")}}-Werte, die das zugehörige Segment definieren, sind die Bézier-"Ankerpunkte", und die `keySplines`-Werte sind die Kontrollpunkte. Es muss also eine Gruppe von Kontrollpunkten weniger als {{SVGAttr("keyTimes")}} geben.
 
     Die Werte von `x1 y1 x2 y2` müssen alle im Bereich von 0 bis 1 liegen.
 
 - Safari-Probleme
-  - : `keyTimes`-Werte sollten durch Semikolons ohne Leerraum davor getrennt werden, z.B.: `keyTimes="0; 0.25; 0.5; 0.75; 1"`
+  - : `keyTimes`-Werte sollten ohne Leerzeichen davor mit einem Semikolon getrennt werden, z.B.: `keyTimes="0; 0.25; 0.5; 0.75; 1"`
 
 ## Spezifikationen
 
@@ -93,4 +93,4 @@ Der Attributwert ist eine durch Semikolon getrennte Liste von Kontrollpunktbesch
 
 ## Siehe auch
 
-- [Bézierkurve](/de/docs/Glossary/Bezier_curve)
+- [Bézier-Kurve](/de/docs/Glossary/Bezier_curve)

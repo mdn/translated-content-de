@@ -1,5 +1,5 @@
 ---
-title: "RTCCertificateStats: Typ-Eigenschaft"
+title: "RTCCertificateStats: type-Eigenschaft"
 short-title: type
 slug: Web/API/RTCCertificateStats/type
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Dictionaries ist ein String mit dem Wert `"certificate"`.
+Die **`type`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Wörterbuchs ist ein String mit dem Wert `"certificate"`.
 
-Verschiedene Statistiken werden durch Iteration über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, abgerufen. Der Typ gibt die Menge der in einem bestimmten Iterationsschritt über das Objekt verfügbaren Statistiken an. Ein Wert von `"certificate"` zeigt an, dass die in dem aktuellen Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats) definiert sind.
+Verschiedene Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der `type` gibt an, welche Statistikdatensätze im Objekt während eines bestimmten Iterationsschritts verfügbar sind. Ein Wert von `"certificate"` zeigt an, dass die Statistiken, die im aktuellen Schritt verfügbar sind, diejenigen sind, die in [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats) definiert sind.
 
 ## Wert
 

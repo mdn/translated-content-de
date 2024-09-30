@@ -1,5 +1,5 @@
 ---
-title: "Element: scroll-Ereignis"
+title: "Element: scroll Ereignis"
 short-title: scroll
 slug: Web/API/Element/scroll_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`scroll`**-Ereignis wird ausgelöst, wenn ein Element gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis des `Element`.
+Das **`scroll`** Ereignis wird ausgelöst, wenn ein Element gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, sehen Sie sich das [`scrollend`](/de/docs/Web/API/Element/scrollend_event) Ereignis von `Element` an.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("scroll", (event) => {});
@@ -20,17 +20,17 @@ addEventListener("scroll", (event) => {});
 onscroll = (event) => {};
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie das `scroll`-Ereignis mit einem Ereignis-Listener und mit der `onscroll`-Ereignis-Handler-Eigenschaft verwendet wird. Die [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Methode wird verwendet, um den Ereignis-Handler zu [drosseln](/de/docs/Glossary/throttle), da `scroll`-Ereignisse mit hoher Rate ausgelöst werden können. Für zusätzliche Beispiele, die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, siehe die `Document`-[`scroll`](/de/docs/Web/API/Document/scroll_event)-Ereignis-Seite.
+Die folgenden Beispiele zeigen, wie das `scroll` Ereignis mit einem Event-Listener und mit der `onscroll` Event-Handler-Eigenschaft verwendet wird. Die [`setTimeout()`](/de/docs/Web/API/SetTimeout) Methode wird verwendet, um den Event-Handler zu [drosseln](/de/docs/Glossary/throttle), da `scroll` Ereignisse mit einer hohen Rate ausgelöst werden können. Für zusätzliche Beispiele, die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, siehe die `Document` [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis-Seite.
 
-### Verwendung von `scroll` mit einem Ereignis-Listener
+### Verwendung von `scroll` mit einem Event-Listener
 
-Das folgende Beispiel zeigt, wie das `scroll`-Ereignis verwendet wird, um zu erkennen, wann der Benutzer in einem Element scrollt:
+Das folgende Beispiel zeigt, wie das `scroll` Ereignis verwendet wird, um zu erkennen, wenn der Benutzer innerhalb eines Elements scrollt:
 
 ```html
 <div
@@ -55,9 +55,9 @@ element.addEventListener("scroll", (event) => {
 
 {{EmbedLiveSample("Using_scroll_with_an_event_listener", "100%", 120)}}
 
-### Verwendung der `onscroll`-Ereignis-Handler-Eigenschaft
+### Verwendung der `onscroll` Event-Handler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie die `onscroll`-Ereignis-Handler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer scrollt:
+Das folgende Beispiel zeigt, wie die `onscroll` Event-Handler-Eigenschaft verwendet wird, um zu erkennen, wenn der Benutzer scrollt:
 
 ```html
 <div
@@ -92,6 +92,6 @@ element.onscroll = (event) => {
 
 ## Siehe auch
 
-- [Element `scrollend`-Ereignis](/de/docs/Web/API/Element/scrollend_event)
-- [Document `scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
-- [Document `scrollend`-Ereignis](/de/docs/Web/API/Document/scrollend_event)
+- [Element `scrollend` Ereignis](/de/docs/Web/API/Element/scrollend_event)
+- [Document `scroll` Ereignis](/de/docs/Web/API/Document/scroll_event)
+- [Document `scrollend` Ereignis](/de/docs/Web/API/Document/scrollend_event)

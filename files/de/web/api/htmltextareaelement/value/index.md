@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle repräsentiert den Wert des {{htmlelement("textarea")}}-Elements als Zeichenkette. Wenn das Widget keinen Inhalt hat, ist dieser Wert eine leere Zeichenkette. Sie gibt den rohen Wert zurück, den das Steuerelement enthält, oder legt ihn fest.
+Die **`value`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces repräsentiert den Wert des {{htmlelement("textarea")}}-Elements als Zeichenfolge, die eine leere Zeichenfolge ist, wenn das Widget keinen Inhalt enthält. Sie gibt den rohen Wert zurück, der in der Steuerung enthalten ist, oder setzt diesen.
 
 ## Wert
 
-Eine Zeichenkette, die den Inhalt des {{htmlelement("textarea")}}-Elements enthält.
+Eine Zeichenfolge, die den Inhalt des {{htmlelement("textarea")}}-Elements enthält.
 
 ## Beispiele
 

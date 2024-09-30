@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: isTexture()-Methode"
+title: "WebGLRenderingContext: isTexture() Methode"
 short-title: isTexture()
 slug: Web/API/WebGLRenderingContext/isTexture
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isTexture()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) gültig ist, und `false` andernfalls.
+Die **`WebGLRenderingContext.isTexture()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn die übergebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) gültig ist, und `false` andernfalls.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isTexture(texture)
 ### Parameter
 
 - `texture`
-  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), das überprüft werden soll.
+  - : Eine [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), die überprüft werden soll.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Textur gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Textur gültig ist.
 
 ## Beispiele
 

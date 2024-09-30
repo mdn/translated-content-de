@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`label`** schreibgeschützte Eigenschaft des [`TextTrack`](/de/docs/Web/API/TextTrack) Interface gibt ein menschenlesbares Label für den Texttrack zurück, falls es verfügbar ist.
+Die **`label`**-Eigenschaft des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein menschenlesbares Label für den Texttrack zurückgibt, falls verfügbar.
 
 ## Wert
 

@@ -1,6 +1,6 @@
 ---
-title: "AudioParam: lineareRampeZuWertZurZeit() Methode"
-short-title: lineareRampeZuWertZurZeit()
+title: "AudioParam: linearRampToValueAtTime() Methode"
+short-title: linearRampToValueAtTime()
 slug: Web/API/AudioParam/linearRampToValueAtTime
 l10n:
   sourceCommit: ed0069ce5f405ef1914b1b28341ccb1c5fed1636
@@ -8,12 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `linearRampToValueAtTime()` Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)
-Schnittstelle plant eine allmähliche lineare Veränderung des Wertes des
-`AudioParam`. Die Änderung beginnt zur Zeit, die für das
-_vorangegangene_ Ereignis angegeben wurde, folgt einer linearen Rampe zum neuen Wert, der im
-`value`-Parameter angegeben ist, und erreicht den neuen Wert zur im
-`endTime`-Parameter gegebenen Zeit.
+Die Methode `linearRampToValueAtTime()` der Schnittstelle [`AudioParam`](/de/docs/Web/API/AudioParam) plant eine schrittweise lineare Änderung des Wertes des `AudioParam`. Die Änderung beginnt zur für das _vorherige_ Ereignis angegebenen Zeit, folgt einer linearen Rampe zum neuen Wert, der im `value`-Parameter angegeben ist, und erreicht den neuen Wert zu der im `endTime`-Parameter angegebenen Zeit.
 
 ## Syntax
 
@@ -24,21 +19,17 @@ linearRampToValueAtTime(value, endTime)
 ### Parameter
 
 - `value`
-  - : Eine Fließkommazahl, die den Wert darstellt, zu dem der `AudioParam` bis zur angegebenen Zeit anwächst.
+  - : Eine Gleitkommazahl, die den Wert darstellt, auf den das `AudioParam` bis zur angegebenen Zeit ansteigen wird.
 - `endTime`
-  - : Ein Double-Wert, der die genaue Zeit (in Sekunden) nach dem Beginn des Hochfahrens darstellt, zu der die Änderung des Wertes endet.
+  - : Ein Double, das die genaue Zeit (in Sekunden) darstellt, nach der das Ansteigen des Wertes beendet wird.
 
 ### Rückgabewert
 
-Eine Referenz auf dieses `AudioParam`-Objekt. In einigen älteren
-Implementierungen dieser Schnittstelle wird {{jsxref('undefined')}} zurückgegeben.
+Ein Verweis auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 
-In diesem Beispiel haben wir eine Medienquelle mit zwei Steuerungsknöpfen (siehe das [audio-param Repository](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn diese Knöpfe gedrückt werden, wird `linearRampToValueAtTime()`
-verwendet, um den Gewinnwert jeweils auf 1,0 hochzufahren und auf 0 herunterzufahren. Dies ist ziemlich
-nützlich für Ein-/Ausblendeffekte, obwohl [`AudioParam.exponentialRampToValueAtTime()`](/de/docs/Web/API/AudioParam/exponentialRampToValueAtTime) oft als etwas
-natürlicher angesehen wird.
+In diesem Beispiel haben wir eine Medienquelle mit zwei Steuerungstasten (siehe das [audio-param Repo](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn diese Tasten gedrückt werden, wird `linearRampToValueAtTime()` verwendet, um den Gain-Wert auf 1,0 hoch und auf 0 herunterzufahren. Dies ist ziemlich nützlich für Ein-/Ausblendeffekte, obwohl [`AudioParam.exponentialRampToValueAtTime()`](/de/docs/Web/API/AudioParam/exponentialRampToValueAtTime) oft als etwas natürlicher empfunden wird.
 
 ```js
 // create audio context

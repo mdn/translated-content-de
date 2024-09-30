@@ -1,5 +1,5 @@
 ---
-title: "Document: prepend() Methode"
+title: "Document: prepend()-Methode"
 short-title: prepend()
 slug: Web/API/Document/prepend
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.prepend()`**-Methode fügt ein Set von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokuments ein. Zeichenfolgen
-werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die Methode **`Document.prepend()`** 
+fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokuments ein. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode fügt ein Kind zu einem `Document` hinzu. Um zu einem beliebigen Element im Baum hinzuzufügen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
+Diese Methode fügt ein Kind zu einem `Document` hinzu. Um einem beliebigen Element im Baum ein Element voranzustellen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
 
 ## Syntax
 
@@ -24,7 +24,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Ein Satz von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen zum Einfügen.
 
 ### Rückgabewert
 
@@ -37,9 +37,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein Wurzelelement zu einem Dokument hinzufügen
+### Ein Wurzelelement zu einem Dokument voranstellen
 
-Wenn Sie versuchen, ein Element zu einem bestehenden HTML-Dokument hinzuzufügen, könnte ein `HierarchyRequestError' [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst werden, wenn bereits ein {{HTMLElement("html")}}-Element existiert.
+Wenn Sie versuchen, einem bestehenden HTML-Dokument ein Element voranzustellen, könnte ein `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst werden, da möglicherweise bereits ein {{HTMLElement("html")}}-Element existiert.
 
 ```js
 let html = document.createElement("html");
@@ -47,7 +47,7 @@ document.prepend(html);
 // HierarchyRequestError: The operation would yield an incorrect node tree.
 ```
 
-Wenn Sie ein neues Dokument ohne vorhandenes Element erstellen, können Sie ein HTML-Wurzelelement (oder ein SVG-Wurzelelement) hinzufügen:
+Wenn Sie ein neues Dokument ohne vorhandene Elemente erstellen, können Sie ein HTML-Wurzelelement (oder ein SVG-Wurzelelement) voranstellen:
 
 ```js
 let doc = new Document();

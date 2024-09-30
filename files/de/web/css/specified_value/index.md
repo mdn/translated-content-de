@@ -1,5 +1,5 @@
 ---
-title: Angegebener Wert
+title: Specified value
 slug: Web/CSS/specified_value
 l10n:
   sourceCommit: ce07a52c8ffd27f402b0490aca5626caa623923f
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **angegebene Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert, den sie aus dem Stylesheet des Dokuments erhält. Der angegebene Wert für eine gegebene Eigenschaft wird gemäß den folgenden Regeln bestimmt:
+Der **spezifizierte Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert, den sie vom Stilblatt des Dokuments erhält. Der spezifizierte Wert für eine gegebene Eigenschaft wird gemäß den folgenden Regeln bestimmt:
 
-1. Wenn das Stylesheet des Dokuments explizit einen Wert für die Eigenschaft angibt, wird der angegebene Wert verwendet.
-2. Wenn das Stylesheet des Dokuments keinen Wert angibt, die Eigenschaft jedoch vererbbar ist, wird der Wert vom Elternelement übernommen.
-3. Wenn keine der oben genannten Bedingungen zutrifft, wird der [ursprüngliche Wert](/de/docs/Web/CSS/initial_value) des Elements verwendet.
+1. Wenn das Stilblatt des Dokuments explizit einen Wert für die Eigenschaft angibt, wird der angegebene Wert verwendet.
+2. Wenn das Stilblatt des Dokuments keinen Wert angibt, die Eigenschaft jedoch vererbt wird, wird der Wert vom Elternelement übernommen.
+3. Wenn keine der oben genannten Bedingungen zutrifft, wird der [Anfangswert](/de/docs/Web/CSS/initial_value) des Elements verwendet.
 
 ## Beispiele
 
@@ -64,8 +64,8 @@ p {
 - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
 - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
-- [Randkollision](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-- [Ursprüngliche](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [aktuelle](/de/docs/Web/CSS/actual_value) Werte
-- [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+- [Rand-Kollabierung](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Anfangswert](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
+- [Wertdefinitions-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [Kurzschreibweise von Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

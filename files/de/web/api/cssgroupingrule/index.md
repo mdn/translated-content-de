@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Das **`CSSGroupingRule`** Interface des [CSS-Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[At-Regel](/de/docs/Web/CSS/At-rule), die andere Regeln enthält, die innerhalb von ihr verschachtelt sind.
+Das **`CSSGroupingRule`**-Interface des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[at-rule](/de/docs/Web/CSS/At-rule), die andere Regeln enthält, die innerhalb von ihr verschachtelt sind.
 
 {{InheritanceDiagram}}
 
@@ -16,7 +16,7 @@ Das **`CSSGroupingRule`** Interface des [CSS-Objektmodells](/de/docs/Web/API/CSS
 _Dieses Interface erbt auch Eigenschaften von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSGroupingRule.cssRules`](/de/docs/Web/API/CSSGroupingRule/cssRules) {{ReadOnlyInline}}
-  - : Gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) der CSS-Regeln in der Media-Regel zurück.
+  - : Gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) der CSS-Regeln in der Medienregel zurück.
 
 ## Instanz-Methoden
 
@@ -37,4 +37,4 @@ _Dieses Interface erbt auch Methoden von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Siehe auch
 
-- [Verwenden dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

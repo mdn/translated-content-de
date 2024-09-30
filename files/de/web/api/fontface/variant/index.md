@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}{{non-standard_header}}
 
-Die **`variant`**-Eigenschaft des
-[`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft font variant-Werte programmatisch ab oder setzt diese.
+Die **`variant`**-Eigenschaft der
+[`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle ruft programmgesteuert Schriftart-Variantenwerte ab oder setzt sie.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält, wie er in einer `@font-face`-Regel eines Stylesheets definiert würde.
+Ein String, der einen Deskriptor enthält, wie er in einer Stilregel eines
+`@font-face`-Regelsatzes definiert wäre.
 
 ## Spezifikationen
 

@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-rendering`** [CSS](/de/docs/Web/CSS) Eigenschaft liefert der Rendering-Engine Informationen darüber, was beim Rendern von Text optimiert werden soll.
+Die **`text-rendering`** [CSS](/de/docs/Web/CSS) Eigenschaft liefert dem Rendering-Engine Informationen darüber, worauf bei der Wiedergabe von Text optimiert werden soll.
 
-Der Browser trifft Abwägungen zwischen Geschwindigkeit, Lesbarkeit und geometrischer Präzision.
+Der Browser geht Kompromisse zwischen Geschwindigkeit, Lesbarkeit und geometrischer Präzision ein.
 
 > [!NOTE]
-> Die `text-rendering`-Eigenschaft ist eine SVG-Eigenschaft, die in keinem CSS-Standard definiert ist. Gecko- und WebKit-Browser erlauben es jedoch, diese Eigenschaft auf HTML- und XML-Inhalte unter Windows, macOS und Linux anzuwenden.
+> Die `text-rendering` Eigenschaft ist eine SVG-Eigenschaft, die in keinem CSS-Standard definiert ist. Gecko- und WebKit-Browser erlauben jedoch die Anwendung dieser Eigenschaft auf HTML- und XML-Inhalte unter Windows, macOS und Linux.
 
-Ein sehr sichtbarer Effekt ist `optimizeLegibility`, das Ligaturen (ff, fi, fl usw.) in Text unter 20px für einige Schriftarten ermöglicht (zum Beispiel Microsofts _Calibri_, _Candara_, _Constantia_ und _Corbel_ oder die _DejaVu_-Schriftfamilie).
+Ein sehr sichtbarer Effekt ist `optimizeLegibility`, was Ligaturen (ff, fi, fl usw.) in Text unter 20px für einige Schriftarten aktiviert (z. B. Microsofts _Calibri_, _Candara_, _Constantia_ und _Corbel_ oder die _DejaVu_ Schriftfamilie).
 
 ## Syntax
 
@@ -36,21 +36,21 @@ text-rendering: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser trifft fundierte Entscheidungen darüber, wann bei der Darstellung von Text die Optimierung für Geschwindigkeit, Lesbarkeit und geometrische Präzision erfolgen soll. Für Unterschiede in der Interpretation dieses Wertes durch den Browser siehe die Kompatibilitätstabelle.
+  - : Der Browser trifft fundierte Annahmen darüber, wann Geschwindigkeit, Lesbarkeit und geometrische Präzision beim Zeichnen von Text optimiert werden sollten. Für Unterschiede in der Interpretation dieses Wertes durch den Browser, siehe die Kompatibilitätstabelle.
 - `optimizeSpeed`
-  - : Der Browser betont die Rendering-Geschwindigkeit mehr als Lesbarkeit und geometrische Präzision bei der Textdarstellung. Es deaktiviert Kerning und Ligaturen.
+  - : Der Browser betont die Darstellungsgeschwindigkeit über Lesbarkeit und geometrische Präzision beim Zeichnen von Text. Es werden Kerning und Ligaturen deaktiviert.
 - `optimizeLegibility`
-  - : Der Browser betont die Lesbarkeit mehr als die Rendering-Geschwindigkeit und die geometrische Präzision. Dies ermöglicht Kerning und optionale Ligaturen.
+  - : Der Browser betont die Lesbarkeit über Darstellungsgeschwindigkeit und geometrische Präzision. Dies aktiviert Kerning und optionale Ligaturen.
 - `geometricPrecision`
 
-  - : Der Browser betont die geometrische Präzision mehr als die Rendering-Geschwindigkeit und die Lesbarkeit. Bestimmte Aspekte von Schriftarten — wie Kerning — skalieren nicht linear. Daher kann dieser Wert den Text, der diese Schriftarten verwendet, gut aussehen lassen.
+  - : Der Browser betont die geometrische Präzision über Darstellungsgeschwindigkeit und Lesbarkeit. Bestimmte Aspekte von Schriften — wie Kerning — skalieren nicht linear. Dieser Wert kann den Text jedoch mit diesen Schriften gut aussehen lassen.
 
-    In SVG, wenn Text hoch- oder herunterskaliert wird, berechnen Browser die endgültige Größe des Textes (die durch die angegebene Schriftgröße und die angewendete Skala bestimmt wird) und fordern von der Schriftplattform eine Schriftgröße dieser berechneten Größe an. Wenn Sie jedoch beispielsweise eine Schriftgröße von 9 mit einer Skalierung von 140% anfordern, existiert die resultierende Schriftgröße von 12,6 nicht explizit im Schriftsystem, sodass der Browser die Schriftgröße stattdessen auf 12 rundet. Dies führt zu einer treppenartigen Skalierung von Text.
+    In SVG kalkulieren Browser beim Hoch- oder Runterskalieren von Text die endgültige Größe des Textes (die durch die angegebene Schriftgröße und die angewandte Skalierung bestimmt wird) und fordern eine Schrift dieser berechneten Größe aus dem Schriftsystem der Plattform an. Wenn Sie jedoch eine Schriftgröße von, sagen wir, 9 mit einer Skalierung von 140% anfordern, existiert die resultierende Schriftgröße von 12,6 nicht explizit im Schriftsystem, sodass der Browser die Schriftgröße stattdessen auf 12 rundet. Dies führt zu treppenförmiger Skalierung des Textes.
 
-    Aber die `geometricPrecision`-Eigenschaft — wenn sie von der Rendering-Engine vollständig unterstützt wird — lässt Ihren Text fließend skalieren. Bei großen Skalierungsfaktoren könnten Sie eine weniger schöne Textrendering erleben, aber die Größe ist, was Sie erwarten würden — weder aufgerundet noch abgerundet zur nächsten Schriftgröße, die von Windows oder Linux unterstützt wird.
+    Aber die `geometricPrecision` Eigenschaft — wenn sie vom Rendering-Engine vollständig unterstützt wird — ermöglicht ein fließendes Skalieren Ihres Textes. Für große Skalierungsfaktoren kann es zu weniger schönen Textwiedergaben kommen, aber die Größe entspricht dem, was Sie erwarten würden — weder auf- noch abgerundet auf die nächstgelegene Schriftgröße, die Windows oder Linux unterstützt.
 
     > [!NOTE]
-    > WebKit wendet den angegebenen Wert präzise an, aber Gecko behandelt den Wert genauso wie `optimizeLegibility`.
+    > WebKit wendet den angegebenen Wert präzise an, aber Gecko behandelt den Wert wie `optimizeLegibility`.
 
 ## Formale Definition
 
@@ -100,7 +100,7 @@ Dies demonstriert, wie `optimizeLegibility` von Browsern automatisch verwendet w
 
 ### optimizeSpeed vs. optimizeLegibility
 
-Dieses Beispiel zeigt den Unterschied zwischen dem Erscheinungsbild von `optimizeSpeed` und `optimizeLegibility` (in Ihrem Browser; andere Browser können abweichen).
+Dieses Beispiel zeigt den Unterschied zwischen der Darstellung von `optimizeSpeed` und `optimizeLegibility` (in Ihrem Browser; andere Browser können variieren).
 
 #### HTML
 
@@ -144,11 +144,11 @@ p {
 ## Siehe auch
 
 - [Text in einem `<canvas>` zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
-- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
+- [CSS Text Decoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
 - Verwandte CSS-Eigenschaften
 
-  - [`text-decoration`](/de/docs/Web/CSS/text-decoration) (und seine Langform-Eigenschaften wie [`text-decoration-line`](/de/docs/Web/CSS/text-decoration-line), [`text-decoration-style`](/de/docs/Web/CSS/text-decoration-style) und [`text-decoration-thickness`](/de/docs/Web/CSS/text-decoration-thickness))
-  - [`text-emphasis`](/de/docs/Web/CSS/text-emphasis) (und seine Langform-Eigenschaften, einschließlich [`text-emphasis-color`](/de/docs/Web/CSS/text-emphasis-color), [`text-emphasis-position`](/de/docs/Web/CSS/text-emphasis-position) und [`text-emphasis-style`](/de/docs/Web/CSS/text-emphasis-style))
+  - [`text-decoration`](/de/docs/Web/CSS/text-decoration) (und dessen Langform-Eigenschaften, wie [`text-decoration-line`](/de/docs/Web/CSS/text-decoration-line), [`text-decoration-style`](/de/docs/Web/CSS/text-decoration-style), und [`text-decoration-thickness`](/de/docs/Web/CSS/text-decoration-thickness))
+  - [`text-emphasis`](/de/docs/Web/CSS/text-emphasis) (und dessen Langform-Eigenschaften, einschließlich [`text-emphasis-color`](/de/docs/Web/CSS/text-emphasis-color), [`text-emphasis-position`](/de/docs/Web/CSS/text-emphasis-position), und [`text-emphasis-style`](/de/docs/Web/CSS/text-emphasis-style))
   - [`text-shadow`](/de/docs/Web/CSS/text-shadow)
   - [`text-transform`](/de/docs/Web/CSS/text-transform)
 

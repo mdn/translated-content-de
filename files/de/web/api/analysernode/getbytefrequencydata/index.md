@@ -1,5 +1,5 @@
 ---
-title: "AnalyserNode: getByteFrequencyData() Methode"
+title: "AnalyserNode: Methode getByteFrequencyData()"
 short-title: getByteFrequencyData()
 slug: Web/API/AnalyserNode/getByteFrequencyData
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getByteFrequencyData()`** Methode des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Interfaces kopiert die aktuellen Frequenzdaten in ein übergebenes {{jsxref("Uint8Array")}} (unsigniertes Byte-Array).
+Die **`getByteFrequencyData()`**-Methode des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Interfaces kopiert die aktuellen Frequenzdaten in ein übergebenes {{jsxref("Uint8Array")}} (unsigned byte array).
 
-Die Frequenzdaten bestehen aus Ganzzahlen auf einer Skala von 0 bis 255.
+Die Frequenzdaten bestehen aus ganzen Zahlen auf einer Skala von 0 bis 255.
 
-Jedes Element im Array repräsentiert den Dezibelwert für eine bestimmte Frequenz. Die Frequenzen sind linear von 0 bis zur Hälfte der Abtastrate verteilt. Beispielsweise repräsentiert das letzte Element des Arrays bei einer Abtastrate von `48000` den Dezibelwert für `24000` Hz.
+Jedes Element im Array repräsentiert den Dezibelwert für eine bestimmte Frequenz. Die Frequenzen sind linear von 0 bis zur Hälfte der Abtastrate verteilt. Bei einer Abtastrate von `48000` repräsentiert das letzte Element des Arrays zum Beispiel den Dezibelwert für `24000` Hz.
 
-Wenn das Array weniger Elemente als die [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) aufweist, werden überschüssige Elemente verworfen. Wenn es mehr Elemente als benötigt enthält, werden überschüssige Elemente ignoriert.
+Wenn das Array weniger Elemente hat als [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount), werden überschüssige Elemente verworfen. Wenn es mehr Elemente als benötigt hat, werden überschüssige Elemente ignoriert.
 
 ## Syntax
 
@@ -25,8 +25,7 @@ getByteFrequencyData(array)
 ### Parameter
 
 - `array`
-  - : Das {{jsxref("Uint8Array")}}, in das die Frequenzdomaine-Daten kopiert werden.
-    Wenn das Array weniger Elemente als die [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) aufweist, werden überschüssige Elemente verworfen. Wenn es mehr Elemente als benötigt enthält, werden überschüssige Elemente ignoriert.
+  - : Das {{jsxref("Uint8Array")}}, in das die Daten des Frequenzbereichs kopiert werden. Wenn das Array weniger Elemente hat als [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount), werden überschüssige Elemente verworfen. Wenn es mehr Elemente als benötigt hat, werden überschüssige Elemente ignoriert.
 
 ### Rückgabewert
 
@@ -34,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-Ansicht" der aktuellen Audioeingabe zu zeichnen. Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unsere [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (sehen Sie sich [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code an).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und ein {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und einen "Winamp-Balkendiagramm-Stil" als Ausgabe des aktuellen Audioeingangs zu zeichnen. Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
@@ -84,4 +83,4 @@ draw();
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web-Audio-API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

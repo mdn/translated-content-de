@@ -1,5 +1,5 @@
 ---
-title: CSS-Bilder
+title: CSS Bilder
 slug: Web/CSS/CSS_images
 l10n:
   sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie sie skaliert werden und wie sie und andere ersetzte Inhalte mit den verschiedenen Layout-Modellen interagieren.
+Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Gradienten und andere Bildtypen enthält), wie sie skaliert werden und wie sie und andere ersetzte Inhalte mit den verschiedenen Layoutmodellen interagieren.
 
 ## Referenz
 
@@ -39,17 +39,17 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 
 ## Leitfäden
 
-- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 
-  - : Stellt eine spezifische Art von CSS-Bildern, _Verläufe_, vor und wie diese erstellt und benutzt werden.
+  - : Stellt einen spezifischen Typ von CSS-Bildern, _Gradienten_, vor und wie man diese erstellt und verwendet.
 
-- [Implementierung von Bild-Sprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
 
-  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
+  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Downloadanfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
 
-  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gängige Anwendungsfälle von Seitenverhältnissen.
+  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle für Seitenverhältnisse.
 
 ## Spezifikationen
 
@@ -57,6 +57,6 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS-Kompositing und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS Komposition und Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul

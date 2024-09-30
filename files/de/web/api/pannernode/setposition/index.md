@@ -1,5 +1,5 @@
 ---
-title: "PannerNode: setPosition()-Methode"
+title: "PannerNode: Methode setPosition()"
 short-title: setPosition()
 slug: Web/API/PannerNode/setPosition
 l10n:
@@ -9,9 +9,9 @@ l10n:
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
 > [!NOTE]
-> Der empfohlene Ersatz für diese veraltete Methode ist, stattdessen die Attribute [`positionX`](/de/docs/Web/API/PannerNode/positionX), [`positionY`](/de/docs/Web/API/PannerNode/positionY) und [`positionZ`](/de/docs/Web/API/PannerNode/positionZ) direkt zu setzen.
+> Der empfohlene Ersatz für diese veraltete Methode ist das direkte Setzen der Attribute [`positionX`](/de/docs/Web/API/PannerNode/positionX), [`positionY`](/de/docs/Web/API/PannerNode/positionY) und [`positionZ`](/de/docs/Web/API/PannerNode/positionZ).
 
-Die `setPosition()`-Methode des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces definiert die Position der Audioquelle relativ zum Hörer (repräsentiert durch ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt, das im [`BaseAudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Attribut gespeichert ist). Die drei Parameter `x`, `y` und `z` sind einheitslos und beschreiben die Position der Quelle im 3D-Raum anhand des rechtshändigen kartesischen Koordinatensystems.
+Die `setPosition()`-Methode des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces definiert die Position der Audioquelle relativ zum Zuhörer (dargestellt durch ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt, das im Attribut [`BaseAudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener) gespeichert ist). Die drei Parameter `x`, `y` und `z` sind dimensionslos und beschreiben die Position der Quelle im dreidimensionalen Raum unter Verwendung des rechtshändigen kartesischen Koordinatensystems.
 
 Der Standardwert der Position der `setPosition()`-Methode ist `(0, 0, 0)`.
 
@@ -24,11 +24,11 @@ setPosition(x, y, z)
 ### Parameter
 
 - `x`
-  - : Die x-Position des Panners im 3D-Raum.
+  - : Die x-Position des Panners im dreidimensionalen Raum.
 - `y`
-  - : Die y-Position des Panners im 3D-Raum.
+  - : Die y-Position des Panners im dreidimensionalen Raum.
 - `z`
-  - : Die z-Position des Panners im 3D-Raum.
+  - : Die z-Position des Panners im dreidimensionalen Raum.
 
 ### Rückgabewert
 

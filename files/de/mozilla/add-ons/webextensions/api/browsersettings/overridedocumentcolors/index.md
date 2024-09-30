@@ -9,13 +9,13 @@ l10n:
 
 Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein String ist.
 
-Firefox ermöglicht es dem Benutzer, eigene Farben für Dokumenthintergründe und Text festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Thema ausgewählt ist (ein Hochkontrast-Thema ist eine Funktion einiger Betriebssystem-Benutzeroberflächen, die den Kontrast zur Verbesserung der Barrierefreiheit erhöht). Benutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browsereinstellung macht diese Präferenz zugänglich.
+Firefox ermöglicht es dem Benutzer, eigene Farben für Dokumenthintergründe und -texte festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Design ausgewählt ist (ein Hochkontrast-Design ist eine Funktion einiger Betriebssystem-UIs, die den Kontrast zur Verbesserung der Zugänglichkeit erhöht). Benutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browsereinstellung macht diese Präferenz zugänglich.
 
 Der zugrunde liegende Wert ist ein String, der einen der folgenden Werte annehmen kann:
 
-- "high-contrast-only": Anwenden der Benutzer-Auswahl nur, wenn ein Hochkontrast-Thema ausgewählt ist. Dies ist der Standard.
-- "never": Nie die Auswahl des Benutzers anwenden.
-- "always": Immer die Auswahl des Benutzers anwenden.
+- "high-contrast-only": Wenden Sie die Benutzerwahl nur an, wenn ein Hochkontrast-Design ausgewählt ist. Dies ist der Standard.
+- "never": Wenden Sie die Benutzerwahl niemals an.
+- "always": Wenden Sie die Benutzerwahl immer an.
 
 ## Browser-Kompatibilität
 
@@ -23,7 +23,7 @@ Der zugrunde liegende Wert ist ein String, der einen der folgenden Werte annehme
 
 ## Beispiele
 
-Die Einstellung auf "always" setzen:
+Setzen Sie die Einstellung auf "always":
 
 ```js
 function logResult(result) {

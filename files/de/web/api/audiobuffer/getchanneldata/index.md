@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getChannelData()`**-Methode der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten enthält, die dem Kanal zugeordnet sind, der durch den Kanalparameter definiert wird (wobei 0 den ersten Kanal darstellt).
+Die **`getChannelData()`**-Methode der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten des Kanals enthält, der durch den Kanalparameter definiert ist (wobei 0 den ersten Kanal darstellt).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getChannelData(channel)
 ### Parameter
 
 - `channel`
-  - : Die Kanal-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich der Anzahl von [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
+  - : Die Kanal-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein {{jsxref("Float32Array")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was passiert. Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples).
+Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was vor sich geht. Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples).
 
 ```js
 const audioCtx = new AudioContext();

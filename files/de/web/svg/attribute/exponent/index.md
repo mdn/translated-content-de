@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`exponent`**-Attribut definiert den Exponenten der Gammafunktion.
+Das **`exponent`**-Attribut definiert den Exponenten der Gamma-Funktion.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -76,7 +76,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -96,7 +96,7 @@ svg {
 </table>
 
 - `<number>`
-  - : Wenn das {{SVGAttr("type")}}-Attribut des Komponentenelements auf `gamma` gesetzt ist, gibt dieser Wert den Exponenten der Gammafunktion an.
+  - : Falls das {{SVGAttr("type")}}-Attribut des Komponentenelements auf `gamma` gesetzt ist, gibt dieser Wert den Exponenten der Gamma-Funktion an
 
 ## Spezifikationen
 

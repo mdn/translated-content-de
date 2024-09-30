@@ -7,43 +7,43 @@ l10n:
 
 {{MDNSidebar}}
 
-Die folgenden Richtlinien behandeln, wie CSS-Beispielcode für MDN Web Docs geschrieben werden soll.
+Die folgenden Richtlinien beschreiben, wie CSS-Beispielcode für MDN Web Docs geschrieben wird.
 
 ## Allgemeine Richtlinien für CSS-Codebeispiele
 
-### Format wählen
+### Wahl eines Formats
 
-Meinungen zu korrekter Einrückung, Leerzeichen und Zeilenlängen sind seit jeher umstritten. Diskussionen zu diesen Themen lenken vom Erstellen und Pflegen von Inhalten ab.
+Meinungen zum richtigen Einrücken, zu Leerzeichen und Zeilenlängen sind immer umstritten gewesen. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
 
-Auf MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Code-Stil konsistent zu halten (und um von Themen abzulenken, die nicht zur Sache gehören). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) konsultieren, um mehr über die aktuellen Regeln zu erfahren, und die [Prettier-Dokumentation](https://prettier.io/docs/en/index.html) lesen.
+Auf MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Stil des Codes konsistent zu halten (und um vom Thema abschweifende Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) einsehen, um die aktuellen Regeln zu erfahren, und die [Prettier-Dokumentation](https://prettier.io/docs/en/index.html) lesen.
 
-Prettier formatiert den gesamten Code und hält den Stil konsistent. Dennoch gibt es einige zusätzliche Regeln, die Sie befolgen müssen.
+Prettier formatiert den gesamten Code und hält den Stil konsistent. Dennoch gibt es einige zusätzliche Regeln, die Sie beachten müssen.
 
 ### Planen Sie Ihr CSS
 
-Bevor Sie sich in das Schreiben von großen CSS-Blöcken stürzen, planen Sie Ihre Styles sorgfältig. Welche allgemeinen Styles werden benötigt, welche verschiedenen Layouts müssen erstellt werden, welche spezifischen Überschreibungen müssen erstellt werden und sind diese wiederverwendbar? Vor allem sollten Sie versuchen, **zu viel Überschreiben zu vermeiden**. Wenn Sie immer wieder Styles schreiben und diese dann einige Regeln später wieder aufheben, müssen Sie wahrscheinlich Ihre Strategie überdenken.
+Bevor Sie sich in das Schreiben großer CSS-Blöcke stürzen, planen Sie Ihre Styles sorgfältig. Welche allgemeinen Styles werden benötigt, welche unterschiedlichen Layouts müssen erstellt werden, welche speziellen Overrides müssen erstellt werden, und sind sie wiederverwendbar? Vor allem sollten Sie versuchen, **zu viel überschreibende Styles zu vermeiden**. Wenn Sie immer wieder Styles schreiben und diese dann wenige Regeln später wieder aufheben, sollten Sie wahrscheinlich Ihre Strategie überdenken.
 
 ### Verwenden Sie flexible/relative Einheiten
 
-Um maximale Flexibilität für die breitest mögliche Palette von Geräten zu gewährleisten, ist es eine gute Idee, Container, Abstände usw. mit relativen Einheiten wie „ems“ und „rems“ oder Prozentangaben und Ansichteinheiten zu dimensionieren, wenn Sie möchten, dass sie sich je nach Ansichtsbreite variieren. Weitere Informationen dazu finden Sie in unserem [Leitfaden zu CSS-Werten und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#relative_length_units).
+Für maximale Flexibilität auf einer möglichst breiten Palette von Geräten ist es eine gute Idee, Container, Abstände usw. mit relativen Einheiten wie ems und rems oder Prozentsätzen und Viewport-Einheiten zu dimensionieren, wenn Sie möchten, dass sie in Abhängigkeit von der Viewport-Breite variieren. Weitere Informationen dazu finden Sie in unserem [Leitfaden zu CSS-Werten und -Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#relative_length_units).
 
 ### Verwenden Sie keine Präprozessoren
 
-Verwenden Sie keine Präprozessor-Syntax wie [Sass](https://sass-lang.com/), [Less](https://lesscss.org/) oder [Stylus](https://stylus-lang.com/) im Beispielcode. Auf MDN Web Docs dokumentieren wir die Vanilla-CSS-Sprache. Der Einsatz von Präprozessoren würde die Verständlichkeit der Beispiele nur erschweren und die Leser möglicherweise verwirren.
+Verwenden Sie keine Präprozessorsyntax, wie [Sass](https://sass-lang.com/), [Less](https://lesscss.org/) oder [Stylus](https://stylus-lang.com/), im Beispielcode. Auf MDN Web Docs dokumentieren wir die Vanilla-CSS-Sprache. Die Verwendung von Präprozessoren würde nur die Hürde zum Verständnis der Beispiele erhöhen und die Leser möglicherweise verwirren.
 
-### Verwenden Sie keine speziellen CSS-Methodologien
+### Verwenden Sie keine spezifischen CSS-Methodologien
 
-In demselben Sinne wie die vorherige Richtlinie schreiben Sie keine Beispielcodes auf MDN Web Docs mit einer speziellen CSS-Methodologie wie [BEM](https://getbem.com/naming/) oder [SMACSS](https://smacss.com/). Auch wenn sie gültige CSS-Syntax darstellen, können die Namenskonventionen für Personen, die mit diesen Methodologien nicht vertraut sind, verwirrend sein.
+In demselben Geist wie die vorherige Richtlinie: Schreiben Sie keine Beispielcodes auf MDN Web Docs mit einer spezifischen CSS-Methodologie wie [BEM](https://getbem.com/naming/) oder [SMACSS](https://smacss.com/). Auch wenn sie gültige CSS-Syntax sind, können die Namenskonventionen verwirrend sein für Personen, die nicht mit diesen Methodologien vertraut sind.
 
-### Keine Resets verwenden
+### Verwenden Sie keine Resets
 
-Um maximale Kontrolle über CSS plattformübergreifend zu erreichen, wurde häufig CSS-Reset eingesetzt, um alle Styles zu entfernen, bevor sie dann selbst wieder aufgebaut werden. Dies hat sicherlich seine Meriten, aber insbesondere in der modernen Welt können CSS-Resets übertrieben sein, was dazu führt, dass viel zusätzliche Zeit damit verbracht wird, Dinge neu zu implementieren, die ursprünglich nicht vollständig defekt waren, wie Standardabstände, Listen-Styles usw.
+Für maximale Kontrolle über CSS auf verschiedenen Plattformen verwendeten früher viele Leute CSS-Resets, um jeden Style zu entfernen, bevor sie ihn neu aufbauten. Das hat sicherlich seine Vorzüge, aber besonders in der modernen Welt können CSS-Resets übertrieben sein, was zu viel zusätzlicher Zeit führt, die mit der erneuten Implementierung von Dingen verbracht wird, die nicht von vornherein vollständig kaputt waren, wie Standardabstände, Listenstile usw.
 
-Wenn Sie dennoch das Gefühl haben, einen Reset verwenden zu müssen, ziehen Sie die Verwendung von [normalize.css von Nicolas Gallagher](https://necolas.github.io/normalize.css/) in Betracht, die darauf abzielt, Dinge über Browser hinweg konsistenter zu gestalten, einige Standardärgernisse, die wir immer entfernen, loszuwerden (z. B. die Ränder auf `<body>`) und ein paar Fehler zu beheben.
+Wenn Sie wirklich das Gefühl haben, einen Reset verwenden zu müssen, ziehen Sie die Verwendung von [normalize.css von Nicolas Gallagher](https://necolas.github.io/normalize.css/) in Betracht, das darauf abzielt, Dinge über Browser hinweg konsistenter zu machen, ein paar Standardärgernisse, die wir immer entfernen (wie die Abstände auf `<body>`), loszuwerden und ein paar Fehler zu beheben.
 
 ## !important
 
-`!important` ist das letzte Mittel, das in der Regel nur verwendet wird, wenn etwas überschrieben werden muss und es keinen anderen Weg gibt, dies zu tun. Die Verwendung von `!important` ist eine schlechte Praxis und sollte wenn möglich vermieden werden.
+`!important` ist der letzte Ausweg, der normalerweise nur dann verwendet wird, wenn Sie etwas überschreiben müssen und es keine andere Möglichkeit gibt, dies zu tun. Die Verwendung von `!important` gilt als schlechte Praxis und Sie sollten sie wann immer möglich vermeiden.
 
 ```css example-bad
 .bad-code {
@@ -53,13 +53,13 @@ Wenn Sie dennoch das Gefühl haben, einen Reset verwenden zu müssen, ziehen Sie
 
 ## CSS-Kommentare
 
-Verwenden Sie CSS-Stil-Kommentare, um Code zu kommentieren, der nicht selbst-dokumentierend ist. Beachten Sie auch, dass Sie zwischen den Sternchen und dem Kommentar ein Leerzeichen lassen sollten.
+Verwenden Sie CSS-Style-Kommentare, um Code, der sich nicht selbst dokumentiert, zu kommentieren. Beachten Sie auch, dass Sie ein Leerzeichen zwischen den Sternen und dem Kommentar lassen sollten.
 
 ```css example-good
 /* This is a CSS-style comment */
 ```
 
-Platzieren Sie Ihre Kommentare in separaten Zeilen vor dem Code, auf den sie sich beziehen, wie folgt:
+Setzen Sie Ihre Kommentare in separate Zeilen, die dem Code vorausgehen, auf den sie sich beziehen, wie folgt:
 
 ```css example-good
 h3 {
@@ -72,7 +72,7 @@ h3 {
 
 ## Doppelte Anführungszeichen um Werte
 
-Wo Anführungszeichen enthalten sein können oder sollten, verwenden Sie diese und zwar doppelte Anführungszeichen. Zum Beispiel:
+Wo Anführungszeichen enthalten sein können oder sollten, verwenden Sie sie und verwenden Sie doppelte Anführungszeichen. Zum Beispiel:
 
 ```css example-good
 [data-vegetable="liquid"] {
@@ -81,11 +81,11 @@ Wo Anführungszeichen enthalten sein können oder sollten, verwenden Sie diese u
 }
 ```
 
-## Ausgeschriebene vs. Kurzform-Regeln
+## Langform vs. Kurzform Regeln
 
-In der Regel ist es bei der Vermittlung der CSS-Syntax spezifischer klarer und deutlicher, ausgeschriebene Eigenschaften anstelle von knappen Kurzformen zu verwenden (es sei denn, Sie erklären natürlich die Kurzform anhand des Beispiels). Denken Sie daran, dass der Zweck von Beispielen auf MDN Web Docs darin besteht, Menschen etwas beizubringen und nicht, clever oder effizient zu sein. Hier erklären wir, warum wir empfehlen, mit ausgeschriebenen Regeln zu schreiben.
+In der Regel ist es, wenn man die Spezifika der CSS-Syntax lehrt, klarer und offensichtlicher, Langform-Eigenschaften zu verwenden, anstatt knapper Kurzformen (es sei denn, Sie erklären gerade die Kurzform durch das Beispiel). Denken Sie daran, dass der Sinn von Beispielen auf MDN Web Docs darin besteht, Menschen zu unterrichten, nicht darin, clever oder effizient zu sein. Wir erklären hier, warum es empfohlen wird, mit Langform-Regeln zu schreiben.
 
-- Es ist oft schwieriger zu verstehen, was die Kurzform tut. Im folgenden Beispiel dauert es eine Weile, genau zu verstehen, was die {{cssxref("font")}}-Syntax tut.
+- Es ist oft schwieriger zu verstehen, was die Kurzform tut. Im folgenden Beispiel dauert es eine Weile, genau zu erfassen, was die {{cssxref("font")}}-Syntax tut.
 
   ```css
   font: small-caps bold 2rem/1.5 sans-serif;
@@ -101,7 +101,7 @@ In der Regel ist es bei der Vermittlung der CSS-Syntax spezifischer klarer und d
   font-family: sans-serif;
   ```
 
-- CSS-Kurzform hat potenziell zusätzliche Fallstricke – Standardwerte werden für Teile der Syntax festgelegt, die Sie nicht explizit festlegen, was zu unerwarteten Zurücksetzungen von zuvor in der Kaskade festgelegten Werten oder anderen erhofften Effekten führen kann. Die {{cssxref("grid")}}-Eigenschaft legt beispielsweise alle folgenden Standardwerte für nicht spezifizierte Elemente fest:
+- CSS-Kurzformen bringen potenziell zusätzliche Fallstricke mit sich — für Teile der Syntax, die Sie nicht explizit festgelegt haben, werden Standardwerte festgelegt, was zu unerwarteten Rücksetzungen von Werten führen kann, die Sie früher in der Kaskade explizit eingestellt hatten oder zu anderen erwarteten Effekten. Die {{cssxref("grid")}}-Eigenschaft, zum Beispiel, setzt all die folgenden Standardwerte für nicht spezifizierte Elemente fest:
 
   - {{cssxref("grid-template-rows")}}: `none`
   - {{cssxref("grid-template-columns")}}: `none`
@@ -114,7 +114,7 @@ In der Regel ist es bei der Vermittlung der CSS-Syntax spezifischer klarer und d
   - {{cssxref("column-gap")}}: `normal`
   - {{cssxref("row-gap")}}: `normal`
 
-- Einige Kurzformen funktionieren nur wie erwartet, wenn Sie die verschiedenen Wertkomponenten in einer bestimmten Reihenfolge einfügen. Dies ist bei CSS-Animationen der Fall. Im folgenden Beispiel ist die erwartete Reihenfolge als Kommentar geschrieben:
+- Einige Kurzformen funktionieren nur wie erwartet, wenn Sie die unterschiedlichen Wertkomponenten in einer bestimmten Reihenfolge einfügen. Dies ist der Fall bei CSS-Animationen. Im folgenden Beispiel ist die erwartete Reihenfolge als Kommentar geschrieben:
 
   ```css
   /* duration | timing-function | delay | iteration-count
@@ -122,11 +122,11 @@ In der Regel ist es bei der Vermittlung der CSS-Syntax spezifischer klarer und d
   animation: 3s ease-in 1s 2 reverse both paused slidein;
   ```
 
-  In diesem Beispiel wird der erste Wert, der als [`<time>`](/de/docs/Web/CSS/time) analysiert werden kann, der [`animation-duration`](/de/docs/Web/CSS/animation-duration)-Eigenschaft zugewiesen, und der zweite Wert, der als Zeit analysiert werden kann, der [`animation-delay`](/de/docs/Web/CSS/animation-delay). (Weitere Informationen finden Sie in den [Animation Syntax](/de/docs/Web/CSS/animation#syntax)-Details.)
+  In diesem Beispiel wird der erste Wert, der als [`<time>`](/de/docs/Web/CSS/time) interpretiert werden kann, der [`animation-duration`](/de/docs/Web/CSS/animation-duration)-Eigenschaft zugewiesen, und der zweite Wert, der als Zeit interpretiert werden kann, wird der [`animation-delay`](/de/docs/Web/CSS/animation-delay)-Eigenschaft zugewiesen. (Für weitere Informationen siehe die [Details zur Animationssyntax](/de/docs/Web/CSS/animation#syntax).)
 
-## Mobil-erste Media-Queries
+## Mobile-First-Media-Queries
 
-In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)-Styles für verschiedene Zielbildschirmgrößen enthält, fügen Sie zuerst die Styling für schmale Bildschirme/Mobilgeräte ein, bevor andere Media Queries eingefügt werden. Fügen Sie übergeordnete Bildschirme über aufeinanderfolgende Media Queries ein. Die Einhaltung dieser Regel hat viele Vorteile, die im Artikel [Mobile First](/de/docs/Learn/CSS/CSS_layout/Responsive_Design) erklärt werden.
+In einem Stylesheet, das [Medienabfrage-](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)Styles für verschiedene Ziel-Viewport-Größen enthält, fügen Sie zuerst die schmalen Bildschirm-/Mobil-Stile ein, bevor andere Medienabfragen auftreten. Fügen Sie dann die Stile für größere Viewport-Größen über aufeinanderfolgende Medienabfragen hinzu. Das Befolgen dieser Regel hat viele Vorteile, die im [Mobile First](/de/docs/Learn/CSS/CSS_layout/Responsive_Design)-Artikel erklärt werden.
 
 ```css example-good
 /* Default CSS layout for narrow screens */
@@ -148,7 +148,7 @@ In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_
 
 - Verwenden Sie keine ID-Selektoren, da sie:
 
-  - weniger flexibel sind; Sie können nicht mehr hinzufügen, wenn Sie feststellen, dass Sie mehr als einen benötigen.
+  - weniger flexibel sind; Sie können keine weiteren hinzufügen, wenn Sie feststellen, dass Sie mehr als einen benötigen.
   - schwerer zu überschreiben sind, da sie eine höhere Spezifität als Klassen besitzen.
 
   ```css example-good
@@ -163,9 +163,9 @@ In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_
   }
   ```
 
-## Wert zur Deaktivierung von Eigenschaften
+## Wert zum Deaktivieren von Eigenschaften
 
-Wenn Sie Ränder (und andere Eigenschaften, die `0` oder `none` als Werte annehmen können) ausschalten, verwenden Sie `0` anstelle von `none`:
+Wenn Sie Ränder (und andere Eigenschaften, die `0` oder `none` als Werte annehmen können) deaktivieren, verwenden Sie `0` anstelle von `none`:
 
 ```css example-good
 border: 0;
@@ -173,4 +173,4 @@ border: 0;
 
 ## Siehe auch
 
-[CSS-Referenzindex](/de/docs/Web/CSS/Reference#index) - Durchsuchen Sie unsere CSS-Property-Referenzseiten, um einige gute, prägnante, sinnvolle CSS-Ausschnitte zu finden. Unsere interaktiven Beispiele im „Versuchen Sie es“-Abschnitt sind in der Regel so geschrieben, dass sie den auf dieser Seite beschriebenen Richtlinien folgen.
+[CSS-Referenzindex](/de/docs/Web/CSS/Reference#index) - durchstöbern Sie unsere CSS-Eigenschaftsreferenzseiten, um einige gute, prägnante, sinnvolle CSS-Snippets zu sehen. Unsere interaktiven Beispiele im "Try it"-Abschnitt sind in der Regel so geschrieben, dass sie den auf dieser Seite beschriebenen Richtlinien folgen.

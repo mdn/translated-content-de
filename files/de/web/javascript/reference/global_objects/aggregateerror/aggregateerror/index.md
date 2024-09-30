@@ -21,18 +21,19 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **Note:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide rufen eine neue `AggregateError` Instanz ins Leben.
+> **Note:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue Instanz von `AggregateError`.
 
 ### Parameter
 
 - `errors`
-  - : Ein iterierbares Objekt von Fehlern, die möglicherweise keine {{jsxref("Error")}} Instanzen sind.
+  - : Ein Iterable von Fehlern, die möglicherweise keine {{jsxref("Error")}} Instanzen sind.
 - `message` {{optional_inline}}
-  - : Eine optionale, für Menschen lesbare Beschreibung des Sammelfehlers.
+  - : Eine optionale, lesbare Beschreibung des Aggregatfehlers.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und Neuwerfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 
 ## Beispiele
 

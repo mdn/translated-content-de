@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das **`AudioBufferSourceNode`**-Interface ist ein [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode), das eine Audioquelle darstellt, die aus im Speicher befindlichen Audiodaten besteht, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) gespeichert sind.
+Die **`AudioBufferSourceNode`**-Schnittstelle ist ein [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode), das eine Audioquelle darstellt, die aus Audiodaten im Speicher besteht, welche in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) gespeichert sind.
 
-Dieses Interface ist besonders nützlich für die Wiedergabe von Audiodaten, die besonders genaue Timing-Anforderungen haben, wie zum Beispiel für Klänge, die mit einem bestimmten Rhythmus übereinstimmen müssen und im Speicher gehalten werden können, anstatt von der Festplatte oder dem Netzwerk abgespielt zu werden. Um Klänge wiederzugeben, die genaues Timing erfordern, aber aus dem Netzwerk gestreamt oder von der Festplatte abgespielt werden müssen, verwenden Sie ein [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), um deren Wiedergabe zu implementieren.
+Diese Schnittstelle ist besonders nützlich für die Wiedergabe von Audio, das besonders strenge Timing-Genauigkeiten erfordert, wie zum Beispiel bei Tönen, die einem bestimmten Rhythmus folgen müssen und im Speicher gehalten werden können, anstatt von der Festplatte oder dem Netzwerk abgespielt zu werden. Für die Wiedergabe von Sounds, die eine genaue Timing-Steuerung erfordern, aber aus dem Netzwerk gestreamt oder von der Festplatte abgespielt werden müssen, verwenden Sie einen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), um seine Wiedergabe zu implementieren.
 
 {{InheritanceDiagram}}
 
-Ein `AudioBufferSourceNode` hat keine Eingänge und genau einen Ausgang, der dieselbe Anzahl von Kanälen hat wie der `AudioBuffer`, der durch seine [`buffer`](/de/docs/Web/API/AudioBufferSourceNode/buffer)-Eigenschaft angegeben wird. Wenn kein Buffer gesetzt ist – d.h. wenn `buffer` auf `null` steht – enthält der Ausgang einen einzigen Kanal der Stille (jede Probe ist 0).
+Ein `AudioBufferSourceNode` hat keine Eingänge und genau einen Ausgang, der die gleiche Anzahl an Kanälen wie der `AudioBuffer` hat, der durch seine [`buffer`](/de/docs/Web/API/AudioBufferSourceNode/buffer)-Eigenschaft angegeben ist. Wenn kein Buffer gesetzt ist, das heißt, wenn `buffer` `null` ist, enthält der Ausgang einen einzigen Kanal der Stille (jedes Sample ist 0).
 
-Ein `AudioBufferSourceNode` kann nur einmal abgespielt werden; nach jedem Aufruf von [`start()`](/de/docs/Web/API/AudioBufferSourceNode/start) müssen Sie einen neuen Knoten erstellen, wenn Sie denselben Klang erneut abspielen möchten. Glücklicherweise sind diese Knoten sehr kostengünstig zu erstellen, und die eigentlichen `AudioBuffer`s können für mehrere Abspielvorgänge des Klangs wiederverwendet werden. Tatsächlich können Sie diese Knoten in einer "fire and forget"-Manier verwenden: Erzeugen Sie den Knoten, rufen Sie `start()` auf, um den Klang zu starten, und brauchen nicht einmal eine Referenz darauf zu halten. Er wird automatisch zu einem geeigneten Zeitpunkt gesammelt, der nicht vor dem Abspielen des Klangs liegt.
+Ein `AudioBufferSourceNode` kann nur einmal abgespielt werden; nach jedem Aufruf von [`start()`](/de/docs/Web/API/AudioBufferSourceNode/start) müssen Sie einen neuen Knoten erstellen, wenn Sie denselben Sound erneut abspielen möchten. Glücklicherweise sind diese Knoten sehr kostengünstig in der Erstellung, und die eigentlichen `AudioBuffer` können für mehrere Wiedergaben des Sounds wiederverwendet werden. Tatsächlich können Sie diese Knoten in einer "Fire-and-Forget"-Manier verwenden: Erstellen Sie den Knoten, rufen Sie `start()` auf, um den Sound abzuspielen, und machen Sie sich nicht einmal die Mühe, eine Referenz darauf zu halten. Er wird zu einem geeigneten Zeitpunkt automatisch vom Garbage Collector bereinigt, was erst nach Abschluss der Tonwiedergabe geschieht.
 
-Mehrfache Aufrufe von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) sind erlaubt. Der neueste Aufruf ersetzt den vorherigen, wenn der `AudioBufferSourceNode` das Ende des Buffers noch nicht erreicht hat.
+Mehrfache Aufrufe von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) sind erlaubt. Der neueste Aufruf ersetzt den vorherigen, falls der `AudioBufferSourceNode` nicht bereits das Ende des Buffers erreicht hat.
 
-![Der AudioBufferSourceNode nimmt den Inhalt eines AudioBuffers und m](webaudioaudiobuffersourcenode.png)
+![Der AudioBufferSourceNode nimmt den Inhalt eines AudioBuffers und w](webaudioaudiobuffersourcenode.png)
 
 <table class="properties">
   <tbody>
@@ -32,7 +32,7 @@ Mehrfache Aufrufe von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
+      <th scope="row">Kanalanzahl</th>
       <td>definiert durch den zugeordneten [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)</td>
     </tr>
   </tbody>
@@ -41,38 +41,38 @@ Mehrfache Aufrufe von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
 ## Konstruktor
 
 - [`AudioBufferSourceNode()`](/de/docs/Web/API/AudioBufferSourceNode/AudioBufferSourceNode)
-  - : Erstellt und gibt ein neues `AudioBufferSourceNode`-Objekt zurück. Alternativ können Sie die [`BaseAudioContext.createBufferSource()`](/de/docs/Web/API/BaseAudioContext/createBufferSource)-Fabrikmethode verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+  - : Erstellt und gibt ein neues `AudioBufferSourceNode`-Objekt zurück. Alternativ können Sie die Factory-Methode [`BaseAudioContext.createBufferSource()`](/de/docs/Web/API/BaseAudioContext/createBufferSource) verwenden; siehe [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)_.
 
 - [`AudioBufferSourceNode.buffer`](/de/docs/Web/API/AudioBufferSourceNode/buffer)
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das abzuspielende Audioasset definiert, oder wenn auf den Wert `null` gesetzt, eine einzelne Stille-Kanal definiert (in dem jede Probe 0.0 ist).
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das abzuspielende Audio-Asset definiert oder bei einem Wert von `null` einen einzigen Kanal der Stille definiert (in dem jedes Sample 0,0 ist).
 - [`AudioBufferSourceNode.detune`](/de/docs/Web/API/AudioBufferSourceNode/detune)
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Abstimmung der Wiedergabe in [Cent](<https://de.wikipedia.org/wiki/Cent_(Musik)>) darstellt. Dieser Wert wird mit `playbackRate` kombiniert, um die Geschwindigkeit zu bestimmen, in der der Klang abgespielt wird. Sein Standardwert ist `0` (was keine Abstimmung bedeutet), und sein nomineller Bereich ist -∞ bis ∞.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Wiedergabe in [Cents](https://de.wikipedia.org/wiki/Cent_(Musik)) darstellt. Dieser Wert wird mit `playbackRate` kombiniert, um die Geschwindigkeit zu bestimmen, mit der der Sound abgespielt wird. Sein Standardwert ist `0` (was keine Verstimmung bedeutet), und der nominelle Bereich ist -∞ bis ∞.
 - [`AudioBufferSourceNode.loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)
-  - : Ein boolesches Attribut, das angibt, ob das Audioasset erneut abgespielt werden muss, wenn das Ende des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erreicht ist. Sein Standardwert ist `false`.
+  - : Ein Boolean-Attribut, das angibt, ob das Audio-Asset erneut abgespielt werden muss, wenn das Ende des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erreicht ist. Sein Standardwert ist `false`.
 - [`AudioBufferSourceNode.loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) {{optional_inline}}
-  - : Ein gleitkommawert, der die Zeit in Sekunden angibt, zu der die Wiedergabe des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) beginnen muss, wenn `loop` auf `true` gesetzt ist. Sein Standardwert ist `0` (was bedeutet, dass am Anfang jeder Schleife die Wiedergabe am Anfang des Audiobuffers beginnt).
+  - : Ein Gleitkommawert, der die Zeit in Sekunden angibt, zu der die Wiedergabe des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) beginnen muss, wenn `loop` `true` ist. Sein Standardwert ist `0` (was bedeutet, dass zu Beginn jeder Schleife die Wiedergabe am Anfang des Audio-Buffers beginnt).
 - [`AudioBufferSourceNode.loopEnd`](/de/docs/Web/API/AudioBufferSourceNode/loopEnd) {{optional_inline}}
-  - : Eine Fließkommazahl, die die Zeit in Sekunden angibt, zu der die Wiedergabe des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) stoppt und zu der durch `loopStart` angegebenen Zeit zurückspringt, wenn `loop` auf `true` gesetzt ist. Der Standardwert ist `0`.
+  - : Eine Gleitkommazahl, die die Zeit in Sekunden angibt, zu der die Wiedergabe des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) stoppt und an die durch `loopStart` angegebene Zeit zurückkehrt, falls `loop` `true` ist. Der Standardwert ist `0`.
 - [`AudioBufferSourceNode.playbackRate`](/de/docs/Web/API/AudioBufferSourceNode/playbackRate)
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Geschwindigkeitsfaktor definiert, mit dem das Audioasset abgespielt wird, wobei ein Wert von 1,0 der natürlichen Abtastrate des Klangs entspricht. Da auf dem Ausgang keine Tonhöhenkorrektur angewendet wird, kann dies verwendet werden, um die Tonhöhe der Probe zu ändern. Dieser Wert wird mit `detune` kombiniert, um die endgültige Wiedergabegeschwindigkeit zu bestimmen.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Geschwindigkeitsfaktor definiert, mit dem das Audio-Asset abgespielt wird, wobei ein Wert von 1,0 der natürlichen Samplerate des Sounds entspricht. Da keine Tonhöhenkorrektur auf den Ausgang angewendet wird, kann dies verwendet werden, um die Tonhöhe des Samples zu ändern. Dieser Wert wird mit `detune` kombiniert, um die endgültige Wiedergabegeschwindigkeit zu bestimmen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seinem Elternteil, [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode), und überschreibt die folgende Methode:_.
 
 - [`start()`](/de/docs/Web/API/AudioBufferSourceNode/start)
-  - : Plant die Wiedergabe der im Buffer enthaltenen Audiodaten oder beginnt sofort mit der Wiedergabe. Ermöglicht es außerdem, den Startversatz und die Spieldauer festzulegen.
+  - : Plant die Wiedergabe der im Buffer enthaltenen Audiodaten oder beginnt sofort mit der Wiedergabe. Zusätzlich ermöglicht es das Setzen des Startoffsets und der Wiedergabedauer.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen zwei Sekunden langen Buffer, füllen ihn mit weißem Rauschen und spielen ihn dann mit einem `AudioBufferSourceNode` ab. Die Kommentare sollten klar erläutern, was vor sich geht.
+In diesem Beispiel erstellen wir einen Zwei-Sekunden-Buffer, füllen ihn mit weißem Rauschen und spielen ihn dann mit einem `AudioBufferSourceNode` ab. Die Kommentare sollten klar erklären, was geschieht.
 
 > [!NOTE]
-> Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
+> Sie können den [Code auch live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder den [Quellcode ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
 const audioCtx = new AudioContext();
@@ -109,7 +109,7 @@ source.start();
 ```
 
 > [!NOTE]
-> Ein Beispiel für `decodeAudioData()` finden Sie auf der Seite [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData).
+> Für ein Beispiel zu `decodeAudioData()` siehe die Seite [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData).
 
 ## Spezifikationen
 

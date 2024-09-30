@@ -7,21 +7,21 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mspace>`**-Element [MathML](/de/docs/Web/MathML) wird verwendet, um einen Leerraum anzuzeigen, dessen Größe durch seine Attribute festgelegt wird.
+Das **`<mspace>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Leerraum darzustellen, dessen Größe durch seine Attribute festgelegt wird.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `depth`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Tiefe (unterhalb der Grundlinie) des Raums angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Tiefe (unterhalb der Grundlinie) des Raumes angibt.
 - `height`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Höhe (oberhalb der Grundlinie) des Raums angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Höhe (oberhalb der Grundlinie) des Raumes angibt.
 - `width`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Breite des Raums angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Breite des Raumes angibt.
 
 > [!NOTE]
-> Für die Attribute `depth`, `height`, `width` akzeptieren einige Browser möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+> Bei den Attributen `depth`, `height`, `width` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS motion path** Modul ermöglicht es Autoren, beliebige grafische Objekte entlang eines benutzerdefinierten Pfades zu animieren.
+Das **CSS motion path**-Modul erlaubt es Autoren, jedes grafische Objekt entlang eines benutzerdefinierten Pfades zu animieren.
 
-Die Idee ist, dass Sie, wenn Sie ein Element entlang eines Pfades animieren möchten, zuvor nur die Animation der Translation, Position usw. zur Verfügung hatten, was nicht ideal war und nur einfache Bewegungen ermöglichte. Mit {{cssxref("offset-path")}} können Sie einen bestimmten Pfad in jeder gewünschten Form definieren. Sie animieren es dann entlang dieses Pfades, indem Sie {{cssxref("offset-distance")}} animieren und können es an jedem Punkt mit {{cssxref("offset-rotate")}} rotieren lassen.
+Die Idee dahinter ist, dass Sie, wenn Sie ein Element entlang eines Pfades animieren möchten, zuvor nur die Animation von Translation, Position usw. zur Verfügung hatten, was nicht ideal war und nur einfache Bewegungen erlaubte. Mit {{cssxref("offset-path")}} können Sie einen bestimmten Pfad in beliebiger Form definieren. Sie animieren es dann entlang dieses Pfades, indem Sie {{cssxref("offset-distance")}} animieren, und können es an jedem Punkt mit {{cssxref("offset-rotate")}} rotieren lassen.
 
 ## Einfaches Beispiel
 

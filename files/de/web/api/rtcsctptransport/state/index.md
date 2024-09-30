@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`state`**-Eigenschaft des schreibgeschützten [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces liefert Informationen, die den Status des Stream Control Transmission Protocol ([SCTP](/de/docs/Glossary/SCTP))-Transports beschreiben.
+Die schreibgeschützte Eigenschaft **`state`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces liefert Informationen, die den Zustand des Stream Control Transmission Protocol ([SCTP](/de/docs/Glossary/SCTP))-Transports beschreiben.
 
 ## Wert
 
 Ein String, dessen Wert einer der folgenden ist:
 
 - `connecting`
-  - : Der anfängliche Zustand, wenn die Verbindung hergestellt wird.
+  - : Der Anfangszustand, wenn die Verbindung hergestellt wird.
 - `connected`
-  - : Die Verbindung ist geöffnet und bereit für die Datenübertragung.
+  - : Die Verbindung ist für die Datenübertragung offen.
 - `closed`
-  - : Die Verbindung ist geschlossen und kann nicht mehr genutzt werden.
+  - : Die Verbindung ist geschlossen und kann nicht mehr verwendet werden.
 
 ## Spezifikationen
 

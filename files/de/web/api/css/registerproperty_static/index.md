@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische Methode **`CSS.registerProperty()`** registriert
-[benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*), die Typprüfung, Standardwerte
-und Eigenschaften, die ihren Wert erben oder nicht, ermöglichen.
+Die **`CSS.registerProperty()`** statische Methode registriert [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*), was die Typprüfung der Eigenschaften, Standardwerte und Eigenschaften, die ihren Wert erben oder nicht erben, ermöglicht.
 
-Das Registrieren einer benutzerdefinierten Eigenschaft erlaubt Ihnen, dem Browser mitzuteilen, wie die benutzerdefinierte Eigenschaft sich verhalten soll; welche Typen zugelassen sind, ob die benutzerdefinierte Eigenschaft ihren Wert erbt und welcher der Standardwert der benutzerdefinierten Eigenschaft ist.
+Das Registrieren einer benutzerdefinierten Eigenschaft erlaubt es Ihnen, dem Browser mitzuteilen, wie sich die benutzerdefinierte Eigenschaft verhalten soll; welche Typen erlaubt sind, ob die benutzerdefinierte Eigenschaft ihren Wert erbt und was der Standardwert der benutzerdefinierten Eigenschaft ist.
 
 ## Syntax
 
@@ -23,17 +21,15 @@ CSS.registerProperty(propertyDefinition)
 ### Parameter
 
 - `propertyDefinition`
-  - : Ein Objekt, welches folgende Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `name`
-      - : Ein String, der den
-        Namen der Eigenschaft repräsentiert, die definiert wird.
+      - : Ein String, der den Namen der definierten Eigenschaft darstellt.
     - `syntax` {{optional_inline}}
-      - : Ein String, der die erwartete Syntax der definierten Eigenschaft repräsentiert. Standardmäßig auf `"*"` gesetzt.
+      - : Ein String, der die erwartete Syntax der definierten Eigenschaft darstellt. Standardmäßig auf `"*"`.
     - `inherits`
-      - : Ein boolescher Wert, der definiert, ob die definierte Eigenschaft vererbt werden soll
-        (`true`), oder nicht (`false`). Standardmäßig auf `false` gesetzt.
+      - : Ein boolescher Wert, der definiert, ob die definierte Eigenschaft vererbt werden soll (`true`), oder nicht (`false`). Standardmäßig `false`.
     - `initialValue` {{optional_inline}}
-      - : Ein String, der den Anfangswert der definierten Eigenschaft repräsentiert.
+      - : Ein String, der den Anfangswert der definierten Eigenschaft darstellt.
 
 ### Rückgabewert
 
@@ -44,16 +40,13 @@ CSS.registerProperty(propertyDefinition)
 - `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der angegebene `name` wurde bereits registriert.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der angegebene `name` ist kein gültiger Name für eine benutzerdefinierte Eigenschaft (beginnt mit zwei Bindestrichen, z.B. `--foo`).
+  - : Der angegebene `name` ist kein gültiger benutzerdefinierter Eigenschaftsname (beginnt mit zwei Bindestrichen, z. B. `--foo`).
 - {{jsxref("TypeError")}}
-  - : Die erforderlichen `name` und/oder `inherits` Wörterbucheinträge wurden
-    nicht bereitgestellt.
+  - : Die erforderlichen `name`- und/oder `inherits`-Wörterbuchmitglieder wurden nicht bereitgestellt.
 
 ## Beispiele
 
-Das Folgende wird eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*),
-`--my-color`, mit `registerProperty()` als Farbe registrieren, ihr einen
-Standardwert geben und dafür sorgen, dass sie ihren Wert nicht erbt:
+Folgendes registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*), `--my-color`, mit `registerProperty()`, als Farbe, gibt ihr einen Standardwert und lässt sie ihren Wert nicht erben:
 
 ```js
 window.CSS.registerProperty({
@@ -64,9 +57,7 @@ window.CSS.registerProperty({
 });
 ```
 
-In diesem Beispiel wurde die benutzerdefinierte Eigenschaft `--my-color` mit der
-Syntax `<color>` registriert. Jetzt können wir diese Eigenschaft nutzen, um einen
-Gradienten beim Überfahren mit der Maus oder bei Fokus zu überblenden. Beachten Sie, dass mit der registrierten Eigenschaft die Überblendung funktioniert, aber nicht mit der nicht registrierten Eigenschaft!
+In diesem Beispiel wurde die benutzerdefinierte Eigenschaft `--my-color` mit der Syntax `<color>` registriert. Wir können diese Eigenschaft nun verwenden, um einen Übergang eines Verlaufs bei Hover oder Fokus zu erzielen. Beachten Sie, dass der Übergang mit der registrierten Eigenschaft funktioniert, aber nicht mit der nicht registrierten Eigenschaft!
 
 ```css
 .registered {
@@ -95,7 +86,7 @@ button {
 }
 ```
 
-Wir können diese Stile einigen Buttons hinzufügen:
+Wir können diese Stile zu einigen Schaltflächen hinzufügen:
 
 ```html
 <button class="registered">Background Registered</button>

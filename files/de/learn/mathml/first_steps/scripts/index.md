@@ -1,5 +1,5 @@
 ---
-title: MathML Script-Elemente
+title: MathML gescriptete Elemente
 slug: Learn/MathML/First_steps/Scripts
 l10n:
   sourceCommit: 865acb22b74a49927b98267566369d4677414f53
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Fractions_and_roots", "Learn/MathML/First_steps/Tables", "Learn/MathML/First_steps")}}
 
-Wir setzen die Überprüfung grundlegender mathematischer Notationen fort und konzentrieren uns darauf, MathML-Elemente mit Skripten zu erstellen.
+Wir setzen die Überprüfung der grundlegenden mathematischen Notationen fort und konzentrieren uns darauf, MathML-Elemente mit Skripten zu erstellen.
 
 <table>
   <tbody>
@@ -17,11 +17,11 @@ Wir setzen die Überprüfung grundlegender mathematischer Notationen fort und ko
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, grundlegende Kenntnisse im
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
           >Umgang mit Dateien</a
-        >, und HTML-Grundlagen (studieren Sie
+        >, und HTML-Grundlagen (studieren Sie die
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
         >.)
@@ -30,13 +30,13 @@ Wir setzen die Überprüfung grundlegender mathematischer Notationen fort und ko
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit grundlegenden MathML-Elementen, die geskriptete Elemente erzeugen, zu erlangen.
+        Vertrautheit mit grundlegenden MathML-Elementen, die geskriptete Elemente erzeugen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Tief- und Hochstellsymbole
+## Tief- und Hochstellungen
 
 Ähnlich wie im [vorherigen Artikel](/de/docs/Learn/MathML/First_steps/Fractions_and_roots) gesehen, haben die `<msub>`, `<msup>` und `<msubsup>` eine spezielle Struktur, die genau zwei Elemente (für `<msub>`, `<msup>`) oder drei Elemente (für `<msubsup>`) erwartet:
 
@@ -72,27 +72,27 @@ Wir setzen die Überprüfung grundlegender mathematischer Notationen fort und ko
 </p>
 ```
 
-Unten sehen Sie die Darstellung des obigen Beispiels in Ihrem Browser.
+Nachfolgend ist die Darstellung des obigen Beispiels in Ihrem Browser zu sehen.
 
 {{ EmbedLiveSample('Subtrees_of_msub_msup_msubsup', 700, 200, "", "") }}
 
-Sie sollten beachten, dass:
+Sie sollten feststellen, dass:
 
-- Das zweite Kind des `<msub>` Elements als Tiefstellsymbol seines ersten Kindes angehängt wird.
-- Das zweite Kind des `<msup>` Elements als Hochstellsymbol seines ersten Kindes angehängt wird.
-- Die zweiten und dritten Kinder des `<msubsup>` Elements werden jeweils als Tief- und Hochstellsymbole seines ersten Kindes angehängt.
-- Der Text in Skripten wird verkleinert dargestellt.
+- Das zweite Kind des `<msub>`-Elements als Tiefstellung an das erste Kind angehängt ist.
+- Das zweite Kind des `<msup>`-Elements als Hochstellung an das erste Kind angehängt ist.
+- Die zweiten und dritten Kinder des `<msubsup>`-Elements jeweils als Tiefstellung und Hochstellung an das erste Kind angehängt sind.
+- Der Text innerhalb der Skripte verkleinert dargestellt wird.
 
 > [!NOTE]
-> Die MathML-Elemente `<msub>` und `<msup>` unterscheiden sich von den HTML-Elementen [`<sub>`](/de/docs/Web/HTML/Element/sub) und [`<sup>`](/de/docs/Web/HTML/Element/sup). Sie erlauben es den Autoren, beliebige MathML-Teilbäume als Skripte bereitzustellen, nicht nur Text.
+> Die MathML-Elemente `<msub>` und `<msup>` unterscheiden sich von den HTML-Elementen [`<sub>`](/de/docs/Web/HTML/Element/sub) und [`<sup>`](/de/docs/Web/HTML/Element/sup). Sie ermöglichen es Autoren, beliebige MathML-Unterbäume als Skripte bereitzustellen, nicht nur Text.
 
-## Unter- und Überstriche
+## Unterschriften und Überschriften
 
-Die `<munder>`, `<mover>` und `<munderover>` Elemente sind sehr ähnlich, außer dass sie verwendet werden, um Unter- und Überstriche anzuhängen. Anstatt Details zu geben, lassen wir Sie ihre Definitionen mit der folgenden Übung selbst herausfinden.
+Die `<munder>`, `<mover>` und `<munderover>`-Elemente sind sehr ähnlich, außer dass sie verwendet werden, um Unterschriften und Überschriften anzubringen. Anstatt Details anzugeben, lassen wir Sie deren Definitionen selbst mit der folgenden Übung herausfinden.
 
-### Aktives Lernen: Erkennen von Unter- und Überstrichen
+### Aktives Lernen: Erkennen Sie Unter-/Übersichten
 
-Versuchen Sie im folgenden Beispiel, die Namen der geheimnisvollen Elemente (als Fragezeichen geschrieben) zu erraten und klicken Sie auf die Schaltfläche, um die Lösung zu enthüllen:
+Versuchen Sie im folgenden Beispiel, die Namen der mysteriösen Elemente (als Fragezeichen dargestellt) zu erraten und klicken Sie den Button, um die Lösung zu sehen:
 
 ```html hidden
 <p>
@@ -147,9 +147,9 @@ document.getElementById("showSolution").addEventListener("click", () => {
 
 {{ EmbedLiveSample('Subtrees_of_munder_mover_munderover', 700, 400, "", "") }}
 
-### Aktives Lernen: Erkennen von geskripteten Elementen
+### Aktives Lernen: Erkennen Sie geskriptete Elemente
 
-Die folgende MathML-Formel enthält einen komplexeren Ausdruck mit geschachtelten Brüchen, Wurzeln und Skripten. Versuchen Sie, die mit Script-Elementen `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` gestalteten Elemente zu erraten. Jedes Mal, wenn Sie ein solches Element anklicken, wird es hervorgehoben und eine Bestätigungsnachricht angezeigt. Lesen Sie schließlich die MathML-Quelle, um zu prüfen, ob dies Ihren Erwartungen entspricht.
+Die folgende MathML-Formel enthält einen komplexeren Ausdruck, der Brüche, Wurzeln und Skripte verschachtelt. Versuchen Sie, die mit geskripteten Elementen `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` ausgelegten Elemente zu erraten. Jedes Mal, wenn Sie auf ein solches Element klicken, wird es hervorgehoben und eine Bestätigungsmeldung angezeigt. Lesen Sie schließlich die MathML-Quelle, um zu überprüfen, ob dies Ihrer Erwartung entspricht.
 
 ```html hidden
 <!doctype html>
@@ -257,13 +257,13 @@ document.getElementById("clearOutput").addEventListener("click", () => {
 
 {{ EmbedLiveSample('Active_learning_recognize_scripted_elements', 700, 400, "", "") }}
 
-## Weitere Eigenschaften von Operatoren
+## Weitere Operator-Eigenschaften
 
-Wir haben zuvor einige [Eigenschaften des `<mo>`-Elements](/de/docs/Learn/MathML/First_steps/Text_containers#operator_properties_of_mo) gesehen, nämlich Dehnen in vertikaler Richtung und Abstände. Jetzt, da geskriptete Elemente verfügbar sind, können wir diese Liste erweitern. Wir werden dies tun, indem wir unser [vorheriges Beispiel](#active_learning_recognize_scripted_elements) anpassen.
+Wir haben bereits einige [Eigenschaften des `<mo>`-Elements](/de/docs/Learn/MathML/First_steps/Text_containers#operator_properties_of_mo) gesehen, nämlich das Strecken in vertikaler Richtung und den Abstand. Jetzt, da geskriptete Elemente verfügbar sind, können wir diese Liste erweitern. Wir werden dies tun, indem wir unser [vorheriges Beispiel](#active_learning_recognize_scripted_elements) anpassen.
 
-### Dehnen in horizontaler Richtung
+### Strecken in horizontaler Richtung
 
-Lassen Sie uns zuerst die Substitutionen <math><mi>β</mi><mo>≔</mo><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>+</mo><msub><mi>z</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\beta := z*{1} + z*{2}</annotation></math> und <math><mi>α</mi><mo>≔</mo><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\alpha := v*{1} + v*{2}</annotation></math> durchführen:
+Führen wir zunächst die Substitutionen <math><mi>β</mi><mo>≔</mo><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>+</mo><msub><mi>z</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\beta := z*{1} + z*{2}</annotation></math> und <math><mi>α</mi><mo>≔</mo><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\alpha := v*{1} + v*{2}</annotation></math> durch:
 
 ```html hidden
 <!doctype html>
@@ -363,14 +363,14 @@ math {
 
 {{ EmbedLiveSample('Stretching_in_horizontal_direction', 700, 200, "", "") }}
 
-Wir erkennen jetzt, dass die untere Klammer "⎵" und der Rechtspfeil "→" horizontal gedehnt werden, um die Breite der ersetzten Werte abzudecken. Denken Sie daran, dass [einige vertikale Operatoren gedehnt werden können](/de/docs/Learn/MathML/First_steps/Text_containers#active_learning_stretchy_operators), um die Höhe von nicht dehnbaren Geschwistern in einem `<mrow>` abzudecken. Ebenso können einige horizontale Operatoren gedehnt werden, um die Breite von nicht dehnbaren Geschwistern in einem `<munder>`, `<mover>` oder `<munderover>` Element abzudecken.
+Wir erkennen jetzt, dass die untere Klammer "⎵" und der Pfeil nach rechts "→" sich horizontal strecken, um die Breite der ersetzten Werte abzudecken. Erinnern Sie sich daran, dass [einige vertikale Operatoren gestreckt werden können](/de/docs/Learn/MathML/First_steps/Text_containers#active_learning_stretchy_operators), um die Höhe von nicht gestreckten Geschwistern innerhalb eines `<mrow>` abzudecken. Ebenso können einige horizontale Operatoren sich strecken, um die Breite nicht gestreckter Geschwister in einem `<munder>`, `<mover>` oder `<munderover>`-Element abzudecken.
 
 > [!NOTE]
-> Dehnen kann für jedes Kind des `<munder>`, `<mover>` oder `<munderover>` Elements geschehen, nicht nur für das Unter- oder Überskript.
+> Das Strecken kann für jedes Kind des `<munder>`, `<mover>` oder `<munderover>`-Elements erfolgen, nicht nur für die Unterschrift oder Überschrift.
 
-### Großer Operator und Grenzwerte
+### Großer Operator und Grenzen
 
-Bisher wurde unser Beispiel tatsächlich mit dem [`display="block"`](/de/docs/Learn/MathML/First_steps/Getting_started#the_display_attribute) Attribut gerendert. Schauen wir uns dasselbe Beispiel an, wie es ohne dieses Attribut gerendert wird:
+Bisher wurde unser Beispiel tatsächlich mit dem [`display="block"`](/de/docs/Learn/MathML/First_steps/Getting_started#the_display_attribute) Attribut gerendert. Schauen wir uns das gleiche Beispiel an, wie es ohne dieses Attribut gerendert wird:
 
 ```html hidden
 <!doctype html>
@@ -470,25 +470,25 @@ math {
 
 {{ EmbedLiveSample('Large_operator_and_limits', 700, 200, "", "") }}
 
-Wie erwartet, ist die Formel nicht mehr zentriert und die Darstellung wurde angepasst, um die Höhe zu minimieren. Fokussiert man sich auf das Summenzeichen, erkennt man, dass das Sigma kleiner gezeichnet wird und dass die Skripte des `<munderover>` Elements jetzt als Tief- und Hochstellsymbole angehängt sind! Dies liegt an zwei Eigenschaften des "∑" Operators:
+Wie erwartet ist die Formel nicht mehr zentriert und die Darstellung ist so geändert, dass die Höhe minimiert wird. Konzentriert man sich auf das Summationssymbol, kann man feststellen, dass das Sigma kleiner gezeichnet und die Skripte des `<munderover>`-Elements nun als Tiefstellung und Hochstellung angehängt sind! Dies liegt an zwei Eigenschaften des "∑"-Operators:
 
-- _largeop_: Der Operator wird mit einem größeren Zeichen gezeichnet, wenn das `<math>`-Tag ein `display="block"` Attribut hat.
-- _movablelimits_: Die Unter- und Überschriften, die am Operator angehängt sind, werden respektive als Tief- und Hochstellsymbole gerendert, wenn das `<math>`-Tag das `display="block"` Attribut nicht hat.
+- _largeop_: Der Operator wird mit einem größeren Glyph gezeichnet, wenn das `<math>`-Tag ein `display="block"` Attribut hat.
+- _movablelimits_: Die Unterschriften und Überschriften, die dem Operator angehängt sind, werden als Tiefstellung und Hochstellung gerendert, wenn das `<math>`-Tag nicht das `display="block"` Attribut hat.
 
 > [!NOTE]
-> Die _largeop_ Eigenschaft ist tatsächlich unabhängig von Skripten, obwohl Operatoren mit dieser Eigenschaft typischerweise geskriptet sind. Die _movablelimits_ Eigenschaft wird auch bei `<munder>` und `<mover>` Elementen berücksichtigt.
+> Die _largeop_-Eigenschaft ist tatsächlich nicht mit Skripten verbunden, obwohl Operatoren mit dieser Eigenschaft typischerweise geskriptet werden. Die _movablelimits_-Eigenschaft wird auch für `<munder>` und `<mover>`-Elemente berücksichtigt.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir die grundlegende Layout-Einführung mit den Elementen `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` für Tief-, Hoch-, Unter- und Überschriften abgeschlossen. Mit diesen Elementen konnten wir kurz neue Eigenschaften des `<mo>` Elements einführen. Im nächsten Artikel werden wir uns weiter auf [tabellarisches Layout](/de/docs/Learn/MathML/First_steps/Tables) konzentrieren.
+In diesem Artikel haben wir das grundlegende Layout abgeschlossen, indem wir die Elemente `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` für Tief- und Hochstellungen, Unterschriften und Überschriften eingeführt haben. Mit diesen Elementen konnten wir kurz neue Eigenschaften des `<mo>`-Elements einführen. Im nächsten Artikel werden wir uns weiterhin auf [Tabellenlayout](/de/docs/Learn/MathML/First_steps/Tables) konzentrieren.
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Fractions_and_roots", "Learn/MathML/First_steps/Tables", "Learn/MathML/First_steps")}}
 
 ## Siehe auch
 
-- [Das `<msub>` Element](/de/docs/Web/MathML/Element/msub)
-- [Das `<msup>` Element](/de/docs/Web/MathML/Element/msup)
-- [Das `<msubsup>` Element](/de/docs/Web/MathML/Element/msubsup)
-- [Das `<munder>` Element](/de/docs/Web/MathML/Element/munder)
-- [Das `<mover>` Element](/de/docs/Web/MathML/Element/mover)
-- [Das `<munderover>` Element](/de/docs/Web/MathML/Element/munderover)
+- [Das `<msub>`-Element](/de/docs/Web/MathML/Element/msub)
+- [Das `<msup>`-Element](/de/docs/Web/MathML/Element/msup)
+- [Das `<msubsup>`-Element](/de/docs/Web/MathML/Element/msubsup)
+- [Das `<munder>`-Element](/de/docs/Web/MathML/Element/munder)
+- [Das `<mover>`-Element](/de/docs/Web/MathML/Element/mover)
+- [Das `<munderover>`-Element](/de/docs/Web/MathML/Element/munderover)

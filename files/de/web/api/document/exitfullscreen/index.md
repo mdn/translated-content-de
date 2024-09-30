@@ -1,5 +1,5 @@
 ---
-title: "Document: exitFullscreen()-Methode"
+title: "Document: exitFullscreen() Methode"
 short-title: exitFullscreen()
 slug: Web/API/Document/exitFullscreen
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Fullscreen API")}}
 
-Die Methode [`Document`](/de/docs/Web/API/Document) **`exitFullscreen()`** fordert, dass das Element, das derzeit im Vollbildmodus präsentiert wird, aus diesem Modus herausgenommen wird und der vorherige Zustand des Bildschirms wiederhergestellt wird. Dies macht in der Regel die Auswirkungen eines vorherigen Aufrufs von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) rückgängig.
+Die [`Document`](/de/docs/Web/API/Document) Methode **`exitFullscreen()`** fordert an, dass das Element in diesem Dokument, das derzeit im Vollbildmodus präsentiert wird, aus dem Vollbildmodus genommen wird, um den vorherigen Zustand des Bildschirms wiederherzustellen. Dies hebt normalerweise die Effekte eines vorherigen Aufrufs von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der aufgelöst wird, sobald der [User Agent](/de/docs/Glossary/user_agent) das Verlassen des Vollbildmodus abgeschlossen hat. Wenn ein Fehler beim Versuch des Verlassens des Vollbildmodus auftritt, wird der `catch()`-Handler des Promise aufgerufen.
+Ein {{jsxref("Promise")}}, der aufgelöst wird, sobald der [User-Agent](/de/docs/Glossary/user_agent) den Vollbildmodus verlassen hat. Wenn ein Fehler bei dem Versuch auftritt, den Vollbildmodus zu verlassen, wird der `catch()` Handler für das Promise aufgerufen.
 
 ## Beispiele
 
-Dieses Beispiel bewirkt, dass das aktuelle Dokument bei jedem Mausklick innerhalb des Dokuments zwischen der Vollbildpräsentation ein- und ausgeschaltet wird.
+Dieses Beispiel bewirkt, dass das aktuelle Dokument bei jedem Mausklick innerhalb des Dokuments in und aus einer Vollbildpräsentation wechselt.
 
 ```js
 document.onclick = (event) => {
@@ -43,7 +43,7 @@ document.onclick = (event) => {
 
 > [!NOTE]
 > Für ein vollständigeres Beispiel siehe die
-> Beispiele zu [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen#examples).
+> [`Element.requestFullscreen()` Beispiele](/de/docs/Web/API/Element/requestFullscreen#examples).
 
 ## Spezifikationen
 
@@ -60,5 +60,4 @@ document.onclick = (event) => {
 - [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
 - [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)
 - {{ cssxref(":fullscreen") }} und {{cssxref("::backdrop")}}
-- Das {{HTMLElement("iframe")}} [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)
-  Attribut
+- Das {{HTMLElement("iframe")}} [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen) Attribut

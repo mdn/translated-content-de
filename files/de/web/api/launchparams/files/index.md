@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`files`**-Eigenschaft der [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Schnittstelle gibt ein Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurück, die alle Dateien darstellen, die zusammen mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode übergeben wurden.
+Die **`files`**-Schreibgeschützte Eigenschaft des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Interfaces gibt ein Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurück, die Dateien darstellen, die zusammen mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode übergeben wurden.
 
 ## Wert
 
@@ -39,6 +39,6 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Steuern Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Kontrollieren Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
-- [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App
+- Demo-App [Musicr 2.0](https://launch-handler.glitch.me/)

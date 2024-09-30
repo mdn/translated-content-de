@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: createDTMFSender() Methode"
+title: "RTCPeerConnection: createDTMFSender()-Methode"
 short-title: createDTMFSender()
 slug: Web/API/RTCPeerConnection/createDTMFSender
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{non-standard_header}}
 
-Die **`createDTMFSender()`**-Methode der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt, das mit dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) verknüpft ist und zum Senden von DTMF-Tönen über die Verbindung verwendet werden kann.
+Die **`createDTMFSender()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces erstellt ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt, das mit dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) verknüpft ist. Dieses kann verwendet werden, um DTMF-Töne über die Verbindung zu senden.
 
-Diese Methode ist veraltet und sollte nicht mehr verwendet werden. Stattdessen sollte die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft verwendet werden, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender verknüpft ist.
+Diese Methode ist veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender verknüpft ist.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ navigator.getUserMedia({ audio: true }, (stream) => {
 
 ## Spezifikationen
 
-Diese Funktion ist nicht standardisiert und Teil keiner Spezifikation.
+Dieses Feature ist nicht standardisiert und Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

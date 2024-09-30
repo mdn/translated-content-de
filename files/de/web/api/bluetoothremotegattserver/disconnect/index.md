@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTServer.disconnect()`**-Methode bewirkt,
-dass die Skriptausführungsumgebung die Verbindung zu `this.device` trennt.
+Die **`BluetoothRemoteGATTServer.disconnect()`**-Methode bewirkt, dass die Skriptausführungsumgebung die Verbindung von `this.device` trennt.
 
 ## Syntax
 

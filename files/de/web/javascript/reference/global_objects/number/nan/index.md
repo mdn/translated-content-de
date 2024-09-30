@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Number.NaN`** repräsentiert Not-A-Number, was äquivalent zu {{jsxref("NaN")}} ist. Für weitere Informationen über das Verhalten von `NaN` siehe die [Beschreibung für die globale Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+Die statische Dateneigenschaft **`Number.NaN`** steht für Not-A-Number, was dem {{jsxref("NaN")}} entspricht. Für weitere Informationen über das Verhalten von `NaN` sehen Sie sich die [Beschreibung der globalen Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) an.
 
 {{EmbedInteractiveExample("pages/js/number-nan.html", "taller")}}
 
@@ -23,7 +23,7 @@ Da `NaN` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie 
 
 ## Beispiele
 
-### Überprüfen, ob Werte numerisch sind
+### Überprüfung, ob Werte numerisch sind
 
 ```js
 function sanitize(x) {

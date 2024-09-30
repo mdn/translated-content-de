@@ -10,7 +10,8 @@ l10n:
 
 Die **`FontFace.family`**-Eigenschaft ermöglicht es dem Autor, die Schriftfamilie eines [`FontFace`](/de/docs/Web/API/FontFace)-Objekts abzurufen oder festzulegen.
 
-Der Wert wird für die Namensübereinstimmung mit einem bestimmten Schriftschnitt verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft gestylt werden. Jeder beliebige Name kann verwendet werden, und dieser überschreibt jeglichen in den zugrunde liegenden Schriftartdaten angegebenen Namen.
+Der Wert wird zur Namenszuordnung gegen eine bestimmte Schriftart verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft gestylt werden.
+Jeder Name kann verwendet werden, und dieser überschreibt jeden Namen, der in den zugrundeliegenden Schriftdaten angegeben ist.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor von {{cssxref("@font-face")}}.
 

@@ -8,7 +8,8 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Presentation API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Schnittstelle gibt die URL zurück, die zum Erstellen oder Wiederverbinden mit der Präsentation verwendet wird.
+Die **`url`**-Schreibgeschütztes Eigenschaft des
+[`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Interfaces gibt die URL zurück, die zur Erstellung oder Wiederverbindung zur Präsentation verwendet wird.
 
 ## Wert
 

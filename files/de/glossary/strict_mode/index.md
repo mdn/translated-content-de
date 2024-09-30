@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **Strict mode** von JavaScript ist eine Möglichkeit, eine eingeschränkte Variante von JavaScript zu verwenden, indem man sich damit implizit gegen den "[sloppy mode](/de/docs/Glossary/Sloppy_mode)" entscheidet. Strict mode ist nicht nur ein Teilbereich: Es hat _absichtlich_ andere Semantiken als normaler Code.
+JavaScripts **strict mode** ist eine Möglichkeit, sich für eine eingeschränkte Variante von JavaScript zu entscheiden und dadurch implizit den "[sloppy mode](/de/docs/Glossary/Sloppy_mode)" abzuwählen. Strict mode ist nicht nur eine Teilmenge: Es hat _absichtlich_ andere Semantiken als normaler Code.
 
-Strict mode für ein ganzes Skript wird aktiviert, indem die Anweisung `"use strict";` vor jeglichen anderen Anweisungen eingefügt wird.
+Strict mode für ein gesamtes Skript wird durch das Einfügen der Anweisung `"use strict";` vor allen anderen Anweisungen aktiviert.
 
 ## Siehe auch
 

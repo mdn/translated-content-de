@@ -1,5 +1,5 @@
 ---
-title: "Performance: clearMarks() Methode"
+title: "Performance: `clearMarks()` Methode"
 short-title: clearMarks()
 slug: Web/API/Performance/clearMarks
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die Methode **`clearMarks()`** entfernt alle oder spezifische [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte aus der Leistungszeitleiste des Browsers.
+Die **`clearMarks()`**-Methode entfernt alle oder spezifische [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte aus der Leistungstimeline des Browsers.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Entfernen von Markierungen
 
-Um alle Leistungsmarken oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMarks()`-Methode wie folgt:
+Um alle Leistungsmarkierungen oder nur spezifische Einträge zu bereinigen, verwenden Sie die `clearMarks()`-Methode wie folgt:
 
 ```js
 // Create a bunch of marks

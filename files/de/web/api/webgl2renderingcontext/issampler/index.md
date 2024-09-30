@@ -3,10 +3,10 @@ title: "WebGL2RenderingContext: isSampler()-Methode"
 short-title: isSampler()
 slug: Web/API/WebGL2RenderingContext/isSampler
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.isSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist.
 
@@ -19,11 +19,11 @@ isSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das getestet werden soll.
+  - : Ein zu testendes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das angegebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist (`true`) oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt (`true`) ist oder nicht (`false`).
 
 ## Beispiele
 

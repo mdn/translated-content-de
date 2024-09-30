@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte **`list`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt das [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut des Elements verwiesen wird, oder `null`, wenn das `list`-Attribut nicht definiert ist oder der Wert des `list`-Attributs keinem `<datalist>` im selben Baum zugeordnet ist.
+Die schreibgeschützte **`list`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt das [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement)-Element zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut des Elements verwiesen wird, oder `null`, wenn das `list`-Attribut nicht definiert ist oder der Wert des `list`-Attributs keinem `<datalist>` im gleichen Baum zugeordnet ist.
 
 > [!NOTE]
 > Dies ist eine schreibgeschützte Eigenschaft. Um ein `<datalist>` mit einem Element zu verknüpfen, setzen Sie den Wert des `list`-Attributs mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute).
@@ -19,7 +19,7 @@ Ein [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) oder `null`.
 
 ## Beispiel
 
-Angenommen, Sie haben folgendes HTML:
+Gegeben folgenden HTML-Code:
 
 ```html
 <label for="planet">Which planet are you from?</label>

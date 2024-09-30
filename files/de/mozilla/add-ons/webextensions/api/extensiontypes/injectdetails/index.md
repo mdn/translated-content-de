@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieser Typ wird als Parameter an die Methoden `tabs.executeScript()`, `tabs.insertCSS()` und `tabs.removeCSS()` übergeben. Für die Details zu seinen Eigenschaften und deren Verwendung siehe die Dokumentationsseiten zu diesen Methoden:
+Dieser Typ wird als Parameter an die Methoden `tabs.executeScript()`, `tabs.insertCSS()` und `tabs.removeCSS()` übergeben. Für Details zu seinen Eigenschaften und deren Verwendung, siehe die Dokumentationsseiten für diese Methoden:
 
 - {{WebExtAPIRef("tabs.executeScript()")}}
 - {{WebExtAPIRef("tabs.insertCSS()")}}

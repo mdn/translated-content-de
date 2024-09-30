@@ -7,10 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`subarray()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues typisiertes Array zurück,
-das im gleichen {{jsxref("ArrayBuffer")}}-Speicherbereich mit denselben Elementtypen wie dieses
-typisierte Array liegt. Der Anfangsversatz ist **einschließlich** und der Endversatz
-ist **ausschließlich**.
+Die **`subarray()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues getyptes Array
+im selben {{jsxref("ArrayBuffer")}}-Speicher und mit den gleichen Elementtypen wie dieses
+getypte Array zurück. Der Startversatz ist **inklusiv** und der Endversatz ist **exklusiv**.
 
 {{EmbedInteractiveExample("pages/js/typedarray-subarray.html")}}
 
@@ -25,11 +24,11 @@ subarray(begin, end)
 ### Parameter
 
 - `begin` {{optional_inline}}
-  - : Element, bei dem begonnen wird. Der Versatz ist einschließlich. Das gesamte Array wird in
-    den neuen View einbezogen, wenn dieser Wert nicht angegeben wird.
+  - : Element, bei dem begonnen wird. Der Versatz ist inklusiv. Das gesamte Array wird eingeschlossen,
+    wenn dieser Wert nicht angegeben wird.
 - `end` {{optional_inline}}
-  - : Element, bei dem geendet wird. Der Versatz ist ausschließlich. Wenn nicht angegeben, werden alle Elemente ab dem
-    durch `begin` angegebenen bis zum Ende des Arrays in den neuen View einbezogen.
+  - : Element, bei dem es endet. Der Versatz ist exklusiv. Wenn nicht angegeben, werden alle Elemente
+    vom durch `begin` angegebenen bis zum Ende des Arrays im neuen View eingeschlossen.
 
 ### Rückgabewert
 
@@ -37,12 +36,14 @@ Ein neues {{jsxref("TypedArray")}}-Objekt.
 
 ## Beschreibung
 
-Der Bereich, der durch `begin` und `end` angegeben wird, wird auf den gültigen Indexbereich für das aktuelle Array begrenzt; wenn die berechnete Länge des
-neuen Arrays negativ wäre, wird sie auf null begrenzt. Wenn entweder
-`begin` oder `end` negativ ist, bezieht sich dies auf einen Index vom Ende des Arrays anstelle vom Anfang.
+Der durch `begin` und `end` angegebene Bereich wird
+auf den gültigen Indexbereich für das aktuelle Array beschränkt; wenn die berechnete Länge des
+neuen Arrays negativ wäre, wird sie auf null geklammert. Wenn entweder
+`begin` oder `end` negativ ist, bezieht sich dies auf
+einen Index vom Ende des Arrays anstelle vom Anfang.
 
-Beachten Sie auch, dass dies eine neue Ansicht auf den vorhandenen Puffer erstellt; Änderungen an den Inhalten des neuen
-Objekts wirken sich auf das ursprüngliche Objekt und umgekehrt aus.
+Beachten Sie auch, dass dies eine neue Ansicht auf den bestehenden Puffer erstellt; Änderungen an den
+Inhalten des neuen Objekts werden das Originalobjekt und umgekehrt beeinflussen.
 
 ## Beispiele
 

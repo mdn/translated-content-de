@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `id`-Funktion findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotengruppe zurück, die die identifizierten Knoten enthält.
+Die Funktion `id` findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotenmenge zurück, die die identifizierten Knoten enthält.
 
 ## Syntax
 
@@ -18,12 +18,12 @@ id( expression )
 ### Parameter
 
 - `expression`
-  - : Wenn `expression` eine Knotengruppe ist, wird der Zeichenfolgenwert jedes Knotens in der Knotengruppe als individuelle ID behandelt. Die zurückgegebene Knotengruppe sind die Knoten, die diesen IDs entsprechen.
-    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotengruppe ist, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotengruppe sind die Knoten, die diesen IDs entsprechen.
+  - : Wenn `expression` eine Knotenmenge ist, wird der Zeichenfolgenwert jedes Knotens in der Knotenmenge als individuelle ID behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
+    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotenmenge ist, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
 
 ### Rückgabewert
 
-Eine Knotengruppe, die den durch die gegebene ID oder IDs identifizierten Knoten oder die Knoten enthält.
+Eine Knotenmenge, die den oder die durch die angegebene ID oder IDs identifizierten Knoten enthält.
 
 ## Beschreibung
 

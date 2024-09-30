@@ -1,5 +1,5 @@
 ---
-title: "MediaCapabilities: decodingInfo() Methode"
+title: "MediaCapabilities: Methode decodingInfo()"
 short-title: decodingInfo()
 slug: Web/API/MediaCapabilities/decodingInfo
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Media Capabilities API")}}
 
-Die **`decodingInfo()`**-Methode der [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Schnittstelle gibt ein Promise zurück, das Informationen darüber liefert, wie gut der Benutzeragent Medien mit einer gegebenen Konfiguration dekodieren/anzeigen kann.
+Die **`decodingInfo()`**-Methode des [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Interfaces gibt ein Promise zurück, das mit Informationen darüber erfüllt wird, wie gut der Benutzeragent Medien mit einer bestimmten Konfiguration decodieren/anzeigen kann.
 
-Das aufgelöste Objekt enthält drei Boolesche Eigenschaften `supported`, `smooth` und `powerefficient`, die angeben, ob das Dekodieren der beschriebenen Medien unterstützt wird und falls ja, ob das Dekodieren reibungslos und energieeffizient wäre.
+Das aufgelöste Objekt enthält drei boolesche Eigenschaften `supported`, `smooth` und `powerefficient`, die angeben, ob das Decodieren der beschriebenen Medien unterstützt wird und ob es flüssig und energieeffizient wäre.
 
-Die Methode kann auch verwendet werden, um die Fähigkeiten des Benutzeragenten für das Dekodieren von Medien, die mit einem Schlüsselsystem kodiert sind, zu testen, jedoch nur, wenn sie im Hauptthread und in einem sicheren Kontext aufgerufen wird.
-Wenn die Konfiguration, die in der Eigenschaft `configuration.keySystemConfiguration` übergeben wird, zum Dekodieren der Daten unterstützt wird, enthält das aufgelöste Promise auch ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Objekt, das zum Erstellen eines [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekts zur Einrichtung der verschlüsselten Wiedergabe verwendet werden kann.
+Die Methode kann auch verwendet werden, um die Fähigkeiten des Benutzeragents zum Decodieren von Medien, die mit einem Schlüsselsystem kodiert sind, zu testen, jedoch nur, wenn sie im Hauptthread und in einem sicheren Kontext aufgerufen wird.
+Wenn die in der `configuration.keySystemConfiguration`-Eigenschaft übergebene Konfiguration für das Decodieren der Daten unterstützt wird, enthält das aufgelöste Promise auch ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Objekt, das verwendet werden kann, um ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt zur Einrichtung der verschlüsselten Wiedergabe zu erstellen.
 
 > [!NOTE]
-> Das Aufrufen von `decodingInfo()` mit dieser Eigenschaft kann zu sichtbaren Auswirkungen für den Benutzer führen, wie zum Beispiel das Erfragen von Berechtigungen zum Zugriff auf ein oder mehrere Systemressourcen.
+> Der Aufruf von `decodingInfo()` mit dieser Eigenschaft kann benutzerseitige Effekte haben, wie das Erfragen von Berechtigungen zum Zugriff auf ein oder mehrere Systemressourcen.
 > Daher sollte diese Funktion nur aufgerufen werden, wenn die Anwendung bereit ist, ein `MediaKeys`-Objekt mit der bereitgestellten Konfiguration zu erstellen und zu verwenden.
 
 ## Syntax
@@ -29,26 +29,26 @@ decodingInfo(configuration)
 
 - `configuration`
 
-  - : Ein Objekt mit einer Eigenschaft `type`, entweder einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält, und optional eine `keySystemConfiguration`, wenn Medien dekodiert werden, die mit einem Schlüsselsystem verschlüsselt sind: <!-- MediaDecodingConfiguration in the spec -->
+  - : Ein Objekt mit einer Eigenschaft `type`, _entweder_ einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält, und optional einer `keySystemConfiguration`, wenn Medien mit einem Schlüsselsystem decodiert werden: <!-- MediaDecodingConfiguration in the spec -->
 
     - `type`
 
-      - : Der Typ der getesteten Medien. Dies nimmt einen der drei folgenden Werte an:
+      - : Der Typ der getesteten Medien. Dies nimmt einen der drei Werte an:
 
         - `file`
-          - : Repräsentiert eine Konfiguration, die für eine einfache Dateiwiedergabe verwendet werden soll.
+          - : Repräsentiert eine Konfiguration, die für eine einfache Dateiwiedergabe gedacht ist.
         - `media-source`
-          - : Repräsentiert eine Konfiguration, die für die Wiedergabe einer [`MediaSource`](/de/docs/Web/API/MediaSource) verwendet werden soll.
+          - : Repräsentiert eine Konfiguration, die für die Wiedergabe eines [`MediaSource`](/de/docs/Web/API/MediaSource) gedacht ist.
         - `webrtc`
-          - : Repräsentiert eine Konfiguration, die über [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) empfangen werden soll (nicht erlaubt, wenn `keySystemConfiguration` gesetzt ist).
+          - : Repräsentiert eine Konfiguration, die über [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) empfangen wird (nicht erlaubt, wenn `keySystemConfiguration` festgelegt ist).
 
     - `video`
 
-      - : Konfigurationsobjekt für eine Video-Medienquelle.
-        Dies hat die folgenden Eigenschaften: <!-- VideoConfiguration in the spec -->
+      - : Konfigurationsobjekt für eine Videomedienquelle.
+        Dieses hat folgende Eigenschaften: <!-- VideoConfiguration in the spec -->
 
         - `contentType`
-          - : String, der einen gültigen Video-MIME-Typ und (optional) einen [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
+          - : Ein String, der einen gültigen Video-MIME-Typ enthält, und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter).
         - `width`
           - : Die Breite des Videos.
         - `height`
@@ -56,126 +56,126 @@ decodingInfo(configuration)
         - `bitrate`
           - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Videodatei zu kodieren.
         - `framerate`
-          - : Die Anzahl der Frames, die eine Sekunde der Videowiedergabe bilden.
+          - : Die Anzahl der Frames, die eine Sekunde der Videowiedergabe ausmachen.
 
     - `audio`
 
-      - : Konfigurationsobjekt für eine Audio-Medienquelle.
-        Dies hat die folgenden Eigenschaften: <!-- AudioConfiguration in the spec -->
+      - : Konfigurationsobjekt für eine Audiomedienquelle.
+        Dieses hat folgende Eigenschaften: <!-- AudioConfiguration in the spec -->
 
         - `contentType`
-          - : String, der einen gültigen Audio-MIME-Typ und (optional) einen [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
+          - : Ein String, der einen gültigen Audio-MIME-Typ enthält, und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter).
         - `channels`
-          - : Die Anzahl der Kanäle, die von der Audiospur verwendet werden.
+          - : Die Anzahl der Kanäle, die vom Audiotrack genutzt werden.
         - `bitrate`
           - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Audiodatei zu kodieren.
         - `samplerate`
-          - : Die Anzahl der Audiosamples, die eine Sekunde der Audiodatei bilden.
+          - : Die Anzahl der Audiosamples, die eine Sekunde der Audiodatei ausmachen.
 
     - `keySystemConfiguration` {{optional_inline}}
 
-      - : Objekt, das die Schlüsselsystemkonfiguration für verschlüsselte Medien angibt.
+      - : Objekt, das die Konfiguration des Schlüsselsystems für verschlüsselte Medien spezifiziert.
 
-        > **Hinweis:** [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) nimmt in seinem `supportedConfigurations`-Argument Arrays einiger der gleichen Datentypen entgegen.
+        > **Hinweis:** [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) akzeptiert Arrays einiger der gleichen Datentypen in seinem `supportedConfigurations`-Argument.
 
-        Falls angegeben, muss der [`type`](#type) `media-source` oder `file` sein (nicht `webrtc`).
-        Dies hat die folgenden Eigenschaften: <!-- MediaCapabilitiesKeySystemConfiguration in the spec -->
+        Wenn spezifiziert, muss der [`type`](#type) `media-source` oder `file` (nicht `webrtc`) sein.
+        Dieses hat folgende Eigenschaften: <!-- MediaCapabilitiesKeySystemConfiguration in the spec -->
 
         - `keySystem`
 
-          - : Ein String, der das Medien-Schlüsselsystem identifiziert.
+          - : Ein String, der das Medienschlüssel-System identifiziert.
             Zum Beispiel `org.w3.clearkey` oder `com.widevine.alpha`.
 
         - `initDataType` {{optional_inline}}
 
-          - : Ein String, der den Datennamen des Initialisierungsdatentyps angibt, wie z.B. `"cenc"`, `"keyids"` und `"webm"`.
+          - : Ein String, der den Datentypnamen des Initialisierungsdatenformats angibt, wie `"cenc"`, `"keyids"` und `"webm"`.
             Erlaubte Namen sind im [Encrypted Media Extensions Initialization Data Format Registry](https://www.w3.org/TR/eme-initdata-registry/) definiert.
 
         - `distinctiveIdentifier` {{optional_inline}}
 
-          - : Ein String, der angibt, ob die Implementierung "unverwechselbare Kennungen" (oder unverwechselbare permanente Kennungen) für Operationen verwenden kann, die mit einem aus dieser Konfiguration erstellten Objekt verbunden sind.
+          - : Ein String, der anzeigt, ob die Implementierung "unverwechselbare Bezeichner" (oder unverwechselbare permanente Bezeichner) für alle zuvor mit einer Konfiguration erstellten Objekte verwenden darf.
             Die erlaubten Werte sind:
 
             - `required`
               - : Das zurückgegebene Objekt muss diese Funktion unterstützen.
             - `optional`
               - : Das zurückgegebene Objekt kann diese Funktion unterstützen.
-                Dies ist der Standardwert.
+                Dies ist die Standardeinstellung.
             - `not-allowed`
               - : Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
 
         - `persistentState` {{optional_inline}}
 
-          - : Ein String, der angibt, ob das zurückgegebene Objekt Sitzungsdaten oder einen anderen Zustand speichern können muss.
+          - : Ein String, der angibt, ob das zurückgegebene Objekt Sitzungsdaten oder andere Arten von Zuständen speichern können muss.
             Die erlaubten Werte sind:
 
             - `required`
               - : Das zurückgegebene Objekt muss diese Funktion unterstützen.
             - `optional`
               - : Das zurückgegebene Objekt kann diese Funktion unterstützen.
-                Dies ist der Standardwert.
+                Dies ist die Standardeinstellung.
             - `not-allowed`
               - : Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
-                Es können nur "temporäre" Sitzungen erstellt werden, wenn ein dauerhafter Zustand nicht erlaubt ist.
+                Nur "temporäre" Sitzungen dürfen erstellt werden, wenn ein persistenter Zustand nicht erlaubt ist.
 
         - `sessionTypes` {{optional_inline}}
 
-          - : Ein Array von Strings, das die Sitzungstypen angibt, die unterstützt werden müssen.
-            Erlaubte Werte umfassen:
+          - : Ein Array von Strings, das die zu unterstützenden Sitzungsarten angibt.
+            Zulässige Werte umfassen:
 
             - `temporary`
-              - : Eine Sitzung, bei der die Lizenz, die Schlüssel und Daten, die sich auf die Sitzung beziehen, nicht gespeichert werden.
+              - : Eine Sitzung, für die Lizenz, Schlüssel und Aufzeichnungen oder Daten in Bezug auf die Sitzung nicht gespeichert werden.
                 Die Anwendung muss diese Speicherung nicht verwalten.
-                Implementierungen müssen diese Option unterstützen, und dies ist die Standardeinstellung.
+                Implementierungen müssen diese Option unterstützen, und sie ist die Standardeinstellung.
             - `persistent-license`
-              - : Eine Sitzung, bei der die Lizenz (und möglicherweise andere Daten, die sich auf die Sitzung beziehen) gespeichert werden.
-                Ein Datensatz der Lizenz und der zugehörigen Schlüssel bleibt erhalten, selbst wenn die Lizenz zerstört wird, und bietet eine Bestätigung, dass die Lizenz und die darin enthaltenen Schlüssel vom Client nicht mehr nutzbar sind.
+              - : Eine Sitzung, für die die Lizenz (und möglicherweise andere mit der Sitzung verbundene Daten) gespeichert werden.
+                Ein Eintrag über die Lizenz und zugehörige Schlüssel bleibt bestehen, selbst wenn die Lizenz zerstört wird, was eine Bestätigung liefert, dass die Lizenz und die Schlüssel, die sie enthält, vom Client nicht mehr verwendet werden können.
 
         - `audio` {{optional_inline}}
 
-          - : Die Audioschlüssel-Systemspurenkonfiguration, die mit der obigen [`audio`-Konfiguration](#audio) verknüpft ist.
-            Wenn gesetzt, muss die [`audio`-Konfiguration](#audio) ebenfalls gesetzt sein.
+          - : Die Audiotrack-Konfiguration des Schlüsselsystems, die mit der oben beschriebenen [`audio` Konfiguration](#audio) verbunden ist.
+            Wenn gesetzt, muss auch die [`audio` Konfiguration](#audio) gesetzt sein.
 
             - `encryptionScheme`
-              - : Das Verschlüsselungsschema, das mit dem Inhaltstyp verbunden ist, wie z.B. `cenc`, `cbcs`, `cbcs-1-9`.
-                Dieser Wert sollte von einer Anwendung festgelegt werden (der Standardwert ist `null`, was anzeigt, dass jedes Verschlüsselungsschema verwendet werden kann).
+              - : Das Verschlüsselungsschema, das mit dem Inhaltstyp verbunden ist, wie `cenc`, `cbcs`, `cbcs-1-9`.
+                Dieser Wert sollte von einer Anwendung gesetzt werden (Er ist standardmäßig `null`, was bedeutet, dass ein beliebiges Verschlüsselungsschema verwendet werden kann).
             - `robustness`
               - : Das Robustheitsniveau, das mit dem Inhaltstyp verbunden ist.
-                Der leere String zeigt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
+                Der leere String zeigt an, dass jede Fähigkeit zum Entschlüsseln und Decodieren des Inhaltstyps akzeptabel ist.
 
         - `video` {{optional_inline}}
 
-          - : Die Videoschlüssel-Systemspurenkonfiguration, die mit der obigen [`video`-Konfiguration](#video) verknüpft ist.
-            Wenn gesetzt, muss die [`video`-Konfiguration](#video) ebenfalls gesetzt sein.
+          - : Die Videotrack-Konfiguration des Schlüsselsystems, die mit der oben beschriebenen [`video` Konfiguration](#video) verbunden ist.
+            Wenn gesetzt, muss auch die [`video` Konfiguration](#video) gesetzt sein.
 
             - `encryptionScheme`
-              - : Das Verschlüsselungsschema, das mit dem Inhaltstyp verbunden ist, wie z.B. `cenc`, `cbcs`, `cbcs-1-9`.
-                Dieser Wert sollte von einer Anwendung festgelegt werden (der Standardwert ist `null`, was anzeigt, dass jedes Verschlüsselungsschema verwendet werden kann).
+              - : Das Verschlüsselungsschema, das mit dem Inhaltstyp verbunden ist, wie `cenc`, `cbcs`, `cbcs-1-9`.
+                Dieser Wert sollte von einer Anwendung gesetzt werden (Er ist standardmäßig `null`, was bedeutet, dass ein beliebiges Verschlüsselungsschema verwendet werden kann).
             - `robustness`
               - : Das Robustheitsniveau, das mit dem Inhaltstyp verbunden ist.
-                Der leere String zeigt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
+                Der leere String zeigt an, dass jede Fähigkeit zum Entschlüsseln und Decodieren des Inhaltstyps akzeptabel ist.
 
 ### Rückgabewert
 
 Ein {{jsxref('Promise')}}, das mit einem Objekt erfüllt wird, das die folgenden Attribute enthält:
 
 - `supported`
-  - : `true`, wenn der Medieninhalt überhaupt dekodiert werden kann. Andernfalls ist es `false`.
+  - : `true`, wenn die Medieninhalte überhaupt decodiert werden können. Andernfalls ist es `false`.
 - `smooth`
-  - : `true`, wenn die Wiedergabe der Medien mit der von der Konfiguration angegebenen Bildrate abgespielt werden kann, ohne dass Frames fallen gelassen werden müssen. Andernfalls ist es `false`.
+  - : `true`, wenn die Wiedergabe der Medien mit der in der Konfiguration angegebenen Bildrate abgespielt werden kann, ohne Frames zu überspringen. Andernfalls ist es `false`.
 - `powerEfficient`
   - : `true`, wenn die Wiedergabe der Medien energieeffizient ist. Andernfalls ist es `false`.
 - `keySystemAccess`
-  - : Ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess), das verwendet werden kann, um ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt zur Einrichtung einer verschlüsselten Wiedergabe zu erstellen, oder `null`, wenn das Dekodieren mit der angegebenen Konfiguration nicht unterstützt wird.
+  - : Ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess), das verwendet werden kann, um ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt zur Einrichtung der verschlüsselten Wiedergabe zu erstellen, oder `null`, wenn das Decodieren mit der angegebenen Konfiguration nicht unterstützt wird.
 
-Browser melden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient`, bis Statistiken über dieses Gerät aufgezeichnet wurden.
-Alle unterstützten Audio-Codecs melden `powerEfficient` als wahr.
+Browser melden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient`, bis Statistiken auf diesem Gerät erfasst wurden.
+Alle unterstützten Audiocodecs melden `powerEfficient` als wahr.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
 
-  - : Wird ausgelöst, wenn die an die Methode `decodingInfo()` übergebene `configuration` ungültig ist, entweder weil der Typ nicht Video oder Audio ist, der `contentType` kein gültiger Codec-MIME-Typ ist, die Medien-Dekodierungs-Konfiguration kein gültiger Wert für den `type` (file, media-source oder webrtc) ist, oder jeder andere Fehler in der Medienkonfiguration, die an die Methode übergeben wurde, einschließlich des Auslassens von Werten.
+  - : Wird ausgelöst, wenn die an die `decodingInfo()`-Methode übergebene `configuration` ungültig ist, entweder weil der Typ nicht `video` oder `audio` ist, der `contentType` kein gültiger Codec-MIME-Typ ist, die Medien-Decodierkonfiguration kein gültiger Wert für den `type` (Datei, media-source oder webrtc) ist oder ein anderer Fehler in der an die Methode übergebenen Medienkonfiguration vorliegt, einschließlich des Weglassens von Werten.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
@@ -184,23 +184,23 @@ Alle unterstützten Audio-Codecs melden `powerEfficient` als wahr.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Methode wird außerhalb eines sicheren Kontexts aufgerufen und [`configuration.keySystemConfiguration`](#keysystemconfiguration) ist definiert.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 ### Vergleich mit Navigator.requestMediaKeySystemAccess()
 
-`decodingInfo()` und die Methode [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) spiegeln grundlegend unterschiedliche Ansätze zur Auswahl einer Konfiguration für das Dekodieren verschlüsselter Medien wider.
+`decodingInfo()` und die [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess)-Methode der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) spiegeln fundamental unterschiedliche Ansätze zur Auswahl einer Konfiguration für das Decodieren verschlüsselter Medien wider.
 
-Der Konfigurationsparameter für `Navigator.requestMediaKeySystemAccess()` nimmt ein Array möglicher Konfigurationen und lässt das System diejenige auswählen, die es für angemessen hält.
+Der Konfigurationsparameter für `Navigator.requestMediaKeySystemAccess()` nimmt ein Array möglicher Konfigurationen an und erlaubt dem System, diejenige auszuwählen, die als angemessen erachtet wird.
 
-Im Gegensatz dazu nimmt `decodingInfo()` jeweils eine Konfiguration an.
-Die Erwartung ist, dass der Aufrufer `decodingInfo()` mehrfach ausführt, beginnend mit den bevorzugten Konfigurationen und so lange weitermacht, bis er eine Konfiguration findet, die die Anforderungen der Anwendung für reibungslose, energieeffiziente oder beide Kriterien erfüllt.
-Mit anderen Worten, die Auswahlentscheidung wird dem Aufrufer überlassen.
+Im Gegensatz dazu nimmt `decodingInfo()` eine Konfiguration nach der anderen.
+Die Erwartung ist, dass der Aufrufer `decodingInfo()` mehrmals ausführt, beginnend mit den bevorzugtesten Konfigurationen und aufhört, sobald eine Konfiguration gefunden wird, die die Anforderungen der Anwendung für flüssige und energieeffiziente Wiedergabe erfüllt.
+Mit anderen Worten, die Auswahlentscheidung wird an den Anrufer übergeben.
 
 ## Beispiele
 
-### Abrufen von Dekodierungsinformationen für unverschlüsselte Mediendateien
+### Abrufen von Decodierinformationen für unverschlüsselte Mediendateien
 
-Dieses Beispiel zeigt, wie Sie eine Medienkonfiguration für eine Audiodatei erstellen und diese dann in `MediaCapabilities.decodingInfo()` verwenden.
+Dieses Beispiel zeigt, wie man eine Medienkonfiguration für eine Audiodatei erstellt und diese dann in `MediaCapabilities.decodingInfo()` verwendet.
 
 ```css hidden
 #log {
@@ -247,7 +247,7 @@ navigator.mediaCapabilities.decodingInfo(audioConfig).then((result) => {
 });
 ```
 
-Ebenso zeigt der folgende Code die Konfiguration für eine Videodatei.
+Ähnlich zeigt der folgende Code die Konfiguration für eine Videodatei.
 
 ```js
 const videoConfig = {
@@ -273,14 +273,14 @@ navigator.mediaCapabilities.decodingInfo(videoConfig).then((result) => {
 });
 ```
 
-{{EmbedLiveSample("Getting decoding information for unencrypted media files")}}
+{{EmbedLiveSample("Abrufen von Decodierinformationen für unverschlüsselte Mediendateien")}}
 
-### Abrufen von Dekodierungsinformationen für verschlüsselte Medien
+### Abrufen von Decodierinformationen für verschlüsselte Medien
 
 Dieses Beispiel zeigt, wie Sie `decodingInfo()` verwenden könnten, um eine Medienkonfiguration für verschlüsselten Inhalt auszuwählen.
 
-Wie im vorherigen Beispiel definieren wir eine Medienkonfiguration, verwenden jedoch diesmal den `type` von `media-source` (anstatt `file`) und geben sowohl Audio- als auch Videoinhalt an.
-Wir spezifizieren auch eine einfache `keySystemConfiguration`.
+Wie im vorherigen Beispiel definieren wir eine Medienkonfiguration, aber diesmal verwenden wir den `type` von `media-source` (statt `file`) und spezifizieren sowohl Audio- als auch Videoinhalte.
+Wir geben außerdem eine einfache `keySystemConfiguration` an.
 
 ```css hidden
 #log {
@@ -327,8 +327,8 @@ const encryptedMediaConfig = {
 };
 ```
 
-Im vorherigen Beispiel haben wir [promise chaining](/de/docs/Web/JavaScript/Guide/Using_promises#chaining) verwendet, um auf das Ergebnis zu warten.
-Hier haben wir uns entschieden, [`async` und `await`](/de/docs/Learn/JavaScript/Asynchronous/Promises#async_and_await) zu verwenden, um auf das Ergebnis zu warten und es dann zu protokollieren.
+Im vorherigen Beispiel haben wir [Promise Chaining](/de/docs/Web/JavaScript/Guide/Using_promises#chaining) verwendet, um auf das Ergebnis zu warten.
+Hier haben wir beschlossen, [`async` und `await`](/de/docs/Learn/JavaScript/Asynchronous/Promises#async_and_await) zu verwenden, um auf das Ergebnis zu warten und es dann zu protokollieren.
 
 ```js
 getDecodingInfo(encryptedMediaConfig);
@@ -354,17 +354,17 @@ async function getDecodingInfo(mediaConfig) {
 }
 ```
 
-Die Protokollausgabe wird unten angezeigt.
+Das Protokollausgabe erscheint unten.
 
-{{EmbedLiveSample("Getting decoding information for encrypted media")}}
+{{EmbedLiveSample("Abrufen von Decodierinformationen für verschlüsselte Medien")}}
 
-### Iteration durch Dekodierungsinformationen für verschlüsselte Medien
+### Durchlaufen von Decodierinformationen für verschlüsselte Medien
 
-Das vorherige Beispiel zeigte, wie Sie `decodingInfo()` verwenden können, um Informationen für nur eine Konfiguration zu erhalten.
-In der Praxis wird die Methode normalerweise iterativ mit einer Anzahl von Konfigurationen aufgerufen, wobei die erste unterstützte Konfiguration ausgewählt wird, die die Anforderungen der Anwendung an reibungslose Wiedergabe oder Energieeffizienz erfüllt.
-Die Funktionsweise wird unten beschrieben.
+Das vorherige Beispiel zeigte, wie Sie `decodingInfo()` verwenden können, um Informationen nur für eine Konfiguration zu erhalten.
+In der Realität würde die Methode normalerweise iterativ mit einer Reihe von Konfigurationen aufgerufen, wobei die erste unterstützte Konfiguration ausgewählt wird, die den Kriterien der Anwendung für eine flüssige Wiedergabe oder Energieeffizienz entspricht.
+Die Funktionsweise wird im Folgenden beschrieben.
 
-Angenommen, wir haben bereits ein `Array` von Medienkonfigurationen namens `orderedMediaConfigs`, das wir von den am meisten bis am wenigsten gewünschten geordnet haben, können wir die [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) verwenden, um `decodingInfo()` für jede Konfiguration aufzurufen und ein Array, das alle zurückgegebenen {{jsxref("Promise")}}-Objekte enthält, zu erhalten.
+Angenommen, wir haben bereits ein `Array` von Medienkonfigurationen namens `orderedMediaConfigs`, das von den meisten bis zu den am wenigsten gewünschten sortiert ist, können wir die [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) verwenden, um `decodingInfo()` für jede Konfiguration aufzurufen und ein Array zu erhalten, das alle zurückgegebenen {{jsxref("Promise")}} Objekte enthält.
 
 ```js
 const capabilitiesPromises = orderedMediaConfigs.map((mediaConfig) =>
@@ -372,8 +372,8 @@ const capabilitiesPromises = orderedMediaConfigs.map((mediaConfig) =>
 );
 ```
 
-Wir verwenden dann eine [`for await...of` Schleife](/de/docs/Web/JavaScript/Reference/Statements/for-await...of), um die Promises zu iterieren, während sie aufgelöst werden.
-In der Schleife speichern wir die letzte unterstützte Konfiguration in `nonSmoothConfig` und verlassen die Schleife, sobald wir eine smoothe Konfiguration finden, und setzen diese als unsere `bestConfig`.
+Dann verwenden wir eine [`for await...of` Schleife](/de/docs/Web/JavaScript/Reference/Statements/for-await...of), um die Promises abzuarbeiten, sobald sie aufgelöst werden.
+In der Schleife speichern wir die letzte unterstützte Konfiguration in `nonSmoothConfig`, und wir verlassen die Schleife, sobald wir eine flüssige Konfiguration finden, die wir als unsere `bestConfig` festlegen.
 
 ```js
 // Assume this app wants a supported && smooth config.
@@ -392,9 +392,9 @@ for await (const mediaCapabilityInfo of capabilitiesPromises) {
 }
 ```
 
-Wenn wir in der Schleife eine glatte und unterstützte Konfiguration gefunden haben (`bestConfig`), verwenden wir sie, um [unsere Medien-Schlüssel zu erstellen](/de/docs/Web/API/MediaKeySystemAccess/createMediaKeys) und die Medien zu dekodieren.
-Wenn wir keine glatten Konfigurationen entdecken, verwenden wir stattdessen `nonSmoothConfig`, um die Medien zu dekodieren.
-Dies wird die zuletzt gefundene unterstützte Konfiguration sein, die, aufgrund der Art und Weise, wie wir die ursprünglichen `orderedMediaConfigs` geordnet haben, diejenige mit der niedrigsten Bildrate sein sollte.
+Wenn wir während der Schleife eine flüssige und unterstützte Konfiguration gefunden haben (`bestConfig`), verwenden wir sie, um [unsere Medienschlüssel zu erstellen](/de/docs/Web/API/MediaKeySystemAccess/createMediaKeys) und die Medien zu decodieren.
+Wenn wir keine flüssigen Konfigurationen entdecken, könnten wir stattdessen `nonSmoothConfig` verwenden, um die Medien zu decodieren.
+Dies wird die zuletzt gefundene unterstützte Konfiguration sein, die aufgrund der Art und Weise, wie wir die ursprünglichen `orderedMediaConfigs` sortiert haben, diejenige mit der niedrigsten Bildwiederholrate sein sollte.
 
 ```js
 let keys = null;
@@ -413,7 +413,7 @@ if (bestConfig) {
 }
 ```
 
-Wenn keine unterstützte Konfiguration vorhanden ist, bleibt uns keine andere Wahl, als zu scheitern und den Benutzer zu benachrichtigen.
+Wenn es keine unterstützte Konfiguration gibt, können wir nichts anderes tun, als zu scheitern und den Benutzer zu benachrichtigen.
 
 ## Spezifikationen
 

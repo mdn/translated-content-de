@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die **`HTMLTableElement.align`**-Eigenschaft repräsentiert die
+Die **`HTMLTableElement.align`**-Eigenschaft steht für die
 Ausrichtung der Tabelle.
 
 ## Wert

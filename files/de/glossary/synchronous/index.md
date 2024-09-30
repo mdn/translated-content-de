@@ -1,5 +1,5 @@
 ---
-title: Synchronous
+title: Synchron
 slug: Glossary/Synchronous
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Synchronous** bezieht sich auf eine Echtzeitkommunikation, bei der jede Partei Nachrichten sofort (oder so nah wie möglich an sofort) empfängt (und falls nötig, verarbeitet und beantwortet).
+**Synchron** bezieht sich auf die Echtzeitkommunikation, bei der jede Partei Nachrichten sofort (oder so nahe wie möglich an sofort) erhält (und falls notwendig verarbeitet und beantwortet).
 
-Ein menschliches Beispiel ist das Telefon — während eines Telefonats neigen Sie dazu, einer anderen Person sofort zu antworten.
+Ein Beispiel aus dem menschlichen Bereich ist das Telefon — während eines Telefongesprächs reagieren Sie in der Regel sofort auf eine andere Person.
 
-Viele Programmierbefehle sind ebenfalls synchron — zum Beispiel, wenn Sie eine Berechnung eingeben, wird Ihnen die Umgebung das Ergebnis sofort zurückgeben, es sei denn, Sie programmieren es anders.
+Viele Programmierbefehle sind ebenfalls synchron — zum Beispiel, wenn Sie eine Berechnung eingeben, liefert Ihnen die Umgebung sofort das Ergebnis zurück, es sei denn, Sie programmieren es anders.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Asynchronous](/de/docs/Glossary/Asynchronous)
-- [Asynchronous JavaScript](/de/docs/Learn/JavaScript/Asynchronous)
+  - [Asynchron](/de/docs/Glossary/Asynchronous)
+- [Asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous)

@@ -29,9 +29,9 @@ console.log(`DOM ${modName} ${modVer} supported?: ${conformTest}`);
 > [!WARNING]
 > Verwenden Sie dies nicht zur Feature-Erkennung. Die Methode `hasFeature()` gibt immer true zurück.
 
-## Hinweise
+## Anmerkungen
 
-Die DOM-Level-1-Empfehlung des W3C spezifizierte nur die `hasFeature`-Methode, die eine Möglichkeit darstellt, um festzustellen, ob ein DOM-Modul von einem Browser unterstützt wird (siehe Beispiel oben und [Was behauptet Ihr User-Agent zu unterstützen?](https://www.w3.org/2003/02/06-dom-support.html)). Wenn verfügbar, bieten andere `DOMImplementation`-Methoden Dienste zur Steuerung von Dingen außerhalb eines einzelnen Dokuments. Zum Beispiel enthält die `DOMImplementation`-Schnittstelle eine `createDocumentType`-Methode, mit der DTDs für ein oder mehrere Dokumente erstellt werden können, die von der Implementierung verwaltet werden.
+Die DOM Level 1 Empfehlung des W3C spezifizierte nur die Methode `hasFeature`, welche eine Möglichkeit bietet, zu bestimmen, ob ein DOM-Modul von einem Browser unterstützt wird (siehe Beispiel oben und [Was behauptet Ihr User-Agent zu unterstützen?](https://www.w3.org/2003/02/06-dom-support.html)). Wenn verfügbar, bieten andere `DOMImplementation`-Methoden Dienste zur Steuerung von Dingen außerhalb eines einzelnen Dokuments. Zum Beispiel enthält die `DOMImplementation`-Schnittstelle eine `createDocumentType`-Methode, mit der DTDs für ein oder mehrere von der Implementierung verwaltete Dokumente erstellt werden können.
 
 ## Spezifikationen
 

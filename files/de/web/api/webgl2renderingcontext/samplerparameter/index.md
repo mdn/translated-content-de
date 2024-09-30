@@ -3,12 +3,14 @@ title: "WebGL2RenderingContext: samplerParameter[if]() Methode"
 short-title: samplerParameter[if]()
 slug: Web/API/WebGL2RenderingContext/samplerParameter
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.samplerParameter[if]()`** Methoden des [WebGL 2 API](/de/docs/Web/API/WebGL_API) setzen Parameter von [`WebGLSampler`](/de/docs/Web/API/WebGLSampler).
+Die **`WebGL2RenderingContext.samplerParameter[if]()`** Methoden
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) setzen
+Parameter eines [`WebGLSampler`](/de/docs/Web/API/WebGLSampler).
 
 ## Syntax
 
@@ -23,29 +25,39 @@ samplerParameterf(sampler, pname, param)
   - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler) Objekt.
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welcher Parameter gesetzt werden soll. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Parameter gesetzt werden soll. Mögliche Werte:
 
     - `gl.TEXTURE_COMPARE_FUNC`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Texturvergleichsfunktion angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die
+        Vergleichsfunktion der Textur angibt.
     - `gl.TEXTURE_COMPARE_MODE`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Texturvergleichsmodus angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die
+        Vergleichsmodus der Textur angibt.
     - `gl.TEXTURE_MAG_FILTER`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Vergrößerungsfilter der Textur angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den
+        Vergrößerungsfilter der Textur angibt.
     - `gl.TEXTURE_MAX_LOD`
-      - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den maximalen Detailstufewert angibt.
+      - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den maximalen
+        Grad der Detailtiefe angibt.
     - `gl.TEXTURE_MIN_FILTER`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Verkleinerungsfilter der Textur angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den
+        Verkleinerungsfilter der Textur angibt.
     - `gl.TEXTURE_MIN_LOD`
-      - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den minimalen Detailstufewert angibt.
+      - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den minimalen
+        Grad der Detailtiefe angibt.
     - `gl.TEXTURE_WRAP_R`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Texturwicklungsfunktion für die Texturkoordinate r angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die
+        Wickelfunktion der Textur für die Texturkoordinate r angibt.
     - `gl.TEXTURE_WRAP_S`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Texturwicklungsfunktion für die Texturkoordinate s angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die
+        Wickelfunktion der Textur für die Texturkoordinate s angibt.
     - `gl.TEXTURE_WRAP_T`
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Texturwicklungsfunktion für die Texturkoordinate t angibt.
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die
+        Wickelfunktion der Textur für die Texturkoordinate t angibt.
 
 - `param`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) (`samplerParameteri`) oder ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) (`samplerParameterf`), das einen Wert für `pname` angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) (`samplerParameteri`) oder ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types)
+    (`samplerParameterf`), das einen Wert für `pname` angibt.
 
 ### Rückgabewert
 

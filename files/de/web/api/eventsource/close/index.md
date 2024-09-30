@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef('WebSockets API')}}
 
-Die **`close()`**-Methode des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces schließt die Verbindung, wenn eine besteht, und setzt das [`EventSource.readyState`](/de/docs/Web/API/EventSource/readyState)-Attribut auf `2` (geschlossen).
+Die **`close()`**-Methode des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces schließt die Verbindung, falls eine besteht, und setzt das [`EventSource.readyState`](/de/docs/Web/API/EventSource/readyState)-Attribut auf `2` (geschlossen).
 
 > [!NOTE]
-> Wenn die Verbindung bereits geschlossen ist, unternimmt die Methode nichts.
+> Falls die Verbindung bereits geschlossen ist, macht die Methode nichts.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

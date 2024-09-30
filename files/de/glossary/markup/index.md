@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Markup-Sprache ist eine Sprache, die zum Definieren und Präsentieren von Text entwickelt wurde. [HTML](/de/docs/Glossary/HTML) (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
+Eine Markup-Sprache ist eine, die für die Definition und Präsentation von Text entwickelt wurde. [HTML](/de/docs/Glossary/HTML) (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
 
 Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mit [Tags](/de/docs/Glossary/Tag) _ausgezeichnet_, die den Zweck dieses Teils des Inhalts erklären.
 
 ## Arten von Markup-Sprachen
 
 - **Präsentations-Markup:**
-  - : Wird von traditionellen Textverarbeitungssystemen mit WYSIWYG (What You See Is What You Get) verwendet; dies ist für menschliche Autoren, Benutzer und Editoren verborgen.
+  - : Wird von traditionellen Textverarbeitungssystemen mit WYSIWYG (what you see is what you get) verwendet; dies ist für menschliche Autoren, Benutzer und Editoren verborgen.
 - **Prozedurales Markup:**
-  - : Wird mit Text kombiniert, um Programme mit Anweisungen zur Textverarbeitung zu versehen. Dieser Text wird vom Autor sichtbar manipuliert.
+  - : Wird mit Text kombiniert, um Programme über die Textverarbeitung anzuweisen. Dieser Text wird sichtbar vom Autor manipuliert.
 - **Deskriptives Markup:**
-  - : Kennzeichnet Abschnitte von Dokumenten, wie das Programm sie verarbeiten soll. Zum Beispiel definiert das HTML {{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
+  - : Kennzeichnet Abschnitte von Dokumenten und gibt an, wie das Programm diese behandeln soll. Zum Beispiel definiert das HTML-{{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
 
 ## Siehe auch
 

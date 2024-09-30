@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`URLSearchParams.sort()`**-Methode sortiert alle Schlüssel/Werte-Paare, die in diesem Objekt enthalten sind, an Ort und Stelle und gibt `undefined` zurück. Die Sortierreihenfolge erfolgt gemäß den Unicode-Codepunkten der Schlüssel. Diese Methode verwendet einen stabilen Sortieralgorithmus (d.h. die relative Reihenfolge zwischen Schlüssel/Werte-Paaren mit gleichen Schlüsseln bleibt erhalten).
+Die **`URLSearchParams.sort()`**-Methode sortiert alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare an Ort und Stelle und gibt `undefined` zurück. Die Sortierreihenfolge erfolgt gemäß den Unicode-Codepunkten der Schlüssel. Diese Methode verwendet einen stabilen Sortieralgorithmus (d. h. die relative Reihenfolge zwischen Schlüssel/Wert-Paaren mit gleichen Schlüsseln bleibt erhalten).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.ctrlKey`** gibt einen booleschen Wert zurück, der angibt, ob die <kbd>control</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte **`KeyboardEvent.ctrlKey`**-Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Control</kbd>-Taste gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis eintrat.
 
 ## Wert
 

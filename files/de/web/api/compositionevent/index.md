@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Das DOM **`CompositionEvent`** repräsentiert Ereignisse, die auftreten, wenn der Benutzer indirekt Text eingibt.
+Das DOM **`CompositionEvent`** steht für Ereignisse, die auftreten, wenn der Benutzer indirekt Text eingibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent)
-  - : Erstellt eine neue Instanz eines `CompositionEvent`-Objekts.
+  - : Erstellt eine neue `CompositionEvent` Objektinstanz.
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; es variiert je nach Typ des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
+  - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent` Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammensetzung mit [IME](/de/docs/Glossary/IME) verbunden ist).
+  - : Gibt den Ort der aktuellen Eingabemethode zurück (zum Beispiel den Tastaturlayout Ort, wenn die Komposition mit [IME](/de/docs/Glossary/IME) verbunden ist).
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Methoden ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.initCompositionEvent()`](/de/docs/Web/API/CompositionEvent/initCompositionEvent) {{deprecated_inline}}
-  - : Initialisiert die Attribute eines `CompositionEvent`-Objekts.
+  - : Initialisiert die Attribute eines `CompositionEvent` Objekts.
 
 ## Spezifikationen
 

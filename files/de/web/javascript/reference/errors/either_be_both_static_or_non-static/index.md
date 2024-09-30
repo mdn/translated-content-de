@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: getter und setter für privaten Namen #x sollten entweder beide statisch oder nicht statisch sein"
+title: "SyntaxError: Getter und Setter für privaten Namen #x sollten entweder beide statisch oder nicht statisch sein"
 slug: Web/JavaScript/Reference/Errors/Either_be_both_static_or_non-static
 l10n:
   sourceCommit: 41cddfdaeed4a73fb8234c332150df8e54df31e9
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "mismatched placement" tritt auf, wenn ein privater [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) unterschiedlich sind in Bezug auf ihre {{jsxref("Classes/static", "statische")}} Eigenschaft.
+Die JavaScript-Ausnahme "mismatched placement" tritt auf, wenn ein privater [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht übereinstimmen, ob sie {{jsxref("Classes/static", "static")}} sind oder nicht.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Identifier '#x' has already been declared (V8-based)
@@ -17,17 +17,17 @@ SyntaxError: getter and setter for private name #x should either be both static 
 SyntaxError: Cannot declare a private non-static getter if there is a static private setter with used name. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Private [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "statisch")}} sein oder beide nicht statisch. Diese Einschränkung besteht nicht für öffentliche Methoden.
+Private [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "static")}} oder beide nicht statisch sein. Diese Einschränkung existiert nicht für öffentliche Methoden.
 
 ## Beispiele
 
-### Nicht übereinstimmende Platzierung
+### Mismatched placement
 
 ```js-nolint example-bad
 class Test {
@@ -38,7 +38,7 @@ class Test {
 // SyntaxError: getter and setter for private name #foo should either be both static or non-static
 ```
 
-Da `foo` [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) ist, müssen die Methoden entweder beide {{jsxref("Classes/static", "statisch")}} sein:
+Da `foo` [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) ist, müssen die Methoden entweder beide {{jsxref("Classes/static", "static")}} sein:
 
 ```js example-good
 class Test {
@@ -60,5 +60,5 @@ class Test {
 
 - {{jsxref("Functions/get", "get")}}
 - {{jsxref("Functions/set", "set")}}
-- {{jsxref("Classes/static", "statisch")}}
+- {{jsxref("Classes/static", "static")}}
 - [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)

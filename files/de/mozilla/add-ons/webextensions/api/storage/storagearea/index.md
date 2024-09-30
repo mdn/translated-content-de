@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-`StorageArea` ist ein Objekt, das einen Speicherbereich darstellt.
+StorageArea ist ein Objekt, das einen Speicherbereich repräsentiert.
 
 ## Typ
 
@@ -18,11 +18,11 @@ Werte dieses Typs sind Objekte.
 - {{WebExtAPIRef("storage.StorageArea.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()")}}
-  - : Ermittelt die Menge des Speicherplatzes (in Bytes), die von einem oder mehreren gespeicherten Elementen im Speicherbereich verwendet wird.
+  - : Ermittelt die Menge des Speicherplatzes (in Bytes), die durch ein oder mehrere gespeicherte Elemente im Speicherbereich belegt wird.
 - {{WebExtAPIRef("storage.StorageArea.set()")}}
-  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn ein Element bereits existiert, wird sein Wert aktualisiert.
+  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn ein Element bereits existiert, wird dessen Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.setAccessLevel()")}}
-  - : Setzt die Zugriffsstufe für den Speicherbereich.
+  - : Setzt das Zugriffslevel für den Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.remove()")}}
   - : Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.clear()")}}
@@ -40,7 +40,7 @@ Werte dieses Typs sind Objekte.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageArea) API. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageArea) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

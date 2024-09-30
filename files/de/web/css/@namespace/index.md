@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/At-rule), die XML-[Namespaces](/de/docs/Glossary/Namespace) definiert, die in einem [CSS](/de/docs/Glossary/CSS)-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden sollen.
+**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/At-rule), die XML-[Namespaces](/de/docs/Glossary/Namespace) definiert, die in einem [CSS](/de/docs/Glossary/CSS)-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden.
 
 {{EmbedInteractiveExample("pages/tabbed/at-rule-namespace.html", "tabbed-shorter")}}
 
@@ -25,18 +25,18 @@ l10n:
 
 ## Beschreibung
 
-Die definierten Namespaces können verwendet werden, um die [Universalselektoren](/de/docs/Web/CSS/Universal_selectors), [Typselektoren](/de/docs/Web/CSS/Type_selectors) und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) auf Elemente dieses Namespaces zu beschränken. Die `@namespace`-Regel ist im Allgemeinen nur nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namespaces enthalten, wie z. B. HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare mischt.
+Die definierten Namespaces können verwendet werden, um die [universellen](/de/docs/Web/CSS/Universal_selectors), [Typ-](/de/docs/Web/CSS/Type_selectors) und [Attribut-Selektoren](/de/docs/Web/CSS/Attribute_selectors) einzuschränken, so dass sie nur Elemente innerhalb dieses Namespaces auswählen. Die `@namespace`-Regel ist im Allgemeinen nur nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten – wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-Alle `@namespace`-Regeln müssen allen {{cssxref("@charset")}}- und {{cssxref("@import")}}-Regeln folgen und allen anderen At-Regeln und [Stildeklarationen](/de/docs/Web/API/CSSStyleDeclaration) in einem Stylesheet vorausgehen.
+Alle `@namespace`-Regeln müssen allen {{cssxref("@charset")}}- und {{cssxref("@import")}}-Regeln folgen und vor allen anderen At-Regeln und [Stildeklarationen](/de/docs/Web/API/CSSStyleDeclaration) in einem Stylesheet stehen.
 
-`@namespace` kann verwendet werden, um den **Standard-Namespace** für das Stylesheet zu definieren. Wenn ein Standard-Namespace definiert ist, gelten alle Universalselektoren und Typselektoren (aber nicht Attributselektoren, siehe untenstehenden Hinweis) nur für Elemente in diesem Namespace.
+`@namespace` kann verwendet werden, um den **Standard-Namespace** für das Stylesheet zu definieren. Wenn ein Standard-Namespace definiert ist, gelten alle universellen und Typ-Selektoren (aber nicht Attribut-Selektoren, siehe unten stehende Notiz) nur für Elemente in diesem Namespace.
 
-Die `@namespace`-Regel kann auch verwendet werden, um ein **Namespace-Präfix** zu definieren. Wenn ein Universal-, Typ- oder Attributselektor mit einem Namespace-Präfix versehen wird, dann stimmt dieser Selektor nur, wenn sowohl der Namespace als auch der Name des Elements oder Attributs übereinstimmen.
+Die `@namespace`-Regel kann auch verwendet werden, um ein **Namespace-Präfix** zu definieren. Wenn ein universeller, Typ- oder Attribut-Selektor mit einem Namespace-Präfix versehen ist, stimmt dieser Selektor nur überein, wenn der Namespace _und_ der Name des Elements oder Attributs übereinstimmt.
 
-In HTML werden bekannte [Fremdelemente](https://html.spec.whatwg.org/multipage/syntax.html#foreign-elements) automatisch Namespaces zugewiesen. Das bedeutet, dass HTML-Elemente so agieren, als befänden sie sich im XHTML-Namespace (`http://www.w3.org/1999/xhtml`), selbst wenn nirgendwo im Dokument ein `xmlns`-Attribut vorhanden ist, und die [`<svg>`](/de/docs/Web/SVG/Element/svg) und [`<math>`](/de/docs/Web/MathML/Element/math) Elemente werden ihren entsprechenden Namespaces (`http://www.w3.org/2000/svg` und `http://www.w3.org/1998/Math/MathML`) zugewiesen.
+In HTML werden bekannte [fremde Elemente](https://html.spec.whatwg.org/multipage/syntax.html#foreign-elements) automatisch Namespaces zugewiesen. Das bedeutet, dass HTML-Elemente so agieren, als ob sie sich im XHTML-Namespace (`http://www.w3.org/1999/xhtml`) befinden, auch wenn kein `xmlns`-Attribut irgendwo im Dokument vorhanden ist, und die [`<svg>`](/de/docs/Web/SVG/Element/svg)- und [`<math>`](/de/docs/Web/MathML/Element/math)-Elemente werden ihren korrekten Namespaces zugewiesen (`http://www.w3.org/2000/svg` und `http://www.w3.org/1998/Math/MathML`, jeweils).
 
 > [!NOTE]
-> In XML, es sei denn, ein Präfix wird direkt auf einem Attribut definiert (z.B. `xlink:href`), hat dieses Attribut keinen Namespace. Mit anderen Worten, Attribute erben nicht den Namespace des Elements, auf dem sie sich befinden. Um dieses Verhalten nachzubilden, gilt der Standard-Namespace in CSS nicht für Attributselektoren.
+> In XML hat ein Attribut keinen Namespace, es sei denn, es wird direkt auf diesem Attribut ein Präfix definiert (_z.B._, `xlink:href`). Mit anderen Worten, Attribute erben nicht den Namespace des Elements, auf dem sie sich befinden. Um dieses Verhalten zu spiegeln, findet der Standard-Namespace in CSS keine Anwendung auf Attribut-Selektoren.
 
 ## Formale Syntax
 
@@ -44,7 +44,7 @@ In HTML werden bekannte [Fremdelemente](https://html.spec.whatwg.org/multipage/s
 
 ## Beispiele
 
-### Spezifizieren von Standard- und Präfix-Namespaces
+### Standard- und Präfix-Namespaces spezifizieren
 
 ```css
 @namespace url(http://www.w3.org/1999/xhtml);
@@ -73,4 +73,4 @@ svg|a {
 
 ## Siehe auch
 
-- [Namespaces Crash-Kurs](/de/docs/Web/SVG/Namespaces_Crash_Course)
+- [Namespaces Schnellkurs](/de/docs/Web/SVG/Namespaces_Crash_Course)

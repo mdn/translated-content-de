@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceParameters`**-Wörterbuch spezifiziert das Benutzername-Fragment und das Passwort, das einer [ICE](/de/docs/Glossary/ICE)-Sitzung zugewiesen ist.
+Das **`RTCIceParameters`** Dictionary gibt das Benutzername-Fragment und das Passwort an, das einer [ICE](/de/docs/Glossary/ICE) Sitzung zugewiesen ist.
 
-Während der ICE-Verhandlung werden das Benutzername-Fragment und das Passwort jedes Peers in einem `RTCIceParameters`-Objekt aufgezeichnet, das von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) durch Aufrufen der Methoden [`getLocalParameters()`](/de/docs/Web/API/RTCIceTransport/getLocalParameters) oder [`getRemoteParameters()`](/de/docs/Web/API/RTCIceTransport/getRemoteParameters) erhalten werden kann, je nachdem, welches Ende Sie interessiert.
+Während der ICE-Verhandlung werden das Benutzername-Fragment und das Passwort jedes Peers in einem `RTCIceParameters` Objekt gespeichert, das vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) durch Aufruf seiner Methoden [`getLocalParameters()`](/de/docs/Web/API/RTCIceTransport/getLocalParameters) oder [`getRemoteParameters()`](/de/docs/Web/API/RTCIceTransport/getRemoteParameters) abgerufen werden kann, je nachdem, welches Ende von Interesse ist.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment)
-  - : Ein String, der den Wert des Benutzername-Fragmentfelds der ICE-Sitzung, `ufrag`, angibt.
+  - : Ein String, der den Wert des Benutzername-Fragments (`ufrag`) des ICE-Sitzungssignals angibt.
 - [`password`](/de/docs/Web/API/RTCIceParameters/password)
-  - : Ein String, der den Passwort-String der Sitzung angibt.
+  - : Ein String, der den Passwort-String der Sitzung spezifiziert.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-Das Benutzername-Fragment und das Passwort identifizieren den entfernten Peer eindeutig für die Dauer der ICE-Sitzung und werden sowohl zur Sicherstellung der Sicherheit als auch zur Vermeidung von Übersprechen über mehrere laufende ICE-Sitzungen verwendet. Siehe [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment) für weitere Informationen.
+Das Benutzername-Fragment und das Passwort identifizieren den entfernten Peer eindeutig für die Dauer der ICE-Sitzung und werden verwendet, um sowohl die Sicherheit zu gewährleisten als auch Übersprechen zwischen mehreren laufenden ICE-Sitzungen zu vermeiden. Siehe [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment) für weitere Informationen.
 
 ## Spezifikationen
 

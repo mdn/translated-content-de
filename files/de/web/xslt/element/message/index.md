@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:message>`-Element gibt eine Nachricht aus (in der JavaScript-Konsole in NS) und beendet optional die Ausführung des Stylesheets. Es kann nützlich für das Debugging sein.
+Das `<xsl:message>`-Element gibt eine Nachricht aus (in der JavaScript-Konsole von NS) und beendet optional die Ausführung des Stylesheets. Es kann nützlich zum Debuggen sein.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 ### Optionale Attribute
 
 - `terminate`
-  - : Wenn auf `yes` gesetzt, bedeutet das, dass die Ausführung beendet werden soll. Der Standardwert ist `no`, in welchem Fall die Nachricht ausgegeben wird und die Ausführung fortgesetzt wird.
+  - : Auf `yes` gesetzt, zeigt an, dass die Ausführung beendet werden soll. Der Standardwert ist `no`, in diesem Fall wird die Nachricht ausgegeben und die Ausführung fortgesetzt.
 
 ### Typ
 
-Anweisung, erscheint innerhalb einer Vorlage.
+Instruktion, erscheint innerhalb einer Vorlage.
 
 ## Spezifikationen
 
 XSLT, Abschnitt 13.
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

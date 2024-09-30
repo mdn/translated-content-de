@@ -14,13 +14,13 @@ angegebenen Bereichs.
 
 Diese Methode ist nahezu gleichwertig zu
 `newNode.appendChild(range.extractContents()); range.insertNode(newNode)`.
-Nach dem Umhüllen schließen die Begrenzungspunkte des `range`
-`newNode` ein.
+Nach dem Umgeben beinhalten die Randpunkte des `range`
+`newNode`.
 
-Es wird jedoch eine Ausnahme ausgelöst, wenn der [`Range`](/de/docs/Web/API/Range) einen nicht-[`Text`](/de/docs/Web/API/Text)
-Knoten mit nur einem seiner Begrenzungspunkte teilt. Das heißt, im Gegensatz zur
-alternativen Methode oben, werden teilweise ausgewählte Knoten nicht geklont und
-stattdessen schlägt die Operation fehl.
+Eine Ausnahme wird jedoch ausgelöst, wenn der [`Range`](/de/docs/Web/API/Range) einen nicht-[`Text`](/de/docs/Web/API/Text)
+Knoten mit nur einem seiner Randpunkte teilt. Das bedeutet, im Gegensatz zu der
+oben genannten Alternative, dass teilweise ausgewählte Knoten nicht geklont werden und
+stattdessen die Operation fehlschlägt.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ surroundContents(newParent)
 ### Parameter
 
 - `newParent`
-  - : Ein [`Node`](/de/docs/Web/API/Node), mit dem die Inhalte umgeben werden sollen.
+  - : Ein [`Node`](/de/docs/Web/API/Node), mit dem der Inhalt umgeben wird.
 
 ### Rückgabewert
 
@@ -69,4 +69,4 @@ range.surroundContents(newParent);
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

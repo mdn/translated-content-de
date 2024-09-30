@@ -1,5 +1,5 @@
 ---
-title: "XRSession: requestLightProbe() Methode"
+title: "XRSession: Methode requestLightProbe()"
 short-title: requestLightProbe()
 slug: Web/API/XRSession/requestLightProbe
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestLightProbe()`** Methode der [`XRSession`](/de/docs/Web/API/XRSession) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) Objekt aufgelöst wird, welches Beleuchtungsinformationen an einem bestimmten Punkt in der Umgebung des Benutzers schätzt.
+Die **`requestLightProbe()`**-Methode der [`XRSession`](/de/docs/Web/API/XRSession)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Objekt aufgelöst wird, das Beleuchtungsinformationen an einem bestimmten Punkt in der Umgebung des Benutzers schätzt.
 
 ## Syntax
 
@@ -22,26 +22,26 @@ requestLightProbe(options)
 - `options` {{Optional_Inline}}
   - : Ein Objekt, das Konfigurationsoptionen enthält, insbesondere:
     - `reflectionFormat`
-      - : Das interne Reflektionsformat, das angibt, wie die Texturdaten dargestellt werden. Entweder `srgba8` (Standardwert) oder `rgba16f`. Siehe auch [`XRSession.preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat).
+      - : Das interne Reflexionsformat, das angibt, wie die Texturdaten dargestellt werden, entweder `srgba8` (Standardwert) oder `rgba16f`. Siehe auch [`XRSession.preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
-Anstatt echte Ausnahmen zu werfen, lehnt `requestLightProbe()` das zurückgegebene Promise mit einem [`DOMException`](/de/docs/Web/API/DOMException) ab, insbesondere einer der folgenden:
+Anstatt echte Ausnahmen zu werfen, verwirft `requestLightProbe()` das zurückgegebene Versprechen mit einer [`DOMException`](/de/docs/Web/API/DOMException), insbesondere eine der folgenden:
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `lighting-estimation` keine aktivierte Funktion in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ist oder wenn das `reflectionFormat` nicht `srgb8` oder das `preferredReflectionFormat` ist.
+  - : Ausgelöst, wenn `lighting-estimation` keine aktivierte Funktion in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ist oder wenn das `reflectionFormat` nicht `srgb8` oder das `preferredReflectionFormat` ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Sitzung bereits beendet ist.
+  - : Ausgelöst, wenn die Sitzung bereits beendet ist.
 
 ## Beispiele
 
 ### Anfordern einer Lichtsonde mit dem bevorzugten Format des Systems
 
-Das Standardformat ist `srgb8`, jedoch können einige Rendering-Engines andere (High-Dynamic-Range) Formate verwenden. Sie können die Lichtsonde mit dem [`XRSession.preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat) anfordern, das das bevorzugte interne Format angibt.
+Das Standardformat ist `srgb8`, jedoch können einige Render-Engines andere (High Dynamic Range) Formate verwenden. Sie können die Lichtsonde mit [`XRSession.preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat) anfordern, das das bevorzugte interne Format angibt.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe({

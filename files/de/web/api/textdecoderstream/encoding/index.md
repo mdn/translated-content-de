@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`encoding`**-Eigenschaft der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle gibt einen String zurück, der den Namen des vom spezifischen Decoder verwendeten Kodierungsalgorithmus enthält.
+Die schreibgeschützte Eigenschaft **`encoding`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle gibt einen String zurück, der den Namen des von dem spezifischen Decoder verwendeten Kodierungsalgorithmus enthält.
 
-Die Kodierung wird durch den `label`-Parameter des [Konstruktors](/de/docs/Web/API/TextDecoderStream/TextDecoderStream) festgelegt und standardmäßig auf `utf-8` gesetzt.
+Die Kodierung wird durch den [Konstruktor](/de/docs/Web/API/TextDecoderStream/TextDecoderStream)-`label`-Parameter festgelegt und standardmäßig auf `utf-8` gesetzt.
 
 ## Wert
 
 Ein String, der den in Kleinbuchstaben geschriebenen ASCII-Namen des Kodierungsformats enthält.
 
-Die erlaubten Werte sind dieselben wie die, die in [`TextDecoder.encoding`](/de/docs/Web/API/TextDecoder/encoding) aufgelistet sind (die Bezeichnungen in [Encoding API Encodings](/de/docs/Web/API/Encoding_API/Encodings)).
+Die zulässigen Werte entsprechen denen, die in [`TextDecoder.encoding`](/de/docs/Web/API/TextDecoder/encoding) aufgeführt sind (den Bezeichnungen in [Encoding API Encodings](/de/docs/Web/API/Encoding_API/Encodings)).
 
 ## Beispiele
 
-Rückgabe des Wertes von `encoding` von einem `TextDecoderStream`.
+Der Wert von `encoding` aus einem `TextDecoderStream` wird zurückgegeben.
 
 ```js
 stream = new TextDecoderStream();

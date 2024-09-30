@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Wie man ein HTML-Formular strukturiert](/de/docs/Learn/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 

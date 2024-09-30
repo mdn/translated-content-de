@@ -1,5 +1,5 @@
 ---
-title: "<dd>: Das Beschreibungselement Details"
+title: "<dd>: Das Description Details-Element"
 slug: Web/HTML/Element/dd
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,13 +7,13 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<dd>`** [HTML](/de/docs/Web/HTML)-Element liefert die Beschreibung, Definition oder den Wert für den vorangehenden Begriff ({{HTMLElement("dt")}}) in einer Beschreibungsliste ({{HTMLElement("dl")}}).
+Das **`<dd>`**-[HTML](/de/docs/Web/HTML)-Element liefert die Beschreibung, Definition oder den Wert für den vorhergehenden Begriff ({{HTMLElement("dt")}}) in einer Definitionsliste ({{HTMLElement("dl")}}).
 
 {{EmbedInteractiveExample("pages/tabbed/dd.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -35,36 +35,29 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;dd></code>-Element oder einem
-        {{HTMLElement("dt")}}-Element gefolgt wird oder wenn es keinen weiteren Inhalt im
-        Elternelement gibt.
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dd></code>-Element oder einem {{HTMLElement("dt")}}-Element gefolgt wird, oder wenn es keinen weiteren Inhalt im Elternelement gibt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder ein
-        {{HTMLElement("div")}}, das ein Kind eines
-        {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem
-        {{HTMLElement("dt")}} oder einem anderen <code>&lt;dd&gt;</code>
-        Element verwendet werden.
+        Ein {{HTMLElement("dl")}} oder ein {{HTMLElement("div")}}, das ein Kind eines {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem {{HTMLElement("dt")}} oder einem weiteren <code>&lt;dd&gt;</code>-Element verwendet werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
         >
-      </td>
+        </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>

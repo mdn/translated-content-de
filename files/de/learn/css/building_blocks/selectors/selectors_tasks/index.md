@@ -7,24 +7,24 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) verstehen.
+Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie [CSS Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) verstehen.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe verwenden Sie CSS, um Folgendes zu tun, ohne das HTML zu ändern:
+In dieser Aufgabe sollen Sie mit CSS Folgendes erreichen, ohne das HTML zu ändern:
 
 - Machen Sie `<h1>` Überschriften blau.
 - Geben Sie `<h2>` Überschriften einen blauen Hintergrund und weißen Text.
-- Lassen Sie Text, der in einem `<span>` eingeschlossen ist, eine Schriftgröße von 200% haben.
+- Sorgen Sie dafür, dass Text, der in einem `<span>` enthalten ist, eine Schriftgröße von 200% hat.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem für die Lösung der Aufgabe 1 angewendeten CSS.](selectors1.jpg)
+![Text mit dem CSS angewendet, um die Lösung für Aufgabe 1 zu zeigen.](selectors1.jpg)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -36,16 +36,16 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die folgende Änderungen am Erscheinungsbild des Inhalts in diesem Beispiel vornehmen, ohne das HTML zu ändern:
+In dieser Aufgabe möchten wir, dass Sie folgende Änderungen am Aussehen des Inhalts in diesem Beispiel vornehmen, ohne das HTML zu ändern:
 
 - Geben Sie dem Element mit der ID `special` einen gelben Hintergrund.
-- Geben Sie dem Element mit der Klasse `alert` einen 1px grauen Rahmen.
+- Geben Sie dem Element mit der Klasse `alert` einen 1px grauen Rand.
 - Wenn das Element mit der Klasse `alert` auch die Klasse `stop` hat, machen Sie den Hintergrund rot.
 - Wenn das Element mit der Klasse `alert` auch die Klasse `go` hat, machen Sie den Hintergrund grün.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem für die Lösung der Aufgabe 2 angewendeten CSS.](selectors2.jpg)
+![Text mit dem CSS angewendet, um die Lösung für Aufgabe 2 zu zeigen.](selectors2.jpg)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -57,15 +57,15 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie die folgenden Änderungen vornehmen, ohne das HTML zu erweitern:
+In dieser Aufgabe möchten wir, dass Sie folgende Änderungen ohne Hinzufügen zum HTML vornehmen:
 
-- Stylen Sie Links, indem Sie den Link-Zustand orange, besuchte Links grün machen und den Unterstrich bei Hover entfernen.
-- Vergrößern Sie die Schriftgröße des ersten Elements im Container auf 150% und machen Sie die erste Zeile dieses Elements rot.
-- Streifen Sie jede zweite Zeile in der Tabelle, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von #333 und Vordergrund von weiß geben.
+- Gestalten Sie Links, indem Sie die Linkfarbe orange, besuchte Links grün machen und das Unterstreichen beim Hover entfernen.
+- Machen Sie das erste Element innerhalb des Containers in Schriftgröße: 150% und die erste Zeile dieses Elements rot.
+- Färben Sie jede zweite Zeile in der Tabelle abwechselnd, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von #333 und eine Vordergrundfarbe von weiß geben.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem für die Lösung der Aufgabe 3 angewendeten CSS.](selectors3.jpg)
+![Text mit dem CSS angewendet, um die Lösung für Aufgabe 3 zu zeigen.](selectors3.jpg)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -79,12 +79,12 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 In dieser Aufgabe möchten wir, dass Sie Folgendes tun:
 
-- Lassen Sie jeden Absatz, der direkt auf ein `<h2>` Element folgt, rot werden.
-- Entfernen Sie die Aufzählungszeichen und fügen Sie nur den Listenelementen, die direkte Kinder der ul mit der Klasse `list` sind, einen 1px grauen unteren Rand hinzu.
+- Machen Sie jeden Absatz, der direkt auf ein `<h2>` Element folgt, rot.
+- Entfernen Sie die Aufzählungszeichen und fügen Sie nur den Listenelementen, die ein direktes Kind des `ul` mit der Klasse `list` sind, einen 1px grauen unteren Rand hinzu.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem für die Lösung der Aufgabe 4 angewendeten CSS.](selectors4.jpg)
+![Text mit dem CSS angewendet, um die Lösung für Aufgabe 4 zu zeigen.](selectors4.jpg)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -98,13 +98,13 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 In dieser Aufgabe fügen Sie CSS mit Attributselektoren hinzu, um Folgendes zu tun:
 
-- Ziel ist das `<a>` Element mit einem `title` Attribut und machen Sie den Rand pink (`border-color: pink`).
-- Ziel ist das `<a>` Element mit einem `href` Attribut, das irgendwo im Wert das Wort `contact` enthält, und machen Sie den Rand orange (`border-color: orange`).
-- Ziel ist das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, und geben Sie ihm einen grünen Rand (`border-color: green`).
+- Ziel ist das `<a>` Element mit einem `title` Attribut und die Umrandung soll pink sein (`border-color: pink`).
+- Ziel ist das `<a>` Element mit einem `href` Attribut, das irgendwo in seinem Wert das Wort `contact` enthält, und die Umrandung soll orange sein (`border-color: orange`).
+- Ziel ist das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, und geben Sie ihm eine grüne Umrandung (`border-color: green`).
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Vier Links mit unterschiedlichen farbigen Rändern.](selectors-attribute.png)
+![Vier Links mit unterschiedlich farbigen Umrandungen.](selectors-attribute.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 

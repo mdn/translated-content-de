@@ -1,5 +1,5 @@
 ---
-title: "HTMLAllCollection: item() Methode"
+title: "HTMLAllCollection: item()-Methode"
 short-title: item()
 slug: Web/API/HTMLAllCollection/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`item()`**-Methode der [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection)-Schnittstelle gibt das Element zurück, das sich an der angegebenen Position in der Sammlung befindet oder das Element mit dem angegebenen Wert für sein `id`- oder `name`-Attribut.
+Die **`item()`**-Methode der [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection)-Schnittstelle gibt das Element zurück, das sich an der angegebenen Position in der Sammlung befindet, oder das Element mit dem angegebenen Wert für sein `id`- oder `name`-Attribut.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ item(nameOrIndex)
 ### Parameter
 
 - `nameOrIndex`
-  - : Wenn dieser Parameter eine Ganzzahl ist oder ein String, der in eine Ganzzahl umgewandelt werden kann, dann repräsentiert er die Position des zurückzugebenden [`Element`](/de/docs/Web/API/Element). Elemente erscheinen in einer `HTMLAllCollection` in der gleichen Reihenfolge, in der sie im Quelltext des Dokuments erscheinen. Wenn der Parameter ein String ist, der nicht in eine Ganzzahl umgewandelt werden kann, wird er als `name` oder `id` des zurückzugebenden Elements interpretiert.
+  - : Wenn dieser Parameter eine ganze Zahl ist oder ein String, der in eine ganze Zahl umgewandelt werden kann, dann repräsentiert er die Position des zurückzugebenden [`Element`](/de/docs/Web/API/Element). Elemente erscheinen in einer `HTMLAllCollection` in der gleichen Reihenfolge, in der sie im Quelltext des Dokuments erscheinen. Wenn der Parameter ein String ist, der nicht in eine ganze Zahl umgewandelt werden kann, wird er als `name` oder `id` des zurückzugebenden Elements interpretiert.
 
 ### Rückgabewert
 
-Wenn `nameOrIndex` einen Index darstellt, gibt `item()` das [`Element`](/de/docs/Web/API/Element) an dem angegebenen Index zurück oder `null`, wenn `nameOrIndex` kleiner als null oder größer oder gleich der length-Eigenschaft ist. Wenn `nameOrIndex` einen Namen darstellt, gibt `item()` denselben Wert zurück wie [`namedItem()`](/de/docs/Web/API/HTMLAllCollection/namedItem).
+Wenn `nameOrIndex` einen Index darstellt, gibt `item()` das [`Element`](/de/docs/Web/API/Element) an dem angegebenen Index zurück, oder `null`, wenn `nameOrIndex` kleiner als null oder größer oder gleich der Länge-Eigenschaft ist. Wenn `nameOrIndex` einen Namen repräsentiert, gibt `item()` den gleichen Wert zurück wie [`namedItem()`](/de/docs/Web/API/HTMLAllCollection/namedItem).
 
 ## Spezifikationen
 

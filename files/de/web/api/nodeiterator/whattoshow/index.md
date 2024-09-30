@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`NodeIterator.whatToShow`** stellt eine `unsigned integer` dar, die eine Bitmaske repräsentiert und angibt, welche Arten von Knoten durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) zurückgegeben werden sollen.
+Die schreibgeschützte Eigenschaft **`NodeIterator.whatToShow`** stellt eine `unsigned integer` dar, die eine Bitmaske repräsentiert. Diese gibt an, welche Knotentypen vom [`NodeIterator`](/de/docs/Web/API/NodeIterator) zurückgegeben werden sollen.
 
 ## Wert
 
@@ -38,7 +38,7 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
       </td>
       <td><code>2</code></td>
       <td>
-        Zeigt Attribut-[`Attr`](/de/docs/Web/API/Attr)-Knoten. Dies ist nur sinnvoll, wenn ein [`NodeIterator`](/de/docs/Web/API/NodeIterator) oder [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird; in diesem Fall bedeutet es, dass der Attributknoten in der ersten Position der Iteration oder Durchwanderung erscheint. Da Attribute niemals Kinder anderer Knoten sind, erscheinen sie nicht, wenn über den Dokumentbaum gegangen wird.
+        Zeigt Attribut-[`Attr`](/de/docs/Web/API/Attr)-Knoten. Dies ist nur relevant, wenn ein [`NodeIterator`](/de/docs/Web/API/NodeIterator) oder ein [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird; in diesem Fall erscheint der Attributknoten in der ersten Position der Iteration oder Traversierung. Da Attribute niemals Kinder anderer Knoten sind, erscheinen sie nicht, wenn man über den Dokumentenbaum traversiert.
       </td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
     <tr>
       <td><code>NodeFilter.SHOW_ENTITY</code> {{deprecated_inline}}</td>
       <td><code>32</code></td>
-      <td>Veraltet, wird nicht mehr verwendet.</td>
+      <td>Veraltet, nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td>
@@ -84,14 +84,14 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
         {{deprecated_inline}}
       </td>
       <td><code>16</code></td>
-      <td>Veraltet, wird nicht mehr verwendet.</td>
+      <td>Veraltet, nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td>
         <code>NodeFilter.SHOW_NOTATION</code> {{deprecated_inline}}
       </td>
       <td><code>2048</code></td>
-      <td>Veraltet, wird nicht mehr verwendet.</td>
+      <td>Veraltet, nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_PROCESSING_INSTRUCTION</code></td>

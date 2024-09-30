@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element dann anpasst, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis auf ihm ausgelöst wird.
+Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element übereinstimmt, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis darauf aufgerufen wird.
 
 ## Syntax
 
@@ -33,7 +33,9 @@ Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CS
 
 ### JavaScript
 
-Die meisten Elemente sind keine gültigen Orte zum Ablegen von Daten, daher müssen Sie, um das Ablegen zu ermöglichen, das Standardverhalten durch das Abbrechen der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse (oder beides) verhindern. In diesem Beispiel müssen wir nur das `dragenter`-Ereignis abbrechen, welches das erste Ereignis ist, das ausgelöst wird, wenn der Browser bewertet, ob ein Element ein Ziel zum Ablegen sein kann. Weitere Informationen finden Sie unter [Drag-Operationen: Festlegung von Zielorten zum Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
+Die meisten Elemente sind keine gültigen Orte zum Ablegen von Daten. Um das Ablegen zu ermöglichen, müssen Sie das Standardverhalten durch das Verhindern von [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) (oder beiden) Ereignissen verhindern.
+In diesem Beispiel müssen wir nur das `dragenter`-Ereignis verhindern, welches das erste Ereignis ist, das ausgelöst wird, wenn der Browser prüft, ob ein Element ein Drop-Ziel sein kann.
+Für weitere Informationen siehe [Drag and Drop-Operationen: Angabe von Drop-Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
 
 ```js
 const target = document.getElementById("drop-target");
@@ -67,7 +69,7 @@ p {
 }
 ```
 
-Das folgende CSS ändert die Farbe des Zielbereichs zum Ablegen auf Rot, wenn das ziehbare Element die Ablagefläche überlagert.
+Das folgende CSS ändert die Farbe des Drop-Ziels zu Rot, wenn das Ziehelement den Ablagebereich überlagert.
 
 ```css
 #drop-target {
@@ -84,9 +86,9 @@ Das folgende CSS ändert die Farbe des Zielbereichs zum Ablegen auf Rot, wenn da
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Siehe auch
 
 - [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
-- [HTML-Drag-and-Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [HTML Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)

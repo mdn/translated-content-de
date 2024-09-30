@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Um Text entlang der Form eines {{SVGElement("path")}} darzustellen, schließen Sie den Text in ein **`<textPath>`**-Element ein, das ein {{SVGAttr("href")}}-Attribut mit einem Verweis auf das {{SVGElement("path")}}-Element hat.
+Um Text entlang der Form eines {{SVGElement("path")}} zu rendern, umschließen Sie den Text in einem **`<textPath>`**-Element, das ein {{SVGAttr("href")}}-Attribut mit einem Verweis auf das {{SVGElement("path")}}-Element hat.
 
 ## Beispiel
 
@@ -41,31 +41,31 @@ svg {
 ## Attribute
 
 - {{SVGAttr("href")}}
-  - : Die URL zu dem Pfad oder der grundlegenden Form, auf der der Text dargestellt werden soll. Wenn das `path`-Attribut gesetzt ist, hat `href` keine Wirkung.
+  - : Die URL zu dem Pfad oder der Grundform, auf der der Text gerendert werden soll. Wenn das `path`-Attribut gesetzt ist, hat `href` keine Wirkung.
     _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("lengthAdjust")}}
-  - : Wo die Längenanpassung auf den Text angewendet werden soll: der Zwischenraum zwischen den Glyphen oder sowohl der Zwischenraum als auch die Glyphen selbst.
+  - : Wo die Längenanpassung am Text vorgenommen werden soll: der Abstand zwischen den Glyphen oder sowohl der Abstand als auch die Glyphen selbst.
     _Wertetyp_: `spacing`|`spacingAndGlyphs`; _Standardwert_: `spacing`; _Animierbar_: **ja**
 - {{SVGAttr("method")}}
-  - : Welches Verfahren verwendet werden soll, um einzelne Glyphen entlang des Pfades darzustellen.
+  - : Welche Methode verwendet werden soll, um einzelne Glyphen entlang des Pfades zu rendern.
     _Wertetyp_: `align`|`stretch` ; _Standardwert_: `align`; _Animierbar_: **ja**
 - {{SVGAttr("path")}} {{Experimental_Inline}}
-  - : Der Pfad, auf dem der Text dargestellt werden soll.
+  - : Der Pfad, auf dem der Text gerendert werden soll.
     _Wertetyp_: [**\<path_data>**](/de/docs/Web/SVG/Attribute/path#path-data) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("side")}} {{Experimental_Inline}}
-  - : Welche Seite des Pfades der Text dargestellt werden soll.
+  - : Welche Seite des Pfades der Text gerendert werden soll.
     _Wertetyp_: `left`|`right` ; _Standardwert_: `left`; _Animierbar_: **ja**
 - {{SVGAttr("spacing")}}
-  - : Wie der Zwischenraum zwischen Glyphen gehandhabt werden soll.
+  - : Wie der Abstand zwischen den Glyphen gehandhabt werden soll.
     _Wertetyp_: `auto`|`exact` ; _Standardwert_: `exact`; _Animierbar_: **ja**
 - {{SVGAttr("startOffset")}}
-  - : Wie weit der Anfang des Textes vom Anfang des Pfades entfernt sein soll.
+  - : Wie weit der Anfang des Textes vom Anfang des Pfades versetzt sein soll.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("textLength")}}
-  - : Die Breite des Bereichs, in dem der Text dargestellt wird.
+  - : Die Breite des Raums, in den der Text gerendert werden soll.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _auto_; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

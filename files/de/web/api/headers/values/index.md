@@ -1,5 +1,5 @@
 ---
-title: "Headers: Methode values()"
+title: "Headers: values() Methode"
 short-title: values()
 slug: Web/API/Headers/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.values()`**-Methode gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind {{jsxref("String")}}-Objekte.
+Die **`Headers.values()`** Methode gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind {{jsxref("String")}} Objekte.
 
 ## Syntax
 

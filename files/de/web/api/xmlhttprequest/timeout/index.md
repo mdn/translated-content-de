@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.timeout`**-Eigenschaft ist ein `unsigned long`, das die Anzahl der Millisekunden darstellt, die eine Anfrage dauern kann, bevor sie automatisch beendet wird. Der Standardwert ist 0, was bedeutet, dass es kein Timeout gibt. Ein Timeout sollte nicht für synchrone XMLHttpRequest-Anfragen in einer [document environment](/de/docs/Glossary/document_environment) verwendet werden, da es sonst eine `InvalidAccessError`-Ausnahme auslöst. Wenn ein Timeout auftritt, wird ein [timeout](/de/docs/Web/API/XMLHttpRequest/timeout_event)-Ereignis ausgelöst.
+Die **`XMLHttpRequest.timeout`**-Eigenschaft ist ein `unsigned long`, das die Anzahl der Millisekunden darstellt, die ein Request dauern kann, bevor er automatisch beendet wird. Der Standardwert ist 0, was bedeutet, dass es kein Timeout gibt. Timeout sollte nicht für synchrone XMLHttpRequests verwendet werden, die in einer [document environment](/de/docs/Glossary/document_environment) verwendet werden, da sonst eine `InvalidAccessError`-Ausnahme ausgelöst wird. Wenn ein Timeout eintritt, wird ein [timeout](/de/docs/Web/API/XMLHttpRequest/timeout_event)-Ereignis ausgelöst.
 
 > [!NOTE]
-> Sie dürfen kein Timeout für synchrone Anfragen mit einem zugeordneten Fenster verwenden.
+> Sie dürfen für synchronisierte Requests mit einem zugehörigen Fenster kein Timeout verwenden.
 
-[Verwendung eines Timeouts mit einer asynchronen Anfrage](/de/docs/Web/API/XMLHttpRequest_API/Synchronous_and_Asynchronous_Requests#example_using_a_timeout).
+[Verwendung eines Timeouts bei einem asynchronen Request](/de/docs/Web/API/XMLHttpRequest_API/Synchronous_and_Asynchronous_Requests#example_using_a_timeout).
 
 ## Beispiel
 

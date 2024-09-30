@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Pseudo-classes) Funktion wählt den Shadow-Host des [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird (sodass Sie ein benutzerdefiniertes Element aus seinem Shadow DOM heraus auswählen können) – aber nur, wenn der im Parameter der Funktion angegebene Selektor mit dem Vorfahren des Shadow-Hosts übereinstimmt, an dem er sich innerhalb der DOM-Hierarchie befindet.
+Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) Funktion wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird (damit Sie ein benutzerdefiniertes Element von innerhalb seines Shadow DOMs auswählen können) — jedoch nur, wenn der Selektor, der als Parameter der Funktion übergeben wird, mit dem/den Vorfahren des Shadow-Hosts in der Hierarchie des DOMs übereinstimmt, in der es sich befindet.
 
-Mit anderen Worten, dies ermöglicht es einem benutzerdefinierten Element oder allem innerhalb des Shadow DOM dieses benutzerdefinierten Elements, basierend auf seiner Position innerhalb des äußeren DOM oder aufgrund von Klassen/Attributen, die auf Vorfahrelemente angewendet werden, unterschiedliche Stile anzuwenden.
+Mit anderen Worten, dies ermöglicht es einem benutzerdefinierten Element oder allem innerhalb des Shadow DOMs eines benutzerdefinierten Elements, unterschiedliche Stile basierend auf seiner Position innerhalb des äußeren DOMs oder der auf Vorfahrelemente angewandten Klassen/Attribute anzuwenden.
 
-Eine typische Verwendung davon ist mit einem Nachkommen-Selektor-Ausdruck – zum Beispiel `h1` – um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines `<h1>` befinden. Eine weitere typische Verwendung wäre es, inneren Elementen zu erlauben, auf Klassen oder Attribute auf Vorfahrelementen zu reagieren - beispielsweise indem eine andere Textfarbe angewendet wird, wenn eine `.dark-theme` Klasse auf `<body>` angewendet wird.
+Eine typische Verwendung davon ist mit einem Nachfahren-Selektor-Ausdruck — zum Beispiel `h1` — um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines `<h1>` befinden. Eine weitere typische Verwendung wäre, inneren Elementen zu ermöglichen, auf Klassen oder Attribute auf beliebigen Vorfahrelementen zu reagieren - zum Beispiel, um eine andere Textfarbe anzuwenden, wenn eine `.dark-theme`-Klasse auf `<body>` angewendet wird.
 
 > [!NOTE]
 > Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOMs verwendet wird.
@@ -46,11 +46,11 @@ p {
 
 ## Beispiele
 
-### Selektives Stylen von Shadow-Hosts
+### Selektive Gestaltung von Shadow-Hosts
 
-Die folgenden Ausschnitte stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Snippets stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
 
-In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — mit dem Sie Text umschließen können:
+In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum platzieren können:
 
 ```html
 <h1>
@@ -58,7 +58,7 @@ In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<con
 </h1>
 ```
 
-Innerhalb des Konstruktors des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style`-Element mit einigen CSS-Regeln:
+Im Konstruktor des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und das `style`-Element mit einigen CSS-Regeln:
 
 ```js
 const style = document.createElement("style");
@@ -77,7 +77,7 @@ style.textContent =
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die Regeln `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - no links in headers!" }` stylen die Instanz des `<context-span>` Elements (in diesem Fall der Shadow-Host) innerhalb des `<h1>`. Wir haben es verwendet, um klarzustellen, dass das benutzerdefinierte Element in unserem Design nicht innerhalb des `<h1>` erscheinen sollte.
+Die `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - no links in headers!" }` Regeln gestalten die Instanz des `<context-span>` Elements (den Shadow-Host in diesem Fall) innerhalb des `<h1>`. Wir haben es verwendet, um klarzustellen, dass das benutzerdefinierte Element nicht innerhalb des `<h1>` in unserem Design erscheinen sollte.
 
 ## Spezifikationen
 

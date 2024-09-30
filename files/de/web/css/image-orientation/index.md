@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`image-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine layoutunabhängige Korrektur der Orientierung eines Bildes an.
+Die **`image-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine layout-unabhängige Korrektur für die Orientierung eines Bildes an.
 
 {{EmbedInteractiveExample("pages/css/image-orientation.html")}}
 
@@ -29,17 +29,17 @@ image-orientation: unset;
 ### Werte
 
 - `none`
-  - : Es erfolgt keine zusätzliche Bildrotation; das Bild wird so orientiert, wie es codiert ist oder wie es andere CSS-Eigenschaftswerte vorgeben.
+  - : Wendet keine zusätzliche Bildrotation an; das Bild wird wie kodiert oder durch andere CSS-Eigenschaftswerte bestimmt ausgerichtet.
 - `from-image`
-  - : Standard-Ausgangswert. Die im Bild enthaltenen [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen werden verwendet, um das Bild entsprechend zu drehen.
+  - : Standard-Ausgangswert. Die im Bild enthaltenen [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen werden verwendet, um das Bild angemessen zu drehen.
 
-> **Warning:** `image-orientation: none;` **überschreibt nicht** die Orientierung von Bildern aus unsicheren Ursprüngen, wie sie durch ihre [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen codiert sind, aus Sicherheitsgründen. Erfahren Sie mehr vom [Entwurfsthema der CSS-Arbeitsgruppe](https://github.com/w3c/csswg-drafts/issues/5165).
+> **Warning:** `image-orientation: none;` **überschreibt nicht** die von der EXIF-Information kodierte Orientierung von Bildern nicht-sicherer Herkunft, aufgrund von Sicherheitsbedenken. Erfahren Sie mehr vom [CSS-Arbeitsgruppen-Entwurfsprotokoll](https://github.com/w3c/csswg-drafts/issues/5165).
 
 ## Beschreibung
 
-Diese Eigenschaft soll _nur_ zur Korrektur der Orientierung von Bildern verwendet werden, die mit gedrehter Kamera aufgenommen wurden. Sie sollte _nicht_ für beliebige Rotationen verwendet werden. Für andere Zwecke als die Korrektur der Bildorientierung aufgrund der Aufnahme oder des Scans sollte eine {{cssxref("transform")}}-Eigenschaft mit dem `rotate`-Schlüsselwort verwendet werden, um die Rotation anzugeben. Dies schließt alle benutzergesteuerten Änderungen an der Bildorientierung ein oder bei Erfordernissen für Drucke im Hoch- oder Querformat.
+Diese Eigenschaft soll _nur_ dazu verwendet werden, um die Orientierung von Bildern zu korrigieren, die mit gedrehter Kamera aufgenommen wurden. Sie sollte _nicht_ für willkürliche Drehungen verwendet werden. Für Zwecke jenseits der Korrektur der Bildorientierung aufgrund der Aufnahme oder des Scannens verwenden Sie eine {{cssxref("transform")}}-Eigenschaft mit dem `rotate`-Schlüsselwort, um die Drehung anzugeben. Dies schließt benutzergesteuerte Änderungen der Bildorientierung oder Änderungen ein, die für den Druck im Hoch- oder Querformat erforderlich sind.
 
-Falls diese Eigenschaft zusammen mit anderen CSS-Eigenschaften wie einer {{cssxref("&lt;transform-function&gt;")}} verwendet wird, wird jede `image-orientation`-Rotation vor anderen Transformationen angewendet.
+Wenn sie in Verbindung mit anderen CSS-Eigenschaften wie einer {{cssxref("&lt;transform-function&gt;")}} verwendet wird, wird die `image-orientation`-Drehung vor allen anderen Transformationen angewendet.
 
 ## Formale Definition
 
@@ -51,9 +51,9 @@ Falls diese Eigenschaft zusammen mit anderen CSS-Eigenschaften wie einer {{cssxr
 
 ## Beispiele
 
-### Orientierung von Bildern anhand der Bilddaten
+### Orientierung des Bildes anhand der Bilddaten
 
-Das folgende Bild wurde um 180 Grad gedreht, und die `image-orientation`-Eigenschaft wird verwendet, um seine Orientierung basierend auf den EXIF-Daten im Bild zu korrigieren. Durch Ändern des `image-orientation`-Wertes auf `none` können Sie den Effekt der Eigenschaft sehen.
+Das folgende Bild wurde um 180 Grad gedreht, und die `image-orientation`-Eigenschaft wird verwendet, um seine Ausrichtung basierend auf den EXIF-Daten im Bild zu korrigieren. Durch Änderung des `image-orientation`-Werts auf `none` können Sie die Wirkung der Eigenschaft sehen.
 
 #### CSS
 
@@ -112,5 +112,5 @@ document.addEventListener("change", (evt) => {
 
 ## Siehe auch
 
-- Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.
+- Weitere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.
 - {{cssxref("transform")}} und {{cssxref("rotate")}}

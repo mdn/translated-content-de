@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: type Eigenschaft"
+title: "HTMLOutputElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLOutputElement/type
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`** schreibgeschützte Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interfaces gibt den String `"output"` zurück.
+Die schreibgeschützte **`type`**-Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interface gibt die Zeichenkette `"output"` zurück.
 
 ## Wert
 
-Der String `"output"`.
+Die Zeichenkette `"output"`.
 
 ## Beispiel
 

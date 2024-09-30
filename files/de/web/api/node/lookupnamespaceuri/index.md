@@ -1,5 +1,5 @@
 ---
-title: "Node: lookupNamespaceURI() Methode"
+title: "Knoten: Methode lookupNamespaceURI()"
 short-title: lookupNamespaceURI()
 slug: Web/API/Node/lookupNamespaceURI
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`lookupNamespaceURI()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
-nimmt ein Präfix als Parameter und gibt die Namespace-URI zurück, die mit diesem auf dem gegebenen Knoten verknüpft ist, falls vorhanden (und `null`, wenn nicht). Die Existenz dieser Methode ermöglicht es, `Node` Objekte als Namespace-Resolver an [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) und [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate) zu übergeben.
+Die **`lookupNamespaceURI()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle nimmt ein Präfix als Parameter und gibt den Namensraum-URI zurück, der mit diesem auf dem angegebenen Knoten assoziiert ist, falls er gefunden wird (und `null`, wenn nicht). Die Existenz dieser Methode ermöglicht es, `Node` Objekte als Namensraum-Resolver an [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) und [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate) zu übergeben.
 
 ## Syntax
 
@@ -22,16 +21,16 @@ lookupNamespaceURI(prefix)
 - `prefix`
   - : Das zu suchende Präfix.
     > [!NOTE]
-    > Dieser Parameter ist nicht optional, kann jedoch auf `null` gesetzt werden.
+    > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein String, der die Namespace-URI enthält, die dem Präfix entspricht.
+Ein String, der den Namensraum-URI enthält, der dem Präfix entspricht.
 
-- Gibt immer `null` zurück, wenn der Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), [`DocumentType`](/de/docs/Web/API/DocumentType), [`Document`](/de/docs/Web/API/Document) ohne [`documentElement`](/de/docs/Web/API/Document/documentElement) oder ein [`Attr`](/de/docs/Web/API/Attr) ohne zugeordnetes Element ist.
+- Gibt immer `null` zurück, wenn der Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), [`DocumentType`](/de/docs/Web/API/DocumentType), [`Document`](/de/docs/Web/API/Document) ohne [`documentElement`](/de/docs/Web/API/Document/documentElement) oder [`Attr`](/de/docs/Web/API/Attr) ohne zugehöriges Element ist.
 - Wenn `prefix` `"xml"` ist, ist der Rückgabewert immer `"http://www.w3.org/XML/1998/namespace"`.
 - Wenn `prefix` `"xmlns"` ist, ist der Rückgabewert immer `"http://www.w3.org/2000/xmlns/"`.
-- Wenn das `prefix` `null` ist, ist der Rückgabewert die Standard-Namespace-URI.
+- Wenn das `prefix` `null` ist, ist der Rückgabewert der Standard-Namensraum-URI.
 - Wenn das Präfix nicht gefunden wird, ist der Rückgabewert `null`.
 
 ## Beispiel

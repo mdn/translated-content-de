@@ -27,11 +27,11 @@ let uninstalling = browser.management.uninstall(
 - `id`
   - : `string`. ID des zu deinstallierenden Add-ons.
 - `options` {{optional_inline}}
-  - : `object`. Objekt, das eine einzige Eigenschaft enthalten kann, `showConfirmDialog`. Wenn `showConfirmDialog` `true` ist, zeigt der Browser einen Dialog an, in dem der Benutzer gefragt wird, ob das Add-on deinstalliert werden soll.
+  - : `object`. Objekt, das eine einzelne Eigenschaft `showConfirmDialog` enthalten kann. Wenn `showConfirmDialog` `true` ist, zeigt der Browser einen Dialog an, der den Benutzer darum bittet, die Deinstallation des Add-ons zu bestätigen.
 
 <!---->
 
-- Wenn `id` die ID des aufrufenden Add-ons ist, wird `showConfirmDialog` standardmäßig auf `false` gesetzt.
+- Wenn `id` die ID des aufrufenden Add-ons ist, ist `showConfirmDialog` standardmäßig `false`.
 - Wenn `id` die ID eines anderen Add-ons ist, wird die Option `showConfirmDialog` ignoriert und der Bestätigungsdialog wird immer angezeigt.
 
 ### Rückgabewert
@@ -44,9 +44,9 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Deinstallieren Sie das Add-on, dessen ID "my-addon-id" ist, und fragen Sie den Benutzer um Bestätigung. Überprüfen Sie im Callback, ob der Benutzer die Deinstallation abgebrochen hat.
+Deinstallieren Sie das Add-on, dessen ID "my-addon-id" ist, und bitten Sie den Benutzer, dies zu bestätigen. Im Callback wird überprüft, ob der Benutzer die Deinstallation abgebrochen hat.
 
-Beachten Sie, dass wir keinen Erfüllungshandler übergeben haben, da, wenn die Deinstallation erfolgreich ist, das Add-on nicht mehr vorhanden ist, um es zu verarbeiten.
+Beachten Sie, dass wir keinen Erfüllungs-Handler übergeben haben, da das Add-on nicht mehr vorhanden ist, wenn die Deinstallation erfolgreich ist.
 
 ```js
 let id = "my-addon-id";
@@ -62,7 +62,7 @@ uninstalling.then(null, onCanceled);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstall) API von Chromium. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstall) API. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

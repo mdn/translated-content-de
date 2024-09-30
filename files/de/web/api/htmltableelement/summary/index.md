@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.summary`**-Eigenschaft stellt die
-Beschreibung der Tabelle dar.
+Die **`HTMLTableElement.summary`**-Eigenschaft repräsentiert die
+Tabellenbeschreibung.
 
 ## Wert
 

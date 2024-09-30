@@ -1,5 +1,5 @@
 ---
-title: Nächste-Geschwister-Kombinator
+title: Next-sibling Kombinator
 slug: Web/CSS/Next-sibling_combinator
 l10n:
   sourceCommit: 297664ddfb70a04e87a73cd10ac06414245082be
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **nächste-Geschwister-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es _unmittelbar_ auf das erste Element folgt und beide Kinder desselben Eltern-[`elements`](/de/docs/Web/API/Element) sind.
+Der **next-sibling Kombinator** (`+`) trennt zwei Selektoren und trifft auf das zweite Element nur zu, wenn es _unmittelbar_ dem ersten Element folgt und beide Kinder desselben übergeordneten [`Elements`](/de/docs/Web/API/Element) sind.
 
 ```css
 /* Paragraphs that come immediately after any image */
@@ -27,11 +27,11 @@ former_element + target_element { style properties }
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man das nächste Geschwister auswählt, wenn dieses nächste Geschwister von einem bestimmten Typ ist.
+Dieses Beispiel zeigt, wie man das nächste Geschwisterelement auswählt, wenn dieses nächste Geschwisterelement von einem bestimmten Typ ist.
 
 #### CSS
 
-Wir stylen nur das `<li>`, das unmittelbar auf ein `<li>` folgt, das das erste seines Typs ist:
+Wir stylen nur das `<li>`, das unmittelbar nach einem `<li>` kommt, das das erste seiner Art ist:
 
 ```css
 li:first-of-type + li {
@@ -54,13 +54,13 @@ li:first-of-type + li {
 
 {{EmbedLiveSample("Basic usage", "100%", 100)}}
 
-### Auswahl eines vorhergehenden Geschwisters
+### Auswahl eines vorherigen Geschwisterelements
 
-Der nächste-Geschwister-Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has", ":has()")}} verwendet werden, um das vorhergehende Geschwister auszuwählen.
+Der next-sibling Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has", ":has()")}} verwendet werden, um das vorherige Geschwisterelement auszuwählen.
 
 #### CSS
 
-Wir stylen nur das `<li>`, das ein folgendes Geschwister hat, das ein `<li>` ist und das letzte seines Typs ist:
+Wir stylen nur das `<li>`, das ein nachfolgendes Geschwisterelement hat, das ein `<li>` ist, das das letzte seiner Art ist:
 
 ```css
 li:has(+ li:last-of-type) {
@@ -94,4 +94,4 @@ li:has(+ li:last-of-type) {
 
 ## Siehe auch
 
-- [Nachfolgender Geschwisterkombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator)
+- [Subsequent-sibling Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator)

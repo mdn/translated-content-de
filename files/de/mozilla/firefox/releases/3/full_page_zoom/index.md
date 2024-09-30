@@ -1,5 +1,5 @@
 ---
-title: Vollständiges Seitenzoom
+title: Vollständiges Seiten-Zoom
 slug: Mozilla/Firefox/Releases/3/Full_page_zoom
 l10n:
   sourceCommit: 19f950a288d2da4738ce2855083e87f1d541de2a
@@ -7,11 +7,11 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Das vollständige Seitenzoom (oder einfach fullZoom) ist eine neue Funktion in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
+Vollständiges Seiten-Zoom (oder einfach fullZoom) ist ein neues Feature in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
 
 ### Beispiel (XUL:browser)
 
-Das folgende Beispiel demonstriert die Verwendung für das aktuell fokussierte Browserfenster. Dies ist die typische Verwendung für eine Firefox-Erweiterung.
+Das folgende Beispiel zeigt die Verwendung für das aktuelle fokussierte Browserfenster. Dies ist die typische Nutzung für eine Firefox-Erweiterung.
 
 ```js
 var zoom = ZoomManager.getZoomForBrowser(gBrowser.selectedBrowser);
@@ -37,6 +37,6 @@ docViewer.fullZoom = zoom;
 
 ### Referenzen
 
-- Seitenzoomerweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
-- Der [Bugzilla-Bug](https://bugzil.la/4821) zum fullZoom.
-- Dokumentation der `nsIMarkupDocumentViewer`-Schnittstelle.
+- Seiten-Zoom-Erweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
+- Der [Bugzilla-Fehler](https://bugzil.la/4821) zu fullZoom.
+- Dokumentation zur `nsIMarkupDocumentViewer`-Schnittstelle.

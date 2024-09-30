@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: select() Methode"
+title: "HTMLInputElement: select()-Methode"
 short-title: select()
 slug: Web/API/HTMLInputElement/select
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.select()`** Methode wählt den gesamten Text in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element aus, das ein Textfeld enthält.
+Die **`HTMLInputElement.select()`**-Methode wählt den gesamten Text in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element aus, das ein Textfeld enthält.
 
 ## Syntax
 
@@ -51,9 +51,9 @@ function selectText() {
 
 ## Hinweise
 
-Ein Aufruf von `element.select()` wird das Eingabefeld nicht unbedingt fokussieren, daher wird es oft zusammen mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
+Das Aufrufen von `element.select()` fokussiert nicht unbedingt das Eingabefeld. Daher wird es oft mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
 
-In Browsern, in denen es nicht unterstützt wird, kann es durch einen Aufruf von [HTMLInputElement.setSelectionRange()](/de/docs/Web/API/HTMLInputElement/setSelectionRange) mit den Parametern 0 und der Länge des Eingabewerts ersetzt werden:
+In Browsern, in denen es nicht unterstützt wird, kann es durch einen Aufruf von [HTMLInputElement.setSelectionRange()](/de/docs/Web/API/HTMLInputElement/setSelectionRange) mit den Parametern 0 und der Länge des Wertes des Eingabefelds ersetzt werden:
 
 ```html
 <input onClick="this.select();" value="Sample Text" />

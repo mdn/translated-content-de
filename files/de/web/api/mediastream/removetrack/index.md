@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: Methode removeTrack()"
+title: "MediaStream: removeTrack() Methode"
 short-title: removeTrack()
 slug: Web/API/MediaStream/removeTrack
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`removeTrack()`**-Methode des [`MediaStream`](/de/docs/Web/API/MediaStream)-Interfaces entfernt ein
+Die **`removeTrack()`** Methode der [`MediaStream`](/de/docs/Web/API/MediaStream) Schnittstelle entfernt ein
 [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) aus einem Stream.
 
 ## Syntax
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Audio- und Videospuren von einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt werden.
+Das folgende Beispiel zeigt, wie die Audio- und Videospuren aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt werden.
 `fetchStreamFunction` ist ein Ereignishandler für `fetchStreamButton`. Wenn der Button geklickt wird, werden Audio
 und Video von den Geräten des Systems erfasst. `removeTracksFunction` ist der Ereignishandler für `removeTracksButton`.
 Wenn dieser Button geklickt wird, werden die Audio- und Videospuren aus dem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt.

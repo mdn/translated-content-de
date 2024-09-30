@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`toTimeString()`** von {{jsxref("Date")}}-Instanzen gibt eine Zeichenfolge zurück, die den Zeitanteil dieses Datums in der lokalen Zeitzone darstellt.
+Die **`toTimeString()`** Methode von {{jsxref("Date")}} Instanzen gibt einen String zurück, der den Zeitanteil dieses Datums im lokalen Zeitzonenformat darstellt.
 
 {{EmbedInteractiveExample("pages/js/date-totimestring.html", "shorter")}}
 
@@ -23,25 +23,25 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den Zeitanteil des angegebenen Datums darstellt (siehe Beschreibung für das Format). Gibt `"Invalid Date"` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein String, der den Zeitanteil des angegebenen Datums darstellt (siehe Beschreibung für das Format). Gibt `"Invalid Date"` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-{{jsxref("Date")}}-Instanzen beziehen sich auf einen bestimmten Zeitpunkt. `toTimeString()` interpretiert das Datum in der lokalen Zeitzone und formatiert den _Zeit_-Teil auf Englisch. Es verwendet immer das Format `HH:mm:ss GMT±xxxx (TZ)`, wobei:
+{{jsxref("Date")}} Instanzen beziehen sich auf einen bestimmten Zeitpunkt. `toTimeString()` interpretiert das Datum in der lokalen Zeitzone und formatiert den _Zeit_-Teil auf Englisch. Es verwendet immer das Format `HH:mm:ss GMT±xxxx (TZ)`, wobei:
 
-| Formatzeichenfolge | Beschreibung                                                                                                    |
-| ------------------ | --------------------------------------------------------------------------------------------------------------- |
-| `HH`               | Stunde, als zweistellige Zahl mit führender Null, falls erforderlich                                            |
-| `mm`               | Minute, als zweistellige Zahl mit führender Null, falls erforderlich                                            |
-| `ss`               | Sekunden, als zweistellige Zahl mit führender Null, falls erforderlich                                          |
-| `±xxxx`            | Der Offset der lokalen Zeitzone — zwei Ziffern für Stunden und zwei Ziffern für Minuten (z.B. `-0500`, `+0800`) |
-| `TZ`               | Der Name der Zeitzone (z.B. `PDT`, `PST`)                                                                       |
+| Format String | Beschreibung                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| `HH`          | Stunde, als zwei Ziffern mit führender Null, falls erforderlich                                     |
+| `mm`          | Minute, als zwei Ziffern mit führender Null, falls erforderlich                                     |
+| `ss`          | Sekunden, als zwei Ziffern mit führender Null, falls erforderlich                                   |
+| `±xxxx`       | Der Offset der lokalen Zeitzone — zwei Ziffern für Stunden und zwei Ziffern für Minuten (z.B. `-0500`, `+0800`) |
+| `TZ`          | Der Name der Zeitzone (z.B. `PDT`, `PST`)                                                           |
 
 Zum Beispiel: "04:42:04 GMT+0000 (Coordinated Universal Time)".
 
-- Wenn Sie nur den _Datum_-Teil erhalten möchten, verwenden Sie {{jsxref("Date/toDateString", "toDateString()")}}.
-- Wenn Sie sowohl Datum als auch Zeit erhalten möchten, verwenden Sie {{jsxref("Date/toString", "toString()")}}.
-- Wenn Sie möchten, dass das Datum als UTC anstelle der lokalen Zeitzone interpretiert wird, verwenden Sie {{jsxref("Date/toUTCString", "toUTCString()")}}.
+- Wenn Sie nur den _Datums_-Teil benötigen, verwenden Sie {{jsxref("Date/toDateString", "toDateString()")}}.
+- Wenn Sie sowohl Datum als auch Zeit benötigen, verwenden Sie {{jsxref("Date/toString", "toString()")}}.
+- Wenn Sie das Datum als UTC anstelle der lokalen Zeitzone interpretieren möchten, verwenden Sie {{jsxref("Date/toUTCString", "toUTCString()")}}.
 - Wenn Sie das Datum in einem benutzerfreundlicheren Format (z.B. Lokalisierung) formatieren möchten, verwenden Sie {{jsxref("Date/toLocaleTimeString", "toLocaleTimeString()")}}.
 
 ## Beispiele

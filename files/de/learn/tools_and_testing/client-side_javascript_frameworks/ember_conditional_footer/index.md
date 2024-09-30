@@ -1,5 +1,5 @@
 ---
-title: "Ember-Interaktivität: Footer-Funktionalität, bedingte Darstellung"
+title: "Ember Interaktivität: Footer-Funktionalität, bedingtes Rendering"
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_conditional_footer
 l10n:
   sourceCommit: cfb8ef1a19700fbfd3b5c2d3e832036c8f5f6197
@@ -8,7 +8,7 @@ l10n:
 {{LearnSidebar}}
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_interactivity_events_state","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_routing", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-Nun ist es an der Zeit, die Footer-Funktionalität in unserer App anzugehen. Hier werden wir den Todo-Zähler so einstellen, dass er die korrekte Anzahl der noch zu erledigenden Todos anzeigt, und das Styling für erledigte Todos korrekt anwenden (d.h. wo das Kontrollkästchen aktiviert wurde). Wir werden auch unseren "Erledigte löschen"-Button anschließen. Dabei werden wir lernen, wie man bedingtes Rendering in unseren Vorlagen verwendet.
+Jetzt ist es an der Zeit, die Footer-Funktionalität in unserer App anzugehen. Hier werden wir den Todo-Counter aktualisieren, um die korrekte Anzahl der noch zu erledigenden Todos anzuzeigen, und die erledigten Todos (d.h. bei denen das Kontrollkästchen aktiviert wurde) korrekt zu stylen. Wir werden auch unseren "Erledigte löschen"-Button anschließen. Auf dem Weg dorthin lernen wir, wie man bedingtes Rendering in unseren Vorlagen verwendet.
 
 <table>
   <tbody>
@@ -16,39 +16,42 @@ Nun ist es an der Zeit, die Footer-Funktionalität in unserer App anzugehen. Hie
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird mindestens empfohlen, dass Sie mit den grundlegenden
+          Es wird mindestens empfohlen, dass Sie mit den Kernsprachen
           <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a> Sprachen vertraut sind und
-          Kenntnisse über die Nutzung des
-          <a href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminals/der Kommandozeile</a>
-          haben.
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a> vertraut sind und
+          Kenntnisse über das
+          <a
+            href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
+            >Terminal/Kommandozeile</a
+          > besitzen.
         </p>
         <p>
-          Ein tiefergehendes Verständnis moderner JavaScript-Features (wie Klassen,
-          Module, etc.) ist äußerst vorteilhaft, da Ember stark davon Gebrauch macht.
+          Ein tieferes Verständnis moderner JavaScript-Funktionen (wie Klassen,
+          Module, etc.) wird äußerst vorteilhaft sein, da Ember intensiv davon
+          Gebrauch macht.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Unser Lernen über Komponentenklassen fortzusetzen, mit bedingtem Rendering zu beginnen und einige unserer Footer-Funktionen anzuschließen.
+        Weiteres Lernen über Komponentenklassen, Einstieg in das bedingte
+        Rendering und Anschluss einiger Footer-Funktionalitäten.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Verbindung des Verhaltens im Footer
+## Verbindung der Funktionalität im Footer
 
-Um den Footer funktionsfähig zu machen, müssen wir die folgenden drei Funktionsbereiche implementieren:
+Um den Footer zu funktionalisieren, müssen wir die folgenden drei Funktionsbereiche implementieren:
 
-- Einen Zähler für ausstehende Todos.
+- Einen ausstehenden Todo-Zähler.
 - Filter für alle, aktive und erledigte Todos.
-- Einen Button, um die erledigten Todos zu löschen.
+- Einen Button zum Löschen der erledigten Todos.
 
-1. Da wir von der Footer-Komponente aus Zugriff auf unseren Service benötigen, müssen wir eine Klasse für den Footer erstellen. Geben Sie dazu den folgenden Terminalbefehl ein:
+1. Da wir vom Footer-Komponenten aus auf unseren Dienst zugreifen müssen, müssen wir eine Klasse für den Footer generieren. Geben Sie dazu den folgenden Terminalbefehl ein:
 
    ```bash
    ember generate component-class footer
@@ -65,9 +68,9 @@ Um den Footer funktionsfähig zu machen, müssen wir die folgenden drei Funktion
    }
    ```
 
-3. Jetzt müssen wir zurück zu unserer Datei `todo-data.js` gehen und einige Funktionen hinzufügen, die es uns ermöglichen, die Anzahl der unerledigten Todos zurückzugeben (nützlich, um zu zeigen, wie viele noch übrig sind) und die erledigten Todos aus der Liste zu löschen (was die "Erledigte löschen"-Funktion benötigt).
+3. Jetzt müssen wir zu unserer Datei `todo-data.js` zurückkehren und einige Funktionalitäten hinzufügen, die es uns ermöglichen, die Anzahl der unvollständigen Todos zurückzugeben (nützlich, um anzuzeigen, wie viele noch übrig sind), und die erledigten Todos aus der Liste zu löschen (was die "Erledigte löschen"-Funktionalität benötigt).
 
-   Fügen Sie in `todo-data.js` den folgenden Getter unter dem bestehenden `all()` Getter hinzu, um zu definieren, was die unerledigten Todos tatsächlich sind:
+   Fügen Sie in `todo-data.js` den folgenden Getter unterhalb des bestehenden `all()` Getters hinzu, um zu definieren, was die unvollständigen Todos tatsächlich sind:
 
    ```js
    get incomplete() {
@@ -75,7 +78,7 @@ Um den Footer funktionsfähig zu machen, müssen wir die folgenden drei Funktion
    }
    ```
 
-   Mit der Methode [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) fragen wir nach allen Todo-Elementen, bei denen die Eigenschaft `isCompleted` gleich `false` ist. Da `isCompleted` in unserem `Todo`-Objekt als `@tracked` markiert ist, wird dieser Getter neu berechnet, wenn sich der Wert eines Objekts im Array ändert.
+   Mit der Methode [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) fragen wir nach allen Todo-Elementen, bei denen die Eigenschaft `isCompleted` gleich `false` ist, und da `isCompleted` in unserem `Todo`-Objekt `@tracked` ist, wird dieser Getter neu berechnet, wenn sich der Wert eines Objekts im Array ändert.
 
 4. Fügen Sie als nächstes die folgende Aktion unterhalb der bestehenden `add(text)` Aktion hinzu:
 
@@ -86,41 +89,41 @@ Um den Footer funktionsfähig zu machen, müssen wir die folgenden drei Funktion
    }
    ```
 
-   Dies ist ziemlich praktisch, um die Todos zu löschen — wir müssen nur das `todos` Array mit der Liste der unerledigten Todos gleichsetzen.
+   Das ist ziemlich praktisch zum Löschen der Todos — wir müssen nur das `todos` Array gleich der Liste der unvollständigen Todos setzen.
 
-5. Schließlich müssen wir diese neue Funktionalität in unserer `footer.hbs` Vorlage nutzen. Gehen Sie nun zu dieser Datei.
-6. Ersetzen Sie zunächst diese Zeile:
+5. Schließlich müssen wir diese neue Funktionalität in unserer `footer.hbs` Vorlage nutzen. Gehen Sie jetzt zu dieser Datei.
+6. Ersetzen Sie zuerst diese Zeile:
 
    ```hbs
    <strong>0</strong> todos left
    ```
 
-   Mit dieser Zeile, die die unvollständige Anzahl mit der Länge des `incomplete` Arrays füllt:
+   Durch diese, die die unbelegte Anzahl mit der Länge des `incomplete` Arrays füllt:
 
    ```hbs
    <strong>\{{this.todos.incomplete.length}}</strong> todos left
    ```
 
-7. Ersetzen Sie als Nächstes dies:
+7. Ersetzen Sie als nächstes dies:
 
    ```hbs
    <button type="button" class="clear-completed">
    ```
 
-   Mit diesem:
+   Durch dies:
 
    ```hbs
    <button type="button" class="clear-completed" \{{on 'click' this.todos.clearCompleted}}>
    ```
 
-So wird, wenn der Button geklickt wird, die `clearCompleted()` Aktion ausgeführt, die wir zuvor hinzugefügt haben.
-Wenn Sie jetzt jedoch versuchen, den "Erledigte löschen"-Button zu klicken, wird es nichts bewirken, da es derzeit keine Möglichkeit gibt, ein Todo zu "erledigen". Wir müssen die `todo.hbs` Vorlage mit dem Service verbinden, damit das entsprechende Kontrollkästchen den Status jedes Todos ändert. Das machen wir als Nächstes.
+Jetzt wird, wenn der Button geklickt wird, die zuvor hinzugefügte `clearCompleted()` Aktion ausgeführt.
+Wenn Sie jedoch jetzt versuchen, den "Erledigte löschen" Button zu klicken, wird er scheinbar nichts tun, weil es derzeit keine Möglichkeit gibt, ein Todo zu "erledigen". Wir müssen die `todo.hbs` Vorlage mit dem Dienst verbinden, sodass das entsprechende Kontrollkästchen den Status jedes Todos ändert. Das werden wir als nächstes tun.
 
-## Das Todo/Todos-Plural-Problem
+## Das Problem mit Todo/Todos im Plural
 
-Das Obige ist gut, aber wir haben ein weiteres kleines Problem zu bewältigen. Der "Todos übrig" Indikator sagt immer "x todos übrig", selbst wenn nur ein Todo übrig ist, was schlechte Grammatik ist!
+Das oben Genannte ist in Ordnung, aber wir haben noch ein kleines Problem zu bewältigen. Der Hinweis "todos left" sagt immer "x todos left", auch wenn nur noch ein Todo übrig ist, was grammatikalisch falsch ist!
 
-Um dies zu beheben, müssen wir diesen Teil der Vorlage aktualisieren, um bedingtes Rendering einzubeziehen. In Ember kann man Teile einer Vorlage bedingt rendern, indem man [bedingte Inhalte](https://guides.emberjs.com/v3.18.0/components/conditional-content/) verwendet; ein einfaches Blockbeispiel sieht etwa so aus:
+Um dies zu beheben, müssen wir diesen Teil der Vorlage aktualisieren, um bedingtes Rendering einzubeziehen. In Ember können Sie Teile der Vorlage bedingt rendern, indem Sie [bedingte Inhalte](https://guides.emberjs.com/v3.18.0/components/conditional-content/) verwenden; ein einfaches Blockbeispiel sieht so aus:
 
 ```hbs
 \{{#if this.thingIsTrue}} Content for the block form of "if"
@@ -133,7 +136,7 @@ Versuchen wir also, diesen Teil von `footer.hbs` zu ersetzen:
 <strong>\{{this.todos.incomplete.length}}</strong> todos left
 ```
 
-mit dem Folgenden:
+durch das Folgende:
 
 ```hbs
 <strong>\{{this.todos.incomplete.length}}</strong>
@@ -142,9 +145,9 @@ mit dem Folgenden:
 \{{/if}} left
 ```
 
-Dies wird jedoch zu einem Fehler führen — in Ember können diese einfachen if-Anweisungen derzeit nur einen Wahrheits- oder Falschheitswert testen, nicht ein komplexeres Ausdruck wie ein Vergleich. Um dies zu beheben, müssen wir `todo-data.js` einen Getter hinzufügen, der das Ergebnis von `this.incomplete.length === 1` zurückgibt, und diesen dann in unserer Vorlage aufrufen.
+Dies wird uns jedoch einen Fehler geben — in Ember können diese einfachen `if`-Anweisungen derzeit nur auf einen wahrheitsgemäßen/unwahrheitsgemäßen Wert testen, nicht auf einen komplexeren Ausdruck wie einen Vergleich. Um dies zu beheben, müssen wir einen Getter zu `todo-data.js` hinzufügen, um das Ergebnis von `this.incomplete.length === 1` zurückzugeben, und dies dann in unserer Vorlage aufrufen.
 
-Fügen Sie den folgenden neuen Getter zu `todo-data.js` direkt unterhalb der bestehenden Getter hinzu. Beachten Sie, dass wir hier `this.incomplete.length` benötigen, nicht `this.todos.incomplete.length`, weil wir dies innerhalb des Services tun, wo der `incomplete()` Getter direkt verfügbar ist (in der Vorlage wurde der Inhalt des Services als `todos` über die Zeile `@service('todo-data') todos;` in der Footer-Klasse verfügbar gemacht, daher dort `this.todos.incomplete.length`).
+Fügen Sie den folgenden neuen Getter zu `todo-data.js` hinzu, direkt unterhalb der bestehenden Getter. Beachten Sie, dass wir hier `this.incomplete.length` benötigen, nicht `this.todos.incomplete.length`, da wir dies innerhalb des Dienstes tun, wo der `incomplete()` Getter direkt verfügbar ist (in der Vorlage wurden die Inhalte des Dienstes als `todos` über die Zeile `@service('todo-data') todos;` innerhalb der Footer-Klasse verfügbar gemacht, daher dort `this.todos.incomplete.length`).
 
 ```js
 get todoCountIsOne() {
@@ -152,14 +155,14 @@ get todoCountIsOne() {
 }
 ```
 
-Gehen Sie dann zurück zu `footer.hbs` und aktualisieren Sie den vorherigen bearbeiteten Abschnitt der Vorlage zu Folgendem:
+Gehen Sie dann zurück zur `footer.hbs` und aktualisieren Sie den vorherigen Abschnitt der Vorlage, den wir bearbeitet haben, auf das Folgende:
 
 ```hbs
 <strong>\{{this.todos.incomplete.length}}</strong>
 \{{#if this.todos.todoCountIsOne}}todo\{{else}}todos\{{/if}} left
 ```
 
-Speichern und testen Sie jetzt, und Sie werden sehen, dass die richtige Pluralisierung verwendet wird, wenn nur ein Todo-Element vorhanden ist!
+Speichern und testen Sie jetzt, und Sie werden sehen, dass die korrekte Pluralisierung verwendet wird, wenn Sie nur ein Todo-Element haben!
 
 Beachten Sie, dass dies die Blockform von `if` in Ember ist; Sie könnten auch die Inline-Form verwenden:
 
@@ -169,9 +172,9 @@ Beachten Sie, dass dies die Blockform von `if` in Ember ist; Sie könnten auch d
 
 ## Todos abschließen
 
-Wie bei den anderen Komponenten benötigen wir eine Klasse, um auf den Service zuzugreifen.
+Wie bei den anderen Komponenten benötigen wir eine Klasse, um auf den Dienst zuzugreifen.
 
-### Erstellen einer Todo-Klasse
+### Eine Todo-Klasse erstellen
 
 1. Führen Sie den folgenden Befehl in Ihrem Terminal aus:
 
@@ -179,7 +182,7 @@ Wie bei den anderen Komponenten benötigen wir eine Klasse, um auf den Service z
    ember generate component-class todo
    ```
 
-2. Gehen Sie nun zur neu erstellten Datei `todomvc/app/components/todo.js` und aktualisieren Sie den Inhalt so, dass die Todo-Komponente Zugriff auf den Service hat:
+2. Gehen Sie nun zur neu erstellten Datei `todomvc/app/components/todo.js` und aktualisieren Sie den Inhalt, um der Todo-Komponente Zugriff auf den Dienst zu geben:
 
    ```js
    import Component from "@glimmer/component";
@@ -190,7 +193,7 @@ Wie bei den anderen Komponenten benötigen wir eine Klasse, um auf den Service z
    }
    ```
 
-3. Gehen Sie anschließend erneut zu unserer `todo-data.js` Service-Datei und fügen Sie die folgende Aktion direkt unter die vorherigen hinzu, die es uns ermöglichen wird, einen Abschlusszustand für jedes Todo umzuschalten:
+3. Gehen Sie dann noch einmal zu unserer `todo-data.js` Dienstdatei zurück und fügen Sie die folgende Aktion direkt unterhalb der vorherigen hinzu, die es uns ermöglicht, einen Abschlusszustand für jedes Todo umzuschalten:
 
    ```js
    @action
@@ -199,17 +202,17 @@ Wie bei den anderen Komponenten benötigen wir eine Klasse, um auf den Service z
    }
    ```
 
-### Aktualisieren der Vorlage, um den abgeschlossenen Zustand anzuzeigen
+### Aktualisierung der Vorlage, um den abgeschlossenen Status anzuzeigen
 
-Schließlich werden wir die `todo.hbs` Vorlage bearbeiten, so dass der Wert des Kontrollkästchens jetzt an die `isCompleted` Eigenschaft des Todos gebunden ist und dass bei Änderung die `toggleCompletion()` Methode des Todo-Services aufgerufen wird.
+Schließlich werden wir die `todo.hbs` Vorlage so bearbeiten, dass der Wert des Kontrollkästchens jetzt an die `isCompleted` Eigenschaft des Todos gebunden ist und dass bei einer Änderung die `toggleCompletion()` Methode des Todo-Dienstes aufgerufen wird.
 
-1. Suchen Sie in `todo.hbs` die folgende Zeile:
+1. Finden Sie in `todo.hbs` die folgende Zeile:
 
    ```hbs
    <li>
    ```
 
-   Und ersetzen Sie sie durch diese — Sie werden bemerken, dass wir hier einige bedingte Inhalte verwenden, um den Klassenwert gegebenenfalls hinzuzufügen:
+   Und ersetzen Sie sie durch diese — Sie werden bemerken, dass wir hier einige bedingte Inhalte verwenden, um den Klassenwert bei Bedarf hinzuzufügen:
 
    ```hbs-nolint
    <li class=\{{ if @todo.isCompleted 'completed' }}>
@@ -238,16 +241,16 @@ Schließlich werden wir die `todo.hbs` Vorlage bearbeiten, so dass der Wert des 
    ```
 
    > [!NOTE]
-   > Das obige Snippet verwendet ein neues Ember-spezifisches Schlüsselwort — `fn`. `fn` ermöglicht [partielle Anwendung](https://en.wikipedia.org/wiki/Partial_application), was ähnlich wie [`bind`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) ist, jedoch niemals den Aufrufkontext ändert; dies ist äquivalent zur Verwendung von `bind` mit einem `null` Ersten Argument.
+   > Das obige Snippet verwendet ein neues, Ember-spezifisches Schlüsselwort — `fn`. `fn` ermöglicht [Teilapplikation](https://en.wikipedia.org/wiki/Partial_application), ähnlich wie [`bind`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), jedoch ändert es niemals den Aufrufkontext; dies ist gleichbedeutend mit der Verwendung von `bind` mit einem `null` ersten Argument.
 
-Versuchen Sie, den Entwicklungsserver neu zu starten und erneut zu `localhost:4200` zu gehen, und Sie werden nun sehen, dass wir einen voll funktionsfähigen "todos übrig"-Zähler und Löschbutton haben:
+Versuchen Sie, den Entwicklungsserver neu zu starten und gehen Sie erneut zu `localhost:4200`, und Sie werden jetzt sehen, dass wir einen voll funktionsfähigen "todos left" Zähler und einen Löschen-Button haben:
 
-![todos being marked as complete, and cleared](todos-being-marked-completed-and-cleared.gif)
+![todos als erledigt markiert und gelöscht](todos-being-marked-completed-and-cleared.gif)
 
-Wenn Sie sich fragen, warum wir das Umschalten nicht einfach auf der Komponente machen, da die Funktion vollständig abgeschlossen ist und nichts vom Service benötigt, dann ist diese Frage absolut berechtigt! Da wir jedoch _letztendlich_ alle Änderungen an der Todos-Liste in [local storage](/de/docs/Web/API/Window/localStorage) speichern oder synchronisieren wollen (siehe die [Endversion der App](https://nullvoxpopuli.github.io/ember-todomvc-tutorial/)), macht es Sinn, dass alle persistenten statusverändernden Operationen am gleichen Ort sind.
+Wenn Sie sich fragen, warum wir das Umschalten nicht einfach auf der Komponente durchführen, da die Funktion vollständig eigenständig ist und nichts vom Dienst benötigt, dann ist es völlig richtig, diese Frage zu stellen! Da wir jedoch _schließlich_ alle Änderungen an der Todos-Liste im [lokalen Speicher](/de/docs/Web/API/Window/localStorage) speichern oder synchronisieren möchten (siehe die [Endversion der Anwendung](https://nullvoxpopuli.github.io/ember-todomvc-tutorial/)), macht es Sinn, alle Operationen zur Veränderung des persistenten Zustands an einem Ort zu haben.
 
 ## Zusammenfassung
 
-Das reicht für jetzt. Zu diesem Zeitpunkt können wir nicht nur Todos als erledigt markieren, sondern sie auch löschen. Jetzt ist das Einzige, was noch im Footer angeschlossen werden muss, die drei Filterlinks: "Alle", "Aktive" und "Erledigte". Das machen wir im nächsten Artikel mit Routing.
+Das reicht für jetzt. An diesem Punkt können wir nicht nur Todos als erledigt markieren, sondern sie auch löschen. Jetzt müssen nur noch die drei Filterlinks im Footer verdrahtet werden: "Alle", "Aktiv" und "Erledigt". Das machen wir im nächsten Artikel, mit Routing.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_interactivity_events_state","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_routing", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

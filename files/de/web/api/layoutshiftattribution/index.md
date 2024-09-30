@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die `LayoutShiftAttribution`-Schnittstelle bietet Debugging-Informationen über Elemente, die sich verschoben haben.
+Die `LayoutShiftAttribution` Schnittstelle bietet Debugging-Informationen über Elemente, die sich verschoben haben.
 
-Instanzen von `LayoutShiftAttribution` werden in einem Array zurückgegeben, wenn Sie [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) aufrufen.
+Instanzen von `LayoutShiftAttribution` werden in einem Array zurückgegeben, wenn [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) aufgerufen wird.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`LayoutShiftAttribution.node`](/de/docs/Web/API/LayoutShiftAttribution/node) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das Element zurück, das sich verschoben hat (null, wenn es entfernt wurde).
 - [`LayoutShiftAttribution.previousRect`](/de/docs/Web/API/LayoutShiftAttribution/previousRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements vor der Verschiebung darstellt.
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt zurück, das die Position des Elements vor der Verschiebung repräsentiert.
 - [`LayoutShiftAttribution.currentRect`](/de/docs/Web/API/LayoutShiftAttribution/currentRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements nach der Verschiebung darstellt.
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt zurück, das die Position des Elements nach der Verschiebung repräsentiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`LayoutShiftAttribution.toJSON()`](/de/docs/Web/API/LayoutShiftAttribution/toJSON) {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `LayoutShiftAttribution`-Objekts zurück.
+  - : Gibt eine JSON-Darstellung des `LayoutShiftAttribution` Objekts zurück.
 
 ## Beispiele
 
-Das folgende Beispiel findet das Element mit der höchsten Layoutverschiebungs-Punktzahl und gibt das Element in diesem Eintrag mit der größten Größe vor der Verschiebung (`previousRect`) zurück. Für weitere Details siehe [Debug Web Vitals in the field](https://web.dev/articles/debug-performance-in-the-field).
+Das folgende Beispiel findet das Element mit dem höchsten Layout-Verschiebungswert und gibt das Element in diesem Eintrag mit der größten Größe vor der Verschiebung (`previousRect`) zurück. Für weitere Details siehe [Debuggen Sie Web Vitals im Feld](https://web.dev/articles/debug-performance-in-the-field).
 
 ```js
 function getCLSDebugTarget(entries) {
@@ -56,5 +56,5 @@ function getCLSDebugTarget(entries) {
 
 ## Siehe auch
 
-- [Debug layout shifts](https://web.dev/articles/debug-layout-shifts)
-- [Debug Web Vitals in the field](https://web.dev/articles/debug-performance-in-the-field)
+- [Layout-Verschiebungen debuggen](https://web.dev/articles/debug-layout-shifts)
+- [Debuggen Sie Web Vitals im Feld](https://web.dev/articles/debug-performance-in-the-field)

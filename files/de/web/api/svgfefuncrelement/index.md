@@ -17,7 +17,7 @@ _Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch Eigens
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
 
 ## Spezifikationen
 

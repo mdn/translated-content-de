@@ -1,5 +1,5 @@
 ---
-title: "PerformanceTiming: Eigenschaft loadEventStart"
+title: "PerformanceTiming: loadEventStart-Eigenschaft"
 short-title: loadEventStart
 slug: Web/API/PerformanceTiming/loadEventStart
 l10n:
@@ -9,11 +9,11 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle und deren schreibgeschützte Eigenschaft [`PerformanceNavigationTiming.loadEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventStart).
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle und deren [`PerformanceNavigationTiming.loadEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventStart)-Eigenschaft, die schreibgeschützt ist.
 
-Die veraltete,
-schreibgeschützte Eigenschaft **`PerformanceTiming.loadEventStart`**
-gibt ein `unsigned long long` zurück, welches den Moment darstellt (in Millisekunden seit dem UNIX-Epoch), in dem das [`load`](/de/docs/Web/API/Window/load_event) Ereignis für das aktuelle Dokument gesendet wurde. Falls dieses Ereignis noch nicht gesendet wurde, wird `0` zurückgegeben.
+Die veraltete
+**`PerformanceTiming.loadEventStart`**
+schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, zu dem das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis für das aktuelle Dokument gesendet wurde. Wenn dieses Ereignis noch nicht gesendet wurde, wird `0` zurückgegeben.
 
 ## Wert
 
@@ -29,4 +29,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der sie gehört.

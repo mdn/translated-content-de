@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.canvas`**-Eigenschaft, Teil der
-[Canvas-API](/de/docs/Web/API/Canvas_API), ist eine schreibgeschützte Referenz auf das
-[`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt, das mit einem bestimmten Kontext verknüpft ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn kein zugehöriges {{HTMLElement("canvas")}}-Element vorhanden ist.
+Die **`CanvasRenderingContext2D.canvas`**-Eigenschaft, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ist eine schreibgeschützte Referenz auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt, das mit einem bestimmten Kontext verknüpft ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn kein zugehöriges {{HTMLElement("canvas")}}-Element vorhanden ist.
 
 ## Wert
 
@@ -18,14 +16,13 @@ Ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt.
 
 ## Beispiele
 
-Angenommen, Sie haben dieses {{HTMLElement("canvas")}}-Element:
+Angenommen, dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-… Sie können eine Referenz auf das Canvas-Element innerhalb des
-`CanvasRenderingContext2D` mit der `canvas`-Eigenschaft abrufen:
+… dann können Sie über die `canvas`-Eigenschaft eine Referenz auf das Canvas-Element innerhalb des `CanvasRenderingContext2D` erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -43,5 +40,5 @@ ctx.canvas; // HTMLCanvasElement
 
 ## Siehe auch
 
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle
-- [Canvas-API](/de/docs/Web/API/Canvas_API)
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle
+- [Canvas API](/de/docs/Web/API/Canvas_API)

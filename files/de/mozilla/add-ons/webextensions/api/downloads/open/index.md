@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Funktion **`open()`** der {{WebExtAPIRef("downloads")}} API öffnet die heruntergeladene Datei mit der zugehörigen Anwendung. Ein {{WebExtAPIRef("downloads.onChanged")}}-Ereignis wird ausgelöst, wenn das Element zum ersten Mal geöffnet wird.
+Die Funktion **`open()`** der {{WebExtAPIRef("downloads")}} API öffnet die heruntergeladene Datei mit der zugeordneten Anwendung. Ein {{WebExtAPIRef("downloads.onChanged")}}-Ereignis wird ausgelöst, wenn das Element zum ersten Mal geöffnet wird.
 
-Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie sowohl die "downloads.open" [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) als auch die "downloads"-Berechtigung anfordern. Außerdem können Sie diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) heraus aufrufen.
+Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie die "downloads.open" [Manifest-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die "downloads"-Erlaubnis anfordern. Außerdem können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,8 +23,8 @@ let opening = browser.downloads.open(
 
 ### Parameter
 
-- `downloadId`
-  - : Ein `integer`, der die `id` des {{WebExtAPIRef("downloads.DownloadItem")}} darstellt, den Sie öffnen möchten.
+- `downloadId`  
+  - : Ein `integer`, der die `id` des {{WebExtAPIRef("downloads.DownloadItem")}} darstellt, das Sie öffnen möchten.
 
 ### Rückgabewert
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: videoWidth Eigenschaft"
+title: "HTMLVideoElement: videoWidth-Eigenschaft"
 short-title: videoWidth
 slug: Web/API/HTMLVideoElement/videoWidth
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`videoWidth`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces gibt die [intrinsische Breite](/de/docs/Web/API/HTMLVideoElement/videoHeight#about_intrinsic_width_and_height) des Videos in CSS-Pixeln an. Einfach ausgedrückt, ist dies die Breite des Mediums in seiner natürlichen Größe.
+Die schreibgeschützte **`videoWidth`**-Eigenschaft der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle gibt die [intrinsische Breite](/de/docs/Web/API/HTMLVideoElement/videoHeight#about_intrinsic_width_and_height) des Videos in CSS-Pixeln an. Einfach ausgedrückt ist dies die Breite des Mediums in seiner natürlichen Größe.
 
 Weitere Details finden Sie unter [`HTMLVideoElement.videoHeight` > Über intrinsische Breite und Höhe](/de/docs/Web/API/HTMLVideoElement/videoHeight#about_intrinsic_width_and_height).
 
 ## Wert
 
-Ein ganzzahliger Wert, der die intrinsische Breite des Videos in CSS-Pixeln angibt. Wenn der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements `HTMLMediaElement.HAVE_NOTHING` ist, dann ist der Wert dieser Eigenschaft 0, da weder Video- noch Posterrahmen-Größeninformationen verfügbar sind.
+Ein ganzzahliger Wert, der die intrinsische Breite des Videos in CSS-Pixeln angibt. Wenn der [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) des Elements `HTMLMediaElement.HAVE_NOTHING` ist, dann beträgt der Wert dieser Eigenschaft 0, da weder Video- noch Posterbild-Größeninformationen verfügbar sind.
 
 ## Spezifikationen
 

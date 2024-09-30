@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: ready-Eigenschaft"
+title: "ServiceWorkerContainer: ready Eigenschaft"
 short-title: ready
 slug: Web/API/ServiceWorkerContainer/ready
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`ready`**-Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces ermöglicht es, die Ausführung von Code zu verzögern, bis ein Service Worker aktiv ist. Sie gibt ein {{jsxref("Promise")}} zurück, das niemals abgelehnt wird und unbegrenzt wartet, bis die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration), die mit der aktuellen Seite verknüpft ist, einen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker hat. Sobald diese Bedingung erfüllt ist, wird sie mit der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst.
+Die schreibgeschützte **`ready`** Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) Interfaces bietet eine Möglichkeit, die Codeausführung zu verzögern, bis ein Service Worker aktiv ist. Sie gibt ein {{jsxref("Promise")}} zurück, das niemals abgelehnt wird und unbegrenzt wartet, bis die mit der aktuellen Seite assoziierte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker hat. Sobald diese Bedingung erfüllt ist, wird das `Promise` mit der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das niemals abgelehnt wird und möglicherweise schließlich mit einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird.
+Ein {{jsxref("Promise")}}, das niemals abgelehnt wird und möglicherweise letztlich mit einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird.
 
 ## Beispiele
 

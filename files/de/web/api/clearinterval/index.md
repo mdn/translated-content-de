@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die globale **`clearInterval()`**-Methode beendet eine zeitgesteuerte, wiederholende Aktion, die zuvor durch einen Aufruf von [`setInterval()`](/de/docs/Web/API/SetInterval) eingerichtet wurde. Wenn der übergebene Parameter keine zuvor eingerichtete Aktion identifiziert, bewirkt diese Methode nichts.
+Die globale **`clearInterval()`**-Methode beendet eine zeitgesteuerte, wiederholte Aktion, die zuvor durch einen Aufruf von [`setInterval()`](/de/docs/Web/API/SetInterval) eingerichtet wurde. Wenn der angegebene Parameter keine zuvor eingerichtete Aktion identifiziert, macht diese Methode nichts.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ clearInterval(intervalID)
 - `intervalID`
   - : Der Bezeichner der wiederholten Aktion, die Sie abbrechen möchten. Diese ID wurde durch den entsprechenden Aufruf von `setInterval()` zurückgegeben.
 
-Es ist erwähnenswert, dass der Pool von IDs, der durch [`setInterval()`](/de/docs/Web/API/SetInterval) und [`setTimeout()`](/de/docs/Web/API/SetTimeout) verwendet wird, geteilt wird, was bedeutet, dass Sie `clearInterval()` und [`clearTimeout()`](/de/docs/Web/API/ClearTimeout) technisch austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies jedoch vermeiden.
+Es ist anzumerken, dass der Pool von IDs, der von [`setInterval()`](/de/docs/Web/API/SetInterval) und [`setTimeout()`](/de/docs/Web/API/SetTimeout) verwendet wird, geteilt wird. Das bedeutet, Sie können technisch `clearInterval()` und [`clearTimeout()`](/de/docs/Web/API/ClearTimeout) austauschbar verwenden. Zur Klarheit sollten Sie dies jedoch vermeiden.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe die [`setInterval()`-Beispiele](/de/docs/Web/API/setInterval#examples).
+Siehe die [`setInterval()` Beispiele](/de/docs/Web/API/setInterval#examples).
 
 ## Spezifikationen
 

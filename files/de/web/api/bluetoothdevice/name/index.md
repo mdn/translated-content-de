@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothDevice.name`** gibt einen String zurück, der einen menschenlesbaren Namen für das Gerät bereitstellt.
+Die schreibgeschützte Eigenschaft **`BluetoothDevice.name`** gibt einen String zurück, der einen lesbaren Namen für das Gerät bietet.
 
 ## Wert
 

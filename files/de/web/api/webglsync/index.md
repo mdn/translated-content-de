@@ -2,16 +2,16 @@
 title: WebGLSync
 slug: Web/API/WebGLSync
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLSync`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und wird verwendet, um Aktivitäten zwischen der GPU und der Anwendung zu synchronisieren.
 
 {{InheritanceDiagram}}
 
-Bei der Arbeit mit `WebGLSync`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
+Beim Arbeiten mit `WebGLSync`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
 
 - [`WebGL2RenderingContext.fenceSync()`](/de/docs/Web/API/WebGL2RenderingContext/fenceSync)
 - [`WebGL2RenderingContext.deleteSync()`](/de/docs/Web/API/WebGL2RenderingContext/deleteSync)

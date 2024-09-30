@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`min-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig vom Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("min-width")}} oder der Eigenschaft {{cssxref("min-height")}}, abhängig vom Wert von {{cssxref("writing-mode")}}.
+Die **`min-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Elementblocks, abhängig von seinem Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("min-width")}} oder der Eigenschaft {{cssxref("min-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
 {{EmbedInteractiveExample("pages/css/min-inline-size.html")}}
 
@@ -36,11 +36,11 @@ min-inline-size: revert-layer;
 min-inline-size: unset;
 ```
 
-Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `min-inline-size` auf die minimale Höhe des Elements; andernfalls bezieht er sich auf die minimale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-inline-size` auf die Mindesthöhe des Elements; andernfalls bezieht er sich auf die Mindestbreite des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements definiert.
 
 ### Werte
 
-Die Eigenschaft `min-inline-size` nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}}.
+Die Eigenschaft `min-inline-size` hat dieselben Werte wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}}.
 
 ## Formale Definition
 
@@ -85,5 +85,5 @@ Die Eigenschaft `min-inline-size` nimmt die gleichen Werte an wie die Eigenschaf
 
 ## Siehe auch
 
-- Die zugeordneten physischen Eigenschaften: {{cssxref("min-width")}} und {{cssxref("min-height")}}
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("min-width")}} und {{cssxref("min-height")}}
 - {{cssxref("writing-mode")}}

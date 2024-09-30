@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`set()`**-Prototyp-Methode des [`WebAssembly.Table`](/de/docs/WebAssembly/JavaScript_interface/Table)-Objekts verändert eine Referenz, die an einem gegebenen Index gespeichert ist, zu einem anderen Wert.
+Die **`set()`** Prototyp-Methode des [`WebAssembly.Table`](/de/docs/WebAssembly/JavaScript_interface/Table)-Objekts verändert eine Referenz, die an einem gegebenen Index gespeichert ist, zu einem anderen Wert.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ set(index, value)
 ### Parameter
 
 - `index`
-  - : Der Index der Funktionsreferenz, die Sie verändern möchten.
+  - : Der Index der Funktionsreferenz, den Sie ändern möchten.
 - `value`
-  - : Der Wert, zu dem Sie die Referenz ändern möchten. Dies muss ein Wert des Elementtyps der Tabelle sein. Je nach Typ kann es sich um eine [exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions), einen JavaScript-Wrapper für eine zugrunde liegende Wasm-Funktion oder eine Host-Referenz handeln.
+  - : Der Wert, auf den Sie die Referenz ändern möchten. Dies muss ein Wert des Elementtyps der Tabelle sein. Abhängig vom Typ kann es sich um eine [exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions), einen JavaScript-Wrapper für eine zugrunde liegende Wasm-Funktion oder eine Host-Referenz handeln.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von Table.set
 
-Das folgende Beispiel (siehe table2.html [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.html) und [Live-Version](https://mdn.github.io/webassembly-examples/js-api-examples/table2.html)) erstellt eine neue WebAssembly-Tabelleninstanz mit einer anfänglichen Größe von zwei Referenzen. Wir drucken dann die Tabellenlänge und die Inhalte der beiden Indizes aus (abgerufen über [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get)), um zu zeigen, dass die Länge zwei beträgt und die Indizes derzeit keine Funktionsreferenzen enthalten (sie geben derzeit [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück).
+Das folgende Beispiel (siehe table2.html [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.html) und [Live-Version](https://mdn.github.io/webassembly-examples/js-api-examples/table2.html)) erstellt eine neue WebAssembly-Tabelle mit einer anfänglichen Größe von zwei Referenzen. Wir geben dann die Tabellenlänge und den Inhalt der beiden Indizes aus (abgerufen über [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get)), um zu zeigen, dass die Länge zwei ist und die Indizes derzeit keine Funktionsreferenzen enthalten (sie geben derzeit [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück).
 
 ```js
 const tbl = new WebAssembly.Table({ initial: 2, element: "anyfunc" });
@@ -44,7 +44,7 @@ console.log(tbl.get(0));
 console.log(tbl.get(1));
 ```
 
-Wir erstellen dann ein Importobjekt, das eine Referenz zur Tabelle enthält:
+Wir erstellen dann ein Importobjekt, das eine Referenz auf die Tabelle enthält:
 
 ```js
 const importObj = {
@@ -52,7 +52,7 @@ const importObj = {
 };
 ```
 
-Schließlich laden und instanziieren wir ein Wasm-Modul (table2.wasm) mit [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), drucken die Tabellenlänge aus und rufen die beiden referenzierten Funktionen auf, die nun in der Tabelle gespeichert sind. Das `table2.wasm`-Modul fügt zwei Funktionsreferenzen zur Tabelle hinzu, von denen beide einen einfachen Wert ausgeben (siehe [Textdarstellung](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.wat)):
+Schließlich laden und instanziieren wir ein Wasm-Modul (table2.wasm) mit Hilfe von [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), geben die Tabellenlänge aus und rufen die beiden referenzierten Funktionen auf, die jetzt in der Tabelle gespeichert sind. Das `table2.wasm` Modul fügt der Tabelle zwei Funktionsreferenzen hinzu, die beide einen einfachen Wert ausgeben (siehe [Textdarstellung](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.wat):
 
 ```js
 WebAssembly.instantiateStreaming(fetch("table2.wasm"), importObject).then(
@@ -64,9 +64,9 @@ WebAssembly.instantiateStreaming(fetch("table2.wasm"), importObject).then(
 );
 ```
 
-Beachten Sie, dass Sie am Ende des Accessors einen zweiten Funktionsaufrufsoperator einschließen müssen, um die referenzierte Funktion tatsächlich aufzurufen und den darin gespeicherten Wert zu protokollieren (z. B. `get(0)()` anstelle von `get(0)`).
+Beachten Sie, dass Sie einen zweiten Funktionsaufrufoperator am Ende des Accessors einfügen müssen, um die referenzierte Funktion tatsächlich auszuführen und den darin gespeicherten Wert zu protokollieren (z.B. `get(0)()` anstatt `get(0)`).
 
-Dieses Beispiel zeigt, dass wir die Tabelle von JavaScript aus erstellen und darauf zugreifen, aber die gleiche Tabelle ist auch innerhalb der Wasm-Instanz sichtbar und aufrufbar.
+Dieses Beispiel zeigt, dass wir die Tabelle über JavaScript erstellen und darauf zugreifen, aber dieselbe Tabelle ist auch innerhalb der Wasm-Instanz sichtbar und aufrufbar.
 
 ## Spezifikationen
 
@@ -80,4 +80,4 @@ Dieses Beispiel zeigt, dass wir die Tabelle von JavaScript aus erstellen und dar
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwenden der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

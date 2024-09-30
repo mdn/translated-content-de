@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: resume Ereignis"
+title: "MediaRecorder: resume-Ereignis"
 short-title: resume
 slug: Web/API/MediaRecorder/resume_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`resume`** Ereignis des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) Interfaces wird ausgelöst, wenn [`MediaRecorder.resume()`](/de/docs/Web/API/MediaRecorder/resume) aufgerufen wird.
+Das **`resume`**-Ereignis der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle wird ausgelöst, wenn [`MediaRecorder.resume()`](/de/docs/Web/API/MediaRecorder/resume) aufgerufen wird.
 
 ## Syntax
 
@@ -59,7 +59,6 @@ mediaRecorder.onresume = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
-- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [simpl.info MediaStream Recording-Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
 - [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

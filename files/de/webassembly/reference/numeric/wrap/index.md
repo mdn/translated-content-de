@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`wrap`**-Anweisung wird verwendet, um Zahlen des Typs `i64` in den Typ `i32` zu konvertieren. Wenn die Zahl größer ist, als ein `i32` halten kann, wird diese Operation eine Rundung verursachen und zu einer anderen Zahl führen.
+Die **`wrap`**-Anweisung wird verwendet, um Zahlen vom Typ `i64` in den Typ `i32` umzuwandeln. Wenn die Zahl größer ist als das, was ein `i32` speichern kann, wird diese Operation überlaufen, was zu einer anderen Zahl führt.
 
-Man kann sich `wrap` entweder als eine Reduzierung des Wertes nach [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> vorstellen oder als das Verwerfen der oberen 32 Bits, um einen Wert zu erhalten, der nur die unteren 32 Bits enthält.
+Man kann sich das Überlaufen entweder als Reduzierung des Werts [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> oder als Verwerfen der oberen 32 Bits vorstellen, um einen Wert zu erzeugen, der nur die unteren 32 Bits enthält.
 
 {{EmbedInteractiveExample("pages/wat/wrap.html", "tabbed-taller")}}
 

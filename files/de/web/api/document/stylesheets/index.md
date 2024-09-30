@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`styleSheets`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten für Stylesheets zurück, die explizit in ein Dokument eingebunden oder eingebettet sind.
+Die schreibgeschützte **`styleSheets`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten zurück, die für Stylesheets stehen, die explizit in ein Dokument eingebunden oder verknüpft sind.
 
 ## Wert
 
 Die zurückgegebene Liste ist wie folgt geordnet:
 
-- StyleSheets, die aus {{HTTPHeader("Link")}}-Headern abgerufen werden, stehen zuerst, sortiert in der Reihenfolge der Header.
-- StyleSheets, die aus dem DOM abgerufen werden, folgen danach, sortiert in [Baumreihenfolge](https://dom.spec.whatwg.org/#concept-tree-order).
+- StyleSheets, die aus {{HTTPHeader("Link")}}-Headern abgerufen werden, stehen an erster Stelle und sind in der Reihenfolge der Header sortiert.
+- StyleSheets, die aus dem DOM abgerufen werden, folgen danach und sind in [Baumreihenfolge](https://dom.spec.whatwg.org/#concept-tree-order) sortiert.
 
 ## Beispiele
 

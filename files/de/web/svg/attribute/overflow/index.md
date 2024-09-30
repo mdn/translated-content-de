@@ -7,22 +7,22 @@ l10n:
 
 {{SVGRef}}
 
-Das **`overflow`**-Attribut legt fest, was zu tun ist, wenn der Inhalt eines Elements zu groß ist, um in seinen Blockformatierungskontext zu passen. **Dieses Feature ist noch nicht weit verbreitet implementiert.**
+Das **`overflow`**-Attribut legt fest, was zu tun ist, wenn der Inhalt eines Elements zu groß ist, um in seinen Blockformatierungskontext zu passen. **Diese Funktion ist noch nicht weit verbreitet implementiert**.
 
-Dieses Attribut hat die gleichen Parameterwerte und Bedeutungen wie die CSS-Eigenschaft {{cssxref("overflow")}}, jedoch gelten die folgenden zusätzlichen Punkte:
+Dieses Attribut hat dieselben Parameterwerte und Bedeutungen wie die CSS-{{cssxref("overflow")}}-Eigenschaft, jedoch gelten die folgenden zusätzlichen Punkte:
 
-- Wenn es den Wert `visible` hat, hat das Attribut keine Wirkung (d. h. ein Clipping-Rechteck wird nicht erstellt).
-- Wenn die `overflow`-Eigenschaft den Wert `hidden` oder `scroll` hat, wird ein Clip der genauen Größe des SVG-Viewports angewendet.
-- Wenn `scroll` auf einem {{SVGElement("svg")}}-Element angegeben ist, wird normalerweise ein Scrollbalken oder Panner für den SVG-Viewport angezeigt, unabhängig davon, ob ein Teil seines Inhalts abgeschnitten ist oder nicht.
-- Innerhalb von SVG-Inhalten impliziert der Wert `auto`, dass aller gerenderter Inhalt für Kindelemente entweder durch einen Scrollmechanismus sichtbar sein muss oder ohne Clip gerendert wird.
-
-> [!NOTE]
-> Obwohl der Anfangswert für overflow `auto` ist, wird er im Benutzer-Agent-Stylesheet für das {{SVGElement("svg")}}-Element überschrieben, wenn es nicht das Wurzelelement eines eigenständigen Dokuments ist, sowie für das {{SVGElement("pattern")}}- und das {{SVGElement("marker")}}-Element, um standardmäßig verborgen zu sein.
+- Wenn es den Wert `visible` hat, hat das Attribut keine Wirkung (d. h., ein Clipping-Rechteck wird nicht erstellt).
+- Hat die `overflow`-Eigenschaft den Wert `hidden` oder `scroll`, wird ein Clip in genau der Größe des SVG-Viewports angewendet.
+- Beim {{SVGElement("svg")}}-Element wird normalerweise, wenn `scroll` angegeben ist, ein Bildlauf oder Panner für den SVG-Viewport angezeigt, unabhängig davon, ob sein Inhalt beschnitten ist oder nicht.
+- Innerhalb von SVG-Inhalten impliziert der Wert `auto`, dass aller gerenderter Inhalt für Kindelemente sichtbar sein muss, entweder durch einen Bildlaufmechanismus oder durch Rendern ohne Clip.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `overflow` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter der CSS-Eigenschaft {{cssxref("overflow")}}.
+> Obwohl der Anfangswert für overflow `auto` ist, wird er im User-Agent-Stylesheet für das {{SVGElement("svg")}}-Element überschrieben, wenn es nicht das Wurzelelement eines eigenständigen Dokuments ist, sowie für das {{SVGElement("pattern")}}-Element und das {{SVGElement("marker")}}-Element, sodass diese standardmäßig versteckt sind.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+> [!NOTE]
+> Als Präsentationsattribut kann `overflow` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-{{cssxref("overflow")}}-Eigenschaft.
+
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("foreignObject")}}
 - {{SVGElement("image")}}
@@ -74,7 +74,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte sehen Sie bitte die CSS-Eigenschaft {{cssxref("overflow")}}.
+Für eine Beschreibung der Werte siehe die CSS-{{cssxref("overflow")}}-Eigenschaft.
 
 ## Spezifikationen
 

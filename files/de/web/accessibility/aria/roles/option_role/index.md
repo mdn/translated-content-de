@@ -1,5 +1,5 @@
 ---
-title: "ARIA: option-Rolle"
+title: "ARIA: option Rolle"
 slug: Web/Accessibility/ARIA/Roles/option_role
 l10n:
   sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
@@ -11,33 +11,33 @@ Die `option`-Rolle wird für auswählbare Elemente in einer `listbox` verwendet.
 
 ## Beschreibung
 
-Die `option`-Rolle wird verwendet, um Auswahlmöglichkeiten zu identifizieren, die ein Benutzer in einer [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role) treffen kann. Diese Optionen ähneln den {{HTMLElement('option')}}-Elementen in einem {{HTMLElement('select')}}-Element, können jedoch auch Bilder enthalten.
+Die `option`-Rolle wird verwendet, um Auswahlmöglichkeiten zu kennzeichnen, die ein Benutzer in einer [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role) treffen kann. Diese Optionen ähneln den {{HTMLElement('option')}}-Elementen in einem {{HTMLElement('select')}}-Element, können jedoch Bilder enthalten.
 
-Alle auswählbaren Optionen sollten mit ihrem Status [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected) übereinstimmen, `true`, wenn ausgewählt, und `false`, wenn nicht. Wenn eine Option nicht auswählbar ist, kann `aria-selected` weggelassen werden. Eine deaktivierte Option kann [`aria-disabled="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled) und `aria-selected="false"` haben, um dem Benutzer mitzuteilen, dass die Option zwar vorhanden, jedoch deaktiviert ist.
+Alle auswählbaren Optionen sollten [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected) haben, das ihrem Zustand entspricht, `true` wenn ausgewählt und `false` wenn nicht. Wenn eine Option nicht auswählbar ist, kann `aria-selected` weggelassen werden. Eine deaktivierte Option kann [`aria-disabled="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled) und `aria-selected="false"` haben, um dem Benutzer zu vermitteln, dass die Option vorhanden ist, aber deaktiviert.
 
-Die `option`-Rolle dient zur Identifizierung der auswählbaren Optionen einer `listbox`. Optionen müssen einen zugänglichen Namen haben. Im Allgemeinen sollte der zugängliche Name für eine Option vom Inhalt der Nachfahrenelemente des Elements stammen.
+Die `option`-Rolle dient zur Kennzeichnung auswählbarer Entscheidungen in einer `listbox`. Optionen müssen einen zugänglichen Namen haben. In der Regel sollte der zugängliche Name für eine Option aus den Nachkommeninhalten des Elements stammen.
 
-Autoren können auch explizit einen zugänglichen Namen bereitstellen, indem sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) für das Element mit der `option`-Rolle angeben. Wenn `aria-label` oder `aria-labelledby` verwendet wird und die Option auch ein sichtbares Textlabel anzeigt, müssen Autoren sicherstellen, dass sie das <a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html">WCAG-Erfolgskriterium 2.5.3 Label im Namen</a> einhalten.
+Autoren können auch explizit einen zugänglichen Namen angeben, indem sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) für das Element mit der `option`-Rolle angeben. Wenn `aria-label` oder `aria-labelledby` verwendet wird und die Option auch eine sichtbare Textbeschriftung anzeigt, müssen Autoren sicherstellen, dass sie dem <a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html">WCAG-Erfolgskriterium 2.5.3 Label in Name</a> entsprechen.
 
-Es wird dringend empfohlen, wenn möglich ein {{HTMLElement('select')}}-Element oder ein {{HTMLElement('input')}}-Element mit dem Typ `checkbox` oder `radio` zu verwenden. Diese nativen HTML-Elemente bieten Tastaturinteraktivität, um den Fokus automatisch für alle Nachfahren zu verwalten.
+Es wird dringend empfohlen, ein {{HTMLElement('select')}}-Element oder ein {{HTMLElement('input')}}-Element mit dem Typ `checkbox` oder `radio` zu verwenden, wann immer möglich. Diese nativen HTML-Elemente bieten Tastaturinteraktivität, um den Fokus automatisch für alle Nachkommen zu verwalten.
 
-### Alle Nachfahren sind präsentationell
+### Alle Nachkommen sind darstellend
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die in einer Plattform-Zugänglichkeits-API dargestellt werden, jedoch nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente in einer `option` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachfahrenelemente eines `option`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeit-API dargestellt werden, nur Text enthalten können. Zugänglichkeit-APIs haben keine Möglichkeit, semantische Elemente, die in einer `option` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachkommenelemente eines `option`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Zum Beispiel, betrachten wir das folgende `option`-Element, das eine Überschrift enthält.
+Zum Beispiel betrachten Sie das folgende `option`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="option"><h3>Title of my option</h3></div>
 ```
 
-Da Nachfahren von `option` präsentationell sind, ist der folgende Code gleichwertig:
+Da Nachkommen von `option` darstellend sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="option"><h3 role="presentation">Title of my option</h3></div>
 ```
 
-Aus der Sicht eines Benutzers von unterstützenden Technologien existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem folgenden im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) gleichwertig sind:
+Aus Sicht eines Benutzers einer assistiven Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele gleichwertig sind mit dem folgenden im [Zugänglichkeit-Baum](/de/docs/Glossary/Accessibility_tree):
 
 ```html
 <div role="option">Title of my option</div>
@@ -48,21 +48,21 @@ Aus der Sicht eines Benutzers von unterstützenden Technologien existiert die Ü
 #### Zugehörige Rollen
 
 - [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role)
-  - : Eine `option` _muss_ in einer `listbox` enthalten oder von einer solchen besessen sein.
+  - : Ein `option` _muss_ in einer `listbox` enthalten oder von dieser besessen sein
 
 #### Zustände und Eigenschaften
 
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
 
-  - : Wird verwendet, um den Auswahlzustand der Option zu beschreiben. Erforderlich.
+  - : Wird verwendet, um den Auswahlszustand der Option zu beschreiben. Erforderlich.
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)
 
-  - : Wird verwendet, um den aktivierten Zustand zu beschreiben, wenn Optionen in einer Mehrfachauswahl verwendet werden. Unterstützt `true`, `false` und `mixed`. Optional.
+  - : Wird verwendet, um den Kontrollkästchenzustand zu beschreiben, wenn Optionen in einer Mehrfachauswahlweise verwendet werden. Unterstützt `true`, `false` und `mixed`. Optional.
 
 - [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset)
 
-  - : Wird verwendet, um die Position im Optionssatz zu beschreiben, wenn sie nicht mit dem DOM übereinstimmt, wie bei virtuellem Scrollen, bei dem nur einige Optionen gleichzeitig vorhanden sind. Optional.
+  - : Wird verwendet, um die Position im Optionssatz zu beschreiben, wenn sie nicht mit dem DOM übereinstimmt, wie z.B. beim virtuellen Scrollen, bei dem nur einige Optionen gleichzeitig vorhanden sind. Optional.
 
 - [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)
 
@@ -74,24 +74,24 @@ Aus der Sicht eines Benutzers von unterstützenden Technologien existiert die Ü
 
 - [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)
 
-  - : Wird verwendet, um die Option vor Zugänglichkeitswerkzeugen zu verbergen. Es sollte nur verwendet werden, um nicht sichtbaren Inhalt oder sichtbaren Inhalt zu verbergen, wenn dadurch die Erfahrung mit unterstützenden Technologien verbessert wird, wie bei redundantem Inhalt. Optional.
+  - : Wird verwendet, um die Option vor Zugänglichkeitstools zu verbergen. Sollte nur verwendet werden, um nicht sichtbare Inhalte oder sichtbare Inhalte zu verbergen, wenn es die Erfahrung der assistiven Technologie verbessert, wie z.B. redundante Inhalte. Optional.
 
 - [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-invalid)
 
-  - : Wird verwendet, um anzuzeigen, dass der Wert der Option von der Anwendung als ungültig angesehen wird. Optional.
+  - : Wird verwendet, um anzuzeigen, dass der Wert der Option von der Anwendung als ungültig betrachtet wird. Optional.
 
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
 
-  - : Wird verwendet, um anzuzeigen, dass ein Element modifiziert wird, zum Beispiel während es geladen wird. Optional.
+  - : Wird verwendet, um anzuzeigen, dass ein Element bearbeitet wird, z.B. während es geladen wird. Optional.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 
-  - : Wird verwendet, um anzugeben, welches Element die Option beschriftet. Der Inhalt der Option sollte stattdessen verwendet werden, wo es angebracht ist. Optional.
+  - : Wird verwendet, um anzugeben, welches Element die Option beschriftet. Der Inhalt der Option sollte stattdessen verwendet werden, wo es angemessen ist. Optional.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)
-  - : Wird verwendet, um die Option zu beschriften. Wenn das Label im DOM vorhanden ist, sollte stattdessen `aria-labelledby` verwendet werden. Optional.
+  - : Wird verwendet, um die Option zu beschriften. Wenn das Label im DOM vorhanden ist, sollte `aria-labelledby` stattdessen verwendet werden. Optional.
 
-(Für weitere Details und eine vollständige Liste der ARIA-Zustände und Eigenschaften siehe die <a href="https://www.w3.org/TR/wai-aria-1.1/#option">ARIA `option` (Rolle)</a>-Dokumentation.)
+(Für weitere Details und eine vollständige Liste der ARIA-Zustände und -Eigenschaften, siehe die <a href="https://www.w3.org/TR/wai-aria-1.1/#option">ARIA `option` (Rolle)</a> Dokumentation.)
 
 ## Spezifikationen
 

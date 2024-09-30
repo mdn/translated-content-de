@@ -1,5 +1,5 @@
 ---
-title: "GPUBindGroupLayout: label Eigenschaft"
+title: "GPUBindGroupLayout: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUBindGroupLayout/label
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem Sie eine `label`-Eigenschaft im Deskriptorobjekt angeben, das im ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) übergeben wird. Alternativ können Sie es direkt am `GPUBindGroupLayout`-Objekt abrufen und festlegen.
+Dies kann gesetzt werden, indem eine `label`-Eigenschaft im Beschreibungsobjekt angegeben wird, das im ursprünglichen [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)-Aufruf übergeben wird, oder Sie können es direkt auf dem `GPUBindGroupLayout`-Objekt setzen und abrufen.
 
 ## Wert
 
-Ein String. Falls dies wie oben beschrieben nicht vorher festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Einstellen und Abrufen eines Labels über `GPUBindGroupLayout.label`:
+Setzen und Abrufen eines Labels über `GPUBindGroupLayout.label`:
 
 ```js
 // ...
@@ -40,7 +40,7 @@ bindGroupLayout.label = "mybindgrouplayout";
 console.log(bindGroupLayout.label); // "mybindgrouplayout";
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) und anschließendes Abrufen über `GPUBindGroupLayout.label`:
+Setzen eines Labels über den ursprünglichen [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)-Aufruf und anschließendes Abrufen über `GPUBindGroupLayout.label`:
 
 ```js
 // ...

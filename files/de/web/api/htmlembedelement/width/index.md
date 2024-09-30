@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement) Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("embed")}} Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 

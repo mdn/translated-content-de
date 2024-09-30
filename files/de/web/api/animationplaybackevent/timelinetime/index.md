@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`timelineTime`** schreibgeschützte Eigenschaft der [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Schnittstelle repräsentiert den Zeitwert der [`timeline`](/de/docs/Web/API/AnimationTimeline) einer Animation in dem Moment, in dem das Ereignis in die Warteschlange gestellt wurde. Sie wird nicht aufgelöst, wenn die Animation zum Zeitpunkt der Erzeugung des Ereignisses nicht mit einer Timeline verbunden war oder wenn die zugehörige Timeline inaktiv war.
+Die **`timelineTime`**-Schreibgeschützte Eigenschaft des [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Interfaces repräsentiert den Zeitwert der [`timeline`](/de/docs/Web/API/AnimationTimeline) der Animation zu dem Zeitpunkt, zu dem das Ereignis in die Warteschlange gestellt wird. Dies wird nicht auflösbar sein, wenn die Animation zum Zeitpunkt der Erstellung des Ereignisses nicht mit einer Timeline verbunden war oder wenn die zugehörige Timeline inaktiv war.
 
 ## Wert
 

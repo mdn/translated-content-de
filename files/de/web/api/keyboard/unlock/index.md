@@ -1,5 +1,5 @@
 ---
-title: "Keyboard: unlock()-Methode"
+title: "Keyboard: unlock() Methode"
 short-title: unlock()
 slug: Web/API/Keyboard/unlock
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`unlock()`**-Methode der [`Keyboard`](/de/docs/Web/API/Keyboard)-Schnittstelle entsperrt alle durch die [`Keyboard.lock()`](/de/docs/Web/API/Keyboard/lock)-Methode erfassten Tasten und gibt synchron zurück.
+Die **`unlock()`**-Methode des [`Keyboard`](/de/docs/Web/API/Keyboard)-Interfaces entsperrt alle Tasten, die durch die [`Keyboard.lock()`](/de/docs/Web/API/Keyboard/lock)-Methode erfasst wurden, und gibt synchron zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<rb>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um die Basistexkomponente einer {{HTMLElement("ruby")}}-Annotation zu kennzeichnen, d.h. den Text, der annotiert wird. Jedes `<rb>`-Element sollte jedes separate atomare Segment des Basistextes umschließen.
+Das **`<rb>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um die Basisteilkomponente einer {{HTMLElement("ruby")}}-Annotation abzugrenzen, d.h. den Text, der annotiert wird. Jedes separate atomare Segment des Basisteils sollte in einem `<rb>`-Element eingeschlossen sein.
 
 ## Attribute
 
@@ -15,15 +15,15 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Nutzungshinweise
 
-- Ruby-Anmerkungen dienen dazu, die Aussprache ostasiatischer Schriftzeichen anzuzeigen, wie z. B. mit japanischen Furigana- oder taiwanesischen Bopomofo-Zeichen. Das `<rb>`-Element wird verwendet, um jedes Segment des Ruby-Basistextes zu trennen.
-- Auch wenn `<rb>` kein [leeres Element](/de/docs/Glossary/void_element) ist, wird oft nur das öffnende Tag jedes Elements im Quellcode eingefügt, damit das Ruby-Markup weniger komplex und leichter lesbar ist. Der Browser kann dann das vollständige Element in der gerenderten Version ergänzen.
-- Man muss ein {{htmlelement("rt")}}-Element für jedes Basissegment/`<rb>`-Element einfügen, das annotiert werden soll.
+- Ruby-Annotationen werden verwendet, um die Aussprache von ostasiatischen Zeichen anzuzeigen, wie zum Beispiel japanische Furigana oder taiwanesische Bopomofo-Zeichen. Das `<rb>`-Element wird verwendet, um jedes Segment des Ruby-Basisteils zu trennen.
+- Obwohl `<rb>` kein [void-Element](/de/docs/Glossary/void_element) ist, ist es üblich, nur das öffnende Tag jedes Elements im Quellcode einzufügen, sodass die Ruby-Markierung weniger komplex und leichter lesbar ist. Der Browser kann dann das vollständige Element in der gerenderten Version auffüllen.
+- Sie müssen für jedes Basissegment/`<rb>`-Element, das Sie annotieren möchten, ein {{htmlelement("rt")}}-Element einschließen.
 
 ## Beispiele
 
 ### Verwendung von rb
 
-In diesem Beispiel bieten wir eine Annotation für das ursprüngliche Zeichenäquivalent von "Kanji":
+In diesem Beispiel geben wir eine Annotation für das ursprüngliche Zeichenäquivalent von "Kanji":
 
 ```html
 <ruby>
@@ -31,15 +31,15 @@ In diesem Beispiel bieten wir eine Annotation für das ursprüngliche Zeichenäq
 </ruby>
 ```
 
-Beachten Sie, dass wir zwei `<rb>`-Elemente eingefügt haben, um die beiden separaten Teile des Ruby-Basistextes zu kennzeichnen. Die Annotation hingegen wird durch zwei {{htmlelement("rt")}}-Elemente abgetrennt.
+Beachten Sie, dass wir zwei `<rb>`-Elemente eingefügt haben, um die beiden separaten Teile des Ruby-Basisteils abzugrenzen. Die Annotation hingegen wird von zwei {{htmlelement("rt")}}-Elementen abgegrenzt.
 
 #### Ergebnis
 
 {{EmbedLiveSample("Using_rb", "100%", 60)}}
 
-### Separate Annotationen
+### Getrennte Annotationen
 
-Beachten Sie, dass wir dieses Beispiel auch mit den beiden Basisteiltexten völlig separat annotiert schreiben könnten. In diesem Fall ist es nicht erforderlich, `<rb>`-Elemente einzufügen:
+Beachten Sie, dass wir dieses Beispiel auch schreiben könnten, indem die beiden Basisteiltexte vollständig getrennt annotiert werden. In diesem Fall müssen wir keine `<rb>`-Elemente einfügen:
 
 ```html
 <ruby>
@@ -51,7 +51,7 @@ Beachten Sie, dass wir dieses Beispiel auch mit den beiden Basisteiltexten völl
 
 {{EmbedLiveSample('Separate annotations')}}
 
-Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
+Lesen Sie den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
 
 ## Technische Zusammenfassung
 
@@ -72,11 +72,11 @@ Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispie
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element unmittelbar auf
-        ein {{HTMLElement("rt")}}, {{HTMLElement("rtc")}}, oder
-        {{HTMLElement("rp")}}-Element oder ein weiteres
-        <code>&#x3C;rb></code>-Element folgt oder wenn kein weiterer Inhalt im
-        Elternelement vorhanden ist.
+        Das End-Tag kann weggelassen werden, wenn das Element unmittelbar von einem
+        {{HTMLElement("rt")}}, {{HTMLElement("rtc")}}, oder
+        {{HTMLElement("rp")}}-Element oder einem anderen
+        <code>&#x3C;rb></code>-Element gefolgt wird, oder wenn es keinen weiteren Inhalt
+        im Elternelement gibt.
       </td>
     </tr>
     <tr>

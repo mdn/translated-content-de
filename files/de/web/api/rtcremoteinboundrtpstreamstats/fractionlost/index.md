@@ -8,18 +8,21 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`fractionLost`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt einen Wert an, mit dem der Anteil der für diese [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) verlorenen Pakete im letzten Berichtszeitraum bestimmt werden kann.
+Die **`fractionLost`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Dictionary liefert einen Wert, der verwendet werden kann, um den Anteil der verlorenen Pakete für diese [Synchronization Source (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) im letzten Berichtsintervall zu bestimmen.
 
-Um den Wert in einen Prozentsatz umzuwandeln, teilen Sie ihn durch 256 und multiplizieren ihn mit 100. Zum Beispiel zeigt ein Wert von 20 einen Paketverlust von 7,8 % an.
+Um den Wert in einen Prozentsatz umzuwandeln, teilen Sie ihn durch 256 und multiplizieren Sie mit 100.
+Ein Wert von 20 entspricht beispielsweise einem Paketverlust von 7,8%.
 
-Beachten Sie, dass der Wert möglicherweise nicht genau ist aufgrund der Art und Weise, wie er berechnet wird, aber er bietet ein schnelles und bequemes Maß für die Verbindungsqualität.
+Es ist zu beachten, dass der Wert aufgrund der Berechnungsweise möglicherweise nicht ganz genau ist, aber er bietet eine schnelle und nützliche Messung der Verbindungsqualität.
 
 ## Wert
 
-Eine Zahl, die den Anteil des Paketverlusts im letzten Berichtszeitraum angibt, multipliziert mit 256. Der Wert ist 0, wenn der berechnete Paketverlust negativ ist.
+Eine Zahl, die den Anteil des Paketverlusts im letzten Berichtszeitraum angibt, multipliziert mit 256.
+Der Wert ist 0, wenn der berechnete Paketverlust negativ ist.
 
 > [!NOTE]
-> Der Wert stammt aus dem 8-Bit-`Fraction Lost`-Feld des letzten Sender Report (SR) oder Receiver Report (RR) RTCP-Pakets. Der Algorithmus zur Berechnung des Werts ist definiert in [RFC 3550, Anhang A.3: Bestimmung der Anzahl erwarteter und verlorener Pakete](https://datatracker.ietf.org/doc/html/rfc3550#appendix-A.3).
+> Der Wert stammt aus dem 8-Bit-`fraction lost`-Feld des letzten Sender Report (SR) oder Receiver Report (RR) RTCP-Pakets.
+> Der Algorithmus zur Berechnung des Wertes ist in [RFC 3550, Anhang A.3: Determining Number of Packets Expected and Lost](https://datatracker.ietf.org/doc/html/rfc3550#appendix-A.3) definiert.
 
 ## Spezifikationen
 
@@ -31,5 +34,5 @@ Eine Zahl, die den Anteil des Paketverlusts im letzten Berichtszeitraum angibt, 
 
 ## Siehe auch
 
-- {{rfc("3550","SR: Sender Report RTCP Packet", "6.4.1")}}
-- {{rfc("3550","RR: Receiver Report RTCP Packet", "6.4.2")}}
+- {{rfc("3550","SR: Sender Report RTCP-Paket", "6.4.1")}}
+- {{rfc("3550","RR: Receiver Report RTCP-Paket", "6.4.2")}}

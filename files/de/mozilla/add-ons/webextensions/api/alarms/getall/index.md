@@ -44,4 +44,4 @@ browser.alarms.getAll().then(gotAll);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API von Chromium.
+> Diese API basiert auf der [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms)-API von Chromium.

@@ -13,11 +13,11 @@ Die **`SVGFEFuncGElement`**-Schnittstelle entspricht dem {{SVGElement("feFuncG")
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer Elternschnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
+_Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch jene ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
 
 ## Spezifikationen
 

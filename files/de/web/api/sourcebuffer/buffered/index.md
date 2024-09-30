@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`buffered`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt die Zeitbereiche zurück, die derzeit im `SourceBuffer` als ein normalisiertes [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt gepuffert sind.
+Die **`buffered`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt die Zeitbereiche zurück, die derzeit im `SourceBuffer` gepuffert sind, als normalisiertes [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt.
 
 ## Wert
 

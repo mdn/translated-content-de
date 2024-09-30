@@ -7,10 +7,10 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Die **`PasswordCredential`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) bietet Informationen über ein Benutzername/Passwort-Paar. In unterstützenden Browsern kann eine Instanz dieser Klasse im `credential`-Mitglied des `init`-Objekts für globales [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
+Das **`PasswordCredential`**-Interface der [Credential Management API](/de/docs/Web/API/Credential_Management_API) bietet Informationen über ein Benutzername/Passwort-Paar. In unterstützten Browsern kann eine Instanz dieser Klasse im `credential`-Mitglied des `init`-Objekts für globales [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
 
 > [!NOTE]
-> Diese Schnittstelle ist auf oberste Ebenen beschränkt und kann nicht von einem {{HTMLElement("iframe")}} aus verwendet werden.
+> Dieses Interface ist auf oberste Kontexte beschränkt und kann nicht innerhalb eines {{HTMLElement("iframe")}} verwendet werden.
 
 {{InheritanceDiagram}}
 
@@ -24,11 +24,11 @@ Die **`PasswordCredential`**-Schnittstelle der [Credential Management API](/de/d
 _Erbt Eigenschaften von seinem Vorfahren, [`Credential`](/de/docs/Web/API/Credential)._
 
 - [`PasswordCredential.iconURL`](/de/docs/Web/API/PasswordCredential/iconURL) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der eine URL enthält, die auf ein Bild für ein Symbol verweist. Dieses Bild ist für die Anzeige in einem Anmeldewähler vorgesehen. Die URL muss ohne Authentifizierung zugänglich sein.
+  - : Eine Zeichenkette, die eine URL enthält, die auf ein Bild für ein Symbol verweist. Dieses Bild ist für die Anzeige in einem Anmeldeauswahl-Dialog gedacht. Die URL muss ohne Authentifizierung zugänglich sein.
 - [`PasswordCredential.name`](/de/docs/Web/API/PasswordCredential/name) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein menschenlesbarer String, der einen öffentlichen Namen für die Anzeige in einem Anmeldewähler bereitstellt.
+  - : Eine menschenlesbare Zeichenkette, die einen öffentlichen Namen für die Anzeige in einem Anmeldeauswahl-Dialog bietet.
 - [`PasswordCredential.password`](/de/docs/Web/API/PasswordCredential/password) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der das Passwort der Berechtigung enthält.
+  - : Eine Zeichenkette, die das Passwort der Anmeldedaten enthält.
 
 ## Instanz-Methoden
 

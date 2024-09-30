@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`displaySurface`**-Eigenschaft im [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch gibt an, ob die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Einschränkung vom Benutzeragenten und dem Gerät, auf dem die Inhalte verwendet werden, unterstützt wird.
+Die **`displaySurface`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs gibt an, ob die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Einschränkung durch den Benutzeragenten und das Gerät, auf dem die Inhalte genutzt werden, unterstützt wird.
 
-Die Liste der unterstützten Einschränkungen wird durch Aufruf von [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) abgerufen.
+Die Liste der unterstützten Einschränkungen wird durch den Aufruf von [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) erhalten.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Einschränkung vom Gerät und Benutzeragenten unterstützt wird.
+Ein boolescher Wert, der `true` ist, wenn die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Einschränkung durch das Gerät und den Benutzeragenten unterstützt wird.
 
 ## Beispiele
 
-Diese Methode richtet das Einschränkungsobjekt ein, das die Optionen für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) angibt. Es fügt die `displaySurface`-Einschränkung hinzu (wobei nur die Bildschirmfreigabe im Vollbildmodus erlaubt sein soll), jedoch nur, wenn bekannt ist, dass sie vom Browser unterstützt wird. Das Erfassen wird dann durch Aufruf von `getDisplayMedia()` gestartet und der zurückgegebene Stream wird dem `<video>`-Element zugeordnet, auf das durch die Variable `videoElem` verwiesen wird.
+Diese Methode richtet das Einschränkungsobjekt ein, das die Optionen für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) angibt. Sie fügt die `displaySurface`-Einschränkung hinzu (wobei beantragt wird, dass nur das Teilen des Vollbildes erlaubt ist), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Die Aufnahme wird dann durch den Aufruf von `getDisplayMedia()` gestartet und der zurückgegebene Stream an das `<video>`-Element angehängt, das durch die Variable `videoElem` referenziert wird.
 
 ```js
 async function capture() {

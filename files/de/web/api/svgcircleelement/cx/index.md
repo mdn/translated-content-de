@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`cx`**-Eigenschaft der [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("cx")}}-Attribut eines {{SVGElement("circle")}}-Elements widerspiegelt und dadurch die x-Koordinate des Kreismittelpunktes definiert.
+Die **`cx`**-Eigenschaft der schnittstellenmäßigen [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement) ist schreibgeschützt und spiegelt das {{SVGAttr("cx")}}-Attribut eines {{SVGElement("circle")}}-Elements wider. Dadurch definiert sie die x-Koordinate des Kreiszentrums.
 
-Falls nicht angegeben, wird der Effekt erzielt, als ob der Wert auf `0` gesetzt ist.
+Falls nicht angegeben, wirkt es sich so aus, als ob der Wert auf `0` gesetzt wäre.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der die x-Koordinate des Kreismittelpunktes darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der die x-Koordinate des Kreiszentrums repräsentiert.
 
 ## Beispiele
 

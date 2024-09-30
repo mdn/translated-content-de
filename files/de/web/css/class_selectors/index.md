@@ -1,5 +1,5 @@
 ---
-title: Klassenselektoren
+title: Class selectors
 slug: Web/CSS/Class_selectors
 l10n:
   sourceCommit: 20bdf7642c972e32e3ebf5ce4ac5631b84308b8f
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Class-Selektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attributs aus.
 
 ```css
 /* All elements with class="spacious" */
@@ -33,17 +33,17 @@ li.spacious.elegant {
 .class_name { style properties }
 ```
 
-Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
+Beachten Sie, dass dies dem folgenden [Attribut-Selektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
 
 ```css
 [class~=class_name] { style properties }
 ```
 
-Der `class_name`-Wert muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escapet](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Class-Selektoren verwendet werden können.
 
 ## Beispiele
 
-### Gültige Klassenselektoren
+### Gültige Class-Selektoren
 
 #### HTML
 
@@ -97,9 +97,9 @@ that contain characters which must be escaped in CSS -->
 
 {{EmbedLiveSample('Examples', "", 300)}}
 
-### Ungültige Klassenselektoren
+### Ungültige Class-Selektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
+Die Class-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
 
 ```css example-bad
 .item?one {

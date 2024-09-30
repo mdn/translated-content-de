@@ -7,19 +7,19 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<samp>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text zu umschließen, der eine Beispiel- (oder zitierte) Ausgabe eines Computerprogramms darstellt. Sein Inhalt wird typischerweise in der Standard-Schriftart des Browsers im Monospace (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console) dargestellt.
+Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text einzuschließen, der die Ausgabe eines Computerprogramms darstellt (beispielsweise ein Zitat). Der Inhalt wird typischerweise mit der Standardschriftart mit fester Laufweite des Browsers angezeigt (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console).
 
 {{EmbedInteractiveExample("pages/tabbed/samp.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Verwendungshinweise
 
-Sie können eine CSS-Regel verwenden, um die Standardschriftart des Browsers für das `<samp>`-Element zu überschreiben; es ist jedoch möglich, dass die Einstellungen des Browsers Vorrang vor dem von Ihnen angegebenen CSS haben.
+Sie können eine CSS-Regel verwenden, um die Standardschriftart des Browsers für das `<samp>`-Element zu überschreiben; es ist jedoch möglich, dass die Voreinstellungen des Browsers Vorrang vor jedem von Ihnen angegebenen CSS haben.
 
-Das CSS zum Überschreiben der Standardschriftart würde so aussehen:
+Das CSS, um die Standardschriftart zu überschreiben, sieht folgendermaßen aus:
 
 ```css
 samp {
@@ -28,7 +28,7 @@ samp {
 ```
 
 > [!NOTE]
-> Wenn Sie ein Element benötigen, das als Container für die von Ihrem JavaScript-Code generierte Ausgabe Ihrer Website oder App dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
+> Wenn Sie ein Element benötigen, das als Container für von Ihrer Website oder App generierten JavaScript-Code dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
 
 ## Beispiele
 
@@ -48,9 +48,9 @@ In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe e
 
 {{EmbedLiveSample("Basic_example", 650, 100)}}
 
-### Beispieldaten inklusive Benutzereingabe
+### Beispielausgabe einschließlich Benutzereingabe
 
-Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel darzustellen, das vom Benutzer eingegebenen Text enthält. Betrachten Sie zum Beispiel diesen Text, der ein Transkript einer Linux- (oder macOS-) Konsolensitzung präsentiert:
+Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel darzustellen, das vom Benutzer eingegebenen Text enthält. Betrachten Sie zum Beispiel diesen Text, der ein Transkript einer Linux- (oder macOS-)Konsolensitzung präsentiert:
 
 #### HTML
 
@@ -62,7 +62,7 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
 ```
 
-Beachten Sie die Verwendung von {{HTMLElement("span")}}, um die Darstellung bestimmter Teile des Beispieltexts wie die Konsolenaufforderungen und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer bei der Eingabeaufforderung im Beispieltext eingegeben hat.
+Beachten Sie die Verwendung von {{HTMLElement("span")}}, um die Darstellung spezifischer Teile des Beispieltextes, wie die Shell-Eingabeaufforderungen und den Cursor, anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer an der Eingabeaufforderung im Beispieltext eingegeben hat.
 
 #### CSS
 
@@ -82,11 +82,11 @@ samp > kbd {
 }
 ```
 
-Dies verleiht der Eingabeaufforderung und dem Cursor eine ziemlich subtile Farbgebung und hebt die Tastatureingabe im Beispieltext hervor.
+Dies verleiht der Eingabeaufforderung und dem Cursor eine relativ subtile Farbgebung und verstärkt die Tastatureingaben innerhalb des Beispieltextes.
 
 #### Ergebnis
 
-Die resultierende Ausgabe ist diese:
+Die resultierende Ausgabe sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Sample_output_including_user_input", 650, 120)}}
 
@@ -102,31 +102,31 @@ Die resultierende Ausgabe ist diese:
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Fluß-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >, greifbarer Inhalt.
+          >Phrasierung-Inhalt</a
+        >, spürbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierung-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierung-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -135,7 +135,7 @@ Die resultierende Ausgabe ist diese:
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
@@ -162,4 +162,4 @@ Die resultierende Ausgabe ist diese:
 ## Siehe auch
 
 - Verwandte Elemente: {{HTMLElement("kbd")}}, {{HTMLElement("code")}}, {{HTMLElement("pre")}}
-- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgabe
+- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgaben

@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTServer: connected-Eigenschaft"
+title: "BluetoothRemoteGATTServer: Eigenschaft connected"
 short-title: connected
 slug: Web/API/BluetoothRemoteGATTServer/connected
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTServer.connected`** gibt einen booleschen Wert zurück, der true ist, solange diese Skriptausführungsumgebung mit `this.device` verbunden ist. Sie kann false sein, während der User-Agent physisch verbunden ist.
+Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTServer.connected`** gibt einen booleschen Wert zurück, der `true` ist, solange diese Skriptausführungsumgebung mit `this.device` verbunden ist. Es kann `false` sein, während der Benutzeragent physisch verbunden ist.
 
 ## Wert
 

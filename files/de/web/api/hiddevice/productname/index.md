@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`productName`**-Eigenschaft der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle gibt den Produktnamen des verbundenen HID-Geräts zurück.
+Die **`productName`**-Leseeigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt den Produktnamen des angeschlossenen HID-Geräts zurück.
 
 ## Wert
 
-Ein String.
+Ein Zeichenfolge.
 
 ## Beispiele
 
-Das folgende Beispiel ruft Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und protokolliert den Wert von `productName` in die Konsole.
+Das folgende Beispiel ruft Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und protokolliert den Wert von `productName` in der Konsole.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {

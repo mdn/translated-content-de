@@ -1,5 +1,5 @@
 ---
-title: "MediaStreamEvent: Eigenschaft stream"
+title: "MediaStreamEvent: stream-Eigenschaft"
 short-title: stream
 slug: Web/API/MediaStreamEvent/stream
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebRTC")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt das mit dem Ereignis verknüpfte [`MediaStream`](/de/docs/Web/API/MediaStream) zurück.
+Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt
+den mit dem Ereignis verknüpften [`MediaStream`](/de/docs/Web/API/MediaStream) zurück.
 
 ## Syntax
 

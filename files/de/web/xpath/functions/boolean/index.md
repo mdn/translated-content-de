@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `boolean` wertet einen Ausdruck aus und gibt `true` oder `false` zurück.
+Die `boolean`-Funktion wertet einen Ausdruck aus und gibt `true` oder `false` zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ boolean( expression )
 ### Parameter
 
 - `expression`
-  - : Der Ausdruck, der ausgewertet werden soll. Der Ausdruck kann sich auf Zahlen, Knotenmengen sowie Booleans beziehen.
+  - : Der Ausdruck, der ausgewertet werden soll. Der Ausdruck kann sich auf Zahlen und Knotenmengen sowie Booleans beziehen.
 
 ### Rückgabewert
 
@@ -26,15 +26,15 @@ Boolean `true` oder `false` nach der Auswertung von `expression`.
 
 ## Beschreibung
 
-- Eine Zahl wird zu false, wenn sie positiv oder negativ Null oder `NaN` ist. Andernfalls wird sie zu true ausgewertet.
-- Eine Knotenmenge wird zu true ausgewertet, wenn sie nicht leer ist.
-- Ein String wird zu false ausgewertet, wenn er ein leerer String ist. Andernfalls wird er zu true ausgewertet.
-- Ein Objekt eines anderen Typs als den vier grundlegenden Typen wird in Abhängigkeit von diesem Typ in ein Boolean umgewandelt.
+- Eine Zahl wird als `false` bewertet, wenn sie positiv oder negativ null oder `NaN` ist. Andernfalls wird sie als `true` bewertet.
+- Eine Knotenmenge wird als `true` bewertet, wenn sie nicht leer ist.
+- Ein String wird als `false` bewertet, wenn er ein leerer String ist. Andernfalls wird er als `true` bewertet.
+- Ein Objekt eines anderen Typs als der vier grundlegenden Typen wird auf eine von diesem Typ abhängige Weise in ein Boolean umgewandelt.
 
 ## Spezifikationen
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-boolean)
 
-## Gecko-Unterstützung
+## Gecko-Kompatibilität
 
 Unterstützt.

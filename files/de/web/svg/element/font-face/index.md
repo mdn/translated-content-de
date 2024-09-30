@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face>`** [SVG](/de/docs/Web/SVG)-Element entspricht der CSS-Regel {{cssxref("@font-face")}}. Es definiert die äußeren Eigenschaften einer Schriftart.
+Das **`<font-face>`** [SVG](/de/docs/Web/SVG) Element entspricht der CSS {{cssxref("@font-face")}} Regel. Es definiert die äußeren Eigenschaften einer Schriftart.
 
 ## Verwendungskontext
 
@@ -51,7 +51,7 @@ Das **`<font-face>`** [SVG](/de/docs/Web/SVG)-Element entspricht der CSS-Regel {
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFontFaceElement`](/de/docs/Web/API/SVGFontFaceElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceElement`](/de/docs/Web/API/SVGFontFaceElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ Dieses Element implementiert die [`SVGFontFaceElement`](/de/docs/Web/API/SVGFont
 
 - {{SVGElement("font")}}
 - {{SVGElement("font-face-src")}}
-- [SVG-Tutorial: SVG-Fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)

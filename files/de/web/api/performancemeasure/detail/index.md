@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung einbezogen wurden (bei Verwendung von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
+Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung enthalten waren (unter Verwendung von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
 
 ## Wert
 
-Gibt den Wert zurück, der gesetzt wurde (aus `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
+Gibt den Wert zurück, auf den er gesetzt wurde (aus `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die `detail`-Eigenschaft.
+Das folgende Beispiel demonstriert die `detail`-Eigenschaft.
 
 ```js
 performance.measure("dog", { detail: "labrador", start: 0, end: 12345 });

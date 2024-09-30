@@ -1,5 +1,5 @@
 ---
-title: "WheelEvent: deltaMode Eigenschaft"
+title: "WheelEvent: deltaMode-Eigenschaft"
 short-title: deltaMode
 slug: Web/API/WheelEvent/deltaMode
 l10n:
@@ -9,14 +9,14 @@ l10n:
 {{APIRef("UI Events")}}
 
 Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein
-`unsigned long` zurück, das die Einheit der Delta-Werte für den Scroll-Betrag darstellt.
+`unsigned long` zurück, das die Einheit des Delta-Werte-Scrollwerts darstellt.
 Erlaubte Werte sind:
 
 | Konstante         | Wert   | Beschreibung                              |
 | ----------------- | ------ | ----------------------------------------- |
-| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte sind in Pixel angegeben.  |
-| `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte sind in Zeilen angegeben. |
-| `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte sind in Seiten angegeben. |
+| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte werden in Pixel angegeben.|
+| `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte werden in Zeilen angegeben. |
+| `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte werden in Seiten angegeben. |
 
 ## Wert
 

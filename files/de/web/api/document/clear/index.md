@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}
 
-Die **`Document.clear()`**-Methode tut nichts, wirft jedoch keinen Fehler.
+Die **`Document.clear()`** Methode tut nichts, löst aber keinen Fehler aus.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "TrustedScript: toJSON()-Methode"
+title: "TrustedScript: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/TrustedScript/toJSON
 l10n:
@@ -26,7 +26,7 @@ Ein String, der eine JSON-Darstellung der gespeicherten Daten enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der als Skript sicher ausgeführt werden kann.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher als Skript ausgeführt werden kann.
 
 ```js
 const sanitized = scriptPolicy.createScript("eval('2 + 2')");

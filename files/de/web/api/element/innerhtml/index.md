@@ -8,64 +8,66 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die [`Element`](/de/docs/Web/API/Element)-Eigenschaft **`innerHTML`** holt oder setzt das HTML- oder XML-Markup, das innerhalb des Elements enthalten ist.
+Die [`Element`](/de/docs/Web/API/Element)-Eigenschaft **`innerHTML`** liest oder setzt das HTML- oder XML-Markup, das innerhalb des Elements enthalten ist.
 
-Genauer gesagt, `innerHTML` erhält eine Serialisierung der verschachtelten Kind-DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, das geparst werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
+Genauer gesagt erhält `innerHTML` eine Serialisierung der verschachtelten untergeordneten DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, das geparst werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
 
 Um das HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
 
-Die Serialisierung des DOM-Baums, der aus der Eigenschaft gelesen wird, enthält keine [Shadow Roots](/de/docs/Glossary/shadow_tree) — wenn Sie eine HTML-Zeichenkette erhalten möchten, die Shadow Roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
-Ähnlich gilt: Wenn der Inhalt eines Elements mit `innerHTML` gesetzt wird, wird die HTML-Zeichenkette in DOM-Elemente geparst, die keine Shadow Roots enthalten.
+Die Serialisierung des vom Attribut gelesenen DOM-Baums umfasst keine [shadow roots](/de/docs/Glossary/shadow_tree) — wenn Sie eine HTML-Zeichenkette erhalten möchten, die shadow roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
+Ebenso wird beim Setzen von Elementinhalten über `innerHTML` die HTML-Zeichenkette in DOM-Elemente geparst, die keine shadow roots enthalten.
 
-Zum Beispiel wird [`<template>`](/de/docs/Web/HTML/Element/template) in ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) Attribut angegeben ist.
-Um den Inhalt eines Elements aus einer HTML-Zeichenkette zu setzen, die deklarative Shadow Roots enthält, müssen Sie entweder [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
+Zum Beispiel wird [`<template>`](/de/docs/Web/HTML/Element/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) angegeben ist.
+Um den Inhalt eines Elements aus einer HTML-Zeichenkette festzulegen, die deklarative shadow roots enthält, müssen Sie entweder [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
 
 ## Wert
 
-Eine Zeichenkette, die die HTML-Serialisierung der Nachfahren des Elements enthält. Das Setzen des Wertes von `innerHTML` entfernt alle Nachfahren des Elements und ersetzt sie durch Knoten, die durch das Parsen des in der Zeichenkette _htmlString_ angegebenen HTMLs erstellt wurden.
+Eine Zeichenkette, die die HTML-Serialisierung der Nachkommen des Elements enthält.
+Das Setzen des Werts von `innerHTML` entfernt alle Nachkommen des Elements und ersetzt sie durch Knoten, die durch das Parsen des in der Zeichenkette _htmlString_ angegebenen HTML konstruiert werden.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in die leere Zeichenkette (`""`) umgewandelt, sodass `elt.innerHTML = null` gleichbedeutend ist mit `elt.innerHTML = ""`.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in die leere Zeichenkette (`""`) umgewandelt, sodass `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""` ist.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, den Wert von `innerHTML` mit einer Zeichenkette zu setzen, die kein korrekt formatiertes HTML ist.
+  - : Wird ausgelöst, wenn versucht wurde, den Wert von `innerHTML` mit einer Zeichenkette zu setzen, die nicht korrekt geformtes HTML ist.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, das HTML in einen Knoten einzufügen, dessen Elternknoten ein [`Document`](/de/docs/Web/API/Document) ist.
+  - : Wird ausgelöst, wenn versucht wurde, HTML in einen Knoten einzufügen, dessen Elternknoten ein [`Document`](/de/docs/Web/API/Document) ist.
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 ### Lesen der HTML-Inhalte eines Elements
 
-Das Lesen von `innerHTML` veranlasst den User Agent, das HTML- oder XML-Fragment, das die Nachfahren des Elements umfasst, zu serialisieren. Die resultierende Zeichenkette wird zurückgegeben.
+Das Lesen von `innerHTML` veranlasst den Benutzer-Agenten, das HTML- oder XML-Fragment zu serialisieren, das aus den Nachkommen des Elements besteht.
+Die resultierende Zeichenkette wird zurückgegeben.
 
 ```js
 let contents = myElement.innerHTML;
 ```
 
-Dies ermöglicht es Ihnen, das HTML-Markup der Inhaltsknoten des Elements zu betrachten.
+Damit können Sie das HTML-Markup der Inhaltsknoten des Elements betrachten.
 
 > [!NOTE]
-> Das zurückgegebene HTML- oder XML-Fragment wird basierend auf dem aktuellen Inhalt des Elements generiert, sodass das Markup und die Formatierung des zurückgegebenen Fragments wahrscheinlich nicht mit dem ursprünglichen Seitenmarkup übereinstimmen.
+> Das zurückgegebene HTML- oder XML-Fragment wird basierend auf dem aktuellen Inhalt des Elements generiert, sodass Markup und Formatierung des zurückgegebenen Fragments wahrscheinlich nicht mit dem ursprünglichen Seitenmarkup übereinstimmen.
 
-### Ersetzen des Inhalts eines Elements
+### Ersetzen der Inhalte eines Elements
 
-Das Setzen des Wertes von `innerHTML` ermöglicht es Ihnen, den vorhandenen Inhalt eines Elements einfach durch neuen Inhalt zu ersetzen.
+Das Setzen des Werts von `innerHTML` ermöglicht es Ihnen, den vorhandenen Inhalt eines Elements einfach durch neuen Inhalt zu ersetzen.
 
 > [!WARNING]
-> Dies ist ein [Sicherheitsrisiko](#sicherheitsüberlegungen), wenn die einzufügende Zeichenkette potenziell schädlichen Inhalt enthalten könnte.
-> Beim Einfügen von Benutzerdaten sollten Sie immer in Betracht ziehen, eine Bibliothek zum Bereinigen zu verwenden, um den Inhalt zu bereinigen, bevor er eingefügt wird.
+> Dies stellt ein [Sicherheitsrisiko](#sicherheitsüberlegungen) dar, wenn die einzufügende Zeichenkette potenziell schädlichen Inhalt enthalten könnte.
+> Beim Einfügen von benutzerbereitgestellten Daten sollten Sie stets die Verwendung einer Sanitizer-Bibliothek in Betracht ziehen, um den Inhalt zu bereinigen, bevor er eingefügt wird.
 
-Zum Beispiel können Sie den gesamten Inhalt eines Dokuments löschen, indem Sie den Inhalt des [`body`](/de/docs/Web/API/Document/body)-Attributs des Dokuments löschen:
+Zum Beispiel können Sie den gesamten Inhalt eines Dokuments löschen, indem Sie den Inhalt des [`body`](/de/docs/Web/API/Document/body)-Attributs des Dokuments leeren:
 
 ```js
 document.body.textContent = "";
 ```
 
 Dieses Beispiel holt das aktuelle HTML-Markup des Dokuments und ersetzt die `"<"`-Zeichen durch die [Zeichenreferenz](/de/docs/Glossary/character_reference) `"&lt;"`, wodurch das HTML im Wesentlichen in Rohtext umgewandelt wird.
-Dies wird dann in ein {{HTMLElement("pre")}}-Element eingebettet.
-Anschließend wird der Wert von `innerHTML` in diese neue Zeichenkette geändert.
-Infolgedessen wird der Dokumentinhalt durch eine Anzeige des gesamten Seitenquellcodes ersetzt.
+Dies wird dann in ein {{HTMLElement("pre")}}-Element eingefügt.
+Dann wird der Wert von `innerHTML` auf diese neue Zeichenkette geändert.
+Infolgedessen wird der Dokumentinhalt durch die Anzeige des gesamten Quellcodes der Seite ersetzt.
 
 ```js
 document.documentElement.innerHTML = `<pre>${document.documentElement.innerHTML.replace(
@@ -74,20 +76,20 @@ document.documentElement.innerHTML = `<pre>${document.documentElement.innerHTML.
 )}</pre>`;
 ```
 
-#### Betriebliche Details
+#### Betriebsdetails
 
-Was passiert genau, wenn Sie den Wert von `innerHTML` setzen?
-Dies veranlasst den User Agent, die folgenden Schritte durchzuführen:
+Was genau passiert, wenn Sie den Wert von `innerHTML` setzen?
+Dadurch wird der Benutzer-Agent veranlasst, folgende Schritte auszuführen:
 
-1. Der angegebene Wert wird als HTML oder XML geparst (basierend auf dem Dokumenttyp), was zu einem [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt führt, das die neue DOM-Knotensatz für die neuen Elemente darstellt.
-2. Wenn das Element, dessen Inhalt ersetzt wird, ein {{HTMLElement("template")}} ist, wird der [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Attribut des `<template>`-Elements durch das neue `DocumentFragment` ersetzt, das in Schritt 1 erstellt wurde.
-3. Für alle anderen Elemente wird der Inhalt des Elements durch die Knoten im neuen `DocumentFragment` ersetzt.
+1. Der angegebene Wert wird als HTML oder XML geparst (je nach Dokumenttyp), was zu einem [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt führt, das die neue Menge von DOM-Knoten für die neuen Elemente darstellt.
+2. Wenn das Element, dessen Inhalt ersetzt wird, ein {{HTMLElement("template")}}-Element ist, wird das [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Attribut des `<template>`-Elements mit dem neuen `DocumentFragment` ersetzt, das in Schritt 1 erstellt wurde.
+3. Für alle anderen Elemente wird der Inhalt des Elements mit den Knoten im neuen `DocumentFragment` ersetzt.
 
 ### Anhängen von HTML an ein Element
 
-Das Setzen des Wertes von `innerHTML` ermöglicht es Ihnen, neue Inhalte an die bestehenden Inhalte eines Elements anzuhängen.
+Das Setzen des Werts von `innerHTML` ermöglicht es Ihnen, neuen Inhalt an den bestehenden eines Elements anzuhängen.
 
-Zum Beispiel können wir einen neuen Listeneintrag (`<li>`) an die bestehende Liste (`<ul>`) anhängen:
+Zum Beispiel können wir ein neues Listenelement (`<li>`) an die bestehende Liste (`<ul>`) anhängen:
 
 #### HTML
 
@@ -107,13 +109,13 @@ const list = document.getElementById("list");
 list.innerHTML += `<li><a href="#">Item ${list.children.length + 1}</a></li>`;
 ```
 
-Bitte beachten Sie, dass die Verwendung von `innerHTML`, um HTML-Elemente anzuhängen (z.B. `el.innerHTML += "<a href='…'>link</a>"`), zur Entfernung von zuvor gesetzten Ereignis-Listenern führt.
-Das heißt, nachdem Sie auf diese Weise ein HTML-Element angehängt haben, können Sie die zuvor gesetzten Ereignis-Listener nicht mehr verwenden.
+Bitte beachten Sie, dass die Verwendung von `innerHTML`, um HTML-Elemente anzuhängen (z.B. `el.innerHTML += "<a href='…'>link</a>"`), dazu führt, dass zuvor gesetzte Ereignislistener entfernt werden.
+Das heißt, nachdem Sie auf diese Weise ein HTML-Element angehängt haben, können Sie die zuvor gesetzten Ereignislistener nicht mehr hören.
 
 ### Sicherheitsüberlegungen
 
 Es ist nicht ungewöhnlich, dass `innerHTML` verwendet wird, um Text in eine Webseite einzufügen.
-Es besteht jedoch die Möglichkeit, dass dies zu einem Angriffsvektor auf einer Seite werden könnte und ein potenzielles Sicherheitsrisiko darstellt.
+Dies kann ein potenzieller Angriffsvektor auf einer Seite werden und ein potenzielles Sicherheitsrisiko darstellen.
 
 ```js
 let name = "John";
@@ -126,9 +128,9 @@ name = "<script>alert('I am John in an annoying alert!')</script>";
 el.innerHTML = name; // harmless in this case
 ```
 
-Obwohl dies wie ein [Cross-Site-Scripting](https://de.wikipedia.org/wiki/Cross-Site-Scripting)-Angriff aussehen mag, ist das Ergebnis harmlos. HTML legt fest, dass ein {{HTMLElement("script")}}-Tag, das mit `innerHTML` eingefügt wird, [nicht ausgeführt werden sollte](https://www.w3.org/TR/2008/WD-html5-20080610/dom.html#innerhtml0).
+Obwohl dies wie ein [Cross-Site-Scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)-Angriff aussehen mag, ist das Ergebnis harmlos. HTML gibt an, dass ein {{HTMLElement("script")}}-Tag, das mit `innerHTML` eingefügt wurde, [nicht ausgeführt werden sollte](https://www.w3.org/TR/2008/WD-html5-20080610/dom.html#innerhtml0).
 
-Es gibt jedoch Möglichkeiten, JavaScript ohne {{HTMLElement("script")}}-Elemente auszuführen, daher besteht immer noch ein Sicherheitsrisiko, wenn Sie `innerHTML` verwenden, um Zeichenketten zu setzen, über die Sie keine Kontrolle haben.
+Es gibt jedoch Möglichkeiten, JavaScript auszuführen, ohne {{HTMLElement("script")}}-Elemente zu verwenden, sodass immer ein Sicherheitsrisiko besteht, wenn Sie `innerHTML` verwenden, um Zeichenketten zu setzen, über die Sie keine Kontrolle haben.
 Zum Beispiel:
 
 ```js
@@ -136,18 +138,19 @@ const name = "<img src='x' onerror='alert(1)'>";
 el.innerHTML = name; // shows the alert
 ```
 
-Aus diesem Grund ist es empfehlenswert, anstelle von `innerHTML`:
+Aus diesem Grund wird empfohlen, statt `innerHTML` Folgendes zu verwenden:
 
-- [`Node.textContent`](/de/docs/Web/API/Node/textContent) zu verwenden, wenn Sie reinen Text einfügen, da dies ihn als reinen Text einfügt, anstatt ihn als HTML zu parsen.
+- [`Node.textContent`](/de/docs/Web/API/Node/textContent), wenn Sie reinen Text einfügen, da dieser als Rohtext eingefügt wird, anstatt ihn als HTML zu parsen.
 
 > [!WARNING]
-> Wenn Ihr Projekt einer Sicherheitsüberprüfung unterzogen wird, wird die Verwendung von `innerHTML` höchstwahrscheinlich dazu führen, dass Ihr Code abgelehnt wird.
-> Wenn Sie beispielsweise [innerHTML verwenden](https://wiki.mozilla.org/Add-ons/Reviewers/Guide/Reviewing#Step_2:_Automatic_validation) in einer [Browser-Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions) und reichen Sie die Erweiterung bei [addons.mozilla.org](https://addons.mozilla.org/) ein, kann sie im Bewertungsprozess abgelehnt werden.
-> Bitte prüfen Sie [Sicheres Einfügen externer Inhalte in eine Seite](/de/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page) für alternative Methoden.
+> Wenn Ihr Projekt eine Form der Sicherheitsüberprüfung durchlaufen muss, wird die Verwendung von `innerHTML` höchstwahrscheinlich dazu führen, dass Ihr Code abgelehnt wird.
+> Wenn Sie beispielsweise [`innerHTML` verwenden](https://wiki.mozilla.org/Add-ons/Reviewers/Guide/Reviewing#Step_2:_Automatic_validation) in einer [Browsererweiterung](/de/docs/Mozilla/Add-ons/WebExtensions) und diese bei
+> [addons.mozilla.org](https://addons.mozilla.org/) einreichen, könnte es im Überprüfungsprozess abgelehnt werden.
+> Bitte sehen Sie sich [Sicheres Einfügen externer Inhalte in eine Seite](/de/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page) für alternative Methoden an.
 
 ## Beispiele
 
-Dieses Beispiel verwendet `innerHTML`, um einen Mechanismus zum Protokollieren von Nachrichten in einer Box auf einer Webseite zu erstellen.
+Dieses Beispiel verwendet `innerHTML`, um einen Mechanismus zum Protokollieren von Nachrichten in einem Kasten auf einer Webseite zu erstellen.
 
 ### JavaScript
 
@@ -163,10 +166,10 @@ function log(msg) {
 log("Logging mouse events inside this container…");
 ```
 
-Die `log()`-Funktion erstellt die Ausgabemeldung, indem sie die aktuelle Zeit von einem {{jsxref("Date")}}-Objekt mit {{jsxref("Date.toLocaleTimeString", "toLocaleTimeString()")}} abruft und eine Zeichenkette mit dem Zeitstempel und dem Meldungstext erstellt.
-Anschließend wird die Nachricht an die Box mit der Klasse `"log"` angehängt.
+Die Funktion `log()` erstellt die Protokollausgabe, indem sie die aktuelle Zeit von einem {{jsxref("Date")}}-Objekt mit {{jsxref("Date.toLocaleTimeString", "toLocaleTimeString()")}} abruft und eine Zeichenkette mit dem Zeitstempel und dem Nachrichtentext erstellt.
+Dann wird die Nachricht an den Kasten mit der Klasse `"log"` angehängt.
 
-Wir fügen eine zweite Methode hinzu, die Informationen zu Ereignissen basierend auf [`MouseEvent`](/de/docs/Web/API/MouseEvent) protokolliert (z.B. [`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`click`](/de/docs/Web/API/Element/click_event) und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)):
+Wir fügen eine zweite Methode hinzu, die Informationen über [`MouseEvent`](/de/docs/Web/API/MouseEvent)-basierte Ereignisse protokolliert (wie z.B. [`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`click`](/de/docs/Web/API/Element/click_event) und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)):
 
 ```js
 function logEvent(event) {
@@ -175,7 +178,7 @@ function logEvent(event) {
 }
 ```
 
-Dann verwenden wir dies als Ereignishandler für eine Reihe von Mausereignissen auf der Box, die unser Protokoll enthält:
+Dann verwenden wir dies als Ereignishandler für eine Reihe von Mausereignissen auf dem Kasten, der unser Protokoll enthält:
 
 ```js
 const boxElem = document.querySelector(".box");
@@ -189,7 +192,7 @@ boxElem.addEventListener("mouseleave", logEvent);
 
 ### HTML
 
-Das HTML ist in unserem Beispiel recht einfach.
+Das HTML ist in unserem Beispiel ziemlich einfach.
 
 ```html
 <div class="box">
@@ -198,12 +201,12 @@ Das HTML ist in unserem Beispiel recht einfach.
 </div>
 ```
 
-Das {{HTMLElement("div")}} mit der Klasse `"box"` ist lediglich ein Container für Layoutzwecke, der den Inhalt mit einem Rahmen umgibt.
-Das `<div>`, dessen Klasse `"log"` ist, ist der Container für den Protokolltext selbst.
+Das {{HTMLElement("div")}} mit der Klasse `"box"` ist lediglich ein Container für Layoutzwecke, der den Inhalt mit einem Rahmen darum präsentiert.
+Das `<div>`, dessen Klasse `"log"` ist, dient als Container für den Protokolltext selbst.
 
 ### CSS
 
-Das folgende CSS formatiert die Inhalte unseres Beispiels.
+Das folgende CSS formatiert den Inhalt unseres Beispiels.
 
 ```css
 .box {
@@ -224,7 +227,7 @@ Das folgende CSS formatiert die Inhalte unseres Beispiels.
 ### Ergebnis
 
 Der resultierende Inhalt sieht so aus.
-Sie können Ausgaben in das Protokoll einsehen, indem Sie die Maus ein- und aus der Box bewegen, darin klicken und so weiter.
+Sie können die Ausgabe in das Protokoll sehen, indem Sie die Maus hinein- und herausbewegen, darauf klicken und so weiter.
 
 {{EmbedLiveSample("Examples", 640, 350)}}
 

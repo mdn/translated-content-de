@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Geltungsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
+Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Gültigkeitsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{Experimental_Inline}}
-  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den gemeinsamen Speicher für einen bestimmten Ursprung im Kontext eines Worklets darstellt.
+  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den gemeinsamen Speicher für einen bestimmten Ursprung darstellt, wie er im Worklet-Kontext exponiert wird.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) {{Experimental_Inline}}
   - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die innerhalb des aktuellen Worklet-Moduls definiert ist.
@@ -38,7 +38,7 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Hauptseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu anderen Beispielen.
+Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu anderen Beispielen.
 
 ## Spezifikationen
 

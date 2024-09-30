@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse `attribute` zeigt die Attribute des Kontextknotens an. Nur Elemente haben Attribute. Diese Achse kann durch das At-Zeichen (`@`) abgekürzt werden.
+Die Attribute-Achse gibt die Attribute des Kontextknotens an. Nur Elemente haben Attribute. Diese Achse kann mit dem At-Zeichen (`@`) abgekürzt werden.

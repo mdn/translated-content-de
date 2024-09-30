@@ -1,5 +1,5 @@
 ---
-title: "LargestContentfulPaint: size Eigenschaft"
+title: "LargestContentfulPaint: size-Eigenschaft"
 short-title: size
 slug: Web/API/LargestContentfulPaint/size
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`size`** schreibgeschützte Eigenschaft des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt die intrinsische Größe des Elements zurück, das den größten inhaltlichen Anstrich darstellt.
+Die schreibgeschützte Eigenschaft **`size`** des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt die intrinsische Größe des Elements zurück, das den größten contentful paint darstellt.
 
-Die `size` des Elements ist das `width` mal `height` des [`Rechtecks`](/de/docs/Web/API/DOMRectReadOnly), das dieses Element auf dem Bildschirm erzeugt.
+Die `size` des Elements ist die `Breite` mal `Höhe` des [`Rechtecks`](/de/docs/Web/API/DOMRectReadOnly), das dieses Element auf dem Bildschirm erzeugt.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite mal Höhe des Elements repräsentiert.
+Ein Ganzzahlwert, der das Produkt aus Breite und Höhe des Elements darstellt.
 
 ## Beispiele
 
-### Protokollierung der Größe des größten inhaltlichen Anstrichelements
+### Protokollieren der Größe des größten contentful paint Elements
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Performanceeinträge informiert, wenn sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Performance-Einträge benachrichtigt, wenn sie in der Performance-Timeline des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

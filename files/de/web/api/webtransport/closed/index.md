@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`closed`**-Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt ein Versprechen zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
+Die **`closed`** Schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das sich auflöst, wenn der Transport geschlossen wird.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
+Ein {{jsxref("Promise")}}, das sich zu einem Objekt auflöst, das die folgenden Eigenschaften enthält:
 
 - `closeCode`
   - : Eine Zahl, die den Fehlercode für den Fehler darstellt.

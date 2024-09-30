@@ -9,11 +9,11 @@ l10n:
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
 Die **`HTMLTableElement.border`**-Eigenschaft repräsentiert die
-Randbreite des {{HtmlElement("table")}}-Elements.
+Rahmenbreite des {{HtmlElement("table")}}-Elements.
 
 ## Wert
 
-Ein String, der die Breite des Rands in Pixeln darstellt.
+Ein String, der die Breite des Rahmens in Pixeln darstellt.
 
 ## Beispiele
 

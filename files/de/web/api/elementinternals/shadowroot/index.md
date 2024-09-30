@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte Eigenschaft **`shadowRoot`** der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt das [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) für dieses Element zurück.
+Die schreibgeschützte Eigenschaft **`shadowRoot`** des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces gibt den [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) für dieses Element zurück.
 
 ## Wert
 
-Ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), wenn das Element ein Shadow Root hat, sonst `null`.
+Ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), wenn das Element einen Shadow Root hat, andernfalls `null`.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `shadowRoot` in der Konsole aus, unmittelbar nachdem [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) aufgerufen wurde. Zu diesem Zeitpunkt ist der Wert `null`. Nach dem Aufruf von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) hat das Element einen Shadow Root, und `shadowRoot` gibt das Objekt zurück, das ihn repräsentiert.
+Das folgende Beispiel gibt den Wert von `shadowRoot` in der Konsole aus, unmittelbar nachdem [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) aufgerufen wurde. Zu diesem Zeitpunkt ist der Wert `null`. Nach dem Aufrufen von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) hat das Element einen Shadow Root, und `shadowRoot` gibt das Objekt zurück, das ihn repräsentiert.
 
 ```js
 class MyCustomElement extends HTMLElement {

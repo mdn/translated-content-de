@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode insertAdjacentElement()"
+title: "Element: insertAdjacentElement()-Methode"
 short-title: insertAdjacentElement()
 slug: Web/API/Element/insertAdjacentElement
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`insertAdjacentElement()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces fügt einen gegebenen Elementknoten an einer angegebenen Position relativ zu dem Element ein, auf das sie aufgerufen wird.
+Die **`insertAdjacentElement()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle fügt ein gegebenes Elementknoten an einer angegebenen Position relativ zu dem Element ein, auf dem sie aufgerufen wurde.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ insertAdjacentElement(position, element)
 
 - `position`
 
-  - : Ein String, der die Position relativ zum `targetElement` angibt; muss (unabhängig von der Groß-/Kleinschreibung) mit einem der folgenden Strings übereinstimmen:
+  - : Ein String, der die Position relativ zum `targetElement` darstellt. Er muss (groß-/kleinschreibungsunabhängig) mit einem der folgenden Strings übereinstimmen:
 
     - `'beforebegin'`: Vor dem `targetElement` selbst.
     - `'afterbegin'`: Direkt innerhalb des `targetElement`, vor seinem ersten Kind.
@@ -32,12 +32,12 @@ insertAdjacentElement(position, element)
 
 ### Rückgabewert
 
-Das eingefügte Element oder `null`, falls das Einfügen fehlgeschlagen ist.
+Das Element, das eingefügt wurde, oder `null`, wenn das Einfügen fehlgeschlagen ist.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebene `position` kein erkannter Wert ist.
+  - : Wird ausgelöst, wenn die angegebene `position` keinen anerkannten Wert darstellt.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das angegebene `element` kein gültiges Element ist.
 
@@ -54,7 +54,7 @@ Das eingefügte Element oder `null`, falls das Einfügen fehlgeschlagen ist.
 ```
 
 > [!NOTE]
-> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten in einem Baum ist und ein Elementelternteil hat.
+> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten sich in einem Baum befindet und einen Elementelternteil hat.
 
 ## Beispiele
 
@@ -78,7 +78,7 @@ afterBtn.addEventListener("click", () => {
 });
 ```
 
-Sehen Sie sich unsere [insertAdjacentElement.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentElement.html)-Demo auf GitHub an (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentElement.html)). Hier haben wir eine Sequenz von {{htmlelement("div")}}-Elementen in einem Container. Wenn eines angeklickt wird, wird es ausgewählt und Sie können dann die _Einfügen vor_ und _Einfügen nach_ Schaltflächen drücken, um neue Divs vor oder nach dem ausgewählten Element mit `insertAdjacentElement()` einzufügen.
+Schauen Sie sich unser [insertAdjacentElement.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentElement.html)-Demo auf GitHub an (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentElement.html).) Hier haben wir eine Abfolge von {{htmlelement("div")}}-Elementen innerhalb eines Containers. Wenn eines angeklickt wird, wird es ausgewählt und Sie können dann die _Vorher einfügen_ und _Nachher einfügen_-Buttons drücken, um neue Divs vor oder nach dem ausgewählten Element mit `insertAdjacentElement()` einzufügen.
 
 ## Spezifikationen
 
@@ -92,5 +92,5 @@ Sehen Sie sich unsere [insertAdjacentElement.html](https://mdn.github.io/dom-exa
 
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
 - [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
-- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) (ähnlich wie `beforebegin`, mit unterschiedlichen Argumenten)
-- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) (gleiche Wirkung wie `beforeend`)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) (ähnlich wie `beforebegin`, jedoch mit anderen Argumenten)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) (gleicher Effekt wie `beforeend`)

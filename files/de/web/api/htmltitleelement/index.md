@@ -13,22 +13,22 @@ Die **`HTMLTitleElement`**-Schnittstelle wird von einem Dokument-{{ HTMLElement(
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLTitleElement.text`](/de/docs/Web/API/HTMLTitleElement/text)
-  - : Ein String, der den Text des Dokumenttitels darstellt.
+  - : Ein String, der den Text des Dokuments titels darstellt.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Beispiel
 
 Nicht verwechseln: `document.title` mit `document.querySelector('title')`
 
-Ersteres ist nur eine Setzer-/Getter-Methode, um den inneren Textwert des Dokumenttitels zu setzen oder zu erhalten, während letzteres das `HTMLTitleElement`-Objekt ist. Daher kann man nicht schreiben: `document.title.text = "Hello world!";`
+Ersteres ist nur eine set/get-Methode, um den inneren Textwert des Dokumenttitels zu setzen oder abzurufen, während letzteres das `HTMLTitleElement`-Objekt ist. Deshalb können Sie nicht schreiben: `document.title.text = "Hallo Welt!";`
 
-Stattdessen kann man einfach schreiben: `document.title = "Hello world!";`, was gleichbedeutend ist mit `document.querySelector('title').text = "Hello world!";`
+Stattdessen können Sie einfach schreiben: `document.title = "Hallo Welt!";`, was gleichbedeutend ist mit `document.querySelector('title').text = "Hallo Welt!";`
 
 ## Spezifikationen
 

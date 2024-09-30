@@ -8,14 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{SeeCompatTable}}{{non-standard_header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte Eigenschaft **`WorkerNavigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer einer Website oder einem Dienst gestattet, seine persönlichen Informationen an Dritte zu verkaufen oder zu teilen.
+Die schreibgeschützte Eigenschaft **`WorkerNavigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück.
+Diese Einstellung zeigt an, ob der Benutzer der Website oder dem Dienst zustimmt, seine persönlichen Informationen mit Dritten zu verkaufen oder zu teilen.
 
-Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
+Der Wert der Eigenschaft spiegelt den des {{httpheader("Sec-GPC")}} HTTP-Headers wider.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich keine Zustimmung zum Verkauf oder Teilen seiner Daten erteilt.
-`false`, wenn der Benutzer entweder Zustimmung erteilt oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer ausdrücklich _nicht_ die Zustimmung erteilt, seine Daten zu verkaufen oder zu teilen.
+`false`, wenn der Benutzer entweder die Zustimmung erteilt oder keine Präferenz angegeben hat.
 
 ## Beispiel
 

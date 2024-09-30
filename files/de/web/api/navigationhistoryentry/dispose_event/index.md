@@ -1,5 +1,5 @@
 ---
-title: "NavigationHistoryEntry: dispose-Ereignis"
+title: "NavigationHistoryEntry: dispose Ereignis"
 short-title: dispose
 slug: Web/API/NavigationHistoryEntry/dispose_event
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`dispose`**-Ereignis der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle wird ausgelöst, wenn der Eintrag nicht mehr Teil der Liste der Historieneinträge ist.
+Das **`dispose`**-Ereignis der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle wird ausgelöst, wenn der Eintrag nicht mehr Teil der Verlaufseintragsliste ist.
 
-Die Entsorgung erfolgt, wenn:
+Entsorgung erfolgt, wenn:
 
-- Vorwärtsgerichtete Historieneinträge gelöscht werden. Siehe das Beispiel bei [Benachrichtigungen über die Entsorgung von Einträgen](https://github.com/wicg/navigation-api#notifications-on-entry-disposal) für weitere Informationen.
-- Der Benutzer seinen Browser-Verlauf über Einstellungen oder bereitgestellte Bedienoberflächen löscht.
-- Das Historielimit überschritten wird. Dies ist nirgends spezifiziert, aber Browser haben tendenziell ein Historielimit von 50 Seiten.
+- Vorwärtseinträge im Verlauf gelöscht werden. Siehe das Beispiel unter [Benachrichtigungen bei Eintragsentsorgung](https://github.com/wicg/navigation-api#notifications-on-entry-disposal) für weitere Informationen.
+- Der Benutzer seinen Browserverlauf über Einstellungen oder bereitgestellte UI-Steuerelemente löscht.
+- Das Verlaufslimit überschritten wird. Dies ist nirgends spezifiziert, aber Browser tendieren dazu, ein Verlaufslimit von 50 Seiten zu haben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("dispose", (event) => {});
@@ -48,6 +48,6 @@ navigation.addEventListener("currententrychange", () => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

@@ -8,15 +8,12 @@ l10n:
 
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
-Die veraltete, schreibgeschützte Eigenschaft
-**`Performance.navigation`**
-gibt ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt zurück, das die Art der Navigation im gegebenen Browserkontext repräsentiert, wie z. B. die Anzahl der Weiterleitungen, die zum Abrufen der Ressource erforderlich sind.
+Die veraltete, schreibgeschützte Eigenschaft **`Performance.navigation`** gibt ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt zurück, das die Art der Navigation im gegebenen Browsing-Kontext darstellt, wie zum Beispiel die Anzahl der Weiterleitungen, die erforderlich sind, um die Ressource abzurufen.
 
 Diese Eigenschaft ist in Workern nicht verfügbar.
 
 > [!WARNING]
-> Diese Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen das
-> [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
+> Diese Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
 
 ## Wert
 

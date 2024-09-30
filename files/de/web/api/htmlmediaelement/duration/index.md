@@ -9,11 +9,12 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die _schreibgeschützte_ [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)
-Eigenschaft **`duration`** gibt die Länge des Mediums des Elements in Sekunden an.
+Eigenschaft **`duration`** zeigt die Länge des Medienelements
+in Sekunden an.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der die Dauer des Mediums in Sekunden angibt. Wenn keine Mediendaten verfügbar sind, wird der Wert `NaN` zurückgegeben. Wenn das Medium des Elements keine bekannte Dauer hat—wie bei Live-Medien-Streams—ist der Wert von `duration` `+Infinity`.
+Ein doppelt-genauer Gleitkommawert, der die Dauer des Mediums in Sekunden angibt. Wenn keine Mediendaten verfügbar sind, wird der Wert `NaN` zurückgegeben. Wenn das Medium des Elements keine bekannte Dauer hat—wie bei Live-Streams—ist der Wert von `duration` `+Infinity`.
 
 ## Beispiele
 
@@ -32,6 +33,6 @@ console.log(obj.duration); // NaN
 
 ## Siehe auch
 
-- [Web-Medientechnologien](/de/docs/Web/Media)
+- [Web-Medien-Technologien](/de/docs/Web/Media)
 - [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime): Die aktuelle Wiedergabeposition des Mediums
-- Die {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente
+- Die {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente

@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt CSS von einer Seite, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
+Entfernt aus einer Seite CSS, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
 
 > [!NOTE]
-> Bei der Verwendung von Manifest V3 oder höher verwenden Sie {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} um CSS einzufügen und zu entfernen.
+> Bei der Verwendung von Manifest V3 oder höher verwenden Sie {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}}, um CSS einzufügen und zu entfernen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,31 +26,31 @@ let removing = browser.tabs.removeCSS(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, aus dem das CSS entfernt werden soll. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
+  - : `integer`. Die ID des Tabs, aus dem das CSS entfernt werden soll. Standardmäßig ist dies der aktive Tab des aktuellen Fensters.
 - `details`
 
-  - : Ein Objekt, das das zu entfernende CSS beschreibt. Es enthält die folgenden Eigenschaften:
+  - : Ein Objekt, das das zu entfernende CSS auf der Seite beschreibt. Es enthält folgende Eigenschaften:
 
     - `allFrames` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird der Code aus allen Frames der aktuellen Seite entfernt. Wenn es `false` ist, wird der Code nur aus dem Top-Frame entfernt. Standardmäßig `false`.
+      - : `boolean`. Wenn `true`, wird der Code aus allen Frames der aktuellen Seite entfernt. Ist es `false`, wird der Code nur aus dem Hauptframe entfernt. Standardmäßig `false`.
     - `code` {{optional_inline}}
-      - : `string`. Zu entfernendes CSS als Textzeichenfolge. Dies muss genau einer CSS-Zeichenfolge entsprechen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
+      - : `string`. Das zu entfernende CSS, als Textzeichenfolge. Dies muss genau mit einer zuvor auf der Seite eingefügten CSS-Zeichenfolge übereinstimmen, die mit {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
     - `cssOrigin` {{optional_inline}}
-      - : `string`. Dies kann einen von zwei Werten annehmen: "user", für CSS als Benutzer-Stilvorlage hinzugefügt, oder "author" für CSS als Autoren-Stilvorlage hinzugefügt. Wenn diese Option zuvor durch {{WebExtAPIRef("tabs.insertCSS()")}} festgelegt wurde, muss sie genau übereinstimmen.
+      - : `string`. Dies kann einen der zwei Werte annehmen: "user", für CSS, das als Benutzer-Stylesheet hinzugefügt wurde, oder "author" für CSS, das als Autoren-Stylesheet hinzugefügt wurde. Wenn diese Option zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} gesetzt wurde, muss sie genau übereinstimmen.
     - `file` {{optional_inline}}
-      - : `string`. Pfad zu einer Datei, die das zu entfernende CSS enthält. Dies muss genau einer CSS-Datei entsprechen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
+      - : `string`. Pfad zu einer Datei, die das zu entfernende CSS enthält. Dies muss genau mit einer zuvor auf der Seite eingefügten CSS-Datei übereinstimmen, die mit {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
     - `frameId` {{optional_inline}}
-      - : `integer`. Der Frame, aus dem das CSS entfernt werden soll. Standardmäßig `0` (der oberste Frame).
+      - : `integer`. Das Frame, aus dem das CSS entfernt werden soll. Standardmäßig `0` (das oberste Frame).
     - `matchAboutBlank` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird das CSS aus eingebetteten "about:blank" und "about:srcdoc" Frames entfernt, wenn Ihre Erweiterung Zugriff auf das übergeordnete Dokument hat. Standardmäßig `false`.
+      - : `boolean`. Wenn `true`, wird das CSS auch aus eingebetteten "about:blank"- und "about:srcdoc"-Frames entfernt, wenn Ihre Erweiterung Zugriff auf das übergeordnete Dokument hat. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS entfernt wurde. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS entfernt wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel fügt einige CSS mit {{WebExtAPIRef("tabs.insertCSS")}} hinzu und entfernt es wieder, wenn der Benutzer auf eine Browseraktion klickt:
+Dieses Beispiel fügt etwas CSS hinzu, indem {{WebExtAPIRef("tabs.insertCSS")}} verwendet wird, und entfernt es dann wieder, wenn der Benutzer auf eine Browseraktion klickt:
 
 ```js
 let css = "body { border: 20px dotted pink; }";
@@ -75,34 +75,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS) API von Chromium. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

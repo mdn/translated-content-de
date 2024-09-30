@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt. Nur für Erweiterungen verfügbar, die die Berechtigung `"declarativeNetRequestFeedback"` haben, da dies nur für Debugging-Zwecke vorgesehen ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details, wie das Testen in jedem Browser aktiviert wird.
+Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt. Nur für Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"` verfügbar, da dies nur für Debugging-Zwecke vorgesehen ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details, wie das Testen in jedem Browser aktiviert wird.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -36,27 +36,27 @@ Ereignisse haben drei Funktionen:
 
     - `request`
 
-      - : Ein Objekt, das Informationen über die Anfrage enthält, die mit der Regel übereinstimmt.
+      - : Ein Objekt, das Informationen über die Anfrage enthält, mit der die Regel übereinstimmte.
         - `documentId` {{optional_inline}}
-          - : Ein `string`. Die eindeutige Kennung für das Dokument des Frames, falls diese Anfrage für einen Frame erfolgt.
+          - : Ein `string`. Die eindeutige Kennung für das Dokument des Frames, falls diese Anfrage für einen Frame ist.
         - `documentLifecycle` {{optional_inline}}
-          - : Ein `string`. Der Lebenszyklus des Dokuments des Frames, falls diese Anfrage für einen Frame erfolgt. Mögliche Werte sind: `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"`.
+          - : Ein `string`. Der Lebenszyklus des Dokuments des Frames, falls diese Anfrage für einen Frame ist. Mögliche Werte sind: `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"`.
         - `frameId`
-          - : Eine `number`. Der Wert `0` zeigt an, dass die Anfrage im Hauptframe erfolgt. Ein positiver Wert gibt die ID eines Unterrahmens an, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmens geladen wird (Typ ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Frame-IDs sind innerhalb eines Tabs eindeutig.
+          - : Eine `number`. Der Wert `0` zeigt an, dass die Anfrage im Haupt-Frame erfolgt. Ein positiver Wert gibt die ID eines Subframes an, in dem die Anfrage erfolgt. Wenn das Dokument eines (Sub-)Frames geladen wird (Typ ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind innerhalb eines Tabs eindeutig.
         - `frameType` {{optional_inline}}
-          - : Ein `string`. Der Typ des Rahmens, falls diese Anfrage für einen Rahmen erfolgt. Mögliche Werte sind: `"outermost_frame"`, `"fenced_frame"` oder `"sub_frame"`.
+          - : Ein `string`. Der Typ des Frames, falls diese Anfrage für einen Frame ist. Mögliche Werte sind: `"outermost_frame"`, `"fenced_frame"` oder `"sub_frame"`.
         - `initiator` {{optional_inline}}
-          - : Ein `string`. Der Ursprung, von dem die Anfrage initiiert wurde. Dies ändert sich nicht durch Umleitungen. Die Zeichenfolge 'null' wird verwendet, wenn dies ein nicht sichtbarer Ursprung ist.
+          - : Ein `string`. Der Ursprung, an dem die Anfrage initiiert wurde. Dies ändert sich nicht durch Umleitungen. Der String 'null' wird verwendet, wenn dies ein opaker Ursprung ist.
         - `method`
           - : Ein `string`. Eine standardmäßige HTTP-Methode.
         - `parentDocumentId` {{optional_inline}}
-          - : Ein `string`. Die eindeutige Kennung für das übergeordnete Dokument des Frames, falls diese Anfrage für einen Frame mit übergeordnetem Dokument erfolgt.
+          - : Ein `string`. Die eindeutige Kennung für das übergeordnete Dokument des Frames, falls diese Anfrage für einen Frame ist und ein übergeordnetes Dokument hat.
         - `parentFrameId`
-          - : Eine `number`. Die ID des Rahmens, der den Rahmen umschließt, der die Anfrage gesendet hat. Wird auf `-1` gesetzt, wenn es keinen übergeordneten Rahmen gibt.
+          - : Eine `number`. Die ID des Frames, der den Frame umschließt, der die Anfrage gesendet hat. Wird auf `-1` gesetzt, wenn kein übergeordneter Frame vorhanden ist.
         - `requestId`
-          - : Ein `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung eindeutig.
+          - : Ein `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig.
         - `tabId`
-          - : Eine `number`. Die ID des Tabs, in dem die Anfrage stattfindet. Wird auf `-1` gesetzt, wenn die Anfrage nicht zu einem Tab gehört.
+          - : Eine `number`. Die ID des Tabs, in dem die Anfrage stattfindet. Wird auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
         - `type`
           - : {{WebExtAPIRef("declarativeNetRequest.ResourceType", "ResourceType")}}. Der Ressourcentyp der Anfrage.
         - `url`

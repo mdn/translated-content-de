@@ -1,5 +1,5 @@
 ---
-title: Werkzeuge zur Analyse der Nutzung der Web Audio API
+title: Werkzeuge zur Analyse der Web Audio-Nutzung
 slug: Web/API/Web_Audio_API/Tools
 l10n:
   sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Während Sie an Ihrem Web Audio API-Code arbeiten, stellen Sie möglicherweise fest, dass Sie Werkzeuge benötigen, um das von Ihnen erstellte Knoten-Graph zu analysieren oder anderweitig Ihre Arbeit zu debuggen. Dieser Artikel beschreibt verfügbare Werkzeuge, die Ihnen dabei helfen.
+Wenn Sie an Ihrem Web Audio API-Code arbeiten, stellen Sie möglicherweise fest, dass Sie Werkzeuge benötigen, um das von Ihnen erstellte Knotendiagramm zu analysieren oder Ihre Arbeit anderweitig zu debuggen. Dieser Artikel bespricht verfügbare Werkzeuge, die Ihnen dabei helfen können.
 
 ## Chrome
 
-Ein praktischer Web Audio Inspektor ist im [Chrome Web Store](https://chromewebstore.google.com/detail/audion/cmhomipkklckpomafalojobppmmidlgl) verfügbar.
+Ein praktischer Web-Audio-Inspektor ist im [Chrome Web Store](https://chromewebstore.google.com/detail/audion/cmhomipkklckpomafalojobppmmidlgl) zu finden.
 
 ## Edge
 
-_Fügen Sie Informationen für Entwickler, die Microsoft Edge verwenden, hinzu._
+_Informationen für Entwickler, die Microsoft Edge nutzen, hinzufügen._
 
 ## Firefox
 
@@ -23,9 +23,9 @@ Firefox bietet einen nativen [Web Audio Editor](https://firefox-source-docs.mozi
 
 ## Safari
 
-_Fügen Sie Informationen für Entwickler, die in Safari arbeiten, hinzu._
+_Informationen für Entwickler, die in Safari arbeiten, hinzufügen._
 
 ## Siehe auch
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

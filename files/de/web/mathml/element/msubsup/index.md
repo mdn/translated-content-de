@@ -7,21 +7,21 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<msubsup>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um sowohl einen Subskript als auch einen Superskript gemeinsam an einen Ausdruck anzuhängen.
+Das **`<msubsup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um gleichzeitig einen Subscript und einen Superscript an einen Ausdruck anzuhängen.
 
 Es verwendet die folgende Syntax: `<msubsup> base subscript superscript </msubsup>`.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
+Die Attribute dieses Elements beinhalten die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, der die minimale Verschiebung der Grundlinie des Subskripts nach unten angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Subscripts nach unten zu verschieben.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, der die minimale Verschiebung der Grundlinie des Superskripts nach oben angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Superscripts nach oben zu verschieben.
 
 > [!NOTE]
-> Für die Attribute `subscriptshift` und `superscriptshift` könnten einige Browser auch [Legacy MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [Legacy-MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ Die Attribute dieses Elements umfassen die [globalen MathML Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Subskript)
-- {{ MathMLElement("msup") }} (Superskript)
-- {{ MathMLElement("mmultiscripts") }} (Präskripte und Tensor-Indizes)
+- {{ MathMLElement("msub") }} (Subscript)
+- {{ MathMLElement("msup") }} (Superscript)
+- {{ MathMLElement("mmultiscripts") }} (Präskripte und Tensorindizes)

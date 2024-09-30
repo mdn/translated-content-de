@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`attributeType`** Attribut gibt den Namensraum an, in dem das Zielattribut und dessen zugehörige Werte definiert sind.
+Das **`attributeType`** Attribut legt den Namensraum fest, in dem das Zielattribut und dessen zugehörige Werte definiert sind.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -41,7 +41,7 @@ svg {
 
 {{EmbedLiveSample("Example", "400", "250")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -61,11 +61,11 @@ svg {
 </table>
 
 - `CSS`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer CSS-Eigenschaft ist, die als animierbar definiert ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer als animierbar definierten CSS-Eigenschaft ist.
 - `XML`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das im Standard-XML-Namensraum des Ziel-Elements als animierbar definiert ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines im Standard-XML-Namensraum für das Zielelement als animierbar definierten XML-Attributs ist.
 - `auto`
-  - : Dieser Wert gibt an, dass die Implementierung {{SVGAttr("attributeName")}} einem Attribut des Ziel-Elements zuordnen sollte. Benutzeragenten durchsuchen zunächst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen und suchen, falls keiner gefunden wird, im Standard-XML-Namensraum des Elements.
+  - : Dieser Wert gibt an, dass die Implementierung das {{SVGAttr("attributeName")}} einem Attribut für das Zielelement zuordnen soll. Benutzeragenten durchsuchen zuerst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen und durchsuchen, falls keiner gefunden wird, den Standard-XML-Namensraum für das Element.
 
 ## Spezifikationen
 
@@ -73,4 +73,4 @@ svg {
 
 ## Siehe auch
 
-- [SMIL Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SMIL-Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)

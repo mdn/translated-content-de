@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`results`**-Eigenschaft der [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)-Schnittstelle stellt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten dar. Diese enthalten die Treffer-Testergebnisse für die Eingabequelle, geordnet nach der Entfernung entlang des Strahls, der zum Durchführen des Treffer-Tests verwendet wurde, wobei das nächste Ergebnis an Position 0 steht.
+Die _schreibgeschützte_ **`results`**-Eigenschaft der [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)-Schnittstelle stellt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten dar, das die Trefferergebnisse für die Eingabequelle enthält. Diese sind nach der Entfernung entlang des Strahls, der für den Treffertest verwendet wurde, geordnet, wobei das nächstgelegene Ergebnis an Position 0 steht.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten.
 
 ## Beispiele
 
-### Zugriff auf Ergebnisse von transienten Eingabetreffertests
+### Zugriff auf temporäre Eingabe-Treffertestergebnisse
 
-Zwei Arrays werden verwendet, um auf Ergebnisse von transienten Eingabetreffertests zuzugreifen. Zuerst erhalten Sie ein Array von `XRTransientInputHitTestResult`-Objekten, indem Sie [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufrufen. Um dann zu den eigentlichen [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten für eine Eingabequelle zu gelangen, dereferenzieren Sie die `results`-Eigenschaft eines der `XRTransientInputHitTestResult`-Objekte.
+Zwei Arrays werden verwendet, um auf temporäre Eingabe-Treffertestergebnisse zuzugreifen. Zuerst erhalten Sie ein Array von `XRTransientInputHitTestResult`-Objekten durch den Aufruf von [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput). Zweitens, um zu den tatsächlichen [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten für eine Eingabequelle zu gelangen, greifen Sie auf die `results`-Eigenschaft eines der `XRTransientInputHitTestResult`-Objekte zu.
 
 ```js
 // frame loop

@@ -1,5 +1,5 @@
 ---
-title: "RTCSctpTransport: maxChannels Eigenschaft"
+title: "RTCSctpTransport: maxChannels-Eigenschaft"
 short-title: maxChannels
 slug: Web/API/RTCSctpTransport/maxChannels
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`maxChannels`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Schnittstelle gibt die maximale Anzahl von [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekten an, die gleichzeitig geöffnet werden können.
+Die schreibgeschützte Eigenschaft **`maxChannels`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces gibt die maximale Anzahl der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte an, die gleichzeitig geöffnet werden können.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die maximale Anzahl von [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekten angibt, die gleichzeitig geöffnet werden können, oder `null`, bevor der SCTP-Transport den [Zustand](/de/docs/Web/API/RTCSctpTransport/state) "verbunden" erreicht.
+Ein ganzzahliger Wert, der die maximale Anzahl der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte angibt, die gleichzeitig geöffnet werden können, oder `null`, bevor der SCTP-Transport in den "connected"-[Zustand](/de/docs/Web/API/RTCSctpTransport/state) wechselt.
 
 ## Spezifikationen
 

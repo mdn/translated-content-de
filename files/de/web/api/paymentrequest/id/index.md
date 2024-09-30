@@ -8,15 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Das schreibgeschützte Attribut **`id`** des
-[`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces liefert eine eindeutige Kennung für eine bestimmte
-[`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz.
+Das schreibgeschützte Attribut **`id`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt eine eindeutige Kennung für eine bestimmte [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz zurück.
 
-Beim Erstellen einer Instanz von [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) können Sie eine benutzerdefinierte id angeben. Falls keine angegeben wird, setzt der Browser automatisch den id-Wert auf eine UUID.
+Beim Erstellen einer Instanz von [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) können Sie eine benutzerdefinierte Kennung angeben. Wenn keine angegeben wird, setzt der Browser automatisch den Wert der Kennung auf eine UUID.
 
 ## Beispiel
 
-Dieses Beispiel zeigt, wie man einer [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz eine benutzerdefinierte id zuweist.
+Dieses Beispiel zeigt, wie einer [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz eine benutzerdefinierte Kennung gegeben wird.
 
 ```js
 const details = {
@@ -30,7 +28,7 @@ const request = new PaymentRequest(methodData, details);
 console.log(request.id); // super-store-order-123-12312
 ```
 
-Die `id` ist dann auch in der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) verfügbar, die von der `show()`-Methode zurückgegeben wird, allerdings unter dem Attribut `requestId`.
+Die `id` ist dann auch in der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) verfügbar, die von der `show()`-Methode zurückgegeben wird, jedoch unter dem Attribut `requestId`.
 
 ```js
 const response = await request.show();

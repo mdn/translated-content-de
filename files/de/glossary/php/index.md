@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quelloffene serverseitige Skriptsprache, die in HTML eingebettet werden kann, um Webanwendungen und dynamische Websites zu erstellen.
+PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quelloffene serverseitige Skriptsprache, die in HTML eingebettet werden kann, um Webanwendungen und dynamische Webseiten zu erstellen.
 
 ## Beispiele
 
@@ -49,9 +49,9 @@ PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quell
 
 ## Siehe auch
 
-- [Offizielle Website](https://www.php.net/)
+- [Offizielle Webseite](https://www.php.net/)
 - [PHP](https://en.wikipedia.org/wiki/PHP) auf Wikipedia
-- [PHP Programmierung](https://en.wikibooks.org/wiki/PHP_Programming) auf Wikibooks
+- [PHP-Programmierung](https://en.wikibooks.org/wiki/PHP_Programming) auf Wikibooks
 - Verwandte Glossarbegriffe:
   - [Java](/de/docs/Glossary/Java)
   - [JavaScript](/de/docs/Glossary/JavaScript)

@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mn>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **numerisches** Literal, das normalerweise eine Folge von Ziffern mit einem möglichen Separator (ein Punkt oder ein Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text zu enthalten, der tatsächlich eine numerische Menge darstellt, zum Beispiel "eleven".
+Das **`<mn>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert eine **numerische** Konstante, die normalerweise eine Folge von Ziffern mit einem möglichen Trennzeichen (einem Punkt oder Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text zu enthalten, der tatsächlich eine numerische Menge darstellt, zum Beispiel "eleven" (elf).
 
 ## Attribute
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`USB`**-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet Attribute und Methoden zum Finden und Verbinden von USB-Geräten über eine Webseite.
+Das **`USB`**-Interface der [WebUSB-API](/de/docs/Web/API/WebUSB_API) bietet Attribute und Methoden zum Auffinden und Verbinden von USB-Geräten über eine Webseite.
 
 Verwenden Sie [`navigator.usb`](/de/docs/Web/API/Navigator/usb), um Zugriff auf das `USB`-Objekt zu erhalten.
 
@@ -22,16 +22,16 @@ Keine.
 ## Instanz-Methoden
 
 - [`USB.getDevices()`](/de/docs/Web/API/USB/getDevices) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekten für gepaarte angeschlossene Geräte aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekten für gekoppelte angehängte Geräte aufgelöst wird.
 - [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Der Aufruf dieser Funktion löst den Kopplungsprozess des Benutzeragenten aus.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Das Aufrufen dieser Funktion löst den Kopplungsvorgang des Benutzeragenten aus.
 
 ## Ereignisse
 
 - [`connect`](/de/docs/Web/API/USB/connect_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein zuvor gekoppeltes Gerät verbunden wird.
+  - : Wird immer dann ausgelöst, wenn ein zuvor gekoppeltes Gerät angeschlossen wird.
 - [`disconnect`](/de/docs/Web/API/USB/disconnect_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein gekoppeltes Gerät getrennt wird.
+  - : Wird immer dann ausgelöst, wenn ein gekoppeltes Gerät getrennt wird.
 
 ## Spezifikationen
 

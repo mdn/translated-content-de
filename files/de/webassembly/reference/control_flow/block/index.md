@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`block`**-Anweisung erstellt ein Label, das später mit einem `br` angesprungen werden kann.
+Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` gesprungen werden kann.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass beim Springen zu einer `loop` der Beginn der Schleife angesprungen wird, während ein Sprung zu einem `block` das Ende des Blocks erreicht, das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenstück zur `block`-Anweisung, in dem Sinne, dass beim Springen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Springen zu einem `block` zum Ende des Blocks gesprungen wird; das heißt, aus dem Block heraus.
 
 {{EmbedInteractiveExample("pages/wat/block.html", "tabbed-taller")}}
 

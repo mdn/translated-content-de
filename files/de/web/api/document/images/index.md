@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`images`** des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [Sammlung](/de/docs/Web/API/HTMLCollection) der [Bilder](/de/docs/Web/API/HTMLImageElement) im aktuellen HTML-Dokument zurück.
+Die schreibgeschützte **`images`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [Sammlung](/de/docs/Web/API/HTMLCollection) der [Bilder](/de/docs/Web/API/HTMLImageElement) im aktuellen HTML-Dokument zurück.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live-Liste aller im aktuellen Dokument enthaltenen Bilder bereitstellt. Jedes Element in der Sammlung ist ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), das ein einzelnes Bildelement darstellt.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live-Liste aller Bilder im aktuellen Dokument bereitstellt.
+Jeder Eintrag in der Sammlung ist ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), das ein einzelnes Bildelement darstellt.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Sie können entweder die JavaScript-Array-Notation oder die Methode [`item()`](/de/docs/Web/API/HTMLCollection/item) auf der zurückgegebenen Sammlung verwenden, um auf die Elemente in der Sammlung zuzugreifen. Folgendes ist gleichwertig:
+Sie können entweder die JavaScript-Array-Notation oder die [`item()`](/de/docs/Web/API/HTMLCollection/item)-Methode auf der zurückgegebenen Sammlung verwenden, um auf die Elemente in der Sammlung zuzugreifen.
+Die folgenden sind gleichwertig:
 
 ```js
 firstImage = imageCollection.item(0);
@@ -26,7 +28,7 @@ firstImage = imageCollection[0];
 
 ## Beispiele
 
-Dieses Beispiel durchsucht die Liste der Bilder und findet diejenigen mit dem Namen `"banner.gif"`.
+Dieses Beispiel durchsucht die Liste von Bildern und findet diejenigen, die den Namen `"banner.gif"` haben.
 
 ```js
 for (const image of document.images) {

@@ -1,5 +1,5 @@
 ---
-title: "CSPViolationReportBody: Referrer-Eigenschaft"
+title: "CSPViolationReportBody: referrer-Eigenschaft"
 short-title: referrer
 slug: Web/API/CSPViolationReportBody/referrer
 l10n:
@@ -8,22 +8,21 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`referrer`** der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist ein String, der die URL der verweisenden Seite der Ressource darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt wurde.
+Die **`referrer`**-Eigenschaft, die nur lesbar ist, der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist eine Zeichenkette, die die URL der verweisenden Seite der Ressource darstellt, deren [Content-Security-Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt wurde.
 
-Der Referrer ist die Seite, die das Laden der Seite mit dem CSP-Verstoß verursacht hat. Zum Beispiel, wenn wir einem Link zu einer Seite mit einem CSP-Verstoß folgten, ist der `referrer` die Seite, von der wir navigiert sind.
+Der Referrer ist die Seite, die dazu geführt hat, dass die Seite mit der CSP-Verletzung geladen wurde. Zum Beispiel, wenn wir einem Link zu einer Seite mit einer CSP-Verletzung gefolgt sind, ist der `referrer` die Seite, von der wir navigiert sind.
 
 ## Wert
 
-Ein String, der die URL für den Referrer der Seite mit dem CSP-Verstoß darstellt, oder null.
+Eine Zeichenkette, die die URL des Referrers der Seite mit der CSP-Verletzung darstellt, oder null.
 
-Beachten Sie, dass, wenn der Referrer eine HTTP(S)-URL ist, ein Benutzername, Passwort oder Fragment entfernt wird.
-Wenn das URL-Schema nicht `http:` oder `https:` ist, wird nur das Schema zurückgegeben.
+Beachten Sie, dass, wenn der Referrer eine HTTP(S)-URL ist, jeder Benutzername, jedes Passwort und jedes Fragment entfernt werden. Wenn das URL-Schema nicht `http:` oder `https:` ist, wird nur das Schema zurückgegeben.
 
 ## Beispiele
 
-### CSP-Inline-Skript-Verstoß mit Referrer
+### CSP Inline-Skript-Verletzung mit Referrer-Anzeige
 
-Dieses Beispiel löst einen CSP-Verstoß mit einem Inline-Skript aus und meldet den Verstoß mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
 Wir navigieren von einer anderen Seite zu der Seite und protokollieren den `referrer`, `documentURL` und `blockedURL`.
 
 #### HTML
@@ -46,8 +45,9 @@ Diese Seite enthält nur einen Link zu einer anderen Seite `../report_sample/ind
 </html>
 ```
 
-Die HTML-Datei `../report_sample/index.html` wird unten definiert. Diese verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was erlaubt, dass Skripte von derselben Domain geladen werden, aber nicht erlaubt, dass Inline-Skripte ausgeführt werden.
-Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen wird.
+Die `../report_sample/index.html` HTML-Datei wird unten definiert.
+Diese verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was erlaubt, Skripte aus derselben Domain zu laden, aber keine Inline-Skripte ausführen lässt.
+Das Dokument enthält auch ein Inline-Skript, das eine CSP-Verletzung auslösen wird.
 
 ```html
 <!doctype html>
@@ -69,11 +69,11 @@ Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen w
 
 #### JavaScript (main.js)
 
-Das obige Berichtsmuster lädt auch das externe Skript `main.js`, das unten dargestellt ist.
-Da dies von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
+Das obige Berichtsmuster lädt auch das externe Skript `main.js`, das unten gezeigt wird.
+Da dies aus derselben Domain wie das HTML geladen wird, wird es von der CSP nicht blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs "csp-violation" zu beobachten.
-Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Verletzung `documentURL`, `referrer` und `blockedURL` in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, rufen wir den Body des ersten Eintrags des Reports-Arrays ab und verwenden ihn, um die Verletzung `documentURL`, `referrer` und `blockedURL` in die Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -92,11 +92,11 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl es mehrere Berichte im zurückgegebenen Array geben kann, zur Kürze nur die Werte des ersten Elements protokolliert werden.
+Beachten Sie, dass, obwohl es möglicherweise mehrere Berichte im zurückgegebenen Array gibt, wir aus Gründen der Kürze nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Die Konsolenausgabe für den obigen Code sieht ungefähr wie folgt aus (die Seite hängt davon ab, wie die Seiten bereitgestellt werden):
+Die Konsolenausgabe für den obigen Code würde in etwa so aussehen (die Site hängt davon ab, wie die Seiten bereitgestellt werden):
 
 ```plain
 documentURL: http://127.0.0.1:9999/report_sample/
@@ -104,7 +104,7 @@ referrer: http://127.0.0.1:9999/bounce/
 blockedURL: inline
 ```
 
-Beachten Sie, dass `referrer` die Seite ist, von der wir navigiert sind, `documentURL` die Seite mit dem CSP-Verstoß ist und `blockedURL` in diesem Fall keine URL ist, sondern ein Hinweis darauf, dass der Verstoß durch ein unsicheres Inline-Skript verursacht wurde.
+Beachten Sie, dass `referrer` die Seite ist, von der wir navigiert sind, `documentURL` die Seite mit der CSP-Verletzung ist und `blockedURL` in diesem Fall keine URL ist, sondern ein Hinweis darauf, dass die Verletzung durch ein unsicheres Inline-Skript verursacht wurde.
 
 ## Spezifikationen
 

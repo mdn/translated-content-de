@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die Fortschrittsanzeige innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Der Balken zeigt den Fortschritt an, der erreicht wurde.)
+Das **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die Fortschrittsleiste innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Die Leiste repräsentiert den Fortschritt, der gemacht wurde.)
 
-Wenn Sie den unvervollständigten Teil des {{HTMLElement("progress")}}-Elements in Mozilla auswählen möchten, wählen Sie bitte das {{HTMLElement("progress")}}-Element direkt aus.
+Wenn Sie den nicht vollendeten Teil des {{HTMLElement("progress")}}-Elements in Mozilla auswählen möchten, wählen Sie bitte das {{HTMLElement("progress")}}-Element direkt aus.
 
 ## Syntax
 

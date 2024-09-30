@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}} {{securecontext_header}}
 
-Die **`PerformanceServerTiming`**-Schnittstelle zeigt Servermetriken an, die mit der Antwort im {{HTTPHeader("Server-Timing")}} HTTP-Header gesendet werden.
+Das **`PerformanceServerTiming`** Interface stellt Servermetriken bereit, die mit der Antwort im {{HTTPHeader("Server-Timing")}} HTTP-Header gesendet werden.
 
-Diese Schnittstelle ist auf denselben Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}} Header verwenden, um die Domänen anzugeben, die Zugriff auf die Servermetriken haben dürfen. Beachten Sie, dass diese Schnittstelle nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar ist.
+Dieses Interface ist auf denselben Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}} Header verwenden, um die Domains anzugeben, die auf die Servermetriken zugreifen dürfen. Beachten Sie, dass dieses Interface nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar ist.
 
-## Instanzeigenschaften
+## Instanzen-Eigenschaften
 
 - [`PerformanceServerTiming.description`](/de/docs/Web/API/PerformanceServerTiming/description) {{ReadOnlyInline}}
-  - : Ein Zeichenfolgenwert der vom Server festgelegten Metrikbeschreibung oder eine leere Zeichenfolge.
+  - : Ein Zeichenfolgenwert der vom Server angegebenen Metrikbeschreibung, oder eine leere Zeichenfolge.
 - [`PerformanceServerTiming.duration`](/de/docs/Web/API/PerformanceServerTiming/duration) {{ReadOnlyInline}}
-  - : Ein Doppelwert, der die vom Server festgelegte Metrikdauer enthält, oder der Wert `0.0`.
+  - : Ein Double, das die vom Server angegebene Metrikdauer enthält, oder der Wert `0.0`.
 - [`PerformanceServerTiming.name`](/de/docs/Web/API/PerformanceServerTiming/name) {{ReadOnlyInline}}
-  - : Ein Zeichenfolgenwert des vom Server festgelegten Metriknamens.
+  - : Ein Zeichenfolgenwert des vom Server angegebenen Metriknamens.
 
-## Instanzmethoden
+## Instanzen-Methoden
 
 - [`PerformanceServerTiming.toJSON()`](/de/docs/Web/API/PerformanceServerTiming/toJSON)
-  - : Gibt eine JSON-Darstellung des `PerformanceServerTiming`-Objekts zurück.
+  - : Gibt eine JSON-Darstellung des `PerformanceServerTiming` Objekts zurück.
 
 ## Beispiel
 
-Gegeben ein Server, der den {{HTTPHeader("Server-Timing")}} Header sendet, zum Beispiel ein Node.js Server wie dieser:
+Angenommen, ein Server sendet den {{HTTPHeader("Server-Timing")}} Header, zum Beispiel ein Node.js Server wie dieser:
 
 ```js
 const http = require("http");
@@ -50,9 +50,9 @@ function requestHandler(request, response) {
 http.createServer(requestHandler).listen(3000).on("error", console.error);
 ```
 
-Die `PerformanceServerTiming`-Einträge sind nun von JavaScript über die [`PerformanceResourceTiming.serverTiming`](/de/docs/Web/API/PerformanceResourceTiming/serverTiming) Eigenschaft beobachtbar und befinden sich in `navigation` und `resource` Einträgen.
+Die `PerformanceServerTiming` Einträge sind nun von JavaScript aus über die [`PerformanceResourceTiming.serverTiming`](/de/docs/Web/API/PerformanceResourceTiming/serverTiming) Eigenschaft beobachtbar und existieren auf `navigation` und `resource` Einträgen.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation` und `resource` Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Beobachters vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der von neuen `navigation` und `resource` Performance-Eintrags benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -73,7 +73,7 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur die `navigation` und `resource` Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation` und `resource` Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 for (const entryType of ["navigation", "resource"]) {

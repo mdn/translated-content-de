@@ -1,5 +1,5 @@
 ---
-title: "Scheduling: isInputPending() Methode"
+title: "Scheduling: isInputPending()-Methode"
 short-title: isInputPending()
 slug: Web/API/Scheduling/isInputPending
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Prioritized Task Scheduling API")}}
 
-Die **`isInputPending()`**-Methode der [`Scheduling`](/de/docs/Web/API/Scheduling)-Schnittstelle ermöglicht es Ihnen zu überprüfen, ob Eingabeereignisse in der Ereigniswarteschlange anstehen, was darauf hinweist, dass der Benutzer versucht, mit der Seite zu interagieren.
+Die **`isInputPending()`**-Methode des [`Scheduling`](/de/docs/Web/API/Scheduling)-Interfaces ermöglicht es Ihnen zu überprüfen, ob es ausstehende Eingabeereignisse in der Ereignis-Warteschlange gibt, was darauf hinweist, dass der Benutzer versucht, mit der Seite zu interagieren.
 
-Diese Funktion kann nützlich sein, wenn Sie eine Warteschlange von Aufgaben haben und regelmäßig zur Hauptausführung zurückkehren möchten, um Benutzerinteraktionen zu ermöglichen, damit die App so reaktionsschnell und leistungsfähig wie möglich bleibt. `isInputPending()` ermöglicht es, nur dann zurückzukehren, wenn Eingaben anstehen, statt dies in willkürlichen Abständen zu tun.
+Diese Funktion kann in Situationen nützlich sein, in denen Sie eine Warteschlange von Aufgaben haben, die ausgeführt werden sollen, und regelmäßig dem Haupt-Thread Vorfahrt einräumen möchten, um die Benutzerinteraktion zu ermöglichen, damit die Anwendung so reaktionsschnell und leistungsfähig wie möglich bleibt. `isInputPending()` ermöglicht es Ihnen, nur dann Vorfahrt zu gewähren, wenn Eingaben anstehen, anstatt dies in willkürlichen Intervallen zu tun.
 
 > [!WARNING]
-> Die Methode `isInputPending()` wurde durch Funktionen auf der [`Scheduler`](/de/docs/Web/API/Scheduler)-Schnittstelle wie [`yield()`](/de/docs/Web/API/Scheduler/yield) ersetzt, die besser für die Aufgabenplanung geeignet sind. Weitere Details finden Sie unter [Don't use `isInputPending()`](https://web.dev/articles/optimize-long-tasks#isinputpending).
+> Die `isInputPending()`-Methode wurde durch Funktionen ersetzt, die im [`Scheduler`](/de/docs/Web/API/Scheduler)-Interface verfügbar sind, wie zum Beispiel [`yield()`](/de/docs/Web/API/Scheduler/yield), die besser zur Lösung von Planungsaufgaben entworfen wurden. Siehe [Verwenden Sie `isInputPending()` nicht](https://web.dev/articles/optimize-long-tasks#isinputpending) für weitere Details.
 
 `isInputPending()` wird mit `navigator.scheduling.isInputPending()` aufgerufen.
 
@@ -27,17 +27,17 @@ isInputPending(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt mit Optionen. Derzeit gibt es nur die folgende Option:
+  - : Ein Objekt, das Optionen bereitstellt. Derzeit ist die einzige Option:
     - `includeContinuous` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist. Wenn auf `true` gesetzt, gibt er an, dass kontinuierliche Ereignisse bei der Überprüfung auf anstehende Eingaben berücksichtigt werden sollen. Kontinuierliche Ereignisse sind vertrauenswürdige Ereignisse (Ereignisse, die vom Browser ausgegeben werden), die nacheinander ausgelöst werden, wie [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`wheel`](/de/docs/Web/API/Element/wheel_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`drag`](/de/docs/Web/API/HTMLElement/drag_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event).
+      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird dadurch angezeigt, dass kontinuierliche Ereignisse beim Überprüfen auf ausstehende Eingaben berücksichtigt werden sollten. Kontinuierliche Ereignisse sind vertrauenswürdige Ereignisse (vom Browser ausgelöste Ereignisse), die aufeinanderfolgend gefeuert werden, wie [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`wheel`](/de/docs/Web/API/Element/wheel_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`drag`](/de/docs/Web/API/HTMLElement/drag_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event).
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob Eingabeereignisse in der Ereigniswarteschlange anstehen (`true`) oder nicht (`false`).
+Ein boolescher Wert, der angibt, ob ausstehende Eingabeereignisse in der Ereignis-Warteschlange vorhanden sind (`true`) oder nicht (`false`).
 
 ## Beispiele
 
-Wir können `isInputPending()` in einer Aufgabenlaufstruktur verwenden, um die `yield()`-Funktion nur dann auszuführen, wenn der Benutzer versucht, mit der Seite zu interagieren:
+Wir können `isInputPending()` innerhalb einer Aufgabenlaufstruktur verwenden, um die `yield()`-Funktion nur auszuführen, wenn der Benutzer versucht, mit der Seite zu interagieren:
 
 ```js
 function yield() {
@@ -65,7 +65,7 @@ async function main() {
 }
 ```
 
-Dies ermöglicht es Ihnen, die Hauptausführung nicht zu blockieren, wenn der Benutzer aktiv mit der Seite interagiert, was möglicherweise eine reibungslosere Benutzererfahrung bietet. Indem wir jedoch nur dann zurückkehren, wenn es notwendig ist, können wir die aktuelle Aufgabe weiterführen, wenn keine Benutzereingaben zu bearbeiten sind. Dies verhindert auch, dass Aufgaben hinter andere nicht essentielle, vom Browser initiierte Aufgaben zurückgestellt werden, die nach der aktuellen Aufgabe geplant wurden.
+Dies ermöglicht es Ihnen, den Haupt-Thread nicht zu blockieren, wenn der Benutzer aktiv mit der Seite interagiert, was möglicherweise ein reibungsloseres Benutzererlebnis bietet. Indem wir jedoch nur dann Vorfahrt gewähren, wenn dies erforderlich ist, können wir die aktuelle Aufgabe fortsetzen, wenn keine Benutzereingaben zu verarbeiten sind. Dies verhindert auch, dass Aufgaben in die Warteschlange hinter andere nicht wesentliche vom Browser initiierte Aufgaben gestellt werden, die nach der aktuellen Aufgabe geplant wurden.
 
 ## Spezifikationen
 
@@ -77,8 +77,8 @@ Dies ermöglicht es Ihnen, die Hauptausführung nicht zu blockieren, wenn der Be
 
 ## Siehe auch
 
-- [`Scheduler`](/de/docs/Web/API/Scheduler)-Schnittstelle
+- [`Scheduler`](/de/docs/Web/API/Scheduler)-Interface
 - [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_task_scheduling_api)
-- [Schnellere Eingabeereignisse mit Facebooks erstem Beitrag zur Browser-API](https://engineering.fb.com/2019/04/22/developer-tools/isinputpending-api/) auf engineering.fb.com (2019)
-- [Bessere JS-Zeitplanung mit isInputPending()](https://developer.chrome.com/docs/capabilities/web-apis/isinputpending) auf developer.chrome.com (2020)
+- [Faster input events with Facebook's first browser API contribution](https://engineering.fb.com/2019/04/22/developer-tools/isinputpending-api/) auf engineering.fb.com (2019)
+- [Better JS scheduling with isInputPending()](https://developer.chrome.com/docs/capabilities/web-apis/isinputpending) auf developer.chrome.com (2020)
 - [Optimierung langer Aufgaben](https://web.dev/articles/optimize-long-tasks#yield_only_when_necessary) auf web.dev (2022)

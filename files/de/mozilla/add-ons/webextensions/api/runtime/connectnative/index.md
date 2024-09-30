@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Stellt eine Verbindung der Erweiterung zu einer nativen Anwendung auf dem Computer des Benutzers her. Dabei wird der Name einer nativen Anwendung als Parameter verwendet. Diese startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` verwenden, um Nachrichten mit der nativen Anwendung über `Port.postMessage()` und `port.onMessage` auszutauschen. Die native Anwendung läuft so lange, bis sie sich selbst beendet, oder der Aufrufer `Port.disconnect()` aufruft, oder die Seite, die den `Port` erstellt hat, zerstört wird. Sobald der `Port` getrennt ist, gibt der Browser dem Prozess einige Sekunden, um sich ordnungsgemäß zu beenden, und beendet ihn dann, wenn er nicht beendet wurde.
+Stellt eine Verbindung der Erweiterung zu einer nativen Anwendung auf dem Computer des Benutzers her. Dies erfordert den Namen einer nativen Anwendung als Parameter. Es startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` verwenden, um Nachrichten mit der nativen Anwendung über `Port.postMessage()` und `port.onMessage` auszutauschen. Die native Anwendung wird ausgeführt, bis sie selbst beendet wird oder der Aufrufer `Port.disconnect()` aufruft, oder die Seite, die `Port` erstellt hat, zerstört wird. Sobald der `Port` getrennt ist, gibt der Browser dem Prozess einige Sekunden, um sauber zu beenden, und beendet ihn dann, falls er nicht schon beendet wurde.
 
-Für weitere Informationen siehe [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
+Weitere Informationen finden Sie unter [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ let port = browser.runtime.connectNative(
 ### Parameter
 
 - `application`
-  - : `string`. Der Name der nativen Anwendung, zu der die Verbindung hergestellt werden soll. Dieser muss mit der "name"-Eigenschaft in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
+  - : `string`. Der Name der nativen Anwendung, zu der eine Verbindung hergestellt werden soll. Dies muss mit der Eigenschaft "name" in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Ein {{WebExtAPIRef('runtime.Port')}}-Objekt. Der Port, den der Aufrufer verwende
 
 ## Beispiele
 
-Dieses Beispiel stellt eine Verbindung zur nativen Anwendung "ping_pong" her und beginnt, Nachrichten von ihr zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer auf ein Browser-Aktionssymbol klickt:
+Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, Nachrichten von dieser Anwendung zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer ein Browser-Aktionssymbol anklickt:
 
 ```js
 /*
@@ -61,7 +61,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative)-API von Chromium. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

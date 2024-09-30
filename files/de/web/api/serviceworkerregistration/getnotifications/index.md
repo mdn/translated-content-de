@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: getNotifications()-Methode"
+title: "ServiceWorkerRegistration: getNotifications() Methode"
 short-title: getNotifications()
 slug: Web/API/ServiceWorkerRegistration/getNotifications
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`getNotifications()`**-Methode der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie von der aktuellen Herkunft über die aktuelle Service Worker-Registrierung erstellt wurden. Herkünfte können viele aktive, aber unterschiedlich abgegrenzte Service Worker-Registrierungen haben. Benachrichtigungen, die von einem Service Worker auf derselben Herkunft erstellt wurden, sind für andere aktive Service Worker auf dieser gleichen Herkunft nicht verfügbar.
+Die **`getNotifications()`**-Methode der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie vom aktuellen Ursprung über die aktuelle Service Worker-Registrierung erstellt wurden. Ursprünge können viele aktive, aber unterschiedlich gescopte Service Worker-Registrierungen haben. Benachrichtigungen, die von einem Service Worker am selben Ursprung erstellt wurden, werden anderen aktiven Service Workern an demselben Ursprung nicht zur Verfügung stehen.
 
 ## Syntax
 
@@ -21,10 +21,10 @@ getNotifications(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen enthält, um die zurückgegebenen Benachrichtigungen zu filtern. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen zum Filtern der zurückgegebenen Benachrichtigungen enthält. Die verfügbaren Optionen sind:
 
     - `tag` {{optional_inline}}
-      - : Ein String, der ein Benachrichtigungstag darstellt. Wenn angegeben, werden nur Benachrichtigungen zurückgegeben, die dieses Tag haben.
+      - : Ein String, der einen Benachrichtigungstag darstellt. Wenn angegeben, werden nur Benachrichtigungen zurückgegeben, die dieses Tag haben.
 
 ### Rückgabewert
 

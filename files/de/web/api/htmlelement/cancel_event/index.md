@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: cancel event"
+title: "HTMLElement: cancel-Ereignis"
 short-title: cancel
 slug: Web/API/HTMLElement/cancel_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`cancel`** Ereignis wird von {{HTMLElement("input")}} und {{HTMLElement("dialog")}} Elementen ausgelöst. Das Ereignis wird ausgelöst, wenn der Benutzer das derzeit geöffnete Dialogfeld durch Schließen mit der <kbd>Esc</kbd>-Taste abbricht. Es wird auch vom [Dateieingabefeld](/de/docs/Web/HTML/Element/input/file) ausgelöst, wenn der Benutzer den Dateiauswahldialog über die <kbd>Esc</kbd>-Taste oder die Abbrechen-Schaltfläche abbricht und wenn der Benutzer dieselben Dateien erneut auswählt, die zuvor ausgewählt wurden.
+Das **`cancel`**-Ereignis wird von {{HTMLElement("input")}}- und {{HTMLElement("dialog")}}-Elementen ausgelöst. Dieses Ereignis tritt auf, wenn der Benutzer das aktuell geöffnete Dialogfeld schließt, indem er die <kbd>Escape</kbd>-Taste drückt. Es wird auch von der [Dateieingabe](/de/docs/Web/HTML/Element/input/file) ausgelöst, wenn der Benutzer das Dateiauswahlfenster über die <kbd>Escape</kbd>-Taste oder die Abbrechen-Schaltfläche schließt und wenn der Benutzer die zuvor ausgewählten Dateien erneut auswählt.
 
-Dieses Ereignis wird nicht gebubbelt.
+Dieses Ereignis blubbert nicht.
 
-Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
+Wenn ein `<dialog>` mit der <kbd>Escape</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("cancel", (event) => {});
@@ -121,7 +121,7 @@ elem.addEventListener("change", () => {
 
 {{ EmbedLiveSample('Canceling an input element', '100%', '100px') }}
 
-Öffnen Sie den Dateiauswahldialog und schließen Sie dann den Auswahldialog mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beide Aktionen sorgen dafür, dass das cancel-Ereignis ausgelöst wird. Versuchen Sie auch, eine lokale Datei auf Ihrem Computer auszuwählen; öffnen Sie dann erneut das Dateiauswahlfenster und wählen Sie dieselbe Datei erneut aus. Auch dies verursacht das Auslösen des cancel-Ereignisses.
+Öffnen Sie den Dateiauswahldialog und schließen Sie dann das Auswahldialogfeld mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beides führt dazu, dass das cancel-Ereignis ausgelöst wird. Wählen Sie auch eine lokale Datei auf Ihrem Computer aus; öffnen Sie dann das Dateiauswahlfenster erneut und wählen Sie dieselbe Datei erneut aus. Auch dies führt dazu, dass das cancel-Ereignis ausgelöst wird.
 
 ## Spezifikationen
 
@@ -133,6 +133,6 @@ elem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- HTML {{HTMLElement("input")}} Element
-- HTML {{HTMLElement("dialog")}} Element
+- HTML {{HTMLElement("input")}}-Element
+- HTML {{HTMLElement("dialog")}}-Element
 - [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)

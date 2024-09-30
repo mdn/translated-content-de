@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamBYOBRequest: respondWithNewView()-Methode"
+title: "ReadableStreamBYOBRequest: Methode respondWithNewView()"
 short-title: respondWithNewView()
 slug: Web/API/ReadableStreamBYOBRequest/respondWithNewView
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`respondWithNewView()`**-Methode der [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest)-Schnittstelle gibt eine neue Ansicht an, auf die der Verbraucher des zugehörigen lesbaren Bytestreams schreiben sollte, anstatt auf [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view).
+Die **`respondWithNewView()`**-Methode der [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest)-Schnittstelle gibt eine neue Ansicht an, auf die der Verbraucher des zugehörigen lesbaren Byte-Streams schreiben soll, anstatt auf [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view).
 
-Die neue Ansicht muss ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} sein, das eine Ansicht auf denselben speicherinternen Bereich bietet wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view). Nachdem diese Methode aufgerufen wurde, wird die Ansicht, die in die Methode übergeben wurde, übertragen und kann nicht mehr modifiziert werden.
+Die neue Ansicht muss ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} sein, das eine Ansicht auf denselben Speicherbereich bietet wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view). Nachdem diese Methode aufgerufen wurde, wird die in die Methode übergebene Ansicht übertragen und ist nicht mehr veränderbar.
 
-Die Methode ist für Anwendungsfälle gedacht, bei denen eine zugrunde liegende Bytequelle eine `byobRequest.view` intern übertragen muss, bevor sie ihre Antwort abschließt. Beispielsweise kann die Quelle die BYOB-Ansicht an einen separaten Worker-Thread übertragen und warten, bis der Worker sie zurücküberträgt, sobald sie gefüllt wurde.
+Die Methode ist für Anwendungsfälle gedacht, bei denen eine zugrunde liegende Byte-Quelle `byobRequest.view` intern übertragen muss, bevor sie ihre Antwort abschließt. Beispielsweise kann die Quelle die BYOB-Ansicht an einen separaten Worker-Thread übertragen und darauf warten, dass der Worker sie zurück überträgt, sobald sie gefüllt wurde.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ respondWithNewView(view)
 
 - `view`
 
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, auf das der Verbraucher des zugehörigen lesbaren Bytestreams schreiben sollte, anstatt auf [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view).
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, auf das der Verbraucher des zugehörigen lesbaren Byte-Streams schreiben soll, anstatt auf [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view).
 
-    Dies muss eine Ansicht auf denselben speicherinternen Bereich wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) sein und denselben oder weniger Speicher belegen. Genauer gesagt muss es entweder der Puffer der Ansicht oder eine übertragene Version sein, muss denselben `byteOffset` haben und eine `byteLength` (Anzahl geschriebener Bytes), die kleiner oder gleich der der Ansicht ist.
+    Dies muss eine Ansicht auf denselben Speicherbereich sein wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) und den gleichen oder weniger Speicher beanspruchen. Insbesondere muss es entweder der Puffer der Ansicht oder eine übertragene Version sein, muss den gleichen `byteOffset` haben und eine `byteLength` (Anzahl der geschriebenen Bytes), die kleiner oder gleich der der Ansicht ist.
 
 ### Rückgabewert
 
@@ -36,16 +36,16 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("TypeError")}}
 
-  - : Wird ausgelöst, wenn das Quellobjekt kein `ReadableStreamBYOBRequest` ist oder kein zugehöriger Controller vorhanden ist oder der zugehörige interne Array-Puffer nicht existiert oder getrennt ist. Es kann auch ausgelöst werden, wenn die `view` null ist, wenn ein aktiver Leser vorhanden ist, oder nicht null ist, wenn es auf einem geschlossenen Stream aufgerufen wird.
+  - : Wird ausgelöst, wenn das Quellobjekt kein `ReadableStreamBYOBRequest` ist, oder kein zugehöriger Controller vorhanden ist, oder der zugehörige interne Array-Puffer nicht existent oder getrennt ist. Es kann auch ausgelöst werden, wenn die `view`-Länge null ist, wenn ein aktiver Leser vorhanden ist, oder nicht null ist, wenn sie auf einem geschlossenen Stream aufgerufen wird.
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die neue `view` nicht dem speicherinternen Bereich von [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) entspricht. Zum Beispiel, wenn es sich nicht um denselben Puffer (oder eine übertragene Version) handelt, einen anderen `byteOffset` hat oder größer ist als der verfügbare Speicher für die zugrunde liegende Ansicht.
+  - : Wird ausgelöst, wenn die neue `view` nicht mit dem Speicherbereich von [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) übereinstimmt. Beispielsweise, wenn es nicht der gleiche Puffer (oder eine übertragene Version) ist, einen anderen `byteOffset` hat oder größer ist als der verfügbare Speicher der zugrundeliegenden Ansicht.
 
 ## Beispiele
 
-Die zu übertragende Ansicht muss vom gleichen Typ sein wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view), denselben zugrunde liegenden Puffer und denselben Byte-Offset haben und die gleiche oder kleinere `byteLength` besitzen.
+Die zu übertragende Ansicht muss vom gleichen Typ sein wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view), den gleichen zugrunde liegenden Puffer und Byte-Offset haben und die gleiche oder kleinere `byteLength` aufweisen.
 
-Zum Beispiel könnten wir die Ansicht definieren und wie folgt antworten:
+Zum Beispiel könnten wir die Ansicht definieren und wie unten gezeigt antworten:
 
 ```js
 const v = controller.byobRequest.view;
@@ -65,4 +65,4 @@ byobRequest.respondWithNewView(
 
 ## Siehe auch
 
-- [Verwendung lesbarer Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

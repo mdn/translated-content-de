@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`startOffset`**-Attribut definiert einen Versatz vom Start des Pfads zur anfänglichen aktuellen Textposition entlang des Pfads, nachdem der Pfad in das Koordinatensystem des {{SVGElement("textPath")}}-Elements konvertiert wurde.
+Das **`startOffset`** Attribut definiert einen Versatz vom Start des Pfads für die initiale aktuelle Textposition entlang des Pfades, nachdem der Pfad in das Koordinatensystem des {{SVGElement("textPath")}}-Elements umgewandelt wurde.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
@@ -52,7 +52,7 @@ svg {
 
 {{EmbedLiveSample("Example", 400, 200)}}
 
-## Verwendungsnotizen
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -76,15 +76,15 @@ svg {
 
 - `<length-percentage>`
 
-  - : Eine Länge stellt eine Distanz entlang des Pfades dar, gemessen im aktuellen Benutzerkoordinatensystem für das {{SVGElement("textPath")}}-Element.
+  - : Eine Länge stellt eine Distanz entlang des Pfads dar, gemessen im aktuellen Benutzerkoordinatensystem für das {{SVGElement("textPath")}}-Element.
 
-    Wenn ein Prozentsatz angegeben wird, stellt der Startversatz eine prozentuale Distanz entlang des gesamten Pfades dar. Somit markiert `0%` den Startpunkt des Pfades und `100%` den Endpunkt des Pfades.
+    Wenn ein Prozentsatz angegeben wird, dann repräsentiert der Startversatz eine prozentuale Entfernung entlang des gesamten Pfades. Folglich gibt `0%` den Startpunkt des Pfades und `100%` den Endpunkt des Pfades an.
 
 - `<number>`
-  - : Dieser Wert gibt eine Distanz entlang des Pfades an, gemessen im aktuellen Benutzerkoordinatensystem für das `<textPath>`-Element.
+  - : Dieser Wert gibt eine Entfernung entlang des Pfades an, gemessen im aktuellen Benutzerkoordinatensystem für das `<textPath>`-Element.
 
 > [!NOTE]
-> Negative Werte und Werte, die größer sind als die Pfadlänge (z.B. `150%`), sind erlaubt.
+> Negative Werte und Werte, die länger sind als die Pfadlänge (z.B. `150%`), sind erlaubt.
 
 ## Spezifikationen
 

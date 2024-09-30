@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`requireInteraction`** des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt einen booleschen Wert zurück, der angibt, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer sie anklickt oder schließt, anstatt automatisch zu schließen.
+Die **`requireInteraction`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt einen booleschen Wert zurück, der angibt, dass eine Benachrichtigung aktiv bleiben sollte, bis der Benutzer sie anklickt oder schließt, anstatt sich automatisch zu schließen.
 
 > [!NOTE]
-> Dies kann festgelegt werden, wenn die Benachrichtigung zuerst erstellt wird, indem die `requireInteraction`-Option im Optionsobjekt des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors auf `true` gesetzt wird.
+> Dies kann festgelegt werden, wenn die Benachrichtigung zuerst erstellt wird, indem die `requireInteraction`-Option auf `true` im Optionsobjekt des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors gesetzt wird.
 
 ## Wert
 
@@ -27,4 +27,4 @@ Ein boolescher Wert.
 
 ## Siehe auch
 
-- [Verwendung der Notifications-API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

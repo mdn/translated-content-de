@@ -3,14 +3,12 @@ title: "WebGLRenderingContext: getProgramParameter() Methode"
 short-title: getProgramParameter()
 slug: Web/API/WebGLRenderingContext/getProgramParameter
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getProgramParameter()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über das
-angegebene Programm zurück.
+Die **`WebGLRenderingContext.getProgramParameter()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über das angegebene Programm zurück.
 
 ## Syntax
 
@@ -24,47 +22,39 @@ getProgramParameter(program, pname)
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), von dem die Parameterinformationen abgerufen werden sollen.
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen angibt. Mögliche Werte:
 
     - `gl.DELETE_STATUS`
-      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
-        ob das Programm zur Löschung markiert ist.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt, ob das Programm für die Löschung markiert ist.
     - `gl.LINK_STATUS`
-      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
-        ob der letzte Link-Vorgang erfolgreich war.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der letzte Link-Vorgang erfolgreich war.
     - `gl.VALIDATE_STATUS`
-      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
-        ob der letzte Validierungsvorgang erfolgreich war.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der letzte Validierungsvorgang erfolgreich war.
     - `gl.ATTACHED_SHADERS`
-      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
-        Anzahl der an ein Programm angehängten Shader angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der an ein Programm angehängten Shader angibt.
     - `gl.ACTIVE_ATTRIBUTES`
-      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
-        Anzahl der aktiven Attributvariablen in einem Programm angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der aktiven Attributvariablen in einem Programm angibt.
     - `gl.ACTIVE_UNIFORMS`
 
-      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
-        Anzahl der aktiven Uniform-Variablen in einem Programm angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der aktiven Uniformvariablen in einem Programm angibt.
 
-    Bei der Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}}
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER_MODE`
       - : Gibt ein
-        [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Puffer-Modus anzeigt, wenn Transform-Feedback
-        aktiv ist. Kann `gl.SEPARATE_ATTRIBS` oder
+        [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Puffermodus angibt, wenn Transform-Feedback aktiv ist. Kann `gl.SEPARATE_ATTRIBS` oder
         `gl.INTERLEAVED_ATTRIBS` sein.
     - `gl.TRANSFORM_FEEDBACK_VARYINGS`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types)
-        zurück, das die Anzahl der in Transform-Feedback-Modus zu erfassenden
-        Varying-Variablen angibt.
+        zurück, das die Anzahl der Variablen angibt, die im Transform-Feedback-Modus erfasst werden sollen.
     - `gl.ACTIVE_UNIFORM_BLOCKS`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types)
-        zurück, das die Anzahl der Uniform-Blöcke mit aktiven Uniforms angibt.
+        zurück, das die Anzahl der Uniform-Blöcke angibt, die aktive Uniforms enthalten.
 
 ### Rückgabewert
 
-Gibt die angeforderten Programminformationen zurück (wie mit `pname` angegeben).
+Gibt die angeforderten Programminformationen zurück (wie durch `pname` angegeben).
 
 ## Beispiele
 

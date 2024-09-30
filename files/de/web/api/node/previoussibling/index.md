@@ -1,5 +1,5 @@
 ---
-title: "Node: previousSibling-Eigenschaft"
+title: "Node: previousSibling Eigenschaft"
 short-title: previousSibling
 slug: Web/API/Node/previousSibling
 l10n:
@@ -9,21 +9,21 @@ l10n:
 {{APIRef("DOM")}}
 
 Die schreibgeschützte **`previousSibling`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
-gibt den Knoten zurück, der dem angegebenen unmittelbar in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des übergeordneten Knotens vorausgeht,
+gibt den Knoten zurück, der unmittelbar vor dem angegebenen Knoten in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste seines Elternknotens steht,
 oder `null`, wenn der angegebene Knoten der erste in dieser Liste ist.
 
 > [!NOTE]
-> Browser fügen Textknoten in ein Dokument ein, um Leerzeichen im Quellmarkup darzustellen.
-> Daher kann ein Knoten, der zum Beispiel mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
-> oder `Node.previousSibling` erhalten wird,
-> auf einen Leerzeichen-Textknoten verweisen, anstatt auf das eigentliche Element, das der Autor beabsichtigte zu erhalten.
+> Browser fügen einem Dokument Textknoten hinzu, um Leerzeichen im Quellmarkup darzustellen.
+> Daher kann ein Knoten, der beispielsweise mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
+> oder `Node.previousSibling` abgerufen wird,
+> auf einen Leerzeichentextknoten verweisen, anstatt auf das tatsächliche Element, das der Autor abrufen wollte.
 >
-> Für weitere Informationen siehe [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace).
+> Siehe [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace) für weitere Informationen.
 >
 > Sie können [`previousElementSibling`](/de/docs/Web/API/Element/previousElementSibling) verwenden,
 > um den vorherigen Elementknoten zu erhalten (Überspringen von Textknoten und anderen nicht-Elementknoten).
 >
-> Um in entgegen gesetzter Richtung durch die Liste der Kindknoten zu navigieren, verwenden Sie [Node.nextSibling](/de/docs/Web/API/Node/nextSibling).
+> Um in die entgegengesetzte Richtung durch die Liste der Kindknoten zu navigieren, verwenden Sie [Node.nextSibling](/de/docs/Web/API/Node/nextSibling).
 
 ## Wert
 
@@ -32,11 +32,11 @@ oder `null`, wenn es keine gibt.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie `previousSibling` funktioniert, sowohl mit als auch ohne Textknoten, die mit Elementen gemischt sind.
+Die folgenden Beispiele zeigen, wie `previousSibling` funktioniert, mit und ohne zwischen den Elementen gemischte Textknoten.
 
 ### Erstes Beispiel
 
-In diesem Beispiel haben wir eine Reihe von `img`-Elementen, die direkt nebeneinander liegen, ohne Leerzeichen dazwischen.
+In diesem Beispiel haben wir eine Reihe von `img`-Elementen, die direkt nebeneinander stehen, ohne Leerzeichen dazwischen.
 
 ```html
 <img id="b0" /><img id="b1" /><img id="b2" />
@@ -49,7 +49,7 @@ document.getElementById("b2").previousSibling.id; // "b1"
 
 ### Zweites Beispiel
 
-In diesem Beispiel gibt es Leerzeichen-Textknoten (Zeilenumbrüche) zwischen den `img`-Elementen.
+In diesem Beispiel befinden sich Leerzeichentextknoten (Zeilenumbrüche) zwischen den `img`-Elementen.
 
 ```html
 <img id="b0" />

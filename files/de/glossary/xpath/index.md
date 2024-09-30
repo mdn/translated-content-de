@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**XPath** ist eine Abfragesprache, die auf Abschnitte und Inhalte in einem [XML](/de/docs/Glossary/XML)-Dokument zugreifen kann.
+**XPath** ist eine Abfragesprache, die Zugriff auf Abschnitte und Inhalte in einem [XML](/de/docs/Glossary/XML)-Dokument ermöglicht.
 
 ## Siehe auch
 

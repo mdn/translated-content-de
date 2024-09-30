@@ -7,22 +7,22 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieses Objekt enthält Details, die das Injektionsziel für CSS und JavaScript angeben. Es wird in {{WebExtAPIRef("scripting.executeScript()")}}, {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} verwendet.
+Dieses Objekt enthält Details, die das Einfügen von Zielen für CSS und JavaScript spezifizieren. Es wird in {{WebExtAPIRef("scripting.executeScript()")}}, {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} verwendet.
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 
 - `allFrames` {{optional_inline}}
 
-  - : `boolean`. Gibt an, ob das Script oder CSS in alle Frames innerhalb des Tabs injiziert wird. Standardmäßig `false`. Kann nicht `true` sein, wenn `frameIds` angegeben ist.
+  - : `boolean`. Gibt an, ob das Skript oder CSS in alle Frames innerhalb des Tabs eingefügt wird. Standardwert ist `false`. Kann nicht `true` sein, wenn `frameIds` angegeben ist.
 
 - `frameIds` {{optional_inline}}
 
-  - : `array` von `number`. Array der IDs der Frames, in die injiziert werden soll.
+  - : `Array` von `number`. Array mit den IDs der Frames, in die eingefügt werden soll.
 
 - `tabId`
-  - : `number`. Die ID des Tabs, in den injiziert werden soll.
+  - : `number`. Die ID des Tabs, in den eingefügt werden soll.
 
 ## Browser-Kompatibilität
 

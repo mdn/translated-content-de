@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/meter#value)-Attribut des Elements wider. Wenn kein `value` gesetzt ist, wird der Wert von [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0` verwendet, je nachdem, welcher höher ist.
+Die **`value`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/meter#value)-Attribut des Elements wider. Wenn kein `value` gesetzt ist, wird der Wert zu [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem welcher größer ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl. Standardmäßig entweder [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem, welcher höher ist, falls nicht definiert.
+Eine Zahl. Standardmäßig entweder [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem welcher größer ist, wenn nicht definiert.
 
 ## Beispiele
 

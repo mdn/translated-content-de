@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feMerge>`** SVG-Element ermöglicht es, Filtereffekte gleichzeitig statt sequentiell anzuwenden. Dies wird erreicht, indem andere Filter ihre Ausgabe über das {{ SVGAttr("result") }}-Attribut speichern und dann in einem {{ SVGElement("feMergeNode") }}-Kind darauf zugreifen.
+Das **`<feMerge>`** SVG-Element erlaubt es, Filtereffekte gleichzeitig statt sequenziell anzuwenden. Dies wird erreicht, indem andere Filter ihr Ergebnis über das Attribut {{ SVGAttr("result") }} speichern und dann in einem Kindelement {{ SVGElement("feMergeNode") }} darauf zugreifen.
 
 ## Verwendungskontext
 
@@ -43,7 +43,7 @@ Das **`<feMerge>`** SVG-Element ermöglicht es, Filtereffekte gleichzeitig statt
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -55,9 +55,9 @@ Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
-- {{SVGAttr("flood-color")}}-Attribut
-- {{SVGAttr("flood-opacity")}}-Attribut
+- [SVG Filterprimitive Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- Attribut {{SVGAttr("flood-color")}}
+- Attribut {{SVGAttr("flood-opacity")}}
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -75,4 +75,4 @@ Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

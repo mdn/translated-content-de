@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: Methode createConicGradient()"
+title: "CanvasRenderingContext2D: createConicGradient()-Methode"
 short-title: createConicGradient()
 slug: Web/API/CanvasRenderingContext2D/createConicGradient
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.createConicGradient()`**-Methode der Canvas 2D API erstellt einen Farbverlauf um einen Punkt mit angegebenen Koordinaten.
+Die **`CanvasRenderingContext2D.createConicGradient()`**-Methode der Canvas 2D API erstellt einen Gradienten um einen Punkt mit gegebenen Koordinaten.
 
-Diese Methode gibt einen konischen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Farbverlauf zunächst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
+Diese Methode gibt einen konischen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Gradienten zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Farbverlaufkoordinaten sind global, d.h., relativ zum aktuellen Koordinatenraum. Wenn auf eine Form angewendet, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Gradient-Koordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ createConicGradient(startAngle, x, y)
 ### Parameter
 
 - `startAngle`
-  - : Der Winkel, bei dem der Farbverlauf beginnt, in Radiant. Der Winkel beginnt von einer Linie, die horizontal rechts vom Zentrum verläuft, und schreitet im Uhrzeigersinn fort.
+  - : Der Winkel, bei dem der Gradienten beginnen soll, in Radiant. Der Winkel beginnt bei einer Linie, die horizontal rechts vom Zentrum verläuft, und schreitet im Uhrzeigersinn voran.
 - `x`
-  - : Die x-Achsen-Koordinate des Zentrums des Farbverlaufs.
+  - : Die x-Achsen-Koordinate des Zentrums des Gradienten.
 - `y`
-  - : Die y-Achsen-Koordinate des Zentrums des Farbverlaufs.
+  - : Die y-Achsen-Koordinate des Zentrums des Gradienten.
 
 ### Rückgabewert
 
@@ -37,9 +37,9 @@ createConicGradient(startAngle, x, y)
 
 ## Beispiele
 
-### Füllen eines Rechtecks mit einem konischen Farbverlauf
+### Ein Rechteck mit einem konischen Gradienten füllen
 
-Dieses Beispiel initialisiert einen konischen Farbverlauf mit der `createConicGradient()`-Methode. Fünf Farbstopps werden um die Zentrumskoordinate herum erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und in einem gefüllten Rechteck angezeigt.
+Dieses Beispiel initialisiert einen konischen Gradienten mit der Methode `createConicGradient()`. Fünf Farbstopps um die Zentrumkoordinate werden dann erstellt. Schließlich wird der Gradient dem Canvas-Kontext zugewiesen und in ein gefülltes Rechteck gerendert.
 
 #### HTML
 

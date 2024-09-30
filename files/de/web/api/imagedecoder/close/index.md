@@ -1,5 +1,5 @@
 ---
-title: "ImageDecoder: close()-Methode"
+title: "ImageDecoder: close() Methode"
 short-title: close()
 slug: Web/API/ImageDecoder/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces beendet alle noch ausstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `ImageDecoder` geschlossen.
+Das folgende Beispiel schließt den `ImageDecoder`.
 
 ```js
 imageDecoder.close();

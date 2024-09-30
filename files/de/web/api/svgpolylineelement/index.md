@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGPolylineElement`**-Schnittstelle ermöglicht den Zugriff auf die Eigenschaften von {{SVGElement("polyline")}}-Elementen sowie Methoden zur Manipulation dieser.
+Die **`SVGPolylineElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("polyline")}}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
@@ -18,7 +18,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGeometry
 - [`SVGPolylineElement.animatedPoints`](/de/docs/Web/API/SVGPolylineElement/animatedPoints) {{ReadOnlyInline}}
   - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den animierten Wert des {{SVGAttr("points")}}-Attributs des Elements darstellt. Wenn das {{SVGAttr("points")}}-Attribut nicht animiert wird, enthält es denselben Wert wie die `points`-Eigenschaft.
 - [`SVGPolylineElement.points`](/de/docs/Web/API/SVGPolylineElement/points)
-  - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den Basiswert (d.h. statischen Wert) des {{SVGAttr("points")}}-Attributs des Elements darstellt. Änderungen über das [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Objekt spiegeln sich im {{SVGAttr("points")}}-Attribut wider und umgekehrt.
+  - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den Basiswert (d. h. statischen Wert) des {{SVGAttr("points")}}-Attributs des Elements darstellt. Änderungen über das [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Objekt werden im {{SVGAttr("points")}}-Attribut und umgekehrt reflektiert.
 
 ## Instanz-Methoden
 

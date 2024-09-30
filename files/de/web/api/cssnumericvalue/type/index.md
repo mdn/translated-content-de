@@ -8,7 +8,11 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`type()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle gibt den Typ von `CSSNumericValue` zurück, einer von `angle`, `flex`, `frequency`, `length`, `resolution`, `percent`, `percentHint` oder `time`.
+Die **`type()`**-Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den Typ von
+`CSSNumericValue` zurück, einer von `angle`, `flex`,
+`frequency`, `length`, `resolution`,
+`percent`, `percentHint` oder `time`.
 
 ## Syntax
 
@@ -22,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`CSSNumericType`](/de/docs/Web/API/CSSNumericType) Objekt.
+Ein [`CSSNumericType`](/de/docs/Web/API/CSSNumericType)-Objekt.
 
 ### Ausnahmen
 

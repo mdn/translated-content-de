@@ -11,7 +11,7 @@ Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quell
 
 {{EmbedInteractiveExample("pages/css/border-image-source.html")}}
 
-Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Border Image angewendet werden.
+Die Eigenschaft {{cssxref("border-image-slice")}} wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf das endgültige Border Image angewendet werden.
 
 ## Syntax
 
@@ -34,9 +34,9 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Border Image verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Aussehen angezeigt.
+  - : Es wird kein Border Image verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Erscheinungsbild angezeigt.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz, die für den Rand verwendet werden soll.
+  - : Bildreferenz zur Verwendung für den Rand.
 
 ## Formale Definition
 
@@ -71,4 +71,4 @@ border-image-source: unset;
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [Border Images in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Bilder in CSS-Rändern: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

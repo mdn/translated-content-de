@@ -7,10 +7,10 @@ l10n:
 
 {{MathMLRef}}{{Deprecated_Header}}
 
-Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht es, Aktionen an mathematische Ausdrücke zu binden. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die Attribute `actiontype` und `selection` berücksichtigen, um benutzerdefinierte Verhaltensweisen zu implementieren.
+Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht das Binden von Aktionen an mathematische Ausdrücke. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die Attribute `actiontype` und `selection` berücksichtigen, um benutzerdefinierte Verhaltensweisen zu implementieren.
 
 > [!NOTE]
-> Historisch gesehen bot dieses Element einen Mechanismus, um MathML-Formeln interaktiv zu machen. Heutzutage wird empfohlen, sich auf [JavaScript](/de/docs/Web/JavaScript) und andere Webtechnologien zu verlassen, um diesen Anwendungsfall zu implementieren.
+> Historisch gesehen bot dieses Element einen Mechanismus, um MathML-Formeln interaktiv zu gestalten. Heutzutage wird empfohlen, auf [JavaScript](/de/docs/Web/JavaScript) und andere Webtechnologien zurückzugreifen, um diesen Anwendungsfall zu realisieren.
 
 ## Attribute
 
@@ -18,19 +18,18 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `actiontype` {{Deprecated_Inline}} {{Non-standard_Inline}}
 
-  - : Die Aktion, die angibt, was mit diesem Element passiert. Besonderes Verhalten
-    für die folgenden Werte wurde von einigen Browsern implementiert:
+  - : Die Aktion, die spezifiziert, was für dieses Element geschieht. Ein spezielles Verhalten für die folgenden Werte wurde von einigen Browsern implementiert:
 
-    - `statusline`: Wenn es einen Klick auf den _Ausdruck_ gibt oder der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statusleiste des Browsers gesendet. Die Syntax ist: `<maction actiontype="statusline"> expression message </maction>`.
-    - `toggle`: Wenn es einen Klick auf den Teilausdruck gibt, wird die Anzeige der ausgewählten Teilausdrücke abwechselnd angezeigt. Daher wird bei jedem Klick der `selection`-Wert inkrementiert.
-      Die Syntax ist: `<maction actiontype="toggle" selection="positive-integer" > expression1 expression2 expressionN </maction>`.
+    - `statusline`: Wenn auf den _Ausdruck_ geklickt wird oder der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statuszeile des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> expression message </maction>`.
+    - `toggle`: Wenn auf den Unterausdruck geklickt wird, wechselt die Anzeige zwischen den ausgewählten Unterausdrücken. Daher erhöht jeder Klick den `selection`-Wert.
+      Die Syntax lautet: `<maction actiontype="toggle" selection="positive-integer" > expression1 expression2 expressionN </maction>`.
 
 - `selection` {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Das aktuell sichtbare Kindelement, das nur für `actiontype="toggle"` oder nicht standardmäßige `actiontype`-Werte berücksichtigt wird. Der Standardwert ist `1`, was dem ersten Kindelement entspricht.
+  - : Das aktuell sichtbare Kindelement, das nur für `actiontype="toggle"` oder nicht-standardisierte `actiontype`-Werte berücksichtigt wird. Der Standardwert ist `1`, was dem ersten Kindelement entspricht.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet den `actiontype` "toggle":
+Das folgende Beispiel verwendet das "toggle" `actiontype`:
 
 ```html
 <p>

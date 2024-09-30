@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`hasAttributes()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element Attribute hat oder nicht.
+Die **`hasAttributes()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt einen boolean-Wert zurück, der angibt, ob das aktuelle Element Attribute hat oder nicht.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 

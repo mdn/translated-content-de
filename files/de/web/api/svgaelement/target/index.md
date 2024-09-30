@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`SVGAElement.target`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt zurück, das den Teil eines Ziel-Fensters, Rahmens oder Bereichs angibt, in den ein Dokument geöffnet werden soll, wenn ein Link aktiviert wird.
+Die schreibgeschützte Eigenschaft **`SVGAElement.target`** des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt zurück, das den Teil eines Ziel-Fensters, -Rahmens oder -Bereichs angibt, in den ein Dokument geöffnet werden soll, wenn ein Link aktiviert wird.
 
-Diese Eigenschaft wird verwendet, wenn es mehrere mögliche Ziele für die Endressource gibt, wie zum Beispiel, wenn das übergeordnete Dokument ein HTML- oder XHTML-Dokument mit mehreren Rahmen ist.
+Diese Eigenschaft wird verwendet, wenn es mehrere mögliche Ziele für die abschließende Ressource gibt, wie zum Beispiel, wenn das übergeordnete Dokument ein mehrrahmiges HTML- oder XHTML-Dokument ist.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das Ziel der Endressource angibt, die das Dokument öffnet, wenn der Link aktiviert wird.
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das Ziel der abschließenden Ressource angibt, die das Dokument öffnet, wenn der Link aktiviert wird.
 
-Beispielwerte sind [hier](https://www.w3.org/TR/2011/REC-SVG11-20110816/linking.html#AElementTargetAttribute) zu finden.
+Beispielwerte finden Sie [hier](https://www.w3.org/TR/2011/REC-SVG11-20110816/linking.html#AElementTargetAttribute)
 
 ## Beispiele
 
-Der Code stammt aus dem ["SVGAElement-Beispielcode"](/de/docs/Web/API/SVGAElement#example).
+Der Code stammt aus dem ["Beispielcode von SVGAElement"](/de/docs/Web/API/SVGAElement#example)
 
 ```js
 // ...

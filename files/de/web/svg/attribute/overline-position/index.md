@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das `overline-position` Attribut repräsentiert die ideale vertikale Position der Überlinie. Die Überlinienposition wird im Koordinatensystem der Schrift ausgedrückt.
+Das Attribut `overline-position` stellt die ideale vertikale Position der Überstrichlinie dar. Die Position des Überstrichs wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -35,7 +35,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
         <a
           href="https://www.w3.org/TR/SVG/fonts.html#FontFaceElementOverlinePositionAttribute"
           rel="external"
-          >SVG 1.1 (2. Auflage)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>

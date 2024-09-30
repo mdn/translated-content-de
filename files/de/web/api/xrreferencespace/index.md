@@ -7,49 +7,49 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{secureContext_header}}
 
-Die **`XRReferenceSpace`**-Schnittstelle des WebXR Device API beschreibt das Koordinatensystem für eine spezifische verfolgte Entität oder ein Objekt innerhalb der virtuellen Welt unter Verwendung eines spezifizierten Verhaltens zur Verfolgung. Das Verfolgungsverhalten wird durch den ausgewählten [Referenzraumtyp](#referenzraumtypen) definiert. Es erweitert die Basisklasse [`XRSpace`](/de/docs/Web/API/XRSpace), indem es Unterstützung für mehrere unterschiedliche Verfolgungsverhalten hinzufügt sowie die Möglichkeit, einen neuen Referenzraum zu beantragen, der die Offset-Transformation zwischen dem verfolgten Objekt und einem anderen Ort in der Welt beschreibt.
+Die **`XRReferenceSpace`**-Schnittstelle der WebXR Device API beschreibt das Koordinatensystem für eine bestimmte verfolgte Entität oder ein Objekt in der virtuellen Welt unter Verwendung eines spezifizierten Trackingverhaltens. Das Trackingverhalten wird durch den ausgewählten [Referenzraumtyp](#referenzraumtypen) definiert. Sie erweitert die Basisklasse [`XRSpace`](/de/docs/Web/API/XRSpace) durch die Unterstützung mehrerer unterschiedlicher Trackingverhalten und ermöglicht es, einen neuen Referenzraum anzufordern, der die Versatztransformation zwischen dem verfolgten Objekt und einem anderen Ort in der Welt beschreibt.
 
-Alle Referenzräume – mit der einzigen Ausnahme der begrenzten Referenzräume – werden mittels des Typs `XRReferenceSpace` beschrieben. Begrenzte Räume werden als [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)-Objekte implementiert. Diese sind spezielle Räume, die es ermöglichen, einen Perimeter festzulegen, innerhalb dessen es für den Betrachter "sicher" ist, sich zu bewegen. Für XR-Systeme, die es dem Benutzer erlauben, sich physisch zu bewegen, wie z.B. solche, die Bewegungen mit einer realen Kamera verfolgen, legt diese Grenze die Ränder des Bereichs fest, in dem sich der Benutzer bewegen kann, sei es aufgrund physischer Hindernisse oder aufgrund von Einschränkungen des XR-Equipments. Siehe den Artikel [Verwendung von begrenzten Referenzräumen, um den Betrachter zu schützen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces) für weitere Informationen zur Verwendung von Grenzen, um den Benutzer vor Kollisionen mit sowohl physischen als auch virtuellen Hindernissen zu bewahren.
+Alle Referenzräume - mit der einzigen Ausnahme der begrenzten Referenzräume - werden unter Verwendung des `XRReferenceSpace`-Typs beschrieben. Begrenzte Räume werden als [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)-Objekte implementiert. Diese sind spezielle Räume, die es Ihnen ermöglichen, einen Bereich festzulegen, innerhalb dessen es für den Betrachter "sicher" ist, sich zu bewegen. Bei XR-Systemen, die es dem Benutzer erlauben, sich physisch zu bewegen, wie z. B. solche, die die Bewegung mit einer realen Kamera verfolgen, legt diese Grenze die Bereiche fest, in denen sich der Benutzer bewegen kann, sei es aufgrund physischer Hindernisse oder aufgrund von Einschränkungen der XR-Hardware. Weitere Informationen zur Verwendung von Grenzen, um den Benutzer vor Kollisionen mit physischen und virtuellen Hindernissen zu schützen, finden Sie im Artikel [Verwendung begrenzter Referenzräume, um den Betrachter zu schützen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _`XRReferenceSpace` erbt die Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget), definiert jedoch keine zusätzlichen Eigenschaften._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_`XRReferenceSpace` erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget) zusätzlich zu den folgenden Methoden._
+_`XRReferenceSpace` erbt zusätzlich zu den folgenden Methoden auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace)
-  - : Erstellt und gibt ein neues Referenzraumobjekt des gleichen Typs zurück, auf dem Sie die Methode aufrufen (also entweder `XRReferenceSpace` oder [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)). Der neue Referenzraum kann verwendet werden, um ein Koordinatensystem vom Referenzraum des Objekts, auf dem die Methode aufgerufen wird, in ein anderes Koordinatensystem zu transformieren. Dies ist nützlich für die Positionierung von Objekten während des Renderings und um die notwendigen Transformationen durchzuführen, wenn die Position und/oder die Ausrichtung des Betrachters im 3D-Raum geändert werden.
+  - : Erstellt und gibt ein neues Referenzraumobjekt des gleichen Typs zurück, wie das, auf dem Sie die Methode aufrufen (entweder `XRReferenceSpace` oder [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)). Der neue Referenzraum kann verwendet werden, um eine Koordinate vom Referenzraum des Objekts, auf dem die Methode aufgerufen wird, in einen anderen Koordinatenraum zu transformieren. Dies ist nützlich, um Objekte beim Rendern zu positionieren und die erforderlichen Transformationen beim Ändern der Position und/oder Orientierung des Betrachters im 3D-Raum durchzuführen.
 
 ## Ereignisse
 
 - [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)
 
-  - : Das `reset`-Ereignis wird an ein `XRReferenceSpace`-Objekt gesendet, wenn der Browser eine Diskontinuität zwischen dem Ursprung des verfolgten Objekts und der Umgebung oder Position des Benutzers erkennt. Dies kann zum Beispiel passieren, nachdem der Benutzer sein XR-Gerät neu kalibriert hat oder wenn das Gerät seinen Ursprung automatisch anpasst, nachdem es die Verfolgung verloren und wiedererlangt hat.
+  - : Das `reset`-Ereignis wird an ein `XRReferenceSpace`-Objekt gesendet, wenn der Browser eine Diskontinuität zwischen dem Ursprung des verfolgten Objekts und der Umgebung oder Position des Benutzers erkennt. Dies kann beispielsweise auftreten, nachdem der Benutzer sein XR-Gerät neu kalibriert hat, oder wenn das Gerät seinen Ursprung automatisch anpasst, nachdem das Tracking verloren gegangen und wiedererlangt wurde.
 
 ## Referenzraumtypen
 
-Die Arten von Referenzräumen sind in der folgenden Tabelle aufgeführt, mit kurzen Informationen zu ihren Anwendungsfällen und welche Schnittstelle verwendet wird, um sie zu implementieren.
+Die Typen von Referenzräumen sind in der untenstehenden Tabelle aufgelistet, mit kurzen Informationen über ihre Anwendungsfälle und die Schnittstelle, die zu ihrer Implementierung verwendet wird.
 
 - `bounded-floor`
-  - : Ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) ähnlich dem `local`-Typ, außer dass der Benutzer erwartet wird, nicht über eine vorbestimmte Grenze hinauszugehen, die durch die [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) im zurückgegebenen Objekt angegeben ist.
+  - : Ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace), ähnlich wie der Typ `local`, außer dass vom Benutzer erwartet wird, dass er sich nicht außerhalb eines vorgegebenen Grenzbereichs bewegt, der durch die [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) im zurückgegebenen Objekt festgelegt wird.
 - `local`
-  - : Ein `XRReferenceSpace`-Verfolgungsraum, dessen ursprünglicher Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Erstellung der Sitzung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Es wird nicht erwartet, dass der Benutzer sich viel oder über seine Ausgangsposition hinaus bewegt, und die Verfolgung ist für diesen Anwendungsfall optimiert. Für Geräte mit sechs Freiheitsgraden (6DoF)-Verfolgung versucht der `local`-Referenzraum, den Ursprung relativ zur Umgebung stabil zu halten.
+  - : Ein `XRReferenceSpace`-Trackingraum, dessen nativer Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Erstellung der Sitzung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Es wird nicht erwartet, dass der Benutzer sich wesentlich, wenn überhaupt, über seine Ausgangsposition hinaus bewegt, und das Tracking ist für diesen Anwendungsfall optimiert. Für Geräte mit sechs Freiheitsgraden (6DoF) versucht der `local`-Referenzraum, den Ursprung stabil relativ zur Umgebung zu halten.
 - `local-floor`
-  - : Ein `XRReferenceSpace` ähnlich dem `local`-Typ, außer dass die Ausgangsposition an einem sicheren Ort platziert wird, damit der Betrachter stehen kann, wobei der Wert der y-Achse auf 0 am Fußbodenniveau liegt. Wenn dieser Fußboden nicht bekannt ist, wird der [User-Agent](/de/docs/Glossary/user_agent) das Fußbodenniveau schätzen. Wenn das geschätzte Fußbodenniveau ungleich null ist, wird erwartet, dass der Browser es so rundet, dass z. B. das [Fingerprinting](/de/docs/Glossary/Fingerprinting) vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
+  - : Ein `XRReferenceSpace`, ähnlich wie der Typ `local`, außer dass die Ausgangsposition an einem sicheren Ort für den Betrachter platziert wird, wobei der Wert der y-Achse auf 0 am Boden liegt. Wenn dieser Boden nicht bekannt ist, schätzt der [User-Agent](/de/docs/Glossary/user_agent) das Bodenniveau. Wenn das geschätzte Bodenniveau nicht null ist, wird erwartet, dass der Browser es so rundet, dass [Fingerprinting](/de/docs/Glossary/Fingerprinting) vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
 - `unbounded`
-  - : Ein `XRReferenceSpace`-Verfolgungsraum, der dem Benutzer vollständige Bewegungsfreiheit erlaubt, möglicherweise über extrem lange Distanzen von ihrem Ursprungspunkt hinweg. Der Betrachter wird überhaupt nicht verfolgt; die Verfolgung ist für Stabilität um die aktuelle Position des Benutzers optimiert, sodass sich der ursprüngliche Ursprung nach Bedarf verschieben kann, um dies zu ermöglichen.
+  - : Ein `XRReferenceSpace`-Trackingraum, der dem Benutzer völlige Bewegungsfreiheit ermöglicht, möglicherweise über extrem große Distanzen vom Ursprungspunkt. Der Betrachter wird überhaupt nicht verfolgt; das Tracking ist auf Stabilität um die aktuelle Position des Benutzers optimiert, sodass der native Ursprung bei Bedarf entsprechend driften kann.
 - `viewer`
-  - : Ein `XRReferenceSpace`-Verfolgungsraum, dessen ursprünglicher Ursprung die Position und Ausrichtung des Betrachters verfolgt. Dies wird für Umgebungen verwendet, in denen sich der Benutzer physisch bewegen kann, und wird von allen Instanzen von [`XRSession`](/de/docs/Web/API/XRSession) unterstützt, sowohl immersiv als auch inline, obwohl es für Inline-Sitzungen am nützlichsten ist. Es ist besonders nützlich, um den Abstand zwischen dem Betrachter und einer Eingabe zu bestimmen oder beim Arbeiten mit Offset-Räumen. Andernfalls wird in der Regel häufiger einer der anderen Referenzraumtypen verwendet.
+  - : Ein `XRReferenceSpace`-Trackingraum, dessen nativer Ursprung die Position und Orientierung des Betrachters verfolgt. Dies wird in Umgebungen verwendet, in denen sich der Benutzer physisch bewegen kann, und wird von allen Instanzen von [`XRSession`](/de/docs/Web/API/XRSession) unterstützt, sowohl immersiv als auch inline, obwohl es für inline-Sitzungen am nützlichsten ist. Es ist besonders nützlich, um den Abstand zwischen dem Betrachter und einer Eingabe zu bestimmen oder beim Arbeiten mit Versatzräumen. In der Regel wird jedoch eine der anderen Referenzraumtypen häufiger verwendet.
 
 ## Nutzungshinweise
 
 ### Erstellen eines XRReferenceSpace
 
-Es gibt zwei Situationen, in denen Sie einen `XRReferenceSpace` benötigen. Die erste ist, wenn Sie Ihre Szene einrichten und einen Referenzraum erhalten müssen, der den Standpunkt des Benutzers auf die Welt während der Dauer der [`XRSession`](/de/docs/Web/API/XRSession) repräsentiert. Dazu rufen Sie die Methode [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) von [`XRSession`](/de/docs/Web/API/XRSession) auf und geben den Referenzraumtyp an, den Sie erhalten möchten.
+Es gibt zwei Situationen, in denen Sie einen `XRReferenceSpace` benötigen. Die erste ist, wenn Sie Ihre Szene einrichten und einen Referenzraum benötigen, um den Standpunkt des Benutzers auf die Welt für die Dauer der [`XRSession`](/de/docs/Web/API/XRSession) zu repräsentieren. Um dies zu tun, rufen Sie die Methode [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) von [`XRSession`](/de/docs/Web/API/XRSession) auf und geben Sie den gewünschten Referenzraumtyp an.
 
 ```js
 xrSession.requestReferenceSpace("local").then((refSpace) => {
@@ -58,9 +58,9 @@ xrSession.requestReferenceSpace("local").then((refSpace) => {
 });
 ```
 
-Die andere Situation, in der Sie möglicherweise einen neuen Referenzraum benötigen, ist, wenn Sie den Ursprung an eine neue Position verschieben müssen; dies wird häufig getan, wenn Ihr Projekt Benutzern erlaubt, sich durch die Umgebung zu bewegen, indem Eingabegeräte wie die Tastatur, Maus, das Touchpad oder Spielkontrollen verwendet werden, die nicht über das XR-Gerät verbunden sind. Da der Ursprung in der Regel der Standort des Benutzers im Raum ist, müssen Sie den Ursprung ändern, um seine Bewegung und alle Orientierungsänderungen widerzuspiegeln.
+Die andere Situation, in der Sie möglicherweise einen neuen Referenzraum erwerben müssen, ist, wenn Sie den Ursprung an eine neue Position verschieben müssen; dies wird häufig durchgeführt, wenn Ihr Projekt beispielsweise dem Benutzer erlaubt, sich mit Eingabegeräten wie Tastatur, Maus, Touchpad oder Spielsteuerungen, die nicht mit dem XR-Gerät verbunden sind, durch die Umgebung zu bewegen. Da der Ursprung typischerweise der Standort des Benutzers im Raum sein wird, müssen Sie den Ursprung ändern, um seine Bewegung und jegliche Orientierung, die er vornimmt, widerzuspiegeln.
 
-Um die Sicht des Benutzers auf die Welt zu verschieben oder zu drehen, müssen Sie den `XRReferenceSpace` ändern, der diesen Standpunkt repräsentiert. `XRReferenceSpace` ist jedoch unveränderlich, daher müssen Sie stattdessen einen neuen Referenzraum erstellen, der den geänderten Standpunkt repräsentiert. Dies ist einfach unter Verwendung der [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace)-Methode.
+Um die Ansicht des Benutzers der Welt zu verschieben oder zu drehen, müssen Sie den `XRReferenceSpace` ändern, der diesen Standpunkt darstellt. Da `XRReferenceSpace` unveränderlich ist, müssen Sie stattdessen einen neuen Referenzraum erstellen, der den veränderten Standpunkt darstellt. Dies ist leicht mit der Methode [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) möglich.
 
 ```js
 let offsetTransform = new XRRigidTransform(
@@ -70,11 +70,11 @@ let offsetTransform = new XRRigidTransform(
 xrReferenceSpace = xrReferenceSpace.getOffsetReferenceSpace(offsetTransform);
 ```
 
-Dies ersetzt den `XRReferenceSpace` durch einen neuen, dessen Ursprung und Orientierung so angepasst sind, dass der neue Ursprung relativ zum aktuellen Ursprung bei (2, 0, 1) liegt und gedreht wird, wobei ein Einheits-[Quaternio](/de/docs/Glossary/quaternion) verwendet wird, das den Raum so ausrichtet, dass der Betrachter direkt nach oben sieht, relativ zur vorherigen Weltorientierung.
+Dies ersetzt den `XRReferenceSpace` durch einen neuen, dessen Ursprung und Orientierung so angepasst sind, dass der neue Ursprung relativ zum aktuellen Ursprung bei (2, 0, 1) liegt und mit einem Einheits-[Quaternion](/de/docs/Glossary/quaternion) gedreht wird, das den Raum so ausrichtet, dass der Betrachter relativ zur vorherigen Weltorientierung gerade nach oben sieht.
 
 ### Geometrie
 
-Der native Ursprung eines jeden `XRReferenceSpace` ist immer so konfiguriert, dass +X als rechts, +Y als oben und +Z als "rückwärtig" oder in Richtung des Benutzers betrachtet wird.
+Der native Ursprung eines jeden `XRReferenceSpace` ist immer so konfiguriert, dass +X als rechts, +Y als nach oben und +Z als "rückwärts" oder in Richtung des Benutzers betrachtet wird.
 
 ## Spezifikationen
 
@@ -88,7 +88,7 @@ Der native Ursprung eines jeden `XRReferenceSpace` ist immer so konfiguriert, da
 
 - [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)
 - [Geometrie und Referenzräume in WebXR](/de/docs/Web/API/WebXR_Device_API/Geometry)
-- [Standpunkte und Betrachter: Kamerasimulationen in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Standpunkte und Betrachter: Simulation von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
 - [Matrix-Mathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
 - [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
-- [Verwendung von begrenzten Referenzräumen, um den Benutzer zu schützen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)
+- [Verwendung eingeschränkter Referenzräume zum Schutz des Benutzers](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)

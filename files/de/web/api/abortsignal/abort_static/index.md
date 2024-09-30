@@ -18,10 +18,10 @@ controller.abort();
 return controller.signal;
 ```
 
-Dies könnte zum Beispiel an eine Fetch-Methode übergeben werden, um deren Abbruchlogik auszuführen (d.h. es könnte sein, dass der Code so organisiert ist, dass die Abbruchlogik ausgeführt werden soll, selbst wenn die beabsichtigte Fetch-Operation noch nicht gestartet wurde).
+Dies könnte zum Beispiel an eine `fetch`-Methode übergeben werden, um deren Abbruch-Logik auszuführen (d.h. es könnte sein, dass der Code so organisiert ist, dass die Abbruch-Logik ausgeführt werden sollte, auch wenn der beabsichtigte `fetch`-Vorgang noch nicht gestartet wurde).
 
 > [!NOTE]
-> Die Methode ist ähnlich dem Zweck von {{JSxRef("Promise.reject")}}.
+> Die Methode ist ähnlich in der Absicht zu {{JSxRef("Promise.reject")}}.
 
 ## Syntax
 
@@ -34,11 +34,11 @@ AbortSignal.abort(reason)
 
 - `reason`
   - : Der Grund, warum die Operation abgebrochen wurde, der jeder JavaScript-Wert sein kann.
-    Wird kein Grund angegeben, so wird der Grund auf "AbortError" [`DOMException`](/de/docs/Web/API/DOMException) gesetzt.
+    Wenn nicht angegeben, wird der Grund auf "AbortError" [`DOMException`](/de/docs/Web/API/DOMException) gesetzt.
 
 ### Rückgabewert
 
-Eine `AbortSignal` Instanz mit der [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) Eigenschaft auf `true` gesetzt und [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) auf den angegebenen oder Standardwert gesetzt.
+Eine `AbortSignal` Instanz mit der [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) Eigenschaft auf `true` gesetzt und [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) auf den angegebenen oder Standardgrundwert gesetzt.
 
 ## Spezifikationen
 

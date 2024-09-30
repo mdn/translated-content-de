@@ -9,9 +9,9 @@ l10n:
 
 Ein **Boolean** in JavaScript ist ein [primitiver Wert](/de/docs/Glossary/Primitive), der entweder `true` oder `false` sein kann.
 
-Ein {{jsxref("Boolean")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen booleschen primitiven Wert.
+Ein {{jsxref("Boolean")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen Boolean-Primitivwert.
 
 ## Siehe auch
 
-- [Das JavaScript-Globalobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+- [Das globale JavaScript-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 - [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)

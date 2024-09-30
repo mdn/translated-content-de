@@ -7,20 +7,20 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SEO** (Search Engine Optimization) ist der Prozess, eine Website in den Suchergebnissen sichtbarer zu machen, auch als Verbesserung der Suchrangfolge bezeichnet.
+**SEO** (Search Engine Optimization) ist der Prozess, eine Website in den Suchergebnissen sichtbarer zu machen, auch als Verbesserung der Suchrankings bezeichnet.
 
-Suchmaschinen [crawlen](/de/docs/Glossary/Crawler) das Web, indem sie von Seite zu Seite Links folgen und die gefundenen Inhalte indexieren. Wenn Sie suchen, zeigt die Suchmaschine die indexierten Inhalte an. Crawler befolgen Regeln. Wenn Sie diese Regeln genau befolgen, wenn Sie SEO für eine Website durchführen, geben Sie der Seite die besten Chancen, unter den ersten Ergebnissen zu erscheinen, was den Verkehr und möglicherweise die Einnahmen (für E-Commerce und Anzeigen) erhöht.
+Suchmaschinen [durchsuchen](/de/docs/Glossary/Crawler) das Web, indem sie Links von Seite zu Seite folgen und die gefundenen Inhalte indexieren. Wenn Sie suchen, zeigt die Suchmaschine die indexierten Inhalte an. Crawler folgen bestimmten Regeln. Wenn Sie diese Regeln beim SEO für eine Website genau befolgen, geben Sie der Seite die besten Chancen, unter den ersten Ergebnissen angezeigt zu werden, was den Traffic und möglicherweise den Umsatz (für E-Commerce und Anzeigen) erhöht.
 
-Suchmaschinen geben einige Richtlinien für SEO, aber große Suchmaschinen halten die Ergebnis-Rangordnung als Geschäftsgeheimnis. SEO kombiniert offizielle Suchmaschinenrichtlinien, empirisches Wissen und theoretisches Wissen aus wissenschaftlichen Arbeiten oder Patenten.
+Suchmaschinen geben einige Richtlinien für SEO vor, aber große Suchmaschinen halten die Ergebnis-Rankings als Geschäftsgeheimnis. SEO kombiniert offizielle Richtlinien von Suchmaschinen, empirisches Wissen und theoretisches Wissen aus wissenschaftlichen Arbeiten oder Patenten.
 
-SEO-Methoden fallen in drei breite Kategorien:
+SEO-Methoden fallen in drei breite Klassen:
 
 - Technisch
-  - : Markieren Sie den Inhalt mit semantischem [HTML](/de/docs/Glossary/HTML). Beim Erkunden der Website sollten Crawler nur die Inhalte finden, die Sie indexiert haben möchten.
-- Texterstellung
-  - : Verfassen Sie Inhalte in der Sprache Ihrer Besucher. Verwenden Sie sowohl Text als auch Bilder, damit Crawler das Thema verstehen können.
-- Popularität
-  - : Sie erhalten den meisten Verkehr, wenn andere etablierte Websites auf Ihre Seite verlinken.
+  - : Inhalt mit semantischem [HTML](/de/docs/Glossary/HTML) kennzeichnen. Beim Durchsuchen der Website sollten Crawler nur die Inhalte finden, die Sie indexiert haben möchten.
+- Textgestaltung
+  - : Inhalte mit dem Vokabular Ihrer Besucher schreiben. Verwenden Sie sowohl Text als auch Bilder, damit Crawler das Thema verstehen können.
+- Beliebtheit
+  - : Sie erhalten den meisten Traffic, wenn andere etablierte Websites auf Ihre Website verlinken.
 
 ## Siehe auch
 

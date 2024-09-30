@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUOutOfMemoryError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Out-of-Memory- (oom) Fehler, der darauf hinweist, dass nicht genügend freier Speicher vorhanden war, um die angeforderte Operation abzuschließen.
+Die **`GPUOutOfMemoryError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Out-of-Memory-Fehler (oom), der darauf hinweist, dass nicht genügend freier Speicher vorhanden war, um die angeforderte Operation abzuschließen.
 
-Sie stellt einen der Fehlertypen dar, die durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden.
+Sie repräsentiert eine der Fehlerarten, die durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden.
 
-Out-of-Memory-Fehler sollten in einer gut funktionierenden App relativ selten auftreten, sind jedoch weniger vorhersagbar als [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)s. Dies liegt daran, dass sie vom Gerät, auf dem Ihre App läuft, sowie von anderen Apps abhängen, die zu diesem Zeitpunkt GPU-Ressourcen nutzen.
+Out-of-Memory-Fehler sollten in einer gut ausgeführten App relativ selten auftreten, sind aber weniger vorhersehbar als [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)s. Dies liegt daran, dass sie von dem Gerät abhängen, auf dem Ihre App läuft, sowie von anderen Apps, die zu diesem Zeitpunkt GPU-Ressourcen nutzen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`GPUOutOfMemoryError()`](/de/docs/Web/API/GPUOutOfMemoryError/GPUOutOfMemoryError) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des Objekts `GPUOutOfMemoryError`.
+  - : Erstellt eine neue Instanz eines `GPUOutOfMemoryError`-Objekts.
 
 ## Instanz-Eigenschaften
 
-Die `message`-Eigenschaft wird von ihrem übergeordneten Element [`GPUError`](/de/docs/Web/API/GPUError) geerbt:
+Die `message`-Eigenschaft wird von ihrem übergeordneten Objekt, [`GPUError`](/de/docs/Web/API/GPUError), geerbt:
 
 - [`message`](/de/docs/Web/API/GPUError/message) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein String, der eine lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen Out-of-Memory-Fehler zu erfassen und protokolliert ihn in der Konsole.
+Das folgende Beispiel nutzt einen Fehlerbereich, um einen Out-of-Memory-Fehler zu erfassen und protokolliert ihn in der Konsole.
 
 ```js
 device.pushErrorScope("out-of-memory");
@@ -59,4 +59,4 @@ device.popErrorScope().then((error) => {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlung - Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU-Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

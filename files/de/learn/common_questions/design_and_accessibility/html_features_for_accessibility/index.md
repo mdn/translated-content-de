@@ -7,11 +7,11 @@ l10n:
 
 {{QuicklinksWithSubPages("Learn/Common_questions")}}
 
-Der folgende Inhalt beschreibt spezifische Funktionen von HTML, die verwendet werden sollten, um eine Webseite für Menschen mit verschiedenen Behinderungen zugänglicher zu machen.
+Der folgende Inhalt beschreibt spezifische Funktionen von HTML, die verwendet werden sollten, um eine Webseite zugänglicher für Menschen mit verschiedenen Behinderungen zu gestalten.
 
 ## Linktext
 
-Wenn Sie einen Link haben, der nicht selbsterklärend ist, oder wenn das Linkziel von einer detaillierteren Erklärung profitieren könnte, können Sie einem Link Informationen mit den Attributen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) hinzufügen.
+Wenn Sie einen Link haben, der nicht selbsterklärend ist, oder das Ziel des Links von einer detaillierteren Erklärung profitieren könnte, können Sie einem Link mit den Attributen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) Informationen hinzufügen.
 
 ```html
 <p>
@@ -39,9 +39,9 @@ Beachten Sie, dass es in den meisten Fällen besser ist, stattdessen nützlichen
 </p>
 ```
 
-## Sprunglinks
+## Skip Links
 
-Um das Abtabben zu erleichtern, können Sie einen [Sprunglink](/de/docs/Web/HTML/Element/a#skip_links) bereitstellen, der es Nutzern ermöglicht, über Teile Ihrer Webseite zu springen. Sie könnten es ermöglichen, dass jemand über eine Vielzahl von Navigationslinks springt, die auf jeder Seite zu finden sind. Dies ermöglicht Tastaturnutzern, schnell über sich wiederholende Inhalte zu tabben und direkt zum Hauptinhalt der Seite zu gelangen:
+Um das Navigieren per Tab-Taste zu erleichtern, können Sie einen [Skip Link](/de/docs/Web/HTML/Element/a#skip_links) bereitstellen, der es den Benutzern ermöglicht, über Teile Ihrer Webseite zu springen. Sie könnten jemandem erlauben, über eine Vielzahl von Navigationslinks zu springen, die auf jeder Seite zu finden sind. Dies ermöglicht es Tastaturnutzern, schnell über wiederkehrende Inhalte zu springen und direkt zum Hauptinhalt der Seite zu gelangen:
 
 ```html
 <header>
@@ -60,7 +60,7 @@ Um das Abtabben zu erleichtern, können Sie einen [Sprunglink](/de/docs/Web/HTML
 
 ## Alt-Attribut für Bilder
 
-Jedes Bild sollte ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut haben. Wenn das Bild rein dekorativ ist und keinen Bedeutungszusatz zum Inhalt oder Kontext des Dokuments liefert, sollte das `alt`-Attribut vorhanden, aber leer sein. Optional können Sie auch [`role="presentation"`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) hinzufügen. Alle anderen Bilder sollten ein `alt`-Attribut enthalten, das [Alternativtext beschreibt, der das Bild beschreibt](/de/docs/Web/API/HTMLImageElement/alt#usage_notes), und zwar auf eine Weise, die für Benutzer hilfreich ist, die den Rest des Inhalts lesen können, aber das Bild nicht sehen können. Überlegen Sie, wie Sie das Bild beschreiben würden für jemanden, der Ihr Bild nicht laden kann: Diese Informationen sollten Sie als Wert des `alt`-Attributs einschließen.
+Jedes Bild sollte ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut haben. Wenn das Bild reine Dekoration ist und dem Inhalt oder dem Kontext des Dokuments keine Bedeutung hinzufügt, sollte das `alt`-Attribut vorhanden, aber leer sein. Sie können optional auch [`role="presentation"`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) hinzufügen. Alle anderen Bilder sollten ein `alt`-Attribut enthalten, das eine [alternative Beschreibung des Bildes](/de/docs/Web/API/HTMLImageElement/alt#usage_notes) bietet, die für Benutzer hilfreich ist, die den restlichen Inhalt lesen können, das Bild jedoch nicht sehen können. Überlegen Sie, wie Sie das Bild jemandem beschreiben würden, der Ihr Bild nicht laden kann: Diese Informationen sollten Sie als Wert des `alt`-Attributs einfügen.
 
 ```html
 <!-- decorative image -->
@@ -71,7 +71,7 @@ Jedes Bild sollte ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut haben.
   role="img" />
 ```
 
-Das `alt`-Attribut für denselben Inhalt kann je nach Kontext variieren. Im folgenden Beispiel wird ein animiertes GIF anstelle eines Fortschrittsbalkens verwendet, um den Ladefortschritt einer Seite in einem Dokument anzuzeigen, das Entwickler lehrt, wie man das HTML-Element [`<progress>`](/de/docs/Web/HTML/Element/progress) verwendet:
+Das `alt`-Attribut für denselben Inhalt kann je nach Kontext variieren. Im folgenden Beispiel wird ein animiertes GIF anstelle einer Fortschrittsanzeige verwendet, um den Ladefortschritt einer Seite zu zeigen, die Entwicklern beibringt, wie sie das HTML-Element [`<progress>`](/de/docs/Web/HTML/Element/progress) verwenden:
 
 ```html
 <img alt="20% complete" src="load-progress.gif" />
@@ -82,7 +82,7 @@ Das `alt`-Attribut für denselben Inhalt kann je nach Kontext variieren. Im folg
 
 ## ARIA-Rollenattribut
 
-Standardmäßig haben alle semantischen Elemente in HTML eine [`role`](/de/docs/Web/Accessibility/ARIA/Roles); zum Beispiel hat `<input type="radio">` die Rolle `radio`. Nicht-semantische Elemente in HTML haben keine Rolle. ARIA-Rollen können verwendet werden, um Elemente zu beschreiben, die nicht nativ in HTML existieren, wie ein [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) Widget. Rollen sind auch für neuere Elemente hilfreich, die es gibt, aber noch nicht über volle Browserunterstützung verfügen. Zum Beispiel sollte bei der Verwendung von SVG-Bildern `role="img"` zum Öffnungstag hinzugefügt werden, da es einen [SVG VoiceOver-Bug](https://webkit.org/b/216364) gibt, bei dem VoiceOver SVG-Bilder nicht korrekt ankündigt.
+Standardmäßig haben alle semantischen Elemente in HTML eine [`role`](/de/docs/Web/Accessibility/ARIA/Roles); zum Beispiel hat `<input type="radio">` die Rolle `radio`. Nicht-semantische Elemente in HTML haben keine Rolle. ARIA-Rollen können verwendet werden, um Elemente zu beschreiben, die in HTML nicht nativ existieren, wie beispielsweise ein [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)-Widget. Rollen sind auch für neuere Elemente hilfreich, die existieren, aber noch keine volle Browser-Unterstützung haben. Beispielsweise sollten bei der Verwendung von SVG-Bildern `role="img"` am Anfangstag hinzugefügt werden, da es einen [SVG VoiceOver-Bug](https://webkit.org/b/216364) gibt, bei dem VoiceOver SVG-Bilder nicht korrekt ankündigt.
 
 ```html
 <img src="mdn.svg" alt="MDN logo" role="img" />

@@ -7,13 +7,13 @@ l10n:
 
 {{deprecated_header}}{{APIRef("SVG")}}
 
-Die **`SVGEvent`**-Schnittstelle repräsentiert das Ereignisobjekt für die meisten SVG-bezogenen Ereignisse.
+Die **`SVGEvent`** Schnittstelle repräsentiert das Ereignisobjekt für die meisten SVG-bezogenen Ereignisse.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-| Eigenschaft                     | Typ                                           | Beschreibung                                             |
-| ------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
-| `target` {{ReadOnlyInline}}     | [`EventTarget`](/de/docs/Web/API/EventTarget) | Das Ereignisziel (das oberste Ziel im DOM-Baum).         |
-| `type` {{ReadOnlyInline}}       | string                                        | Der Typ des Ereignisses.                                 |
-| `bubbles` {{ReadOnlyInline}}    | Ein boolescher Wert                           | Ob das Ereignis normalerweise gebubbelt wird oder nicht. |
-| `cancelable` {{ReadOnlyInline}} | Ein boolescher Wert                           | Ob das Ereignis abgebrochen werden kann oder nicht.      |
+| Eigenschaft                     | Typ                        | Beschreibung                                           |
+| ------------------------------- | -------------------------- | ------------------------------------------------------ |
+| `target` {{ReadOnlyInline}}     | [`EventTarget`](/de/docs/Web/API/EventTarget) | Das Ereignisziel (das oberste Ziel im DOM-Baum).       |
+| `type` {{ReadOnlyInline}}       | string                     | Der Typ des Ereignisses.                               |
+| `bubbles` {{ReadOnlyInline}}    | Ein boolescher Wert        | Gibt an, ob das Ereignis normalerweise "bubbelt" oder nicht. |
+| `cancelable` {{ReadOnlyInline}} | Ein boolescher Wert        | Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. |

@@ -7,56 +7,56 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die **`HTMLMarqueeElement`** Schnittstelle bietet Methoden zur Manipulation von {{HTMLElement("marquee")}}-Elementen.
+Das **`HTMLMarqueeElement`**-Interface bietet Methoden zur Manipulation von `<marquee>`-Elementen.
 
-Sie erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle.
+Es erbt Eigenschaften und Methoden vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - `HTMLMarqueeElement.behavior` {{Deprecated_Inline}}
-  - : Legt fest, wie der Text innerhalb des Marquees gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, lautet der Standardwert `scroll`.
+  - : Bestimmt, wie der Text innerhalb des Marquee gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, ist der Standardwert `scroll`.
 - `HTMLMarqueeElement.bgColor` {{Deprecated_Inline}}
-  - : Legt die Hintergrundfarbe durch Farbnamen oder hexadezimalen Wert fest.
+  - : Legt die Hintergrundfarbe durch Farbnamen oder hexadezimale Werte fest.
 - `HTMLMarqueeElement.direction` {{Deprecated_Inline}}
-  - : Legt die Richtung des Scrollens im Marquee fest. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, lautet der Standardwert `left`.
+  - : Bestimmt die Scroll-Richtung innerhalb des Marquee. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
 - `HTMLMarqueeElement.height` {{Deprecated_Inline}}
-  - : Legt die Höhe in Pixel oder Prozentwert fest.
+  - : Bestimmt die Höhe in Pixeln oder Prozentwert.
 - `HTMLMarqueeElement.hspace` {{Deprecated_Inline}}
-  - : Legt den horizontalen Rand fest.
+  - : Bestimmt den horizontalen Rand.
 - `HTMLMarqueeElement.loop` {{Deprecated_Inline}}
-  - : Legt fest, wie oft das Marquee scrollt. Wenn kein Wert angegeben ist, lautet der Standardwert -1, was bedeutet, dass das Marquee kontinuierlich scrollt.
+  - : Bestimmt, wie oft das Marquee scrollt. Wenn kein Wert angegeben ist, ist der Standardwert −1, was bedeutet, dass das Marquee kontinuierlich scrollt.
 - `HTMLMarqueeElement.scrollAmount` {{Deprecated_Inline}}
-  - : Legt die Scrollmenge bei jedem Intervall in Pixel fest. Der Standardwert ist 6.
+  - : Bestimmt die Scrollmenge bei jedem Intervall in Pixeln. Der Standardwert ist 6.
 - `HTMLMarqueeElement.scrollDelay` {{Deprecated_Inline}}
-  - : Legt das Intervall zwischen jeder Scrollbewegung in Millisekunden fest. Der Standardwert ist 85. Beachten Sie, dass jeder Wert kleiner als 60 ignoriert wird und stattdessen der Wert 60 verwendet wird, es sei denn, `trueSpeed` ist `true`.
+  - : Bestimmt das Intervall zwischen jedem Scrollvorgang in Millisekunden. Der Standardwert ist 85. Beachten Sie, dass jeder Wert kleiner als 60 ignoriert wird und der Wert 60 verwendet wird, es sei denn, `trueSpeed` ist `true`.
 - `HTMLMarqueeElement.trueSpeed` {{Deprecated_Inline}}
-  - : Standardmäßig werden `scrollDelay`-Werte unter 60 ignoriert. Wenn `trueSpeed` auf `true` gesetzt ist, werden diese Werte nicht ignoriert.
-- `HTMLMarqueeElement.vspace` {{Deprecated_Inline}}
-  - : Legt den vertikalen Rand fest.
+  - : Standardmäßig werden `scrollDelay`-Werte unter 60 ignoriert. Wenn `trueSpeed` `true` ist, werden diese Werte nicht ignoriert.
+- `"HTMLMarqueeElement.vspace` {{Deprecated_Inline}}
+  - : Bestimmt den vertikalen Rand.
 - `HTMLMarqueeElement.width` {{Deprecated_Inline}}
-  - : Legt die Breite in Pixel oder Prozentwert fest.
+  - : Bestimmt die Breite in Pixeln oder Prozentwert.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - `HTMLMarqueeElement.start()` {{Deprecated_Inline}}
-  - : Startet das Scrollen des Marquees.
+  - : Startet das Scrollen des Marquee.
 - `HTMLMarqueeElement.stop()` {{Deprecated_Inline}}
-  - : Stoppt das Scrollen des Marquees.
+  - : Stoppt das Scrollen des Marquee.
 
 ## Ereignisse
 
 - `bounce` {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn das Marquee das Ende seiner Scrollposition erreicht hat. Es kann nur ausgelöst werden, wenn das Verhalten-Attribut auf `alternate` gesetzt ist.
+  - : Wird ausgelöst, wenn das Marquee das Ende seiner Scroll-Position erreicht hat. Es kann nur ausgelöst werden, wenn das `behavior`-Attribut auf `alternate` gesetzt ist.
 - `finish` {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn das Marquee die festgelegte Scrollmenge entsprechend dem loop-Attribut abgeschlossen hat. Es kann nur ausgelöst werden, wenn das loop-Attribut auf einen Wert größer als 0 gesetzt ist.
+  - : Wird ausgelöst, wenn das Marquee den im `loop`-Attribut festgelegten Scroll-Wert erreicht hat. Es kann nur ausgelöst werden, wenn das `loop`-Attribut auf eine Zahl größer als 0 gesetzt ist.
 - `start` {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn das Marquee mit dem Scrollen beginnt.
+  - : Wird ausgelöst, wenn das Marquee zu scrollen beginnt.
 
 ## Beispiele
 

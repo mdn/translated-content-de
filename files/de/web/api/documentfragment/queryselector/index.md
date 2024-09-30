@@ -8,12 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`DocumentFragment.querySelector()`**-Methode gibt das erste
-Element oder `null` zurück, falls keine Übereinstimmungen gefunden werden. Dies erfolgt innerhalb des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) (unter Verwendung einer Tiefensuche in der Vorordnung der Knoten des Dokuments), das mit der angegebenen Gruppe von Selektoren übereinstimmt.
+Die **`DocumentFragment.querySelector()`**-Methode gibt das erste Element oder `null` zurück, falls keine Übereinstimmungen gefunden werden. Dies geschieht innerhalb des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) (mittels Tiefensuche im Dokument). Die Methode durchsucht die Knoten des Dokuments in Vorbestellung und sucht nach übereinstimmenden Selektorgruppen.
 
-Wenn der Selektor eine ID anspricht und diese ID fälschlicherweise mehrmals im Dokument verwendet wird, wird das erste übereinstimmende Element zurückgegeben.
+Falls der Selektor eine ID trifft und diese ID irrtümlich mehrfach im Dokument verwendet wird, gibt die Methode das erste übereinstimmende Element zurück.
 
-Falls die im Parameter angegebenen Selektoren ungültig sind, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Wert `SYNTAX_ERR` ausgelöst.
+Wenn die im Parameter angegebenen Selektoren ungültig sind, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Wert `SYNTAX_ERR` ausgelöst.
 
 ## Syntax
 
@@ -28,7 +27,7 @@ querySelector(selectors)
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument repräsentiert, das mit dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) übereinstimmt, oder `null`, falls keine Übereinstimmungen vorliegen.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument darstellt, das den angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) entspricht, oder `null`, falls keine Übereinstimmungen vorhanden sind.
 
 ## Beispiele
 
@@ -42,7 +41,7 @@ const el = documentfragment.querySelector(".myclass");
 
 ### CSS-Syntax und das Argument der Methode
 
-Das String-Argument, das an `querySelector` übergeben wird, muss der CSS-Syntax folgen. Um IDs oder Selektoren anzusprechen, die der CSS-Syntax nicht folgen (zum Beispiel durch unangemessene Verwendung von Semikolon oder Leerzeichen), ist es zwingend erforderlich, das falsche Zeichen mit einem doppelten Backslash zu maskieren:
+Das Argument als String, das an `querySelector` übergeben wird, muss der CSS-Syntax folgen. Um ID oder Selektoren zu treffen, die der CSS-Syntax nicht folgen (zum Beispiel durch unpassende Verwendung von Semikolon oder Leerzeichen), muss das fehlerhafte Zeichen zwingend mit einem doppelten Backslash maskiert werden:
 
 ```html
 <div id="foo\bar"></div>
@@ -66,4 +65,4 @@ Das String-Argument, das an `querySelector` übergeben wird, muss der CSS-Syntax
 
 ## Siehe auch
 
-- Das [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Interface, zu dem es gehört.
+- Die [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Schnittstelle, zu der es gehört.

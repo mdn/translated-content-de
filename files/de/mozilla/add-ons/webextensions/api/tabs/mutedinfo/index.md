@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieses Objekt enthält ein boolesches Attribut, das angibt, ob die Registerkarte stummgeschaltet ist, und den Grund für die letzte Statusänderung.
+Dieses Objekt enthält einen booleschen Wert, der angibt, ob der Tab stummgeschaltet ist, und den Grund für die letzte Statusänderung.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `extensionId` {{optional_inline}}
-  - : `string`. Die ID der Erweiterung, die zuletzt den Stummschaltungszustand geändert hat. Nicht gesetzt, wenn eine Erweiterung nicht der Grund für die letzte Änderung des Stummschaltungszustands war.
+  - : `string`. Die ID der Erweiterung, die zuletzt den stummgeschalteten Zustand geändert hat. Nicht gesetzt, wenn eine Erweiterung nicht der Grund für die letzte Änderung des stummgeschalteten Zustands war.
 - `muted`
-  - : `boolean`. Ob die Registerkarte derzeit stummgeschaltet ist. Entspricht dem Anzeigen des stummgeschalteten Audio-Indikators.
+  - : `boolean`. Ob der Tab derzeit stummgeschaltet ist. Entspricht dem Status, wenn das Symbol für stummgeschalteten Ton angezeigt wird.
 - `reason` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.MutedInfoReason')}}. Der Grund, warum die Registerkarte stummgeschaltet oder aktiviert wurde. Nicht gesetzt, wenn der Stummschaltungszustand der Registerkarte noch nie geändert wurde.
+  - : {{WebExtAPIRef('tabs.MutedInfoReason')}}. Der Grund, warum der Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde. Nicht gesetzt, wenn der stummgeschaltete Zustand des Tabs noch nie geändert wurde.
 
 ## Browser-Kompatibilität
 
@@ -27,7 +27,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfo) API. Diese Dokumentation ist aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfo) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

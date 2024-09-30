@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-image-outset`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Entfernung fest, um die das [Border-Image](/de/docs/Web/CSS/border-image) eines Elements von dessen Border-Box abgesetzt wird.
+Die **`border-image-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den ein Element von seinem [Border-Image](/de/docs/Web/CSS/border-image) von der Border-Box abgesetzt wird.
 
-Die Teile des Border-Images, die mit `border-image-outset` außerhalb der Border-Box des Elements gerendert werden, lösen keine Scrollleisten für Überlaufinhalte aus und erfassen keine Mausereignisse.
+Die Teile des Border-Images, die außerhalb der Border-Box des Elements mit `border-image-outset` gerendert werden, lösen keine Überlauf-Scrollleisten aus und erfassen keine Mausereignisse.
 
 {{EmbedInteractiveExample("pages/css/border-image-outset.html")}}
 
@@ -39,19 +39,19 @@ border-image-outset: revert-layer;
 border-image-outset: unset;
 ```
 
-Die `border-image-outset`-Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset`-Deklaration ignoriert wird.
+Die `border-image-outset` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset` Deklaration ignoriert wird.
 
-1. Wenn **ein** Wert angegeben wird, gilt er für **alle vier Seiten**.
-2. Wenn **zwei** Werte angegeben werden, gilt der erste für **oben und unten** und der zweite für **links und rechts**.
-3. Wenn **drei** Werte angegeben werden, gilt der erste für **oben**, der zweite für **links und rechts** und der dritte für **unten**.
-4. Wenn **vier** Werte angegeben werden, gelten sie für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+1. Wenn **ein** Wert angegeben ist, gilt er für **alle vier Seiten**.
+2. Wenn **zwei** Werte angegeben sind, gilt der erste für **oben und unten** und der zweite für **links und rechts**.
+3. Wenn **drei** Werte angegeben sind, gilt der erste für **oben**, der zweite für **links und rechts**, und der dritte für **unten**.
+4. Wenn **vier** Werte angegeben sind, gelten sie für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des `border-image`-Abstands als Dimension — eine Zahl mit einer Einheit.
+  - : Die Größe des `border-image` Outsets als Dimension — eine Zahl mit einer Einheit.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des `border-image`-Abstands als Vielfaches der entsprechenden {{cssxref("border-width")}} des Elements. Beispiel: Wenn ein Element `border-width: 1em 2px 0 1.5rem` hat und `border-image-outset: 2`, würde das endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet werden.
+  - : Die Größe des `border-image` Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}s des Elements. Zum Beispiel, wenn ein Element `border-width: 1em 2px 0 1.5rem` hat und `border-image-outset: 2`, würde das endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet werden.
 
 ## Formale Definition
 
@@ -63,7 +63,7 @@ Die `border-image-outset`-Eigenschaft kann als ein, zwei, drei oder vier Werte a
 
 ## Beispiele
 
-### Ein Border-Image ausstellen
+### Ein Border-Image heraussetzen
 
 #### HTML
 
@@ -98,6 +98,6 @@ Die `border-image-outset`-Eigenschaft kann als ein, zwei, drei oder vier Werte a
 
 ## Siehe auch
 
-- [Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
-- [Border images in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [CSS Lernen: Hintergründe und Rahmen](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
+- [Border-Images in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

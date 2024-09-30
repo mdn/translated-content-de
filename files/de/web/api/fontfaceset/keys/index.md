@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: keys()-Methode"
+title: "FontFaceSet: keys() Methode"
 short-title: keys()
 slug: Web/API/FontFaceSet/keys
 l10n:
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das die Werte für jedes Element im angegebenen `FontFaceSet` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das die Werte für jedes Element im gegebenen `FontFaceSet` in Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

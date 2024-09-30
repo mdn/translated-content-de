@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-margin-block` [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Block-Dimension.
+Die `scroll-margin-block` [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Ränder eines Elements in der Blockdimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-block.html")}}
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`scroll-margin-block-end`](/de/docs/Web/CSS/scroll-margin-block-end)
 - [`scroll-margin-block-start`](/de/docs/Web/CSS/scroll-margin-block-start)
@@ -36,11 +36,11 @@ scroll-margin-block: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand vom entsprechenden Rand des Scrollcontainers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die Werte für die Scroll-Marge sind Abstände, die den Bereich für das Scroll-Snap definieren, der verwendet wird, um diese Box an den Snapport zu heften. Der Scroll-Snap-Bereich wird durch das Ermitteln des rechteckigen Begrenzungsrahmens der transformierten Rahmenbox bestimmt (achsenbündig im Koordinatenraum des Scrollcontainers), anschließend werden die spezifizierten Abstände hinzugefügt.
+Die Werte von scroll-margin stellen Abstände dar, die den Bereich definieren, der für das Scroll-Snap dieses Elements zur Snapport verwendet wird. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckiger Begrenzungskasten (achsenorientiert im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Abstände hinzugefügt werden.
 
 ## Formale Definition
 

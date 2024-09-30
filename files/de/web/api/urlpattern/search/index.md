@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`search`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist eine
-schreibgeschützte Zeichenkette, die das Muster enthält, das für den Abgleich des Suchteils einer URL verwendet wird. Dieser Wert kann sich von der Eingabe des Konstruktors aufgrund der Normalisierung unterscheiden.
+Die schreibgeschützte **`search`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein String, der das Muster enthält, das zum Abgleichen des Suchteils einer URL verwendet wird. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe des Konstruktors unterscheiden.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `*` für den
-`search`-Teil. Dieses Muster ist ein Platzhalter und passt somit auf jeden Suchteil.
+Im folgenden Beispiel wird ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `*` für den `search`-Teil erstellt. Dieses Muster ist ein Platzhalter, der somit jeden Suchteil abgleicht.
 
 ```js
 const pattern = new URLPattern("https://example.com?*");

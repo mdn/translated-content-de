@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`sendReport()`**-Methode der Schnittstelle [`HIDDevice`](/de/docs/Web/API/HIDDevice) sendet einen Ausgabereport an das HID-Gerät.
+Die **`sendReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle sendet einen Ausgabereport an das HID-Gerät.
 
-Der `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
+Die `reportId` für jedes der von diesem Gerät unterstützten Reportformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -23,20 +23,20 @@ sendReport(reportId, data)
 - `reportId`
   - : Eine 8-Bit-Report-ID. Wenn das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}.
+  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Bericht gesendet wurde.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Report gesendet wurde.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Senden des Berichts aus irgendeinem Grund fehlschlägt.
+  - : Wird ausgelöst, wenn das Senden des Reports aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie ein Joy-Con-Gerät mithilfe von Ausgabereports vibrieren lassen können. Weitere Beispiele und Live-Demos finden Sie in dem Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie man ein Joy-Con-Gerät mit Ausgabereports zum Vibrieren bringt. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 // First, send a command to enable vibration.

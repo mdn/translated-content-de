@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: validationMessage-Eigenschaft"
+title: "HTMLOutputElement: validationMessage Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLOutputElement/validationMessage
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`** schreibgeschützte Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle gibt einen String zurück, der eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("output")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<output>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLOutputElement.willValidate`](/de/docs/Web/API/HTMLOutputElement/willValidate) ist `false`).
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht darstellt und die Validierungseinschränkungen beschreibt, die die {{htmlelement("output")}}-Steuerung nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenkette, da `<output>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLOutputElement.willValidate`](/de/docs/Web/API/HTMLOutputElement/willValidate) ist `false`).
 
 ## Wert
 
-Der leere String, `""`;
+Die leere Zeichenkette, `""`;
 
 ## Spezifikationen
 
@@ -31,6 +31,6 @@ Der leere String, `""`;
 - [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
 - [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
 - [`HTMLOutputElement.setCustomValidity()`](/de/docs/Web/API/HTMLOutputElement/setCustomValidity)
-- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

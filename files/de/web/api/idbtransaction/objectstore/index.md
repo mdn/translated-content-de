@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: objectStore()-Methode"
+title: "IDBTransaction: objectStore() Methode"
 short-title: objectStore()
 slug: Web/API/IDBTransaction/objectStore
 l10n:
@@ -9,10 +9,10 @@ l10n:
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
 Die **`objectStore()`**-Methode des
-[`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt einen Object Store zurück, der bereits zum Umfang dieser Transaktion hinzugefügt wurde.
+[`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt einen Object Store zurück, der bereits zum Scope dieser Transaktion hinzugefügt wurde.
 
-Jeder Aufruf dieser Methode auf dem gleichen Transaktionsobjekt mit dem gleichen Namen gibt
-die gleiche [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Instanz zurück. Wird diese Methode auf einem anderen
+Jeder Aufruf dieser Methode am gleichen Transaktionsobjekt mit dem gleichen Namen gibt
+die gleiche [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Instanz zurück. Wird diese Methode an einem anderen
 Transaktionsobjekt aufgerufen, wird eine andere [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Instanz zurückgegeben.
 
 ## Syntax
@@ -33,14 +33,15 @@ Ein [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekt zum Zugriff auf e
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angeforderte Object Store nicht im Umfang dieser Transaktion ist.
+  - : Wird ausgelöst, wenn der angeforderte Object Store nicht im Scope dieser Transaktion ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Anforderung an einem Quellobjekt gestellt wurde, das gelöscht oder entfernt wurde, oder wenn die Transaktion abgeschlossen ist.
+  - : Wird ausgelöst, wenn die Anforderung an einem Quellobjekt gemacht wurde, das gelöscht oder entfernt wurde, oder wenn die Transaktion abgeschlossen ist.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen
-einige Daten zu einem Object Store hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignishandler angehängt sind, um über das Ergebnis der Transaktionsöffnung im Erfolgs- oder Misserfolgsfall zu berichten. Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreib-Transaktion in unserer Datenbank und fügen
+einige Daten in einen Object Store ein. Beachten Sie auch die Funktionen, die den Transaktionsereignis-Handlern beigefügt sind, um über das Ergebnis des Transaktionsstarts im Falle eines Erfolgs oder
+Fehlschlags zu berichten. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -116,10 +117,10 @@ function addData() {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Cursors verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

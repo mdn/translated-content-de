@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`tangentialPressure`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle repräsentiert den normierten tangentialen Druck des Zeigereingangs (auch bekannt als Barrel-Druck oder [Zylinder-Spannung](https://en.wikipedia.org/wiki/Cylinder_stress)).
+Die schreibgeschützte Eigenschaft **`tangentialPressure`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle repräsentiert den normalisierten tangentialen Druck des Zeigereingangs (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)).
 
 ## Wert
 
-Ein `float`, der den normierten tangentialen Druck des Zeigereingangs im Bereich von `-1` bis `1` inklusive darstellt, wobei `0` die Neutralposition der Steuerung bezeichnet.
+Ein `float`, der den normalisierten tangentialen Druck des Zeigereingangs im Bereich von `-1` bis `1` darstellt, einschließlich, wobei `0` die neutrale Position der Steuerung ist.
 
-Beachten Sie, dass einige Hardwaregeräte möglicherweise nur positive Werte im Bereich von `0` bis `1` unterstützen. Bei Hardware, die keinen tangentialen Druck unterstützt, wird der Wert `0` sein.
+Beachten Sie, dass einige Hardware möglicherweise nur positive Werte im Bereich von `0` bis `1` unterstützt. Für Hardware, die keinen tangentialen Druck unterstützt, wird der Wert `0` sein.
 
 ## Beispiele
 
-In diesem Code-Ausschnitt werden bei einem [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis unterschiedliche Funktionen aufgerufen, abhängig vom Wert der `tangentialPressure`-Eigenschaft des Ereignisses.
+In diesem Ausschnitt werden, wenn ein [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis ausgelöst wird, verschiedene Funktionen aufgerufen, abhängig vom Wert der `tangentialPressure`-Eigenschaft des Ereignisses.
 
 ```js
 someElement.addEventListener(

@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamBYOBReader: cancel()-Methode"
+title: "ReadableStreamBYOBReader: cancel() Methode"
 short-title: cancel()
 slug: Web/API/ReadableStreamBYOBReader/cancel
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird.
-Das Aufrufen dieser Methode signalisiert einen Verlust des Interesses an dem Stream durch einen Verbraucher.
+Die **`cancel()`** Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird.
+Das Aufrufen dieser Methode signalisiert das Desinteresse eines Verbrauchers an dem Stream.
 
 > [!NOTE]
-> Wenn der Leser aktiv ist, verhält sich die `cancel()`-Methode genauso wie für den zugehörigen Stream ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
+> Wenn der Leser aktiv ist, verhält sich die `cancel()`-Methode genauso wie die für den zugehörigen Stream ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein für Menschen lesbarer Grund für die Stornierung. Die zugrunde liegende Quelle kann diesen verwenden oder auch nicht.
+  - : Ein menschenlesbarer Grund für die Stornierung. Die zugrunde liegende Quelle kann ihn verwenden oder nicht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert erfüllt wird.
 
 ### Ausnahmen
 
@@ -37,7 +37,8 @@ Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert au
 
 ## Beispiele
 
-Dieses Beispiel ruft die `cancel()`-Methode auf, wenn eine Schaltfläche gedrückt wird, und übergibt den String "user choice" als Grund. Das Versprechen wird eingelöst, wenn die Stornierung abgeschlossen ist.
+Dieses Beispiel ruft die `cancel()`-Methode auf, wenn ein Button gedrückt wird, und übergibt den String "user choice" als Grund.
+Das Promise wird aufgelöst, wenn die Stornierung abgeschlossen ist.
 
 ```js
 button.addEventListener("click", () => {
@@ -45,7 +46,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-Beachten Sie, dass dieser Code im [Beispiel für die Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#result) ausgeführt werden kann (drücken Sie die Schaltfläche **Cancel stream**).
+Beachten Sie, dass dieser Code im [Verwenden von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#result)-Beispielcode ausgeführt werden kann (drücken Sie die **Cancel stream**-Taste).
 
 ## Spezifikationen
 
@@ -57,5 +58,5 @@ Beachten Sie, dass dieser Code im [Beispiel für die Verwendung von lesbaren Byt
 
 ## Siehe auch
 
-- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader)-Konstruktor
-- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
+- [Verwenden von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

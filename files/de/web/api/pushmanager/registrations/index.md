@@ -1,5 +1,5 @@
 ---
-title: "PushManager: registrations() Methode"
+title: "PushManager: registrations()-Methode"
 short-title: registrations()
 slug: Web/API/PushManager/registrations
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`registrations`** Methode wird verwendet, um das System nach bestehenden Push-Endpoint-Registrierungen zu fragen.
+Die **`registrations`**-Methode wird verwendet, um das System nach bestehenden Push-Endpoint-Registrierungen zu fragen.
 
 > [!NOTE]
 > Diese Methode wurde durch die [`PushManager.getSubscription()`](/de/docs/Web/API/PushManager/getSubscription)-Methode ersetzt.
@@ -25,19 +25,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt, um den Erfolg oder Misserfolg des Methodenaufrufs zu verarbeiten.
+Ein `DOMRequest`-Objekt, um den Erfolg oder Misserfolg des Methodenaufrufs zu behandeln.
 
-Wenn der Methodenaufruf erfolgreich ist, enthält das `result` der Anfrage ein Array von
-[PushRegistration](#pushregistration)-Objekten.
+Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage ein Array von [PushRegistration](#pushregistration)-Objekten sein.
 
 ### PushRegistration
 
 Diese Objekte sind anonyme JavaScript-Objekte mit den folgenden Eigenschaften:
 
 - `pushEndpoint`
-  - : Ein String, der die URL des Endpoints repräsentiert.
+  - : Ein String, der die URL des Endpunkts darstellt.
 - `version`
-  - : Die aktuelle Version, bei der sich der Push-Endpoint befindet.
+  - : Die aktuelle Version, die der Push-Endpoint hat.
 
 ## Beispiele
 
@@ -64,7 +63,7 @@ req.onsuccess = (e) => {
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie wird nicht länger zu einem Standard weiterentwickelt.
 
 ## Browser-Kompatibilität
 

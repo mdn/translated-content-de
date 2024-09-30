@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Text_containers", "Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps")}}
 
-Dieser Artikel, der sich auf Text-Container stützt, beschreibt, wie komplexere MathML-Ausdrücke durch das Verschachteln von Brüchen und Wurzeln erstellt werden können.
+Aufbauend auf Textcontainern beschreibt dieser Artikel, wie komplexere MathML-Ausdrücke durch das Verschachteln von Brüchen und Wurzeln erstellt werden.
 
 <table>
   <tbody>
@@ -16,12 +16,12 @@ Dieser Artikel, der sich auf Text-Container stützt, beschreibt, wie komplexere 
       <td>
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
-          >Basissoftware installiert</a
-        >, Grundkenntnisse im
+          >Grundlegende Software installiert</a
+        >, grundlegendes Wissen über
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Arbeiten mit Dateien</a
-        > und HTML-Grundlagen (siehe
+          >den Umgang mit Dateien</a
+        >, und HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
         >.)
@@ -30,7 +30,7 @@ Dieser Artikel, der sich auf Text-Container stützt, beschreibt, wie komplexere 
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Sich mit den MathML-Elementen vertraut machen, die zum Schreiben von Brüchen und Quadratwurzeln verwendet werden.
+        Vertraut werden mit MathML-Elementen, die zum Schreiben von Brüchen und Quadratwurzeln verwendet werden.
       </td>
     </tr>
   </tbody>
@@ -38,7 +38,7 @@ Dieser Artikel, der sich auf Text-Container stützt, beschreibt, wie komplexere 
 
 ## Teilbäume von \<mfrac>, \<msqrt> und \<mroot>
 
-Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting_started) haben wir bereits das `<mfrac>`-Element kennengelernt, um einen Bruch darzustellen. Betrachten Sie ein einfaches Beispiel, das neue Elemente für Wurzeln (`<msqrt>` und `<mroot>`) hinzufügt:
+Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting_started) haben wir bereits das `<mfrac>`-Element kennengelernt, um einen Bruch darzustellen. Betrachten wir ein einfaches Beispiel, das neue Elemente für Wurzeln (`<msqrt>` und `<mroot>`) hinzufügt:
 
 ```html
 <math>
@@ -65,17 +65,17 @@ Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting
 </math>
 ```
 
-Nachfolgend ein Screenshot, wie es von einem Browser gerendert wird:
+Unten ist ein Screenshot zu sehen, wie es von einem Browser gerendert wird:
 
 ![Screenshot von mfrac, msqrt, mroot](mfrac-msqrt-mroot.png)
 
-- Wir wissen bereits, dass das `<mfrac>`-Element als Bruch gerendert wird: Das erste Kind (der Zähler) wird über dem zweiten Kind (dem Nenner) gezeichnet, getrennt durch einen horizontalen Strich.
-- Das `<msqrt>` wird als Quadratwurzel gerendert: Seine Kinder werden wie ein [`<mrow>`](/de/docs/Learn/MathML/First_steps/Getting_started#grouping_with_the_mrow_element) angeordnet, vorangestellt von einem Wurzelsymbol √ und vollständig von einem Überstrich bedeckt.
-- Schließlich wird das `<mroot>`-Element als n-te Wurzel gerendert: Das erste Element wird vom Radikalsymbol bedeckt, während das zweite Element als Grad der Wurzel und als vorangehendes Hochzeichen gerendert wird.
+- Wir wissen bereits, dass das `<mfrac>`-Element als Bruch gerendert wird: Das erste Kind (der Zähler) wird über dem zweiten Kind (dem Nenner) gezeichnet und durch einen horizontalen Balken getrennt.
+- Das `<msqrt>` wird als Quadratwurzel gerendert: seine Kinder werden wie ein [`<mrow>`](/de/docs/Learn/MathML/First_steps/Getting_started#grouping_with_the_mrow_element) angeordnet, dem ein Wurzelsymbol √ vorangestellt ist und das vollständig von einem Überstrich bedeckt wird.
+- Schließlich wird das `<mroot>`-Element als n-te Wurzel gerendert: Das erste Element wird vom Radikalsymbol überdeckt, während das zweite Element als Grad der Wurzel verwendet und als Präfix-Superscript dargestellt wird.
 
-### Aktives Lernen: Verschachtelung verschiedener Elemente
+### Aktives Lernen: Verschachteln verschiedener Elemente
 
-Hier ist eine einfache Übung, um zu überprüfen, ob Sie die Beziehung zwischen einem MathML-Teilbaum und seiner visuellen Darstellung verstanden haben. Das Dokument enthält eine MathML-Formel und Sie müssen alle Teilbäume überprüfen, die einem Teilbaum in dieser MathML-Formel entsprechen. Sobald Sie fertig sind, können Sie den Quellcode der MathML-Formel untersuchen und überprüfen, ob er Ihrer Erwartung entspricht.
+Hier ist eine einfache Übung, um zu überprüfen, ob Sie den Zusammenhang zwischen einem MathML-Teilbaum und seiner visuellen Darstellung verstanden haben. Das Dokument enthält eine MathML-Formel, und Sie müssen alle Teilbäume überprüfen, die einem Teilbaum in dieser MathML-Formel entsprechen. Sobald Sie fertig sind, können Sie den Quellcode der MathML-Formel inspizieren und überprüfen, ob er Ihren Erwartungen entspricht.
 
 ```html hidden
 <!doctype html>
@@ -267,7 +267,7 @@ checkboxes.forEach((checkbox) => {
 
 ## Dehnbare Wurzelsymbole
 
-Wie zuvor gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`-Elemente horizontal, um ihren Inhalt zu bedecken. Tatsächlich erstreckt sich auch das Wurzelsymbol √, um so hoch wie sein Inhalt zu sein.
+Wie zuvor gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`-Elemente horizontal, um ihren Inhalt zu bedecken. Tatsächlich dehnt sich jedoch auch das Wurzelsymbol √, um so hoch zu sein wie ihr Inhalt.
 
 ```html hidden
 <link
@@ -292,11 +292,11 @@ Wie zuvor gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`-E
 {{ EmbedLiveSample('Stretchy_radical_symbols', 700, 200, "", "") }}
 
 > [!WARNING]
-> Spezielle [Mathematik-Schriftarten](/de/docs/Web/MathML/Fonts) sind in der Regel erforderlich, um dieses Dehnen zu ermöglichen. Das vorherige Beispiel basiert auf [Webfonts](/de/docs/Learn/CSS/Styling_text/Web_fonts).
+> Spezielle [Mathematikschriften](/de/docs/Web/MathML/Fonts) sind in der Regel erforderlich, um diese Dehnung zu ermöglichen. Das vorherige Beispiel beruht auf [Web-Schriften](/de/docs/Learn/CSS/Styling_text/Web_fonts).
 
-## Brüche ohne Strich
+## Brüche ohne Balken
 
-Einige mathematische Konzepte werden manchmal mit bruchähnlichen Notationen geschrieben, wie zum Beispiel [Binomialkoeffizienten](https://en.wikipedia.org/wiki/Combination) oder [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol). Es ist angemessen, ein `<mfrac>`-Element zu verwenden, um solche Notationen zu markieren. Für bruchähnliche Notationen, die keinen horizontalen Strich zeichnen, fügen Sie dem `<mfrac>`-Element ein `linethickness="0"`-Attribut hinzu:
+Einige mathematische Konzepte werden manchmal mit bruchähnlichen Notationen geschrieben, wie [Binomialkoeffizienten](https://en.wikipedia.org/wiki/Combination) oder [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol). Es ist angemessen, ein `<mfrac>`-Element zu verwenden, um solche Notationen auszuzeichnen. Für bruchähnliche Notationen, die keinen horizontalen Balken zeichnen, fügen Sie dem `<mfrac>`-Element ein Attribut `linethickness="0"` hinzu:
 
 ```html hidden
 <link
@@ -327,11 +327,11 @@ Einige mathematische Konzepte werden manchmal mit bruchähnlichen Notationen ges
 {{ EmbedLiveSample('Fraction_without_bar', 700, 200, "", "") }}
 
 > [!NOTE]
-> Obwohl das `linethickness`-Attribut verwendet werden kann, um eine beliebige Dicke anzugeben, ist es besser, den Standardwert beizubehalten, der aus in der Mathematik-Schriftart angegebenen Parametern berechnet wird.
+> Obwohl das `linethickness`-Attribut verwendet werden kann, um eine beliebige Dicke anzugeben, ist es besser, den Standardwert beizubehalten, der aus in der Mathe-Schrift festgelegten Parametern berechnet wird.
 
 ## Zusammenfassung
 
-In dieser Lektion haben wir gesehen, wie man Brüche und Wurzeln mit den `<mfrac>`, `<msqrt>` und `<mroot>`-Elementen erstellt. Wir haben einige besondere Merkmale dieser Elemente bemerkt, nämlich das Bruch- und Wurzelsymbol. Wir haben gesehen, wie man das `linethickness`-Attribut verwendet, um Brüche ohne Striche zu zeichnen. Im nächsten Artikel werden wir mit grundlegenden mathematischen Notationen fortfahren und [Skripte](/de/docs/Learn/MathML/First_steps/Scripts) betrachten.
+In dieser Lektion haben wir gesehen, wie man Brüche und Wurzeln mit den `<mfrac>`, `<msqrt>` und `<mroot>`-Elementen erstellt. Wir haben einige besondere Merkmale dieser Elemente bemerkt, nämlich das Bruch- und Wurzelsymbol. Wir haben gesehen, wie man das `linethickness`-Attribut verwendet, um Brüche ohne Balken zu zeichnen. Im nächsten Artikel setzen wir mit grundlegenden mathematischen Notationen fort und betrachten [Indizes](/de/docs/Learn/MathML/First_steps/Scripts).
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Text_containers", "Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps")}}
 

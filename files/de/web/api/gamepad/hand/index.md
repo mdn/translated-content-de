@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`hand`** der [`Gamepad`](/de/docs/Web/API/Gamepad)-Schnittstelle gibt ein Enum zurück, das definiert, in welcher Hand der Controller gehalten wird oder höchstwahrscheinlich gehalten werden soll.
+Die **`hand`** schreibgeschützte Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Enum zurück, das definiert, in welcher Hand der Controller gehalten wird oder höchstwahrscheinlich gehalten wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`GamepadHand`](https://w3c.github.io/gamepad/extensions.html#gamepadhand-en
 
 - `left` — die linke Hand.
 - `right` — die rechte Hand.
-- `""` (Leerer String) – wenn die anderen Werte nicht zutreffen. Zum Beispiel, wenn der Controller in beiden Händen gehalten wird oder in beiden Händen gleichermaßen gehalten werden kann.
+- `""` (Leerer String) – wenn die anderen Werte nicht anwendbar sind. Z.B. wenn der Controller in beiden Händen gehalten wird oder in beiden Händen gleichermaßen gut gehalten werden könnte.
 
 ## Beispiele
 

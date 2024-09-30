@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`SubmitEvent`**-Schnittstelle definiert das Objekt, das verwendet wird, um das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis eines [HTML](/de/docs/Glossary/HTML)-Formulars darzustellen. Dieses Ereignis wird bei dem {{HTMLElement("form")}} ausgelöst, wenn die Absendeaktion des Formulars aufgerufen wird.
+Die **`SubmitEvent`**-Schnittstelle definiert das Objekt, das verwendet wird, um ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis eines [HTML](/de/docs/Glossary/HTML)-Formulars darzustellen. Dieses Ereignis wird am {{HTMLElement("form")}} ausgelöst, wenn die Absendeaktion des Formulars aufgerufen wird.
 
 {{InheritanceDiagram}}
 
@@ -18,18 +18,18 @@ Die **`SubmitEvent`**-Schnittstelle definiert das Objekt, das verwendet wird, um
 
 ## Instanz-Eigenschaften
 
-_Neben den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle [`Event`](/de/docs/Web/API/Event)._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle [`Event`](/de/docs/Web/API/Event)._
 
 - [`submitter`](/de/docs/Web/API/SubmitEvent/submitter) {{ReadOnlyInline}}
-  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt, das das Element identifiziert, das ausgelöst wurde, um das Formular einzusenden.
+  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt, das die Schaltfläche oder ein anderes Element identifiziert, das aufgerufen wurde, um das Formular abzusenden.
 
 ## Instanz-Methoden
 
-_Obwohl `SubmitEvent` keine eigene Methoden anbietet, erbt es alle von seiner Elternschnittstelle [`Event`](/de/docs/Web/API/Event) spezifizierten._
+_Obwohl `SubmitEvent` keine eigenen Methoden anbietet, erbt es alle von seiner Elternschnittstelle [`Event`](/de/docs/Web/API/Event) spezifizierten._
 
 ## Beispiele
 
-In diesem Beispiel kann ein Warenkorb eine Vielzahl unterschiedlicher Abschicken-Buttons haben, abhängig von Faktoren wie Benutzereinstellungen, Shop-Einstellungen und festgelegten minimalen oder maximalen Einkaufssummen durch die Zahlungsabwickler. Jede der Abschick-Elemente [`id`](/de/docs/Web/API/Element/id) wird verwendet, um den Zahlungsabwickler zu identifizieren, dem der Button entspricht.
+In diesem Beispiel kann ein Warenkorb eine Reihe unterschiedlicher Absende-Schaltflächen haben, abhängig von Faktoren wie den Benutzereinstellungen, den Einstellungen des Shops und möglichen Mindest- oder Höchstgrenzen des Warenkorbs, die von den Zahlungsanbietern festgelegt wurden. Jede der Absendeelemente verwendet die [`id`](/de/docs/Web/API/Element/id), um den entsprechenden Zahlungsanbieter zu identifizieren.
 
 ```js
 let form = document.querySelector("form");
@@ -48,7 +48,7 @@ form.addEventListener("submit", (event) => {
 });
 ```
 
-Die Handler-ID wird erhalten, indem die [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft des `submit`-Ereignisses verwendet wird, um den Absende-Button zu erhalten, von dem wir dann die ID abrufen. Mit dieser in der Hand können wir eine `processOrder()`-Funktion aufrufen, um die Bestellung zu bearbeiten, wobei das Formular und die Handler-ID übergeben werden.
+Die Handler-ID wird erhalten, indem die `submit`-Ereignis-Eigenschaft [`submitter`](/de/docs/Web/API/SubmitEvent/submitter) verwendet wird, um die Absende-Schaltfläche zu erhalten, von der wir dann die ID abrufen. Mit dieser Informationen können wir eine `processOrder()`-Funktion aufrufen, um die Bestellung zu bearbeiten und das Formular sowie die Handler-ID weiterzugeben.
 
 ## Spezifikationen
 

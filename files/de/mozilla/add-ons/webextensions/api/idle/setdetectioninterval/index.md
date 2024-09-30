@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt das Intervall in Sekunden fest, das verwendet wird, um zu bestimmen, wann das System für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse in einem Leerlaufzustand ist. Das Standardintervall beträgt 60 Sekunden.
+Legt das Intervall in Sekunden fest, das verwendet wird, um zu bestimmen, wann das System sich in einem Ruhezustand für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse befindet. Das Standardintervall beträgt 60 Sekunden.
 
-Das Erkennungsintervall ist spezifisch für die Erweiterung, die die Methode aufruft. Eine Änderung des Intervalls in einer Erweiterung hat keine Auswirkungen auf das Erkennungsintervall in einer anderen Erweiterung.
+Das Erkennungsintervall ist spezifisch für die Erweiterung, die die Methode aufruft. Eine Änderung des Intervalls in einer Erweiterung wirkt sich nicht auf das Erkennungsintervall in einer anderen Erweiterung aus.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ browser.idle.setDetectionInterval(
 ### Parameter
 
 - `intervalInSeconds`
-  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann das System in einem Leerlaufzustand ist. Der minimale Wert, den Sie hier angeben können, ist 15.
+  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann sich das System in einem Ruhezustand befindet. Der Mindestwert, den Sie hier angeben können, ist 15.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ browser.idle.setDetectionInterval(15);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API von Chromium. Diese Dokumentation stammt von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

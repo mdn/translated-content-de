@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{Deprecated_header}}
 
-Der **`AudioProcessingEvent()`** Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) Objekt.
+Der **`AudioProcessingEvent()`** Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Objekt.
 
 > [!NOTE]
-> Üblicherweise wird dieser Konstruktor nicht direkt durch Ihren Code aufgerufen, da der Browser diese Objekte selbst erstellt und sie dem Ereignishandler zur Verfügung stellt.
+> In der Regel wird dieser Konstruktor nicht direkt von Ihrem Code aufgerufen, da der Browser diese Objekte selbst erstellt und sie dem Ereignishandler bereitstellt.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ new AudioProcessingEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn immer auf `audioprocess`.
+    Es ist groß-/kleinschreibungssensitiv und Browser setzen es immer auf `audioprocess`.
 - `options`
-  - : Ein Objekt, das die folgenden Eigenschaften besitzt:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `playbackTime`
-      - : Eine Zahl, die die Zeit darstellt, zu der das Audio abgespielt wird.
+      - : Eine Zahl, die die Zeit darstellt, wann das Audio abgespielt wird.
     - `inputBuffer`
-      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die Eingabedaten für das Audio enthält.
+      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die Eingabe-Audiodaten enthält.
     - `outputBuffer`
-      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in dem die Ausgabedaten des Audio geschrieben werden.
+      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in dem die Ausgabe-Audiodaten geschrieben werden.
 
 ### Rückgabewert
 

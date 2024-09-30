@@ -7,10 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`424 Failed Dependency`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Methode nicht auf die Ressource angewendet werden konnte, weil die angeforderte Aktion von einer anderen Aktion abhing und diese Aktion fehlgeschlagen ist.
+Der HTTP-Statuscode **`424 Failed Dependency`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gibt an, dass die Methode nicht auf der Ressource ausgeführt werden konnte, weil die angeforderte Aktion von einer anderen Aktion abhing und diese andere Aktion fehlgeschlagen ist.
 
-Reguläre Webserver geben diesen Statuscode normalerweise nicht zurück, aber einige Protokolle wie [WebDAV](/de/docs/Glossary/WebDAV) können ihn zurückgeben.
-Zum Beispiel in [WebDAV](/de/docs/Glossary/WebDAV), wenn eine `PROPPATCH`-Anfrage ausgeführt wurde und ein Befehl fehlschlägt, dann werden automatisch alle anderen Befehle ebenfalls mit `424 Failed Dependency` fehlschlagen.
+Normale Webserver geben diesen Statuscode normalerweise nicht zurück, aber einige Protokolle wie [WebDAV](/de/docs/Glossary/WebDAV) können ihn zurückgeben.
+Zum Beispiel kann in [WebDAV](/de/docs/Glossary/WebDAV) eine `PROPPATCH`-Anfrage, bei der ein Befehl fehlschlägt, automatisch dazu führen, dass alle anderen Befehle ebenfalls mit `424 Failed Dependency` fehlschlagen.
 
 ## Status
 
@@ -25,5 +25,5 @@ Zum Beispiel in [WebDAV](/de/docs/Glossary/WebDAV), wenn eine `PROPPATCH`-Anfrag
 ## Siehe auch
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- {{HTTPStatus("403")}} (Forbidden)
+- {{HTTPStatus("403")}} (Verboten)
 - {{HTTPStatus("501", "501 Not Implemented")}}, {{HTTPStatus("510", "510 Not Extended")}}

@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("Speculation Rules API") }}{{seecompattable}}
 
-Die **`prerendering`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt `true` zurück, wenn das Dokument derzeit im Prerendering-Prozess ist, wie über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
+Die **`prerendering`** schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt `true` zurück, wenn das Dokument derzeit im Prozess des Prerenderings ist, wie es über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert wurde.
 
 ## Wert
 
-Ein boolescher Wert. Gibt `true` zurück, wenn das Dokument derzeit im Prerendering-Prozess ist, und `false`, wenn nicht. `false` wird für Dokumente zurückgegeben, die das Prerendering abgeschlossen haben, sowie für Dokumente, die nicht prerendered wurden.
+Ein Boolean. Gibt `true` zurück, wenn sich das Dokument gerade im Prerendering-Prozess befindet, und `false`, wenn nicht. Für Dokumente, die das Prerendering abgeschlossen haben oder nicht prerendered wurden, wird `false` zurückgegeben.
 
 ## Beispiele
 
-Um eine Aktivität auszuführen, während die Seite prerendert wird, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
+Um eine Aktivität auszuführen, während die Seite gerendert wird, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
 
 ```js
 if (document.prerendering) {
@@ -24,7 +24,7 @@ if (document.prerendering) {
 }
 ```
 
-Wenn ein prerendered Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Wert gesetzt, der die Zeit zwischen dem Start des Prerenderings und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für prerendering als auch prerendered Seiten überprüfen:
+Wenn ein prerendered Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert gesetzt, der die Zeit zwischen dem Start des Prerenderings und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für prerendering als auch prerendered Seiten prüfen:
 
 ```js
 function pagePrerendered() {
@@ -35,7 +35,7 @@ function pagePrerendered() {
 }
 ```
 
-Wenn die prerendered Seite vom Benutzer betrachtet wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis ausgelöst. Dies kann verwendet werden, um Aktivitäten zu aktivieren, die zuvor standardmäßig beim Laden der Seite gestartet würden, die Sie jedoch verzögern möchten, bis die Seite tatsächlich vom Benutzer betrachtet wird. Der folgende Code richtet einen Ereignis-Listener ein, um eine Funktion auszuführen, sobald das Prerendering auf einer prerendered Seite abgeschlossen ist, oder sie sofort auf einer nicht prerendered Seite auszuführen:
+Wenn die prerendered Seite durch das Betrachten der Seite durch den Benutzer aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis ausgelöst. Dies kann genutzt werden, um Aktivitäten zu aktivieren, die vorher standardmäßig beim Laden der Seite gestartet wurden, die Sie jedoch verzögern möchten, bis die Seite tatsächlich vom Benutzer angesehen wird. Der folgende Code richtet einen Ereignislistener ein, um eine Funktion auszuführen, sobald das Prerendering auf einer prerendered Seite beendet ist, oder führt sie sofort auf einer nicht prerendered Seite aus:
 
 ```js
 if (document.prerendering) {
@@ -48,7 +48,7 @@ if (document.prerendering) {
 ```
 
 > [!NOTE]
-> Siehe die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Übersichtsseite und insbesondere den Abschnitt [Unsafe speculative loading conditions](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions) für weitere Informationen über die Arten von Aktivitäten, die Sie möglicherweise verzögern möchten.
+> Weitere Informationen zu den Arten von Aktivitäten, die Sie möglicherweise verzögern möchten, finden Sie auf der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)-Startseite, insbesondere im Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions).
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ if (document.prerendering) {
 ## Siehe auch
 
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
-- [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis
+- [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis

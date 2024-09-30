@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent) Eigenschaft **`frame`** spezifiziert ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das den Ereignisrahmen darstellt, während dem eine Benutzereingabe im [WebXR](/de/docs/Web/API/WebXR_Device_API) auftrat. Dies kann somit ein Ereignis sein, das in der Vergangenheit stattgefunden hat und nicht unbedingt ein aktuelles oder bevorstehendes Ereignis ist.
+Die schreibgeschützte [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent)-Eigenschaft **`frame`** spezifiziert ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das den Ereignisrahmen darstellt, in dem eine [WebXR](/de/docs/Web/API/WebXR_Device_API)-Benutzereingabe aufgetreten ist. Somit kann es sich um ein Ereignis handeln, das in der Vergangenheit aufgetreten ist und nicht um ein aktuelles oder bevorstehendes Ereignis.
 
 ## Wert
 
-Ein [`XRFrame`], das den Ereignisrahmen angibt, in dem das durch das Objekt beschriebene Benutzereingabeereignis stattgefunden hat.
+Ein [`XRFrame`](/de/docs/Web/API/XRFrame), der den Ereignisrahmen angibt, bei dem das durch das Objekt beschriebene Benutzereingabeereignis stattgefunden hat.
 
 ## Verwendungshinweise
 
-Der Ereignisrahmen entspricht nicht einem visuellen Frame, wie er der Frame-Rendering-Callback-Funktion bereitgestellt wird (siehe [Rendering und der WebXR Frame-Rendering-Callback](/de/docs/Web/API/WebXR_Device_API/Rendering) für Details zum Callback). Stattdessen dient das `XRFrame`, das durch die `frame`-Eigenschaft spezifiziert wird, als Methode, um Zugriff auf die [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode zu gewähren, mit der Sie die relativen Positionen der Objekte in der Szene zum Zeitpunkt des Ereignisses erhalten können.
+Der Ereignisrahmen entspricht nicht einem visuellen Frame, wie er an die Frame-Rendering-Callback-Funktion geliefert wird (siehe [Rendering und der WebXR-Frame-Rendering-Callback](/de/docs/Web/API/WebXR_Device_API/Rendering) für Details zum Callback). Stattdessen ist der durch die `frame`-Eigenschaft angegebene `XRFrame` eine Methode, um Zugang zur [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode zu bieten, die verwendet werden kann, um die relativen Positionen der Objekte in der Szene zu dem Zeitpunkt zu erhalten, als das Ereignis aufgetreten ist.
 
-Da der Ereignisrahmen jedoch kein Animationsrahmen ist, steht keine Betrachterpose zur Verfügung, um den aktuellen Standpunkt des Betrachters darzustellen; die Ergebnisse des Aufrufs von [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) werden eine [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) mit einer leeren [`views`](/de/docs/Web/API/XRViewerPose/views)-Liste sein.
+Da es sich beim Ereignisrahmen jedoch nicht um einen Animationsrahmen handelt, gibt es keine Betrachterposition, die den aktuellen Blickwinkel des Betrachters darstellt; die Ergebnisse des Aufrufs von [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) werden eine [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) mit einer leeren [`views`](/de/docs/Web/API/XRViewerPose/views)-Liste sein.
 
 ## Beispiele
 
-Dieser Code zeigt einen Handler für das [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignis, der die Pose des Zielstrahls aus dem Frame erhält und die Pose, die den Strahl darstellt (`event.inputSource.targetRaySpace`), auf den Gesamt-Referenzraum `myRefSpace` abbildet.
+Dieser Code zeigt einen Handler für das [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignis, das die Pose des Zielstrahls aus dem Frame erhält und die Pose, die den Strahl darstellt (`event.inputSource.targetRaySpace`), auf den gesamten Referenzraum `myRefSpace` abbildet.
 
-Dann, falls das Ergebnis nicht `null` ist, wird die Transformation der Zielstrahlpose in eine Funktion namens `myCheckAndHandleHit()` übergeben, um zu überprüfen, ob der Strahl auf etwas zeigte, als die Auswahl ausgelöst wurde.
+Wenn das Ergebnis nicht `null` ist, wird die Transformation der Zielstrahlpose an eine Funktion namens `myCheckAndHandleHit()` übergeben, um zu überprüfen, ob der Strahl auf etwas zeigte, als das "Select" ausgelöst wurde.
 
 ```js
 xrSession.onselectstart = (event) => {

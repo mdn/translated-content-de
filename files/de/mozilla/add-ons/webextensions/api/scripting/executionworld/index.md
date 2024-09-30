@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die Ausführungsumgebung eines Skripts an, das mit {{WebExtAPIRef("scripting.executeScript()")}} injiziert oder mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registriert wurde.
+Bestimmt die Ausführungsumgebung eines Skripts, das mit {{WebExtAPIRef("scripting.executeScript()")}} injiziert oder mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registriert wird.
 
 ## Typ
 
@@ -16,16 +16,16 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 - `ISOLATED`
 
   Die Standard-Ausführungsumgebung für [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts).
-  Diese Umgebung ist von dem Kontext der Seite isoliert: Während sie dasselbe Dokument teilen, unterscheiden sich die globalen Geltungsbereiche und die verfügbaren APIs.
+  Diese Umgebung ist vom Kontext der Seite isoliert: Während sie dasselbe Dokument teilen, unterscheiden sich die globalen Bereiche und verfügbaren APIs.
 
 - `MAIN`
 
-  Die Ausführungsumgebung der Webseite. Diese Umgebung wird mit der Webseite geteilt, ohne Isolation.
+  Die Ausführungsumgebung der Webseite. Diese Umgebung wird ohne Isolation mit der Webseite geteilt.
   Skripte in dieser Umgebung haben keinen Zugriff auf APIs, die nur für Inhalts-Skripte verfügbar sind.
 
   > [!WARNING]
-  > Aufgrund des Fehlens von Isolation kann die Webseite den ausgeführten Code erkennen und beeinträchtigen.
-  > Verwenden Sie das `MAIN`-Ausführungsumfeld nicht, es sei denn, es ist akzeptabel, dass Webseiten die Logik oder Daten, die durch den ausgeführten Code fließen, lesen, darauf zugreifen oder diese ändern können.
+  > Aufgrund der fehlenden Isolation kann die Webseite den ausgeführten Code erkennen und stören.
+  > Verwenden Sie die `MAIN`-Umgebung nur, wenn es akzeptabel ist, dass Webseiten die Logik oder Daten lesen, darauf zugreifen oder ändern, die durch den ausgeführten Code fließen.
 
 {{WebExtExamples("h2")}}
 
@@ -34,4 +34,4 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld) API.
+> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld) API von Chromium.

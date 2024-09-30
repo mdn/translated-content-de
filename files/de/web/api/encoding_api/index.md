@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Encoding API")}}{{AvailableInWorkers}}
 
-Die **Encoding API** bietet einen Mechanismus zur Behandlung von Text in verschiedenen [Zeichenkodierungen](/de/docs/Glossary/character_encoding), einschließlich veralteter nicht-[UTF-8](/de/docs/Glossary/UTF-8) Kodierungen.
+Die **Encoding API** bietet einen Mechanismus zur Verarbeitung von Text in verschiedenen [Zeichenkodierungen](/de/docs/Glossary/character_encoding), einschließlich älterer nicht-[UTF-8](/de/docs/Glossary/UTF-8)-Kodierungen.
 
 Die API stellt vier Schnittstellen bereit: [`TextDecoder`](/de/docs/Web/API/TextDecoder), [`TextEncoder`](/de/docs/Web/API/TextEncoder), [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) und [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream).
 
@@ -28,5 +28,5 @@ Die API stellt vier Schnittstellen bereit: [`TextDecoder`](/de/docs/Web/API/Text
 
 ## Siehe auch
 
-- [Encoding API Encodings](/de/docs/Web/API/Encoding_API/Encodings) - Kodierungen, die für das Dekodieren von Text unterstützt werden müssen.
-- Ein [Polyfill](https://github.com/inexorabletash/text-encoding), der es ermöglicht, diese Schnittstelle in Browsern zu verwenden, die sie nicht unterstützen.
+- [Encoding API Encodings](/de/docs/Web/API/Encoding_API/Encodings) - Kodierungen, die zum Dekodieren von Text unterstützt werden müssen.
+- Ein [Polyfill](https://github.com/inexorabletash/text-encoding), mit dem diese Schnittstelle in Browsern genutzt werden kann, die sie nicht unterstützen.

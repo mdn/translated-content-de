@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`Screen.height`** schreibgeschützte Eigenschaft gibt die Höhe
+Die schreibgeschützte Eigenschaft **`Screen.height`** gibt die Höhe
 des Bildschirms in Pixeln zurück.
 
 ## Wert
@@ -23,9 +23,10 @@ if (window.screen.availHeight !== window.screen.height) {
 }
 ```
 
-## Hinweise
+## Anmerkungen
 
-Beachten Sie, dass nicht die gesamte Höhe, die durch diese Eigenschaft angegeben wird, dem Fenster selbst zur Verfügung stehen muss. Widgets wie Taskleisten oder andere spezielle Anwendungsfenster, die sich in das Betriebssystem integrieren (z. B. der Spinner-Player, der minimiert ist, um wie eine zusätzliche Werkzeugleiste zu fungieren), können den verfügbaren Platz für Browserfenster und andere Anwendungen verringern.
+Beachten Sie, dass nicht die gesamte durch diese Eigenschaft angegebene Höhe dem Fenster
+selbst zur Verfügung stehen muss. Widgets wie Taskleisten oder andere spezielle Anwendungsfenster, die in das Betriebssystem integriert sind (z.B. der Spinner-Player, der minimiert wird, um wie eine zusätzliche Symbolleiste in Windows zu agieren), können die Menge an verfügbarem Platz für Browserfenster und andere Anwendungen reduzieren.
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`MediaStreamAudioSourceNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt und gibt ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt zurück, das die erste Audiospur eines gegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) als Quelle verwendet.
+Der **`MediaStreamAudioSourceNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erzeugt und gibt ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt zurück, das die erste Audiospur eines angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) als Quelle verwendet.
 
 > [!NOTE]
-> Eine andere Möglichkeit, einen
-> `MediaStreamAudioSourceNode` zu erstellen, ist, die Methode [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource) aufzurufen, wobei Sie den Stream angeben, von dem Sie Audio erhalten möchten.
+> Eine weitere Möglichkeit, ein
+> `MediaStreamAudioSourceNode` zu erstellen, besteht darin, die Methode [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource) aufzurufen und den Stream anzugeben, aus dem Sie Audio beziehen möchten.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ new MediaStreamAudioSourceNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, mit dem der Knoten verbunden werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, mit dem der Knoten verknüpft werden soll.
 - `options`
 
-  - : Ein Objekt, das die Eigenschaften definiert, welche der `MediaStreamAudioSourceNode` haben soll:
+  - : Ein Objekt, das die Eigenschaften definiert, die das `MediaStreamAudioSourceNode` haben soll:
 
     - `mediaStream`
-      - : Eine erforderliche Eigenschaft, die den [`MediaStream`](/de/docs/Web/API/MediaStream) spezifiziert, von dem das Audio für den Knoten bezogen werden soll.
+      - : Eine erforderliche Eigenschaft, die den [`MediaStream`](/de/docs/Web/API/MediaStream) angibt, aus dem das Audio für den Knoten bezogen werden soll.
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt, das den Audionode darstellt, dessen Medien aus dem angegebenen Quellstream bezogen werden.
+Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt, das den Audio-Knoten darstellt, dessen Medien aus dem angegebenen Quell-Stream bezogen werden.
 
 ### Ausnahmen
 
@@ -42,7 +42,7 @@ Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSource
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die Kamera des Benutzers zu erhalten, und erstellt dann einen neuen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) aus dem betreffenden [`MediaStream`](/de/docs/Web/API/MediaStream).
+Dieses Beispiel verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die Kamera des Benutzers zu erhalten, und erstellt dann einen neuen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) aus dessen [`MediaStream`](/de/docs/Web/API/MediaStream).
 
 ```js
 // define variables

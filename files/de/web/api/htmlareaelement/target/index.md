@@ -8,16 +8,16 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
 
-Es entspricht dem [`target`](/de/docs/Web/HTML/Element/area#target)-Attribut des {{HTMLElement("area")}}-Elements.
+Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/area#target)-Attribut des {{HTMLElement("area")}}-Elements wider.
 
 ## Wert
 
-Ein String, der das Ziel repräsentiert. Sein Wert kann sein:
+Ein String, der das Ziel darstellt. Der Wert kann sein:
 
 - Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Element/area#target): `_blank`, `_self`, `_parent` oder `_top`.
+- Einer der [Schlüsselwörter mit bestimmten Werten](/de/docs/Web/HTML/Element/area#target): `_blank`, `_self`, `_parent` oder `_top`.
 
 ## Beispiel
 

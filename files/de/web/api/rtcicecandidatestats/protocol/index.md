@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidateStats: Protokoll-Eigenschaft"
+title: "RTCIceCandidateStats: Eigenschaft protocol"
 short-title: protocol
 slug: Web/API/RTCIceCandidateStats/protocol
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`protocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) Wörterbuchs gibt an, welches Protokoll der angegebene Kandidat für die Kommunikation mit dem entfernten Peer verwenden würde.
+Die **`protocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das der angegebene Kandidat für die Kommunikation mit dem entfernten Peer verwenden würde.
 
 ## Wert
 
-Der Wert ist eine der folgenden Zeichenfolgen:
+Der Wert ist einer der folgenden Strings:
 
 - `tcp`
-  - : Der Kandidat würde, falls ausgewählt, [TCP](/de/docs/Glossary/TCP) als Transportprotokoll für seine Daten verwenden. Die [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType) Eigenschaft liefert zusätzliche Informationen über die Art des durch das Objekt dargestellten TCP-Kandidaten.
+  - : Der Kandidat würde, falls ausgewählt, [TCP](/de/docs/Glossary/TCP) als Transportprotokoll für seine Daten verwenden. Die [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType)-Eigenschaft liefert zusätzliche Informationen über die Art des TCP-Kandidaten, der durch das Objekt dargestellt wird.
 - `udp`
-  - : Der Kandidat wird das [UDP](/de/docs/Glossary/UDP) Transportprotokoll für seine Daten verwenden. Dies ist das bevorzugte Protokoll für Medieninteraktionen aufgrund seines besseren Leistungsprofils.
+  - : Der Kandidat wird das [UDP](/de/docs/Glossary/UDP)-Transportprotokoll für seine Daten verwenden. Dies ist das bevorzugte Protokoll für Medieninteraktionen, da es ein besseres Leistungsprofil bietet. 
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Pointer Events")}}
 
-Die **`getPredictedEvents()`** Methode der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die geschätzte zukünftige Zeigerpositionen darstellen. Wie die vorhergesagten Positionen berechnet werden, hängt von der Benutzer-Agent ab, basiert jedoch auf vergangenen Punkten, aktueller Geschwindigkeit und Flugbahn.
+Die **`getPredictedEvents()`**-Methode des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die geschätzte zukünftige Positionen für Zeiger darstellen. Wie die vorhergesagten Positionen berechnet werden, hängt vom Benutzeragenten ab, basiert jedoch auf vergangenen Punkten, aktueller Geschwindigkeit und Flugbahn.
 
-Anwendungen können die vorhergesagten Ereignisse verwenden, um "voraus zu zeichnen" zu einer vorhergesagten Position, was die wahrgenommene Latenz verringern kann, abhängig von der Interpretation der vorhergesagten Ereignisse durch die Anwendung und dem Anwendungsfall.
+Anwendungen können die vorhergesagten Ereignisse nutzen, um "vorauszuzeichnen" zu einer vorhergesagten Position, was die wahrgenommene Latenz je nach Interpretation der vorhergesagten Ereignisse und dem Anwendungsfall verringern kann.
 
-Für eine Darstellung der vorhergesagten Ereignisse siehe [Abbildung 8 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_predicted).
+Für eine Darstellung der vorhergesagten Ereignisse, siehe [Abbildung 8 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_predicted).
 
 ## Syntax
 

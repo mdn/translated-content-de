@@ -1,5 +1,5 @@
 ---
-title: "DocumentPictureInPictureEvent: DocumentPictureInPictureEvent() Konstruktor"
+title: "DocumentPictureInPictureEvent: DocumentPictureInPictureEvent()-Konstruktor"
 short-title: DocumentPictureInPictureEvent()
 slug: Web/API/DocumentPictureInPictureEvent/DocumentPictureInPictureEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`DocumentPictureInPictureEvent()`** Konstruktor erstellt eine neue Instanz eines [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Objekts.
+Der **`DocumentPictureInPictureEvent()`**-Konstruktor erstellt eine neue Instanz eines [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Objekts.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new DocumentPictureInPictureEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `DocumentPictureInPictureEvent` ist dies immer `enter`.
+  - : Ein String, der den Typ des Ereignisses darstellt. Im Falle von `DocumentPictureInPictureEvent` ist dies immer `enter`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `window`
@@ -27,7 +27,7 @@ new DocumentPictureInPictureEvent(type, init)
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `DocumentPictureInPictureEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des ausgelösten [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `DocumentPictureInPictureEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignisses aufgerufen wird.
 
 ```js
 documentPictureInPicture.addEventListener("enter", (event) => {

@@ -5,11 +5,18 @@ l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
 ---
 
+--- 
+title: "repeatCount" 
+slug: Web/SVG/Attribute/repeatCount 
+page-type: svg-attribute 
+browser-compat: svg.elements.animate.repeatCount 
+---
+
 {{SVGRef}}
 
-Das **`repeatCount`**-Attribut gibt an, wie oft eine Animation ablaufen wird.
+Das **`repeatCount`** Attribut gibt an, wie oft eine Animation durchgeführt wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -49,7 +56,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "220", "150")}}
+{{EmbedLiveSample("Beispiel", "220", "150")}}
 
 ## Verwendungshinweise
 
@@ -64,16 +71,16 @@ svg {
       <td><em>Keiner</em></td>
     </tr>
     <tr>
-      <th scope="row">Animierbar</th>
+      <th scope="row">Animationsfähig</th>
       <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Anzahl der Iterationen an. Er kann teilweise Iterationen umfassen, die als Bruchwerte ausgedrückt werden. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Die Werte müssen größer als `0` sein.
+  - : Dieser Wert spezifiziert die Anzahl der Wiederholungen. Er kann Teilwiederholungen enthalten, die als Bruchwerte ausgedrückt werden. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Die Werte müssen größer als `0` sein.
 - `indefinite`
-  - : Dieser Wert gibt an, dass die Animation unendlich oft wiederholt wird (d.h. bis das Dokument endet).
+  - : Dieser Wert gibt an, dass die Animation unbegrenzt wiederholt wird (d.h. bis das Dokument endet).
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{QuicklinksWithSubPages("Learn/Common_questions")}}
 
-Dieser Artikel führt in die grundlegenden Konzepte hinter der Web-Barrierefreiheit ein.
+Dieser Artikel führt in die grundlegenden Konzepte der Web-Barrierefreiheit ein.
 
 <table class="standard-table">
   <tbody>
@@ -16,72 +16,72 @@ Dieser Artikel führt in die grundlegenden Konzepte hinter der Web-Barrierefreih
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
-      <td>Erfahren Sie, was Barrierefreiheit ist und warum sie wichtig ist.</td>
+      <th scope="row">Ziel:</th>
+      <td>Lernen, was Barrierefreiheit ist und warum sie wichtig ist.</td>
     </tr>
   </tbody>
 </table>
 
 ## Zusammenfassung
 
-Aufgrund physischer oder technischer Einschränkungen können Ihre Besucher Ihre Website möglicherweise nicht so erleben, wie Sie es sich erhofft haben. In diesem Artikel geben wir allgemeine Prinzipien zur Barrierefreiheit und erklären einige Regeln.
+Aufgrund physischer oder technischer Einschränkungen können Ihre Besucher Ihre Website möglicherweise nicht so erleben, wie Sie es sich erhofft haben. In diesem Artikel geben wir allgemeine Grundsätze zur Barrierefreiheit und erläutern einige Regeln.
 
 ## Aktives Lernen
 
-_Es gibt noch kein aktives Lernen. [Bitte erwägen Sie, einen Beitrag zu leisten](/de/docs/MDN/Community/Contributing/Getting_started)._
+_Es stehen noch keine aktiven Lerninhalte zur Verfügung. [Bitte erwägen Sie eine Mitarbeit](/de/docs/MDN/Community/Contributing/Getting_started)._
 
-## Vertiefen Sie Ihr Wissen
+## Vertiefen
 
-### Barrierefreiheit: allgemeine Prinzipien
+### Barrierefreiheit: allgemeine Grundsätze
 
-Wir assoziieren Barrierefreiheit zunächst mit negativen Einschränkungen. Dieses Gebäude muss zugänglich sein, daher muss es diese Vorschriften für Türbreite, Toilettengröße und Aufzugsplatzierung einhalten.
+Wir könnten Barrierefreiheit zunächst mit negativen Einschränkungen assoziieren. Dieses Gebäude muss barrierefrei sein, daher muss es diesen Vorschriften für Türbreite, Toilettengröße und Aufzugplatzierung entsprechen.
 
-Das ist eine enge Sichtweise auf Barrierefreiheit. Sehen Sie es als eine wunderbare Möglichkeit, Menschen zu stärken und mehr Kunden zu bedienen. Was können die Menschen in Brasilien mit Ihrer englischen Website anfangen? Können die Menschen mit Smartphones eine überladene Website durchsuchen, die für einen großen Desktop-Monitor und unbegrenzte Bandbreite konzipiert ist? Sie werden woanders hingehen. Im Allgemeinen _müssen wir unser Produkt aus den Blickwinkeln all unserer Zielkunden betrachten und es entsprechend anpassen._ Daher Barrierefreiheit.
+Das ist eine enge Sichtweise auf Barrierefreiheit. Denken Sie daran als eine wunderbare Möglichkeit, Menschen zu unterstützen und mehr Kunden zu bedienen. Was können die Menschen in Brasilien mit Ihrer englischen Website anfangen? Können die Menschen mit Smartphones eine schwere, überladene Website besuchen, die für einen großen Desktop-Monitor und unbegrenzte Bandbreite ausgelegt ist? Sie werden woanders hingehen. Im Allgemeinen _müssen wir über unser Produkt aus den Blickwinkeln aller unserer Zielkunden nachdenken und es entsprechend anpassen_. Daher die Barrierefreiheit.
 
 ### Web-Barrierefreiheit
 
-Im spezifischen Kontext des Webs bedeutet Barrierefreiheit, dass jeder unabhängig von Behinderung, Standort, technischen Einschränkungen oder anderen Umständen von Ihren Inhalten profitieren kann.
+Im speziellen Kontext des Webs bedeutet Barrierefreiheit, dass jeder von Ihren Inhalten profitieren kann, unabhängig von Behinderung, Standort, technischen Einschränkungen oder anderen Umständen.
 
-Betrachten wir das Beispiel Video:
+Betrachten wir das Thema Video:
 
-- Hörbehinderung
+- Gehörlosigkeit
 
-  - : Wie profitiert eine hörgeschädigte Person von einem Video? Sie müssen Untertitel bereitstellen - oder noch besser, eine vollständige Textabschrift.
+  - : Wie profitiert eine gehörlose Person von einem Video? Sie müssen Untertitel bereitstellen — oder noch besser, eine vollständige Textabschrift.
 
-    Stellen Sie außerdem sicher, dass Menschen die Lautstärke an ihre individuellen Bedürfnisse anpassen können.
+    Stellen Sie außerdem sicher, dass die Lautstärke anpassbar ist, um den individuellen Bedürfnissen gerecht zu werden.
 
 - Sehbehinderung
-  - : Auch hier sollte eine Textabschrift bereitgestellt werden, die der Benutzer konsultieren kann, ohne das Video abspielen zu müssen, sowie eine Audiodeskription (eine Off-Screen-Stimme, die beschreibt, was im Video passiert).
+  - : Bieten Sie auch hier eine Textabschrift an, die ein Benutzer konsultieren kann, ohne das Video abspielen zu müssen, und eine Audiodeskription (eine Off-Stimme, die beschreibt, was im Video passiert).
 - Pausierfähigkeit
-  - : Benutzer könnten Schwierigkeiten haben, jemanden in einem Video zu verstehen. Lassen Sie sie das Video pausieren, um die Untertitel zu lesen oder die Informationen zu verarbeiten.
-- Tastaturfähigkeit
-  - : Lassen Sie den Benutzer in ein Video ein- und austaben, es abspielen und anhalten, ohne darin gefangen zu sein.
+  - : Benutzer haben möglicherweise Probleme, jemanden in einem Video zu verstehen. Lassen Sie sie das Video pausieren, um die Untertitel zu lesen oder die Informationen zu verarbeiten.
+- Tastaturkapazität
+  - : Ermöglichen Sie dem Benutzer, in ein Video hinein- und herauszutabben, es abzuspielen und zu pausieren, ohne darin gefangen zu werden.
 
 #### Die Grundlagen der Web-Barrierefreiheit
 
-Einige Notwendigkeiten für grundlegende Web-Barrierefreiheit umfassen:
+Einige Notwendigkeiten für grundlegende Web-Barrierefreiheit sind:
 
-- Wann immer Ihre Website ein Bild benötigt, um Bedeutung zu vermitteln, fügen Sie einen Text als Alternative für sehbehinderte Benutzer oder solche mit langsamen Verbindungen hinzu.
-- Stellen Sie sicher, dass alle Benutzer grafische Schnittstellen (wie aufklappbare Menüs) ausschließlich mit einer Tastatur bedienen können (z. B. mit Tab und der Eingabetaste).
-- Stellen Sie ein Attribut bereit, das explizit die Sprache Ihres Inhalts angibt, damit Screenreader Ihren Text richtig vorlesen.
-- Stellen Sie sicher, dass ein Benutzer alle Widgets auf einer Seite ausschließlich mit der Tastatur navigieren kann, ohne eingeschlossen zu werden. (Lassen Sie sie zumindest herein- und heraus-tabben.)
+- Wann immer Ihre Website ein Bild benötigt, um Bedeutung zu vermitteln, fügen Sie einen Text als Alternative für sehbehinderte Benutzer oder diejenigen mit langsamen Verbindungen hinzu.
+- Stellen Sie sicher, dass alle Benutzer grafische Schnittstellen (wie sich öffnende Menüs) ausschließlich mit einer Tastatur bedienen können (z. B. mit Tab und Return-Taste).
+- Geben Sie ein Attribut an, das die Sprache Ihrer Inhalte explizit angibt, damit Screenreader Ihren Text korrekt vorlesen.
+- Stellen Sie sicher, dass ein Benutzer zu allen Widgets auf einer Seite ausschließlich mit der Tastatur navigieren kann, ohne steckenzubleiben. (Lassen Sie ihn zumindest hinein- und heraus-tabben.)
 
-Und das ist nur der Anfang.
+Und das ist erst der Anfang.
 
-### Champions der Barrierefreiheit
+### Barrierefreiheits-Champions
 
-Seit 1999 betreibt das [W3C](/de/docs/Glossary/W3C) eine Arbeitsgruppe namens [Web Accessibility Initiative](/de/docs/Glossary/WAI) (WAI), die die Barrierefreiheit durch Richtlinien, unterstützendes Material und internationale Ressourcen fördert.
+Seit 1999 betreibt das [W3C](/de/docs/Glossary/W3C) eine Arbeitsgruppe namens [Web Accessibility Initiative](/de/docs/Glossary/WAI) (WAI), die Barrierefreiheit durch Richtlinien, Unterstützungsmaterialien und internationale Ressourcen fördert.
 
 ## Weitere Details
 
-Bitte beziehen Sie sich auf:
+Bitte beachten Sie:
 
 - [Wikipedia-Artikel](https://en.wikipedia.org/wiki/Accessibility) über Barrierefreiheit
 - [WAI (W3C's Web Accessibility Initiative)](https://www.w3.org/WAI/)
 
 ## Nächste Schritte
 
-Barrierefreiheit kann sowohl das Design einer Website als auch die technische Struktur beeinflussen.
+Barrierefreiheit kann sowohl das Design als auch die technische Struktur einer Website beeinflussen.
 
-- Aus Design-Sicht empfehlen wir, mehr über das [Design für alle Benutzertypen](/de/docs/Learn/Common_questions/Design_and_accessibility/Design_for_all_types_of_users) zu lernen.
+- Aus einer Designperspektive empfehlen wir, mehr über das [Design für alle Benutzergruppen](/de/docs/Learn/Common_questions/Design_and_accessibility/Design_for_all_types_of_users) zu erfahren.
 - Wenn Sie sich mehr für die technische Seite interessieren, könnten Sie lernen, wie man [Bilder in Webseiten einbettet](/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML).

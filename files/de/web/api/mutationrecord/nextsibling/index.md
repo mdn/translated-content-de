@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`nextSibling`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das nächste Geschwisterelement eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
+Die schreibgeschützte Eigenschaft **`nextSibling`** von [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das nächste Geschwisterkind eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
 
 ## Wert
 
-Wenn ein Knoten zum [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder davon entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das nächste Geschwisterelement des hinzugefügten oder entfernten Knotens ist: das heißt, der Knoten, der diesem im [`childNodes`](/de/docs/Web/API/Node/childNodes)-Array des Elternteils unmittelbar folgt.
+Wenn ein Knoten dem [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das nächste Geschwister des hinzugefügten oder entfernten Knotens ist: das heißt, der Knoten, der diesem unmittelbar in der Elternliste der [`childNodes`](/de/docs/Web/API/Node/childNodes) folgt.
 
-Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt wurden oder wenn der Knoten das letzte Kind seines Elternteils ist.
+Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt werden oder wenn der Knoten das letzte Kind seines Elternknotens ist.
 
 ## Beispiele
 
-### Das nächste Geschwisterelement einer Mutation protokollieren
+### Das nächste Geschwister einer Mutation protokollieren
 
-Dies fügt jedes Mal, wenn Sie den Button anklicken, einen Knoten hinzu, aber der Knoten wird am _Anfang des Ziels_, nicht am Ende hinzugefügt. Dann protokolliert der Beobachter den `textContent` des `nextSibling` des hinzugefügten Knotens.
+Dies fügt bei jedem Klick auf den Button einen Knoten hinzu, jedoch am _Anfang des Zieles_, nicht am Ende. Der Observer protokolliert dann das `textContent` des `nextSibling` des hinzugefügten Knotens.
 
 #### HTML
 
@@ -72,7 +72,7 @@ observer.observe(target, { childList: true });
 
 #### Ergebnis
 
-{{EmbedLiveSample("Das nächste Geschwisterelement einer Mutation protokollieren", "", 250)}}
+{{EmbedLiveSample("Das nächste Geschwister einer Mutation protokollieren", "", 250)}}
 
 ## Spezifikationen
 

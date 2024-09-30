@@ -1,5 +1,5 @@
 ---
-title: "SVGLengthList: numberOfItems-Eigenschaft"
+title: "SVGLengthList: numberOfItems Eigenschaft"
 short-title: numberOfItems
 slug: Web/API/SVGLengthList/numberOfItems
 l10n:

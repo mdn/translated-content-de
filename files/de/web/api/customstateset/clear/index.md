@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`clear()`** Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle entfernt alle Elemente aus dem `CustomStateSet`-Objekt.
+Die **`clear()`** Methode des [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) Schnittstelle entfernt alle Elemente aus dem `CustomStateSet` Objekt.
 
 ## Syntax
 

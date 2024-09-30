@@ -7,18 +7,18 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<label>`** [HTML](/de/docs/Web/HTML) Element stellt eine Beschriftung für ein Element in einer Benutzeroberfläche dar.
+Das **`<label>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung für ein Element in einer Benutzeroberfläche.
 
 {{EmbedInteractiveExample("pages/tabbed/label.html", "tabbed-shorter")}}
 
-Die Zuordnung eines `<label>` zu einem Formularelement, wie {{htmlelement("input")}} oder {{htmlelement("textarea")}}, bietet einige wichtige Vorteile:
+Die Verknüpfung eines `<label>` mit einem Formularelement, wie z.B. {{htmlelement("input")}} oder {{htmlelement("textarea")}}, bietet einige wesentliche Vorteile:
 
-- Der Label-Text ist nicht nur visuell mit seinem entsprechenden Texteingabefeld verbunden, sondern auch programmatisch. Das bedeutet, dass z.B. ein Screenreader das Label vorliest, wenn der Benutzer auf das Formulareingabefeld fokussiert, was es Nutzern von unterstützender Technologie erleichtert, zu verstehen, welche Daten eingegeben werden sollen.
-- Wenn ein Benutzer auf ein Label klickt oder tippt, überträgt der Browser den Fokus auf das zugehörige Eingabefeld (das resultierende Ereignis wird auch für das Eingabefeld ausgelöst). Diese vergrößerte Anwendungsfläche für den Fokus bietet einen Vorteil für alle, die versuchen, es zu aktivieren — einschließlich derjenigen, die ein Touchscreen-Gerät verwenden.
+- Der Labeltext wird nicht nur visuell mit seinem entsprechenden Texteingabefeld assoziiert, sondern auch programmatisch. Das bedeutet beispielsweise, dass ein Screenreader das Label vorliest, wenn der Benutzer sich auf das Formulareingabefeld fokussiert, was es einem Nutzer mit unterstützender Technologie erleichtert zu verstehen, welche Daten eingegeben werden sollen.
+- Wenn ein Benutzer auf ein Label klickt oder tippt, überträgt der Browser den Fokus auf das zugehörige Eingabefeld (das resultierende Ereignis wird ebenfalls für das Eingabefeld ausgelöst). Diese vergrößerte Trefferfläche zum Fokussieren des Eingabefeldes bietet jedem, der versucht, es zu aktivieren, einen Vorteil – einschließlich derjenigen, die ein Touchscreen-Gerät verwenden.
 
-Um ein `<label>` Element explizit einem `<input>` Element zuzuordnen, müssen Sie zunächst das `id` Attribut zum `<input>` Element hinzufügen. Anschließend fügen Sie dem `<label>` Element das `for` Attribut hinzu, wobei der Wert von `for` derselbe wie das `id` im `<input>` Element ist.
+Um ein `<label>`-Element explizit mit einem `<input>`-Element zu verknüpfen, müssen Sie zuerst das `id`-Attribut zum `<input>`-Element hinzufügen. Anschließend fügen Sie das `for`-Attribut zum `<label>`-Element hinzu, wobei der Wert von `for` mit der `id` im `<input>`-Element identisch ist.
 
-Alternativ können Sie das `<input>` direkt innerhalb des `<label>` verschachteln, in diesem Fall sind die `for` und `id` Attribute nicht erforderlich, da die Zuordnung implizit ist:
+Alternativ können Sie das `<input>` direkt innerhalb des `<label>` verschachteln, in diesem Fall sind die Attribute `for` und `id` nicht erforderlich, da die Zuordnung implizit ist:
 
 ```html
 <label>
@@ -27,7 +27,7 @@ Alternativ können Sie das `<input>` direkt innerhalb des `<label>` verschachtel
 </label>
 ```
 
-Das Formularelement, das von einem Label beschriftet wird, wird als das _gelabelte Steuerelement_ des Label-Elements bezeichnet. Mehrere Labels können mit demselben Formularelement verknüpft werden:
+Das Formularelement, das von einem Label bezeichnet wird, wird als _beschriftetes Kontroll-Element_ des Label-Elements bezeichnet. Mehrere Labels können mit dem gleichen Formularelement verknüpft werden:
 
 ```html
 <label for="username">Enter your username:</label>
@@ -35,7 +35,7 @@ Das Formularelement, das von einem Label beschriftet wird, wird als das _gelabel
 <label for="username">Forgot your username?</label>
 ```
 
-Elemente, die mit einem `<label>` Element verknüpft werden können, schließen ein: {{HTMLElement('button')}}, {{HTMLElement('input')}} (außer bei `type="hidden"`), {{HTMLElement('meter')}}, {{HTMLElement('output')}}, {{HTMLElement('progress')}}, {{HTMLElement('select')}} und {{HTMLElement('textarea')}}.
+Elemente, die mit einem `<label>`-Element verknüpft werden können, umfassen {{HTMLElement('button')}}, {{HTMLElement('input')}} (außer `type="hidden"`), {{HTMLElement('meter')}}, {{HTMLElement('output')}}, {{HTMLElement('progress')}}, {{HTMLElement('select')}} und {{HTMLElement('textarea')}}.
 
 ## Attribute
 
@@ -43,27 +43,27 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 - [`for`](/de/docs/Web/HTML/Attributes/for)
 
-  - : Der Wert des `for` Attributs muss eine einzelne [`id`](/de/docs/Web/HTML/Global_attributes#id) für ein [labelbares](/de/docs/Web/HTML/Content_categories#labelable) Formularbezogenes Element im gleichen Dokument wie das `<label>` Element sein. So kann ein bestimmtes `label` Element nur mit einem Formularelement verknüpft werden.
+  - : Der Wert des `for`-Attributs muss eine einzige [`id`](/de/docs/Web/HTML/Global_attributes#id) für ein [beschriftbares](/de/docs/Web/HTML/Content_categories#labelable) formularbezogenes Element im selben Dokument wie das `<label>`-Element sein. Somit kann ein gegebenes `label`-Element nur mit einem Formularelement verbunden sein.
 
     > [!NOTE]
-    > Um das `for` Attribut programmatisch zu setzen, verwenden Sie [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor).
+    > Um das `for`-Attribut programmatisch festzulegen, verwenden Sie [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor).
 
-    Das erste Element im Dokument mit einem `id` Attribut, das mit dem Wert des `for` Attributs übereinstimmt, ist das _gelabelte Steuerelement_ für dieses `label` Element — wenn das Element mit dieser `id` tatsächlich ein [labelbares Element](https://html.spec.whatwg.org/multipage/forms.html#category-label) ist. Wenn es _kein_ labelbares Element ist, dann hat das `for` Attribut keine Wirkung. Wenn es andere Elemente gibt, die ebenfalls dem `id` Wert entsprechen, werden diese später im Dokument nicht berücksichtigt.
+    Das erste Element im Dokument mit einem `id`-Attribut, das mit dem Wert des `for`-Attributs übereinstimmt, ist das _beschriftete Kontroll-Element_ für dieses `label`-Element — wenn das Element mit dieser `id` tatsächlich ein [beschriftbares Element](https://html.spec.whatwg.org/multipage/forms.html#category-label) ist. Wenn es _kein_ beschriftbares Element ist, hat das `for`-Attribut keine Wirkung. Wenn es später im Dokument andere Elemente gibt, die ebenfalls mit dem `id`-Wert übereinstimmen, werden diese nicht berücksichtigt.
 
-    Mehrere `label` Elemente können denselben Wert für ihr `for` Attribut haben; dies führt dazu, dass das zugehörige Formularelement (das Formularelement, auf das der `for` Wert verweist) mehrere Labels hat.
+    Mehrere `label`-Elemente können denselben Wert für ihr `for`-Attribut haben; dies führt dazu, dass das zugehörige Formularelement (das Formularelement, auf das der `for`-Wert verweist) mehrere Labels hat.
 
     > [!NOTE]
-    > Ein `<label>` Element kann sowohl ein `for` Attribut als auch ein enthaltenes Steuerelement haben, solange das `for` Attribut auf das enthaltene Steuerelement zeigt.
+    > Ein `<label>`-Element kann sowohl ein `for`-Attribut als auch ein enthaltenes Kontrollelement haben, solange das `for`-Attribut auf das enthaltene Kontrollelement zeigt.
 
 ## Styling mit CSS
 
-Es gibt keine speziellen Styling-Bedingungen für `<label>` Elemente — strukturell sind sie einfache Inline-Elemente, die ähnlich wie ein {{htmlelement("span")}} oder {{htmlelement("a")}} Element gestylt werden können. Sie können sie auf beliebige Weise stylen, solange der Text nicht schwer lesbar wird.
+Es gibt keine besonderen Stilüberlegungen für `<label>`-Elemente — strukturell sind sie einfache Inline-Elemente und können daher in ähnlicher Weise wie ein {{htmlelement("span")}} oder {{htmlelement("a")}}-Element gestylt werden. Sie können sie auf jede erdenkliche Weise stylen, solange Sie den Text nicht schwer lesbar machen.
 
 ## Barrierefreiheit
 
 ### Interaktive Inhalte
 
-Platzieren Sie keine interaktiven Elemente wie {{HTMLElement("a", "Anker")}} oder {{HTMLElement("button", "Schaltflächen")}} in einem `label`. Dies erschwert es den Benutzern, das mit dem `label` verknüpfte Formulareingabefeld zu aktivieren.
+Platzieren Sie keine interaktiven Elemente wie {{HTMLElement("a", "Anker")}} oder {{HTMLElement("button", "Schaltflächen")}} innerhalb eines `label`. Dies erschwert es Personen, die mit dem `label` verknüpfte Formulareingabe zu aktivieren.
 
 **Tun Sie dies nicht:**
 
@@ -88,9 +88,9 @@ Platzieren Sie keine interaktiven Elemente wie {{HTMLElement("a", "Anker")}} ode
 
 ### Überschriften
 
-Das Platzieren von [Überschriftselementen](/de/docs/Web/HTML/Element/Heading_Elements) innerhalb eines `<label>` stört viele Arten von unterstützender Technologie, da Überschriften häufig als [Navigationshilfe](/de/docs/Web/HTML/Element/Heading_Elements#navigation) verwendet werden. Wenn der Text des Labels visuell angepasst werden muss, verwenden Sie stattdessen CSS-Klassen, die auf das `<label>` Element angewendet werden.
+Das Platzieren von [Überschriften](/de/docs/Web/HTML/Element/Heading_Elements) innerhalb eines `<label>` stört viele Arten von unterstützenden Technologien, weil Überschriften häufig als [Navigationshilfe](/de/docs/Web/HTML/Element/Heading_Elements#navigation) verwendet werden. Wenn der Text des Labels visuell angepasst werden muss, verwenden Sie stattdessen CSS-Klassen, die auf das `<label>`-Element angewendet werden.
 
-Wenn ein [Formular](/de/docs/Web/HTML/Element/form), oder ein Abschnitt eines Formulars einen Titel benötigt, verwenden Sie das {{HTMLElement("legend")}} Element, das innerhalb eines {{HTMLElement("fieldset")}} platziert wird.
+Wenn ein [Formular](/de/docs/Web/HTML/Element/form), oder ein Abschnitt eines Formulars einen Titel benötigt, verwenden Sie das {{HTMLElement("legend")}}-Element innerhalb eines {{HTMLElement("fieldset")}}.
 
 **Tun Sie dies nicht:**
 
@@ -112,11 +112,11 @@ Wenn ein [Formular](/de/docs/Web/HTML/Element/form), oder ein Abschnitt eines Fo
 
 ### Schaltflächen
 
-Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und einem gültigen `value` Attribut benötigt kein zugehöriges Label. Andernfalls kann dies tatsächlich die Art und Weise stören, wie unterstützende Technologie die Schaltflächeneingabe analysiert. Dasselbe gilt für das {{HTMLElement("button")}} Element.
+Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und einem gültigen `value`-Attribut benötigt kein damit verbundenes Label. Dies kann tatsächlich stören, wie unterstützende Technologien die Schaltfächeneingabe interpretieren. Das Gleiche gilt für das {{HTMLElement("button")}}-Element.
 
 ## Beispiele
 
-### Definition eines impliziten Labels
+### Definieren eines impliziten Labels
 
 ```html
 <label>Click me <input type="text" /></label>
@@ -124,7 +124,7 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
 
 {{EmbedLiveSample('Simple_label_example', '200', '50')}}
 
-### Definition eines expliziten Labels mit dem "for" Attribut
+### Definieren eines expliziten Labels mit dem "for"-Attribut
 
 ```html
 <label for="username">Click me to focus on the input field</label>
@@ -133,7 +133,7 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
 
 {{EmbedLiveSample('Using_the_for_attribute', '200', '50')}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -145,7 +145,7 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
@@ -156,7 +156,7 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#form-associated_content"
-          >formularelementassoziierte Inhalte</a
+          >form-assoziiertes Element</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -165,11 +165,11 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        >, aber keine Nachkommen <code>label</code> Elemente. Keine
+        >, aber keine nachgeordneten <code>label</code>-Elemente. Keine
         <a href="/de/docs/Web/HTML/Content_categories#labelable"
-          >labelbaren</a
+          >beschriftbaren</a
         >
-        Elemente außer dem gelabelten Steuerelement sind erlaubt.
+        Elemente außer dem beschrifteten Kontrollelement sind erlaubt.
       </td>
     </tr>
     <tr>
@@ -182,11 +182,12 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        > akzeptiert.
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -194,7 +195,7 @@ Ein {{HTMLElement("input")}} Element mit einer `type="button"` Deklaration und e
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>

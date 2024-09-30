@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CORS-safelisted response header** (auch bekannt als "einfacher Antwort-Header") ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers) in einer [CORS](/de/docs/Web/HTTP/CORS)-Antwort, der als _sicher_ angesehen wird, um ihn für Client-Skripte zugänglich zu machen. Nur safelisted Antwort-Header sind für Webseiten verfügbar.
+Ein **CORS-safelisted response header** (auch bekannt als "einfacher Antwort-Header") ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers) in einer [CORS](/de/docs/Web/HTTP/CORS) Antwort, der als _sicher_ angesehen wird, um für Client-Skripte offengelegt zu werden. Nur safelisted response headers werden Webseiten zur Verfügung gestellt.
 
-Standardmäßig umfasst die Safelist die folgenden Antwort-Header:
+Standardmäßig enthält die Safelist die folgenden Antwort-Header:
 
 - {{HTTPHeader("Cache-Control")}}
 - {{HTTPHeader("Content-Language")}}
@@ -19,15 +19,15 @@ Standardmäßig umfasst die Safelist die folgenden Antwort-Header:
 - {{HTTPHeader("Last-Modified")}}
 - {{HTTPHeader("Pragma")}}
 
-Zusätzliche Header können mit {{HTTPHeader("Access-Control-Expose-Headers")}} zur Safelist hinzugefügt werden.
+Zusätzliche Header können der Safelist mittels {{HTTPHeader("Access-Control-Expose-Headers")}} hinzugefügt werden.
 
-> **Note:** {{HTTPHeader("Content-Length")}} war nicht Teil des ursprünglichen Satzes von safelisted Antwort-Headern \[[ref](https://github.com/whatwg/fetch/pull/626)]
+> **Note:** {{HTTPHeader("Content-Length")}} war nicht Teil des ursprünglichen Satzes von safelisted response headers \[[ref](https://github.com/whatwg/fetch/pull/626)]
 
 ## Beispiele
 
-### Die Safelist erweitern
+### Erweiterung der Safelist
 
-Sie können die Liste der CORS-safelisted Antwort-Header erweitern, indem Sie den {{HTTPHeader("Access-Control-Expose-Headers")}}-Header verwenden:
+Sie können die Liste der CORS-safelisted response headers erweitern, indem Sie den {{HTTPHeader("Access-Control-Expose-Headers")}} Header verwenden:
 
 ```http
 Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
@@ -41,5 +41,5 @@ Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
 - Verwandte Glossarbegriffe:
   - [CORS](/de/docs/Glossary/CORS)
   - [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header)
-  - [Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)
-  - [Request-Header](/de/docs/Glossary/Request_header)
+  - [Forbidden header name](/de/docs/Glossary/Forbidden_header_name)
+  - [Request header](/de/docs/Glossary/Request_header)

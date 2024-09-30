@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Im Fall, dass ein `unreachable` erreicht und ausgeführt wird, tritt der Anweisungsfalle auf.
+**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Wenn ein `unreachable` erreicht und ausgeführt wird, löst die Anweisung eine Falle aus.
 
 {{EmbedInteractiveExample("pages/wat/unreachable.html", "tabbed-shorter")}}
 
@@ -17,6 +17,6 @@ l10n:
 unreachable
 ```
 
-| Anweisung     | Binäropcode |
-| ------------- | ----------- |
-| `unreachable` | `0x00`      |
+| Anweisung     | Binärer Opcode |
+| ------------- | -------------- |
+| `unreachable` | `0x00`         |

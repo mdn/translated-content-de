@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`clients`** des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces gibt das [`Clients`](/de/docs/Web/API/Clients)-Objekt zurück, das dem Service Worker zugeordnet ist.
+Die **`clients`** schreibgeschützte Eigenschaft des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces gibt das [`Clients`](/de/docs/Web/API/Clients)-Objekt zurück, das dem Service Worker zugeordnet ist.
 
 ## Wert
 
-Das [`Clients`](/de/docs/Web/API/Clients)-Objekt, das dem spezifischen Worker zugeordnet ist.
+Das [`Clients`](/de/docs/Web/API/Clients)-Objekt, das dem speziellen Worker zugeordnet ist.
 
 ## Spezifikationen
 
@@ -25,5 +25,5 @@ Das [`Clients`](/de/docs/Web/API/Clients)-Objekt, das dem spezifischen Worker zu
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispiel für Service Workers Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
 - [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

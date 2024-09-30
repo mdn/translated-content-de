@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Die **`opacity()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wendet Transparenz auf die Beispielbilder im Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`opacity()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wendet Transparenz auf die Muster im Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{EmbedInteractiveExample("pages/css/function-opacity.html")}}
 
 > [!NOTE]
-> Diese Funktion ist ähnlich der besser etablierten {{Cssxref("opacity")}}-Eigenschaft. Der Unterschied besteht darin, dass bei Verwendung von Filtern einige Browser Hardwarebeschleunigung für eine bessere Leistung bieten.
+> Diese Funktion ähnelt der etablierteren {{Cssxref("opacity")}}-Eigenschaft. Der Unterschied ist, dass einige Browser mit Filtern Hardware-Beschleunigung für bessere Leistung bieten.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ opacity(amount)
 ### Parameter
 
 - `amount`
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` den Eingang unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
+  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` das Eingabeobjekt unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ opacity(1)    /* No effect */
 
 ## Siehe auch
 
-- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in Werten der {{cssxref("filter")}}- und {{cssxref("backdrop-filter")}}-Eigenschaften verwendet werden können, sind unter anderem:
+- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in den Werten der {{cssxref("filter")}}- und {{cssxref("backdrop-filter")}}-Eigenschaften verwendet werden können, sind:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
@@ -55,4 +55,4 @@ opacity(1)    /* No effect */
   - {{cssxref("filter-function/invert", "invert()")}}
   - {{cssxref("filter-function/saturate", "saturate()")}}
   - {{cssxref("filter-function/sepia", "sepia()")}}
-- Die CSS {{cssxref("opacity")}}-Eigenschaft
+- Die CSS-{{cssxref("opacity")}}-Eigenschaft

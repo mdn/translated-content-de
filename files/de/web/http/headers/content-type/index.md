@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Type`** [Repräsentations-Header](/de/docs/Glossary/representation_header) wird verwendet, um den ursprünglichen [Medientyp](/de/docs/Glossary/MIME_type) der Ressource anzugeben, bevor eine Inhaltskodierung für die Übertragung angewendet wurde.
+Der **`Content-Type`** [Repräsentations-Header](/de/docs/Glossary/representation_header) wird verwendet, um den ursprünglichen [Medientyp](/de/docs/Glossary/MIME_type) der Ressource anzugeben, bevor eine Inhaltskodierung vor der Übertragung angewendet wird.
 
 In Antworten informiert der `Content-Type`-Header den Client über den Medientyp der zurückgegebenen Daten.
-Bei Anfragen wie {{HTTPMethod("POST")}} oder {{HTTPMethod("PUT")}} verwendet der Client den `Content-Type`-Header, um den Typ des Inhalts anzugeben, der an den Server gesendet wird.
-Wenn eine Serverimplementierung oder -konfiguration streng mit der Behandlung von Inhaltstypen umgeht, kann eine {{HTTPStatus("415")}}-Client-Fehlerantwort zurückgegeben werden.
+In Anfragen wie {{HTTPMethod("POST")}} oder {{HTTPMethod("PUT")}} verwendet der Client den `Content-Type`-Header, um den Typ des an den Server gesendeten Inhalts anzugeben.
+Wenn die Serverimplementierung oder -konfiguration streng in Bezug auf die Behandlung von Inhaltstypen ist, kann eine {{HTTPStatus("415")}}-Client-Fehlerantwort zurückgegeben werden.
 
-Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding")}}, da `Content-Encoding` dem Empfänger hilft zu verstehen, wie Daten in ihre ursprüngliche Form dekodiert werden.
+Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding")}} dadurch, dass `Content-Encoding` dem Empfänger hilft zu verstehen, wie Daten in ihre ursprüngliche Form dekodiert werden.
 
 > [!NOTE]
-> Dieser Wert kann ignoriert werden, wenn Browser [MIME-Sniffing](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types#mime_sniffing) (oder Inhaltssniffing) bei Antworten durchführen.
+> Dieser Wert kann ignoriert werden, wenn Browser [MIME-Sniffing](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types#mime_sniffing) (oder Inhalts-Sniffing) bei Antworten durchführen.
 > Um zu verhindern, dass Browser MIME-Sniffing verwenden, setzen Sie den Wert des {{HTTPHeader("X-Content-Type-Options")}}-Headers auf `nosniff`.
-> Weitere Informationen finden Sie in der [MIME-Typ-Verifizierung](/de/docs/Web/Security/Practical_implementation_guides/MIME_types).
+> Weitere Details finden Sie unter [MIME-Typ-Verifizierung](/de/docs/Web/Security/Practical_implementation_guides/MIME_types).
 
 <table class="properties">
   <tbody>
@@ -32,17 +32,17 @@ Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding"
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Response Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Request Header](/de/docs/Glossary/CORS-safelisted_request_header)
+        [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header)
       </th>
       <td>
-        Ja, aber Werte dürfen kein <em>CORS-unsafe request header byte</em> enthalten: <code>0x00</code>-<code>0x1F</code> (außer <code>0x09</code> (HT)), <code>"():&#x3C;>?@[\]{}</code> und <code>0x7F</code> (DEL).
-        <br /><br />Es muss auch einen Medientyp des analysierten Wertes haben (Parameter ignorierend) von entweder <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> oder <code>text/plain</code>.
+        Ja, aber Werte dürfen kein <em>CORS-unsafe request header byte</em>: <code>0x00</code>-<code>0x1F</code> (außer <code>0x09</code> (HT)), <code>"():&#x3C;>?@[\]{}</code>, und <code>0x7F</code> (DEL) enthalten.
+        <br /><br />Es muss außerdem einen Medientyp mit seinem analysierten Wert (ignorieren Sie Parameter) von entweder <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> oder <code>text/plain</code> haben.
       </td>
     </tr>
   </tbody>
@@ -66,21 +66,21 @@ Content-Type: multipart/form-data; boundary=ExampleBoundaryString
 - `<media-type>`
 
   - : Der [Medientyp](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) der Ressource oder Daten.
-    Kann die folgenden Parameter enthalten:
+    Kann folgende Parameter enthalten:
 
-    - **`charset`**: Gibt die verwendete [Zeichenkodierung](/de/docs/Glossary/character_encoding) an. Der Wert ist nicht groß-/klein-schreibungsempfindlich, aber Kleinschreibung wird bevorzugt.
-    - **`boundary`**: Für Multipart-Entities ist der `boundary`-Parameter erforderlich.
+    - **`charset`**: Gibt den verwendeten [Zeichenkodierungs](/de/docs/Glossary/character_encoding)-Standard an. Der Wert ist nicht auf Groß- und Kleinschreibung empfindlich, jedoch wird Kleinschreibung bevorzugt.
+    - **`boundary`**: Für mehrteilige Entitäten ist der Parameter `boundary` erforderlich.
       Er wird verwendet, um die Grenzen der verschiedenen Teile der Nachricht zu markieren.
-      Der Wert besteht aus 1 bis 70 Zeichen (nicht endend mit Leerzeichen), die in verschiedenen Systemen (z.B. E-Mail-Gateways) bekannt für ihre Robustheit sind.
-      Oft wird der Header-Grenzwert im Anforderungstext durch zwei Bindestriche eingeleitet, und die endgültige Grenze hat am Ende zwei Bindestriche angehängt.
+      Der Wert besteht aus 1 bis 70 Zeichen (nicht mit Leerzeichen endend), die in verschiedenen Systemkontexten (z.B. E-Mail-Gateways) als robust bekannt sind.
+      Oft wird der Header-Grenze im Anforderungstext zwei Bindestriche vorangestellt, und die endgültige Grenze hat am Ende zwei Bindestriche angehängt.
 
 ## Beispiele
 
-### Bereitstellung von Assets mit korrektem Inhaltstyp
+### Bereitstellung von Ressourcen mit korrektem Inhaltstyp
 
-In den folgenden zwei Beispielantworten werden JavaScript- und CSS-Assets mit `text/javascript` für JavaScript und `text/css` für CSS bereitgestellt.
+In den folgenden zwei Beispielantworten werden JavaScript- und CSS-Ressourcen mit `text/javascript` für JavaScript und `text/css` für CSS bereitgestellt.
 Der korrekte Inhaltstyp für diese Ressourcen hilft dem Browser, sie sicherer und mit besserer Leistung zu verarbeiten.
-Weitere Informationen finden Sie unter [Server-MIME-Typen richtig konfigurieren](/de/docs/Learn/Server-side/Configuring_server_MIME_types).
+Weitere Informationen finden Sie unter [Ordnungsgemäße Konfiguration von Server-MIME-Typen](/de/docs/Learn/Server-side/Configuring_server_MIME_types).
 
 ```http
 HTTP/1.1 200
@@ -104,9 +104,9 @@ content-encoding: br
 .super-container{clear:both;max-width:100%}...
 ```
 
-### `Content-Type` in Multipart-Formularen
+### `Content-Type` in mehrteiligen Formularen
 
-In einer {{HTTPMethod("POST")}}-Anfrage, die aus einer HTML-Formularübermittlung resultiert, wird der `Content-Type` der Anfrage durch das `enctype`-Attribut auf dem {{HTMLElement("form")}}-Element angegeben.
+In einer {{HTTPMethod("POST")}}-Anforderung, die sich aus einer HTML-Formularübermittlung ergibt, wird der `Content-Type` der Anforderung durch das `enctype`-Attribut am {{HTMLElement("form")}}-Element angegeben.
 
 ```html
 <form action="/foo" method="post" enctype="multipart/form-data">
@@ -116,8 +116,8 @@ In einer {{HTTPMethod("POST")}}-Anfrage, die aus einer HTML-Formularübermittlun
 </form>
 ```
 
-Die Anfrage sieht etwa wie das folgende Beispiel aus, wobei einige Header zur besseren Übersichtlichkeit weggelassen wurden.
-In der Anfrage wird zur Veranschaulichung eine Grenze von `ExampleBoundaryString` verwendet, aber in der Praxis würde ein Browser eine Zeichenfolge erstellen, die eher so aussieht: `---------------------------1003363413119651595289485765`.
+Die Anforderung sieht ungefähr wie das folgende Beispiel aus, wobei einige Header der Kürze halber ausgelassen wurden.
+In der Anfrage wird ein Grenzwert von `ExampleBoundaryString` zur Veranschaulichung verwendet, aber in der Praxis würde ein Browser eine Zeichenfolge erstellen, die mehr so aussieht: `---------------------------1003363413119651595289485765`.
 
 ```http
 POST /foo HTTP/1.1
@@ -136,9 +136,9 @@ Content-Type: text/plain
 --ExampleBoundaryString--
 ```
 
-### `Content-Type` in URL-kodierten Formularübermittlungen
+### `Content-Type` in URL-kodierter Formularübermittlung
 
-Wenn Formulare keine Dateiuploads beinhalten und einfachere Felder verwenden, können URL-kodierte Formulare bequemer sein, bei denen die Formulardaten im Anforderungstext enthalten sind:
+Wenn Formulare keine Datei-Uploads beinhalten und einfachere Felder verwenden, können URL-kodierte Formulare praktischer sein, bei denen die Formulardaten im Anforderungskörper enthalten sind:
 
 ```html
 <form action="/submit" method="post">
@@ -159,7 +159,7 @@ comment=Hello!
 
 ### `Content-Type` in einer REST-API mit JSON
 
-Viele [REST](/de/docs/Glossary/REST) APIs verwenden `application/json` als Inhaltstyp, was sich gut für die Kommunikation zwischen Maschinen oder programmatische Interaktionen eignet.
+Viele [REST](/de/docs/Glossary/REST)-APIs verwenden `application/json` als Inhaltstyp, der für die Kommunikation zwischen Maschinen oder programmatische Interaktionen praktisch ist.
 Das folgende Beispiel zeigt eine {{HTTPStatus("201", "201 Created")}}-Antwort, die das Ergebnis einer erfolgreichen Anfrage zeigt:
 
 ```http

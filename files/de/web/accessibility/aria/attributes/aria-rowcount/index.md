@@ -11,15 +11,15 @@ Das Attribut `aria-rowcount` definiert die Gesamtanzahl der Zeilen in einer Tabe
 
 ## Beschreibung
 
-Einige Tabellen haben Hunderte, sogar Millionen von Zeilen. Selbst bei Tabellen mit weniger Zeilen kann es eine Designanforderung sein, nur einen Abschnitt der Zeilen zu laden, um die Leistung zu verbessern oder die Benutzererfahrung zu steigern. Wenn nur eine Teilmenge der Zeilen geladen ist, müssen alle Benutzer darüber informiert werden, dass nur eine Teilmenge der Daten angezeigt wird. Das Attribut `aria-rowcount` wird verwendet, um die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster zu definieren.
+Einige Tabellen haben Hunderte, sogar Millionen von Zeilen. Selbst bei Tabellen mit weniger Zeilen kann es eine Design-Anforderung sein, nur einen Abschnitt von Zeilen zu laden, um die Leistung zu verbessern oder die Benutzererfahrung zu steigern. Wenn nur eine Teilmenge von Zeilen geladen wird, müssen Sie alle Benutzer darüber informieren, dass nur eine Teilmenge der Daten angezeigt wird. Das Attribut `aria-rowcount` wird verwendet, um die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster zu definieren.
 
-Wird es dem {{HTMLElement('table')}}-Element oder einem Element mit der Rolle [`table`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) hinzugefügt, entspricht der Wert der Anzahl der Zeilen in der vollständigen Tabelle als Ganzzahl. Wenn die Gesamtanzahl der Zeilen unbekannt ist, fügen Sie `aria-rowcount="-1"` hinzu, was dem Browser mitteilt, die Gesamtanzahl der Zeilen nicht zu zählen.
+Wird es am {{HTMLElement('table')}}-Element oder an einem Element mit der Rolle [`table`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) hinzugefügt, ist der Wert die Anzahl der Zeilen in der gesamten Tabelle als ganze Zahl. Wenn die Gesamtzahl der Zeilen nicht bekannt ist, fügen Sie `aria-rowcount="-1"` hinzu, was dem Browser mitteilt, die Gesamtanzahl der Zeilen nicht zu zählen.
 
-Wenn alle Zeilen geladen und im DOM sind, müssen Sie `aria-rowcount` nicht einfügen, da Browser automatisch die Gesamtanzahl der Zeilen zählen. Wenn die Zeilen jedoch nicht jederzeit im DOM vorhanden sind, ist dieses Attribut erforderlich, um die Anzahl der Zeilen anzugeben, wenn die vollständige Tabellengröße bekannt ist und um dem Browser mitzuteilen, die Zeilen nicht automatisch zu zählen, wenn die Gesamtanzahl der Zeilen unbekannt ist.
+Wenn alle Zeilen geladen und im DOM vorhanden sind, müssen Sie `aria-rowcount` nicht hinzufügen, da Browser die Gesamtanzahl der Zeilen automatisch zählen. Wenn die Zeilen jedoch nicht alle gleichzeitig im DOM vorhanden sind, ist dieses Attribut erforderlich, um die Anzahl der Zeilen anzugeben, wenn die vollständige Tabellengröße bekannt ist, und um dem Browser mitzuteilen, die Zeilen nicht automatisch zu zählen, wenn die Gesamtzahl der Zeilen nicht bekannt ist.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile und die Zeilen 7 bis 9 dem Benutzer angezeigt werden.
+Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile und die Zeilen 7 bis 9 für den Benutzer angezeigt werden.
 
 ```html
 <div role="grid" aria-rowcount="24">
@@ -53,7 +53,7 @@ Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile 
 ## Werte
 
 - `<integer>`
-  - : Die Anzahl der Zeilen in der vollständigen Tabelle oder `-1`, wenn die Tabellengröße nicht bekannt ist.
+  - : Die Anzahl der Zeilen in der gesamten Tabelle oder `-1`, wenn die Tabellengröße nicht bekannt ist.
 
 ## Zugehörige Schnittstellen
 
@@ -68,7 +68,7 @@ Verwendet in Rollen:
 
 - [`table`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role)
 
-Geerbt in Rollen:
+Vererbt in Rollen:
 
 - [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
 - [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role)

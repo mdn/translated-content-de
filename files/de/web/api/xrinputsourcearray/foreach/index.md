@@ -24,14 +24,14 @@ forEach(callback, thisArg)
   - : Eine Funktion, die einmal für jeden Eintrag im Array `xrInputSourceArray` ausgeführt wird. Der Callback akzeptiert bis zu drei Parameter:
 
     - `currentValue`
-      - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, welches den Wert des aktuell verarbeiteten Elements aus dem `xrInputSourceArray` darstellt.
+      - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das den Wert des aktuell im `xrInputSourceArray` verarbeiteten Elements darstellt.
     - `currentIndex` {{Optional_Inline}}
-      - : Ein ganzzahliger Wert, der den Index im Array angibt, an dem sich das durch `currentValue` gegebene Element befindet. Wenn der Index nicht benötigt wird, kann dies ausgelassen werden.
+      - : Ein ganzzahliger Wert, der den Index im Array angibt, an dem sich das durch `currentValue` angegebene Element befindet. Wenn Sie die Indexnummer nicht benötigen, können Sie dies weglassen.
     - `sourceList` {{Optional_Inline}}
-      - : Das [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt, das verarbeitet wird. Diese Information kann weggelassen werden, wenn sie nicht benötigt wird.
+      - : Das [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt, das verarbeitet wird. Diese Information können Sie weglassen, wenn Sie sie nicht benötigen.
 
 - `thisArg` {{Optional_Inline}}
-  - : Der Wert, der verwendet wird für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), während der Ausführung des Callbacks. Beachten Sie, dass `thisArg` ausgelassen werden kann, wenn die [Pfeilfunktion-Notation](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (`=>`) zur Bereitstellung des Callbacks verwendet wird, da alle Pfeilfunktionen `this` lexikalisch binden.
+  - : Der Wert, der als [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) beim Ausführen des Callbacks verwendet wird. Beachten Sie, dass Sie, wenn Sie die [Pfeilfunktionen-Notation](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (`=>`) verwenden, um den Callback bereitzustellen, `thisArg` weglassen können, da alle Pfeilfunktionen `this` lexikalisch binden.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Undefiniert.
 
 ## Beispiele
 
-Dieses Beispiel-Snippet holt die Liste der Eingaben für eine Sitzung und versucht, jede unterstützte Art von Eingabegerät zu handhaben.
+Dieses Beispiel erhält die Liste der Eingaben für eine Sitzung und versucht, jeden unterstützten Eingabegerätetyp zu handhaben.
 
 ```js
 let inputSources = xrSession.inputSources;
@@ -59,9 +59,9 @@ inputSources.forEach((input) => {
 });
 ```
 
-Für jede Eingabe in der Liste übergibt der Callback die Gamepad-Eingaben an eine `checkGamepad()`-Funktion, mit dem `Gamepad`-Objekt des Eingangs, das aus der [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft entnommen wird, als Eingabewert.
+Für jede Eingabe in der Liste leitet der Callback die Gamepad-Eingaben mittels des [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekts der Eingabe, das aus ihrer [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft entnommen wurde, an eine `checkGamepad()`-Funktion weiter.
 
-Bei anderen Geräten suchen wir nach `tracked-pointer`-Geräten in der Haupthand des Spielers und übergeben diese an eine `handleMainHandInput()`-Methode.
+Für andere Geräte suchen wir nach `tracked-pointer`-Geräten in der Haupt-Hand des Spielers und leiten diese an eine `handleMainHandInput()`-Methode weiter.
 
 ## Spezifikationen
 

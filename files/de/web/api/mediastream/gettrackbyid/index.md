@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: getTrackById()-Methode"
+title: "MediaStream: Methode getTrackById()"
 short-title: getTrackById()
 slug: Web/API/MediaStream/getTrackById
 l10n:
@@ -9,7 +9,8 @@ l10n:
 {{APIRef("Media Capture and Streams")}}
 
 Die **`getTrackById()`**-Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle
-gibt ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurück, das die Spur mit der angegebenen ID-Zeichenkette darstellt. Wenn es keine Spur mit der angegebenen ID gibt, gibt diese Methode `null` zurück.
+gibt ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurück, das den Track mit der angegebenen ID-Zeichenfolge repräsentiert.
+Wenn kein Track mit der angegebenen ID vorhanden ist, gibt diese Methode `null` zurück.
 
 ## Syntax
 
@@ -20,18 +21,18 @@ getTrackById(id)
 ### Parameter
 
 - `id`
-  - : Eine Zeichenkette, die die zurückzugebende Spur identifiziert.
+  - : Eine Zeichenfolge, die den zurückzugebenden Track identifiziert.
 
 ### Rückgabewert
 
-Wenn eine Spur gefunden wird, für die [`MediaStreamTrack.id`](/de/docs/Web/API/MediaStreamTrack/id) mit der angegebenen
-`id`-Zeichenkette übereinstimmt, wird dieses [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurückgegeben.
+Wenn ein Track gefunden wird, für den [`MediaStreamTrack.id`](/de/docs/Web/API/MediaStreamTrack/id) mit der angegebenen
+`id`-Zeichenfolge übereinstimmt, wird dieses [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurückgegeben.
 Andernfalls ist der zurückgegebene Wert `null`.
 
 ## Beispiele
 
-Dieses Beispiel aktiviert eine Kommentatorspur in einem Video, indem der Audiopegel der
-Haupttonspur auf 50 % abgesenkt und dann die Kommentatorspur aktiviert wird.
+Dieses Beispiel aktiviert einen Kommentartrack in einem Video, indem es das Audiolevel des
+Hauptaudio-Tracks auf 50% absenkt und dann den Kommentartrack aktiviert.
 
 ```js
 stream.getTrackById("primary-audio-track").applyConstraints({ volume: 0.5 });

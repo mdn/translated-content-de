@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createComputePipeline()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces erstellt eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die die Berechnungs-Shader-Stufe steuern und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden kann.
+Die **`createComputePipeline()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die die Berechnungsschicht steuern und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden kann.
 
 ## Syntax
 
@@ -24,15 +24,15 @@ createComputePipeline(descriptor)
 
     - `compute`
 
-      - : Ein Objekt, das den Berechnungs-Shader-Einstiegspunkt der Pipeline beschreibt. Dieses Objekt kann die folgenden Eigenschaften enthalten:
+      - : Ein Objekt, das den Berechnungseintrittspunkt der Pipeline beschreibt. Dieses Objekt kann die folgenden Eigenschaften enthalten:
 
         - `constants` {{optional_inline}}
 
-          - : Eine Sequenz von Datensätzen mit der Struktur `(id, value)`, die Überschreibungswerte für [WGSL-Konstanten, die in der Pipeline überschrieben werden können](https://gpuweb.github.io/gpuweb/#typedefdef-gpupipelineconstantvalue), darstellen. Diese verhalten sich wie [geordnete Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist die `id` ein Schlüssel zur Identifizierung oder Auswahl des Datensatzes, und die `constant` ist ein enumerierter Wert, der einen WGSL darstellt.
+          - : Eine Sequenz von Datensatztypen mit der Struktur `(id, value)`, die Überschreibungswerte für [WGSL-Konstanten, die in der Pipeline überschrieben werden können](https://gpuweb.github.io/gpuweb/#typedefdef-gpupipelineconstantvalue) darstellen. Diese verhalten sich wie [geordnete Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist `id` ein Schlüssel, der zur Identifizierung oder Auswahl des Datensatzes verwendet wird, und `constant` ist ein enumerierter Wert, der ein WGSL darstellt.
 
-            Abhängig von der zu überschreibenden Konstante kann die `id` die Form der numerischen ID der Konstante annehmen, falls eine angegeben ist, oder sonst den Bezeichnernamen der Konstante.
+            Abhängig von der Konstante, die Sie überschreiben möchten, kann `id` die Form der numerischen ID der Konstante annehmen, falls eine spezifiziert ist, oder anderweitig den Bezeichnernamen der Konstante.
 
-            Ein Code-Schnipsel, der Überschreibungswerte für mehrere überschreibbare Konstanten bereitstellt, könnte wie folgt aussehen:
+            Ein Codeausschnitt, der Überschreibungswerte für mehrere überschreibbare Konstanten bereitstellt, könnte so aussehen:
 
             ```js
             {
@@ -49,41 +49,41 @@ createComputePipeline(descriptor)
             ```
 
         - `entryPoint`
-          - : Der Name der Funktion im `module`, die diese Stufe zur Durchführung ihrer Arbeit verwenden wird. Die entsprechende Shader-Funktion muss das `@compute`-Attribut haben, um als dieser Einstiegspunkt identifiziert zu werden. Weitere Informationen finden Sie in der [Einstiegspunktdeklaration](https://gpuweb.github.io/gpuweb/wgsl/#entry-point-decl).
+          - : Der Name der Funktion im `module`, die diese Phase zur Ausführung ihrer Arbeit verwenden wird. Die entsprechende Shader-Funktion muss das `@compute`-Attribut haben, um als dieser Einstiegspunkt identifiziert zu werden. Weitere Informationen finden Sie unter [Einstiegspunktdeklaration](https://gpuweb.github.io/gpuweb/wgsl/#entry-point-decl).
         - `module`
-          - : Ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Objekt, das den [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Code enthält, den diese programmatische Stufe ausführen wird.
+          - : Ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Objekt, das den [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Code enthält, den diese programmierbare Phase ausführen wird.
 
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, z.B. in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der eine Bezeichnung bereitstellt, die zur Identifikation des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `layout`
       - : Definiert das Layout (Struktur, Zweck und Typ) aller GPU-Ressourcen (Puffer, Texturen usw.), die während der Ausführung der Pipeline verwendet werden. Mögliche Werte sind:
-        - Ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekt, erstellt mit [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), das es der GPU ermöglicht, im Voraus herauszufinden, wie die Pipeline am effizientesten ausgeführt werden kann.
-        - Ein String von `"auto"`, was bewirkt, dass die Pipeline ein implizites Bind-Gruppenlayout basierend auf den im Shader-Code definierten Bindungen erzeugt. Wenn `"auto"` verwendet wird, können die generierten Bind-Gruppenlayouts nur mit der aktuellen Pipeline verwendet werden.
+        - Ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekt, erstellt mit [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), das es der GPU ermöglicht, im Voraus herauszufinden, wie die Pipeline am effizientesten ausgeführt wird.
+        - Ein String "`auto`", der die Pipeline dazu veranlasst, ein implizites Bindungsgruppenlayout basierend auf den im Shader-Code definierten Bindungen zu erzeugen. Wenn "`auto`" verwendet wird, dürfen die generierten Bindungsgruppenlayouts nur mit der aktuellen Pipeline verwendet werden.
 
 ### Rückgabewert
 
-Eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Objektinstanz.
+Eine Instanz des [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Objekts.
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`createComputePipeline()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createComputePipeline()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Objekt zurückgegeben:
 
-- Die von dem im `compute`-Eigentum referenzierten `module` verwendete Arbeitsgruppenspeichergröße muss kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeWorkgroupStorageSize` des [`GPUDevice`](/de/docs/Web/API/GPUDevice) sein.
-- Das `module` verwendet eine Anzahl von Berechnungsaufrufen pro Arbeitsgruppe, die kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeInvocationsPerWorkgroup` des [`GPUDevice`](/de/docs/Web/API/GPUDevice) sein muss.
-- Die Arbeitsgruppengröße des `modules` muss kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeWorkgroupSizeX`, `maxComputeWorkgroupSizeY` oder `maxComputeWorkgroupSizeZ` des [`GPUDevice`](/de/docs/Web/API/GPUDevice) sein.
+- Die Arbeitsgruppenspeichergröße, die vom `module` innerhalb der `compute`-Eigenschaft referenziert wird, ist kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeWorkgroupStorageSize` des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Das `module` verwendet eine Anzahl von Berechnungsaufrufen pro Arbeitsgruppe, die kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeInvocationsPerWorkgroup` des [`GPUDevice`](/de/docs/Web/API/GPUDevice) ist.
+- Die Arbeitsgruppengröße des `module` ist kleiner oder gleich dem entsprechenden [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxComputeWorkgroupSizeX`, `maxComputeWorkgroupSizeY` oder `maxComputeWorkgroupSizeZ` des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
 ### Einfaches Beispiel
 
-Unser [einfaches Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt einen Prozess von:
+Unser [einfaches Berechnungsdemo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt einen Prozess von:
 
-- Erstellen eines Bind-Gruppenlayouts mit [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout).
-- Übergabe des `bindGroupLayout` an [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), um ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout) zu erstellen.
-- Sofortige Nutzung dieses Wertes in einem `createComputePipeline()`-Aufruf zur Erstellung einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline).
+- Erstellen eines Bindungsgruppenlayouts mit [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout).
+- Verwendung des `bindGroupLayout` in [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), um ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout) zu erstellen.
+- Sofortige Nutzung dieses Werts in einem `createComputePipeline()`-Aufruf zur Erstellung einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline).
 
 ```js
 // ...
@@ -123,4 +123,4 @@ const computePipeline = device.createComputePipeline({
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

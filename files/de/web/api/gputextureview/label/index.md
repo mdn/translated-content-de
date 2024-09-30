@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-Dieses kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) übergeben wird, oder Sie können es direkt auf dem `GPUTextureView`-Objekt abrufen und festlegen.
+Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das in den ursprünglichen Aufruf [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) übergeben wird, oder Sie können es direkt auf dem `GPUTextureView`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn dies vorher nicht wie oben beschrieben festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben vorher festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ view.label = "myview";
 console.log(view.label); // "myview"
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) und anschließendes Abrufen über `GPUTextureView.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) und anschließendem Abrufen über `GPUTextureView.label`:
 
 ```js
 // ...

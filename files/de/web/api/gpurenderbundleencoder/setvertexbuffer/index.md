@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setVertexBuffer()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle legt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) für den angegebenen Slot fest oder hebt ihn auf, der Vertex-Daten für nachfolgende Zeichnungsbefehle bereitstellt.
+Die **`setVertexBuffer()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle setzt oder entfernt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) für den angegebenen Slot, der Vertex-Daten für nachfolgende Zeichenbefehle bereitstellt.
 
 > [!NOTE]
 > Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer).
@@ -22,13 +22,13 @@ setVertexBuffer(slot, buffer, offset, size)
 ### Parameter
 
 - `slot`
-  - : Eine Zahl, die den Vertex-Buffer-Slot referenziert, für den der Vertex-Buffer festgelegt werden soll.
+  - : Eine Zahl, die den Vertex-Buffer-Slot referenziert, für den der Vertex-Buffer gesetzt werden soll.
 - `buffer`
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, der die zu verwendenden Vertex-Daten für nachfolgende Zeichnungsbefehle enthält, oder `null`, wobei jeder zuvor festgelegte Puffer im angegebenen Slot aufgehoben wird.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer mit den zu verwendenden Vertex-Daten für nachfolgende Zeichenbefehle darstellt, oder `null`, in welchem Fall ein zuvor gesetzter Puffer im angegebenen Slot entfernt wird.
 - `offset` {{optional_inline}}
-  - : Eine Zahl, die den Offset in Bytes in `buffer` angibt, wo die Vertex-Daten beginnen. Wenn weggelassen, ist der Standardwert für `offset` 0.
+  - : Eine Zahl, die den Versatz in Bytes in `buffer` darstellt, wo die Vertex-Daten beginnen. Falls weggelassen, ist der Standardwert von `offset` 0.
 - `size` {{optional_inline}}
-  - : Eine Zahl, die die Größe in Bytes der in `buffer` enthaltenen Vertex-Daten angibt. Wenn weggelassen, beträgt der Standardwert für `size` den Wert von `buffer`'s [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) - `offset`.
+  - : Eine Zahl, die die Größe in Bytes der in `buffer` enthaltenen Vertex-Daten darstellt. Falls weggelassen, ist der Standardwert von `size` die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffers` - `offset`.
 
 ### Rückgabewert
 
@@ -36,16 +36,16 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setVertexBuffer()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`setVertexBuffer()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `buffer` enthält das `GPUBufferUsage.VERTEX`-Flag.
-- `slot` ist kleiner als die `maxVertexBuffers`-[Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- `offset` + `size` ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `buffer`.
+- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `buffers` enthält das `GPUBufferUsage.VERTEX`-Flag.
+- `slot` ist kleiner als das Limit [`maxVertexBuffers`](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- `offset` + `size` ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffers`.
 - `offset` ist ein Vielfaches von 4.
 
 ## Beispiele
 
-### Vertex-Buffer festlegen
+### Vertex-Buffer setzen
 
 ```js
 function recordRenderPass(passEncoder) {
@@ -69,9 +69,9 @@ function recordRenderPass(passEncoder) {
 }
 ```
 
-Der obige Schnipsel stammt aus dem WebGPU Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
+Der obige Ausschnitt stammt aus dem WebGPU Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
 
-### Vertex-Buffer aufheben
+### Vertex-Buffer entfernen
 
 ```js
 // Set vertex buffer in slot 0

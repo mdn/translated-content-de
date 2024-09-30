@@ -9,16 +9,13 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dieses Interface dieser Eigenschaft ist im [Navigation Timing Level 2, Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
-> Interface.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+> Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.domInteractive`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment darstellt,
-in Millisekunden seit der UNIX-Epoche, in dem der Parser seine Arbeit am Hauptdokument abgeschlossen hat, das heißt, wenn sich der [`Document.readyState`](/de/docs/Web/API/Document/readyState) zu
-`'interactive'` ändert und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) Ereignis ausgelöst wird.
+Die veraltete, nur-lesende
+**`PerformanceTiming.domInteractive`**-Eigenschaft gibt ein `unsigned long long` zurück, das den Moment repräsentiert, in Millisekunden seit der UNIX-Epoche, wenn der Parser seine Arbeit am Hauptdokument beendet hat, das heißt, wenn dessen [`Document.readyState`](/de/docs/Web/API/Document/readyState) zu `'interactive'` wechselt und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis ausgelöst wird.
 
-Diese Eigenschaft kann verwendet werden, um die Geschwindigkeit des Ladens von Websites zu messen, die Benutzer _fühlen_. Dennoch gibt es einige Vorbehalte, die auftreten, wenn Skripte das Rendern blockieren und nicht asynchron oder mit benutzerdefinierten Web-Schriftarten geladen werden. [Prüfen Sie, ob Sie in einem dieser Fälle sind](https://www.stevesouders.com/blog/2015/08/07/dominteractive-is-it-really/), bevor Sie diese Eigenschaft als Stellvertreter für die Benutzererfahrung der Ladegeschwindigkeit einer Website verwenden.
+Diese Eigenschaft kann verwendet werden, um die Geschwindigkeit des Ladens von Websites zu messen, die Benutzer _fühlen_. Dennoch gibt es ein paar Einschränkungen, die auftreten, wenn Skripte das Rendering blockieren und nicht asynchron oder mit benutzerdefinierten Webfonts geladen werden. [Prüfen Sie, ob Sie in einem dieser Fälle sind](https://www.stevesouders.com/blog/2015/08/07/dominteractive-is-it-really/), bevor Sie diese Eigenschaft als Stellvertreter für die Benutzererfahrung der Ladegeschwindigkeit einer Website verwenden.
 
 ## Wert
 
@@ -34,5 +31,5 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Das [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Interface, zu dem es gehört.
-- Der Artikel "[domInteractive: is it? really?](https://www.stevesouders.com/blog/2015/08/07/dominteractive-is-it-really/)", der erklärt, wann Sie diese Eigenschaft als Stellvertreter für die Benutzererfahrung beim Laden einer Website verwenden können.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der sie gehört.
+- Der Artikel "[domInteractive: is it? really?](https://www.stevesouders.com/blog/2015/08/07/dominteractive-is-it-really/)" erklärt, wann Sie diese Eigenschaft als Stellvertreter für die Benutzererfahrung beim Laden einer Website verwenden können.

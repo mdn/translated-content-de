@@ -31,12 +31,12 @@ Keine.
 
 ### Typ
 
-Oberste Ebene, muss das Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Top-level, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 
 XSLT, Abschnitt 12.2.
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

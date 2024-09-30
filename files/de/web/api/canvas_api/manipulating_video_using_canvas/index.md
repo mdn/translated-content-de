@@ -1,5 +1,5 @@
 ---
-title: Bearbeiten von Videos mit Canvas
+title: Manipulieren von Video mit Canvas
 slug: Web/API/Canvas_API/Manipulating_video_using_canvas
 l10n:
   sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}}
 
-Indem Sie die Fähigkeiten des [`video`](/de/docs/Web/HTML/Element/video)-Elements mit einem [`canvas`](/de/docs/Web/HTML/Element/canvas) kombinieren, können Sie Videodaten in Echtzeit manipulieren, um eine Vielzahl visueller Effekte in das angezeigte Video zu integrieren. Dieses Tutorial demonstriert, wie man Chroma-Keying (auch bekannt als "Green Screen-Effekt") mit JavaScript-Code durchführt.
+Durch die Kombination der Fähigkeiten des [`video`](/de/docs/Web/HTML/Element/video)-Elements mit einem [`canvas`](/de/docs/Web/HTML/Element/canvas) können Sie Videodaten in Echtzeit manipulieren, um eine Vielzahl von visuellen Effekten in das angezeigte Video zu integrieren. Dieses Tutorial zeigt, wie man mit JavaScript-Code das Chroma-Keying (auch bekannt als "Green Screen Effekt") durchführt.
 
 {{EmbedGHLiveSample('dom-examples/canvas/chroma-keying/index.html', 700, 400) }}
 
 ## Der Dokumentinhalt
 
-Das HTML-Dokument, das zum Rendern dieses Inhalts verwendet wird, ist unten gezeigt.
+Das HTML-Dokument, das für die Darstellung dieses Inhalts verwendet wird, wird unten gezeigt.
 
 ```html
 <!doctype html>
@@ -57,9 +57,9 @@ Das HTML-Dokument, das zum Rendern dieses Inhalts verwendet wird, ist unten geze
 </html>
 ```
 
-Die wichtigsten Punkte, die zu beachten sind:
+Die wichtigsten Punkte, die Sie mitnehmen sollten, sind:
 
-1. Dieses Dokument legt zwei [`canvas`](/de/docs/Web/HTML/Element/canvas)-Elemente mit den IDs `c1` und `c2` an. Canvas `c1` wird verwendet, um den aktuellen Frame des Originalvideos anzuzeigen, während `c2` das Video nach der Durchführung des Chroma-Key-Effekts anzeigt; `c2` ist vorab mit dem Standbild geladen, das verwendet wird, um den grünen Hintergrund im Video zu ersetzen.
+1. Dieses Dokument stellt zwei [`canvas`](/de/docs/Web/HTML/Element/canvas)-Elemente mit den IDs `c1` und `c2` bereit. Canvas `c1` wird verwendet, um den aktuellen Frame des Originalvideos anzuzeigen, während `c2` verwendet wird, um das Video nach dem Chroma-Keying-Effekt darzustellen; `c2` ist mit dem Standbild vorab geladen, das verwendet wird, um den grünen Hintergrund im Video zu ersetzen.
 2. Der JavaScript-Code wird aus einem Skript namens `processor.js` importiert.
 
 ## Der JavaScript-Code
@@ -68,7 +68,7 @@ Der JavaScript-Code in `processor.js` besteht aus drei Methoden.
 
 ### Initialisierung des Chroma-Key-Players
 
-Die `doLoad()`-Methode wird aufgerufen, wenn das HTML-Dokument initial geladen wird. Die Aufgabe dieser Methode besteht darin, die Variablen, die vom Chroma-Key-Verarbeitungscode benötigt werden, vorzubereiten und einen Ereignislistener einzurichten, damit wir erkennen können, wann der Benutzer mit dem Abspielen des Videos beginnt.
+Die Methode `doLoad()` wird aufgerufen, wenn das HTML-Dokument initial geladen wird. Die Aufgabe dieser Methode besteht darin, die Variablen vorzubereiten, die vom Chroma-Key-Verarbeitungscode benötigt werden, und einen Ereignis-Listener einzurichten, damit wir erkennen können, wann der Benutzer das Video abspielt.
 
 ```js
 const processor = {};
@@ -95,13 +95,13 @@ processor.doLoad = function doLoad() {
 };
 ```
 
-Dieser Code erfasst Referenzen zu den Elementen im HTML-Dokument, die von besonderem Interesse sind, nämlich dem `video`-Element und den beiden `canvas`-Elementen. Er ruft auch Referenzen zu den Grafik-Kontexten für jedes der beiden Canvas ab. Diese werden verwendet, wenn wir tatsächlich den Chroma-Key-Effekt durchführen.
+Dieser Code ruft Referenzen zu den Elementen im HTML-Dokument ab, die von besonderem Interesse sind, nämlich das `video`-Element und die beiden `canvas`-Elemente. Es werden auch Referenzen zu den Grafik-Kontexten für jedes der beiden Canvas-Elemente abgerufen. Diese werden verwendet, wenn wir tatsächlich den Chroma-Keying-Effekt durchführen.
 
-Dann wird `addEventListener()` aufgerufen, um das `video`-Element zu beobachten, sodass wir benachrichtigt werden, wenn der Benutzer die Wiedergabetaste auf dem Video drückt. Als Reaktion darauf, dass der Benutzer die Wiedergabe startet, holt dieser Code die Breite und Höhe des Videos ab, halbiert diese jeweils (wir werden die Größe des Videos halbieren, wenn wir den Chroma-Key-Effekt durchführen), und ruft dann die `timerCallback()`-Methode auf, um mit dem Beobachten des Videos und Berechnen des visuellen Effekts zu beginnen.
+Dann wird `addEventListener()` aufgerufen, um das `video`-Element zu beobachten, damit wir benachrichtigt werden, wenn der Benutzer die Wiedergabeschaltfläche des Videos drückt. Als Reaktion auf den Beginn der Wiedergabe durch den Benutzer ruft dieser Code die Breite und Höhe des Videos ab, halbiert sie jeweils (wir werden die Größe des Videos halbieren, wenn wir den Chroma-Keying-Effekt durchführen), und ruft dann die Methode `timerCallback()` auf, um das Video zu beobachten und den visuellen Effekt zu berechnen.
 
 ### Der Timer-Callback
 
-Der Timer-Callback wird zunächst aufgerufen, wenn das Video zu spielen beginnt (wenn das „play“-Ereignis eintritt), und übernimmt dann die Verantwortung dafür, sich selbst regelmäßig aufzurufen, um den Keying-Effekt für jeden Frame auszulösen.
+Der Timer-Callback wird zunächst aufgerufen, wenn das Video beginnt abzuspielen (wenn das "play"-Ereignis auftritt), und übernimmt dann die Verantwortung dafür, sich selbst periodisch aufzurufen, um den Keying-Effekt für jeden Frame auszuführen.
 
 ```js
 processor.timerCallback = function timerCallback() {
@@ -115,15 +115,15 @@ processor.timerCallback = function timerCallback() {
 };
 ```
 
-Das Erste, was der Callback tut, ist zu überprüfen, ob das Video überhaupt spielt; wenn nicht, gibt der Callback sofort zurück, ohne etwas zu tun.
+Das Erste, was der Callback tut, ist zu überprüfen, ob das Video überhaupt abgespielt wird; wenn nicht, gibt der Callback sofort zurück, ohne etwas zu tun.
 
-Dann ruft er die `computeFrame()`-Methode auf, die den Chroma-Key-Effekt auf den aktuellen Videoframe anwendet.
+Dann wird die Methode `computeFrame()` aufgerufen, die den Chroma-Keying-Effekt auf den aktuellen Videoframe anwendet.
 
-Zuletzt ruft der Callback `setTimeout()` auf, um sich selbst einzuplanen, so bald wie möglich erneut aufgerufen zu werden. In der realen Welt würden Sie dies wahrscheinlich basierend auf dem Wissen über die Bildrate des Videos planen.
+Das Letzte, was der Callback tut, ist `setTimeout()` aufzurufen, um sich selbst so schnell wie möglich neu zu planen. In der realen Welt würden Sie dies wahrscheinlich auf der Grundlage der Kenntnisse über die Bildrate des Videos planen.
 
-### Bearbeiten der Videoframedaten
+### Manipulation der Videodaten
 
-Die `computeFrame()`-Methode, die unten gezeigt wird, ist dafür verantwortlich, tatsächlich einen Frame von Daten zu holen und den Chroma-Key-Effekt durchzuführen.
+Die folgende Methode `computeFrame()` ist dafür verantwortlich, tatsächlich einen Videoframe abzurufen und den Chroma-Keying-Effekt anzuwenden.
 
 ```js
 processor.computeFrame = function () {
@@ -143,25 +143,25 @@ processor.computeFrame = function () {
 };
 ```
 
-Wenn diese Routine aufgerufen wird, zeigt das Videoelement den aktuellsten Frame von Videodaten an, der so aussieht:
+Wenn diese Routine aufgerufen wird, zeigt das Videoelement den aktuellsten Frame der Videodaten an, der so aussieht:
 
-![Ein einzelner Frame des Video-Elements. Da ist eine Person, die ein schwarzes T-Shirt trägt. Die Hintergrundfarbe ist gelb.](video.png)
+![Ein einzelner Frame des Video-Elements. Eine Person trägt ein schwarzes T-Shirt. Die Hintergrundfarbe ist gelb.](video.png)
 
-Dieser Frame des Videos wird in den Grafik-Kontext `ctx1` des ersten Canvas kopiert, wobei als Höhe und Breite die zuvor gespeicherten Werte verwendet werden, um den Frame in halber Größe zu zeichnen. Beachten Sie, dass Sie das Videoelement in die `drawImage()`-Methode des Kontexts übergeben können, um den aktuellen Videoframe in den Kontext zu zeichnen. Das Ergebnis ist:
+Dieser Videoframe wird in den Grafik-Kontext `ctx1` des ersten Canvas kopiert, wobei als Höhe und Breite die Werte angegeben werden, die wir zuvor gespeichert haben, um den Frame in halber Größe zu zeichnen. Beachten Sie, dass Sie das Videoelement in die Methode `drawImage()` des Kontexts übergeben können, um den aktuellen Videoframe in den Kontext zu zeichnen. Das Ergebnis ist:
 
-![Ein einzelner Frame des Video-Elements. Da ist eine Person, die ein schwarzes T-Shirt trägt. Die Hintergrundfarbe ist gelb. Dies ist eine kleinere Version des obigen Bildes.](sourcectx.png)
+![Ein einzelner Frame des Video-Elements. Eine Person trägt ein schwarzes T-Shirt. Die Hintergrundfarbe ist gelb. Dies ist eine kleinere Version des vorherigen Bildes.](sourcectx.png)
 
-Der Aufruf der `getImageData()`-Methode auf dem ersten Kontext ruft eine Kopie der rohen Grafikdaten für den aktuellen Videoframe ab. Dies liefert rohe 32-Bit-Pixel-Bilddaten, die wir dann manipulieren können. Wir berechnen dann die Anzahl der Pixel im Bild, indem wir die Gesamtgröße der Bilddaten des Frames durch vier teilen.
+Das Aufrufen der Methode `getImageData()` auf dem ersten Kontext holt eine Kopie der rohen Grafikdaten für den aktuellen Videoframe ab. Dies liefert rohe 32-Bit-Pixel-Bilddaten, die wir dann manipulieren können. Wir berechnen die Anzahl der Pixel im Bild, indem wir die Gesamtgröße der Bilddaten des Frames durch vier teilen.
 
-Die `for`-Schleife durchsucht die Pixel des Frames, extrahiert die Rot-, Grün- und Blauwerte für jedes Pixel und vergleicht die Werte mit vorbestimmten Zahlen, die verwendet werden, um den grünen Bildschirm zu erkennen, der mit dem Standbildhintergrund aus `foo.png` ersetzt wird.
+Die `for`-Schleife durchläuft die Pixel des Frames, extrahiert die Rot-, Grün- und Blauwerte jedes Pixels und vergleicht die Werte mit vorbestimmten Zahlen, die verwendet werden, um den Greenscreen zu erkennen, der durch das importierte Standbild `foo.png` ersetzt wird.
 
-Bei jedem Pixel in den Bilddaten des Frames, das innerhalb der Parameter liegt, die als Teil des grünen Bildschirms angesehen werden, wird der Alpha-Wert durch null ersetzt, was anzeigt, dass das Pixel vollständig transparent ist. Dadurch wird das endgültige Bild komplett transparent im Bereich des grünen Bildschirms, sodass es, wenn es in den Zielkontext mit `ctx2.putImageData` gezeichnet wird, eine Überlagerung auf den statischen Hintergrund ergibt.
+Jedes Pixel in den Bilddaten des Frames, das innerhalb der Parameter liegt, die als Teil des Greenscreens betrachtet werden, hat seinen Alphawert auf Null gesetzt, was bedeutet, dass das Pixel vollständig transparent ist. Dadurch ist das gesamte Greenscreen-Bereich des finalen Bildes zu 100 % transparent, sodass es beim Zeichnen in den Zielkontext mit `ctx2.putImageData` als Überlagerung auf den statischen Hintergrund dargestellt wird.
 
 Das resultierende Bild sieht so aus:
 
-![Ein einzelner Frame des Video-Elements zeigt dieselbe Person, die ein schwarzes T-Shirt trägt, wie in den obigen Fotos. Der Hintergrund ist anders: es ist das Firefox-Logo.](output.png)
+![Ein einzelner Frame des Video-Elements zeigt dieselbe Person in einem schwarzen T-Shirt wie in den Fotos oben. Der Hintergrund ist anders: Er ist das Firefox-Logo.](output.png)
 
-Dies wird wiederholt ausgeführt, während das Video abgespielt wird, sodass Frame für Frame mit dem Chroma-Key-Effekt verarbeitet und angezeigt wird.
+Dies wird fortlaufend während der Videowiedergabe wiederholt, sodass Frame für Frame mit dem Chroma-Key-Effekt verarbeitet und dargestellt wird.
 
 [Den vollständigen Quellcode für dieses Beispiel ansehen](https://github.com/mdn/dom-examples/tree/main/canvas/chroma-keying).
 

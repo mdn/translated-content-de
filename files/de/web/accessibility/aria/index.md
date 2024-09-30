@@ -7,17 +7,17 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Accessible Rich Internet Applications **(<abbr>ARIA</abbr>)** ist eine Sammlung von [Rollen](/de/docs/Web/Accessibility/ARIA/Roles) und [Attributen](/de/docs/Web/Accessibility/ARIA/Attributes), die Wege definieren, wie Webinhalte und Webanwendungen (insbesondere solche, die mit JavaScript entwickelt wurden) für Menschen mit Behinderungen zugänglicher gemacht werden können.
+Accessible Rich Internet Applications **(<abbr>ARIA</abbr>)** ist eine Sammlung von [Rollen](/de/docs/Web/Accessibility/ARIA/Roles) und [Attributen](/de/docs/Web/Accessibility/ARIA/Attributes), die Möglichkeiten definieren, Webinhalte und Webanwendungen (insbesondere solche, die mit JavaScript entwickelt wurden) für Menschen mit Behinderungen zugänglicher zu machen.
 
-Es ergänzt HTML, sodass Interaktionen und Widgets, die häufig in Anwendungen verwendet werden, an unterstützende Technologien übergeben werden können, wenn es anderweitig keinen Mechanismus gibt. Zum Beispiel ermöglicht ARIA zugängliche JavaScript-Widgets, Formularhinweise und Fehlermeldungen, Live-Inhaltsaktualisierungen und mehr.
+Es ergänzt HTML, sodass Interaktionen und Widgets, die häufig in Anwendungen verwendet werden, an unterstützende Technologien übergeben werden können, wenn es keine andere Mechanismus gibt. Zum Beispiel ermöglicht ARIA zugängliche JavaScript-Widgets, Formularhinweise und Fehlermeldungen, Live-Content-Updates und vieles mehr.
 
 > [!WARNING]
-> Viele dieser Widgets werden in modernen Browsern vollständig unterstützt. **Entwickler sollten das richtige semantische HTML-Element bevorzugen, anstatt ARIA zu verwenden**, wenn ein solches Element existiert. Beispielsweise haben native Elemente eingebaute [Tastaturzugänglichkeit](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets), Rollen und Zustände. Wenn Sie sich jedoch entscheiden, ARIA zu verwenden, sind Sie dafür verantwortlich, das äquivalente Browserverhalten im Skript nachzuahmen.
+> Viele dieser Widgets werden in modernen Browsern vollständig unterstützt. **Entwickler sollten das korrekte semantische HTML-Element anstelle von ARIA verwenden**, falls ein solches Element existiert. Beispielsweise haben native Elemente eingebaute [Tastaturzugänglichkeit](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets), Rollen und Zustände. Wenn Sie sich jedoch für die Verwendung von ARIA entscheiden, sind Sie dafür verantwortlich, das entsprechende Browserverhalten im Skript nachzubilden.
 
-[Die erste Regel der ARIA](https://www.w3.org/TR/using-aria/#rule1)-Verwendung lautet: "Wenn Sie ein natives HTML-Element oder Attribut mit den benötigten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element neu zu verwenden und ihm eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies."
+[Die erste Regel der ARIA-Nutzung](https://www.w3.org/TR/using-aria/#rule1) lautet: "Wenn Sie ein natives HTML-Element oder Attribut mit den benötigten Semantiken und dem gewünschten Verhalten verwenden können, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, tun Sie dies."
 
 > [!NOTE]
-> Es gibt ein Sprichwort: "Keine ARIA ist besser als schlechte ARIA." In [WebAims Umfrage zu über einer Million Startseiten](https://webaim.org/projects/million/#aria) fanden sie heraus, dass Startseiten mit vorhandener ARIA durchschnittlich 41 % mehr erkennbare Fehler aufwiesen als solche ohne ARIA. Während ARIA darauf ausgelegt ist, Webseiten zugänglicher zu machen, kann es, wenn es falsch verwendet wird, mehr Schaden als Nutzen verursachen.
+> Ein Sprichwort lautet: "Keine ARIA ist besser als schlechte ARIA." In [WebAims Umfrage von über einer Million Startseiten](https://webaim.org/projects/million/#aria) fanden sie heraus, dass Startseiten mit ARIA durchschnittlich 41 % mehr erkannte Fehler hatten als solche ohne ARIA. Während ARIA dazu gedacht ist, Webseiten zugänglicher zu machen, kann es bei falscher Verwendung mehr schaden als nützen.
 
 Hier ist das Markup für ein Fortschrittsbalken-Widget:
 
@@ -30,9 +30,9 @@ Hier ist das Markup für ein Fortschrittsbalken-Widget:
   aria-valuemax="100"></div>
 ```
 
-Dieser Fortschrittsbalken wird mit einem {{HTMLElement("div")}} gebaut, das keine Bedeutung hat. Wir fügen ARIA-Rollen und -Eigenschaften hinzu, um Bedeutung hinzuzufügen. In diesem Beispiel informiert das Attribut [`role="progressbar"`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role) den Browser, dass dieses Element tatsächlich ein JavaScript-gesteuertes Fortschrittsbalken-Widget ist. Die Attribute [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax) geben die Mindest- und Höchstwerte für den Fortschrittsbalken an, und das Attribut [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow) beschreibt den aktuellen Zustand davon und muss daher mit JavaScript aktualisiert werden.
+Dieser Fortschrittsbalken wird mit einem {{HTMLElement("div")}} erstellt, das keine Bedeutung hat. Wir fügen ARIA-Rollen und -Eigenschaften hinzu, um Bedeutung hinzuzufügen. In diesem Beispiel informiert das [`role="progressbar"`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role)-Attribut den Browser, dass dieses Element tatsächlich ein JavaScript-gestütztes Fortschrittsbalken-Widget ist. Die Attribute [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax) geben den minimalen und maximalen Wert für den Fortschrittsbalken an, und das [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow) beschreibt den aktuellen Zustand und muss daher mit JavaScript aktualisiert werden.
 
-Zusätzlich zur direkten Platzierung im Markup können ARIA-Attribute dem Element hinzugefügt und dynamisch mit JavaScript-Code wie diesem aktualisiert werden:
+Neben der direkten Platzierung im Markup können ARIA-Attribute dem Element hinzugefügt und dynamisch mit JavaScript-Code wie diesem aktualisiert werden:
 
 ```js
 // Find the progress bar <div> in the DOM.
@@ -51,7 +51,7 @@ function updateProgress(percentComplete) {
 }
 ```
 
-Alle Inhalte, die Benutzern von nicht-unterstützenden Technologien zur Verfügung stehen, müssen auch unterstützenden Technologien zugänglich gemacht werden. Ebenso sollten keine Funktionen eingeführt werden, die nur für Benutzer von unterstützenden Technologien zugänglich sind, die nicht auch für diejenigen ohne unterstützende Technologien zugänglich sind. Der oben beschriebene Fortschrittsbalken muss gestylt werden, um wie ein Fortschrittsbalken auszusehen.
+Alle Inhalte, die für Nutzer ohne unterstützende Technologie verfügbar sind, müssen auch für unterstützende Technologien verfügbar gemacht werden. Ebenso sollten keine Funktionen enthalten sein, die auf Benutzer unterstützender Technologien abzielen, die nicht auch für diejenigen zugänglich sind, die keine solchen Technologien verwenden. Der oben gezeigte Fortschrittsbalken muss gestylt werden, damit er wie ein Fortschrittsbalken aussieht.
 
 Es wäre viel einfacher gewesen, das native {{HTMLElement('progress')}}-Element zu verwenden:
 
@@ -60,42 +60,42 @@ Es wäre viel einfacher gewesen, das native {{HTMLElement('progress')}}-Element 
 ```
 
 > [!NOTE]
-> Das `min`-Attribut ist für das {{HTMLElement('progress')}}-Element nicht erlaubt; sein Mindestwert ist immer `0`.
+> Das `min`-Attribut ist für das {{HTMLElement('progress')}}-Element nicht zulässig; sein Mindestwert ist immer `0`.
 
 > [!NOTE]
-> HTML-Landmark-Elemente ({{HTMLElement("main")}}, {{HTMLElement("header")}}, {{HTMLElement("nav")}} usw.) haben eingebaute implizite ARIA-Rollen, sodass es nicht notwendig ist, diese zu duplizieren.
+> HTML-Kennzeichnungselemente ({{HTMLElement("main")}}, {{HTMLElement("header")}}, {{HTMLElement("nav")}} usw.) haben eingebaute implizite ARIA-Rollen, daher ist es nicht nötig, sie zu duplizieren.
 
 ## Unterstützung
 
-Wie jede andere Webtechnologie gibt es unterschiedliche Unterstützung für ARIA. Die Unterstützung hängt vom verwendeten Betriebssystem und Browser sowie der Art der Schnittstellentechnologie ab, die damit interagiert. Darüber hinaus sind die Versionen des Betriebssystems, des Browsers und der unterstützenden Technologie entscheidende Faktoren. Ältere Softwareversionen unterstützen möglicherweise bestimmte ARIA-Rollen nicht, haben nur teilweise Unterstützung oder melden ihre Funktionalität falsch.
+Wie jede andere Webtechnologie gibt es unterschiedliche Grade der Unterstützung für ARIA. Die Unterstützung hängt vom verwendeten Betriebssystem und Browser sowie von der Art der unterstützenden Technologie ab, die damit interagiert. Darüber hinaus sind die Versionen des Betriebssystems, des Browsers und der unterstützenden Technologie entscheidende Faktoren. Ältere Softwareversionen unterstützen möglicherweise bestimmte ARIA-Rollen nicht, haben nur teilweise Unterstützung oder berichten die Funktionalität falsch.
 
-Es ist auch wichtig zu beachten, dass einige Menschen, die auf unterstützende Technologien angewiesen sind, zögern, ihre Software zu aktualisieren, aus Angst, die Fähigkeit zu verlieren, mit ihrem Computer und Browser zu interagieren. Aus diesem Grund ist es wichtig, [semantische HTML-Elemente zu verwenden](/de/docs/Learn/Accessibility/HTML), wann immer möglich, da semantisches HTML eine weitaus bessere Unterstützung für unterstützende Technologien bietet.
+Es ist auch wichtig anzuerkennen, dass einige Menschen, die auf unterstützende Technologien angewiesen sind, zögern, ihre Software zu aktualisieren, aus Angst, die Fähigkeit zu verlieren, mit ihrem Computer und Browser zu interagieren. Aus diesem Grund ist es wichtig, [semantische HTML-Elemente zu verwenden](/de/docs/Learn/Accessibility/HTML), wann immer möglich, da semantisches HTML weitaus besser von unterstützenden Technologien unterstützt wird.
 
-Es ist auch wichtig, Ihr erstelltes ARIA mit tatsächlichen unterstützenden Technologien zu testen. Dies liegt daran, dass Browser-Emulatoren und Simulatoren nicht wirklich effektiv sind, um die volle Unterstützung zu testen. Ebenso sind Proxy-Lösungen für unterstützende Technologien nicht ausreichend, um die volle Funktionalität zu garantieren.
+Es ist auch wichtig, Ihr geschriebenes ARIA mit tatsächlicher unterstützender Technologie zu testen. Dies liegt daran, dass Browser-Emulatoren und -Simulatoren für das Testen der vollständigen Unterstützung nicht wirklich effektiv sind. Ebenso sind Proxy-Lösungen für unterstützende Technologien nicht ausreichend, um die volle Funktionalität zu garantieren.
 
 ## Referenzen
 
 - [ARIA-Rollen](/de/docs/Web/Accessibility/ARIA/Roles)
-  - : Referenzseiten, die alle auf MDN diskutierten WAI-ARIA-Rollen abdecken.
+  - : Referenzseiten, die alle auf MDN behandelten WAI-ARIA-Rollen abdecken.
 - [ARIA-Zustände und -Eigenschaften](/de/docs/Web/Accessibility/ARIA/Attributes)
-  - : Referenzseiten, die alle auf MDN diskutierten WAI-ARIA-Zustände und -Eigenschaften abdecken.
+  - : Referenzseiten, die alle auf MDN behandelten WAI-ARIA-Zustände und -Eigenschaften abdecken.
 
 ## Standardisierungsbemühungen
 
 - [WAI-ARIA-Spezifikation](https://w3c.github.io/aria/)
   - : Die W3C-Spezifikation selbst.
-- [WAI-ARIA-Authoring-Praktiken](https://www.w3.org/TR/wai-aria-practices-1.2/)
-  - : Die offiziellen Best-Practice-Dokumente, wie man am besten gängige Widgets und Interaktionen mit ARIA versieht. Eine ausgezeichnete Ressource.
+- [WAI-ARIA-Autorpraktiken](https://www.w3.org/TR/wai-aria-practices-1.2/)
+  - : Die offiziellen Best-Practice-Dokumente, wie man am besten gängige Widgets und Interaktionen ARIA-fiziert. Eine ausgezeichnete Ressource.
 
-## ARIA für gescriptete Widgets
+## ARIA für geskriptete Widgets
 
-- [Schreiben von tastaturnavigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets)
-  - : Eingebaute Elemente wie {{HTMLElement("input")}}, {{HTMLElement("button")}} usw. haben eingebaute Tastaturzugänglichkeit. Wenn Sie diese mit {{HTMLElement("div")}}s und ARIA 'fälschen', müssen Sie sicherstellen, dass Ihre Widgets tastaturzugänglich sind.
-- [Live-Regionen](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
-  - : Live-Regionen geben Bildschirmlesern Vorschläge, wie Änderungen am Inhalt einer Seite behandelt werden sollen.
+- [Erstellen von tastaturnavigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets)
+  - : Eingebaute Elemente wie {{HTMLElement("input")}}, {{HTMLElement("button")}} usw. haben eine eingebaute Tastaturzugänglichkeit. Wenn Sie diese mit {{HTMLElement("div")}}s und ARIA 'nachahmen', müssen Sie sicherstellen, dass Ihre Widgets tastaturzugänglich sind.
+- [Live-Bereiche](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+  - : Live-Bereiche bieten Vorschläge für Screenreader, wie Änderungen am Inhalt einer Seite behandelt werden sollen.
 
 ## Videos
 
-Die folgenden Vorträge sind eine großartige Möglichkeit, um ARIA zu verstehen:
+Die folgenden Vorträge sind eine großartige Möglichkeit, ARIA zu verstehen:
 
 [ARIA, Accessibility APIs and coding like you give a damn! – Léonie Watson](https://www.youtube.com/watch?v=qdB8SRhqvFc)

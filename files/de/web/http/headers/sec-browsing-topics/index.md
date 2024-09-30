@@ -8,16 +8,16 @@ l10n:
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standards Positionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
+> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standards positions](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
 
 > [!NOTE]
-> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) ist erforderlich, um dieses Feature in Ihren Anwendungen zu nutzen.
+> Ein [Anmeldeverfahren](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu nutzen.
 
-Der **`Sec-Browsing-Topics`** Request-Header sendet die ausgewählten Themen des aktuellen Nutzers zusammen mit der zugehörigen Anfrage, die von einer Werbeplattform genutzt werden, um eine personalisierte Anzeige auszuwählen und anzuzeigen.
+Der **`Sec-Browsing-Topics`** Request-Header sendet die ausgewählten Themen des aktuellen Nutzers zusammen mit der verbundenen Anfrage, welche von einer Werbetechnologie-Plattform verwendet werden, um eine personalisierte Anzeige auszuwählen.
 
-Wenn die aufrufende Seite die Topics API nicht in einem erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) aufgenommen hat, schlägt der Versuch, `Sec-Browsing-Topics` zu erstellen oder zu ändern, ohne Fehlermeldung fehl, und ein vorhandener `Sec-Browsing-Topics` Header wird gelöscht.
+Wenn die aufrufende Website keine erfolgreiche Integration des Topics API im Rahmen eines [Privacy Sandbox Anmeldeverfahrens](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) hat, schlägt der Versuch, `Sec-Browsing-Topics` zu erstellen oder zu ändern, stillschweigend fehl, und jeder vorhandene `Sec-Browsing-Topics`-Header wird gelöscht.
 
-Weitere Details finden Sie unter [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using).
+Siehe [Verwendung des Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
 
 <table class="properties">
   <tbody>
@@ -40,22 +40,22 @@ Sec-Browsing-Topics: <array-of-observed-topics>
 
 ## Direktiven
 
-Ein JSON-Objekt, das ein Array von bis zu drei Objekten darstellt, die die vom aktuellen Nutzer für die letzten drei Epochen ausgewählten Themen repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein JSON-Objekt, das ein Array von bis zu drei Objekten darstellt, welche die vom aktuellen Nutzer in den letzten drei Epochen ausgewählten Themen repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `configVersion`
-  - : Ein String, der den Algorithmus (außer dem Modellteil) zur Berechnung des Themas identifiziert.
+  - : Eine Zeichenkette zur Identifizierung des Algorithmus (außer dem Modellteil), der zur Berechnung des Themas verwendet wurde.
 - `modelVersion`
-  - : Ein String, der das Modell repräsentiert, das verwendet wird, um einen String (wie z.B. den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
+  - : Eine Zeichenkette, die das Modell darstellt, das verwendet wird, um eine Zeichenfolge (wie den Hostnamen einer Webseite) zu Themen-IDs zu klassifizieren.
 - `taxonomyVersion`
-  - : Ein String, der die verwendete Taxonomieversion darstellt.
+  - : Eine Zeichenkette, die die verwendete Taxonomie-Version darstellt.
 - `topic`
-  - : Eine Zahl, die die ID des Themas darstellt, die vom Browser zur Abrufung des Themas aus der Taxonomie verwendet werden kann (siehe ein Beispiel für [Taxonomie von Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
+  - : Eine Nummer, die die ID des Themas darstellt, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel einer [Taxonomie der Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
 - `version`
-  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, durch Doppelpunkte (`:`) voneinander getrennt konkateniert.
+  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, durch Doppelpunkte (`:`) getrennt, zusammengefügt.
 
 ## Beispiele
 
-Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren. Ein Beispiel-Header aus Chrome könnte wie folgt aussehen:
+Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren. Ein Beispiel-Header von Chrome könnte wie folgt aussehen:
 
 ```http
 Sec-Browsing-Topics: [{configVersion: "chrome.1", modelVersion: "1", taxonomyVersion: "1", topic: 43, version: "chrome.1:1:1"}]
@@ -63,7 +63,7 @@ Sec-Browsing-Topics: [{configVersion: "chrome.1", modelVersion: "1", taxonomyVer
 
 ## Spezifikationen
 
-Dieses Feature ist kein Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

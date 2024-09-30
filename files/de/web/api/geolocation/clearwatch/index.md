@@ -1,5 +1,5 @@
 ---
-title: "Geolocation: clearWatch() Methode"
+title: "Geolocation: clearWatch()-Methode"
 short-title: clearWatch()
 slug: Web/API/Geolocation/clearWatch
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{ APIref("Geolocation API") }}
 
-Die **`clearWatch()`**-Methode der [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle wird verwendet, um Überwachungs-Handler für Positionen/Fehler zu deregistrieren, die zuvor mit [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) installiert wurden.
+Die **`clearWatch()`**-Methode der [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle wird verwendet, um zuvor mit [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) installierte Standort-/Fehlerüberwachungs-Handler abzumelden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ clearWatch(id)
 ### Parameter
 
 - `id`
-  - : Die ID-Nummer, die von der [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)-Methode zurückgegeben wird, wenn Sie den Handler installieren, den Sie entfernen möchten.
+  - : Die ID-Nummer, die von der [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)-Methode zurückgegeben wird, wenn Sie den zu entfernenden Handler installieren.
 
 ### Rückgabewert
 
@@ -69,7 +69,7 @@ id = navigator.geolocation.watchPosition(success, error, options);
 
 ## Siehe auch
 
-- [Verwendung von Geolocation](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [Verwendung der Geolokalisierung](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
 - [`Geolocation`](/de/docs/Web/API/Geolocation)
 - [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)
 - [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition)

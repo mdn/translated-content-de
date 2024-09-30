@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`hanging`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine hängende Basislinienausrichtung für horizontal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem.
+Das **`hanging`**-Attribut gibt das Ausrichtungskoordinat für [Glyphen](/de/docs/Glossary/glyph) an, um eine hängende Basislinienausrichtung für horizontal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>

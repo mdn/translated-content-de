@@ -1,5 +1,5 @@
 ---
-title: "<ruby>: Das Ruby-Annotationselement"
+title: "<ruby>: Das Ruby Annotation Element"
 slug: Web/HTML/Element/ruby
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,9 +7,9 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben Basistext angezeigt werden und normalerweise zur Darstellung der Aussprache von ostasiatischen Zeichen verwendet werden. Es kann auch zur Annotation anderer Texte verwendet werden, diese Nutzung ist jedoch weniger verbreitet.
+Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben dem Basistext dargestellt werden. Es wird üblicherweise verwendet, um die Aussprache von ostasiatischen Zeichen anzuzeigen. Es kann auch zur Annotation anderer Textarten verwendet werden, aber diese Nutzung ist weniger verbreitet.
 
-Der Begriff _ruby_ stammt ursprünglich aus [einer Maßeinheit, die von Setzern verwendet wurde](<https://en.wikipedia.org/wiki/Agate_(typography)>), der kleinsten Größe, in der Text auf Zeitungspapier gedruckt werden kann, während er lesbar bleibt.
+Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Schriftsetzern verwendet wurde](<https://en.wikipedia.org/wiki/Agate_(typography)>), und steht für die kleinste Größe, bei der Text auf Zeitungspapier gedruckt werden kann und dennoch lesbar bleibt.
 
 {{EmbedInteractiveExample("pages/tabbed/ruby.html", "tabbed-shorter")}}
 
@@ -53,18 +53,18 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        >, palpabler Inhalt.
+          >Phrasierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
@@ -77,8 +77,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        >akzeptiert.
+          >Phrasierungsinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -90,8 +91,8 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

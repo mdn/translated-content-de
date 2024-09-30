@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`columns`**-Eigenschaft der [CSS](/de/docs/Web/CSS) Kurznomenklatur legt die Anzahl der Spalten fest, die beim Zeichnen des Inhalts eines Elements verwendet werden sollen, sowie die Breiten dieser Spalten.
+Die **`columns`** [CSS](/de/docs/Web/CSS) Kurzschreibweise legt die Anzahl der Spalten fest, die beim Zeichnen des Inhalts eines Elements verwendet werden sollen, sowie die Breite dieser Spalten.
 
 {{EmbedInteractiveExample("pages/css/columns.html")}}
 
@@ -41,14 +41,14 @@ columns: revert-layer;
 columns: unset;
 ```
 
-Die `columns`-Eigenschaft kann in beliebiger Reihenfolge als einer oder zwei der nachfolgend aufgeführten Werte angegeben werden.
+Die `columns` Eigenschaft kann als einer oder zwei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben werden.
 
 ### Werte
 
 - `<'column-width'>`
-  - : Die ideale Spaltenbreite, definiert als {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um den verfügbaren Platz auszufüllen. Siehe {{cssxref("column-width")}}.
+  - : Die ideale Spaltenbreite, definiert als ein {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um in den verfügbaren Platz zu passen. Siehe {{cssxref("column-width")}}.
 - `<'column-count'>`
-  - : Die ideale Anzahl von Spalten, in die der Inhalt des Elements fließen sollte, definiert als {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wenn weder dieser Wert noch die Spaltenbreite `auto` sind, gibt dies lediglich die maximal zulässige Anzahl von Spalten an. Siehe {{cssxref("column-count")}}.
+  - : Die ideale Anzahl von Spalten, in die der Inhalt des Elements fließen soll, definiert als ein {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wenn weder dieser Wert noch die Spaltenbreite `auto` sind, gibt er lediglich die maximal zulässige Anzahl von Spalten an. Siehe {{cssxref("column-count")}}.
 
 ## Formale Definition
 
@@ -95,5 +95,5 @@ Die `columns`-Eigenschaft kann in beliebiger Reihenfolge als einer oder zwei der
 
 - {{cssxref("widows")}}
 - {{cssxref("orphans")}}
-- [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media)
-- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)

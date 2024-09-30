@@ -10,7 +10,7 @@ l10n:
 Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters definiert.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-dashoffset` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-dashoffset` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für weitere Informationen.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -94,7 +94,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -125,7 +125,7 @@ svg {
   </tbody>
 </table>
 
-Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die relativ zum {{SVGAttr('pathLength')}} aufgelöst werden. Wird jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet, wird der Wert als Prozentsatz des aktuellen Ansichtsbereichs aufgelöst.
+Der Versatz wird normalerweise in Benutzereinheiten angegeben, die relativ zu {{SVGAttr('pathLength')}} aufgelöst werden. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
 
 ## Spezifikationen
 

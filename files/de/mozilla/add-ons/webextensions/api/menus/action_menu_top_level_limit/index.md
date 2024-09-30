@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl an obersten Erweiterungselementen, die einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} "browser_action" oder "page_action" ist. Alle darüber hinausgehenden Elemente werden ignoriert.
+Die maximale Anzahl von Erweiterungselementen auf oberster Ebene, die zu einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} entweder "browser_action" oder "page_action" ist. Alle Elemente, die über diese Grenze hinausgehen, werden ignoriert.
 
-Der Wert ist `6` in Firefox und Chrome.
+Der Wert beträgt `6` in Firefox und Chrome.
 
-Zur Kompatibilität mit anderen Browsern macht Firefox diese Eigenschaft sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum verfügbar.
+Für die Kompatibilität mit anderen Browsern stellt Firefox diese Eigenschaft sowohl im `contextMenus`-Namespace als auch im `menus`-Namespace zur Verfügung.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Zur Kompatibilität mit anderen Browsern macht Firefox diese Eigenschaft sowohl 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API von Chromium. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

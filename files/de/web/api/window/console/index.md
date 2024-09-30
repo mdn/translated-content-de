@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.console`**-Eigenschaft gibt eine Referenz auf das [`console`](/de/docs/Web/API/Console)-Objekt zurück, das Methoden zum Protokollieren von Informationen in der Konsole des Browsers bereitstellt. Diese Methoden sind ausschließlich für Debuggingzwecke vorgesehen und sollten nicht zum Präsentieren von Informationen an Endbenutzer verwendet werden.
+Die **`Window.console`**-Eigenschaft gibt eine Referenz auf das [`console`](/de/docs/Web/API/Console)-Objekt zurück, das Methoden zum Protokollieren von Informationen in der Konsole des Browsers bereitstellt. Diese Methoden sind nur für Debugging-Zwecke gedacht und sollten nicht verwendet werden, um Informationen an Endbenutzer zu präsentieren.
 
 ## Beispiele
 
-### Protokollierung in der Konsole
+### Protokollierung in die Konsole
 
-Das erste Beispiel protokolliert Text in der Konsole.
+Das erste Beispiel protokolliert Text in die Konsole.
 
 ```js
 console.log("An error occurred while loading the content");
 ```
 
-Im nächsten Beispiel wird ein Objekt in der Konsole protokolliert, wobei die Felder des Objekts mit erweiterbaren Steuerflächen angezeigt werden können:
+Das nächste Beispiel protokolliert ein Objekt in die Konsole, wobei die Felder des Objekts mit Hilfe von Aufklappelementen erweiterbar sind:
 
 ```js
 console.dir(someObject);
 ```
 
-Weitere Beispiele finden Sie im [Beispiele](/de/docs/Web/API/console#examples)-Abschnitt des Artikels über [`console`](/de/docs/Web/API/console).
+Weitere Beispiele finden Sie im [Beispiele](/de/docs/Web/API/console#examples)-Abschnitt des [`console`](/de/docs/Web/API/console)-Artikels.
 
 ## Spezifikationen
 
 {{Specifications}}
 
 > [!NOTE]
-> Derzeit gibt es viele Implementierungsunterschiede zwischen den Browsern, aber es wird daran gearbeitet, diese zusammenzuführen und konsistenter zu machen.
+> Derzeit gibt es viele Unterschiede in der Implementierung zwischen den Browsern, aber es wird daran gearbeitet, sie zusammenzuführen und konsistenter zu gestalten.

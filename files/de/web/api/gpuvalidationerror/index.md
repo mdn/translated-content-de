@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUValidationError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Anwendungsfehler, der darauf hinweist, dass eine Operation die Validierungsbeschränkungen der WebGPU-API nicht bestanden hat.
+Die **`GPUValidationError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Anwendungsfehler, der darauf hinweist, dass eine Operation die Validierungsbeschränkungen der WebGPU API nicht bestanden hat.
 
-Sie stellt eine der Fehlertypen dar, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis gemeldet werden.
+Sie stellt einen der Fehlertypen dar, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden.
 
-Validierungsfehler treten immer dann auf, wenn ungültige Eingaben in einen WebGPU-Aufruf gegeben werden. Diese sind konsistent, vorhersagbar und sollten nicht auftreten, sofern Ihre Anwendung gut aufgebaut ist. Sie treten auf jedem Gerät, auf dem Ihr Code läuft, gleich auf, sodass Sie, wenn Sie die während der Entwicklung auftretenden Fehler behoben haben, diese wahrscheinlich die meiste Zeit nicht direkt beobachten müssen. Eine Ausnahme von dieser Regel ist, wenn Sie vom Benutzer bereitgestellte Assets, Shader usw. verwenden. In diesem Fall könnte es hilfreich sein, während des Ladens auf Validierungsfehler zu achten.
+Validierungsfehler treten auf, wann immer ungültige Eingaben in einem WebGPU-Aufruf gegeben werden. Diese sind konsistent, vorhersagbar und sollten nicht auftreten, sofern Ihre App gut aufgebaut ist. Sie werden in gleicher Weise auf jedem Gerät auftreten, auf dem Ihr Code ausgeführt wird, sodass Sie wahrscheinlich die meiste Zeit keine direkte Beobachtung benötigen, sobald Sie alle Fehler, die während der Entwicklung auftreten, behoben haben. Eine Ausnahme von dieser Regel ist, wenn Sie vom Benutzer bereitgestellte Assets, Shader usw. verwenden, in diesem Fall kann es hilfreich sein, auf Validierungsfehler während des Ladevorgangs zu achten.
 
 > [!NOTE]
-> Wir haben versucht, nützliche Informationen bereitzustellen, die Ihnen helfen sollen zu verstehen, warum Validierungsfehler in Ihrem WebGPU-Code auftreten, in "Validation"-Abschnitten, wo es angebracht ist, die Kriterien auflisten, die erfüllt werden müssen, um Validierungsfehler zu vermeiden. Siehe zum Beispiel den [`GPUDevice.createBindGroup()`]-Validierungsabschnitt (/de/docs/Web/API/GPUDevice/createBindGroup#validation).
+> Wir haben versucht, nützliche Informationen bereitzustellen, die Ihnen helfen zu verstehen, warum Validierungsfehler in Ihrem WebGPU-Code auftreten, in "Validierungs"-Abschnitten, wo dies angebracht ist, die Kriterien auflisten, die erfüllt werden müssen, um Validierungsfehler zu vermeiden. Siehe zum Beispiel den [`GPUDevice.createBindGroup()` Validierungsabschnitt](/de/docs/Web/API/GPUDevice/createBindGroup#validation).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`GPUValidationError()`](/de/docs/Web/API/GPUValidationError/GPUValidationError) {{Experimental_Inline}}
-  - : Erstellt eine neue `GPUValidationError` Objektinstanz.
+  - : Erstellt eine neue Instanz des `GPUValidationError`-Objekts.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Die `message`-Eigenschaft wird von ihrem übergeordneten Element, [`GPUError`](/de/docs/Web/API/GPUError), geerbt:
+Die `message`-Eigenschaft wird von ihrem Elternteil, [`GPUError`](/de/docs/Web/API/GPUError), geerbt:
 
 - [`message`](/de/docs/Web/API/GPUError/message) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in der Konsole zu protokollieren.
+Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und protokolliert ihn in der Konsole.
 
 ```js
 device.pushErrorScope("validation");
@@ -61,4 +61,4 @@ device.popErrorScope().then((error) => {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlungs-Best-Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [Beste Praktiken zur Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling)

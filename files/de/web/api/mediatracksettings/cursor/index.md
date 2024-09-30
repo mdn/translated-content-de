@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`cursor`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs gibt an, ob der Cursor als Teil der Video-Spur erfasst werden soll, die im [`MediaStream`](/de/docs/Web/API/MediaStream) enthalten ist, der von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) zurückgegeben wird.
+Die **`cursor`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs gibt an, ob der Cursor als Teil des im [`MediaStream`](/de/docs/Web/API/MediaStream) enthaltenen Videostreams, der durch [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) zurückgegeben wird, erfasst werden soll oder nicht.
 
 ## Wert
 
-Der Wert von `cursor` stammt aus dem `CursorCaptureConstraint`-Aufzählungstyp und kann einen der folgenden Werte haben:
+Der Wert von `cursor` stammt aus dem `CursorCaptureConstraint`-enumerierten String-Typ und kann einen der folgenden Werte haben:
 
 - `always`
-  - : Die Maus sollte immer im Videoinhalt des [`MediaStream`](/de/docs/Web/API/MediaStream) sichtbar sein, es sei denn, die Maus hat sich außerhalb des Inhaltsbereichs bewegt.
+  - : Die Maus sollte immer im Videoinhalt des [`MediaStream`](/de/docs/Web/API/MediaStream) sichtbar sein, es sei denn, die Maus bewegt sich außerhalb des Inhaltsbereichs.
 - `motion`
   - : Der Mauszeiger sollte immer im Video enthalten sein, wenn er sich bewegt, und für kurze Zeit, nachdem er aufgehört hat, sich zu bewegen.
 - `never`

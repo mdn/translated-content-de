@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMap: append() Methode"
+title: "StylePropertyMap: append()-Methode"
 short-title: append()
 slug: Web/API/StylePropertyMap/append
 l10n:
@@ -19,17 +19,17 @@ append(property, value)
 ### Parameter
 
 - `property`
-  - : Ein Bezeichner, der das stilistische Merkmal angibt (z.B. Schriftart, Breite, Hintergrundfarbe), das hinzugefügt werden soll.
+  - : Ein Bezeichner, der das stilistische Merkmal angibt (z. B. Schriftart, Breite, Hintergrundfarbe), das hinzugefügt werden soll.
 - `value`
   - : Der Wert, den die angegebene Eigenschaft haben soll.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein zusätzlicher Wert für das Hintergrundbild zur {{cssxref('background-image')}}-Eigenschaft des Elements hinzugefügt wird, indem [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) verwendet wird.
+Dieses Beispiel zeigt, wie ein zusätzlicher Hintergrundbildwert zur {{cssxref('background-image')}}-Eigenschaft des Elements hinzugefügt wird, unter Verwendung von [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap).
 
 ```js
 // get the button element

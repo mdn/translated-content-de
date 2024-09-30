@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`canIntercept`** der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle gibt `true` zurück, wenn die Navigation abgefangen und die URL umgeschrieben werden kann, andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`canIntercept`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn die Navigation abgefangen und die URL umgeschrieben werden kann, oder `false` andernfalls.
 
-Es gibt mehrere Regeln, wann eine Navigation abgefangen werden kann. Zum Beispiel:
+Es gibt mehrere Regeln dafür, wann eine Navigation abgefangen werden kann. Zum Beispiel:
 
-- Sie können keine plattformübergreifenden Navigationsvorgänge abfangen.
+- Sie können keine Cross-Origin-Navigationen abfangen.
 - Sie können `http`- oder `https`-URLs abfangen, wenn sich nur die `path`-, `query`- und `fragment`-Teile der neuen URL von der aktuellen URL unterscheiden.
 - Sie können `file`-URLs abfangen, wenn sich nur die `query`- und `fragment`-Teile der neuen URL unterscheiden.
 - Bei anderen URL-Typen können Sie die Navigation abfangen, wenn sich nur der `fragment`-Teil unterscheidet.
 
-Siehe die Spezifikation für eine ausführlichere Erklärung, wann ein Dokument seine URL umgeschrieben bekommen kann, einschließlich einer Tabelle mit Beispielen: [wann ein Dokument seine URL umgeschrieben bekommen kann](https://html.spec.whatwg.org/multipage/nav-history-apis.html#can-have-its-url-rewritten).
+Siehe die Spezifikation für eine genauere Erklärung, [wann ein Dokument seine URL umgeschrieben haben kann](https://html.spec.whatwg.org/multipage/nav-history-apis.html#can-have-its-url-rewritten), einschließlich einer Tabelle mit Beispielen.
 
 ## Wert
 
-Ein boolescher Wert—`true`, wenn die Navigation abgefangen werden kann, `false` wenn nicht.
+Ein boolescher Wert—`true`, wenn die Navigation abgefangen werden kann, `false`, wenn nicht.
 
 ## Beispiele
 
@@ -60,6 +60,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

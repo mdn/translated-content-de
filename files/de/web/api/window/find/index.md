@@ -1,5 +1,5 @@
 ---
-title: "Window: find()-Methode"
+title: "Window: find() Methode"
 short-title: find()
 slug: Web/API/Window/find
 l10n:
@@ -10,9 +10,9 @@ l10n:
 
 > [!NOTE]
 > Die Unterstützung für `Window.find()` könnte sich in zukünftigen
-> Versionen von Gecko ändern. Siehe [Firefox Fehler 672395](https://bugzil.la/672395).
+> Versionen von Gecko ändern. Siehe [Firefox-Bug 672395](https://bugzil.la/672395).
 
-Die **`Window.find()`**-Methode sucht sequenziell nach einem String in einem Fenster.
+Die **`Window.find()`**-Methode findet eine Zeichenkette sequenziell in einem Fenster.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ find(aString, aCaseSensitive, aBackwards, aWrapAround, aWholeWord, aSearchInFram
 ### Parameter
 
 - `aString`
-  - : Der Textstring, nach dem gesucht werden soll.
+  - : Die zu suchende Textzeichenkette.
 - `aCaseSensitive`
-  - : Ein boolescher Wert. Wenn `true`, wird eine groß- und kleinschreibungssensitive Suche durchgeführt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine groß-/kleinschreibungssensitive Suche durchgeführt.
 - `aBackwards`
   - : Ein boolescher Wert. Wenn `true`, wird eine Rückwärtssuche durchgeführt.
 - `aWrapAround`
-  - : Ein boolescher Wert. Wenn `true`, wird eine Umrundungssuche durchgeführt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine umschließende Suche durchgeführt.
 - `aWholeWord`
   - : Ein boolescher Wert. Wenn `true`, wird eine Suche nach ganzen Wörtern durchgeführt.
 - `aSearchInFrames`
@@ -39,7 +39,7 @@ find(aString, aCaseSensitive, aBackwards, aWrapAround, aWholeWord, aSearchInFram
 
 ### Rückgabewert
 
-`true`, wenn der String gefunden wird; andernfalls `false`.
+`true`, wenn die Zeichenkette gefunden wird; andernfalls `false`.
 
 ## Beispiele
 
@@ -70,10 +70,10 @@ function findString(text) {
 
 {{EmbedLiveSample("Examples")}}
 
-## Anmerkungen
+## Hinweise
 
-In einigen Browsern hebt `Window.find()` den gefundenen Inhalt auf der
-Seite hervor.
+In einigen Browsern markiert (hervorhebt) `Window.find()` den gefundenen Inhalt auf
+der Seite.
 
 ## Spezifikationen
 

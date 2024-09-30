@@ -7,22 +7,22 @@ l10n:
 
 {{HTMLSidebar}}
 
-Der `preload`-Wert des `{{htmlelement("link")}}`-Elements im [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut erlaubt es Ihnen, Abrufanforderungen im HTML-`{{htmlelement("head")}}` zu deklarieren und dabei Ressourcen anzugeben, die Ihre Seite sehr bald benötigen wird und die Sie frühzeitig im Seitenlebenszyklus laden möchten, bevor die Haupt-Render-Maschine der Browser einsetzt. Dies stellt sicher, dass sie früher verfügbar sind und mit geringerer Wahrscheinlichkeit das Rendern der Seite blockieren, was die Leistung verbessert. Obwohl der Name den Begriff _load_ enthält, lädt und führt er das Skript nicht aus, sondern plant lediglich, es mit höherer Priorität herunterzuladen und im Cache zu speichern.
+Der `preload`-Wert des Attributs [`rel`](/de/docs/Web/HTML/Element/link#rel) des {{htmlelement("link")}}-Elements ermöglicht es Ihnen, Abrufanforderungen im {{htmlelement("head")}} des HTMLs zu deklarieren und Ressourcen zu spezifizieren, die Ihre Seite sehr bald benötigen wird, damit diese früh im Seitenlebenszyklus geladen werden, bevor die Haupt-Rendering-Maschine des Browsers zum Einsatz kommt. Dies stellt sicher, dass sie früher verfügbar sind und die Seitendarstellung weniger blockieren, was die Leistung verbessert. Obwohl der Name den Begriff _load_ enthält, wird das Skript nicht geladen und ausgeführt, sondern nur zum Herunterladen und Zwischenspeichern mit höherer Priorität geplant.
 
 ## Die Grundlagen
 
-Am häufigsten verwenden Sie `<link>`, um eine CSS-Datei zu laden, um Ihre Seite zu gestalten:
+Sie verwenden `<link>` am häufigsten, um eine CSS-Datei zu laden, um Ihre Seite zu stylen:
 
 ```html
 <link rel="stylesheet" href="styles/main.css" />
 ```
 
-Hier allerdings verwenden wir einen `rel`-Wert von `preload`, der `<link>` in einen Vorlader für eine beliebige Ressource verwandelt, die wir möchten. Sie müssen ebenfalls angeben:
+Hier werden wir jedoch einen `rel`-Wert von `preload` verwenden, wodurch `<link>` zu einem Vorlader für jede gewünschte Ressource wird. Sie müssen auch Folgendes angeben:
 
-- Den Pfad zur Ressource im [`href`](/de/docs/Web/HTML/Element/link#href)-Attribut.
-- Den Typ der Ressource im [`as`](/de/docs/Web/HTML/Element/link#as)-Attribut.
+- Den Pfad zur Ressource im Attribut [`href`](/de/docs/Web/HTML/Element/link#href).
+- Den Ressourcentyp im Attribut [`as`](/de/docs/Web/HTML/Element/link#as).
 
-Ein einfaches Beispiel könnte so aussehen (siehe unser [JS und CSS Beispielquellcode](https://github.com/mdn/html-examples/tree/main/link-rel-preload/js-and-css), und [auch live](https://mdn.github.io/html-examples/link-rel-preload/js-and-css/)):
+Ein einfaches Beispiel könnte so aussehen (siehe unser [JS- und CSS-Beispielquellcode](https://github.com/mdn/html-examples/tree/main/link-rel-preload/js-and-css), und [auch live](https://mdn.github.io/html-examples/link-rel-preload/js-and-css/)):
 
 ```html
 <head>
@@ -43,36 +43,36 @@ Ein einfaches Beispiel könnte so aussehen (siehe unser [JS und CSS Beispielquel
 </body>
 ```
 
-Hier laden wir unsere CSS- und JavaScript-Dateien vor, damit sie verfügbar sind, sobald sie später für das Rendern der Seite benötigt werden. Dieses Beispiel ist trivial, da der Browser wahrscheinlich die `<link rel="stylesheet">` und `<script>`-Elemente im selben HTML-Block wie die Preloads entdeckt, aber die Vorteile können viel deutlicher sehen, je später die Ressourcen entdeckt werden und je größer sie sind. Zum Beispiel:
+Hier laden wir unsere CSS- und JavaScript-Dateien vor, damit sie verfügbar sind, sobald sie für das Rendering der Seite benötigt werden. Dieses Beispiel ist trivial, da der Browser wahrscheinlich die `<link rel="stylesheet">`- und `<script>`-Elemente im selben HTML-Chunk wie die Preloads entdeckt, aber die Vorteile können viel deutlicher gesehen werden, je später die Ressourcen entdeckt und je größer sie sind. Zum Beispiel:
 
-- Ressourcen, die innerhalb von CSS angesprochen werden, wie Schriften oder Bilder.
+- Ressourcen, die innerhalb von CSS aufgerufen werden, wie Schriften oder Bilder.
 - Ressourcen, die von JavaScript angefordert werden können, wie importierte Skripte.
 
-`preload` hat auch andere Vorteile. Durch die Angabe von `as`, um den Typ des Inhalts anzugeben, der vorgeladen werden soll, kann der Browser:
+`preload` hat auch andere Vorteile. Die Verwendung von `as`, um den Ressourcentyp zu spezifizieren, ermöglicht dem Browser:
 
-- Die Ressource im Cache für zukünftige Anforderungen speichern und bei Bedarf wiederverwenden.
-- Die korrekte [Content Security Policy](/de/docs/Web/HTTP/CSP) auf die Ressource anwenden.
-- Die richtigen {{HTTPHeader("Accept")}}-Anforderungsheader dafür setzten.
+- Die Ressource im Cache für zukünftige Anforderungen zu speichern und wiederzuverwenden, falls zutreffend.
+- Die korrekte [Content-Security-Policy](/de/docs/Web/HTTP/CSP) auf die Ressource anzuwenden.
+- Die korrekten {{HTTPHeader("Accept")}}-Anforderungsheader dafür zu setzen.
 
 ### Welche Arten von Inhalten können vorgeladen werden?
 
-Viele Inhaltstypen können vorgeladen werden. Mögliche `as`-Attributwerte sind:
+Viele Inhaltsarten können vorgeladen werden. Die möglichen `as`-Attributwerte sind:
 
-- `fetch`: Ressource, die von einem Fetch- oder XHR-Request abgerufen wird, wie ein ArrayBuffer, WebAssembly-Binärformat oder eine JSON-Datei.
+- `fetch`: Ressource, die durch einen Fetch- oder XHR-Anfrage abgerufen werden soll, wie etwa ein ArrayBuffer, WebAssembly-Binärdatei oder JSON-Datei.
 - `font`: Schriftdatei.
 - `image`: Bilddatei.
 - `script`: JavaScript-Datei.
 - `style`: CSS-Stylesheet.
 - `track`: WebVTT-Datei.
 
-> **Hinweis:** `font` und `fetch` Preloading erfordert das Setzen des `crossorigin`-Attributs; siehe [CORS-fähige Abfragen](#cors-fähige_abfragen) unten.
+> **Hinweis:** `font` und `fetch` Vorladen erfordert das Setzen des `crossorigin` Attributs; siehe [CORS-fähige Abrufe](#cors-fähige_abrufe) unten.
 
 > [!NOTE]
-> Es gibt mehr Details zu diesen Werten und den Web-Features, die sie erwarten, im HTML-Spezifikation — siehe [Link-Typ "preload"](https://html.spec.whatwg.org/#match-preload-type). Beachten Sie auch, dass die vollständige Liste der Werte, die das `as`-Attribut annehmen kann, von der Fetch-Spezifikation geregelt wird — siehe [Anfrageziele](https://fetch.spec.whatwg.org/#concept-request-destination).
+> Mehr Details über diese Werte und die erwarteten Web-Funktionen dazu gibt es in der HTML-Spezifikation — siehe [Linktyp "preload"](https://html.spec.whatwg.org/#match-preload-type). Beachten Sie auch, dass die vollständige Liste der Werte, die das `as`-Attribut annehmen kann, durch die Fetch-Spezifikation geregelt wird — siehe [Request-Destinationen](https://fetch.spec.whatwg.org/#concept-request-destination).
 
-## Einschließen eines MIME-Typs
+## Ein MIME-Typ einbeziehen
 
-`<link>`-Elemente können ein [`type`](/de/docs/Web/HTML/Element/link#type)-Attribut akzeptieren, das den MIME-Typ der Ressource enthält, auf die das Element verweist. Dies ist besonders nützlich beim Vorladen von Ressourcen — der Browser wird den `type`-Attributwert verwenden, um herauszufinden, ob er diese Ressource unterstützt, und wird sie nur herunterladen, wenn dies der Fall ist, andernfalls ignoriert er sie.
+`<link>`-Elemente können ein [`type`](/de/docs/Web/HTML/Element/link#type) Attribut akzeptieren, das den MIME-Typ der Ressource enthält, auf die das Element verweist. Dies ist besonders nützlich beim Vorladen von Ressourcen — der Browser verwendet den `type`-Attributwert, um festzustellen, ob er diese Ressource unterstützt, und lädt sie nur, wenn dies der Fall ist, und ignoriert sie andernfalls.
 
 ```html
 <head>
@@ -90,21 +90,21 @@ Viele Inhaltstypen können vorgeladen werden. Mögliche `as`-Attributwerte sind:
 </body>
 ```
 
-Der Code im obigen Beispiel bewirkt, dass das `image/avif`-Bild nur in unterstützenden Browsern vorgeladen wird — und für Benutzer, die `image/avif`-Unterstützung in ihren Browsern haben, bewirkt er, dass das `image/avif`-Bild tatsächlich verwendet wird (da es zuerst im `{{htmlelement("source")}}`-Tag angegeben ist). Das macht den Bilddownload hoffentlich kleiner für Benutzer, die `image/avif`-Unterstützung haben.
+Der Code im obigen Beispiel bewirkt, dass das `image/avif`-Bild nur in unterstützenden Browsern vorgeladen wird — und für Benutzer, die `image/avif`-Unterstützung in ihren Browsern haben, bewirkt, dass das `image/avif`-Bild tatsächlich verwendet wird (da es die erste angegebene {{htmlelement("source")}} ist). Dadurch wird das Bild hoffentlich kleiner heruntergeladen für Benutzer, die `image/avif`-Unterstützung in ihren Browsern haben.
 
-Beachten Sie, dass für Benutzer, deren Browser sowohl `image/avif`- als auch `image/webp`-Unterstützung haben, wenn in diesem Code auch ein `<link rel="preload" href="flower.webp" as="image" type="image/webp">`-Element angegeben wäre, dann _beide_ Bilder `image/avif` und `image/webp` vorgeladen würden — auch wenn nur eines tatsächlich verwendet würde.
+Beachten Sie, dass für Benutzer, deren Browser sowohl `image/avif` als auch `image/webp`-Unterstützung haben, wenn in diesem Code auch ein `<link rel="preload" href="flower.webp" as="image" type="image/webp">`-Element spezifiziert wäre, dann würden _beide_, die `image/avif`- und `image/webp`-Bilder vorgeladen werden — obwohl letztlich nur eines davon tatsächlich verwendet würde.
 
-Daher wird das Vorladen mehrerer Typen derselben Ressource nicht empfohlen. Stattdessen ist es am besten, das Vorladen nur für den Typ zu spezifizieren, den die Mehrheit Ihrer Benutzer tatsächlich nutzen wird. Deshalb wird im obigen Beispiel das Vorladen für das `image/webp`-Bild nicht spezifiziert.
+Daher wird das Vorladen von mehreren Typen derselben Ressource nicht empfohlen. Stattdessen ist es am besten, das Vorladen nur für den Typ zu spezifizieren, den die Mehrheit Ihrer Benutzer wahrscheinlich tatsächlich verwenden wird. Aus diesem Grund gibt der Code im obigen Beispiel kein Vorladen für das `image/webp`-Bild an.
 
-Das Fehlen des Vorladens verhindert jedoch nicht, dass das `image/webp`-Bild von denjenigen verwendet wird, die es benötigen: für Benutzer, deren Browser keine `image/avif`-Unterstützung, aber `image/webp`-Unterstützung haben, sorgt der Code im obigen Beispiel immer noch dafür, dass das `image/webp`-Bild verwendet wird — aber es geschieht, ohne es auch unnötig für die Mehrheit anderer Benutzer vorzula den.
+Jedoch verhindert das Fehlen von Vorladen nicht, dass das `image/webp`-Bild tatsächlich von denen verwendet wird, die es benötigen: für Benutzer, deren Browser keine `image/avif`-Unterstützung haben, aber `image/webp`-Unterstützung haben, verursacht der Code im obigen Beispiel dennoch, dass das `image/webp`-Bild verwendet wird — aber dies geschieht, ohne dass es auch unnötigerweise für die Mehrheit der anderen Benutzer vorgeladen wird.
 
-## CORS-fähige Abfragen
+## CORS-fähige Abrufe
 
-Beim Vorladen von Ressourcen, die mit aktiviertem [CORS](/de/docs/Web/HTTP/CORS) abgerufen werden (z. B. [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [Schriften](/de/docs/Web/CSS/@font-face)), muss darauf geachtet werden, dass das [`crossorigin`](/de/docs/Web/HTML/Element/link#crossorigin)-Attribut auf Ihrem `<link>`-Element gesetzt ist. Das Attribut muss so gesetzt werden, dass es dem CORS- und Anmeldemodus der Ressource entspricht, auch wenn die Abrufoperation nicht von unterschiedlichen Ursprünge kommt.
+Beim Vorladen von Ressourcen, die mit [CORS](/de/docs/Web/HTTP/CORS) aktiviert abgerufen werden (z.B. [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [Fonts](/de/docs/Web/CSS/@font-face)), muss das [`crossorigin`](/de/docs/Web/HTML/Element/link#crossorigin) Attribut auf Ihrem [`<link>`](/de/docs/Web/HTML/Element/link) Element gesetzt werden. Das Attribut muss gesetzt werden, um mit dem CORS-Modus und den Anmeldeinformationen der Ressource übereinzustimmen, selbst wenn der Abruf nicht über originübergreifend erfolgt.
 
-Wie oben erwähnt, ist ein interessanter Fall, in dem dies zutrifft, Schriftdateien. Aus verschiedenen Gründen müssen diese im anonymen CORS-Modus abgerufen werden (siehe [Font-Abforderungserfordernisse](https://drafts.csswg.org/css-fonts/#font-fetching-requirements)).
+Wie oben erwähnt, ist eine interessante Anwendungsfall die Schriftdaten. Aufgrund verschiedener Gründe müssen diese im anonymen Modus über CORS abgerufen werden (siehe [Font-Fetching-Anforderungen](https://drafts.csswg.org/css-fonts/#font-fetching-requirements)).
 
-Lassen Sie uns diesen Fall als Beispiel verwenden. Sie können den vollständigen [Beispielquellcode auf GitHub](https://github.com/mdn/html-examples/tree/main/link-rel-preload/fonts) ansehen ([auch live](https://mdn.github.io/html-examples/link-rel-preload/fonts/)):
+Lassen Sie uns diesen Fall als Beispiel verwenden. Sie können den vollständigen [Beispielquellcode auf GitHub](https://github.com/mdn/html-examples/tree/main/link-rel-preload/fonts) ansehen ([sehen Sie ihn auch live](https://mdn.github.io/html-examples/link-rel-preload/fonts/)):
 
 ```html
 <head>
@@ -131,13 +131,13 @@ Lassen Sie uns diesen Fall als Beispiel verwenden. Sie können den vollständige
 </body>
 ```
 
-Nicht nur geben wir MIME-Typ-Hinweise in den `type`-Attributen an, sondern wir stellen auch das `crossorigin`-Attribut bereit, um sicherzustellen, dass der CORS-Modus des Preloads mit der endgültigen Schriftressourcenanforderung übereinstimmt.
+Wir geben nicht nur MIME-Typ-Hinweise in den `type`-Attributen an, sondern auch das `crossorigin`-Attribut, um sicherzustellen, dass der CORS-Modus des Vorladens mit der endgültigen Schriftressourcenanforderung übereinstimmt.
 
-## Einschließen von Medien
+## Medien einbeziehen
 
-Ein schönes Merkmal von `<link>`-Elementen ist ihre Fähigkeit, [`media`](/de/docs/Web/HTML/Element/link#media)-Attribute zu akzeptieren. Diese können [Medientypen](/de/docs/Web/CSS/@media#media_types) oder ausgefeilte [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) annehmen und ermöglichen Ihnen ein responsives Vorladen!
+Ein nettes Feature von `<link>`-Elementen ist ihre Fähigkeit, [`media`](/de/docs/Web/HTML/Element/link#media) Attribute zu akzeptieren. Diese können [Medientypen](/de/docs/Web/CSS/@media#media_types) oder vollständige [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) akzeptieren, sodass Sie responsives Vorladen durchführen können!
 
-Schauen wir uns ein Beispiel an (sehen Sie es auf GitHub — [Quellcode](https://github.com/mdn/html-examples/tree/main/link-rel-preload/media), [Live-Beispiel](https://mdn.github.io/html-examples/link-rel-preload/media/)):
+Sehen wir uns ein Beispiel an (sehen Sie es auf GitHub — [Quellcode](https://github.com/mdn/html-examples/tree/main/link-rel-preload/media), [live Beispiel](https://mdn.github.io/html-examples/link-rel-preload/media/)):
 
 ```html
 <head>
@@ -175,19 +175,18 @@ Schauen wir uns ein Beispiel an (sehen Sie es auf GitHub — [Quellcode](https:/
 </body>
 ```
 
-Wir fügen `media`-Attribute zu unseren `<link>`-Elementen hinzu, so dass ein schmales Bild vorgeladen wird, wenn der Benutzer ein schmales Viewport hat, und ein breiteres Bild geladen wird, wenn er ein weites Viewport hat. Wir verwenden [`Window.matchMedia`](/de/docs/Web/API/Window/matchMedia) / [`MediaQueryList`](/de/docs/Web/API/MediaQueryList), um dies zu tun (siehe [Überprüfen von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) für mehr).
+Wir fügen unseren `<link>`-Elementen `media`-Attribute hinzu, sodass ein schmales Bild vorgeladen wird, wenn der Benutzer ein schmales Ansichtsfenster hat, und ein breiteres Bild geladen wird, wenn er ein breites Ansichtsfenster hat. Wir verwenden [`Window.matchMedia`](/de/docs/Web/API/Window/matchMedia) / [`MediaQueryList`](/de/docs/Web/API/MediaQueryList), um dies zu tun (siehe [Medienabfragen testen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) für mehr).
 
-Dies erhöht die Wahrscheinlichkeit, dass die Schrift für das Seitenrendering verfügbar ist, und reduziert FOUT (Flash of Unstyled Text).
+Dies macht es viel wahrscheinlicher, dass die Schriftart für das Rendern der Seite verfügbar ist, und reduziert FOUT (Flash of Unstyled Text).
 
-Dies muss sich nicht auf Bilder oder sogar Dateien desselben Typs beschränken — denken Sie groß! Sie könnten vielleicht eine einfache SVG-Diagramm vorladen und anzeigen, wenn der Benutzer auf einem schmalen Bildschirm ist, wo Bandbreite und CPU möglicherweise begrenzter sind, oder ein komplexes JavaScript-Stück vorladen und dann verwenden, um ein interaktives 3D-Modell zu rendern, wenn die Ressourcen des Benutzers reichlich sind.
+Dies muss sich nicht auf Bilder oder sogar Dateien desselben Typs beschränken — denken Sie groß! Sie könnten beispielsweise eine einfache SVG-Grafik vorladen und anzeigen, wenn der Benutzer auf einem schmalen Bildschirm ist, wo Bandbreite und CPU möglicherweise eingeschränkter sind, oder ein komplexes Stück JavaScript vorladen und dann verwenden, um ein interaktives 3D-Modell zu rendern, wenn die Ressourcen des Benutzers umfangreicher sind.
 
 ## Scripting und Preloads
 
 > [!NOTE]
-> Verwenden Sie [`<link rel="modulepreload">`](/de/docs/Web/HTML/Attributes/rel/modulepreload) stattdessen, wenn Sie mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) arbeiten.
+> Verwenden Sie [`<link rel="modulepreload">`](/de/docs/Web/HTML/Attributes/rel/modulepreload), wenn Sie mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) arbeiten.
 
-Eine weitere schöne Sache bei diesen Preloads ist, dass Sie sie mit einem Skript ausführen können.
-Beispielsweise erstellen wir hier eine Instanz von [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) und fügen sie dann dem DOM hinzu:
+Ein weiterer Vorteil dieser Preloads ist, dass Sie sie mit Skripten ausführen können. Zum Beispiel erstellen wir hier eine Instanz von [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) und fügen sie dem DOM hinzu:
 
 ```js
 const preloadLink = document.createElement("link");
@@ -197,7 +196,7 @@ preloadLink.as = "script";
 document.head.appendChild(preloadLink);
 ```
 
-Das bedeutet, dass der Browser die Datei `myscript.js` vorlädt, aber noch nicht tatsächlich verwendet. Um sie zu verwenden, könnten Sie dies tun:
+Das bedeutet, dass der Browser die `myscript.js`-Datei vorlädt, sie aber noch nicht verwendet. Um sie zu verwenden, könnten Sie dies tun:
 
 ```js
 const preloadedScript = document.createElement("script");
@@ -205,7 +204,7 @@ preloadedScript.src = "myscript.js";
 document.body.appendChild(preloadedScript);
 ```
 
-Dies ist nützlich, wenn Sie ein Skript vorladen möchten, die Ausführung aber genau zu dem Zeitpunkt verschieben möchten, an dem Sie es benötigen.
+Dies ist nützlich, wenn Sie ein Skript vorladen, aber die Ausführung genau dann verschieben möchten, wenn Sie es benötigen.
 
 ## Spezifikationen
 
@@ -218,4 +217,4 @@ Dies ist nützlich, wenn Sie ein Skript vorladen möchten, die Ausführung aber 
 ## Siehe auch
 
 - [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading) für einen Vergleich von `<link rel="preload">` und anderen ähnlichen Leistungsverbesserungsfunktionen.
-- [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/) von Yoav Weiss
+- [Preload: Wofür ist es gut?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/) von Yoav Weiss

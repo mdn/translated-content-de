@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements gemischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des Elternelements und dem Hintergrund des Elements gemischt werden soll.
 
 {{EmbedInteractiveExample("pages/css/mix-blend-mode.html")}}
 
@@ -49,7 +49,7 @@ mix-blend-mode: unset;
 - `plus-darker`
   - : Mischen mit dem [_plus-darker_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Mischen mit dem [_plus-lighter_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Übergangseffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischen mit dem [_plus-lighter_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -61,7 +61,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Effekt verschiedener mix-blend-mode-Werte
+### Effekt verschiedener mix-blend-mode Werte
 
 ```html hidden
 <div class="grid">
@@ -779,7 +779,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
+In diesem Beispiel wird `mix-blend-mode` verwendet, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
 
 #### HTML
 

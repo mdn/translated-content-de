@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognitionResult: isFinal Eigenschaft"
+title: "SpeechRecognitionResult: isFinal-Eigenschaft"
 short-title: isFinal
 slug: Web/API/SpeechRecognitionResult/isFinal
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`isFinal`** Nur-Lese-Eigenschaft der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) Schnittstelle ist ein boolescher Wert, der angibt, ob dieses Ergebnis final (`true`) ist oder nicht (`false`) — wenn ja, dann wird dieses Ergebnis zum letzten Mal zurückgegeben; wenn nicht, dann ist dieses Ergebnis ein Zwischenergebnis und kann später aktualisiert werden.
+Die schreibgeschützte **`isFinal`**-Eigenschaft des [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces ist ein boolescher Wert, der angibt, ob dieses Ergebnis endgültig (`true`) ist oder nicht (`false`) — wenn ja, dann wird dieses Ergebnis das letzte Mal zurückgegeben; wenn nicht, dann ist das Ergebnis vorläufig und kann später aktualisiert werden.
 
 ## Wert
 

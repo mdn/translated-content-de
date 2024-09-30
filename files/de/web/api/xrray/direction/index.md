@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`direction`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den 3-dimensionalen Richtungsvektor des Strahls darstellt, normalisiert auf einen [Einheitsvektor](https://de.wikipedia.org/wiki/Einheitsvektor) mit einer Länge von 1,0.
+Die schreibgeschützte **`direction`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den 3-dimensionalen Richtungsvektor des Strahls darstellt, normalisiert zu einem [Einheitsvektor](https://de.wikipedia.org/wiki/Einheitsvektor) mit einer Länge von 1,0.
 
 ## Wert
 

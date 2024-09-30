@@ -1,5 +1,5 @@
 ---
-title: Eine Liste von Vue-Komponenten rendern
+title: Rendering einer Liste von Vue-Komponenten
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_rendering_lists
 l10n:
   sourceCommit: 1acfcd124cbbe0403f1203a19cdf0e189993f1af
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_first_component","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_methods_events_models", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-An diesem Punkt haben wir eine vollständig funktionierende Komponente; wir sind jetzt bereit, mehrere `ToDoItem`-Komponenten zu unserer App hinzuzufügen. In diesem Artikel werden wir uns ansehen, wie wir eine Menge von ToDo-Item-Daten zu unserer `App.vue`-Komponente hinzufügen, die wir dann durchlaufen und innerhalb von `ToDoItem`-Komponenten mit der `v-for`-Direktive anzeigen.
+An diesem Punkt haben wir eine vollständig funktionierende Komponente; wir sind jetzt bereit, mehrere `ToDoItem`-Komponenten zu unserer App hinzuzufügen. In diesem Artikel werden wir uns damit befassen, eine Reihe von Todo-Daten zu unserer `App.vue`-Komponente hinzuzufügen, durch die wir dann mit der `v-for`-Direktive iterieren und sie innerhalb von `ToDoItem`-Komponenten anzeigen.
 
 <table>
   <tbody>
@@ -15,39 +15,38 @@ An diesem Punkt haben wir eine vollständig funktionierende Komponente; wir sind
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Vertrautheit mit den grundlegenden
-          <a href="/de/docs/Learn/HTML">HTML</a>,
+          Vertrautheit mit den Grundlagen der <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a> Sprachen, sowie
-          Kenntnisse über das
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a>-Sprachen,
+          sowie Kenntnisse über die
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminal/Kommandozeile</a
+            >Terminal-/Befehlszeile</a
           >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer auf HTML basierenden Template-Syntax, die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und die Nutzung einiger der fortgeschritteneren Funktionen von Vue (wie Single File Components oder Render-Funktionen) benötigen Sie ein Terminal mit installiertem node und npm.
+          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer auf HTML basierenden Vorlagensyntax, die der zugrunde liegenden DOM-Struktur zugeordnet wird. Für die Installation und um einige der fortgeschritteneren Funktionen von Vue (wie zum Beispiel Single File Components oder Renderfunktionen) zu nutzen, benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Erlernen, wie man durch ein Datenarray iteriert und es in mehreren Komponenten rendert.
+        Lernen, wie man durch ein Array von Daten iteriert und es in mehreren Komponenten rendert.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Listen mit v-for rendern
+## Listenrendering mit v-for
 
-Um eine effektive To-Do-Liste zu erstellen, müssen wir in der Lage sein, mehrere To-Do-Items zu rendern. Dazu hat Vue eine spezielle Direktive, [`v-for`](https://vuejs.org/api/built-in-directives.html#v-for). Dies ist eine eingebaute Vue-Direktive, die es uns ermöglicht, eine Schleife innerhalb unseres Templates einzuschließen, wobei ein Template-Feature für jedes Element in einem Array wiederholt gerendert wird. Wir werden dies verwenden, um durch ein Array von To-Do-Items zu iterieren und sie in unserer App in separaten `ToDoItem`-Komponenten anzuzeigen.
+Um eine effektive To-Do-Liste zu erstellen, müssen wir in der Lage sein, mehrere To-Do-Elemente zu rendern. Hierfür bietet Vue eine spezielle Direktive an, [`v-for`](https://vuejs.org/api/built-in-directives.html#v-for). Dies ist eine eingebaute Vue-Direktive, die es uns erlaubt, eine Schleife in unsere Vorlage einzufügen und das Rendern eines Vorlagenelements für jedes Element in einem Array zu wiederholen. Wir werden dies nutzen, um durch ein Array von To-Do-Elementen zu iterieren und sie in unserer App in separaten `ToDoItem`-Komponenten anzuzeigen.
 
 ### Hinzufügen von Daten zum Rendern
 
-Zuerst benötigen wir ein Array von To-Do-Items. Dazu fügen wir dem `App.vue`-Komponentenobjekt eine `data`-Eigenschaft hinzu, die ein `ToDoItems`-Feld enthält, dessen Wert ein Array von ToDo-Items ist. Während wir schließlich einen Mechanismus hinzufügen werden, um neue To-Do-Items hinzuzufügen, können wir mit einigen Mock-To-Do-Items beginnen. Jedes To-Do-Item wird durch ein Objekt mit einer `label`- und einer `done`-Eigenschaft dargestellt.
+Zuerst brauchen wir ein Array von To-Do-Elementen. Um dies zu erreichen, fügen wir eine `data`-Eigenschaft zum `App.vue`-Komponentenobjekt hinzu, die ein `ToDoItems`-Feld enthält, dessen Wert ein Array von To-Do-Elementen ist. Während wir letztlich einen Mechanismus hinzufügen werden, um neue To-Do-Elemente hinzuzufügen, können wir mit einigen Beispiel-To-Do-Elementen beginnen. Jedes To-Do-Element wird durch ein Objekt mit einer `label`- und einer `done`-Eigenschaft dargestellt.
 
-Fügen Sie einige Beispiel-To-Do-Items hinzu, ähnlich den unten gezeigten. Auf diese Weise haben Sie einige Daten verfügbar, um sie mit `v-for` zu rendern.
+Fügen Sie ein paar Beispiel-To-Do-Elemente hinzu, ähnlich wie die unten gezeigten. So haben Sie einige Daten zur Verfügung, um sie mit `v-for` zu rendern.
 
 ```js
 export default {
@@ -68,25 +67,25 @@ export default {
 };
 ```
 
-Nun, da wir eine Liste von Elementen haben, können wir die `v-for`-Direktive verwenden, um sie anzuzeigen. Direktiven werden auf Elemente wie andere Attribute angewendet. Im Fall von `v-for` verwenden Sie eine spezielle Syntax, ähnlich einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife in JavaScript — `v-for="item in items"` — wobei `items` das Array ist, über das Sie iterieren möchten, und `item` eine Referenz auf das aktuelle Element im Array ist.
+Nun, da wir eine Liste von Elementen haben, können wir die `v-for`-Direktive verwenden, um sie anzuzeigen. Direktiven werden wie andere Attribute auf Elemente angewendet. Im Fall von `v-for` verwenden Sie eine spezielle Syntax, die einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife in JavaScript ähnelt — `v-for="item in items"` — wobei `items` das Array ist, über das Sie iterieren möchten, und `item` ein Verweis auf das aktuelle Element im Array ist.
 
-`v-for` wird an das Element angehängt, das Sie wiederholen möchten, und rendert dieses Element und seine Kinder. In diesem Fall möchten wir ein `<li>`-Element für jedes To-Do-Item in unserem `ToDoItems`-Array anzeigen. Dann möchten wir die Daten von jedem To-Do-Item an eine `ToDoItem`-Komponente übergeben.
+`v-for` wird an das Element angehängt, das Sie wiederholen möchten, und rendert dieses Element und dessen Kinder. In diesem Fall möchten wir ein `<li>`-Element für jedes To-Do-Element in unserem `ToDoItems`-Array anzeigen. Dann möchten wir die Daten von jedem To-Do-Element an eine `ToDoItem`-Komponente übergeben.
 
 ### Key-Attribut
 
-Bevor wir das tun, gibt es ein weiteres Syntaxstück, das zusammen mit `v-for` verwendet wird: das `key`-Attribut. Um Vue dabei zu helfen, das Rendern der Elemente in der Liste zu optimieren, versucht es, Listenelemente zu patchen, damit sie nicht jedes Mal neu erstellt werden, wenn sich die Liste ändert. Allerdings braucht Vue Unterstützung. Um sicherzustellen, dass es die Listenelemente korrekt wiederverwendet, benötigt es einen eindeutigen „key“ auf demselben Element, an dem Sie `v-for` anhängen.
+Bevor wir das tun, gibt es noch ein anderes Stück Syntax, das man im Zusammenhang mit `v-for` kennen sollte - das `key`-Attribut. Um Vue zu helfen, das Rendern der Elemente in der Liste zu optimieren, versucht es, Listenelemente zu patchen, sodass sie bei jeder Änderung der Liste nicht neu erstellt werden. Allerdings benötigt Vue dabei Unterstützung. Um sicherzustellen, dass Listenelemente korrekt wiederverwendet werden, muss dasselbe Element, an das Sie `v-for` angehängt haben, ein eindeutiges "key" besitzen.
 
-Damit Vue die `key`-Attribute genau vergleichen kann, müssen sie Zeichenfolgen- oder Zahlenwerte sein. Obwohl es großartig wäre, das Name-Feld zu verwenden, wird dieses Feld schließlich durch Benutzereingaben gesteuert, was bedeutet, dass wir nicht garantieren können, dass die Namen eindeutig wären. Wir können jedoch `nanoid()` verwenden, wie wir es im vorherigen Artikel getan haben.
+Um sicherzustellen, dass Vue die `key`-Attribute korrekt vergleichen kann, müssen diese Zeichenfolgen- oder Zahlenwerte sein. Auch wenn es großartig wäre, das Namensfeld zu verwenden, wird dieses Feld letztlich durch Benutzereingaben gesteuert, was bedeutet, dass wir nicht garantieren können, dass die Namen eindeutig sind. Wir können jedoch `nanoid()` verwenden, wie wir es im vorherigen Artikel gemacht haben.
 
-1. Importieren Sie `nanoid` in Ihre `App`-Komponente auf die gleiche Weise, wie Sie es mit Ihrer `ToDoItem`-Komponente gemacht haben, indem Sie
+1. Importieren Sie `nanoid` in Ihre `App`-Komponente auf dieselbe Weise, wie Sie es mit Ihrer `ToDoItem`-Komponente getan haben, indem Sie
 
    ```js
    import { nanoid } from "nanoid";
    ```
 
-2. Fügen Sie als Nächstes jedem Element in Ihrem `ToDoItems`-Array ein `id`-Feld hinzu, und weisen Sie jedem von ihnen einen Wert von `"todo-" + nanoid()` zu.
+2. Fügen Sie als nächstes ein `id`-Feld zu jedem Element in Ihrem `ToDoItems`-Array hinzu und weisen Sie jedem den Wert `"todo-" + nanoid()` zu.
 
-   Das `<script>`-Element in `App.vue` sollte nun folgenden Inhalt haben:
+   Das `<script>`-Element in `App.vue` sollte nun den folgenden Inhalt haben:
 
    ```js
    import ToDoItem from "./components/ToDoItem.vue";
@@ -118,7 +117,7 @@ Damit Vue die `key`-Attribute genau vergleichen kann, müssen sie Zeichenfolgen-
    };
    ```
 
-3. Jetzt fügen Sie die `v-for`-Direktive und das `key`-Attribut dem `<li>`-Element in Ihrem `App.vue`-Template hinzu, so:
+3. Fügen Sie nun die `v-for`-Direktive und das `key`-Attribut dem `<li>`-Element in Ihrer `App.vue`-Vorlage hinzu, wie folgt:
 
    ```html
    <ul>
@@ -128,9 +127,9 @@ Damit Vue die `key`-Attribute genau vergleichen kann, müssen sie Zeichenfolgen-
    </ul>
    ```
 
-   Wenn Sie diese Änderung vornehmen, haben alle JavaScript-Ausdrücke zwischen den `<li>`-Tags Zugriff auf den `item`-Wert zusätzlich zu den anderen Komponentenattributen. Dies bedeutet, dass wir die Felder unserer Item-Objekte an unsere `ToDoItem`-Komponente übergeben können — denken Sie daran, die `v-bind`-Syntax zu verwenden. Dies ist wirklich nützlich, da wir möchten, dass unsere ToDo-Items ihre `label`-Eigenschaften als ihre Beschriftung anzeigen, nicht eine statische Beschriftung von "My Todo Item". Darüber hinaus möchten wir, dass ihr Checked-Status ihre `done`-Eigenschaften widerspiegelt, und nicht immer auf `done="true"` gesetzt ist.
+   Wenn Sie diese Änderung vornehmen, hat jeder JavaScript-Ausdruck zwischen den `<li>`-Tags Zugriff auf den `item`-Wert zusätzlich zu den anderen Attributen der Komponente. Das bedeutet, dass wir die Felder unserer Item-Objekte an unsere `ToDoItem`-Komponente übergeben können — denken Sie daran, die `v-bind`-Syntax zu verwenden. Das ist wirklich nützlich, denn wir möchten, dass unsere To-Do-Elemente ihre `label`-Eigenschaften als ihre Bezeichnung anzeigen, nicht eine statische Bezeichnung wie "My Todo Item". Außerdem möchten wir, dass ihr angekreuzter Status ihre `done`-Eigenschaften widerspiegelt und nicht immer auf `done="true"` gesetzt ist.
 
-4. Aktualisieren Sie das `label="My ToDo Item"`-Attribut zu `:label="item.label"`, und das `:done="true"`-Attribut zu `:done="item.done"`, wie unten im Kontext zu sehen:
+4. Aktualisieren Sie das `label="My ToDo Item"`-Attribut zu `:label="item.label"` und das `:done="true"`-Attribut zu `:done="item.done"`, wie unten im Kontext gezeigt:
 
    ```html
    <ul>
@@ -140,20 +139,20 @@ Damit Vue die `key`-Attribute genau vergleichen kann, müssen sie Zeichenfolgen-
    </ul>
    ```
 
-Jetzt, wenn Sie Ihre laufende App ansehen, werden die ToDo-Items mit ihren richtigen Namen angezeigt, und wenn Sie den Quellcode inspizieren, sehen Sie, dass die Eingaben alle eindeutige `id`s haben, die aus dem Objekt in der `App`-Komponente stammen.
+Wenn Sie nun Ihre laufende App ansehen, werden die To-Do-Elemente mit ihren richtigen Namen angezeigt, und wenn Sie den Quellcode inspizieren, werden Sie sehen, dass die Eingaben alle einzigartige `id`s haben, die aus dem Objekt in der `App`-Komponente stammen.
 
-![Die App mit einer Liste von gerenderten ToDo-Items.](rendered-todo-items.png)
+![Die App mit einer Liste von gerenderten To-Do-Elementen.](rendered-todo-items.png)
 
-## Gelegenheit für eine kleine Umstrukturierung
+## Möglichkeit für eine kleine Umstrukturierung
 
-Es gibt eine kleine Umstrukturierung, die wir hier vornehmen können. Anstatt die `id` für die Checkboxen in Ihrer `ToDoItem`-Komponente zu generieren, können wir die `id` in ein Prop umwandeln. Auch wenn dies nicht unbedingt erforderlich ist, erleichtert es uns die Verwaltung, da wir ohnehin für jeden ToDo-Eintrag eine eindeutige `id` erstellen müssen.
+Es gibt hier einen kleinen Punkt, den wir umstrukturieren können. Anstatt die `id` für die Kontrollkästchen in Ihrer `ToDoItem`-Komponente zu generieren, können wir die `id` in ein Prop umwandeln. Auch wenn das nicht unbedingt notwendig ist, macht es uns die Verwaltung einfacher, da wir ohnehin für jedes To-Do-Element eine einzigartige `id` erstellen müssen.
 
-1. Fügen Sie Ihrer `ToDoItem`-Komponente ein neues Prop hinzu — `id`.
-2. Machen Sie es erforderlich und legen Sie den Typ auf `String` fest.
-3. Um Namenskollisionen zu vermeiden, entfernen Sie das `id`-Feld aus Ihrem `data`-Attribut.
-4. Da Sie `nanoid` nicht mehr verwenden, müssen Sie die Zeile `import { nanoid } from 'nanoid';` entfernen, andernfalls wirft Ihre App einen Fehler.
+1. Fügen Sie ein neues Prop zu Ihrer `ToDoItem`-Komponente hinzu — `id`.
+2. Machen Sie es erforderlich und setzen Sie den Typ auf `String`.
+3. Um Namenskollisionen zu verhindern, entfernen Sie das `id`-Feld aus Ihrem `data`-Attribut.
+4. Sie verwenden `nanoid` nicht mehr, deshalb müssen Sie die Zeile `import { nanoid } from 'nanoid';` entfernen, andernfalls wirft Ihre App einen Fehler.
 
-Der `<script>`-Inhalt in Ihrer `ToDoItem`-Komponente sollte jetzt ungefähr so aussehen:
+Der `<script>`-Inhalt in Ihrer `ToDoItem`-Komponente sollte nun ungefähr so aussehen:
 
 ```js
 export default {
@@ -170,7 +169,7 @@ export default {
 };
 ```
 
-Nun, in Ihrer `App.vue`-Komponente, übergeben Sie `item.id` als Prop an die `ToDoItem`-Komponente. Ihr `App.vue`-Template sollte jetzt so aussehen:
+Nun, in Ihrer `App.vue`-Komponente, übergeben Sie `item.id` als Prop an die `ToDoItem`-Komponente. Ihr `App.vue`-Vorlage sollte nun so aussehen:
 
 ```html
 <template>
@@ -188,12 +187,12 @@ Nun, in Ihrer `App.vue`-Komponente, übergeben Sie `item.id` als Prop an die `To
 </template>
 ```
 
-Wenn Sie Ihre gerenderte Seite betrachten, sollte sie gleich aussehen, aber unsere Umstrukturierung bedeutet jetzt, dass unsere `id` von den Daten innerhalb von `App.vue` genommen und als Prop an `ToDoItem` übergeben wird, genau wie alles andere, sodass die Dinge jetzt logischer und konsistenter sind.
+Wenn Sie Ihre gerenderte Seite ansehen, sollte sie gleich aussehen, aber unsere Umstrukturierung bedeutet jetzt, dass unsere `id` aus den Daten innerhalb von `App.vue` entnommen und als Prop in `ToDoItem` übergeben wird, genau wie alles andere, sodass die Dinge jetzt logischer und konsistenter sind.
 
 ## Zusammenfassung
 
-Damit kommen wir zum Ende eines weiteren Artikels. Wir haben jetzt Beispieldaten vorhanden und eine Schleife, die jedes Datenstück nimmt und es innerhalb eines `ToDoItem` in unserer App rendert.
+Und damit kommen wir zum Ende eines weiteren Artikels. Wir haben jetzt Beispieldaten vorliegen und eine Schleife, die jedes Datenstück nimmt und es innerhalb eines `ToDoItem` in unserer App rendert.
 
-Was wir wirklich als Nächstes brauchen, ist die Möglichkeit, unseren Benutzern zu erlauben, ihre eigenen ToDo-Items in die App einzugeben, und dafür benötigen wir ein Text-`<input>`, ein Ereignis, das beim Einreichen der Daten ausgelöst wird, eine Methode, die beim Einreichen ausgelöst wird, um die Daten hinzuzufügen und die Liste neu zu rendern, sowie ein Modell zur Steuerung der Daten. Wir werden diese im nächsten Artikel behandeln.
+Was wir wirklich als Nächstes brauchen, ist die Fähigkeit, unseren Benutzern zu erlauben, ihre eigenen To-Do-Elemente in die App einzugeben, und dafür benötigen wir ein Text-`<input>`, ein Ereignis, das ausgelöst wird, wenn die Daten übermittelt werden, eine Methode, die bei der Übermittlung ausgelöst wird, um die Daten hinzuzufügen und die Liste neu zu rendern, und ein Modell zur Steuerung der Daten. Dazu kommen wir im nächsten Artikel.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_first_component","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_methods_events_models", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

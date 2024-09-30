@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.lineJoin`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um zwei Liniensegmente dort zu verbinden, wo sie sich treffen.
+Die **`CanvasRenderingContext2D.lineJoin`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um zwei Liniensegmente an ihrem Treffpunkt zu verbinden.
 
-Diese Eigenschaft hat keinen Effekt, wenn zwei verbundene Segmente die gleiche Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d.h. wenn alle Endpunkte und Kontrollpunkte an der exakt gleichen Position sind) werden ebenfalls ignoriert.
+Diese Eigenschaft hat keinen Effekt, wenn zwei verbundene Segmente die gleiche Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d. h. mit allen End- und Kontrollpunkten genau an derselben Position) werden ebenfalls ignoriert.
 
 > [!NOTE]
-> Linien können mit den Methoden
+> Linien können mit den
 > [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke),
-> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect) und
-> [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) gezeichnet werden.
+> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect),
+> und [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) Methoden gezeichnet werden.
 
 ## Wert
 
 Für diese Eigenschaft gibt es drei mögliche Werte: `"round"`, `"bevel"` und `"miter"`. Der Standardwert ist `"miter"`.
 
-![Drei horizontale Zickzack-Linien mit den Werten rund (round), abgeschrägt (bevel) und Gehrung (miter), von oben nach unten gezeigt.](canvas_linejoin.png)
+![Drei horizontale Zickzacklinien mit den Werten rund, abgeschrägt und Gehrung, von oben nach unten gezeigt.](canvas_linejoin.png)
 
 - `"round"`
-  - : Rundet die Ecken einer Form ab, indem ein zusätzlicher Kreissektor gefüllt wird, der am gemeinsamen Endpunkt der verbundenen Segmente zentriert ist. Der Radius für diese abgerundeten Ecken ist gleich der Linienbreite.
+  - : Rundet die Ecken einer Form ab, indem ein zusätzlicher Kreissektor gefüllt wird, der am gemeinsamen Endpunkt der verbundenen Segmente zentriert ist. Der Radius dieser abgerundeten Ecken entspricht der Linienbreite.
 - `"bevel"`
   - : Füllt einen zusätzlichen dreieckigen Bereich zwischen dem gemeinsamen Endpunkt der verbundenen Segmente und den separaten äußeren rechteckigen Ecken jedes Segments.
 - `"miter"`
-  - : Verbundene Segmente werden durch Verlängerung ihrer äußeren Kanten so verbunden, dass sie sich an einem einzigen Punkt treffen, mit dem Effekt, dass ein zusätzlicher rautenförmiger Bereich gefüllt wird. Diese Einstellung wird durch die [`miterLimit`](/de/docs/Web/API/CanvasRenderingContext2D/miterLimit)-Eigenschaft beeinflusst. Standardwert.
+  - : Verbundene Segmente werden verbunden, indem ihre Außenkanten bis zu einem einzigen Punkt verlängert werden, mit dem Effekt, dass ein zusätzlicher rautenförmiger Bereich gefüllt wird. Diese Einstellung wird durch die [`miterLimit`](/de/docs/Web/API/CanvasRenderingContext2D/miterLimit)-Eigenschaft beeinflusst. Standardwert.
 
 ## Beispiele
 
@@ -61,9 +61,9 @@ ctx.stroke();
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Changing_the_joins_in_a_path', 700, 180) }}
+{{EmbedLiveSample('Changing_the_joins_in_a_path', 700, 180)}}
 
-### Vergleich der Linienverbindungen
+### Vergleich von Linienverbindungen
 
 Das folgende Beispiel zeichnet drei verschiedene Pfade und demonstriert jede der drei `lineJoin`-Optionen.
 
@@ -97,13 +97,13 @@ ctx.lineWidth = 10;
 
 {{Compat}}
 
-### WebKit/Blink-spezifische Notizen
+### WebKit/Blink-spezifische Hinweise
 
-- In WebKit- und Blink-basierten Browsern ist eine nicht standardisierte und veraltete Methode `ctx.setLineJoin()` zusätzlich zu dieser Eigenschaft implementiert.
+- In WebKit- und Blink-basierten Browsern ist eine nicht-standardisierte und veraltete Methode `ctx.setLineJoin()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ## Siehe auch
 
 - Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.lineCap`](/de/docs/Web/API/CanvasRenderingContext2D/lineCap)
 - [`CanvasRenderingContext2D.lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)
-- [Anwenden von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- [Stile und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

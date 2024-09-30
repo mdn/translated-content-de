@@ -1,5 +1,5 @@
 ---
-title: "Text: splitText() Methode"
+title: "Text: Methode splitText()"
 short-title: splitText()
 slug: Web/API/Text/splitText
 l10n:
@@ -8,18 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`splitText()`** Methode der [`Text`](/de/docs/Web/API/Text) Schnittstelle
-teilt den [`Text`](/de/docs/Web/API/Text) Knoten an der angegebenen Position und behält beide Knoten als Geschwister im Baum.
+Die **`splitText()`**-Methode der [`Text`](/de/docs/Web/API/Text)-Schnittstelle
+teilt den [`Text`](/de/docs/Web/API/Text)-Knoten an der angegebenen Stelle auf,
+wobei beide Knoten im Baum als Geschwister verbleiben.
 
-Nach der Teilung enthält der aktuelle Knoten den gesamten Inhalt
-bis zum angegebenen Offset-Punkt, und ein neu erstellter Knoten des gleichen Typs enthält den verbleibenden Text.
-Der neu erstellte Knoten wird an den Aufrufer zurückgegeben.
-Wenn der ursprüngliche Knoten einen Elternteil hatte, wird der neue Knoten als das nächste Geschwister des ursprünglichen Knotens eingefügt.
+Nach der Teilung enthält der aktuelle Knoten alle Inhalte
+bis zu der angegebenen Offset-Stelle,
+und ein neu erstellter Knoten desselben Typs enthält den restlichen Text.
+Der neu erstellte Knoten wird dem Aufrufer zurückgegeben.
+Wenn der ursprüngliche Knoten ein übergeordnetes Element hatte, wird der neue Knoten als nächstes Geschwister des ursprünglichen Knotens eingefügt.
 Wenn der Offset gleich der Länge des ursprünglichen Knotens ist,
-enthält der neu erstellte Knoten keine Daten.
+hat der neu erstellte Knoten keine Daten.
 
-Getrennte Textknoten können mit der [`Node.normalize()`](/de/docs/Web/API/Node/normalize)
-Methode zusammengefügt werden.
+Getrennte Textknoten können mit der Methode [`Node.normalize()`](/de/docs/Web/API/Node/normalize)
+zusammengeführt werden.
 
 ## Syntax
 
@@ -30,24 +32,25 @@ newNode = textNode.splitText(offset)
 ### Parameter
 
 - `offset`
-  - : Der Index, direkt vor dem der Textknoten geteilt werden soll.
+  - : Der Index unmittelbar vor der Stelle, an der der Textknoten geteilt werden soll.
 
 ### Rückgabewert
 
-Gibt den neu erstellten [`Text`](/de/docs/Web/API/Text) Knoten zurück, der den Text nach dem
-angegebenen Offset-Punkt enthält.
+Gibt den neu erstellten [`Text`](/de/docs/Web/API/Text)-Knoten zurück, der den Text nach der
+angegebenen Offset-Stelle enthält.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Offset negativ ist oder größer als die Anzahl der 16-Bit-Einheiten im Text des Knotens.
+  - : Wird ausgelöst, wenn der angegebene Offset negativ ist oder
+    größer als die Anzahl der 16-Bit-Einheiten im Text des Knotens ist.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten schreibgeschützt ist.
 
 ## Beispiel
 
-In diesem Beispiel wird der Text eines {{HTMLElement("p")}} in zwei Textknoten geteilt, und ein
-{{HTMLElement("u")}} wird dazwischen eingefügt.
+In diesem Beispiel wird der Text eines {{HTMLElement("p")}} in zwei Textknoten geteilt und ein
+{{HTMLElement("u")}} dazwischen eingefügt.
 
 ```html
 <p>foobar</p>
@@ -85,5 +88,5 @@ p.insertBefore(u, bar);
 
 ## Siehe auch
 
-- Die [`Text`](/de/docs/Web/API/Text) Schnittstelle, zu der es gehört.
+- Die [`Text`](/de/docs/Web/API/Text)-Schnittstelle, zu der sie gehört.
 - Die entgegengesetzte Methode: [`Node.normalize`](/de/docs/Web/API/Node/normalize).

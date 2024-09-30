@@ -10,7 +10,7 @@ l10n:
 
 Die **`size`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces definiert die Anzahl der sichtbaren Zeichen, die angezeigt werden. Sie spiegelt das `size`-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `size`-Eigenschaft ist nur für die Eingabetypen [`text`](/de/docs/Web/HTML/Element/input/text), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`email`](/de/docs/Web/HTML/Element/input/email), [`url`](/de/docs/Web/HTML/Element/input/url) und [`password`](/de/docs/Web/HTML/Element/input/password) relevant. Der Wert ist eine nicht-negative ganze Zahl, die größer als Null ist. Wenn weggelassen oder ungültig, beträgt der Wert `20`.
+Die `size`-Eigenschaft ist nur für die Eingabetypen [`text`](/de/docs/Web/HTML/Element/input/text), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`email`](/de/docs/Web/HTML/Element/input/email), [`url`](/de/docs/Web/HTML/Element/input/url) und [`password`](/de/docs/Web/HTML/Element/input/password) relevant. Der Wert ist eine nicht-negative ganze Zahl größer als null. Wenn weggelassen oder ungültig, beträgt der Wert `20`.
 
 ## Wert
 

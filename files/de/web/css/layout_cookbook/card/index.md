@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Dieses Muster ist eine Liste von "Karten"-Komponenten mit optionalen Fußzeilen. Eine Karte enthält einen Titel, ein Bild, eine Beschreibung oder anderen Inhalt sowie eine Attribution oder Fußzeile. Karten werden im Allgemeinen in einer Gruppe oder Sammlung angezeigt.
+Dieses Muster ist eine Liste von „Card“-Komponenten mit optionalen Fußzeilen. Eine Card enthält einen Titel, ein Bild, eine Beschreibung oder anderen Inhalt und eine Zuschreibung oder Fußzeile. Cards werden im Allgemeinen innerhalb einer Gruppe oder Sammlung angezeigt.
 
-![Drei Kartenkomponenten in einer Reihe](cards.png)
+![Drei Card-Komponenten in einer Reihe](cards.png)
 
 ## Anforderungen
 
-Erstellen Sie eine Gruppe von Karten, wobei jede Kartenkomponente eine Überschrift, ein Bild, Inhalt und optional eine Fußzeile enthält.
+Erstellen Sie eine Gruppe von Cards, wobei jede Card-Komponente eine Überschrift, ein Bild, Inhalt und optional eine Fußzeile enthält.
 
-Jede Karte in der Gruppe sollte die gleiche Höhe haben. Die optionale Kartenfußzeile sollte am unteren Rand der Karte haften.
+Jede Card in der Gruppe sollte die gleiche Höhe haben. Die optionale Card-Fußzeile sollte am unteren Rand der Card haften.
 
-Die Karten in der Gruppe sollten sich in zwei Dimensionen ausrichten — sowohl vertikal als auch horizontal.
+Die Cards in der Gruppe sollten sich in zwei Dimensionen ausrichten – sowohl vertikal als auch horizontal.
 
 ## Rezept
 
@@ -29,7 +29,7 @@ Die Karten in der Gruppe sollten sich in zwei Dimensionen ausrichten — sowohl 
 
 ## Getroffene Entscheidungen
 
-Jede Karte wird mit [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) gestaltet, obwohl das Layout eindimensional ist. Dies ermöglicht die Verwendung von Inhaltsgrößen für die Gitterspuren. Um ein einspaltiges Gitter einzurichten, können wir Folgendes verwenden:
+Jede Card wird mithilfe des [CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout) ausgelegt, obwohl das Layout eindimensional ist. Dies ermöglicht die Verwendung von Inhaltsgrößen für die Rasterspuren. Um ein einspaltiges Raster einzurichten, können wir folgendes verwenden:
 
 ```css
 .card {
@@ -38,15 +38,15 @@ Jede Karte wird mit [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) gestalte
 }
 ```
 
-{{cssxref("display", "display: grid")}} konvertiert das Element in ein Gitter-Container. Die drei Werte der {{cssxref("grid-template-rows")}}-Eigenschaft teilen das Gitter in mindestens drei Reihen auf, die die Höhe der ersten drei Kinder der Karte definieren, in Reihenfolge.
+{{cssxref("display", "display: grid")}} konvertiert das Element in einen Grid-Container. Die drei Werte der Eigenschaft {{cssxref("grid-template-rows")}} teilen das Raster in mindestens drei Zeilen, die die Höhe der ersten drei Kinder der Card in Reihenfolge definieren.
 
 Jede `card` enthält ein {{HTMLElement("header")}}, {{HTMLElement("img")}}, und {{HTMLElement("div")}}, in dieser Reihenfolge, wobei einige auch ein {{HTMLElement("footer")}} enthalten.
 
-Die Kopfzeilenreihe oder Spur ist auf {{cssxref("max-content")}} gesetzt, was verhindert, dass sie sich dehnt. Die Bildspur ist auf 200 Pixel Höhe gesetzt. Die dritte Spur, in der sich der Inhalt befindet, ist auf `1fr` gesetzt. Dies bedeutet, dass sie den zusätzlichen Raum füllen wird.
+Die Überschriftszeile oder -spur ist auf {{cssxref("max-content")}} gesetzt, was verhindert, dass sie sich dehnt. Die Bildspur ist auf 200 Pixel Höhe gesetzt. Die dritte Spur, in der der Inhalt liegt, ist auf `1fr` gesetzt. Dies bedeutet, dass sie jeglichen zusätzlichen Platz ausnutzen wird.
 
-Jedes weitere Kind über die drei mit explizit definierten Größen hinaus erstellt Reihen im impliziten Gitter, die den hinzugefügten Inhalt anpassen. Diese sind standardmäßig automatisch skaliert. Wenn eine Karte eine Fußzeile enthält, wird sie automatisch skaliert. Die Fußzeile, wenn vorhanden, haftet am unteren Rand des Gitters. Die Fußzeile wird automatisch auf die Größe ihres Inhalts angepasst; der Inhalts-`<div>` dehnt sich dann aus, um den zusätzlichen Raum einzunehmen.
+Alle Kinder, die über die explizit definierten Größen hinausgehen, erstellen Zeilen im impliziten Raster, die den hinzugefügten Inhalt aufnehmen. Diese werden standardmäßig automatisiert dimensioniert. Wenn eine Card eine Fußzeile enthält, wird sie automatisiert dimensioniert. Die Fußzeile, wenn vorhanden, haftet an der Unterseite des Rasters. Die Fußzeile wird automatisch dimensioniert, um ihren Inhalt aufzunehmen; der Inhalt `<div>` dehnt sich dann aus, um jeglichen zusätzlichen Raum einzunehmen.
 
-Der folgende Regelsatz erstellt das Raster der Karten:
+Die folgende Regelmenge erstellt das Raster der Cards:
 
 ```css
 .cards {
@@ -56,22 +56,22 @@ Der folgende Regelsatz erstellt das Raster der Karten:
 }
 ```
 
-Die {{cssxref("grid-template-columns")}}-Eigenschaft definiert die Breiten der Gitterspalten. In diesem Fall setzen wir das Gitter auf Auto-Fill, mit wiederholten Spalten, die minimal `230px` sind, aber erlaubt, den verfügbaren Raum auszufüllen. Die {{cssxref("gap")}}-Eigenschaft setzt einen Abstand von `20px` zwischen benachbarten Reihen und Spalten.
+Die Eigenschaft {{cssxref("grid-template-columns")}} definiert die Breiten der Rasterspalten. In diesem Fall setzen wir das Raster auf eine automatische Füllung, mit wiederholten Spalten, die minimal `230px` sind, aber wachsen dürfen, um den verfügbaren Raum auszufüllen. Die Eigenschaft {{cssxref("gap")}} setzt einen Abstand von `20px` zwischen benachbarten Zeilen und Spalten.
 
 > [!NOTE]
-> Die verschiedenen Elemente in separaten Karten richten sich nicht aufeinander aus, da jede Karte ein unabhängiges Gitter ist. Das Ausrichten der Komponenten in jeder Karte mit den gleichen Komponenten in benachbarten Karten kann mit [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) erfolgen.
+> Die verschiedenen Elemente in separaten Cards richten sich nicht zueinander aus, da jede Card ein unabhängiges Raster ist. Komponenten in jeder Card mit denselben Komponenten in benachbarten Karten können mit [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) ausgerichtet werden.
 
 ## Alternative Methoden
 
-[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) kann ebenfalls verwendet werden, um jede Karte zu gestalten. Mit Flexbox werden die Abmessungen der Reihen jeder Karte durch die {{cssxref("flex")}}-Eigenschaft auf jeder Reihe anstelle des Kartencontainers eingestellt.
+[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) kann auch verwendet werden, um jede Card auszulegen. Mit Flexbox werden die Dimensionen der Zeilen jeder Card mit der Eigenschaft {{cssxref("flex")}} auf jeder Zeile festgelegt, anstatt auf dem Card-Container.
 
-Mit Flexbox werden die Abmessungen der Flex-Items an den Kindern definiert und nicht am Elternteil. Ob Sie sich für die Verwendung von Grid oder Flexbox entscheiden, hängt von Ihrer Präferenz ab, ob Sie die Spuren vom Container aus steuern oder Regeln zu den Items hinzufügen möchten.
+Mit Flexbox werden die Dimensionen der Flex-Elemente auf den Kindern und nicht auf dem Elternteil definiert. Ob Sie sich für Grid oder Flexbox entscheiden, hängt von Ihrer Präferenz ab, ob Sie die Spuren vom Container aus steuern oder Regeln zu den Elementen hinzufügen möchten.
 
-Wir haben Grid für die Karten gewählt, da man im Allgemeinen möchte, dass Karten sowohl vertikal als auch horizontal ausgerichtet sind. Darüber hinaus kann das Ausrichten der Komponenten innerhalb jeder Karte mit den Komponenten der benachbarten Karten mit Subgrid erfolgen. Flex hat kein äquivalentes Mittel ohne Hacks zu Subgrid.
+Wir haben Grid für die Cards gewählt, da Sie im Allgemeinen Karten sowohl vertikal als auch horizontal ausrichten möchten. Darüber hinaus kann das Ausrichten der Komponenten innerhalb jeder Card zu den Komponenten benachbarter Karten mit Subgrid durchgeführt werden. Flex hat keine gleichwertige, hackfreie Alternative zu Subgrid.
 
-## Barrierefreiheit
+## Barrierefreiheitsaspekte
 
-Abhängig vom Inhalt Ihrer Karte gibt es möglicherweise Dinge, die Sie tun könnten oder sollten, um die Barrierefreiheit zu verbessern. Siehe [Inclusive components: Card](https://inclusive-components.design/cards/) von Heydon Pickering für eine sehr detaillierte Erklärung dieser Themen.
+Abhängig vom Inhalt Ihrer Card können Maßnahmen ergriffen werden, um die Barrierefreiheit zu verbessern. Siehe [Inclusive components: Card](https://inclusive-components.design/cards/) von Heydon Pickering, für eine sehr detaillierte Erklärung dieser Probleme.
 
 ## Siehe auch
 
@@ -79,4 +79,4 @@ Abhängig vom Inhalt Ihrer Karte gibt es möglicherweise Dinge, die Sie tun kön
 - {{Cssxref("grid-template-rows")}}
 - {{Cssxref("gap")}}
 - [Inclusive components: Card](https://inclusive-components.design/cards/)
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- Modul [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)

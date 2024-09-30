@@ -1,5 +1,5 @@
 ---
-title: "CustomElementRegistry: `upgrade()`-Methode"
+title: "CustomElementRegistry: upgrade()-Methode"
 short-title: upgrade()
 slug: Web/API/CustomElementRegistry/upgrade
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`upgrade()`**-Methode des [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Interfaces aktualisiert alle Schatten enthaltenden benutzerdefinierten Elemente in einem [`Node`](/de/docs/Web/API/Node)-Unterbaum, noch bevor sie mit dem Hauptdokument verbunden sind.
+Die **`upgrade()`**-Methode der [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle aktualisiert alle Schatten-inhaltigen benutzerdefinierten Elemente in einem [`Node`](/de/docs/Web/API/Node)-Teilbaum, selbst bevor sie mit dem Hauptdokument verbunden sind.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ upgrade(root)
 ### Parameter
 
 - `root`
-  - : Eine [`Node`](/de/docs/Web/API/Node)-Instanz mit schattenhaltigen Nachfahr-Elementen, die aktualisiert werden sollen. Wenn keine Nachfahr-Elemente vorhanden sind, die aktualisiert werden können, wird kein Fehler ausgelöst.
+  - : Eine [`Node`](/de/docs/Web/API/Node)-Instanz mit nachfolgenden Schatten-inhaltigen Elementen, die aktualisiert werden sollen. Wenn es keine nachfolgenden Elemente gibt, die aktualisiert werden können, wird kein Fehler ausgelöst.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Entnommen aus der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/custom-elements.html#dom-customelementregistry-upgrade):
+Entnommen aus der [HTML Spezifikation](https://html.spec.whatwg.org/multipage/custom-elements.html#dom-customelementregistry-upgrade):
 
 ```js
 const el = document.createElement("spider-man");

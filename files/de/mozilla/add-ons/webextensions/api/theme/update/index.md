@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Aktualisiert das Browser-Theme entsprechend dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekts.
+Aktualisiert das Browser-Theme gemäß dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekts.
 
-Um diese Methode zu nutzen, muss eine Erweiterung die "theme"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese Methode zu verwenden, muss eine Erweiterung die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ browser.theme.update(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, wird das Theme nur auf dieses Fenster angewendet. Wenn es weggelassen wird, wird das Theme auf alle Fenster angewendet.
+  - : `integer`. Die ID eines Fensters. Wenn dieser Wert angegeben wird, wird das Theme nur auf dieses Fenster angewendet. Wenn er weggelassen wird, wird das Theme auf alle Fenster angewendet.
 - `theme`
-  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt, das Werte für die Benutzeroberflächenelemente angibt, die Sie ändern möchten.
+  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt, das Werte für die UI-Elemente angibt, die Sie ändern möchten.
 
 ## Beispiele
 
-Setzt das Browser-Theme, um eine Sonnengrafik mit einer komplementären Hintergrundfarbe zu verwenden:
+Setzt das Browser-Theme, um eine Sonnengrafik mit einer passenden Hintergrundfarbe zu verwenden:
 
 ```js
 const suntheme = {

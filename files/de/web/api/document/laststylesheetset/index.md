@@ -1,5 +1,5 @@
 ---
-title: "Document: lastStyleSheetSet-Eigenschaft"
+title: "Document: lastStyleSheetSet Eigenschaft"
 short-title: lastStyleSheetSet
 slug: Web/API/Document/lastStyleSheetSet
 l10n:
@@ -12,7 +12,7 @@ Die **`Document.lastStyleSheetSet`**-Eigenschaft gibt das zuletzt aktivierte Sty
 
 ## Wert
 
-Das Style-Sheet-Set, das zuletzt festgelegt wurde. Wenn das aktuelle Style-Sheet-Set nicht durch das Festlegen der [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) geändert wurde, ist der zurückgegebene Wert `null`.
+Das zuletzt festgelegte Style-Sheet-Set. Wenn das aktuelle Style-Sheet-Set nicht durch Festlegen von [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) geändert wurde, ist der zurückgegebene Wert `null`.
 
 > [!NOTE]
 > Dieser Wert ändert sich nicht, wenn

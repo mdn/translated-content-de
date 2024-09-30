@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`has()`**-Methode von {{jsxref("WeakSet")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Objekt in diesem `WeakSet` vorhanden ist oder nicht.
+Die **`has()`** Methode von {{jsxref("WeakSet")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Objekt in diesem `WeakSet` existiert oder nicht.
 
 {{EmbedInteractiveExample("pages/js/weakset-prototype-has.html")}}
 
@@ -20,15 +20,15 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der zu testende Wert auf Vorhandensein im `WeakSet`.
+  - : Der Wert, dessen Vorhandensein im `WeakSet` geprüft wird.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `WeakSet`-Objekt vorhanden ist; andernfalls `false`. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `WeakSet` Objekt existiert; andernfalls `false`. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung der `has()`-Methode
+### Verwendung der `has()` Methode
 
 ```js
 const ws = new WeakSet();

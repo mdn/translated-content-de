@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`documentElement`** schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das
-[`Element`](/de/docs/Web/API/Element) zurück, das das Wurzelselement des [`Dokuments`](/de/docs/Web/API/Document) ist (zum Beispiel das {{HTMLElement("html")}}-Element für HTML-Dokumente).
+Die **`documentElement`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das Wurzelelement des [`Dokuments`](/de/docs/Web/API/Document) ist (zum Beispiel das {{HTMLElement("html")}}-Element für HTML-Dokumente).
 
 ## Wert
 
@@ -28,12 +27,9 @@ for (const child of firstTier) {
 }
 ```
 
-## Hinweise
+## Anmerkungen
 
-Für jedes nicht-leere HTML-Dokument wird `documentElement` immer ein
-{{HTMLElement("html")}}-Element sein. Für jedes nicht-leere XML-Dokument
-wird `documentElement` immer das Element sein, das das Wurzelselement des
-Dokuments ist.
+Für jedes nicht-leere HTML-Dokument wird `documentElement` immer ein {{HTMLElement("html")}}-Element sein. Für jedes nicht-leere XML-Dokument ist `documentElement` immer das Element, das das Wurzelelement des Dokuments ist.
 
 ## Spezifikationen
 

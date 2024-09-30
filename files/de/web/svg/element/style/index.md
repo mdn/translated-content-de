@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG-Element **`<style>`** ermöglicht es, Stylesheets direkt im SVG-Inhalt einzubetten.
+Das SVG-Element **`<style>`** ermöglicht das Einbetten von Stylesheets direkt innerhalb von SVG-Inhalten.
 
 > [!NOTE]
-> Das `style`-Element in SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTML-Element {{HTMLElement("style")}}).
+> Das `style`-Element von SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTMLs {{HTMLElement("style")}}-Element).
 
 ## Beispiel
 
@@ -41,16 +41,16 @@ svg {
 ## Attribute
 
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der zu verwendenden Stylesheet-Sprache als Medientyp-String.
+  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache, die als Medientyp-String verwendet werden soll.
     _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `text/css`; _Animierbar_: **nein**
 - {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Media')}} sich das Style bezieht.
+  - : Dieses Attribut definiert, auf welche {{cssxref('@media', 'Medien')}} das Style angewendet wird.
     _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: `all`; _Animierbar_: **nein**
 - {{SVGAttr("title")}}
-  - : Dieses Attribut ist der Titel des Stylesheets, welcher verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) zu wechseln.
+  - : Dieses Attribut ist der Titel des Stylesheets, der zur Auswahl zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) verwendet werden kann.
     _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 

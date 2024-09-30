@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP {{HTTPHeader('Permissions-Policy')}} Header-Direktive `accelerometer` kontrolliert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts durch die [`Accelerometer`](/de/docs/Web/API/Accelerometer) Schnittstelle sammeln darf.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} `accelerometer`-Direktive steuert, ob das aktuelle Dokument über die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle Informationen über die Beschleunigung des Geräts sammeln darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werfen Aufrufe des [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer) Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError`.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: accelerometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-`allowlist` für `accelerometer` ist: `self`.
+Der Standardzulassungsbereich für `accelerometer` ist: `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-`allowlist` für `accelerometer` ist: `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader('Permissions-Policy')}} Header
+- {{HTTPHeader('Permissions-Policy')}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

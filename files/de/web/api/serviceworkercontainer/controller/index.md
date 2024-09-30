@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: controller Eigenschaft"
+title: "ServiceWorkerContainer: controller-Eigenschaft"
 short-title: controller
 slug: Web/API/ServiceWorkerContainer/controller
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`controller`**-Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces gibt ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt zurück, wenn dessen Status `activating` oder `activated` ist (dasselbe Objekt, das von [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) zurückgegeben wird). Diese Eigenschaft gibt `null` zurück, wenn die Anfrage eine erzwungene Aktualisierung ist (_Shift_ + Aktualisieren) oder wenn kein aktiver Worker vorhanden ist.
+Die schreibgeschützte **`controller`**-Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces gibt ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt zurück, wenn dessen Status `activating` oder `activated` ist (dasselbe Objekt wird von [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) zurückgegeben). Diese Eigenschaft gibt `null` zurück, wenn die Anfrage ein erzwungener Refresh (_Shift_ + Refresh) ist oder wenn es keinen aktiven Worker gibt.
 
 ## Wert
 

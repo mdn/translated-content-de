@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP {{HTTPHeader("Permissions-Policy")}} Kopfzeile `midi`-Direktive steuert, ob das aktuelle Dokument die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) verwenden darf.
+Die HTTP-Headerdirektive {{HTTPHeader("Permissions-Policy")}} `midi` steuert, ob das aktuelle Dokument die Verwendung der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) erlaubt.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Verwendung dieser Funktion blockiert, werden Aufrufe von [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: midi=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung dieser Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standardzulassungsliste für `midi` ist `self`.
+Die Standard-`allowlist` für `midi` ist `self`.
 
 ## Spezifikationen
 

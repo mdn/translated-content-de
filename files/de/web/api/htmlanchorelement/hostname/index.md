@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.hostname`**-Eigenschaft ist eine Zeichenkette, die die Domain der URL enthält.
+Die **`HTMLAnchorElement.hostname`**-Eigenschaft ist ein String, der die Domain der URL enthält.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ anchor.hostname; // returns 'developer.mozilla.org'
 
 ## Siehe auch
 
-- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.

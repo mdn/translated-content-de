@@ -1,5 +1,5 @@
 ---
-title: "Request: method Eigenschaft"
+title: "Request: method-Eigenschaft"
 short-title: method
 slug: Web/API/Request/method
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`method`** schreibgeschützte Eigenschaft des
-[`Request`](/de/docs/Web/API/Request) Interface enthält die Methode der Anfrage (`GET`, `POST`, etc.)
+Die schreibgeschützte **`method`**-Eigenschaft der
+[`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält die Methode der Anfrage (`GET`,
+`POST`, etc.)
 
 ## Wert
 
@@ -18,7 +19,8 @@ Ein {{jsxref("String")}}, der die Methode der Anfrage angibt.
 ## Beispiele
 
 Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem
-[`Request()`](/de/docs/Web/API/Request/Request) Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Methode der Anfrage in einer Variablen:
+[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie
+das Skript), dann speichern wir die Methode der Anfrage in einer Variable:
 
 ```js
 const myRequest = new Request("flowers.jpg");

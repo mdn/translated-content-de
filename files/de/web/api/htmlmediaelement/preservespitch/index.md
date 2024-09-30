@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft bestimmt, ob der Browser die Tonhöhe des Audios anpassen soll, um Änderungen an der Wiedergabegeschwindigkeit, die durch das Setzen von [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) vorgenommen werden, auszugleichen.
+Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft bestimmt, ob der Browser die Tonhöhe des Audios anpassen sollte, um Veränderungen der Wiedergabegeschwindigkeit, die durch das Setzen von [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) vorgenommen wurden, auszugleichen.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein boolescher Wert, der standardmäßig auf `true` gesetzt ist.
 
 ### Setzen der preservesPitch-Eigenschaft
 
-In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Bereichssteuerungselement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` festlegt.
+In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Bereichssteuerungselement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` setzt.
 
-Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und das Kontrollkästchen zu aktivieren und zu deaktivieren.
+Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und anschließend das Kontrollkästchen zu aktivieren und zu deaktivieren.
 
 ```html
 <audio

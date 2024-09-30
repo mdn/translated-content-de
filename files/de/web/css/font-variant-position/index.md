@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-position`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen, kleineren Glyphen, die als Hoch- oder Tiefgestellt positioniert sind.
+Die **`font-variant-position`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert die Verwendung alternativer, kleinerer Glyphen, die als Hoch- oder Tiefstellung positioniert sind.
 
-Die Glyphen sind relativ zur Grundlinie der Schrift positioniert, welche unverändert bleibt. Diese Glyphen werden typischerweise in {{HTMLElement("sub")}} und {{HTMLElement("sup")}} Elementen verwendet.
+Die Glyphen sind relativ zur Grundlinie der Schrift positioniert, die unverändert bleibt. Diese Glyphen werden typischerweise in {{HTMLElement("sub")}}- und {{HTMLElement("sup")}}-Elementen verwendet.
 
-Wenn die Verwendung dieser alternativen Glyphen aktiviert ist und ein Charakter im Lauf nicht über eine solche typografisch verbesserte Glyphe verfügt, wird der gesamte Satz von Charakteren des Laufs mit einer Fallback-Methode gerendert, wobei diese Glyphen synthetisiert werden.
+Wenn die Verwendung dieser alternativen Glyphen aktiviert ist und ein Zeichen in der Folge ein solches typografisch verbessertes Glyph nicht besitzt, wird der gesamte Satz von Zeichen der Folge mit einer Ersatzmethode gerendert, wobei diese Glyphen synthetisiert werden.
 
-Diese alternativen Glyphen haben dieselbe Em-Box und dieselbe Grundlinie wie der Rest der Schrift. Sie sind lediglich grafisch verbessert und haben keinen Einfluss auf die Zeilenhöhe und andere Box-Eigenschaften.
+Diese alternativen Glyphen teilen sich die gleiche Em-Box und die gleiche Grundlinie wie der Rest der Schrift. Sie sind lediglich grafisch verbessert und haben keinen Einfluss auf die Zeilenhöhe und andere Box-Eigenschaften.
 
 ## Syntax
 
@@ -31,16 +31,16 @@ font-variant-position: revert-layer;
 font-variant-position: unset;
 ```
 
-Die `font-variant-position` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `font-variant-position`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `normal`
-  - : Deaktiviert alternative Hoch- und Tiefstellungsglyphen.
+  - : Deaktiviert alternative Hoch- und Tiefstellungs-Glyphen.
 - `sub`
-  - : Aktiviert alternative Tiefstellungsglyphen. Wenn in einem gegebenen Lauf eine solche Glyphe für ein Zeichen nicht verfügbar ist, werden alle Zeichen im Lauf unter Verwendung synthetisierter Glyphen gerendert.
+  - : Aktiviert alternative Tiefstellungs-Glyphen. Wenn in einer bestimmten Folge ein solches Glyph für ein Zeichen nicht verfügbar ist, werden alle Zeichen in der Folge mit synthetisierten Glyphen gerendert.
 - `super`
-  - : Aktiviert alternative Hochstellungsglyphen. Wenn in einem gegebenen Lauf eine solche Glyphe für ein Zeichen nicht verfügbar ist, werden alle Zeichen im Lauf unter Verwendung synthetisierter Glyphen gerendert.
+  - : Aktiviert alternative Hochstellungs-Glyphen. Wenn in einer bestimmten Folge ein solches Glyph für ein Zeichen nicht verfügbar ist, werden alle Zeichen in der Folge mit synthetisierten Glyphen gerendert.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `font-variant-position` Eigenschaft wird als einer der unten aufgeführten S
 
 ## Beispiele
 
-### Einstellen von Hoch- und Tiefstellungsformen
+### Hoch- und Tiefstellungsformen festlegen
 
 #### HTML
 

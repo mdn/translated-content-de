@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Interface gibt einen String zurück, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Element/object#width) widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Element/object#width) widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln spezifiziert.
 
 ## Wert
 

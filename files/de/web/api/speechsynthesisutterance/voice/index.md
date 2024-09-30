@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: voice-Eigenschaft"
+title: "SpeechSynthesisUtterance: voice Eigenschaft"
 short-title: voice
 slug: Web/API/SpeechSynthesisUtterance/voice
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`voice`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces legt die Stimme fest, die zum Aussprechen der Äußerung verwendet wird, und ermöglicht deren Abfrage und Einstellung.
+Die **`voice`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Stimme ab, die verwendet wird, um die Äußerung zu sprechen, und legt sie fest.
 
-Diese sollte auf eines der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte gesetzt werden, die von [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben werden. Wenn sie nicht gesetzt ist, wenn die Äußerung gesprochen wird, wird die Stimme verwendet, die am besten zur Standardeinstellung passt und für die [`lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)-Einstellung der Äußerung verfügbar ist.
+Diese sollte auf eines der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte gesetzt werden, die von [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben werden.
+Wenn sie nicht gesetzt wird, bevor die Äußerung gesprochen wird, wird die am besten geeignete Standardstimme verwendet, die für die [`lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)-Einstellung der Äußerung verfügbar ist.
 
 ## Wert
 

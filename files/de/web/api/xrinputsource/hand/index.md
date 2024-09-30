@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`hand`**-Eigenschaft des [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Interfaces ist ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt, das Zugang zu einem Handverfolgungsgerät bietet.
+Die schreibgeschützte **`hand`**-Eigenschaft der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Schnittstelle ist ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt, das den Zugriff auf ein Hand-Tracking-Gerät ermöglicht.
 
 ## Wert
 
-Ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn die [`XRSession`](/de/docs/Web/API/XRSession) nicht mit dem `hand-tracking` Feature-Descriptor [angefordert](/de/docs/Web/API/XRSystem/requestSession) wurde.
+Ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn die [`XRSession`](/de/docs/Web/API/XRSession) nicht mit dem `hand-tracking` Feature-Deskriptor [angefordert](/de/docs/Web/API/XRSystem/requestSession) wurde.
 
 ## Beispiele
 

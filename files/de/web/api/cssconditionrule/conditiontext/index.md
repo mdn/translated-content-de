@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`conditionText`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle gibt den Text der CSS-Regel zurück oder setzt ihn.
+Die schreibgeschützte **`conditionText`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle gibt den Text der CSS-Regel zurück oder setzt diesen.
 
 ## Wert
 
@@ -16,9 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert das Auslesen des Werts von
-`conditionText` in einem [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule), der die
-[`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle implementiert.
+Das folgende Beispiel zeigt, wie der Wert von `conditionText` in einer [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) gelesen wird, die die [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle implementiert.
 
 ```css
 @media (min-width: 500px) {
@@ -43,4 +41,4 @@ console.log(targetRule.conditionText); // "(min-width: 500px)"
 
 ## Siehe auch
 
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung von dynamischen Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

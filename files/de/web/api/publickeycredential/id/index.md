@@ -1,5 +1,5 @@
 ---
-title: "PublicKeyCredential: id-Eigenschaft"
+title: "PublicKeyCredential: id Eigenschaft"
 short-title: id
 slug: Web/API/PublicKeyCredential/id
 l10n:
@@ -8,16 +8,20 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`id`**-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle ist eine Zeichenkette, die von [`Credential`](/de/docs/Web/API/Credential) geerbt wird und den Bezeichner der aktuellen `PublicKeyCredential`-Instanz darstellt.
+Die schreibgeschützte Eigenschaft **`id`** der
+[`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle ist ein String, geerbt
+von [`Credential`](/de/docs/Web/API/Credential), der den Bezeichner der aktuellen
+`PublicKeyCredential`-Instanz darstellt.
 
-Diese Eigenschaft ist eine [base64url-kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
+Diese Eigenschaft ist eine in [base64url kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
 
 > [!NOTE]
-> Diese Eigenschaft kann nur in obersten Kontexten verwendet werden und ist beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar.
+> Diese Eigenschaft darf nur in Top-Level-Kontexten verwendet werden und
+> wird z. B. nicht in einem {{HTMLElement("iframe")}} verfügbar sein.
 
 ## Wert
 
-Eine Zeichenkette, die die [base64url-kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) ist.
+Ein String, der die in [base64url kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) ist.
 
 ## Beispiele
 

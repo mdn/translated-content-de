@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Verbindung geschlossen, das Gerät vergessen und die Berechtigung zurückgesetzt ist.
+Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird, sobald die Verbindung geschlossen ist, das Gerät vergessen wurde und die Berechtigung zurückgesetzt ist.
 
 ## Beispiel
 
-Im folgenden Beispiel verbinden wir uns mit einem Nintendo Switch Joy-Con Recht HID-Gerät, blinken einmal und trennen die Verbindung wieder.
+Im folgenden Beispiel verbinden wir uns mit einem Nintendo Switch Joy-Con Right HID-Gerät, blinken einmal und trennen die Verbindung anschließend.
 
 ```js
 async function blink() {

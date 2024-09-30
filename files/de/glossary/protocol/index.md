@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Protokoll** ist ein System von Regeln, das definiert, wie Daten innerhalb von oder zwischen Computern ausgetauscht werden. Für die Kommunikation zwischen Geräten ist es erforderlich, dass die Geräte sich auf das Format der auszutauschenden Daten einigen. Der Satz von Regeln, der ein Format definiert, wird als Protokoll bezeichnet.
+Ein **Protokoll** ist ein System von Regeln, das definiert, wie Daten innerhalb oder zwischen Computern ausgetauscht werden. Die Kommunikation zwischen Geräten erfordert, dass die Geräte sich auf das Format der ausgetauschten Daten einigen. Der Satz von Regeln, der ein Format definiert, wird als Protokoll bezeichnet.
 
 ## Siehe auch
 

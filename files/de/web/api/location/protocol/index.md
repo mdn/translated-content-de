@@ -1,5 +1,5 @@
 ---
-title: "Location: Eigenschaft protocol"
+title: "Location: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/Location/protocol
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`protocol`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
+Die **`protocol`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)
+Schnittstelle ist ein String, der das Protokollschema der URL repräsentiert,
+einschließlich des abschließenden `':'`.
 
 ## Wert
 

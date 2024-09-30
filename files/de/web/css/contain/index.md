@@ -7,24 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`contain`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, dass ein Element und dessen Inhalt so weit wie möglich unabhängig vom Rest des Dokumentbaums sind.
-Die Kapselung ermöglicht es, einen Abschnitt des DOM zu isolieren und bietet Leistungsverbesserungen, indem Berechnungen von Layout, Stil, Darstellung, Größe oder einer Kombination davon auf einen DOM-Teilbaum und nicht auf die gesamte Seite beschränkt werden. Die Kapselung kann auch verwendet werden, um CSS-Zähler und Zitate zu begrenzen.
+Die **`contain`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, dass ein Element und dessen Inhalte so weit wie möglich unabhängig vom Rest des Dokumentbaums sind. Einschließung ermöglicht es, einen Abschnitt des DOM zu isolieren, was Leistungsverbesserungen durch Begrenzung der Berechnungen von Layout, Stil, Darstellung, Größe oder einer Kombination davon auf einen DOM-Teilbaum anstelle der gesamten Seite bietet. Einschließung kann auch verwendet werden, um CSS-Zähler und Zitate zu begrenzen.
 
 {{EmbedInteractiveExample("pages/css/contain.html")}}
 
-Es gibt vier Arten von CSS-Kapselung: Größe, Layout, Stil und Darstellung, die auf dem Container festgelegt werden.
-Die Eigenschaft ist eine durch Leerzeichen getrennte Liste einer Teilmenge der fünf Standardwerte oder einer der beiden Kurzformwerte.
-Änderungen an den eingeschlossenen Eigenschaften innerhalb des Containers werden nicht außerhalb des eingeschlossenen Elements auf den Rest der Seite übertragen.
-Der Hauptvorteil der Kapselung besteht darin, dass der Browser das DOM oder das Seitenlayout nicht so oft neu rendern muss, was zu kleinen Leistungssteigerungen beim Rendern statischer Seiten und größeren Leistungssteigerungen in dynamischeren Anwendungen führt.
+Es gibt vier Arten der CSS-Einschließung: Größe, Layout, Stil und Darstellung, die auf dem Container festgelegt werden. Die Eigenschaft ist eine durch Leerzeichen getrennte Liste von einem Teil der fünf Standardwerte oder einem der beiden Kurzformwerte. Änderungen an den eingeschlossenen Eigenschaften innerhalb des Containers werden nicht außerhalb des eingeschlossenen Elements auf den Rest der Seite übertragen. Der Hauptvorteil der Einschließung besteht darin, dass der Browser das DOM oder das Layout der Seite nicht so oft neu rendern muss, was zu kleinen Leistungsverbesserungen beim Rendern statischer Seiten und zu größeren Leistungsverbesserungen in dynamischeren Anwendungen führt.
 
-Die Verwendung der `contain`-Eigenschaft ist nützlich auf Seiten mit Gruppen von Elementen, die unabhängig sein sollen, da sie verhindern kann, dass die internen Elemente außerhalb ihrer Begrenzungsbox Seiteneffekte haben.
+Die Verwendung der `contain`-Eigenschaft ist nützlich auf Seiten mit Gruppen von Elementen, die unabhängig sein sollen, da sie verhindern kann, dass die Interna der Elemente außerhalb ihres Begrenzungsrahmens Auswirkungen haben.
 
 > [!NOTE]
-> Die Verwendung der Werte `layout`, `paint`, `strict` oder `content` für diese Eigenschaft bewirkt:
+> Die Verwendung der Werte `layout`, `paint`, `strict` oder `content` für diese Eigenschaft erstellt:
 >
-> 1. Einen neuen [Containing block](/de/docs/Web/CSS/Containing_block) (für die Nachkommen, deren {{cssxref("position")}}-Eigenschaft `absolute` oder `fixed` ist).
-> 2. Einen neuen [Stacking context](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
-> 3. Einen neuen [Block formatting context](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
+> 1. Einen neuen [einschließenden Block](/de/docs/Web/CSS/Containing_block) (für die Nachkommen, deren {{cssxref("position")}}-Eigenschaft `absolute` oder `fixed` ist).
+> 2. Einen neuen [Stapelhintergrund](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
+> 3. Einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
 
 ## Syntax
 
@@ -57,27 +53,27 @@ contain: unset;
 Die `contain`-Eigenschaft kann einen der folgenden Werte haben:
 
 - Das Schlüsselwort `none` **oder**
-- Eines oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
-- Einer der Kurzformwerte `strict` oder `content`
+- Eins oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
+- Einen der Kurzformwerte `strict` oder `content`
 
-Die Schlüsselwörter haben folgende Bedeutungen:
+Die Schlüsselwörter haben die folgenden Bedeutungen:
 
 - `none`
-  - : Das Element wird normal gerendert, ohne dass eine Kapselung angewendet wird.
+  - : Das Element wird normal gerendert, ohne dass eine Einschließung angewendet wird.
 - `strict`
-  - : Alle Kapselungsregeln werden auf das Element angewendet. Dies entspricht `contain: size layout paint style`.
+  - : Alle Einschließungsregeln werden auf das Element angewendet. Dies entspricht `contain: size layout paint style`.
 - `content`
-  - : Alle Kapselungsregeln außer `size` werden auf das Element angewendet. Dies entspricht `contain: layout paint style`.
+  - : Alle Einschließungsregeln außer `size` werden auf das Element angewendet. Dies entspricht `contain: layout paint style`.
 - `size`
-  - : Die Größenkapselung wird auf das Element in sowohl der Inline- als auch der Blockrichtung angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
+  - : Größeneinschließung wird auf das Element sowohl in Inline- als auch in Blockrichtung angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu beachten. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
 - `inline-size`
-  - : Die Inline-Größenkapselung wird auf das Element angewendet. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `size` kombiniert werden.
+  - : Inline-Größeneinschließung wird auf das Element angewendet. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu beachten. Dieser Wert kann nicht mit `size` kombiniert werden.
 - `layout`
-  - : Das interne Layout des Elements ist vom Rest der Seite isoliert. Das bedeutet, dass nichts außerhalb des Elements sein internes Layout beeinflusst und umgekehrt.
+  - : Das interne Layout des Elements ist vom Rest der Seite isoliert. Das bedeutet, nichts außerhalb des Elements beeinflusst dessen internes Layout und umgekehrt.
 - `style`
-  - : Für Eigenschaften, die mehr als nur ein Element und dessen Nachkommen beeinflussen können, entweichen die Effekte nicht aus dem Kapselungselement. Zähler und Zitate sind auf das Element und seinen Inhalt begrenzt.
+  - : Für Eigenschaften, die mehr als nur ein Element und dessen Nachkommen beeinflussen können, verlassen die Effekte nicht das einschließende Element. Zähler und Zitate sind auf das Element und seine Inhalte begrenzt.
 - `paint`
-  - : Nachkommen des Elements werden nicht außerhalb seiner Grenzen angezeigt. Wenn die Kapselungsbox außerhalb des Bildschirms ist, muss der Browser ihre eingeschlossenen Elemente nicht darstellen – diese müssen auch außerhalb des Bildschirms sein, da sie vollständig von dieser Box eingeschlossen sind. Wenn ein Nachkomme die Grenzen des kapselnden Elements überschreitet, wird dieser Nachkomme auf die Rahmenbox des kapselnden Elements zugeschnitten.
+  - : Nachkommen des Elements werden nicht außerhalb seiner Begrenzungen angezeigt. Wenn das einschließende Feld außerhalb des Bildschirms ist, muss der Browser seine eingeschlossenen Elemente nicht darstellen – diese müssen ebenfalls außerhalb des Bildschirms sein, da sie vollständig von diesem Feld eingeschlossen sind. Wenn ein Nachkomme die Begrenzungen des einschließenden Elements überläuft, wird dieser Nachkomme auf die Rahmenbox des einschließenden Elements beschnitten.
 
 ## Formale Definition
 
@@ -89,9 +85,9 @@ Die Schlüsselwörter haben folgende Bedeutungen:
 
 ## Beispiele
 
-### Darstellungskapselung
+### Darstellungseinschließung
 
-Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass Nachkommen eines Elements außerhalb seiner Grenzen dargestellt werden.
+Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass Nachkommen eines Elements außerhalb seiner Begrenzungen dargestellt werden.
 
 ```css
 div {
@@ -114,9 +110,9 @@ div {
 
 {{EmbedLiveSample("Paint_containment", "100%", 280)}}
 
-### Layoutkapselung
+### Layouteinschließung
 
-Betrachten Sie das folgende Beispiel, das zeigt, wie sich Elemente mit und ohne angewandte Layoutkapselung verhalten:
+Betrachten Sie das folgende Beispiel, das zeigt, wie sich Elemente mit und ohne angewendete Layouteinschließung verhalten:
 
 ```html
 <div class="card" style="contain: layout;">
@@ -174,28 +170,19 @@ div {
 }
 ```
 
-Die erste Karte hat Layoutkapselung angewendet, und ihr Layout ist vom Rest der Seite isoliert.
-Wir können diese Karte an anderen Stellen auf der Seite wiederverwenden, ohne uns um die Neuberechnung des Layouts der anderen Elemente sorgen zu müssen.
-Wenn Floats die Kartenbegrenzungen überlappen, werden Elemente auf der restlichen Seite nicht beeinflusst.
-Wenn der Browser den Teilbaum des kapselnden Elements neu berechnet, wird nur das Element neu berechnet. Nichts außerhalb des eingeschlossenen Elements muss neu berechnet werden.
-Zusätzlich verwendet das feste Feld die Karte als Layout-Container, um sich selbst zu positionieren.
+Die erste Karte hat eine Layouteinschließung, und ihr Layout ist vom Rest der Seite isoliert. Wir können diese Karte an anderen Stellen der Seite wiederverwenden, ohne uns Gedanken über eine Neuberechnung des Layouts der anderen Elemente machen zu müssen. Wenn sich Flächen über die Begrenzungen der Karte überlappen, sind Elemente auf dem Rest der Seite nicht betroffen. Wenn der Browser den Teildombaum des einschließenden Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des eingeschlossenen Elements muss neu berechnet werden. Zusätzlich verwendet die feste Box die Karte als Layout-Container, um sich selbst zu positionieren.
 
-Die zweite und dritte Karte haben keine Kapselung.
-Der Layout-Kontext für das feste Feld in der zweiten Karte ist das Wurzelelement, sodass das feste Feld in der oberen rechten Ecke der Seite positioniert wird.
-Ein Float überlappt die Begrenzungen der zweiten Karte und führt dazu, dass die dritte Karte eine unerwartete Layoutverschiebung hat, die in der Positionierung des `<h2>`-Elements sichtbar ist.
-Wenn eine Neuberechnung erfolgt, ist sie nicht auf einen Container beschränkt.
-Dies beeinträchtigt die Leistung und stört das restliche Seitenlayout.
+Die zweite und dritte Karte haben keine Einschlüsse. Der Layoutkontext für die feste Box in der zweiten Karte ist das Wurzelelement, daher wird die feste Box in der rechten oberen Ecke der Seite positioniert. Eine Fläche überlappt die Begrenzungen der zweiten Karte, was dazu führt, dass sich das Layout der dritten Karte unerwartet verschiebt, was in der Positionierung des `<h2>`-Elements sichtbar ist. Wenn eine Neuberechnung erfolgt, ist sie nicht auf einen Container beschränkt. Dies wirkt sich auf die Leistung aus und beeinträchtigt das Layout des Restes der Seite.
 
 {{EmbedLiveSample("Layout_containment", "100%", 350)}}
 
-### Stil-Kapselung
+### Stileinschließung
 
-Stil-Kapselung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Zitate](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element.
-Für CSS-Zähler sind die {{cssxref("counter-increment")}}- und {{cssxref("counter-set")}}-Eigenschaften auf das Element begrenzt, als ob das Element die Wurzel des Dokuments wäre.
+Stileinschließung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Zitate](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element. Für CSS-Zähler sind die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} auf das Element beschränkt, als ob das Element am Anfang des Dokuments steht.
 
-#### Kapselung und Zähler
+#### Einhaltung und Zähler
 
-Das folgende Beispiel zeigt, wie Zähler funktionieren, wenn Stil-Kapselung angewendet wird:
+Das folgende Beispiel zeigt, wie Zähler funktionieren, wenn Stileinschließung angewendet wird:
 
 ```html
 <ul>
@@ -222,14 +209,13 @@ li::before {
 }
 ```
 
-Ohne Kapselung würde der Zähler bei jedem Listenelement von 1 auf 5 inkrementieren.
-Stil-Kapselung bewirkt, dass die {{cssxref("counter-increment")}}-Eigenschaft auf den Teilbaum des Elements begrenzt ist und der Zähler wieder bei 1 beginnt:
+Ohne Einschließung würde der Zähler bei jedem Listenelement von 1 bis 5 inkrementieren. Die Stileinschließung bewirkt, dass die Eigenschaft {{cssxref("counter-increment")}} auf den Teilbaum des Elements beschränkt ist und der Zähler wieder bei 1 beginnt:
 
 {{EmbedLiveSample('Containment_and_counters', '100%', 140)}}
 
-#### Kapselung und Zitate
+#### Einhaltung und Zitate
 
-CSS-Zitate sind ähnlich betroffen, wobei die [`content`](/de/docs/Web/CSS/content)-Werte, die sich auf Zitate beziehen, auf das Element begrenzt sind:
+CSS-Zitate sind ähnlich betroffen, da die [`content`](/de/docs/Web/CSS/content)-Werte für Zitate auf das Element begrenzt sind:
 
 ```html
 <!-- With style containment -->
@@ -264,7 +250,7 @@ body {
 }
 ```
 
-Aufgrund der Kapselung ignoriert das erste schließende Zitat das innere span und verwendet stattdessen das schließende Zitat des äußeren span:
+Aufgrund der Einschließung ignoriert das erste Schlusszeichen den inneren Span und verwendet stattdessen das Schlusszeichen des äußeren Spans:
 
 {{EmbedLiveSample('Containment_and_quotes', '100%', 40)}}
 
@@ -278,7 +264,7 @@ Aufgrund der Kapselung ignoriert das erste schließende Zitat das innere span un
 
 ## Siehe auch
 
-- [CSS-Kapselung](/de/docs/Web/CSS/CSS_containment)
-- [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- CSS {{cssxref("content-visibility")}}-Eigenschaft
-- CSS {{cssxref("position")}}-Eigenschaft
+- [CSS containment](/de/docs/Web/CSS/CSS_containment)
+- [CSS-Containerabfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- CSS {{cssxref("content-visibility")}} Eigenschaft
+- CSS {{cssxref("position")}} Eigenschaft

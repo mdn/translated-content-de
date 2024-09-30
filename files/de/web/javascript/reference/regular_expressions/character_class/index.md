@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Eine **Zeichenklasse** stimmt mit jedem Zeichen in oder nicht in einem benutzerdefinierten Satz von Zeichen überein. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Flag aktiviert ist, kann es auch verwendet werden, um Zeichenfolgen endlicher Länge zu erfassen.
+Eine **Zeichenklasse** stimmt mit jedem Zeichen innerhalb oder außerhalb einer benutzerdefinierten Zeichenmenge überein. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)-Flag aktiviert ist, kann es auch verwendet werden, um Zeichenfolgen von endlicher Länge zu matchen.
 
 ## Syntax
 
@@ -29,37 +29,37 @@ Eine **Zeichenklasse** stimmt mit jedem Zeichen in oder nicht in einem benutzerd
 ### Parameter
 
 - `operand1`, `operand2`
-  - : Kann ein einzelnes Zeichen, eine andere in eckige Klammern gesetzte Zeichenklasse, eine [Zeichenklassen-Ausweichsequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), eine [Unicode-Zeichenklassen-Ausweichsequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) oder eine Zeichenkette im `\q`-Syntax sein.
+  - : Kann ein einzelnes Zeichen, eine andere in eckige Klammern eingeschlossene Zeichenklasse, ein [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), ein [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) oder eine Zeichenkette mit der `\q`-Syntax sein.
 - `substring`
   - : Eine literale Zeichenkette.
 
 ## Beschreibung
 
-Eine Zeichenklasse spezifiziert eine Liste von Zeichen zwischen eckigen Klammern und stimmt mit jedem Zeichen in der Liste überein. Das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Flag verändert drastisch, wie Zeichenklassen geparst und interpretiert werden. Die folgenden Syntaxen sind sowohl im `v`-Modus als auch im non-`v`-Modus verfügbar:
+Eine Zeichenklasse gibt eine Liste von Zeichen zwischen eckigen Klammern an und stimmt mit jedem Zeichen in der Liste überein. Das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)-Flag verändert drastisch die Art und Weise, wie Zeichenklassen geparst und interpretiert werden. Die folgenden Syntaxen sind sowohl im `v`-Modus als auch im Nicht-`v`-Modus verfügbar:
 
 - Ein einzelnes Zeichen: stimmt mit dem Zeichen selbst überein.
-- Ein Bereich von Zeichen: stimmt mit jedem Zeichen im inklusiven Bereich überein. Der Bereich wird durch zwei Zeichen spezifiziert, die durch einen Bindestrich (`-`) getrennt sind. Das erste Zeichen muss im Zeichenwert kleiner sein als das zweite Zeichen. Der _Zeichenwert_ ist der Unicode-Codepunkt des Zeichens. Da Unicode-Codepunkte normalerweise Alfabete nacheinander zugewiesen werden, spezifiziert `[a-z]` alle kleinen lateinischen Buchstaben, während `[α-ω]` alle kleinen griechischen Buchstaben spezifiziert. Im [Unicode-unbekannten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden reguläre Ausdrücke als eine Sequenz von [BMP](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) Zeichen interpretiert. Daher stellen Stellvertreterpaare in Zeichenklassen zwei Zeichen anstatt einem dar; siehe unten für Details.
-- Escape-Sequenzen: `\b`, `\-`, [Zeichenklassen-Ausweichsequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), [Unicode-Zeichenklassen-Ausweichsequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) und andere [Zeichenausweichungen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
+- Ein Bereich von Zeichen: stimmt mit jedem Zeichen im eingeschlossenen Bereich überein. Der Bereich wird durch zwei Zeichen angegeben, die durch einen Bindestrich (`-`) getrennt sind. Das erste Zeichen muss im Zeichenwert kleiner sein als das zweite Zeichen. Der _Zeichenwert_ ist der Unicode-Codepunkt des Zeichens. Da Unicode-Codepunkte üblicherweise Alphabete in Reihenfolge zuordnen, spezifiziert `[a-z]` alle Kleinbuchstaben des lateinischen Alphabets, während `[α-ω]` alle Kleinbuchstaben des griechischen Alphabets spezifiziert. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Regexe als Sequenz von [BMP](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters)-Zeichen interpretiert. Daher stellen Surrogatpaare in Zeichenklassen zwei Zeichen anstelle von einem dar; siehe unten für Details.
+- Escape-Sequenzen: `\b`, `\-`, [Zeichenklassen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), [Unicode-Zeichenklassen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) und andere [Zeichen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
 
-Diese Syntaxen können beliebig oft vorkommen, und die von ihnen repräsentierten Zeichensätze werden vereinigt. Zum Beispiel, `/[a-zA-Z0-9]/` stimmt mit jedem Buchstaben oder Ziffer überein.
+Diese Syntaxen können beliebig oft vorkommen, und die von ihnen dargestellten Zeichensätze werden vereinigt. Zum Beispiel stimmt `/[a-zA-Z0-9]/` mit jedem Buchstaben oder Ziffer überein.
 
-Das `^`-Präfix in einer Zeichenklasse erzeugt eine _Komplementklassen_. Zum Beispiel, `[^abc]` stimmt mit jedem Zeichen außer `a`, `b` oder `c` überein. Das `^`-Zeichen ist ein literales Zeichen, wenn es in der Mitte einer Zeichenklasse erscheint – zum Beispiel, `[a^b]` stimmt mit den Zeichen `a`, `^` und `b` überein.
+Das `^`-Präfix in einer Zeichenklasse erstellt eine _Komplementklasse_. Zum Beispiel stimmt `[^abc]` mit jedem Zeichen außer `a`, `b` oder `c` überein. Das `^`-Zeichen ist ein literales Zeichen, wenn es in der Mitte einer Zeichenklasse erscheint — zum Beispiel stimmt `[a^b]` mit den Zeichen `a`, `^` und `b` überein.
 
-Die [lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#regular_expression_literals) führt einen sehr groben Parse der Regex-Literale durch, so dass es den Regex-Literal nicht am `/`-Zeichen beendet, das innerhalb einer Zeichenklasse erscheint. Das bedeutet, dass `/[/]/` ohne Notwendigkeit eines `/`-Escape gültig ist.
+Die [lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#regular_expression_literals) führt eine sehr grobe Analyse der Regex-Literale durch, damit das Regex-Literal nicht am `/`-Zeichen endet, das innerhalb einer Zeichenklasse erscheint. Das bedeutet, dass `/[/]/` gültig ist, ohne dass das `/` entkommen werden muss.
 
-Die Grenzen eines Zeichenbereichs dürfen nicht mehr als ein Zeichen spezifizieren, was passiert, wenn Sie eine [Zeichenklassen-Ausweichsequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwenden. Zum Beispiel:
+Die Grenzen eines Zeichenbereichs dürfen nicht mehr als ein Zeichen angeben, was passiert, wenn Sie ein [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwenden. Zum Beispiel:
 
 ```js-nolint example-bad
 /[\s-9]/u; // SyntaxError: Invalid regular expression: Invalid character class
 ```
 
-Im [Unicode-unbekannten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) machen Zeichenbereiche, bei denen eine Grenze eine Zeichenklasse ist, den `-` zu einem literalen Zeichen. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie nicht vertrauen sollten.
+Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Zeichenbereiche, bei denen eine Grenze eine Zeichenklasse ist, dazu führen, dass `-` ein literales Zeichen wird. Dies ist eine [veraltete Syntax zur Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
 
 ```js
 /[\s-9]/.test("-"); // true
 ```
 
-Im [Unicode-unbekannten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden reguläre Ausdrücke als eine Sequenz von BMP Zeichen interpretiert. Daher stellen Stellvertreterpaare in Zeichenklassen zwei Zeichen anstatt einem dar.
+Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Regexe als eine Sequenz von BMP-Zeichen interpretiert. Daher stellen Surrogatpaare in Zeichenklassen zwei Zeichen anstelle von einem dar.
 
 ```js
 /[😄]/.test("\ud83d"); // true
@@ -69,34 +69,34 @@ Im [Unicode-unbekannten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/
 /[😄-😛]/u.test("😑"); // true
 ```
 
-Selbst wenn das Muster [Groß-/Kleinschreibung ignoriert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), ist die Groß-/Kleinschreibung der beiden Enden eines Bereichs entscheidend dafür, welche Zeichen in den Bereich gehören. Zum Beispiel stimmt das Muster `/[E-F]/i` nur mit `E`, `F`, `e` und `f` überein, während das Muster `/[E-f]/i` mit allen Groß- und Kleinbuchstaben [ASCII](/de/docs/Glossary/ASCII) (weil es über `E–Z` und `a–f` reicht), sowie `[`, `\`, `]`, `^`, `_` und `` ` `` übereinstimmt.
+Selbst wenn das Muster die [Groß-/Kleinschreibung ignoriert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), ist die Groß-/Kleinschreibung der beiden Enden eines Bereichs entscheidend dafür, welche Zeichen zum Bereich gehören. Zum Beispiel stimmt das Muster `/[E-F]/i` nur mit `E`, `F`, `e` und `f` überein, während das Muster `/[E-f]/i` mit allen Groß- und Kleinbuchstaben des [ASCII](/de/docs/Glossary/ASCII)-Zeichensatzes (weil es über `E–Z` und `a–f` spannt) übereinstimmt, sowie mit `[`, `\`, `]`, `^`, `_` und `` ` ``.
 
-### Non-v-mode Zeichenklasse
+### Nicht-v-Modus-Zeichenklasse
 
-Non-`v`-mode Zeichenklassen interpretieren die meisten Zeichen [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) und haben weniger Einschränkungen hinsichtlich der Zeichen, die sie enthalten können. Zum Beispiel ist `.` das literale Punktzeichen, nicht das [Wildcard](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard). Die einzigen Zeichen, die nicht wörtlich erscheinen können, sind `\`, `]` und `-`.
+Nicht-`v`-Modus-Zeichenklassen interpretieren die meisten Zeichen [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) und haben weniger Einschränkungen hinsichtlich der Zeichen, die sie enthalten können. Zum Beispiel ist `.` das wörtliche Punktzeichen, nicht der [Platzhalter](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard). Die einzigen Zeichen, die nicht wörtlich erscheinen dürfen, sind `\`, `]` und `-`.
 
 - In Zeichenklassen werden die meisten Escape-Sequenzen unterstützt, außer `\b`, `\B` und [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference). `\b` gibt ein Rückschrittzeichen anstelle einer [Wortgrenze](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion) an, während die anderen beiden Syntaxfehler verursachen. Um `\` wörtlich zu verwenden, entkommen Sie es als `\\`.
-- Das `]` Zeichen zeigt das Ende der Zeichenklasse an. Um es wörtlich zu verwenden, entkommen Sie es als `\]`.
-- Das Bindestrich (`-`) Zeichen, wenn es zwischen zwei Zeichen verwendet wird, zeigt einen Bereich an. Wenn es am Anfang oder Ende einer Zeichenklasse erscheint, ist es ein wörtliches Zeichen. Es ist auch ein wörtliches Zeichen, wenn es in den Grenzen eines Bereichs verwendet wird. Zum Beispiel, `[a-]` stimmt mit den Zeichen `a` und `-` überein, `[!--]` stimmt mit den Zeichen `!` bis `-` überein und `[--9]` stimmt mit den Zeichen `-` bis `9` überein. Sie können es auch als `\-` entkommen, wenn Sie es überall wörtlich verwenden möchten.
+- Das `]`-Zeichen zeigt das Ende der Zeichenklasse an. Um es wörtlich zu verwenden, entkommen Sie es als `\]`.
+- Das Bindestrich (`-`)-Zeichen zeigt, wenn es zwischen zwei Zeichen verwendet wird, einen Bereich an. Wenn es am Anfang oder Ende einer Zeichenklasse erscheint, ist es ein wörtliches Zeichen. Es ist auch ein wörtliches Zeichen, wenn es in den Grenzen eines Bereichs verwendet wird. Zum Beispiel stimmt `[a-]` mit den Zeichen `a` und `-`, `[!--]` stimmt mit den Zeichen `!` bis `-`, und `[--9]` stimmt mit den Zeichen `-` bis `9` überein. Sie können es auch als `\-` entkommen, wenn Sie es irgendwo wörtlich verwenden möchten.
 
-### v-mode Zeichenklasse
+### v-Modus-Zeichenklasse
 
-Die Grundidee von Zeichenklassen im `v`-Modus bleibt die gleiche: Sie können die meisten Zeichen wörtlich verwenden, `-` verwenden, um Zeichenbereiche anzuzeigen und Escapesequenzen verwenden. Eine der wichtigsten Funktionen des `v`-Flags ist die _Mengen-Schreibweise_ innerhalb von Zeichenklassen. Wie bereits erwähnt, können normale Zeichenklassen Vereinigungen durch das Verketten von zwei Bereichen ausdrücken, wie z.B. die Verwendung von `[A-Z0-9]`, um "die Vereinigung der Menge `[A-Z]` und der Menge `[0-9]`" zu bedeuten. Es gibt jedoch keinen einfachen Weg, andere Operationen mit Zeichensätzen wie Schnittmenge und Differenz darzustellen.
+Die Grundidee von Zeichenklassen im `v`-Modus bleibt die gleiche: Sie können immer noch die meisten Zeichen wörtlich verwenden, `-` verwenden, um Zeichenbereiche anzugeben, und Escape-Sequenzen verwenden. Eines der wichtigsten Merkmale des `v`-Flags ist die _Mengennotation_ innerhalb von Zeichenklassen. Wie bereits erwähnt, können normale Zeichenklassen Vereinigungen durch die Verkettung von zwei Bereichen ausdrücken, wie zum Beispiel die Verwendung von `[A-Z0-9]`, um "die Vereinigung der Menge `[A-Z]` und der Menge `[0-9]`" zu bedeuten. Es gibt jedoch keinen einfachen Weg, andere Operationen mit Zeichensätzen darzustellen, wie z. B. Schnittmenge und Differenz.
 
-Mit dem `v`-Flag wird die Schnittmenge mit `&&` ausgedrückt und die Subtraktion mit `--`. Fehlen beide, wird implizit die Vereinigung angenommen. Die beiden Operanden von `&&` oder `--` können ein Zeichen, ein Zeichen-Escape, eine Zeichenklassen-Ausweichsequenz oder sogar eine andere Zeichenklasse sein. Zum Beispiel, um "ein Wortzeichen, das kein Unterstrich ist" auszudrücken, können Sie `[\w--_]` verwenden. Sie können Operatoren nicht auf derselben Ebene mischen. Zum Beispiel ist `[\w&&[A-z]--_]` ein Syntaxfehler. Da Sie jedoch Zeichenklassen verschachteln können, können Sie explizit werden, indem Sie `[\w&&[[A-z]--_]]` oder `[[\w&&[A-z]]--_]` schreiben (die beide `[A-Za-z]` bedeuten). Ähnlich ist `[AB--C]` ungültig und Sie müssen `[A[B--C]]` schreiben (was einfach `[AB]` bedeutet).
+Mit dem `v`-Flag wird die Schnittmenge mit `&&` und die Subtraktion mit `--` ausgedrückt. Das Fehlen von beidem impliziert Vereinigung. Die beiden Operanden von `&&` oder `--` können ein Zeichen, ein Zeichen-Escape, ein Zeichenklassen-Escape oder sogar eine andere Zeichenklasse sein. Zum Beispiel, um "ein Wortzeichen, das kein Unterstrich ist" auszudrücken, können Sie `[\w--_]` verwenden. Sie können Operatoren nicht auf derselben Ebene mischen. Zum Beispiel ist `[\w&&[A-z]--_]` ein Syntaxfehler. Da Sie jedoch Zeichenklassen verschachteln können, können Sie explizit schreiben `[\w&&[[A-z]--_]]` oder `[[\w&&[A-z]]--_]` (was beides `[A-Za-z]` bedeutet). Ebenso ist `[AB--C]` ungültig, und Sie müssen schreiben `[A[B--C]]` (was einfach `[AB]` bedeutet).
 
-Im `v`-Modus kann die [Unicode-Zeichenklassen-Ausweichsequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) `\p` Zeichenfolgen endlicher Länge erfassen, wie z.B. Emojis. Aus Symmetriegründen können reguläre Zeichenklassen auch mehr als ein Zeichen erfassen. Um ein "Zeichenfolgenliteral" in einer Zeichenklasse zu schreiben, umschließen Sie die Zeichenfolge in `\q{...}`. Die einzige unterstützte Regex-Syntax hier ist die [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) — abgesehen davon muss `\q` vollständig Literale (einschließlich escape-Zeichen) einschließen. Dies stellt sicher, dass Zeichenklassen nur Zeichenfolgen endlicher Länge mit endlich vielen Möglichkeiten erfassen können.
+Im `v`-Modus kann das [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) `\p` mit Zeichenketten von endlicher Länge wie Emojis übereinstimmen. Aus Symmetriegründen können reguläre Zeichenklassen auch mehr als ein Zeichen übereinstimmen. Um in einer Zeichenklasse ein "Zeichenkettenliteraler" zu schreiben, umschließen Sie die Zeichenkette mit `\q{...}`. Die einzige in `\q` unterstützte Regex-Syntax ist [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) — abgesehen davon muss `\q` Literale vollständig umschließen (einschließlich entkommener Zeichen). Dies gewährleistet, dass Zeichenklassen nur mit Zeichenketten von endlicher Länge mit endlich vielen Möglichkeiten übereinstimmen können.
 
-Da die Zeichenklassensyntax jetzt ausgeklügelter ist, sind weitere Zeichen reserviert und dürfen nicht wörtlich erscheinen.
+Da die Syntax der Zeichenklasse nun ausgefeilter ist, sind mehr Zeichen reserviert und dürfen nicht wörtlich erscheinen.
 
-- Zusätzlich zu `]` und `\` müssen die folgenden Zeichen in Zeichenklassen entkommen werden, wenn sie literale Zeichen darstellen: `(`, `)`, `[`, `{`, `}`, `/`, `-`, `|`. Diese Liste ähnelt der Liste der [Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character), außer dass `^`, `$`, `*`, `+` und `?` innerhalb von Zeichenklassen nicht reserviert sind, während `/` und `-` außerhalb von Zeichenklassen nicht reserviert sind (obwohl `/` ein Regex-Literal begrenzen kann und daher dennoch entkommen werden muss). All diese Charaktere können auch optional in `u`-Modus Zeichenklassen entkommen werden.
-- Die folgenden "doppelten Punktuatoren" Sequenzen müssen ebenfalls entkommen werden (sie machen jedoch ohne das `v` Flag wenig Sinn): `&&`, `!!`, `##`, `$$`, `%%`, `**`, `++`, `,,`, `..`, `::`, `;;`, `<<`, `==`, `>>`, `??`, `@@`, `^^`, ` `` `, `~~`. Im `u` Modus können einige dieser Zeichen nur wörtlich innerhalb von Zeichenklassen erscheinen und führen zu einem Syntaxfehler, wenn sie entkommen werden. Im `v` Modus müssen sie entkommen werden, wenn sie paarweise erscheinen, können jedoch optional entkommen werden, wenn sie allein erscheinen. Zum Beispiel ist `/[\!]/u` ungültig, weil es ein [Identitäts-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) ist, aber sowohl `/[\!]/v` als auch `/[!]/v` sind gültig, während `/[!!]/v` ungültig ist. Die [wörtliche Zeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Referenz bietet eine detaillierte Tabelle, welche Zeichen entkommen oder nicht entkommen erscheinen können.
+- Zusätzlich zu `]` und `\` müssen die folgenden Zeichen in Zeichenklassen entkommen werden, wenn sie wörtliche Zeichen darstellen: `(`, `)`, `[`, `{`, `}`, `/`, `-`, `|`. Diese Liste ist der Liste der [Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) etwas ähnlich, außer dass `^`, `$`, `*`, `+` und `?` innerhalb von Zeichenklassen nicht reserviert sind, während `/` und `-` außerhalb von Zeichenklassen nicht reserviert sind (obwohl `/` ein Regex-Literal abgrenzen kann und daher immer noch entkommen werden muss). Alle diese Zeichen können in `u`-Modus-Zeichenklassen auch optional entkommen werden.
+- Die folgenden "doppelten Interpunktionszeichen"-Sequenzen müssen ebenfalls entkommen werden (aber sie machen ohne das `v`-Flag sowieso wenig Sinn): `&&`, `!!`, `##`, `$$`, `%%`, `**`, `++`, `,,`, `..`, `::`, `;;`, `<<`, `==`, `>>`, `??`, `@@`, `^^`, ` `` `, `~~`. Im `u`-Modus können einige dieser Zeichen nur wörtlich innerhalb von Zeichenklassen erscheinen und führen zu einem Syntaxfehler, wenn sie entkommen werden. Im `v`-Modus müssen sie entkommen werden, wenn sie paarweise erscheinen, können aber optional entkommen werden, wenn sie einzeln erscheinen. Zum Beispiel ist `/[\!]/u` ungültig, weil es sich um einen [Identitäts-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) handelt, aber sowohl `/[\!]/v` als auch `/[!]/v` sind gültig, während `/[!!]/v` ungültig ist. Die [Buchstaben](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)-Referenz hat eine detaillierte Tabelle, welche Zeichen entkommen oder unentkommen erscheinen können.
 
-Komplementzeichenklassen `[^...]` können unmöglich Zeichenfolgen länger als ein Zeichen erfassen. Zum Beispiel ist `[\q{ab|c}]` gültig und stimmt mit der Zeichenfolge `"ab"` überein, aber `[^\q{ab|c}]` ist ungültig, weil unklar ist, wie viele Zeichen konsumiert werden sollen. Der Test wird durchgeführt, um zu überprüfen, ob alle `\q` einzelne Zeichen enthalten und alle `\p` Zeichen-Eigenschaften angeben - für Vereinigungen müssen alle Operanden rein Zeichen sein; für Schnittmengen muss mindestens ein Operand rein Zeichen sein; für Subtraktion muss der linkeste Operand rein Zeichen sein. Der Test ist syntaktisch, ohne das tatsächlich spezifizierte Zeichenset zu betrachten, was bedeutet, dass obwohl `/[^\q{ab|c}--\q{ab}]/v` gleichbedeutend ist mit `/[^c]/v`, es weiterhin abgelehnt wird.
+Komplement-Zeichenklassen `[^...]` können nicht mit Zeichenfolgen matchen, die länger als ein Zeichen sind. Zum Beispiel ist `[\q{ab|c}]` gültig und stimmt mit der Zeichenfolge `"ab"` überein, aber `[^\q{ab|c}]` ist ungültig, weil unklar ist, wie viele Zeichen konsumiert werden sollen. Die Überprüfung erfolgt, indem geprüft wird, ob alle `\q` einzelne Zeichen enthalten und alle `\p` Zeichenattribute angeben — für Vereinigungen müssen alle Operanden rein Zeichen sein; für Schnittmengen muss mindestens ein Operand rein Zeichen sein; für Subtraktionen muss der linkeste Operand rein Zeichen sein. Die Überprüfung ist syntaktisch ohne Berücksichtigung des tatsächlich angegebenen Zeichensatzes, was bedeutet, dass obwohl `/[^\q{ab|c}--\q{ab}]/v` gleichwertig mit `/[^c]/v` ist, es dennoch abgelehnt wird.
 
-### Komplementklassen und Groß-/Kleinschreibungs-unabhängige Übereinstimmung
+### Komplementklassen und groß-/kleinschreibungsunabhängiges Matching
 
-Im non-`v`-Modus werden Komplementzeichenklassen `[^...]` implementiert, indem einfach das Übereinstimmungsergebnis invertiert wird — das heißt, `[^...]` stimmt überein, wann immer `[...]` nicht übereinstimmt und umgekehrt. Die anderen Komplementklassen, wie `\P{...}` und `\W`, arbeiten, indem eifrig die Menge aller Zeichen ohne die angegebene Eigenschaft konstruiert wird. Sie scheinen das gleiche Verhalten zu produzieren, werden jedoch komplexer, wenn sie mit der [Groß-/Kleinschreibungs-unabhängigen](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Übereinstimmung kombiniert werden.
+Im Nicht-`v`-Modus werden Komplement-Zeichenklassen `[^...]` einfach durch Invertieren des Matchergebnisses implementiert — das heißt, `[^...]` stimmt, wenn `[...]` nicht übereinstimmt, und umgekehrt. Die anderen Komplementklassen, wie `\P{...}` und `\W`, arbeiten durch die eifrige Konstruktion der Menge, die aus allen Zeichen ohne die angegebene Eigenschaft besteht. Sie scheinen dasselbe Verhalten zu erzeugen, sind jedoch komplexer, wenn sie mit [groß-/kleinschreibungsunabhängigem](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Matching kombiniert werden.
 
 Betrachten Sie die folgenden zwei Regexe:
 
@@ -105,22 +105,22 @@ const r1 = /\p{Lowercase_Letter}/iu;
 const r2 = /[^\P{Lowercase_Letter}]/iu;
 ```
 
-Das `r2` ist eine doppelte Negation und scheint mit `r1` äquivalent zu sein. Aber in der Tat stimmt `r1` mit allen Klein- und Großbuchstaben ASCII Zeichen überein, während `r2` mit keinem übereinstimmt. Um zu veranschaulichen, wie es funktioniert, stellen Sie sich vor, dass wir nur mit ASCII-Zeichen zu tun haben, nicht mit dem gesamten Unicode-Zeichensatz, und `r1` und `r2` wie unten angegeben sind:
+Das `r2` ist eine doppelte Verneinung und scheint mit `r1` gleichwertig zu sein. Tatsächlich stimmt `r1` jedoch mit allen Groß- und Kleinbuchstaben des ASCII-Zeichensatzes überein, während `r2` mit keinem übereinstimmt. Um zu veranschaulichen, wie es funktioniert, stellen Sie sich vor, dass wir nur mit ASCII-Zeichen arbeiten, nicht mit dem gesamten Unicode-Zeichensatz, und `r1` und `r2` wie unten angegeben sind:
 
 ```js
 const r1 = /[a-z]/iu;
 const r2 = /[^A-Z]/iu;
 ```
 
-Erinnern Sie sich daran, dass die Groß-/Kleinschreibung durch das Falten sowohl des Musters als auch des Eingangs in dieselbe Hülle ignoriert wird (siehe {{jsxref("RegExp/ignoreCase", "ignoreCase")}} für weitere Details). Bei `r1` bleibt die Zeichenklasse `a-z` nach dem Falten gleich, während sowohl Groß- als auch Kleinbuchstaben ASCII-Zeichenfolgen zu Kleinbuchstaben gefaltet werden, sodass `r1` mit beiden `"A"` und `"a"` übereinstimmt. Bei `r2` wird die Zeichenklasse `A-Z` zu `a-z` gefaltet; jedoch negiert `^` das Übereinstimmungsergebnis, so dass `[^A-Z]` in der Wirkung nur Großbuchstaben-Zeichenfolgen übereinstimmt. Aber sowohl Groß- als auch Kleinbuchstaben ASCII-Zeichenfolgen werden immer noch zu Kleinbuchstaben gefaltet, was dazu führt, dass `r2` mit nichts übereinstimmt.
+Denken Sie daran, dass die groß-/kleinschreibungsunabhängige Übereinstimmung durch das Falten sowohl des Musters als auch der Eingabe auf dieselbe Groß-/Kleinschreibung erfolgt (siehe {{jsxref("RegExp/ignoreCase", "ignoreCase")}} für weitere Details). Für `r1` bleibt die Zeichenklasse `a-z` nach dem Groß-/Kleinschreibungsfalten dieselbe, während sowohl Groß- als auch Kleinbuchstaben-ASCII-Zeichenketteneingaben auf Kleinbuchstaben gefaltet werden, sodass `r1` sowohl `"A"` als auch `"a"` übereinstimmen kann. Für `r2` wird die Zeichenklasse `A-Z` auf `a-z` gefaltet; jedoch negiert `^` das Matchergebnis, sodass `[^A-Z]` effektiv nur mit Großbuchstabenzeichen übereinstimmt. Beide ASCII-Zeichenketteneingaben werden jedoch immer noch auf Kleinbuchstaben gefaltet, wodurch `r2` nichts übereinstimmt.
 
-Im `v` Modus wird dieses Verhalten behoben — `[^...]` konstruiert ebenfalls eifrig die Komplementklasse anstelle der Invertierung des Übereinstimmungsergebnisses. Dies macht `[^\P{Lowercase_Letter}]` und `\p{Lowercase_Letter}` streng äquivalent.
+Im `v`-Modus wird dieses Verhalten behoben — `[^...]` konstruiert ebenfalls eifrig die Komplementklasse anstelle des Invertierens des Matchergebnisses. Dies macht `[^\P{Lowercase_Letter}]` und `\p{Lowercase_Letter}` strikt gleichwertig.
 
 ## Beispiele
 
-### Übereinstimmung mit hexadezimalen Ziffern
+### Hexadezimalziffern matchen
 
-Die folgende Funktion ermittelt, ob eine Zeichenfolge eine gültige hexadezimale Zahl enthält:
+Die folgende Funktion bestimmt, ob eine Zeichenkette eine gültige Hexadezimalzahl enthält:
 
 ```js
 function isHexadecimal(str) {
@@ -132,9 +132,9 @@ isHexadecimal("beef"); // true
 isHexadecimal("undefined"); // false
 ```
 
-### Verwendung der Schnittmenge
+### Verwendung von Schnittmengen
 
-Die folgende Funktion stimmt mit griechischen Buchstaben überein.
+Die folgende Funktion matcht griechische Buchstaben.
 
 ```js
 function greekLetters(str) {
@@ -145,9 +145,9 @@ function greekLetters(str) {
 greekLetters("π𐆊P0零αAΣ"); // [ 'π', 'α', 'Σ' ]
 ```
 
-### Verwendung der Subtraktion
+### Verwendung von Subtraktionen
 
-Die folgende Funktion stimmt mit allen nicht-ASCII-Nummern überein.
+Die folgende Funktion matcht alle nicht-ASCII-Zahlen.
 
 ```js
 function nonASCIINumbers(str) {
@@ -158,9 +158,9 @@ function nonASCIINumbers(str) {
 nonASCIINumbers("𐆊0零1𝟜𑜹a"); // [ '𝟜', '𑜹' ]
 ```
 
-### Übereinstimmung mit Zeichenfolgen
+### Zeichenfolgen matchen
 
-Die folgende Funktion stimmt mit allen Zeilenbeendigungssequenzen überein, einschließlich der [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) und der Sequenz `\r\n` (CRLF).
+Die folgende Funktion stimmt mit allen Zeilenendesequenzen überein, einschließlich der [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) und der Sequenz `\r\n` (CRLF).
 
 ```js
 function getLineTerminators(str) {
@@ -175,9 +175,9 @@ Stanzas
 `); // [ '\r', '\r\n', '\n' ]
 ```
 
-Dieses Beispiel ist genau äquivalent zu `/(?:\r|\n|\u2028|\u2029|\r\n)/gu` oder `/(?:[\r\n\u2028\u2029]|\r\n)/gu`, jedoch kürzer.
+Dieses Beispiel ist genau äquivalent zu `/(?:\r|\n|\u2028|\u2029|\r\n)/gu` oder `/(?:[\r\n\u2028\u2029]|\r\n)/gu`, nur kürzer.
 
-Der nützlichste Fall von `\q{}` ist, wenn Subtraktion und Schnittmenge durchgeführt werden. Zuvor war dies durch [mehrere Lookaheads](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion#pattern_subtraction_and_intersection) möglich. Die folgende Funktion stimmt mit Flaggen überein, die nicht zu den amerikanischen, chinesischen, russischen, britischen oder französischen Flaggen gehören.
+Der nützlichste Fall von `\q{}` ist, wenn man Subtraktionen und Schnittmengen durchführt. Dies war zuvor mit [mehrfachen Lookaheads](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion#pattern_subtraction_and_intersection) möglich. Die folgende Funktion stimmt mit Flaggen überein, die nicht zu den amerikanischen, chinesischen, russischen, britischen und französischen Flaggen gehören.
 
 ```js
 function notUNSCPermanentMember(flag) {
@@ -188,7 +188,7 @@ notUNSCPermanentMember("🇺🇸"); // false
 notUNSCPermanentMember("🇩🇪"); // true
 ```
 
-Dieses Beispiel entspricht größtenteils `/^(?!🇺🇸|🇨🇳|🇷🇺|🇬🇧|🇫🇷)\p{RGI_Emoji_Flag_Sequence}$/v`, ist jedoch möglicherweise performanter.
+Dieses Beispiel ist größtenteils äquivalent zu `/^(?!🇺🇸|🇨🇳|🇷🇺|🇬🇧|🇫🇷)\p{RGI_Emoji_Flag_Sequence}$/v`, möglicherweise jedoch leistungsfähiger.
 
 ## Spezifikationen
 
@@ -202,9 +202,9 @@ Dieses Beispiel entspricht größtenteils `/^(?!🇺🇸|🇨🇳|🇷🇺|🇬�
 
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Zeichenklassen-Ausweichsequenz: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-- [Unicode-Zeichenklassen-Ausweichsequenz: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
-- [Literalzeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
-- [Zeichenausweichung: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichenklassen-Escape: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Unicode-Zeichenklassen-Escape: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
+- [Wörtlicher Charakter: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
+- [Zeichen-Escape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
-- [RegExp v-Flag mit Mengen-Schreibweise und Eigenschaften von Zeichenfolgen](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)
+- [RegExp v-Flag mit Mengennotation und Eigenschaften von Zeichenketten](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)

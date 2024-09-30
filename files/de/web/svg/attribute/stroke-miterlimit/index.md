@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`stroke-miterlimit`** ist ein Präsentationsattribut, das ein Limit für das Verhältnis der Länge der Schräge zur {{ SVGAttr("stroke-width") }} definiert, die verwendet wird, um eine Schrägenverbindung zu zeichnen. Wenn das Limit überschritten wird, wird die Verbindung von einer Schräge zu einer Fase geändert.
+Das **`stroke-miterlimit`**-Attribut ist ein Präsentationsattribut, das eine Grenze für das Verhältnis der Gehrungslänge zur {{ SVGAttr("stroke-width") }} festlegt, die verwendet wird, um eine Gehrungsverbindung zu zeichnen. Wenn das Limit überschritten wird, wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für weitere Informationen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -86,17 +86,17 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 400)}}
 
-Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} festgelegt wurden, kann es möglich sein, dass die Schräge weit über die Dicke der die Pfadlinie überziehenden Linie hinausgeht. Das Verhältnis von `stroke-miterlimit` wird verwendet, um zu definieren, wann das Limit überschritten ist; in diesem Fall wird die Verbindung von einer Schräge zu einer Fase geändert.
+Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} angegeben wurden, kann es möglich sein, dass die Gehrung weit über die Dicke der pfadzeichnenden Linie hinausreicht. Das `stroke-miterlimit`-Verhältnis wird verwendet, um zu definieren, wann das Limit überschritten wird; in diesem Fall wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
 
-Das Verhältnis der Schrägenlänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Schräge) zu {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerraum durch die Formel:
+Das Verhältnis von Gehrungslänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zur {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (theta) zwischen den Segmenten im Benutzerbereich durch die Formel:
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mstyle displaystyle="true"><mi>stroke-miterlimit</mi><mo>=</mo><mfrac><mrow><mi>miterLength</mi></mrow><mrow><mi>stroke-width</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mrow><mi>sin</mi><mrow><mo>(</mo><mfrac><mrow><mo>θ</mo></mrow><mrow><mn>2</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mrow></mfrac></mstyle><annotation encoding="TeX">\text{stroke-miterlimit} = \frac{\text{miterLength}}{\text{stroke-width}} = \frac{1}{\sin\left(\frac{\theta}{2}\right)}</annotation></semantics>
+  <semantics><mstyle displaystyle="true"><mi>stroke-miterlimit</mi><mo>=</mo><mfrac><mrow><mi>miterLength</mi></mrow><mrow><mi>stroke-width</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mrow><mi>sin</mi><mrow><mo>(</mo><mfrac><mrow><mo>θ</mo></mrow><mrow><mn>2</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mrow></mfrac></mstyle><annotation encoding="TeX">\text{stroke-miterlimit} = \frac{\text{miterLength}}{\text{stroke-width}} = \frac{1}{\sin\left(\frac{\theta}{2}\right)}}</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Zum Beispiel: Ein Schrägenlimit von 1.414 wandelt Schrägen in Fasen um, wenn der Winkel weniger als 90 Grad beträgt, ein Limit von 4.0 wandelt sie bei einem Winkel von weniger als etwa 29 Grad um, und ein Limit von 10.0 wandelt sie bei einem Winkel von weniger als etwa 11.5 Grad um.
+Zum Beispiel wandelt ein Gehrungslimit von 1.414 Gehrungen für Theta unter 90 Grad in Fasen um, ein Limit von 4.0 wandelt sie für Theta unter etwa 29 Grad um, und ein Limit von 10.0 wandelt sie für Theta unter etwa 11.5 Grad um.
 
 ## Verwendungskontext
 

@@ -52,13 +52,13 @@ svg {
   - : Der vertikale Eckradius des Rechtecks. Standardmäßig `rx`, falls angegeben.
     _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Die Gesamtlänge des Rechteckumfangs in Benutzereinheiten.
+  - : Die Gesamtlänge des Umfangs des Rechtecks in Benutzereinheiten.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 > [!NOTE]
-> Ab SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für das Element verwendet werden können.
+> Ab SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrie-Eigenschaften_, d.h. diese Attribute können auch als CSS-Eigenschaften für dieses Element verwendet werden.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -72,5 +72,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 - Weitere grundlegende SVG-Formen: {{SVGElement('circle')}}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, **{{ SVGElement('polygon') }}**, {{ SVGElement('polyline') }}

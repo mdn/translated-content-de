@@ -1,16 +1,16 @@
 ---
-title: "WebGLRenderingContext: clearColor() Methode"
+title: "WebGLRenderingContext: Methode clearColor()"
 short-title: clearColor()
 slug: Web/API/WebGLRenderingContext/clearColor
 l10n:
-  sourceCommit: 77fdcfe19d02980986142ae61ab8d4eacd713ffc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.clearColor()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Farbwerte an, die beim Löschen von Farb-Puffern verwendet werden.
+Die **`WebGLRenderingContext.clearColor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Farbwerte an, die zum Löschen von Farb-Puffern verwendet werden.
 
-Diese Methode spezifiziert, welche Farbwerte bei dem Aufruf der [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) Methode verwendet werden. Die Werte werden zwischen 0 und 1 begrenzt.
+Dies legt fest, welche Farbwerte verwendet werden, wenn die [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)-Methode aufgerufen wird. Die Werte werden zwischen 0 und 1 begrenzt.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ clearColor(red, green, blue, alpha)
 - `blue`
   - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den blauen Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 - `alpha`
-  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den Alpha- (Transparenz-) Wert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den Alpha-(Transparenz-)Wert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Keine ({{jsxref("undefined")}}).
 gl.clearColor(1, 0.5, 0.5, 1);
 ```
 
-Um die aktuelle Löschfarbe zu ermitteln, fragen Sie die `COLOR_CLEAR_VALUE` Konstante ab, die eine {{jsxref("Float32Array")}} zurückgibt.
+Um die aktuelle Clear-Farbe zu erhalten, fragen Sie die `COLOR_CLEAR_VALUE`-Konstante ab, die einen {{jsxref("Float32Array")}} zurückgibt.
 
 ```js
 gl.getParameter(gl.COLOR_CLEAR_VALUE);

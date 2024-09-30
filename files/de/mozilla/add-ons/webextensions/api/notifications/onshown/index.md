@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird unmittelbar nach der Anzeige einer Benachrichtigung ausgelöst.
+Wird unmittelbar nach dem Anzeigen einer Benachrichtigung ausgelöst.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beenden Sie das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -43,7 +43,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Fügen Sie einen Listener für das `notifications.onShown`-Ereignis hinzu und protokollieren Sie die Details:
+Fügen Sie einen Listener zum `notifications.onShown`-Ereignis hinzu und protokollieren Sie dessen Details:
 
 ```js
 function logShown(itemId) {
@@ -59,4 +59,4 @@ browser.notifications.onShown.addListener(logShown);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

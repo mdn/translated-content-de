@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`TextEncoder.encoding`**-Eigenschaft gibt eine Zeichenkette zurück, die den Namen des von einem bestimmten Encoder verwendeten Kodierungsalgorithmus enthält.
+Die **`TextEncoder.encoding`** schreibgeschützte Eigenschaft gibt einen String zurück, der den Namen des von diesem speziellen Encoder verwendeten Kodierungsalgorithmus enthält.
 
-Es kann nur den folgenden Wert haben: `utf-8`.
+Sie kann nur den folgenden Wert haben: `utf-8`.
 
 ## Wert
 
-Eine Zeichenkette mit dem Wert `utf-8`.
+Ein String mit dem Wert `utf-8`.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Eine Zeichenkette mit dem Wert `utf-8`.
 
 ## Siehe auch
 
-- Das [`TextEncoder`](/de/docs/Web/API/TextEncoder)-Interface, zu dem es gehört.
+- Die [`TextEncoder`](/de/docs/Web/API/TextEncoder) Schnittstelle, zu der sie gehört.

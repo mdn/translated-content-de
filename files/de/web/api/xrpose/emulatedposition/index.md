@@ -8,42 +8,21 @@ l10n:
 
 {{APIRef}}{{SecureContext_Header}}
 
-Das `emulatedPosition` schreibgeschützte Attribut der
-[`XRPose`](/de/docs/Web/API/XRPose) Schnittstelle ist ein Boolescher Wert, der angibt, ob die
-[`position`](/de/docs/Web/API/XRRigidTransform/position) Komponente des Posen
-[`transform`](/de/docs/Web/API/XRPose/transform) direkt vom XR-Gerät übernommen wird oder
-ob sie simuliert oder basierend auf anderen Quellen berechnet wird.
+Das schreibgeschützte Attribut `emulatedPosition` der [`XRPose`](/de/docs/Web/API/XRPose) Schnittstelle ist ein boolescher Wert, der angibt, ob die [`position`](/de/docs/Web/API/XRRigidTransform/position)-Komponente der Pose's [`transform`](/de/docs/Web/API/XRPose/transform) direkt vom XR-Gerät bezogen wird oder ob sie simuliert oder basierend auf anderen Quellen berechnet wird.
 
 ## Wert
 
-Ein Boolescher Wert, der `true` ist, wenn die Position der Pose basierend auf
-Schätzungen berechnet oder von anderen als direkten Sensordaten abgeleitet wird. Wenn die Position
-präzise auf direkten Sensor-Eingaben basiert, ist der Wert `false`.
+Ein Boolescher Wert, der `true` ist, wenn die Position der Pose basierend auf Schätzungen berechnet oder aus anderen Quellen als den direkten Sensordaten abgeleitet wird. Wenn die Position genau auf direkten Sensoreingaben basiert, ist der Wert `false`.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Es gibt zwei grundlegende Kategorien von XR-Trackingsystemen. Ein einfaches XR-Headset bietet
-drei Freiheitsgrade (3DoF), indem es die Neigung, Gierung und Rollbewegung des Kopfes des Benutzers verfolgt.
-Es sind keine Informationen über Bewegungen vorwärts, rückwärts oder seitlich verfügbar. Solche
-Daten stammen aus anderen Quellen, wie Tastatur- oder Mauseingaben oder Game-Controllern.
-Daher gilt die Position als emuliert, sodass die `emulatedPosition`-
-Eigenschaft `true` ist.
+Es gibt zwei grundlegende Kategorien von XR-Tracking-Systemen. Ein grundlegendes XR-Headset bietet drei Freiheitsgrade (3DoF), indem es die Neigung, die Gier und die Rollbewegungen des Kopfes des Benutzers verfolgt. Es liegen keine Informationen über Bewegungen nach vorne, hinten oder zu den Seiten vor. Solche Daten werden aus anderen Quellen wie Tastatur- oder Mauseingaben oder Game-Controllern entnommen. Daher wird die Position als emuliert betrachtet, und die `emulatedPosition`-Eigenschaft ist `true`.
 
-Im Gegensatz dazu erfordern XR-Geräte, die auch Bewegungen vorwärts und rückwärts sowie
-seitlich verfolgen können—Sechs Freiheitsgrad (6DoF) Geräte—keine Informationen aus anderen
-Quellen, um die Position des Benutzers zu bestimmen, sodass der Wert der `emulatedPosition`
-`false` ist.
+Im Gegensatz dazu erfordern XR-Geräte, die auch Bewegungen nach vorne und hinten sowie seitlich verfolgen können—sechs Freiheitsgrade (6DoF) Geräte—keine Informationen aus anderen Quellen, um die Position des Benutzers zu bestimmen, sodass der Wert von `emulatedPosition` `false` ist.
 
-Dasselbe Konzept gilt nicht nur für den Kopf des Benutzers, sondern für jedes Objekt. Ein Hand-
-Controller, der seine Position direkt melden kann, hätte ebenfalls den Wert
-`false` für diese Eigenschaft. Wenn seine Position als Offset
-von einem anderen Objekt berechnet wird (etwa basierend auf dem Modell des Körpers des Benutzers),
-dann ist dieser Wert `true`.
+Dieselbe Vorstellung gilt nicht nur für den Kopf des Benutzers, sondern für jedes Objekt. Ein Hand-Controller, der seine Position direkt melden kann, hätte für diese Eigenschaft ebenfalls den Wert `false`. Wenn seine Position als Offset von einem anderen Objekt berechnet wird (z.B. basierend auf dem Modell, das den Körper des Benutzers darstellt), dann ist dieser Wert `true`.
 
-Diese Information ist wichtig, weil Geräte, deren Position emuliert wird, dazu neigen,
-dass ihr Offset im Laufe der Zeit relativ zur realen Welt driftet. Das liegt daran,
-dass die Emulation einer Position auf Basis von Beschleunigungsmessereingaben und Modellen
-dazu neigt, kleinere Fehler einzuführen, die sich über die Zeit aufaddieren.
+Diese Informationen sind wichtig, da Geräte, deren Position emuliert ist, dazu neigen, im Verlauf der Zeit relativ zum realen Raum abzuweichen. Dies liegt daran, dass die Emulation einer Position basierend auf Beschleunigungsmessereingaben und Modellen dazu neigt, kleinere Fehler zu erzeugen, die sich mit der Zeit addieren.
 
 ## Spezifikationen
 

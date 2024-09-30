@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`links`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Sammlung aller {{HTMLElement("area")}}-Elemente und {{HTMLElement("a")}}-Elemente in einem Dokument zurückgibt, die einen Wert für das [href](/de/docs/Web/HTML/Element/a#href)-Attribut haben.
+Die schreibgeschützte **`links`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine Sammlung aller {{HTMLElement("area")}}-Elemente und {{HTMLElement("a")}}-Elemente in einem Dokument zurück, die einen Wert für das [href](/de/docs/Web/HTML/Element/a#href)-Attribut haben.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 

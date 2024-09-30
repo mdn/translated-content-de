@@ -7,29 +7,29 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL", "Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL") }}
 
-## Das Quadrat drehen lassen
+## Das Quadrat rotieren lassen
 
-In diesem Beispiel werden wir tatsächlich unsere Kamera drehen. Auf diese Weise sieht es so aus, als ob wir das Quadrat drehen würden. Zuerst benötigen wir einige Variablen, um die aktuelle Drehung der Kamera zu verfolgen.
+In diesem Beispiel werden wir tatsächlich unsere Kamera rotieren. Dadurch sieht es so aus, als ob wir das Quadrat rotieren. Zuerst benötigen wir einige Variablen, um die aktuelle Rotation der Kamera zu verfolgen.
 
 > [!NOTE]
-> Fügen Sie diesen Code am Anfang Ihres "webgl-demo.js"-Skripts hinzu:
+> Fügen Sie diesen Code am Anfang Ihres "webgl-demo.js"-Scripts hinzu:
 
 ```js
 let squareRotation = 0.0;
 let deltaTime = 0;
 ```
 
-Jetzt müssen wir die `drawScene()`-Funktion aktualisieren, um die aktuelle Drehung auf die Kamera anzuwenden, wenn sie gezeichnet wird. Nachdem wir die Kamera auf die ursprüngliche Zeichenposition für das Quadrat verschoben haben, wenden wir die Drehung an.
+Jetzt müssen wir die `drawScene()`-Funktion aktualisieren, um die aktuelle Rotation auf die Kamera anzuwenden, wenn wir sie zeichnen. Nachdem die Kamera an die anfängliche Zeichenposition für das Quadrat verschoben wurde, wenden wir die Rotation an.
 
 > [!NOTE]
-> Aktualisieren Sie in Ihrem "draw-scene.js"-Modul die Deklaration Ihrer `drawScene()`-Funktion, damit ihr die zu verwendende Drehung übergeben werden kann:
+> In Ihrem Modul "draw-scene.js" aktualisieren Sie die Deklaration Ihrer `drawScene()`-Funktion, damit sie die zu verwendende Rotation übergeben bekommt:
 
 ```js-nolint
 function drawScene(gl, programInfo, buffers, squareRotation) {
 ```
 
 > [!NOTE]
-> Fügen Sie in Ihrer `drawScene()`-Funktion direkt nach dem Aufruf `mat4.translate()` diesen Code hinzu:
+> Fügen Sie in Ihrer `drawScene()`-Funktion direkt nach dem Aufruf von `mat4.translate()` diesen Code hinzu:
 
 ```js
 mat4.rotate(
@@ -40,12 +40,12 @@ mat4.rotate(
 ); // axis to rotate around
 ```
 
-Dies dreht die modelViewMatrix um den aktuellen Wert von `squareRotation` um die Z-Achse.
+Dies dreht die modelViewMatrix um den aktuellen Wert von `squareRotation`, um die Z-Achse.
 
 Um tatsächlich zu animieren, müssen wir Code hinzufügen, der den Wert von `squareRotation` im Laufe der Zeit ändert.
 
 > [!NOTE]
-> Fügen Sie diesen Code am Ende Ihrer `main()`-Funktion hinzu, und ersetzen Sie den vorhandenen `drawScene()`-Aufruf:
+> Fügen Sie diesen Code am Ende Ihrer `main()`-Funktion hinzu, indem Sie den bestehenden `drawScene()`-Aufruf ersetzen:
 
 ```js
 let then = 0;
@@ -64,12 +64,12 @@ function render(now) {
 requestAnimationFrame(render);
 ```
 
-Dieser Code verwendet `requestAnimationFrame`, um den Browser zu bitten, bei jedem Frame die Funktion `render` aufzurufen. `requestAnimationFrame` gibt uns die Zeit in Millisekunden seit dem Laden der Seite. Wir konvertieren dies in Sekunden und ziehen dann die letzte Zeit ab, um `deltaTime` zu berechnen, was die Anzahl der Sekunden seit dem letzten gerenderten Frame ist.
+Dieser Code verwendet `requestAnimationFrame`, um den Browser zu bitten, die Funktion `render` bei jedem Frame aufzurufen. `requestAnimationFrame` übergibt uns die Zeit in Millisekunden seit dem Laden der Seite. Wir konvertieren das in Sekunden und ziehen dann die letzte Zeit ab, um `deltaTime` zu berechnen, was die Anzahl der Sekunden seit dem letzten gerenderten Frame ist.
 
-Abschließend aktualisieren wir `squareRotation`.
+Schließlich aktualisieren wir `squareRotation`.
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample4/index.html', 670, 510) }}
 
-[Vollständigen Code anzeigen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample4) | [Demo auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample4/)
+[Sehen Sie den vollständigen Code](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample4) | [Öffnen Sie diese Demo auf einer neuen Seite](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample4/)
 
 {{PreviousNext("Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL", "Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL") }}

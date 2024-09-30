@@ -1,5 +1,5 @@
 ---
-title: "PerformanceElementTiming: toJSON()-Methode"
+title: "PerformanceElementTiming: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceElementTiming/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
+Die **`toJSON()`** Methode des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization). Sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts darstellt.
 
-Das JSON enthält nicht die [`element`](/de/docs/Web/API/PerformanceElementTiming/element)-Eigenschaft, weil diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, der keine `toJSON()`-Operation bietet. Die [`id`](/de/docs/Web/API/PerformanceElementTiming/id) des Elements wird jedoch bereitgestellt.
+Das JSON enthält nicht die [`element`](/de/docs/Web/API/PerformanceElementTiming/element)-Eigenschaft, da diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, der keine `toJSON()`-Operation bereitstellt. Die [`id`](/de/docs/Web/API/PerformanceElementTiming/id) des Elements wird jedoch bereitgestellt.
 
 ## Beispiele
 
@@ -79,7 +79,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft automatisch `toJSON()` auf.
+Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

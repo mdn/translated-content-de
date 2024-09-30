@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: host Eigenschaft"
+title: "WorkerLocation: host-Eigenschaft"
 short-title: host
 slug: Web/API/WorkerLocation/host
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`host`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`host`](/de/docs/Web/API/URL/host)-Teil des Ortes des Workers zurück.
+Die **`host`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`host`](/de/docs/Web/API/URL/host)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -31,4 +31,4 @@ const result = location.host; // Returns 'localhost:8080'
 
 ## Siehe auch
 
-- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Schnittstelle, zu der es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der sie gehört.

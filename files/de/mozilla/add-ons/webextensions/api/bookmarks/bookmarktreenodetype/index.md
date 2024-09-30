@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Der **`bookmarks.BookmarkTreeNodeType`**-Typ wird verwendet, um zu beschreiben, ob ein Knoten im Lesezeichen-Baum ein Lesezeichen, ein Ordner oder ein Trennzeichen ist.
+Der **`bookmarks.BookmarkTreeNodeType`**-Typ wird verwendet, um zu beschreiben, ob ein Knoten im Lesezeichenbaum ein Lesezeichen, ein Ordner oder ein Separator ist.
 
 ## Typ
 
-`bookmarks.BookmarkTreeNodeType` ist ein {{jsxref("string")}}, der einen der folgenden drei Werte annehmen kann:
+`bookmarks.BookmarkTreeNodeType` ist ein {{jsxref("string")}}, das einen der folgenden drei Werte haben kann:
 
 - `"bookmark"`: Der Knoten ist ein Lesezeichen.
 - `"folder"`: Der Knoten ist ein Ordner.
-- `"separator"`: Der Knoten ist ein Trennzeichen.
+- `"separator"`: Der Knoten ist ein Separator.
 
 ## Browser-Kompatibilität
 

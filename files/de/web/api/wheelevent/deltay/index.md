@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`WheelEvent.deltaY`** ist ein
-`double`, das die vertikale Scrollmenge in der
-[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode)-Einheit darstellt.
+Die **`WheelEvent.deltaY`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen `double` darstellt und die vertikale Scrollmenge in der [`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode)-Einheit repräsentiert.
 
 ## Wert
 

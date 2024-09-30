@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: removedNodes-Eigenschaft"
+title: "MutationRecord: removedNodes Eigenschaft"
 short-title: removedNodes
 slug: Web/API/MutationRecord/removedNodes
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`removedNodes`** von [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten, die von einem Zielknoten entfernt wurden, durch eine Mutation, die mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wurde.
+Die schreibgeschützte Eigenschaft **`removedNodes`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten, die von einem Zielknoten durch eine Mutation entfernt wurden, die mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die vom Ziel der durch den [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachteten Mutation entfernten Knoten enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die Knoten enthält, die von dem Ziel der Mutation entfernt wurden, die vom [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Beispiele
 
 ### Beobachten von entfernten Knoten
 
-Im folgendem Beispiel gibt es zwei Schaltflächen: eine, um neue Knoten zu einem Zielknoten hinzuzufügen, und eine, um sie zu entfernen. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten auf Änderungen zu beobachten; wenn eine Änderung festgestellt wird, ruft der Beobachter eine Funktion namens `logRemovedNodes()` auf.
+Im folgenden Beispiel gibt es zwei Schaltflächen: eine, um neue Knoten zu einem Zielknoten hinzuzufügen, und eine, um sie zu entfernen. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten auf Änderungen zu beobachten; wenn eine Änderung erkannt wird, ruft der Beobachter eine Funktion, `logRemovedNodes()`, auf.
 
-Die Funktion `logRemovedNodes()` überprüft, ob der `type` des MutationRecords `childList` ist, was bedeutet, dass sich die Kinder eines Zielknotens geändert haben. Wenn der Typ `childList` ist, aktualisiert die Funktion die Gesamtzahl der entfernten Knoten. Beachten Sie jedoch, dass das Klicken auf die Schaltfläche "Add a node" die Gesamtzahl der entfernten Knoten nicht erhöht, da in diesem Fall `record.removedNodes` eine Länge von `0` hat.
+Die Funktion `logRemovedNodes()` überprüft, ob der `type` des MutationRecord `childList` ist, was bedeutet, dass sich die Kinder des Zielknotens geändert haben. Wenn der Typ `childlist` ist, aktualisiert die Funktion die Gesamtzahl der Knoten, die entfernt wurden. Beachten Sie jedoch, dass das Klicken auf die Schaltfläche "Add a node" die Gesamtzahl der entfernten Knoten nicht erhöht, da in diesem Fall `record.removedNodes` eine Länge von `0` hat.
 
 #### HTML
 

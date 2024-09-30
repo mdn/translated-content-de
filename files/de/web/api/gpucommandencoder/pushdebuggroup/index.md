@@ -1,5 +1,5 @@
 ---
-title: "GPUCommandEncoder: pushDebugGroup()-Methode"
+title: "GPUCommandEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPUCommandEncoder/pushDebugGroup
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der Schnittstelle [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) beginnt eine Debug-Gruppe, die mit einem bestimmten Label gekennzeichnet ist. Sie wird alle nachfolgenden kodierten Befehle umfassen, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup)-Methode aufgerufen wird.
+Die **`pushDebugGroup()`** Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle beginnt eine Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle bis zur Ausführung einer [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup)-Methode enthalten wird.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
+Diese Methode könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
 
 ## Syntax
 
@@ -57,4 +57,4 @@ commandEncoder.popDebugGroup(); // End labeled debug group
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

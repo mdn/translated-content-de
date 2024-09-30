@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`TypedArray.from()`** erstellt ein neues [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects) aus einem array-ähnlichen oder iterierbaren Objekt. Diese Methode ist nahezu identisch mit {{jsxref("Array.from()")}}.
+Die statische Methode **`TypedArray.from()`** erstellt ein neues [Typed Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects) aus einem array-ähnlichen oder iterierbaren Objekt. Diese Methode ist nahezu identisch mit {{jsxref("Array.from()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-from.html", "shorter")}}
 
@@ -18,7 +18,7 @@ TypedArray.from(arrayLike, mapFn)
 TypedArray.from(arrayLike, mapFn, thisArg)
 ```
 
-Wobei `TypedArray` eines der folgenden ist:
+Dabei ist `TypedArray` eines der folgenden:
 
 - {{jsxref("Int8Array")}}
 - {{jsxref("Uint8Array")}}
@@ -36,35 +36,35 @@ Wobei `TypedArray` eines der folgenden ist:
 ### Parameter
 
 - `arrayLike`
-  - : Ein iterierbares oder array-ähnliches Objekt, das in ein typisiertes Array konvertiert werden soll.
+  - : Ein iterierbares oder array-ähnliches Objekt, das in ein Typed Array umgewandelt werden soll.
 - `mapFn` {{optional_inline}}
-  - : Eine Funktion, die für jedes Element des typisierten Arrays aufgerufen wird. Wenn angegeben, wird jeder Wert, der dem Array hinzugefügt werden soll, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird stattdessen dem typisierten Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die auf jedes Element des Typed Arrays angewendet wird. Wenn angegeben, wird jeder Wert, der in das Array aufgenommen werden soll, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird anstelle des Originals dem Typed Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
+      - : Das aktuelle Element, das im Typed Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
+      - : Der Index des aktuellen Elements, das im Typed Array verarbeitet wird.
 - `thisArg` {{optional_inline}}
-  - : Wert, der als `this` beim Ausführen von `mapFn` verwendet wird.
+  - : Wert, der als `this` verwendet wird, wenn `mapFn` ausgeführt wird.
 
 ### Rückgabewert
 
-Eine neue Instanz von {{jsxref("TypedArray")}}.
+Eine neue {{jsxref("TypedArray")}}-Instanz.
 
 ## Beschreibung
 
-Sehen Sie {{jsxref("Array.from()")}} für weitere Details.
+Siehe {{jsxref("Array.from()")}} für weitere Details.
 
-Es gibt einige feine Unterschiede zwischen {{jsxref("Array.from()")}} und `TypedArray.from()` (Hinweis: der unten erwähnte `this`-Wert ist der `this`-Wert, mit dem `TypedArray.from()` aufgerufen wurde, nicht das `thisArg`-Argument, das zum Aufrufen von `mapFn` verwendet wird):
+Es gibt einige subtile Unterschiede zwischen {{jsxref("Array.from()")}} und `TypedArray.from()` (Hinweis: der unten erwähnte `this`-Wert bezieht sich auf den `this`-Wert, mit dem `TypedArray.from()` aufgerufen wurde, nicht auf das `thisArg`-Argument, das verwendet wird, um `mapFn` aufzurufen):
 
 - Wenn der `this`-Wert von `TypedArray.from()` kein Konstruktor ist, wirft `TypedArray.from()` einen {{jsxref("TypeError")}}, während `Array.from()` standardmäßig ein neues {{jsxref("Array")}} erstellt.
-- Das durch `this` konstruierte Objekt muss eine Instanz eines `TypedArray` sein, während `Array.from()` es erlaubt, dass sein `this`-Wert zu einem beliebigen Objekt konstruiert wird.
-- Wenn der `source`-Parameter ein Iterator ist, sammelt `TypedArray.from()` zunächst alle Werte vom Iterator, erstellt dann eine Instanz von `this` mit der Anzahl und setzt schließlich die Werte auf die Instanz. `Array.from()` setzt jeden Wert, wenn er ihn vom Iterator erhält, und setzt dann am Ende seine `length`.
-- `TypedArray.from()` verwendet `[[Set]]`, während `Array.from()` `[[DefineOwnProperty]]` verwendet. Daher wird beim Arbeiten mit {{jsxref("Proxy")}}-Objekten [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set) aufgerufen, um neue Elemente zu erstellen, anstatt [`handler.defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty).
-- Wenn `Array.from()` ein array-ähnliches Objekt erhält, das kein Iterator ist, respektiert es Lücken. `TypedArray.from()` wird sicherstellen, dass das Ergebnis dicht ist.
+- Das durch `this` konstruierte Objekt muss eine `TypedArray`-Instanz sein, während `Array.from()` seinen `this`-Wert zu jedem Objekt konstruieren lassen kann.
+- Wenn der `source`-Parameter ein Iterator ist, sammelt `TypedArray.from()` zuerst alle Werte aus dem Iterator, erstellt dann eine Instanz von `this` unter Verwendung der Anzahl und setzt schließlich die Werte in der Instanz. `Array.from()` setzt jeden Wert, während er ihn vom Iterator erhält, und setzt dann am Ende seine `length`.
+- `TypedArray.from()` verwendet `[[Set]]`, während `Array.from()` `[[DefineOwnProperty]]` verwendet. Daher ruft es bei der Arbeit mit {{jsxref("Proxy")}}-Objekten [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set) auf, um neue Elemente zu erstellen, anstatt [`handler.defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty).
+- Wenn `Array.from()` ein array-ähnliches Objekt erhält, das kein Iterator ist, werden Lücken respektiert. `TypedArray.from()` stellt sicher, dass das Ergebnis dicht ist.
 
 ## Beispiele
 
-### Aus einem iterierbaren Objekt (Set)
+### Von einem iterierbaren Objekt (Set)
 
 ```js
 const s = new Set([1, 2, 3]);
@@ -72,30 +72,30 @@ Uint8Array.from(s);
 // Uint8Array [ 1, 2, 3 ]
 ```
 
-### Aus einem String
+### Von einem String
 
 ```js
 Int16Array.from("123");
 // Int16Array [ 1, 2, 3 ]
 ```
 
-### Verwendung mit Pfeilfunktion und Map
+### Nutzung mit Arrow-Funktion und map
 
-Verwendung einer Pfeilfunktion als Map-Funktion, um die Elemente zu manipulieren
+Verwendung einer Arrow-Funktion als Map-Funktion zur Manipulation der Elemente
 
 ```js
 Float32Array.from([1, 2, 3], (x) => x + x);
 // Float32Array [ 2, 4, 6 ]
 ```
 
-### Erzeugung einer Zahlenfolge
+### Erzeugen einer Zahlenfolge
 
 ```js
 Uint8Array.from({ length: 5 }, (v, k) => k);
 // Uint8Array [ 0, 1, 2, 3, 4 ]
 ```
 
-### Aufruf von from() bei Nicht-TypedArray-Konstruktoren
+### Aufruf von from() auf Nicht-TypedArray Konstruktoren
 
 Der `this`-Wert von `from()` muss ein Konstruktor sein, der eine `TypedArray`-Instanz zurückgibt.
 
@@ -131,7 +131,7 @@ console.log(Int8Array.from.call(NotArray2, [1, 2, 3]));
 ## Siehe auch
 
 - [Polyfill von `TypedArray.from` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.of()")}}
 - {{jsxref("TypedArray.prototype.map()")}}

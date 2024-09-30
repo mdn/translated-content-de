@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toArray()`**-Methode von {{jsxref("Iterator")}}-Instanzen erstellt eine neue {{jsxref("Array")}}-Instanz, die mit den vom Iterator gelieferten Elementen gefüllt ist.
+Die **`toArray()`** Methode von {{jsxref("Iterator")}} Instanzen erstellt eine neue {{jsxref("Array")}} Instanz, die mit den vom Iterator gelieferten Elementen befüllt ist.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue {{jsxref("Array")}}-Instanz, die die Elemente aus dem Iterator in der Reihenfolge enthält, in der sie erzeugt wurden.
+Eine neue {{jsxref("Array")}} Instanz, die die Elemente vom Iterator in der Reihenfolge enthält, in der sie erzeugt wurden.
 
 ## Beispiele
 
 ### Verwendung von toArray()
 
-`iterator.toArray()` ist gleichbedeutend mit `Array.from(iterator)` und `[...iterator]`, außer dass es einfacher zu verketten ist, wenn mehrere Iterator-Hilfsmethoden beteiligt sind. Das folgende Beispiel erstellt einen Iterator, der Terme der Fibonacci-Folge liefert, nimmt die ersten 10 Terme, filtert die ungeraden Zahlen heraus und wandelt das Ergebnis in ein Array um:
+`iterator.toArray()` entspricht `Array.from(iterator)` und `[...iterator]`, außer dass es einfacher zu verketten ist, wenn mehrere Iterator-Hilfsmethoden beteiligt sind. Im folgenden Beispiel wird ein Iterator erstellt, der Begriffe der Fibonacci-Sequenz liefert, die ersten 10 Begriffe nimmt, die ungeraden Zahlen herausfiltert und das Ergebnis in ein Array umwandelt:
 
 ```js
 function* fibonacci() {
@@ -47,7 +47,7 @@ const array = fibonacci()
 console.log(array); // [2, 8, 34]
 ```
 
-Beachten Sie, dass es eine gute Idee ist, `toArray()` als letzten Schritt Ihrer Verarbeitung zu verwenden. Zum Beispiel ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, weil Iterator-Hilfsmethoden faul sind und die Erstellung eines temporären Arrays vermieden wird.
+Beachten Sie, dass es eine gute Idee ist, `toArray()` als letzten Schritt Ihrer Verarbeitung aufzurufen. Zum Beispiel ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, weil Iterator-Helfer lazy sind und die Erstellung eines temporären Arrays vermeiden.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einer Ausdruck auf einmal eine beliebige Anzahl von Tief- und Hochstellungen zuzuordnen und generalisiert das {{ MathMLElement("msubsup") }} Element. Skripte können entweder Präskripte (vor dem Ausdruck platziert) oder Postscripte (nach dem Ausdruck platziert) sein.
+Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um eine beliebige Anzahl von Tief- und Hochstellungen gleichzeitig an einen Ausdruck anzufügen, und verallgemeinert das {{ MathMLElement("msubsup") }}-Element. Skripte können entweder als Vorskripe (vor dem Ausdruck platziert) oder als Nachskripte (nach dem Ausdruck platziert) sein.
 
-MathML verwendet die folgende Syntax: ein Basisausdruck, gefolgt von einer beliebigen Anzahl von Postsubskript-Postsuperskript Paaren (in der angegebenen Reihenfolge angefügt), optional gefolgt von einem `<mprescripts>` und einer beliebigen Anzahl von Präsubskript-Präsuperskript Paaren (in der angegebenen Reihenfolge angefügt). Zusätzlich können leere `<mrow>` Elemente verwendet werden, um fehlende Skripte darzustellen.
+MathML verwendet die unten stehende Syntax: einen Basisausdruck, gefolgt von einer beliebigen Anzahl von Nach-Unterskript-Nach-Oberskript-Paaren (in der angegebenen Reihenfolge angehängt), optional gefolgt von einem `<mprescripts>` und einer beliebigen Anzahl von Vor-Unterskript-Vor-Oberskript-Paaren (in der angegebenen Reihenfolge angehängt). Zusätzlich können leere `<mrow>`-Elemente verwendet werden, um fehlende Skripte darzustellen.
 
 ```html-nolint
 <mmultiscripts>
@@ -30,21 +30,21 @@ MathML verwendet die folgende Syntax: ein Basisausdruck, gefolgt von einer belie
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Tiefstells nach unten zu verschieben.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Tiefgestellten nach unten zu verschieben.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Hochstells nach oben zu verschieben.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Hochgestellten nach oben zu verschieben.
 
 > [!NOTE]
-> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [Legacy MathML Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
 ### Verwendung von `<mprescripts/>`
 
-Kinder nach dem `<mprescripts/>` Element werden als Präskripte (vor dem Basisausdruck) platziert:
+Kinder nach dem `<mprescripts/>`-Element werden als Vorskripe platziert (vor dem Basisausdruck):
 
 ```html-nolint
 <math display="block">
@@ -63,7 +63,7 @@ Kinder nach dem `<mprescripts/>` Element werden als Präskripte (vor dem Basisau
 
 ### Leere Skripte
 
-Leere `<mrow>` Elemente können verwendet werden, um fehlende Skripte darzustellen:
+Leere `<mrow>`-Elemente können verwendet werden, um fehlende Skripte darzustellen:
 
 ```html-nolint
 <math display="block">
@@ -82,7 +82,7 @@ Leere `<mrow>` Elemente können verwendet werden, um fehlende Skripte darzustell
 
 ### Reihenfolge der Skripte
 
-Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis ausdruck angehängt werden:
+Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis angehängt werden:
 
 ```html
 <math display="block">
@@ -119,6 +119,6 @@ Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, 
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Tiefstellung)
-- {{ MathMLElement("msup") }} (Hochstellung)
-- {{ MathMLElement("msubsup") }} (Tief-Hochstellung Paar)
+- {{ MathMLElement("msub") }} (Tiefgestellt)
+- {{ MathMLElement("msup") }} (Hochgestellt)
+- {{ MathMLElement("msubsup") }} (Tief-Hochstellungspaar)

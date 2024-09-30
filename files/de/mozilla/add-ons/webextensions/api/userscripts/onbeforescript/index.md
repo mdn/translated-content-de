@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Das `onBeforeScript`-Ereignis des {{WebExtAPIRef("userScripts","browser.userScripts")}} wird ausgelöst, bevor ein Benutzerskript ausgeführt wird. Es kann nur im API-Skript eingebunden werden, das Skript, das in [`"user_scripts"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) registriert ist, wo es verwendet wird, um zu erkennen, dass die benutzerdefinierten API-Methoden an das Benutzerskript exportiert werden sollten.
+Das `onBeforeScript`-Ereignis der {{WebExtAPIRef("userScripts","browser.userScripts")}} wird ausgelöst, bevor ein User Script ausgeführt wird. Es kann nur im API-Skript enthalten sein, dem Script, das unter [`"user_scripts"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) registriert ist, wo es verwendet wird, um zu erkennen, dass die benutzerdefinierten API-Methoden zum User Script exportiert werden sollen.
 
 ## Syntax
 
@@ -20,36 +20,36 @@ browser.userScripts.onBeforeScript.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er hört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält folgende Argumente:
 
     - `script`
 
-      - : Ein `object`, das das Benutzerskript darstellt, das mit einer Webseite übereinstimmt. Seine Eigenschaften und Methoden sind wie folgt:
+      - : Ein `object`, das das User Script darstellt, das mit einer Webseite übereinstimmt. Seine Eigenschaften und Methoden sind wie folgt:
 
         - `defineGlobals`
-          - : Eine Methode, die ein Objekt exportiert, das Eigenschaften und Methoden enthält, die global für die Benutzerskript-Sandbox verfügbar sind. Diese Methode muss synchron aufgerufen werden, um sicherzustellen, dass das Benutzerskript nicht ausgeführt wurde.
+          - : Eine Methode, die ein Objekt exportiert, das Eigenschaften und Methoden enthält, die global für den User Script Sandbox verfügbar sind. Diese Methode muss synchron aufgerufen werden, um zu gewährleisten, dass das User Script noch nicht ausgeführt wurde.
         - `export`
-          - : Eine Methode, die einen Wert in einen umwandelt, auf den der Benutzerskript-Code zugreifen kann. Diese Methode wird in API-Methoden verwendet, die an das Benutzerskript exportiert werden, um nicht primitive Werte zu liefern oder zu lösen. Die exportierten Objekte können auch Methoden bereitstellen, die der Benutzerskript-Code aufrufen kann.
+          - : Eine Methode, die einen Wert in einen umwandelt, auf den der User Script-Code zugreifen kann. Diese Methode wird in API-Methoden verwendet, die an das User Script exportiert werden, um nicht-primäre Werte abzurufen oder aufzulösen. Die exportierten Objekte können auch Methoden bereitstellen, auf die der User Script-Code zugreifen und die er aufrufen kann.
         - `global`
-          - : Ein `object`, das Zugang zur Sandbox für das Benutzerskript bietet.
+          - : Ein `object`, das Zugriff auf die Sandbox für das User Script bietet.
         - `metadata`
-          - : Die `scriptMetadata`-Eigenschaft, die festgelegt wird, wenn das Benutzerskript mit `userScripts.register` registriert wird.
+          - : Die Eigenschaft `scriptMetadata`, die festgelegt wurde, als das User Script mit `userScripts.register` registriert wurde.
 
 ## Beispiele
 
-Ein Beispiel dafür, wie der Listener verwendet werden könnte:
+Ein Beispiel, wie der Listener verwendet werden könnte:
 
 ```js
 browser.userScripts.onBeforeScript.addListener((script) => {

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Das `change`-Ereignis wird ausgelöst, wenn ein Videospur aktiv oder inaktiv gemacht wird, beispielsweise durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft der Spur.
+Das `change`-Ereignis wird ausgelöst, wenn ein Video-Track aktiv oder inaktiv gemacht wird, zum Beispiel durch Änderung der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft des Tracks.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ toggleTrackButton.addEventListener("click", () => {
 });
 ```
 
-Verwendung der `onchange` Ereignis-Handler-Eigenschaft:
+Verwendung der `onchange`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -69,6 +69,6 @@ toggleTrackButton.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Ziele: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
+- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Zielen: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

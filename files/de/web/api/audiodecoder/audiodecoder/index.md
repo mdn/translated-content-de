@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: AudioDecoder()-Konstruktor"
+title: "AudioDecoder: AudioDecoder() Konstruktor"
 short-title: AudioDecoder()
 slug: Web/API/AudioDecoder/AudioDecoder
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioDecoder()`**-Konstruktor erstellt ein neues [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Objekt mit dem bereitgestellten `init.output`-Callback als Ausgabe-Callback, dem bereitgestellten `init.error`-Callback als Fehler-Callback und setzt den [`AudioDecoder.state`](/de/docs/Web/API/AudioDecoder/state) auf `"unconfigured"`.
+Der **`AudioDecoder()`** Konstruktor erstellt ein neues [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Objekt mit dem bereitgestellten `init.output` Rückruf als Ausgabe-Rückruf, dem bereitgestellten `init.error` Rückruf als Fehler-Rückruf und dem [`AudioDecoder.state`](/de/docs/Web/API/AudioDecoder/state) auf `"unconfigured"` gesetzt.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ new AudioDecoder(init)
 ### Parameter
 
 - `init`
-  - : Ein Wörterbuchobjekt, das zwei erforderliche Callbacks enthält.
+  - : Ein Wörterbuchobjekt, das zwei erforderliche Rückrufe enthält.
     - `output`
-      - : Ein Callback, dem ein einzelnes Argument eines [`AudioData`](/de/docs/Web/API/AudioData)-Objekts übergeben wird.
+      - : Ein Rückruf, der mit einem einzelnen Argument eines [`AudioData`](/de/docs/Web/API/AudioData)-Objekts aufgerufen wird.
     - `error`
-      - : Ein Callback, dem ein einzelnes Argument des ausgelösten Fehlers übergeben wird.
+      - : Ein Rückruf, der mit einem einzelnen Argument des aufgetretenen Fehlers aufgerufen wird.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `AudioDecoder` mit den zwei erforderlichen Callback-Funktionen erstellt: eine zum Verarbeiten des dekodierten Chunks und eine zum Bearbeiten von Fehlern.
+Im folgenden Beispiel wird ein `AudioDecoder` mit den beiden erforderlichen Rückruffunktionen erstellt, einer zum Verarbeiten des dekodierten Chunks und der anderen zur Fehlerbehandlung.
 
 ```js
 const audioDecoder = new AudioDecoder({

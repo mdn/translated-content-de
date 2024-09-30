@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: muted Eigenschaft"
+title: "HTMLMediaElement: muted-Eigenschaft"
 short-title: muted
 slug: Web/API/HTMLMediaElement/muted
 l10n:
@@ -12,7 +12,8 @@ Die **`HTMLMediaElement.muted`**-Eigenschaft gibt an, ob das Media-Element stumm
 
 ## Wert
 
-Ein boolescher Wert. `true` bedeutet stummgeschaltet und `false` bedeutet nicht stummgeschaltet.
+Ein booleanischer Wert. `true` bedeutet stummgeschaltet und `false` bedeutet
+nicht stummgeschaltet.
 
 ## Beispiele
 

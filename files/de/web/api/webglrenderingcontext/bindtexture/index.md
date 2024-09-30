@@ -3,13 +3,13 @@ title: "WebGLRenderingContext: bindTexture()-Methode"
 short-title: bindTexture()
 slug: Web/API/WebGLRenderingContext/bindTexture
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindTexture()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine gegebene
-[`WebGLTexture`](/de/docs/Web/API/WebGLTexture) an ein Ziel (Bindungspunkt).
+Die **`WebGLRenderingContext.bindTexture()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine
+gegebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) an ein Ziel (Bindepunkt).
 
 ## Syntax
 
@@ -21,10 +21,10 @@ bindTexture(target, texture)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP`: Eine Würfelkartierungstextur.
+    - `gl.TEXTURE_CUBE_MAP`: Eine würfelgemappte Textur.
       Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}}
       sind zusätzlich folgende Werte verfügbar:
 
@@ -40,13 +40,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `gl.INVALID_ENUM`-Fehler wird ausgegeben, wenn `target` nicht
+Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht
 `gl.TEXTURE_2D`, `gl.TEXTURE_CUBE_MAP`,
 `gl.TEXTURE_3D` oder `gl.TEXTURE_2D_ARRAY` ist.
 
 ## Beispiele
 
-### Binden einer Textur
+### Eine Textur binden
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -56,7 +56,7 @@ const texture = gl.createTexture();
 gl.bindTexture(gl.TEXTURE_2D, texture);
 ```
 
-### Abrufen der aktuellen Bindungen
+### Aktuelle Bindungen abfragen
 
 Um die aktuelle Texturbindung zu überprüfen, fragen Sie die Konstanten `gl.TEXTURE_BINDING_2D` oder
 `gl.TEXTURE_BINDING_CUBE_MAP` ab.

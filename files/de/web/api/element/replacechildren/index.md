@@ -1,5 +1,5 @@
 ---
-title: "Element: replaceChildren()-Methode"
+title: "Element: replaceChildren() Methode"
 short-title: replaceChildren()
 slug: Web/API/Element/replaceChildren
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.replaceChildren()`**-Methode ersetzt die vorhandenen Kinder eines [`Node`](/de/docs/Web/API/Node) durch einen bestimmten neuen Satz von Kindern. Diese können Zeichenfolgen oder [`Node`](/de/docs/Web/API/Node)-Objekte sein.
+Die **`Element.replaceChildren()`** Methode ersetzt die vorhandenen Kinder eines [`Node`](/de/docs/Web/API/Node) mit einem angegebenen neuen Satz von Kindern. Diese können Zeichenfolgen oder [`Node`](/de/docs/Web/API/Node) Objekte sein.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ replaceChildren(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Ein Satz von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, mit denen die vorhandenen Kinder des `Element` ersetzt werden sollen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Element` von allen Kindknoten geleert.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die die vorhandenen Kinder des `Element` ersetzen sollen. Wenn keine Ersetzungsobjekte angegeben werden, wird das `Element` von allen Kindknoten geleert.
 
 ### Rückgabewert
 
@@ -30,21 +30,21 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die [Beschränkungen des Knotenbaums](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
+  - : Wird ausgelöst, wenn die [Einschränkungen des Knotendiagramms](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
 
 ## Beispiele
 
 ### Einen Knoten leeren
 
-`replaceChildren()` bietet einen sehr bequemen Mechanismus, um einen Knoten von all seinen Kindern zu leeren. Sie rufen es am übergeordneten Knoten ohne Argumente auf:
+`replaceChildren()` bietet einen sehr bequemen Mechanismus, um einen Knoten von all seinen Kindern zu leeren. Sie rufen es auf dem übergeordneten Knoten ohne Angabe eines Arguments auf:
 
 ```js
 myNode.replaceChildren();
 ```
 
-### Knoten zwischen Elementen verschieben
+### Knoten zwischen Elementen übertragen
 
-`replaceChildren()` ermöglicht es Ihnen, Knoten leicht zwischen Elementen zu verschieben, ohne auf umständlichen Schleifencode zurückgreifen zu müssen. Angenommen, wir haben eine einfache Anwendung, die es Ihnen ermöglicht, auszuwählen, welches Essen Sie für Ihre Party möchten. Dieses HTML könnte so aussehen:
+`replaceChildren()` ermöglicht es Ihnen, Knoten mühelos zwischen Elementen zu übertragen, ohne auf umständlichen Schleifencode zurückgreifen zu müssen. Angenommen, wir haben eine einfache Anwendung, die Ihnen erlaubt, auszuwählen, welches Essen Sie für Ihre Party möchten. Dieses HTML könnte ungefähr so aussehen:
 
 ```html
 <h2>Party food option list</h2>
@@ -87,7 +87,7 @@ myNode.replaceChildren();
 </main>
 ```
 
-Es würde sinnvoll sein, etwas einfaches CSS zu verwenden, um die beiden Auswahllisten in einer Zeile nebeneinander anzuordnen, mit den Steuertasten dazwischen:
+Es wäre sinnvoll, ein einfaches CSS zu verwenden, um die beiden Auswahllisten nebeneinander anzuordnen, mit den Steuerungstasten dazwischen:
 
 ```css
 main {
@@ -114,9 +114,9 @@ select {
 }
 ```
 
-Was wir tun wollen, ist, alle ausgewählten Optionen in der "Nein"-Liste zur "Ja"-Liste zu übertragen, wenn die "Ja"-Taste gedrückt wird, und alle ausgewählten Optionen in der "Ja"-Liste zur "Nein"-Liste zu übertragen, wenn die "Nein"-Taste gedrückt wird.
+Was wir tun möchten, ist, alle ausgewählten Optionen in der "nein" Liste in die "ja" Liste zu übertragen, wenn die "ja" Taste gedrückt wird, und alle ausgewählten Optionen in der "ja" Liste in die "nein" Liste zu übertragen, wenn die "nein" Taste gedrückt wird.
 
-Dazu geben wir jedem der Tasten einen Klick-Ereignishandler, der die ausgewählten Optionen, die Sie übertragen möchten, in einer Konstanten und die vorhandenen Optionen in der Liste, zu der Sie übertragen, in einer anderen Konstante sammelt. Dann ruft er `replaceChildren()` auf der Liste auf, zu der Sie die Optionen übertragen, und verwendet den Spread-Operator, um alle Optionen in beiden Konstanten zu übergeben.
+Um dies zu tun, geben wir jeder der Schaltflächen einen Klick-Ereignishandler, der die ausgewählten Optionen, die Sie übertragen möchten, in einer Konstante zusammenfasst, und die vorhandenen Optionen in der Liste, zu der Sie übertragen, in einer anderen Konstante. Dann wird `replaceChildren()` auf der Liste aufgerufen, zu der Sie die Optionen übertragen möchten, und der Spread-Operator wird verwendet, um alle in beiden Konstanten enthaltenen Optionen zu übergeben.
 
 ```js
 const noSelect = document.getElementById("no");

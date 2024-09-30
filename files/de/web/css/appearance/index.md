@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`appearance`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um UI-Elemente mit plattformspezifischem Styling basierend auf dem Thema des Betriebssystems anzuzeigen.
+Die **`appearance`**-Eigenschaft von [CSS](/de/docs/Web/CSS) wird verwendet, um UI-Elemente mit plattformabhängiger Gestaltung anzuzeigen, basierend auf dem Theme des Betriebssystems.
 
 {{EmbedInteractiveExample("pages/css/appearance.html")}}
 
-Vor der Standardisierung erlaubte diese Eigenschaft, dass Elemente als Widgets, wie Schaltflächen oder Kontrollkästchen, angezeigt werden. Es wurde als Fehlfeature angesehen, und Autoren werden ermutigt, jetzt nur noch standardisierte Schlüsselwörter zu verwenden.
+Vor der Standardisierung ermöglichte diese Eigenschaft die Anzeige von Elementen als Widgets, wie Schaltflächen oder Auswahlkästchen. Es wurde als Missfeature betrachtet, und Autoren werden ermutigt, nur noch standardmäßige Schlüsselwörter zu verwenden.
 
 > [!NOTE]
-> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert die Implementierung. In älteren Browsern hat sogar das Schlüsselwort `none` nicht denselben Effekt auf alle Formularelemente in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern kleiner.
+> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert ihre Implementierung. In älteren Browsern hat selbst das Schlüsselwort `none` nicht die gleiche Wirkung auf alle Formularelemente über verschiedene Browser hinweg, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern kleiner.
 
 ## Syntax
 
@@ -39,40 +39,40 @@ appearance: checkbox;
 
 ### Werte
 
-Für die folgenden Schlüsselwörter wählt der Benutzeragent das entsprechende Styling basierend auf dem Element aus.
-Es werden einige Beispiele gegeben, aber die Liste ist nicht vollständig.
+Für die folgenden Schlüsselwörter wählt der Benutzeragent die passende Gestaltung basierend auf dem Element.
+Einige Beispiele werden bereitgestellt, aber die Liste ist nicht vollständig.
 
 - `none`
 
-  - : Verbirgt bestimmte Merkmale von Widgets, wie der Pfeil, der im `select` Element angezeigt wird und anzeigt, dass die Liste erweitert werden kann.
+  - : Verbirgt bestimmte Eigenschaften von Widgets, wie den Pfeil, der in einem Auswahl-Element angezeigt wird und darauf hinweist, dass die Liste erweitert werden kann.
 
 - `auto`
 
-  - : Wirkt als `none` bei Elementen ohne spezielles Styling.
+  - : Verhält sich wie `none` bei Elementen ohne spezielle Gestaltung.
 
 - `<compat-special>`
 
-  - : Einer von `menulist-button` oder `textfield`.
-    Beide dieser Werte entsprechen `auto` bei Elementen ohne spezielles Styling.
+  - : Eines von `menulist-button` oder `textfield`.
+    Beide Werte sind äquivalent zu `auto` bei Elementen ohne spezielle Gestaltung.
 
 - `<compat-auto>`
 
-  - : Mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button`, und `textarea`.
-    Schlüsselwörter, die dem `auto` entsprechen, um die Kompatibilität mit älteren Browsern zu erhalten.
+  - : Mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button` und `textarea`.
+    Schlüsselwörter, die äquivalent zu `auto` sind, um die Kompatibilität mit älteren Browsern zu erhalten.
 
-#### Nicht standardisierte Werte
+#### Nicht-standardisierte Werte
 
-Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`-moz-appearance`** oder **`-webkit-appearance`** funktionsfähig sein, jedoch nicht mit der standardisierten **`appearance`** Eigenschaft.
+Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`-moz-appearance`** oder **`-webkit-appearance`** funktionieren, jedoch nicht mit der standardmäßigen **`appearance`**-Eigenschaft.
 
 <details>
-<summary>Nicht standardisierte Werte</summary>
+<summary>Nicht-standardisierte Werte</summary>
 
-- Firefox-Einträge zeigen die Unterstützung mit `-moz-appearance`.
-- Chrome-, Edge- und Safari-Einträge unten zeigen die Unterstützungsversion für Werte, die mit der `-webkit-appearance` vendor-präfix Eigenschaft verwendet werden.
-- Werte mit einem Sternchen (\*) sind klar für die Entfernung vorgesehen.
-- Für jede Zelle von Browserversion und Wert:
+- Mozilla-Einträge zeigen Unterstützung für `-moz-appearance` an.
+- Einträge für Chrome, Edge und Safari unten geben die Release-Version an, die Werte mit dem `-webkit-appearance`-Vendor-Präfix unterstützt.
+- Werte mit einem Sternchen (\*) haben eine klare Absicht zur Entfernung.
+- Für jede Zelle des Browser-Versions- und Wertepaar:
   - `Y{version}`: zeigt an, dass ein Wert bis einschließlich `{version}` unterstützt wird
-  - `N{version}`: Unterstützung wurde in einer Version früher als `{version}` entfernt
+  - `N{version}`: Unterstützung wurde in einer früheren Version als `{version}` entfernt
   - eine leere Zelle zeigt an, dass die Unterstützung nie hinzugefügt wurde
 
 | Wert                                   | Safari  | Firefox | Chrome    | Edge   |
@@ -165,7 +165,8 @@ Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`
 
 ### Benutzerdefiniertes Styling anwenden
 
-Das folgende Beispiel zeigt, wie das Standardstyling von einem `checkbox` und einem `select` Element entfernt und benutzerdefiniertes Styling angewendet wird. Das Aussehen des `checkbox` wird zu einem Kreis geändert, und das `select` Element zeigt, wie der Pfeil entfernt wird, der anzeigt, dass die Liste erweitert werden kann.
+Das folgende Beispiel zeigt, wie das Standard-Styling eines Auswahlkästchens und eines Auswahl-Elements entfernt und ein benutzerdefiniertes Styling angewendet wird.
+Das Auswahlkästchen wird in einen Kreis umgewandelt, und das Auswahl-Element zeigt, wie man den Pfeil entfernt, der darauf hinweist, dass die Liste erweitert werden kann.
 
 #### HTML
 

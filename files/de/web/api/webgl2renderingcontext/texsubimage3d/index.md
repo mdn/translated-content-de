@@ -1,15 +1,16 @@
 ---
-title: "WebGL2RenderingContext: Methode texSubImage3D()"
+title: "WebGL2RenderingContext: texSubImage3D()-Methode"
 short-title: texSubImage3D()
 slug: Web/API/WebGL2RenderingContext/texSubImage3D
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.texSubImage3D()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein Teilrechteck der aktuellen Textur.
+Die **`WebGL2RenderingContext.texSubImage3D()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt ein Teilrechteck der
+aktuellen Textur an.
 
 ## Syntax
 
@@ -24,39 +25,39 @@ texSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, fo
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) der aktiven Textur angibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven Textur angibt.
     Mögliche Werte:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailstufe angibt. Stufe 0 ist die Basisbildstufe
-    und Stufe _n_ ist die n-te Mipmap-Reduktionsstufe.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Detailstufe angibt. Stufe 0 ist die Basisebene
+    des Bildes und Stufe _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `xoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den x-Offset innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den x-Versatz innerhalb des Texturbildes angibt.
 - `yoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den y-Offset innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den y-Versatz innerhalb des Texturbildes angibt.
 - `zoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den z-Offset innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den z-Versatz innerhalb des Texturbildes angibt.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Tiefe der Textur angibt.
 - `format`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Texel-Daten angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Texeldaten angibt. Mögliche Werte:
 
-    - `gl.ALPHA`: Verwirft die roten, grünen und blauen Komponenten und liest die
-      alpha-Komponente.
-    - `gl.RGB`: Verwirft die alpha-Komponenten und liest die roten, grünen und
+    - `gl.ALPHA`: Verwift die roten, grünen und blauen Komponenten und liest die
+      Alphakomponente.
+    - `gl.RGB`: Verwift die Alphakomponenten und liest die roten, grünen und
       blauen Komponenten.
-    - `gl.RGBA`: Rote, grüne, blaue und alpha-Komponenten werden aus dem
+    - `gl.RGBA`: Rot, Grün, Blau und Alphakomponenten werden aus dem
       Farb-Puffer gelesen.
-    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, alpha
-      ist 1.0.
+    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha
+      ist 1,0.
     - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz/Alpha-Komponente.
     - `gl.R8`
     - `gl.R16F`
@@ -84,14 +85,14 @@ texSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, fo
 
 - `type`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Texel-Daten angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Texeldaten angibt. Mögliche Werte:
 
     - `gl.UNSIGNED_BYTE`: 8 Bits pro Kanal für `gl.RGBA`
     - `gl.UNSIGNED_SHORT_5_6_5`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
     - `gl.UNSIGNED_SHORT_4_4_4_4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4
-      alpha Bits.
+      Alpha-Bits.
     - `gl.UNSIGNED_SHORT_5_5_5_1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1
-      alpha Bit.
+      Alpha-Bit.
     - `gl.BYTE`
     - `gl.UNSIGNED_SHORT`
     - `gl.SHORT`
@@ -109,11 +110,11 @@ texSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, fo
 
   - : Eines der folgenden Objekte kann als Pixelquelle für die Textur verwendet werden:
 
-    - {{jsxref("Uint8Array")}} (muss verwendet werden, wenn `type` `gl.UNSIGNED_BYTE` ist)
-    - {{jsxref("Uint16Array")}} (muss verwendet werden, wenn `type` entweder
+    - {{jsxref("Uint8Array")}} (muss verwendet werden, wenn der `type` `gl.UNSIGNED_BYTE` ist)
+    - {{jsxref("Uint16Array")}} (muss verwendet werden, wenn der `type` entweder
       `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4`,
       `gl.UNSIGNED_SHORT_5_5_5_1` oder `ext.HALF_FLOAT_OES` ist)
-    - {{jsxref("Float32Array")}} (muss verwendet werden, wenn `type` `gl.FLOAT` ist)
+    - {{jsxref("Float32Array")}} (muss verwendet werden, wenn der `type` `gl.FLOAT` ist)
     - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
     - [`ImageData`](/de/docs/Web/API/ImageData)
     - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
@@ -122,12 +123,11 @@ texSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, fo
 
 - `srcData`
 
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt.
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt.
 
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer)-Daten
-    Speicher. Wird verwendet, um Daten von dem an das `PIXEL_UNPACK_BUFFER` Ziel gebundenen `WebGLBuffer` zur
-    aktuell gebundenen [`WebGLTexture`](/de/docs/Web/WebGLTexture) hochzuladen.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types)-Byte-Versatz in den Datenspeicher des [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten in die aktuell gebundene [`WebGLTexture`](/de/docs/WebGLTexture) vom
+    `WebGLBuffer`, das an das Ziel `PIXEL_UNPACK_BUFFER` gebunden ist, hochzuladen.
 
 ### Rückgabewert
 

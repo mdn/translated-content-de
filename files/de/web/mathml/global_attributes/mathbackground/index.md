@@ -10,7 +10,7 @@ l10n:
 Das **`mathbackground`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [Hintergrundfarbe](/de/docs/Web/CSS/background-color) eines MathML-Elements.
 
 > [!NOTE]
-> Verwenden Sie wann immer möglich CSS für die Gestaltung von MathML. Das `mathbackground` Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen. Es wird von dem, falls gesetzt, CSS `background-color` Eigenschaftswert überschrieben.
+> Verwenden Sie nach Möglichkeit CSS, um MathML zu stylen. Das `mathbackground`-Attribut sollte nur für Anwendungen einbezogen werden, die CSS nicht unterstützen, und wird durch den CSS-Wert der `background-color`-Eigenschaft überschrieben, falls gesetzt.
 
 ## Syntax
 
@@ -45,12 +45,9 @@ Das **`mathbackground`** [globale Attribut](/de/docs/Web/MathML/Global_attribute
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde ein eingeschränkterer Satz von Werten unterstützt.
-  Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;color&gt;")}}
-  Werten.
+- In MathML 3 und früheren Versionen wurde ein begrenzteres Set von Werten unterstützt. Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}-Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht unterstützen.
-  Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entworfen, die CSS nicht unterstützen. Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
 
 ## Browser-Kompatibilität
 

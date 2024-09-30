@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`videoTracks`**-Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle gibt eine Liste der Videospuren zurück, die aktuell im `SourceBuffer` enthalten sind.
+Die schreibgeschützte **`videoTracks`**-Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle gibt eine Liste der aktuell im `SourceBuffer` enthaltenen Videospuren zurück.
 
 ## Wert
 

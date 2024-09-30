@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Atomics.sub()`** statische Methode subtrahiert einen angegebenen Wert an einer angegebenen Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation gewährleistet, dass keine anderen Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.sub()`** subtrahiert einen gegebenen Wert an einer angegebenen Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang erfolgt, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{EmbedInteractiveExample("pages/js/atomics-sub.html")}}
 
@@ -20,7 +20,10 @@ Atomics.sub(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Ganzzahl-typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
+    {{jsxref("BigUint64Array")}}.
 - `index`
   - : Die Position im `typedArray`, von der ein `value` subtrahiert werden soll.
 - `value`
@@ -28,13 +31,12 @@ Atomics.sub(typedArray, index, value)
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einen der erlaubten Integer-Typen hat.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Ganzzahltypen ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 

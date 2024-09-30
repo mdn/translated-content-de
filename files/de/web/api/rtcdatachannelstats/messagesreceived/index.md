@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`messagesReceived`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt die Gesamtanzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) zurück, die für empfangene Nachrichten auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ausgelöst wurden.
+Die **`messagesReceived`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats) Wörterbuchs gibt die Gesamtanzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) zurück, die für empfangene Nachrichten auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ausgelöst wurden.
 
 ## Wert
 

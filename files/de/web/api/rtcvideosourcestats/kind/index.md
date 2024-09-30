@@ -10,7 +10,7 @@ l10n:
 
 Die **`kind`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs ist ein String mit dem Wert `video`.
 
-Der `kind`-Wert wird verwendet, um zwischen Audio- und Videomedienquellen zu unterscheiden, wenn man durch einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert, der beide einen [`type`](/de/docs/Web/API/RTCVideoSourceStats/type) von `media-source` haben (ein `kind` von `audio` weist auf ein [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Objekt hin).
+Das `kind` wird verwendet, um zwischen Audio- und Video-Medienquellen zu unterscheiden, wenn ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert wird, das beide einen [`type`](/de/docs/Web/API/RTCVideoSourceStats/type) von `media-source` haben (ein `kind` von `audio` weist auf ein [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Objekt hin).
 
 ## Wert
 

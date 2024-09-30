@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`seekable`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein neues statisches [normiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft springen kann.
+Die **`seekable`** schreibgeschützte Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein neues statisches [normiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft navigieren kann.
 
 ## Wert
 
-Ein neues statisches [normiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft springen kann.
+Ein neues statisches [normiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft navigieren kann.
 
 ## Beispiele
 
@@ -36,6 +36,6 @@ for (let count = 0; count < timeRangesObject.length; count++) {
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.seekable`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.seekable` Eigenschaft zu definieren
 - [Media Source API](/de/docs/Web/API/Media_Source_Extensions_API)
-- [Medienbuffering, Springen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)
+- [Medienpufferung, Suchvorgänge und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)

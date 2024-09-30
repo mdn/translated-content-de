@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Gibt die X-Koordinate des Berührungspunktes relativ zum Bildschirm zurück, ohne Berücksichtigung eines Scroll-Versatzes.
+Gibt die X-Koordinate des Berührungspunkts relativ zum Bildschirm zurück, ohne Berücksichtigung eines Scrollversatzes.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine Zahl.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie auf die Eigenschaften `Touch.screenX` und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY) des [`Touch`](/de/docs/Web/API/Touch)-Objekts zugegriffen wird. Die `Touch.screenX`-Eigenschaft ist die horizontale (x) Koordinate eines Berührungspunktes relativ zum Bildschirm in CSS-Pixeln. Die [`Touch.screenY`](/de/docs/Web/API/Touch/screenY)-Eigenschaft ist die vertikale Koordinate eines Berührungspunktes relativ zum Bildschirm in CSS-Pixeln.
+Dieses Beispiel zeigt, wie auf die `Touch.screenX`- und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY)-Eigenschaften des [`Touch`](/de/docs/Web/API/Touch)-Objekts zugegriffen wird. Die `Touch.screenX`-Eigenschaft ist die horizontale (x) Koordinate eines Berührungspunkts relativ zum Bildschirm in CSS-Pixeln. Die [`Touch.screenY`](/de/docs/Web/API/Touch/screenY)-Eigenschaft ist die vertikale Koordinate eines Berührungspunkts relativ zum Bildschirm in CSS-Pixeln.
 
-Im folgenden einfachen Code-Snippet nehmen wir an, dass der Benutzer mehrere Berührungskontakte auf einem Element mit der ID `source` initiiert und dann die Kontakte von der Oberfläche löst. Wenn der [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignishandler aufgerufen wird, werden die `Touch.screenX`- und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY)-Koordinaten jedes Berührungspunktes abgerufen.
+Im folgenden einfachen Codeausschnitt gehen wir davon aus, dass der Benutzer mehrere Berührungskontakte auf einem Element mit der ID `source` initiiert und dann die Kontakte mit der Oberfläche loslässt. Wenn der [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignishandler aufgerufen wird, werden die `Touch.screenX`- und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY)-Koordinaten jedes Berührungspunkts abgerufen.
 
 ```js
 // Register a touchstart listeners for the 'source' element

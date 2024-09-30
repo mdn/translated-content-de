@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Authenticator** ist eine Entität, die die kryptografischen Operationen ausführen kann, die erforderlich sind, um Benutzer zu registrieren und zu authentifizieren, und die kryptografischen Schlüssel, die in diesen Operationen verwendet werden, sicher speichern kann.
+Ein **Authenticator** ist eine Instanz, die die kryptografischen Operationen ausführen kann, die erforderlich sind, um Benutzer zu registrieren und zu authentifizieren, und die kryptografischen Schlüssel, die in diesen Operationen verwendet werden, sicher speichern kann.
 
-Ein Authenticator kann in Hardware oder Software implementiert sein. Er kann in das Gerät integriert sein, wie das [Touch ID](https://en.wikipedia.org/wiki/Touch_ID)-System in Apple-Geräten oder das [Windows Hello](https://en.wikipedia.org/wiki/Windows_10#System_security)-System, oder es kann sich um ein entfernbares Modul wie einen [Yubikey](https://en.wikipedia.org/wiki/YubiKey) handeln.
+Ein Authenticator kann in Hardware oder Software implementiert sein. Er kann in das Gerät integriert sein, wie das [Touch ID](https://en.wikipedia.org/wiki/Touch_ID)-System in Apple-Geräten oder das [Windows Hello](https://en.wikipedia.org/wiki/Windows_10#System_security)-System, oder er kann ein abnehmbares Modul wie ein [Yubikey](https://en.wikipedia.org/wiki/YubiKey) sein.
 
-Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) stellt Authenticatoren Webseiten als Teil der [Credential Management API](/de/docs/Web/API/Credential_Management_API) zur Verfügung. Dadurch können Websites Authenticatoren nutzen, um [credentials](/de/docs/Glossary/credential) basierend auf der [public-key cryptography](/de/docs/Glossary/public-key_cryptography) zu generieren, die dann verwendet werden können, um Benutzer auf Websites anzumelden.
+Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) stellt Authenticatoren Websites als Teil der [Credential Management API](/de/docs/Web/API/Credential_Management_API) zur Verfügung. Dies ermöglicht es Websites, Authenticatoren zu verwenden, um [credentials](/de/docs/Glossary/credential) basierend auf [public-key cryptography](/de/docs/Glossary/public-key_cryptography) zu generieren, die dann zum Anmelden von Benutzern auf Websites verwendet werden können.
 
 ## Siehe auch
 

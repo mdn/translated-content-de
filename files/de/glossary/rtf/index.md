@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-RTF (Rich Text Format) ist ein auf einfachem Text basierendes Dateiformat mit Unterstützung für Formatierungsanweisungen (wie fett oder kursiv).
+RTF (Rich Text Format) ist ein Datei-Format, das auf einfachem Text basiert und Unterstützung für Formatierungsanweisungen (wie fett oder kursiv) bietet.
 
-Drei Programmierer im Microsoft Word-Team entwickelten RTF in den 1980er Jahren, und Microsoft entwickelte das Format bis 2008 weiter. Viele Textverarbeitungsprogramme können jedoch weiterhin RTF lesen und schreiben.
+Drei Programmierer im Microsoft-Word-Team haben RTF in den 1980er Jahren entwickelt, und Microsoft hat das Format bis 2008 weiterentwickelt. Viele Textverarbeitungsprogramme können jedoch immer noch RTF lesen und schreiben.
 
 ## Siehe auch
 

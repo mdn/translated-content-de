@@ -1,5 +1,5 @@
 ---
-title: "MediaSource: setLiveSeekableRange()-Methode"
+title: "MediaSource: Methode setLiveSeekableRange()"
 short-title: setLiveSeekableRange()
 slug: Web/API/MediaSource/setLiveSeekableRange
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`setLiveSeekableRange()`**-Methode der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle legt den Bereich fest, in dem der Benutzer im Medienelement suchen kann.
+Die **`setLiveSeekableRange()`**-Methode des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces legt den Bereich fest, der vom Benutzer im Medien-Element angesprungen werden kann.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ setLiveSeekableRange(start, end)
 ### Parameter
 
 - `start`
-  - : Der Beginn des festzulegenden Suchbereichs in Sekunden, gemessen vom Anfang der Quelle. Wenn die Dauer der Medienquelle positiv unendlich ist, dann wird das [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das von der [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable)-Eigenschaft zurückgegeben wird, einen Startzeitstempel haben, der nicht größer ist als dieser Wert.
+  - : Der Beginn des suchbaren Bereichs, der in Sekunden ab dem Beginn der Quelle festgelegt wird. Wenn die Dauer der Medienquelle positiv unendlich ist, wird das von der [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable)-Eigenschaft zurückgegebene [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt einen Startzeitstempel haben, der nicht größer als dieser Wert ist.
 - `end`
-  - : Das Ende des festzulegenden Suchbereichs in Sekunden, gemessen vom Anfang der Quelle. Wenn die Dauer der Medienquelle positiv unendlich ist, dann wird das [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das von der [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable)-Eigenschaft zurückgegeben wird, einen Endzeitstempel haben, der nicht kleiner ist als dieser Wert.
+  - : Das Ende des suchbaren Bereichs, der in Sekunden ab dem Beginn der Quelle festgelegt wird. Wenn die Dauer der Medienquelle positiv unendlich ist, wird das von der [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable)-Eigenschaft zurückgegebene [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt einen Endzeitstempel haben, der nicht kleiner als dieser Wert ist.
 
 ### Rückgabewert
 

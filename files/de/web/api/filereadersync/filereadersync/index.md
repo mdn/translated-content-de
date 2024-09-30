@@ -1,5 +1,5 @@
 ---
-title: "FileReaderSync: FileReaderSync()-Konstruktor"
+title: "FileReaderSync: FileReaderSync() Konstruktor"
 short-title: FileReaderSync()
 slug: Web/API/FileReaderSync/FileReaderSync
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}} {{AvailableInWorkers("worker_except_service")}}
 
-Der **`FileReaderSync()`**-Konstruktor erstellt ein neues [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Objekt.
+Der **`FileReaderSync()`** Konstruktor erstellt ein neues [`FileReaderSync`](/de/docs/Web/API/FileReaderSync).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Objekts mithilfe des `FileReaderSync()`-Konstruktors und die anschließende Verwendung des Objekts:
+Der folgende Codeausschnitt zeigt die Erstellung eines [`FileReaderSync`](/de/docs/Web/API/FileReaderSync) Objekts mittels des `FileReaderSync()` Konstruktors und die anschließende Verwendung des Objekts:
 
 ```js
 function readFile(blob) {
@@ -32,7 +32,7 @@ function readFile(blob) {
 ```
 
 > [!NOTE]
-> Dieser Codeausschnitt muss in einem [`Worker`](/de/docs/Web/API/Worker) verwendet werden, da synchrone Schnittstellen nicht im Hauptthread verwendet werden können.
+> Dieses Snippet muss in einem [`Worker`](/de/docs/Web/API/Worker) verwendet werden, da synchrone Schnittstellen nicht im Hauptthread genutzt werden können.
 
 ## Spezifikationen
 

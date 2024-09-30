@@ -1,12 +1,12 @@
 ---
-title: "WebGLRenderingContext: createProgram() Methode"
+title: "WebGLRenderingContext: createProgram()-Methode"
 short-title: createProgram()
 slug: Web/API/WebGLRenderingContext/createProgram
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.createProgram()`**-Methode der
 [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
@@ -25,7 +25,7 @@ Keine.
 ### Rückgabewert
 
 Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das eine Kombination aus zwei kompilierten
-[`WebGLShader`](/de/docs/Web/API/WebGLShader)-Shadern ist, bestehend aus einem Vertex Shader und einem Fragment Shader (beide in GLSL geschrieben). Diese werden dann in ein nutzbares Programm verlinkt.
+[`WebGLShader`](/de/docs/Web/API/WebGLShader)s ist, bestehend aus einem Vertex-Shader und einem Fragment-Shader (beide in GLSL geschrieben). Diese werden dann zu einem verwendbaren Programm verknüpft.
 
 ## Beispiele
 

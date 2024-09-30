@@ -9,7 +9,7 @@ l10n:
 
 `math:min()` gibt den Minimalwert eines Node-Sets zurück.
 
-Um den Minimalwert des Node-Sets zu berechnen, wird das Node-Set in aufsteigender Reihenfolge sortiert, wie es mit [`xsl:sort()`](/de/docs/Web/XSLT/Element/sort) mit einem Datentyp `number` geschehen würde. Der Minimalwert ist dann der erste Knoten in der sortierten Liste, als Zahl konvertiert.
+Um den Minimalwert des Node-Sets zu berechnen, wird das Node-Set in aufsteigender Reihenfolge sortiert, wie es mit [`xsl:sort()`](/de/docs/Web/XSLT/Element/sort) mit einem Datentyp von `number` erfolgen würde. Der Minimalwert ist dann der erste Knoten in der sortierten Liste, der in eine Zahl umgewandelt wird.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ math:min(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Das Knoten-Set, dessen niedrigster Wert zurückgegeben werden soll.
+  - : Das Node-Set, dessen niedrigster Wert zurückgegeben werden soll.
 
 ### Rückgabewert
 

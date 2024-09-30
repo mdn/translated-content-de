@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("CSS Painting API")}}{{SeeCompatTable}}
 
-Die CSS Painting API — Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Sammlung — erlaubt es Entwicklern, JavaScript-Funktionen zu schreiben, die direkt in den Hintergrund, Rahmen oder Inhalt eines Elements zeichnen können.
+Die CSS Painting API — ein Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) Sammlung von APIs — ermöglicht es Entwicklern, JavaScript-Funktionen zu schreiben, die direkt in den Hintergrund, die Ränder oder den Inhalt eines Elements zeichnen können.
 
 ## Konzepte und Verwendung
 
-Die CSS Painting API enthält im Wesentlichen Funktionen, die es Entwicklern ermöglichen, benutzerdefinierte Werte für {{cssxref('image/paint', 'paint()')}}, eine CSS [`<image>`](/de/docs/Web/CSS/image) Funktion, zu erstellen. Diese Werte können dann auf Eigenschaften wie {{cssxref("background-image")}} angewendet werden, um komplexe benutzerdefinierte Hintergründe auf einem Element zu setzen.
+Im Wesentlichen enthält die CSS Painting API Funktionen, die es Entwicklern ermöglichen, benutzerdefinierte Werte für {{cssxref('image/paint', 'paint()')}}, eine CSS [`<image>`](/de/docs/Web/CSS/image) Funktion, zu erstellen. Diese Werte können dann auf Eigenschaften wie {{cssxref("background-image")}} angewendet werden, um komplexe benutzerdefinierte Hintergründe auf einem Element zu setzen.
 
 Zum Beispiel:
 
@@ -21,28 +21,28 @@ aside {
 }
 ```
 
-Die API definiert einen [`worklet`](/de/docs/Web/API/Worklet), der programmgesteuert ein Bild erzeugen kann, das auf Änderungen des berechneten Stils reagiert. Um mehr darüber zu erfahren, wie dies verwendet wird, lesen Sie [Die CSS Painting API verwenden](/de/docs/Web/API/CSS_Painting_API/Guide).
+Die API definiert einen [`worklet`](/de/docs/Web/API/Worklet), der verwendet werden kann, um ein Bild programmatisch zu erzeugen, das auf Änderungen im berechneten Stil reagiert. Weitere Informationen zur Verwendung finden Sie unter [Verwendung der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide).
 
 ## Schnittstellen
 
 - [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)
-  - : Der globale Ausführungskontext des Paint Worklet.
+  - : Der globale Ausführungskontext des Paint Worklets.
 - [`PaintRenderingContext2D`](/de/docs/Web/API/PaintRenderingContext2D)
-  - : Implementiert einen Teil der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) API. Es verfügt über ein Ausgabebitmap, das die Größe des Objekts hat, auf das es rendert.
+  - : Implementiert einen Teil der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) API. Es hat ein Ausgabebitmap, das die Größe des Objekts hat, auf das es gerendert wird.
 - [`PaintSize`](/de/docs/Web/API/PaintSize)
   - : Gibt die schreibgeschützten Werte der Breite und Höhe des Ausgabebitmaps zurück.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt eine Liste von Elementen mit einem Hintergrundbild, das zwischen drei verschiedenen Farben und drei Breiten rotiert. In einem unterstützenden Browser sehen Sie etwas wie das untenstehende Bild.
+Das folgende Beispiel erstellt eine Liste von Elementen mit einem Hintergrundbild, das zwischen drei verschiedenen Farben und drei Breiten rotiert. In einem unterstützenden Browser sehen Sie etwas wie das Bild unten.
 
-![Die Breite und die Farbe des Hintergrundbilds ändern sich basierend auf den benutzerdefinierten Eigenschaften](guide/boxbg.png)
+![Die Breite und Farbe des Hintergrundbildes ändern sich basierend auf den benutzerdefinierten Eigenschaften](guide/boxbg.png)
 
 Um dies zu erreichen, definieren wir zwei benutzerdefinierte CSS-Eigenschaften, `--boxColor` und `--widthSubtractor`.
 
-### Der Paint Worklet
+### Das Paint Worklet
 
-In unserem Worklet können wir auf diese benutzerdefinierten Eigenschaften verweisen.
+In unserem Worklet können wir diese benutzerdefinierten Eigenschaften referenzieren.
 
 ```js
 registerPaint(
@@ -79,9 +79,9 @@ registerPaint(
 );
 ```
 
-Wir haben die `inputProperties()`-Methode in der `registerPaint()`-Klasse verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften zu erhalten, die auf einem Element gesetzt sind, auf das `boxbg` angewendet wurde, und dann diese in unserer `paint()`-Funktion verwendet. Die `inputProperties()`-Methode kann alle Eigenschaften zurückgeben, die das Element beeinflussen, nicht nur benutzerdefinierte Eigenschaften.
+Wir haben die Methode `inputProperties()` in der `registerPaint()` Klasse verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften zu erhalten, die auf einem Element gesetzt sind, auf das `boxbg` angewendet wurde. Diese wurden dann in unserer `paint()` Funktion verwendet. Die Methode `inputProperties()` kann alle Eigenschaften zurückgeben, die das Element beeinflussen, nicht nur benutzerdefinierte Eigenschaften.
 
-### Verwendung des Paint Worklet
+### Verwendung des Paint Worklets
 
 #### HTML
 
@@ -131,7 +131,7 @@ li:nth-of-type(3n + 1) {
 
 #### JavaScript
 
-In unserem `<script>` registrieren wir den Worklet:
+In unserem `<script>` registrieren wir das Worklet:
 
 ```js
 CSS.paintWorklet.addModule("boxbg.js");
@@ -139,7 +139,7 @@ CSS.paintWorklet.addModule("boxbg.js");
 
 #### Ergebnis
 
-Obwohl Sie das Skript des Worklets nicht ändern können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools ändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
+Auch wenn Sie das Script des Worklets nicht ändern können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools verändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
 
 {{EmbedGHLiveSample("css-examples/houdini/css_painting_api/example-boxbg.html", '100%', 400)}}
 
@@ -153,6 +153,6 @@ Obwohl Sie das Skript des Worklets nicht ändern können, können Sie die Werte 
 
 ## Siehe auch
 
-- [Die CSS Painting API verwenden](/de/docs/Web/API/CSS_Painting_API/Guide)
+- [Verwendung der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)

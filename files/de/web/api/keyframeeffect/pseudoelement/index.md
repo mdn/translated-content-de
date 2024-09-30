@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`pseudoElement`**-Eigenschaft der [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle ist ein Zeichenfolgenwert, der das Pseudo-Element repräsentiert, das animiert wird. Sie kann `null` sein für Animationen, die kein Pseudo-Element anvisieren. Sie funktioniert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS erzeugt werden.
+Die **`pseudoElement`**-Eigenschaft des [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Interfaces ist ein Zeichenfolgenwert, der das animierte Pseudo-Element darstellt. Es kann `null` sein für Animationen, die kein Pseudo-Element anvisieren. Diese Eigenschaft fungiert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS erzeugt werden.
 
 > [!NOTE]
-> Wenn die alte Syntax mit einem einfachen Doppelpunkt, wie {{cssxref("::before", ":before")}}, {{cssxref("::after", ":after")}}, {{cssxref("::first-letter", ":first-letter")}}, oder {{cssxref("::first-line", ":first-line")}}, eingestellt wird, wird die Zeichenfolge in ihre moderne Doppelkolon-Version umgewandelt ({{cssxref("::before")}}, {{cssxref("::after")}}, {{cssxref("::first-letter")}}, und {{cssxref("::first-line")}}, entsprechend).
+> Wird die veraltete Syntax mit einfachem Doppelpunkt wie {{cssxref("::before", ":before")}}, {{cssxref("::after", ":after")}}, {{cssxref("::first-letter", ":first-letter")}} oder {{cssxref("::first-line", ":first-line")}} verwendet, wird die Zeichenfolge in ihre moderne Version mit doppeltem Doppelpunkt umgewandelt ({{cssxref("::before")}}, {{cssxref("::after")}}, {{cssxref("::first-letter")}} und {{cssxref("::first-line")}}, entsprechend).
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zeichenfolge oder `null`.
 ## Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, diese Eigenschaft auf ein Element oder ein ungültiges Pseudo-Element (entweder nicht existent oder falsch geschrieben) zu setzen. Die Eigenschaft bleibt dann unverändert.
+  - : Wird ausgelöst, wenn versucht wird, diese Eigenschaft auf ein Element oder ein ungültiges Pseudo-Element (entweder nicht existent oder falsch geschrieben) zu setzen. In diesem Fall bleibt die Eigenschaft unverändert.
 
 ## Beispiele
 
@@ -85,6 +85,6 @@ logPseudoElement();
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle
+- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Interface
 - [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect)-Konstruktor
 - [`target`](/de/docs/Web/API/KeyframeEffect/target)-Eigenschaft

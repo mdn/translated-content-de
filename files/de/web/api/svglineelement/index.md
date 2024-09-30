@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGLineElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften der {{ SVGElement("line") }}-Elemente sowie Methoden zu deren Manipulation.
+Die **`SVGLineElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{ SVGElement("line") }}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 - [`SVGLineElement.x1`](/de/docs/Web/API/SVGLineElement/x1) {{ReadOnlyInline}}
-  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("x1")}} des gegebenen {{SVGElement("line")}}-Elements entspricht.
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("x1")}} des angegebenen {{SVGElement("line")}}-Elements entspricht.
 - [`SVGLineElement.y1`](/de/docs/Web/API/SVGLineElement/y1) {{ReadOnlyInline}}
-  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("y1")}} des gegebenen {{SVGElement("line")}}-Elements entspricht.
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("y1")}} des angegebenen {{SVGElement("line")}}-Elements entspricht.
 - [`SVGLineElement.x2`](/de/docs/Web/API/SVGLineElement/x2) {{ReadOnlyInline}}
-  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("x2")}} des gegebenen {{SVGElement("line")}}-Elements entspricht.
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("x2")}} des angegebenen {{SVGElement("line")}}-Elements entspricht.
 - [`SVGLineElement.y2`](/de/docs/Web/API/SVGLineElement/y2) {{ReadOnlyInline}}
-  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("y2")}} des gegebenen {{SVGElement("line")}}-Elements entspricht.
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem Attribut {{SVGAttr("y2")}} des angegebenen {{SVGElement("line")}}-Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seiner übergeordneten Schnittstelle, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Erbt Methoden von ihrer übergeordneten Schnittstelle [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 ## Spezifikationen
 

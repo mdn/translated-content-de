@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.accessKeyLabel`**
-schreibgeschützte Eigenschaft gibt einen String zurück, der den vom Browser zugewiesenen Zugriffskey des Elements enthält (falls vorhanden); andernfalls wird ein leerer String zurückgegeben.
+Die **`HTMLElement.accessKeyLabel`** Schreibgeschützte Eigenschaft gibt eine Zeichenfolge zurück, die den vom Browser zugewiesenen Zugriffsschlüssel des Elements enthält (falls vorhanden); ansonsten gibt sie einen leeren String zurück.
 
 ## Syntax
 
@@ -54,4 +53,4 @@ btn.onclick = () => {
 ## Siehe auch
 
 - [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
-- Das globale [accesskey](/de/docs/Web/HTML/Global_attributes/accesskey) Attribut.
+- Das [accesskey](/de/docs/Web/HTML/Global_attributes/accesskey) globale Attribut.

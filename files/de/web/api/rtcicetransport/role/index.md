@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`role`** der Schnittstelle [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gibt an, welche [ICE](/de/docs/Glossary/ICE)-Rolle der Transport übernimmt: die des kontrollierenden Agenten oder die des kontrollierten Agenten.
+Die **`role`** schreibgeschützte Eigenschaft der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) Schnittstelle gibt an, welche [ICE](/de/docs/Glossary/ICE) Rolle der Transport übernimmt: die des kontrollierenden Agenten oder des kontrollierten Agenten.
 
-Sie können mehr über ICE-Rollen im Abschnitt [Auswählen eines Kandidatenpaars](/de/docs/Web/API/WebRTC_API/Connectivity#choosing_a_candidate_pair) erfahren.
+Sie können mehr über ICE-Rollen in [Auswahl eines Kandidatenpaars](/de/docs/Web/API/WebRTC_API/Connectivity#choosing_a_candidate_pair) erfahren.
 
 ## Wert
 
-Ein String, der angibt, ob das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) den kontrollierenden Agenten oder den kontrollierten Agenten darstellt.
+Ein String, der angibt, ob [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) den kontrollierenden Agenten oder den kontrollierten Agenten darstellt.
 
 Der Wert muss einer der folgenden sein:
 

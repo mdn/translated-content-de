@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`error`**-Ereignis der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle tritt auf, wenn bei einer [`Notification`](/de/docs/Web/API/Notification) etwas schiefgeht (in vielen Fällen ein Fehler, der verhindert, dass die Benachrichtigung angezeigt wird).
+Das **`error`**-Ereignis des [`Notification`](/de/docs/Web/API/Notification)-Interfaces tritt auf, wenn ein Problem mit einer [`Notification`](/de/docs/Web/API/Notification) auftritt (in vielen Fällen ein Fehler, der verhindert, dass die Benachrichtigung angezeigt wird).
 
 ## Syntax
 
@@ -34,4 +34,4 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Siehe auch
 
-- [Verwendung der Benachrichtigungen-API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

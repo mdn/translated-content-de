@@ -1,5 +1,5 @@
 ---
-title: "DOMMatrixReadOnly: translate() Methode"
+title: "DOMMatrixReadOnly: translate()-Methode"
 short-title: translate()
 slug: Web/API/DOMMatrixReadOnly/translate
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die `translate()` Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Interfaces
-erzeugt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit angewendeter Translation ist.
+Die `translate()`-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit einer angewendeten Translation ist.
 
 ## Syntax
 
@@ -25,22 +24,17 @@ DOMMatrix.translate(translateX, translateY, translateZ)
 - `translateY`
   - : Eine Zahl, die die Ordinate (y-Koordinate) des Translationsvektors darstellt.
 - `translateZ` {{optional_inline}}
-  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Wenn nicht angegeben,
-    beträgt der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix
-    3D sein.
+  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Wenn nicht angegeben, ist der Standardwert 0. Wenn der Wert ungleich 0 ist, wird die resultierende Matrix dreidimensional.
 
 ### Rückgabewert
 
-Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)
-zurück, die eine neue Matrix enthält, die das Ergebnis der Matrix darstellt, die durch den angegebenen
-Vektor transformiert wurde. Die ursprüngliche Matrix wird nicht verändert.
+Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, die das Ergebnis der Matrix ist, die durch den angegebenen Vektor übersetzt wurde. Die ursprüngliche Matrix wird nicht geändert.
 
-Wenn eine Translation entlang der z-Achse angewendet wird, wird die resultierende Matrix eine 4x4 3D
-Matrix sein.
+Wenn eine Translation entlang der z-Achse angewendet wird, wird die resultierende Matrix eine 4x4 3D-Matrix sein.
 
 ## Beispiele
 
-Dieses SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Dokumentursprung positioniert sind:
+Dieses SVG enthält zwei Quadrate, eines rot und eines blau, die beide am Ursprung des Dokuments positioniert sind:
 
 ```html
 <svg width="250" height="250" viewBox="0 0 50 50">
@@ -49,9 +43,7 @@ Dieses SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Doku
 </svg>
 ```
 
-Der folgende JavaScript-Code erstellt zunächst eine Einheitsmatrix und verwendet dann
-die `translate()` Methode, um eine neue, übersetzte Matrix zu erstellen — die dann
-auf das blaue Quadrat als `transform` angewendet wird. Das rote Quadrat bleibt an seiner Stelle.
+Der folgende JavaScript-Code erzeugt zuerst eine Identitätsmatrix und verwendet dann die `translate()`-Methode, um eine neue, übersetzte Matrix zu erstellen, die dann auf das blaue Quadrat als `transform` angewendet wird. Das rote Quadrat bleibt unverändert an seiner Position.
 
 ```js
 const matrix = new DOMMatrixReadOnly().translate(25, 25);

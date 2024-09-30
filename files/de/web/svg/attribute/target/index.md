@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`target`**-Attribut sollte verwendet werden, wenn es mehrere mögliche Ziele für die Endressource gibt, z.B. wenn das übergeordnete Dokument in ein HTML- oder XHTML-Dokument eingebettet ist oder in einem tabbed Browser angesehen wird. Dieses Attribut gibt den Namen des Browsing-Kontexts an (z.B. ein Browser-Tab oder ein (X)HTML-`<iframe>`- oder `<object>`-Element), in den ein Dokument geöffnet werden soll, wenn der Link aktiviert wird:
+Das **`target`**-Attribut sollte verwendet werden, wenn es mehrere mögliche Ziele für die Endressource gibt, zum Beispiel, wenn das übergeordnete Dokument innerhalb eines HTML- oder XHTML-Dokuments eingebettet ist oder mit einem Tab-Browser betrachtet wird. Dieses Attribut spezifiziert den Namen des Browsing-Kontexts (z. B. ein Browser-Tab oder ein (X)HTML-<iframe>- oder <object>-Element), in das ein Dokument geöffnet werden soll, wenn der Link aktiviert wird:
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -46,7 +46,7 @@ text {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "300", "120")}}
+{{EmbedLiveSample("Beispiel", "300", "120")}}
 
 ## Verwendungshinweise
 
@@ -72,7 +72,7 @@ text {
 
 - `_replace` {{deprecated_inline}}
 
-  - : Das aktuelle SVG-Bild wird durch den verlinkten Inhalt im selben rechteckigen Bereich im selben Frame wie das aktuelle SVG-Bild ersetzt.
+  - : Das aktuelle SVG-Bild wird durch den verlinkten Inhalt im selben rechteckigen Bereich im selben Rahmen wie das aktuelle SVG-Bild ersetzt.
 
     > [!NOTE]
     > Dieser Wert wurde nie gut implementiert, und der Unterschied zwischen `_replace` und `_self` wurde durch Änderungen in der HTML-Definition von Browsing-Kontexten überflüssig gemacht. Verwenden Sie `_self`, um das aktuelle SVG-Dokument zu ersetzen.
@@ -80,13 +80,13 @@ text {
 - `_self`
   - : Das aktuelle SVG-Bild wird durch den verlinkten Inhalt im selben Browsing-Kontext wie das aktuelle SVG-Bild ersetzt.
 - `_parent`
-  - : Der unmittelbare übergeordnete Browsing-Kontext des SVG-Bildes wird durch den verlinkten Inhalt ersetzt, sofern er existiert und sicher von diesem Dokument aus zugänglich ist.
+  - : Der unmittelbare übergeordnete Browsing-Kontext des SVG-Bildes wird, falls vorhanden und sicher zugänglich, durch den verlinkten Inhalt ersetzt.
 - `_top`
-  - : Der Inhalt des gesamten aktiven Fensters oder Tabs wird durch den verlinkten Inhalt ersetzt, sofern er existiert und sicher von diesem Dokument aus zugänglich ist.
+  - : Der Inhalt des gesamten aktiven Fensters oder Tabs wird, falls vorhanden und sicher zugänglich, durch den verlinkten Inhalt ersetzt.
 - `_blank`
-  - : Ein neues unbenanntes Fenster oder Tab wird für die Anzeige des verlinkten Inhalts angefordert, sofern dieses Dokument dies sicher tun kann. Wenn der Benutzeragent keine Unterstützung für mehrere Fenster/Tabs bietet, ist das Ergebnis dasselbe wie bei \_top.
+  - : Ein neues unbenanntes Fenster oder Tab wird für die Anzeige des verlinkten Inhalts angefordert, falls dieses Dokument dies sicher tun kann. Wenn das Benutzerprogramm mehrere Fenster/Tabs nicht unterstützt, ist das Ergebnis dasselbe wie bei `_top`.
 - `<XML-Name>`
-  - : Gibt den Namen des Browsing-Kontexts (Tab, Inline-Frame, Objekt, etc.) für die Anzeige des verlinkten Inhalts an. Wenn ein Kontext mit diesem Namen bereits existiert und sicher von diesem Dokument aus zugänglich ist, wird er wiederverwendet und der bestehende Inhalt ersetzt. Wenn er nicht existiert, wird er erstellt (dasselbe wie '\_blank', außer dass er jetzt einen Namen hat). Der Name muss ein gültiger XML-Name \[XML11] sein und sollte nicht mit einem Unterstrich (U+005F LOW LINE-Zeichen) beginnen, um die Anforderungen eines gültigen Browsing-Kontextnamens von HTML zu erfüllen.
+  - : Gibt den Namen des Browsing-Kontexts (Tab, Inline-Frame, Objekt usw.) für die Anzeige des verlinkten Inhalts an. Wenn ein Kontext mit diesem Namen bereits existiert, und sicher von diesem Dokument aus zugänglich ist, wird er wiederverwendet, wobei der vorhandene Inhalt ersetzt wird. Wenn er nicht existiert, wird er erstellt (das gleiche wie `_blank`, außer dass er jetzt einen Namen hat). Der Name muss ein gültiger XML-Name \[XML11] sein und sollte nicht mit einem Unterstrich (U+005F LOW LINE character) beginnen, um die Anforderungen eines gültigen Browsing-Kontextnamens aus HTML zu erfüllen.
 
 ## Spezifikationen
 

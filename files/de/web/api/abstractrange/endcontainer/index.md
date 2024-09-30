@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`endContainer`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem sich das Ende des Bereichs befindet.
+Die schreibgeschützte **`endContainer`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem das Ende des Bereichs liegt.
 
 ## Wert
 

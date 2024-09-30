@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSSOM View")}}
 
-Die schreibgeschützte **`scrollY`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt die Anzahl der Pixel zurück, um die das Dokument derzeit vertikal gescrollt ist. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass er nicht unbedingt eine ganze Zahl ist. Die Anzahl der Pixel, um die das Dokument horizontal gescrollt ist, können Sie über die [`scrollX`](/de/docs/Web/API/Window/scrollX)-Eigenschaft erhalten.
+Die schreibgeschützte **`scrollY`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt die Anzahl der Pixel zurück, um die das Dokument aktuell vertikal gescrollt wurde. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass es sich nicht unbedingt um eine ganze Zahl handelt. Sie können die Anzahl der Pixel, die das Dokument horizontal gescrollt wurde, von der [`scrollX`](/de/docs/Web/API/Window/scrollX)-Eigenschaft erhalten.
 
 ## Wert
 
-Ein Wert in doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Dokument derzeit vertikal vom Ursprung verschoben ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach unten gescrollt wird (um mehr Inhalt unten zu enthüllen). Technischer ausgedrückt gibt `scrollY` die Y-Koordinate des oberen Randes des aktuellen [Viewports](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht nach oben oder unten gescrollt ist, beträgt `scrollY` 0. Wenn kein Viewport vorhanden ist, wird 0 zurückgegeben. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, ist der zurückgegebene Wert auch subpixelgenau und kann eine Dezimalkomponente enthalten.
+Ein double-genauer Gleitkommawert, der die Anzahl der Pixel angibt, um die das Dokument derzeit vertikal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach unten gescrollt wird (um mehr Inhalte unten anzuzeigen). In technischeren Begriffen gibt `scrollY` die Y-Koordinate des oberen Rands des aktuellen [Viewports](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht gescrollt wird, weder nach oben noch nach unten, ist `scrollY` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixel-genauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
 > [!NOTE]
-> Wenn Sie einen ganzzahligen Wert benötigen, können Sie {{jsxref("Math.round()")}} verwenden, um ihn zu runden.
+> Wenn Sie einen Ganzzahlwert benötigen, können Sie {{jsxref("Math.round()")}} verwenden, um diesen zu runden.
 
-Safari reagiert auf das Überscrollen, indem `scrollY` über die maximale Scrollposition hinaus aktualisiert wird (es sei denn, der Standard-"Bounce"-Effekt ist deaktiviert, z.B. durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun. Zum Beispiel kann `scrollY` in Safari negativ sein, wenn einfach weiter nach oben gescrollt wird, obwohl das Dokument schon oben ist.
+Safari reagiert auf Überscrollen, indem es `scrollY` über die maximale Scroll-Position hinaus aktualisiert (es sei denn, der standardmäßige "Bounce"-Effekt ist deaktiviert, zum Beispiel durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun. Zum Beispiel kann `scrollY` in Safari negativ sein, wenn Sie weiter nach oben scrollen, während das Dokument bereits oben ist.
 
 Diese Eigenschaft ist schreibgeschützt. Um das Fenster an eine bestimmte Stelle zu scrollen, verwenden Sie [`Window.scroll()`](/de/docs/Web/API/Window/scroll).
 
@@ -38,7 +38,7 @@ Verwenden Sie diese Eigenschaft, um zu überprüfen, ob das Dokument nicht berei
 [`scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) oder
 [`scrollByPages()`](/de/docs/Web/API/Window/scrollByPages) verwenden.
 
-Die `pageYOffset`-Eigenschaft ist ein Alias für die `scrollY`-Eigenschaft. Das bedeutet, dass, wenn Sie keine der beiden Eigenschaften neu zugewiesen haben, `window.pageYOffset === window.scrollY` immer wahr ist.
+Die `pageYOffset`-Eigenschaft ist ein Alias für die `scrollY`-Eigenschaft. Dies bedeutet, wenn Sie keine der beiden Eigenschaften neu zugewiesen haben, ist `window.pageYOffset === window.scrollY` immer wahr.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toPrecision()`** Methode von {{jsxref("Number")}} Werten gibt einen String zurück, der diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
+Die **`toPrecision()`** Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenfolge zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
 {{EmbedInteractiveExample("pages/js/number-toprecision.html")}}
 
@@ -21,13 +21,13 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der die Anzahl der signifikanten Stellen angibt.
+  - : Ein ganzzahliger Wert, der die Anzahl signifikanter Stellen angibt.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ### Rückgabewert
 
-Ein String, der die angegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat das gleiche Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das Argument `precision` weggelassen wird.
+Eine Zeichenfolge, die die gegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat dasselbe Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision` Argument weggelassen wird.
 
 ### Ausnahmen
 

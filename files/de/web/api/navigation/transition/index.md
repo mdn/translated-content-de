@@ -1,5 +1,5 @@
 ---
-title: "Navigation: transition-Eigenschaft"
+title: "Navigation: transition property"
 short-title: transition
 slug: Web/API/Navigation/transition
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`transition`** des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt zurück, das den Status einer laufenden Navigation darstellt, der zur Nachverfolgung verwendet werden kann.
+Die schreibgeschützte Eigenschaft **`transition`** der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt zurück, das den Status einer laufenden Navigation darstellt, welches verwendet werden kann, um diese zu verfolgen.
 
 ## Wert
 
@@ -36,6 +36,6 @@ async function handleTransition() {
 
 ## Siehe auch
 
-- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

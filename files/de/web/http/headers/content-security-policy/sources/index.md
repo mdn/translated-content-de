@@ -1,5 +1,5 @@
 ---
-title: CSP source values
+title: CSP-Quellwerte
 slug: Web/HTTP/Headers/Content-Security-Policy/Sources
 l10n:
   sourceCommit: 1a48b6abdd27e168c78edcf04a7a9f6a8e0fdc15
@@ -7,88 +7,88 @@ l10n:
 
 {{HTTPSidebar}}
 
-HTTP {{HTTPHeader("Content-Security-Policy")}}-Headerdirektiven, die eine `<source>` spezifizieren, von der Ressourcen geladen werden dürfen, können einen der unten aufgeführten Werte verwenden. Relevante Direktiven sind die [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) sowie andere [unten aufgeführte](#relevante_direktiven).
+HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)-Header-Direktiven, die eine `<source>` angeben, von der Ressourcen geladen werden dürfen, können jeden der unten aufgeführten Werte verwenden. Relevante Direktiven umfassen die [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) sowie andere [unten aufgeführte](#relevante_direktiven).
 
 ## Quellen
 
 - `<host-source>`
 
   - : Internet-Host nach Name oder IP-Adresse. Das [URL-Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), die Portnummer und der Pfad sind optional.
-    Platzhalter (`'*'`) können für Subdomains, Hostadressen und Portnummern verwendet werden, was anzeigt, dass alle legalen Werte für jede davon gültig sind.
-    Beim Abgleichen von Schemas sind sichere Upgrades zulässig (z.B. würde `http://example.com` auch `https://example.com` abdecken).
+    Platzhalter (`'*'`) können für Subdomains, Hostadressen und Portnummern verwendet werden, was bedeutet, dass alle zulässigen Werte von jedem gültig sind.
+    Beim Abgleichen von Schemas sind sichere Upgrades erlaubt (z.B. entspricht `http://example.com` auch `https://example.com`).
     Beispiele:
 
-    - `http://*.example.com`: Deckt alle Versuche ab, von einer beliebigen Subdomain von example.com zu laden. Deckt auch `https`-Ressourcen ab.
-    - `mail.example.com:443`: Deckt alle Versuche ab, von Port 443 auf mail.example.com zu laden.
-    - `https://store.example.com`: Deckt alle Versuche ab, auf store.example.com über `https:` zuzugreifen.
-    - `*.example.com`: Deckt alle Versuche ab, von einer beliebigen Subdomain von example.com zu laden.
-    - `https://*.example.com:12/path/to/file.js`: Deckt alle Versuche ab, von einer beliebigen Subdomain von example.com über `https:` auf Port 12 zu laden, und nur wenn der Pfad `/path/to/file.js` ist.
-    - `ws://example.com`: Deckt alle Versuche ab, von example.com über `ws:` zu laden. Deckt auch `wss`-Ressourcen ab.
-    - `https://example.com/subdirectory`: Deckt alle Versuche ab, den exakten Pfad `https://example.com/subdirectory` zu laden.
-    - `https://example.com/subdirectory/`: Deckt alle Versuche ab, Dateien im Verzeichnis `subdirectory` zu laden. Zum Beispiel `https://example.com/subdirectory/path/to/file.js`. Es deckt nicht `https://example.com/path/to/file.js` ab.
+    - `http://*.example.com`: Entspricht allen Versuchen, von einer beliebigen Subdomain von example.com zu laden. Entspricht auch `https`-Ressourcen.
+    - `mail.example.com:443`: Entspricht allen Versuchen, von Port 443 auf mail.example.com zu laden.
+    - `https://store.example.com`: Entspricht allen Versuchen, auf store.example.com mit `https:` zuzugreifen.
+    - `*.example.com`: Entspricht allen Versuchen, von einer beliebigen Subdomain von example.com zu laden.
+    - `https://*.example.com:12/path/to/file.js`: Entspricht allen Versuchen, von einer beliebigen Subdomain von example.com mit `https:` auf Port 12 zu laden, und nur, wenn der Pfad `/path/to/file.js` ist.
+    - `ws://example.com`: Entspricht allen Versuchen, von example.com mit `ws:` zu laden. Entspricht auch `wss`-Ressourcen.
+    - `https://example.com/subdirectory`: Entspricht allen Versuchen, den genauen Pfad `https://example.com/subdirectory` zu laden.
+    - `https://example.com/subdirectory/`: Entspricht allen Versuchen, Dateien im Verzeichnis `subdirectory` zu laden. Zum Beispiel `https://example.com/subdirectory/path/to/file.js`. Entspricht nicht `https://example.com/path/to/file.js`.
 
-    Weitere Details zur Pfadübereinstimmung finden Sie in den [Algorithmen zur Teileübereinstimmung](https://w3c.github.io/webappsec-csp/#match-schemes) in der Spezifikation.
+    Weitere Einzelheiten zur Pfadabgleichung finden Sie in den [Parts Matching Algorithms](https://w3c.github.io/webappsec-csp/#match-schemes) in der Spezifikation.
 
 - `<scheme-source>`
 
   - : Ein Schema wie `http:` oder `https:`.
     Der Doppelpunkt ist erforderlich.
-    Im Gegensatz zu anderen unten aufgeführten Werten sollten keine einfachen Anführungszeichen verwendet werden.
-    Sie können auch Datenschemen angeben (nicht empfohlen).
+    Im Gegensatz zu den anderen untenstehenden Werten sollten keine Anführungszeichen verwendet werden.
+    Sie können auch Datenschemas angeben (nicht empfohlen).
 
-    - `data:` Erlaubt [`data:` URLs](/de/docs/Web/URI/Schemes/data) als Inhaltsquelle.
-      _Dies ist unsicher; ein Angreifer kann auch willkürliche `data:` URLs injizieren. Verwenden Sie dies sparsam und definitiv nicht für Skripte._
-    - `mediastream:` Erlaubt [`mediastream:` URIs](/de/docs/Web/API/Media_Capture_and_Streams_API) als Inhaltsquelle.
-    - `blob:` Erlaubt [`blob:` URIs](/de/docs/Web/API/Blob) als Inhaltsquelle.
-    - `filesystem:` Erlaubt [`filesystem:` URIs](/de/docs/Web/API/FileSystem) als Inhaltsquelle.
+    - `data:` Erlaubt die Verwendung von [`data:`-URLs](/de/docs/Web/URI/Schemes/data).
+      _Dies ist unsicher; ein Angreifer kann auch beliebige `data:`-URLs einfügen. Verwenden Sie dies sparsam und definitiv nicht für Skripte._
+    - `mediastream:` Erlaubt die Verwendung von [`mediastream:`-URIs](/de/docs/Web/API/Media_Capture_and_Streams_API) als Inhaltsquelle.
+    - `blob:` Erlaubt die Verwendung von [`blob:`-URIs](/de/docs/Web/API/Blob) als Inhaltsquelle.
+    - `filesystem:` Erlaubt die Verwendung von [`filesystem:`-URIs](/de/docs/Web/API/FileSystem) als Inhaltsquelle.
 
     > [!NOTE]
-    > Wenn eine Schemenquelle fehlt, wird das Schema des Dokumentursprungs verwendet.
-    > Sichere Upgrades sind erlaubt, sodass wenn das Dokument mit `https:` geladen wird, dann `example.com` mit `https://example.com` übereinstimmen wird, aber nicht mit `http://example.com`.
-    > Für weitere Informationen siehe [CSP Level 3](https://www.w3.org/TR/CSP3/#match-url-to-source-list).
+    > Wenn eine Schemaquelle fehlt, wird das Schema des Ursprungsdokuments verwendet.
+    > Sichere Upgrades sind erlaubt, sodass `https:` geladen, dann `example.com` `https://example.com` entspricht, jedoch nicht `http://example.com`.
+    > Weitere Informationen finden Sie unter [CSP Level 3](https://www.w3.org/TR/CSP3/#match-url-to-source-list).
 
 - `'self'`
-  - : Bezieht sich auf den Ursprung, von dem das geschützte Dokument geladen wird, einschließlich desselben URL-Schemas und der Portnummer.
-    Sie müssen die einfachen Anführungszeichen einschließen. Einige Browser schließen `blob` und `filesystem` spezifisch von Sourcedirektiven aus.
-    Websites, die diese Inhaltstypen zulassen müssen, können sie mit dem Data-Attribut spezifizieren.
+  - : Bezieht sich auf den Ursprung, von dem das geschützte Dokument bereitgestellt wird, einschließlich des gleichen URL-Schemas und der Portnummer.
+    Sie müssen die einfachen Anführungszeichen einschließen. Einige Browser schließen explizit `blob` und `filesystem` von den Quellen-Direktiven aus.
+    Websites, die diese Inhaltstypen zulassen müssen, können sie mit dem Datenschema angeben.
 - `'unsafe-eval'`
-  - : Erlaubt die Verwendung von `eval()` und anderen unsicheren Methoden zur Erstellung von Code aus Zeichenfolgen.
+  - : Ermöglicht die Verwendung von `eval()` und anderen unsicheren Methoden zur Codeerstellung aus Zeichenfolgen.
     Sie müssen die einfachen Anführungszeichen einschließen.
 - `'wasm-unsafe-eval'`
-  - : Erlaubt das Laden und Ausführen von WebAssembly-Modulen, ohne dass die unsichere JavaScript-Ausführung über `'unsafe-eval'` ebenfalls erlaubt sein muss.
+  - : Ermöglicht das Laden und Ausführen von WebAssembly-Modulen, ohne dass auch unsichere JavaScript-Ausführung über `'unsafe-eval'` erlaubt werden muss.
     Die einfachen Anführungszeichen sind erforderlich.
 - `'unsafe-hashes'`
-  - : Erlaubt die Aktivierung spezifischer Inline-[Ereignishandler](/de/docs/Web/Events/Event_handlers).
-    Wenn Sie nur Inline-Ereignishandler und keine Inline-{{HTMLElement("script")}}-Elemente oder [`javascript:` URLs](/de/docs/Web/URI/Schemes/javascript) zulassen müssen, ist dies eine sicherere Methode als der Einsatz des Ausdrucks `unsafe-inline`.
+  - : Ermöglicht das Aktivieren spezifischer Inline-[Event-Handler](/de/docs/Web/Events/Event_handlers).
+    Wenn Sie nur Inline-Event-Handler zulassen müssen und keine Inline-{{HTMLElement("script")}}-Elemente oder [`javascript:`-URLs](/de/docs/Web/URI/Schemes/javascript), ist dies eine sicherere Methode als die Verwendung des Ausdrucks `unsafe-inline`.
 - `'unsafe-inline'`
-  - : Erlaubt die Verwendung von Inline-Ressourcen, wie Inline-{{HTMLElement("script")}}-Elementen, [`javascript:` URLs](/de/docs/Web/URI/Schemes/javascript), Inline-Ereignishandlern und Inline-{{HTMLElement("style")}}-Elementen.
+  - : Erlaubt die Verwendung von Inline-Ressourcen, wie z.B. Inline-{{HTMLElement("script")}}-Elemente, [`javascript:`-URLs](/de/docs/Web/URI/Schemes/javascript), Inline-Event-Handler und Inline-{{HTMLElement("style")}}-Elemente.
     Die einfachen Anführungszeichen sind erforderlich.
 - `'none'`
   - : Bezieht sich auf die leere Menge; das heißt, keine URLs entsprechen.
     Die einfachen Anführungszeichen sind erforderlich.
 - `'nonce-<base64-value>'`
 
-  - : Eine Positivliste für spezifische Inline-Skripte unter Verwendung einer kryptografischen Nonce (nur einmal verwendete Nummer).
-    Der Server muss bei jeder Übermittlung einer Richtlinie einen eindeutigen Nonce-Wert generieren.
-    Es ist entscheidend, eine nicht erratbare Nonce bereitzustellen, da sonst das Umgehen der Richtlinie einer Ressource trivial ist.
-    Siehe [unsichere Inline-Skripte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script) für ein Beispiel.
-    Das Festlegen der Nonce sorgt dafür, dass ein moderner Browser `'unsafe-inline'` ignoriert, das trotzdem für ältere Browser ohne Nonce-Unterstützung festgelegt sein könnte.
+  - : Eine Erlauben-Liste für spezifische Inline-Skripte mit einem kryptographischen Nonce (ein Einmalwert).
+    Der Server muss einen einzigartigen Nonce-Wert erzeugen, jedes Mal wenn er eine Richtlinie überträgt.
+    Es ist entscheidend, ein Unvorhersehbares Nonce zu bereitstellen, da das Umgehen einer Ressourcenrichtlinie sonst trivial ist.
+    Für ein Beispiel siehe [unsafe inline script](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script).
+    Die Angabe des Nonce lässt einen modernen Browser `'unsafe-inline'` ignorieren, was immer noch für ältere Browser ohne Nonce-Unterstützung gesetzt sein könnte.
 
     > [!NOTE]
-    > Die CSP-`nonce`-Quelle kann nur auf _noncefähige_ Elemente angewendet werden (z.B. hat das {{HTMLElement("img")}}-Element kein `nonce`-Attribut, es gibt also keine Möglichkeit, es mit dieser CSP-Quelle zu verknüpfen).
+    > Die CSP-`nonce`-Quelle kann nur auf _noncefähige_ Elemente angewendet werden (da z.B. das {{HTMLElement("img")}}-Element kein `nonce`-Attribut hat, gibt es keine Möglichkeit, es dieser CSP-Quelle zuzuordnen).
 
 - `'<hash-algorithm>-<base64-value>'`
-  - : Ein sha256-, sha384- oder sha512-Hash von Skripten oder Stilen.
-    Dieser Wert besteht aus dem Algorithmus, der zur Erstellung des Hashs verwendet wurde, gefolgt von einem Bindestrich und dem base64-kodierten Hash des Skripts oder Stils.
-    Beim Generieren des Hashs schließen Sie `<script>` oder `<style>`-Tags aus und beachten Sie, dass Groß-/Kleinschreibung und Leerzeichen, einschließlich führender oder nachfolgender Leerzeichen, wichtig sind.
-    In CSP 2.0 können Hash-Quellen auf Inline-Skripte und -Stile angewendet werden. Hash-Quellen-Ausdrücke sind in [CSP 3.0](https://www.w3.org/TR/CSP3/#external-hash) für externe Skripte in `script-src`-Direktiven zulässig.
-    Siehe die Seiten [script-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script) und [style-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/style-src#unsafe_inline_styles) für weitere Informationen und Beispiele.
+  - : Ein sha256-, sha384- oder sha512-Hash von Skripten oder Styles.
+    Dieser Wert besteht aus dem Algorithmus, der zur Erstellung des Hashes verwendet wird, gefolgt von einem Bindestrich und dem base64-codierten Hash des Skripts oder Styles.
+    Beim Generieren des Hashes schließen Sie `<script>`- oder `<style>`-Tags aus und beachten Sie, dass Groß- und Kleinschreibung sowie Leerzeichen wichtig sind, einschließlich führender oder nachfolgender Leerzeichen.
+    In CSP 2.0 können Hash-Quellen auf Inline-Skripte und -Styles angewendet werden. Hash-Quellen-Ausdrücke sind in [CSP 3.0](https://www.w3.org/TR/CSP3/#external-hash) für externe Skripte in `script-src`-Direktiven erlaubt.
+    Weitere Informationen und Beispiele finden Sie auf den Seiten [script-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script) und [style-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/style-src#unsafe_inline_styles).
 - `'strict-dynamic'`
-  - : Der `strict-dynamic`-Quellen-Ausdruck spezifiziert, dass das dem Markup-zugehörigen Skript durch eine Nonce oder einen Hash gegebene Vertrauen auf alle Skripte ausgeweitet wird, die von diesem Wurzelskript geladen werden.
-    Gleichzeitig werden alle Positivlisten oder Quellen-Ausdrücke wie `'self'` oder `'unsafe-inline'` ignoriert.
+  - : Der `strict-dynamic`-Quellenausdruck gibt an, dass das Vertrauen, das einem im Markup vorhandenen Skript gegeben wird, indem es mit einem Nonce oder einem Hash begleitet wird, auf alle von diesem Wurzelskript geladenen Skripte propagiert werden soll.
+    Gleichzeitig werden alle Erlauben-Listen oder Quellenausdrücke wie `'self'` oder `'unsafe-inline'` ignoriert.
     Siehe [script-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#strict-dynamic) für ein Beispiel.
 - `'report-sample'`
-  - : Erfordert, dass ein Beispiel des verletzenden Codes im Verstoßbericht enthalten ist.
+  - : Erfordert, dass ein Beispiel des verletzenden Codes in den Verstoßbericht aufgenommen wird.
 - `'inline-speculation-rules'`
   - : Erlaubt die Aufnahme von [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) in Skripte (siehe auch [`<script type="speculationrules">`](/de/docs/Web/HTML/Element/script/type/speculationrules)).
 
@@ -98,7 +98,7 @@ HTTP {{HTTPHeader("Content-Security-Policy")}}-Headerdirektiven, die eine `<sour
 
 ## Relevante Direktiven
 
-Direktiven, für die die obigen Quellen anwendbar sind, umfassen:
+Direktiven, für die die obigen Quellen gelten, umfassen:
 
 - [Fetch-Direktiven](/de/docs/Glossary/fetch_directive):
 
@@ -120,12 +120,12 @@ Direktiven, für die die obigen Quellen anwendbar sind, umfassen:
   - {{CSP("style-src-attr")}}
   - {{CSP("worker-src")}}
 
-- [Dokumentdirektiven](/de/docs/Glossary/Document_directive):
+- [Dokument-Direktiven](/de/docs/Glossary/Document_directive):
 
   - {{CSP("base-uri")}}
   - {{CSP("sandbox")}}
 
-- [Navigationsdirektiven](/de/docs/Glossary/Navigation_directive):
+- [Navigations-Direktiven](/de/docs/Glossary/Navigation_directive):
 
   - {{CSP("form-action")}}
   - {{CSP("frame-ancestors")}}

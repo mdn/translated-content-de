@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Die **`wasClean`** schreibgeschützte Eigenschaft der [`CloseEvent`](/de/docs/Web/API/CloseEvent) Schnittstelle gibt `true` zurück, wenn die Verbindung sauber geschlossen wurde.
+Die schreibgeschützte Eigenschaft **`wasClean`** der [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Schnittstelle gibt `true` zurück, wenn die Verbindung sauber geschlossen wurde.
 
 ## Wert
 

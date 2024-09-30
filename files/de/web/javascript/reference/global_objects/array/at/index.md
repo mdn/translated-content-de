@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`at()`** Methode von {{jsxref("Array")}} Instanzen nimmt einen ganzzahligen Wert und gibt das Element an diesem Index zurück, wobei positive und negative Ganzzahlen verwendet werden können. Negative Ganzzahlen zählen vom letzten Element im Array aus rückwärts.
+Die **`at()`** Methode von {{jsxref("Array")}} Instanzen nimmt einen ganzzahligen Wert und gibt das Element an diesem Index zurück, wobei sowohl positive als auch negative Ganzzahlen möglich sind. Negative Ganzzahlen zählen vom letzten Element im Array rückwärts.
 
 {{EmbedInteractiveExample("pages/js/array-at.html")}}
 
@@ -20,27 +20,27 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index des Array-Elements, das zurückgegeben werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Ein negativer Index zählt vom Ende des Arrays rückwärts — wenn `index < 0`, wird `index + array.length` aufgerufen.
+  - : Nullbasierter Index des Array-Elements, das zurückgegeben werden soll, [in einen Ganzzah](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) konvertiert. Ein negativer Index zählt vom Ende des Arrays zurück — wenn `index < 0`, wird `index + array.length` aufgerufen.
 
 ### Rückgabewert
 
-Das Element im Array, das dem angegebenen Index entspricht. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length`, ohne zu versuchen, die entsprechende Eigenschaft zuzugreifen.
+Das Element im Array, das dem angegebenen Index entspricht. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length` ist, ohne zu versuchen, die entsprechende Eigenschaft zuzugreifen.
 
 ## Beschreibung
 
-Die `at()`-Methode ist äquivalent zur Klammernotation, wenn `index` eine nicht negative Ganzzahl ist. Zum Beispiel geben sowohl `array[0]` als auch `array.at(0)` das erste Element zurück. Wenn jedoch Elemente vom Ende des Arrays aus gezählt werden, können Sie nicht `array[-1]` wie in Python oder R verwenden, da alle Werte in den eckigen Klammern wörtlich als Zeichenfolgeneigenschaften behandelt werden. Sie würden also `array["-1"]` lesen, was nur eine normale Zeichenfolgeneigenschaft und kein Array-Index ist.
+Die `at()` Methode ist gleichwertig zur Klammernotation, wenn `index` eine nicht-negative Ganzzahl ist. Zum Beispiel, `array[0]` und `array.at(0)` geben beide das erste Element zurück. Wenn Sie jedoch Elemente vom Ende des Arrays zählen wollen, können Sie `array[-1]` nicht verwenden, wie es in Python oder R möglich ist, da alle Werte innerhalb der eckigen Klammern wortwörtlich als Zeichenfolge behandelt werden. Sie würden schließlich `array["-1"]` lesen, was einfach eine normale Zeichenfolgeneigenschaft statt eines Array-Index ist.
 
-Die übliche Praxis besteht darin, {{jsxref("Array/length", "length")}} zuzugreifen und den Index daraus zu berechnen — zum Beispiel `array[array.length - 1]`. Die `at()`-Methode ermöglicht relatives Indexieren, sodass dies zu `array.at(-1)` verkürzt werden kann.
+Die übliche Praxis ist es, auf {{jsxref("Array/length", "length")}} zuzugreifen und den Index daraus zu berechnen — zum Beispiel, `array[array.length - 1]`. Die `at()` Methode ermöglicht relative Indizierung, sodass dies zu `array.at(-1)` verkürzt werden kann.
 
-Durch die Kombination von `at()` mit {{jsxref("Array/with", "with()")}} können Sie sowohl lesen als auch schreiben (jeweils) ein Array mit negativen Indizes.
+Indem Sie `at()` mit {{jsxref("Array/with", "with()")}} kombinieren, können Sie sowohl (jeweils) ein Array mit negativen Indizes lesen als auch schreiben.
 
-Die `at()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat.
+Die `at()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat.
 
 ## Beispiele
 
-### Den letzten Wert eines Arrays zurückgeben
+### Das letzte Element eines Arrays zurückgeben
 
-Das folgende Beispiel bietet eine Funktion, die das letzte Element in einem angegebenen Array zurückgibt.
+Das folgende Beispiel bietet eine Funktion, die das letzte Element eines angegebenen Arrays zurückgibt.
 
 ```js
 // Our array with items
@@ -63,7 +63,7 @@ console.log(item2); // 'orange'
 
 ### Methoden vergleichen
 
-Dieses Beispiel vergleicht verschiedene Möglichkeiten, das vorletzte (das letzte, aber eins) Element eines {{jsxref("Array")}} auszuwählen. Obwohl alle unten gezeigten Methoden gültig sind, hebt dieses Beispiel die Prägnanz und Lesbarkeit der `at()`-Methode hervor.
+Dieses Beispiel vergleicht verschiedene Methoden, um das vorletzte Element eines {{jsxref("Array")}} auszuwählen. Während alle unten gezeigten Methoden gültig sind, hebt dieses Beispiel die Kürze und Lesbarkeit der `at()` Methode hervor.
 
 ```js
 // Our array with items
@@ -82,9 +82,9 @@ const atWay = colors.at(-2);
 console.log(atWay); // 'green'
 ```
 
-### `at()` auf nicht-Array-Objekten aufrufen
+### Aufrufe von at() bei Nicht-Array-Objekten
 
-Die `at()`-Methode liest die `length`-Eigenschaft von `this` und berechnet den zugreifenden Index.
+Die `at()` Methode liest die `length` Eigenschaft von `this` und berechnet den Index, auf den zugegriffen werden soll.
 
 ```js
 const arrayLike = {

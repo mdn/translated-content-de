@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt alle Eigenschaften fest, die zur Animation eines Elements entlang eines definierten Pfads erforderlich sind. Die Offset-Eigenschaften tragen zusammen dazu bei, eine _Offset-Transformation_ zu definieren, eine [Transformations](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) an eine _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Stellen entlang des Pfads ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element ([offset-rotate](/de/docs/Web/CSS/offset-rotate)) dreht, um der Richtung des Pfads zu folgen.
+Die **`offset`** CSS [Kurzschreibweiseigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt alle erforderlichen Eigenschaften, um ein Element entlang eines definierten Pfades zu animieren. Die `offset`-Eigenschaften zusammen helfen, eine _offset-Transformation_ zu definieren, eine [Transformation](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) in Übereinstimmung mit einer _offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfades ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfades zu folgen.
 
 > [!NOTE]
 > Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion`.
 
 {{EmbedInteractiveExample("pages/css/offset.html")}}
 
-## Bestandteile
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -66,7 +66,7 @@ offset: unset;
 
 ## Beispiele
 
-### Animation eines Elements entlang eines Pfads
+### Ein Element entlang eines Pfades animieren
 
 #### HTML
 

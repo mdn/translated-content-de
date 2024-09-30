@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert benannte [Gitterbereiche](/de/docs/Glossary/grid_areas), legt die Zellen im Gitter fest und weist ihnen Namen zu.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft legt benannte [Gitterbereiche](/de/docs/Glossary/grid_areas) fest, indem sie die Zellen im Raster definiert und ihnen Namen zuweist.
 
 {{EmbedInteractiveExample("pages/css/grid-template-areas.html")}}
 
-Diese Bereiche sind keinem bestimmten Gitterelement zugeordnet, können jedoch über die Gitterplatzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}}, und {{cssxref("grid-area")}} referenziert werden.
+Diese Bereiche sind nicht mit einem bestimmten Gitterelement verbunden, können jedoch über die Gitterplatzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} sowie deren Kurzschreibweisen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -36,12 +36,12 @@ grid-template-areas: unset;
 ### Werte
 
 - `none`
-  - : Der Gitter-Container definiert keine benannten Gitterbereiche.
+  - : Der Gittercontainer definiert keine benannten Gitterbereiche.
 - `{{cssxref("&lt;string&gt;")}}+`
 
-  - : Eine Zeile wird für jeden aufgelisteten String erstellt, und eine Spalte wird für jede Zelle im String erstellt. Mehrere Zell-Token mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Gitterbereich, der sich über die entsprechenden Gitterzellen erstreckt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit demselben Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Gitterbereich, der sich über die entsprechenden Gitterzellen erstreckt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle verbleibenden unbenannten Bereiche in einem Gitter können mit _null-Zell-Token_ referenziert werden. Ein null-Zell-Token ist eine Sequenz von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...`, oder `.....` etc. Ein null-Zell-Token kann verwendet werden, um leere Räume im Gitter zu erstellen.
+    Alle verbleibenden unbenannten Bereiche in einem Raster können mithilfe von _Null-Zell-Tokens_ referenziert werden. Ein Null-Zell-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Räume im Raster zu schaffen.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Gitterbereiche spezifizieren
+### Benannte Gitterbereiche festlegen
 
 #### HTML
 
@@ -102,7 +102,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein null-Token (`.`) verwendet, um einen unbenannten Bereich im Gitter-Container zu erstellen, den wir dazu genutzt haben, einen leeren Raum in der unteren linken Ecke des Gitters zu schaffen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Gittercontainer zu erstellen, den wir genutzt haben, um einen leeren Raum in der unteren linken Ecke des Rasters zu schaffen.
 
 #### Ergebnis
 
@@ -121,5 +121,5 @@ Im obigen Code wurde ein null-Token (`.`) verwendet, um einen unbenannten Bereic
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template")}}
-- [Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Raster-Vorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
 - Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)

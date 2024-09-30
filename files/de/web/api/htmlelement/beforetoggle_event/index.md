@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: beforetoggle Ereignis"
+title: "HTMLElement: beforetoggle-Ereignis"
 slug: Web/API/HTMLElement/beforetoggle_event
 l10n:
   sourceCommit: a4e0df90868c274842b083ad034eb60f57b76aae
@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Das **`beforetoggle`**-Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces wird auf einem [Popover](/de/docs/Web/API/Popover_API)-Element ausgelöst (d.h. einem Element mit einem gültigen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut), unmittelbar bevor es angezeigt oder verborgen wird.
+Das **`beforetoggle`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle tritt bei einem [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. einem Element mit einem gültigen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut) auf, kurz bevor es angezeigt oder versteckt wird.
 
-- Wenn das Popover von verborgen zu sichtbar wechselt, wird die Eigenschaft `event.oldState` auf `closed` gesetzt und die Eigenschaft `event.newState` auf `open`.
-- Wenn das Popover von sichtbar zu verborgen wechselt, wird `event.oldState` auf `open` und `event.newState` auf `closed` gesetzt.
+- Wenn das Popover von versteckt auf sichtbar wechselt, wird die Eigenschaft `event.oldState` auf `closed` und die Eigenschaft `event.newState` auf `open` gesetzt.
+- Wenn das Popover von sichtbar auf versteckt wechselt, wird `event.oldState` `open` und `event.newState` `closed` sein.
 
 ## Syntax
 
@@ -46,9 +46,9 @@ popover.addEventListener("beforetoggle", (event) => {
 });
 ```
 
-### Ein Hinweis zur Koaleszenz von Toggle-Ereignissen
+### Ein Hinweis zur Zusammenfassung von Toggle-Ereignissen
 
-Es ist anzumerken, dass `beforetoggle`-Ereignisse koalesziert werden, was bedeutet, dass, wenn mehrere `beforetoggle`-Ereignisse ausgelöst werden, bevor die Ereignisschleife die Chance hat, zu zyklisieren, nur ein einziges Ereignis ausgelöst wird.
+Es sei darauf hingewiesen, dass `beforetoggle`-Ereignisse zusammengefasst werden. Das bedeutet, dass, wenn mehrere `beforetoggle`-Ereignisse ausgelöst werden, bevor der Ereignis-Loop die Chance hat, zu zyklieren, nur ein einziges Ereignis ausgelöst wird.
 
 Zum Beispiel:
 
@@ -72,6 +72,6 @@ popover.hidePopover();
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML-Globalattribut
 - [Popover API](/de/docs/Web/API/Popover_API)
 - Verwandtes Ereignis: [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)

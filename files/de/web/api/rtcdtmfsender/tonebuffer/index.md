@@ -8,42 +8,48 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die `toneBuffer`-Eigenschaft des [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Interfaces gibt einen String zurück, der eine Liste der [DTMF](/de/docs/Glossary/DTMF)-Töne enthält, die zurzeit zum Übertragen an die Gegenstelle über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) in der Warteschlange stehen. Um Töne in den Puffer einzufügen, rufen Sie [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf.
+Die `toneBuffer`-Eigenschaft der Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gibt eine Zeichenfolge zurück,
+die eine Liste der [DTMF](/de/docs/Glossary/DTMF)-Töne enthält, die derzeit in der Warteschlange stehen, um an den
+Remote-Peer über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet zu werden. Um Töne in den Puffer einzufügen,
+rufen Sie [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf.
 
-Töne werden aus dem String entfernt, sobald sie abgespielt werden, sodass nur kommende Töne aufgelistet werden.
+Töne werden aus der Zeichenfolge entfernt, sobald sie gespielt werden, so dass nur die bevorstehenden Töne aufgelistet sind.
 
 ## Wert
 
-Ein String, der die abzuspielenden Töne auflistet. Wenn der String leer ist, gibt es keine ausstehenden Töne.
+Eine Zeichenfolge, die die zu spielenden Töne auflistet. Wenn die Zeichenfolge leer ist,
+stehen keine Töne an.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein Zeichen kein DTMF-Tonzeichen (`0-9`, `A-D`, `#` oder `,`) ist.
 
-### Format des Tone-Puffers
+### Format des Tonebuffers
 
-Der Tone-Puffer ist ein String, der jede Kombination aus den vom DTMF-Standard erlaubten Zeichen enthalten kann.
+Der Tonebuffer ist eine Zeichenfolge, die eine beliebige Kombination der vom DTMF-Standard erlaubten Zeichen enthalten kann.
 
 #### DTMF-Tonzeichen
 
 - Die Ziffern 0-9
-  - : Diese Zeichen repräsentieren die Zifferntasten auf einem Telefon-Tastenfeld.
+  - : Diese Zeichen repräsentieren die Ziffertasten auf einer Telefon-Tastatur.
 - Die Buchstaben A-D
-  - : Diese Zeichen stellen die Tasten "A" bis "D" dar, die Teil des DTMF-Standards sind, aber nicht auf den meisten Telefonen enthalten sind. Sie werden _nicht_ als Ziffern interpretiert. Kleinbuchstaben "a"-"d" werden automatisch in Großbuchstaben umgewandelt.
-- Das Rautezeichen ("#") und das Sternchen ("\*")
-  - : Diese entsprechen den ähnlich benannten Tasten, die sich typischerweise in der unteren Reihe des Telefon-Tastenfelds befinden.
+  - : Diese Zeichen repräsentieren die Tasten "A" bis "D", die Teil des DTMF-Standards sind, aber auf den meisten Telefonen nicht enthalten sind. Diese werden _nicht_ als Ziffern interpretiert. Kleinbuchstaben "a"-"d" werden automatisch in Großbuchstaben umgewandelt.
+- Das Rautezeichen ("#") und der Stern ("\*")
+  - : Diese entsprechen den ähnlich beschrifteten Tasten, die typischerweise in der unteren Reihe der Telefon-Tastatur zu finden sind.
 - Das Komma (",")
-  - : Dieses Zeichen weist den Wahlvorgang an, zwei Sekunden zu pausieren, bevor das nächste Zeichen im Puffer gesendet wird.
+  - : Dieses Zeichen veranlasst den Wählvorgang, zwei Sekunden Pause zu machen, bevor das nächste Zeichen im Puffer gesendet wird.
 
 > [!NOTE]
-> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) einen `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException) auslöst.
+> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass 
+> [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) einen
+> `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException) auslöst.
 
-#### Verwendung von Tone-Puffer-Strings
+#### Verwendung von Tonebuffer-Zeichenfolgen
 
-Wenn Sie beispielsweise Code schreiben, um ein Voicemail-System durch das Senden von DTMF-Codes zu steuern, könnten Sie einen String wie `"*,1,5555"` verwenden. In diesem Beispiel würden Sie `"*"` senden, um Zugriff auf das Voicemail-System zu beantragen, dann nach einer Pause eine "1" senden, um die Wiedergabe der Voicemail-Nachrichten zu starten, und nach einer weiteren Pause "5555" als PIN-Nummer wählen, um die Nachrichten zu öffnen.
+Zum Beispiel, wenn Sie Code schreiben, um ein Voicemail-System durch Senden von DTMF-Codes zu steuern, könnten Sie eine Zeichenfolge wie `"*,1,5555"` verwenden. In diesem Beispiel würden wir `"*"` senden, um Zugriff auf das Voicemail-System anzufordern, dann nach einer Pause eine "1", um mit der Wiedergabe von Voicemail-Nachrichten zu beginnen, und dann nach einer Pause "5555" als PIN-Nummer wählen, um die Nachrichten zu öffnen.
 
-Das Setzen des Tone-Puffers auf einen leeren String (`""`) storniert alle ausstehenden DTMF-Codes.
+Das Setzen des Tonebuffers auf eine leere Zeichenfolge (`""`) hebt alle anstehenden DTMF-Codes auf.
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: "RTCSessionDescription: toJSON() Methode"
+title: "RTCSessionDescription: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/RTCSessionDescription/toJSON
 l10n:
@@ -9,9 +9,9 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`RTCSessionDescription.toJSON()`**-Methode erzeugt eine
-[JSON](/de/docs/Glossary/JSON)-Beschreibung des Objekts. Sowohl die Eigenschaften
-[`type`](/de/docs/Web/API/RTCSessionDescription/type) als auch
-[`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) sind in dem erzeugten JSON enthalten.
+[JSON](/de/docs/Glossary/JSON)-Beschreibung des Objekts. Beide Eigenschaften,
+[`type`](/de/docs/Web/API/RTCSessionDescription/type) und
+[`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind in dem generierten JSON enthalten.
 
 ## Syntax
 

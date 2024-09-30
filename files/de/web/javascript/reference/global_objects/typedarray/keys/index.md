@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`keys()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel für jeden Index im typisierten Array enthält. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.keys()")}}.
+Die **`keys()`**-Methode von Instanzen des {{jsxref("TypedArray")}} gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jeden Index im typisierten Array enthält. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.keys()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-keys.html")}}
 
@@ -27,7 +27,7 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.keys()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf instanzierte typisierte Arrays angewendet werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.keys()")}}. Diese Methode ist nicht generisch und kann nur bei typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft der Schnittstelle [`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement) gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) besitzt, das mit diesem {{htmlelement("legend")}} verbunden ist, oder `null`, wenn diese Legende nicht mit einem von einem Formular besessenen {{htmlelement("fieldset")}} verbunden ist.
+Die **`form`** schreibgeschützte Eigenschaft des [`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) besitzt, das mit diesem {{htmlelement("legend")}} verknüpft ist, oder `null`, wenn diese Legend nicht mit einem vom Formular besessenen {{htmlelement("fieldset")}} verknüpft ist.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLFieldSetElement.form`](/de/docs/Web/API/HTMLFieldSetElement/form)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("legend")}}
-- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)

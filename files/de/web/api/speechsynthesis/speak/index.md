@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: speak() Methode"
+title: "SpeechSynthesis: speak()-Methode"
 short-title: speak()
 slug: Web/API/SpeechSynthesis/speak
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`speak()`** Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur `utterance`-Warteschlange hinzu; sie wird gesprochen, wenn alle anderen vorher in der Warteschlange befindlichen Äußerungen gesprochen worden sind.
+Die **`speak()`**-Methode der Schnittstelle [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur `utterance`-Warteschlange hinzu; sie wird gesprochen, wenn alle vorhergehenden `utterances` in der Warteschlange gesprochen wurden.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Snippet stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([live ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)). Wenn ein Formular, das den zu sprechenden Text enthält, abgeschickt wird, erstellen wir (unter anderem) eine neue Äußerung mit diesem Text und sprechen sie, indem wir sie als Parameter in `speak()` übergeben.
+Dieses Snippet ist aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([Live-Demo ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)) entnommen. Wenn ein Formular, das den Text enthält, den wir sprechen möchten, abgeschickt wird, erstellen wir (neben anderen Dingen) eine neue `utterance`, die diesen Text enthält, und sprechen ihn, indem wir ihn als Parameter an `speak()` übergeben.
 
 ```js
 const synth = window.speechSynthesis;

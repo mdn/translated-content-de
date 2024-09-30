@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte Eigenschaft `positionY` des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das die y-Position des Hörers im 3D-kartesischen Raum darstellt.
+Die schreibgeschützte Eigenschaft `positionY` der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das die y-Position des Hörers im 3D-kartesischen Raum darstellt.
 
 > [!NOTE]
-> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower eingestellt ist, oder [_k-rate_](/de/docs/Web/API/AudioParam#k-rate) in anderen Fällen.
+> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower gesetzt ist, oder [_k-rate_](/de/docs/Web/API/AudioParam#k-rate) ansonsten.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist 0 und er kann zwischen positiver und negativer Unendlichkeit variieren.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist 0, und er kann zwischen positiver und negativer Unendlichkeit variieren.
 
 ## Beispiele
 

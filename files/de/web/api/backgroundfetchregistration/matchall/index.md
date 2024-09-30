@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`matchAll()`**-Methode des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt ein Array von passenden [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Objekten zurück.
+Die **`matchAll()`** Methode des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Interfaces gibt ein Array von passenden [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) Objekten zurück.
 
 ## Syntax
 
@@ -21,38 +21,34 @@ matchAll(request,options)
 ### Parameter
 
 - `request` {{optional_inline}}
-  - : Die [`Request`](/de/docs/Web/API/Request), für die Sie versuchen, Datensätze zu finden.
-    Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder eine URL sein. Wenn dieser Parameter weggelassen wird, werden alle Datensätze im Ergebnis eingeschlossen.
+  - : Der [`Request`](/de/docs/Web/API/Request), für den Sie versuchen, Datensätze zu finden. Dies kann ein [`Request`](/de/docs/Web/API/Request) Objekt oder eine URL sein. Wenn dieser Parameter weggelassen wird, werden alle Datensätze im Ergebnis enthalten.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das Optionen für den `match`-Vorgang festlegt. Die verfügbaren
     Optionen sind:
 
     - `ignoreSearch` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Abfrage-String in der URL ignoriert werden soll. Wenn er zum Beispiel auf
-        `true` gesetzt ist, würde der `?value=bar`-Teil von
-        `http://foo.com/?value=bar` beim Abgleichen ignoriert werden.
-        Er ist standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die Abfragezeichenfolge in der URL ignoriert werden soll. Wenn zum Beispiel `true` gesetzt ist, wird der `?value=bar` Teil von
+        `http://foo.com/?value=bar` beim Durchführen eines Abgleichs ignoriert. Der Standardwert ist `false`.
     - `ignoreMethod` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true`,
-        verhindert er, dass Übereinstimmungen die `http`-Methode des [`Request`](/de/docs/Web/API/Request) validieren.
-        Wenn `false` (Standardwert) sind nur `GET` und `HEAD` erlaubt.
+      - : Ein boolescher Wert. Wenn `true`, verhindert, dass Übereinstimmungsoperationen die `http`-Methode des [`Request`](/de/docs/Web/API/Request) validieren.
+        Wenn `false` (der Standard), sind nur `GET` und `HEAD` erlaubt.
     - `ignoreVary` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true`, bedeutet dies, dass der {{HTTPHeader("Vary")}}-Header ignoriert werden sollte.
-        Er ist standardmäßig `false`.
+      - : Ein boolescher Wert. Wenn `true`, wird angezeigt, dass der {{HTTPHeader("Vary")}} Header ignoriert werden sollte.
+        Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array aller passenden [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Objekte aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem Array aller passenden [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) Objekte aufgelöst wird.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn das [`recordsAvailable`](/de/docs/Web/API/BackgroundFetchRegistration/recordsAvailable)-Flag `false` ist, was darauf hinweist, dass kein Abruf im Gange ist.
+  - : Wird zurückgegeben, wenn das [`recordsAvailable`](/de/docs/Web/API/BackgroundFetchRegistration/recordsAvailable) Flag `false` ist, was darauf hinweist, dass kein Abruf im Gange ist.
 
 ## Beispiele
 
-Verwenden Sie `matchAll()` ohne Parameter, um alle Datensätze eines Hintergrundabrufs zurückzugeben.
+Verwenden Sie `matchAll()` ohne Parameter, um alle Datensätze in einem Hintergrundabruf zurückzugeben.
 
 ```js
 const records = await bgFetch.matchAll();

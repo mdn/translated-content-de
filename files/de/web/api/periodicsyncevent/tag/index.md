@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`tag`**-Eigenschaft des [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Interfaces gibt den benutzerdefinierten Bezeichner für das [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) zurück. Dieser wird festgelegt, wenn die [`PeriodicSyncManager.register()`](/de/docs/Web/API/PeriodicSyncManager/register)-Methode des [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces aufgerufen wird. Mehrere Tags können von der Webanwendung verwendet werden, um verschiedene periodische Aufgaben mit unterschiedlichen Frequenzen auszuführen.
+Die **`tag`**-Schreibgeschützte Eigenschaft des [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Interfaces gibt den vom Entwickler definierten Bezeichner für das [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) zurück. Dieser wird beim Aufrufen der Methode [`PeriodicSyncManager.register()`](/de/docs/Web/API/PeriodicSyncManager/register) des [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces angegeben. Mehrere Tags können von der Web-App verwendet werden, um verschiedene periodische Aufgaben in unterschiedlichen Frequenzen auszuführen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Gibt einen {{jsxref('String')}} des definierten Bezeichners zurück.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt das Abhören eines periodischen Synchronisationsereignisses im Service Worker und den Zugriff auf die `tag`-Eigenschaft.
+Das folgende Beispiel zeigt, wie ein periodisches Synchronisationsereignis im Service Worker überwacht wird und wie auf die `tag`-Eigenschaft zugegriffen wird.
 
 ```js
 self.addEventListener("periodicsync", (event) => {
@@ -35,4 +35,4 @@ self.addEventListener("periodicsync", (event) => {
 ## Siehe auch
 
 - [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Periodic Background Sync Demo-App](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Eine Demo-App für die Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

@@ -7,40 +7,40 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`PromiseRejectionEvent`**-Schnittstelle repräsentiert Ereignisse, die an den globalen Skript-Kontext gesendet werden, wenn JavaScript-{{jsxref("Promise")}}s abgelehnt werden. Diese Ereignisse sind besonders nützlich für Telemetrie- und Debugging-Zwecke.
+Die **`PromiseRejectionEvent`**-Schnittstelle repräsentiert Ereignisse, die an den globalen Skriptkontext gesendet werden, wenn JavaScript-{{jsxref("Promise")}}s abgelehnt werden. Diese Ereignisse sind besonders nützlich für Telemetrie- und Debugging-Zwecke.
 
-Für Details siehe [Promise-Ablehnungsereignisse](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events).
+Weitere Details finden Sie unter [Promise-Ablehnungsereignisse](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`PromiseRejectionEvent()`](/de/docs/Web/API/PromiseRejectionEvent/PromiseRejectionEvent)
-  - : Erstellt ein `PromiseRejectionEvent`-Ereignis, basierend auf dem Ereignistyp ([`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event) oder [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)) und weiteren Details.
+  - : Erstellt ein `PromiseRejectionEvent`-Ereignis, basierend auf dem Ereignistyp ([`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event) oder [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)) und anderen Details.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-Element [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 - [`PromiseRejectionEvent.promise`](/de/docs/Web/API/PromiseRejectionEvent/promise) {{ReadOnlyInline}}
   - : Das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde.
 - [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) {{ReadOnlyInline}}
-  - : Ein Wert oder ein {{jsxref("Object")}}, der angibt, warum das Promise abgelehnt wurde, wie es an {{jsxref("Promise.reject()")}} übergeben wurde.
+  - : Ein Wert oder ein {{jsxref("Object")}}, der angibt, warum das Promise abgelehnt wurde, wie an {{jsxref("Promise.reject()")}} übergeben.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden; sie erbt Methoden von ihrem Eltern-Element [`Event`](/de/docs/Web/API/Event)_.
+_Diese Schnittstelle hat keine einzigartigen Methoden; sie erbt Methoden von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 ## Ereignisse
 
 - [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
-  - : Wird ausgelöst, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird und nachdem die Ablehnung mit dem Ablehnungsbehandlungscode des Promises behandelt wurde.
+  - : Wird ausgelöst, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird und nachdem die Ablehnung durch die Fehlerbehandlungs-Code des Promises behandelt wurde.
 - [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
-  - : Wird ausgelöst, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird, aber kein Ablehnungshandler vorhanden ist, um die Ablehnung zu behandeln.
+  - : Wird ausgelöst, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird, es jedoch keinen Ablehnungs-Handler gibt, der mit der Ablehnung umgehen kann.
 
 ## Beispiele
 
-Dieses einfache Beispiel fängt nicht behandelte Promise-Ablehnungen ab und protokolliert sie zu Debugging-Zwecken.
+Dieses einfache Beispiel fängt unbehandelte Promise-Ablehnungen ab und protokolliert sie zu Debugging-Zwecken.
 
 ```js
 window.onunhandledrejection = (e) => {

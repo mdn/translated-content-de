@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP- {{HTTPHeader("Permissions-Policy")}}-Header `gyroscope`-Direktive steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Schnittstelle sammeln darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `gyroscope`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Informationen über die Ausrichtung des Geräts über die [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Schnittstelle zu sammeln.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der Aufruf des [`Gyroscope()`](/de/docs/Web/API/Gyroscope/Gyroscope)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Speziell dort, wo eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des Konstruktors [`Gyroscope()`](/de/docs/Web/API/Gyroscope/Gyroscope) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: gyroscope=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für welche die Erlaubnis zur Nutzung dieser Funktion erteilt wird. Weitere Details siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allehliste für `gyroscope` ist `self`.
+Die Standard-`allowlist` für `gyroscope` ist `self`.
 
 ## Spezifikationen
 

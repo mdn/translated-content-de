@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Erweiterung auf das "file://" Schema zugreifen kann, ansonsten `false`.
+Gibt `true` zurück, wenn die Erweiterung auf das "file://" Schema zugreifen kann, andernfalls `false`.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Boolean erfüllt wird: `true`, wenn der Erweiterung der Zugriff auf "file://" URLs erlaubt ist, ansonsten `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean-Wert erfüllt wird: `true`, wenn der Erweiterung der Zugriff auf "file://" URLs erlaubt ist, andernfalls `false`.
 
 Firefox wird immer `false` zurückgeben.
 
@@ -45,7 +45,7 @@ isAllowed.then(logIsAllowed);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-isAllowedFileSchemeAccess) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-isAllowedFileSchemeAccess) API. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

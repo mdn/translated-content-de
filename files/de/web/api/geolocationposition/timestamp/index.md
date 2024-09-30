@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`timestamp`** des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces stellt das Datum und die Uhrzeit dar, zu der die Position vom Gerät ermittelt wurde.
+Die **`timestamp`** schreibgeschützte Eigenschaft der [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition) Schnittstelle repräsentiert das Datum und die Uhrzeit, zu der die Position vom Gerät erfasst wurde.
 
 ## Wert
 

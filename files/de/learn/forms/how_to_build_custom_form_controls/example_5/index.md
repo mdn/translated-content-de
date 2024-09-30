@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Dies ist das letzte Beispiel, das erklärt, [wie benutzerdefinierte Formular-Widgets erstellt werden](/de/docs/Learn/Forms/How_to_build_custom_form_controls).
+Dies ist das letzte Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn/Forms/How_to_build_custom_form_controls).
 
 ## Zustände ändern
 

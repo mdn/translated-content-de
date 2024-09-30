@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Divisionsoperator (`/`)** erzeugt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
+Der **Divisionsoperator (`/`)** liefert den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-division.html")}}
 
@@ -19,9 +19,9 @@ x / y
 
 ## Beschreibung
 
-Der `/` Operator ist für zwei Typen von Operanden überladen: `number` und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet deren Typen. Er führt eine BigInt-Division aus, wenn beide Operanden zu BigInts werden; ansonsten wird eine numerische Division durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `/` Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er folgt der [Konvertierung beider Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Es wird eine BigInt-Division durchgeführt, wenn beide Operanden BigInts werden; andernfalls wird eine Zahlendivision durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
-Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der gegen Null abgeschnitten wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Das liegt daran, dass die Division durch Null bei `number` `Infinity` oder `-Infinity` zurückgibt, bei BigInt jedoch kein Konzept der Unendlichkeit existiert.
+Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, abgerundet in Richtung Null, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division von Zahlen durch Null `Infinity` oder `-Infinity` ergibt, BigInt jedoch kein Konzept von Unendlichkeit hat.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ Math.floor(3 / 2); // 1
 2.0 / -0.0; // -Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden zu Zahlen umgewandelt:
+Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 5 / "2"; // 2.5
@@ -55,14 +55,14 @@ Andere Nicht-BigInt-Werte werden zu Zahlen umgewandelt:
 2n / 0n; // RangeError: BigInt division by zero
 ```
 
-Sie können BigInt- und `number`-Operanden in der Division nicht mischen.
+Man kann BigInt- und Zahlenoperanden in der Division nicht mischen.
 
 ```js example-bad
 2n / 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 / 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, wandeln Sie einen der Operanden um:
+Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
 
 ```js
 2n / BigInt(2); // 1n
@@ -86,5 +86,5 @@ Number(2n) / 2; // 1
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getReceivers()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten zurück, von denen jedes einen RTP-Empfänger repräsentiert. Jeder RTP-Empfänger verwaltet den Empfang und die Dekodierung von Daten für ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Die **`getReceivers()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten zurück, von denen jedes einen RTP-Empfänger darstellt. Jeder RTP-Empfänger verwaltet den Empfang und das Dekodieren von Daten für ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 ## Syntax
 
@@ -18,11 +18,11 @@ getReceivers()
 
 ### Rückgabewert
 
-Ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten, jeweils eines für jeden Track auf der Verbindung. Das Array ist leer, wenn keine RTP-Empfänger auf der Verbindung vorhanden sind.
+Ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten, eines für jeden Track auf der Verbindung. Das Array ist leer, wenn es keine RTP-Empfänger auf der Verbindung gibt.
 
-Die Reihenfolge der zurückgegebenen `RTCRtpReceiver`-Instanzen ist durch die Spezifikation nicht definiert und kann sich von einem Aufruf von `getReceivers()` zum nächsten ändern.
+Die Reihenfolge der zurückgegebenen `RTCRtpReceiver`-Instanzen ist in der Spezifikation nicht festgelegt und kann sich von einem Aufruf von `getReceivers()` zum nächsten ändern.
 
-Das Array beinhaltet keine Empfänger, die mit Transceivern assoziiert sind, die [gestoppt](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) wurden (nach einem Offer/Answer).
+Das Array enthält keine Empfänger, die mit Transceivern verbunden sind, die gestoppt wurden (nach dem Offer/Answer-Prozess).
 
 ## Beispiel
 

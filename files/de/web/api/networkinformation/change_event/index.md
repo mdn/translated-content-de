@@ -1,5 +1,5 @@
 ---
-title: "NetworkInformation: change Ereignis"
+title: "NetworkInformation: change-Ereignis"
 short-title: change
 slug: Web/API/NetworkInformation/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{apiref("Network Information API")}} {{AvailableInWorkers}}
 
-Das **`change`** Ereignis des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation) Interfaces wird ausgelöst, wenn sich die Verbindungsinformationen ändern, und das Ereignis wird vom [`NetworkInformation`](/de/docs/Web/API/NetworkInformation) Objekt empfangen.
+Das **`change`**-Ereignis der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle wird ausgelöst, wenn sich Verbindungsinformationen ändern, und das Ereignis wird vom [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt empfangen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});

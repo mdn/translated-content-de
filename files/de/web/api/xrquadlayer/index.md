@@ -7,40 +7,40 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Das **`XRQuadLayer`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Ebene, die einen flachen rechteckigen Raum in der virtuellen Umgebung einnimmt. Ein `XRQuadLayer` hat keine Dicke. Es ist ein zweidimensionales Objekt, das im 3D-Raum positioniert und ausgerichtet wird. Die Position eines Quads bezieht sich auf das Zentrum des Quads. Nur die Vorderseite der Ebene ist sichtbar.
+Das **`XRQuadLayer`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Ebene, die in der virtuellen Umgebung einen flachen rechteckigen Raum einnimmt. Ein `XRQuadLayer` hat keine Dicke. Es ist ein zweidimensionales Objekt, das in einem 3D-Raum positioniert und ausgerichtet ist. Die Position eines Quads bezieht sich auf das Zentrum des Quads. Nur die Vorderseite der Ebene ist sichtbar.
 
-`XRQuadLayer` erfordert, dass das `layers`-Feature für die [`XRSession`](/de/docs/Web/API/XRSession) aktiviert ist. Sie können es in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern.
+`XRQuadLayer` erfordert, dass die Funktion `layers` für die [`XRSession`](/de/docs/Web/API/XRSession) aktiviert ist. Sie können dies in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern.
 
-Um ein neues `XRQuadLayer` zu erstellen, rufen Sie entweder auf:
+Um ein neues `XRQuadLayer` zu erstellen, rufen Sie entweder:
 
-- [`XRWebGLBinding.createQuadLayer()`](/de/docs/Web/API/XRWebGLBinding/createQuadLayer) für eine WebGL opake Textur-Quadratschicht, oder
-- [`XRMediaBinding.createQuadLayer()`](/de/docs/Web/API/XRMediaBinding/createQuadLayer) für eine HTML-{{HTMLElement("video")}}-Wiedergabe-Quadratschicht.
+- [`XRWebGLBinding.createQuadLayer()`](/de/docs/Web/API/XRWebGLBinding/createQuadLayer) für eine WebGL-opake Textur-Quad-Ebene oder
+- [`XRMediaBinding.createQuadLayer()`](/de/docs/Web/API/XRMediaBinding/createQuadLayer) für eine HTML-{{HTMLElement("video")}}-Wiedergabe-Quad-Ebene auf.
 
-Um Ebenen an das XR-Gerät zu präsentieren, fügen Sie sie dem `layers`-Renderzustand mit [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzu.
+Um Ebenen auf das XR-Gerät zu präsentieren, fügen Sie sie dem `layers` Render-Status unter Verwendung von [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzu.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)._
 
 - [`XRQuadLayer.height`](/de/docs/Web/API/XRQuadLayer/height) {{Experimental_Inline}}
   - : Repräsentiert die Höhe der Ebene in Metern.
 - [`XRQuadLayer.space`](/de/docs/Web/API/XRQuadLayer/space) {{Experimental_Inline}}
-  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), der die räumliche Beziehung der Ebene zur physischen Umgebung des Benutzers darstellt.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), das die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers darstellt.
 - [`XRQuadLayer.transform`](/de/docs/Web/API/XRQuadLayer/transform) {{Experimental_Inline}}
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der den Offset und die Ausrichtung relativ zu `space` darstellt.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der den Versatz und die Ausrichtung relativ zu `space` darstellt.
 - [`XRQuadLayer.width`](/de/docs/Web/API/XRQuadLayer/width) {{Experimental_Inline}}
   - : Repräsentiert die Breite der Ebene in Metern.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinen Elternteilen, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) und [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt Methoden von seinen Eltern, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) und [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 ## Ereignisse
 
 - [`redraw`](/de/docs/Web/API/XRQuadLayer/redraw_event) {{Experimental_Inline}}
-  - : Wird an das `XRQuadLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Kompositor die Ebene nicht mehr neu projizieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Ebene im nächsten XR-Animationsrahmen neu zeichnen.
+  - : Wird an das `XRQuadLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR Compositor die Ebene nicht mehr neu projizieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Ebene im nächsten XR-Animationsrahmen neu zeichnen.
 
 ## Spezifikationen
 

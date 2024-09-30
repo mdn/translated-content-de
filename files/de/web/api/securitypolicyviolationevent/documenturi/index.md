@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`documentURI`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die URI des Dokuments oder des Workers darstellt, in dem die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung aufgetreten ist.
+Die **`documentURI`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die URI des Dokuments oder Workers darstellt, in dem die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung aufgetreten ist.
 
 ## Wert
 
-Ein String, der die URI des Dokuments oder des Workers darstellt, in dem der Verstoß aufgetreten ist.
+Ein String, der die URI des Dokuments oder Workers darstellt, in dem die Verletzung aufgetreten ist.
 
 ## Beispiele
 

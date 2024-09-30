@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`willValidate`** schreibgeschützte Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces gibt `false` zurück, weil {{HTMLElement("output")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die schreibgeschützte Eigenschaft **`willValidate`** des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interfaces gibt `false` zurück, da {{HTMLElement("output")}}-Elemente keine Kandidaten für die [Eingabebeschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Wert
 
@@ -27,5 +27,5 @@ Der boolesche Wert `false`.
 - [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
 - {{HTMLElement("output")}}
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Eingabebeschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

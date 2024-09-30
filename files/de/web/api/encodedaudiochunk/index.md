@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`EncodedAudioChunk`**-Schnittstelle der [WebCodecs-API](/de/docs/Web/API/WebCodecs_API) repräsentiert ein Stück kodierter Audiodaten.
+Die **`EncodedAudioChunk`**-Schnittstelle der [WebCodecs-API](/de/docs/Web/API/WebCodecs_API) repräsentiert einen Abschnitt von kodierten Audiodaten.
 
 ## Konstruktor
 
@@ -17,13 +17,13 @@ Die **`EncodedAudioChunk`**-Schnittstelle der [WebCodecs-API](/de/docs/Web/API/W
 ## Instanz-Eigenschaften
 
 - [`EncodedAudioChunk.type`](/de/docs/Web/API/EncodedAudioChunk/type) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der angibt, ob dieser Datenblock ein Schlüsselblock ist.
+  - : Gibt eine Zeichenkette zurück, die angibt, ob dieser Datenabschnitt ein Schlüsselabschnitt ist.
 - [`EncodedAudioChunk.timestamp`](/de/docs/Web/API/EncodedAudioChunk/timestamp) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Audios in Mikrosekunden darstellt.
+  - : Gibt einen ganzzahligen Wert zurück, der den Zeitstempel des Audios in Mikrosekunden darstellt.
 - [`EncodedAudioChunk.duration`](/de/docs/Web/API/EncodedAudioChunk/duration) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden darstellt.
+  - : Gibt einen ganzzahligen Wert zurück, der die Dauer des Audios in Mikrosekunden darstellt.
 - [`EncodedAudioChunk.byteLength`](/de/docs/Web/API/EncodedAudioChunk/byteLength) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Länge des Audios in Bytes darstellt.
+  - : Gibt einen ganzzahligen Wert zurück, der die Länge des Audios in Bytes darstellt.
 
 ## Instanz-Methoden
 

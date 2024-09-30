@@ -23,7 +23,7 @@ unshift(element1, element2, /* …, */ elementN)
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Die Elemente, die am Anfang des `arr` hinzugefügt werden sollen.
+  - : Die Elemente, die zum Anfang des `arr` hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -31,13 +31,13 @@ Die neue {{jsxref("Array/length", "length")}}-Eigenschaft des Objekts, auf dem d
 
 ## Beschreibung
 
-Die `unshift()`-Methode fügt die angegebenen Werte am Anfang eines array-ähnlichen Objekts ein.
+Die `unshift()`-Methode fügt die gegebenen Werte am Anfang eines array-ähnlichen Objekts ein.
 
 {{jsxref("Array.prototype.push()")}} hat ein ähnliches Verhalten wie `unshift()`, wird jedoch am Ende eines Arrays angewendet.
 
-Bitte beachten Sie, dass, wenn mehrere Elemente als Parameter übergeben werden, diese in einem Block am Anfang des Objekts eingefügt werden, in genau der Reihenfolge, in der sie als Parameter übergeben wurden. Daher führt das einmalige Aufrufen von `unshift()` mit `n` Argumenten oder das `n`-malige Aufrufen mit **1** Argument (zum Beispiel in einer Schleife) nicht zu denselben Ergebnissen.
+Bitte beachten Sie, dass wenn mehrere Elemente als Parameter übergeben werden, diese in der Reihenfolge, in der sie übergeben wurden, als Block am Anfang des Objekts eingefügt werden. Deshalb führt der Aufruf von `unshift()` mit `n` Argumenten **einmal** oder das **n**-fache Aufrufen mit **1** Argument (zum Beispiel in einer Schleife) nicht zu den gleichen Ergebnissen.
 
-Siehe Beispiel:
+Beispiel:
 
 ```js
 let arr = [4, 5, 6];
@@ -56,7 +56,7 @@ console.log(arr);
 // [3, 2, 1, 4, 5, 6]
 ```
 
-Die `unshift()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert über eine `length`-Eigenschaft und ganzzahlige Schlüssel-Eigenschaften verfügt. Obwohl Zeichenketten auch array-ähnlich sind, ist diese Methode nicht geeignet, um auf sie angewendet zu werden, da Zeichenketten unveränderlich sind.
+Die `unshift()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat. Obwohl Strings ebenfalls array-ähnlich sind, ist diese Methode nicht für sie geeignet, da Strings unveränderlich sind.
 
 ## Beispiele
 
@@ -78,9 +78,9 @@ arr.unshift([-7, -6], [-5]); // the new array length is 8
 // arr is [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
 ```
 
-### Aufrufen von unshift() auf Nicht-Array-Objekten
+### Aufruf von unshift() auf Nicht-Array-Objekten
 
-Die `unshift()`-Methode liest die `length`-Eigenschaft von `this`. Sie verschiebt alle Indizes im Bereich von `0` bis `length - 1` um die Anzahl der Argumente nach rechts (erhöht ihre Werte um diese Zahl). Dann setzt sie jeden Index beginnend bei `0` mit den an `unshift()` übergebenen Argumenten. Schließlich setzt sie die `length` auf die vorherige Länge plus die Anzahl der hinzugefügten Elemente.
+Die `unshift()`-Methode liest die `length`-Eigenschaft von `this`. Sie verschiebt alle Indizes im Bereich von `0` bis `length - 1` nach rechts um die Anzahl der Argumente (erhöht deren Werte um diese Zahl). Dann setzt sie jeden Index beginnend bei `0` mit den an `unshift()` übergebenen Argumenten. Schließlich setzt sie die `length` auf die vorherige Länge plus die Anzahl der hinzugefügten Elemente.
 
 ```js
 const arrayLike = {
@@ -110,7 +110,7 @@ console.log(plainObj);
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.unshift` in `core-js` mit Korrekturen dieser Methode](https://github.com/zloirock/core-js#ecmascript-array)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.push()")}}
 - {{jsxref("Array.prototype.pop()")}}

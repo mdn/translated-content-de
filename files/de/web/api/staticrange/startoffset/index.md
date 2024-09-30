@@ -1,5 +1,5 @@
 ---
-title: "StaticRange: startOffset-Eigenschaft"
+title: "StaticRange: Eigenschaft startOffset"
 short-title: startOffset
 slug: Web/API/StaticRange/startOffset
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`startOffset`**-Eigenschaft des [`StaticRange`](/de/docs/Web/API/StaticRange)-Interfaces gibt den Offset im Startknoten der Startposition des Bereichs zurück.
+Die schreibgeschützte **`startOffset`**-Eigenschaft der [`StaticRange`](/de/docs/Web/API/StaticRange)-Schnittstelle gibt den Offset in das Startknoten der Startposition des Bereichs zurück.
 
 ## Wert
 
-Ein Ganzzahlwert, der die Anzahl der Zeichen im [`Node`](/de/docs/Web/API/Node) angibt, wie durch [`startContainer`](/de/docs/Web/API/StaticRange/startContainer) bestimmt, an dem das erste Zeichen des Bereichs zu finden ist.
+Ein ganzzahliger Wert, der die Anzahl der Zeichen in den durch [`startContainer`](/de/docs/Web/API/StaticRange/startContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, an dem das erste Zeichen des Bereichs positioniert ist.
 
 ## Spezifikationen
 

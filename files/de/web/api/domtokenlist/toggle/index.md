@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: toggle() Methode"
+title: "DOMTokenList: toggle()-Methode"
 short-title: toggle()
 slug: Web/API/DOMTokenList/toggle
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`toggle()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle entfernt ein vorhandenes Token aus der Liste und gibt `false` zurück. Wenn das Token nicht existiert, wird es hinzugefügt und die Funktion gibt `true` zurück.
+Die **`toggle()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle entfernt ein vorhandenes Token aus der Liste und gibt `false` zurück. Wenn das Token nicht existiert, wird es hinzugefügt und die Funktion gibt `true` zurück.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ toggle(token, force)
 - `token`
   - : Ein String, der das Token repräsentiert, das Sie umschalten möchten.
 - `force` {{optional_inline}}
-  - : Wenn enthalten, wird das Umschalten zu einem einseitigen Vorgang. Wenn auf `false` gesetzt, wird `token` _nur_ entfernt, aber nicht hinzugefügt. Wenn auf `true` gesetzt, wird `token` _nur_ hinzugefügt, aber nicht entfernt.
+  - : Wenn eingeschlossen, verwandelt es den Toggle in eine Einweg-Operation. Wenn auf `false` gesetzt, wird `token` _nur_ entfernt, aber nicht hinzugefügt. Wenn auf `true` gesetzt, wird `token` _nur_ hinzugefügt, aber nicht entfernt.
 
 ### Rückgabewert
 
-Ein Boolescher Wert, `true` oder `false`, der angibt, ob `token` nach dem Aufruf in der Liste ist oder nicht.
+Ein Boolean-Wert, `true` oder `false`, der angibt, ob das `token` nach dem Aufruf in der Liste enthalten ist oder nicht.
 
 ## Beispiele
 
 ### Umschalten einer Klasse bei Klick
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}} Element als `DOMTokenList` mit [`Element.classList`](/de/docs/Web/API/Element/classList) gesetzt sind. Dann ersetzen wir ein Token in der Liste und schreiben die Liste in das `<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+Im folgenden Beispiel rufen wir die Liste der auf einem {{htmlelement("span")}}-Element gesetzten Klassen als `DOMTokenList` über [`Element.classList`](/de/docs/Web/API/Element/classList) ab. Wir ersetzen dann ein Token in der Liste und schreiben die Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`-Elements.
 
 Zuerst das HTML:
 
@@ -40,7 +40,7 @@ Zuerst das HTML:
 <span class="a b">classList is 'a b'</span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -54,13 +54,13 @@ span.addEventListener("click", () => {
 });
 ```
 
-Die Ausgabe sieht so aus und ändert sich jedes Mal, wenn Sie auf den Text klicken:
+Die Ausgabe sieht so aus und wird sich bei jedem Klick auf den Text ändern:
 
 {{ EmbedLiveSample('Toggling_a_class_on_click', '100%', 60) }}
 
 ### Setzen des force-Parameters
 
-Der zweite Parameter kann verwendet werden, um zu bestimmen, ob die Klasse enthalten ist oder nicht. Dieses Beispiel würde die Klasse 'c' nur einschließen, wenn das Browserfenster über 1000 Pixel breit ist:
+Der zweite Parameter kann verwendet werden, um zu bestimmen, ob die Klasse enthalten ist oder nicht. Dieses Beispiel würde die Klasse 'c' nur einbeziehen, wenn das Browserfenster breiter als 1000 Pixel ist:
 
 ```js
 span.classList.toggle("c", window.innerWidth > 1000);

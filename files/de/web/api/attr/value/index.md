@@ -1,5 +1,5 @@
 ---
-title: "Attr: Wert-Eigenschaft"
+title: "Attr: value-Eigenschaft"
 short-title: value
 slug: Web/API/Attr/value
 l10n:
@@ -12,11 +12,11 @@ Die **`value`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces enth�
 
 ## Wert
 
-Ein String, der den Attributswert darstellt.
+Ein String, der den Attributwert darstellt.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt den aktuellen Wert des Attributs `test`. Durch Klicken auf den Button wird es auf einen anderen Wert geändert und erneut gelesen, um den angezeigten Wert zu aktualisieren.
+Das folgende Beispiel zeigt den aktuellen Wert des Attributs `test`. Ein Klick auf den Knopf ändert ihn in einen anderen Wert und liest ihn erneut, um den angezeigten Wert zu aktualisieren.
 
 ### HTML
 

@@ -7,16 +7,16 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`HmacKeyGenParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter an [`SubtleCrypto.generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) übergeben werden sollte, wenn ein Schlüssel für den [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac)-Algorithmus generiert wird.
+Das **`HmacKeyGenParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in [`SubtleCrypto.generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) übergeben werden sollte, wenn ein Schlüssel für den [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac)-Algorithmus generiert wird.
 
 ## Instanzeigenschaften
 
 - `name`
   - : Ein String. Dies sollte auf `HMAC` gesetzt werden.
 - `hash`
-  - : Ein String, der den Namen der zu verwendenden [Digest-Funktion](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) darstellt. Sie können hier `SHA-1`, `SHA-256`, `SHA-384` oder `SHA-512` verwenden.
+  - : Ein String, der den Namen der zu verwendenden [Verdauungsfunktion](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) repräsentiert. Sie können hier eines der folgenden verwenden: `SHA-1`, `SHA-256`, `SHA-384` oder `SHA-512`.
 - `length` {{optional_inline}}
-  - : Eine `Number` — die Länge des Schlüssels in Bits. Wenn dies ausgelassen wird, entspricht die Schlüssellänge der Blockgröße der gewählten Hash-Funktion. Sofern Sie keinen besonderen Grund haben, eine andere Länge zu verwenden, lassen Sie diese Eigenschaft weg und verwenden Sie die Standardeinstellung.
+  - : Eine `Number` — die Länge in Bits des Schlüssels. Wenn dies weggelassen wird, ist die Länge des Schlüssels gleich der Blockgröße der von Ihnen gewählten Hash-Funktion. Sofern Sie keinen triftigen Grund haben, eine andere Länge zu verwenden, lassen Sie diese Eigenschaft weg und nutzen Sie den Standardwert.
 
 ## Beispiele
 

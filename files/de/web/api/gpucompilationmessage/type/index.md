@@ -8,19 +8,18 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`type`**-Eigenschaft nur-lesend der
-[`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein enumerierter Wert, der den Typ der Nachricht darstellt. Jeder Typ repräsentiert einen unterschiedlichen Schweregrad.
+Die **`type`**-Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine schreibgeschützte, aufgezählte Eigenschaft, die den Typ der Nachricht darstellt. Jeder Typ steht für einen unterschiedlichen Schweregrad.
 
 ## Wert
 
-Ein enumerierter Wert. Mögliche Werte sind:
+Ein aufgezählter Wert. Mögliche Werte sind:
 
 - `"error"`
-  - : Ein Shader-Erstellungsfehler, der eine erfolgreiche Kompilierung verhindert.
+  - : Ein Shader-Erstellungsfehler, der die erfolgreiche Kompilierung verhindert.
 - `"info"`
-  - : Eine rein informative Nachricht, die eine niedrige Schwere hat.
+  - : Eine rein informative Nachricht mit geringer Schwere.
 - `"warning"`
-  - : Eine Warnung über ein Problem, das eine erfolgreiche Kompilierung nicht verhindert, aber die Aufmerksamkeit des Entwicklers verdient. Ein Beispiel ist die Verwendung von veralteten Funktionen oder Syntax.
+  - : Eine Warnung über ein Problem, das die erfolgreiche Kompilierung nicht verhindert, aber die Aufmerksamkeit des Entwicklers verdient. Ein Beispiel ist die Verwendung von veralteten Funktionen oder Syntax.
 
 ## Beispiele
 
@@ -37,7 +36,7 @@ Ein enumerierter Wert. Mögliche Werte sind:
 }
 ```
 
-Sehen Sie sich die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel an.
+Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
 
 ## Spezifikationen
 

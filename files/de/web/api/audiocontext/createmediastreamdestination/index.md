@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: Methode createMediaStreamDestination()"
+title: "AudioContext: createMediaStreamDestination()-Methode"
 short-title: createMediaStreamDestination()
 slug: Web/API/AudioContext/createMediaStreamDestination
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createMediaStreamDestination()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Objekt zu erstellen, das mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`MediaStream`](/de/docs/Web/API/MediaStream) verknüpft ist. Dieses repräsentiert einen Audiostream, der in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet werden kann.
+Die `createMediaStreamDestination()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Objekt zu erstellen, das mit einem [WebRTC](/de/docs/Web/API/WebRTC_API)-[`MediaStream`](/de/docs/Web/API/MediaStream) verknüpft ist, der einen Audiostrom darstellt. Dieser kann in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet werden.
 
-Der [`MediaStream`](/de/docs/Web/API/MediaStream) wird beim Erstellen des Knotens erstellt und ist über das `stream`-Attribut des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode) zugänglich. Dieser Stream kann in ähnlicher Weise verwendet werden wie ein `MediaStream`, der über [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) erhalten wurde — er kann zum Beispiel an einen entfernten Teilnehmer über die `addStream()`-Methode von `RTCPeerConnection` gesendet werden.
+Der [`MediaStream`](/de/docs/Web/API/MediaStream) wird erstellt, wenn der Knoten erstellt wird und ist über das `stream`-Attribut des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode) zugänglich. Dieser Stream kann ähnlich wie ein `MediaStream` verwendet werden, der über [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) erlangt wurde — er kann zum Beispiel an einen entfernten Teilnehmer mittels der `addStream()`-Methode von `RTCPeerConnection` gesendet werden.
 
-Weitere Details über Media-Stream-Zielknoten finden Sie auf der Referenzseite des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode).
+Für weitere Details über Medienstrom-Zielknoten schauen Sie sich die [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Referenzseite an.
 
 ## Syntax
 
@@ -30,9 +30,9 @@ Ein [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestina
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel erstellen wir ein [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode), ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) und einen [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) (das Beispiel funktioniert daher derzeit nur in Firefox und Chrome.) Der `MediaRecorder` wird eingerichtet, um Informationen vom `MediaStreamDestinationNode` aufzuzeichnen.
+Im folgenden einfachen Beispiel erstellen wir einen [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode), einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) und einen [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) (das Beispiel funktioniert daher derzeit nur in Firefox und Chrome). Der `MediaRecorder` wird eingerichtet, um Informationen vom `MediaStreamDestinationNode` aufzuzeichnen.
 
-Wenn die Schaltfläche geklickt wird, startet der Oszillator und der `MediaRecorder` wird gestartet. Wenn die Schaltfläche gestoppt wird, stoppen sowohl der Oszillator als auch der `MediaRecorder`. Das Stoppen des `MediaRecorder` verursacht das Auslösen des `dataavailable`-Events, und die Eventdaten werden in das `chunks`-Array geschoben. Danach wird das `stop`-Event ausgelöst, ein neuer `blob` wird vom Typ opus erstellt, der die Daten im `chunks`-Array enthält, und ein neues Fenster (Tab) wird geöffnet, das auf eine URL zeigt, die aus dem Blob erstellt wurde.
+Wenn der Button geklickt wird, startet der Oszillator und der `MediaRecorder` wird gestartet. Wenn der Button gestoppt wird, stoppen sowohl der Oszillator als auch der `MediaRecorder`. Das Stoppen des `MediaRecorder` löst das `dataavailable`-Ereignis aus, und die Ereignisdaten werden in das `chunks`-Array geschoben. Danach wird das `stop`-Ereignis ausgelöst, ein neues `blob` vom Typ opus wird erstellt – das die Daten im `chunks`-Array enthält, und ein neues Fenster (Tab) wird geöffnet, das auf eine vom Blob erstellte URL zeigt.
 
 Von hier aus können Sie die opus-Datei abspielen und speichern.
 
@@ -88,7 +88,7 @@ Von hier aus können Sie die opus-Datei abspielen und speichern.
 ```
 
 > [!NOTE]
-> Sie können [dieses Beispiel live ansehen](https://mdn.github.io/webaudio-examples/create-media-stream-destination/index.html) oder [den Quellcode auf GitHub studieren](https://github.com/mdn/webaudio-examples/blob/main/create-media-stream-destination/index.html).
+> Sie können [dieses Beispiel live ansehen](https://mdn.github.io/webaudio-examples/create-media-stream-destination/index.html) oder [den Quellcode studieren](https://github.com/mdn/webaudio-examples/blob/main/create-media-stream-destination/index.html) auf GitHub.
 
 ## Spezifikationen
 

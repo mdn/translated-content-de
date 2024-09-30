@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-**`MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN`** ist eine proprietäre, WebKit-spezifische, statische, numerische Eigenschaft, deren Wert die minimale Kraft ist, die für einen Force-Klick erforderlich ist.
+**`MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN`** ist eine proprietäre, WebKit-spezifische, statische numerische Eigenschaft, deren Wert die minimale Kraft darstellt, die für einen Force-Klick notwendig ist.
 
-Da `WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN` eine statische Eigenschaft von `MouseEvent` ist, verwenden Sie sie immer als `MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN` und nicht als Eigenschaft einer `MouseEvent`-Instanz.
+Da `WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN` eine statische Eigenschaft von `MouseEvent` ist, wird sie immer als `MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN` verwendet und nicht als Eigenschaft einer `MouseEvent`-Instanz.
 
 ## Spezifikationen
 
-_Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Teil keiner Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
 
 ## Siehe auch
 

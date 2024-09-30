@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Der Wert der **`Navigator.product`**-Eigenschaft ist immer `"Gecko"` in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`Navigator.product`**-Eigenschaft ist immer
+`"Gecko"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
 > Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser geben `"Gecko"` als Wert dieser Eigenschaft zurück.

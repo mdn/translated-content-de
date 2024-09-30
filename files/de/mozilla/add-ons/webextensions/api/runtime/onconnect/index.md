@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Verbindung entweder mit einem Erweiterungsprozess oder einem Inhaltsskript hergestellt wird.
+Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhalts-Skript hergestellt wird.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn gelauscht wird, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
 
 ## addListener-Syntax
 
@@ -43,11 +43,11 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Dieses Inhaltsskript:
+Dieses Inhalts-Skript:
 
-- stellt eine Verbindung zum Hintergrundskript her und speichert den `Port` in einer Variablen `myPort`
-- hört auf Nachrichten auf `myPort` und protokolliert diese
-- sendet Nachrichten an das Hintergrundskript, indem `myPort` verwendet wird, wenn der Benutzer auf das Dokument klickt
+- stellt eine Verbindung zum Hintergrundskript her und speichert den `Port` in einer Variable `myPort`
+- hört auf Nachrichten bei `myPort` und protokolliert sie
+- sendet Nachrichten an das Hintergrundskript, unter Verwendung von `myPort`, wenn der Benutzer auf das Dokument klickt
 
 ```js
 // content-script.js
@@ -67,14 +67,14 @@ document.body.addEventListener("click", () => {
 
 Das entsprechende Hintergrundskript:
 
-- hört auf Verbindungsversuche des Inhaltsskripts
-- wenn es einen Verbindungsversuch erhält:
+- hört auf Verbindungsversuche des Inhalts-Skriptes
+- wenn ein Verbindungsversuch empfangen wird:
 
-  - speichert es den Port in einer Variablen namens `portFromCS`
-  - sendet dem Inhaltsskript eine Nachricht über den Port
-  - beginnt, auf Nachrichten, die über den Port empfangen werden, zu hören und protokolliert diese
+  - speichert es den Port in einer Variable namens `portFromCS`
+  - sendet dem Inhalts-Skript eine Nachricht unter Verwendung des Ports
+  - beginnt, auf Nachrichten zu hören, die über den Port empfangen werden, und protokolliert sie
 
-- sendet Nachrichten an das Inhaltsskript, indem `portFromCS` verwendet wird, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
+- sendet Nachrichten an das Inhalts-Skript, unter Verwendung von `portFromCS`, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
 
 ```js
 // background-script.js
@@ -100,7 +100,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect)-API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

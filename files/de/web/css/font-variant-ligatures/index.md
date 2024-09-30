@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche [Ligaturen](/de/docs/Glossary/ligature) und [kontextuellen Formen](/de/docs/Glossary/contextual_forms) im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
+Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche [Ligaturen](/de/docs/Glossary/ligature) und [Kontextformen](/de/docs/Glossary/contextual_forms) im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
 
 {{EmbedInteractiveExample("pages/css/font-variant-ligatures.html")}}
 
@@ -41,40 +41,41 @@ font-variant-ligatures: revert-layer;
 font-variant-ligatures: unset;
 ```
 
-Die Eigenschaft `font-variant-ligatures` wird als `normal`, `none`, oder einer oder mehreren der unten aufgelisteten Wertetypen angegeben. Mehrere Werte werden durch Leerzeichen getrennt.
+Die Eigenschaft `font-variant-ligatures` wird als `normal`, `none` oder einem oder mehreren der unten aufgeführten Wertetypen angegeben. Mehrere Werte werden durch Leerzeichen getrennt.
 
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort aktiviert die üblichen Ligaturen und kontextuellen Formen, die für eine korrekte Darstellung erforderlich sind. Die aktivierten Ligaturen und Formen hängen von der Schriftart, der Sprache und der Art des Skripts ab. Dies ist der Standardwert.
+  - : Dieses Schlüsselwort aktiviert die üblichen Ligaturen und Kontextformen, die für die richtige Darstellung benötigt werden. Die aktivierten Ligaturen und Formen hängen von der Schriftart, Sprache und Art des Skripts ab. Dies ist der Standardwert.
 - `none`
-  - : Dieses Schlüsselwort gibt an, dass alle Ligaturen und kontextuellen Formen deaktiviert sind, auch die gebräuchlichen.
+  - : Dieses Schlüsselwort spezifiziert, dass alle Ligaturen und Kontextformen deaktiviert sind, selbst die üblichen.
+
 - _`<common-lig-values>`_
 
-  - : Diese Werte steuern die gebräuchlichsten Ligaturen, wie `fi`, `ffi`, `th` oder ähnliche. Sie entsprechen den OpenType-Werten `liga` und `clig`. Zwei Werte sind möglich:
+  - : Diese Werte steuern die häufigsten Ligaturen, wie z.B. für `fi`, `ffi`, `th` oder ähnliche. Sie entsprechen den OpenType-Werten `liga` und `clig`. Zwei Werte sind möglich:
 
     - `common-ligatures` aktiviert diese Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen aktiviert.
     - `no-common-ligatures` deaktiviert diese Ligaturen.
 
 - _`<discretionary-lig-values>`_
 
-  - : Diese Werte steuern spezifische Ligaturen, die spezifisch für die Schriftart und vom Schriftgestalter definiert sind. Sie entsprechen den OpenType-Werten `dlig`. Zwei Werte sind möglich:
+  - : Diese Werte kontrollieren spezielle Ligaturen, die spezifisch für die Schriftart sind und vom Schriftgestalter definiert wurden. Sie entsprechen den OpenType-Werten `dlig`. Zwei Werte sind möglich:
 
     - `discretionary-ligatures` aktiviert diese Ligaturen.
     - `no-discretionary-ligatures` deaktiviert die Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
 
 - _`<historical-lig-values>`_
 
-  - : Diese Werte steuern die historisch verwendeten Ligaturen, wie sie in alten Büchern vorkommen, z.B. das deutsche tz-Digraph als ꜩ. Sie entsprechen den OpenType-Werten `hlig`. Zwei Werte sind möglich:
+  - : Diese Werte steuern die historisch verwendeten Ligaturen, wie sie in alten Büchern vorkommen, z.B. das deutsche tz-Digraph, das als ꜩ dargestellt wird. Sie entsprechen den OpenType-Werten `hlig`. Zwei Werte sind möglich:
 
     - `historical-ligatures` aktiviert diese Ligaturen.
     - `no-historical-ligatures` deaktiviert die Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
 
 - _`<contextual-alt-values>`_
 
-  - : Diese Werte steuern, ob Buchstaben an ihren Kontext angepasst werden – das heißt, ob sie sich an die umgebenden Buchstaben anpassen. Diese Werte entsprechen den OpenType-Werten `calt`. Zwei Werte sind möglich:
+  - : Diese Werte steuern, ob Buchstaben sich ihrem Kontext anpassen, d.h. ob sie sich an die umliegenden Buchstaben anpassen. Diese Werte entsprechen den OpenType-Werten `calt`. Zwei Werte sind möglich:
 
-    - `contextual` gibt an, dass die kontextuellen Alternativen verwendet werden sollen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise ebenfalls aktiviert.
+    - `contextual` gibt an, dass die kontextuellen Alternativen verwendet werden sollen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise auch aktiviert.
     - `no-contextual` verhindert deren Verwendung.
 
 ## Formale Definition
@@ -87,7 +88,7 @@ Die Eigenschaft `font-variant-ligatures` wird als `normal`, `none`, oder einer o
 
 ## Beispiele
 
-### Festlegen von Schriftligaturen und kontextuellen Formen
+### Schriftligaturen und Kontextformen einstellen
 
 #### HTML
 

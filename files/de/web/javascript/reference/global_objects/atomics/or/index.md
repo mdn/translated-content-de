@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.or()`** berechnet ein bitweises OR mit einem gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang stattfindet, bis der modifizierte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.or()`** führt eine bitweise OR-Operation mit einem gegebenen Wert an einer bestimmten Position im Array durch und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreiboperation erfolgt, bis der geänderte Wert zurückgeschrieben wird.
 
 {{EmbedInteractiveExample("pages/js/atomics-or.html")}}
 
@@ -20,29 +20,31 @@ Atomics.or(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Ganzzahl-`typedArray`. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der das bitweise OR berechnet wird.
+  - : Die Position im `typedArray`, um die bitweise OR-Operation durchzuführen.
 - `value`
-  - : Die Zahl, mit der das bitweise OR berechnet wird.
+  - : Die Zahl, mit der die bitweise OR-Operation durchgeführt wird.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position (`typedArray[index]`).
+Der alte Wert an der angegebenen Position
+(`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der zulässigen Ganzzahltypen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` ist.
 
 ## Beschreibung
 
-Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` gleich 1 sind. Die Wahrheitstabelle für die OR-Operation lautet:
+Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 ist.
+Die Wahrheitswerttabelle für die OR-Operation ist:
 
 | `a` | `b` | `a \| b` |
 | --- | --- | -------- |
@@ -51,7 +53,7 @@ Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` gleich 1 sind. Di
 | 1   | 0   | 1        |
 | 1   | 1   | 1        |
 
-Zum Beispiel ergibt ein bitweises OR von `5 | 1` in binärer Form `0101`, was als Dezimalzahl 5 ist.
+Zum Beispiel ergibt ein bitweises OR von `5 | 1` `0101`, was dezimal 5 ist.
 
 ```plain
 5  0101

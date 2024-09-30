@@ -7,38 +7,38 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mpadded>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um zusätzlichen Abstand hinzuzufügen und die allgemeine Anpassung der Position und Größe der eingeschlossenen Inhalte festzulegen.
+Das **`<mpadded>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um zusätzlichen Abstand hinzuzufügen sowie die allgemeine Anpassung von Position und Größe der eingeschlossenen Inhalte festzulegen.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `depth`
-  - : Eine {{cssxref("length-percentage")}}-Angabe, die die gewünschte Tiefe (unterhalb der Basislinie) des `<mpadded>`-Elements angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Tiefe (unterhalb der Basislinie) des `<mpadded>` Elements angibt.
 - `height`
-  - : Eine {{cssxref("length-percentage")}}-Angabe, die die gewünschte Höhe (oberhalb der Basislinie) des `<mpadded>`-Elements angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Höhe (oberhalb der Basislinie) des `<mpadded>` Elements angibt.
 - `lspace`
-  - : Eine {{cssxref("length-percentage")}}-Angabe, die die horizontale Position des Positionierungspunktes des Kinderinhalts in Bezug auf den Positionierungspunkt des `<mpadded>`-Elements angibt.
+  - : Ein {{cssxref("length-percentage")}}, das den horizontalen Ort des Positionierungspunktes des Kindinhalts in Bezug auf den Positionierungspunkt des `<mpadded>` Elements angibt.
 - `voffset`
-  - : Eine {{cssxref("length-percentage")}}-Angabe, die die vertikale Position des Positionierungspunktes des Kinderinhalts in Bezug auf den Positionierungspunkt des `<mpadded>`-Elements angibt.
+  - : Ein {{cssxref("length-percentage")}}, das den vertikalen Ort des Positionierungspunktes des Kindinhalts in Bezug auf den Positionierungspunkt des `<mpadded>` Elements angibt.
 - `width`
-  - : Eine {{cssxref("length-percentage")}}-Angabe, die die gewünschte horizontale Länge des `<mpadded>`-Elements angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die gewünschte horizontale Länge des `<mpadded>` Elements angibt.
 
 ### Veraltete Syntax
 
-Für die Attribute `depth`, `height`, `lspace`, `voffset` und `width` können einige Browser stattdessen eine komplexere Syntax akzeptieren:
+Für die Attribute `depth`, `height`, `lspace`, `voffset` und `width` akzeptieren einige Browser stattdessen eine komplexere Syntax:
 
 1. Ein optionales `+` oder `-` Zeichen als Präfix, das eine Erhöhung oder Verringerung der entsprechenden Dimension angibt (wenn nicht vorhanden, wird die entsprechende Dimension direkt auf den angegebenen Wert gesetzt).
-2. Gefolgt von einer [`<unsigned-number>`](/de/docs/Web/MathML/Values#mathml-specific_types) (wir nennen sie α unten).
-3. Optional gefolgt von einem Wert (wenn nicht vorhanden, wird der angegebene Wert als "100 mal α Prozent" interpretiert).
-   - Eine [Einheit](/de/docs/Web/MathML/Values#units). Der angegebene Wert wird wie bei [veralteten MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) interpretiert.
-   - Eine [namedspace Konstante](/de/docs/Web/MathML/Values#constants). Der angegebene Wert wird als α mal der Konstanten interpretiert.
-   - Eine Pseudo-Einheit `width`, `height` oder `depth`. Der angegebene Wert wird als α mal der entsprechenden Dimension des Inhalts interpretiert.
+2. Gefolgt von einer [`<unsigned-number>`](/de/docs/Web/MathML/Values#mathml-specific_types) (wir nennen es α unten).
+3. Optional gefolgt von einem Wert (wenn nicht vorhanden, wird der spezifizierte Wert als "100 mal α Prozent" interpretiert).
+   - Eine [Einheit](/de/docs/Web/MathML/Values#units). Der angegebene Wert wird genauso interpretiert wie [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+   - Eine [namedspace-Konstante](/de/docs/Web/MathML/Values#constants). Der angegebene Wert wird als α mal die Konstante interpretiert.
+   - Eine Pseudo-Einheit `width`, `height` oder `depth`. Der angegebene Wert wird als α mal die entsprechende Dimension des Inhalts interpretiert.
    - Ein Prozentzeichen gefolgt von einer Pseudo-Einheit `width`, `height` oder `depth`. Der angegebene Wert wird als α% der entsprechenden Dimension des Inhalts interpretiert.
 
 ## Beispiele
 
-### Dimensionen und Abstände
+### Dimensionen und Versätze
 
 ```html
 <math display="block">

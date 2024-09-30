@@ -1,5 +1,5 @@
 ---
-title: "HTMLOptionElement: Option()-Konstruktor"
+title: "HTMLOptionElement: Option() Konstruktor"
 short-title: Option()
 slug: Web/API/HTMLOptionElement/Option
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`Option()`**-Konstruktor erstellt ein neues
+Der **`Option()`** Konstruktor erstellt ein neues
 [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement).
 
 ## Syntax
@@ -24,20 +24,20 @@ new Option(text, value, defaultSelected, selected)
 ### Parameter
 
 - `text` {{optional_inline}}
-  - : Ein String, der den Inhalt des Elements darstellt, d.h. den angezeigten Text. Wenn dies nicht angegeben ist, wird ein Standardwert von "" (leerer String) verwendet.
+  - : Ein String, der den Inhalt des Elements repräsentiert, d.h. den angezeigten Text. Wenn dieser nicht angegeben wird, wird ein Standardwert von "" (leerer String) verwendet.
 - `value` {{optional_inline}}
   - : Ein String, der den Wert des
-    [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) darstellt, d.h. das Wertattribut des entsprechenden
-    {{htmlelement("option")}}. Wenn dies nicht angegeben ist, wird der Wert von text als Wert verwendet, z. B. für den zugehörigen Wert des {{htmlelement("select")}}-Elements, wenn das Formular an den Server gesendet wird.
+    [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) repräsentiert, d.h. das value-Attribut des entsprechenden
+    {{htmlelement("option")}}. Wenn dieser nicht angegeben wird, wird der Wert von text als Wert verwendet, z.B. für den Wert des zugehörigen {{htmlelement("select")}}-Elements, wenn das Formular an den Server übermittelt wird.
 - `defaultSelected` {{optional_inline}}
-  - : Ein Wert von entweder `true` oder `false`, der den [`selected`](/de/docs/Web/HTML/Element/option#selected)
-    Attributwert festlegt, d.h. damit diese {{htmlelement("option")}} der Standardwert im {{htmlelement("select")}}-Element ist, wenn die Seite zuerst geladen wird. Wenn dies nicht angegeben ist, wird ein Standardwert von false verwendet. Beachten Sie, dass ein Wert von true die Option nicht auf ausgewählt setzt, wenn sie nicht bereits ausgewählt ist.
+  - : Ein Wert entweder `true` oder `false`, der den Wert des [`selected`](/de/docs/Web/HTML/Element/option#selected)
+    Attributs festlegt, d.h. dass diese {{htmlelement("option")}} der standardmäßig ausgewählte Wert im {{htmlelement("select")}}-Element ist, wenn die Seite erstmals geladen wird. Wenn dieser nicht angegeben wird, wird ein Standardwert von false verwendet. Beachten Sie, dass ein Wert von true die Option nicht auf ausgewählt setzt, wenn sie nicht bereits ausgewählt ist.
 - `selected` {{optional_inline}}
-  - : Ein Wert von entweder `true` oder `false`, der den ausgewählten Zustand der Option setzt; der Standardwert ist false (nicht ausgewählt). Wenn weggelassen, wird die Option nicht ausgewählt, auch wenn das Argument defaultSelected true ist.
+  - : Ein Wert entweder `true` oder `false`, der den ausgewählten Zustand der Option festlegt; der Standard ist false (nicht ausgewählt). Wenn weggelassen, wird die Option nicht ausgewählt, selbst wenn das Argument defaultSelected true ist.
 
 ## Beispiele
 
-### Einfach neue Optionen hinzufügen
+### Neue Optionen hinzufügen
 
 ```js
 /* assuming we have the following HTML
@@ -54,7 +54,7 @@ options.forEach((element, key) => {
 });
 ```
 
-### Optionen mit unterschiedlichen Parametern anhängen
+### Optionen mit verschiedenen Parametern hinzufügen
 
 ```js
 /* assuming we have the following HTML

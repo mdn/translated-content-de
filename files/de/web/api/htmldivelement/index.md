@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLDivElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die es auch durch Vererbung zur Verfügung hat) zur Manipulation von {{HtmlElement("div")}}-Elementen.
+Die **`HTMLDivElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle, die es auch durch Vererbung zur Verfügung hat) zur Manipulation von {{HtmlElement("div")}}-Elementen.
 
 {{InheritanceDiagram}}
 
@@ -16,7 +16,7 @@ Das **`HTMLDivElement`**-Interface bietet spezielle Eigenschaften (zusätzlich z
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDivElement.align`](/de/docs/Web/API/HTMLDivElement/align) {{deprecated_inline}}
-  - : Ein String, der eine aufgezählte Eigenschaft darstellt, die die Ausrichtung des Inhalts des Elements im Hinblick auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
+  - : Ein String, der eine aufgezählte Eigenschaft darstellt, welche die Ausrichtung des Inhalts des Elements im Hinblick auf den umgebenden Kontext angibt. Mögliche Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
 
 ## Instanzmethoden
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`]
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("div") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("div") }}.

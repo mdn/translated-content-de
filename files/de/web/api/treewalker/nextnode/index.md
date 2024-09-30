@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: nextNode() Methode"
+title: "TreeWalker: nextNode()-Methode"
 short-title: nextNode()
 slug: Web/API/TreeWalker/nextNode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.nextNode()`** Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum nächsten _sichtbaren_ Knoten in der Dokumentenreihenfolge und gibt den gefundenen Knoten zurück. Existiert ein solcher Knoten nicht, wird `null` zurückgegeben und der aktuelle Knoten wird nicht geändert.
+Die **`TreeWalker.nextNode()`**-Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum nächsten _sichtbaren_ Knoten in der Dokumentreihenfolge und gibt den gefundenen Knoten zurück. Wenn kein solcher Knoten existiert, wird `null` zurückgegeben und der aktuelle Knoten wird nicht verändert.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Node`](/de/docs/Web/API/Node) Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ const node = treeWalker.nextNode(); // returns the first child of root, as it is
 
 ## Siehe auch
 
-- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface, zu dem es gehört.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle, zu der sie gehört.

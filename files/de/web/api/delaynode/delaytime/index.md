@@ -8,12 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `delayTime`-Eigenschaft der [`DelayNode`](/de/docs/Web/API/DelayNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die anzuwendende Verzögerungsmenge darstellt.
+Die `delayTime`-Eigenschaft der [`DelayNode`](/de/docs/Web/API/DelayNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verzögerungsmenge darstellt, die angewendet werden soll.
 
-`delayTime` wird in Sekunden ausgedrückt, der minimale Wert ist `0`, und der maximale Wert wird durch das `maxDelayTime`-Argument der Methode [`BaseAudioContext.createDelay`](/de/docs/Web/API/BaseAudioContext/createDelay) definiert, die sie erstellt hat.
+`delayTime` wird in Sekunden ausgedrückt, der minimale Wert ist `0` und der maximale Wert wird durch das `maxDelayTime`-Argument der [`BaseAudioContext.createDelay`](/de/docs/Web/API/BaseAudioContext/createDelay)-Methode definiert, die es erstellt hat.
 
 > [!NOTE]
-> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, gilt dies nicht für den Wert, den es repräsentiert.
+> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der Wert, den es darstellt, es nicht.
 
 ## Wert
 
@@ -21,7 +21,7 @@ Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 ## Beispiele
 
-Sehen Sie sich [`BaseAudioContext.createDelay()`](/de/docs/Web/API/BaseAudioContext/createDelay#examples) für Beispielcode an.
+Siehe [`BaseAudioContext.createDelay()`](/de/docs/Web/API/BaseAudioContext/createDelay#examples) für Beispielcode.
 
 ## Spezifikationen
 

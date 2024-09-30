@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl dynamischer Regeln, die eine Erweiterung hinzufügen kann.
+Die maximale Anzahl von dynamischen Regeln, die eine Erweiterung hinzufügen kann.
 
 Dieses Limit ist:
 

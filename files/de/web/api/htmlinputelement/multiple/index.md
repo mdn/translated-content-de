@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.multiple`**-Eigenschaft zeigt an, ob ein Eingabefeld mehr als einen Wert haben kann. Derzeit unterstützt Firefox `multiple` nur für `<input type="file">`.
+Die **`HTMLInputElement.multiple`**-Eigenschaft gibt an, ob ein Eingabefeld mehr als einen Wert haben kann. Firefox unterstützt derzeit `multiple` nur für `<input type="file">`.
 
 ## Wert
 
@@ -45,4 +45,4 @@ if (fileInput.multiple) {
 ## Siehe auch
 
 - [FileList](/de/docs/Web/API/FileList)
-- [Bug 523771](https://bugzil.la/523771) - Support \<input type=file multiple>
+- [Bug 523771](https://bugzil.la/523771) - Unterstützung für \<input type=file multiple>

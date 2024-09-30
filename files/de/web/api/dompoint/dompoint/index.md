@@ -8,13 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Der **`DOMPoint()`** Konstruktor
-erstellt und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint) Objekt zurück, basierend auf den Werten für einige oder
-alle seiner Eigenschaften.
+Der **`DOMPoint()`** Konstruktor erzeugt und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt zurück, basierend auf den Werten einiger oder aller seiner Eigenschaften.
 
-Sie können auch einen `DOMPoint` erstellen, indem Sie die
-statische Funktion [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder
-[`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
+Sie können auch ein `DOMPoint` erstellen, indem Sie die statische Funktion [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Syntax
 
@@ -35,13 +31,11 @@ new DOMPoint(x, y, z, w)
 - `z` {{optional_inline}}
   - : Die `z`-Koordinate für den neuen `DOMPoint`.
 - `w` {{optional_inline}}
-  - : Der Perspektivenwert des neuen `DOMPoint`.
+  - : Der Perspektivwert des neuen `DOMPoint`.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des
-aktuellen Fensters darstellt, und dann einen zweiten Punkt basierend auf dem ersten, der anschließend um
-100 Pixel sowohl vertikal als auch horizontal verschoben wird.
+Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des aktuellen Fensters darstellt, und erstellt dann einen zweiten Punkt basierend auf dem ersten, der dann sowohl vertikal als auch horizontal um 100 Pixel verschoben wird.
 
 ```js
 const windTopLeft = new DOMPoint(window.screenX, window.screenY);

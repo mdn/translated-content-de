@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **DMZ** (Demilitarisierte Zone) ist eine Methode, um eine isolierte sichere Schnittstelle zwischen einem internen Netzwerk (Unternehmens- oder privates Netzwerk) und der unzuverlässigen Außenwelt – in der Regel dem Internet – bereitzustellen.
+Eine **DMZ** (Entmilitarisierte Zone) ist eine Methode, um eine isolierte sichere Schnittstelle zwischen einem internen Netzwerk (Unternehmen oder privat) und der äußeren nicht vertrauenswürdigen Welt — normalerweise das Internet — bereitzustellen.
 
-Sie stellt nur bestimmte definierte Endpunkte zur Verfügung, während der Zugriff vom [externen Knoten](/de/docs/Glossary/node/networking) auf das interne Netzwerk verweigert wird.
+Es werden nur bestimmte definierte Endpunkte exponiert, während der Zugriff auf das interne Netzwerk von [externen Knoten](/de/docs/Glossary/node/networking) verweigert wird.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Float64Array()`**-Konstruktor erstellt {{jsxref("Float64Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Float64Array()`** Konstruktor erstellt {{jsxref("Float64Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden ausdrücklich Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Float64Array(buffer, byteOffset)
 new Float64Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Float64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Float64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten zur Erstellung eines Float64Array
+### Verschiedene Möglichkeiten, ein Float64Array zu erstellen
 
 ```js
 // From a length
@@ -77,7 +77,7 @@ console.log(float64FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float64Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript getypte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

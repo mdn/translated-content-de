@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anfrage-[Inhalt](/de/docs/Glossary/HTTP_Content).
+Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anforderungs-[Inhalt](/de/docs/Glossary/HTTP_Content).
 
-Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} ist, dass `PUT` [idempotent](/de/docs/Glossary/idempotent) ist: Ein einmaliger Aufruf unterscheidet sich nicht von mehreren aufeinanderfolgenden Aufrufen (es gibt keine _Neben_ effekte).
+Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `PUT` [idempotent](/de/docs/Glossary/idempotent) ist: Ein einmaliger Aufruf unterscheidet sich nicht von mehrmaligen aufeinanderfolgenden Aufrufen (es gibt keine _Nebeneffekte_).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Body</th>
+      <th scope="row">Anforderung hat einen Body</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -22,7 +22,7 @@ Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} ist, dass `PUT` [idemp
       <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">[Safe](/de/docs/Glossary/Safe/HTTP)</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -49,11 +49,11 @@ PUT <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn kombiniert mit den Informationen im {{HTTPHeader("Host")}}-Header.
+  - : Identifiziert die Zielressource der Anforderung in Kombination mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen.
     Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die einem Fragezeichen `?` vorausgeht.
-    Häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übertragen.
+  - : Eine optionale Abfragekomponente, die von einem Fragezeichen `?` eingeleitet wird.
+    Wird häufig verwendet, um Identifizierungsinformationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
@@ -77,7 +77,7 @@ HTTP/1.1 201 Created
 Content-Location: /new.html
 ```
 
-Wenn die Zielressource **eine** aktuelle Repräsentation hat und diese erfolgreich durch den Zustand in der Anfrage verändert wird, muss der Ursprungsserver entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
+Wenn die Zielressource **eine** aktuelle Repräsentation hat und diese Repräsentation erfolgreich mit dem Zustand in der Anfrage modifiziert wird, muss der Ursprungsserver entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
 
 ```http
 HTTP/1.1 204 No Content

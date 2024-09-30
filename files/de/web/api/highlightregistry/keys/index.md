@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: keys() Methode"
+title: "HighlightRegistry: keys()-Methode"
 short-title: keys()
 slug: Web/API/HighlightRegistry/keys
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`keys()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Objekt zurück, das die Schlüssel für jedes `Highlight`-Objekt im `HighlightRegistry`-Objekt in Einfügereihenfolge enthält.
+Die **`keys()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Schlüssel für jedes `Highlight`-Objekt im `HighlightRegistry`-Objekt in der Einfügereihenfolge enthält.
 
 `HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.keys()")}}.
 
@@ -24,7 +24,7 @@ Ein neues Iterator-Objekt, das die Namen jedes `Highlight`-Objekts im Registry i
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie drei `Highlight`-Objekte erstellt und registriert werden und der Iterator, der von der `keys()`-Methode zurückgegeben wird, verwendet wird, um ihre Namen zu protokollieren:
+Der folgende Codeabschnitt zeigt, wie Sie drei `Highlight`-Objekte erstellen und registrieren und den Iterator verwenden, der von der `keys()`-Methode zurückgegeben wird, um ihre Namen zu protokollieren:
 
 ```js
 const fooHighlight = new Highlight();
@@ -42,7 +42,7 @@ console.log(iter.next().value); // "bar"
 console.log(iter.next().value); // "baz"
 ```
 
-Das folgende Codebeispiel zeigt, wie man mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife über die Hervorhebungen im Registry iteriert:
+Das folgende Codebeispiel zeigt, wie Sie mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife über die Highlights in der Registry iterieren:
 
 ```js
 const fooHighlight = new Highlight();

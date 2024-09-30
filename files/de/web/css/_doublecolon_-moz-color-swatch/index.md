@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-color-swatch`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die im {{HTMLElement("input")}} von `type="color"` ausgewählte Farbe repräsentiert.
+Das **`::-moz-color-swatch`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die im `type="color"` {{HTMLElement("input")}} ausgewählte Farbe darstellt.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-color-swatch` mit etwas anderem als einem `<input type="color">` führt zu keiner Übereinstimmung und hat keine Wirkung.
+> Die Verwendung von `::-moz-color-swatch` mit etwas anderem als einem `<input type="color">` hat keine Übereinstimmung und keinen Effekt.
 
 ## Syntax
 
@@ -53,4 +53,4 @@ Nicht Teil eines Standards.
 
 - Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
 
-  - {{cssxref("::-webkit-color-swatch")}}, Pseudo-Element unterstützt von WebKit und Blink (Safari, Chrome und Opera)
+  - {{cssxref("::-webkit-color-swatch")}}, Pseudo-Element, das von WebKit und Blink (Safari, Chrome und Opera) unterstützt wird.

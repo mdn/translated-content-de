@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: form-Eigenschaft"
+title: "HTMLSelectElement: form Eigenschaft"
 short-title: form
 slug: Web/API/HTMLSelectElement/form
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("select")}} besitzt, oder `null`, wenn dieses select zu keinem Formular gehört.
+Die **`form`** schreibgeschützte Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("select")}} besitzt, oder `null`, wenn dieses Select zu keinem Formular gehört.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("select")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/select#form)-Attribut
-- [HTML Forms Leitfaden](/de/docs/Learn/Forms)
+- [HTML Formulare Leitfaden](/de/docs/Learn/Forms)

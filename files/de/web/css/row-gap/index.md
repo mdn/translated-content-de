@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ([Abstandskante](/de/docs/Glossary/gutters)) zwischen den Zeilen eines Elements fest.
+Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ([Rinne](/de/docs/Glossary/gutters)) zwischen den Zeilen eines Elements fest.
 
-Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-row-gap`, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
+In den frühen Versionen der Spezifikation wurde diese Eigenschaft `grid-row-gap` genannt, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
 
 {{EmbedInteractiveExample("pages/css/row-gap.html")}}
 
@@ -36,7 +36,7 @@ row-gap: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ist die Breite der Abstandskante, die die Zeilen trennt. {{CSSxRef("&lt;percentage&gt;")}} Werte beziehen sich auf die Dimension des Elements.
+  - : Ist die Breite der Rinne, die die Zeilen trennt. {{CSSxRef("&lt;percentage&gt;")}} Werte sind relativ zur Dimension des Elements.
 
 ## Formale Definition
 
@@ -134,4 +134,4 @@ row-gap: unset;
 
 - {{CSSxRef("column-gap")}}
 - {{CSSxRef("gap")}}
-- [Grundkonzepte des Grid-Layouts: Abstandskanten](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)
+- [Grundkonzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Das HTTP-**`Link`**-[Entitäts-Headerfeld](/de/docs/Glossary/Entity_header) stellt eine Möglichkeit zur Serialisierung von einem oder mehreren Links in HTTP-Headern bereit. Dieser Header hat die gleiche Semantik wie das HTML-{{HTMLElement("link")}}-Element. Der Vorteil der Verwendung des `Link`-Headers besteht darin, dass der Browser mit dem Vorverbindungen oder Vorladen von Ressourcen beginnen kann, bevor das HTML selbst abgerufen und verarbeitet wird.
+Das HTTP-**`Link`**-[Entität-Header](/de/docs/Glossary/Entity_header)-Feld bietet eine Möglichkeit zur Serialisierung von einem oder mehreren Links in HTTP-Headern. Dieser Header hat die gleiche Semantik wie das HTML-{{HTMLElement("link")}}-Element. Der Vorteil der Verwendung des `Link`-Headers besteht darin, dass der Browser mit dem Vorverbinden oder Vorladen von Ressourcen beginnen kann, bevor das HTML selbst abgerufen und verarbeitet wird.
 
-In der Praxis haben die meisten [Link-Typen](/de/docs/Web/HTML/Attributes/rel) keine Auswirkungen im HTTP-Header. Zum Beispiel funktioniert die `icon`-Relation nur in HTML, und `stylesheet` funktioniert nicht zuverlässig über verschiedene Browser hinweg (nur in Firefox). Die einzigen Relationen, die zuverlässig funktionieren, sind `preconnect` und `preload`, die mit {{HTTPStatus(103, "103 Early Hints")}} kombiniert werden können.
+In der Praxis haben die meisten [Link-Typen](/de/docs/Web/HTML/Attributes/rel) keine Wirkung im HTTP-Header. Zum Beispiel funktioniert die `icon`-Relation nur in HTML und `stylesheet` funktioniert nicht zuverlässig über alle Browser hinweg (nur in Firefox). Die einzigen Relationen, die zuverlässig funktionieren, sind `preconnect` und `preload`, die mit {{HTTPStatus(103, "103 Early Hints")}} kombiniert werden können.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Link: <uri-reference>; param1=value1; param2="value2"
 
 ### Parameter
 
-Der Link-Header enthält Parameter, die mit `;` getrennt sind und den Attributen des {{HTMLElement("link")}}-Elements entsprechen.
+Der Link-Header enthält Parameter, die mit `;` getrennt sind und Äquivalenten der Attribute des {{HTMLElement("link")}}-Elements entsprechen.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ Link: https://bad.example; rel="preconnect"
 
 ### URLs kodieren
 
-Die URI (absolut oder relativ) muss Zeichen mit Codes größer als 255 kodieren:
+Die URI (absolut oder relativ) muss Zeichencodes größer als 255 kodieren:
 
 ```http example-good
 Link: <https://example.com/%E8%8B%97%E6%9D%A1>; rel="preconnect"
@@ -48,9 +48,9 @@ Link: <https://example.com/%E8%8B%97%E6%9D%A1>; rel="preconnect"
 Link: <https://example.com/苗条>; rel="preconnect"
 ```
 
-### Mehrere Links spezifizieren
+### Mehrere Links angeben
 
-Sie können mehrere Links angeben, die durch Kommas getrennt sind, zum Beispiel:
+Sie können mehrere Links durch Kommas getrennt angeben, zum Beispiel:
 
 ```http
 Link: <https://one.example.com>; rel="preconnect", <https://two.example.com>; rel="preconnect", <https://three.example.com>; rel="preconnect"

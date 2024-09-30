@@ -3,12 +3,14 @@ title: "WebGL2RenderingContext: getBufferSubData()-Methode"
 short-title: getBufferSubData()
 slug: Web/API/WebGL2RenderingContext/getBufferSubData
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.getBufferSubData()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) liest Daten von einem Puffer-Bindungspunkt und schreibt sie in ein {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}.
+Die **`WebGL2RenderingContext.getBufferSubData()`**-Methode des
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) liest Daten von einem Buffer-Bindepunkt und schreibt sie in einen {{jsxref("ArrayBuffer")}} oder
+{{jsxref("SharedArrayBuffer")}}.
 
 ## Syntax
 
@@ -22,33 +24,34 @@ getBufferSubData(target, srcByteOffset, dstData, dstOffset, length)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (target) angibt. Mögliche Werte:
 
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie z.B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbwerte.
+      - : Buffer, der Vertex-Attribute enthält, wie z. B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
-      - : Puffer, der für Elementindizes verwendet wird.
+      - : Buffer, der für Element-Indizes verwendet wird.
     - `gl.COPY_READ_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Buffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.COPY_WRITE_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Buffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
-      - : Puffer für Transform-Feedback-Operationen.
+      - : Buffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer zur Speicherung von Uniform-Blöcken.
+      - : Buffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Puffer für Pixeltransfer-Operationen.
+      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Puffer für Pixeltransfer-Operationen.
+      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
 
 - `srcByteOffset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), das den Byte-Offset angibt, ab dem mit dem Lesen aus dem Puffer begonnen werden soll.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Byte-Offset angibt, ab dem aus dem Buffer gelesen werden soll.
 - `dstData`
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, in das die Daten kopiert werden sollen. Wenn `dstData` ein {{jsxref("DataView")}} ist, dann werden `dstOffset` und `length` in Bytes interpretiert, ansonsten wird der Elementtyp von `dstData` verwendet.
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, in das die Daten kopiert werden. Wenn `dstData` ein
+    {{jsxref("DataView")}} ist, werden `dstOffset` und `length` in Bytes interpretiert, andernfalls wird der Elementtyp von `dstData` verwendet.
 - `dstOffset` {{optional_inline}}
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex-Offset angibt, ab dem in `dstData` geschrieben werden soll.
 - `length` {{optional_inline}}
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu kopierenden Elemente angibt. Wenn dieser Wert 0 ist oder nicht angegeben wird, kopiert `getBufferSubData` bis zum Ende von `dstData`.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu kopierenden Elemente angibt. Wenn dies 0 ist oder nicht angegeben wird, kopiert `getBufferSubData` bis zum Ende von `dstData`.
 
 ### Rückgabewert
 
@@ -56,15 +59,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `INVALID_VALUE` Fehler wird erzeugt, wenn:
+Ein `INVALID_VALUE`-Fehler wird generiert, wenn:
 
-- `offset` + `returnedData.byteLength` über das Ende des Puffers hinausgehen würde
-- `returnedData` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist
+- `offset` + `returnedData.byteLength` über das Ende des Buffers hinausgehen würde.
+- `returnedData` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
 - `offset` kleiner als null ist.
 
-Ein `INVALID_OPERATION` Fehler wird erzeugt, wenn:
+Ein `INVALID_OPERATION`-Fehler wird generiert, wenn:
 
-- Null auf `target` gebunden ist
+- null an `target` gebunden ist.
 - `target` `TRANSFORM_FEEDBACK_BUFFER` ist und ein Transform-Feedback-Objekt derzeit aktiv ist.
 
 ## Beispiele

@@ -1,5 +1,5 @@
 ---
-title: OES_vertex_array_object-Erweiterung
+title: OES_vertex_array_object Erweiterung
 short-title: OES_vertex_array_object
 slug: Web/API/OES_vertex_array_object
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **OES_vertex_array_object**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet Vertex-Array-Objekte (VAOs), die Vertex-Array-Zustände kapseln. Diese Objekte speichern Zeiger auf Vertex-Daten und liefern Namen für verschiedene Sätze von Vertex-Daten.
+Die **OES_vertex_array_object** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt Vertex-Array-Objekte (VAOs) bereit, die Vertex-Array-Zustände kapseln. Diese Objekte behalten Zeiger auf Vertex-Daten und bieten Namen für verschiedene Sätze von Vertex-Daten.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar, und die Konstanten und Methoden sind ohne das `OES_`-Präfix verfügbar.
+> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar, und die Konstanten und Methoden sind ohne das `OES_`-Präfix verfügbar.
 
 ## Konstanten
 
-Diese Erweiterung macht eine neue Konstante verfügbar, die in der Methode [`gl.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwendet werden kann:
+Diese Erweiterung stellt eine neue Konstante bereit, die in der Methode [`gl.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwendet werden kann:
 
 - `ext.VERTEX_ARRAY_BINDING_OES`
-  - : Gibt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt zurück, wenn es in der Methode [`gl.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) als der `pname`-Parameter verwendet wird.
+  - : Gibt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt zurück, wenn es in der Methode [`gl.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) als `pname` Parameter verwendet wird.
 
 ## Instanzmethoden
 
-Diese Erweiterung macht vier neue Methoden verfügbar.
+Diese Erweiterung stellt vier neue Methoden bereit.
 
 - [`ext.createVertexArrayOES()`](/de/docs/Web/API/OES_vertex_array_object/createVertexArrayOES)
   - : Erstellt ein neues [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject).
@@ -33,7 +33,7 @@ Diese Erweiterung macht vier neue Methoden verfügbar.
 - [`ext.isVertexArrayOES()`](/de/docs/Web/API/OES_vertex_array_object/isVertexArrayOES)
   - : Gibt `true` zurück, wenn ein gegebenes Objekt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) ist.
 - [`ext.bindVertexArrayOES()`](/de/docs/Web/API/OES_vertex_array_object/bindVertexArrayOES)
-  - : Bindet ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) an den Buffer.
+  - : Bindet ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) an den Puffer.
 
 ## Beispiele
 
@@ -60,7 +60,7 @@ oes_vao_ext.bindVertexArrayOES(vao);
 
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
-- WebGL2-äquivalente Methoden:
+- WebGL2 äquivalente Methoden:
 
   - [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)
   - [`WebGL2RenderingContext.deleteVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/deleteVertexArray)

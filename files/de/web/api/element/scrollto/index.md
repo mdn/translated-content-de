@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef}}
 
-Die **`scrollTo()`** Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
+Die **`scrollTo()`**-Methode des [`Element`](/de/docs/Web/API/Element)
+Interfaces scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
 
 ## Syntax
 
@@ -20,21 +21,21 @@ scrollTo(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des
-    Elements, das oben links angezeigt werden soll.
+  - : Der Pixel entlang der horizontalen Achse des
+    Elements, den Sie in der oberen linken Ecke anzeigen möchten.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Elements,
-    das oben links angezeigt werden soll.
+  - : Der Pixel entlang der vertikalen Achse des Elements,
+    den Sie in der oberen linken Ecke anzeigen möchten.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um das Fenster oder das Element zu scrollen.
+      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um das Fenster oder Element zu scrollen.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um das Fenster oder das Element zu scrollen.
+      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um das Fenster oder Element zu scrollen.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder mit sanfter Animation erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Scrollen soll sanft animieren
-        - `instant`: Scrollen soll sofort in einem Sprung erfolgen
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Scrollen sollte sanft animiert werden
+        - `instant`: Scrollen sollte sofort in einem einzelnen Sprung erfolgen
         - `auto`: Das Scroll-Verhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
 
 ### Rückgabewert

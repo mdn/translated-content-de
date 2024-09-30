@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`lineNumber`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt die Zeile in der Quellcode-Datei zurück, in der das veraltete Feature verwendet wurde.
+Die schreibgeschützte **`lineNumber`**-Eigenschaft des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt die Zeile in der Quelldatei zurück, in der das veraltete Merkmal verwendet wurde.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile), da sie die Lokalisierung der Zeile in dieser Datei, in der der Fehler aufgetreten ist, ermöglicht.
+> Diese Eigenschaft ist besonders nützlich zusammen mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile), da sie die Lokalisierung der Zeile in der Datei ermöglicht, in der der Fehler aufgetreten ist.
 
 ## Wert
 
-Ein ganzzahliger Wert oder `null`, wenn die Zeile nicht bekannt ist.
+Ein Integer oder `null`, wenn die Zeile nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Verwendungsberichte zu überwachen, und geben dann den Wert von `lineNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Verwendungsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
 
 ```js
 let options = {

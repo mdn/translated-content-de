@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`origin`** schreibgeschützte Eigenschaft der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle ist ein String, der den Ursprung des Nachrichtenemitters darstellt.
+Die schreibgeschützte **`origin`**-Eigenschaft der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle ist ein String, der den Ursprung des Nachrichtenabsenders darstellt.
 
 ## Wert
 
@@ -34,4 +34,4 @@ myWorker.onmessage = (e) => {
 
 ## Siehe auch
 
-- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich zu dieser Schnittstelle, wird jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich zu dieser Schnittstelle, jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.

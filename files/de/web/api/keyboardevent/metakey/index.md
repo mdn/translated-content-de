@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`KeyboardEvent.metaKey`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen booleschen Wert zurückgibt. Dieser Wert gibt an, ob die <kbd>Meta</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat. Einige Betriebssysteme können die Taste abfangen, sodass sie nie erkannt wird.
+Die **`KeyboardEvent.metaKey`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen booleschen Wert zurückgibt, der anzeigt, ob die <kbd>Meta</kbd>-Taste gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis auftrat. Einige Betriebssysteme können die Taste abfangen, sodass sie nie erkannt wird.
 
 > [!NOTE]
-> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Befehlstaste</kbd>.
+> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Command</kbd>-Taste.
 
 > [!NOTE]
 > Vor Firefox 118 wurde die <kbd>⊞ Windows</kbd>-Taste als "OS"-Taste und nicht als "Meta"-Taste behandelt. `KeyboardEvent.metaKey` war `false`, wenn die <kbd>⊞ Windows</kbd>-Taste gedrückt wurde.

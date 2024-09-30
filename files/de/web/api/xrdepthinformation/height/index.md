@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`height`**-Eigenschaft der [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Schnittstelle enthält die Höhe des Tiefenpuffers (Anzahl der Zeilen).
+Die _schreibgeschützte_ **`height`**-Eigenschaft des [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Interfaces enthält die Höhe des Tiefenpuffers (Anzahl der Zeilen).
 
 ## Wert
 
-Ein nicht signierter langer Ganzzahlwert.
+Ein nicht signierter Long-Integer.
 
 ## Beispiele
 

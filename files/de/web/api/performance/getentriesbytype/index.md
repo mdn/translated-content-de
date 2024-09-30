@@ -1,5 +1,5 @@
 ---
-title: "Performance: getEntriesByType() Methode"
+title: "Performance: getEntriesByType()-Methode"
 short-title: getEntriesByType()
 slug: Web/API/Performance/getEntriesByType
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntriesByType()`** Methode gibt ein Array von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten zurück, die derzeit in der Performance-Timeline für einen bestimmten _Typ_ vorhanden sind.
+Die **`getEntriesByType()`**-Methode gibt ein Array von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten zurück, die derzeit in der Performance-Zeitachse für einen gegebenen _Typ_ vorhanden sind.
 
-Wenn Sie an Leistungs-Einträgen mit einem bestimmten Namen interessiert sind, siehe [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName). Für alle Leistungs-Einträge, siehe [`getEntries()`](/de/docs/Web/API/Performance/getEntries).
+Wenn Sie an Performance-Einträgen mit einem bestimmten Namen interessiert sind, siehe [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName). Für alle Performance-Einträge siehe [`getEntries()`](/de/docs/Web/API/Performance/getEntries).
 
 > [!NOTE]
-> Diese Methode benachrichtigt Sie nicht über neue Leistungs-Einträge; Sie erhalten nur Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline vorhanden sind.
+> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur Einträge, die in der Performance-Zeitachse vorhanden sind, wenn Sie diese Methode aufrufen.
 > Um Benachrichtigungen über Einträge zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn Einträge für diese Typen vorhanden sein könnten:
+Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, auch wenn Einträge für diese Typen vorhanden sein könnten:
 
 - `"element"` ([`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming))
 - `"event"` ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming))
@@ -35,15 +35,15 @@ getEntriesByType(type)
 ### Parameter
 
 - `type`
-  - : Der Typ des abzurufenden Eintrags, z.B. `"mark"`. Die gültigen Eintragstypen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet. Die unterstützten `entryTypes` können mit der statischen Eigenschaft [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) abgerufen werden.
+  - : Der Typ des Eintrags, der abgerufen werden soll, wie zum Beispiel `"mark"`. Die gültigen Eintragstypen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet. Die unterstützten `entryTypes` können über die statische Eigenschaft [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) abgerufen werden.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `type` haben. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge sein. Wenn keine Objekte den angegebenen `type` haben, oder kein Argument angegeben wird, wird ein leeres Array zurückgegeben.
+Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `type` haben. Die Elemente werden in chronologischer Reihenfolge basierend auf den [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge sein. Wenn keine Objekte mit dem angegebenen `type` vorhanden sind oder kein Argument angegeben wird, wird ein leeres Array zurückgegeben.
 
 ## Beispiele
 
-### Protokollierung von Ressourceneinträgen
+### Ressourceneinträge protokollieren
 
 Das folgende Beispiel protokolliert alle Einträge mit dem Typ `"resource"`.
 

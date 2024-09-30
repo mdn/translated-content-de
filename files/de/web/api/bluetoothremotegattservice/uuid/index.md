@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTService: uuid-Eigenschaft"
+title: "BluetoothRemoteGATTService: uuid Eigenschaft"
 short-title: uuid
 slug: Web/API/BluetoothRemoteGATTService/uuid
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothGATTService.uuid`** gibt einen String zurück, der die UUID dieses Dienstes darstellt.
+Die schreibgeschützte Eigenschaft **`BluetoothGATTService.uuid`** gibt einen String zurück, der den UUID dieses Dienstes darstellt.
 
 ## Wert
 

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: hint() Methode"
 short-title: hint()
 slug: Web/API/WebGLRenderingContext/hint
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.hint()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert Hinweise für bestimmte Verhaltensweisen. Die Interpretation dieser Hinweise hängt von der Implementierung ab.
+Die **`WebGLRenderingContext.hint()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Hinweise für bestimmte Verhaltensweisen. Die Interpretation dieser Hinweise hängt von der Implementierung ab.
 
 ## Syntax
 
@@ -24,21 +24,19 @@ hint(target, mode)
 
     - `gl.GENERATE_MIPMAP_HINT`
 
-      - : Qualität der Filterung beim Erzeugen von
-        Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap).
+      - : Qualität der Filterung beim Generieren von Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap).
 
-    Bei Verwendung der [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives) Erweiterung:
+    Bei Verwendung der [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives)-Erweiterung:
 
     - `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
-      - : Genauigkeit der
-        Ableitungsberechnung für die eingebauten GLSL-Funktionen: `dFdx`,
+      - : Genauigkeit der Ableitungsberechnung für die integrierten GLSL-Funktionen: `dFdx`,
         `dFdy` und `fwidth`.
 
     Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
-    sind zusätzlich folgende Werte verfügbar:
+    sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.FRAGMENT_SHADER_DERIVATIVE_HINT`
-      - : Entspricht `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
+      - : Gleich wie `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
 
 - `mode`
 
@@ -48,7 +46,7 @@ hint(target, mode)
     - `gl.FASTEST`: Das effizienteste Verhalten sollte verwendet werden.
     - `gl.NICEST`: Die korrekteste oder qualitativ hochwertigste Option sollte
       verwendet werden.
-    - `gl.DONT_CARE`: Es gibt keine Präferenz für dieses Verhalten.
+    - `gl.DONT_CARE`: Es besteht keine Präferenz für dieses Verhalten.
 
 ### Rückgabewert
 
@@ -56,7 +54,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen Hinweis, dass die Qualität der Filterung beim Erzeugen von Mipmap-Bildern am effizientesten sein sollte, anstatt die beste Qualität.
+Im folgenden Beispiel wird angedeutet, dass die Qualität der Filterung beim Generieren von Mipmap-Bildern am effizientesten statt in der besten Qualität sein soll.
 
 ```js
 gl.hint(gl.GENERATE_MIPMAP_HINT, gl.FASTEST);

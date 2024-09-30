@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mfrac>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Brüche darzustellen. Es kann auch dazu verwendet werden, bruchähnliche Objekte wie [binomiale Koeffizienten](https://en.wikipedia.org/wiki/Binomial_coefficient) und [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol) zu markieren.
+Das **`<mfrac>`**-Element von [MathML](/de/docs/Web/MathML) wird zum Anzeigen von Brüchen verwendet. Es kann auch verwendet werden, um bruchähnliche Objekte wie [binomische Koeffizienten](https://en.wikipedia.org/wiki/Binomial_coefficient) und [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol) zu markieren.
 
 ## Syntax
 
@@ -17,23 +17,23 @@ Das **`<mfrac>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Brüc
 
 ## Attribute
 
-Dieses Element enthält die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie folgende Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `denomalign` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Die Ausrichtung des Nenners unter dem Bruchstrich. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
+  - : Die Ausrichtung des Nenners unter dem Bruch. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
 - `linethickness`
   - : Eine {{cssxref("length-percentage")}}, die die Dicke der horizontalen Bruchlinie angibt.
 - `numalign` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Die Ausrichtung des Zählers über dem Bruchstrich. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
+  - : Die Ausrichtung des Zählers über dem Bruch. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
 
 > [!NOTE]
-> Für das Attribut `linethickness` akzeptieren einige Browser möglicherweise auch die veralteten Werte `medium`, `thin` und `thick` (deren genaue Interpretation den Implementierenden überlassen bleibt) oder [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+> Für das Attribut `linethickness` akzeptieren einige Browser möglicherweise auch die veralteten Werte `medium`, `thin` und `thick` (deren genaue Interpretation den Implementierern überlassen wird) oder [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
 
 ## Beispiele
 
 ### Einfacher Bruch
 
-Der folgende MathML-Code sollte als Bruch mit dem Zähler "a + 2" und dem Nenner "3 − b" gerendert werden:
+Der folgende MathML-Code sollte als Bruch mit Zähler "a + 2" und Nenner "3 − b" dargestellt werden:
 
 ```html
 <math display="block">
@@ -54,9 +54,9 @@ Der folgende MathML-Code sollte als Bruch mit dem Zähler "a + 2" und dem Nenner
 
 {{ EmbedLiveSample('simple_fraction', 700, 200, "", "") }}
 
-### Bruch ohne Strich
+### Bruch ohne Linie
 
-Der folgende MathML-Code sollte als [binomialer Koeffizient](https://en.wikipedia.org/wiki/Binomial_coefficient) gerendert werden:
+Der folgende MathML-Code sollte als ein [binomischer Koeffizient](https://en.wikipedia.org/wiki/Binomial_coefficient) dargestellt werden:
 
 ```html
 <math display="block">

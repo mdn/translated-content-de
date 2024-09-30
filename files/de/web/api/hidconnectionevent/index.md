@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`HIDConnectionEvent`** Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert HID-Verbindungsereignisse und ist der Ereignistyp, der an [`connect`](/de/docs/Web/API/HID/connect_event)- und [`disconnect`](/de/docs/Web/API/HID/disconnect_event)-Ereignishandler übergeben wird, wenn sich der Verbindungsstatus eines Geräts ändert.
+Die **`HIDConnectionEvent`**-Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert HID-Verbindungsereignisse und ist der Ereignistyp, der an [`connect`](/de/docs/Web/API/HID/connect_event)- und [`disconnect`](/de/docs/Web/API/HID/disconnect_event)-Ereignishandler übergeben wird, wenn sich der Verbindungsstatus eines Geräts ändert.
 
 {{InheritanceDiagram}}
 
@@ -21,11 +21,11 @@ Die **`HIDConnectionEvent`** Schnittstelle der [WebHID API](/de/docs/Web/API/Web
 _Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 - [`HIDConnectionEvent.device`](/de/docs/Web/API/HIDConnectionEvent/device) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz zurück, die das Gerät repräsentiert, das mit dem Verbindungsereignis verbunden ist.
+  - : Gibt die [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz zurück, die das mit dem Verbindungsereignis verbundene Gerät repräsentiert.
 
 ## Beispiele
 
-Im folgenden Beispiel werden Ereignislistener für `connect`- und `disconnect`-Ereignisse registriert und der [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) wird in die Konsole ausgegeben.
+Das folgende Beispiel registriert Ereignis-Listener für `connect`- und `disconnect`-Ereignisse und druckt dann den [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in die Konsole.
 
 ```js
 navigator.hid.addEventListener("connect", ({ device }) => {

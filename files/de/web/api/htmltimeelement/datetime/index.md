@@ -10,11 +10,12 @@ l10n:
 
 Die
 **`HTMLTimeElement.dateTime`**
-Eigenschaft ist ein String, der das [`datetime`](/de/docs/Web/HTML/Element/time#datetime) HTML-Attribut widerspiegelt, mit einer maschinenlesbaren Form des Datums- und Zeitwertes des Elements.
+Eigenschaft ist ein String, der das [`datetime`](/de/docs/Web/HTML/Element/time#datetime) HTML-Attribut widerspiegelt und eine maschinenlesbare Form des Datums- und
+Uhrzeitwerts des Elements enthält.
 
 ## Wert
 
-Ein String. Für gültige String-Formate siehe die [gültigen `datetime`-Werte](/de/docs/Web/HTML/Element/time#valid_datetime_values).
+Ein String. Für gültige String-Formate siehe die [`datetime`](/de/docs/Web/HTML/Element/time#valid_datetime_values) gültigen Werte.
 
 ## Beispiele
 

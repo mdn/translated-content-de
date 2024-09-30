@@ -7,37 +7,37 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **Cookie Store API** ist eine asynchrone API zur Verwaltung von Cookies, die sowohl in Fenstern als auch in [Service-Workern](/de/docs/Web/API/Service_Worker_API) verfügbar ist.
+Die **Cookie Store API** ist eine asynchrone API zum Verwalten von Cookies, die in Fenstern und auch in [Service-Workern](/de/docs/Web/API/Service_Worker_API) verfügbar ist.
 
 ## Konzepte und Verwendung
 
-Die vorhandene Methode zum Abrufen und Setzen von Cookies beinhaltet die Arbeit mit [`document.cookie`](/de/docs/Web/API/Document/cookie) als Zeichenfolge von Schlüssel/Wert-Paaren. Diese Methode ist nicht nur umständlich und fehleranfällig, sondern weist auch eine Reihe von Problemen im Kontext der modernen Webentwicklung auf.
+Die bestehende Methode zum Abrufen und Setzen von Cookies umfasst die Arbeit mit [`document.cookie`](/de/docs/Web/API/Document/cookie) als Zeichenfolge von Schlüssel/Wert-Paaren. Neben der Tatsache, dass dies umständlich und fehleranfällig ist, gibt es auch eine Reihe von Problemen im Kontext der modernen Webentwicklung.
 
-Das `document.cookie`-Interface ist [synchron](/de/docs/Glossary/synchronous), einzelfädig und blockierend. Beim Schreiben eines Cookies muss man warten, bis der Browser die Zeichenfolge aller Cookies aktualisiert. Darüber hinaus bedeutet die Abhängigkeit von [`document`](/de/docs/Web/API/Document), dass Service-Worker nicht auf Cookies zugreifen können, da sie das `document`-Objekt nicht verwenden können.
+Die Schnittstelle `document.cookie` ist [synchron](/de/docs/Glossary/synchronous), single-threaded und blockierend. Beim Schreiben eines Cookies müssen Sie warten, bis der Browser die Zeichenfolge aller Cookies aktualisiert hat. Zudem bedeutet die Abhängigkeit von [`document`](/de/docs/Web/API/Document), dass Cookies von Service-Workern, die nicht auf das `document`-Objekt zugreifen können, nicht erreicht werden können.
 
-Die _Cookie Store API_ bietet eine aktualisierte Methode zur Verwaltung von Cookies. Sie ist [asynchron](/de/docs/Glossary/asynchronous) und basiert auf Promises, blockiert daher nicht die Ereignisschleife. Sie ist nicht auf [`document`](/de/docs/Web/API/Document) angewiesen und steht somit auch Service-Workern zur Verfügung. Die Methoden zum Abrufen und Setzen von Cookies bieten darüber hinaus mehr Rückmeldung durch Fehlermeldungen. Das bedeutet, dass Webentwickler nicht sofort nach dem Setzen eines Cookies dieses wieder lesen müssen, um zu überprüfen, ob das Setzen erfolgreich war.
+Die _Cookie Store API_ bietet eine aktualisierte Methode zum Verwalten von Cookies. Sie ist [asynchron](/de/docs/Glossary/asynchronous) und basiert auf Versprechen, sodass sie die Ereignisschleife nicht blockiert. Sie ist unabhängig von [`document`](/de/docs/Web/API/Document) und steht daher Service-Workern zur Verfügung. Die Methoden zum Abrufen und Setzen von Cookies bieten außerdem durch Fehlermeldungen mehr Feedback. Dies bedeutet, dass Webentwickler nicht ein Cookie setzen und dann sofort zurücklesen müssen, um zu überprüfen, ob das Setzen erfolgreich war.
 
 ## Schnittstellen
 
 - [`CookieStore`](/de/docs/Web/API/CookieStore) {{Experimental_Inline}}
-  - : Das `CookieStore`-Interface ermöglicht das Abrufen und Setzen von Cookies.
+  - : Die Schnittstelle `CookieStore` ermöglicht das Abrufen und Setzen von Cookies.
 - [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager) {{Experimental_Inline}}
-  - : Das `CookieStoreManager`-Interface bietet eine Service-Worker-Registrierung, um Service-Worker in die Lage zu versetzen, sich für Cookie-Änderungsereignisse zu registrieren.
+  - : Die Schnittstelle `CookieStoreManager` bietet eine Registrierung für Service-Worker, um ihnen zu ermöglichen, sich für Ereignisse zu Cookie-Änderungen zu registrieren.
 - [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent) {{Experimental_Inline}}
-  - : Ein `CookieChangeEvent` namens `change` wird auf `CookieStore`-Objekten in [`Window`](/de/docs/Web/API/Window)-Kontexten ausgelöst, wenn Änderungen bei skript-sichtbaren Cookies auftreten.
+  - : Ein `CookieChangeEvent` mit dem Namen `change` wird gegen `CookieStore`-Objekte in [`Window`](/de/docs/Web/API/Window)-Kontexten ausgelöst, wenn skript-sichtbare Cookie-Änderungen auftreten.
 - [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent)
-  - : Ein `ExtendableCookieChangeEvent` namens `cookiechange` wird in [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Kontexten ausgelöst, wenn Änderungen bei skript-sichtbaren Cookies auftreten, die mit der Cookie-Änderungsabonnementsliste des Service-Workers übereinstimmen.
+  - : Ein `ExtendableCookieChangeEvent` mit dem Namen `cookiechange` wird in [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Kontexten ausgelöst, wenn skript-sichtbare Cookie-Änderungen auftreten, die der Cookie-Änderungs-Abonnementliste des Service-Workers entsprechen.
 
-### Erweiterungen für andere Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
 - [`ServiceWorkerGlobalScope.cookieStore`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookieStore) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück, das dem Service-Worker zugeordnet ist.
+  - : Gibt eine Referenz auf das mit dem Service-Worker verbundene [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück.
 - [`ServiceWorkerRegistration.cookies`](/de/docs/Web/API/ServiceWorkerRegistration/cookies) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf das [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Interface zurück, das es einer Web-App ermöglicht, sich für Cookie-Änderungsereignisse zu registrieren oder sich davon abzumelden.
+  - : Gibt eine Referenz auf die Schnittstelle [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager) zurück, die es einer Web-App ermöglicht, sich für Cookie-Änderungsereignisse zu registrieren und diese abzubestellen.
 - [`Window.cookieStore`](/de/docs/Web/API/Window/cookieStore) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt für den aktuellen Dokumentkontext zurück.
 - [`cookiechange`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookiechange_event) Ereignis {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn Änderungen bei Cookies aufgetreten sind, die mit der Cookie-Änderungsabonnementsliste des Service-Workers übereinstimmen.
+  - : Wird ausgelöst, wenn Cookie-Änderungen aufgetreten sind, die der Cookie-Änderungs-Abonnementliste des Service-Workers entsprechen.
 
 ## Spezifikationen
 

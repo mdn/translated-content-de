@@ -8,19 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.error`**-Eigenschaft ist das
-[`MediaError`](/de/docs/Web/API/MediaError)-Objekt für den zuletzt aufgetretenen Fehler oder `null`, falls
-kein Fehler aufgetreten ist. Wenn ein [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignis von dem
-Element empfangen wird, können Sie Einzelheiten darüber ermitteln, was passiert ist, indem Sie dieses Objekt untersuchen.
+Die **`HTMLMediaElement.error`**-Eigenschaft ist das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt für den neuesten Fehler oder `null`, wenn kein Fehler aufgetreten ist. Wenn ein [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignis vom Element empfangen wird, können Sie durch Überprüfung dieses Objekts Einzelheiten darüber herausfinden, was passiert ist.
 
 ## Wert
 
-Ein [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den zuletzt aufgetretenen Fehler beim
-Medienelement beschreibt, oder `null`, wenn keine Fehler aufgetreten sind.
+Ein [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den neuesten Fehler beschreibt, der beim Media-Element aufgetreten ist, oder `null`, wenn keine Fehler aufgetreten sind.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein `<video>`-Element und fügt einen Fehlerbehandler hinzu; der Fehlerbehandler protokolliert die Details in der Konsole.
+Dieses Beispiel erstellt ein Video-Element und fügt ihm einen Fehler-Handler hinzu; der Fehler-Handler protokolliert die Details in der Konsole.
 
 ```js
 const videoElement = document.createElement("video");

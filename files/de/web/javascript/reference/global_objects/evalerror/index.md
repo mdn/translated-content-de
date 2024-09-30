@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Das **`EvalError`** Objekt zeigt einen Fehler in Bezug auf die globale {{jsxref("Global_Objects/eval", "eval()")}} Funktion an. Diese Ausnahme wird von JavaScript nicht mehr ausgelöst, jedoch bleibt das `EvalError` Objekt zur Kompatibilität bestehen.
+Das **`EvalError`** Objekt zeigt einen Fehler bezüglich der globalen {{jsxref("Global_Objects/eval", "eval()")}} Funktion an. Diese Ausnahme wird von JavaScript nicht mehr ausgelöst, jedoch bleibt das `EvalError` Objekt zur Kompatibilität bestehen.
 
-`EvalError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`EvalError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
 
 `EvalError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -20,18 +20,18 @@ Das **`EvalError`** Objekt zeigt einen Fehler in Bezug auf die globale {{jsxref(
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}._
+_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
 
 Diese Eigenschaften sind auf `EvalError.prototype` definiert und werden von allen `EvalError` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "EvalError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `EvalError` Instanzen ist der Anfangswert der {{jsxref("EvalError/EvalError", "EvalError")}} Konstruktor.
+  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `EvalError` Instanzen ist der Anfangswert der {{jsxref("EvalError/EvalError", "EvalError")}} Konstruktor.
 - {{jsxref("Error/name", "EvalError.prototype.name")}}
-  - : Repräsentiert den Namen für den Fehlertyp. Für `EvalError.prototype.name` ist der Anfangswert `"EvalError"`.
+  - : Repräsentiert den Namen für die Art des Fehlers. Für `EvalError.prototype.name` ist der Anfangswert `"EvalError"`.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}._
+_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}_.
 
 ## Beispiele
 

@@ -13,7 +13,7 @@ Das **`XRLayer`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device
 
 ## Schnittstellen basierend auf `XRLayer`
 
-Nachfolgend ist eine Liste von Schnittstellen, die auf dem <code>XRLayer</code>-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf der <code>XRLayer</code>-Schnittstelle basieren.
 
 - [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)
 - [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)

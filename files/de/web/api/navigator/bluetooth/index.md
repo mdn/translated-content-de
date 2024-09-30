@@ -1,5 +1,5 @@
 ---
-title: "Navigator: bluetooth-Eigenschaft"
+title: "Navigator: bluetooth Eigenschaft"
 short-title: bluetooth
 slug: Web/API/Navigator/bluetooth
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{secureContext_header}}
 
-Die schreibgeschützte **`bluetooth`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekt für das aktuelle Dokument zurück und ermöglicht den Zugriff auf die [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API)-Funktionalität.
+Die schreibgeschützte Eigenschaft **`bluetooth`** des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekt für das aktuelle Dokument zurück und bietet Zugriff auf die Funktionalität der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API).
 
 ## Wert
 

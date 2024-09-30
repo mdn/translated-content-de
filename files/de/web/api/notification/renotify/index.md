@@ -8,16 +8,19 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`renotify`** schreibgeschützte Eigenschaft des
-[`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt an, ob der Benutzer benachrichtigt werden soll, nachdem eine neue Benachrichtigung eine alte ersetzt hat, wie in der `renotify`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die **`renotify`**-Schreibgeschützt-Eigenschaft des
+[`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt an, ob der Benutzer benachrichtigt werden soll,
+nachdem eine neue Benachrichtigung eine alte ersetzt hat, wie in der `renotify`-
+Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 
-Ein boolean-Wert. `false` ist der Standardwert; `true` sorgt dafür, dass die Benachrichtigung den Benutzer erneut benachrichtigt.
+Ein boolescher Wert. `false` ist der Standardwert; `true` bewirkt, dass
+die Benachrichtigung den Benutzer erneut benachrichtigt.
 
 ## Beispiele
 
-Der folgende Codeausschnitt soll eine Benachrichtigung auslösen, die den Benutzer erneut benachrichtigt, nachdem sie ersetzt wurde; ein einfaches `options`-Objekt wird erstellt und dann wird die Benachrichtigung mithilfe des `Notification()`-Konstruktors ausgelöst.
+Das folgende Codebeispiel ist dafür vorgesehen, eine Benachrichtigung auszulösen, die den Benutzer erneut benachrichtigt, nachdem sie ersetzt wurde; ein einfaches `options`-Objekt wird erstellt, und dann wird die Benachrichtigung mit dem `Notification()`-Konstruktor ausgelöst.
 
 ```js
 const options = {
@@ -40,4 +43,4 @@ console.log(n.renotify); // true
 
 ## Siehe auch
 
-- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwendung der Notifications-API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`willValidate`** des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn irgendwelche Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich:
+Die **`willValidate`** Leseeigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces zeigt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn Bedingungen vorliegen, die es von der Einschränkungsvalidierung ausschließen, einschließlich:
 
-- Sein [`type`](/de/docs/Web/API/HTMLButtonElement/type) ist `reset` oder `button`;
-- Es hat einen {{HTMLElement("datalist")}}-Vorfahren;
-- Die [`disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)-Eigenschaft ist `true`.
+- Wenn sein [`type`](/de/docs/Web/API/HTMLButtonElement/type) `reset` oder `button` ist;
+- Wenn es einen {{HTMLElement("datalist")}} Vorfahren hat;
+- Wenn die [`disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)-Eigenschaft `true` ist.
 
 ## Wert
 

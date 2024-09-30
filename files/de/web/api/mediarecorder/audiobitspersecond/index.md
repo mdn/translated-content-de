@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die schreibgeschützte Eigenschaft **`audioBitsPerSecond`** der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle gibt die derzeit verwendete Audio-Bitraten-Codierung zurück.
+Die schreibgeschützte **`audioBitsPerSecond`**-Eigenschaft des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt die für die Audio-Codierung verwendete Bitrate zurück.
 
-Diese kann von der im Konstruktor angegebenen Bitrate abweichen (falls diese angegeben wurde).
+Diese kann von der im Konstruktor angegebenen Bitrate abweichen (falls angegeben).
 
 ## Wert
 
-Eine {{jsxref("Number")}} (unsigned long).
+Ein {{jsxref("Number")}} (unsigned long).
 
 ## Spezifikationen
 

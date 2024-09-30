@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das `animateTransform`-Element animiert ein Transformationsattribut auf seinem Zielelement, wodurch Animationen zur Steuerung von Translation, Skalierung, Rotation und/oder Scherung ermöglicht werden.
+Das `<animateTransform>`-Element animiert ein Transformationsattribut auf seinem Ziel-Element und ermöglicht so Animationen zur Steuerung von Translation, Skalierung, Rotation und/oder Scherung.
 
 ## Verwendungskontext
 
@@ -45,7 +45,7 @@ Das `animateTransform`-Element animiert ein Transformationsattribut auf seinem Z
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement) Schnittstelle.
+Dieses Element implementiert die [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement)-Schnittstelle.
 
 ## Spezifikationen
 

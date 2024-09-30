@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt den Titel der Browser-Aktion fest. Der Titel wird in einem Tooltip über dem Symbol der Browser-Aktion angezeigt. Sie können eine `tabId` oder eine `windowId` als optionalen Parameter übergeben — in diesem Fall wird der Titel nur für den angegebenen Tab oder das Fenster geändert. Tabs oder Fenster ohne spezifischen Titel übernehmen den globalen Titeltext, der standardmäßig auf den im Manifest angegebenen [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) zurückgreift.
+Setzt den Titel der Browser-Aktion. Der Titel wird in einem Tooltip über dem Symbol der Browser-Aktion angezeigt. Sie können einen `tabId` oder einen `windowId` als optionalen Parameter übergeben – wenn Sie dies tun, ändert sich der Titel nur für den angegebenen Tab oder das Fenster. Tabs oder Fenster ohne einen spezifischen Titel übernehmen den globalen Titeltext, der standardmäßig dem [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) entspricht, der im Manifest angegeben ist.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -24,33 +24,33 @@ browser.action.setTitle(
 
 - `details`
 
-  - : `object`. Der neue Titel und optional die ID des anzupeilenden Tabs oder Fensters.
+  - : `object`. Der neue Titel und optional die ID des Tabs oder Fensters, das angezielt werden soll.
 
     - `title`
 
-      - : `string` oder `null`. Der String, den die Browser-Aktion bei einer Mausbewegung darüber anzeigen soll.
+      - : `string` oder `null`. Der String, den die Browser-Aktion anzeigen soll, wenn darübergefahren wird.
 
-        Wenn `title` ein leerer String ist, wird der Erweiterungsname als Titel verwendet, aber {{WebExtAPIRef("action.getTitle")}} liefert dennoch den leeren String.
+        Wenn `title` ein leerer String ist, wird der verwendete Titel der Erweiterungsname sein, aber {{WebExtAPIRef("action.getTitle")}} wird weiterhin den leeren String liefern.
 
         Wenn `title` `null` ist:
 
-        - Falls `tabId` angegeben ist und der Tab einen tab-spezifischen Titel hat, übernimmt der Tab den Titel des zugehörigen Fensters.
-        - Falls `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel hat, übernimmt das Fenster den globalen Titel.
+        - Wenn `tabId` angegeben ist und der Tab einen tab-spezifischen Titel hat, dann erbt der Tab den Titel vom Fenster, zu dem er gehört.
+        - Wenn `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel hat, dann erbt das Fenster den globalen Titel.
         - Andernfalls wird der globale Titel auf den Manifesttitel zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Legt den Titel nur für den angegebenen Tab fest.
+      - : `integer`. Setzt den Titel nur für den gegebenen Tab.
     - `windowId` {{optional_inline}}
-      - : `integer`. Legt den Titel für das angegebene Fenster fest.
+      - : `integer`. Setzt den Titel für das gegebene Fenster.
 
 <!---->
 
 - Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und der Titel wird nicht gesetzt.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel festgelegt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel gesetzt.
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" bei jedem Klick des Benutzers auf die Browser-Aktion:
+Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browser-Aktion klickt:
 
 ```js
 function toggleTitle(title) {
@@ -74,7 +74,7 @@ browser.action.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setTitle) API. Diese Dokumentation basiert auf [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setTitle) API von Chromium. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

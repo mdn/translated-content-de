@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `ceiling`-Funktion bewertet eine Dezimalzahl und gibt die kleinste ganze Zahl zurück, die größer oder gleich der Dezimalzahl ist.
+Die Funktion `ceiling` evaluiert eine Dezimalzahl und gibt die kleinste ganze Zahl zurück, die größer oder gleich der Dezimalzahl ist.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ ceiling( number )
 ### Parameter
 
 - `number`
-  - : Die zu bewertende Zahl.
+  - : Die zu evaluierende Zahl.
 
 ### Rückgabewert
 
-Die nächstgrößere ganze Zahl, die größer oder gleich `number` ist.
+Die nächstgrößere ganze Zahl größer oder gleich `number`.
 
-zum Beispiel:
+Zum Beispiel:
 
 `ceiling (5.2)` = _6_
 

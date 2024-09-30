@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transport`**-Eigenschaft des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces gibt ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt zurück, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
+Die schreibgeschützte Eigenschaft **`transport`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces gibt ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt zurück, das den [DTLS](/de/docs/Glossary/DTLS)-Transport repräsentiert, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Wert
 
-Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
+Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den [DTLS](/de/docs/Glossary/DTLS)-Transport repräsentiert, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Spezifikationen
 

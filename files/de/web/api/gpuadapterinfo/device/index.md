@@ -1,6 +1,6 @@
 ---
-title: "GPUAdapterInfo: Geräte-Eigenschaft"
-short-title: Gerät
+title: "GPUAdapterInfo: device-Eigenschaft"
+short-title: device
 slug: Web/API/GPUAdapterInfo/device
 l10n:
   sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`device`**-Eigenschaft der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt eine herstellerspezifische Kennung für den Adapter zurück oder einen leeren String, falls sie nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`device`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt eine herstellerspezifische Kennung für den Adapter zurück oder einen leeren String, wenn sie nicht verfügbar ist.
 
 ## Wert
 

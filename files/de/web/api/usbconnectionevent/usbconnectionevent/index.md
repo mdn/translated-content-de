@@ -19,11 +19,11 @@ new USBConnectionEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses. Er ist case-sensitiv und Browser setzen ihn auf `connect` oder `disconnect`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist groß- und kleinschreibungssensitiv und die Browser setzen es auf `connect` oder `disconnect`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthalten kann:
+  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `device`
-      - : Ein [`USBDevice`](/de/docs/Web/API/USBDevice), das das USB-Gerät repräsentiert, das angeschlossen oder getrennt wird.
+      - : Ein [`USBDevice`](/de/docs/Web/API/USBDevice), das das angeschlossene oder getrennte USB-Gerät darstellt.
 
 ### Rückgabewert
 

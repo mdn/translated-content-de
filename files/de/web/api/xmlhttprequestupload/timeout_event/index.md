@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`timeout`**-Ereignis wird ausgelöst, wenn der Fortschritt aufgrund eines abgelaufenen Zeitnachlaufs beendet wird.
+Das **`timeout`**-Ereignis wird ausgelöst, wenn der Fortschritt aufgrund einer voreingestellten Zeitüberschreitung beendet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("timeout", (event) => {});
@@ -28,22 +28,22 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu leistende Arbeit und der bereits vom zugrunde liegenden Prozess geleistete Arbeitsaufwand berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolescher Wert, der anzeigt, ob das gesamte zu erledigende Arbeitspensum und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten sagt es aus, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integerwert ohne Vorzeichen, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
+  - : Ein 64-Bit-unsigned Integer-Wert, der angibt, wie viel Arbeit vom zugrunde liegenden Prozess bereits ausgeführt wurde. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem man `total` durch den Wert dieser Eigenschaft teilt. Beim Herunterladen einer Ressource über HTTP wird dabei nur der Körper der HTTP-Nachricht gezählt und nicht die Header und andere Überkopfkosten.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integerwert ohne Vorzeichen, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
+  - : Ein 64-Bit-unsigned Integer, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess auszuführen hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und umfasst nicht die Header und andere Überkopfkosten.
 
 ## Beispiele
 
 ### Verwendung des `timeout`-Ereignisses
 
-Sie können das `timeout`-Ereignis verwenden, um einen Upload zu erkennen, der gestoppt wurde, weil er zu langsam war. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, lesen Sie die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `timeout`-Ereignis verwenden, um einen Upload zu erkennen, der gestoppt wurde, weil er zu langsam war. Ein vollständiges Codebeispiel, das den Upload einer Datei und die Anzeige einer Fortschrittsanzeige zeigt, finden Sie auf der Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
-Der Zeitnachlass wird am [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt über die [`XMLHttpRequest.timeout`](/de/docs/Web/API/XMLHttpRequest/timeout)-Eigenschaft gesetzt.
+Das Timeout wird am [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt mit der [`XMLHttpRequest.timeout`](/de/docs/Web/API/XMLHttpRequest/timeout) Eigenschaft festgelegt.
 
 ```js
 // In case of an timeout we hide the progress bar

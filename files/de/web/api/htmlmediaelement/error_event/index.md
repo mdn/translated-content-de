@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: error-Ereignis"
+title: "HTMLMediaElement: error Ereignis"
 short-title: error
 slug: Web/API/HTMLMediaElement/error_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`error`**-Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (zum Beispiel bei einem Netzwerkverbindungsproblem).
+Das **`error`** Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (zum Beispiel ein Problem mit der Netzwerkverbindung).
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht nach oben weitergegeben.
 
 ## Syntax
 

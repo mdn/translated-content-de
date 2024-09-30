@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`animVal`**-Eigenschaft der [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Schnittstelle enthält den aktuellen Wert einer SVG-Enumeration. Wenn keine Animation vorhanden ist, entspricht sie dem Wert von [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal).
+Die **`animVal`**-Eigenschaft der [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Schnittstelle enthält den aktuellen Wert einer SVG-Enumeration. Wenn keine Animation vorhanden ist, entspricht er dem gleichen Wert wie [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal).
 
 ## Wert
 
-Ein [`SVGLength`](/de/docs/Web/API/SVGLength), das den aktuellen Wert der Enumeration enthält.
+Ein [`SVGLength`](/de/docs/Web/API/SVGLength), der den aktuellen Wert der Enumeration enthält.
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ function displayLog() {
 displayLog();
 ```
 
-{{EmbedLiveSample("Examples", "280", "260")}}
+{{EmbedLiveSample("Beispiele", "280", "260")}}
 
 ## Spezifikationen
 

@@ -7,22 +7,22 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`MIDIOutput`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) bietet Methoden, um Nachrichten zur Warteschlange eines Ausgabegeräts hinzuzufügen und die Warteschlange von Nachrichten zu leeren.
+Das **`MIDIOutput`** Interface der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) stellt Methoden bereit, um Nachrichten zur Warteschlange eines Ausgabegeräts hinzuzufügen und die Warteschlange von Nachrichten zu leeren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
+_Dieses Interface implementiert keine speziellen Eigenschaften, erbt jedoch Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
+_Dieses Interface erbt auch Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
 - [`MIDIOutput.send()`](/de/docs/Web/API/MIDIOutput/send)
-  - : Platziert eine Nachricht in der Warteschlange, die an den MIDI-Port gesendet werden soll.
+  - : Fügt der Warteschlange eine Nachricht hinzu, die an den MIDI-Port gesendet werden soll.
 - [`MIDIOutput.clear()`](/de/docs/Web/API/MIDIOutput/clear)
-  - : Löscht alle ausstehenden Sendedaten aus der Warteschlange.
+  - : Leert alle ausstehenden Send-Daten aus der Warteschlange.
 
 ## Beispiele
 

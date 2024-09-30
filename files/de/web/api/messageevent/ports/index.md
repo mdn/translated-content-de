@@ -1,5 +1,5 @@
 ---
-title: "MessageEvent: Ports-Eigenschaft"
+title: "MessageEvent: ports-Eigenschaft"
 short-title: ports
 slug: Web/API/MessageEvent/ports
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`ports`** schreibgeschützte Eigenschaft des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports repräsentieren, die mit dem Kanal assoziiert sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. in der Kanalnachrichtenübertragung oder beim Senden einer Nachricht an einen Shared Worker).
+Die schreibgeschützte Eigenschaft **`ports`** des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports repräsentieren, die mit dem Kanal assoziiert sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. im Kanal-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Wert
 
@@ -39,4 +39,4 @@ onconnect = (e) => {
 
 ## Siehe auch
 
-- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich diesem Interface, aber in Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich wie dieses Interface, aber in Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.

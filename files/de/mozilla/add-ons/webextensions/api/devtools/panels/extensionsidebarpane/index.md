@@ -7,27 +7,27 @@ l10n:
 
 {{AddonSidebar}}
 
-Das `ExtensionSidebarPane`-Objekt repräsentiert ein Feld, das eine Erweiterung zur Seitenleiste im HTML/CSS-Inspektor des Browsers hinzugefügt hat.
+Das `ExtensionSidebarPane`-Objekt repräsentiert ein Bereich, den eine Erweiterung zur Seitenleiste im HTML/CSS-Inspektor des Browsers hinzugefügt hat.
 
-![neues Feld mit dem Titel "My pane", das ein JSON-Objekt anzeigt](inspector-sidebar.png)
+![neuer Bereich mit dem Titel "My pane", der ein JSON-Objekt anzeigt](inspector-sidebar.png)
 
 Um ein `ExtensionSidebarPane` zu erstellen, rufen Sie die Funktion [`browser.devtools.panels.elements.createSidebarPane()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/createSidebarPane) auf.
 
 ## Funktionen
 
 - [`devtools.panels.ExtensionSidebarPane.setExpression()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setExpression)
-  - : Eine JavaScript-Ausdruck auf der Webseite evaluieren, die der Inspektor überprüft. Das Ergebnis wird im Seitenleistenfeld angezeigt.
+  - : Evaluieren Sie einen JavaScript-Ausdruck auf der Webseite, die der Inspektor untersucht. Das Ergebnis wird im Seitenleistenbereich angezeigt.
 - [`devtools.panels.ExtensionSidebarPane.setObject()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setObject)
-  - : Legt ein JSON-Objekt fest, das im Seitenleistenfeld angezeigt wird.
+  - : Setzt ein JSON-Objekt, das im Seitenleistenbereich angezeigt wird.
 - [`devtools.panels.ExtensionSidebarPane.setPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setPage)
-  - : Lädt die Seite, auf die mit der angegebenen URL verwiesen wird.
+  - : Lädt die Seite, auf die durch die übergebene URL verwiesen wird.
 
 ## Ereignisse
 
 - [`devtools.panels.ExtensionSidebarPane.onShown`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/onShown)
-  - : Wird ausgelöst, wenn das Seitenleistenfeld angezeigt wird.
+  - : Wird ausgelöst, wenn der Seitenleistenbereich angezeigt wird.
 - [`devtools.panels.ExtensionSidebarPane.onHidden`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/onHidden)
-  - : Wird ausgelöst, wenn das Seitenleistenfeld verborgen wird.
+  - : Wird ausgelöst, wenn der Seitenleistenbereich ausgeblendet wird.
 
 ## Browser-Kompatibilität
 

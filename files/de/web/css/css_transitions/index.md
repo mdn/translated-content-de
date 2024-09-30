@@ -1,5 +1,5 @@
 ---
-title: CSS transitions
+title: CSS Transitions
 slug: Web/CSS/CSS_transitions
 l10n:
   sourceCommit: e21c6c187a1049d29f69eeeedfcfb4843b01569a
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS transitions** Modul ermöglicht Ihnen, schrittweise Übergänge zwischen den Werten bestimmter CSS-Eigenschaften zu erstellen. Das Verhalten dieser Übergänge kann durch die Angabe ihrer `easing function`, Dauer und anderer Attribute gesteuert werden.
+Das Modul **CSS Transitions** ermöglicht es Ihnen, schrittweise Übergänge zwischen den Werten bestimmter CSS-Eigenschaften zu erstellen. Das Verhalten dieser Übergänge kann durch die Angabe ihrer `easing function`, Dauer und anderer Attribute gesteuert werden.
 
 ## Referenz
 
@@ -34,4 +34,4 @@ Das **CSS transitions** Modul ermöglicht Ihnen, schrittweise Übergänge zwisch
 
 ## Siehe auch
 
-- Im Zusammenhang mit CSS transitions bieten [CSS animations](/de/docs/Web/CSS/CSS_animations) eine feinere Steuerung über animierte Eigenschaften.
+- Im Zusammenhang mit CSS Transitions bieten [CSS animations](/de/docs/Web/CSS/CSS_animations) eine feinere Kontrolle über animierte Eigenschaften.

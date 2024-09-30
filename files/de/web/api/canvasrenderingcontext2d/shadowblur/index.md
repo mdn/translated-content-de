@@ -8,20 +8,23 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.shadowBlur`**-Eigenschaft der Canvas 2D API gibt an, wie viel Unschärfe auf Schatten angewendet wird. Der Standardwert ist `0` (keine Unschärfe).
+Die **`CanvasRenderingContext2D.shadowBlur`**-Eigenschaft der Canvas 2D API gibt die Menge der Unschärfe an, die auf Schatten angewendet wird. Der Standardwert ist `0` (keine Unschärfe).
 
 > [!NOTE]
-> Schatten werden nur gezeichnet, wenn die [`shadowColor`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)-Eigenschaft auf einen nicht-transparenten Wert gesetzt ist. Eine der Eigenschaften `shadowBlur`, [`shadowOffsetX`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX) oder [`shadowOffsetY`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY) muss ebenfalls ungleich null sein.
+> Schatten werden nur gezeichnet, wenn die
+> [`shadowColor`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)-Eigenschaft auf einen undurchsichtigen Wert gesetzt ist. Eine der `shadowBlur`,
+> [`shadowOffsetX`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX) oder
+> [`shadowOffsetY`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY)-Eigenschaften muss ebenfalls ungleich null sein.
 
 ## Wert
 
-Ein nicht-negativer `float`, der das Maß der Schattenunschärfe angibt, wobei `0` keine Unschärfe darstellt und größere Zahlen zunehmend mehr Unschärfe bedeuten. Dieser Wert entspricht keiner bestimmten Anzahl von Pixeln und wird nicht von der aktuellen Transformationsmatrix beeinflusst. Der Standardwert ist `0`. Negative Werte, {{jsxref("Infinity")}} und {{jsxref("NaN")}}-Werte werden ignoriert.
+Ein nicht-negativer Float, der das Maß der Schattenunschärfe angibt, wobei `0` keine Unschärfe darstellt und größere Zahlen zunehmend mehr Unschärfe bedeuten. Dieser Wert entspricht nicht einer Anzahl von Pixeln und wird nicht durch die aktuelle Transformationsmatrix beeinflusst. Der Standardwert ist `0`. Negative, {{jsxref("Infinity")}} und {{jsxref("NaN")}} Werte werden ignoriert.
 
 ## Beispiele
 
 ### Hinzufügen eines Schattens zu einer Form
 
-Dieses Beispiel fügt einem Rechteck einen unscharfen Schatten hinzu. Die `shadowColor`-Eigenschaft legt seine Farbe fest und `shadowBlur` legt das Maß der Unschärfe fest.
+Dieses Beispiel fügt einem Rechteck einen unscharfen Schatten hinzu. Die `shadowColor`-Eigenschaft setzt dessen Farbe, und `shadowBlur` bestimmt das Maß der Unschärfe.
 
 #### HTML
 
@@ -56,9 +59,9 @@ ctx.fillRect(20, 20, 150, 100);
 
 {{Compat}}
 
-### WebKit/Blink-spezifische Anmerkungen
+### WebKit/Blink-spezifische Hinweise
 
-In WebKit- und Blink-basierten Browsern wird die nicht standardisierte und veraltete Methode `ctx.setShadow()` zusätzlich zu dieser Eigenschaft implementiert.
+In WebKit- und Blink-basierten Browsern ist neben dieser Eigenschaft auch die nicht standardisierte und veraltete Methode `ctx.setShadow()` implementiert.
 
 ```js
 setShadow(width, height, blur, color, alpha);

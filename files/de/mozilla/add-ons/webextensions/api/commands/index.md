@@ -7,28 +7,28 @@ l10n:
 
 {{AddonSidebar}}
 
-Hören Sie darauf, dass der Benutzer Befehle ausführt, die Sie über den [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert haben.
+Hören Sie darauf, wenn der Benutzer Befehle ausführt, die Sie mit dem [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert haben.
 
 ## Typen
 
 - {{WebExtAPIRef("commands.Command")}}
-  - : Objekt, das einen Befehl darstellt. Dies enthält die Informationen, die für den Befehl im [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) spezifiziert wurden.
+  - : Objekt, das einen Befehl darstellt. Dies enthält die im [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) spezifizierten Informationen für den Befehl.
 
 ## Funktionen
 
 - {{WebExtAPIRef("commands.getAll")}}
   - : Ruft alle registrierten Befehle für diese Erweiterung ab.
 - {{WebExtAPIRef("commands.reset")}}
-  - : Setzt die Beschreibung und die Tastenkombination des gegebenen Befehls auf die im Manifest-Schlüssel angegebenen Werte zurück.
+  - : Setzt die Beschreibung und das Kürzel des angegebenen Befehls auf die im Manifest-Schlüssel angegebenen Werte zurück.
 - {{WebExtAPIRef("commands.update")}}
-  - : Ändert die Beschreibung oder die Tastenkombination für den gegebenen Befehl.
+  - : Ändert die Beschreibung oder das Kürzel für den angegebenen Befehl.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("commands.onChanged")}}
-  - : Wird ausgelöst, wenn die Tastenkombination für einen Befehl geändert wird.
+  - : Wird ausgelöst, wenn das Tastaturkürzel für einen Befehl geändert wird.
 - {{WebExtAPIRef("commands.onCommand")}}
-  - : Wird ausgelöst, wenn ein Befehl mit seiner zugehörigen Tastenkombination ausgeführt wird.
+  - : Wird ausgelöst, wenn ein Befehl mit seinem zugehörigen Tastaturkürzel ausgeführt wird.
 
 {{WebExtExamples("h2")}}
 
@@ -37,7 +37,7 @@ Hören Sie darauf, dass der Benutzer Befehle ausführt, die Sie über den [`comm
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.
+> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

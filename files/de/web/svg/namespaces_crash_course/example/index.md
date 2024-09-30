@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-In diesem Beispiel verwenden wir [XHTML](/de/docs/Glossary/XHTML), [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Partikeln" zu animieren. Diese Partikel werden von zwei einfachen Prinzipien gesteuert. Erstens versucht jedes Partikel, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Partikel, sich vom durchschnittlichen Partikelposition zu entfernen. Kombiniert ergibt dies ein sehr natürliches Verhalten.
+In diesem Beispiel verwenden wir [XHTML](/de/docs/Glossary/XHTML), [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und den [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Partikeln" zu animieren. Diese Partikel folgen zwei einfachen Prinzipien. Erstens versucht jedes Partikel, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Partikel, sich von der durchschnittlichen Position der Partikel weg zu bewegen. In Kombination entsteht dieses sehr natürlich aussehende Verhalten.
 
-[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde auf moderne JavaScript-Best-Practices aktualisiert. Beide funktionieren.
+[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den Best Practices von 2006 geschrieben. Das untenstehende Beispiel wurde an moderne JavaScript-Best-Practices angepasst. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>

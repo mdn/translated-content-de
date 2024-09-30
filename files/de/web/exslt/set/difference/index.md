@@ -7,9 +7,9 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:difference()` gibt die Differenz zwischen zwei Knoten-Mengen zurück. Mit anderen Worten, es wird eine Knoten-Menge zurückgegeben, deren Knoten in einer Knoten-Menge, aber nicht in der anderen enthalten sind.
+`set:difference()` gibt die Differenz zwischen zwei Node-Sets zurück. Mit anderen Worten: Es gibt ein Node-Set zurück, dessen Knoten in einem Node-Set vorhanden sind, aber nicht im anderen.
 
-Die Template-Version von `set:difference` wendet Templates auf diese Knoten im `set:difference`-Modus an, kopiert die Knoten und gibt so ein Ergebnisbaum-Fragment zurück, das aus den Knoten besteht.
+Die Vorlagen-Version von `set:difference` wendet Vorlagen auf diese Knoten im Modus `set:difference` an, kopiert die Knoten, sodass ein Ergebnisfragment aus diesen Knoten zurückgegeben wird.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ set:difference(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Die Knoten-Menge, von der Knoten subtrahiert werden sollen.
+  - : Das Node-Set, von dem Knoten subtrahiert werden sollen.
 - `nodeSet2`
-  - : Die Menge der Knoten, die von `nodeSet1` subtrahiert werden sollen.
+  - : Das Set von Knoten, das von `nodeSet1` subtrahiert werden soll.
 
 ### Rückgabewert
 
-Eine Knoten-Menge, die die Knoten enthält, die in `nodeSet1`, aber nicht in `nodeSet2` enthalten sind.
+Ein Node-Set, das die Knoten enthält, die in `nodeSet1`, aber nicht in `nodeSet2` enthalten sind.
 
 ## Spezifikationen
 

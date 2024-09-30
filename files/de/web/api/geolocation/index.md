@@ -7,27 +7,27 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Das **`Geolocation`**-Interface repräsentiert ein Objekt, das in der Lage ist, die Position des Geräts programmgesteuert zu ermitteln. Es gibt Webinhalten Zugriff auf den Standort des Geräts. Dies ermöglicht es einer Website oder App, angepasste Ergebnisse basierend auf dem Standort des Benutzers anzubieten.
+Die **`Geolocation`** Schnittstelle repräsentiert ein Objekt, das in der Lage ist, die Position des Geräts programmgesteuert zu ermitteln. Sie gibt Web-Inhalten Zugriff auf den Standort des Geräts. Dies ermöglicht es einer Website oder App, angepasste Ergebnisse basierend auf dem Standort des Benutzers anzubieten.
 
-Ein Objekt mit diesem Interface wird durch die [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation) Eigenschaft erlangt, die vom [`Navigator`](/de/docs/Web/API/Navigator) Objekt implementiert wird.
+Ein Objekt mit dieser Schnittstelle wird über die [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation) Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator) Objekts abgerufen.
 
 > [!NOTE]
 > Aus Sicherheitsgründen wird der Benutzer benachrichtigt und um Erlaubnis gebeten, wenn eine Webseite versucht, auf Standortinformationen zuzugreifen. Beachten Sie, dass jeder Browser seine eigenen Richtlinien und Methoden zur Anforderung dieser Erlaubnis hat.
 
 ## Instanz-Eigenschaften
 
-_Das `Geolocation`-Interface implementiert oder erbt keine Eigenschaft._
+_Die `Geolocation` Schnittstelle implementiert oder erbt keine Eigenschaften._
 
 ## Instanz-Methoden
 
-_Das `Geolocation`-Interface erbt keine Methode._
+_Die `Geolocation` Schnittstelle erbt keine Methoden._
 
 - [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition)
   - : Bestimmt den aktuellen Standort des Geräts und gibt ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition) Objekt mit den Daten zurück.
 - [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)
-  - : Gibt einen `long` Wert zurück, der die neu eingerichtete Callback-Funktion darstellt, die aufgerufen wird, wenn sich der Gerätestandort ändert.
+  - : Gibt einen `long` Wert zurück, der die neu eingerichtete Callback-Funktion darstellt, die jedes Mal aufgerufen wird, wenn sich der Gerätestandort ändert.
 - [`Geolocation.clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch)
-  - : Entfernt den bestimmten zuvor installierten Handler mit `watchPosition()`.
+  - : Entfernt den zuvor mit `watchPosition()` installierten spezifischen Handler.
 
 ## Spezifikationen
 
@@ -39,4 +39,4 @@ _Das `Geolocation`-Interface erbt keine Methode._
 
 ## Siehe auch
 
-- [Verwendung der Geolokalisierung](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [Verwendung der Geolocation](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)

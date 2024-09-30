@@ -9,7 +9,7 @@ l10n:
 
 Das **`WaveShaperNode`**-Interface repräsentiert einen nichtlinearen Verzerrer.
 
-Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der eine Kurve verwendet, um dem Signal eine Wave-Shaping-Verzerrung hinzuzufügen. Neben offensichtlichen Verzerrungseffekten wird es oft verwendet, um dem Signal eine warme Note zu verleihen.
+Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine Kurve verwendet, um eine Waveshaping-Verzerrung auf das Signal anzuwenden. Neben offensichtlichen Verzerrungseffekten wird es häufig verwendet, um dem Signal eine warme Note zu verleihen.
 
 Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
 
@@ -26,12 +26,12 @@ Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzahlmodus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
-      <td><code>2</code> (nicht verwendet im Standardkanalzählmodus)</td>
+      <th scope="row">Kanalanzahl</th>
+      <td><code>2</code> (nicht im Standardzählmodus verwendet)</td>
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
@@ -50,9 +50,9 @@ Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
 _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`WaveShaperNode.curve`](/de/docs/Web/API/WaveShaperNode/curve)
-  - : Ein {{jsxref("Float32Array")}} von Zahlen, die die anzuwendende Verzerrung beschreiben.
+  - : Ein {{jsxref("Float32Array")}} von Zahlen, das die anzuwendende Verzerrung beschreibt.
 - [`WaveShaperNode.oversample`](/de/docs/Web/API/WaveShaperNode/oversample)
-  - : Ein enumerierter Wert, der anzeigt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik, bei der mehr Samples (Upsampling) erstellt werden, bevor der Verzerrungseffekt auf das Audiosignal angewendet wird.
+  - : Ein enumerierter Wert, der angibt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik zur Erstellung von mehr Abtastungen (Hochabtastung), bevor der Verzerrungseffekt auf das Audiosignal angewendet wird.
 
 ## Instanz-Methoden
 

@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-right`** [Shorthand-](/de/docs/Web/CSS/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Randes](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-right`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-right.html")}}
 
-Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Die nicht angegebenen werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Diejenigen, die nicht spezifiziert sind, werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Er ist tatsächlich gleichbedeutend mit diesem:
+Es ist tatsächlich dasselbe wie dieser:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der zuvor angegebene Wert von {{cssxref("border-right-style")}} vor `border-right` wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rand.
+Der vor `border-right` angegebene Wert von {{cssxref("border-right-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nichtspezifizieren des `border-style`-Teils zu keinem Rahmen.
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
@@ -50,7 +50,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können ausgelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -71,7 +71,7 @@ Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angeg
 
 ## Beispiele
 
-### Einen rechten Rand anwenden
+### Anwenden eines rechten Rahmens
 
 #### HTML
 

@@ -7,67 +7,67 @@ l10n:
 
 {{HTMLSidebar}}
 
-[_Microformats_](https://microformats.org/wiki/Main_Page) sind Standards, die verwendet werden, um Semantik und strukturierte Daten in HTML einzubetten und bieten eine API, die von sozialen Webanwendungen, Suchmaschinen, Aggregatoren und anderen Tools genutzt werden kann. Diese minimalen HTML-Muster werden zur Markierung von Entitäten verwendet, die von grundlegenden bis hin zu domänenspezifischen Informationen reichen, wie Personen, Organisationen, Ereignisse und Orte.
+[_Microformats_](https://microformats.org/wiki/Main_Page) sind Standards, die verwendet werden, um Semantik und strukturierte Daten in HTML einzubetten und eine API bereitzustellen, die von sozialen Webanwendungen, Suchmaschinen, Aggregatoren und anderen Tools verwendet werden kann. Diese minimalen HTML-Muster werden zur Markierung von Entitäten verwendet, die von grundlegenden bis hin zu domänenspezifischen Informationen reichen, wie Personen, Organisationen, Veranstaltungen und Orte.
 
-- Um ein Microformats-Objekt zu erstellen, werden `h-*` Klassennamen im class-Attribut verwendet.
-- Um einem Objekt eine Eigenschaft hinzuzufügen, werden `p-*`, `u-*`, `dt-*`, `e-*` Klassennamen auf einem der Nachkommen des Objekts verwendet.
+- Um ein Microformats-Objekt zu erstellen, werden `h-*` Klassenbezeichnungen im `class`-Attribut verwendet.
+- Um eine Eigenschaft zu einem Objekt hinzuzufügen, werden die `p-*`, `u-*`, `dt-*`, `e-*` Klassenbezeichnungen bei einem der Nachkommen des Objekts verwendet.
 
-Microformats verwenden unterstützende Vokabulare, um Objekte zu beschreiben und Wertepaaren Werte zuzuweisen. Die Eigenschaften werden in Klassenattributen mitgeführt, die jedem HTML-Element hinzugefügt werden können, während die Datenelemente den Inhalt und die semantischen Attribute von HTML-Elementen wiederverwenden.
+Microformats verwenden unterstützende Vokabulare, um Objekte zu beschreiben und Paaren von Namen und Werten Werte zuzuweisen. Die Eigenschaften sind in `class`-Attributen enthalten, die zu jedem HTML-Element hinzugefügt werden können, während die Datenwerte den Inhalt von HTML-Elementen und deren semantische Attribute wiederverwenden.
 
-Microformats2 (manchmal als mf2 bezeichnet) ist eine Aktualisierung der Microformats, die eine einfachere Möglichkeit zur Anmerkung von HTML-Struktursyntax und -Vokabularen bietet als frühere Ansätze, die RDFa und Microdata verwenden. Diese vorherigen Ansätze erfordern das Erlernen neuer Attribute.
+Microformats2 (manchmal als mf2 bezeichnet) ist ein Update der Microformats, das eine einfachere Möglichkeit bietet, HTML-strukturierte Syntax und Vokabulare zu annotieren, als die vorherigen Ansätze wie RDFa und Mikrodaten. Diese früheren Ansätze erfordern das Erlernen neuer Attribute.
 
 Es gibt [Open-Source-Parsing-Bibliotheken für die meisten Sprachen](https://microformats.org/wiki/microformats2#Parsers) für Microformats2.
 
 ## Wie Microformats funktionieren
 
-Ein Autor einer Webseite kann Microformats zu seinem HTML hinzufügen. Wenn sie zum Beispiel sich selbst identifizieren wollten, könnten sie ein [h-card](https://microformats.org/wiki/h-card) verwenden, wie:
+Ein Autor einer Webseite kann Microformats zu seinem HTML hinzufügen. Wenn sie sich zum Beispiel selbst identifizieren wollten, könnten sie eine [h-card](https://microformats.org/wiki/h-card) verwenden, wie z.B.:
 
-### HTML Beispiel
+### HTML-Beispiel
 
 ```html
 <a class="h-card" href="https://alice.example.com">Alice Blogger</a>
 ```
 
-Wenn ein Parser diese Daten trifft, erkennt er, dass diese Seite eine „Karte“ enthält, die eine Person oder Organisation namens `Alice Blogger` mit einer URL von `https://alice.example.com/` beschreibt. Der Parser stellt diese Daten über APIs zur Verfügung, die für verschiedene Anwendungen verwendet werden können. Eine Anwendung könnte beispielsweise eine Seite nach einer h-card durchsuchen, um sie als Profilinformationen für jemanden zu verwenden, der sich für einen Dienst angemeldet hat.
+Wenn ein Parser auf diese Daten stößt, erkennt er, dass diese Seite eine "Karte" enthält, die eine Person oder Organisation namens `Alice Blogger` mit einer URL von `https://alice.example.com/` beschreibt. Der Parser macht diese Daten über APIs verfügbar, die für verschiedene Anwendungen verwendet werden können. So könnte eine Anwendung eine Seite nach einer h-card durchsuchen, um sie als Profilinformation für jemanden zu verwenden, der sich bei einem Dienst angemeldet hat.
 
-Wie in diesem Beispiel erfordern einige Markup-Muster nur einen einzigen Microformat-Wurzelklassennamen, den Parser nutzen, um einige generische Eigenschaften wie `name`, `url`, `photo` zu finden.
+Wie in diesem Beispiel erfordern einige Markup-Muster nur einen einzigen Microformat-Root-Klassennamen, den Parser verwenden, um einige generische Eigenschaften wie `name`, `url`, `photo` zu finden.
 
 ## Anwendungsfälle für Microformats
 
-Microformats haben zahlreiche Anwendungsfälle. Erstens verwendet der [Webmention-Standard](https://www.w3.org/TR/webmention/) Microformats, um eine Möglichkeit zu bieten, Nachrichten und Kommentare von einer Website zu einer anderen zu senden. Die Webmention-Spezifikation definiert bestimmte Attribute, die Websites veröffentlichen und konsumieren können, um eine reiche, interoperable Art der Veröffentlichung von Nachrichten und Kommentaren zu schaffen. Microformats können auch mit Webmentions verwendet werden, um das Senden sozialer Reaktionen wie Likes, Reposts und Lesezeichen von einer Site zu einer anderen zu ermöglichen.
+Microformats haben zahlreiche Anwendungsfälle. Zuerst verwendet der [Webmention-Standard](https://www.w3.org/TR/webmention/) Microformats, um eine Möglichkeit bereitzustellen, mit der Nachrichten und Kommentare von einer Seite an eine andere gesendet werden können. Die Webmention-Spezifikation definiert spezielle Attribute, die Seiten veröffentlichen und konsumieren können, um eine reichhaltige, interoperable Möglichkeit zum Veröffentlichen von Nachrichten und Kommentaren zu schaffen. Microformats können auch mit Webmentions verwendet werden, um soziale Reaktionen wie Likes, Reposts und Bookmarks von einer Seite an eine andere zu senden.
 
-Microformats ermöglichen auch eine einfache Syndikation über Websites hinweg. Ein Aggregator könnte eine Seite mit veröffentlichten Microformats parsen, um nach Informationen wie einem Beitragstitel, einem Beitragstext und dem Autor eines Beitrags zu suchen. Dieser Aggregator könnte dann die erfassten semantischen Informationen verwenden, um ein Ergebnis auf seiner Website darzustellen. Beispielsweise könnten Nachrichtenaggregatoren und Community-Posting-Boards Einsendungen erleichtern und Microformats verwenden, um relevante Inhalte von einer Seite zu extrahieren. Darüber hinaus könnte eine Website Microformats verwenden, um gestaltete Anfragen an Dritte zu senden, um Inhalte zu veröffentlichen, wie z. B. soziale Netzwerke.
+Microformats ermöglichen auch eine einfache Syndizierung über Webseiten hinweg. Ein Aggregator könnte eine Seite mit veröffentlichten Microformats parsen, um nach Informationen wie einem Beitragstitel, einem Textkörper und dem Autor eines Beitrags zu suchen. Dieser Aggregator könnte dann die gesammelten semantischen Informationen verwenden, um ein Ergebnis auf seiner Seite darzustellen. Nachrichten-Aggregatoren und Community-Posting-Boards könnten zum Beispiel Einreichungen erleichtern und Microformats verwenden, um relevante Inhalte aus einer Seite zu extrahieren. Ebenso könnte eine Webseite Microformats nutzen, um gestaltete Anfragen an Drittparteien zu senden, um Inhalte zu veröffentlichen, etwa an soziale Netzwerke.
 
-Alle großen Suchmaschinen unterstützen das Lesen und Interpretieren von Microformats. Suchmaschinen profitieren stark vom direkten Zugriff auf diese strukturierten Daten, da es ihnen ermöglicht, die Informationen auf Webseiten zu verstehen. Mit diesen Informationen können Suchmaschinen relevantere Ergebnisse für Nutzer bereitstellen. Einige Suchmaschinen können spezielle Snippets wie Sternebewertungen auf einer Suchergebnisseite basierend auf den in Microformats bereitgestellten Daten rendern.
+Alle großen Suchmaschinen unterstützen das Lesen und Interpretieren von Microformats. Suchmaschinen profitieren enorm von direktem Zugriff auf diese strukturierten Daten, weil es ihnen ermöglicht, die Informationen auf Webseiten zu verstehen. Mit diesen Informationen können Suchmaschinen den Nutzern relevantere Ergebnisse liefern. Einige Suchmaschinen können basierend auf den in Microformats bereitgestellten Daten spezielle Snippets wie Sternebewertungen auf einer Suchergebnisseite rendern.
 
-Neben der Ablesbarkeit durch Maschinen sind Microformats so konzipiert, dass sie auch von Menschen leicht lesbar sind. Dieser Ansatz erleichtert es Menschen, die Daten von Microformats zu verstehen und zu warten.
+Zusätzlich dazu, maschinenlesbar zu sein, sind Microformats dafür ausgelegt, leicht von Menschen gelesen zu werden. Dieser Ansatz macht es einfach, dass Menschen Microformats-Daten verstehen und pflegen können.
 
 ## Microformats-Präfixe
 
-Alle Microformats bestehen aus einem Wurzel- und einer Sammlung von Eigenschaften. Eigenschaften sind alle optional und potenziell mehrfach vorhanden - Anwendungen, die einen einzelnen Wert benötigen, können den ersten Instanz einer Eigenschaft verwenden. Hierarchische Daten werden mit verschachtelten Microformats dargestellt, typischerweise als Eigenschaftswerte selbst.
+Alle Microformats bestehen aus einer Wurzel und einer Sammlung von Eigenschaften. Eigenschaften sind alle optional und potenziell mehrwertig - Anwendungen, die einen einzelnen Wert benötigen, können die erste Vorkommen einer Eigenschaft verwenden. Hierarchische Daten werden mit verschachtelten Microformats dargestellt, typischerweise als Eigenschaftswerte selbst.
 
 Alle Microformats-Klassennamen verwenden Präfixe. Präfixe sind **syntaxunabhängig von Vokabularen**, die separat entwickelt werden.
 
-- **"h-\*" für Wurzelklassennamen**, z.B. "h-card", "h-entry", "h-feed" und viele mehr. Diese Wurzelklassen auf oberster Ebene weisen normalerweise auf einen Typ und das entsprechende erwartete Vokabular von Eigenschaften hin. Zum Beispiel:
+- **"h-\*" für Root-Klassennamen**, z.B. "h-card", "h-entry", "h-feed" und viele mehr. Diese Top-Level-Rootklassen weisen in der Regel auf einen Typ und das entsprechende erwartete Vokabular der Eigenschaften hin. Zum Beispiel:
 
   - [h-card](https://microformats.org/wiki/h-card) beschreibt eine Person oder Organisation
-  - [h-entry](https://microformats.org/wiki/h-entry) beschreibt episodische oder datierte Online-Inhalte wie einen Blogbeitrag
-  - [h-feed](https://microformats.org/wiki/h-feed) beschreibt einen Strom oder Feed von Beiträgen
-  - Weitere Vokabulare finden Sie im [microformats2-Wiki.](https://microformats.org/wiki/microformats2#v2_vocabularies)
+  - [h-entry](https://microformats.org/wiki/h-entry) beschreibt episodische oder datumsgebundene Inhalte wie einen Blog-Beitrag
+  - [h-feed](https://microformats.org/wiki/h-feed) beschreibt einen Stream oder Feed von Beiträgen
+  - Sie können viele weitere Vokabulare auf der [Microformats2-Wiki finden.](https://microformats.org/wiki/microformats2#v2_vocabularies)
 
 - **"p-\*" für einfache (Text-)Eigenschaften**, z.B. "p-name", "p-summary"
 
-  - Generische Parstext für einfachen Text, allgemeiner Inhalt von Elementen. Bei bestimmten HTML-Elementen zuerst spezielle Attribute verwenden, z.B. img/alt, abbr/title.
+  - Generische einfache Textanalyse, Textelement im Allgemeinen. Bei bestimmten HTML-Elementen verwenden Sie zuerst spezielle Attribute, z.B. img/alt, abbr/title.
 
 - **"u-\*" für URL-Eigenschaften**, z.B. "u-url", "u-photo", "u-logo"
 
-  - Spezielles Parsen: Elementattribute a/href, img/src, object/data etc. Attribute über Elementinhalten.
+  - Spezielle Analyse: Elementattribute a/href, img/src, object/data usw. Attribute über Elementinhalten.
 
-- **"dt-\*" für Datum-Zeit-Eigenschaften**, z.B. "dt-start", "dt-end", "dt-bday"
+- **"dt-\*" für Datum/Uhrzeit-Eigenschaften**, z.B. "dt-start", "dt-end", "dt-bday"
 
-  - Spezielles Parsen: Zeit-Element datetime-Attribut, [value-class-pattern](https://microformats.org/wiki/value-class-pattern) und separate Datum-Zeit-Werte-Paarungen für Lesbarkeit.
+  - Spezielle Analyse: `time`-Element-datetime-Attribut, [value-class-pattern](https://microformats.org/wiki/value-class-pattern) und separate Datum-Zeit-Wert-Analyse für bessere Lesbarkeit.
 
-- **"e-\*" für Elementbaum-Eigenschaften**, bei denen die gesamte enthaltene Elementhierarchie der Wert ist, z.B. "e-content". Das "e-" Präfix kann auch mnemonisch als "element tree", "embedded markup" oder "encapsulated markup" gemerkt werden.
+- **"e-\*" für Elementbaum-Eigenschaften**, bei denen die gesamte enthaltene Elementhierarchie der Wert ist, z.B. "e-content". Das "e-" Präfix kann auch mnemonisch als "Elementbaum", "eingebettetes Markup" oder "eingekapseltes Markup" in Erinnerung behalten werden.
 
 ## Einige Microformats-Beispiele
 
@@ -75,9 +75,9 @@ Alle Microformats-Klassennamen verwenden Präfixe. Präfixe sind **syntaxunabhä
 
 Das [h-card](https://microformats.org/wiki/h-card) Microformat repräsentiert eine Person oder Organisation.
 
-Der Wert jeder Eigenschaft wird in HTML mithilfe der Klasse angegeben, die ein beliebiges Element tragen kann.
+Der Wert jeder Eigenschaft wird in HTML unter Verwendung der Klasseneigenschaft, die jedes Element tragen kann, definiert.
 
-#### Beispiel h-card
+#### Beispiel für eine h-card
 
 ```html
 <p class="h-card">
@@ -90,16 +90,16 @@ Der Wert jeder Eigenschaft wird in HTML mithilfe der Klasse angegeben, die ein b
 </p>
 ```
 
-| Eigenschaft            | Beschreibung                                                             |
-| ---------------------- | ------------------------------------------------------------------------ |
-| **`p-name`**           | Der vollständige/formatierte Name der Person oder Organisation.          |
-| **`u-email`**          | E-Mail-Adresse                                                           |
-| **`u-photo`**          | Ein Foto der Person oder Organisation                                    |
-| **`u-url`**            | Homepage oder andere URL, die die Person oder Organisation repräsentiert |
-| **`u-uid`**            | Universell eindeutiger Bezeichner, vorzugsweise kanonische URL           |
-| **`p-street-address`** | Straßenname und -nummer                                                  |
-| **`p-locality`**       | Stadt/Dorf/Gemeinde                                                      |
-| **`p-country-name`**   | Ländername                                                               |
+| Eigenschaft               | Beschreibung                                                    |
+| ------------------------- | ---------------------------------------------------------------- |
+| **`p-name`**              | Der volle/formatierte Name der Person oder Organisation.         |
+| **`u-email`**             | E-Mail-Adresse                                                  |
+| **`u-photo`**             | Ein Foto der Person oder Organisation                           |
+| **`u-url`**               | Homepage oder andere URL, die die Person oder Organisation repräsentiert |
+| **`u-uid`**               | Universell eindeutiger Identifikator, vorzugsweise kanonische URL |
+| **`p-street-address`**    | Straßenname und -nummer                                         |
+| **`p-locality`**          | Stadt/Ort/Dorf                                                   |
+| **`p-country-name`**      | Ländername                                                       |
 
 #### Verschachteltes h-card Beispiel
 
@@ -138,15 +138,15 @@ Geparstes JSON:
 }
 ```
 
-In diesem Beispiel wird eine h-card sowohl für eine Person als auch für die Organisation, die sie repräsentiert, angegeben. Die Zugehörigkeit der Person zur verlinkten Organisation wird mithilfe der p-org-Eigenschaft spezifiziert.
+In diesem Beispiel ist sowohl für eine Person als auch die Organisation, die sie repräsentiert, eine h-card spezifiziert. Die Verbindung der Person zur verlinkten Organisation wird mit der p-org-Eigenschaft angegeben.
 
-Hinweis: Die verschachtelte h-card hat implizite 'name'- und 'url'-Eigenschaften, genau wie jede andere root-class-name-only h-card auf einem `<a href>`.
+Hinweis: Die verschachtelte h-card hat implizierte 'name'- und 'url'-Eigenschaften, genau wie jede andere Root-Klassennamen-only h-card auf einem `<a href>`.
 
 ### h-entry
 
-Das [h-entry](https://microformats.org/wiki/h-entry) Microformat repräsentiert episodische oder datierte Inhalte im Web. h-entry wird oft für Inhalte verwendet, die zur Syndikation bestimmt sind, z.B. Blogbeiträge und kurze Notizen.
+Das [h-entry](https://microformats.org/wiki/h-entry) Microformat repräsentiert episodische oder datumsgebundene Inhalte im Web. h-entry wird oft mit Inhalten verwendet, die syndiziert werden sollen, z.B. Blog-Beiträge und kurze Notizen.
 
-Beispiel eines h-entry als Blogbeitrag:
+Beispiel für ein h-entry als Blog-Beitrag:
 
 ```html
 <article class="h-entry">
@@ -169,15 +169,15 @@ Beispiel eines h-entry als Blogbeitrag:
 
 #### Eigenschaften
 
-| Eigenschaft        | Beschreibung                                         |
-| ------------------ | ---------------------------------------------------- |
-| **`p-name`**       | Eintragsname/-titel                                  |
-| **`p-author`**     | Verfasser des Eintrags, optional eingebettete h-card |
-| **`dt-published`** | Zeitpunkt der Veröffentlichung des Eintrags          |
-| **`p-summary`**    | Kurzfassung des Eintrags                             |
-| **`e-content`**    | Vollständiger Inhalt des Eintrags                    |
+| Eigenschaft          | Beschreibung                                     |
+| -------------------- | ------------------------------------------------- |
+| **`p-name`**         | Eintragsname/Titel                                |
+| **`p-author`**       | wer den Eintrag verfasst hat, optional eingebettete h-card |
+| **`dt-published`**   | wann der Eintrag veröffentlicht wurde             |
+| **`p-summary`**      | kurze Zusammenfassung des Eintrags                |
+| **`e-content`**      | vollständiger Inhalt des Eintrags                 |
 
-#### Geparstes Beispiel eines Antwort-h-entry
+#### Geparstes Antwort-h-entry-Beispiel
 
 ```html
 <div class="h-entry">
@@ -268,7 +268,7 @@ Beispiel eines h-entry als Blogbeitrag:
 
 ### h-feed
 
-Das [h-feed](https://microformats.org/wiki/h-feed) ist ein Strom oder Feed von [h-entry](https://microformats.org/wiki/h-entry) Beiträgen, wie vollständige Beiträge auf einer Homepage oder Archivseiten oder Zusammenfassungen oder andere kurze Listen von Beiträgen.
+Das [h-feed](https://microformats.org/wiki/h-feed) ist ein Stream oder Feed von [h-entry](https://microformats.org/wiki/h-entry) Beiträgen, wie vollständige Beiträge auf einer Startseite oder Archivseiten oder Zusammenfassungen oder andere kurze Listen von Beiträgen.
 
 #### Beispiel h-feed
 
@@ -294,21 +294,21 @@ Das [h-feed](https://microformats.org/wiki/h-feed) ist ein Strom oder Feed von [
 
 #### Eigenschaften
 
-| Eigenschaft    | Beschreibung                                  |
-| -------------- | --------------------------------------------- |
-| **`p-name`**   | Name des Feeds                                |
-| **`p-author`** | Autor des Feeds, optional eingebettete h-card |
+| Eigenschaft       | Beschreibung                                    |
+| ----------------- | ------------------------------------------------ |
+| **`p-name`**      | Name des Feeds                                   |
+| **`p-author`**    | Autor des Feeds, optional eingebettete h-card    |
 
-#### Untergeordnete Elemente
+#### Kinder
 
 <table class="standard-table">
   <tbody>
     <tr>
-      <td><strong>Verschachteltes h-entry</strong></td>
+      <td><strong>Verschachtelte h-entry</strong></td>
       <td></td>
     </tr>
     <tr>
-      <td>Objekte, die die Elemente des Feeds darstellen</td>
+      <td>Objekte, die die Elemente des Feeds repräsentieren</td>
       <td></td>
     </tr>
   </tbody>
@@ -316,7 +316,7 @@ Das [h-feed](https://microformats.org/wiki/h-feed) ist ein Strom oder Feed von [
 
 ### h-event
 
-Das `h-event` ist für Veranstaltungen im Web gedacht. h-event wird häufig für sowohl Veranstaltungslisten als auch einzelne Veranstaltungsseiten verwendet.
+Das `h-event` ist für Ereignisse im Web. h-event wird häufig sowohl bei Ereignislisten als auch bei einzelnen Ereignisseiten verwendet.
 
 ```html
 <div class="h-event">
@@ -337,13 +337,13 @@ Das `h-event` ist für Veranstaltungen im Web gedacht. h-event wird häufig für
 
 #### Eigenschaften
 
-| Eigenschaft      | Beschreibung                                        |
-| ---------------- | --------------------------------------------------- |
-| **`p-name`**     | Veranstaltungsname (oder Titel)                     |
-| **`p-summary`**  | Kurze Zusammenfassung der Veranstaltung             |
-| **`dt-start`**   | Startzeitpunkt der Veranstaltung                    |
-| **`dt-end`**     | Endzeitpunkt der Veranstaltung                      |
-| **`p-location`** | Ort der Veranstaltung, optional eingebettete h-card |
+| Eigenschaft        | Beschreibung                                             |
+| ------------------ | --------------------------------------------------------- |
+| **`p-name`**       | Name des Ereignisses (oder Titel)                        |
+| **`p-summary`**    | Kurze Zusammenfassung des Ereignisses                    |
+| **`dt-start`**     | Uhrzeit/Datum, wann das Ereignis beginnt                 |
+| **`dt-end`**       | Uhrzeit/Datum, wann das Ereignis endet                   |
+| **`p-location`**   | Wo das Ereignis stattfindet, optional eingebettete h-card |
 
 #### Geparstes h-event Beispiel
 
@@ -437,9 +437,9 @@ Das `h-event` ist für Veranstaltungen im Web gedacht. h-event wird häufig für
 }
 ```
 
-## Microformats `rel` Eigenschaftsbeispiele
+## Beispiele für das Microformats `rel`-Attribut
 
-Es gibt einige Microformats, die durch eine spezielle `rel=` Eigenschaft auf einer Seite angewendet werden. Diese Microformats beschreiben eine Beziehung zwischen einem aktuellen Dokument und einem verlinkten Dokument. Eine vollständige Liste finden Sie in der [rel-Eigenschaft](https://microformats.org/wiki/rel-values) im Microformats-Wiki.
+Es gibt einige Microformats, die auf einer Seite durch die Verwendung eines speziellen `rel=`-Attributs angewendet werden. Diese Microformats beschreiben eine Beziehung zwischen einem aktuellen Dokument und einem verlinkten Dokument. Eine vollständige Liste hiervon finden Sie im [rel-Attribut](https://microformats.org/wiki/rel-values) auf der Microformats-Wiki.
 
 ### rel=author
 
@@ -459,7 +459,7 @@ Dieses Attribut gibt an, dass das verlinkte Dokument die Lizenz enthält, unter 
 
 ### rel=nofollow
 
-Dieses Attribut gibt an, dass das verlinkte Dokument von Suchmaschinen-Ranking-Algorithmen, die möglicherweise von der aktuellen Seite abgeleitet werden, nicht gewichtet werden sollte. Dies ist nützlich, um zu verhindern, dass Link-Graph-Algorithmen eine Seite höher einstufen, als sie es sonst nach dem Sehen eines Links zu einem Dokument tun würden.
+Dieses Attribut gibt an, dass das verlinkte Dokument von Suchmaschinen-Ranking-Algorithmen, die möglicherweise vom aktuellen Dokument abgeleitet sind, kein besonderes Gewicht bekommen soll. Dies ist nützlich, um zu verhindern, dass Link-Graph-Algorithmen eine Seite höher bewerten, als sie es sonst tun würden, nachdem sie einen Link zu einem Dokument gesehen haben.
 
 ```html
 <a rel="nofollow" href="https://jamesg.blog">James Gallagher</a>
@@ -467,12 +467,12 @@ Dieses Attribut gibt an, dass das verlinkte Dokument von Suchmaschinen-Ranking-A
 
 ## Browser-Kompatibilität
 
-Unterstützt in allen Browsern, die das class-Attribut und dessen DOM-API unterstützen.
+Unterstützt in allen Browsern mit Unterstützung des class-Attributs und dessen DOM-API.
 
 ## Siehe auch
 
 - [class-Attribut](/de/docs/Web/HTML/Global_attributes/class)
 - [Microformat](https://en.wikipedia.org/wiki/Microformat) auf Wikipedia
 - [Offizielle Microformats-Website](https://microformats.org/wiki/Main_Page)
-- [Suchmaschinenunterstützung](https://microformats.org/wiki/search_engines) auf der offiziellen Microformats-Website
+- [Unterstützung durch Suchmaschinen](https://microformats.org/wiki/search_engines) auf der offiziellen Microformats-Website
 - [Microformats auf IndieWebCamp](https://indieweb.org/microformats)

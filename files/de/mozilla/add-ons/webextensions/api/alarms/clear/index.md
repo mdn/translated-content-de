@@ -22,11 +22,11 @@ let clearAlarm = browser.alarms.clear(
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : `string`. Der Name des aufzuhebenden Alarms. Wenn Sie diesen nicht angeben, wird der leere String "" verwendet.
+  - : `string`. Der Name des Alarms, der gelöscht werden soll. Wenn Sie diesen nicht angeben, wird der leere String "" verwendet.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird. Der Wert ist `true`, wenn der Alarm aufgehoben wurde, andernfalls `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird. Dies wird `true` sein, wenn der Alarm gelöscht wurde, andernfalls `false`.
 
 ## Beispiele
 

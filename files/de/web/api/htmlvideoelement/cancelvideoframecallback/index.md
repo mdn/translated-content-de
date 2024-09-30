@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: cancelVideoFrameCallback() Methode"
+title: "HTMLVideoElement: Methode cancelVideoFrameCallback()"
 short-title: cancelVideoFrameCallback()
 slug: Web/API/HTMLVideoElement/cancelVideoFrameCallback
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`cancelVideoFrameCallback()`**-Methode der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle storniert einen zuvor registrierten Video-Frame-Callback.
+Die **`cancelVideoFrameCallback()`**-Methode des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces storniert einen zuvor registrierten Video-Frame-Callback.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ cancelVideoFrameCallback(id)
 ### Parameter
 
 - `id`
-  - : Eine Zahl, die die ID des Video-Frame-Callbacks repräsentiert, den Sie stornieren möchten. Dies wird der Wert sein, der durch den entsprechenden Aufruf von [`HTMLVideoElement.requestVideoFrameCallback`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback) zurückgegeben wurde.
+  - : Eine Zahl, die die ID des Video-Frame-Callbacks darstellt, das Sie stornieren möchten. Dies ist der Wert, der von dem entsprechenden [`HTMLVideoElement.requestVideoFrameCallback`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)-Aufruf zurückgegeben wird.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einen Video-Frame-Callback stornieren
+### Stornieren eines Video-Frame-Callbacks
 
 Dieses Beispiel zeigt, wie Sie `cancelVideoFrameCallback()` verwenden, um einen zuvor registrierten Video-Frame-Callback zu stornieren.
 
@@ -64,4 +64,4 @@ video.cancelVideoFrameCallback(videoCallbackId);
 
 - Das {{HTMLElement("video")}}-Element
 - [`HTMLVideoElement.requestVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)
-- [Führen Sie effiziente Operationen pro Video-Frame mit `requestVideoFrameCallback()` aus](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)
+- [Effiziente Operationen pro Video-Frame auf Video mit `requestVideoFrameCallback()` durchführen](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)

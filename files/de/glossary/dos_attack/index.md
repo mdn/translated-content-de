@@ -1,5 +1,5 @@
 ---
-title: DoS-Angriff
+title: DoS Angriff
 slug: Glossary/DOS_attack
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Denial of Service (DoS)** ist ein Netzwerkangriff, der die legale Nutzung von [Server](/de/docs/Glossary/server)-Ressourcen verhindert, indem der Server mit Anfragen überflutet wird.
+**Denial of Service (DoS)** ist ein Netzwerkangriff, der die legitime Nutzung von [Server](/de/docs/Glossary/server)-Ressourcen verhindert, indem der Server mit Anfragen überflutet wird.
 
-Computer haben begrenzte Ressourcen, zum Beispiel Rechenleistung oder Speicher. Wenn diese erschöpft sind, kann das Programm einfrieren oder abstürzen, wodurch es nicht mehr verfügbar ist. Ein DoS-Angriff besteht aus verschiedenen Techniken, um diese Ressourcen auszuschöpfen und einen Server oder ein Netzwerk für legitime Benutzer unzugänglich zu machen oder zumindest den Server träge reagieren zu lassen.
+Computer haben begrenzte Ressourcen, zum Beispiel Rechenleistung oder Speicher. Wenn diese erschöpft sind, kann das Programm einfrieren oder abstürzen und ist somit nicht verfügbar. Ein DoS-Angriff besteht aus verschiedenen Techniken, um diese Ressourcen zu erschöpfen und einen Server oder ein Netzwerk für legitime Benutzer unzugänglich oder zumindest träge zu machen.
 
-Es gibt auch Distributed Denial of Service (DDoS)-Angriffe, bei denen eine Vielzahl von Servern genutzt wird, um die Rechenkapazität eines angegriffenen Computers auszuschöpfen.
+Es gibt auch Distributed Denial of Service (DDoS) Angriffe, bei denen eine Vielzahl von Servern verwendet wird, um die Rechenkapazität eines angegriffenen Computers zu erschöpfen.
 
 ### Arten von DoS-Angriffen
 
-DoS-Angriffe sind eher eine Kategorie als eine bestimmte Art von Angriff. Hier ist eine nicht abschließende Liste von DoS-Angriffstypen:
+DoS-Angriffe sind eher eine Kategorie als eine bestimmte Art von Angriff. Hier ist eine nicht erschöpfende Liste von DoS-Angriffstypen:
 
 - Bandbreitenangriff
-- Dienstanforderungsflut
+- Service-Anfragen-Flut
 - SYN-Flooding-Angriff
-- ICMP-Flut-Angriff
+- ICMP-Flood-Angriff
 - Peer-to-Peer-Angriff
 - Permanenter DoS-Angriff
-- Anwendungslevel-Flutangriff
+- Anwendungsebene-Flutangriff
 
 ## Siehe auch
 

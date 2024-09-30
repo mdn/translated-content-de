@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`offline`** Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät die Verbindung zum Internet verliert.
+Das **`offline`** Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) tritt auf, wenn das Gerät die Verbindung zum Internet verliert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("offline", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Code-Schnipsel zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wird:
+Das folgende Codebeispiel zeigt einen `onoffline` Handler, der innerhalb eines Workers gesetzt wird:
 
 ```js
 self.onoffline = () => {
@@ -34,7 +34,7 @@ self.onoffline = () => {
 };
 ```
 
-Dasselbe Snippet, aber unter Verwendung von `addEventListener()`:
+Dasselbe Beispiel, aber unter Verwendung von `addEventListener()`:
 
 ```js
 self.addEventListener("offline", () => {

@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`userChoice`**-Eigenschaft der Schnittstelle [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) repräsentiert die Installationsentscheidung, die der Benutzer getroffen hat, als er aufgefordert wurde, die App zu installieren.
+Die **`userChoice`**-Eigenschaft des [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)-Interfaces repräsentiert die Installationsentscheidung, die der Benutzer getroffen hat, als er aufgefordert wurde, die App zu installieren.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt auflöst, das zwei Eigenschaften enthält:
+Ein {{jsxref("Promise")}}, das ein Objekt mit zwei Eigenschaften zurückgibt:
 
 - `outcome` {{experimental_inline}} {{non-standard_inline}}
 
-  - : Ein String, der angibt, ob der Benutzer sich entschieden hat, die App zu installieren oder nicht. Es muss einer der folgenden Werte sein:
+  - : Ein String, der angibt, ob der Benutzer sich entschieden hat, die App zu installieren oder nicht. Dieser muss einen der folgenden Werte annehmen:
     - `"accepted"`: Der Benutzer hat die App installiert.
     - `"dismissed"`: Der Benutzer hat die App nicht installiert.
 
 - `platform` {{experimental_inline}} {{non-standard_inline}}
-  - : Wenn der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die ausgewählte Plattform benennt. Dieser Wert ist einer der Werte aus der Eigenschaft [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms). Wenn der Benutzer sich entschieden hat, die App nicht zu installieren, ist dies ein leerer String.
+  - : Falls der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die ausgewählte Plattform benennt. Dieser ist einer der Werte aus der [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms)-Eigenschaft. Falls der Benutzer sich entschieden hat, die App nicht zu installieren, ist dies ein leerer String.
 
 ## Browser-Kompatibilität
 
@@ -29,5 +29,5 @@ Ein {{jsxref("Promise")}}, das zu einem Objekt auflöst, das zwei Eigenschaften 
 
 ## Siehe auch
 
-- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihre eigene In-App-Installations-Erfahrung bereitstellen](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Progressive Web Apps installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Anleitung zum Erstellen eines eigenen In-App-Installations-Erlebnisses](https://web.dev/articles/customize-install) auf web.dev (2021)

@@ -7,25 +7,25 @@ l10n:
 
 {{MDNSidebar}}
 
-MDN hat ein Standardformat für Tabellen, die die Kompatibilität gemeinsamer Technologien über alle Browser hinweg darstellen, wie DOM, HTML, CSS, JavaScript, SVG usw.
-Um diese Daten in mehreren Projekten programmatisch verfügbar zu machen, wird ein Node.js-Paket aus dem [browser-compat-data-Repository](https://github.com/mdn/browser-compat-data) erstellt und auf npm veröffentlicht.
+MDN hat ein Standardformat für Tabellen, die die Kompatibilität von gemeinsam genutzten Technologien in allen Browsern veranschaulichen, wie z.B. DOM, HTML, CSS, JavaScript, SVG usw.
+Um diese Daten programmatisch in mehreren Projekten verfügbar zu machen, wird ein Node.js-Paket aus dem [browser-compat-data-Repository](https://github.com/mdn/browser-compat-data) erstellt und in npm veröffentlicht.
 
-Um die Daten in diesen Tabellen zu ändern, finden Sie umfassende Dokumentation sowie die neuesten Details zu Konventionen und JSON-Schemata, die zur Darstellung der Daten verwendet werden, im [Mitwirkendenleitfaden](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md) des Repositorys sowie im [Datenrichtlinien-Leitfaden](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md).
-Wenn Sie Fragen haben oder Probleme entdecken, sind Sie eingeladen, [um Hilfe zu bitten](/de/docs/MDN/Community/Communication_channels).
+Um die Daten innerhalb dieser Tabellen zu ändern, finden Sie umfassende Dokumentation zusammen mit den neuesten Informationen zu Konventionen und JSON-Schemata, die zur Darstellung der Daten verwendet werden, im [Contributing Guide](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md) des Repositories sowie im [Datenleitfaden](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md).
+Wenn Sie Fragen haben oder Probleme entdecken, können Sie gerne [um Hilfe bitten](/de/docs/MDN/Community/Communication_channels).
 
-## Verwendung von BCD-Daten in MDN-Seiten
+## Verwendung von BCD-Daten auf MDN-Seiten
 
-Sobald Daten im [browser-compat-data](https://github.com/mdn/browser-compat-data)-Repo enthalten sind, können Sie beginnen, Browser-Kompatibilitäts- und Spezifikationstabellen basierend auf diesen Daten dynamisch in MDN-Seiten einzubinden.
+Sobald die Daten im [browser-compat-data](https://github.com/mdn/browser-compat-data)-Repo enthalten sind, können Sie beginnen, dynamisch Kompatibilitäts- und Spezifikationstabellen basierend auf diesen Daten in MDN-Seiten einzubinden.
 
-Um mit BCD-Daten auf MDN-Seiten zu beginnen, verwenden Sie die Abfragezeichenfolge, die in der BCD-Quelldatei für die relevanten Daten festgelegt ist, die Sie einfügen möchten.
+Um mit BCD-Daten auf MDN-Seiten zu beginnen, verwenden Sie die im BCD-Quelldatei angegebene Abfragezeichenfolge für die relevanten Daten, die Sie einbeziehen möchten.
 Zum Beispiel:
 
 - Die Kompatibilitätsdaten von [`AbortController`](/de/docs/Web/API/AbortController) sind in [api/AbortController.json](https://github.com/mdn/browser-compat-data/blob/main/api/AbortController.json) definiert und können mit `api.AbortController` abgefragt werden.
-- Die Kompatibilitätsdaten des {{HTTPHeader("Content-Type")}} HTTP-Headers sind in [http/headers/content-type.json](https://github.com/mdn/browser-compat-data/blob/main/http/headers/Content-Type.json) definiert, und die Abfrage ist `http.headers.Content-Type`.
-- Die Kompatibilitätsdaten der [`VRDisplay.capabilities`](/de/docs/Web/API/VRDisplay/capabilities)-Eigenschaft sind in [api/VRDisplay.json](https://github.com/mdn/browser-compat-data/blob/main/api/VRDisplay.json) definiert und die Abfrage ist `api.VRDisplay.capabilities`.
+- {{HTTPHeader("Content-Type")}} Die Kompatibilitätsdaten des HTTP-Headers sind in [http/headers/content-type.json](https://github.com/mdn/browser-compat-data/blob/main/http/headers/Content-Type.json) definiert und die Abfrage ist `http.headers.Content-Type`.
+- Die Kompatibilitätsdaten der [`VRDisplay.capabilities`](/de/docs/Web/API/VRDisplay/capabilities)-Eigenschaft sind in [api/VRDisplay.json](https://github.com/mdn/browser-compat-data/blob/main/api/VRDisplay.json) definiert und ihre Abfrage ist `api.VRDisplay.capabilities`.
 
-Die Kompatibilitätsabfrage sollte im Frontmatter der Seite im Schlüssel `browser-compat` angegeben werden.
-Zum Beispiel würde [`AbortController`](/de/docs/Web/API/AbortController) wie unten gezeigt hinzugefügt werden:
+Die Kompatibilitätsdaten-Abfrage sollte im Frontmatter der Seite im `browser-compat` Schlüssel angegeben werden.
+Zum Beispiel, [`AbortController`](/de/docs/Web/API/AbortController) würde wie unten gezeigt hinzugefügt werden:
 
 ```md
 ---
@@ -36,9 +36,9 @@ browser-compat: api.AbortController
 ---
 ```
 
-Die Kompatibilitäts- und Spezifikationstabellen, die dem Schlüssel entsprechen, werden dann automatisch anstelle der `\{{Compat}}`- und `\{{Specifications}}`-Makros im Quelltext gerendert.
+Die Kompatibilitäts- und Spezifikationstabellen, die dem Schlüssel entsprechen, werden dann automatisch anstelle der `\{{Compat}}` und `\{{Specifications}}` Makros in der Quelle gerendert.
 
-Wenn auf derselben Seite mehrere Kompatibilitäts-/Spezifikationstabellen erforderlich sind, können Sie den Wert von `browser-compat` als Array angeben. Zum Beispiel würde dies für die [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) wie unten gezeigt hinzugefügt werden:
+Wenn auf derselben Seite mehrere Kompatibilitäts-/Spezifikationstabellen erforderlich sind, können Sie den Wert von `browser-compat` als Array angeben. Zum Beispiel, für die [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) würde dies wie unten gezeigt hinzugefügt werden:
 
 ```md
 ---

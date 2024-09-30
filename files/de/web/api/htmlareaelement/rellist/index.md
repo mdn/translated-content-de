@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.relList`** schreibgeschützte Eigenschaft spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Sie ist eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge von Linktypen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("area")}}-Element dargestellt wird, und dem aktuellen Dokument angibt.
+Die **`HTMLAreaElement.relList`**-Eigenschaft ist schreibgeschützt und spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine live-`[`DOMTokenList`](/de/docs/Web/API/DOMTokenList)`, die die Menge an Link-Typen enthält, die die Beziehung zwischen der durch das {{HTMLElement("area")}} Element repräsentierten Ressource und dem aktuellen Dokument angeben.
 
 Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die
-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
+`[`DOMTokenList`](/de/docs/Web/API/DOMTokenList)` nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
 
 ## Wert
 
-Eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
+Eine live-`[`DOMTokenList`](/de/docs/Web/API/DOMTokenList)` von Zeichenfolgen.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ for (const area of areas) {
 
 ## Siehe auch
 
-- Die entsprechende Eigenschaft an {{HTMLElement("a")}} und {{HTMLElement("link")}},
+- Die entsprechende Eigenschaft für {{HTMLElement("a")}} und {{HTMLElement("link")}},
   [`HTMLAnchorElement.relList`](/de/docs/Web/API/HTMLAnchorElement/relList) und [`HTMLLinkElement.relList`](/de/docs/Web/API/HTMLLinkElement/relList).
-- Die gleiche Liste, jedoch als durch Leerzeichen getrennte Tokens in einem String:
+- Die gleiche Liste, aber als durch Leerzeichen getrennte Tokens in einer Zeichenfolge:
   [`HTMLAreaElement.rel`](/de/docs/Web/API/HTMLAreaElement/rel)

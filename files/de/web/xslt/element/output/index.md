@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:output>`-Element kontrolliert die Eigenschaften des Ausgabedokuments. Damit es in Netscape korrekt funktioniert, muss dieses Element mit dem `method`-Attribut verwendet werden. Ab Version 7.0 funktioniert `method="text"` wie erwartet.
+Das `<xsl:output>`-Element steuert die Merkmale des Ausgabedokuments. Um in Netscape korrekt zu funktionieren, muss dieses Element mit dem `method`-Attribut verwendet werden. Seit Version 7.0 funktioniert `method="text"` wie erwartet.
 
 ## Syntax
 
@@ -36,11 +36,11 @@ Keine.
 - `version`
   - : Gibt den Wert des `version`-Attributs der XML- oder HTML-Deklaration im Ausgabedokument an. Dieses Attribut wird nur verwendet, wenn `method="html"` oder `method="xml"` ist.
 - `encoding`
-  - : Gibt den Wert des `encoding`-Attributs im Ausgabedokument an.
+  - : Legt den Wert des `encoding`-Attributs im Ausgabedokument fest.
 - `omit-xml-declaration`
-  - : Gibt an, ob eine XML-Deklaration im Output enthalten sein soll oder nicht. Akzeptable Werte sind `yes` oder `no`.
+  - : Gibt an, ob eine XML-Deklaration in die Ausgabe eingeschlossen werden soll oder nicht. Erlaubte Werte sind `yes` oder `no`.
 - `standalone` (Nicht unterstützt.)
-  - : Wenn vorhanden, zeigt dies an, dass eine eigenständige Deklaration im Ausgabedokument erfolgen sollte und gibt deren Wert an. Akzeptable Werte sind `yes` oder `no`.
+  - : Wenn vorhanden, gibt an, dass eine Standalone-Deklaration im Ausgabedokument erfolgen soll und gibt deren Wert an. Erlaubte Werte sind `yes` oder `no`.
 - `doctype-public`
   - : Gibt den Wert des `PUBLIC`-Attributs der `DOCTYPE`-Deklaration im Ausgabedokument an.
 - `doctype-system`
@@ -48,7 +48,7 @@ Keine.
 - `cdata-section-elements`
   - : Listet Elemente auf, deren Textinhalte als `CDATA`-Abschnitte geschrieben werden sollen. Elemente sollten durch Leerzeichen getrennt sein.
 - `indent` (Nicht unterstützt.)
-  - : Gibt an, ob der Output eingerückt werden soll, um seine hierarchische Struktur darzustellen.
+  - : Gibt an, ob die Ausgabe eingerückt werden soll, um ihre hierarchische Struktur anzuzeigen.
 - `media-type` (Nicht unterstützt.)
   - : Gibt den MIME-Typ des Ausgabedokuments an.
 
@@ -60,6 +60,6 @@ Top-Level, muss das Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 XSLT, Abschnitt 16.
 
-## Unterstützung in Gecko
+## Gecko-Unterstützung
 
-Teilweise Unterstützung. Siehe Anmerkungen oben.
+Teilweise Unterstützung. Siehe obige Anmerkungen.

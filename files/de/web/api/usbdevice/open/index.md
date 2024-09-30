@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`open()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interface gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Gerätesitzung gestartet wurde.
+Die **`open()`** Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)
+Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Gerätesitzung gestartet wurde.
 
 ## Syntax
 

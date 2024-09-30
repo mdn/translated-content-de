@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`return`** Anweisung beendet die Ausführung einer Funktion und gibt einen Wert an den Funktionsaufrufer zurück.
+Die **`return`**-Anweisung beendet die Ausführung einer Funktion und gibt einen Wert an den Funktionsaufrufer zurück.
 
 {{EmbedInteractiveExample("pages/js/statement-return.html")}}
 
@@ -23,32 +23,32 @@ return expression;
 
 ## Beschreibung
 
-Die `return` Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return` Anweisung in einem Funktionskörper verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return` Anweisung hat unterschiedliche Auswirkungen, je nachdem, in welcher Funktion sie verwendet wird:
+Die `return`-Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return`-Anweisung im Funktionskörper verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return`-Anweisung hat unterschiedliche Effekte, je nachdem, in welcher Funktion sie platziert ist:
 
-- In einer einfachen Funktion wird der Aufruf dieser Funktion mit dem Rückgabewert ausgewertet.
+- In einer normalen Funktion wird der Funktionsaufruf mit dem Rückgabewert ausgewertet.
 - In einer asynchronen Funktion wird das erzeugte Promise mit dem zurückgegebenen Wert aufgelöst.
-- In einer Generatorfunktion gibt die `next()` Methode des erzeugten Generatorobjekts `{ done: true, value: returnedValue }` zurück.
-- In einer asynchronen Generatorfunktion gibt die `next()` Methode des erzeugten asynchronen Generatorobjekts ein Promise zurück, das mit `{ done: true, value: returnedValue }` erfüllt ist.
+- In einer Generatorfunktion gibt die `next()`-Methode des erzeugten Generatorobjekts `{ done: true, value: returnedValue }` zurück.
+- In einer asynchronen Generatorfunktion wird ein Promise mit `{ done: true, value: returnedValue }` zurückgegeben, das vom erzeugten asynchronen Generatorobjekt erfüllt wird.
 
-Wenn eine `return` Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}} Blocks ausgeführt wird, wird zuerst der `finally` Block ausgeführt, falls vorhanden, bevor der Wert tatsächlich zurückgegeben wird.
+Wird eine `return`-Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}}-Blocks ausgeführt, so wird zunächst dessen `finally`-Block, falls vorhanden, ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
 
-### Automatische Semikolon-Setzung
+### Automatische Semikolonsetzung
 
-Die Syntax verbietet Zeilenenden zwischen dem `return` Schlüsselwort und dem Ausdruck, der zurückgegeben werden soll.
+Die Syntax verbietet Zeilenumbrüche zwischen dem `return`-Schlüsselwort und dem Ausdruck, der zurückgegeben werden soll.
 
 ```js-nolint example-bad
 return
 a + b;
 ```
 
-Der obige Code wird von der [automatischen Semikolon-Setzung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in:
+Der obige Code wird durch die [automatische Semikolonsetzung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in Folgendes umgewandelt:
 
 ```js-nolint
 return;
 a + b;
 ```
 
-Dies führt dazu, dass die Funktion `undefined` zurückgibt und der `a + b` Ausdruck niemals ausgewertet wird. Dies kann [eine Warnung in der Konsole](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return) generieren.
+Dies führt dazu, dass die Funktion `undefined` zurückgibt und der Ausdruck `a + b` nie ausgewertet wird. Dies kann [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
 
 Um dieses Problem zu vermeiden (um ASI zu verhindern), könnten Sie Klammern verwenden:
 
@@ -62,7 +62,7 @@ return (
 
 ### Funktion unterbrechen
 
-Eine Funktion stoppt unmittelbar an der Stelle, an der `return` aufgerufen wird.
+Eine Funktion stoppt sofort an der Stelle, an der `return` aufgerufen wird.
 
 ```js
 function counter() {

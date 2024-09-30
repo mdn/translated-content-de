@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("URL API") }} {{AvailableInWorkers}}
 
-Die **`hash`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein String, der ein `'#'` gefolgt vom Fragmentbezeichner der URL enthält.
+Die **`hash`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein String, der ein `'#'` gefolgt von dem Fragmentbezeichner der URL enthält.
 
-Das Fragment ist nicht [prozentkodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String — `""`.
+Das Fragment wird nicht [prozentkodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String — `""`.
 
 ## Wert
 

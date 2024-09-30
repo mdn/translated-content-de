@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaOrientation`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)-Attributs wider, das angibt, ob die Orientierung des Elements horizontal, vertikal oder unbekannt/zweideutig ist.
+Die **`ariaOrientation`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)-Attributs wider, welches angibt, ob die Ausrichtung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist.
 
 ## Wert
 
@@ -19,11 +19,11 @@ Ein String mit einem der folgenden Werte:
 - `"vertical"`
   - : Das Element ist vertikal.
 - `"undefined"`
-  - : Die Orientierung des Elements ist unbekannt.
+  - : Die Ausrichtung des Elements ist unbekannt.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)-Attribut des Elements mit der ID `handle_zoomSlider` auf `"vertical"` gesetzt. Mit `ariaOrientation` aktualisieren wir den Wert auf `"horizontal"`.
+In diesem Beispiel ist das [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)-Attribut des Elements mit der ID `handle_zoomSlider` auf `"vertical"` gesetzt. Mit `ariaOrientation` aktualisieren wir den Wert auf `"horizontal"`.
 
 ```html
 <div

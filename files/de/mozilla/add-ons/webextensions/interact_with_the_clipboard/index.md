@@ -7,32 +7,32 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Arbeit mit der Zwischenablage in Erweiterungen entwickelt sich von der Web-API-Methode [`document.execCommand`](/de/docs/Web/API/Document/execCommand) (die veraltet ist) zur Methode [`navigator.clipboard`](/de/docs/Web/API/Clipboard).
+Die Arbeit mit der Zwischenablage in Erweiterungen wechselt von der Web-API-Methode [`document.execCommand`](/de/docs/Web/API/Document/execCommand) (die veraltet ist) zur Methode [`navigator.clipboard`](/de/docs/Web/API/Clipboard).
 
 > [!NOTE]
-> Die [`navigator.clipboard`](/de/docs/Web/API/Clipboard)-API ist eine neue Ergänzung zur Spezifikation und möglicherweise nicht in allen Browsern vollständig implementiert. Dieser Artikel beschreibt einige Einschränkungen, aber vergewissern Sie sich, dass Sie die Kompatibilitätstabellen für jede Methode überprüfen, bevor Sie sie verwenden, um sicherzustellen, dass die API Ihre Anforderungen unterstützt.
+> Die [`navigator.clipboard`](/de/docs/Web/API/Clipboard) API ist eine jüngere Ergänzung zur Spezifikation und möglicherweise nicht in allen Browsern vollständig implementiert. Dieser Artikel beschreibt einige Einschränkungen, aber überprüfen Sie die Kompatibilitätstabellen für jede Methode, bevor Sie sie verwenden, um sicherzustellen, dass die API Ihre Anforderungen unterstützt.
 
-Der Unterschied zwischen den beiden APIs besteht darin, dass [`document.execCommand`](/de/docs/Web/API/Document/execCommand) analog zu den Tastaturaktionen Kopieren, Ausschneiden und Einfügen – den Datenaustausch zwischen einer Webseite und der Zwischenablage – ermöglicht, während [`navigator.clipboard`](/de/docs/Web/API/Clipboard) beliebige Daten in die Zwischenablage schreibt und daraus liest.
+Der Unterschied zwischen den beiden APIs ist, dass [`document.execCommand`](/de/docs/Web/API/Document/execCommand) analog zu den Tastaturaktionen Kopieren, Ausschneiden und Einfügen – Daten zwischen einer Webseite und der Zwischenablage austauschen – arbeitet, während [`navigator.clipboard`](/de/docs/Web/API/Clipboard) beliebige Daten in die und aus der Zwischenablage schreibt und liest.
 
-[`navigator.clipboard`](/de/docs/Web/API/Clipboard) stellt separate Methoden zum Lesen oder Schreiben bereit:
+[`navigator.clipboard`](/de/docs/Web/API/Clipboard) bietet separate Methoden zum Lesen oder Schreiben von:
 
-- Textinhalte, mit [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
-- Bilder, Rich-Text, HTML und andere Rich-Content mit [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write).
+- Textinhalten, mit [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
+- Bildern, Rich-Text, HTML und anderen reichhaltigen Inhalten, mit [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write).
 
-Allerdings funktionieren [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) in allen Browsern, während [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write) nicht funktionieren. Zum Beispiel sind in Firefox zum Zeitpunkt der Erstellung dieses Artikels [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write) nicht vollständig implementiert, daher:
+Allerdings funktionieren [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) in allen Browsern, während [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write) dies nicht tun. Beispielsweise sind zum Zeitpunkt des Schreibens in Firefox [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`navigator.clipboard.write()`](/de/docs/Web/API/Clipboard/write) nicht vollständig implementiert, sodass um zu:
 
-- Verwenden Sie {{WebExtAPIRef("clipboard.setImageData","browser.clipboard.setImageData()")}}, um Bilder in die Zwischenablage zu schreiben und [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand), um Bilder in eine Webseite einzufügen.
-- Um Rich-Content (z.B. HTML, Rich-Text inklusive Bildern usw.) in die Zwischenablage zu schreiben, verwenden Sie [`document.execCommand(&#34;copy&#34;)`](/de/docs/Web/API/Document/execCommand) oder [`document.execCommand(&#34;cut&#34;)`](/de/docs/Web/API/Document/execCommand). Anschließend entweder [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) (empfohlen) oder [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand), um den Inhalt aus der Zwischenablage zu lesen.
+- mit Bildern zu arbeiten, verwenden Sie {{WebExtAPIRef("clipboard.setImageData","browser.clipboard.setImageData()")}}, um Bilder in die Zwischenablage zu schreiben, und [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand), um Bilder in eine Webseite einzufügen.
+- um reichhaltige Inhalte (wie HTML, Rich-Text einschließlich Bildern usw.) in die Zwischenablage zu schreiben, verwenden Sie [`document.execCommand(&#34;copy&#34;)`](/de/docs/Web/API/Document/execCommand) oder [`document.execCommand(&#34;cut&#34;)`](/de/docs/Web/API/Document/execCommand). Verwenden Sie dann entweder [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) (empfohlen) oder [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand), um den Inhalt aus der Zwischenablage zu lesen.
 
-## In die Zwischenablage schreiben
+## Schreiben in die Zwischenablage
 
 Dieser Abschnitt beschreibt die Optionen zum Schreiben von Daten in die Zwischenablage.
 
-### Verwendung der Clipboard-API
+### Verwendung der Clipboard API
 
-Die Clipboard-API schreibt beliebige Daten aus Ihrer Erweiterung in die Zwischenablage. Die Verwendung der API erfordert die Berechtigung `"clipboardRead"` oder `"clipboardWrite"` in Ihrer `manifest.json`-Datei. Da die API nur für [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) verfügbar ist, kann sie nicht von einem Inhaltsskript verwendet werden, das auf `http:`-Seiten läuft, sondern nur auf `https:`-Seiten.
+Die Clipboard API schreibt beliebige Daten aus Ihrer Erweiterung in die Zwischenablage. Die Verwendung der API erfordert die Berechtigung `"clipboardRead"` oder `"clipboardWrite"` in Ihrer `manifest.json`-Datei. Da die API nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar ist, kann sie nicht von einem Inhalts-Skript verwendet werden, das auf `http:`-Seiten läuft, sondern nur auf `https:`-Seiten.
 
-Für Seitenskripte muss die Berechtigung `"clipboard-write"` über die Web-API [`navigator.permissions`](/de/docs/Web/API/Permissions) angefordert werden. Sie können diese Berechtigung mit [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) überprüfen:
+Für Seiten-Skripte muss die Berechtigung `"clipboard-write"` mit der Web-API [`navigator.permissions`](/de/docs/Web/API/Permissions) angefordert werden. Sie können diese Berechtigung mit [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) überprüfen:
 
 ```js
 navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
@@ -43,7 +43,7 @@ navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
 ```
 
 > [!NOTE]
-> Der Berechtigungsname `clipboard-write` wird in Firefox nicht unterstützt, sondern nur in Chromium-Browsern.
+> Der Name der Berechtigung `clipboard-write` wird in Firefox nicht unterstützt, sondern nur in Chromium-Browsern.
 
 Diese Funktion nimmt einen String und schreibt ihn in die Zwischenablage:
 
@@ -62,15 +62,15 @@ function updateClipboard(newClip) {
 
 ### Verwendung von execCommand()
 
-Die Befehle `"cut"` und `"copy"` der Methode [`document.execCommand()`](/de/docs/Web/API/Document/execCommand) werden verwendet, um den Inhalt der Zwischenablage mit dem ausgewählten Material zu ersetzen. Diese Befehle können ohne spezielle Berechtigung in kurzlebigen Ereignishandlern für eine Benutzeraktion (z.B. ein Klick-Handler) verwendet werden.
+Die `"cut"`- und `"copy"`-Befehle der [`document.execCommand()`](/de/docs/Web/API/Document/execCommand) Methode werden verwendet, um den Inhalt der Zwischenablage mit dem ausgewählten Material zu ersetzen. Diese Befehle können ohne spezielle Berechtigungen in kurzlebigen Ereignis-Handlern für eine Benutzeraktion (z. B. einen Klick-Handler) verwendet werden.
 
-Angenommen, Sie haben ein Popup, das den folgenden HTML-Code enthält:
+Angenommen, Sie haben ein Popup, das das folgende HTML enthält:
 
 ```html
 <input id="input" type="text" /> <button id="copy">Copy</button>
 ```
 
-Um den `"copy"`-Button dazu zu bringen, die Inhalte des {{HTMLElement("input")}}-Elements zu kopieren, können Sie Code wie diesen verwenden:
+Um den `"copy"`-Button dazu zu bringen, den Inhalt des {{HTMLElement("input")}}-Elements zu kopieren, können Sie Code wie diesen verwenden:
 
 ```js
 function copy() {
@@ -82,9 +82,9 @@ function copy() {
 document.querySelector("#copy").addEventListener("click", copy);
 ```
 
-Da der Aufruf von `execCommand()` in einem Klick-Ereignishandler erfolgt, benötigen Sie keine speziellen Berechtigungen.
+Da der `execCommand()`-Aufruf innerhalb eines Klick-Ereignis-Handlers erfolgt, benötigen Sie keine speziellen Berechtigungen.
 
-Wenn Sie jedoch stattdessen das Kopieren durch einen Alarm auslösen:
+Angenommen, stattdessen wird das Kopieren von einem Alarm ausgelöst:
 
 ```js
 function copy() {
@@ -102,19 +102,19 @@ browser.alarms.onAlarm.addListener(copy);
 
 Je nach Browser funktioniert dies möglicherweise nicht. In Firefox wird es nicht funktionieren, und Sie sehen eine Nachricht wie diese in Ihrer Konsole:
 
-`document.execCommand('cut'/'copy') was denied because it was not called from inside a short running user-generated event handler.`
+`document.execCommand('cut'/'copy') wurde verweigert, weil es nicht innerhalb eines kurzlebigen benutzergenerierten Ereignis-Handlers aufgerufen wurde.`
 
-Um diesen Anwendungsfall zu ermöglichen, müssen Sie um die Berechtigung `"clipboardWrite"` [bitten](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Also: `"clipboardWrite"` ermöglicht es Ihnen, außerhalb eines kurzlebigen Ereignishandlers für eine Benutzeraktion in die Zwischenablage zu schreiben.
+Um diesen Anwendungsfall zu ermöglichen, müssen Sie die Berechtigung `"clipboardWrite"` [anfordern](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Also: `"clipboardWrite"` ermöglicht es Ihnen, in die Zwischenablage außerhalb eines kurzlebigen Ereignis-Handlers für eine Benutzeraktion zu schreiben.
 
-> **Hinweis:** [`document.execCommand()`](/de/docs/Web/API/Document/execCommand) funktioniert nicht bei Eingabefeldern des Typs `type="hidden"`, mit dem HTML5-Attribut `"hidden"` oder bei jeglicher passenden CSS-Regel, die `"display: none;"` verwendet. Um also einer `span`, `div` oder `p`-Markierung einen "In die Zwischenablage kopieren"-Button hinzuzufügen, müssen Sie einen Workaround verwenden, wie zum Beispiel die Eingabeposition auf absolut zu setzen und aus dem Ansichtsfenster zu verschieben.
+> **Hinweis:** [`document.execCommand()`](/de/docs/Web/API/Document/execCommand) funktioniert nicht bei Eingabefeldern vom `type="hidden"`, mit dem HTML5-Attribut `"hidden"` oder mit einer beliebigen passenden CSS-Regel mit `"display: none;"`. Um also einen "In die Zwischenablage kopieren"-Button zu einem `span`, `div` oder `p`-Tag hinzuzufügen, müssen Sie einen Workaround verwenden, wie zum Beispiel die Position des Eingabefelds auf absolut zu setzen und es aus dem Ansichtsbereich zu verschieben.
 
-### Browser-spezifische Überlegungen
+### Browserspezifische Überlegungen
 
-Die Zwischenablage und andere hier beteiligte APIs entwickeln sich rapide, daher gibt es unter den Browsern Unterschiede, wie sie arbeiten.
+Die Zwischenablage und andere hier beteiligte APIs entwickeln sich schnell weiter, sodass es Unterschiede zwischen den Browsern gibt, wie sie funktionieren.
 
 In Chrome:
 
-- Sie benötigen `"clipboardWrite"` nicht, selbst um außerhalb eines benutzergenerierten Ereignishandlers in die Zwischenablage zu schreiben.
+- Sie benötigen `"clipboardWrite"` nicht, selbst um außerhalb eines benutzergenerierten Ereignis-Handlers in die Zwischenablage zu schreiben.
 
 In Firefox:
 
@@ -122,15 +122,15 @@ In Firefox:
 
 Weitere Informationen finden Sie in den [Browser-Kompatibilitätstabellen](#browser-kompatibilität).
 
-## Aus der Zwischenablage lesen
+## Lesen aus der Zwischenablage
 
-Dieser Abschnitt beschreibt die Optionen zum Lesen oder Einfügen von Daten aus der Zwischenablage.
+Dieser Abschnitt beschreibt die Optionen, um Daten aus der Zwischenablage zu lesen oder einzufügen.
 
-### Verwendung der Clipboard-API
+### Verwendung der Clipboard API
 
-Die Methoden [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) der Clipboard-API ermöglichen es Ihnen, beliebigen Text oder binäre Daten aus der Zwischenablage in [sicheren Kontexts](/de/docs/Web/Security/Secure_Contexts) zu lesen. Damit können Sie auf die Daten in der Zwischenablage zugreifen, ohne sie in ein bearbeitbares Element einfügen zu müssen.
+Die [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) Methoden der Clipboard API ermöglichen es Ihnen, beliebigen Text oder Binärdaten aus der Zwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) zu lesen. Dadurch können Sie auf die Daten in der Zwischenablage zugreifen, ohne sie in ein bearbeitbares Element einzufügen.
 
-Sobald Sie die Berechtigung `"clipboard-read"` von der [Permissions API](/de/docs/Web/API/Permissions_API) haben, können Sie leicht aus der Zwischenablage lesen. Zum Beispiel ruft dieser Codeausschnitt den Text aus der Zwischenablage ab und ersetzt den Inhalt des Elements mit der ID `"outbox"` mit diesem Text.
+Sobald Sie die `"clipboard-read"` Berechtigung von der [Permissions API](/de/docs/Web/API/Permissions_API) erhalten haben, können Sie einfach aus der Zwischenablage lesen. Zum Beispiel holt dieses Codesnippet den Text aus der Zwischenablage und ersetzt den Inhalt des Elements mit der ID `"outbox"` durch diesen Text.
 
 ```js
 navigator.clipboard
@@ -140,15 +140,15 @@ navigator.clipboard
 
 ### Verwendung von execCommand()
 
-Um [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand) zu verwenden, benötigt Ihre Erweiterung die Berechtigung `"clipboardRead"` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Dies ist der Fall, selbst wenn Sie den `"paste"`-Befehl innerhalb eines benutzergenerierten Ereignishandlers wie [`click`](/de/docs/Web/API/Element/click_event) oder [`keypress`](/de/docs/Web/API/Element/keypress_event) verwenden.
+Um [`document.execCommand(&#34;paste&#34;)`](/de/docs/Web/API/Document/execCommand) zu verwenden, benötigt Ihre Erweiterung die Berechtigung `"clipboardRead"` [anfordern](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Dies ist auch dann der Fall, wenn Sie den `"paste"`-Befehl innerhalb eines benutzergenerierten Ereignis-Handlers, wie [`click`](/de/docs/Web/API/Element/click_event) oder [`keypress`](/de/docs/Web/API/Element/keypress_event), verwenden.
 
-Betrachten Sie HTML, das so etwas wie dies enthält:
+Betrachten Sie HTML, das etwas wie dieses enthält:
 
 ```html
 <textarea id="output"></textarea> <button id="paste">Paste</button>
 ```
 
-Um den Inhalt des {{HTMLElement("textarea")}}-Elements mit der ID `"output"` aus der Zwischenablage zu setzen, wenn der Benutzer den `"paste"`-{{HTMLElement("button")}} drückt, können Sie einen Code wie diesen verwenden:
+Um den Inhalt des {{HTMLElement("textarea")}}-Elements mit der ID `"output"` aus der Zwischenablage zu setzen, wenn der Benutzer auf den `"paste"` {{HTMLElement("button")}} klickt, können Sie Code wie diesen verwenden:
 
 ```js
 function paste() {
@@ -161,9 +161,9 @@ function paste() {
 document.querySelector("#paste").addEventListener("click", paste);
 ```
 
-### Browser-spezifische Überlegungen
+### Browserspezifische Überlegungen
 
-Firefox unterstützt die Berechtigung `"clipboardRead"` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) ab Version 54, unterstützt jedoch nur das Einfügen in Elemente im [content editable mode](/de/docs/Web/HTML/Global_attributes/contenteditable), was für Inhaltsskripte nur mit einem {{HTMLElement("textarea")}} funktioniert. Für Hintergrundskripte kann jedes Element in den content editable mode gesetzt werden.
+Firefox unterstützt die `"clipboardRead"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) ab Version 54, unterstützt jedoch nur das Einfügen in Elemente im [inhalt bearbeitbaren Modus](/de/docs/Web/HTML/Global_attributes/contenteditable), was für Inhalts-Skripte nur mit einem {{HTMLElement("textarea")}} funktioniert. Für Hintergrund-Skripte kann jedes Element auf den inhalt bearbeitbaren Modus gesetzt werden.
 
 ## Browser-Kompatibilität
 

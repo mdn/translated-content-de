@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: close()-Methode"
+title: "USBDevice: close() Methode"
 short-title: close()
 slug: Web/API/USBDevice/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`close()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn alle offenen Schnittstellen freigegeben wurden und die Gerätesitzung beendet ist.
+Die **`close()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn alle geöffneten Schnittstellen freigegeben sind und die Gerätesitzung beendet ist.
 
 ## Syntax
 

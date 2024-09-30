@@ -1,5 +1,5 @@
 ---
-title: "CSSMathProduct: values-Eigenschaft"
+title: "CSSMathProduct: Werte-Eigenschaft"
 short-title: values
 slug: Web/API/CSSMathProduct/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte **`CSSMathProduct.values`**-Eigenschaft der [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
+Die schreibgeschützte Eigenschaft **`CSSMathProduct.values`** der [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 

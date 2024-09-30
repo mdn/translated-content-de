@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`voiceURI`**-Eigenschaft des nur-lesbaren [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt den URI-Typ und die Position des Sprachsynthesedienstes für diese Stimme zurück.
+Die **`voiceURI`**-Schreibgeschützte Eigenschaft des
+[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt den Typ und Standort des URI des Sprachsynthesedienstes für diese Stimme zurück.
 
 ## Wert
 
-Ein String, der den URI der Stimme darstellt. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z.B. könnte es ein spezifisches System-URN oder eine URL zu einem entfernten Dienst sein.
+Ein String, der den URI der Stimme darstellt. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z. B. könnte es ein proprietäres System-URN oder eine URL zu einem entfernten Dienst sein.
 
 ## Beispiele
 

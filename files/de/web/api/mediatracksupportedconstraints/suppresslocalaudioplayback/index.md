@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SeeCompatTable}}
 
-Die **`suppressLocalAudioPlayback`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs gibt an, ob die [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)-Einschränkung vom Benutzeragent und dem Gerät, auf dem der Inhalt verwendet wird, unterstützt wird.
+Die **`suppressLocalAudioPlayback`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs zeigt an, ob die [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)-Einschränkung durch den User-Agent und das Gerät, auf dem der Inhalt verwendet wird, unterstützt wird.
 
-Die Liste der unterstützten Einschränkungen wird abgerufen, indem [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) aufgerufen wird.
+Die Liste der unterstützten Einschränkungen wird durch den Aufruf von [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) abgerufen.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)-Einschränkung vom Gerät und Benutzeragent unterstützt wird.
+Ein boolescher Wert, der `true` ist, wenn die [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)-Einschränkung vom Gerät und User-Agent unterstützt wird.
 
 ## Beispiele
 
-Die folgende Funktion richtet das Optionsobjekt für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) ein. Sie fügt die `suppressLocalAudioPlayback`-Einschränkung hinzu (wobei angefordert wird, dass aufgenommenes Audio nicht über die lokalen Lautsprecher des Benutzers abgespielt wird), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Das Aufzeichnen wird dann gestartet, indem `getDisplayMedia()` aufgerufen und der zurückgegebene Stream dem Videoelement zugewiesen wird, auf das durch die Variable `videoElem` verwiesen wird.
+Die folgende Funktion richtet das Optionsobjekt für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) ein. Sie fügt die `suppressLocalAudioPlayback`-Einschränkung hinzu (in der Anfrage, dass aufgenommener Ton nicht über die lokalen Lautsprecher des Benutzers wiedergegeben wird), nur wenn bekannt ist, dass diese vom Browser unterstützt wird. Die Aufnahme wird dann gestartet, indem `getDisplayMedia()` aufgerufen und der zurückgegebene Stream an das Videoelement gebunden wird, auf das die Variable `videoElem` verweist.
 
 ```js
 async function capture() {

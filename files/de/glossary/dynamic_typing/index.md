@@ -11,5 +11,5 @@ l10n:
 
 ## Siehe auch
 
-- [JavaScript Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)
+- [JavaScript Datenstrukturen und Datentypen](/de/docs/Web/JavaScript/Data_structures)
 - [Type system](https://en.wikipedia.org/wiki/Type_system#DYNAMIC) auf Wikipedia

@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,12 +32,12 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tabId`
-      - : `integer`. ID des geschlossenen Tabs.
+      - : `integer`. ID des Tabs, der geschlossen wurde.
     - `removeInfo`
-      - : `object`. Die Fenster-ID des Tabs und ein Boolean, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für mehr Details.
+      - : `object`. Die Fenster-ID des Tabs und ein Boolescher Wert, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -50,7 +50,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Schließereignisse und protokollieren Sie die Informationen:
+Auf Schließereignisse hören und die Informationen protokollieren:
 
 ```js
 function handleRemoved(tabId, removeInfo) {
@@ -69,7 +69,7 @@ browser.tabs.onRemoved.addListener(handleRemoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

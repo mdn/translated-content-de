@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `numberOfOutputs`-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces gibt die Anzahl der Ausgänge des Nodes zurück. Zielknoten — wie der [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) — haben einen Wert von 0 für dieses Attribut.
+Die `numberOfOutputs`-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interface gibt die Anzahl der Ausgänge an, die aus dem Knoten kommen. Zielknoten — wie [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) — haben einen Wert von 0 für dieses Attribut.
 
 ## Wert
 

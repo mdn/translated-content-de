@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`** Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt den Namen des {{HTMLElement("button")}}-Elements an oder den leeren String, wenn das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/button#name)-Attribut des Elements wider.
+Die **`name`** Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces gibt den Namen des {{HTMLElement("button")}} Elements an oder den leeren String, falls das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/button#name) Attribut des Elements wider.
 
 ## Wert
 

@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`iterationComposite`**-Eigenschaft eines [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) bestimmt, wie sich die Änderungen der Eigenschaftswerte der Animation bei jeder Iteration der Animation akkumulieren oder gegenseitig überschreiben.
+Die **`iterationComposite`**-Eigenschaft eines [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) legt fest, wie sich die Wertänderungen der Animation bei jeder Iteration kumulieren oder überschreiben.
 
 ## Wert
 
 Einer der folgenden:
 
 - `replace`
-  - : Der durch den `keyframeEffect` erzeugte Wert ist unabhängig von der aktuellen Iteration.
+  - : Der von `keyframeEffect` erzeugte Wert ist unabhängig von der aktuellen Iteration.
 - `accumulate`
   - : Nachfolgende Iterationen des `keyframeEffect` bauen auf dem Endwert der vorherigen Iteration auf.
 
@@ -30,4 +30,4 @@ Einer der folgenden:
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- Eigenschaft sowohl von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten.
+- Eigenschaft von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten.

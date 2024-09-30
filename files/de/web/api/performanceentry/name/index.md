@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Interfaces ist ein String, der den Namen für einen Performance-Eintrag darstellt. Sie fungiert als Bezeichner, muss aber nicht einzigartig sein. Der Wert hängt von der Subklasse ab.
+Die schreibgeschützte **`name`**-Eigenschaft der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Schnittstelle ist ein String, der den Namen eines Performance-Eintrags darstellt. Sie fungiert als Identifikator, muss jedoch nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
 
 ## Wert
 
-Ein String. Der Wert hängt von der Subklasse des `PerformanceEntry`-Objekts ab, wie in der nachstehenden Tabelle gezeigt.
+Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie in der untenstehenden Tabelle gezeigt.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th scope="col">Subklasse</th>
+      <th scope="col">Unterklasse</th>
       <th scope="col">Wert</th>
     </tr>
   </thead>
@@ -62,20 +62,20 @@ Ein String. Der Wert hängt von der Subklasse des `PerformanceEntry`-Objekts ab,
     <tr>
       <td>[`PerformanceMark`](/de/docs/Web/API/PerformanceMark)</td>
       <td>
-        Der Name, der verwendet wurde, als die Markierung durch den Aufruf von
-        [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt wurde.
+        Der Name, der bei der Erstellung der Markierung durch Aufruf von
+        [`performance.mark()`](/de/docs/Web/API/Performance/mark) verwendet wurde.
       </td>
     </tr>
     <tr>
       <td>[`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)</td>
       <td>
-        Der Name, der verwendet wurde, als die Messung durch den Aufruf von
-        [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt wurde.
+        Der Name, der bei der Erstellung der Messung durch Aufruf von
+        [`performance.measure()`](/de/docs/Web/API/Performance/measure) verwendet wurde.
       </td>
     </tr>
     <tr>
       <td>[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anfrage weitergeleitet wird.</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
     </tr>
     <tr>
       <td>[`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)</td>
@@ -88,7 +88,7 @@ Ein String. Der Wert hängt von der Subklasse des `PerformanceEntry`-Objekts ab,
     </tr>
     <tr>
       <td>[`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anfrage weitergeleitet wird.</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
     </tr>
     <tr>
       <td>[`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)</td>
@@ -108,10 +108,9 @@ Ein String. Der Wert hängt von der Subklasse des `PerformanceEntry`-Objekts ab,
 
 ## Beispiele
 
-### Performance-Einträge nach Name filtern
+### Performance-Einträge nach Namen filtern
 
-Wenn das `PerformanceEntry`-Objekt ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource.
-In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, zum Beispiel alle SVG-Bilder.
+Wenn das `PerformanceEntry` ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource. In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, zum Beispiel alle SVG-Bilder.
 
 ```js
 // Log durations of SVG resources
@@ -122,9 +121,9 @@ performance.getEntriesByType("resource").forEach((entry) => {
 });
 ```
 
-### Performance-Einträge nach Name abrufen
+### Performance-Einträge nach Namen abrufen
 
-Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, mit denen Sie die Performance-Einträge direkt nach Name abrufen können. Sie benötigen die `name`-Eigenschaft dafür nicht unbedingt, stattdessen können Sie [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, die es Ihnen ermöglichen, Performance-Einträge direkt nach Namen abzurufen. Sie benötigen dafür nicht unbedingt die `name`-Eigenschaft, sondern können [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
 
 ```js
 // Log all marks named "debug-marks" at this point in time

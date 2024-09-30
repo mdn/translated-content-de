@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`showPopover()`**-Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut hat) an, indem es in die [oberste Ebene](/de/docs/Glossary/top_layer) eingefügt wird.
+Die **`showPopover()`**-Methode des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut besitzt) an, indem es zur [Top-Schicht](/de/docs/Glossary/top_layer) hinzugefügt wird.
 
-Wenn `showPopover()` auf ein Element mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut angewendet wird, das derzeit ausgeblendet ist, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt vom Anzeigen des Popovers und anschließendem Auslösen des [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisses. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
+Wenn `showPopover()` auf einem Element mit dem aktuell verborgenen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt von der Anzeige des Popovers und danach das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel bietet die Funktionalität, ein Popover durch Drücken einer bestimmten Taste auf der Tastatur anzuzeigen.
+Das folgende Beispiel bietet die Funktion, ein Popover durch das Drücken einer bestimmten Taste auf der Tastatur anzuzeigen.
 
 Zuerst etwas HTML:
 
@@ -54,7 +54,7 @@ Zuerst etwas HTML:
 </div>
 ```
 
-Und nun das JavaScript, um die Funktionalität einzurichten:
+Und nun das JavaScript, um die Funktionalität zu verbinden:
 
 ```js
 const popover = document.getElementById("mypopover");

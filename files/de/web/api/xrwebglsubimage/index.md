@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Die **`XRWebGLSubImage`**-Schnittstelle wird während des Renderings von WebGL-Schichten verwendet.
+Die **`XRWebGLSubImage`**-Schnittstelle wird beim Rendering von WebGL-Schichten verwendet.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`XRSubImage`](/de/docs/Web/API/XRSubImage)._
+_Erbt Eigenschaften von ihrem übergeordneten Element, [`XRSubImage`](/de/docs/Web/API/XRSubImage)._
 
 - [`XRWebGLSubImage.colorTexture`](/de/docs/Web/API/XRWebGLSubImage/colorTexture) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Farbordner-`WebGLTexture`-Objekt, das für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) gerendert wird.
+  - : Ein Farbübersetzungs-`WebGLTexture`-Objekt für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), das gerendert werden soll.
 - [`XRWebGLSubImage.depthStencilTexture`](/de/docs/Web/API/XRWebGLSubImage/depthStencilTexture) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Tiefen-/Stencil-`WebGLTexture`-Objekt, das für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) gerendert wird.
+  - : Ein Tiefen-/Stencilüberlagerungs-`WebGLTexture`-Objekt für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), das gerendert werden soll.
 - [`XRWebGLSubImage.imageIndex`](/de/docs/Web/API/XRWebGLSubImage/imageIndex) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die den Offset im Texturarray darstellt, wenn die Schicht mit `texture-array` angefordert wurde; andernfalls [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+  - : Eine Zahl, die den Offset im Texturarray darstellt, wenn die Schicht mit `texture-array` angefordert wurde; [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) andernfalls.
 - [`XRWebGLSubImage.colorTextureWidth`](/de/docs/Web/API/XRWebGLSubImage/colorTextureWidth) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die Breite in Pixeln der GL-Befestigung darstellt.
+  - : Eine Zahl, die die Breite in Pixeln des GL-Anhangs darstellt.
 - [`XRWebGLSubImage.colorTextureHeight`](/de/docs/Web/API/XRWebGLSubImage/colorTextureHeight) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die Höhe in Pixeln der GL-Befestigung darstellt.
+  - : Eine Zahl, die die Höhe in Pixeln des GL-Anhangs darstellt.
 
 ## Spezifikationen
 

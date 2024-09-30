@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.withCredentials`**-Eigenschaft ist ein boolescher Wert, der angibt, ob standortübergreifende `Access-Control`-Anfragen unter Verwendung von Anmeldeinformationen wie Cookies, Authentifizierungs-Headern oder TLS-Client-Zertifikaten gemacht werden sollen oder nicht. Das Setzen von `withCredentials` hat keinen Einfluss auf Anfragen innerhalb derselben Herkunft.
+Die **`XMLHttpRequest.withCredentials`**-Eigenschaft ist ein boolescher Wert, der angibt, ob `Access-Control`-Anfragen über mehrere Sites hinweg unter Verwendung von Anmeldeinformationen wie Cookies, Authentifizierungs-Headern oder TLS-Client-Zertifikaten ausgeführt werden sollen. Das Setzen von `withCredentials` hat keine Auswirkung auf Anfragen innerhalb derselben Herkunft.
 
-Zusätzlich wird dieses Flag auch verwendet, um anzuzeigen, wann Cookies in der Antwort ignoriert werden sollen. Der Standardwert ist `false`. `XMLHttpRequest`-Antworten von einer anderen Domain können keine Cookie-Werte für ihre eigene Domain setzen, es sei denn, `withCredentials` wird vor dem Absenden der Anfrage auf `true` gesetzt. Die [Third-Party-Cookies](/de/docs/Web/Privacy/Third-party_cookies), die durch das Setzen von `withCredentials` auf `true` erhalten werden, werden jedoch weiterhin die Same-Origin-Policy einhalten und können daher nicht vom anfordernden Skript über [document.cookie](/de/docs/Web/API/Document/cookie) oder von Antwort-Headern aus zugänglich gemacht werden.
+Darüber hinaus wird dieses Flag auch verwendet, um anzugeben, wann Cookies in der Antwort ignoriert werden sollen. Der Standardwert ist `false`. `XMLHttpRequest`-Antworten von einer anderen Domain können keine Cookie-Werte für ihre eigene Domain festlegen, es sei denn, `withCredentials` wird vor dem Senden der Anfrage auf `true` gesetzt. Die [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies), die durch Setzen von `withCredentials` auf `true` erhalten werden, beachten weiterhin dieselbe Herkunftsrichtlinie und können daher nicht durch das anfordernde Skript über [document.cookie](/de/docs/Web/API/Document/cookie) oder aus Antwort-Headern zugegriffen werden.
 
 > [!NOTE]
-> Dies hat niemals Einfluss auf Anfragen innerhalb derselben Herkunft.
+> Dies hat niemals Auswirkungen auf Anfragen innerhalb derselben Herkunft.
 
-> **Hinweis:** `XMLHttpRequest`-Antworten von einer anderen Domain _können_ Cookie-Werte für ihre eigene Domain nicht setzen, es sei denn, `withCredentials` wird vor dem Absenden der Anfrage auf `true` gesetzt, unabhängig von den `Access-Control-` Header-Werten.
+> **Hinweis:** `XMLHttpRequest`-Antworten von einer anderen Domain _können_ keine Cookie-Werte für ihre eigene Domain festlegen, es sei denn, `withCredentials` wird vor dem Senden der Anfrage auf `true` gesetzt, unabhängig von den `Access-Control`-Header-Werten.
 
 ## Wert
 

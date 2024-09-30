@@ -21,11 +21,11 @@ new ContentIndexEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß-/Kleinschreibung-empfindlich und Browser setzen es immer auf `contentdelete`.
+    Es ist groß- und kleinschreibungssensitiv, und Browser setzen es immer auf `contentdelete`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definiert sind_, folgende Eigenschaften hat:
     - `id`
-      - : Die ID des indexierten Inhalts, den Sie vom [`ContentIndex`](/de/docs/Web/API/ContentIndex) Objekt entfernen möchten.
+      - : Die ID des indizierten Inhalts, die Sie möchten, dass das [`ContentIndex`](/de/docs/Web/API/ContentIndex) Objekt entfernt.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) Objekt, das 
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) mit der relevanten ID.
+Dieses Beispiel konstruiert ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) mit der relevanten ID.
 
 ```js
 const removeData = {

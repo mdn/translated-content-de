@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`length`**-Eigenschaft, eine schreibgeschützte Eigenschaft der
-[`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Schnittstelle, gibt die Länge des
-"Arrays" zurück — die Anzahl der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der
-Liste.
+Die **`length`** schreibgeschützte Eigenschaft des [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Interfaces gibt die Länge des "Arrays" zurück — die Anzahl der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste.
 
 ## Wert
 
@@ -19,8 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem
-[Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {

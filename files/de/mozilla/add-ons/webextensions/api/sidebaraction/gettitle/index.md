@@ -9,7 +9,7 @@ l10n:
 
 Ruft den Titel der Seitenleiste ab.
 
-So wie Sie den Titel für einzelne Tabs mit {{WebExtAPIRef("sidebarAction.setTitle()")}} festlegen können, können Sie auch einen tab-spezifischen Titel abrufen, indem Sie die ID des Tabs an diese Funktion übergeben.
+Genau wie Sie den Titel für einen bestimmten Tab mittels {{WebExtAPIRef("sidebarAction.setTitle()")}} festlegen können, so können Sie auch einen Tab-spezifischen Titel abrufen, indem Sie die ID des Tabs an diese Funktion übergeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,13 +28,13 @@ let gettingTitle = browser.sidebarAction.getTitle(
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Ruft den Titel für die spezifische Seitenleiste des angegebenen Tabs ab.
+      - : `integer`. Holt den Titel für die Seitenleiste, die dem angegebenen Tab zugeordnet ist.
     - `windowId` {{optional_inline}}
-      - : `integer`. Ruft den Titel für die spezifische Seitenleiste des angegebenen Fensters ab.
+      - : `integer`. Holt den Titel für die Seitenleiste, die dem angegebenen Fenster zugeordnet ist.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das zurückgegebene Promise wird abgelehnt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl und das von ihr zurückgegebene Promise wird abgelehnt.
 - Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel zurückgegeben.
 
 ### Rückgabewert
@@ -47,7 +47,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "diesem" und "jenem" jedes Mal, wenn der Benutzer die Browser-Aktion anklickt.
+Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browseraktion klickt.
 
 ```js
 function toggleTitle(title) {
@@ -67,4 +67,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API von Opera.
+> Diese API basiert auf der [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/)-API von Opera.

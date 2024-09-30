@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Das **`AuthenticatorResponse`**-Interface der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) ist das Basisinterface für Interfaces, die eine kryptografische Vertrauensbasis für ein Schlüsselpaar bereitstellen. Die abgeleiteten Interfaces enthalten Informationen vom Browser, wie z. B. den Herausforderungsursprung, und können entweder von [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) zurückgegeben werden.
+Das **`AuthenticatorResponse`**-Interface der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) ist das Basis-Interface für Schnittstellen, die einen kryptographischen Vertrauensanker für ein Schlüsselpaar bieten. Die Kind-Interfaces beinhalten Informationen vom Browser wie den Ursprung der Herausforderung und können entweder von [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) zurückgegeben werden.
 
-## Auf AuthenticatorResponse basierende Schnittstellen
+## Schnittstellen basierend auf AuthenticatorResponse
 
-Unten ist eine Liste von Schnittstellen, die auf dem AuthenticatorResponse-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf dem AuthenticatorResponse-Interface basieren.
 
 - [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)
 - [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)
@@ -27,7 +27,7 @@ Keine.
 
 ## Beispiele
 
-### Erhalten einer AuthenticatorAssertionResponse
+### Abrufen eines AuthenticatorAssertionResponse
 
 ```js
 const options = {
@@ -46,7 +46,7 @@ navigator.credentials
   .catch((err) => console.error(err));
 ```
 
-### Erhalten einer AuthenticatorAttestationResponse
+### Abrufen eines AuthenticatorAttestationResponse
 
 ```js
 const publicKey = {

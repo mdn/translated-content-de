@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) legt die Farbe, den Verlauf oder das Muster fest, das innerhalb von Formen verwendet werden soll. Der Standardstil ist `#000` (schwarz).
+Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) bestimmt die Farbe, den Verlauf oder das Muster, das innerhalb von Formen verwendet werden soll. Der Standardstil ist `#000` (schwarz).
 
 > [!NOTE]
-> Weitere Beispiele für Füll- und Strichstile finden Sie unter [Styles und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+> Weitere Beispiele für Fill- und Stroke-Stile finden Sie unter [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
 Einer der folgenden:
 
-- Ein als CSS-{{cssxref("&lt;color&gt;")}}-Wert geparster String.
+- Ein String, der als CSS {{cssxref("&lt;color&gt;")}}-Wert geparst wird.
 - Ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt (ein linearer oder radialer Verlauf).
 - Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein sich wiederholendes Bild).
 
@@ -49,7 +49,7 @@ ctx.fillRect(10, 10, 100, 100);
 
 ### Erstellen mehrerer Füllfarben mit Schleifen
 
-In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, wobei jedes eine andere Füllfarbe hat. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um für jedes Quadrat eine eindeutige RGB-Farbe zu erzeugen, und ändern nur die Rot- und Grünwerte. (Der Blaukanal hat einen festen Wert.) Durch Ändern der Kanäle können Sie alle Arten von Paletten erstellen.
+In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, die jeweils eine unterschiedliche Füllfarbe haben. Um dies zu erreichen, verwenden wir die zwei Variablen `i` und `j`, um eine eindeutige RGB-Farbe für jedes Quadrat zu generieren und ändern dabei nur die roten und grünen Werte. (Der Blaukanal hat einen festen Wert.) Durch das Modifizieren der Kanäle können Sie alle Arten von Paletten erstellen.
 
 ```html hidden
 <canvas id="canvas" width="150" height="150"></canvas>
@@ -82,9 +82,9 @@ Das Ergebnis sieht folgendermaßen aus:
 
 {{Compat}}
 
-### WebKit/Blink-spezifische Anmerkung
+### WebKit-/Blink-spezifische Anmerkung
 
-In auf WebKit- und Blink-basierten Browsern ist die nicht standardisierte und veraltete Methode `ctx.setFillColor()` zusätzlich zu dieser Eigenschaft implementiert.
+In WebKit- und Blink-basierten Browsern wird die nicht standardisierte und veraltete Methode `ctx.setFillColor()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ```js
 setFillColor(color, /* (optional) */ alpha);
@@ -96,7 +96,7 @@ setFillColor(c, m, y, k, a);
 ## Siehe auch
 
 - [Canvas API](/de/docs/Web/API/Canvas_API)
-- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - Werte, die von dieser Eigenschaft verwendet werden:
 
   - {{cssxref("&lt;color&gt;")}} CSS-Datentyp

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`src`** des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Interfaces gibt einen String zurück, der den Pfad zur Quelle des {{htmlelement("iframe")}} angibt, in dem sich das Dokument befindet (zum Beispiel `<iframe src="b.html">`).
+Die **`src`** schreibgeschützte Eigenschaft des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Interfaces gibt einen String zurück, der den Pfad zur Quelle des {{htmlelement("iframe")}} angibt, in dem das Dokument enthalten ist (zum Beispiel `<iframe src="b.html">`).
 
 ## Wert
 
@@ -18,7 +18,7 @@ Wenn sich das Dokument nicht in einem `<iframe>` befindet, wird `src` `null` zur
 
 ## Beispiele
 
-Siehe [Überwachung von Gründen, die das bfcache blockieren](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Siehe [Überwachung von Gründen, die das bfcache blockieren](/de/docs/Web/API/P
 
 ## Siehe auch
 
-- [Überwachung von Gründen, die das bfcache blockieren](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
 - [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

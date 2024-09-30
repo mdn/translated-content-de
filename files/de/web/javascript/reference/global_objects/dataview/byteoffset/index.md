@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteOffset`**-Zugriffseigenschaft von {{jsxref("DataView")}}-Instanzen gibt den Versatz (in Byte) dieser Ansicht vom Anfang ihres {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`** Zugriffseigenschaft von {{jsxref("DataView")}} Instanzen gibt den Offset (in Bytes) dieser Ansicht vom Anfang ihres {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 {{EmbedInteractiveExample("pages/js/dataview-byteoffset.html")}}
 
 ## Beschreibung
 
-Die `byteOffset`-Eigenschaft ist eine Zugriffseigenschaft, deren set Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen eines `DataView` festgelegt und kann nicht geändert werden.
+Die Eigenschaft `byteOffset` ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist. Das bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` erstellt wird und kann nicht geändert werden.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: Methode createChannelSplitter()"
+title: "BaseAudioContext: createChannelSplitter()-Methode"
 short-title: createChannelSplitter()
 slug: Web/API/BaseAudioContext/createChannelSplitter
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createChannelSplitter()` des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces wird verwendet, um einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) zu erstellen, der dazu dient, die einzelnen Kanäle eines Audiostreams zu erreichen und separat zu verarbeiten.
+Die `createChannelSplitter()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) zu erzeugen, der dazu genutzt wird, die einzelnen Kanäle eines Audio-Streams zuzugreifen und separat zu verarbeiten.
 
 > [!NOTE]
-> Der Konstruktor [`ChannelSplitterNode()`](/de/docs/Web/API/ChannelSplitterNode/ChannelSplitterNode) ist die empfohlene Methode zum Erstellen eines [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode); siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`ChannelSplitterNode()`](/de/docs/Web/API/ChannelSplitterNode/ChannelSplitterNode)-Konstruktor ist der empfohlene Weg, um einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) zu erstellen; siehe
+> [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -22,7 +23,7 @@ createChannelSplitter(numberOfOutputs)
 ### Parameter
 
 - `numberOfOutputs`
-  - : Die Anzahl der Kanäle im Eingangs-Audiostream, die Sie separat ausgeben möchten; der Standardwert ist 6, wenn dieser Parameter nicht angegeben ist.
+  - : Die Anzahl der Kanäle im Eingabe-Audio-Stream, die Sie separat ausgeben möchten; der Standardwert ist 6, wenn dieser Parameter nicht angegeben ist.
 
 ### Rückgabewert
 
@@ -30,7 +31,7 @@ Ein [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode).
 
 ## Beispiele
 
-Das folgende einfache Beispiel zeigt, wie Sie einen Stereotrack (zum Beispiel ein Musikstück) trennen und den linken und den rechten Kanal unterschiedlich verarbeiten können. Um sie zu verwenden, müssen Sie die zweiten und dritten Parameter der [`AudioNode.connect(AudioNode)`](/de/docs/Web/API/AudioNode/connect)-Methode verwenden, die es Ihnen ermöglichen, den Index des Kanals anzugeben, von dem aus verbunden werden soll, sowie den Index des Kanals, mit dem verbunden werden soll.
+Das folgende einfache Beispiel zeigt, wie Sie einen Stereotrack (zum Beispiel ein Musikstück) trennen und den linken und rechten Kanal unterschiedlich verarbeiten könnten. Um sie zu verwenden, müssen Sie die zweiten und dritten Parameter der [`AudioNode.connect(AudioNode)`](/de/docs/Web/API/AudioNode/connect)-Methode verwenden, die es Ihnen ermöglichen, den Index des Kanals anzugeben, von dem aus verbunden werden soll, und den Index des Kanals, zu dem verbunden werden soll.
 
 ```js
 const ac = new AudioContext();

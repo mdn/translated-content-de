@@ -16,7 +16,7 @@ Das **`HTMLHeadElement`**-Interface enthält die beschreibenden Informationen od
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLHeadElement.profile`](/de/docs/Web/API/HTMLHeadElement/profile) {{deprecated_inline}}
-  - : Ein String, der die URIs eines oder mehrerer Metadatenprofile darstellt (durch Leerzeichen getrennt).
+  - : Ein String, der die URIs eines oder mehrerer Metadaten-Profile (mit Leerzeichen getrennt) darstellt.
 
 ## Instanz-Methoden
 

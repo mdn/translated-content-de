@@ -17,13 +17,13 @@ Ein **`WebAssembly.Instance`**-Objekt ist eine zustandsbehaftete, ausführbare I
 ## Instanzeigenschaften
 
 - [`exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports)
-  - : Gibt ein Objekt zurück, das alle aus der WebAssembly-Modulinstanz exportierten Funktionen als Mitglieder enthält, damit sie von JavaScript aus aufgerufen und genutzt werden können. Schreibgeschützt.
+  - : Gibt ein Objekt zurück, das alle Funktionen enthält, die aus der WebAssembly-Modulinstanz exportiert werden, damit diese von JavaScript aus zugegriffen und verwendet werden können. Nur-Lesezugriff.
 
 ## Beispiele
 
 ### Synchrones Instanziieren eines WebAssembly-Moduls
 
-Die Konstruktorfunktion `WebAssembly.Instance()` kann aufgerufen werden, um ein gegebenes [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt synchron zu instanziieren, zum Beispiel:
+Die `WebAssembly.Instance()` Konstruktor-Funktion kann aufgerufen werden, um ein bestimmtes [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt synchron zu instanziieren, zum Beispiel:
 
 ```js
 const importObject = {
@@ -43,7 +43,7 @@ fetch("simple.wasm")
   });
 ```
 
-Die bevorzugte Methode, um eine `Instance` zu erhalten, ist asynchron, beispielsweise unter Verwendung der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static):
+Der bevorzugte Weg, eine `Instance` zu erhalten, ist asynchron, zum Beispiel unter Verwendung der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static)-Funktion, wie hier:
 
 ```js
 const importObject = {
@@ -73,4 +73,4 @@ Dies zeigt auch, wie die `exports`-Eigenschaft verwendet wird, um auf exportiert
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

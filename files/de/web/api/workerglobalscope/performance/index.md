@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Performance API")}}{{AvailableInWorkers("worker")}}
 
-Die **`performance`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das verwendet werden kann, um Leistungsinformationen über Code zu sammeln, der im Bereich des Workers ausgeführt wird.
+Die **`performance`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das verwendet werden kann, um Leistungsinformationen über den im Scope des Workers laufenden Code zu sammeln.
 
-Leistungseinträge sind pro Kontext. Wenn Sie eine Markierung in einem Worker-Thread erstellen, wird sie im Haupt-Thread oder in anderen Workern nicht sichtbar sein.
+Leistungseinträge sind kontextabhängig. Wenn Sie eine Markierung auf einem Worker-Thread erstellen, wird diese nicht im Haupt-Thread oder in anderen Workern angezeigt.
 
-Beachten Sie, dass nur die folgenden Performance-Interfaces in Worker-Kontexten verfügbar sind:
+Beachten Sie, dass nur die folgenden Leistungs-Schnittstellen in Worker-Kontexten verfügbar sind:
 
 - [`Performance`](/de/docs/Web/API/Performance)
 - [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)

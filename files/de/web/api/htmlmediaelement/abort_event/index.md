@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: abort-Ereignis"
+title: "HTMLMediaElement: abort Ereignis"
 short-title: abort
 slug: Web/API/HTMLMediaElement/abort_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`abort`**-Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, aber nicht aufgrund eines Fehlers.
+Das **`abort`**-Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, jedoch nicht als Ergebnis eines Fehlers.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und perlt nicht nach oben.
 
 ## Syntax
 

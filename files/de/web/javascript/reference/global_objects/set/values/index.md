@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`values()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues [Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Werte für jedes Element in diesem Set in Einfügereihenfolge enthält.
+Die **`values()`**-Methode von {{jsxref("Set")}}-Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Werte für jedes Element in diesem Set in Einfügereihenfolge enthält.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-values.html")}}
 

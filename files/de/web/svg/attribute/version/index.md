@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`version`**-Attribut wird verwendet, um anzugeben, welcher Spezifikation ein SVG-Dokument entspricht. Es ist nur im Wurzel-{{SVGElement("svg")}}-Element erlaubt. Es ist rein informativ und hat keinen Einfluss auf die Darstellung oder Verarbeitung.
+Das **`version`**-Attribut wird verwendet, um anzugeben, welcher Spezifikation ein SVG-Dokument entspricht. Es ist nur im Wurzel-{{SVGElement("svg")}}-Element erlaubt. Es ist rein beratend und hat keinen Einfluss auf das Rendering oder die Verarbeitung.
 
-Während es so spezifiziert ist, dass es jede Zahl akzeptiert, sind die einzigen derzeit gültigen Optionen `1.0` und `1.1`.
+Während es spezifiziert ist, jede beliebige Zahl zu akzeptieren, sind die einzigen derzeit gültigen Optionen `1.0` und `1.1`.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("svg")}}
 
@@ -21,7 +21,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </svg>
 ```
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

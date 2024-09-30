@@ -1,5 +1,5 @@
 ---
-title: "OES_draw_buffers_indexed: enableiOES()-Methode"
+title: "OES_draw_buffers_indexed: enableiOES() Methode"
 short-title: enableiOES()
 slug: Web/API/OES_draw_buffers_indexed/enableiOES
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `enableiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung aktiviert das Blending für einen bestimmten Zeichenpuffer.
+Die `enableiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung aktiviert Blending für einen bestimmten Zeichenpuffer.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ enableiOES(target, index)
 - `target`
   - : Muss `gl.BLEND` sein.
 - `index`
-  - : Eine ganzzahlige Zahl `i`, die den Zeichenpuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist. Siehe [WebGL Zeichenpuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Ein ganzzahliger Wert `i`, der den Zeichenpuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` assoziiert ist, siehe [WebGL-Zeichenpufferkonstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 
 ### Rückgabewert
 
@@ -30,13 +30,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - Wenn `target` nicht `gl.BLEND` ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
-- Wenn `index` kein gültiger Wert ist, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
+- Wenn `index` keinen gültigen Wert hat, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
 
 ## Beispiele
 
 ### Blending für Zeichenpuffer aktivieren
 
-Die folgenden zwei Aufrufe aktivieren das Blending für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
+Die folgenden beiden Aufrufe aktivieren Blending für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -62,4 +62,4 @@ const maxDrawBuffers = gl.getParameter(gl.MAX_DRAW_BUFFERS);
 ## Siehe auch
 
 - [`OES_draw_buffers_indexed.disableiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/disableiOES)
-- [WebGL Zeichenpuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)
+- [WebGL-Zeichenpufferkonstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)

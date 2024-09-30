@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.isPointInRange()`**-Methode gibt einen booleschen Wert zurück, der angibt, ob der angegebene Punkt im [`Range`](/de/docs/Web/API/Range) liegt. Sie gibt `true` zurück, wenn der Punkt (Cursorposition) bei `offset` innerhalb von `ReferenceNode` in diesem Bereich liegt.
+Die **`Range.isPointInRange()`**-Methode gibt einen Boolean zurück, der anzeigt, ob der angegebene Punkt im [`Range`](/de/docs/Web/API/Range) liegt. Sie gibt `true` zurück, wenn der Punkt (Cursor-Position) bei `offset` innerhalb des `ReferenceNode` in diesem Bereich liegt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ isPointInRange(referenceNode, offset)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen werden soll.
 - `offset`
-  - : Der Versatz in [`Node`](/de/docs/Web/API/Node) des zu vergleichenden Punktes mit dem [`Range`](/de/docs/Web/API/Range).
+  - : Der Offset innerhalb des [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen werden soll.
 
 ### Rückgabewert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 

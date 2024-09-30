@@ -9,10 +9,10 @@ l10n:
 
 Das Schlüsselwort **`fit-content`** ist gleichbedeutend mit {{cssxref("fit-content_function", "fit-content(stretch)")}}. In der Praxis bedeutet dies, dass die Box den verfügbaren Platz nutzt, aber niemals mehr als {{cssxref("max-content")}}.
 
-Wenn es als Größe für Layout-Boxen wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet wird, beziehen sich die maximalen und minimalen Größen auf die Inhaltsgröße.
+Wenn es als Boxengröße für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet wird, beziehen sich die maximalen und minimalen Größen auf die Inhaltsgröße.
 
 > [!NOTE]
-> Die CSS-Größenspezifikation definiert auch die Funktion {{cssxref("fit-content_function", "fit-content()")}}. Diese Seite beschreibt das Schlüsselwort.
+> Die CSS Sizing-Spezifikation definiert auch die Funktion {{cssxref("fit-content_function", "fit-content()")}}. Diese Seite beschreibt das Schlüsselwort.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ block-size: fit-content;
 
 ## Beispiele
 
-### Verwendung von fit-content zur Größenbestimmung von Boxen
+### Verwendung von fit-content für die Boxengröße
 
 #### HTML
 
@@ -69,5 +69,5 @@ block-size: fit-content;
 
 ## Siehe auch
 
-- Verwandte Schlüsselwörter zur Größenbestimmung: {{cssxref("min-content")}}, {{cssxref("max-content")}}
-- [Modul zur Größenbestimmung von CSS-Boxen](/de/docs/Web/CSS/CSS_box_sizing)
+- Verwandte Größenbegriffe: {{cssxref("min-content")}}, {{cssxref("max-content")}}
+- [CSS box sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul

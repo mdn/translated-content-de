@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: Methode replaceData()"
+title: "CharacterData: replaceData() Methode"
 short-title: replaceData()
 slug: Web/API/CharacterData/replaceData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replaceData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces entfernt eine bestimmte Anzahl von Zeichen des vorhandenen Textes in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen mit dem bereitgestellten Text.
+Die **`replaceData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces entfernt eine bestimmte Anzahl von Zeichen des bestehenden Textes in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen durch den angegebenen Text.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ characterData.replaceData(offset, count, data)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Zeichen vom Beginn der Daten an, um dort einzufügen.
+  - : Die Anzahl der Zeichen vom Anfang der Daten, an denen eingefügt werden soll.
     `0` ist das erste Zeichen der Zeichenkette.
 - `count`
   - : Die Anzahl der Zeichen, die durch die bereitgestellten Daten ersetzt werden sollen.
@@ -33,7 +33,7 @@ Keiner.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `offset` oder `count` negativ ist oder `offset` größer als die Länge der enthaltenen Daten ist.
+  - : Wird ausgelöst, wenn `offset` oder `count` negativ ist oder `offset` größer ist als die Länge der enthaltenen Daten.
 
 ## Beispiel
 

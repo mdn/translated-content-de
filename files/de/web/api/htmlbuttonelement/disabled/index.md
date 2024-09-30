@@ -1,5 +1,5 @@
 ---
-title: "HTMLButtonElement: disabled Eigenschaft"
+title: "HTMLButtonElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLButtonElement/disabled
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLButtonElement.disabled`**-Eigenschaft zeigt an, ob das Steuerelement deaktiviert ist, was bedeutet, dass es keine Klicks akzeptiert.
+Die **`HTMLButtonElement.disabled`**-Eigenschaft gibt an, ob das Steuerelement deaktiviert ist, was bedeutet, dass es keine Klicks akzeptiert.
 
 ## Wert
 

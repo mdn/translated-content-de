@@ -16,13 +16,13 @@ Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo
 }
 ```
 
-Zum Beispiel hat die folgende URL ein Fragment (markiert durch das _#_ Zeichen), das auf ein Element namens `section2` verweist:
+Zum Beispiel hat die folgende URL ein Fragment (gekennzeichnet durch das _#_-Zeichen), das auf ein Element namens `section2` verweist:
 
 ```url
 http://www.example.com/index.html#section2
 ```
 
-Das folgende Element würde von einem `:target`-Selektor ausgewählt, wenn die aktuelle URL der obigen entspricht:
+Das folgende Element würde durch einen `:target`-Selektor ausgewählt, wenn die aktuelle URL der obigen entspricht:
 
 ```html
 <section id="section2">Example</section>
@@ -37,13 +37,13 @@ Das folgende Element würde von einem `:target`-Selektor ausgewählt, wenn die a
 ```
 
 > [!NOTE]
-> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Web-Komponents](/de/docs/Web/API/Web_components), da der [Shadow Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht an den Shadow-Baum weitergibt.
+> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Webkomponenten](/de/docs/Web/API/Web_components), da die [Shadow Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht an den Shadow-Baum weitergibt.
 
 ## Beispiele
 
 ### Ein Inhaltsverzeichnis
 
-Die `:target` Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, der von einem Inhaltsverzeichnis aus verlinkt wurde.
+Die `:target`-Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, der über ein Inhaltsverzeichnis verlinkt wurde.
 
 #### HTML
 
@@ -105,4 +105,4 @@ p:target i {
 
 ## Siehe auch
 
-- [Verwendung der :target Pseudoklasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)
+- [Verwendung der :target-Pseudoklasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)

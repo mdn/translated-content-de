@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: Methode getTracks()"
+title: "MediaStream: getTracks() Methode"
 short-title: getTracks()
 slug: Web/API/MediaStream/getTracks
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die Methode **`getTracks()`** der
+Die **`getTracks()`**-Methode der
 [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle gibt eine Sequenz zurück, die alle
-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte in diesem
-Stream's [Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) darstellt, unabhängig von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind).
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte im
+[Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) dieses Streams repräsentiert,
+unabhängig von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind).
 
 ## Syntax
 

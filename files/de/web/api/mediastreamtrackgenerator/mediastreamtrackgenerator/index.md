@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) Objekt, das einen Strom von Medien-Frames konsumiert und einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellt.
+Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) Objekt, das einen Strom von Medienrahmen verarbeitet und einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellt.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ new MediaStreamTrackGenerator(options)
 - `options`
   - : Ein Objekt, das die Eigenschaft `kind` enthält, welche einer der folgenden Strings ist:
     - `"audio"`
-      - : Gibt an, dass der Stream [`AudioTrack`](/de/docs/Web/API/AudioTrack) Objekte akzeptiert.
+      - : Gibt an, dass der Stream [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte akzeptiert.
     - `"video"`
-      - : Gibt an, dass der Stream [`VideoTrack`](/de/docs/Web/API/VideoTrack) Objekte akzeptiert.
+      - : Gibt an, dass der Stream [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekte akzeptiert.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ new MediaStreamTrackGenerator(options)
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer Video `MediaStreamTrackGenerator` erstellt.
+Im folgenden Beispiel wird ein neuer `MediaStreamTrackGenerator` für Video erstellt.
 
 ```js
 const trackGenerator = new MediaStreamTrackGenerator({ kind: "video" });
@@ -48,4 +48,4 @@ const trackGenerator = new MediaStreamTrackGenerator({ kind: "video" });
 
 ## Siehe auch
 
-- [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing)
+- [Insertable Streams für MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing)

@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`bubbles`** des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt an, ob das Ereignis durch den DOM-Baum aufsteigt oder nicht.
+Die **`bubbles`** Leseeigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces zeigt an, ob das Ereignis durch den DOM-Baum aufsteigt oder nicht.
 
 > [!NOTE]
-> Weitere Informationen zum Thema "Ereignisaufstieg" finden Sie unter [Event bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+> Siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) für weitere Informationen über das Bubbling.
 
 ## Wert
 
@@ -41,6 +41,6 @@ function handleInput(e) {
 
 ## Siehe auch
 
-- [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), um die weitere Ausbreitung des aktuellen Ereignisses in den Erfassungs- und Aufstiegsphasen zu verhindern
+- [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), um die weitere Ausbreitung des aktuellen Ereignisses in den Capture- und Bubbling-Phasen zu verhindern
 - [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation), um keine weiteren Listener für dasselbe Ereignis auf derselben Ebene im DOM aufzurufen
-- [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), um die Fortsetzung der Ausbreitung zu ermöglichen, aber dem Browser die Ausführung seiner Standardaktion zu verwehren, falls keine Listener das Ereignis bearbeiten
+- [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), um die Ausbreitung fortzusetzen, aber dem Browser zu verbieten, die Standardaktion auszuführen, falls keine Listener das Ereignis behandeln

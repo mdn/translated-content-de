@@ -1,5 +1,5 @@
 ---
-title: "PerformanceNavigationTiming: redirectCount Eigenschaft"
+title: "PerformanceNavigationTiming: redirectCount-Eigenschaft"
 short-title: redirectCount
 slug: Web/API/PerformanceNavigationTiming/redirectCount
 l10n:
@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`redirectCount`** schreibgeschützte Eigenschaft gibt eine Zahl zurück, die die Anzahl der Weiterleitungen seit der letzten Nicht-Weiterleitung-Navigation im aktuellen Browsing-Kontext darstellt.
+Die **`redirectCount`**-Eigenschaft, die nur lesbar ist, gibt eine Zahl zurück, die die Anzahl der Weiterleitungen seit der letzten Nicht-Weiterleitungsnavigation im aktuellen Browsing-Kontext darstellt.
 
-Je mehr Weiterleitungen eine Seite hat, desto länger ist die Ladezeit der Seite. Um die Leistung Ihrer Webseite zu verbessern, sollten Sie mehrere Weiterleitungen vermeiden.
+Je höher die Anzahl der Weiterleitungen auf einer Seite, desto länger dauert die Seitenladezeit. Um die Leistung Ihrer Webseite zu verbessern, vermeiden Sie mehrere Weiterleitungen.
 
-Die Eigenschaften [`redirectStart`](/de/docs/Web/API/PerformanceResourceTiming/redirectStart) und [`redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) können verwendet werden, um die Umleitungszeit zu messen. Beachten Sie, dass sie für umleitungsübergreifende Ursprünge `0` zurückgeben.
+Die Eigenschaften [`redirectStart`](/de/docs/Web/API/PerformanceResourceTiming/redirectStart) und [`redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) können verwendet werden, um die Umleitungszeit zu messen. Beachten Sie, dass sie `0` für Cross-Origin-Weiterleitungen zurückgeben werden.
 
-Beachten Sie, dass clientseitige Weiterleitungen, wie `<meta http-equiv="refresh" content="0; url=https://example.com/">`, hier nicht berücksichtigt werden.
+Beachten Sie, dass clientseitige Weiterleitungen, wie `<meta http-equiv="refresh" content="0; url=https://example.com/">` hier nicht berücksichtigt werden.
 
 ## Wert
 
-Die Eigenschaft `redirectCount` kann die folgenden Werte haben:
+Die `redirectCount`-Eigenschaft kann die folgenden Werte haben:
 
-- Eine Zahl, die die Anzahl der Weiterleitungen seit der letzten Nicht-Weiterleitung-Navigation im aktuellen Browsing-Kontext darstellt.
-- `0`, wenn die Weiterleitung umleitungsübergreifend ist.
+- Eine Zahl, die die Anzahl der Weiterleitungen seit der letzten Nicht-Weiterleitungsnavigation im aktuellen Browsing-Kontext darstellt.
+- `0`, wenn die Weiterleitung Cross-Origin ist.
 
 ## Beispiele
 
 ### Protokollierung von Einträgen mit Weiterleitungen
 
-Die Eigenschaft `redirectCount` kann verwendet werden, um zu überprüfen, ob es eine oder mehrere Weiterleitungen gibt. Wir protokollieren den Namen des Eintrags und die Umleitungszeit, falls verfügbar.
+Die `redirectCount`-Eigenschaft kann verwendet werden, um zu überprüfen, ob es eine oder mehrere Weiterleitungen gibt. Wir protokollieren den Namen des Eintrags und die Umleitungszeit, falls verfügbar.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Leistungseinträge benachrichtigt, sobald sie in der Leistungszeitleiste des Browsers erfasst werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
+Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Leistungseinträge benachrichtigt, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Beobachters vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -49,7 +49,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Leistungseinträge zeigt, die im Leistungstimeline des Browsers zum Zeitpunkt des Aufrufs dieser Methode vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");

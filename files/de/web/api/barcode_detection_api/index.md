@@ -11,9 +11,9 @@ Die Barcode Detection API erkennt lineare und zweidimensionale Barcodes in Bilde
 
 ## Konzepte und Verwendung
 
-Die Unterstützung der Barcode-Erkennung in Web-Apps eröffnet eine Vielzahl von Anwendungsfällen durch die unterstützten Barcode-Formate. QR-Codes können für Online-Zahlungen, Webnavigation oder den Aufbau von Verbindungen in sozialen Medien verwendet werden, Aztec-Codes können zum Scannen von Bordkarten genutzt werden, und Shopping-Apps können EAN- oder UPC-Barcodes verwenden, um Preise physischer Artikel zu vergleichen.
+Die Unterstützung für die Barcode-Erkennung in Webanwendungen eröffnet eine Vielzahl von Anwendungsfällen durch unterstützte Barcode-Formate. QR-Codes können für Online-Zahlungen, die Navigation im Web oder die Herstellung von Verbindungen in sozialen Medien verwendet werden, Aztec-Codes können zum Scannen von Bordkarten eingesetzt werden, und Einkaufs-Apps können EAN- oder UPC-Barcodes verwenden, um Preise physischer Artikel zu vergleichen.
 
-Die Erkennung erfolgt über die [`detect()`](/de/docs/Web/API/BarcodeDetector/detect)-Methode, die ein Bildobjekt verwendet; dieses kann eines der folgenden Objekte sein:
+Die Erkennung erfolgt über die Methode [`detect()`](/de/docs/Web/API/BarcodeDetector/detect), die ein Bildobjekt nimmt; es kann eines dieser Objekte sein:
 ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement),
 ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement),
 ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
@@ -23,7 +23,7 @@ ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas),
 ein [`VideoFrame`](/de/docs/Web/API/VideoFrame),
 ein [`Blob`](/de/docs/Web/API/Blob),
 oder ein [`ImageData`](/de/docs/Web/API/ImageData).
-Optionale Parameter können an den [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Konstruktor übergeben werden, um Hinweise darauf zu geben, welche Barcode-Formate erkannt werden sollen.
+Optionale Parameter können an den Konstruktor von [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector) übergeben werden, um Hinweise zu geben, welche Barcode-Formate erkannt werden sollen.
 
 ### Unterstützte Barcode-Formate
 
@@ -41,11 +41,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>aztec</td>
       <td>
-        Eine quadratische zweidimensionale Matrix, die iso24778 folgt und ein quadratisches Zielmuster in der Mitte aufweist und somit einer aztekischen Pyramide ähnelt. Benötigt keine umgebende weiße Zone.
+        Eine quadratische, zweidimensionale Matrix nach iso24778 mit einem quadratischen Bullaugenmuster in der Mitte, das an eine aztekische Pyramide erinnert. Es ist keine umgebende Leerzone erforderlich.
       </td>
       <td>
         <img
-          alt="Ein Beispielbild eines Aztec-Barcodes. Ein Quadrat mit kleineren schwarzen und weißen Quadraten innen"
+          alt="Ein Beispielbild eines Aztec-Barcodes. Ein Quadrat mit kleineren schwarz-weißen Quadraten darin"
           src="aztec.gif"
         />
       </td>
@@ -53,11 +53,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>code_128</td>
       <td>
-        Ein linearer (eindimensionaler), in beide Richtungen dekodierbarer, selbstprüfender Barcode, der iso15417 folgt und in der Lage ist, alle 128 Zeichen von [ASCII](/de/docs/Glossary/ASCII) zu kodieren (daher der Name).
+        Ein linearer (eindimensionaler), bidirektional dekodierbarer, selbstprüfender Barcode gemäß iso15417, der alle 128 Zeichen des [ASCII](/de/docs/Glossary/ASCII) kodieren kann (daher der Name).
       </td>
       <td>
         <img
-          alt="Ein Bild eines Code-128-Barcodes. Eine horizontale Anordnung von vertikalen schwarzen und weißen Linien"
+          alt="Ein Bild eines Code-128 Barcodes. Eine horizontale Verteilung von vertikalen schwarzen und weißen Linien"
           src="code-128.gif"
         />
       </td>
@@ -65,11 +65,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>code_39</td>
       <td>
-        Ein linearer (eindimensionaler), selbstprüfender Barcode, der iso16388 folgt. Es ist ein diskretes und variabel langes Barcode-Typ.
+        Ein linearer (eindimensionaler), selbstprüfender Barcode gemäß iso16388. Er ist ein diskreter und variabler Barcode-Typ.
       </td>
       <td>
         <img
-          alt="Ein Bild eines Code-39-Barcodes. Eine horizontale Anordnung von vertikalen schwarzen und weißen Linien"
+          alt="Ein Bild eines Code-39 Barcodes. Eine horizontale Verteilung von vertikalen schwarzen und weißen Linien"
           src="code-39.png"
         />
       </td>
@@ -77,11 +77,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>code_93</td>
       <td>
-        Eine lineare, kontinuierliche Symbologie mit variabler Länge, die bc5 folgt. Sie bietet eine größere Informationsdichte als Code 128 und der optisch ähnliche Code 39. Code 93 wird hauptsächlich von der Canada Post verwendet, um zusätzliche Lieferinformationen zu kodieren.
+        Eine lineare, kontinuierliche Symbolik mit variabler Länge gemäß bc5. Sie bietet eine höhere Informationsdichte als Code 128 und der optisch ähnliche Code 39. Code 93 wird hauptsächlich von Canada Post zur Kodierung zusätzlicher Lieferinformationen verwendet.
       </td>
       <td>
         <img
-          alt="Ein Bild eines Code 93-Barcode-Formats. Eine horizontale Anordnung von weißen und schwarzen horizontalen Linien"
+          alt="Ein Bild eines Code 93 Barcodes. Eine horizontale Verteilung von schwarzen und weißen horizontalen Linien"
           src="code-93.png"
         />
       </td>
@@ -89,11 +89,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>codabar</td>
       <td>
-        Ein linearer Barcode, der die Zeichen 0-9, A-D und Symbole - . $ / + darstellt.
+        Ein linearer Barcode, der Zeichen 0-9, A-D und Symbole - . $ / + darstellt.
       </td>
       <td>
         <img
-          alt="Ein Bild eines Codabar-Formats-Barcodes. Eine horizontale Anordnung von schwarzen und weißen vertikalen Linien"
+          alt="Ein Bild eines Codabar-Formates Barcodes. Eine horizontale Verteilung von schwarzen und weißen vertikalen Linien"
           src="codabar.png"
         />
       </td>
@@ -101,11 +101,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>data_matrix</td>
       <td>
-        Ein orientierungsunabhängiger zweidimensionaler Barcode, der aus schwarzen und weißen Modulen besteht, die entweder in einem quadratischen oder rechteckigen Muster angeordnet sind und iso16022 folgt.
+        Ein richtungsunabhängiger, zweidimensionaler Barcode, bestehend aus schwarz-weißen Modulen, die entweder in einem quadratischen oder rechteckigen Muster gemäß iso16022 angeordnet sind.
       </td>
       <td>
         <img
-          alt="Ein Beispiel eines Data-Matrix-Barcodes. Ein Quadrat mit kleineren schwarzen und weißen Quadraten gefüllt"
+          alt="Ein Beispiel eines Data Matrix Barcodes. Ein Quadrat, gefüllt mit kleineren schwarz-weißen Quadraten"
           src="data-matrix.png"
         />
       </td>
@@ -113,21 +113,21 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>ean_13</td>
       <td>
-        Ein linearer Barcode, der auf dem UPC-A-Standard basiert und in iso15420 definiert ist.
+        Ein linearer Barcode basierend auf dem UPC-A-Standard und definiert in iso15420.
       </td>
       <td>
         <img
-          alt="Ein Bild eines EAN-13-Format-Barcodes. Eine horizontale Anordnung von weißen und schwarzen Linien"
+          alt="Ein Bild eines EAN-13 Barcodes. Eine horizontale Verteilung von weißen und schwarzen Linien"
           src="ean-13.png"
         />
       </td>
     </tr>
     <tr>
       <td>ean_8</td>
-      <td>Ein linearer Barcode, der in iso15420 definiert und von EAN-13 abgeleitet ist.</td>
+      <td>Ein linearer Barcode definiert in iso15420 und abgeleitet von EAN-13.</td>
       <td>
         <img
-          alt="Ein Bild eines EAN-8-Format-Barcodes. Eine horizontale Anordnung von vertikalen schwarzen und weißen Linien"
+          alt="Ein Bild eines EAN-8 Barcodes. Eine horizontale Verteilung von vertikalen schwarzen und weißen Linien"
           src="ean-8.png"
         />
       </td>
@@ -139,7 +139,7 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
       </td>
       <td>
         <img
-          alt="Ein Bild eines ITF-Barcodes. Eine horizontale Anordnung von weißen und schwarzen Linien"
+          alt="Ein Bild eines ITF Barcodes. Eine horizontale Verteilung von weißen und schwarzen Linien"
           src="ift.png"
         />
       </td>
@@ -147,11 +147,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>pdf417</td>
       <td>
-        Ein kontinuierliches zweidimensionales Barcode-Symbologie-Format mit mehreren Reihen und Spalten. Es ist in beide Richtungen dekodierbar und nutzt den iso15438-Standard.
+        Eine kontinuierliche, zweidimensionale Barcode-Symbologie mit mehreren Zeilen und Spalten. Er ist bidirektional dekodierbar und verwendet den iso15438-Standard.
       </td>
       <td>
         <img
-          alt="Ein Beispiel eines pdf417-Barcode-Formats. Ein Rechteck aus kleineren schwarzen und weißen Quadraten"
+          alt="Ein Beispiel eines pdf417 Barcodes. Ein Rechteck aus kleineren schwarz-weißen Quadraten"
           src="pdf417.png"
         />
       </td>
@@ -159,11 +159,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>qr_code</td>
       <td>
-        Ein zweidimensionaler Barcode, der den iso18004-Standard nutzt. Die kodierten Informationen können Text, URL oder andere Daten sein.
+        Ein zweidimensionaler Barcode, der den iso18004-Standard verwendet. Die kodierte Information kann Text, URL oder andere Daten sein.
       </td>
       <td>
         <img
-          alt="Ein Beispiel eines QR-Codes. Ein Quadrat aus kleineren schwarzen und weißen Quadraten"
+          alt="Ein Beispiel eines QR-Codes. Ein Quadrat aus kleineren schwarz-weißen Quadraten"
           src="qr-code.png"
         />
       </td>
@@ -171,11 +171,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>upc_a</td>
       <td>
-        Eines der häufigsten linearen Barcode-Typen und weit verbreitet im Einzelhandel in den Vereinigten Staaten. Definiert in iso15420, repräsentiert es Ziffern durch Streifen aus Balken und Zwischenräumen, wobei jede Ziffer einem einzigartigen Muster aus 2 Balken und 2 Zwischenräumen zugeordnet wird, die alle eine variable Breite aufweisen. UPC-A kann 12 Ziffern kodieren, die jedem Handelsartikel eindeutig zugeordnet sind, und ist technisch ein Subset von EAN-13 (UPC-A-Codes werden in EAN-13 dargestellt, wobei das erste Zeichen auf 0 gesetzt ist).
+        Einer der am häufigsten verwendeten linearen Barcode-Typen und weit verbreitet im Einzelhandel in den Vereinigten Staaten. Definiert in iso15420, stellt er Ziffern durch Streifen von Balken und Lücken dar, wobei jede Ziffer mit einem eindeutigen Muster von 2 Balken und 2 Lücken, beide variabler Breite, verbunden ist. UPC-A kann 12 Ziffern kodieren, die jedem Handelsartikel eindeutig zugeordnet sind, und ist technisch gesehen ein Teil der EAN-13 (UPC-A-Codes sind in EAN-13 mit dem ersten Zeichensatz auf 0 dargestellt).
       </td>
       <td>
         <img
-          alt="Ein Bild eines UPC-A-Barcodes. Ein Rechteck aus schwarzen und weißen vertikalen Linien mit Zahlen darunter"
+          alt="Ein Bild eines UPC-A Barcodes. Ein Rechteck aus schwarz-weißen vertikalen Linien mit darunter liegenden Zahlen"
           src="upc-a.png"
         />
       </td>
@@ -183,11 +183,11 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>upc_e</td>
       <td>
-        Eine Variation von UPC-A, die in iso15420 definiert ist und unnötige Nullen für einen kompakteren Barcode auslässt.
+        Eine Variation von UPC-A, definiert in iso15420, die unnötige Nullen für einen kompakteren Barcode auslässt.
       </td>
       <td>
         <img
-          alt="Ein Bild eines UPC-E-Barcodes. Ein Rechteck aus schwarzen und weißen vertikalen Linien"
+          alt="Ein Bild eines UPC-E Barcodes. Ein Rechteck aus schwarz-weißen vertikalen Linien"
           src="upc-e.png"
         />
       </td>
@@ -195,14 +195,14 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>unknown</td>
       <td>
-        Dieser Wert wird von der Plattform verwendet, um anzuzeigen, dass sie weder weiß noch angibt, welches Barcode-Format erkannt oder unterstützt wird.
+        Dieser Wert wird von der Plattform verwendet, um anzuzeigen, dass sie nicht weiß oder angibt, welches Barcode-Format erkannt oder unterstützt wird.
       </td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-Sie können die vom User-Agent unterstützten Formate über die [`getSupportedFormats()`](/de/docs/Web/API/BarcodeDetector/getSupportedFormats_static)-Methode überprüfen.
+Sie können die von der Benutzeroberfläche unterstützten Formate über die Methode [`getSupportedFormats()`](/de/docs/Web/API/BarcodeDetector/getSupportedFormats_static) überprüfen.
 
 ## Schnittstellen
 
@@ -211,7 +211,7 @@ Sie können die vom User-Agent unterstützten Formate über die [`getSupportedFo
 
 ## Beispiele
 
-### Erstellung eines Detektors
+### Erstellen eines Detektors
 
 Dieses Beispiel testet die Browser-Kompatibilität und erstellt ein neues Barcode-Detektor-Objekt mit angegebenen unterstützten Formaten.
 
@@ -231,7 +231,7 @@ if (!("BarcodeDetector" in globalThis)) {
 
 ### Abrufen unterstützter Formate
 
-Das folgende Beispiel ruft die `getSupportedFormats()`-Methode auf und protokolliert die Ergebnisse in der Konsole.
+Das folgende Beispiel ruft die Methode `getSupportedFormats()` auf und protokolliert die Ergebnisse in der Konsole.
 
 ```js
 // check supported types
@@ -240,9 +240,9 @@ BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
 });
 ```
 
-### Erkennung von Barcodes
+### Erkennen von Barcodes
 
-Dieses Beispiel verwendet die `detect()`-Methode, um die Barcodes im gegebenen Bild zu erkennen. Diese werden iteriert und die Barcodedaten in der Konsole protokolliert.
+Dieses Beispiel verwendet die Methode `detect()`, um die Barcodes im angegebenen Bild zu erkennen. Diese werden durchlaufen und die Barcode-Daten werden in der Konsole protokolliert.
 
 ```js
 barcodeDetector
@@ -265,5 +265,5 @@ barcodeDetector
 
 ## Siehe auch
 
-- [barcodefaq.com: Eine Website mit Informationen zu verschiedenen Barcodes und Beispielen der verschiedenen Typen.](https://www.barcodefaq.com/)
+- [barcodefaq.com: Eine Website mit Informationen über verschiedene Barcodes und Beispielen der verschiedenen Typen.](https://www.barcodefaq.com/)
 - [The Shape Detection API: a picture is worth a thousand words, faces, and barcodes](https://developer.chrome.com/docs/capabilities/shape-detection#barcodedetector)

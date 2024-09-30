@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableRowElement: insertCell()-Methode"
+title: "HTMLTableRowElement: insertCell() Methode"
 short-title: insertCell()
 slug: Web/API/HTMLTableRowElement/insertCell
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertCell()`**-Methode der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
+Die **`insertCell()`** Methode der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Schnittstelle fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
 
-> **Note:** `insertCell()` fügt die Zelle direkt in die Zeile ein. Die Zelle muss nicht separat mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<td>`-Element zu erstellen.
+> **Note:** `insertCell()` fügt die Zelle direkt in die
+> Zeile ein. Die Zelle muss nicht separat mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) angehängt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<td>` Element zu erstellen.
 >
-> Sie können `insertCell()` jedoch nicht verwenden, um ein neues `<th>`-Element zu erstellen.
+> Sie können `insertCell()` jedoch nicht verwenden, um ein neues `<th>`
+> Element zu erstellen.
 
 ## Syntax
 
@@ -24,11 +26,11 @@ insertCell(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` oder gleich der Anzahl der Zellen ist, wird die Zelle als letzte Zelle in der Zeile angefügt. Wenn `index` weggelassen wird, wird er standardmäßig auf `-1` gesetzt.
+  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` oder gleich der Anzahl der Zellen ist, wird die Zelle als letzte Zelle in der Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement), das die neue Zelle referenziert.
+Ein [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement), das auf die neue Zelle verweist.
 
 ### Ausnahmen
 
@@ -37,7 +39,7 @@ Ein [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement), das die neu
 
 ## Beispiele
 
-Dieses Beispiel verwendet `HTMLTableRowElement.insertCell()`, um eine neue Zelle an eine Zeile anzufügen.
+Dieses Beispiel verwendet `HTMLTableRowElement.insertCell()`, um eine neue Zelle an eine Zeile anzuhängen.
 
 ### HTML
 

@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Position von neu geöffneten Tabs im Verhältnis zu bereits geöffneten Tabs zu steuern.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Position neu geöffneter Tabs relativ zu bereits geöffneten Tabs zu steuern.
 
 Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen kann:
 
 - "afterCurrent": Öffnet alle neuen Tabs neben dem aktuellen Tab.
-- "relatedAfterCurrent": Der Standardwert. Öffnet neue Tabs neben dem aktuellen Tab, wenn sie mit dem aktuellen Tab in Verbindung stehen (zum Beispiel, wenn sie über einen Link im aktuellen Tab geöffnet wurden). Andernfalls werden neue Tabs am Ende der Tab-Leiste geöffnet.
+- "relatedAfterCurrent": Der Standardwert. Öffnet neue Tabs neben dem aktuellen Tab, wenn sie mit dem aktuellen Tab verwandt sind (zum Beispiel, wenn sie über einen Link im aktuellen Tab geöffnet wurden). Anderenfalls werden neue Tabs am Ende der Tab-Leiste geöffnet.
 - "atEnd": Öffnet alle Tabs am Ende der Tab-Leiste.
 
 ## Browser-Kompatibilität
@@ -21,7 +21,7 @@ Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen ka
 
 ## Beispiele
 
-Dieser Code setzt den Wert auf "afterCurrent" und gibt dann den neuen Wert aus:
+Dieser Code setzt den Wert auf "afterCurrent" und protokolliert dann den neuen Wert:
 
 ```js
 async function setAfterCurrent() {

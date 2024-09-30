@@ -1,5 +1,5 @@
 ---
-title: "Event: target-Eigenschaft"
+title: "Event: Eigenschaft target"
 short-title: target
 slug: Web/API/Event/target
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`target`**-Eigenschaft des
-[`Event`](/de/docs/Web/API/Event)-Interfaces ist ein Verweis auf das Objekt, auf das das Ereignis
-ausgelöst wurde. Sie unterscheidet sich von [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget), wenn der
-Ereignis-Handler während der Bubbling- oder Capturing-Phase des Ereignisses aufgerufen wird.
+Die schreibgeschützte **`target`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces ist ein Verweis auf das Objekt, auf das das Ereignis ausgelöst wurde. Sie unterscheidet sich von [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget), wenn der Ereignis-Handler während der Bubbling-Phase oder der Capturing-Phase des Ereignisses aufgerufen wird.
 
 ## Wert
 
@@ -19,8 +16,7 @@ Das zugehörige [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 ## Beispiel
 
-Die `event.target`-Eigenschaft kann verwendet werden, um eine **Ereignisdelegation**
-zu implementieren.
+Die `event.target`-Eigenschaft kann genutzt werden, um **Ereignisdelegation** zu implementieren.
 
 ```js
 // Make a list
@@ -53,4 +49,4 @@ ul.addEventListener("click", hide, false);
 
 ## Siehe auch
 
-- [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling)
+- [Ereignisbubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling)

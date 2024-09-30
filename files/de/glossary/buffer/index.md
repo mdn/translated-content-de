@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Puffer** ist ein Speicher im physischen Speicher, der dazu verwendet wird, Daten vorübergehend zu speichern, während sie von einem Ort zum anderen übertragen werden.
+Ein **Puffer** ist ein Speicher im physischen Speicher, der verwendet wird, um Daten vorübergehend zu speichern, während sie von einem Ort zum anderen übertragen werden.
 
 ## Siehe auch
 

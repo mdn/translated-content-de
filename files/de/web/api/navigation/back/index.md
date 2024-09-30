@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`back()`**-Methode der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle navigiert einen Eintrag zurück in der Navigationshistorie.
+Die **`back()`**-Methode des
+[`Navigation`](/de/docs/Web/API/Navigation)-Interfaces navigiert um einen Eintrag rückwärts in der Navigationshistorie.
 
 ## Syntax
 
@@ -19,25 +20,25 @@ back(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
+  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `info` {{optional_inline}}
-      - : Vom Entwickler definierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis übergeben werden und in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info) verfügbar sind. Dies kann jeder Datentyp sein. Sie könnten beispielsweise wünschen, neu navigierte Inhalte mit einer anderen Animation anzuzeigen, je nachdem, wie dorthin navigiert wurde (nach links wischen, nach rechts wischen oder zur Startseite). Ein String, der angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
+      - : Entwicklerdefinierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Event übergeben werden, verfügbar gemacht in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info). Dies kann jeden Datentyp haben. Sie könnten beispielsweise den neu navigierten Inhalt mit einer anderen Animation anzeigen, je nachdem, wie dorthin navigiert wurde (nach links streichen, nach rechts streichen, oder nach Hause gehen). Ein String, der angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
 
 ### Rückgabewert
 
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `committed`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
+  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn die sichtbare URL geändert wurde und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
 - `finished`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle von dem `intercept()`-Handler zurückgegebenen Promises erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Promises, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird.
+  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn alle Promise, die vom `intercept()`-Handler zurückgegeben werden, erfüllt sind. Dies entspricht der Erfüllung des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Promises, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Event ausgelöst wird.
 
-Eines dieser Promises wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+Jedes dieser Promise wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)'s [`NavigationHistoryEntry.index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert -1 oder 0 ist, d.h. entweder das aktuelle [`Document`](/de/docs/Web/API/Document) ist noch nicht aktiv, oder der aktuelle Eintrag in der Historie ist der erste, was bedeutet, dass eine Rückwärtsnavigation nicht möglich ist, oder wenn das aktuelle [`Document`](/de/docs/Web/API/Document) entladen wird.
+  - : Wird ausgelöst, wenn der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)-Wert des [`NavigationHistoryEntry.index`](/de/docs/Web/API/NavigationHistoryEntry/index) -1 oder 0 ist, d.h. entweder ist das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv, oder der aktuelle Historieneintrag ist der erste in der Historie, was bedeutet, dass eine Rückwärtsnavigation nicht möglich ist, oder wenn das aktuelle [`Document`](/de/docs/Web/API/Document) entlädt.
 
 ## Beispiele
 
@@ -73,6 +74,6 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

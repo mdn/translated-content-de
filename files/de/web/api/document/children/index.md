@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`children`**-Eigenschaft gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Kind-[`Elemente`](/de/docs/Web/API/Element) des aufgerufenen Dokuments enthält.
+Die schreibgeschützte **`children`**-Eigenschaft gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Kind-[`Elemente`](/de/docs/Web/API/Element) des Dokuments enthält, auf das sie angewendet wurde.
 
 Für HTML-Dokumente ist dies normalerweise nur das Wurzel-`<html>`-Element.
 
-Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kinder-Elemente von spezifischen HTML-Elementen innerhalb des Dokuments.
+Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kindelemente spezifischer HTML-Elemente innerhalb des Dokuments.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live- und geordnete Sammlung von DOM-Elementen ist, welche die Kinder des aktuellen Dokuments sind. Sie können auf die einzelnen Kindknoten in der Sammlung zugreifen, indem Sie entweder die [`item()`](/de/docs/Web/API/HTMLCollection/item)-Methode auf der Sammlung verwenden oder die JavaScript-Array-Notation nutzen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live-, geordnete Sammlung von DOM-Elementen ist, die Kinder des aktuellen Dokuments sind. Sie können auf die einzelnen Knoten in der Sammlung zugreifen, indem Sie entweder die Methode [`item()`](/de/docs/Web/API/HTMLCollection/item) auf der Sammlung verwenden oder JavaScript-Array-Notation verwenden.
 
-Wenn das Dokument keine Elementkinder hat, ist `children` eine leere Liste mit einer `length` von `0`.
+Wenn das Dokument keine Element-Kinder hat, ist `children` eine leere Liste mit einer `length` von `0`.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ document.children;
 // Usually only contains the root <html> element, the document's only direct child
 ```
 
-Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kinder-Elemente von spezifischen HTML-Elementen innerhalb des Dokuments.
+Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kindelemente spezifischer HTML-Elemente innerhalb des Dokuments.
 
 ## Spezifikationen
 

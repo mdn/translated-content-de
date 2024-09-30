@@ -10,7 +10,7 @@ l10n:
 
 Die `curve`-Eigenschaft des [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode)-Interfaces ist ein {{jsxref("Float32Array")}} von Zahlen, die die anzuwendende Verzerrung beschreiben.
 
-Das mittlere Element des Arrays wird auf Signalwerte von `0` angewendet, das erste auf Signalwerte von `-1` und das letzte auf Signalwerte von `1`; Werte niedriger als `-1` oder größer als `1` werden wie `-1` oder `1` behandelt.
+Das mittlere Element des Arrays wird auf jeden Signalwert von `0` angewendet, das erste auf Signalwerte von `-1` und das letzte auf Signalwerte von `1`; Werte kleiner als `-1` oder größer als `1` werden wie `-1` beziehungsweise `1` behandelt.
 
 Falls notwendig, werden Zwischenwerte der Verzerrungskurve linear interpoliert.
 

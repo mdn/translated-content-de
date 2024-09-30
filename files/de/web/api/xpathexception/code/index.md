@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("DOM XPath")}}{{Deprecated_Header}}
 
-Die **`code`**-Eigenschaft der schreibgeschützten
-[`XPathException`](/de/docs/Web/API/XPathException)-Schnittstelle gibt ein `short` zurück, das einen der [Fehlercode-Konstanten](/de/docs/Web/API/XPathException#constants) enthält.
+Die **`code`**-Schreibgeschützte Eigenschaft der [`XPathException`](/de/docs/Web/API/XPathException)-Schnittstelle gibt ein `short` zurück, das einen der [Fehlercode-Konstanten](/de/docs/Web/API/XPathException#constants) enthält.
 
 ## Wert
 
-Eine `short`-Zahl, die den Fehlercode darstellt.
+Eine `short`-Zahl, die den Fehlercode repräsentiert.
 
 ## Spezifikationen
 

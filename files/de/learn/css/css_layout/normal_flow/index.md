@@ -1,5 +1,5 @@
 ---
-title: Normalfluss
+title: Normaler Fluss
 slug: Learn/CSS/CSS_layout/Normal_Flow
 l10n:
   sourceCommit: c841fb26641736ead1324b193f51aef5625d97fa
@@ -9,48 +9,47 @@ l10n:
 
 {{PreviousMenuNext("Learn/CSS/CSS_layout/Introduction", "Learn/CSS/CSS_layout/Flexbox", "Learn/CSS/CSS_layout")}}
 
-Dieser Artikel erklärt den Normalfluss, also die Art und Weise, wie sich Elemente einer Webseite anordnen, wenn deren Layout nicht verändert wurde.
+Dieser Artikel erklärt den normalen Fluss oder die Art und Weise, wie sich Webseiten-Elemente anordnen, wenn Sie deren Layout nicht geändert haben.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Die Grundlagen von HTML (siehe
+        Die Grundlagen von HTML (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (siehe
+        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
         <a href="/de/docs/Learn/CSS/First_steps">Einführung in CSS</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu erklären, wie Browser Webseiten standardmäßig anordnen, bevor wir
-        beginnen, Änderungen vorzunehmen.
+        Zu erklären, wie Browser Webseiten standardmäßig layouten, bevor wir beginnen,
+        Änderungen vorzunehmen.
       </td>
     </tr>
   </tbody>
 </table>
 
-Wie im letzten Teil zur Einführung in das Layout detailliert beschrieben, werden Elemente auf einer Webseite im Normalfluss angeordnet, wenn Sie kein CSS angewendet haben, um ihr Verhalten zu ändern. Und wie wir angefangen haben zu entdecken, können Sie das Verhalten von Elementen ändern, indem Sie entweder ihre Position im Normalfluss anpassen oder sie vollständig daraus entfernen. Mit einem soliden, gut strukturierten Dokument zu beginnen, das im Normalfluss lesbar ist, ist der beste Weg, um jede Webseite zu starten. Dies stellt sicher, dass Ihr Inhalt lesbar ist, selbst wenn der Benutzer einen sehr eingeschränkten Browser oder ein Gerät wie einen Screenreader verwendet, der den Inhalt der Seite vorliest. Darüber hinaus, da der Normalfluss darauf ausgelegt ist, ein lesbares Dokument zu erstellen, arbeiten Sie, indem Sie auf diese Weise beginnen, _mit_ dem Dokument, anstatt gegen es zu kämpfen, während Sie Änderungen am Layout vornehmen.
+Wie im letzten einführenden Artikel zum Layout beschrieben, ordnen sich Elemente auf einer Webseite im normalen Fluss an, falls Sie kein CSS angewendet haben, um ihr Verhalten zu ändern. Und wie wir begonnen haben herauszufinden, können Sie das Verhalten von Elementen ändern, indem Sie entweder ihre Position im normalen Fluss anpassen oder sie ganz daraus entfernen. Ein solides, gut strukturiertes Dokument, das im normalen Fluss lesbar ist, ist der beste Ausgangspunkt für jede Webseite. Dies stellt sicher, dass Ihr Inhalt lesbar ist, selbst wenn der Benutzer einen sehr eingeschränkten Browser oder ein Gerät wie einen Screenreader verwendet, der den Inhalt der Seite vorliest. Da der normale Fluss darauf ausgelegt ist, ein lesbares Dokument zu erzeugen, arbeiten Sie auf diese Weise _mit_ dem Dokument zusammen, anstatt _gegen_ es zu kämpfen, während Sie Änderungen am Layout vornehmen.
 
-Bevor Sie sich eingehender mit verschiedenen Layoutmethoden befassen, lohnt es sich, einige der Dinge, die Sie in früheren Modulen in Bezug auf den normalen Dokumentfluss gelernt haben, noch einmal zu betrachten.
+Bevor Sie tiefer in verschiedene Layout-Methoden eintauchen, lohnt es sich, einige der Dinge, die Sie in früheren Modulen im Hinblick auf den normalen Dokumentenfluss studiert haben, erneut zu betrachten.
 
 ## Wie werden Elemente standardmäßig angeordnet?
 
-Der Prozess beginnt damit, dass die Boxen der einzelnen Elemente auf eine Weise angeordnet werden, dass eventuell vorhandenes Padding, Ränder oder Abstände zu ihrem Inhalt hinzugefügt werden. Das nennen wir das **Box-Modell**.
+Der Prozess beginnt damit, dass die Boxen der einzelnen Elemente so angeordnet werden, dass jeder Padding, Rand oder jede Margin, die sie möglicherweise haben, zu ihrem Inhalt hinzugefügt wird. Dies nennen wir das **Box-Modell**.
 
-Standardmäßig füllt der Inhalt eines [Block-Elementes](/de/docs/Glossary/Block-level_content) den verfügbaren Inline-Raum des übergeordneten Elements, das es enthält, und wächst entlang der Block-Dimension, um seinen Inhalt aufzunehmen. Die Größe von [Inline-Elementen](/de/docs/Glossary/Inline-level_content) entspricht nur der Größe ihres Inhalts. Sie können {{cssxref("width")}} oder {{cssxref("height")}} für einige Elemente festlegen, die einen Standardwert für die {{cssxref("display")}}-Eigenschaft von `inline` haben, wie {{HTMLElement("img")}}, aber der `display`-Wert bleibt trotzdem `inline`.
+Standardmäßig füllt der Inhalt eines [Block-Level-Elements](/de/docs/Glossary/Block-level_content) den verfügbaren Inline-Raum des übergeordneten Elements, das es enthält, aus und wächst entlang der Block-Dimension, um seinen Inhalt aufzunehmen. Die Größe von [Inline-Level-Elementen](/de/docs/Glossary/Inline-level_content) entspricht nur der Größe ihres Inhalts. Sie können {{cssxref("width")}} oder {{cssxref("height")}} für einige Elemente festlegen, die einen Standard-{{cssxref("display")}}-Eigenschaftswert von `inline` haben, wie {{HTMLElement("img")}}, aber der `display`-Wert bleibt weiterhin `inline`.
 
-Wenn Sie die `display`-Eigenschaft eines Inline-Elements auf diese Weise steuern möchten, verwenden Sie CSS, um es so einzustellen, dass es sich wie ein Block-Element verhält (z. B. mit `display: block;` oder `display: inline-block;`, was Eigenschaften von beidem mischt).
+Wenn Sie die `display`-Eigenschaft eines Inline-Level-Elements auf diese Weise steuern möchten, verwenden Sie CSS, um es so einzustellen, dass es sich wie ein Block-Level-Element verhält (z. B. mit `display: block;` oder `display: inline-block;`, das Eigenschaften von beiden mischt).
 
-Das erklärt, wie Elemente individuell strukturiert sind, aber wie sieht es mit der Struktur aus, wenn sie miteinander interagieren? Der normale Layoutfluss (im Layout-Einführungsartikel erwähnt) ist das System, durch das Elemente innerhalb des Ansichtsfensters des Browsers platziert werden. Standardmäßig werden Block-Elemente in der _Block-Flussrichtung_ angeordnet, die auf dem [Schreibmodus](/de/docs/Web/CSS/writing-mode) des übergeordneten Elements basiert (_initial_: horizontal-tb). Jedes Element erscheint in einer neuen Zeile unter dem letzten, wobei jedes durch den festgelegten Abstand getrennt wird. Im Englischen zum Beispiel (oder in jedem anderen horizontalen, von oben nach unten Schreibmodus) werden Block-Elemente vertikal angeordnet.
+Das erklärt, wie Elemente einzeln strukturiert sind, aber wie sieht es mit der Art und Weise aus, wie sie miteinander interagieren? Der normale Layout-Fluss (erwähnt im einführenden Artikel zum Layout) ist das System, mit dem Elemente im Ansichtsfenster des Browsers platziert werden. Standardmäßig werden Block-Level-Elemente in der _Blockflussrichtung_ angeordnet, die auf dem [Schreibmodus](/de/docs/Web/CSS/writing-mode) des Elternteils basiert (_initial_: horizontal-tb). Jedes Element erscheint in einer neuen Zeile unter dem letzten, wobei jedes durch den spezifizierten Rand getrennt ist. Auf Englisch zum Beispiel (oder in jedem anderen horizontalen, von oben nach unten geschriebenen Modus) werden Block-Level-Elemente vertikal angeordnet.
 
-Inline-Elemente verhalten sich anders. Sie erscheinen nicht in neuen Zeilen; stattdessen sitzen sie alle in derselben Zeile zusammen mit angrenzendem (oder umgebrochenem) Textinhalt, solange Platz innerhalb der Breite des übergeordneten Blockelements vorhanden ist. Wenn kein Platz mehr ist, wird der überlaufende Inhalt auf eine neue Zeile verschoben.
+Inline-Elemente verhalten sich anders. Sie erscheinen nicht in neuen Zeilen; stattdessen sitzen sie alle in derselben Zeile zusammen mit jedem angrenzenden (oder umgebrochenen) Textinhalt, solange es dafür im Bereich des übergeordneten Block-Levels Platz gibt. Wenn kein Platz vorhanden ist, wandert der überfließende Inhalt in eine neue Zeile.
 
-Wenn zwei vertikal benachbarte Elemente beide einen Abstand aufweisen und sich ihre Abstände berühren, bleibt der größere der beiden Abstände bestehen und der kleinere verschwindet. Dies ist als [**zusammenfallende Ränder**](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) bekannt.
-Zusammenfallende Ränder sind nur in der **vertikalen Richtung** relevant.
+Wenn zwei vertikal benachbarte Elemente beide eine gesetzte Margin haben und ihre Margins sich berühren, bleibt die größere der beiden Margin und die kleinere verschwindet. Dies ist als [**Margin-Kollaps**](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) bekannt. Der Kollaps von Margins ist nur in der **vertikalen Richtung** relevant.
 
 Schauen wir uns ein einfaches Beispiel an, das all dies erklärt:
 
@@ -106,8 +105,8 @@ span {
 
 ## Zusammenfassung
 
-In dieser Lektion haben Sie die Grundlagen des Normalflusses gelernt — das Standardlayout für CSS-Elemente. Indem Sie verstehen, wie Inline-Elemente, Block-Elemente und Abstände standardmäßig funktionieren, wird es einfacher, ihr Verhalten in Zukunft anzupassen.
+In dieser Lektion haben Sie die Grundlagen des normalen Flusses gelernt — das Standardlayout für CSS-Elemente. Indem Sie verstehen, wie Inline-Elemente, Block-Elemente und Margins standardmäßig funktionieren, wird es einfacher werden, ihr Verhalten in der Zukunft anzupassen.
 
-Im nächsten Artikel werden wir auf diesem Wissen aufbauen, indem wir CSS-Elemente mit [Flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox) ändern.
+Im nächsten Artikel werden wir auf diesem Wissen aufbauen, indem wir Änderungen an CSS-Elementen mit [flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox) vornehmen.
 
 {{PreviousMenuNext("Learn/CSS/CSS_layout/Introduction", "Learn/CSS/CSS_layout/Flexbox", "Learn/CSS/CSS_layout")}}

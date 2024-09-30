@@ -8,12 +8,12 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`get()`**-Methode des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und liefert in einem separaten Thread das durch den angegebenen Schlüssel ausgewählte Objekt zurück. Dies dient dazu, spezifische Datensätze aus einem Objekt-Store abzurufen.
+Die **`get()`**-Methode des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread das Objekt zurück, das durch den angegebenen Schlüssel ausgewählt wurde. Diese Methode dient zum Abrufen bestimmter Datensätze aus einem Objekt-Store.
 
-Wird ein Wert erfolgreich gefunden, wird ein strukturierter Klon davon erstellt und als [`result`](/de/docs/Web/API/IDBRequest/result) des Anfrage-Objekts festgelegt.
+Wenn ein Wert erfolgreich gefunden wird, wird eine strukturierte Kopie davon erstellt und als [`result`](/de/docs/Web/API/IDBRequest/result) des Anfrage-Objekts festgelegt.
 
 > [!NOTE]
-> Diese Methode liefert dasselbe Ergebnis für: a) einen Datensatz, der nicht in der Datenbank existiert und b) einen Datensatz, der einen undefinierten Wert hat. Um diese Situationen zu unterscheiden, rufen Sie die `openCursor()`-Methode mit demselben Schlüssel auf. Diese Methode stellt einen Cursor bereit, wenn der Datensatz existiert, und keinen Cursor, wenn er nicht existiert.
+> Diese Methode führt zum gleichen Ergebnis, wenn a) ein Datensatz nicht in der Datenbank existiert und b) ein Datensatz einen undefinierten Wert hat. Um diese Situationen zu unterscheiden, rufen Sie die `openCursor()`-Methode mit dem gleichen Schlüssel auf. Diese Methode liefert einen Cursor, wenn der Datensatz existiert, und keinen Cursor, wenn er nicht existiert.
 
 ## Syntax
 
@@ -28,24 +28,24 @@ get(key)
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, bei dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem sich nachfolgende Ereignisse im Zusammenhang mit dieser Operation abspielen.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage der Wert des ersten Datensatzes, der dem angegebenen Schlüssel oder Schlüsselbereich entspricht.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage der Wert des ersten Datensatzes, der mit dem angegebenen Schlüssel oder Schlüsselbereich übereinstimmt.
 
 ### Ausnahmen
 
-Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
+  - : Wirft diese Ausnahme, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Schlüssel oder Schlüsselbereich einen ungültigen Schlüssel enthält.
+  - : Wirft diese Ausnahme, wenn der angegebene Schlüssel oder Schlüsselbereich einen ungültigen Schlüssel enthält.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
+  - : Wirft diese Ausnahme, wenn der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und erhalten einen spezifischen Datensatz aus dem Objekt-Store mit `get()` — einen Beispiel-Datensatz mit dem Schlüssel "Walk dog". Sobald dieses Datenobjekt abgerufen wurde, könnten Sie es mit normalem JavaScript aktualisieren und dann mit einer [`IDBObjectStore.put`](/de/docs/Web/API/IDBObjectStore/put)-Operation wieder in die Datenbank einfügen. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und holen uns einen bestimmten Datensatz aus dem Objekt-Store mittels `get()` — ein Beispiel-Datensatz mit dem Schlüssel "Walk dog". Sobald dieses Datenobjekt abgerufen wurde, könnten Sie es mit normalem JavaScript aktualisieren und dann wieder in die Datenbank mit einer [`IDBObjectStore.put`](/de/docs/Web/API/IDBObjectStore/put)-Operation zurücklegen. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -105,7 +105,7 @@ function getData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)

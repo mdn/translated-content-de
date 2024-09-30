@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothGATTService.device`** gibt Informationen über ein Bluetooth-Gerät durch eine Instanz von [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice) zurück.
+Die schreibgeschützte Eigenschaft **`BluetoothGATTService.device`** liefert Informationen über ein Bluetooth-Gerät durch eine Instanz von [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice).
 
 ## Wert
 

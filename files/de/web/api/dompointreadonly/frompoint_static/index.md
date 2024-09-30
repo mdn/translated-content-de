@@ -8,12 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die statische **[`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)**
-Methode `fromPoint()` erstellt und gibt ein neues
-`DOMPointReadOnly`-Objekt basierend auf einem Quellpunkt zurück.
+Die statische **[`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)**-Methode `fromPoint()` erstellt und gibt ein neues `DOMPointReadOnly`-Objekt basierend auf einem Quellpunkt zurück.
 
-Sie können auch ein neues `DOMPointReadOnly`-Objekt mit dem
-[`DOMPointReadOnly()`](/de/docs/Web/API/DOMPointReadOnly/DOMPointReadOnly) Konstruktor erstellen.
+Sie können auch ein neues `DOMPointReadOnly`-Objekt mit dem [`DOMPointReadOnly()`](/de/docs/Web/API/DOMPointReadOnly/DOMPointReadOnly)-Konstruktor erstellen.
 
 ## Syntax
 
@@ -25,35 +22,34 @@ DOMPointReadOnly.fromPoint(sourcePoint)
 
 - `sourcePoint`
 
-  - : Eine Instanz von [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), oder ein Objekt, das die folgenden Eigenschaften enthält, aus denen die Werte der Eigenschaften des neuen Punktes extrahiert werden:
+  - : Eine Instanz von [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), oder ein Objekt, das die folgenden Eigenschaften enthält, aus denen die Werte der Eigenschaften des neuen Punktes entnommen werden:
 
     - `x`
-      - : Ein uneingeschränkter Gleitkommawert, der die `x`-Koordinate des Punktes im Raum angibt. Dies ist im Allgemeinen die horizontale Koordinate, wobei positive Werte nach rechts und negative nach links zeigen. Der Standardwert ist `0`.
+      - : Ein unbeschränkter Gleitkommawert, der die `x`-Koordinate des Punktes im Raum angibt. Dies ist im Allgemeinen die horizontale Koordinate, wobei positive Werte nach rechts und negative Werte nach links zeigen. Der Standardwert ist `0`.
     - `y`
-      - : Eine uneingeschränkte Gleitkommazahl, die die `y`-Koordinate des Punktes angibt. Dies ist die vertikale Koordinate, und sofern keine Transformationen auf das Koordinatensystem angewendet werden, zeigen positive Werte nach unten und negative Werte nach oben auf den oberen Bildschirmrand. Der Standardwert ist `0`.
+      - : Eine unbeschränkte Gleitkommazahl, die die `y`-Koordinate des Punktes angibt. Dies ist die vertikale Koordinate, und ohne Transformationen des Koordinatensystems zeigen positive Werte nach unten und negative Werte nach oben zum oberen Bildschirmrand. Der Standardwert ist `0`.
     - `z`
-      - : Ein uneingeschränkter Gleitkommawert, der die `z`-Koordinate des Punktes angibt, welche (unter der Annahme, dass keine Transformationen angewendet werden) die Tiefenkoordinate ist; positive Werte sind näher am Benutzer und negative Werte ziehen sich in den Bildschirm zurück. Der Standardwert ist `0`.
+      - : Ein unbeschränkter Gleitkommawert, der die `z`-Koordinate des Punktes angibt, was (vorausgesetzt es gibt keine Transformationen, die die Situation verändern) die Tiefenkoordinate ist; positive Werte sind näher beim Benutzer und negative Werte ziehen sich in den Bildschirm zurück. Der Standardwert ist `0`.
     - `w`
-      - : Der Perspektivenwert des Punktes `w`, angegeben als uneingeschränkte Gleitkommazahl. Der Standardwert ist `1`.
+      - : Der `w`-Perspektivwert des Punktes, angegeben als unbeschränkte Gleitkommazahl. Der Standardwert ist `1`.
 
 ### Rückgabewert
 
-Ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Objekt (welches mit dem Quellpunkt identisch ist).
+Ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt (das identisch mit dem Quellpunkt ist).
 
 ## Beispiele
 
 ### Erstellen eines 2D-Punktes
 
-Dieses Beispiel erstellt einen 2D-Punkt, indem es ein Inline-Objekt angibt, das die zu verwendenden Werte für [`x`](/de/docs/Web/API/DOMPointReadOnly/x) und [`y`](/de/docs/Web/API/DOMPointReadOnly/y) enthält. Die Eigenschaften `z` und `w` können ihre Standardwerte behalten (`0` und `1` jeweils).
+Dieses Beispiel erstellt einen 2D-Punkt und gibt ein Inline-Objekt an, das die zu verwendenden Werte für [`x`](/de/docs/Web/API/DOMPointReadOnly/x) und [`y`](/de/docs/Web/API/DOMPointReadOnly/y) enthält. Die Eigenschaften `z` und `w` dürfen ihre Standardwerte (`0` bzw. `1`) behalten.
 
 ```js
 const point2D = DOMPointReadOnly.fromPoint({ x: 25, y: 25 });
 ```
 
-### Erstellen eines 3D-Punktes mit einem bestehenden Punkt
+### Erstellen eines 3D-Punktes unter Verwendung eines vorhandenen Punktes
 
-Dieses Beispiel erstellt einen Punkt, `origPoint`, vom Typ
-[`DOMPoint`](/de/docs/Web/API/DOMPoint) mit [`DOMPoint()`](/de/docs/Web/API/DOMPoint/DOMPoint). Dieser Punkt wird dann als Eingabe für `fromPoint()` verwendet, um einen neuen Punkt, `newPoint`, zu erstellen.
+Dieses Beispiel erstellt einen Punkt `origPoint` vom Typ [`DOMPoint`](/de/docs/Web/API/DOMPoint) unter Verwendung von [`DOMPoint()`](/de/docs/Web/API/DOMPoint/DOMPoint). Dieser Punkt wird dann als Eingabe für `fromPoint()` verwendet, um einen neuen Punkt `newPoint` zu erstellen.
 
 ```js
 const origPoint = new DOMPoint(25, 25, 100, 0.5);

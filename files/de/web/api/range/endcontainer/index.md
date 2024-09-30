@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`Range.endContainer`**-Eigenschaft gibt das [`Node`](/de/docs/Web/API/Node) zurück, innerhalb dessen der [`Range`](/de/docs/Web/API/Range) endet. Um die Endposition eines Knotens zu ändern, verwenden Sie die Methode [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd) oder eine ähnliche.
+Die schreibgeschützte Eigenschaft **`Range.endContainer`** gibt das [`Node`](/de/docs/Web/API/Node) zurück, in dem die [`Range`](/de/docs/Web/API/Range) endet. Um die Endposition eines Knotens zu ändern, verwenden Sie die Methode [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd) oder eine ähnliche.
 
 ## Wert
 

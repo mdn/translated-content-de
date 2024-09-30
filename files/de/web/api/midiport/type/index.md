@@ -8,20 +8,20 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces gibt den Typ des Ports zurück und zeigt an, ob es sich um einen Eingabe- oder Ausgabe-MIDI-Port handelt.
+Die **`type`**-Eigenschaft der [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Schnittstelle gibt den Typ des Ports zurück und zeigt an, ob es sich um einen Eingabe- oder Ausgabe-MIDI-Port handelt.
 
 ## Wert
 
-Ein String, der den Typ des Ports enthält, einer der folgenden:
+Ein String, der den Typ des Ports enthält, einer von:
 
 - `"input"`
-  - : Der `MIDIPort` ist ein Eingabe-Port.
+  - : Der `MIDIPort` ist ein Eingangsport.
 - `"output"`
-  - : Der `MIDIPort` ist ein Ausgabe-Port.
+  - : Der `MIDIPort` ist ein Ausgangsport.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingabe-Ports und gibt den `type` jedes Ports in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den `type` jedes Ports in der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

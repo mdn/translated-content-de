@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`terminate()`**-Methode der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle beendet den [`Worker`](/de/docs/Web/API/Worker) sofort. Dies bietet dem Worker keine Gelegenheit, seine Vorgänge abzuschließen; er wird sofort gestoppt.
+Die **`terminate()`**-Methode der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle beendet den [`Worker`](/de/docs/Web/API/Worker) sofort. Dies bietet dem Worker keine Möglichkeit, seine Operationen abzuschließen; er wird sofort gestoppt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mithilfe des [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktors, welches dann sofort beendet wird.
+Der folgende Codeausschnitt zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor, das dann sofort beendet wird.
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -35,7 +35,7 @@ myWorker.terminate();
 ```
 
 > [!NOTE]
-> DedicatedWorkers und SharedWorkers können auch von der [`Worker`](/de/docs/Web/API/Worker)-Instanz mit den Methoden [`DedicatedWorkerGlobalScope.close()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/close) oder [`SharedWorkerGlobalScope.close()`](/de/docs/Web/API/SharedWorkerGlobalScope/close) gestoppt werden.
+> DedicatedWorkers und SharedWorkers können ebenfalls von der [`Worker`](/de/docs/Web/API/Worker)-Instanz aus mit den Methoden [`DedicatedWorkerGlobalScope.close()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/close) oder [`SharedWorkerGlobalScope.close()`](/de/docs/Web/API/SharedWorkerGlobalScope/close) gestoppt werden.
 
 ## Spezifikationen
 

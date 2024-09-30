@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`font-family`**-Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird, wobei eine priorisierte Liste von Schriftfamiliennamen und/oder generischen Familiennamen spezifiziert wird.
+Das **`font-family`**-Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Familienschriftarten angegeben.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-family` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-{{cssxref("font-family")}}-Eigenschaft.
+> Als Präsentationsattribut kann `font-family` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-family")}}.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -38,7 +38,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Gebrauchshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -57,7 +57,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte lesen Sie bitte die [CSS `font-family`](/de/docs/Web/CSS/font-family#values)-Eigenschaft.
+Für eine Beschreibung der Werte lesen Sie bitte die [CSS `font-family`](/de/docs/Web/CSS/font-family#values) Eigenschaft.
 
 ## Spezifikationen
 

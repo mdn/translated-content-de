@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Verwenden Sie diese Funktion, um ein {{WebExtAPIRef("webRequest.StreamFilter")}}-Objekt für eine Anfrage zu erstellen. Der Stream-Filter gibt der Web-Erweiterung vollständige Kontrolle über den Stream, mit der Fähigkeit, die Antwort zu überwachen und zu modifizieren. Es liegt in der Verantwortung der Erweiterung, den Stream zu schreiben und zu schließen oder zu trennen, da das Standardverhalten darin besteht, die Anfrage ohne Antwort offen zu halten.
+Verwenden Sie diese Funktion, um ein {{WebExtAPIRef("webRequest.StreamFilter")}}-Objekt für eine Anfrage zu erstellen. Der Stream-Filter gibt der Web-Erweiterung die volle Kontrolle über den Stream, mit der Möglichkeit, die Antwort zu überwachen und zu ändern. Es ist die Verantwortung der Erweiterung, den Stream zu schreiben und zu schließen oder zu trennen, da das Standardverhalten darin besteht, die Anfrage ohne Antwort offen zu halten.
 
-Diese Funktion wird typischerweise aus einem `webRequest`-Ereignislistener aufgerufen.
+Sie rufen diese Funktion typischerweise aus einem `webRequest`-Event-Listener heraus auf.
 
-Firefox verwendet einen optimierten Byte-Cache für Skriptanfragen. Dieser optimierte Byte-Cache überschreibt das normale Anforderungs-Caching. Daten aus diesem Cache sind nicht in einer für Erweiterungen nützlichen Form verfügbar. Wenn Ihre Erweiterung Skripte filtern muss, erstellen Sie Ihren Filter in {{WebExtAPIRef("webRequest.onBeforeRequest")}}. Dadurch wird sichergestellt, dass der Filter erstellt wird, bevor versucht wird, aus dem Cache zu laden, und der optimierte Cache vermieden wird.
+Firefox verwendet einen optimierten Byte-Cache für Skriptanfragen. Dieser optimierte Byte-Cache überschreibt das normale Anforderungs-Caching. Daten aus diesem Cache sind in einer Form, die für Erweiterungen nützlich ist, nicht verfügbar. Wenn Ihre Erweiterung Skripte filtern muss, erstellen Sie Ihren Filter in {{WebExtAPIRef("webRequest.onBeforeRequest")}}. Dies stellt sicher, dass der Filter vor dem Versuch, aus dem Cache zu laden, erstellt wird und somit den optimierten Cache umgeht.
 
 ## Berechtigungen
 
-Um diese API zu verwenden, müssen Sie die Berechtigungen `"webRequest"` und `"webRequestBlocking"` [API permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben, und für den Ereignislistener die [host permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für den Host. Zusätzlich:
+Um diese API verwenden zu können, müssen Sie die `"webRequest"`- und `"webRequestBlocking"`- [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) besitzen, und für den Event-Listener die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für den Host. Zusätzlich:
 
-- Ab Firefox 95 ist die Berechtigung `"webRequestFilterResponse.serviceWorkerScript"` erforderlich, um diese API zu verwenden, um Anfragen abzufangen, die mit dem Laden von Service Worker-Skripten zusammenhängen.
-- Ab Firefox 110 müssen Manifest V3-Erweiterungen auch die Berechtigung `"webRequestFilterResponse"` anfordern, um diese API zu verwenden.
+- Ab Firefox 95 ist zur Verwendung dieser API zum Abfangen von Anfragen im Zusammenhang mit dem Laden von Service-Worker-Skripten auch die Berechtigung `"webRequestFilterResponse.serviceWorkerScript"` erforderlich.
+- Ab Firefox 110 müssen Manifest V3-Erweiterungen auch die Berechtigung `"webRequestFilterResponse"` anfordern, um diese API verwenden zu können.
 
 ## Syntax
 
@@ -31,15 +31,15 @@ let filter = browser.webRequest.filterResponseData(
 ### Parameter
 
 - `requestId`
-  - : `string`. ID der zu filternden Anfrage. Sie können diese aus dem `details`-Objekt erhalten, das an beliebige `webRequest`-Ereignislistener übergeben wird.
+  - : `string`. ID der zu filternden Anfrage. Sie können diese aus dem `details`-Objekt erhalten, das an alle `webRequest`-Event-Listener übergeben wird.
 
 ### Rückgabewert
 
-Ein {{WebExtAPIRef("webRequest.StreamFilter")}}-Objekt, das verwendet werden kann, um die Antwort zu überwachen und zu modifizieren.
+Ein {{WebExtAPIRef("webRequest.StreamFilter")}}-Objekt, das Sie verwenden können, um die Antwort zu überwachen und zu ändern.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine minimale Implementierung, die die Stream-Daten durchleitet und den Filterstream schließt, wenn der Stream das Empfangen von Daten beendet. Der Code würde von einem {{WebExtAPIRef("webRequest")}}-Ereignislistener aufgerufen, und der Ereignislistener stellt `details` bereit.
+Dieses Beispiel zeigt eine minimale Implementierung, die die Stream-Daten durchläuft und den Filter-Stream schließt, wenn der Stream das Empfangen von Daten beendet. Der Code würde aus einem {{WebExtAPIRef("webRequest")}}-Event-Listener aufgerufen, und der Event-Listener stellt `details` bereit.
 
 ```js
 let filter = browser.webRequest.filterResponseData(details.requestId);
@@ -56,7 +56,7 @@ filter.onstop = (event) => {
 };
 ```
 
-Dieses Beispiel, entnommen aus der [http-response](https://github.com/mdn/webextensions-examples/tree/main/http-response)-Beispielfall-Erweiterung, erstellt einen Filter in {{WebExtAPIRef("webRequest.onBeforeRequest")}} und verwendet diesen, um das erste Stück der Antwort zu modifizieren:
+Dieses Beispiel, das dem Beispiel der [http-response](https://github.com/mdn/webextensions-examples/tree/main/http-response)-Erweiterung entnommen ist, erstellt einen Filter in {{WebExtAPIRef("webRequest.onBeforeRequest")}} und verwendet diesen, um den ersten Datenblock der Antwort zu ändern:
 
 ```js
 function listener(details) {
@@ -86,7 +86,7 @@ browser.webRequest.onBeforeRequest.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Das obige Beispiel funktioniert nur für kleine Anfragen, die nicht in Stücke aufgeteilt oder gestreamt werden. Fortgeschrittenere Beispiele sind mit {{WebExtAPIRef("webRequest.StreamFilter.ondata")}} dokumentiert.
+> Das obige Beispiel funktioniert nur für kleine Anfragen, die nicht segmentiert oder gestreamt werden. Fortgeschrittenere Beispiele sind mit {{WebExtAPIRef("webRequest.StreamFilter.ondata")}} dokumentiert.
 
 ## Browser-Kompatibilität
 

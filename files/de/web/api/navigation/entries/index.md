@@ -1,5 +1,5 @@
 ---
-title: "Navigation: entries() Methode"
+title: "Navigation: `entries()` Methode"
 short-title: entries()
 slug: Web/API/Navigation/entries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`entries()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
+Die **`entries()`** Methode der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten.
+Ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekten.
 
 ### Ausnahmen
 
@@ -30,7 +30,7 @@ Keine.
 
 ## Beispiele
 
-### Anzahl der Einträge im Verlauf zurückgeben
+### Die Anzahl der Einträge im Verlauf zurückgeben
 
 ```js
 let numOfEntries = navigation.entries().length - 1;
@@ -38,7 +38,7 @@ let numOfEntries = navigation.entries().length - 1;
 
 ### Ein intelligenter Zurück-Button
 
-Ein seitenbereitgestellter "Zurück"-Button kann Sie zurückbringen, sogar nach einem Neuladen, indem er die vorherigen Verlaufseinträge durchsucht:
+Ein von der Seite bereitgestellter "Zurück"-Button kann Sie zurückbringen, sogar nach einem Neuladen, indem er die vorherigen Verlaufseinträge inspiziert:
 
 ```js
 backButtonEl.addEventListener("click", () => {
@@ -65,6 +65,6 @@ backButtonEl.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Weiterleitung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

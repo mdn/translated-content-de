@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Das **`CSSScopeRule`**-Interface des [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS-{{CSSxRef("@scope")}}-Regel.
+Die **`CSSScopeRule`**-Schnittstelle des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS {{CSSxRef("@scope")}} at-rule.
 
 {{InheritanceDiagram}}
 
@@ -16,9 +16,9 @@ Das **`CSSScopeRule`**-Interface des [CSS Object Model (CSSOM)](/de/docs/Web/API
 _Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`end`](/de/docs/Web/API/CSSScopeRule/end)
-  - : Gibt einen String zurück, der den Wert der Gültigkeitsgrenze der `@scope`-Regel enthält.
+  - : Gibt einen String zurück, der den Wert der `@scope` At-Regel Scope-Grenze enthält.
 - [`start`](/de/docs/Web/API/CSSScopeRule/start)
-  - : Gibt einen String zurück, der den Wert des Wurzelelements der `@scope`-Regel enthält.
+  - : Gibt einen String zurück, der den Wert der `@scope` At-Regel Scope-Wurzel enthält.
 
 ## Instanz-Methoden
 
@@ -38,7 +38,7 @@ Angenommen, das folgende ist das einzige Stylesheet, das an ein Dokument angehä
 }
 ```
 
-Mit dem folgenden JavaScript könnte auf Informationen über den enthaltenen `@scope`-Block zugegriffen werden:
+Das folgende JavaScript könnte verwendet werden, um auf Informationen über den enthaltenen `@scope` Block zuzugreifen:
 
 ```js
 const scopeBlock = document.styleSheets[0].cssRules[0];

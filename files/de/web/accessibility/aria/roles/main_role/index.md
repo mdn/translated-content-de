@@ -1,5 +1,5 @@
 ---
-title: "ARIA: main Role"
+title: "ARIA: main Rolle"
 slug: Web/Accessibility/ARIA/Roles/main_role
 l10n:
   sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die Landmarken-Rolle `main` wird verwendet, um den Hauptinhalt eines Dokuments anzuzeigen. Der Hauptinhaltsbereich besteht aus Inhalten, die direkt mit dem zentralen Thema eines Dokuments zusammenhängen oder dieses erweitern, oder der Hauptfunktion einer Anwendung.
+Die `main` Landmarkenrolle wird verwendet, um den Hauptinhalt eines Dokuments anzuzeigen. Der Hauptinhalt besteht aus Inhalten, die direkt mit dem zentralen Thema eines Dokuments oder der Hauptfunktion einer Anwendung zusammenhängen oder darauf aufbauen.
 
 ```html
 <div id="main" role="main">
@@ -16,27 +16,27 @@ Die Landmarken-Rolle `main` wird verwendet, um den Hauptinhalt eines Dokuments a
 </div>
 ```
 
-Dies ist der Hauptteil eines Dokuments, das Avocados behandelt. Unterabschnitte dieses Dokuments könnten deren Geschichte, die verschiedenen Arten, Regionen, in denen sie wachsen, usw. behandeln.
+Dies ist der Hauptabschnitt eines Dokuments, das Avocados behandelt. Unterabschnitte dieses Dokuments könnten deren Geschichte, die verschiedenen Arten, Regionen, in denen sie wachsen, usw. behandeln.
 
 ## Beschreibung
 
-Die Rolle `main` ist eine navigierbare [Landmarken](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles)-Rolle, die den Hauptinhalt eines Dokuments kennzeichnet. Landmarken können von unterstützenden Technologien wie Bildschirmlesegeräten verwendet werden, um große Abschnitte des Dokuments schnell zu identifizieren und zu navigieren.
+Die `main` Rolle ist eine navigierende [Landmarkenrolle](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles), die den Hauptinhalt eines Dokuments identifiziert. Landmarken können von unterstützenden Technologien wie Bildschirmleseprogrammen verwendet werden, um schnell große Abschnitte des Dokuments zu identifizieren und zu navigieren.
 
-Durch die Klassifizierung und Kennzeichnung von Teilen einer Seite kann strukturelle Information, die visuell durch das Layout vermittelt wird, programmatisch dargestellt werden. Bildschirmlesegeräte verwenden Landmarken-Rollen, um Tastaturnavigation zu wichtigen Teilen einer Seite zu ermöglichen. Für diejenigen, die über Landmarken-Rollen navigieren, stellt die Rolle `main` eine Alternative zu Links wie "Zum Hauptinhalt springen" dar.
+Durch das Klassifizieren und Kennzeichnen von Seitenabschnitten kann strukturelle Information, die visuell durch Layout vermittelt wird, programmatisch dargestellt werden. Bildschirmleseprogramme verwenden Landmarkenrollen, um eine Tastaturnavigation zu wichtigen Abschnitten einer Seite bereitzustellen. Für diejenigen, die per Landmarkenrollen navigieren, ist die `main` Rolle eine Alternative zu "zum Hauptinhalt springen"-Links.
 
-Es sollte nur eine `main`-Landmarken-Rolle pro Dokument geben.
+Es sollte nur eine `main` Landmarkenrolle pro Dokument geben.
 
-Das {{HTMLElement('main')}}-Element hat die Rolle `main`. Entwickler sollten semantisches HTML verwenden — in diesem Fall {{HTMLElement('main')}} — anstatt ARIA zu verwenden.
+Das {{HTMLElement('main')}} Element hat die Rolle `main`. Entwickler sollten semantisches HTML verwenden — in diesem Fall {{HTMLElement('main')}} — anstatt ARIA zu verwenden.
 
-### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns)
 
-  - : Das Attribut `aria-owns` stellt Beziehungen in der Zugänglichkeitsebene her, die im DOM nicht vorhanden sind. Dokumente und Anwendungen können im DOM verschachtelt werden, was dazu führen kann, dass es mehr als ein Hauptelement als DOM-Nachfahren gibt. In diesem Fall sollte `aria-owns` verwendet werden, um das Verhältnis des Hauptteils zu seinem dokumentarischen oder anwendungsbezogenen Vorfahren zu identifizieren.
+  - : Das `aria-owns` Attribut stellt Beziehungen in der Barrierefreiheitsebene her, die im DOM nicht vorhanden sind. Dokumente und Anwendungen können im DOM verschachtelt sein, was dazu führen kann, dass mehr als ein main-Element als DOM-Nachfahren vorhanden ist. In diesem Fall fügen Sie `aria-owns` hinzu, um die Beziehung des `main` zu seinem Dokument- oder Anwendungs-Vorfahren zu identifizieren.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder `aria-labelledby`
 
-  - : Identifizieren Sie den zugänglichen Namen mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), wenn ein sichtbarer Header vorhanden ist. Andernfalls kann das Hinzufügen eines [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) nützlich sein, um Nutzern unterstützender Technologien Orientierung zu bieten, insbesondere in Einzelseitenanwendungen, bei denen Änderungen des Hauptinhalts ohne Generierung eines Seitenladeereignisses erfolgen.
+  - : Identifizieren Sie den zugänglichen Namen mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), wenn ein sichtbarer Header vorhanden ist. Andernfalls kann das Hinzufügen eines [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) hilfreich sein, um Benutzern unterstützender Technologien die Orientierung zu erleichtern, besonders in Single-Page-Anwendungen, bei denen Inhaltsänderungen im Hauptbereich ohne Erzeugung eines Seitenladeereignisses auftreten.
 
 ## Beispiel
 
@@ -55,11 +55,11 @@ Das {{HTMLElement('main')}}-Element hat die Rolle `main`. Entwickler sollten sem
 
 ## Barrierefreiheitsbedenken
 
-### Verwenden Sie nur eine `main`-Rolle pro Dokument
+### Verwenden Sie nur eine `main` Rolle pro Dokument
 
-Die `main`-[Landmarken-Rolle](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) sollte nur einmal pro Dokument verwendet werden.
+Die `main` [Landmarkenrolle](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) sollte nur einmal pro Dokument verwendet werden.
 
-Wenn ein Dokument zwei `main`-Rollen enthält, zum Beispiel beim Aktualisieren des Seiteninhalts durch JavaScript, sollte das Vorhandensein der inaktiven `main`-Rolle über Techniken wie das Umschalten des [`hidden`-Attributs](/de/docs/Web/HTML/Global_attributes/hidden) aus unterstützenden Technologien entfernt werden.
+Wenn ein Dokument zwei `main` Rollen enthält, z.B. beim Aktualisieren von Seiteninhalt durch JavaScript ausgelöst, sollte die Präsenz der inaktiven `main` Rolle über Techniken wie das Umschalten des [`hidden` Attributs](/de/docs/Web/HTML/Global_attributes/hidden) von unterstützenden Technologien entfernt werden.
 
 ```html
 <main>
@@ -73,19 +73,19 @@ Wenn ein Dokument zwei `main`-Rollen enthält, zum Beispiel beim Aktualisieren d
 </main>
 ```
 
-Es ist auch hilfreich, einen zugänglichen Namen hinzuzufügen, um Nutzern von unterstützenden Technologien Orientierung zu bieten, insbesondere in Einzelseitenanwendungen, bei denen Änderungen des Hauptinhalts ohne Generierung eines Seitenladeereignisses stattfinden. Dies kann mit `aria-labelledby` hinzugefügt werden, wenn ein geeigneter Name im Inhalt vorhanden ist, oder mit `aria-label`, wenn nicht.
+Es ist auch hilfreich, einen zugänglichen Namen hinzuzufügen, um Benutzern unterstützender Technologien die Orientierung zu erleichtern, besonders in Single-Page-Anwendungen, bei denen Inhaltsänderungen im Hauptbereich ohne Erzeugung eines Seitenladeereignisses auftreten. Dies kann mit `aria-labelledby` hinzugefügt werden, wenn ein geeigneter Name inhaltlich vorhanden ist, oder mit `aria-label`, falls nicht.
 
-## Beste Vorgehensweisen
+## Beste Praktiken
 
 ### Bevorzugen Sie HTML
 
-Durch die Verwendung des {{HTMLElement('main')}}-Elements wird automatisch kommuniziert, dass ein Abschnitt die Rolle `main` hat. Verwenden Sie dies nach Möglichkeit bevorzugt.
+Die Verwendung des {{HTMLElement('main')}} Elements kommuniziert automatisch, dass ein Abschnitt die Rolle `main` hat. Wenn möglich, sollte es bevorzugt werden.
 
 ### Navigation überspringen
 
-Die Navigation zu überspringen, auch bekannt als "skipnav", ist eine Technik, die einem Nutzer unterstützender Technologien erlaubt, große Abschnitte wiederholter Inhalte (Hauptnavigation, Informationsbanner usw.) schnell zu überspringen. Dies ermöglicht es dem Nutzer, schneller auf den Hauptinhalt der Seite zuzugreifen.
+Das Überspringen der Navigation, auch bekannt als "skipnav", ist eine Technik, die es einem Benutzer unterstützender Technologien ermöglicht, große Abschnitte sich wiederholender Inhalte (Hauptnavigation, Informationsbanner usw.) schnell zu überspringen. Dies ermöglicht es dem Benutzer, schneller auf den Hauptinhalt der Seite zuzugreifen.
 
-Das Hinzufügen eines [`id`-Attributs](/de/docs/Web/HTML/Global_attributes/id) zu dem Element mit der Deklaration `role="main"` erlaubt es, Ziel eines Skip-Navigation-Links von Nutzern zu sein.
+Das Hinzufügen eines [`id` Attributs](/de/docs/Web/HTML/Global_attributes/id) zu dem Element mit einer Erklärung von `role="main"` ermöglicht es, Ziel eines Links zum Überspringen der Navigation zu sein.
 
 ```html
 <body>
@@ -99,7 +99,7 @@ Das Hinzufügen eines [`id`-Attributs](/de/docs/Web/HTML/Global_attributes/id) z
 </body>
 ```
 
-Das entspricht:
+Dies entspricht:
 
 ```html
 <body>
@@ -121,8 +121,8 @@ Das entspricht:
 
 ## Siehe auch
 
-- Das {{HTMLElement('main')}}-Element
-- [Verwendung von HTML-Abschnitten und -Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [Verwendung von WAI-ARIA-Landmarken – 2013 | Die Paciello-Gruppe](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
+- Das {{HTMLElement('main')}} Element
+- [Verwendung von HTML-Abschnitten und Umrissen](/de/docs/Web/HTML/Element/Heading_Elements)
+- [Verwendung von WAI-ARIA-Landmarks – 2013 | The Paciello Group](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
 - [Zugängliche Landmarken | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
-- [Das Hauptelement | HTML5 Doctor](https://html5doctor.com/the-main-element/)
+- [Das `main` Element | HTML5 Doctor](https://html5doctor.com/the-main-element/)

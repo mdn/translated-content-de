@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die **`caches`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verbunden ist.
-Dieses Objekt ermöglicht Funktionen wie das Speichern von Assets zur offline Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
+Die schreibgeschützte **`caches`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt das mit dem aktuellen Kontext verbundene [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück. Dieses Objekt ermöglicht Funktionalitäten wie das Speichern von Ressourcen zur Offline-Nutzung und das Erstellen von benutzerdefinierten Antworten auf Anfragen.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie einen Cache im Kontext eines [Service Workers](/de/docs/Web/API/Service_Worker_API) verwenden, um Assets offline zu speichern.
+Das folgende Beispiel zeigt, wie Sie einen Cache im Kontext eines [Service Workers](/de/docs/Web/API/Service_Worker_API) verwenden, um Ressourcen offline zu speichern.
 
 ```js
 self.addEventListener("install", (event) => {

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSScale`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die [scale()](/de/docs/Web/CSS/transform-function/scale)- und [scale3d()](/de/docs/Web/CSS/transform-function/scale3d)-Werte der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Die **`CSSScale`**-Schnittstelle des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die [scale()](/de/docs/Web/CSS/transform-function/scale) und [scale3d()](/de/docs/Web/CSS/transform-function/scale3d) Werte der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -27,7 +27,7 @@ Die **`CSSScale`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/A
 
 ## Beispiele
 
-In Bearbeitung.
+Zu tun.
 
 ## Spezifikationen
 

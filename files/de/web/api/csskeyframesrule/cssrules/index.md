@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die schreibgeschützte **`cssRules`**-Eigenschaft des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die die Regeln in den Keyframes der [at-rule](/de/docs/Web/CSS/At-rule) enthält.
+Die schreibgeschützte **`cssRules`**-Eigenschaft der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die die Regeln in den Keyframes [at-rule](/de/docs/Web/CSS/At-rule) enthält.
 
 > [!NOTE]
-> Die `CSSKeyframeRule` selbst ist indexierbar wie ein Array und funktioniert ähnlich wie ihre `cssRules`-Eigenschaft.
+> Die `CSSKeyframeRule` selbst ist wie ein Array indexierbar und funktioniert ähnlich wie ihre `cssRules`-Eigenschaft.
 
 ## Wert
 
@@ -19,7 +19,8 @@ Eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList).
 
 ## Beispiele
 
-Das CSS enthält eine keyframes at-rule. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Die `cssRules`-Eigenschaft gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die zwei Regeln enthält.
+Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Die `cssRules`-Eigenschaft gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die zwei Regeln enthält.
 
 ```css
 @keyframes slidein {

@@ -12,11 +12,11 @@ Die schreibgeschützte Eigenschaft **`duration`** des [`AudioData`](/de/docs/Web
 
 ## Wert
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `duration` in der Konsole aus.
+Im folgenden Beispiel wird der Wert von `duration` in der Konsole ausgegeben.
 
 ```js
 console.log(AudioData.duration);

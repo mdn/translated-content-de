@@ -7,113 +7,113 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Firefox 8 wurde am 8. November 2011 veröffentlicht. Dieser Artikel bietet Informationen sowohl für [Webentwickler](#änderungen_für_webentwickler) als auch für Add-on- und [Mozilla-Projektentwickler](#änderungen_für_mozilla-_und_add-on-entwickler), um die Vorteile dieser Version vollständig nutzen zu können.
+Firefox 8 wurde am 8. November 2011 veröffentlicht. Dieser Artikel bietet Informationen sowohl für [Webentwickler](#änderungen_für_webentwickler) als auch für Add-On- und [Mozilla-Projektentwickler](#änderungen_für_mozilla-_und_add-on-entwickler), um die Funktionen dieser Veröffentlichung optimal nutzen zu können.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) `crossOrigin`-Eigenschaft wurde hinzugefügt und das [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut wurde dem {{ HTMLElement("img") }}-Element hinzugefügt. (siehe [Firefox Bug 664299](https://bugzil.la/664299))
-- Die [`HTMLSelectElement.add()`](/de/docs/Web/API/HTMLSelectElement)-Methode unterstützt jetzt entweder ein Element oder den Index eines Elements, vor dem das neue Element eingefügt werden soll. Früher wurde nur ein Element unterstützt. (siehe [Firefox Bug 666200](https://bugzil.la/666200))
-- Der `HTMLIsIndexElement`-Konstruktor wurde entfernt. Kein Element hat diese Schnittstelle seit Firefox 4 implementiert.
-- Das HTML5-"Kontextmenü"-Feature (`contextmenu`-Attribut), welches ermöglicht, benutzerdefinierte Elemente zu nativen Kontextmenüs hinzuzufügen, wird nun unterstützt (die Implementierung ist noch experimentell und wartet auf Änderungen in der Spezifikation; siehe [Firefox Bug 617528](https://bugzil.la/617528)).
+- Die `crossOrigin`-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) wurde hinzugefügt und das [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut wurde dem {{ HTMLElement("img") }} Element hinzugefügt. (siehe [Firefox Bug 664299](https://bugzil.la/664299))
+- Die Methode [`HTMLSelectElement.add()`](/de/docs/Web/API/HTMLSelectElement) unterstützt nun entweder ein Element oder den Index eines Elements, vor dem das neue Element eingefügt werden soll. Früher wurde nur ein Element unterstützt. (siehe [Firefox Bug 666200](https://bugzil.la/666200))
+- Der Konstruktor `HTMLIsIndexElement` wurde entfernt. Keine Elemente haben dieses Interface seit vor Firefox 4 implementiert.
+- Die HTML5 "Kontextmenü"-Funktion (`contextmenu`-Attribut), die es ermöglicht, benutzerdefinierte elementspezifische Einträge zum nativen Kontextmenü hinzuzufügen, wird jetzt unterstützt (die Implementierung ist noch experimentell und wartet auf Änderungen in der Spezifikation; siehe [Firefox Bug 617528](https://bugzil.la/617528)).
 - Unterstützung für das [`HTMLElement.accessKeyLabel`](/de/docs/Web/API/HTMLElement/accessKeyLabel)-Attribut wurde zu allen Elementen hinzugefügt.
-- Die {{ HTMLElement("input") }}- und {{ HTMLElement("textarea") }}-Elemente unterstützen jetzt das `selectionDirection`-Attribut, und deren `setSelectionRange()`-Methoden wurden aktualisiert, um optional eine Richtung anzugeben.
-- Die meisten Elemente erhalten jetzt einen Fokusring, wenn sie durch Verwendung des `tabindex`-Attributs fokussierbar gemacht wurden und der Benutzer dann das Element fokussiert.
-- In einem Set verschachtelter {{ HTMLElement("label") }}-Elemente lösen Klick-Ereignisse keine Mehrfachaktivierung von \<label>-Elementen mehr aus, was zuvor dazu geführt hatte, dass Firefox nicht mehr reagierte (siehe [Firefox Bug 646157](https://bugzil.la/646157)).
+- Die Elemente {{ HTMLElement("input") }} und {{ HTMLElement("textarea") }} unterstützen jetzt das `selectionDirection`-Attribut, und ihre Methoden `setSelectionRange()` wurden aktualisiert, um optional eine Richtung anzugeben.
+- Die meisten Elemente erhalten nun einen Fokusring, wenn sie durch Verwendung des `tabindex`-Attributs fokussierbar gemacht werden und der Benutzer dann das Element fokussiert.
+- Bei einer Reihe verschachtelter {{ HTMLElement("label") }}-Elemente lösen Klickereignisse nicht mehr mehrere `<label>`-Elemente aus, was in der Vergangenheit dazu führte, dass Firefox nicht mehr reagierte (siehe [Firefox Bug 646157](https://bugzil.la/646157)).
 
 ### DOM
 
-- Die [`insertAdjacentHTML`](/de/docs/Web/API/Element/insertAdjacentHTML)-Methode wurde implementiert.
-- `BlobBuilder` hat jetzt eine `getFile()`-Methode, die den Inhalt des Blobs als Datei zurückgibt.
-- Das [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Interface (Teil der FileAPI) wurde implementiert.
+- Die Methode [`insertAdjacentHTML`](/de/docs/Web/API/Element/insertAdjacentHTML) wurde implementiert.
+- `BlobBuilder` verfügt nun über eine Methode `getFile()`, die den Inhalt des Blobs als Datei zurückgibt.
+- Das Interface [`FileReaderSync`](/de/docs/Web/API/FileReaderSync) (Teil des FileAPI) wurde implementiert.
 - Die Ereignisbehandlung in verschachtelten {{ HTMLElement("label") }}s wurde behoben.
-- Sie können jetzt [`window.postMessage()`](/de/docs/Web/API/Window/postMessage) verwenden, um [`File`](/de/docs/Web/API/File)- und [`FileList`](/de/docs/Web/API/FileList)-Objekte zwischen Fenstern zu übergeben.
-- Beim Bearbeiten von [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereichen kehrt das Verlassen einer Überschrift durch Drücken der Eingabetaste oder das Verlassen des Listenmodus durch zweimaliges Drücken der Eingabetaste nun zur Absatzbearbeitung (d.h. Absätze innerhalb von {{ HTMLElement("p") }}-Blöcken) zurück, anstatt Zeilen durch {{ HTMLElement("br") }}-Elemente zu trennen.
-- Ein Fehler wurde behoben, der verhinderte, dass die Justierung korrekt greift, wenn sie auf die erste Zeile in einem [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereich angewendet wurde.
-- Ein Fehler wurde behoben, der dazu führte, dass Drücken der Löschtaste oder der Rücktaste am Anfang eines [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereichs den vorherigen `contenteditable`-Block betraf, wenn einer vorhanden ist.
-- [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) gibt jetzt dasselbe `Selection`-Objekt zurück wie [`window.getSelection()`](/de/docs/Web/API/Window/getSelection), anstatt es zu _stringifizieren_.
+- Sie können jetzt [`window.postMessage()`](/de/docs/Web/API/Window/postMessage) verwenden, um [`File`](/de/docs/Web/API/File) und [`FileList`](/de/docs/Web/API/FileList)-Objekte zwischen Fenstern zu übergeben.
+- Beim Bearbeiten von [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereichen wird beim Verlassen einer Überschrift durch Drücken der Eingabetaste oder beim Verlassen des Listeneditor-Modus durch zweimaliges Drücken der Eingabetaste nun in den Absatzmodus zurückgekehrt (d.h. Absätze innerhalb von {{ HTMLElement("p") }} Blöcken), anstatt Zeilen durch {{ HTMLElement("br") }}-Elemente zu trennen.
+- Ein Fehler wurde behoben, durch den die Ausrichtung nicht richtig wirkte, wenn sie auf die erste Zeile in einem [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereich angewendet wurde.
+- Ein Fehler wurde behoben, der dazu führte, dass das Drücken der Entf- oder Rücktaste am Anfang eines [`contenteditable`](/de/docs/Web/API/HTMLelement/contenteditable)-Bereichs den vorherigen `contenteditable`-Block betraf, falls vorhanden.
+- [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) gibt nun dasselbe `Selection`-Objekt zurück wie [`window.getSelection()`](/de/docs/Web/API/Window/getSelection), anstatt es zu _stringifizieren_.
 - Die HTML5 `selectionDirection`-Eigenschaft ermöglicht es, die Richtung der Auswahl in einem bearbeitbaren Text zu definieren.
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) hat jetzt eine `seekable`-Eigenschaft, die ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurückgibt.
-- Das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)`.preload`-Attribut wird jetzt korrekt als _enumerierter Wert_ widergespiegelt.
-- Die [`crossOrigin`-Eigenschaft](/de/docs/Web/HTML/Attributes/crossorigin) wird standardmäßig auf "Anonymous" gesetzt, wenn ein ungültiger Wert verwendet wird.
-- [`navigator.cookieEnabled`](/de/docs/Web/API/Navigator/cookieEnabled) gibt jetzt korrekte Informationen zurück, wenn die Standardeinstellung für Cookies site-spezifisch überschrieben wird.
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) verfügt jetzt über eine `seekable`-Eigenschaft, die ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurückgibt.
+- Das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)`.preload`-Attribut wird nun korrekt als _enumerated value_ reflektiert.
+- Die [`crossOrigin` property](/de/docs/Web/HTML/Attributes/crossorigin) hat einen Standardwert "Anonymous", wenn ein ungültiger Wert verwendet wird.
+- [`navigator.cookieEnabled`](/de/docs/Web/API/Navigator/cookieEnabled) gibt nun korrekte Informationen zurück, wenn die Standard-Cookie-Einstellung standortweise überschrieben wird.
 
 ### JavaScript
 
-- [`RegExp.exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`RegExp.test()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) die ohne Argumente aufgerufen werden, stimmen jetzt mit dem String "undefined" überein.
-- [`String.search()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) und [`String.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match), die ohne Argumente oder `undefined` aufgerufen werden, stimmen jetzt mit dem leeren String überein und somit mit jedem String.
-- Unterstützung für Beobachtungslisten wurde mit den neuen (nicht-standardisierten) `watch()` und `unwatch()`-Methoden implementiert.
+- [`RegExp.exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`RegExp.test()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) rufen jetzt ohne Argumente auf den String "undefined" ab.
+- [`String.search()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) und [`String.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) rufen ohne Argumente oder `undefined` jetzt den leeren String ab und treffen daher auf jeden String.
+- Unterstützung für Beobachtungslisten wurde mit den neuen (nicht standardmäßigen) Methoden `watch()` und `unwatch()` implementiert.
 
 ### CSS
 
-- {{ cssxref("resolution") }} akzeptiert nun {{cssxref("&lt;number&gt;")}}, nicht nur {{cssxref("&lt;integer&gt;")}} Werte gemäß der Spezifikation.
-- Silbentrennungsregeln wurden für viele neue Sprachen beim Verwenden von {{ cssxref("hyphens") }} hinzugefügt.
-- Die Behandlung von {{ cssxref("background-size") }} wurde überarbeitet, um näher an die Spezifikation heranzukommen.
-- In der Vergangenheit hatte {{ cssxref("text-decoration") }} im Quirks-Modus angepasste Linienstärke und Position auf nachfolgendem Text, um diesem zu entsprechen. Jetzt sind Rendering im Standardmodus und Quirks-Modus ähnlicher.
-- Die horizontale Positionierung für Elemente wurde in vielen Fällen mehr in Einklang mit der Spezifikation gebracht. Eine Dokumentation dazu steht noch aus, aber siehe für jetzt [Firefox Bug 682780](https://bugzil.la/682780), Kommentar 23 für Details.
-- [SVG-Bilder werden nun korrekt skaliert](/de/docs/Web/CSS/Scaling_of_SVG_backgrounds), wenn sie als Hintergrundbilder verwendet werden.
+- {{ cssxref("resolution") }} akzeptiert jetzt {{cssxref("&lt;number&gt;")}}, nicht nur {{cssxref("&lt;integer&gt;")}}-Werte gemäß der Spezifikation.
+- Für viele neue Sprachen sind Silbentrennungsregeln hinzugefügt worden, wenn {{ cssxref("hyphens") }} verwendet wird.
+- Die Handhabung von {{ cssxref("background-size") }} wurde überarbeitet, um die Spezifikation genauer zu entsprechen.
+- In der Vergangenheit hatte {{ cssxref("text-decoration") }} im Quirks-Modus Linienstärke und -position auf nachfolgender Text angepasst, um mit dem Nachfolger übereinzustimmen. Jetzt ähneln sich die Renderings im Standardmodus und Quirks-Modus mehr.
+- Die horizontale Positionierung für Elemente wurde in vielen Fällen mehr an die Spezifikation angepasst. Dokumentation darüber wird folgen, aber vorerst siehe [Firefox Bug 682780](https://bugzil.la/682780), Kommentar 23 für Details.
+- [SVG-Bilder werden jetzt korrekt skaliert](/de/docs/Web/CSS/Scaling_of_SVG_backgrounds), wenn sie als Hintergrundbilder verwendet werden.
 
 ### Netzwerk
 
-- Doppelte Anführungszeichen werden nicht mehr als Trennzeichen für {{ RFC("2231") }} oder {{ RFC("5987") }}-Kodierung akzeptiert, gemäß diesen RFCs.
-- Der MIME-Header-Feldparser (`Content-Disposition`) erfordert jetzt "=" in Parametern.
-- Skripte werden nicht mehr heruntergeladen, wenn JavaScript deaktiviert ist.
-- SSL 2.0 wird nicht mehr unterstützt.
+- Doppelte Anführungszeichen werden nicht länger als Trennzeichen für {{ RFC("2231") }} oder {{ RFC("5987") }} Kodierung akzeptiert, wie in diesen RFCs angegeben.
+- Der MIME-Header-Feld-Parser (`Content-Disposition`) erfordert jetzt "=" in Parametern.
+- Skripte werden nicht länger heruntergeladen, wenn JavaScript deaktiviert ist.
+- SSL 2.0 wird nicht länger unterstützt.
 
 ### WebSockets
 
-- Die [`WebSocket`](/de/docs/Web/API/WebSocket)-Objektmethode [`send()`](/de/docs/Web/API/WebSocket/send) gibt nicht mehr fälschlicherweise einen booleschen Wert zurück.
-- Die [`WebSocket`](/de/docs/Web/API/WebSocket)-Objektmethode [`close()`](/de/docs/Web/API/WebSocket/close) entspricht jetzt dem aktuellen Entwurf der Spezifikation, und Schließereignisse nutzen jetzt korrekt das [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Interface.
+- Die Methode [`send()`](/de/docs/Web/API/WebSocket/send) des [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekts gibt nicht länger fälschlicherweise einen booleschen Wert zurück.
+- Die Methode [`close()`](/de/docs/Web/API/WebSocket/close) des [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekts stimmt nun mit dem aktuellen Entwurf des Standards überein, und Schließeereignisse verwenden jetzt korrekt das [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Interface.
 - Das `extensions`-Attribut des [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekts wird jetzt unterstützt.
-- Der WebSocket-Konstruktor unterstützt jetzt ein Array von Protokollen sowie eine einzelne Protokollzeichenfolge.
-- Gemischter Inhalt ist mit WebSockets nicht erlaubt; das heißt, Sie können keine Verbindung zu einem nicht sicheren WebSocket-Server von sicherem Inhalt aus öffnen.
-- Verbindungsfehler mit WebSockets lösen jetzt den `onerror`-Handler aus.
-- Die [WebSocket](/de/docs/Web/API/WebSockets_API)-API wurde auf den neuesten Entwurf der Spezifikation aktualisiert (siehe [Firefox Bug 674890](https://bugzil.la/674890), [Firefox Bug 674527](https://bugzil.la/674527) und [Firefox Bug 674716](https://bugzil.la/674716)).
-- Die deflate-stream-Erweiterung für WebSockets wurde deaktiviert; sie wurde veraltet und verursachte Kompatibilitätsprobleme mit einigen Websites.
+- Der WebSocket-Konstruktor unterstützt jetzt sowohl ein Array von Protokollen als auch einen einzelnen Protokollstring.
+- Gemischte Inhalte sind bei WebSockets nicht erlaubt; es kann also keine Verbindung zu einem unsicheren WebSocket-Server von sicheren Inhalten aus geöffnet werden.
+- Verbindungsfehler mit WebSockets lösen nun den `onerror`-Handler aus.
+- Die [WebSocket](/de/docs/Web/API/WebSockets_API)-API wurde auf den neuesten Entwurf der Spezifikation aktualisiert (siehe [Firefox Bug 674890](https://bugzil.la/674890), [Firefox Bug 674527](https://bugzil.la/674527), und [Firefox Bug 674716](https://bugzil.la/674716)).
+- Die Deflate-Stream-Erweiterung für WebSockets wurde deaktiviert; sie wurde veraltet und führte zu Kompatibilitätsproblemen mit einigen Websites.
 
 ### WebGL
 
-- [Cross-Domain-Texturen](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#cross-domain_textures) können jetzt mit CORS-Zulassung erlaubt werden.
+- [Cross-Domain-Texturen](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#cross-domain_textures) können jetzt mit Genehmigung durch CORS zugelassen werden.
 - Cross-Prozess-Rendering mit Direct2D/Direct3D 10.
 
 ### MathML
 
 - Unterstützung für das `displaystyle`-Attribut auf dem obersten {{ MathMLElement("math") }}-Element wurde hinzugefügt.
-- Die Interpretation negativer Zeilennummern für das `align`-Attribut auf {{ MathMLElement("mtable") }} wurde korrigiert.
+- Die Interpretation von negativen Zeilennummern für das `align`-Attribut bei {{ MathMLElement("mtable") }} wurde korrigiert.
 
-### Entwicklertools
+### Entwicklerwerkzeuge
 
-- Das [`console`](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#the-console-object)-Objekt hat eine neue `dir()`-Methode, die eine interaktive Liste der Eigenschaften auf einem angegebenen Objekt anzeigt.
+- Das [`console`](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#the-console-object) Objekt hat eine neue `dir()`-Methode, die eine interaktive Liste der Eigenschaften eines angegebenen Objekts anzeigt.
 
-## Änderungen für Mozilla- und Add-on-Entwickler
+## Änderungen für Mozilla- und Add-On-Entwickler
 
-Siehe [Aktualisierung von Add-ons für Firefox 8](/de/docs/Mozilla/Firefox/Releases/8/Updating_add-ons) für einen Leitfaden zu Änderungen, die notwendig sind, um Ihre Add-ons mit Firefox 8 kompatibel zu machen.
+Siehe [Aktualisierung von Add-Ons für Firefox 8](/de/docs/Mozilla/Firefox/Releases/8/Updating_add-ons) für einen Leitfaden zu Änderungen, die Sie vornehmen müssen, um Ihre Add-Ons mit Firefox 8 kompatibel zu machen.
 
 > [!NOTE]
-> Firefox 8 erfordert, dass binäre Komponenten neu kompiliert werden, so wie alle großen Veröffentlichungen von Firefox.
+> Firefox 8 erfordert, dass binäre Komponenten neu kompiliert werden, wie alle Hauptversionen von Firefox.
 
 ### XPCOM
 
 - `Components.utils`
-  - : Die neuen Methoden `Components.utils.createObjectIn()` und `Components.utils.makeObjectPropsNormal()` wurden erstellt, um das Erstellen von Objekten in bestimmten Compartments zu erleichtern.
+  - : Die neuen Methoden `Components.utils.createObjectIn()` und `Components.utils.makeObjectPropsNormal()` wurden erstellt, um das Erstellen von Objekten in bestimmten Bereichen zu erleichtern.
 
-#### Sonstige XPCOM-bezogene Änderungen
+#### Weitere XPCOM-bezogene Änderungen
 
-- Sie können jetzt DOM-`File`-Objekte aus Komponentencode mit `new File` anstatt `nsIDOMFile` direkt zu instanziieren.
-- Der `nsTPtrArray`-Arraytyp wurde entfernt. Seine Funktionalität ist jetzt vollständig in `nsTArray` verfügbar, das jetzt die Methode `SafeElementAt()` bietet, wenn es mit einem Pointers-Typ instanziiert wird.
+- Sie können jetzt DOM [`File`](/de/docs/Web/API/File)-Objekte von Komponentencode instanziieren, indem Sie `new File` verwenden, anstatt direkt ein `nsIDOMFile` zu instanziieren.
+- Der Array-Typ `nsTPtrArray` wurde entfernt. Seine Funktionalität ist jetzt vollständig in `nsTArray` verfügbar, das jetzt die `SafeElementAt()`-Methode bietet, wenn es mit einem Zeigertyp instanziiert wird.
 
 ### Workers
 
-Es ist nicht mehr möglich, auf XPCOM-Objekte von ChromeWorkers zuzugreifen. XPConnect wurde in Worker-Kontexten gemäß [Firefox Bug 649537](https://bugzil.la/649537) deaktiviert.
+Es ist nicht länger möglich, von ChromeWorkers aus auf XPCOM-Objekte zuzugreifen. XPConnect wurde in Worker-Kontexten seit [Firefox Bug 649537](https://bugzil.la/649537) deaktiviert.
 
 ### XUL
 
-- Ein Bug in [`document.execCommand()`](/de/docs/Web/API/Document/execCommand), der beim Aufrufen auf den Wert von `contentDocument` auftrat, wurde behoben. Seit Firefox 3 führte dies zu Fehlern anstatt korrekt zu funktionieren.
-- Bootstrap-Add-ons können jetzt Chrome mit einer `chrome.manifest`-Datei laden.
-- XUL-Bilder schrumpfen jetzt im gleichen Verhältnis in beide Richtungen, wenn maximale Größen angegeben werden.
+- Ein Fehler in [`document.execCommand()`](/de/docs/Web/API/Document/execCommand), der auftrat, wenn es auf den Wert von `contentDocument` aufgerufen wurde, wurde behoben. Seit Firefox 3 führte dies zu Fehlern, anstatt korrekt zu funktionieren.
+- Gebootstrappte Add-Ons können jetzt Chrome mithilfe einer `chrome.manifest`-Datei laden.
+- XUL-Bilder schrumpfen jetzt mit demselben Verhältnis in beide Richtungen, wenn maximale Größen angegeben werden.
 
-### Änderungen im Buildsystem
+### Änderungen am Build-System
 
 - Die folgenden Build-Konfigurationsoptionen wurden entfernt:
 
@@ -121,44 +121,44 @@ Es ist nicht mehr möglich, auf XPCOM-Objekte von ChromeWorkers zuzugreifen. XPC
   - `--disable-storage`
   - `--necko-disk-cache`
 
-- Beim Kompilieren von IDL-Dateien zu Headern wird die Header-Datei `jspubtd.h` automatisch eingebunden, wenn nötig. Manuelle Einbindungen von `jspubtd.h` und/oder `jsapi.h` in IDL-Dateien, die jsval oder \[implicit_jscontext] verwenden, sind nicht mehr erforderlich.
+- Beim Kompilieren von IDL-Dateien zu Headern wird die Headerdatei `jspubtd.h` automatisch eingebunden, wenn erforderlich. Manuelle Einbindungen von `jspubtd.h` und/oder `jsapi.h` in IDL-Dateien, die jsval oder \[implicit_jscontext] verwenden, sind nicht länger nötig.
 
 ### Chrome-Registrierung
 
-- Das `platformversion`-Flag kann im chrome.manifest verwendet werden, um die Kompatibilität mit der Gecko-Version anzugeben.
+- Das `platformversion`-Flag kann in der chrome.manifest verwendet werden, um die Kompatibilität mit Gecko-Versionen anzugeben.
 
-### Schnittstellenänderungen
+### Interface-Änderungen
 
 - Die Methode `mozIJSSubScriptLoader.loadSubScript()` lädt jetzt Skripte aus dem Startcache, wenn möglich.
-- Das `ownerWindow`-Attribut wurde aus der `nsIAccessNode`-Schnittstelle entfernt.
-- Die `nsIDOMStorageWindow`-Schnittstelle wurde in die `nsIDOMWindow`-Schnittstelle integriert.
-- Alle Mitglieder der `nsIDOMWindowInternal`-Schnittstelle wurden in die `nsIDOMWindow`-Schnittstelle verschoben. Die Schnittstelle selbst (ohne Mitglieder) bleibt für die Kompatibilität bis Firefox 9 verfügbar.
-- Um die Leistung zu verbessern, wurde die Rückrufbehandlung für asynchrone Places-Datenbankaktualisierungen geändert. Siehe die neuen `mozIVisitInfoCallback.handleResult()` und `mozIVisitInfoCallback.handleError()`-Methoden, die die alte einzige Methode für sowohl Fehler als auch Erfolg ersetzen.
-- Das `KIND_MAPPED`-Attribut von `nsIMemoryReporter` wurde zugunsten von `KIND_NONHEAP` veraltet, neue Einheitstypen `UNITS_COUNT_CUMULATIVE` und `UNITS_PERCENTAGE` wurden hinzugefügt.
-- Die `nsIMemoryReporterManager`-Schnittstelle hat ein neues `explicit`-Attribut, das die Gesamtgröße expliziter Speicherzuweisungen berichtet.
-- Die `nsIMemoryReporterManager`-Schnittstelle hat ein neues `resident`-Attribut, das die Menge an verwendetem physikalischem Speicher angibt.
-- Die `nsINetworkLinkService`-Schnittstelle hat ein neues Attribut, `linkType`. Dieses Attribut gibt den Typ der verwendeten Netzwerkverbindung an. Alle Betriebssysteme geben derzeit `LINK_TYPE_UNKNOWN` zurück. Android-Unterstützung wurde aufgrund von wahrgenommenen Sicherheitsbedenken zurückgezogen.
-- Die `nsISelection2`-Schnittstelle wurde in die `nsISelectionPrivate`-Schnittstelle integriert.
-- Die `nsISelection3`-Schnittstelle wurde in die `nsISelection`-Schnittstelle integriert.
-- Das `nsISessionStartup`-Attribut state ist jetzt ein `jsval` anstatt eines Strings, aus Leistungsgründen.
-- Das `nsIDocShell`-Attribut `isActive` ist jetzt `false` für minimierte Fenster.
-- Die Methode `nsIDownloadHistory.addDownload()` speichert jetzt das Ziel, wo der Download im lokalen Dateisystem gespeichert wird.
+- Das `ownerWindow`-Attribut wurde aus dem `nsIAccessNode` Interface entfernt.
+- Das `nsIDOMStorageWindow` Interface wurde in das `nsIDOMWindow` Interface integriert.
+- Alle Mitglieder des `nsIDOMWindowInternal` Interface wurden in das `nsIDOMWindow` Interface verschoben. Das Interface selbst (ohne Mitglieder) bleibt für die Kompatibilität bis Firefox 9 verfügbar.
+- Um die Leistung zu verbessern, wurde die Rückrufbehandlung für asynchrone Aktualisierungen der Places-Datenbank geändert. Siehe die neuen Methoden `mozIVisitInfoCallback.handleResult()` und `mozIVisitInfoCallback.handleError()`, die die alte Einzelmethode für sowohl Fehler- als auch Erfolgszustandsbehandlung ersetzen.
+- Das `KIND_MAPPED`-Attribut von `nsIMemoryReporter` wurde zugunsten von `KIND_NONHEAP` veraltet, neue Einheitentypen `UNITS_COUNT_CUMULATIVE` und `UNITS_PERCENTAGE` wurden hinzugefügt.
+- Das `nsIMemoryReporterManager` Interface hat ein neues `explicit`-Attribut, das die Gesamtgröße der expliziten Speicherzuweisungen meldet.
+- Das `nsIMemoryReporterManager` Interface hat ein neues `resident`-Attribut, das die Menge des verwendeten physischen Speichers meldet.
+- Das `nsINetworkLinkService` Interface hat ein neues Attribut, `linkType`. Dieses Attribut liefert die Art der verwendeten Netzwerkverbindung. Alle Betriebssysteme geben derzeit `LINK_TYPE_UNKNOWN` zurück. Android-Unterstützung wurde aufgrund von wahrgenommenen Sicherheitsbedenken zurückgenommen.
+- Das `nsISelection2` Interface wurde in das `nsISelectionPrivate` Interface integriert.
+- Das `nsISelection3` Interface wurde in das `nsISelection` Interface integriert.
+- Das Attribut `state` von `nsISessionStartup` ist jetzt ein `jsval` anstelle eines Strings, aus Leistungsgründen.
+- Das Attribut `isActive` von `nsIDocShell` ist jetzt `false` für minimierte Fenster.
+- Die Methode `nsIDownloadHistory.addDownload()` speichert nun das Ziel, wo der Download auf das lokale Dateisystem gespeichert wird.
 
-#### Entfernte Schnittstellen
+#### Entfernte Interfaces
 
-Die folgenden Schnittstellen waren Implementierungsdetails, die nicht mehr benötigt werden:
+Die folgenden Interfaces waren Implementierungsdetails, die nicht mehr benötigt werden:
 
 - `nsITimelineService`
 - `nsIDOMHTMLIsIndexElement`
 
-Auch die `nsIWorkerFactory`-Schnittstelle wurde entfernt. Worker können weiterhin mit den `Worker`- und `ChromeWorker`-Konstruktoren erstellt werden.
+Das Interface `nsIWorkerFactory` wurde ebenfalls entfernt. Worker können weiterhin mit den Konstruktoren `Worker` und `ChromeWorker` erstellt werden.
 
-### Sonstige Änderungen
+### Weitere Änderungen
 
-- Wenn ein Fenster minimiert, wiederhergestellt oder zwischen Vollbild- und Fenster-Modus gewechselt wird, erhält es ein `sizemodechange`-Ereignis.
-- Sie können jetzt [die `extensions.autoDisableScopes`-Einstellung verwenden](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#preventing_automatic_install_from_specific_locations), um die automatische Installation von Add-ons aus bestimmten Installationsorten zu verhindern.
-- Die neue `mozSyntheticDocument`-Eigenschaft auf [`Document`](/de/docs/Web/API/Document)-Objekten ermöglicht es Ihnen zu bestimmen, ob ein Dokument synthetisch ist (d.h. etwas wie ein eigenständiges Bild, Video oder eine Audiodatei) anstatt ein vollständiges, standardmäßiges DOM-Dokument. Dies kann nützlich sein, wenn Sie beispielsweise in diesem Fall eine andere Benutzeroberfläche präsentieren möchten (wie das Hinzufügen von Kontext-Items unterschiedlich je nach diesem Fall).
-- Sie können jetzt einen Filter beim Öffnen von `about:config` spezifizieren; zum Beispiel zeigt "about:config?filter=sessionstore" nur session storage-bezogene Präferenzen an.
+- Wenn ein Fenster minimiert, wiederhergestellt oder zwischen Vollbild- und Fenstermodus umgeschaltet wird, empfängt es ein `sizemodechange`-Ereignis.
+- Sie können jetzt [das `extensions.autoDisableScopes`-Preference verwenden](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#preventing_automatic_install_from_specific_locations), um die automatische Installation von Add-Ons aus bestimmten Add-On-Installationsorten zu deaktivieren.
+- Die neue `mozSyntheticDocument`-Eigenschaft auf [`Document`](/de/docs/Web/API/Document)-Objekten ermöglicht es Ihnen zu bestimmen, ob ein Dokument synthetisch ist (d. h. etwas wie eine eigenständige Bild-, Video- oder Audiodatei) anstatt eines vollständigen, standardmäßigen DOM-Dokuments. Dies kann nützlich sein, wenn Sie in diesem Fall zum Beispiel ein anderes Benutzerinterface präsentieren möchten (wie das Hinzufügen kontextueller Elemente unterschiedlich je nach Fall).
+- Sie können jetzt einen Filter beim Öffnen von `about:config` angeben; zum Beispiel zeigt "about:config?filter=sessionstore" nur auf die Sitzungspeicherung bezogene Einstellungen.
 
 ## Siehe auch
 

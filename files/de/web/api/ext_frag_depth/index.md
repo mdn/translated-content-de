@@ -1,5 +1,5 @@
 ---
-title: EXT_frag_depth-Erweiterung
+title: EXT_frag_depth Erweiterung
 short-title: EXT_frag_depth
 slug: Web/API/EXT_frag_depth
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_frag_depth`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es, einen Tiefenwert eines Fragments innerhalb des Fragment-Shader zu setzen.
+Die **`EXT_frag_depth`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, einen Tiefenwert eines Fragments innerhalb des Fragment-Shader festzulegen.
 
 WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar. Es erfordert GLSL `#version 300 es`.
+> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar. Sie erfordert GLSL `#version 300 es`.
 
 ## Beispiele
 
@@ -23,7 +23,7 @@ Aktivieren Sie die Erweiterung:
 gl.getExtension("EXT_frag_depth");
 ```
 
-Nun ist die Ausgabewertvariable `gl_FragDepthEXT` verfügbar, um einen Tiefenwert eines Fragments innerhalb des Fragment-Shader zu setzen:
+Nun steht die Ausgabervariable `gl_FragDepthEXT` zur Verfügung, um einen Tiefenwert eines Fragments innerhalb des Fragment-Shader festzulegen:
 
 ```html
 <script type="x-shader/x-fragment">

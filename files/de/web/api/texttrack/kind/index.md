@@ -1,5 +1,5 @@
 ---
-title: "TextTrack: Eigenschaft kind"
+title: "TextTrack: kind Eigenschaft"
 short-title: kind
 slug: Web/API/TextTrack/kind
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte Eigenschaft **`kind`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt die Art des Texttracks zurück, die dieses Objekt repräsentiert. Dies entscheidet, wie der Track von einem User-Agent behandelt wird.
+Die **`kind`** schreibgeschützte Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt die Art des Texttracks an, den dieses Objekt repräsentiert. Dies bestimmt, wie der Track von einem Benutzeragenten behandelt wird.
 
 ## Wert
 
 Ein String. Einer von:
 
 - `"subtitles"`
-  - : Die Hinweise werden über das Video gelegt. Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
+  - : Die Cues werden auf dem Video überlagert. Die Positionierung der Cues wird mit den Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
 - `"captions"`
-  - : Die Hinweise werden über das Video gelegt. Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
+  - : Die Cues werden auf dem Video überlagert. Die Positionierung der Cues wird mit den Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
 - `"descriptions"`
-  - : Die Hinweise werden auf nicht-visuelle Weise zur Verfügung gestellt.
+  - : Die Cues werden auf nicht-visuelle Weise bereitgestellt.
 - `"chapters"`
-  - : Der User-Agent wird eine Mechanismus bereitstellen, um durch Auswahl eines Hinweises zu navigieren.
+  - : Der Benutzeragent wird einen Mechanismus bereitstellen, um durch Auswahl eines Cues zu navigieren.
 - `"metadata"`
-  - : Zusätzliche Daten, die sich auf die Mediendaten beziehen, die für interaktive Ansichten verwendet werden könnten.
+  - : Zusätzliche Daten im Zusammenhang mit den Mediendaten, die für interaktive Ansichten verwendet werden könnten.
 
 ## Beispiele
 

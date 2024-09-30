@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`cancel()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der Web-Animations-API löscht alle von dieser Animation verursachten [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)s und bricht deren Wiedergabe ab.
+Die **`cancel()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der Web Animations API entfernt alle durch diese Animation verursachten [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)s und bricht deren Wiedergabe ab.
 
 > [!NOTE]
 > Wenn eine Animation abgebrochen wird, werden deren [`startTime`](/de/docs/Web/API/Animation/startTime) und [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf `null` gesetzt.
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode löst direkt keine Ausnahmen aus. Allerdings, wenn der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch etwas anderes als `"idle"` ist, wird das {{domxref("Animation.finished", "momentane Versprechen über das Beenden", "", 1)}} mit einem [`DOMException`](/de/docs/Web/API/DOMException) namens `AbortError` abgelehnt.
+Diese Methode wirft direkt keine Ausnahmen; wenn jedoch der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch nicht `"idle"` ist, wird das {{domxref("Animation.finished", "aktuelle abgeschlossene Promise", "", 1)}} mit einer [`DOMException`](/de/docs/Web/API/DOMException) mit dem Namen `AbortError` abgelehnt.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Diese Methode löst direkt keine Ausnahmen aus. Allerdings, wenn der [`playState
 - [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)
 - [`Animation`](/de/docs/Web/API/Animation)
 - [`Animation.playState`](/de/docs/Web/API/Animation/playState)
-- [`Animation.finished`](/de/docs/Web/API/Animation/finished) gibt das Versprechen zurück, das abgelehnt wird, wenn der `playState` der Animation nicht `"idle"` ist.
+- [`Animation.finished`](/de/docs/Web/API/Animation/finished) gibt das Promise zurück, das abgelehnt wird, wenn der `playState` der Animation nicht `"idle"` ist.

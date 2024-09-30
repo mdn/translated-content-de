@@ -12,7 +12,7 @@ Das **`BluetoothRemoteGATTServer`**-Interface der [Web Bluetooth API](/de/docs/W
 ## Instanzeigenschaften
 
 - [`BluetoothRemoteGATTServer.connected`](/de/docs/Web/API/BluetoothRemoteGATTServer/connected) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein boolescher Wert, der `true` zurückgibt, während diese Skriptausführungsumgebung mit `this.device` verbunden ist. Er kann `false` sein, während der Nutzeragent physisch verbunden ist.
+  - : Ein boolescher Wert, der true zurückgibt, während diese Skriptausführungsumgebung mit `this.device` verbunden ist. Es kann false sein, während der Benutzeragent physisch verbunden ist.
 - [`BluetoothRemoteGATTServer.device`](/de/docs/Web/API/BluetoothRemoteGATTServer/device) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Eine Referenz auf das [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice), das den Server betreibt.
 
@@ -23,9 +23,9 @@ Das **`BluetoothRemoteGATTServer`**-Interface der [Web Bluetooth API](/de/docs/W
 - [`BluetoothRemoteGATTServer.disconnect()`](/de/docs/Web/API/BluetoothRemoteGATTServer/disconnect) {{Experimental_Inline}}
   - : Veranlasst die Skriptausführungsumgebung, die Verbindung zu `this.device` zu trennen.
 - [`BluetoothRemoteGATTServer.getPrimaryService()`](/de/docs/Web/API/BluetoothRemoteGATTServer/getPrimaryService) {{Experimental_Inline}}
-  - : Gibt ein Promise auf den primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService) zurück, der vom Bluetooth-Gerät für eine angegebene `BluetoothServiceUUID` angeboten wird.
+  - : Gibt ein Promise auf den primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService) zurück, der von dem Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten wird.
 - [`BluetoothRemoteGATTServer.getPrimaryServices()`](/de/docs/Web/API/BluetoothRemoteGATTServer/getPrimaryServices) {{Experimental_Inline}}
-  - : Gibt ein Promise auf eine Liste von primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService)-Objekten zurück, die vom Bluetooth-Gerät für eine angegebene `BluetoothServiceUUID` angeboten werden.
+  - : Gibt ein Promise auf eine Liste von primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService)-Objekten zurück, die von dem Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten werden.
 
 ## Spezifikationen
 

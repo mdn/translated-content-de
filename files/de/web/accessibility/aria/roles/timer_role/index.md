@@ -7,17 +7,17 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die **`timer`**-Rolle signalisiert unterstützenden Technologien, dass ein Element ein numerischer Zähler ist, der die vergangene Zeit ab einem Ausgangspunkt oder die verbleibende Zeit bis zu einem Endpunkt anzeigt. Unterstützende Technologien kündigen keine Aktualisierungen an einen Timer an, da er einen impliziten [aria-live](https://www.w3.org/TR/wai-aria/#aria-live)-Wert von `off` hat.
+Die **`timer`**-Rolle zeigt assistiven Technologien an, dass ein Element ein numerischer Zähler ist, der die verstrichene Zeit ab einem Startpunkt oder die verbleibende Zeit bis zu einem Endpunkt anzeigt. Assistive Technologien werden Aktualisierungen eines Timers nicht ankündigen, da er einen impliziten [aria-live](https://www.w3.org/TR/wai-aria/#aria-live)-Wert von `off` hat.
 
 ```html
 <div role="timer" id="eggtimer">0</div>
 ```
 
-Dieses definiert dieses `div`-Element als einen Timer ohne verbleibende Zeit.
+Dies definiert dieses `div`-Element als Timer ohne verbleibende Zeit.
 
 ## Beschreibung
 
-Die `timer`-Rolle signalisiert unterstützenden Technologien, dass dieser Teil des Webinhalts eine Live-Region enthält, die einen Timer mit der verbleibenden oder vergangenen Zeit anzeigt. Der innere Text eines Timers sollte eine sich aktualisierende aktuelle Zeitmessung sein. Auch wenn der Wert nicht unbedingt maschinenlesbar sein muss, sollte er regelmäßig in gleichmäßigen Abständen aktualisiert werden, es sei denn, der Timer ist pausiert oder hat seinen Endpunkt erreicht.
+Die `timer`-Rolle zeigt assistiven Technologien an, dass dieser Teil des Webinhalts eine Live-Region ist, die einen Timer enthält, der die verbleibende oder verstrichene Zeit anzeigt. Der Innentext eines Timers sollte eine sich aktualisierende aktuelle Zeitmessung sein. Obwohl der Wert nicht zwingend maschinenlesbar sein muss, sollte er kontinuierlich in regelmäßigen Abständen aktualisiert werden, es sei denn, der Timer wird pausiert oder erreicht seinen Endpunkt.
 
 Zusammen mit [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role), [`log`](/de/docs/Web/Accessibility/ARIA/Roles/log_role), [`marquee`](/de/docs/Web/Accessibility/ARIA/Roles/marquee_role) und [`status`](/de/docs/Web/Accessibility/ARIA/Roles/status_role) ist die `timer`-Rolle eine Live-Region und kann durch [Live-Region](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)-Attribute modifiziert werden.
 
@@ -25,15 +25,15 @@ Zusammen mit [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role), [`log`
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 
-  - : Einige Screenreader kündigen den Namen eines Timer-Elements an, bevor sie dessen Inhalt ankündigen. Wenn ein Name sichtbar ist, referenzieren Sie ihn mit `aria-labelledby`. Die Einbindung eines `aria-label` bietet eine Methode, um den sichtbaren Inhalt eines Timer-Elements mit Text zu versehen, der beim Lesen des Inhalts durch einen Screenreader nicht angezeigt wird. Eine Benennung eines Timers ist nicht erforderlich, daher können beide Attribute ausgelassen werden, wenn nichts Sinnvolles vorhanden ist.
+  - : Einige Screenreader kündigen den Namen eines Timer-Elements an, bevor sie dessen Inhalt ankündigen. Wenn ein Name sichtbar ist, verweisen Sie darauf mit `aria-labelledby`. Das Hinzufügen eines `aria-label` bietet eine Methode, um den sichtbaren Inhalt eines Timer-Elements mit einem Text einzuleiten, der nicht angezeigt wird, wenn ein Screenreader den Inhalt liest. Es ist nicht erforderlich, einen Timer zu benennen, daher können beide Attribute weggelassen werden, wenn nichts Passendes vorhanden ist.
 
 - [`aria-live`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-live)
 
-  - : Elemente mit der `timer`-Rolle haben einen impliziten [aria-live](https://www.w3.org/TR/wai-aria/#aria-live)-Wert von `off`.
+  - : Elemente mit der Rolle `timer` haben einen impliziten [aria-live](https://www.w3.org/TR/wai-aria/#aria-live)-Wert von `off`.
 
-## Barrierefreiheitsbedenken
+## Zugänglichkeitsbedenken
 
-Wenn eine Zeitbegrenzung erforderlich ist, beispielsweise aus Sicherheitsgründen, sollte der Benutzer die Möglichkeit haben, sie zu deaktivieren oder zu verlängern. Diese Einschränkung gilt nicht, wenn die Zeitbegrenzung aufgrund eines Live-Events, wie einer Auktion oder eines Spiels, erforderlich ist oder wenn die Zeit zur Vervollständigung des Formulars für eine gültige Einreichung entscheidend ist.
+Falls eine Zeitbegrenzung erforderlich ist, beispielsweise aus Sicherheitsgründen, sollte der Benutzer die Möglichkeit haben, sie auszuschalten oder zu verlängern. Diese Einschränkung gilt nicht, wenn die Zeitbegrenzung aufgrund eines Live-Events, wie einer Auktion oder eines Spiels, erforderlich ist oder wenn die Zeit zur Fertigstellung eines Formulars für eine gültige Einreichung wesentlich ist.
 
 ## Spezifikationen
 
@@ -45,5 +45,5 @@ Wenn eine Zeitbegrenzung erforderlich ist, beispielsweise aus Sicherheitsgründe
 - [ARIA: `log`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/log_role)
 - [ARIA: `marquee`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/marquee_role)
 - [ARIA: `status`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/status_role)
-- [ARIA Live-Regionen](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
-- [`timer` Beispiel auf Codepen](https://codepen.io/heydon/pres/NGgNjZ) von Heydon Pickering
+- [ARIA-Live-Regionen](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [`timer`-Beispiel auf Codepen](https://codepen.io/heydon/pres/NGgNjZ) von Heydon Pickering

@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-image-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("border-image-source")}} angegebene Bild in Bereiche. Diese Bereiche bilden die Komponenten eines Elements [border image](/de/docs/Web/CSS/border-image).
+Die **`border-image-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("border-image-source")}} angegebene Bild in Bereiche auf. Diese Bereiche bilden die Komponenten eines [Randbildes](/de/docs/Web/CSS/border-image) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-image-slice.html")}}
 
-Der Schneideprozess erzeugt insgesamt neun Regionen: vier Ecken, vier Kanten und eine mittlere Region. Vier Schneidelinien, die in einem bestimmten Abstand von ihren jeweiligen Seiten liegen, bestimmen die Größe der Regionen.
+Der Schneideprozess erstellt insgesamt neun Bereiche: vier Ecken, vier Kanten und einen mittleren Bereich. Vier Schnittlinien, die in einem bestimmten Abstand von ihren jeweiligen Seiten gesetzt sind, steuern die Größe der Bereiche.
 
-![Die neun durch die Eigenschaften border-image oder border-image-slice definierten Regionen](border-image-slice.png)
+![Die neun Bereiche, die durch die Eigenschaften border-image oder border-image-slice definiert werden](border-image-slice.png)
 
-Das obige Diagramm veranschaulicht die Lage jeder Region.
+Das obige Diagramm zeigt die Lage jedes Bereichs.
 
-- Zonen 1-4 sind Eckregionen. Jede von ihnen wird einmal verwendet, um die Ecken des endgültigen Border-Images zu bilden.
-- Zonen 5-8 sind Kantenregionen. Diese werden [wiederholt, skaliert oder anderweitig modifiziert](/de/docs/Web/CSS/border-image-repeat) im endgültigen Border-Image, um den Abmessungen des Elements zu entsprechen.
-- Zone 9 ist die mittlere Region. Sie wird standardmäßig verworfen, wird jedoch wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
+- Zonen 1-4 sind Eckbereiche. Jeder wird einmal verwendet, um die Ecken des endgültigen Randbildes zu bilden.
+- Zonen 5-8 sind Kantenbereiche. Diese werden [wiederholt, skaliert oder anderweitig modifiziert](/de/docs/Web/CSS/border-image-repeat) im endgültigen Randbild, um die Abmessungen des Elements anzupassen.
+- Zone 9 ist der mittlere Bereich. Dieser wird standardmäßig verworfen, aber wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
 
-Die Eigenschaften {{cssxref("border-image-repeat")}}, {{cssxref("border-image-width")}} und {{cssxref("border-image-outset")}} bestimmen, wie diese Regionen verwendet werden, um das endgültige Border-Image zu bilden.
+Die Eigenschaften {{cssxref("border-image-repeat")}}, {{cssxref("border-image-width")}} und {{cssxref("border-image-outset")}} bestimmen, wie diese Bereiche verwendet werden, um das endgültige Randbild zu bilden.
 
 ## Syntax
 
@@ -50,23 +50,23 @@ border-image-slice: revert-layer;
 border-image-slice: unset;
 ```
 
-Die `border-image-slice` Eigenschaft kann mit einem bis vier `<number-percentage>` Werten angegeben werden, um die Position jeder Bildausschnittlinie zu repräsentieren. Negative Werte sind ungültig; Werte, die größer als ihre entsprechende Dimension sind, werden auf `100%` begrenzt.
+Die `border-image-slice` Eigenschaft kann mit einem bis vier `<number-percentage>` Werten angegeben werden, um die Position jedes Bildschnitzes darzustellen. Negative Werte sind ungültig; Werte, die größer als ihre entsprechende Dimension sind, werden auf `100%` begrenzt.
 
-- Wenn **eine** Position angegeben wird, erstellt sie alle vier Schnitte in gleichem Abstand von ihren jeweiligen Seiten.
-- Wenn **zwei** Positionen angegeben werden, wird der erste Wert verwendet, um Schnitte gemessen vom **oberen und unteren** Rand zu erstellen, der zweite Wert erstellt Schnitte gemessen vom **linken und rechten** Rand.
-- Wenn **drei** Positionen angegeben werden, wird der erste Wert verwendet, um einen Schnitt vom **oberen** Rand zu erstellen, der zweite Wert für Schnitte gemessen vom **linken und rechten** Rand, der dritte Wert für einen Schnitt gemessen vom **unteren** Rand.
-- Wenn **vier** Positionen angegeben werden, erstellen sie Schnitte gemessen vom **oberen**, **rechten**, **unteren** und **linken** Rand in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, erstellt er alle vier Schnitte im gleichen Abstand von ihren jeweiligen Seiten.
+- Wenn **zwei** Werte angegeben werden, erstellt der erste Wert Schnitte vom **oberen und unteren** Rand aus, der zweite Wert erstellt Schnitte vom **linken und rechten** Rand aus.
+- Wenn **drei** Werte angegeben werden, erstellt der erste Wert einen Schnitt vom **oberen** Rand aus, der zweite erstellt Schnitte vom **linken und rechten** Rand aus, der dritte erstellt einen Schnitt vom **unteren** Rand aus.
+- Wenn **vier** Werte angegeben werden, erstellen sie Schnitte vom **oberen**, **rechten**, **unteren** und **linken** Rand in dieser Reihenfolge (im Uhrzeigersinn).
 
-Der optionale `fill`-Wert kann, falls verwendet, überall in der Deklaration platziert werden.
+Der optionale `fill` Wert, falls verwendet, kann überall in der Deklaration platziert werden.
 
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Repräsentiert einen Kantenoffset in _Pixeln_ für Rasterbilder und _Koordinaten_ für Vektorbilder. Für Vektorbilder ist die Zahl relativ zur Größe des Elements, nicht zur Größe des Quellbildes, daher sind Prozentsätze in diesen Fällen im Allgemeinen vorzuziehen.
+  - : Stellt einen Randversatz in _Pixeln_ für Rasterbilder und _Koordinaten_ für Vektorbilder dar. Bei Vektorbildern ist die Zahl relativ zur Größe des Elements, nicht zur Größe des Quellbildes, daher sind in diesen Fällen Prozentsätze in der Regel vorzuziehen.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Repräsentiert einen Kantenoffset als Prozentsatz der Größe des Quellbilds: die Breite des Bildes für horizontale Offsets, die Höhe für vertikale Offsets.
+  - : Stellt einen Randversatz als Prozentsatz der Größe des Quellbildes dar: die Breite des Bildes für horizontale Versätze, die Höhe des Bildes für vertikale Versätze.
 - `fill`
-  - : Bewahrt die mittlere Bildregion und zeigt sie wie ein Hintergrundbild an, jedoch über dem eigentlichen {{cssxref("background")}} gestapelt. Breite und Höhe sind angepasst, um mit den oberen und linken Bildregionen übereinzustimmen.
+  - : Erhält den mittleren Bildbereich und zeigt ihn wie ein Hintergrundbild an, jedoch über dem tatsächlichen {{cssxref("background")}}. Seine Breite und Höhe sind so bemessen, dass sie den oberen und linken Bildbereichen entsprechen.
 
 ## Formale Definition
 
@@ -78,24 +78,24 @@ Der optionale `fill`-Wert kann, falls verwendet, überall in der Deklaration pla
 
 ## Beispiele
 
-### Einstellbare Border-Breite und Schnitt
+### Anpassbare Rahmenbreite und Scheibe
 
-Das folgende Beispiel zeigt ein einfaches `<div>` mit einem Border-Image darauf. Das Quellbild für die Rahmen ist wie folgt:
+Das folgende Beispiel zeigt ein einfaches `<div>` mit einem gesetzten Randbild. Das Quellbild für die Ränder sieht wie folgt aus:
 
-![Schöne, mehrfarbige Diamanten](border-diamonds.png)
+![schöne mehrfarbige Diamanten](border-diamonds.png)
 
-Die Diamanten sind 30px groß, daher führt das Setzen von 30 Pixeln sowohl als Wert für [`border-width`](/de/docs/Web/CSS/border-width) als auch `border-image-slice` zu kompletten und recht klaren Diamanten in Ihrem Rahmen:
+Die Diamanten sind 30px breit, daher führt das Setzen von 30 Pixeln als Wert für sowohl [`border-width`](/de/docs/Web/CSS/border-width) als auch `border-image-slice` dazu, dass Sie komplette und relativ scharfe Diamanten in Ihrem Rahmen erhalten:
 
 ```css
 border-width: 30px;
 border-image-slice: 30;
 ```
 
-Dies sind die Standardwerte, die wir in diesem Beispiel verwendet haben. Wir haben jedoch auch zwei Schieberegler bereitgestellt, um Ihnen die Möglichkeit zu geben, die Werte der beiden oben genannten Eigenschaften dynamisch zu ändern, damit Sie die Wirkung schätzen können, die sie haben:
+Dies sind die Standardwerte, die wir in diesem Beispiel verwendet haben. Allerdings haben wir auch zwei Schieberegler bereitgestellt, mit denen Sie die Werte der obigen beiden Eigenschaften dynamisch ändern können, um den Effekt, den sie haben, zu schätzen:
 
-`border-image-slice` Ändert die Größe des Bildausschnitts, der für jeden Rand und jede Ecke (sowie den Inhaltsbereich, wenn das Schlüsselwort `fill` verwendet wird) verwendet wird — eine Abweichung von 30 führt dazu, dass der Rand etwas unregelmäßig aussieht, kann jedoch interessante Effekte haben.
+`border-image-slice`: Ändert die Größe des Bildschnitzes, der für jeden Rahmen und die Rahmenecke verwendet wird (sowie den Inhaltsbereich, wenn das Schlüsselwort `fill` verwendet wird) — wenn dieser Wert von 30 abweicht, sieht der Rahmen etwas unregelmäßig aus, kann aber interessante Effekte haben.
 
-`border-width`: Ändert die Breite des Rahmens. Die Größe des ausgewählten Bildes wird skaliert, um innerhalb des Rahmens zu passen, was bedeutet, dass wenn die Breite größer als der Schnitt ist, das Bild etwas pixelig aussehen kann (es sei denn, Sie verwenden ein SVG-Bild).
+`border-width`: Ändert die Breite des Rahmens. Die Stichprobengröße des Bildes wird so skaliert, dass es in den Rahmen passt, was bedeutet, dass, wenn die Breite größer als der Schnitt ist, das Bild etwas pixelig aussehen kann (es sei denn, Sie verwenden natürlich ein SVG-Bild).
 
 #### HTML
 
@@ -178,5 +178,5 @@ sliceSlider.addEventListener("input", () => {
 
 ## Siehe auch
 
-- [Illustrierte Beschreibung der 1- bis 4-Werte-Syntax](/de/docs/Web/CSS/Shorthand_properties#tricky_edge_cases)
-- [Borderbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)
+- [Illustrierte Beschreibung der 1-bis-4-Werte-Syntax](/de/docs/Web/CSS/Shorthand_properties#tricky_edge_cases)
+- [Randbilder in CSS: Ein zentraler Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

@@ -1,5 +1,5 @@
 ---
-title: "Window: devicemotion Ereignis"
+title: "Window: devicemotion-Ereignis"
 short-title: devicemotion
 slug: Web/API/Window/devicemotion_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`devicemotion`** Ereignis wird in regelmäßigen Abständen ausgelöst und gibt die Beschleunigungsrate des Geräts mit/ohne den Einfluss der Gravitationskraft zu diesem Zeitpunkt an. Es stellt auch Informationen über die Rotationsrate bereit, sofern verfügbar.
+Das **`devicemotion`**-Ereignis wird in regelmäßigen Intervallen ausgelöst und gibt die Beschleunigungsrate des Geräts mit/ohne Berücksichtigung der Gravitation an diesem Zeitpunkt an. Es liefert auch Informationen über die Rotationsrate, falls verfügbar.
 
-Dieses Ereignis ist nicht abbrichbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ ondevicemotion = (event) => {};
 
 ## Ereignistyp
 
-Ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("DeviceMotionEvent")}}
 
@@ -33,11 +33,11 @@ Ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent). Erbt von [`Event`
 - [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) {{ReadOnlyInline}}
   - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z mit dem Effekt der Gravitation angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
+  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z unter Berücksichtigung der Gravitation angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) {{ReadOnlyInline}}
   - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
 - [`DeviceMotionEvent.interval`](/de/docs/Web/API/DeviceMotionEvent/interval) {{ReadOnlyInline}}
-  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem Daten vom Gerät erhalten werden.
+  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem Daten vom Gerät bezogen werden.
 
 ## Beispiele
 

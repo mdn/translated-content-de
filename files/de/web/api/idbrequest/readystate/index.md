@@ -8,9 +8,12 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`readyState`** des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Status der Anfrage zurück.
+Die **`readyState`**-Eigenschaft des schreibgeschützten
+[`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Status der Anfrage zurück.
 
-Jede Anfrage beginnt im `pending`-Zustand. Der Zustand wechselt zu `done`, wenn die Anfrage erfolgreich abgeschlossen wird oder ein Fehler auftritt.
+Jede Anfrage beginnt im `pending`-Status. Der Status ändert sich zu
+`done`, wenn die Anfrage erfolgreich abgeschlossen ist oder ein Fehler
+auftritt.
 
 ## Wert
 
@@ -23,7 +26,12 @@ Einer der folgenden Strings:
 
 ## Beispiele
 
-Das folgende Beispiel fordert einen gegebenen Datensatz-Titel an, `onsuccess` erhält den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt den aktualisierten Datensatz dann in einer weiteren Anfrage zurück in den Object Store. Der `readyState` der zweiten Anfrage wird in der Entwicklerkonsole protokolliert. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel wird ein bestimmter Titel eines Datensatzes angefordert. `onsuccess` ruft den
+zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) ab (verfügbar gemacht
+als `objectStoreTitleRequest.result`), aktualisiert
+eine Eigenschaft des Datensatzes und speichert den aktualisierten Datensatz dann in einer weiteren Anfrage zurück in den Object Store. Der `readyState` der zweiten Anfrage wird in der Entwicklerkonsole protokolliert. Für ein vollständiges Beispiel siehe unsere
+[To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App
+([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -71,9 +79,9 @@ objectStoreTitleRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Einstellen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern von Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

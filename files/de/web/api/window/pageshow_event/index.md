@@ -10,19 +10,19 @@ l10n:
 
 Das **`pageshow`** Ereignis wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser das Dokument des Fensters aufgrund von Navigation anzeigt.
 
-Dazu gehören:
+Dies schließt ein:
 
-- Initiales Laden der Seite
-- Navigation zur Seite von einer anderen Seite im gleichen Fenster oder Tab
+- Erster Ladevorgang der Seite
+- Navigation zur Seite von einer anderen Seite im selben Fenster oder Tab
 - Wiederherstellung einer eingefrorenen Seite auf mobilen Betriebssystemen
-- Rückkehr zur Seite mit den Vorwärts- oder Rückwärtsschaltflächen des Browsers
+- Rückkehr zur Seite über die Vorwärts- oder Rückwärts-Schaltflächen des Browsers
 
 > [!NOTE]
-> Während des initialen Seitenladens wird das `pageshow` Ereignis _nach_ dem [`load`](/de/docs/Web/API/Window/load_event) Ereignis ausgelöst.
+> Beim ersten Laden der Seite tritt das `pageshow` Ereignis _nach_ dem [`load`](/de/docs/Web/API/Window/load_event) Ereignis auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("pageshow", (event) => {});
@@ -40,9 +40,9 @@ Ein [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent). Erbt von [`Ev
 - [`PageTransitionEvent.persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) {{ReadOnlyInline}}
   - : Gibt an, ob das Dokument aus einem Cache geladen wird.
 
-## Ereignishandler-Aliase
+## Ereignis-Handler Aliase
 
-Neben der `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onpageshow` auch auf folgenden Zielen verfügbar:
+Zusätzlich zur `Window` Schnittstelle steht die Ereignis-Handler-Eigenschaft `onpageshow` auch auf den folgenden Zielen zur Verfügung:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -50,7 +50,7 @@ Neben der `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onpageshow
 
 ## Beispiele
 
-Dieses Beispiel richtet Ereignishandler für Ereignisse ein, die im Array `events` aufgelistet sind. Der Handler `eventLogger()` protokolliert den Typ des aufgetretenen Ereignisses in der Konsole und enthält den Wert des [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) Flags bei `pageshow` und `pagehide` Ereignissen.
+Dieses Beispiel richtet Ereignis-Handler für die in dem Array `events` aufgeführten Ereignisse ein. Der Handler, `eventLogger()`, protokolliert den Typ des aufgetretenen Ereignisses in die Konsole und enthält den Wert des [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) Flags bei `pageshow` und `pagehide` Ereignissen.
 
 ### JavaScript
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Number.parseFloat()`** statische Methode analysiert ein Argument und gibt eine Fließkommazahl zurück. Kann keine Zahl aus dem Argument analysiert werden, gibt sie {{jsxref("NaN")}} zurück.
+Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Gleitkommazahl zurück. Kann keine Nummer aus dem Argument analysiert werden, gibt sie {{jsxref("NaN")}} zurück.
 
 {{EmbedInteractiveExample("pages/js/number-parsefloat.html")}}
 
@@ -20,11 +20,11 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, der [in einen String umgewandelt wird](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende [Leerzeichen](/de/docs/Glossary/whitespace) in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende [Leerzeichen](/de/docs/Glossary/whitespace) in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 
-Eine Fließkommazahl, die aus dem gegebenen `string` analysiert wurde.
+Eine Gleitkommazahl, die aus dem übergebenen `string` analysiert wurde.
 
 Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
@@ -32,13 +32,13 @@ Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Z
 
 ### Number.parseFloat vs. parseFloat
 
-Diese Methode hat die gleiche Funktionalität wie die globale {{jsxref("parseFloat()")}} Funktion:
+Diese Methode hat die gleiche Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
 
 ```js
 Number.parseFloat === parseFloat; // true
 ```
 
-Ihr Zweck ist die Modularisierung von globalen Funktionen.
+Ihr Zweck ist die Modularisierung von globalen Objekten.
 
 Weitere Details und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
+Die **`forEach()`**-Methode von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-foreach.html")}}
 
@@ -33,11 +33,11 @@ forEach(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.forEach()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Sehen Sie {{jsxref("Array.prototype.forEach()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 

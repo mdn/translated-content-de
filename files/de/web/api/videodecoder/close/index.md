@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`** Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces beendet alle anstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`** Methode der [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Schnittstelle beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 

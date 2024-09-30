@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`elapsedTime`** schreibgeschützte Eigenschaft des [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) gibt die verstrichene Zeit in Sekunden zurück, nachdem das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen hat, zu der das [Ereignis](/de/docs/Web/API/SpeechSynthesisUtterance#events) ausgelöst wurde.
+Die **`elapsedTime`**-Eigenschaft des schreibgeschützten [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) gibt die verstrichene Zeit in Sekunden zurück, seit der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) begonnen hat, gesprochen zu werden, zu dem Zeitpunkt, an dem das [Ereignis](/de/docs/Web/API/SpeechSynthesisUtterance#events) ausgelöst wurde.
 
 ## Wert
 

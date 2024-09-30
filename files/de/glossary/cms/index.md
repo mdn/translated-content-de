@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Content Management System (CMS)** ist eine Software, die es Benutzern ermöglicht, verschiedene Arten von Inhalten zu veröffentlichen, zu organisieren, zu ändern oder zu entfernen, nicht nur Text, sondern auch eingebettete Bilder, Videos, Audio und interaktiven Code.
+Ein **Content Management System (CMS)** ist eine Software, die es Nutzern ermöglicht, verschiedene Arten von Inhalten zu veröffentlichen, zu organisieren, zu ändern oder zu entfernen. Dies umfasst nicht nur Text, sondern auch eingebettete Bilder, Video, Audio und interaktiven Code.
 
 ## Siehe auch
 

@@ -8,16 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getAttributeNames()`**-Methode des
-[`Element`](/de/docs/Web/API/Element)-Interfaces gibt die Attributnamen des Elements als ein
-{{jsxref("Array")}} von Zeichenketten zurück. Wenn das Element keine Attribute hat, wird ein leeres
-Array zurückgegeben.
+Die **`getAttributeNames()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt die Attributnamen des Elements als ein {{jsxref("Array")}} von Zeichenfolgen zurück. Wenn das Element keine Attribute hat, wird ein leeres Array zurückgegeben.
 
-Die Verwendung von `getAttributeNames()` zusammen mit
-[`getAttribute()`](/de/docs/Web/API/Element/getAttribute) ist eine speichereffiziente und
-leistungsfähige Alternative zum Zugriff auf [`Element.attributes`](/de/docs/Web/API/Element/attributes).
+Das Verwenden von `getAttributeNames()` zusammen mit [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) ist eine speichereffiziente und leistungsfähige Alternative zum Zugriff auf [`Element.attributes`](/de/docs/Web/API/Element/attributes).
 
-Die von **`getAttributeNames()`** zurückgegebenen Namen sind _qualifizierte_ Attributnamen, was bedeutet, dass Attribute mit einem Namespace-Präfix ihre Namen mit diesem Präfix zurückgeben (nicht der tatsächliche Namespace), gefolgt von einem Doppelpunkt und dem Attributnamen (zum Beispiel, **`xlink:href`**), während alle Attribute ohne Namespace-Präfix ihre Namen unverändert zurückgeben (zum Beispiel, **`href`**).
+Die von **`getAttributeNames()`** zurückgegebenen Namen sind _qualifizierte_ Attributnamen. Das bedeutet, dass Attribute mit einem Namespace-Präfix mit diesem Namespace-Präfix zurückgegeben werden (nicht der tatsächliche Namespace), gefolgt von einem Doppelpunkt und dann dem Attributnamen (zum Beispiel **`xlink:href`**), während Attribute ohne Namespace-Präfix unverändert zurückgegeben werden (zum Beispiel **`href`**).
 
 ## Syntax
 
@@ -31,21 +26,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein ({{jsxref("Array")}}) von Zeichenketten.
+Ein ({{jsxref("Array")}}) von Zeichenfolgen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie:
+Das folgende Beispiel zeigt:
 
-- Für ein Attribut, das ein Namespace-Präfix hat, `getAttributeNames()` dieses Präfix zusammen mit dem Attributnamen zurückgibt.
-- Für ein Attribut ohne Namespace-Präfix, `getAttributeNames()` nur den Attributnamen unverändert zurückgibt.
+- Für ein Attribut, das ein Namespace-Präfix hat, gibt `getAttributeNames()` dieses Namespace-Präfix zusammen mit dem Attributnamen zurück.
+- Für ein Attribut, das kein Namespace-Präfix hat, gibt `getAttributeNames()` nur den Attributnamen unverändert zurück.
 
 Es ist wichtig zu verstehen, dass:
 
-1. Ein Attribut im DOM mit einem Namespace vorhanden sein kann, aber kein Namespace-Präfix hat.
-2. Bei einem Attribut im DOM, das einen Namespace hat, aber kein Namespace-Präfix, gibt `getAttributeNames()` nur den Attributnamen zurück, ohne Hinweis darauf, dass das Attribut in einem Namespace ist.
+1. Ein Attribut im DOM mit einem Namespace vorhanden sein kann, aber ohne ein Namespace-Präfix.
+2. Für ein Attribut im DOM, das einen Namespace hat, aber kein Namespace-Präfix, wird `getAttributeNames()` nur den Attributnamen zurückgeben, ohne Hinweis darauf, dass das Attribut in einem Namespace ist.
 
-Das untenstehende Beispiel enthält einen solchen Fall eines "Namensraums ohne Namespace-Präfix".
+Das folgende Beispiel enthält einen solchen Fall "mit Namespace, aber ohne Namespace-Präfix".
 
 ```js
 const element = document.createElement("a");

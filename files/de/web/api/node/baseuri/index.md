@@ -10,14 +10,15 @@ l10n:
 
 Die schreibgeschützte **`baseURI`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt die absolute Basis-URL des Dokuments zurück, das den Knoten enthält.
 
-Die Basis-URL wird verwendet, um relative URLs in absolute URLs aufzulösen, wenn der Browser diese benötigt, z.B. beim Verarbeiten des `src`-Attributs des HTML-{{HTMLElement("img")}}-Elements oder der `xlink:href` {{deprecated_inline}} oder `href`-Attribute in SVG.
+Die Basis-URL wird verwendet, um relative URLs aufzulösen, wenn der Browser eine absolute URL benötigt, um beispielsweise das `src`-Attribut des HTML-{{HTMLElement("img")}}-Elements oder die `xlink:href` {{deprecated_inline}} oder `href`-Attribute in SVG zu verarbeiten.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird ihr Wert jedes Mal, wenn die Eigenschaft abgerufen wird, durch einen Algorithmus bestimmt und kann sich ändern, wenn sich die Bedingungen geändert haben.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird ihr Wert jedes Mal, wenn auf die Eigenschaft zugegriffen wird, anhand eines Algorithmus bestimmt und kann sich ändern, wenn sich die Bedingungen ändern.
 
 Die Basis-URL wird wie folgt bestimmt:
 
-1. Standardmäßig ist die Basis-URL der Speicherort des Dokuments (wie durch [`window.location`](/de/docs/Web/API/Window/location) bestimmt).
-2. Handelt es sich um ein HTML-Dokument und befindet sich ein {{HTMLElement("Base")}}-Element im Dokument, wird stattdessen der `href`-Wert des _ersten_ `Base`-Elements mit einem solchen Attribut verwendet.
+1. Standardmäßig ist die Basis-URL die Lage des Dokuments (wie durch [`window.location`](/de/docs/Web/API/Window/location) bestimmt).
+2. Wenn es sich um ein HTML-Dokument handelt und sich ein {{HTMLElement("Base")}}-Element im Dokument befindet,
+   wird stattdessen der `href`-Wert des _ersten_ `Base`-Elements mit einem solchen Attribut verwendet.
 
 ## Wert
 

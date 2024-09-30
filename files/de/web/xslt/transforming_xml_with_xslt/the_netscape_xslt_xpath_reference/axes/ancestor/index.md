@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse `ancestor` gibt alle Vorfahren des Kontextknotens an, beginnend mit dem Elterknoten und geht bis zum Wurzelknoten.
+Die `ancestor`-Achse gibt alle Vorfahren des Kontextknotens an, beginnend mit dem Elterknoten und weiter bis zum Wurzelknoten.

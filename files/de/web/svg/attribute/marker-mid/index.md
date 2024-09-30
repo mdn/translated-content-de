@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`marker-mid`** Attribut definiert den Pfeilspitzen- oder Polymarker, der an allen inneren Scheitelpunkten der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das **`marker-mid`** Attribut definiert die Pfeilspitze oder den Polymarker, der an allen inneren Scheitelpunkten der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Der Marker wird an jedem Scheitelpunkt gerendert, mit Ausnahme des ersten und letzten Scheitelpunkts der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands).
+Der Marker wird an jedem Scheitelpunkt gerendert, außer dem ersten und letzten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands).
 
 > [!NOTE]
 > Als Präsentationsattribut kann `marker-mid` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-mid')}} für mehr Informationen.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -73,7 +73,7 @@ svg {
 - `none`
   - : Zeigt an, dass kein Markersymbol an den angegebenen Scheitelpunkten gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, welches an den angegebenen Scheitelpunkten gezeichnet wird. Falls der Verweis ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, das an den angegebenen Scheitelpunkten gezeichnet wird. Wenn der Verweis ungültig ist, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 

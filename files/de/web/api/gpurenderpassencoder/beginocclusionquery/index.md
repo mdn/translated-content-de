@@ -1,5 +1,5 @@
 ---
-title: "GPURenderPassEncoder: beginOcclusionQuery()-Methode"
+title: "GPURenderPassEncoder: Methode beginOcclusionQuery()"
 short-title: beginOcclusionQuery()
 slug: Web/API/GPURenderPassEncoder/beginOcclusionQuery
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`beginOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Okklusionsabfrage an dem angegebenen Index des entsprechenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) (bereitgestellt als Wert der `occlusionQuerySet` Deskriptoreigenschaft, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um den Renderpass auszuführen).
+Die **`beginOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Occlusion Query am angegebenen Index des betreffenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) (bereitgestellt als Wert der `occlusionQuerySet`-Descriptor-Eigenschaft bei der Ausführung von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) zur Durchführung des Render-Passes).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ beginOcclusionQuery(queryIndex)
 ### Parameter
 
 - `queryIndex`
-  - : Der Index im [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), an dem die Okklusionsabfrage begonnen werden soll.
+  - : Der Index im [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), bei dem die Occlusion Query beginnt.
 
 ### Rückgabewert
 
@@ -27,12 +27,12 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`beginOcclusionQuery()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`beginOcclusionQuery()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) wurde in der `occlusionQuerySet` Deskriptoreigenschaft angegeben, als der ursprüngliche [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wurde.
+- Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) wurde in der `occlusionQuerySet`-Descriptor-Eigenschaft angegeben, als der ursprüngliche [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wurde.
 - `queryIndex` ist kleiner als [`GPUQuerySet.count`](/de/docs/Web/API/GPUQuerySet/count).
-- Der `queryIndex` wurde im selben Renderpass noch nicht geschrieben.
-- Eine Okklusionsabfrage ist nicht bereits für diesen Renderpass aktiv (d.h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
+- Der `queryIndex` wurde nicht bereits im gleichen Render-Pass beschrieben.
+- Eine Occlusion Query ist für diesen Render-Pass nicht bereits aktiv (d.h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
 
 ## Beispiele
 

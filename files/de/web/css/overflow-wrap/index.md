@@ -8,14 +8,14 @@ l10n:
 {{CSSRef}}
 
 > [!WARNING]
-> Die Eigenschaft war ursprünglich eine nicht standardisierte und unpräfixierte Microsoft-Erweiterung namens `word-wrap`, die von den meisten Browsern unter demselben Namen implementiert wurde. Seitdem wurde sie in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
+> Die Eigenschaft war ursprünglich eine nicht standardisierte und unveränderte Microsoft-Erweiterung namens `word-wrap` und wurde von den meisten Browsern mit demselben Namen umgesetzt. Seitdem wurde sie in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias darstellt.
 
-Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche innerhalb eines ansonsten nicht trennbaren Strings einfügen soll, um zu verhindern, dass der Text über sein Zeilenfeld hinausläuft.
+Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche in einem ansonsten umbruchfesten String einfügen soll, um zu verhindern, dass der Text seine Zeilenbox überfließt.
 
 {{EmbedInteractiveExample("pages/css/overflow-wrap.html")}}
 
 > [!NOTE]
-> Im Gegensatz zu {{cssxref("word-break")}} wird `overflow-wrap` nur dann einen Umbruch erzeugen, wenn ein ganzes Wort nicht auf seine eigene Zeile gestellt werden kann, ohne überzulaufen.
+> Im Gegensatz zu {{cssxref("word-break")}} erzeugt `overflow-wrap` nur dann einen Umbruch, wenn ein ganzes Wort nicht in einer eigenen Zeile untergebracht werden kann, ohne dass es überläuft.
 
 ## Syntax
 
@@ -33,16 +33,16 @@ overflow-wrap: revert-layer;
 overflow-wrap: unset;
 ```
 
-Die `overflow-wrap` Eigenschaft wird als einzelnes Schlüsselwort aus der unten aufgeführten Liste von Werten angegeben.
+Die `overflow-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der folgenden Liste von Werten angegeben.
 
 ### Werte
 
 - `normal`
-  - : Zeilen dürfen nur an normalen Worttrennpunkten brechen (z. B. einem Leerzeichen zwischen zwei Wörtern).
+  - : Zeilen dürfen nur an den üblichen Umbruchstellen (wie einem Leerzeichen zwischen zwei Wörtern) umbrochen werden.
 - `anywhere`
-  - : Um ein Überlaufen zu verhindern, kann eine ansonsten nicht trennbare Zeichenfolge — wie ein langes Wort oder eine URL — an jedem Punkt gebrochen werden, wenn es keine anderweitig akzeptablen Trennpunkte in der Zeile gibt. An der Trennstelle wird kein Trennzeichen eingefügt. Durch den Zeilenumbruch eingeführte weiche Umbruchmöglichkeiten werden bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
+  - : Um Überlauf zu vermeiden, kann ein ansonsten umbruchfester String von Zeichen – wie ein langes Wort oder eine URL – an jedem Punkt umbrochen werden, wenn es keine andere zulässige Umbruchstelle in der Zeile gibt. An der Umbruchstelle wird kein Trennzeichen eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung der min-content innewohnenden Größen berücksichtigt.
 - `break-word`
-  - : Entspricht dem `anywhere` Wert, wobei normalerweise nicht trennbare Wörter an beliebigen Punkten gebrochen werden dürfen, wenn es keine anderweitig akzeptablen Trennpunkte in der Zeile gibt, aber weiche Umbruchmöglichkeiten, die durch den Zeilenumbruch eingeführt werden, werden NICHT bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
+  - : Das gleiche wie der Wert `anywhere`, mit normalerweise umbruchfesten Wörtern, die an beliebigen Punkten umbrochen werden dürfen, wenn es keine andere zulässige Umbruchstelle in der Zeile gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung der min-content innewohnenden Größen NICHT berücksichtigt.
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ Die `overflow-wrap` Eigenschaft wird als einzelnes Schlüsselwort aus der unten 
 
 ### Vergleich von overflow-wrap, word-break und hyphens
 
-Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Trennen eines langen Wortes.
+Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens`, wenn ein langes Wort umbrochen wird.
 
 #### HTML
 
@@ -143,4 +143,4 @@ p {
 - {{cssxref("white-space")}}
 - {{cssxref("hyphens")}}
 - {{cssxref("text-overflow")}}
-- [Leitfaden zum Umbrechen und Teilen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden zum Umbruch und Trennen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

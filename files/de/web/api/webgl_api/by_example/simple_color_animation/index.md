@@ -1,5 +1,5 @@
 ---
-title: Einfache Farbanimation
+title: Einfache Farb-Animation
 slug: Web/API/WebGL_API/By_example/Simple_color_animation
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_by_clicking","Learn/WebGL/By_example/Color_masking")}}
 
-Eine sehr einfache Farbanimation, erstellt mit [WebGL](/de/docs/Glossary/WebGL), die durch das Löschen des Zeichenpuffers jede Sekunde in einer anderen zufälligen Farbe durchgeführt wird.
+Eine sehr grundlegende Farb-Animation, erstellt mit [WebGL](/de/docs/Glossary/WebGL), erreicht durch das Löschen des Zeichnungspuffers mit einer anderen zufälligen Farbe jede Sekunde.
 
-## Farbanimation mit Clear
+## Farb-Animation mit Clear
 
 {{EmbedLiveSample("Color_animation_with_clear",660,425)}}
 
-Dieses Beispiel bietet eine einfache Darstellung der Farbanimation mit [WebGL](/de/docs/Glossary/WebGL) sowie die Benutzerinteraktion. Der Benutzer kann die Animation starten, stoppen und neu starten, indem er auf den Button klickt.
+Dieses Beispiel bietet eine einfache Illustration der Farb-Animation mit [WebGL](/de/docs/Glossary/WebGL) sowie der Benutzerinteraktion. Der Benutzer kann die Animation durch Klick auf den Button starten, stoppen und neu starten.
 
-Dieses Mal haben wir die [WebGL](/de/docs/Glossary/WebGL) Funktionsaufrufe in einen Timer-Ereignishandler eingefügt. Ein Klick-Ereignishandler ermöglicht zusätzlich die grundlegende Benutzerinteraktion zum Starten und Stoppen der Animation. Der Timer und die Timer-Handlerfunktion etablieren die Animationsschleife, einen Satz von Zeichenbefehlen, die in regelmäßigen Abständen ausgeführt werden (typischerweise jedes Bild; in diesem Fall einmal pro Sekunde).
+Dieses Mal platzieren wir die [WebGL](/de/docs/Glossary/WebGL)-Funktionsaufrufe innerhalb eines Timer-Event-Handlers. Ein Klick-Event-Handler ermöglicht zusätzlich die grundlegende Benutzerinteraktion des Startens und Stoppens der Animation. Der Timer und die Timer-Handler-Funktion etablieren die Animationsschleife, ein Satz von Zeichenbefehlen, die in regelmäßigen Abständen ausgeführt werden (typischerweise jedes Bild; in diesem Fall einmal pro Sekunde).
 
 ```html
 <p>A simple WebGL program that shows color animation.</p>

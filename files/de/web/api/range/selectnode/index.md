@@ -8,10 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.selectNode()`**-Methode setzt den
-[`Range`](/de/docs/Web/API/Range) so, dass er den [`Node`](/de/docs/Web/API/Node) und dessen Inhalt umfasst. Der übergeordnete
-[`Node`](/de/docs/Web/API/Node) des Anfangs und Endes des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie
-der übergeordnete Knoten des _referenceNode_.
+Die Methode **`Range.selectNode()`** setzt den [`Range`](/de/docs/Web/API/Range), um den [`Node`](/de/docs/Web/API/Node) und dessen Inhalt zu enthalten. Der übergeordnete [`Node`](/de/docs/Web/API/Node) des Anfangs und Endes des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie der übergeordnete Knoten des _referenceNode_.
 
 ## Syntax
 
@@ -22,7 +19,7 @@ selectNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der innerhalb eines [`Range`](/de/docs/Web/API/Range) ausgewählt werden soll.
+  - : Der innerhalb eines [`Range`](/de/docs/Web/API/Range) auszuwählende [`Node`](/de/docs/Web/API/Node).
 
 ### Rückgabewert
 
@@ -47,4 +44,4 @@ range.selectNode(referenceNode);
 
 ## Siehe auch
 
-- [Das DOM-Interface-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

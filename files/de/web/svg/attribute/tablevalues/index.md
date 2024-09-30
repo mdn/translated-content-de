@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Nachschlagetabelle von Werten für eine Farbkomponenten-Übertragungsfunktion definiert.
+Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Nachschlagetabelle von Werten für eine Farbkomponententransferfunktion angibt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -76,7 +76,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -92,7 +92,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Leere Liste, die zu einer Identitätsübertragung führt</em></td>
+      <td><em>Leere Liste, die zu einer Identitätstransferfunktion führt</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -103,9 +103,9 @@ svg {
 
 - `<list-of-numbers>`
 
-  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Nachschlagetabelle für die Farbkomponenten-Übertragungsfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
+  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Nachschlagetabelle für die Farbkomponententransferfunktion definiert. Jede Zahl kann zwischen `0` und `1` liegen.
 
-    Eine leere Liste führt zu einer Identitätsübertragungsfunktion.
+    Eine leere Liste führt zu einer Identitätstransferfunktion.
 
 ## Spezifikationen
 

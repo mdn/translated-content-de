@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`title`** des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Interfaces gibt einen String zurück, der den Titel des Kapitels darstellt.
+Die schreibgeschützte **`title`**-Eigenschaft der [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Schnittstelle gibt einen String zurück, der den Titel des Kapitels darstellt.
 
 ## Wert
 

@@ -7,9 +7,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLHtmlElement`**-Interface dient als Wurzelknoten für ein bestimmtes HTML-Dokument. Dieses Objekt erbt die Eigenschaften und Methoden, die in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
+Die **`HTMLHtmlElement`** Schnittstelle dient als Wurzelknoten für ein gegebenes HTML-Dokument. Dieses Objekt erbt die Eigenschaften und Methoden, die in der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle beschrieben sind.
 
-Sie können das `HTMLHtmlElement`-Objekt für ein gegebenes Dokument abrufen, indem Sie den Wert der [`document.documentElement`](/de/docs/Web/API/Document/documentElement)-Eigenschaft lesen.
+Sie können das `HTMLHtmlElement`-Objekt für ein gegebenes Dokument abrufen, indem Sie den Wert der [`document.documentElement`](/de/docs/Web/API/Document/documentElement) Eigenschaft auslesen.
 
 {{InheritanceDiagram}}
 
@@ -18,7 +18,7 @@ Sie können das `HTMLHtmlElement`-Objekt für ein gegebenes Dokument abrufen, in
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLHtmlElement.version`](/de/docs/Web/API/HTMLHtmlElement/version) {{deprecated_inline}}
-  - : Ein String, der die Version der HTML Document Type Definition (DTD) darstellt, die dieses Dokument steuert. Diese Eigenschaft sollte nicht mehr verwendet werden, da sie nicht konform ist. Bitte weglassen.
+  - : Ein String, der die Version der HTML Document Type Definition (DTD) darstellt, die dieses Dokument regelt. Diese Eigenschaft sollte nicht mehr verwendet werden, da sie nicht konform ist. Lassen Sie sie weg.
 
 ## Instanz-Methoden
 

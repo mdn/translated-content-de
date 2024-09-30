@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `picture-in-picture` steuert, ob das aktuelle Dokument ein Video im [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Modus abspielen darf.
+Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `picture-in-picture`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, ein Video im [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Modus abzuspielen.
 
-Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, ein Aufruf von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) einen [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: picture-in-picture=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, die Funktion zu nutzen. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `picture-in-picture` ist `*`.
+Die Standard-Allowlist für `picture-in-picture` ist `*`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-Whitelist für `picture-in-picture` ist `*`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

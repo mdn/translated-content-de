@@ -1,5 +1,5 @@
 ---
-title: Rechtsverschiebungszuweisung (>>=)
+title: Right shift assignment (>>=)
 slug: Web/JavaScript/Reference/Operators/Right_shift_assignment
 l10n:
   sourceCommit: 71cf0cb885d46d83af054ae4df350248e246f006
@@ -19,7 +19,7 @@ x >>= y
 
 ## Beschreibung
 
-`x >>= y` ist äquivalent zu `x = x >> y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x >>= y` ist äquivalent zu `x = x >> y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 

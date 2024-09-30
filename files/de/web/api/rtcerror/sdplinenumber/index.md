@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`sdpLineNumber`** der [`RTCError`](/de/docs/Web/API/RTCError)-Schnittstelle gibt die Zeilennummer innerhalb des [SDP](/de/docs/Glossary/SDP) an, bei der ein Syntaxfehler beim Parsen aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`sdpLineNumber`** der Schnittstelle [`RTCError`](/de/docs/Web/API/RTCError) gibt die Zeilennummer innerhalb des [SDP](/de/docs/Glossary/SDP) an, bei der ein Syntaxfehler beim Parsen auftrat.
 
 ## Wert
 
-Ein unsignierter Ganzzahlenwert, der die Zeile innerhalb des SDP angibt, in der der durch das `RTCError`-Objekt beschriebene Syntaxfehler auftrat. Die Zeilen werden beginnend mit Zeile 1 nummeriert.
+Ein vorzeichenloser ganzzahliger Wert, der die Zeile innerhalb des SDP angibt, bei der der durch das `RTCError`-Objekt beschriebene Syntaxfehler aufgetreten ist. Die Zeilen sind beginnend mit Zeile 1 nummeriert.
 
 Diese Eigenschaft ist `null`, es sei denn, der Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) ist `sdp-syntax-error`.
 

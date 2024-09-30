@@ -2,12 +2,12 @@
 title: Intl.NumberFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions
 l10n:
-  sourceCommit: 0ebc78fd61acddbe9505330f006b706ac786456d
+  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
 ---
 
 {{JSRef}}
 
-Die Methode **`resolvedOptions()`** der Instanzen von {{jsxref("Intl.NumberFormat")}} gibt ein neues Objekt zurück, das Eigenschaften enthält, die die [Spracheinstellungen und Zahlenformatierungsoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters) widerspiegeln, die während der Initialisierung dieses `Intl.NumberFormat`-Objekts berechnet wurden.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die Optionen widerspiegeln, die während der Initialisierung dieses `NumberFormat` Objekts berechnet wurden.
 
 {{EmbedInteractiveExample("pages/js/intl-numberformat-prototype-resolvedoptions.html")}}
 
@@ -23,51 +23,50 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die [Spracheinstellungen und Zahlenformatierungsoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters) widerspiegeln, die während der Konstruktion des gegebenen {{jsxref("Intl.NumberFormat")}}-Objekts berechnet wurden.
+Ein neues Objekt mit Eigenschaften, die die Optionen widerspiegeln, die während der Initialisierung dieses `NumberFormat` Objekts berechnet wurden. Das Objekt hat die folgenden Eigenschaften in der angegebenen Reihenfolge:
 
-Das resultierende Objekt hat folgende Eigenschaften:
-
-- `compactDisplay`
-  - : Ob die kurze oder lange Form bei kompakten Notationen verwendet wird. Dies ist der im Konstruktor angegebene Wert im Argument [`options.compactDisplay`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#compactdisplay) oder der Standardwert: `"short"`. Der Wert ist nur vorhanden, wenn `notation` auf "compact" gesetzt ist, ansonsten `undefined`.
-- `currency`
-  - : Die Währung, die für die Währungsformatierung verwendet werden soll. Der Wert ist definiert, wenn `style` `"currency"` ist, ansonsten `undefined`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.currency`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency).
-- `currencyDisplay`
-  - : Das Anzeigeformat für die Währung, wie ein Symbol oder Währungscode. Der Wert ist definiert, wenn `style` `"currency"` ist, ansonsten `undefined`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.currencyDisplay`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay) oder der Standardwert: `"symbol"`.
-- `currencySign`
-  - : Die Methode zur Angabe des Vorzeichens des Währungswerts: `standard` oder `accounting`. Der Wert ist vorhanden, wenn `style` `"currency"` ist, ansonsten `undefined`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.currencySign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign) oder der Standardwert: `"standard"`.
 - `locale`
-  - : Das BCP 47 Sprach-Tag für die tatsächlich verwendete Spracheinstellung. Entspricht einer der im Konstruktor angeforderten Sprachoptionen [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales).
-- `notation`
-  - : Die Formatierung, die auf die Zahl angewendet werden soll, wie `standard` oder `engineering`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.notation`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation) oder der Standardwert: `"standard"`.
+  - : Der BCP 47 Sprach-Tag für das tatsächlich verwendete Gebietsschema, bestimmt durch den [Gebietsschema-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
 - `numberingSystem`
-  - : Das Zahlensystem. Dies ist der im Konstruktor angegebene Wert im Argument [`options.numberingSystem`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem), sofern vorhanden, oder der Wert, der mit dem Unicode-Erweiterungsschlüssel [`nu`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#nu) gesetzt wurde, oder als Standard festgelegt ist.
-- `roundingIncrement`
-  - : Die Rundungspräzision (der Inkrementwert, der beim Runden von Zahlen verwendet wird). Dies ist der im Konstruktor angegebene Wert im Argument [`options.roundingIncrement`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingincrement).
-- `roundingMode`
-  - : Der Rundungsmodus. Dies ist der im Konstruktor angegebene Wert für das Argument [`options.roundingMode`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode) oder der Standardwert: `halfExpand`.
-- `roundingPriority`
-  - : Die Priorität zur Lösung von Rundungskonflikten, wenn sowohl "FractionDigits" als auch "SignificantDigits" angegeben sind. Dies ist der im Konstruktor angegebene Wert für das Argument [`options.roundingPriority`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingpriority) oder der Standardwert: `auto`.
-- `signDisplay`
-  - : Ob das positive/negative Vorzeichen angezeigt werden soll. Dies ist der im Konstruktor angegebene Wert im Argument [`options.signDisplay`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#signdisplay) oder der Standardwert: `"auto"`.
-- `unit`
-  - : Die Einheit, die für die Einheitsformatierung verwendet werden soll. Der Wert ist nur vorhanden, wenn `style` `"unit"` ist, ansonsten `undefined`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.unit`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit).
-- `unitDisplay`
-  - : Das Anzeigeformat, das für Einheiten in der Einheitsformatierung verwendet werden soll, z.B. "long", "short" oder "narrow". Der Wert ist nur vorhanden, wenn `style` `"unit"` ist, ansonsten `undefined`. Dies ist der im Konstruktor angegebene Wert im Argument [`options.unitDisplay`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay) oder der Standardwert: `short`.
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getNumberingSystems#supported_numbering_system_types) für dieses Gebietsschema. Die Standardeinstellung ist abhängig vom Gebietsschema.
+- `style`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist entweder `"decimal"`, `"percent"`, `"currency"`, oder `"unit"`. Die Standardeinstellung ist `"decimal"`.
+- `currency` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde. Es ist nur vorhanden, wenn `style` `"currency"` ist. Es ist ein [ISO 4217 Währungscode](https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes). Es ist erforderlich, wenn `style` `"currency"` ist, daher gibt es keinen Standardwert.
+- `currencyDisplay` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist nur vorhanden, wenn `style` `"currency"` ist. Es ist entweder `"code"`, `"symbol"`, `"narrowSymbol"`, oder `"name"`. Die Standardeinstellung ist `"symbol"`.
+- `currencySign` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist nur vorhanden, wenn `style` `"currency"` ist. Es ist entweder `"standard"` oder `"accounting"`. Die Standardeinstellung ist `"standard"`.
+- `unit` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde. Es ist nur vorhanden, wenn `style` `"unit"` ist. Es ist ein [genehmigter Einheitsbezeichner](https://tc39.es/ecma402/#table-sanctioned-single-unit-identifiers) aus der [vollständigen CLDR-Liste](https://github.com/unicode-org/cldr/blob/main/common/validity/unit.xml). Es ist erforderlich, wenn `style` `"unit"` ist, daher gibt es keinen Standardwert.
+- `unitDisplay` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist nur vorhanden, wenn `style` `"unit"` ist. Es ist entweder `"short"`, `"narrow"`, oder `"long"`. Die Standardeinstellung ist `"short"`.
+- `minimumIntegerDigits`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist eine Ganzzahl zwischen `1` und `21`. Die Standardeinstellung ist `1`.
+- `minimumFractionDigits`, `maximumFractionDigits` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaften im `options` Argument angegeben wurde, mit standardmäßig ausgefüllten Werten, falls erforderlich. Sie sind nur vorhanden, wenn nötig; siehe [Digit-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options). Es ist eine Ganzzahl zwischen `0` und `100`.
+- `minimumSignificantDigits`, `maximumSignificantDigits` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaften im `options` Argument angegeben wurde, mit standardmäßig ausgefüllten Werten, falls erforderlich. Sie sind nur vorhanden, wenn nötig; siehe [Digit-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options). Es ist eine Ganzzahl zwischen `1` und `21`.
 - `useGrouping`
-  - : Ob Gruppierungszeichen zur Kennzeichnung von "Tausendern", "Millionen" usw. verwendet werden sollen. Dies ist der im Konstruktor angegebene Wert im Argument [`options.useGrouping`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping) oder der Standardwert: `"auto"`.
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich, und mit einigen normalisierten Werten. Es ist entweder `"always"`, `"auto"`, `"min2"`, oder der boolesche Wert `false`. Die Standardeinstellung ist `"min2"`, wenn `notation` `"compact"` ist, sonst `"auto"`.
+- `notation`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist entweder `"standard"`, `"scientific"`, `"engineering"`, oder `"compact"`. Die Standardeinstellung ist `"standard"`.
+- `compactDisplay` {{optional_inline}}
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist nur vorhanden, wenn `notation` `"compact"` ist. Es ist entweder `"short"` oder `"long"`. Die Standardeinstellung ist `"short"`.
+- `signDisplay`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist entweder `"auto"`, `"always"`, `"exceptZero"`, `"negative"`, oder `"never"`. Die Standardeinstellung ist `"auto"`.
+- `roundingIncrement`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es gehört zu `1`, `2`, `5`, `10`, `20`, `25`, `50`, `100`, `200`, `250`, `500`, `1000`, `2000`, `2500`, und `5000`. Die Standardeinstellung ist `1`.
+- `roundingMode`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es gehört zu `"ceil"`, `"floor"`, `"expand"`, `"trunc"`, `"halfCeil"`, `"halfFloor"`, `"halfExpand"`, `"halfTrunc"`, und `"halfEven"`. Die Standardeinstellung ist `"halfExpand"`.
+- `roundingPriority`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist entweder `"auto"`, `"morePrecision"`, oder `"lessPrecision"`. Die Standardeinstellung ist `"auto"`.
 - `trailingZeroDisplay`
-  - : Die Strategie zur Anzeige von nachgestellten Nullen bei ganzen Zahlen. Dies ist der im Konstruktor angegebene Wert im Argument [`options.trailingZeroDisplay`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#trailingzerodisplay) oder der Standardwert: `"auto"`.
-
-Nur eine der folgenden beiden Gruppen von Eigenschaften ist enthalten:
-
-- `minimumIntegerDigits`, `minimumFractionDigits`, `maximumFractionDigits`
-  - : Die für diese Eigenschaften im `options`-Argument angegebenen Werte oder die als Standardwerte festgelegten. Diese Eigenschaften sind nur vorhanden, wenn weder `minimumSignificantDigits` noch `maximumSignificantDigits` im `options`-Argument angegeben wurden.
-- `minimumSignificantDigits`, `maximumSignificantDigits`
-  - : Die für diese Eigenschaften im `options`-Argument angegebenen Werte oder die als Standardwerte festgelegten. Diese Eigenschaften sind nur vorhanden, wenn mindestens eine davon im `options`-Argument angegeben wurde.
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßig ausgefülltem Wert, falls erforderlich. Es ist entweder `"auto"` oder `"stripIfInteger"`. Die Standardeinstellung ist `"auto"`.
 
 ## Beispiele
 
-### Verwendung der `resolvedOptions`-Methode
+### Verwendung der Methode `resolvedOptions`
 
 ```js
 // Create a NumberFormat

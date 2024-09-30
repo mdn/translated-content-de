@@ -1,5 +1,5 @@
 ---
-title: "Storage: clear()-Methode"
+title: "Storage: clear() Methode"
 short-title: clear()
 slug: Web/API/Storage/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`clear()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle löscht alle in einem gegebenen `Storage`-Objekt gespeicherten Schlüssel.
+Die **`clear()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle löscht alle in einem bestimmten `Storage`-Objekt gespeicherten Schlüssel.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Die folgende Funktion erstellt drei Dateneinträge im lokalen Speicher und löscht sie anschließend mit `clear()`.
+Die folgende Funktion erstellt drei Dateneinträge im lokalen Speicher und löscht sie dann mit `clear()`.
 
 ```js
 function populateStorage() {
@@ -39,7 +39,7 @@ function populateStorage() {
 ```
 
 > [!NOTE]
-> Für ein Praxisbeispiel, siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Ein Beispiel aus der Praxis finden Sie in unserem [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`iconURL`** der [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Schnittstelle gibt einen String zurück, der eine URL zu einem Bild für ein Icon enthält. Dieses Bild ist zur Anzeige in einem Anmeldeauswahl-Dialog vorgesehen. Die URL muss ohne Authentifizierung zugänglich sein.
+Die schreibgeschützte **`iconURL`**-Eigenschaft des [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Interfaces gibt einen String zurück, der eine URL zu einem Bild für ein Symbol enthält. Dieses Bild ist zur Anzeige in einem Berechtigungswahlauswahlfeld vorgesehen. Die URL muss ohne Authentifizierung zugänglich sein.
 
 ## Wert
 

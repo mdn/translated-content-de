@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle beginnt eine Debug-Gruppe für einen Compute-Pass, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Methode enthalten wird.
+Die **`pushDebugGroup()`**-Methode der
+[`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle startet eine Debug-Gruppe für einen Compute-Pass, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle enthält, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Methode aufgerufen wird.
 
-Diese Methode kann für Telemetrie verwendet werden oder könnte zukünftig in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklertools des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
 
 ## Syntax
 
@@ -21,7 +22,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der das Label für die Debug-Gruppe repräsentiert.
+  - : Ein String, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 

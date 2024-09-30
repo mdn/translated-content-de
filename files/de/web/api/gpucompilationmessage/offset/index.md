@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`offset`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die den Offset vom Anfang des Shader-Codes bis zum exakten Punkt oder zum Anfang des relevanten Unterstrings darstellt, auf den sich die Nachricht bezieht.
+Die **`offset`**-Schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die den Offset vom Anfang des Shader-Codes bis zu dem genauen Punkt oder dem Anfang der relevanten Teilzeichenfolge angibt, auf den sich die Nachricht bezieht.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `offset` die Anzahl der UTF-16-Codierungseinheiten vom Beginn des Shader-Codes bis zum genauen Punkt oder Anfang des relevanten Unterstrings, auf den sich die Nachricht bezieht.
+Genauer gesagt ist `offset` die Anzahl der UTF-16-Code-Einheiten vom Beginn des Shader-Codes bis zum genauen Punkt oder Anfang der relevanten Teilzeichenfolge, auf den sich die Nachricht bezieht.
 
-Falls die Nachricht sich nicht auf eine spezielle Codestelle bezieht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), wird `offset` 0 sein.
+Wenn sich die Nachricht nicht auf eine bestimmte Codeposition bezieht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), beträgt `offset` 0.
 
 ## Beispiele
 

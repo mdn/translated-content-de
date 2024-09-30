@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`vert-origin-x`** Attribut gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines [Glyphs](/de/docs/Glossary/glyph) an, das verwendet werden soll, wenn vertikal ausgerichteter Text gezeichnet wird.
+Das Attribut **`vert-origin-x`** gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines [Glyphs](/de/docs/Glossary/glyph) an, das beim Zeichnen von vertikal ausgerichtetem Text verwendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -29,7 +29,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Die Hälfte des Wertes von {{SVGAttr("horiz-adv-x")}}</em></td>
+      <td><em>Die Hälfte des {{SVGAttr("horiz-adv-x")}} Wertes</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

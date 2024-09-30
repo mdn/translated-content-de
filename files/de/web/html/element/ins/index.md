@@ -7,22 +7,22 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der zu einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um auf ähnliche Weise einen Textbereich zu kennzeichnen, der aus dem Dokument entfernt wurde.
+Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich darzustellen, der aus dem Dokument gelöscht wurde.
 
 {{EmbedInteractiveExample("pages/tabbed/ins.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zum Protokoll einer Besprechung oder ein Ticket in einem Fehlerbehebungssystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zu Besprechungsnotizen oder einem Ticket in einem Problemlösungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionalem Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit beinhaltet, finden Sie unter [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings).
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitangabe sein. Wenn der Wert nicht als Datum mit optionaler Zeitangabe analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenfolge ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenfolge, wenn sie sowohl Datum als auch Zeit enthält, wird in [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann mittels der CSS-Eigenschaft {{cssxref("content")}}, zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}}, zur Ankündigung gebracht werden.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angesagt. Es kann mithilfe der CSS-Eigenschaft {{cssxref("content")}}, sowie den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} angesagt werden.
 
 ```css
 ins::before,
@@ -45,10 +45,10 @@ ins::after {
 }
 ```
 
-Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Unwissen über eingefügten Inhalt das Verständnis beeinträchtigen würde.
+Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über eingefügten Inhalt das Verständnis beeinträchtigen würde.
 
-- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Kurze Anmerkung zum barrierefreieren Markieren | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Anpassung von Textstilen auf Inhaltsebene | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -72,10 +72,10 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasierungsinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >flow content</a
+          >Fließinhalt</a
         >.
       </td>
     </tr>
@@ -90,16 +90,15 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das startende als auch das endende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing content</a
-        >
-        akzeptiert.
+          >Phrasierungsinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -132,4 +131,4 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
 
 ## Siehe auch
 
-- {{HTMLElement("del")}}-Element zur Markierung der Löschung in ein Dokument
+- {{HTMLElement("del")}}-Element zur Markierung von Löschungen in einem Dokument

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die statische, schreibgeschützte **`paintWorklet`**-Eigenschaft der [`CSS`](/de/docs/Web/API/CSS)-Schnittstelle bietet Zugriff auf den Paint-[Worklet](/de/docs/Web/API/Worklet), der auf programmatische Weise ein Bild erzeugt, wo eine CSS-Eigenschaft eine Datei erwartet.
+Die statische, schreibgeschützte **`paintWorklet`**-Eigenschaft des [`CSS`](/de/docs/Web/API/CSS)-Interfaces bietet Zugriff auf das Paint-[worklet](/de/docs/Web/API/Worklet), das programmgesteuert ein Bild erzeugt, wenn eine CSS-Eigenschaft eine Datei erwartet.
 
 ## Wert
 
-Das zugehörige [`Worklet`](/de/docs/Web/API/Worklet)-Objekt.
+Das zugeordnete [`Worklet`](/de/docs/Web/API/Worklet)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Paint-[Worklet](/de/docs/Web/API/Worklet) aus seiner js-Datei geladen wird und durch Feature-Erkennung erfolgt.
+Das folgende Beispiel zeigt das Laden eines Paint-[worklet](/de/docs/Web/API/Worklet) aus seiner js-Datei und tut dies durch Feature-Erkennung.
 
 ```js
 if ("paintWorklet" in CSS) {
@@ -35,4 +35,4 @@ if ("paintWorklet" in CSS) {
 ## Siehe auch
 
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
-- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)
+- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)

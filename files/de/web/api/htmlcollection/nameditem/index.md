@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`namedItem()`**-Methode der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Schnittstelle gibt
-das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
+Die **`namedItem()`**-Methode der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Schnittstelle gibt das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
 
-In JavaScript können Sie anstelle von `collection.namedItem("value")` auch direkt auf den Namen in der Sammlung zugreifen, wie `collection["value"]`, es sei denn, der Name kollidiert mit einer der bestehenden Eigenschaften von `HTMLCollection`.
+In JavaScript können Sie anstelle von `collection.namedItem("value")` auch direkt auf den Namen in der Sammlung zugreifen, wie `collection["value"]`, es sei denn, der Name kollidiert mit einer der bestehenden `HTMLCollection`-Eigenschaften.
 
 ## Syntax
 
@@ -26,7 +25,7 @@ namedItem(key)
 
 ### Rückgabewert
 
-Das erste [`Element`](/de/docs/Web/API/Element) in der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), das mit dem `key` übereinstimmt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn es keines gibt. Gibt immer `null` zurück, wenn `key` der leere String ist.
+Das erste [`Element`](/de/docs/Web/API/Element) in der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), das mit `key` übereinstimmt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn kein solches Element vorhanden ist. Gibt immer `null` zurück, wenn `key` der leere String ist.
 
 ## Beispiel
 

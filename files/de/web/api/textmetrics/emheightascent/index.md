@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: emHeightAscent-Eigenschaft"
+title: "TextMetrics: Eigenschaft emHeightAscent"
 short-title: emHeightAscent
 slug: Web/API/TextMetrics/emHeightAscent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte `emHeightAscent`-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle gibt die Entfernung von der horizontalen Linie, die durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegeben wird, bis zur Oberseite des _em_-Quadrats im Zeilenfeld in CSS-Pixel an.
+Die schreibgeschützte Eigenschaft `emHeightAscent` der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle gibt die Entfernung von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegebenen horizontalen Linie zur Oberseite des _em_-Quadrats im Linienkasten in CSS-Pixeln zurück.
 
 ## Wert
 

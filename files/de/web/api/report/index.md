@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Das `Report`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert einen einzelnen Bericht.
+Das `Report` Interface der [Reporting API](/de/docs/Web/API/Reporting_API) stellt einen einzelnen Bericht dar.
 
-Berichte können auf verschiedene Weise abgerufen werden:
+Berichte können auf verschiedene Weisen abgerufen werden:
 
-- Über die Methode [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) — diese gibt alle Berichte in der Berichts-Schlange eines Beobachters zurück und leert dann die Schlange.
-- Über den `reports`-Parameter der Callback-Funktion, die beim Erstellen einer neuen Beobachterinstanz in den [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Konstruktor übergeben wird. Dies enthält die Liste der Berichte, die sich aktuell in der Berichts-Schlange des Beobachters befinden.
-- Durch das Senden von Anfragen an die über den {{httpheader("Reporting-Endpoints")}} HTTP-Header definierten Endpunkte.
+- Über die Methode [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) — diese gibt alle Berichte in der Berichtswarteschlange eines Beobachters zurück und leert dann die Warteschlange.
+- Über den `reports` Parameter der Callback-Funktion, die beim Erstellen einer neuen Instanz des Beobachters in den [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver) Konstruktor übergeben wird. Dieser enthält die Liste der Berichte, die sich aktuell in der Berichtswarteschlange des Beobachters befinden.
+- Durch das Senden von Anfragen an die Endpunkte, die über den {{httpheader("Reporting-Endpoints")}} HTTP-Header definiert sind.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`Report.body`](/de/docs/Web/API/Report/body) {{ReadOnlyInline}}
-  - : Der Hauptteil des Berichts, der ein `ReportBody`-Objekt ist, das die detaillierten Berichts-Informationen enthält.
+  - : Der Inhalt des Berichts, der ein `ReportBody` Objekt mit den detaillierten Berichtsinformationen ist.
 - [`Report.type`](/de/docs/Web/API/Report/type) {{ReadOnlyInline}}
-  - : Der Typ des erstellten Berichts, z. B. `deprecation` oder `intervention`.
+  - : Der Typ des generierten Berichts, z. B. `deprecation` oder `intervention`.
 - [`Report.url`](/de/docs/Web/API/Report/url) {{ReadOnlyInline}}
   - : Die URL des Dokuments, das den Bericht generiert hat.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Dieses Interface hat keine definierten Methoden._
 
 ## Ereignisse
 
-_Dieses Interface hat keine ausgelösten Ereignisse._
+_Dieses Interface hat keine Ereignisse, die darauf ausgelöst werden._
 
 ## Beispiele
 
-In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Reporting Observer, um die Nutzung veralteter Funktionen auf unserer Webseite zu beobachten:
+In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Reporting-Observer, um die Nutzung veralteter Funktionen auf unserer Webseite zu beobachten:
 
 ```js
 const options = {
@@ -47,17 +47,17 @@ const observer = new ReportingObserver((reports, observer) => {
 }, options);
 ```
 
-Wir weisen den Observer dann an, Berichte zu beobachten, indem wir [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) verwenden; dies weist den Observer an, Berichte in seiner Berichts-Schlange zu sammeln und die im Konstruktor angegebene Callback-Funktion auszuführen:
+Dann sagen wir ihm, dass er mit dem Beobachten von Berichten mithilfe von [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) beginnen soll; dies veranlasst den Beobachter, Berichte in seiner Berichtswarteschlange zu sammeln und die im Konstruktor angegebene Callback-Funktion auszuführen:
 
 ```js
 observer.observe();
 ```
 
-Aufgrund des Event-Handlers, den wir im `ReportingObserver()`-Konstruktor eingerichtet haben, können wir nun auf den Button klicken, um die Berichtsdaten anzuzeigen.
+Aufgrund des Ereignishandlers, den wir im `ReportingObserver()` Konstruktor eingerichtet haben, können wir jetzt auf den Button klicken, um die Berichtdetails anzuzeigen.
 
-![Bild eines fröhlichen bärtigen Mannes mit verschiedenen Statistiken unten über eine veraltete Funktion angezeigt](reporting_api_example.png)
+![Bild eines fröhlichen bärtigen Mannes mit verschiedenen unten angezeigten Statistiken zu einem veralteten Funktion](reporting_api_example.png)
 
-Die Berichtsdaten werden über die `displayReports()`-Funktion angezeigt, die den `reports`-Parameter des Observer-Callbacks als Parameter übernimmt:
+Die Berichtdetails werden über die `displayReports()` Funktion angezeigt, die den `reports` Parameter des Callback des Beobachters als seinen Parameter nimmt:
 
 ```js
 function displayReports(reports) {
@@ -85,7 +85,7 @@ function displayReports(reports) {
 }
 ```
 
-Der `reports`-Parameter enthält ein Array aller Berichte in der Berichts-Schlange des Beobachters. Wir durchlaufen jeden Bericht mit einer [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Schleife und iterieren dann über jeden Eintrag im Body des Berichts mit einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Struktur, wobei jedes Schlüssel/Wert-Paar in einem Listeneintrag angezeigt wird.
+Der `reports` Parameter enthält ein Array aller Berichte in der Berichtswarteschlange des Beobachters. Wir iterieren über jeden Bericht mithilfe einer [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) Schleife und dann über jeden Eintrag im Berichtskörper mit einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Struktur, wobei jedes Schlüssel-/Wertpaar in einem Listenelement angezeigt wird.
 
 ## Spezifikationen
 

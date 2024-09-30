@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Textabschnitt, den der [User-Agent](/de/docs/Glossary/user_agent) als grammatikalisch inkorrekt markiert hat.
+Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das von der [User-Agent](/de/docs/Glossary/user_agent) als grammatisch inkorrekt markiert wurde.
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
 Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
 
@@ -17,7 +17,7 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und seine Longhands
+- {{cssxref("outline")}} und dessen Langformen
 - {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
@@ -32,9 +32,9 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 
 ## Beispiele
 
-### Einfache Dokument-Grammatikprüfung
+### Einfache Dokumentgrammatikprüfung
 
-In diesem Beispiel sollten unterstützende Browser alle markierten grammatikalischen Fehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser alle markierten grammatischen Fehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

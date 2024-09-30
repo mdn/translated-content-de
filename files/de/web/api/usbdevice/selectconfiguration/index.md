@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: selectConfiguration() Methode"
+title: "USBDevice: selectConfiguration()-Methode"
 short-title: selectConfiguration()
 slug: Web/API/USBDevice/selectConfiguration
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`selectConfiguration()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die angegebene Konfiguration ausgewählt ist.
+Die **`selectConfiguration()`**-Methode des
+[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die angegebene Konfiguration ausgewählt wird.
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setBlendConstant()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt die konstante Farb- und Alphawerte, die mit den Blendfaktoren `"constant"` und `"one-minus-constant"` verwendet werden (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode festgelegt, in der `blend`-Eigenschaft).
+Die **`setBlendConstant()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt die konstante Mischfarbe und Alphawerte, die mit den `"constant"`- und `"one-minus-constant"`-Mischfaktoren verwendet werden (wie im Deskriptor der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) im `blend`-Eigenschaft gesetzt).
 
 ## Syntax
 
@@ -20,26 +20,26 @@ setBlendConstant(color)
 
 - `color`
 
-  - : Ein Objekt oder Array, das die Farbe darstellt, die beim Blenden verwendet werden soll — die Komponenten `r`, `g`, `b` und `a` werden als Gleitkommazahlen zwischen 0,0 und 1,0 dargestellt.
+  - : Ein Objekt oder Array, das die zu verwendende Farbe beim Mischen repräsentiert — die `r`, `g`, `b` und `a`-Komponenten werden als Gleitkommazahlen zwischen 0,0 und 1,0 dargestellt.
 
-    Was folgt, ist ein Objektbeispiel:
+    Im Folgenden ein Objektbeispiel:
 
     ```js
     const color = { r: 0.0, g: 0.5, b: 1.0, a: 1.0 };
     ```
 
-    Das entsprechende Array würde folgendermaßen aussehen:
+    Das äquivalente Array sähe so aus:
 
     ```js
     const color = [0.0, 0.5, 1.0, 1.0];
     ```
 
 > [!NOTE]
-> Wenn kein `setBlendConstant()`-Aufruf erfolgt, wird der Standardwert der Blend-Konstantenfarbe für jeden Render-Durchgang auf `(0, 0, 0, 0)` gesetzt.
+> Wenn kein `setBlendConstant()`-Aufruf durchgeführt wird, ist der Standardwert für die Mischkonstante `(0, 0, 0, 0)` für jeden Rendering-Durchlauf.
 
 ### Rückgabewert
 
-Keinen ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 

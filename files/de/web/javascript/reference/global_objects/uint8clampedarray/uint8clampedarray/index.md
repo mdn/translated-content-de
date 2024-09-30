@@ -1,5 +1,5 @@
 ---
-title: Uint8ClampedArray()-Konstruktor
+title: Uint8ClampedArray() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray/Uint8ClampedArray
 l10n:
   sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Uint8ClampedArray()`**-Konstruktor erstellt {{jsxref("Uint8ClampedArray")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Uint8ClampedArray()`**-Konstruktor erstellt {{jsxref("Uint8ClampedArray")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten angegeben.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Methoden zur Erstellung eines Uint8ClampedArray
+### Verschiedene Möglichkeiten, ein Uint8ClampedArray zu erstellen
 
 ```js
 // From a length
@@ -79,7 +79,7 @@ console.log(uint8cFromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint8ClampedArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- JavaScript-Typed-Arrays [Leitfaden](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

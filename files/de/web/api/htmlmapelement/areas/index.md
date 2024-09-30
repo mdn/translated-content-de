@@ -1,5 +1,5 @@
 ---
-title: "HTMLMapElement: areas Eigenschaft"
+title: "HTMLMapElement: areas-Eigenschaft"
 short-title: areas
 slug: Web/API/HTMLMapElement/areas
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`areas`** des [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement)-Interfaces gibt eine Sammlung von {{HTMLElement("area")}}-Elementen zurück, die mit dem {{HTMLElement("map")}}-Element verknüpft sind.
+Die **`areas`**-Schreibschutz-Eigenschaft der Schnittstelle [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement) gibt eine Sammlung von {{HTMLElement("area")}}-Elementen zurück, die mit dem {{HTMLElement("map")}}-Element verbunden sind.
 
 ## Wert
 

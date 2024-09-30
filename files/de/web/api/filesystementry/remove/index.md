@@ -1,5 +1,5 @@
 ---
-title: "FileSystemEntry: remove()-Methode"
+title: "FileSystemEntry: remove() Methode"
 short-title: remove()
 slug: Web/API/FileSystemEntry/remove
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`remove()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
+Die Methode **`remove()`** der Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
 
-Um ein Verzeichnis rekursiv sowie alle seine Inhalte und Unterverzeichnisse zu entfernen, verwenden Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively).
+Um ein Verzeichnis rekursiv zu löschen sowie alle seine Inhalte und Unterverzeichnisse, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ remove(successCallback, errorCallback)
 - `successCallback`
   - : Eine Funktion, die aufgerufen wird, sobald die Datei erfolgreich entfernt wurde.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Callback, der aufgerufen wird, falls ein Versuch, die Datei zu entfernen, fehlschlägt.
+  - : Ein optionaler Rückruf, der aufgerufen wird, wenn der Versuch, die Datei zu entfernen, fehlschlägt.
 
 ### Rückgabewert
 
@@ -35,13 +35,13 @@ Keiner ({{jsxref("undefined")}}).
 - `FileError.INVALID_MODIFICATION_ERR`
   - : Der angegebene Eintrag war das Stammverzeichnis des Dateisystems oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
 - `FileError.INVALID_STATE_ERR`
-  - : Der zwischengespeicherte Zustand des Dateisystems ist nicht mit seinem Zustand auf der Festplatte konsistent, daher konnte die Datei aus Sicherheitsgründen nicht gelöscht werden.
+  - : Der zwischengespeicherte Zustand des Dateisystems ist inkonsistent mit seinem Zustand auf der Festplatte, daher konnte die Datei aus Sicherheitsgründen nicht gelöscht werden.
 - `FileError.NO_MODIFICATION_ALLOWED_ERR`
   - : Der Zustand des Dateisystems erlaubt das Entfernen der Datei oder des Verzeichnisses nicht.
 - `FileError.NOT_FOUND_ERR`
   - : Die Datei oder das Verzeichnis existiert nicht.
 - `FileError.SECURITY_ERR`
-  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Anfragen an Dateiresourcen gestellt werden.
+  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe an Dateiresourcen gemacht werden.
 
 ## Beispiele
 

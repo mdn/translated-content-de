@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`view-transition-name`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt dem ausgewählten Element einen eindeutigen Namen (ein {{cssxref("custom-ident")}}) und bewirkt, dass es an einem separaten [View-Transition](/de/docs/Web/API/View_Transitions_API) von der Haupt-View-Transition teilnimmt – oder an keiner View-Transition, wenn der Wert `none` angegeben ist.
+Die **`view-transition-name`** [CSS](/de/docs/Web/CSS)-Eigenschaft bietet dem ausgewählten Element einen unverwechselbaren Namen (ein {{cssxref("custom-ident")}}) und bewirkt, dass es an einem separaten [Ansichtsübergang](/de/docs/Web/API/View_Transitions_API) vom Wurzel-Ansichtsübergang teilnimmt — oder an keinem Ansichtsübergang, wenn der Wert `none` angegeben ist.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ view-transition-name: none;
 ### Werte
 
 - {{cssxref("custom-ident")}}
-  - : Ein identifizierender Name, der bewirkt, dass das ausgewählte Element an einer separaten [View-Transition](/de/docs/Web/API/View_Transitions_API) von der Haupt-View-Transition teilnimmt. Der Bezeichner muss eindeutig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und die Transition wird übersprungen.
+  - : Ein identifizierender Name, der bewirkt, dass das ausgewählte Element an einem separaten [Ansichtsübergang](/de/docs/Web/API/View_Transitions_API) vom Wurzel-Ansichtsübergang teilnimmt. Der Identifikator muss eindeutig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) zurückgewiesen und der Übergang wird übersprungen.
     > [!NOTE]
     > Das `<custom-ident>` kann nicht `auto` sein.
 - `none`
-  - : Das ausgewählte Element wird nicht an einer View-Transition teilnehmen.
+  - : Das ausgewählte Element wird nicht an einem Ansichtsübergang teilnehmen.
 
 ## Formale Definition
 

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`removeAttributeNode()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle entfernt den angegebenen [`Attr`](/de/docs/Web/API/Attr)-Knoten aus dem Element.
+Die **`removeAttributeNode()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces entfernt den angegebenen [`Attr`](/de/docs/Web/API/Attr)-Knoten aus dem Element.
 
 Wenn Sie den Attributknoten nicht inspizieren müssen, bevor Sie ihn entfernen, können Sie stattdessen die [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methode verwenden.
 
@@ -45,11 +45,11 @@ d.removeAttributeNode(d_align);
 ## Hinweise
 
 Wenn das entfernte Attribut einen Standardwert hat, wird es sofort ersetzt. Das ersetzende
-Attribut hat denselben Namespace-URI und lokalen Namen sowie das ursprüngliche Präfix, wenn zutreffend.
+Attribut hat denselben Namespace-URI und denselben lokalen Namen, sowie das ursprüngliche Präfix,
+wenn es zutrifft.
 
 Es gibt keine `removeAttributeNodeNS`-Methode; die
-`removeAttributeNode`-Methode kann sowohl Namespace-Attribute als auch
-nicht-Namespace-Attribute entfernen.
+`removeAttributeNode`-Methode kann sowohl Attribute mit Namensraum als auch solche ohne Namensraum entfernen.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`forget()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle ausstehenden Operationen abgebrochen, alle offenen Schnittstellen freigegeben, die Gerätesitzung beendet und die Berechtigung zurückgesetzt wurde.
+Die **`forget()`** Methode des [`USBDevice`](/de/docs/Web/API/USBDevice) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle ausstehenden Operationen abgebrochen, alle offenen Schnittstellen freigegeben, die Gerätesitzung beendet und die Berechtigung zurückgesetzt wurde.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Zugriffsberechtigung für das Gerät widerrufen wurde.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Zugriffsberechtigung für das Gerät widerrufen wird.
 
 ## Spezifikationen
 

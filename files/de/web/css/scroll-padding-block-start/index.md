@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-padding-block-start`-Eigenschaft definiert Versätze für die Antriebskante in der Blockdimension des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielbereich zum Platzieren von Elementen im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-start` definiert Versätze für den Startrand in der Blockdimension der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion für die Platzierung von Elementen im Blickfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-block-start.html")}}
 
@@ -33,9 +33,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Blockanfangskante des Scrollports, entweder als gültige Länge oder als Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom Blockstartrand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, allerdings kann der Benutzeragent auch andere Werte festlegen, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dieser ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 

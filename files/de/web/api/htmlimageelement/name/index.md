@@ -8,16 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ **`name`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
-Interfaces spezifiziert einen Namen für das Element. Diese wurde durch die [`id`](/de/docs/Web/API/Element/id)
-Eigenschaft ersetzt, die für alle Elemente verfügbar ist.
+Die _veraltete_ **`name`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle gibt einen Namen für das Element an. Diese wurde durch die [`id`](/de/docs/Web/API/Element/id)-Eigenschaft ersetzt, die für alle Elemente verfügbar ist.
 
 ## Wert
 
-Ein String, der einen Namen bereitstellt, unter dem das Bild referenziert werden kann.
+Ein String, der einen Namen bereitstellt, mit dem das Bild referenziert werden kann.
 
 > [!WARNING]
-> Diese Eigenschaft ist veraltet und nur noch aus Gründen der Rückwärtskompatibilität in der Spezifikation enthalten. Da sie identisch zur [`id`](/de/docs/Web/HTML/Global_attributes#id) funktioniert, können und sollten Sie stattdessen diese verwenden.
+> Diese Eigenschaft ist veraltet und nur noch aus Gründen der Rückwärtskompatibilität in der Spezifikation enthalten. Da sie identisch zur [`id`](/de/docs/Web/HTML/Global_attributes#id)-Eigenschaft funktioniert, sollten Sie diese stattdessen verwenden.
 
 ## Spezifikationen
 

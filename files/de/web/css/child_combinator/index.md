@@ -1,5 +1,5 @@
 ---
-title: Child-Kombinator
+title: Child Combinator
 slug: Web/CSS/Child_combinator
 l10n:
   sourceCommit: 7fa9b134e7a886b47bd8c6e3135ba329ee0ddf09
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **Child-Kombinator** (`>`) wird zwischen zwei CSS-Selektoren platziert. Er trifft nur auf diejenigen Elemente zu, die vom zweiten Selektor erfasst werden und die direkten Kinder von Elementen sind, die vom ersten Selektor erfasst werden.
+Der **Child-Kombinator** (`>`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit denjenigen Elementen überein, die vom zweiten Selektor erfasst werden und direkte Kinder der Elemente sind, die vom ersten Selektor erfasst werden.
 
 ```css
 /* List items that are children of the "my-things" list */
@@ -16,7 +16,7 @@ ul.my-things > li {
 }
 ```
 
-Elemente, die vom zweiten Selektor erfasst werden, müssen unmittelbare Kinder der Elemente sein, die vom ersten Selektor erfasst werden. Dies ist strikter als der [Descendant-Kombinator](/de/docs/Web/CSS/Descendant_combinator), der alle vom zweiten Selektor erfassten Elemente trifft, für die es ein Vorfahrenelement gibt, das vom ersten Selektor erfasst wird, unabhängig von der Anzahl der "Sprünge" im DOM.
+Elemente, die durch den zweiten Selektor ausgewählt werden, müssen unmittelbare Kinder der Elemente sein, die durch den ersten Selektor ausgewählt werden. Dies ist strenger als der [Descendant-Kombinator](/de/docs/Web/CSS/Descendant_combinator), der alle Elemente erfasst, die vom zweiten Selektor ausgewählt werden, für die es ein Vorfahrelement gibt, das vom ersten Selektor ausgewählt wird, unabhängig von der Anzahl der "Sprünge" im DOM.
 
 ## Syntax
 

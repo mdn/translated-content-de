@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt vorgenommen wurden — Instanzen stehen als Ereignisobjekt in einer Funktion zur Verfügung, die durch ein [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis referenziert wird.
+Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt stattgefunden haben — Instanzen sind als Ereignisobjekt in einer Funktion verfügbar, die durch ein [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis referenziert wird.
 
 {{InheritanceDiagram}}
 
@@ -18,16 +18,16 @@ Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, 
 
 ## Instanz-Eigenschaften
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) aktuell mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt, oder `false`, wenn nicht.
 - [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Medienabfrage darstellt.
+  - : Ein String, der eine serialisierte Media Query darstellt.
 
 ## Instanz-Methoden
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Methoden von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
@@ -59,6 +59,6 @@ mql.addEventListener("change", (event) => {
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Verwendung von Media Queries aus dem Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

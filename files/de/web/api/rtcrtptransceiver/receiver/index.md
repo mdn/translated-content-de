@@ -8,11 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`receiver`**-Eigenschaft der WebRTC-[`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Schnittstelle zeigt den [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an, der für den Empfang und die Dekodierung eintreffender Mediendaten für den Stream des Transceivers verantwortlich ist.
+Die schreibgeschützte **`receiver`**-Eigenschaft
+der WebRTC-Schnittstelle [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) gibt den
+[`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an, der für den Empfang und die Dekodierung eingehender Mediadaten
+für den Stream des Transceivers verantwortlich ist.
 
 ## Wert
 
-Ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt, das für den Empfang und die Dekodierung eintreffender Mediendaten verantwortlich ist, deren Medien-ID mit dem aktuellen Wert von [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid) übereinstimmt.
+Ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt, das für den Empfang und die Dekodierung
+eingehender Mediadaten verantwortlich ist, deren Medien-ID identisch mit dem aktuellen Wert von
+[`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid) ist.
 
 ## Spezifikationen
 

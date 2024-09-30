@@ -1,5 +1,5 @@
 ---
-title: WebAssembly Steuerflussanweisungen
+title: WebAssembly Kontrollflussanweisungen
 slug: WebAssembly/Reference/Control_flow
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,10 +7,10 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-WebAssembly Steuerflussanweisungen.
+WebAssembly Kontrollflussanweisungen.
 
 - [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)
-  - : Erstellt ein Label, aus dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) verzweigt werden kann.
+  - : Erstellt ein Label, aus dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) gesprungen werden kann.
 - [`br`](/de/docs/WebAssembly/Reference/Control_flow/br)
   - : Verzweigt zu einer Schleife oder einem Block.
 - [`call`](/de/docs/WebAssembly/Reference/Control_flow/call)
@@ -22,11 +22,11 @@ WebAssembly Steuerflussanweisungen.
 - [`if...else`](/de/docs/WebAssembly/Reference/Control_flow/if...else)
   - : Führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (`1`) ist.
 - [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)
-  - : Erstellt ein Label, zu dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) verzweigt werden kann.
+  - : Erstellt ein Label, zu dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) gesprungen werden kann.
 - [`nop`](/de/docs/WebAssembly/Reference/Control_flow/nop)
   - : Macht nichts.
 - [`return`](/de/docs/WebAssembly/Reference/Control_flow/return)
-  - : Kehrt aus einer Funktion zurück.
+  - : Gibt aus einer Funktion zurück.
 - [`select`](/de/docs/WebAssembly/Reference/Control_flow/Select)
   - : Wählt einen seiner ersten beiden Operanden basierend auf einer booleschen Bedingung aus.
 - [`unreachable`](/de/docs/WebAssembly/Reference/Control_flow/unreachable)

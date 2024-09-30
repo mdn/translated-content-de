@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-URN (Uniform Resource Name) ist ein [URI](/de/docs/Glossary/URI) in einem Standardformat, der sich auf eine Ressource bezieht, ohne deren Standort anzugeben oder ob sie existiert. Dieses Beispiel stammt aus [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986): `urn:oasis:names:specification:docbook:dtd:xml:4.1.2`
+URN (Uniform Resource Name) ist ein [URI](/de/docs/Glossary/URI) in einem standardisierten Format, der sich auf eine Ressource bezieht, ohne deren Standort oder Existenz anzugeben. Dieses Beispiel stammt aus [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986): `urn:oasis:names:specification:docbook:dtd:xml:4.1.2`
 
 ## Siehe auch
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `pause`-Ereignis wird gesendet, wenn eine Anforderung zum Anhalten einer Aktivität bearbeitet wurde und die Aktivität ihren angehaltenen Zustand erreicht hat, meistens nachdem das Medium über einen Aufruf der [`pause()`](/de/docs/Web/API/HTMLMediaElement/pause)-Methode des Elements pausiert wurde.
+Das `pause`-Ereignis wird gesendet, wenn eine Anfrage zum Anhalten einer Aktivität verarbeitet wird und die Aktivität in den angehaltenen Zustand übergegangen ist, am häufigsten nachdem das Medium durch einen Aufruf der [`pause()`](/de/docs/Web/API/HTMLMediaElement/pause)-Methode des Elements pausiert wurde.
 
-Das Ereignis wird gesendet, sobald die `pause()`-Methode zurückkehrt und nachdem die [`paused`](/de/docs/Web/API/HTMLMediaElement/paused)-Eigenschaft des Medienelements auf `true` gesetzt wurde.
+Das Ereignis wird gesendet, sobald die `pause()`-Methode zurückkehrt und nachdem die [`paused`](/de/docs/Web/API/HTMLMediaElement/paused)-Eigenschaft des Medienelements auf `true` geändert wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und löst keine Bubbling aus.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("pause", (event) => {});
@@ -26,13 +26,13 @@ onpause = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches [`Event`](/de/docs/Web/API/Event).
+Ein generisches [`Ereignis`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `pause`-Ereignis des HTMLMediaElements hinzu und geben eine Nachricht aus, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `pause`-Ereignis des HTMLMediaElements hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const video = document.querySelector("video");
@@ -44,7 +44,7 @@ video.addEventListener("pause", (event) => {
 });
 ```
 
-Verwendung der `onpause`-Ereignishandler-Eigenschaft:
+Verwendung der `onpause`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

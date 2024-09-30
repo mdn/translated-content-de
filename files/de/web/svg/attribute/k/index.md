@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`k`**-Attribut gibt an, um wie viel der Abstand zwischen den beiden Glyphen eines Kerning-Paares verringert werden soll.
+Das **`k`**-Attribut gibt die Menge an, um die der Abstand zwischen den beiden Glyphen in einem Kerning-Paar verringert wird.
 
-Der Wert befindet sich im Font-Koordinatensystem. Dieses Attribut ist erforderlich.
+Der Wert befindet sich im Koordinatensystem der Schriftart. Dieses Attribut ist erforderlich.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("hkern")}}
 - {{SVGElement("vkern")}}
@@ -32,17 +32,17 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Nein</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt an, um wie viel der Abstand zwischen den beiden Glyphen des Kerning-Paares verringert werden soll.
+  - : Dieser Wert gibt die Menge an, um die der Abstand zwischen den beiden Glyphen im Kerning-Paar verringert wird.
 
 ## Spezifikationen
 

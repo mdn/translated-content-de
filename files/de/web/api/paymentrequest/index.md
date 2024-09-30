@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}
 
-Das **`PaymentRequest`**-Interface der [Payment Request API](/de/docs/Web/API/Payment_Request_API) ist der primäre Zugangspunkt zur API und ermöglicht es Webinhalten und Apps, Zahlungen im Namen des Betreibers der Website oder des Herausgebers der App vom Endbenutzer zu akzeptieren.
+Das **`PaymentRequest`**-Interface der [Payment Request API](/de/docs/Web/API/Payment_Request_API) ist der primäre Zugangspunkt zur API und ermöglicht es Web-Inhalten und Apps, Zahlungen von Endnutzern im Auftrag des Betreibers der Website oder Herausgebers der App anzunehmen.
 
 {{InheritanceDiagram}}
 
@@ -16,32 +16,32 @@ Das **`PaymentRequest`**-Interface der [Payment Request API](/de/docs/Web/API/Pa
 - [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)
   - : Erstellt ein neues `PaymentRequest`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`PaymentRequest.id`](/de/docs/Web/API/PaymentRequest/id) {{ReadOnlyInline}}
-  - : Ein einzigartiger Bezeichner für ein bestimmtes `PaymentRequest`, der über `details.id` festgelegt werden kann. Wenn keiner gesetzt ist, wird standardmäßig eine UUID verwendet.
+  - : Eine eindeutige Kennung für ein bestimmtes `PaymentRequest`, die über `details.id` gesetzt werden kann. Wenn keine gesetzt ist, wird standardmäßig ein UUID verwendet.
 - [`PaymentRequest.shippingAddress`](/de/docs/Web/API/PaymentRequest/shippingAddress) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wenn über Zahlungsoptionen angefordert, gibt es die vom Benutzer ausgewählte Versandadresse für die Zwecke der Versandberechnung zurück. Diese Eigenschaft wird nur gesetzt, wenn der Konstruktor mit dem `requestShipping`-Flag auf true gesetzt aufgerufen wird. Zusätzlich werden in einigen Browsern Teile der Adresse aus Datenschutzgründen bis zur Bestätigung der Transaktion (d.h. "Bezahlen" drücken) abgeblendet.
+  - : Falls über Zahlungsoptionen angefordert, gibt die von der Benutzerin oder dem Benutzer gewählte Versandadresse zum Zwecke der Versandkostenberechnung zurück. Diese Eigenschaft wird nur gefüllt, wenn der Konstruktor mit dem `requestShipping`-Flag aufgerufen wird. Zusätzlich werden in einigen Browsern Teile der Adresse aus Datenschutzgründen ausgeblendet, bis die Benutzerin oder der Benutzer angibt, dass sie oder er bereit ist, die Transaktion abzuschließen (d.h., sie oder er drückt "Bezahlen").
 - [`PaymentRequest.shippingOption`](/de/docs/Web/API/PaymentRequest/shippingOption) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt den Bezeichner der ausgewählten Versandoption zurück. Diese Eigenschaft wird nur gesetzt, wenn der Konstruktor mit dem `requestShipping`-Flag auf true gesetzt aufgerufen wird.
+  - : Gibt die Kennung der ausgewählten Versandoption zurück. Diese Eigenschaft wird nur gefüllt, wenn der Konstruktor mit dem `requestShipping`-Flag aufgerufen wird.
 - [`PaymentRequest.shippingType`](/de/docs/Web/API/PaymentRequest/shippingType) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt den Typ des Versandverfahrens zurück, das zur Erfüllung der Transaktion verwendet wird. Dies wird eines von `shipping`, `delivery`, `pickup` oder `null` sein, wenn im Konstruktor kein Wert angegeben wurde.
+  - : Gibt den Typ des Versands zurück, der zur Erfüllung der Transaktion verwendet wird. Dies wird eines der folgenden sein: `shipping`, `delivery`, `pickup` oder `null`, wenn im Konstruktor kein Wert angegeben wurde.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment)
-  - : Zeigt an, ob das `PaymentRequest`-Objekt eine Zahlung durchführen kann, bevor `show()` aufgerufen wird.
+  - : Gibt an, ob das `PaymentRequest`-Objekt eine Zahlung vor dem Aufruf von `show()` durchführen kann.
 - [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)
-  - : Veranlasst den Benutzeragent, die Benutzerinteraktion für die Zahlungsanforderung zu beginnen.
+  - : Lässt den Benutzer-Agent die Benutzerinteraktion für die Zahlungsanforderung beginnen.
 - [`PaymentRequest.abort()`](/de/docs/Web/API/PaymentRequest/abort)
-  - : Veranlasst den Benutzeragent, die Zahlungsanforderung zu beenden und alle möglicherweise angezeigten Benutzeroberflächen zu entfernen.
+  - : Veranlasst den Benutzer-Agent, die Zahlungsanforderung zu beenden und jegliche möglicherweise angezeigte Benutzeroberfläche zu entfernen.
 
 ## Ereignisse
 
 - [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) {{Deprecated_Inline}}
-  - : Bei einigen Zahlungsabwicklern (z. B. Apple Pay) wird dieser Ereignishandler aufgerufen, um das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis zu bearbeiten, das ausgelöst wird, wenn der Benutzeragent verlangt, dass der Händler validiert, dass der Händler oder Verkäufer, der die Zahlung anfordert, legitim ist.
+  - : Bei einigen Zahlungsabwicklern (z. B. Apple Pay) wird dieser Ereignishandler aufgerufen, um das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event)-Ereignis zu verarbeiten, das ausgelöst wird, wenn der Benutzer-Agent verlangt, dass der Händler die Legitimität des Händlers oder Anbieters bestätigt, der die Zahlung anfordert.
 - [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)
-  - : Bei einigen Zahlungsabwicklern (z. B. Apple Pay) wird dieses Ereignis ausgelöst, wann immer der Benutzer das Zahlungsmittel ändert, wie z. B. der Wechsel von einer Kreditkarte zu einer Debitkarte.
+  - : Bei einigen Zahlungsabwicklern (z. B. Apple Pay), ausgelöst, wann immer der Benutzer das Zahlungsmittel ändert, zum Beispiel von einer Kreditkarte zu einer Debitkarte wechselt.
 - [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event){{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Wird ausgelöst, wann immer der Benutzer seine Versandadresse ändert.
 - [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event) {{Deprecated_Inline}} {{Non-standard_Inline}}

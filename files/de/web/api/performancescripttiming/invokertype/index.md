@@ -8,30 +8,30 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`invokerType`** des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt einen Zeichenfolgenwert zurück, der den Typ der Funktion angibt, die beim Aufruf das Skript ausgeführt hat.
+Die **`invokerType`**-Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces ist eine schreibgeschützte Eigenschaft, die einen Zeichenfolgenwert zurückgibt, der den Typ des Features angibt, das beim Aufrufen das Skript ausgeführt hat.
 
 ## Wert
 
-Eine Zeichenfolge, die den `invoker`-Typ des Skripteintrittspunkts angibt. Mögliche Werte sind:
+Eine Zeichenfolge, die den Invoker-Typ des Skripteintrittspunkts angibt. Mögliche Werte sind:
 
 - `"user-callback"`
-  - : Ein bekannter Callback, der innerhalb einer Webplattform-API aufgerufen wird, wie zum Beispiel [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame).
+  - : Ein bekannter Rückruf, der innerhalb einer Webplattform-API aufgerufen wird, wie [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame).
 - `"event-listener"`
-  - : Ein Ereignis-Listener für ein Webplattform-Ereignis, wie zum Beispiel [`click`](/de/docs/Web/API/Element/click_event), [`load`](/de/docs/Web/API/Window/load_event) oder [`keyup`](/de/docs/Web/API/Element/keyup_event).
+  - : Ein Ereignis-Listener für ein Webplattform-Ereignis, wie [`click`](/de/docs/Web/API/Element/click_event), [`load`](/de/docs/Web/API/Window/load_event) oder [`keyup`](/de/docs/Web/API/Element/keyup_event).
 - `"resolve-promise"`
-  - : Eine Handler-Funktion für den gelösten Zustand eines Versprechen der Webplattform, wie zum Beispiel [`fetch()`](/de/docs/Web/API/Window/fetch). Beachten Sie, dass im Fall von Promise alle Handler desselben Promise als einzelner `"script"`-Eintragstyp zusammengefasst werden.
+  - : Eine Handler-Funktion für den aufgelösten Zustand eines Webplattform-Versprechens, wie [`fetch()`](/de/docs/Web/API/Window/fetch). Beachten Sie, dass im Fall von Promises alle Handler desselben Promises als einzelner `"script"`-Eintragstyp zusammengefasst werden.
 - `"reject-promise"`
-  - : Eine Handler-Funktion für den abgelehnten Zustand eines Versprechens der Webplattform.
+  - : Eine Handler-Funktion für den abgelehnten Zustand eines Webplattform-Versprechens.
 - `"classic-script"`
-  - : Die Auswertung eines Standard-Skripts (zum Beispiel über ein {{htmlelement("script")}}-Element oder eine [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)-Anweisung).
+  - : Die Evaluierung eines Standardskripts (zum Beispiel über ein {{htmlelement("script")}}-Element oder eine [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)-Anweisung).
 - `"module-script"`
-  - : Die Auswertung eines Modul-Skripts.
+  - : Die Evaluierung eines Moduls.
 
-Der Aufbau des [`PerformanceScriptTiming.invoker`](/de/docs/Web/API/PerformanceScriptTiming/invoker)-Wertes hängt vom `invokerType`-Wert des Skripts ab. Weitere Details finden Sie auf der `invoker`-Seite.
+Die Struktur des [`PerformanceScriptTiming.invoker`](/de/docs/Web/API/PerformanceScriptTiming/invoker)-Wertes hängt vom `invokerType`-Wert des Skripts ab. Besuchen Sie die `invoker`-Seite für weitere Details.
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Zeitmessung langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Zeitmessung langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

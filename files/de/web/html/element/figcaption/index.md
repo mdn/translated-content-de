@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung oder Legende dar, die den Rest des Inhalts seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt, und bietet dem `<figure>` eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description).
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) bietet.
 
 {{EmbedInteractiveExample("pages/tabbed/figcaption.html","tabbed-shorter")}}
 
@@ -17,7 +17,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Beispiele
 
-Bitte beachten Sie die {{HTMLElement("figure")}}-Seite für Beispiele zu `<figcaption>`.
+Bitte sehen Sie sich die Seite zum {{HTMLElement("figure")}}-Element für Beispiele zu `<figcaption>` an.
 
 ## Technische Zusammenfassung
 
@@ -35,19 +35,19 @@ Bitte beachten Sie die {{HTMLElement("figure")}}-Seite für Beispiele zu `<figca
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Weglassung</th>
+      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("figure")}}-Element; das
-        <code>&#x3C;figcaption></code>-Element muss dessen erstes oder letztes Kind sein.
+        <code>&#x3C;figcaption></code>-Element muss sein erstes oder letztes Kind sein.
       </td>
     </tr>
     <tr>

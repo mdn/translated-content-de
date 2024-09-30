@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Selection.collapse()`** Methode reduziert die aktuelle Auswahl auf einen einzelnen Punkt. Das Dokument wird nicht verändert. Wenn der Inhalt fokussiert und bearbeitbar ist, blinkt der Cursor an dieser Stelle.
+Die **`Selection.collapse()`** Methode reduziert die aktuelle Auswahl auf einen einzigen Punkt. Das Dokument wird nicht geändert. Wenn der Inhalt fokussiert und bearbeitbar ist, wird der Cursor dort blinken.
 
 > [!NOTE]
 > Diese Methode ist ein Alias für die [`Selection.setPosition()`](/de/docs/Web/API/Selection/setPosition) Methode.
@@ -23,17 +23,17 @@ collapse(node, offset)
 ### Parameter
 
 - `node`
-  - : Die Position des Cursors wird innerhalb dieses Knotens sein. Dieser Wert kann auch auf
-    `null` gesetzt werden — wenn `null` angegeben wird, verhält sich die Methode wie
-    [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges), d.h. alle Bereiche werden aus der
+  - : Die Cursorposition wird in diesem Knoten sein. Dieser Wert kann auch auf
+    `null` gesetzt werden – wenn `null` angegeben ist, verhält sich die Methode wie
+    [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges); d.h. alle Bereiche werden aus der
     Auswahl entfernt.
 - `offset` {{optional_inline}}
-  - : Der Versatz in `node`, zu dem die Auswahl reduziert wird. Wenn nicht
+  - : Der Versatz in `node`, auf den die Auswahl reduziert wird. Wenn nicht
     angegeben, wird der Standardwert `0` verwendet.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "<source>: Das Media- oder Bildquellen-Element"
+title: "<source>: Das Media- oder Bildquell-Element"
 slug: Web/HTML/Element/source
 l10n:
   sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
@@ -7,77 +7,77 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<source>`**-Element [HTML](/de/docs/Web/HTML) spezifiziert eine oder mehrere Medienressourcen für die Elemente {{HTMLElement("picture")}}, {{HTMLElement("audio")}} und {{HTMLElement("video")}}. Es ist ein [void element](/de/docs/Glossary/void_element), was bedeutet, dass es keinen Inhalt hat und kein Schlusstag benötigt. Dieses Element wird häufig verwendet, um denselben Medieninhalt in mehreren Dateiformaten anzubieten, um Kompatibilität mit einer Vielzahl von Browsern zu gewährleisten, da diese unterschiedliche Unterstützung für [Bilddateiformate](/de/docs/Web/Media/Formats/Image_types) und [Mediendateiformate](/de/docs/Web/Media/Formats) bieten.
+Das **`<source>`** [HTML](/de/docs/Web/HTML) Element gibt eine oder mehrere Medienressourcen für die {{HTMLElement("picture")}}, {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente an. Es ist ein [void element](/de/docs/Glossary/void_element), was bedeutet, dass es keinen Inhalt hat und kein End-Tag benötigt. Dieses Element wird häufig verwendet, um denselben Medieninhalt in mehreren Dateiformaten anzubieten, um die Kompatibilität mit einer großen Bandbreite an Browsern sicherzustellen, die unterschiedliche Unterstützung für [Bilddateiformate](/de/docs/Web/Media/Formats/Image_types) und [Mediendateiformate](/de/docs/Web/Media/Formats) haben.
 
 {{EmbedInteractiveExample("pages/tabbed/source.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element unterstützt alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes). Zusätzlich können die folgenden Attribute verwendet werden:
+Dieses Element unterstützt alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes). Zusätzlich können folgende Attribute verwendet werden:
 
 - `type`
 
-  - : Gibt den [MIME-Medientyp des Bildes](/de/docs/Web/Media/Formats/Image_types) oder [einen anderen Medientyp](/de/docs/Web/Media/Formats/Containers) an, wobei optional ein [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthalten sein kann.
+  - : Gibt den [MIME-Medientyp des Bildes](/de/docs/Web/Media/Formats/Image_types) oder [einen anderen Medientyp](/de/docs/Web/Media/Formats/Containers) an, optional einschließlich eines [`codecs`-Parameters](/de/docs/Web/Media/Formats/codecs_parameter).
 
 - `src`
 
-  - : Gibt die URL der Mediendatei an. Erforderlich, wenn das Elternelement von `<source>` {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist. Nicht erlaubt, wenn das Elternelement {{HTMLElement("picture")}} ist.
+  - : Gibt die URL der Medienressource an. Erforderlich, wenn das übergeordnete Element von `<source>` {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("picture")}} ist.
 
 - `srcset`
 
-  - : Gibt eine kommagetrennte Liste von einem oder mehreren Bild-URLs und deren Beschreibungen an. Erforderlich, wenn das Elternelement von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das Elternelement {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
+  - : Gibt eine durch Komma getrennte Liste von einem oder mehreren Bild-URLs und deren Beschreibungen an. Erforderlich, wenn das übergeordnete Element von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
-    Die Liste besteht aus Zeichenfolgen, die durch Kommas getrennt sind und eine Reihe von möglichen Bildern angeben, die der Browser verwenden kann. Jede Zeichenfolge besteht aus:
+    Die Liste besteht aus durch Kommata getrennten Zeichenfolgen, die eine Reihe möglicher Bilder angeben, die der Browser verwenden kann. Jede Zeichenfolge setzt sich zusammen aus:
 
     - Einer URL, die den Speicherort eines Bildes angibt.
-    - Einem optionalen Breitenbeschreiber—eine positive Zahl, die direkt von einem `"w"` gefolgt wird, wie `300w`.
-    - Einem optionalen Pixeldichtebeschreiber—eine positive Fließkommazahl, die direkt von einem `"x"` gefolgt wird, wie `2x`.
+    - Einem optionalen Breitenbeschreiber—eine positive ganze Zahl direkt gefolgt von `"w"`, wie `300w`.
+    - Einem optionalen Pixeldichtebeschreiber—eine positive Gleitkommazahl direkt gefolgt von `"x"`, wie `2x`.
 
-    Jede Zeichenfolge in der Liste muss entweder einen Breitenbeschreiber oder einen Pixeldichtebeschreiber enthalten, um gültig zu sein. Diese beiden Beschreiber sollten nicht zusammen verwendet werden; es sollte nur einer konsistent in der Liste verwendet werden. Der Wert jedes Beschreibers in der Liste muss einzigartig sein. Der Browser wählt das am besten geeignete Bild aus, das zu einem gegebenen Zeitpunkt angezeigt werden soll, basierend auf diesen Beschreibungen. Wenn die Beschreibungen nicht angegeben sind, wird der Standardwert `1x` verwendet. Wenn das `sizes`-Attribut ebenfalls vorhanden ist, muss jede Zeichenfolge einen Breitenbeschreiber enthalten. Wenn der Browser `srcset` nicht unterstützt, wird `src` als Standardbildquelle verwendet.
+    Jede Zeichenfolge in der Liste muss entweder einen Breitenbeschreiber oder einen Pixeldichtebeschreiber haben, um gültig zu sein. Diese beiden Beschreiber sollten nicht gemeinsam verwendet werden; nur einer sollte konsistent über die gesamte Liste verwendet werden. Der Wert jedes Beschreibers in der Liste muss einzigartig sein. Der Browser wählt das am besten geeignete Bild zur Anzeige zu einem bestimmten Zeitpunkt basierend auf diesen Beschreibern aus. Wenn keine Beschreiber angegeben sind, wird der Standardwert `1x` verwendet. Wenn auch das `sizes`-Attribut vorhanden ist, muss jede Zeichenfolge einen Breitenbeschreiber enthalten. Wenn der Browser `srcset` nicht unterstützt, wird `src` als Standardbildquelle verwendet.
 
 - `sizes`
 
-  - : Gibt eine Liste von Quellgrößen an, die die endgültige gerenderte Breite des Bildes beschreibt. Erlaubt, wenn das Elternelement von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das Elternelement {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
+  - : Gibt eine Liste von Quellengrößen an, die die endgültige gerenderte Breite des Bildes beschreiben. Erlaubt, wenn das übergeordnete Element von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
-    Die Liste besteht aus Quellgrößen, die durch Kommas getrennt sind. Jede Quellgröße ist ein Medienbedingungen-Längen-Paar. Bevor der Browser die Seite layoutet, verwendet er diese Informationen, um zu bestimmen, welches in [`srcset`](#srcset) definiertes Bild angezeigt werden soll. Beachten Sie, dass `sizes` nur wirksam wird, wenn Breitenbeschreiber mit `srcset` bereitgestellt werden und nicht Pixeldichtebeschreiber (d.h. `200w` sollte anstelle von `2x` verwendet werden).
+    Die Liste besteht aus Quellengrößen, die durch Kommata getrennt sind. Jede Quellengröße ist ein Medienbedingung-Längen-Paar. Vor dem Layout der Seite verwendet der Browser diese Informationen, um zu bestimmen, welches Bild in [`srcset`](#srcset) angezeigt werden soll. Beachten Sie, dass `sizes` nur dann Wirkung zeigt, wenn Breitenbeschreiber mit `srcset` angegeben werden, nicht jedoch Pixeldichtebeschreiber (d. h. `200w` sollte anstelle von `2x` verwendet werden).
 
 - `media`
 
-  - : Gibt die [Medienanfrage](/de/docs/Web/CSS/CSS_media_queries) für das beabsichtigte Medium der Ressource an.
+  - : Gibt die [Media-Query](/de/docs/Web/CSS/CSS_media_queries) für das beabsichtigte Medium der Ressource an.
 
 - `height`
 
-  - : Gibt die intrinsische Höhe des Bildes in Pixeln an. Erlaubt, wenn das Elternelement von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das Elternelement {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
+  - : Gibt die intrinsische Höhe des Bildes in Pixeln an. Erlaubt, wenn das übergeordnete Element von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
-    Der Höhenwert muss eine Ganzzahl ohne Maßeinheit sein.
+    Der Höhenwert muss eine ganze Zahl ohne Einheiten sein.
 
 - `width`
 
-  - : Gibt die intrinsische Breite des Bildes in Pixeln an. Erlaubt, wenn das Elternelement von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das Elternelement {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
+  - : Gibt die intrinsische Breite des Bildes in Pixeln an. Erlaubt, wenn das übergeordnete Element von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
-    Der Breitenwert muss eine Ganzzahl ohne Maßeinheit sein.
+    Der Breitenwert muss eine ganze Zahl ohne Einheiten sein.
 
 ## Verwendungshinweise
 
-Das `<source>`-Element ist ein **[void element](/de/docs/Glossary/void_element)**, was bedeutet, dass es nicht nur keinen Inhalt hat, sondern auch kein Schlusstag hat. Das heißt, Sie benutzen _niemals_ `</source>` in Ihrem HTML.
+Das `<source>`-Element ist ein **[void element](/de/docs/Glossary/void_element)**, was bedeutet, dass es nicht nur keinen Inhalt hat, sondern auch kein End-Tag. Das heißt, Sie verwenden _niemals_ `</source>` in Ihrem HTML.
 
-Der Browser geht eine Liste von `<source>`-Elementen durch, um ein Format zu finden, das er unterstützt. Er verwendet das erste, das er darstellen kann. Für jedes `<source>`-Element gilt Folgendes:
+Der Browser durchsucht eine Liste von `<source>`-Elementen, um ein Format zu finden, das er unterstützt. Er verwendet das erste, das er anzeigen kann. Für jedes `<source>`-Element:
 
-- Wenn das `type`-Attribut nicht angegeben ist, ruft der Browser den Medientyp vom Server ab und entscheidet dann, ob es dargestellt werden kann. Wenn das Medium nicht dargestellt werden kann, prüft der Browser das nächste `<source>` in der Liste.
-- Wenn das `type`-Attribut angegeben ist, vergleicht der Browser es sofort mit den Medientypen, die er darstellen kann. Wenn der Typ nicht unterstützt wird, überspringt der Browser die Serverabfrage und prüft direkt das nächste `<source>`-Element.
+- Wenn das `type`-Attribut nicht angegeben ist, ruft der Browser den Medientyp vom Server ab und bestimmt, ob er angezeigt werden kann. Wenn das Medium nicht gerendert werden kann, überprüft der Browser das nächste `<source>` in der Liste.
+- Wenn das `type`-Attribut angegeben ist, vergleicht der Browser es sofort mit den Medientypen, die er anzeigen kann. Wenn der Typ nicht unterstützt wird, überspringt der Browser die Abfrage beim Server und überprüft direkt das nächste `<source>`-Element.
 
-Wenn keines der `<source>`-Elemente eine brauchbare Quelle bietet:
+Wenn keines der `<source>`-Elemente eine verwendbare Quelle bereitstellt:
 
-- Im Fall eines `<picture>`-Elements wird der Browser auf das im `<picture>`-Element angegebene Bild im {{HTMLElement("img")}}-Kind zurückgreifen.
-- Im Fall eines `<audio>`- oder `<video>`-Elements wird der Browser auf den Inhalt zwischen den öffnen und schließen Tags des Elements zurückgreifen.
+- Im Fall eines `<picture>`-Elements wird der Browser auf das Bild zurückfallen, das im {{HTMLElement("picture")}}-Element angegeben ist.
+- Im Fall eines `<audio>` oder `<video>`-Elements wird der Browser den zwischen den Öffnungs- und Schlusstag des Elements enthaltenen Inhalt anzeigen.
 
-Für Informationen zu den von Webbrowsern unterstützten Bildformaten und Leitfäden zur Auswahl von geeigneten Formaten siehe unseren [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types). Für Einzelheiten zu den Video- und Audiomedientypen, die Sie verwenden können, siehe den [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats).
+Für Informationen über von Webbrowsern unterstützte Bildformate und Anleitungen zur Auswahl geeigneter Formate siehe unseren [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types). Für Details zu den Video- und Audiomedientypen, die Sie verwenden können, sehen Sie unseren [Leitfaden zu Medienarten und -formaten](/de/docs/Web/Media/Formats).
 
 ## Beispiele
 
 ### Verwendung des `type`-Attributs mit `<video>`
 
-Dieses Beispiel zeigt, wie ein Video in verschiedenen Formaten angeboten werden kann: WebM für Browser, die es unterstützen, Ogg für diejenigen, die Ogg unterstützen, und QuickTime für Browser, die QuickTime unterstützen. Wenn das `<audio>`- oder `<video>`-Element vom Browser nicht unterstützt wird, wird eine Benachrichtigung angezeigt. Wenn der Browser das Element unterstützt, aber keines der angegebenen Formate unterstützt, wird ein `error`-Event ausgelöst, und die Standard-Mediensteuerungen (falls aktiviert) zeigen einen Fehler an. Für weitere Einzelheiten, welche Mediendateiformate verwendet werden sollen und deren Browser-Unterstützung, verweisen wir auf unseren [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats).
+Dieses Beispiel zeigt, wie man ein Video in verschiedenen Formaten anbietet: WebM für Browser, die es unterstützen, Ogg für die, die Ogg unterstützen, und QuickTime für Browser, die QuickTime unterstützen. Wird das `<audio>`- oder `<video>`-Element vom Browser nicht unterstützt, wird stattdessen ein Hinweis angezeigt. Wenn der Browser das Element unterstützt, aber keines der angegebenen Formate unterstützt, wird ein `error`-Ereignis ausgelöst und die standardmäßigen Mediensteuerelemente (falls aktiviert) zeigen einen Fehler an. Für weitere Details zu den zu verwendenden Medienformaten und ihrer Browserunterstützung, sehen Sie unseren [Leitfaden zu Medienarten und -formaten](/de/docs/Web/Media/Formats).
 
 ```html
 <video controls>
@@ -90,7 +90,7 @@ Dieses Beispiel zeigt, wie ein Video in verschiedenen Formaten angeboten werden 
 
 ### Verwendung des `media`-Attributs mit `<video>`
 
-Dieses Beispiel zeigt, wie eine alternative Quelldatei für Ansichtsfenster oberhalb einer bestimmten Breite angeboten werden kann. Wenn die Browsing-Umgebung eines Benutzers der angegebenen `media`-Bedingung entspricht, wird das zugehörige `<source>`-Element ausgewählt. Die Inhalte seines `src`-Attributs werden dann angefordert und angezeigt. Wenn die `media`-Bedingung nicht zutrifft, geht der Browser zum nächsten `<source>` in der Liste über. Die zweite `<source>`-Option im folgenden Code hat keine `media`-Bedingung, sodass sie für alle anderen Browsing-Kontexte ausgewählt wird.
+Dieses Beispiel zeigt, wie man eine alternative Quelldatei für Ansichtsfenster über einer bestimmten Breite anbietet. Wenn die Browserumgebung eines Benutzers die angegebene `media`-Bedingung erfüllt, wird das zugehörige `<source>`-Element ausgewählt. Der Inhalt seines `src`-Attributs wird dann angefordert und gerendert. Wenn die `media`-Bedingung nicht übereinstimmt, geht der Browser zur nächsten `<source>` in der Liste über. Die zweite `<source>`-Option im folgenden Code hat keine `media`-Bedingung, daher wird sie für alle anderen Browsing-Kontexte ausgewählt.
 
 ```html
 <video controls>
@@ -100,11 +100,11 @@ Dieses Beispiel zeigt, wie eine alternative Quelldatei für Ansichtsfenster ober
 </video>
 ```
 
-Für weitere Beispiele ist der Artikel [Video- und Audioinhalte](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content) im Lernbereich eine großartige Ressource.
+Für weitere Beispiele ist der Artikel [Video- und Audi-Inhalte](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content) im Learn-Bereich eine großartige Ressource.
 
 ### Verwendung des `media`-Attributs mit `<picture>`
 
-In diesem Beispiel sind zwei `<source>`-Elemente innerhalb von {{HTMLElement("picture")}} enthalten, die Versionen eines Bildes bereitstellen, die verwendet werden, wenn der verfügbare Platz bestimmte Breiten überschreitet. Wenn die verfügbare Breite kleiner als die kleinste dieser Breiten ist, fällt der Browser auf das im {{HTMLElement("img")}}-Element angegebene Bild zurück.
+In diesem Beispiel sind zwei `<source>`-Elemente innerhalb von {{HTMLElement("picture")}} enthalten, die Versionen eines Bildes anbieten, wenn der verfügbare Platz bestimmte Breiten überschreitet. Wenn die verfügbare Breite kleiner ist als die kleinste dieser Breiten, fällt der Browser auf das im {{HTMLElement("img")}}-Element angegebene Bild zurück.
 
 ```html
 <picture>
@@ -114,11 +114,12 @@ In diesem Beispiel sind zwei `<source>`-Elemente innerhalb von {{HTMLElement("pi
 </picture>
 ```
 
-Beim `<picture>`-Element müssen Sie immer ein `<img>` mit einem Fallback-Bild einfügen. Stellen Sie außerdem sicher, dass Sie ein `alt`-Attribut zur Barrierefreiheit hinzufügen, es sei denn, das Bild ist rein dekorativ und für den Inhalt irrelevant.
+Mit dem `<picture>`-Element müssen Sie immer ein `<img>` mit einem Fallback-Bild einfügen. Stellen Sie außerdem sicher, dass Sie ein `alt`-Attribut für die Barrierefreiheit hinzufügen, es sei denn, das Bild ist rein dekorativ und für den Inhalt irrelevant.
 
-### Verwendung der Attribute `height` und `width` mit `<picture>`
+### Verwendung der `height` und `width` Attribute mit `<picture>`
 
-In diesem Beispiel sind drei `<source>`-Elemente mit `height`- und `width`-Attributen in einem {{HTMLElement("picture")}}-Element enthalten. Eine [Medienanfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglicht es dem Browser, basierend auf der [Ansichtsfenstergröße](/de/docs/Glossary/Viewport) ein anzuzeigendes Bild mit den Attributen `height` und `width` auszuwählen.
+In diesem Beispiel sind drei `<source>`-Elemente mit `height` und `width` Attributen in einem {{HTMLElement("picture")}}-Element enthalten.
+Eine [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglicht es dem Browser, basierend auf der [Viewport](/de/docs/Glossary/Viewport)-Größe ein anzuzeigendes Bild mit den `height` und `width` Attributen auszuwählen.
 
 ```html
 <picture>
@@ -163,16 +164,16 @@ In diesem Beispiel sind drei `<source>`-Elemente mit `height`- und `width`-Attri
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         <div>
-          Ein Medienelement—{{HTMLElement("audio")}} oder
+          Ein Medien-Element—{{HTMLElement("audio")}} oder
           {{HTMLElement("video")}}—und es muss vor jedem
           <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-            >Flow-Inhalt</a
+            >Flussinhalt</a
           >
           oder {{HTMLElement("track")}}-Element platziert werden.
         </div>
@@ -215,5 +216,5 @@ In diesem Beispiel sind drei `<source>`-Elemente mit `height`- und `width`-Attri
 - {{HTMLElement("picture")}}-Element
 - {{HTMLElement("video")}}-Element
 - [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types)
-- [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats)
+- [Leitfaden zu Medienarten und -formaten](/de/docs/Web/Media/Formats)
 - [Web-Performance](/de/docs/Learn/Performance)

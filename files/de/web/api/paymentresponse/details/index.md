@@ -8,16 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`details`** schreibgeschützte Eigenschaft des
-[`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt ein JSON-serialisierbares Objekt zurück, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen.
+Die **`details`** schreibgeschützte Eigenschaft der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Schnittstelle gibt ein JSON-serialisierbares Objekt zurück, das eine zahlungsmethodenspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen.
 
-Diese Daten werden von der Zahlungs-App zurückgegeben, die die Zahlungsanfrage erfüllt. Entwickler müssen sich mit demjenigen abstimmen, der die URL kontrolliert, um das erwartete Format des Details-Objekts zu erfahren.
+Diese Daten werden von der Zahlungs-App zurückgegeben, die die Zahlungsanfrage erfüllt. Entwickler müssen mit demjenigen konsultieren, der die URL kontrolliert, um die erwartete Struktur des details-Objekts zu verstehen.
 
 ## Wert
 
 ## Beispiele
 
-Das folgende Beispiel extrahiert die Details aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt zu dem Promise, das von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
+Das folgende Beispiel extrahiert die Details aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Objekt zum Promise, das von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
 
 ```js
 payment.show().then((paymentResponse) => {

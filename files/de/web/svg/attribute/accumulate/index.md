@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`accumulate`** steuert, ob eine Animation kumulativ ist oder nicht.
+Das **`accumulate`**-Attribut steuert, ob eine Animation kumulativ ist oder nicht.
 
-Es ist oft nützlich, dass sich wiederholende Animationen auf den vorherigen Ergebnissen aufbauen und sich mit jeder Iteration akkumulieren. Dieses Attribut gibt an, ob der Wert bei jeder Iteration zum vorher animierten Attributwert hinzugefügt wird.
+Es ist häufig nützlich, wenn sich wiederholende Animationen auf die vorherigen Ergebnisse aufbauen und sich mit jeder Iteration ansammeln. Dieses Attribut gibt an, ob der Wert bei jeder Iteration zum vorherigen Wert des animierten Attributs hinzugefügt wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 
-## Hinweise zur Nutzung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -37,9 +37,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `sum`
-  - : Gibt an, dass jede wiederholte Iteration nach der ersten auf den letzten Wert der vorherigen Iteration aufbaut.
+  - : Gibt an, dass jede Wiederholungsiteration nach der ersten auf den letzten Wert der vorherigen Iteration aufbaut.
 - `none`
-  - : Gibt an, dass sich wiederholende Iterationen nicht kumulativ sind.
+  - : Gibt an, dass Wiederholungsiterationen nicht kumulativ sind.
 
 Dieses Attribut wird ignoriert, wenn der Zielattributwert keine Addition unterstützt oder wenn das Animationselement nicht wiederholt wird.
 

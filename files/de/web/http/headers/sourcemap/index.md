@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`SourceMap`** [HTTP](/de/docs/Web/HTTP)-Antwort-Header verknüpft generierten Code mit einer [Quelle](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html), wodurch der Browser den ursprünglichen Quellcode rekonstruieren kann, um diesen im Debugger anzuzeigen.
+Der **`SourceMap`** [HTTP](/de/docs/Web/HTTP)-Antwortheader verknüpft generierten Code mit einer [Quellkarte](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html), wodurch der Browser den ursprünglichen Quellcode rekonstruieren und den rekonstruierten Originalcode im Debugger anzeigen kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -29,10 +29,10 @@ SourceMap: <url>
 X-SourceMap: <url> (deprecated)
 ```
 
-### Anweisungen
+### Direktiven
 
 - \<url>
-  - : Eine relative (zur Anforderungs-URL) oder absolute URL, die auf eine Source-Map-Datei zeigt.
+  - : Eine relative (zum Anfrage-URL) oder absolute URL, die auf eine Quellkartendatei verweist.
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ SourceMap: /path/to/file.js.map
 
 ## Siehe auch
 
-- [Firefox Developer Tools: Verwendung einer Source-Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)
+- [Firefox Developer Tools: Verwenden einer Quellkarte](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)

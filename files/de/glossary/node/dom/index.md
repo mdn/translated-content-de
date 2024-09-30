@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Kontext des [DOM](/de/docs/Glossary/DOM) ist ein **node** ein einzelner Punkt im Knotendiagramm. Verschiedene Dinge, die Knoten sind, umfassen das Dokument selbst, Elemente, Text und Kommentare.
+Im Kontext des [DOM](/de/docs/Glossary/DOM) ist ein **node** ein einzelner Punkt im Knotenbaum. Verschiedene Dinge, die Knoten sind, sind das Dokument selbst, Elemente, Text und Kommentare.
 
 ## Siehe auch
 
-- Die [Knotenstruktur](https://dom.spec.whatwg.org/#concept-node) WHATWG-Spezifikation
+- Die [Knotenbaum](https://dom.spec.whatwg.org/#concept-node) WHATWG-Spezifikation
 - [Node](/de/docs/Web/API/Node) Objekte

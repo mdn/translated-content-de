@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte Eigenschaft **`Range.endOffset`** gibt eine Zahl zurück, die angibt, wo im [`Range.endContainer`](/de/docs/Web/API/Range/endContainer) der [`Range`](/de/docs/Web/API/Range) endet.
 
-Wenn der `endContainer` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Anfang des `endContainer` bis zum Grenzpunkt des [`Range`](/de/docs/Web/API/Range). Bei anderen [`Node`](/de/docs/Web/API/Node)-Typen ist der `endOffset` die Anzahl der Kindknoten zwischen dem Anfang des `endContainer` und dem Grenzpunkt des [`Range`](/de/docs/Web/API/Range). Diese Eigenschaft ist schreibgeschützt. Um den `endOffset` eines [`Range`](/de/docs/Web/API/Range) zu ändern, verwenden Sie eine der [`Range.setEnd`](/de/docs/Web/API/Range/setEnd)-Methoden.
+Wenn der `endContainer` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Anfang des `endContainer` bis zum Begrenzungspunkt des [`Range`](/de/docs/Web/API/Range). Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist der `endOffset` die Anzahl der Kindknoten zwischen dem Anfang des `endContainer` und dem Begrenzungspunkt des [`Range`](/de/docs/Web/API/Range). Diese Eigenschaft ist schreibgeschützt. Um den `endOffset` eines [`Range`](/de/docs/Web/API/Range) zu ändern, verwenden Sie eine der Methoden [`Range.setEnd`](/de/docs/Web/API/Range/setEnd).
 
 ## Wert
 

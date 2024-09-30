@@ -1,5 +1,5 @@
 ---
-title: "Element: hasAttribute() Methode"
+title: "Element: hasAttribute()-Methode"
 short-title: hasAttribute()
 slug: Web/API/Element/hasAttribute
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.hasAttribute()`** Methode gibt einen **Boolean**-Wert zurück, der anzeigt, ob das angegebene Element das angegebene Attribut besitzt oder nicht.
+Die **`Element.hasAttribute()`**-Methode gibt einen
+**Boolean**-Wert zurück, der angibt, ob das angegebene Element das
+angegebene Attribut hat oder nicht.
 
 ## Syntax
 

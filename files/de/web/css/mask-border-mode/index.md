@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-border-mode`**-Eigenschaft von [CSS](/de/docs/Web/CSS) gibt den Mischmodus an, der in einem [Maskenrahmen](/de/docs/Web/CSS/mask-border) verwendet wird.
+Die **`mask-border-mode`**-Eigenschaft von [CSS](/de/docs/Web/CSS) gibt den Mischmodus an, der bei einem [Maskenrand](/de/docs/Web/CSS/mask-border) verwendet wird.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ mask-border-mode: unset;
 ### Werte
 
 - `luminance`
-  - : Die Luminanzwerte des Maskenrahmenbildes werden als Maskierungswerte verwendet.
+  - : Die Luminanzwerte des Maskenrandbildes werden als Maskenwerte verwendet.
 - `alpha`
-  - : Die Alphawerte des Maskenrahmenbildes werden als Maskierungswerte verwendet.
+  - : Die Alphawerte des Maskenrandbildes werden als Maskenwerte verwendet.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ mask-border-mode: unset;
 
 ## Browser-Kompatibilität
 
-Diese Eigenschaft wird von keinem Browser unterstützt.
+Diese Eigenschaft wird derzeit von keinem Browser unterstützt.
 
 ## Siehe auch
 

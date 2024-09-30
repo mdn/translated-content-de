@@ -1,5 +1,5 @@
 ---
-title: "AnimationPlaybackEvent: Konstruktor AnimationPlaybackEvent()"
+title: "AnimationPlaybackEvent: AnimationPlaybackEvent()-Konstruktor"
 short-title: AnimationPlaybackEvent()
 slug: Web/API/AnimationPlaybackEvent/AnimationPlaybackEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Der **`AnimationPlaybackEvent()`**-Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent) Objektinstanz zurück.
+Der **`AnimationPlaybackEvent()`**-Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) liefert eine neue [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Objektinstanz zurück.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ new AnimationPlaybackEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es unterscheidet Groß- und Kleinschreibung und wird von Browsern auf `cancel`, `finish` oder `remove` gesetzt.
+    Dieser ist Groß- und Kleinschreibung-sensitiv, und Browser setzen ihn auf `cancel`, `finish` oder `remove`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _(zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften)_ die folgenden Eigenschaften besitzt:
     - `detail` {{optional_inline}}
-      - : Ein vom Ereignis abhängiger Wert, der mit dem Ereignis verbunden ist. Standardmäßig `null`.
+      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verknüpft ist. Standardmäßig `null`.
 
 ### Rückgabewert
 
-Ein neues [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent) Objekt.
+Ein neues [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Objekt.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "missing : after property id" tritt auf, wenn Objekte mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) Syntax erstellt werden. Ein Doppelpunkt (`:`) trennt Schlüssel und Werte für die Eigenschaften des Objekts. Irgendwie fehlt dieser Doppelpunkt oder ist fehl am Platz.
+Die JavaScript-Ausnahme "missing : after property id" tritt auf, wenn Objekte mit der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax erstellt werden. Ein Doppelpunkt (`:`) trennt Schlüssel und Werte für die Eigenschaften des Objekts. Irgendwie fehlt dieser Doppelpunkt oder er ist fehl am Platz.
 
 ## Meldung
 
@@ -18,13 +18,13 @@ SyntaxError: Unexpected token '='. Expected a ':' following the property name 'x
 SyntaxError: Unexpected token '+'. Expected an identifier as property name. (Safari)
 ```
 
-## Fehlertyp
+## Fehler-Typ
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Beim Erstellen von Objekten mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) Syntax trennt ein Doppelpunkt (`:`) Schlüssel und Werte für die Eigenschaften des Objekts.
+Beim Erstellen von Objekten mit der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax trennt ein Doppelpunkt (`:`) die Schlüssel und Werte für die Eigenschaften des Objekts.
 
 ```js
 const obj = { propertyKey: "value" };
@@ -34,14 +34,14 @@ const obj = { propertyKey: "value" };
 
 ### Doppelpunkte vs. Gleichheitszeichen
 
-Dieser Code schlägt fehl, da das Gleichheitszeichen in dieser Objekt-Initialisierer-Syntax nicht auf diese Weise verwendet werden kann.
+Dieser Code schlägt fehl, da das Gleichheitszeichen in dieser Objektinitialisierer-Syntax nicht auf diese Weise verwendet werden kann.
 
 ```js-nolint example-bad
 const obj = { propertyKey = "value" };
 // SyntaxError: missing : after property id
 ```
 
-Richtig wäre es, einen Doppelpunkt zu verwenden oder eckige Klammern zu benutzen, um eine neue Eigenschaft zuzuweisen, nachdem das Objekt bereits erstellt wurde.
+Korrekt wäre es, einen Doppelpunkt zu verwenden oder eckige Klammern zu nutzen, um eine neue Eigenschaft zuzuweisen, nachdem das Objekt bereits erstellt wurde.
 
 ```js example-good
 const obj = { propertyKey: "value" };
@@ -71,4 +71,4 @@ const obj = { ["b" + "ar"]: "foo" };
 
 ## Siehe auch
 
-- [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)

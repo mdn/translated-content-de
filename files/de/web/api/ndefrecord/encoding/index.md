@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`encoding`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt die Kodierung einer textuellen Nutzlast zurück oder andernfalls `null`.
+Die **`encoding`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt die Codierung einer Text-Payload zurück oder `null` andernfalls.
 
 ## Syntax
 
@@ -18,8 +18,7 @@ NDEFRecord.encoding
 
 ### Wert
 
-Ein String, der einer der folgenden sein kann: `"utf-8"`,
-`"utf-16"`, `"utf-16le"` oder `"utf-16be"`.
+Ein String, der einer der folgenden Werte sein kann: `"utf-8"`, `"utf-16"`, `"utf-16le"`, oder `"utf-16be"`.
 
 ## Spezifikationen
 

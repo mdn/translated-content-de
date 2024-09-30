@@ -1,5 +1,5 @@
 ---
-title: Standardparameter
+title: Default parameters
 slug: Web/JavaScript/Reference/Functions/Default_parameters
 l10n:
   sourceCommit: 1b2c87c20466d2a3eec9b3551c269f9aff8f5762
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Functions")}}
 
-**Standardparameter für Funktionen** ermöglichen es, benannte Parameter mit Standardwerten zu initialisieren, wenn kein Wert oder `undefined` übergeben wird.
+**Standard-Parameter von Funktionen** erlauben es, benannte Parameter mit Standardwerten zu initialisieren, falls kein Wert oder `undefined` übergeben wird.
 
 {{EmbedInteractiveExample("pages/js/functions-default.html")}}
 
@@ -21,9 +21,9 @@ function fnName(param1 = defaultValue1, /* …, */ paramN = defaultValueN) {
 
 ## Beschreibung
 
-In JavaScript sind Funktionsparameter standardmäßig {{jsxref("undefined")}}. Es ist jedoch oft nützlich, einen anderen Standardwert festzulegen. Hier können Standardparameter hilfreich sein.
+In JavaScript sind Funktionsparameter standardmäßig auf {{jsxref("undefined")}} gesetzt. Es ist jedoch oft nützlich, einen anderen Standardwert zu definieren. Hier können Standard-Parameter helfen.
 
-Im folgenden Beispiel wird, falls kein Wert für `b` angegeben ist, wenn `multiply` aufgerufen wird, der Wert von `b` `undefined` sein, wenn `a * b` ausgewertet wird, und `multiply` würde `NaN` zurückgeben.
+Im folgenden Beispiel, falls kein Wert für `b` bereitgestellt wird, wenn `multiply` aufgerufen wird, wäre der Wert von `b` `undefined` bei der Bewertung von `a * b` und `multiply` würde `NaN` zurückgeben.
 
 ```js
 function multiply(a, b) {
@@ -34,7 +34,7 @@ multiply(5, 2); // 10
 multiply(5); // NaN !
 ```
 
-In der Vergangenheit war die allgemeine Strategie zur Festlegung von Standardwerten das Testen von Parameterwerten im Funktionskörper und das Zuweisen eines Wertes, falls sie `undefined` sind. Im folgenden Beispiel wird `b` auf `1` gesetzt, wenn `multiply` mit nur einem Argument aufgerufen wird:
+In der Vergangenheit bestand die allgemeine Strategie zur Festlegung von Standardwerten darin, Parameterwerte im Funktionskörper zu überprüfen und einen Wert zuzuweisen, falls sie `undefined` sind. Im folgenden Beispiel wird `b` auf `1` gesetzt, wenn `multiply` mit nur einem Argument aufgerufen wird:
 
 ```js
 function multiply(a, b) {
@@ -46,7 +46,7 @@ multiply(5, 2); // 10
 multiply(5); // 5
 ```
 
-Mit Standardparametern sind Überprüfungen im Funktionskörper nicht mehr erforderlich. Sie können nun `1` als Standardwert für `b` im Funktionskopf zuweisen:
+Mit Standard-Parametern sind solche Überprüfungen im Funktionskörper nicht mehr notwendig. Jetzt können Sie `1` als Standardwert für `b` im Funktionskopf zuweisen:
 
 ```js
 function multiply(a, b = 1) {
@@ -58,7 +58,7 @@ multiply(5); // 5
 multiply(5, undefined); // 5
 ```
 
-Parameter werden weiterhin von links nach rechts gesetzt, wobei Standardparameter überschrieben werden, selbst wenn es später Parameter ohne Standardeinstellungen gibt.
+Parameter werden immer noch von links nach rechts gesetzt und überschreiben Standard-Parameter, auch wenn es spätere Parameter ohne Standardwerte gibt.
 
 ```js
 function f(x = 1, y) {
@@ -70,13 +70,13 @@ f(2); // [2, undefined]
 ```
 
 > [!NOTE]
-> Der erste Standardparameter und alle danach tragen nicht zur [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) der Funktion bei.
+> Der erste Standard-Parameter und alle Parameter danach tragen nicht zur [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) der Funktion bei.
 
-Die Initialisierer der Standardparameter leben in ihrem eigenen Scope, der ein Elternteil des für den Funktionskörper erstellten Scopes ist.
+Die Initialisierungen der Standard-Parameter leben in ihrem eigenen Scope, der über dem Scope liegt, der für den Funktionskörper erstellt wird.
 
-Das bedeutet, dass auf frühere Parameter in den Initialisierern späterer Parameter verwiesen werden kann. Funktionen und Variablen, die im Funktionskörper deklariert sind, können jedoch nicht von den Initialisierern der Standardwerte aus referenziert werden; der Versuch, dies zu tun, wirft einen Laufzeit-{{jsxref("ReferenceError")}}. Dies schließt auch Variablen ein, die mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) im Funktionskörper deklariert sind.
+Das bedeutet, dass frühere Parameter in den Initialisierungen späterer Parameter referenziert werden können. Funktionen und Variablen, die im Funktionskörper deklariert sind, können jedoch von den Initialisierungen der Standard-Parameter nicht referenziert werden. Ein Versuch dies zu tun, führt zu einem Laufzeit-{{jsxref("ReferenceError")}}. Dies schließt auch mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) deklarierte Variablen im Funktionskörper ein.
 
-Beispielsweise wird die folgende Funktion einen `ReferenceError` werfen, wenn sie aufgerufen wird, da der Standardparameterwert keinen Zugriff auf den Kinderscope des Funktionskörpers hat:
+Zum Beispiel wird die folgende Funktion beim Aufruf einen `ReferenceError` werfen, da der Standard-Parameterwert keinen Zugriff auf den Kind-Scope des Funktionskörpers hat:
 
 ```js example-bad
 function f(a = go()) {
@@ -88,7 +88,7 @@ function f(a = go()) {
 f(); // ReferenceError: go is not defined
 ```
 
-Diese Funktion wird den Wert des _Parameters_ `a` ausgeben, da die Variable `var a` nur an die Spitze des für den Funktionskörper erstellten Scopes gehoben wird, nicht an den für die Parameterliste erstellten Eltern-Scope, sodass ihr Wert für `b` nicht sichtbar ist.
+Diese Funktion wird den Wert des _Parameters_ `a` ausgeben, da die Variable `var a` nur an die Spitze des Scopes gehostet wird, der für den Funktionskörper erstellt wird, nicht jedoch den übergeordneten Scope, der für die Parameterliste erstellt wird, sodass ihr Wert für `b` nicht sichtbar ist.
 
 ```js example-bad
 function f(a, b = () => console.log(a)) {
@@ -100,7 +100,7 @@ f(); // undefined
 f(5); // 5
 ```
 
-Der Standardparameter erlaubt jeglichen Ausdruck, aber Sie können keine {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} verwenden, die die Auswertung des Standardausdrucks pausieren würden. Der Parameter muss _synchron_ initialisiert werden.
+Standard-Parameter erlauben jeden Ausdruck, aber Sie können nicht {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} verwenden, die die Auswertung des Standardausdrucks pausieren würden. Der Parameter muss _synchron_ initialisiert werden.
 
 ```js example-bad
 async function f(a = await Promise.resolve(1)) {
@@ -109,13 +109,13 @@ async function f(a = await Promise.resolve(1)) {
 ```
 
 > [!NOTE]
-> Da der Standardparameter ausgewertet wird, wenn die Funktion aufgerufen wird, nicht wenn die Funktion definiert wird, hängt die Gültigkeit der `await`- und `yield`-Operatoren von der Funktion selbst ab, nicht von der umgebenden Funktion. Beispielsweise wird, wenn die aktuelle Funktion nicht `async` ist, `await` als Bezeichner geparst und folgt den normalen [Bezeichnersyntax-Regeln](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers), selbst wenn diese Funktion in einer `async`-Funktion verschachtelt ist.
+> Da der Standard-Parameter ausgewertet wird, wenn die Funktion aufgerufen wird und nicht, wenn die Funktion definiert wird, hängt die Gültigkeit der `await`- und `yield`-Operatoren von der Funktion selbst ab, nicht von ihrer umgebenden Funktion. Zum Beispiel wird `await` als Bezeichner geparst und folgt den normalen [Bezeichnersyntaxregeln](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers), selbst wenn diese Funktion in einer `async` Funktion genestet ist.
 
 ## Beispiele
 
-### Übergeben von undefined vs. anderen falsy-Werten
+### Übergabe von undefined vs. anderen falsy Werten
 
-Im zweiten Aufruf in diesem Beispiel, selbst wenn das erste Argument explizit auf `undefined` gesetzt ist (jedoch nicht `null` oder andere [falsy](/de/docs/Glossary/falsy)-Werte), bleibt der Wert des `num`-Arguments der Standardwert.
+Im zweiten Aufruf in diesem Beispiel, selbst wenn das erste Argument explizit auf `undefined` gesetzt wird (jedoch nicht `null` oder andere [falsy](/de/docs/Glossary/falsy) Werte), bleibt der Wert des `num`-Arguments der Standardwert.
 
 ```js
 function test(num = 1) {
@@ -132,7 +132,7 @@ test(null); // 'object' (num is set to null)
 
 ### Auswertung zur Aufrufzeit
 
-Das Standardargument wird zur _Aufrufzeit_ ausgewertet. Im Gegensatz zu Python (zum Beispiel) wird bei jedem Aufruf der Funktion ein neues Objekt erstellt.
+Das Standard-Argument wird zur _Aufrufzeit_ ausgewertet. Anders als bei Python (zum Beispiel) wird jedes Mal, wenn die Funktion aufgerufen wird, ein neues Objekt erstellt.
 
 ```js
 function append(value, array = []) {
@@ -144,7 +144,7 @@ append(1); // [1]
 append(2); // [2], not [1, 2]
 ```
 
-Dies gilt auch für Funktionen und Variablen:
+Das gilt auch für Funktionen und Variablen:
 
 ```js
 function callSomething(thing = something()) {
@@ -161,9 +161,9 @@ callSomething(); // 1
 callSomething(); // 2
 ```
 
-### Frühere Parameter stehen späteren Standardparametern zur Verfügung
+### Frühere Parameter sind für spätere Standard-Parameter verfügbar
 
-Früher (links) definierte Parameter stehen späteren Standardparametern zur Verfügung:
+Frühere (linksstehende) Parameter sind für spätere Standard-Parameter verfügbar:
 
 ```js
 function greet(name, greeting, message = `${greeting} ${name}`) {
@@ -174,7 +174,7 @@ greet("David", "Hi"); // ["David", "Hi", "Hi David"]
 greet("David", "Hi", "Happy Birthday!"); // ["David", "Hi", "Happy Birthday!"]
 ```
 
-Diese Funktionalität kann so approximiert werden, was zeigt, wie viele Randfälle gehandhabt werden:
+Diese Funktionalität kann so näherungsweise nachgebildet werden, was veranschaulicht, wie viele Randfälle behandelt werden:
 
 ```js
 function go() {
@@ -219,11 +219,11 @@ withoutDefaults.call({ value: "=^_^=" });
 // [undefined, 5, 5, ":P", {value:"=^_^="}, arguments, "=^_^="]
 ```
 
-### Destrukturierter Parameter mit Standardwertzuweisung
+### Destrukturierter Parameter mit Zuweisung des Standardwerts
 
-Sie können die Standardwertzuweisung mit der [Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Syntax verwenden.
+Sie können die Zuweisung eines Standardwerts mit der [destructuring assignment](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)-Syntax verwenden.
 
-Eine übliche Methode, dies zu tun, ist das Setzen eines leeren Objekts/Arrays als Standardwert für den destrukturierten Parameter; zum Beispiel: `[x = 1, y = 2] = []`. Dies ermöglicht es, nichts an die Funktion zu übergeben und dennoch diese Werte voreingestellt zu haben:
+Eine übliche Methode, dies zu tun, ist es, ein leeres Objekt/Array als Standardwert für den destrukturierten Parameter zu setzen; zum Beispiel: `[x = 1, y = 2] = []`. Dadurch ist es möglich, nichts an die Funktion zu übergeben und dennoch diese Werte vorab zu füllen:
 
 ```js
 function preFilledArray([x = 1, y = 2] = []) {
@@ -255,7 +255,7 @@ preFilledObject({ z: 2 }); // 2
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
-- [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)

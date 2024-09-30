@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: parse() statische Methode"
+title: "CSSNumericValue: `parse()` statische Methode"
 short-title: parse()
 slug: Web/API/CSSNumericValue/parse_static
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die statische Methode **`parse()`** der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle wandelt einen Wertstring in ein Objekt um, dessen
-Mitglieder der Wert und die Einheiten sind.
+Die **`parse()`** statische Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle konvertiert einen Wertstring in ein Objekt, dessen
+Mitglieder Wert und Einheiten sind.
 
 ## Syntax
 
@@ -34,9 +34,9 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Das folgende Beispiel gibt ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt zurück mit einer `unit`
-Eigenschaft, die gleich `"px"` ist, und einer `value` Eigenschaft, die gleich
-`42` ist.
+Das Folgende gibt ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt mit einer `unit`
+Eigenschaft zurück, die `"px"` entspricht, und einer `value` Eigenschaft, die
+`42` entspricht.
 
 ```js
 let numValue = CSSNumericValue.parse("42.0px");

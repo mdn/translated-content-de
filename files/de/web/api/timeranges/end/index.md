@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`end()`**-Methode der [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Schnittstelle gibt den Zeitversatz zurück, an dem ein angegebenes Zeitintervall endet.
+Die **`end()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz zurück, bei dem ein angegebener Zeitbereich endet.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ end(index)
 ### Parameter
 
 - `index`
-  - : Die Nummer des Intervalls, für das die Endzeit zurückgegeben werden soll.
+  - : Die Nummer des Bereichs, für den die Endzeit zurückgegeben werden soll.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Eine Zahl.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Index nicht einem vorhandenen Intervall entspricht.
+  - : Wird ausgelöst, wenn der angegebene Index nicht mit einem vorhandenen Bereich übereinstimmt.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ if (buf.length === 1) {
 }
 ```
 
-Dieses Beispiel untersucht die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
+Dieses Beispiel betrachtet die Zeitbereiche und überprüft, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

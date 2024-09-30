@@ -1,5 +1,5 @@
 ---
-title: "Blob: stream() Methode"
+title: "Blob: stream()-Methode"
 short-title: stream()
 slug: Web/API/Blob/stream
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`stream()`** Methode der [`Blob`](/de/docs/Web/API/Blob) Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der beim Lesen die im `Blob` enthaltenen Daten liefert.
+Die **`stream()`**-Methode des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der beim Lesen die im `Blob` enthaltenen Daten liefert.
 
 ## Syntax
 
@@ -22,24 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der beim Lesen den Inhalt des
-`Blob` zurückgibt.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der beim Lesen den Inhalt des `Blob` zurückgibt.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Mit `stream()` und dem zurückgegebenen [`ReadableStream`](/de/docs/Web/API/ReadableStream) gewinnen Sie
-mehrere interessante Möglichkeiten:
+Mit `stream()` und dem zurückgegebenen [`ReadableStream`](/de/docs/Web/API/ReadableStream) erhalten Sie mehrere interessante Möglichkeiten:
 
-- Rufen Sie [`getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem zurückgegebenen Stream auf,
-  um ein Objekt zu erhalten, mit dem Sie die Daten aus dem Blob mit Methoden wie der Methode
-  [`read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Schnittstelle lesen können.
-- Rufen Sie die [`pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo) Methode des zurückgegebenen Streams auf,
-  um die Daten des Blobs zu einem Writable Stream zu leiten.
-- Rufen Sie die [`tee()`](/de/docs/Web/API/ReadableStream/tee) Methode des zurückgegebenen Streams auf, um
-  den lesbaren Stream zu **verzweigen**. Dies gibt ein Array zurück, das zwei neue
-  `ReadableStream` Objekte enthält, von denen jedes den Inhalt des
-  `Blob` liefert.
-- Rufen Sie die [`pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) Methode des zurückgegebenen Streams auf, um den Stream durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) oder ein anderes lesbares und schreibbares Paar zu leiten.
+- Rufen Sie [`getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf, um ein Objekt zu erhalten, mit dem Sie die Daten aus dem Blob mit Methoden wie der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Schnittstelle und der Methode [`read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) lesen können.
+- Verwenden Sie die Methode [`pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo) des zurückgegebenen Streams, um die Daten des Blobs an einen beschreibbaren Stream zu übertragen.
+- Nutzen Sie die Methode [`tee()`](/de/docs/Web/API/ReadableStream/tee) des zurückgegebenen Streams, um den lesbaren Stream zu duplizieren. Dies gibt ein Array zurück, das zwei neue `ReadableStream`-Objekte enthält, von denen jedes den Inhalt des `Blob` liefert.
+- Wenden Sie die Methode [`pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) des zurückgegebenen Streams an, um den Stream durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) oder ein anderes les- und schreibbares Paar zu leiten.
 
 ## Spezifikationen
 

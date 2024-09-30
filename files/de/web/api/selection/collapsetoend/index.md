@@ -1,5 +1,5 @@
 ---
-title: "Selection: collapseToEnd() Methode"
+title: "Selection: collapseToEnd()-Methode"
 short-title: collapseToEnd()
 slug: Web/API/Selection/collapseToEnd
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.collapseToEnd()`** Methode kollabiert die
-Selektion zum Ende des letzten Bereichs in der Selektion. Wenn der Inhalt der Selektion im Fokus steht und bearbeitbar ist, wird der Cursor dort blinken.
+Die **`Selection.collapseToEnd()`**-Methode klappt die Auswahl bis zum Ende
+des letzten Bereichs in der Selektion zusammen. Wenn der Inhalt der Auswahl fokussiert und bearbeitbar ist, wird dort der Kursor blinken.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.

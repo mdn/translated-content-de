@@ -1,16 +1,16 @@
 ---
-title: "WebGL2RenderingContext: framebufferTextureLayer() Methode"
+title: "WebGL2RenderingContext: framebufferTextureLayer()-Methode"
 short-title: framebufferTextureLayer()
 slug: Web/API/WebGL2RenderingContext/framebufferTextureLayer
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.framebufferTextureLayer()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet eine einzelne Schicht einer Textur an einen `framebuffer`.
+Die **`WebGL2RenderingContext.framebufferTextureLayer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet eine einzelne Schicht einer Textur an einen Framebuffer.
 
-Diese Methode ähnelt [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D), jedoch wird nur eine bestimmte einzelne Schicht des Textur-Levels an den Anhangspunkt gebunden.
+Diese Methode ähnelt [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D), wobei jedoch nur eine bestimmte einzelne Schicht der Texturebene an den Anhangspunkt gebunden wird.
 
 ## Syntax
 
@@ -22,32 +22,27 @@ framebufferTextureLayer(target, attachment, texture, level, layer)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Target) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
-    - `gl.FRAMEBUFFER`: Sammlung von Pufferdatenspeichern der Farb-, Alpha-,
-      Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
+    - `gl.FRAMEBUFFER`: Sammlung von Pufferspeicherdaten der Farb-, Alpha-, Tiefen- und Stencil-Puffer, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`: Entspricht `gl.FRAMEBUFFER`.
-    - `gl.READ_FRAMEBUFFER`: Wird als Quelle für Leseoperationen verwendet.
+    - `gl.READ_FRAMEBUFFER`: Wird als Quelle für Lesevorgänge verwendet.
 
 - `attachment`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Anhangspunkt für die
-    `texture` angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Anhangspunkt für die `texture` angibt. Mögliche Werte:
 
-    - `gl.COLOR_ATTACHMENT{0-15}`: Hängt die Textur an einen der
-      Farb-Puffer des Framebuffers an.
-    - `gl.DEPTH_ATTACHMENT`: Hängt die Textur an den Tiefenpuffer
-      des Framebuffers an.
-    - `gl.STENCIL_ATTACHMENT`: Hängt die Textur an den Schablonenpuffer
-      des Framebuffers an.
-    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Schablonenpuffer.
+    - `gl.COLOR_ATTACHMENT{0-15}`: Bindet die Textur an einen der Farb-Puffer des Framebuffers.
+    - `gl.DEPTH_ATTACHMENT`: Bindet die Textur an den Tiefen-Puffer des Framebuffers.
+    - `gl.STENCIL_ATTACHMENT`: Bindet die Textur an den Stencil-Puffer des Framebuffers.
+    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Stencil-Puffer.
 
 - `texture`
-  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) Objekt, dessen Bild angehängt werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, dessen Bild gebunden werden soll.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Mipmap-Ebene des Texturbildes angibt, das angehängt werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Mipmap-Ebene des zu bindenden Texturbildes angibt.
 - `layer`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Schicht des Texturbildes angibt, das angehängt werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Schicht des zu bindenden Texturbildes angibt.
 
 ### Rückgabewert
 

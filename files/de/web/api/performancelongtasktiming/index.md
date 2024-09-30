@@ -7,26 +7,26 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Das **`PerformanceLongTaskTiming`** Interface liefert Informationen über Aufgaben, die den UI-Thread für 50 Millisekunden oder länger blockieren.
+Das **`PerformanceLongTaskTiming`**-Interface bietet Informationen über Aufgaben, die den UI-Thread für 50 Millisekunden oder länger blockieren.
 
 ## Beschreibung
 
-Lange Aufgaben, die den Haupt-Thread für 50ms oder länger blockieren, verursachen unter anderem folgende Probleme:
+Lange Aufgaben, die den Hauptthread für 50 ms oder mehr blockieren, verursachen unter anderem folgende Probleme:
 
 - Verzögerte [Time to interactive](/de/docs/Glossary/Time_to_interactive) (TTI).
 - Hohe/variable Eingabeverzögerung.
 - Hohe/variable Ereignisverarbeitungsverzögerung.
 - Ruckelige Animationen und Scrollen.
 
-Eine lange Aufgabe ist jede ununterbrochene Periode, in der der Haupt-UI-Thread für 50ms oder länger beschäftigt ist. Häufige Beispiele sind:
+Eine lange Aufgabe ist jeder ununterbrochene Zeitraum, in dem der Haupt-UI-Thread 50 ms oder länger beschäftigt ist. Häufige Beispiele sind:
 
-- Langlaufende Ereignishandler.
-- Aufwändige Neuzuweisungen und andere Neurenderings.
-- Arbeiten, die der Browser zwischen verschiedenen Umdrehungen der Ereignisschleife erledigt, die über 50ms hinausgehen.
+- Lange laufende Ereignis-Handler.
+- Aufwendige Neuformatierungen und andere Neurenderings.
+- Arbeiten, die der Browser zwischen verschiedenen Durchläufen der Ereignisschleife durchführt und die 50 ms überschreiten.
 
-Lange Aufgaben beziehen sich auf den "Schuldigen Browser-Kontext-Container", oder kurz "der Container", welcher die oberste Seite, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} ist, in dem die Aufgabe stattfand.
+Lange Aufgaben beziehen sich auf den "verantwortlichen Browsing-Kontextcontainer" oder kurz "den Container", der die oberste Ebene der Seite, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} ist, in dem die Aufgabe aufgetreten ist.
 
-Für Aufgaben, die nicht innerhalb der obersten Seite auftreten und um herauszufinden, welcher Container für die lange Aufgabe verantwortlich ist, bietet das [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) Interface die `containerId`, `containerName` und `containerSrc` Eigenschaften, die möglicherweise mehr Informationen über die Quelle der Aufgabe liefern.
+Für Aufgaben, die nicht innerhalb der obersten Seitenebene auftreten und zum Ermitteln, welcher Container für die lange Aufgabe verantwortlich ist, bietet das [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interface die Eigenschaften `containerId`, `containerName` und `containerSrc`, welche mehr Informationen über die Quelle der Aufgabe liefern können.
 
 ## Vererbung
 
@@ -34,16 +34,16 @@ Für Aufgaben, die nicht innerhalb der obersten Seite auftreten und um herauszuf
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften für Leistungseintragstypen von langen Aufgaben durch Qualifizierung wie folgt:
+Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften für lange Aufgaben-Timing-Performance-Entry-Typen, indem sie wie folgt qualifiziert werden:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, das die verstrichene Zeit zwischen Beginn und Ende der Aufgabe mit einer Granularität von 1ms darstellt.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die verstrichene Zeit zwischen dem Start und dem Ende der Aufgabe mit einer Granularität von 1 ms darstellt.
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `"longtask"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen der folgenden Zeichenfolgen zurück, die sich auf den Browsing-Kontext oder Frame beziehen, der der langen Aufgabe zugeschrieben werden kann:
+  - : Gibt einen der folgenden Strings zurück, der auf den Browsing-Kontext oder Frame verweist, der der langen Aufgabe zugeordnet werden kann:
     - `"cross-origin-ancestor"`
     - `"cross-origin-descendant"`
     - `"cross-origin-unreachable"`
@@ -54,23 +54,23 @@ Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/P
     - `"self"`
     - `"unknown"`
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, das die Zeit darstellt, zu der die Aufgabe gestartet wurde.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt darstellt, an dem die Aufgabe begonnen hat.
 
 Dieses Interface unterstützt auch die folgenden Eigenschaften:
 
 - [`PerformanceLongTaskTiming.attribution`](/de/docs/Web/API/PerformanceLongTaskTiming/attribution) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Sequenz von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) Instanzen zurück.
+  - : Gibt eine Sequenz von Instanzen des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`PerformanceLongTaskTiming.toJSON()`](/de/docs/Web/API/PerformanceLongTaskTiming/toJSON) {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `PerformanceLongTaskTiming` Objekts zurück.
+  - : Gibt eine JSON-Darstellung des `PerformanceLongTaskTiming`-Objekts zurück.
 
 ## Beispiele
 
-### Abrufen von langen Aufgaben
+### Lange Aufgaben abrufen
 
-Um Informationen über das Timing langer Aufgaben zu erhalten, erstellen Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) und rufen dann die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) Methode auf, wobei sie `"longtask"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType) Option übergeben. Sie müssen auch `buffered` auf `true` setzen, um Zugang zu langen Aufgaben zu erhalten, die der Benutzeragent beim Erstellen des Dokuments gepuffert hat. Der Rückruf des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceLongTaskTiming`-Objekten aufgerufen, die Sie analysieren können.
+Um Informationen zur Timing von langen Aufgaben zu erhalten, erstellen Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) und rufen dann die Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) auf, wobei `"longtask"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option übergeben wird. Sie müssen auch `buffered` auf `true` setzen, um Zugriff auf lange Aufgaben zu erhalten, die der User Agent beim Erstellen des Dokuments zwischengespeichert hat. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceLongTaskTiming`-Objekten aufgerufen, die Sie analysieren können.
 
 ```js
 const observer = new PerformanceObserver((list) => {

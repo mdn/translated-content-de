@@ -1,5 +1,5 @@
 ---
-title: "XRLightEstimate: primaryLightDirection-Eigenschaft"
+title: "XRLightEstimate: Eigenschaft primaryLightDirection"
 short-title: primaryLightDirection
 slug: Web/API/XRLightEstimate/primaryLightDirection
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`primaryLightDirection`**-Eigenschaft des [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Interfaces gibt ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) zurück, das die Richtung zur primären Lichtquelle vom `probeSpace` eines [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
+Die _schreibgeschützte_ **`primaryLightDirection`**-Eigenschaft des [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Interfaces liefert ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), das die Richtung zur primären Lichtquelle vom `probeSpace` eines [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
 
 ## Wert
 
-Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt. Wenn im Umfeld des Benutzers keine geschätzten Werte verfügbar sind, wird der Punkt `{ x: 0.0, y: 1.0, z: 0.0, w: 0.0 }` sein, was eine Lichtquelle darstellt, die direkt von oben nach unten scheint.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt. Wenn keine geschätzten Werte aus der Umgebung des Benutzers verfügbar sind, wird der Punkt `{ x: 0.0, y: 1.0, z: 0.0, w: 0.0 }` sein, was ein Licht darstellt, das direkt von oben nach unten scheint.
 
 ## Beispiele
 
-Innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife können Sie die Eigenschaften `primaryLightDirection` und `primaryLightIntensity` verwenden, um zum Beispiel Schatten basierend auf der hervorstechendsten Lichtquelle zu rendern.
+Innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife können Sie die Eigenschaften `primaryLightDirection` und `primaryLightIntensity` verwenden, um zum Beispiel Schatten basierend auf der dominanten Lichtquelle zu rendern.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();

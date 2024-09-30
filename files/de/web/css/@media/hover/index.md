@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hover`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob das _primäre_ Eingabemechanismus des Benutzers über Elemente schweben kann.
+Das **`hover`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob der _primäre_ Eingabemechanismus des Benutzers über Elemente schweben kann.
 
 ## Syntax
 
-Das `hover`-Feature wird als Schlüsselwortwert aus der folgenden Liste angegeben.
+Das `hover`-Feature wird als ein Schlüsselwortwert angegeben, der aus der untenstehenden Liste ausgewählt wird.
 
 - `none`
-  - : Das primäre Eingabemechanismus kann überhaupt nicht schweben oder nicht bequem schweben (z.B. viele mobile Geräte emulieren das Schweben, wenn der Benutzer einen unbequemen langen Tastendruck ausführt), oder es gibt keinen primären Zeigegeräte-Eingabemechanismus.
+  - : Der primäre Eingabemechanismus kann überhaupt nicht schweben oder nicht bequem schweben (z.B. emulieren viele mobile Geräte das Schweben, wenn der Benutzer einen unbequemen langen Tippen ausführt), oder es gibt keinen primären Zeige-Eingabemechanismus.
 - `hover`
-  - : Das primäre Eingabemechanismus kann bequem über Elementen schweben.
+  - : Der primäre Eingabemechanismus kann bequem über Elemente schweben.
 
 ## Beispiele
 
@@ -58,5 +58,5 @@ a:hover {
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

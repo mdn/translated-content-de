@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT Math-Paket bietet Funktionen zur Arbeit mit numerischen Werten und zum Vergleichen von Knoten. Der Namensraum für das Math-Paket ist `http://exslt.org/math`.
+Das EXSLT-Math-Paket bietet Funktionen zur Arbeit mit numerischen Werten und zum Vergleichen von Knoten. Der Namensraum für das Math-Paket ist `http://exslt.org/math`.
 
 {{SubpagesWithSummaries}}

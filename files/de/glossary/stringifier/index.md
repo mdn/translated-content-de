@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein [Stringifier](/de/docs/Glossary/stringifier) eines [Objekts](/de/docs/Glossary/object) ist jedes [Attribut](/de/docs/Glossary/attribute) oder jede [Methode](/de/docs/Glossary/method), die definiert ist, um eine textuelle Darstellung des Objekts bereitzustellen, die in Situationen verwendet wird, in denen ein [String](/de/docs/Glossary/string) erwartet wird.
+Ein [Stringifier](/de/docs/Glossary/object) eines [Objekts](/de/docs/Glossary/attribute) ist ein [Attribut](/de/docs/Glossary/method) oder eine Methode, die definiert ist, um eine textuelle Darstellung des Objekts bereitzustellen, die in Situationen verwendet wird, in denen ein [String](/de/docs/Glossary/string) erwartet wird.
 
 ## Siehe auch
 
-- Stringifiers in [Information enthalten in einer WebIDL-Datei](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#stringifiers)
+- Stringifiers in [Informationen, die in einer WebIDL-Datei enthalten sind](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#stringifiers)

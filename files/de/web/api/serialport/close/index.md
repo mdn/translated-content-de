@@ -1,5 +1,5 @@
 ---
-title: "SerialPort: close()-Methode"
+title: "SerialPort: close() Methode"
 short-title: close()
 slug: Web/API/SerialPort/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`SerialPort.close()`**-Methode der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Port geschlossen ist.
+Die **`SerialPort.close()`** Methode der [`SerialPort`](/de/docs/Web/API/SerialPort) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Port geschlossen wird.
 
 ## Syntax
 

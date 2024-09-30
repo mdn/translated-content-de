@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `pan`-Eigenschaft der [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), der die Menge an Panoramaverteilung repräsentiert, die angewendet werden soll. Der Wert kann zwischen `-1` (voll nach links) und `1` (voll nach rechts) liegen.
+Die `pan`-Eigenschaft des [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)-Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Menge des anzuwendenden Pannings darstellt. Der Wert kann zwischen `-1` (vollständig nach links) und `1` (vollständig nach rechts) variieren.
 
 ## Wert
 
-Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die anzuwendende Panoramaverteilung enthält.
+Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das das anzuwendende Panning enthält.
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es repräsentiert, dies nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, nicht.
 
 ## Beispiele
 

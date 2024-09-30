@@ -1,5 +1,5 @@
 ---
-title: "MutationEvent: newValue-Eigenschaft"
+title: "MutationEvent: Eigenschaft newValue"
 short-title: newValue
 slug: Web/API/MutationEvent/newValue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die schreibgeschützte Eigenschaft **`newValue`** des [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Interfaces gibt einen String zurück. Bei `DOMAttrModified`-Ereignissen stellt es den neuen Wert des [`Attr`](/de/docs/Web/API/Attr)-Knotens dar. Bei `DOMCharacterDataModified`-Ereignissen enthält es den neuen Wert des [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen wird der leere String (`""`) zurückgegeben.
+Die **`newValue`**-Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen String zurückgibt. Bei `DOMAttrModified`-Ereignissen stellt sie den neuen Wert des [`Attr`](/de/docs/Web/API/Attr)-Knotens dar. Bei `DOMCharacterDataModified`-Ereignissen enthält sie den neuen Wert des [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen gibt sie den leeren String (`""`) zurück.
 
 ## Wert
 

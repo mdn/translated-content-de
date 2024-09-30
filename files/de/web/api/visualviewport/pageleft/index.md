@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die **`pageLeft`**-Schreibgeschützte Eigenschaft des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces gibt die x-Koordinate der linken Kante des visuellen Viewports relativ zum Ursprung des ursprünglichen umgebenden Blocks in CSS-Pixeln zurück, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die **`pageLeft`**-Schreibgeschützte Eigenschaft des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces gibt die x-Koordinate des linken Rands des visuellen Viewports relativ zum Ursprung des initialen umgebenden Blocks in CSS-Pixeln zurück, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 

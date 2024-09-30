@@ -7,14 +7,14 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<strike>`** [HTML](/de/docs/Web/HTML)-Element überzieht Text mit einer Durchstreichungslinie (horizontale Linie).
+Das **`<strike>`**-Element [HTML](/de/docs/Web/HTML) fügt einen Durchstreichungseffekt (horizontale Linie) über den Text ein.
 
 > [!WARNING]
-> Dieses Element ist in HTML 4 und XHTML 1 veraltet und im [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) obsolet. Falls es semantisch zutreffend ist, d. h. wenn es gelöschten Inhalt repräsentiert, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen nutzen Sie {{HTMLElement("s")}}.
+> Dieses Element ist in HTML 4 und XHTML 1 veraltet und im [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) überflüssig geworden. Wenn es semantisch angemessen ist, d. h. wenn es _gelöschten_ Inhalt darstellt, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen verwenden Sie {{HTMLElement("s")}}.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - Das {{HTMLElement("s")}}-Element.
 - Das {{HTMLElement("del")}}-Element sollte verwendet werden, wenn die Daten _gelöscht_ wurden.
-- Die CSS-Eigenschaft {{CSSxRef("text-decoration")}} kann verwendet werden, um Text mit einer Durchstreichung zu gestalten.
+- Die CSS-Eigenschaft {{CSSxRef("text-decoration")}} kann verwendet werden, um Text mit einem Durchstreichungseffekt zu gestalten.

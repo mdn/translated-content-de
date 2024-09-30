@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-wrap-style`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Sie kann auch mit der {{CSSXRef("text-wrap")}} Kurzform gesetzt und zurückgesetzt werden.
+Die **`text-wrap-style`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Sie kann auch mithilfe des {{CSSXRef("text-wrap")}} Kurzbefehls gesetzt und zurückgesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/text-wrap-style.html")}}
 
@@ -28,30 +28,30 @@ text-wrap-style: revert-layer;
 text-wrap-style: unset;
 ```
 
-Wenn das Umbrechen erlaubt ist (siehe {{CSSXRef("text-wrap-mode")}}), wird die `text-wrap-style` Eigenschaft als ein einzelnes Schlüsselwort aus der unten aufgeführten Liste von Werten spezifiziert.
+Wenn Umbrüche erlaubt sind (siehe {{CSSXRef("text-wrap-mode")}}), wird die `text-wrap-style` Eigenschaft als ein einzelnes Schlüsselwort aus der unten stehenden Werteliste angegeben.
 
 ### Werte
 
 - `auto`
-  - : Der Text wird auf die für den Browser performanteste Weise umbrochen und berücksichtigt nicht die Anzahl der Zeichen.
+  - : Text wird auf die für den Browser effizienteste Weise umbrochen, ohne Rücksicht auf die Anzahl der Zeichen.
 - `balance`
-  - : Der Text wird so umbrochen, dass die Anzahl der Zeichen auf jeder Zeile bestmöglich ausgeglichen wird, was die Layoutqualität und Lesbarkeit verbessert. Da das Zählen von Zeichen und deren Ausgleich über mehrere Zeilen hinweg rechenintensiv ist, wird dieser Wert nur für Textblöcke unterstützt, die sich über eine begrenzte Anzahl von Zeilen erstrecken (sechs oder weniger für Chromium und zehn oder weniger für Firefox).
+  - : Text wird so umbrochen, dass die Anzahl der Zeichen auf jeder Zeile ausgeglichen ist, was die Layoutqualität und Lesbarkeit verbessert. Da das Zählen von Zeichen und deren Ausgleich über mehrere Zeilen hinweg rechenintensiv ist, wird dieser Wert nur für Textblöcke unterstützt, die eine begrenzte Anzahl von Zeilen umfassen (bis zu sechs Zeilen für Chromium und bis zu zehn Zeilen für Firefox).
 - `pretty`
-  - : Der Text wird mit einem langsameren Algorithmus umbrochen, der ein besseres Layout gegenüber der Geschwindigkeit bevorzugt. Dies ist für den Fließtext gedacht, bei dem gute Typografie gegenüber der Leistung bevorzugt wird (zum Beispiel, wenn die Anzahl von [Hurenkindern](/de/docs/Web/CSS/orphans) auf ein Minimum beschränkt werden soll).
+  - : Text wird mit einem langsameren Algorithmus umgebrochen, der ein besseres Layout gegenüber Geschwindigkeit bevorzugt. Dies ist für Fließtext gedacht, bei dem eine gute Typografie über die Leistung gestellt wird (beispielsweise, wenn die Anzahl der [orphans](/de/docs/Web/CSS/orphans) minimiert werden sollte).
 - `stable`
-  - : Der Text wird so umbrochen, dass bei der Bearbeitung des Inhalts durch den Benutzer die Zeilen vor der bearbeiteten Zeile statisch bleiben, anstatt dass der gesamte Textblock neu umbrochen wird.
+  - : Der Text wird so umbrochen, dass bei der Bearbeitung des Inhalts durch den Benutzer die Zeilen, die vor den bearbeiteten Zeilen stehen, statisch bleiben, anstatt dass der gesamte Textblock neu umbrochen wird.
 
 ## Beschreibung
 
-Wenn der Inhalt umbrochen werden darf, was standardmäßig der Fall ist, gibt es eine Reihe von Auswahlmöglichkeiten, die die Art des Umbruchs des Inhalts beeinflussen können.
+Wenn es erlaubt ist, dass der Inhalt umbrochen wird, was standardmäßig der Fall ist, gibt es eine Reihe von Optionen, die die Art und Weise beeinflussen können, wie der Inhalt umbrochen wird.
 
-Der Wert, den Sie für `text-wrap-style` wählen, hängt davon ab, wie viele Textzeilen Sie erwarten zu stylen, ob der Text `contenteditable` ist und ob Sie das Erscheinungsbild oder die Leistung priorisieren müssen.
+Der gewählte Wert für `text-wrap-style` hängt davon ab, wie viele Textzeilen Sie erwarten zu gestalten, ob der Text `contenteditable` ist und ob Sie das Aussehen oder die Leistung priorisieren müssen.
 
-Wenn der gestylte Inhalt auf eine kurze Anzahl von Zeilen begrenzt ist, wie z. B. Überschriften, Bildunterschriften und Blockzitate, kann `text-wrap-style: balance` hinzugefügt werden, um die Anzahl der Zeichen auf jeder Zeile auszugleichen und die Layoutqualität und Lesbarkeit zu verbessern. Da Browser die Anzahl der von dieser Eigenschaft beeinflussten Zeilen begrenzen, ist die Auswirkung dieses Wertes auf die Leistung vernachlässigbar.
+Wenn der gestaltete Inhalt auf eine geringe Anzahl von Zeilen beschränkt ist, wie z.B. Überschriften, Bildunterschriften und Blockzitate, kann `text-wrap-style: balance` hinzugefügt werden, um die Anzahl der Zeichen auf jeder Zeile auszubalancieren, was die Layoutqualität und Lesbarkeit verbessert. Da Browser die Anzahl der von dieser Eigenschaft betroffenen Zeilen begrenzen, ist der Einfluss dieses Wertes auf die Leistung vernachlässigbar.
 
-Für längere Textabschnitte kann `text-wrap-style: pretty` verwendet werden. Beachten Sie, dass `pretty` negative Auswirkungen auf die Leistung hat, daher sollte es nur für längere Textblöcke verwendet werden, wenn das Layout wichtiger als die Geschwindigkeit ist.
+Für längere Textabschnitte kann `text-wrap-style: pretty` verwendet werden. Beachten Sie, dass `pretty` eine negative Auswirkung auf die Leistung hat, daher sollte es nur für längere Textblöcke verwendet werden, wenn das Layout wichtiger als die Geschwindigkeit ist.
 
-Der Wert `stable` verbessert die Benutzererfahrung, wenn er auf Inhalte angewendet wird, die [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) sind. Dieser Wert stellt sicher, dass beim Bearbeiten von Text durch den Benutzer die vorherigen Zeilen im bearbeiteten Bereich stabil bleiben.
+Der Wert `stable` verbessert die Benutzererfahrung, wenn er auf Inhalte angewendet wird, die [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) sind. Dieser Wert stellt sicher, dass, während der Benutzer Text bearbeitet, die vorherigen Zeilen im bearbeiteten Bereich stabil bleiben.
 
 ## Formale Definition
 

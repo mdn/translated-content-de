@@ -9,24 +9,23 @@ l10n:
 {{APIRef("Media Session API")}}
 
 Die **`artwork`**-Eigenschaft des
-[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt ein Array von Objekten zurück oder setzt dieses. Diese Objekte repräsentieren Bilder, die mit der abspielenden
-Medieninhalte assoziiert sind.
+[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt ein Array von Objekten zurück oder setzt dieses. Diese Objekte repräsentieren Bilder, die mit der Wiedergabe von Medien verbunden sind.
 
 ## Wert
 
 Ein {{jsxref("Array")}} von Objekten, die jeweils die folgenden Felder enthalten:
 
 - `src`
-  - : Die URL, von der der Benutzeragent die Daten des Bildes abruft.
+  - : Die URL, von der der User-Agent die Bilddaten abruft.
 - `sizes` {{optional_inline}}
-  - : Gibt die Ressource in mehreren Größen an, damit der Benutzeragent ein einzelnes Bild nicht skalieren muss. Es hat standardmäßig den leeren String (`""`).
+  - : Gibt die Ressource in mehreren Größen an, sodass der User-Agent ein einzelnes Bild nicht skalieren muss. Standardmäßig ist es der leere String (`""`).
 - `type` {{optional_inline}}
-  - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) Hinweis für den Benutzeragenten, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Ungeachtet dessen kann der Benutzeragent nach dem Herunterladen des Bildes MIME-Typ-Sniffing verwenden, um dessen Typ zu bestimmen. Es hat standardmäßig den leeren String (`""`).
+  - : Der [MIME-Typ](/de/docs/Glossary/MIME_type)-Hinweis für den User-Agent, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Der User-Agent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Type-Sniffing verwenden, um dessen Typ zu bestimmen. Standardmäßig ist es der leere String (`""`).
 
 ## Beispiele
 
 Das folgende Beispiel überprüft die Browser-Kompatibilität und setzt die aktuellen Metadaten
-für die Medien-Session.
+für die Media Session.
 
 ```js
 if ("mediaSession" in navigator) {

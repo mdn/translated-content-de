@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **Wildcard** entspricht allen Zeichen außer Zeilenendemarken. Es entspricht auch Zeilenendemarken, wenn das `s`-Flag gesetzt ist.
+Ein **Wildcard** passt auf alle Zeichen außer Zeilentrenner. Es passt auch auf Zeilentrenner, wenn das `s`-Flag gesetzt ist.
 
 ## Syntax
 
@@ -17,9 +17,9 @@ Ein **Wildcard** entspricht allen Zeichen außer Zeilenendemarken. Es entspricht
 
 ## Beschreibung
 
-`.` entspricht jedem Zeichen außer [Zeilenendemarken](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll) Flag gesetzt ist, entspricht `.` auch Zeilenendemarken.
+`.` passt auf jedes Zeichen außer [Zeilentrenner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll) Flag gesetzt ist, passt `.` auch auf Zeilentrenner.
 
-Das genaue Zeichen-Set, das von `.` erfasst wird, hängt davon ab, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Ist er Unicode-bewusst, entspricht `.` jedem Unicode-Codepunkt; andernfalls entspricht es jeder UTF-16 Code-Einheit. Zum Beispiel:
+Die genaue Zeichenmenge, die von `.` erfasst wird, hängt davon ab, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Wenn er Unicode-bewusst ist, passt `.` auf jeden Unicode-Codepunkt; andernfalls passt es auf jede UTF-16-Code-Einheit. Zum Beispiel:
 
 ```js
 /../.test("😄"); // true; matches two UTF-16 code units as a surrogate pair
@@ -28,9 +28,9 @@ Das genaue Zeichen-Set, das von `.` erfasst wird, hängt davon ab, ob der Regex 
 
 ## Beispiele
 
-### Nutzung mit Quantifizierern
+### Verwendung mit Quantifizierern
 
-Wildcards werden häufig mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um eine Zeichenfolge zu erfassen, bis das nächste interessante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Titel`:
+Wildcards werden häufig mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um beliebige Zeichenfolgen zu erfassen, bis das nächste relevante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Titel`:
 
 ```js
 function parseTitle(entry) {
@@ -54,9 +54,9 @@ A **wildcard** matches all characters except line terminators.
 `); // "Wildcard: ."
 ```
 
-### Inhalt eines Code-Blocks erfassen
+### Inhalt von Codeblöcken erfassen
 
-Das folgende Beispiel erfasst den Inhalt eines Code-Blocks, der in Markdown von drei Backticks umschlossen ist. Es verwendet das `s`-Flag, um `.` so einzustellen, dass es Zeilenendemarken erfasst, da der Inhalt eines Code-Blocks mehrere Zeilen umfassen kann:
+Das folgende Beispiel erfasst den Inhalt eines Codeblocks, der in Markdown von drei Backticks eingeschlossen ist. Es verwendet das `s`-Flag, um `.` auf Zeilentrenner ändern zu lassen, da der Inhalt eines Codeblocks mehrere Zeilen umfassen kann:
 
 ````js
 function parseCodeBlock(entry) {
@@ -82,7 +82,7 @@ catch (e)
 ````
 
 > [!WARNING]
-> Diese Beispiele dienen nur zu Demonstrationszwecken. Wenn Sie Markdown parsen möchten, verwenden Sie einen dedizierten Markdown-Parser, da es viele Randfälle zu berücksichtigen gibt.
+> Diese Beispiele dienen nur zur Demonstration. Wenn Sie Markdown parsen möchten, verwenden Sie einen speziellen Markdown-Parser, da es viele Sonderfälle zu beachten gibt.
 
 ## Spezifikationen
 
@@ -97,4 +97,4 @@ catch (e)
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Escape-Sequenzen für Zeichenklassen: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Zeichenklassen-Escape: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)

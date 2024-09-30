@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: loading Event"
+title: "FontFaceSet: loading-Event"
 short-title: loading
 slug: Web/API/FontFaceSet/loading_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Das `loading`-Ereignis tritt auf, wenn das Dokument beginnt, Schriftarten zu laden.
+Das `loading`-Event wird ausgelöst, wenn das Dokument beginnt, Schriften zu laden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("loading", (event) => {});
@@ -22,7 +22,7 @@ onloading = (event) => {};
 
 ## Beispiel
 
-Im folgenden Beispiel wird beim Start des Ladevorgangs der Schriftart `Ephesis` "Font is loading…" in die Konsole ausgegeben.
+Im folgenden Beispiel wird "Font is loading…" in die Konsole ausgegeben, wenn die Schrift `Ephesis` zu laden beginnt.
 
 ```js
 document.fonts.onloading = () => {

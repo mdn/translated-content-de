@@ -10,7 +10,7 @@ l10n:
 
 Die **`Range.comparePoint()`**-Methode gibt `-1`, `0` oder `1` zurück, je nachdem, ob der `referenceNode` vor, gleich oder nach dem [`Range`](/de/docs/Web/API/Range) liegt.
 
-Wenn der _reference node_ ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Start des _reference node_. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist der Offset die Anzahl der Kindknoten vom Start des _reference node_.
+Wenn der _reference node_ ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Anfang des _reference node_. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist der Offset die Anzahl der Kindknoten vom Anfang des _reference node_.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ comparePoint(referenceNode, offset)
 - `referenceNode`
   - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
 - `offset`
-  - : Eine ganze Zahl, die größer oder gleich null ist und den Offset innerhalb des _referenceNode_ repräsentiert.
+  - : Eine Ganzzahl größer oder gleich null, die den Versatz innerhalb des _referenceNode_ darstellt.
 
 ### Rückgabewert
 

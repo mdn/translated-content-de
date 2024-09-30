@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mroot>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Zwei Argumente werden akzeptiert, was zur Syntax führt: `<mroot> base index </mroot>`.
+Das **`<mroot>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Zwei Argumente werden akzeptiert, was zur Syntax führt: `<mroot> base index </mroot>`.
 
 ## Attribute
 
@@ -36,4 +36,4 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Siehe auch
 
-- {{ MathMLElement("msqrt") }} (Quadratwurzel ohne Index)
+- {{MathMLElement("msqrt")}} (Quadratwurzel ohne Index)

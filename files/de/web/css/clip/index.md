@@ -8,9 +8,9 @@ l10n:
 {{CSSRef}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Wo möglich, wird Autoren empfohlen, stattdessen die neuere Eigenschaft {{cssxref("clip-path")}} zu verwenden.
+> Wo möglich, werden Autoren ermutigt, stattdessen die neuere {{cssxref("clip-path")}}-Eigenschaft zu verwenden.
 
-Die **`clip`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen sichtbaren Bereich eines Elements. Die `clip`-Eigenschaft gilt nur für absolut positionierte Elemente — also Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
+Die **`clip`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen sichtbaren Teil eines Elements. Die `clip`-Eigenschaft gilt nur für absolut positionierte Elemente — das heißt, Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
 
 ## Syntax
 
@@ -33,12 +33,12 @@ clip: unset;
 
 - {{cssxref("shape")}}
 
-  - : Eine rechteckige {{cssxref("shape")}} in der Form `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` sind Versätze von der _inneren oberen Rahmenkante_ des Kastens, während `<right>` und `<left>` Versätze von der _inneren linken Rahmenkante_ des Kastens sind — das heißt, vom Umfang der Pufferzone.
+  - : Eine rechteckige {{cssxref("shape")}} der Form `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` sind Abstände vom _inneren oberen Rand_ des Rahmens der Box, während `<right>` und `<left>` Abstände vom _inneren linken Rand_ des Rahmens der Box sind — das heißt, dem Umfang der Innenabstand-Box.
 
-    Die Werte `<top>`, `<right>`, `<bottom>`, und `<left>` können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn der Wert irgendeiner Seite `auto` ist, wird das Element auf die innere Rahmenkante dieser Seite beschnitten.
+    Die Werte `<top>`, `<right>`, `<bottom>`, und `<left>` können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn der Wert einer Seite `auto` ist, wird das Element bis zum _inneren Rand_ der Box dieser Seite beschnitten.
 
 - `auto`
-  - : Das Element wird nicht beschnitten (Standard). Dies unterscheidet sich von `rect(auto, auto, auto, auto)`, das auf die inneren Rahmenkanten des Elements zuschneidet.
+  - : Das Element wird nicht beschnitten (Standard). Dies unterscheidet sich von `rect(auto, auto, auto, auto)`, das bis zu den inneren Rändern des Elements beschnitten wird.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ clip: unset;
 
 ## Beispiele
 
-### Beschneiden eines Bildes
+### Zuschneiden eines Bildes
 
 ```html
 <p class="dotted-border">

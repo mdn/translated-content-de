@@ -1,5 +1,5 @@
 ---
-title: "HTMLFieldSetElement: name-Eigenschaft"
+title: "HTMLFieldSetElement: name Eigenschaft"
 short-title: name
 slug: Web/API/HTMLFieldSetElement/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt den Namen des {{HTMLElement("fieldset")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/fieldset#name)-Attribut des Elements wider.
+Die **`name`** Eigenschaft der [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) Schnittstelle gibt den Namen des {{HTMLElement("fieldset")}} Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/fieldset#name) Attribut des Elements wider.
 
 ## Wert
 
-Ein String, der den Namen des Elements repräsentiert.
+Ein String, der den Namen des Elements darstellt.
 
 ## Beispiel
 

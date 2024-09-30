@@ -11,41 +11,41 @@ Dieser Artikel bietet einen Überblick über die Änderungen, die Sie an Ihren A
 
 ## Müssen Sie überhaupt etwas tun?
 
-Wenn Ihr Add-on auf [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Kompatibilitätsprüfungstool überprüft. Add-ons, die keine APIs verwenden, die sich in Firefox 6 geändert haben, und keine binären Komponenten enthalten (die für jede größere Firefox-Version neu kompiliert werden müssen), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 6 funktionieren.
+Wenn Ihr Add-on über [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Kompatibilitätsüberprüfungstool überprüft. Add-ons, die keine APIs nutzen, die sich in Firefox 6 geändert haben, und keine Binärkomponenten enthalten (die für jede Hauptversion von Firefox neu kompiliert werden müssen), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 6 funktionieren.
 
-Sie sollten daher zunächst AMO besuchen und prüfen, ob Ihre Erweiterung überhaupt bearbeitet werden muss.
+Sie sollten daher zunächst AMO besuchen und prüfen, ob Ihr Add-on überhaupt überarbeitet werden muss.
 
 > [!NOTE]
-> Sie sollten Ihr Add-on dennoch in Firefox 6 testen, selbst wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
+> Sie sollten Ihr Add-on trotzdem in Firefox 6 testen, selbst wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
 
-Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zu dieser Seite zurück und lesen Sie weiter.
+Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zurück zu dieser Seite und lesen Sie weiter.
 
 ## UI-Änderungen
 
-Die Hinzufügung des neuen Untermenüs "Web-Entwickler" im Menü "Extras" bedeutet, dass Overlays, die sich auf die dort verschobenen Elemente stützen, anders funktionieren als zuvor. Ihre Overlays funktionieren weiterhin, aber Ihre Elemente befinden sich nicht an der erwarteten Stelle. Sie sollten Ihre Overlays aktualisieren, um sicherzustellen, dass die Menüelemente dort platziert werden, wo Sie sie haben möchten.
+Die Hinzufügung des neuen Untermenüs „Web Developer“ im Menü „Extras“ bedeutet, dass Overlays, die von den dort verschobenen Elementen abhängen, anders funktionieren werden als bisher. Ihre Overlays werden weiterhin funktionieren, aber Ihre Elemente werden nicht dort landen, wo Sie sie erwarten. Sie sollten Ihre Overlays aktualisieren, um sicherzustellen, dass Menüeinträge dort platziert werden, wo Sie sie haben möchten.
 
-Ähnlich kann die Reihenfolge der Menüeinträge in den Menüs "Chronik" und "Lesezeichen" auch die Overlays Ihres Add-ons beeinflussen.
+Ähnlich kann die Reihenfolge der Menüeinträge in den Menüs „Verlauf“ und „Lesezeichen“ auch die Overlays Ihres Add-ons beeinflussen.
 
-## Kompatibilität der binären Komponenten
+## Kompatibilität von Binärkomponenten
 
-Ein Fehler in Firefox 5 führte dazu, dass binäre Komponenten nicht ordnungsgemäß abgelehnt wurden, wenn sie für eine andere Version von Gecko erstellt wurden. Dies wurde in Firefox 6 behoben; wenn die binären Komponenten Ihres Add-ons nicht geladen werden, überprüfen Sie, ob Sie sie gegen das Gecko 6 SDK neu kompiliert haben.
+Ein Fehler in Firefox 5 bedeutete, dass Binärkomponenten nicht ordnungsgemäß abgelehnt wurden, wenn sie für eine andere Version von Gecko erstellt wurden. Dies ist in Firefox 6 behoben; wenn die Binärkomponenten Ihres Add-ons nicht geladen werden, stellen Sie sicher, dass Sie sie gegen das Gecko 6 SDK neu erstellt haben.
 
-## Einstellungen
+## Voreinstellungen
 
-Die `app.update.timer` Einstellung wurde entfernt; Sie müssen stattdessen die `app.update.timerMinimumDelay` Einstellung verwenden.
+Die Voreinstellung `app.update.timer` wurde entfernt; Sie müssen stattdessen die Voreinstellung `app.update.timerMinimumDelay` verwenden.
 
-Außerdem wurden sitzungsabhängige Datenschutzeinstellungen hinzugefügt. Dies betrifft nur Add-ons, die erwarten, dass datenschutzbezogene Einstellungen (Datenschutz, Passwörter merken usw.) in das Hauptpräferenzfenster gehören.
+Außerdem wurden site-spezifische Datenschutzvoreinstellungen hinzugefügt. Dies betrifft nur Add-ons, die erwarten, dass datenschutzbezogene Voreinstellungen (Datenschutz, Passwörter merken usw.) im Hauptfenster der Voreinstellungen vorhanden sind.
 
 ## DOM-Änderungen
 
-Die [`window.top`](/de/docs/Web/API/Window/top) Eigenschaft ist jetzt schreibgeschützt. Dies wirkt sich auf Ihr Add-on aus, wenn Sie eine nicht deklarierte Variable namens `top` in einem Chrome-Skript haben.
+Die [`window.top`](/de/docs/Web/API/Window/top)-Eigenschaft ist jetzt schreibgeschützt. Dies wirkt sich auf Ihr Add-on aus, wenn Sie eine nicht deklarierte Variable namens `top` in einem Chrome-Skript haben.
 
 ## URL-Verarbeitung
 
-`javascript:` und `data:` URLs, die in die Adressleiste eingegeben werden, erben nicht mehr das Prinzip der aktuell geladenen Seite. Dies wird wahrscheinlich nicht viele Add-ons betreffen, aber wenn Sie Code ausführen, der diese URLs verwendet, sollten Sie überprüfen, ob alles wie erwartet funktioniert.
+`javascript:` und `data:` URLs, die in die Adressleiste eingegeben werden, erben nicht mehr den Hauptbeteiligten der aktuell geladenen Seite. Dies wird wahrscheinlich nur wenige Add-ons betreffen, aber wenn Sie Code ausführen, der diese URLs verwendet, sollten Sie sicherstellen, dass alles wie erwartet funktioniert.
 
-[Firefox Bug 658949](https://bugzil.la/658949) hat geändert, wie das Hash-Symbol (#) in data-URLs behandelt wird, was CSS-Stile, die ein solches Symbol enthalten, beeinträchtigen kann, wenn es nicht maskiert ist.
+[Firefox-Bug 658949](https://bugzil.la/658949) hat geändert, wie das Hash-Symbol (#) in Daten-URLs behandelt wird, was möglicherweise CSS-Stilexemplare, die dieses Symbol enthalten, beeinträchtigen kann, wenn es nicht maskiert ist.
 
 ## Schnittstellen
 
-Einige Schnittstellen, die veraltet waren oder Implementierungsdetails sind, [wurden entfernt](/de/docs/Mozilla/Firefox/Releases/6#removed_interfaces). Wenn Sie sich auf eine von ihnen verlassen, müssen Sie Ihren Code überarbeiten.
+Einige Schnittstellen, die veraltet oder Implementierungsdetails waren, [wurden entfernt](/de/docs/Mozilla/Firefox/Releases/6#removed_interfaces). Wenn Sie auf eine von ihnen angewiesen sind, müssen Sie Ihren Code überarbeiten.

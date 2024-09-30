@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Gutters** oder _Stege_ sind Abstände zwischen Inhalts-[Tracks](/de/docs/Glossary/grid_tracks). Diese können im [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) mit den Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} oder {{cssxref("gap")}} erstellt werden.
+**Gutters** oder _Bahnen_ sind Abstände zwischen Inhalts-[Tracks](/de/docs/Glossary/grid_tracks). Diese können im [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) mithilfe der Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} oder {{cssxref("gap")}} erstellt werden.
 
 ## Beispiel
 
-Im folgenden Beispiel haben wir ein Raster mit drei Spalten-Tracks und zwei Zeilen-Tracks, mit `20px` Abständen zwischen den Spalten-Tracks und den Zeilen-Tracks.
+Im folgenden Beispiel haben wir ein Gitter mit drei Spalten- und zwei Zeilentracks, mit `20px` Abstand zwischen sowohl den Spaltentracks als auch den Zeilentracks.
 
 ```css hidden
 * {
@@ -55,9 +55,9 @@ Im folgenden Beispiel haben wir ein Raster mit drei Spalten-Tracks und zwei Zeil
 
 {{EmbedLiveSample('Example', '300', '280')}}
 
-Im Hinblick auf die Rastergröße verhalten sich Lücken so, als ob sie ein regulärer Raster-Track wären, aber es kann nichts in die Lücke eingefügt werden. Die Lücke wirkt so, als ob die Rasterlinie an dieser Stelle extra Größe erhalten hätte, sodass jedes Rasterelement, das nach dieser Linie platziert wird, am Ende der Lücke beginnt.
+In Bezug auf die Gittergrößen wirken Lücken, als ob sie ein regulärer Gitter-Track wären, es kann jedoch nichts in die Lücke platziert werden. Die Lücke wirkt, als ob die Gitterlinie an dieser Stelle zusätzliche Größe erhalten hätte, sodass jedes Gitterelement, das nach dieser Linie platziert wird, am Ende der Lücke beginnt.
 
-Die Eigenschaften `row-gap` und `column-gap` sind nicht die einzigen Dinge, die dazu führen können, dass Tracks auseinander liegen. Ränder, Abstände oder die Verwendung der Raumverteilungseigenschaften in der [Box Alignment](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) können alle zum sichtbaren Abstand beitragen - daher sollten die Eigenschaften `row-gap` und `column-gap` nicht als gleichbedeutend mit der "Guttergröße" angesehen werden, es sei denn, Sie wissen, dass Ihr Design mit keiner dieser Methoden zusätzlichen Raum eingeführt hat.
+Die Eigenschaften `row-gap` und `column-gap` sind nicht die einzigen Faktoren, die zu Abständen zwischen den Tracks führen können. Ränder, Abstände oder die Verwendung der Eigenschaft zur Verteilung des Raums im [Box Alignment](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) können alle zu sichtbaren Lücken beitragen – daher sollten die Eigenschaften `row-gap` und `column-gap` nicht als gleich groß wie die "Guttergröße" angesehen werden, es sei denn, Sie wissen, dass Ihr Design keinen zusätzlichen Raum mit einer dieser Methoden eingeführt hat.
 
 ## Siehe auch
 

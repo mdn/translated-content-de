@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: stepMismatch Eigenschaft"
+title: "ValidityState: stepMismatch-Eigenschaft"
 short-title: stepMismatch
 slug: Web/API/ValidityState/stepMismatch
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`stepMismatch`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das `step`-Attribut des Elements festgelegten Einschränkungen entspricht.
+Die schreibgeschützte **`stepMismatch`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das `step`-Attribut des Elements festgelegten Beschränkungen entspricht.
 
-Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}, und der Schrittwert nicht `any` ist, wird `stepMismatch` true, wenn der Wert nicht den durch die [`step`](/de/docs/Web/HTML/Attributes/step)- und [`min`](/de/docs/Web/HTML/Attributes/min)-Werte festgelegten Einschränkungen entspricht. Wenn der Restwert des Werts des Formulkontrolllements abzüglich des [`min`](/de/docs/Web/HTML/Attributes/min)-Wertes, geteilt durch den [`step`](/de/docs/Web/HTML/Attributes/step)-Wert (der auf 1 standardmäßig gesetzt ist, wenn er weggelassen wird), nicht null ist, liegt eine Abweichung vor.
+Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} und der Schrittwert nicht `any` ist, gilt: Wenn der Wert nicht den durch [`step`](/de/docs/Web/HTML/Attributes/step) und [`min`](/de/docs/Web/HTML/Attributes/min) festgelegten Einschränkungen entspricht, ist `stepMismatch` true. Wenn der Restwert des Wertes des Formularelements abzüglich des [`min`](/de/docs/Web/HTML/Attributes/min)-Wertes, dividiert durch den [`step`](/de/docs/Web/HTML/Attributes/step)-Wert (der standardmäßig 1 ist, wenn er weggelassen wird), ungleich null ist, liegt ein Mismatch vor.
 
 ## Wert
 
-Ein boolean, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
+Ein boolean, der `true` ist, wenn der `ValidityState` nicht den Beschränkungen entspricht.
 
 ## Beispiele
 
 ### Eingabe mit Schrittabweichung
 
 Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Ein Einschränkung wurde mithilfe des [`step`-Attributs](/de/docs/Web/HTML/Element/input/number#step) hinzugefügt, was bedeutet, dass die Eingabe Werte in Schritten von 5 erwartet.
-Wenn der Benutzer eine Zahl eingibt, die nicht durch 5 teilbar ist, schlägt die Validierung der Einschränkung fehl und die dem {{cssxref(":invalid")}} CSS-Pseudoklasse entsprechenden Styles werden angewendet.
+Mit dem [`step`-Attribut](/de/docs/Web/HTML/Element/input/number#step) wurde eine Einschränkung hinzugefügt, was bedeutet, dass die Eingabe Werte in Schritten von 5 erwartet.
+Wenn der Benutzer eine Zahl eingibt, die nicht durch 5 teilbar ist, scheitert das Element an der Gültigkeitsprüfung der Einschränkung, und die Styles, die der {{cssxref(":invalid")}} CSS-Pseudoklasse entsprechen, werden angewendet.
 
 ```css
 input:invalid {

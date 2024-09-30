@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Alpha-Kanal** bestimmt die Deckkraft eines ({{CSSxRef("&lt;color&gt;")}}). Farben werden in digitaler Form als eine Sammlung von Zahlen dargestellt, wobei jede Zahl die Stärke oder Intensität einer bestimmten Farbkomponente repräsentiert. Jede dieser Komponenten wird als **Kanal** bezeichnet. In einer typischen Bilddatei beschreiben die Farbkanäle, wie viel Rot, Grün und Blau verwendet werden, um die endgültige Farbe zu erzeugen. Um eine Farbe darzustellen, durch die der Hintergrund teilweise zu sehen ist, wird der Farbe ein vierter Kanal hinzugefügt: der Alpha-Kanal.
+Der **Alpha-Kanal** bestimmt die Opazität eines ({{CSSxRef("&lt;color&gt;")}}). Farben werden in digitaler Form als Sammlung von Zahlen dargestellt, wobei jede Zahl die Stärke oder Intensität einer bestimmten Farbkomponente repräsentiert. Jede dieser Komponenten wird als **Kanal** bezeichnet. In einer typischen Bilddatei beschreiben die Farbigkeitskanäle, wie viel Rot, Grün und Blau verwendet werden, um die endgültige Farbe zu erzeugen. Um eine Farbe darzustellen, durch die der Hintergrund teilweise sichtbar ist, wird der Farbe ein vierter Kanal hinzugefügt: der Alpha-Kanal.
 
-Zum Beispiel ist die Farbe `#8921F2` (auch beschrieben als `rgb(137 33 242)` oder `hsl(270 89% 54)`) ein angenehmer Lilaton. Unten sehen Sie eine kleine Box in dieser Farbe in der oberen linken Ecke und eine Box in der _gleichen_ Farbe, aber mit einem Alpha-Kanal, der auf 50% (oder 0,5) Deckkraft eingestellt ist, `#8921F280`, wobei `80` das hexadezimale Äquivalent von 50% ist. Diese Farbe wird auch als `rgb(137 33 242 / 50%)` oder `hsl(270 89% 54 / 50%)` beschrieben. Die beiden Boxen sind über einem Absatz Text gezeichnet.
+Zum Beispiel ist die Farbe `#8921F2` (auch beschrieben als `rgb(137 33 242)` oder `hsl(270 89% 54)`) ein schöner Lilaton. Unten sehen Sie ein kleines Kästchen dieser Farbe in der oberen linken Ecke und ein Kästchen derselben Farbe, aber mit einem Alpha-Kanal, der auf 50% (oder 0,5) Opazität gesetzt ist, `#8921F280`, wobei `80` die hexadezimale Entsprechung von 50% ist. Diese Farbe wird auch beschrieben als `rgb(137 33 242 / 50%)` oder `hsl(270 89% 54 / 50%)`. Die beiden Kästchen sind auf einem Textabsatz gezeichnet.
 
-![Bild, das die Wirkung eines Alpha-Kanals auf eine Farbe zeigt.](alpha-channel-example.png)
+![Bild zeigt den Effekt eines Alpha-Kanals auf eine Farbe.](alpha-channel-example.png)
 
-Wie Sie sehen können, blockiert die Farbe ohne Alpha-Kanal den darunterliegenden Text vollständig, während die Box mit dem Alpha-Kanal den Text durch den lila Hintergrund sichtbar lässt.
+Wie Sie sehen können, blockiert die Farbe ohne Alpha-Kanal den Hintergrundtext vollständig, während das Kästchen mit dem Alpha-Kanal es ermöglicht, den Text durch die lila Hintergrundfarbe zu sehen.
 
 ## Siehe auch
 
 - [CSS-Farben](/de/docs/Web/CSS/CSS_colors)
-- [Einführung in CSS-Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units)
+- [Einführung zu CSS-Werten und -Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units)
 - [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types)
-- [Alpha Compositing](https://en.wikipedia.org/wiki/Alpha_compositing) auf Wikipedia
+- [Alpha-Komposita] auf Wikipedia(https://en.wikipedia.org/wiki/Alpha_compositing)
 - [RGBA-Farbmodell](https://en.wikipedia.org/wiki/RGBA_color_model) auf Wikipedia
 - [Kanal (digitales Bild)](<https://en.wikipedia.org/wiki/Channel_(digital_image)>) auf Wikipedia

@@ -14,11 +14,11 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifestversion</th>
+      <th scope="row">Manifest-Version</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -30,13 +30,13 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie diesen Schlüssel, um Ihrer Erweiterung zu ermöglichen, die eingebauten Devtools des Browsers zu erweitern.
+Verwenden Sie diesen Schlüssel, um Ihre Erweiterung zu ermöglichen, die eingebauten Entwicklertools des Browsers zu erweitern.
 
-Dieser Schlüssel wird als URL zu einer HTML-Datei definiert. Die HTML-Datei muss mit der Erweiterung gebündelt sein, und die URL ist relativ zum Stamm der Erweiterung.
+Dieser Schlüssel ist als URL zu einer HTML-Datei definiert. Die HTML-Datei muss mit der Erweiterung gebündelt sein, und die URL ist relativ zum Stammverzeichnis der Erweiterung.
 
-Die Verwendung dieses Manifests führt zu [einer Installations-Berechtigungswarnung über die Devtools](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs). Um eine Installations-Berechtigungswarnung zu vermeiden, markieren Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Manifest-Schlüssel auflisten.
+Die Verwendung dieses Manifest-Schlüssels löst [eine Installationswarnung über die Entwicklertools](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Installationswarnung zu vermeiden, kennzeichnen Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im [Manifest-Schlüssel `optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufführen.
 
-Weitere Informationen finden Sie unter [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
+Mehr dazu erfahren Sie unter [Erweiterung der Entwicklertools](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ## Beispiel
 

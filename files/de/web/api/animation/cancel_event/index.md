@@ -1,5 +1,5 @@
 ---
-title: "Animation: cancel Ereignis"
+title: "Animation: cancel-Ereignis"
 short-title: cancel
 slug: Web/API/Animation/cancel_event
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das **`cancel`**-Ereignis des [`Animation`](/de/docs/Web/API/Animation)-Interfaces wird ausgelöst, wenn die Methode [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) aufgerufen wird oder wenn die Animation in den `"idle"`-Wiedergabestatus wechselt, beispielsweise wenn die Animation von einem Element entfernt wird, bevor sie abgespielt wird.
+Das **`cancel`**-Ereignis des [`Animation`](/de/docs/Web/API/Animation)-Interfaces wird ausgelöst, wenn die [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel)-Methode aufgerufen wird oder wenn die Animation von einem anderen Zustand in den `"idle"`-Spielzustand wechselt, beispielsweise wenn die Animation von einem Element entfernt wird, bevor sie zu Ende gespielt wird.
 
 > [!NOTE]
-> Das Erstellen einer neuen Animation, die sich zunächst im idle-Status befindet, löst bei der neuen Animation kein `cancel`-Ereignis aus.
+> Das Erstellen einer neuen Animation, die zunächst im Idle-Zustand ist, löst kein `cancel`-Ereignis für die neue Animation aus.
 
 ## Syntax
 
@@ -24,18 +24,18 @@ oncancel = (event) => { }
 
 ## Ereignistyp
 
-Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("AnimationPlaybackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften des übergeordneten Interfaces [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften des übergeordneten Interfaces, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis generiert hat.
+  - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
 - [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
-  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis generiert hat.
+  - : Der Zeitwert der Zeitachse der Animation, die das Ereignis erzeugt hat.
 
 ## Beispiele
 

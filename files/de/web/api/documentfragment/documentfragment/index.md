@@ -8,7 +8,8 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Der **`DocumentFragment()`**-Konstruktor gibt ein neues, leeres [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt zurück.
+Der **`DocumentFragment()`** Konstruktor gibt ein neues, leeres
+[`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt zurück.
 
 ## Syntax
 

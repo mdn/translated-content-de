@@ -1,5 +1,5 @@
 ---
-title: "WebSocket: binaryType-Eigenschaft"
+title: "WebSocket: Eigenschaft binaryType"
 short-title: binaryType
 slug: Web/API/WebSocket/binaryType
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
 Die **`WebSocket.binaryType`**-Eigenschaft steuert den Typ der
-binären Daten, die über die `WebSocket`-Verbindung empfangen werden.
+binären Daten, die über die WebSocket-Verbindung empfangen werden.
 
 ## Wert
 

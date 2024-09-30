@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`show()`**-Methode des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Interfaces zeigt das virtuelle Bildschirmtastaturprogramm an. Dies ist nützlich, wenn die Seite ihre eigene Logik für die virtuelle Tastatur implementieren muss, insbesondere bei der Verwendung des `virtualkeyboardpolicy`-Attributs auf `contenteditable`-Elementen, wie im Abschnitt [Steuern der virtuellen Tastatur auf `contenteditable`-Elementen](/de/docs/Web/API/VirtualKeyboard_API#control_the_virtual_keyboard_on_contenteditable_elements) erläutert.
+Die **`show()`**-Methode des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Interfaces zeigt programmatisch die virtuelle Bildschirmtastatur an. Dies ist nützlich, wenn die Seite ihre eigene virtuelle Tastaturlogik implementieren muss, insbesondere bei der Verwendung des `virtualkeyboardpolicy`-Attributs auf `contenteditable`-Elementen, wie in [Steuern der virtuellen Tastatur auf `contenteditable`-Elementen](/de/docs/Web/API/VirtualKeyboard_API#control_the_virtual_keyboard_on_contenteditable_elements) erklärt.
 
-Diese Methode funktioniert nur, wenn das momentan fokussierte Element ein Formularsteuerelement ist — wie ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element — oder wenn das fokussierte Element [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) ist und das momentan fokussierte Element das Attribut [`virtualKeyboardPolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) auf `manual` gesetzt hat und [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) nicht auf `none` gesetzt ist.
+Diese Methode funktioniert nur, wenn das aktuell fokussierte Element ein Formularelement ist – wie ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element – oder wenn das fokussierte Element [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) ist und das `virtualKeyboardPolicy`-Attribut des aktuell fokussierten Elements auf `manual` gesetzt ist und `inputmode` nicht auf `none` gesetzt ist.
 
 Die `show()`-Methode gibt immer `undefined` zurück und löst ein [`geometrychange`](/de/docs/Web/API/VirtualKeyboard/geometrychange_event)-Ereignis aus.
 
@@ -26,11 +26,11 @@ Keine.
 
 ### Rückgabewert
 
-Undefiniert.
+Undefined.
 
 ## Beispiel
 
-Der unten stehende Codeausschnitt zeigt, wie das `virtualkeyboardpolicy`-Attribut verwendet wird, um zu verhindern, dass der Browser die virtuelle Tastatur bei einem Klick oder Tipp anzeigt. Der Code verwendet auch die `navigator.virtualKeyboard.show()`- und `navigator.virtualKeyboard.hide()`-Methoden, um die virtuelle Tastatur anzuzeigen und auszublenden, wenn eine Schaltfläche geklickt wird:
+Der folgende Codeausschnitt zeigt, wie das `virtualkeyboardpolicy`-Attribut verwendet wird, um den Browser daran zu hindern, die virtuelle Tastatur bei Klick oder Tipp zu zeigen. Der Code verwendet außerdem die Methoden `navigator.virtualKeyboard.show()` und `navigator.virtualKeyboard.hide()`, um die virtuelle Tastatur anzuzeigen bzw. zu verbergen, wenn eine Schaltfläche geklickt wird:
 
 ```js
 <div contenteditable virtualkeyboardpolicy="manual" id="editor"></div>

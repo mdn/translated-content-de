@@ -9,9 +9,9 @@ l10n:
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Get_microphone_permission", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Create_a_peer_connection")}}
 
-Okay, Sie haben nun die Mikrofonberechtigungen eingerichtet. Der nächste Schritt besteht darin, sicherzustellen, dass jeder Benutzer seine Peer-ID kennt, damit sie Verbindungen herstellen können. Das peerJS-Framework bietet uns eine Reihe von Ereignis-Listenern, die wir auf den zuvor erstellten Peer anwenden können.
+Gut, Sie haben die Mikrofonberechtigungen eingerichtet. Der nächste Schritt besteht darin, sicherzustellen, dass jeder Nutzer weiß, was seine Peer-ID ist, damit sie Verbindungen herstellen können. Das PeerJS-Framework bietet uns eine Menge Event-Listener, die wir beim vorher erstellten Peer aufrufen können.
 
-1. Nutzen Sie das `open` Ereignis, um einen Listener zu erstellen, der die ID des Peers anzeigt, wenn er geöffnet ist. Fügen Sie den folgenden Code am Ende von `script.js` hinzu:
+1. Verwenden Sie das `open`-Event, um einen Listener zu erstellen, der die Peer-ID anzeigt, wenn es geöffnet ist. Fügen Sie den folgenden Code am Ende von `script.js` hinzu:
 
    ```js
    peer.on("open", () => {
@@ -21,11 +21,11 @@ Okay, Sie haben nun die Mikrofonberechtigungen eingerichtet. Der nächste Schrit
 
    Hier ersetzen Sie den Text im HTML-Element mit der ID `caststatus`.
 
-2. Versuchen Sie, die App in Ihrem Browser neu zu laden. Anstelle von `connecting...` sollten Sie `Your device ID is: <peer ID>` sehen.
+2. Versuchen Sie, die App in Ihrem Browser neu zu laden. Anstelle von `connecting...`, sollten Sie `Your device ID is: <peer ID>` sehen.
 
-   ![Ein cremefarbener Hintergrund mit den Worten 'phone a friend' in fetter, dunkelgrüner Schrift als Überschrift. Darunter sofort 'Your device ID is: 3b77' und darunter 'please use headphones!'. Danach ein großer dunkelgrüner Button mit der Aufschrift 'Call' in derselben Cremefarbe wie der Hintergrund.](app_showing_device_id.png)
+   ![Ein cremefarbener Hintergrund mit den Worten 'phone a friend' in fetter, dunkelgrüner Schrift als Überschrift. 'Your device ID is: 3b77' steht direkt darunter und 'please use headphones!' darunter. Anschließend folgt ein großer dunkelgrüner Button mit 'Call', geschrieben in derselben cremefarbenen Farbe des Hintergrunds.](app_showing_device_id.png)
 
-3. Da Sie bereits hier sind, können Sie ebenso gut einige Funktionen erstellen, um verschiedene Inhalte anzuzeigen und zu verbergen, die Sie später verwenden werden. Es gibt zwei Funktionen, die Sie erstellen sollten: `showCallContent()` und `showConnectedContent()`. Diese Funktionen sind verantwortlich dafür, den Anruf-Button sowie den Auflegen-Button und die Audio-Elemente anzuzeigen, wenn es angemessen ist.
+3. Während Sie hier sind, können Sie auch einige Funktionen erstellen, um verschiedene Inhalte anzuzeigen und zu verbergen, die Sie später verwenden werden. Es gibt zwei Funktionen, die Sie erstellen sollten, `showCallContent()` und `showConnectedContent()`. Diese Funktionen sind dafür verantwortlich, den Anruf-Button und die Auflegen-Buttons sowie Audioelemente bei Bedarf anzuzeigen.
 
    ```js
    const audioContainer = document.querySelector(".call-container");

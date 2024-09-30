@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`cookies`** schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz auf die [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Schnittstelle zurück. Diese ermöglicht es einer Web-App, sich bei Cookie-Änderungsereignissen in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) anzumelden oder abzumelden. Dies ist ein Einstiegspunkt für die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API).
+Die **`cookies`**-Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Referenz zur [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Schnittstelle zurückgibt, welche es einer Webanwendung ermöglicht, sich zu Ereignissen von Cookie-Änderungen in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) an- und abzumelden. Dies ist ein Einstiegspunkt für die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API).
 
 ## Wert
 

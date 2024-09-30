@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das `rotate`-Attribut gibt an, wie sich das animierte Element dreht, während es entlang eines in einem {{SVGElement("animateMotion")}}-Element angegebenen Pfads bewegt.
+Das `rotate` Attribut spezifiziert, wie das animierte Element rotiert, während es entlang eines Pfades reist, der in einem {{SVGElement("animateMotion")}} Element angegeben ist.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animateMotion")}}
 
-## Verwendungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -35,9 +35,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
   </tbody>
 </table>
 
-Die Werte `auto` und `auto-reverse` ermöglichen es, dass sich die Drehung des animierten Elements dynamisch ändert, während es sich entlang des Pfads bewegt. Wenn der Wert von `rotate` auf `auto` gesetzt ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung zeigt. Wenn der Wert `auto-reverse` ist, dreht es seine linke Seite in die aktuelle Bewegungsrichtung.
+Die Werte `auto` und `auto-reverse` erlauben es, dass die Rotation des animierten Elements sich dynamisch ändert, während es entlang des Pfades reist. Wenn der Wert von `rotate` `auto` ist, dreht sich das Element, um seine rechte Seite in die aktuelle Bewegungsrichtung auszurichten. Wenn der Wert `auto-reverse` ist, dreht es seine linke Seite in die aktuelle Bewegungsrichtung.
 
-Das Festlegen eines Zahlenwerts für `rotate` spezifiziert eine konstante Drehung in Grad, die sich während der Animation nicht ändert. Der Standardwert von `0` hält das animierte Element in seiner ursprünglichen Orientierung.
+Wenn der Wert von `rotate` auf eine Zahl gesetzt wird, wird eine konstante Rotation in Grad spezifiziert, die sich nicht mit der Animation ändert. Der Standardwert von `0` hält das animierte Element in seiner ursprünglichen Ausrichtung.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`type`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt die Stylesheet-Sprache für das gegebene Stylesheet an.
+Die **`type`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt die Stylesheet-Sprache für das gegebene Stylesheet an.
 
 ## Wert
 

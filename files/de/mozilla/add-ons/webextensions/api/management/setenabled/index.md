@@ -9,13 +9,13 @@ l10n:
 
 Aktiviert oder deaktiviert das angegebene Add-on.
 
-Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, wie z.B. dem Klick-Handler für einen Button. Der Browser kann den Benutzer auch bitten, die Änderung zu bestätigen.
+Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, beispielsweise im Klick-Handler für einen Button. Der Browser kann den Benutzer auch bitten, die Änderung zu bestätigen.
 
-Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die "management"-[API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Die Funktion ermöglicht das Aktivieren/Deaktivieren von Design-Add-ons, gibt jedoch einen Fehler zurück, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
+Die Funktion ermöglicht das Aktivieren/Deaktivieren von Theme-Addons, wird jedoch einen Fehler zurückgeben, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ let settingEnabled = browser.management.setEnabled(
 ### Parameter
 
 - `id`
-  - : `string`. ID des zu aktivierenden/deaktivierenden Add-ons.
+  - : `string`. ID des Add-ons, das aktiviert/deaktiviert werden soll.
 - `enabled`
   - : `boolean`. Gibt an, ob das Add-on aktiviert oder deaktiviert werden soll.
 
@@ -43,7 +43,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Aktivierung/Deaktivierung für das Add-on mit der ID "my-add-on" umschalten:
+Aktivieren/Deaktivieren des Add-ons mit der ID "my-add-on":
 
 ```js
 let id = "my-add-on";
@@ -61,7 +61,7 @@ toggleEnabled(id);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled)-API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

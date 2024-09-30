@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: status Eigenschaft"
+title: "XMLHttpRequest: status-Eigenschaft"
 short-title: status
 slug: Web/API/XMLHttpRequest/status
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte **`XMLHttpRequest.status`** Eigenschaft gibt den numerischen HTTP-[Statuscode](/de/docs/Web/HTTP/Status) der Antwort des `XMLHttpRequest` zurück.
+Die nur-lesbare **`XMLHttpRequest.status`**-Eigenschaft gibt den numerischen HTTP-[Statuscode](/de/docs/Web/HTTP/Status) der Antwort des `XMLHttpRequest` zurück.
 
-Bevor die Anfrage abgeschlossen ist, hat `status` den Wert 0. Browser melden außerdem einen Status von 0 im Falle von `XMLHttpRequest`-Fehlern.
+Bevor die Anfrage abgeschlossen ist, beträgt der Wert von `status` 0. Browser melden auch einen Status von 0 im Falle von `XMLHttpRequest`-Fehlern.
 
 ## Wert
 

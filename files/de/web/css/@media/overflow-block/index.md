@@ -2,25 +2,28 @@
 title: overflow-block
 slug: Web/CSS/@media/overflow-block
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 0813b7f6eb4aca4d2b7440a4644658495fa1f9d7
 ---
 
 {{CSSRef}}
 
-Die **`overflow-block`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät Inhalte behandelt, die den anfänglichen [Containing Block](/de/docs/Web/CSS/Containing_block) entlang der Blockachse überlaufen.
+Die **`overflow-block`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät Inhalte behandelt, die den initialen [Enthaltenen Block](/de/docs/Web/CSS/Containing_block) entlang der Blockachse überlaufen.
+
+> [!NOTE]
+> Die `overflow-block`-Eigenschaft bestimmt nicht, ob ein Überlauf auftritt; sie zeigt vielmehr die Handhabung eines solchen Überlaufs durch das Gerät. Typischerweise wird auf Bildschirmen in den meisten Browsern das Verhalten "scrollen" sein: Wenn der Inhalt den verfügbaren vertikalen Raum überschreitet, erlaubt das Gerät das Scrollen, um auf den übergelaufenen Inhalt zuzugreifen.
 
 ## Syntax
 
-Das `overflow-block`-Feature wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
+Das `overflow-block`-Feature wird als ein Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
 
 - `none`
-  - : Inhalte, die die Blockachse überlaufen, werden nicht angezeigt.
+  - : Inhalt, der die Blockachse überläuft, wird nicht angezeigt.
 - `scroll`
-  - : Inhalte, die die Blockachse überlaufen, können durch Scrollen sichtbar gemacht werden.
+  - : Inhalt, der die Blockachse überläuft, kann durch Scrollen angezeigt werden.
 - `optional-paged`
-  - : Inhalte, die die Blockachse überlaufen, können durch Scrollen sichtbar gemacht werden, aber Seitenumbrüche können manuell ausgelöst werden (zum Beispiel über {{cssxref("break-inside")}}, etc.), um den folgenden Inhalt auf der nächsten Seite anzuzeigen.
+  - : Inhalt, der die Blockachse überläuft, kann durch Scrollen angezeigt werden, aber Seitenumbrüche können manuell ausgelöst werden (wie z. B. über {{cssxref("break-inside")}}, etc.), um den nachfolgenden Inhalt auf der nächsten Seite anzuzeigen.
 - `paged`
-  - : Inhalte werden in separate Seiten aufgeteilt; Inhalte, die eine Seite in der Blockachse überlaufen, werden auf der folgenden Seite angezeigt.
+  - : Inhalt wird in separate Seiten aufgeteilt; Inhalt, der eine Seite in der Blockachse überläuft, wird auf der folgenden Seite angezeigt.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "ReadableByteStreamController: enqueue()-Methode"
+title: "ReadableByteStreamController: enqueue() Methode"
 short-title: enqueue()
 slug: Web/API/ReadableByteStreamController/enqueue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`enqueue()`**-Methode des [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)-Interfaces reiht ein gegebenes Chunk in den zugehörigen lesbaren Bytestream ein (das Chunk wird in die internen Warteschlangen des Streams kopiert).
+Die **`enqueue()`** Methode des [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) Interface stellt ein bestimmtes Chunk in den zugehörigen lesbaren Bytestrom ein (das Chunk wird in die internen Warteschlangen des Streams kopiert).
 
 Dies sollte nur verwendet werden, um Daten in die Warteschlange zu übertragen, wenn [`byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest) `null` ist.
 
@@ -21,7 +21,7 @@ enqueue(chunk)
 ### Parameter
 
 - `chunk`
-  - : Das Chunk, das eingerahmt werden soll.
+  - : Das Chunk, das in die Warteschlange gestellt werden soll.
 
 ### Rückgabewert
 
@@ -30,15 +30,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Quellobjekt kein `ReadableByteStreamController` ist, oder der Stream aus einem anderen Grund nicht gelesen werden kann, oder das Chunk kein Objekt ist, oder das interne Array-Puffer des Chunks nicht vorhanden, null Länge, oder getrennt ist.
+  - : Wird ausgelöst, wenn das Quellobjekt kein `ReadableByteStreamController` ist, der Stream aus einem anderen Grund nicht lesbar ist, das Chunk kein Objekt ist oder dessen internes Array-Buffer nicht existiert, null ist oder getrennt wurde.
     Wird auch ausgelöst, wenn der Stream geschlossen wurde.
 
 ## Beispiele
 
-Das Beispiel unter [Verwendung von lesbaren Bytestreams > Erstellen eines lesbaren Socket-Push-Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt auf, wie Sie `enqueue()` verwenden können, um Daten in den Stream zu kopieren, wenn keine ausstehende [`byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest) besteht.
-Wenn eine `byobRequest` vorliegt, sollte diese verwendet werden!
+Das Beispiel in [Verwendung von lesbaren Bytestreams > Erstellen eines lesbaren Socket-Push-Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt, wie Sie `enqueue()` verwenden können, um Daten in den Stream zu kopieren, wenn keine ausstehende [`byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest) besteht.
+Falls es eine `byobRequest` gibt, sollte diese verwendet werden!
 
-Der untenstehende Code zeigt, wie Daten in einen `ArrayBuffer` mit einer "hypothetischen" `socket.readInto()`-Methode gelesen und dann eingerahmt werden (aber nur, wenn tatsächlich Daten kopiert wurden):
+Der untenstehende Code zeigt, wie Daten mit einer "hypothetischen" `socket.readInto()` Methode in ein `ArrayBuffer` eingelesen und dann in die Warteschlange gestellt werden (aber nur, wenn tatsächlich Daten kopiert wurden):
 
 ```js
 const buffer = new ArrayBuffer(DEFAULT_CHUNK_SIZE);

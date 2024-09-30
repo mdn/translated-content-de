@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.notify()`** benachrichtigt einige Agenten, die in der Warteschlange schlafen.
+Die statische Methode **`Atomics.notify()`** benachrichtigt einige Agenten, die in der Wartewarteschlange schlafen.
 
 > [!NOTE]
 > Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
-> Sie wird `0` für nicht-geteilte `ArrayBuffer`-Objekte zurückgeben.
+> Sie wird `0` zurückgeben bei nicht-geteilten `ArrayBuffer`-Objekten.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Atomics.notify(typedArray, index, count)
 - `typedArray`
   - : Ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
 - `index`
-  - : Die Position im `typedArray`, die aufgeweckt werden soll.
+  - : Die Position im `typedArray`, bei der aufgeweckt werden soll.
 - `count` {{optional_inline}}
-  - : Die Anzahl der schlafenden Agenten, die benachrichtigt werden sollen. Standardmäßig {{jsxref("Infinity")}}.
+  - : Die Anzahl der zu benachrichtigenden schlafenden Agenten. Standardmäßig {{jsxref("Infinity")}}.
 
 ### Rückgabewert
 
@@ -38,27 +38,27 @@ Atomics.notify(typedArray, index, count)
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` kein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb des Bereichs im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
 ## Beispiele
 
 ### Verwendung von `notify`
 
-Angenommen, wir haben ein geteiltes `Int32Array`:
+Gegeben ein geteilter `Int32Array`:
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein Lesethread schläft und wartet auf Position 0, die erwartet wird, 0 zu sein. Solange das zutrifft, wird er nicht fortfahren. Sobald jedoch der Schreibthread einen neuen Wert gespeichert hat, wird er vom Schreibthread benachrichtigt und gibt den neuen Wert (123) zurück.
+Ein lesender Thread schläft und wartet an Position 0, die erwartet wird, 0 zu sein. Solange das der Fall ist, wird er nicht weitermachen. Sobald jedoch der schreibende Thread einen neuen Wert gespeichert hat, wird er vom schreibenden Thread benachrichtigt und gibt den neuen Wert (123) zurück.
 
 ```js
 Atomics.wait(int32, 0, 0);
 console.log(int32[0]); // 123
 ```
 
-Ein Schreibthread speichert einen neuen Wert und benachrichtigt den wartenden Thread, sobald er geschrieben hat:
+Ein schreibender Thread speichert einen neuen Wert und benachrichtigt den wartenden Thread, sobald er geschrieben hat:
 
 ```js
 console.log(int32[0]); // 0;

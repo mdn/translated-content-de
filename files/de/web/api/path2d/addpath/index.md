@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`Path2D.addPath()`** Methode der Canvas 2D API fügt ein [`Path2D`](/de/docs/Web/API/Path2D) Objekt zu einem anderen `Path2D` Objekt hinzu.
+Die **`Path2D.addPath()`**-Methode
+der Canvas 2D API fügt ein [`Path2D`](/de/docs/Web/API/Path2D)-Objekt zu einem anderen
+`Path2D`-Objekt hinzu.
 
 ## Syntax
 
@@ -20,9 +22,9 @@ addPath(path, transform)
 ### Parameter
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, der hinzugefügt werden soll.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der hinzugefügt werden soll.
 - `transform` {{optional_inline}}
-  - : Eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die als Transformationsmatrix für den hinzugefügten Pfad verwendet werden soll. (Technisch gesehen ein Objekt, das dieselben Eigenschaften wie ein `DOMMatrix` Objekt besitzt.)
+  - : Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), das als Transformationsmatrix für den hinzuzufügenden Pfad verwendet wird. (Technisch gesehen ein Objekt, das dieselben Eigenschaften wie ein `DOMMatrix`-Objekt besitzt.)
 
 ### Rückgabewert
 
@@ -30,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einen Pfad zu einem vorhandenen Pfad hinzufügen
+### Hinzufügen eines Pfades zu einem bestehenden Pfad
 
-Dieses Beispiel fügt einen Pfad zu einem anderen hinzu.
+In diesem Beispiel wird ein Pfad zu einem anderen hinzugefügt.
 
 #### HTML
 
@@ -42,7 +44,11 @@ Dieses Beispiel fügt einen Pfad zu einem anderen hinzu.
 
 #### JavaScript
 
-Zuerst erstellen wir zwei separate [`Path2D`](/de/docs/Web/API/Path2D) Objekte, von denen jedes ein Rechteck enthält, das mit der [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect) Methode erstellt wurde. Dann erstellen wir eine Matrix mit [`DOMMatrix()`](/de/docs/Web/API/DOMMatrix/DOMMatrix). Wir fügen dann den zweiten Pfad zum ersten mit `addPath()` hinzu und wenden außerdem die Matrix an, um den zweiten Pfad nach rechts zu verschieben. Schließlich zeichnen wir den ersten Pfad (der nun beide Rechtecke enthält) mit [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill).
+Zuerst erstellen wir zwei separate [`Path2D`](/de/docs/Web/API/Path2D)-Objekte, die jeweils ein
+Rechteck enthalten, das mit der [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect)-
+Methode erstellt wurde. Dann erstellen wir eine Matrix mit [`DOMMatrix()`](/de/docs/Web/API/DOMMatrix/DOMMatrix). Wir fügen dann den zweiten Pfad dem ersten mit `addPath()` hinzu und wenden auch die Matrix an, um den zweiten Pfad nach rechts zu verschieben.
+Schließlich zeichnen wir den ersten Pfad (der nun beide Rechtecke enthält) mit
+[`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill).
 
 ```js
 const canvas = document.getElementById("canvas");

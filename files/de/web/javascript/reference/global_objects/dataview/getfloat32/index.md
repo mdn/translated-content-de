@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getFloat32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Gleitkommazahl. Es gibt keine Ausrichtungseinschränkungen; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die Methode **`getFloat32()`** von {{jsxref("DataView")}} Instanzen liest 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 32-Bit-Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getfloat32.html")}}
 
@@ -21,9 +21,9 @@ getFloat32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, ab dem ab dem Beginn der Ansicht die Daten gelesen werden.
+  - : Der Offset in Bytes, ab dem der View die Daten lesen soll.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Eine Gleitkommazahl von `-3.4e38` bis `3.4e38`.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 

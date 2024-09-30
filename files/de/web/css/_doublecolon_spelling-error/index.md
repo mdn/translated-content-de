@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das der [User Agent](/de/docs/Glossary/user_agent) als falsch geschrieben markiert hat.
+Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das vom [Benutzeragenten](/de/docs/Glossary/user_agent) als falsch geschrieben markiert wurde.
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
-Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::spelling-error` im Selektor verwendet werden:
+Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::spelling-error` im Selektor verwendet werden:
 
 - {{cssxref("color")}}
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und dessen Langformen
-- {{cssxref("text-decoration")}} und die dazugehörigen Eigenschaften
+- {{cssxref("outline")}} und seine Untereigenschaften
+- {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
 
@@ -32,9 +32,9 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::spel
 
 ## Beispiele
 
-### Einfache Dokument-Rechtschreibprüfung
+### Einfache Rechtschreibprüfung im Dokument
 
-In diesem Beispiel sollten unterstützende Browser etwaige markierte Rechtschreibfehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützte Browser alle markierten Rechtschreibfehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

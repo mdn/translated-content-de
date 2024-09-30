@@ -1,5 +1,5 @@
 ---
-title: Beschreibung
+title: description
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/description
 l10n:
   sourceCommit: d86e14de2e66319fc0a0ec0539a05400dea5a453
@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Erforderlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -32,7 +32,7 @@ l10n:
   </tbody>
 </table>
 
-Eine kurze Beschreibung der Erweiterung, die zur Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen betragen. Das Limit in anderen Browsern kann abweichen.
+Eine kurze Beschreibung der Erweiterung, die zur Anzeige in der Benutzeroberfläche des Browsers bestimmt ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen lang sein. Das Limit in anderen Browsern kann abweichen.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

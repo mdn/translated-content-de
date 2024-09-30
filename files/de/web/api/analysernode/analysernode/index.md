@@ -1,5 +1,5 @@
 ---
-title: "AnalyserNode: AnalyserNode() Konstruktor"
+title: "AnalyserNode: AnalyserNode()-Konstruktor"
 short-title: AnalyserNode()
 slug: Web/API/AnalyserNode/AnalyserNode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("'Web Audio API'")}}
 
-Der **`AnalyserNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz eines [`AnalyserNode`](/de/docs/Web/API/AnalyserNode) Objekts.
+Der **`AnalyserNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Objekts.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ new AnalyserNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext).
+  - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext).
 - `options` {{optional_inline}}
 
-  - : Ein Objekt mit den folgenden Eigenschaften, alle optional:
+  - : Ein Objekt mit den folgenden, optionalen Eigenschaften:
 
     - `fftSize`
-      - : Die gewünschte anfängliche Größe der [FFT](https://en.wikipedia.org/wiki/Fast_Fourier_transform) für die Analyse im [Frequenzbereich](https://en.wikipedia.org/wiki/Frequency_domain).
+      - : Die gewünschte anfängliche Größe der [FFT](https://en.wikipedia.org/wiki/Fast_Fourier_transform) für die [Frequenzbereichs-](https://en.wikipedia.org/wiki/Frequency_domain)Analyse.
         Der Standardwert ist `2048`.
     - `maxDecibels`
       - : Die gewünschte anfängliche maximale Leistung in [dB](https://en.wikipedia.org/wiki/Decibel) für die FFT-Analyse.
@@ -37,19 +37,19 @@ new AnalyserNode(context, options)
     - `smoothingTimeConstant`
       - : Die gewünschte anfängliche Glättungskonstante für die FFT-Analyse. Der Standardwert ist `0.8`.
     - `channelCount`
-      - : Repräsentiert eine ganze Zahl, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen des Knotens verwendet werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue
-        Definition hängen vom Wert des `channelCountMode` ab.
+      - : Repräsentiert eine ganze Zahl, die bestimmt, wie viele Kanäle verwendet werden, wenn [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing)-Verbindungen zu Eingängen des Knotens hergestellt werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Nutzung und genaue
+        Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen [enumerierten](/de/docs/Glossary/Enumerated) Wert, der beschreibt, wie die Kanäle zwischen
-        den Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für
-        weitere Informationen, einschließlich Standardwerte.)
+      - : Repräsentiert einen [auflistbaren](/de/docs/Glossary/Enumerated) Wert, der beschreibt, wie die Kanäle zwischen
+        den Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen, einschließlich Standardwerten.)
     - `channelInterpretation`
-      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation wird definieren, wie das Audio gemischt wird beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing).
+      - : Repräsentiert einen auflistbaren Wert, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation wird definieren, wie das Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
         [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich
-        der Standardwerte.)
+        Standardwerten.)
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ new AnalyserNode(context, options)
 
 ## Siehe auch
 
-- [`BaseAudioContext.createAnalyser()`](/de/docs/Web/API/BaseAudioContext/createAnalyser), die entsprechende Fabrikmethode
+- [`BaseAudioContext.createAnalyser()`](/de/docs/Web/API/BaseAudioContext/createAnalyser), die äquivalente Fabrikmethode

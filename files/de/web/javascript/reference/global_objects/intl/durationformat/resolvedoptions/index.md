@@ -2,12 +2,12 @@
 title: Intl.DurationFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/resolvedOptions
 l10n:
-  sourceCommit: 65bd9d66ad51dfe250494618a695046c6574421a
+  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`** Methode von Instanzen des {{jsxref("Intl.DurationFormat")}} gibt ein neues Objekt mit Eigenschaften zurück, die das Gebietsschema sowie die Datums- und Zeitformatierungsoptionen widerspiegeln, die während der Initialisierung dieses {{jsxref("Intl.DurationFormat")}} Objekts berechnet wurden.
+Die **`resolvedOptions()`** Methode der {{jsxref("Intl.DurationFormat")}} Instanzen gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung dieses `DurationFormat` Objekts berechneten Optionen widerspiegeln.
 
 ## Syntax
 
@@ -21,64 +21,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die das Gebietsschema sowie die Datums- und Zeitformatierungsoptionen widerspiegeln, die während der Initialisierung des gegebenen {{jsxref("Intl.DateTimeFormat")}} Objekts berechnet wurden.
-
-## Beschreibung
-
-Das resultierende Objekt hat die folgenden Eigenschaften:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DurationFormat` Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Der [BCP 47 Sprach-Tag](https://datatracker.ietf.org/doc/html/rfc5646) für das verwendete Gebietsschema. Wenn in dem Eingabe-BCP 47-Sprach-Tag Unicode-Erweiterungswerte angefordert wurden, die zu diesem Gebietsschema führten, werden die angeforderten und für dieses Gebietsschema unterstützten Schlüssel-Wert-Paare in `locale` einbezogen.
-- `style`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"` oder `"digital"`, der den verwendeten Dauerformatierungsstil identifiziert.
-- `years`
-  - : Einer der Strings `"long"`, `"short"` oder `"narrow"`, der den für das `years` Feld verwendeten Formatierungsstil identifiziert.
-- `yearsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `years` Feld angezeigt werden soll.
-- `months`
-  - : Einer der Strings `"long"`, `"short"` oder `"narrow"`, der den für das `months` Feld verwendeten Formatierungsstil identifiziert.
-- `monthsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `months` Feld angezeigt werden soll.
-- `weeks`
-  - : Einer der Strings `"long"`, `"short"` oder `"narrow"`, der den für das `weeks` Feld verwendeten Formatierungsstil identifiziert.
-- `weeksDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `weeks` Feld angezeigt werden soll.
-- `days`
-  - : Einer der Strings `"long"`, `"short"` oder `"narrow"`, der den für das `days` Feld verwendeten Formatierungsstil identifiziert.
-- `daysDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `days` Feld angezeigt werden soll.
-- `hours`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"`, `"2-digit"` oder `"numeric"`, der den für das `hours` Feld verwendeten Formatierungsstil identifiziert.
-- `hoursDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `hours` Feld angezeigt werden soll.
-- `minutes`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"`, `"2-digit"` oder `"numeric"`, der den für das `minutes` Feld verwendeten Formatierungsstil identifiziert.
-- `minutesDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `minutes` Feld angezeigt werden soll.
-- `seconds`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"`, `"2-digit"` oder `"numeric"`, der den für das `seconds` Feld verwendeten Formatierungsstil identifiziert.
-- `secondsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `seconds` Feld angezeigt werden soll.
-- `milliseconds`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"` oder `"numeric"`, der den für das `milliseconds` Feld verwendeten Formatierungsstil identifiziert.
-- `millisecondsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `millisecondsDisplay` Feld angezeigt werden soll.
-- `microseconds`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"` oder `"numeric"`, der den für das `microseconds` Feld verwendeten Formatierungsstil identifiziert.
-- `microsecondsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `microsecondsDisplay` Feld angezeigt werden soll.
-- `nanoseconds`
-  - : Einer der Strings `"long"`, `"short"`, `"narrow"` oder `"numeric"`, der den für das `nanoseconds` Feld verwendeten Formatierungsstil identifiziert.
-- `nanosecondsDisplay`
-  - : Einer der Strings `"auto"` oder `"always"`, der beschreibt, wann das `nanosecondsDisplay` Feld angezeigt werden soll.
-- `fractionalDigits`
-  - : Eine Zahl, die die Anzahl der bei numerischen Stilen verwendeten Nachkommastellen identifiziert.
+  - : Der BCP 47 Sprach-Tag für die tatsächlich genutzte Locale, bestimmt durch den [Locale-Verhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
 - `numberingSystem`
-  - : Der Wert, der für diese Eigenschaft im Optionsargument angegeben wurde, wenn vorhanden, oder der angeforderte Wert unter Verwendung des Unicode-Erweiterungsschlüssels `nu` oder standardmäßig ausgefüllt.
+  - : Der in das `options` Argument übergebene Wert oder der Unicode-Erweiterungsschlüssel `"nu"`, mit standardmäßig ausgefüllten Werten bei Bedarf. Es ist ein unterstütztes [Zahlensystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getNumberingSystems#supported_numbering_system_types) für diese Locale. Der Standard ist von der Locale abhängig.
+- `style`
+  - : Der in das `options` Argument übergebene Wert, mit standardmäßig ausgefüllten Werten bei Bedarf. Er ist entweder `"long"`, `"short"`, `"narrow"`, oder `"digital"`. Der Standard ist `"short"`.
+- `years`, `yearsDisplay`, `months`, `monthsDisplay`, `weeks`, `weeksDisplay`, `days`, `daysDisplay`, `hours`, `hoursDisplay`, `minutes`, `minutesDisplay`, `seconds`, `secondsDisplay`, `milliseconds`, `millisecondsDisplay`, `nanoseconds`, `nanosecondsDisplay`
+  - : Die für diese Eigenschaften in das `options` Argument übergebenen Werte, mit standardmäßig ausgefüllten Werten bei Bedarf. Für die gültigen Werte und Standards für jeden, siehe das [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options) Argument des Konstruktors.
+- `fractionalDigits` {{optional_inline}}
+  - : Der in das `options` Argument übergebene Wert. Er ist nur vorhanden, wenn er in `options` angegeben wurde. Es ist eine ganze Zahl von 0 bis 9, inklusive.
 
 ## Beispiele
 
-### Die resolvedOptions-Methode verwenden
+### Verwendung der Methode resolvedOptions
 
 ```js
 const duration = new Intl.DurationFormat("en");

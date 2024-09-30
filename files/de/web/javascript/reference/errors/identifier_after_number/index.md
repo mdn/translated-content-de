@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: identifier starts immediately after numeric literal"
+title: "SyntaxError: identifier startet direkt nach einer numerischen Literal"
 slug: Web/JavaScript/Reference/Errors/Identifier_after_number
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
@@ -7,9 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "identifier starts immediately after numeric literal" tritt auf,
-wenn ein Bezeichner mit einer Ziffer beginnt. Bezeichner können nur mit einem Buchstaben,
-Unterstrich (\_) oder Dollarzeichen ($) beginnen.
+Die JavaScript-Ausnahme "identifier starts immediately after numeric literal" tritt auf, wenn ein Bezeichner mit einer Ziffer beginnt. Bezeichner können nur mit einem Buchstaben, Unterstrich (\_) oder Dollarzeichen ($) beginnen.
 
 ## Meldung
 
@@ -25,17 +23,15 @@ SyntaxError: No identifiers allowed directly after numeric literal (Safari)
 
 ## Was ist schiefgelaufen?
 
-Die Namen von Variablen, genannt [Bezeichner](/de/docs/Glossary/Identifier), unterliegen bestimmten Regeln,
-an die sich Ihr Code halten muss!
+Die Namen von Variablen, die als [Bezeichner](/de/docs/Glossary/Identifier) bezeichnet werden, unterliegen bestimmten Regeln, an die sich Ihr Code halten muss!
 
-Ein JavaScript-Bezeichner muss mit einem Buchstaben, Unterstrich (\_) oder Dollarzeichen ($) beginnen.
-Sie dürfen nicht mit einer Ziffer beginnen! Nur nachfolgende Zeichen können Ziffern (0-9) sein.
+Ein JavaScript-Bezeichner muss mit einem Buchstaben, Unterstrich (\_) oder Dollarzeichen ($) beginnen. Sie dürfen nicht mit einer Ziffer beginnen! Nur nachfolgende Zeichen können Ziffern (0-9) sein.
 
 ## Beispiele
 
 ### Variablennamen, die mit numerischen Literalen beginnen
 
-Variablennamen dürfen in JavaScript nicht mit Zahlen beginnen. Folgendes schlägt fehl:
+Variablennamen dürfen in JavaScript nicht mit Zahlen beginnen. Das folgende Beispiel schlägt fehl:
 
 ```js-nolint example-bad
 const 1life = "foo";

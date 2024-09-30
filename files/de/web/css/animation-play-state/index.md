@@ -11,7 +11,7 @@ Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob
 
 {{EmbedInteractiveExample("pages/css/animation-play-state.html")}}
 
-Das Fortsetzen einer pausierten Animation führt dazu, dass die Animation an der Stelle fortgesetzt wird, an der sie pausiert wurde, anstatt von Anfang an die Animationssequenz neu zu starten.
+Wenn eine pausierte Animation fortgesetzt wird, beginnt sie an der Stelle, an der sie pausiert wurde, und nicht von vorne in der Animationssequenz.
 
 ## Syntax
 
@@ -34,12 +34,12 @@ animation-play-state: unset;
 ### Werte
 
 - `running`
-  - : Die **Animation** spielt derzeit **ab**.
+  - : Die **Animation** ist momentan **aktiv**.
 - `paused`
-  - : Die **Animation** ist derzeit **pausiert**.
+  - : Die **Animation** ist momentan **pausiert**.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und die Werte der `animation-*` Eigenschaften nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ animation-play-state: unset;
 
 ### Eine Animation pausieren
 
-Diese Animation ist pausiert, läuft jedoch, wenn Sie mit der Maus darüber fahren.
+Diese Animation ist pausiert, wird aber ausgeführt, wenn Sie darüber fahren.
 
 #### HTML
 
@@ -107,6 +107,6 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 ## Siehe auch
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
 - Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

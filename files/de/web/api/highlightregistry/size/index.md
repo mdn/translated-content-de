@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: size-Eigenschaft"
+title: "HighlightRegistry: size Eigenschaft"
 short-title: size
 slug: Web/API/HighlightRegistry/size
 l10n:
@@ -12,7 +12,7 @@ Die **`size`**-Eigenschaft gibt die Anzahl der [`Highlight`](/de/docs/Web/API/Hi
 
 ## Wert
 
-Ein schreibgeschützter integer, der angibt, wie viele `Highlight`-Objekte das Registry enthält.
+Ein schreibgeschützter ganzzahliger Wert, der angibt, wie viele `Highlight`-Objekte das Registry enthält.
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ console.log(CSS.highlights.size); // 2
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

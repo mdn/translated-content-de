@@ -7,12 +7,11 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
-`document-domain`-Direktive steuert, ob das aktuelle Dokument
-berechtigt ist, [`document.domain`](/de/docs/Web/API/Document/domain) festzulegen.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}}
+`document-domain`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, [`document.domain`](/de/docs/Web/API/Document/domain) zu setzen.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, führt der Versuch, [`document.domain`](/de/docs/Web/API/Document/domain) festzulegen, zu einem Fehlschlag und löst einen `SecurityError`
-[`DOMException`](/de/docs/Web/API/DOMException) aus.
+Speziell, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der Versuch, [`document.domain`](/de/docs/Web/API/Document/domain) zu setzen, fehlschlagen und einen `SecurityError`
+[`DOMException`](/de/docs/Web/API/DOMException) auslösen.
 
 ## Syntax
 
@@ -21,11 +20,11 @@ Permissions-Policy: document-domain=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `document-domain` ist `*`.
+Die Standard-Zulassungsliste für `document-domain` ist `*`.
 
 ## Spezifikationen
 
@@ -37,5 +36,5 @@ Die Standard-Allowlist für `document-domain` ist `*`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

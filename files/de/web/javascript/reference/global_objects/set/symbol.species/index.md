@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Accessor-Eigenschaft **`Set[Symbol.species]`** ist eine ungenutzte Accessor-Eigenschaft, die angibt, wie `Set`-Objekte kopiert werden.
+Die **`Set[Symbol.species]`** statische Accessor-Eigenschaft ist eine ungenutzte Accessor-Eigenschaft, die angibt, wie `Set`-Objekte kopiert werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wu
 
 ## Beschreibung
 
-Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `Set`-Objekte zurück. Unterklassenkonstruktoren können ihn überschreiben, um die Konstruktorzurodnung zu ändern.
+Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `Set`-Objekte zurück. Konstruktoren von Unterklassen können diese überschreiben, um die Zuweisung des Konstruktors zu ändern.
 
 > [!NOTE]
 > Diese Eigenschaft wird derzeit von allen `Set`-Methoden nicht verwendet.
@@ -30,7 +30,7 @@ Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `S
 
 ### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]` Eigenschaft gibt die Standardkonstruktorfunktion zurück, die der `Set`-Konstruktor für `Set` ist.
+Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktorfunktion zurück, die für `Set` der `Set`-Konstruktor ist.
 
 ```js
 Set[Symbol.species]; // function Set()
@@ -38,7 +38,7 @@ Set[Symbol.species]; // function Set()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `Set`-Unterklasse, wie etwa `MySet`, ist die `MySet`-Species der `MySet` Konstruktor. Es kann jedoch sinnvoll sein, diesen zu überschreiben, um übergeordnete `Set`-Objekte in den Methoden Ihrer abgeleiteten Klasse zurückzugeben:
+In einer Instanz einer benutzerdefinierten `Set`-Unterklasse, wie `MySet`, ist die `MySet` Species der `MySet`-Konstruktor. Man könnte jedoch in Betracht ziehen, diese zu überschreiben, um in den Methoden Ihrer abgeleiteten Klasse übergeordnete `Set`-Objekte zurückzugeben:
 
 ```js
 class MySet extends Set {

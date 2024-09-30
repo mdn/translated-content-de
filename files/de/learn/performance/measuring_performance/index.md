@@ -1,5 +1,5 @@
 ---
-title: Leistung messen
+title: Messung der Performance
 slug: Learn/Performance/Measuring_performance
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,11 +7,11 @@ l10n:
 
 {{LearnSidebar}} {{PreviousMenuNext("Learn/Performance/Perceived_performance", "Learn/Performance/Multimedia", "Learn/Performance")}}
 
-Das Messen der Leistung liefert eine wichtige Kennzahl, um den Erfolg Ihrer App, Website oder Ihres Webdienstes zu bewerten.
+Die Messung der Performance liefert eine wichtige Kennzahl, um den Erfolg Ihrer App, Ihrer Website oder Ihres Webdienstes zu bewerten.
 
-Zum Beispiel können Sie Leistungskennzahlen verwenden, um zu bestimmen, wie Ihre App im Vergleich zu einem Konkurrenten abschneidet oder die Leistung Ihrer App über verschiedene Veröffentlichungen hinweg vergleichen. Ihre Kennzahlen sollten für Ihre Benutzer, Ihre Website und Ihre Geschäftsziele relevant sein. Sie sollten konsistent gesammelt, gemessen und in einem Format analysiert werden, das nicht-technische Interessengruppen konsumieren und verstehen können.
+Zum Beispiel können Sie Performance-Metriken verwenden, um zu bestimmen, wie Ihre App im Vergleich zu einem Konkurrenten abschneidet oder um die Performance Ihrer App über verschiedene Versionen hinweg zu vergleichen. Ihre Metriken sollten für Ihre Nutzer, Ihre Website und Ihre Geschäftsziele relevant sein. Sie sollten konsistent gesammelt, gemessen und in einem Format analysiert werden, das nicht-technische Stakeholder konsumieren und verstehen können.
 
-Dieser Artikel stellt Werkzeuge vor, mit denen Sie auf Webleistungskennzahlen zugreifen können, die zur Messung und Optimierung der Leistung Ihrer Website verwendet werden können.
+Dieser Artikel stellt Werkzeuge vor, mit denen Sie auf Web-Performance-Metriken zugreifen können, die zur Messung und Optimierung der Performance Ihrer Website verwendet werden können.
 
 <table>
   <tbody>
@@ -21,7 +21,7 @@ Dieser Artikel stellt Werkzeuge vor, mit denen Sie auf Webleistungskennzahlen zu
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, und Grundkenntnisse über
+        >, und grundlegende Kenntnisse über
         <a href="/de/docs/Learn/Getting_started_with_the_web"
           >clientseitige Webtechnologien</a
         >.
@@ -31,68 +31,68 @@ Dieser Artikel stellt Werkzeuge vor, mit denen Sie auf Webleistungskennzahlen zu
       <th scope="row">Ziel:</th>
       <td>
         <p>
-          Bereitstellung von Informationen über Webleistungskennzahlen, die Sie über verschiedene Webleistungs-APIs sammeln können, sowie Werkzeuge, die Sie zur Visualisierung dieser Daten verwenden können.
+          Bereitstellung von Informationen über Web-Performance-Metriken, die Sie über verschiedene Web-Performance-APIs sammeln können, und Tools, die Sie verwenden können, um diese Daten zu visualisieren.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Leistungstools
+## Performance-Tools
 
-Es gibt mehrere verschiedene Werkzeuge, die Ihnen helfen können, die Leistung zu messen und zu verbessern. Diese können im Allgemeinen in zwei Kategorien eingeteilt werden:
+Es gibt mehrere verschiedene Werkzeuge, die Ihnen helfen können, die Performance zu messen und zu verbessern. Diese können im Allgemeinen in zwei Kategorien eingeteilt werden:
 
-- Werkzeuge, die die Leistung anzeigen oder messen, wie [PageSpeed Insights](https://pagespeed.web.dev/) oder der Firefox [Network Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) und [Performance Monitor](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html). Diese Werkzeuge zeigen Ihnen, wie schnell oder langsam Ihre Website lädt. Sie zeigen auch Bereiche an, die verbessert werden können, um Ihre Web-App zu optimieren.
-- [Performance APIs](/de/docs/Web/API/Performance_API), die Sie zur Erstellung benutzerdefinierter Leistungstools verwenden können.
+- Werkzeuge, die die Performance anzeigen oder messen, wie [PageSpeed Insights](https://pagespeed.web.dev/) oder der Firefox [Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) und [Performance-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html). Diese Werkzeuge zeigen Ihnen, wie schnell oder langsam Ihre Website lädt. Sie zeigen auch Bereiche an, die verbessert werden können, um Ihre Web-App zu optimieren.
+- [Performance-APIs](/de/docs/Web/API/Performance_API), die Sie verwenden können, um benutzerdefinierte Performance-Tools zu erstellen.
 
-## Allgemeine Leistungsberichterstattungstools
+## Allgemeine Performance-Berichterstattung Tools
 
-Werkzeuge wie [PageSpeed Insights](https://pagespeed.web.dev/) können schnelle Leistungsmessungen liefern. Sie können eine URL eingeben und in Sekunden einen Leistungsbericht erhalten. Der Bericht enthält Bewertungen, die anzeigen, wie Ihre Website auf Mobilgeräten und Desktops abschneidet. Dies ist ein guter Ausgangspunkt, um zu verstehen, was Sie gut machen und was verbessert werden könnte.
+Tools wie [PageSpeed Insights](https://pagespeed.web.dev/) können schnelle Performance-Messungen liefern. Sie können eine URL eingeben und in Sekunden einen Performance-Bericht erhalten. Der Bericht enthält Bewertungen, die angeben, wie Ihre Website auf mobilen Geräten und Desktops abschneidet. Dies ist ein guter Ausgangspunkt, um zu verstehen, was Sie gut machen und was verbessert werden könnte.
 
-Zum Zeitpunkt des Schreibens sieht die Leistungsberichtszusammenfassung von MDN in etwa wie folgt aus:
+Zum Zeitpunkt des Schreibens sieht die Performance-Berichtsübersicht von MDN ähnlich wie folgt aus:
 
 ![Ein Screenshot des PageSpeed Insights Berichts für die Mozilla-Homepage.](pagespeed-insight-mozilla-homepage.png)
 
-Ein Leistungsbericht enthält Informationen über Dinge wie die Zeit, die ein Benutzer warten muss, bevor _irgendetwas_ auf der Seite angezeigt wird, wie viele Bytes heruntergeladen werden müssen, um eine Seite anzuzeigen, und vieles mehr. Er informiert Sie auch darüber, ob die gemessenen Werte als gut oder schlecht angesehen werden.
+Ein Performance-Bericht enthält Informationen zu Dingen wie der Wartezeit, bevor _irgendetwas_ auf der Seite angezeigt wird, der Anzahl der zu ladenden Bytes, um eine Seite anzuzeigen, und vieles mehr. Er informiert auch darüber, ob die gemessenen Werte als gut oder schlecht angesehen werden.
 
-[webpagetest.org](https://www.webpagetest.org/) ist ein weiteres Beispiel für ein Werkzeug, das Ihre Website automatisch testet und wertvolle Metriken liefert.
+[webpagetest.org](https://www.webpagetest.org/) ist ein weiteres Beispiel für ein Tool, das Ihre Website automatisch testet und wertvolle Metriken zurückgibt.
 
-Sie können versuchen, Ihre Lieblingswebsite mit diesen Werkzeugen zu testen und die Bewertungen zu sehen.
+Sie können versuchen, Ihre Lieblingswebsite durch diese Tools zu laufen lassen und die Bewertungen sehen.
 
-## Netzwerküberwachungstools
+## Netzwerk-Monitor Tools
 
-Moderne Browser verfügen über Werkzeuge, die Sie verwenden können, um geladene Seiten zu testen und festzustellen, wie sie performen; die meisten von ihnen funktionieren ähnlich. Zum Beispiel gibt der Firefox [Network Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) detaillierte Informationen zu allen vom Netzwerk heruntergeladenen Assets zurück, zusammen mit einem Wasserfall-Zeitdiagramm, das zeigt, wie lange jeder Download gedauert hat.
+Moderne Browser verfügen über Tools, die Sie verwenden können, um geladene Seiten zu testen und deren Performance zu bestimmen; die meisten funktionieren ähnlich. Zum Beispiel liefert der Firefox [Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) detaillierte Informationen über alle aus dem Netzwerk heruntergeladenen Assets, zusammen mit einem Zeitdiagramm, das zeigt, wie lange das Herunterladen jedes einzelnen gedauert hat.
 
-![Firefox Netzwerkmonitor zeigt eine Liste geladener Assets sowie Ladezeit pro Asset](network-monitor.png)
+![Firefox Netzwerk-Monitor, der eine Liste von geladenen Assets sowie Ladezeit pro Asset anzeigt](network-monitor.png)
 
-Sie sollten sich auch die Dokumentation zum Netzwerkmonitor von [Chrome](https://developer.chrome.com/docs/devtools/network/) ansehen.
+Sehen Sie sich auch die [Chrome-Dokumentation zum Netzwerk-Monitor](https://developer.chrome.com/docs/devtools/network/) an.
 
-## Leistungsmesswerkzeuge
+## Performance-Monitor Tools
 
-Sie können auch Browser-Leistungstools wie den [Firefox Performance Monitor](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html) verwenden, um die Leistung der Benutzeroberfläche einer Web-App oder Website zu messen, während Sie verschiedene Aktionen durchführen. Dies gibt Aufschluss darüber, welche Funktionen Ihre Web-App oder Website verlangsamen könnten.
+Sie können auch Browser-Performance-Tools wie den [Firefox Performance-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html) verwenden, um die Performance der Benutzeroberfläche einer Web-App oder Website zu messen, während Sie verschiedene Aktionen ausführen. Dies zeigt an, welche Funktionen Ihre Web-App oder Website verlangsamen könnten.
 
-![Entwicklertools Leistungsfenster zeigt den Wasserfall der Aufnahme #1.](perf-monitor.png)
+![Entwicklertools Performance-Panel zeigt das Wasserfalldiagramm von Aufnahme #1 an.](perf-monitor.png)
 
-Siehe auch die [Dokumentation zum Leistungswerkzeug von Chrome](https://developer.chrome.com/docs/devtools/performance/).
+Siehe auch die [Chrome-Dokumentation zum Performance-Tool](https://developer.chrome.com/docs/devtools/performance/).
 
-## Performance APIs
+## Performance-APIs
 
-Wenn Sie Code für das Web schreiben, stehen Ihnen viele [Web APIs](/de/docs/Web/API) zur Verfügung, um Ihre eigenen Leistungsmesswerkzeuge zu erstellen.
+Beim Schreiben von Code für das Web stehen viele [Web-APIs](/de/docs/Web/API) zur Verfügung, um eigene Performance-Messungstools zu erstellen.
 
-Sie können die [Navigation Timing API](/de/docs/Web/API/Performance_API/Navigation_timing) verwenden, um die clientseitige Webleistung zu messen, einschließlich der benötigten Zeit zum Entladen der vorherigen Seite, der Dauer von Domain-Abfragen, der gesamten Zeit, die für die Ausführung des Ladehandlers des Fensters benötigt wird, und mehr. Sie können die API für Metriken im Zusammenhang mit allen Navigationsevents im folgenden Diagramm verwenden.
+Sie können die [Navigation Timing API](/de/docs/Web/API/Performance_API/Navigation_timing) verwenden, um die clientseitige Web-Performance zu messen, einschließlich der benötigten Zeit zum Entladen der vorherigen Seite, der Dauer von Domain-Lookups, der gesamten Zeit, die für die Ausführung des Lade-Handlers des Fensters aufgewendet wird, und mehr. Sie können die API für Metriken im Zusammenhang mit allen Navigationsevents im folgenden Diagramm verwenden.
 
-![Die verschiedenen Handler, die die Navigation Timing API behandeln kann, einschließlich Navigation Timing API Metriken, Aufforderung zum Entladen, Weiterleitung, Entladen, App Cache, DNS, TCP, Anfrage, Antwort, Verarbeitung, onLoad, navigationStart, redirectStart, redirectEnd, fetchStart, domainLookupEnd, domainLookupStart, connectStart (secureConnectionStart), connectEnd, requestStart, responseStart, responseEnd, unloadStart, unloadEnd, domLoading, domInteractive, domContentLoaded, domComplete, loadEventStart, loadEventEnd](navigationtimingapi.jpg)
+![Die verschiedenen Handler, die die Navigation Timing API verarbeiten kann, einschließlich der Navigation Timing API Metriken Prompt for unload redirect unload App cache DNS TCP Request Response Processing onLoad navigationStart redirectStart redirectEnd fetchStart domainLookupEnd domainLookupStart connectStart (secureConnectionStart) connectEnd requestStart responseStart responseEnd unloadStart unloadEnd domLoading domInteractive domContentLoaded domComplete loadEventStart loadEventEnd](navigationtimingapi.jpg)
 
-Die [Performance API](/de/docs/Web/API/Performance_API), die den Zugriff auf leistungsbezogene Informationen für die aktuelle Seite bietet, umfasst mehrere APIs, darunter die [Navigation Timing API](/de/docs/Web/API/Performance_API/Navigation_timing), die [User Timing API](/de/docs/Web/API/Performance_API/User_timing) und die [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing). Diese Schnittstellen ermöglichen die genaue Messung der Zeit, die für die Ausführung von JavaScript-Aufgaben benötigt wird.
+Die [Performance API](/de/docs/Web/API/Performance_API), die Zugriff auf performancebezogene Informationen für die aktuelle Seite bietet, umfasst mehrere APIs, darunter die [Navigation Timing API](/de/docs/Web/API/Performance_API/Navigation_timing), die [User Timing API](/de/docs/Web/API/Performance_API/User_timing) und die [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing). Diese Schnittstellen ermöglichen die genaue Messung der Zeit, die für die Fertigstellung von JavaScript-Aufgaben benötigt wird.
 
-Das [PerformanceEntry](/de/docs/Web/API/PerformanceEntry) Objekt ist Teil der _Performance Timeline_. Ein _Performance Entry_ kann direkt erstellt werden, indem einen Performance _[`mark`](/de/docs/Web/API/PerformanceMark)_ oder _[`measure`](/de/docs/Web/API/PerformanceMeasure)_ gemacht wird (zum Beispiel durch Aufruf der [`mark()`](/de/docs/Web/API/Performance/mark) Methode) an einem expliziten Punkt in einer Anwendung. Performance Entries werden auch auf indirekte Weise erstellt, wie zum Beispiel beim Laden einer Ressource wie einem Bild.
+Das [PerformanceEntry](/de/docs/Web/API/PerformanceEntry) Objekt ist Teil der _Performance-Zeitleiste_. Ein _Performance-Eintrag_ kann direkt erstellt werden, indem an einem expliziten Punkt in einer Anwendung eine Performance _[`mark`](/de/docs/Web/API/PerformanceMark)_ oder _[`measure`](/de/docs/Web/API/PerformanceMeasure)_ (zum Beispiel durch Aufrufen der [`mark()`](/de/docs/Web/API/Performance/mark)-Methode) erstellt wird. Performance-Einträge werden auch auf indirekte Weise erstellt, wie zum Beispiel durch das Laden einer Ressource wie eines Bildes.
 
-Die [PerformanceObserver API](/de/docs/Web/API/PerformanceObserver) kann verwendet werden, um Leistungsmesereignisse zu beobachten und Sie auf neue [Performance Entries](/de/docs/Web/API/PerformanceEntry) aufmerksam zu machen, sobald sie in der Performance Timeline des Browsers aufgezeichnet werden.
+Die [PerformanceObserver API](/de/docs/Web/API/PerformanceObserver) kann verwendet werden, um Performance-Messungsereignisse zu beobachten und Sie über neue [Performance-Einträge](/de/docs/Web/API/PerformanceEntry) zu benachrichtigen, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden.
 
-Auch wenn dieser Artikel nicht in die Nutzung dieser APIs eintaucht, ist es hilfreich zu wissen, dass es sie gibt. Weitere Beispiele zur Nutzung von Performance Web APIs finden Sie im Artikel [Navigation und Zeiten](/de/docs/Web/Performance/Navigation_and_resource_timings).
+Obwohl dieser Artikel nicht auf die Verwendung dieser APIs eingeht, ist es hilfreich zu wissen, dass sie existieren. Weitere Beispiele für die Verwendung von Performance-Web-APIs finden Sie im Artikel zu [Navigation und Timings](/de/docs/Web/Performance/Navigation_and_resource_timings).
 
-## Fazit
+## Schlussfolgerung
 
-Dieser Artikel gibt einen kurzen Überblick über einige Werkzeuge, die Ihnen helfen können, die Leistung einer Web-App oder Website zu messen. Im folgenden Artikel werden wir sehen, wie Sie Bilder auf Ihrer Website optimieren können, um deren Leistung zu verbessern.
+Dieser Artikel gibt einen kurzen Überblick über einige Werkzeuge, die Ihnen helfen können, die Performance einer Web-App oder Website zu messen. Im folgenden Artikel werden wir sehen, wie Sie Bilder auf Ihrer Website optimieren können, um deren Performance zu verbessern.
 
 {{PreviousMenuNext("Learn/Performance/Perceived_performance", "Learn/Performance/Multimedia", "Learn/Performance")}}

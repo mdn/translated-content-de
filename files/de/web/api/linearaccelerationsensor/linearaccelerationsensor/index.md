@@ -1,5 +1,5 @@
 ---
-title: "LinearAccelerationSensor: LinearAccelerationSensor() Konstruktor"
+title: "LinearAccelerationSensor: LinearAccelerationSensor()-Konstruktor"
 short-title: LinearAccelerationSensor()
 slug: Web/API/LinearAccelerationSensor/LinearAccelerationSensor
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`LinearAccelerationSensor()`**
-Konstruktor erstellt ein neues [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)-Objekt, das bei jeder Messung die auf das Gerät entlang aller drei Achsen angewandte Beschleunigung ohne den Einfluss der Schwerkraft bereitstellt.
+Der **`LinearAccelerationSensor()`** Konstruktor erstellt ein neues [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)-Objekt, das bei jeder Messung die auf das Gerät angewendete Beschleunigung entlang aller drei Achsen bereitstellt, jedoch ohne den Beitrag der Schwerkraft.
 
 ## Syntax
 
@@ -25,14 +24,14 @@ new LinearAccelerationSensor(options)
   - : Die Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Abtastungen pro Sekunde, das heißt, die Anzahl von Malen pro Sekunde, bei denen das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen von weniger als einer Sekunde. Die tatsächliche Abtastrate hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
+      - : Die gewünschte Anzahl der Messungen pro Sekunde, das bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Hardware des Geräts ab und kann daher geringer als gewünscht sein.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

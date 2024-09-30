@@ -1,5 +1,5 @@
 ---
-title: Kryptographie
+title: Cryptography
 slug: Glossary/Cryptography
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Kryptographie**, oder Kryptologie, ist die Wissenschaft, die untersucht, wie Nachrichten sicher kodiert und übertragen werden können. Die Kryptographie entwirft und untersucht Algorithmen, die verwendet werden, um Nachrichten in einer unsicheren Umgebung zu kodieren und zu dekodieren, sowie deren Anwendungen.
+**Kryptographie**, oder Kryptologie, ist die Wissenschaft, die sich damit beschäftigt, wie Nachrichten sicher verschlüsselt und übertragen werden können. Die Kryptographie entwirft und untersucht Algorithmen, die zur Verschlüsselung und Entschlüsselung von Nachrichten in einem unsicheren Umfeld verwendet werden, sowie deren Anwendungen.
 
-Die Kryptographie befasst sich nicht nur mit der **Datenvertraulichkeit**, sondern auch mit **Identifikation**, **Authentifizierung**, **Nichtabstreitbarkeit** und **Datenintegrität**. Daher untersucht sie auch die Anwendung kryptografischer Methoden im Kontext, **Kryptosysteme**.
+Mehr als nur **Datenvertraulichkeit**, umfasst die Kryptographie auch **Identifizierung**, **Authentifizierung**, **Nichtabstreitbarkeit** und **Datenintegrität**. Daher untersucht sie auch den Einsatz kryptografischer Methoden im Kontext, sogenannte **Kryptosysteme**.
 
 ## Siehe auch
 
-- [Kryptographie](https://en.wikipedia.org/wiki/Cryptography) auf Wikipedia
+- [Cryptography](https://en.wikipedia.org/wiki/Cryptography) auf Wikipedia
 - Verwandte Glossarbegriffe:
   - [Block cipher mode of operation](/de/docs/Glossary/Block_cipher_mode_of_operation)
   - [Cipher](/de/docs/Glossary/Cipher)

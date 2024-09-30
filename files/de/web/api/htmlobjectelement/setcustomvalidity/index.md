@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: setCustomValidity()-Methode"
+title: "HTMLObjectElement: setCustomValidity() Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLObjectElement/setCustomValidity
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`setCustomValidity()`**-Methode der
-[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle setzt eine benutzerdefinierte Fehlermeldung für das
+Die **`setCustomValidity()`** Methode des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Interface setzt eine benutzerdefinierte Fehlermeldung für das
 Element.
 
 ## Syntax
@@ -21,7 +21,7 @@ setCustomValidity(errorMessage)
 ### Parameter
 
 - `errorMessage`
-  - : Die Nachricht, die bei Gültigkeitsfehlern verwendet wird.
+  - : Die Nachricht, die für Validitätsfehler verwendet werden soll.
 
 ### Rückgabewert
 
@@ -33,9 +33,8 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen unterschiedliche Fehlermeldungen je nachdem, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Der Versuch, das Formular abzusenden, wird die Nachricht anzeigen, oder Sie können die
-[`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)-Methode
-auf dem Element aufrufen.
+In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen je nach fehlendem, zu niedrigem oder zu hohem Wert unterschiedliche Fehlermeldungen. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Ein Versuch, das Formular abzusenden, zeigt die Nachricht an, oder Sie können die
+[`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) Methode auf dem Element aufrufen.
 
 ```js
 function validate(inputID) {
@@ -56,7 +55,7 @@ function validate(inputID) {
 }
 ```
 
-Es ist wichtig, die Nachricht auf einen leeren String zu setzen, wenn keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird das Formular die Validierung nicht bestehen und nicht übermittelt.
+Es ist wichtig, die Nachricht auf eine leere Zeichenkette zu setzen, wenn keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird das Formular die Validierung nicht bestehen und nicht gesendet werden.
 
 ## Spezifikationen
 

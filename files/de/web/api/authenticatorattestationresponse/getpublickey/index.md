@@ -1,5 +1,5 @@
 ---
-title: "AuthenticatorAttestationResponse: getPublicKey()-Methode"
+title: "AuthenticatorAttestationResponse: Methode getPublicKey()"
 short-title: getPublicKey()
 slug: Web/API/AuthenticatorAttestationResponse/getPublicKey
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getPublicKey()`**-Methode des [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Interfaces gibt einen {{jsxref("ArrayBuffer")}} zurück, der das DER `SubjectPublicKeyInfo` des neuen Berechtigungsnachweises enthält (siehe [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7)), oder `null`, falls dies nicht verfügbar ist.
+Die **`getPublicKey()`**-Methode des [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Interfaces gibt einen {{jsxref("ArrayBuffer")}} zurück, der die DER `SubjectPublicKeyInfo` des neuen Credentials enthält (siehe [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7)) oder `null`, wenn dies nicht verfügbar ist.
 
-Dies ist eine praktische Funktion, die entwickelt wurde, um einen einfachen Zugriff auf den öffentlichen Schlüssel zu ermöglichen. Dieser Schlüssel muss gespeichert werden, um zukünftige Authentifizierungsoperationen zu verifizieren (z. B. mit [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)).
+Dies ist eine Komfortfunktion, die entwickelt wurde, um einfachen Zugriff auf den öffentlichen Schlüssel zu ermöglichen. Dieser Schlüssel muss gespeichert werden, um zukünftige Authentifizierungsoperationen zu verifizieren (d.h. unter Verwendung von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("ArrayBuffer")}} mit dem DER `SubjectPublicKeyInfo` des neuen Berechtigungsnachweises (siehe [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7)), oder `null`, falls dies nicht verfügbar ist.
+Ein {{jsxref("ArrayBuffer")}}, der die DER `SubjectPublicKeyInfo` des neuen Credentials enthält (siehe [Subject Public Key Info](https://www.rfc-editor.org/rfc/rfc5280#section-4.1.2.7)), oder `null`, wenn dies nicht verfügbar ist.
 
 ## Beispiele
 
-Sehen Sie sich [Erstellen eines öffentlichen Schlüsselberechtigungsnachweises mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein detailliertes Beispiel an.
+Siehe [Erstellen eines öffentlichen Schlüssel-Credentials mit der WebAuthn API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein detailliertes Beispiel.
 
 ## Spezifikationen
 

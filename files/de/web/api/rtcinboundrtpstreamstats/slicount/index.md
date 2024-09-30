@@ -1,5 +1,5 @@
 ---
-title: "RTCInboundRtpStreamStats: sliCount-Eigenschaft"
+title: "RTCInboundRtpStreamStats: sliCount Eigenschaft"
 short-title: sliCount
 slug: Web/API/RTCInboundRtpStreamStats/sliCount
 l10n:
@@ -15,20 +15,20 @@ Loss Indication** (**SLI**)-Pakete der
 entfernten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet hat.
 
 Ein SLI-Paket wird von einem Decoder verwendet, um
-dem Encoder mitzuteilen, dass es die Beschädigung eines oder mehrerer aufeinanderfolgender Makroblöcke
-(in Scan-Reihenfolge) in den empfangenen Medien erkannt hat.
+dem Encoder mitzuteilen, dass es die Beschädigung von einem oder mehreren aufeinanderfolgenden Makroblöcken
+(in Scan-Reihenfolge) im empfangenen Medium erkannt hat.
 
-Im Allgemeinen ist von Interesse, dass je höher dieser Wert ist, desto stärker werden die
-Stromdaten zwischen Sender und Empfänger beschädigt, was das erneute Senden
-oder das Verwerfen von Frames erforderlich macht.
+Im Allgemeinen ist von Interesse, dass je höher diese Zahl ist, desto mehr werden die
+Stromdaten zwischen Sender und Empfänger beschädigt, was erneutes Senden
+oder das Verwerfen von Frames erfordert.
 
 ## Wert
 
 Ein vorzeichenloser Integer, der die Anzahl der SLI-Pakete angibt, die dieser Empfänger an den
-entfernten Sender aufgrund verlorener Läufe von Makroblöcken gesendet hat. Ein hoher Wert von `sliCount` könnte
+entfernten Sender aufgrund verlorener Makroblock-Läufe gesendet hat. Ein hoher `sliCount`-Wert kann
 ein Hinweis auf ein unzuverlässiges Netzwerk sein.
 
-Dies ist ein sehr technischer Teil, wie Videocodecs funktionieren. Für Details siehe {{RFC(4585, "6.3.2")}}.
+Dies ist ein sehr technischer Teil der Funktionsweise von Videocodecs. Für Details siehe {{RFC(4585, "6.3.2")}}.
 
 > [!NOTE]
 > Dieser Wert ist nur für Videomedien vorhanden.

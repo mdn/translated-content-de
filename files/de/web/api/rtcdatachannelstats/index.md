@@ -7,48 +7,48 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCDataChannelStats`**-Wörterbuch der [WebRTC-API](/de/docs/Web/API/WebRTC_API) liefert Statistiken, die mit einem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt auf der Verbindung in Zusammenhang stehen.
+Das **`RTCDataChannelStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) stellt Statistiken zu einem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt auf der Verbindung bereit.
 
-Der Bericht kann erhalten werden, indem Sie den [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, durchlaufen, bis Sie einen Eintrag mit dem [`Typ`](#type) von `data-channel` finden.
+Der Bericht kann abgerufen werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Eintrag mit dem [`type`](#type) `data-channel` finden.
 
-Die Statistiken der Datenkanäle können einem bestimmten Kanal zugeordnet werden, indem die [`dataChannelIdentifier`](#datachannelidentifier)-Eigenschaft mit einer übereinstimmenden [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id) verglichen wird.
+Die Statistiken der Datenkanäle können mit einem bestimmten Kanal korreliert werden, indem die [`dataChannelIdentifier`](#datachannelidentifier)-Eigenschaft mit einer übereinstimmenden [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id) verglichen wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`bytesSent`](/de/docs/Web/API/RTCDataChannelStats/bytesSent) {{optional_inline}}
-  - : Ein positiver Ganzzahlwert, der die Gesamtanzahl der auf dem zugeordneten `RTCDataChannel` gesendeten Nutzdaten-Bytes angibt.
+  - : Ein positiver Ganzzahlenwert, der die Gesamtanzahl der Nutzdatenbytes angibt, die über das zugehörige `RTCDataChannel` gesendet wurden.
 - [`bytesReceived`](/de/docs/Web/API/RTCDataChannelStats/bytesReceived) {{optional_inline}}
-  - : Ein positiver Ganzzahlwert, der die Gesamtanzahl der auf dem zugeordneten `RTCDataChannel` empfangenen Nutzdaten-Bytes angibt.
+  - : Ein positiver Ganzzahlenwert, der die Gesamtanzahl der Nutzdatenbytes angibt, die über das zugehörige `RTCDataChannel` empfangen wurden.
 - [`dataChannelIdentifier`](/de/docs/Web/API/RTCDataChannelStats/dataChannelIdentifier) {{optional_inline}}
-  - : Ein positiver Ganzzahlwert, der die [`id`](/de/docs/Web/API/RTCDataChannel/id) des zugeordneten `RTCDataChannel` enthält.
+  - : Ein positiver Ganzzahlenwert, der die [`id`](/de/docs/Web/API/RTCDataChannel/id) des zugehörigen `RTCDataChannel` enthält.
 - [`label`](/de/docs/Web/API/RTCDataChannelStats/label) {{optional_inline}}
-  - : Ein String, der das [`label`](/de/docs/Web/API/RTCDataChannel/label) des zugeordneten `RTCDataChannel` enthält.
+  - : Eine Zeichenkette, die das [`label`](/de/docs/Web/API/RTCDataChannel/label) des zugehörigen `RTCDataChannel` enthält.
 - [`messagesReceived`](/de/docs/Web/API/RTCDataChannelStats/messagesReceived) {{optional_inline}}
-  - : Ein positiver Ganzzahlwert, der die Gesamtanzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) angibt, die für empfangene Nachrichten auf dem zugeordneten `RTCDataChannel` ausgelöst wurden.
+  - : Ein positiver Ganzzahlenwert, der die Gesamtanzahl der [`message` events](/de/docs/Web/API/RTCDataChannel/message_event) angibt, die für empfangene Nachrichten im zugehörigen `RTCDataChannel` ausgelöst wurden.
 - [`messagesSent`](/de/docs/Web/API/RTCDataChannelStats/messagesSent) {{optional_inline}}
-  - : Ein positiver Ganzzahlwert, der die Gesamtanzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) angibt, die für gesendete Nachrichten auf dem Kanal ausgelöst wurden.
+  - : Ein positiver Ganzzahlenwert, der die Gesamtanzahl der [`message` events](/de/docs/Web/API/RTCDataChannel/message_event) angibt, die für gesendete Nachrichten auf dem Kanal ausgelöst wurden.
 - [`protocol`](/de/docs/Web/API/RTCDataChannelStats/protocol) {{optional_inline}}
-  - : Ein String, der das [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) des zugeordneten `RTCDataChannel` enthält.
+  - : Eine Zeichenkette, die das [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) des zugehörigen `RTCDataChannel` enthält.
 - [`state`](/de/docs/Web/API/RTCDataChannelStats/state)
-  - : Der [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) des zugeordneten `RTCDataChannel`.
+  - : Der [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) des zugehörigen `RTCDataChannel`.
 
-### Gemeinsame Instanz-Eigenschaften
+### Allgemeine Instanzeigenschaften
 
-Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam (Weitere Informationen finden Sie unter [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport#common_instance_properties)).
+Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam (siehe [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport#common_instance_properties) für mehr Informationen).
 
 <!-- RTCStats -->
 
 - [`id`](/de/docs/Web/API/RTCDataChannelStats/id)
-  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diese Menge an Statistiken zu erstellen.
+  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erstellen.
 - [`timestamp`](/de/docs/Web/API/RTCDataChannelStats/timestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das angibt, wann die Stichprobe für dieses Statistikobjekt genommen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Probe für dieses Statistikobjekt entnommen wurde.
 - [`type`](/de/docs/Web/API/RTCDataChannelStats/type)
   - : Ein String mit dem Wert `"data-channel"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
 
-Angenommen, Sie haben eine Variable `myPeerConnection`, die eine Instanz von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist, verwendet der folgende Code `await`, um auf den Statistikbericht zu warten, und durchläuft ihn dann mit `RTCStatsReport.forEach()`.
-Er filtert dann die Wörterbücher, um nur die Berichte zu erhalten, die den Typ `data-channel` haben, und protokolliert das Ergebnis.
+Angenommen, `myPeerConnection` ist eine Instanz von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), nutzt der folgende Code `await`, um auf den Statistikbericht zu warten und iteriert dann darüber mit `RTCStatsReport.forEach()`.
+Er filtert dann die Wörterbücher nur für diejenigen Berichte, die den Typ `data-channel` haben, und protokolliert das Ergebnis.
 
 ```js
 const stats = await myPeerConnection.getStats();

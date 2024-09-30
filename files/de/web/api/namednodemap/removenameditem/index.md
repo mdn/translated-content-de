@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: Methode removeNamedItem()"
+title: "NamedNodeMap: removeNamedItem()-Methode"
 short-title: removeNamedItem()
 slug: Web/API/NamedNodeMap/removeNamedItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namen im Map entspricht.
+Die **`removeNamedItem()`**-Methode der Schnittstelle [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namen entspricht, aus der Map.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeNamedItem(attrName)
 ### Parameter
 
 - `attrName`
-  - : Der Name des Attributs, das aus dem Map entfernt werden soll.
+  - : Der Name des Attributs, das aus der Map entfernt werden soll.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Das entfernte [`Attr`](/de/docs/Web/API/Attr).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namen existiert.
+  - : Wird ausgelöst, wenn kein Attribut mit dem gegebenen Namen vorhanden ist.
 
 ## Beispiel
 

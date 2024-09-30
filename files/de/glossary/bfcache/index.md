@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Back-/Forward-Cache**, oder **bfcache**, ist eine leistungssteigernde Funktion, die in modernen Browsern verfügbar ist und eine sofortige Navigation zurück und vorwärts zwischen zuvor besuchten Seiten ermöglicht. Dies geschieht, indem ein vollständiger Schnappschuss einer Seite gespeichert wird, wenn der Benutzer von ihr weg navigiert; der Browser kann dann den Schnappschuss schnell wiederherstellen, falls der Benutzer sich entscheidet, zu dieser Seite zurückzukehren, anstatt die Netzwerk-Anfragen erneut durchführen zu müssen, die erforderlich wären, um die Seite zu laden.
+Der **back/forward cache**, oder **bfcache**, ist eine leistungssteigernde Funktion, die in modernen Browsern verfügbar ist und die sofortige Navigation zurück oder vorwärts zwischen zuvor besuchten Seiten ermöglicht. Dies wird erreicht, indem ein vollständiger Snapshot einer Seite gespeichert wird, wenn der Benutzer von ihr weg navigiert; der Browser kann dann schnell den Snapshot wiederherstellen, wenn sich der Benutzer entscheidet, zu dieser Seite zurückzukehren, anstatt die Netzwerkanforderungen zu wiederholen, die zum Laden der Seite erforderlich sind.
 
-Der Schnappschuss beinhaltet die gesamte Seite im Speicher, einschließlich des JavaScript-Heaps; der in Bearbeitung befindliche Code wird angehalten, wenn der Benutzer die Seite verlässt, und fortgesetzt, wenn er zu ihr zurückkehrt. Ein regulärer HTTP-Cache-Eintrag enthält hingegen nur Antworten auf vorherige Anfragen. Der bfcache liefert daher schnellere Ergebnisse als der HTTP-Cache.
+Der Snapshot enthält die gesamte Seite im Speicher, einschließlich des JavaScript-Heaps; der in Bearbeitung befindliche Code wird pausiert, wenn der Benutzer weg navigiert, und fortgesetzt, wenn er zur Seite zurückkehrt. Ein regulärer HTTP-Cache-Eintrag hingegen enthält nur die Antworten auf frühere Anfragen. Der bfcache liefert daher schnellere Ergebnisse als der HTTP-Cache.
 
-Der Nachteil ist, dass bfcache-Einträge mehr Ressourcen erfordern und Komplexität in Bezug auf die Darstellung von in Bearbeitung befindlichem Code schaffen. Einige Code-Funktionen (zum Beispiel der [`unload`](/de/docs/Web/API/Window/unload_event) Handler) sind nicht kompatibel, sodass deren Anwesenheit auf einer Seite sie daran hindert, den bfcache zu verwenden.
+Der Nachteil ist, dass bfcache-Einträge mehr Ressourcen benötigen und Komplexität in Bezug auf die Darstellung von in Bearbeitung befindlichem Code schaffen. Einige Code-Funktionen (zum Beispiel der [`unload`](/de/docs/Web/API/Window/unload_event)-Handler) sind nicht kompatibel, so dass ihre Anwesenheit auf einer Seite diese daran hindert, den bfcache zu verwenden.
 
-Der bfcache ist großartig für die Leistung, daher ist es in Ihrem Interesse sicherzustellen, dass Ihre Seiten nicht davon blockiert sind, ihn zu verwenden. Sie können die [`notRestoredReasons` API](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) verwenden, um zu überwachen, ob Seiten von der Nutzung des bfcache blockiert sind und aus welchen Gründen.
+Der bfcache ist großartig für die Leistungsoptimierung, daher liegt es in Ihrem Interesse sicherzustellen, dass Ihre Seiten nicht daran gehindert werden, ihn zu nutzen. Sie können die [`notRestoredReasons` API](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) verwenden, um zu überwachen, ob Seiten daran gehindert werden, den bfcache zu verwenden, und die Gründe dafür herauszufinden.
 
 ## Siehe auch
 

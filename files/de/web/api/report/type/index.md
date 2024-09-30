@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`type`**-Eigenschaft der schreibgeschützten [`Report`](/de/docs/Web/API/Report)
-Schnittstelle gibt den Typ des erzeugten Berichts zurück, z. B. `deprecation` oder
-`intervention`.
+Die **`type`**-Schreibgeschützte Eigenschaft der [`Report`](/de/docs/Web/API/Report)-Schnittstelle gibt den Typ des generierten Berichts zurück, z. B. `deprecation` oder `intervention`.
 
 ## Wert
 
-Ein String, der den Typ des Berichts darstellt. Derzeit verfügbare Typen sind
-`deprecation`, `intervention` und `crash`.
+Ein String, der den Typ des Berichts darstellt. Derzeit sind die verfügbaren Typen `deprecation`, `intervention` und `crash`.
 
 ## Beispiele
 

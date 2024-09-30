@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`labels`** schreibgeschützte Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die mit dem Element verbundenen Labels zurück.
+Die schreibgeschützte **`labels`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die mit dem Element verknüpften Labels zurück.
 
 ## Wert
 
-Ein [`NodeList`](/de/docs/Web/API/NodeList), die alle der mit diesem Element verbundenen Label-Elemente enthält.
+Ein [`NodeList`](/de/docs/Web/API/NodeList), das alle mit diesem Element verknüpften `label`-Elemente enthält.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem {{HTMLElement("label")}}-Element, das damit verknüpft ist.
-Das Ausgeben des Werts von `labels` in der Konsole gibt eine [`NodeList`](/de/docs/Web/API/NodeList) mit einem Eintrag zurück, der dieses Label darstellt.
+Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem {{HTMLElement("label")}}-Element, das mit ihr verknüpft ist. Das Drucken des Wertes von `labels` auf die Konsole gibt ein [`NodeList`](/de/docs/Web/API/NodeList) mit einem Eintrag zurück, der dieses Label repräsentiert.
 
 ```html
 <form id="myForm">

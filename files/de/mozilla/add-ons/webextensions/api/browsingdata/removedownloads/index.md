@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Löscht den Download-Verlauf des Browsers. Beachten Sie, dass dies nicht die heruntergeladenen Objekte selbst löscht, sondern nur die Aufzeichnungen der Downloads in der Browser-Historie.
+Löscht den Download-Verlauf des Browsers. Beachten Sie, dass dies die heruntergeladenen Objekte selbst nicht löscht, sondern nur die Aufzeichnungen der Downloads im Browserverlauf.
 
 Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
-- Aufzeichnungen von Elementen zu löschen, die nach einer bestimmten Zeit heruntergeladen wurden
-- zu steuern, ob nur Aufzeichnungen von Elementen gelöscht werden sollen, die von normalen Webseiten heruntergeladen wurden, oder ob auch Aufzeichnungen von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+- Aufzeichnungen von nach einer bestimmten Zeit heruntergeladenen Elementen zu löschen.
+- zu steuern, ob nur Aufzeichnungen von normalen Webseiten heruntergeladenen Elementen gelöscht werden oder auch Aufzeichnungen von gehosteten Apps und Erweiterungen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ let removing = browser.browsingData.removeDownloads(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Aufzeichnungen zu löschen, die nach einer bestimmten Zeit erstellt wurden, und um zu steuern, ob nur Aufzeichnungen von Elementen gelöscht werden sollen, die von normalen Webseiten heruntergeladen wurden, oder ob auch Aufzeichnungen von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Aufzeichnungen zu löschen, die nach einer bestimmten Zeit erstellt wurden, und ob nur Aufzeichnungen von normalen Webseiten heruntergeladenen Elementen oder auch von gehosteten Apps und Erweiterungen gelöscht werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Löschen Sie Aufzeichnungen von Objekten, die in der letzten Woche heruntergeladen wurden:
+Entfernen Sie Aufzeichnungen von in der letzten Woche heruntergeladenen Objekten:
 
 ```js
 function onRemoved() {
@@ -57,7 +57,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Alle Aufzeichnungen von heruntergeladenen Objekten löschen:
+Entfernen Sie alle Aufzeichnungen der heruntergeladenen Objekte:
 
 ```js
 function onRemoved() {

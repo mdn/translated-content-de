@@ -1,5 +1,5 @@
 ---
-title: Auto-Platzierung im Grid-Layout
+title: Automatische Platzierung im Grid-Layout
 slug: Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout
 l10n:
   sourceCommit: fb409b8972e7c03d7eb284466433a28efb850ef5
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Zusätzlich zur Möglichkeit, Elemente genau auf einem erstellten Grid zu platzieren, enthält die CSS-Grid-Layout-Spezifikation Regeln, die festlegen, was passiert, wenn Sie ein Grid erstellen und einige oder alle Kindelemente nicht platzieren. Sie können die automatische Platzierung auf einfachste Weise sehen, indem Sie ein Grid auf eine Reihe von Elementen anwenden.
+Zusätzlich zur Möglichkeit, Elemente genau auf einem erstellten Raster zu platzieren, enthält die CSS-Grid-Layout-Spezifikation Regeln, die steuern, was passiert, wenn Sie ein Raster erstellen und einige oder alle untergeordneten Elemente nicht platzieren. Sie können die automatische Platzierung auf einfachste Weise sehen, indem Sie ein Raster auf einer Reihe von Elementen erstellen.
 
 ## Standardplatzierung
 
-Wenn Sie den Elementen keine Platzierungsinformationen geben, positionieren sie sich selbst auf dem Grid, eins in jeder Gitterzelle.
+Wenn Sie den Elementen keine Platzierungsinformationen geben, positionieren sie sich selbstständig im Raster, je eines in jeder Rasterzelle.
 
 ```css hidden
 * {
@@ -53,15 +53,15 @@ Wenn Sie den Elementen keine Platzierungsinformationen geben, positionieren sie 
 
 {{ EmbedLiveSample('Default_placement', '500', '230') }}
 
-## Standardregeln für die Auto-Platzierung
+## Standardregeln für die automatische Platzierung
 
-Wie Sie im obigen Beispiel sehen können, legen sich alle Kindelemente automatisch eins in jede Gitterzelle, wenn Sie ein Grid erstellen. Der Standardfluss besteht darin, die Elemente zeilenweise anzuordnen. Grid platziert ein Element in jede Zelle der ersten Zeile. Wenn Sie mit der Eigenschaft `grid-template-rows` zusätzliche Zeilen erstellt haben, platziert Grid weiterhin Elemente in diesen Zeilen. Wenn das Grid nicht genügend Zeilen im expliziten Grid hat, um alle Elemente zu platzieren, werden neue _implizite_ Zeilen erstellt.
+Wie Sie im obigen Beispiel sehen können, legen sich bei der Erstellung eines Rasters alle untergeordneten Elemente automatisch in jede Rasterzelle. Der Standardfluss ist, die Elemente zeilenweise anzuordnen. Das Raster legt ein Element in jede Zelle der Zeile 1. Wenn Sie zusätzliche Zeilen mit der Eigenschaft `grid-template-rows` erstellt haben, platziert das Raster weiter Elemente in diesen Zeilen. Falls das Raster nicht genügend Zeilen im expliziten Raster hat, um alle Elemente zu platzieren, werden neue _implizite_ Zeilen erstellt.
 
-### Größe der Zeilen im impliziten Grid
+### Größenanpassung von Zeilen im impliziten Raster
 
-Der Standard für automatisch erstellte Zeilen im impliziten Grid ist, dass sie automatisch in der Größe angepasst werden. Das bedeutet, dass sie den hinzugefügten Inhalt aufnehmen, ohne ein Überlaufen zu verursachen.
+Standardmäßig werden automatisch erstellte Zeilen im impliziten Raster automatisch dimensioniert. Das bedeutet, dass sie den hinzugefügten Inhalt aufnehmen, ohne Überlauf zu verursachen.
 
-Sie können jedoch die Größe dieser Zeilen mit der Eigenschaft `grid-auto-rows` steuern. Um beispielsweise alle erstellten Zeilen 100 Pixel hoch zu machen, würden Sie verwenden:
+Sie können jedoch die Größe dieser Zeilen mit der Eigenschaft `grid-auto-rows` steuern. Um beispielsweise alle erstellten Zeilen 100 Pixel hoch zu machen, würden Sie Folgendes verwenden:
 
 ```css hidden
 * {
@@ -104,9 +104,9 @@ Sie können jedoch die Größe dieser Zeilen mit der Eigenschaft `grid-auto-rows
 
 {{ EmbedLiveSample('Sizing_rows_in_the_implicit_grid', '500', '330') }}
 
-### Größe der Zeilen mit minmax()
+### Größenanpassung von Zeilen mit minmax()
 
-Sie können {{cssxref("minmax","minmax()")}} in Ihrem Wert für {{cssxref("grid-auto-rows")}} verwenden, um Zeilen zu erstellen, die eine Mindestgröße haben, aber wachsen, um den Inhalt aufzunehmen, wenn er höher ist.
+Sie können {{cssxref("minmax","minmax()")}} in Ihrem Wert für {{cssxref("grid-auto-rows")}} verwenden, um Zeilen zu erstellen, die eine Mindestgröße haben, aber dann wachsen, um den Inhalt einzupassen, wenn er höher ist.
 
 ```css hidden
 * {
@@ -152,9 +152,9 @@ Sie können {{cssxref("minmax","minmax()")}} in Ihrem Wert für {{cssxref("grid-
 
 {{ EmbedLiveSample('Sizing_rows_using_minmax', '500', '330') }}
 
-### Größe der Zeilen mit einem Streckenlisting
+### Größenanpassung von Zeilen mit einer Spurliste
 
-Sie können auch ein Streckenlisting übergeben, das sich wiederholt. Das folgende Streckenlisting erstellt eine anfängliche implizite Zeilenstrecke von 100 Pixeln und eine zweite von `200px`. Dies wird fortgesetzt, solange dem impliziten Grid Inhalte hinzugefügt werden.
+Sie können auch eine Spurliste übergeben, die sich wiederholt. Die folgende Spurliste erstellt einen ersten impliziten Zeilenspur von 100 Pixeln und einen zweiten von `200px`. Dies wird fortgesetzt, solange dem impliziten Raster Inhalte hinzugefügt werden.
 
 ```css hidden
 * {
@@ -200,11 +200,11 @@ Sie können auch ein Streckenlisting übergeben, das sich wiederholt. Das folgen
 
 {{ EmbedLiveSample('Sizing_rows_using_a_track_listing', '500', '450') }}
 
-### Auto-Platzierung nach Spalte
+### Automatische Platzierung nach Spalte
 
-Sie können Grid auch dazu veranlassen, Elemente spaltenweise automatisch zu platzieren. Hierzu verwenden Sie die Eigenschaft {{cssxref("grid-auto-flow")}} mit einem Wert von `column`. In diesem Fall fügt Grid Elemente in Zeilen hinzu, die Sie mit {{cssxref("grid-template-rows")}} definiert haben. Wenn eine Spalte voll ist, wechselt es zur nächsten expliziten Spalte oder erstellt eine neue Spurenzeile im impliziten Grid. Wie bei impliziten Zeilenspuren werden auch diese Spaltenstrecken automatisch in der Größe angepasst. Sie können die Größe von impliziten Spaltenstrecken mit {{cssxref("grid-auto-columns")}} steuern, dies funktioniert auf die gleiche Weise wie {{cssxref("grid-auto-rows")}}.
+Es ist auch möglich, das Raster anzuweisen, Elemente automatisch spaltenweise zu platzieren. Verwenden Sie die Eigenschaft {{cssxref("grid-auto-flow")}} mit dem Wert `column`. In diesem Fall fügt das Raster Elemente in die von Ihnen definierten Zeilen mit {{cssxref("grid-template-rows")}} hinzu. Wenn eine Spalte gefüllt ist, wird zur nächsten expliziten Spalte übergegangen oder ein neuer Spaltenpfad im impliziten Raster erstellt. Ebenso wie bei impliziten Zeilenspuren, werden diese Spaltenpfade automatisch dimensioniert. Sie können die Größe von impliziten Spaltenpfaden mit {{cssxref("grid-auto-columns")}} steuern, das auf dieselbe Weise funktioniert wie {{cssxref("grid-auto-rows")}}.
 
-Im nächsten Beispiel habe ich ein Grid mit drei Zeilenstrecken von 200 Pixel Höhe erstellt. Ich platziere automatisch nach Spalte, und die erstellten Spalten haben eine Spaltenbreite von 300 Pixeln, dann eine Spaltenbreite von 100 Pixeln, bis es genügend Spaltenstrecken gibt, um alle Elemente aufzunehmen.
+Im nächsten Beispiel habe ich ein Raster mit drei Zeilenspuren von je 200 Pixel Höhe erstellt. Ich platziere die Elemente automatisch spaltenweise und die erstellten Spalten werden eine Spaltenbreite von 300 Pixeln, dann eine Spaltenbreite von 100 Pixeln haben, bis genügend Spaltenpfade vorhanden sind, um alle Elemente zu halten.
 
 ```css
 .wrapper {
@@ -253,15 +253,15 @@ Im nächsten Beispiel habe ich ein Grid mit drei Zeilenstrecken von 200 Pixel H�
 
 ## Die Reihenfolge der automatisch platzierten Elemente
 
-Ein Grid kann eine Mischung von Elementen enthalten. Einige der Elemente können eine Position im Grid haben, während andere automatisch platziert werden. Dies kann hilfreich sein, wenn Sie eine Dokumentenreihenfolge haben, die die Reihenfolge widerspiegelt, in der die Elemente im Grid sitzen; Sie müssen keine CSS-Regeln schreiben, um absolut alles zu platzieren. Die Spezifikation enthält einen langen Abschnitt, der den [Grid-Element-Platzierungs-Algorithmus](https://drafts.csswg.org/css-grid/#auto-placement-algo) beschreibt. Für die meisten von uns müssen wir uns jedoch nur an ein paar einfache Regeln für unsere Elemente erinnern.
+Ein Raster kann eine Mischung von Elementen enthalten. Einige der Elemente können eine Position im Raster haben, andere können automatisch platziert werden. Dies kann nützlich sein, wenn die Dokumentenreihenfolge der Reihenfolge entspricht, in der die Elemente im Raster sitzen, damit Sie nicht CSS-Regeln schreiben müssen, um absolut alles zu platzieren. Die Spezifikation enthält einen langen Abschnitt, der den [Grid-Element-Platzierungsalgorithmus](https://drafts.csswg.org/css-grid/#auto-placement-algo) im Detail erläutert. Für die meisten von uns reichen jedoch ein paar einfache Regeln, die wir uns für unsere Elemente merken müssen.
 
-### Durch die `order`-Eigenschaft modifizierte Dokumentenreihenfolge
+### Dokumentenreihenfolge nach modifizierter Ordnung
 
-Grid platziert Elemente, denen keine Grid-Position gegeben wurde, in der in der Spezifikation als "durch die `order`-Eigenschaft modifizierte Dokumentenreihenfolge" beschriebenen Reihenfolge. Das bedeutet, dass wenn Sie überhaupt die `order`-Eigenschaft verwendet haben, die Elemente in dieser Reihenfolge und nicht ihrer DOM-Reihenfolge platziert werden. Ansonsten bleiben sie standardmäßig in der Reihenfolge, in der sie im Dokumentenquelltext auftreten.
+Grid platziert Elemente, denen keine Rasterposition zugewiesen wurde, in der Spezifikation beschriebener "reihenfolge-modifizierter Dokumentenreihenfolge". Das bedeutet, wenn Sie die `order`-Eigenschaft verwendet haben, werden die Elemente nach dieser Reihenfolge platziert, nicht nach ihrer DOM-Reihenfolge. Andernfalls bleiben sie standardmäßig in der Reihenfolge, in der sie in der Dokumentquelle eingegeben werden.
 
 ### Elemente mit Platzierungseigenschaften
 
-Das erste, was Grid tut, ist, alle Elemente zu platzieren, die eine Position haben. Im untenstehenden Beispiel habe ich 12 Grid-Elemente. Element 2 und Element 5 wurden mithilfe von linienbasierter Platzierung auf dem Grid platziert. Sie können sehen, wie diese Elemente platziert werden und die anderen Items sich dann automatisch in die freien Plätze platzieren. Die automatisch platzierten Elemente werden sich selbst vor den platzierten Elementen in DOM-Reihenfolge platzieren, sie beginnen nicht nach der Position eines platzierten Elements, das vor ihnen kommt.
+Das Erste, was das Raster tut, ist, alle Elemente zu platzieren, die eine Position haben. Im folgenden Beispiel habe ich 12 Rasterelemente. Element 2 und Element 5 wurden mithilfe der linienbasierten Platzierung auf dem Raster platziert. Sie können sehen, wie diese Elemente platziert werden und die anderen Elemente dann automatisch in die Lücken platziert werden. Die automatisch platzierten Elemente werden sich vor den platzierten Elementen in der DOM-Reihenfolge platzieren, sie beginnen nicht nach der Position eines platzierten Elements, das vor ihnen kommt.
 
 ```css hidden
 * {
@@ -319,11 +319,11 @@ Das erste, was Grid tut, ist, alle Elemente zu platzieren, die eine Position hab
 
 {{ EmbedLiveSample('Items_with_placement_properties', '500', '500') }}
 
-### Umgang mit Elementen, die Strecken überschreiben
+### Umgang mit Elementen, die Spuren überbrücken
 
-Sie können Platzierungseigenschaften verwenden, während Sie weiterhin von der Auto-Platzierung profitieren. Im nächsten Beispiel habe ich das Layout erweitert, indem ich die Elemente 1, 5 und 9 (4n+1) so eingestellt habe, dass sie sowohl für Zeilen als auch für Spalten zwei Strecken umfassen. Ich mache dies mit den Eigenschaften {{cssxref("grid-column-end")}} und {{cssxref("grid-row-end")}} und setze den Wert darauf auf `span 2`. Das bedeutet, dass die Startlinie des Elements durch Auto-Platzierung gesetzt wird und die Endlinie zwei Strecken umfassen wird.
+Sie können Platzierungseigenschaften verwenden und dennoch die automatische Platzierung nutzen. Im nächsten Beispiel habe ich das Layout erweitert, indem ich die Elemente 1, 5 und 9 (4n+1) sowohl für Zeilen als auch für Spalten über zwei Spuren setze. Ich verwende dazu die Eigenschaften {{cssxref("grid-column-end")}} und {{cssxref("grid-row-end")}} und setze den Wert auf `span 2`. Das bedeutet, dass die Startlinie des Elements durch die automatische Platzierung festgelegt wird und die Endlinie zwei Spuren überbrückt.
 
-Sie können sehen, wie dies dann Lücken im Grid hinterlässt, denn bei den automatisch platzierten Elementen, wenn Grid auf ein Element trifft, das nicht in eine Strecke passt, wechselt es zur nächsten Zeile, bis es einen Platz findet, in den das Element passt.
+Sie können sehen, wie dies dann Lücken im Raster hinterlässt, denn bei den automatisch platzierten Elementen, wenn das Raster auf ein Element stößt, das nicht in eine Spur passt, geht es zur nächsten Zeile, bis es einen Platz findet, in den das Element passt.
 
 ```css hidden
 * {
@@ -385,13 +385,13 @@ Sie können sehen, wie dies dann Lücken im Grid hinterlässt, denn bei den auto
 
 {{ EmbedLiveSample('Deal_with_items_that_span_tracks', '500', '800') }}
 
-### Auffüllen der Lücken
+### Die Lücken füllen
 
-Bisher, abgesehen von den Elementen, die wir spezifisch platziert haben, schreitet Grid immer vorwärts und hält die Elemente in DOM-Reihenfolge. Das ist im Allgemeinen, was Sie wollen, wenn Sie beispielsweise ein Formular Layout gestalten, Sie möchten nicht, dass die Labels und Felder durcheinander gebracht werden, um einige Lücken zu füllen. Manchmal legen wir jedoch Dinge an, die keine logische Ordnung haben, und wir möchten ein Layout erstellen, das keine Lücken aufweist.
+Bisher bewegt sich das Raster mit Ausnahme der speziell platzierten Elemente immer vorwärts und hält die Elemente in der DOM-Reihenfolge. Dies ist im Allgemeinen das, was Sie möchten, wenn Sie beispielsweise ein Formular layouten, da Sie nicht möchten, dass die Beschriftungen und Felder durcheinander geraten, um eine Lücke zu füllen. Manchmal jedoch layouten wir Dinge, die keine logische Reihenfolge haben und wir möchten ein Layout ohne Lücken erstellen.
 
-Um dies zu tun, fügen Sie die Eigenschaft {{cssxref("grid-auto-flow")}} mit einem Wert von `dense` dem Container hinzu. Dies ist die gleiche Eigenschaft, die Sie verwenden, um die Flussrichtung auf `column` zu ändern. Wenn Sie also in Spalten arbeiten, fügen Sie beide Werte `grid-auto-flow: column dense` hinzu.
+Fügen Sie dazu die Eigenschaft {{cssxref("grid-auto-flow")}} mit dem Wert `dense` zu dem Container hinzu. Dies ist die gleiche Eigenschaft, die Sie verwenden, um die Flussrichtung in `column` zu ändern. Wenn Sie also in Spalten arbeiten, würden Sie beide Werte hinzufügen: `grid-auto-flow: column dense`.
 
-Nachdem dies getan wurde, wird das Grid nun die Lücken auffüllen. Während es durch das Grid geht, lässt es Lücken wie vorher, aber wenn es ein Element findet, das in eine vorherige Lücke passt, wird es dieses Element aufheben und aus der DOM-Reihenfolge holen, um es in die Lücke zu setzen. Wie bei jeder anderen Neuordnung im Grid ändert dies nicht die logische Reihenfolge. Die Tabulatorreihenfolge folgt beispielsweise weiterhin der Reihenfolge im Dokument. Wir werden uns die potenziellen Zugänglichkeitsprobleme des Grid-Layouts im [Grid-Layout und Zugänglichkeits-Leitfaden](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility) ansehen, aber Sie sollten vorsichtig sein, wenn Sie diese Trennung zwischen der visuellen und der Darstellungsreihenfolge erstellen.
+Nachdem Sie dies getan haben, wird das Raster nun die Lücken auffüllen. Beim Durchlaufen des Rasters hinterlässt es, wie zuvor, Lücken, aber wenn es ein Element findet, das in eine frühere Lücke passt, wird es dieses Element aufnehmen und aus der DOM-Reihenfolge entfernen, um es in die Lücke zu platzieren. Wie bei jeder anderen Neuanordnung im Raster ändert sich die logische Reihenfolge nicht. Die Tab-Reihenfolge beispielsweise folgt weiterhin der Dokumentenreihenfolge. Wir werden uns die potenziellen Barrierefreiheitsprobleme des Grid-Layouts im [Leitfaden zum Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility) anschauen, aber Sie sollten vorsichtig sein, wenn Sie diese Trennung zwischen visueller Reihenfolge und Anzeigereihenfolge erstellen.
 
 ```css hidden
 * {
@@ -454,9 +454,9 @@ Nachdem dies getan wurde, wird das Grid nun die Lücken auffüllen. Während es 
 
 {{ EmbedLiveSample('Filling_in_the_gaps', '500', '730') }}
 
-### Anonyme Grid-Elemente
+### Anonyme Rasterelemente
 
-In der Spezifikation gibt es einen Hinweis auf anonyme Grid-Elemente. Diese werden erstellt, wenn Sie eine Textzeichenfolge in Ihrem Grid-Container haben, die nicht in einem anderen Element eingeschlossen ist. Im untenstehenden Beispiel haben wir drei Grid-Elemente. Angenommen, Sie hatten das Elternelement mit einer Klasse von `grid` auf `display: grid` gesetzt. Das erste ist ein anonymes Element, da es keine umschließende Auszeichnung hat. Dieses Element wird immer gemäß den Auto-Platzierungsregeln behandelt. Die anderen zwei sind Grid-Elemente, die in ein `div` eingeschlossen sind. Sie könnten automatisch platziert werden, oder Sie könnten diese mit einer Positionierungsmethode auf Ihrem Grid platzieren.
+In der Spezifikation wird auf anonyme Rasterelemente hingewiesen. Diese werden erstellt, wenn Sie einen Textstring in Ihrem Grid-Container haben, der in kein anderes Element eingebettet ist. Im folgenden Beispiel haben wir drei Rasterelemente, wenn man annimmt, dass der übergeordnete Container mit einer Klasse von `grid` auf `display: grid` gesetzt wurde. Das erste ist ein anonymes Element, da es kein umschließendes Markup hat. Dieses Element wird immer mit den Regeln zur automatischen Platzierung behandelt. Die anderen beiden sind Rasterelemente, die in einem `div` eingeschlossen sind. Diese könnten automatisch platziert werden oder Sie könnten diese mit einer Positionierungsmethode auf Ihrem Raster platzieren.
 
 ```html
 <div class="grid">
@@ -466,17 +466,17 @@ In der Spezifikation gibt es einen Hinweis auf anonyme Grid-Elemente. Diese werd
 </div>
 ```
 
-Anonyme Elemente werden immer automatisch platziert, da es keine Möglichkeit gibt, sie direkt anzusprechen. Wenn Sie aus einem bestimmten Grund nicht umwickelten Text in Ihrem Grid haben, beachten Sie, dass er möglicherweise an unerwarteter Stelle erscheint, da er gemäß den Auto-Platzierungsregeln platziert wird.
+Anonyme Elemente werden immer automatisch platziert, weil es keine Möglichkeit gibt, sie direkt anzusprechen. Seien Sie also aufmerksam, wenn Sie aus irgendeinem Grund nicht eingekapselten Text in Ihrem Raster haben, da er möglicherweise unerwartet auftauchen könnte, da er gemäß den Regeln zur automatischen Platzierung platziert wird.
 
-### Anwendungsfälle für die Auto-Platzierung
+### Anwendungsfälle für die automatische Platzierung
 
-Die Auto-Platzierung ist nützlich, wann immer Sie eine Sammlung von Elementen haben. Dies könnten Elemente sein, die keine logische Reihenfolge haben, wie eine Galerie von Fotos oder eine Produktliste. In diesem Fall könnten Sie den dichten Packmodus verwenden, um Lücken in Ihrem Grid zu füllen. In meinem Bildergaleriebeispiel habe ich einige Landschafts- und einige Hochformataufnahmen. Ich habe Landschaftsbilder – mit einer Klasse von `landscape` – so eingestellt, dass sie zwei Spaltenstrecken umfassen. Ich verwende dann `grid-auto-flow: dense`, um ein dicht gepacktes Grid zu erstellen.
+Automatische Platzierung ist nützlich, wann immer Sie eine Sammlung von Elementen haben. Das könnten Elemente sein, die keine logische Reihenfolge haben, wie z.B. eine Fotogalerie oder eine Produktliste. In diesem Fall könnten Sie den dichten Verpackungsmodus verwenden, um alle Lücken in Ihrem Raster zu füllen. In meinem Bildgalerie-Beispiel habe ich einige Landschafts- und einige Portraitbilder. Ich habe Landschaftsbilder – mit einer Klasse von `landscape` – so gesetzt, dass sie zwei Spaltenspuren überbrücken. Anschließend verwende ich `grid-auto-flow: dense`, um ein dicht gepacktes Raster zu erstellen.
 
-Versuchen Sie, die Zeile `grid-auto-flow: dense` zu entfernen, um die Inhalte neu zu ordnen und Lücken im Layout zu hinterlassen.
+Probieren Sie aus, die Zeile `grid-auto-flow: dense` zu entfernen, um zu sehen, wie sich der Inhalt neu anordnet und Lücken im Layout hinterlässt.
 
 {{EmbedGHLiveSample("css-examples/grid/docs/autoplacement.html", '100%', 1200)}}
 
-Die Auto-Platzierung kann Ihnen auch dabei helfen, Oberflächenelemente anzuordnen, die eine logische Reihenfolge haben. Ein Beispiel ist die Definitionsliste im folgenden Beispiel. Definitionslisten sind eine interessante Herausforderung für das Styling, da sie flach sind – es gibt nichts, was die Gruppen von `dt` und `dd` Elementen umschließt. In meinem Beispiel erlaube ich die Auto-Platzierung, die Elemente zu platzieren, jedoch habe ich Klassen, die ein `dt` in Spalte 1 und ein `dd` in Spalte 2 beginnen lassen. Dies stellt sicher, dass Begriffe auf einer Seite stehen und Definitionen auf der anderen, ganz gleich, wie viele von jeder wir haben.
+Automatische Platzierung kann Ihnen auch helfen, Interface-Elemente zu layouten, die eine logische Reihenfolge haben. Ein Beispiel ist die Definitionsliste im nächsten Beispiel. Definitionslisten sind eine interessante Herausforderung beim Stylen, da sie flach sind, es gibt nichts, was die Gruppen von `dt`- und `dd`-Elementen umschließt. In meinem Beispiel erlaube ich der automatischen Platzierung, die Elemente zu platzieren, habe jedoch Klassen, die ein `dt` in Spalte 1 und ein `dd` in Spalte 2 starten, um sicherzustellen, dass Begriffe auf der einen und Definitionen auf der anderen Seite stehen – unabhängig davon, wie viele von jedem wir haben.
 
 ```css hidden
 * {
@@ -525,8 +525,8 @@ dd {
 
 {{ EmbedLiveSample('Use_cases_for_auto-placement', '500', '230') }}
 
-## Was können wir mit der Auto-Platzierung (noch) nicht tun?
+## Was können wir mit der automatischen Platzierung (noch) nicht tun?
 
-Es gibt ein paar Dinge, die oft als Fragen aufkommen. Derzeit können wir nicht Dinge tun, wie in jeder zweiten Zelle des Grids unsere Elemente platzieren. Ein verwandtes Problem könnte Ihnen bereits in den Sinn gekommen sein, wenn Sie dem letzten Leitfaden über benannte Linien im Grid gefolgt sind. Es wäre eine Regel zu definieren, die besagt "Platziere automatisch Elemente gegen die nächste Linie mit dem Namen 'n', und das Grid würde dann andere Linien überspringen". Es gibt [ein Thema dazu auf dem CSSWG GitHub Repository](https://github.com/w3c/csswg-drafts/issues/796), und Sie sind willkommen, Ihre eigenen Anwendungsfälle hinzuzufügen.
+Es gibt einige Dinge, die oft als Fragen aufkommen. Derzeit können wir Dinge wie das Ziel jeder zweiten Zelle des Rasters mit unseren Elementen nicht durchführen. Ein verwandtes Problem ist Ihnen vielleicht schon in den Sinn gekommen, wenn Sie dem letzten Leitfaden über benannte Linien im Raster gefolgt sind. Es wäre eine Regel zu definieren, die sagt "auto-place items against the next line named "n", und das Raster würde dann andere Linien überspringen. Es gibt [ein Problem hierzu](https://github.com/w3c/csswg-drafts/issues/796) im CSSWG GitHub-Repository, und Sie sind eingeladen, Ihre eigenen Anwendungsfälle hinzuzufügen.
 
-Es mag sein, dass Sie Ihre eigenen Anwendungsfälle für die automatische Platzierung oder einen anderen Teil des Grid-Layouts entwickeln. Wenn Sie das tun, erheben Sie diese als Themen oder fügen Sie sie einem bestehenden Thema hinzu, das Ihr Anwendungsfall lösen könnte. Dies wird dazu beitragen, zukünftige Versionen der Spezifikation zu verbessern.
+Es kann sein, dass Sie Ihre eigenen Anwendungsfälle für die automatische Platzierung oder andere Teile des Grid-Layouts entwickeln. Wenn ja, heben Sie sie als Probleme hervor oder fügen Sie sie einem bestehenden Problem hinzu, das Ihren Anwendungsfall lösen könnte. Dies wird helfen, zukünftige Versionen der Spezifikation zu verbessern.

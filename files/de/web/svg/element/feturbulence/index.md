@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erstellt ein Bild mithilfe der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese künstlicher Texturen wie Wolken oder Marmor. Das resultierende Bild wird die gesamte Unterregion des Filter-Primitives ausfüllen.
+Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filterprimitiv erstellt ein Bild unter Verwendung der [Perlin-Turbulenz-Funktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild wird die gesamte Filterprimitiv-Unterregion ausfüllen.
 
 ## Verwendungskontext
 
@@ -63,7 +63,7 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes), einschließlich {{SVGAttr('result')}}.
+- [SVG Filterprimitiv-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes), einschließlich {{SVGAttr('result')}}.
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -82,4 +82,4 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

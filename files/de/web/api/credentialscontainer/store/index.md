@@ -8,13 +8,10 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`store()`** Methode des
-[`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer) speichert eine Reihe von Berechtigungen für den Benutzer innerhalb einer
-[`Credential`](/de/docs/Web/API/Credential) Instanz und gibt diese in einem {{jsxref("Promise")}} zurück.
+Die **`store()`**-Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer) speichert ein Set von Anmeldeinformationen für den Benutzer in einer [`Credential`](/de/docs/Web/API/Credential)-Instanz und gibt diese in einem {{jsxref("Promise")}} zurück.
 
 > [!NOTE]
-> Diese Methode ist auf Top-Level-Kontexte beschränkt. Aufrufe innerhalb eines
-> `<iframe>` Elements werden ohne Effekt aufgelöst.
+> Diese Methode ist auf oberste Kontexte beschränkt. Aufrufe innerhalb eines `<iframe>`-Elements werden ohne Wirkung aufgelöst.
 
 ## Syntax
 
@@ -25,22 +22,22 @@ store(credentials)
 ### Parameter
 
 - `credentials`
-  - : Eine gültige [`Credential`](/de/docs/Web/API/Credential) Instanz.
+  - : Eine gültige [`Credential`](/de/docs/Web/API/Credential)-Instanz.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn es bereits eine Berechtigung desselben Typs wie die aktuelle gibt, die bearbeitet wird.
+  - : Wird ausgelöst, wenn es bereits eine Anmeldeinformation des gleichen Typs wie die aktuelle gibt, die in Bearbeitung ist.
 
 ## Beispiele
 
-### Speichern einer Passwortberechtigung bei erfolgreicher Authentifizierung
+### Speichern einer Passwort-Anmeldeinformation bei erfolgreicher Authentifizierung
 
-Dieser Code wird ausgeführt, nachdem sich ein Benutzer angemeldet oder eingeloggt hat und der Server die Berechtigung als korrekt bestätigt hat.
+Dieses Codebeispiel wird ausgeführt, nachdem sich ein Benutzer angemeldet oder registriert hat und der Server die Anmeldeinformation als korrekt bestätigt hat.
 
 ```js
 // Check if the browser supports password credentials (and the Credential Management API)

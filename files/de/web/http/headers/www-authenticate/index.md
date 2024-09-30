@@ -7,23 +7,27 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`WWW-Authenticate`**-Antwortheader definiert die [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication)-Methoden ("Challenges"), die verwendet werden könnten, um Zugriff auf eine bestimmte Ressource zu erhalten.
+Der HTTP-Header **`WWW-Authenticate`** definiert die [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) Methoden ("Challenges"), die möglicherweise verwendet werden, um auf eine bestimmte Ressource zuzugreifen.
 
 > [!NOTE]
-> Dieser Header ist Teil des [allgemeinen HTTP-Authentifizierungs-Frameworks](/de/docs/Web/HTTP/Authentication#the_general_http_authentication_framework), das mit einer Reihe von [Authentifizierungsverfahren](/de/docs/Web/HTTP/Authentication#authentication_schemes) verwendet werden kann.
-> Jedes "Challenge" listet ein vom Server unterstütztes Verfahren und zusätzliche Parameter auf, die für diesen Verfahrenstyp definiert sind.
+> Dieser Header ist Teil des [allgemeinen HTTP-Authentifizierungsrahmens](/de/docs/Web/HTTP/Authentication#the_general_http_authentication_framework), der mit einer Reihe von [Authentifizierungsschemata](/de/docs/Web/HTTP/Authentication#authentication_schemes) verwendet werden kann.
+> Jede "Challenge" listet ein vom Server unterstütztes Schema und zusätzliche Parameter, die für diesen Schemata-Typ definiert sind, auf.
 
-Ein Server, der die [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) verwendet, wird mit einer {{HTTPStatus("401")}} `Unauthorized`-Antwort auf eine Anfrage nach einer geschützten Ressource reagieren. Diese Antwort muss mindestens einen `WWW-Authenticate`-Header und mindestens eine [Challenge](/de/docs/Glossary/challenge) enthalten, um anzugeben, welche Authentifizierungsverfahren verwendet werden können, um auf die Ressource zuzugreifen (und alle zusätzlichen Daten, die jedes bestimmte Verfahren benötigt).
+Ein Server, der [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) verwendet, wird auf eine Anfrage nach einer geschützten Ressource mit einer {{HTTPStatus("401")}} `Unauthorized`-Antwort reagieren.
+Diese Antwort muss mindestens einen `WWW-Authenticate`-Header und mindestens eine [Challenge](/de/docs/Glossary/challenge) enthalten, um anzuzeigen, welche Authentifizierungsschemata verwendet werden können, um auf die Ressource zuzugreifen (und welche zusätzlichen Daten jedes spezifische Schema benötigt).
 
-Mehrere Challenges sind in einem `WWW-Authenticate`-Header erlaubt und mehrere `WWW-Authenticate`-Header sind in einer Antwort erlaubt. Ein Server kann den `WWW-Authenticate`-Header auch in andere Antwortnachrichten einfügen, um anzuzeigen, dass die Angabe von Anmeldeinformationen die Antwort beeinflussen könnte.
+Mehrere Challenges sind in einem `WWW-Authenticate`-Header erlaubt, und mehrere `WWW-Authenticate`-Header sind in einer Antwort erlaubt.
+Ein Server kann auch den `WWW-Authenticate`-Header in anderen Antwortnachrichten einschließen, um anzuzeigen, dass die Bereitstellung von Anmeldeinformationen die Antwort beeinflussen könnte.
 
-Nachdem der `WWW-Authenticate`-Header empfangen wurde, fordert ein Client den Benutzer normalerweise zur Eingabe von Anmeldeinformationen auf und fordert dann erneut die Ressource an. Diese neue Anfrage verwendet den {{HTTPHeader("Authorization")}}-Header, um die Anmeldeinformationen an den Server zu übermitteln, die für die ausgewählte "Challenge"-Authentifizierungsmethode angemessen kodiert sind. Der Client wird erwartet, die sicherste der Challenges auszuwählen, die er versteht (beachten Sie, dass in einigen Fällen die "sicherste" Methode diskutierbar ist).
+Nachdem der `WWW-Authenticate`-Header empfangen wurde, wird ein Client normalerweise den Benutzer nach Anmeldeinformationen fragen und dann die Ressource erneut anfordern.
+Diese neue Anfrage verwendet den {{HTTPHeader("Authorization")}}-Header, um die Anmeldeinformationen an den Server zu übermitteln, die entsprechend der ausgewählten "Challenge"-Authentifizierungsmethode kodiert sind.
+Vom Client wird erwartet, dass er die sicherste der ihm bekannten Herausforderungen auswählt (beachten Sie, dass in einigen Fällen die "sicherste" Methode umstritten ist).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
@@ -34,7 +38,8 @@ Nachdem der `WWW-Authenticate`-Header empfangen wurde, fordert ein Client den Be
 
 ## Syntax
 
-Mindestens eine Challenge muss angegeben werden. Mehrere Challenges können durch Kommas getrennt in einem einzelnen Header oder in einzelnen Headers angegeben werden:
+Mindestens eine Challenge muss angegeben werden.
+Mehrere Challenges können durch Kommas getrennt in einem einzelnen Header oder in einzelnen Headern angegeben werden:
 
 ```http
 // Challenges specified in single header
@@ -46,7 +51,8 @@ WWW-Authenticate: challenge1
 WWW-Authenticate: challengeN
 ```
 
-Eine einzelne Challenge hat folgendes Format. Beachten Sie, dass das Scheme-Token (`<auth-scheme>`) obligatorisch ist. Das Vorhandensein von `realm`, `token68` und aller anderen Parameter hängt von der Definition des ausgewählten Verfahrens ab.
+Eine einzelne Challenge hat folgendes Format. Beachten Sie, dass das Schema-Token (`<auth-scheme>`) obligatorisch ist.
+Das Vorhandensein von `realm`, `token68` und anderen Parametern hängt von der Definition des ausgewählten Schemas ab.
 
 ```http
 // Possible challenge formats (scheme dependent)
@@ -60,7 +66,7 @@ WWW-Authenticate: <auth-scheme> realm=<realm> auth-param1=auth-param1-token, ...
 WWW-Authenticate: <auth-scheme> token68 auth-param1=auth-param1-token, ..., auth-paramN=auth-paramN-token
 ```
 
-Zum Beispiel erfordert die [Basisauthentifizierung](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme) `realm` und erlaubt die optionale Verwendung des `charset`-Schlüssels, unterstützt jedoch nicht `token68`.
+Zum Beispiel erfordert die [Basis-Authentifizierung](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme) `realm` und erlaubt die optionale Verwendung des `charset`-Schlüssels, unterstützt jedoch nicht `token68`.
 
 ```http
 WWW-Authenticate: Basic realm=<realm>
@@ -71,106 +77,110 @@ WWW-Authenticate: Basic realm=<realm>, charset="UTF-8"
 
 - `<auth-scheme>`
 
-  - : Das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes). Einige der gebräuchlicheren Typen sind (nicht case-sensitiv): [`Basic`](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
+  - : Das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes). Einige der häufigeren Typen sind (nicht fallunterscheidend): [`Basic`](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
 
     > [!NOTE]
-    > Weitere Informationen/Optionen finden Sie unter [HTTP Authentication > Authentication schemes](/de/docs/Web/HTTP/Authentication#authentication_schemes)
+    > Für weitere Informationen/Optionen siehe [HTTP-Authentifizierung > Authentication schemes](/de/docs/Web/HTTP/Authentication#authentication_schemes)
 
 - `<realm>` {{optional_inline}}
-  - : Eine Zeichenkette, die einen geschützten Bereich beschreibt.
-    Ein Realm erlaubt es einem Server, die Bereiche, die er schützt, zu partitionieren (wenn es von einem Schema unterstützt wird, das eine solche Partitionierung erlaubt).
-    Einige Clients zeigen diesen Wert dem Benutzer an, um ihn darüber zu informieren, welche speziellen Anmeldeinformationen erforderlich sind – obwohl die meisten Browser dies nicht mehr tun, um Phishing zu verhindern.
-    Das einzige zuverlässig unterstützte Zeichensatz für diesen Wert ist `us-ascii`.
-    Wenn kein Realm angegeben ist, zeigen Clients oft stattdessen einen formatierten Hostnamen an.
+  - : Ein String, der einen geschützten Bereich beschreibt.
+    Ein Bereich ermöglicht es einem Server, die von ihm geschützten Bereiche zu unterteilen (sofern von einem Schema unterstützt, das eine solche Unterteilung erlaubt).
+    Einige Clients zeigen diesen Wert dem Benutzer an, um ihn darüber zu informieren, welche Anmeldeinformationen benötigt werden — die meisten Browser zeigen dies jedoch nicht mehr an, um Phishing entgegenzuwirken.
+    Der einzig zuverlässig unterstützte Zeichensatz für diesen Wert ist `us-ascii`.
+    Wenn kein Bereich angegeben ist, zeigen Clients oft stattdessen einen formatierten Hostnamen an.
 - `<token68>` {{optional_inline}}
-  - : Ein Token, das für einige Verfahren nützlich sein kann. Das Token erlaubt die 66 nicht reservierten URI-Zeichen plus einige andere.
-    Laut Spezifikation kann es eine Base64-, Base64url-, Base32- oder Base16 (Hex)-Kodierung halten, mit oder ohne Padding, aber ohne Leerzeichen.
+  - : Ein Token, das für einige Schemas nützlich sein kann. Das Token erlaubt die 66 unreservierten URI-Zeichen plus einige andere.
+    Laut Spezifikation kann es eine Base64-, Base64url-, Base32- oder Base16 (Hex)-Kodierung halten, mit oder ohne Padding, jedoch ohne Leerzeichen.
 
-Abgesehen von `<auth-scheme>` und dem Schlüssel `realm` sind die Autorisierungsparameter spezifisch für jedes [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes). Im Allgemeinen müssen Sie die relevanten Spezifikationen für diese (Schlüssel für einen kleinen Teil der Schemas sind unten aufgeführt) überprüfen.
+Abgesehen von `<auth-scheme>` und dem Schlüssel `realm` sind Autorisierungsparameter spezifisch für jedes [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes).
+Im Allgemeinen müssen Sie die relevanten Spezifikationen für diese überprüfen (Schlüssel für einen kleinen Teil von Schemas sind unten aufgeführt).
 
-### Basis
+### Basic
 
 - `<realm>`
-  - : Wie [oben](#realm).
-    Beachten Sie, dass das Realm für die Basisauthentifizierung obligatorisch ist.
+  - : Wie [oben](#realm) beschrieben.
+    Beachten Sie, dass der Bereich für die Basis-Authentifizierung obligatorisch ist.
 - `charset="UTF-8"` {{optional_inline}}
-  - : Informiert den Client über das bevorzugte Kodierungsschema des Servers beim Übermitteln von Benutzername und Passwort.
-    Der einzige erlaubte Wert ist die nicht case-sensitive Zeichenfolge "UTF-8".
-    Dies steht nicht in Zusammenhang mit der Kodierung der Realm-Zeichenfolge.
+  - : Teilt dem Client das bevorzugte Kodierungsschema des Servers mit, wenn er einen Benutzernamen und ein Passwort übermittelt.
+    Der einzige erlaubte Wert ist die nicht fallunterscheidende Zeichenkette "UTF-8".
+    Dies steht nicht im Zusammenhang mit der Kodierung der Bereichszeichenfolge.
 
 ### Digest
 
 - `<realm>` {{optional_inline}}
-  - : Eine Zeichenkette, die angibt, welchen Benutzernamen/das Passwort zu verwenden ist.
-    Sollte minimal den Hostnamen beinhalten, könnte aber auch die Benutzer oder Gruppe anzeigen, die Zugang haben.
+  - : String, der angibt, welcher Benutzername/das Passwort verwendet werden soll.
+    Sollte minimalerweise den Hostnamen beinhalten, könnte jedoch angeben, welche Benutzer oder Gruppen Zugriff haben.
 - `domain` {{optional_inline}}
-  - : Eine zitierte, leerzeichengetrennte Liste der URI-Präfixe, die alle Orte definieren, an denen die Authentifizierungsinformationen verwendet werden können.
-    Wenn dieser Schlüssel nicht angegeben ist, können die Authentifizierungsinformationen überall im Web-Root verwendet werden.
+  - : Eine zitierte, durch Leerzeichen getrennte Liste von URI-Präfixen, die alle Orte definieren, an denen die Authentifizierungsinformationen verwendet werden können.
+    Wenn dieser Schlüssel nicht angegeben ist, können die Authentifizierungsinformationen überall im Web-Stamm verwendet werden.
 - `nonce`
-  - : Eine vom Server angegebene, zitierte Zeichenkette, die der Server verwenden kann, um die Lebensdauer zu steuern, in der bestimmte Anmeldeinformationen als gültig angesehen werden.
-    Diese muss jedes Mal einzigartig generiert werden, wenn eine 401-Antwort erfolgt, und kann öfter neu generiert werden (zum Beispiel, wenn ein Digest nur einmal verwendet werden darf).
+  - : Eine vom Server angegebene zitierte Zeichenfolge, die der Server zur Steuerung der Lebensdauer verwenden kann, in der bestimmte Anmeldeinformationen als gültig angesehen werden.
+    Dies muss für jede 401-Antwort eindeutig generiert werden und kann häufiger neu generiert werden (z. B. um zuzulassen, dass ein Digest nur einmal verwendet wird).
     Die Spezifikation enthält Ratschläge zu möglichen Algorithmen zur Generierung dieses Wertes.
-    Der Nonce-Wert ist für den Client undurchsichtig.
+    Der nonce-Wert ist für den Client undurchsichtig.
 - `opaque`
-  - : Eine vom Server angegebene, zitierte Zeichenkette, die unverändert in der {{HTTPHeader("Authorization")}} zurückgegeben werden sollte.
-    Dies ist für den Client undurchsichtig. Es wird empfohlen, dass der Server Base64- oder Hexadezimaldaten einfügt.
+  - : Eine vom Server angegebene zitierte Zeichenfolge, die unverändert im {{HTTPHeader("Authorization")}} zurückgegeben werden sollte.
+    Dies ist für den Client undurchsichtig. Der Server wird empfohlen, Base64- oder hexadezimale Daten einzuschließen.
 - `stale` {{optional_inline}}
-  - : Eine nicht case-sensitive Markierung, die angibt, dass die vorherige Anfrage vom Client abgelehnt wurde, weil der verwendete `nonce` zu alt (stale) ist.
-    Wenn dies `true` ist, kann die Anfrage unter Verwendung des gleichen Benutzernamens/Passworts und des neuen `nonce` erneut versucht werden.
-    Wenn es einen anderen Wert hat, sind der Benutzername/das Passwort ungültig und müssen vom Benutzer erneut angefordert werden.
+  - : Eine nicht fallunterscheidende Flagge, die anzeigt, dass die vorherige Anfrage vom Client abgelehnt wurde, da der verwendete `nonce` zu alt (stale) ist.
+    Wenn dies `true` ist, kann die Anfrage mit demselben Benutzernamen/Passwort, das mit dem neuen `nonce` verschlüsselt ist, erneut versucht werden.
+    Wenn es ein anderer Wert ist, sind der Benutzername/das Passwort ungültig und müssen erneut vom Benutzer angefordert werden.
 - `algorithm` {{optional_inline}}
   - : Algorithmus, der zur Erstellung des Digests verwendet wird.
-    Gültige nicht-sessionsbasierte Werte sind: `"MD5"` (Standard, wenn nicht angegeben), `"SHA-256"`, `"SHA-512"`.
-    Gültige sessionsbasierte Werte sind: `"MD5-sess"`, `"SHA-256-sess"`, `"SHA-512-sess"`.
+    Gültige Nicht-Session-Werte sind: `"MD5"` (Standard, wenn nicht angegeben), `"SHA-256"`, `"SHA-512"`.
+    Gültige Session-Werte sind: `"MD5-sess"`, `"SHA-256-sess"`, `"SHA-512-sess"`.
 - `qop`
-  - : Zitierte Zeichenkette, die die Qualität des vom Server unterstützten Schutzes angibt. Diese muss bereitgestellt werden, und nicht erkannte Optionen müssen ignoriert werden.
+  - : Zitierte Zeichenfolge, die die vom Server unterstützte Schutzqualität angibt. Diese muss angegeben werden, und nicht erkannte Optionen müssen ignoriert werden.
     - `"auth"`: Authentifizierung
     - `"auth-int"`: Authentifizierung mit Integritätsschutz
 - `charset="UTF-8"` {{optional_inline}}
-  - : Informiert den Client über das bevorzugte Kodierungsschema des Servers beim Übermitteln von Benutzername und Passwort.
-    Der einzige erlaubte Wert ist die nicht case-sensitive Zeichenfolge "UTF-8".
+  - : Teilt dem Client das bevorzugte Kodierungsschema des Servers mit, wenn er einen Benutzernamen und ein Passwort übermittelt.
+    Der einzige erlaubte Wert ist die nicht fallunterscheidende Zeichenkette "UTF-8".
 - `userhash` {{optional_inline}}
-  - : Ein Server kann `"true"` angeben, um zu kennzeichnen, dass er das Hashing des Benutzernamens unterstützt (Standard ist `"false"`)
+  - : Ein Server kann `"true"` spezifizieren, um anzuzeigen, dass es Benutzernamen-Hashing unterstützt (Standard ist `"false"`)
 
 ### HTTP Origin-Bound Authentication (HOBA)
 
 - `<challenge>`
-  - : Eine Reihe von Paaren im Format '`<len>`:`<value>`', die zusammengefügt werden sollen, um sie einem Client zu übermitteln.
-    Die Challenge besteht aus einem Nonce, Algorithmus, Ursprung, Realm, Schlüsselidentifier und der Challenge.
+  - : Ein Satz von Paaren im Format '\<len\>:\<value\>', die zusammengefügt werden, um einem Client übergeben zu werden.
+    Die Challenge besteht aus einem nonce, Algorithmus, Ursprung, Bereich, Schlüssel-Identifikator und der Herausforderung.
 - `<max-age>`
-  - : Die Anzahl der Sekunden ab dem Zeitpunkt, an dem die HTTP-Antwort gesendet wird, bis zu denen Antworten auf diese Challenge akzeptiert werden können.
+  - : Die Anzahl der Sekunden, die von dem Zeitpunkt an, an dem die HTTP-Antwort gesendet wird, akzeptiert werden können, um auf diese Herausforderung zu antworten.
 - `realm` {{optional_inline}}
-  - : Wie oben im [Direktiven](#direktiven)-Abschnitt.
+  - : Wie oben im Abschnitt [Direktiven](#direktiven).
 
 ## Beispiele
 
-### Basisauthentifizierung
+### Basis-Authentifizierung
 
-Ein Server, der nur die Basisauthentifizierung unterstützt, könnte einen `WWW-Authenticate`-Antwortheader haben, der so aussieht:
+Ein Server, der nur die Basis-Authentifizierung unterstützt, könnte einen `WWW-Authenticate`-Antwortheader haben, der so aussieht:
 
 ```http
 WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
 ```
 
-Ein User-Agent, der diesen Header empfängt, würde den Benutzer zunächst nach seinem Benutzernamen und Passwort fragen und dann die Ressource erneut anfordern: dieses Mal einschließlich der (kodierten) Anmeldeinformationen im {{HTTPHeader("Authorization")}}-Header. Der {{HTTPHeader("Authorization")}}-Header könnte so aussehen:
+Ein User-Agent, der diesen Header erhält, würde zuerst den Benutzer nach seinem Benutzernamen und Passwort fragen und dann die Ressource erneut anfordern: diesmal unter Einschluss der (kodierten) Anmeldeinformationen im {{HTTPHeader("Authorization")}}-Header.
+Der {{HTTPHeader("Authorization")}}-Header könnte so aussehen:
 
 ```http
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
-Bei der `"Basic"`-Authentifizierung werden die Anmeldeinformationen erstellt, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert werden (`aladdin:opensesame`), und dann die resultierende Zeichenfolge in [`base64`](/de/docs/Glossary/Base64) kodiert wird (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+Für `"Basic"`-Authentifizierung werden die Anmeldeinformationen konstruiert, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert wird (`aladdin:opensesame`), und dann die resultierende Zeichenfolge in [`base64`](/de/docs/Glossary/Base64) kodiert wird (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
 > [!NOTE]
-> Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele, wie Apache- oder Nginx-Server konfiguriert werden können, um Ihre Website mit HTTP-Basisauthentifizierung zu schützen.
+> Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele zur Konfiguration von Apache- oder Nginx-Servern, um Ihre Website mit HTTP-Basis-Authentifizierung kennwortgeschützt zu machen.
 
 ### Digest-Authentifizierung mit SHA-256 und MD5
 
 > [!NOTE]
-> Dieses Beispiel ist aus {{RFC("7616")}} "HTTP Digest Access Authentication" entnommen (andere Beispiele in der Spezifikation zeigen die Verwendung von `SHA-512`, `charset` und `userhash`).
+> Dieses Beispiel stammt aus {{RFC("7616")}} "HTTP Digest Access Authentication" (andere Beispiele in der Spezifikation zeigen die Verwendung von `SHA-512`, `charset` und `userhash`).
 
-Der Client versucht, auf ein Dokument unter der URI `http://www.example.org/dir/index.html` zuzugreifen, das über Digest-Authentifizierung geschützt ist. Der Benutzername für dieses Dokument ist "Mufasa" und das Passwort ist "Circle of Life" (beachten Sie das einzelne Leerzeichen zwischen jedem Wort).
+Der Client versucht, auf ein Dokument unter der URI `http://www.example.org/dir/index.html` zuzugreifen, das durch Digest-Authentifizierung geschützt ist.
+Der Benutzername für dieses Dokument ist "Mufasa" und das Passwort ist "Circle of Life" (beachten Sie das einzelne Leerzeichen zwischen den Wörtern).
 
-Das erste Mal, wenn der Client das Dokument anfordert, wird kein {{HTTPHeader("Authorization")}}-Header gesendet. Hier antwortet der Server mit einer HTTP-401-Nachricht, die eine Challenge für jeden Digest-Algorithmus enthält, den er unterstützt, in der Reihenfolge seiner Präferenz (`SHA256` und dann `MD5`)
+Wenn der Client das Dokument zum ersten Mal anfordert, wird kein {{HTTPHeader("Authorization")}}-Header-Feld gesendet.
+Hier antwortet der Server mit einer HTTP 401-Nachricht, die eine Challenge für jeden Digest-Algorithmus enthält, den er unterstützt, in der Reihenfolge seiner Präferenz (`SHA256` und dann `MD5`)
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -188,7 +198,8 @@ WWW-Authenticate: Digest
     opaque="FQhe/qaU925kfnzjCev0ciny7QMkPqMAFRtzCUYo5tdS"
 ```
 
-Der Client fordert den Benutzer auf, seinen Benutzernamen und sein Passwort einzugeben, und antwortet dann mit einer neuen Anfrage, die die Anmeldeinformationen im {{HTTPHeader("Authorization")}}-Header-Feld kodiert. Wenn der Client den MD5-Digest wählte, könnte der {{HTTPHeader("Authorization")}}-Header wie unten gezeigt aussehen:
+Der Client fordert den Benutzer auf, seine Anmeldeinformationen einzugeben, und antwortet dann mit einer neuen Anfrage, die die Anmeldeinformationen im {{HTTPHeader("Authorization")}}-Header-Feld kodiert.
+Wenn der Client den MD5-Digest gewählt hat, könnte das {{HTTPHeader("Authorization")}}-Header-Feld folgendermaßen aussehen:
 
 ```http
 Authorization: Digest username="Mufasa",
@@ -203,7 +214,7 @@ Authorization: Digest username="Mufasa",
     opaque="FQhe/qaU925kfnzjCev0ciny7QMkPqMAFRtzCUYo5tdS"
 ```
 
-Wenn der Client den SHA-256-Digest wählte, könnte der {{HTTPHeader("Authorization")}}-Header wie unten gezeigt aussehen:
+Wenn der Client den SHA-256-Digest gewählt hat, könnte das {{HTTPHeader("Authorization")}}-Header-Feld folgendermaßen aussehen:
 
 ```http
 Authorization: Digest username="Mufasa",
@@ -227,9 +238,9 @@ Ein Server, der HOBA-Authentifizierung unterstützt, könnte einen `WWW-Authenti
 WWW-Authenticate: HOBA max-age="180", challenge="16:MTEyMzEyMzEyMw==1:028:https://www.example.com:80800:3:MTI48:NjgxNDdjOTctNDYxYi00MzEwLWJlOWItNGM3MDcyMzdhYjUz"
 ```
 
-Die zu signierende Blob-Challenge wird aus diesen Teilen gebildet: www.example.com unter Verwendung des Ports 8080, das Nonce ist '1123123123', der Algorithmus für die Signierung ist RSA-SHA256, der Schlüsselidentifier ist 123, und schließlich ist die Challenge '68147c97-461b-4310-be9b-4c707237ab53'.
+Die zu signierende Blob-Challenge wird aus diesen Teilen gemacht: www.example.com mit Port 8080, das nonce ist '1123123123', der Algorithmus zum Signieren ist RSA-SHA256, der Schlüssel-Identifikator ist 123, und schließlich ist die Herausforderung '68147c97-461b-4310-be9b-4c707237ab53'.
 
-Ein Client würde diesen Header empfangen, die Challenge extrahieren, sie mit seinem privaten Schlüssel signieren, der im Beispiel dem Schlüsselidentifier 123 entspricht, und dann das Ergebnis im `Authorization`-Header als punktgetrennte Schlüssel-ID, Challenge, Nonce und Signatur senden.
+Ein Client würde diesen Header erhalten, die Challenge extrahieren, sie mit seinem privaten Schlüssel, der dem Schlüssel-Identifikator 123 in unserem Beispiel entspricht, unter Verwendung von RSA-SHA256 signieren und dann das Ergebnis im `Authorization`-Header als Punkt-getrennte Schlüssel-ID, Challenge, nonce und Signatur senden.
 
 ```http
 Authorization: 123.16:MTEyMzEyMzEyMw==1:028:https://www.example.com:80800:3:MTI48:NjgxNDdjOTctNDYxYi00MzEwLWJlOWItNGM3MDcyMzdhYjUz.1123123123.<signature-of-challenge>

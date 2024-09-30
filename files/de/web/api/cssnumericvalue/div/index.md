@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: div()-Methode"
+title: "CSSNumericValue: div() Methode"
 short-title: div()
 slug: Web/API/CSSNumericValue/div
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`div()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle teilt den `CSSNumericValue` durch den angegebenen Wert.
+Die **`div()`**-Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle teilt den `CSSNumericValue` durch den
+übergebenen Wert.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ div(number)
 ### Parameter
 
 - `number`
-  - : Entweder eine Nummer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+  - : Entweder eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Rückgabewert
 

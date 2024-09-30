@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaAtomic`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, das angibt, ob unterstützende Technologien den gesamten oder nur Teile des geänderten Bereichs präsentieren, basierend auf den durch das `aria-relevant`-Attribut definierten Änderungsbenachrichtigungen.
+Die **`ariaAtomic`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, das angibt, ob unterstützende Technologien entweder die gesamte oder nur Teile der geänderten Region basierend auf den durch das `aria-relevant`-Attribut definierten Änderungsbenachrichtigungen präsentieren werden.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht die Definition von Standardsemantiken für ein benutzerdefiniertes Element. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe das [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden. Es wird jedoch sichergestellt, dass die Standard-Semantiken beibehalten werden, falls der Autor diese Attribute löscht oder überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"false"`
-  - : Unterstützende Technologien werden nur den geänderten Knoten oder die Knoten präsentieren.
+  - : Unterstützende Technologien präsentieren nur den oder die geänderten Knoten.
 - `"true"`
-  - : Unterstützende Technologien werden den gesamten geänderten Bereich als Ganzes präsentieren, einschließlich des benutzerdefinierten Labels, falls vorhanden.
+  - : Unterstützende Technologien präsentieren die gesamte geänderte Region im Ganzen, einschließlich des vom Autor definierten Labels, falls vorhanden.
 
 ## Beispiele
 

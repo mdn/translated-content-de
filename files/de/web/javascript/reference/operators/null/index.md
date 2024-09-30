@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der Wert **`null`** repräsentiert das bewusste Fehlen eines Objektwerts. Er gehört zu den [primitiven Werten](/de/docs/Glossary/Primitive) in JavaScript und wird bei booleschen Operationen als [falsy](/de/docs/Glossary/Falsy) behandelt.
+Der Wert **`null`** repräsentiert das absichtliche Fehlen eines Objektwertes. Er ist einer der [primitiven Werte](/de/docs/Glossary/Primitive) von JavaScript und wird in booleschen Operationen als [falsch](/de/docs/Glossary/Falsy) behandelt.
 
 {{EmbedInteractiveExample("pages/js/globalprops-null.html")}}
 
@@ -19,8 +19,7 @@ null
 
 ## Beschreibung
 
-Der Wert `null` wird mit einem Literal geschrieben: `null`.
-`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifikation aus und zeigt an, dass eine Variable auf kein Objekt verweist. In APIs wird `null` oft in einem Kontext abgerufen, in dem ein Objekt erwartet wird, aber kein Objekt relevant ist.
+Der Wert `null` wird mit einem Literal geschrieben: `null`. `null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifizierung aus, was darauf hinweist, dass eine Variable auf kein Objekt zeigt. In APIs wird `null` oft an einer Stelle zurückgegeben, an der ein Objekt erwartet werden kann, aber kein Objekt relevant ist.
 
 ```js
 // foo does not exist. It is not defined and has never been initialized:
@@ -37,7 +36,7 @@ foo; //null
 
 ### Unterschied zwischen `null` und `undefined`
 
-Wenn Sie auf `null` oder `undefined` prüfen, achten Sie auf die [Unterschiede zwischen den Gleichheitsoperatoren (==) und den Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators), da ersterer eine Typkonvertierung durchführt.
+Beim Überprüfen von `null` oder `undefined` sollten Sie die [Unterschiede zwischen Gleichheits- (==) und Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators) beachten, da ersteres eine Typumwandlung durchführt.
 
 ```js
 typeof null; // "object" (not "null" for legacy reasons)

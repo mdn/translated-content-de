@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`isSupersetOf()`** von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt einen Boolean-Wert zurück, der anzeigt, ob alle Elemente der angegebenen Menge in dieser Menge enthalten sind.
+Die **`isSupersetOf()`** Methode von {{jsxref("Set")}} Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der angibt, ob alle Elemente der gegebenen Menge in dieser Menge enthalten sind.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ isSupersetOf(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [mengenähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
+  - : Ein {{jsxref("Set")}} Objekt oder ein [mengenähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
 
 ### Rückgabewert
 
-`true`, wenn alle Elemente in der `other`-Menge auch in dieser Menge sind, andernfalls `false`.
+`true`, wenn alle Elemente in der `other` Menge auch in dieser Menge sind, andernfalls `false`.
 
 ## Beschreibung
 
-In mathematischer Notation ist eine _Obermenge_ definiert als:
+In mathematischer Notation ist _Obermenge_ definiert als:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,17 +34,17 @@ In mathematischer Notation ist eine _Obermenge_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit einem Diagramm:
+Und mit einem Venn-Diagramm dargestellt:
 
 ![Ein Venn-Diagramm mit zwei Kreisen. A ist eine Obermenge von B, weil B vollständig in A enthalten ist.](diagram.svg)
 
 > [!NOTE]
-> Die Beziehung der _Obermenge_ ist keine _echte Obermenge_, was bedeutet, dass `isSupersetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
+> Die _Obermenge_ Beziehung ist keine _echte Obermenge_, was bedeutet, dass `isSupersetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
 
-`isSupersetOf()` akzeptiert [mengenähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als den `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine echte {{jsxref("Set")}}-Instanz ist, da es die zugrunde liegenden Daten direkt abruft, die in `this` gespeichert sind, ohne Benutzercode auszuführen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
+`isSupersetOf()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, weil es direkt die zugrunde liegenden Daten in `this` abruft, ohne Benutzer-Code aufzurufen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
 
-- Wenn es weniger Elemente in `this` gibt als in `other.size`, gibt es direkt `false` zurück.
-- Andernfalls iteriert es über `other`, indem es dessen `keys()`-Methode aufruft. Wenn ein Element in `other` nicht in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()`-Iterator, indem es dessen `return()`-Methode aufruft). Andernfalls gibt es `true` zurück.
+- Wenn es in `this` weniger Elemente gibt als `other.size`, dann gibt es direkt `false` zurück.
+- Andernfalls iteriert es über `other`, indem es dessen `keys()` Methode aufruft und wenn ein beliebiges Element in `other` nicht in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()` Iterator, indem es dessen `return()` Methode aufruft). Andernfalls gibt es `true` zurück.
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ const fours = new Set([4, 8, 12, 16]);
 console.log(evens.isSupersetOf(fours)); // true
 ```
 
-Die Menge aller ungeraden Zahlen (<20) ist keine Obermenge der Primzahlen (<20), da 2 eine Primzahl, aber nicht ungerade ist:
+Die Menge aller ungeraden Zahlen (<20) ist keine Obermenge der Primzahlen (<20), weil 2 eine Primzahl, aber nicht ungerade ist:
 
 ```js
 const primes = new Set([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -66,7 +66,7 @@ const odds = new Set([3, 5, 7, 9, 11, 13, 15, 17, 19]);
 console.log(odds.isSupersetOf(primes)); // false
 ```
 
-Gleiche Mengen sind gegenseitige Obermengen:
+Äquivalente Mengen sind Obermengen voneinander:
 
 ```js
 const set1 = new Set([1, 2, 3]);

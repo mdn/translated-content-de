@@ -8,11 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`deviceVersionMinor`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt die Nebenversionsnummer des Geräts in einem semantischen Versionsschema an.
+Die **`deviceVersionMinor`**-Eigenschaft des schreibgeschützten [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt die Minor-Versionsnummer des Geräts in einem semantischen Versionierungsschema an.
 
 ## Wert
 
-Eine Zahl.
+Eine Nummer.
 
 ## Spezifikationen
 

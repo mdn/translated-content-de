@@ -7,23 +7,23 @@ l10n:
 
 {{JSRef}}
 
-Die **`message`** Dateneigenschaft einer {{jsxref("Error")}}-Instanz ist eine menschenlesbare Beschreibung des Fehlers.
+Die **`message`**-Eigenschaft eines {{jsxref("Error")}}-Instanzobjekts ist eine für Menschen lesbare Beschreibung des Fehlers.
 
 ## Wert
 
-Ein String, der dem Wert entspricht, der dem [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error)-Konstruktor als erstes Argument übergeben wurde.
+Ein Zeichenfolgenwert, der dem Wert entspricht, der als erstes Argument an den [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error)-Konstruktor übergeben wird.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Diese Eigenschaft enthält eine kurze Beschreibung des Fehlers, falls eine verfügbar ist oder festgelegt wurde. Die `message`-Eigenschaft in Kombination mit der {{jsxref("Error/name", "name")}}-Eigenschaft wird von der {{jsxref("Error.prototype.toString()")}}-Methode verwendet, um eine String-Darstellung des Fehlers zu erstellen.
+Diese Eigenschaft enthält eine kurze Beschreibung des Fehlers, falls eine verfügbar ist oder festgelegt wurde. Die `message`-Eigenschaft kombiniert mit der {{jsxref("Error/name", "name")}}-Eigenschaft wird von der Methode {{jsxref("Error.prototype.toString()")}} verwendet, um eine Zeichenfolgen-Darstellung des Fehlers zu erstellen.
 
-Standardmäßig ist die `message`-Eigenschaft ein leerer String, aber dieses Verhalten kann für eine Instanz überschrieben werden, indem eine Nachricht als erstes Argument an den {{jsxref("Error/Error", "Error")}}-Konstruktor übergeben wird.
+Standardmäßig ist die `message`-Eigenschaft eine leere Zeichenfolge, aber dieses Verhalten kann für eine Instanz überschrieben werden, indem eine Nachricht als erstes Argument an den {{jsxref("Error/Error", "Error")}}-Konstruktor übergeben wird.
 
 ## Beispiele
 
-### Einen benutzerdefinierten Fehler werfen
+### Werfen eines benutzerdefinierten Fehlers
 
 ```js
 const e = new Error("Could not parse input");

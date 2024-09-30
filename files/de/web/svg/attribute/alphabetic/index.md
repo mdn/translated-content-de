@@ -9,13 +9,13 @@ l10n:
 
 Das **`alphabetic`** Attribut definiert die untere Grundlinie einer Schriftart. Es hat dieselbe Syntax und Semantik wie der {{cssxref("@font-face/baseline", "baseline")}} Deskriptor innerhalb eines {{cssxref("@font-face")}}.
 
-Für horizontal ausgerichtete Glyphenlayouts gibt es die Ausrichtungskoordinate für Glyphen an, um eine alphabetische Grundlinienausrichtung zu erreichen. Der Wert ist ein Offset im Schriftart-Koordinatensystem.
+Für horizontal ausgerichtete Glyphenlayouts gibt es die Koordinate für die Ausrichtung von Glyphen an, um die alphabetische Basislinienausrichtung zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Hinweise zur Nutzung
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

@@ -1,5 +1,5 @@
 ---
-title: "Request: arrayBuffer()-Methode"
+title: "Request: arrayBuffer() Methode"
 short-title: arrayBuffer()
 slug: Web/API/Request/arrayBuffer
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`arrayBuffer()`**-Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfrageinhalt und gibt ihn als ein Versprechen zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Die **`arrayBuffer()`** Methode des [`Request`](/de/docs/Web/API/Request) Interfaces
+liest den Anfragekörper und gibt diesen zurück als ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Versprechen, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Beispiele
 

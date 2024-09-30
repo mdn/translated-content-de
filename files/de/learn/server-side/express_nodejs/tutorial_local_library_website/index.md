@@ -1,5 +1,5 @@
 ---
-title: "Express Tutorial: Die Local Library-Website"
+title: "Express-Tutorial: Die Website der lokalen Bibliothek"
 slug: Learn/Server-side/Express_Nodejs/Tutorial_local_library_website
 l10n:
   sourceCommit: 3dd00b3b77e2e79c7d92f0b6c4f4665d54500a0e
@@ -7,65 +7,65 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Server-side/Express_Nodejs/development_environment", "Learn/Server-side/Express_Nodejs/skeleton_website", "Learn/Server-side/Express_Nodejs")}}
 
-Der erste Artikel unserer praktischen Tutorial-Reihe erklärt, was Sie lernen werden, und bietet einen Überblick über die Beispiel-Website "Local Library", die wir in den folgenden Artikeln durchgehen und weiterentwickeln werden.
+Der erste Artikel unserer praktischen Tutorial-Serie erklärt, was Sie lernen werden, und bietet einen Überblick über die "Lokale Bibliothek"-Beispielwebsite, die wir in den folgenden Artikeln bearbeiten und weiterentwickeln werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Lesen Sie die <a href="/de/docs/Learn/Server-side/Express_Nodejs/Introduction">Express Einführung</a>.
-        Für die folgenden Artikel müssen Sie außerdem eine <a href="/de/docs/Learn/Server-side/Express_Nodejs/development_environment">Node-Entwicklungsumgebung eingerichtet haben</a>.
+        Lesen Sie die <a href="/de/docs/Learn/Server-side/Express_Nodejs/Introduction">Einführung in Express</a>.
+        Für die folgenden Artikel müssen Sie auch eine <a href="/de/docs/Learn/Server-side/Express_Nodejs/development_environment">Node-Entwicklungsumgebung einrichten</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Einführung in die Beispielanwendung, die in diesem Tutorial verwendet wird, und den Lesern ermöglichen zu verstehen, welche Themen behandelt werden.
+        Die Beispielanwendung, die in diesem Tutorial verwendet wird, vorstellen und den Lesern zeigen, welche Themen behandelt werden.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Überblick
+## Übersicht
 
-Willkommen zum MDN "Local Library" Express (Node) Tutorial, in dem wir eine Website entwickeln, die zur Verwaltung des Katalogs einer lokalen Bibliothek verwendet werden könnte.
+Willkommen zum MDN "Lokale Bibliothek" Express (Node) Tutorial, in dem wir eine Website entwickeln, die zur Verwaltung des Katalogs einer lokalen Bibliothek genutzt werden könnte.
 
-In dieser Tutorial-Serie werden Sie:
+In dieser Reihe von Tutorial-Artikeln werden Sie:
 
-- Das _Express Application Generator_-Tool verwenden, um eine Grundgerüst-Website und -Anwendung zu erstellen.
+- Das Tool _Express Application Generator_ nutzen, um eine Basiswebsite und -anwendung zu erstellen.
 - Den Node-Webserver starten und stoppen.
 - Eine Datenbank verwenden, um die Daten Ihrer Anwendung zu speichern.
-- Routen erstellen, um verschiedene Informationen anzufordern, und Templates ("Views"), um die Daten als HTML zu rendern, das im Browser angezeigt wird.
+- Routen erstellen, um verschiedene Informationen anzufordern, und Templates ("Views"), um die Daten als HTML darzustellen, das im Browser angezeigt wird.
 - Mit Formularen arbeiten.
 - Ihre Anwendung in die Produktion überführen.
 
-Sie haben bereits einige dieser Themen gelernt und andere kurz angesprochen. Am Ende der Tutorial-Serie sollten Sie genug wissen, um einfache Express-Apps selbst zu entwickeln.
+Sie haben bereits einiges über diese Themen gelernt und andere kurz angerissen. Am Ende der Tutorial-Serie sollten Sie genug wissen, um einfache Express-Anwendungen selbst zu entwickeln.
 
 ## Die LocalLibrary-Website
 
-_LocalLibrary_ ist der Name der Website, die wir im Laufe dieser Tutorial-Serie erstellen und weiterentwickeln werden. Wie Sie erwarten würden, ist der Zweck der Website, einen Online-Katalog für eine kleine lokale Bibliothek bereitzustellen, in dem Benutzer verfügbare Bücher durchsuchen und ihre Konten verwalten können.
+_LocalLibrary_ ist der Name der Website, die wir im Verlauf dieser Tutorial-Serie erstellen und weiterentwickeln werden. Wie zu erwarten, ist der Zweck der Website, einen Online-Katalog für eine kleine lokale Bibliothek bereitzustellen, in dem Benutzer verfügbare Bücher durchsuchen und ihre Konten verwalten können.
 
-Dieses Beispiel wurde sorgfältig ausgewählt, da es so weit oder detailliert skaliert werden kann, wie wir es benötigen, und fast jedes Express-Feature zeigen kann. Wichtiger noch, es ermöglicht uns, einen _geführten_ Weg durch die Funktionalität zu bieten, die Sie auf jeder Website benötigen:
+Dieses Beispiel wurde sorgfältig gewählt, weil es skaliert, um so viele oder so wenig Details zu zeigen, wie wir benötigen, und fast jedes Express-Feature demonstrieren kann. Noch wichtiger ist, dass es uns ermöglicht, Ihnen einen _geführten_ Pfad durch die Funktionen zu bieten, die Sie für jede Website benötigen:
 
-- In den ersten Tutorials werden wir eine einfache _Nur-Browsing_-Bibliothek definieren, mit der Bibliotheksmitglieder feststellen können, welche Bücher verfügbar sind. Dies ermöglicht es uns, die Operationen zu erkunden, die auf fast jeder Website üblich sind: Lesen und Anzeigen von Inhalten aus einer Datenbank.
-- Im weiteren Verlauf wird das Bibliotheksbeispiel natürlich erweitert, um fortgeschrittenere Website-Funktionen zu demonstrieren. Beispielsweise können wir die Bibliothek erweitern, um die Erstellung neuer Bücher zu ermöglichen, und dies verwenden, um zu zeigen, wie man Formulare verwendet und die Benutzer-Authentifizierung unterstützt.
+- In den ersten Tutorial-Artikeln definieren wir eine einfache _Nur-Browse_-Bibliothek, die von Bibliotheksmitgliedern verwendet werden kann, um herauszufinden, welche Bücher verfügbar sind. Dies ermöglicht es uns, die Operationen zu erkunden, die für fast jede Website üblich sind: Lesen und Anzeigen von Inhalten aus einer Datenbank.
+- Während wir voranschreiten, erweitert sich das Bibliotheksbeispiel natürlich, um fortgeschrittenere Website-Features zu demonstrieren. Zum Beispiel können wir die Bibliothek erweitern, um neue Bücher erstellen zu können, und dieses nutzen, um zu zeigen, wie Formulare verwendet werden und wie man Benutzer-Authentifizierung unterstützt.
 
-Auch wenn dies ein sehr erweiterbares Beispiel ist, heißt es aus einem Grund _**Local**Library_ – wir hoffen, das Minimum an Informationen bereitzustellen, das Ihnen hilft, schnell mit Express zu arbeiten. Daher werden wir Informationen zu Büchern, Buchkopien, Autoren und anderen wichtigen Informationen speichern. Wir werden jedoch keine Informationen zu anderen Gegenständen speichern, die eine Bibliothek verleihen könnte, oder die Infrastruktur bereitstellen, die benötigt wird, um mehrere Bibliotheksseiten oder andere "große Bibliothek"-Funktionen zu unterstützen.
+Auch wenn dies ein sehr erweiterbares Beispiel ist, wird es aus gutem Grund _**Lokale**Bibliothek_ genannt — wir hoffen, die minimalen Informationen zu zeigen, die Ihnen helfen, schnell mit Express loszulegen. Daher speichern wir Informationen über Bücher, Kopien von Büchern, Autoren und andere Schlüsselinformationen. Wir werden jedoch keine Informationen über andere Gegenstände speichern, die eine Bibliothek verleihen könnte, oder die Infrastruktur bereitstellen, die notwendig wäre, um mehrere Bibliotheksstandorte oder andere "große Bibliothek"-Features zu unterstützen.
 
-## Ich bin festgefahren, wo finde ich den Quellcode?
+## Ich komme nicht weiter, wo finde ich den Quellcode?
 
-Während Sie das Tutorial durcharbeiten, stellen wir Ihnen die entsprechenden Code-Snippets zum Kopieren und Einfügen an jedem Punkt bereit, und es wird anderen Code geben, den wir hoffen, dass Sie selbst erweitern (mit einigen Anleitungen).
+Während Sie das Tutorial durchgehen, werden wir die entsprechenden Code-Snippets bereitstellen, die Sie bei jedem Punkt kopieren und einfügen können. Es wird auch anderen Code geben, den wir hoffen, dass Sie selbst erweitern (mit etwas Anleitung).
 
-Anstatt alle Code-Snippets zu kopieren und einzufügen, versuchen Sie, sie abzutippen. Das wird Ihnen auf lange Sicht nützen, da Sie mit dem Code vertrauter werden, wenn Sie das nächste Mal etwas Ähnliches schreiben.
+Anstatt alle Code-Snippets zu kopieren und einzufügen, versuchen Sie, sie abzutippen, das wird Ihnen auf lange Sicht Nutzen bringen, da Sie mit dem Code vertrauter sein werden, wenn Sie das nächste Mal etwas Ähnliches schreiben.
 
-Wenn Sie stecken bleiben, können Sie die vollständig entwickelte Version der Website [hier auf GitHub](https://github.com/mdn/express-locallibrary-tutorial) finden.
+Wenn Sie nicht weiterkommen, finden Sie die vollständig entwickelte Version der Website [hier auf GitHub](https://github.com/mdn/express-locallibrary-tutorial).
 
 > [!NOTE]
 > Die spezifischen Versionen von Node, Express und den anderen Modulen, gegen die diese Dokumentation getestet wurde, sind im Projekt [package.json](https://github.com/mdn/express-locallibrary-tutorial/blob/main/package.json) aufgeführt.
 
 ## Zusammenfassung
 
-Nun, da Sie ein wenig mehr über die _LocalLibrary_ Website und das, was Sie lernen werden, wissen, ist es an der Zeit, ein [Grundgerüst-Projekt](/de/docs/Learn/Server-side/Express_Nodejs/skeleton_website) zu erstellen, um unser Beispiel zu enthalten.
+Nun, da Sie ein wenig mehr über die _LocalLibrary_-Website und das, was Sie lernen werden, wissen, ist es an der Zeit, ein [Gerüstprojekt](/de/docs/Learn/Server-side/Express_Nodejs/skeleton_website) zu erstellen, um unser Beispiel darin unterzubringen.
 
 {{PreviousMenuNext("Learn/Server-side/Express_Nodejs/development_environment", "Learn/Server-side/Express_Nodejs/skeleton_website", "Learn/Server-side/Express_Nodejs")}}

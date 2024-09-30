@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Browseraktion aktiviert ist.
+Gibt `true` zurück, wenn die Browser-Aktion aktiviert ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,21 +23,21 @@ let gettingIsEnabled = browser.browserAction.isEnabled(
 
 - `details`
 
-  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` zum Überprüfen enthält.
+  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` enthält, die überprüft werden sollen.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. ID eines Tabs zum Überprüfen.
+      - : `integer`. ID eines Tabs, der überprüft werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. ID eines Fensters zum Überprüfen.
+      - : `integer`. ID eines Fensters, das überprüft werden soll.
 
 <!---->
 
-- Wenn sowohl windowId als auch tabId angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl windowId als auch tabId weggelassen werden, wird der globale aktivierte/deaktivierte Status zurückgegeben.
+- Falls sowohl windowId als auch tabId angegeben werden, schlägt die Funktion fehl.
+- Falls sowohl windowId als auch tabId weggelassen werden, wird der globale Aktivierungs-/Deaktivierungsstatus zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browseraktion der Erweiterung aktiviert ist, und ansonsten mit `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und mit `false` andernfalls.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +45,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Überprüfen Sie den globalen Status:
+Überprüfen des globalen Zustands:
 
 ```js
 browser.browserAction.isEnabled({}).then((result) => {
@@ -53,7 +53,7 @@ browser.browserAction.isEnabled({}).then((result) => {
 });
 ```
 
-Überprüfen Sie den Status des derzeit aktiven Tabs:
+Überprüfen des Zustands des aktuell aktiven Tabs:
 
 ```js
 async function enabledInActiveTab() {

@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisEvent: name-Eigenschaft"
+title: "SpeechSynthesisEvent: name Eigenschaft"
 short-title: name
 slug: Web/API/SpeechSynthesisEvent/name
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die auftreten, während der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird:
-der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses erreicht wurde, oder die Art der Grenze, die im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses erreicht wurde.
+Die **`name`**-Eigenschaft (nur lesbar) des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt den Namen zurück, der mit bestimmten Ereignistypen verknüpft ist, die auftreten, während der Text der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird:
+den Namen des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses erreicht wurde, oder die Art der Grenze, die im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses erreicht wurde.
 
 ## Wert
 

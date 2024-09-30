@@ -1,5 +1,5 @@
 ---
-title: "TextDecoderStream: readable-Eigenschaft"
+title: "TextDecoderStream: lesbare Eigenschaft"
 short-title: readable
 slug: Web/API/TextDecoderStream/readable
 l10n:

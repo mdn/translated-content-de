@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`endsWith()`** Methode von {{jsxref("String")}} Werten bestimmt, ob ein String mit den Zeichen dieses Strings endet, und gibt entsprechend `true` oder `false` zurück.
+Die **`endsWith()`**-Methode von {{jsxref("String")}}-Werten bestimmt, ob ein String mit den Zeichen dieses Strings endet, und gibt entsprechend `true` oder `false` zurück.
 
 {{EmbedInteractiveExample("pages/js/string-endswith.html")}}
 
@@ -21,13 +21,13 @@ endsWith(searchString, endPosition)
 ### Parameter
 
 - `searchString`
-  - : Die Zeichen, die am Ende von `str` gesucht werden sollen. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `endsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichen, die am Ende von `str` gesucht werden sollen. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [zu Strings konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Weglassen oder Übergeben von `undefined` dazu führt, dass `endsWith()` nach dem String `"undefined"` sucht, was selten gewollt ist.
 - `endPosition` {{optional_inline}}
-  - : Die Endposition, an der `searchString` erwartet wird (der Index des letzten Zeichens von `searchString` plus 1). Standard ist `str.length`.
+  - : Die Endposition, an der `searchString` erwartet wird (der Index des letzten Zeichens von `searchString` plus 1). Standardmäßig `str.length`.
 
 ### Rückgabewert
 
-**`true`** wenn die angegebenen Zeichen am Ende des Strings gefunden werden, einschließlich wenn `searchString` ein leerer String ist; ansonsten **`false`**.
+**`true`**, wenn die angegebenen Zeichen am Ende des Strings gefunden werden, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ endsWith(searchString, endPosition)
 
 ## Beschreibung
 
-Diese Methode ermöglicht es Ihnen festzustellen, ob ein String mit einem anderen String endet. Diese Methode ist case-sensitive.
+Diese Methode ermöglicht es Ihnen festzustellen, ob ein String mit einem anderen String endet. Diese Methode ist Groß-/Kleinschreibung-sensitiv.
 
 ## Beispiele
 

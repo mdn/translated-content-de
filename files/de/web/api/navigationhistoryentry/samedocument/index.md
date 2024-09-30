@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`sameDocument`**-Schreibgeschützte Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt `true` zurück, wenn dieser Verlaufseintrag für das gleiche `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist und das aktuelle Dokument vollständig aktiv ist, oder `false` andernfalls.
+Die schreibgeschützte Eigenschaft **`sameDocument`** der Schnittstelle [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gibt `true` zurück, wenn dieser Verlaufseintrag für dasselbe `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist und das aktuelle Dokument vollständig aktiv ist, andernfalls `false`.
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ console.log(current.sameDocument);
 
 ## Siehe auch
 
-- [Modernes Client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

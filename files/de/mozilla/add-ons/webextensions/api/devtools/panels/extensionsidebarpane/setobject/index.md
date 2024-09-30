@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Zeigt ein JSON-Objekt im Seitenbereich des Add-ons an.
+Zeigt ein JSON-Objekt im Sidebar-Bereich der Erweiterung an.
 
-Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Optional können Sie eine `rootTitle`-Zeichenkette angeben: Diese wird als Titel der Wurzel des Baums angezeigt.
+Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional einen `rootTitle`-String angeben: Dieser wird als Titel des Wurzelknotens des Baumes angezeigt.
 
-Dies ist eine asynchrone Funktion, die ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ let setting = browser.devtools.panels.setObject(
 ### Parameter
 
 - `jsonObject`
-  - : `String` oder `Array` oder `Object`. Das anzuzeigende Objekt. Wenn es sich um ein Objekt handelt, wird es JSON-serialisiert, sodass Eigenschaften wie Funktionen weggelassen werden.
+  - : `String` oder `Array` oder `Object`. Das anzuzeigende Objekt. Wenn dies ein Objekt ist, wird es JSON-serialisiert, sodass Eigenschaften wie Funktionen weggelassen werden.
 - `rootTitle` {{optional_inline}}
-  - : `String`. Der Titel der Wurzel des Baums, in dem das Objekt angezeigt wird.
+  - : `String`. Der Titel der Wurzel des Baumes, in dem das Objekt angezeigt wird.
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Objekt gesetzt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, sobald das Objekt gesetzt wurde.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohn
 
 ## Beispiele
 
-Erstellen Sie ein neues Fenster und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
+Erstellen Sie ein neues Paneel und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wurde.
 
 ```js
 function onCreated(sidebarPane) {

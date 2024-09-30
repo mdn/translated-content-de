@@ -1,5 +1,5 @@
 ---
-title: "PaymentMethodChangeEvent: PaymentMethodChangeEvent()-Konstruktor"
+title: "PaymentMethodChangeEvent: PaymentMethodChangeEvent() Konstruktor"
 short-title: PaymentMethodChangeEvent()
 slug: Web/API/PaymentMethodChangeEvent/PaymentMethodChangeEvent
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Der **`PaymentMethodChangeEvent()`**-Konstruktor erstellt ein neues [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)-Objekt, das Details zu einem [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis bereitstellt.
+Der **`PaymentMethodChangeEvent()`**
+Konstruktor erstellt ein neues [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent) Objekt, das
+Details über ein [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event) Ereignis bereitstellt.
 
 ## Syntax
 
@@ -20,19 +22,28 @@ new PaymentMethodChangeEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitiv und wird von Browsern auf `paymentmethodchange` gesetzt.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `paymentmethodchange`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_,
+    die folgenden Eigenschaften haben kann:
     - `methodName` {{optional_inline}}
-      - : Ein String, der den Bezahlmethoden-Identifikator für den verwendeten Zahlungshandler enthält. Standardmäßig ist dies ein leerer String.
+      - : Ein String, der die Bezahlmethoden-ID für den verwendeten
+        Zahlungshändler enthält. Dies ist standardmäßig ein leerer String.
     - `methodDetails` {{optional_inline}}
-      - : Ein Objekt, das zahlungsmethodenspezifische Informationen beschreibt, die die Änderungen an der Zahlung beschreiben, oder `null`, wenn keine zusätzlichen Informationen verfügbar oder erforderlich sind. Standardmäßig ist dies `null`.
+      - : Ein Objekt, das zahlungsspezifische Informationen bereitstellt, die die Änderungen
+        an der Zahlung beschreiben, oder `null`, wenn keine zusätzlichen Informationen
+        verfügbar oder erforderlich sind. Dies ist standardmäßig `null`.
 
 ### Rückgabewert
 
-Ein neues [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)-Objekt, das eine Änderung der für die in der `methodName`-Eigenschaft angegebene Zahlungsmethode spezifizierten Optionen beschreibt.
+Ein neues [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent) Objekt, das eine Änderung der
+für die angegebene Zahlungsmethode im `methodName`-Eigenschaft spezifizierten Optionen beschreibt.
 
-Der Typ der `methodDetails`-Eigenschaft hängt von der Zahlungsmethode ab. Zum Beispiel, wenn `methodName` `https://example.com/pay` ist, was darauf hinweist, dass die Example Pay Zahlungsmethode zur Validierung verwendet wird, wird die Struktur von `methodDetails` durch die Zahlungsmethode definiert.
+Der Typ der `methodDetails`-Eigenschaft hängt von der Zahlungsmethode ab. Zum
+Beispiel, wenn `methodName` `https://example.com/pay` ist, was anzeigt, dass die
+Bezahlmethode Example Pay zur Validierung verwendet wird, wird die Struktur von `methodDetails`
+durch die Zahlungsmethode definiert.
 
 ## Spezifikationen
 

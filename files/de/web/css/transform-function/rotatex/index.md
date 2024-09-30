@@ -13,15 +13,16 @@ Die **`rotateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Func
 
 Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
-> **Hinweis:** `rotateX(a)` ist gleichwertig mit
+> **Hinweis:** `rotateX(a)` ist äquivalent zu
 > `rotate3d(1, 0, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das bedeutet, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel
+> nicht kommutativ. Das heißt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Die durch `rotateX()` erzeugte Rotationsmenge wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Winkel positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, erfolgt sie gegen den Uhrzeigersinn.
+Die durch `rotateX()` erzeugte Rotationsmenge wird durch ein {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Winkel positiv, erfolgt die Bewegung im Uhrzeigersinn; bei negativem Winkel gegen den Uhrzeigersinn.
 
 ```css
 rotateX(a)
@@ -30,7 +31,7 @@ rotateX(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Winkel der Drehung darstellt. Ein positiver Winkel deutet auf eine Drehung im Uhrzeigersinn hin, ein negativer auf eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und steht für den Rotationswinkel. Ein positiver Winkel steht für eine Rotation im Uhrzeigersinn, ein negativer Winkel für eine gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>

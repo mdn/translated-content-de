@@ -7,6 +7,6 @@ l10n:
 
 {{PWASidebar}}
 
-Anleitungen erklären detailliert, wie eine spezifische Aufgabe im Zusammenhang mit PWAs ausgeführt wird.
+Anleitungen erklären im Detail, wie eine spezifische Aufgabe im Zusammenhang mit PWAs zu erledigen ist.
 
 {{ListSubpages}}

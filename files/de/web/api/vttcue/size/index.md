@@ -16,7 +16,7 @@ Eine Zahl, die die Größe des Cues als Prozentsatz der Videogröße darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine neue [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `size` auf `50` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und dann der Wert von `size` auf `50` gesetzt. Der Wert wird dann in der Konsole angezeigt.
 
 ```js
 let video = document.querySelector("video");

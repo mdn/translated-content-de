@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`frameType`**-Eigenschaft des [`Client`](/de/docs/Web/API/Client)-Interfaces gibt den Typ des aktuellen [`Client`](/de/docs/Web/API/Client)-Browsing-Kontextes an. Dieser Wert kann einer der folgenden sein: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
+Die schreibgeschützte Eigenschaft **`frameType`** der [`Client`](/de/docs/Web/API/Client)-Schnittstelle gibt den Typ des Browsing-Kontextes des aktuellen [`Client`](/de/docs/Web/API/Client) an. Dieser Wert kann einer der folgenden sein: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
 
 ## Wert
 
-Einer dieser vier Zeichenfolgen: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
+Einer dieser vier Strings: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
 
 ## Spezifikationen
 

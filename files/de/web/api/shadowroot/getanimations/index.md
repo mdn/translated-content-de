@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: getAnimations() Methode"
+title: "ShadowRoot: getAnimations()-Methode"
 short-title: getAnimations()
 slug: Web/API/ShadowRoot/getAnimations
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`getAnimations()`** Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Interfaces gibt ein Array aller aktuell wirksamen [`Animation`](/de/docs/Web/API/Animation) Objekte zurück, deren Ziel-Elemente Nachkommen des Shadow-Dom sind. Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
+Die **`getAnimations()`**-Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
+gibt ein Array aller aktuell wirksamen [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, deren Ziel-Elemente Nachkommen des Shadow-Baums sind. Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
 
 ## Syntax
 
@@ -22,11 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation) Objekten, die jeweils eine derzeit mit Elementen assoziierte Animation darstellen, die Nachkommen der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) sind, auf der sie aufgerufen wird.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, von denen jedes eine
+Animation darstellt, die derzeit mit Elementen assoziiert ist, die Nachkommen des
+[`ShadowRoot`](/de/docs/Web/API/ShadowRoot) sind, auf dem sie aufgerufen wurde.
 
 ## Beispiele
 
-Der folgende Code-Schnipsel wird alle Animationen in einem Shadow-Dom verlangsamen, indem ihre [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) halbiert wird.
+Der folgende Codeausschnitt verlangsamt alle Animationen in einem Shadow-Baum, indem er ihre
+[`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) halbiert.
 
 ```js
 let customElem = document.querySelector("my-shadow-dom-element");
@@ -49,5 +53,6 @@ shadow.getAnimations().forEach((animation) => {
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
 - [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)
-- [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) - Abrufen nur der Animationen eines einzelnen [`Element`](/de/docs/Web/API/Element) und seiner Nachkommen.
+- [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) - Abrufen nur der Animationen auf einem einzelnen
+  [`Element`](/de/docs/Web/API/Element) und seinen Nachkommen.
 - [`Animation`](/de/docs/Web/API/Animation)

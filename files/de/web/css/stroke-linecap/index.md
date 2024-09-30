@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`stroke-linecap`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Form, die am Ende offener Teilpfade von Strichen in [SVG](/de/docs/Web/SVG) Elementen verwendet wird. Falls vorhanden, überschreibt sie das {{SVGAttr("stroke-linecap")}} Attribut des Elements.
+Die **`stroke-linecap`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Form, die am Ende von offenen Teilpfaden der nicht geschlossenen Striche von [SVG](/de/docs/Web/SVG)-Elementen verwendet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-linecap")}}-Attribut des Elements.
 
-Diese Eigenschaft gilt für jede SVG-Form, die offene Striche haben kann, und für Textelemente (siehe {{SVGAttr("stroke-linecap")}} für eine vollständige Liste), kann jedoch als vererbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die gewünschte Wirkung auf die Striche von Kindelementen haben.
+Diese Eigenschaft gilt für jede SVG-Form, die nicht geschlossene Striche haben kann, und Elemente mit Textinhalt (siehe {{SVGAttr("stroke-linecap")}} für eine vollständige Liste). Als geerbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche der Nachkommenelemente haben.
 
 ## Syntax
 
@@ -31,15 +31,15 @@ stroke-linecap: unset;
 
 - `butt`
 
-  - : Gibt an, dass der Strich für jeden Teilpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Teilpfad mit Null-Länge wird der Pfad überhaupt nicht gerendert. Dies ist der Standardwert.
+  - : Gibt an, dass der Strich für jeden Teilpfad nicht über seine zwei Endpunkte hinausgeht. Bei einem Teilpfad mit null Länge wird der Pfad überhaupt nicht gerendert. Dies ist der Standardwert.
 
 - `round`
 
-  - : Gibt an, dass am Ende jedes Teilpfads der Strich um einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, erweitert wird. Bei einem Teilpfad mit Null-Länge besteht der Strich aus einem vollständigen Kreis, der am Punkt des Teilpfads zentriert ist.
+  - : Gibt an, dass der Strich am Ende jedes Teilpfads durch einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Teilpfad mit null Länge besteht der Strich aus einem Vollkreis, der auf den Punkt des Teilpfads zentriert ist.
 
 - `square`
 
-  - : Gibt an, dass am Ende jedes Teilpfads der Strich um ein Rechteck erweitert wird, dessen Breite der halben Breite des Strichs entspricht und dessen Höhe der Breite des Strichs entspricht. Bei einem Teilpfad mit Null-Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das am Punkt des Teilpfads zentriert ist.
+  - : Gibt an, dass der Strich am Ende jedes Teilpfads durch ein Rechteck verlängert wird, dessen Breite der halben Breite des Strichs und dessen Höhe der Breite des Strichs entspricht. Bei einem Teilpfad mit null Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das auf den Punkt des Teilpfads zentriert ist.
 
 ## Formale Definition
 
@@ -51,13 +51,13 @@ stroke-linecap: unset;
 
 ## Beispiele
 
-### Linienkappen
+### Linienenden
 
 Dieses Beispiel demonstriert die drei Schlüsselwortwerte der Eigenschaft.
 
 #### HTML
 
-Wir erstellen zuerst ein hellgraues Rechteck. Dann werden in einer Gruppe drei Pfade definiert, deren Länge genau der Breite des Rechtecks entspricht und die alle am linken Rand des Rechtecks beginnen. Sie sind alle mit einem `dodgerblue` Strich mit einer Breite von sieben eingestellt.
+Wir richten zunächst ein hellgraues Rechteck ein. Dann werden in einer Gruppe drei Pfade definiert, deren Länge genau der Breite des Rechtecks entspricht und die alle am linken Rand des Rechtecks beginnen. Alle sind auf einen `dodgerblue`-Strich mit einer Breite von sieben gesetzt.
 
 ```html
 <svg viewBox="0 0 100 50" width="500" height="250">
@@ -72,7 +72,7 @@ Wir erstellen zuerst ein hellgraues Rechteck. Dann werden in einer Gruppe drei P
 
 #### CSS
 
-Dann wird über CSS ein unterschiedlicher Linienkappen-Stil auf jeden Pfad angewendet.
+Anschließend wenden wir über CSS für jeden Pfad einen anderen Linienende-Stil an.
 
 ```css
 path:nth-of-type(1) {
@@ -90,7 +90,7 @@ path:nth-of-type(3) {
 
 {{EmbedLiveSample("Linecaps", "500", "250")}}
 
-Der erste Pfad hat `butt` Linienkappen, was im Wesentlichen bedeutet, dass der Strich genau bis zu den Endpunkten (sowohl dem Anfang als auch dem Ende) des Pfads geht und nicht weiter. Der zweite Pfad hat `square` Linienkappen, sodass der sichtbare Pfad über die Endpunkte des Pfads hinausgeht und die Gesamtlänge des Pfads dadurch 87 zu sein scheint, da die Pfadlänge 80 beträgt und jede der beiden quadratischen Kappen 3,5 breit ist. Der dritte Pfad hat `circle` Kappen, sodass er zwar auch 87 Einheiten lang erscheint, die beiden Kappen sind jedoch halbkreisförmig anstelle von quadratisch.
+Der erste Pfad hat `butt`-Linienenden, was im Wesentlichen bedeutet, dass der Strich genau bis zu den Endpunkten (sowohl Anfang als auch Ende) des Pfads verläuft und nicht darüber hinaus. Der zweite Pfad hat `square`-Linienenden, sodass der sichtbare Pfad über die Endpunkte des Pfads hinaus verlängert wird, was die Gesamtlänge des Pfads auf 87 zu sein scheint, da die Pfadlänge 80 ist und jede der beiden quadratischen Enden 3,5 breit ist. Der dritte Pfad hat `circle`-Enden, sodass er zwar ebenfalls 87 Einheiten lang erscheint, aber die beiden Enden sind halbkreisförmig statt quadratisch.
 
 ## Spezifikationen
 

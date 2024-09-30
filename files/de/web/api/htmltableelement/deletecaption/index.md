@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: deleteCaption()-Methode"
+title: "HTMLTableElement: deleteCaption() Methode"
 short-title: deleteCaption()
 slug: Web/API/HTMLTableElement/deleteCaption
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteCaption()`**-Methode entfernt das {{HtmlElement("caption")}}-Element aus einem bestimmten {{HtmlElement("table")}}. Sollte kein `<caption>`-Element mit der Tabelle verknüpft sein, führt diese Methode keine Aktion aus.
+Die **`HTMLTableElement.deleteCaption()`** Methode entfernt das
+{{HtmlElement("caption")}}-Element aus einer gegebenen {{HtmlElement("table")}}. Wenn kein
+`<caption>`-Element mit der Tabelle verknüpft ist, führt diese Methode
+nichts aus.
 
 ## Syntax
 
@@ -22,11 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie mit JavaScript die Beschriftung einer Tabelle entfernen.
+Dieses Beispiel verwendet JavaScript, um die Beschriftung einer Tabelle zu löschen.
 
 ### HTML
 

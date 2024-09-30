@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Der **`throw`**-Befehl wirft eine benutzerdefinierte Ausnahme. Die Ausführung der aktuellen Funktion wird gestoppt (die Anweisungen nach `throw` werden nicht ausgeführt), und die Steuerung wird an den ersten [`catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block im Aufrufstack übergeben. Wenn kein `catch`-Block unter den aufrufenden Funktionen existiert, wird das Programm beendet.
+Die **`throw`**-Anweisung löst eine benutzerdefinierte Ausnahme aus. Die Ausführung der aktuellen Funktion wird gestoppt (die Anweisungen nach `throw` werden nicht ausgeführt), und die Kontrolle wird an den ersten [`catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block im Aufrufstapel übergeben. Falls kein `catch`-Block in den aufrufenden Funktionen existiert, wird das Programm beendet.
 
 {{EmbedInteractiveExample("pages/js/statement-throw.html")}}
 
@@ -18,40 +18,40 @@ throw expression;
 ```
 
 - `expression`
-  - : Der Ausdruck, der geworfen werden soll.
+  - : Der Ausdruck, der ausgelöst werden soll.
 
 ## Beschreibung
 
-Der `throw`-Befehl ist in allen Kontexten gültig, in denen Anweisungen verwendet werden können. Seine Ausführung erzeugt eine Ausnahme, die durch den Aufrufstack durchdringt. Für weitere Informationen zur Fehlerinformation und -bearbeitung siehe [Kontrollfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling).
+Die `throw`-Anweisung ist in allen Kontexten gültig, in denen Anweisungen verwendet werden können. Ihre Ausführung erzeugt eine Ausnahme, die durch den Aufrufstapel durchdringt. Für weitere Informationen über Fehlerweitergabe und -behandlung siehe [Ablaufsteuerung und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling).
 
-Das `throw`-Schlüsselwort kann von jeder Art von Ausdruck gefolgt werden, zum Beispiel:
+Das `throw`-Schlüsselwort kann von jedem Ausdruck gefolgt werden, zum Beispiel:
 
 ```js
 throw error; // Throws a previously defined value (e.g. within a catch block)
 throw new Error("Required"); // Throws a new Error object
 ```
 
-In der Praxis sollte die Ausnahme, die Sie werfen, _immer_ ein {{jsxref("Error")}}-Objekt oder eine Instanz einer `Error`-Unterklasse sein, wie z.B. {{jsxref("RangeError")}}. Dies liegt daran, dass der Code, der den Fehler fängt, bestimmte Eigenschaften, wie z.B. {{jsxref("Error/message", "message")}}, im gefangenen Wert erwartet. Web-APIs werfen beispielsweise in der Regel [`DOMException`](/de/docs/Web/API/DOMException)-Instanzen, die von `Error.prototype` erben.
+In der Praxis sollte die Ausnahme, die Sie auslösen, _immer_ ein {{jsxref("Error")}}-Objekt oder eine Instanz einer `Error`-Unterklasse, wie zum Beispiel {{jsxref("RangeError")}}, sein. Der Grund ist, dass der Code, der den Fehler auffängt, möglicherweise bestimmte Eigenschaften, wie {{jsxref("Error/message", "message")}}, auf dem aufgefangenen Wert erwartet. Zum Beispiel werfen Web-APIs typischerweise [`DOMException`](/de/docs/Web/API/DOMException)-Instanzen, die von `Error.prototype` erben.
 
-### Automatische Semikolon-Einfügung
+### Automatische Semikolonsetzung
 
-Die Syntax verbietet Zeilenumbrüche zwischen dem `throw`-Schlüsselwort und dem Ausdruck, der geworfen werden soll.
+Die Syntax verbietet Zeilenendzeichen zwischen dem `throw`-Schlüsselwort und dem Ausdruck, der geworfen werden soll.
 
 ```js-nolint example-bad
 throw
 new Error();
 ```
 
-Der obige Code wird durch [automatische Semikolon-Einfügung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in Folgendes umgewandelt:
+Der obige Code wird durch [automatische Semikolon-Einfügung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in:
 
 ```js-nolint
 throw;
 new Error();
 ```
 
-Dies ist ungültiger Code, da im Gegensatz zu {{jsxref("Statements/return", "return")}} `throw` von einem Ausdruck gefolgt werden muss.
+umgewandelt. Dies ist ungültiger Code, denn im Gegensatz zu {{jsxref("Statements/return", "return")}} muss `throw` von einem Ausdruck gefolgt werden.
 
-Um dieses Problem zu vermeiden (um ASI zu verhindern), können Sie Klammern verwenden:
+Um dieses Problem zu vermeiden (um ASI zu verhindern), könnten Sie Klammern verwenden:
 
 ```js-nolint
 throw (
@@ -63,7 +63,7 @@ throw (
 
 ### Werfen eines benutzerdefinierten Fehlers
 
-Dieses Beispiel definiert eine Funktion, die eine {{jsxref("TypeError")}} wirft, wenn die Eingabe nicht vom erwarteten Typ ist.
+Dieses Beispiel definiert eine Funktion, die einen {{jsxref("TypeError")}} wirft, wenn der Eingabewert nicht vom erwarteten Typ ist.
 
 ```js
 function isNumeric(x) {
@@ -85,9 +85,9 @@ try {
 }
 ```
 
-### Werfen eines vorhandenen Objekts
+### Werfen eines bestehenden Objekts
 
-Dieses Beispiel ruft eine rückrufbasierte asynchrone Funktion auf und wirft einen Fehler, wenn der Rückruf einen Fehler erhält.
+Dieses Beispiel ruft eine Callback-basierte asynchrone Funktion auf und wirft einen Fehler, wenn der Callback einen Fehler erhält.
 
 ```js
 readFile("foo.txt", (err, data) => {
@@ -98,7 +98,7 @@ readFile("foo.txt", (err, data) => {
 });
 ```
 
-Fehler, die auf diese Weise geworfen werden, können vom Aufrufer nicht abgefangen werden und führen zum Absturz des Programms, es sei denn, (a) die `readFile`-Funktion fängt den Fehler selbst ab, oder (b) das Programm läuft in einem Kontext, der Fehler auf oberster Ebene abfängt. Sie können Fehler natürlicher behandeln, indem Sie den {{jsxref("Promise/Promise", "Promise()")}}-Konstruktor verwenden.
+Fehler, die auf diese Weise geworfen werden, können vom Aufrufer nicht aufgefangen werden und führen zum Absturz des Programms, es sei denn, (a) die `readFile`-Funktion fängt den Fehler selbst ab, oder (b) das Programm läuft in einem Kontext, der Top-Level-Fehler abfängt. Sie können Fehler natürlicher handhaben, indem Sie den {{jsxref("Promise/Promise", "Promise()")}}-Konstruktor verwenden.
 
 ```js
 function readFilePromise(path) {

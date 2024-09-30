@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Reflow** tritt auf, wenn ein [Browser](/de/docs/Glossary/browser) die Position und Geometrie bestimmter Teile einer Webseite neu berechnet, beispielsweise nach einer Aktualisierung auf einer interaktiven Seite. Dies wird oft von einem Repainting gefolgt, bei dem der Browser die Webseite neu zeichnet, um die resultierenden visuellen Aktualisierungen darzustellen.
+**Reflow** tritt auf, wenn ein [Browser](/de/docs/Glossary/browser) die Position und Geometrie bestimmter Teile einer Webseite neu berechnet, wie nach einer Aktualisierung auf einer interaktiven Website. Dies wird oft von einem Repaint gefolgt, bei dem der Browser die Webseite neu zeichnet, um die resultierenden visuellen Aktualisierungen anzuzeigen.
 
 ## Siehe auch
 

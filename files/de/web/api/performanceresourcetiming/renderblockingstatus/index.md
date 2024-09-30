@@ -1,5 +1,5 @@
 ---
-title: "PerformanceResourceTiming: renderBlockingStatus-Eigenschaft"
+title: "PerformanceResourceTiming: Eigenschaft renderBlockingStatus"
 short-title: renderBlockingStatus
 slug: Web/API/PerformanceResourceTiming/renderBlockingStatus
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Resource Timing API")}}
 
-Die schreibgeschützte Eigenschaft **`renderBlockingStatus`** gibt den Render-Blockierungsstatus der Ressource zurück.
+Die schreibgeschützte Eigenschaft **`renderBlockingStatus`** gibt den render-blockierenden Status der Ressource zurück.
 
-Sie ist nützlich, um Ressourcen zu identifizieren, die:
+Sie ist nützlich, um festzustellen, welche Ressourcen:
 
-- nicht render-blockierend waren und daher verzögert werden könnten, oder
-- render-blockierend waren und daher vorab geladen werden könnten.
+- nicht render-blockierend waren und daher verzögert werden konnten, oder
+- render-blockierend waren und daher vorab geladen werden konnten.
 
 ## Beschreibung
 
-Render-blockierende Ressourcen sind statische Dateien wie Schriftarten, CSS und JavaScript, die den Browser daran hindern oder verzögern, Seiteninhalte auf dem Bildschirm darzustellen. Der Browser bestimmt diese blockierenden Ressourcen automatisch und rendert kein Pixel auf den Bildschirm, bevor alle Stylesheets und synchronen Skripte geladen und ausgewertet sind. Dies verhindert den Flash of Unstyled Contents ("FOUC").
+Render-blockierende Ressourcen sind statische Dateien wie Schriftarten, CSS und JavaScript, die den Browser daran hindern oder aufhalten, Seiteninhalte auf dem Bildschirm darzustellen. Der Browser bestimmt diese blockierenden Ressourcen automatisch und rendert keinen Pixel auf dem Bildschirm, bevor nicht alle Stylesheets und synchronen Skripte geladen und ausgewertet wurden. Dies verhindert das "Flash of Unstyled Contents" ("FOUC").
 
-Zusätzlich zum automatischen Mechanismus zur Render-Blockierung kann `blocking="render"` als Attribut und Wert zu {{HTMLElement("script")}}, {{HTMLElement("style")}} oder {{HTMLElement("link")}} Elementen hinzugefügt werden, um eine explizite Render-Blockierung anzugeben. Zum Beispiel:
+Zusätzlich zum automatischen render-blockierenden Mechanismus kann `blocking="render"` als Attribut und Wert in den {{HTMLElement("script")}}, {{HTMLElement("style")}} oder {{HTMLElement("link")}} Elementen angegeben werden, um explizites Render-Blockieren zu spezifizieren. Zum Beispiel:
 
 ```html
 <script blocking="render" src="important.js" defer></script>
@@ -27,7 +27,7 @@ Zusätzlich zum automatischen Mechanismus zur Render-Blockierung kann `blocking=
 
 ## Wert
 
-Die Eigenschaft `renderBlockingStatus` kann folgende Werte haben:
+Die `renderBlockingStatus`-Eigenschaft kann die folgenden Werte haben:
 
 - `"blocking"`
   - : Die Ressource könnte potenziell das Rendering blockieren.
@@ -36,11 +36,11 @@ Die Eigenschaft `renderBlockingStatus` kann folgende Werte haben:
 
 ## Beispiele
 
-### Protokollierung von Ressourcen, die das Rendering blockieren
+### Auflisten von Ressourcen, die das Rendering blockieren
 
-Die Eigenschaft `renderBlockingStatus` kann verwendet werden, um Ressourcen zu sehen, die das Rendering blockieren.
+Die `renderBlockingStatus`-Eigenschaft kann verwendet werden, um Ressourcen zu sehen, die das Rendering blockieren.
 
-Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -54,7 +54,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur die `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitachse des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");

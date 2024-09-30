@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGGeometryElement.getTotalLength()`** Methode gibt den vom Benutzeragenten berechneten Wert für die Gesamtlänge des Pfads in Benutzer-Einheiten zurück.
+Die **`SVGGeometryElement.getTotalLength()`**-Methode gibt den vom Benutzer-Agenten berechneten Wert für die Gesamtlänge des Pfads in Benutzereinheiten zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Float, der die Gesamtlänge des Pfads in Benutzer-Einheiten angibt.
+Eine Fließkommazahl, die die Gesamtlänge des Pfads in Benutzereinheiten angibt.
 
 ## Spezifikationen
 

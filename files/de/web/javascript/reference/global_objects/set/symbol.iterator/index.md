@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`[Symbol.iterator]()`** Methode von {{jsxref("Set")}} Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, `Set` Objekte mit den meisten Syntaxen, die Iterables erwarten, zu verwenden, wie z.B. die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Werte des Sets in der Einfügereihenfolge liefert.
+Die **`[Symbol.iterator]()`** Methode von {{jsxref("Set")}} Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es `Set` Objekten, von den meisten Syntaxen, die Iterables erwarten, konsumiert zu werden, wie zum Beispiel dem [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Werte des Sets in Einfügereihenfolge liefert.
 
-Der anfängliche Wert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der anfängliche Wert der {{jsxref("Set.prototype.values")}} Eigenschaft.
+Der Anfangswert dieser Eigenschaft ist das gleiche Funktionsobjekt wie der Anfangswert der {{jsxref("Set.prototype.values")}} Eigenschaft.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-@@iterator.html")}}
 
@@ -29,9 +29,9 @@ Der gleiche Rückgabewert wie {{jsxref("Set.prototype.values()")}}: ein neues [i
 
 ## Beispiele
 
-### Iteration mit einer for...of Schleife
+### Iteration mit for...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht `Set` Objekte [iterabel](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterations-Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator für die Schleife zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht `Set` Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten, über den iteriert werden soll.
 
 ```js
 const mySet = new Set();
@@ -44,9 +44,9 @@ for (const v of mySet) {
 }
 ```
 
-### Manuelles Überrollen des Iterators
+### Manuelles Erstellen des Iterators
 
-Sie können dennoch die `next()` Methode des zurückgegebenen Iterator-Objekts manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
+Sie können dennoch manuell die `next()` Methode des zurückgegebenen Iterator-Objekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu erreichen.
 
 ```js
 const mySet = new Set();
@@ -76,4 +76,4 @@ console.log(setIter.next().value); // {}
 - {{jsxref("Set.prototype.keys()")}}
 - {{jsxref("Set.prototype.values()")}}
 - {{jsxref("Symbol.iterator")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterierungsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

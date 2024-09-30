@@ -11,67 +11,67 @@ Der **`<blend-mode>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_T
 
 ## Syntax
 
-Der `<blend-mode>` Datentyp wird mit einem Schlüsselwortwert definiert, der aus der untenstehenden Liste ausgewählt wird.
+Der `<blend-mode>` Datentyp wird durch einen Schlüsselwortwert definiert, der aus der untenstehenden Liste ausgewählt wird.
 
 ### Werte
 
 - `normal`
-  - : Die endgültige Farbe ist die obere Farbe, unabhängig davon, welche Farbe die untere hat.
+  - : Die endgültige Farbe ist die obere Farbe, unabhängig davon, was die untere Farbe ist.
     Der Effekt ist wie bei zwei undurchsichtigen Papierstücken, die sich überlappen.
 - `multiply`
-  - : Die endgültige Farbe ergibt sich aus der Multiplikation der oberen und unteren Farben.
-    Eine schwarze Schicht führt zu einer schwarzen Endschicht, und eine weiße Schicht führt zu keiner Veränderung.
-    Der Effekt ist wie bei zwei Bildern, die auf transparentem Film übereinanderliegen.
+  - : Die endgültige Farbe ist das Ergebnis der Multiplikation der oberen und unteren Farben.
+    Eine schwarze Ebene führt zu einer schwarzen Endschicht, und eine weiße Ebene führt zu keiner Änderung.
+    Der Effekt ist wie bei zwei auf transparentem Film gedruckten Bildern, die sich überlappen.
 - `screen`
-  - : Die endgültige Farbe ergibt sich aus der Invertierung der Farben, deren Multiplikation und der erneuten Invertierung dieses Wertes.
-    Eine schwarze Schicht führt zu keiner Veränderung, und eine weiße Schicht führt zu einer weißen Endschicht.
-    Der Effekt ist wie bei zwei Bildern, die auf eine Projektionsleinwand projiziert werden.
+  - : Die endgültige Farbe ist das Ergebnis der Invertierung der Farben, ihrer Multiplikation und der Invertierung dieses Wertes.
+    Eine schwarze Ebene führt zu keiner Änderung, und eine weiße Ebene führt zu einer weißen Endschicht.
+    Der Effekt ist wie bei zwei auf eine Projektionsleinwand projizierten Bildern.
 - `overlay`
-  - : Die endgültige Farbe ergibt sich aus `multiply`, wenn die untere Farbe dunkler ist, oder `screen`, wenn die untere Farbe heller ist.
-    Dieser Mischmodus ist gleichwertig mit `hard-light`, jedoch mit vertauschten Schichten.
+  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die untere Farbe dunkler ist, oder `screen`, wenn die untere Farbe heller ist.
+    Dieser Blendmodus entspricht `hard-light`, aber mit vertauschten Ebenen.
 - `darken`
   - : Die endgültige Farbe setzt sich aus den dunkelsten Werten jedes Farbkanals zusammen.
 - `lighten`
   - : Die endgültige Farbe setzt sich aus den hellsten Werten jedes Farbkanals zusammen.
 - `color-dodge`
   - : Die endgültige Farbe ist das Ergebnis der Division der unteren Farbe durch das Inverse der oberen Farbe.
-    Eine schwarze Vordergrundfarbe führt zu keiner Veränderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einer voll beleuchteten Farbe.
-    Dieser Mischmodus ist ähnlich wie `screen`, aber der Vordergrund muss nur so hell wie das Inverse des Hintergrunds sein, um eine voll beleuchtete Farbe zu erzeugen.
+    Ein schwarzer Vordergrund führt zu keiner Änderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einer voll beleuchteten Farbe.
+    Dieser Blendmodus ist `screen` ähnlich, aber der Vordergrund muss nur so hell wie das Inverse des Hintergrunds sein, um eine voll beleuchtete Farbe zu erzeugen.
 - `color-burn`
-  - : Die endgültige Farbe ist das Ergebnis der Invertierung der unteren Farbe, der Division des Wertes durch die obere Farbe und der erneuten Invertierung dieses Wertes.
-    Ein weißer Vordergrund führt zu keiner Veränderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einem schwarzen Endbild.
-    Dieser Mischmodus ist ähnlich wie `multiply`, aber der Vordergrund muss nur so dunkel wie das Inverse des Hintergrunds sein, um das Endbild schwarz zu machen.
+  - : Die endgültige Farbe ist das Ergebnis der Invertierung der unteren Farbe, deren Division durch die obere Farbe und der Invertierung dieses Wertes.
+    Ein weißer Vordergrund führt zu keiner Änderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einem schwarzen Endbild.
+    Dieser Blendmodus ist `multiply` ähnlich, aber der Vordergrund muss nur so dunkel wie das Inverse des Hintergrunds sein, um das Endbild schwarz zu machen.
 - `hard-light`
-  - : Die endgültige Farbe ergibt sich aus `multiply`, wenn die obere Farbe dunkler ist, oder `screen`, wenn die obere Farbe heller ist.
-    Dieser Mischmodus ist gleichwertig mit `overlay`, jedoch mit vertauschten Schichten.
-    Der Effekt ist ähnlich wie das Anstrahlen des Hintergrunds mit einem _harten_ Scheinwerfer.
+  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die obere Farbe dunkler ist, oder `screen`, wenn die obere Farbe heller ist.
+    Dieser Blendmodus entspricht `overlay`, aber mit vertauschten Ebenen.
+    Der Effekt ist ähnlich, als würde ein starker Scheinwerfer auf den Hintergrund gerichtet.
 - `soft-light`
-  - : Die endgültige Farbe ist ähnlich wie `hard-light`, jedoch weicher.
-    Dieser Mischmodus verhält sich ähnlich wie `hard-light`.
-    Der Effekt ist ähnlich wie das Anstrahlen des Hintergrunds mit einem _diffusen_ Scheinwerfer.
+  - : Die endgültige Farbe ist ähnlich `hard-light`, aber weicher.
+    Dieser Blendmodus verhält sich ähnlich wie `hard-light`.
+    Der Effekt ist ähnlich, als würde ein diffundierter Scheinwerfer auf den Hintergrund gerichtet.
 - `difference`
   - : Die endgültige Farbe ist das Ergebnis des Abziehens der dunkleren der beiden Farben von der helleren.
-    Eine schwarze Schicht hat keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht invertiert.
+    Eine schwarze Ebene hat keinen Effekt, während eine weiße Ebene die Farbe der anderen Ebene invertiert.
 - `exclusion`
-  - : Die endgültige Farbe ist ähnlich wie `difference`, jedoch mit weniger Kontrast.
-    Wie bei `difference` hat eine schwarze Schicht keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht invertiert.
+  - : Die endgültige Farbe ist ähnlich `difference`, aber mit weniger Kontrast.
+    Wie bei `difference` hat eine schwarze Ebene keinen Effekt, während eine weiße Ebene die andere Ebene invertiert.
 - `hue`
-  - : Die endgültige Farbe hat den _Farbton_ der oberen Farbe, während sie die _Sättigung_ und _Helligkeit_ der unteren Farbe verwendet.
+  - : Die endgültige Farbe hat den _Farbton_ der oberen Farbe, während die _Sättigung_ und _Helligkeit_ der unteren Farbe verwendet werden.
 - `saturation`
-  - : Die endgültige Farbe hat die _Sättigung_ der oberen Farbe, während sie den _Farbton_ und die _Helligkeit_ der unteren Farbe verwendet.
-    Ein reingrauer Hintergrund, der keine Sättigung hat, wird keine Wirkung haben.
+  - : Die endgültige Farbe hat die _Sättigung_ der oberen Farbe, während der _Farbton_ und die _Helligkeit_ der unteren Farbe verwendet werden.
+    Ein rein grauer Hintergrund, der keine Sättigung hat, wird keine Auswirkung haben.
 - `color`
-  - : Die endgültige Farbe hat den _Farbton_ und die _Sättigung_ der oberen Farbe, während sie die _Helligkeit_ der unteren Farbe verwendet.
-    Der Effekt bewahrt Graustufen und kann verwendet werden, um den Vordergrund einzufärben.
+  - : Die endgültige Farbe hat den _Farbton_ und die _Sättigung_ der oberen Farbe, während die _Helligkeit_ der unteren Farbe verwendet wird.
+    Der Effekt bewahrt die Graustufen und kann verwendet werden, um den Vordergrund zu kolorieren.
 - `luminosity`
-  - : Die endgültige Farbe hat die _Helligkeit_ der oberen Farbe, während sie den _Farbton_ und die _Sättigung_ der unteren Farbe verwendet.
-    Dieser Mischmodus ist gleichwertig mit `color`, jedoch mit vertauschten Schichten.
+  - : Die endgültige Farbe hat die _Helligkeit_ der oberen Farbe, während der _Farbton_ und die _Sättigung_ der unteren Farbe verwendet werden.
+    Dieser Blendmodus entspricht `color`, aber mit vertauschten Ebenen.
 
 ## Beschreibung
 
-Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Mischmodus die Farben des Vordergrunds und des Hintergrunds, führt eine Berechnung an ihnen durch und gibt einen neuen Farbwert zurück.
+Für jedes Pixel zwischen den Ebenen, auf die es angewendet wird, nimmt ein Blendmodus die Farben des Vorder- und Hintergrunds, führt eine Berechnung an ihnen durch und gibt einen neuen Farbwert zurück.
 
-Änderungen zwischen Mischmodi werden nicht interpoliert. Jede Veränderung erfolgt sofort.
+Änderungen zwischen den Blendmodi werden nicht interpoliert. Jede Änderung erfolgt sofort.
 
 ## Formale Syntax
 
@@ -79,7 +79,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 ## Beispiele
 
-### Beispiel für "normal"
+### Beispiel mit "normal"
 
 ```html hidden
 <div id="div"></div>
@@ -96,7 +96,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "normal"', "300", "350") }}
 
-### Beispiel für "multiply"
+### Beispiel mit "multiply"
 
 ```html hidden
 <div id="div"></div>
@@ -113,7 +113,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "multiply"', "300", "350") }}
 
-### Beispiel für "screen"
+### Beispiel mit "screen"
 
 ```html hidden
 <div id="div"></div>
@@ -130,7 +130,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "screen"', "300", "350") }}
 
-### Beispiel für "overlay"
+### Beispiel mit "overlay"
 
 ```html hidden
 <div id="div"></div>
@@ -147,7 +147,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "overlay"', "300", "350") }}
 
-### Beispiel für "darken"
+### Beispiel mit "darken"
 
 ```html hidden
 <div id="div"></div>
@@ -164,7 +164,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "darken"', "300", "350") }}
 
-### Beispiel für "lighten"
+### Beispiel mit "lighten"
 
 ```html hidden
 <div id="div"></div>
@@ -181,7 +181,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "lighten"', "300", "350") }}
 
-### Beispiel für "color-dodge"
+### Beispiel mit "color-dodge"
 
 ```html hidden
 <div id="div"></div>
@@ -198,7 +198,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "color-dodge"', "300", "350") }}
 
-### Beispiel für "color-burn"
+### Beispiel mit "color-burn"
 
 ```html hidden
 <div id="div"></div>
@@ -215,7 +215,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "color-burn"', "300", "350") }}
 
-### Beispiel für "hard-light"
+### Beispiel mit "hard-light"
 
 ```html hidden
 <div id="div"></div>
@@ -232,7 +232,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "hard-light"', "300", "350") }}
 
-### Beispiel für "soft-light"
+### Beispiel mit "soft-light"
 
 ```html hidden
 <div id="div"></div>
@@ -249,7 +249,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "soft-light"', "300", "350") }}
 
-### Beispiel für "difference"
+### Beispiel mit "difference"
 
 ```html hidden
 <div id="div"></div>
@@ -266,7 +266,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "difference"', "300", "350") }}
 
-### Beispiel für "exclusion"
+### Beispiel mit "exclusion"
 
 ```html hidden
 <div id="div"></div>
@@ -283,7 +283,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "exclusion"', "300", "350") }}
 
-### Beispiel für "hue"
+### Beispiel mit "hue"
 
 ```html hidden
 <div id="div"></div>
@@ -300,7 +300,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "hue"', "300", "350") }}
 
-### Beispiel für "saturation"
+### Beispiel mit "saturation"
 
 ```html hidden
 <div id="div"></div>
@@ -317,7 +317,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "saturation"', "300", "350") }}
 
-### Beispiel für "color"
+### Beispiel mit "color"
 
 ```html hidden
 <div id="div"></div>
@@ -334,7 +334,7 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "color"', "300", "350") }}
 
-### Beispiel für "luminosity"
+### Beispiel mit "luminosity"
 
 ```html hidden
 <div id="div"></div>
@@ -351,9 +351,9 @@ Für jedes Pixel unter den Schichten, auf die es angewendet wird, nimmt ein Misc
 
 {{ EmbedLiveSample('Example using "luminosity"', "300", "350") }}
 
-### Vergleich von Mischmodi
+### Vergleich der Blendmodi
 
-Im folgenden Beispiel haben wir ein `<div>` mit zwei Hintergrundbildern — einem Firefox-Logo über einem linearen Verlauf. Darunter befindet sich ein `<select>`-Menü, das es Ihnen ermöglicht, den `background-blend-mode` des `<div>` zu ändern und die verschiedenen Effekte der Mischmodi zu vergleichen.
+Im folgenden Beispiel haben wir ein `<div>` mit zwei darauf gesetzten Hintergrundbildern — einem Firefox-Logo über einem linearen Gradienten. Darunter befindet sich ein `<select>`-Menü, das es Ihnen ermöglicht, den `background-blend-mode` des `<div>` zu ändern, sodass Sie die verschiedenen Blendmoduseffekte vergleichen können.
 
 #### HTML
 
@@ -418,10 +418,10 @@ selectElem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- Das [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
+- Das [CSS compositing and blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
 
-Beschreibung zu verschiedenen Mischmodi auf anderen Websites:
+Beschreibung zu verschiedenen Blendmodi auf anderen Websites:
 
-- [Blend modes](https://en.wikipedia.org/wiki/Blend_modes) auf Wikipedia
-- [Mischmodi in Adobe Photoshop](https://helpx.adobe.com/photoshop/using/blending-modes.html) von Adobe
+- [Blend modes](https://de.wikipedia.org/wiki/Blend_modes) auf Wikipedia
+- [Blending modes in Adobe Photoshop](https://helpx.adobe.com/photoshop/using/blending-modes.html) von Adobe

@@ -7,31 +7,31 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<resolution>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types), der zur Beschreibung von [Auflösungen](/de/docs/Web/CSS/@media/resolution) in [Media Queries](/de/docs/Web/CSS/CSS_media_queries) verwendet wird, bezeichnet die Pixeldichte eines Ausgabegeräts, also dessen Auflösung.
+Der **`<resolution>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types), der zur Beschreibung von [Auflösungen](/de/docs/Web/CSS/@media/resolution) in [Media Queries](/de/docs/Web/CSS/CSS_media_queries) verwendet wird, bezeichnet die Pixeldichte eines Ausgabegeräts, d. h. seine Auflösung.
 
-Auf Bildschirmen sind die Einheiten auf _CSS_-Zoll, Zentimeter oder Pixel bezogen, nicht auf physikalische Werte.
+Bei Bildschirmen beziehen sich die Einheiten auf _CSS_ Zoll, Zentimeter oder Pixel, nicht auf physikalische Werte.
 
 ## Syntax
 
-Der `<resolution>` Datentyp besteht aus einer strikt positiven {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Einheit und der Zahl.
+Der `<resolution>` Datentyp besteht aus einer strikt positiven {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen dem Einheitensymbol und der Zahl.
 
 ### Einheiten
 
 - `dpi`
-  - : Repräsentiert die Anzahl der [Punkte pro Zoll](https://en.wikipedia.org/wiki/Dots_per_inch). Bildschirme enthalten typischerweise 72 oder 96 Punkte pro Zoll, aber die dpi für gedruckte Dokumente ist in der Regel viel größer. Da 1 Zoll 2,54 cm sind, gilt `1dpi ≈ 0,39dpcm`.
+  - : Repräsentiert die Anzahl der [Punkte pro Zoll](https://en.wikipedia.org/wiki/Dots_per_inch). Bildschirme enthalten typischerweise 72 oder 96 Punkte pro Zoll, aber der dpi-Wert für gedruckte Dokumente ist normalerweise viel höher. Da 1 Zoll 2,54 cm entspricht, gilt `1dpi ≈ 0.39dpcm`.
 - `dpcm`
-  - : Repräsentiert die Anzahl der [Punkte pro Zentimeter](https://en.wikipedia.org/wiki/Dots_per_inch). Da 1 Zoll 2,54 cm sind, gilt `1dpcm ≈ 2,54dpi`.
+  - : Repräsentiert die Anzahl der [Punkte pro Zentimeter](https://en.wikipedia.org/wiki/Dots_per_inch). Da 1 Zoll 2,54 cm ist, gilt `1dpcm ≈ 2.54dpi`.
 - `dppx`
-  - : Repräsentiert die Anzahl der Punkte pro [`px`](/de/docs/Web/CSS/length#px) Einheit. Aufgrund des festen Verhältnisses 1:96 von CSS `in` zu CSS `px` ist `1dppx` äquivalent zu `96dpi`, was der Standardauflösung von in CSS angezeigten Bildern entspricht, wie in {{cssxref("image-resolution")}} definiert.
+  - : Repräsentiert die Anzahl der Punkte pro [`px`](/de/docs/Web/CSS/length#px) Einheit. Aufgrund des festen Verhältnisses von 1:96 von CSS `in` zu CSS `px` entspricht `1dppx` `96dpi`, was der Standardauflösung von in CSS angezeigten Bildern entspricht, wie durch {{cssxref("image-resolution")}} definiert.
 - `x`
   - : Alias für `dppx`.
 
 > [!NOTE]
-> Obwohl die Zahl `0` unabhängig von der Einheit immer gleich ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0dpi`, `0dpcm` oder `0dppx`.
+> Obwohl die Zahl `0` immer gleich bleibt, unabhängig von der Einheit, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und entspricht nicht `0dpi`, `0dpcm` oder `0dppx`.
 
 ## Beispiele
 
-### Verwendung in einem Media Query
+### Verwendung in einer Media Query
 
 ```css
 @media print and (min-resolution: 300dpi) {

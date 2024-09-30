@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die statische Accessor-Eigenschaft **`RegExp[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um kopierte reguläre Ausdrücke in bestimmten `RegExp`-Methoden zu erzeugen.
+Die statische Accessor-Eigenschaft **`RegExp[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um kopierte reguläre Ausdrücke in bestimmten `RegExp`-Methoden zu konstruieren.
 
 > [!WARNING]
-> Die Existenz von `[Symbol.species]` erlaubt die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Dies macht auch bestimmte Optimierungen viel schwieriger. Engine-Implementierer [untersuchen, ob dieses Feature entfernt werden sollte](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich darauf zu verlassen, wenn möglich.
+> Die Existenz von `[Symbol.species]` erlaubt die Ausführung beliebigen Codes und kann Sicherheitslücken schaffen. Sie erschwert auch bestimmte Optimierungen erheblich. Entwickler der Engines sind [dabei, zu untersuchen, ob dieses Feature entfernt werden sollte](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie, sich darauf zu verlassen, wenn möglich.
 
 {{EmbedInteractiveExample("pages/js/regexp-getregexp-@@species.html")}}
 
@@ -22,11 +22,11 @@ RegExp[Symbol.species]
 
 ### Rückgabewert
 
-Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um kopierte `RegExp`-Instanzen zu erzeugen.
+Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um kopierte `RegExp`-Instanzen zu konstruieren.
 
 ## Beschreibung
 
-Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `RegExp`-Objekte zurück. Unterklassenkonstruktoren können ihn überschreiben, um die Konstruktorzuweisung zu ändern. Die Standardimplementierung ist im Wesentlichen:
+Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `RegExp`-Objekte zurück. Subklassenkonstruktoren können diese überschreiben, um die Zuweisung des Konstruktors zu ändern. Die Standardimplementierung ist im Wesentlichen:
 
 ```js
 // Hypothetical underlying implementation for illustration
@@ -37,14 +37,14 @@ class RegExp {
 }
 ```
 
-Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig auch den Konstruktor selbst zurückgeben.
+Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Subklassen standardmäßig auch den Konstruktor selbst zurückgeben.
 
 ```js
 class SubRegExp extends SubRegExp {}
 SubRegExp[Symbol.species] === SubRegExp; // true
 ```
 
-Einige `RegExp`-Methoden erstellen eine Kopie der aktuellen Regex-Instanz, bevor {{jsxref("RegExp/exec", "exec()")}} ausgeführt wird, sodass Nebeneffekte wie Änderungen an {{jsxref("RegExp/lastIndex", "lastIndex")}} nicht erhalten bleiben. Die Eigenschaft `[Symbol.species]` wird verwendet, um den Konstruktor der neuen Instanz zu bestimmen. Die Methoden, die die aktuelle Regex-Instanz kopieren, sind:
+Einige `RegExp`-Methoden erstellen eine Kopie der aktuellen Regex-Instanz, bevor sie {{jsxref("RegExp/exec", "exec()")}} ausführen, damit Seiteneffekte, wie Änderungen an {{jsxref("RegExp/lastIndex", "lastIndex")}}, nicht beibehalten werden. Die `[Symbol.species]`-Eigenschaft wird verwendet, um den Konstruktor der neuen Instanz zu bestimmen. Die Methoden, die die aktuelle Regex-Instanz kopieren, sind:
 
 - [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll)
 - [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split)
@@ -61,7 +61,7 @@ RegExp[Symbol.species]; // function RegExp()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `RegExp`-Unterklasse, wie `MyRegExp`, ist die `MyRegExp`-Species der `MyRegExp`-Konstruktor. Sie könnten jedoch diesen überschreiben wollen, um in den Methoden Ihrer abgeleiteten Klasse übergeordnete `RegExp`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `RegExp`-Subklasse, wie `MyRegExp`, ist die `MyRegExp`-Species der `MyRegExp`-Konstruktor. Sie möchten dies jedoch möglicherweise überschreiben, um in Ihren abgeleiteten Klassenmethoden übergeordnete `RegExp`-Objekte zurückzugeben:
 
 ```js
 class MyRegExp extends RegExp {
@@ -72,7 +72,7 @@ class MyRegExp extends RegExp {
 }
 ```
 
-Oder Sie können dies verwenden, um den Kopiervorgang zu beobachten:
+Oder Sie können dies nutzen, um den Kopiervorgang zu beobachten:
 
 ```js
 class MyRegExp extends RegExp {

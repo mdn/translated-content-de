@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Die **`data`**-Eigenschaft der [`TextEvent`](/de/docs/Web/API/TextEvent)-Schnittstelle gibt das letzte Zeichen zurück, das dem Eingabeelement hinzugefügt wurde. Diese Eigenschaft ist schreibgeschützt.
+Die schreibgeschützte Eigenschaft **`data`** der [`TextEvent`](/de/docs/Web/API/TextEvent)-Schnittstelle gibt das letzte Zeichen zurück, das zu dem Eingabeelement hinzugefügt wurde.
 
 ## Wert
 
 Ein String, der die Ereignisdaten darstellt.
-Für `textInput`-Ereignisse ist dies das Zeichen, das zuletzt eingegeben wurde.
+Für `textInput`-Ereignisse ist dies das zuletzt eingegebene Zeichen.
 
 ## Spezifikationen
 

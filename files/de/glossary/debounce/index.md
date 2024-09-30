@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Debouncing** bedeutet im Kontext der Programmierung, dass alle während eines bestimmten Intervalls angeforderten Operationen zu einem einzigen Aufruf zusammengefasst werden.
+**Debouncing** bedeutet im Programmierkontext, alle während eines bestimmten Zeitraums angeforderten Operationen zu einer einzigen Ausführung zusammenzufassen.
 
-Debouncing ist dem [Throttling](/de/docs/Glossary/throttle) sehr ähnlich. Der wesentliche Unterschied besteht darin, dass Throttling kontinuierliche Operationen begrenzt, während Debouncing wartet, bis Aufrufe für eine bestimmte Zeit aufhören, um viele störende Aufrufe in einen einzigen zusammenzufassen.
+Debouncing ist dem [Throttling](/de/docs/Glossary/throttle) sehr ähnlich. Der Hauptunterschied besteht darin, dass Throttling Beschränkungen für kontinuierliche Operationen durchsetzt, während Debouncing darauf wartet, dass Aufrufe für eine bestimmte Zeit aufhören, um viele störende Aufrufe zu einer einzigen Ausführung zu konsolidieren.
 
-Ein typischer Anwendungsfall für Debouncing ist die Reaktion auf Benutzereingaben. Während der Benutzer tippt, sollten keine anderen Aktionen durchgeführt werden, um zu vermeiden, dass die Benutzeroberfläche träge wird. Wenn der Benutzer das Tippen pausiert, können wir mit der Verarbeitung der Eingaben beginnen, z. B. durch Filtern von Ergebnissen, Vorschläge geben usw. Wenn die Funktion `search` um 10 Millisekunden entprellt wird, bedeutet das:
+Ein typisches Anwendungsbeispiel für Debouncing ist die Reaktion auf Benutzereingaben. Wenn der Benutzer tippt, sollte keine andere Aktion durchgeführt werden, um zu vermeiden, dass die Benutzeroberfläche träge wird. Wenn der Benutzer das Tippen unterbricht, können wir beginnen, die Eingabe zu verarbeiten, wie z.B. Ergebnisse zu filtern, Vorschläge zu geben usw. Wenn die Funktion `search` um 10 Millisekunden gedebounced ist, bedeutet das:
 
 1. Der erste Aufruf von `search` wird als _leading edge_ bezeichnet.
-2. Für jeden folgenden Aufruf von `search`, falls dieser innerhalb von 10 Millisekunden nach dem vorherigen Aufruf erfolgt, gehört er zur gleichen "Gruppe" wie der vorherige Aufruf.
-3. Wenn 10 Millisekunden seit dem letzten Aufruf von `search` vergangen sind und keine weiteren Aufrufe stattgefunden haben, haben wir die _trailing edge_ erreicht.
+2. Jeder weitere Aufruf von `search`, der innerhalb von 10 Millisekunden nach dem vorherigen Aufruf erfolgt, befindet sich in derselben „Charge“ wie der vorherige Aufruf.
+3. Nachdem 10 Millisekunden seit dem letzten Aufruf von `search` vergangen sind, ohne dass weitere Aufrufe erfolgt sind, haben wir die _trailing edge_ erreicht.
 
-Normalerweise wird `search` nur einmal an der trailing edge ausgeführt, obwohl es manchmal am leading edge oder sogar an beiden Kanten ausgeführt werden kann, abhängig vom spezifischen Anwendungsfall. Wenn es an beiden Kanten ausgeführt wird, sorgt die Debouncing-Implementierung normalerweise auch dafür, dass der nächste leading edge-Aufruf mindestens 10 Millisekunden nach der vorherigen trailing edge nicht ausgelöst wird.
+Üblicherweise wird `search` nur einmal am trailing edge ausgeführt, obwohl es manchmal auch am leading edge oder sogar an beiden Kanten ausgeführt werden kann, je nach spezifischem Anwendungsfall. Wenn es an beiden Kanten ausgeführt wird, stellt die Debouncing-Implementierung normalerweise auch sicher, dass der nächste leading edge-Aufruf mindestens 10 Millisekunden nach der vorherigen trailing edge nicht ausgelöst wird.
 
 ## Siehe auch
 

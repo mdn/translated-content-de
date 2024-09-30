@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`message`**-Eigenschaft des schreibgeschützten [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt eine menschenlesbare Beschreibung der Veraltung zurück. Diese entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole in Bezug auf ein veraltetes Feature anzeigt.
+Die schreibgeschützte **`message`**-Eigenschaft des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt eine lesbare Beschreibung der Veraltung zurück. Dies entspricht in der Regel der Nachricht, die ein Browser in seiner DevTools-Konsole bezüglich eines veralteten Features anzeigt.
 
 ## Wert
 

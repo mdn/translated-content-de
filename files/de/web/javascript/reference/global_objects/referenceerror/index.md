@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Das **`ReferenceError`**-Objekt repräsentiert einen Fehler, wenn auf eine Variable verwiesen wird, die im aktuellen Umfang nicht existiert (oder noch nicht initialisiert wurde).
+Das **`ReferenceError`**-Objekt repräsentiert einen Fehler, wenn auf eine Variable verwiesen wird, die im aktuellen Geltungsbereich nicht existiert (oder noch nicht initialisiert wurde).
 
-`ReferenceError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mittels [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`ReferenceError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `ReferenceError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -20,22 +20,22 @@ Das **`ReferenceError`**-Objekt repräsentiert einen Fehler, wenn auf eine Varia
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}._
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
 Diese Eigenschaften sind auf `ReferenceError.prototype` definiert und werden von allen `ReferenceError`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "ReferenceError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `ReferenceError`-Instanzen ist der Anfangswert der {{jsxref("ReferenceError/ReferenceError", "ReferenceError")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `ReferenceError`-Instanzen ist der anfängliche Wert der {{jsxref("ReferenceError/ReferenceError", "ReferenceError")}}-Konstruktor.
 - {{jsxref("Error/name", "ReferenceError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Für `ReferenceError.prototype.name` ist der Anfangswert `"ReferenceError"`.
+  - : Repräsentiert den Namen für den Fehlertyp. Für `ReferenceError.prototype.name` ist der anfängliche Wert `"ReferenceError"`.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}._
+_Erbt Instanz-Methoden von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
 ## Beispiele
 
-### Abfangen eines ReferenceError
+### Einen ReferenceError abfangen
 
 ```js
 try {
@@ -48,7 +48,7 @@ try {
 }
 ```
 
-### Erstellen eines ReferenceError
+### Einen ReferenceError erstellen
 
 ```js
 try {

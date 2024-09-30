@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Locale** ist eine Sammlung von sprach- oder länderbasierten Einstellungen für eine Benutzeroberfläche.
+**Locale** ist eine Reihe von sprach- oder länderbasierten Präferenzen für eine Benutzeroberfläche.
 
-Ein Programm entnimmt seine Locale-Einstellungen aus der Sprache des Hostsystems. Unter anderem repräsentieren Locales Papierformate, Währungen, Datumsformate und Zahlen gemäß den Protokollen in der jeweiligen Region.
+Ein Programm bezieht seine Gebietsschemaeinstellungen aus der Sprache des Hostsystems. Unter anderem repräsentieren Gebietsschemata Papierformate, Währung, Datumsformate und Zahlen gemäß den Protokollen der gegebenen Region.
 
 ## Siehe auch
 

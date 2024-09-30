@@ -1,5 +1,5 @@
 ---
-title: "Document: releaseCapture() Methode"
+title: "Document: releaseCapture()-Methode"
 short-title: releaseCapture()
 slug: Web/API/Document/releaseCapture
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("DOM")}}{{Non-standard_header}}
 
-Die **`releaseCapture()`** Methode gibt die Mauserfassung frei, wenn sie derzeit auf ein Element innerhalb dieses Dokuments aktiviert ist. Sobald die Mauserfassung freigegeben wird, werden Mausereignisse nicht mehr alle auf das Element ausgerichtet, bei dem die Erfassung aktiviert ist.
+Die **`releaseCapture()`**-Methode beendet die Maus-Eingabeerfassung, wenn sie derzeit für ein Element in diesem Dokument aktiviert ist. Sobald die Maus-Eingabeerfassung beendet ist, werden Mausereignisse nicht mehr alle an das Element gerichtet, auf dem die Erfassung aktiviert ist.
 
-Die Aktivierung der Mauserfassung auf einem Element erfolgt durch einen Aufruf von [`element.setCapture()`](/de/docs/Web/API/Element/setCapture).
+Die Aktivierung der Maus-Eingabeerfassung auf einem Element erfolgt durch den Aufruf von [`element.setCapture()`](/de/docs/Web/API/Element/setCapture).
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Siehe das [Beispiel](/de/docs/Web/API/Element/setCapture#examples) für
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

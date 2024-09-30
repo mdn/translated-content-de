@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **größer als (`>`)** Operator gibt `true` zurück, wenn der linke Operand größer als der rechte Operand ist, und `false` andernfalls.
+Der **greater than (`>`)** Operator gibt `true` zurück, wenn der linke Operand größer als der rechte Operand ist, und `false` andernfalls.
 
 {{EmbedInteractiveExample("pages/js/expressions-greater-than.html")}}
 
@@ -19,11 +19,11 @@ x > y
 
 ## Beschreibung
 
-Die Operanden werden mit dem gleichen Algorithmus wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, mit dem Unterschied, dass die beiden Operanden vertauscht sind. `x > y` ist im Allgemeinen äquivalent zu `y < x`, außer dass `x > y` `x` in einen primitiven Wert umwandelt, bevor `y` umgewandelt wird, während `y < x` `y` in einen primitiven Wert umwandelt, bevor `x` umgewandelt wird. Da Umwandlung Nebeneffekte haben kann, könnte die Reihenfolge der Operanden eine Rolle spielen.
+Die Operanden werden mit demselben Algorithmus verglichen wie beim [Less than](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator, außer dass die beiden Operanden vertauscht sind. `x > y` ist im Allgemeinen gleichbedeutend mit `y < x`, mit der Ausnahme, dass `x > y` `x` vor `y` in ein primitives Element umwandelt, während `y < x` `y` vor `x` in ein primitives Element umwandelt. Da die Umwandlung Nebeneffekte haben kann, kann die Reihenfolge der Operanden von Bedeutung sein.
 
 ## Beispiele
 
-### String zu String Vergleich
+### Vergleich von String zu String
 
 ```js
 "a" > "b"; // false
@@ -31,7 +31,7 @@ Die Operanden werden mit dem gleichen Algorithmus wie der [Kleiner als](/de/docs
 "a" > "3"; // true
 ```
 
-### String zu Number Vergleich
+### Vergleich von String zu Number
 
 ```js
 "5" > 3; // true
@@ -45,7 +45,7 @@ Die Operanden werden mit dem gleichen Algorithmus wie der [Kleiner als](/de/docs
 "3" > 5n; // false
 ```
 
-### Number zu Number Vergleich
+### Vergleich von Number zu Number
 
 ```js
 5 > 3; // true
@@ -53,7 +53,7 @@ Die Operanden werden mit dem gleichen Algorithmus wie der [Kleiner als](/de/docs
 3 > 5; // false
 ```
 
-### Number zu BigInt Vergleich
+### Vergleich von Number zu BigInt
 
 ```js
 5n > 3; // true

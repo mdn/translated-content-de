@@ -18,7 +18,7 @@ sum(node-set)
 ### Parameter
 
 - `node-set`
-  - : Das zu evaluierende Knoten-Set. Jeder Knoten in diesem Knoten-Set wird so ausgewertet, als wäre er der [number()](/de/docs/Web/XPath/Functions/number) Funktion übergeben worden, und eine Summe der resultierenden Zahlen wird zurückgegeben.
+  - : Das zu bewertende Knoten-Set. Jeder Knoten in diesem Knoten-Set wird bewertet, als ob er der Funktion [number()](/de/docs/Web/XPath/Functions/number) übergeben würde, und eine Summe der resultierenden Zahlen wird zurückgegeben.
 
 ### Rückgabewert
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`name`**-Eigenschaft des [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Interfaces gibt den Namen der Richtlinie zurück.
+Die schreibgeschützte **`name`**-Eigenschaft der [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Schnittstelle gibt den Namen der Richtlinie zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den Namen der Richtlinie enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine Richtlinie mit dem Namen `myEscapePolicy` erstellt, die mit [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt wird und durch das Objekt `escapeHTMLPolicy` dargestellt wird. Der Aufruf von `name` für dieses Objekt gibt den String "myEscapePolicy" zurück.
+Im folgenden Beispiel wird eine Richtlinie namens `myEscapePolicy` unter Verwendung von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt und durch das Objekt `escapeHTMLPolicy` dargestellt. Ein Aufruf von `name` auf diesem Objekt gibt den String "myEscapePolicy" zurück.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {

@@ -20,7 +20,7 @@ countReset(label)
 ### Parameter
 
 - `label` {{optional_inline}}
-  - : Ein String. Wenn angegeben, setzt `countReset()` den Zähler für dieses Label auf 0 zurück. Wenn weggelassen, setzt `countReset()` den Standardzähler auf 0 zurück.
+  - : Ein String. Wenn angegeben, setzt `countReset()` den Zähler für dieses Label auf 0 zurück. Wird es weggelassen, setzt `countReset()` den Standardzähler auf 0 zurück.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Zum Beispiel, bei folgendem Code:
+Zum Beispiel ergibt der folgende Code:
 
 ```js
 function greet(user) {
@@ -43,7 +43,7 @@ console.count();
 console.countReset();
 ```
 
-Die Konsolenausgabe sieht ungefähr so aus:
+eine Konsolenausgabe, die in etwa so aussieht:
 
 ```plain
 "default: 1"
@@ -53,9 +53,9 @@ Die Konsolenausgabe sieht ungefähr so aus:
 "default: 0"
 ```
 
-Beachten Sie, dass der Aufruf von `console.counterReset()` den Wert des Standardzählers auf null zurücksetzt.
+Beachten Sie, dass der Aufruf von `console.countReset()` den Wert des Standardzählers auf Null setzt.
 
-Wenn wir die Variable `user` als `label`-Parameter mit dem String "bob" beim ersten Aufruf von `console.count()` und den String "alice" beim zweiten übergeben:
+Wenn wir die Variable `user` als `label`-Argument mit dem String "bob" bei der ersten Verwendung von `console.count()` übergeben und den String "alice" bei der zweiten:
 
 ```js
 function greet(user) {
@@ -70,7 +70,7 @@ console.countReset("bob");
 console.count("alice");
 ```
 
-Erhalten wir eine Ausgabe wie diese:
+sehen wir eine Ausgabe wie diese:
 
 ```plain
 "bob: 1"
@@ -80,7 +80,7 @@ Erhalten wir eine Ausgabe wie diese:
 "alice: 3"
 ```
 
-Das Zurücksetzen des Zählers "bob" ändert nur den Wert dieses Zählers. Der Wert von "alice" bleibt unverändert.
+Das Zurücksetzen des Wertes des Zählers "bob" ändert nur den Wert dieses Zählers. Der Wert von "alice" bleibt unverändert.
 
 ## Spezifikationen
 
@@ -92,6 +92,6 @@ Das Zurücksetzen des Zählers "bob" ändert nur den Wert dieses Zählers. Der W
 
 ## Siehe auch
 
-- [Dokumentation von Microsoft Edge für `console.countReset()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#countreset)
-- [Node.JS-Dokumentation für `console.countReset()`](https://nodejs.org/docs/latest/api/console.html#consolecountresetlabel)
-- [Dokumentation von Google Chrome für `console.countReset()`](https://developer.chrome.com/docs/devtools/console/api/#countreset)
+- [Microsoft Edge-Dokumentation zu `console.countReset()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#countreset)
+- [Node.JS-Dokumentation zu `console.countReset()`](https://nodejs.org/docs/latest/api/console.html#consolecountresetlabel)
+- [Google Chrome-Dokumentation zu `console.countReset()`](https://developer.chrome.com/docs/devtools/console/api/#countreset)

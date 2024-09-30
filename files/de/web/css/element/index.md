@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`element()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}}-Wert, der aus einem beliebigen HTML-Element generiert wird. Dieses Bild ist live, was bedeutet, dass wenn das HTML-Element geändert wird, die CSS-Eigenschaften, die den resultierenden Wert verwenden, automatisch aktualisiert werden.
+Die **`element()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der von einem beliebigen HTML-Element generiert wird. Dieses Bild ist live, das heißt, wenn das HTML-Element geändert wird, werden die CSS-Eigenschaften, die diesen Wert verwenden, automatisch aktualisiert.
 
-Ein besonders nützliches Szenario für die Nutzung wäre, ein Bild in einem HTML {{HTMLElement("canvas")}} Element zu rendern und dieses dann als Hintergrund zu verwenden.
+Ein besonders nützliches Szenario für die Verwendung wäre, ein Bild in einem HTML {{HTMLElement("canvas")}}-Element zu rendern und dieses dann als Hintergrund zu verwenden.
 
 In Gecko-Browsern können Sie die nicht standardmäßige Methode [`document.mozSetImageElement()`](/de/docs/Web/API/Document/mozSetImageElement) verwenden, um das Element zu ändern, das als Hintergrund für ein bestimmtes CSS-Hintergrundelement verwendet wird.
 
@@ -19,18 +19,18 @@ In Gecko-Browsern können Sie die nicht standardmäßige Methode [`document.mozS
 element(id)
 ```
 
-wobei:
+wo:
 
 - _id_
-  - : Die ID eines Elements, das als Hintergrund verwendet werden soll, angegeben durch das HTML-Attribut #_id_ am Element.
+  - : Die ID eines Elements, das als Hintergrund verwendet werden soll, spezifiziert mit dem HTML-Attribut #_id_ auf dem Element.
 
 ## Beispiele
 
-Diese Beispiele funktionieren in Builds von Firefox, die `-moz-element()` unterstützen.
+Diese Beispiele funktionieren in Firefox-Builds, die `-moz-element()` unterstützen.
 
-### Ein etwas realistisches Beispiel
+### Ein einigermaßen realistisches Beispiel
 
-Dieses Beispiel verwendet ein verstecktes {{HTMLElement("div")}} als Hintergrund. Das Hintergrundelement verwendet einen Verlauf, beinhaltet aber auch Text, der als Teil des Hintergrunds gerendert wird.
+Dieses Beispiel verwendet ein verstecktes {{HTMLElement("div")}} als Hintergrund. Das Hintergrundelement verwendet einen Verlauf, enthält aber auch Text, der als Teil des Hintergrunds gerendert wird.
 
 ```html
 <div
@@ -56,8 +56,7 @@ Das {{HTMLElement("div")}}-Element mit der ID "myBackground1" wird als Hintergru
 ### Seitenvorschau
 
 Dieses <a href="https://iamvdo.me/en/blog/css-element-function">
-Beispiel basiert auf Vincent De Oliveiras</a> und erstellt eine Vorschau von
-dem `<div id="css-source">` innerhalb `<div id="css-result">`.
+Beispiel basierend auf Vincent De Oliveiras</a> erstellt eine Vorschau des `<div id="css-source">` innerhalb `<div id="css-result">`.
 
 #### HTML
 

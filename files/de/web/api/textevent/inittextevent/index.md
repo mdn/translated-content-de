@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Die **`initTextEventEvent()`**-Methode des [`TextEvent`](/de/docs/Web/API/TextEvent)-Interfaces initialisiert den Wert eines `TextEvent`, nachdem es erstellt wurde.
+Die **`initTextEventEvent()`**-Methode der [`TextEvent`](/de/docs/Web/API/TextEvent)-Schnittstelle initialisiert den Wert eines `TextEvent` nachdem es erstellt wurde.
 
-Diese Methode muss aufgerufen werden, um das Ereignis einzustellen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
+Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mittels [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
 
 > [!NOTE]
-> Allgemein werden Sie diese Ereignisse nicht selbst erstellen; sie werden vom Browser erstellt.
+> Im Allgemeinen werden Sie diese Ereignisse nicht selbst erstellen; sie werden vom Browser erstellt.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ initTextEvent(type, bubbles, cancelable, view, data)
 ### Parameter
 
 - `type`
-  - : Ein String, um den [`type`](/de/docs/Web/API/Event/type) des Events festzulegen.
+  - : Ein String, um den [`type`](/de/docs/Web/API/Event/type) des Ereignisses festzulegen.
     Es gibt nur einen Ereignistyp für ein [`TextEvent`](/de/docs/Web/API/TextEvent): `textInput`.
 - `bubbles` {{optional_inline}}
-  - : Ein Boolean, der angibt, ob das Ereignis aufsteigen kann oder nicht. Standardmäßig `false`. Setzt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles).
+  - : Ein Boolean, der angibt, ob das Ereignis aufsteigen kann oder nicht. Standardmäßig `false`. Legt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) fest.
 - `cancelable` {{optional_inline}}
-  - : Ein Boolean, der angibt, ob die Standardaktion des Ereignisses verhindert werden kann oder nicht. Standardmäßig `false`. Setzt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable).
+  - : Ein Boolean, der angibt, ob die Standardaktion des Ereignisses verhindert werden kann oder nicht. Standardmäßig `false`. Legt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) fest.
 - `view` {{optional_inline}}
   - : Das [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt, von dem das Ereignis generiert wurde. Standardmäßig `null`.
 - `data` {{optional_inline}}

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getMappedRange()`**-Methode der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle gibt ein {{jsxref("ArrayBuffer")}} zurück, das die abgebildeten Inhalte des `GPUBuffer` im angegebenen Bereich enthält.
+Die **`getMappedRange()`**-Methode der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle gibt einen {{jsxref("ArrayBuffer")}} zurück, der den gemappten Inhalt des `GPUBuffer` im angegebenen Bereich enthält.
 
-Dies kann nur geschehen, nachdem der `GPUBuffer` erfolgreich mit [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) abgebildet wurde (dies kann über [`GPUBuffer.mapState`](/de/docs/Web/API/GPUBuffer/mapState) überprüft werden). Solange der `GPUBuffer` abgebildet ist, kann er in keinen GPU-Befehlen verwendet werden.
+Dies kann nur erfolgen, nachdem das `GPUBuffer` erfolgreich mit [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) gemappt wurde (dies kann über [`GPUBuffer.mapState`](/de/docs/Web/API/GPUBuffer/mapState) überprüft werden). Während das `GPUBuffer` gemappt ist, kann es in keinen GPU-Befehlen verwendet werden.
 
-Wenn Sie die Arbeit mit den `GPUBuffer`-Werten abgeschlossen haben, rufen Sie [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) auf, um ihn zurückzukoppeln und der GPU wieder zugänglich zu machen.
+Wenn Sie die Arbeit mit den `GPUBuffer`-Werten abgeschlossen haben, rufen Sie [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) auf, um es zu entmappen und damit wieder für die GPU zugänglich zu machen.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ getMappedRange(offset, size)
 ### Parameter
 
 - `offset` {{optional_inline}}
-  - : Eine Zahl, die den Offset in Bytes vom Anfang des abgebildeten Bereichs des `GPUBuffer` bis zum Anfang des zurückzugebenden Bereichs im {{jsxref("ArrayBuffer")}} darstellt. Wenn `offset` weggelassen wird, ist der Standardwert 0.
+  - : Eine Zahl, die den Offset in Bytes vom Anfang des gemappten Bereichs des `GPUBuffer` bis zum Anfang des im {{jsxref("ArrayBuffer")}} zurückzugebenden Bereichs darstellt. Wenn `offset` weggelassen wird, ist der Standardwert 0.
 - `size` {{optional_inline}}
-  - : Eine Zahl, die die Größe in Bytes des zurückzugebenden {{jsxref("ArrayBuffer")}} darstellt. Wenn `size` weggelassen wird, erstreckt sich der Bereich bis zum Ende des abgebildeten Bereichs des `GPUBuffer`.
+  - : Eine Zahl, die die Größe in Bytes des zurückzugebenden {{jsxref("ArrayBuffer")}} darstellt. Wenn `size` weggelassen wird, erstreckt sich der Bereich bis zum Ende des gemappten Bereichs des `GPUBuffer`.
 
 ### Rückgabewert
 
@@ -35,20 +35,20 @@ Ein {{jsxref("ArrayBuffer")}}.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`getMappedRange()`** aufgerufen wird, andernfalls wird ein `OperationError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`getMappedRange()`** aufgerufen wird, andernfalls wird ein `OperationError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst:
 
 - `offset` ist ein Vielfaches von 8.
-- Der gesamte zu abbildende Bereich (`size` falls angegeben, oder die Länge des abgebildeten Bereichs - `offset` falls nicht) ist ein Vielfaches von 4.
-- Der gesamte Bereich befindet sich innerhalb der Grenzen des abgebildeten Bereichs und überlappt nicht mit den durch andere aktive `getMappedRange()`-Aufrufe angegebenen {{jsxref("ArrayBuffer")}}-Bereichen.
+- Der zu mappende Gesamtbereich (`size` falls angegeben oder gemappte Bereichslänge - `offset` falls nicht) ist ein Vielfaches von 4.
+- Der Gesamtbereich liegt innerhalb der Grenzen des gemappten Bereichs und überschneidet sich nicht mit den {{jsxref("ArrayBuffer")}}-Bereichen, die von anderen aktiven `getMappedRange()`-Aufrufen spezifiziert sind.
 
 ### Ausnahmen
 
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, das {{jsxref("ArrayBuffer")}} auf andere Weise zu trennen als über [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap).
+  - : Wird ausgelöst, wenn versucht wird, den {{jsxref("ArrayBuffer")}} auf eine andere Weise als über [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) zu trennen.
 
 ## Beispiele
 
-Sehen Sie ein Beispiel auf der [Hauptseite von `GPUBuffer`](/de/docs/Web/API/GPUBuffer#examples).
+Siehe die [Hauptseite zu `GPUBuffer`](/de/docs/Web/API/GPUBuffer#examples) für ein Beispiel.
 
 ## Spezifikationen
 

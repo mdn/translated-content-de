@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-**`KeyboardEvent`**-Objekte beschreiben eine Benutzerinteraktion mit der Tastatur; jedes Event beschreibt eine einzelne Interaktion zwischen dem Benutzer und einer Taste (oder einer Kombination aus einer Taste mit Modifikatortasten) auf der Tastatur. Der Ereignistyp ([`keydown`](/de/docs/Web/API/Element/keydown_event), [`keypress`](/de/docs/Web/API/Element/keypress_event) oder [`keyup`](/de/docs/Web/API/Element/keyup_event)) gibt an, welche Art von Tastaturaktivität stattgefunden hat.
+**`KeyboardEvent`**-Objekte beschreiben eine Benutzerinteraktion mit der Tastatur; jedes Ereignis beschreibt eine einzelne Interaktion zwischen dem Benutzer und einer Taste (oder einer Kombination einer Taste mit Modifikatortasten) auf der Tastatur. Der Ereignistyp ([`keydown`](/de/docs/Web/API/Element/keydown_event), [`keypress`](/de/docs/Web/API/Element/keypress_event) oder [`keyup`](/de/docs/Web/API/Element/keyup_event)) identifiziert, welche Art von Tastaturaktivität aufgetreten ist.
 
-> **Note:** `KeyboardEvent`-Ereignisse zeigen nur an, welche Interaktion der Benutzer auf niedriger Ebene mit einer Taste auf der Tastatur hatte, ohne kontextuelle Bedeutung für diese Interaktion bereitzustellen. Wenn Sie Texteingaben verarbeiten müssen, sollten Sie stattdessen das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis verwenden. Tastaturereignisse werden möglicherweise nicht ausgelöst, wenn der Benutzer alternative Mittel zur Texteingabe verwendet, wie ein Handschriftensystem auf einem Tablet oder Grafiktablett.
+> **Note:** `KeyboardEvent`-Ereignisse zeigen nur an, welche Interaktion der Benutzer auf einer Taste auf der Tastatur auf niedriger Ebene hatte, ohne der Interaktion eine kontextuelle Bedeutung zu geben. Wenn Sie Texteingaben verarbeiten müssen, verwenden Sie stattdessen das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis. Tastaturevents werden möglicherweise nicht ausgelöst, wenn der Benutzer eine alternative Methode zur Eingabe von Text verwendet, wie z.B. ein Handschriftsystem auf einem Tablet oder Grafiktablet.
 
 {{InheritanceDiagram}}
 
@@ -22,13 +22,13 @@ l10n:
 
 Das `KeyboardEvent`-Interface definiert die folgenden Konstanten.
 
-### Keyboard-Lokationen
+### Tastaturpositionen
 
-Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Tastenereignis stammt. Sie werden beispielsweise als `KeyboardEvent.DOM_KEY_LOCATION_STANDARD` aufgerufen.
+Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Tastenereignis stammt. Sie werden als `KeyboardEvent.DOM_KEY_LOCATION_STANDARD` usw. aufgerufen.
 
 <table class="standard-table">
   <caption>
-    Identifikatoren für Tastaturlokationen
+    Tastaturpositionskennungen
   </caption>
   <thead>
     <tr>
@@ -43,10 +43,10 @@ Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Taste
       <td>0x00</td>
       <td>
         <p>
-          Die durch das Event beschriebene Taste ist nicht einer bestimmten Position auf der Tastatur zugeordnet; sie befindet sich nicht auf dem Ziffernblock (es sei denn, es ist die NumLock-Taste) und für Tasten, die sowohl auf der linken als auch auf der rechten Seite der Tastatur vorhanden sind, wird die Taste aus welchem Grund auch immer nicht mit dieser Position assoziiert.
+          Die vom Ereignis beschriebene Taste ist nicht als in einem bestimmten Bereich der Tastatur befindlich identifiziert; sie befindet sich nicht auf dem numerischen Tastenblock (es sei denn, es handelt sich um die NumLock-Taste), und bei Tasten, die auf der linken und rechten Seite der Tastatur dupliziert sind, ist die Taste aus irgendeinem Grund nicht mit dieser Position verbunden.
         </p>
         <p>
-          Beispiele sind alphanumerische Tasten auf der standardmäßigen PC 101 US-Tastatur, die NumLock-Taste und die Leertaste.
+          Beispiele umfassen alphanumerische Tasten auf der Standard-PC-101-US-Tastatur, die NumLock-Taste und die Leertaste.
         </p>
       </td>
     </tr>
@@ -55,10 +55,10 @@ Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Taste
       <td>0x01</td>
       <td>
         <p>
-          Die Taste befindet sich an einem möglichen von mehreren Orten auf der Tastatur und in diesem Fall auf der linken Seite der Tastatur.
+          Die Taste ist eine, die möglicherweise an mehreren Positionen auf der Tastatur existiert und in diesem Fall sich auf der linken Seite der Tastatur befindet.
         </p>
         <p>
-          Beispiele sind die linke Steuerungstaste, die linke Befehlstaste auf einer Macintosh-Tastatur oder die linke Umschalttaste.
+          Beispiele sind die linke Strg-Taste, die linke Befehlstaste auf einer Macintosh-Tastatur oder die linke Umschalttaste.
         </p>
       </td>
     </tr>
@@ -67,7 +67,7 @@ Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Taste
       <td>0x02</td>
       <td>
         <p>
-          Die Taste befindet sich an einem möglichen von mehreren Orten auf der Tastatur und in diesem Fall auf der rechten Seite der Tastatur.
+          Die Taste ist eine, die möglicherweise an mehreren Positionen auf der Tastatur existiert und in diesem Fall sich auf der rechten Seite der Tastatur befindet.
         </p>
         <p>
           Beispiele sind die rechte Umschalttaste und die rechte Alt-Taste (Option auf einer Mac-Tastatur).
@@ -79,17 +79,17 @@ Die folgenden Konstanten identifizieren, von welchem Teil der Tastatur das Taste
       <td>0x03</td>
       <td>
         <p>
-          Die Taste befindet sich auf dem Ziffernblock oder ist eine virtuelle Taste, die mit dem Ziffernblock assoziiert ist, wenn es mehr als einen Ursprungsort für die Taste geben könnte. Die NumLock-Taste fällt nicht in diese Gruppe und wird immer mit der Position <code>DOM_KEY_LOCATION_STANDARD</code> kodiert.
+          Die Taste befindet sich auf dem numerischen Tastenblock oder ist eine virtuelle Taste, die mit dem numerischen Tastenblock verbunden ist, wenn es mehr als einen Ort geben könnte, von dem die Taste ausgehen könnte. Die NumLock-Taste gehört nicht zu dieser Gruppe und wird immer mit der Position <code>DOM_KEY_LOCATION_STANDARD</code> codiert.
         </p>
         <p>
-          Beispiele sind die Ziffern auf dem Ziffernblock, die Eingabetaste des Ziffernblocks und der Dezimalpunkt auf dem Ziffernblock.
+          Beispiele sind die Ziffern auf dem numerischen Tastenblock, die Eingabetaste des Tastenblocks und der Dezimalpunkt auf dem Tastenblock.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Dieses Interface erbt auch Eigenschaften seiner Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
@@ -102,59 +102,59 @@ _Dieses Interface erbt auch Eigenschaften seiner Eltern, [`UIEvent`](/de/docs/We
   - : Gibt einen String mit dem Code-Wert der physischen Taste zurück, die durch das Ereignis repräsentiert wird.
 
     > [!WARNING]
-    > Dies ignoriert das Tastaturlayout des Benutzers, sodass, wenn der Benutzer die Taste an der "Y"-Position in einem QWERTY-Tastaturlayout drückt (nahe der Mitte der Reihe über der Grundreihe), dies immer "KeyY" zurückgibt, selbst wenn der Benutzer eine QWERTZ-Tastatur hat (was bedeuten würde, dass der Benutzer ein "Z" erwartet und alle anderen Eigenschaften ein "Z" anzeigen würden) oder ein Dvorak-Tastaturlayout (wo der Benutzer ein "F" erwarten würde). Wenn Sie dem Benutzer die korrekten Tastenanschläge anzeigen möchten, können Sie [`Keyboard.getLayoutMap()`](/de/docs/Web/API/Keyboard/getLayoutMap) verwenden.
+    > Dies ignoriert das Tastaturlayout des Benutzers, sodass, wenn der Benutzer die Taste an der "Y"-Position in einem QWERTY-Tastaturlayout drückt (in der Nähe der Mitte der Reihe über der Basiszeile), dies immer "KeyY" zurückgibt, selbst wenn der Benutzer eine QWERTZ-Tastatur hat (was bedeuten würde, dass der Benutzer ein "Z" erwartet und alle anderen Eigenschaften ein "Z" anzeigen würden) oder ein Dvorak-Tastaturlayout (wo der Benutzer ein "F" erwarten würde). Wenn Sie die korrekten Tastenanschläge dem Benutzer anzeigen möchten, können Sie [`Keyboard.getLayoutMap()`](/de/docs/Web/API/Keyboard/getLayoutMap) verwenden.
 
 - [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) {{ReadOnlyInline}}
 
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Ctrl</kbd> Taste aktiv war, als das Tastenereignis erzeugt wurde.
+  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Ctrl</kbd>-Taste aktiv war, als das Tastenereignis erzeugt wurde.
 
 - [`KeyboardEvent.isComposing`](/de/docs/Web/API/KeyboardEvent/isComposing) {{ReadOnlyInline}}
   - : Gibt einen booleschen Wert zurück, der `true` ist, wenn das Ereignis zwischen `compositionstart` und `compositionend` ausgelöst wird.
 - [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der den Tastenwert der durch das Ereignis repräsentierten Taste darstellt.
 - [`KeyboardEvent.location`](/de/docs/Web/API/KeyboardEvent/location) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die Position der Taste auf der Tastatur oder einem anderen Eingabegerät darstellt. Eine Liste der Konstanten, die die Positionen identifizieren, wird oben in [Keyboard-Lokationen](#keyboard-lokationen) angezeigt.
+  - : Gibt eine Zahl zurück, die die Position der Taste auf der Tastatur oder einem anderen Eingabegerät angibt. Eine Liste der Konstanten, die die Positionen identifizieren, ist oben unter [Tastaturpositionen](#tastaturpositionen) gezeigt.
 - [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) {{ReadOnlyInline}}
 
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Meta</kbd> Taste (auf Mac-Tastaturen die <kbd>⌘ Command</kbd>-Taste; auf Windows-Tastaturen die Windows-Taste (<kbd>⊞</kbd>)) aktiv war, als das Tastenereignis erzeugt wurde.
+  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Meta</kbd>-Taste (auf Mac-Tastaturen die <kbd>⌘ Befehl</kbd>-Taste; auf Windows-Tastaturen die Windows-Taste (<kbd>⊞</kbd>)) aktiv war, als das Tastenereignis erzeugt wurde.
 
 - [`KeyboardEvent.repeat`](/de/docs/Web/API/KeyboardEvent/repeat) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die Taste so gehalten wird, dass sie automatisch wiederholt wird.
+  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die Taste so lange gedrückt wird, dass sie automatisch wiederholt wird.
 - [`KeyboardEvent.shiftKey`](/de/docs/Web/API/KeyboardEvent/shiftKey) {{ReadOnlyInline}}
 
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Shift</kbd> Taste aktiv war, als das Tastenereignis erzeugt wurde.
+  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Umschalttaste</kbd> aktiv war, als das Tastenereignis erzeugt wurde.
 
 ### Veraltete Eigenschaften
 
 - [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) {{Deprecated_inline}} {{ReadOnlyInline}}
 
-  - : Gibt eine Zahl zurück, die die Unicode-Referenznummer der Taste darstellt; diese Eigenschaft wird nur vom `keypress` Ereignis verwendet. Für Tasten, deren `char`-Eigenschaft mehrere Zeichen enthält, ist dies der Unicode-Wert des ersten Zeichens in dieser Eigenschaft. In Firefox 26 gibt dies Codes für druckbare Zeichen zurück.
+  - : Gibt eine Zahl zurück, die die Unicode-Referenznummer der Taste darstellt; diese Eigenschaft wird nur vom `keypress`-Ereignis verwendet. Für Tasten, deren `char`-Eigenschaft mehrere Zeichen enthält, ist dies der Unicode-Wert des ersten Zeichens in dieser Eigenschaft. In Firefox 26 gibt dies Codes für druckbare Zeichen zurück.
 
 - [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) {{deprecated_inline}} {{ReadOnlyInline}}
 
-  - : Gibt eine Zahl zurück, die einen system- und implementierungsabhängigen numerischen Code darstellt, der den unveränderten Wert der gedrückten Taste identifiziert.
+  - : Gibt eine Zahl zurück, die einen system- und implementierungsabhängigen numerischen Code darstellt, der den unmodifizierten Wert der gedrückten Taste identifiziert.
 
 - [`KeyboardEvent.keyIdentifier`](/de/docs/Web/API/KeyboardEvent/keyIdentifier) {{Non-standard_inline}} {{deprecated_inline}} {{ReadOnlyInline}}
   - : Diese Eigenschaft ist nicht standardisiert und wurde zugunsten von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) veraltet. Sie war Teil einer alten Version von DOM Level 3 Events.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Dieses Interface erbt auch Methoden seiner Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState)
 
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob eine Modifikator-Taste wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd> oder <kbd>Meta</kbd> gedrückt war, als das Ereignis erstellt wurde.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob eine Modifikatortaste wie <kbd>Alt</kbd>, <kbd>Umschalt</kbd>, <kbd>Strg</kbd> oder <kbd>Meta</kbd> gedrückt wurde, als das Ereignis erstellt wurde.
 
 ### Veraltete Methoden
 
 - [`KeyboardEvent.initKeyEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyEvent) {{deprecated_inline}}
   - : Initialisiert ein `KeyboardEvent`-Objekt. Dies wurde nur von Firefox implementiert und wird dort nicht mehr unterstützt; stattdessen sollten Sie den [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent)-Konstruktor verwenden.
 - [`KeyboardEvent.initKeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyboardEvent) {{deprecated_inline}}
-  - : Initialisiert ein `KeyboardEvent`-Objekt. Dies ist jetzt veraltet. Stattdessen sollten Sie den [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent)-Konstruktor verwenden.
+  - : Initialisiert ein `KeyboardEvent`-Objekt. Dies ist jetzt veraltet. Sie sollten stattdessen den [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent)-Konstruktor verwenden.
 
 ## Ereignisse
 
-Die folgenden Ereignisse basieren auf dem `KeyboardEvent`-Typ. In der untenstehenden Liste verlinkt jedes Ereignis auf die Dokumentation des `Element`-Handlers für das Ereignis, welcher im Allgemeinen auf alle Empfänger wie [`Element`](/de/docs/Web/API/Element), [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) zutrifft.
+Die folgenden Ereignisse basieren auf dem `KeyboardEvent`-Typ. In der Liste unten verlinkt jedes Ereignis auf die Dokumentation für den `Element`-Handler des Ereignisses, der im Allgemeinen für alle Empfänger gilt, einschließlich [`Element`](/de/docs/Web/API/Element), [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window).
 
 - [`keydown`](/de/docs/Web/API/Element/keydown_event)
   - : Eine Taste wurde gedrückt.
@@ -168,37 +168,37 @@ Die folgenden Ereignisse basieren auf dem `KeyboardEvent`-Typ. In der untenstehe
 
 ## Verwendungshinweise
 
-Es gibt drei Arten von Tastaturereignissen: [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keypress`](/de/docs/Web/API/Element/keypress_event), und [`keyup`](/de/docs/Web/API/Element/keyup_event). Für die meisten Tasten sendet Gecko eine Sequenz von Tastaturereignissen wie folgt:
+Es gibt drei Arten von Tastaturereignissen: [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keypress`](/de/docs/Web/API/Element/keypress_event) und [`keyup`](/de/docs/Web/API/Element/keyup_event). Für die meisten Tasten sendet Gecko eine Sequenz von Tastenereignissen wie folgt:
 
-1. Wenn die Taste erstmals gedrückt wird, wird das `keydown`-Ereignis gesendet.
+1. Wenn die Taste zum ersten Mal gedrückt wird, wird das `keydown`-Ereignis gesendet.
 2. Wenn die Taste keine Modifikatortaste ist, wird das `keypress`-Ereignis gesendet.
 3. Wenn der Benutzer die Taste loslässt, wird das `keyup`-Ereignis gesendet.
 
 ### Sonderfälle
 
-Einige Tasten schalten den Status einer Anzeigelampe um; dazu gehören Tasten wie Caps Lock, Num Lock und Scroll Lock. Unter Windows und Linux senden diese Tasten nur die `keydown`- und `keyup`-Ereignisse.
+Einige Tasten schalten den Zustand eines Anzeigelichts um; dazu gehören Tasten wie Caps Lock, Num Lock und Scroll Lock. Auf Windows und Linux senden diese Tasten nur die `keydown`- und `keyup`-Ereignisse.
 
 > [!NOTE]
-> Unter Linux, bis Version 12 von Firefox, wurde auch das `keypress`-Ereignis für diese Tasten ausgelöst.
+> Unter Linux haben Firefox 12 und frühere Versionen auch das `keypress`-Ereignis für diese Tasten gesendet.
 
-Jedoch führt eine Einschränkung des macOS-Ereignismodells dazu, dass Caps Lock nur das `keydown`-Ereignis auslöst. Num Lock wurde auf einigen älteren Laptop-Modellen (Modelle von 2007 und älter) unterstützt, aber seitdem wird Num Lock auf macOS nicht mehr unterstützt, selbst nicht auf externen Tastaturen. Auf älteren MacBooks mit einer Num Lock-Taste erzeugt diese Taste keine Tastaturereignisse. Gecko unterstützt die Scroll Lock-Taste, wenn eine externe Tastatur mit einer F14-Taste verbunden ist. In bestimmten älteren Versionen von Firefox erzeugte diese Taste ein `keypress`-Ereignis; dieses inkonsistente Verhalten wurde als [Firefox-Bug 602812](https://bugzil.la/602812) aufgezeichnet.
+Ein Einschränkungen des macOS-Ereignismodells führt jedoch dazu, dass Caps Lock nur das `keydown`-Ereignis sendet. Num Lock wurde auf einigen älteren Laptop-Modellen (Modelle von 2007 und älter) unterstützt, aber seitdem unterstützt macOS Num Lock nicht einmal auf externen Tastaturen. Auf älteren MacBooks mit einer Num Lock-Taste erzeugt diese Taste keine Tastenereignisse. Gecko unterstützt die Scroll Lock-Taste, wenn eine externe Tastatur mit einer F14-Taste angeschlossen ist. In bestimmten älteren Versionen von Firefox hat diese Taste ein `keypress`-Ereignis erzeugt; dieses inkonsistente Verhalten war [Firefox Fehler 602812](https://bugzil.la/602812).
 
-### Behandlung der automatischen Wiederholung
+### Automatische Wiederholungshandhabung
 
-Wenn eine Taste gedrückt und gehalten wird, beginnt sie, automatisch zu wiederholen. Dies führt dazu, dass eine Ereignissequenz ähnlich der folgenden ausgelöst wird:
+Wenn eine Taste gedrückt und gehalten wird, beginnt sie, sich automatisch zu wiederholen. Dies führt dazu, dass eine Sequenz von Ereignissen ähnlich der folgenden gesendet wird:
 
 1. `keydown`
 2. `keypress`
 3. `keydown`
 4. `keypress`
-5. <\<Wiederholung, bis der Benutzer die Taste loslässt>>
+5. <\<wiederholt sich, bis der Benutzer die Taste loslässt>>
 6. `keyup`
 
-Dies ist das Verhalten, das in der DOM Level 3-Spezifikation beschrieben wird. Es gibt jedoch einige Vorbehalte, wie unten beschrieben.
+Dies ist das, was die DOM Level 3-Spezifikation vorgibt. Es gibt jedoch einige Einschränkungen, wie unten beschrieben.
 
 #### Automatische Wiederholung in einigen GTK-Umgebungen wie Ubuntu 9.4
 
-In einigen GTK-basierten Umgebungen löst die automatische Wiederholung während der automatischen Wiederholung ein nativen Key-Up-Ereignis automatisch aus, und es gibt keine Möglichkeit für Gecko, den Unterschied zwischen einer wiederholten Serie von Tastendrücken und einer automatischen Wiederholung zu erkennen. Auf diesen Plattformen erzeugt eine automatisch wiederholte Taste daher die folgende Sequenz von Ereignissen:
+In einigen GTK-basierten Umgebungen sendet die automatische Wiederholung automatisch ein natives key-up-Ereignis während der automatischen Wiederholung, und es gibt keine Möglichkeit für Gecko, den Unterschied zwischen einer wiederholten Serie von Tastenanschlägen und einer automatischen Wiederholung zu erkennen. Auf diesen Plattformen erzeugt dann eine automatisch wiederholte Taste die folgende Ereignisabfolge:
 
 1. `keydown`
 2. `keypress`
@@ -206,7 +206,7 @@ In einigen GTK-basierten Umgebungen löst die automatische Wiederholung während
 4. `keydown`
 5. `keypress`
 6. `keyup`
-7. <\<Wiederholung, bis der Benutzer die Taste loslässt>>
+7. <\<wiederholt sich, bis der Benutzer die Taste loslässt>>
 8. `keyup`
 
 In diesen Umgebungen gibt es leider keine Möglichkeit für Webinhalte, den Unterschied zwischen automatisch wiederholten Tasten und Tasten, die einfach wiederholt gedrückt werden, zu erkennen.
@@ -254,35 +254,35 @@ document.addEventListener(
 
 {{Specifications}}
 
-Die Spezifikation der `KeyboardEvent`-Schnittstelle durchlief zahlreiche Entwurfsstadien, zunächst unter DOM Events Level 2, wo sie fallen gelassen wurde, da kein Konsens erzielt wurde, dann unter DOM Events Level 3. Dies führte zur Implementierung von nicht standardkonformen Initialisierungsmethoden, der frühen DOM Events Level 2-Version [`KeyboardEvent.initKeyEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyEvent) durch Gecko-Browser und der frühen DOM Events Level 3-Version [`KeyboardEvent.initKeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyboardEvent) durch andere. Beide wurden durch die moderne Verwendung eines Konstruktors ersetzt: [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent).
+Die `KeyboardEvent`-Interface-Spezifikation durchlief zahlreiche Entwurfsversionen, zunächst unter DOM Events Level 2, wo es aufgrund mangelnden Konsenses fallen gelassen wurde, und dann unter DOM Events Level 3. Dies führte zur Implementierung nicht standardmäßiger Initialisierungsmethoden, der frühen DOM Events Level 2-Version, [`KeyboardEvent.initKeyEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyEvent) durch Gecko-Browser und der frühen DOM Events Level 3-Version, [`KeyboardEvent.initKeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyboardEvent) durch andere. Beide wurden durch die moderne Verwendung eines Konstruktors ersetzt: [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent).
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-### Kompatibilitätsnotizen
+### Kompatibilitätshinweise
 
-- Ab Firefox 65 wird das `keypress`-Ereignis nicht mehr für [nicht druckbare Tasten](/de/docs/Web/API/KeyboardEvent/keyCode#non-printable_keys_function_keys) ([Firefox-Bug 968056](https://bugzil.la/968056)) ausgelöst, mit Ausnahme der
+- Ab Firefox 65 wird das `keypress`-Ereignis nicht mehr für [nicht druckbare Tasten](/de/docs/Web/API/KeyboardEvent/keyCode#non-printable_keys_function_keys) ([Firefox Fehler 968056](https://bugzil.la/968056)) ausgelöst, außer für die
 
-  <kbd>Enter</kbd>
+  <kbd>Eingabe</kbd>
 
-  -Taste und der
+  -Taste und die
 
-  <kbd>Shift</kbd>
+  <kbd>Umschalt</kbd>
 
   \+
 
-  <kbd>Enter</kbd>
+  <kbd>Eingabe</kbd>
 
   und
 
-  <kbd>Ctrl</kbd>
+  <kbd>Strg</kbd>
 
   \+
 
-  <kbd>Enter</kbd>
+  <kbd>Eingabe</kbd>
 
-  Tasten-Kombinationen (diese wurden aus Gründen der plattformübergreifenden Kompatibilität beibehalten).
+  Tastenkombinationen (diese wurden aus Gründen der plattformübergreifenden Kompatibilität beibehalten).
 
 ## Siehe auch
 

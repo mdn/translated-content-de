@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`advance()`**-Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-Interfaces legt fest, wie oft ein Cursor seine Position nach vorne verschieben soll.
+Die **`advance()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+Interfaces legt fest, wie oft ein Cursor seine Position
+nach vorne bewegen soll.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ advance(count)
 ### Parameter
 
 - `count`
-  - : Die Anzahl der Schritte, die der Cursor nach vorne bewegen soll.
+  - : Die Anzahl der Male, die der Cursor nach vorne bewegt werden soll.
 
 ### Rückgabewert
 
@@ -28,20 +29,25 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) von einem der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses IDBCursors inaktiv ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Wert, der in den `count` Parameter übergeben wurde, null oder eine negative Zahl war.
+  - : Wird ausgelöst, wenn der in den `count` Parameter übergebene Wert Null oder eine negative Zahl war.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor momentan iteriert wird oder über sein Ende hinaus iteriert hat.
+  - : Wird ausgelöst, wenn der Cursor derzeit iteriert wird oder bereits über sein Ende hinaus iteriert hat.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen Cursor, um durch die Datensätze im Objekt-Store zu iterieren. Hier verwenden wir `cursor.advance(2)`, um jedes Mal 2 Stellen vorwärts zu springen, was bedeutet, dass nur jedes zweite Ergebnis angezeigt wird. `advance()` funktioniert ähnlich wie [`IDBCursor.continue`](/de/docs/Web/API/IDBCursor/continue), außer dass es erlaubt, mehrere Datensätze auf einmal zu überspringen, und nicht nur zum nächsten Datensatz zu wechseln.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen
+Cursor, um die Datensätze im Objektspeicher zu durchlaufen. Hier verwenden wir
+`cursor.advance(2)`, um jedes Mal 2 Positionen vorzuspringen, was bedeutet, dass nur
+jedes zweite Ergebnis angezeigt wird. `advance()` funktioniert ähnlich wie
+[`IDBCursor.continue`](/de/docs/Web/API/IDBCursor/continue), erlaubt Ihnen jedoch, mehrere Datensätze gleichzeitig zu überspringen anstatt immer nur zum nächsten Datensatz zu gehen.
 
-Beachten Sie, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel, siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Beachten Sie, dass Sie in jeder Iteration der Schleife
+Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function advanceResult() {
@@ -76,7 +82,7 @@ function advanceResult() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselsbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

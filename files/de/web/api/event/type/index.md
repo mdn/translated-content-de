@@ -1,5 +1,5 @@
 ---
-title: "Event: Eigenschaft type"
+title: "Event: type Eigenschaft"
 short-title: type
 slug: Web/API/Event/type
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt einen Zeichenfolgenwert zurück, der den Typ des Ereignisses enthält. Sie wird festgelegt, wenn das Ereignis erstellt wird, und ist der Name, der üblicherweise verwendet wird, um auf das spezifische Ereignis zu verweisen, wie zum Beispiel `click`, `load` oder `error`.
+Die **`type`** schreibgeschützte Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt einen String zurück, der den Typ des Ereignisses enthält. Dieser wird beim Erstellen des Ereignisses festgelegt und ist der Name, der üblicherweise verwendet wird, um auf das spezifische Ereignis zu verweisen, wie zum Beispiel `click`, `load` oder `error`.
 
 ## Wert
 
-Ein Zeichenfolge, die den Typ des [`Event`](/de/docs/Web/API/Event) enthält.
+Ein String, der den Typ des [`Event`](/de/docs/Web/API/Event) enthält.
 
 ## Beispiel
 
-Dieses Beispiel protokolliert den Ereignistyp, wann immer Sie eine Tastaturtaste drücken oder eine Maustaste klicken.
+Dieses Beispiel protokolliert den Ereignistyp, wenn Sie eine Tastaturtaste drücken oder eine Maustaste klicken.
 
 ### HTML
 

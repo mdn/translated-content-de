@@ -1,5 +1,5 @@
 ---
-title: "GPUComputePassEncoder: setPipeline() Methode"
+title: "GPUComputePassEncoder: Methode setPipeline()"
 short-title: setPipeline()
 slug: Web/API/GPUComputePassEncoder/setPipeline
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setPipeline()`** Methode der
-[`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) Schnittstelle legt die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) fest, die für diesen Compute-Durchlauf verwendet werden soll.
+Die **`setPipeline()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle legt die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) fest, die für diesen Berechnungsvorgang verwendet werden soll.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ setPipeline(pipeline)
 ### Parameter
 
 - `pipeline`
-  - : Die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die für diesen Compute-Durchlauf verwendet werden soll.
+  - : Die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die für diesen Berechnungsvorgang verwendet werden soll.
 
 ### Rückgabewert
 
@@ -28,7 +27,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über `beginComputePass()` erstellt wurde. Der `setPipeline()`-Aufruf wird verwendet, um die für diesen Durchlauf zu verwendende Pipeline festzulegen.
+In unserem [einfachen Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der via `beginComputePass()` erstellt wird. Der `setPipeline()`-Aufruf wird verwendet, um die für diesen Durchlauf zu verwendende Pipeline festzulegen.
 
 ```js
 const BUFFER_SIZE = 1000;

@@ -1,5 +1,5 @@
 ---
-title: "OffscreenCanvas: width-Eigenschaft"
+title: "OffscreenCanvas: width Eigenschaft"
 short-title: width
 slug: Web/API/OffscreenCanvas/width
 l10n:
@@ -14,7 +14,7 @@ Die **`width`**-Eigenschaft gibt die Breite eines [`OffscreenCanvas`](/de/docs/W
 
 ## Beispiele
 
-Erstellen einer neuen Offscreen-Leinwand und Zurückgeben oder Festlegen der Breite der Offscreen-Leinwand:
+Erstellen eines neuen Offscreen-Canvas und Zurückgeben oder Setzen der Breite des Offscreen-Canvas:
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);

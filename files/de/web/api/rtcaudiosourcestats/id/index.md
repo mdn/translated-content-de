@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`id`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Wörterbuchs ist ein String, der das Objekt, für das diese Statistikobjekt Daten liefert, eindeutig identifiziert.
+Die **`id`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Wörterbuchs ist ein String, der das Objekt, für das diese Instanz Statistiken bereitstellt, eindeutig identifiziert.
 
-Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um Statistiken über die Zeit für ein bestimmtes WebRTC-Objekt zu überwachen, wie zum Beispiel eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel).
+Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um Statistiken über die Zeit für ein bestimmtes WebRTC-Objekt wie eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu überwachen.
 
 ## Wert
 
-Ein String, der das Objekt, für das dieses `RTCAudioSourceStats`-Objekt Statistiken liefert, eindeutig identifiziert.
+Ein String, der das Objekt, für das dieses `RTCAudioSourceStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Das Format des ID-Strings ist durch die Spezifikation nicht definiert, sodass Sie keine verlässlichen Annahmen über den Inhalt des Strings machen können oder davon ausgehen sollten, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
+Das Format des ID-Strings ist nicht durch die Spezifikation definiert, sodass Sie keine verlässlichen Annahmen über den Inhalt des Strings treffen oder davon ausgehen können, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
 
 ## Spezifikationen
 

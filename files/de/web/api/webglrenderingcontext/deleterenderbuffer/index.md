@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: deleteRenderbuffer() Methode"
+title: "WebGLRenderingContext: deleteRenderbuffer()-Methode"
 short-title: deleteRenderbuffer()
 slug: Web/API/WebGLRenderingContext/deleteRenderbuffer
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteRenderbuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) Objekt. Diese Methode hat keine Auswirkung, wenn der Render-Puffer bereits gelöscht wurde.
+Die **`WebGLRenderingContext.deleteRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt. Diese Methode hat keine Wirkung, wenn der Render-Puffer bereits gelöscht wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteRenderbuffer(renderbuffer)
 ### Parameter
 
 - `renderbuffer`
-  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 

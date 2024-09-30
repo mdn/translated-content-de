@@ -1,5 +1,5 @@
 ---
-title: "GeolocationPositionError: code-Eigenschaft"
+title: "GeolocationPositionError: code Eigenschaft"
 short-title: code
 slug: Web/API/GeolocationPositionError/code
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`code`**-Eigenschaft des [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Interfaces ist ein `unsigned short`, das den Fehlercode darstellt.
+Die schreibgeschützte Eigenschaft **`code`** der Schnittstelle [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError) ist ein `unsigned short`, der den Fehlercode darstellt.
 
 Die folgenden Werte sind möglich:
 
@@ -25,21 +25,20 @@ Die folgenden Werte sind möglich:
       <td><code>1</code></td>
       <td><code>PERMISSION_DENIED</code></td>
       <td>
-        Die Erfassung der Geolokalisierungsinformationen schlug fehl, da die Seite
-        keine Berechtigung dazu hatte.
+        Die Erfassung der Geolokalisierungsinformationen ist fehlgeschlagen, da die Seite keine Berechtigung dafür hatte.
       </td>
     </tr>
     <tr>
       <td><code>2</code></td>
       <td><code>POSITION_UNAVAILABLE</code></td>
       <td>
-        Die Erfassung der Geolokalisierung schlug fehl, weil eine oder mehrere interne Quellen der Position einen internen Fehler zurückgaben.
+        Die Erfassung der Geolokalisierung ist fehlgeschlagen, da eine oder mehrere interne Positionsquellen einen internen Fehler zurückgegeben haben.
       </td>
     </tr>
     <tr>
       <td><code>3</code></td>
       <td><code>TIMEOUT</code></td>
-      <td>Die Geolokalisierungsinformationen wurden nicht innerhalb der erlaubten Zeit erhalten.</td>
+      <td>Geolokalisierungsinformationen wurden nicht in der erlaubten Zeit erhalten.</td>
     </tr>
   </tbody>
 </table>

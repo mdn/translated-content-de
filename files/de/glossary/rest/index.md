@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**REST** (Representational State Transfer) bezieht sich auf eine Gruppe von Softwarearchitektur-Designbeschränkungen, die effiziente, zuverlässige und skalierbare verteilte Systeme ermöglichen.
+**REST** (Representational State Transfer) bezieht sich auf eine Gruppe von Softwarearchitektur-Design-Beschränkungen, die effiziente, zuverlässige und skalierbare verteilte Systeme ermöglichen.
 
-Die Grundidee von REST ist, dass eine Ressource, z.B. ein Dokument, über allgemein anerkannte, sprachunabhängige und standardisierte Client/Server-Interaktionen übertragen wird. Dienste gelten als RESTful, wenn sie diese Beschränkungen einhalten.
+Die grundlegende Idee von REST ist, dass eine Ressource, z.B. ein Dokument, über gut anerkannte, sprachunabhängige und zuverlässig standardisierte Client/Server-Interaktionen übertragen wird. Dienste gelten als RESTful, wenn sie diese Beschränkungen einhalten.
 
-HTTP-APIs werden im Allgemeinen manchmal umgangssprachlich als RESTful APIs, RESTful Dienste oder REST-Dienste bezeichnet, obwohl sie nicht unbedingt alle REST-Beschränkungen einhalten. Anfänger können davon ausgehen, dass eine REST-API einen HTTP-Dienst bedeutet, der mit Standard-Webbibliotheken und -tools aufgerufen werden kann.
+HTTP-APIs werden allgemein manchmal umgangssprachlich als RESTful APIs, RESTful Services oder REST Services bezeichnet, obwohl sie nicht unbedingt alle REST-Beschränkungen einhalten. Anfänger können davon ausgehen, dass eine REST-API einen HTTP-Dienst bedeutet, der mit Standard-Webbibliotheken und -werkzeugen aufgerufen werden kann.
 
 ## Siehe auch
 

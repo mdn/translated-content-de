@@ -24,7 +24,9 @@ Die **`SVGFECompositeElement`**-Schnittstelle entspricht dem {{SVGElement("feCom
       <td><code>SVG_FECOMPOSITE_OPERATOR_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ zu ändern.
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig zu versuchen,
+        einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen
+        Typ zu wechseln.
       </td>
     </tr>
     <tr>
@@ -83,7 +85,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittst
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, sondern implementiert die ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert aber die ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

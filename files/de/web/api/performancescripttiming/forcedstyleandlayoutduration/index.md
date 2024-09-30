@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`forcedStyleAndLayoutDuration`** der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, das die gesamte Zeit in Millisekunden angibt, die das Skript mit erzwungenem Layout/Stil verbringt. Siehe [Vermeiden von Layout Thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
+Die **`forcedStyleAndLayoutDuration`** schreibgeschützte Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces liefert einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die gesamte Zeit in Millisekunden angibt, die das Script mit erzwungenem Layout/Style verbracht hat. Siehe [Avoid layout thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Zeitmessung von langen Animationsbildern](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Zeitmessung von langen Animationsbildern](/de/docs/Web/API/Performance_AP
 
 ## Siehe auch
 
-- [Zeitmessung von langen Animationsbildern](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

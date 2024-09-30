@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`columnNumber`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält die Spaltennummer in der Zeile der Datei, die diesen Fehler verursacht hat.
+Die **`columnNumber`** Dateneigenschaft einer {{jsxref("Error")}}-Instanz enthält die Spaltennummer in der Zeile der Datei, die diesen Fehler ausgelöst hat.
 
 ## Wert
 
-Eine positive Ganzzahl.
+Eine positive ganze Zahl.
 
 {{js_property_attributes(1, 0, 1)}}
 
@@ -29,7 +29,7 @@ try {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

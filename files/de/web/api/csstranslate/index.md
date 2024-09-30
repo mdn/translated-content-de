@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSTranslate`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [translate()](/de/docs/Web/CSS/transform-function/translate) Wert der individuellen {{CSSXRef('transform')}} Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSTranslate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [translate()](/de/docs/Web/CSS/transform-function/translate)-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSTranslate()`](/de/docs/Web/API/CSSTranslate/CSSTranslate)
-  - : Erstellt ein neues `CSSTranslate` Objekt.
+  - : Erstellt ein neues `CSSTranslate`-Objekt.
 
 ## Instanz-Eigenschaften
 
 - [`x`](/de/docs/Web/API/CSSTranslate/x)
-  - : Gibt den x-Achsenwert zurück oder setzt ihn.
+  - : Gibt den Wert der x-Achse zurück oder setzt ihn.
 - [`y`](/de/docs/Web/API/CSSTranslate/y)
-  - : Gibt den y-Achsenwert zurück oder setzt ihn.
+  - : Gibt den Wert der y-Achse zurück oder setzt ihn.
 - [`z`](/de/docs/Web/API/CSSTranslate/z)
-  - : Gibt den z-Achsenwert zurück oder setzt ihn.
+  - : Gibt den Wert der z-Achse zurück oder setzt ihn.
 
 ## Beispiele
 
-Noch zu tun.
+To do.
 
 ## Spezifikationen
 

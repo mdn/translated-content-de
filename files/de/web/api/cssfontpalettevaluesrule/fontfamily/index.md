@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`fontFamily`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle listet die Schriftfamilien auf, auf die die Regel angewendet werden kann. Die Schriftfamilien müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
+Die schreibgeschützte **`fontFamily`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) Schnittstelle listet die Schriftfamilien auf, auf die die Regel angewendet werden kann. Die Schriftfamilien müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String, der eine durch Leerzeichen getrennte Liste der Schriftfamilien enth�
 
 ## Beispiele
 
-### Die zugehörige Schriftfamilie lesen
+### Die zugehörige Schriftfamilie auslesen
 
-Dieses Beispiel definiert zunächst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-Regel. Dann liest es die {{cssxref("@font-palette-values")}}-Regel und zeigt ihren Namen an. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet existieren, ist die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule), die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück, aus dem wir auf `fontFamily` zugreifen können.
+Dieses Beispiel definiert zuerst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-At-Regel. Dann liest es die {{cssxref("@font-palette-values")}}-Regel aus und zeigt ihren Namen an. Da diese Regeln im zuletzt hinzugefügten Stylesheet des Dokuments existieren, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). `rules[1]` liefert also ein [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt, von dem aus wir auf `fontFamily` zugreifen können.
 
 #### HTML
 
@@ -57,7 +57,7 @@ log.textContent += ` ${fontPaletteValuesRule.fontFamily}`;
 
 #### Ergebnis
 
-{{EmbedLiveSample("Read the associated font family", "100", "40")}}
+{{EmbedLiveSample("Die zugehörige Schriftfamilie auslesen", "100", "40")}}
 
 ## Spezifikationen
 
@@ -69,5 +69,5 @@ log.textContent += ` ${fontPaletteValuesRule.fontFamily}`;
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}}-Regel
+- {{cssxref("@font-palette-values")}}-At-Regel
 - {{cssxref("@font-palette-values/font-family", "font-family")}}-Deskriptor

@@ -9,7 +9,7 @@ l10n:
 
 Öffnet die Seitenleiste im aktiven Fenster.
 
-Sie können diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
+Diese Funktion kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufgerufen werden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -33,7 +33,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Öffnen Sie die Seitenleiste, wenn der Benutzer ein Element im Kontextmenü auswählt:
+Öffnen Sie die Seitenleiste, wenn der Benutzer ein Kontextmenüelement auswählt:
 
 ```js
 browser.menus.create({

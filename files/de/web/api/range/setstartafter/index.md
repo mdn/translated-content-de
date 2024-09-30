@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setStartAfter()`**-Methode setzt die Startposition eines [`Range`](/de/docs/Web/API/Range) relativ zu einem [`Node`](/de/docs/Web/API/Node). Der übergeordnete [`Node`](/de/docs/Web/API/Node) des Starts des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie für den `referenceNode`.
+Die **`Range.setStartAfter()`**-Methode legt die Startposition eines [`Range`](/de/docs/Web/API/Range) relativ zu einem [`Node`](/de/docs/Web/API/Node) fest. Der übergeordnete [`Node`](/de/docs/Web/API/Node) des Anfangs des [`Range`](/de/docs/Web/API/Range) ist derselbe wie der des `referenceNode`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setStartAfter(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), nach dem der [`Range`](/de/docs/Web/API/Range) starten soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), nach dem der [`Range`](/de/docs/Web/API/Range) beginnt.
 
 ### Rückgabewert
 
@@ -44,4 +44,4 @@ range.setStartAfter(referenceNode);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)

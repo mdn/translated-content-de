@@ -1,5 +1,5 @@
 ---
-title: "NotificationEvent: notification-Eigenschaft"
+title: "NotificationEvent: Benachrichtigungseigenschaft"
 short-title: notification
 slug: Web/API/NotificationEvent/notification
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`notification`**-Eigenschaft des [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die Instanz der [`Notification`](/de/docs/Web/API/Notification) zurück, die angeklickt wurde, um das Ereignis auszulösen. Die [`Notification`](/de/docs/Web/API/Notification) bietet schreibgeschützten Zugriff auf viele Eigenschaften, die zum Zeitpunkt der Instanziierung der Benachrichtigung festgelegt wurden, wie z.B. die `tag`- und `data`-Attribute, die es Ihnen ermöglichen, Informationen für den späteren Gebrauch im `notificationclick`-Ereignis zu speichern.
+Die schreibgeschützte **`notification`**-Eigenschaft des [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die Instanz der [`Notification`](/de/docs/Web/API/Notification) zurück, die angeklickt wurde, um das Ereignis auszulösen. Die [`Notification`](/de/docs/Web/API/Notification) bietet schreibgeschützten Zugriff auf viele Eigenschaften, die zum Zeitpunkt der Instanziierung der Benachrichtigung festgelegt wurden, wie beispielsweise die Attribute `tag` und `data`, die es Ihnen ermöglichen, Informationen für eine spätere Verwendung im `notificationclick`-Ereignis zu speichern.
 
 ## Wert
 

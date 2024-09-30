@@ -1,5 +1,5 @@
 ---
-title: "ClipboardItem: presentationStyle-Eigenschaft"
+title: "ClipboardItem: Eigenschaft presentationStyle"
 short-title: presentationStyle
 slug: Web/API/ClipboardItem/presentationStyle
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die schreibgeschützte **`presentationStyle`**-Eigenschaft der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt einen String zurück, der angibt, wie ein Element präsentiert werden soll.
+Die schreibgeschützte **`presentationStyle`**-Eigenschaft der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt einen String zurück, der angibt, wie ein Element dargestellt werden soll.
 
-In einigen Kontexten könnte beispielsweise ein Bild inline angezeigt werden, während es in anderen als Anhang dargestellt wird.
+Zum Beispiel könnte ein Bild in einigen Kontexten inline angezeigt werden, während es in anderen als Anhang dargestellt wird.
 
 ## Wert
 
-Einer der folgenden Werte: `"unspecified"`, `"inline"` oder `"attachment"`.
+Einer von entweder `"unspecified"`, `"inline"` oder `"attachment"`.
 
 ## Beispiele
 
-Im untenstehenden Beispiel geben wir alle Elemente in der Zwischenablage über die [`clipboard.read()`](/de/docs/Web/API/Clipboard/read)-Methode zurück und protokollieren anschließend die `presentationStyle`-Eigenschaft.
+Im folgenden Beispiel geben wir alle Elemente in der Zwischenablage über die [`clipboard.read()`](/de/docs/Web/API/Clipboard/read)-Methode zurück und protokollieren dann die `presentationStyle`-Eigenschaft.
 
 ```js
 async function getClipboardContents() {
@@ -45,4 +45,4 @@ async function getClipboardContents() {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
+- [Artikel über Bildunterstützung für die asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)

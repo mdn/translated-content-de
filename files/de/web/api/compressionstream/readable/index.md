@@ -1,5 +1,5 @@
 ---
-title: "CompressionStream: Lesbare-Eigenschaft"
+title: "CompressionStream: lesbare Eigenschaft"
 short-title: readable
 slug: Web/API/CompressionStream/readable
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **`readable`** Eigenschaft (nur lesbar) der [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die schreibgeschützte Eigenschaft **`readable`** der [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von einem `CompressionStream` zurück.
+Im folgenden Beispiel wird ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus einem `CompressionStream` zurückgegeben.
 
 ```js
 let stream = new CompressionStream("gzip");

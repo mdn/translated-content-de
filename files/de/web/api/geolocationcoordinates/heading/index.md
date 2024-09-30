@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`heading`**-Eigenschaft des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein `double`, das die Richtung angibt, in die sich das Gerät bewegt. Dieser Wert, der in Grad angegeben ist, zeigt an, wie weit das Gerät vom wahren Norden abweicht. `0` Grad repräsentiert den wahren Norden, und die Richtung wird im Uhrzeigersinn ermittelt (was bedeutet, dass Osten `90` Grad und Westen `270` Grad sind). Wenn [`GeolocationCoordinates.speed`](/de/docs/Web/API/GeolocationCoordinates/speed) `0` ist oder das Gerät nicht in der Lage ist, Richtungsinformationen bereitzustellen, ist `heading` `null`.
+Die schreibgeschützte Eigenschaft **`heading`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein `double`, das die Richtung repräsentiert, in die sich das Gerät bewegt. Dieser Wert, angegeben in Grad, gibt an, wie weit das Gerät vom wahren Norden abweicht. `0` Grad stellt den wahren Norden dar, und die Richtung wird im Uhrzeigersinn bestimmt (was bedeutet, dass Osten `90` Grad und Westen `270` Grad ist). Wenn [`GeolocationCoordinates.speed`](/de/docs/Web/API/GeolocationCoordinates/speed) `0` ist oder das Gerät keine Richtungsinformationen bereitstellen kann, ist `heading` `null`.
 
 ## Wert
 
-Ein `double`, das die Richtung angibt, in die sich das Gerät bewegt.
+Ein `double`, das die Richtung darstellt, in die sich das Gerät bewegt.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Ein `double`, das die Richtung angibt, in die sich das Gerät bewegt.
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [Verwenden der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
 - [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)

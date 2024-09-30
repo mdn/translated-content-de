@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.tBodies`** schreibgeschützte Eigenschaft gibt eine
+Die schreibgeschützte Eigenschaft **`HTMLTableElement.tBodies`** gibt eine
 lebendige [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der Körper in einem {{htmlElement("table")}} zurück.
 
-Obwohl die Eigenschaft schreibgeschützt ist, ist das zurückgegebene Objekt "live" und erlaubt die
+Obwohl die Eigenschaft schreibgeschützt ist, ist das zurückgegebene Objekt lebendig und ermöglicht die
 Änderung seines Inhalts.
 
-Die zurückgegebene Sammlung schließt implizite {{HTMLElement("tbody")}}-Elemente mit ein. Zum Beispiel:
+Die zurückgegebene Sammlung umfasst implizite {{HTMLElement("tbody")}}-Elemente. Zum
+Beispiel:
 
 ```html
 <table>
@@ -24,8 +25,8 @@ Die zurückgegebene Sammlung schließt implizite {{HTMLElement("tbody")}}-Elemen
 </table>
 ```
 
-Der aus dem obigen HTML generierte HTML-DOM wird ein {{HTMLElement("tbody")}}-Element enthalten,
-auch wenn die Tags nicht im Quell-HTML enthalten sind.
+Das aus dem obigen HTML generierte HTML-DOM wird ein {{HTMLElement("tbody")}}-Element
+beinhalten, auch wenn die Tags im Quell-HTML nicht enthalten sind.
 
 ## Wert
 

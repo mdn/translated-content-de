@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLSelectElement.options`** gibt eine [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection) der {{HTMLElement("option")}}-Elemente zurück, die vom {{HTMLElement("select")}}-Element enthalten werden.
+Die **`HTMLSelectElement.options`** schreibgeschützte Eigenschaft gibt ein [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection) der {{HTMLElement("option")}}-Elemente zurück, die vom {{HTMLElement("select")}}-Element enthalten werden.
 
 ## Wert
 
@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-{{EmbedLiveSample("Beispiele", "100%", 30)}}
+{{EmbedLiveSample("Examples", "100%", 30)}}
 
 ## Spezifikationen
 

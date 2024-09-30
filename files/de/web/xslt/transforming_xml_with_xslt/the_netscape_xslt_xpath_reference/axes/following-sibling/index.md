@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse `following-sibling` zeigt alle Knoten an, die denselben Elternknoten wie der Kontextknoten haben und im Quelldokument nach dem Kontextknoten erscheinen.
+Die Achse `following-sibling` bezeichnet alle Knoten, die denselben Elternknoten wie der Kontextknoten haben und im Quelldokument nach dem Kontextknoten erscheinen.

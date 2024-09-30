@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Die **`remote`** schreibgeschützte Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt das [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Objekt zurück, das dem Medien-Element zugeordnet ist. Das `RemotePlayback`-Objekt ermöglicht die Steuerung von entfernten Geräten, die das Medium abspielen.
+Die schreibgeschützte Eigenschaft **`remote`** des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt das mit dem Media-Element verknüpfte [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Objekt zurück. Das `RemotePlayback`-Objekt ermöglicht die Steuerung von Remote-Geräten, die die Medien abspielen.
 
 ## Wert
 
-Ein [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Objekt, das mit dem Medien-Element assoziiert ist.
+Ein [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Objekt, das mit dem Media-Element verknüpft ist.
 
 ## Beispiel
 

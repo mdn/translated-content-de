@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: save() Methode"
+title: "CanvasRenderingContext2D: save()-Methode"
 short-title: save()
 slug: Web/API/CanvasRenderingContext2D/save
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.save()`**-Methode der Canvas 2D API speichert den gesamten Zustand des Canvas, indem sie den aktuellen Zustand auf einen Stapel legt.
+Die
+**`CanvasRenderingContext2D.save()`**
+Methode des Canvas 2D API speichert den gesamten Zustand des Canvas, indem sie den aktuellen Zustand auf einen Stapel legt.
 
 ### Der Zeichenstatus
 
@@ -55,7 +57,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Speichern des Zeichenstatus
 
-Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, sodass Sie später ein Rechteck mit dem aktuellen Zustand zeichnen können.
+Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern und `restore()`, um ihn später wiederherzustellen, sodass Sie später ein Rechteck mit dem aktuellen Zustand zeichnen können.
 
 #### HTML
 
@@ -95,5 +97,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore)

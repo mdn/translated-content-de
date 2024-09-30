@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`install`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Worker erhält.
+Das **`install`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interfaces wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Worker erhält.
 
-Dieses Ereignis kann nicht abgebrochen werden und hat keine Bubbling-Eigenschaft.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("install", (event) => {});
@@ -30,11 +30,11 @@ Ein [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Erbt von [`Event`](/d
 
 ## Ereigniseigenschaften
 
-_Implementiert keine spezifischen Eigenschaften, erbt aber Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Das folgende Snippet zeigt, wie ein `install`-Ereignishandler verwendet werden kann, um einen Cache mit einer Vielzahl von Antworten zu füllen, die der Service Worker dann verwenden kann, um Assets offline bereitzustellen:
+Das folgende Beispiel zeigt, wie ein `install` Ereignis-Handler verwendet werden kann, um einen Cache mit einer Reihe von Antworten zu füllen, den der Service Worker dann nutzen kann, um Assets offline bereitzustellen:
 
 ```js
 self.addEventListener("install", (event) => {
@@ -59,7 +59,7 @@ self.addEventListener("install", (event) => {
 });
 ```
 
-Sie können den Ereignishandler auch über die `oninstall`-Eigenschaft einrichten:
+Sie können den Ereignis-Handler auch mit der `oninstall` Eigenschaft einrichten:
 
 ```js
 self.oninstall = (event) => {

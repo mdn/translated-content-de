@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`sampleRate`**-Eigenschaft des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Interfaces gibt einen Float-Wert zurück, der die Abtastrate in Abtastungen pro Sekunde der im Puffer gespeicherten PCM-Daten darstellt.
+Die **`sampleRate`**-Eigenschaft der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt eine Gleitkommazahl zurück, die die Samplingrate, in Abtastungen pro Sekunde, der im Puffer gespeicherten PCM-Daten darstellt.
 
 ## Wert
 
-Ein Fließkommawert, der die aktuelle Abtastrate der Pufferdaten in Abtastungen pro Sekunde angibt.
+Ein Gleitkommawert, der die aktuelle Samplingrate der Pufferdaten in Abtastungen pro Sekunde angibt.
 
 ## Beispiele
 

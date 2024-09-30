@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: values() Methode"
+title: "KeyboardLayoutMap: values()-Methode"
 short-title: values()
 slug: Web/API/KeyboardLayoutMap/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Die **`values()`**-Methode der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das die Werte für jeden Index im `KeyboardLayoutMap`-Objekt enthält.
+Die **`values()`**-Methode des [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Interfaces gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das die Werte für jeden Index im `KeyboardLayoutMap`-Objekt enthält.
 
 Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.values()")}}.
 
@@ -18,7 +18,7 @@ Ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über jeden standort- oder layoutspezifischen String auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel iteriert jede orts- oder layout-spezifische Zeichenfolge auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

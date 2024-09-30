@@ -8,19 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.readyState`**-Eigenschaft beschreibt den Ladezustand des [`Dokuments`](/de/docs/Web/API/Document).
-Wenn der Wert dieser Eigenschaft sich ändert, wird ein [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis auf dem [`Dokument`](/de/docs/Web/API/Document)-Objekt ausgelöst.
+Die **`Document.readyState`**-Eigenschaft beschreibt den Ladezustand des [`document`](/de/docs/Web/API/Document).
+Wenn sich der Wert dieser Eigenschaft ändert, wird ein [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis auf dem [`document`](/de/docs/Web/API/Document)-Objekt ausgelöst.
 
 ## Wert
 
 Der `readyState` eines Dokuments kann einer der folgenden sein:
 
 - `loading`
-  - : Das [`Dokument`](/de/docs/Web/API/Document) lädt noch.
+  - : Das [`document`](/de/docs/Web/API/Document) lädt noch.
 - `interactive`
-  - : Das Dokument ist fertig geladen und das Dokument wurde geparst, aber Unterressourcen wie Skripte, Bilder, Stylesheets und Frames laden noch. Der Zustand zeigt an, dass das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis kurz davor ist, ausgelöst zu werden.
+  - : Das Dokument ist fertig geladen und das Dokument wurde geparst, aber Unterressourcen
+    wie Skripte, Bilder, Stylesheets und Frames laden noch. Der Zustand zeigt an, dass
+    das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis gleich ausgelöst wird.
 - `complete`
-  - : Das Dokument und alle Unterressourcen sind fertig geladen. Der Zustand zeigt an, dass das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis kurz davor ist, ausgelöst zu werden.
+  - : Das Dokument und alle Unterressourcen sind fertig geladen. Der Zustand zeigt an, dass
+    das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis gleich ausgelöst wird.
 
 ## Beispiele
 
@@ -70,7 +73,7 @@ document.onreadystatechange = () => {
 };
 ```
 
-### readystatechange als Event-Listener, um das DOM vor DOMContentLoaded einzufügen oder zu ändern
+### readystatechange als Ereignislistener, um das DOM vor DOMContentLoaded einzufügen oder zu ändern
 
 ```js
 document.addEventListener("readystatechange", (event) => {

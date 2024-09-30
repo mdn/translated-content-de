@@ -1,5 +1,5 @@
 ---
-title: "XPathResult: Methode iterateNext()"
+title: "XPathResult: iterateNext()-Methode"
 short-title: iterateNext()
 slug: Web/API/XPathResult/iterateNext
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Die **`iterateNext()`**-Methode der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle iteriert über ein Knoten-Set-Ergebnis und gibt den nächsten Knoten daraus zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
+Die **`iterateNext()`**-Methode des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces iteriert über ein Nodeset-Ergebnis und gibt das nächste Knoten zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Der nächste [`Node`](/de/docs/Web/API/Node) innerhalb des Knotensets des `XPathResult`.
+Der nächste [`Node`](/de/docs/Web/API/Node) innerhalb des Nodesets des `XPathResult`.
 
 ### Ausnahmen
 
@@ -32,11 +32,11 @@ Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht 
 
 #### INVALID_STATE_ERR
 
-Falls das Dokument seit der Rückgabe des Ergebnisses verändert wurde, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `INVALID_STATE_ERR` ausgelöst.
+Wenn das Dokument seit der Rückgabe des Ergebnisses verändert wurde, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `INVALID_STATE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der Methode `iterateNext()`.
+Das folgende Beispiel zeigt die Verwendung der `iterateNext()`-Methode.
 
 ### HTML
 

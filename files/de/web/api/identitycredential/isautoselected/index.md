@@ -8,17 +8,17 @@ l10n:
 
 {{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`isAutoSelected`** des [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Interfaces zeigt an, ob der föderierte Anmeldeprozess mit [automatischer Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzermediation) durchgeführt wurde oder nicht.
+Die schreibgeschützte **`isAutoSelected`** Eigenschaft des [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Interfaces zeigt an, ob der föderierte Anmeldevorgang unter Verwendung der [automatischen Reauthentifizierung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzereingriff) durchgeführt wurde oder nicht.
 
-Automatische Wiederanmeldung kann erfolgen, wenn ein Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Optionswert von `"optional"` oder `"silent"` ausgeführt wird. Es ist für einen Dienstanbieter (RP) nützlich zu wissen, ob eine automatische Wiederanmeldung für Analysen/Leistungsbewertung und für UX-Zwecke stattfand — eine automatische Anmeldung kann einen anderen UI-Ablauf rechtfertigen als eine nicht automatische Anmeldung.
+Eine automatische Reauthentifizierung kann erfolgen, wenn ein Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Optionswert von `"optional"` oder `"silent"` ausgeführt wird. Es ist nützlich für einen vertrauenden Dritten (RP) zu wissen, ob eine automatische Reauthentifizierung erfolgt ist, um Analysen/Leistungsbewertungen durchzuführen und für UX-Zwecke — eine automatische Anmeldung könnte einen anderen UI-Fluss als eine nicht-automatische Anmeldung erfordern.
 
 ## Wert
 
-Ein boolescher Wert. `true` zeigt an, dass eine automatische Wiederanmeldung verwendet wurde; `false` zeigt an, dass dies nicht der Fall war.
+Ein boolescher Wert. `true` zeigt an, dass eine automatische Reauthentifizierung verwendet wurde; `false` gibt an, dass dies nicht der Fall war.
 
 ## Beispiele
 
-Dienstanbieter können `navigator.credentials.get()` mit der `identity`-Option aufrufen, um eine Anfrage zur Anmeldung bei einem Identitätsanbieter (IdP) mittels Identitätsföderation zu stellen. Das Verhalten der automatischen Wiederanmeldung wird durch die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf gesteuert:
+RPs können `navigator.credentials.get()` mit der `identity`-Option aufrufen, um eine Anfrage zu stellen, dass sich Benutzer über einen Identitätsanbieter (IdP) mithilfe der Identitätsföderation beim RP anmelden. Das Verhalten der automatischen Reauthentifizierung wird durch die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf gesteuert:
 
 ```js
 async function signIn() {
@@ -39,7 +39,7 @@ async function signIn() {
 }
 ```
 
-Weitere Details zu diesem Prozess finden Sie in der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API). Dieser Aufruf startet den im [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschriebenen Anmeldeprozess.
+Sehen Sie sich das [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) für weitere Details an, wie dies funktioniert. Dieser Aufruf wird den Anmeldevorgang starten, der im [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben ist.
 
 ## Spezifikationen
 

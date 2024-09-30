@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`packetsReceived`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der vom entfernten Endpunkt empfangenen [RTP](/de/docs/Glossary/RTP)-Pakete von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) dieses Streams zurück, einschließlich der erneuten Übertragungen.
+Die **`packetsReceived`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Wörterbuchs gibt die Gesamtzahl der vom entfernten Endpunkt empfangenen [RTP](/de/docs/Glossary/RTP)-Pakete von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) dieses Streams zurück, einschließlich Neutransmissionen.
 
 ## Wert
 
-Ein positiver Ganzzahlwert, der die Gesamtzahl der empfangenen RTP-Pakete am entfernten Endpunkt angibt.
+Ein positiver Integerwert, der die Gesamtzahl der am entfernten Endpunkt empfangenen RTP-Pakete angibt.
 
 ## Spezifikationen
 

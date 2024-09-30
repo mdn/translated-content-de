@@ -32,15 +32,15 @@ page-break-inside: unset;
 ### Werte
 
 - `auto`
-  - : Initialer Wert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Ursprungswert. Automatische Seitenumbrüche (weder erzwungen noch verhindert).
 - `avoid`
-  - : Vermeidet Seitenumbrüche innerhalb des Elements.
+  - : Vermeiden von Seitenumbrüchen innerhalb des Elements.
 
-## Seitenumbruch-Aliasse
+## Seitenumbruch-Aliase
 
-Die Eigenschaft `page-break-inside` ist mittlerweile eine veraltete Eigenschaft und wurde durch {{cssxref("break-inside")}} ersetzt.
+Die Eigenschaft `page-break-inside` ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
+Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |
@@ -57,7 +57,7 @@ Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias v
 
 ## Beispiele
 
-### Vermeiden von Seitenumbrüchen innerhalb von Elementen
+### Vermeidung von Seitenumbrüchen innerhalb von Elementen
 
 #### HTML
 

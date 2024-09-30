@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableSectionElement: deleteRow() Methode"
+title: "HTMLTableSectionElement: deleteRow()-Methode"
 short-title: deleteRow()
 slug: Web/API/HTMLTableSectionElement/deleteRow
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteRow()`** Methode der Schnittstelle [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement) entfernt eine bestimmte Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("section")}}.
+Die **`deleteRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces entfernt eine
+spezifische Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("section")}}.
 
 ## Syntax
 
@@ -19,7 +20,9 @@ deleteRow(index)
 ### Parameter
 
 - `index`
-  - : `index` ist ein Integer, der die Zeile repräsentiert, die gelöscht werden soll. Der spezielle Index `-1` kann jedoch verwendet werden, um die letzte Zeile des Abschnitts zu entfernen.
+  - : `index` ist eine Ganzzahl, die die zu löschende Zeile angibt.
+    Jedoch kann der spezielle Index `-1` verwendet werden, um die letzte Zeile des
+    Abschnitts zu entfernen.
 
 ### Rückgabewert
 
@@ -28,11 +31,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder ein negativer Wert ungleich `-1` ist.
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder kleiner als `-1`, außer `-1` selbst.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen im Tabellenkörperabschnitt; zudem wird ein {{HTMLElement("output")}} Element mit der aktuellen Anzahl von Zeilen in der Tabelle aktualisiert.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen.
 
 ### HTML
 

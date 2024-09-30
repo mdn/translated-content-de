@@ -9,8 +9,7 @@ l10n:
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
 Der **`USBConfiguration()`** Konstruktor
-erstellt ein neues [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt, das Informationen über
-die Konfiguration auf dem angegebenen USBDevice mit dem gegebenen Konfigurationswert enthält.
+erstellt ein neues [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt, das Informationen über die Konfiguration des bereitgestellten USB-Geräts mit dem angegebenen Konfigurationswert enthält.
 
 ## Syntax
 

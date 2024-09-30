@@ -1,5 +1,5 @@
 ---
-title: "Headers: delete()-Methode"
+title: "Headers: delete() Methode"
 short-title: delete()
 slug: Web/API/Headers/delete
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces löscht einen Header aus dem aktuellen `Headers`-Objekt.
+Die **`delete()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle entfernt einen Header aus dem aktuellen `Headers`-Objekt.
 
 Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
 

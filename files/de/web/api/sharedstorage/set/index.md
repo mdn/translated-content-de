@@ -1,5 +1,5 @@
 ---
-title: "SharedStorage: set()-Methode"
+title: "SharedStorage: Methode set()"
 short-title: set()
 slug: Web/API/SharedStorage/set
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`set()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle speichert entweder ein neues Schlüssel-Wert-Paar im Shared Storage des aktuellen Ursprungs oder aktualisiert ein bestehendes.
+Die **`set()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle speichert entweder ein neues Schlüssel-Wert-Paar im Shared Storage des aktuellen Ursprungs oder aktualisiert ein bestehendes Paar.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ set(key, value, options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `ignoreIfPresent`
-      - : Ein boolescher Wert. Der Wert `true` führt dazu, dass der Setzvorgang abgebrochen wird, wenn bereits ein Schlüssel-Wert-Paar mit dem angegebenen `key` existiert. Der Standardwert `false` führt dazu, dass der Setzvorgang den vorherigen Wert überschreibt.
+      - : Ein boolescher Wert. Der Wert `true` führt dazu, dass der Setzvorgang abgebrochen wird, wenn bereits ein Schlüssel-Wert-Paar mit dem angegebenen `key` existiert. Der Standardwert `false` führt dazu, dass der bestehende Wert überschrieben wird.
 
 ### Rückgabewert
 
@@ -35,13 +35,13 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 ### Ausnahmen
 
 - Das `Promise` wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Der erstellte Eintrag aufgrund nicht verfügbarer Shared Storage nicht erfolgreich in der Datenbank gespeichert wurde (zum Beispiel, wenn dieser über eine Browsereinstellung deaktiviert ist).
-  - `key` und/oder `value` die vom Browser definierte maximale Länge überschreiten.
-  - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) aufgenommen hat.
+  - Der erstellte Eintrag nicht erfolgreich in der Datenbank gespeichert wurde, weil der Shared Storage nicht verfügbar ist (zum Beispiel, wenn er durch eine Browsereinstellung deaktiviert ist).
+  - `key` und/oder `value` die vom Browser festgelegte maximale Länge überschreiten.
+  - Die aufrufende Site die Shared Storage API nicht in einem erfolgreichen [Anmeldeprozess für die Privacy Sandbox](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) integriert hat.
 - Im Fall von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
 > [!NOTE]
-> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn der `set()`-Vorgang aus einem anderen Grund als dem, dass Shared Storage nicht verfügbar ist, nicht erfolgreich in die Datenbank schreibt, wird kein Fehler ausgelöst — der Vorgang wird dennoch mit `undefined` erfüllt.
+> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage) wird, wenn der `set()`-Vorgang aus einem anderen Grund als nicht verfügbarem Shared Storage nicht erfolgreich in die Datenbank schreibt, kein Fehler ausgelöst — der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 ## Beispiele
 

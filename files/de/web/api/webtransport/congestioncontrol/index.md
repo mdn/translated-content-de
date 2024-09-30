@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: congestionControl-Eigenschaft"
+title: "WebTransport: Eigenschaft congestionControl"
 short-title: congestionControl
 slug: Web/API/WebTransport/congestionControl
 l10n:
@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`congestionControl`** schreibgeschützte Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle zeigt die Präferenz der Anwendung für entweder hohen Durchsatz oder niedrige Latenz beim Senden von Daten an.
+Die **`congestionControl`** Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport) Interfaces gibt die Präferenz der Anwendung für entweder hohen Durchsatz oder niedrige Latenzzeit beim Senden von Daten an.
 
-Der Wert wird in den [`WebTransport()`-Konstruktoroptionen](/de/docs/Web/API/WebTransport/WebTransport#congestioncontrol) festgelegt.
+Der Wert wird in den [`WebTransport()` Konstruktoroptionen](/de/docs/Web/API/WebTransport/WebTransport#congestioncontrol) festgelegt.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `default`
-  - : Die standardmäßige Staukontrollabstimmung für den Transport.
+  - : Die Standardeinstellung für die Überlaststeuerung des Transports.
     Dies ist der Standardwert.
 - `throughput`
-  - : Die Anwendung bevorzugt, dass die Staukontrolle auf Durchsatz abgestimmt wird.
+  - : Die Anwendung bevorzugt, dass die Überlaststeuerung auf Durchsatz optimiert wird.
 - `low-latency`
-  - : Die Anwendung bevorzugt, dass die Staukontrolle auf niedrige Latenz abgestimmt wird.
+  - : Die Anwendung bevorzugt, dass die Überlaststeuerung auf niedrige Latenz optimiert wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die `congestionControl`-Präferenz abgerufen wird.
-Da dies nicht explizit im Konstruktor festgelegt ist, ist das Ergebnis `default`.
+Dieses Beispiel zeigt, wie die `congestionControl` Präferenz abgerufen wird.
+Da dies nicht explizit im Konstruktor gesetzt wird, ist das Ergebnis `default`.
 
 ```js
 const url = "https://example.com:4999/wt";

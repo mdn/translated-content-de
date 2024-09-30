@@ -11,7 +11,7 @@ Die **`animation-iteration-count`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fes
 
 {{EmbedInteractiveExample("pages/css/animation-iteration-count.html")}}
 
-Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzformeigenschaft {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
 
 ## Syntax
 
@@ -34,20 +34,20 @@ animation-iteration-count: revert-layer;
 animation-iteration-count: unset;
 ```
 
-Die **`animation-iteration-count`** Eigenschaft wird als eine oder mehrere durch Kommas getrennte Werte angegeben.
+Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben.
 
 ### Werte
 
 - `infinite`
-  - : Die Animation wird für immer wiederholt.
+  - : Die Animation wird unendlich oft wiederholt.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Wiederholungen der Animation; standardmäßig ist dies `1`. Sie können Nicht-Integer-Werte angeben, um einen Teil eines Animationszyklus abzuspielen: zum Beispiel spielt `0.5` die Hälfte des Animationszyklus ab. Negative Werte sind ungültig.
+  - : Die Anzahl der Wiederholungen der Animation; dies ist standardmäßig `1`. Sie können nicht-ganzzahlige Werte angeben, um einen Teil eines Animationszyklus abzuspielen: Zum Beispiel spielt `0.5` die Hälfte des Animationszyklus ab. Negative Werte sind ungültig.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewandt, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegung mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) führt die Angabe einer `animation-iteration-count` dazu, dass die Animation so oft wiederholt wird, wie es der Verlauf der Zeitachse vorgibt. Wenn keine `animation-iteration-count` angegeben wird, tritt die Animation nur einmal auf. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, führt jedoch zu einer Animation, die nicht funktioniert.
+> Wenn Sie [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) erstellen, bewirkt die Angabe einer `animation-iteration-count`, dass die Animation über den Verlauf der Timeline entsprechend oft wiederholt wird. Wenn keine `animation-iteration-count` angegeben ist, erfolgt die Animation nur einmal. `infinite` ist ein gültiger Wert für Scroll-gesteuerte Animationen, führt aber zu einer nicht funktionierenden Animation.
 
 ## Formale Definition
 
@@ -59,7 +59,7 @@ Die **`animation-iteration-count`** Eigenschaft wird als eine oder mehrere durch
 
 ## Beispiele
 
-### Festlegen der Iterationsanzahl
+### Iterationanzahl festlegen
 
 Diese Animation wird 10 Mal ausgeführt.
 
@@ -115,4 +115,4 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
-- Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- Weitere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

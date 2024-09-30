@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler „label not found“ tritt auf, wenn ein {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Statement ein Label referenziert, das bei keinem Statement existiert, das das `break`- oder `continue`-Statement enthält.
+Die JavaScript-Ausnahme "label not found" tritt auf, wenn eine {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisung auf ein Label verweist, das bei keiner Anweisung existiert, welche die `break`- oder `continue`-Anweisung enthält.
 
 ## Nachricht
 
@@ -21,15 +21,15 @@ SyntaxError: Cannot use the undeclared label 'label'. (Safari)
 
 {{jsxref("SyntaxError")}}.
 
-## Was ist schiefgelaufen?
+## Was schiefgelaufen ist
 
-In JavaScript sind [Labels](/de/docs/Web/JavaScript/Reference/Statements/label) sehr eingeschränkt: Sie können sie nur mit {{jsxref("Statements/break", "break")}}- und {{jsxref("Statements/continue", "continue")}}-Statements verwenden, und Sie können nur von einem innerhalb des gelabelten Statements enthaltenen Statement zu ihnen springen. Es ist nicht möglich, von irgendwo im Programm zu diesem Label zu springen.
+In JavaScript sind [Labels](/de/docs/Web/JavaScript/Reference/Statements/label) sehr eingeschränkt: Sie können sie nur mit {{jsxref("Statements/break", "break")}}- und {{jsxref("Statements/continue", "continue")}}-Anweisungen verwenden, und Sie können nur von einer Anweisung, die innerhalb der gelabelten Anweisung enthalten ist, zu ihnen springen. Sie können aus keinem anderen Teil des Programms zu diesem Label springen.
 
 ## Beispiele
 
-### Unsyntaktischer Sprung
+### Unsynktaktischer Sprung
 
-Sie können Labels nicht so verwenden, als wären sie `goto`.
+Sie können Labels nicht wie ein `goto` verwenden.
 
 ```js-nolint example-bad
 start: console.log("Hello, world!");
@@ -37,7 +37,7 @@ console.log("Do it again");
 break start;
 ```
 
-Stattdessen können Sie Labels nur verwenden, um die normalen Semantiken von `break`- und `continue`-Statements zu erweitern.
+Stattdessen können Sie Labels nur verwenden, um die normalen Semantiken von `break`- und `continue`-Anweisungen zu erweitern.
 
 ```js example-good
 start: {
@@ -51,4 +51,4 @@ start: {
 
 ## Siehe auch
 
-- [Gelabeltes Statement](/de/docs/Web/JavaScript/Reference/Statements/label)
+- [Gelabelte Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)

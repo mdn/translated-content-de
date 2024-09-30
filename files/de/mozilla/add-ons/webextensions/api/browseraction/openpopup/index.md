@@ -26,11 +26,11 @@ browser.browserAction.openPopup(
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `windowId` {{optional_inline}}
-      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig ist das aktuelle Fenster.
+      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig das aktuelle Fenster.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
 
 ## Browser-Kompatibilität
 

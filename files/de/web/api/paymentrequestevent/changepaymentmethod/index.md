@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequestEvent: changePaymentMethod()-Methode"
+title: "PaymentRequestEvent: changePaymentMethod() Methode"
 short-title: changePaymentMethod()
 slug: Web/API/PaymentRequestEvent/changePaymentMethod
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`changePaymentMethod()`**-Methode der [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Schnittstelle wird vom Zahlungshandler verwendet, um einen aktualisierten Betrag zu erhalten, basierend auf Details der Zahlungsmethode wie der Rechnungsadresse.
+Die **`changePaymentMethod()`**-Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces wird vom Zahlungshandler verwendet, um eine aktualisierte Gesamtsumme zu erhalten, basierend auf solchen Zahlungsdetails wie der Rechnungsadresse.
 
 Wenn diese Methode aufgerufen wird, wird ein [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent) ausgelöst.
 
@@ -28,22 +28,22 @@ changePaymentMethod(methodName, methodDetails)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem `PaymentRequestDetailsUpdate`-Objekt aufgelöst wird. Dieses Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, der mit einem `PaymentRequestDetailsUpdate`-Objekt aufgelöst wird. Dieses Objekt enthält die folgenden Eigenschaften:
 
 - `error`
   - : Ein String, der erklärt, warum die vom Benutzer ausgewählte Zahlungsmethode nicht verwendet werden kann.
 - `total`
-  - : Ein aktualisierter Gesamtbetrag basierend auf der geänderten Zahlungsmethode. Der Gesamtbetrag kann sich beispielsweise ändern, weil die Rechnungsadresse der vom Benutzer ausgewählten Zahlungsmethode die anwendbare Umsatzsteuer ändert.
+  - : Eine aktualisierte Gesamtsumme basierend auf der geänderten Zahlungsmethode. Die Gesamtsumme kann sich ändern, z.B. weil die Rechnungsadresse der vom Benutzer ausgewählten Zahlungsmethode die anwendbare Umsatzsteuer verändert.
 - `modifiers`
 
   - : Ein {{jsxref("Array")}} von `PaymentDetailsModifier`-Objekten, deren Eigenschaften in [`PaymentRequestEvent.modifiers`](/de/docs/Web/API/PaymentRequestEvent/modifiers) beschrieben sind.
 
 - `paymentMethodErrors`
-  - : Ein Objekt, das etwaige Validierungsfehler für die Zahlungsmethode enthält.
+  - : Ein Objekt, das Validierungsfehler für die Zahlungsmethode enthält, falls vorhanden.
 
 ## Beispiele
 
-Das Folgende zeigt einen trivialen Code-Schnipsel, der in einem Service Worker verwendet werden könnte, um eine Benachrichtigung über eine Änderung der Zahlungsmethode an das Hauptfenster des Zahlungshandlers zu senden. Ein vollständiges Testbeispiel finden Sie unter [Payment handler for testing payment method change event](https://rsolomakhin.github.io/pr/apps/pmc/).
+Das folgende Beispiel zeigt einen trivialen Codeausschnitt, der in einem Service Worker verwendet werden könnte, um eine Benachrichtigung über eine Änderung der Zahlungsmethode an das Hauptzahlungsfenster zu senden. Für ein vollständiges Testbeispiel siehe [Payment handler for testing payment method change event](https://rsolomakhin.github.io/pr/apps/pmc/).
 
 ```js
 function notifyPaymentMethodChanged(e) {
@@ -67,8 +67,8 @@ function notifyPaymentMethodChanged(e) {
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

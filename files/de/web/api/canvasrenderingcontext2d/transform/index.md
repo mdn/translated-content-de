@@ -8,14 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.transform()`**-Methode der Canvas 2D API multipliziert die aktuelle Transformation mit der Matrix, die durch die Argumente dieser Methode beschrieben wird. Damit können Sie den Kontext skalieren, rotieren, verschieben und verzerren.
+Die **`CanvasRenderingContext2D.transform()`**-Methode der Canvas 2D API multipliziert die aktuelle Transformation mit der Matrix, die durch die Argumente dieser Methode beschrieben wird. Dies ermöglicht es Ihnen, den Kontext zu skalieren, zu drehen, zu verschieben und zu verzerren.
 
 > [!NOTE]
-> Siehe auch die
-> [`setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform)-Methode, welche
-> die aktuelle Transformation auf die Einheitsmatrix zurücksetzt und dann
-> `transform()` aufruft.
+> Siehe auch die [`setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform)-Methode, die die aktuelle Transformation auf die Identitätsmatrix zurücksetzt und dann `transform()` aufruft.
 
 ## Syntax
 
@@ -40,7 +36,7 @@ Die Transformationsmatrix wird beschrieben durch: <math><semantics><mrow><mo>[</
 - `f` (`m42`)
   - : Die Zelle in der zweiten Zeile und dritten Spalte der Matrix.
 
-Wenn ein Punkt ursprünglich die Koordinaten <math><semantics><mrow><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="TeX">(x, y)</annotation></semantics></math> hatte, dann wird er nach der Transformation die Koordinaten <math><semantics><mrow><mo>(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>c</mi><mi>y</mi><mo>+</mo><mi>e</mi><mo>,</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>d</mi><mi>y</mi><mo>+</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="TeX">(ax + cy + e, bx + dy + f)</annotation></semantics></math> haben. Das bedeutet:
+Wenn ein Punkt ursprünglich die Koordinaten <math><semantics><mrow><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="TeX">(x, y)</annotation></semantics></math> hatte, wird er nach der Transformation die Koordinaten <math><semantics><mrow><mo>(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>c</mi><mi>y</mi><mo>+</mo><mi>e</mi><mo>,</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>d</mi><mi>y</mi><mo>+</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="TeX">(ax + cy + e, bx + dy + f)</annotation></semantics></math> haben. Das bedeutet:
 
 - `e` und `f` steuern die horizontale und vertikale Verschiebung des Kontexts.
 - Wenn `b` und `c` `0` sind, steuern `a` und `d` die horizontale und vertikale Skalierung des Kontexts.
@@ -52,9 +48,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verschieben einer Form
+### Verzerrung einer Form
 
-Dieses Beispiel verschiebt ein Rechteck sowohl vertikal (`.2`) als auch horizontal (`.8`). Skalierung und Verschiebung bleiben unverändert.
+Dieses Beispiel verzerrt ein Rechteck sowohl vertikal (`.2`) als auch horizontal (`.8`). Skalierung und Verschiebung bleiben unverändert.
 
 #### HTML
 

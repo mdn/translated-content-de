@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logischen Start- und Endabstände eines Elements in der Inline-Richtung, was je nach Schreibrichtung, Richtung und Textausrichtung des Elements auf physische Abstände abbildet. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
+Die **`inset-inline`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert die logischen Start- und End-Abstände eines Elements in der Inline-Richtung, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Abstände abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}} je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
+Diese [inset property](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline.html")}}
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist ein Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("inset-inline-end")}}
 - {{cssxref("inset-inline-start")}}
@@ -58,7 +58,7 @@ Die `inset-inline`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left"
 
 ## Beispiele
 
-### Einstellen von Start- und Endabständen für Inline
+### Festlegen von Start- und End-Abständen inline
 
 #### HTML
 
@@ -99,7 +99,7 @@ div {
 
 ## Siehe auch
 
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
-- Die zugeordnete physische Kurzform: {{cssxref("inset")}}
-- Die zugeordnete Block-Kurzform: {{cssxref("inset-block")}}
+- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
+- Die abgebildete physische Kurzform: {{cssxref("inset")}}
+- Die abgebildete Block-Kurzform: {{cssxref("inset-block")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

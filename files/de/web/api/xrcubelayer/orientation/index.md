@@ -16,9 +16,9 @@ Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Beispiele
 
-### Aktualisieren der Orientierung der Cube-Layer
+### Aktualisierung der Orientierung der Würfelschicht
 
-Die Methode [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) erstellt eine Cube-Layer und ermöglicht die Angabe einer `orientation`. Die Eigenschaft `XRCubeLayer.orientation` kann nach der Erstellung der Ebene verwendet werden, um die aktuelle Orientierung zu erhalten oder um sie auf eine neue einzustellen.
+Die Methode [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) erstellt eine Würfelschicht und ermöglicht die Angabe einer `orientation`. Die Eigenschaft `XRCubeLayer.orientation` kann nach der Erstellung der Schicht verwendet werden, um die aktuelle Orientierung zu erhalten oder um sie auf eine neue festzulegen.
 
 ```js
 const cubeLayer = xrGlBinding.createCubeLayer({

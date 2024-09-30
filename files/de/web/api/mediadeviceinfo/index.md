@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`MediaDeviceInfo`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) enthält Informationen, die ein einzelnes Medien-Ein- oder -Ausgabegerät beschreiben.
+Die **`MediaDeviceInfo`** Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) enthält Informationen, die ein einzelnes Medien-Ein- oder Ausgabegerät beschreiben.
 
-Die Liste der Geräte, die durch den Aufruf von [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) abgerufen wird, ist ein Array von `MediaDeviceInfo`-Objekten, jeweils eines pro Mediengerät.
+Die Liste der Geräte, die durch Aufruf von [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) erhalten wird, ist ein Array von `MediaDeviceInfo` Objekten, eines pro Mediengerät.
 
 ## Instanz-Eigenschaften
 
 - [`MediaDeviceInfo.deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die ein Bezeichner für das dargestellte Gerät ist, der über Sitzungen hinweg gespeichert wird. Es ist von anderen Anwendungen nicht zu erraten und einzigartig für den Ursprung der aufrufenden Anwendung. Es wird zurückgesetzt, wenn der Benutzer Cookies löscht (für privates Surfen wird ein anderer Bezeichner verwendet, der nicht über Sitzungen hinweg gespeichert wird).
+  - : Gibt einen String zurück, der ein Bezeichner für das dargestellte Gerät ist, der über Sitzungen hinweg gespeichert wird. Er ist von anderen Anwendungen nicht erratbar und eindeutig für den Ursprung der aufrufenden Anwendung. Er wird zurückgesetzt, wenn der Benutzer Cookies löscht (für das private Surfen wird ein anderer Bezeichner verwendet, der nicht über Sitzungen hinweg gespeichert wird).
 - [`MediaDeviceInfo.groupId`](/de/docs/Web/API/MediaDeviceInfo/groupId) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die ein Gruppenbezeichner ist. Zwei Geräte haben denselben Gruppenbezeichner, wenn sie zu demselben physischen Gerät gehören – zum Beispiel ein Monitor mit integrierter Kamera und Mikrofon.
+  - : Gibt einen String zurück, der ein Gruppen-Bezeichner ist. Zwei Geräte haben den gleichen Gruppen-Bezeichner, wenn sie zu demselben physischen Gerät gehören — zum Beispiel ein Monitor mit integrierter Kamera und Mikrofon.
 - [`MediaDeviceInfo.kind`](/de/docs/Web/API/MediaDeviceInfo/kind) {{ReadOnlyInline}}
-  - : Gibt einen enumerierten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
+  - : Gibt einen aufgezählten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
 - [`MediaDeviceInfo.label`](/de/docs/Web/API/MediaDeviceInfo/label) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die dieses Gerät beschreibt (zum Beispiel "Externe USB-Webcam").
+  - : Gibt einen String zurück, der dieses Gerät beschreibt (zum Beispiel "Externe USB-Webcam").
 
 > [!NOTE]
-> Aus Sicherheitsgründen ist das `label`-Feld immer leer, es sei denn, es existiert ein aktiver Medienstrom _oder_ der Benutzer hat eine dauerhafte Berechtigung für den Zugriff auf Mediengeräte erteilt. Die Menge der Gerätenamen könnte sonst als Teil eines [Fingerabdrucks](/de/docs/Glossary/Fingerprinting)-Mechanismus verwendet werden, um einen Benutzer zu identifizieren.
+> Aus Sicherheitsgründen ist das `label`-Feld immer leer, es sei denn, ein aktiver Medienstream existiert _oder_ der Benutzer hat dauerhafte Berechtigungen für den Zugriff auf Mediengeräte erteilt. Die Menge der Gerätebezeichnungen könnte andernfalls als Teil eines [Fingerprinting](/de/docs/Glossary/Fingerprinting) Mechanismus verwendet werden, um einen Benutzer zu identifizieren.
 
 ## Instanz-Methoden
 
 - [`MediaDeviceInfo.toJSON()`](/de/docs/Web/API/MediaDeviceInfo/toJSON)
-  - : Gibt eine JSON-Darstellung des `MediaDeviceInfo`-Objekts zurück.
+  - : Gibt eine JSON-Repräsentation des `MediaDeviceInfo` Objekts zurück.
 
 ## Beispiel
 
@@ -52,7 +52,7 @@ if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
 }
 ```
 
-Dies könnte folgendes ergeben:
+Dies könnte folgendes erzeugen:
 
 ```bash
 videoinput: id = csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=
@@ -60,7 +60,7 @@ audioinput: id = RKxXByjnabbADGQNNZqLVLdmXlS0YkETYCIbg+XxnvM=
 audioinput: id = r2/xw1xUPIyZunfV1lGrKOma5wTOvCkWfZ368XCndm0=
 ```
 
-oder wenn ein oder mehrere Medienströme aktiv sind oder dauerhafte Berechtigungen erteilt wurden:
+oder wenn ein oder mehrere Medienströme aktiv sind, oder wenn dauerhafte Berechtigungen erteilt wurden:
 
 ```bash
 videoinput: FaceTime HD Camera (Built-in) id=csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=

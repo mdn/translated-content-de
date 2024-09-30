@@ -7,55 +7,55 @@ l10n:
 
 {{DefaultAPISidebar("Media Source Extensions")}}
 
-Die **Media Source API**, formal bekannt als **Media Source Extensions** (**MSE**), bietet Funktionalitäten, die browserbasierte Streaming-Medien ohne Plugins ermöglichen. Mit MSE können Medienströme über JavaScript erstellt und mit {{htmlelement("audio")}}- und {{htmlelement("video")}}-Elementen abgespielt werden.
+Die **Media Source API**, formal bekannt als **Media Source Extensions** (**MSE**), bietet Funktionen, die ein pluginfreies, webbasiertes Streaming von Medien ermöglichen. Mit MSE können Medienströme über JavaScript erstellt und mit den {{htmlelement("audio")}}- und {{htmlelement("video")}}-Elementen abgespielt werden.
 
-## Konzepte und Nutzung von Media Source Extensions
+## Konzepte und Nutzung der Media Source Extensions
 
-Das Abspielen von Video und Audio ist in Webanwendungen seit einigen Jahren ohne Plugins möglich, aber die angebotenen Grundfunktionen waren bisher wirklich nur nützlich, um einzelne ganze Tracks abzuspielen. Wir können zum Beispiel nicht Arraybuffer kombinieren/aufteilen. Das Streaming von Medien war bis vor kurzem das Gebiet von Flash, wobei Technologien wie Flash Media Server Videostreams über das RTMP-Protokoll bereitstellten.
+Video- und Audiowiedergabe ist seit einigen Jahren in Webanwendungen ohne Plugins möglich, aber die grundlegenden Funktionen waren bisher meist nur für das Abspielen einzelner kompletter Tracks nützlich. Zum Beispiel können wir keine Arraybuffers kombinieren/teilen. Streaming-Medien waren bis vor kurzem das Gebiet von Flash, wobei Technologien wie Flash Media Server Videostreams über das RTMP-Protokoll bereitstellten.
 
 ### Der MSE-Standard
 
-Mit Media Source Extensions (MSE) ändert sich dies. MSE erlaubt es uns, die übliche einzelne progressive `src`-URI, die Medien-Elementen zugeführt wird, durch einen Verweis auf ein `MediaSource`-Objekt zu ersetzen. Dieses ist ein Container für Informationen wie den Bereitschaftszustand der Medien zum Abspielen und Verweise auf mehrere `SourceBuffer`-Objekte, die die verschiedenen Teile der Medien darstellen, die den gesamten Stream ausmachen. MSE bietet uns feinere Steuerungsmöglichkeiten darüber, wie viel und wie oft Inhalte abgerufen werden, und gewisse Kontrollmöglichkeiten über Speicherverwendungsdetails, z. B. wann Puffer entfernt werden. Es legt den Grundstein für adaptiv bitrate Streaming-Clients (wie solche, die DASH oder HLS verwenden), die auf seiner erweiterbaren API aufgebaut werden können.
+Mit den Media Source Extensions (MSE) ändert sich das. MSE ermöglicht es uns, die übliche einzelne progressive `src`-URI, die an Medienelemente übergeben wird, durch einen Verweis auf ein `MediaSource`-Objekt zu ersetzen. Dieses dient als Container für Informationen wie den Bereitschaftszustand der Medien zur Wiedergabe und Verweise auf mehrere `SourceBuffer`-Objekte, die die verschiedenen Medienblöcke darstellen, aus denen der gesamte Stream besteht. MSE gibt uns eine feinere Kontrolle darüber, wie viel und wie oft Inhalte abgerufen werden, sowie etwas Kontrolle über Details der Speichernutzung, wie das Ausräumen von Puffern. Es legt den Grundstein für adaptive Bitrate-Streaming-Clients (wie diejenigen, die DASH oder HLS verwenden), die auf seiner erweiterbaren API aufgebaut werden können.
 
-Das Erstellen von Ressourcen, die mit MSE in modernen Browsern funktionieren, ist ein mühsamer Prozess, der erhebliche Zeit, Rechenleistung und Energie erfordert. Die Nutzung externer Tools, um den Inhalt in ein geeignetes Format zu bringen, ist erforderlich. Während die Browser-Unterstützung für die verschiedenen Mediencontainer mit MSE lückenhaft ist, ist die Verwendung des H.264-Videocodecs, AAC-Audiocodecs und des MP4-Containerformats eine häufige Grundlage. MSE bietet auch eine API zur Laufzeiterkennung der Unterstützung von Containern und Codecs.
+Das Erstellen von Assets, die mit MSE in modernen Browsern funktionieren, ist ein mühsamer Prozess, der erhebliche Zeit, Rechenleistung und Energie erfordert. Die Verwendung externer Dienstprogramme zur Anpassung der Inhalte in ein geeignetes Format ist erforderlich. Während die Unterstützung der verschiedenen Mediencontainer mit MSE im Browser lückenhaft ist, bildet die Nutzung des H.264-Videocodecs, des AAC-Audiocodecs und des MP4-Containerformats eine gemeinsame Basis. MSE bietet auch eine API für die Laufzeit-Erkennung von Container- und Codec-Unterstützung.
 
-Wenn Sie keine explizite Kontrolle über die Videoqualität im Laufe der Zeit, die Geschwindigkeit des Inhaltsabrufs oder die Geschwindigkeit der Speichertrennung benötigen, können die {{htmlelement("video")}}- und {{htmlelement("source")}}-Tags eine einfache und angemessene Lösung sein.
+Wenn Sie keine explizite Kontrolle über die Videoqualität im Laufe der Zeit, die Abrufrate der Inhalte oder die Speicherauslastung benötigen, könnten die {{htmlelement("video")}}- und {{htmlelement("source")}}-Tags eine einfache und ausreichende Lösung sein.
 
 ### DASH
 
-Dynamic Adaptive Streaming over HTTP (DASH) ist ein Protokoll zur Spezifizierung, wie adaptive Inhalte abgerufen werden sollen. Es ist effektiv eine Schicht, die auf MSE aufgebaut ist, um adaptive Bitrate-Streaming-Clients zu entwickeln. Während es andere verfügbare Protokolle gibt (wie HTTP Live Streaming (HLS)), hat DASH die größte Plattformunterstützung.
+Dynamic Adaptive Streaming over HTTP (DASH) ist ein Protokoll zur Spezifizierung, wie adaptive Inhalte abgerufen werden sollen. Es ist effektiv eine Schicht, die auf MSE aufbaut, um adaptive Bitrate-Streaming-Clients zu erstellen. Während es andere Protokolle gibt (wie HTTP Live Streaming (HLS)), hat DASH die meiste Plattformunterstützung.
 
-DASH verlagert viel Logik aus dem Netzwerkprotokoll in die Anwendungslogik auf der Client-Seite und verwendet das einfachere HTTP-Protokoll zum Abrufen von Dateien. Tatsächlich kann man DASH mit einem einfachen statischen Dateiserver unterstützen, was auch für CDNs großartig ist. Dies steht im direkten Gegensatz zu vorherigen Streaming-Lösungen, die teure Lizenzen für proprietäre, nicht standardisierte Client/Server-Protokollimplementierungen erforderten.
+DASH verlagert viel Logik aus dem Netzwerkprotokoll in die clientseitige Anwendungslogik und verwendet das einfachere HTTP-Protokoll zum Abrufen von Dateien. Tatsächlich kann man DASH mit einem einfachen statischen Dateiserver unterstützen, was auch für CDNs ideal ist. Dies steht in direktem Gegensatz zu früheren Streaming-Lösungen, die teure Lizenzen für proprietäre, nicht standardisierte Client-/Server-Protokollimplementierungen erforderten.
 
-Die zwei häufigsten Anwendungsfälle für DASH beinhalten das Ansehen von Inhalten "on demand" oder "live". Bei On-Demand-Inhalten kann ein Entwickler sich Zeit nehmen, die Ressourcen in mehrere Auflösungen verschiedener Qualität zu transkodieren.
+Die beiden häufigsten Anwendungsfälle für DASH beinhalten das "On-Demand"-Ansehen von Inhalten oder "Live"-Anzeigen. On-Demand ermöglicht einem Entwickler, sich Zeit zu nehmen, um die Assets in mehrere Auflösungen unterschiedlicher Qualität zu transkodieren.
 
-Live-Profil-Inhalte können Latenz einführen, weil sie transkodiert und übertragen werden, daher ist DASH nicht geeignet für Echtzeitkommunikation wie [WebRTC](/de/docs/Web/API/WebRTC_API). Es kann jedoch deutlich mehr Clientverbindungen unterstützen als WebRTC.
+Live-Profilinhalte können aufgrund ihrer Transkodierung und Übertragung Latenz einführen, daher ist DASH nicht für die Echtzeitkommunikation geeignet, wie es [WebRTC](/de/docs/Web/API/WebRTC_API) ist. Es kann jedoch deutlich mehr Clientverbindungen als WebRTC unterstützen.
 
-Es gibt zahlreiche kostenlose und Open-Source-Tools zum Transkodieren von Inhalten und zur Vorbereitung für die Nutzung mit DASH, DASH-Dateiservern und DASH-Clientbibliotheken, die in JavaScript geschrieben sind.
+Es gibt zahlreiche verfügbare kostenlose und Open-Source-Tools für das Transkodieren von Inhalten und deren Vorbereitung für die Verwendung mit DASH, DASH-File-Servern und DASH-Client-Bibliotheken, die in JavaScript geschrieben sind.
 
 ### Verfügbarkeit in Workern
 
-Ab Chrome 108 sind MSE-Funktionen in dedizierten [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar, was eine verbesserte Leistung bei der Manipulation von [`MediaSource`](/de/docs/Web/API/MediaSource)s und [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)s ermöglicht. Um die Medien abzuspielen, wird die Eigenschaft [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle) verwendet, um eine Referenz zu einem [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zu erhalten, einem Proxy für die `MediaSource`, der an den Haupt-Thread zurückgegeben und über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Medienelement angehängt werden kann.
+Ab Chrome 108 sind MSE-Funktionen in dedizierten [Web Workern](/de/docs/Web/API/Web_Workers_API) verfügbar, was eine verbesserte Leistung bei der Manipulation von [`MediaSource`](/de/docs/Web/API/MediaSource)s und [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)s ermöglicht. Zum Abspielen der Medien wird die Eigenschaft [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle) verwendet, um eine Referenz auf ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zu erhalten, einen Proxy für das `MediaSource`, das zurück an den Hauptthread übertragen und über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Medienelement angehängt werden kann.
 
-Sehen Sie sich das [MSE-in-Workers-Demo von Matt Wolenetz](https://wolenetz.github.io/mse-in-workers-demo/mse-in-workers-demo.html) für ein Live-Beispiel an.
+Sehen Sie sich das [MSE-in-Workers Demo von Matt Wolenetz](https://wolenetz.github.io/mse-in-workers-demo/mse-in-workers-demo.html) für ein Live-Beispiel an.
 
 ## Schnittstellen
 
 - [`MediaSource`](/de/docs/Web/API/MediaSource)
   - : Repräsentiert eine Medienquelle, die über ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt abgespielt werden soll.
 - [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
-  - : Repräsentiert ein Medienstück, das über ein `MediaSource`-Objekt an ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) weitergegeben wird.
+  - : Repräsentiert einen Medienblock, der über ein `MediaSource`-Objekt an ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) übergeben werden soll.
 - [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)
   - : Eine einfache Containerliste für mehrere `SourceBuffer`-Objekte.
 - [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)
-  - : Enthält Informationen über die Qualität des Videos, das von einem {{htmlelement("video")}}-Element abgespielt wird, wie zum Beispiel die Anzahl der ausgelassenen oder beschädigten Frames. Zurückgegeben von der Methode [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality).
+  - : Enthält Informationen über die Videoqualität, die von einem {{htmlelement("video")}}-Element abgespielt wird, wie die Anzahl der verlorenen oder beschädigten Frames. Wird von der Methode [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) zurückgegeben.
 
 ## Erweiterungen zu anderen Schnittstellen
 
 - [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
-  - : Erstellt eine Objekt-URL, die auf ein `MediaSource`-Objekt verweist, welches dann als `src`-Wert eines HTML-Medienelements angegeben werden kann, um einen Medienstrom abzuspielen.
+  - : Erstellt eine Objekt-URL, die auf ein `MediaSource`-Objekt zeigt, das dann als `src`-Wert eines HTML-Medienelements angegeben werden kann, um einen Medienstream abzuspielen.
 - [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable)
-  - : Wenn ein `MediaSource`-Objekt von einem HTML-Medienelement abgespielt wird, gibt diese Eigenschaft ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Zeitbereiche enthält, zu denen der Benutzer wechseln kann.
+  - : Wenn ein `MediaSource`-Objekt von einem HTML-Medienelement abgespielt wird, gibt diese Eigenschaft ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Zeitbereiche enthält, zu denen der Benutzer springen kann.
 - [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)
   - : Gibt ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt für das aktuell abgespielte Video zurück.
 - [`AudioTrack.sourceBuffer`](/de/docs/Web/API/AudioTrack/sourceBuffer), [`VideoTrack.sourceBuffer`](/de/docs/Web/API/VideoTrack/sourceBuffer), [`TextTrack.sourceBuffer`](/de/docs/Web/API/TextTrack/sourceBuffer)
@@ -67,7 +67,7 @@ Sehen Sie sich das [MSE-in-Workers-Demo von Matt Wolenetz](https://wolenetz.gith
 
 ## Siehe auch
 
-- [Umwandlung von Ressourcen für Media Source Extensions](/de/docs/Web/API/Media_Source_Extensions_API/Transcoding_assets_for_MSE)
+- [Transcodieren von Assets für Media Source Extensions](/de/docs/Web/API/Media_Source_Extensions_API/Transcoding_assets_for_MSE)
 - Verwendung von MSE zur Erstellung eines grundlegenden Streaming-Dienstes (TBD)
 - Verwendung von MPEG DASH zur Erstellung einer Streaming-Anwendung (TBD)
 - Die {{htmlelement("audio")}}- und {{htmlelement("video")}}-Elemente.

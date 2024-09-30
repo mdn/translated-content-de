@@ -1,5 +1,5 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen"
+title: "Testen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
 slug: Learn/HTML/Introduction_to_HTML/Test_your_skills:_HTML_text_basics
 l10n:
   sourceCommit: 76c1e86a6bf1fd58aa6b0e627842a3c1161add28
@@ -7,16 +7,16 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitstests ist es festzustellen, ob Sie verstehen, wie Sie [Text in HTML auszeichnen](/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals), um ihm Struktur und Bedeutung zu verleihen.
+Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie verstehen, wie man [Text in HTML auszeichnet](/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals), um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen in den interaktiven Editoren auf dieser Seite ausprobieren oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/).
 >
 > Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie das bereitgestellte HTML mit semantischen Überschriften- und Absatzelementen auszeichnen.
+In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatz-Elementen auszeichnen.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -32,7 +32,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste umwandeln und die zweite in eine geordnete Liste.
+In dieser Aufgabe möchten wir, dass Sie die erste unverarbeitete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -48,7 +48,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 3
 
-In dieser Aufgabe wird Ihnen ein Absatz bereitgestellt, und Ihr Ziel ist es, einige geeignete Wörter mit starker Bedeutung und einige mit Betonung durch Inline-Elemente auszuzeichnen.
+In dieser Aufgabe wird Ihnen ein Absatz zur Verfügung gestellt, und Ihr Ziel ist es, einige passende Wörter mit starker Bedeutung und einige mit Betonung durch Inline-Elemente zu markieren.
 
 Das fertige Beispiel sollte so aussehen:
 

@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`align`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert die Ausrichtung aller Textzeilen im Textbereich.
+Die **`align`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert die Ausrichtung aller Textzeilen im Textfeld.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"start"`
-  - : Anfangsausrichtung.
+  - : Startausrichtung.
 - `"center"`
-  - : Zentrierte Ausrichtung.
+  - : Zentrums-Ausrichtung.
 - `"end"`
   - : Endausrichtung.
 - `"left"`
-  - : Linksausrichtung.
+  - : Linksauswahl.
 - `"right"`
-  - : Rechtsausrichtung.
+  - : Rechtsauswahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und dann der Wert von `align` auf `"start"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `align` auf `"start"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

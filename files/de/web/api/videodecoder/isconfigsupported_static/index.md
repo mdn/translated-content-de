@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`isConfigSupported()`** statische Methode der Schnittstelle [`VideoDecoder`](/de/docs/Web/API/VideoDecoder) prüft, ob die gegebene Konfiguration unterstützt wird (das heißt, ob [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
+Die **`isConfigSupported()`** statische Methode der [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Schnittstelle überprüft, ob die gegebene Konfiguration unterstützt wird (das heißt, ob [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
 
 ## Syntax
 
@@ -23,21 +23,21 @@ VideoDecoder.isConfigSupported(config)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
+Ein {{jsxref("Promise")}}, das sich mit einem Objekt auflöst, das die folgenden Mitglieder enthält:
 
 - `supported`
-  - : Ein boolescher Wert, der `true` ist, wenn die gegebene Konfiguration vom Decoder unterstützt wird.
+  - : Ein boolean-Wert, der `true` ist, wenn die gegebene Konfiguration vom Decoder unterstützt wird.
 - `config`
-  - : Eine Kopie der gegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
+  - : Eine Kopie der gegebenen Konfiguration mit allen Feldern, die vom Decoder erkannt werden.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte vorhanden sind (wie eine negative `codedWidth`).
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn sie keine erforderlichen Werte hat (wie ein leeres `codec`-Feld) oder ungültige Werte hat (wie eine negative `codedWidth`).
 
 ## Beispiele
 
-Das folgende Beispiel testet, ob der Browser beschleunigte und unbeschleunigte Versionen mehrerer Video-Codecs unterstützt.
+Das folgende Beispiel testet, ob der Browser beschleunigte und nicht beschleunigte Versionen mehrerer Videocodecs unterstützt.
 
 ```js
 const codecs = ["avc1.42001E", "vp8", "vp09.00.10.08", "av01.0.04M.08"];

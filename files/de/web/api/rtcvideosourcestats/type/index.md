@@ -10,7 +10,7 @@ l10n:
 
 Die **`type`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs ist ein String mit dem Wert `media-source`.
 
-Der Typ `media-source` identifiziert die Art der Statistik entweder als [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) oder [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) beim Durchlaufen des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), das von [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) oder [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Die Art der Statistik kann weiter unterschieden werden mit Hilfe des [`kind`](/de/docs/Web/API/RTCVideoSourceStats/kind), das für `RTCVideoSourceStats` `video` sein wird.
+Der Typ `media-source` identifiziert die Art der Statistiken entweder als [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) oder [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats), wenn Sie das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchlaufen, das von [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) oder [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Die Art der Statistiken kann weiter durch die Verwendung des [`kind`](/de/docs/Web/API/RTCVideoSourceStats/kind) unterschieden werden, welches für `RTCVideoSourceStats` den Wert `video` hat.
 
 ## Wert
 

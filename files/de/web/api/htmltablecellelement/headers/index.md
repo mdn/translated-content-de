@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`headers`**-Eigenschaft der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle
-enthält eine Liste von IDs von {{HTMLElement("th")}}-Elementen, die _Header_ für diese spezielle Zelle sind.
+Die **`headers`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces
+enthält eine Liste von IDs von {{HTMLElement("th")}}-Elementen, die _Header_ für diese spezifische Zelle sind.
 
 ## Wert
 

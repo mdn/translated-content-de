@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements. Es ermöglicht das Überschreiben der Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [font-size](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
+Das **`scriptlevel`**-[globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements. Es ermöglicht das Überschreiben von Regeln aus dem [Benutzeragent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [font-size](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
 
 ## Beispiel
 
@@ -38,14 +38,14 @@ Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) 
 
 ### Werte
 
-Wenn `<U>` eine nicht signierte [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. mit entferntem Vorzeichen), dann sind die akzeptierten Werte:
+Wenn `<U>` eine vorzeichenlose [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. ohne Vorzeichen), dann sind die akzeptierten Werte:
 
 - `<U>`
-  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die der Elemente in der angegebenen Tiefe.
+  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die Elemente in der angegebenen Tiefe.
 - `+<U>`
-  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies verkleinert die `font-size` auf dem Element um `<U>`-mal.
+  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies wird die `font-size` des Elements `<U>`-mal verkleinern.
 - `-<U>`
-  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies vergrößert die `font-size` auf dem Element um `<U>`-mal.
+  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies wird die `font-size` des Elements `<U>`-mal vergrößern.
 
 ## Spezifikationen
 
@@ -58,7 +58,7 @@ Wenn `<U>` eine nicht signierte [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. 
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/MathML/Global_attributes).
-- Das [displaystyle](/de/docs/Web/MathML/Global_attributes/displaystyle) globale Attribut.
+- Das globale Attribut [displaystyle](/de/docs/Web/MathML/Global_attributes/displaystyle).
 - {{cssxref("font-size")}}
 - {{cssxref("math-depth")}}
 - {{cssxref("math-style")}}

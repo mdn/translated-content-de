@@ -21,16 +21,14 @@ new Blob(blobParts, options)
 
 - `blobParts` {{optional_inline}}
 
-  - : Ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s,
-    {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Zeichenfolgen
-    oder eine Mischung solcher Elemente enthalten kann, die in das [`Blob`](/de/docs/Web/API/Blob) aufgenommen werden. Zeichenfolgen sollten wohlgeformtes Unicode sein, und einzelne Stellvertreter werden mit demselben Algorithmus bereinigt wie {{jsxref("String.prototype.toWellFormed()")}}.
+  - : Ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt, wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s, {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Zeichenketten oder eine Mischung aus solchen Elementen enthalten kann, die innerhalb des [`Blob`](/de/docs/Web/API/Blob) platziert werden. Zeichenketten sollten gut geformte Unicode-Zeichen sein, und einzelne Surrogate werden mit demselben Algorithmus wie {{jsxref("String.prototype.toWellFormed()")}} bereinigt.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das eine der folgenden Eigenschaften spezifizieren kann:
     - `type` {{optional_inline}}
-      - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) der Daten, die im Blob gespeichert werden. Der Standardwert ist der leere String (`""`).
+      - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) der Daten, die im Blob gespeichert werden sollen. Der Standardwert ist der leere String (`""`).
     - `endings` {{optional_inline}}
-      - : Wie Zeilenumbrüche (`\n`) innerhalb des Inhalts interpretiert werden sollen, wenn es sich bei den Daten um Text handelt. Der Standardwert `transparent` kopiert Zeilenumbrüche in das Blob, ohne sie zu ändern. Um Zeilenumbrüche in das native Format des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
+      - : Wie Zeilenumbruchzeichen (`\n`) innerhalb der Inhalte interpretiert werden sollen, wenn die Daten Text sind. Der Standardwert `transparent` kopiert Zeilenumbruchzeichen unverändert in das Blob. Um Zeilenumbrüche in das native Format des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
 
 ### Rückgabewert
 

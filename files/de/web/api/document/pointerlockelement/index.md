@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Die schreibgeschützte **`pointerLockElement`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle liefert das Element, das als Ziel für Mausereignisse gesetzt ist, während der Zeiger gesperrt ist.
-Sie ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel in einem anderen Dokument ist.
+Die schreibgeschützte **`pointerLockElement`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces liefert das Element, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist. Sie ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel sich in einem anderen Dokument befindet.
 
 ## Wert
 
@@ -17,13 +16,13 @@ Ein [`Element`](/de/docs/Web/API/Element) oder `null`.
 
 ## Beispiele
 
-### Überprüfung des Zeigersperrstatus
+### Überprüfen des Pointer-Lock-Status
 
-Dieses Beispiel enthält ein {{htmlelement("div")}}-Element, das seinerseits ein {{htmlelement("button")}} enthält. Durch Klicken auf die Schaltfläche wird die Zeigersperre für das `<div>` angefordert.
+Dieses Beispiel enthält ein {{htmlelement("div")}}-Element, das seinerseits ein {{htmlelement("button")}} enthält. Durch Klicken auf den Button wird eine Zeigersperre für das `<div>` angefordert.
 
-Das Beispiel hört auch auf das [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event)-Ereignis: wenn dieses Ereignis ausgelöst wird, deaktiviert der Ereignishandler die "Sperre"-Schaltfläche, wenn ein Element im Dokument die Zeigersperre hat, und aktiviert die Schaltfläche andernfalls.
+Das Beispiel hört auch auf das [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event)-Ereignis: Wenn dieses Ereignis ausgelöst wird, deaktiviert der Ereignishandler den "Sperren"-Button, wenn ein Element im Dokument die Zeigersperre hat, und aktiviert den Button andernfalls.
 
-Der Effekt ist, dass wenn Sie auf die "Sperre"-Schaltfläche klicken, der Zeiger gesperrt wird und die Schaltfläche deaktiviert wird: wenn Sie dann die Zeigersperre verlassen (zum Beispiel durch Drücken der <kbd>Escape</kbd>-Taste), wird die Schaltfläche wieder aktiviert.
+Der Effekt ist, dass, wenn Sie auf den "Sperren"-Button klicken, der Zeiger gesperrt wird und der Button deaktiviert wird: Wenn Sie dann die Zeigersperre aufheben (zum Beispiel durch Drücken der <kbd>Escape</kbd>-Taste), wird der Button wieder aktiviert.
 
 #### HTML
 

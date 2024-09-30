@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaReadOnly`** Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, welches angibt, dass das Element nicht editierbar ist, aber ansonsten bedienbar.
+Die **`ariaReadOnly`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, das anzeigt, dass das Element nicht bearbeitbar, aber dennoch bedienbar ist.
 
 > [!NOTE]
-> Wo möglich, verwenden Sie ein HTML {{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese über eingebaute Semantik verfügen und keine ARIA-Attribute benötigen.
+> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese über eingebaute Semantik verfügen und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -20,11 +20,11 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Der Benutzer kann den Wert des Elements nicht ändern.
 - `"false"`
-  - : Der Benutzer kann den Wert des Elements einstellen.
+  - : Der Benutzer kann den Wert des Elements festlegen.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-readonly`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit schreibgeschützt ist. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
+In diesem Beispiel ist das `aria-readonly`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit schreibgeschützt ist. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="txtboxMultilineLabel">Enter the tags for the article</div>

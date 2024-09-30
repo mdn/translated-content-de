@@ -9,7 +9,7 @@ l10n:
 
 Das **`dur`**-Attribut gibt die einfache Dauer einer Animation an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -49,7 +49,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "220", "150")}}
+{{EmbedLiveSample("Beispiel", "220", "150")}}
 
 ## Verwendungshinweise
 
@@ -78,15 +78,15 @@ svg {
 </table>
 
 - `<clock-value>`
-  - : Dieser Wert gibt die Länge der einfachen Dauer an. Der Wert muss größer als 0 sein und kann in Stunden (`h`), Minuten (`m`), Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Es ist möglich, diese Zeitdarstellungen zu kombinieren, um komplexe Dauern wie `hh:mm:ss.iii` oder `mm:ss.iii` zu erstellen.
+  - : Dieser Wert gibt die Länge der einfachen Dauer an. Der Wert muss größer als 0 sein und kann in Stunden (`h`), Minuten (`m`), Sekunden (`s`) oder Millisekunden (`ms`) ausgedrückt werden. Es ist möglich, diese Zeitrepräsentationen zu kombinieren, um komplexe Dauern wie `hh:mm:ss.iii` oder `mm:ss.iii` zu erstellen.
 - `media`
-  - : Dieser Wert legt die einfache Dauer als die intrinsische Media-Dauer fest. Dies ist nur für Elemente gültig, die Medien definieren.
-    (Für [Animationselemente](/de/docs/Web/SVG/Element#animation_elements) wird das Attribut ignoriert, wenn `media` angegeben ist.)
+  - : Dieser Wert gibt die einfache Dauer als intrinsische Mediadauer an. Dies ist nur für Elemente gültig, die Medien definieren.
+    (Bei [Animationselementen](/de/docs/Web/SVG/Element#animation_elements) wird das Attribut ignoriert, wenn `media` angegeben wird.)
 - `indefinite`
   - : Dieser Wert gibt die einfache Dauer als unbestimmt an.
 
 > [!NOTE]
-> Die [Interpolation](/de/docs/Glossary/interpolation) funktioniert nicht, wenn die einfache Dauer unbestimmt ist (obwohl sie dennoch für {{SVGElement("set")}}-Elemente nützlich sein kann).
+> Die [Interpolation](/de/docs/Glossary/interpolation) wird nicht funktionieren, wenn die einfache Dauer unbestimmt ist (obwohl dies möglicherweise für {{SVGElement("set")}}-Elemente nützlich sein kann).
 
 ## Spezifikationen
 

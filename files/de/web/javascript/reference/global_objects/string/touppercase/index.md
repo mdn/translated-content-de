@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toUpperCase()`**-Methode von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben zurück.
+Die **`toUpperCase()`**-Methode von {{jsxref("String")}}-Werten gibt diese Zeichenkette in Großbuchstaben konvertiert zurück.
 
 {{EmbedInteractiveExample("pages/js/string-touppercase.html", "shorter")}}
 
@@ -23,23 +23,25 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der den aufrufenden String in Großbuchstaben darstellt.
+Eine neue Zeichenkette, die die aufrufende Zeichenkette in Großbuchstaben konvertiert darstellt.
 
 ## Beschreibung
 
-Die `toUpperCase()`-Methode gibt den Wert des Strings in Großbuchstaben zurück. Diese Methode beeinflusst nicht den Wert des Strings selbst, da JavaScript-Strings unveränderlich sind.
+Die `toUpperCase()`-Methode gibt den Wert der Zeichenkette in
+Großbuchstaben konvertiert zurück. Diese Methode beeinflusst nicht den Wert der Zeichenkette selbst, da JavaScript-Zeichenketten unveränderlich sind.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 console.log("alphabet".toUpperCase()); // 'ALPHABET'
 ```
 
-### Umwandlung von nicht-String-`this`-Werten in Strings
+### Umwandlung von nicht-Zeichenketten-`this`-Werten zu Zeichenketten
 
-Diese Methode wandelt jeden nicht-String-Wert in einen String um, wenn Sie ihr `this` auf einen Wert setzen, der kein String ist:
+Diese Methode wird jeden nicht-Zeichenkettenwert in eine Zeichenkette umwandeln, wenn Sie ihr
+`this` auf einen Wert setzen, der keine Zeichenkette ist:
 
 ```js
 const a = String.prototype.toUpperCase.call({

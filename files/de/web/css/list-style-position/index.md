@@ -33,15 +33,15 @@ Die `list-style-position` Eigenschaft wird als einer der unten aufgeführten Sch
 - `inside`
   - : Der {{cssxref("::marker")}} ist das erste Element unter den Inhalten des Listenelements.
 - `outside`
-  - : Der {{cssxref("::marker")}} ist außerhalb der Hauptblockbox. Dies ist der Standardwert für {{cssxref("list-style")}}.
+  - : Der {{cssxref("::marker")}} befindet sich außerhalb des Hauptblockrahmens. Dies ist der Standardwert für {{cssxref("list-style")}}.
 
 ## Beschreibung
 
-Diese Eigenschaft wird auf Listenelemente angewendet, d.h. Elemente mit `{{cssxref("display")}}: list-item;`. [Standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) schließt dies {{HTMLElement("li")}} Elemente ein. Da diese Eigenschaft vererbt wird, kann sie auf dem Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um auf alle Listenelemente angewendet zu werden.
+Diese Eigenschaft wird auf Listenelemente angewendet, d.h. Elemente mit `{{cssxref("display")}}: list-item;`. [Standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) umfasst dies {{HTMLElement("li")}}-Elemente. Da diese Eigenschaft vererbt wird, kann sie auf das Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, sodass sie auf alle Listenelemente angewendet wird.
 
-Wenn ein Blockelement das erste Kind eines Listenelements ist, das als `list-style-position: inside` deklariert ist, wird das Blockelement auf der Linie nach der Marker-Box platziert.
+Wenn ein Blockelement das erste Kind eines Listenelements ist, das als `list-style-position: inside` deklariert ist, wird das Blockelement in der Zeile nach dem Marker-Box platziert.
 
-Es ist oft bequemer, die Kurzform {{cssxref("list-style")}} zu verwenden.
+Es ist oft praktischer, die Kurzform {{cssxref("list-style")}} zu verwenden.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ Es ist oft bequemer, die Kurzform {{cssxref("list-style")}} zu verwenden.
 
 ## Beispiele
 
-### Position des Listenelements einstellen
+### Position von Listenelementen festlegen
 
 #### HTML
 
@@ -118,5 +118,5 @@ Es ist oft bequemer, die Kurzform {{cssxref("list-style")}} zu verwenden.
 - {{Cssxref("list-style-type")}} Eigenschaft
 - {{Cssxref("list-style-image")}} Eigenschaft
 - {{cssxref("::marker")}} Pseudoelement
-- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die read-only Eigenschaft **`pathname`** der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den `pathname`-Teil einer URL zu matchen. Dieser Wert kann aufgrund von Normalisierungen von der Eingabe im Konstruktor abweichen.
+Die schreibgeschützte Eigenschaft **`pathname`** der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Pfadnamen-Teil einer URL zu matchen. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe im Konstruktor unterscheiden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `/books/:id(\\d)` für den `pathname`-Teil erstellt. Dieses Muster matcht URLs, die mit `/books/` beginnen, gefolgt von einer ganzen Zahl.
+Im folgenden Beispiel wird ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt erstellt, wobei `/books/:id(\\d)` für den `pathname`-Teil verwendet wird. Dieses Muster matched URLs, die mit `/books/` beginnen, gefolgt von einer Ganzzahl.
 
 ```js
 const pattern = new URLPattern({ pathname: "/books/:id(\\d)" });

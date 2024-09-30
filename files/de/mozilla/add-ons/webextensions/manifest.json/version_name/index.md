@@ -18,7 +18,7 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifestversion</th>
+      <th scope="row">Manifest-Version</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@ l10n:
   </tbody>
 </table>
 
-Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann [version_name](https://developer.chrome.com/docs/extensions/reference/manifest/version) auf eine beschreibende Versionszeichenfolge festgelegt werden und wird, falls vorhanden, für Anzeigezwecke verwendet.
+Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann [version_name](https://developer.chrome.com/docs/extensions/reference/manifest/version) auf eine beschreibende Versionszeichenfolge gesetzt werden und wird für Anzeigezwecke verwendet, wenn es vorhanden ist.
 
 Wenn kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigezwecke verwendet.
 

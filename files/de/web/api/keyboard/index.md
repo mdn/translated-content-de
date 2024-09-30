@@ -7,32 +7,32 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}{{securecontext_header}}
 
-Die **`Keyboard`**-Schnittstelle der [Keyboard API](/de/docs/Web/API/Keyboard_API) bietet Funktionen, die Tastaturlayout-Karten abrufen und das Erfassen von Tastendrücken auf der physischen Tastatur umschalten.
+Das **`Keyboard`**-Interface der [Keyboard-API](/de/docs/Web/API/Keyboard_API) bietet Funktionen, die Tastaturlayout-Karten abrufen und das Erfassen von Tastendrücken von der physischen Tastatur ein- und ausschalten.
 
-Eine Liste gültiger Codewerte finden Sie in der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) Spezifikation.
+Eine Liste gültiger Code-Werte finden Sie in der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system)-Spezifikation.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Keyboard.getLayoutMap()`](/de/docs/Web/API/Keyboard/getLayoutMap) {{experimental_inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einer Instanz von [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) aufgelöst wird, welches ein kartenähnliches Objekt mit Funktionen zum Abrufen der Strings ist, die mit bestimmten physischen Tasten verbunden sind.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einer Instanz von [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) aufgelöst wird, einem kartenähnlichen Objekt mit Funktionen zum Abrufen der Zeichenketten, die bestimmten physischen Tasten zugeordnet sind.
 - [`Keyboard.lock()`](/de/docs/Web/API/Keyboard/lock) {{experimental_inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, nachdem es das Erfassen von Tastendrücken für alle oder bestimmte Tasten auf der physischen Tastatur ermöglicht hat.
+  - : Gibt ein {{jsxref('Promise')}} zurück, nachdem das Erfassen von Tastendrücken für eine oder alle Tasten auf der physischen Tastatur aktiviert wurde.
 - [`Keyboard.unlock()`](/de/docs/Web/API/Keyboard/unlock) {{experimental_inline}}
   - : Entsperrt alle von der `lock()`-Methode erfassten Tasten und gibt synchron zurück.
 
 ## Beispiel
 
-### Tastenbelegung
+### Tastaturzuordnung
 
-Das folgende Beispiel zeigt, wie man den orts- oder layoutspezifischen String abruft, der der Taste entspricht, die der 'W'-Taste auf einer englischen QWERTY-Tastatur zugeordnet ist.
+Das folgende Beispiel zeigt, wie man die orts- oder layoutspezifische Zeichenkette erhält, die der Taste entspricht, die auf einer englischen QWERTY-Tastatur der 'W'-Taste entspricht.
 
 ```js
 if (navigator.keyboard) {
@@ -46,15 +46,15 @@ if (navigator.keyboard) {
 }
 ```
 
-### Tasten-Sperrung
+### Tastatursperre
 
-Das folgende Beispiel erfasst die <kbd>W</kbd>-, <kbd>A</kbd>-, <kbd>S</kbd>- und <kbd>D</kbd>-Tasten und ruft `lock()` mit einer Liste auf, die den Keycode-Attributswert für jede dieser Tasten enthält:
+Das folgende Beispiel erfasst die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D>, indem es `lock()` mit einer Liste aufruft, die den Keycode-Attributwert für jede dieser Tasten enthält:
 
 ```js
 navigator.keyboard.lock(["KeyW", "KeyA", "KeyS", "KeyD"]);
 ```
 
-Dies erfasst diese Tasten, unabhängig davon, welche Modifikatoren mit dem Tastendruck verwendet werden. Bei einem standardmäßigen QWERTY-Layout in den Vereinigten Staaten sorgt die Registrierung von `KeyW` dafür, dass <kbd>W</kbd>, <kbd>Shift+W</kbd>, <kbd>Control+W</kbd>, <kbd>Control+Shift+W</kbd> und alle anderen Tastenkombinationen mit <kbd>W</kbd> an die App gesendet werden. Das Gleiche gilt für `KeyA`, `KeyS` und `KeyD`.
+Diese Tasten werden erfasst, unabhängig davon, welche Modifikatoren mit dem Tastendruck verwendet werden. Angenommen, es wird ein Standard-Layout der Vereinigten Staaten QWERTY verwendet, stellt die Registrierung von `KeyW` sicher, dass <kbd>W</kbd>, <kbd>Shift+W</kbd>, <kbd>Control+W</kbd>, <kbd>Control+Shift+W</kbd> und alle anderen Tastenkombinationen mit <kbd>W</kbd> an die App gesendet werden. Gleiches gilt für `KeyA`, `KeyS` und `KeyD`.
 
 ## Spezifikationen
 

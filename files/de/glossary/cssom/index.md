@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das [**CSS Object Model (CSSOM)**](/de/docs/Web/API/CSS_Object_Model) ist eine Sammlung von APIs zum Lesen und Ändern der stilbezogenen (CSS) Informationen eines Dokuments. Mit anderen Worten, ähnlich wie das [DOM](/de/docs/Web/API/Document_Object_Model) es ermöglicht, die Struktur und den Inhalt eines Dokuments aus JavaScript heraus zu lesen und zu ändern, ermöglicht das CSSOM das Lesen und Ändern des Stylings eines Dokuments aus JavaScript.
+Das [**CSS Object Model (CSSOM)**](/de/docs/Web/API/CSS_Object_Model) ist eine Sammlung von APIs zum Lesen und Ändern der stilbezogenen (CSS) Informationen eines Dokuments. Mit anderen Worten, ähnlich wie das [DOM](/de/docs/Web/API/Document_Object_Model) es ermöglicht, die Struktur und den Inhalt eines Dokuments von JavaScript aus zu lesen und zu ändern, erlaubt das CSSOM das Lesen und Ändern der Stilgebung des Dokuments von JavaScript aus.
 
 ## Siehe auch
 
-- [Populating the page: how browsers work](/de/docs/Web/Performance/How_browsers_work)
+- [Die Seite füllen: wie Browser arbeiten](/de/docs/Web/Performance/How_browsers_work)

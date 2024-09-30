@@ -7,9 +7,9 @@ l10n:
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Das **CSS Object Model** ist eine Reihe von APIs, die die Manipulation von CSS aus JavaScript ermöglichen. Es ist dem DOM sehr ähnlich, jedoch für CSS anstatt für HTML. Es ermöglicht es Nutzern, CSS-Stile dynamisch zu lesen und zu modifizieren.
+Das **CSS Object Model** ist eine Sammlung von APIs, die die Manipulation von CSS über JavaScript ermöglichen. Es ist ähnlich wie das DOM, aber für CSS statt für HTML. Es ermöglicht Benutzern, CSS-Stile dynamisch zu lesen und zu modifizieren.
 
-Die Werte von CSS werden untypisiert dargestellt, das heißt unter Verwendung von {{JSxRef("String")}} Objekten.
+Die Werte von CSS werden ungetypt dargestellt, das heißt, es werden {{JSxRef("String")}}-Objekte verwendet.
 
 ## Referenz
 
@@ -49,7 +49,7 @@ Die Werte von CSS werden untypisiert dargestellt, das heißt unter Verwendung vo
 - [`StyleSheetList`](/de/docs/Web/API/StyleSheetList)
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)
 
-Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent), und [`SVGElement`](/de/docs/Web/API/SVGElement).
+Mehrere andere Schnittstellen werden ebenfalls durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ### CSS Typed Object Model
 
@@ -82,7 +82,7 @@ Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikatio
 - [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)
 - [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)
 
-### Veraltete CSSOM Schnittstellen {{deprecated_inline}}
+### Veraltete CSSOM-Schnittstellen {{deprecated_inline}}
 
 {{deprecated_header}}
 
@@ -101,7 +101,7 @@ Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikatio
 
 ## Browser-Kompatibilität
 
-Alle diese Funktionen wurden im Laufe der Jahre nach und nach in die verschiedenen Browser integriert: Es war ein recht komplexer Prozess, der sich nicht in einer einfachen Tabelle zusammenfassen lässt. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
+All diese Funktionen wurden im Laufe der Jahre nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein recht komplizierter Prozess, der nicht in einer einfachen Tabelle zusammengefasst werden kann. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
 
 ## Siehe auch
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle enthält den Anfangswert einer SVG-Aufzählung.
+Die **`baseVal`**-Eigenschaft des [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Interfaces enthält den Anfangswert einer SVG-Aufzählung.
 
 ## Wert
 
-Ein Integer, der den Anfangswert der Aufzählung enthält.
+Ein ganzzahliger Wert, der den Anfangswert der Aufzählung enthält
 
 ## Beispiele
 
-Betrachten Sie dieses Code-Snippet mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt verbunden.
+Betrachten Sie diesen Codeausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt verknüpft.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -29,7 +29,7 @@ Betrachten Sie dieses Code-Snippet mit einem {{SVGElement("clipPath")}}-Element:
 </svg>
 ```
 
-Dieses Snippet erhält das Element und protokolliert den `baseVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
+Dieser Ausschnitt erhält das Element und protokolliert den `baseVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
 
 ```js
 const clipPathElt = document.getElementById("clip1");

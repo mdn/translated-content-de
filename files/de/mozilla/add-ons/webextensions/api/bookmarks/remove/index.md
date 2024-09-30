@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Methode **`bookmarks.remove()`** entfernt ein einzelnes Lesezeichen oder einen leeren Lesezeichenordner.
+Die Methode **`bookmarks.remove()`** entfernt ein einzelnes Lesezeichen oder einen leeren Lesezeichen-Ordner.
 
 > [!WARNING]
-> Wenn Ihre Erweiterung versucht, ein Lesezeichen aus dem Stammknoten des Lesezeichenbaums zu entfernen, wird ein Fehler mit der Nachricht "The bookmark root cannot be modified" ausgelöst und das Lesezeichen wird nicht entfernt.
+> Wenn Ihre Erweiterung versucht, ein Lesezeichen aus dem Stammknoten des Lesezeichenbaums zu entfernen, wird ein Fehler mit der Nachricht ausgegeben: "The bookmark root cannot be modified" und das Lesezeichen wird nicht entfernt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,13 +25,13 @@ let removingBookmark = browser.bookmarks.remove(
 ### Parameter
 
 - `id`
-  - : Ein {{jsxref("string")}}, der die ID des Lesezeichens oder des zu entfernenden leeren Ordners angibt.
+  - : Ein {{jsxref("string")}}, der die ID des zu entfernenden Lesezeichens oder des leeren Ordners angibt.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird.
 
-Wenn der Knoten, der dem `id`-Parameter entspricht, nicht gefunden werden kann oder es sich um einen nicht-leeren Ordner handelt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Knoten, der dem `id`-Parameter entspricht, nicht gefunden werden kann oder es sich um einen nicht leeren Ordner handelte, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ removingBookmark.then(onRemoved, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-remove) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromes [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-remove) API. Diese Dokumentation stammt von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

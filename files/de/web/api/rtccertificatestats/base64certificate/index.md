@@ -10,7 +10,7 @@ l10n:
 
 Die **`base64Certificate`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Wörterbuchs ist ein String, der die Base-64-Darstellung des DER-codierten Zertifikats enthält.
 
-Dies ist im Wesentlichen eine Kodierung des ursprünglichen Zertifikats als String, der sicher serialisiert und deserialisiert werden kann, wenn er über ein IP-Netzwerk gesendet wird.
+Dies ist im Wesentlichen eine Codierung des ursprünglichen Zertifikats als String, der sicher serialisiert und deserialisiert werden kann, wenn er über ein IP-Netzwerk gesendet wird.
 
 ## Wert
 

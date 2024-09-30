@@ -8,25 +8,25 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`lastInputTime`** der [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Schnittstelle gibt die Zeit des letzten ausschließenden Eingabeereignisses zurück oder `0`, falls kein ausschließendes Eingabeereignis aufgetreten ist.
+Die **`lastInputTime`**-Eigenschaft, die schreibgeschützt ist, des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces liefert die Zeit der letzten ausschließenden Eingabe oder `0`, falls keine ausschließende Eingabe stattgefunden hat.
 
-Layoutverschiebungen sind nur dann problematisch, wenn der Benutzer diese nicht erwartet. Layoutverschiebungsmesswerte wie [CLS](/de/docs/Glossary/CLS) schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen auftreten. Diese Interaktionen werden _ausschließende Eingaben_ genannt. Ausschließende Eingaben sind:
+Layout-Verschiebungen sind nur dann problematisch, wenn der Benutzer sie nicht erwartet. Kennzahlen zur Layout-Verschiebung, wie die [CLS](/de/docs/Glossary/CLS), schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen aufgetreten sind. Diese Interaktionen werden als _ausschließende Eingaben_ bezeichnet. Ausschließende Eingaben sind:
 
-- Jegliche Ereignisse, die auf eine aktive Interaktion des Benutzers mit dem Dokument hinweisen: ([`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`keydown`](/de/docs/Web/API/Element/keydown_event), und [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event))
-- Jegliche Ereignisse, die die Größe des Ansichtsbereichs direkt verändern.
+- Alle Ereignisse, die auf eine aktive Interaktion des Benutzers mit dem Dokument hinweisen: ([`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event))
+- Alle Ereignisse, die direkt die Größe des Ansichtsfensters ändern.
 - [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignisse.
 
 Die [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignisse sind **keine** ausschließenden Eingaben.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit des letzten ausschließenden Eingabeereignisses angibt, oder `0`, falls kein ausschließendes Eingabeereignis aufgetreten ist.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit der letzten ausschließenden Eingabe angibt oder `0`, wenn keine ausschließende Eingabe stattgefunden hat.
 
 ## Beispiele
 
-### Protokollierung von letzten Eingabezeiten
+### Protokollierung der letzten Eingabezeiten
 
-Protokollieren Sie ausschließende Eingabezeiten, wenn ausschließende Eingaben aufgetreten sind.
+Protokollieren Sie ausschließende Eingabezeiten, falls eine ausschließende Eingabe stattgefunden hat.
 
 ```js
 const observer = new PerformanceObserver((list) => {

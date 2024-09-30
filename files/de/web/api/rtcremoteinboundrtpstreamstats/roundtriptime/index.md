@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`roundTripTime`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die geschätzte Rundlaufzeit (RTT) für diese [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) in Sekunden an.
+Die **`roundTripTime`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die geschätzte Round-Trip-Time (RTT) für diese [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) in Sekunden an.
 
-Die Rundlaufzeit wird basierend auf den RTCP-Zeitstempeln im RTCP Sender Report (SR) berechnet und erfordert einen Bericht mit einem Delay Since Last SR (DLSR)-Block, der einen anderen Wert als 0 hat. Die Eigenschaft existiert nicht, bis ein solcher Bericht empfangen wurde.
+Die Round-Trip-Time wird basierend auf den RTCP-Zeitstempeln im RTCP Sender Report (SR) berechnet und erfordert einen Bericht mit einem Delay Since Last SR (DLSR)-Block, der einen anderen Wert als 0 hat. Die Eigenschaft existiert erst, nachdem ein solcher Bericht empfangen wurde.
 
 Beachten Sie, dass die _durchschnittliche_ RTT für die Sitzung berechnet werden kann, indem [`totalRoundTripTime`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/totalRoundTripTime) durch [`roundTripTimeMeasurements`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/roundTripTimeMeasurements) geteilt wird.
 
 ## Wert
 
-Eine Zahl, die die aktuelle geschätzte Rundlaufzeit in Sekunden angibt.
+Eine Zahl, die die aktuelle geschätzte Round-Trip-Time in Sekunden angibt.
 
 ## Spezifikationen
 
@@ -28,4 +28,4 @@ Eine Zahl, die die aktuelle geschätzte Rundlaufzeit in Sekunden angibt.
 
 ## Siehe auch
 
-- {{rfc("3550","SR: Sender Report RTCP Packet", "6.4.1")}}
+- {{rfc("3550","SR: Sender Report RTCP-Paket", "6.4.1")}}

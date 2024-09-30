@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe in Pixeln des gesamten Browserfensters zurück, einschließlich aller Seitenleisten, Fensterrahmen und Fensterverkleinerungs- oder -vergrößerungsgriffe.
+Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe in Pixel des gesamten Browserfensters zurück, einschließlich aller Sidebars, Fensterdekorationen und Fenstergrößenänderungsrahmen/griffe.
 
 ## Hinweise
 
@@ -20,7 +20,7 @@ Um die innere Höhe eines Fensters zu erhalten, d.h. die Höhe der angezeigten S
 
 Die folgende Abbildung zeigt den Unterschied zwischen `outerHeight` und `innerHeight`.
 
-![Abbildung zu innerHeight vs. outerHeight](firefoxinnervsouterheight2.png)
+![innerHeight vs. outerHeight Illustration](firefoxinnervsouterheight2.png)
 
 ## Spezifikationen
 

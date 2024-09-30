@@ -16,7 +16,7 @@ Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
+Sehen Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) fü
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)

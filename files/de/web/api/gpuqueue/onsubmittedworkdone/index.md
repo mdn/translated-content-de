@@ -1,5 +1,5 @@
 ---
-title: "GPUQueue: onSubmittedWorkDone()-Methode"
+title: "GPUQueue: Methode onSubmittedWorkDone()"
 short-title: onSubmittedWorkDone()
 slug: Web/API/GPUQueue/onSubmittedWorkDone
 l10n:
@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`onSubmittedWorkDone()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn alle über diese `GPUQueue` an die GPU zum Zeitpunkt des Methodenaufrufs übermittelten Arbeiten verarbeitet wurden.
+Die **`onSubmittedWorkDone()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle an die GPU über diese `GPUQueue` übermittelten Arbeiten zu dem Zeitpunkt, an dem die Methode aufgerufen wird, verarbeitet wurden.
 
-Dies schließt den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync)-Aufrufe auf `GPUBuffer`s ein, die in den an die Warteschlange übermittelten Befehlen verwendet werden, bevor `onSubmittedWorkDone()` aufgerufen wird.
+Dies umfasst den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync)-Aufrufe, die auf `GPUBuffer`s gemacht wurden, die in an die Warteschlange übermittelten Befehlen verwendet werden, bevor `onSubmittedWorkDone()` aufgerufen wird.
 
-> [!NOTE]
-> In den meisten Fällen benötigen Sie keinen Aufruf von `onSubmittedWorkDone()`. Sie müssen es **_nicht_** für die Zuordnung eines Puffers aufrufen. `mapAsync` garantiert, dass Arbeiten, die in die Warteschlange gestellt wurden, bevor `mapAsync` aufgerufen wird, vor der Rückkehr von `mapAsync` abgeschlossen sind (siehe [WebGPU-Spezifikation: Abschnitt 5.2](https://www.w3.org/TR/webgpu/#buffer-mapping))
+> [!NOTE] In den meisten Fällen müssen Sie `onSubmittedWorkDone()` _nicht_ aufrufen. Sie müssen es **_nicht_** zum Mapping eines Puffers aufrufen. `mapAsync` garantiert, dass Arbeiten, die an die Warteschlange übermittelt wurden, bevor `mapAsync` aufgerufen wird, vor der Rückkehr von `mapAsync` ausgeführt werden (siehe [WebGPU-Spezifikation: Abschnitt 5.2](https://www.w3.org/TR/webgpu/#buffer-mapping))
 
 Die zwei Anwendungsfälle für `onSubmittedWorkDone`
 
-1. Warten auf mehrere Puffer-Zuordnungen (langsam)
+1. Warten auf mehrere Pufferzuordnungen (langsam)
 
    ```js
    // good
@@ -42,13 +41,14 @@ Die zwei Anwendungsfälle für `onSubmittedWorkDone`
    data3 = buffer3.getMappedRange();
    ```
 
-   Der Grund, warum die zweite Methode langsam ist, ist, dass die Implementierung möglicherweise die Puffer zuordnen kann, bevor alle übermittelten Arbeiten abgeschlossen sind.
-   Wenn alle Puffer fertig verwendet sind, aber mehr Arbeiten (die nichts mit den Puffern zu tun haben) bereits übermittelt wurden, müssen Sie mit der zweiten Methode länger warten als mit der ersten.
+   Der Grund, warum die zweite Methode langsam ist, liegt darin, dass die Implementierung möglicherweise die Puffer zuordnen kann, bevor alle übermittelten Arbeiten abgeschlossen sind.
+   Wenn zum Beispiel alle Puffer fertig verwendet wurden, aber mehr Arbeit (unabhängig von den Puffern) bereits übermittelt wurde, dann
+   werden Sie mit der zweiten Methode länger warten als mit der ersten.
 
-2. Drosselung von Arbeiten
+2. Drosseln der Arbeit
 
-   Wenn Sie schwere Berechnungen durchführen und zu viele Arbeiten auf einmal übermitteln, kann der Browser Ihre Arbeiten abbrechen.
-   Sie können die Arbeiten drosseln, indem Sie nur dann mehr Arbeiten übermitteln, wenn die bereits übermittelten Arbeiten abgeschlossen sind.
+   Wenn Sie schwere Berechnungsarbeit leisten und zu viel Arbeit auf einmal übermitteln, kann der Browser Ihre Arbeit abbrechen.
+   Sie können die Arbeit drosseln, indem Sie neue Arbeit nur dann übermitteln, wenn die bereits übermittelte Arbeit abgeschlossen ist.
 
 ## Syntax
 
@@ -62,7 +62,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("Undefined")}} erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("Undefined")}} aufgelöst wird.
 
 ## Beispiele
 

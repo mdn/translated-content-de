@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbmanagementfunktionen des Browsers abzufragen und festzulegen.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbeinstellungen des Browsers abzufragen und einzustellen.
 
-Standardmäßig wendet Firefox Farbmanagement auf getaggte Medien an und verwendet sRGB für nicht getaggte Medien. Dieses Verhalten bedeutet, dass einige nicht getaggte Medien, wie sie in der Animation und Filmproduktion verwendet werden, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
+Standardmäßig wendet Firefox Farbmanagement auf markierte Medien an und verwendet für nicht markierte Medien sRGB als Standardeinstellung. Dieses Verhalten bedeutet, dass einige nicht markierte Medien, wie die in Animationen und Filmproduktionen verwendeten, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
 
-Das Objekt hat folgende Eigenschaften:
+Das Objekt hat die folgenden Eigenschaften:
 
 - `mode`
   - : Ein String, der den Modus darstellt, der für das Farbmanagement verwendet wird. Gültige Werte sind `off`, `full` und `tagged_only`.
 - `useNativeSRGB`
-  - : Ein Boolean, der angibt, ob das eingebaute sRGB-Farbmanagement verwendet wird oder nicht.
+  - : Ein boolscher Wert, der angibt, ob das integrierte sRGB-Farbmanagement verwendet wird oder nicht.
 - `useWebRenderCompositor`
-  - : Ein Boolean, der angibt, ob der WebRender-Compositor verwendet wird oder nicht.
+  - : Ein boolscher Wert, der angibt, ob der WebRender-Compositor verwendet wird oder nicht.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ browser.browserSettings.colorManagement.mode
   .then(logResult);
 ```
 
-Den nativen sRGB-Farbmanagementmodus abrufen:
+Den nativen sRGB-Farbverwaltungsmodus abrufen:
 
 ```js
 function logResult(result) {

@@ -1,5 +1,5 @@
 ---
-title: "Fenster: statusbar-Eigenschaft"
+title: "Window: statusbar Eigenschaft"
 short-title: statusbar
 slug: Web/API/Window/statusbar
 l10n:
@@ -10,16 +10,16 @@ l10n:
 
 Gibt das `statusbar`-Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten. Diese Eigenschaften wurden verwendet, um darzustellen, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
+Dies ist eine der `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war oder nicht.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft nun `false`, wenn dieses `Window` ein Popup ist, und ansonsten `true`.
+Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
 
 ## Wert
 
 Ein Objekt, das eine einzelne Eigenschaft enthält:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und ansonsten `true`.
+  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
 
 ## Spezifikationen
 

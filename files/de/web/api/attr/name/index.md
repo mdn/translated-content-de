@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt den _qualifizierten Namen_ eines Attributs zurück, also den Namen des Attributs, gegebenenfalls mit dem Namensraum-Präfix davor. Zum Beispiel, wenn der lokale Name `lang` und das Namensraum-Präfix `xml` ist, dann ist der zurückgegebene qualifizierte Name `xml:lang`.
+Die schreibgeschützte **`name`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt den _qualifizierten Namen_ eines Attributs zurück, also den Namen des Attributs mit dem Namensraum-Präfix, falls vorhanden, davor. Zum Beispiel, wenn der lokale Name `lang` und das Namensraum-Präfix `xml` ist, lautet der zurückgegebene qualifizierte Name `xml:lang`.
 
-Der qualifizierte Name ist immer klein geschrieben, unabhängig davon, in welchem Fall das Attribut erstellt wurde.
+Der qualifizierte Name ist immer in Kleinbuchstaben, unabhängig davon, welche Schreibweise bei der Attributerstellung verwendet wurde.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der den qualifizierten Namen des Attributs darstellt.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt den qualifizierten Namen des ersten Attributs der ersten beiden Elemente an, wenn wir auf den entsprechenden Button klicken.
+Das folgende Beispiel zeigt den qualifizierten Namen des ersten Attributs der beiden ersten Elemente an, wenn wir auf den entsprechenden Button klicken.
 
 ### HTML
 
@@ -67,5 +67,5 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften [`Attr.localName`](/de/docs/Web/API/Attr/localName), die den lokalen Teil des qualifizierten Namens des Attributs zurückgibt, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namensraum-Präfix.
+- Die Eigenschaften [`Attr.localName`](/de/docs/Web/API/Attr/localName), die den lokalen Teil des qualifizierten Namens des Attributs zurückgeben, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namensraum-Präfix.
 - Die [`Element.tagName()`](/de/docs/Web/API/Element/tagName)-Eigenschaft, die den qualifizierten Namen eines [`Element`](/de/docs/Web/API/Element) zurückgibt.

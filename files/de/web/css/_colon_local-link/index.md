@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:local-link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert einen Link zum gleichen Dokument. Daher ist ein Element die Quelle eines Hyperlinks, dessen absolutes URL-Ziel mit der URL des eigenen Dokuments übereinstimmt.
+Die **`:local-link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) stellt einen Link zum gleichen Dokument dar. Daher ist ein Element, das die Quell-Anker eines Hyperlinks ist, dessen Ziel-URL mit der absoluten URL des Dokuments des Elements übereinstimmt.
 
 ```css
 /* Selects any <a> that links to the current document */
@@ -51,8 +51,8 @@ a:local-link {
 
 ## Browser-Kompatibilität
 
-Diese Funktion ist ein Vorschlag, der in die Spezifikation integriert wurde. Derzeit unterstützt kein Browser sie.
+Dieses Feature ist ein Vorschlag, der in die Spezifikation integriert ist. Derzeit wird es von keinem Browser unterstützt.
 
 ## Siehe auch
 
-- Link-bezogene Pseudoklassen: {{ cssxref(":link") }}, {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}, {{ cssxref(":any-link") }}
+- Mit Links verbundene Pseudoklassen: {{ cssxref(":link") }}, {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}, {{ cssxref(":any-link") }}

@@ -1,5 +1,5 @@
 ---
-title: "Gamepad: axes Eigenschaft"
+title: "Gamepad: axes-Eigenschaft"
 short-title: axes
 slug: Web/API/Gamepad/axes
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`Gamepad.axes`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Array zurück, das die Steuerungen mit Achsen auf dem Gerät darstellt (z. B. analoge Daumensticks).
+Die **`Gamepad.axes`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Array zurück, das die Steuerungen mit Achsen auf dem Gerät darstellt (z.B. analoge Steuerknüppel).
 
-Jeder Eintrag im Array ist ein Gleitkommawert im Bereich von -1,0 bis 1,0, der die Achsenposition vom niedrigsten Wert (-1,0) bis zum höchsten Wert (1,0) darstellt.
+Jeder Eintrag im Array ist ein Fliesskommawert im Bereich von -1,0 bis 1,0, der die Achsposition vom niedrigsten Wert (-1,0) bis zum höchsten Wert (1,0) darstellt.
 
 ## Wert
 
-Ein Array von Zahlen.
+Ein Array mit Zahlen.
 
 ## Beispiele
 
@@ -51,4 +51,4 @@ function gameLoop() {
 
 ## Siehe auch
 
-[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

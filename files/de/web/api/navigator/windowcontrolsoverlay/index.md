@@ -8,15 +8,15 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("")}}
 
-Die **`windowControlsOverlay`**-schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle liefert die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle, die Informationen über die Geometrie der Titelleiste in Desktop-Progressive Web Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) nutzen.
+Die **`windowControlsOverlay`**-Schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface zurück, welches Informationen über die Geometrie der Titelleiste in Desktop-Progressive-Web-Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
 
-Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können die Window Controls Overlay-Funktion durch Verwendung des Werts `window-controls-overlay` im `display_override`-Mitglied des Web-App-Manifests aktivieren.
+Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können die Window Controls Overlay-Funktion aktivieren, indem sie den Wert `window-controls-overlay` im [`display_override`](/de/docs/Web/Manifest/display_override) des Web-App-Manifest-Mitglieds verwenden.
 
-Dadurch wird die standardmäßige Fenstertitelleiste ausgeblendet und die App erhält Zugriff auf den gesamten Bereich des App-Fensters.
+Dies blendet die standardmäßige Fenstertitelleiste aus und gibt der App Zugriff auf den gesamten Bereich des App-Fensters.
 
 ## Wert
 
-Die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle.
+Das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface.
 
 ## Beispiele
 

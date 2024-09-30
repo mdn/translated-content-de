@@ -2,18 +2,18 @@
 title: WebGLBuffer
 slug: Web/API/WebGLBuffer
 l10n:
-  sourceCommit: 73b724ad82b94d2a4c314924218367cea2740e97
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLBuffer** Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt ein undurchsichtiges Pufferobjekt dar, das Daten wie Vertices oder Farben speichert.
+Das **WebGLBuffer**-Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert ein undurchsichtiges Pufferobjekt, das Daten wie Vertizes oder Farben speichert.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Das `WebGLBuffer` Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLBuffer` Objekten sind die folgenden Methoden des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) nützlich:
+Das `WebGLBuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften, und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLBuffer`-Objekten sind die folgenden Methoden des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) nützlich:
 
 - [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
 - [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)

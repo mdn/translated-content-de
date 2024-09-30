@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `upY`-Eigenschaft des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist eine schreibgeschützte [`AudioParam`](/de/docs/Web/API/AudioParam), die den y-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung definiert, in die der Zuhörer zeigt.
+Die schreibgeschützte Eigenschaft `upY` des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den y-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung definiert, in die der Zuhörer zeigt.
 
 > [!NOTE]
-> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower gesetzt ist, oder sonst _k-rate_.
+> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower eingestellt ist, oder _k-rate_ andernfalls.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist 1, und er kann zwischen positivem und negativem Unendlichkeit variieren.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 1 und er kann zwischen positiver und negativer Unendlichkeit variieren.
 
 ## Beispiele
 

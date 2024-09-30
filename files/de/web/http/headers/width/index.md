@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_header}}{{Non-standard_Header}}
 
-Der **`Width`**-Anforderungsheader für [Device Client Hints](/de/docs/Web/HTTP/Client_hints#device_client_hints) gibt die gewünschte Breite der Ressource in physischen Pixeln an — die intrinsische Größe eines Bildes. Der angegebene Pixelwert ist eine Zahl, gerundet auf die nächstgrößere ganze Zahl (d. h. Deckwert).
+Das **`Width`** [device client hint](/de/docs/Web/HTTP/Client_hints#device_client_hints) Request-Header-Feld gibt die gewünschte Ressourcenbreite in physischen Pixeln an – die intrinsische Größe eines Bildes. Der angegebene Pixelwert ist eine Zahl, die auf die nächstfolgende ganze Zahl aufgerundet wird (d.h. Deckenwert).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        <a href="/de/docs/Web/HTTP/Client_hints">Client hint</a>
+        [Request-Header](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -25,18 +25,18 @@ Der **`Width`**-Anforderungsheader für [Device Client Hints](/de/docs/Web/HTTP/
   </tbody>
 </table>
 
-Der Hinweis ist besonders nützlich, weil er es dem Client ermöglicht, eine Ressource anzufordern, die sowohl für den Bildschirm als auch das Layout optimal ist: Dabei werden sowohl die dichtekorrigierte Breite des Bildschirms als auch die extrinsische Größe des Bildes im Layout berücksichtigt.
+Der Hinweis ist besonders nützlich, da er dem Client ermöglicht, eine Ressource anzufordern, die sowohl für den Bildschirm als auch das Layout optimal ist: unter Berücksichtigung sowohl der dichtekorrigierten Breite des Bildschirms als auch der extrinsischen Größe des Bildes im Layout.
 
-Wenn die gewünschte Breite der Ressource zum Zeitpunkt der Anfrage nicht bekannt ist oder die Ressource keine Anzeigebreite hat, kann das `Width` Header-Feld weggelassen werden.
+Wenn die gewünschte Ressourcenbreite zum Zeitpunkt der Anforderung nicht bekannt ist oder die Ressource keine Anzeigegröße hat, kann das `Width`-Header-Feld weggelassen werden.
 
-Erscheint der `Width`-Header mehrmals in einer Nachricht, wird das letzte Vorkommen verwendet.
+Falls der `Width`-Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
 
 > [!NOTE]
 >
-> - Client Hints sind nur auf sicheren Ursprüngen (via TLS) zugänglich.
-> - Ein Server muss zustimmen, den `Width`-Header vom Client zu erhalten, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} sendet.
-> - Server, die dem `Width` Client-Hinweis zustimmen, spezifizieren diesen in der Regel auch im {{HTTPHeader("Vary")}} Header. Dies informiert Caches, dass der Server je nach Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
-> - `Width` wurde aus der Client Hints-Spezifikation in [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Der vorgeschlagene Ersatz ist [`Sec-CH-Width`](https://wicg.github.io/responsive-image-client-hints/#sec-ch-width) (Responsive Image Client Hints).
+> - Client-Hinweise sind nur über sichere Ursprünge (via TLS) zugänglich.
+> - Ein Server muss sich anmelden, um den `Width`-Header vom Client zu erhalten, indem er den {{HTTPHeader("Accept-CH")}} Response-Header sendet.
+> - Server, die den `Width` Client-Hinweis abonniert haben, spezifizieren ihn typischerweise auch im {{HTTPHeader("Vary")}} Header. Dies informiert Caches darüber, dass der Server möglicherweise unterschiedliche Antworten basierend auf dem Header-Wert in einer Anfrage sendet.
+> - `Width` wurde aus der Client-Hinweise-Spezifikation in [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Der vorgeschlagene Ersatz ist [`Sec-CH-Width`](https://wicg.github.io/responsive-image-client-hints/#sec-ch-width) (Responsive Image Client Hints).
 
 ## Syntax
 
@@ -44,14 +44,14 @@ Erscheint der `Width`-Header mehrmals in einer Nachricht, wird das letzte Vorkom
 Width: <number>
 ```
 
-## Anweisungen
+## Direktiven
 
 - \<number>
-  - : Die Breite der Ressource in physischen Pixeln, aufgerundet auf die nächste Ganzzahl.
+  - : Die Breite der Ressource in physischen Pixeln, aufgerundet auf die nächsthöhere ganze Zahl.
 
 ## Beispiele
 
-Der Server muss zuerst zustimmen, den `Width`-Header zu empfangen, indem er die Antwort-Header {{HTTPHeader("Accept-CH")}} mit `Width` sendet.
+Der Server muss zuerst optieren, um den `Width`-Header zu erhalten, indem er die Antwort-Header {{HTTPHeader("Accept-CH")}} mit `Width` sendet.
 
 ```http
 Accept-CH: Width
@@ -69,8 +69,8 @@ Width: 1920
 
 ## Siehe auch
 
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- Device Client Hints
+- [Verbesserung der Benutzerfreundlichkeit und Entwicklererfahrung mit User-Agent Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- Geräte-Client-Hinweise
 
   - {{HTTPHeader("Content-DPR")}}
   - {{HTTPHeader("Device-Memory")}}

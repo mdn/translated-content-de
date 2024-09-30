@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen Basiswert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
 
-Standardmäßig können Webseiten natürlich die Schriftarten mithilfe von CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/font-family) festlegen. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und stattdessen nur Systemschriftarten zu verwenden.
+Standardmäßig können Webseiten natürlich die gewünschten Schriftarten mit CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/font-family) angeben. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und stattdessen nur Systemschriftarten zu verwenden.
 
-Der zugrunde liegende Wert ist ein boolescher:
+Der zugrunde liegende Wert ist ein boolescher Wert:
 
-- `true`: Verwenden Sie die von der Webseite angegebenen Schriftarten. Dies ist der Standardwert.
+- `true`: Verwenden Sie die von der Webseite angegebenen Schriftarten. Dies ist der Standard.
 - `false`: Verwenden Sie die Systemschriftarten.
 
 ## Browser-Kompatibilität
@@ -22,7 +22,7 @@ Der zugrunde liegende Wert ist ein boolescher:
 
 ## Beispiele
 
-Stellen Sie die Einstellung auf `false` ein:
+Setzen Sie die Einstellung auf `false`:
 
 ```js
 function logResult(result) {

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`effectiveDirective`** des Interfaces [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Direktive darstellt, die verletzt wurde.
+Die schreibgeschützte Eigenschaft **`effectiveDirective`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Direktive darstellt.
 
-Dies ersetzt [`SecurityPolicyViolationEvent.violatedDirective`](/de/docs/Web/API/SecurityPolicyViolationEvent/violatedDirective), seinen historischen Alias.
+Diese ersetzt die [`SecurityPolicyViolationEvent.violatedDirective`](/de/docs/Web/API/SecurityPolicyViolationEvent/violatedDirective), ihr historisches Alias.
 
 ## Wert
 
-Ein String, der die spezifische [`Content-Security-Policy`-Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt, die verletzt wurde.
+Ein String, der die spezifische verletzte [`Content-Security-Policy`-Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt.
 
 ## Beispiele
 

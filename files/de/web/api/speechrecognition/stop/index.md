@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: stop()-Methode"
+title: "SpeechRecognition: stop() Methode"
 short-title: stop()
 slug: Web/API/SpeechRecognition/stop
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`stop()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Sprach­erkennungs­dienst vom Hören auf eingehende Audio­daten und versucht, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) mithilfe des bisher erfassten Audios zurückzugeben.
+Die **`stop()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Spracherkennungsdienst daran, weiterhin eingehende Audiodaten zu hören, und versucht, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) mit den bisher erfassten Audiodaten zu liefern.
 
 ## Syntax
 

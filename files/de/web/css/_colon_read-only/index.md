@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}), die vom Benutzer nicht bearbeitet werden können. Elemente, bei denen das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente), werden ebenfalls durch die `:read-only` Pseudoklasse ausgewählt. Tatsächlich passt `:read-only` auf alles, worauf {{cssxref(":read-write")}} nicht passt, und ist somit äquivalent zu `:not(:read-write)`.
+Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}), die vom Benutzer nicht bearbeitet werden können. Elemente, auf die das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente) werden ebenfalls von der `:read-only` Pseudoklasse ausgewählt. Tatsächlich stimmt `:read-only` mit allem überein, worauf {{cssxref(":read-write")}} nicht zutrifft, was es gleichbedeutend mit `:not(:read-write)` macht.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-only.html", "tabbed-shorter")}}
 
@@ -23,9 +23,9 @@ Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pse
 
 ### Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen
 
-Ein Anwendungsfall für schreibgeschützte Formularsteuerelemente besteht darin, dem Benutzer die Überprüfung und Verifizierung von Informationen zu ermöglichen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er dennoch in der Lage ist, die Informationen zusammen mit dem Rest des Formulars abzuschicken. Wir tun genau dies im folgenden Beispiel.
+Ein Anwendungsfall für schreibgeschützte Formularsteuerelemente ist es, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er die Informationen weiterhin zusammen mit dem Rest des Formulars einreichen kann. Dies machen wir im untenstehenden Beispiel.
 
-Die `:read-only` Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, sodass sie eher wie schreibgeschützte Absätze wirken. Im Gegensatz dazu wird die `:read-write` Pseudoklasse verwendet, um dem editierbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
+Die `:read-only` Pseudoklasse wird verwendet, um alle Stile zu entfernen, die die Eingabefelder wie klickbare Felder aussehen lassen, wodurch sie eher wie schreibgeschützte Absätze wirken. Die `:read-write` Pseudoklasse hingegen wird verwendet, um dem bearbeitbaren `<textarea>` eine ansprechendere Gestaltung zu geben.
 
 ```html hidden
 <form>
@@ -149,9 +149,9 @@ textarea:read-write {
 
 {{EmbedLiveSample("Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen", "100%", 620)}}
 
-### Styling von schreibgeschützten Nicht-Formularsteuerelementen
+### Styling von schreibgeschützten Nicht-Formular-Steuerelementen
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer nicht bearbeitet werden kann.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus – er wählt _jedes_ Element aus, das vom Benutzer nicht bearbeitet werden kann.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -176,7 +176,7 @@ p:read-write {
 }
 ```
 
-{{EmbedLiveSample('Styling_von_schreibgeschützten_Nicht-Formularsteuerelementen', '100%', 200)}}
+{{EmbedLiveSample('Styling_von_schreibgeschützten_Nicht-Formular-Steuerelementen', '100%', 200)}}
 
 ## Spezifikationen
 

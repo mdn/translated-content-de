@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: mozAnon-Eigenschaft"
+title: "XMLHttpRequest: Eigenschaft mozAnon"
 short-title: mozAnon
 slug: Web/API/XMLHttpRequest/mozAnon
 l10n:
@@ -8,4 +8,4 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-**`XMLHttpRequest.mozAnon`** ist ein boolescher Wert. Wenn wahr, wird die Anfrage ohne Cookies oder Authentifizierungs-Header gesendet.
+**`XMLHttpRequest.mozAnon`** ist ein Boolean. Wenn true, wird die Anfrage ohne Cookies oder Authentifizierungs-Header gesendet.

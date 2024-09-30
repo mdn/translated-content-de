@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt eine HTML-Seite fest, die im Seitenleistenbereich angezeigt werden soll.
+Setzt eine HTML-Seite, die im Seitenleistenbereich angezeigt wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,13 +26,13 @@ browser.devtools.panels.setPage(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald die URL festgelegt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald die URL gesetzt wurde.
 
-Die ausgewählte Seite wird nicht geladen, bis der Benutzer die DevTools-Seitenleiste auswählt.
+Die ausgewählte Seite wird erst geladen, wenn der Benutzer die DevTools-Seitenleiste auswählt.
 
 ## Beispiele
 
-Erstellen Sie ein neues Paneel und füllen Sie es mit einer HTML-Seite. Sie können diesen Code in einem Skript ausführen, das von der [devtools page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
+Erstellen Sie ein neues Paneel und füllen Sie es mit einer HTML-Seite. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
 
 ```js
 function onCreated(sidebarPane) {

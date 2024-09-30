@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: close()-Methode"
+title: "WebTransport: close() Methode"
 short-title: close()
 slug: Web/API/WebTransport/close
 l10n:
@@ -23,7 +23,7 @@ close(info)
     - `closeCode`
       - : Eine Zahl, die den Fehlercode für den Fehler darstellt.
     - `reason`
-      - : Ein String, der den Grund für das Schließen des `WebTransport` angibt.
+      - : Ein String, der den Grund für das Schließen des `WebTransport` darstellt.
 
 ### Rückgabewert
 
@@ -59,7 +59,7 @@ transport.close({
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
-- [WebTransport over HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
+- [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die **`type`** schreibgeschützte Eigenschaft des
-[`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt den Typ des Pseudo-Elements als Zeichenkette zurück, dargestellt in Form eines [CSS-Selectors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
+Die schreibgeschützte Eigenschaft **`type`** der [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Schnittstelle gibt den Typ des Pseudo-Elements als Zeichenkette zurück, dargestellt in Form eines [CSS-Selektors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
 
 ## Wert
 
@@ -21,8 +20,7 @@ Eine Zeichenkette, die einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Beziehung zwischen
-`CSSPseudoElement.type` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
+Das folgende Beispiel zeigt die Beziehung zwischen `CSSPseudoElement.type` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");
@@ -44,4 +42,4 @@ console.log(mySelector === typeOfPseudoElement); // Outputs true
 ## Siehe auch
 
 - [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)
-- [Liste der Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements#list_of_pseudo-elements)
+- [Liste von Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements#list_of_pseudo-elements)

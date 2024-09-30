@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Einige Layoutmodelle wie `table` und `ruby` haben eine komplexe interne Struktur mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen ausfüllen können. Diese Seite definiert diese "internen" Darstellungswerte, die nur innerhalb dieses speziellen Layoutmodus Bedeutung haben.
+Einige Layout-Modelle, wie `table` und `ruby`, haben eine komplexe interne Struktur mit mehreren verschiedenen Rollen, die ihre Kinder und Nachkommen ausfüllen können. Diese Seite definiert jene "internen" Display-Werte, die nur innerhalb dieses speziellen Layout-Modus eine Bedeutung haben.
 
 ## Syntax
 
@@ -44,9 +44,9 @@ Gültige `<display-internal>` Werte:
 
 ## Beispiele
 
-### Beispiel für CSS-Tabellen
+### CSS-Tabellenbeispiel
 
-Das folgende Beispiel zeigt die Anordnung eines einfachen Formulars mit CSS-Tabellenlayout.
+Das folgende Beispiel zeigt, wie ein einfaches Formular mithilfe des CSS-Tabellenlayouts gestaltet wird.
 
 #### HTML
 

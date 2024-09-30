@@ -9,7 +9,7 @@ l10n:
 
 **DSL (Digital Subscriber Line)** ist eine Art von Breitband-Internetverbindung, die kabelgebundene Datenübertragungen über Telefonleitungen sendet.
 
-Die Download- und Upload-Geschwindigkeiten müssen nicht gleich sein. In solchen Fällen wird die Leitung als _asymmetrisch_ bezeichnet, und die Abkürzung ADSL wird verwendet. Im Gegensatz zu Kabel-, Glasfaser- oder Wählverbindungen.
+Die Download- und Upload-Geschwindigkeiten müssen nicht gleich sein. In solchen Fällen spricht man von einer _asymmetrischen_ Leitung und verwendet die Abkürzung ADSL. Im Gegensatz zu Kabel-, Glasfaser- oder Einwählverbindungen.
 
 ## Siehe auch
 

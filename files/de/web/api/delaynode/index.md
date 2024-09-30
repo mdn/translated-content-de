@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`DelayNode`**-Schnittstelle repräsentiert eine [Delay-Leitung](https://en.wikipedia.org/wiki/Digital_delay_line); ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Audiomodul, das eine Verzögerung zwischen der Ankunft von Eingabedaten und deren Weiterleitung zum Ausgang verursacht.
+Die **`DelayNode`**-Schnittstelle repräsentiert eine [Verzögerungsleitung](https://en.wikipedia.org/wiki/Digital_delay_line); ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Audiobearbeitungsmodul, das eine Verzögerung zwischen dem Eintreffen von Eingangsdaten und deren Weiterleitung an den Ausgang verursacht.
 
-Ein `DelayNode` hat immer genau einen Eingang und einen Ausgang, beide mit der gleichen Anzahl an Kanälen.
+Ein `DelayNode` hat immer genau einen Eingang und einen Ausgang, beide mit der gleichen Anzahl von Kanälen.
 
-![Das DelayNode wirkt als Delay-Leitung, hier mit einem Wert von 1s.](webaudiodelaynode.png)
+![Der DelayNode fungiert als Verzögerungsleitung, hier mit einem Wert von 1s.](webaudiodelaynode.png)
 
-Beim Erstellen eines Graphen mit einem Zyklus ist es zwingend erforderlich, mindestens einen `DelayNode` im Zyklus zu haben, ansonsten werden die an der Schleife beteiligten Knoten stummgeschaltet.
+Wenn Sie ein Graph erstellen, der einen Zyklus enthält, muss mindestens ein `DelayNode` im Zyklus vorhanden sein, andernfalls werden die am Zyklus beteiligten Knoten stummgeschaltet.
 
 {{InheritanceDiagram}}
 
@@ -28,15 +28,15 @@ Beim Erstellen eines Graphen mit einem Zyklus ist es zwingend erforderlich, mind
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahl-Modus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
       <th scope="row">Kanalanzahl</th>
-      <td><code>2</code> (nicht verwendet im Standardmodus)</td>
+      <td><code>2</code> (nicht verwendet im Standardanzahlmodus)</td>
     </tr>
     <tr>
-      <th scope="row">Kanalinterpretation</th>
+      <th scope="row">Kanainterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -45,18 +45,18 @@ Beim Erstellen eines Graphen mit einem Zyklus ist es zwingend erforderlich, mind
 ## Konstruktor
 
 - [`DelayNode()`](/de/docs/Web/API/DelayNode/DelayNode)
-  - : Erstellt eine neue Instanz eines DelayNode-Objekts. Alternativ können Sie die Fabrikmethode [`BaseAudioContext.createDelay()`](/de/docs/Web/API/BaseAudioContext/createDelay) verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+  - : Erstellt eine neue Instanz eines DelayNode-Objekts. Alternativ können Sie die [`BaseAudioContext.createDelay()`](/de/docs/Web/API/BaseAudioContext/createDelay) Fabrikmethode verwenden; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Instanz-Eigenschaften
 
-_Übernimmt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)._
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 - [`DelayNode.delayTime`](/de/docs/Web/API/DelayNode/delayTime) {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verzögerungszeit darstellt, angegeben in Sekunden.
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die anzuwendende Verzögerung, in Sekunden angegeben, darstellt.
 
 ## Instanz-Methoden
 
-_Keine speziellen Methoden; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)._
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 ## Beispiel
 

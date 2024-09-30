@@ -8,7 +8,7 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`RTCDataChannelEvent`**-Schnittstelle
-repräsentiert ein Ereignis, das mit einem bestimmten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verknüpft ist.
+repräsentiert ein Ereignis, das mit einem bestimmten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zusammenhängt.
 
 {{InheritanceDiagram}}
 
@@ -17,7 +17,7 @@ repräsentiert ein Ereignis, das mit einem bestimmten [`RTCDataChannel`](/de/doc
 - [`RTCDataChannelEvent()`](/de/docs/Web/API/RTCDataChannelEvent/RTCDataChannelEvent)
   - : Erstellt ein neues `RTCDataChannelEvent`.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
@@ -26,7 +26,7 @@ _Erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-In diesem Beispiel wird der `datachannel`-Ereignishandler eingerichtet, um die Datenkanalreferenz zu speichern und Handler für die zu überwachenden Ereignisse einzurichten. Die [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft bietet den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), der die Verbindung zum anderen Peer darstellt.
+In diesem Beispiel wird der `datachannel`-Ereignis-Handler eingerichtet, um die Datenkanalreferenz zu speichern und Handler für die zu überwachenden Ereignisse einzurichten. Die [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft liefert den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), der die Verbindung zum anderen Peer darstellt.
 
 ```js
 pc.ondatachannel = (event) => {
@@ -37,7 +37,7 @@ pc.ondatachannel = (event) => {
 };
 ```
 
-Siehe [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample) für ein weiteres, vollständigeres Beispiel, wie Datenkanäle verwendet werden.
+Sehen Sie sich [ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample) für ein weiteres, umfassenderes Beispiel zur Nutzung von Datenkanälen an.
 
 ## Spezifikationen
 
@@ -52,4 +52,4 @@ Siehe [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) (die Zielschnittstelle für [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignisse)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) (die Ziel-Schnittstelle für [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignisse)

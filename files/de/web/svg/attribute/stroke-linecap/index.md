@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-linecap`** Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende offener Unterpfade verwendet wird, wenn sie gestrichen werden.
+Das **`stroke-linecap`** Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende von offenen Teilpfaden verwendet werden soll, wenn diese gestrichen werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-linecap` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linecap')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-linecap` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linecap')}} für mehr.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -51,9 +51,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", '100%', 200)}}
+{{EmbedLiveSample("Example", '100%', 200)}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -74,7 +74,7 @@ svg {
 
 ### butt
 
-Der Wert `butt` gibt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Unterpfad ohne Länge wird der Pfad überhaupt nicht gerendert.
+Der Wert `butt` gibt an, dass der Strich für jeden Teilpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Teilpfad mit null Länge wird der Pfad überhaupt nicht gerendert.
 
 #### Beispiel
 
@@ -109,7 +109,7 @@ svg {
 
 ### round
 
-Der Wert `round` gibt an, dass am Ende jedes Unterpfades der Strich um einen Halbkreis mit einem Durchmesser, der der Strichstärke entspricht, erweitert wird. Bei einem Unterpfad ohne Länge besteht der Strich aus einem vollständigen Kreis, der am Punkt des Unterpfades zentriert ist.
+Der Wert `round` gibt an, dass am Ende jedes Teilpfads der Strich um einen Halbkreis mit einem Durchmesser erweitert wird, der der Strichbreite entspricht. Bei einem Teilpfad mit null Länge besteht der Strich aus einem vollen Kreis, der am Punkt des Teilpfads zentriert ist.
 
 #### Beispiel
 
@@ -144,7 +144,7 @@ svg {
 
 ### square
 
-Der Wert `square` gibt an, dass am Ende jedes Unterpfades der Strich um ein Rechteck erweitert wird, dessen Breite der Hälfte der Strichstärke und dessen Höhe der Strichstärke entspricht. Bei einem Unterpfad ohne Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichstärke entspricht und das am Punkt des Unterpfades zentriert ist.
+Der Wert `square` gibt an, dass am Ende jedes Teilpfads der Strich um ein Rechteck mit einer Breite erweitert wird, die der halben Breite des Strichs entspricht, und einer Höhe, die der Breite des Strichs entspricht. Bei einem Teilpfad mit null Länge besteht der Strich aus einem Quadrat mit einer Breite, die der Strichbreite entspricht, zentriert am Punkt des Teilpfads.
 
 #### Beispiel
 

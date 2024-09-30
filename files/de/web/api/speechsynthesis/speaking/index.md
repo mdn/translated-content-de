@@ -8,7 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft **`speaking`** des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn eine Äußerung gerade gesprochen wird – selbst wenn `SpeechSynthesis` sich in einem [`paused`](/de/docs/Web/API/SpeechSynthesis/pause)-Zustand befindet.
+Die **`speaking`** schreibgeschützte Eigenschaft des
+[`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) Interfaces ist ein boolescher Wert, der
+`true` zurückgibt, wenn eine Äußerung momentan gesprochen wird — selbst
+wenn `SpeechSynthesis` sich im
+[`paused`](/de/docs/Web/API/SpeechSynthesis/pause) Zustand befindet.
 
 ## Wert
 

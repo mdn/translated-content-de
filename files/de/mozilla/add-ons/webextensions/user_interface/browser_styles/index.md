@@ -7,29 +7,29 @@ l10n:
 
 {{AddonSidebar}}
 
-Ihre Erweiterung kann Benutzeroberflächenelemente enthalten - Browser- und Seiteneingabeaufforderungen [Popups](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups), [Seitenleisten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) und [Optionsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) - die folgendermaßen festgelegt werden:
+Ihre Erweiterung kann Benutzeroberflächenelemente enthalten – Browser- und Seitenaktions-[Popups](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups), [Seitenleisten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) und [Optionsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) –, die durch folgende Schritte spezifiziert werden:
 
 1. Erstellen einer HTML-Datei, die die Struktur des UI-Elements definiert.
-2. Hinzufügen eines Schlüssel im manifest.json ([`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action), [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action), [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action), [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) oder [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui)), der auf diese HTML-Datei zeigt.
+2. Hinzufügen eines manifest.json-Schlüssels ([`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action), [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action), [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action), [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) oder [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui)), der auf diese HTML-Datei zeigt.
 
-Sie können diese Elemente so gestalten, dass sie dem Stil des Browsers entsprechen. Die manifest.json-Schlüssel enthalten eine optionale Eigenschaft, die dabei hilft: `browser_style`. Wenn dies enthalten ist und auf `true` gesetzt wird, erhält Ihr Dokument ein oder mehrere zusätzliche Stylesheets, die dazu beitragen, dass es mit der Benutzeroberfläche des Browsers und mit anderen Erweiterungen, die die `browser_style`-Eigenschaft verwenden, konsistent aussieht.
+Sie können diese Elemente so gestalten, dass sie zum Stil des Browsers passen. Die manifest.json-Schlüssel beinhalten eine optionale Eigenschaft, die dabei hilft: `browser_style`. Wenn diese eingeschlossen und auf `true` gesetzt ist, erhält Ihr Dokument ein oder mehrere zusätzliche Stylesheets, die dabei helfen, es optisch mit dem UI des Browsers und anderen Erweiterungen, die die `browser_style`-Eigenschaft verwenden, abzustimmen.
 
 > [!NOTE]
 > Die Unterstützung für `browser_style` in Manifest V3 ist veraltet. Ab Firefox 115 ändert sich der Standardwert von `options_ui.browser_style` und `sidebar_action.browser_style` von `true` auf `false`. In Firefox 118 wird `"browser_style": true` in Manifest V3-Erweiterungen nicht mehr unterstützt.
-> Wenn Ihre Manifest V3-Erweiterung von den `"browser_style": true`-Stilen abhängt, folgen Sie dem [Manifest V3 Migrationsleitfaden für `browser_style`](#manifest_v3_migration).
-> Siehe ([Firefox Bug 1827910](https://bugzil.la/1827910)) für weitere Informationen.
+> Wenn Ihre Manifest V3-Erweiterung auf die `"browser_style": true`-Stile angewiesen ist, folgen Sie der [Manifest V3 Migrationsanleitung für `browser_style`](#migration_zu_manifest_v3).
+> Weitere Informationen finden Sie unter ([Firefox Bug 1827910](https://bugzil.la/1827910)).
 > Wenn Sie den Firefox-Stil auf Ihre Erweiterung anwenden möchten, sehen Sie sich den [Firefox Style Guide](https://acorn.firefox.com/latest) an.
 
-Wenn Sie in Betracht ziehen, `browser_style: true` zu verwenden, testen Sie Ihre Erweiterung mit verschiedenen Themen (eingebaut oder von AMO), um sicherzustellen, dass sich die Benutzeroberfläche der Erweiterung wie erwartet verhält.
+Wenn Sie überlegen, `browser_style: true` zu verwenden, testen Sie Ihre Erweiterung mit verschiedenen Themen (eingebaut oder von AMO), um sicherzustellen, dass die UI der Erweiterung so funktioniert, wie Sie es erwarten.
 
 > [!WARNING]
-> Wenn `browser_style: true` in das Manifest Ihrer Webextension aufgenommen wird, ist die Textauswahl in der UI Ihrer Erweiterung außer in Eingabesteuerelementen deaktiviert. Wenn dies zu einem Problem führt, geben Sie stattdessen `browser_style:false` an.
+> Wenn `browser_style: true` in das Manifest Ihrer Web-Erweiterung aufgenommen wird, ist die Textauswahl in der UI Ihrer Erweiterung außer bei Eingabesteuerungen deaktiviert. Wenn dies ein Problem verursacht, verwenden Sie stattdessen `browser_style:false`.
 
-> **Hinweis:** **Google Chrome** und **Opera** verwenden `chrome_style` anstelle von `browser_style` in Manifest V2. Für erweiterte Funktionen über verschiedene Browser hinweg müssen Sie beide Schlüssel hinzufügen. `chrome_style` ist in Manifest V3 nicht verfügbar.
+> **Hinweis:** **Google Chrome** und **Opera** verwenden `chrome_style` anstelle von `browser_style` in Manifest V2. Für plattformübergreifende Erweiterungen müssen Sie daher beide Schlüssel hinzufügen. `chrome_style` ist in Manifest V3 nicht verfügbar.
 
-In Firefox kann das Stylesheet unter `chrome://browser/content/extension.css` eingesehen werden. Das zusätzliche Stylesheet unter `chrome://browser/content/extension-mac.css` ist ebenfalls auf macOS enthalten.
+In Firefox kann das Stylesheet unter `chrome://browser/content/extension.css` eingesehen werden. Das zusätzliche Stylesheet unter `chrome://browser/content/extension-mac.css` wird auch unter macOS eingeschlossen.
 
-Die meisten Stile werden automatisch angewendet, aber einige Elemente erfordern, dass Sie die nicht standardmäßige `browser-style`-Klasse hinzufügen, um deren Styling zu erhalten, wie in der folgenden Tabelle beschrieben:
+Die meisten Stile werden automatisch angewendet, aber einige Elemente erfordern, dass Sie die nicht standardmäßige `browser-style`-Klasse hinzufügen, um deren Stil zu erhalten, wie in der folgenden Tabelle beschrieben:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -81,13 +81,13 @@ Die meisten Stile werden automatisch angewendet, aber einige Elemente erfordern,
       </td>
       <td>
         <pre class="brush: html">
-&#x3C;textarea class="browser-style">Hier schreiben&#x3C;/textarea></pre
+&#x3C;textarea class="browser-style">Schreiben Sie hier&#x3C;/textarea></pre
         >
       </td>
     </tr>
     <tr>
       <td>
-        Übergeordneter Element eines
+        Elternteil von einem
         <code
           ><a href="/de/docs/Web/HTML/Element/input">&#x3C;input></a></code
         >
@@ -109,22 +109,22 @@ Die meisten Stile werden automatisch angewendet, aber einige Elemente erfordern,
   </tbody>
 </table>
 
-## Manifest V3 Migration
+## Migration zu Manifest V3
 
-Da `browser_style` in Manifest V3 veraltet ist, möchten Sie möglicherweise die Unterstützung entfernen, wenn Sie Ihre Manifest V2-Erweiterungen migrieren. Verwenden Sie `options_ui` als Beispiel, sollten Sie folgende Schritte unternehmen, um die Unterstützung für `browser_style` zu entfernen:
+Da `browser_style` in Manifest V3 veraltet ist, möchten Sie möglicherweise die Unterstützung entfernen, wenn Sie Ihre Erweiterungen von Manifest V2 migrieren. Verwenden des Beispiels `options_ui` sollten Sie diese Schritte unternehmen, um die Unterstützung für `browser_style` zu entfernen:
 
 - Setzen Sie `options_ui/browser_style` auf `false`.
-- Ändert sich das Erscheinungsbild der Benutzeroberfläche Ihrer Erweiterungen?
+- Ändert sich das Erscheinungsbild Ihrer Erweiterungsschnittstelle?
   - Wenn sich das Erscheinungsbild nicht ändert, entfernen Sie den Schlüssel.
-  - Wenn sich das Erscheinungsbild ändert, experimentieren Sie, um festzustellen, welche Abhängigkeiten bestehen, und fügen Sie die relevanten Eigenschaften in das Stylesheet der Erweiterung ein. Die Stile, die am ehesten Layoutänderungen verursachen, sind `box-sizing:`, `border-box` und `display: flex`.
-    Wenn Sie die Abhängigkeiten nicht identifizieren können, schließen Sie den Inhalt von [extension.css](https://searchfox.org/mozilla-central/source/browser/components/extensions/extension.css) mit der Erweiterung ein und löschen Sie alle Teile, die nicht relevant sind, in der Regel die `body`- und `body *`-Blöcke, da die meisten Erweiterungen die `browser-style`-Klasse nicht verwenden.
+  - Wenn sich das Erscheinungsbild ändert, experimentieren Sie, um festzustellen, welche Abhängigkeiten bestehen, und fügen Sie die relevanten Eigenschaften in das Stylesheet der Erweiterung ein. Die Stile, die am wahrscheinlichsten Layoutänderungen verursachen, sind `box-sizing:`, `border-box` und `display: flex`.
+    Wenn Sie die Abhängigkeiten nicht identifizieren können, fügen Sie den Inhalt von [extension.css](https://searchfox.org/mozilla-central/source/browser/components/extensions/extension.css) in die Erweiterung ein und löschen Sie alle nicht relevanten Teile, gewöhnlich die `body` und `body *` Blöcke, da die meisten Erweiterungen die `browser-style`-Klasse nicht verwenden.
 
-## Firefox-Panelkomponenten (Legacy)
+## Firefox-Panel-Komponenten (veraltet)
 
 > [!NOTE]
-> Diese Funktion ist nicht standardisiert und funktioniert nur in Firefox.
+> Dieses Feature ist nicht standardisiert und funktioniert nur in Firefox.
 
-Das Stylesheet `chrome://browser/content/extension.css` enthält auch die Stile für die Legacy-Firefox-Panelkomponenten (Navigationskomponenten).
+Das `chrome://browser/content/extension.css`-Stylesheet enthält auch die Stile für die veralteten Firefox-Panel-Komponenten (Navigationselemente).
 
 Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/navigation) dokumentiert die korrekte Verwendung.
 
@@ -137,7 +137,7 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
   </thead>
   <tbody>
     <tr>
-      <td>Kopfzeile</td>
+      <td>Header</td>
       <td>
         <pre class="brush: html">
 &#x3C;header class="panel-section panel-section-header">
@@ -148,7 +148,7 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
       </td>
     </tr>
     <tr>
-      <td>Fußzeile</td>
+      <td>Footer</td>
       <td>
         <pre class="brush: html">
 &#x3C;footer class="panel-section panel-section-footer">
@@ -179,19 +179,19 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
         <pre class="brush: html">
 &#x3C;div class="panel-section panel-section-formElements">
   &#x3C;div class="panel-formElements-item">
-    &#x3C;label for="name01">Etikette:&#x3C;/label>
+    &#x3C;label for="name01">Label:&#x3C;/label>
     &#x3C;input type="text" value="Name" id="name01" />
   &#x3C;/div>
   &#x3C;div class="panel-formElements-item">
-    &#x3C;label for="picker01">Etikette:&#x3C;/label>
+    &#x3C;label for="picker01">Label:&#x3C;/label>
     &#x3C;select id="picker01">
       &#x3C;option value="value1" selected="true">Dropdown&#x3C;/option>
-      &#x3C;option value="value2">Listenelement&#x3C;/option>
-      &#x3C;option value="value3">Listenelement&#x3C;/option>
+      &#x3C;option value="value2">Listenpunkt&#x3C;/option>
+      &#x3C;option value="value3">Listenpunkt&#x3C;/option>
     &#x3C;/select>
   &#x3C;/div>
   &#x3C;div class="panel-formElements-item">
-    &#x3C;label for="placeholder01">Etikette:&#x3C;/label>
+    &#x3C;label for="placeholder01">Label:&#x3C;/label>
     &#x3C;input type="text" placeholder="Platzhalter" id="placeholder01" />
     &#x3C;button name="expander" class="expander">&#x3C;/button>
   &#x3C;/div>
@@ -206,13 +206,13 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
 &#x3C;div class="panel-section panel-section-list">
   &#x3C;div class="panel-list-item">
     &#x3C;div class="icon">&#x3C;/div>
-    &#x3C;div class="text">Listenelement&#x3C;/div>
+    &#x3C;div class="text">Listenpunkt&#x3C;/div>
     &#x3C;div class="text-shortcut">Strg-L&#x3C;/div>
   &#x3C;/div>
 
 &#x3C;div class="panel-list-item">
 &#x3C;div class="icon">&#x3C;/div>
-&#x3C;div class="text">Listenelement&#x3C;/div>
+&#x3C;div class="text">Listenpunkt&#x3C;/div>
 &#x3C;div class="text-shortcut">&#x3C;/div>
 &#x3C;/div>
 
@@ -220,7 +220,7 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
 
 &#x3C;div class="panel-list-item disabled">
 &#x3C;div class="icon">&#x3C;/div>
-&#x3C;div class="text">Deaktiviertes Listenelement&#x3C;/div>
+&#x3C;div class="text">Deaktivierter Listenpunkt&#x3C;/div>
 &#x3C;div class="text-shortcut">&#x3C;/div>
 &#x3C;/div>
 
@@ -228,13 +228,13 @@ Der [Legacy Firefox Style Guide](https://firefoxux.github.io/StyleGuide/#/naviga
 
 &#x3C;div class="panel-list-item">
 &#x3C;div class="icon">&#x3C;/div>
-&#x3C;div class="text">Listenelement&#x3C;/div>
+&#x3C;div class="text">Listenpunkt&#x3C;/div>
 &#x3C;div class="text-shortcut">&#x3C;/div>
 &#x3C;/div>
 
 &#x3C;div class="panel-list-item">
 &#x3C;div class="icon">&#x3C;/div>
-&#x3C;div class="text">Listenelement&#x3C;/div>
+&#x3C;div class="text">Listenpunkt&#x3C;/div>
 &#x3C;div class="text-shortcut">&#x3C;/div>
 &#x3C;/div>
 &#x3C;/div></pre

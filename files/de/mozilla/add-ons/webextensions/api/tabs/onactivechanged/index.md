@@ -10,7 +10,7 @@ l10n:
 > [!WARNING]
 > Dieses Ereignis ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onActivated")}}.
 
-Dieses Ereignis wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht gesetzt ist, wenn dieses Ereignis ausgelöst wird. Sie können jedoch {{WebExtAPIRef('tabs.onUpdated')}}-Ereignisse abonnieren, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
+Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs zum Zeitpunkt des Auslösens dieses Ereignisses möglicherweise noch nicht gesetzt ist, aber Sie können den {{WebExtAPIRef('tabs.onUpdated')}}-Ereignissen lauschen, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ browser.tabs.onActiveChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -40,7 +40,7 @@ Ereignisse haben drei Funktionen:
     - `tabId`
       - : `integer`. Die ID des Tabs, der aktiv geworden ist.
     - `selectInfo`
-      - : `object`. Siehe den Abschnitt [selectInfo](#selectinfo_2) für weitere Details.
+      - : `object`. Siehe den Abschnitt [selectInfo](#selectinfo_2) für mehr Details.
 
 ## Zusätzliche Objekte
 
@@ -54,7 +54,7 @@ Ereignisse haben drei Funktionen:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActiveChanged) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActiveChanged) API. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

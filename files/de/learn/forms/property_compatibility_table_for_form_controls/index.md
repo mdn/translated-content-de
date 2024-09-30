@@ -1,5 +1,5 @@
 ---
-title: CSS-Eigenschaftskompatibilitätstabelle für Formularelemente
+title: CSS-Eigenschaften-Kompatibilitätstabelle für Formularelemente
 slug: Learn/Forms/Property_compatibility_table_for_form_controls
 l10n:
   sourceCommit: bb026bcb88b7f45374d602301b7b0db5a49ff303
@@ -7,31 +7,31 @@ l10n:
 
 {{learnsidebar}}
 
-Die folgenden Kompatibilitätstabellen versuchen, den Stand der CSS-Unterstützung für HTML-Formulare zusammenzufassen. Aufgrund der Komplexität von CSS und HTML-Formularen können diese Tabellen nicht als perfekte Referenz betrachtet werden. Sie bieten jedoch wertvolle Einblicke, in was möglich ist und was nicht, was Ihnen helfen wird zu lernen, wie Sie es umsetzen können.
+Die folgenden Kompatibilitätstabellen versuchen, den Stand der CSS-Unterstützung für HTML-Formulare zusammenzufassen. Aufgrund der Komplexität von CSS und HTML-Formularen können diese Tabellen nicht als perfekte Referenz betrachtet werden. Sie geben Ihnen jedoch einen guten Einblick, was gemacht werden kann und was nicht, was Ihnen hilft, zu lernen, wie man Dinge macht.
 
-## Anleitung zum Lesen der Tabellen
+## So lesen Sie die Tabellen
 
 ### Werte
 
 Für jede Eigenschaft gibt es vier mögliche Werte:
 
 - ✅ Ja
-  - : Es gibt eine einigermaßen konsistente Unterstützung für die Eigenschaft über verschiedene Browser hinweg. Sie könnten dennoch auf seltsame Nebenwirkungen in bestimmten Randfällen stoßen.
+  - : Es gibt eine einigermaßen konsistente Unterstützung für die Eigenschaft in den Browsern. Sie können dennoch auf seltsame Nebeneffekte in bestimmten Randfällen stoßen.
 - ⚠️ Teilweise
-  - : Obwohl die Eigenschaft funktioniert, könnten Sie häufig auf seltsame Nebenwirkungen oder Inkonsistenzen stoßen. Sie sollten möglicherweise diese Eigenschaften vermeiden, es sei denn, Sie beherrschen zuerst diese Nebenwirkungen.
+  - : Während die Eigenschaft funktioniert, können Sie häufig seltsame Nebeneffekte oder Inkonsistenzen erleben. Sie sollten diese Eigenschaften wahrscheinlich vermeiden, es sei denn, Sie beherrschen diese Nebeneffekte zuerst.
 - ❌ Nein
   - : Die Eigenschaft funktioniert nicht oder ist so inkonsistent, dass sie nicht zuverlässig ist.
-- n.a.
+- n.v.
   - : Die Eigenschaft hat keine Bedeutung für diesen Typ von Widget.
 
-### Darstellung
+### Rendering
 
-Für jede Eigenschaft gibt es zwei mögliche Darstellungen:
+Für jede Eigenschaft gibt es zwei mögliche Renderings:
 
 - N (Normal)
   - : Zeigt an, dass die Eigenschaft so angewendet wird, wie sie ist
-- T (Tweaked)
-  - : Zeigt an, dass die Eigenschaft mit der untenstehenden zusätzlichen Regel angewendet wird:
+- T (Optimiert)
+  - : Zeigt an, dass die Eigenschaft mit der zusätzlichen Regel unten angewendet wird:
 
 ```css
 * {
@@ -42,7 +42,7 @@ Für jede Eigenschaft gibt es zwei mögliche Darstellungen:
 
 ## Kompatibilitätstabellen
 
-Das Verändern des Erscheinungsbildes von Formularelementen mit CSS, wie mit {{cssxref("border")}}, {{cssxref("background")}}, {{cssxref("border-radius")}}, und {{cssxref("height")}}, kann das native Aussehen und das Verhalten von Widgets in einigen Browsern teilweise oder vollständig deaktivieren. Seien Sie vorsichtig, wenn Sie sie verwenden.
+Das Ändern des Aussehens von Formularelementen mit CSS, wie mit {{cssxref("border")}}, {{cssxref("background")}}, {{cssxref("border-radius")}} und {{cssxref("height")}}, kann das native Aussehen und Gefühl von Widgets in einigen Browsern teilweise oder vollständig deaktivieren. Seien Sie vorsichtig, wenn Sie sie verwenden.
 
 ### Textfelder
 
@@ -54,7 +54,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -87,7 +87,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            WebKit-Browser (meistens auf Mac OSX und iOS) verwenden das native Aussehen und Verhalten für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
+            WebKit-Browser (hauptsächlich auf Mac OSX und iOS) verwenden das native Aussehen und Gefühl für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
           </li>
         </ol>
       </td>
@@ -105,7 +105,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            WebKit-Browser (meistens auf Mac OSX und iOS) verwenden das native Aussehen und Verhalten für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
+            WebKit-Browser (hauptsächlich auf Mac OSX und iOS) verwenden das native Aussehen und Gefühl für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
           </li>
         </ol>
       </td>
@@ -135,7 +135,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            WebKit-Browser (meistens auf Mac OSX und iOS) verwenden das native Aussehen und Verhalten für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
+            WebKit-Browser (hauptsächlich auf Mac OSX und iOS) verwenden das native Aussehen und Gefühl für die Suchfelder. Daher ist es erforderlich, <code>appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
           </li>
         </ol>
       </td>
@@ -158,7 +158,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            Wenn die {{cssxref("border-color")}} Eigenschaft nicht gesetzt ist, können einige auf WebKit basierende Browser die {{cssxref("color")}} Eigenschaft sowohl auf den Rand als auch auf die Schriftart von <code>{{htmlelement("textarea")}}</code>s anwenden.
+            Wenn die {{cssxref("border-color")}}-Eigenschaft nicht gesetzt ist, wenden einige auf WebKit basierende Browser die {{cssxref("color")}}-Eigenschaft sowohl auf den Rahmen als auch auf die Schriftart bei <code>{{htmlelement("textarea")}}</code>s an.
           </li>
         </ol>
       </td>
@@ -173,7 +173,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td style="text-align: center; vertical-align: top">
         ✅ Ja
       </td>
-      <td>Siehe die Bemerkung zu {{cssxref("line-height")}}</td>
+      <td>Siehe die Anmerkung zu {{cssxref("line-height")}}</td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -209,7 +209,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td style="text-align: center; vertical-align: top">
         ⚠️ Teilweise
       </td>
-      <td>Siehe die Bemerkung zu Opera</td>
+      <td>Siehe die Anmerkung zu Opera</td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -224,7 +224,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            IE9 unterstützt diese Eigenschaft nur auf <code>{{htmlelement("textarea")}}</code>s, während Opera es nur bei einzeiligen Textfeldern unterstützt.
+            IE9 unterstützt diese Eigenschaft nur bei <code>{{htmlelement("textarea")}}</code>s, während Opera sie nur bei einzeiligen Textfeldern unterstützt.
           </li>
         </ol>
       </td>
@@ -268,7 +268,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -283,7 +283,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            WebKit-Browser (meistens auf Mac OSX und iOS) verwenden das native Aussehen und Verhalten für die Suchfelder. Daher ist es erforderlich, <code>-webkit-appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
+            WebKit-Browser (hauptsächlich auf Mac OSX und iOS) verwenden das native Aussehen und Gefühl für die Suchfelder. Daher ist es erforderlich, <code>-webkit-appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
           </li>
         </ol>
       </td>
@@ -301,7 +301,7 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
       <td>
         <ol>
           <li>
-            WebKit-Browser (meistens auf Mac OSX und iOS) verwenden das native Aussehen und Verhalten für die Suchfelder. Daher ist es erforderlich, <code>-webkit-appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
+            WebKit-Browser (hauptsächlich auf Mac OSX und iOS) verwenden das native Aussehen und Gefühl für die Suchfelder. Daher ist es erforderlich, <code>-webkit-appearance:none</code> zu verwenden, um diese Eigenschaft auf Suchfelder anwenden zu können.
           </li>
         </ol>
       </td>
@@ -325,9 +325,9 @@ Sehen Sie sich die `{{htmlelement("input/text", "text")}}`, `{{htmlelement("inpu
   </tbody>
 </table>
 
-### Schaltflächen
+### Buttons
 
-Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("input/submit", "submit")}}` und `{{htmlelement("input/reset", "reset")}}` Eingabetypen und das `{{htmlelement("button")}}` Element an.
+Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("input/submit", "submit")}}` und `{{htmlelement("input/reset", "reset")}}` Eingabetypen sowie das `{{htmlelement("button")}}`-Element an.
 
 <table>
   <thead>
@@ -335,7 +335,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -367,7 +367,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
       <td>
         <ol>
           <li>
-            Diese Eigenschaft wird in auf WebKit basierenden Browsern auf Mac OSX oder iOS nicht angewendet.
+            Diese Eigenschaft wird auf auf WebKit basierenden Browsern auf Mac OSX oder iOS nicht angewendet.
           </li>
         </ol>
       </td>
@@ -409,7 +409,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
       <td>
         <ol>
           <li>
-            Diese Eigenschaft wird in auf WebKit basierenden Browsern auf Mac OSX oder iOS nicht angewendet.
+            Diese Eigenschaft wird auf auf WebKit basierenden Browsern auf Mac OSX oder iOS nicht angewendet.
           </li>
         </ol>
       </td>
@@ -441,7 +441,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
       <td style="text-align: center; vertical-align: top">
         ✅ Ja
       </td>
-      <td>Siehe die Bemerkung zu {{cssxref("line-height")}}.</td>
+      <td>Siehe die Anmerkung zu {{cssxref("line-height")}}.</td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -530,7 +530,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -557,7 +557,7 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
       <td>
         <ol>
           <li>
-            In Opera wird die Eigenschaft {{cssxref("border-radius")}} nur angewendet, wenn ein expliziter Rand gesetzt ist.
+            In Opera wird die {{cssxref("border-radius")}} Eigenschaft nur angewendet, wenn ein expliziter Rahmen gesetzt ist.
           </li>
         </ol>
       </td>
@@ -581,9 +581,9 @@ Sehen Sie sich die `{{htmlelement("input/button", "button")}}`, `{{htmlelement("
   </tbody>
 </table>
 
-### Nummer
+### Number
 
-Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es gibt keinen standardisierten Weg, den Stil der Spinner zu ändern, die zur Werteänderung des Feldes genutzt werden, wobei die Spinner in Safari außerhalb des Feldes liegen.
+Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es gibt keine standardisierte Möglichkeit, den Stil der Spinners zu ändern, die zur Wertänderung des Feldes verwendet werden, wobei die Spinners in Safari außerhalb des Feldes sind.
 
 <table>
   <thead>
@@ -591,7 +591,7 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -623,7 +623,7 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es
       <td>
         <ol>
           <li>
-            In Opera werden die Spinner vergrößert, was den Inhalt des Feldes verdecken kann.
+            In Opera sind die Spinners gezoomt, was den Inhalt des Feldes verbergen kann.
           </li>
         </ol>
       </td>
@@ -665,7 +665,7 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es
       <td>
         <ol>
           <li>
-            In Opera werden die Spinner vergrößert, was den Inhalt des Feldes verdecken kann.
+            In Opera sind die Spinners gezoomt, was den Inhalt des Feldes verbergen kann.
           </li>
         </ol>
       </td>
@@ -697,7 +697,7 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es
       <td style="text-align: center; vertical-align: top">
         ✅ Ja
       </td>
-      <td>Siehe die Bemerkung zu {{cssxref("line-height")}}.</td>
+      <td>Siehe die Anmerkung zu {{cssxref("line-height")}}.</td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -775,14 +775,14 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/number", "number")}}` an. Es
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-transform")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -835,7 +835,7 @@ Sehen Sie sich die `{{htmlelement("input/checkbox", "checkbox")}}` und `{{htmlel
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -855,7 +855,7 @@ Sehen Sie sich die `{{htmlelement("input/checkbox", "checkbox")}}` und `{{htmlel
       <td>
         <ol>
           <li>
-            Einige Browser fügen zusätzliche Abstände hinzu, während andere das Widget strecken.
+            Einige Browser fügen zusätzliche Ränder hinzu, während andere das Widget strecken.
           </li>
         </ol>
       </td>
@@ -873,7 +873,7 @@ Sehen Sie sich die `{{htmlelement("input/checkbox", "checkbox")}}` und `{{htmlel
       <td>
         <ol>
           <li>
-            Einige Browser fügen zusätzliche Abstände hinzu, während andere das Widget strecken.
+            Einige Browser fügen zusätzliche Ränder hinzu, während andere das Widget strecken.
           </li>
         </ol>
       </td>
@@ -924,78 +924,78 @@ Sehen Sie sich die `{{htmlelement("input/checkbox", "checkbox")}}` und `{{htmlel
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("color")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("font")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("letter-spacing")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-align")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-decoration")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-indent")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-overflow")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-shadow")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
         {{cssxref("text-transform")}}
       </th>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
-      <td style="text-align: center; vertical-align: top">N.A.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
+      <td style="text-align: center; vertical-align: top">N.V.</td>
       <td></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -1046,7 +1046,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -1066,7 +1066,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Diese Eigenschaft ist für das <code>{{htmlelement("select")}}</code>-Element in Ordnung, aber es kann nicht auf die <code>{{htmlelement("option")}}</code>- oder <code>{{htmlelement("optgroup")}}</code>-Elemente angewendet werden.
+            Diese Eigenschaft ist auf dem <code>{{htmlelement("select")}}</code> Element in Ordnung, kann jedoch nicht auf den <code>{{htmlelement("option")}}</code> oder <code>{{htmlelement("optgroup")}}</code> Elementen sein.
           </li>
         </ol>
       </td>
@@ -1120,10 +1120,10 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Die Eigenschaft wird angewendet, jedoch auf inkonsistente Weise zwischen den Browsern auf Mac OSX.
+            Die Eigenschaft wird angewendet, aber inkonsistent zwischen den Browsern auf Mac OSX.
           </li>
           <li>
-            Die Eigenschaft wird gut auf das <code>{{htmlelement("select")}}</code>-Element angewendet, wird jedoch auf <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen inkonsistent gehandhabt.
+            Die Eigenschaft wird gut auf das <code>{{htmlelement("select")}}</code> Element angewendet, wird jedoch inkonsistent auf <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen behandelt.
           </li>
         </ol>
       </td>
@@ -1146,7 +1146,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Auf Mac OSX unterstützen auf WebKit basierende Browser diese Eigenschaft nicht auf nativen Widgets und zusammen mit Opera unterstützen sie es überhaupt nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
+            Auf Mac OSX unterstützen WebKit-basierte Browser diese Eigenschaft bei nativen Widgets nicht und zusammen mit Opera unterstützen sie sie überhaupt nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
           </li>
         </ol>
       </td>
@@ -1164,7 +1164,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Auf Mac OSX unterstützen auf WebKit basierende Browser diese Eigenschaft nicht auf nativen Widgets und zusammen mit Opera unterstützen sie es überhaupt nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
+            Auf Mac OSX unterstützen WebKit-basierte Browser diese Eigenschaft bei nativen Widgets nicht und zusammen mit Opera unterstützen sie sie überhaupt nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
           </li>
         </ol>
       </td>
@@ -1182,7 +1182,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            IE9 unterstützt diese Eigenschaft nicht auf <code>{{htmlelement("select")}}</code>, <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen; auf WebKit basierende Browser auf Mac OSX unterstützen diese Eigenschaft nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
+            IE9 unterstützt diese Eigenschaft nicht bei <code>{{htmlelement("select")}}</code>, <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen; WebKit-basierte Browser auf Mac OSX unterstützen diese Eigenschaft nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
           </li>
         </ol>
       </td>
@@ -1200,7 +1200,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Nur Firefox bietet volle Unterstützung für diese Eigenschaft. Andere Browser unterstützen sie nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Nur Firefox bietet vollständige Unterstützung für diese Eigenschaft. Andere Browser unterstützen sie nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1218,7 +1218,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Die meisten Browser unterstützen diese Eigenschaft nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Die meisten Browser unterstützen diese Eigenschaft nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1248,7 +1248,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Die meisten Browser unterstützen diese Eigenschaft nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Die meisten Browser unterstützen diese Eigenschaft nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1266,7 +1266,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Die meisten Browser unterstützen diese Eigenschaft nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Die meisten Browser unterstützen diese Eigenschaft nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1274,7 +1274,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -1289,7 +1289,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td rowspan="3">
         <ol>
           <li>
-            Die meisten Browser unterstützen diese Eigenschaft nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Die meisten Browser unterstützen diese Eigenschaft nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1319,11 +1319,11 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
   </tbody>
 </table>
 
-Anmerkung: Firefox bietet keine Möglichkeit, den Pfeil nach unten im `{{htmlelement("select")}}`-Element zu ändern.
+Hinweis: Firefox bietet keine Möglichkeit, den Abwärtspfeil auf dem `{{htmlelement("select")}}` Element zu ändern.
 
 ### Auswahlfelder (mehrzeilig)
 
-Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` und `{{htmlelement("option")}}` Elemente an und das [`size`](/de/docs/Web/HTML/Attributes/size) Attribut.
+Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` und `{{htmlelement("option")}}` Elemente und das [`size` Attribut](/de/docs/Web/HTML/Attributes/size) an.
 
 <table>
   <thead>
@@ -1331,7 +1331,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -1399,7 +1399,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Opera unterstützt {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} beim <code>{{htmlelement("select")}}</code>-Element nicht.
+            Opera unterstützt {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} nicht auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1431,7 +1431,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td style="text-align: center; vertical-align: top">
         ✅ Ja
       </td>
-      <td>Siehe die Bemerkung zu {{cssxref("line-height")}}.</td>
+      <td>Siehe die Anmerkung zu {{cssxref("line-height")}}.</td>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -1446,7 +1446,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            IE9 unterstützt diese Eigenschaft nicht auf <code>{{htmlelement("select")}}</code>, <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen; auf WebKit basierende Browser auf Mac OSX unterstützen diese Eigenschaft nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
+            IE9 unterstützt diese Eigenschaft nicht bei <code>{{htmlelement("select")}}</code>, <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen; WebKit-basierte Browser auf Mac OSX unterstützen diese Eigenschaft nicht bei <code>{{htmlelement("option")}}</code> und <code>{{htmlelement("optgroup")}}</code> Elementen.
           </li>
         </ol>
       </td>
@@ -1464,7 +1464,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Auf WebKit basierende Browser auf Mac OSX unterstützen diese Eigenschaft bei diesem Widget nicht.
+            Auf WebKit-basierten Browsern auf Mac OSX wird diese Eigenschaft auf diesem Widget nicht unterstützt.
           </li>
         </ol>
       </td>
@@ -1481,7 +1481,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       </td>
       <td>
         <ol>
-          <li>Nur unterstützt durch Firefox und IE9+.</li>
+          <li>Nur unterstützt von Firefox und IE9+.</li>
         </ol>
       </td>
     </tr>
@@ -1534,7 +1534,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            Die meisten Browser unterstützen diese Eigenschaft nur beim <code>{{htmlelement("select")}}</code>-Element.
+            Die meisten Browser unterstützen diese Eigenschaft nur auf dem <code>{{htmlelement("select")}}</code> Element.
           </li>
         </ol>
       </td>
@@ -1542,7 +1542,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -1569,7 +1569,7 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
       <td>
         <ol>
           <li>
-            In Opera wird die Eigenschaft {{cssxref("border-radius")}} nur angewendet, wenn ein expliziter Rand gesetzt ist.
+            In Opera wird die {{cssxref("border-radius")}} Eigenschaft nur angewendet, wenn ein expliziter Rahmen gesetzt ist.
           </li>
         </ol>
       </td>
@@ -1593,9 +1593,9 @@ Sehen Sie sich die `{{htmlelement("select")}}`, `{{htmlelement("optgroup")}}` un
   </tbody>
 </table>
 
-### Datalist
+### Datenliste
 
-Sehen Sie sich die `{{htmlelement("datalist")}}` und `{{htmlelement("input")}}` Elemente an sowie das [`list`](/de/docs/Web/HTML/Element/input#list) Attribut.
+Sehen Sie sich die `{{htmlelement("datalist")}}` und `{{htmlelement("input")}}` Elemente und das [`list`](/de/docs/Web/HTML/Element/input#list) Attribut an.
 
 <table>
   <thead>
@@ -1603,7 +1603,7 @@ Sehen Sie sich die `{{htmlelement("datalist")}}` und `{{htmlelement("input")}}` 
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -1786,7 +1786,7 @@ Sehen Sie sich die `{{htmlelement("datalist")}}` und `{{htmlelement("input")}}` 
   </tbody>
   <tbody>
     <tr>
-      <th colspan="4" scope="col"><em>Rand und Hintergrund</em></th>
+      <th colspan="4" scope="col"><em>Rahmen und Hintergrund</em></th>
     </tr>
     <tr>
       <th scope="row" style="white-space: nowrap; vertical-align: top">
@@ -1827,7 +1827,7 @@ Sehen Sie sich die `{{htmlelement("datalist")}}` und `{{htmlelement("input")}}` 
   </tbody>
 </table>
 
-### Dateiwähler
+### Dateiauswahl
 
 Sehen Sie sich den Eingabetyp `{{htmlelement("input/file", "file")}}` an.
 
@@ -1837,7 +1837,7 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/file", "file")}}` an.
       <th scope="col">Eigenschaft</th>
       <th scope="col" style="text-align: center">N</th>
       <th scope="col" style="text-align: center">T</th>
-      <th scope="col">Bemerkung</th>
+      <th scope="col">Anmerkung</th>
     </tr>
   </thead>
   <tbody>
@@ -1948,7 +1948,4 @@ Sehen Sie sich den Eingabetyp `{{htmlelement("input/file", "file")}}` an.
       </td>
       <td style="text-align: center; vertical-align: top">
         ⚠️ Teilweise<sup>[1]</sup>
-      </td>
-      <td>
-        <ol>
-          <li>
+      </

@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Der child-Achse zeigt die Kinder des Kontextknotens an. Wenn ein XPath-Ausdruck keine Achse angibt, wird standardmäßig die child-Achse verwendet. Da nur der Wurzelknoten oder Elementknoten Kinder haben, wird jede andere Verwendung nichts auswählen.
+Die Achse `child` gibt die Kinder des Kontextknotens an. Wenn ein XPath-Ausdruck keine Achse angibt, wird standardmäßig die `child`-Achse angenommen. Da nur der Wurzelknoten oder Elementknoten Kinder haben, wird jede andere Verwendung nichts auswählen.

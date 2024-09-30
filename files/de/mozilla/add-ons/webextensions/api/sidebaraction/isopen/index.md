@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Seitenleiste der Erweiterung in einem gegebenen Fenster geöffnet ist.
+Gibt `true` zurück, wenn die Sidebar der Erweiterung in einem bestimmten Fenster geöffnet ist.
 
-Diese Funktion akzeptiert ein `windowId` als Parameter:
+Diese Funktion akzeptiert einen `windowId` als Parameter:
 
-- Wenn Sie `windowId` angeben, überprüft die Funktion das gegebene Browserfenster.
+- Wenn Sie `windowId` angeben, überprüft die Funktion das angegebene Browserfenster.
 - Wenn Sie `windowId` weglassen, überprüft die Funktion das oberste Browserfenster.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
@@ -31,11 +31,11 @@ let gettingIsOpen = browser.sidebarAction.isOpen(
   - : `object`. Ein Objekt, das optional die zu überprüfende `windowId` enthält.
 
     - `windowId` {{optional_inline}}
-      - : `integer`. ID eines zu überprüfenden Browserfensters. Wird dieser Parameter weggelassen, wird automatisch zum {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}} gewechselt, das sich auf das oberste Browserfenster bezieht.
+      - : `integer`. ID eines zu überprüfenden Browserfensters. Wenn sie weggelassen wird, wird standardmäßig {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}} verwendet, was sich auf das oberste Browserfenster bezieht.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenleiste der Erweiterung in dem angegebenen Fenster geöffnet ist, oder mit `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Sidebar der Erweiterung im angegebenen Fenster geöffnet ist, oder `false` andernfalls.
 
 ## Browser-Kompatibilität
 
@@ -43,7 +43,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Überprüfen Sie das oberste Fenster:
+Das oberste Fenster überprüfen:
 
 ```js
 browser.sidebarAction.isOpen({}).then((result) => {
@@ -51,7 +51,7 @@ browser.sidebarAction.isOpen({}).then((result) => {
 });
 ```
 
-Überprüfen Sie alle geöffneten Fenster:
+Alle offenen Fenster überprüfen:
 
 ```js
 async function checkWindow(windowId) {

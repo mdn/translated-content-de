@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der Schnittstelle [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) gibt den Namen des {{HTMLElement("select")}}-Elements an. Sie entspricht dem [`name`](/de/docs/Web/HTML/Element/select#name)-Attribut des Elements.
+Die **`name`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt den Namen des {{HTMLElement("select")}}-Elements an. Es spiegelt das [`name`](/de/docs/Web/HTML/Element/select#name)-Attribut des Elements wider.
 
 ## Wert
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`currentScreen`**-Eigenschaft des [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Interfaces enthält ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm darstellt, auf dem das aktuelle Browserfenster angezeigt wird.
+Die schreibgeschützte **`currentScreen`**-Eigenschaft der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle enthält ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm repräsentiert, in dem das aktuelle Browserfenster angezeigt wird.
 
 ## Wert
 

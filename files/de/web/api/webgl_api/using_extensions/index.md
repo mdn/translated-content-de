@@ -7,16 +7,16 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-WebGL unterstützt, ähnlich wie seine Schwester-APIs (OpenGL und OpenGL ES), Erweiterungen. Eine vollständige Liste der Erweiterungen ist im [khronos webgl extension registry](https://registry.khronos.org/webgl/extensions/) verfügbar.
+WebGL unterstützt, wie seine Schwester-APIs (OpenGL und OpenGL ES), Erweiterungen. Eine vollständige Liste von Erweiterungen ist im [Khronos WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) verfügbar.
 
 > [!NOTE]
-> In WebGL sind, anders als in anderen GL-APIs, Erweiterungen nur verfügbar, wenn sie explizit angefordert werden.
+> In WebGL sind Erweiterungen, im Gegensatz zu anderen GL-APIs, nur dann verfügbar, wenn sie explizit angefordert werden.
 
-## Kanonische Erweiterungsnamen, Anbieterpräfixe und Präferenzen
+## Kanonische Erweiterungsnamen, Herstellerpräfixe und Präferenzen
 
-Erweiterungen können von Browseranbietern unterstützt werden, bevor sie offiziell ratifiziert sind (aber nur, wenn sie sich im Entwurfsstadium befinden). In diesem Fall kann ihr Name mit einem Anbieterpräfix (`MOZ_`, `WEBKIT_` usw.) versehen sein oder die Erweiterung ist nur verfügbar, wenn eine Browserpräferenz umgeschaltet wurde.
+Erweiterungen können von Browserherstellern unterstützt werden, bevor sie offiziell ratifiziert werden (aber nur, wenn sie sich im Entwurfsstadium befinden). In diesem Fall kann ihr Name durch das Herstellerpräfix (`MOZ_`, `WEBKIT_`, etc.) vorangestellt sein oder die Erweiterung ist erst verfügbar, wenn eine Browsereinstellung umgeschaltet wurde.
 
-Wenn Sie mit den neuesten Erweiterungen arbeiten möchten und weiterhin nach der Ratifizierung arbeiten möchten (vorausgesetzt, die Erweiterung ändert sich nicht auf inkompatible Weise), sollten Sie sowohl den kanonischen Erweiterungsnamen als auch den Anbietererweiterungsnamen abfragen. Zum Beispiel:
+Wenn Sie mit den neuesten Erweiterungen arbeiten möchten und hoffen, nach der Ratifizierung weiterarbeiten zu können (vorausgesetzt natürlich, die Erweiterung ändert sich nicht auf inkompatible Weise), sollten Sie sowohl den kanonischen Erweiterungsnamen als auch den Herstellernamen abfragen. Zum Beispiel:
 
 ```js
 const ext =
@@ -25,26 +25,26 @@ const ext =
   gl.getExtension("WEBKIT_OES_vertex_array_object");
 ```
 
-Beachten Sie, dass Anbieterpräfixe nicht empfohlen werden, sodass die meisten Browser experimentelle Erweiterungen hinter einem Funktionsflag anstelle eines Anbieterpräfixes implementieren.
+Beachten Sie, dass Herstellerpräfixe entmutigt wurden, sodass die meisten Browser experimentelle Erweiterungen hinter einer Funktionseinstellung anstatt eines Herstellerpräfixes implementieren.
 
-Die Funktionsflags sind:
+Die Funktionseinstellungen sind:
 
 - `webgl.enable-draft-extensions` in Firefox
-- `chrome://flags/#enable-webgl-draft-extensions` in Browsern auf Chromium-Basis (Chrome, Opera).
+- `chrome://flags/#enable-webgl-draft-extensions` in Chromium-basierten Browsern (Chrome, Opera).
 
 ## Namenskonventionen
 
 WebGL-Erweiterungen sind mit "ANGLE", "OES", "EXT" oder "WEBGL" vorangestellt. Diese Präfixe spiegeln Herkunft und Absicht wider:
 
-- `ANGLE_`: Erweiterungen, die von den Autoren der [ANGLE-Bibliothek](https://en.wikipedia.org/wiki/ANGLE_%28software%29) geschrieben wurden.
-- `OES_` und `KHR_`: Erweiterungen, die Funktionalitäten von OpenGL ES (OES) oder OpenGL API-Erweiterungen spiegeln, die von den jeweiligen Architekturprüfungsgremien (Khronos) genehmigt wurden.
-- `OVR_`: Erweiterungen, die für virtuelle Realität optimieren.
-- `EXT_`: Erweiterungen, die andere OpenGL ES oder OpenGL API-Erweiterungen spiegeln.
-- `WEBGL_`: Erweiterungen, die WebGL-spezifisch sind und für mehrere Webbrowser kompatibel sein sollen. Es sollte auch für Erweiterungen verwendet werden, die mit den OpenGL ES oder OpenGL APIs entstanden sind, deren Verhalten jedoch erheblich verändert wurde.
+- `ANGLE_`: Erweiterungen, die von den Autoren der [ANGLE-Bibliothek](https://de.wikipedia.org/wiki/ANGLE_%28Software%29) geschrieben wurden.
+- `OES_` und `KHR_`: Erweiterungen, die Funktionen aus OpenGL ES (OES) oder OpenGL-API-Erweiterungen widerspiegeln, die von den jeweiligen Architekturbewertungsgremien (Khronos) genehmigt wurden.
+- `OVR_`: Erweiterungen, die für virtuelle Realität optimiert sind.
+- `EXT_`: Erweiterungen, die andere OpenGL ES- oder OpenGL-API-Erweiterungen widerspiegeln.
+- `WEBGL_`: Erweiterungen, die WebGL-spezifisch sind und mit mehreren Webbrowsern kompatibel sein sollen. Sie sollten auch für Erweiterungen verwendet werden, die aus den OpenGL ES- oder OpenGL-APIs stammen, aber deren Verhalten wesentlich verändert wurde.
 
-## Abfragen der verfügbaren Erweiterungen
+## Abfragen verfügbarer Erweiterungen
 
-Der WebGL-Kontext unterstützt die Abfrage, welche Erweiterungen verfügbar sind.
+Der WebGL-Kontext unterstützt das Abfragen, welche Erweiterungen verfügbar sind.
 
 ```js
 const available_extensions = gl.getSupportedExtensions();
@@ -94,15 +94,15 @@ Die aktuellen Erweiterungen sind:
 - [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)
 - [`WEBGL_multi_draw`](/de/docs/Web/API/WEBGL_multi_draw)
 
-## Aktivieren einer Erweiterung
+## Aktivierung einer Erweiterung
 
-Bevor eine Erweiterung verwendet werden kann, muss sie mittels [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) aktiviert werden. Zum Beispiel:
+Bevor eine Erweiterung verwendet werden kann, muss sie mit [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) aktiviert werden. Zum Beispiel:
 
 ```js
 const float_texture_ext = gl.getExtension("OES_texture_float");
 ```
 
-Der Rückgabewert ist `null`, wenn die Erweiterung nicht unterstützt wird, oder ein Erweiterungsobjekt, andernfalls.
+Der Rückgabewert ist `null`, wenn die Erweiterung nicht unterstützt wird, oder ein Erweiterungsobjekt, wenn sie unterstützt wird.
 
 ## Erweiterungsobjekte
 
@@ -113,4 +113,4 @@ Wenn eine Erweiterung spezifische Symbole oder Funktionen definiert, die in der 
 - [`WebGLRenderingContext.getSupportedExtensions()`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions)
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [webglreport.com](https://webglreport.com/)
-- [web3dsurvey.com - WebGL-Erweiterungsunterstützungsumfrage](https://web3dsurvey.com/)
+- [web3dsurvey.com - WebGL Extension Support Survey](https://web3dsurvey.com/)

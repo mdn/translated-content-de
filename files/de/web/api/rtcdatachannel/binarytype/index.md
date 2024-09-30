@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: binaryType Eigenschaft"
+title: "RTCDataChannel: binaryType-Eigenschaft"
 short-title: binaryType
 slug: Web/API/RTCDataChannel/binaryType
 l10n:
@@ -8,31 +8,23 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`binaryType`** der
-[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Schnittstelle ist ein String, der den Typ des Objekts angibt, das verwendet werden soll, um binäre Daten darzustellen, die auf dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) empfangen werden. Werte, die durch die
-[`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType)-Eigenschaft erlaubt sind, sind auch hier zulässig:
-`blob`, wenn [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, oder
-`arraybuffer`, wenn {{jsxref("ArrayBuffer")}}-Objekte verwendet werden. Der Standardwert ist `blob`.
+Die Eigenschaft **`binaryType`** auf der
+[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Schnittstelle ist ein String, der den Typ des Objekts angibt, das verwendet werden soll, um binäre Daten, die über den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) empfangen werden, darzustellen. Werte, die durch die [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType)-Eigenschaft erlaubt sind, sind auch hier zulässig: `blob`, wenn [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, oder `arraybuffer`, wenn {{jsxref("ArrayBuffer")}}-Objekte verwendet werden. Der Standardwert ist `blob`.
 
-Wenn eine binäre Nachricht im Datenkanal empfangen wird, ist die resultierende
-[`message`](/de/docs/Web/API/RTCDataChannel/message_event)-Ereignis-Eigenschaft [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) ein Objekt des Typs, der durch `binaryType` spezifiziert wird.
+Wenn eine binäre Nachricht über den Datenkanal empfangen wird, ist die resultierende [`message`](/de/docs/Web/API/RTCDataChannel/message_event)-Eigenschaft des [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data)-Ereignisses ein Objekt des durch `binaryType` angegebenen Typs.
 
 ## Wert
 
 Ein String, der einen dieser Werte haben kann:
 
 - `"blob"`
-  - : Empfangene binäre Nachrichteninhalte werden in [`Blob`](/de/docs/Web/API/Blob)-Objekten enthalten sein.
+  - : Die Inhalte empfangener binärer Nachrichten werden in [`Blob`](/de/docs/Web/API/Blob)-Objekten enthalten sein.
 - `"arraybuffer"`
-  - : Empfangene binäre Nachrichteninhalte werden in {{jsxref("ArrayBuffer")}}
-    Objekten enthalten sein.
+  - : Die Inhalte empfangener binärer Nachrichten werden in {{jsxref("ArrayBuffer")}}-Objekten enthalten sein.
 
 ## Beispiel
 
-Dieser Code konfiguriert einen Datenkanal, um binäre Daten in
-{{jsxref("ArrayBuffer")}}-Objekten zu empfangen, und richtet einen Listener für [`message`](/de/docs/Web/API/RTCDataChannel/message_event)
-Ereignisse ein, der einen String konstruiert, der die empfangenen Daten als Liste von hexadezimalen
-Byte-Werten darstellt.
+Dieser Code konfiguriert einen Datenkanal, um binäre Daten in {{jsxref("ArrayBuffer")}}-Objekten zu empfangen, und richtet einen Listener für [`message`](/de/docs/Web/API/RTCDataChannel/message_event)-Ereignisse ein, der einen String konstruiert, der die empfangenen Daten als Liste von hexadezimalen Byte-Werten darstellt.
 
 ```js
 const dc = peerConnection.createDataChannel("Binary");

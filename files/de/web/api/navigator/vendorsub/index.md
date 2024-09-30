@@ -1,5 +1,5 @@
 ---
-title: "Navigator: `vendorSub`-Eigenschaft"
+title: "Navigator: vendorSub-Eigenschaft"
 short-title: vendorSub
 slug: Web/API/Navigator/vendorSub
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef}} {{Deprecated_Header}}
 
-Der Wert der **`Navigator.vendorSub`**-Eigenschaft ist in jedem Browser immer der leere Zeichenfolge.
+Der Wert der **`Navigator.vendorSub`**-Eigenschaft ist in jedem Browser immer der leere String.
 
 ## Wert
 
-- Die leere Zeichenfolge
+- Der leere String
 
 ## Spezifikationen
 

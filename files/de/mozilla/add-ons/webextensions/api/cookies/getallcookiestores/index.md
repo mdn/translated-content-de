@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`getAllCookieStores()`**-Methode der {{WebExtAPIRef("cookies")}} API gibt eine Liste aller Cookie-Stores zurück.
+Die Methode **`getAllCookieStores()`** der {{WebExtAPIRef("cookies")}} API gibt eine Liste aller Cookie Stores zurück.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('cookies.CookieStore')}}-Objekten erfüllt wird, die alle vorhandenen Cookie-Stores repräsentieren.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('cookies.CookieStore')}} Objekten erfüllt wird, die alle existierenden Cookie Stores repräsentieren.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Im folgenden Beispiel wird die Methode `getAllCookieStores()` verwendet, um alle derzeit im Browser verfügbaren Cookie-Stores abzurufen und die ID jedes Cookie-Stores sowie die Tabs, die derzeit jeden Cookie-Store teilen, auszugeben.
+Im folgenden Beispiel wird die Methode `getAllCookieStores()` verwendet, um alle derzeit im Browser verfügbaren Cookie Stores abzurufen und für jeden Cookie Store die ID auszugeben sowie die Tabs, die diesen Cookie Store derzeit teilen.
 
 ```js
 function logStores(cookieStores) {
@@ -43,12 +43,12 @@ function logStores(cookieStores) {
 browser.cookies.getAllCookieStores().then(logStores);
 ```
 
-Jedes Element des `cookieStores`-Arrays ist ein {{WebExtAPIRef("cookies.CookieStore")}}-Objekt.
+Jedes Mitglied des `cookieStores` Arrays ist ein {{WebExtAPIRef("cookies.CookieStore")}} Objekt.
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-getAllCookieStores) API von Chromium. Diese Dokumentation stammt aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-getAllCookieStores) API von Chromium. Diese Dokumentation ist von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

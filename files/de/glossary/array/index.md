@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Array** ist eine geordnete Sammlung von Daten (entweder [primitiv](/de/docs/Glossary/primitive) oder [Objekt](/de/docs/Glossary/object), abhängig von der Programmiersprache). Arrays werden verwendet, um mehrere Werte unter einem einzigen Variablennamen zu speichern. Eine reguläre Variable hingegen kann nur einen Wert speichern.
+Ein **Array** ist eine geordnete Sammlung von Daten (entweder [primitive](/de/docs/Glossary/primitive) oder [object](/de/docs/Glossary/object) je nach Sprache). Arrays werden verwendet, um mehrere Werte unter einem einzigen Variablennamen zu speichern. Eine normale Variable hingegen kann nur einen einzelnen Wert speichern.
 
-Jedes Element in einem Array hat eine Nummer, die als numerischer Index bezeichnet wird, mit dem Sie darauf zugreifen können. In JavaScript beginnen Arrays bei Index Null und können mit verschiedenen [Methoden](/de/docs/Glossary/Method) manipuliert werden.
+Jedes Element in einem Array hat eine Nummer, die als numerischer Index bezeichnet wird und Ihnen den Zugriff darauf ermöglicht. In JavaScript beginnen Arrays bei Index null und können mit verschiedenen [methoden](/de/docs/Glossary/Method) manipuliert werden.
 
-Arrays in JavaScript sehen so aus:
+Arrays in JavaScript sehen folgendermaßen aus:
 
 ```js
 // Arrays in JavaScript can hold different types of data

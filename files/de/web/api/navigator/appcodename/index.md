@@ -8,12 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Der Wert der **`Navigator.appCodeName`**-Eigenschaft ist
-immer `"Mozilla"` in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`Navigator.appCodeName`**-Eigenschaft ist immer `"Mozilla"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten
-> Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen tatsächlichen Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Das **`MediaKeyMessageEvent`** Interface der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält den Inhalt und die zugehörigen Daten, wenn das Inhaltsentschlüsselungsmodul eine Nachricht für die Sitzung generiert.
+Das **`MediaKeyMessageEvent`**-Interface der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält den Inhalt und die zugehörigen Daten, wenn das Content-Decryption-Modul eine Nachricht für die Sitzung generiert.
 
 {{InheritanceDiagram}}
 
@@ -21,9 +21,9 @@ Das **`MediaKeyMessageEvent`** Interface der [Encrypted Media Extensions API](/d
 Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event).
 
 - [`MediaKeyMessageEvent.message`](/de/docs/Web/API/MediaKeyMessageEvent/message) {{ReadOnlyInline}}
-  - : Gibt einen {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüsselsystem.
+  - : Gibt ein {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Content-Decryption-Modul zurück. Nachrichten variieren je nach Schlüsselsystem.
 - [`MediaKeyMessageEvent.messageType`](/de/docs/Web/API/MediaKeyMessageEvent/messageType) {{ReadOnlyInline}}
-  - : Gibt den Nachrichtentyp an. Kann einer von `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
+  - : Gibt den Nachrichtentyp an. Kann `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
 
 ## Instanzmethoden
 

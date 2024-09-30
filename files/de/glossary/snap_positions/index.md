@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Snap-Positionen sind Punkte, an denen der [scrollport](/de/docs/Glossary/scroll_container) aufhört sich zu bewegen, nachdem die Scroll-Operation abgeschlossen ist. Durch das Einrichten von Snap-Positionen kann ein Scroll-Erlebnis geschaffen werden, bei dem durch den Inhalt geblättert wird, anstatt den Inhalt in den sichtbaren Bereich ziehen zu müssen.
+Snap-Positionen sind Punkte, an denen der [Scrollport](/de/docs/Glossary/scroll_container) nach Abschluss der Scrolloperation stoppt. Das Einrichten von Snap-Positionen ermöglicht ein Scroll-Erlebnis, bei dem durch Inhalte geblättert wird, anstatt Inhalte in die Ansicht ziehen zu müssen.
 
-Snap-Positionen werden in einem [scroll container](/de/docs/Glossary/scroll_container) eingerichtet. Sehen Sie sich die [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Eigenschaften an.
+Snap-Positionen werden in einem [Scroll-Container](/de/docs/Glossary/scroll_container) eingerichtet. Siehe die [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Eigenschaften.

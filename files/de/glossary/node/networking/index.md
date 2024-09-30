@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Bereich Netzwerke ist ein **Node** ein Verbindungspunkt im Netzwerk. In physischen Netzwerken ist ein Node in der Regel ein Gerät, wie ein Computer oder ein Router.
+Im Netzwerkumfeld ist ein **Node** ein Verbindungspunkt im Netzwerk. In physischen Netzwerken ist ein Node in der Regel ein Gerät, wie ein Computer oder ein Router.
 
 ## Siehe auch
 

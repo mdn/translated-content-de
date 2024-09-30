@@ -24,13 +24,13 @@ Array.from(arrayLike, mapFn, thisArg)
 - `arrayLike`
   - : Ein iterierbares oder array-ähnliches Objekt, das in ein Array umgewandelt werden soll.
 - `mapFn` {{optional_inline}}
-  - : Eine Funktion, die für jedes Element des Arrays aufgerufen wird. Wenn angegeben, wird jeder Wert, der dem Array hinzugefügt werden soll, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird dem Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die auf jedes Element des Arrays angewendet wird. Wird diese Funktion bereitgestellt, wird jeder Wert, der dem Array hinzugefügt werden soll, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird dem Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
+      - : Der Index des aktuell im Array verarbeiteten Elements.
 - `thisArg` {{optional_inline}}
-  - : Wert, der als `this` verwendet werden soll, wenn `mapFn` ausgeführt wird.
+  - : Wert, der als `this` beim Ausführen von `mapFn` verwendet wird.
 
 ### Rückgabewert
 
@@ -38,32 +38,32 @@ Eine neue {{jsxref("Array")}}-Instanz.
 
 ## Beschreibung
 
-`Array.from()` ermöglicht es Ihnen, `Array`s zu erstellen aus:
+`Array.from()` ermöglicht das Erstellen von `Array`s aus:
 
-- [iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (Objekten wie {{jsxref("Map")}} und {{jsxref("Set")}}); oder, wenn das Objekt nicht iterierbar ist,
-- array-ähnlichen Objekten (Objekten mit einer `length`-Eigenschaft und indizierten Elementen).
+- [Iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (Objekte wie {{jsxref("Map")}} und {{jsxref("Set")}}); oder, falls das Objekt nicht iterierbar ist,
+- array-ähnlichen Objekten (Objekte mit einer `length`-Eigenschaft und indizierten Elementen).
 
-Um ein gewöhnliches Objekt, das weder iterierbar noch array-ähnlich ist, in ein Array umzuwandeln (durch Aufzählen seiner Eigenschaftsschlüssel, -werte oder beides), verwenden Sie {{jsxref("Object.keys()")}}, {{jsxref("Object.values()")}} oder {{jsxref("Object.entries()")}}. Um ein [asynchrones iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) in ein Array umzuwandeln, verwenden Sie {{jsxref("Array.fromAsync()")}}.
+Um ein gewöhnliches Objekt, das weder iterierbar noch array-ähnlich ist, in ein Array umzuwandeln (durch Aufzählen seiner Eigenschaften, Werte oder beides), verwenden Sie {{jsxref("Object.keys()")}}, {{jsxref("Object.values()")}}, oder {{jsxref("Object.entries()")}}. Um ein [asynchrones iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) in ein Array umzuwandeln, verwenden Sie {{jsxref("Array.fromAsync()")}}.
 
-`Array.from()` erstellt niemals ein lückenhaftes Array. Wenn dem `arrayLike`-Objekt einige Indexeigenschaften fehlen, werden sie im neuen Array zu `undefined`.
+`Array.from()` erstellt niemals ein spärliches Array. Wenn das `arrayLike`-Objekt einige Indexeigenschaften fehlt, werden sie im neuen Array zu `undefined`.
 
-`Array.from()` hat einen optionalen Parameter `mapFn`, der es ermöglicht, eine Funktion auf jedes Element des zu erstellenden Arrays auszuführen, ähnlich wie {{jsxref("Array/map", "map()")}}. Deutlicher gesagt, `Array.from(obj, mapFn, thisArg)` hat dasselbe Ergebnis wie `Array.from(obj).map(mapFn, thisArg)`, mit dem Unterschied, dass kein Zwischenarray erstellt wird, und `mapFn` nur zwei Argumente (`element`, `index`) ohne das gesamte Array erhält, weil das Array noch in Erstellung ist.
+`Array.from()` verfügt über einen optionalen Parameter `mapFn`, der es Ihnen ermöglicht, eine Funktion auf jedes Element des zu erstellenden Arrays auszuführen, ähnlich wie {{jsxref("Array/map", "map()")}}. Genauer gesagt hat `Array.from(obj, mapFn, thisArg)` dasselbe Ergebnis wie `Array.from(obj).map(mapFn, thisArg)`, mit dem Unterschied, dass kein Zwischen-Array erstellt wird und `mapFn` nur zwei Argumente (`element`, `index`) ohne das gesamte Array erhält, da das Array noch im Aufbau ist.
 
 > [!NOTE]
-> Dieses Verhalten ist für [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) wichtiger, da das Zwischenarray notwendigerweise auf Werte verkürzt sein müsste, um in den entsprechenden Typ zu passen. `Array.from()` ist implementiert, um denselben Signatur wie {{jsxref("TypedArray.from()")}} zu haben.
+> Dieses Verhalten ist für [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) besonders wichtig, da das Zwischen-Array notwendigerweise auf die passende Typengröße gekürzt werden würde. `Array.from()` ist so implementiert, dass es die gleiche Signatur wie {{jsxref("TypedArray.from()")}} hat.
 
-Die `Array.from()`-Methode ist eine generische Fabrikmethode. Wenn beispielsweise eine Unterklasse von `Array` die `from()`-Methode erbt, gibt die geerbte `from()`-Methode neue Instanzen der Unterklasse anstelle von `Array`-Instanzen zurück. Tatsächlich kann der `this`-Wert jede Konstruktorfunktion sein, die ein einziges Argument akzeptiert, das die Länge des neuen Arrays darstellt. Wenn ein iterierbares als `arrayLike` übergeben wird, wird der Konstruktor ohne Argumente aufgerufen; wenn ein array-ähnliches Objekt übergeben wird, wird der Konstruktor mit der [normalisierten Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) des array-ähnlichen Objekts aufgerufen. Die endgültige `length` wird erneut gesetzt, wenn die Iteration beendet ist. Wenn der `this`-Wert keine Konstruktorfunktion ist, wird stattdessen der einfache `Array`-Konstruktor verwendet.
+Die `Array.from()`-Methode ist eine generische Fabrikmethode. Beispiel: Wenn eine Unterklasse von `Array` die `from()`-Methode erbt, wird die vererbte `from()`-Methode neue Instanzen der Unterklasse anstelle von `Array`-Instanzen zurückgeben. Tatsächlich kann der `this`-Wert jede Konstruktorfunktion sein, die ein einzelnes Argument akzeptiert, das die Länge des neuen Arrays darstellt. Wenn ein iterierbares als `arrayLike` übergeben wird, wird der Konstruktor mit keinen Argumenten aufgerufen; wenn ein array-ähnliches Objekt übergeben wird, wird der Konstruktor mit der [normalisierten Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) des array-ähnlichen Objekts aufgerufen. Die endgültige `length` wird erneut gesetzt, wenn die Iteration abgeschlossen ist. Wenn der `this`-Wert keine Konstruktorfunktion ist, wird stattdessen der einfache `Array`-Konstruktor verwendet.
 
 ## Beispiele
 
-### Array aus einem String
+### Array von einem String
 
 ```js
 Array.from("foo");
 // [ "f", "o", "o" ]
 ```
 
-### Array aus einem Set
+### Array von einem Set
 
 ```js
 const set = new Set(["foo", "bar", "baz", "foo"]);
@@ -71,7 +71,7 @@ Array.from(set);
 // [ "foo", "bar", "baz" ]
 ```
 
-### Array aus einer Map
+### Array von einer Map
 
 ```js
 const map = new Map([
@@ -93,7 +93,7 @@ Array.from(mapper.keys());
 // ['1', '2'];
 ```
 
-### Array aus einer NodeList
+### Array von einer NodeList
 
 ```js
 // Create an array based on a property of DOM Elements
@@ -102,7 +102,7 @@ const sources = Array.from(images, (image) => image.src);
 const insecureSources = sources.filter((link) => link.startsWith("http://"));
 ```
 
-### Array aus einem array-ähnlichen Objekt (arguments)
+### Array von einem array-ähnlichen Objekt (arguments)
 
 ```js
 function f() {
@@ -129,7 +129,7 @@ Array.from({ length: 5 }, (v, i) => i);
 // [0, 1, 2, 3, 4]
 ```
 
-### Sequenzgenerator (Bereich)
+### Sequenzgenerator (Reichweite)
 
 ```js
 // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP, etc.)
@@ -151,9 +151,9 @@ range("A".charCodeAt(0), "Z".charCodeAt(0), 1).map((x) =>
 // ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 ```
 
-### Aufrufen von from() auf Nicht-Array-Konstruktoren
+### Aufruf von from() bei Nicht-Array-Konstruktoren
 
-Die `from()`-Methode kann auf jede Konstruktorfunktion aufgerufen werden, die ein einziges Argument akzeptiert, das die Länge des neuen Arrays darstellt.
+Die `from()`-Methode kann auf jede Konstruktorfunktion aufgerufen werden, die ein einzelnes Argument akzeptiert, das die Länge des neuen Arrays darstellt.
 
 ```js
 function NotArray(len) {
@@ -188,7 +188,7 @@ console.log(Array.from.call({}, { length: 1, 0: "foo" })); // [ 'foo' ]
 ## Siehe auch
 
 - [Polyfill von `Array.from` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array/Array", "Array()")}}
 - {{jsxref("Array.of()")}}

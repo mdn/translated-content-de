@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: setSinkId()-Methode"
+title: "HTMLMediaElement: setSinkId() Methode"
 short-title: setSinkId()
 slug: Web/API/HTMLMediaElement/setSinkId
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Audio Output Devices API")}}{{securecontext_header}}
 
-Die **`setSinkId()`**-Methode der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle legt die ID des Audiogeräts fest, das für die Ausgabe verwendet werden soll, und gibt ein {{jsxref("Promise")}} zurück.
+Die **`setSinkId()`** Methode des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Interfaces setzt die ID des Audiogeräts, das für die Ausgabe verwendet werden soll, und gibt ein {{jsxref("Promise")}} zurück.
 
-Dies funktioniert nur, wenn die Anwendung berechtigt ist, das angegebene Gerät zu verwenden. Weitere Informationen finden Sie in den [Sicherheitsanforderungen](#sicherheitsanforderungen) unten.
+Dies funktioniert nur, wenn der Anwendung die Verwendung des angegebenen Geräts erlaubt ist. Weitere Informationen finden Sie unten bei den [Sicherheitsanforderungen](#sicherheitsanforderungen).
 
 ## Syntax
 
@@ -25,12 +25,12 @@ setSinkId(sinkId)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf {{jsxref("undefined")}} aufgelöst wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn eine [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) verwendet wird, um die Verwendung von Audioausgaben zu blockieren.
+  - : Wird zurückgegeben, wenn eine [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) verwendet wird, um die Nutzung von Audioausgaben zu blockieren.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn die `deviceId` keinem Audioausgabegerät entspricht.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
@@ -41,13 +41,12 @@ Ein {{jsxref("Promise")}}, das in {{jsxref("undefined")}} aufgelöst wird.
 Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
 - Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
-- Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Permission Policy](/de/docs/Web/HTTP/Permissions_Policy) gesteuert werden.
-- Zur Nutzung eines nicht standardmäßigen Gerätes ist die Erlaubnis des Nutzers erforderlich.
-  Der Nutzer erteilt die Erlaubnis, indem er das Gerät auswählt, das mit der ID in der von [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) angezeigten Eingabeaufforderung verbunden ist.
+- Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) eingeschränkt werden.
+- Die Benutzererlaubnis ist erforderlich, um auf ein Nicht-Standardgerät zuzugreifen. Der Benutzer erteilt die Berechtigung, indem er das mit der ID verknüpfte Gerät im Dialog auswählt, der von [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) angezeigt wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein Audioausgabegerät aus dem Array ausgewählt wird, das von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben wird, und es als Audioausgabe festgelegt wird. Beachten Sie, dass das Ergebnis von `enumerateDevices()` nur Geräte enthält, für die keine Benutzererlaubnis erforderlich oder diese bereits erteilt wurde.
+Dieses Beispiel zeigt, wie Sie ein Audioausgabegerät aus dem Array auswählen, das von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben wird, und es als Ausgabe für Audio einstellen. Beachten Sie, dass das Ergebnis von `enumerateDevices()` nur Geräte enthält, für die keine Benutzererlaubnis erforderlich ist oder bereits erteilt wurde.
 
 ```js
 const devices = await navigator.mediaDevices.enumerateDevices();

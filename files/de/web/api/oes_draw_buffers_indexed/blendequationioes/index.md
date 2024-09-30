@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `blendEquationiOES()`-Methode der `OES_draw_buffers_indexed` WebGL-Erweiterung setzt sowohl die RGB- als auch die Alpha-Blending-Gleichungen für einen bestimmten Zeichnungs-Puffer.
+Die `blendEquationiOES()`-Methode der `OES_draw_buffers_indexed` WebGL-Erweiterung legt sowohl die RGB-Misch- als auch die Alpha-Mischgleichungen für einen bestimmten Ausgabepuffer fest.
 
-Siehe [`OES_draw_buffers_indexed.blendEquationSeparateiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationSeparateiOES) zum separaten Setzen von RGB und Alpha und [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation) für die WebGL 1-Version dieser Methode.
+Siehe [`OES_draw_buffers_indexed.blendEquationSeparateiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationSeparateiOES), um RGB und Alpha separat einzustellen, und [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation) für die WebGL 1-Version dieser Methode.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ blendEquationiOES(buf, mode)
 ### Parameter
 
 - `buf`
-  - : Ein ganzzahliger `i`, der den Zeichnungs-Puffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` assoziiert ist. Siehe [WebGL Zeichnungs-Puffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Ein ganzzahliger Wert `i`, der den Ausgabepuffer angibt, der mit der Konstanten `gl.DRAW_BUFFERi` verbunden ist, siehe [WebGL-Ausgabepuffervariablen](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 - `mode`
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie Quell- und Ziel-Farben kombiniert werden. Akzeptiert dieselben Enums wie der `mode`-Parameter in [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation).
 
@@ -31,14 +31,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `buf` kein gültiger Wert ist, wird ein Fehler `gl.INVALID_VALUE` ausgelöst.
-- Wenn `mode` nicht einer der möglichen Werte ist, wird ein Fehler `gl.INVALID_ENUM` ausgelöst.
+- Wenn `buf` kein gültiger Wert ist, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
+- Wenn `mode` nicht einer der möglichen Werte ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
 
 ## Beispiele
 
-### Setzen und Abrufen von Blending-Gleichungen
+### Einstellen und Abrufen von Mischgleichungen
 
-Sie können die Blending-Gleichungen für die Zeichnungs-Puffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` so festlegen:
+Sie können die Mischgleichungen für die `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` Ausgabepuffer folgendermaßen festlegen:
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -47,7 +47,7 @@ ext.blendEquationiOES(0, gl.FUNC_ADD);
 ext.blendEquationiOES(1, gl.FUNC_SUBTRACT);
 ```
 
-Um die Blending-Gleichungen für die Zeichnungs-Puffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzurufen, fragen Sie die Konstanten `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter) ab:
+Um die Mischgleichungen für die `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` Ausgabepuffer zu erhalten, fragen Sie die Konstanten `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter) ab:
 
 ```js
 // For gl.DRAW_BUFFER0

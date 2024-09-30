@@ -1,5 +1,5 @@
 ---
-title: HTTP Range Requests
+title: HTTP Range-Anfragen
 slug: Web/HTTP/Range_requests
 l10n:
   sourceCommit: a038fd9512ac11d9055127f6c4f49ac4875aa840
@@ -7,23 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Eine HTTP {{HTTPHeader("Range")}}-Anfrage bittet den Server, Teile eines Ressourcen-Backups an einen Client zu senden.
-Bereichsanfragen sind nützlich für verschiedene Clients, einschließlich Medienplayer, die zufälligen Zugriff unterstützen, Datentools, die nur einen Teil einer großen Datei benötigen, und Download-Manager, die es Nutzern ermöglichen, einen Download zu pausieren und fortzusetzen.
+Eine HTTP-{{HTTPHeader("Range")}}-Anfrage fordert den Server auf, Teile einer Ressource an einen Client zu senden. Range-Anfragen sind nützlich für verschiedene Clients wie Medienplayer, die zufälligen Zugriff unterstützen, Datenwerkzeuge, die nur einen Teil einer großen Datei benötigen, und Download-Manager, die Benutzern ermöglichen, einen Download zu pausieren und fortzusetzen.
 
-## Überprüfen, ob ein Server Teilanfragen unterstützt
+## Überprüfung, ob ein Server Teilanfragen unterstützt
 
-Wenn eine HTTP-Antwort den {{HTTPHeader("Accept-Ranges")}}-Header mit einem anderen Wert als `none` enthält, unterstützt der Server Bereichsanfragen.
-Wenn Antworten den `Accept-Ranges`-Header weglassen, zeigt dies an, dass der Server keine Teilanfragen unterstützt.
-Wenn Bereichsanfragen nicht unterstützt werden, können Anwendungen darauf reagieren; zum Beispiel können Download-Manager Pausentasten deaktivieren, die von Bereichsanfragen abhängig sind, um einen Download fortzusetzen.
+Wenn eine HTTP-Antwort den {{HTTPHeader("Accept-Ranges")}}-Header mit einem Wert ungleich `none` enthält, unterstützt der Server Range-Anfragen. Wenn Antworten den `Accept-Ranges`-Header weglassen, zeigt dies an, dass der Server keine Teilanfragen unterstützt. Wenn Range-Anfragen nicht unterstützt werden, können Anwendungen auf diese Bedingung reagieren; beispielsweise können Download-Manager Pause-Schaltflächen deaktivieren, die auf Range-Anfragen angewiesen sind, um einen Download fortzusetzen.
 
-Um zu überprüfen, ob ein Server Bereichsanfragen unterstützt, können Sie eine {{HTTPMethod("HEAD")}}-Anfrage stellen, um Header zu inspizieren, ohne die Ressource vollständig anzufordern.
-Wenn Sie [curl](https://curl.se/) verwenden, können Sie das `-I`-Flag verwenden, um eine `HEAD`-Anfrage zu stellen:
+Um zu überprüfen, ob ein Server Range-Anfragen unterstützt, können Sie eine {{HTTPMethod("HEAD")}}-Anfrage stellen, um die Header zu inspizieren, ohne die Ressource vollständig anzufordern. Wenn Sie [curl](https://curl.se/) verwenden, können Sie das `-I`-Flag nutzen, um eine `HEAD`-Anfrage zu stellen:
 
 ```bash
 curl -I https://i.imgur.com/z4d4kWk.jpg
 ```
 
-Dies erzeugt die folgende HTTP-Anfrage:
+Dies führt zu der folgenden HTTP-Anfrage:
 
 ```http
 HEAD /z4d4kWk.jpg HTTP/2
@@ -43,24 +39,21 @@ accept-ranges: bytes
 content-length: 146515
 ```
 
-In dieser Antwort gibt `Accept-Ranges: bytes` an, dass 'Bytes' als Einheiten verwendet werden können, um einen Bereich zu definieren (derzeit ist keine andere Einheit möglich).
-Der {{HTTPHeader("Content-Length")}}-Header ist ebenfalls hilfreich, da er die Gesamtgröße des Bildes angibt, falls Sie dieselbe Anfrage mit der `GET`-Methode stellen würden.
+In dieser Antwort zeigt `Accept-Ranges: bytes` an, dass 'bytes' als Einheiten zur Definition eines Bereichs verwendet werden können (derzeit ist keine andere Einheit möglich). Der {{HTTPHeader("Content-Length")}}-Header ist ebenfalls hilfreich, da er die Gesamtgröße des Bildes angibt, wenn Sie dieselbe Anfrage mit der `GET`-Methode stellen würden.
 
-## Anfordern eines spezifischen Bereichs von einem Server
+## Anforderung eines bestimmten Bereichs von einem Server
 
-Wenn der Server Bereichsanfragen unterstützt, können Sie angeben, welchen Teil (oder welche Teile) des Dokuments der Server durch Einschließen des {{HTTPHeader("Range")}}-Headers in eine HTTP-Anfrage zurückgeben soll.
+Wenn der Server Range-Anfragen unterstützt, können Sie angeben, welchen Teil (oder welche Teile) des Dokuments Sie vom Server erhalten möchten, indem Sie den {{HTTPHeader("Range")}}-Header in einer HTTP-Anfrage einfügen.
 
-### Einzelne Bereichsanfragen
+### Einteilige Bereiche
 
-Wir können einen einzelnen Bereich aus einer Ressource anfordern, indem wir curl zur Veranschaulichung verwenden.
-Die Option `-H` fügt der Anfrage eine Kopfzeile hinzu, die in diesem Fall der `Range`-Header ist, der die ersten 1024 Bytes anfordert.
-Die letzte Option ist `--output -`, die es ermöglicht, die binäre Ausgabe im Terminal auszugeben:
+Wir können einen einzelnen Bereich von einer Ressource anfordern und dazu curl zur Veranschaulichung verwenden. Die `-H`-Option fügt der Anfrage eine Headerzeile hinzu, in diesem Fall den `Range`-Header, der die ersten 1024 Bytes anfordert. Die letzte Option ist `--output -`, die das Drucken der Binärausgabe auf das Terminal ermöglicht:
 
 ```bash
 curl https://i.imgur.com/z4d4kWk.jpg -i -H "Range: bytes=0-1023" --output -
 ```
 
-Die ausgegebene Anfrage sieht so aus:
+Die ausgegebene Anfrage sieht wie folgt aus:
 
 ```http
 GET /z4d4kWk.jpg HTTP/2
@@ -82,20 +75,17 @@ content-range: bytes 0-1023/146515
 (binary content)
 ```
 
-Der {{HTTPHeader("Content-Length")}}-Header gibt die Größe des angeforderten Bereichs an, nicht die volle Größe des Bildes.
-Der {{HTTPHeader("Content-Range")}}-Antwortheader gibt an, wo diese Teilnachricht innerhalb der vollständigen Ressource gehört.
+Der {{HTTPHeader("Content-Length")}}-Header zeigt die Größe des angeforderten Bereichs an, nicht die volle Größe des Bildes. Der {{HTTPHeader("Content-Range")}}-Antwortheader gibt an, wo diese Teilnachricht innerhalb der vollständigen Ressource verortet ist.
 
-### Mehrteilige Bereichsanfragen
+### Mehrteilige Bereiche
 
-Der {{HTTPHeader("Range")}}-Header ermöglicht es Ihnen auch, mehrere Bereiche gleichzeitig in einem mehrteiligen Dokument abzurufen. Die Bereiche werden durch ein Komma getrennt.
+Der {{HTTPHeader("Range")}}-Header ermöglicht es Ihnen auch, mehrere Bereiche gleichzeitig in einem mehrteiligen Dokument zu erhalten. Die Bereiche sind durch ein Komma getrennt.
 
 ```bash
 curl http://www.example.com -i -H "Range: bytes=0-50, 100-150"
 ```
 
-Der Server antwortet mit dem {{HTTPStatus("206", "206 Partial Content")}}-Status wie unten gezeigt.
-Die Antwort enthält einen {{HTTPHeader("Content-Type")}}-Header, der anzeigt, dass ein mehrteiliger Byterange folgt.
-Die Grenzzeichenfolge (`3d6b6a416f9b5` in diesem Fall) trennt die Hauptteile, von denen jeder eigene `Content-Type`- und `Content-Range`-Felder hat:
+Der Server antwortet mit dem {{HTTPStatus("206", "206 Partial Content")}}-Status, wie unten gezeigt. Die Antwort enthält einen {{HTTPHeader("Content-Type")}}-Header, der angibt, dass ein mehrteiliger Byterange folgt. Die Grenzzeichenfolge (`3d6b6a416f9b5` in diesem Fall) trennt die Teile des Körpers, von denen jeder seine eigenen `Content-Type` und `Content-Range` Felder hat:
 
 ```http
 HTTP/1.1 206 Partial Content
@@ -120,27 +110,27 @@ eta http-equiv="Content-type" content="text/html; c
 
 ### Bedingte Bereichsanfragen
 
-Wenn Sie weitere Teile einer Ressource anfordern, müssen Sie sicherstellen, dass die gespeicherte Ressource seit dem Empfang des letzten Fragments nicht geändert wurde.
+Wenn Sie weitere Teile einer Ressource anfordern, müssen Sie sicherstellen, dass die gespeicherte Ressource seit dem letzten empfangenen Fragment nicht geändert wurde.
 
-Der {{HTTPHeader("If-Range")}}-HTTP-Anfrageheader macht eine Bereichsanfrage bedingt: Wenn die Bedingung erfüllt ist, wird die Bereichsanfrage ausgeführt und der Server sendet eine {{HTTPStatus("206")}} `Partial Content`-Antwort mit dem entsprechenden Körper zurück. Wenn die Bedingung nicht erfüllt ist, wird die volle Ressource mit einem {{HTTPStatus("200")}} `OK`-Status zurückgesendet. Dieser Header kann entweder mit einem {{HTTPHeader("Last-Modified")}}-Validator oder mit einem {{HTTPHeader("ETag")}} verwendet werden, aber nicht mit beiden.
+Der {{HTTPHeader("If-Range")}} HTTP-Anfrageheader macht eine Bereichsanfrage bedingt: Wird die Bedingung erfüllt, wird die Bereichsanfrage gestellt und der Server sendet eine {{HTTPStatus("206")}}-Antwort `Partial Content` mit dem entsprechenden Körper zurück. Wird die Bedingung nicht erfüllt, wird die vollständige Ressource mit einem {{HTTPStatus("200")}} `OK`-Status zurückgesendet. Dieser Header kann entweder mit einem {{HTTPHeader("Last-Modified")}}-Validator oder einem {{HTTPHeader("ETag")}} verwendet werden, aber nicht mit beiden.
 
 ```http
 If-Range: Wed, 21 Oct 2015 07:28:00 GMT
 ```
 
-## Teilanfrage-Antworten
+## Antworten auf Teilanfragen
 
-Es gibt drei relevante Statuscodes, wenn man mit Bereichsanfragen arbeitet:
+Es gibt drei relevante Status beim Arbeiten mit Range-Anfragen:
 
-- Eine erfolgreiche Bereichsanfrage führt zu einem {{HTTPStatus("206")}} `Partial Content`-Status vom Server.
-- Eine Bereichsanfrage, die außerhalb der Grenzen liegt, führt zu einem {{HTTPStatus("416")}} `Requested Range Not Satisfiable`-Status, was bedeutet, dass keiner der Bereichswerte mit dem Umfang der Ressource überlappt. Zum Beispiel könnte der Anfangsbyte-Punkt jedes Bereichs größer sein als die Ressourcenlänge.
-- Wenn Bereichsanfragen nicht unterstützt werden, wird ein {{HTTPStatus("200")}} `OK`-Status zurückgesendet und der gesamte Antwortkörper übertragen.
+- Eine erfolgreiche Range-Anfrage löst einen {{HTTPStatus("206")}} `Partial Content`-Status vom Server aus.
+- Eine Range-Anfrage, die außerhalb des zulässigen Bereichs liegt, führt zu einem {{HTTPStatus("416")}} `Requested Range Not Satisfiable`-Status, was bedeutet, dass keine der Bereichswerte den Umfang der Ressource überlappen. Zum Beispiel könnte der erste Byte-Pos jedes Bereichs größer als die Ressourcengröße sein.
+- Wenn Range-Anfragen nicht unterstützt werden, wird ein {{HTTPStatus("200")}} `OK`-Status zurückgesendet und der gesamte Antwortkörper wird übertragen.
 
 ## Vergleich zu chunked `Transfer-Encoding`
 
-Der {{HTTPHeader("Transfer-Encoding")}}-Header ermöglicht Chunked-Encoding, was nützlich ist, wenn größere Datenmengen an den Client gesendet werden und die Gesamtgröße der Antwort erst bekannt ist, wenn die Anfrage vollständig verarbeitet wurde. Der Server sendet Daten direkt an den Client, ohne die Antwort zu puffern oder die exakte Länge zu bestimmen, was zu einer verbesserten Latenz führt. Bereichsanfragen und Chunking sind kompatibel und können mit oder ohne einander verwendet werden.
+Der {{HTTPHeader("Transfer-Encoding")}}-Header erlaubt eine chunked-Kodierung, die nützlich ist, wenn größere Datenmengen an den Client gesendet werden und die Gesamtgröße der Antwort nicht bekannt ist, bis die Anfrage vollständig verarbeitet wurde. Der Server sendet Daten direkt an den Client, ohne die Antwort zwischenzuspeichern oder die genaue Länge zu bestimmen, was zu verbesserter Latenz führt. Range-Anfragen und Chunking sind kompatibel und können mit oder ohne einander verwendet werden.
 
 ## Siehe auch
 
-- Verwandte Statuscodes {{HTTPStatus("200")}}, {{HTTPStatus("206")}}, {{HTTPStatus("416")}}.
+- Verwandte Statuscodes: {{HTTPStatus("200")}}, {{HTTPStatus("206")}}, {{HTTPStatus("416")}}.
 - Verwandte Header: {{HTTPHeader("Accept-Ranges")}}, {{HTTPHeader("Range")}}, {{HTTPHeader("Content-Range")}}, {{HTTPHeader("If-Range")}}, {{HTTPHeader("Transfer-Encoding")}}.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setPipeline()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle legt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) fest, die für die nachfolgenden Render-Pass-Befehle verwendet wird.
+Die **`setPipeline()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle legt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) fest, die für nachfolgende Render-Pass-Befehle verwendet wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setPipeline(pipeline)
 ### Parameter
 
 - `pipeline`
-  - : Die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für die nachfolgenden Render-Pass-Befehle verwendet wird.
+  - : Die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für nachfolgende Render-Pass-Befehle verwendet wird.
 
 ### Rückgabewert
 
@@ -29,12 +29,12 @@ Keiner ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`setPipeline()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) an die Tiefenkomponente des Depth/Stencil-Attachments schreibt, ist `depthReadOnly` (wie im Deskriptor des ursprünglichen Aufrufs von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben) `true`.
-- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) an die Stencil-Komponente des Depth/Stencil-Attachments schreibt, ist `stencilReadOnly` (wie im Deskriptor des ursprünglichen Aufrufs von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben) `true`.
+- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) in die Tiefenkomponente des Tiefen-/Stencil-Anhangs schreibt, ist `depthReadOnly` (wie im Deskriptor des ursprünglichen [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Aufrufs festgelegt) `true`.
+- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) in die Stencil-Komponente des Tiefen-/Stencil-Anhangs schreibt, ist `stencilReadOnly` (wie im Deskriptor des ursprünglichen [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Aufrufs festgelegt) `true`.
 
 ## Beispiele
 
-In unserem [Grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `setPipeline()` wird an einer geeigneten Stelle aufgerufen, um die Render-Pipeline festzulegen.
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `setPipeline()` wird an einer geeigneten Stelle aufgerufen, um die Render-Pipeline festzulegen.
 
 ```js
 // ...

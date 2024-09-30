@@ -1,15 +1,16 @@
 ---
-title: "WebGL2RenderingContext: vertexAttribIPointer() Methode"
+title: "WebGL2RenderingContext: vertexAttribIPointer()-Methode"
 short-title: vertexAttribIPointer()
 slug: Web/API/WebGL2RenderingContext/vertexAttribIPointer
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.vertexAttribIPointer()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legt die Ganzzahldatenformate und Positionen der Vertex-Attribute in einem Vertex-Attribut-Array fest.
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legt die ganzzahligen Datenformate
+und die Positionen der Vertex-Attribute in einem Vertex-Attribut-Array fest.
 
 ## Syntax
 
@@ -32,7 +33,8 @@ vertexAttribIPointer(index, size, type, stride, offset)
 - `stride`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der den Versatz in Bytes zwischen dem Beginn aufeinanderfolgender Vertex-Attribute angibt.
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Versatz in Bytes der ersten Komponente im Vertex-Attribut-Array angibt. Muss ein Vielfaches von `type` sein.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Versatz in Bytes der ersten Komponente im
+    Vertex-Attribut-Array angibt. Muss ein Vielfaches von `type` sein.
 
 ### Rückgabewert
 
@@ -40,11 +42,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Sehr ähnlich [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer). Der Hauptunterschied besteht darin, dass Werte, die von `vertexAttribPointer` angegeben werden, im Shader immer als Gleitkommawerte interpretiert werden (auch wenn sie ursprünglich als Ganzzahlen im Puffer angegeben wurden). Diese Methode erlaubt es jedoch, Werte anzugeben, die im Shader als Ganzzahlen interpretiert werden.
+Sehr ähnlich zu [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer). Der Hauptunterschied besteht darin, dass Werte, die von `vertexAttribPointer` angegeben werden, im Shader immer als Gleitkommawerte interpretiert werden (selbst wenn sie ursprünglich als Ganzzahlen im Puffer angegeben wurden), während diese Methode das Angeben von Werten ermöglicht, die im Shader als Ganzzahlen interpretiert werden.
 
 ## Beispiele
 
-### Lineares Skinning mittels Blend
+### Lineares Blend-Skinning
 
 ```js
 //Describe the layout of the buffer:

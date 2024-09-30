@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`id`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein Zeichenfolge, die das Objekt, für das dieses Objekt Statistiken bereitstellt, eindeutig identifiziert.
+Die **`id`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein String, der das Objekt, für das dieses Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um Statistiken im Zeitverlauf für ein bestimmtes WebRTC-Objekt zu überwachen, wie z.B. eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel).
+Mit der `id` können Sie dieses Statistikobjekt mit anderen in Verbindung bringen, um Statistiken über die Zeit für ein bestimmtes WebRTC-Objekt zu überwachen, wie beispielsweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel).
 
 ## Wert
 
-Eine Zeichenfolge, die das Objekt, für das dieses `RTCCodecStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
+Ein String, der das Objekt, für das dieses `RTCCodecStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Das Format der ID-Zeichenfolge ist nicht durch die Spezifikation definiert, sodass Sie keine verlässlichen Annahmen über den Inhalt der Zeichenfolge treffen können oder davon ausgehen können, dass das Format der Zeichenfolge für einen bestimmten Objekttyp gleich bleibt.
+Das Format der ID-Zeichenfolge ist von der Spezifikation nicht definiert, daher können Sie keine zuverlässigen Annahmen über den Inhalt der Zeichenfolge treffen oder davon ausgehen, dass das Format der Zeichenfolge für einen bestimmten Objekttyp unverändert bleibt.
 
 ## Spezifikationen
 

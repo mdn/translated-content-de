@@ -1,5 +1,5 @@
 ---
-title: "FileSystemDirectoryHandle: resolve()-Methode"
+title: "FileSystemDirectoryHandle: resolve() Methode"
 short-title: resolve()
 slug: Web/API/FileSystemDirectoryHandle/resolve
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`resolve()`**-Methode des
-[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Interfaces gibt ein {{jsxref('Array')}} von
-Verzeichnisnamen vom übergeordneten Handle zum angegebenen untergeordneten Eintrag zurück, wobei der Name des
-untergeordneten Eintrags das letzte Array-Element ist.
+Die **`resolve()`** Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) Schnittstelle gibt ein {{jsxref('Array')}} der Verzeichnispfade vom übergeordneten Handle zum angegebenen Kind-Eintrag zurück, wobei der Name des Kind-Eintrags das letzte Element des Arrays ist.
 
 ## Syntax
 
@@ -26,17 +23,15 @@ resolve(possibleDescendant)
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von
-Strings aufgelöst wird, oder `null`, wenn `possibleDescendant` kein Nachfahre dieses [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
+Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von Strings aufgelöst wird, oder `null`, falls `possibleDescendant` kein Nachkomme dieses [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
 
 ### Ausnahmen
 
-Keine Ausnahmen werden geworfen.
+Es werden keine Ausnahmen ausgelöst.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer
-ausgewählten Datei relativ zu einem angegebenen Verzeichnis-Handle zu finden.
+Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer ausgewählten Datei relativ zu einem angegebenen Verzeichnis-Handle zu finden.
 
 ```js
 async function returnPathDirectories(directoryHandle) {

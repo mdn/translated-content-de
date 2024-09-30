@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`link()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element (`<a href="...">str</a>`) einbettet, um als Hypertext-Link zu einer anderen URL verwendet zu werden.
+Die **`link()`**-Methode von {{jsxref("String")}}-Werten erstellt eine Zeichenkette, die diese Zeichenkette in einem {{HTMLElement("a")}}-Element (`<a href="...">str</a>`) einbettet, um sie als Hypertext-Link zu einer anderen URL zu verwenden.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -21,17 +21,17 @@ link(url)
 ### Parameter
 
 - `url`
-  - : Jeder String, der das `href`-Attribut des `<a>`-Elements angibt; er sollte eine gültige URL sein (relativ oder absolut), wobei alle `&`-Zeichen als `&amp;` maskiert sein müssen.
+  - : Jede Zeichenkette, die das `href`-Attribut des `<a>`-Elements angibt; es sollte sich um eine gültige URL (relativ oder absolut) handeln, wobei alle `&`-Zeichen als `&amp;` maskiert sind.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<a href="url">`-Start-Tag (doppelte Anführungszeichen im `url` werden durch `&quot;` ersetzt) beginnt, dann der Text `str` folgt, und dann ein `</a>`-End-Tag.
+Eine Zeichenkette, die mit einem `<a href="url">`-Start-Tag beginnt (doppelte Anführungszeichen in `url` werden durch `&quot;` ersetzt), gefolgt vom Text `str` und dann einem `</a>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von link()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments mit ihm:
+Der folgende Code erstellt eine HTML-Zeichenkette und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "MDN Web Docs";
@@ -39,7 +39,7 @@ const contentString = "MDN Web Docs";
 document.body.innerHTML = contentString.link("https://developer.mozilla.org/");
 ```
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <a href="https://developer.mozilla.org/">MDN Web Docs</a>

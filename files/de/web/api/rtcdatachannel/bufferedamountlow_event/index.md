@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`bufferedamountlow`**-Ereignis wird an einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, wenn die Anzahl der Bytes im ausgehenden Datentransferpuffer unter die im [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) festgelegte Schwelle fällt. `bufferedamountlow`-Ereignisse werden nicht gesendet, wenn `bufferedAmountLowThreshold` 0 ist.
+Ein **`bufferedamountlow`**-Ereignis wird an ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, wenn die Anzahl der Bytes im aktuellen ausgehenden Datenübertragungs-Puffer unter die in [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebene Schwelle fällt. `bufferedamountlow`-Ereignisse werden nicht gesendet, wenn `bufferedAmountLowThreshold` 0 ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht hochgebubbelt.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("bufferedamountlow", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Handler für `bufferedamountlow` eingerichtet, um mehr Daten anzufordern, wenn der Puffer des Datenkanals unter die im [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) festgelegte Anzahl von Bytes fällt, die wir auf 65536 eingestellt haben. Mit anderen Worten, wir versuchen, mindestens 64kB Daten im Puffer zu halten, indem wir 64kB pro Lesevorgang aus der Quelle lesen.
+Dieses Beispiel richtet einen Handler für `bufferedamountlow` ein, um mehr Daten anzufordern, jedes Mal wenn der Puffer des Datenkanals unter die in [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebene Bytezahl fällt, die wir auf 65536 gesetzt haben. Mit anderen Worten, wir versuchen, mindestens 64 kB Daten im Puffer zu halten und lesen jeweils 64 kB aus der Quelle.
 
 ```js
 let pc = new RTCPeerConnection();
@@ -47,9 +47,9 @@ pc.addEventListener(
 );
 ```
 
-Nach der Erstellung der `RTCPeerConnection` wird [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen, um den Datenkanal zu erstellen. Dann wird ein Listener für `bufferedamountlow` erstellt, um den eingehenden Datenpuffer wieder aufzufüllen, wenn dessen Inhalt unter 65536 Bytes fällt.
+Nach der Erstellung der `RTCPeerConnection` ruft dies [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf, um den Datenkanal zu erstellen. Dann wird ein Listener für `bufferedamountlow` erstellt, um den eingehenden Datenpuffer jedes Mal aufzufüllen, wenn dessen Inhalte unter 65536 Bytes fallen.
 
-Sie können auch einen Listener für `bufferedamountlow` über seine Ereignis-Handler-Eigenschaft `onbufferedamountlow` einrichten:
+Sie können auch einen Listener für `bufferedamountlow` einrichten, indem Sie seine Ereignis-Handler-Eigenschaft `onbufferedamountlow` verwenden:
 
 ```js
 pc.onbufferedamountlow = (ev) => {

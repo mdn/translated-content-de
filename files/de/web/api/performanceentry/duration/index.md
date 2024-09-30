@@ -1,5 +1,5 @@
 ---
-title: "PerformanceEntry: duration Eigenschaft"
+title: "PerformanceEntry: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/PerformanceEntry/duration
 l10n:
@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`duration`** Eigenschaft gibt einen [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) darstellt. Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
+Die schreibgeschützte **`duration`**-Eigenschaft gibt einen [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) darstellt. Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) darstellt. Wenn das Konzept der Dauer für eine bestimmte Leistungskennzahl nicht zutrifft, wird eine Dauer von `0` zurückgegeben.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) darstellt. Wenn das Konzept der Dauer nicht auf eine bestimmte Leistungsmetrik anwendbar ist, wird eine Dauer von `0` zurückgegeben.
 
-Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) des Performance-Eintrags ab:
+Die Bedeutung dieser Eigenschaft hängt vom Wert des `entryType` dieses Performance-Eintrags ab:
 
 - `event`
   - : Die Zeit vom `startTime` des Ereignisses bis zum nächsten Rendering-Paint (gerundet auf die nächsten 8ms).
 - `first-input`
   - : Die Zeit vom `startTime` des ersten Eingabeereignisses bis zum nächsten Rendering-Paint (gerundet auf die nächsten 8ms).
 - `longtask`
-  - : Die verstrichene Zeit zwischen Beginn und Ende der Aufgabe mit einer Genauigkeit von 1ms.
+  - : Die verstrichene Zeit zwischen Beginn und Ende der Aufgabe, mit einer Granularität von 1ms.
 - `measure`
   - : Die Dauer der Messung.
 - `navigation`
-  - : Die Differenz zwischen den Eigenschaften [`loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
+  - : Der Unterschied zwischen den Eigenschaften [`loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
 - `resource`
-  - : Der Wert des [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) des Eintrags minus dem [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) Wert des Eintrags.
+  - : Der Wert von [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) des Eintrags minus dem Wert von [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
 
-Für die folgenden Eintragstypen ist `duration` nicht anwendbar, und in diesem Fall ist der Wert immer `0`:
+Für die folgenden Eintragstypen ist `duration` nicht anwendbar und in diesem Fall ist der Wert immer `0`:
 
 - `element`
 - `largest-contentful-paint`
@@ -41,9 +41,9 @@ Für die folgenden Eintragstypen ist `duration` nicht anwendbar, und in diesem F
 
 ## Beispiele
 
-### Verwendung der duration Eigenschaft
+### Verwendung der duration-Eigenschaft
 
-Das folgende Beispiel protokolliert alle beobachteten Performance-Einträge mit einer `duration` von mehr als `0`.
+Das folgende Beispiel protokolliert alle beobachteten Performance-Einträge mit einer `duration` größer als `0`.
 
 ```js
 function perfObserver(list, observer) {

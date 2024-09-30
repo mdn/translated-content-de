@@ -12,7 +12,7 @@ Das **`speechstart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("speechstart", (event) => {});
@@ -36,7 +36,7 @@ recognition.addEventListener("speechstart", () => {
 });
 ```
 
-Oder die `onspeechstart` Ereignis-Handler-Eigenschaft verwenden:
+Oder verwenden Sie die `onspeechstart` Ereignishandler-Eigenschaft:
 
 ```js
 recognition.onspeechstart = () => {

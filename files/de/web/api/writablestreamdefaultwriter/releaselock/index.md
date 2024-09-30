@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultWriter: releaseLock()-Methode"
+title: "WritableStreamDefaultWriter: releaseLock() Methode"
 short-title: releaseLock()
 slug: Web/API/WritableStreamDefaultWriter/releaseLock
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`releaseLock()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle gibt die Sperre des Writers für den entsprechenden Stream frei. Nach der Freigabe der Sperre ist der Writer nicht mehr aktiv. Wenn der zugeordnete Stream fehlerhaft ist, wenn die Sperre freigegeben wird, erscheint der Writer von nun an auf die gleiche Weise fehlerhaft; andernfalls erscheint der Writer geschlossen.
+Die **`releaseLock()`**-Methode der
+[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle gibt die Sperre des Writers auf dem
+entsprechenden Stream frei. Nachdem die Sperre freigegeben wurde, ist der Writer nicht mehr aktiv. Wenn der
+zugehörige Stream fehlerhaft ist, wenn die Sperre freigegeben wird, wird der Writer von nun an auf die gleiche Weise fehlerhaft erscheinen; andernfalls wird der Writer als geschlossen erscheinen.
 
 ## Syntax
 

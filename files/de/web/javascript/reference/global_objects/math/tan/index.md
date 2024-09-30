@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl im Bogenmaß zurück.
+Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl in Radiant zurück.
 
 {{EmbedInteractiveExample("pages/js/math-tan.html")}}
 
@@ -20,18 +20,18 @@ Math.tan(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
+  - : Eine Zahl, die einen Winkel in Radiant darstellt.
 
 ### Rückgabewert
 
-Der Tangens von `x`. Falls `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Tangens von `x`. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 > [!NOTE]
-> Aufgrund der Gleitkomma-Genauigkeit ist es nicht möglich, den exakten Wert π/2 zu erhalten, daher ist das Ergebnis immer endlich, wenn es nicht `NaN` ist.
+> Aufgrund der Gleitkomma-Präzision ist es nicht möglich, den exakten Wert π/2 zu erreichen, sodass das Ergebnis immer endlich ist, wenn es nicht `NaN` ist.
 
 ## Beschreibung
 
-Da `tan()` eine statische Methode von `Math` ist, wird sie immer als `Math.tan()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `tan()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tan()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ Math.tan(Infinity); // NaN
 
 ### Math.tan() und π/2
 
-Es ist nicht möglich, `tan(π/2)` exakt zu berechnen.
+Es ist nicht möglich, `tan(π/2)` genau zu berechnen.
 
 ```js
 Math.tan(Math.PI / 2); // 16331239353195370
@@ -57,7 +57,7 @@ Math.tan(Math.PI / 2 + Number.EPSILON); // -6218431163823738
 
 ### Verwendung von Math.tan() mit einem Gradwert
 
-Da die Funktion `Math.tan()` Bogenmaß akzeptiert, es jedoch oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Bogenmaß und gibt den Tangens zurück.
+Da die Funktion `Math.tan()` Radiant akzeptiert, es aber oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, wandelt ihn in Radiant um und gibt den Tangens zurück.
 
 ```js
 function getTanDeg(deg) {

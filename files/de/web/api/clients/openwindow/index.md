@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`openWindow()`**-Methode der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle erstellt einen neuen übergeordneten Browsing-Kontext und lädt eine angegebene URL. Wenn das aufrufende Skript nicht die Berechtigung hat, Popups anzuzeigen, wirft `openWindow()` einen `InvalidAccessError`.
+Die **`openWindow()`**-Methode des [`Clients`](/de/docs/Web/API/Clients)-Interfaces erstellt einen neuen Top-Level-Browsing-Kontext und lädt eine gegebene URL. Wenn das aufrufende Skript keine Berechtigung hat, Popups anzuzeigen, wirft `openWindow()` einen `InvalidAccessError`.
 
-In Firefox darf die Methode Popups nur anzeigen, wenn sie als Ergebnis eines Benachrichtigungs-Klickereignisses aufgerufen wird.
+In Firefox ist die Methode nur erlaubt, Popups anzuzeigen, wenn sie als Ergebnis eines Benachrichtigungsklickereignisses aufgerufen wird.
 
-In Chrome für Android kann die Methode stattdessen die URL in einem bestehenden Browsing-Kontext öffnen, der von einer zuvor auf dem Startbildschirm des Benutzers hinzugefügten [Standalone-Web-App](/de/docs/Web/Progressive_web_apps) bereitgestellt wird. Kürzlich funktioniert dies auch auf Chrome für Windows.
+In Chrome für Android kann die Methode stattdessen die URL in einem vorhandenen Browsing-Kontext öffnen, der von einer zuvor zur Startseite des Nutzers hinzugefügten [Standalone-Web-App](/de/docs/Web/Progressive_web_apps) bereitgestellt wird. Seit kurzem funktioniert dies auch in Chrome für Windows.
 
 ## Syntax
 
@@ -23,20 +23,20 @@ openWindow(url)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des Clients darstellt, den Sie im Fenster öffnen möchten. Im Allgemeinen muss dieser Wert eine URL aus demselben Ursprung sein wie das aufrufende Skript.
+  - : Ein String, der die URL des Clients darstellt, den Sie im Fenster öffnen möchten. Im Allgemeinen muss dieser Wert eine URL aus dem gleichen Ursprung wie das aufrufende Skript sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus demselben Ursprung wie der Service Worker stammt oder andernfalls ein [null-Wert](/de/docs/Glossary/null).
+Ein {{jsxref("Promise")}}, der zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus dem gleichen Ursprung wie der Service Worker stammt, oder andernfalls einen [Nullwert](/de/docs/Glossary/null).
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) hat.
+  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App eine [flüchtige Aktivierung](/de/docs/Web/Security/User_activation) hat.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprung der App muss eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) haben.
+- Mindestens ein Fenster im Ursprung der App muss eine [flüchtige Aktivierung](/de/docs/Web/Security/User_activation) haben.
 
 ## Beispiele
 

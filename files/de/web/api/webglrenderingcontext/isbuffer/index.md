@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: isBuffer()-Methode"
+title: "WebGLRenderingContext: isBuffer() Methode"
 short-title: isBuffer()
 slug: Web/API/WebGLRenderingContext/isBuffer
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isBuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) gültig ist, und `false` andernfalls.
+Die **`WebGLRenderingContext.isBuffer()`** Methode des [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) gültig ist, und `false` andernfalls.
 
 ## Syntax
 

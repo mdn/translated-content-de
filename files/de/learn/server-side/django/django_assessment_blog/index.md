@@ -7,20 +7,20 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenu("Learn/Server-side/Django/web_application_security", "Learn/Server-side/Django")}}
 
-In dieser Bewertung verwenden Sie das Django-Wissen, das Sie im Modul [Django-Web-Framework (Python)](/de/docs/Learn/Server-side/Django) erworben haben, um einen sehr einfachen Blog zu erstellen.
+In dieser Bewertung verwenden Sie das Django-Wissen, das Sie im Modul [Django Web Framework (Python)](/de/docs/Learn/Server-side/Django) erworben haben, um einen sehr einfachen Blog zu erstellen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Bevor Sie diese Bewertung versuchen, sollten Sie bereits alle Artikel in diesem Modul durchgearbeitet haben.
+        Bevor Sie sich an dieser Bewertung versuchen, sollten Sie alle Artikel in diesem Modul durchgearbeitet haben.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Testen Sie das Verständnis der Django-Grundlagen, einschließlich URL-Konfigurationen, Modelle, Ansichten, Formulare und Vorlagen.
+        Zu testen, ob die Grundlagen von Django verstanden wurden, einschließlich URL-Konfigurationen, Modelle, Views, Formulare und Templates.
       </td>
     </tr>
   </tbody>
@@ -42,7 +42,7 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
     <tr>
       <td>Startseite</td>
       <td><code>/</code> und <code>/blog/</code></td>
-      <td>Eine Indexseite, die die Seite beschreibt.</td>
+      <td>Eine Indexseite, die die Website beschreibt.</td>
     </tr>
     <tr>
       <td>Liste aller Blogbeiträge</td>
@@ -50,14 +50,12 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
       <td>
         <p>Liste aller Blogbeiträge:</p>
         <ul>
-          <li>Zugänglich für alle Nutzer über einen Seitenleistenlink.</li>
+          <li>Von allen Nutzern über einen Sidebar-Link zugänglich.</li>
           <li>Liste sortiert nach Veröffentlichungsdatum (neueste zuerst).</li>
-          <li>Liste aufgeteilt in Gruppen von 5 Artikeln.</li>
-          <li>Listenelemente zeigen den Blogtitel, das Veröffentlichungsdatum und den Autor an.</li>
-          <li>Blogbeitragsnamen sind mit Blogdetailseiten verlinkt.</li>
-          <li>
-            Blogger (Autoren) sind mit Blogautordetailseiten verlinkt.
-          </li>
+          <li>Liste in Gruppen von 5 Artikeln paginiert.</li>
+          <li>Listeneinträge zeigen den Titel des Blogs, das Veröffentlichungsdatum und den Autor an.</li>
+          <li>Blog-Beitrag-Namen sind mit den Detailseiten des Blogs verlinkt.</li>
+          <li>Blogger (Autornamen) sind mit den Detailseiten des Blogautors verlinkt.</li>
         </ul>
       </td>
     </tr>
@@ -68,40 +66,40 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
       </td>
       <td>
         <p>
-          Informationen zu einem bestimmten Autor (nach ID) und Liste seiner Blogbeiträge:
+          Informationen für einen bestimmten Autor (nach ID) und Liste seiner Blogbeiträge:
         </p>
         <ul>
-          <li>Zugänglich für alle Nutzer über Autorenlinks in Blogbeiträgen usw.</li>
+          <li>Von allen Nutzern über Autorenlinks in Blogbeiträgen etc. zugänglich.</li>
           <li>
             Enthält einige biografische Informationen über den Blogger/Autor.
           </li>
           <li>Liste sortiert nach Veröffentlichungsdatum (neueste zuerst).</li>
           <li>Nicht paginiert.</li>
-          <li>Listenelemente zeigen nur den Blogbeitragsnamen und das Veröffentlichungsdatum.</li>
-          <li>Blogbeitragsnamen sind mit Blogdetailseiten verlinkt.</li>
+          <li>Listeneinträge zeigen nur den Namen des Blogbeitrags und das Veröffentlichungsdatum.</li>
+          <li>Blog-Beitrag-Namen sind mit den Detailseiten des Blogs verlinkt.</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>Blogbeitrag Detailseite</td>
+      <td>Blogbeitrags-Detailseite</td>
       <td>
         <code>/blog/<em>&#x3C;blog-id></em></code>
       </td>
       <td>
-        <p>Details des Blogbeitrags.</p>
+        <p>Blogbeitragsdetails.</p>
         <ul>
-          <li>Zugänglich für alle Nutzer über Blogbeitragslisten.</li>
+          <li>Von allen Nutzern über Blogbeitragslisten zugänglich.</li>
           <li>
             Seite enthält den Blogbeitrag: Name, Autor, Veröffentlichungsdatum und Inhalt.
           </li>
           <li>Kommentare zum Blogbeitrag sollten unten angezeigt werden.</li>
-          <li>Kommentare sollten in der Reihenfolge vom ältesten zum neuesten sortiert werden.</li>
+          <li>Kommentare sollten in der Reihenfolge sortiert sein: älteste bis neueste.</li>
           <li>
-            Enthält einen Link, um am Ende Kommentare hinzuzufügen, für eingeloggte Nutzer (siehe Kommentarseitenformular)
+            Beinhaltet Link, um am Ende Kommentare für eingeloggte Nutzer hinzuzufügen (siehe Kommentarseiten-Formular)
           </li>
           <li>
-            Blogbeiträge und Kommentare müssen nur Klartext anzeigen.
-            Es ist nicht erforderlich, irgendeine Art von HTML-Markup zu unterstützen (z. B. Links, Bilder, fett/kursiv, usw.).
+            Blogbeiträge und Kommentare müssen nur reinen Text anzeigen.
+            Es besteht keine Notwendigkeit, irgendeine Art von HTML-Markup zu unterstützen (z.B. Links, Bilder, fett/kursiv, etc.).
           </li>
         </ul>
       </td>
@@ -112,31 +110,31 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
       <td>
         <p>Liste der Blogger im System:</p>
         <ul>
-          <li>Zugänglich für alle Nutzer von der Seitenleiste des Standorts</li>
-          <li>Bloggernamen sind mit Blogautordetailseiten verlinkt.</li>
+          <li>Über die Sidebar für alle Nutzer zugänglich</li>
+          <li>Bloggernamen sind mit Blogautoren-Detailseiten verlinkt.</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>Kommentarseite</td>
+      <td>Kommentarseiten-Formular</td>
       <td><code>/blog/<em>&#x3C;blog-id></em>/create</code></td>
       <td>
-        <p>Erstellen von Kommentaren für einen Blogbeitrag:</p>
+        <p>Kommentar zum Blogbeitrag erstellen:</p>
         <ul>
           <li>
-            Zugänglich für eingeloggte Benutzer (nur) von Link unten auf Blogdetailseiten.
+            Nur für eingeloggte Nutzer (nur) über Link am Ende von Blogbeitrags-Detailseiten zugänglich.
           </li>
           <li>
-            Zeigt ein Formular mit Beschreibung zum Eingeben von Kommentaren an (Veröffentlichungsdatum und Blog sind nicht bearbeitbar).
+            Zeigt ein Formular mit Beschreibung zum Eingeben von Kommentaren (Veröffentlichungsdatum und Blog sind nicht bearbeitbar).
           </li>
           <li>
-            Nachdem ein Kommentar gepostet wurde, wird die Seite zurück auf die zugehörige Blogseite umgeleitet.
+            Nachdem ein Kommentar gepostet wurde, wird die Seite zurück zur zugehörigen Blog-Beitrag-Seite weitergeleitet.
           </li>
-          <li>Benutzer können ihre Beiträge nicht bearbeiten oder löschen.</li>
+          <li>Nutzer können ihre Beiträge nicht bearbeiten oder löschen.</li>
           <li>
-            Ausgeloggte Benutzer werden auf die Anmeldeseite weitergeleitet, um sich anzumelden,
+            Ausgeloggte Nutzer werden zur Login-Seite geleitet, um sich einzuloggen,
             bevor sie Kommentare hinzufügen können. Nach dem Einloggen werden sie
-            zurück auf die Blogseite, auf die sie kommentieren wollten, geleitet.
+            zurück zur Blogseite geleitet, die sie kommentieren wollten.
           </li>
           <li>
             Kommentarseiten sollten den Namen/Link zum kommentierten Blogbeitrag enthalten.
@@ -145,16 +143,16 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
       </td>
     </tr>
     <tr>
-      <td>Benutzerauthentifizierungsseiten</td>
+      <td>Nutzer-Authentifizierungs-Seiten</td>
       <td>
         <code>/accounts/<em>&#x3C;standard urls></em></code>
       </td>
       <td>
         <p>
-          Standard-Django-Authentifizierungsseiten für Anmeldung, Abmeldung und Passworteinstellung:
+          Standard-Django-Authentifizierungsseiten zum Einloggen, Ausloggen und Setzen des Passworts:
         </p>
         <ul>
-          <li>Anmeldung/Abmeldung sollte über Seitenleistenlinks zugänglich sein.</li>
+          <li>Ein-/Ausloggen sollte über Sidebar-Links zugänglich sein.</li>
         </ul>
       </td>
     </tr>
@@ -165,14 +163,16 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
       </td>
       <td>
         <p>
-          Die Admin-Seite sollte aktiviert sein, um das Erstellen/Bearbeiten/Löschen von Blogbeiträgen, Blogautoren und Blogkommentaren zu ermöglichen (dies ist der Mechanismus für Blogger, um neue Blogbeiträge zu erstellen):
+          Admin-Seite sollte aktiviert werden, um Erstellen/Bearbeiten/Löschen von Blog
+          Beiträgen, Blogautoren und Blogkommentaren zu ermöglichen (Dies ist der Mechanismus,
+          mit dem Blogger neue Blogbeiträge erstellen):
         </p>
         <ul>
           <li>
-            In der Admin-Seite sollten Blogbeitragsaufzeichnungen die Liste der zugehörigen Kommentare inline unter jedem Blogbeitrag anzeigen.
+            Admin-Seiten-Blogbeitrags-Aufzeichnungen sollten die Liste der zugehörigen Kommentare inline (unter jedem Blogbeitrag) anzeigen.
           </li>
           <li>
-            Kommentarnamen in der Admin-Seite werden durch das Kürzen der Kommentarbeschreibung auf 75 Zeichen erstellt.
+            Kommentarnamen in der Admin-Seite werden durch Kürzung der Kommentarbeschreibung auf 75 Zeichen erstellt.
           </li>
           <li>Andere Arten von Aufzeichnungen können die grundlegende Registrierung verwenden.</li>
         </ul>
@@ -183,18 +183,18 @@ Die Seiten, die angezeigt werden müssen, ihre URLs und andere Anforderungen sin
 
 Zusätzlich sollten Sie einige grundlegende Tests schreiben, um zu überprüfen:
 
-- Alle Modulfelder haben das richtige Label und die richtige Länge.
-- Alle Modelle haben den erwarteten Objektnamen (z. B. `__str__()` gibt den erwarteten Wert zurück).
-- Modelle haben die erwartete URL für einzelne Blog- und Kommentaraufzeichnungen (z. B. `get_absolute_url()` gibt die erwartete URL zurück).
-- Die BlogListView (alle-Blog-Seite) ist an der erwarteten Stelle zugänglich (z. B. /blog/blogs)
-- Die BlogListView (alle-Blog-Seite) ist über die erwartete benannte URL zugänglich (z. B. 'blogs')
-- Die BlogListView (alle-Blog-Seite) verwendet die erwartete Vorlage (z. B. die Standardvorlage)
-- Die BlogListView paginiert die Einträge in 5er-Gruppen (mindestens auf der ersten Seite)
+- Alle Modelfelder haben die korrekte Bezeichnung und Länge.
+- Alle Modelle haben den erwarteten Objektnamen (z.B. `__str__()` gibt den erwarteten Wert zurück).
+- Modelle haben die erwartete URL für einzelne Blog- und Kommentaraufzeichnungen (z.B. `get_absolute_url()` gibt die erwartete URL zurück).
+- Die BlogListView (All-Blog-Seite) ist an der erwarteten Position zugänglich (z.B. /blog/blogs)
+- Die BlogListView (All-Blog-Seite) ist an der erwarteten benannten URL zugänglich (z.B. 'blogs')
+- Die BlogListView verwendet das erwartete Template (z.B. das Standardtemplate)
+- Die BlogListView paginiert Aufzeichnungen in 5er-Gruppen (mindestens auf der ersten Seite)
 
 > [!NOTE]
-> Es gibt natürlich viele andere Tests, die Sie durchführen können. Verwenden Sie Ihr Ermessen, aber wir erwarten, dass Sie zumindest die oben genannten Tests durchführen.
+> Es gibt natürlich noch viele andere Tests, die Sie durchführen können. Nutzen Sie Ihr Ermessen, aber wir erwarten, dass Sie zumindest die obigen Tests durchführen.
 
-Der folgende Abschnitt zeigt [Screenshots](#screenshots) einer Seite, die die oben genannten Anforderungen umsetzt.
+Der folgende Abschnitt zeigt [Screenshots](#screenshots) einer Site, die die oben genannten Anforderungen umsetzt.
 
 ## Screenshots
 
@@ -202,18 +202,18 @@ Die folgenden Screenshots bieten ein Beispiel dafür, was das fertige Programm a
 
 ### Liste aller Blogbeiträge
 
-Dies zeigt die Liste aller Blogbeiträge (zugänglich über den Link "Alle Blogs" in der Seitenleiste). Dinge, die zu beachten sind:
+Dies zeigt die Liste aller Blogbeiträge (zugänglich über den "Alle Blogs" Link in der Sidebar). Zu beachten ist:
 
-- Die Seitenleiste listet auch den eingeloggten Benutzer auf.
-- Einzelne Blogbeiträge und Blogger sind als Links auf der Seite zugänglich.
-- Paginierung ist aktiviert (in Gruppen von 5)
+- Die Sidebar listet auch den eingeloggten Nutzer.
+- Einzelne Blogbeiträge und Blogger sind als Links in der Seite zugänglich.
+- Pagination ist aktiviert (in Gruppen von 5)
 - Sortierung ist von neu nach alt.
 
 ![Liste aller Blogs](diyblog_allblogs.png)
 
 ### Liste aller Blogger
 
-Dies bietet Links zu allen Bloggern, wie sie über den Link "Alle Blogger" in der Seitenleiste verlinkt sind. In diesem Fall sehen wir von der Seitenleiste, dass kein Benutzer eingeloggt ist.
+Dies bietet Links zu allen Bloggern, wie sie vom "Alle Blogger" Link in der Sidebar verlinkt sind. In diesem Fall sehen wir in der Sidebar, dass kein Nutzer eingeloggt ist.
 
 ![Liste aller Blogger](diyblog_blog_allbloggers.png)
 
@@ -221,59 +221,59 @@ Dies bietet Links zu allen Bloggern, wie sie über den Link "Alle Blogger" in de
 
 Dies zeigt die Detailseite für einen bestimmten Blog.
 
-![Blogdetail mit Kommentar-hinzu-Link](diyblog_blog_detail_add_comment.png)
+![Blog-Detail mit Kommentar-Link](diyblog_blog_detail_add_comment.png)
 
-Beachten Sie, dass die Kommentare ein Datum _und_ eine Uhrzeit haben und von ältest nach neuest sortiert sind (entgegengesetzt zur Blogs-Sortierung). Am Ende haben wir einen Link, um auf das Formular zuzugreifen, um einen neuen Kommentar hinzuzufügen. Wenn ein Benutzer nicht eingeloggt ist, würden wir stattdessen einen Vorschlag zum Anmelden sehen.
+Beachten Sie, dass die Kommentare ein Datum _und_ eine Uhrzeit haben und von alt nach neu sortiert sind (entgegengesetzt zur Blogsortierung). Am Ende haben wir einen Link, um auf das Formular zum Hinzufügen eines neuen Kommentars zuzugreifen. Wenn ein Nutzer nicht eingeloggt ist, sehen wir stattdessen einen Vorschlag zum Einloggen.
 
-![Kommentar-Link ohne Anmeldung](diyblog_blog_detail_not_logged_in.png)
+![Kommentar-Link, wenn nicht eingeloggt](diyblog_blog_detail_not_logged_in.png)
 
-### Kommentarseitenformular
+### Kommentarformular hinzufügen
 
-Dies ist das Formular zum Hinzufügen von Kommentaren. Beachten Sie, dass wir eingeloggt sind. Wenn dies erfolgreich ist, sollten wir zurück zur zugehörigen Blogbeitragsseite geführt werden.
+Dies ist das Formular zum Hinzufügen von Kommentaren. Beachten Sie, dass wir eingeloggt sind. Wenn dies erfolgreich ist, sollten wir zur zugehörigen Blogseite zurückgeführt werden.
 
-![Kommentarseite](diyblog_comment_form.png)
+![Kommentarformular hinzufügen](diyblog_comment_form.png)
 
-### Autoren-Biografie
+### Autoren-Bio
 
-Dies zeigt biografische Informationen für einen Blogger zusammen mit ihrer Liste von Blogbeiträgen.
+Dies zeigt Bio-Informationen für einen Blogger zusammen mit deren Liste von Blogbeiträgen.
 
-![Blogger-Detailseite](diyblog_blogger_detail.png)
+![Detailseite des Bloggers](diyblog_blogger_detail.png)
 
-## Schritte zum Abschluss
+## Schritte zur Fertigstellung
 
 Die folgenden Abschnitte beschreiben, was Sie tun müssen.
 
-1. Erstellen Sie ein Grundgerüst für das Projekt und die Webanwendung für die Seite (wie beschrieben in [Django Tutorial Teil 2: Erstellen eines Grundgerüsts für eine Website](/de/docs/Learn/Server-side/Django/skeleton_website)). Sie könnten 'diyblog' als Projektnamen und 'blog' als Anwendungsnamen verwenden.
-2. Erstellen Sie Modelle für die Blogbeiträge, Kommentare und alle anderen benötigten Objekte. Denken Sie bei Ihrem Design an Folgendes:
+1. Erstellen Sie ein Skeleton-Projekt und eine Webanwendung für die Seite (wie beschrieben in [Django Tutorial Teil 2: Creating a skeleton website](/de/docs/Learn/Server-side/Django/skeleton_website)). Sie könnten 'diyblog' für den Projektnamen und 'blog' für den Applikationsnamen verwenden.
+2. Erstellen Sie Modelle für die Blogbeiträge, Kommentare und alle anderen benötigten Objekte. Denken Sie bei Ihrem Design daran:
 
-   - Jeder Kommentar wird nur zu einem Blog gehören, aber ein Blog kann viele Kommentare haben.
-   - Blogbeiträge und Kommentare müssen nach Veröffentlichungsdatum sortiert werden.
-   - Nicht jeder Benutzer wird notwendigerweise ein Blogautor sein, obwohl jeder Benutzer ein Kommentator sein kann.
-   - Blogautoren müssen auch Biografieinformationen enthalten.
+   - Jeder Kommentar wird nur einen Blog haben, aber ein Blog kann viele Kommentare haben.
+   - Blogbeiträge und Kommentare müssen nach Veröffentlichungsdatum sortiert sein.
+   - Nicht jeder Nutzer wird notwendigerweise ein Blogautor sein, obwohl jeder Nutzer Kommentator sein kann.
+   - Blogautoren müssen auch Bio-Informationen enthalten.
 
-3. Führen Sie Migrationen für Ihre neuen Modelle aus und erstellen Sie einen Superuser.
+3. Führen Sie Migrationen für Ihre neuen Modelle durch und erstellen Sie einen Superuser.
 4. Verwenden Sie die Admin-Seite, um einige Beispiel-Blogbeiträge und Blogkommentare zu erstellen.
-5. Erstellen Sie Ansichten, Vorlagen und URL-Konfigurationen für Blogbeitrags- und Bloggerlisten-Seiten.
-6. Erstellen Sie Ansichten, Vorlagen und URL-Konfigurationen für Blogbeitrags- und Bloggerdetailseiten.
-7. Erstellen Sie eine Seite mit einem Formular zum Hinzufügen neuer Kommentare (denken Sie daran, dies nur für eingeloggte Benutzer verfügbar zu machen!)
+5. Erstellen Sie Views, Templates und URL-Konfigurationen für Blogbeitrags- und Bloggerlisten-Seiten.
+6. Erstellen Sie Views, Templates und URL-Konfigurationen für Blogbeitrags- und Blogger-Detailseiten.
+7. Erstellen Sie eine Seite mit einem Formular zum Hinzufügen neuer Kommentare (denken Sie daran, dies nur für eingeloggte Nutzer verfügbar zu machen!)
 
 ## Hinweise und Tipps
 
-Dieses Projekt ist sehr ähnlich zum [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website) Tutorial. Sie werden in der Lage sein, das Grundgerüst, das Benutzer-Login/Logout-Verhalten, die Unterstützung für statische Dateien, Ansichten, URLs, Formulare, Basistemplates und die Admin-Seiten-Konfiguration fast auf die gleiche Weise einzurichten.
+Dieses Projekt ist dem [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website) Tutorial sehr ähnlich. Sie können das Skeleton, das Anmelde-/Abmeldeverhalten der Nutzer, die Unterstützung für statische Dateien, Views, URLs, Formulare, Basistemplates und die Konfiguration der Admin-Seite mit fast denselben Ansätzen einrichten.
 
 Einige allgemeine Hinweise:
 
-1. Die Indexseite kann als einfache Funktionsansicht und Vorlage implementiert werden (genau wie bei der LocalLibrary).
+1. Die Index-Seite kann als einfache Funktionsansicht und Template implementiert werden (genauso wie für die locallibrary).
 2. Die Listenansicht für Blogbeiträge und Blogger sowie die Detailansicht für Blogbeiträge können mit den [generischen Listen- und Detailansichten](/de/docs/Learn/Server-side/Django/Generic_views) erstellt werden.
-3. Die Liste der Blogbeiträge für einen bestimmten Autor kann erstellt werden, indem eine generische Bloglistenansicht verwendet und für Blogobjekte gefiltert wird, die dem angegebenen Autor entsprechen.
+3. Die Liste der Blogbeiträge für einen bestimmten Autor kann erstellt werden, indem eine generische Blog-Listenansicht verwendet und nach Blogobjekten gefiltert wird, die dem angegebenen Autor entsprechen.
 
-   - Sie müssen `get_queryset(self)` implementieren, um die Filterung vorzunehmen (wie in unserer Bibliotheksklasse `LoanedBooksAllListView`) und die Autorinformationen aus der URL abrufen.
-   - Sie müssen auch den Namen des Autors an die Seite im Kontext weiterleiten. Dazu müssen Sie in einer klassenbasierten Ansicht `get_context_data()` implementieren (weiter unten diskutiert).
+   - Sie müssen `get_queryset(self)` implementieren, um das Filtern durchzuführen (ähnlich wie in unserer Bibliotheksklasse `LoanedBooksAllListView`) und die Autorinformationen aus der URL abrufen.
+   - Sie müssen auch den Namen des Autors der Seite im Kontext übergeben. Um dies in einer klassenbasierten Ansicht zu tun, müssen Sie `get_context_data()` implementieren (unten beschrieben).
 
-4. Das Formular zum _Hinzufügen von Kommentaren_ kann mit einer funktionsbasierten Ansicht (und zugehörigem Modell und Formular) oder mit einer generischen `CreateView` erstellt werden. Wenn Sie eine `CreateView` verwenden (empfohlen), dann:
+4. Das _Hinzufügen von Kommentaren_-Formular kann mit einer funktionsbasierten Ansicht (und zugehörigem Modell und Formular) oder einer generischen `CreateView` erstellt werden. Wenn Sie eine `CreateView` verwenden (empfohlen):
 
-   - Sie müssen auch den Namen des Blogbeitrags an die Kommentarseite im Kontext übergeben (implementieren Sie `get_context_data()`, wie weiter unten besprochen).
-   - Das Formular sollte nur die Kommentarbeschreibung für die Eingabe durch den Benutzer anzeigen (Datum und zugehöriger Blogbeitrag sollten nicht bearbeitbar sein). Da sie nicht im Formular selbst enthalten sein werden, muss Ihr Code den Autor des Kommentars in der Funktion `form_valid()` setzen, damit er im Modell gespeichert werden kann ([wie hier beschrieben](https://docs.djangoproject.com/en/5.0/topics/class-based-views/generic-editing/#models-and-request-user) — Django-Dokumentation). In derselben Funktion setzen wir den zugehörigen Blog. Eine mögliche Implementierung wird unten gezeigt (`pk` ist eine Blog-ID, die aus der URL/URL-Konfiguration übergeben wird).
+   - Sie müssen auch den Namen des Blogbeitrags an die Kommentarseite im Kontext übergeben (implementieren Sie `get_context_data()`, wie unten beschrieben).
+   - Das Formular sollte nur die Kommentarbeschreibung für die Benutzereingabe anzeigen (Datum und zugeordneter Blogbeitrag sollten nicht bearbeitbar sein). Da sie nicht im Formular selbst sein werden, muss Ihr Code den Autor des Kommentars in der `form_valid()`-Funktion setzen, damit er im Modell gespeichert werden kann ([wie hier beschrieben](https://docs.djangoproject.com/en/5.0/topics/class-based-views/generic-editing/#models-and-request-user) — Django-Dokumentation). In derselben Funktion setzen wir den zugehörigen Blog. Eine mögliche Implementierung ist unten gezeigt (`pk` ist eine Blog-ID, die aus der URL/URL-Konfiguration übergeben wird).
 
      ```python
          def form_valid(self, form):
@@ -288,9 +288,9 @@ Einige allgemeine Hinweise:
              return super(BlogCommentCreate, self).form_valid(form)
      ```
 
-   - Sie müssen eine Erfolgs-URL bereitstellen, um nach der Formularvalidierung dorthin umzuleiten; dies sollte der ursprüngliche Blog sein. Dazu müssen Sie `get_success_url()` überschreiben und die URL für den ursprünglichen Blog "umkehren". Sie können die erforderliche Blog-ID mit dem Attribut `self.kwargs` abrufen, wie im `form_valid()` Verfahren oben gezeigt.
+   - Sie müssen eine Erfolgs-URL bereitstellen, zu der nach der Formularvalidierung weitergeleitet wird; dies sollte der ursprüngliche Blog sein. Dazu müssen Sie `get_success_url()` überschreiben und die URL für den ursprünglichen Blog "umkehren". Sie können die benötigte Blog-ID mit dem `self.kwargs`-Attribut abrufen, wie in der `form_valid()`-Methode oben gezeigt.
 
-Wir haben kurz darüber gesprochen, einen Kontext an die Vorlage in einer klassenbasierten Ansicht im Thema [Django Tutorial Teil 6: Generische Listen- und Detailansichten](/de/docs/Learn/Server-side/Django/Generic_views#overriding_methods_in_class-based_views) zu übergeben. Dazu müssen Sie `get_context_data()` überschreiben (zuerst den vorhandenen Kontext abrufen, ihn mit zusätzlichen Variablen aktualisieren, die Sie an die Vorlage übergeben möchten, und dann den aktualisierten Kontext zurückgeben). Zum Beispiel zeigt der untenstehende Codeausschnitt, wie Sie ein Blogger-Objekt basierend auf ihrer `BlogAuthor`-ID zum Kontext hinzufügen können.
+Wir haben kurz darüber gesprochen, wie man einen Kontext in einer klassenbasierten Ansicht übergibt, im [Django Tutorial Part 6: Generic list and detail views](/de/docs/Learn/Server-side/Django/Generic_views#overriding_methods_in_class-based_views) Thema. Um dies zu tun, müssen Sie `get_context_data()` überschreiben (zuerst den vorhandenen Kontext abrufen, ihn mit den zusätzlichen Variablen aktualisieren, die Sie in das Template übergeben möchten, und den aktualisierten Kontext zurückgeben). Beispielsweise zeigt der unten stehende Codeausschnitt, wie Sie ein Blogger-Objekt in den Kontext basierend auf seiner `BlogAuthor`-ID hinzufügen können.
 
 ```python
 class SomeView(generic.ListView):
@@ -306,8 +306,9 @@ class SomeView(generic.ListView):
 
 ## Bewertung
 
-Die Bewertung für diese Aufgabe ist [hier auf GitHub verfügbar](https://github.com/mdn/django-diy-blog/blob/main/MarkingGuide.md). Diese Bewertung basiert hauptsächlich darauf, wie gut Ihre Anwendung die oben aufgeführten Anforderungen erfüllt, obwohl einige Teile der Bewertung prüfen, ob Ihr Code geeignete Modelle verwendet und dass Sie zumindest einige Testcodes geschrieben haben. Wenn Sie fertig sind, können Sie sich [das fertige Beispiel](https://github.com/mdn/django-diy-blog) ansehen, das ein Projekt mit "vollen Noten" darstellt.
+Die Bewertung für diese Aufgabe ist [hier auf GitHub verfügbar](https://github.com/mdn/django-diy-blog/blob/main/MarkingGuide.md). Diese Bewertung basiert hauptsächlich darauf, wie gut Ihre Anwendung die oben aufgeführten Anforderungen erfüllt, obwohl es einige Teile der Bewertung gibt, die prüfen, ob Ihr Code geeignete Modelle verwendet und dass Sie zumindest einige Testcodes geschrieben haben.
+Wenn Sie fertig sind, können Sie sich [das fertige Beispiel](https://github.com/mdn/django-diy-blog) ansehen, das ein "volle Punktzahl"-Projekt widerspiegelt.
 
-Sobald Sie dieses Modul abgeschlossen haben, haben Sie auch alle MDN-Inhalte zum Erlernen der grundlegenden Django-Server-Programmierung abgeschlossen! Wir hoffen, Sie haben dieses Modul genossen und haben ein gutes Verständnis der Grundlagen!
+Nachdem Sie dieses Modul abgeschlossen haben, haben Sie auch alle MDN-Inhalte zum Erlernen der grundlegenden Django-Server-seitigen Website-Programmierung abgeschlossen! Wir hoffen, dass Sie dieses Modul genossen haben und ein gutes Verständnis für die Grundlagen haben!
 
 {{PreviousMenu("Learn/Server-side/Django/web_application_security", "Learn/Server-side/Django")}}

@@ -7,42 +7,42 @@ l10n:
 
 {{DefaultAPISidebar("Web Animations")}}
 
-Die **Web Animations API** ermöglicht die Synchronisierung und zeitliche Abstimmung von Änderungen an der Darstellung einer Webseite, d.h. die Animation von DOM-Elementen. Sie tut dies, indem sie zwei Modelle kombiniert: das Timing-Modell und das Animationsmodell.
+Die **Web Animations API** ermöglicht es, Änderungen der Darstellung einer Webseite zu synchronisieren und zu timen, also die Animation von DOM-Elementen. Dies erfolgt durch die Kombination zweier Modelle: das Timing Model und das Animation Model.
 
 ## Konzepte und Nutzung
 
-Die Web Animations API bietet eine gemeinsame Sprache für Browser und Entwickler, um Animationen auf DOM-Elementen zu beschreiben. Um mehr über die Konzepte hinter der API und deren Nutzung zu erfahren, lesen Sie [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API).
+Die Web Animations API bietet eine gemeinsame Sprache für Browser und Entwickler, um Animationen auf DOM-Elementen zu beschreiben. Um mehr Informationen über die Konzepte hinter der API und deren Nutzung zu erfahren, lesen Sie [Using the Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API).
 
 ## Web Animations Schnittstellen
 
 - [`Animation`](/de/docs/Web/API/Animation)
-  - : Bietet Wiedergabesteuerungen und eine Zeitachse für einen Animationsknoten oder eine Quelle. Kann ein Objekt verwenden, das mit dem Konstruktor [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect) erstellt wurde.
+  - : Bietet Wiedergabesteuerungen und eine Timeline für einen Animationsknoten oder eine Quelle. Kann ein Objekt aufnehmen, das mit dem [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect) Konstruktor erstellt wurde.
 - [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)
-  - : Beschreibt Sets von animierbaren Eigenschaften und Werten, die als **Keyframes** bezeichnet werden, sowie deren zeitliche Optionen. Diese können dann mit dem Konstruktor [`Animation()`](/de/docs/Web/API/Animation/Animation) abgespielt werden.
+  - : Beschreibt Sätze von animierbaren Eigenschaften und Werten, genannt **Keyframes**, und deren Timingeinstellungen. Diese können dann mit dem [`Animation()`](/de/docs/Web/API/Animation/Animation) Konstruktor abgespielt werden.
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)
-  - : Stellt die Zeitachse einer Animation dar. Diese Schnittstelle existiert, um Zeitachsenfunktionen zu definieren (die von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) und zukünftigen Zeitachsenobjekten geerbt werden) und wird von Entwicklern nicht direkt aufgerufen.
+  - : Stellt die Zeitleiste der Animation dar. Diese Schnittstelle existiert, um Zeitleistenfunktionen zu definieren (übernommen von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) und zukünftigen Zeitleistenobjekten) und wird nicht direkt von Entwicklern verwendet.
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
   - : Teil des [CSS Animations](/de/docs/Web/CSS/CSS_animations) Moduls, das den Animationsnamen und die verstrichene Zeit erfasst.
 - [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline)
-  - : Stellt Animationszeitleisten dar, einschließlich der Standarddokumentzeitleiste (zugänglich über die Eigenschaft [`Document.timeline`](/de/docs/Web/API/Document/timeline)).
+  - : Stellt Animationstimelines dar, einschließlich der Standard-Dokumenttimeline (zugänglich über die [`Document.timeline`](/de/docs/Web/API/Document/timeline) Eigenschaft).
 
-## Erweiterungen für andere Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
-Die Web Animations API fügt dem [`document`](/de/docs/Web/API/Document) und dem [`element`](/de/docs/Web/API/Element) zusätzliche Funktionen hinzu.
+Die Web Animations API fügt Funktionen zu [`document`](/de/docs/Web/API/Document) und [`element`](/de/docs/Web/API/Element) hinzu.
 
 ### Erweiterungen der `Document` Schnittstelle
 
 - [`document.timeline`](/de/docs/Web/API/Document/timeline)
-  - : Das `DocumentTimeline` Objekt, das die Standarddokumentzeitleiste darstellt.
+  - : Das `DocumentTimeline` Objekt, das die Standard-Dokumenttimeline darstellt.
 - [`document.getAnimations()`](/de/docs/Web/API/Document/getAnimations)
-  - : Gibt ein Array von [`Animation`](/de/docs/Web/API/Animation) Objekten zurück, die derzeit auf Elemente im `document` wirken.
+  - : Gibt ein Array von [`Animation`](/de/docs/Web/API/Animation) Objekten zurück, die derzeit auf die Elemente im `document` wirken.
 
 ### Erweiterungen der `Element` Schnittstelle
 
 - [`Element.animate()`](/de/docs/Web/API/Element/animate)
-  - : Eine Abkürzungsmethode zum Erstellen und Abspielen einer Animation auf einem Element. Sie gibt die erstellte [`Animation`](/de/docs/Web/API/Animation) Objektinstanz zurück.
+  - : Eine Abkürzungsmethode zum Erstellen und Abspielen einer Animation auf einem Element. Es gibt die erstellte [`Animation`](/de/docs/Web/API/Animation) Objektinstanz zurück.
 - [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations)
-  - : Gibt ein Array von [`Animation`](/de/docs/Web/API/Animation) Objekten zurück, die derzeit ein Element beeinflussen oder in Zukunft geplant sind.
+  - : Gibt ein Array von [`Animation`](/de/docs/Web/API/Animation) Objekten zurück, die derzeit ein Element beeinflussen oder dies in Zukunft tun werden.
 
 ## Spezifikationen
 
@@ -50,9 +50,9 @@ Die Web Animations API fügt dem [`document`](/de/docs/Web/API/Document) und dem
 
 ## Siehe auch
 
-- CSS {{cssxref("animation")}} Kurzschreibweise
+- CSS {{cssxref("animation")}} Shorthand-Eigenschaft
 - CSS {{cssxref("animation-timeline")}} Eigenschaft
-- [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- [CSS Animations](/de/docs/Web/CSS/CSS_animations) Modul
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul
+- [Using the Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
+- [Using CSS animations](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS animations](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul

@@ -8,8 +8,10 @@ l10n:
 
 {{ apiref("CSSOM") }}
 
-Die schreibgeschützte Eigenschaft **`TransitionEvent.elapsedTime`** ist ein
-`float`, der die Zeit in Sekunden angibt, wie lange die Animation zum Zeitpunkt des Eintreffens dieses Ereignisses bereits läuft. Dieser Wert wird nicht durch die Eigenschaft {{cssxref("transition-delay")}} beeinflusst.
+Die **`TransitionEvent.elapsedTime`** schreibgeschützte Eigenschaft ist ein
+`float`, der die Zeitspanne angibt, wie lange die Animation im Zeitpunkt des Auslösens dieses Ereignisses bereits läuft, in Sekunden.
+Dieser Wert wird nicht von der {{cssxref("transition-delay")}}
+Eigenschaft beeinflusst.
 
 ## Wert
 

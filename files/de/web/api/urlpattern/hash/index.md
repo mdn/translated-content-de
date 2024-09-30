@@ -8,15 +8,20 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`hash`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein String, der das Muster enthält, das verwendet wird, um den Fragmentteil einer URL zu matchen. Dieser Wert kann aufgrund von Normalisierung von der Eingabe des Konstruktors abweichen.
+Die **`hash`**-Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist eine
+schreibgeschützte Zeichenkette, die das Muster enthält, das verwendet wird, um den Fragmentteil
+einer URL zu entsprechen. Dieser Wert kann sich aufgrund von
+Normalisierung von der Eingabe des Konstruktors unterscheiden.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `books/:id` für den `hash`-Teil. Dieses Muster matcht jedes Fragment, das mit `books/` beginnt und mit einem beliebigen Zeichenfolgen-Identifikator endet.
+Das untenstehende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `books/:id`
+für den `hash`-Teil. Dieses Muster entspricht jedem Fragment, das mit `books/`
+beginnt und mit einem beliebigen stringbasierten Bezeichner endet.
 
 ```js
 const pattern = new URLPattern("https://example.org#books/:id");

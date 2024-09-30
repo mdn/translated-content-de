@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `HistoryItem`-Objekt liefert Informationen über eine Seite im Browser-Verlauf.
+Ein `HistoryItem`-Objekt liefert Informationen über eine Seite in der Browser-Historie.
 
 ## Typ
 
@@ -22,7 +22,7 @@ Dies ist ein Objekt mit den folgenden Eigenschaften:
 - `lastVisitTime` {{optional_inline}}
   - : `number`. Das Datum und die Uhrzeit, wann die Seite zuletzt geladen wurde, dargestellt in Millisekunden seit der Epoche.
 - `visitCount` {{optional_inline}}
-  - : `number`. Die Anzahl der Besuche, die der Benutzer auf der Seite getätigt hat.
+  - : `number`. Die Anzahl der Besuche der Seite durch den Benutzer.
 - `typedCount` {{optional_inline}}
   - : `number`. Die Anzahl der Male, die der Benutzer zu dieser Seite navigiert hat, indem er die Adresse eingegeben hat.
 

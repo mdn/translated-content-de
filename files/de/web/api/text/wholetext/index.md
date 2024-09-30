@@ -8,10 +8,10 @@ l10n:
 
 {{ apiref("DOM") }}
 
-Die schreibgeschützte **`wholeText`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle gibt den vollständigen Text aller logisch angrenzenden [`Text`](/de/docs/Web/API/Text)-Knoten des Knotens zurück. Der Text wird in Dokumentreihenfolge verkettet. Dies ermöglicht es, einen beliebigen Textknoten anzugeben und den gesamten angrenzenden Text als einen einzigen String zu erhalten.
+Die schreibgeschützte **`wholeText`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle gibt den vollständigen Text aller logisch benachbarten [`Text`](/de/docs/Web/API/Text)-Knoten zum Knoten zurück. Der Text wird in Dokumentreihenfolge verkettet. Dies ermöglicht es, einen beliebigen Textknoten anzugeben und den gesamten benachbarten Text als einzelnen String zu erhalten.
 
 > [!NOTE]
-> Dies ist ähnlich wie ein Aufruf von [`Node.normalize()`](/de/docs/Web/API/Node/normalize), gefolgt vom Lesen des Textwertes, jedoch ohne den Baum zu verändern.
+> Dies ist ähnlich wie ein Aufruf von [`Node.normalize()`](/de/docs/Web/API/Node/normalize) gefolgt vom Lesen des Textwerts, jedoch ohne den Baum zu ändern.
 
 ## Wert
 
@@ -30,19 +30,19 @@ Angenommen, Sie haben den folgenden einfachen Absatz auf Ihrer Webseite:
 </p>
 ```
 
-Sie entscheiden, dass Ihnen der mittlere Satz nicht gefällt, also entfernen Sie ihn:
+Sie entscheiden sich, den mittleren Satz nicht zu mögen, also entfernen Sie ihn:
 
 ```js
 const paragraph = document.querySelector("p"); // Reads the paragraph
 paragraph.removeChild(paragraph.childNodes[1]); // Delete the strong element
 ```
 
-Nun haben Sie _"Through-hiking is great! However, casting a ballot is tricky."_, mit zwei Knoten vor dem Hyperlink:
+Jetzt haben Sie _"Through-hiking is great! However, casting a ballot is tricky."_, mit zwei Knoten vor dem Hyperlink:
 
-1. Ein [`Text`](/de/docs/Web/API/Text), der den String `"Through-hiking is great!"` enthält.
-2. Ein zweiter `Text`-Knoten, der den String `" However, "` enthält.
+1. Ein [`Text`](/de/docs/Web/API/Text)-Knoten, der die Zeichenkette `"Through-hiking is great!"` enthält
+2. Ein zweiter `Text`-Knoten, der die Zeichenkette `" However, "` enthält
 
-Um diese zwei Knoten auf einmal zu erhalten, würden Sie `paragraph.childNodes[0].wholeText` aufrufen:
+Um diese beiden Knoten auf einmal zu erhalten, würden Sie `paragraph.childNodes[0].wholeText` aufrufen:
 
 ```js
 console.log(`'${paragraph.childNodes[0].wholeText}'`); // 'Through-hiking is great!   However, '

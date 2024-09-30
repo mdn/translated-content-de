@@ -1,5 +1,5 @@
 ---
-title: "SVGMarkerElement: preserveAspectRatio Eigenschaft"
+title: "SVGMarkerElement: preserveAspectRatio-Eigenschaft"
 short-title: preserveAspectRatio
 slug: Web/API/SVGMarkerElement/preserveAspectRatio
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`preserveAspectRatio`** schreibgeschützte Eigenschaft der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle gibt ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt zurück, das den Wert des {{SVGattr("preserveAspectRatio")}}-Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte **`preserveAspectRatio`**-Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt zurück, das den Wert des {{SVGattr("preserveAspectRatio")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 ## Wert
 
-Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)-Objekt mit den folgenden Eigenschaften zurück:
+Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)-Objekt zurück, mit den folgenden Eigenschaften:
 
 - `align`
 
@@ -54,7 +54,7 @@ Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspec
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die numerischen Konstanten für `align` und `meetOrSlice` zurückgegeben werden, die sich auf die für das {{SVGattr("preserveAspectRatio")}}-Attribut des {{SVGElement("marker")}} festgelegten Werte beziehen.
+Dieses Beispiel zeigt, wie die numerischen Konstanten für `align` und `meetOrSlice` zurückgegeben werden, die sich auf die Werte beziehen, die für das {{SVGattr("preserveAspectRatio")}}-Attribut von {{SVGElement("marker")}} festgelegt wurden.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`head`**-Eigenschaft des schreibgeschützten [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das {{HTMLElement("head")}}-Element des aktuellen Dokuments zurück.
+Die **`head`** schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das {{HTMLElement("head")}}-Element des aktuellen Dokuments zurück.
 
 ## Wert
 
@@ -31,9 +31,9 @@ Ein [`HTMLHeadElement`](/de/docs/Web/API/HTMLHeadElement).
 </script>
 ```
 
-## Hinweise
+## Anmerkungen
 
-`document.head` ist schreibgeschützt. Der Versuch, dieser Eigenschaft einen Wert zuzuweisen, schlägt stillschweigend fehl oder löst im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}} aus.
+`document.head` ist schreibgeschützt. Der Versuch, dieser Eigenschaft einen Wert zuzuweisen, schlägt stillschweigend fehl oder wirft im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}}.
 
 ## Spezifikationen
 

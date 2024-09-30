@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`opacity`**-Attribut spezifiziert die Transparenz eines Objekts oder einer Gruppe von Objekten, also das Maß, in dem der Hintergrund hinter dem Element überlagert wird.
+Das **`opacity`**-Attribut spezifiziert die Transparenz eines Objekts oder einer Gruppe von Objekten, das heißt, in welchem Maße der Hintergrund hinter dem Element überlagert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `opacity` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("opacity")}}-Eigenschaft.
+> Als Präsentationsattribut kann `opacity` als CSS-Eigenschaft verwendet werden. Siehe die CSS {{cssxref("opacity")}} Eigenschaft für weitere Informationen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,7 +34,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-Im Gegensatz zu {{SVGAttr("fill-opacity")}}, {{SVGAttr("stroke-opacity")}} und {{SVGAttr("stop-opacity")}}, die auf einzelne Operationen angewendet werden und _wenn_ das Element gerendert wird, angewendet werden, wird `opacity` auf ganze Objekte oder Gruppen angewendet und ist eher wie eine Nachbearbeitungsoperation auf dem gerenderten Bild des Objekts oder der Gruppe. Daher, wenn Sie sowohl `opacity` als auch die anderen Opazitätsattribute im gleichen Bereich haben, werden sie übereinander gelegt und führen dazu, dass die Opazität multipliziert wird.
+Im Gegensatz zu {{SVGAttr("fill-opacity")}}, {{SVGAttr("stroke-opacity")}}, und {{SVGAttr("stop-opacity")}}, die auf einzelne Operationen angewendet werden und _während_ der Darstellung des Elements gerendert werden, wird `opacity` auf ganze Objekte oder Gruppen angewendet und verhält sich mehr wie ein Nachbearbeitungsschritt auf dem gerenderten Bild des Objekts oder der Gruppe. Daher werden, wenn Sie sowohl `opacity` als auch andere Transparenzattribute im selben Bereich haben, diese übereinandergelegt und bewirken, dass die Transparenz multipliziert wird.
 
 ## Beispiel
 
@@ -62,7 +62,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -82,7 +82,7 @@ svg {
 </table>
 
 - `<alpha-value>`
-  - : Die einheitliche Opazitätseinstellung, die über ein gesamtes Objekt hinweg angewendet wird, als {{cssxref("number")}}. Alle Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden auf diesen Bereich beschränkt.
+  - : Die einheitliche Einstellung der Transparenz, die auf ein gesamtes Objekt angewendet wird, als {{cssxref("number")}}. Jegliche Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich beschränkt.
 
 ## Spezifikationen
 

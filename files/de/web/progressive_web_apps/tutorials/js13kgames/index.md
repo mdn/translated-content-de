@@ -9,10 +9,10 @@ l10n:
 
 {{PWASidebar}}
 
-In diesem Tutorial werden wir den Quellcode einer Website untersuchen, die Informationen über Spiele auflistet, die in der _A-Frame_-Kategorie beim [js13kGames 2017](https://2017.js13kgames.com/) Wettbewerb eingereicht wurden. Sie müssen sich keine Gedanken über den tatsächlichen Inhalt der Website machen; der Hauptfokus liegt darauf, zu lernen, wie man PWA-Funktionen in Ihren eigenen Projekten verwendet.
+In diesem Tutorial werden wir den Quellcode einer Website untersuchen, die Informationen über Spiele auflistet, die in der _A-Frame_-Kategorie des [js13kGames 2017](https://2017.js13kgames.com/) Wettbewerbs eingereicht wurden. Sie müssen sich keine Gedanken darüber machen, was der eigentliche Inhalt der Website ist; der Hauptpunkt ist zu lernen, wie Sie PWA-Features in Ihren eigenen Projekten einsetzen können.
 
-Sie können [diese App in Aktion sehen](https://mdn.github.io/pwa-examples/js13kpwa/) und der Quellcode ist [auf GitHub verfügbar](https://github.com/mdn/pwa-examples/tree/main/js13kpwa). Wir werden diesen Code im Verlauf dieses Tutorials sorgfältig untersuchen.
+Sie können sich [diese App in Aktion ansehen](https://mdn.github.io/pwa-examples/js13kpwa/) und der Quellcode ist [auf GitHub verfügbar](https://github.com/mdn/pwa-examples/tree/main/js13kpwa). Wir werden diesen Code im Laufe dieses Tutorials sorgfältig untersuchen.
 
-Lassen Sie uns mit der Struktur unserer Beispiel-App beginnen.
+Lassen Sie uns damit beginnen, die Struktur unserer Beispiel-App zu betrachten.
 
 {{NextMenu("Web/Progressive_web_apps/Tutorials/js13kGames/App_structure", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

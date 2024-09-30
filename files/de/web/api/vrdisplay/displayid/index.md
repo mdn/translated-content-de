@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`displayId`** des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces gibt einen Bezeichner für dieses spezielle `VRDisplay` zurück, der auch als Assoziationspunkt in der [Gamepad API](/de/docs/Web/API/Gamepad_API) verwendet wird (siehe [`Gamepad.displayId`](/de/docs/Web/API/Gamepad/displayId)).
+Die **`displayId`**-Eigenschaft des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Kennung für dieses spezielle `VRDisplay` zurückgibt. Diese Kennung wird auch als Verbindungspunkt in der [Gamepad API](/de/docs/Web/API/Gamepad_API) verwendet (siehe [`Gamepad.displayId`](/de/docs/Web/API/Gamepad/displayId)).
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
@@ -25,7 +25,7 @@ Siehe [`VRDisplayCapabilities`](/de/docs/Web/API/VRDisplayCapabilities#examples)
 
 Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Portierungs-Leitfaden von Meta von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Porting von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/)-Leitfaden von Meta für mehr Informationen.
 
 ## Browser-Kompatibilität
 

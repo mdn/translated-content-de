@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`releasePointerCapture()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle löst (stoppt) eine zuvor gesetzte [_Zeigererfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent))-Zeiger auf.
+Die **`releasePointerCapture()`**-Methode der
+[`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine zuvor gesetzte [_Zeigererfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent)) _Zeiger_ frei (stoppt sie).
 
 ## Syntax
 
@@ -29,11 +30,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `pointerId` keinem aktiven Zeiger entspricht.
+  - : Wird ausgelöst, wenn `pointerId` mit keinem aktiven Zeiger übereinstimmt.
 
 ## Beispiele
 
-Dieses Beispiel setzt die Zeigererfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, selbst wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
+Dieses Beispiel setzt die Zeigererfassung auf einem {{HtmlElement("div")}}, wenn man darauf drückt. Dies ermöglicht es Ihnen, das Element horizontal zu verschieben, selbst wenn sich Ihr Zeiger außerhalb seiner Grenzen bewegt.
 
 ### HTML
 
@@ -93,4 +94,4 @@ slider.onpointerup = stopSliding;
 
 - [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
 - [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
-- [Pointer events](/de/docs/Web/API/Pointer_events)
+- [Zeigerereignisse](/de/docs/Web/API/Pointer_events)

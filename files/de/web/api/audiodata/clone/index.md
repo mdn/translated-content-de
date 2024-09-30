@@ -1,5 +1,5 @@
 ---
-title: "AudioData: clone() Methode"
+title: "AudioData: clone()-Methode"
 short-title: clone()
 slug: Web/API/AudioData/clone
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`clone()`**-Methode der [`AudioData`](/de/docs/Web/API/AudioData)-Schnittstelle erstellt ein neues `AudioData`-Objekt, das auf dieselbe Medienressource wie das Original verweist.
+Die **`clone()`**-Methode der [`AudioData`](/de/docs/Web/API/AudioData)-Schnittstelle erstellt ein neues `AudioData`-Objekt mit Verweis auf dieselbe Medienressource wie das Original.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Das geklonte [`AudioData`](/de/docs/Web/API/AudioData)-Objekt.
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das `AudioData`-Objekt [transferiert](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
+  - : Wird ausgelöst, wenn das `AudioData`-Objekt [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
 
 ## Beispiele
 

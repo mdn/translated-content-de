@@ -11,7 +11,7 @@ l10n:
 Die **`frequency`**-Eigenschaft der [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Frequenz der Oszillation in Hertz darstellt.
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es repräsentiert, dies nicht.
 
 ## Wert
 

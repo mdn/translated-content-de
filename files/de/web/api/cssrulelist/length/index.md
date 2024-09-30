@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`length`**-Eigenschaft der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Schnittstelle gibt die Anzahl der [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekte in der Liste zurück.
+Die **`length`**-Eigenschaft des [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Interfaces gibt die Anzahl der [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekte in der Liste zurück.
 
 ## Wert
 

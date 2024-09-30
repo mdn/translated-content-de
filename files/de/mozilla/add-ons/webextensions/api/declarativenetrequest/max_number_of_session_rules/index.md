@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von sitzungsgebundenen Regeln, die eine Erweiterung hinzufügen kann.
+Die maximale Anzahl von sitzungsgesteuerten Regeln, die eine Erweiterung hinzufügen kann.
 
 Dieses Limit beträgt:
 

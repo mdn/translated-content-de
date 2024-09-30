@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`y`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die y-Achsenkoordinate der oberen linken Ecke der SVG {{SVGElement("rect")}} Form, des {{SVGElement("image")}} Bildes, des {{SVGElement("foreignObject")}} Ansichtsfensters und des verschachtelten {{SVGElement("svg")}} Ansichtsfensters relativ zum nächsten `<svg>` Vorfahren im Benutzer-[Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems). Wenn vorhanden, überschreibt sie das {{SVGAttr("y")}} Attribut des Elements.
+Die **`y`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die y-Achsen-Koordinate der oberen linken Ecke der SVG {{SVGElement("rect")}} Form, des {{SVGElement("image")}} Bildes, des {{SVGElement("foreignObject")}} Viewports und des verschachtelten {{SVGElement("svg")}} Viewports relativ zum Benutzer- [Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) des nächstgelegenen `<svg>` Vorfahren. Wenn vorhanden, überschreibt sie das {{SVGAttr("y")}} Attribut des Elements.
 
 > [!NOTE]
-> Die `y` Eigenschaft gilt nur für {{SVGElement("rect")}}, {{SVGElement("image")}}, {{SVGElement("foreignObject")}} und {{SVGElement("svg")}} Elemente, die in einem `<svg>` verschachtelt sind. Sie hat keine Wirkung auf äußerste `<svg>` Elemente und gilt nicht für andere SVG-Elemente oder HTML-Elemente und Pseudoelemente.
+> Die `y` Eigenschaft gilt nur für {{SVGElement("rect")}}, {{SVGElement("image")}}, {{SVGElement("foreignObject")}} und {{SVGElement("svg")}} Elemente, die in einem `<svg>` verschachtelt sind. Sie hat keine Auswirkung auf äußerste `<svg>` Elemente und gilt nicht für andere SVG-Elemente, noch für HTML-Elemente oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,15 +29,15 @@ y: unset;
 
 ### Werte
 
-Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte geben die Position der y-Achsenkoordinate der oberen linken Ecke des SVG-Elements an.
+Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte geben die y-Achsen-Koordinatenposition der oberen linken Ecke des SVG-Elements an.
 
 - {{cssxref("length")}}
 
-  - : Als absolute oder relative Länge kann sie in jeder Einheit ausgedrückt werden, die vom CSS-Datentyp {{cssxref("&lt;length&gt;")}} erlaubt ist.
+  - : Als absolute oder relative Länge kann sie in jeder vom CSS {{cssxref("&lt;length&gt;")}} Datentyp zugelassenen Einheit ausgedrückt werden.
 
 - {{cssxref("percentage")}}
 
-  - : Prozentsätze beziehen sich auf die Höhe der SVG {{SVGAttr("viewBox")}}, falls deklariert, andernfalls bezieht sich der Prozentsatz auf die Höhe des aktuellen SVG-Ansichtsfensters.
+  - : Prozentsätze beziehen sich auf die Höhe des SVG {{SVGAttr("viewBox")}}, falls deklariert; andernfalls bezieht sich der Prozentsatz auf die Höhe des aktuellen SVG-Viewports.
 
 ## Formale Definition
 
@@ -49,13 +49,13 @@ Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte geben die Position
 
 ## Beispiele
 
-### Definierung der y-Achsenkoordinaten von SVG-Formen
+### Definieren der y-Achsen-Koordinaten von SVG-Formen
 
-Dieses Beispiel zeigt den grundlegenden Anwendungsfall von `y` und wie die CSS `y` Eigenschaft gegenüber dem `y` Attribut Vorrang hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `y` und wie die CSS `y` Eigenschaft Vorrang vor dem `y` Attribut hat.
 
 #### HTML
 
-Wir fügen vier identische SVG `<rect>` Elemente ein; ihre {{SVGAttr("x")}} und `y` Attributwerte sind alle `10`, was bedeutet, dass die vier Rechtecke sich alle an derselben Position, `10px` vom oberen und linken Rand des SVG-Ansichtsfensters befinden.
+Wir fügen vier identische SVG `<rect>` Elemente ein; deren {{SVGAttr("x")}} und `y` Attributwerte sind alle `10`, was bedeutet, dass sich die vier Rechtecke alle an derselben Stelle befinden, `10px` von der oberen und linken Ecke des SVG-Viewports entfernt.
 
 ```html
 <svg>
@@ -68,7 +68,7 @@ Wir fügen vier identische SVG `<rect>` Elemente ein; ihre {{SVGAttr("x")}} und 
 
 #### CSS
 
-Wir gestalten alle Rechtecke so, dass sie einen schwarzen Rahmen haben und leicht transparent sind, sodass sich überlappende Rechtecke sichtbar sind. Wir versehen das Rechteck mit unterschiedlichen {{cssxref("fill")}} und `y` Werten.
+Wir gestalten alle Rechtecke mit einem schwarzen Rand und leicht transparent, damit überlappende Rechtecke sichtbar sind. Wir geben dem Rechteck unterschiedliche {{cssxref("fill")}} und `y` Werte.
 
 ```css
 svg {
@@ -99,9 +99,9 @@ rect:nth-of-type(4) {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Definierung der y-Achsenkoordinate von SVG-Formen", "300", "180")}}
+{{EmbedLiveSample("Definieren der y-Achsen-Koordinate von SVG-Formen", "300", "180")}}
 
-Die oberen Kanten der Rechtecke befinden sich bei `10` (vom Attribut), `-20px`, `4em` und `60%`. Das Rechteck ist `40px` hoch, daher platziert das `-20px` die Hälfte des roten Rechtecks außerhalb des Ansichtsfensters. Das SVG ist `150px` hoch, sodass die Oberkante des orangefarbenen Rechtecks `90px` vom oberen Rand des SVG-Ansichtsfensters entfernt ist.
+Die oberen Kanten der Rechtecke liegen jeweils bei `10` (vom Attribut), `-20px`, `4em` und `60%`. Das Rechteck ist `40px` hoch, somit befindet sich die Hälfte des roten Rechtecks bei `-20px` außerhalb des Viewports. Das SVG ist `150px` hoch, sodass die obere Seite des orangefarbenen Rechtecks `90px` von der Oberseite des SVG-Viewports entfernt ist.
 
 ## Spezifikationen
 
@@ -114,7 +114,7 @@ Die oberen Kanten der Rechtecke befinden sich bei `10` (vom Attribut), `-20px`, 
 ## Siehe auch
 
 - SVG {{SVGAttr("y")}} Attribut
-- Geometrie-Eigenschaften: `y`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- Geometrieeigenschaften: `y`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("width")}}, {{cssxref("height")}}
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}

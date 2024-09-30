@@ -1,5 +1,5 @@
 ---
-title: "UserActivation: hasBeenActive-Eigenschaft"
+title: "UserActivation: Eigenschaft hasBeenActive"
 short-title: hasBeenActive
 slug: Web/API/UserActivation/hasBeenActive
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`hasBeenActive`**-Eigenschaft der [`UserActivation`](/de/docs/Web/API/UserActivation)-Schnittstelle zeigt an, ob das aktuelle Fenster eine [sticky user activation](/de/docs/Glossary/sticky_activation) hat.
+Die schreibgeschützte **`hasBeenActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine [sticky user activation](/de/docs/Glossary/sticky_activation) aufweist.
 
 ## Wert
 
-Ein boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
-### Überprüfung, ob eine Benutzeraktion jemals ausgeführt wurde
+### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
 
 Verwenden Sie die `hasBeenActive`-Eigenschaft, um zu überprüfen, ob der Benutzer seit dem Laden der Seite mit dieser interagiert hat.
 

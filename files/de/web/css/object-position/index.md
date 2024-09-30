@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Rahmens des Elements fest. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
+Die **`object-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Element-Box fest. Bereiche der Box, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
 
-Sie können anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (d.h. seine natürliche Größe) angepasst wird, um in den Rahmen des Elements zu passen, indem Sie die {{cssxref("object-fit")}} Eigenschaft verwenden.
+Sie können die Anpassung der intrinsischen Größe des Objekts des ersetzten Elements (also seine natürliche Größe) an die Box des Elements mit der Eigenschaft {{cssxref("object-fit")}} anpassen.
 
 {{EmbedInteractiveExample("pages/css/object-position.html")}}
 
@@ -47,10 +47,10 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Von einem bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
+  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Verschiebungen können verwendet werden.
 
 > [!NOTE]
-> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
+> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seiner Box gezeichnet wird.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ object-position: unset;
 
 #### HTML
 
-Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jeweils das MDN-Logo anzeigen.
+Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die jeweils das MDN-Logo anzeigen.
 
 ```html
 <img id="object-position-1" src="mdn.svg" alt="MDN Logo" />
@@ -75,7 +75,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jewe
 
 #### CSS
 
-Das CSS enthält die Standard-Stilvorlage für das `<img>` Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält Standardstile für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -96,7 +96,7 @@ img {
 }
 ```
 
-Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel von der linken Kante des Rahmens des Elements entfernt ist. Das zweite Bild ist so positioniert, dass seine rechte Kante bündig an der rechten Kante des Rahmens des Elements liegt und 10% der Höhe des Rahmens des Elements nach unten positioniert ist.
+Das erste Bild ist mit seinem linken Rand 10 Pixel vom linken Rand der Element-Box eingezogen. Das zweite Bild ist mit seinem rechten Rand bündig gegen den rechten Rand der Element-Box positioniert und befindet sich 10 % der Höhe der Element-Box nach unten.
 
 #### Ergebnis
 

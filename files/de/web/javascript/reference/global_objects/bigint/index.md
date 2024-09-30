@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-**`BigInt`**-Werte repräsentieren numerische Werte, die [zu groß](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) sind, um durch das `number`- [Primitive](/de/docs/Glossary/Primitive) dargestellt zu werden.
+**`BigInt`**-Werte repräsentieren numerische Werte, die [zu groß](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) sind, um durch den `number`-Primitivtyp dargestellt zu werden.
 
 ## Beschreibung
 
-Ein **BigInt-Wert**, auch einfach nur **BigInt** genannt, ist ein `bigint` [Primitive](/de/docs/Glossary/Primitive), das erzeugt wird, indem `n` an das Ende eines ganzen Zahlen-Literals angehängt wird, oder durch Aufruf der {{jsxref("BigInt/BigInt", "BigInt()")}}-Funktion (ohne den `new`-Operator) und Angabe eines Ganzzahl- oder Zeichenkettenwerts.
+Ein **BigInt-Wert**, manchmal einfach nur **BigInt** genannt, ist ein `bigint`-[Primitiv](/de/docs/Glossary/Primitive), der erstellt wird, indem man an das Ende eines Integer-Literals ein `n` anhängt oder indem die {{jsxref("BigInt/BigInt", "BigInt()")}}-Funktion (ohne den `new`-Operator) aufgerufen und ein Integer- oder String-Wert übergeben wird.
 
 ```js
 const previouslyMaxSafeInteger = 9007199254740991n;
@@ -34,18 +34,18 @@ const hugeBin = BigInt(
 // 9007199254740991n
 ```
 
-BigInt-Werte sind in gewisser Weise ähnlich wie Number-Werte, unterscheiden sich jedoch in einigen wichtigen Aspekten: Ein BigInt-Wert kann nicht mit Methoden im eingebauten [`Math`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math)-Objekt verwendet werden und kann nicht mit einem Number-Wert in Operationen gemischt werden; sie müssen in denselben Typ umgewandelt werden. Seien Sie jedoch vorsichtig beim Umwandeln von Werten, da die Präzision eines BigInt-Werts verloren gehen kann, wenn er in einen Number-Wert umgewandelt wird.
+BigInt-Werte sind in einigen Aspekten ähnlich zu Number-Werten, unterscheiden sich jedoch in einigen Schlüsselbereichen: Ein BigInt-Wert kann nicht mit Methoden des eingebauten [`Math`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math)-Objekts verwendet werden und kann in Operationen nicht mit einem Number-Wert gemischt werden; sie müssen in denselben Typ umgewandelt werden. Seien Sie vorsichtig, wenn Sie Werte hin und her umwandeln, da die Genauigkeit eines BigInt-Werts verloren gehen kann, wenn er in einen Number-Wert umgewandelt wird.
 
 ### Typinformationen
 
-Wird `typeof` gegen einen BigInt-Wert (`bigint`-Primitive) getestet, gibt dies `"bigint"` zurück:
+Wenn BigInt-Werte (`bigint`-Primitiv) gegen `typeof` getestet werden, geben sie `"bigint"` zurück:
 
 ```js
 typeof 1n === "bigint"; // true
 typeof BigInt("1") === "bigint"; // true
 ```
 
-Ein BigInt-Wert kann auch in einem `Object` gekapselt werden:
+Ein BigInt-Wert kann auch in ein `Object` verpackt werden:
 
 ```js
 typeof Object(1n) === "object"; // true
@@ -53,27 +53,27 @@ typeof Object(1n) === "object"; // true
 
 ### Operatoren
 
-Die meisten Operatoren unterstützen BigInts, jedoch erlauben die meisten keine Operanden unterschiedlicher Typen — beide Operanden müssen BigInt sein oder keiner:
+Die meisten Operatoren unterstützen BigInts, jedoch erlauben die meisten nicht, Operanden gemischter Typen zu verwenden — beide Operanden müssen BigInt sein oder keiner:
 
 - [Arithmetische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#arithmetic_operators): `+`, `-`, `*`, `/`, `%`, `**`
 - [Bitweise Operatoren](/de/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators): `>>`, `<<`, `&`, `|`, `^`, `~`
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Inkrement/Dekrement](/de/docs/Web/JavaScript/Reference/Operators#increment_and_decrement): `++`, `--`
 
-Die Boolesche Rückgabe-Operatoren erlauben das Mischen von Zahlen und BigInts als Operanden:
+Die booleschen Operatoren erlauben das Mischen von Zahlen und BigInts als Operanden:
 
 - [Relationale Operatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators) und [Gleichheitsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators): `>`, `<`, `>=`, `<=`, `==`, `!=`, `===`, `!==`
-- [Logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) basieren nur auf der [Wahrhaftigkeit](/de/docs/Glossary/Truthy) der Operanden
+- [Logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) verlassen sich nur auf die [Wahrheit](/de/docs/Glossary/Truthy) der Operanden
 
 Ein paar Operatoren unterstützen BigInt überhaupt nicht:
 
-- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus) kann nicht unterstützt werden wegen des widersprüchlichen Gebrauchs in asm.js, daher wurde es weggelassen [um asm.js nicht zu unterbrechen](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
-- [Unsigned Right Shift (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) ist der einzige nicht unterstützte bitweise Operator, da jeder BigInt-Wert signiert ist.
+- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus) kann aufgrund widersprüchlicher Nutzung in asm.js nicht unterstützt werden, daher wurde es ausgelassen [um asm.js nicht zu brechen](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
+- [Unsigned Right Shift (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) ist der einzige bitweise Operator, der nicht unterstützt wird, da jeder BigInt-Wert signiert ist.
 
 Spezialfälle:
 
-- Eine Addition (`+`), die eine Zeichenkette und ein BigInt beinhaltet, gibt eine Zeichenkette zurück.
-- Eine Division (`/`) kürzt gebrochene Komponenten zum Nullpunkt, da BigInt keine gebrochenen Mengen darstellen kann.
+- Eine Addition (`+`), die einen String und ein BigInt umfasst, gibt einen String zurück.
+- Eine Division (`/`) schneidet gebrochene Anteile auf Null ab, da BigInt nicht in der Lage ist, Bruchwerte darzustellen.
 
 ```js
 const previousMaxSafe = BigInt(Number.MAX_SAFE_INTEGER); // 9007199254740991n
@@ -90,14 +90,14 @@ const truncated = 5n / 2n; // 2n, not 2.5n
 
 ### Vergleiche
 
-Ein BigInt-Wert ist nicht streng gleich einem Number-Wert, aber es _ist_ lose so:
+Ein BigInt-Wert ist nicht streng gleich einem Number-Wert, aber er ist _locker_ gleich:
 
 ```js
 0n === 0; // false
 0n == 0; // true
 ```
 
-Ein Number-Wert und ein BigInt-Wert können wie gewohnt verglichen werden:
+Ein Number-Wert und ein BigInt-Wert können wie üblich verglichen werden:
 
 ```js
 1n < 2; // true
@@ -125,7 +125,7 @@ mixed.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 // [ -12n, 0, 0n, 4n, 4, 6, 10 ]
 ```
 
-Beachten Sie, dass Vergleiche mit `Object`-eingewickelten BigInt-Werten wie bei anderen Objekten nur dann Gleichheit anzeigen, wenn dieselbe Objektinstanz verglichen wird:
+Beachten Sie, dass Vergleiche mit `Object`-verpackten BigInt-Werten wie bei anderen Objekten nur Gleichheit anzeigen, wenn dieselbe Objektinstanz verglichen wird:
 
 ```js
 Object(0n) === 0n; // false
@@ -135,20 +135,20 @@ const o = Object(0n);
 o === o; // true
 ```
 
-Da die Umwandlung zwischen Number-Werten und BigInt-Werten zu einem Präzisionsverlust führen kann, wird Folgendes empfohlen:
+Da das Umwandeln zwischen Number-Werten und BigInt-Werten zu einem Verlust an Genauigkeit führen kann, wird Folgendes empfohlen:
 
-- Verwenden Sie einen BigInt-Wert nur, wenn Werte größer als 2<sup>53</sup> vernünftigerweise erwartet werden.
-- Konvertieren Sie nicht zwischen BigInt-Werten und Number-Werten.
+- Verwenden Sie einen BigInt-Wert nur, wenn Werte größer als 2<sup>53</sup> zu erwarten sind.
+- Vermeiden Sie Umwandlungen zwischen BigInt-Werten und Number-Werten.
 
-### Bedingte Ausdrücke
+### Bedingte Anweisungen
 
 Ein BigInt-Wert folgt denselben Umwandlungsregeln wie Numbers, wenn:
 
-- er in eine [`Boolean`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean) umgewandelt wird: über die [`Boolean`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)-Funktion;
-- wenn er mit [logischen Operatoren](/de/docs/Web/JavaScript/Reference/Operators) `||`, `&&`, und `!` verwendet wird; oder
+- er in ein [`Boolean`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean) umgewandelt wird: über die [`Boolean`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)-Funktion;
+- er mit [logischen Operatoren](/de/docs/Web/JavaScript/Reference/Operators) `||`, `&&` und `!` verwendet wird; oder
 - innerhalb eines bedingten Tests wie einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung.
 
-Nämlich, nur `0n` ist [falsch](/de/docs/Glossary/Falsy); alles andere ist [wahr](/de/docs/Glossary/Truthy).
+Namens, nur `0n` ist [falsch](/de/docs/Glossary/Falsy); alles andere ist [wahrhaftig](/de/docs/Glossary/Truthy).
 
 ```js
 if (0n) {
@@ -168,11 +168,11 @@ Boolean(12n); // true
 
 ### Kryptographie
 
-Die auf BigInt-Werten unterstützten Operationen sind nicht konstantzeitlich und sind daher anfällig für [Zeitangriffe](https://en.wikipedia.org/wiki/Timing_attack). JavaScript BigInts könnten daher gefährlich für den Einsatz in der Kryptographie sein, ohne Abhilfemaßnahmen zu ergreifen. Als ein sehr generisches Beispiel könnte ein Angreifer den Zeitunterschied zwischen `101n ** 65537n` und `17n ** 9999n` messen und die Größe von Geheimnissen, wie z.B. privaten Schlüsseln, basierend auf der verstrichenen Zeit ableiten. Wenn Sie dennoch BigInts verwenden müssen, werfen Sie einen Blick auf die [Timing Attack FAQ](https://timing.attacks.cr.yp.to/programming.html) für allgemeine Ratschläge zu diesem Thema.
+Die auf BigInt-Werten unterstützten Operationen sind nicht konstant in ihrer Ausführungszeit und sind daher anfällig für [Timing-Attacken](https://de.wikipedia.org/wiki/Timing_Attack). JavaScript-BigInts könnten daher gefährlich sein, um in der Kryptographie verwendet zu werden, ohne mindernde Faktoren. Als ein sehr generisches Beispiel könnte ein Angreifer den Zeitunterschied zwischen `101n ** 65537n` und `17n ** 9999n` messen und aus der verstrichenen Zeit die Größen der Geheimnisse, wie private Schlüssel, ableiten. Falls Sie dennoch BigInts verwenden müssen, sehen Sie sich den [Timing-Attack-FAQ](https://timing.attacks.cr.yp.to/programming.html) für allgemeine Ratschläge zu diesem Thema an.
 
-### Verwendung mit JSON
+### Verwendung innerhalb von JSON
 
-Die Verwendung von [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) mit einem BigInt-Wert wird einen `TypeError` auslösen, da BigInt-Werte standardmäßig nicht in JSON serialisiert werden. `JSON.stringify()` lässt jedoch speziell eine Hintertür für BigInt-Werte offen: Es versucht die `toJSON()`-Methode des BigInt aufzurufen. (Es tut dies für keine anderen primitiven Werte.) Daher können Sie Ihre eigene `toJSON()`-Methode implementieren (dies ist einer der wenigen Fälle, in denen die Patch-Verfahren eingebauter Objekte nicht explizit entmutigt werden):
+Die Verwendung von [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) mit einem BigInt-Wert führt zu einem `TypeError`, da BigInt-Werte standardmäßig nicht in JSON serialisiert werden. `JSON.stringify()` lässt jedoch speziell eine Hintertür für BigInt-Werte: Es versucht die `toJSON()`-Methode des BigInts aufzurufen. (Dies geschieht bei anderen primitiven Werten nicht.) Sie können daher Ihre eigene `toJSON()`-Methode implementieren (was einer der wenigen Fälle ist, bei dem das Patchen von eingebauten Objekten nicht explizit entmutigt wird):
 
 ```js
 BigInt.prototype.toJSON = function () {
@@ -180,14 +180,14 @@ BigInt.prototype.toJSON = function () {
 };
 ```
 
-Statt zu werfen, erzeugt `JSON.stringify()` jetzt einen solchen String:
+Anstatt einen Fehler auszulösen, erzeugt `JSON.stringify()` nun einen String wie diesen:
 
 ```js
 console.log(JSON.stringify({ a: 1n }));
 // {"a":{"$bigint":"1"}}
 ```
 
-Wenn Sie `BigInt.prototype` nicht patchen möchten, können Sie den [`replacer`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#the_replacer_parameter)-Parameter von `JSON.stringify` verwenden, um BigInt-Werte zu serialisieren:
+Falls Sie `BigInt.prototype` nicht patchen möchten, können Sie den [`replacer`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#the_replacer_parameter)-Parameter von `JSON.stringify` verwenden, um BigInt-Werte zu serialisieren:
 
 ```js
 const replacer = (key, value) =>
@@ -203,7 +203,7 @@ console.log(stringified);
 // {"number":1,"big":{"$bigint":"18014398509481982"}}
 ```
 
-Sie können dann den [`reviver`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#using_the_reviver_parameter)-Parameter von `JSON.parse` verwenden, um sie zu verarbeiten:
+Sie können dann den [`reviver`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#using_the_reviver_parameter)-Parameter von `JSON.parse` verwenden, um diese zu behandeln:
 
 ```js
 const reviver = (key, value) =>
@@ -222,61 +222,61 @@ console.log(parsed);
 ```
 
 > [!NOTE]
-> Obwohl es möglich ist, den Replacer von `JSON.stringify()` generisch zu machen und BigInt-Werte für alle Objekte korrekt zu serialisieren, wie oben gezeigt, muss der Reviver von `JSON.parse()` mit Vorsicht verwendet werden, da die Serialisierung _irreversibel_ ist: Es ist nicht möglich, zwischen einem Objekt zu unterscheiden, das zufällig eine Eigenschaft hat, die `$bigint` genannt wird, und einem tatsächlichen BigInt.
+> Während es möglich ist, den Replacer von `JSON.stringify()` generisch zu gestalten und BigInt-Werte für alle Objekte korrekt zu serialisieren, muss der Reviver von `JSON.parse()` mit Vorsicht verwendet werden, da die Serialisierung _irreversibel_ ist: Es ist nicht möglich, zwischen einem Objekt, das zufällig eine Eigenschaft namens `$bigint` hat, und einem tatsächlichen BigInt zu unterscheiden.
 >
-> Darüber hinaus erzeugt das obige Beispiel ein ganzes Objekt während des Ersetzens und Wiederherstellens, was Leistungs- oder Speicherimplikationen für größere Objekte, die viele BigInts enthalten, zur Folge haben kann. Wenn Sie die Form der Nutzlast kennen, ist es möglicherweise besser, sie einfach als Zeichenfolgen zu serialisieren und sie basierend auf dem Eigenschaftsschlüssel-Namen wiederherzustellen.
+> Darüber hinaus erzeugt das obige Beispiel während des Ersetzens und Wiederherstellens ein gesamtes Objekt, was Leistungseinbußen oder Speicherprobleme für größere Objekte mit vielen BigInts verursachen könnte. Wenn Sie die Struktur des Payloads kennen, kann es sinnvoller sein, sie einfach als Strings zu serialisieren und basierend auf dem Eigenschafts-Schlüsselname wiederherzustellen.
 
-Tatsächlich erlaubt JSON Zahlenliterale, die willkürlich lang sind; sie können nur nicht mit voller Präzision in JavaScript geparst werden. Wenn Sie mit einem anderen Programm in einer Sprache kommunizieren, die längere Ganzzahlen unterstützt (wie z.B. 64-Bit Ganzzahlen), und Sie möchten das BigInt als JSON-Zahl anstelle einer JSON-Zeichenkette übertragen, siehe [Verlustfreie Zahlenserialisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#using_json_numbers).
+Tatsächlich erlaubt JSON Zahlenliterale, die beliebig lang sind; diese können jedoch in JavaScript nicht mit voller Genauigkeit geparst werden. Wenn Sie mit einem anderen Programm in einer Sprache kommunizieren, die längere Ganzzahlen (wie 64-Bit-Integers) unterstützt, und Sie möchten, dass das BigInt als JSON-Zahl anstelle eines JSON-Strings übertragen wird, schauen Sie sich die [verlustfreie Zahlenspeicherung](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#using_json_numbers) an.
 
 ### BigInt-Umwandlung
 
-Viele integrierte Operationen, die BigInts erwarten, wandeln ihre Argumente zunächst in BigInts um. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tobigint) lässt sich wie folgt zusammenfassen:
+Viele eingebaute Operationen, die BigInts erwarten, wandeln ihre Argumente zuerst in BigInts um. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tobigint) kann wie folgt zusammengefasst werden:
 
 - BigInts werden unverändert zurückgegeben.
-- [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) werfen einen {{jsxref("TypeError")}}.
-- `true` wird in `1n` umgewandelt; `false` wird in `0n` verwandelt.
-- Zeichenketten werden konvertiert, indem sie geparst werden, als ob sie ein Ganzzahlenliteral enthalten. Jede Parser-Störung führt zu einem {{jsxref("SyntaxError")}}. Die Syntax ist ein Subset von [numerischen Zeichenfolgenliteralen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wobei Dezimalpunkte oder Exponentenindikatoren nicht erlaubt sind.
-- [Numbers](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) werfen einen {{jsxref("TypeError")}}, um unbeabsichtigte implizite Umwandlungen zu verhindern, die zu einem Verlust der Präzision führen.
-- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werfen einen {{jsxref("TypeError")}}.
-- Objekte werden zuerst [in ein Primitive umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion), indem ihre [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"number"` als Hinweis), `valueOf()` und `toString()` Methoden, in dieser Reihenfolge aufgerufen werden. Das resultierende Primitive wird dann in ein BigInt umgewandelt.
+- [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) werfen eine {{jsxref("TypeError")}}.
+- `true` wird zu `1n`; `false` wird zu `0n`.
+- Strings werden konvertiert, indem sie geparst werden, als ob sie ein Integer-Literal enthalten. Jeder Parsingfehler führt zu einem {{jsxref("SyntaxError")}}. Die Syntax ist ein Teilset von [String-numerischer Literale](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), bei dem Dezimalpunkte oder Exponent-Indikatoren nicht erlaubt sind.
+- [Numbers](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) werfen eine {{jsxref("TypeError")}} um zu verhindern, dass eine unbeabsichtigte implizite Umwandlung zu einem Verlust an Genauigkeit führt.
+- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werfen eine {{jsxref("TypeError")}}.
+- Objekte werden zuerst [in eine primitive Form umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion), indem ihre [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"number"` als Hinweis), `valueOf()`, und `toString()`-Methoden in dieser Reihenfolge aufgerufen werden. Das resultierende Primitive wird dann in ein BigInt umgewandelt.
 
-Der beste Weg, nahezu denselben Effekt in JavaScript zu erzielen, ist die Verwendung der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion: `BigInt(x)` verwendet denselben Algorithmus, um `x` zu konvertieren, außer dass [Zahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) keinen {{jsxref("TypeError")}} werfen, sondern in BigInts umgewandelt werden, wenn sie Ganzzahlen sind.
+Der beste Weg, um fast denselben Effekt in JavaScript zu erzielen, ist die Verwendung der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion: `BigInt(x)` verwendet denselben Algorithmus, um `x` zu konvertieren, mit der Ausnahme, dass [Numbers](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) keine {{jsxref("TypeError")}} werfen, sondern in BigInts konvertiert werden, wenn sie Ganzzahlen sind.
 
-Beachten Sie, dass eingebaute Operationen, die BigInts erwarten, nach der Umwandlung das BigInt oft auf eine feste Breite kürzen. Dazu gehören {{jsxref("BigInt.asIntN()")}}, {{jsxref("BigInt.asUintN()")}}, und Methoden von {{jsxref("BigInt64Array")}} und {{jsxref("BigUint64Array")}}.
+Beachten Sie, dass eingebaute Operationen, die BigInts erwarten, nach der Umwandlung oft das BigInt auf eine feste Breite kürzen. Dies schließt {{jsxref("BigInt.asIntN()")}}, {{jsxref("BigInt.asUintN()")}}, und Methoden von {{jsxref("BigInt64Array")}} und {{jsxref("BigUint64Array")}} ein.
 
 ## Konstruktor
 
 - {{jsxref("BigInt/BigInt", "BigInt()")}}
-  - : Gibt primitive Werte des Typs BigInt zurück. Wirft einen Fehler, wenn mit `new` aufgerufen.
+  - : Gibt primitive Werte vom Typ BigInt zurück. Wirft einen Fehler, wenn mit `new` aufgerufen.
 
 ## Statische Methoden
 
 - {{jsxref("BigInt.asIntN()")}}
-  - : Klemmt einen BigInt-Wert auf einen vorzeichenbehafteten Ganzzahlenwert und gibt diesen Wert zurück.
+  - : Begrenzt einen BigInt-Wert auf einen vorzeichenbehafteten Ganzzahlenwert und gibt diesen Wert zurück.
 - {{jsxref("BigInt.asUintN()")}}
-  - : Klemmt einen BigInt-Wert auf einen vorzeichenlosen Ganzzahlenwert und gibt diesen Wert zurück.
+  - : Begrenzt einen BigInt-Wert auf einen vorzeichenlosen Ganzzahlenwert und gibt diesen Wert zurück.
 
 ## Instanz-Eigenschaften
 
 Diese Eigenschaften sind auf `BigInt.prototype` definiert und werden von allen `BigInt`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "BigInt.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanz-Objekt erstellt hat. Für `BigInt` Instanzen ist der Anfangswert der {{jsxref("BigInt/BigInt", "BigInt")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanz-Objekt erstellt hat. Für `BigInt`-Instanzen ist der Initialwert der {{jsxref("BigInt/BigInt", "BigInt")}}-Konstruktor.
 - `BigInt.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist die Zeichenkette `"BigInt"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet. Da `BigInt` jedoch auch seine eigene [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) Methode besitzt, wird diese Eigenschaft nicht verwendet, es sei denn, Sie rufen [`Object.prototype.toString.call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) mit einem BigInt als `thisArg` auf.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"BigInt"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet. Da `BigInt` jedoch auch seine eigene [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString)-Methode hat, wird diese Eigenschaft nicht verwendet, es sei denn, Sie rufen [`Object.prototype.toString.call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) mit einem BigInt als `thisArg` auf.
 
 ## Instanz-Methoden
 
 - {{jsxref("BigInt.prototype.toLocaleString()")}}
-  - : Gibt eine Zeichenkette mit einer sprachsensitiven Darstellung dieses BigInt-Wertes zurück. Überschreibt die [`Object.prototype.toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString)-Methode.
+  - : Gibt einen String mit einer sprachsensitiven Darstellung dieses BigInt-Werts zurück. Überschreibt die [`Object.prototype.toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString)-Methode.
 - {{jsxref("BigInt.prototype.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die diesen BigInt-Wert in der angegebenen Basis darstellt. Überschreibt die [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)-Methode.
+  - : Gibt einen String zurück, der diesen BigInt-Wert in der angegebenen Basis (Radix) darstellt. Überschreibt die [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)-Methode.
 - {{jsxref("BigInt.prototype.valueOf()")}}
   - : Gibt diesen BigInt-Wert zurück. Überschreibt die [`Object.prototype.valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)-Methode.
 
 ## Beispiele
 
-### Primzahlen berechnen
+### Primzahlen Berechnen
 
 ```js
 // Returns true if the passed BigInt value is a prime number

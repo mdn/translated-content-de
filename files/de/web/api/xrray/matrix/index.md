@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`matrix`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist eine Transformation, die verwendet werden kann, um Objekte entlang des `XRRay` zu positionieren. Dies ist eine 4x4-Matrix, dargestellt als ein 16-Elemente-{{jsxref("Float32Array")}} in spaltenweiser Anordnung.
+Die _schreibgeschützte_ **`matrix`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist eine Transformation, die verwendet werden kann, um Objekte entlang des `XRRay` zu positionieren. Dies ist eine 4x4-Matrix, die als 16-Elemente-{{jsxref("Float32Array")}} in spaltenweiser Reihenfolge angegeben wird.
 
-Die Transformation von einem Strahl, der bei [0, 0, 0] startet und sich entlang der negativen z-Achse erstreckt, zu dem Strahl, der durch den `origin` und `direction` des `XRRay` beschrieben wird.
+Die Transformation eines Strahls beginnt bei [0, 0, 0] und erstreckt sich entlang der negativen z-Achse zu dem Strahl, der durch den `origin` und die `direction` des `XRRay` beschrieben wird.
 
 ## Wert
 
-Ein 16-Elemente-{{jsxref("Float32Array")}}-Objekt, das eine 4x4-Matrix in spaltenweiser Anordnung darstellt.
+Ein 16-Elemente-{{jsxref("Float32Array")}}-Objekt, das eine 4x4-Matrix in spaltenweiser Reihenfolge darstellt.
 
 ## Beispiele
 
 ### Verwendung der `matrix`-Eigenschaft
 
-Die `matrix`-Eigenschaft kann verwendet werden, um grafische Darstellungen des Strahls beim Rendern zu positionieren.
+Die `matrix`-Eigenschaft kann verwendet werden, um grafische Darstellungen des Strahls bei der Wiedergabe zu positionieren.
 
 ```js
 let origin = { x: 10.0, y: 10.0, z: 10.0, w: 1.0 };

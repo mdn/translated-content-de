@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: detachShader()-Methode"
+title: "WebGLRenderingContext: Methode detachShader()"
 short-title: detachShader()
 slug: Web/API/WebGLRenderingContext/detachShader
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLRenderingContext.detachShader()**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löst einen zuvor angebundenen [`WebGLShader`](/de/docs/Web/API/WebGLShader) von einem [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
+Die **WebGLRenderingContext.detachShader()** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löst einen zuvor angehängten [`WebGLShader`](/de/docs/Web/API/WebGLShader) von einem [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 
 ## Syntax
 

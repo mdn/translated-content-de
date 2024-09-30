@@ -1,5 +1,5 @@
 ---
-title: "ImageTrackList: selectedTrack-Eigenschaft"
+title: "ImageTrackList: Eigenschaft selectedTrack"
 short-title: selectedTrack
 slug: Web/API/ImageTrackList/selectedTrack
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selectedTrack`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt ein [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Objekt zurück, das den derzeit ausgewählten Track repräsentiert.
+Die **`selectedTrack`** Eigenschaft der [`ImageTrackList`](/de/docs/Web/API/ImageTrackList) Schnittstelle gibt ein [`ImageTrack`](/de/docs/Web/API/ImageTrack) Objekt zurück, das die aktuell ausgewählte Spur darstellt.
 
 ## Wert
 
-Ein [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Objekt.
+Ein [`ImageTrack`](/de/docs/Web/API/ImageTrack) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel gibt die `selectedTrack` zurück und gibt sie dann in der Konsole aus.
+Das folgende Beispiel gibt die `selectedTrack` zurück und druckt sie in die Konsole.
 
 ```js
 let track = imageDecoder.tracks.selectedTrack;

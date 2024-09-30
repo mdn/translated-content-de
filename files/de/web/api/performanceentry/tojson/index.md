@@ -1,5 +1,5 @@
 ---
-title: "PerformanceEntry: toJSON()-Methode"
+title: "PerformanceEntry: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceEntry/toJSON
 l10n:
@@ -55,9 +55,9 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Beachten Sie, dass es nicht die [`detail`](/de/docs/Web/API/PerformanceMark/detail)-Eigenschaft von `PerformanceMark` enthält.
+Beachten Sie, dass es die [`detail`](/de/docs/Web/API/PerformanceMark/detail)-Eigenschaft von `PerformanceMark` nicht enthält.
 
-Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; diese wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

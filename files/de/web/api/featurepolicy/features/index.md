@@ -1,5 +1,5 @@
 ---
-title: "FeaturePolicy: features() Methode"
+title: "FeaturePolicy: `features()` Methode"
 short-title: features()
 slug: Web/API/FeaturePolicy/features
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`features()`**-Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle gibt eine Liste der Namen aller vom User-Agent unterstützten Features zurück. Features, deren Namen auf der Liste erscheinen, könnten möglicherweise nicht von der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) des aktuellen Ausführungskontextes erlaubt sein und/oder aufgrund von Benutzerberechtigungen nicht zugänglich sein.
+Die **`features()`**-Methode des
+[`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces gibt eine Liste von Namen aller vom User Agent unterstützten Funktionen zurück. Funktionen, deren Name auf der Liste erscheint, könnten möglicherweise nicht durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) des aktuellen Ausführungskontexts erlaubt sein und/oder könnten aufgrund der Benutzerberechtigungen nicht zugänglich sein.
 
 ## Syntax
 
@@ -22,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von Strings, die die Namen aller vom User-Agent unterstützten Permissions Policy-Direktiven darstellen.
+Eine Liste von Zeichenfolgen, die die Namen aller vom User Agent unterstützten `Permissions Policy`-Direktiven darstellen.
 
 ## Beispiel
 
-Das folgende Beispiel protokolliert alle unterstützen Direktiven in der Konsole.
+Das folgende Beispiel protokolliert alle unterstützten Direktiven in der Konsole.
 
 ```js
 // Get the FeaturePolicy object

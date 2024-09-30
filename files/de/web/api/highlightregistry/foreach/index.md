@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: forEach()-Methode"
+title: "HighlightRegistry: forEach() Methode"
 short-title: forEach()
 slug: Web/API/HighlightRegistry/forEach
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`forEach()`**-Methode des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Interfaces führt eine bereitgestellte Funktion einmal für jedes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt in der Registrierung in Einfügereihenfolge aus.
+Die **`forEach()`**-Methode der Schnittstelle [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) führt eine bereitgestellte Funktion einmal für jedes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt im Registry in der Einfügereihenfolge aus.
 
-`HighlightRegistry` ist ein Map-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.forEach()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.forEach()")}}.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ forEach(callbackFn, thisArg)
 
 - `callback`
 
-  - : Funktion, die für jedes `Highlight`-Objekt ausgeführt wird, mit drei Argumenten:
+  - : Funktion, die für jedes `Highlight`-Objekt ausgeführt wird, nimmt drei Argumente:
 
     - `highlight`
       - : Das aktuelle Highlight.
     - `name`
       - : Der Name des Highlights.
     - `registry`
-      - : Das Registry-Objekt, auf dem `forEach()` aufgerufen wurde.
+      - : Das Registry-Objekt, auf das `forEach()` aufgerufen wurde.
 
 - `thisArg`
-  - : Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
+  - : Wert, der als `this` verwendet werden soll, wenn `callbackFn` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -41,7 +41,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie ein neues Highlight mit zwei Bereichen erstellt und die Bereiche dann mithilfe der `forEach()`-Methode protokolliert werden:
+Das folgende Codebeispiel zeigt, wie ein neues Highlight mit zwei Bereichen erstellt wird und dann die Bereiche mithilfe der `forEach()`-Methode protokolliert werden:
 
 ```js
 function logAllHighlights(highlight, name) {

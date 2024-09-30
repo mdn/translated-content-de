@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: start()-Methode"
+title: "SpeechRecognition: start() Methode"
 short-title: start()
 slug: Web/API/SpeechRecognition/start
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`start()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, der eingehendem Audio zuhört, mit dem Ziel, die mit der aktuellen [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) verbundenen Grammatiken zu erkennen.
+Die **`start()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, der eingehende Audiosignale abhört, um Grammatik zu erkennen, die mit der aktuellen [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) verbunden ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 

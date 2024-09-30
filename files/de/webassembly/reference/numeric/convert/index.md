@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`convert`**-Anweisungen werden verwendet, um Ganzzahlen in Fließkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
+Die **`convert`** Anweisungen werden verwendet, um ganze Zahlen in Gleitkommazahlen zu konvertieren. Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{EmbedInteractiveExample("pages/wat/convert.html", "tabbed-taller")}}
 

@@ -8,9 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.strokeRect()`**-Methode der Canvas 2D API zeichnet ein Rechteck, das gemäß dem aktuellen [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und anderen Kontexteinstellungen umrandet ist.
+Die
+**`CanvasRenderingContext2D.strokeRect()`**
+Methode der Canvas 2D API zeichnet ein Rechteck, das gemäß dem aktuellen [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und anderen
+Kontexteinstellungen umrandet wird.
 
-Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu ändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keinen Einfluss darauf haben.
+Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern. Daher haben nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
+[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keinen Einfluss auf dieses Rechteck.
 
 ## Syntax
 
@@ -18,22 +22,24 @@ Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu ände
 strokeRect(x, y, width, height)
 ```
 
-Die `strokeRect()`-Methode zeichnet ein umrandetes Rechteck, dessen Startpunkt sich bei `(x, y)` befindet und dessen Größe durch `width` und `height` angegeben ist.
+Die `strokeRect()`-Methode zeichnet ein umrandetes Rechteck, dessen Startpunkt
+bei `(x, y)` liegt und dessen Größe durch `width` und
+`height` angegeben ist.
 
 ### Parameter
 
 - `x`
-  - : Die x-Achsenkoordinate des Startpunkts des Rechtecks.
+  - : Die x-Achsen-Koordinate des Startpunkts des Rechtecks.
 - `y`
-  - : Die y-Achsenkoordinate des Startpunkts des Rechtecks.
+  - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts, negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten, negative nach oben.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -62,9 +68,9 @@ ctx.strokeRect(20, 10, 160, 100);
 
 {{ EmbedLiveSample('A_simple_stroked_rectangle', 700, 180) }}
 
-### Anwendung verschiedener Kontexteinstellungen
+### Verschiedene Kontexteinstellungen anwenden
 
-Dieses Beispiel zeichnet ein Rechteck mit einem Schlagschatten und dicken, abgeschrägten Umrandungen.
+Dieses Beispiel zeichnet ein Rechteck mit einem Schattenwurf und dicken, abgeschrägten Umrandungen.
 
 #### HTML
 
@@ -99,7 +105,7 @@ ctx.strokeRect(30, 30, 160, 90);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle)
 - [`CanvasRenderingContext2D.clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)
 - [`CanvasRenderingContext2D.fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)

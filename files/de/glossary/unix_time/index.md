@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Unix time ist eine Methode zur Darstellung eines Zeitstempels und wird in der Regel als die Anzahl der Sekunden seit Beginn der Unix-Epoche definiert, die am 1. Januar 1970 um Mitternacht (UTC) beginnt. Schaltsekunden werden ignoriert.
+Unix time ist eine Methode, um einen Zeitstempel darzustellen, und wird normalerweise als die Anzahl der Sekunden seit Beginn der Unix-Epoche definiert, welche am 1. Januar 1970 um Mitternacht (UTC) liegt. Schaltsekunden werden ignoriert.
 
 Auf der Webplattform wird Unix time für Zeitstempel verwendet und als die Anzahl der Millisekunden seit Beginn der Unix-Epoche angegeben.
 

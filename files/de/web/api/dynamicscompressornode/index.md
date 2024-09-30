@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Das `DynamicsCompressorNode`-Interface bietet einen Kompressionseffekt, der die Lautstärke der lautesten Teile des Signals senkt, um Übersteuerung und Verzerrungen zu verhindern, die auftreten können, wenn mehrere Klänge gleichzeitig abgespielt und gemischt werden. Dies wird häufig in der Musikproduktion und in Spielaudio verwendet. `DynamicsCompressorNode` ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) mit genau einem Eingang und einem Ausgang.
+Die `DynamicsCompressorNode`-Schnittstelle bietet einen Kompressionseffekt, der die Lautstärke der lautesten Teile des Signals senkt, um Clipping und Verzerrungen zu verhindern, die auftreten können, wenn mehrere Klänge gleichzeitig abgespielt und gemultiplext werden. Dies wird häufig in der Musikproduktion und bei Spielgeräuschen verwendet. `DynamicsCompressorNode` ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), der genau einen Eingang und einen Ausgang hat.
 
 {{InheritanceDiagram}}
 
@@ -22,7 +22,7 @@ Das `DynamicsCompressorNode`-Interface bietet einen Kompressionseffekt, der die 
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzählmodus</th>
+      <th scope="row">Kanalzählenmodus</th>
       <td><code>"clamped-max"</code></td>
     </tr>
     <tr>
@@ -46,17 +46,17 @@ Das `DynamicsCompressorNode`-Interface bietet einen Kompressionseffekt, der die 
 _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`DynamicsCompressorNode.threshold`](/de/docs/Web/API/DynamicsCompressorNode/threshold) {{ReadOnlyInline}}
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Dezibelwert darstellt, über dem die Kompression zu wirken beginnt.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Dezibelwert repräsentiert, über dem die Kompression wirksam wird.
 - [`DynamicsCompressorNode.knee`](/de/docs/Web/API/DynamicsCompressorNode/knee) {{ReadOnlyInline}}
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das einen Dezibelwert darstellt, der den Bereich über dem Schwellenwert repräsentiert, wo die Kurve sanft in den komprimierten Teil übergeht.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das einen Dezibelwert darstellt, der den Bereich über der Schwelle angibt, in dem die Kurve sanft zur komprimierten Portion übergeht.
 - [`DynamicsCompressorNode.ratio`](/de/docs/Web/API/DynamicsCompressorNode/ratio) {{ReadOnlyInline}}
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Menge der Änderung in dB repräsentiert, die im Eingang erforderlich ist, um eine Änderung von 1 dB im Ausgang zu erreichen.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Menge der Änderung in dB repräsentiert, die im Eingang für eine 1 dB Änderung im Ausgang erforderlich ist.
 - [`DynamicsCompressorNode.reduction`](/de/docs/Web/API/DynamicsCompressorNode/reduction) {{ReadOnlyInline}}
-  - : Ein `float`, das die derzeit vom Kompressor auf das Signal angewendete Verstärkungsreduktion darstellt.
+  - : Ein `float`, das die derzeit vom Kompressor auf das Signal angewendete Gain-Reduktion darstellt.
 - [`DynamicsCompressorNode.attack`](/de/docs/Web/API/DynamicsCompressorNode/attack) {{ReadOnlyInline}}
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeit in Sekunden repräsentiert, die benötigt wird, um die Verstärkung um 10 dB zu verringern.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeit in Sekunden angibt, die benötigt wird, um den Gain um 10 dB zu reduzieren.
 - [`DynamicsCompressorNode.release`](/de/docs/Web/API/DynamicsCompressorNode/release) {{ReadOnlyInline}}
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeit in Sekunden repräsentiert, die benötigt wird, um die Verstärkung um 10 dB zu erhöhen.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeit in Sekunden angibt, die benötigt wird, um den Gain um 10 dB zu erhöhen.
 
 ## Instanz-Methoden
 
@@ -64,7 +64,7 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`AudioNode`]
 
 ## Beispiel
 
-Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) Beispielcode.
+Siehe Beispielcode unter [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples).
 
 ## Spezifikationen
 

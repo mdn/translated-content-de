@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.ceil()`** rundet immer auf und gibt die kleinste ganze Zahl zurück, die größer oder gleich einer gegebenen Zahl ist.
+Die statische Methode **`Math.ceil()`** rundet immer nach oben und gibt die kleinste ganze Zahl zurück, die größer oder gleich einer gegebenen Zahl ist.
 
 {{EmbedInteractiveExample("pages/js/math-ceil.html")}}
 
@@ -24,7 +24,7 @@ Math.ceil(x)
 
 ### Rückgabewert
 
-Die kleinste ganze Zahl, die größer oder gleich `x` ist. Es ist derselbe Wert wie [`-Math.floor(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+Die kleinste ganze Zahl, die größer oder gleich `x` ist. Es ist der gleiche Wert wie [`-Math.floor(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
 
 ## Beschreibung
 

@@ -1,5 +1,5 @@
 ---
-title: "RTCOutboundRtpStreamStats: perDscpPacketsSent-Eigenschaft"
+title: "RTCOutboundRtpStreamStats: Eigenschaft perDscpPacketsSent"
 short-title: perDscpPacketsSent
 slug: Web/API/RTCOutboundRtpStreamStats/perDscpPacketsSent
 l10n:
@@ -9,20 +9,17 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`perDscpPacketsSent`**-Eigenschaft
-des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist eine Aufzeichnung von
-Schlüssel/Wert-Paaren, bei denen jeder Schlüssel eine String-Darstellung eines Differentiated
-Services Code Points ist und der Wert die Anzahl der gesendeten Pakete für diesen DSCP.
+des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein Datensatz, der aus Schlüssel/Wert-Paaren besteht, wobei jeder Schlüssel eine Zeichenkettenrepräsentation eines Differentiated Services Code Point ist und der Wert die Anzahl der gesendeten Pakete für diesen DSCP ist.
 
 > [!NOTE]
-> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis zur Verfügung, daher sollte diese Eigenschaft auf diesen Systemen nicht als zuverlässig betrachtet werden.
+> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis bereit, daher sollte auf diesen Systemen nicht auf diese Eigenschaft vertraut werden.
 
 ## Wert
 
-Eine Aufzeichnung von String/Wert-Paaren. Jeder Schlüssel ist die String-Darstellung der
-ID-Nummer eines einzelnen Differentiated Services Code Points (DSCP).
+Ein Datensatz, der aus Zeichenketten/Wert-Paaren besteht. Jeder Schlüssel ist die Zeichenkettenrepräsentation der ID-Nummer eines einzelnen Differentiated Services Code Point (DSCP).
 
 > [!NOTE]
-> Aufgrund von Netzwerk-Bleaching und -Remapping werden die in dieser Aufzeichnung erfassten Zahlen nicht unbedingt mit den Werten übereinstimmen, wie sie beim Senden der Daten waren.
+> Aufgrund von Netzwerkausbleichen und Neuzuordnungen werden die in diesem Datensatz angezeigten Zahlen nicht unbedingt mit den Werten übereinstimmen, wie sie beim Senden der Daten waren.
 
 ## Spezifikationen
 

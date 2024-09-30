@@ -1,5 +1,5 @@
 ---
-title: "HTMLLinkElement: referrerPolicy-Eigenschaft"
+title: "HTMLLinkElement: Eigenschaft referrerPolicy"
 short-title: referrerPolicy
 slug: Web/API/HTMLLinkElement/referrerPolicy
 l10n:
@@ -10,37 +10,41 @@ l10n:
 
 Die **`referrerPolicy`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces
 spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Element/link#referrerpolicy) des
-{{HTMLElement("link")}}-Elements wider, das definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird.
+{{HTMLElement("link")}}-Elements wider, welches definiert, welcher Referrer beim Abrufen der
+Ressource gesendet wird.
 
-Weitere Informationen finden Sie im HTTP {{HTTPHeader("Referrer-Policy")}}-Header.
+Weitere Details finden Sie im HTTP-{{HTTPHeader("Referrer-Policy")}}-Header.
 
 ## Wert
 
 Ein String; einer der folgenden:
 
 - `no-referrer`
-  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine
-    Referrer-Informationen mit Anfragen gesendet.
+  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen
+    mit Anfragen gesendet.
 - `no-referrer-when-downgrade`
   - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTP→HTTP,
     HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel gesendet (z. B. HTTPS→HTTP).
 - `origin`
-  - : Es wird in allen Fällen nur der Ursprung des Dokuments als Referrer gesendet.
+  - : Sendet in allen Fällen nur den Ursprung des Dokuments als Referrer.
     Das Dokument `https://example.com/page.html` sendet den Referrer
     `https://example.com/`.
 - `origin-when-cross-origin`
-  - : Eine vollständige URL wird bei einer Anfrage mit demselben Ursprung gesendet, aber es wird nur der Ursprung des
-    Dokuments für andere Fälle gesendet.
+  - : Sendet eine volle URL bei einer Anfrage im selben Ursprung, sendet aber nur den Ursprung des
+    Dokuments in anderen Fällen.
 - `same-origin`
-  - : Ein Referrer wird für [same-site origins](/de/docs/Web/Security/Same-origin_policy) gesendet, aber
-    bei cross-origin Anfragen werden keine Referrer-Informationen sendet.
+  - : Ein Referrer wird für [gleiche Site-Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber
+    Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
 - `strict-origin`
-  - : Es wird nur der Ursprung des Dokuments als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel gesendet (z. B. HTTPS→HTTP).
+  - : Sendet den Ursprung des Dokuments nur als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTPS→HTTPS), jedoch nicht an ein weniger sicheres Ziel (z. B. HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird bei einer Anfrage mit demselben Ursprung gesendet, es wird nur der Ursprung gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTPS→HTTPS), und es wird kein Header an ein weniger sicheres Ziel gesendet (z. B. HTTPS→HTTP).
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Sendet eine volle URL bei einer Anfrage im selben Ursprung, nur den Ursprung, wenn das
+    Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTPS→HTTPS), und sendet keinen Header an ein
+    weniger sicheres Ziel (z. B. HTTPS→HTTP).
 - `unsafe-url`
-  - : Eine vollständige URL wird bei einer Anfrage mit demselben oder einem anderen Ursprung gesendet. Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergeben.
-    Überlegen Sie sich sorgfältig die Auswirkungen dieser Einstellung.
+  - : Sendet eine volle URL bei einer Anfrage im selben oder einem anderen Ursprung. Diese Richtlinie
+    gibt Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weiter.
+    Überlegen Sie sich gut die Auswirkungen dieser Einstellung.
 
 ## Beispiele
 

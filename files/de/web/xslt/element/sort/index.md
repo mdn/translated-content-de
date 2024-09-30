@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:sort>`-Element definiert einen Sortierschlüssel für Knoten, die durch `<xsl:apply-templates>` oder `<xsl:for-each>` ausgewählt werden und bestimmt die Reihenfolge, in der sie verarbeitet werden.
+Das `<xsl:sort>`-Element definiert einen Sortierschlüssel für Knoten, die von `<xsl:apply-templates>` oder `<xsl:for-each>` ausgewählt werden, und bestimmt die Reihenfolge, in der sie verarbeitet werden.
 
 ## Syntax
 
@@ -27,19 +27,19 @@ Keine.
 ### Optionale Attribute
 
 - `select`
-  - : Verwendet einen XPath-Ausdruck, um die zu sortierenden Knoten zu spezifizieren.
+  - : Verwendet einen XPath-Ausdruck, um die zu sortierenden Knoten anzugeben.
 - `order`
   - : Gibt an, ob die Knoten in `ascending` (aufsteigender) oder `descending` (absteigender) Reihenfolge verarbeitet werden sollen. Der Standardwert ist `ascending`.
 - `case-order`
   - : Gibt an, ob Groß- oder Kleinbuchstaben zuerst geordnet werden sollen. Die zulässigen Werte sind `upper-first` und `lower-first`.
 - `lang`
-  - : Bestimmt, welche Sprache für die Sortierung verwendet werden soll.
+  - : Gibt an, welche Sprache bei der Sortierung verwendet werden soll.
 - `data-type`
   - : Definiert, ob Elemente alphabetisch oder numerisch geordnet werden sollen. Die zulässigen Werte sind `text` und `number`, wobei `text` der Standardwert ist.
 
 ### Typ
 
-Subanweisung, tritt immer als Kind von \<xsl:for-each> auf, wobei sie vor der eigentlichen Vorlage erscheinen muss, oder von \<xsl:apply-templates>.
+Unteranweisung, erscheint immer als untergeordnetes Element von `<xsl:for-each>`, wo es vor der eigentlichen Vorlage erscheinen muss, oder von `<xsl:apply-templates>`.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`href`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Standort des Stylesheets zurück.
+Die **`href`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Speicherort des Stylesheets zurück.
 
 Diese Eigenschaft ist schreibgeschützt.
 
@@ -18,7 +18,7 @@ Ein String, der die URI des Stylesheets enthält.
 
 ## Beispiele
 
-Auf einem lokalen Windows-Rechner:
+Auf einem lokalen Windows-Computer:
 
 ```html
 <!doctype html>
@@ -41,11 +41,12 @@ Auf einem lokalen Windows-Rechner:
 </html>
 ```
 
-Gibt "file:////C:/Windows/Desktop/example.css" zurück.
+Gibt "file:////C:/Windows/Desktop/example.css" zurück
 
 ## Hinweise
 
-Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs sein Standort. Bei eingebetteten Stylesheets ist der Wert dieses Attributs `null`.
+Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs sein Speicherort.
+Bei eingebetteten Stylesheets ist der Wert dieses Attributs `null`.
 
 ## Spezifikationen
 

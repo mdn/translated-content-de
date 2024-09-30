@@ -22,24 +22,24 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis abzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `status`
-      - : `string` Der Status des Dienstes, entweder `captive`, wenn ein entsperrtes Captive-Portal vorhanden ist, oder `clear`, wenn kein Captive-Portal erkannt wird.
+      - : `string` Der Status des Dienstes, entweder `captive`, wenn ein freigeschaltetes Captive-Portal vorhanden ist, oder `clear`, wenn kein Captive-Portal erkannt wird.
 
 ## Beispiele
 
-Verarbeiten einer Änderung der Fähigkeit des Benutzers, eine Verbindung zum Internet herzustellen:
+Verarbeiten einer Änderung der Verbindungsfähigkeit des Benutzers zum Internet:
 
 ```js
 function handleConnectivity(connectivityInfo) {

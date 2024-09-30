@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMapReadOnly: keys() Methode"
+title: "StylePropertyMapReadOnly: Methode keys()"
 short-title: keys()
 slug: Web/API/StylePropertyMapReadOnly/keys
 l10n:
@@ -28,7 +28,7 @@ Ein neues {{jsxref("Array")}}.
 ## Beispiele
 
 In diesem Beispiel verwenden wir die `keys()`-Methode, um auf die
-Eigenschaften innerhalb unseres [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zuzugreifen.
+Eigenschaften innerhalb unseres [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugreifen zu können.
 
 ```js
 // get a button element

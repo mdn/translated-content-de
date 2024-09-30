@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`pointsAtY`**-Attribut stellt die y-Position im Koordinatensystem dar, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element des Punktes festgelegt wird, auf den die Lichtquelle zeigt.
+Das **`pointsAtY`**-Attribut gibt die y-Position im Koordinatensystem an, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, an dem die Lichtquelle ausgerichtet ist.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpotLight")}}
 
@@ -46,9 +46,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "220", "220")}}
+{{EmbedLiveSample("Beispiel", "220", "220")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

@@ -7,36 +7,36 @@ l10n:
 
 {{CSSRef}}
 
-Das **`display-mode`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob eine Web-App in einem normalen Browsertab oder in einer alternativen Weise angezeigt wird, wie zum Beispiel als eigenständige App oder im Vollbildmodus.
+Das **`display-mode`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob eine Web-App in einem normalen Browser-Tab oder auf andere Weise angezeigt wird, z. B. als eigenständige App oder im Vollbildmodus.
 
 Zum Beispiel:
 
-- Eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) [kann ihren Anzeigemodus festlegen](/de/docs/Web/Progressive_web_apps/How_to/Create_a_standalone_app), indem sie das [`display`](/de/docs/Web/Manifest/display)-Element im Manifest setzt. In diesem Fall identifiziert der Wert `display-mode` den gesetzten Wert (beachten Sie, dass dies möglicherweise nicht der gleiche wie der im Manifest angeforderte Wert ist, da ein Browser den angeforderten Modus möglicherweise nicht unterstützt).
+- Eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) [kann ihren Anzeigemodus festlegen](/de/docs/Web/Progressive_web_apps/How_to/Create_a_standalone_app), indem sie das [`display`](/de/docs/Web/Manifest/display) Element in ihrem Manifest setzt. In diesem Fall identifiziert der Wert von `display-mode` den festgelegten Wert (beachten Sie jedoch, dass dies möglicherweise nicht dem im Manifest angeforderten Wert entspricht, da ein Browser den angeforderten Modus möglicherweise nicht unterstützt).
 
-- Jede Web-App kann die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) oder die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) verwenden, um den Anzeigemodus festzulegen, und in diesem Fall identifiziert der Wert von `display-mode` den gesetzten Modus.
+- Jede Web-App kann die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) oder die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) verwenden, um den Anzeigemodus festzulegen. In diesem Fall identifiziert der Wert von `display-mode` den festgelegten Modus.
 
-Der `display-mode`-Wert gilt für den obersten Browsing-Kontext und alle untergeordneten Browsing-Kontexte.
+Der `display-mode` Wert gilt für den obersten Browsing-Kontext und alle untergeordneten Browsing-Kontexte.
 
 ## Syntax
 
-Das `display-mode`-Feature wird als Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Das `display-mode` Merkmal wird als ein Schlüsselwortwert aus der unten stehenden Liste angegeben.
 
 - `browser`
-  - : Die Anwendung öffnet sich in einem herkömmlichen Browsertab oder neuen Fenster, abhängig vom Browser und der Plattform.
+  - : Die Anwendung öffnet sich in einem herkömmlichen Browser-Tab oder einem neuen Fenster, abhängig vom Browser und der Plattform.
 - `fullscreen`
-  - : Der gesamte verfügbare Anzeigebereich wird genutzt und kein User-Agent-[Chrome](/de/docs/Glossary/chrome) wird angezeigt. Dies kann verwendet werden, um CSS nur anzuwenden, wenn die App im Vollbildmodus durch die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) oder durch Verwendung des `fullscreen`-Wertes des [`display`](/de/docs/Web/Manifest/display)-Elements des Web-App-Manifests gesetzt wurde.
+  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird kein User-Agent-[Chrome](/de/docs/Glossary/chrome) angezeigt. Dies kann verwendet werden, um CSS nur anzuwenden, wenn die App durch die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) in den Vollbildmodus gebracht wurde oder durch Verwendung des `fullscreen` Werts des [`display`](/de/docs/Web/Manifest/display) Elements des Web App Manifests.
 - `minimal-ui`
-  - : Die Anwendung sieht aus und fühlt sich an wie eine eigenständige Anwendung, verfügt jedoch über eine minimale Anzahl von UI-Elementen zur Steuerung der Navigation. Die Elemente variieren je nach Browser.
+  - : Die Anwendung sieht aus und fühlt sich an wie eine eigenständige App, verfügt jedoch über eine minimalistische Reihe von UI-Elementen zur Navigation. Die Elemente variieren je nach Browser.
 - `picture-in-picture`
-  - : Dieser Modus ermöglicht es den Nutzern, spezifische Inhalte weiterhin zu konsumieren, während sie mit anderen Websites oder Anwendungen auf ihrem Gerät interagieren. Die App wird in einem schwebenden und immer im Vordergrund stehenden Fenster angezeigt. Dies kann verwendet werden, um CSS nur dann anzuwenden, wenn die App durch die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) in Picture-in-Picture-Mode versetzt wurde.
+  - : Dieser Modus ermöglicht es Nutzern, bestimmte Inhalte weiter zu konsumieren, während sie mit anderen Seiten oder Anwendungen auf ihrem Gerät interagieren. Die App wird in einem schwebenden und immer im Vordergrund befindlichen Fenster angezeigt. Dies kann verwendet werden, um CSS nur anzuwenden, wenn die App durch die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) in den Picture-in-Picture-Modus gebracht wurde.
 - `standalone`
-  - : Die Anwendung sieht aus und fühlt sich an wie eine eigenständige Anwendung. Dies kann beinhalten, dass die Anwendung ein separates Fenster hat, ihr eigenes Icon im Anwendungsstarter, etc. In diesem Modus schließt der User-Agent UI-Elemente zur Navigation aus, kann jedoch andere UI-Elemente wie eine Statusleiste einbeziehen.
+  - : Die Anwendung sieht aus und fühlt sich an wie eine eigenständige App. Dies kann beinhalten, dass die Anwendung ein eigenes Fenster hat, ihr eigenes Symbol im Anwendungsstarter, usw. In diesem Modus schließt der User-Agent Navigationselemente aus, kann jedoch andere UI-Elemente wie eine Statusleiste enthalten.
 - `window-controls-overlay`
-  - : In diesem Modus sieht die Anwendung aus und fühlt sich an wie eine eigenständige Desktop-Anwendung, und das [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API)-Feature ist aktiviert.
+  - : In diesem Modus sieht die Anwendung aus und fühlt sich an wie eine eigenständige Desktop-Anwendung, und die [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API) Funktion ist aktiviert.
 
 ## Beispiele
 
-### Wenden Sie CSS an, wenn die Anwendung im Vollbildmodus ist
+### CSS anwenden, wenn sich die Anwendung im Vollbildmodus befindet
 
 ```css
 @media all and (display-mode: fullscreen) {
@@ -47,9 +47,9 @@ Das `display-mode`-Feature wird als Schlüsselwortwert aus der unten stehenden L
 }
 ```
 
-### Stellen Sie ein helles und dunkles Farbschema für Picture-in-Picture-Inhalte bereit
+### Ein leichtes und dunkles Farbschema für Picture-in-Picture-Inhalte bereitstellen
 
-In diesem Beispiel kombinieren wir den Wert `display-mode: picture-in-picture` mit dem {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Media-Feature, um helle und dunkle Farbschemata zu erstellen, die basierend auf der Farbschema-Präferenz des Nutzers angewendet werden, nur wenn die App im Picture-in-Picture-Modus angezeigt wird.
+In diesem Beispiel kombinieren wir den `display-mode: picture-in-picture` Wert mit dem {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Medienmerkmal, um helle und dunkle Farbschemata zu erstellen, die je nach Farbvorliebe des Nutzers angewendet werden, nur wenn die App im Picture-in-Picture-Modus angezeigt wird.
 
 ```css
 @media (display-mode: picture-in-picture) and (prefers-color-scheme: light) {
@@ -69,7 +69,7 @@ In diesem Beispiel kombinieren wir den Wert `display-mode: picture-in-picture` m
 }
 ```
 
-Weitere Informationen und ein vollständiges Beispiel finden Sie unter [Using the Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using).
+Siehe [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using) für weitere Informationen und ein vollständiges Beispiel.
 
 ## Spezifikationen
 

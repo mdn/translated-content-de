@@ -8,8 +8,8 @@ l10n:
 {{WebAssemblySidebar}}
 
 Der **`WebAssembly.RuntimeError()`** Konstruktor erstellt ein neues
-WebAssembly `RuntimeError` Objekt – der Typ, der immer dann geworfen wird, wenn
-WebAssembly eine [Trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) bestimmt.
+WebAssembly `RuntimeError` Objekt — der Typ, der geworfen wird, wann immer
+WebAssembly eine [Trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) spezifiziert.
 
 ## Syntax
 
@@ -24,12 +24,12 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Menschlich lesbare Beschreibung des Fehlers.
+  - : Eine menschenlesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut geworfen wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übermitteln.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -39,8 +39,8 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen RuntimeError-Instanz
 
-Das folgende Beispiel erstellt eine neue `RuntimeError`-Instanz und protokolliert deren
-Details in der Konsole:
+Das folgende Beispiel erstellt eine neue `RuntimeError` Instanz und protokolliert deren
+Details in die Konsole:
 
 ```js
 try {
@@ -67,5 +67,5 @@ try {
 ## Siehe auch
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
+- [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: statechange Ereignis"
+title: "MIDIPort: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/MIDIPort/statechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`statechange`** Ereignis der [`MIDIPort`](/de/docs/Web/API/MIDIPort) Schnittstelle wird ausgelöst, wenn sich ein Port von geöffnet zu geschlossen oder von geschlossen zu geöffnet ändert.
+Das **`statechange`**-Ereignis des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces wird ausgelöst, wenn ein Port von geöffnet auf geschlossen oder von geschlossen auf geöffnet wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -29,7 +29,7 @@ Ein [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent). Erbt von [`Ev
 ## Ereigniseigenschaften
 
 - [`MIDIConnectionEvent.port`](/de/docs/Web/API/MIDIConnectionEvent/port) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu einer [`MIDIPort`](/de/docs/Web/API/MIDIPort) Instanz für einen Port zurück, der verbunden oder getrennt wurde.
+  - : Gibt eine Referenz zu einer [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
 
 ## Beispiel
 

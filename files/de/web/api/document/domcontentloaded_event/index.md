@@ -1,5 +1,5 @@
 ---
-title: "Document: DOMContentLoaded-Ereignis"
+title: "Document: DOMContentLoaded Ereignis"
 short-title: DOMContentLoaded
 slug: Web/API/Document/DOMContentLoaded_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Element/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Element/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Dinge wie Bilder, Subframes und asynchrone Skripte das Laden abgeschlossen haben.
+Das **`DOMContentLoaded`** Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Element/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Element/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht auf andere Dinge wie Bilder, Subframes und asynchrone Skripte, um das Laden zu beenden.
 
-`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden, jedoch warten verzögerte Skripte _schon_ auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird in die Warteschlange gestellt, nachdem verzögerte Skripte ausgeführt wurden. Ebenfalls warten Skripte, die weder verzögert noch asynchron sind (z. B. `<script>`), darauf, dass bereits geparste Stylesheets geladen werden.
+`DOMContentLoaded` wartet nicht auf das Laden von Stylesheets, jedoch warten verzögerte Skripte _auf_ Stylesheets, und das `DOMContentLoaded` Ereignis wird nach verzögerten Skripten in die Warteschlange gestellt. Auch Skripte, die weder verzögert noch asynchron sind (z. B. `<script>`), warten darauf, dass bereits geparste Stylesheets geladen werden.
 
 Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
 
@@ -18,7 +18,7 @@ Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("DOMContentLoaded", (event) => {});
@@ -30,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 ```
 
-### Verzögerung von DOMContentLoaded
+### Verzögern von DOMContentLoaded
 
 ```html
 <script>
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 </script>
 ```
 
-### Überprüfung, ob das Laden bereits abgeschlossen ist
+### Überprüfen, ob das Laden bereits abgeschlossen ist
 
-`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Möglichkeit hat, ausgeführt zu werden. Daher ist es klug, dies zu überprüfen, bevor Sie einen Listener hinzufügen.
+`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Möglichkeit hat, ausgeführt zu werden. Daher ist es ratsam, dies vor dem Hinzufügen eines Listeners zu überprüfen.
 
 ```js
 function doSomething() {
@@ -71,7 +71,7 @@ if (document.readyState === "loading") {
 ```
 
 > [!NOTE]
-> Es gibt hier keine Race-Condition — es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Ausführungssemantik bis zum Abschluss, was bedeutet, dass, wenn das Dokument bei einem bestimmten Tick der Ereignisschleife geladen wird, es erst im nächsten Zyklus geladen sein kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angefügt ist und ausgelöst wird.
+> Es gibt hier keine Race-Bedingung — es ist nicht möglich, dass das Dokument zwischen der `if`-Prüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Ausführungssemantik bis zur Vollendung, was bedeutet, dass, wenn das Dokument in einem bestimmten Tick der Ereignisschleife lädt, es erst im nächsten Zyklus geladen werden kann, zu diesem Zeitpunkt der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
 
 ### Live-Beispiel
 

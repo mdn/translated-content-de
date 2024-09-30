@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die **`visible`** schreibgeschützte Eigenschaft des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt einen [Boolean](/de/docs/Glossary/Boolean) zurück, der angibt, ob die Fenstersteuerungüberlagerung sichtbar ist oder nicht.
+Die **`visible`**-Eigenschaft des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt ein [Boolean](/de/docs/Glossary/Boolean) zurück, das anzeigt, ob die Fenstersteuerungsüberlagerung sichtbar ist oder nicht.
 
-Die Fenstersteuerungüberlagerung ist nicht sichtbar, wenn:
+Die Fenstersteuerungsüberlagerung ist nicht sichtbar, wenn:
 
-- Das Mitglied [`display_override`](/de/docs/Web/Manifest/display_override) des Web-App-Manifests nicht auf `window-controls-overlay` gesetzt ist.
-- Oder, wenn der Benutzer die Funktion deaktiviert hat.
+- Das `display_override`-Element im Web App Manifest nicht auf `window-controls-overlay` gesetzt ist.
+- Oder wenn der Benutzer sich gegen das Feature entschieden hat.
 
 ## Wert
 
-Ein Boolean.
+Ein boolean.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie eine Schriftart abhängig davon angezeigt wird, ob und wann sie heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
@@ -23,27 +23,28 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Schriftanzeigestrategie wird vom Benutzeragenten definiert.
+  - : Die Schriftart-Anzeigestrategie wird vom User-Agent definiert.
 - `block`
-  - : Verleiht dem Schriftschnitt eine kurze Blockperiode und eine unendliche Wechselperiode.
+  - : Gibt der Schriftart ein kurzes Blockintervall und ein unendliches Swap-Intervall.
 - `swap`
-  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und eine unendliche Wechselperiode.
+  - : Gibt der Schriftart ein extrem kurzes Blockintervall und ein unendliches Swap-Intervall.
 - `fallback`
-  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und eine kurze Wechselperiode.
+  - : Gibt der Schriftart ein extrem kurzes Blockintervall und ein kurzes Swap-Intervall.
 - `optional`
-  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und keine Wechselperiode.
+  - : Gibt der Schriftart ein extrem kurzes Blockintervall und kein Swap-Intervall.
 
 > [!NOTE]
-> In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay`
-> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" und "extrem kurzen" Perioden an.
+> In Firefox geben die Voreinstellungen `gfx.downloadable_fonts.fallback_delay`
+> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer
+> der "kurzen" und "extrem kurzen" Intervalle an.
 
 ## Beschreibung
 
-Der Zeitverlauf der Schriftanzeige basiert auf einem Timer, der beginnt, sobald der Benutzeragent versucht, einen heruntergeladenen Schriftschnitt zu verwenden. Der Zeitverlauf ist in die folgenden drei Perioden unterteilt, die das Rendering-Verhalten von Elementen diktieren, die den Schriftschnitt verwenden:
+Der Schriftarten-Anzeigezeitstrahl basiert auf einem Timer, der startet, sobald der User-Agent versucht, eine gegebene heruntergeladene Schriftart zu verwenden. Der Zeitstrahl ist in die drei unten stehenden Perioden unterteilt, die das Rendering-Verhalten aller Elemente bestimmen, die die Schriftart verwenden:
 
-- Schriftblockperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden möchte, eine _unsichtbare_ Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftwechselperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden möchte, eine Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftfehlerperiode: Wenn der Schriftschnitt nicht geladen ist, behandelt der Benutzeragent ihn als fehlgeschlagenen Ladevorgang und löst ein normales Schrift-Fallback aus.
+- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schrift-Swapperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schriftfehlperiode: Wenn die Schriftart nicht geladen ist, behandelt der User-Agent sie als fehlgeschlagenen Ladevorgang, der zu normalem Schriftart-Fallback führt.
 
 ## Formale Definition
 
@@ -55,7 +56,7 @@ Der Zeitverlauf der Schriftanzeige basiert auf einem Timer, der beginnt, sobald 
 
 ## Beispiele
 
-### Fallback font-display spezifizieren
+### Festlegen der Ersatzschriftart-Anzeigen
 
 ```css
 @font-face {

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: getExtension() Methode"
 short-title: getExtension()
 slug: Web/API/WebGLRenderingContext/getExtension
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getExtension()`**-Methode ermöglicht eine
+Die **`WebGLRenderingContext.getExtension()`**-Methode aktiviert eine
 [WebGL](/de/docs/Web/API/WebGL_API)-Erweiterung.
 
 ## Syntax
@@ -24,13 +24,12 @@ getExtension(name)
 
 ### Rückgabewert
 
-Ein WebGL-Erweiterungsobjekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Name (unabhängig von der Groß-/Kleinschreibung) nicht mit einem der Strings in
-[`WebGLRenderingContext.getSupportedExtensions`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions) übereinstimmt.
+Ein WebGL-Erweiterungsobjekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Name (ohne Unterscheidung der Groß- und Kleinschreibung) keinem der Strings in
+[`WebGLRenderingContext.getSupportedExtensions`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions) entspricht.
 
 ## Beispiele
 
-Sobald eine WebGL-Erweiterung aktiviert ist, können Sie die Methoden, Eigenschaften oder
-Konstanten verwenden, die dieses Erweiterungsobjekt bereitstellt.
+Sobald eine WebGL-Erweiterung aktiviert ist, können Sie die Methoden, Eigenschaften oder Konstanten verwenden, die dieses Erweiterungsobjekt bereitstellt.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -41,8 +40,7 @@ gl.getExtension("WEBGL_lose_context").loseContext();
 
 ## WebGL-Erweiterungen
 
-Erweiterungen für die WebGL API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch
-[hier](/de/docs/Web/API/WebGL_API#extensions) aufgeführt.
+Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
 
 ## Spezifikationen
 

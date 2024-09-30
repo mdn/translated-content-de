@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`title`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Advisory-Titel des aktuellen Stylesheets zurück.
+Die **`title`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt den beratenden Titel des aktuellen Stylesheets zurück.
 
-Der Titel wird oft im [`ownerNode`](/de/docs/Web/API/StyleSheet/OwnerNode) angegeben.
+Der Titel wird häufig in der [`ownerNode`](/de/docs/Web/API/StyleSheet/OwnerNode) angegeben.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Aktualisiert Eigenschaften einer kontextuellen Identität, basierend auf ihrer Cookie-Store-ID.
+Aktualisiert Eigenschaften einer kontextuellen Identität anhand ihrer Cookie-Store-ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,16 +23,16 @@ let createContext = browser.contextualIdentities.update(
 ### Parameter
 
 - `cookieStoreId`
-  - : `string`. Die ID des Cookie-Stores dieser kontextuellen Identität. Da kontextuelle Identitäten jeweils ihren eigenen Cookie-Store haben, dient dies als Identifikator für die kontextuelle Identität selbst.
+  - : `string`. Die ID des Cookie-Stores dieser kontextuellen Identität. Da jede kontextuelle Identität ihren eigenen Cookie-Store hat, dient dies als Identifikator für die kontextuelle Identität selbst.
 - `details`
 
   - : `object`. Ein Objekt, das neue Werte für die Eigenschaften enthält, die Sie ändern möchten. Dies kann eine der folgenden Eigenschaften enthalten:
 
     - `name` {{optional_inline}}
-      - : `string`. Ein neuer Name für die Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es, ein neues Tab in der Identität zu öffnen. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
+      - : `string`. Ein neuer Name für die Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es, einen neuen Tab in der Identität zu öffnen. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
     - `color` {{optional_inline}}
 
-      - : `string`. Eine neue Farbe für die Identität. Diese wird verwendet, um Tabs zu markieren, die zu dieser Identität gehören. Sie können einen der folgenden Werte angeben:
+      - : `string`. Eine neue Farbe für die Identität. Diese wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Sie können einen der folgenden Werte angeben:
 
         - "blue"
         - "turquoise"
@@ -64,7 +64,7 @@ let createContext = browser.contextualIdentities.update(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die aktualisierte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die Funktion für kontextuelle Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die aktualisierte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die kontextuellen Identitätsfunktionen nicht aktiviert sind, wird das Promise abgelehnt.
 
 ## Browser-Kompatibilität
 

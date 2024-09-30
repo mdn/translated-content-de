@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das `gamepadconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder das erste Mal eine Taste/ein Steuerknüppel des Gamepads benutzt wird.
+Das `gamepadconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder zum ersten Mal eine Taste/Achse des Gamepads verwendet wird.
 
-Das Ereignis wird nicht ausgelöst, wenn es durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) der Seite über die {{httpheader('Permissions-Policy/gamepad','gamepad')}}-Richtlinie nicht erlaubt ist.
+Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) des Dokuments nicht erlaubt ist.
 
-Dieses Ereignis kann nicht abgesagt werden und wird nicht hochgebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ window.addEventListener("gamepadconnected", (event) => {
 });
 ```
 
-Alternativ können Sie die `window.ongamepadconnected` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `gamepadconnected` Ereignis festzulegen:
+Alternativ können Sie die `window.ongamepadconnected` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `gamepadconnected`-Ereignis zu etablieren:
 
 ```js
 window.ongamepadconnected = (event) => {
@@ -45,4 +45,4 @@ window.ongamepadconnected = (event) => {
 ## Siehe auch
 
 - [gamepaddisconnected](/de/docs/Web/API/Window/gamepaddisconnected_event)
-- [Using the Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+- [Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

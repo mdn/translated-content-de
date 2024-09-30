@@ -8,11 +8,8 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`DelayNode()`**
-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-erstellt ein neues [`DelayNode`](/de/docs/Web/API/DelayNode)-Objekt mit einer Verzögerungsleitung; ein AudioNode
-Audioverarbeitungsmodul, das eine Verzögerung zwischen dem Eintreffen von Eingangsdaten und
-ihrer Weitergabe an den Ausgang verursacht.
+Der **`DelayNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API)
+erstellt ein neues [`DelayNode`](/de/docs/Web/API/DelayNode)-Objekt mit einer Verzögerungsleitung; ein AudioNode-Audio-Verarbeitungsmodul, das eine Verzögerung zwischen dem Eingang von Daten und deren Weiterleitung an den Ausgang verursacht.
 
 ## Syntax
 
@@ -24,34 +21,31 @@ new DelayNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf ein [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext).
+  - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext).
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das die Optionen des Delay-Nodes spezifiziert. Kann die folgenden Mitglieder enthalten:
+  - : Ein Objekt, das die Optionen des Verzögerungsknotens angibt. Kann die folgenden Mitglieder enthalten:
 
     - `delayTime`
-      - : Die anfängliche Verzögerungszeit für den Node, in Sekunden. Der
-        Standardwert ist `0`.
+      - : Die anfängliche Verzögerungszeit für den Knoten in Sekunden. Der Standardwert ist `0`.
     - `maxDelayTime`
-      - : Die maximale Verzögerungszeit für den Node, in Sekunden.
-        Standardwert ist `1`.
+      - : Die maximale Verzögerungszeit für den Knoten in Sekunden.
+        Standardmäßig `1`.
     - `channelCount`
-      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu Eingängen des Nodes verwendet werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Nutzung und genaue
+      - : Stellt eine Ganzzahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) der Verbindungen zu den Eingängen des Knotens verwendet werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen
-        den Eingängen und Ausgängen des Nodes abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
-        Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden sollen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich Standardwerte.)
     - `channelInterpretation`
-      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation bestimmt, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie das Audio [up-mixing und down-mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue [`DelayNode`](/de/docs/Web/API/DelayNode)-Objektinstanz.
+Eine neue Instanz des [`DelayNode`](/de/docs/Web/API/DelayNode)-Objekts.
 
 ## Beispiele
 

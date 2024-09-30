@@ -21,7 +21,7 @@ Verweisen Sie auf die Dokumentation für {{Cssxref("length")}} und {{Cssxref("pe
 
 ### Beispiele für length-percentage
 
-Das folgende einfache Beispiel demonstriert mehrere Eigenschaften, die `<length-percentage>` Werte verwenden.
+Das folgende einfache Beispiel demonstriert mehrere Eigenschaften, die `<length-percentage>`-Werte verwenden.
 
 #### HTML
 
@@ -58,7 +58,7 @@ p {
 
 ### Verwendung in calc()
 
-Wo ein `<length-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Länge aufgelöst wird und daher in einem {{cssxref("calc", "calc()")}} Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} akzeptabel:
+Wo ein `<length-percentage>` als zulässiger Typ angegeben wird, bedeutet dies, dass der Prozentsatz in eine Länge aufgelöst wird und daher in einem {{cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} akzeptabel:
 
 ```css example-good
 width: 200px;
@@ -78,4 +78,4 @@ width: calc(100% - 200px);
 
 - {{cssxref("&lt;percentage&gt;")}}
 - {{cssxref("&lt;length&gt;")}}
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS Values and Units](/de/docs/Web/CSS/CSS_Values_and_Units)

@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements vermischt werden sollen.
+Die CSS-Eigenschaft **`background-blend-mode`** legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
 
 {{EmbedInteractiveExample("pages/css/background-blend-mode.html")}}
 
-Die Mischmodi sollten in derselben Reihenfolge wie die {{cssxref("background-image")}} Eigenschaft definiert werden. Wenn die Längen der Listen für Mischmodi und Hintergrundbilder nicht übereinstimmen, wird sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
+Mischmodi sollten in derselben Reihenfolge definiert werden wie die Eigenschaft {{cssxref("background-image")}}. Wenn die Listenlängen der Mischmodi und Hintergrundbilder nicht gleich sind, wird sie wiederholt und/oder verkürzt, bis die Längen übereinstimmen.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ background-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus. Es können mehrere Werte vorhanden sein, die durch Kommas getrennt sind.
+  - : Der anzuwendende Mischmodus. Es können mehrere Werte, getrennt durch Kommata, angegeben werden.
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ background-blend-mode: unset;
 }
 ```
 
-### Probieren Sie verschiedene Mischmodi aus
+### Verschiedene Mischmodi ausprobieren
 
 ```html hidden
 <div id="div"></div>

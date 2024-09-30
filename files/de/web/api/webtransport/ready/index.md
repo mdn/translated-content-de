@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`ready`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport bereit zur Verwendung ist.
+Die **`ready`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport bereit zur Nutzung ist.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu `undefined` aufgelöst wird.
 
 ## Beispiele
 

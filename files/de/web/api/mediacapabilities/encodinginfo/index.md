@@ -1,5 +1,5 @@
 ---
-title: "MediaCapabilities: encodingInfo()-Methode"
+title: "MediaCapabilities: encodingInfo() Methode"
 short-title: encodingInfo()
 slug: Web/API/MediaCapabilities/encodingInfo
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capabilities API")}}
 
-Die **`encodingInfo()`**-Methode des [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Interfaces gibt ein Promise zurück, das mit den Fähigkeiten der getesteten Medienkonfiguration zum Kodieren von Medien erfüllt wird. Dies umfasst die drei booleschen Eigenschaften `supported`, `smooth` und `powerefficient`, die beschreiben, wie kompatibel das Gerät mit der Art der Medien ist.
+Die **`encodingInfo()`** Methode der [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Schnittstelle gibt ein Promise zurück, das sich mit den getesteten Medienkonfigurationsfähigkeiten für das Kodieren von Medien erfüllt. Diese beinhalten die drei booleschen Eigenschaften `supported`, `smooth` und `powerefficient`, die beschreiben, wie kompatibel das Gerät mit der Art der Medien ist.
 
 ## Syntax
 
@@ -20,67 +20,69 @@ encodingInfo(configuration)
 
 - `configuration`
 
-  - : Ein Objekt mit einer Eigenschaft `type` und _entweder_ einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält: <!-- MediaEncodingConfiguration in der Spezifikation -->
+  - : Ein Objekt mit einer Eigenschaft `type` und _entweder_ einer `video` oder `audio` Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält: <!-- MediaEncodingConfiguration in the spec -->
 
     - `type`
 
-      - : Der Typ des zu testenden Mediums. Dies nimmt einen von zwei Werten an:
+      - : Der Typ der getesteten Medien. Dies nimmt einen von zwei Werten an:
 
         - `record`
-          - : Repräsentiert eine Konfiguration für die Aufnahme von Medien, z.B. unter Verwendung von [`MediaRecorder`](/de/docs/Web/API/MediaRecorder).
+          - : Stellt eine Konfiguration für die Aufnahme von Medien dar, z.B. unter Nutzung von [`MediaRecorder`](/de/docs/Web/API/MediaRecorder).
         - `webrtc`
-          - : Repräsentiert eine Konfiguration, die über elektronische Mittel übertragen werden soll (z.B. mit [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)). **Hinweis:** Firefox verwendet `transmission` für diesen Typ, und `webrtc` funktioniert nicht.
+          - : Stellt eine Konfiguration dar, die zur Übertragung über elektronische Mittel vorgesehen ist (z.B. unter Nutzung von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)). **Hinweis:** Firefox verwendet `transmission` für diesen Typ, und `webrtc` funktioniert nicht.
         - `transmission` {{non-standard_inline}}
-          - : Das Synonym für `webrtc`, das in Firefox verwendet wird.
+          - : Das Synonym von `webrtc`, das in Firefox verwendet werden soll.
 
     - `video`
 
-      - : Konfigurationsobjekt für eine Video-Medienquelle. Dies hat die folgenden Eigenschaften: <!-- VideoConfiguration in der Spezifikation -->
+      - : Konfigurationsobjekt für eine Videomedienquelle.
+        Dieses hat die folgenden Eigenschaften: <!-- VideoConfiguration in the spec -->
 
         - `contentType`
-          - : String, der einen gültigen Video-MIME-Typ und (optional) einen [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
+          - : String, der einen gültigen Video-MIME-Typ und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
         - `width`
           - : Die Breite des Videos.
         - `height`
           - : Die Höhe des Videos.
         - `bitrate`
-          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Videodatei zu kodieren.
+          - : Die Anzahl der Bits, die für die Kodierung einer Sekunde der Videodatei verwendet werden.
         - `framerate`
-          - : Die Anzahl der Bilder, die eine Sekunde der Videowiedergabe ausmachen.
+          - : Die Anzahl der Frames, die eine Sekunde Videowiedergabe ausmachen.
 
     - `audio`
 
-      - : Konfigurationsobjekt für eine Audio-Medienquelle. Dies hat die folgenden Eigenschaften: <!-- AudioConfiguration in der Spezifikation -->
+      - : Konfigurationsobjekt für eine Audiomedienquelle.
+        Dieses hat die folgenden Eigenschaften: <!-- AudioConfiguration in the spec -->
 
         - `contentType`
-          - : String, der einen gültigen Audio-MIME-Typ und (optional) einen [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
+          - : String, der einen gültigen Audio-MIME-Typ und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält.
         - `channels`
-          - : Die Anzahl der Kanäle, die von der Audiospur verwendet werden.
+          - : Die Anzahl der Kanäle, die der Audiotrack verwendet.
         - `bitrate`
-          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Audiodatei zu kodieren.
+          - : Die Anzahl der Bits, die für die Kodierung einer Sekunde der Audiodatei verwendet werden.
         - `samplerate`
           - : Die Anzahl der Audio-Samples, die eine Sekunde der Audiodatei ausmachen.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} wird mit einem Objekt erfüllt, das drei boolesche Attribute enthält:
+Ein {{jsxref('Promise')}}, das sich mit einem Objekt erfüllt, das drei boolesche Attribute enthält:
 
 - `supported`
-  - : `true`, wenn der Medieninhalt überhaupt kodiert werden kann. Ansonsten ist es `false`.
+  - : `true`, wenn der Medieninhalt überhaupt kodiert werden kann. Andernfalls `false`.
 - `smooth`
-  - : `true`, wenn die Wiedergabe der Medien reibungslos (von hoher Qualität) sein wird. Ansonsten ist es `false`.
+  - : `true`, wenn die Wiedergabe der Medien reibungslos (von hoher Qualität) ist. Andernfalls `false`.
 - `powerEfficient`
-  - : `true`, wenn die Wiedergabe der Medien energieeffizient sein wird. Ansonsten ist es `false`.
+  - : `true`, wenn die Wiedergabe der Medien energieeffizient ist. Andernfalls `false`.
 
-Browser werden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient` melden, bis Statistiken auf diesem Gerät aufgezeichnet wurden. Alle unterstützten Audio-Codecs werden als energieeffizient gemeldet.
+Browser werden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient` melden, bis Statistiken zu diesem Gerät aufgezeichnet wurden. Alle unterstützten Audiocodecs werden als energieeffizient gemeldet.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn die an die Methode `encodingInfo()` übergebene `configuration` ungültig ist, was aus einem der folgenden Gründe der Fall sein kann:
-    - der Typ ist nicht Video oder Audio,
+  - : Wird ausgelöst, wenn die `configuration`, die an die `encodingInfo()` Methode übergeben wird, ungültig ist, was aus einem der folgenden Gründe der Fall sein kann:
+    - der Typ ist weder Video noch Audio,
     - der `contentType` ist kein gültiger Codec-MIME-Typ,
-    - es gibt einen anderen Fehler in der an die Methode übergebenen Medienkonfiguration, einschließlich des Weglassens eines der `configuration`-Elemente.
+    - es liegt ein anderer Fehler in der an die Methode übergebenen Medienkonfiguration vor, einschließlich des Auslassens eines der `configuration`-Elemente.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte Eigenschaft `payerPhone` der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Schnittstelle gibt die vom Benutzer bereitgestellte Telefonnummer zurück. Diese Option ist nur vorhanden, wenn die `requestPayerPhone`-Option im `options`-Objekt auf `true` gesetzt ist, das an den [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird.
+Die schreibgeschützte Eigenschaft `payerPhone` des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt die vom Benutzer angegebene Telefonnummer zurück. Diese Option ist nur vorhanden, wenn die Option `requestPayerPhone` auf `true` im `options`-Objekt gesetzt wird, das an den [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird.
 
 ## Wert
 

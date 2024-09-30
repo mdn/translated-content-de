@@ -1,5 +1,5 @@
 ---
-title: "CharacterBoundsUpdateEvent: CharacterBoundsUpdateEvent() Konstruktor"
+title: "CharacterBoundsUpdateEvent: CharacterBoundsUpdateEvent()-Konstruktor"
 short-title: CharacterBoundsUpdateEvent()
 slug: Web/API/CharacterBoundsUpdateEvent/CharacterBoundsUpdateEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CharacterBoundsUpdateEvent API")}}{{SeeCompatTable}}
 
-Der **`CharacterBoundsUpdateEvent()`** Konstruktor gibt ein neues [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent) Objekt zurück.
+Der **`CharacterBoundsUpdateEvent()`**-Konstruktor gibt ein neues [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent)-Objekt zurück.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ new CharacterBoundsUpdateEvent(type, options)
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `rangeStart`
-      - : Eine Zahl, die den Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs festlegt, auf den sich dieses Ereignis bezieht.
+      - : Eine Zahl, die den Versatz des ersten Zeichens im editierbaren Textbereich angibt, auf den sich dieses Ereignis bezieht.
     - `rangeEnd`
-      - : Eine Zahl, die den Offset des letzten Zeichens innerhalb des bearbeitbaren Textbereichs festlegt, auf den sich dieses Ereignis bezieht.
+      - : Eine Zahl, die den Versatz des letzten Zeichens im editierbaren Textbereich angibt, auf den sich dieses Ereignis bezieht.
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ new CharacterBoundsUpdateEvent(type, options)
 
 ## Siehe auch
 
-- Die [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent) Schnittstelle, zu der es gehört.
+- Die [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent)-Schnittstelle, zu der es gehört.

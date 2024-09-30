@@ -8,9 +8,9 @@ l10n:
 {{JSRef}} {{Deprecated_Header}}
 
 > [!NOTE]
-> Die `compile()`-Methode ist nur aus Kompatibilitätsgründen spezifiziert. Die Verwendung von `compile()` führt dazu, dass die ansonsten unveränderliche Regex-Quelle und -Flags veränderlich werden, was die Erwartungen der Benutzer brechen kann. Sie können stattdessen den [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp) Konstruktor verwenden, um ein neues reguläres Ausdrucksobjekt zu erstellen.
+> Die `compile()`-Methode wird nur aus Kompatibilitätsgründen spezifiziert. Die Verwendung von `compile()` bewirkt, dass der ansonsten unveränderliche Regex-Quellcode und die Flags veränderlich werden, was die Erwartungen der Benutzer beeinträchtigen kann. Sie können stattdessen den [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp)-Konstruktor verwenden, um ein neues reguläres Ausdrucksobjekt zu erstellen.
 
-Die **`compile()`**-Methode von {{jsxref("RegExp")}} Instanzen wird verwendet, um einen regulären Ausdruck mit neuer Quelle und neuen Flags neu zu kompilieren, nachdem das `RegExp`-Objekt bereits erstellt wurde.
+Die **`compile()`**-Methode von {{jsxref("RegExp")}}-Instanzen wird verwendet, um einen regulären Ausdruck mit einem neuen Quelltext und neuen Flags zu rekonstruieren, nachdem das `RegExp`-Objekt bereits erstellt wurde.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ compile(pattern, flags)
 - `pattern`
   - : Der Text des regulären Ausdrucks.
 - `flags`
-  - : Jede Kombination von [Flagwerten](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#flags).
+  - : Eine beliebige Kombination von [Flag-Werten](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#flags).
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von compile()
 
-Das folgende Beispiel zeigt, wie ein regulärer Ausdruck mit einem neuen Muster und einem neuen Flag neu kompiliert wird.
+Das folgende Beispiel zeigt, wie ein regulärer Ausdruck mit einem neuen Muster und einem neuen Flag rekonstruiert wird.
 
 ```js
 const regexObj = new RegExp("foo", "gi");

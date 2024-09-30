@@ -1,5 +1,5 @@
 ---
-title: "ReferenceError: 'super'-Konstruktor muss vor der Verwendung von 'this' im Konstruktor der abgeleiteten Klasse aufgerufen werden"
+title: "ReferenceError: 'super' Konstruktor muss vor der Verwendung von 'this' im Konstruktor der abgeleiteten Klasse aufgerufen werden"
 slug: Web/JavaScript/Reference/Errors/Super_not_called
 l10n:
   sourceCommit: b736420a8955d6e1ff513735944b3da6b92cf525
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "must call super constructor before using 'this' in derived class constructor" tritt auf, wenn `super()` in einem abgeleiteten Klassenkonstruktor nicht aufgerufen wird und der abgeleitete Konstruktor versucht, auf den Wert von `this` zuzugreifen, oder der abgeleitete Konstruktor bereits zurückgegeben hat und der Rückgabewert kein Objekt ist.
+Die JavaScript-Ausnahme "must call super constructor before using 'this' in derived class constructor" tritt auf, wenn die {{jsxref("Operators/super", "super()")}} im Konstruktor einer abgeleiteten Klasse nicht aufgerufen wird und der abgeleitete Konstruktor versucht, auf den Wert von {{jsxref("Operators/this", "this")}} zuzugreifen, oder wenn der abgeleitete Konstruktor bereits einen Wert zurückgegeben hat, der kein Objekt ist.
 
-## Meldung
+## Nachricht
 
 ```plain
 ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor (V8-based)
@@ -21,9 +21,9 @@ ReferenceError: 'super()' must be called in derived constructor before accessing
 
 {{jsxref("ReferenceError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Der `super()`-Aufruf kann höchstens einmal für jeden `new`-Aufruf eines abgeleiteten Klassenkonstruktors durchgeführt werden. Oft müssen Sie ihn genau einmal aufrufen, da, wenn Sie ihn nicht aufrufen, der übergeordnete Konstruktor den Wert von `this` nicht initialisieren kann, sodass Sie `this` im abgeleiteten Konstruktor nicht verwenden können und `this` nicht als gültig konstruiertes Objekt betrachtet wird (und einen Fehler wirft, wenn der abgeleitete Konstruktor in diesem Zustand abgeschlossen wird). Der Weg darum herum ist, ein Objekt aus dem abgeleiteten Klassenkonstruktor zurückzugeben, in welchem Fall das zurückgegebene Objekt als konstruiertes Objekt anstelle von `this` verwendet wird, sodass `super()` nicht aufgerufen werden muss. Dies wird jedoch selten gemacht.
+Der `super()`-Aufruf kann höchstens einmal pro `new`-Aufruf eines abgeleiteten Klassenkonstruktors erfolgen. Oft müssen Sie ihn genau einmal aufrufen, denn wenn Sie ihn nicht aufrufen, kann der Elternkonstruktor den Wert von `this` nicht initialisieren, so dass Sie nicht auf `this` im abgeleiteten Konstruktor zugreifen können und `this` nicht als gültiges konstruiertes Objekt betrachtet wird (und einen Fehler auslöst, wenn der abgeleitete Konstruktor in diesem Zustand abgeschlossen wird). Der Ausweg besteht darin, ein Objekt aus dem Konstruktor der abgeleiteten Klasse zurückzugeben; in diesem Fall wird das zurückgegebene Objekt als das konstruierte Objekt anstelle von `this` verwendet, was es Ihnen erlaubt, `super()` nicht aufzurufen. Dies wird jedoch selten gemacht.
 
 ## Beispiele
 

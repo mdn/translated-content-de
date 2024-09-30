@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`response`** schreibgeschützte Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Schnittstelle ist ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das vom Authenticator an den User-Agent zur Erstellung oder Abrufung von Anmeldeinformationen gesendet wird. Die in dieser Antwort enthaltenen Informationen werden vom Server der vertrauenden Partei verwendet, um zu überprüfen, ob die Anfrage legitim ist.
+Die schreibgeschützte Eigenschaft **`response`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das vom Authenticator an den User-Agent gesendet wird, um Anmeldedaten zu erstellen oder abzurufen. Die in dieser Antwort enthaltenen Informationen werden vom Server der vertrauenden Partei verwendet, um die Legitimität der Anforderung zu überprüfen.
 
 Eine `AuthenticatorResponse` ist entweder:
 
-- eine [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) (wenn das `PublicKeyCredential` über [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt wird)
-- eine [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) (wenn das `PublicKeyCredential` über [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) erhalten wird).
+- eine [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) (wenn die `PublicKeyCredential` über [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt wird)
+- eine [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) (wenn die `PublicKeyCredential` über [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) erhalten wird).
 
-Um die _Erstellung_ von Anmeldeinformationen zu validieren, benötigt der Server der vertrauenden Partei beide:
+Um die _Erstellung_ von Anmeldedaten zu validieren, benötigt der Server der vertrauenden Partei sowohl:
 
 - diese Antwort
-- die Erweiterungen des Clients (gegeben durch [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults)), um die Anfrage zu validieren.
+- die Erweiterungen des Clients (bereitgestellt von [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults)), um die Anforderung zu validieren.
 
 > [!NOTE]
-> Beim Validieren des Abrufs bestehender Anmeldeinformationen sind das gesamte `PublicKeyCredential`-Objekt und die Erweiterungen des Clients für den Server der vertrauenden Partei erforderlich.
+> Beim Validieren des Abrufs bestehender Anmeldedaten sind das gesamte `PublicKeyCredential`-Objekt und die Client-Erweiterungen notwendig für den Server der vertrauenden Partei.
 
 > [!NOTE]
-> Diese Eigenschaft kann nur in Top-Level-Kontexten verwendet werden und ist zum Beispiel in einem {{HTMLElement("iframe")}} nicht verfügbar.
+> Diese Eigenschaft kann nur in Top-Level-Kontexten verwendet werden und wird z. B. in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
 
 ## Wert
 
-Ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das die Daten enthält, die das Skript der vertrauenden Partei empfängt und an den Server der vertrauenden Partei gesendet werden sollten, um die Anfrage zur Erstellung oder zum Abrufen zu validieren. Dieses Objekt enthält Daten vom Client ([`AuthenticatorResponse/clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)) und vom Authenticator.
+Ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das die Daten enthält, die das Skript einer vertrauenden Partei erhält und die an den Server der vertrauenden Partei gesendet werden sollten, um die Anforderung zur Erstellung oder zum Abruf zu validieren. Dieses Objekt enthält Daten vom Client ([`AuthenticatorResponse/clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)) und vom Authenticator.
 
 ## Beispiele
 

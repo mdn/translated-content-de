@@ -1,5 +1,5 @@
 ---
-title: "LargestContentfulPaint: id Eigenschaft"
+title: "LargestContentfulPaint: id-Eigenschaft"
 short-title: id
 slug: Web/API/LargestContentfulPaint/id
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`id`**-Eigenschaft des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces ist schreibgeschützt und gibt die ID des Elements zurück, das das größte inhaltsvolle Rendern darstellt.
+Die schreibgeschützte Eigenschaft **`id`** des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt die ID des Elements zurück, das die größte inhaltliche Darstellung ist.
 
 ## Wert
 
-Ein String, der die ID des Elements enthält, oder der leere String, wenn es keine solche ID gibt.
+Ein String, der die ID des Elements enthält, oder der leere String, wenn keine solche ID vorhanden ist.
 
 ## Beispiele
 
-### Protokollierung der ID des größten inhaltsvollen Render_Element
+### Protokollierung der ID des größten inhaltlichen Darstellungselements
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Performance-Einträge benachrichtigt, während sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Leistungseinträge informiert, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

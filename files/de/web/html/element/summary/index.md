@@ -1,5 +1,5 @@
 ---
-title: "<summary>: Das Disclosure Summary Element"
+title: "<summary>: Das Disclosure Summary-Element"
 slug: Web/HTML/Element/summary
 l10n:
   sourceCommit: f3fc83168e55e161650b73755db53ecadfe816b7
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<summary>`** [HTML](/de/docs/Web/HTML) Element gibt eine Zusammenfassung, eine Beschriftung oder eine Legende für das Disclosure-Box-Element {{HTMLElement("details")}} an. Ein Klick auf das `<summary>`-Element schaltet den Zustand des übergeordneten `<details>`-Elements zwischen offen und geschlossen um.
+Das **`<summary>`** [HTML](/de/docs/Web/HTML)-Element gibt eine Zusammenfassung, Bildunterschrift oder Legende für ein {{HTMLElement("details")}}-Element an. Durch Klicken auf das `<summary>`-Element wird der Status des übergeordneten `<details>`-Elements umgeschaltet und geöffnet oder geschlossen.
 
 {{EmbedInteractiveExample("pages/tabbed/summary.html","tabbed-shorter")}}
 
@@ -15,35 +15,35 @@ Das **`<summary>`** [HTML](/de/docs/Web/HTML) Element gibt eine Zusammenfassung,
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
-Die Inhalte des `<summary>`-Elements können beliebige Überschriften, Klartext oder HTML sein, das innerhalb eines Absatzes verwendet werden kann.
+Der Inhalt des `<summary>`-Elements kann jede Überschrifteninhalt, Klartext oder HTML sein, der innerhalb eines Absatzes verwendet werden kann.
 
-Ein `<summary>`-Element darf _nur_ als erstes Kind eines `<details>`-Elements verwendet werden. Wenn der Benutzer auf die Zusammenfassung klickt, wird das übergeordnete `<details>`-Element geöffnet oder geschlossen, und ein [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event) Ereignis wird an das `<details>`-Element gesendet, das verwendet werden kann, um Ihnen mitzuteilen, wann diese Zustandsänderung eintritt.
+Ein `<summary>`-Element darf _nur_ als erstes Kind eines `<details>`-Elements verwendet werden. Wenn der Benutzer auf die Zusammenfassung klickt, wird das übergeordnete `<details>`-Element geöffnet oder geschlossen, und ein [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event) Ereignis wird an das `<details>`-Element gesendet, das verwendet werden kann, um Sie darüber zu informieren, wann diese Statusänderung eintritt.
 
-Der Inhalt des `<details>` liefert die [barrierefreie Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
+Der Inhalt der `<details>` bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
 
-### Standardbeschriftungstext
+### Standard-Label-Text
 
-Wenn das erste Kind eines `<details>`-Elements kein `<summary>`-Element ist, wird der [Benutzer-Agent](/de/docs/Glossary/user_agent) eine Standardzeichenfolge (normalerweise "Details") als Beschriftung für die Disclosure-Box verwenden.
+Wenn das erste Kind eines `<details>`-Elements kein `<summary>`-Element ist, wird der [User-Agent](/de/docs/Glossary/user_agent) eine Standardzeichenfolge (normalerweise "Details") als Bezeichnung für das Disclosure-Feld verwenden.
 
 ### Standardstil
 
-Laut der HTML-Spezifikation umfasst der Standardstil für `<summary>`-Elemente `display: list-item`. Dadurch ist es möglich, das standardmäßig angezeigte Symbol, das als Disclosure-Widget neben der Beschriftung angezeigt wird, zu ändern oder zu entfernen. Normalerweise ist dies ein Dreieck.
+Gemäß der HTML-Spezifikation umfasst der Standardstil für `<summary>`-Elemente `display: list-item`. Dadurch kann das Symbol, das als Disclosure-Widget neben der Bezeichnung angezeigt wird, geändert oder entfernt werden, was normalerweise ein Dreieck ist.
 
-Sie können den Stil auch in `display: block` ändern, um das Disclosure-Dreieck zu entfernen.
+Sie können auch den Stil ändern, um das Disclosure-Dreieck zu entfernen, indem Sie `display: block` verwenden.
 
 Siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für Details, da nicht alle Browser die volle Funktionalität dieses Elements unterstützen.
 
-Für Webkit-basierte Browser, wie Safari, ist es möglich, die Symbolanzeige über das nicht standardmäßige CSS-Pseudoelement `::-webkit-details-marker` zu steuern. Um das Disclosure-Dreieck zu entfernen, verwenden Sie `summary::-webkit-details-marker { display: none }`.
+Für Webkit-basierte Browser wie Safari ist es möglich, die Symbolanzeige über das nicht standardmäßige CSS-Pseudoelement `::-webkit-details-marker` zu steuern. Um das Disclosure-Dreieck zu entfernen, verwenden Sie `summary::-webkit-details-marker { display: none }`.
 
 ## Beispiele
 
-Nachfolgend sind einige Beispiele für die Verwendung von `<summary>` aufgeführt. Weitere Beispiele finden Sie in der Dokumentation für das {{HTMLElement("details")}}-Element.
+Im Folgenden finden Sie einige Beispiele für die Verwendung von `<summary>`. Weitere Beispiele finden Sie in der Dokumentation für das {{HTMLElement("details")}}-Element.
 
 ### Einfaches Beispiel
 
-Ein einfaches Beispiel, das die Verwendung von `<summary>` in einem {{HTMLElement("details")}}-Element zeigt:
+Ein einfaches Beispiel mit der Verwendung von `<summary>` in einem {{HTMLElement("details")}}-Element:
 
 ```html
 <details open>
@@ -62,7 +62,7 @@ Ein einfaches Beispiel, das die Verwendung von `<summary>` in einem {{HTMLElemen
 
 ### Zusammenfassungen als Überschriften
 
-Sie können Überschriftselemente im `<summary>` verwenden, wie folgt:
+Sie können Überschriftselemente in `<summary>` verwenden, wie dieses Beispiel zeigt:
 
 ```html
 <details open>
@@ -82,11 +82,11 @@ Sie können Überschriftselemente im `<summary>` verwenden, wie folgt:
 Dies hat derzeit einige Abstandsprobleme, die mit CSS behoben werden könnten.
 
 > [!WARNING]
-> Da das `<summary>`-Element standardmäßig die Rolle eines [Buttons](/de/docs/Web/Accessibility/ARIA/Roles/button_role) hat (was alle Rollen von Kindelementen entfernt), wird dieses Beispiel für Benutzer von unterstützenden Technologien wie Bildschirmlesegeräten nicht funktionieren. Das `<h4>` verliert seine Rolle und wird daher für diese Benutzer nicht als Überschrift behandelt.
+> Da das `<summary>`-Element standardmäßig die Rolle [button](/de/docs/Web/Accessibility/ARIA/Roles/button_role) hat (was alle Rollen von untergeordneten Elementen entfernt), funktioniert dieses Beispiel nicht für Benutzer von unterstützenden Technologien wie Bildschirmlesern. Das `<h4>` wird seine Rolle verlieren und daher nicht als Überschrift für diese Benutzer behandelt werden.
 
 ### HTML in Zusammenfassungen
 
-Dieses Beispiel fügt dem `<summary>`-Element einige Semantiken hinzu, um die Bezeichnung als wichtig anzugeben:
+Dieses Beispiel fügt dem `<summary>`-Element einige Semantiken hinzu, um das Label als wichtig zu kennzeichnen:
 
 ```html
 <details open>
@@ -109,22 +109,28 @@ Dieses Beispiel fügt dem `<summary>`-Element einige Semantiken hinzu, um die Be
   <tbody>
      <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        keine
+        none
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasierungs-Inhalte</a>, optional vermischt mit
-        <a href="/de/docs/Web/HTML/Content_categories#heading_content">Überschriften-Inhalte</a>
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
+          >Phrasing-Inhalt</a
+        >, optional vermischt mit
+        <a href="/de/docs/Web/HTML/Content_categories#heading_content"
+          >Überschrift-Inhalt</a
+        >
       </td>
     </tr>
     <tr>
-      <th scope="row">Auslassen des Tags</th>
-      <td>Keine; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine; sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>

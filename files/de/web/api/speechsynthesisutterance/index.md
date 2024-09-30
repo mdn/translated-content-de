@@ -7,65 +7,65 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechSynthesisUtterance`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Sprachaufforderung.
-Es enthält den Inhalt, den der Sprachdienst lesen soll, und Informationen darüber, wie er gelesen werden soll (z.B. Sprache, Tonhöhe und Lautstärke).
+Die **`SpeechSynthesisUtterance`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stellt eine Sprachaufforderung dar.
+Sie enthält den Inhalt, den der Sprachdienst vorlesen soll, sowie Informationen darüber, wie dies geschehen soll (z. B. Sprache, Tonhöhe und Lautstärke).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`SpeechSynthesisUtterance()`](/de/docs/Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance)
-  - : Gibt eine neue Instanz des Objekts `SpeechSynthesisUtterance` zurück.
+  - : Gibt eine neue `SpeechSynthesisUtterance`-Objektinstanz zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_`SpeechSynthesisUtterance` erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`SpeechSynthesisUtterance` erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SpeechSynthesisUtterance.lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)
-  - : Ruft die Sprache der Äußerung ab und setzt sie.
+  - : Ruft die Sprache der Äußerung ab und legt diese fest.
 - [`SpeechSynthesisUtterance.pitch`](/de/docs/Web/API/SpeechSynthesisUtterance/pitch)
-  - : Ruft die Tonhöhe ab und setzt sie, mit der die Äußerung gesprochen wird.
+  - : Ruft die Tonhöhe ab, mit der die Äußerung gesprochen wird, und legt diese fest.
 - [`SpeechSynthesisUtterance.rate`](/de/docs/Web/API/SpeechSynthesisUtterance/rate)
-  - : Ruft die Geschwindigkeit ab und setzt sie, mit der die Äußerung gesprochen wird.
+  - : Ruft die Geschwindigkeit ab, mit der die Äußerung gesprochen wird, und legt diese fest.
 - [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text)
-  - : Ruft den Text ab und setzt ihn, der synthetisiert wird, wenn die Äußerung gesprochen wird.
+  - : Ruft den Text ab, der synthetisiert wird, wenn die Äußerung gesprochen wird, und legt diesen fest.
 - [`SpeechSynthesisUtterance.voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice)
-  - : Ruft die Stimme ab und setzt sie, die verwendet wird, um die Äußerung zu sprechen.
+  - : Ruft die Stimme ab, die zum Sprechen der Äußerung verwendet wird, und legt diese fest.
 - [`SpeechSynthesisUtterance.volume`](/de/docs/Web/API/SpeechSynthesisUtterance/volume)
-  - : Ruft die Lautstärke ab und setzt sie, mit der die Äußerung gesprochen wird.
+  - : Ruft die Lautstärke ab, mit der die Äußerung gesprochen wird, und legt diese fest.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ab oder indem Sie einen Ereignislistener der Eigenschaft `oneventname` dieses Interfaces zuweisen.
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abgehört werden oder durch Zuweisung eines Ereignis-Listeners an die Eigenschaft `oneventname` dieser Schnittstelle.
 
 - [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)
-  - : Wird ausgelöst, wenn die gesprochene Äußerung einen Wort- oder Satzgrenze erreicht.
-    Auch verfügbar über die `onboundary`-Eigenschaft.
+  - : Wird ausgelöst, wenn die gesprochene Äußerung eine Wort- oder Satzgrenze erreicht.
+    Auch über die `onboundary`-Eigenschaft verfügbar.
 - [`end`](/de/docs/Web/API/SpeechSynthesisUtterance/end_event)
-  - : Wird ausgelöst, wenn die Äußerung fertig gesprochen wurde.
-    Auch verfügbar über die `onend`-Eigenschaft.
+  - : Wird ausgelöst, wenn die Äußerung beendet ist.
+    Auch über die `onend`-Eigenschaft verfügbar.
 - [`error`](/de/docs/Web/API/SpeechSynthesisUtterance/error_event)
   - : Wird ausgelöst, wenn ein Fehler auftritt, der verhindert, dass die Äußerung erfolgreich gesprochen wird.
-    Auch verfügbar über die `onerror`-Eigenschaft.
+    Auch über die `onerror`-Eigenschaft verfügbar.
 - [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)
-  - : Wird ausgelöst, wenn die gesprochene Äußerung einen benannten SSML "mark" Tag erreicht.
-    Auch verfügbar über die `onmark`-Eigenschaft.
+  - : Wird ausgelöst, wenn die gesprochene Äußerung einen benannten SSML-"mark"-Tag erreicht.
+    Auch über die `onmark`-Eigenschaft verfügbar.
 - [`pause`](/de/docs/Web/API/SpeechSynthesisUtterance/pause_event)
-  - : Wird ausgelöst, wenn die Äußerung in der Mitte unterbrochen wird.
-    Auch verfügbar über die `onpause`-Eigenschaft.
+  - : Wird ausgelöst, wenn die Äußerung in der Mitte angehalten wird.
+    Auch über die `onpause`-Eigenschaft verfügbar.
 - [`resume`](/de/docs/Web/API/SpeechSynthesisUtterance/resume_event)
   - : Wird ausgelöst, wenn eine pausierte Äußerung fortgesetzt wird.
-    Auch verfügbar über die `onresume`-Eigenschaft.
+    Auch über die `onresume`-Eigenschaft verfügbar.
 - [`start`](/de/docs/Web/API/SpeechSynthesisUtterance/start_event)
   - : Wird ausgelöst, wenn die Äußerung begonnen hat, gesprochen zu werden.
-    Auch verfügbar über die `onstart`-Eigenschaft.
+    Auch über die `onstart`-Eigenschaft verfügbar.
 
 ## Beispiele
 
-In unserem einfachen [Sprachsynthesizer-Demo](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/) holen wir zunächst eine Referenz zum SpeechSynthesis-Controller mit `window.speechSynthesis`.
-Nachdem wir einige notwendige Variablen definiert haben, rufen wir eine Liste der verfügbaren Stimmen mit [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ab und füllen ein Auswahlmenü mit ihnen, sodass der Benutzer auswählen kann, welche Stimme er möchte.
+In unserem grundlegenden [Sprachsynthesedemo](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/) holen wir uns zunächst einen Verweis auf den SpeechSynthesis-Controller mit `window.speechSynthesis`.
+Nachdem wir einige notwendige Variablen definiert haben, rufen wir eine Liste der verfügbaren Stimmen mit [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ab und füllen ein Auswahlmenü, sodass der Benutzer die gewünschte Stimme auswählen kann.
 
-Im `inputForm.onsubmit` Handler verhindern wir das Absenden des Formulars mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), verwenden den [`constructor`](/de/docs/Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance), um eine neue Instanz der Äußerung mit dem Text aus dem Text-{{htmlelement("input")}} zu erstellen, setzen die [`voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice) der Äußerung auf die im {{htmlelement("select")}} Element ausgewählte Stimme und starten die Äußerung mit der Methode [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak).
+Im Handler `inputForm.onsubmit` verhindern wir das Absenden des Formulars mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), verwenden den [`Konstruktor`](/de/docs/Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance), um eine neue Instanz der Äußerung zu erstellen, die den Text aus dem Text-{{htmlelement("input")}} enthält, setzen die [`voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice)-Eigenschaft der Äußerung auf die im {{htmlelement("select")}}-Element ausgewählte Stimme und starten die Äußerung über die Methode [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak).
 
 ```js
 const synth = window.speechSynthesis;

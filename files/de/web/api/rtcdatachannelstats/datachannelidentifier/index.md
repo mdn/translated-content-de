@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannelStats: dataChannelIdentifier-Eigenschaft"
+title: "RTCDataChannelStats: Eigenschaft dataChannelIdentifier"
 short-title: dataChannelIdentifier
 slug: Web/API/RTCDataChannelStats/dataChannelIdentifier
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`dataChannelIdentifier`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs enthält die [`id`](/de/docs/Web/API/RTCDataChannel/id) des zugehörigen `RTCDataChannel`, das diese Statistik bereitstellt.
+Die Eigenschaft **`dataChannelIdentifier`** des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs enthält die [`id`](/de/docs/Web/API/RTCDataChannel/id) des zugehörigen `RTCDataChannel`, das diese Statistiken bereitstellt.
 
 Mit dem `dataChannelIdentifier` können Sie dieses Statistikobjekt einem bestimmten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuordnen.
 
 ## Wert
 
-Ein String, der den gleichen Wert wie die [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id)-Eigenschaft des zugehörigen Datenkanals enthält.
+Ein Zeichenfolgenwert, der denselben Wert enthält wie die [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id)-Eigenschaft des zugehörigen Datenkanals.
 
 ## Spezifikationen
 

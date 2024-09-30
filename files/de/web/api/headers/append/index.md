@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`append()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle fügt einen neuen Wert zu einem bestehenden Header in einem `Headers`-Objekt hinzu oder fügt den Header hinzu, falls er noch nicht existiert.
+Die **`append()`** Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces fügt einen neuen Wert zu einem vorhandenen Header innerhalb eines `Headers`-Objekts hinzu oder fügt den Header hinzu, wenn er noch nicht existiert.
 
-Der Unterschied zwischen [`set()`](/de/docs/Web/API/Headers/set) und `append()` besteht darin, dass `set()`, wenn der angegebene Header bereits existiert und mehrere Werte akzeptiert, den bestehenden Wert durch den neuen überschreibt, während `append()` den neuen Wert am Ende der Werteliste anhängt.
+Der Unterschied zwischen [`set()`](/de/docs/Web/API/Headers/set) und `append()` besteht darin, dass, wenn der angegebene Header bereits existiert und mehrere Werte akzeptiert, `set()` den bestehenden Wert mit dem neuen überschreibt, während `append()` den neuen Wert an das Ende der vorhandenen Werte anhängt.
 
-Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten kontrolliert werden. Zu diesen Headern gehören die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten kontrolliert werden. Diese Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und die [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
 
 ## Syntax
 
@@ -23,7 +23,7 @@ append(name, value)
 ### Parameter
 
 - `name`
-  - : Der Name des HTTP-Headers, den Sie dem `Headers`-Objekt hinzufügen möchten.
+  - : Der Name des HTTP-Headers, den Sie zum `Headers`-Objekt hinzufügen möchten.
 - `value`
   - : Der Wert des HTTP-Headers, den Sie hinzufügen möchten.
 
@@ -39,14 +39,14 @@ Ein leeres `Headers`-Objekt zu erstellen ist einfach:
 const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten diesem mit `append()` einen Header hinzufügen:
+Sie könnten einen Header mit `append()` hinzufügen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
 myHeaders.get("Content-Type"); // Returns 'image/jpeg'
 ```
 
-Wenn der angegebene Header bereits existiert, wird `append()` seinen Wert in den angegebenen Wert ändern. Wenn der angegebene Header bereits existiert und mehrere Werte akzeptiert, wird `append()` den neuen Wert am Ende der Werteliste anhängen:
+Wenn der angegebene Header bereits existiert, ändert `append()` seinen Wert auf den angegebenen Wert. Wenn der angegebene Header bereits existiert und mehrere Werte akzeptiert, fügt `append()` den neuen Wert an das Ende der Wertmenge an:
 
 ```js
 myHeaders.append("Accept-Encoding", "deflate");
@@ -54,7 +54,7 @@ myHeaders.append("Accept-Encoding", "gzip");
 myHeaders.get("Accept-Encoding"); // Returns 'deflate, gzip'
 ```
 
-Um den alten Wert durch einen neuen zu überschreiben, verwenden Sie [`Headers.set`](/de/docs/Web/API/Headers/set).
+Um den alten Wert mit einem neuen zu überschreiben, verwenden Sie [`Headers.set`](/de/docs/Web/API/Headers/set).
 
 ## Spezifikationen
 

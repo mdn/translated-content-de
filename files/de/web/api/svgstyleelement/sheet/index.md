@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`SVGStyleElement.sheet`** gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) zurück, das dem gegebenen SVG-Style-Element entspricht, oder `null`, wenn keines vorhanden ist.
+Die **`SVGStyleElement.sheet`** schreibgeschützte Eigenschaft gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) zurück, das dem angegebenen SVG-Stilelement entspricht, oder `null`, wenn keines vorhanden ist.
 
 ## Wert
 
-Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet), oder `null`, wenn das Element kein zugeordnetes Stylesheet hat.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) oder `null`, wenn dem Element kein Stylesheet zugeordnet ist.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert, wie man das mit einem Element verknüpfte CSS-Stylesheet erhält.
+Dieses Beispiel zeigt, wie das mit einem Element verknüpfte CSS-Stylesheet abgerufen wird.
 
 ### HTML
 
@@ -33,7 +33,7 @@ Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/E
 
 ### JavaScript
 
-Der untenstehende Code erstellt ein `style`-Element (ein `SVGStyleElement`) und fügt es dem SVG hinzu.
+Der folgende Code erstellt ein `style`-Element (ein `SVGStyleElement`) und fügt es dem SVG hinzu.
 
 ```js
 const svg = document.querySelector("svg");
@@ -44,8 +44,8 @@ svg.appendChild(style);
 style.appendChild(node);
 ```
 
-Der untenstehende Code protokolliert dann das Stylesheet und die CSS-Regel, die mit diesem neuen Element verbunden sind, unter Verwendung von `style.sheet`.
-Um
+Der Code protokolliert dann das Stylesheet und die damit verbundene CSS-Regel dieses neuen Elements, indem `style.sheet` verwendet wird.
+Um die
 
 ```js
 // Log the sheet associated with this new element.
@@ -55,8 +55,8 @@ log.value = `${style.sheet} with rules[0].cssText:\n ${style.sheet.rules[0].cssT
 
 ### Ergebnis
 
-Das Ergebnis wird unten gezeigt.
-Im Erfolgsfall zeigt das Protokoll das `CSSStyleSheet`-Objekt, das auf den SVG-Kreis angewendet wird.
+Das Ergebnis wird unten angezeigt.
+Bei Erfolg zeigt das Protokoll das `CSSStyleSheet`-Objekt an, das auf den SVG-Kreis angewendet wurde.
 
 {{EmbedLiveSample("Examples")}}
 

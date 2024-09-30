@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: soundend-Ereignis"
+title: "SpeechRecognition: soundend Ereignis"
 short-title: soundend
 slug: Web/API/SpeechRecognition/soundend_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`soundend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn irgendein Geräusch – erkennbar als Sprache oder nicht – nicht mehr erkannt wird.
+Das **`soundend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein beliebiges Geräusch – erkennbarer Sprachton oder nicht – nicht mehr erkannt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("soundend", (event) => {});
@@ -36,7 +36,7 @@ recognition.addEventListener("soundend", (event) => {
 });
 ```
 
-Oder die `onsoundend`-Ereignis-Handler-Eigenschaft verwenden:
+Oder die `onsoundend`-Ereignishandler-Eigenschaft nutzen:
 
 ```js
 recognition.onsoundend = (event) => {

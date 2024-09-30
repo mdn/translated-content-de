@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`type`** schreibgeschützte Eigenschaft der [`Client`](/de/docs/Web/API/Client)
-Schnittstelle gibt den Typ des Clients an, den der Service Worker kontrolliert.
+Die schreibgeschützte **`type`**-Eigenschaft der [`Client`](/de/docs/Web/API/Client)
+Schnittstelle gibt den Typ des Clients an, den der Service Worker steuert.
 
 ## Wert
 
-Ein String, der den Client-Typ darstellt. Der Wert kann einer der folgenden sein:
+Ein String, der den Client-Typ repräsentiert. Der Wert kann einer der folgenden sein:
 
 - `"window"`
 - `"worker"`

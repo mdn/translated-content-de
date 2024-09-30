@@ -1,5 +1,5 @@
 ---
-title: "VideoPlaybackQuality: totalVideoFrames Eigenschaft"
+title: "VideoPlaybackQuality: totalVideoFrames-Eigenschaft"
 short-title: totalVideoFrames
 slug: Web/API/VideoPlaybackQuality/totalVideoFrames
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`totalVideoFrames`** des [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Interfaces gibt die Gesamtanzahl der Videoframes zurück, die angezeigt oder seit dem Laden der Medien verworfen wurden.
+Die schreibgeschützte Eigenschaft **`totalVideoFrames`** des [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Interfaces gibt die Gesamtanzahl der Video-Frames zurück, die seit dem Laden der Medien angezeigt oder verworfen wurden.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Dieser Wert wird zurückgesetzt, wenn die Medien neu geladen oder ersetzt werden
 
 ## Beispiele
 
-Dieses Beispiel ruft [`getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) auf, um ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zu erhalten, und ermittelt dann, welcher Prozentsatz der Frames durch Korruption oder Ablegen verloren gegangen ist. Wenn dieser Wert 10 % (0,1) überschreitet, wird eine Funktion namens `lostFramesThresholdExceeded()` aufgerufen, um möglicherweise einen Qualitätsindikator zu aktualisieren, der einen Anstieg des Frame-Verlusts anzeigt.
+Dieses Beispiel ruft [`getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) auf, um ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zu erhalten, und bestimmt dann, welcher Prozentsatz der Frames entweder durch Beschädigung verloren gegangen oder verworfen wurde. Wenn dieser Prozentsatz 10% (0,1) überschreitet, wird eine Funktion namens `lostFramesThresholdExceeded()` aufgerufen, um möglicherweise einen Qualitätsindikator zu aktualisieren und zu zeigen, dass der Frameverlust zugenommen hat.
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -33,7 +33,7 @@ if (
 }
 ```
 
-Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, zu einem Video mit niedrigerer Auflösung zu wechseln, das weniger Bandbreite benötigt, um zu vermeiden, dass Frames ausgelassen werden.
+Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, auf ein Video mit niedrigerer Auflösung zu wechseln, das weniger Bandbreite benötigt, um das Verwerfen von Frames zu vermeiden.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, zu einem V
 
 ## Siehe auch
 
-- Die [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)-Methode, um dieses Interface zu konstruieren und zurückzugeben.
+- Die Methode [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) zum Konstruieren und Zurückgeben dieses Interfaces.

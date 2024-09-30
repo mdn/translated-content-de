@@ -1,5 +1,5 @@
 ---
-title: "AudioListener: setPosition()-Methode"
+title: "AudioListener: setPosition() Methode"
 short-title: setPosition()
 slug: Web/API/AudioListener/setPosition
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }} {{deprecated_header}}
 
-Die `setPosition()`-Methode des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces definiert die Position des Hörers.
+Die `setPosition()`-Methode der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle definiert die Position des Hörers.
 
-Die drei Parameter `x`, `y` und `z` sind einheitslos und beschreiben die Position des Hörers im 3D-Raum gemäß dem rechtshändigen kartesischen Koordinatensystem. [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekte verwenden diese Position relativ zu einzelnen Audioquellen zur Raumklanggebung.
+Die drei Parameter `x`, `y` und `z` sind einheitenlos und beschreiben die Position des Hörers im 3D-Raum gemäß dem kartesischen Rechtshändersystem. [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekte verwenden diese Position relativ zu den einzelnen Audioquellen zur räumlichen Klangdarstellung.
 
 Der Standardwert des Positionsvektors ist `(0, 0, 0)`.
 

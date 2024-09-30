@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.set()`** ähnelt dem [Property-Zugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) und der [Zuweisungs](/de/docs/Web/JavaScript/Reference/Operators/Assignment)-Syntax, jedoch als Funktion.
+Die statische Methode **`Reflect.set()`** ist wie der [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) und die [Zuweisungssyntax](/de/docs/Web/JavaScript/Reference/Operators/Assignment), aber als Funktion.
 
 {{EmbedInteractiveExample("pages/js/reflect-set.html")}}
 
@@ -25,9 +25,9 @@ Reflect.set(target, propertyKey, value, receiver)
 - `propertyKey`
   - : Der Name der zu setzenden Eigenschaft.
 - `value`
-  - : Der zu setzende Wert.
+  - : Der Wert, der gesetzt werden soll.
 - `receiver` {{optional_inline}}
-  - : Der Wert von `this`, der für den Aufruf des Setters für `propertyKey` auf `target` bereitgestellt wird. Wenn bereitgestellt und `target` keinen Setter für `propertyKey` hat, wird die Eigenschaft stattdessen auf `receiver` gesetzt.
+  - : Der Wert von `this`, der für den Aufruf des Setzers für `propertyKey` auf `target` bereitgestellt wird. Wenn angegeben und `target` keinen Setzer für `propertyKey` hat, wird die Eigenschaft stattdessen auf `receiver` gesetzt.
 
 ### Rückgabewert
 
@@ -40,7 +40,7 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das Setzen der Eigenschaft erfolgreich
 
 ## Beschreibung
 
-`Reflect.set()` bietet die reflektive Semantik eines [Property-Zugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.set(target, propertyKey, value, receiver)` ist semantisch gleichwertig mit:
+`Reflect.set()` bietet die reflexive Semantik eines [Property-Zugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.set(target, propertyKey, value, receiver)` ist semantisch gleichwertig mit:
 
 ```js
 target[propertyKey] = value;
@@ -48,7 +48,7 @@ target[propertyKey] = value;
 
 Beachten Sie, dass bei einem normalen Property-Zugriff `target` und `receiver` beobachtbar dasselbe Objekt wären.
 
-`Reflect.set()` ruft die `[[Set]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.set()` ruft die `[[Set]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
@@ -75,9 +75,9 @@ Reflect.getOwnPropertyDescriptor(obj, "undefined");
 // { value: undefined, writable: true, enumerable: true, configurable: true }
 ```
 
-### Unterschiedlicher Target und Receiver
+### Unterschiedliche `target` und `receiver`
 
-Wenn `target` und `receiver` unterschiedlich sind, verwendet `Reflect.set` die Eigenschaftsbeschreibung von `target` (um den Setter zu finden oder festzustellen, ob die Eigenschaft beschreibbar ist), setzt jedoch die Eigenschaft auf `receiver`.
+Wenn `target` und `receiver` unterschiedlich sind, verwendet `Reflect.set` den Property-Deskriptor von `target` (um den Setzer zu finden oder festzustellen, ob die Eigenschaft beschreibbar ist), setzt die Eigenschaft jedoch auf `receiver`.
 
 ```js
 const target = {};
@@ -112,5 +112,5 @@ Reflect.set(target, "a", 2, receiver); // true
 
 - [Polyfill von `Reflect.set` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
-- [Property-Zugriffe](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
 - [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set)

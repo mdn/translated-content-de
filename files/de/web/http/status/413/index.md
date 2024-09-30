@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`413 Content Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Anforderungsentität größer war als die vom Server definierten Grenzen. Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
+Der HTTP-Statuscode **`413 Content Too Large`** [Client-Fehler-Antwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Anfragedaten größer waren als die vom Server definierten Grenzen. Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
 
 Vor {{rfc("9110")}} war der Antwortsatz für den Status **`Payload Too Large`**. Diese Nachricht wird immer noch häufig verwendet.
 
@@ -19,9 +19,9 @@ Vor {{rfc("9110")}} war der Antwortsatz für den Status **`Payload Too Large`**.
 
 ## Beispiele
 
-### Datei-Upload-Limit überschritten
+### Dateiupload-Limit überschritten
 
-Das folgende Beispiel zeigt, was der Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` einschließt:
+Das folgende Beispiel zeigt, was der Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element beim Absenden eines Formulars mit `method="post"` ein Bild enthält:
 
 ```http
 POST /upload HTTP/1.1
@@ -37,7 +37,7 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Der Server kann den Upload ablehnen, wenn es eine Einschränkung bezüglich der maximalen Dateigröße gibt, die er verarbeiten wird, und der Antwortkörper enthält eine `message` mit etwas Kontext:
+Der Server kann den Upload ablehnen, wenn eine Beschränkung für die maximale Dateigröße besteht, die er verarbeiten wird, und der Antwortinhalt enthält eine `message` mit etwas Kontext:
 
 ```http
 HTTP/1.1 413 Content Too Large

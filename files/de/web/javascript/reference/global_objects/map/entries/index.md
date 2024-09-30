@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`entries()`**-Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[Karten-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die `[key, value]` Paare für jedes Element in dieser Karte in der Reihenfolge der Einfügung enthält.
+Die **`entries()`** Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[Map-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die `[key, value]` Paare für jedes Element in dieser Map in Einfügereihenfolge enthält.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-entries.html")}}
 

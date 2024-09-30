@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`IDBVersionChangeEvent`** Schnittstelle der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) zeigt an, dass sich die Version der Datenbank geändert hat, als Ergebnis einer [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Ereignis-Handler-Funktion.
+Das **`IDBVersionChangeEvent`**-Interface der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) zeigt an, dass sich die Version der Datenbank geändert hat, als Ergebnis einer [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Event-Handler-Funktion.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`IDBVersionChangeEvent()`](/de/docs/Web/API/IDBVersionChangeEvent/IDBVersionChangeEvent)
-  - : Erstellt und gibt ein neues `IDBVersionChangeEvent` Objekt zurück, welches verwendet wird, um darzustellen, wann sich eine Version der Datenbank geändert hat.
+  - : Erstellt und gibt ein neues `IDBVersionChangeEvent`-Objekt zurück, das verwendet wird, um darzustellen, wann sich eine Version der Datenbank geändert hat.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, der [`Event`](/de/docs/Web/API/Event) Schnittstelle._
+_Erbt auch Eigenschaften von seinem Elterninterface, [`Event`](/de/docs/Web/API/Event)._
 
 - [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.
@@ -27,11 +27,11 @@ _Erbt auch Eigenschaften von seiner Elternschnittstelle, der [`Event`](/de/docs/
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode, aber erbt Methoden von seiner Elternschnittstelle, der [`Event`](/de/docs/Web/API/Event) Schnittstelle._
+_Keine spezifische Methode, aber erbt Methoden von seinem Elterninterface, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiel
 
-Im folgenden Code-Snippet stellen wir eine Anfrage zum Öffnen einer Datenbank und fügen Handler für die Erfolgs- und Fehlerfälle hinzu. Bei einer Versionsänderung (nach einem `upgradeneeded` Ereignis) wird das `success` Ereignis die `IDBVersionChangeEvent` Schnittstelle implementieren. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel wird eine Anfrage zum Öffnen einer Datenbank gemacht, und es werden Handler für die Erfolgs- und Fehlerfälle inkludiert. Bei einer Versionsänderung (nach einem `upgradeneeded`-Ereignis) wird das `success`-Ereignis das `IDBVersionChangeEvent`-Interface implementieren. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.querySelector("ul");
@@ -65,9 +65,9 @@ DBOpenRequest.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

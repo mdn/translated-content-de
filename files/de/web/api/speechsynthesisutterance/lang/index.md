@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: lang Eigenschaft"
+title: "SpeechSynthesisUtterance: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechSynthesisUtterance/lang
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interface erhält und setzt die Sprache der Äußerung.
+Die **`lang`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Sprache der Äußerung ab und setzt sie.
 
-Falls nicht gesetzt, wird die Sprache der App (d.h. der {{htmlelement("html")}} [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Wert) verwendet, oder die Standard-Sprache des Benutzers, falls diese ebenfalls nicht gesetzt ist.
+Wenn nicht gesetzt, wird die Sprache der App (d.h. der {{htmlelement("html")}} [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Wert) verwendet oder der Standard des User-Agents, falls dieser ebenfalls nicht gesetzt ist.
 
 ## Wert
 
-Ein String, der einen BCP 47-Sprachcode darstellt.
+Ein String, der einen BCP 47-Sprachcode repräsentiert.
 
 ## Beispiele
 

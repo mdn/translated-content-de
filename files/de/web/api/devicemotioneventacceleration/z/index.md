@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`z`**-Eigenschaft des [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Menge der Beschleunigung angibt, die entlang der Z-Achse in einem [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt aufgetreten ist.
+Die **`z`**-Eigenschaft des [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Interfaces gibt die Menge der Beschleunigung an, die entlang der Z-Achse in einem [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt aufgetreten ist.
 
 ## Wert
 
-Ein `double`, das die Menge der Beschleunigung entlang der Z-Achse angibt. Siehe [Erklärung der Beschleunigungswerten](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation) für Details.
+Ein `double`, das die Menge der Beschleunigung entlang der Z-Achse angibt. Siehe [Erklärung der Beschleunigungsmesserwerte](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation) für Details.
 
 ## Spezifikationen
 

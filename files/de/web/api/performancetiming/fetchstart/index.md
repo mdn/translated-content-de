@@ -9,13 +9,9 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.fetchStart`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Zeitpunkt darstellt,
-seit der UNIX-Epoche in Millisekunden, zu dem der Browser bereit ist, das Dokument unter Verwendung einer
-HTTP-Anfrage abzurufen. Dieser Moment ist _vor_ der Überprüfung auf einen Anwendungscache.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.fetchStart`** gibt ein `unsigned long long` zurück, das den Zeitpunkt darstellt, in Millisekunden seit dem UNIX-Epoch, zu dem der Browser bereit ist, das Dokument mittels einer HTTP-Anfrage abzurufen. Dieser Zeitpunkt liegt _vor_ der Überprüfung auf einen Anwendungs-Cache.
 
 ## Wert
 
@@ -31,4 +27,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der sie gehört.

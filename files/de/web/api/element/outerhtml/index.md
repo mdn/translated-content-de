@@ -8,22 +8,31 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das **`outerHTML`**-Attribut der [`Element`](/de/docs/Web/API/Element)-DOM-Schnittstelle erhält das serialisierte HTML-Fragment, das das Element einschließlich seiner Nachkommen beschreibt. Es kann auch gesetzt werden, um das Element mit Knoten aus dem angegebenen String zu ersetzen.
+Das **`outerHTML`**-Attribut des [`Element`](/de/docs/Web/API/Element)
+DOM-Interfaces liefert das serialisierte HTML-Fragment, das das Element inklusive seiner
+Nachkommen beschreibt. Es kann auch gesetzt werden, um das Element mit aus dem angegebenen
+String geparsten Knoten zu ersetzen.
 
-Um nur die HTML-Darstellung der Inhalte eines Elements zu erhalten oder um den Inhalt eines Elements zu ersetzen, verwenden Sie stattdessen die [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft.
+Um nur die HTML-Darstellung des Inhalts eines Elements zu erhalten oder den Inhalt eines Elements zu ersetzen, verwenden Sie stattdessen die [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft.
 
 ## Wert
 
-Das Lesen des Werts von `outerHTML` gibt einen String zurück, der eine HTML-Serialisierung des `Elements` und seiner Nachkommen enthält. Das Setzen des Werts von `outerHTML` ersetzt das Element und alle seine Nachkommen durch einen neuen DOM-Baum, der durch das Parsen des angegebenen `htmlString` erstellt wird.
+Das Lesen des Wertes von `outerHTML` gibt einen String zurück,
+der eine HTML-Serialisierung des `element` und seiner Nachkommen enthält.
+Das Setzen des Wertes von `outerHTML` ersetzt das Element und alle seine
+Nachkommen durch einen neuen DOM-Baum, der durch das Parsen des angegebenen
+`htmlString` erstellt wird.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.outerHTML = null` gleichbedeutend ist mit `elt.outerHTML = ""`.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, daher ist `elt.outerHTML = null` äquivalent zu `elt.outerHTML = ""`.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` mit einem ungültigen HTML-String zu setzen.
+  - : Wird ausgelöst, wenn versucht wird, `outerHTML` mit einem HTML-String zu setzen, der nicht
+    gültig ist.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` auf einem Element zu setzen, das ein direktes Kind eines [`Document`](/de/docs/Web/API/Document) ist, wie z.B. [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
+  - : Wird ausgelöst, wenn versucht wird, `outerHTML` auf einem Element zu setzen, welches ein direktes
+    Kind eines [`Document`](/de/docs/Web/API/Document) ist, wie zum Beispiel [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
 
 ## Beispiele
 
@@ -76,7 +85,8 @@ console.log(container.firstElementChild.nodeName); // logs "P"
 
 ## Hinweise
 
-Wenn das Element keinen übergeordneten Knoten hat, ändert das Setzen seiner `outerHTML`-Eigenschaft weder dieses noch seine Nachkommen. Zum Beispiel:
+Wenn das Element keinen übergeordneten Knoten hat, wird das Setzen seiner `outerHTML`-Eigenschaft es
+oder seine Nachkommen nicht ändern. Zum Beispiel:
 
 ```js
 const div = document.createElement("div");
@@ -84,7 +94,9 @@ div.outerHTML = '<div class="test">test</div>';
 console.log(div.outerHTML); // output: "<div></div>"
 ```
 
-Außerdem, während das Element im Dokument ersetzt wird, hält die Variable, deren `outerHTML`-Eigenschaft gesetzt wurde, weiterhin eine Referenz auf das ursprüngliche Element:
+Auch wenn das Element im Dokument ersetzt wird, wird die Variable, deren
+`outerHTML`-Eigenschaft gesetzt wurde, weiterhin eine Referenz auf das ursprüngliche
+Element halten:
 
 ```js
 const p = document.querySelector("p");
@@ -93,7 +105,7 @@ p.outerHTML = "<div>This div replaced a paragraph.</div>";
 console.log(p.nodeName); // still "P";
 ```
 
-Der zurückgegebene Wert enthält HTML-escapete Attribute:
+Der zurückgegebene Wert wird HTML-escapete Attribute enthalten:
 
 ```js
 const anc = document.createElement("a");
@@ -111,6 +123,6 @@ console.log(anc.outerHTML); // output: "<a href='https://developer.mozilla.org?a
 
 ## Siehe auch
 
-- Serialisierung von DOM-Bäumen in XML-Strings: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
+- Serialisieren von DOM-Bäumen in XML-Strings: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
 - Parsen von XML oder HTML in DOM-Bäume: [`DOMParser`](/de/docs/Web/API/DOMParser)
 - [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText)

@@ -7,14 +7,14 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jeder Tab oder jedes Fenster, je nachdem, ob Sie einen tab-basierten Browser verwenden, wird durch einen _Fenstergriff_ identifiziert, der als Referenz beim [Wechseln zum Fenster](/de/docs/Web/WebDriver/Commands/SwitchToWindow) verwendet wird.
+Der Befehl _Get Window Handles_ der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jedes Tab oder Fenster, abhängig davon, ob Sie einen Tab-Browser verwenden, ist durch einen _Window Handle_ repräsentiert, der als Referenz verwendet wird, wenn [zum Fenster gewechselt](/de/docs/Web/WebDriver/Commands/SwitchToWindow) wird.
 
-Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenstergriffe vor und nach der Interaktion erfassen und vergleichen.
+Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Window Handles vor der Interaktion abrufen und sie mit der Menge nach der Aktion vergleichen.
 
 ## Syntax
 
-| Methode                                | URI-Vorlage                            |
-| -------------------------------------- | -------------------------------------- |
+| Methode                                   | URI-Vorlage                            |
+| ----------------------------------------- | -------------------------------------- |
 | [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/window/handles` |
 
 ### URL-Parameter

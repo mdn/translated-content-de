@@ -13,7 +13,7 @@ Die schreibgeschützte **`length`** Prototyp-Eigenschaft des [`WebAssembly.Table
 
 ### Verwendung von length
 
-Das folgende Beispiel erstellt eine neue `WebAssembly`-Tabelleninstanz mit einer Anfangsgröße von 2 und einer maximalen Größe von 10:
+Das folgende Beispiel erstellt eine neue WebAssembly-Tabelle mit einer Anfangsgröße von 2 und einer maximalen Größe von 10:
 
 ```js
 const table = new WebAssembly.Table({
@@ -23,7 +23,7 @@ const table = new WebAssembly.Table({
 });
 ```
 
-Erweitern Sie die Tabelle um 1 mit `WebAssembly.grow()`:
+Das Vergrößern der Tabelle um 1 mit `WebAssembly.grow()`:
 
 ```js
 console.log(table.length); // 2
@@ -41,6 +41,6 @@ console.log(table.length); // 3
 
 ## Siehe auch
 
-- Übersichtseite zu [WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Überblicksseite
 - [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

@@ -9,21 +9,21 @@ l10n:
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Diese Funktion wird derzeit von zwei Browseranbietern abgelehnt. Weitere Details zur Ablehnung finden Sie im Abschnitt [Standards positions](/de/docs/Web/API/Topics_API#standards_positions).
+> Diese Funktion wird derzeit von zwei Browserherstellern abgelehnt. Siehe den Abschnitt [Standards-Positionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
 
-Die **`browsingTopics`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ist ein Boolean, der angibt, dass die ausgewählten Themen für den aktuellen Benutzer mit der Anfrage für die Quelle des zugehörigen {{htmlelement("iframe")}} in einem {{httpheader("Sec-Browsing-Topics")}}-Header gesendet werden sollen. Dies spiegelt das HTML-Attribut `browsingtopics` wider.
+Die **`browsingTopics`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Interface ist ein boolescher Wert, der angibt, dass die ausgewählten Themen für den aktuellen Benutzer mit der Anfrage für die zugehörige {{htmlelement("iframe")}}-Quelle in einem {{httpheader("Sec-Browsing-Topics")}}-Header gesendet werden sollen. Dies entspricht dem `browsingtopics` HTML-Attribut.
 
-Siehe [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
+Weitere Details finden Sie unter [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using).
 
 ## Wert
 
-Ein Boolean. Der Standardwert ist `false`; setzen Sie ihn auf `true`, um die zugehörige `<iframe>`-Quellenanfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, der die ausgewählten Themen für den aktuellen Benutzer enthält.
+Ein boolescher Wert. Der Standardwert ist `false`; setzen Sie ihn auf `true`, um die zugehörige `<iframe>`-Quellenanfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, der die ausgewählten Themen für den aktuellen Benutzer enthält.
 
 ## Beispiele
 
-### Abfragen
+### Abrufen
 
-Setzen Sie `browsingtopics` auf `true` und laden Sie dann den `<iframe>`-Inhalt deklarativ:
+Setzen Sie `browsingtopics` auf `true` und laden Sie dann die Inhalte des `<iframe>` deklarativ:
 
 ```html
 <iframe browsingtopics title="Advertising container" src="adtech1.example">
@@ -31,14 +31,14 @@ Setzen Sie `browsingtopics` auf `true` und laden Sie dann den `<iframe>`-Inhalt 
 </iframe>
 ```
 
-Protokollieren Sie den Wert von `browsingTopics` über ein Skript:
+Protokollieren Sie den `browsingTopics`-Wert über ein Skript:
 
 ```js
 const iframeElem = document.querySelector("iframe");
 console.log(iframeElem.browsingTopics); // will return true in supporting browsers
 ```
 
-### Festlegen
+### Setzen
 
 Geben Sie ein minimales `<iframe>` an:
 
@@ -46,7 +46,7 @@ Geben Sie ein minimales `<iframe>` an:
 <iframe> ... </iframe>
 ```
 
-Setzen Sie `browsingtopics` auf `true` und laden Sie dann den `<iframe>`-Inhalt über ein Skript:
+Setzen Sie `browsingtopics` auf `true` und laden Sie dann die Inhalte des `<iframe>` über ein Skript:
 
 ```js
 const iframeElem = document.querySelector("iframe");
@@ -58,7 +58,7 @@ iframeElem.src = "adtech1.example";
 
 ## Spezifikationen
 
-Dieses Merkmal ist kein Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

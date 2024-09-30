@@ -7,9 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **strikte Ungleichheitsoperator (`!==`)** überprüft, ob seine beiden Operanden
-nicht gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality)
-betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlichen Typs immer als unterschiedlich.
+Der **strikte Ungleichheitsoperator (`!==`)** überprüft, ob seine beiden Operanden nicht gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality) betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlicher Typen immer als unterschiedlich.
 
 {{EmbedInteractiveExample("pages/js/expressions-strict-inequality.html")}}
 
@@ -21,10 +19,7 @@ x !== y
 
 ## Beschreibung
 
-Der strikte Ungleichheitsoperator überprüft, ob seine Operanden nicht gleich sind.
-Er ist die Negation des
-[strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality),
-daher führen die folgenden beiden Zeilen immer zum gleichen Ergebnis:
+Der strikte Ungleichheitsoperator überprüft, ob seine Operanden nicht gleich sind. Er ist die Negation des [strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality), sodass die folgenden zwei Zeilen immer das gleiche Ergebnis liefern:
 
 ```js
 x !== y;
@@ -32,11 +27,9 @@ x !== y;
 !(x === y);
 ```
 
-Für Details des Vergleichsalgorithmus, siehe die Seite für den
-[strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+Details des Vergleichsalgorithmus finden Sie auf der Seite für den [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
-Wie der strikte Gleichheitsoperator wird auch der strikte Ungleichheitsoperator
-Operanden unterschiedlichen Typs immer als unterschiedlich betrachten:
+Wie der strikte Gleichheitsoperator betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlicher Typen immer als unterschiedlich:
 
 ```js
 3 !== "3"; // true
@@ -59,7 +52,7 @@ true !== false; // true
 null !== null; // false
 ```
 
-### Vergleich von Operanden unterschiedlichen Typs
+### Vergleich von Operanden unterschiedlicher Typen
 
 ```js
 "3" !== 3; // true

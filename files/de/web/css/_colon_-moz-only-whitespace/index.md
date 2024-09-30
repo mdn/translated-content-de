@@ -8,9 +8,9 @@ l10n:
 {{CSSRef}}{{Non-standard_header}}
 
 > [!NOTE]
-> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo), the {{CSSxRef(":empty")}}-Selektor wurde geändert, um wie `:-moz-only-whitespace` zu funktionieren, aber noch wird dies von keinem Browser unterstützt.
+> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo), der {{CSSxRef(":empty")}}-Selektor wurde geändert, um wie `:-moz-only-whitespace` zu funktionieren, aber derzeit unterstützt kein Browser dies.
 
-Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) selektiert Elemente, die nur Textknoten enthalten, die ausschließlich [Leerzeichen](/de/docs/Glossary/whitespace) enthalten. (Dies umfasst Elemente mit leeren Textknoten und Elemente ohne Kindelemente.)
+Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus, die nur Textknoten enthalten, die nur [Leerraum](/de/docs/Glossary/whitespace) enthalten. (Dies schließt Elemente mit leeren Textknoten und Elemente ohne Kindknoten ein.)
 
 ## Syntax
 
@@ -48,7 +48,7 @@ div {
 
 ## Spezifikationen
 
-Kurz als `:blank` in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#changes-2018-02) definiert, wurde die Funktionalität dann in {{CSSxRef(":empty")}} zusammengeführt und {{CSSxRef(":blank")}} neu definiert, um ein leeres {{HTMLElement("input")}} zu bedeuten.
+Kurz als `:blank` in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#changes-2018-02) definiert, wurde die Funktionalität dann in {{CSSxRef(":empty")}} integriert und {{CSSxRef(":blank")}} neu definiert, um leere {{HTMLElement("input")}} zu bedeuten.
 
 ## Browser-Kompatibilität
 

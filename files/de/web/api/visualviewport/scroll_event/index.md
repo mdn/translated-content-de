@@ -1,5 +1,5 @@
 ---
-title: "VisualViewport: scroll-Event"
+title: "VisualViewport: scroll Ereignis"
 short-title: scroll
 slug: Web/API/VisualViewport/scroll_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Das **`scroll`**-Event des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces wird ausgelöst, wenn der visuelle Viewport gescrollt wird. Dies ermöglicht Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während er gescrollt wird, was normalerweise an den Layout-Viewport gekoppelt wäre.
+Das **`scroll`** Ereignis des [`VisualViewport`](/de/docs/Web/API/VisualViewport) Interfaces wird ausgelöst, wenn das visuelle Viewport gescrollt wird. Dies ermöglicht Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während es gescrollt wird, die normalerweise an das Layout-Viewport verankert wären.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("scroll", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Siehe die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für ein Anwendungsbeispiel.
+Sehen Sie sich die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Nutzungsvorführung an.
 
 ## Spezifikationen
 

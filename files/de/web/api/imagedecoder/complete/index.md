@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`complete`** der Schnittstelle [`ImageDecoder`](/de/docs/Web/API/ImageDecoder) gibt `true` zurück, wenn die codierten Daten das Puffern abgeschlossen haben.
+Die schreibgeschützte Eigenschaft **`complete`** des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt `true` zurück, wenn die kodierten Daten vollständig gepuffert sind.
 
 ## Wert
 

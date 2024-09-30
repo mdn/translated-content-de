@@ -1,5 +1,5 @@
 ---
-title: "GPUCompilationMessage: linePos-Eigenschaft"
+title: "GPUCompilationMessage: `linePos` Eigenschaft"
 short-title: linePos
 slug: Web/API/GPUCompilationMessage/linePos
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`linePos`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Position in der Codezeile darstellt, auf die sich die Meldung bezieht. Dies könnte ein genauer Punkt oder der Anfang des relevanten Teilstrings sein.
+Die **`linePos`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Position in der Codezeile angibt, auf die sich die Nachricht bezieht. Dies könnte ein exakter Punkt oder der Start des relevanten Substrings sein.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `linePos` die Zahl der UTF-16 Codeeinheiten vom Anfang der Zeile bis zu dem genauen Punkt oder dem Anfang des relevanten Teilstrings, auf den sich die Meldung bezieht.
+Genauer gesagt ist `linePos` die Anzahl der UTF-16 Codeeinheiten vom Anfang der Zeile bis zum exakten Punkt oder Start des relevanten Substrings, auf den sich die Nachricht bezieht.
 
 Beachten Sie, dass:
 
-- Wenn sich die Meldung auf einen Teilstring bezieht, verweist `linePos` auf die erste UTF-16 Codeeinheit des Teilstrings.
-- Wenn sich die Meldung nicht auf eine bestimmte Codeposition bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
-- Die Werte sind ein-basiert — ein Wert von 1 bezieht sich auf die erste Codeeinheit der Zeile.
+- Wenn die Nachricht sich auf einen Substring bezieht, verweist `linePos` auf die erste UTF-16 Codeeinheit des Substrings.
+- Wenn die Nachricht sich nicht auf eine spezifische Codeposition bezieht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
+- Werte sind einsbasiert — ein Wert von 1 bezieht sich auf die erste Codeeinheit der Zeile.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ Beachten Sie, dass:
 }
 ```
 
-Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel an.
+Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: addstream-Ereignis"
+title: "RTCPeerConnection: addstream Ereignis"
 short-title: addstream
 slug: Web/API/RTCPeerConnection/addstream_event
 l10n:
@@ -11,11 +11,11 @@ l10n:
 Das veraltete **`addstream`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn neue Medien in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts hinzugefügt wurden.
 
 > [!WARNING]
-> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Stattdessen sollten Sie das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis beobachten, das für jede Medienspur gesendet wird, die zur `RTCPeerConnection` hinzugefügt wird.
+> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Sie sollten stattdessen das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis überwachen, das für jede Medienspur gesendet wird, die zur `RTCPeerConnection` hinzugefügt wird.
 
-Sie können ähnlich beobachten, ob Streams von der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event)-Ereignis verfolgen.
+Sie können ähnlich Streams beobachten, die von der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event) Ereignis überwachen.
 
-Dieses Ereignis ist nicht stornierbar und blubbert nicht.
+Dieses Ereignis ist nicht abbrechbar und lässt sich nicht nach oben durchreichen (bubbles nicht).
 
 ## Syntax
 
@@ -38,11 +38,11 @@ Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent). Erbt von [`Event`](
 _Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent), das ein [`Event`](/de/docs/Web/API/Event) ist, implementiert auch diese Eigenschaften_.
 
 - [`MediaStreamEvent.stream`](/de/docs/Web/API/MediaStreamEvent/stream) {{ReadOnlyInline}}
-  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der den mit dem Ereignis verbundenen Stream enthält.
+  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der mit dem Ereignis verknüpft ist.
 
 ## Beispiele
 
-Dieses Beispiel prüft, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis unterstützt. Falls ja, wird ein `track`-Ereignis-Listener eingerichtet; andernfalls wird ein `addstream`-Ereignis-Listener eingerichtet. `pc` ist eine `RTCPeerConnection`.
+Dieses Beispiel prüft, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis unterstützt. Falls ja, wird ein `track`-Ereignis-Listener eingerichtet; andernfalls wird ein `addstream`-Ereignis-Listener eingerichtet. `pc` ist eine `RTCPeerConnection`.
 
 ```js
 if (pc.addTrack !== undefined) {

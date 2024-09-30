@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-SCM (Source Control Management) ist ein System zur Verwaltung von Quellcode. In der Regel bezieht es sich auf die Verwendung von Software zur Handhabung der Versionierung von Quelldateien. Ein Programmierer kann Quellcodedateien ändern, ohne Angst haben zu müssen, nützliche Dinge zu entfernen, da ein SCM nachverfolgt, wie sich der Quellcode verändert hat und wer die Änderungen vorgenommen hat.
+SCM (Source Control Management) ist ein System zur Verwaltung von Quellcode. In der Regel bezieht es sich auf die Nutzung von Software zur Handhabung der Versionierung von Quelldateien. Ein Programmierer kann Quellcodedateien ändern, ohne Angst zu haben, nützliche Dinge herauszubearbeiten, da ein SCM verfolgt, wie sich der Quellcode verändert hat und wer die Änderungen vorgenommen hat.
 
-Einige SCM-Systeme sind CVS, SVN, GIT.
+Einige SCM-Systeme umfassen CVS, SVN, GIT.
 
 ## Siehe auch
 

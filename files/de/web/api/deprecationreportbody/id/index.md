@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`id`**-Eigenschaft, die schreibgeschützte Eigenschaft der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle, gibt einen String zurück, der die Funktion oder API repräsentiert, die veraltet ist. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
+Die schreibgeschützte Eigenschaft **`id`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt einen String zurück, der das Feature oder die API darstellt, das veraltet ist. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und drucken dann den Wert von `id` in die Konsole.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `id` in der Konsole aus.
 
 ```js
 let options = {

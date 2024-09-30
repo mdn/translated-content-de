@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}} {{ Non-standard_header }}
 
-Die **`font-smooth`**-[CSS](/de/docs/Web/CSS)-Eigenschaft kontrolliert die Anwendung von Anti-Aliasing beim Rendern von Schriftarten.
+Die **`font-smooth`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Anwendung von Anti-Aliasing bei der Darstellung von Schriftarten.
 
 ## Syntax
 
@@ -29,18 +29,18 @@ font-smooth: unset;
 ```
 
 > [!NOTE]
-> WebKit implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-webkit-font-smoothing`**. Sie funktioniert nur unter macOS.
+> WebKit implementiert eine ähnliche Eigenschaft, jedoch mit anderen Werten: **`-webkit-font-smoothing`**. Sie funktioniert nur auf macOS.
 >
-> - `auto` - Der Browser entscheidet (Verwendet Subpixel-Anti-Aliasing, wenn verfügbar; dies ist der Standard)
-> - `none` - Schaltet die Schriftglättung aus; Text wird mit scharfen Kanten angezeigt.
-> - `antialiased` - Glättet die Schrift auf Pixelebene, im Gegensatz zur Subpixel. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklen Hintergründen lässt ihn leichter erscheinen.
+> - `auto` - Der Browser entscheidet (Verwendet Subpixel-Anti-Aliasing, wenn verfügbar; dies ist der Standard).
+> - `none` - Schalten Sie das Schriftglättung aus; Text wird mit gezackten, scharfen Kanten angezeigt.
+> - `antialiased` - Glättet die Schrift auf Pixelebene, im Gegensatz zur Subpixel-Ebene. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklem Hintergrund lässt ihn heller erscheinen.
 > - `subpixel-antialiased` - Auf den meisten Nicht-Retina-Displays ergibt dies den schärfsten Text.
 
 > [!NOTE]
-> Firefox implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-moz-osx-font-smoothing`**. Sie funktioniert nur unter macOS.
+> Firefox implementiert eine ähnliche Eigenschaft, jedoch mit anderen Werten: **`-moz-osx-font-smoothing`**. Sie funktioniert nur auf macOS.
 >
-> - `auto` - Ermöglicht dem Browser, eine Optimierung für die Schriftglättung zu wählen, typischerweise `grayscale`.
-> - `grayscale` - Rendert Text mit Graustufen-Anti-Aliasing, im Gegensatz zur Subpixel. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklen Hintergründen lässt ihn leichter erscheinen.
+> - `auto` - Ermöglicht dem Browser die Auswahl einer Optimierung für die Schriftglättung, typischerweise `grayscale`.
+> - `grayscale` - Rendert Text mit Graustufen-Anti-Aliasing, im Gegensatz zur Subpixel-Ebene. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklem Hintergrund lässt ihn heller erscheinen.
 
 ## Formale Definition
 
@@ -57,11 +57,11 @@ font-smooth =
 
 ### Grundlegendes Anwendungsbeispiel
 
-Das folgende Beispiel zeigt die Äquivalente in Safari/Chromium und Firefox, die die Schriftglättung unter macOS aktivieren. In beiden Fällen sollte die geglättete Schrift etwas leichter im Gewicht aussehen.
+Das folgende Beispiel zeigt die Pendants für Safari/Chromium und Firefox, die Schriftglättung auf macOS aktivieren. In beiden Fällen sollte die geglättete Schrift etwas leichter im Gewicht erscheinen.
 
-Für diejenigen, die kein macOS-System nutzen, hier ein Screenshot (die Live-Version erscheint weiter unten):
+Für diejenigen von Ihnen, die kein macOS-System verwenden, hier ein Screenshot (die Live-Version erscheint später):
 
-![Zwei Textbeispiele, eins mit der font-smooth-Eigenschaft und ein anderes ohne](smoothing.png)
+![Zwei Textexemplare, eines mit der font-smooth-Eigenschaft und ein weiteres ohne](smoothing.png)
 
 #### HTML
 
@@ -96,7 +96,7 @@ p {
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -104,5 +104,5 @@ Teil keiner Norm.
 
 ## Siehe auch
 
-- [Please Stop "Fixing" Font Smoothing – UsabilityPost](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/)
-- [Laissez-faire font smoothing and anti-aliasing](https://www.zachleat.com/web/font-smooth/)
+- [Bitte hören Sie auf, die Schriftglättung zu "reparieren" – UsabilityPost](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/)
+- [Laissez-faire Schriftglättung und Anti-Aliasing](https://www.zachleat.com/web/font-smooth/)

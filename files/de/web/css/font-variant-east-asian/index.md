@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-east-asian`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für ostasiatische Schriften, wie Japanisch und Chinesisch.
+Die **`font-variant-east-asian`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung alternativer Glyphen für ostasiatische Schriften wie Japanisch und Chinesisch.
 
 {{EmbedInteractiveExample("pages/css/font-variant-east-asian.html")}}
 
@@ -37,28 +37,28 @@ font-variant-east-asian: unset;
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativen Glyphen.
+  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativer Glyphen.
 - `ruby`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Ruby-Zeichen. Da diese normalerweise kleiner sind, entwerfen Schriftdesigner oft spezifische Formen, die normalerweise etwas fetter sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Rubyschriftzeichen. Da diese normalerweise kleiner sind, entwerfen Schriftgestalter oft spezifische Formen, die in der Regel leicht fett sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
 - `<east-asian-variant-values>`
 
-  - : Diese Werte spezifizieren eine Reihe logografischer Glyhpenvarianten, die für die Anzeige verwendet werden sollen. Mögliche Werte sind:
+  - : Diese Werte spezifizieren eine Reihe von logografischen Glyphenvarianten, die für die Anzeige verwendet werden sollen. Mögliche Werte sind:
 
-    | Schlüsselwort | Standard, der die Glyphen definiert                                         | OpenType-Äquivalent |
+    | Schlüsselwort | Standard, der die Glyphen definiert                                          | OpenType-Äquivalent |
     | ------------- | --------------------------------------------------------------------------- | ------------------- |
     | `jis78`       | [JIS X 0208:1978](https://en.wikipedia.org/wiki/JIS_X_0208#First_standard)  | `jp78`              |
     | `jis83`       | [JIS X 0208:1983](https://en.wikipedia.org/wiki/JIS_X_0208#Second_standard) | `jp83`              |
     | `jis90`       | [JIS X 0208:1990](https://en.wikipedia.org/wiki/JIS_X_0208#Third_standard)  | `jp90`              |
     | `jis04`       | [JIS X 0213:2004](https://en.wikipedia.org/wiki/JIS_X_0213)                 | `jp04`              |
-    | `simplified`  | Kein Standard, Verwendung der vereinfachten chinesischen Glyphen            | `smpl`              |
-    | `traditional` | Kein Standard, Verwendung der traditionellen chinesischen Glyphen           | `trad`              |
+    | `simplified`  | Keiner, verwenden Sie die vereinfachten chinesischen Glyphen                | `smpl`              |
+    | `traditional` | Keiner, verwenden Sie die traditionellen chinesischen Glyphen               | `trad`              |
 
 - `<east-asian-width-values>`
 
-  - : Diese Werte steuern die Größe der Figuren, die für ostasiatische Zeichen verwendet werden. Zwei Werte sind möglich:
+  - : Diese Werte steuern die Größeneinstellung der für ostasiatische Zeichen verwendeten Ziffern. Zwei Werte sind möglich:
 
     - `proportional-width` aktiviert das Set ostasiatischer Zeichen, die in der Breite variieren. Es entspricht den OpenType-Werten `pwid`.
-    - `full-width` aktiviert das Set ostasiatischer Zeichen, die alle dieselbe, ungefähr quadratische Breitenmetrik haben. Es entspricht den OpenType-Werten `fwid`.
+    - `full-width` aktiviert das Set ostasiatischer Zeichen, die alle die gleiche, ungefähr quadratische Breitenmetrik aufweisen. Es entspricht den OpenType-Werten `fwid`.
 
 ## Formale Definition
 
@@ -70,9 +70,9 @@ font-variant-east-asian: unset;
 
 ## Beispiele
 
-### Setzen ostasiatischer Glyhpenvarianten
+### Einstellung ostasiatischer Glyphenvarianten
 
-Dieses Beispiel erfordert die auf Ihrem Betriebssystem installierte Schriftart "Yu Gothic", andere Schriftarten unterstützen möglicherweise keine OpenType-Funktionen.
+Dieses Beispiel erfordert die im Betriebssystem installierte Schriftart "Yu Gothic", andere Schriftarten unterstützen möglicherweise keine OpenType-Features.
 
 #### HTML
 

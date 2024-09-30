@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Grund, warum das {{WebExtAPIRef("runtime.onRestartRequired", "onRestartRequired")}} Ereignis ausgelöst wird.
+Der Grund, warum das {{WebExtAPIRef("runtime.onRestartRequired", "onRestartRequired")}}-Ereignis ausgelöst wird.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - `"app_update"`: Die Anwendung wird auf eine neuere Version aktualisiert.
-- `"os_update"`: Der Browser/Das Betriebssystem wird auf eine neuere Version aktualisiert.
-- `"periodic"`: Das System läuft länger als die in der Unternehmensrichtlinie festgelegte zulässige Betriebszeit.
+- `"os_update"`: Der Browser/das Betriebssystem wird auf eine neuere Version aktualisiert.
+- `"periodic"`: Das System lief länger als die in der Unternehmensrichtlinie festgelegte erlaubte Betriebszeit.
 
 ## Browser-Kompatibilität
 
@@ -24,7 +24,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-OnRestartRequiredReason) API. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-OnRestartRequiredReason) API. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -33,25 +33,32 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions von Quellcode müssen den obigen
+// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss enthalten.
+//    * Redistributions in binärer Form müssen den obigen
+// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
+// enthalten, die mit der Verteilung bereitgestellt werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
+// Software abgeleitet sind, zu unterstützen oder zu bewerben, ohne
+// vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER
+// STILLSCHWEIGENDE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER
+// MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN
+// ABGELEHNT. IN KEINEM FALL SIND DIE COPYRIGHTINHABER ODER
+// MITWIRKENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON
+// ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL,
+// DATENVERLUST ODER GEWINNAUSFALL; ODER GESCHÄFTSUNTERBRECHUNG)
+// JEDOCH VERURSACHT UND UNTER JEGLICHER HAFTUNGSTHEORIE, OB IN
+// VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG) AUS DER
+// NUTZUNG DIESER SOFTWARE HERVORGEGANGEN, SELBST WENN ÜBER DIE
+// MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WURDE.
 -->

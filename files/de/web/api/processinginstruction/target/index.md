@@ -16,7 +16,7 @@ Zum Beispiel:
 <?xml version="1.0"?>
 ```
 
-ist eine Verarbeitungsanweisung, deren `target` `xml` ist.
+ist eine Verarbeitungsvorschrift, deren `target` `xml` ist.
 
 ## Wert
 
@@ -50,7 +50,7 @@ output.textContent = `This processing instruction's target is: ${doc.firstChild.
 
 ### In einem HTML-Dokument
 
-Die Zeile mit der Verarbeitungsanweisung wird als [`Comment`](/de/docs/Web/API/Comment)-Objekt betrachtet und repräsentiert.
+Die Verarbeitungsvorschriftzeile wird als [`Comment`](/de/docs/Web/API/Comment)-Objekt betrachtet und dargestellt.
 
 ```html
 <?xml version="1.0"?>

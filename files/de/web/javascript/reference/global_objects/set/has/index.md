@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`has()`**-Methode von {{jsxref("Set")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
+Die **`has()`** Methode von {{jsxref("Set")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-has.html")}}
 
@@ -20,7 +20,7 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, dessen Vorhandensein im `Set`-Objekt überprüft werden soll.
+  - : Der Wert, dessen Vorhandensein im `Set`-Objekt getestet werden soll.
 
 ### Rückgabewert
 

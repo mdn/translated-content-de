@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element auf einer festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotate()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element um einen festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-rotate.html")}}
 
-Der feste Punkt, um den das Element gedreht wird — wie oben erwähnt — ist auch als **transform origin** bekannt. Dies ist standardmäßig das Zentrum des Elements, aber Sie können mit der {{ cssxref("transform-origin") }} Eigenschaft einen eigenen Transformationsursprung festlegen.
+Der feste Punkt, um den das Element rotiert – oben erwähnt – wird auch als **Transformationsursprung** bezeichnet. Dieser standardmäßig in der Mitte des Elements, aber Sie können Ihren eigenen benutzerdefinierten Transformationsursprung mit der {{ cssxref("transform-origin") }} Eigenschaft festlegen.
 
 ## Syntax
 
-Der durch `rotate()` erzeugte Drehungsbetrag wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Wenn positiv, erfolgt die Bewegung im Uhrzeigersinn; wenn negativ, erfolgt sie gegen den Uhrzeigersinn. Eine Drehung um 180° wird Punktspiegelung genannt.
+Die Menge der Rotation, die durch `rotate()` erzeugt wird, wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Wenn positiv, erfolgt die Bewegung im Uhrzeigersinn; wenn negativ, gegen den Uhrzeigersinn. Eine Drehung um 180° wird Punktspiegelung genannt.
 
 ```css
 rotate(a)
@@ -24,15 +24,15 @@ rotate(a)
 ### Werte
 
 - _a_
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Drehung. Die Drehrichtung hängt von der Schreibrichtung ab. In einem Kontext von links nach rechts bezeichnet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem Kontext von rechts nach links bezeichnet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und stellt den Winkel der Drehung dar. Die Richtung der Drehung hängt von der Schreibrichtung ab. In einem von links nach rechts Kontext bezeichnet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem von rechts nach links Kontext bezeichnet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -94,9 +94,9 @@ div {
 
 {{EmbedLiveSample("Basic_example", "auto", 180)}}
 
-### Kombination der Drehung mit einer anderen Transformation
+### Kombination von Drehung mit einer anderen Transformation
 
-Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, achten Sie darauf, in welcher Reihenfolge Sie Ihre Transformationen angeben. Wenn Sie zum Beispiel zuerst rotieren und dann übersetzen, erfolgt die Übersetzung entlang der neuen Rotationsachse!
+Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, achten Sie auf die Reihenfolge, in der Sie Ihre Transformationen angeben. Wenn Sie zum Beispiel vor dem Übersetzen drehen, erfolgt die Übersetzung entlang der neuen Rotationsachse!
 
 #### HTML
 

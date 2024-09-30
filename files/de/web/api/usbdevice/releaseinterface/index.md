@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: Methode releaseInterface()"
+title: "USBDevice: releaseInterface() Methode"
 short-title: releaseInterface()
 slug: Web/API/USBDevice/releaseInterface
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`releaseInterface()`**-Methode des
-[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn ein beanspruchtes Interface von exklusivem Zugriff freigegeben wird.
+Die **`releaseInterface()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn ein beanspruchtes Interface aus dem exklusiven Zugriff freigegeben wird.
 
 ## Syntax
 

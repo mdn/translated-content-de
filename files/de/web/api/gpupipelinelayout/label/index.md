@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Schnittstelle bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Diese kann bereitgestellt werden, indem eine `label`-Eigenschaft im Beschreibungsobjekt festgelegt wird, das beim ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird, oder Sie können sie direkt auf dem `GPUPipelineLayout`-Objekt abrufen und festlegen.
+Dieses Label kann gesetzt werden, indem ein `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird, oder Sie können es direkt auf dem `GPUPipelineLayout`-Objekt abrufen und setzen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String. Wenn dies zuvor nicht wie oben beschrieben gesetzt wurde, wird es ei
 
 ## Beispiele
 
-Festlegen und Abrufen einer Beschriftung über `GPUPipelineLayout.label`:
+Setzen und Abrufen eines Labels über `GPUPipelineLayout.label`:
 
 ```js
 // ...
@@ -32,7 +32,7 @@ pipelineLayout.label = "mypipelinelayout";
 console.log(pipelineLayout.label); // "mypipelinelayout";
 ```
 
-Festlegen einer Beschriftung über den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) und dann Abrufen über `GPUPipelineLayout.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), und dann Abrufen über `GPUPipelineLayout.label`:
 
 ```js
 // ...
@@ -55,4 +55,4 @@ console.log(pipelineLayout.label); // "mypipelinelayout";
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

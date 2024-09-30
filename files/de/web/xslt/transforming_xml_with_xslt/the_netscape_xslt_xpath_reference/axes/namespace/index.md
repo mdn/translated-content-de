@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Der `namespace`-Achse gibt alle Knoten an, die im Gültigkeitsbereich des Kontextknotens liegen. In diesem Fall muss der Kontextknoten ein Elementknoten sein.
+Die `namespace`-Achse gibt alle Knoten an, die für den Kontextknoten im Geltungsbereich sind. In diesem Fall muss der Kontextknoten ein Elementknoten sein.

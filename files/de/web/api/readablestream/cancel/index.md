@@ -1,5 +1,5 @@
 ---
-title: "ReadableStream: Methode `cancel()`"
+title: "ReadableStream: cancel()-Methode"
 short-title: cancel()
 slug: Web/API/ReadableStream/cancel
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn der Stream abgebrochen wird.
+Die **`cancel()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream abgebrochen wird.
 
-`Cancel` wird verwendet, wenn Sie den Stream vollständig abgeschlossen haben und keine weiteren Daten daraus benötigen, selbst wenn sich noch einige Datenblöcke in der Warteschlange befinden, die gelesen werden könnten. Diese Daten gehen verloren, nachdem `cancel` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenblöcke noch zu lesen und den Stream nicht vollständig zu entfernen, würden Sie [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
+`cancel()` wird verwendet, wenn Sie vollständig mit dem Stream fertig sind und keine weiteren Daten mehr benötigen, selbst wenn noch Datenstücke in der Warteschlange stehen. Diese Daten gehen verloren, nachdem `cancel()` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenstücke dennoch zu lesen und den Stream nicht vollständig loszuwerden, würde man [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
 
 ## Syntax
 
@@ -22,11 +22,12 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein menschenlesbarer Grund für die Stornierung. Dieser wird an die zugrunde liegende Quelle übergeben, die ihn verwenden kann oder nicht.
+  - : Ein menschenlesbarer Grund für die Stornierung.
+    Dieser wird an die zugrunde liegende Quelle übergeben, die ihn verwenden kann oder nicht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem Wert `undefined` erfüllt wird.
+Ein {{jsxref("Promise")}}, das sich mit dem Wert `undefined` erfüllt.
 
 ### Ausnahmen
 
@@ -35,7 +36,7 @@ Ein {{jsxref("Promise")}}, das mit dem Wert `undefined` erfüllt wird.
 
 ## Beispiele
 
-In Jake Archibalds [Abbrechen eines Fetchs](https://jsbin.com/gameboy/edit?js,console) Beispiel wird ein Stream verwendet, um die WHATWG HTML-Spezifikation stückweise abzurufen; jeder Block wird nach dem String "service workers" durchsucht. Wenn die Suchbegriffe gefunden werden, wird `cancel()` verwendet, um den Stream zu beenden – der Job ist abgeschlossen, daher wird er nicht mehr benötigt.
+Im Beispiel von Jake Archibald zur [Stornierung eines fetch](https://jsbin.com/gameboy/edit?js,console) wird ein Stream verwendet, um das WHATWG HTML-Spezifikationsdokument Stück für Stück abzurufen; jedes Stück wird nach dem String "service workers" durchsucht. Wenn der Suchbegriff gefunden wird, wird `cancel()` verwendet, um den Stream abzubrechen – die Aufgabe ist abgeschlossen und daher nicht mehr erforderlich.
 
 ```js
 const searchTerm = "service workers";
@@ -119,5 +120,5 @@ fetch(url)
 
 ## Siehe auch
 
-- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor
+- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

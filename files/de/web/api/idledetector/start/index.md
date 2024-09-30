@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die **`start()`**-Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Detektor beginnt, Änderungen im Ruhezustand des Benutzers zu verfolgen. Diese Methode nimmt ein optionales `options`-Objekt mit dem `threshold` in Millisekunden, ab dem Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, das den Ruhezustandsdetektor abbrechen kann.
+Die **`start()`**-Methode des [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces gibt ein
+{{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Detektor beginnt, auf Änderungen im Ruhezustand des Benutzers zu hören. Diese
+Methode nimmt ein optionales `options`-Objekt mit dem `threshold` in Millisekunden entgegen, ab dem Inaktivität gemeldet werden soll, sowie einem `signal` für ein `AbortSignal`, um den Idle-Detektor abzubrechen.
 
 ## Syntax
 
@@ -22,9 +24,9 @@ start(options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `threshold`
-      - : Die minimale Anzahl ruhender Millisekunden, bevor die Meldung beginnen soll.
+      - : Die Mindestanzahl von Ruhemillisekunden, bevor die Meldung beginnen soll.
     - `signal`
-      - : Ein Verweis auf eine Instanz von [`AbortSignal`](/de/docs/Web/API/AbortSignal), die es Ihnen ermöglicht, die Ruhezustandserkennung abzubrechen.
+      - : Eine Referenz zu einer [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Instanz, die es Ihnen erlaubt, die Ruheerkennung abzubrechen.
 
 ### Rückgabewert
 
@@ -33,11 +35,11 @@ Ein {{jsxref("Promise")}}.
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Ruhezustandserkennung mithilfe des `options`-Arguments gestartet wird. Es ruft eine Instanz von `AbortSignal` von einer Instanz von [`AbortController`](/de/docs/Web/API/AbortController) ab.
+Das folgende Beispiel zeigt, wie die Ruheerkennung mit dem `options`-Argument gestartet wird. Es ruft eine Instanz von `AbortSignal` von einer Instanz des [`AbortController`](/de/docs/Web/API/AbortController) ab.
 
 ```js
 const controller = new AbortController();

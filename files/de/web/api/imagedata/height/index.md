@@ -1,5 +1,5 @@
 ---
-title: "ImageData: height Eigenschaft"
+title: "ImageData: height-Eigenschaft"
 short-title: height
 slug: Web/API/ImageData/height
 l10n:
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein `ImageData`-Objekt, das 200 Pixel breit und 100 Pixel hoch ist. Daher ist die `height`-Eigenschaft `100`.
+Dieses Beispiel erstellt ein `ImageData`-Objekt, das 200 Pixel breit und 100 Pixel hoch ist. Somit ist die `height`-Eigenschaft `100`.
 
 ```js
 let imageData = new ImageData(200, 100);

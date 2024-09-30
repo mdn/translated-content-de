@@ -9,8 +9,7 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`NodeList.entries()`** Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare
-in diesem Objekt zu durchlaufen. Die Werte sind [`Node`](/de/docs/Web/API/Node)-Objekte.
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Schlüssel/Werte-Paare in diesem Objekt zu durchlaufen. Die Werte sind [`Node`](/de/docs/Web/API/Node) Objekte.
 
 ## Syntax
 

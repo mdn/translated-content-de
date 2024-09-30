@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`XRCompositionLayer`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Basisklasse, die eine Reihe gemeinsamer Eigenschaften und Verhaltensweisen für WebXR-Layertypen definiert. Sie kann nicht eigenständig instanziiert werden.
+Die **`XRCompositionLayer`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Basisklasse, die eine Reihe von gemeinsamen Eigenschaften und Verhaltensweisen für WebXR-Layertypen definiert. Sie kann nicht eigenständig instanziiert werden.
 
 Mehrere Layertypen erben von `XRCompositionLayer`:
 
@@ -17,7 +17,7 @@ Mehrere Layertypen erben von `XRCompositionLayer`:
 - [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)
 - [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)
 
-`XRCompositionLayer` selbst erbt von der allgemeinen Klasse [`XRLayer`](/de/docs/Web/API/XRLayer) (die von [`EventTarget`](/de/docs/Web/API/EventTarget) erbt).
+`XRCompositionLayer` selbst erbt von der allgemeinen [`XRLayer`](/de/docs/Web/API/XRLayer) Klasse (die von [`EventTarget`](/de/docs/Web/API/EventTarget) erbt).
 
 {{InheritanceDiagram}}
 
@@ -26,18 +26,18 @@ Mehrere Layertypen erben von `XRCompositionLayer`:
 - [`XRCompositionLayer.blendTextureSourceAlpha`](/de/docs/Web/API/XRCompositionLayer/blendTextureSourceAlpha) {{Experimental_Inline}}
   - : Ein boolescher Wert, der den Alpha-Kanal der Textur des Layers aktiviert.
 - [`XRCompositionLayer.layout`](/de/docs/Web/API/XRCompositionLayer/layout) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Der Layout-Typ des Layers.
+  - : Der Layouttyp des Layers.
 - [`XRCompositionLayer.mipLevels`](/de/docs/Web/API/XRCompositionLayer/mipLevels) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Anzahl der Mip-Ebenen in den Farb- und Texturdaten für den Layer.
+  - : Die Anzahl der Mip-Levels in den Farb- und Texturdaten für das Layer.
 - [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein boolescher Wert, der signalisiert, dass der Layer im nächsten Frame neu gerendert werden sollte.
+  - : Ein boolescher Wert, der signalisiert, dass das Layer im nächsten Frame neu gerendert werden sollte.
 
 ## Instanz-Methoden
 
 _Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`XRCompositionLayer.destroy()`](/de/docs/Web/API/XRCompositionLayer/destroy) {{Experimental_Inline}}
-  - : Löscht die darunterliegenden Layer-Anhänge.
+  - : Löscht die zugrunde liegenden Layer-Anhänge.
 
 ## Spezifikationen
 

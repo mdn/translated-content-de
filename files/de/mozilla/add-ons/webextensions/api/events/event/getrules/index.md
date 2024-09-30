@@ -19,7 +19,7 @@ events.Event.getRules(ruleIdentifiers, callback)
 
 - `ruleIdentifiers` {{optional_inline}}
 
-  - : `array` von `string`. Bezeichner für die zurückzugebenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln zurückgegeben.
+  - : `array` von `string`. Bezeichner für die Regeln, die zurückgegeben werden sollen. Wenn kein Array übergeben wird, werden alle Regeln zurückgegeben.
 
 - `callback`
 
@@ -30,34 +30,35 @@ events.Event.getRules(ruleIdentifiers, callback)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-getRules) API. Diese Dokumentation stammt von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-getRules) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Verwendung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitung des Quellcodes muss den oben genannten Urheberrechtshinweis,
+//      diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitung in Binärform muss den oben genannten Urheberrechtshinweis,
+//      diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
+//      Dokumentation und/oder anderen Materialien, die mit der Verbreitung bereitgestellt
+//      werden, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+//      Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software
+//      abgeleitet sind, zu unterstützen oder zu promoten, ohne vorherige schriftliche
+//      Erlaubnis.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN BEREITGESTELLT,
+// "WIE BESEHEN" UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIEN, EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF, DIE IMPLIZIERTEN GARANTIEN DER MARKTFÄHIGKEIT UND EIGNUNG
+// FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SOLLEN DIE
+// URHEBERRECHTSINHABER ODER MITWIRKENDE FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE,
+// SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF, BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
+// DATENVERLUST ODER ENTGANGENER GEWINN; ODER BETRIEBSUNTERBRECHUNG) HAFTBAR SEIN,
+// WIE AUCH IMMER VERURSACHT UND UNTER WELCHER HAFTUNGSTHEORIE AUCH IMMER, OB IN
+// VERTRAG, STRICTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT
+// ODER ANDERWEITIG), DIE AUF IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE
+// ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

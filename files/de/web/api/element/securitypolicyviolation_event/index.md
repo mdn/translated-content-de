@@ -8,19 +8,20 @@ l10n:
 
 {{APIRef}}
 
-Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content-Security-Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
 
-Das Ereignis wird auf dem Element ausgelöst, wenn es zu einem Verstoß gegen die CSP-Richtlinie kommt.
+Das Ereignis wird am Element ausgelöst, wenn es zu einer Verletzung der CSP-Richtlinie kommt.
 
-Dieses Ereignis [blubbert](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed). Es wird normalerweise von einem Ereignishandler auf dem [`Window`](/de/docs/Web/API/Window)- oder [`Document`](/de/docs/Web/API/Document)-Objekt behandelt.
+Dieses Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
+Es wird normalerweise von einem Ereignishandler am [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)-Objekt verarbeitet.
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis zu einem übergeordneten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
-> Obwohl die Eigenschaft in HTML-Elementen existiert, kann der Handler der Eigenschaft nicht zugewiesen werden, bis die Elemente geladen sind, zu welchem Zeitpunkt dieses Ereignis bereits ausgelöst worden ist.
+> Sie sollten den Handler für dieses Ereignis zu einem obersten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Während die Eigenschaft in HTML-Elementen existiert, können Sie der Eigenschaft keinen Handler zuweisen, bis die Elemente geladen sind, zu welchem Zeitpunkt dieses Ereignis bereits ausgelöst wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -36,11 +37,11 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie möglicherweise eine Ereignishandlerfunktion mit der globalen Ereignishandler-Eigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem übergeordneten `Window` hinzufügen (Sie könnten denselben Ansatz auf `Document` verwenden).
+Der folgende Code zeigt, wie Sie eine Ereignishandler-Funktion mit der globalen `onsecuritypolicyviolation`-Ereignis-Handler-Eigenschaft oder `addEventListener()` auf dem obersten `Window` hinzufügen könnten (Sie könnten denselben Ansatz auch auf `Document` verwenden).
 
 > [!NOTE]
 > Das Beispiel weist den Handler nicht direkt einem Element zu, da, wie oben erwähnt, bei in HTML definierten Elementen das Ereignis ausgelöst würde, bevor dieser Code ausgeführt werden könnte.
-> Sie könnten jedoch den Ereignislistener direkt zu einem Element hinzufügen, das dynamisch konstruiert wird!
+> Sie könnten jedoch den Ereignis-Listener direkt einem Element hinzufügen, das dynamisch erstellt wird!
 
 ```js
 window.onsecuritypolicyviolation = (e) => {
@@ -62,6 +63,6 @@ window.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
-- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event) Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Schnittstelle
-- [HTTP > Content-Security-Policy](/de/docs/Web/HTTP/CSP)
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event)-Ereignis der [`Document`](/de/docs/Web/API/Document)-Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle
+- [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)

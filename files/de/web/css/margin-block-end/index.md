@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`margin-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockendrand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements zu einem physischen Rand wird.
+Die **`margin-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockendrand eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements auf einen physischen Rand abgebildet wird.
 
 {{EmbedInteractiveExample("pages/css/margin-block-end.html")}}
 
@@ -30,13 +30,13 @@ margin-block-end: revert-layer;
 margin-block-end: unset;
 ```
 
-Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Sie entspricht der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
 Sie steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-block-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("margin-left")}}-Eigenschaft.
+Die Eigenschaft `margin-block-end` nimmt die gleichen Werte wie die {{cssxref("margin-left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Die `margin-block-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref
 
 ## Beispiele
 
-### Setzen des Endblockabstands
+### Festlegung des Blockendrandes
 
 #### HTML
 
@@ -88,6 +88,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Die abgebildeten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

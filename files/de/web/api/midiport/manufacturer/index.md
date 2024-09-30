@@ -1,6 +1,6 @@
 ---
-title: "MIDIPort: Hersteller-Eigenschaft"
-short-title: Hersteller
+title: "MIDIPort: Eigenschaft manufacturer"
+short-title: manufacturer
 slug: Web/API/MIDIPort/manufacturer
 l10n:
   sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`manufacturer`** der Schnittstelle [`MIDIPort`](/de/docs/Web/API/MIDIPort) gibt den Hersteller des Ports zurück.
+Die **`manufacturer`** schreibgeschützte Eigenschaft des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces gibt den Hersteller des Ports zurück.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePairStats: Eigenschaft priority"
+title: "RTCIceCandidatePairStats: priority-Eigenschaft"
 short-title: priority
 slug: Web/API/RTCIceCandidatePairStats/priority
 l10n:
@@ -8,14 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}{{deprecated_header}}{{non-standard_header}}
 
-Die _veraltete_ [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`priority`** gibt die Priorität des Kandidatenpaares als Integer-Wert an. Je höher der Wert, desto wahrscheinlicher ist es, dass die WebRTC-Schicht das Kandidatenpaar auswählt, wenn es darum geht, eine Verbindung zwischen den beiden Peers herzustellen (oder wiederherzustellen).
+Die _veraltete_ [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)
+Eigenschaft **`priority`** gibt die Priorität des Kandidatenpaares als Ganzzahl an. Je höher der Wert, desto wahrscheinlicher ist es, dass die WebRTC-Schicht das Kandidatenpaar auswählt, wenn es an der Zeit ist, eine Verbindung zwischen den beiden Peers herzustellen (oder wiederherzustellen).
 
 ## Wert
 
-Ein Integer-Wert, der die Priorität dieses Kandidatenpaares im Vergleich zu anderen Paaren auf derselben Peer-Verbindung anzeigt. Je höher dieser Wert ist, desto besser schätzt die WebRTC-Schicht dieses Paar von Kandidaten im Vergleich zu den anderen ein, und desto wahrscheinlicher ist es, dass ein Paar zur Verwendung ausgewählt wird.
+Ein ganzzahliger Wert, der die Priorität dieses Kandidatenpaares im Vergleich zu anderen Paaren derselben Peer-Verbindung angibt. Je höher dieser Wert, desto besser schätzt die WebRTC-Schicht dieses Kandidatenpaar im Vergleich zu anderen ein, und desto wahrscheinlicher wird ein Paar für die Verwendung ausgewählt.
 
 > [!NOTE]
-> Diese Eigenschaft wurde aus der Spezifikation entfernt, da ihr Wert nicht garantiert genau mit einer JavaScript-Zahl dargestellt werden kann. Sie können ihren Wert mithilfe des Algorithmus berechnen, der in {{RFC(5245, "", "5.7.2")}} beschrieben ist, falls Sie diese Information benötigen und das Risiko akzeptieren können, dass das Ergebnis möglicherweise nicht vollständig genau ist.
+> Diese Eigenschaft wurde aus der Spezifikation entfernt, da ihr Wert nicht garantiert genau in einer JavaScript-Zahl dargestellt werden kann. Sie können seinen Wert mit dem Algorithmus berechnen, der in {{RFC(5245, "", "5.7.2")}} beschrieben ist, wenn Sie diese Information benötigen und das Risiko akzeptieren können, dass das Ergebnis möglicherweise nicht vollständig genau ist.
 
 ## Spezifikationen
 

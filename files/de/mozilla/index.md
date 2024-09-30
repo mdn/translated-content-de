@@ -7,6 +7,6 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Die unten stehenden Artikel enthalten Inhalte zum Herunterladen und Erstellen von Mozilla-Code. Zusätzlich finden Sie hilfreiche Artikel darüber, wie der Code funktioniert, wie Sie Add-ons für Mozilla-Anwendungen erstellen und Ähnliches.
+Die folgenden Artikel enthalten Inhalte über das Herunterladen und Erstellen von Mozilla-Code. Darüber hinaus finden Sie hilfreiche Artikel darüber, wie der Code funktioniert, wie man Add-ons für Mozilla-Anwendungen erstellt und ähnliches.
 
 {{LandingPageListSubpages}}

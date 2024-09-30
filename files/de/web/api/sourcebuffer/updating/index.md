@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`updating`** des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces zeigt an, ob der `SourceBuffer` momentan aktualisiert wird, d.h., ob eine [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation gerade ausgeführt wird.
+Die schreibgeschützte **`updating`**-Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces zeigt an, ob der `SourceBuffer` momentan aktualisiert wird – d.h. ob eine [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation derzeit in Bearbeitung ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Wird noch festgelegt
+TBD
 
 ## Spezifikationen
 

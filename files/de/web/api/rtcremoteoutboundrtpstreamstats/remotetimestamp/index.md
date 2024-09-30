@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteOutboundRtpStreamStats: remoteTimestamp-Eigenschaft"
+title: "RTCRemoteOutboundRtpStreamStats: Eigenschaft remoteTimestamp"
 short-title: remoteTimestamp
 slug: Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp
 l10n:
@@ -8,13 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`remoteTimestamp`** von [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats) gibt den Zeitstempel auf dem entfernten Peer an, zu dem diese Statistiken gesendet wurden. Dies unterscheidet sich von `timestamp`, der den Zeitpunkt angibt, zu dem die Statistiken lokal erzeugt oder empfangen wurden.
+Die [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Eigenschaft **`remoteTimestamp`** gibt den Zeitstempel beim entfernten Peer an, zu dem diese Statistiken gesendet wurden.
+Dies unterscheidet sich von `timestamp`, welches den Zeitpunkt angibt, zu dem die Statistiken lokal erstellt oder empfangen wurden.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der den Zeitstempel auf dem entfernten Peer angibt, zu dem dieser die Statistiken gesendet hat. Dies unterscheidet sich vom Wert `timestamp`, der die Zeit angibt, zu der die Statistiken vom lokalen Peer erzeugt oder empfangen wurden.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der den Zeitstempel beim entfernten Peer angibt, zu dem er diese Statistiken gesendet hat.
+Dies unterscheidet sich von dem Wert `timestamp`, welcher den Zeitpunkt angibt, zu dem die Statistiken vom lokalen Peer erstellt oder empfangen wurden.
 
-Wenn diese Eigenschaft vorhanden ist, stammt sie aus dem [RTCP](/de/docs/Glossary/RTCP) Sender Report (SR)-Block, der die Uhrzeit auf dem entfernten Peer zum Zeitpunkt des Sendens der Nachricht widerspiegelt. Beachten Sie, dass dies bedeutet, dass die Uhr möglicherweise nicht mit der lokalen Uhr synchronisiert ist und dass sowohl die aktuelle Zeit als auch die Geschwindigkeit, mit der die Uhr läuft, sich in gewissem Maße unterscheiden können.
+Falls diese Eigenschaft vorhanden ist, stammt sie aus dem [RTCP](/de/docs/Glossary/RTCP) Sender Report (SR)-Block, der die Uhr beim entfernten Peer zu dem Zeitpunkt widerspiegelt, zu dem die Nachricht gesendet wurde.
+Bitte beachten Sie, dass dies bedeutet, dass die Uhr nicht mit der lokalen Uhr synchronisiert sein muss und dass sowohl die aktuelle Zeit als auch das Tempo, mit dem die Uhr läuft, bis zu einem gewissen Grad unterschiedlich sein können.
 
 ## Spezifikationen
 

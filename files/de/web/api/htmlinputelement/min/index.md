@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`min`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das `min`-Attribut des {{HTMLElement("input")}}-Elements wider, das im Allgemeinen den minimal gültigen Wert für eine numerische oder zeitliche Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `min`-Eigenschaft ein leerer String.
+Die **`min`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces spiegelt das [`min`](/de/docs/Web/HTML/Element/input#min)-Attribut des {{HTMLElement("input")}}-Elements wider, das im Allgemeinen den minimal gültigen Wert für eine numerische oder datumsbezogene Eingabe definiert. Ist das Attribut nicht explizit gesetzt, ist die `min`-Eigenschaft ein leerer String.
 
 ## Wert
 

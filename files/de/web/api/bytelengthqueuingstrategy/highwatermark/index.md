@@ -11,11 +11,11 @@ l10n:
 Die schreibgeschützte **`ByteLengthQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl von Bytes zurück, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
 
 > [!NOTE]
-> Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei dem die `highWaterMark`-Eigenschaft eine einfache Zählung der Anzahl von Chunks angibt, gibt bei `ByteLengthQueuingStrategy()` der `highWaterMark`-Parameter eine Anzahl von _Bytes_ an — insbesondere bei einem Strom von Chunks, wie viele Bytes dieser Chunks (anstatt einer Zählung, wie viele dieser Chunks) in der internen Warteschlange enthalten sein können, bevor Backpressure angewendet wird.
+> Anders als bei [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), wo die `highWaterMark`-Eigenschaft eine einfache Zählung der Anzahl der Blöcke angibt, legt der `highWaterMark`-Parameter bei `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ fest — insbesondere, wie viele Bytes von diesen Blöcken eines Streams in der internen Warteschlange enthalten sein können (statt der Zählung, wie viele dieser Blöcke), bevor Backpressure angewendet wird.
 
 ## Werte
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
@@ -40,20 +40,7 @@ const readableStream = new ReadableStream(
 );
 
 const size = queuingStrategy.size(chunk);
-console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}{{APIRef("Streams")}}{{AvailableInWorkers}}
-
-Die schreibgeschützte **`ByteLengthQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl von Bytes zurück, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
-
-> [!NOTE]
-> Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei dem die `highWaterMark`-Eigenschaft eine einfache Zählung der Anzahl von Chunks angibt, gibt bei `ByteLengthQueuingStrategy()` der `highWaterMark`-Parameter eine Anzahl von _Bytes_ an — insbesondere bei einem Strom von Chunks, wie viele Bytes dieser Chunks (anstatt einer Zählung, wie viele dieser Chunks) in der internen Warteschlange enthalten sein können, bevor Backpressure angewendet wird.
-
-## Werte
-
-Ein Integer.
-
-## Beispiele
-
-);
+console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}$`);
 ```
 
 ## Spezifikationen
@@ -66,4 +53,4 @@ Ein Integer.
 
 ## Siehe auch
 
-- [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy)-Konstruktor
+- [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy) Konstruktor

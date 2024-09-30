@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekts ist.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekts darstellt.
 
 ## Beispiele
 
 ### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceResourceTiming`-Objekts zurück.
+In diesem Beispiel gibt das Aufrufen von `entry.toJSON()` eine JSON-Darstellung des `PerformanceResourceTiming`-Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -82,7 +82,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

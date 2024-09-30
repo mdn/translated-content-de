@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`fillPoses()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen relativ zu einem gegebenen Basisspace und gibt `true` zurück, wenn sie für alle Spaces erfolgreich ist.
+Die **`fillPoses()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen relativ zu einem gegebenen Basisraum und gibt `true` zurück, wenn es für alle Räume erfolgreich ist.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ fillPoses(spaces, baseSpace, transforms)
 ### Parameter
 
 - `spaces`
-  - : Ein Array von [`XRSpace`](/de/docs/Web/API/XRSpace) Objekten, für die die Posen ermittelt werden sollen.
+  - : Ein Array von [`XRSpace`](/de/docs/Web/API/XRSpace) Objekten, für die die Posen abgerufen werden sollen.
 - `baseSpace`
   - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace) Objekt, das als Basis oder Ursprung für die relative Position und Orientierung verwendet wird.
 - `transforms`
-  - : Ein {{jsxref("Float32Array")}}, das mit den Matrizen der Posen relativ zu dem gegebenen `baseSpace` gefüllt wird.
+  - : Ein {{jsxref("Float32Array")}}, das mit den Matrizen der Posen relativ zum gegebenen `baseSpace` gefüllt wird.
 
 ### Rückgabewert
 
-Ein Boolean-Wert, der angibt, ob alle Spaces eine gültige Pose haben.
+Ein boolescher Wert, der angibt, ob alle Räume eine gültige Pose haben.
 
 ### Ausnahmen
 
@@ -38,7 +38,7 @@ Ein Boolean-Wert, der angibt, ob alle Spaces eine gültige Pose haben.
 
 ### Erhalten von Posen für alle Gelenke einer Hand
 
-Um effizient alle Posen für die 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillPoses()` Methode verwenden.
+Um effizient alle Posen für alle 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillPoses()` Methode verwenden.
 
 ```js
 let poses1 = new Float32Array(16 * 25);

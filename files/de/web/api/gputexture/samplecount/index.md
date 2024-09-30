@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`sampleCount`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Abtastanzahl der `GPUTexture` darstellt.
+Die schreibgeschützte **`sampleCount`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Sample-Anzahl der `GPUTexture`.
 
-Diese wird über die `sampleCount`-Eigenschaft im Deskriptor-Objekt gesetzt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn sie weggelassen wird, ist der Standardwert 1.
+Diese wird über die `sampleCount`-Eigenschaft im Deskriptor-Objekt gesetzt, das an den ursächlichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn weggelassen, ist der Standardwert 1.
 
 ## Wert
 
 Eine Zahl. Mögliche Werte sind:
 
 - 1
-- 4, was eine multi-abgetastete Textur anzeigt.
+- 4, was eine mehrfach abgetastete Textur anzeigt.
 
 ## Beispiele
 

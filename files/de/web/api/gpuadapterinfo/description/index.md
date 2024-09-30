@@ -1,5 +1,5 @@
 ---
-title: "GPUAdapterInfo: description Eigenschaft"
+title: "GPUAdapterInfo: description-Eigenschaft"
 short-title: description
 slug: Web/API/GPUAdapterInfo/description
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`description`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt eine lesbare Zeichenkette zurück, die den Adapter beschreibt, oder einen leeren String, wenn sie nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`description`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt einen menschenlesbaren String zurück, der den Adapter beschreibt, oder einen leeren String, wenn dieser nicht verfügbar ist.
 
 ## Wert
 

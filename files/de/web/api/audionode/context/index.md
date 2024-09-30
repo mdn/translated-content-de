@@ -8,15 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte `context`-Eigenschaft des
-[`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces gibt den zugehörigen
-[`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) zurück, das heißt das Objekt, das den Verarbeitungsgraphen
-repräsentiert, an dem der Knoten beteiligt ist.
+Die schreibgeschützte `context`-Eigenschaft der [`AudioNode`](/de/docs/Web/API/AudioNode)-Schnittstelle gibt den zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) zurück, also das Objekt, das den Verarbeitungsgraph repräsentiert, an dem der Knoten beteiligt ist.
 
 ## Wert
 
-Das [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) Objekt, das
-zur Konstruktion dieses `AudioNode` verwendet wurde.
+Das [`AudioContext`](/de/docs/Web/API/AudioContext)- oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Objekt, das zum Erstellen dieses `AudioNode` verwendet wurde.
 
 ## Beispiele
 
@@ -41,4 +37,4 @@ console.log(oscillator.context === audioCtx); // true
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwenden der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

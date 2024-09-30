@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`icegatheringstatechange`** Ereignis wird an den `onicegatheringstatechange` Ereignishandler eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Status des [ICE](/de/docs/Glossary/ICE) Kandidatensammlungsprozesses ändert. Dies bedeutet, dass sich der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft der Verbindung geändert hat.
+Das **`icegatheringstatechange`** Ereignis wird an den `onicegatheringstatechange` Ereignishandler auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Status des [ICE](/de/docs/Glossary/ICE) Kandidatensammlungsprozesses ändert. Dies zeigt an, dass sich der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft der Verbindung geändert hat.
 
-Wenn ICE erstmals beginnt, Verbindungskandidaten zu sammeln, ändert sich der Wert von `new` auf `gathering`, um anzuzeigen, dass der Prozess des Sammelns von Konfigurationskandidaten für die Verbindung begonnen hat. Wenn sich der Wert in `complete` ändert, haben alle Transporte, die das `RTCPeerConnection` bilden, das Sammeln von ICE-Kandidaten abgeschlossen.
+Wenn ICE damit beginnt, Verbindungskandidaten zu sammeln, ändert sich der Wert von `new` zu `gathering`, um anzuzeigen, dass der Prozess des Sammelns von Kandidatenkonfigurationen für die Verbindung begonnen hat. Wenn der Wert zu `complete` wechselt, haben alle Transports, die die `RTCPeerConnection` ausmachen, das Sammeln von ICE-Kandidaten abgeschlossen.
 
 > [!NOTE]
-> Obwohl Sie feststellen können, dass das Sammeln von ICE-Kandidaten abgeschlossen ist, indem Sie auf `icegatheringstatechange` Ereignisse achten und überprüfen, ob der Wert von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) `complete` wird, kann Ihr Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis auch überprüfen, ob dessen [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) Eigenschaft `null` ist. Dies zeigt ebenfalls an, dass das Sammeln von Kandidaten abgeschlossen ist.
+> Während Sie feststellen können, dass das ICE-Kandidatensammeln abgeschlossen ist, indem Sie auf `icegatheringstatechange` Ereignisse achten und überprüfen, ob der Wert von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) `complete` wird, können Sie auch Ihren Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis überprüfen lassen, ob seine [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) Eigenschaft `null` ist. Auch dies zeigt an, dass die Sammlung der Kandidaten abgeschlossen ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und es steigt nicht auf.
+Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht weiter.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("icegatheringstatechange", (event) => {});
@@ -82,6 +82,6 @@ pc.addEventListener(
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+- [Signaling und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)

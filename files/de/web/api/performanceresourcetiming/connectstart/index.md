@@ -1,5 +1,5 @@
 ---
-title: "PerformanceResourceTiming: Eigenschaft connectStart"
+title: "PerformanceResourceTiming: connectStart-Eigenschaft"
 short-title: connectStart
 slug: Web/API/PerformanceResourceTiming/connectStart
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`connectStart`** gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Benutzeragent die Verbindung zum Server herstellt, um die Ressource abzurufen, zurück.
+Die **`connectStart`**-Eigenschaft, die nur gelesen werden kann, gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Benutzeragent die Verbindung zum Server herstellt, um die Ressource abzurufen.
 
 ## Wert
 
 Die `connectStart`-Eigenschaft kann die folgenden Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Verbindung zum Server herzustellen, um die Ressource abzurufen.
+- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser die Verbindung zum Server herstellt, um die Ressource abzurufen.
 - `0`, wenn die Ressource sofort aus einem Cache abgerufen wurde.
 - `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Messen der Zeit des TCP-Handshakes
+### Messung der TCP-Handshake-Zeit
 
 Die `connectStart`- und [`connectEnd`](/de/docs/Web/API/PerformanceResourceTiming/connectEnd)-Eigenschaften können verwendet werden, um zu messen, wie lange der TCP-Handshake dauert.
 
@@ -28,7 +28,7 @@ Die `connectStart`- und [`connectEnd`](/de/docs/Web/API/PerformanceResourceTimin
 const tcp = entry.connectEnd - entry.connectStart;
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, während sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -43,7 +43,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -55,11 +55,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Informationen zur Zeitmessung bei Cross-Origin-Anfragen
+### Informationen zum Cross-Origin-Timing
 
-Wenn der Wert der `connectStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um die Zeitmessinformationen bei Cross-Origin-Anfragen anzuzeigen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der `connectStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um die Anzeige von Cross-Origin-Timing-Informationen zu erlauben, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Zeitmessressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel, um `https://developer.mozilla.org` die Anzeige von Timing-Ressourcen zu erlauben, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft gibt einen String-Wert des vom Server angegebenen Metriknamens zurück.
+Die **`name`** schreibgeschützte Eigenschaft gibt einen
+Zeichenfolgenwert des vom Server angegebenen Metriknamens zurück.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -24,9 +25,9 @@ Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timin
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können auf `navigation`- und `resource`-Einträgen basieren.
+Die `serverTiming`-Einträge können in `navigation`- und `resource`-Einträgen vorkommen.
 
-Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Performance-Einträge benachrichtigt, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Leistungseinträge informiert, die im Leistungszeitstrahl des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -45,7 +46,7 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur die `navigation`- und `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitachse des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`- und `resource`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode im Leistungszeitstrahl des Browsers vorhanden sind:
 
 ```js
 for (const entryType of ["navigation", "resource"]) {

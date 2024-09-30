@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: append() Methode"
+title: "DocumentFragment: append()-Methode"
 short-title: append()
 slug: Web/API/DocumentFragment/append
 l10n:
@@ -8,10 +8,12 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentFragment.append()`** Methode
-fügt eine Reihe von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen nach dem letzten Kind des Dokumentfragments ein. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text) Knoten eingefügt.
+Die **`DocumentFragment.append()`**-Methode
+fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen nach
+dem letzten Kind des Dokumentfragments ein. Zeichenfolgen
+werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode hängt ein Kind an ein `DocumentFragment` an. Um zu einem beliebigen Element im Baum hinzuzufügen, siehe [`Element.append()`](/de/docs/Web/API/Element/append).
+Diese Methode fügt ein Kind zu einem `DocumentFragment` hinzu. Um ein Element an einer beliebigen Stelle im Baum hinzuzufügen, siehe [`Element.append()`](/de/docs/Web/API/Element/append).
 
 ## Syntax
 
@@ -24,7 +26,7 @@ append(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -37,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein Element zu einem Dokumentfragment hinzufügen
+### Einfügen eines Elements in ein Dokumentfragment
 
 ```js
 let fragment = new DocumentFragment();

@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("Window Management API")}}
 
-Dieser Leitfaden erklärt, wie Sie die [Window Management API](/de/docs/Web/API/Window_Management_API) verwenden. Der nachfolgende Beispielcode stammt aus unserer [Multi-Window-Lernumgebung](https://mdn.github.io/dom-examples/window-management-api/) (siehe den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
+Dieser Leitfaden erklärt, wie die [Window Management API](/de/docs/Web/API/Window_Management_API) verwendet wird. Der unten gezeigte Beispielcode stammt aus unserer [Lernumgebung für mehrere Fenster](https://mdn.github.io/dom-examples/window-management-api/) (siehe den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
 
-## Funktionsüberprüfung
+## Feature-Erkennung
 
-Sie können die Window Management API erkennen, indem Sie die Existenz von `getScreenDetails` in der aktuellen `window`-Instanz prüfen. Beispielsweise möchten Sie möglicherweise eine Schaltfläche bereitstellen, um eine Multi-Window-Anzeige zu öffnen, wenn die API unterstützt wird, oder ein anderes Erlebnis schaffen, wie z.B. das Erstellen von Links zu den verschiedenen Seiten, wenn dies nicht der Fall ist:
+Sie können die Window Management API erkennen, indem Sie das Vorhandensein von `getScreenDetails` in der aktuellen `window`-Instanz überprüfen. Beispielsweise möchten Sie möglicherweise eine Schaltfläche bereitstellen, um eine Anzeige mit mehreren Fenstern zu öffnen, falls die API unterstützt wird, oder eine andere Erfahrung wie das Erstellen von Links zu den verschiedenen Seiten, falls nicht:
 
 ```js
 if ("getScreenDetails" in window) {
@@ -25,7 +25,7 @@ if ("getScreenDetails" in window) {
 
 ## Grundlegende Verwendung
 
-Der Kern der Windows Management API ist die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails), die ein Objekt zurückgibt, das Details aller auf dem System des Benutzers verfügbaren Bildschirme enthält:
+Der Kern der Windows Management API ist die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails), die ein Objekt mit Details zu allen Bildschirmen zurückgibt, die dem System des Benutzers zur Verfügung stehen:
 
 ```js
 const screenDetails = await window.getScreenDetails();
@@ -34,19 +34,19 @@ const screenDetails = await window.getScreenDetails();
 const noOfScreens = screenDetails.screens.length;
 ```
 
-Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf all seinen Anzeigen zu verwalten (der Status dieser Erlaubnis kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) für `window-management` abgefragt werden). Wenn der Benutzer die Erlaubnis erteilt, wird ein [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt zurückgegeben. Dieses Objekt enthält folgende Eigenschaften:
+Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Erlaubnis kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, um `window-management` abzufragen). Wenn der Benutzer die Erlaubnis erteilt, wird ein [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt zurückgegeben. Dieses Objekt enthält die folgenden Eigenschaften:
 
-- `screens`: Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, die jeweils detaillierte Informationen über einen separaten, im System verfügbaren Bildschirm enthalten (siehe unten). Dieses Array ist auch nützlich, um die Anzahl der verfügbaren Bildschirme über `screens.length` zu bestimmen.
+- `screens`: Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, von denen jedes detaillierte Informationen über einen separaten Bildschirm enthält, der dem System zur Verfügung steht (siehe unten). Dieses Array ist auch nützlich, um die Anzahl der verfügbaren Bildschirme über `screens.length` zu bestimmen.
 - `currentScreen`: Ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm enthält, auf dem das aktuelle Browserfenster angezeigt wird.
 
-[`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekte erben die Eigenschaften der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle und enthalten nützliche Informationen, um Fenster auf bestimmten Bildschirmen zu platzieren.
+[`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekte erben die Eigenschaften der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle und enthalten nützliche Informationen zum Platzieren von Fenstern auf bestimmten Bildschirmen.
 
 > [!NOTE]
-> Sie können Funktionen basierend darauf steuern, ob der Benutzer mehr als einen Bildschirm zur Verfügung hat, indem Sie die Eigenschaft [`Window.screen.isExtended`](/de/docs/Web/API/Screen/isExtended) verwenden. Diese gibt `true` zurück, wenn das Gerät mehrere Bildschirme hat, und `false`, wenn nicht.
+> Sie können die Funktionalität basierend darauf einschränken, ob der Benutzer mehr als einen Bildschirm zur Verfügung hat, indem Sie die Eigenschaft [`Window.screen.isExtended`](/de/docs/Web/API/Screen/isExtended) verwenden. Diese gibt `true` zurück, wenn das Gerät mehrere Bildschirme hat, und `false`, wenn nicht.
 
 ### Fenster öffnen
 
-Sie müssen weiterhin [`Window.open()`](/de/docs/Web/API/Window/open) verwenden, um Fenster zu öffnen und zu verwalten, aber das Obige bietet Ihnen bessere Informationen, um dies in einer Multi-Screen-Umgebung zu tun. Eine Hilfsfunktion könnte beispielsweise folgendermaßen aussehen:
+Sie müssen weiterhin [`Window.open()`](/de/docs/Web/API/Window/open) verwenden, um Fenster zu öffnen und zu verwalten, aber die obigen Informationen bieten Ihnen bessere Informationen dafür in einer Umgebung mit mehreren Bildschirmen. Ein Dienstprogramm-Funktion könnte beispielsweise so aussehen:
 
 ```js
 // Array to hold references to the currently open windows
@@ -74,7 +74,7 @@ function openWindow(left, top, width, height, url) {
 }
 ```
 
-Sie würden dann diese Funktion aufrufen und Fenster auf spezifischen Bildschirmen wie folgt öffnen:
+Sie würden diese Funktion dann aufrufen und Fenster auf bestimmten Bildschirmen wie folgt öffnen:
 
 ```js
 const screen1 = screenDetails.screens[0];
@@ -98,9 +98,9 @@ openWindow(
 // ...
 ```
 
-### Alle Fenster schließen
+### Schließen aller Fenster
 
-Nachdem Sie jedes Fenster geöffnet haben, fügen Sie eine Referenz zum `windowRefs`-Array hinzu. Dies ermöglicht es Ihnen beispielsweise, alle zu schließen, wenn ein Fenster geschlossen wird:
+Nach dem Öffnen jedes Fensters fügen wir eine Referenz zum `windowRefs`-Array hinzu. Dadurch können Sie beispielsweise alle schließen, wenn ein Fenster geschlossen wird:
 
 ```js
 function closeAllWindows() {
@@ -125,18 +125,18 @@ function checkWindowClose() {
 ```
 
 > [!NOTE]
-> In unseren Experimenten schien die oben gezeigte Polling-Methode [`setInterval()`](/de/docs/Web/API/SetInterval) am besten zu funktionieren, um das Schließen von Fenstern im Fall von mehreren Fenstern zu erkennen. Die Verwendung von Ereignissen wie [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event), [`pagehide`](/de/docs/Web/API/Window/pagehide_event) oder [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) erwies sich als unzuverlässig, da bei Öffnen mehrerer Fenster zur gleichen Zeit die schnelle Verschiebung des Fokus/Sichtbarkeit dazu führte, dass die Handler-Funktion vorzeitig ausgelöst wurde.
+> In unseren Experimenten schien die oben gezeigte [`setInterval()`](/de/docs/Web/API/SetInterval)-Polling-Methode am besten zu funktionieren, um das Schließen von Fenstern im Fall mehrerer Fenster zu erkennen. Die Verwendung von Ereignissen wie [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event), [`pagehide`](/de/docs/Web/API/Window/pagehide_event) oder [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) erwies sich als unzuverlässig, da beim gleichzeitigen Öffnen mehrerer Fenster der schnelle Wechsel von Fokus/Sichtbarkeit dazu führte, dass die Handler-Funktion vorzeitig ausgelöst wurde.
 
 > [!NOTE]
-> Ein Anliegen bei dem obigen Beispiel ist, dass es konstante Werte zur Darstellung der Größe der Chrome-Fenster-UI-Teile in den Berechnungen verwendet - `WINDOW_CHROME_X` und `WINDOW_CHROME_Y` - um die Fenstergroßenberechnungen korrekt zu machen. Um präzise dimensionierte Fenster in anderen zukünftigen Implementierungen der API zu erstellen, müssten Sie eine kleine Bibliothek von Browser-Chrome-Größen führen und Browser-Erkennung einsetzen, um herauszufinden, welcher Browser Ihre App rendert, und die richtige Größe für die Berechnungen auswählen. Oder Sie können sich auf ungenauere Fenstergrößen verlassen.
+> Ein Problem mit dem obigen Beispiel ist, dass es feste Werte verwendet, um die Größe des Chrome-Fenster-UIs in den Berechnungen darzustellen — `WINDOW_CHROME_X` und `WINDOW_CHROME_Y` — um die Fenstergrößenberechnungen korrekt zu machen. Um präzise dimensionierte Fenster auf anderen zukünftigen Implementierungen der API zu erstellen, müssten Sie eine kleine Datenbank mit Browser-Chrome-Größen erstellen und eine Browser-Erkennung verwenden, um herauszufinden, welcher Browser Ihre App rendert, und die richtige Größe für die Berechnungen wählen. Oder Sie können sich auf weniger präzise Fenstergrößen verlassen.
 
-### Umgang mit Browser-Pop-up-Blockern
+### Umgang mit Popup-Blockern im Browser
 
-In modernen Browsern ist ein separates Benutzer-Gesten-Ereignis für jeden `Window.open()`-Aufruf erforderlich, aus Sicherheitsgründen. Dies verhindert, dass Websites Benutzer mit vielen Fenstern überfluten. Dies stellt jedoch ein Problem für Multi-Window-Anwendungen dar. Um dieses Problem zu lösen, können Sie Ihre Anwendungen so designen:
+In modernen Browsern ist ein separates Benutzer-Gestenerereignis für jeden Aufruf von `Window.open()` erforderlich, aus Sicherheitsgründen. Dadurch wird verhindert, dass Sites Benutzer mit vielen Fenstern spammen. Dies stellt jedoch ein Problem für Anwendungen mit mehreren Fenstern dar. Um diese Einschränkung zu umgehen, können Sie Ihre Anwendungen so gestalten:
 
-- Öffnen Sie nicht mehr als ein neues Fenster auf einmal.
-- Nutzen Sie bestehende Fenster, um verschiedene Seiten anzuzeigen.
-- Beraten Sie Benutzer darüber, wie sie ihre Browsereinstellungen aktualisieren können, um mehrere Fenster zuzulassen.
+- Öffnen Sie nicht mehr als ein neues Fenster gleichzeitig.
+- Verwenden Sie vorhandene Fenster erneut, um unterschiedliche Seiten anzuzeigen.
+- Raten Sie den Benutzern, wie sie ihre Browsereinstellungen aktualisieren können, um mehrere Fenster zuzulassen.
 
 In unserer Demo-Anwendung haben wir uns für die dritte Option entschieden. Unsere `openWindow()`-Funktion enthält den folgenden Abschnitt:
 
@@ -156,11 +156,11 @@ if (windowRef === null) {
 // ...
 ```
 
-Wenn der Browser ein neues Fenster blockiert, wird das resultierende `windowRef` `null` sein. In diesem Fall führen wir unsere `closeAllWindows()`-Funktion aus, um alle Fenster zu schließen, die _tatsächlich_ geöffnet werden konnten, bevor die Blockierung begann, und zeigen ein [Popover-Element](/de/docs/Web/API/Popover_API), das erklärt, wie der Pop-up-Blocker deaktiviert werden kann.
+Wenn der Browser ein neues Fenster blockiert, ist das resultierende `windowRef` `null`. In diesem Fall führen wir unsere `closeAllWindows()`-Funktion aus, um alle Fenster zu schließen, die _vor_ Beginn der Blockierung geöffnet wurden, und zeigen ein [Popover-Element](/de/docs/Web/API/Popover_API) an, das erklärt, wie der Popup-Blocker deaktiviert werden kann.
 
-## Einfacher Einzelfensterfall pro Anzeige
+## Einfacher Fall eines einzelnen Fensters pro Anzeige
 
-Wenn Sie auf jedem verfügbaren Display ein einzelnes Fenster öffnen möchten, das die volle Breite und Höhe des Displays hat, könnten Sie ein Muster wie dieses verwenden:
+Wenn Sie auf jedem verfügbaren Bildschirm ein einzelnes Fenster öffnen möchten, das die volle Breite und Höhe des Bildschirms einnimmt, könnten Sie ein Muster wie dieses verwenden:
 
 ```js
 // Open a window on each screen of the device
@@ -175,18 +175,18 @@ for (const screen of screenDetails.screens) {
 }
 ```
 
-## Fensterverwaltungsereignisse
+## Ereignisse zur Fensterverwaltung
 
-Die Window Management API bietet einige Ereignisse, um auf Änderungen an den verfügbaren Bildschirmen zu reagieren:
+Die Window Management API bietet einige Ereignisse, um auf Änderungen in den verfügbaren Bildschirmen zu reagieren:
 
 - Das `ScreenDetails`-Ereignis [`screenschange`](/de/docs/Web/API/ScreenDetails/screenschange_event)
-  - : Wird ausgelöst, wenn Bildschirme mit dem System verbunden oder von diesem getrennt werden.
+  - : Wird ausgelöst, wenn Bildschirme mit dem System verbunden oder vom System getrennt werden.
 - Das `ScreenDetails`-Ereignis [`currentscreenchange`](/de/docs/Web/API/ScreenDetails/currentscreenchange_event)
-  - : Wird ausgelöst, wenn sich der aktuelle Bildschirm des Fensters irgendwie ändert.
+  - : Wird ausgelöst, wenn sich der aktuelle Bildschirm des Fensters in irgendeiner Weise ändert.
 - Das `Screen`-Ereignis [`change`](/de/docs/Web/API/Screen/change_event)
-  - : Wird auf einem bestimmten Bildschirm ausgelöst, wenn er sich irgendwie ändert.
+  - : Wird auf einem bestimmten Bildschirm ausgelöst, wenn sich dieser in irgendeiner Weise ändert.
 
-Sie könnten beispielsweise das Ereignis `screenschange` verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben (vielleicht wenn ein Bildschirm angeschlossen oder abgetrennt wird), die Änderung zu melden, alle Fenster zu schließen und die Fensteranordnungen an die neue Konfiguration anzupassen:
+Beispielsweise könnten Sie das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben (vielleicht wenn ein Bildschirm angeschlossen oder abgetrennt wird), die Änderung zu melden, alle Fenster zu schließen und die Fensteranordnung an die neue Konfiguration anzupassen:
 
 ```js
 screenDetails.addEventListener("screenschange", () => {
@@ -209,7 +209,7 @@ screenDetails.addEventListener("screenschange", () => {
 
 ## requestFullscreen() Bildschirmoption
 
-Die Window Management API fügt der Methode [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) eine neue `screen`-Option hinzu, die es Ihnen ermöglicht, anzugeben, auf welchem Bildschirm Sie das Element im Vollbildmodus anzeigen möchten. Zum Beispiel, wenn Sie es im Vollbildmodus auf dem primären Betriebssystem-Bildschirm anzeigen möchten:
+Die Window Management API fügt der Methode [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) eine neue `screen`-Option hinzu, die es Ihnen ermöglicht, anzugeben, auf welchem Bildschirm Sie das Element im Vollbildmodus darstellen möchten. Zum Beispiel, wenn Sie es auf dem primären OS-Bildschirm im Vollbildmodus anzeigen möchten:
 
 ```js
 try {

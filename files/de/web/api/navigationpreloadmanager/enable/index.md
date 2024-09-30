@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`enable()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle wird verwendet, um das Preloading von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` erfüllt wird.
+Die **`enable()`** Methode der Schnittstelle [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) wird verwendet, um das Vorladen von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
 
-Die Methode sollte im `activate`-Event-Handler des Service Workers aufgerufen werden, was sicherstellt, dass sie aufgerufen wird, bevor ein `fetch`-Event-Handler ausgelöst werden kann.
+Die Methode sollte im `activate` Event-Handler des Service Workers aufgerufen werden, um sicherzustellen, dass sie vor jedem `fetch` Event-Handler ausgeführt wird.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 
 ### Ausnahmen
 
@@ -33,7 +33,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} erfüllt wird.
 
 ## Beispiele
 
-Der untenstehende Code zeigt, wie das Preloading aktiviert werden kann, nachdem zunächst mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) getestet wurde, ob es unterstützt wird.
+Der folgende Code zeigt, wie das Vorladen aktiviert wird, nachdem mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) zuerst getestet wurde, ob es unterstützt wird.
 
 ```js
 addEventListener("activate", (event) => {

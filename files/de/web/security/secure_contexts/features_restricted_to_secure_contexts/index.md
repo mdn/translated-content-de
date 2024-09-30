@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
+Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind – siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
@@ -26,7 +26,7 @@ Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Ko
 - [Cookie Store API](/de/docs/Web/API/Cookie_Store_API)
 - [Credential Management API](/de/docs/Web/API/Credential_Management_API)
 - [Device Memory API](/de/docs/Web/API/Device_Memory_API)
-- [Geräteorientierung / Bewegungserkennung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Device Orientation / Device Motion](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
 - [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [EyeDropper API](/de/docs/Web/API/EyeDropper)
 - [Encrypted Media Extensions](/de/docs/Web/API/Encrypted_Media_Extensions_API)
@@ -65,7 +65,7 @@ Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Ko
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
 - [Window Management API](/de/docs/Web/API/Window_Management_API)
 
-Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (selbst wenn die zugehörige API dies nicht tut):
+Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
 
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler)
@@ -73,4 +73,4 @@ Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (selbst 
 ## Siehe auch
 
 - [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- ["secure context"-Abfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)
+- ["secure context" Abfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)

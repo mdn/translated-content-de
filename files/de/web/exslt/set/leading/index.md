@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:leading()` gibt die Knoten in einem Node-Set zurück, die vor dem ersten Knoten im anderen Node-Set liegen.
+`set:leading()` gibt die Knoten in einer Knotenmenge zurück, die vor dem ersten Knoten in der anderen Knotenmenge liegen.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ set:leading(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Das Node-Set, in dem die Knoten gefunden werden sollen, die dem ersten Knoten im zweiten Node-Set vorausgehen.
+  - : Die Knotenmenge, in der Knoten gefunden werden sollen, die dem ersten Knoten in der zweiten Knotenmenge vorausgehen.
 - `nodeSet2`
-  - : Das Node-Set, gegen das verglichen wird.
+  - : Die Knotenmenge, gegen die verglichen wird.
 
 ### Rückgabewert
 
-Ein Node-Set, das die Knoten aus `nodeSet1` enthält, deren Werte vor dem ersten Knoten in `nodeSet2` liegen.
+Eine Knotenmenge, die die Knoten aus `nodeSet1` enthält, deren Werte dem ersten Knoten in `nodeSet2` vorausgehen.
 
 > [!NOTE]
-> Wenn der erste Knoten in `nodeSet2` nicht in `nodeSet1` enthalten ist, wird ein leeres Set zurückgegeben. Wenn `nodeSet2` leer ist, ist das Ergebnis `nodeSet1`.
+> Wenn der erste Knoten in `nodeSet2` nicht in `nodeSet1` enthalten ist, wird eine leere Menge zurückgegeben. Wenn `nodeSet2` leer ist, dann ist das Ergebnis `nodeSet1`.
 
 ## Spezifikationen
 

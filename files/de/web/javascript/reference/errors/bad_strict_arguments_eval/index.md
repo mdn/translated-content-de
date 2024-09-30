@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: 'arguments'/'eval' können im Strict-Modus-Code nicht definiert oder zugewiesen werden"
+title: "SyntaxError: 'arguments'/'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden"
 slug: Web/JavaScript/Reference/Errors/Bad_strict_arguments_eval
 l10n:
   sourceCommit: ffeb9c97ea22867374910842fee6b2a5836a6ee6
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-spezifische Ausnahme "'arguments' können im Strict-Modus-Code nicht definiert oder zugewiesen werden" oder "'eval' können im Strict-Modus-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine [Bindung](/de/docs/Glossary/binding) namens `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
+Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-nur-Ausnahme "'arguments' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" oder "'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine [Bindung](/de/docs/Glossary/binding) namens `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Unexpected eval or arguments in strict mode (V8-based)
@@ -21,13 +21,13 @@ SyntaxError: Cannot declare a catch variable named 'arguments' in strict mode. (
 SyntaxError: 'arguments' is not a valid function name in strict mode. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Im Strict Mode verhalten sich die Namen {{jsxref("Functions/arguments", "arguments")}} und {{jsxref("Global_Objects/eval", "eval")}} wie [reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words): Sie können nicht dazu gebracht werden, auf etwas anderes als das `arguments`-Objekt in Funktionen oder die globale `eval`-Funktion zu verweisen.
+Im Strict-Mode verhalten sich die Namen {{jsxref("Functions/arguments", "arguments")}} und {{jsxref("Global_Objects/eval", "eval")}} so, als ob sie [reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) wären: Sie können nicht bewirken, dass sie auf etwas anderes als das `arguments`-Objekt in Funktionen oder die globale `eval`-Funktion verweisen.
 
 ## Beispiele
 

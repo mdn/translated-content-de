@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wurde das `aria-roledescription`-Attribut des Elements mit der ID `myApplication` gesetzt. Mit `ariaRoleDescription` können wir den Wert aktualisieren.
+In diesem Beispiel wurde das `aria-roledescription`-Attribut des Elements mit der ID `myApplication` festgelegt. Mit `ariaRoleDescription` können wir den Wert aktualisieren.
 
 ```html
 <div
@@ -42,4 +42,4 @@ console.log(el.ariaRoleDescription); // "an updated description of this widget"
 
 {{Compat}}
 
-- [ARIA: application role](/de/docs/Web/Accessibility/ARIA/Roles/application_role)
+- [ARIA: Anwendungsrolle](/de/docs/Web/Accessibility/ARIA/Roles/application_role)

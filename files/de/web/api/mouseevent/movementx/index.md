@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Die schreibgeschützte Eigenschaft **`movementX`** des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die Differenz in der X-Koordinate des Mauszeigers zwischen dem gegebenen Ereignis und dem vorherigen [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis. Mit anderen Worten, der Wert der Eigenschaft wird folgendermaßen berechnet: `currentEvent.movementX = currentEvent.screenX - previousEvent.screenX`.
+Die **`movementX`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die Differenz der X-Koordinate des Mauszeigers zwischen dem gegebenen Ereignis und dem vorherigen [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis. Mit anderen Worten wird der Wert der Eigenschaft folgendermaßen berechnet: `currentEvent.movementX = currentEvent.screenX - previousEvent.screenX`.
 
 > [!WARNING]
-> Browser [verwenden unterschiedliche Einheiten für `movementX` und [`screenX`](/de/docs/Web/API/MouseEvent/screenX)](https://github.com/w3c/pointerlock/issues/42) als jene, die die Spezifikation definiert. Abhängig vom Browser und Betriebssystem können die `movementX`-Einheiten ein physisches Pixel, ein logisches Pixel oder ein CSS-Pixel sein. Sie sollten möglicherweise die Bewegungseigenschaften vermeiden und stattdessen das Delta zwischen den aktuellen Client-Werten ([`screenX`](/de/docs/Web/API/MouseEvent/screenX), [`screenY`](/de/docs/Web/API/MouseEvent/screenY)) und den vorherigen Client-Werten berechnen.
+> Browser [verwenden unterschiedliche Einheiten für `movementX` und [`screenX`](/de/docs/Web/API/MouseEvent/screenX)](https://github.com/w3c/pointerlock/issues/42) als die von der Spezifikation definierten. Je nach Browser und Betriebssystem können die `movementX`-Einheiten ein physisches Pixel, ein logisches Pixel oder ein CSS-Pixel sein. Sie sollten möglicherweise die Bewegungseigenschaften vermeiden und stattdessen das Delta zwischen den aktuellen Clientwerten ([`screenX`](/de/docs/Web/API/MouseEvent/screenX), [`screenY`](/de/docs/Web/API/MouseEvent/screenY)) und den vorherigen Clientwerten berechnen.
 
 ## Wert
 
-Eine Zahl. Immer null bei jedem [`MouseEvent`](/de/docs/Web/API/MouseEvent), außer `mousemove`.
+Eine Zahl. Immer null bei jedem [`MouseEvent`](/de/docs/Web/API/MouseEvent) außer `mousemove`.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die Mausbewegung mithilfe von `movementX` und [`movementY`](/de/docs/Web/API/MouseEvent/movementY).
+Dieses Beispiel protokolliert die Mausbewegung mit `movementX` und [`movementY`](/de/docs/Web/API/MouseEvent/movementY).
 
 ### HTML
 

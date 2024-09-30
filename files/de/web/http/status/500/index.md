@@ -7,12 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`500 Internal Server Error`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Server auf ein unerwartetes Problem gestoßen ist, das ihn daran gehindert hat, die Anfrage zu erfüllen.
-Dieser Fehler ist eine allgemeine "Auffang"-Antwort auf Serverprobleme und zeigt an, dass der Server keinen passenderen [5XX-Fehler](/de/docs/Web/HTTP/Status#server_error_responses) finden kann, um darauf zu antworten.
+Der HTTP-Statuscode **`500 Internal Server Error`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Server auf eine unerwartete Bedingung gestoßen ist, die es ihm unmöglich macht, die Anfrage zu erfüllen. Dieser Fehler ist eine generische "Catch-All"-Antwort für Serverprobleme, die anzeigt, dass der Server keinen passenderen [5XX-Fehler](/de/docs/Web/HTTP/Status#server_error_responses) finden kann, um zu antworten.
 
-Wenn Sie als Besucher `500`-Fehler auf einer Webseite sehen, erfordern diese Probleme eine Untersuchung durch die Serverbesitzer oder -administratoren.
-Es gibt viele mögliche Ursachen für `500`-Fehler, einschließlich: unsachgemäßer Serverkonfiguration, Speichererschöpfungsprobleme (OOM), unbehandelte Ausnahmen, unsachgemäße Dateiberechtigungen oder andere komplexe Faktoren.
-Serveradministratoren können vorausschauend das Auftreten von Fehlerantworten des Servers, wie den `500`-Statuscode, mit Details zu den auslösenden Anfragen protokollieren, um die Stabilität eines Dienstes in der Zukunft zu verbessern.
+Wenn Sie ein Besucher sind, der `500`-Fehler auf einer Webseite sieht, müssen diese Probleme von Serverbesitzern oder Administratoren untersucht werden. Es gibt viele mögliche Ursachen für `500`-Fehler, einschließlich: falscher Serverkonfiguration, Speicherüberlaufproblemen (OOM-Probleme), unbehandelter Ausnahmen, falscher Datei-Berechtigungen oder anderen komplexen Faktoren. Serveradministratoren können proaktiv das Auftreten von Serverfehlerantworten, wie dem `500`-Statuscode, mit Details zu den auslösenden Anfragen protokollieren, um die Stabilität eines Dienstes in Zukunft zu verbessern.
 
 ## Status
 
@@ -22,11 +19,9 @@ Serveradministratoren können vorausschauend das Auftreten von Fehlerantworten d
 
 ## Beispiele
 
-### 500 Server-Fehlerantwort
+### 500 Serverfehlerantwort
 
-Die folgende Anfrage versucht, eine Webseite abzurufen, erhält aber stattdessen eine 500-Antwort.
-Der Antwortinhalt enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Support-Seite für Besucher.
-Ein Bezeichner ist im Antwortinhalt enthalten, um eine Methode zu veranschaulichen, die Serveradministratoren helfen kann, die Grundursache des Problems einzugrenzen:
+Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine 500-Antwort. Der Antwortinhalt enthält eine Seite, die den Serverzustand beschreibt, mit einem Link zu einer Support-Seite für Besucher. Ein Identifikator ist im Antwortinhalt enthalten, um eine Methode der Problembehebung zu veranschaulichen, die Serveradministratoren helfen kann, die Ursache des Problems weiter einzugrenzen:
 
 ```http
 GET /highlights HTTP/1.1

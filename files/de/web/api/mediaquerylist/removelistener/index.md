@@ -1,5 +1,5 @@
 ---
-title: "MediaQueryList: removeListener()-Methode"
+title: "MediaQueryList: removeListener() Methode"
 short-title: removeListener()
 slug: Web/API/MediaQueryList/removeListener
 l10n:
@@ -8,9 +8,14 @@ l10n:
 
 {{APIRef("CSSOM")}}{{Deprecated_Header}}
 
-Die **`removeListener()`**-Methode des [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces entfernt einen Listener aus dem `MediaQueryListener`.
+Die **`removeListener()`**-Methode der
+[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener vom
+`MediaQueryListener`.
 
-In älteren Browsern erbte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget), daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt. Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es in den von Ihnen unterstützten Browsern verfügbar ist.
+In älteren Browsern hat `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt,
+daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
+Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es
+in den Browsern verfügbar ist, die Sie unterstützen müssen.
 
 ## Syntax
 
@@ -21,7 +26,8 @@ removeListener(func)
 ### Parameter
 
 - `func`
-  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion darstellt, die Sie entfernen möchten.
+  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion repräsentiert, die Sie
+    entfernen möchten.
 
 ### Rückgabewert
 
@@ -61,8 +67,8 @@ mediaQueryList.removeListener(screenTest);
 
 ## Siehe auch
 
-- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Media-Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

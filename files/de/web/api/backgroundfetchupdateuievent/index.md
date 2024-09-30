@@ -5,16 +5,25 @@ l10n:
   sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
 ---
 
+--- 
+title: "BackgroundFetchUpdateUIEvent"
+slug: Web/API/BackgroundFetchUpdateUIEvent
+page-type: web-api-interface
+status:
+  - experimental
+browser-compat: api.BackgroundFetchUpdateUIEvent
+---
+
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`BackgroundFetchUpdateUIEvent`**-Schnittstelle der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) ist ein Ereignistyp für die [`backgroundfetchsuccess`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event) und [`backgroundfetchfail`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event) Ereignisse und bietet eine Methode zum Aktualisieren des Titels und des Symbols der App, um den Benutzer über den Erfolg oder das Scheitern eines Background-Fetches zu informieren.
+Die **`BackgroundFetchUpdateUIEvent`**-Schnittstelle der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) ist ein Ereignistyp für die [`backgroundfetchsuccess`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event)- und [`backgroundfetchfail`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event)-Ereignisse und bietet eine Methode, um den Titel und das Icon der App zu aktualisieren, um den Benutzer über den Erfolg oder Misserfolg eines Hintergrundabrufs zu informieren.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`BackgroundFetchUpdateUIEvent()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/BackgroundFetchUpdateUIEvent) {{Experimental_Inline}}
-  - : Erstellt ein neues `BackgroundFetchUIEvent`-Objekt. Dieser Konstruktor wird normalerweise nicht verwendet, da der Browser diese Objekte selbst für die [`backgroundfetchsuccess`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event) und [`backgroundfetchfail`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event) Ereignisse erstellt.
+  - : Erstellt ein neues `BackgroundFetchUIEvent`-Objekt. Dieser Konstruktor wird typischerweise nicht verwendet, da der Browser diese Objekte selbst für die [`backgroundfetchsuccess`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event)- und [`backgroundfetchfail`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event)-Ereignisse erstellt.
 
 ## Instanz-Eigenschaften
 
@@ -25,11 +34,11 @@ _Erbt auch Eigenschaften von seinem Elternteil, [`BackgroundFetchEvent`](/de/doc
 _Erbt auch Methoden von seinem Elternteil, [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent)._
 
 - [`BackgroundFetchUpdateUIEvent.updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) {{Experimental_Inline}}
-  - : Aktualisiert den Titel und das Symbol in der Benutzeroberfläche, um den Status eines Background-Fetches anzuzeigen. Löst sich mit einem {{jsxref("Promise")}} auf.
+  - : Aktualisiert den Titel und das Icon in der Benutzeroberfläche, um den Status eines Hintergrundabrufs anzuzeigen. Löst sich mit einem {{jsxref("Promise")}} auf.
 
 ## Beispiele
 
-In diesem Beispiel wird auf das `backgroundfetchsuccess` Ereignis gehört, das anzeigt, dass ein Fetch erfolgreich abgeschlossen wurde. Die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) Methode wird dann aufgerufen, mit einer Nachricht, um den Benutzer wissen zu lassen, dass die von ihnen heruntergeladene Episode bereit ist.
+In diesem Beispiel wird auf das `backgroundfetchsuccess`-Ereignis gehört, was darauf hinweist, dass ein Abruf erfolgreich abgeschlossen wurde. Die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI)-Methode wird dann mit einer Nachricht aufgerufen, um den Benutzer wissen zu lassen, dass die heruntergeladene Episode bereit ist.
 
 ```js
 addEventListener("backgroundfetchsuccess", (event) => {

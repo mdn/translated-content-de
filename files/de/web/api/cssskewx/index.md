@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSSkewX`**-Schnittstelle des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Wert der [`skewX()`](/de/docs/Web/CSS/transform-function/skewX)-Funktion der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternobjekt [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Die **`CSSSkewX`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [`skewX()`](/de/docs/Web/CSS/transform-function/skewX)-Wert der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -16,14 +16,14 @@ Die **`CSSSkewX`**-Schnittstelle des [CSS Typed Object Model API](/de/docs/Web/A
 - [`CSSSkewX()`](/de/docs/Web/API/CSSSkewX/CSSSkewX)
   - : Erstellt ein neues `CSSSkewX`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`ax`](/de/docs/Web/API/CSSSkewX/ax)
-  - : Gibt den Wert der x-Achse zurück oder setzt ihn.
+  - : Gibt den Wert der x-Achse zurück oder legt ihn fest.
 
 ## Beispiele
 
-Noch zu tun
+Zu erledigen
 
 ## Spezifikationen
 

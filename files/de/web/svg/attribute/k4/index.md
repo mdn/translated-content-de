@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`k4`** Attribut definiert einen der Werte, die innerhalb der `arithmetic` Operation des {{SVGElement("feComposite")}} Filter-Primitivs verwendet werden.
+Das **`k4`**-Attribut definiert einen der Werte, die innerhalb der `arithmetic`-Operation des {{SVGElement("feComposite")}}-Filterprimitivs verwendet werden.
 
 Die Pixelzusammensetzung wird mit der folgenden Formel berechnet:
 
@@ -67,9 +67,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "200")}}
+{{EmbedLiveSample("Beispiel", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

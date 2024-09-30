@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`targetX`**-Attribut bestimmt die Positionierung in horizontaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die linkeste Spalte der Matrix ist die Spalte Nummer null. Der Wert muss derart sein, dass: `0` <= `targetX` < {{SVGAttr("order")}} `X`.
+Das **`targetX`**-Attribut bestimmt die horizontale Positionierung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die linkeste Spalte der Matrix ist die Spalte Nummer Null. Der Wert muss so sein, dass: `0` <= `targetX` < {{SVGAttr("order")}} `X`.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -33,7 +33,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<integer>`
-  - : Dieser Wert gibt die Positionierung in horizontaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild an.
+  - : Dieser Wert gibt die horizontale Positionierung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingabebild an.
 
 ## Spezifikationen
 

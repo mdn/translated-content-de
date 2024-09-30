@@ -7,43 +7,43 @@ l10n:
 
 {{JSRef}}
 
-Das **`Intl.ListFormat`**-Objekt ermöglicht die sprachsensitive Formatierung von Listen.
+Das **`Intl.ListFormat`** Objekt ermöglicht sprachsensitive Listenformatierung.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat.html", "taller")}}
 
 ## Konstruktor
 
 - {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat()")}}
-  - : Erstellt ein neues `Intl.ListFormat`-Objekt.
+  - : Erstellt ein neues `Intl.ListFormat` Objekt.
 
 ## Statische Methoden
 
 - {{jsxref("Intl/ListFormat/supportedLocalesOf", "Intl.ListFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die bereitgestellten Locales enthält, die unterstützt werden, ohne auf die Standardlocale der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das die bereitgestellten Locale enthält, die ohne Rückgriff auf die Standard-Locale der Laufzeitumgebung unterstützt werden.
 
-## Instanz-Eigenschaften
+## Instanz Eigenschaften
 
-Diese Eigenschaften sind auf `Intl.ListFormat.prototype` definiert und werden von allen `Intl.ListFormat`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `Intl.ListFormat.prototype` definiert und werden von allen `Intl.ListFormat` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Intl.ListFormat.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.ListFormat`-Instanzen ist der Anfangswert der {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.ListFormat` Instanzen ist der Anfangswert der {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat")}} Konstruktor.
 - `Intl.ListFormat.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.ListFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.ListFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanz Methoden
 
 - {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}}
-  - : Gibt einen sprachspezifisch formatierten String zurück, der die Elemente der Liste darstellt.
+  - : Gibt einen sprachspezifischen formatierten String zurück, der die Elemente der Liste darstellt.
 - {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}}
-  - : Gibt ein Array von Objekten zurück, das die verschiedenen Komponenten darstellt, die verwendet werden können, um eine Liste von Werten in einer auf die Locale abgestimmten Weise zu formatieren.
+  - : Gibt ein Array von Objekten zurück, das die verschiedenen Komponenten darstellt, die verwendet werden können, um eine Liste von Werten in einer ortsbezogenen Art und Weise zu formatieren.
 - {{jsxref("Intl/ListFormat/resolvedOptions", "Intl.ListFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die während der Konstruktion des aktuellen `Intl.ListFormat`-Objekts berechneten Locale- und Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die während der Konstruktion des aktuellen `Intl.ListFormat` Objekts berechneten Locale- und Stilformatierungsoptionen widerspiegeln.
 
 ## Beispiele
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie man einen Listenformatierer mit der englischen Sprache erstellt.
+Das folgende Beispiel zeigt, wie ein Listenformatierer mit der englischen Sprache erstellt wird.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];
@@ -70,7 +70,7 @@ console.log(
 
 ### Verwendung von formatToParts
 
-Das folgende Beispiel zeigt, wie man einen Listenformatierer erstellt, der formatierte Teile zurückgibt.
+Das folgende Beispiel zeigt, wie ein Listenformatierer erstellt wird, der formatierte Teile zurückgibt
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

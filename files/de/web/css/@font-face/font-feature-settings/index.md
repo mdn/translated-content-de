@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`font-feature-settings`** CSS-Deskriptor ermöglicht es Ihnen, die initialen Einstellungen für die mit der {{cssxref("@font-face")}} at-rule definierte Schriftart zu definieren. Sie können diesen Deskriptor weiter verwenden, um typografische Schrifteigenschaften wie Ligaturen, Kapitälchen und Zierbuchstaben für die mit `@font-face` definierte Schriftart zu steuern. Die Werte für diesen Deskriptor sind die gleichen wie für die {{cssxref("font-feature-settings")}} Eigenschaft, mit Ausnahme der globalen Schlüsselwortwerte.
+Der CSS-Deskriptor **`font-feature-settings`** ermöglicht es Ihnen, die anfänglichen Einstellungen für die Schriftart, die mit der {{cssxref("@font-face")}}-Regel definiert wird, festzulegen. Mit diesem Deskriptor können Sie typografische Schriftmerkmale wie Ligaturen, Kapitälchen und dekorative Ausschmückungen für die mit `@font-face` definierte Schriftart steuern. Die Werte für diesen Deskriptor entsprechen denen der Eigenschaft {{cssxref("font-feature-settings")}}, mit Ausnahme der globalen Schlüsselwortwerte.
 
-Da dieser Deskriptor Werte für Schrifteigenschaften am Schriftobjekt in der `@font-face` At-Regel festlegt und nicht auf ein gesamtes Element, können nur einige Glyphen in einem Element mithilfe dieses Deskriptors gerendert werden.
+Da dieser Deskriptor Feature-Werte auf dem Schriftobjekt in der `@font-face`-Regel und nicht für ein gesamtes Element festlegt, können nur einige Glyphen in einem Element mithilfe dieses Deskriptors gerendert werden.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ font-feature-settings: "swsh" 2;
 
 ### Werte
 
-Dieser Deskriptor wird entweder als Schlüsselwort `normal` oder als durch Kommas getrennte Liste von `<feature-tag-value>` Werten spezifiziert. Beim Rendern von Text wird die Liste der OpenType `<feature-tag-value>` Werte an die Text-Layout-Engine übergeben, um Schriftfunktionen zu aktivieren oder zu deaktivieren.
+Dieser Deskriptor wird entweder als das Schlüsselwort `normal` oder als eine durch Kommas getrennte Liste von `<feature-tag-value>`-Werten angegeben. Beim Rendern von Text wird die Liste der OpenType-`<feature-tag-value>`-Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
 
 - `normal`
-  - : Gibt an, dass der Text mit den standardmäßigen Schriftsatzeinstellungen gestaltet wird. Dies ist der Standardwert.
+  - : Gibt an, dass Text mit standardmäßigen Schrifteinstellungen gesetzt wird. Dies ist der Standardwert.
 - `<feature-tag-value>`
 
-  - : Stellt ein durch Leerzeichen getrenntes Tupel dar, das aus einem Tag-Namen und einem optionalen Wert besteht.
+  - : Stellt ein durch Leerzeichen getrenntes Paar aus einem Tag-Namen und einem optionalen Wert dar.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} aus vier [ASCII](/de/docs/Glossary/ASCII) Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepoint-Bereichs enthält, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} von vier [ASCII](/de/docs/Glossary/ASCII)-Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
 
-    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standard `1`. Für nicht-boolean OpenType-Features (z. B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphs; für boolesche Features aktiviert oder deaktiviert der Wert das Feature.
+    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standard `1`. Bei nicht-booleschen OpenType-Features (z. B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert, dass ein bestimmtes Glyphe ausgewählt wird; bei booleschen Features wird das Merkmal ein- oder ausgeschaltet.
 
 ## Formale Definition
 
@@ -47,9 +47,9 @@ Dieser Deskriptor wird entweder als Schlüsselwort `normal` oder als durch Komma
 
 ## Beispiele
 
-### Aktivieren von Zierglyphen mit der @font-face At-Regel
+### Aktivieren von Swash-Glyphen mit der @font-face-Regel
 
-In diesem Beispiel werden der Tag-Name `swsh` und ein boolescher Wert `1` als Wert für den Deskriptor `font-feature-settings` in der `@font-face` At-Regel verwendet.
+In diesem Beispiel wird der Tag-Name `swsh` und ein boolescher Wert `1` als Wert für den `font-feature-settings`-Deskriptor in der `@font-face`-Regel verwendet.
 
 #### HTML
 
@@ -84,9 +84,9 @@ p {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Aktivieren von Zierglyphen mit der @font-face Regel", 0, 230)}}
+{{EmbedLiveSample("Enabling swash glyphs using the @font-face rule", 0, 230)}}
 
-Zeile 1 zeigt das standardmäßige verzierte Design der [MonteCarlo](https://github.com/googlefonts/monte-carlo) Schriftart, und Zeile 2 zeigt die standardmäßigen Glyphen, die durch [Zier](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-swsh) Glyphen ersetzt werden.
+Zeile 1 zeigt das standardmäßige ornamentale Design der [MonteCarlo](https://github.com/googlefonts/monte-carlo)-Schriftart, und Zeile 2 zeigt, wie die Standardglyphen durch [Swash](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-swsh)-Glyphen ersetzt werden.
 
 ## Spezifikationen
 
@@ -98,5 +98,5 @@ Zeile 1 zeigt das standardmäßige verzierte Design der [MonteCarlo](https://git
 
 ## Siehe auch
 
-- Andere `@font-face` Deskriptoren: {{cssxref("@font-face/font-family", "font-family")}}, {{cssxref("@font-face/font-style", "font-style")}}, {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}, {{cssxref("@font-face/font-weight", "font-weight")}}, {{cssxref("@font-face/src", "src")}}
-- Verwandte Schrifteigenschaften: {{cssxref("font-feature-settings")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variation-settings")}}
+- Andere `@font-face`-Deskriptoren: {{cssxref("@font-face/font-family", "font-family")}}, {{cssxref("@font-face/font-style", "font-style")}}, {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}, {{cssxref("@font-face/font-weight", "font-weight")}}, {{cssxref("@font-face/src", "src")}}
+- Verwandte Schrift-Eigenschaften: {{cssxref("font-feature-settings")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variation-settings")}}

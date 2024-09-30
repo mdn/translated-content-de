@@ -9,8 +9,8 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAreaElement.host`**-Eigenschaft ist ein
-String, der den Host enthält, das heißt den _hostname_ und dann,
-falls der _port_ der URL nicht leer ist, ein `':'` und den _port_
+String, der den Host enthält, das heißt den _Hostnamen_, und dann,
+wenn der _Port_ der URL nicht leer ist, ein `':'`, und den _Port_
 der URL.
 
 ## Wert

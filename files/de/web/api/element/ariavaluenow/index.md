@@ -1,5 +1,5 @@
 ---
-title: "Element: ariaValueNow-Eigenschaft"
+title: "Element: ariaValueNow Eigenschaft"
 short-title: ariaValueNow
 slug: Web/API/Element/ariaValueNow
 l10n:

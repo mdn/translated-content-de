@@ -1,5 +1,5 @@
 ---
-title: "ClipboardItem: getType() Methode"
+title: "ClipboardItem: getType()-Methode"
 short-title: getType()
 slug: Web/API/ClipboardItem/getType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`getType()`** Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten [MIME-Typs](/de/docs/Glossary/MIME_type) oder einem Fehler aufgelöst wird, wenn der MIME-Typ nicht gefunden wird.
+Die **`getType()`**-Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten [MIME-Typs](/de/docs/Glossary/MIME_type) aufgelöst wird, oder einen Fehler, falls der MIME-Typ nicht gefunden wird.
 
 ## Syntax
 
@@ -28,13 +28,14 @@ Ein {{jsxref("Promise")}}, das mit einem [`Blob`](/de/docs/Web/API/Blob)-Objekt 
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der `type` entspricht keinem bekannten [MIME-Typ](/de/docs/Glossary/MIME_type).
+  - : Der `type` stimmt nicht mit einem bekannten [MIME-Typ](/de/docs/Glossary/MIME_type) überein.
 - {{jsxref("TypeError")}}
-  - : Es wurde kein Parameter angegeben oder der `type` entspricht nicht dem des [`ClipboardItem`](/de/docs/Web/API/ClipboardItem).
+  - : Es wird kein Parameter angegeben oder der `type` entspricht nicht dem eines [`ClipboardItem`](/de/docs/Web/API/ClipboardItem).
 
 ## Beispiele
 
-Im folgenden Beispiel geben wir alle Elemente in der Zwischenablage über die Methode [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) zurück. Anschließend nutzen wir die Eigenschaft [`ClipboardItem.types`](/de/docs/Web/API/ClipboardItem/types), um das Argument für `getType()` festzulegen und das entsprechende Blob-Objekt zurückzugeben.
+Im folgenden Beispiel geben wir alle Elemente der Zwischenablage über die [`clipboard.read()`](/de/docs/Web/API/Clipboard/read)-Methode zurück.
+Anschließend wird die [`ClipboardItem.types`](/de/docs/Web/API/ClipboardItem/types)-Eigenschaft genutzt, um das `getType()`-Argument festzulegen und das entsprechende Blob-Objekt zurückzugeben.
 
 ```js
 async function getClipboardContents() {

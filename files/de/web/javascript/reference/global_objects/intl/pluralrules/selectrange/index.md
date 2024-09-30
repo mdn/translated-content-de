@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`selectRange()`**-Methode von {{jsxref("Intl.PluralRules")}} Instanzen erhält zwei Werte und gibt einen String zurück, der angibt, welche Pluralregel für die lokalisierungsbewusste Formatierung des angegebenen Bereichs verwendet werden soll.
+Die Methode **`selectRange()`** von {{jsxref("Intl.PluralRules")}}-Instanzen erhält zwei Werte und gibt einen String zurück, der angibt, welche Pluralregel für die locale-bewusste Formatierung des angegebenen Bereichs verwendet werden soll.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ selectRange(startRange, endRange)
 ### Rückgabewert
 
 Ein String, der die Pluralisierungskategorie des angegebenen Bereichs darstellt.
-Dies kann eine der Kategorien `zero`, `one`, `two`, `few`, `many` oder `other` sein, die relevant für die in den [LDML Language Plural Rules](https://www.unicode.org/cldr/charts/43/supplemental/language_plural_rules.html) angegebene Lokalisierung sind.
+Dies kann eine der folgenden Kategorien sein: `zero`, `one`, `two`, `few`, `many` oder `other`, die für die Locale relevant sind, deren Lokalisierung in den [LDML Language Plural Rules](https://www.unicode.org/cldr/charts/43/supplemental/language_plural_rules.html) angegeben ist.
 
 ## Beschreibung
 
-Diese Funktion wählt eine Pluralisierungskategorie entsprechend der Lokalisierung und den Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}} Objekts aus.
+Diese Funktion wählt eine Pluralisierungskategorie gemäß der Locale- und Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}}-Objekts aus.
 
 Konzeptionell ist das Verhalten dasselbe wie das Abrufen von Pluralregeln für eine einzelne kardinale oder ordinale Zahl.
-Sprachen haben eine oder mehrere Formen zur Beschreibung von Bereichen, und diese Methode liefert die geeignete Form unter Berücksichtigung der gegebenen Lokalisierung und Formatierungsoptionen.
-Im Englischen gibt es nur eine Pluralform, wie in "1–10 apples", und die Methode wird `other` zurückgeben.
+Sprachen haben eine oder mehrere Formen zur Beschreibung von Bereichen, und diese Methode liefert die passende Form für die angegebene Locale und Formatierungsoptionen.
+Im Englischen gibt es nur eine Pluralform, wie zum Beispiel "1–10 apples", und die Methode gibt `other` zurück.
 Andere Sprachen können viele Formen haben.
 
 ## Beispiele

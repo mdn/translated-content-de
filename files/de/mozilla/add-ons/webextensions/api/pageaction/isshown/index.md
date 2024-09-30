@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Page-Action für den angegebenen Tab angezeigt wird.
+Gibt `true` zurück, wenn die Seitenaktion für den angegebenen Tab angezeigt wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,14 +23,14 @@ let gettingIsShown = browser.pageAction.isShown(
 
 - `details`
 
-  - : `object`. Ein Objekt, das die zu überprüfende `tabId` enthält.
+  - : `object`. Ein Objekt, das die `tabId` zum Überprüfen enthält.
 
     - `tabId`
       - : `integer`. ID des zu überprüfenden Tabs.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Page-Action der Erweiterung für den angegebenen Tab angezeigt wird, und mit `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenaktion der Erweiterung für den angegebenen Tab angezeigt wird, und mit `false` andernfalls.
 
 ## Browser-Kompatibilität
 

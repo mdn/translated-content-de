@@ -8,8 +8,8 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`host`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein
-String, der den Host enthält, also den [`hostname`](/de/docs/Web/API/URL/hostname), und dann, wenn der [port](/de/docs/Glossary/port) der URL nicht leer ist, einen
+Die **`host`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist
+ein String, der den Host enthält, also den [`hostname`](/de/docs/Web/API/URL/hostname) und dann, falls der [Port](/de/docs/Glossary/port) der URL nicht leer ist, einen
 `':'`, gefolgt vom [`port`](/de/docs/Web/API/URL/port) der URL.
 
 ## Wert

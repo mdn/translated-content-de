@@ -7,30 +7,30 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("Gamepad API")}}
 
-Die **Gamepad API** bietet Entwicklern eine Möglichkeit, auf Signale von Gamepads und anderen Game-Controllern zuzugreifen und darauf in einer einfachen, konsistenten Weise zu reagieren. Sie enthält drei Schnittstellen, zwei Ereignisse und eine spezielle Funktion, um darauf zu reagieren, dass Gamepads verbunden oder getrennt werden, sowie um weitere Informationen über die Gamepads selbst und die aktuell gedrückten Tasten und anderen Steuerungen zu erhalten.
+Die **Gamepad API** bietet Entwicklern eine Möglichkeit, Signale von Gamepads und anderen Spielcontrollern in einer einfachen und konsistenten Weise zu verarbeiten. Sie enthält drei Schnittstellen, zwei Ereignisse und eine spezielle Funktion, um auf verbundene und getrennte Gamepads zu reagieren und um weitere Informationen über die Gamepads selbst sowie die derzeit gedrückten Tasten und anderen Steuerungen zu erhalten.
 
 ## Schnittstellen
 
 - [`Gamepad`](/de/docs/Web/API/Gamepad)
-  - : Stellt ein mit dem Computer verbundenes Gamepad/Controller dar.
+  - : Repräsentiert ein mit dem Computer verbundenes Gamepad/Controller.
 - [`GamepadButton`](/de/docs/Web/API/GamepadButton)
-  - : Stellt eine Taste auf einem der verbundenen Controller dar.
+  - : Repräsentiert eine Taste auf einem der verbundenen Controller.
 - [`GamepadEvent`](/de/docs/Web/API/GamepadEvent)
-  - : Das Ereignisobjekt, das für Ereignisse ausgelöst wird, die mit Gamepads zusammenhängen.
+  - : Das Ereignisobjekt, das Ereignisse darstellt, die in Zusammenhang mit Gamepads ausgelöst werden.
 
 ### Experimentelle Gamepad-Erweiterungen
 
 - [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)
-  - : Stellt Hardware im Controller dar, die entworfen wurde, um dem Benutzer haptisches Feedback zu geben (falls verfügbar), meist Vibrationstechnologie.
+  - : Repräsentiert Hardware im Controller, die entworfen wurde, um dem Benutzer haptisches Feedback zu geben (falls verfügbar), am häufigsten Vibrationshardware.
 - [`GamepadPose`](/de/docs/Web/API/GamepadPose)
-  - : Stellt die Pose eines Controllers dar (z. B. Position und Orientierung im 3D-Raum) im Fall eines [WebVR](/de/docs/Web/API/WebVR_API) Controllers. Dies wird _nicht_ vom neueren [WebXR](/de/docs/Web/API/WebXR_Device_API) Standard verwendet.
+  - : Repräsentiert die Position eines Controllers (z.B. Position und Orientierung im 3D-Raum) im Fall eines [WebVR](/de/docs/Web/API/WebVR_API) Controllers. Dies wird _nicht_ vom neueren [WebXR](/de/docs/Web/API/WebXR_Device_API) Standard verwendet.
 
-### Erweiterungen für andere Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
 #### Navigator
 
 - [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads)
-  - : Eine Erweiterung des [`Navigator`](/de/docs/Web/API/Navigator) Objekts, die ein Array von [`Gamepad`](/de/docs/Web/API/Gamepad) Objekten zurückgibt, eines für jedes verbundene Gamepad.
+  - : Eine Erweiterung des [`Navigator`](/de/docs/Web/API/Navigator) Objekts, das ein Array von [`Gamepad`](/de/docs/Web/API/Gamepad) Objekten zurückgibt, eines für jedes verbundene Gamepad.
 
 #### Fensterereignisse
 

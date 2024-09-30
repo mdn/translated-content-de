@@ -8,11 +8,11 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`step`**-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert angepasst werden muss, oder das Schlüsselwort `any`. Es ist gültig für die numerischen Eingabetypen, einschließlich der {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen.
+Das **`step`**-Attribut ist eine Zahl, die die Granularität angibt, der der Wert entsprechen muss, oder das Schlüsselwort `any`. Es ist für die numerischen Eingabetypen gültig, darunter die Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}.
 
-Das `step`-Attribut legt das _Intervall_ fest, wenn die Auf- und Ab-Spinner-Tasten gedrückt werden, ein Schieberegler bei einem `range` nach links und rechts bewegt wird und die verschiedenen Datumstypen validiert werden. Wird es nicht explizit angegeben, ist der Standardwert von `step` 1 für `number` und `range` und 1 Einheit (Minute, Woche, Monat, Tag) für die Datum/Zeit-Eingabetypen. Der Wert muss eine positive Zahl - Ganzzahl oder Gleitkomma - sein oder der spezielle Wert `any`, was bedeutet, dass kein Schritt vorgesehen ist und jeder Wert zulässig ist (unter Vorbehalt anderer Einschränkungen, wie z.B. [`min`](/de/docs/Web/HTML/Attributes/min) und [`max`](/de/docs/Web/HTML/Attributes/max)).
+`step` legt das _Schrittintervall_ fest, wenn die Pfeiltasten oder der Schieberegler bewegt werden, oder validiert die verschiedenen Datentypen. Wird es nicht explizit hinzugefügt, beträgt der Standardwert für `step` 1 für `number` und `range`, und 1 Einheitstyp (Minute, Woche, Monat, Tag) für die Datums-/Zeiteingabetypen. Der Wert muss eine positive Zahl sein - ganzzahlig oder als Gleitkommazahl - oder der spezielle Wert `any`, was bedeutet, dass keine Schritte festgelegt sind und jeder Wert erlaubt ist (unter Berücksichtigung anderer Einschränkungen, wie [`min`](/de/docs/Web/HTML/Attributes/min) und [`max`](/de/docs/Web/HTML/Attributes/max)).
 
-Der Standard-Schrittwert für `number` Eingaben ist 1, wodurch nur Ganzzahlen eingegeben werden können, _es sei denn_, die Schritt-Basis ist keine Ganzzahl. Der Standard-Schrittwert für `time` beträgt 60 Sekunden, wobei 900 gleich 15 Minuten entspricht.
+Der Standardwert für `number`-Eingaben ist 1, was nur ganze Zahlen erlaubt, _es sei denn_, die Basis für Schritte ist keine ganze Zahl. Der Standardwert für Schritte bei `time` beträgt 60 Sekunden, wobei 900 gleich 15 Minuten entspricht.
 
 ## Syntax
 
@@ -75,24 +75,24 @@ Der Standard-Schrittwert für `number` Eingaben ist 1, wodurch nur Ganzzahlen ei
   </tbody>
 </table>
 
-Wenn `any` nicht explizit gesetzt ist, sind gültige Werte für die Eingabetypen `number`, Datum/Zeit und `range` gleich dem Basiswert für Schritte - dem [`min`](/de/docs/Web/HTML/Attributes/min)-Wert und Vielfachen des Schrittwerts, bis zum [`max`](/de/docs/Web/HTML/Attributes/max)-Wert, wenn dieser angegeben ist. Das folgende Beispiel resultiert darin, dass jede gerade Ganzzahl ab 10 gültig ist:
+Wenn `any` nicht explizit festgelegt wird, sind gültige Werte für die Eingabetypen `number`, Datum/Zeit und `range` gleich dem Basiswert für Schritte - dem [`min`](/de/docs/Web/HTML/Attributes/min)-Wert und den Vielfachen des Schrittwerts, bis zum [`max`](/de/docs/Web/HTML/Attributes/max)-Wert, falls angegeben. Das folgende Beispiel ermöglicht nur gerade Zahlen ab 10:
 
 ```html
 <input type="number" min="10" step="2" />
 ```
 
-Wenn `step` weggelassen wird, ist jede Ganzzahl gültig, aber Gleitkommazahlen wie 4.2 sind nicht gültig, da `step` standardmäßig 1 ist. Damit 4.2 gültig ist:
+Wird `step` weggelassen, sind alle ganzzahligen Werte gültig, nicht jedoch Gleitkommazahlen wie 4.2, da `step` standardmäßig auf 1 gesetzt ist. Damit 4.2 gültig ist:
 
-- muss entweder `step` auf `any`, 0.1 oder 0.2 gesetzt werden,
-- oder der `min`-Wert muss eine Zahl sein, die auf .2 endet, wie 0.2, 1.2 oder -5.2.
+- müsste `step` entweder auf `any`, 0.1 oder 0.2 gesetzt werden,
+- oder der `min`-Wert müsste eine Zahl sein, die auf .2 endet, wie 0.2, 1.2 oder -5.2.
 
 ## Beispiele
 
 ### Einfluss von `min` auf step
 
-Der Wert von `min` definiert gültige Werte, auch wenn das `step`-Attribut nicht enthalten ist. Dies liegt daran, dass `step` standardmäßig auf `1` für den Eingabetyp `number` gesetzt ist.
+Der Wert von `min` definiert gültige Werte, selbst wenn das `step`-Attribut nicht enthalten ist. Das liegt daran, dass `step` standardmäßig auf `1` für den `number`-Eingabetyp gesetzte ist.
 
-In diesem Beispiel fügen wir einen großen roten Rand um ungültige Eingaben hinzu:
+In diesem Beispiel fügen wir eine dicke rote Umrandung um ungültige Eingaben hinzu:
 
 ```css
 input:invalid {
@@ -100,24 +100,24 @@ input:invalid {
 }
 ```
 
-Dann definieren wir eine Eingabe mit einem Mindestwert von 1.2 und einem Schrittwert von 2:
+Wir definieren dann eine Eingabe mit einem Mindestwert von 1.2 und einem Schrittwert von 2:
 
 ```html
 <input id="myNumber" name="myNumber" type="number" step="2" min="1.2" />
 ```
 
-Gültige Werte sind 1.2, 3.2, 5.2, 7.2, 9.2, 11.2 und so weiter. Nur Gleitkommazahlen mit einer ungeraden ganzzahligen Komponente und einem Dezimalanteil von .2 sind gültig. Der Zahlendreher, falls vorhanden, erzeugt gültige Gleitkommazahlen von 1.2 und mehr in Schritten von 2.
+Gültige Werte sind 1.2, 3.2, 5.2, 7.2, 9.2, 11.2, und so weiter. Nur Fließkommazahlen mit einem ungeraden ganzzahligen Teil und einem Dezimalteil von .2 sind gültig. Der Nummernschieber, falls vorhanden, generiert gültige Fließkomma-Werte von 1.2 und höher, in zwei Schritten.
 
 {{EmbedLiveSample("min_impact_on_step","100%",55)}}
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Schritt-Konfiguration entsprechen, wird der Wert als ungültig im Rahmen der Einschränkungsvalidierung betrachtet und entspricht den Pseudoklassen {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}}.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Schrittkonfiguration entsprechen, wird der Wert in der Einschränkungsvalidierung als ungültig betrachtet und passt zu den Pseudoklassen {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}}.
 
 Siehe [Client-seitige Validierung](/de/docs/Web/HTML/Constraint_validation) und [`stepMismatch`](/de/docs/Web/API/ValidityState/stepMismatch) für weitere Informationen.
 
-## Barrierefreiheitshinweise
+## Barrierefreiheit
 
-Geben Sie Anweisungen, um den Nutzern zu helfen, das Formular auszufüllen und einzelne Formularsteuerelemente zu verwenden. Kennzeichnen Sie erforderliche und optionale Eingaben, Datenformate und andere relevante Informationen. Wenn Sie das `min`-Attribut verwenden, stellen Sie sicher, dass diese Mindestanforderung vom Benutzer verstanden wird. Das Bereitstellen von Anweisungen innerhalb des {{htmlelement('label')}} könnte ausreichend sein. Wenn Anweisungen außerhalb von Labels bereitgestellt werden, was eine flexiblere Positionierung und Gestaltung erlaubt, sollten Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) verwenden.
+Geben Sie Anweisungen, um Benutzern zu helfen, das Formular auszufüllen und die einzelnen Formularelemente zu verwenden. Geben Sie an, welche Eingaben erforderlich und welche optional sind, die Datumsformate und andere relevante Informationen. Wenn Sie das `min`-Attribut verwenden, stellen Sie sicher, dass dieses Mindestanforderung von den Benutzern verstanden wird. Anweisungen innerhalb des {{htmlelement('label')}} können ausreichend sein. Wenn Anweisungen außerhalb von Labels bereitgestellt werden, was eine flexiblere Positionierung und Gestaltung erlaubt, ziehen Sie in Betracht, [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) zu verwenden.
 
 ## Spezifikationen
 
@@ -136,4 +136,4 @@ Geben Sie Anweisungen, um den Nutzern zu helfen, das Formular auszufüllen und e
 - [`validityState.stepMismatch`](/de/docs/Web/API/ValidityState/stepMismatch)
 - {{cssxref(':out-of-range')}}
 - {{htmlelement('input')}}
-- {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen, und das {{htmlelement('meter')}}
+- {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen und das {{htmlelement('meter')}}-Element.

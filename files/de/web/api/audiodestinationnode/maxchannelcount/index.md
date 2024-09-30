@@ -1,5 +1,5 @@
 ---
-title: "AudioDestinationNode: Eigenschaft maxChannelCount"
+title: "AudioDestinationNode: maxChannelCount-Eigenschaft"
 short-title: maxChannelCount
 slug: Web/API/AudioDestinationNode/maxChannelCount
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `maxchannelCount` des [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)-Interfaces ist ein `unsigned long`, das die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
+Die `maxchannelCount`-Eigenschaft des [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)-Interfaces ist eine `unsigned long`, die die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
 
 Die [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount)-Eigenschaft kann zwischen 0 und diesem Wert (beide eingeschlossen) gesetzt werden. Wenn `maxChannelCount` `0` ist, wie im [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext), kann die Anzahl der Kanäle nicht geändert werden.
 
@@ -18,7 +18,7 @@ Ein `unsigned long`.
 
 ## Beispiele
 
-Das Folgende würde ein einfaches Audiograf einrichten, das einen `AudioDestinationNode` mit `maxChannelCount` von 2 enthält:
+Das Folgende würde ein einfaches Audio-Setup mit einem `AudioDestinationNode` mit `maxChannelCount` von 2 einrichten:
 
 ```js
 const audioCtx = new AudioContext();
@@ -28,7 +28,7 @@ audioCtx.destination.maxChannelCount = 2;
 gainNode.connect(audioCtx.destination);
 ```
 
-Um eine vollständigere Implementierung zu sehen, probieren Sie eines der MDN Web Audio Beispiele aus, wie z.B. [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/).
+Um eine vollständigere Implementierung zu sehen, schauen Sie sich eines unserer MDN Web Audio-Beispiele an, wie [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/).
 
 ## Spezifikationen
 

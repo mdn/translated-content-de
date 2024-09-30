@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`error`**-Ereignis des [`Worker`](/de/docs/Web/API/Worker)-Interfaces wird ausgelöst, wenn ein Fehler im Worker auftritt.
+Das **`error`** Ereignis der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle wird ausgelöst, wenn ein Fehler im Worker auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt mittels des [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktors und richtet einen `onerror`-Handler für das resultierende Objekt ein:
+Das folgende Codebeispiel erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor und richtet einen `onerror`-Handler an dem resultierenden Objekt ein:
 
 ```js
 const myWorker = new Worker("worker.js");

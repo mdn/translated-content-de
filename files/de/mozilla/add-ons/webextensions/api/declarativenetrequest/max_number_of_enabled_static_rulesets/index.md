@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von statischen Regelwerken, die eine Erweiterung aktiviert haben kann. Weitere Informationen zu den Grenzen statischer Regelwerke finden Sie unter [Grenzen für statische Regelwerke](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Die maximale Anzahl statischer Regelwerke, die eine Erweiterung aktiviert haben kann. Weitere Informationen zu den Begrenzungen statischer Regelwerke finden Sie unter [statische Regelwerkbegrenzungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Eine Erweiterung kann die Anzahl der aktivierten Regelwerke mit der Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets", "updateEnabledRulesets")}} ändern.
+Eine Erweiterung kann die Anzahl der aktivierten Regelwerke mithilfe der Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets", "updateEnabledRulesets")}} ändern.
 
-Der Wert ist `10`.
+Ihr Wert ist `10`.
 
 {{WebExtExamples("h2")}}
 

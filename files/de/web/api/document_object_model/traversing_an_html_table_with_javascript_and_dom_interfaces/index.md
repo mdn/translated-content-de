@@ -7,12 +7,12 @@ l10n:
 
 {{DefaultAPISidebar("DOM")}}
 
-Dieser Artikel gibt einen Überblick über einige leistungsstarke, grundlegende DOM-Methoden der Ebene 1 und deren Verwendung in JavaScript. Sie lernen, wie Sie HTML-Elemente dynamisch erstellen, darauf zugreifen, sie steuern und entfernen können. Die hier vorgestellten DOM-Methoden sind nicht spezifisch für HTML; sie gelten auch für XML. Die hier bereitgestellten Demonstrationen funktionieren in jedem modernen Browser.
+Dieser Artikel bietet einen Überblick über einige leistungsstarke, grundlegende DOM-Level-1-Methoden und deren Verwendung in JavaScript. Sie lernen, wie Sie HTML-Elemente dynamisch erstellen, darauf zugreifen, sie steuern und entfernen können. Die hier vorgestellten DOM-Methoden sind nicht spezifisch für HTML; sie gelten auch für XML. Die hier bereitgestellten Demonstrationen funktionieren in jedem modernen Browser einwandfrei.
 
 > [!NOTE]
-> Die hier vorgestellten DOM-Methoden sind Teil der Spezifikation des Dokumentenobjektmodells (Core) Ebene 1. DOM Ebene 1 umfasst sowohl Methoden für den allgemeinen Dokumentenzugriff und die Manipulation (DOM 1 Core) als auch Methoden, die spezifisch für HTML-Dokumente sind (DOM 1 HTML).
+> Die hier vorgestellten DOM-Methoden sind Teil der Document Object Model (Core) Level 1-Spezifikation. DOM Level 1 umfasst sowohl Methoden für den generischen Dokumentzugriff und die Manipulation (DOM 1 Core) als auch Methoden, die spezifisch für HTML-Dokumente sind (DOM 1 HTML).
 
-## Erstellen einer HTML-Tabelle dynamisch
+## Dynamisches Erstellen einer HTML-Tabelle
 
 ### Beispiel
 
@@ -79,46 +79,46 @@ td {
 Beachten Sie die Reihenfolge, in der wir die Elemente und den Textknoten erstellt haben:
 
 1. Zuerst haben wir das `<table>`-Element erstellt.
-2. Als Nächstes haben wir das `<tbody>`-Element erstellt, welches ein Kind des `<table>`-Elements ist.
-3. Danach haben wir eine Schleife verwendet, um die `<tr>`-Elemente zu erstellen, die Kinder des `<tbody>`-Elements sind.
-4. Für jedes `<tr>`-Element haben wir eine Schleife verwendet, um die `<td>`-Elemente zu erstellen, die Kinder der `<tr>`-Elemente sind.
+2. Als nächstes haben wir das `<tbody>`-Element erstellt, das ein Kind des `<table>`-Elements ist.
+3. Anschließend haben wir in einer Schleife die `<tr>`-Elemente erstellt, die Kinder des `<tbody>`-Elements sind.
+4. Für jedes `<tr>`-Element haben wir in einer Schleife die `<td>`-Elemente erstellt, die Kinder der `<tr>`-Elemente sind.
 5. Für jedes `<td>`-Element haben wir dann den Textknoten mit dem Text der Tabellenzelle erstellt.
 
-Nachdem wir die `<table>`, `<tbody>`, `<tr>`- und `<td>`-Elemente und dann den Textknoten erstellt haben, fügen wir jedes Objekt seinem übergeordneten Objekt in umgekehrter Reihenfolge hinzu:
+Nachdem wir die `<table>`, `<tbody>`, `<tr>` und `<td>`-Elemente sowie den Textknoten erstellt haben, fügen wir jedes Objekt in umgekehrter Reihenfolge an seinen Elternknoten an:
 
-1. Zuerst hängen wir jeden Textknoten an sein übergeordnetes `<td>`-Element an mit
+1. Zuerst befestigen wir jeden Textknoten an seinem Eltern-`<td>`-Element mit
 
    ```js
    cell.appendChild(cellText);
    ```
 
-2. Dann hängen wir jedes `<td>`-Element an sein übergeordnetes `<tr>`-Element an mit
+2. Als nächstes befestigen wir jedes `<td>`-Element an seinem Eltern-`<tr>`-Element mit
 
    ```js
    row.appendChild(cell);
    ```
 
-3. Dann hängen wir jedes `<tr>`-Element an das übergeordnete `<tbody>`-Element an mit
+3. Danach befestigen wir jedes `<tr>`-Element an das Eltern-`<tbody>`-Element mit
 
    ```js
    tblBody.appendChild(row);
    ```
 
-4. Dann hängen wir das `<tbody>`-Element an sein übergeordnetes `<table>`-Element an mit
+4. Anschließend befestigen wir das `<tbody>`-Element an seinem Eltern-`<table>`-Element mit
 
    ```js
    tbl.appendChild(tblBody);
    ```
 
-5. Schließlich hängen wir das `<table>`-Element an sein übergeordnetes `<body>`-Element an mit
+5. Schließlich befestigen wir das `<table>`-Element an das Eltern-`<body>`-Element mit
 
    ```js
    document.body.appendChild(tbl);
    ```
 
-Merken Sie sich diese Technik. Sie werden sie häufig in der Programmierung für das W3C DOM verwenden. Zuerst erstellen Sie die Elemente von oben nach unten; dann hängen Sie die Kinder von unten nach oben an die Eltern an.
+Merken Sie sich diese Technik. Sie werden sie häufig beim Programmieren für das W3C DOM verwenden. Zuerst erstellen Sie Elemente von oben nach unten; dann befestigen Sie die Kinder von unten nach oben an die Eltern.
 
-Hier ist das von dem JavaScript-Code generierte HTML-Markup:
+Hier ist der HTML-Code, der durch den JavaScript-Code generiert wurde:
 
 ```html
 <table border="2">
@@ -135,17 +135,17 @@ Hier ist das von dem JavaScript-Code generierte HTML-Markup:
 </table>
 ```
 
-Hier ist der von dem Code für das `<table>`-Element und seine Kinderelemente generierte DOM-Objektbaum:
+Hier ist der DOM-Objektbaum, der durch den Code für das `<table>`-Element und seine Kind-Elemente generiert wurde:
 
-![Wie ein DOM-Objektbaum aus dem Hauptelement und seinen Kindern generiert wird](sample1-tabledom.jpg)
+![Wie ein DOM-Objektbaum vom Hauptelement und seinen Kindern generiert wird](sample1-tabledom.jpg)
 
-Sie können diese Tabelle und ihre internen Kinderelemente mit nur wenigen DOM-Methoden erstellen. Denken Sie daran, das Baum-Modell für die Strukturen, die Sie planen zu erstellen, im Hinterkopf zu behalten; dies wird es einfacher machen, den notwendigen Code zu schreiben. In dem `<table>`-Baum aus Abbildung 1 hat das `<table>`-Element ein Kind: das Element `<tbody>`. `<tbody>` hat zwei Kinder. Jedes `<tbody>`-Kind (`<tr>`) hat zwei Kinder (`<td>`). Schließlich hat jedes `<td>` ein Kind: einen Textknoten.
+Sie können diese Tabelle und ihre internen Kind-Elemente mit nur wenigen DOM-Methoden erstellen. Denken Sie daran, das Baum-Modell für die Strukturen zu beachten, die Sie erstellen möchten; dies erleichtert Ihnen das Schreiben des erforderlichen Codes. Im `<table>`-Baum von Abbildung 1 hat das Element `<table>` ein Kind: das Element `<tbody>`. `<tbody>` hat zwei Kinder. Jedes `child` von `<tbody>` (`<tr>`) hat zwei Kinder (`<td>`). Schließlich hat jedes `<td>` ein Kind: einen Textknoten.
 
 ## Festlegen der Hintergrundfarbe eines Absatzes
 
 ### Beispiel
 
-In diesem Beispiel ändern wir die Hintergrundfarbe eines Absatzes, wenn ein Button angeklickt wird.
+In diesem Beispiel ändern wir die Hintergrundfarbe eines Absatzes, wenn ein Button geklickt wird.
 
 #### HTML
 
@@ -181,11 +181,11 @@ function setBackground() {
 
 ### Erklärung
 
-`getElementsByTagName(tagNameValue)` ist eine Methode, die in jedem DOM-Element [`Element`](/de/docs/Web/API/Element) oder dem Wurzelelement [`Document`](/de/docs/Web/API/Document) verfügbar ist. Wenn sie aufgerufen wird, gibt sie ein Array mit allen Nachkommen des Elements zurück, die dem Tag-Namen entsprechen. Das erste Element der Liste befindet sich an Position `[0]` im Array.
+`getElementsByTagName(tagNameValue)` ist eine Methode, die in jedem DOM-Element [`Element`](/de/docs/Web/API/Element) oder dem Wurzelelement [`Document`](/de/docs/Web/API/Document) verfügbar ist. Wenn sie aufgerufen wird, gibt sie ein Array mit allen Nachkommen des Elements zurück, die den Tag-Namen erfüllen. Das erste Element der Liste befindet sich an Position `[0]` im Array.
 
-Wir haben folgende Schritte unternommen:
+Wir haben folgende Schritte durchgeführt:
 
-1. Zuerst holen wir alle `p`-Elemente im Dokument:
+1. Zuerst holen wir uns alle `p`-Elemente im Dokument:
 
    ```js
    const paragraphs = document.getElementsByTagName("p");
@@ -197,9 +197,9 @@ Wir haben folgende Schritte unternommen:
    const secondParagraph = paragraphs[1];
    ```
 
-   ![Ein Absatz-Element wird als neues Geschwister zu einem vorhandenen Absatz in einem DOM-Baum hinzugefügt](sample2a2.jpg)
+   ![Ein Absatz-Element wird als neuer Geschwisterknoten zu einem bestehenden Absatz im DOM-Baum hinzugefügt](sample2a2.jpg)
 
-3. Schließlich setzen wir die Hintergrundfarbe auf rot, indem wir die [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des [`paragraph`](/de/docs/Web/API/HTMLParagraphElement)-Objekts verwenden:
+3. Schließlich setzen wir die Hintergrundfarbe auf Rot mit der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des [`paragraph`](/de/docs/Web/API/HTMLParagraphElement)-Objekts:
 
    ```js
    secondParagraph.style.background = "red";
@@ -207,75 +207,75 @@ Wir haben folgende Schritte unternommen:
 
 ### Erstellen von TextNodes mit document.createTextNode("..")
 
-Verwenden Sie das Dokumentobjekt, um die Methode `createTextNode` aufzurufen und Ihren Textknoten zu erstellen. Sie müssen nur den Textinhalt übergeben. Der Rückgabewert ist ein Objekt, das den Textknoten darstellt.
+Verwenden Sie das Dokumentobjekt, um die Methode `createTextNode` aufzurufen und Ihren Textknoten zu erstellen. Sie müssen nur den Textinhalt übergeben. Der Rückgabewert ist ein Objekt, das den Textknoten repräsentiert.
 
 ```js
 myTextNode = document.createTextNode("world");
 ```
 
-Das bedeutet, dass Sie einen Knoten vom Typ `TEXT_NODE` (ein Textstück) erstellt haben, dessen Textdaten `"world"` sind, und `myTextNode` ist Ihr Verweis auf dieses Knotenobjekt. Um diesen Text in Ihre HTML-Seite einzufügen, müssen Sie diesen Textknoten als Kind eines anderen Knotenelements machen.
+Dies bedeutet, dass Sie einen Knoten vom Typ `TEXT_NODE` (ein Textstück) erstellt haben, dessen Textdaten `"world"` sind, und `myTextNode` ist Ihre Referenz zu diesem Knotenobjekt. Um diesen Text auf Ihre HTML-Seite einzufügen, müssen Sie diesen Textknoten zu einem Kind eines anderen Knoten-Elements machen.
 
 ### Einfügen von Elementen mit appendChild(..)
 
-Indem Sie `secondParagraph.appendChild(node_element)` aufrufen, machen Sie das Element zu einem neuen Kind des zweiten `<p>`-Elements.
+Durch den Aufruf von `secondParagraph.appendChild(node_element)` machen Sie das Element zu einem neuen Kind des zweiten `<p>`-Elements.
 
 ```js
 secondParagraph.appendChild(myTextNode);
 ```
 
-Nachdem Sie dieses Beispiel getestet haben, beachten Sie, dass die Wörter hallo und welt zusammen sind: helloworld. So erscheint es optisch, wenn Sie die HTML-Seite sehen, als wären die beiden Textknoten hallo und welt ein einzelner Knoten, aber denken Sie daran, dass es im Dokumentmodell zwei Knoten gibt. Der zweite Knoten ist ein neuer Knoten vom Typ `TEXT_NODE`, und es ist das zweite Kind des zweiten `<p>`-Tags. Die folgende Abbildung zeigt das kürzlich erstellte Textknotenobjekt im Dokumentbaum.
+Nachdem Sie dieses Beispiel getestet haben, beachten Sie, dass die Wörter hello und world zusammen stehen: helloworld. Visuell erscheint es auf der HTML-Seite wie ein einzelner Knoten, aber denken Sie daran, dass im Dokumentmodell zwei Knoten vorhanden sind. Der zweite Knoten ist ein neuer Knoten vom Typ `TEXT_NODE` und ist das zweite Kind des zweiten `<p>`-Tags. Die folgende Abbildung zeigt den soeben erstellten Textknoten innerhalb des Dokumentbaumens.
 
-![Textknoten in einem Absatz-Element als individuelle Geschwister im DOM-Baum.](sample2b2.jpg)
+![Textknoten in einem Absatz-Element als einzelne Geschwister im DOM-Baum.](sample2b2.jpg)
 
-> **Hinweis:** `createTextNode()` und `appendChild()` ist eine einfache Möglichkeit, Leerzeichen zwischen den Wörtern _hallo_ und _welt_ einzufügen. Ein weiterer wichtiger Hinweis ist, dass die Methode `appendChild` das Kind nach dem letzten Kind anhängt, genau wie das Wort _welt_ nach dem Wort _hallo_ hinzugefügt wurde. Wenn Sie einen Textknoten zwischen _hallo_ und _welt_ einfügen möchten, müssen Sie anstelle von `appendChild` die Methode `insertBefore` verwenden.
+> **Hinweis:** `createTextNode()` und `appendChild()` sind ein einfacher Weg, um Leerzeichen zwischen den Wörtern _hello_ und _world_ einzufügen. Ein weiterer wichtiger Hinweis ist, dass die `appendChild`-Methode das Kind nach dem letzten Kind anhängt, genauso wie das Wort _world_ nach dem Wort _hello_ hinzugefügt wurde. Wenn Sie einen Textknoten zwischen _hello_ und _world_ einfügen möchten, müssen Sie `insertBefore` anstelle von `appendChild` verwenden.
 
-### Erstellen neuer Elemente mit dem Dokumentobjekt und der Methode createElement(..)
+### Erstellen Neuer Elemente mit dem Dokumentobjekt und der createElement(..)-Methode
 
-Sie können neue HTML-Elemente oder jede andere Art von Element erstellen, die Sie möchten, mit `createElement`. Beispielsweise, wenn Sie ein neues `<p>`-Element als Kind des `<body>`-Elements erstellen möchten, können Sie das `myBody` aus dem vorherigen Beispiel verwenden und einen neuen Elementknoten anhängen. Um einen Knoten zu erstellen, rufen Sie `document.createElement("Tagname")` auf. Zum Beispiel:
+Sie können neue HTML-Elemente oder andere gewünschte Elemente mit `createElement` erstellen. Wenn Sie beispielsweise ein neues `<p>`-Element als Kind des `<body>`-Elements erstellen möchten, können Sie das `myBody` aus dem vorherigen Beispiel verwenden und einen neuen Elementknoten anhängen. Um einen Knoten zu erstellen, rufen Sie `document.createElement("tagname")` auf. Beispiel:
 
 ```js
 myNewPTagNode = document.createElement("p");
 myBody.appendChild(myNewPTagNode);
 ```
 
-![Wie ein neuer Knoten zum Textknotenobjekt im Dokumentbaum hinzugefügt wird](sample2c.jpg)
+![Wie ein neuer Knoten-Element an das Textknoten-Objekt innerhalb des Dokumentbaumes angehängt wird](sample2c.jpg)
 
-### Entfernen von Knoten mit der Methode removeChild(..)
+### Entfernen von Knoten mit der removeChild(..)-Methode
 
-Knoten können entfernt werden. Der folgende Code entfernt den Textknoten `myTextNode` (der das Wort "welt" enthält) aus dem zweiten `<p>`-Element, `secondParagraph`.
+Knoten können entfernt werden. Der folgende Code entfernt den Textknoten `myTextNode` (das Wort "world") aus dem zweiten `<p>`-Element, `secondParagraph`.
 
 ```js
 secondParagraph.removeChild(myTextNode);
 ```
 
-Der Textknoten `myTextNode` (der das Wort "welt" enthält) existiert weiterhin. Der folgende Code fügt `myTextNode` dem kürzlich erstellten `<p>`-Element `myNewPTagNode` hinzu.
+Der Textknoten `myTextNode` (der das Wort "world" enthält) existiert immer noch. Der folgende Code fügt `myTextNode` an das kürzlich erstellte `<p>`-Element, `myNewPTagNode`, an.
 
 ```js
 myNewPTagNode.appendChild(myTextNode);
 ```
 
-Der Endzustand für den modifizierten Objektbaum sieht wie folgt aus:
+Der endgültige Zustand für den modifizierten Objektbaum sieht folgendermaßen aus:
 
-![Erstellen und Anhängen eines neuen Knotens an die Objektbaum-Textstruktur](sample2d.jpg)
+![Erstellen und Anhängen eines neuen Knoten-Elements an die Objekt-Baumtextstruktur](sample2d.jpg)
 
-## Erstellen einer Tabelle dynamisch (zurück zu Sample1.html)
+## Dynamisches Erstellen einer Tabelle (zurück zu Sample1.html)
 
-Für den Rest dieses Artikels werden wir weiterhin mit sample1.html arbeiten. Die folgende Abbildung zeigt die Tabelle-Objektbaumstruktur für die Tabelle, die im Beispiel erstellt wurde.
+Für den Rest dieses Artikels werden wir mit sample1.html weiterarbeiten. Die folgende Abbildung zeigt die Tabellen-Objektbaumstruktur für die Tabelle, die im Beispiel erstellt wurde.
 
 ### Überprüfung der HTML-Tabellenstruktur
 
-![Die HTML-Tabellen-Objektbaumstruktur nach dem Hinzufügen neuer Knoten-Elemente](sample1-tabledom.jpg)
+![Die HTML-Tabellen-Objektbaumstruktur nach dem Hinzufügen neuer Knotenelemente](sample1-tabledom.jpg)
 
 ### Erstellen von Elementknoten und Einfügen in den Dokumentbaum
 
-Die grundlegenden Schritte zum Erstellen der Tabelle in sample1.html sind:
+Die grundlegenden Schritte zur Erstellung der Tabelle in sample1.html sind:
 
-- Holen Sie sich das Körperobjekt (erstes Element des Dokumentenobjekts).
+- Holen Sie sich das Body-Objekt (erstes Objekt des document-Objekts).
 - Erstellen Sie alle Elemente.
-- Schließlich fügen Sie jedes Kind gemäß der Tabellenstruktur hinzu (wie in der obigen Abbildung). Der folgende Quellcode ist eine kommentierte Version für die sample1.html.
+- Fügen Sie schließlich jedes Kind gemäß der Tabellenstruktur (wie in der obigen Abbildung gezeigt) hinzu. Der folgende Quellcode ist eine kommentierte Version für sample1.html.
 
 > [!NOTE]
-> Am Ende der `start`-Funktion gibt es eine neue Codezeile. Die `border`-Eigenschaft der Tabelle wurde unter Verwendung einer weiteren DOM-Methode, `setAttribute()`, gesetzt. `setAttribute()` hat zwei Argumente: den Attributnamen und den Attributwert. Sie können jedes Attribut eines beliebigen Elements mit der `setAttribute`-Methode setzen.
+> Am Ende der `start`-Funktion gibt es eine neue Zeile Code. Die `border`-Eigenschaft der Tabelle wurde mit einer anderen DOM-Methode `setAttribute()` festgelegt. `setAttribute()` hat zwei Argumente: den Namen des Attributs und den Wert des Attributs. Mit der Methode `setAttribute` können Sie jedes Attribut eines Elements festlegen.
 
 ```html
 <html lang="en">
@@ -326,20 +326,20 @@ Die grundlegenden Schritte zum Erstellen der Tabelle in sample1.html sind:
 </html>
 ```
 
-## Bearbeitung der Tabelle mit DOM und CSS
+## Manipulation der Tabelle mit DOM und CSS
 
-### Abrufen eines Textknotens aus der Tabelle
+### Einen Textknoten aus der Tabelle abrufen
 
-Dieses Beispiel führt zwei neue DOM-Attribute ein. Zuerst wird das Attribut `childNodes` verwendet, um die Liste der Kindknoten von myCell zu erhalten. Die `childNodes`-Liste umfasst alle Kindknoten, unabhängig von ihrem Namen oder Typ. Wie `getElementsByTagName()` gibt sie eine Liste von Knoten zurück.
+Dieses Beispiel stellt zwei neue DOM-Attribute vor. Zuerst wird das `childNodes`-Attribut verwendet, um die Liste der Kindknoten von myCell zu erhalten. Die `childNodes`-Liste enthält alle Kindknoten, unabhängig davon, wie ihr Name oder Typ ist. Genau wie `getElementsByTagName()` gibt es eine Liste von Knoten zurück.
 
-Die Unterschiede bestehen darin, dass (a) `getElementsByTagName()` nur Elemente des angegebenen Tag-Namens zurückgibt; und (b) `childNodes` alle Nachkommen auf jeder Ebene enthält, nicht nur die direkten Kinder.
+Die Unterschiede sind, dass (a) `getElementsByTagName()` nur Elemente des angegebenen Tag-Namens zurückgibt; und (b) `childNodes` alle Nachkommen auf allen Ebenen enthält, nicht nur unmittelbare Kinder.
 
-Sobald Sie die zurückgegebene Liste haben, verwenden Sie `[x]`, um das gewünschte Kind-Element abzurufen. Dieses Beispiel speichert im `myCellText` den Textknoten der zweiten Zelle in der zweiten Zeile der Tabelle.
+Sobald Sie die zurückgegebene Liste haben, verwenden Sie die `[x]`-Methode, um das gewünschte Kind-Element abzurufen. Dieses Beispiel speichert in `myCellText` den Textknoten der zweiten Zelle in der zweiten Zeile der Tabelle.
 
-Dann wird, um die Ergebnisse in diesem Beispiel anzuzeigen, ein neuer Textknoten erstellt, dessen Inhalt die Daten von `myCellText` sind, und er als Kind des `<body>`-Elements angehängt.
+Um die Ergebnisse in diesem Beispiel anzuzeigen, erstellt es einen neuen Textknoten, dessen Inhalt die Daten von `myCellText` ist, und fügt ihn als Kind des `<body>`-Elements hinzu.
 
 > [!NOTE]
-> Wenn Ihr Objekt ein Textknoten ist, können Sie das Datenattribut verwenden und den Textinhalt des Knotens abrufen.
+> Wenn Ihr Objekt ein Textknoten ist, können Sie das `data`-Attribut verwenden und den Textinhalt des Knotens abrufen.
 
 ```js
 myBody = document.getElementsByTagName("body")[0];
@@ -358,15 +358,15 @@ myBody.appendChild(currentText);
 
 ### Abrufen eines Attributwerts
 
-Am Ende von sample1 gibt es einen Aufruf zu `setAttribute` auf dem `myTable`-Objekt. Dieser Aufruf wurde verwendet, um die Eigenschaft `border` der Tabelle festzulegen. Um den Wert des Attributs abzurufen, verwenden Sie die Methode `getAttribute`:
+Am Ende von sample1 gibt es einen Aufruf zu `setAttribute` für das `myTable`-Objekt. Dieser Aufruf wurde verwendet, um die `border`-Eigenschaft der Tabelle festzulegen. Um den Wert des Attributs abzurufen, verwenden Sie die Methode `getAttribute`:
 
 ```js
 myTable.getAttribute("border");
 ```
 
-### Verbergen einer Spalte durch Ändern der Stileigenschaften
+### Verbergen einer Spalte durch Ändern von Stil-Eigenschaften
 
-Sobald Sie das Objekt in Ihrer JavaScript-Variable haben, können Sie `style`-Eigenschaften direkt setzen. Der folgende Code ist eine modifizierte Version von sample1.html, in der jede Zelle der zweiten Spalte verborgen wird und jede Zelle der ersten Spalte einen roten Hintergrund erhält. Beachten Sie, dass die `style`-Eigenschaft direkt gesetzt wurde.
+Sobald Sie das Objekt in Ihrer JavaScript-Variablen haben, können Sie `style`-Eigenschaften direkt festlegen. Der folgende Code ist eine modifizierte Version von sample1.html, in der jede Zelle der zweiten Spalte ausgeblendet und jede Zelle der ersten Spalte mit einem roten Hintergrund versehen wird. Beachten Sie, dass die `style`-Eigenschaft direkt festgelegt wurde.
 
 ```html
 <html lang="en">

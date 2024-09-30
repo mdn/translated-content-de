@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: error Veranstaltung"
+title: "IDBTransaction: error Ereignis"
 short-title: error
 slug: Web/API/IDBTransaction/error_event
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Die `error`-Veranstaltung wird bei `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Transaktionsobjekt weitergegeben wird.
+Das `error` Ereignis wird auf `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis an das Transaktionsobjekt weitergegeben wird.
 
 > [!NOTE]
-> Um alle Möglichkeiten zu erfassen, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event) Ereignis überwachen.
+> Um alle Möglichkeiten zu berücksichtigen, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event) Ereignis beachten.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ addEventListener("error", (event) => {});
 onerror = (event) => {};
 ```
 
-## Veranstaltungstyp
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Bubbling
 
-Dieses Ereignis wird bis zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) weitergegeben. Die Eigenschaft `event.target` bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das weitergegeben wird.
+Dieses Ereignis wird an [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) weitergereicht. Die Eigenschaft `event.target` bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Objekt, das weitergegeben wird.
 
-Für weitere Informationen siehe [Event-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei das `error`-Ereignis für den `add()`-Vorgang überwacht wird (dies tritt beispielsweise auf, wenn bereits ein Datensatz mit dem angegebenen `taskTitle` existiert):
+In diesem Beispiel wird eine Datenbank geöffnet und versucht, einen Datensatz hinzuzufügen, wobei das `error` Ereignis für die `add()` Operation gehört wird (dies tritt auf, wenn beispielsweise bereits ein Datensatz mit dem gegebenen `taskTitle` existiert):
 
 ```js
 // Open the database
@@ -80,7 +80,7 @@ dBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel, mit der `onerror`-Eigenschaft statt `addEventListener()`:
+Dasselbe Beispiel, wobei die `onerror`-Eigenschaft anstelle von `addEventListener()` verwendet wird:
 
 ```js
 // Open the database

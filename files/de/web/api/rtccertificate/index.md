@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) bietet ein Objekt, das ein Zertifikat darstellt, das eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zur Authentifizierung verwendet.
+Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) bietet ein Objekt, das ein Zertifikat darstellt, welches ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zur Authentifizierung verwendet.
 
-`RTCCertificate` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`RTCCertificate` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workern](/de/docs/Web/API/Worker) mithilfe von [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`RTCCertificate.expires`](/de/docs/Web/API/RTCCertificate/expires) {{ReadOnlyInline}}
   - : Gibt das Ablaufdatum des Zertifikats zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`RTCCertificate.getFingerprints()`](/de/docs/Web/API/RTCCertificate/getFingerprints)
-  - : Gibt ein Array von Zertifikat-Fingerabdrücken zurück, die unter Verwendung der verschiedenen vom Browser unterstützten Algorithmen berechnet wurden.
+  - : Gibt ein Array von Zertifikatsfingerabdrücken zurück, die unter Verwendung der verschiedenen vom Browser unterstützten Algorithmen berechnet wurden.
 
 ## Spezifikationen
 
@@ -31,5 +31,5 @@ Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API)
 
 ## Siehe auch
 
-- [`RTCPeerConnection.RTCPeerConnection()`-Argument `configuration.certificates`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#certificates)
+- [`RTCPeerConnection.RTCPeerConnection()` Argument `configuration.certificates`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#certificates)
 - [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static)

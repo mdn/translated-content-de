@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `characterboundsupdate` Ereignis tritt auf, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb eines bearbeitbaren Textbereichs des `EditContext`-Objekts kennen muss.
+Das `characterboundsupdate` Ereignis wird ausgelöst, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb eines bearbeitbaren Textbereichs des `EditContext`-Objekts wissen muss.
 
-Dies geschieht, wenn das Betriebssystem eine plattformabhängige, bearbeitungsbezogene Benutzeroberfläche wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster anzeigen muss.
+Dies tritt auf, wenn das Betriebssystem eine plattformabhängige bearbeitungsbezogene Benutzeroberfläche wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster anzeigen muss.
 
-Wenn das `characterboundsupdate` Ereignis auftritt, sollten Sie die Zeichenbegrenzungen für den Text berechnen und dann die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
+Wenn das `characterboundsupdate` Ereignis ausgelöst wird, sollten Sie die Zeichenbegrenzungen für den Text berechnen und dann die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
 
-Siehe die Dokumentation der Methode [`updateCharacterBounds`](/de/docs/Web/API/EditContext/updateCharacterBounds) für mehr Informationen darüber, wann und wie das `characterboundsupdate` Ereignis verwendet werden sollte.
+Siehe die Dokumentation der Methode [`updateCharacterBounds`](/de/docs/Web/API/EditContext/updateCharacterBounds) für weitere Informationen darüber, wann und wie das `characterboundsupdate` Ereignis verwendet wird.
 
 ## Syntax
 
@@ -32,18 +32,18 @@ Ein [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent).
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften stehen auch Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
 
 - [`CharacterBoundsUpdateEvent.rangeStart`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeStart) {{readonlyinline}}
-  - : Der Versatz des ersten Zeichens innerhalb des bearbeitbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
+  - : Der Versatz des ersten Zeichens im bearbeitbaren Textbereich, für das das Betriebssystem die Grenzen benötigt.
 - [`CharacterBoundsUpdateEvent.rangeEnd`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeEnd) {{readonlyinline}}
-  - : Der Versatz des letzten Zeichens innerhalb des bearbeitbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
+  - : Der Versatz des letzten Zeichens im bearbeitbaren Textbereich, für das das Betriebssystem die Grenzen benötigt.
 
 ## Beispiele
 
 ### Aktualisieren der Zeichenbegrenzungen bei Bedarf
 
-Dieses Beispiel zeigt, wie die `updateCharacterBounds` Methode verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `canvas` Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es diese Informationen benötigt. Beachten Sie, dass der Ereignis-Listener-Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zum Erstellen von Text verwendet werden.
+Dieses Beispiel zeigt, wie die Methode `updateCharacterBounds` verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es die Informationen benötigt. Beachten Sie, dass der Ereignis-Listener-Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungs-Oberflächen zur Textkomposition verwendet werden.
 
 ```html
 <canvas id="editor-canvas"></canvas>

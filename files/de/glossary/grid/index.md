@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein _CSS-Grid_ wird mithilfe des `grid`-Wertes der {{cssxref("display")}}-Eigenschaft definiert; Sie können Spalten und Zeilen in Ihrem Grid mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren.
+Ein _CSS-Grid_ wird definiert mit dem `grid`-Wert der {{cssxref("display")}}-Eigenschaft; Sie können Spalten und Zeilen in Ihrem Grid mithilfe der Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren.
 
 Das Grid, das Sie mit diesen Eigenschaften definieren, wird als _explizites Grid_ beschrieben.
 
-Wenn Sie Inhalte außerhalb dieses expliziten Grids platzieren oder wenn Sie sich auf die automatische Platzierung verlassen und der Grid-Algorithmus zusätzliche Reihen- oder Spuren [tracks](/de/docs/Glossary/grid_tracks) erstellen muss, um [Gridzellen](/de/docs/Glossary/grid_cell) aufzunehmen, werden zusätzliche Spuren im impliziten Grid erstellt. Das _implizite Grid_ ist das Grid, das automatisch erstellt wird, wenn Inhalte außerhalb der definierten Spuren hinzugefügt werden.
+Wenn Sie Inhalt außerhalb dieses expliziten Grids platzieren oder wenn Sie sich auf die automatische Platzierung verlassen und der Grid-Algorithmus zusätzliche Zeilen- oder Spuren [tracks](/de/docs/Glossary/grid_tracks) erstellen muss, um [grid cells](/de/docs/Glossary/grid_cell) zu halten, dann werden zusätzliche Spuren im impliziten Grid erstellt. Das _implizite Grid_ ist das automatisch erstellte Grid aufgrund von Inhalten, die außerhalb der definierten Spuren hinzugefügt werden.
 
-Im folgenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Zeilen erstellt. Die _dritte_ Zeile im Grid ist eine _implizite Grid_-Reihenspur, die entsteht, weil es mehr als die sechs Elemente gibt, die die expliziten Spuren füllen.
+Im untenstehenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Zeilen erstellt. Die _dritte_ Zeile im Grid ist eine Spur des _impliziten Grids_, die entsteht, weil es mehr als sechs Elemente gibt, die die expliziten Spuren füllen.
 
 ## Beispiel
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-border-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das zur Erstellung des [Maskenrandes](/de/docs/Web/CSS/mask-border) eines Elements verwendet wird.
+Die **`mask-border-source`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt das Quellbild fest, das verwendet wird, um den [Maskenrahmen](/de/docs/Web/CSS/mask-border) eines Elements zu erstellen.
 
-Die {{cssxref("mask-border-slice")}} Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf den endgültigen Maskenrand angewendet werden.
+Die {{cssxref("mask-border-slice")}}-Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf den endgültigen Maskenrahmen angewendet werden.
 
 ## Syntax
 
@@ -32,9 +32,9 @@ mask-border-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Maskenrand verwendet.
+  - : Es wird kein Maskenrahmen verwendet.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz, die für den Maskenrand verwendet werden soll.
+  - : Bildreferenz, die für den Maskenrahmen verwendet wird.
 
 ## Formale Definition
 
@@ -48,20 +48,20 @@ mask-border-source: unset;
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft wird derzeit offenbar noch nicht unterstützt. Sobald sie schließlich unterstützt wird, dient sie dazu, die Quelle des Maskenrands zu definieren.
+Diese Eigenschaft scheint derzeit nirgendwo unterstützt zu werden. Wenn sie schließlich unterstützt wird, dient sie dazu, die Quelle des Maskenrahmens zu definieren.
 
 ```css
 mask-border-source: url(image.jpg);
 ```
 
-Auf Chromium basierende Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
+Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-source: url(image.jpg);
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) bietet ein funktionierendes Beispiel (unter Verwendung der veralteten gefüllten Maskenrand-Eigenschaften, die in Chromium unterstützt werden), damit Sie eine Vorstellung vom Effekt bekommen.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten maskierten Rahmen-Eigenschaften mit Präfix), damit Sie eine Vorstellung von der Wirkung bekommen.
 
 ## Spezifikationen
 

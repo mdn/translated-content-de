@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Gridzeile** ist eine horizontale Spur in einem [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout), das der Raum zwischen zwei horizontalen Gitterlinien ist. Sie wird durch die Eigenschaft {{cssxref("grid-template-rows")}} oder in den Kurzformen der Eigenschaften {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert.
+Eine **Grid-Zeile** ist eine horizontale Spur in einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout), also der Raum zwischen zwei horizontalen Grid-Linien. Sie wird durch die Eigenschaft {{cssxref("grid-template-rows")}} oder in den Kurzformen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert.
 
-Zusätzlich können Zeilen im _impliziten Gitter_ erstellt werden, wenn Elemente außerhalb der im _expliziten Gitter_ erstellten Zeilen platziert werden. Diese Zeilen werden standardmäßig automatisch dimensioniert oder können mit der Eigenschaft {{cssxref("grid-auto-rows")}} eine festgelegte Größe erhalten.
+Zusätzlich können Zeilen im _impliziten Grid_ erstellt werden, wenn Elemente außerhalb von im _expliziten Grid_ erstellten Zeilen platziert werden. Diese Zeilen werden standardmäßig automatisch dimensioniert, oder sie können mit der Eigenschaft {{cssxref("grid-auto-rows")}} eine bestimmte Größe erhalten.
 
-Bei der Arbeit mit der Ausrichtung im [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) wird die Achse, entlang derer die Zeilen verlaufen, als _Inline- oder Zeilenachse_ bezeichnet.
+Bei der Arbeit mit Ausrichtung im [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) wird die Achse, entlang der die Zeilen verlaufen, als _Inline- oder Zeilenachse_ bezeichnet.
 
 ## Siehe auch
 
@@ -24,4 +24,4 @@ Bei der Arbeit mit der Ausrichtung im [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_gri
 
 ### Weiterführende Literatur
 
-- [Grundlagen des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)

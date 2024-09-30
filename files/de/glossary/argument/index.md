@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Argumente** sind [Werte](/de/docs/Glossary/value) ([primitiv](/de/docs/Glossary/primitive) oder [Objekt](/de/docs/Glossary/object)), die als Eingabe an eine [Funktion](/de/docs/Glossary/function) übergeben werden. Verwechseln Sie Argumente nicht mit [Parametern](/de/docs/Glossary/parameter), die die Namen sind, die in der Funktionsdefinition verwendet werden, um auf die Argumente zu verweisen.
+**Argumente** sind [Werte](/de/docs/Glossary/value) ([primitive](/de/docs/Glossary/primitive) oder [Objekt](/de/docs/Glossary/object)), die als Eingabe an eine [Funktion](/de/docs/Glossary/function) übergeben werden. Verwechseln Sie Argumente nicht mit [Parametern](/de/docs/Glossary/parameter), die die Namen sind, die in der Funktionsdefinition verwendet werden, um die Argumente zu referenzieren.
 
 Zum Beispiel:
 
@@ -23,7 +23,7 @@ function example(parameter1, parameter2) {
 }
 ```
 
-Die Argumentreihenfolge innerhalb des Funktionsaufrufs sollte dieselbe sein wie die Parameterreihenfolge in der Funktionsdefinition.
+Die Reihenfolge der Argumente innerhalb des Funktionsaufrufs sollte dieselbe sein wie die Reihenfolge der Parameter in der Funktionsdefinition.
 
 ```js
 const argument1 = "foo";

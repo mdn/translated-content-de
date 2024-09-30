@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte Eigenschaft **`id`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt die ID des Tracks zurück, falls dieser eine hat.
+Die **`id`**-Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt die ID des Tracks zurück, falls vorhanden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der die ID enthält, oder ein leerer String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `id` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der Wert von `id` in die Konsole ausgegeben.
 
 ```js
 const video = document.querySelector("video");

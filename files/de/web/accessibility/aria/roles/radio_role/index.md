@@ -1,5 +1,5 @@
 ---
-title: "ARIA: radio-Rolle"
+title: "ARIA: radio Rolle"
 slug: Web/Accessibility/ARIA/Roles/radio_role
 l10n:
   sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
@@ -7,11 +7,11 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `radio`-Rolle ist eine von einer Gruppe von auswählbaren Radio-Buttons in einer `radiogroup`, in der nicht mehr als ein Radio-Button gleichzeitig ausgewählt sein kann.
+Die `radio` Rolle ist eine von einer Gruppe aus wählbaren Optionsschaltflächen in einer `radiogroup`, bei der nicht mehr als eine Optionsschaltfläche gleichzeitig ausgewählt werden kann.
 
 ## Beschreibung
 
-Ein Radio-Button ist eine auswählbare Eingabe, die, wenn sie mit anderen Radio-Buttons verbunden ist, von denen nur einer gleichzeitig ausgewählt sein kann. Die Radio-Buttons müssen in einer [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) gruppiert werden, um anzuzeigen, welche denselben Wert beeinflussen.
+Eine Optionsschaltfläche ist ein wählbarer Eingabemechanismus, bei dem, wenn er mit anderen Optionsschaltflächen verbunden ist, nur eine gleichzeitig ausgewählt werden kann. Die Optionsschaltflächen müssen in einer [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) gruppiert sein, um anzuzeigen, welche den gleichen Wert beeinflussen.
 
 ```html
 <div role="radiogroup" aria-labelledby="legend25" id="radiogroup25">
@@ -46,10 +46,10 @@ Ein Radio-Button ist eine auswählbare Eingabe, die, wenn sie mit anderen Radio-
 </div>
 ```
 
-Das Attribut `role` fügt nur Semantik hinzu; die gesamte Funktionalität, die nativ mit dem [HTML-Radio](/de/docs/Web/HTML/Element/input/radio) kommt, muss mit JavaScript und dem HTML-Attribut [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) hinzugefügt werden.
+Das `role` Attribut fügt nur Semantik hinzu; alle Funktionen, die nativ mit dem [HTML radio](/de/docs/Web/HTML/Element/input/radio) kommen, müssen mit JavaScript und dem HTML [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) Attribut hinzugefügt werden.
 
 > [!NOTE]
-> Die erste Regel von ARIA ist, wenn ein nativer HTML-Tag oder ein Attribut die Semantik und das Verhalten hat, das Sie benötigen, verwenden Sie es anstelle der Umdeklarierung eines Elements und der Hinzufügung von ARIA. Verwenden Sie stattdessen das native [HTML `<input type="radio">`](/de/docs/Web/HTML/Element/input/radio) (mit einem zugehörigen {{HTMLElement('label')}}), das alle erforderlichen Funktionalitäten nativ bereitstellt:
+> Die erste Regel von ARIA ist, wenn ein natives HTML-Element oder Attribut die benötigte Semantik und das Verhalten hat, verwenden Sie es, anstatt ein Element umzupurposieren und ARIA hinzuzufügen. Stattdessen benutzen Sie das native [HTML `<input type="radio">`](/de/docs/Web/HTML/Element/input/radio) (mit einem zugehörigen {{HTMLElement('label')}}), das alle benötigten Funktionen nativ bereitstellt:
 
 ```html
 <fieldset>
@@ -69,89 +69,89 @@ Das Attribut `role` fügt nur Semantik hinzu; die gesamte Funktionalität, die n
 </fieldset>
 ```
 
-Das native HTML-Radioformular-Steuerelement ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)) hat zwei Zustände ("ausgewählt" oder "nicht ausgewählt"). In ähnlicher Weise kann ein Element mit `role="radio"` zwei Zustände über das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked) ausgeben: `true`, das den ausgewählten Zustand darstellt, und `false`, das den nicht ausgewählten Zustand darstellt. Der `aria-checked`-Wert `mixed` ist für einen Radio-Button nicht gültig.
+Das native HTML-Formularsteuerelement für Optionsschaltflächen ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)) hat zwei Zustände ("checked" oder "not checked"). Ebenso kann ein Element mit `role="radio"` zwei Zustände über das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked) Attribut anzeigen: `true` steht für den aktivierten Zustand und `false` steht für den nicht aktivierten Zustand. Der `aria-checked` Wert von `mixed` ist für eine Optionsschaltfläche nicht gültig.
 
-Wenn ein Radio-Button ausgewählt ist, hat das Radio-Element `aria-checked` auf `true` gesetzt. Wenn es nicht ausgewählt ist, hat es `aria-checked` auf `false` gesetzt.
+Wenn eine Optionsschaltfläche aktiviert ist, hat das Radio-Element `aria-checked` auf `true` gesetzt. Ist es nicht aktiviert, hat es `aria-checked` auf `false`.
 
-Jedes Radio-Button-Element hat die Rolle `radio`. Die Radio-Rolle sollte immer mit anderen zugehörigen Radios in einer `radiogroup` verschachtelt sein. Wenn es nicht möglich ist, den Radio-Button in einer Radiogruppe zu verschachteln, verwenden Sie die `id` des nicht gruppierten Radios in einer durch Leerzeichen getrennten Liste von Werten als Wert des Attributs [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns) auf dem `radiogroup`-Element, um die Beziehung der `radiogroup` zu ihren Radio-Mitgliedern anzuzeigen.
+Jedes Optionsschaltflächenelement hat die Rolle `radio`. Die Radio-Rolle sollte immer mit anderen zugehörigen Radios in einer `radiogroup` verschachtelt werden. Wenn es nicht möglich ist, die Optionsschaltfläche innerhalb einer Radiogruppe zu verschachteln, verwenden Sie die `id` des nicht gruppierten Radios in einer durch Leerzeichen getrennten Liste von Werten als Wert des [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns) Attributs auf dem `radiogroup` Element, um die Beziehung der `radiogroup` zu ihren Radio-Mitgliedern anzuzeigen.
 
-Jedes Radio-Element wird durch seinen Inhalt bezeichnet, hat ein sichtbares Label, das durch `aria-labelledby` referenziert wird, oder hat ein Label, das mit `aria-label` angegeben ist. Das enthaltene `radiogroup`-Element sollte entweder ein sichtbares Label besitzen, das durch `aria-labelledby` referenziert wird, oder ein Label, das mit `aria-label` angegeben ist. Wenn Elemente vorhanden sind, die zusätzliche Informationen über die Radiogruppe oder jeden Radio-Button bereitstellen, sollten diese Elemente durch das `radiogroup`-Element oder durch Radio-Elemente mit der Eigenschaft [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) referenziert werden.
+Jedes Radio-Element wird durch seinen Inhalt beschriftet, hat ein sichtbares Label referenziert durch `aria-labelledby` oder ein mit `aria-label` spezifiziertes Label. Das enthaltene `radiogroup` Element sollte entweder ein sichtbares Label referenziert durch `aria-labelledby` oder ein Label spezifiziert durch `aria-label` haben. Wenn Elemente, die zusätzliche Informationen entweder über die Radiogruppe oder jede Optionsschaltfläche bereitstellen, vorhanden sind, sollten diese Elemente von dem `radiogroup` Element oder den Radio-Elementen mit der [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) Eigenschaft referenziert werden.
 
-Da `radio` ein interaktives Steuerelement ist, muss es fokussierbar und über die Tastatur zugänglich sein. Wenn die Rolle auf ein nicht fokussierbares Element angewendet wird, verwenden Sie das Attribut [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex), um dies zu ändern. Die erwartete Tastenkombination zum Aktivieren eines Radios ist die <kbd>Leerzeichen</kbd>-Taste. Verwenden Sie JavaScript, um das `aria-checked`-Attribut auf `true` zu setzen, wenn ein Radio ausgewählt wird, und stellen Sie sicher, dass alle anderen Radio-Rollen in der Gruppe auf `aria-checked="false"` gesetzt sind.
+Da `radio` ein interaktives Steuerelement ist, muss es fokussierbar und per Tastatur zugänglich sein. Wenn die Rolle auf ein nicht fokussierbares Element angewendet wird, verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) Attribut, um dies zu ändern. Die erwartete Tastenkombination zum Aktivieren eines Radios ist die <kbd>Leertaste</kbd>. Verwenden Sie JavaScript, um das `aria-checked` Attribut auf `true` zu setzen, wenn ein Radio aktiviert wird, während sichergestellt wird, dass alle anderen Radio-Rollen in der Gruppe auf `aria-checked="false"` gesetzt sind.
 
-Um programmatisch anzuzeigen, dass ein Radio-Button aus einer Radiogruppe ausgewählt werden muss, muss das Attribut [`aria-required`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-required) mit einem Wert von `true` auf dem `radiogroup`-Element angegeben werden. Es wird nicht erwartet, das Attribut `aria-required` bei einzelnen ARIA-Radio-Buttons zu verwenden.
+Um programmatisch anzuzeigen, dass eine Optionsschaltfläche aus einer Radiogruppe gewählt werden muss, muss das [`aria-required`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-required) Attribut, mit einem Wert von `true`, auf dem `radiogroup` Element angegeben werden. Es wird nicht erwartet, das `aria-required` Attribut auf einzelnen ARIA-Optionsschaltflächen zu verwenden.
 
-### Alle Nachkommen sind präsentational
+### Alle Nachkommen sind präsentationell
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente in einem `radio` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachkommenelemente eines `radio`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `radio` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachkommenelemente eines `radio` Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
-Zum Beispiel betrachten Sie das folgende `radio`-Element, das eine Überschrift enthält.
+Zum Beispiel betrachten Sie das folgende `radio` Element, das eine Überschrift enthält.
 
 ```html
 <div role="radio"><h6>name of my radio</h6></div>
 ```
 
-Da Nachfahren von `radio` präsentational sind, ist der folgende Code äquivalent:
+Da Nachkommen von `radio` präsentationell sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="radio"><h6 role="presentation">name of my radio</h6></div>
 ```
 
-Aus der Sicht des Nutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu folgendem im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) sind:
+Aus der Sicht eines Assistive Technology-Benutzers existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) äquivalent sind:
 
 ```html
 <div role="radio">name of my radio</div>
 ```
 
-## Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+## Zugeordnete WAI-ARIA Rollen, Zustände und Eigenschaften
 
-- Rolle [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role)
+- [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) Rolle
 
-  - : Die Radio-Buttons sind in oder gehören zu einem Element mit der Rolle `radiogroup`. Wenn sie nicht innerhalb einer `radiogroup` im Markup verschachtelt werden können, enthält das `aria-owns`-Attribut der `radiogroup` die `id`-Werte der nicht-nestbaren Radio-Buttons in der Gruppe.
+  - : Die Optionsschaltflächen sind enthalten oder werden von einem Element mit der Rolle `radiogroup` besessen. Wenn es nicht möglich ist, innerhalb einer `radiogroup` im Markup zu verschachteln, enthält das `aria-owns` Attribut der `radiogroup` die `id` Werte der nicht-verschachtelten Optionsschaltflächen in der Gruppe.
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)
 
-  - : Der Wert von `aria-checked` definiert den Zustand eines Radios. Wenn Sie mit Radio-Elementen verwendet wird, hat das Attribut einen von zwei möglichen Werten:
+  - : Der Wert von `aria-checked` definiert den Zustand eines Radios. Wenn es mit Radio-Elementen verwendet wird, hat das Attribut einen von zwei möglichen Werten:
 
     - `true`
-      - : Das Radio ist ausgewählt.
+      - : Das Radio ist aktiviert.
     - `false`
-      - : Das Radio ist nicht ausgewählt.
+      - : Das Radio ist nicht aktiviert.
 
 > [!NOTE]
-> Verwenden Sie das [`tabindex`-Attribut](/de/docs/Web/HTML/Global_attributes/tabindex), wenn `role="radio"` auf ein Element angewendet wird, das nativ keinen Tastaturfokus akzeptiert. Z.B. ein `<div>` oder `<span>`.
+> Verwenden Sie das [`tabindex` Attribut](/de/docs/Web/HTML/Global_attributes/tabindex), wenn `role="radio"` auf ein Element angewendet wird, das nativ keine Tastaturfokussierung akzeptiert. Z.B. ein `<div>` oder `<span>`.
 
 ## Tastaturinteraktionen
 
-- <kbd>Tab</kbd> + <kbd>Shift</kbd>
+- <kbd>Tab</kbd> + <kbd>Umschalt</kbd>
 
-  - : Bewegen Sie den Fokus in und aus der Radiogruppe. Wenn sich der Fokus in eine Radiogruppe bewegt und ein Radio-Button bereits ausgewählt ist, wird der Fokus auf den ausgewählten Button gesetzt. Wenn keiner der Radio-Buttons ausgewählt ist, wird der Fokus auf den ersten Radio-Button in der Gruppe gesetzt.
+  - : Bewegt den Fokus in und aus der Radiogruppe. Wenn der Fokus in eine Radiogruppe verschoben wird und eine Optionsschaltfläche bereits ausgewählt ist, wird der Fokus auf die ausgewählte Schaltfläche gesetzt. Wenn keine der Optionsschaltflächen ausgewählt ist, wird der Fokus auf die erste gewählt.
 
 - <kbd>Leertaste</kbd>
 
-  - : Markiert das Radio, wenn es noch nicht markiert ist. Hebt die Markierung eines zuvor markierten Radio-Buttons in der Radiogruppe auf.
+  - : Aktiviert das Radio, wenn es nicht bereits aktiviert ist. Deaktiviert eine zuvor aktivierte Optionsschaltfläche in der Radiogruppe.
 
-- <kbd>Pfeil-rechts</kbd> und <kbd>Pfeil-runter</kbd>
+- <kbd>Pfeil nach rechts</kbd> und <kbd>Pfeil nach unten</kbd>
 
-  - : Bewegen Sie den Fokus auf und markieren Sie den nächsten Radio-Button in der Gruppe, wobei der zuvor fokussierte Radio-Button abgewählt wird. Wenn der Fokus auf dem letzten Radio-Button liegt, bewegt sich der Fokus auf den ersten Radio-Button.
+  - : Bewegt den Fokus zur nächsten Optionsschaltfläche in der Gruppe und aktiviert sie, während die zuvor fokussierte Optionsschaltfläche deaktiviert wird. Wenn der Fokus auf der letzten Optionsschaltfläche ist, wird der Fokus auf die erste verschoben.
 
-- <kbd>Pfeil-links</kbd> und <kbd>Pfeil-hoch</kbd>
-  - : Bewegen Sie den Fokus auf und markieren Sie den vorherigen Radio-Button in der Gruppe, wobei der zuvor fokussierte Radio-Button abgewählt wird. Wenn der Fokus auf dem ersten Radio-Button liegt, bewegt sich der Fokus auf den letzten Radio-Button.
+- <kbd>Pfeil nach links</kbd> und <kbd>Pfeil nach oben</kbd>
+  - : Bewegt den Fokus zur vorherigen Optionsschaltfläche in der Gruppe und aktiviert sie, während die zuvor fokussierte Schaltfläche deaktiviert wird. Wenn der Fokus auf der ersten Schaltfläche ist, wird der Fokus auf die letzte verschoben.
 
-### Radios in einer Symbolleiste
+### Radios in einer Werkzeugleiste
 
-Da Pfeiltasten verwendet werden, um zwischen Elementen einer Symbolleiste zu navigieren, und die <kbd>Tab</kbd>-Taste den Fokus in und aus einer Symbolleiste bewegt, ist die Tastaturinteraktion der Radiogruppe leicht unterschiedlich, wenn eine Radiogruppe in einer Symbolleiste verschachtelt ist, im Vergleich zu einer Radiogruppe, die nicht in einer Symbolleiste ist. Siehe [`radiogroup`-Tastaturinteraktionen](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role#keyboard_interactions) für weitere Informationen.
+Da Pfeiltasten verwendet werden, um zwischen Elementen einer Werkzeugleiste zu navigieren, und die <kbd>Tab</kbd> Taste den Fokus in und aus einer Werkzeugleiste verschiebt, ist die Tastaturinteraktion der Radiogruppe, wenn sie in einer Werkzeugleiste verschachtelt ist, etwas anders als bei einer Radiogruppe, die nicht innerhalb einer Werkzeugleiste ist. Weitere Informationen finden Sie unter [`radiogroup` Tastaturinteraktionen](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role#keyboard_interactions).
 
 ## Erforderliches JavaScript
 
 - `onClick`
-  - : Behandeln Sie Mausklicks sowohl auf das Radio als auch auf das zugehörige Label, das den Zustand des Radios ändern wird, indem es den Wert des `aria-checked`-Attributs und das Erscheinungsbild des Radios ändert, sodass es dem sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint.
+  - : Behandeln Sie Mausklicks sowohl auf das Radio als auch auf das zugehörige Label, das den Zustand des Radios ändert, indem es den Wert des `aria-checked` Attributs und das Erscheinungsbild des Radios ändert, sodass es für den sehenden Benutzer als aktiviert oder nicht aktiviert erscheint.
 - `onKeyPress`
-  - : Behandeln Sie den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Radios zu ändern, indem der Wert des `aria-checked`-Attributs und das Erscheinungsbild des Radios geändert werden, sodass es dem sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint.
+  - : Behandeln Sie den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Radios zu ändern, indem der Wert des `aria-checked` Attributs und das Erscheinungsbild des Radios ändert wird, sodass es für den sehenden Benutzer als aktiviert oder nicht aktiviert erscheint.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet ARIA, um ansonsten generische Elemente zu modifizieren, damit sie als Radio-Buttons dargestellt werden. CSS und JavaScript werden verwendet, um den ausgewählten oder nicht ausgewählten Zustand des Elements visuell und programmatisch zu ändern.
+Das folgende Beispiel verwendet ARIA, um ansonsten generische Elemente so zu ändern, dass sie als Optionsschaltflächen angezeigt werden. CSS und JavaScript werden verwendet, um den aktivierten oder nicht aktivierten Zustand des Elements visuell und programmatisch zu ändern.
 
 ### HTML
 
@@ -202,7 +202,7 @@ Das folgende Beispiel verwendet ARIA, um ansonsten generische Elemente zu modifi
 
 ### JavaScript
 
-Viel JavaScript ist erforderlich, um aus nicht-semantischem HTML Radio-Buttons zu machen.
+Es wird viel JavaScript benötigt, um aus nicht-semantischem HTML Optionsschaltflächen zu erstellen.
 
 ```js
 // initialize all the radio role elements
@@ -271,7 +271,7 @@ setChecked = function () {
 
 <!-- {{EmbedLiveSample("Examples", 230, 250)}} -->
 
-Kein JavaScript (oder sogar CSS) wäre nötig gewesen, wenn wir ein semantisches HTML-Element mit demselben Namen für jeden Radio-Button in einer Gruppe von Radio-Buttons verwendet hätten:
+Kein JavaScript (oder sogar CSS) wäre benötigt worden, wenn wir ein semantisches HTML-Element mit dem Namen jeder Optionsschaltfläche in einer Gruppe von Optionsschaltflächen verwendet hätten, die gleich ist:
 
 ```html
 <fieldset>
@@ -290,17 +290,17 @@ Kein JavaScript (oder sogar CSS) wäre nötig gewesen, wenn wir ein semantisches
 </fieldset>
 ```
 
-## Beste Praktiken
+## Best Practices
 
-Die erste Regel von ARIA ist: Wenn ein nativer HTML-Tag oder ein Attribut die Semantik und das Verhalten hat, das Sie benötigen, verwenden Sie es anstelle der Neudeklaration eines Elements und der Hinzufügung einer ARIA-Rolle, eines Zustands oder einer Eigenschaft, um es zugänglich zu machen. Daher wird empfohlen, native [HTML-Radio-Button](/de/docs/Web/HTML/Element/input/radio)-Formularsteuerungen zu verwenden, anstatt die Funktionalität von Radio-Buttons mit JavaScript und ARIA nachzubilden.
+Die erste Regel von ARIA ist: wenn ein natives HTML-Element oder Attribut die benötigte Semantik und das Verhalten aufweist, verwenden Sie es, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen. Daher wird empfohlen, native [HTML-Optionsschaltflächen](/de/docs/Web/HTML/Element/input/radio) Formularsteuerelemente zu verwenden, anstatt die Funktionalität einer Optionsschaltfläche mit JavaScript und ARIA nachzubilden.
 
 ## Siehe auch
 
-- [HTML `<input type="radio">` Radio-Button](/de/docs/Web/HTML/Element/input/radio)
-- [HTML `tabindex`-Attribut](/de/docs/Web/HTML/Global_attributes/tabindex)
-- [ARIA: `radiogroup`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role)
-- [ARIA: `checkbox`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
-- [ARIA: `menuitem`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role)
-- [ARIA: `menuitemradio`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role)
-- [ARIA: `menuitemradio`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role)
-- [ARIA: `option`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/option_role)
+- [HTML `<input type="radio">` Optionsschaltfläche](/de/docs/Web/HTML/Element/input/radio)
+- [HTML `tabindex` Attribut](/de/docs/Web/HTML/Global_attributes/tabindex)
+- [ARIA: `radiogroup` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role)
+- [ARIA: `checkbox` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [ARIA: `menuitem` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role)
+- [ARIA: `menuitemradio` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role)
+- [ARIA: `menuitemradio` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role)
+- [ARIA: `option` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/option_role)

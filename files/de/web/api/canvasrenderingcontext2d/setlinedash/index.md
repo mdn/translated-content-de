@@ -8,12 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die **`setLineDash()`**-Methode des Canvas 2D API-Interfaces
-[`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) setzt das Linienmuster, das beim Zeichnen von Linien verwendet wird. Es verwendet ein Array von Werten, die abwechselnde Längen von Linien und Lücken angeben, die das Muster beschreiben.
+Die **`setLineDash()`**-Methode des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interfaces der Canvas 2D API legt das Strichmuster fest, das beim Zeichnen von Linien verwendet wird. Sie verwendet ein Array von Werten, die abwechselnd die Längen von Linien und Lücken angeben, um das Muster zu beschreiben.
 
 > [!NOTE]
-> Um wieder durchgehende Linien zu verwenden, setzen Sie die Strichliste auf ein
-> leeres Array.
+> Um wieder ununterbrochene Linien zu verwenden, setzen Sie die Strichliste auf ein leeres Array.
 
 ## Syntax
 
@@ -24,7 +22,7 @@ setLineDash(segments)
 ### Parameter
 
 - `segments`
-  - : Ein {{jsxref("Array")}} von Zahlen, die die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und miteinander verknüpft. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Strichliste gelöscht und die Linien werden wieder durchgehend.
+  - : Ein {{jsxref("Array")}} von Zahlen, die die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinateneinheiten). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und angehängt. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Strichliste gelöscht und Linienstriche werden wieder ununterbrochen.
 
 ### Rückgabewert
 
@@ -34,8 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Einfaches Beispiel
 
-Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Linie über einer
-durchgehenden Linie zu zeichnen.
+Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Linie über einer ununterbrochenen Linie zu zeichnen.
 
 #### HTML
 
@@ -68,9 +65,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Basic_example', 700, 180) }}
 
-### Einige gebräuchliche Muster
+### Einige häufige Muster
 
-Dieses Beispiel zeigt eine Vielzahl gebräuchlicher Linienmuster.
+Dieses Beispiel veranschaulicht eine Vielzahl gängiger Strichmuster.
 
 #### HTML
 
@@ -80,7 +77,7 @@ Dieses Beispiel zeigt eine Vielzahl gebräuchlicher Linienmuster.
 
 #### JavaScript
 
-Die unten erstellte Funktion `drawDashedLine()` erleichtert das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Muster-Array als einzigen Parameter.
+Die unten erstellte `drawDashedLine()`-Funktion vereinfacht das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Musterarray als einzigen Parameter.
 
 ```js
 function drawDashedLine(pattern) {

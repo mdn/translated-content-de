@@ -7,10 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.LinkError()`** Konstruktor erzeugt ein neues
-WebAssembly `LinkError` Objekt, das auf einen Fehler während der Modul-
-Instanziierung hinweist (abgesehen von [traps](https://webassembly.github.io/simd/core/intro/overview.html#trap)
-von der Startfunktion).
+Der **`WebAssembly.LinkError()`** Konstruktor erstellt ein neues WebAssembly `LinkError` Objekt, das auf einen Fehler während der Modulinstanziierung hinweist (außer [Traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) von der Startfunktion).
 
 ## Syntax
 
@@ -27,10 +24,9 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Auffangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -38,10 +34,9 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Erstellen einer neuen LinkError-Instanz
+### Erstellen einer neuen LinkError Instanz
 
-Das folgende Snippet erstellt eine neue `LinkError`-Instanz und loggt deren
-Details in die Konsole:
+Das folgende Snippet erstellt eine neue `LinkError` Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {
@@ -67,6 +62,6 @@ try {
 
 ## Siehe auch
 
-- [Überblick über WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

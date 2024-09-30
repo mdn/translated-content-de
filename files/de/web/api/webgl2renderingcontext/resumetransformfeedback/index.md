@@ -3,12 +3,12 @@ title: "WebGL2RenderingContext: resumeTransformFeedback()-Methode"
 short-title: resumeTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/resumeTransformFeedback
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.resumeTransformFeedback()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) setzt einen Transform-Feedback-Vorgang fort.
+Die **`WebGL2RenderingContext.resumeTransformFeedback()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) setzt einen Transform-Feedback-Vorgang fort.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

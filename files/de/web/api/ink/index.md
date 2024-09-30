@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`Ink`**-Schnittstelle der [Ink API](/de/docs/Web/API/Ink_API) bietet Zugriff auf [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekte, die die Anwendung zum Rendern von Tintenstrichen verwenden kann.
+Die **`Ink`**-Schnittstelle der [Ink API](/de/docs/Web/API/Ink_API) bietet Zugriff auf [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekte, die von der Anwendung verwendet werden, um Tintenstriche darzustellen.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekt erfüllt wird, um Striche zu rendern.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekt erfüllt wird, um Tintenstriche zu rendern.
 
 ## Beispiel
 
@@ -37,4 +37,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Enhancing Inking on the Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

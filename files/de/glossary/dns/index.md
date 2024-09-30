@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**DNS** (Domain Name System) ist ein hierarchisches und dezentrales Benennungssystem für internetverbundene Ressourcen. DNS führt eine Liste von [Domainnamen](/de/docs/Glossary/domain_name) sowie der damit verbundenen Ressourcen, wie IP-Adressen.
+**DNS** (Domain Name System) ist ein hierarchisches und dezentrales Benennungssystem für mit dem Internet verbundene Ressourcen. DNS führt eine Liste von [Domainnamen](/de/docs/Glossary/domain_name) zusammen mit den Ressourcen, wie beispielsweise IP-Adressen, die ihnen zugeordnet sind.
 
-Die bekannteste Funktion von DNS ist die Übersetzung von benutzerfreundlichen Domainnamen (wie mozilla.org) in eine numerische [IP-Adresse](/de/docs/Glossary/IP_address) (wie 192.0.2.172); dieser Prozess der Zuordnung eines Domainnamens zur entsprechenden IP-Adresse wird als **DNS-Lookup** bezeichnet. Im Gegensatz dazu wird ein **Reverse DNS-Lookup** (rDNS) verwendet, um den Domainnamen zu bestimmen, der mit einer IP-Adresse verbunden ist.
+Die hervorstechendste Funktion von DNS ist die Übersetzung von benutzerfreundlichen Domainnamen (wie mozilla.org) in eine numerische [IP-Adresse](/de/docs/Glossary/IP_address) (wie 192.0.2.172). Dieser Prozess der Zuordnung eines Domainnamens zur entsprechenden IP-Adresse wird als **DNS-Lookup** bezeichnet. Im Gegensatz dazu wird ein **Reverse DNS-Lookup** (rDNS) verwendet, um den Domainnamen zu ermitteln, der einer IP-Adresse zugeordnet ist.
 
 ## Siehe auch
 

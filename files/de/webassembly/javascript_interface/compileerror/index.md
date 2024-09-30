@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.CompileError`**-Objekt zeigt einen Fehler während der WebAssembly-Decodierung oder -Validierung an.
+Das **`WebAssembly.CompileError`**-Objekt weist auf einen Fehler während der WebAssembly-Entschlüsselung oder -Validierung hin.
 
 ## Konstruktor
 
@@ -29,18 +29,18 @@ Das **`WebAssembly.CompileError`**-Objekt zeigt einen Fehler während der WebAss
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.CompileError.prototype.columnNumber")}} {{non-standard_inline}}
   - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.CompileError.prototype.stack")}} {{non-standard_inline}}
-  - : Stack-Trace. Geerbt von {{jsxref("Error")}}.
+  - : Stapelverfolgung. Geerbt von {{jsxref("Error")}}.
 
 ## Instanzmethoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.CompileError.prototype.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die das angegebene `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
+  - : Gibt einen String zurück, der das angegebene `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
 
 ## Beispiele
 
 ### Erstellen einer neuen CompileError-Instanz
 
-Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert ihre Details in der Konsole:
+Das folgende Snippet erstellt eine neue `CompileError`-Instanz und protokolliert deren Details in die Konsole:
 
 ```js
 try {
@@ -66,6 +66,6 @@ try {
 
 ## Siehe auch
 
-- Übersichtsseite [WebAssembly](/de/docs/WebAssembly)
+- Überblicksseite zu [WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung des WebAssembly-JavaScript-APIs](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

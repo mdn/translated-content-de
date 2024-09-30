@@ -11,13 +11,13 @@ Die **`SVGSwitchElement`**-Schnittstelle entspricht dem {{SVGElement("switch")}}
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer Elternschnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Spezifikationen
 

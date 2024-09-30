@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchverhalten fest.
+Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchsverhalten fest.
 
 {{EmbedInteractiveExample("pages/css/flex-flow.html")}}
 
-## Bestandteil-Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -47,7 +47,7 @@ flex-flow: unset;
 
 ### Werte
 
-Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu den Werten.
+Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Einzelheiten zu den Werten.
 
 ## Formale Definition
 
@@ -59,9 +59,9 @@ Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu
 
 ## Beispiele
 
-### Einstellung von column-reverse und wrap
+### Festlegen von column-reverse und wrap
 
-In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten Hauptanfang und Hauptende. Die Flex-Elemente dürfen umbrechen und bei Bedarf neue Zeilen erstellen.
+In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten Hauptanfang und Hauptende. Die Flex-Elemente dürfen umbrechen und, falls nötig, neue Zeilen erstellen.
 
 ```css
 element {
@@ -80,4 +80,4 @@ element {
 ## Siehe auch
 
 - [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Reihenfolge von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)

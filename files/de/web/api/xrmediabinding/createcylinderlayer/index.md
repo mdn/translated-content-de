@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`createCylinderLayer()`**-Methode der [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding)-Schnittstelle gibt ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt zurück, das eine Ebene darstellt, die einen gekrümmten rechteckigen Raum in der virtuellen Umgebung einnimmt.
+Die **`createCylinderLayer()`**-Methode der [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding)-Schnittstelle gibt ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt zurück, das eine Schicht darstellt, die in der virtuellen Umgebung einen gekrümmten rechteckigen Raum einnimmt.
 
 ## Syntax
 
@@ -19,32 +19,32 @@ createCylinderLayer(video, options)
 ### Parameter
 
 - `video`
-  - : Ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) zur Anzeige.
+  - : Ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), das angezeigt werden soll.
 - `options`
   - : Ein Objekt zur Konfiguration des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer). Das Objekt kann die folgenden Eigenschaften haben, wobei `space` erforderlich ist:
     - `aspectRatio` {{optional_inline}}
-      - : Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts angibt. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders zu seiner Höhe. Die Breite wird berechnet, indem der `radius` mit dem `centralAngle` multipliziert wird.
+      - : Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts angibt. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders geteilt durch seine Höhe. Die Breite wird berechnet, indem der `radius` mit dem `centralAngle` multipliziert wird.
     - `centralAngle` {{optional_inline}}
-      - : Eine Zahl, die den Winkel des sichtbaren Abschnitts des Zylinders in Radianten angibt. Standardwert: `0.78539` (π / 4).
+      - : Eine Zahl, die den Winkel in Radianten des sichtbaren Zylinderabschnitts angibt. Standardwert: `0.78539` (π / 4).
     - `invertStereo` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die natürliche Position jeder Ansicht im Video invertiert werden soll. Standardmäßig `false`.
+      - : Ein Boolescher Wert, der angibt, ob die natürliche Position jeder Ansicht im Video invertiert werden soll. Standardmäßig `false`.
     - `layout` {{optional_inline}}
       - : Ein String, der das Layout des Videos angibt. Mögliche Werte:
         - `default`
-          - : Die Ebene umfasst alle Ansichten der Sitzung.
+          - : Die Schicht umfasst alle Ansichten der Sitzung.
         - `mono`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen und beiden Augen präsentiert.
+          - : Ein einziges [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen und beiden Augen präsentiert.
         - `stereo`
-          - : Der User-Agent entscheidet, wie er das [`XRSubImage`](/de/docs/Web/API/XRSubImage) (ein oder zwei) und das Layout (oben/unten oder links/rechts) zuweist. Es wird empfohlen, den `texture-array`-Texturtyp für `stereo`-Layouts zu verwenden.
+          - : Der Benutzeragent entscheidet, wie er das [`XRSubImage`](/de/docs/Web/API/XRSubImage) (eines oder zwei) zuweist und das Layout (oben/unten oder links/rechts) festlegt. Es wird empfohlen, den `texture-array`-Texturtyp für `stereo`-Layouts zu verwenden.
         - `stereo-left-right`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten. Dieses Layout ist darauf ausgelegt, Zeichnungsaufrufe zu minimieren für Inhalte, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
+          - : Ein einziges [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten. Dieses Layout ist darauf ausgelegt, Zeichenaufrufe für Inhalte zu minimieren, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
         - `stereo-top-bottom`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren. Dieses Layout ist darauf ausgelegt, Zeichnungsaufrufe zu minimieren für Inhalte, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
+          - : Ein einziges [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren. Dieses Layout ist darauf ausgelegt, Zeichenaufrufe für Inhalte zu minimieren, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
             Der Standardwert ist `mono`.
     - `radius` {{optional_inline}}
       - : Eine Zahl, die den Radius des Zylinders angibt. Standardwert `2.0`.
     - `space` **Erforderlich**
-      - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, das die räumliche Beziehung der Ebene zur physischen Umgebung des Benutzers definiert.
+      - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, das die räumliche Beziehung der Schicht zur physischen Umgebung des Benutzers definiert.
     - `transform` {{optional_inline}}
       - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das den Versatz und die Ausrichtung relativ zu `space` definiert.
 
@@ -54,9 +54,9 @@ Ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt.
 
 ## Beispiele
 
-### Erstellen einer `XRCylinderLayer`, um ein Video anzuzeigen
+### Erstellen eines `XRCylinderLayer` zur Anzeige eines Videos
 
-Erstellen Sie ein [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding) und verwenden Sie ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), das an `createCylinderLayer()` übergeben wird. Konfigurieren Sie die Quad-Ebene mit den oben genannten Optionen und präsentieren Sie die Ebene dem XR-Gerät, indem Sie sie dem `layers`-Render-Zustand in [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzufügen.
+Erstellen Sie ein [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding) und verwenden Sie ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), das in `createCylinderLayer()` übergeben wird. Konfigurieren Sie die Quad-Schicht mithilfe der oben aufgeführten Optionen und präsentieren Sie die Schicht dem XR-Gerät, indem Sie sie dem `layers`-Renderzustand in [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzufügen.
 
 ```js
 function onXRSessionStarted(xrSession) {

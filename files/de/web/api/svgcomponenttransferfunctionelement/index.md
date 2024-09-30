@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGComponentTransferFunctionElement`**-Schnittstelle definiert eine Basisschnittstelle, die von den Komponententransferfunktionsschnittstellen verwendet wird.
+Die **`SVGComponentTransferFunctionElement`**-Schnittstelle definiert eine Basisschnittstelle, die von den Komponentenübertragungsfunktionsschnittstellen verwendet wird.
 
 {{InheritanceDiagram}}
 
@@ -25,8 +25,8 @@ Die **`SVGComponentTransferFunctionElement`**-Schnittstelle definiert eine Basis
       <td>0</td>
       <td>
         Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig,
-        zu versuchen, einen neuen Wert dieses Typs zu definieren oder
-        einen bestehenden Wert auf diesen Typ umzustellen.
+        zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen
+        bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@ Die **`SVGComponentTransferFunctionElement`**-Schnittstelle definiert eine Basis
 _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGComponentTransferFunctionElement.type`](/de/docs/Web/API/SVGComponentTransferFunctionElement/type) {{ReadOnlyInline}}
-  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("type")}} Attribut des gegebenen Elements entspricht. Es nimmt einen der auf dieser Schnittstelle definierten `SVG_FECOMPONENTTRANSFER_TYPE_*` Konstanten an.
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("type")}} Attribut des gegebenen Elements entspricht. Sie nimmt einen Wert der `SVG_FECOMPONENTTRANSFER_TYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
 - [`SVGComponentTransferFunctionElement.tableValues`](/de/docs/Web/API/SVGComponentTransferFunctionElement/tableValues) {{ReadOnlyInline}}
   - : Eine [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList), die dem {{SVGAttr("tableValues")}} Attribut des gegebenen Elements entspricht.
 - [`SVGComponentTransferFunctionElement.slope`](/de/docs/Web/API/SVGComponentTransferFunctionElement/slope) {{ReadOnlyInline}}
@@ -78,7 +78,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SV
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die Methoden ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "Storage: setItem()-Methode"
+title: "Storage: setItem() Methode"
 short-title: setItem()
 slug: Web/API/Storage/setItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`setItem()`**-Methode des [`Storage`](/de/docs/Web/API/Storage)-Interfaces fügt, wenn sie mit einem Schlüsselname und einem Wert aufgerufen wird, diesen Schlüssel dem angegebenen `Storage`-Objekt hinzu oder aktualisiert den Wert des Schlüssels, falls er bereits existiert.
+Die **`setItem()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle fügt, wenn ein Schlüsselname und ein Wert übergeben werden, diesen Schlüssel dem gegebenen `Storage`-Objekt hinzu oder aktualisiert den Wert des Schlüssels, falls er bereits existiert.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ setItem(keyName, keyValue)
 - `keyName`
   - : Ein String, der den Namen des Schlüssels enthält, den Sie erstellen/aktualisieren möchten.
 - `keyValue`
-  - : Ein String, der den Wert enthält, den Sie dem zu erstellenden/aktualisierenden Schlüssel zuweisen möchten.
+  - : Ein String, der den Wert enthält, den Sie dem Schlüssel geben möchten, den Sie erstellen/aktualisieren.
 
 ### Rückgabewert
 
@@ -30,11 +30,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Speicher das Speicherkontingent überschreitet oder der Benutzer Ihnen nicht mehr Speicherplatz gewähren möchte.
+  - : Ausgelöst, wenn der Speicherplatz erschöpft ist oder der Benutzer es abgelehnt hat, Ihnen mehr Speicherplatz zu gewähren.
 
 ## Beispiele
 
-Die folgende Funktion erstellt drei Datenelemente im lokalen Speicher.
+Die folgende Funktion erstellt drei Dateneinträge im lokalen Speicher.
 
 ```js
 function populateStorage() {
@@ -45,7 +45,7 @@ function populateStorage() {
 ```
 
 > [!NOTE]
-> Um dies in einem realen Beispiel zu sehen, schauen Sie sich unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/) an.
+> Um dies in einem realen Beispiel zu sehen, sehen Sie sich unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/) an.
 
 `Storage` unterstützt nur das Speichern und Abrufen von Strings. Wenn Sie andere Datentypen speichern möchten, müssen Sie diese in Strings umwandeln. Für einfache Objekte und Arrays können Sie {{jsxref("JSON.stringify()")}} verwenden.
 
@@ -57,7 +57,7 @@ localStorage.setItem("user", JSON.stringify(person));
 console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
 ```
 
-Es gibt jedoch keinen generischen Weg, um beliebige Datentypen zu speichern. Außerdem ist das zurückgegebene Objekt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des ursprünglichen Objekts, und Änderungen daran wirken sich nicht auf das ursprüngliche Objekt aus.
+Es gibt jedoch keine generische Methode, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des Originalobjekts, und Änderungen daran wirken sich nicht auf das Originalobjekt aus.
 
 ## Spezifikationen
 

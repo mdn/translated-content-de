@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: gültige Eigenschaft"
+title: "ValidityState: Eigenschaft valid"
 short-title: valid
 slug: Web/API/ValidityState/valid
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`valid`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}-Elements alle seine Validierungsanforderungen erfüllt und daher als gültig betrachtet wird.
+Die schreibgeschützte **`valid`** Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState) Schnittstelle gibt an, ob der Wert eines {{HTMLElement("input")}}-Elements alle seine Validierungsanforderungen erfüllt und daher als gültig angesehen wird.
 
 Wenn `true`, entspricht das Element der {{cssxref(":valid")}} CSS-Pseudoklasse; andernfalls gilt die {{cssxref(":invalid")}} CSS-Pseudoklasse.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der `ValidityState` allen Anforderungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` allen Einschränkungen entspricht.
 
 ## Beispiele
 
-### Anzeige des Gültigkeitsstatus
+### Anzeige des Gültigkeitszustands
 
 Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Eine Einschränkung wurde mit dem [`min`-Attribut](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe festlegt.
-Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung fehl, und die mit `input:invalid` übereinstimmenden Stile werden angewendet.
+Es wurde ein Einschränkungsattribut [`min`](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe setzt.
+Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung fehl, und die Stile, die `input:invalid` entsprechen, werden angewendet.
 
 ```css
 input:invalid {
@@ -81,5 +81,5 @@ userInput.addEventListener("input", () => {
 ## Siehe auch
 
 - ValidityState [badInput](/de/docs/Web/API/ValidityState/badInput), [customError](/de/docs/Web/API/ValidityState/customError) Eigenschaften.
-- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Constraints-Überprüfung](/de/docs/Web/HTML/Constraint_validation)
+- [Formulare: Validierung von Formulardaten](/de/docs/Learn/Forms/Form_validation)

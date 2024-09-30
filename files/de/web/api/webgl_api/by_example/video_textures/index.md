@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{Previous("Learn/WebGL/By_example/Textures_from_code")}}
 
-Dieses Beispiel zeigt, wie Videodateien als Texturen für WebGL-Oberflächen verwendet werden können.
+Dieses Beispiel demonstriert, wie Videodateien als Texturen für WebGL-Oberflächen verwendet werden.
 
 ## Texturen aus Video
 

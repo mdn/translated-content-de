@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`chargingchange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Schnittstelle wird ausgelöst, wenn die [`charging`](/de/docs/Web/API/BatteryManager/charging)-Eigenschaft des Akkus aktualisiert wird.
+Das **`chargingchange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager) Schnittstelle wird ausgelöst, wenn die Batterie-Eigenschaft [`charging`](/de/docs/Web/API/BatteryManager/charging) aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("chargingchange", (event) => { })

@@ -1,5 +1,5 @@
 ---
-title: "CookieStore: set() Methode"
+title: "CookieStore: set()-Methode"
 short-title: set()
 slug: Web/API/CookieStore/set
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`set()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle setzt ein Cookie mit dem gegebenen `name` und `value` oder einem `options`-Objekt.
+Die **`set()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces setzt ein Cookie mit dem angegebenen `name` und `value` oder einem `options`-Objekt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Oder
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `domain` {{Optional_Inline}}
       - : Ein String, der die Domain des Cookies enthält. Standardmäßig `null`.
@@ -39,17 +39,17 @@ Oder
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `partitioned` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Siehe [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
     - `path` {{Optional_Inline}}
       - : Ein String, der den Pfad des Cookies enthält. Standardmäßig `/`.
     - `sameSite` {{Optional_Inline}}
 
-      - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Werte:
+      - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
         - `"strict"`
-          - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht zusammen mit Anfragen von Drittanbieter-Websites. Dies ist die Standardeinstellung.
+          - : Cookies werden nur in einem Erstparteikontext gesendet und nicht zusammen mit Anfragen, die von Drittanbieter-Websites initiiert werden. Dies ist der Standard.
         - `"lax"`
-          - : Cookies werden bei normalen Cross-Site-Subanfragen nicht gesendet (z.B. beim Laden von Bildern oder Frames in eine Drittanbieter-Website), aber sie werden gesendet, wenn ein Benutzer zur Ursprungsseite navigiert (d.h. beim Folgen eines Links).
+          - : Cookies werden nicht bei normalen Cross-Site-Subanfragen gesendet (zum Beispiel zum Laden von Bildern oder Frames in eine Drittanbieter-Seite), jedoch gesendet, wenn ein Benutzer zur Ursprungsseite navigiert (d.h. wenn er einem Link folgt).
         - `"none"`
           - : Cookies werden in allen Kontexten gesendet.
 
@@ -63,9 +63,9 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Setzen des Cookies mit dem gegebenen `name` und `value` oder `options` fehlschlägt.
+  - : Wird ausgelöst, wenn das Setzen des Cookies mit dem angegebenen `name` und `value` oder `options` fehlschlägt.
 
 ## Beispiele
 

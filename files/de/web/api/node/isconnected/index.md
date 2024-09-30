@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`isConnected`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
-gibt einen booleschen Wert zurück, der anzeigt, ob der Knoten direkt oder indirekt mit einem [`Document`](/de/docs/Web/API/Document)-Objekt verbunden ist.
+Die schreibgeschützte **`isConnected`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen Boolean zurück, der anzeigt, ob der Knoten (direkt oder indirekt) mit einem [`Document`](/de/docs/Web/API/Document)-Objekt verbunden ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Knoten mit seinem relevanten Kontextobjekt verbunden ist, und `false`, wenn nicht.
+Ein Boolean-Wert, der `true` ist, wenn der Knoten mit seinem relevanten Kontextobjekt verbunden ist, und `false`, wenn nicht.
 
 ## Beispiele
 
 ### Standard DOM
 
-Ein Beispiel für ein Standard-DOM:
+Ein Standard-DOM-Beispiel:
 
 ```js
 let test = document.createElement("p");
@@ -30,7 +29,7 @@ console.log(test.isConnected); // Returns true
 
 ### Shadow DOM
 
-Ein Beispiel für ein Shadow-DOM:
+Ein Shadow-DOM-Beispiel:
 
 ```js
 // Create a shadow root
@@ -78,4 +77,4 @@ console.log(style.isConnected); // Returns true
 
 ## Siehe auch
 
-- [Node.prototype.isConnected polyfill](https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f)
+- [Node.prototype.isConnected Polyfill](https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f)

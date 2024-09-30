@@ -1,5 +1,5 @@
 ---
-title: "EditContext: textupdate Ereignis"
+title: "EditContext: textupdate-Ereignis"
 short-title: textupdate
 slug: Web/API/EditContext/textupdate_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `textupdate` Ereignis der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle wird ausgelöst, wenn der Benutzer Änderungen am Text oder der Auswahl eines bearbeitbaren Bereichs vorgenommen hat, der an eine `EditContext` Instanz gebunden ist.
+Das `textupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn der Benutzer Änderungen am Text oder der Auswahl eines bearbeitbaren Bereichs vornimmt, der mit einer `EditContext`-Instanz verbunden ist.
 
 Dieses Ereignis ermöglicht es, den aktualisierten Text und die Auswahl in der Benutzeroberfläche als Reaktion auf Benutzereingaben darzustellen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("textupdate", (event) => {});
@@ -28,7 +28,7 @@ Ein [`TextUpdateEvent`](/de/docs/Web/API/TextUpdateEvent). Erbt von [`Event`](/d
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`TextUpdateEvent.updateRangeStart`](/de/docs/Web/API/TextUpdateEvent/updateRangeStart) {{readonlyinline}}
   - : Gibt den Index des ersten Zeichens im Bereich des aktualisierten Textes zurück.
@@ -45,7 +45,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der üb
 
 ### Darstellung des aktualisierten Textes bei `textupdate`
 
-Im folgenden Beispiel wird das `textupdate` Ereignis der EditContext API verwendet, um den Text darzustellen, den ein Benutzer in ein bearbeitbares `<canvas>` Element eingibt.
+Im folgenden Beispiel wird das `textupdate`-Ereignis der EditContext-API verwendet, um den Text darzustellen, den ein Benutzer in einem bearbeitbaren `<canvas>`-Element eingibt.
 
 ```html
 <canvas id="editor-canvas"></canvas>

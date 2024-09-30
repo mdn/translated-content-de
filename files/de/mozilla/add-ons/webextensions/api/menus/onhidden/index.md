@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser ein Menü nicht mehr anzeigt: z.B. weil der Benutzer außerhalb des Menüs geklickt hat oder einen Menüpunkt ausgewählt hat.
+Wird ausgelöst, wenn der Browser aufhört, ein Menü anzuzeigen: zum Beispiel, weil der Benutzer außerhalb des Menüs geklickt hat oder einen Eintrag ausgewählt hat.
 
-Es wird nur für Menüs ausgelöst, die mit der {{WebExtAPIRef("menus")}} API selbst manipuliert werden können: Dazu gehören das Kontextmenü, das Werkzeuge-Menü des Browsers und das Lesezeichenmenü.
+Es wird nur für Menüs ausgelöst, die mit der {{WebExtAPIRef("menus")}}-API selbst manipuliert werden können: Dazu gehören das Kontextmenü, das Menü „Tools“ des Browsers und das Lesezeichen-Menü.
 
-Dies wird höchstwahrscheinlich in Kombination mit den APIs {{WebExtAPIRef("menus.onShown")}} und {{WebExtAPIRef("menus.refresh()")}} verwendet: Eine Erweiterung kann das Menü aktualisieren, wenn es angezeigt wird, und die Änderungen rückgängig machen, wenn es ausgeblendet wird.
+Dies wird höchstwahrscheinlich in Kombination mit den {{WebExtAPIRef("menus.onShown")}}- und {{WebExtAPIRef("menus.refresh()")}}-APIs verwendet: Eine Erweiterung kann das Menü aktualisieren, wenn es angezeigt wird, und dann die Änderungen rückgängig machen, wenn es ausgeblendet wird.
 
-Firefox bietet dieses Ereignis sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum an.
+In Firefox ist dieses Ereignis sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum verfügbar.
 
 ## Syntax
 
@@ -26,18 +26,18 @@ browser.menus.onHidden.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax für addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden keine Parameter übergeben.
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden keine Parameter übergeben.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +45,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Dieses Beispiel protokolliert einfach eine Nachricht, wann immer ein Menü ausgeblendet wird:
+Dieses Beispiel protokolliert einfach eine Nachricht, wenn ein Menü ausgeblendet wird:
 
 ```js
 function hidden() {

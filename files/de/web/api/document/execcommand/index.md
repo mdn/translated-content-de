@@ -1,5 +1,5 @@
 ---
-title: "Document: execCommand()-Methode"
+title: "Document: execCommand() Methode"
 short-title: execCommand()
 slug: Web/API/Document/execCommand
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{ApiRef("DOM")}}{{deprecated_header}}
 
-Die **`execCommand`**-Methode implementiert verschiedene Befehle. Einige davon bieten Zugriff auf die Zwischenablage, während andere zur Bearbeitung von [Formulareingaben](/de/docs/Web/HTML/Element/input), [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Elementen oder ganzen Dokumenten (wenn im [Designmodus](/de/docs/Web/API/Document/designMode)) verwendet werden.
+Die **`execCommand`** Methode implementiert mehrere verschiedene Befehle. Einige davon bieten Zugriff auf die Zwischenablage, während andere für die Bearbeitung von [Formularfeldern](/de/docs/Web/HTML/Element/input), [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Elementen oder ganzen Dokumenten (wenn in den [Design-Modus](/de/docs/Web/API/Document/designMode) umgeschaltet wurde) vorgesehen sind.
 
-Zum Zugriff auf die Zwischenablage wird die neuere [Clipboard API](/de/docs/Web/API/Clipboard_API) gegenüber `execCommand()` empfohlen. Für die Bearbeitungsbefehle gibt es jedoch keinen Ersatz: Im Gegensatz zur direkten DOM-Manipulation bewahren die von `execCommand()` ausgeführten Änderungen den Undo-Puffer (Bearbeitungsverlauf).
+Um auf die Zwischenablage zuzugreifen, wird die neuere [Clipboard-API](/de/docs/Web/API/Clipboard_API) über `execCommand()` empfohlen. Für die Bearbeitungsbefehle gibt es jedoch keinen Ersatz: Im Gegensatz zur direkten DOM-Manipulation bewahren Änderungen, die durch `execCommand()` durchgeführt werden, den Rückgängig-Puffer (Bearbeitungsgeschichte).
 
-Die meisten Befehle betreffen die [Auswahl](/de/docs/Web/API/Selection) des Dokuments. Einige Befehle (fett, kursiv usw.) formatieren den aktuell ausgewählten Text, während andere die Auswahl löschen, neue Elemente einfügen (ersetzen die Auswahl) oder eine ganze Zeile beeinflussen (Einzug). Nur das aktuell aktive bearbeitbare Element kann geändert werden, aber einige Befehle (z.B. `copy`) können ohne ein bearbeitbares Element funktionieren.
+Die meisten Befehle wirken sich auf die [Selektion](/de/docs/Web/API/Selection) des Dokuments aus. Beispielsweise formatieren einige Befehle (Fett, Kursiv usw.) den aktuell ausgewählten Text, während andere die Auswahl löschen, neue Elemente einfügen (die Selektion ersetzen) oder eine ganze Zeile betreffen (Einrücken). Nur das derzeit aktive editierbare Element kann modifiziert werden, jedoch können einige Befehle (z.B. `copy`) ohne ein editierbares Element funktionieren.
 
 > [!NOTE]
-> Änderungen, die durch `execCommand()` vorgenommen werden, können je nach Browser und Konfiguration die Ereignisse [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event) und [`input`](/de/docs/Web/API/Element/input_event) auslösen oder nicht. Falls ausgelöst, werden die Behandler für die Ereignisse ausgeführt, bevor `execCommand()` zurückkehrt. Autoren müssen bei solchen rekursiven Aufrufen vorsichtig sein, besonders wenn sie `execCommand()` als Reaktion auf diese Ereignisse aufrufen. Ab Firefox 82 werden verschachtelte `execCommand()`-Aufrufe immer fehlschlagen, siehe [Bug 1634262](https://bugzil.la/1634262).
+> Je nach Browser und Konfiguration können Änderungen, die mit `execCommand()` vorgenommen werden, die [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)- und [`input`](/de/docs/Web/API/Element/input_event)-Ereignisse auslösen oder nicht. Wenn sie ausgelöst werden, werden die Handler für die Ereignisse ausgeführt, bevor `execCommand()` zurückkehrt. Autoren müssen bei solchen rekursiven Aufrufen vorsichtig sein, insbesondere wenn sie `execCommand()` als Reaktion auf diese Ereignisse aufrufen. Ab Firefox 82 schlagen verschachtelte `execCommand()`-Aufrufe immer fehl, siehe [Bug 1634262](https://bugzil.la/1634262).
 
 ## Syntax
 
@@ -29,127 +29,127 @@ execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 
   - : Ein String, der den Namen des auszuführenden Befehls angibt. Die folgenden Befehle sind spezifiziert:
     - `backColor`
-      - : Ändert die Hintergrundfarbe des Dokuments. Im `styleWithCss`-Modus beeinflusst es stattdessen die Hintergrundfarbe des umschließenden Blocks. Es erfordert einen {{cssxref("&lt;color&gt;")}}-Wert-String als Wertargument.
+      - : Ändert die Hintergrundfarbe des Dokuments. Im `styleWithCss`-Modus beeinflusst er stattdessen die Hintergrundfarbe des umgebenden Blocks. Dies erfordert einen {{cssxref("&lt;color&gt;")}}-Wertstring als Wertargument.
     - `bold`
-      - : Schaltet fettgedruckt an/aus für die Auswahl oder den Einfügepunkt.
+      - : Schaltet Fett für die Auswahl oder an der Einfügestelle ein/aus.
     - `contentReadOnly`
-      - : Macht das Dokument entweder schreibgeschützt oder bearbeitbar. Erfordert ein boolesches true/false als Wertargument.
+      - : Macht das Inhaltsdokument entweder schreibgeschützt oder editierbar. Dies erfordert ein boolesches true/false als Wertargument.
     - `copy`
-      - : Kopiert die aktuelle Auswahl in die Zwischenablage. Die Bedingungen, unter denen dieses Verhalten aktiviert ist, variieren von einem Browser zum anderen und haben sich im Laufe der Zeit entwickelt. Überprüfen Sie die Kompatibilitätstabelle, um herauszufinden, ob Sie es in Ihrem Fall nutzen können.
+      - : Kopiert die aktuelle Auswahl in die Zwischenablage. Die Bedingungen dafür, dass dieses Verhalten aktiviert ist, variieren von Browser zu Browser und haben sich im Laufe der Zeit entwickelt. Überprüfen Sie die Kompatibilitätstabelle, um festzustellen, ob Sie es in Ihrem Fall verwenden können.
     - `createLink`
-      - : Erstellt einen Hyperlink aus der Auswahl, aber nur, wenn eine Auswahl vorhanden ist. Erfordert einen [URI](/de/docs/Glossary/URI)-String als Wertargument für das `href` des Hyperlinks. Der URI muss mindestens ein einzelnes Zeichen enthalten, das Leerzeichen sein kann.
+      - : Erstellt einen Hyperlink aus der Auswahl, aber nur, wenn eine Auswahl vorhanden ist. Erfordert einen [URI](/de/docs/Glossary/URI)-String als Wertargument für das `href` des Hyperlinks. Der URI muss mindestens ein Zeichen enthalten, das Leerzeichen sein kann.
     - `cut`
-      - : Entfernt die aktuelle Auswahl und kopiert sie in die Zwischenablage. Wann dieses Verhalten aktiviert ist, variiert zwischen Browsern, und seine Bedingungen haben sich im Laufe der Zeit entwickelt. Überprüfen Sie [die Kompatibilitätstabelle](#browser-kompatibilität) für Nutzungsdetails.
+      - : Entfernt die aktuelle Auswahl und kopiert sie in die Zwischenablage. Ab wann dieses Verhalten aktiviert ist, variiert zwischen Browsern, und seine Bedingungen haben sich im Laufe der Zeit entwickelt. Überprüfen Sie [die Kompatibilitätstabelle](#browser-kompatibilität) für Nutzungsdetails.
     - `decreaseFontSize`
-      - : Fügt ein {{HTMLElement("small")}}-Tag um die Auswahl oder den Einfügepunkt hinzu.
+      - : Fügt ein {{HTMLElement("small")}}-Tag um die Auswahl oder an der Einfügestelle hinzu.
     - `defaultParagraphSeparator`
-      - : Ändert den Absatztrenner, der verwendet wird, wenn neue Absätze in bearbeitbaren Textbereichen erstellt werden.
+      - : Ändert den Absatztrenner, der verwendet wird, wenn neue Absätze in editierbaren Textbereichen erstellt werden.
     - `delete`
       - : Löscht die aktuelle Auswahl.
     - `enableAbsolutePositionEditor`
-      - : Aktiviert oder deaktiviert den Greifer, der es ermöglicht, absolut positionierte Elemente zu verschieben. Der Greifer ist standardmäßig deaktiviert seit Firefox 64 ([Firefox Bug 1490641](https://bugzil.la/1490641)).
+      - : Aktiviert oder deaktiviert den Greifer, der es ermöglicht, absolut positionierte Elemente zu verschieben. Der Greifer ist standardmäßig seit Firefox 64 deaktiviert ([Firefox Fehler 1490641](https://bugzil.la/1490641)).
     - `enableInlineTableEditing`
-      - : Aktiviert oder deaktiviert die Zeilen-/Spalten-Einfüge- und Löschsteuerungen für Tabellen. Die Steuerungen sind standardmäßig deaktiviert seit Firefox 64 ([Firefox Bug 1490641](https://bugzil.la/1490641)).
+      - : Aktiviert oder deaktiviert die Steuerelemente zum Einfügen und Löschen von Tabellenspalten/-zeilen. Die Steuerelemente sind standardmäßig seit Firefox 64 deaktiviert ([Firefox Fehler 1490641](https://bugzil.la/1490641)).
     - `enableObjectResizing`
-      - : Aktiviert oder deaktiviert die Größenänderungsgriffleisten für Bilder, Tabellen und absolut positionierte Elemente und andere veränderbare Objekte. Die Griffleisten sind standardmäßig deaktiviert seit Firefox 64 ([Firefox Bug 1490641](https://bugzil.la/1490641)).
+      - : Aktiviert oder deaktiviert die Griffhebel zum Vergrößern/Verkleinern von Bildern, Tabellen und absolut positionierten Elementen sowie anderen skalierbaren Objekten. Die Griffe sind standardmäßig seit Firefox 64 deaktiviert ([Firefox Fehler 1490641](https://bugzil.la/1490641)).
     - `fontName`
-      - : Ändert den Schriftartnamen für die Auswahl oder am Einfügepunkt. Dies erfordert einen Schriftartnamen-String (wie `"Arial"`) als Wertargument.
+      - : Ändert den Schriftartnamen für die Auswahl oder an der Einfügestelle. Dies erfordert einen Schriftartnamenstring (wie `"Arial"`) als Wertargument.
     - `fontSize`
-      - : Ändert die Schriftgröße für die Auswahl oder am Einfügepunkt. Dies erfordert einen Ganzzahlwert von `1` - `7` als Wertargument.
+      - : Ändert die Schriftgröße für die Auswahl oder an der Einfügestelle. Dies erfordert eine ganze Zahl von `1` - `7` als Wertargument.
     - `foreColor`
-      - : Ändert eine Schriftfarbe für die Auswahl oder am Einfügepunkt. Dies erfordert einen Hexadezimalwert-String als Wertargument.
+      - : Ändert eine Schriftfarbe für die Auswahl oder an der Einfügestelle. Dies erfordert einen hexadezimalen Farbwertstring als Wertargument.
     - `formatBlock`
-      - : Fügt ein HTML-Blocklevel-Element um die Zeile ein, die die aktuelle Auswahl enthält, und ersetzt das Blockelement, das die Zeile enthält, falls eines existiert (in Firefox ist {{HTMLElement("blockquote")}} die Ausnahme — es umschließt jedes enthaltene Blockelement). Erfordert einen Tag-Namen-String als Wertargument. Praktisch alle Blocklevel-Elemente können verwendet werden. (Legacy Edge unterstützt nur Überschriftstags `H1` – `H6`, `ADDRESS` und `PRE`, die in spitzen Klammern umschlossen sein müssen, z.B. `"<H1>"`.)
+      - : Fügt ein HTML-Blockelement um die Zeile mit der aktuellen Auswahl hinzu und ersetzt das Blockelement, das die Zeile enthält, falls eines vorhanden ist (in Firefox ist {{HTMLElement("blockquote")}} die Ausnahme — es wird ein beliebiges umgebendes Blockelement einhüllen). Erfordert einen Tag-Name-String als Wertargument. Praktisch alle Blockelemente können verwendet werden. (Legacy Edge unterstützt nur die Überschriften `H1` – `H6`, `ADDRESS` und `PRE`, die in Winkelklammern eingeschlossen sein müssen, wie z.B. `"<H1>"`.)
     - `forwardDelete`
-      - : Löscht das Zeichen vor der Position des [Cursors](https://en.wikipedia.org/wiki/Cursor_%28computers%29), identisch mit der Entf-Taste auf einer Windows-Tastatur.
+      - : Löscht das Zeichen vor der Position des [Cursors](https://en.wikipedia.org/wiki/Cursor_%28computers%29), identisch mit dem Drücken der Löschtaste auf einer Windows-Tastatur.
     - `heading`
-      - : Fügt ein Überschriftselement um eine Auswahl oder eine Zeile mit Einfügepunkt hinzu. Erfordert den Tag-Namen-String als Wertargument (d.h., `"H1"`, `"H6"`). (Nicht von Safari unterstützt.)
+      - : Fügt ein Überschriftenelement um eine Auswahl oder Zeile der Einfügestelle hinzu. Erfordert einen Tag-Name-String als Wertargument (z.B. `"H1"`, `"H6"`). (Nicht unterstützt von Safari.)
     - `hiliteColor`
-      - : Ändert die Hintergrundfarbe für die Auswahl oder am Einfügepunkt. Erfordert einen Farbwert-String als Wertargument. `useCSS` muss `true` sein, damit dies funktioniert.
+      - : Ändert die Hintergrundfarbe für die Auswahl oder an der Einfügestelle. Erfordert einen Farbwertstring als Wertargument. `useCSS` muss `true` sein, damit dies funktioniert.
     - `increaseFontSize`
-      - : Fügt ein {{HTMLElement("big")}}-Tag um die Auswahl oder am Einfügepunkt hinzu.
+      - : Fügt ein {{HTMLElement("big")}}-Tag um die Auswahl oder an der Einfügestelle hinzu.
     - `indent`
-      - : Einzieht die Zeile, die die Auswahl oder den Einfügepunkt enthält. In Firefox, wenn die Auswahl mehrere Zeilen auf verschiedenen Einzugsebenen umfasst, werden nur die am wenigsten eingerückten Zeilen in der Auswahl eingerückt.
+      - : Rückt die Zeile mit der Auswahl oder Einfügestelle ein. In Firefox, wenn die Auswahl mehrere Zeilen mit unterschiedlichen Einrückungen umfasst, werden nur die am wenigsten eingerückten Zeilen der Auswahl eingerückt.
     - `insertBrOnReturn`
       - : Steuert, ob die Eingabetaste ein {{HTMLElement("br")}}-Element einfügt oder das aktuelle Blockelement in zwei teilt.
     - `insertHorizontalRule`
-      - : Fügt ein {{HTMLElement("hr")}}-Element am Einfügepunkt ein oder ersetzt die Auswahl damit.
+      - : Fügt ein {{HTMLElement("hr")}}-Element an der Einfügestelle ein oder ersetzt die Auswahl damit.
     - `insertHTML`
-      - : Fügt einen HTML-String am Einfügepunkt ein (löscht die Auswahl). Erfordert einen gültigen HTML-String als Wertargument.
+      - : Fügt einen HTML-String an der Einfügestelle ein (löscht die Auswahl). Erfordert einen gültigen HTML-String als Wertargument.
     - `insertImage`
-      - : Fügt ein Bild am Einfügepunkt ein (löscht die Auswahl). Erfordert einen URL-String für das `src` des Bildes als Wertargument. Die Anforderungen für diesen String sind dieselben wie bei `createLink`.
+      - : Fügt ein Bild an der Einfügestelle ein (löscht die Auswahl). Erfordert einen URL-String für das `src` des Bildes als Wertargument. Die Anforderungen für diesen String sind identisch mit `createLink`.
     - `insertOrderedList`
-      - : Erstellt eine [nummerierte geordnete Liste](/de/docs/Web/HTML/Element/ol) für die Auswahl oder am Einfügepunkt.
+      - : Erzeugt eine [nummerierte Liste](/de/docs/Web/HTML/Element/ol) für die Auswahl oder an der Einfügestelle.
     - `insertUnorderedList`
-      - : Erstellt eine [Aufzählungsliste ohne Ordnung](/de/docs/Web/HTML/Element/ul) für die Auswahl oder am Einfügepunkt.
+      - : Erzeugt eine [Aufzählungsliste](/de/docs/Web/HTML/Element/ul) für die Auswahl oder an der Einfügestelle.
     - `insertParagraph`
       - : Fügt einen [Absatz](/de/docs/Web/HTML/Element/p) um die Auswahl oder die aktuelle Zeile hinzu.
     - `insertText`
-      - : Fügt den angegebenen Klartext am Einfügepunkt ein (löscht die Auswahl).
+      - : Fügt den angegebenen Klartext an der Einfügestelle ein (löscht die Auswahl).
     - `italic`
-      - : Schaltet kursiv an/aus für die Auswahl oder am Einfügepunkt.
+      - : Schaltet Kursiv für die Auswahl oder an der Einfügestelle ein/aus.
     - `justifyCenter`
-      - : Zentriert die Auswahl oder Einfügepunkt.
+      - : Zentriert die Auswahl oder die Einfügestelle.
     - `justifyFull`
-      - : Blocksatz für die Auswahl oder Einfügepunkt.
+      - : Blocksatz der Auswahl oder der Einfügestelle.
     - `justifyLeft`
-      - : Linksbündiger Blocksatz für die Auswahl oder Einfügepunkt.
+      - : Linksbündiger Blocksatz der Auswahl oder der Einfügestelle.
     - `justifyRight`
-      - : Rechtsbündigt die Auswahl oder den Einfügepunkt.
+      - : Rechtsbündiger Blocksatz der Auswahl oder der Einfügestelle.
     - `outdent`
-      - : Entfernt den Einzug der Zeile, die die Auswahl oder den Einfügepunkt enthält.
+      - : Macht die Einrückung der Zeile mit der Auswahl oder Einfügestelle rückgängig.
     - `paste`
-      - : Fügt den Inhalt der Zwischenablage am Einfügepunkt ein (ersetzt die aktuelle Auswahl). Für Webinhalte deaktiviert.
+      - : Fügt den Inhalt der Zwischenablage an der Einfügestelle ein (ersetzt die aktuelle Auswahl). Für Webinhalte deaktiviert.
     - `redo`
-      - : Redo des vorherigen Undo-Befehls.
+      - : Führt den vorherigen Rückgängig-Befehl erneut aus.
     - `removeFormat`
       - : Entfernt alle Formatierungen aus der aktuellen Auswahl.
     - `selectAll`
-      - : Wählt den gesamten Inhalt des bearbeitbaren Bereichs aus.
+      - : Wählt den gesamten Inhalt des editierbaren Bereichs aus.
     - `strikeThrough`
-      - : Schaltet Durchstreichen an/aus für die Auswahl oder am Einfügepunkt.
+      - : Schaltet Durchgestrichen für die Auswahl oder an der Einfügestelle ein/aus.
     - `subscript`
-      - : Schaltet [Tiefstellung](/de/docs/Web/HTML/Element/sub) an/aus für die Auswahl oder am Einfügepunkt.
+      - : Schaltet [Tiefgestellt](/de/docs/Web/HTML/Element/sub) für die Auswahl oder an der Einfügestelle ein/aus.
     - `superscript`
-      - : Schaltet [Hochstellung](/de/docs/Web/HTML/Element/sup) an/aus für die Auswahl oder am Einfügepunkt.
+      - : Schaltet [Hochgestellt](/de/docs/Web/HTML/Element/sup) für die Auswahl oder an der Einfügestelle ein/aus.
     - `underline`
-      - : Schaltet [Unterstreichen](/de/docs/Web/HTML/Element/u) an/aus für die Auswahl oder am Einfügepunkt.
+      - : Schaltet [Unterstrichen](/de/docs/Web/HTML/Element/u) für die Auswahl oder an der Einfügestelle ein/aus.
     - `undo`
-      - : Rückgängig machen des zuletzt ausgeführten Befehls.
+      - : Macht den zuletzt ausgeführten Befehl rückgängig.
     - `unlink`
       - : Entfernt das [Ankerelement](/de/docs/Web/HTML/Element/a) von einem ausgewählten Hyperlink.
     - `useCSS` {{Deprecated_inline}}
-      - : Schaltet die Verwendung von HTML-Tags oder CSS für das erzeugte Markup um. Erfordert ein boolesches true/false als Wertargument.
+      - : Schaltet die Nutzung von HTML-Tags oder CSS für das generierte Markup um. Erfordert ein boolesches true/false als Wertargument.
         > [!NOTE]
-        > Dieses Argument ist logisch rückwärts (d.h., `false` verwenden, um CSS zu verwenden,
-        > `true` verwenden, um HTML zu verwenden). Dies wurde zugunsten von `styleWithCSS` als veraltet markiert.
+        > Dieses Argument ist logisch rückwärts (d.h., verwenden Sie `false`, um CSS zu verwenden,
+        > `true`, um HTML zu verwenden). Dies wurde zugunsten von `styleWithCSS` abgelehnt.
     - `styleWithCSS`
-      - : Ersetzt den `useCSS`-Befehl. `true` ändert/erzeugt `style`-Attribute im Markup, false erzeugt präsentationale Elemente.
+      - : Ersetzt den `useCSS`-Befehl. `true` modifiziert/generiert `style`-Attribute im Markup, `false` generiert präsentationale Elemente.
     - `AutoUrlDetect`
       - : Ändert das automatische Verlinkungsverhalten des Browsers.
 
 - `aShowDefaultUI`
-  - : Ein boolescher Wert, der angibt, ob die Standardbenutzeroberfläche angezeigt werden soll. Dies ist in Mozilla nicht implementiert.
+  - : Ein boolescher Wert, der angibt, ob die standardmäßige Benutzeroberfläche angezeigt werden soll. Dies ist in Mozilla nicht implementiert.
 - `aValueArgument`
-  - : Für Befehle, die ein Eingabeargument erfordern, ist dies ein String, der diese Information bereitstellt. Zum Beispiel erfordert `insertImage` die URL des einzufügenden Bildes. Geben Sie `null` an, wenn kein Argument benötigt wird.
+  - : Für Befehle, die ein Eingabeargument erfordern, ist dies ein String, der diese Information bereitstellt. Beispielsweise erfordert `insertImage` die URL des einzufügenden Bildes. Geben Sie `null` an, wenn kein Argument benötigt wird.
 
 ### Rückgabewert
 
 Ein boolescher Wert, der `false` ist, wenn der Befehl nicht unterstützt oder deaktiviert ist.
 
-> **Hinweis:** `document.execCommand()` gibt nur dann
+> **Hinweis:** `document.execCommand()` gibt nur
 > `true` zurück, wenn es als Teil einer Benutzerinteraktion aufgerufen wird. Sie können es nicht
-> verwenden, um die Unterstützung des Browsers vor dem Aufruf eines Befehls zu überprüfen.
+> verwenden, um die Browserunterstützung vor dem Aufrufen eines Befehls zu prüfen.
 
 ## Beispiele
 
-Ein Beispiel für [wie man execCommand mit contentEditable-Elementen verwendet](https://codepen.io/chrisdavidmills/full/gzYjag/) auf CodePen.
+Ein Beispiel für [die Verwendung von execCommand mit contentEditable-Elementen](https://codepen.io/chrisdavidmills/full/gzYjag/) auf CodePen.
 
 ### Verwendung von insertText
 
-Dieses Beispiel zeigt zwei sehr einfache HTML-Editoren, einen mit einem {{HTMLElement("textarea")}}-Element und einen mit einem {{HTMLElement("pre")}}-Element, das mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) versehen ist.
+Dieses Beispiel zeigt zwei sehr einfache HTML-Editoren, einen mit einem {{HTMLElement("textarea")}}-Element und einen mit einem {{HTMLElement("pre")}}-Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut.
 
-Das Klicken auf die Schaltflächen "Bold" oder "Italic" fügt die entsprechenden Tags im Element ein, wobei `insertText` verwendet wird, um den Bearbeitungsverlauf zu erhalten, sodass der Benutzer die Aktion rückgängig machen kann.
+Das Klicken auf die Schaltflächen "Fett" oder "Kursiv" fügt die entsprechenden Tags im Element ein, wobei `insertText` verwendet wird, um die Bearbeitungshistorie zu bewahren, sodass der Benutzer die Aktion rückgängig machen kann.
 
 #### HTML
 
@@ -226,6 +226,6 @@ function insertText(newText, selector) {
 
 ## Siehe auch
 
-- [Clipboard API](/de/docs/Web/API/Clipboard_API)
+- [Clipboard-API](/de/docs/Web/API/Clipboard_API)
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - [`document.designMode`](/de/docs/Web/API/Document/designMode)

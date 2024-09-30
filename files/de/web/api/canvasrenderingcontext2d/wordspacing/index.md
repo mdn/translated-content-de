@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.wordSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) legt den Abstand zwischen Wörtern fest, wenn Text gezeichnet wird.
+Die **`CanvasRenderingContext2D.wordSpacing`**-Eigenschaft der [Canvas-API](/de/docs/Web/API/Canvas_API) legt den Abstand zwischen Wörtern beim Zeichnen von Text fest.
 
 Dies entspricht der CSS-Eigenschaft [`word-spacing`](/de/docs/Web/CSS/word-spacing).
 
 ## Wert
 
-Der Wortabstand als Zeichenkette im CSS-Datenformat {{cssxref("length")}}.
+Der Wortabstand als Zeichenkette im CSS-{{cssxref("length")}}-Datenformat.
 Der Standardwert ist `0px`.
 
-Die Eigenschaft kann verwendet werden, um den Abstand zu erhalten oder festzulegen.
-Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/nicht interpretierbaren Wert gesetzt wird.
+Die Eigenschaft kann genutzt werden, um den Abstand zu erhalten oder festzulegen.
+Der Eigenschaftswert bleibt unverändert, wenn ein ungültiger/nicht interpretierbarer Wert festgelegt wird.
 
 ## Beispiele
 
-In diesem Beispiel werden der Text "Hello World" dreimal angezeigt, wobei die `wordSpacing`-Eigenschaft verwendet wird, um den Abstand in jedem Fall zu ändern.
-Der Abstand wird auch für jeden Fall angezeigt, unter Verwendung des Wertes der Eigenschaft.
+In diesem Beispiel zeigen wir den Text "Hello World" dreimal an, wobei die `wordSpacing`-Eigenschaft verwendet wird, um den Abstand in jedem Fall zu ändern.
+Der Abstand wird auch für jeden Fall angezeigt, indem der Wert der Eigenschaft verwendet wird.
 
 ### HTML
 

@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Lesezeichen oder ein Ordner in einen anderen übergeordneten Ordner oder an eine andere Position innerhalb eines Ordners verschoben wird.
+Ausgelöst, wenn ein Lesezeichen oder Ordner in einen anderen übergeordneten Ordner oder an eine andere Position innerhalb eines Ordners verschoben wird.
 
 > [!NOTE]
-> Wenn Sie mehrere Lesezeichen verschieben, kann aufgrund der asynchronen Natur dieser API die Reihenfolge der Bearbeitung der Verschiebungen beliebig sein. Folglich kann sich der Wert des Indexes jedes Lesezeichens ändern oder unbekannt sein, bis alle Verschiebevorgänge abgeschlossen sind. Wenn der Index in Zusammenhang mit einem Lesezeichen für Ihre Erweiterung wichtig ist, sollte die Erweiterung – beim Verschieben mehrerer Lesezeichen – auf den Abschluss jedes `bookmarks.move`-Aufrufs warten, bevor das nächste Lesezeichen verschoben wird. Das Warten stellt sicher, dass der Index, der jedem Lesezeichen zugeordnet ist, nicht von einer gleichzeitig ausgeführten Verschiebung betroffen ist, während der ursprüngliche Aufruf noch in Bearbeitung ist.
+> Wenn Sie mehrere Lesezeichen verschieben, kann, da diese API asynchron ist, die Verarbeitung der Verschiebe-Aufrufe in beliebiger Reihenfolge erfolgen. Folglich kann sich der Wert des Indexes jedes Lesezeichens ändern oder unbekannt sein, bis alle Verschiebe-Aufrufe abgeschlossen sind. Wenn der Index, der einem Lesezeichen zugeordnet ist, für Ihre Erweiterung von Bedeutung ist, sollte die Erweiterung beim Verschieben mehrerer Lesezeichen warten, bis jeder `bookmarks.move` Aufruf abgeschlossen ist, bevor das nächste Lesezeichen verschoben wird. Warten stellt sicher, dass der Index, der jedem Lesezeichen zugeordnet ist, nicht durch einen Verschiebe-Aufruf beeinflusst wird, der parallel ausgeführt wird, während der ursprüngliche Aufruf noch läuft.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
@@ -38,9 +38,9 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `id`
-      - : `string`. ID des verschobenen Elements.
+      - : `string`. ID des Elements, das verschoben wurde.
     - `moveInfo`
-      - : `object`. Objekt mit weiteren Details zur Verschiebung. Weitere Informationen finden Sie im Abschnitt [moveInfo](#moveinfo_2).
+      - : `object`. Objekt mit weiteren Details zur Verschiebung. Siehe den Abschnitt [moveInfo](#moveinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -80,7 +80,7 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onMoved) API von Chromium. Diese Dokumentation ist aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onMoved) API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

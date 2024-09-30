@@ -8,11 +8,11 @@ l10n:
 {{CSSRef}}
 
 > [!WARNING]
-> Ein eingebettetes Beispiel am Ende dieser Seite enthält eine Skalierungsbewegung, die für einige Leser problematisch sein könnte. Leser mit vestibulären Bewegungsstörungen sollten die Funktion zur Reduzierung von Bewegungen auf ihrem Gerät aktivieren, bevor sie die Animation ansehen.
+> Ein eingebettetes Beispiel am Ende dieser Seite enthält eine skalierende Bewegung, die für manche Leser problematisch sein kann. Leser mit vestibulären Bewegungsstörungen sollten möglicherweise die Funktion zur Reduzierung von Bewegungen auf ihrem Gerät aktivieren, bevor sie die Animation ansehen.
 
-Die **`prefers-reduced-motion`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob ein Benutzer auf seinem Gerät eine Einstellung aktiviert hat, um die Menge an nicht wesentlichen Bewegungen zu minimieren. Die Einstellung wird verwendet, um dem Browser auf dem Gerät mitzuteilen, dass der Benutzer eine Benutzeroberfläche bevorzugt, die bewegungsbasierte Animationen entfernt, reduziert oder ersetzt.
+Das **`prefers-reduced-motion`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob ein Benutzer eine Einstellung auf seinem Gerät aktiviert hat, um die Menge an nicht wesentlichen Bewegungen zu minimieren. Diese Einstellung teilt dem Browser auf dem Gerät mit, dass der Benutzer eine Benutzeroberfläche bevorzugt, die animationsbasierte Bewegungen entfernt, reduziert oder ersetzt.
 
-Solche Animationen können bei Personen mit [vestibulären Bewegungsstörungen](https://www.a11yproject.com/posts/understanding-vestibular-disorders/) Unbehagen auslösen. Animationen wie das Skalieren oder Verschieben großer Objekte können vestibuläre Bewegungsauslöser sein.
+Solche Animationen können bei Personen mit [vestibulären Bewegungsstörungen](https://www.a11yproject.com/posts/understanding-vestibular-disorders/) Unbehagen auslösen. Animationen wie das Skalieren oder Schwenken großer Objekte können vestibuläre Bewegungs-Auslöser sein.
 
 ```css
 @media (prefers-reduced-motion) {
@@ -23,32 +23,32 @@ Solche Animationen können bei Personen mit [vestibulären Bewegungsstörungen](
 ## Syntax
 
 - `no-preference`
-  - : Gibt an, dass ein Benutzer keine Präferenz auf dem Gerät bekannt gegeben hat. Dieser Schlüsselwortwert wird als falsch bewertet.
+  - : Gibt an, dass ein Benutzer keine Präferenz auf dem Gerät angegeben hat. Dieser Schlüsselwortwert wird als false bewertet.
 - `reduce`
-  - : Gibt an, dass ein Benutzer die Einstellung auf seinem Gerät für reduzierte Bewegungen aktiviert hat. Dieser Schlüsselwortwert wird als wahr bewertet.
+  - : Gibt an, dass ein Benutzer die Einstellung zur Bewegungsreduktion auf seinem Gerät aktiviert hat. Dieser Schlüsselwortwert wird als true bewertet.
 
 ## Benutzerpräferenzen
 
-Für Firefox wird die `reduce`-Anfrage berücksichtigt, wenn:
+Im Firefox wird die `reduce`-Anforderung berücksichtigt, wenn:
 
 - In GTK/GNOME: Einstellungen > Barrierefreiheit > Sehen > Reduzierte Animation ist eingeschaltet.
 
-  - In älteren Versionen von GNOME, GNOME Tweaks > Allgemein (oder Aussehen, abhängig von der Version) > Animationen ist ausgeschaltet.
-  - Alternativ fügen Sie im Block `[Settings]` der [GTK 3-Konfigurationsdatei](https://wiki.archlinux.org/title/GTK#Configuration) `gtk-enable-animations = false` hinzu.
+  - In älteren Versionen von GNOME, GNOME Tweaks > Allgemein (oder Darstellung, je nach Version) > Animationen sind ausgeschaltet.
+  - Alternativ, fügen Sie `gtk-enable-animations = false` zum `[Settings]` Block der [GTK 3-Konfigurationsdatei](https://wiki.archlinux.org/title/GTK#Configuration) hinzu.
 
-- In Plasma/KDE: Systemeinstellungen > Arbeitsbereich-Verhalten -> Allgemeines Verhalten > "Animationsgeschwindigkeit" ist ganz nach rechts auf "Sofort" eingestellt.
+- In Plasma/KDE: Systemeinstellungen > Arbeitsbereich-Verhalten -> Allgemeines Verhalten > „Animationsgeschwindigkeit“ ist ganz rechts auf „Sofort“ eingestellt.
 - In Windows 10: Einstellungen > Erleichterte Bedienung > Anzeige > Animationen in Windows anzeigen.
 - In Windows 11: Einstellungen > Barrierefreiheit > Visuelle Effekte > Animationseffekte
 - In macOS: Systemeinstellungen > Bedienungshilfen > Anzeige > Bewegung reduzieren.
 - In iOS: Einstellungen > Bedienungshilfen > Bewegung.
 - In Android 9+: Einstellungen > Bedienungshilfen > Animationen entfernen.
-- In Firefox `about:config`: Fügen Sie eine numerische Präferenz namens `ui.prefersReducedMotion` hinzu und setzen Sie ihren Wert entweder auf `0` für vollständige Animation oder `1`, um eine Präferenz für reduzierte Bewegung anzuzeigen. Änderungen an dieser Präferenz treten sofort in Kraft.
+- In Firefox `about:config`: Fügen Sie eine Nummern-Präferenz namens `ui.prefersReducedMotion` hinzu und setzen Sie deren Wert entweder auf `0` für volle Animation oder auf `1`, um eine Präferenz für reduzierte Bewegung anzuzeigen. Änderungen an dieser Präferenz wirken sich sofort aus.
 
 ## Beispiele
 
-Dieses Beispiel verwendet eine Skalierungsanimation, um `prefers-reduced-motion` zu demonstrieren. Wenn Sie die Einstellung zur Reduzierung von Bewegungen in den Barrierefreiheitseinstellungen auf Ihrem Gerät aktivieren, erkennt die `prefers-reduced-motion` Media-Query Ihre Präferenz, und das CSS innerhalb der reduzierten Bewegungsregeln, mit der gleichen [Spezifität](/de/docs/Web/CSS/Specificity) aber später in der [CSS-Quellenreihenfolge](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#source_order), wird Vorrang haben. Infolgedessen wird die [Animation](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) auf der Box auf die `dissolve`-Animation abgeschwächt, eine subtilere Animation, die kein vestibulärer Bewegungsauslöser ist.
+Dieses Beispiel verwendet eine skalierende Animation, um `prefers-reduced-motion` zu demonstrieren. Wenn Sie die Einstellung zur Reduzierung von Bewegungen in den Barrierefreiheitspräferenzen auf Ihrem Gerät aktivieren, wird die `prefers-reduced-motion`-Media-Query Ihre Präferenz erkennen und die CSS-Regeln der reduzierten Bewegung mit derselben [Spezifität](/de/docs/Web/CSS/Specificity) aber spätere Reihenfolge in der [CSS-Quellreihenfolge](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#source_order), wird Vorrang haben. Als Ergebnis wird die [Animation](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) auf dem Kasten zur `dissolve`-Animation abgeschwächt, einer gedämpfteren Animation, die kein vestibulärer Bewegungs-Auslöser ist.
 
-### Abschwächung der Skalierungsanimation
+### Abschwächung der Animationenskalierung
 
 #### HTML
 
@@ -119,7 +119,7 @@ Dieses Beispiel verwendet eine Skalierungsanimation, um `prefers-reduced-motion`
 
 {{EmbedLiveSample("Toning down the animation scaling")}}
 
-Sie können die Einstellung zur Reduzierung von Bewegungen auf [Ihrem Gerät](#benutzerpräferenzen) aktivieren, um die Änderung in der Animationsskalierung zu sehen. Dieses Beispiel verwendet die Hintergrundfarbe und die Linie über dem Text, um visuell hervorzuheben, wann die Keyframe-Animation in Reaktion auf das Aktivieren oder Deaktivieren der Einstellung wechselt.
+Sie können die Einstellung zur Reduzierung von Bewegungen auf [Ihrem Gerät](#benutzerpräferenzen) aktivieren, um die Änderungen in der Animationenskalierung zu betrachten. Dieses Beispiel verwendet die Hintergrundfarbe und die Linie über dem Text, um visuell hervorzuheben, wenn die Keyframe-Animation als Reaktion auf die aktivierte oder deaktivierte Einstellung wechselt.
 
 ## Spezifikationen
 
@@ -132,5 +132,5 @@ Sie können die Einstellung zur Reduzierung von Bewegungen auf [Ihrem Gerät](#b
 ## Siehe auch
 
 - {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}} HTTP-Header [User Agent Client Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints)
-- [Einführung in die reduzierte Bewegung Media Query](https://css-tricks.com/introduction-reduced-motion-media-query/) auf CSS-Tricks (2019)
-- [Responsive Design für Bewegung](https://webkit.org/blog/7551/responsive-design-for-motion/) auf WebKit Blog (2017)
+- [Eine Einführung in die Reduced Motion Media Query](https://css-tricks.com/introduction-reduced-motion-media-query/) auf CSS-Tricks (2019)
+- [Responsives Design für Bewegung](https://webkit.org/blog/7551/responsive-design-for-motion/) im WebKit Blog (2017)

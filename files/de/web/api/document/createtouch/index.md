@@ -1,5 +1,5 @@
 ---
-title: "Document: createTouch() Methode"
+title: "Document: createTouch()-Methode"
 short-title: createTouch()
 slug: Web/API/Document/createTouch
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die **`Document.createTouch()`** Methode erstellt und gibt ein neues [`Touch`](/de/docs/Web/API/Touch)-Objekt zurück.
+Die **`Document.createTouch()`**-Methode erstellt und gibt ein neues [`Touch`](/de/docs/Web/API/Touch)-Objekt zurück.
 
 > [!NOTE]
 > Verwenden Sie den [`TouchEvent()`](/de/docs/Web/API/TouchEvent/TouchEvent)-Konstruktor.
@@ -25,9 +25,9 @@ createTouch(view, target, identifier, pageX, pageY, screenX, screenY)
 > Alle Parameter sind optional.
 
 - `view`
-  - : Das [`window`](/de/docs/Web/API/Window), in dem die Berührung aufgetreten ist.
+  - : Das [`window`](/de/docs/Web/API/Window), in dem der Touch aufgetreten ist.
 - `target`
-  - : Das [`EventTarget`](/de/docs/Web/API/EventTarget) für die Berührung.
+  - : Das [`EventTarget`](/de/docs/Web/API/EventTarget) für den Touch.
 - `identifier`
   - : Der Wert für [`Touch.identifier`](/de/docs/Web/API/Touch/identifier).
 - `pageX`
@@ -40,7 +40,9 @@ createTouch(view, target, identifier, pageX, pageY, screenX, screenY)
   - : Der Wert für [`Touch.screenY`](/de/docs/Web/API/Touch/screenY).
 
 > [!NOTE]
-> Frühere Versionen dieser Methode enthielten die folgenden zusätzlichen Parameter, aber diese Parameter sind in keiner der unten aufgeführten Standards enthalten. Folglich sollten diese Parameter als veraltet angesehen und nicht verwendet werden.
+> Frühere Versionen dieser Methode enthielten die
+> folgenden zusätzlichen Parameter, aber diese Parameter sind in keiner der
+> unten aufgeführten Spezifikationen enthalten. Folglich sollten diese Parameter als veraltet betrachtet und nicht verwendet werden.
 
 - `clientX`
   - : Der Wert für [`Touch.clientX`](/de/docs/Web/API/Touch/clientX).
@@ -58,13 +60,15 @@ createTouch(view, target, identifier, pageX, pageY, screenX, screenY)
 ### Rückgabewert
 
 - `touch`
-  - : Ein [`Touch`](/de/docs/Web/API/Touch)-Objekt, das entsprechend den Eingabeparametern konfiguriert ist.
+  - : Ein [`Touch`](/de/docs/Web/API/Touch)-Objekt, das gemäß den Eingabeparametern konfiguriert ist.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouch()` Methode, um [`Touch`](/de/docs/Web/API/Touch)-Objekte zu erstellen.
+Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouch()`-Methode zum
+Erstellen von [`Touch`](/de/docs/Web/API/Touch)-Objekten.
 
-Im folgenden Codebeispiel werden zwei [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target`-Element erstellt.
+Im folgenden Codeausschnitt werden zwei [`Touch`](/de/docs/Web/API/Touch)-Objekte für das
+`target`-Element erstellt.
 
 ```js
 const target = document.getElementById("target");
@@ -75,7 +79,7 @@ const touch2 = document.createTouch(window, target, 2, 25, 30, 45, 50);
 
 ## Spezifikationen
 
-Dieses Feature ist nicht Teil einer aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht Teil einer aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

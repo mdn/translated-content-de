@@ -53,9 +53,9 @@ Das `feMergeNode`-Element nimmt das Ergebnis eines anderen Filters, um von seine
 
 - {{ SVGAttr("in") }}
 
-## DOM Schnittstelle
+## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -71,4 +71,4 @@ Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGF
 - {{ SVGElement("animate") }}
 - {{ SVGElement("set") }}
 - {{ SVGElement("feMerge") }}
-- [SVG Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

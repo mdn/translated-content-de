@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Der **`CompressionStream()`**-Konstruktor erstellt ein neues [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Objekt, das einen Datenstrom komprimiert.
+Der **`CompressionStream()`** Konstruktor erstellt ein neues [`CompressionStream`](/de/docs/Web/API/CompressionStream) Objekt, das einen Datenstrom komprimiert.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ new CompressionStream(format)
 
 - `format`
 
-  - : Einer der folgenden zulässigen Komprimierungsformate:
+  - : Eines der folgenden erlaubten Kompressionsformate:
 
     - `"gzip"`
-      - : Komprimiert den Strom mithilfe des [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Formats.
+      - : Komprimiert den Strom im [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Format.
     - `"deflate"`
-      - : Komprimiert den Strom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-Komprimierungsdatenformat.
-        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine nachfolgende Prüfsumme zur Überprüfung der Datenintegrität.
+      - : Komprimiert den Strom unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-Komprimierungsdatenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Kompressionsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Datenintegrität.
     - `"deflate-raw"`
-      - : Komprimiert den Strom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und nachfolgende Prüfsumme.
+      - : Komprimiert den Strom unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und abschließende Prüfsumme.
 
 ### Ausnahmen
 
@@ -37,7 +37,7 @@ new CompressionStream(format)
 
 ## Beispiele
 
-In diesem Beispiel wird ein Datenstrom mit GZIP-Komprimierung komprimiert.
+In diesem Beispiel wird ein Strom mit gzip-Kompression komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

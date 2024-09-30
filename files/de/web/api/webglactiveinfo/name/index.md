@@ -3,10 +3,10 @@ title: "WebGLActiveInfo: name-Eigenschaft"
 short-title: name
 slug: Web/API/WebGLActiveInfo/name
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`WebGLActiveInfo.name`**-Eigenschaft repräsentiert den Namen der angeforderten Daten, die durch Aufrufen der Methoden [`getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) oder [`getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 

@@ -1,5 +1,5 @@
 ---
-title: "Window: sizeToContent()-Methode"
+title: "Window: sizeToContent() Methode"
 short-title: sizeToContent()
 slug: Web/API/Window/sizeToContent
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{Non-standard_Header}}
 
-Die **`Window.sizeToContent()`**-Methode passt die Größe des Fensters an seinen Inhalt an. Damit sie funktioniert, sollte der DOM-Inhalt geladen sein, wenn diese Funktion aufgerufen wird – zum Beispiel, nachdem das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis aufgetreten ist.
+Die **`Window.sizeToContent()`** Methode passt die Größe des Fensters an seinen Inhalt an. Damit sie funktioniert, sollte der DOM-Inhalt geladen sein, wenn diese Funktion aufgerufen wird - zum Beispiel, sobald das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis ausgelöst wurde.
 
-Seit Firefox 20 wird die minimale Größe des Fensters begrenzt, um zu verhindern, dass das Fenster zu klein wird, um für den Benutzer interaktiv zu sein.
+Seit Firefox 20 wird die minimale Größe des Fensters begrenzt, um zu verhindern, dass das Fenster zu klein wird, um für den Benutzer interagierbar zu sein.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ window.sizeToContent();
 
 ## Spezifikationen
 
-Dieses Feature ist nicht Teil einer Spezifikation.
+Dieses Feature ist Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

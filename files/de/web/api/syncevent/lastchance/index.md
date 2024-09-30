@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`lastChance`** des [`SyncEvent`](/de/docs/Web/API/SyncEvent)-Interfaces gibt `true` zurück, wenn der User-Agent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt. Dies ist der Wert, der im `lastChance`-Parameter des [`SyncEvent()`](/de/docs/Web/API/SyncEvent/SyncEvent)-Konstruktors übergeben wird.
+Die schreibgeschützte Eigenschaft **`lastChance`** des [`SyncEvent`](/de/docs/Web/API/SyncEvent)-Interfaces gibt `true` zurück, wenn der Benutzeragent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt. Dies ist der Wert, der im `lastChance`-Parameter des [`SyncEvent()`](/de/docs/Web/API/SyncEvent/SyncEvent)-Konstruktors übergeben wird.
 
 ## Wert
 
-Ein boolescher Wert, der anzeigt, ob der User-Agent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt.
+Ein boolescher Wert, der angibt, ob der Benutzeragent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt.
 
 ## Spezifikationen
 

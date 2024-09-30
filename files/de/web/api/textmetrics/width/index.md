@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle enthält die Vorschubreite des Textes (die Breite dieser Inline-Box) in CSS-Pixeln.
+Die schreibgeschützte **`width`**-Eigenschaft des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces enthält die Vorschubreite des Textes (die Breite dieses Inline-Blocks) in CSS-Pixeln.
 
 ## Beispiele
 
@@ -18,7 +18,7 @@ Beginnen Sie mit diesem {{HTMLElement("canvas")}}-Element:
 <canvas id="canvas"></canvas>
 ```
 
-Sie können ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt mit folgendem Code erhalten:
+Sie können ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt mit dem folgenden Code erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");

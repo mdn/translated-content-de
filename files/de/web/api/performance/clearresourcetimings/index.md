@@ -27,22 +27,22 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Den Performance-Ressourcendatenpuffer löschen
+### Löschen des Performance-Ressourcendatenpuffers
 
-Um alle Ressourcen-Performance-Einträge aus dem Puffer zu entfernen, rufen Sie `clearResourceTimings()` zu einem passenden Zeitpunkt in Ihrem Code auf oder fügen Sie ihn in die Konsole ein.
+Um alle Ressourcenspeicherungseinträge aus dem Puffer zu entfernen, rufen Sie `clearResourceTimings()` an einem geeigneten Punkt in Ihrem Code auf oder fügen Sie es in die Konsole ein.
 
 ```js
 performance.clearResourceTimings();
 performance.getEntriesByType("resource").length; // 0
 ```
 
-### Aufzeichnungen machen und Performance-Observer leeren
+### Aufzeichnen von Einträgen und Leeren von Performance Observers
 
-Bei der Verwendung von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) Objekten (insbesondere mit dem `buffered` Flag auf `true` gesetzt), kann der Performance-Ressourcenpuffer schnell voll werden. Anstatt jedoch den Puffer zu löschen, können Sie auch die aktuelle Liste der Performance-Einträge speichern und den Performance-Observer mit der Methode [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords) leeren. Dies funktioniert mit allen Arten von Performance-Eintragstypen, nicht nur mit `"resource"` Einträgen.
+Bei der Verwendung von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) Objekten (insbesondere wenn das `buffered` Flag auf `true` gesetzt ist), kann der Performance-Ressourcenpuffer schnell voll werden. Statt den Puffer zu löschen, können Sie jedoch auch die aktuelle Liste der Performance-Einträge speichern und den Performance Observer mit der [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords) Methode leeren. Dies funktioniert mit allen Arten von Performance-Einträgen, nicht nur mit `"resource"` Einträgen.
 
 ```js
 function perfObserver(list, observer) {

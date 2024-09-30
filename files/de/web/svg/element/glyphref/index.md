@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das `glyphRef`-Element bietet ein einzelnes mögliches Glyph zur referenzierenden `<altGlyph>`-Substitution.
+Das `<glyphRef>`-Element bietet ein einziges mögliches Schriftzeichen für die Referenzierung der `<altGlyph>`-Ersetzung.
 
 ## Verwendungskontext
 

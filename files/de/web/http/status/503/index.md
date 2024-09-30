@@ -9,14 +9,18 @@ l10n:
 
 Der HTTP-Statuscode **`503 Service Unavailable`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Server nicht bereit ist, die Anfrage zu bearbeiten.
 
-Häufige Ursachen sind, dass ein Server wegen Wartungsarbeiten nicht verfügbar ist oder überlastet ist. Während Wartungsarbeiten können Serveradministratoren den gesamten Verkehr vorübergehend auf eine `503`-Seite umleiten, oder dies kann automatisch während Software-Updates geschehen. Bei Überlastung lehnen einige serverseitige Anwendungen Anfragen mit dem Status `503` ab, wenn Ressourcenschwellen wie Speicher, CPU oder Verbindungs-Pool-Grenzen erreicht sind. Das Ablehnen eingehender Anfragen erzeugt einen Rückstau, der verhindert, dass die Rechenressourcen des Servers erschöpft werden, um schwerwiegendere Ausfälle zu vermeiden. Wenn Anfragen von bestimmten Clients aufgrund von [Ratenbegrenzung](/de/docs/Glossary/Rate_limit) eingeschränkt werden, ist die geeignete Antwort {{HTTPStatus("429", "429 Too Many Requests")}}.
+Häufige Ursachen sind, dass ein Server wegen Wartungsarbeiten nicht erreichbar ist oder überlastet ist.
+Während der Wartung können Serveradministratoren den gesamten Verkehr vorübergehend auf eine `503`-Seite umleiten, oder dies kann automatisch während Software-Updates geschehen.
+In Fällen von Überlastung werden einige serverseitige Anwendungen Anfragen mit einem `503`-Status ablehnen, wenn Ressourcen-Schwellenwerte wie Speicher, CPU oder Verbindungspool-Grenzen erreicht sind.
+Das Ablehnen eingehender Anfragen erzeugt Rückstau, der verhindert, dass die Rechenressourcen des Servers erschöpft werden, wodurch schwerwiegendere Ausfälle vermieden werden.
+Wenn Anfragen von bestimmten Clients aufgrund von [Rate Limiting](/de/docs/Glossary/Rate_limit) eingeschränkt werden, ist die passende Antwort {{HTTPStatus("429", "429 Too Many Requests")}}.
 
-Diese Antwort sollte für temporäre Bedingungen verwendet werden und der {{HTTPHeader("Retry-After")}} HTTP-Header sollte nach Möglichkeit die geschätzte Zeit für die Wiederherstellung des Dienstes enthalten.
+Diese Antwort sollte für temporäre Bedingungen verwendet werden, und der HTTP-Header {{HTTPHeader("Retry-After")}} sollte, falls möglich, die geschätzte Zeit für die Wiederherstellung des Dienstes enthalten.
 
 Eine benutzerfreundliche Seite, die das Problem erklärt, sollte zusammen mit dieser Antwort gesendet werden.
 
 > [!NOTE]
-> Caching-bezogene Header, die mit dieser Antwort gesendet werden, erfordern besondere Aufmerksamkeit; ein `503` zeigt ein temporäres Problem an und Antworten sollten in der Regel nicht zwischengespeichert werden, da Clients veraltete Fehlerseiten erhalten könnten, nachdem eine Korrektur erfolgt ist.
+> Bei dieser Antwort gesendete caching-bezogene Header erfordern besondere Aufmerksamkeit; ein `503` weist auf ein temporäres Problem hin und Antworten sollten in der Regel nicht zwischengespeichert werden, da Clients möglicherweise veraltete Fehlerseiten erhalten, nachdem ein Problem behoben wurde.
 
 ## Status
 
@@ -28,7 +32,9 @@ Eine benutzerfreundliche Seite, die das Problem erklärt, sollte zusammen mit di
 
 ### 503 Serverfehlerantwort
 
-Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `503`-Antwort. Der Antworttext enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Supportseite für Besucher. Ein Bezeichner ist im Antworttext enthalten, um eine Methode zu veranschaulichen, die den Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
+Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `503`-Antwort.
+Der Antwortkörper enthält eine Seite, die den Serverzustand beschreibt und einen Link zu einer Supportseite für Besucher bereitstellt.
+Der Antwortkörper enthält einen Bezeichner zur Veranschaulichung einer Methode, die Serveradministratoren helfen kann, die Grundursache des Problems einzugrenzen:
 
 ```http
 GET /highlights HTTP/1.1

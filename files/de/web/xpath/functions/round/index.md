@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `round` gibt eine Zahl zurück, die der nächstgelegene Ganzzahlwert zur angegebenen Zahl ist.
+Die Funktion `round` gibt eine Zahl zurück, die die nächstgelegene Ganzzahl zur angegebenen Zahl ist.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Die nächstgelegene Ganzzahl, die kleiner, größer oder gleich `decimal` ist.
 
 ## Beschreibung
 
-- \-0.5 wird auf negative Null gerundet. 0.4 wird auf positive Null gerundet.
+- \-0,5 wird auf negative Null gerundet. 0,4 wird auf positive Null gerundet.
 
 ## Spezifikationen
 
 [XPath 1.0 4.4](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-round)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

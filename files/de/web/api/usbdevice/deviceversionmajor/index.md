@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`deviceVersionMajor`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt die Hauptversionsnummer des Geräts in einem semantischen Versionsschema an.
+Die **`deviceVersionMajor`**-Schreibgeschützte Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces stellt die Hauptversionsnummer des Geräts in einem semantischen Versionsschema dar.
 
 ## Wert
 

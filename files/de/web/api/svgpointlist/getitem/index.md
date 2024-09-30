@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`getItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle holt ein Element aus der Liste am angegebenen Index.
+Die **`getItem()`**-Methode der Schnittstelle [`SVGPointList`](/de/docs/Web/API/SVGPointList) holt ein Element aus der Liste am angegebenen Index.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getItem(index)
 ### Parameter
 
 - `index`
-  - : Der Index des Elements, das zurückgegeben werden soll.
+  - : Der Index des zurückzugebenden Elements.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das [`SVGPoint`](/de/docs/Web/API/SVGPoint) an Index `0`.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Der [`SVGPoint`](/de/docs/Web/API/SVGPoint) am Index `0`.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

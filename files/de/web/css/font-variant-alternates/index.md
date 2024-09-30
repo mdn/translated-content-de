@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-alternates`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen. Diese alternativen Glyphen können durch alternative Namen referenziert werden, die in {{cssxref("@font-feature-values")}} definiert sind.
+Die CSS-Eigenschaft **`font-variant-alternates`** steuert die Verwendung von alternativen Glyphen. Diese alternativen Glyphen können durch alternative Namen referenziert werden, die in {{cssxref("@font-feature-values")}} definiert sind.
 
-Die {{cssxref("@font-feature-values")}} at-Regel kann verwendet werden, um einem bestimmten Schriftschnitt einen lesbaren Namen mit einem numerischen Index zuzuordnen, der eine spezielle OpenType-Schrifteigenschaft steuert. Für Funktionen, die alternative Glyphen auswählen (`stylistic`, `styleset`, `character-variant`, `swash`, `ornament` oder `annotation`), kann die `font-variant-alternates` Eigenschaft dann den lesbaren Namen referenzieren, um die zugehörige Funktion anzuwenden.
+Die {{cssxref("@font-feature-values")}} At-Regel kann verwendet werden, um für eine gegebene Schriftart einen menschenlesbaren Namen mit einem numerischen Index zu verknüpfen, der ein bestimmtes OpenType-Schriftmerkmal steuert. Für Merkmale, die alternative Glyphen auswählen (`stylistic`, `styleset`, `character-variant`, `swash`, `ornament` oder `annotation`), kann die Eigenschaft `font-variant-alternates` dann den menschenlesbaren Namen referenzieren, um das zugehörige Merkmal anzuwenden.
 
-Dies ermöglicht es CSS-Regeln, alternative Glyphen zu aktivieren, ohne die spezifischen Indexwerte zu kennen, die eine bestimmte Schriftart verwendet, um sie zu steuern.
+Dies ermöglicht es CSS-Regeln, alternative Glyphen zu aktivieren, ohne die spezifischen Indexwerte zu kennen, die eine bestimmte Schriftart zur Steuerung verwendet.
 
 ## Syntax
 
@@ -47,24 +47,23 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 - `normal`
   - : Dieses Schlüsselwort deaktiviert alternative Glyphen.
 - `historical-forms`
-  - : Dieses Schlüsselwort aktiviert historische Formen — Glyphen, die in der Vergangenheit gebräuchlich waren, heute jedoch nicht mehr. Es entspricht dem OpenType-Wert `hist`.
+  - : Dieses Schlüsselwort aktiviert historische Formen — Glyphen, die in der Vergangenheit häufig, aber heute nicht mehr üblich sind. Es entspricht dem OpenType-Wert `hist`.
 - `stylistic()`
-  - : Diese Funktion aktiviert stilistische Alternativen für einzelne Zeichen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `salt`, wie `salt 2`.
+  - : Diese Funktion ermöglicht stilistische Alternativen für einzelne Zeichen. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `salt`, wie `salt 2`.
 - `styleset()`
-  - : Diese Funktion aktiviert stilistische Alternativen für Zeichensätze. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `ssXY`, wie `ss02`.
+  - : Diese Funktion ermöglicht stilistische Alternativen für Zeichensätze. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `ssXY`, wie `ss02`.
 - `character-variant()`
-  - : Diese Funktion aktiviert spezifische stilistische Alternativen für Zeichen. Sie ähnelt `styleset()`, erzeugt jedoch keine kohärenten Glyphen für einen Zeichensatz; einzelne Zeichen werden unabhängige und nicht unbedingt kohärente Stile aufweisen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `cvXY`, wie `cv02`.
+  - : Diese Funktion ermöglicht spezifische stilistische Alternativen für Zeichen. Sie ist ähnlich wie `styleset()`, erzeugt jedoch keine kohärenten Glyphen für einen Zeichensatz; einzelne Zeichen haben unabhängige und nicht notwendigerweise kohärente Stile. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `cvXY`, wie `cv02`.
 - `swash()`
-  - : Diese Funktion aktiviert [Schwung](https://en.wikipedia.org/wiki/Swash_%28typography%29) Glyphen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht den OpenType-Werten `swsh` und `cswh`, wie `swsh 2` und `cswh 2`.
+  - : Diese Funktion ermöglicht [Swash](https://en.wikipedia.org/wiki/Swash_%28typography%29)-Glyphen. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht den OpenType-Werten `swsh` und `cswh`, wie `swsh 2` und `cswh 2`.
 - `ornaments()`
-
-  - : Diese Funktion aktiviert Ornamente, wie [Fleurons](https://en.wikipedia.org/wiki/Fleuron_%28typography%29) und andere Dingbat-Glyphen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `ornm`, wie `ornm 2`.
+  - : Diese Funktion ermöglicht Ornamente, wie [Fleurons](https://en.wikipedia.org/wiki/Fleuron_%28typography%29) und andere Dingbat-Glyphen. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `ornm`, wie `ornm 2`.
 
     > [!NOTE]
-    > Um die Semantik des Textes zu bewahren, sollten Schriftgestalter Ornamente einbeziehen, die nicht mit Unicode-Dingbat-Zeichen übereinstimmen, als ornamentale Varianten des Aufzählungszeichens (U+2022). Beachten Sie, dass einige bestehende Schriften diesen Hinweis nicht befolgen.
+    > Um die Semantik des Textes zu bewahren, sollten Schriftgestalter Ornamente, die nicht mit Unicode-Dingbat-Zeichen übereinstimmen, als ornamental Varianten des Aufzählungszeichenzeichens (U+2022) aufnehmen. Seien Sie sich bewusst, dass einige vorhandene Schriften diesen Rat nicht befolgen.
 
 - `annotation()`
-  - : Diese Funktion aktiviert Annotationen, wie umkringelte Ziffern oder invertierte Zeichen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `nalt`, wie `nalt 2`.
+  - : Diese Funktion ermöglicht Anmerkungen, wie eingekreiste Ziffern oder invertierte Zeichen. Der Parameter ist ein schriftartspezifischer Name, der einer Zahl zugeordnet ist. Es entspricht dem OpenType-Wert `nalt`, wie `nalt 2`.
 
 ## Formale Definition
 
@@ -76,11 +75,11 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 ## Beispiele
 
-### Aktivierung von Schwungglyphen
+### Swash-Glyphen aktivieren
 
-In diesem Beispiel verwenden wir die `@font-feature-values` at-Regel, um einen Namen für die `swash` Funktion der [MonteCarlo](https://github.com/googlefonts/monte-carlo) Schriftart zu definieren. Die Regel ordnet den Namen `"fancy"` dem Indexwert `1` zu.
+In diesem Beispiel verwenden wir die `@font-feature-values` At-Regel, um einen Namen für das `swash`-Merkmal der [MonteCarlo](https://github.com/googlefonts/monte-carlo) Schriftart zu definieren. Die Regel ordnet den Namen `"fancy"` dem Indexwert `1` zu.
 
-Wir können diesen Namen dann innerhalb von `font-variant-alternates` verwenden, um Schwünge für diese Schriftart zu aktivieren. Dies entspricht einer Zeile wie `font-feature-settings: "swsh" 1`, außer dass das CSS, das die Funktion anwendet, den erforderlichen Indexwert für diese spezielle Schriftart nicht enthalten oder sogar kennen muss.
+Wir können dann diesen Namen innerhalb von `font-variant-alternates` verwenden, um Swashes für diese Schriftart zu aktivieren. Dies entspricht einer Zeile wie `font-feature-settings: "swsh" 1`, wobei das CSS, das das Merkmal anwendet, den benötigten Indexwert für diese spezielle Schriftart nicht enthalten oder sogar kennen muss.
 
 #### HTML
 

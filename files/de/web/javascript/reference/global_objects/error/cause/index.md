@@ -7,26 +7,25 @@ l10n:
 
 {{JSRef}}
 
-Die **`cause`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz gibt die spezifische ursprüngliche Ursache des Fehlers an.
+Die **`cause`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz zeigt die spezifische ursprüngliche Ursache des Fehlers an.
 
-Sie wird verwendet, wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut geworfen wird, um trotzdem Zugriff auf den ursprünglichen Fehler zu behalten.
+Sie wird verwendet, wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut geworfen wird, um weiterhin Zugriff auf den ursprünglichen Fehler zu haben.
 
 ## Wert
 
-Der Wert, der dem [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error) Konstruktor im `options.cause` Argument übergeben wurde. Er kann auch fehlen.
+Der Wert, der dem [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error) Konstruktor im `options.cause` Argument übergeben wurde. Er könnte eventuell nicht vorhanden sein.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Der Wert von `cause` kann jeden Typ haben. Sie sollten nicht davon ausgehen, dass der abgefangene Fehler ein `Error` als `cause` hat, genauso wenig wie Sie sicher sein können, dass die im `catch`-Block gebundene Variable ein `Error` ist. Das Beispiel "Bereitstellung strukturierter Daten als Fehlerursache" unten zeigt einen Fall, in dem absichtlich ein Nicht-Fehler als Ursache angegeben wird.
+Der Wert von `cause` kann von jedem Typ sein. Sie sollten nicht davon ausgehen, dass der abgefangene Fehler eine `Error` als `cause` hat, genauso wie Sie nicht sicher sein können, dass die im `catch`-Statement gebundene Variable ein `Error` ist. Das untenstehende Beispiel "Bereitstellung strukturierter Daten als Fehlerursache" zeigt einen Fall, in dem absichtlich keine Fehlermeldung als Ursache angegeben wird.
 
 ## Beispiele
 
 ### Einen Fehler mit einer Ursache erneut werfen
 
-Es ist manchmal nützlich, einen Fehler abzufangen und ihn mit einer neuen Nachricht erneut zu werfen.
-In diesem Fall sollten Sie den ursprünglichen Fehler an den Konstruktor des neuen `Error` übergeben, wie gezeigt.
+Es kann manchmal nützlich sein, einen Fehler abzufangen und ihn mit einer neuen Nachricht erneut zu werfen. In diesem Fall sollten Sie den ursprünglichen Fehler in den Konstruktor für den neuen `Error` übergeben, wie gezeigt.
 
 ```js
 try {
@@ -36,11 +35,11 @@ try {
 }
 ```
 
-Für ein ausführlicheres Beispiel siehe [Error > Similar Errors unterscheiden](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
+Für ein detaillierteres Beispiel siehe [Error > Differenzierung zwischen ähnlichen Fehlern](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
 
 ### Strukturierte Daten als Fehlerursache bereitstellen
 
-Fehlermeldungen, die für den menschlichen Gebrauch geschrieben wurden, sind möglicherweise ungeeignet für maschinelles Parsen — da sie umformuliert oder interpunktiert werden können, was jedes bestehende Parsing, das sie verarbeiten soll, beeinträchtigen kann. Daher kann beim Werfen eines Fehlers aus einer Funktion, anstelle einer menschenlesbaren Fehlermeldung, die Ursache als strukturierte Daten für maschinelles Parsen bereitgestellt werden.
+Fehlermeldungen, die für den menschlichen Gebrauch geschrieben wurden, sind möglicherweise nicht geeignet für maschinelles Parsen — da sie umformuliert oder die Zeichensetzung geändert werden könnte, was bestehende Parsing-Mechanismen stören könnte. Daher können Sie beim Werfen eines Fehlers von einer Funktion, als Alternative zu einer für Menschen lesbaren Fehlermeldung, die Ursache als strukturierte Daten bereitstellen, um ein maschinelles Parsen zu ermöglichen.
 
 ```js
 function makeRSA(p, q) {

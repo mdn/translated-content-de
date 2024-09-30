@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`originalPolicy`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) enthält, deren Durchsetzung den Verstoß aufgedeckt hat.
+Die schreibgeschützte **`originalPolicy`**-Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) enthält, deren Durchsetzung die Verletzung aufgedeckt hat.
 
 ## Wert
 
-Ein String, der die Richtlinie darstellt, deren Durchsetzung den Verstoß aufgedeckt hat.
+Ein String, der die Richtlinie darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
 
-Dies ist der String im {{HTTPHeader("Content-Security-Policy")}}-HTTP-Header, der die Liste der [Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) und deren Werte enthält, die die CSP-Richtlinie bilden.
+Dies ist der String im {{HTTPHeader("Content-Security-Policy")}} HTTP-Header, der die Liste der [Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) und deren Werte enthält, die die CSP-Richtlinie bilden.
 
 ## Beispiele
 

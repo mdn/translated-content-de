@@ -1,5 +1,5 @@
 ---
-title: "MediaList: length-Eigenschaft"
+title: "MediaList: length Eigenschaft"
 short-title: length
 slug: Web/API/MediaList/length
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft der [`MediaList`](/de/docs/Web/API/MediaList)-Schnittstelle gibt die Anzahl der Medienabfragen in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces gibt die Anzahl der Medienabfragen in der Liste zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine positive ganze Zahl.
 
 ## Beispiele
 
-Das folgende Beispiel protokolliert die Anzahl der Medienabfragen in der `MediaList`, die dem ersten Stylesheet zugeordnet ist, das auf das aktuelle Dokument angewendet wird, in der Konsole.
+Das folgende Beispiel gibt die Anzahl der Medienabfragen, die in der `MediaList` gespeichert sind, die dem ersten auf das aktuelle Dokument angewendeten Stylesheet zugeordnet ist, in der Konsole aus.
 
 ```js
 const stylesheets = document.styleSheets;

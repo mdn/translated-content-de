@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: waiting event"
+title: "HTMLMediaElement: waiting Ereignis"
 short-title: waiting
 slug: Web/API/HTMLMediaElement/waiting_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `waiting`-Ereignis wird ausgelöst, wenn die Wiedergabe aufgrund eines temporären Datenmangels gestoppt wurde.
+Das `waiting`-Ereignis wird ausgelöst, wenn die Wiedergabe aufgrund eines vorübergehenden Mangels an Daten gestoppt wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("waiting", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `waiting`-Ereignis des HTMLMediaElements hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `waiting`-Ereignis des HTMLMediaElement hinzu und geben eine Nachricht aus, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("waiting", (event) => {
 });
 ```
 
-Verwendung der Eigenschaft `onwaiting` des Ereignishandlers:
+Verwendung der `onwaiting` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

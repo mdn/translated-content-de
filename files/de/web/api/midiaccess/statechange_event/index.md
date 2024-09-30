@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`statechange`**-Ereignis der [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Schnittstelle wird ausgelöst, wenn ein neuer MIDI-Port hinzugefügt wird oder wenn sich der Status eines vorhandenen Ports ändert.
+Das **`statechange`**-Ereignis des [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Interfaces wird ausgelöst, wenn ein neuer MIDI-Port hinzugefügt wird oder wenn ein bestehender Port seinen Status ändert.
 
 ## Syntax
 
@@ -29,11 +29,11 @@ Ein [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent). Erbt von [`Ev
 ## Ereigniseigenschaften
 
 - [`MIDIConnectionEvent.port`](/de/docs/Web/API/MIDIConnectionEvent/port) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu einer [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
+  - : Gibt eine Referenz auf eine [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
 
 ## Beispiel
 
-Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt erfüllt wird. Wenn sich der Zustand eines Ports ändert, werden Informationen über diesen Port in der Konsole ausgegeben.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt aufgelöst wird. Wenn ein Port seinen Status ändert, werden Informationen über diesen Port in der Konsole ausgegeben.
 
 ```js
 navigator.requestMIDIAccess().then((access) => {

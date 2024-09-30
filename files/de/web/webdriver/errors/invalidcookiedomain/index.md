@@ -1,5 +1,5 @@
 ---
-title: Ungültige Cookie-Domain
+title: Invalid cookie domain
 slug: Web/WebDriver/Errors/InvalidCookieDomain
 l10n:
   sourceCommit: 4a6dacf8c68925a8538585be3b2728bcb271241e
@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **ungültige Cookie-Domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein [Cookie](/de/docs/Glossary/Cookie) unter einer anderen [Domain](/de/docs/Glossary/Domain) als der des aktuellen Dokuments zu setzen.
+Der Fehler **invalid cookie domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein [Cookie](/de/docs/Glossary/Cookie) unter einer anderen [Domain](/de/docs/Glossary/Domain) als der des aktuellen Dokuments zu setzen.
 
-In WebDriver ist es nicht zulässig, Cookies für andere Domains als die Domain des [aktuellen Browsing-Kontexts](/de/docs/Glossary/Browsing_context)'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
+Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des [aktuellen Browser-Kontexts](/de/docs/Glossary/Browsing_context)'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookie-abgeneigt_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, also wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
 
 ## Beispiel
 
@@ -40,9 +40,9 @@ Ausgabe:
 InvalidCookieDomainException: https://example.org/
 ```
 
-### Cookie-abgeneigte Dokumente
+### Cookie-averse Dokumente
 
-Dieser Fehler kann auch auftreten, wenn Sie ein cookie-abgeneigtes Dokument aufrufen, z. B. eine Datei auf Ihrer lokalen Festplatte:
+Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie z.B. eine Datei auf Ihrer lokalen Festplatte:
 
 ```python
 from selenium import webdriver
@@ -66,7 +66,7 @@ InvalidCookieDomainException: Document is cookie-averse
 ## Siehe auch
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Errors)
-- Relevante WebDriver-Befehle:
+- Relevante WebDriver-Kommandos:
 
   - [Add Cookie](/de/docs/Web/WebDriver/Commands/AddCookie)
   - [Delete Cookie](/de/docs/Web/WebDriver/Commands/DeleteCookie)

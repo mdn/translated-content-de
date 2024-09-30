@@ -1,5 +1,5 @@
 ---
-title: "AudioTrack: language-Eigenschaft"
+title: "AudioTrack: language Eigenschaft"
 short-title: language
 slug: Web/API/AudioTrack/language
 l10n:
@@ -10,29 +10,29 @@ l10n:
 
 Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
 Eigenschaft **`language`** gibt einen String zurück, der die
-Sprache der Tonspur identifiziert.
+Sprache identifiziert, die im Audiotrack verwendet wird.
 
-Bei Spuren, die mehrere Sprachen enthalten
-(zum Beispiel ein Film auf Englisch, in dem einige Zeilen in anderen Sprachen gesprochen werden), sollte dies die primäre Sprache des Videos sein.
+Bei Tracks, die mehrere Sprachen enthalten
+(zum Beispiel ein Film auf Englisch, in dem einige Zeilen in anderen Sprachen gesprochen werden), sollte dies die Hauptsprache des Videos sein.
 
 ## Wert
 
-Ein String, der den BCP 47 ({{RFC(5646)}}) Format-Sprach-Tag der
-primären Sprache der Tonspur spezifiziert, oder ein leerer String (`""`), wenn
-die Sprache nicht spezifiziert oder unbekannt ist oder die Spur keine Sprache enthält.
+Ein String, der das BCP 47 ({{RFC(5646)}}) Format des Sprach-Tags der
+primären Sprache angibt, die im Audiotrack verwendet wird, oder ein leerer String (`""`),
+wenn die Sprache nicht spezifiziert oder bekannt ist oder wenn der Track keine Sprache enthält.
 
-Zum Beispiel, wenn die primäre Sprache der Spur US-Englisch ist, wäre
+Zum Beispiel, wenn die primäre Sprache des Tracks Amerikanisches Englisch ist, wäre
 dieser Wert `"en-US"`. Für brasilianisches Portugiesisch wäre der Wert
 `"pt-BR"`.
 
 ## Beispiele
 
-Dieses Beispiel findet alle Primärsprachen- und Übersetzungs-Audio
-Spuren eines Medienelements und gibt eine Liste von Objekten zurück, die jede dieser Spuren'
+Das folgende Beispiel sucht alle Hauptsprach- und übersetzten Audiotracks eines Mediaelements
+und gibt eine Liste von Objekten zurück, die jeweils die Tracks
 [`id`](/de/docs/Web/API/AudioTrack/id), [`kind`](/de/docs/Web/API/AudioTrack/kind) und
 `language` enthalten.
 
-Dies könnte dann verwendet werden, um eine Benutzeroberfläche zu erstellen, mit der der Benutzer die Sprache auswählen kann, die er beim Anschauen eines Films hören möchte, zum Beispiel.
+Dies könnte dann verwendet werden, um eine Benutzeroberfläche zu erstellen, über die der Benutzer die Sprache auswählen kann, die er beim Ansehen eines Films hören möchte.
 
 ```js
 function getAvailableLanguages(el) {

@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: name-Eigenschaft"
+title: "MIDIPort: name Eigenschaft"
 short-title: name
 slug: Web/API/MIDIPort/name
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Schnittstelle gibt den Systemnamen des Ports zurück.
+Die schreibgeschützte **`name`**-Eigenschaft des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces gibt den Systemnamen des Ports zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den Systemnamen des Ports enthält.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingangsports und gibt den Namen jedes einzelnen in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den Namen jedes einzelnen auf der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

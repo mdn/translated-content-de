@@ -10,9 +10,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`selectionDirection`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die aktuelle Richtung der Auswahl an. Die möglichen Werte sind `"forward"`, `"backward"` und `"none"`. Der Wert `forward` zeigt an, dass die Auswahl in der Start-zu-Ende-Richtung der aktuellen Lokalisierung durchgeführt wurde, wobei `backward` die entgegengesetzte Richtung angibt. Der Wert `none` tritt auf, wenn die Richtung unbekannt ist. Diese Eigenschaft kann sowohl verwendet werden, um die Richtung des ausgewählten Textes im `<textarea>` abzurufen als auch zu ändern.
+Die **`selectionDirection`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt die aktuelle Richtung der Auswahl an. Die möglichen Werte sind `"forward"`, `"backward"` und `"none"`. Der Wert `forward` zeigt an, dass die Auswahl in der Start-zu-Ende-Richtung der aktuellen Sprache erfolgte, während `backward` die entgegengesetzte Richtung angibt. Der Wert `none` tritt auf, wenn die Richtung unbekannt ist. Sie kann verwendet werden, um sowohl die Richtung des im `<textarea>` ausgewählten Textes abzurufen als auch zu ändern.
 
-Das Setzen der `selectionDirection` auf einen neuen Wert löst die [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)- und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event)-Ereignisse aus.
+Das Festlegen von `selectionDirection` auf einen neuen Wert löst die Ereignisse [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) aus.
 
 ## Wert
 
@@ -45,4 +45,4 @@ const end = textarea.selectionDirection;
 - [`HTMLTextAreaElement.setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)
 - [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection)
 - [`Selection`](/de/docs/Web/API/Selection)
-- {{cssxref("::selection")}} Pseudo-Element
+- {{cssxref("::selection")}} Pseudoelement

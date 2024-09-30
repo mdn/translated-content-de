@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`worklet`**-Schreibgeschützte Eigenschaft der [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Schnittstelle enthält die [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Instanz, die das Shared Storage Worklet für den aktuellen Ursprung repräsentiert.
+Die **`worklet`**-Schreibgeschützte Eigenschaft des [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Interfaces enthält die Instanz von [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet), die das Shared Storage Worklet für den aktuellen Ursprung darstellt.
 
-`SharedStorageWorklet` enthält die [`addModule()`](/de/docs/Web/API/Worklet/addModule)-Methode, mit der ein Modul dem Shared Storage Worklet hinzugefügt wird.
+`SharedStorageWorklet` enthält die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule), die verwendet wird, um ein Modul zum Shared Storage Worklet hinzuzufügen.
 
 ## Wert
 
@@ -52,7 +52,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Übersichtsseite für eine Erläuterung dieses Beispiels und Links zu weiteren Beispielen an.
+Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Übersichtsseite für eine Anleitung zu diesem Beispiel und für Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

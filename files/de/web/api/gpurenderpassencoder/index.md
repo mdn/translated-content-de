@@ -7,67 +7,75 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPURenderPassEncoder`** Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) kodiert Befehle, die sich auf die Steuerung der Vertex- und Fragment-Shader-Phasen beziehen, wie sie von einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ausgeführt werden. Sie ist Teil der allgemeinen Kodieraktivität eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
+Die **`GPURenderPassEncoder`**-Schnittstelle der [WebGPU-API](/de/docs/Web/API/WebGPU_API) kodiert Befehle, die sich auf die Steuerung der Vertex- und Fragment-Shader-Stufen beziehen, wie sie von einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ausgegeben werden. Sie ist Teil der gesamten Kodieraktivität eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
 
-Eine Render-Pipeline rendert Grafik an [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Anhänge, die normalerweise zur Darstellung in einem {{htmlelement("canvas")}}-Element vorgesehen sind, aber auch zu Texturen rendern kann, die für andere Zwecke verwendet werden und nie auf dem Bildschirm erscheinen. Sie hat zwei Hauptphasen:
+Eine Render-Pipeline rendert Grafiken zu [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Anhängseln, die typischerweise für die Anzeige in einem {{htmlelement("canvas")}}-Element bestimmt sind, aber sie könnte auch Texturen rendern, die für andere Zwecke verwendet werden und nie auf dem Bildschirm erscheinen. Sie hat zwei Hauptstufen:
 
-- Eine Vertex-Phase, in der ein Vertex-Shader Positionsdaten, die in die GPU eingespeist werden, verwendet, um eine Reihe von Vertices im 3D-Raum durch Anwendung von bestimmten Effekten wie Drehung, Translation oder Perspektive zu positionieren. Die Vertices werden dann zu Primitiven wie Dreiecken zusammengesetzt (dem grundlegenden Baustein von gerenderten Grafiken) und von der GPU rasterisiert, um herauszufinden, welche Pixel jedes von ihnen auf der Zeichenfläche abdecken soll.
+- Eine Vertex-Stufe, in der ein Vertex-Shader Positionsdaten, die in die GPU eingegeben werden, nutzt, um eine Serie von Vertices im 3D-Raum unter Anwendung festgelegter Effekte wie Rotation, Übersetzung oder Perspektive zu positionieren. Die Vertices werden dann zu Primitiven wie Dreiecken (dem grundlegenden Baustein gerenderter Grafiken) zusammengesetzt und von der GPU rasterisiert, um herauszufinden, welche Pixel jedes von ihnen auf der Zeichenfläche abdecken sollte.
 
-- Eine Fragment-Phase, in der ein Fragment-Shader die Farbe für jedes von den Primitiven, die vom Vertex-Shader erzeugt wurden, abgedeckte Pixel berechnet. Diese Berechnungen verwenden häufig Eingaben wie Bilder (in Form von Texturen), die Oberflächendetails und die Position und Farbe virtueller Lichter liefern.
+- Eine Fragment-Stufe, in der ein Fragment-Shader die Farbe für jedes Pixel berechnet, das von den vom Vertex-Shader erzeugten Primitiven abgedeckt wird. Diese Berechnungen verwenden häufig Eingaben wie Bilder (in Form von Texturen), die Oberflächendetails sowie die Position und Farbe virtueller Lichter bereitstellen.
 
-Ein `GPURenderPassEncoder` Objekt wird über die [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) Eigenschaft erstellt.
+Ein `GPURenderPassEncoder`-Objektinstanz wird über die [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Eigenschaft erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPURenderPassEncoder/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen zur Identifikation des Objekts verwendet werden kann.
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Instanz-Methoden
 
 - [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) {{Experimental_Inline}}
-  - : Beginnt eine Okklusionsabfrage am angegebenen Index des relevanten [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) (bereitgestellt als Wert der `occlusionQuerySet` Deskriptoreigenschaft beim Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass), um den Renderprozess auszuführen).
+  - : Beginnt eine Okklusionsabfrage am angegebenen Index des betreffenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) (bereitgestellt als Wert der `occlusionQuerySet`-Descriptor-Eigenschaft bei der Aufrufung von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass), um den Renderpass auszuführen).
 - [`draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) {{Experimental_Inline}}
-  - : Zeichnet Primitiven basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
+  - : Zeichnet Primitive basierend auf den Vertex-Buffern, die von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) bereitgestellt werden.
 - [`drawIndexed()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndexed) {{Experimental_Inline}}
-  - : Zeichnet indizierte Primitiven basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer) bereitgestellten Vertex- und Index-Puffern.
+  - : Zeichnet indizierte Primitive basierend auf den Vertex- und Index-Buffern, die von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer) bereitgestellt werden.
 - [`drawIndirect()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndirect) {{Experimental_Inline}}
-  - : Zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+  - : Zeichnet Primitive unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 - [`drawIndexedIndirect()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndexedIndirect) {{Experimental_Inline}}
-  - : Zeichnet indizierte Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+
+  - : Zeichnet indizierte Primitive unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+
 - [`end()`](/de/docs/Web/API/GPURenderPassEncoder/end) {{Experimental_Inline}}
-  - : Vervollständigt die Aufzeichnung der aktuellen Renderpass-Befehlssequenz.
+  - : Beendet die Aufzeichnung der aktuellen Renderpass-Befehlsequenz.
 - [`endOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/endOcclusionQuery) {{Experimental_Inline}}
   - : Beendet eine aktive Okklusionsabfrage, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
 - [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) {{Experimental_Inline}}
-  - : Führt Befehle aus, die zuvor in die referenzierten [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)s als Teil dieses Renderpasses aufgezeichnet wurden.
+  - : Führt Befehle aus, die zuvor in die referenzierten [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)s aufgezeichnet wurden, als Teil dieses Renderpasses.
 - [`insertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/insertDebugMarker) {{Experimental_Inline}}
-  - : Markiert einen bestimmten Punkt in einer Serie von kodierten Befehlen mit einem Label.
+  - : Markiert einen spezifischen Punkt in einer Serie von kodierten Befehlen mit einem Label.
 - [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup) {{Experimental_Inline}}
-  - : Beendet eine Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) begonnen wurde.
+  - : Beendet eine Debug-Gruppe, die mit einem [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup)-Aufruf begonnen wurde.
 - [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) {{Experimental_Inline}}
-  - : Beginnt eine Debug-Gruppe, die mit einem bestimmten Label markiert wird und alle nachfolgenden kodierten Befehle bis zum Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup) Methode enthält.
+  - : Beginnt eine Debug-Gruppe, die mit einem angegebenen Label gekennzeichnet ist und alle folgenden kodierten Befehle enthalten wird, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode aufgerufen wird.
 - [`setBindGroup()`](/de/docs/Web/API/GPURenderPassEncoder/setBindGroup) {{Experimental_Inline}}
-  - : Legt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) fest, die für nachfolgende Render-Befehle für einen bestimmten Index verwendet wird.
+  - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Renderbefehle verwendet werden soll, für einen gegebenen Index.
 - [`setBlendConstant()`](/de/docs/Web/API/GPURenderPassEncoder/setBlendConstant) {{Experimental_Inline}}
-  - : Setzt die konstante Mischfarbe und Alphawerte, die mit den Mischfaktoren `"constant"` und `"one-minus-constant"` verwendet werden (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) Methode im `blend`-Eigentum festgelegt).
+
+  - : Legt die konstanten Farb- und Alphawerte für das Mischen fest, die mit den `"constant"` und `"one-minus-constant"` Mischfaktoren verwendet werden (wie im Descriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode im `blend`-Eigentum festgelegt).
+
 - [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer) {{Experimental_Inline}}
-  - : Setzt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Indexdaten für nachfolgende Zeichenbefehle bereitstellt.
+
+  - : Legt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) fest, der Indexdaten für nachfolgende Zeichenbefehle bereitstellt.
+
 - [`setPipeline()`](/de/docs/Web/API/GPURenderPassEncoder/setPipeline) {{Experimental_Inline}}
-  - : Setzt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für diesen Renderpass verwendet werden soll.
+  - : Legt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) fest, die für diesen Renderpass verwendet werden soll.
 - [`setScissorRect()`](/de/docs/Web/API/GPURenderPassEncoder/setScissorRect) {{Experimental_Inline}}
-  - : Setzt das Scherrechteck, das während der Rasterisierungsphase verwendet wird. Nach der Transformation in Viewport-Koordinaten werden alle Fragmente, die außerhalb des Scherrechtecks liegen, verworfen.
+  - : Legt das Scherrechteck fest, das während der Rasterisierungsstufe verwendet wird. Nach der Umwandlung in Ansichtsbereichskoordinaten werden alle Fragmente, die außerhalb des Scherrechtecks fallen, verworfen.
 - [`setStencilReference()`](/de/docs/Web/API/GPURenderPassEncoder/setStencilReference) {{Experimental_Inline}}
-  - : Setzt den Schablonen-Referenzwert, der bei Schablonentests mit der `"replace"` Schablonenoperation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) Methode in den Eigenschaften, die die verschiedenen Schablonenoperationen definieren, festgelegt).
+
+  - : Legt den Referenzwert für Schablonen fest, der bei Schablonentests mit der `"replace"` Schablonenoperation verwendet wird (wie im Descriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode in den Eigenschaften der verschiedenen Schablonenoperationen festgelegt).
+
 - [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) {{Experimental_Inline}}
-  - : Setzt oder entfernt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Vertexdaten für nachfolgende Zeichenbefehle bereitstellt.
+  - : Setzt oder hebt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) auf, der Vertexdaten für nachfolgende Zeichenbefehle bereitstellt.
 - [`setViewport()`](/de/docs/Web/API/GPURenderPassEncoder/setViewport) {{Experimental_Inline}}
-  - : Setzt den Viewport, der während der Rasterisierungsphase verwendet wird, um von normalisierten Gerätekoordinaten auf Viewport-Koordinaten linear abzubilden.
+  - : Legt den Ansichtsbereich fest, der während der Rasterisierungsstufe verwendet wird, um von normalisierten Gerätekoordinaten zu Ansichtsbereichskoordinaten linear zu mappen.
 
 ## Beispiele
 
-In unserem [Basic Render Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde.
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde.
 
 ```js
 // ...

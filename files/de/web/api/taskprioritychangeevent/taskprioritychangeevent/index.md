@@ -22,12 +22,12 @@ new TaskPriorityChangeEvent(type, options)
 
 - `type`
 
-  - : Ein String mit dem case-sensitiven Namen des zugehörigen Ereignisses.
-    Benutzeragenten setzen dies auf `"prioritychange"`.
+  - : Ein String mit dem Groß-/Kleinschreibung-sensitiven Namen des zugehörigen Ereignisses.
+    Benutzeragenten setzen es auf `"prioritychange"`.
 
 - `options`
 
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
 
     - `previousPriority`
       - : Ein String, der die _vorherige_ [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) der Aufgabe angibt.

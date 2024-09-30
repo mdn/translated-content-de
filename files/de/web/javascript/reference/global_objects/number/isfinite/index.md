@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist — das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positive {{jsxref("Infinity")}}, negative `Infinity` noch {{jsxref("NaN")}} ist.
+Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist – das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positiv {{jsxref("Infinity")}}, negativ `Infinity` noch {{jsxref("NaN")}} ist.
 
 {{EmbedInteractiveExample("pages/js/number-isfinite.html")}}
 
@@ -20,11 +20,11 @@ Number.isFinite(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf Endlichkeit getestet werden soll.
+  - : Der Wert, der auf Endlichkeit geprüft werden soll.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der gegebene Wert eine endliche Zahl ist. Ansonsten `false`.
+Der boolesche Wert `true`, wenn der gegebene Wert eine endliche Zahl ist. Andernfalls `false`.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ Number.isFinite(2e64); // true
 
 ### Unterschied zwischen Number.isFinite() und global isFinite()
 
-Im Vergleich zur globalen {{jsxref("isFinite()")}} Funktion konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Dies bedeutet, dass nur Werte des Typs Zahl _und_ endliche Werte `true` zurückgeben, und Nicht-Zahlen immer `false` zurückgeben.
+Im Vergleich zur globalen Funktion {{jsxref("isFinite()")}}, konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Das bedeutet, dass nur Werte vom Typ Nummer, _und_ die endlich sind, `true` zurückgeben, und Nicht-Nummern immer `false` zurückgeben.
 
 ```js
 isFinite("0"); // true; coerced to number 0

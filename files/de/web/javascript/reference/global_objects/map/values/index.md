@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`values()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Werte jedes Elements dieser Map in der Einfügereihenfolge enthält.
+Die **`values()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues [Karten-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das die Werte für jedes Element in dieser Map in Einfügereihenfolge enthält.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-values.html")}}
 

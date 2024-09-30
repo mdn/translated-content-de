@@ -12,8 +12,8 @@ Der **`RTCDataChannelEvent()`** Konstruktor
 erstellt ein neues [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) Objekt.
 
 > [!NOTE]
-> Sie werden nur selten, wenn überhaupt, ein `RTCDataChannelEvent` manuell konstruieren; diese
-> Ereignisse werden normalerweise von der WebRTC-Schicht selbst erstellt und gesendet.
+> Sie werden selten, wenn überhaupt, ein `RTCDataChannelEvent` manuell erstellen; diese
+> Events werden normalerweise von der WebRTC-Schicht selbst erstellt und gesendet.
 
 ## Syntax
 
@@ -25,20 +25,20 @@ new RTCDataChannelEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `datachannel`.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es immer auf `datachannel`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `channel`
-      - : Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), das den mit dem Ereignis verbundenen Datenkanal darstellt.
+      - : Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), der den mit dem Ereignis verbundenen Datenkanal darstellt.
 
 ### Rückgabewert
 
-Ein neues [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) Objekt, konfiguriert wie angegeben.
+Ein neues [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) Objekt, das wie angegeben konfiguriert ist.
 
 ## Beispiel
 
-In diesem Beispiel wird ein neues [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis erstellt. `dc` ist ein
-Datenkanal, der bereits existiert.
+In diesem Beispiel wird ein neues [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis erstellt. `dc` ist ein bereits existierender
+Datenkanal.
 
 ```js
 const event = new RTCDataChannelEvent("datachannel", { channel: dc });

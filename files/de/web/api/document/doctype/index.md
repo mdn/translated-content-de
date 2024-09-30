@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`doctype`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt, das die [Dokumenttyp-Deklaration (DTD)](/de/docs/Glossary/Doctype) darstellt, die mit dem aktuellen Dokument verknüpft ist.
+Die **`doctype`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt, das die [Document Type Declaration (DTD)](/de/docs/Glossary/Doctype) darstellt, die mit dem aktuellen Dokument verknüpft ist.
 
 ## Wert
 
@@ -25,11 +25,11 @@ console.log(`doctypeObj.publicId: ${doctypeObj.publicId}`);
 console.log(`doctypeObj.systemId: ${doctypeObj.systemId}`);
 ```
 
-## Hinweise
+## Anmerkungen
 
-Die Eigenschaft gibt `null` zurück, wenn keine DTD mit dem aktuellen Dokument verknüpft ist.
+Die Eigenschaft gibt `null` zurück, wenn kein DTD mit dem aktuellen Dokument verknüpft ist.
 
-DOM Level 2 unterstützt keine Bearbeitung der Dokumenttyp-Deklaration.
+DOM Level 2 unterstützt nicht das Bearbeiten der Dokumenttyp-Deklaration.
 
 ## Spezifikationen
 

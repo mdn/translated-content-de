@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fy`**-Attribut definiert die y-Achsen-Koordinate des Brennpunkts für einen radialen Verlauf.
+Das **`fy`**-Attribut definiert die y-Achsen-Koordinate des Brennpunkts für einen radialen Farbverlauf.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -117,7 +117,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "200", "250")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -128,8 +128,8 @@ svg {
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Entspricht dem präsentationalen Wert von {{SVGAttr("cy")}} für
-        das Element, unabhängig davon, ob der Wert für <code>cy</code> geerbt wurde oder nicht.
+        Entspricht dem Präsentationswert von {{SVGAttr("cy")}} für
+        das Element, unabhängig davon, ob der Wert für <code>cy</code> vererbt wurde oder nicht.
       </td>
     </tr>
     <tr>

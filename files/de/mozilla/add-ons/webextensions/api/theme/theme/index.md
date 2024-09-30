@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Theme-Objekt stellt die Spezifikation eines Themas dar.
+Ein Theme-Objekt repräsentiert die Spezifikation eines Themas.
 
 ## Typ
 

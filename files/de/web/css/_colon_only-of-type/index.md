@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister desselben Typs hat.
+Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister des gleichen Typs hat.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-only-of-type.html", "tabbed-shorter")}}
 
@@ -21,7 +21,7 @@ Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repr
 
 ## Beispiele
 
-### Stilierung von Elementen ohne Geschwister desselben Typs
+### Stile für Elemente ohne Geschwister des gleichen Typs
 
 #### HTML
 

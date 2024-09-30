@@ -1,14 +1,14 @@
 ---
-title: "WebGLShaderPrecisionFormat: rangeMin-Eigenschaft"
+title: "WebGLShaderPrecisionFormat: Eigenschaft rangeMin"
 short-title: rangeMin
 slug: Web/API/WebGLShaderPrecisionFormat/rangeMin
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMin`**-Eigenschaft gibt den Logarithmus zur Basis 2 des absoluten Wertes des minimal darstellbaren Wertes zurück.
+Die schreibgeschützte Eigenschaft **`WebGLShaderPrecisionFormat.rangeMin`** gibt den Basis-2-Logarithmus des absoluten Werts des kleinsten repräsentierbaren Wertes zurück.
 
 ## Beispiele
 

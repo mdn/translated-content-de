@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einer Programmierumgebung ist der _globale Bereich_ der [Bereich](/de/docs/Glossary/scope), der alle anderen Bereiche enthält und in ihnen sichtbar ist.
+In einer Programmierumgebung ist der _globale Bereich_ der [Bereich](/de/docs/Glossary/scope), der alle anderen Bereiche enthält und in allen sichtbar ist.
 
-In clientseitigem JavaScript ist der globale Bereich im Allgemeinen die Webseite, innerhalb derer der gesamte Code ausgeführt wird.
+Im clientseitigen JavaScript ist der globale Bereich im Allgemeinen die Webseite, innerhalb derer der gesamte Code ausgeführt wird.
 
 ## Siehe auch
 
-- [Einführung in den Gültigkeitsbereich von Variablen in JavaScript](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope)
+- [Einführung in den Variablenbereich in JavaScript](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope)
 - [Bereich](<https://en.wikipedia.org/wiki/Scope_(computer_science)>) auf Wikipedia

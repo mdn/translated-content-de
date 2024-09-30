@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`sampleRate`**-Eigenschaft des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces gibt eine Gleitkommazahl zurück, die die Abtastrate des zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) darstellt, zu dem der Worklet gehört.
+Die schreibgeschützte **`sampleRate`**-Eigenschaft der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Schnittstelle gibt eine Fließkommazahl zurück, die die Abtastrate des zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) darstellt, zu dem der Worklet gehört.
 
 ## Wert
 
-Eine Gleitkommazahl, die die zugehörige Abtastrate darstellt.
+Eine Fließkommazahl, die die zugehörige Abtastrate darstellt.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ console.log(usefulVariable);
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors und verbindet den Knoten mit einem Audiographen. Wir sollten die Ausgabe der [`console.log()`](/de/docs/Web/API/Console/log_static)-Aufrufe in der Konsole sehen:
+Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors an diesen und verbindet den Knoten mit einem Audiografen. Wir sollten die Ausgabe der [`console.log()`](/de/docs/Web/API/Console/log_static)-Aufrufe in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();

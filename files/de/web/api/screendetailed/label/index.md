@@ -1,5 +1,5 @@
 ---
-title: "ScreenDetailed: Label-Eigenschaft"
+title: "ScreenDetailed: label-Eigenschaft"
 short-title: label
 slug: Web/API/ScreenDetailed/label
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`label`**-Eigenschaft des schreibgeschützten [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein String, der ein beschreibendes Label für den Bildschirm bereitstellt, zum Beispiel "Built-in Retina Display".
+Die **`label`**-Eigenschaft des schreibgeschützten [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein String, der ein beschreibendes Label für den Bildschirm bereitstellt, beispielsweise "Built-in Retina Display".
 
-Dies ist nützlich, um eine Liste von Optionen zu erstellen, die dem Benutzer angezeigt werden, wenn er einen Bildschirm zum Anzeigen von Inhalten auswählen soll.
+Dies ist nützlich, um eine Liste von Optionen zu erstellen, die dem Benutzer angezeigt werden, wenn Sie möchten, dass er einen Bildschirm auswählt, auf dem Inhalte dargestellt werden sollen.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLCanvasElement: contextrestored Ereignis"
+title: "HTMLCanvasElement: contextrestored-Ereignis"
 short-title: contextrestored
 slug: Web/API/HTMLCanvasElement/contextrestored_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`contextrestored`** Ereignis der [Canvas-API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der Benutzeragent den Hintergrundspeicher für ein [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) wiederherstellt.
+Das **`contextrestored`**-Ereignis der [Canvas-API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der Benutzeragent den unterstützenden Speicher für ein [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) wiederherstellt.
 
-Sie können Ihre Zeichen erneut zeichnen, Ressourcen erneut abrufen und den Zustand Ihres Kontextes neu initialisieren, nachdem Sie dieses Ereignis empfangen haben.
+Nach dem Empfang dieses Ereignisses können Sie Ihren Kontext erneut zeichnen, Ressourcen erneut abrufen und den Zustand erneut initialisieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("contextrestored", (event) => {});
@@ -24,11 +24,11 @@ oncontextrestored = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches [`Event`](/de/docs/Web/API/Event).
+Ein generisches [`Ereignis`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erkennt das Kontext-wiederhergestellt-Ereignis.
+Der folgende Codefragment erkennt das wiederhergestellte Kontextereignis.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -53,6 +53,6 @@ canvas.addEventListener(
 
 ## Siehe auch
 
-- [`HTMLCanvasElement: contextlost` Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event)
+- [`HTMLCanvasElement: contextlost`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event)
 - [`CanvasRenderingContext2D.isContextLost()`](/de/docs/Web/API/CanvasRenderingContext2D/isContextLost)
-- [OffscreenCanvas: contextlost` Ereignis](/de/docs/Web/API/OffscreenCanvas/contextlost_event)
+- [OffscreenCanvas: contextlost`-Ereignis](/de/docs/Web/API/OffscreenCanvas/contextlost_event)

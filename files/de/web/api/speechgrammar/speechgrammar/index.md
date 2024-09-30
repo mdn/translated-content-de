@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
-Der **`SpeechGrammar()`** Konstruktor der
-[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Schnittstelle erstellt eine neue Instanz eines `SpeechGrammar` Objekts.
+Der **`SpeechGrammar()`**-Konstruktor des
+[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces erstellt eine neue `SpeechGrammar`-Objektinstanz.
 
 ## Syntax
 
@@ -39,7 +39,7 @@ speechRecognitionList[1] = newGrammar; // should add the new SpeechGrammar objec
 
 ## Spezifikationen
 
-Diese API hat keine offizielle W3C oder WHATWG Spezifikation.
+Diese API hat keine offizielle W3C- oder WHATWG-Spezifikation.
 
 ## Browser-Kompatibilität
 

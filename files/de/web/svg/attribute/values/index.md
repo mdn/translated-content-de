@@ -1,5 +1,5 @@
 ---
-title: Werte
+title: values
 slug: Web/SVG/Attribute/values
 l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das `values`-Attribut hat je nach Kontext, in dem es verwendet wird, unterschiedliche Bedeutungen. Es definiert entweder eine Abfolge von Werten, die im Laufe einer Animation verwendet werden, oder es ist eine Liste von Zahlen für eine Farbmatrix, die unterschiedlich interpretiert wird, je nachdem, welche Art von Farbänderung durchgeführt werden soll.
+Das `values`-Attribut hat je nach Kontext, in dem es verwendet wird, unterschiedliche Bedeutungen. Entweder definiert es eine Sequenz von Werten im Laufe einer Animation, oder es handelt sich um eine Liste von Zahlen für eine Farbmatrix, die je nach Art der Farbänderung unterschiedlich interpretiert wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -18,7 +18,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## animate, animateMotion, animateTransform
 
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} ist `values` eine Liste von Werten, die die Abfolge der Werte im Laufe der Animation definiert. Wenn dieses Attribut angegeben ist, werden alle {{SVGAttr("from")}}, {{SVGAttr("to")}} und {{SVGAttr("by")}} Attributwerte, die auf dem Element festgelegt sind, ignoriert.
+Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} ist `values` eine Liste von Werten, die die Sequenz von Werten im Laufe der Animation definiert. Wenn dieses Attribut angegeben ist, werden alle Werte der Attribute {{SVGAttr("from")}}, {{SVGAttr("to")}} und {{SVGAttr("by")}}, die für das Element festgelegt sind, ignoriert.
 
 <table class="properties">
   <tbody>
@@ -44,11 +44,11 @@ Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement
 </table>
 
 - `<list-of-values>`
-  - : Der Wert enthält eine durch Semikolon getrennte Liste von einem oder mehreren Werten. Der Typ der Werte wird durch die {{SVGAttr("href")}} und {{SVGAttr("attributeName")}} Attribute definiert.
+  - : Der Wert enthält eine durch Semikolons getrennte Liste von einem oder mehreren Werten. Der Typ der Werte wird durch die Attribute {{SVGAttr("href")}} und {{SVGAttr("attributeName")}} definiert.
 
 ## feColorMatrix
 
-Für das {{SVGElement("feColorMatrix")}}-Element ist `values` eine Liste von Zahlen, die unterschiedlich interpretiert wird, abhängig vom Wert des {{SVGAttr("type")}}-Attributs.
+Für das {{SVGElement("feColorMatrix")}}-Element ist `values` eine Liste von Zahlen, die unterschiedlich interpretiert werden, abhängig vom Wert des {{SVGAttr("type")}}-Attributs.
 
 <table class="properties">
   <tbody>
@@ -67,9 +67,9 @@ Für das {{SVGElement("feColorMatrix")}}-Element ist `values` eine Liste von Zah
       <td>
         <em
           >Wenn <code>type="matrix"</code>, Identitätsmatrix,<br />wenn
-          <code>type="saturate"</code>, <code>1</code>, wodurch eine Identitätsmatrix
-          entsteht,<br />wenn <code>type="hueRotate"</code>, <code>0</code>,
-          wodurch eine Identitätsmatrix entsteht</em
+          <code>type="saturate"</code>, <code>1</code>, was in einer Identitätsmatrix
+          resultiert,<br />wenn <code>type="hueRotate"</code>, <code>0</code>,
+          was in einer Identitätsmatrix resultiert</em
         >
       </td>
     </tr>
@@ -82,12 +82,12 @@ Für das {{SVGElement("feColorMatrix")}}-Element ist `values` eine Liste von Zah
 
 - `<list-of-numbers>`
 
-  - : Der Wert ist eine Liste von Zahlen, die unterschiedlich interpretiert wird, abhängig vom Wert des `type`-Attributs:
+  - : Der Wert ist eine Liste von Zahlen, die abhängig vom Wert des `type`-Attributs unterschiedlich interpretiert wird:
 
-    - Für `type="matrix"` ist `values` eine Liste von 20 Matrixwerten (a00 a01 a02 a03 a04 a10 a11 … a34), die durch Leerzeichen und/oder ein Komma getrennt sind.
-    - Für `type="saturate"` ist `values` ein einzelner reeller Zahlenwert (0 bis 1).
-    - Für `type="hueRotate"` ist `values` ein einzelner reeller Zahlenwert (Grad).
-    - Für `type="luminanceToAlpha"` ist `values` nicht anwendbar.
+    - Für `type="matrix"` ist `values` eine Liste von 20 Matrixwerten (a00 a01 a02 a03 a04 a10 a11 … a34), getrennt durch Leerzeichen und/oder ein Komma.
+    - Für `type="saturate"` ist `values` ein einzelner realer Zahlenwert (0 bis 1).
+    - Für `type="hueRotate"` ist `values` ein einziger realer Zahlenwert (Grad).
+    - Für `type="luminanceToAlpha"` ist `values` nicht zutreffend.
 
 ## Spezifikationen
 

@@ -10,21 +10,21 @@ l10n:
 > [!NOTE]
 > Diese Funktion ist seit Firefox 54 verfügbar.
 
-Wenn eine Erweiterung Werkzeuge bereitstellt, die für Entwickler nützlich sind, ist es möglich, eine Benutzeroberfläche für diese Werkzeuge als neues Panel zu den Entwicklertools des Browsers hinzuzufügen.
+Wenn eine Erweiterung Werkzeuge bietet, die für Entwickler nützlich sind, ist es möglich, eine Benutzeroberfläche für diese Werkzeuge den Entwicklerwerkzeugen des Browsers als neues Panel hinzuzufügen.
 
-![Ein einfaches Beispiel, das die Hinzufügung von "My panel" zu den Entwicklertools-Registerkarten zeigt.](developer_panel_tab.png)
+![Ein einfaches Beispiel, das die Hinzufügung von "My panel" zu den Registerkarten der Entwicklerwerkzeuge zeigt.](developer_panel_tab.png)
 
-## Spezifizierung eines Entwicklertools-Panels
+## Ein Entwicklerwerkzeuge-Panel angeben
 
-Ein Entwicklertools-Panel wird unter Verwendung der [`devtools.panels`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels) API hinzugefügt, die von einer speziellen Devtools-Seite aus gestartet werden muss.
+Ein Entwicklerwerkzeuge-Panel wird mithilfe der [`devtools.panels`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels) API hinzugefügt, die wiederum von einer speziellen DevTools-Seite aus ausgeführt werden muss.
 
-Fügen Sie die Devtools-Seite hinzu, indem Sie den Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) in der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) der Erweiterung einfügen und geben Sie den Speicherort der HTML-Datei der Seite in der Erweiterung an:
+Fügen Sie die DevTools-Seite hinzu, indem Sie den Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) in die [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) der Erweiterung einfügen und den Speicherort der HTML-Datei der Seite in der Erweiterung angeben:
 
 ```json
 "devtools_page": "devtools-page.html"
 ```
 
-Rufen Sie von der Devtools-Seite ein Skript auf, das das Devtools-Panel hinzufügt:
+Rufen Sie von der DevTools-Seite aus ein Skript auf, das das DevTools-Panel hinzufügt:
 
 ```html
 <body>
@@ -32,7 +32,7 @@ Rufen Sie von der Devtools-Seite ein Skript auf, das das Devtools-Panel hinzufü
 </body>
 ```
 
-Erstellen Sie im Skript das Devtools-Panel, indem Sie den Titel, das Symbol und die HTML-Datei, die den Inhalt des Panels bereitstellt, angeben:
+Erstellen Sie im Skript das DevTools-Panel, indem Sie den Titel, das Symbol und die HTML-Datei angeben, die den Inhalt des Panels bereitstellt:
 
 ```js
 function handleShown() {
@@ -55,16 +55,16 @@ browser.devtools.panels
   });
 ```
 
-Die Erweiterung kann nun Code im inspizierten Fenster ausführen, indem sie [`devtools.inspectedWindow.eval()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval) verwendet oder ein Content-Script über das Hintergrundskript durch Senden einer Nachricht einfügt. Weitere Details dazu finden Sie in [Entwicklungstools erweitern.](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools)
+Die Erweiterung kann nun Code im inspizierten Fenster ausführen, indem sie [`devtools.inspectedWindow.eval()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval) verwendet oder ein Content-Skript über das Hintergrundskript durch das Senden einer Nachricht injiziert. Weitere Details dazu finden Sie unter [Entwicklerwerkzeuge erweitern.](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools)
 
-## Design des Entwicklerpanels
+## Gestaltung des Entwicklerpanels
 
-Details zum Design der Webseite Ihres Entwicklerpanels im Stil von Firefox finden Sie in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Einzelheiten zur Gestaltung der Webseite Ihres Entwicklerpanels, um den Stil von Firefox anzupassen, finden Sie in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
 
 ## Symbole
 
-Informationen zur Erstellung von Symbolen für Ihr Entwicklertools-Panel finden Sie unter [Ikonographie](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Einzelheiten zur Erstellung von Symbolen für Ihr Entwicklerwerkzeuge-Panel finden Sie unter [Ikonografie](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [devtools-panels](https://github.com/mdn/webextensions-examples/tree/main/devtools-panels) Beispiel, das ein Entwicklertools-Panel implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [devtools-panels](https://github.com/mdn/webextensions-examples/tree/main/devtools-panels) Beispiel, das ein DevTools-Panel implementiert.

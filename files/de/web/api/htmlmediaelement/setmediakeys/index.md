@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SecureContext_Header}}
 
-Die **`setMediaKeys()`**-Methode der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle legt die [`MediaKeys`](/de/docs/Web/API/MediaKeys) fest, die zur Entschlüsselung von Medien während der Wiedergabe verwendet werden.
+Die **`setMediaKeys()`**-Methode des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces setzt die [`MediaKeys`](/de/docs/Web/API/MediaKeys), die zur Entschlüsselung von Medien während der Wiedergabe verwendet werden.
 
 Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn die neuen Schlüssel erfolgreich gesetzt werden, oder abgelehnt wird, wenn die Schlüssel nicht gesetzt werden können.
 
@@ -32,11 +32,11 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} erfüllt wird.
 Das zurückgegebene Promise kann einen Fehler ablehnen:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Medien-Schlüssel sind bereits im Prozess der Anfügung, oder die vorherigen Schlüssel können zurzeit nicht entfernt werden (zum Beispiel, weil die spezielle Implementierung keine Entfernung während der Wiedergabe erlaubt).
+  - : Medien-Schlüssel sind bereits im Prozess des Anhängens, oder die vorherigen Schlüssel können momentan nicht entfernt werden (zum Beispiel, weil die spezielle Implementierung eine Entfernung während der Wiedergabe nicht erlaubt).
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die übergebenen Schlüssel werden bereits von einem anderen Element verwendet, oder der Browser kann sie aus anderen Gründen mit diesem Element nicht verwenden.
+  - : Die übergebenen Schlüssel werden bereits von einem anderen Element verwendet, oder der Browser kann sie aus anderen Gründen nicht mit diesem Element verwenden.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Medien-Schlüssel, die derzeit mit dem Medium verknüpft sind, können nicht getrennt werden, da dies entweder vom CDM oder vom Browser nicht unterstützt wird.
+  - : Die derzeit mit dem Medium verknüpften Medien-Schlüssel können nicht getrennt werden, da dies entweder vom CDM oder dem Browser nicht unterstützt wird.
 
 ## Spezifikationen
 

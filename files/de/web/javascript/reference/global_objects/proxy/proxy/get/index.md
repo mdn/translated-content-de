@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`handler.get()`** ist eine Falle für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Eigenschaftenzugriffen](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
+Die **`handler.get()`**-Methode ist eine Falle für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Eigenschaftszugriffen](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-get.html", "taller")}}
 
@@ -27,7 +27,7 @@ Die folgenden Parameter werden an die `get()`-Methode übergeben. `this` ist an 
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder {{jsxref("Symbol")}}, der den Eigenschaftsnamen darstellt.
+  - : Ein String oder ein {{jsxref("Symbol")}}, das den Eigenschaftsnamen darstellt.
 - `receiver`
   - : Der `this`-Wert für Getter; siehe {{jsxref("Reflect.get()")}}. Dies ist normalerweise entweder der Proxy selbst oder ein Objekt, das vom Proxy erbt.
 
@@ -37,7 +37,7 @@ Die `get()`-Methode kann jeden Wert zurückgeben, der den Eigenschaftswert darst
 
 ## Beschreibung
 
-### Abfangaktionen
+### Abfangvorgänge
 
 Diese Falle kann folgende Operationen abfangen:
 
@@ -48,16 +48,16 @@ Oder jede andere Operation, die die `[[Get]]` [interne Methode](/de/docs/Web/Jav
 
 ### Invarianten
 
-Die `[[Get]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Get]]` interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Der gemeldete Wert für eine Eigenschaft muss der gleiche sein wie der Wert der entsprechenden Eigenschaft des Zielobjekts, wenn die Eigenschaft des Zielobjekts ein nicht beschreibbares, nicht konfigurierbares eigenes Datenattribut ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für die Eigenschaft auf `target` zurückgibt, muss die Falle denselben Wert wie das `value`-Attribut im Eigenschafts-Deskriptor von `target` zurückgeben.
-- Der gemeldete Wert für eine Eigenschaft muss `undefined` sein, wenn die entsprechende Eigenschaft des Zielobjekts ein nicht konfigurierbares eigenes Zugriffsattribut ist, dessen Getter undefiniert ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, get: undefined` für die Eigenschaft auf `target` zurückgibt, muss die Falle `undefined` zurückgeben.
+- Der angegebene Wert für eine Eigenschaft muss mit dem Wert der entsprechenden Zielobjekteigenschaft übereinstimmen, wenn die Zielobjekteigenschaft eine nicht beschreibbare, nicht konfigurierbare eigene Dateneigenschaft ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für die Eigenschaft auf `target` zurückgibt, dann muss die Falle denselben Wert wie das `value`-Attribut im Property Descriptor von `target` zurückgeben.
+- Der gemeldete Wert für eine Eigenschaft muss `undefined` sein, wenn die entsprechende Zielobjekteigenschaft eine nicht konfigurierbare eigene Accessor-Eigenschaft ist, die einen undefinierten Getter besitzt. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, get: undefined` für die Eigenschaft auf `target` zurückgibt, dann muss die Falle `undefined` zurückgeben.
 
 ## Beispiele
 
-### Falle für das Abrufen eines Eigenschaftswerts
+### Falle für den Abruf eines Eigenschaftswerts
 
-Der folgende Code fängt das Abrufen eines Eigenschaftswerts ab.
+Der folgende Code fängt den Abruf eines Eigenschaftswerts ab.
 
 ```js
 const p = new Proxy(

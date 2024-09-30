@@ -7,19 +7,19 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Das **`Sensor`** Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) ist die Basisklasse für alle anderen Sensor-Interfaces. Dieses Interface kann nicht direkt verwendet werden. Stattdessen bietet es Eigenschaften, Ereignishandler und Methoden, auf die über Interfaces zugegriffen wird, die von ihm erben.
+Die **`Sensor`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) ist die Basisklasse für alle anderen Sensor-Schnittstellen. Diese Schnittstelle kann nicht direkt verwendet werden. Stattdessen bietet sie Eigenschaften, Ereignis-Handler und Methoden, die von Schnittstellen genutzt werden, die von ihr erben.
 
-Diese Funktion kann durch eine auf Ihrem Server festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Diese Funktion kann durch eine auf Ihrem Server eingerichtete [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
-Wenn das `Sensor`-Objekt initial erstellt wird, befindet es sich im _Leerlauf_, was bedeutet, dass es keine Messungen durchführt. Sobald die [`start()`](/de/docs/Web/API/Sensor/start)-Methode aufgerufen wird, bereitet es sich darauf vor, Daten zu lesen, und sobald es bereit ist, wird das [`activate`](/de/docs/Web/API/Sensor/activate_event)-Ereignis gesendet, und der Sensor wird _aktiviert_. Dann wird jedes Mal, wenn neue Daten verfügbar sind, ein [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis gesendet.
+Wenn das `Sensor`-Objekt erstmals erstellt wird, ist es _inaktiv_, das heißt, es nimmt keine Messungen vor. Sobald die [`start()`](/de/docs/Web/API/Sensor/start)-Methode aufgerufen wird, bereitet es sich darauf vor, Daten zu lesen und, sobald es bereit ist, wird das [`activate`](/de/docs/Web/API/Sensor/activate_event)-Ereignis gesendet und der Sensor wird _aktiviert_. Er sendet dann jedes Mal ein [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis, wenn neue Daten verfügbar sind.
 
-Im Falle eines Fehlers wird das [`error`](/de/docs/Web/API/Sensor/error_event)-Ereignis gesendet, das Lesen stoppt, und das `Sensor`-Objekt wird wieder _idle_. Die [`start()`](/de/docs/Web/API/Sensor/start)-Methode muss erneut aufgerufen werden, bevor es weiter Daten lesen kann.
+Im Falle eines Fehlers wird das [`error`](/de/docs/Web/API/Sensor/error_event)-Ereignis gesendet, das Lesen wird gestoppt und das `Sensor`-Objekt wird wieder _inaktiv_. Die [`start()`](/de/docs/Web/API/Sensor/start)-Methode muss erneut aufgerufen werden, bevor weitere Daten gelesen werden können.
 
-## Auf `Sensor` basierende Schnittstellen
+## Schnittstellen basierend auf `Sensor`
 
-Unten ist eine Liste von Schnittstellen, die auf dem `Sensor`-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf der `Sensor`-Schnittstelle basieren.
 
 - [`Accelerometer`](/de/docs/Web/API/Accelerometer)
 - [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)
@@ -29,21 +29,21 @@ Unten ist eine Liste von Schnittstellen, die auf dem `Sensor`-Interface basieren
 - [`Magnetometer`](/de/docs/Web/API/Magnetometer)
 - [`OrientationSensor`](/de/docs/Web/API/OrientationSensor)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`Sensor.activated`](/de/docs/Web/API/Sensor/activated) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob der Sensor aktiv ist.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob der Sensor aktiv ist.
 - [`Sensor.hasReading`](/de/docs/Web/API/Sensor/hasReading) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob der Sensor eine Messung hat.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob der Sensor eine Messung hat.
 - [`Sensor.timestamp`](/de/docs/Web/API/Sensor/timestamp) {{ReadOnlyInline}}
-  - : Gibt den Zeitstempel der neuesten Sensormessung zurück.
+  - : Gibt den Zeitstempel der neuesten Sensor-Messung zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`Sensor.start()`](/de/docs/Web/API/Sensor/start)
-  - : Aktiviert einen der auf `Sensor` basierenden Sensoren.
+  - : Aktiviert einen der Sensoren, die auf `Sensor` basieren.
 - [`Sensor.stop()`](/de/docs/Web/API/Sensor/stop)
-  - : Deaktiviert einen der auf `Sensor` basierenden Sensoren.
+  - : Deaktiviert einen der Sensoren, die auf `Sensor` basieren.
 
 ## Ereignisse
 
@@ -52,7 +52,7 @@ Unten ist eine Liste von Schnittstellen, die auf dem `Sensor`-Interface basieren
 - [`error`](/de/docs/Web/API/Sensor/error_event)
   - : Wird ausgelöst, wenn eine Ausnahme bei einem Sensor auftritt.
 - [`reading`](/de/docs/Web/API/Sensor/reading_event)
-  - : Wird ausgelöst, wenn eine neue Messung bei einem Sensor verfügbar ist.
+  - : Wird ausgelöst, wenn eine neue Messung auf einem Sensor verfügbar ist.
 
 ## Spezifikationen
 

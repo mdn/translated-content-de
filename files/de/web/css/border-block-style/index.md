@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockränder eines Elements, die je nach Schreibweise, Richtung und Textausrichtung des Elements einer physischen Randstilzuordnung entsprechen. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockrahmen eines Elements, der je nach Schreibrichtung, Richtung und Textausrichtung des Elements in eine physische Rahmenart umgesetzt wird. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/border-block-style.html")}}
 
-Der Randstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} festgelegt werden, welcher {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
+Der Rahmenstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} festgelegt werden, der {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ border-block-style: unset;
 ### Werte
 
 - `<'border-style'>`
-  - : Der Linienstil des Rands. Siehe {{ cssxref("border-style") }}.
+  - : Der Linienstil des Rahmens. Siehe {{ cssxref("border-style") }}.
 
 ## Formale Definition
 
@@ -44,7 +44,7 @@ border-block-style: unset;
 
 ## Beispiele
 
-### Gestrichelter Rand mit vertikalem Text
+### Gestrichelter Rahmen mit vertikalem Text
 
 #### HTML
 
@@ -85,5 +85,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- Diese Eigenschaft wird einer der physischen Rahmeneigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

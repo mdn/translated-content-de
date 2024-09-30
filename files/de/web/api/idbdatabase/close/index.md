@@ -8,10 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`close()`** Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-Schnittstelle kehrt sofort zurück und schließt die Verbindung in einem separaten Thread.
+Die **`close()`**-Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Schnittstelle gibt sofort zurück und schließt die Verbindung in einem separaten Thread.
 
-Die Verbindung wird allerdings erst tatsächlich geschlossen, wenn alle Transaktionen, die mit dieser Verbindung erstellt wurden, abgeschlossen sind. Es können keine neuen Transaktionen mehr für diese Verbindung erstellt werden, sobald diese Methode aufgerufen wird. Methoden, die Transaktionen erstellen, werfen eine Ausnahme, wenn ein Schließvorgang im Gange ist.
+Die Verbindung wird erst tatsächlich geschlossen, wenn alle mit dieser Verbindung erstellten Transaktionen abgeschlossen sind. Es können keine neuen Transaktionen für diese Verbindung erstellt werden, sobald diese Methode aufgerufen wird. Methoden, die Transaktionen erstellen, werfen eine Ausnahme, wenn ein Schließvorgang aussteht.
 
 ## Syntax
 
@@ -63,8 +62,8 @@ DBOpenRequest.onsuccess = (event) => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einrichten eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`self`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt eine Referenz auf die `WorkerGlobalScope` selbst zurück. Meistens handelt es sich um einen spezifischen Geltungsbereich wie [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope).
+Die schreibgeschützte **`self`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt eine Referenz auf den `WorkerGlobalScope` selbst zurück. Meistens handelt es sich um einen speziellen Scope wie zum Beispiel [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope).
 
 ## Wert
 
-Ein globales Scope-Objekt (unterscheidet sich je nach Typ des Workers, mit dem Sie es zu tun haben, wie oben angegeben).
+Ein globales Scope-Objekt (unterschiedlich, je nachdem, mit welchem Workertyp Sie es zu tun haben, wie oben angegeben).
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Wenn Sie
 console.log(self);
 ```
 
-innerhalb eines Workers aufgerufen haben, wird ein Worker-Geltungsbereich desselben Typs wie das Worker-Objekt in die Konsole geschrieben — etwa so etwas:
+innerhalb eines Workers aufrufen, wird ein Worker-Global-Scope desselben Typs wie das Worker-Objekt in die Konsole geschrieben — etwa wie folgt:
 
 ```plain
 DedicatedWorkerGlobalScope {
@@ -49,7 +49,7 @@ undefined: undefined, Infinity: Infinity, Math: MathConstructor, NaN: NaN, Intl:
 // etc. etc.
 ```
 
-Dies bietet eine vollständige Liste der Objekte, die diesem Worker-Geltungsbereich zur Verfügung stehen, weshalb es ein nützlicher Test ist, um zu überprüfen, ob etwas für Ihren Worker verfügbar ist oder nicht. Wir pflegen auch eine Liste von [Funktionen und Klassen, die Web Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
+Dies liefert eine vollständige Liste der Objekte, die für diesen Worker-Scope verfügbar sind. Es ist ein sehr nützlicher Test, wenn Sie prüfen möchten, ob etwas für Ihren Worker verfügbar ist oder nicht. Wir führen auch eine Liste von [Funktionen und Klassen, die Web Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
 
 ## Spezifikationen
 

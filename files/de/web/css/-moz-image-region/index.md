@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes verwendet wird. Dies ermöglicht es Elementen, unterschiedliche Teile desselben Bildes zu nutzen, um die Leistung zu verbessern.
+Für bestimmte XUL-Elemente und Pseudoelemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes verwendet wird. Dies ermöglicht es Elementen, verschiedene Teile desselben Bildes zu verwenden, um die Leistung zu verbessern.
 
-Die Syntax ist der Eigenschaft {{CSSxRef("clip")}} ähnlich. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
+Die Syntax ist ähnlich wie bei der Eigenschaft {{CSSxRef("clip")}}. Alle vier Werte sind relativ zur oberen linken Ecke des Bildes.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Die Syntax ist der Eigenschaft {{CSSxRef("clip")}} ähnlich. Alle vier Werte bez
 ### Werte
 
 - `auto`
-  - : Definiert automatisch den Bereich des Bildes, der verwendet werden soll.
+  - : Definiert automatisch den zu verwendenden Bereich des Bildes.
 - [`<shape>`](/de/docs/Web/CSS/shape)
-  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die Funktion `rect()` definiert ein Rechteck als Form. Ihre Parameter legen die Abstände der Kanten des Bildes von oben, rechts, unten und links fest, in dieser Reihenfolge.
+  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die Funktion `rect()` definiert ein Rechteck als Form. Ihre Parameter definieren der Reihenfolge nach die oberen, rechten, unteren und linken Versätze der Bildkanten.
 
 ## Formale Definition
 
@@ -46,7 +46,7 @@ Die Syntax ist der Eigenschaft {{CSSxRef("clip")}} ähnlich. Alle vier Werte bez
 
 ## Beispiele
 
-### Ein Bild beschneiden
+### Ausschneiden eines Bildes
 
 ```css
 #example-button {

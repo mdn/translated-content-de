@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Richtlinie spezifiziert gültige Quellen für Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"`.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Direktive gibt gültige Quellen für Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` an.
 
-Die Richtlinie legt keine gültigen Quellen für Inline-Style-Attribute fest; diese werden mit {{CSP("style-src-attr")}} festgelegt (und gültige Quellen für alle Styles können mit {{CSP("style-src")}} festgelegt werden).
+Die Direktive legt keine gültigen Quellen für Inline-Style-Attribute fest; diese werden mit {{CSP("style-src-attr")}} gesetzt (und gültige Quellen für alle Styles können mit {{CSP("style-src")}} festgelegt werden).
 
 <table class="properties">
   <tbody>
@@ -18,15 +18,15 @@ Die Richtlinie legt keine gültigen Quellen für Inline-Style-Attribute fest; di
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
-      <td>[Fetch-Richtlinie](/de/docs/Glossary/Fetch_directive)</td>
+      <th scope="row">Direktivtyp</th>
+      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
         <p>
           Ja.
-          Wenn diese Richtlinie nicht vorhanden ist, sucht der User-Agent nach der {{CSP("style-src")}}-Richtlinie, und wenn beide fehlen, wird auf die <code>default-src</code>-Richtlinie zurückgegriffen.
+          Wenn diese Direktive fehlt, wird der User-Agent nach der {{CSP("style-src")}}-Direktive suchen, und wenn beide fehlen, auf die <code>default-src</code>-Direktive zurückgreifen.
         </p>
       </td>
     </tr>
@@ -35,7 +35,7 @@ Die Richtlinie legt keine gültigen Quellen für Inline-Style-Attribute fest; di
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `style-src-elem`-Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `style-src-elem`-Richtlinie erlaubt sein:
 
 ```http
 Content-Security-Policy: style-src-elem <source>;
@@ -51,21 +51,21 @@ Content-Security-Policy: style-src-elem <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in den [CSP-Quellenwerten](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+`<source>` kann einer der Werte aus [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) sein.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Richtlinien](/de/docs/Glossary/fetch_directive) verwendet werden kann (und in einer [Anzahl anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)).
+Beachten Sie, dass dasselbe Set von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstoßfälle
 
-Angenommen, dieser CSP-Header ist gegeben:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: style-src-elem https://example.com/
 ```
 
-…die folgenden Stylesheets werden blockiert und nicht geladen:
+…werden die folgenden Stylesheets blockiert und nicht geladen:
 
 ```html
 <link href="https://not-example.com/styles/main.css" rel="stylesheet" />
@@ -81,7 +81,7 @@ Content-Security-Policy: style-src-elem https://example.com/
 </style>
 ```
 
-…sowie Styles, die mit dem {{HTTPHeader("Link")}}-Header geladen werden:
+…sowie Styles, die unter Verwendung des {{HTTPHeader("Link")}}-Headers geladen werden:
 
 ```http
 Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet

@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte Nummernlisten in SVG
+## SVG animierte Zahlenlisten-Schnittstelle
 
-Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen annehmen und animiert werden können.
+Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen erfordern und animiert werden können.
 
-### Übersicht über die Schnittstelle
+### Schnittstellenübersicht
 
 <table class="standard-table">
   <tbody>
@@ -50,16 +50,16 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Li
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SVGAnimatedNumberList.baseVal`](/de/docs/Web/API/SVGAnimatedNumberList/baseVal) {{ReadOnlyInline}}
-  - : Eine [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den Basiswert des angegebenen Attributs vor Anwendung von Animationen darstellt.
+  - : Eine [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
 - [`SVGAnimatedNumberList.animVal`](/de/docs/Web/API/SVGAnimatedNumberList/animVal) {{ReadOnlyInline}}
-  - : Eine schreibgeschützte [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) die gleichen Inhalte wie `baseVal`. Das von `animVal` referenzierte Objekt wird immer von demjenigen, das von `baseVal` referenziert wird, verschieden sein, auch wenn das Attribut nicht animiert ist.
+  - : Eine schreibgeschützte [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den aktuell animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) denselben Inhalt wie `baseVal`. Das von `animVal` referenzierte Objekt wird immer von dem durch `baseVal` referenzierten Objekt verschieden sein, selbst wenn das Attribut nicht animiert ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Die `SVGAnimatedNumberList`-Schnittstelle bietet keine speziellen Methoden.
+Die `SVGAnimatedNumberList`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

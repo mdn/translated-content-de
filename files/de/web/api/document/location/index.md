@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.location`** schreibgeschützte Eigenschaft gibt ein
-[`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über die URL des Dokuments enthält und Methoden bietet, um diese URL zu ändern und eine andere URL zu laden.
+Die **`Document.location`**-Schreibgeschützte-Eigenschaft gibt ein
+[`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über die URL des Dokuments
+enthält und Methoden zum Ändern dieser URL und zum Laden einer anderen URL bietet.
 
-Obwohl `Document.location` ein _schreibgeschütztes_ `Location`
-Objekt ist, können Sie ihm auch einen String zuweisen. Dies bedeutet, dass Sie mit document.location in den meisten Fällen arbeiten können, als ob es sich um einen String handeln würde: `document.location = 'http://www.example.com'` ist ein Synonym für
+Obwohl `Document.location` ein _schreibgeschütztes_ `Location`-
+Objekt ist, können Sie ihm auch einen String zuweisen. Das bedeutet, dass Sie
+mit `document.location` in den meisten Fällen so arbeiten können, als wäre es ein String:
+`document.location = 'http://www.example.com'` ist ein Synonym für
 `document.location.href = 'http://www.example.com'`. Wenn Sie ihm einen anderen
-String zuweisen, wird der Browser die zugewiesene Webseite laden.
+String zuweisen, lädt der Browser die zugewiesene Website.
 
-Um nur die URL als String abzurufen, kann auch die schreibgeschützte [`document.URL`](/de/docs/Web/API/Document/URL)
+Um die URL als String zurückzugeben, kann auch die schreibgeschützte [`document.URL`](/de/docs/Web/API/Document/URL)-
 Eigenschaft verwendet werden.
 
 Wenn sich das aktuelle Dokument nicht in einem Browsing-Kontext befindet, ist der zurückgegebene Wert
@@ -44,5 +47,5 @@ console.log(document.location);
 ## Siehe auch
 
 - Die Schnittstelle des zurückgegebenen Wertes, [`Location`](/de/docs/Web/API/Location)
-- Ähnliche Informationen, jedoch im Zusammenhang mit dem [Browsing-Kontext](/de/docs/Glossary/browsing_context),
+- Ähnliche Informationen, jedoch angehängt an den [Browsing-Kontext](/de/docs/Glossary/browsing_context),
   [`Window.location`](/de/docs/Web/API/Window/location)

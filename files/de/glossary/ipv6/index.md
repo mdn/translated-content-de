@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**IPv6** ist die aktuelle Version des Kommunikations[protokolls](/de/docs/Glossary/protocol), das dem [Internet](/de/docs/Glossary/Internet) zugrunde liegt. Langsam ersetzt IPv6 [IPv4](/de/docs/Glossary/IPv4), unter anderem weil IPv6 viele verschiedene [IP-Adressen](/de/docs/Glossary/IP_address) ermöglicht.
+**IPv6** ist die aktuelle Version des Kommunikations-[Protokolls](/de/docs/Glossary/protocol), das das [Internet](/de/docs/Glossary/Internet) unterstützt. Allmählich ersetzt IPv6 [IPv4](/de/docs/Glossary/IPv4), unter anderem, weil IPv6 viele verschiedene [IP-Adressen](/de/docs/Glossary/IP_address) ermöglicht.
 
 ## Siehe auch
 

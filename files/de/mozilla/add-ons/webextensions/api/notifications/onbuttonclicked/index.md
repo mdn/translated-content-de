@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiviert ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -37,7 +37,7 @@ Ereignisse haben drei Funktionen:
     - `notificationId`
       - : `string`. ID der Benachrichtigung, deren Schaltfläche angeklickt wurde.
     - `buttonIndex`
-      - : `integer`. Der [nullbasierte](https://en.wikipedia.org/wiki/Zero-based_numbering) Index der Schaltfläche, die geklickt wurde.
+      - : `integer`. Der [nullbasierte](https://en.wikipedia.org/wiki/Zero-based_numbering) Index der Schaltfläche, die angeklickt wurde.
 
 ## Browser-Kompatibilität
 

@@ -8,23 +8,25 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`relayProtocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das von einem lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten genutzt wird, um mit dem [TURN](/de/docs/Glossary/TURN)-Server zu kommunizieren.
+Die **`relayProtocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das von einem lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten verwendet wird, um mit dem [TURN](/de/docs/Glossary/TURN)-Server zu kommunizieren.
 
-Das ICE-Protokoll, das sonst von dem Kandidaten verwendet wird, kann aus der [`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol)-Eigenschaft abgerufen werden.
+Das ansonsten von dem Kandidaten verwendete ICE-Protokoll kann von der
+[`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol)-Eigenschaft abgeleitet werden.
 
 ## Wert
 
-Ein String, der das Protokoll identifiziert, das vom Endpunkt zur Kommunikation mit dem TURN-Server verwendet wird. Die möglichen Werte sind:
+Ein String, der das Protokoll angibt, das von dem Endpunkt zur Kommunikation mit dem TURN-Server verwendet wird. Die möglichen Werte sind:
 
 - `tcp`
-  - : TCP (Transport Control Protocol) wird zur Kommunikation mit dem TURN-Server verwendet.
+  - : TCP (Transport Control Protocol) wird verwendet, um mit dem TURN-Server zu kommunizieren.
 - `tls`
-  - : TLS (Transport Layer Security) wird zur Kommunikation mit dem TURN-Server verwendet.
+  - : TLS (Transport Layer Security) wird verwendet, um mit dem TURN-Server zu kommunizieren.
 - `udp`
-  - : UDP (User Datagram Protocol) wird zur Kommunikation mit dem TURN-Server verwendet.
+  - : UDP (User Datagram Protocol) wird verwendet, um mit dem TURN-Server zu kommunizieren.
 
 > [!NOTE]
-> Diese Eigenschaft ist nur in [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Objekten vorhanden, die lokale Kandidaten darstellen.
+> Diese Eigenschaft ist nur auf
+> [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Objekten vorhanden, die lokale Kandidaten repräsentieren.
 
 ## Spezifikationen
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`getSetCookie()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces gibt ein Array zurück, das die Werte aller {{httpheader("Set-Cookie")}}-Header enthält, die mit einer Antwort verknüpft sind. Dies ermöglicht es [`Headers`](/de/docs/Web/API/Headers)-Objekten, mehrere `Set-Cookie`-Header zu handhaben, was vor der Implementierung dieser Methode nicht möglich war.
+Die **`getSetCookie()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle gibt ein Array zurück, das die Werte aller `Set-Cookie`-Header enthält, die mit einer Antwort verknüpft sind. Dadurch können [`Headers`](/de/docs/Web/API/Headers)-Objekte mit mehreren `Set-Cookie`-Headern umgehen, was vor der Implementierung dieser Methode nicht möglich war.
 
-Diese Methode ist für den Einsatz in Serverumgebungen gedacht (zum Beispiel Node.js). Browser blockieren JavaScript-Code im Frontend, um auf den {{httpheader("Set-Cookie")}}-Header zuzugreifen, wie es die Fetch-Spezifikation vorschreibt, die `Set-Cookie` als [verbotenen Antwort-Header-Namen](https://fetch.spec.whatwg.org/#forbidden-response-header-name) definiert, der [herausgefiltert werden muss](https://fetch.spec.whatwg.org/#ref-for-forbidden-response-header-name%E2%91%A0) von jeder Antwort, die Frontend-Code ausgesetzt wird.
+Diese Methode ist für die Verwendung in Serverumgebungen (zum Beispiel Node.js) gedacht. Browser blockieren JavaScript-Code im Frontend daran, auf den {{httpheader("Set-Cookie")}}-Header zuzugreifen, wie es von der Fetch-Spezifikation gefordert wird, die `Set-Cookie` als [verbotenen Antwort-Header-Namen](https://fetch.spec.whatwg.org/#forbidden-response-header-name) definiert, der [aus jeder Antwort, die dem Frontend-Code ausgesetzt ist, herausgefiltert werden muss](https://fetch.spec.whatwg.org/#ref-for-forbidden-response-header-name%E2%91%A0).
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Falls keine `Set-Cookie`-Header gesetzt sind, gibt die Methode ein leeres Array 
 
 ## Beispiele
 
-Wie oben angedeutet, wird ein Code, der wie folgt im Client ausgeführt wird, keine Ergebnisse liefern – `Set-Cookie` wird aus den im Netzwerk abgerufenen [`Headers`](/de/docs/Web/API/Headers) herausgefiltert.
+Wie bereits oben angedeutet, wird das Ausführen von Code wie dem folgenden auf dem Client keine Ergebnisse zurückgeben – `Set-Cookie` wird aus den über das Netzwerk abgerufenen [`Headers`](/de/docs/Web/API/Headers) herausgefiltert.
 
 ```js
 fetch("https://example.com").then((response) => {
@@ -39,7 +39,7 @@ fetch("https://example.com").then((response) => {
 });
 ```
 
-Das Folgende könnte jedoch verwendet werden, um mehrere `Set-Cookie`-Werte abzufragen. Dies ist auf dem Server viel nützlicher, würde aber auch auf dem Client funktionieren.
+Jedoch könnte Folgendes verwendet werden, um mehrere `Set-Cookie`-Werte abzufragen. Dies ist auf dem Server viel nützlicher, würde aber auch auf dem Client funktionieren.
 
 ```js
 const headers = new Headers({

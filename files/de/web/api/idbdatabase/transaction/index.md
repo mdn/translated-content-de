@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`transaction`** Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Schnittstelle gibt sofort ein Transaktionsobjekt ([`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) zurück, das die Methode [`IDBTransaction.objectStore`](/de/docs/Web/API/IDBTransaction/objectStore) enthält, mit der Sie auf Ihren Objekt-Store zugreifen können.
+Die **`transaction`** Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) Schnittstelle gibt sofort ein Transaktionsobjekt ([`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) zurück. Dieses enthält die Methode [`IDBTransaction.objectStore`](/de/docs/Web/API/IDBTransaction/objectStore), die Sie verwenden können, um auf Ihren Objektspeicher zuzugreifen.
 
 ## Syntax
 
@@ -22,8 +22,8 @@ transaction(storeNames, mode, options)
 
 - `storeNames`
 
-  - : Die Namen der Objekt-Stores, die im Bereich der neuen Transaktion liegen, angegeben als ein Array von Zeichenfolgen. Geben Sie nur die Objekt-Stores an, auf die Sie zugreifen müssen.
-    Wenn Sie nur auf einen Objekt-Store zugreifen müssen, können Sie seinen Namen als Zeichenfolge angeben.
+  - : Die Namen der Objektspeicher, die im Geltungsbereich der neuen Transaktion liegen. Diese werden als ein Array von Strings angegeben. Geben Sie nur die Objektspeicher an, auf die Sie zugreifen müssen.
+    Wenn Sie nur auf einen Objektspeicher zugreifen müssen, können Sie dessen Namen als String angeben.
     Daher sind die folgenden Zeilen gleichwertig:
 
     ```js
@@ -31,13 +31,13 @@ transaction(storeNames, mode, options)
     db.transaction("my-store-name");
     ```
 
-    Wenn Sie auf alle Objekt-Stores in der Datenbank zugreifen müssen, können Sie die Eigenschaft [`IDBDatabase.objectStoreNames`](/de/docs/Web/API/IDBDatabase/objectStoreNames) verwenden:
+    Wenn Sie auf alle Objektspeicher in der Datenbank zugreifen müssen, können Sie die Eigenschaft [`IDBDatabase.objectStoreNames`](/de/docs/Web/API/IDBDatabase/objectStoreNames) verwenden:
 
     ```js
     const transaction = db.transaction(db.objectStoreNames);
     ```
 
-    Ein leeres Array zu übergeben, führt zu einer Ausnahme.
+    Das Übergeben eines leeren Arrays wirft eine Ausnahme.
 
 - `mode` {{optional_inline}}
 
@@ -45,31 +45,31 @@ transaction(storeNames, mode, options)
     Transaktionen werden in einem von drei Modi geöffnet:
 
     - `readonly`
-      - : Öffnen Sie eine Transaktion zum Lesen aus einem Objekt-Store. Dies ist der Standardmodus.
+      - : Öffnet eine Transaktion zum Lesen aus einem Objektspeicher. Dies ist der Standardmodus.
     - `readwrite`
-      - : Öffnen Sie eine Transaktion sowohl zum Lesen als auch zum Schreiben aus einem Objekt-Store.
-        Dies sollte nur verwendet werden, wenn Sie in die Datenbank schreiben müssen.
+      - : Öffnet eine Transaktion sowohl zum Lesen als auch zum Schreiben aus einem Objektspeicher.
+        Dies sollte nur verwendet werden, wenn in die Datenbank geschrieben werden muss.
     - `readwriteflush` {{non-standard_inline}} {{experimental_inline}}
-      - : Erzwingt, dass eine Transaktion auf die Festplatte geschrieben wird, bevor das `complete` Ereignis geliefert wird.
-        Dies kann verwendet werden, um kritische Daten zu speichern, die später nicht mehr berechnet werden können.
+      - : Erzwingt, dass eine Transaktion vor dem Ausliefern des `complete`-Ereignisses auf die Festplatte geschrieben wird.
+        Dies könnte zum Speichern kritischer Daten verwendet werden, die später nicht mehr neu berechnet werden können.
 
 - `options` {{optional_inline}}
 
-  - : Objekt, das zusätzliche Optionen definiert, einschließlich:
+  - : Ein Objekt, das zusätzliche Optionen definiert, einschließlich:
 
     - `durability`
 
-      - : Einer der drei unten aufgeführten String-Literal-Werte:
+      - : Einer der drei string-literal Werte unten:
 
         - `"strict"`
-          - : Der Nutzer-Agent kann berücksichtigen, dass die Transaktion erfolgreich abgeschlossen wurde, nur nachdem alle ausstehenden Änderungen erfolgreich auf ein dauerhaftes Speichermedium geschrieben wurden.
-            Dies wird empfohlen, wenn das Risiko von Datenverlust größer ist als die Auswirkungen auf Leistung und Stromverbrauch (im Vergleich zu `relaxed`).
+          - : Der Benutzeragent kann der Meinung sein, dass die Transaktion nur dann erfolgreich abgeschlossen wurde, wenn alle ausstehenden Änderungen erfolgreich auf ein permanentes Speichermedium geschrieben wurden.
+            Dies wird empfohlen, wenn das Risiko eines Datenverlusts die Leistungsauswirkungen und den Stromverbrauch überwiegt (im Vergleich zu `relaxed`).
         - `"relaxed"`
-          - : Der Nutzer-Agent kann berücksichtigen, dass die Transaktion erfolgreich abgeschlossen wurde, sobald alle ausstehenden Änderungen auf das Betriebssystem geschrieben wurden, ohne nachträgliche Überprüfung.
-            Dies bietet eine bessere Leistung als `strict` und wird für kurzlebige Daten wie Caches oder sich schnell ändernde Datensätze empfohlen.
+          - : Der Benutzeragent kann der Meinung sein, dass die Transaktion erfolgreich abgeschlossen wurde, sobald alle ausstehenden Änderungen in das Betriebssystem geschrieben wurden, ohne nachfolgende Überprüfung.
+            Dies bietet eine bessere Leistung als `strict` und wird für kurzlebige Daten wie Cache oder sich schnell ändernde Datensätze empfohlen.
         - `"default"`
-          - : Der Nutzer-Agent sollte sein Standardverhalten für die Haltbarkeit des Speicherbereichs verwenden.
-            Dies ist der Standard für Transaktionen, wenn nichts anderes angegeben ist.
+          - : Der Benutzeragent sollte sein Standardverhalten zur Haltbarkeit für den Speicherbereich verwenden.
+            Dies ist der Standard für Transaktionen, wenn nicht anders angegeben.
 
 ### Rückgabewert
 
@@ -78,18 +78,18 @@ Ein [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Objekt.
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Methode [`close()`](/de/docs/Web/API/IDBDatabase/close) zuvor bei dieser [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) Instanz aufgerufen wurde.
+  - : Wird ausgelöst, wenn die Methode [`close()`](/de/docs/Web/API/IDBDatabase/close) zuvor auf dieser Instanz von [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) aufgerufen wurde.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein in 'storeNames' angegebener Objekt-Store gelöscht oder entfernt wurde.
+  - : Wird ausgelöst, wenn ein im 'storeNames'-Parameter angegebenes Objektspeicher gelöscht oder entfernt wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der Wert für den `mode` Parameter ungültig ist.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Funktion mit einer leeren Liste von Store-Namen aufgerufen wurde.
+  - : Wird ausgelöst, wenn die Funktion mit einer leeren Liste von Objektspeichernamen aufgerufen wurde.
 
 ## Beispiele
 
-In diesem Beispiel öffnen wir eine Datenbankverbindung und verwenden dann `transaction()`, um eine Transaktion in der Datenbank zu öffnen.
-Für ein vollständiges Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+In diesem Beispiel öffnen wir eine Datenbankverbindung und verwenden dann `transaction()`, um eine Transaktion für die Datenbank zu öffnen.
+Für ein vollständiges Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 let db;
@@ -143,7 +143,7 @@ const objectStore = transaction.objectStore("toDoList");
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

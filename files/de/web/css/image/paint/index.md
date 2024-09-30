@@ -15,24 +15,24 @@ Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 paint(workletName, ...parameters)
 ```
 
-wo:
+wobei:
 
 - _workletName_
   - : Der Name des registrierten Worklets.
 - _parameters_
-  - : Optionale zusätzliche Parameter, die an das paintWorklet übergeben werden
+  - : Optionale zusätzliche Parameter, die dem paintWorklet übergeben werden
 
 ## Beispiele
 
 ### Grundlegendes Anwendungsbeispiel
 
-In JavaScript registrieren wir das [Paint Worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
+In JavaScript registrieren wir das [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
 
 ```js
 CSS.paintWorklet.addModule("boxbg.js");
 ```
 
-...dann definieren wir im CSS das `background-image` als einen `paint()` Typ mit dem Worklet-Namen `boxbg` sowie alle Variablen (z. B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
+... dann definieren wir im CSS das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen, `boxbg`, zusammen mit allen Variablen (z.B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
 
 ```css
 li {
@@ -49,13 +49,13 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Das Ergebnis ist folgendes:
+Das Ergebnis wird folgendes sein:
 
 {{EmbedGHLiveSample("css-examples/houdini/css_painting_api/example-boxbg.html", '100%', 400)}}
 
 ### Mit zusätzlichen Parametern
 
-Sie können zusätzliche Argumente über die CSS paint() Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben: ob das `background-image` einer Gruppe von Listenelementen gefüllt ist oder nur eine Umrisslinie hat und die Breite dieser Linie:
+Sie können zusätzliche Argumente über die CSS paint() Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben: Ob das `background-image` einer Gruppe von Listenelementen gefüllt ist oder nur einen Konturumriss hat, und die Breite dieses Umrisses:
 
 ```html hidden
 <ul>
@@ -105,7 +105,7 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock hinzugefügt, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
+Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock eingefügt, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
 
 {{EmbedLiveSample("Mit zusätzlichen Parametern", 300, 300)}}
 

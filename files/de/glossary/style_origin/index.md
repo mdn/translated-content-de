@@ -7,16 +7,16 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [CSS](/de/docs/Glossary/CSS) gibt es drei Kategorien von Quellen für Stiländerungen. Diese Kategorien werden als **style origins** bezeichnet. Sie sind die **user agent origin**, **user origin** und die **author origin**.
+In [CSS](/de/docs/Glossary/CSS) gibt es drei Kategorien von Quellen für Stiländerungen. Diese Kategorien werden als **Style Origins** bezeichnet. Sie sind der **User Agent Origin**, **User Origin** und der **Author Origin**.
 
-- User-agent origin
-  - : Die user-agent origin ist die Stilquelle, die aus den Standardstilen besteht, die vom Webbrowser des Benutzers verwendet werden. Wenn keine anderen Stile auf den Inhalt angewendet werden, werden beim Rendern von Elementen die Stile der user-agent origin verwendet.
-- User origin
-  - : Die user origin ist die Stilquelle, die alle CSS-Stile enthält, die der Benutzer des Webbrowsers hinzugefügt hat. Diese können von hinzugefügten Stilen über ein Entwickler-Tool stammen oder von einer Browser-Erweiterung, die automatisch benutzerdefinierte Stile auf den Inhalt anwendet, wie z.B. [Stylus](https://add0n.com/stylus.html) oder [Stylish](https://userstyles.org/).
-- Author origin
-  - : Die author origin ist die Stilquelle, die alle Stile enthält, die Teil des Dokuments sind, sei es innerhalb des [HTML](/de/docs/Glossary/HTML) eingebettet oder aus einer externen Stylesheet-Datei geladen.
+- User-agent Origin
+  - : Der User Agent Origin ist die Stilquelle, die aus den Standardstilen besteht, die der Webbrowser des Benutzers verwendet. Wenn keine anderen Stile auf den Inhalt angewendet werden, werden die Stile des User Agent Origin während des Renderns von Elementen verwendet.
+- User Origin
+  - : Der User Origin ist die Stilquelle, die alle CSS-Elemente enthält, die der Benutzer des Webbrowsers hinzugefügt hat. Diese können durch das Hinzufügen von Stilen über ein Entwicklertool oder durch eine Browsererweiterung, die automatisch benutzerdefinierte Stile auf Inhalte anwendet, wie [Stylus](https://add0n.com/stylus.html) oder [Stylish](https://userstyles.org/), stammen.
+- Author Origin
+  - : Der Author Origin ist die Stilquelle, die alle Stile enthält, die Teil des Dokuments sind, entweder eingebettet in das [HTML](/de/docs/Glossary/HTML) oder geladen aus einer externen Stylesheet-Datei.
 
-Die style origins werden verwendet, um zu bestimmen, wo mit dem Zurücksetzen (oder Zurückverfolgen) der Kaskade von Stilen, die auf ein Element angewendet wurden, aufgehört wird, wenn Stile entfernt werden, wie beim Verwenden der {{cssxref("unset")}} oder {{cssxref("revert")}} Schlüsselwörter.
+Die Stilquellen werden verwendet, um festzulegen, bis wohin das Zurückrollen (oder das Zurückverfolgen) des Styles-Cascades geht, das auf ein Element angewendet wurde, wenn Stile entfernt werden, wie zum Beispiel bei der Verwendung der {{cssxref("unset")}} oder {{cssxref("revert")}} Schlüsselwörter.
 
 ## Siehe auch
 

@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-padding-block`-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Block-Dimension.
+Die `scroll-padding-block` [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Block-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-block.html")}}
 
-Die `scroll-padding`-Eigenschaften definieren Abstände für den _optimalen Anzeigebereich_ des Scrollports: der Bereich, der als Zielbereich für das Platzieren von Inhalten im Sichtfeld des Benutzers verwendet wird. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die von anderen Inhalten (wie beispielsweise fixierten Werkzeug- oder Seitenleisten) verdeckt werden, oder mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
+Die `scroll-padding` Eigenschaften definieren Offsets für den _optimalen Ansichtsbereich_ des Scrollports: den Bereich, der als Zielregion dient, um Elemente für den Benutzer sichtbar zu machen. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z. B. fest positionierte Symbolleisten oder Seitenleisten) oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-## Bestandteile
+## Einzelbestandteile
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -42,9 +42,9 @@ scroll-padding-block: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand vom entsprechenden Rand des Scrollports, als gültige Länge oder Prozentwert.
+  - : Ein nach innen gerichtetes Offset vom entsprechenden Rand des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Abstand wird vom Benutzer-Agent bestimmt. Dies ist in der Regel 0px, jedoch kann ein Benutzer-Agent auch einen anderen Wert festlegen, wenn dieser angemessener ist.
+  - : Das Offset wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein anderer Wert angemessener ist.
 
 ## Formale Definition
 

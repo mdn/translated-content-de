@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:trailing()` gibt die Knoten in einer Knotenmenge zurück, die nach dem ersten Knoten in der anderen Knotenmenge kommen.
+`set:trailing()` gibt die Knoten in einem Knoten-Set zurück, die nach dem ersten Knoten in dem anderen Knoten-Set vorkommen.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ set:trailing(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Die Knotenmenge, um Knoten zu finden, die dem ersten Knoten in der zweiten Knotenmenge folgen.
+  - : Das Knoten-Set, in dem nach Knoten gesucht wird, die dem ersten Knoten im zweiten Knoten-Set folgen.
 - `nodeSet2`
-  - : Die Knotenmenge, mit der verglichen wird.
+  - : Das Knoten-Set, gegen das verglichen wird.
 
 ### Rückgabewert
 
-Eine Knotenmenge, die die Knoten aus `nodeSet1` enthält, deren Werte nach dem ersten Knoten in `nodeSet2` folgen.
+Ein Knoten-Set, das die Knoten aus `nodeSet1` enthält, deren Werte dem ersten Knoten in `nodeSet2` folgen.
 
 > [!NOTE]
-> Wenn der erste Knoten in `nodeSet2` nicht in `nodeSet1` enthalten ist, wird eine leere Menge zurückgegeben. Wenn `nodeSet2` leer ist, ist das Ergebnis `nodeSet1`.
+> Wenn der erste Knoten in `nodeSet2` nicht in `nodeSet1` enthalten ist, wird ein leeres Set zurückgegeben. Wenn `nodeSet2` leer ist, dann ist das Ergebnis `nodeSet1`.
 
 ## Spezifikationen
 

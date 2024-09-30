@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{securecontext_header}}
 
-Die `GamepadEvent`-Schnittstelle der Gamepad API enthält Referenzen zu Gamepads, die mit dem System verbunden sind. Dies ist der Auslöser für die Gamepad-Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event).
+Die `GamepadEvent`-Schnittstelle der Gamepad-API enthält Referenzen auf Gamepads, die mit dem System verbunden sind. Dies ist der Grund, warum die Gamepad-Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) als Reaktion darauf ausgelöst werden.
 
 {{InheritanceDiagram}}
 
@@ -16,14 +16,14 @@ Die `GamepadEvent`-Schnittstelle der Gamepad API enthält Referenzen zu Gamepads
 - [`GamepadEvent()`](/de/docs/Web/API/GamepadEvent/GamepadEvent)
   - : Gibt ein neues `GamepadEvent`-Objekt zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`GamepadEvent.gamepad`](/de/docs/Web/API/GamepadEvent/gamepad) {{ReadOnlyInline}}
-  - : Gibt ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt zurück, das Zugriff auf die zugehörigen Gamepad-Daten für das ausgelöste Ereignis bietet.
+  - : Gibt ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt zurück, das Zugriff auf die zugehörigen Gamepad-Daten des ausgelösten Ereignisses bietet.
 
 ## Beispiele
 
-Die `gamepad`-Eigenschaft, die auf einem ausgelösten [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis aufgerufen wird.
+Die `gamepad`-Eigenschaft, die bei einem ausgelösten [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis aufgerufen wird.
 
 ```js
 window.addEventListener("gamepadconnected", (e) => {
@@ -37,7 +37,7 @@ window.addEventListener("gamepadconnected", (e) => {
 });
 ```
 
-Und auf einem [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)-Ereignis.
+Und bei einem [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) Ereignis.
 
 ```js
 window.addEventListener("gamepaddisconnected", (e) => {
@@ -59,4 +59,4 @@ window.addEventListener("gamepaddisconnected", (e) => {
 
 ## Siehe auch
 
-[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Nutzung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Rufen Sie diese Funktion auf, um den Inhalt des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, wird dem Benutzer das Druckdialogfeld der zugrunde liegenden Plattform angezeigt, und er hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den aktuell aktiven Tab zu drucken.
+Rufen Sie diese Funktion auf, um den Inhalt des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, wird dem Benutzer das Druckdialogfeld der zugrunde liegenden Plattform angezeigt, und er hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den derzeit aktiven Tab zu drucken.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel hört ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) und versucht dann, den aktuell aktiven Tab zu drucken:
+In diesem Beispiel hört ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), um dann zu versuchen, den aktuell aktiven Tab zu drucken:
 
 ```js
 browser.browserAction.onClicked.addListener(() => {

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`presentationArea`**-Eigenschaft der [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Schnittstelle, die nur gelesen werden kann, gibt das [`Element`](/de/docs/Web/API/Element) zurück, in dem das Rendern von Tintenstrichen beschränkt ist.
+Die schreibgeschützte Eigenschaft **`presentationArea`** des [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, innerhalb dessen die Darstellung von Tintenstrichen beschränkt ist.
 
-Wenn der vorhergehende Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische Definition eines `presentationArea`-Elements enthielt, wird dieses Element zurückgegeben. Andernfalls wird der Standard zurückgegeben, was der umgebende Viewport ist.
+Falls der vorherige Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische Definition des `presentationArea`-Elements enthielt, wird dieses Element zurückgegeben. Andernfalls wird der Standardwert zurückgegeben, was der enthaltene Viewport ist.
 
-Dieser Bereich bezieht sich immer auf die Client-Koordinaten der Rahmenbox des Elements, sodass das Verschieben oder Scrollen des Elements keine Neuberechnung seitens des Entwicklers erfordert.
+Dieser Bereich entspricht immer den Client-Koordinaten für den Randbereich des Elements, sodass beim Verschieben oder Scrollen des Elements keine Neuberechnung durch den Entwickler erforderlich ist.
 
 ### Wert
 
@@ -40,4 +40,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Verbesserung des Tintens auf dem Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung der Tintenfunktionalität im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

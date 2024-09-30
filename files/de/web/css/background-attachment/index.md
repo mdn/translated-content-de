@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-attachment`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob die Position eines Hintergrundbildes innerhalb des [Ansichtsfensters](/de/docs/Glossary/viewport) fixiert ist oder mit seinem umgebenden Block scrollt.
+Die **`background-attachment`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Position eines Hintergrundbildes innerhalb des [Ansichtsfensters](/de/docs/Glossary/viewport) fest ist oder mit seinem umgebenden Block scrollt.
 
 {{EmbedInteractiveExample("pages/css/background-attachment.html")}}
 
@@ -27,16 +27,16 @@ background-attachment: revert-layer;
 background-attachment: unset;
 ```
 
-Die `background-attachment` Eigenschaft wird als einer der Schlüsselwortwerte aus der folgenden Liste angegeben.
+Die `background-attachment`-Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `fixed`
-  - : Der Hintergrund ist relativ zum Ansichtsfenster fixiert. Selbst wenn ein Element einen Bildlaufmechanismus hat, bewegt sich der Hintergrund nicht mit dem Element.
+  - : Der Hintergrund ist relativ zum Ansichtsfenster fixiert. Selbst wenn ein Element über einen Scrollmechanismus verfügt, bewegt sich der Hintergrund nicht mit dem Element.
 - `local`
-  - : Der Hintergrund ist relativ zum Inhalt des Elements fixiert. Wenn das Element einen Bildlaufmechanismus hat, scrollt der Hintergrund mit dem Inhalt des Elements, und der Hintergrund-Malbereich und der Hintergrund-Positionierungsbereich sind relativ zum scrollbaren Bereich des Elements anstatt zum Rahmen, der sie umgibt.
+  - : Der Hintergrund ist relativ zum Inhalt des Elements fixiert. Wenn das Element einen Scrollmechanismus hat, scrollt der Hintergrund mit dem Inhalt des Elements. Der Bereich für die Hintergrundmalerei und der Hintergrundpositionierungsbereich sind relativ zum scrollbaren Bereich des Elements und nicht zur den Rahmen umgebenden Grenze.
 - `scroll`
-  - : Der Hintergrund ist relativ zum Element selbst fixiert und scrollt nicht mit dessen Inhalt. (Er ist effektiv am Rahmen des Elements angebracht.)
+  - : Der Hintergrund ist relativ zu dem Element selbst fixiert und scrollt nicht mit dem Inhalt. (Er ist effektiv an den Rahmen des Elements angeheftet.)
 
 ## Formale Definition
 
@@ -75,7 +75,7 @@ p {
 
 ### Mehrere Hintergrundbilder
 
-Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können ein unterschiedliches `<attachment>` für jedes Hintergrundbild angeben, getrennt durch Kommas. Jedes Bild wird mit dem entsprechenden `<attachment>`-Typ von zuerst spezifiziert bis zuletzt zugeordnet.
+Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können für jeden Hintergrund ein anderes `<attachment>` angeben, getrennt durch Kommata. Jedes Bild wird mit dem entsprechenden `<attachment>`-Typ von der zuerst angegebenen bis zur zuletzt angegebenen verknüpft.
 
 #### HTML
 

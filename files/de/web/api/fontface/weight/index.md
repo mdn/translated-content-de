@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`weight`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft das Gewicht der Schriftart ab oder setzt es.
+Die **`weight`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft das Gewicht der Schriftart ab oder legt es fest.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-weight", "font-weight")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält, wie er in der `@font-face`-Regel eines Stylesheets definiert würde.
+Ein String, der einen Deskriptor enthält, wie er in einer `@font-face`-Regel eines Stylesheets definiert würde.
 
 ## Spezifikationen
 

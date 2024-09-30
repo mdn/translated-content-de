@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`upperVerticalAngle`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle stellt den oberen vertikalen Winkel in Radiant für die Kugel dar.
+Die **`upperVerticalAngle`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den oberen vertikalen Winkel in Bogenmaß für die Kugel.
 
 ## Wert
 
-Eine Zahl, die den oberen vertikalen Winkel in Radiant für die Kugel repräsentiert. Wenn `upperVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird er auf -π/2 gesetzt, und Werte größer als π/2 werden auf π/2 gesetzt.
+Eine Zahl, die den oberen vertikalen Winkel in Bogenmaß für die Kugel darstellt. Wenn `upperVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird es auf -π/2 gesetzt, und wenn es auf einen Wert größer als π/2 gesetzt wird, wird es auf π/2 gesetzt.
 
 ## Beispiele
 
 ### Abrufen des oberen vertikalen Winkels eines Layers
 
-Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equireckte Ebene und ermöglicht das Festlegen eines `upperVerticalAngle`. Die Eigenschaft `XREquirectLayer.upperVerticalAngle` kann nach der Erstellung des Layers verwendet werden, um den verwendeten oberen vertikalen Winkel abzurufen oder ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equirektangulare Ebene und erlaubt das Festlegen eines `upperVerticalAngle`. Die Eigenschaft `XREquirectLayer.upperVerticalAngle` kann nach der Erstellung des Layers verwendet werden, um den verwendeten oberen vertikalen Winkel abzurufen oder ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({

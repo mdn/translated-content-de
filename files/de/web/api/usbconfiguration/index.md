@@ -7,21 +7,21 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die `USBConfiguration`-Schnittstelle der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet Informationen über eine bestimmte Konfiguration eines USB-Geräts und die Schnittstellen, die sie unterstützt.
+Das `USBConfiguration` Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert Informationen über eine bestimmte Konfiguration eines USB-Geräts und die Schnittstellen, die sie unterstützt.
 
 ## Konstruktor
 
 - [`USBConfiguration()`](/de/docs/Web/API/USBConfiguration/USBConfiguration) {{Experimental_Inline}}
-  - : Erstellt ein neues `USBConfiguration`-Objekt, das Informationen über die Konfiguration am bereitgestellten `USBDevice` mit dem angegebenen Konfigurationswert enthält.
+  - : Erstellt ein neues `USBConfiguration`-Objekt, das Informationen über die Konfiguration auf dem angegebenen `USBDevice` mit dem gegebenen Konfigurationswert enthält.
 
 ## Instanzeigenschaften
 
 - [`USBConfiguration.configurationValue`](/de/docs/Web/API/USBConfiguration/configurationValue) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Konfigurationswert dieser Konfiguration zurück. Dies entspricht dem [`bConfigurationValue`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des von dem Gerät definierten Konfigurationsdeskriptors, das diese Konfiguration beschreibt.
+  - : Gibt den Konfigurationswert dieser Konfiguration zurück. Dieser entspricht dem [`bConfigurationValue`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des vom Gerät bereitgestellten Konfigurationsdeskriptors, das diese Konfiguration definiert.
 - [`USBConfiguration.configurationName`](/de/docs/Web/API/USBConfiguration/configurationName) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Namen zurück, der von dem Gerät bereitgestellt wird, um diese Konfiguration zu beschreiben. Dies entspricht dem Wert des Zeichenfolgendeskriptors mit dem Index, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des Konfigurationsdeskriptors bereitgestellt wird, der diese Konfiguration definiert.
+  - : Gibt den vom Gerät bereitgestellten Namen zur Beschreibung dieser Konfiguration zurück. Dies entspricht dem Wert des Stringdeskriptors mit dem Index, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des den Konfiguration definierenden Konfigurationsdeskriptors bereitgestellt wird.
 - [`USBConfiguration.interfaces`](/de/docs/Web/API/USBConfiguration/interfaces) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Array zurück, das Instanzen der [`USBInterface`](/de/docs/Web/API/USBInterface) enthält und jede von dieser Konfiguration unterstützte Schnittstelle beschreibt.
+  - : Gibt ein Array zurück, das Instanzen der [`USBInterface`](/de/docs/Web/API/USBInterface) enthält, die jede von dieser Konfiguration unterstützte Schnittstelle beschreiben.
 
 ## Spezifikationen
 

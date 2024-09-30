@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Painting API")}}{{SeeCompatTable}}
 
-Die **`devicePixelRatio`** schreibgeschützte Eigenschaft der [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)-Schnittstelle gibt das aktuelle Verhältnis der physischen zu den logischen Pixeln des Geräts zurück.
+Die **`devicePixelRatio`** unveränderliche Eigenschaft des [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)-Interfaces gibt das aktuelle Verhältnis der physischen Pixel zu den logischen Pixeln des Geräts zurück.
 
 ## Wert
 
-Ein Gleitkomma-Integer mit doppelter Genauigkeit.
+Ein Gleitkomma-Doppelpräzisionswert (double-precision integer).
 
 ## Spezifikationen
 

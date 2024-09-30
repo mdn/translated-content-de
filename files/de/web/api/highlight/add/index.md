@@ -1,5 +1,5 @@
 ---
-title: "Highlight: add()-Methode"
+title: "Highlight: add() Methode"
 short-title: add()
 slug: Web/API/Highlight/add
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`add()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle fügt ein neues [`Range`](/de/docs/Web/API/Range)-Objekt zu einem Highlight hinzu, um mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt zu werden.
+Die **`add()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle fügt ein neues [`Range`](/de/docs/Web/API/Range)-Objekt einem Highlight hinzu, das mithilfe der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt werden soll.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.add()")}}.
+`Highlight` ist ein objektähnliches {{jsxref("Set")}}, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.add()")}}.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ add(range)
 ### Parameter
 
 - `range`
-  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das zum `Highlight` hinzugefügt werden soll.
+  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das dem `Highlight` hinzugefügt wird.
 
 ### Rückgabewert
 
-Das `Highlight`-Objekt, mit dem hinzugefügten Bereich.
+Das `Highlight`-Objekt mit dem hinzugefügten Bereich.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie zwei Bereiche zu einem neuen Highlight-Objekt hinzugefügt werden:
+Der folgende Codeausschnitt zeigt, wie man zwei Bereiche zu einem neuen Highlight-Objekt hinzufügt:
 
 ```js
 const highlight = new Highlight();

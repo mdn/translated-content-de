@@ -7,13 +7,13 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`EcdhKeyDeriveParams`** Dictionary des [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm` Parameter an [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) und [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits) übergeben werden sollte, wenn die [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh) oder [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519) Algorithmen verwendet werden.
+Das **`EcdhKeyDeriveParams`** Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm` Parameter in [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) und [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits) übergeben werden sollte, wenn die Algorithmen [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh) oder [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519) verwendet werden.
 
-ECDH ermöglicht es zwei Personen, die jeweils ein Schlüsselpaar aus einem öffentlichen und einem privaten Schlüssel besitzen, ein gemeinsames Geheimnis abzuleiten. Sie tauschen öffentliche Schlüssel aus und verwenden die Kombination aus ihrem privaten Schlüssel und dem öffentlichen Schlüssel der anderen Entität, um einen geheimen Schlüssel abzuleiten, den nur sie teilen.
+ECDH ermöglicht es zwei Personen, die jeweils ein Schlüsselpaar bestehend aus einem öffentlichen und einem privaten Schlüssel besitzen, ein gemeinsames Geheimnis abzuleiten. Sie tauschen öffentliche Schlüssel aus und verwenden die Kombination aus ihrem privaten Schlüssel und dem öffentlichen Schlüssel der anderen Entität, um einen geheimen Schlüssel abzuleiten, den nur sie — und niemand sonst — teilen.
 
 Die Parameter für ECDH `deriveKey()` beinhalten daher den öffentlichen Schlüssel der anderen Entität, der mit dem privaten Schlüssel dieser Entität kombiniert wird, um das gemeinsame Geheimnis abzuleiten.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - `name`
   - : Ein String.
@@ -31,7 +31,7 @@ Siehe die Beispiele für [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCry
 
 ## Browser-Kompatibilität
 
-Browser, die den "ECDH" oder "X25519" Algorithmus für die [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) Methode unterstützen, werden diesen Typ unterstützen.
+Browser, die den "ECDH" oder "X25519" Algorithmus für die [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) Methode unterstützen, werden diesen Typ ebenfalls unterstützen.
 
 ## Siehe auch
 

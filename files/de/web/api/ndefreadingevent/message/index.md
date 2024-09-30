@@ -16,7 +16,31 @@ Ein [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man eine praktische Funktion erstellt, die ein einziges Tag liest und dann das Abfragen stoppt, um die Batterielebensdauer zu verlängern, indem unnötige Arbeit vermieden wird. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden zu stoppen.
+Dieses Beispiel zeigt, wie eine praktische Funktion erstellt wird, die ein einzelnes Tag liest und dann die Abfrage stoppt, um die Akkulaufzeit zu verlängern, indem unnötige Arbeit reduziert wird. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden zu stoppen.
+
+```js
+const ndefReader = new NDEFReader();
+
+function read() {
+  return new Promise((resolve, reject) => {
+    const ctlr = new AbortController();
+    ctlr.signal.onabort = reject;
+    ndefReader.addEventListener(
+      "reading",
+      (event) => {
+        ctlr.abort();
+        resolve(event);
+      },
+      { once: true },
+    );
+    ndefReader.scan({ signal: ctlr.signal }).catch((err) => reject(err));
+  });
+}
+
+read().then(({ serialNumber }) => {
+  console.log(serialNumber);
+});
+```
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "WakeLockSentinel: release()-Methode"
+title: "WakeLockSentinel: release() Methode"
 short-title: release()
 slug: Web/API/WakeLockSentinel/release
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Die **`release()`**-Methode der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle gibt die [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) frei und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald das Sentinel erfolgreich freigegeben wurde.
+Die **`release()`**-Methode der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle gibt die [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) frei und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Sentinel erfolgreich freigegeben wurde.
 
 ## Syntax
 
@@ -26,11 +26,12 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit `undefined` aufgelöst wird.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen geworfen. Sie sollten immer auf das [`release`](/de/docs/Web/API/WakeLockSentinel/release_event)-Ereignis achten, um zu überprüfen, ob ein Wake Lock freigegeben wurde.
+Es werden keine Ausnahmen ausgelöst.
+Sie sollten immer auf das [`release`](/de/docs/Web/API/WakeLockSentinel/release_event) Ereignis hören, um zu überprüfen, ob ein Wachschutz freigegeben wurde.
 
 ## Beispiele
 
-In diesem Beispiel wird die [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) freigegeben, wenn ein Benutzer auf einen Button klickt.
+In diesem Beispiel wird der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) freigegeben, wenn ein Benutzer auf einen Knopf klickt.
 
 ```js
 wakeLockOffButton.addEventListener("click", () => {
@@ -48,4 +49,4 @@ wakeLockOffButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Wach bleiben mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)
+- [Bleiben Sie wach mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

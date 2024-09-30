@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse preceding-sibling zeigt alle Knoten an, die denselben Elternknoten wie der Kontextknoten haben und im Quelldokument vor dem Kontextknoten erscheinen.
+Die Axis `preceding-sibling` zeigt alle Knoten an, die denselben Elternknoten wie der Kontextknoten haben und im Quelldokument vor dem Kontextknoten erscheinen.

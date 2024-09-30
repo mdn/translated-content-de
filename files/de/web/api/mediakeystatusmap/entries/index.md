@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyStatusMap: entries()-Methode"
+title: "MediaKeyStatusMap: entries() Methode"
 short-title: entries()
 slug: Web/API/MediaKeyStatusMap/entries
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("Encrypted Media Extensions")}}
 
 Die **`entries()`**-Methode
-des [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Interfaces gibt ein neues Iterator-Objekt zurück,
-das ein Array von `[key, value]`-Paaren für jedes Element in der Status-Map in der Reihenfolge der Einfügung enthält.
+der [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) Schnittstelle gibt ein neues Iterator-Objekt zurück,
+das ein Array von \[key, value] Paaren für jedes Element in der Status-Map in der Reihenfolge ihrer Einfügung enthält.
 
 ## Syntax
 

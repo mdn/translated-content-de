@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySession: message Ereignis"
+title: "MediaKeySession: message-Ereignis"
 short-title: message
 slug: Web/API/MediaKeySession/message_event
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Das **`message`** Ereignis der
-[`MediaKeySession`](/de/docs/Web/API/MediaKeySession) Schnittstelle tritt auf, wenn eine Nachricht vom Inhaltsentschlüsselungsmodul generiert wird.
+Das **`message`**-Ereignis der
+[`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle wird ausgelöst, wenn eine Nachricht vom Inhaltsentschlüsselungsmodul generiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -30,9 +30,9 @@ Ein [`MediaKeyMessageEvent`](/de/docs/Web/API/MediaKeyMessageEvent). Erbt von [`
 ## Ereigniseigenschaften
 
 - [`MediaKeyMessageEvent.message`](/de/docs/Web/API/MediaKeyMessageEvent/message) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüsselsystem.
+  - : Gibt einen {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüssel-System.
 - [`MediaKeyMessageEvent.messageType`](/de/docs/Web/API/MediaKeyMessageEvent/messageType) {{ReadOnlyInline}}
-  - : Gibt den Typ der Nachricht an. Kann `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
+  - : Gibt den Nachrichtentyp an. Kann einer der folgenden Typen sein: `license-request`, `license-renewal`, `license-release` oder `individualization-request`.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "AudioData: AudioData()-Konstruktor"
+title: "AudioData: AudioData() Konstruktor"
 short-title: AudioData()
 slug: Web/API/AudioData/AudioData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioData()`**-Konstruktor erstellt ein neues [`AudioData`](/de/docs/Web/API/AudioData)-Objekt, das eine einzelne Audioprobe darstellt.
+Der **`AudioData()`** Konstruktor erstellt ein neues [`AudioData`](/de/docs/Web/API/AudioData)-Objekt, das eine einzelne Audioaufnahme repräsentiert.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ new AudioData(init)
 - `init`
   - : Ein Objekt, das Folgendes enthält:
     - `format`
-      - : Einer von:
+      - : Eine der folgenden Optionen:
         - "u8"
         - "s16"
         - "s32"
@@ -33,15 +33,15 @@ new AudioData(init)
     - `sampleRate`
       - : Eine Dezimalzahl, die die Abtastrate in Hz enthält.
     - `numberOfFrames`
-      - : Eine Ganzzahl, die die Anzahl der Frames in dieser Probe enthält.
+      - : Ein Ganzzahlwert, der die Anzahl der Frames in diesem Sample enthält.
     - `numberOfChannels`
-      - : Eine Ganzzahl, die die Anzahl der Kanäle in dieser Probe enthält.
+      - : Ein Ganzzahlwert, der die Anzahl der Kanäle in diesem Sample enthält.
     - `timestamp`
-      - : Eine Ganzzahl, die die Zeit der Daten in Mikrosekunden angibt.
+      - : Ein Ganzzahlwert, der die Zeit der Daten in Mikrosekunden angibt.
     - `data`
-      - : Ein typisiertes Array der Audiodaten für diese Probe.
+      - : Ein typisiertes Array der Audiodaten für dieses Sample.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `AudioData` abkoppeln und übernehmen wird. Wenn das Array den das `data` unterstützende {{jsxref("ArrayBuffer")}} enthält, wird `AudioData` diesen Puffer direkt verwenden, anstatt daraus zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `AudioData` abtrennen und in Besitz nehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `AudioData` diesen Puffer direkt verwenden, anstatt von ihm zu kopieren.
 
 ### Ausnahmen
 

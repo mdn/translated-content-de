@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`state`**-Eigenschaft des `RTCDataChannelStats`-Wörterbuchs gibt einen String zurück, der den [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) der zugrunde liegenden Datenverbindung des Datenkanals anzeigt: `connecting`, `open`, `closing` oder `closed`.
+Die **`state`**-Eigenschaft des `RTCDataChannelStats`-Dictionaries gibt einen String zurück, der den [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) der zugrunde liegenden Datenverbindung des Datenkanals angibt: `connecting`, `open`, `closing` oder `closed`.
 
 Beachten Sie, dass diese Eigenschaft erforderlich ist.
 
 ## Werte
 
-Ein String, der denselben Wert enthält wie die [`RTCDataChannel.readyState`](/de/docs/Web/API/RTCDataChannel/readyState) Eigenschaft des zugehörigen Datenkanals.
+Ein String, der den gleichen Wert wie die [`RTCDataChannel.readyState`](/de/docs/Web/API/RTCDataChannel/readyState) Eigenschaft des zugehörigen Datenkanals enthält.
 
 ## Spezifikationen
 

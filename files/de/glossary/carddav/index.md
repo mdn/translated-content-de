@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CardDAV** (vCard-Erweiterung zu [WebDAV](/de/docs/Glossary/WebDAV)) ist ein von der [IETF](/de/docs/Glossary/IETF) standardisiertes [Protokoll](/de/docs/Glossary/protocol), das verwendet wird, um Kontaktinformationen auf einem [Server](/de/docs/Glossary/server) fernzuzugreifen oder zu teilen.
+**CardDAV** (vCard-Erweiterung zu [WebDAV](/de/docs/Glossary/WebDAV)) ist ein von der [IETF](/de/docs/Glossary/IETF) standardisiertes [Protokoll](/de/docs/Glossary/protocol) und wird verwendet, um aus der Ferne auf Kontaktinformationen zuzugreifen oder diese über einen [Server](/de/docs/Glossary/server) zu teilen.
 
 ## Siehe auch
 

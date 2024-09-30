@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: src-Eigenschaft"
+title: "HTMLMediaElement: src Eigenschaft"
 short-title: src
 slug: Web/API/HTMLMediaElement/src
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.src`**-Eigenschaft spiegelt den Wert des `src`-Attributs des HTML-Medienelements wider, das die URL einer Medienressource angibt, die im Element verwendet werden soll.
+Die **`HTMLMediaElement.src`**-Eigenschaft spiegelt den Wert des `src`-Attributs des HTML-Medienelements wider, welches die URL einer zu verwendenden Medienressource im Element angibt.
 
 > [!NOTE]
-> Der beste Weg, um die URL der Medienressource zu ermitteln, die derzeit in diesem Element aktiv verwendet wird, besteht darin, den Wert des [`currentSrc`](/de/docs/Web/API/HTMLMediaElement/currentSrc)-Attributs zu betrachten. Dieses berücksichtigt auch die Auswahl einer besten oder bevorzugten Medienressource aus einer Liste, die in einem [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) bereitgestellt wird (welches ein {{HTMLElement("source")}}-Element repräsentiert).
+> Der beste Weg, die URL der aktuell in diesem Element verwendeten Medienressource zu erfahren, ist der Blick auf den Wert des [`currentSrc`](/de/docs/Web/API/HTMLMediaElement/currentSrc) Attributs. Dieses berücksichtigt auch die Auswahl einer besten oder bevorzugten Medienressource aus einer Liste, die in einem [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) angegeben wird (welches ein {{HTMLElement("source")}}-Element repräsentiert).
 
 ## Wert
 
-Ein String, der die URL einer Medienressource enthält, die im Element verwendet werden soll; diese Eigenschaft spiegelt den Wert des `src`-Attributs des HTML-Elements wider.
+Ein String, der die URL einer im Element zu verwendenden Medienressource enthält; diese Eigenschaft spiegelt den Wert des `src`-Attributs des HTML-Elements wider.
 
 ## Beispiele
 

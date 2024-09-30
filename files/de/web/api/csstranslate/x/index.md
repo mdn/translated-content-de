@@ -9,8 +9,7 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`x`**-Eigenschaft der
-[`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Schnittstelle ruft die Abszisse oder x-Achse des
-Übersetzungsvektors ab und setzt sie.
+[`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Schnittstelle erhält und setzt die Abszisse oder x-Achse des Übersetzungsvektors.
 
 ## Wert
 

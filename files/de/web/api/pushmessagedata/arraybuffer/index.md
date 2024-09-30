@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`arrayBuffer()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Nachrichtendaten als ein {{jsxref("ArrayBuffer")}}-Objekt.
+Die **`arrayBuffer()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData) Schnittstelle extrahiert Push-Nachrichtendaten als ein {{jsxref("ArrayBuffer")}}-Objekt.
 
 ## Syntax
 

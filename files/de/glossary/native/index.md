@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine _native_ Anwendung wurde kompiliert, um auf der Hardware-/Softwareumgebung zu laufen, die die Zielarchitektur bildet.
+Eine _native_ Anwendung wurde so kompiliert, dass sie auf der Hardware/Software-Umgebung läuft, die die Zielarchitektur bildet.
 
-Ein Beispiel für eine native Android-App wäre eine mobile Anwendung, die in Java mit der Android-Toolchain geschrieben ist.
+Ein Beispiel für eine native Android-App wäre eine mobile Anwendung, die in Java mit der Android-Toolkette geschrieben wurde.
 
-Andererseits ist eine Web-App, die in einem Browser läuft, nicht nativ — sie läuft im Webbrowser, der auf der nativen Umgebung sitzt, nicht in der nativen Umgebung selbst.
+Auf der anderen Seite ist eine Web-App, die in einem Browser läuft, nicht nativ — sie wird im Webbrowser ausgeführt, der auf der nativen Umgebung sitzt und nicht die native Umgebung selbst ist.
 
 ## Siehe auch
 

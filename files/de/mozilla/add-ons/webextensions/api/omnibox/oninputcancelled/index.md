@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer die Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
+Wird ausgelöst, wenn der Benutzer seine Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
 
 ## Syntax
 
@@ -17,16 +17,16 @@ browser.omnibox.onInputCancelled.removeListener(listener)
 browser.omnibox.onInputCancelled.hasListener(listener)
 ```
 
-Ereignisse verfügen über drei Funktionen:
+Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn ein Listener aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener syntax
+## AddListener-Syntax
 
 Der Listener-Funktion werden keine Parameter übergeben.
 
@@ -45,4 +45,4 @@ browser.omnibox.onInputCancelled.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API von Chromium.
+> Diese API basiert auf der API [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) von Chromium.

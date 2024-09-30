@@ -8,7 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die Methode **`keys()`** der Schnittstelle [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) gibt einen neuen asynchronen Iterator zurück, der zur Iteration der Schlüssel der Einträge innerhalb des `FileSystemDirectoryHandle` verwendet wird, auf dem diese Methode aufgerufen wird.
+Die **`keys()`**-Methode der
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle gibt einen neuen asynchronen Iterator zurück,
+um die Schlüssel der Einträge innerhalb des `FileSystemDirectoryHandle`,
+auf dem diese Methode aufgerufen wird, zu iterieren.
 
 ## Syntax
 
@@ -27,13 +30,13 @@ Ein neuer asynchroner Iterator, der die Schlüssel jedes Eintrags innerhalb des 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read` Modus nicht `'granted'` ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read`-Modus nicht `'granted'` ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
-Die Verwendung der `for await...of` Schleife kann den Iterationsprozess vereinfachen.
+Die Verwendung der `for await...of`-Schleife kann den Iterationsprozess vereinfachen.
 
 ```js
 const dirHandle = await window.showDirectoryPicker();

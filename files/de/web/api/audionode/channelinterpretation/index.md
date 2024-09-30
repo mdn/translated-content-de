@@ -8,20 +8,20 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`channelInterpretation`**-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces repräsentiert einen enumerierten Wert, der beschreibt, wie Eingabekanäle auf Ausgabekanäle abgebildet werden, wenn die Anzahl der Eingänge/Ausgänge unterschiedlich ist. Beispielsweise definiert diese Einstellung, wie eine Mono-Eingabe auf eine Stereo- oder 5.1-Kanalausgabe hochgemixt wird oder wie eine Quad-Kanaleingabe auf eine Stereo- oder Monoausgabe herabgemischt wird.
+Die **`channelInterpretation`**-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces repräsentiert einen enumerierten Wert, der beschreibt, wie Eingangskanäle auf Ausgangskanäle abgebildet werden, wenn die Anzahl der Eingänge/Ausgänge unterschiedlich ist. Zum Beispiel definiert diese Einstellung, wie ein Mono-Eingang auf einen Stereo- oder 5.1-Kanal-Ausgang hochgemischt oder wie ein Quad-Kanal-Eingang auf einen Stereo- oder Mono-Ausgang heruntergemischt wird.
 
-Die Eigenschaft hat zwei Optionen: `speakers` und `discrete`. Diese sind dokumentiert in [Grundlegende Konzepte der Web Audio API > Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing).
+Die Eigenschaft hat zwei Optionen: `speakers` und `discrete`. Diese sind im Abschnitt [Grundlegende Konzepte der Web Audio API > Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) dokumentiert.
 
 ## Wert
 
-Die Werte sind dokumentiert in [Grundlegende Konzepte der Web Audio API > Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing).
+Die Werte sind im Abschnitt [Grundlegende Konzepte der Web Audio API > Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) dokumentiert.
 
-Zusammenfassend:
+Zusammengefasst:
 
 - `speakers`
-  - : Verwenden Sie eine Reihe von "standardisierten" Zuordnungen für Kombinationen gängiger Lautsprecher-Eingangs- und Ausgangskonfigurationen (Mono, Stereo, Quad, 5.1). Bei dieser Einstellung gibt beispielsweise ein Mono-Kanaleingang auf beiden Kanälen einer Stereoausgabe aus.
+  - : Verwenden Sie eine Reihe von "standardmäßigen" Zuordnungen für Kombinationen üblicher Lautsprecher-Eingangs- und -Ausgangs-Setups (Mono, Stereo, Quad, 5.1). Bei dieser Einstellung würde beispielsweise ein Mono-Kanal-Eingang auf beiden Kanälen eines Stereo-Ausgangs wiedergegeben.
 - `discrete`
-  - : Eingabekanäle werden der Reihenfolge nach auf Ausgabekanäle abgebildet. Wenn es mehr Eingänge als Ausgänge gibt, werden die zusätzlichen Eingänge verworfen; wenn es weniger sind, bleiben die nicht genutzten Ausgänge stumm.
+  - : Eingangskanäle werden in Reihenfolge auf Ausgangskanäle abgebildet. Wenn es mehr Eingänge als Ausgänge gibt, werden die zusätzlichen Eingänge verworfen; gibt es weniger, bleiben die ungenutzten Ausgänge stumm.
 
 ## Beispiele
 

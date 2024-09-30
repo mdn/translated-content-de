@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`deviceSubclass`**-Schreibgeschützte Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen USB-Treiber zu laden, der mit diesem Gerät funktioniert. Die anderen beiden Eigenschaften sind USBDevice.deviceClass und USBDevice.deviceProtocol.
+Die **`deviceSubclass`** schreibgeschützte Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist eine von drei Eigenschaften, die USB-Geräte zur Identifikation für das Laden eines USB-Treibers, der mit diesem Gerät arbeiten wird, bestimmen. Die beiden anderen Eigenschaften sind USBDevice.deviceClass und USBDevice.deviceProtocol.
 
 ## Wert
 

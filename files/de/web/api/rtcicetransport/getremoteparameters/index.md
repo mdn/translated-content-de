@@ -1,5 +1,5 @@
 ---
-title: "RTCIceTransport: getRemoteParameters()-Methode"
+title: "RTCIceTransport: getRemoteParameters() Methode"
 short-title: getRemoteParameters()
 slug: Web/API/RTCIceTransport/getRemoteParameters
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getRemoteParameters()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt zurück, das Informationen bereitstellt, die den entfernten Peer während der ICE-Sitzung eindeutig identifizieren.
+Die **`getRemoteParameters()`** Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt zurück, das Informationen bietet, die den entfernten Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
 
-Die Parameter des entfernten Peers werden während des ICE-Signalings empfangen und dem Transport übergeben, wenn der Client [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft.
+Die Parameter des entfernten Peers werden während des ICE-Signalisierens empfangen und an das Transportprotokoll übermittelt, wenn der Client [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt, das den [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) und das [`password`](/de/docs/Web/API/RTCIceParameters/password) angibt, die den entfernten Peer während der ICE-Sitzung eindeutig identifizieren.
+Ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt, das den [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) und das [`password`](/de/docs/Web/API/RTCIceParameters/password) angibt, die den entfernten Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
 
 Gibt `null` zurück, wenn die Parameter noch nicht empfangen wurden.
 

@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Ändert die Menge der dynamischen Regeln für die Erweiterung. Die in `options.removeRuleIds` aufgeführten Regeln werden zuerst entfernt, und dann werden die in `options.addRules` angegebenen Regeln hinzugefügt. Beachten Sie, dass:
+Ändert die Menge der dynamischen Regeln für die Erweiterung. Die Regeln mit den in `options.removeRuleIds` genannten IDs werden zuerst entfernt, und dann werden die in `options.addRules` angegebenen Regeln hinzugefügt. Beachten Sie, dass:
 
-- Diese Aktualisierung erfolgt als atomare Operation: Entweder werden alle angegebenen Regeln hinzugefügt und entfernt, oder es wird ein Fehler zurückgegeben.
-- Diese Regeln bleiben über Browser-Sitzungen und Erweiterungsaktualisierungen hinweg bestehen.
+- Diese Aktualisierung als atomare Operation erfolgt: Entweder werden alle angegebenen Regeln hinzugefügt und entfernt, oder es wird ein Fehler zurückgegeben.
+- Diese Regeln werden über Browsersitzungen hinweg und bei Erweiterungsupdates beibehalten.
 - Statische Regeln, die als Teil des Erweiterungspakets angegeben sind, können mit dieser Funktion nicht entfernt werden.
 - Die Anzahl der dynamischen Regeln, die hinzugefügt werden können, ist begrenzt:
-  - In Safari und bis zu Chrome 119 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}} für die Gesamtzahl der dynamischen und sitzungsbezogenen Regeln.
+  - In Safari und bis Chrome 119 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}} für die kombinierte Gesamtzahl von dynamischen und sitzungsbezogenen Regeln.
   - Bis Firefox 127 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}}.
   - Ab Chrome 120 und Firefox 128 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES","MAX_NUMBER_OF_DYNAMIC_RULES")}}.
 
@@ -29,15 +29,15 @@ let updatedRules = browser.declarativeNetRequest.updateDynamicRules(
 
 - `options`
 
-  - : Ein Objekt, das Details zu den Regeln enthält, die zu den dynamischen Regeln hinzugefügt oder gelöscht werden sollen.
+  - : Ein Objekt, das Details zu den Regeln enthält, die zu den dynamischen Regeln hinzugefügt oder daraus gelöscht werden sollen.
     - `addRules` {{optional_inline}}
-      - : Ein Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}. Details zu den hinzuzufügenden Regeln.
+      - : Ein Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}. Details der hinzuzufügenden Regeln.
     - `removeRuleIds` {{optional_inline}}
       - : Ein Array von `number`. IDs der zu entfernenden Regeln. Ungültige IDs werden ignoriert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) Wenn die Anfrage erfolgreich war, wird das Versprechen ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anforderung erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anforderung fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

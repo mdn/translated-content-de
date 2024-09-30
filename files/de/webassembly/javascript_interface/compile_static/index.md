@@ -7,10 +7,10 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`WebAssembly.compile()`** statische Methode kompiliert WebAssembly-Binärcode zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekt. Diese Funktion ist nützlich, wenn es erforderlich ist, ein Modul zu kompilieren, bevor es instanziiert werden kann (ansonsten sollte die [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) Funktion verwendet werden).
+Die **`WebAssembly.compile()`** statische Methode kompiliert WebAssembly-Binärcode in ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt. Diese Funktion ist nützlich, wenn es notwendig ist, ein Modul zu kompilieren, bevor es instanziiert werden kann (ansonsten sollte die [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static)-Funktion verwendet werden).
 
 > [!NOTE]
-> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) haben, könnten verhindern, dass WebAssembly Module kompiliert und ausgeführt werden. Für weitere Informationen darüber, wie WebAssembly-Kompilierung und -Ausführung erlaubt werden können, siehe die [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) haben, könnten die Kompilierung und Ausführung von WebAssembly-Modulen blockieren. Für weitere Informationen zum Erlauben der Kompilierung und Ausführung von WebAssembly, siehe die [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
@@ -21,23 +21,26 @@ WebAssembly.compile(bufferSource)
 ### Parameter
 
 - `bufferSource`
-  - : Ein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder ein {{jsxref("ArrayBuffer")}}
+  - : Ein [typed array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}},
     das den Binärcode des zu kompilierenden Wasm-Moduls enthält.
 
 ### Rückgabewert
 
-Ein `Promise`, das zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekt aufgelöst wird, das das kompilierte Modul darstellt.
+Ein `Promise`, das zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt aufgelöst wird, das das kompilierte Modul darstellt.
 
 ### Ausnahmen
 
-- Wenn `bufferSource` kein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}} ist, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
-- Wenn die Kompilierung fehlschlägt, wird das Promise mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) abgelehnt.
+- Wenn `bufferSource` kein [typed array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}} ist,
+  wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn die Kompilierung fehlschlägt, wird das Promise mit einem
+  [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) abgelehnt.
 
 ## Beispiele
 
 ### Verwendung von compile
 
-Das folgende Beispiel kompiliert den geladenen simple.wasm-Bytecode mit der `compile()`-Funktion und sendet ihn dann an einen [Worker](/de/docs/Web/API/Web_Workers_API) mittels [postMessage()](/de/docs/Web/API/Worker/postMessage).
+Das folgende Beispiel kompiliert den geladenen simple.wasm-Bytecode mit der
+`compile()`-Funktion und sendet ihn dann mit [postMessage()](/de/docs/Web/API/Worker/postMessage) an einen [worker](/de/docs/Web/API/Web_Workers_API).
 
 ```js
 const worker = new Worker("wasm_worker.js");
@@ -49,8 +52,8 @@ fetch("simple.wasm")
 ```
 
 > [!NOTE]
-> In den meisten Fällen werden Sie wahrscheinlich
-> [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) verwenden wollen, da es effizienter ist als `compile()`.
+> In den meisten Fällen möchten Sie wahrscheinlich
+> [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) verwenden, da es effizienter als `compile()` ist.
 
 ## Spezifikationen
 
@@ -63,5 +66,5 @@ fetch("simple.wasm")
 ## Siehe auch
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
-- [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
+- [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

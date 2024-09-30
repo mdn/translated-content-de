@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{deprecated_header}}
 
-Die `createScriptProcessor()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erzeugt einen [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) für die direkte Audiobearbeitung.
+Die `createScriptProcessor()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt ein [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode), das für direkte Audiobearbeitung verwendet wird.
 
 > [!NOTE]
 > Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
@@ -23,20 +23,22 @@ createScriptProcessor(bufferSize, numberOfInputChannels, numberOfOutputChannels)
 
 - `bufferSize`
 
-  - : Die Puffergröße in Einheiten von Sample-Frames. Falls angegeben, muss die `bufferSize` einer der folgenden Werte sein: 256, 512, 1024, 2048, 4096, 8192, 16384. Wird sie nicht übergeben oder ist der Wert 0, wird die Implementierung die beste Puffergröße für die gegebene Umgebung wählen, die während der gesamten Lebensdauer des Knotens eine konstante Zweierpotenz sein wird.
+  - : Die Größe des Puffers in Einheiten von Abtastrahmen. Falls angegeben, muss `bufferSize` einer der folgenden Werte sein: 256, 512, 1024, 2048, 4096, 8192, 16384. Wenn es nicht übergeben wird oder der Wert 0 ist, wählt die Implementierung die beste Puffergröße für die gegebene Umgebung, die während der gesamten Lebensdauer des Knotens eine konstante Potenz von 2 sein wird.
 
-    Dieser Wert steuert, wie häufig das `audioprocess`-Ereignis ausgelöst wird und wie viele Sample-Frames bei jedem Aufruf verarbeitet werden müssen. Niedrigere Werte für `bufferSize` führen zu einer niedrigeren (besseren) Latenz. Höhere Werte sind erforderlich, um Audiounterbrechungen und Störungen zu vermeiden. Es wird empfohlen, dass Autoren diese Puffergröße nicht angeben und der Implementierung erlauben, eine geeignete Puffergröße zur Balance zwischen Latenz und Audioqualität auszuwählen.
+    Dieser Wert steuert, wie häufig das `audioprocess`-Event ausgelöst wird und wie viele Abtastrahmen bei jedem Aufruf verarbeitet werden müssen. Niedrigere Werte für `bufferSize` führen zu einer geringeren (besseren) Latenz. Höhere Werte sind notwendig, um Audioabbrüche und Störungen zu vermeiden. Es wird empfohlen, diesen Puffergrößenwert nicht anzugeben und der Implementierung zu erlauben, eine geeignete Puffergröße auszuwählen, um das Gleichgewicht zwischen Latenz und Audioqualität zu gewährleisten.
 
 - `numberOfInputChannels`
-  - : Eine Ganzzahl, die die Anzahl der Kanäle für die Eingabe dieses Knotens angibt; standardmäßig 2. Werte bis zu 32 werden unterstützt.
+  - : Ganzzahl, die die Anzahl der Kanäle für den Eingang dieses Knotens angibt. Standardwert ist 2. Werte bis zu 32 werden unterstützt.
 - `numberOfOutputChannels`
-  - : Eine Ganzzahl, die die Anzahl der Kanäle für die Ausgabe dieses Knotens angibt; standardmäßig 2. Werte bis zu 32 werden unterstützt.
+  - : Ganzzahl, die die Anzahl der Kanäle für den Ausgang dieses Knotens angibt. Standardwert ist 2. Werte bis zu 32 werden unterstützt.
 
 > [!WARNING]
-> Webkit erfordert derzeit (Version 31), dass eine gültige `bufferSize` übergeben wird, wenn diese Methode aufgerufen wird.
+> Webkit erfordert derzeit (Version 31), dass ein gültiger
+> `bufferSize` beim Aufruf dieser Methode übergeben wird.
 
 > [!NOTE]
-> Es ist ungültig, dass sowohl `numberOfInputChannels` als auch `numberOfOutputChannels` null sind.
+> Es ist ungültig, wenn sowohl `numberOfInputChannels` als auch
+> `numberOfOutputChannels` null sind.
 
 ### Rückgabewert
 
@@ -44,14 +46,14 @@ Ein [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode).
 
 ## Beispiele
 
-### Hinzufügen von weißem Rauschen mit einem Script-Processor
+### Hinzufügen von Weißem Rauschen mit einem Script-Prozessor
 
-Das folgende Beispiel zeigt, wie ein `ScriptProcessorNode` verwendet wird, um eine über [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) geladene Spur zu verarbeiten, indem jedem Audiosample der Eingabespur ein wenig weißes Rauschen hinzugefügt wird, und sie über den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) abzuspielen.
+Das folgende Beispiel zeigt, wie ein `ScriptProcessorNode` verwendet wird, um einen über [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) geladenen Track zu verarbeiten, indem jedem Audiosample des Eingangstracks ein wenig weißes Rauschen hinzugefügt und über den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) abgespielt wird.
 
-Für jeden Kanal und jeden Sample-Frame verwendet der `audioprocess`-Event-Handler des Script-Nodes das zugehörige `audioProcessingEvent`, um durch jeden Kanal des Eingabepuffers und jedes Sample in jedem Kanal zu schleifen, und fügt eine kleine Menge weißen Rauschens hinzu, bevor das Ergebnis in jedem Fall als Ausgabesample festgelegt wird.
+Für jeden Kanal und jeden Abtastrahmen verwendet der `audioprocess`-Ereignishandler des Script-Knotens das zugehörige `audioProcessingEvent`, um durch jeden Kanal des Eingabepuffers zu schleifen und jeder Probe in jedem Kanal eine kleine Menge weißes Rauschen hinzuzufügen, bevor das Ergebnis als Ausgangsprobe in jedem Fall festgelegt wird.
 
 > [!NOTE]
-> Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/script-processor-node/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/script-processor-node).
+> Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/script-processor-node/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/script-processor-node).
 
 ```js
 const myScript = document.querySelector("script");

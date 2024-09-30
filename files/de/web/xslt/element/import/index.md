@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:import>`-Element ist ein oberstes Element, das dazu dient, den Inhalt eines Stylesheets in ein anderes Stylesheet zu importieren. Im Allgemeinen haben die Inhalte des importierten Stylesheets eine geringere Import-Priorität als die des importierenden Stylesheets. Dies steht im Gegensatz zu `<xsl:include>`, bei dem die Inhalte des eingeschlossenen Stylesheets genau die gleiche Priorität wie die Inhalte des einschließenden Stylesheets haben.
+Das `<xsl:import>`-Element ist ein obergeordnetes Element, das dazu dient, den Inhalt eines Stylesheets in ein anderes Stylesheet zu importieren. Im Allgemeinen haben die Inhalte des importierten Stylesheets eine niedrigere Importpriorität als die des importierenden Stylesheets. Dies steht im Gegensatz zu `<xsl:include>`, bei dem die Inhalte des inkludierten Stylesheets genau die gleiche Priorität wie die Inhalte des inkludierenden Stylesheets haben.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Typ
 
-Oberstes Element, muss vor allen anderen Kindelementen von `<xsl:stylesheet>` oder `<xsl:transform>` im importierenden Stylesheet erscheinen.
+Obergeordnet, muss vor jedem anderen Kind von `<xsl:stylesheet>` oder `<xsl:transform>` im importierenden Stylesheet erscheinen.
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ XSLT, Abschnitt 2.6.2.
 
 ## Gecko-Unterstützung
 
-Weitgehend unterstützt, jedoch mit einigen Problemen bei obersten Variablen und Parametern seit Mozilla 1.0.
+Meistens unterstützt, mit einigen Problemen bei obersten Variablen und Parametern ab Mozilla 1.0.

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`results`**-Eigenschaft des [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung repräsentiert.
+Die **`results`**-Eigenschaft der [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurückgibt, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
 
-Dieses Objekt enthält alle endgültigen Ergebnisse, die zurückgegeben wurden, gefolgt von der aktuellen besten Hypothese für alle Zwischenresultate. Wenn nachfolgende [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignisse ausgelöst werden, können Zwischenresultate durch ein neueres Zwischenresultat oder ein endgültiges Ergebnis überschrieben werden – sie können sogar entfernt werden, wenn sie am Ende des "results"-Arrays stehen und die Array-Länge abnimmt. Endgültige Ergebnisse hingegen werden nicht überschrieben oder entfernt.
+Speziell enthält dieses Objekt alle finalen Ergebnisse, die zurückgegeben wurden, gefolgt von der aktuellen besten Hypothese für alle vorläufigen Ergebnisse. Wenn nachfolgende [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignisse ausgelöst werden, können vorläufige Ergebnisse durch ein neueres vorläufiges Ergebnis oder durch ein finales Ergebnis überschrieben werden – sie können sogar entfernt werden, wenn sie sich am Ende des "results"-Arrays befinden und sich die Array-Länge verkürzt. Finale Ergebnisse hingegen werden nicht überschrieben oder entfernt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList
 
 ## Beispiele
 
-Dieser Code ist aus unserem [Sprach-Farbänderer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {

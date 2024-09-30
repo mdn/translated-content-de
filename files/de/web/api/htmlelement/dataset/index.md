@@ -8,69 +8,69 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`dataset`** Leseeigenschaft
-der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle ermöglicht den Lese-/Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/HTML/Global_attributes/data-*)
-(`data-*`) von Elementen. Sie stellt eine Zuordnung von Zeichenfolgen
-([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) mit einem Eintrag für jedes `data-*`-Attribut bereit.
+Die **`dataset`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ist nur lesbar und bietet Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/HTML/Global_attributes/data-*) (`data-*`) an Elementen. Sie gibt eine Zeichenkette-Karte ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) mit einem Eintrag für jedes `data-*`-Attribut zurück.
 
 > [!NOTE]
-> Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt geschrieben werden.
+> Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden.
 > Stattdessen müssen alle Schreibvorgänge an den einzelnen Eigenschaften innerhalb des
-> `dataset` erfolgen, die wiederum die Datenattribute repräsentieren.
+> `dataset` erfolgen, die wiederum die Datenattribute darstellen.
 
-Ein HTML `data-*`-Attribut und sein entsprechendes DOM
-`dataset.property` ändern ihren gemeinsamen Namen je nachdem, ob
-sie gelesen oder geschrieben werden:
+Ein HTML-`data-*`-Attribut und das entsprechende DOM
+`dataset.property` ändern ihren gemeinsamen Namen entsprechend dem Ort,
+an dem sie gelesen oder beschrieben werden:
 
-- Im HTML
-  - : Der Attributname beginnt mit `data-`. Es kann nur Buchstaben,
+- In HTML
+  - : Der Attributname beginnt mit `data-`. Er kann nur Buchstaben,
     Zahlen, Bindestriche (`-`), Punkte (`.`), Doppelpunkte (`:`)
     und Unterstriche (`_`) enthalten. Alle [ASCII](/de/docs/Glossary/ASCII)-Großbuchstaben (`A` bis
     `Z`) werden in Kleinbuchstaben umgewandelt.
 - In JavaScript
-  - : Der Eigenschaftsname eines benutzerdefinierten Datenattributs ist derselbe wie der HTML-Attributname
-    ohne das Präfix `data-` und entfernt einfache Bindestriche (`-`), um anzugeben,
-    wann der Eigenschaftsname in "[camel-cased](/de/docs/Glossary/camel_case)" umgewandelt wird.
+  - : Der Eigenschaftsname eines benutzerdefinierten Datenattributs entspricht dem HTML-Attribut
+    ohne das `data-`-Präfix und entfernt einfache Bindestriche (`-`) für
+    das CamelCase-Schreiben des Eigenschaftsnamens.
 
-Zusätzlich zu den unten stehenden Informationen finden Sie eine Anleitung zur Verwendung von HTML-Datenattributen in unserem Artikel [_Using data attributes_](/de/docs/Learn/HTML/Howto/Use_data_attributes).
+Zusätzlich zu den untenstehenden Informationen finden Sie eine Anleitung zur Verwendung von HTML-Datenattributen in unserem Artikel [_Verwendung von Datenattributen_](/de/docs/Learn/HTML/Howto/Use_data_attributes).
 
-### Namenskonvertierung
+### Namensumwandlung
 
 - Umwandlung von `dash-style` zu `camelCase`
 
-  - : Ein benutzerdefinierte Datenattributname wird in einen Schlüssel für den
-    [`DOMStringMap`](/de/docs/Web/API/DOMStringMap)-Eintrag wie folgt umgewandelt:
+  - : Ein benutzerdefinierter Datenattributname wird durch folgendes in einen Schlüssel für den
+    [`DOMStringMap`](/de/docs/Web/API/DOMStringMap)-Eintrag umgewandelt:
 
-    1. Alle ASCII-Großbuchstaben (`A` bis `Z`) in Kleinbuchstaben ändern;
+    1. Alle ASCII-Großbuchstaben (`A` bis
+       `Z`) in Kleinbuchstaben umwandeln;
     2. Das Präfix `data-` (einschließlich des Bindestrichs) entfernen;
-    3. Bei jedem Bindestrich (`U+002D`), gefolgt von einem ASCII-Kleinbuchstaben
-       `a` bis `z`, den Bindestrich entfernen und den Buchstaben großschreiben;
+    3. Für jeden Bindestrich (`U+002D`), dem ein ASCII-Kleinbuchstabe
+       `a` bis `z` folgt, den Bindestrich entfernen und den Buchstaben großschreiben;
     4. Andere Zeichen (einschließlich weiterer Bindestriche) bleiben unverändert.
 
 - Umwandlung von `camelCase` zu `dash-style`
 
-  - : Die entgegengesetzte Umwandlung, die einen Schlüssel in einen Attributnamen umwandelt, wird folgendermaßen durchgeführt:
+  - : Die gegenteilige Transformation, die einen Schlüssel in einen Attributnamen umwandelt, verwendet das
+    Folgende:
 
-    1. **Einschränkung:** Vor der Umwandlung darf ein Bindestrich _nicht_ direkt auf einen ASCII-Kleinbuchstaben `a` bis `z` folgen;
+    1. **Einschränkung:** Vor der Umwandlung darf einem Bindestrich _nicht_ sofort ein ASCII-Kleinbuchstabe `a` bis
+       `z` folgen;
     2. Das Präfix `data-` hinzufügen;
-    3. Einem ASCII-Großbuchstaben `A` bis `Z` einen Bindestrich voranstellen und den Buchstaben dann in Kleinbuchstaben umwandeln;
+    3. Einen Bindestrich vor jedem ASCII-Großbuchstaben `A` bis `Z` hinzufügen,
+       dann den Buchstaben in Kleinbuchstaben umwandeln;
     4. Andere Zeichen bleiben unverändert.
 
-Zum Beispiel entspricht ein `data-abc-def`-Attribut dem
-`dataset.abcDef`.
+Zum Beispiel entspricht ein `data-abc-def`-Attribut `dataset.abcDef`.
 
 ### Zugriff auf Werte
 
-- Attribute können über den camelCase Namen/Schlüssel als Objekteigenschaft des
-  Datasets gesetzt und gelesen werden: `element.dataset.keyname`.
-- Attribute können auch über die Klammer-Syntax gesetzt und gelesen werden:
+- Attribute können durch den camelCase-Namen/Schlüssel als Objekteigenschaft des
+  datasets gesetzt und gelesen werden: `element.dataset.keyname`.
+- Attribute können auch mit der Klammernschreibweise gesetzt und gelesen werden:
   `element.dataset['keyname']`.
-- Der [`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) kann prüfen, ob ein bestimmtes Attribut existiert:
-  `'keyname' in element.dataset`. Beachten Sie, dass dies die [Prototypen-Kette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) des `dataset` durchläuft und unsicher sein kann, wenn Sie externen Code haben, der die Prototypen-Kette verunreinigen könnte. Es gibt mehrere Alternativen, wie zum Beispiel {{jsxref("Object/hasOwn", "Object.hasOwn(element.dataset, 'keyname')")}}, oder einfach zu prüfen, ob `element.dataset.keyname !== undefined`.
+- Der [`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) kann prüfen, ob ein gegebenes Attribut existiert:
+  `'keyname' in element.dataset`. Beachten Sie, dass dies die [Prototypenkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) des `dataset` durchlaufen wird und unsicher sein kann, wenn Sie externen Code haben, der die Prototypenkette beeinflussen könnte. Mehrere Alternativen existieren, wie z.B. {{jsxref("Object/hasOwn", "Object.hasOwn(element.dataset, 'keyname')")}}, oder einfach zu prüfen, ob `element.dataset.keyname !== undefined`.
 
-### Werte setzen
+### Setzen von Werten
 
-- Wenn das Attribut gesetzt wird, wird sein Wert immer in eine Zeichenfolge umgewandelt.
+- Wenn das Attribut gesetzt wird, wird sein Wert immer in eine Zeichenkette konvertiert.
   Zum Beispiel: `element.dataset.example = null` wird
   in `data-example="null"` konvertiert.
 
@@ -78,7 +78,7 @@ Zum Beispiel entspricht ein `data-abc-def`-Attribut dem
 
 ## Wert
 
-Eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
+Ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
 
 ## Beispiele
 
@@ -122,7 +122,7 @@ if (el.dataset.someDataAttr === undefined) {
 
 ## Siehe auch
 
-- Die HTML-Klasse der [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)
-  globalen Attribute
+- Die HTML [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*) Klasse
+  von globalen Attributen
 - [Verwendung von Datenattributen](/de/docs/Learn/HTML/Howto/Use_data_attributes)
 - [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) und [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)

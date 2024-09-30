@@ -7,9 +7,9 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<dt>`**-[HTML](/de/docs/Web/HTML)-Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}}-Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}}-Element gefolgt; jedoch weisen mehrere aufeinanderfolgende `<dt>`-Elemente auf mehrere Begriffe hin, die alle vom unmittelbar folgenden {{HTMLElement("dd")}}-Element definiert werden.
+Das **`<dt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}}-Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}}-Element gefolgt; jedoch deuten mehrere aufeinanderfolgende `<dt>`-Elemente auf mehrere Begriffe hin, die alle vom unmittelbar nachfolgenden {{HTMLElement("dd")}}-Element definiert werden.
 
-Das nachfolgende {{HTMLElement("dd")}} (**Description Details**) Element bietet die Definition oder andere verwandte Informationen, die mit dem mit `<dt>` spezifizierten Begriff verbunden sind.
+Das folgende {{HTMLElement("dd")}} (**Description Details**)-Element liefert die Definition oder anderen zugehörigen Text, der mit dem mittels `<dt>` spezifizierten Begriff verknüpft ist.
 
 {{EmbedInteractiveExample("pages/tabbed/dt.html", "tabbed-standard")}}
 
@@ -19,7 +19,7 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_
 
 ## Beispiele
 
-Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/de/docs/Web/HTML/Element/dl#examples).
+Für Beispiele siehe die [Beispiele, die für das `<dl>`-Element bereitgestellt werden](/de/docs/Web/HTML/Element/dl#examples).
 
 ## Technische Zusammenfassung
 
@@ -39,13 +39,14 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
         >, jedoch ohne {{HTMLElement("header")}},
-        {{HTMLElement("footer")}}, Abschnitts- oder Überschrifteninhalt.
+        {{HTMLElement("footer")}}, sectioning-Inhalt oder heading-Inhalt
+        als Nachkommen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element
+        Der Start-Tag ist erforderlich. Der End-Tag kann weggelassen werden, wenn dieses Element
         unmittelbar von einem anderen <code>&#x3C;dt></code>-Element oder einem
         {{HTMLElement("dd")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im
         Elternelement vorhanden ist.
@@ -54,7 +55,7 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder (in [WHATWG](/de/docs/Glossary/WHATWG) HTML,
+        Ein {{HTMLElement("dl")}} oder (im [WHATWG](/de/docs/Glossary/WHATWG) HTML,
         [W3C](/de/docs/Glossary/W3C) HTML 5.2 und später) ein
         {{HTMLElement("div")}}, das ein Kind eines
         {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem
@@ -63,7 +64,7 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -83,7 +84,8 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis zu Gecko 1.9.2 (inklusive Firefox 4) implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox die
         [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>

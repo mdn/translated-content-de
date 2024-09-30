@@ -1,5 +1,5 @@
 ---
-title: "Element: beforematch-Event"
+title: "Element: beforematch-Ereignis"
 short-title: beforematch
 slug: Web/API/Element/beforematch_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Ein Element erhält ein **`beforematch`**-Ereignis, wenn es sich im Zustand _hidden until found_ befindet und der Browser im Begriff ist, seinen Inhalt anzuzeigen, weil der Benutzer den Inhalt durch die "Suchen auf Seite"-Funktion oder durch Fragment-Navigation gefunden hat.
+Ein Element erhält ein **`beforematch`**-Ereignis, wenn es sich im Zustand _versteckt bis gefunden_ befindet und der Browser im Begriff ist, seinen Inhalt anzuzeigen, weil der Benutzer den Inhalt über die "Seite durchsuchen"-Funktion oder durch Fragmentnavigation gefunden hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("beforematch", (event) => {});
@@ -24,12 +24,12 @@ onbeforematch = (event) => {};
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) akzeptiert den Wert `until-found`: wenn dieser Wert angegeben wird, ist das Element zwar verborgen, sein Inhalt wird jedoch für die "Suchen auf Seite"-Funktion des Browsers oder für die Fragment-Navigation zugänglich sein. Wenn diese Funktionen ein Scrollen zu einem Element in einem "hidden until found"-Teilbaum verursachen, wird der Browser:
+Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) akzeptiert den Wert `until-found`: wenn dieser Wert angegeben ist, wird das Element versteckt, aber sein Inhalt wird für die "Seite durchsuchen"-Funktion des Browsers oder für die Fragmentnavigation zugänglich sein. Wenn diese Funktionen zu einem Bildlauf zu einem Element in einem "versteckt bis gefunden"-Unterbaum führen, wird der Browser:
 
 - ein `beforematch`-Ereignis auf dem versteckten Element auslösen
-- das `hidden`-Attribut von dem Element entfernen
+- das `hidden`-Attribut vom Element entfernen
 - zum Element scrollen
 
 ## Beispiele
@@ -38,10 +38,10 @@ Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) akzepti
 
 In diesem Beispiel haben wir:
 
-- Zwei {{HTMLElement("div")}}-Elemente. Das erste ist nicht verborgen, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` hat.
-- Einen Link, dessen Ziel das "`until-found-box"`-Fragment ist.
+- Zwei {{HTMLElement("div")}}-Elemente. Das erste ist nicht versteckt, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` hat.
+- Einen Link, dessen Ziel das `"until-found-box"`-Fragment ist.
 
-Wir haben auch etwas JavaScript, das auf das `beforematch`-Ereignis lauscht, das auf dem "hidden until found"-Element ausgelöst wird. Der Ereignis-Handler ändert den Textinhalt des Kastens.
+Wir haben auch etwas JavaScript, das auf das Auslösen des `beforematch`-Ereignisses auf dem versteckten, bis gefundenen Element hört. Der Ereignishandler ändert den Textinhalt des Kastens.
 
 #### HTML
 
@@ -94,13 +94,13 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 #### Ergebnis
 
-Durch Klicken auf die Schaltfläche "Gehe zu verborgenem Inhalt" wird zum "hidden until found"-Element navigiert. Das `beforematch`-Ereignis wird ausgelöst, der Textinhalt wird aktualisiert und dann wird der Inhalt des Elements angezeigt.
+Wenn Sie auf die Schaltfläche "Gehe zu verstecktem Inhalt" klicken, wird zum versteckten-bis-gefundenen Element navigiert. Das `beforematch`-Ereignis wird ausgelöst, der Textinhalt wird aktualisiert, und dann wird der Inhalt des Elements angezeigt.
 
 Um das Beispiel erneut auszuführen, klicken Sie auf "Neu laden".
 
 {{EmbedLiveSample("Using beforematch", "", 300)}}
 
-Wenn Ihr Browser den `"until-found"`-enumerierten Wert des `hidden`-Attributs nicht unterstützt, wird das zweite `<div>` verborgen (da `hidden` vor der Hinzufügung des `until-found`-Werts ein boolescher Datentyp war).
+Wenn Ihr Browser den `hidden`-Attributwert `"until-found"` nicht unterstützt, wird das zweite `<div>` versteckt sein (da `hidden` vor der Hinzufügung des `until-found`-Werts boolesch war).
 
 ## Spezifikationen
 

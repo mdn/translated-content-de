@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLCollection.length`**-Eigenschaft gibt die Anzahl der
-Elemente in einer [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück.
+Die **`HTMLCollection.length`**-Eigenschaft gibt die Anzahl der Elemente in einer [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein ganzzahliger Wert, der die Anzahl der Elemente in einer `HTMLCollection` dar
 
 ## Beispiele
 
-Die `length`-Eigenschaft ist in der DOM-Programmierung oft nützlich. Sie wird häufig verwendet, um die Länge einer Liste zu überprüfen, um festzustellen, ob sie überhaupt existiert. Sie wird auch häufig als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
+Die `length`-Eigenschaft ist oft nützlich in der DOM-Programmierung. Sie wird oft verwendet, um die Länge einer Liste zu testen, um zu prüfen, ob sie überhaupt existiert. Sie wird auch häufig als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
 
 ```js
 // All the elements with the class ".test" in the document

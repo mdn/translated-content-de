@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`MediaElementAudioSourceNode()`** Konstruktor erstellt eine neue Instanz des [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) Objekts.
+Der **`MediaElementAudioSourceNode()`** Konstruktor erstellt eine neue [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) Objektinstanz.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ new MediaElementAudioSourceNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audio-Kontext repräsentiert, dem der Knoten zugeordnet werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, mit dem der Knoten assoziiert werden soll.
 - `options`
-  - : Ein Objekt, das die Eigenschaften definiert, die der `MediaElementAudioSourceNode` haben soll:
+  - : Ein Objekt, das die Eigenschaften definiert, die das `MediaElementAudioSourceNode` haben soll:
     - `mediaElement`
-      - : Ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), das als Quelle für das Audio verwendet wird.
+      - : Ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), das als Quelle für den Ton verwendet wird.
     - `channelCount`
-      - : Eine ganze Zahl, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu jeglichen Eingängen des Knotens [hochgemischt und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue
+      - : Ein Integer, der bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu den Eingängen des Knotens verwendet werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für mehr Informationen.) Seine Nutzung und präzise
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens übereinstimmen müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Ein String, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für mehr Informationen inklusive Standardwerte.)
     - `channelInterpretation`
       - : Ein String, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation definiert, wie Audio [hochgemischt und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird.
+        Interpretation definiert, wie Audio `up-mixing` und `down-mixing` erfolgen wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        [`AudioNode.channelInterpretation`](/de/docs/Web/API/AudioNode/channelInterpretation) für weitere Informationen, einschließlich der Standardwerte.)
+        [`AudioNode.channelInterpretation`](/de/docs/Web/API/AudioNode/channelInterpretation) für mehr Informationen inklusive Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) Objekts.
+Eine neue [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) Objektinstanz.
 
 ## Beispiele
 

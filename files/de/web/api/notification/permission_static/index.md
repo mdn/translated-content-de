@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`permission`** schreibgeschützte statische Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle zeigt die aktuelle Berechtigung an, die vom Benutzer für den aktuellen Ursprung zum Anzeigen von Webbenachrichtigungen erteilt wurde.
+Die **`permission`** schreibgeschützte statische Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces zeigt die aktuelle von den Benutzern erteilte Berechtigung für den aktuellen Ursprung an, Webbenachrichtigungen anzuzeigen.
 
 ## Wert
 
 Ein String, der die aktuelle Berechtigung darstellt. Der Wert kann sein:
 
 - `granted`
-  - : Der Benutzer hat die Berechtigung für den aktuellen Ursprung zum Anzeigen von Systembenachrichtigungen ausdrücklich erteilt.
+  - : Der Benutzer hat dem aktuellen Ursprung ausdrücklich die Erlaubnis erteilt, Systembenachrichtigungen anzuzeigen.
 - `denied`
-  - : Der Benutzer hat die Berechtigung für den aktuellen Ursprung zum Anzeigen von Systembenachrichtigungen ausdrücklich verweigert.
+  - : Der Benutzer hat dem aktuellen Ursprung ausdrücklich die Erlaubnis verweigert, Systembenachrichtigungen anzuzeigen.
 - `default`
-  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall verhält sich die Anwendung, als ob die Berechtigung `denied` wäre.
+  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall verhält sich die Anwendung, als wäre die Erlaubnis `denied`.
 
 ## Beispiele
 
-Der folgende Ausschnitt könnte verwendet werden, um zuerst zu überprüfen, ob Benachrichtigungen unterstützt werden, dann zu prüfen, ob die Berechtigung für den aktuellen Ursprung zum Senden von Benachrichtigungen erteilt wurde, dann bei Bedarf die Berechtigung anzufordern, bevor eine Benachrichtigung gesendet wird.
+Der folgende Codeausschnitt könnte verwendet werden, um zunächst zu überprüfen, ob Benachrichtigungen unterstützt werden, dann zu prüfen, ob die Erlaubnis erteilt wurde, dass der aktuelle Ursprung Benachrichtigungen senden darf, dann die Erlaubnis anzufordern, falls erforderlich, bevor schließlich eine Benachrichtigung gesendet wird.
 
 ```js
 function notifyMe() {

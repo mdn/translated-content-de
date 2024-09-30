@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: levelchange-Ereignis"
+title: "BatteryManager: levelchange Ereignis"
 short-title: levelchange
 slug: Web/API/BatteryManager/levelchange_event
 l10n:
@@ -12,7 +12,7 @@ Das **`levelchange`**-Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryMa
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("levelchange", (event) => { })

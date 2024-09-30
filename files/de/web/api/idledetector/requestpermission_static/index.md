@@ -1,5 +1,5 @@
 ---
-title: "IdleDetector: requestPermission() statische Methode"
+title: "IdleDetector: `requestPermission()` statische Methode"
 short-title: requestPermission()
 slug: Web/API/IdleDetector/requestPermission_static
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die **`requestPermission()`** statische Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem String aufgelöst wird, sobald der Benutzer entschieden hat, ob er dem Ursprung Zugriff auf seinen Leerlaufzustand gewähren möchte. Bei Zustimmung wird es mit `"granted"` und bei Ablehnung mit `"denied"` aufgelöst.
+Die **`requestPermission()`** statische Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector) Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem String aufgelöst wird, wenn der Benutzer entschieden hat, ob er dem Origin den Zugriff auf ihren Ruhezustand gewähren möchte. Es wird mit `"granted"` bei Zustimmung und `"denied"` bei Ablehnung aufgelöst.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ Ein `Promise`, das mit `"granted"` oder `"denied"` aufgelöst wird.
 
 ## Sicherheit
 
-[Flüchtige Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet ein `click`-Ereignis auf einem Button, um die Erlaubnis des Benutzers zu beantragen, den Leerlaufzustand des Benutzers zu erkennen.
+Das folgende Beispiel verwendet ein `click`-Ereignis auf einem Button, um den Benutzer um Erlaubnis zu bitten, wenn er in den Ruhezustand wechselt.
 
 ```js
 startButton.addEventListener("click", async () => {

@@ -1,5 +1,5 @@
 ---
-title: "Navigator: unregisterProtocolHandler()-Methode"
+title: "Navigator: unregisterProtocolHandler() Methode"
 short-title: unregisterProtocolHandler()
 slug: Web/API/Navigator/unregisterProtocolHandler
 l10n:
@@ -21,11 +21,11 @@ unregisterProtocolHandler(scheme, url)
 ### Parameter
 
 - `scheme`
-  - : Ein String, der das [erlaubte Schema](#erlaubte_schemas) im Protokoll-Handler enthält, der abgemeldet wird.
-    Zum Beispiel können Sie den Handler für SMS-Nachrichtenlinks abmelden, indem Sie das `"sms"`-Schema übergeben.
+  - : Ein String, der das [erlaubte Schema](#erlaubte_schemas) im Protokoll-Handler enthält, das abgemeldet werden soll.
+    Zum Beispiel können Sie den Handler für SMS-Textnachrichten-Links abmelden, indem Sie das `"sms"`-Schema übergeben.
 - `url`
   - : Ein String, der die URL des Handlers enthält.
-    **Diese URL sollte mit derjenigen übereinstimmen, die zur Registrierung des Handlers verwendet wurde (z. B. muss sie `%s` enthalten).**
+    **Diese URL sollte mit derjenigen übereinstimmen, die zur Registrierung des Handlers verwendet wurde (z.B. muss sie `%s` enthalten)**.
 
 ### Rückgabewert
 
@@ -35,11 +35,11 @@ Keiner ({{jsxref("undefined")}}).
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der Benutzeragent hat die Abmeldung blockiert.
-    Dies könnte passieren, wenn:
-    - Das Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst handhabt (`https:`, `about:`, etc.)
-    - Der [Origin](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Origin der Seite übereinstimmt, die diese API aufruft.
-    - Der Browser erfordert, dass diese Funktion aus einem sicheren Kontext aufgerufen wird.
-    - Der Browser erfordert, dass die URL des Handlers über HTTPS ist.
+    Dies kann passieren, wenn:
+    - Das Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst verarbeitet (`https:`, `about:`, etc.)
+    - Der [Ursprung](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
+    - Der Browser fordert, dass diese Funktion in einem sicheren Kontext aufgerufen wird.
+    - Der Browser fordert, dass die URL des Handlers über HTTPS erfolgt.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der `%s`-Platzhalter fehlt in der Handler-URL.
 
@@ -50,10 +50,10 @@ Aus Sicherheitsgründen beschränkt `unregisterProtocolHandler()`, welche Schema
 Ein **benutzerdefiniertes Schema** kann abgemeldet werden, solange:
 
 - Der Name des benutzerdefinierten Schemas mit `web+` beginnt
-- Der Name des benutzerdefinierten Schemas mindestens 1 Buchstaben nach dem `web+`-Präfix enthält
-- Das benutzerdefinierte Schema nur Kleinbuchstaben des ASCII-Codes in seinem Namen hat.
+- Der Name des benutzerdefinierten Schemas mindestens 1 Buchstaben nach dem `web+`-Präfix beinhaltet
+- Das benutzerdefinierte Schema nur Kleinbuchstaben im ASCII-Zeichensatz in seinem Namen enthält.
 
-Zum Beispiel, `web+burger`, wie im [Beispiel](#beispiele) unten gezeigt.
+Zum Beispiel `web+burger`, wie im [Beispiel](#beispiele) unten dargestellt.
 
 Andernfalls muss das Schema eines der folgenden sein:
 
@@ -93,7 +93,7 @@ navigator.unregisterProtocolHandler(
 );
 ```
 
-Dieses Skript muss vom gleichen Origin aus ausgeführt werden wie die Handler-URL (also von jeder Seite unter `https://burgers.example.com`), und die Handler-URL muss `http` oder `https` sein.
+Dieses Skript muss vom gleichen Ursprung wie die Handler-URL ausgeführt werden (also jede Seite unter `https://burgers.example.com`), und die Handler-URL muss `http` oder `https` sein.
 
 ## Spezifikationen
 

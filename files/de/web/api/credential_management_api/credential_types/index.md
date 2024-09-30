@@ -1,5 +1,5 @@
 ---
-title: Credential Typen
+title: Credenzitypen
 slug: Web/API/Credential_Management_API/Credential_types
 l10n:
   sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
@@ -7,98 +7,98 @@ l10n:
 
 {{DefaultAPISidebar("Credential Management API")}}
 
-Die Credential Management API ermöglicht es einer Website, die [Anmeldeinformationen](/de/docs/Glossary/credential), die es einem Benutzer ermöglichen, sich sicher anzumelden, zu erstellen, zu speichern und abzurufen. Es unterstützt vier verschiedene Arten von Anmeldeinformationen:
+Die Credential Management API ermöglicht es einer Webseite, die [Anmeldedaten](/de/docs/Glossary/credential), die einem Benutzer eine sichere Anmeldung ermöglichen, zu erstellen, zu speichern und abzurufen. Sie unterstützt vier verschiedene Arten von Anmeldedaten:
 
-| Typ                   | Schnittstelle                                                                                                                         |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Passwort              | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                                           |
-| Föderierte Identität  | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
-| Einmalpasswort (OTP)  | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                                                     |
-| Web-Authentifizierung | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                                         |
+| Typ                     | Schnittstelle                                                                          |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| Passwort                | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                  |
+| Föderierte Identität    | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
+| Einmalpasswort (OTP)    | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                       |
+| Web-Authentifizierung   | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                 |
 
-Die Anmeldedatentypen werden alle als Unterklassen der [`Credential`](/de/docs/Web/API/Credential) Schnittstelle dargestellt:
+Die unterschiedlichen Arten von Anmeldedaten sind alle als Unterklassen der [`Credential`](/de/docs/Web/API/Credential) Schnittstelle dargestellt:
 
-![Klassendiagramm, das die fünf verschiedenen Anmeldeinformations-Unterklassen zeigt.](credential-types.svg)
+![Klassendiagramm, das die fünf verschiedenen Anmeldedaten-Unterklassen zeigt.](credential-types.svg)
 
-In diesem Leitfaden stellen wir die verschiedenen Anmeldedatenarten vor und erklären auf hoher Ebene, wie sie verwendet werden.
+In diesem Leitfaden werden wir die verschiedenen Anmeldedatentypen vorstellen und auf hoher Ebene erklären, wie sie verwendet werden.
 
 > [!NOTE]
-> Auch wenn wir hier alle Anmeldedatentypen zusammen beschreiben, sind die verschiedenen Anmeldedatentypen in mehreren verschiedenen Spezifikationen definiert, die die Hauptspezifikation der Credential Management API erweitern.
+> Obwohl wir hier alle Anmeldedatentypen gemeinsam beschreiben, sind die verschiedenen Anmeldedatentypen in mehreren unterschiedlichen Spezifikationen definiert, die die Hauptspezifikation der Credential Management API erweitern.
 >
-> - Die [Credential Management API](https://w3c.github.io/webappsec-credential-management/) definiert Passwörter und veraltete föderierte Anmeldeinformationen.
-> - Die [Federated Credential Management API](https://w3c-fedid.github.io/FedCM/) definiert die neuen föderierten Anmeldeinformationen.
-> - Die [WebOTP API](https://wicg.github.io/web-otp/) definiert OTP-Anmeldedaten.
-> - Die [Web Authentication API](https://w3c.github.io/webauthn/) definiert Web-Authentifizierungsaussagen.
+> - [Credential Management API](https://w3c.github.io/webappsec-credential-management/) definiert Passwörter und ältere föderierte Anmeldedaten.
+> - [Federated Credential Management API](https://w3c-fedid.github.io/FedCM/) definiert die neuen föderierten Anmeldedaten.
+> - [WebOTP API](https://wicg.github.io/web-otp/) definiert OTP-Anmeldedaten.
+> - [Web Authentication API](https://w3c.github.io/webauthn/) definiert Web-Authentifizierungsbehauptungen.
 
 ## Passwörter
 
 > [!NOTE]
-> Die meisten Browser unterstützen diesen Anmeldedatentyp nicht und er wird im Web nicht weit verbreitet verwendet. Stattdessen bieten Browser automatisch an, Passwörter in einem Passwort-Manager zu speichern, und können gespeicherte Passwörter automatisch abrufen, um [Passworteingabeelemente](/de/docs/Web/HTML/Element/input/password) automatisch auszufüllen.
+> Die meisten Browser unterstützen diesen Anmeldedatentyp nicht und er wird im Web nicht weit verbreitet verwendet. Stattdessen bieten Browser automatisch an, Passwörter in einem Passwortmanager zu speichern und können gespeicherte Passwörter automatisch abrufen, um [Passworteingabeelemente](/de/docs/Web/HTML/Element/input/password) automatisch auszufüllen.
 
-Moderne Browser bieten Benutzern einen Passwort-Manager, der es ihnen ermöglicht, die Passwörter zu speichern, die sie auf Websites eingeben, und sie später abzurufen, wenn sie sich erneut anmelden müssen. Passwort-Manager können bei der Passwortsicherheit helfen, indem sie sich Passwörter für Benutzer merken und sie automatisch ausfüllen, was es den Benutzern ermöglicht, stärkere Passwörter zu wählen.
+Moderne Browser bieten den Benutzern einen Passwortmanager, der es ihnen ermöglicht, die Passwörter, die sie auf Webseiten eingeben, zu speichern und später abzurufen, wenn sie sich erneut anmelden müssen. Passwortmanager können zur Passwortsicherheit beitragen, indem sie sich Passwörter für Benutzer merken und diese automatisch ausfüllen, was es Benutzern ermöglicht, stärkere Passwörter auszuwählen.
 
-In der Credential Management API wird ein Passwort durch die [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Schnittstelle dargestellt. Wenn sich ein Benutzer erfolgreich auf Ihrer Website registriert oder anmeldet, können Sie den [`PasswordCredential()`](/de/docs/Web/API/PasswordCredential/PasswordCredential) Konstruktor oder [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) aufrufen, um ein `PasswordCredential`-Objekt aus den vom Benutzer eingegebenen Anmeldeinformationen zu erstellen. Sie können dies dann an [`navigator.credentials.store()`](/de/docs/Web/API/CredentialsContainer/store) übergeben, und der Browser wird den Benutzer fragen, ob er das Passwort im Passwort-Manager speichern möchte.
+In der Credential Management API wird ein Passwort durch die [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Schnittstelle dargestellt. Wenn sich ein Benutzer erfolgreich auf Ihrer Seite registriert oder anmeldet, können Sie den [`PasswordCredential()`](/de/docs/Web/API/PasswordCredential/PasswordCredential) Konstruktor oder [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) aufrufen, um ein `PasswordCredential`-Objekt aus den vom Benutzer eingegebenen Anmeldedaten zu erstellen. Dieses können Sie dann an [`navigator.credentials.store()`](/de/docs/Web/API/CredentialsContainer/store) übergeben, und der Browser wird den Benutzer fragen, ob er das Passwort im Passwortmanager speichern möchte.
 
-![Sequenzdiagramm, das die Erstellung und Speicherung einer Passwort-Anmeldeinformation zeigt.](password-create.svg)
+![Sequenzdiagramm zeigt die Erstellung und Speicherung einer Passwortanmeldung.](password-create.svg)
 
-Wenn ein Benutzer Ihre Website besucht, können Sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen, um ein gespeichertes Passwort für Ihre Website abzurufen und es zur Anmeldung des Benutzers zu verwenden. Je nach Situation können Sie den Benutzer lautlos anmelden oder das zurückgegebene Passwort verwenden, um ein Formularfeld automatisch auszufüllen.
+Wenn ein Benutzer Ihre Seite besucht, können Sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen, um ein gespeichertes Passwort für Ihre Seite abzurufen und den Benutzer damit anzumelden. Abhängig von der Situation können Sie den Benutzer stillschweigend anmelden oder das zurückgegebene Passwort verwenden, um ein Formularfeld automatisch auszufüllen.
 
-![Sequenzdiagramm, das die Anmeldung mit einem Passwort-Anmeldeinformation zeigt.](password-get.svg)
+![Sequenzdiagramm zeigt die Anmeldung mit einer Passwortanmeldung.](password-get.svg)
 
-## Föderierte Identitätsanmeldeinformationen
+## Föderierte Identitätsanmeldedaten
 
-In einem [föderierten Identitätssystem](/de/docs/Glossary/federated_identity) agiert eine separate Einheit als Vermittler zwischen dem Benutzer und der Website, bei der sie sich anmelden möchten. Diese Einheit, genannt [Identitätsanbieter](/de/docs/Glossary/identity_provider) (IdP), verwaltet die Anmeldeinformationen des Benutzers, kann Benutzer authentifizieren und wird von der Website vertraut, um Aussagen über die Identität des Benutzers zu treffen.
+In einem [föderierten Identitätssystem](/de/docs/Glossary/federated_identity) fungiert eine separate Entität als Vermittler zwischen dem Benutzer und der Webseite, bei der er sich anmelden möchte. Diese Entität, ein [Identitätsanbieter](/de/docs/Glossary/identity_provider) (IdP) genannt, verwaltet die Anmeldedaten des Benutzers, kann Benutzer authentifizieren und ist von der Webseite vertraut, um Aussagen über die Identität eines Benutzers zu machen.
 
-Der Benutzer hat ein Konto beim IdP: Wenn er sich bei der Website anmelden muss, authentifiziert er sich beim IdP. Der IdP gibt dann ein Token an den Browser des Benutzers zurück, welches der Browser an die Website liefert. Die Website überprüft das Token und meldet den Benutzer an, wenn die Überprüfung erfolgreich ist.
+Der Benutzer hat ein Konto beim IdP: Wenn er sich auf der Webseite anmelden muss, authentifiziert er sich beim IdP. Der IdP gibt dann ein Token an den Browser des Benutzers zurück, das der Browser an die Webseite liefert. Die Webseite überprüft das Token und meldet den Benutzer bei erfolgreicher Überprüfung an.
 
-Föderierte Identität wird oft von Unternehmen als Dienstleistung bereitgestellt: Zum Beispiel können Benutzer, die über Google-, Microsoft- oder Facebook-Konten verfügen, sich damit bei Websites anmelden, die diese unterstützen.
+Föderierte Identität wird häufig als Service von Unternehmen bereitgestellt: Beispielsweise können Benutzer, die Google-, Microsoft- oder Facebook-Konten haben, diese zur Anmeldung auf unterstützenden Webseiten verwenden.
 
-Die [Federated Credential Management API](/de/docs/Web/API/FedCM_API) definiert einen datenschutzfreundlichen Mechanismus für föderierte Identität im Web. Sie beginnen, indem Sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen, um eine föderierte Identitätsanmeldeinformation anzufordern, was einen Protokollaustausch zwischen dem Browser und dem IdP auslöst.
+Die [Federated Credential Management API](/de/docs/Web/API/FedCM_API) definiert einen datenschutzfreundlichen Mechanismus für föderierte Identität im Web. Sie starten, indem Sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen, um eine föderierte Identitätsanmeldung anzufordern, was einen Protokollaustausch zwischen dem Browser und dem IdP auslöst.
 
-Wenn im Laufe dieses Austauschs der Benutzer beim IdP authentifiziert werden kann, gibt der Browser ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück. Der Website-Frontend-Code kann dies zur Verifizierung an den Server senden.
+Wenn der Benutzer im Verlauf dieses Austauschs mit dem IdP authentifiziert werden kann, gibt der Browser ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück. Der Code des Webseiten-Frontends kann dies zur Überprüfung an den Server senden.
 
-![Sequenzdiagramm, das die Anmeldung mit einer föderierten Identitätsanmeldeinformation zeigt.](fed-cm-get.svg)
+![Sequenzdiagramm zeigt die Anmeldung mit einer föderierten Identitätsanmeldung.](fed-cm-get.svg)
 
-Beachten Sie, dass [`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`store()`](/de/docs/Web/API/CredentialsContainer/store) nicht verwendet werden, wenn mit der Federated Credential Management API gearbeitet wird.
+Beachten Sie, dass [`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`store()`](/de/docs/Web/API/CredentialsContainer/store) bei der Arbeit mit der Federated Credential Management API nicht verwendet werden.
 
 > [!NOTE]
-> Unterstü Unterstützung für föderierte Identität in der Credential Management API wurde ursprünglich über die [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) Schnittstelle bereitgestellt. Dieser Mechanismus hängt jedoch von Technologien wie [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) ab, die von Natur aus datenschutzverletzend sind. Diese Technologien wurden [in Browsern abgekündigt](/en-US/blog/goodbye-third-party-cookies/), daher war ein neuer Ansatz erforderlich.
+> Die Unterstützung für föderierte Identität in der Credential Management API wurde ursprünglich über die [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) Schnittstelle bereitgestellt. Dieser Mechanismus hängt jedoch von Technologien wie [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) ab, die von Natur aus datenschutzverletzend sind. Diese Technologien wurden [in Browsern veraltet](/en-US/blog/goodbye-third-party-cookies/), daher war ein neuer Ansatz erforderlich.
 
 ## Einmalpasswörter
 
-Ein Einmalpasswort (OTP) ist eine Authentifizierungstechnik, bei der die Website einen einzigartigen Code über ein Messaging-System wie E-Mail oder SMS an den Benutzer sendet. Der Benutzer muss dann den Code auf der Website eingeben, um die Kontrolle über den Kommunikationsendpunkt nachzuweisen. Websites verwenden dies manchmal als zweiten Authentifizierungsfaktor zusätzlich zu einem Passwort.
+Ein Einmalpasswort (OTP) ist eine Authentifizierungstechnik, bei der die Webseite einen einzigartigen Code über ein Kommunikationssystem wie E-Mail oder SMS an den Benutzer sendet. Der Benutzer muss den Code dann auf der Webseite eingeben, um seine Kontrolle über den Kommunikationsendpunkt zu beweisen. Webseiten verwenden dies manchmal als zweiten Authentifizierungsfaktor zusätzlich zu einem Passwort.
 
-Die [WebOTP API](/de/docs/Web/API/WebOTP_API) definiert die [`OTPCredential`](/de/docs/Web/API/OTPCredential) Schnittstelle, die ein spezifisches Benutzerproblem in diesem Austausch löst: Wenn ein Benutzer den Code erhält, muss er eine andere Anwendung öffnen, die Nachricht finden und den Code in ein Formular auf der Website einfügen. Dies ist umständlich, besonders auf einem mobilen Gerät, und besonders wenn das Gerät, das die Nachricht empfängt, dasselbe ist wie das, auf dem die Anmeldung bei der Website erfolgt.
+Die [WebOTP API](/de/docs/Web/API/WebOTP_API) definiert die [`OTPCredential`](/de/docs/Web/API/OTPCredential) Schnittstelle, die ein spezifisches Bedienungsproblem in diesem Austausch löst: Wenn ein Benutzer den Code erhält, muss er eine andere Anwendung öffnen, die Nachricht finden und dann den Code in ein Formular auf der Webseite eingeben. Dies ist umständlich, insbesondere auf einem mobilen Gerät, und besonders, wenn dasselbe Gerät die Nachricht empfängt und zur Anmeldung auf der Webseite verwendet wird.
 
-In Browsern, die den `OTPCredential`-Typ unterstützen, kann das Frontend der Website [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen und nach einer OTP-Anmeldeinformation fragen, dann das Backend auffordern, einen Code zu generieren und die Nachricht zu senden, die diesen enthält (nur SMS wird als Transport unterstützt). Das Backend muss eine speziell formatierte SMS-Nachricht senden, die der Browser lesen kann.
+In Browsern, die den `OTPCredential` Typ unterstützen, kann das Frontend einer Webseite [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufrufen, um eine OTP-Anmeldung anzufordern, dann das Backend bitten, einen Code zu generieren und die Nachricht zu senden, die ihn enthält (nur SMS wird als Transport unterstützt). Das Backend muss eine speziell formatierte SMS-Nachricht senden, die der Browser lesen kann.
 
-Der Browser gibt dann ein `OTPCredential` Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück, und dieses Objekt enthält den Code. Das Frontend der Website kann den Code verwenden, um ein Eingabefeld auf der Website automatisch auszufüllen oder den Code automatisch zum Server zu senden.
+Der Browser gibt dann ein `OTPCredential` Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück, und dieses Objekt enthält den Code. Das Frontend der Webseite kann den Code verwenden, um ein Eingabefeld auf der Webseite automatisch auszufüllen oder den Code automatisch an den Server zu senden.
 
-![Sequenzdiagramm, das die Anmeldung mit einer OTP-Anmeldeinformation zeigt.](otp-get.svg)
+![Sequenzdiagramm zeigt die Anmeldung mit einer OTP-Anmeldung.](otp-get.svg)
 
-Beachten Sie, dass [`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`store()`](/de/docs/Web/API/CredentialsContainer/store) nicht verwendet werden, wenn mit OTP-Anmeldeinformationen gearbeitet wird.
+Beachten Sie, dass [`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`store()`](/de/docs/Web/API/CredentialsContainer/store) bei der Arbeit mit OTP-Anmeldedaten nicht verwendet werden.
 
-## Web-Authentifizierungsaussagen
+## Web-Authentifizierungsbehauptungen
 
-Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) (WebAuthn) ermöglicht es Benutzern, sich auf Webseiten anzumelden, indem ein _Authenticator_ aufgefordert wird, digital signierte Aussagen über die Identität eines Benutzers zu erzeugen.
+Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) (WebAuthn) ermöglicht es Benutzern, sich auf Webseiten anzumelden, indem sie einen _Authenticator_ veranlassen, digital signierte Behauptungen über die Identität eines Benutzers zu erzeugen.
 
-Ein Authenticator ist eine Entität, die sich im oder am Gerät des Benutzers befindet und die kryptografischen Operationen, die zur Registrierung und Authentifizierung von Benutzern erforderlich sind, durchführen und die bei diesen Operationen verwendeten kryptografischen Schlüssel sicher speichern kann. Ein Authenticator könnte in das Gerät integriert sein, wie das [Touch ID](https://en.wikipedia.org/wiki/Touch_ID) System in Apple-Geräten oder das [Windows Hello](https://en.wikipedia.org/wiki/Windows_10#System_security) System, oder es könnte ein entfernbares Modul wie ein [Yubikey](https://en.wikipedia.org/wiki/YubiKey) sein.
+Ein Authenticator ist eine Entität, die sich im oder am Gerät des Benutzers befindet und in der Lage ist, die kryptografischen Operationen durchzuführen, die für die Registrierung und Authentifizierung von Benutzern erforderlich sind, und die kryptografischen Schlüssel, die in diesen Operationen verwendet werden, sicher zu speichern. Ein Authenticator kann in das Gerät integriert sein, wie das [Touch ID](https://de.wikipedia.org/wiki/Touch_ID)-System in Apple-Geräten oder das [Windows Hello](https://de.wikipedia.org/wiki/Windows_10#System_sicherheit) System, oder es kann ein abnehmbares Modul wie ein [Yubikey](https://de.wikipedia.org/wiki/YubiKey) sein.
 
-Statt Passwörtern verwendet WebAuthn [Public-Key-Kryptographie](/de/docs/Glossary/public-key_cryptography), um Benutzer zu authentifizieren.
+Anstelle von Passwörtern verwendet WebAuthn die [Public-Key-Kryptografie](/de/docs/Glossary/public-key_cryptography), um Benutzer zu authentifizieren.
 
-Um einen Benutzer auf einer Website mit WebAuthn zu registrieren, rufen Sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) auf und geben alle benötigten Informationen zur Erstellung eines Schlüsselpaares an. Der Authenticator kann den Benutzer zuerst bitten, sich zu authentifizieren, zum Beispiel mit einem biometrischen Leser. Er wird dann ein Schlüsselpaar generieren und den öffentlichen Schlüssel zurückgeben. Dieses Schlüsselpaar ist spezifisch für den Benutzer und die Website. Der Authenticator kann auch eine signierte _Bescheinigung_ generieren und zurückgeben: Dies ist eine Erklärung, dass der Authenticator selbst (zum Beispiel) ein echter Yubikey ist.
+Um einen Benutzer auf einer Webseite mit WebAuthn zu registrieren, rufen Sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) auf und geben Sie alle Informationen an, die zur Erstellung eines Schlüsselpaares benötigt werden. Der Authenticator kann den Benutzer zuerst bitten, sich zu authentifizieren, beispielsweise mit einem biometrischen Leser. Er wird dann ein Schlüsselpaar erstellen und den öffentlichen Schlüssel zurückgeben. Dieses Schlüsselpaar ist spezifisch für den Benutzer und die Webseite. Der Authenticator kann auch eine signierte _Attestation_ generieren und zurückgeben: Dies ist eine Erklärung, dass der Authenticator selbst (zum Beispiel) ein echter Yubikey ist.
 
-Das Frontend der Website sendet den öffentlichen Schlüssel und die Bescheinigung an den Server, der die Bescheinigung überprüft und den öffentlichen Schlüssel mit den restlichen Kontoinformationen des neuen Benutzers speichert.
+Das Frontend der Webseite sendet den öffentlichen Schlüssel und die Attestation an den Server, der die Attestation überprüft und den öffentlichen Schlüssel mit den restlichen Kontoinformationen des neuen Benutzers speichert.
 
-![Sequenzdiagramm, das die Registrierung mit Web-Authentifizierung zeigt.](webauth-create.svg)
+![Sequenzdiagramm zeigt die Registrierung mit Web-Authentifizierung.](webauth-create.svg)
 
-Um einen Benutzer auf der Website anzumelden, holt der Frontend-Code zuerst eine Zufallszahl vom Server ab, die als _Herausforderung_ bezeichnet wird. Dann ruft es [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) auf, übergibt die Herausforderung und einige andere Optionen. Der Authenticator kann erneut den Benutzer bitten, sich zu authentifizieren, und wird dann die Herausforderung mit dem privaten Schlüssel signieren.
+Um einen Benutzer auf der Webseite anzumelden, holt der Frontend-Code zunächst eine Zufallszahl vom Server, die als _Challenge_ bezeichnet wird. Dann wird [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) aufgerufen und die Challenge sowie einige andere Optionen übergeben. Der Authenticator kann den Benutzer erneut bitten, sich zu authentifizieren, und wird dann die Challenge mit dem privaten Schlüssel signieren.
 
-Der Browser gibt dann ein `PublicKeyCredential` Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück, und dieses Objekt enthält die signierte Herausforderung, die als _Aussage_ bezeichnet wird. Das Frontend der Website sendet die Aussage dann an den Server, der die Signatur mit dem gespeicherten öffentlichen Schlüssel überprüft und entscheidet, ob der Benutzer angemeldet werden soll.
+Der Browser gibt dann ein `PublicKeyCredential` Objekt in der Erfüllung des von `get()` zurückgegebenen `Promise` zurück, und dieses Objekt enthält die signierte Challenge, die als _Assertion_ bezeichnet wird. Das Frontend der Webseite sendet dann die Assertion an den Server, der die Signatur mit dem gespeicherten öffentlichen Schlüssel überprüft und entscheidet, ob der Benutzer angemeldet wird.
 
-![Sequenzdiagramm, das die Anmeldung mit einer Web-Authentifizierungsaussage zeigt.](webauth-get.svg)
+![Sequenzdiagramm zeigt die Anmeldung mit einer Web-Authentifizierungsbehauptung.](webauth-get.svg)
 
-Beachten Sie, dass [`store()`](/de/docs/Web/API/CredentialsContainer/store) nicht verwendet wird, wenn mit WebAuthn gearbeitet wird: Das Schlüsselpaar wird im Authenticator erstellt und der private Schlüssel verlässt diesen nie.
+Beachten Sie, dass [`store()`](/de/docs/Web/API/CredentialsContainer/store) bei der Arbeit mit WebAuthn nicht verwendet wird: Das Schlüsselpaar wird im Authenticator erstellt und der private Schlüssel verlässt ihn niemals.
 
 ## Siehe auch
 

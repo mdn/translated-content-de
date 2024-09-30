@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`password`**-Eigenschaft des nur lesbaren [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein
-String, der das Muster enthält, das verwendet wird, um den Passwortteil einer URL zu matchen. Dieser Wert kann aufgrund der Normalisierung von der Eingabe im Konstruktor abweichen.
+Die schreibgeschützte Eigenschaft **`password`** der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Passwortteil einer URL zu erkennen. Dieser Wert kann sich aufgrund von Normalisierung von der Eingabe des Konstruktors unterscheiden.
 
 ## Wert
 
@@ -17,8 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit
-`correct-horse-battery{-staple}?` für den `password`-Teil. Dieses Muster stimmt mit den Passwörtern `correct-horse-battery` und `correct-horse-battery-staple` überein.
+Das untenstehende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `correct-horse-battery{-staple}?` für den `password`-Teil. Dieses Muster erkennt die Passwörter `correct-horse-battery` und `correct-horse-battery-staple`.
 
 ```js
 const pattern = new URLPattern({ password: "correct-horse-battery{-staple}?" });

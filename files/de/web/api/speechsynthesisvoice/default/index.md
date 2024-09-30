@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisVoice: default-Eigenschaft"
+title: "SpeechSynthesisVoice: default Eigenschaft"
 short-title: default
 slug: Web/API/SpeechSynthesisVoice/default
 l10n:
@@ -8,15 +8,10 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`default`**-Eigenschaft des schreibgeschützten
-[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen booleschen Wert
-zurück, der anzeigt, ob die Stimme die Standardstimme für die aktuelle App ist
-(`true`) oder nicht (`false`).
+Die **`default`**-Eigenschaft (nur lesbar) der Schnittstelle [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice) gibt einen booleschen Wert zurück, der angibt, ob die Stimme die Standardstimme für die aktuelle App (`true`) ist oder nicht (`false`).
 
 > [!NOTE]
-> Für einige Geräte könnte es die Standardstimme für die
-> Sprache der Stimme sein. Die Spezifikation ist nicht sehr klar darüber, welche es sein sollte, sodass einige
-> Implementierungen variieren können.
+> Bei einigen Geräten könnte es sich um die Standardstimme für die Sprache der Stimme handeln. Die Spezifikation ist nicht sehr klar, welche es sein sollte, daher können einige Implementierungen abweichen.
 
 ## Wert
 

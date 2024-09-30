@@ -1,5 +1,5 @@
 ---
-title: "TaskAttributionTiming: toJSON()-Methode"
+title: "TaskAttributionTiming: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/TaskAttributionTiming/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts ist.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

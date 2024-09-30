@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`renderTime`** des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces repräsentiert den Zeitpunkt, zu dem das Element auf dem Bildschirm gerendert wurde.
+Die **`renderTime`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Zeit darstellt, zu der das Element auf dem Bildschirm gerendert wurde.
 
 ## Wert
 
-Die Eigenschaft `renderTime` kann die folgenden Werte annehmen:
+Die `renderTime`-Eigenschaft kann folgende Werte haben:
 
-- Einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt in Millisekunden darstellt, zu dem das Element auf dem Bildschirm gerendert wurde.
-- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
+- Ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit in Millisekunden darstellt, zu der das Element auf dem Bildschirm gerendert wurde.
+- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Protokollierung der renderTime des größten inhaltsvollen Paints
+### Protokollierung der renderTime des größten inhaltsvollen Elements
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Performanceeinträge benachrichtigt, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Leistungseinträge informiert, wenn sie in der Performance-Timeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -32,19 +32,19 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "largest-contentful-paint", buffered: true });
 ```
 
-### Renderzeit von Cross-Origin-Bildern
+### Renderzeit eines Cross-Origin-Bildes
 
-Aus Sicherheitsgründen hat die `renderTime`-Eigenschaft den Wert `0`, wenn die Ressource eine Cross-Origin-Anfrage ist. Stattdessen wird die [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) angezeigt. Um Informationen zur Renderzeit von Cross-Origin-Ressourcen freizugeben, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Aus Sicherheitsgründen ist der Wert der `renderTime`-Eigenschaft `0`, wenn die Ressource eine Cross-Origin-Anfrage ist. Stattdessen wird die [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) angezeigt. Um Informationen zur Renderzeit bei Cross-Origin freizugeben, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Um beispielsweise `https://developer.mozilla.org` das Anzeigen von `renderTime` zu erlauben, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` die Einsicht in `renderTime` zu ermöglichen, folgende Rückmeldung senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
 ```
 
-Alternativ können Sie [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) verwenden, welches den Wert der `renderTime` dieses Eintrags zurückgibt, wenn dieser nicht `0` ist, und ansonsten den Wert der [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags. Es wird jedoch empfohlen, den {{HTTPHeader("Timing-Allow-Origin")}}-Header zu setzen, damit die Metriken genauer sind.
+Alternativ können Sie [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) verwenden, das den Wert der `renderTime` zurückgibt, wenn er nicht `0` ist, und ansonsten den Wert der [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime). Es wird jedoch empfohlen, den {{HTTPHeader("Timing-Allow-Origin")}}-Header zu setzen, damit die Metriken genauer sind.
 
-Wenn Sie `startTime` verwenden, können Sie Ungenauigkeiten markieren, indem Sie überprüfen, ob `renderTime` verwendet wurde:
+Wenn Sie `startTime` verwenden, können Sie jegliche Ungenauigkeiten markieren, indem Sie prüfen, ob `renderTime` verwendet wurde:
 
 ```js
 const isAccurateLCP = entry.renderTime ? true : false;

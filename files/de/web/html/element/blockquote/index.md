@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<blockquote>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein erweitertes Zitat ist. Normalerweise wird dies visuell durch Einrückung dargestellt (siehe [Hinweise](#verwendungshinweise), um zu erfahren, wie man dies ändert). Eine URL für die Quelle des Zitats kann mit dem `cite`-Attribut angegeben werden, während eine textliche Darstellung der Quelle mit dem {{HTMLElement("cite")}}-Element gegeben werden kann.
+Das **`<blockquote>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein längeres Zitat ist. Üblicherweise wird dies visuell durch Einrückung dargestellt (siehe [Anmerkungen](#anmerkungen_zur_verwendung), um zu erfahren, wie man dies ändert). Eine URL für die Quelle des Zitats kann mit dem `cite`-Attribut angegeben werden, während eine textuelle Darstellung der Quelle mit dem {{HTMLElement("cite")}}-Element angegeben werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/blockquote.html","tabbed-standard")}}
 
@@ -16,19 +16,19 @@ Das **`<blockquote>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eing
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information angibt. Dieses Attribut soll auf Informationen hinweisen, die den Kontext oder die Referenz für das Zitat erklären.
+  - : Eine URL, die ein Quelldokument oder eine Nachricht für die angegebene Information bezeichnet. Dieses Attribut soll auf Informationen verweisen, die den Kontext oder die Referenz für das Zitat erklären.
 
-## Verwendungshinweise
+## Anmerkungen zur Verwendung
 
-Laut Spezifikation muss die Quellenangabe für das Zitat, falls vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
+Laut der Spezifikation muss die Zuschreibung für das Zitat, falls vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
 
-Um die auf den zitierten Text angewendete Einrückung zu ändern, verwenden Sie die [CSS](/de/docs/Glossary/CSS) {{cssxref("margin-left")}}- und/oder {{cssxref("margin-right")}}-Eigenschaften oder die {{cssxref("margin")}}-Kurzform-Eigenschaft.
+Um die auf den zitierten Text angewendete Einrückung zu ändern, verwenden Sie die [CSS](/de/docs/Glossary/CSS) {{cssxref("margin-left")}} und/oder {{cssxref("margin-right")}} Eigenschaften oder die {{cssxref("margin")}} Kurzform.
 
-Um kürzere Zitate inline anstatt in einem separaten Block einzuschließen, verwenden Sie das {{HTMLElement("q")}} (Zitat)-Element.
+Um kürzere Zitate inline statt in einem separaten Block einzufügen, verwenden Sie das {{HTMLElement("q")}} (Zitat) Element.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine Passage aus {{RFC(1149)}}, _A Standard for the Transmission of IP Datagrams on Avian Carriers_, zu zitieren.
+Dieses Beispiel demonstriert die Nutzung des `<blockquote>`-Elements, um eine Passage aus {{RFC(1149)}}, _A Standard for the Transmission of IP Datagrams on Avian Carriers_ zu zitieren.
 
 ```html
 <blockquote cite="https://datatracker.ietf.org/doc/html/rfc1149">
@@ -60,33 +60,33 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >, Abschnitts-Wurzel, fühlbarer Inhalt.
+          >Flussinhalt</a
+        >, gliedernde Wurzel, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Flussinhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code>
           <a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents"

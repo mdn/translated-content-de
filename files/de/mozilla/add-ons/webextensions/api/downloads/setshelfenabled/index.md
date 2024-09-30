@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`setShelfEnabled()`** Funktion der {{WebExtAPIRef("downloads")}} API aktiviert oder deaktiviert das graue Regal am unteren Rand jedes Fensters, das mit dem aktuellen Browserprofil verbunden ist. Das Regal wird deaktiviert bleiben, solange mindestens eine Erweiterung es deaktiviert hat.
+Die Funktion **`setShelfEnabled()`** der {{WebExtAPIRef("downloads")}} API aktiviert oder deaktiviert das graue Regal am unteren Rand jedes Fensters, das mit dem aktuellen Browser-Profil verknüpft ist. Das Regal bleibt deaktiviert, solange es von mindestens einer Erweiterung deaktiviert wurde.
 
-Wenn Sie versuchen, das Regal zu aktivieren, während es von mindestens einer anderen Erweiterung bereits deaktiviert wurde, schlägt der Aufruf fehl und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
+Wenn Sie versuchen, das Regal zu aktivieren, während mindestens eine andere Erweiterung es bereits deaktiviert hat, schlägt der Aufruf fehl und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
 
 > [!NOTE]
-> Um diese Funktion in Ihrer Erweiterung verwenden zu können, müssen Sie sowohl die Berechtigung `"downloads.shelf"` als auch die Berechtigung `"downloads"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) anfordern.
+> Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie um die `"downloads.shelf"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie um die `"downloads"` Berechtigung bitten.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Diese API ist auch als `browser.downloads.setShelfEnabled()` verfügbar.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

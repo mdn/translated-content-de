@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`PushManager.hasPermission()`**-Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das zum `PushPermissionStatus` der anfragenden Webanwendung aufgelöst wird, welcher `granted`, `denied` oder `default` sein kann.
+Die **`PushManager.hasPermission()`**-Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das den `PushPermissionStatus` der anfragenden Web-App auflöst, welcher einer von `granted`, `denied` oder `default` sein wird.
 
 > [!NOTE]
 > Diese Funktion wurde durch die [`PushManager.permissionState()`](/de/docs/Web/API/PushManager/permissionState)-Methode ersetzt.
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zum `PushPermissionStatus` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich zum `PushPermissionStatus` auflöst.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Ein {{jsxref("Promise")}}, das zum `PushPermissionStatus` aufgelöst wird.
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie steht nicht mehr im Plan, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

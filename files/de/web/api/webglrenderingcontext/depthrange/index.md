@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: depthRange()-Methode"
+title: "WebGLRenderingContext: depthRange() Methode"
 short-title: depthRange()
 slug: Web/API/WebGLRenderingContext/depthRange
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.depthRange()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt die Tiefenbereichsabbildung von normalisierten Gerätekoordinaten zu Fenster- oder Viewport-Koordinaten fest.
+Die **`WebGLRenderingContext.depthRange()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Tiefenbereich von normalisierten Gerätkoordinaten zu Fenster- oder Viewport-Koordinaten an.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ depthRange(zNear, zFar)
 ### Parameter
 
 - `zNear`
-  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der die Abbildung der nahen Clipping-Ebene auf Fenster- oder Viewport-Koordinaten angibt. Durch den Bereich 0 bis 1 begrenzt und muss kleiner oder gleich `zFar` sein. Der Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der die Zuordnung der nahen Clipping-Ebene zu Fenster- oder Viewport-Koordinaten angibt. Wird in den Bereich von 0 bis 1 begrenzt und muss kleiner oder gleich `zFar` sein. Der Standardwert ist 0.
 - `zFar`
-  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der die Abbildung der fernen Clipping-Ebene auf Fenster- oder Viewport-Koordinaten angibt. Durch den Bereich 0 bis 1 begrenzt. Der Standardwert ist 1.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der die Zuordnung der fernen Clipping-Ebene zu Fenster- oder Viewport-Koordinaten angibt. Wird in den Bereich von 0 bis 1 begrenzt. Der Standardwert ist 1.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.depthRange(0.2, 0.6);
 ```
 
-Um den aktuellen Tiefenbereich zu überprüfen, fragen Sie die Konstante `DEPTH_RANGE` ab, die ein {{jsxref("Float32Array")}} zurückgibt.
+Um den aktuellen Tiefenbereich zu überprüfen, können Sie die Konstante `DEPTH_RANGE` abfragen, die ein {{jsxref("Float32Array")}} zurückgibt.
 
 ```js
 gl.getParameter(gl.DEPTH_RANGE);

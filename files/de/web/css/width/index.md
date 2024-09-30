@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`width`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig wird die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) festgelegt, aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, wird die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) festgelegt.
+Die **`width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig wird die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) gesetzt. Wenn jedoch {{cssxref("box-sizing")}} auf `border-box` eingestellt ist, wird die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) festgelegt.
 
 {{EmbedInteractiveExample("pages/css/width.html")}}
 
 Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
 
-- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, dann überschreibt `min-width` die `width`.
-- Wenn der Wert für `width` größer ist als der Wert für `max-width`, dann überschreibt `max-width` die `width`.
+- Wenn der Wert von `width` kleiner ist als der Wert von `min-width`, dann überschreibt `min-width` `width`.
+- Wenn der Wert von `width` größer ist als der Wert von `max-width`, dann überschreibt `max-width` `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` und für andere Elemente zu `0` aufgelöst wird und Prozentwerte relativ zur SVG-Viewport-Breite für `<rect>` sind. Der CSS-`width`-Eigenschaftswert überschreibt jeden SVG-{{SVGAttr("width")}}-Attributwert, der am SVG-Element festgelegt wurde.
+> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` sich auf `100%` für `<svg>` und `0` für andere Elemente auflöst. Prozentwerte beziehen sich auf die SVG-Viewport-Breite für `<rect>`. Der CSS-`width`-Eigenschaftswert überschreibt jeden auf dem SVG-Element festgelegten SVG-{{SVGAttr("width")}}-Attributwert.
 
 ## Syntax
 
@@ -54,28 +54,28 @@ width: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Definiert die Breite als Prozentsatz der Breite des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block).
 - `auto`
-  - : Der Browser berechnet und wählt eine Breite für das angegebene Element.
+  - : Der Browser berechnet und wählt eine Breite für das angegebene Element aus.
 - `max-content`
   - : Die intrinsische bevorzugte Breite.
 - `min-content`
   - : Die intrinsische Mindestbreite.
 - `fit-content`
-  - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Raum, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
   - : Verwendet die fit-content-Formel mit dem verfügbaren Raum, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
 
-  - : Setzt die Breite des [Randbereichs](/de/docs/Learn/CSS/Building_blocks/The_box_model#parts_of_a_box) des Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, den Randbereich so zu erweitern, dass er den verfügbaren Raum im umschließenden Block füllt, verhält sich in gewisser Weise ähnlich wie `100%`, wendet jedoch die resultierende Größe auf den Randbereich an, anstatt auf den durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Bereich.
+  - : Setzt die Breite des [Randkasten](/de/docs/Learn/CSS/Building_blocks/The_box_model#parts_of_a_box) des Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, den Randkasten so auszufüllen, dass er den verfügbaren Raum im umschließenden Block nutzt, ähnlich wie bei `100%`, wobei jedoch die resultierende Größe auf den Randkasten angewendet wird, anstatt auf den durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Kasten.
 
     > [!NOTE]
-    > Um die von Browsern für den `stretch`-Wert verwendeten Aliase und deren Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um Aliasse zu überprüfen, die von Browsern für den `stretch`-Wert verwendet werden, und den Status der Implementierung zu prüfen, siehe den Abschnitt über die [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer `width`-Einstellung beim Zoomen der Seite zur Vergrößerung der Textgröße nicht abgeschnitten werden und/oder andere Inhalte verdecken.
+Stellen Sie sicher, dass Elemente, die mit einer `width` gesetzt werden, nicht abgeschnitten und/oder andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis der WCAG, Richtlinie 1.4 Erläuterungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgs Kriteriums 1.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`fileName`** Dateneigenschaft einer {{jsxref("Error")}} Instanz enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat.
+Die **`fileName`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält den Pfad zur Datei, die diesen Fehler ausgelöst hat.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein String.
 
 ## Beschreibung
 
-Diese nicht-standardmäßige Eigenschaft enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat. Wenn sie aus einem Debugging-Kontext aufgerufen wird, zum Beispiel aus den Firefox Developer Tools, wird "debugger eval code" zurückgegeben.
+Diese nicht standardisierte Eigenschaft enthält den Pfad zur Datei, die diesen Fehler ausgelöst hat. Wenn sie aus einem Debugger-Kontext aufgerufen wird, returned sie beispielsweise in den Firefox Developer Tools "debugger eval code".
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ throw e;
 
 ## Spezifikationen
 
-Teil keines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

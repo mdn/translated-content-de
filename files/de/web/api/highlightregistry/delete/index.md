@@ -10,7 +10,7 @@ l10n:
 
 Die **`delete()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle entfernt ein benanntes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt aus der `HighlightRegistry`.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich der Verwendung von {{jsxref("Map.delete()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, sodass dies dem Einsatz von {{jsxref("Map.delete()")}} ähnelt.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Gibt `true` zurück, wenn ein `Highlight`-Objekt unter dem angegebenen Namen in 
 
 ## Beispiele
 
-Das folgende Codebeispiel registriert ein Highlight im Verzeichnis und löscht es dann:
+Das folgende Codebeispiel registriert ein Highlight in der Registry und löscht es dann:
 
 ```js
 const myHighlight = new Highlight(range1, range2);

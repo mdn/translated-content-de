@@ -1,5 +1,5 @@
 ---
-title: "USB: getDevices() Methode"
+title: "USB: getDevices()-Methode"
 short-title: getDevices()
 slug: Web/API/USB/getDevices
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`getDevices`**-Methode der [`USB`](/de/docs/Web/API/USB)-Schnittstelle gibt ein {{JSxRef("Promise")}} zurück, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekten für gekoppelte angeschlossene Geräte erfüllt wird. Informationen zum Koppeln von Geräten finden Sie unter [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice).
+Die **`getDevices`**-Methode der [`USB`](/de/docs/Web/API/USB)-Schnittstelle
+gibt ein {{JSxRef("Promise")}} zurück, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-
+Objekten für gepaarte angeschlossene Geräte aufgelöst wird. Informationen über das Koppeln von Geräten finden Sie unter
+[`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice).
 
 ## Syntax
 
@@ -22,11 +25,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekten erfüllt wird.
+Ein {{JSxRef("Promise")}}, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-
+Objekten aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel protokolliert den Produktnamen und die Seriennummer der gekoppelten Geräte in der Konsole. Informationen zum Koppeln von Geräten finden Sie unter [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice).
+Das folgende Beispiel protokolliert den Produktnamen und die Seriennummer gepaarter Geräte in der
+Konsole. Informationen über das Koppeln von Geräten finden Sie unter
+[`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice).
 
 ```js
 navigator.usb.getDevices().then((devices) => {

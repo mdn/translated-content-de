@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`videoBitsPerSecond`** schreibgeschützte Eigenschaft der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle gibt die verwendete Video-Codierungs-Bitrate zurück.
+Die **`videoBitsPerSecond`** schreibgeschützte Eigenschaft des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt die verwendete Video-Codierungs-Bitrate zurück.
 
-Diese kann sich von der im Konstruktor angegebenen Bitrate unterscheiden, falls diese bereitgestellt wurde.
+Diese kann von der im Konstruktor angegebenen Bitrate abweichen, falls diese zur Verfügung gestellt wurde.
 
 ## Wert
 

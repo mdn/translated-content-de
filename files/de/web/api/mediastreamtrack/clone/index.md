@@ -1,5 +1,5 @@
 ---
-title: "MediaStreamTrack: clone() Methode"
+title: "MediaStreamTrack: clone()-Methode"
 short-title: clone()
 slug: Web/API/MediaStreamTrack/clone
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`clone()`**-Methode der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle erstellt eine Kopie des `MediaStreamTrack`. Dieses neue `MediaStreamTrack`-Objekt ist identisch, mit Ausnahme seiner eindeutigen [`id`](/de/docs/Web/API/MediaStreamTrack/id).
+Die **`clone()`**-Methode der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle erstellt ein Duplikat des `MediaStreamTrack`. Dieses neue `MediaStreamTrack`-Objekt ist identisch, mit Ausnahme seiner einzigartigen [`id`](/de/docs/Web/API/MediaStreamTrack/id).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Instanz, die mit der, bei der `clone()` aufgerufen wurde, identisch ist, außer der neuen eindeutigen [`id`](/de/docs/Web/API/MediaStreamTrack/id).
+Eine neue [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Instanz, die identisch zu der ist, von der `clone()` aufgerufen wurde, mit Ausnahme ihrer neuen einzigartigen [`id`](/de/docs/Web/API/MediaStreamTrack/id).
 
 ## Spezifikationen
 

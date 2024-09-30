@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-« [SVG-Attributreferenz Startseite](/de/docs/Web/SVG/Attribute)
+« [SVG Attribut-Referenz-Startseite](/de/docs/Web/SVG/Attribute)
 
-Das `clip-rule`-Attribut gilt nur für Grafikelemente, die in einem {{ SVGElement("clipPath") }}-Element enthalten sind. Das `clip-rule`-Attribut funktioniert im Wesentlichen wie das {{ SVGAttr("fill-rule") }}-Attribut, außer dass es für {{ SVGElement("clipPath") }}-Definitionen gilt.
+Das Attribut `clip-rule` gilt nur für Grafikelemente, die in einem {{ SVGElement("clipPath") }}-Element enthalten sind. Das Attribut `clip-rule` funktioniert im Wesentlichen wie das Attribut {{ SVGAttr("fill-rule") }}, außer dass es auf {{ SVGElement("clipPath") }}-Definitionen angewendet wird.
 
-Der folgende Codeausschnitt sorgt dafür, dass eine ungerade-gerade Clipping-Regel auf den Clipping-Pfad angewendet wird, weil `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben ist, das die Clipping-Form definiert:
+Das folgende Codefragment wird dazu führen, dass eine evenodd-Clipping-Regel auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben wird, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -22,7 +22,7 @@ Der folgende Codeausschnitt sorgt dafür, dass eine ungerade-gerade Clipping-Reg
 </g>
 ```
 
-während der folgende Codeausschnitt keine ungerade-gerade Clipping-Regel bewirkt, da `clip-rule` auf dem referenzierenden Element angegeben ist, nicht auf dem Objekt, das die Clipping-Form definiert:
+während das folgende Codefragment nicht dazu führt, dass eine evenodd-Clipping-Regel angewendet wird, da die `clip-rule` auf das referenzierende Element und nicht auf das Objekt, das die Clipping-Form definiert, spezifiziert wird:
 
 ```html
 <g>
@@ -33,9 +33,9 @@ während der folgende Codeausschnitt keine ungerade-gerade Clipping-Regel bewirk
 </g>
 ```
 
-Als Präsentationsattribut kann es auch direkt in einem CSS-Stylesheet als Eigenschaft verwendet werden.
+Als Präsentationsattribut kann es auch als Eigenschaft direkt innerhalb eines CSS Stylesheets verwendet werden.
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -55,9 +55,9 @@ Als Präsentationsattribut kann es auch direkt in einem CSS-Stylesheet als Eigen
 </table>
 
 - nonzero
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
+  - : Siehe Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
 - evenodd
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
+  - : Siehe Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
 
 ## Beispiel
 
@@ -90,7 +90,7 @@ Als Präsentationsattribut kann es auch direkt in einem CSS-Stylesheet als Eigen
 
 ## Elemente
 
-Die folgenden Elemente können das `clip-rule`-Attribut verwenden, jedoch nur, wenn sie sich in einem {{ SVGElement("clipPath") }}-Element befinden.
+Die folgenden Elemente können das Attribut `clip-rule` verwenden, jedoch nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden.
 
 - [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements)
 

@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: appendData()-Methode"
+title: "CharacterData: Methode appendData()"
 short-title: appendData()
 slug: Web/API/CharacterData/appendData
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`appendData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces fügt die angegebenen Daten am Ende der aktuellen Daten des Knotens hinzu.
+Die **`appendData()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
+fügt die bereitgestellten Daten am Ende der aktuellen Daten des Knotens hinzu.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ appendData(data)
 ### Parameter
 
 - `data`
-  - : Die Daten, die zum aktuellen Knoten hinzugefügt werden sollen.
+  - : Die Daten, die an den aktuellen Knoten angehängt werden sollen.
 
 ### Rückgabewert
 
@@ -38,7 +39,7 @@ const textnode = span.nextSibling;
 textnode.appendData(" - appended text.");
 ```
 
-{{EmbedLiveSample("Example", "100%", 50)}}
+{{EmbedLiveSample("Beispiel", "100%", 50)}}
 
 ## Spezifikationen
 

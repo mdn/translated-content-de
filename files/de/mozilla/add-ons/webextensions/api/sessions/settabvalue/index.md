@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Tab verknüpft wird. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getTabValue")}} abrufen.
+Speichert ein Schlüssel/Wert-Paar zur Verknüpfung mit einem bestimmten Tab. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getTabValue")}} abrufen.
 
-Beachten Sie, dass diese Daten nur für die Erweiterung sichtbar sind, die sie gesetzt hat, und nicht für andere Erweiterungen.
+Beachten Sie, dass diese Daten nur der Erweiterung sichtbar sind, die sie gesetzt hat, und nicht anderen Erweiterungen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,9 +28,9 @@ let storing = browser.sessions.setTabValue(
 - `tabId`
   - : `integer`. ID des Tabs, mit dem Sie die Daten verknüpfen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, den Sie später verwenden können, um diesen speziellen Datenwert abzurufen.
+  - : `string`. Schlüssel, mit dem Sie diesen speziellen Datenwert später abrufen können.
 - `value`
-  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringified](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Objektmethoden beispielsweise ausgelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
+  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringified](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass zum Beispiel Objektmethoden weggelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
 
 ### Rückgabewert
 
@@ -42,7 +42,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Setzen Sie einen Wert auf dem aktiven Tab, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die "menus"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
+Setzen Sie einen Wert auf dem aktiven Tab, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die "menus" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
 
 ```js
 async function setOnActiveTab() {

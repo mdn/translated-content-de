@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Eigenschaftsnamen, die mit `--` beginnen, wie `--example-name`, repräsentieren _benutzerdefinierte Eigenschaften_, die einen Wert enthalten, der in anderen Deklarationen mit der {{cssxref("var", "var()")}}-Funktion verwendet werden kann.
+Eigenschaftsnamen, die mit `--` vorangestellt sind, wie `--example-name`, repräsentieren _benutzerdefinierte Eigenschaften_, die einen Wert enthalten, der in anderen Deklarationen mittels der {{cssxref("var", "var()")}} Funktion verwendet werden kann.
 
-Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf dem/denen sie deklariert sind und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft stammt aus der Deklaration, die vom Kaskadenalgorithmus bestimmt wird.
+Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf denen sie deklariert werden und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft ist der der Deklaration, die durch den Kaskadenalgorithmus entschieden wird.
 
 {{CSSInfo}}
 
@@ -22,10 +22,10 @@ Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf de
 ```
 
 - `<declaration-value>`
-  - : Dieser Wert entspricht jeder Sequenz von einem oder mehreren Tokens, solange die Sequenz kein unzulässiges Token enthält. Es repräsentiert die Gesamtheit dessen, was eine gültige Deklaration als Wert haben kann.
+  - : Dieser Wert entspricht jeder Sequenz von einem oder mehreren Token, solange die Sequenz kein nicht erlaubtes Token enthält. Er repräsentiert die Gesamtheit dessen, was eine gültige Deklaration als Wert haben kann.
 
 > [!NOTE]
-> Benutzerdefinierte Eigenschaftsnamen sind groß-/kleinschreibungsempfindlich — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
+> Namen von benutzerdefinierten Eigenschaften sind groß-/kleinschreibungssensitiv — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
 
 ## Beispiel
 
@@ -87,7 +87,7 @@ Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf de
 
 ## Siehe auch
 
-- Die {{cssxref("var", "var()")}}-Funktion
-- {{cssxref("@property")}}-Regel
-- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties) Leitfaden
-- [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- Die {{cssxref("var", "var()")}} Funktion
+- {{cssxref("@property")}} At-Regel
+- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties) Leitfaden
+- [CSS-Benutzerdefinierte Eigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul

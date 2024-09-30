@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
+Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-out-of-range.html", "tabbed-shorter")}}
 
-Diese Pseudo-Klasse ist nützlich, um dem Benutzer visuell zu signalisieren, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudo-Klasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -92,4 +92,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":in-range")}}
-- [Validierung von Formulardaten](/de/docs/Learn/Forms/Form_validation)
+- [Überprüfung von Formulardaten](/de/docs/Learn/Forms/Form_validation)

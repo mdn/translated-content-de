@@ -1,5 +1,5 @@
 ---
-title: "XRPose: Transform-Eigenschaft"
+title: "XRPose: transform-Eigenschaft"
 short-title: transform
 slug: Web/API/XRPose/transform
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_header}}
 
-Das schreibgeschützte Attribut `transform` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung der Pose relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) liefert, wie sie angegeben wurde, als die Pose durch Aufrufen von [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) abgerufen wurde.
+Das schreibgeschützte Attribut `transform` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung der Pose relativ zum Basis-`XRSpace` bereitstellt, wie es beim Abrufen der Pose durch den Aufruf von [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) angegeben wurde.
 
 ## Wert
 
-Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die Position und Orientierung der [`XRPose`](/de/docs/Web/API/XRPose) relativ zu dem [`XRFrame`](/de/docs/Web/API/XRFrame) liefert, mit dem diese `XRPose` ausgerichtet ist. Dies ist die gleiche Pose, die von der [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode des Frames zurückgegeben wird.
+Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die Position und Orientierung der [`XRPose`](/de/docs/Web/API/XRPose) relativ zu dem [`XRFrame`](/de/docs/Web/API/XRFrame) bereitstellt, mit dem diese `XRPose` ausgerichtet ist. Dies ist die gleiche Pose, die von der `getPose()`-Methode des Frames zurückgegeben wird.
 
 ## Beispiele
 
-Dieser Handler für das [`XRSession`](/de/docs/Web/API/XRSession)-Ereignis [`select`](/de/docs/Web/API/XRSession/select_event) verarbeitet Ereignisse für verfolgte Zeiger. Er bestimmt das anvisierte Objekt, indem er die Pose des Ereignisrahmens in eine Funktion namens `findTargetUsingRay()` übergibt, und leitet das Ereignis je nach Händigkeit des Benutzers unterschiedlich weiter; dies geschieht durch den Vergleich des Wertes der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft [`handedness`](/de/docs/Web/API/XRInputSource/handedness) mit einem Wert in der Variable `user.handedness`. Wenn die Quelle ein Controller in der primären Hand des Benutzers ist, wird eine Funktion namens `primaryAction()` für das anvisierte Objekt aufgerufen; andernfalls wird die Funktion `offHandAction()` des anvisierten Objekts aufgerufen.
+Dieser Handler für das [`XRSession`](/de/docs/Web/API/XRSession)-Ereignis [`select`](/de/docs/Web/API/XRSession/select_event) bearbeitet Ereignisse für verfolgte Zeiger. Er bestimmt das anvisierte Objekt, indem er die Pose des Ereignisframes in eine Funktion namens `findTargetUsingRay()` übergibt, und leitet das Ereignis dann unterschiedlich weiter, abhängig von der Händigkeit des Benutzers; dies geschieht durch Vergleich des Wertes der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft [`handedness`](/de/docs/Web/API/XRInputSource/handedness) mit einem Wert in der Variablen `user.handedness`. Wenn die Quelle ein Controller in der primären Hand des Benutzers ist, wird eine Funktion am anvisierten Objekt namens `primaryAction()` aufgerufen; andernfalls ruft sie die `offHandAction()`-Funktion des anvisierten Objekts auf.
 
 ```js
 xrSession.addEventListener("select", (event) => {

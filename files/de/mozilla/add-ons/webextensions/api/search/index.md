@@ -7,23 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Verwenden Sie die `search`-API, um die installierten Suchmaschinen abzurufen und Suchanfragen auszuführen.
+Verwenden Sie die `search` API, um die installierten Suchmaschinen abzurufen und Suchvorgänge auszuführen.
 
-Um diese API zu verwenden, benötigen Sie die `"search"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu verwenden, müssen Sie die Berechtigung `"search"` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
 
-Beim Wählen zwischen `search.query()` und `search.search()` sollten Sie Folgendes beachten:
+Bei der Wahl zwischen `search.query()` und `search.search()` erwägen Sie Folgendes:
 
-- {{WebExtAPIRef("search.query()")}} ist in den meisten großen Browsern verfügbar und eignet sich somit ideal für den Einsatz in plattformübergreifenden Erweiterungen. Allerdings kann damit nur über die Standardsuchmaschine des Browsers gesucht werden.
-- {{WebExtAPIRef("search.search()")}} ist nur in Firefox verfügbar. Der Vorteil besteht jedoch darin, dass damit eine Suche über jede im Browser installierte Suchmaschine ausgeführt werden kann.
+- {{WebExtAPIRef("search.query()")}} ist in den meisten großen Browsern verfügbar und eignet sich daher ideal für den Einsatz in browserübergreifenden Erweiterungen. Es kann jedoch nur Suchanfragen an die Standardsuchmaschine des Browsers stellen.
+- {{WebExtAPIRef("search.search()")}} ist nur in Firefox verfügbar. Es hat jedoch den Vorteil, dass es eine Suche mit jeder im Browser installierten Suchmaschine ausführen kann.
 
 ## Funktionen
 
 - {{WebExtAPIRef("search.get()")}}
   - : Alle Suchmaschinen abrufen.
 - {{WebExtAPIRef("search.query()")}}
-  - : Mit der Standardsuchmaschine des Browsers suchen.
+  - : Suche mit der Standardsuchmaschine des Browsers durchführen.
 - {{WebExtAPIRef("search.search()")}}
-  - : Mit einer angegebenen Suchmaschine suchen.
+  - : Suche mit einer angegebenen Suchmaschine durchführen.
 
 {{WebExtExamples("h2")}}
 

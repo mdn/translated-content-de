@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`leftProjectionMatrix`** der [`VRFrameData`](/de/docs/Web/API/VRFrameData)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das eine 4x4-Matrix darstellt, die die Projektion beschreibt, die für das Rendering des linken Auges verwendet werden soll.
+Die schreibgeschützte **`leftProjectionMatrix`**-Eigenschaft der [`VRFrameData`](/de/docs/Web/API/VRFrameData)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das eine 4x4-Matrix darstellt, die die Projektion beschreibt, die für das Rendering des linken Auges verwendet werden soll.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Dieser Wert kann direkt an die `uniformMatrix4fv`-Funktion von WebGL übergeben werden.
+Dieser Wert kann direkt an die [`uniformMatrix4fv`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix)-Funktion von WebGL übergeben werden.
 
 > [!WARNING]
-> Es wird dringend empfohlen, dass Anwendungen diese Matrix unverändert verwenden. Die Nichtverwendung dieser Projektionsmatrix beim Rendering kann dazu führen, dass der dargestellte Frame verzerrt oder falsch ausgerichtet wird, was zu unterschiedlichem Maße an Unbehagen bei den Nutzern führen kann.
+> Es wird dringend empfohlen, diese Matrix unverändert zu verwenden. Das Nichthandhaben dieser Projektionsmatrix beim Rendering kann dazu führen, dass der dargestellte Frame verzerrt oder schlecht ausgerichtet ist, was zu unterschiedlich starkem Unbehagen bei den Benutzern führen kann.
 
 ## Wert
 
@@ -24,13 +24,13 @@ Ein {{jsxref("Float32Array")}}-Objekt.
 
 ## Beispiele
 
-Siehe [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData#examples) für Beispielcode.
+Sehen Sie sich [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData#examples) für Beispielcode an.
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie wird nicht mehr auf dem Weg zu einem Standard verfolgt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/)-Leitfaden von Meta für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

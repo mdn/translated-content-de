@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: length Eigenschaft"
+title: "DOMTokenList: length-Eigenschaft"
 short-title: length
 slug: Web/API/DOMTokenList/length
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`length`** Eigenschaft der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) ist ein `integer`, der die Anzahl der im Objekt gespeicherten Objekte darstellt.
+Die schreibgeschützte **`length`**-Eigenschaft der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ist ein `integer`, der die Anzahl der in dem Objekt gespeicherten Objekte repräsentiert.
 
 ## Wert
 
-Ein positiver Integer oder `0`, wenn die Liste leer ist.
+Eine positive Ganzzahl oder `0`, wenn die Liste leer ist.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die an einem {{htmlelement("span")}}-Element mittels [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` gesetzt sind, und schreiben dann die Länge der Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Anschließend schreiben wir die Länge der Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 

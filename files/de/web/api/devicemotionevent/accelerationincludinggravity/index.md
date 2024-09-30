@@ -1,5 +1,5 @@
 ---
-title: "DeviceMotionEvent: accelerationIncludingGravity-Eigenschaft"
+title: "DeviceMotionEvent: Eigenschaft accelerationIncludingGravity"
 short-title: accelerationIncludingGravity
 slug: Web/API/DeviceMotionEvent/accelerationIncludingGravity
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`accelerationIncludingGravity`** der Schnittstelle [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) gibt den Betrag der von dem Gerät registrierten Beschleunigung in [Meter pro Quadratsekunde (m/s²)](https://en.wikipedia.org/wiki/Meter_per_second_squared) zurück. Im Gegensatz zu [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration), die den Einfluss der Schwerkraft kompensiert, ist ihr Wert die Summe der vom Benutzer verursachten Beschleunigung des Geräts und einer Beschleunigung, die der von der Schwerkraft verursachten gleich und entgegengesetzt ist. Mit anderen Worten, sie misst die [g-Kraft](https://en.wikipedia.org/wiki/G-Force). In der Praxis stellt dieser Wert die Rohdaten dar, die von einem [Beschleunigungsmesser](https://en.wikipedia.org/wiki/Accelerometer) gemessen werden.
+Die **`accelerationIncludingGravity`** schreibgeschützte Eigenschaft der [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Schnittstelle gibt die Menge an Beschleunigung zurück, die vom Gerät in [Metern pro Quadratsekunde (m/s²)](https://en.wikipedia.org/wiki/Meter_per_second_squared) aufgezeichnet wurde. Im Gegensatz zu [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration), die den Einfluss der Schwerkraft kompensiert, ist ihr Wert die Summe der vom Nutzer verursachten Beschleunigung und einer Beschleunigung, die gleich und entgegengesetzt zu der durch die Schwerkraft verursachten Beschleunigung ist. Mit anderen Worten, sie misst die [g-Kraft](https://en.wikipedia.org/wiki/G-Force). In der Praxis stellt dieser Wert die Rohdaten dar, die von einem [Beschleunigungsmesser](https://en.wikipedia.org/wiki/Accelerometer) gemessen werden.
 
-Dieser Wert ist normalerweise nicht so nützlich wie [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration), könnte aber der einzige verfügbare Wert auf Geräten sein, die nicht in der Lage sind, die Schwerkraft aus den Beschleunigungsdaten zu entfernen, wie z.B. auf Geräten ohne Gyroskop.
+Dieser Wert ist in der Regel nicht so nützlich wie [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration), kann aber auf Geräten, die nicht in der Lage sind, die Schwerkraft aus den Beschleunigungsdaten zu entfernen, wie zum Beispiel auf Geräten, die keinen Kreiselmesser haben, der einzige verfügbare Wert sein.
 
-> **Note:** Der Name `accelerationIncludingGravity` kann irreführend sein. Diese Eigenschaft repräsentiert die Beschleunigung einschließlich _der Auswirkungen_ der Schwerkraft. Zum Beispiel: Wenn ein Gerät flach auf einer horizontalen Oberfläche liegt und der Bildschirm nach oben zeigt, wäre die Schwerkraft -9,8 entlang der Z-Achse, während `acceleration.z` 0 wäre und `accelerationIncludingGravity.z` 9,8. Ebenso: Wenn ein Gerät im freien Fall mit horizontalem und nach oben zeigendem Bildschirm ist, wäre die Schwerkraft -9,8 entlang der Z-Achse, während `acceleration.z` -9,8 und `accelerationIncludingGravity.z` 0 wäre.
+> **Note:** Der Name `accelerationIncludingGravity` kann irreführend sein. Diese Eigenschaft stellt die Beschleunigung einschließlich _der Auswirkungen der_ Schwerkraft dar. Wenn ein Gerät beispielsweise flach auf einer horizontalen Oberfläche liegt und der Bildschirm nach oben zeigt, wäre die Schwerkraft -9,8 entlang der Z-Achse, während `acceleration.z` 0 wäre und `accelerationIncludingGravity.z` 9,8 wäre. Ähnlich, wenn ein Gerät im freien Fall mit horizontalem Bildschirm nach oben ist, wäre die Schwerkraft -9,8 entlang der Z-Achse, während `acceleration.z` -9,8 und `accelerationIncludingGravity.z` 0 wäre.
 
 ## Wert
 
-Die `accelerationIncludingGravity`-Eigenschaft ist ein Objekt, das Informationen über die Beschleunigung in drei Achsen liefert. Jede Achse wird durch ihre eigene Eigenschaft dargestellt:
+Die `accelerationIncludingGravity`-Eigenschaft ist ein Objekt, das Informationen über die Beschleunigung auf drei Achsen liefert. Jede Achse wird durch ihre eigene Eigenschaft dargestellt:
 
 - `x`
-  - : Repräsentiert die Beschleunigung entlang der x-Achse, die von Westen nach Osten verläuft
+  - : Stellt die Beschleunigung auf der x-Achse dar, die die West-Ost-Achse ist
 - `y`
-  - : Repräsentiert die Beschleunigung entlang der y-Achse, die von Süden nach Norden verläuft
+  - : Stellt die Beschleunigung auf der y-Achse dar, die die Süd-Nord-Achse ist
 - `z`
-  - : Repräsentiert die Beschleunigung entlang der z-Achse, die von unten nach oben verläuft
+  - : Stellt die Beschleunigung auf der z-Achse dar, die die Abwärts-Aufwärts-Achse ist
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Die `accelerationIncludingGravity`-Eigenschaft ist ein Objekt, das Informationen
 
 ## Siehe auch
 
-- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
-- [Erläuterung zu Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
-- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event) Ereignis
+- [Geräteausrichtung erkennen](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erläuterung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)-Event

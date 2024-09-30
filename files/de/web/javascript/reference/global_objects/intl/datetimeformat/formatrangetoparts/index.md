@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`formatRangeToParts()`** von Instanzen von {{jsxref("Intl.DateTimeFormat")}} gibt ein Array von lokalespezifischen Token zurück, die jeden Teil des formatierten Datumsbereichs darstellen, der von diesem `Intl.DateTimeFormat`-Objekt erzeugt wird.
+Die **`formatRangeToParts()`**-Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen gibt ein Array von lokalisierungsspezifischen Tokens zurück, die jeweils einen Teil des formatierten Datumsbereichs darstellen, der von diesem `Intl.DateTimeFormat`-Objekt erzeugt wird.
 
 {{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-formatrangetoparts.html", "taller")}}
 
@@ -21,10 +21,10 @@ formatRangeToParts(startDate, endDate)
 
 ### Grundlegende Verwendung von formatRangeToParts
 
-Diese Methode erhält zwei {{jsxref("Date")}}s und gibt ein {{jsxref("Array")}} von Objekten zurück, die die _lokalespezifischen_ Token enthalten, die jeden Teil des formatierten Datumsbereichs darstellen.
+Diese Methode empfängt zwei {{jsxref("Date")}}s und gibt ein {{jsxref("Array")}} von Objekten zurück, die die _lokalisierungsspezifischen_ Tokens enthalten, die jeweils einen Teil des formatierten Datumsbereichs darstellen.
 
 > [!NOTE]
-> Die in Ihrer Sprache angezeigten Rückgabewerte können von den unten aufgeführten abweichen.
+> Die in Ihrer Lokalisierung angezeigten Rückgabewerte können von den unten aufgeführten abweichen.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT

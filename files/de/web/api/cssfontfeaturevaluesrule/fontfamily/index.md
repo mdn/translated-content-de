@@ -12,13 +12,13 @@ Die **`fontFamily`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSCo
 
 ## Wert
 
-Ein Zeichenfolgenwert.
+Ein String.
 
 ## Beispiele
 
 ### Schriftfamilie auslesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Wir verwenden dann die CSSOM, um diese Schriftfamilien auszulesen und sie im Log anzuzeigen.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Dann verwenden wir das CSSOM, um diese Schriftfamilien auszulesen und sie im Log anzuzeigen.
 
 ```html
 <pre id="log"></pre>

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol auf ihrem ersten Argument, um die Methode zu finden, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
+Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol in ihrem ersten Argument als Methode, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
 
 Für weitere Informationen siehe [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
 
@@ -15,7 +15,7 @@ Für weitere Informationen siehe [`RegExp.prototype[Symbol.matchAll]()`](/de/doc
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.matchAll`.
+Das bekannte Symbol `Symbol.matchAll`.
 
 {{js_property_attributes(0, 0, 0)}}
 

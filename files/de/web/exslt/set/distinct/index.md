@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:distinct()` gibt eine Teilmenge der Knoten im angegebenen Knoten-Set zurück, bei der nur Knoten mit einzigartigen Zeichenkettenwerten zurückgegeben werden.
+`set:distinct()` gibt eine Teilmenge der Knoten im angegebenen Node-Set zurück, indem sie nur Knoten mit einzigartigen Zeichenfolgenwerten zurückgibt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ set:distinct(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Das Knoten-Set, in dem einzigartige Knoten gefunden werden sollen.
+  - : Das Node-Set, in dem einzigartige Knoten gefunden werden sollen.
 
 ### Rückgabewert
 
-Ein Knoten-Set, das die Knoten enthält, die einzigartige Zeichenkettenwerte haben.
+Ein Node-Set mit den Knoten, die einzigartige Zeichenfolgenwerte haben.
 
 ## Spezifikationen
 

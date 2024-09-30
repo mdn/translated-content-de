@@ -1,5 +1,5 @@
 ---
-title: "Highlight: has()-Methode"
+title: "Highlight: has() Methode"
 short-title: has()
 slug: Web/API/Highlight/has
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`has()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein [`Range`](/de/docs/Web/API/Range)-Objekt in einem `Highlight`-Objekt existiert oder nicht.
+Die **`has()`** Methode des [`Highlight`](/de/docs/Web/API/Highlight) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob ein [`Range`](/de/docs/Web/API/Range) Objekt in einem `Highlight` Objekt existiert oder nicht.
 
 `Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.has()")}}.
 
@@ -21,15 +21,15 @@ has(range)
 ### Parameter
 
 - `range`
-  - : Das `Range`-Objekt, das auf seine Existenz im `Highlight`-Objekt getestet werden soll.
+  - : Das `Range` Objekt, dessen Vorhandensein im `Highlight` Objekt geprüft werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der angegebene Bereich im `Highlight`-Objekt existiert; andernfalls `false`.
+Gibt `true` zurück, wenn der angegebene Bereich im `Highlight` Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 
-Der folgende Code-Schnipsel erstellt zwei Bereiche und ein Highlight-Objekt, das einen von ihnen enthält. Anschließend wird die `has()`-Methode verwendet, um zu überprüfen, ob jeder Bereich im Highlight existiert:
+Das folgende Codebeispiel erstellt zwei Bereiche und ein Highlight-Objekt, das einen von ihnen enthält. Der Code verwendet dann die `has()` Methode, um zu prüfen, ob jeder Bereich im Highlight existiert:
 
 ```js
 const range1 = new Range();
@@ -51,4 +51,4 @@ myHighlight.has(range2); // false
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Text-Hervorhebens im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

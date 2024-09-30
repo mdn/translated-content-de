@@ -1,5 +1,5 @@
 ---
-title: "DOMRect: DOMRect()-Konstruktor"
+title: "DOMRect: DOMRect() Konstruktor"
 short-title: DOMRect()
 slug: Web/API/DOMRect/DOMRect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Der **`DOMRect()`**-Konstruktor erstellt ein neues [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt.
+Der **`DOMRect()`** Konstruktor erstellt ein neues [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ new DOMRect(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Die `x`-Koordinate des Ursprungs des `DOMRect`.
+  - : Die `x`-Koordinate des Ursprungs von `DOMRect`.
 - `y`
-  - : Die `y`-Koordinate des Ursprungs des `DOMRect`.
+  - : Die `y`-Koordinate des Ursprungs von `DOMRect`.
 - `width`
-  - : Die Breite des `DOMRect`.
+  - : Die Breite von `DOMRect`.
 - `height`
-  - : Die Höhe des `DOMRect`.
+  - : Die Höhe von `DOMRect`.
 
 ### Rückgabewert
 

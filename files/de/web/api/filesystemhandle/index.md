@@ -7,40 +7,40 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Das **`FileSystemHandle`**-Interface der [File System API](/de/docs/Web/API/File_System_API) ist ein Objekt, das einen Datei- oder Verzeichniseintrag darstellt. Mehrere Handles können denselben Eintrag repräsentieren. In den meisten Fällen arbeiten Sie nicht direkt mit `FileSystemHandle`, sondern mit seinen Kind-Interfaces [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) und [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle).
+Das **`FileSystemHandle`**-Interface der [File System API](/de/docs/Web/API/File_System_API) ist ein Objekt, das einen Datei- oder Verzeichniseintrag darstellt. Mehrere Handles können denselben Eintrag repräsentieren. In den meisten Fällen arbeiten Sie nicht direkt mit dem `FileSystemHandle`, sondern mit seinen Kind-Interfaces [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) und [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle).
 
 ## Schnittstellen basierend auf FileSystemHandle
 
-Unten ist eine Liste von Schnittstellen, die auf dem `FileSystemHandle`-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf dem `FileSystemHandle`-Interface basieren.
 
 - [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)
-  - : Repräsentiert ein Handle zu einem Dateieintrag.
+  - : Repräsentiert ein Handle zu einem Datei-Eintrag.
 - [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)
   - : Bietet ein Handle zu einem Verzeichniseintrag.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`kind`](/de/docs/Web/API/FileSystemHandle/kind) {{ReadOnlyInline}}
   - : Gibt den Typ des Eintrags zurück. Dies ist `'file'`, wenn der zugehörige Eintrag eine Datei ist, oder `'directory'`.
 - [`name`](/de/docs/Web/API/FileSystemHandle/name) {{ReadOnlyInline}}
   - : Gibt den Namen des zugehörigen Eintrags zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`isSameEntry()`](/de/docs/Web/API/FileSystemHandle/isSameEntry)
-  - : Vergleicht zwei Handles, um zu sehen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
+  - : Vergleicht zwei Handles, um festzustellen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
 - [`queryPermission()`](/de/docs/Web/API/FileSystemHandle/queryPermission) {{Experimental_Inline}}
   - : Fragt den aktuellen Berechtigungsstatus des aktuellen Handles ab.
 - [`remove()`](/de/docs/Web/API/FileSystemHandle/remove) {{Experimental_Inline}} {{Non-standard_Inline}}
   - : Fordert die Entfernung des durch das Handle dargestellten Eintrags aus dem zugrunde liegenden Dateisystem an.
 - [`requestPermission()`](/de/docs/Web/API/FileSystemHandle/requestPermission) {{Experimental_Inline}}
-  - : Fordert Lese- oder Lese-/Schreibberechtigungen für das Datei-Handle an.
+  - : Fordert Lese- oder Lese-/Schreibrechte für das Datei-Handle an.
 
 ## Beispiele
 
 ### Typüberprüfung
 
-Der folgende Code ermöglicht es dem Benutzer, eine Datei aus dem Dateiauswahlfenster auszuwählen und dann zu testen, ob das zurückgegebene Handle eine Datei oder ein Verzeichnis ist.
+Der untenstehende Code ermöglicht dem Nutzer die Auswahl einer Datei über den Dateiauswahldialog und prüft dann, ob das zurückgegebene Handle eine Datei oder ein Verzeichnis ist.
 
 ```js
 // store a reference to our file handle
@@ -58,9 +58,9 @@ async function getFile() {
 }
 ```
 
-### Abfragen/Anfordern von Berechtigungen
+### Abfrage/Anforderung von Berechtigungen
 
-Die folgende asynchrone Funktion gibt `true` zurück, wenn der Benutzer Lese- oder Lese-/Schreibberechtigungen für das Datei-Handle erteilt hat. Berechtigungen werden angefordert, falls nicht.
+Die folgende asynchrone Funktion gibt `true` zurück, wenn der Benutzer Lese- oder Lese-/Schreibrechte für das Datei-Handle gewährt hat. Wenn nicht, wird die Berechtigung angefordert.
 
 ```js
 // fileHandle is a FileSystemFileHandle
@@ -87,9 +87,9 @@ async function verifyPermission(fileHandle, withWrite) {
 }
 ```
 
-### Vergleich von Einträgen
+### Einträge vergleichen
 
-Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein neues Array mit allen übereinstimmenden Einträgen zurück, die entfernt wurden.
+Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein neues Array mit allen übereinstimmenden Einträgen zurück.
 
 ```js
 function removeMatches(fileEntry, entriesArr) {

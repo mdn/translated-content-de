@@ -1,5 +1,5 @@
 ---
-title: "Element: getAnimations() Methode"
+title: "Element: getAnimations()-Methode"
 short-title: getAnimations()
 slug: Web/API/Element/getAnimations
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die `getAnimations()` Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
-(spezifiziert im `Animatable`-Mixin) gibt ein Array aller
-[`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die dieses Element beeinflussen oder dies in Zukunft tun sollen.
-Optional kann sie auch [`Animation`](/de/docs/Web/API/Animation)-Objekte für Nachfahr-Elemente zurückgeben.
+Die `getAnimations()`-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle (spezifiziert im `Animatable`-Mixin) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die dieses Element beeinflussen oder in Zukunft beeinflussen sollen. Sie kann optional auch [`Animation`](/de/docs/Web/API/Animation)-Objekte für nachfolgende Elemente zurückgeben.
 
 > [!NOTE]
 > Dieses Array enthält [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
@@ -27,23 +24,18 @@ getAnimations(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt mit der folgenden Eigenschaft:
+  - : Ein Optionsobjekt, das die folgende Eigenschaft enthält:
 
     - `subtree`
-      - : Ein boolescher Wert, der, wenn `true`, dazu führt, dass auch Animationen zurückgegeben werden,
-        die auf Nachfahren von _Element_ abzielen. Dies schließt Animationen ein,
-        die auf jegliche an _Element_ oder einen seiner Nachfahren angehängte CSS-[Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements) abzielen. Standardwert ist `false`.
+      - : Ein boolescher Wert, der, wenn `true`, bewirkt, dass auch Animationen zurückgegeben werden, die Nachfolger des _Element_ anvisieren. Dies schließt Animationen ein, die auf CSS-[Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) abzielen, die am _Element_ oder einem seiner Nachfolger angehängt sind. Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, wobei jedes eine
-Animation darstellt, die derzeit auf das [`Element`](/de/docs/Web/API/Element) abzielt, auf dem diese Methode aufgerufen wird,
-oder auf eines seiner Nachfahr-Elemente, wenn `{ subtree: true }` angegeben ist.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, die jeweils eine Animation darstellen, die derzeit das [`Element`](/de/docs/Web/API/Element) anvisiert, auf dem diese Methode aufgerufen wird, oder eines seiner nachfolgenden Elemente, wenn `{ subtree: true }` angegeben ist.
 
 ## Beispiele
 
-Das folgende Code-Snippet wartet auf das Ende aller Animationen auf `elem` und seinen
-Nachfahren, bevor das Element aus dem Dokument entfernt wird.
+Das folgende Codebeispiel wartet darauf, dass alle Animationen auf `elem` und seinen Nachfolgern abgeschlossen sind, bevor das Element aus dem Dokument entfernt wird.
 
 ```js
 Promise.all(

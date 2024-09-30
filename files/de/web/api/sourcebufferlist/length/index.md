@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`length`** schreibgeschützte Eigenschaft des [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Interfaces gibt die Anzahl der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Schnittstelle gibt die Anzahl der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in der Liste zurück.
 
 ## Wert
 
-Eine nicht signierte lange Zahl.
+Eine vorzeichenlose lange Zahl.
 
 ## Beispiele
 

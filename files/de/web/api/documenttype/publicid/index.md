@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`publicId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt einen formalen Bezeichner des Dokuments zurück.
+Die schreibgeschützte **`publicId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) liefert einen formalen Bezeichner des Dokuments zurück.
 
-Bei einem synthetischen `DocumentType` spiegelt diese Eigenschaft den im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) übergebenen Wert wider.
+Bei synthetischen `DocumentType` spiegelt diese Eigenschaft den im Parameter von [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
 
-Für HTML-Dokumente setzen Browser sie immer auf `html`, unabhängig davon, welches tatsächliche `doctype` im Quellcode vorhanden ist. Bei SVG-Dokumenten kann es beispielsweise `"-//W3C//DTD SVG 1.1//EN"` sein.
+Bei HTML-Dokumenten setzen Browser diesen immer auf `html`, unabhängig davon, welches tatsächliche `doctype` im Quellcode vorhanden ist. Bei SVG-Dokumenten kann es beispielsweise `"-//W3C//DTD SVG 1.1//EN"` sein.
 
 ## Wert
 

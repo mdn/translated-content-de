@@ -1,5 +1,5 @@
 ---
-title: "Request: bytes() Methode"
+title: "Request: bytes()-Methode"
 short-title: bytes()
 slug: Web/API/Request/bytes
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`bytes()`** Methode des [`Request`](/de/docs/Web/API/Request) Interfaces liest den Anfragetext und gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
+Die **`bytes()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragekörper und gibt ihn als ein Versprechen (Promise) zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
+Ein Versprechen (Promise), das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Beispiele
 

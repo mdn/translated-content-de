@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`orientation`**-Attribut gibt an, dass das angegebene [glyph](/de/docs/Glossary/glyph) nur für eine bestimmte Textrichtung verwendet werden soll, d.h. horizontal oder vertikal.
+Das **`orientation`** Attribut gibt an, dass das angegebene [Glyph](/de/docs/Glossary/glyph) nur für eine bestimmte Textrichtung verwendet werden soll, d.h. horizontal oder vertikal.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("glyph")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

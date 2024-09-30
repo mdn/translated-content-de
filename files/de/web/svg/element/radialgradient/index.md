@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<radialGradient>`**-Element erlaubt es Autoren, radiale Farbverläufe zu definieren, die auf die Füllung oder den Umriss von grafischen Elementen angewendet werden können.
+Das **`<radialGradient>`**-Element ermöglicht es Autoren, radiale Gradienten zu definieren, die auf die Füllung oder den Strich von grafischen Elementen angewendet werden können.
 
 > [!NOTE]
-> Verwechseln Sie dies nicht mit CSS {{cssxref('gradient/radial-gradient', 'radial-gradient()')}}, da CSS-Gradienten nur auf HTML-Elemente angewendet werden können, während SVG-Gradienten nur auf SVG-Elemente angewendet werden können.
+> Verwechseln Sie dies nicht mit CSS {{cssxref('gradient/radial-gradient', 'radial-gradient()')}}, da CSS-Gradienten nur auf HTML-Elemente angewendet werden können, während SVG-Gradienten nur auf SVG-Elemente anwendbar sind.
 
 ## Beispiel
 
@@ -44,38 +44,38 @@ svg {
 ## Attribute
 
 - {{SVGAttr("cx")}}
-  - : Dieses Attribut definiert die x-Koordinate des Endkreises des radialen Farbverlaufs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die x-Koordinate des Endkreises des radialen Gradienten.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
 - {{SVGAttr("cy")}}
-  - : Dieses Attribut definiert die y-Koordinate des Endkreises des radialen Farbverlaufs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die y-Koordinate des Endkreises des radialen Gradienten.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
 - {{SVGAttr("fr")}}
-  - : Dieses Attribut definiert den Radius des Startkreises des radialen Farbverlaufs. Der Farbverlauf wird so gezeichnet, dass der 0% {{SVGElement('stop','gradient stop')}} dem Umfang des Startkreises zugeordnet wird.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `0%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert den Radius des Startkreises des radialen Gradienten. Der Gradient wird so gezeichnet, dass der 0% {{SVGElement('stop','gradient stop')}} auf den Umfang des Startkreises abgebildet wird.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `0%`; _Animierbar_: **ja**
 - {{SVGAttr("fx")}}
-  - : Dieses Attribut definiert die x-Koordinate des Startkreises des radialen Farbverlaufs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: Gleich wie `cx`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die x-Koordinate des Startkreises des radialen Gradienten.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: Gleich wie `cx`; _Animierbar_: **ja**
 - {{SVGAttr("fy")}}
-  - : Dieses Attribut definiert die y-Koordinate des Startkreises des radialen Farbverlaufs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: Gleich wie `cy`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die y-Koordinate des Startkreises des radialen Gradienten.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: Gleich wie `cy`; _Animierbar_: **ja**
 - {{SVGAttr("gradientUnits")}}
-  - : Dieses Attribut definiert das Koordinatensystem für die Attribute `cx`, `cy`, `r`, `fx`, `fy`, `fr`
-    _Werttyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert das Koordinatensystem für die Attribute `cx`, `cy`, `r`, `fx`, `fy`, `fr`.
+    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("gradientTransform")}}
-  - : Dieses Attribut bietet zusätzliche [Transformationen](/de/docs/Web/SVG/Attribute/transform) für das Gradienten-Koordinatensystem.
-    _Werttyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)** ; _Standardwert_: _Identitätstransformation_; _Animierbar_: **ja**
+  - : Dieses Attribut bietet eine zusätzliche [Transformation](/de/docs/Web/SVG/Attribute/transform) für das Gradienten-Koordinatensystem.
+    _Wertetyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)** ; _Standardwert_: _Identity-Transformation_; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Dieses Attribut definiert eine Referenz zu einem anderen `<radialGradient>`-Element, welches als Vorlage verwendet wird.
-    _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Dieses Attribut definiert eine Referenz zu einem anderen `<radialGradient>`-Element, das als Vorlage verwendet wird.
+    _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("r")}}
-  - : Dieses Attribut definiert den Radius des Endkreises des radialen Farbverlaufs. Der Farbverlauf wird so gezeichnet, dass der 100% {{SVGElement('stop','gradient stop')}} dem Umfang des Endkreises zugeordnet wird.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert den Radius des Endkreises des radialen Gradienten. Der Gradient wird so gezeichnet, dass der 100% {{SVGElement('stop','gradient stop')}} auf den Umfang des Endkreises abgebildet wird.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `50%`; _Animierbar_: **ja**
 - {{SVGAttr("spreadMethod")}}
-  - : Dieses Attribut zeigt an, wie sich der Farbverlauf verhält, wenn er innerhalb der Grenzen der Form beginnt oder endet, die den Gradient enthält.
-    _Werttyp_: `pad`|`reflect`|`repeat` ; _Standardwert_: `pad`; _Animierbar_: **ja**
+  - : Dieses Attribut gibt an, wie sich der Gradient verhält, wenn er innerhalb der Grenzen der Form beginnt oder endet, die den Gradient enthält.
+    _Wertetyp_: `pad`|`reflect`|`repeat` ; _Standardwert_: `pad`; _Animierbar_: **ja**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
   - : Ein [\<IRI>](/de/docs/Web/SVG/Content_type#iri) Verweis auf ein anderes `<radialGradient>`-Element, das als Vorlage verwendet wird.
-    _Werttyp_: [**\<IRI>**](/de/docs/Web/SVG/Content_type#iri) ; _Standardwert_: none; _Animierbar_: **ja**
+    _Wertetyp_: [**\<IRI>**](/de/docs/Web/SVG/Content_type#iri) ; _Standardwert_: keiner; _Animierbar_: **ja**
 
 ## Verwendungskontext
 

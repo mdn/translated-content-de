@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSUnitValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte, die einen einzelnen Einheitstyp enthalten. Zum Beispiel würde "42px" durch einen `CSSNumericValue` repräsentiert.
+Das **`CSSUnitValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte, die einen einzelnen Einheitstyp enthalten. Zum Beispiel würde "42px" durch einen `CSSNumericValue` dargestellt werden.
 
 {{InheritanceDiagram}}
 
@@ -16,24 +16,24 @@ Die **`CSSUnitValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/W
 - [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue)
   - : Erstellt ein neues `CSSUnitValue`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
-  - : Gibt eine Gleitkommazahl zurück, die die Anzahl der Einheiten angibt.
+  - : Gibt einen Doppelwert zurück, der die Anzahl der Einheiten angibt.
 - [`CSSUnitValue.unit`](/de/docs/Web/API/CSSUnitValue/unit)
-  - : Gibt einen String zurück, der den Typ der Einheit angibt.
+  - : Gibt einen String zurück, der den Einheitstyp angibt.
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erben._
+_Das Interface kann auch Methoden von seinem übergeordneten Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erben._
+_Das Interface kann auch Methoden von seinem übergeordneten Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
 
 ## Beispiele
 
-Das folgende zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue`-Konstruktoren.
+Das folgende Beispiel zeigt eine Methode zum Erstellen eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus individuellen `CSSUnitValue`-Konstruktoren.
 
 ```js
 let pos = new CSSPositionValue(

@@ -12,7 +12,7 @@ Ermittelt die Textfarbe für das Badge der Browser-Aktion.
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-In Firefox wird die Textfarbe des Badges, sofern sie nicht explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} festgelegt wird, automatisch auf schwarz oder weiß gesetzt, um einen maximalen Kontrast mit der angegebenen Hintergrundfarbe des Badges zu gewährleisten. Wenn Sie zum Beispiel die Hintergrundfarbe des Badges auf weiß setzen, wird die Standard-Textfarbe des Badges auf schwarz gesetzt und umgekehrt.
+In Firefox wird die Textfarbe des Badges, sofern sie nicht explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} festgelegt ist, automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast zur angegebenen Hintergrundfarbe des Badges zu maximieren. Beispielsweise wird die Standardfarbe für den Badge-Text auf Schwarz gesetzt, wenn Sie die Hintergrundfarbe des Badges auf Weiß einstellen, und umgekehrt.
 
 Andere Browser verwenden immer eine weiße Textfarbe.
 
@@ -35,12 +35,12 @@ browser.action.getBadgeTextColor(
     - `tabId` {{optional_inline}}
       - : `integer`. Gibt den Tab an, von dem die Textfarbe des Badges ermittelt werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, von dem die Textfarbe des Badges ermittelt werden soll.
+      - : `integer`. Gibt das Fenster an, aus dem die Textfarbe des Badges ermittelt werden soll.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird die globale Textfarbe des Badges zurückgegeben.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird die globale Textfarbe des Badges zurückgegeben.
 
 ### Rückgabewert
 
@@ -69,7 +69,7 @@ browser.action.getBadgeTextColor({}).then(onGot, onFailure);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

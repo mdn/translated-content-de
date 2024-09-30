@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`media`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der eine Liste von einem oder mehreren Medienformaten darstellt, auf die sich die Ressource bezieht.
+Die **`media`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der eine Liste von einem oder mehreren Medienformaten darstellt, auf die die Ressource zutrifft.
 
-Sie spiegelt das `media`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Sie entspricht dem `media`-Attribut des {{HTMLElement("link")}}-Elements.
 
 ## Wert
 

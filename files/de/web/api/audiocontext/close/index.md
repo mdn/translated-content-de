@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `close()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle schließt den Audio-Kontext und gibt alle vom System genutzten Audio-Ressourcen frei.
+Die `close()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle schließt den Audiokontext und gibt alle von ihm genutzten Systemaudioressourcen frei.
 
-Diese Funktion gibt nicht automatisch alle durch `AudioContext` erstellten Objekte frei, es sei denn, es wurden auch andere Referenzen freigegeben; sie wird jedoch alle systemseitigen Audio-Ressourcen gewaltsam freigeben, die verhindern könnten, dass zusätzliche `AudioContexts` erstellt und verwendet werden. Sie suspendiert den Fortschritt der Audiozeit im Audio-Kontext und stoppt die Verarbeitung von Audiodaten. Das zurückgegebene {{jsxref("Promise")}} wird aufgelöst, wenn alle `AudioContext`-erstellungsblockierenden Ressourcen freigegeben wurden. Diese Methode wirft eine `INVALID_STATE_ERR`-Ausnahme, wenn sie auf einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
+Diese Funktion gibt nicht automatisch alle von `AudioContext` erstellten Objekte frei, es sei denn, andere Referenzen wurden ebenfalls freigegeben; sie wird jedoch erzwingen, dass alle Systemaudioressourcen freigegeben werden, die verhindern könnten, dass zusätzliche `AudioContexts` erstellt und verwendet werden, den Fortschritt der Audiowiedergabe im Audiokontext aussetzen und die Verarbeitung von Audiodaten stoppen. Das zurückgegebene {{jsxref("Promise")}} wird gelöst, wenn alle Ressourcen, die die Erstellung des `AudioContext` blockieren, freigegeben wurden. Diese Methode löst eine `INVALID_STATE_ERR`-Ausnahme aus, wenn sie auf einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 
 ## Beispiele
 
-Der folgende Codeausschnitt stammt aus unserem [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples/blob/main/audiocontext-states/index.html) ([Live-Demo ansehen](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Wenn die Stopptaste geklickt wird, wird `close()` aufgerufen. Wenn das Versprechen aufgelöst wird, wird das Beispiel in seinen Anfangszustand zurückgesetzt.
+Das folgende Snippet stammt aus unserer [AudioContext-Zustände-Demonstration](https://github.com/mdn/webaudio-examples/blob/main/audiocontext-states/index.html) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Wenn die Stopp-Taste geklickt wird, wird `close()` aufgerufen. Wenn das Promise aufgelöst wird, wird das Beispiel auf seinen Anfangszustand zurückgesetzt.
 
 ```js
 stopBtn.onclick = () => {

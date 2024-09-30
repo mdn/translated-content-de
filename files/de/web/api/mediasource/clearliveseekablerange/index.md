@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`clearLiveSeekableRange()`**-Methode des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces löscht einen suchbaren Bereich, der zuvor mit einem Aufruf von [`setLiveSeekableRange()`](/de/docs/Web/API/MediaSource/setLiveSeekableRange) festgelegt wurde.
+Die **`clearLiveSeekableRange()`**-Methode des
+[`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces löscht einen zuvor mit einem Aufruf von [`setLiveSeekableRange()`](/de/docs/Web/API/MediaSource/setLiveSeekableRange) festgelegten suchbaren Bereich.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

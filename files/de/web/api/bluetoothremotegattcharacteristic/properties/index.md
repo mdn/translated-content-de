@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.properties`**-Eigenschaft gibt eine Instanz von [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) zurück, die die Eigenschaften dieses Merkmals enthält. Diese Eigenschaft ist schreibgeschützt.
+Die **`BluetoothRemoteGATTCharacteristic.properties`**-Eigenschaft gibt eine Instanz von [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) zurück, die die Eigenschaften dieses Merkmals enthält.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Ende-Rand eines Elements, der je nach Schreibweise, Richtung und Textausrichtung des Elements auf einen physischen Rand abgebildet wird. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Endrand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Rand abgebildet wird. Mit anderen Worten, sie entspricht der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/margin-inline-end.html")}}
 
@@ -30,23 +30,23 @@ margin-inline-end: revert-layer;
 margin-inline-end: unset;
 ```
 
-Sie hängt mit {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}} zusammen, welche die anderen Ränder des Elements definieren.
+Sie steht im Zusammenhang mit {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-inline-end` Eigenschaft nimmt dieselben Werte an wie die {{cssxref("margin-left")}} Eigenschaft.
+Die Eigenschaft `margin-inline-end` nimmt die gleichen Werte an wie die Eigenschaft {{cssxref("margin-left")}}.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Festlegen des Inline-Ende-Rands
+### Inline-Endrand festlegen
 
 #### HTML
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Das `geometrychange`-Ereignis wird ausgelöst, wenn sich die Position, Größe oder Sichtbarkeit des Titelbereichs einer Progressive Web App ändert.
+Das `geometrychange`-Ereignis wird ausgelöst, wenn sich die Position, Größe oder Sichtbarkeit des Titelleistenbereichs einer Progressive Web App ändert.
 
 Dies gilt nur für Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind und die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
 
@@ -30,12 +30,12 @@ Ein [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControls
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgelisteten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - `titlebarAreaRect`
-  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelbereichs innerhalb des Inhalts der App darstellt.
+  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelleistenbereichs innerhalb des App-Inhalts darstellt.
 - `visible`
-  - : Ein [Boolean](/de/docs/Glossary/Boolean), das anzeigt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
+  - : Ein [Boolean](/de/docs/Glossary/Boolean), der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
 
 ## Beispiele
 

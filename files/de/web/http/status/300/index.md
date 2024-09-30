@@ -7,14 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`300 Multiple Choices`** ([Redirection Response](/de/docs/Web/HTTP/Status#redirection_messages)) zeigt an, dass die Anfrage mehr als eine mögliche Antwort hat. Der User-Agent oder der Benutzer sollte eine davon auswählen.
+Der HTTP-Statuscode **`300 Multiple Choices`** [Umleitungsantwort](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die Anfrage mehr als eine mögliche Antwort hat. Der User-Agent oder der Benutzer sollte eine der Antworten auswählen.
 
 > [!NOTE]
-> Bei der transparenten Inhaltsverhandlung (TCN) entscheiden ein Client und ein Server gemeinsam über die beste Variante einer Ressource, wenn der Server mehrere Varianten hat. Die meisten modernen Browser haben aufgrund der Komplexität der Implementierungen, des Mangels an Standardisierung, wie Clients automatisch aus Antworten wählen, und der zusätzlichen Roundtrips, die die Interaktion zwischen Client und Server verlangsamen, eine schlechte Unterstützung. [Serverseitige Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, wobei ein Server die am besten geeignete Ressource für den Client basierend auf den Anfrage-Headern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}} usw.) auswählt.
+> Bei der Transparenten Inhaltsverhandlung (TCN) entscheiden der Client und der Server gemeinsam über die beste Variante einer Ressource, wenn der Server mehrere Varianten hat.
+> Die meisten modernen Browser unterstützen dies kaum aufgrund der Komplexität in der Implementierung, mangelnder Standardisierung, wie Clients automatisch aus Antworten wählen, und den zusätzlichen Round-Trips, die die Interaktion zwischen Client und Server verlangsamen.
+> [Server-gesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus gebräuchlicher, bei der der Server die passendste Ressource für den Client basierend auf den Anfrage-Headern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}}, etc.) auswählt.
 
-Der Server sollte Inhalte in der Antwort einschließen, die eine Liste von Metadaten der Ressourcen und URIs enthalten, aus denen der Benutzer oder der User-Agent auswählen kann. Das Format des Inhalts ist implementierungsspezifisch, sollte jedoch vom User-Agent problemlos analysiert werden können (z. B. HTML oder JSON).
+Der Server sollte Inhalte in die Antwort aufnehmen, die eine Liste von Ressourcen-Metadaten und URIs enthalten, aus denen der Benutzer oder der User-Agent wählen kann. Das Format der Inhalte ist implementierungsspezifisch, sollte aber vom User-Agent leicht analysiert werden können (wie HTML oder JSON).
 
-Wenn der Server eine bevorzugte Wahl hat, die der Client anfordern sollte, kann er diese in einem {{HTTPHeader("Location")}}-Header einschließen.
+Falls der Server eine bevorzugte Wahl hat, die der Client anfordern soll, kann er diese in einem {{HTTPHeader("Location")}}-Header angeben.
 
 ## Status
 
@@ -26,7 +28,7 @@ Wenn der Server eine bevorzugte Wahl hat, die der Client anfordern sollte, kann 
 
 ### 300 Antwort mit Liste von Ressourcen
 
-Das folgende Beispiel zeigt einen Anfrage-Antwort-Austausch bei der transparenten Inhaltsverhandlung. Ein Apache-Server bietet mehrere Varianten einer Ressource an, die in einer [Typenkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps) definiert sind; `index.html.en` für eine Ressource in Englisch und `index.html.fr` für eine französische Version:
+Das folgende Beispiel zeigt einen Austausch bei der Transparenten Inhaltsverhandlung. Ein Apache-Server bietet mehrere Varianten einer Ressource an, die in einer [Typenkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps) definiert sind: `index.html.en` für eine Ressource in Englisch und `index.html.fr` für eine französische Version:
 
 ```plain
 URI: index.html.en
@@ -36,13 +38,13 @@ URI: index.html.fr
 Content-Language: fr
 ```
 
-Ein `Negotiate: trans` Anfrage-Header zeigt an, dass der Client TCN verwenden möchte, um eine Ressource auszuwählen. Eine schlechte Unterstützung durch Browser für diesen Mechanismus bedeutet, dass stattdessen ein User-Agent wie curl verwendet werden muss:
+Ein `Negotiate: trans` Anfrage-Header zeigt an, dass der Client TCN benutzen möchte, um eine Ressource auszuwählen. Aufgrund der geringen Unterstützung durch Browser muss ein User-Agent wie curl verwendet werden:
 
 ```bash
  curl -v -H "Negotiate: trans" http://localhost/index
 ```
 
-Dies erzeugt die folgende Anfrage:
+Dies führt zur folgenden Anfrage:
 
 ```http
 GET /index HTTP/1.1
@@ -52,7 +54,7 @@ Accept: */*
 Negotiate: trans
 ```
 
-Wir erhalten eine `300` Antwort mit Details zu verschiedenen Darstellungen der angeforderten Ressource:
+Wir erhalten eine `300`-Antwort mit Details zu unterschiedlichen Darstellungen der angeforderten Ressource:
 
 ```http
 HTTP/1.1 300 Multiple Choices
@@ -82,11 +84,11 @@ Available variants:
 
 ## Siehe auch
 
-- [Weiterleitungen in HTTP](/de/docs/Web/HTTP/Redirections)
+- [Umleitungen in HTTP](/de/docs/Web/HTTP/Redirections)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("301", "301 Moved Permanently")}}
-- {{HTTPStatus("302", "302 Found")}} temporäre Weiterleitung
+- {{HTTPStatus("302", "302 Found")}} temporäre Umleitung
 - {{HTTPStatus("308", "308 Permanent Redirect")}}
 - {{HTTPStatus("506", "506 Variant Also Negotiates")}}
-- [Apache Server-Verhandlungsalgorithmus](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm)
+- [Apache Server Verhandlungsalgorithmus](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm)
 - {{RFC("2295", "Transparent Content Negotiation in HTTP")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Uint32Array`** typisierte Array stellt ein Array von 32-Bit-Unsigned-Integern in der Byte-Reihenfolge der Plattform dar. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald es erstellt ist, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d. h. mittels Klammernotation) zugreifen.
+Das **`Uint32Array`** typisierte Array stellt ein Array von 32-Bit-Integer ohne Vorzeichen in der Byte-Reihenfolge der Plattform dar. Falls Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mithilfe der Standard-Array-Indizierungssyntax (das heißt, eckige Klammern) zugreifen.
 
 `Uint32Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
@@ -36,7 +36,7 @@ Diese Eigenschaften sind auf `Uint32Array.prototype` definiert und werden von al
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint32Array.prototype.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `4` im Fall eines `Uint32Array`.
 - {{jsxref("Object/constructor", "Uint32Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint32Array` Instanzen ist der anfängliche Wert der {{jsxref("Uint32Array/Uint32Array", "Uint32Array")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint32Array` Instanzen ist der ursprüngliche Wert der {{jsxref("Uint32Array/Uint32Array", "Uint32Array")}} Konstruktor.
 
 ## Instanz-Methoden
 
@@ -44,7 +44,7 @@ _Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Wege, ein Uint32Array zu erstellen
+### Verschiedene Möglichkeiten, ein Uint32Array zu erstellen
 
 ```js
 // From a length
@@ -87,7 +87,7 @@ console.log(uint32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

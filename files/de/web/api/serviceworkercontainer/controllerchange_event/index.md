@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: controllerchange-Ereignis"
+title: "ServiceWorkerContainer: controllerchange Ereignis"
 short-title: controllerchange
 slug: Web/API/ServiceWorkerContainer/controllerchange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`controllerchange`**-Ereignis der [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Schnittstelle wird ausgelöst, wenn die dem Dokument zugehörige [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erwirbt.
+Das **`controllerchange`** Ereignis des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) Interface wird ausgelöst, wenn die dem Dokument zugeordnete [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erhält.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("controllerchange", (event) => {});

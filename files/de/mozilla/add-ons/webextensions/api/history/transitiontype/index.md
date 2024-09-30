@@ -7,32 +7,32 @@ l10n:
 
 {{AddonSidebar}}
 
-Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert ist. Zum Beispiel bedeutet "link", dass der Browser zur Seite navigierte, weil der Benutzer auf einen Link geklickt hat.
+Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert hat. Zum Beispiel bedeutet "link", dass der Browser zur Seite navigierte, weil der Benutzer auf einen Link geklickt hat.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "link"
-  - : Der Benutzer klickte auf einen Link in einer anderen Seite.
+  - : Der Benutzer hat auf einen Link in einer anderen Seite geklickt.
 - "typed"
-  - : Der Benutzer tippte die URL in die Adressleiste ein. Dies wird auch verwendet, wenn der Benutzer anfängt, in die Adressleiste zu tippen und dann eine URL aus den vorgeschlagenen Einträgen auswählt. Siehe auch "generated".
+  - : Der Benutzer hat die URL in die Adressleiste eingegeben. Dies wird auch verwendet, wenn der Benutzer begonnen hat, in die Adressleiste zu tippen, und dann eine URL aus den angebotenen Vorschlägen ausgewählt hat. Siehe auch "generated".
 - "auto_bookmark"
-  - : Der Benutzer klickte auf ein Lesezeichen oder ein Element im Browserverlauf.
+  - : Der Benutzer hat auf ein Lesezeichen oder ein Element im Browserverlauf geklickt.
 - "auto_subframe"
-  - : Alle geschachtelten iframes, die automatisch von ihrem übergeordneten Element geladen werden.
+  - : Alle verschachtelten iframes, die automatisch von ihrem übergeordneten Element geladen werden.
 - "manual_subframe"
-  - : Alle geschachtelten iframes, die als explizite Benutzeraktion geladen werden. Das Laden eines solchen iframes erzeugt einen Eintrag in der Rückwärts/Vorwärts-Navigation.
+  - : Alle verschachtelten iframes, die als explizite Benutzeraktion geladen werden. Durch das Laden eines solchen iframes wird ein Eintrag in der Vor-/Zurück-Navigation erstellt.
 - "generated"
-  - : Der Benutzer begann in die Adressleiste zu tippen und klickte dann auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
+  - : Der Benutzer begann in der Adressleiste zu tippen und klickte dann auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
 - "auto_toplevel"
   - : Die Seite wurde über die Befehlszeile übergeben oder ist die Startseite.
 - "form_submit"
-  - : Der Benutzer reichte ein Formular ein. Beachten Sie, dass in einigen Situationen, wie etwa wenn ein Formular ein Skript verwendet, um seine Inhalte einzureichen, das Einreichen eines Formulars nicht zu diesem Übergangstyp führt.
+  - : Der Benutzer hat ein Formular abgeschickt. Beachten Sie, dass in einigen Situationen, wie wenn ein Formular ein Skript verwendet, um dessen Inhalt abzuschicken, das Abschicken eines Formulars nicht zu diesem Übergangstyp führt.
 - "reload"
-  - : Der Benutzer hat die Seite neu geladen, indem er den Neuladen-Button verwendet oder die Eingabetaste in der Adressleiste gedrückt hat. Dies wird auch für Sitzungswiederherstellung und das erneute Öffnen geschlossener Tabs verwendet.
+  - : Der Benutzer hat die Seite neu geladen, entweder durch Klicken auf die Schaltfläche „Neuladen“ oder durch Drücken der Eingabetaste in der Adressleiste. Dies wird auch für die Sitzungswiederherstellung und das Wiederöffnen geschlossener Tabs verwendet.
 - "keyword"
-  - : Die URL wurde mithilfe einer [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert, die vom Benutzer konfiguriert wurde.
+  - : Die URL wurde mithilfe einer vom Benutzer konfigurierten [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert.
 - "keyword_generated"
   - : Entspricht einem Besuch, der für ein Schlüsselwort generiert wurde.
 

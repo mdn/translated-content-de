@@ -1,5 +1,5 @@
 ---
-title: "Node: normalize() Methode"
+title: "Node: normalize()-Methode"
 short-title: normalize()
 slug: Web/API/Node/normalize
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`normalize()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces bringt den angegebenen Knoten
-und dessen gesamten Unterbaum in eine _normalisierte_ Form.
-In einem normalisierten Unterbaum gibt es keine leeren Textknoten und keine zusammenhängenden Textknoten.
+Die **`normalize()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces bringt den angegebenen Knoten und seinen gesamten Unterbaum in eine _normierte_ Form. In einem normierten Unterbaum sind keine Textknoten leer und es gibt keine angrenzenden Textknoten.
 
 ## Syntax
 
@@ -58,7 +56,7 @@ const output = document.getElementById("result");
 output.innerText = result;
 ```
 
-{{ EmbedLiveSample("Example", "100%", "170")}}
+{{ EmbedLiveSample("Beispiel", "100%", "170")}}
 
 ## Spezifikationen
 

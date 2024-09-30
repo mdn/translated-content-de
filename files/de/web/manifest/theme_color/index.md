@@ -7,11 +7,9 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Der `theme_color`-Eintrag gibt die Standardfarbe für die Benutzeroberfläche Ihrer Webanwendung an.
-Diese Farbe kann auf verschiedene Browser-UI-Elemente angewendet werden, wie z.B. die Werkzeugleiste, die Adressleiste und die Statusleiste.
-Sie kann besonders auffällig in Kontexten wie dem Task-Wechsler oder wenn die App zum Startbildschirm hinzugefügt wird, sein.
+Das `theme_color`-Element legt die Standardfarbe für die Benutzeroberfläche Ihrer Webanwendung fest. Diese Farbe kann auf verschiedene UI-Elemente des Browsers angewendet werden, wie die Symbolleiste, die Adressleiste und die Statusleiste. Sie kann besonders auffällig in Kontexten wie dem Aufgabenumschalter oder wenn die App zum Startbildschirm hinzugefügt wird, sein.
 
-Diese Farbzuweisung kann für Ihre Web-App ein nativeres App-ähnliches Erlebnis bieten, insbesondere wenn sie im [standalone](/de/docs/Web/Manifest/display#standalone)-Modus geladen wird.
+Diese Farbanwendung kann Ihrer Web-App ein nativeres App-ähnliches Erlebnis bieten, insbesondere wenn sie im [Standalone](/de/docs/Web/Manifest/display#standalone)-Modus geladen wird.
 
 ## Syntax
 
@@ -28,25 +26,21 @@ Diese Farbzuweisung kann für Ihre Web-App ein nativeres App-ähnliches Erlebnis
   - : Ein String, der einen [gültigen Farbwert](/de/docs/Web/CSS/color_value) angibt.
 
     > [!NOTE]
-    > Browser können die Alpha-Komponente der Farbe basierend auf dem Kontext ignorieren.
-    > In den meisten Umgebungen kann `theme_color` nicht transparent sein.
-    > Es wird empfohlen, vollständig deckende Farben (Alpha-Wert von 1 oder 100%) zu verwenden, um konsistentes Verhalten auf verschiedenen Plattformen und Browsern sicherzustellen.
+    > Browser können die Alpha-Komponente der Farbe je nach Kontext ignorieren. In den meisten Umgebungen kann `theme_color` nicht transparent sein. Es wird empfohlen, vollständig undurchsichtige Farben (Alpha-Wert von 1 oder 100%) zu verwenden, um konsistentes Verhalten über verschiedene Plattformen und Browser hinweg sicherzustellen.
 
 ## Beschreibung
 
-Obwohl optional, ermöglicht das Angeben eines `theme_color`, die visuelle Identität Ihrer App über ihre Inhaltsbereiche hinaus zu erweitern.
-Wählen Sie eine `theme_color`, die mit den Markenrichtlinien Ihrer App übereinstimmt, da dies die Benutzererkennung und -erinnerung verbessern kann, insbesondere wenn Ihre App neben anderen Anwendungen oder Systemoberflächen angezeigt wird.
+Auch wenn optional, ermöglicht die Angabe eines `theme_color`-Werts Ihnen, die visuelle Identität Ihrer App über deren Inhaltsbereiche hinaus zu erweitern. Wählen Sie eine `theme_color`, die mit den Markenvorgaben Ihrer App übereinstimmt, da dies die Benutzererkennung und das Gedächtnis verstärken kann, insbesondere wenn Ihre App neben anderen Anwendungen oder Systemoberflächen betrachtet wird.
 
-In Browsern, die `theme_color` unterstützen, dient der im Manifest-Datei angegebene Wert als Standardfarbe für Ihre Web-App auf allen Seiten, auf denen das Manifest angewendet wird.
-Sie können diesen Standard auf folgende Weise überschreiben:
+In Browsern, die `theme_color` unterstützen, dient der im Manifestdatei angegebene Wert als Standardthemenfarbe für Ihre Web-App auf allen Seiten, auf denen das Manifest angewendet wird. Sie können diesen Standard auf folgende Weise überschreiben:
 
-- Verwenden des [`theme-color`](/de/docs/Web/HTML/Element/meta/name/theme-color)-Werts des `name`-Attributs im HTML-`<meta>`-Element: Sie können für eine Webseite eine andere Theme-Farbe angeben, die sich von der im Manifest angegebenen `theme_color` unterscheidet. Dies ermöglicht es Ihnen, für einzelne Seiten innerhalb Ihrer App verschiedene Theme-Farben festzulegen.
+- Verwendung des [`theme-color`](/de/docs/Web/HTML/Element/meta/name/theme-color)-Werts des `name`-Attributs im HTML-`<meta>`-Element: Sie können eine Themenfarbe für eine Webseite angeben, die sich von der im Manifest für Ihre App angegebenen `theme_color` unterscheidet. Dies ermöglicht es Ihnen, verschiedene Themenfarben für einzelne Seiten innerhalb Ihrer App festzulegen.
 
   ```html
   <meta name="theme-color" content="#9370DB" />
   ```
 
-- Kombination des `<meta name="theme-color">`-Elements mit Media Queries: Sie können die zu verwendende Farbe basierend auf den Farbschemavorlieben des Nutzers angeben.
+- Kombination des `<meta name="theme-color">`-Elements mit Media-Queries: Sie können die zu verwendende Themenfarbe basierend auf der Farbschema-Vorliebe des Benutzers angeben.
 
   ```html
   <meta
@@ -59,10 +53,9 @@ Sie können diesen Standard auf folgende Weise überschreiben:
     media="(prefers-color-scheme: dark)" />
   ```
 
-Diese Überschreibemethoden bieten Ihnen die Flexibilität, das Erscheinungsbild Ihrer App für spezifische Seiten oder Benutzerpräferenzen anzupassen, was die gesamte Benutzererfahrung verbessert.
+Diese Überschreibungsmethoden bieten Ihnen die Flexibilität, das Erscheinungsbild Ihrer App für bestimmte Seiten oder Benutzervorlieben anzupassen und so das gesamte Benutzererlebnis zu verbessern.
 
-Browser können die angewendete Theme-Farbe auch basierend auf den Benutzerpräferenzen anpassen.
-Wenn ein Benutzer eine Präferenz für den hellen oder dunklen Modus eingestellt hat, können Browser den `theme_color`-Wert im Manifest überschreiben, um jede in Ihrer App-Stylesheet definierte [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme)-Medienabfrage zu unterstützen.
+Browser können auch die angewendete Themenfarbe basierend auf den Benutzervorlieben anpassen. Wenn ein Benutzer eine Vorliebe für den hellen oder dunklen Modus eingestellt hat, können Browser den `theme_color`-Wert im Manifest überschreiben, um jede im CSS Ihrer App definierte [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme)-Media-Query zu unterstützen.
 
 ```css
 body {
@@ -88,7 +81,7 @@ body {
 }
 ```
 
-### Verwendung eines RGB-Werts
+### Verwendung eines RGB-Wertes
 
 ```json
 {
@@ -96,7 +89,7 @@ body {
 }
 ```
 
-### Verwendung eines Hexadezimalwerts
+### Verwendung eines Hexadezimalwertes
 
 ```json
 {
@@ -117,6 +110,6 @@ body {
 
 ## Siehe auch
 
-- [`display`](/de/docs/Web/Manifest/display) Manifest-Mitglied
-- [`background_color`](/de/docs/Web/Manifest/background_color) Manifest-Mitglied
-- [`scope`](/de/docs/Web/Manifest/scope) Manifest-Mitglied
+- [`display`](/de/docs/Web/Manifest/display) Manifestmitglied
+- [`background_color`](/de/docs/Web/Manifest/background_color) Manifestmitglied
+- [`scope`](/de/docs/Web/Manifest/scope) Manifestmitglied

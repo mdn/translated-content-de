@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`layers`**-Eigenschaft des [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Interfaces ist ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält, die vom XR-Kompositor dargestellt werden.
+Die schreibgeschützte **`layers`**-Eigenschaft der [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Schnittstelle ist ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält, die vom XR-Kompositor angezeigt werden.
 
 ## Wert
 
-Ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält. Die Reihenfolge der Schichten ist "von hinten nach vorne".
+Ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält. Die Reihenfolge der Ebenen ist "von hinten nach vorne".
 
 ## Beispiele
 
-### Renderstatus-Schichten abrufen
+### Renderzustands-Ebenen abrufen
 
-Um das WebXR-Schichten-Array zu lesen, verwenden Sie die `layers`-Eigenschaft des [`XRRenderState`](/de/docs/Web/API/XRRenderState).
-Schichten können mit der Methode [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) festgelegt werden.
+Um das WebXR-Ebenen-Array zu lesen, verwenden Sie die `layers`-Eigenschaft auf [`XRRenderState`](/de/docs/Web/API/XRRenderState).
+Ebenen können mit der Methode [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) gesetzt werden.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {

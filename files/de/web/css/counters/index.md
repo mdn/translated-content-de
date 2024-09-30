@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`counters()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ermöglicht das Kombinieren von Markierungen bei verschachtelten Zählern. Die Funktion gibt einen String zurück, der die aktuellen Werte der benannten und verschachtelten Zähler, falls vorhanden, mit dem bereitgestellten String verkettet. Der dritte, optionale Parameter ermöglicht die Definition des Listentyps.
+Die **`counters()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ermöglicht das Kombinieren von Markierungen beim Verschachteln von Zählern. Die Funktion gibt eine Zeichenfolge zurück, die die aktuellen Werte der benannten und verschachtelten Zähler, falls vorhanden, mit der bereitgestellten Zeichenfolge verknüpft. Der dritte, optionale Parameter ermöglicht die Definition des Listentyps.
 
-Die `counters()`-Funktion wird im Allgemeinen innerhalb von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) über die {{cssxref("content")}} Eigenschaft verwendet, kann theoretisch aber überall dort verwendet werden, wo ein [`<string>`](/de/docs/Web/CSS/string) Wert unterstützt wird.
+Die `counters()`-Funktion wird in der Regel innerhalb von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) durch die {{cssxref("content")}}-Eigenschaft verwendet, kann theoretisch aber überall verwendet werden, wo ein [`<string>`](/de/docs/Web/CSS/string)-Wert unterstützt wird.
 
-Die `counters()`-Funktion hat zwei Formen: `counters(<name>, <string>)` und `counters(<name>, <string>, <style>)`. Der generierte Text ist der Wert aller Zähler mit dem angegebenen `<name>`, angeordnet von der äußersten bis zur innersten Ebene und getrennt durch den angegebenen `<string>`. Die Zähler werden im angegebenen `<style>` gerendert, standardmäßig `decimal`, wenn kein `<style>` angegeben ist.
+Die `counters()`-Funktion hat zwei Formen: `counters(<name>, <string>)` und `counters(<name>, <string>, <style>)`. Der generierte Text ist der Wert aller Zähler mit dem angegebenen `<name>`, angeordnet vom äußersten zum innersten und getrennt durch das angegebene `<string>`. Die Zähler werden im angegebenen `<style>` dargestellt und verwenden standardmäßig `decimal`, wenn kein `<style>` angegeben wird.
 
 {{EmbedInteractiveExample("pages/tabbed/function-counters.html", "tabbed-standard")}}
 
@@ -25,23 +25,23 @@ counters(countername, '.');
 counters(countername, '-', upper-roman)
 ```
 
-Ein [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) hat für sich genommen keinen sichtbaren Effekt. Die `counters()`-Funktion (und die {{cssxref("counter", "counter()")}} Funktion) macht ihn nützlich, indem sie entwicklerdefinierten Inhalt zurückgibt.
+Ein [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) hat für sich genommen keine sichtbare Auswirkung. Die `counters()`-Funktion (und die {{cssxref("counter", "counter()")}}-Funktion) macht sie nützlich, indem sie benutzerdefinierten Inhalt zurückgibt.
 
 ### Werte
 
-Die `counters()`-Funktion akzeptiert zwei oder drei Parameter. Der erste Parameter ist der `<counter-name>`. Der zweite Parameter ist der Konkatenator `<string>`. Der optionale dritte Parameter ist der `<counter-style>`.
+Die `counters()`-Funktion akzeptiert zwei oder drei Parameter. Der erste Parameter ist der `<counter-name>`. Der zweite Parameter ist der Verkettungs-`<string>`. Der optionale dritte Parameter ist der `<counter-style>`.
 
 - `<counter-name>`
-  - : Ein {{cssxref("&lt;custom-ident&gt;")}}, der die Zähler identifiziert, was derselbe groß- und kleinschreibungssensitive Name ist, der für die {{cssxref("counter-reset")}} und {{cssxref("counter-increment")}} Eigenschaften verwendet wird. Der Name darf nicht mit zwei Bindestrichen beginnen und nicht `none`, `unset`, `initial` oder `inherit` sein. Alternativ können für inline, einmalig verwendete Zähler die {{cssxref("symbols")}} Funktion anstelle eines benannten Zählers in [Browsern, die `symbols()` unterstützen](/de/docs/Web/CSS/symbols#browser_compatibility) verwendet werden.
+  - : Ein {{cssxref("&lt;custom-ident&gt;")}} zur Identifizierung der Zähler, der derselbe groß-/kleinbuchstabensensitive Name ist, der für die {{cssxref("counter-reset")}} und {{cssxref("counter-increment")}}-Eigenschaften verwendet wird. Der Name darf nicht mit zwei Bindestrichen beginnen und kann nicht `none`, `unset`, `initial` oder `inherit` sein. Alternativ kann für Inline-Zähler, die einmalig verwendet werden, die Funktion {{cssxref("symbols")}} anstelle eines benannten Zählers in [Browsern, die `symbols()` unterstützen](/de/docs/Web/CSS/symbols#browser_compatibility), verwendet werden.
 - {{cssxref("&lt;string&gt;")}}
-  - : Beliebige Anzahl von Textzeichen. Nicht-lateinische Zeichen müssen mit ihren Unicode-Fluchtsequenzen kodiert werden: zum Beispiel repräsentiert `\000A9` das Copyright-Symbol.
+  - : Beliebige Anzahl von Textzeichen. Nichtlateinische Zeichen müssen mit ihren Unicode-Escape-Sequenzen kodiert werden: zum Beispiel steht `\000A9` für das Copyright-Symbol.
 - `<counter-style>`
-  - : Ein Zählerstilname oder eine [`symbols()`](/de/docs/Web/CSS/symbols) Funktion. Der Zählerstilname kann ein einfacher vordefinierter Stil sein, wie numerisch, alphabetisch oder symbolisch, ein komplexer Langform-vordefinierter Stil wie Ostasiatisch oder Äthiopisch, oder ein anderer [vordefinierter Zählerstil](/de/docs/Web/CSS/CSS_counter_styles). Wenn weggelassen, wird der Zählerstil standardmäßig auf decimal gesetzt.
+  - : Ein Zählertyp-Name oder eine [`symbols()`](/de/docs/Web/CSS/symbols)-Funktion. Der Zählertyp-Name kann ein einfacher vordefinierter Stil wie numerisch, alphabetisch oder symbolisch sein, ein komplexer langfristiger vordefinierter Stil wie ostasiatisch oder äthiopisch oder ein anderer [vordefinierter Zählerstil](/de/docs/Web/CSS/CSS_counter_styles). Wenn er weggelassen wird, ist der Standard des Zählerstils decimal.
 
-Der Rückgabewert ist ein String, der alle Werte aller Zähler im CSS-Zählersatz des Elements mit dem Namen `<counter-name>` im Zählerstil, der durch `<counter-style>` definiert ist (oder decimal, wenn weggelassen), enthält. Der Rückgabestring wird in äußerster zu innerster Reihenfolge sortiert und durch den angegebenen `<string>` verbunden.
+Der Rückgabewert ist eine Zeichenfolge, die alle Werte aller Zähler im CSS-Zählersystem des Elements mit dem Namen `<counter-name>` im vom `<counter-style>` definierten Zählerstil enthält (oder decimal, wenn weggelassen). Die Rückgabezeichenfolge ist in der Reihenfolge von äußersten zuerst bis innersten zuletzt sortiert und wird durch das angegebene `<string>` verbunden.
 
 > [!NOTE]
-> Informationen zu nicht-konkatenierten Zählern finden Sie in der {{cssxref("counter", "counter()")}} Funktion, die den `<string>` als Parameter weglässt.
+> Für Informationen über nicht verknüpfte Zähler siehe die {{cssxref("counter", "counter()")}}-Funktion, die das `<string>` als Parameter auslässt.
 
 ### Formale Syntax
 
@@ -49,9 +49,9 @@ Der Rückgabewert ist ein String, der alle Werte aller Zähler im CSS-Zählersat
 
 ## Beispiele
 
-### Vergleich des Standardzählerwerts mit römischen Großbuchstaben
+### Vergleich zwischen Standardwert des Zählers und römischen Zahlen in Großbuchstaben
 
-Dieses Beispiel enthält zwei `counters()`-Funktionen: eine mit gesetztem `<counter-style>` und die andere, die auf `decimal` standardisiert.
+Dieses Beispiel enthält zwei `counters()`-Funktionen: eine mit festgelegtem `<counter-style>` und die andere mit der Vorgabe `decimal`.
 
 #### HTML
 
@@ -103,11 +103,11 @@ li::before {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Vergleich des Standardzählerwerts mit römischen Großbuchstaben", "100%", 270)}}
+{{EmbedLiveSample("Comparing default counter value to uppercase roman numerals", "100%", 270)}}
 
-### Vergleich des Dezimalwerts mit führender Null und Kleinbuchstaben
+### Vergleich von Zählerwerten mit führender Null im Dezimalformat zu Kleinbuchstaben
 
-Dieses Beispiel enthält drei `counters()`-Funktionen, jede mit unterschiedlichen `<string>` und `<counter-style>` Werten.
+Dieses Beispiel umfasst drei `counters()`-Funktionen, jede mit unterschiedlichen `<string>`- und `<counter-style>`-Werten.
 
 #### HTML
 
@@ -159,7 +159,7 @@ li::before {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Vergleich des Dezimalwerts mit führender Null und Kleinbuchstaben", "100%", 270)}}
+{{EmbedLiveSample("Comparing decimal-leading-zero counter value to lowercase letters", "100%", 270)}}
 
 ## Spezifikationen
 
@@ -172,12 +172,12 @@ li::before {
 ## Siehe auch
 
 - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
-- {{cssxref("counter-set")}} Eigenschaft
-- {{cssxref("counter-reset")}} Eigenschaft
-- {{cssxref("counter-increment")}} Eigenschaft
-- {{cssxref("@counter-style")}} At-Regel
-- CSS [`counter()`](/de/docs/Web/CSS/counter) Funktion
+- {{cssxref("counter-set")}}-Eigenschaft
+- {{cssxref("counter-reset")}}-Eigenschaft
+- {{cssxref("counter-increment")}}-Eigenschaft
+- {{cssxref("@counter-style")}}-At-Regel
+- CSS [`counter()`](/de/docs/Web/CSS/counter)-Funktion
 - {{cssxref("::marker")}} Pseudo-Element
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists)-Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles)-Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)-Modul

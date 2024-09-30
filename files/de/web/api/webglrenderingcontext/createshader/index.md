@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode createShader()"
+title: "WebGLRenderingContext: createShader()-Methode"
 short-title: createShader()
 slug: Web/API/WebGLRenderingContext/createShader
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`createShader()`** des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), der dann weiter konfiguriert werden kann mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader).
+Die Methode **`createShader()`** des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) in der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), der anschließend weiter mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) konfiguriert werden kann.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ createShader(type)
 
 ### Rückgabewert
 
-Ein neues ([`WebGLShader`](/de/docs/Web/API/WebGLShader)).
+Ein neuer ([`WebGLShader`](/de/docs/Web/API/WebGLShader)).
 
 ## Beispiele
 
-Sehen Sie [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Verwendung und Beispiele.
+Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Nutzung und Beispiele.
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`session`**-Eigenschaft eines `XRFrame`-Objekts gibt das [`XRSession`](/de/docs/Web/API/XRSession)-Objekt zurück, das den Frame erzeugt hat.
+Die _schreibgeschützte_ **`session`**-Eigenschaft eines `XRFrame`-Objekts gibt das [`XRSession`](/de/docs/Web/API/XRSession)-Objekt zurück, das den Frame erstellt hat.
 
 ## Wert
 
-Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Sitzung repräsentiert, für die dieses `XRFrame` die Objektpositionen und -orientierungen beschreibt.
+Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Session repräsentiert, für die dieses `XRFrame` die Objektpositionen und -orientierungen beschreibt.
 
 ## Spezifikationen
 

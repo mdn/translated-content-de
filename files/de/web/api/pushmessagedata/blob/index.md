@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`blob()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Daten als ein [`Blob`](/de/docs/Web/API/Blob)-Objekt.
+Die **`blob()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Nachrichtendaten als ein [`Blob`](/de/docs/Web/API/Blob)-Objekt.
 
 ## Syntax
 

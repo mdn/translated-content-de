@@ -9,13 +9,13 @@ l10n:
 
 Ein **Identity Provider** (IdP) ist eine Entität in einem [föderierten Identitätssystem](/de/docs/Glossary/federated_identity), die die [Anmeldedaten](/de/docs/Glossary/credential) eines Benutzers verwaltet und Benutzer [authentifizieren](/de/docs/Glossary/authentication) kann.
 
-In föderierten Identitätssystemen lagern [verlassende Parteien](/de/docs/Glossary/relying_party), die den Zugriff auf eine Ressource kontrollieren müssen (zum Beispiel eine Website, die entscheidet, ob ein Benutzer angemeldet werden soll), die Authentifizierung der Benutzer an einen Drittanbieter aus, dem sie vertrauen, Authentifizierungsentscheidungen zu treffen. Diese Drittanbieter werden Identity Provider genannt.
+In föderierten Identitätssystemen lagern [Vertrauensparteien](/de/docs/Glossary/relying_party), die den Zugang zu einer Ressource kontrollieren müssen (zum Beispiel eine Website, die entscheidet, ob ein Benutzer angemeldet wird), den Akt der Authentifizierung der Benutzer an eine dritte Partei aus, der sie vertrauen, autorisieren können. Diese Drittparteien werden Identity Provider genannt.
 
-Beispiele für Identity Provider im Web sind Google, Microsoft und Facebook. Dadurch können Websites Benutzern ermöglichen, sich mit ihrem Google-, Microsoft- oder Facebook-Konto anzumelden.
+Beispiele für Identity Provider im Web sind Google, Microsoft und Facebook. Dies ermöglicht es Websites, Benutzern die Anmeldung mit deren Google-, Microsoft- oder Facebook-Konto zu gestatten.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - [Föderierte Identität](/de/docs/Glossary/Federated_identity)
-  - [Verlassende Partei](/de/docs/Glossary/Relying_party)
+  - [Vertrauenspartei](/de/docs/Glossary/Relying_party)
 - [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API)

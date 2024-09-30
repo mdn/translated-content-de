@@ -8,14 +8,14 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`total`**-Eigenschaft des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt ein `PaymentCurrencyAmount`-Objekt zurück, das den Gesamtbetrag enthält, der zur Zahlung angefordert wird.
+Die **`total`** schreibgeschützte Eigenschaft des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt ein `PaymentCurrencyAmount`-Objekt zurück, das den gesamten angeforderten Zahlungsbetrag enthält.
 
 ## Wert
 
 Ein `PaymentCurrencyAmount`-Objekt. Dieses Objekt enthält die folgenden Eigenschaften:
 
 - `currency`
-  - : Ein String, der einen dreibuchstabigen [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html)-Standardwährungscode enthält, der die Währung der Zahlung darstellt. Beispiele sind `USD`, `CAN` und `GBP`.
+  - : Ein String, der einen dreistelligen Währungscode gemäß dem [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html)-Standard darstellt, der die Währung der Zahlung repräsentiert. Beispiele sind `USD`, `CAN` und `GBP`.
 - `value`
   - : Ein String, der einen dezimalen Geldwert enthält, z.B. `2.55`.
 
@@ -37,8 +37,8 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Das Leben einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

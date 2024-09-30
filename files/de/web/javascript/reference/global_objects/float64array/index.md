@@ -7,40 +7,40 @@ l10n:
 
 {{JSRef}}
 
-Das **`Float64Array`** Typ-Array stellt ein Array von 64-Bit-Gleitkommazahlen in der Byte-Reihenfolge der Plattform dar. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nach der Einrichtung können Sie auf die Elemente im Array über die Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d. h. unter Verwendung der Klammernotation) zugreifen.
+Das **`Float64Array`** typisierte Array stellt ein Array von 64-Bit-Float-Zahlen in der Byte-Reihenfolge der Plattform dar. Falls Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald es etabliert ist, können Sie auf Elemente im Array mithilfe der Methoden des Objekts oder der standardmäßigen Array-Index-Syntax (d.h. durch Klammernotation) zugreifen.
 
-`Float64Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
+`Float64Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}}-Klasse.
 
 ## Konstruktor
 
 - {{jsxref("Float64Array/Float64Array", "Float64Array()")}}
-  - : Erstellt ein neues `Float64Array` Objekt.
+  - : Erstellt ein neues `Float64Array`-Objekt.
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float64Array.BYTES_PER_ELEMENT")}}
-  - : Gibt den Zahlenwert der Elementgröße zurück. `8` im Fall von `Float64Array`.
+  - : Gibt eine Zahl zurück, die die Größe des Elements angibt. `8` im Falle von `Float64Array`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch Instanzeigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `Float64Array.prototype` definiert und werden von allen `Float64Array` Instanzen geteilt.
+Diese Eigenschaften sind auf `Float64Array.prototype` definiert und werden von allen `Float64Array`-Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float64Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt den Zahlenwert der Elementgröße zurück. `8` im Fall einer `Float64Array`.
+  - : Gibt eine Zahl zurück, die die Größe des Elements angibt. `8` im Fall eines `Float64Array`.
 - {{jsxref("Object/constructor", "Float64Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Float64Array` Instanzen ist der anfängliche Wert der {{jsxref("Float64Array/Float64Array", "Float64Array")}} Konstruktor.
+  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Float64Array`-Instanzen ist der Anfangswert der {{jsxref("Float64Array/Float64Array", "Float64Array")}}-Konstruktor.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt Instanzmethoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
@@ -87,7 +87,7 @@ console.log(float64FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float64Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -1,5 +1,5 @@
 ---
-title: "CSSFontPaletteValuesRule: overrideColors-Eigenschaft"
+title: "CSSFontPaletteValuesRule: overrideColors Eigenschaft"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaaren enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor angegeben.
+Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaar enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaaren enthält.
+Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaar enthält.
 
 ## Beispiele
 
-### Lesen der überschriebenen Farbe
+### Die überschriebenen Farben lesen
 
-In diesem Beispiel werden zunächst einige At-Regeln definiert, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet enthalten sind, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
+Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im zuletzt dem Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
 
 #### HTML
 
@@ -102,4 +102,4 @@ button.addEventListener("click", (event) => {
 ## Siehe auch
 
 - {{cssxref("@font-palette-values")}} At-Regel
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor

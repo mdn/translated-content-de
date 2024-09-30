@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: nextElementSibling-Eigenschaft"
+title: "CharacterData: Eigenschaft nextElementSibling"
 short-title: nextElementSibling
 slug: Web/API/CharacterData/nextElementSibling
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nextElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-gibt das erste [`Element`](/de/docs/Web/API/Element)-Knoten zurück, das dem angegebenen in der Kindliste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
+Die schreibgeschützte **`nextElementSibling`**-Eigenschaft des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces gibt das erste [`Element`](/de/docs/Web/API/Element)-Knoten zurück, das dem angegebenen in der Kindliste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
 
 ## Wert
 

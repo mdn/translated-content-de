@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn auf ein Page-Action-Icon geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Page-Action ein Popup hat.
+Wird ausgelöst, wenn ein Seitenaktion-Symbol angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Seitenaktion ein Popup hat.
 
-Um eine Aktion bei einem Rechtsklick zu definieren, verwenden Sie die {{WebExtAPIRef('contextMenus')}} API mit dem "page_action" {{WebExtAPIRef('contextMenus/ContextType', 'context type', '', 'nocode')}}.
+Um eine Rechtsklick-Aktion zu definieren, verwenden Sie die {{WebExtAPIRef('contextMenus')}} API mit dem "page_action" {{WebExtAPIRef('contextMenus/ContextType', 'context type', '', 'nocode')}}.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn ein Listener vorhanden ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -34,18 +34,18 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tab`
-      - : Ein {{WebExtAPIRef('tabs.Tab')}}-Objekt, das den Tab repräsentiert, auf dessen Page-Action geklickt wurde.
+      - : Ein {{WebExtAPIRef('tabs.Tab')}}-Objekt, das den Tab darstellt, dessen Seitenaktion angeklickt wurde.
     - `OnClickData`
 
-      - : Ein Objekt, das Informationen zum Klick enthält.
+      - : Ein Objekt, das Informationen über den Klick enthält.
 
         - `modifiers`
-          - : Ein `array`. Die zum Zeitpunkt des Klicks aktiven Tastaturmodifikatoren, die eine oder mehrere der folgenden sein können: `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
+          - : Ein `array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv sind, sind ein oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
         - `button`
-          - : Ein `integer`. Gibt die Schaltfläche an, die zum Klicken auf das Page-Action-Icon verwendet wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie zum Beispiel von der Tastatur, und `1` für einen Klick auf die mittlere Taste oder ein Scrollrad. Beachten Sie, dass ein Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
+          - : Ein `integer`. Gibt die Taste an, die verwendet wurde, um auf das Seitenaktion-Symbol zu klicken: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie z. B. einer von der Tastatur, und `1` für einen Mitteltasten- oder Scrollradklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick konsumiert, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -53,7 +53,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Wenn der Benutzer auf die Page-Action klickt, wird sie ausgeblendet und der aktive Tab zu "<https://giphy.com/explore/cat>" navigiert:
+Wenn der Benutzer auf die Seitenaktion klickt, verstecken Sie sie und navigieren Sie den aktiven Tab zu "<https://giphy.com/explore/cat>":
 
 ```js
 let CATGIFS = "https://giphy.com/explore/cat";
@@ -69,34 +69,33 @@ browser.pageAction.onClicked.addListener(() => {});
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked). Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked) API von Chromium. Diese Dokumentation ist von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code abgeleitet.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Verwendung in Quell- und Binärform, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen den obigen Copyright-Hinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitungen in binärer Form müssen den obigen
+// Copyright-Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss 
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung geliefert werden, enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet sind, 
+// zu bewerben oder zu fördern, ohne vorherige schriftliche Erlaubnis.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN 
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE 
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN 
+// GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN 
+// ABGELEHNT. IN KEINEM FALL SOLLEN DIE COPYRIGHTINHABER ODER MITWIRKENDEN
+// FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BEGRENZT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER
+// -DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; ODER 
+// BETRIEBSUNTERBRECHUNG) HAFTBAR GEMACHT WERDEN, GLEICHGÜLTIG, OB IN EINEM
+// VERTRAGSVERHÄLTNIS, UNERLAUBTER HANDLUNG ODER VERSCHULDENSUNABHÄNGIGER
+// HAFTUNG, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

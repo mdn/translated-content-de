@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `contains` ermittelt, ob der erste Argumentstring den zweiten Argumentstring enthält, und gibt boolean true oder false zurück.
+Die Funktion `contains` bestimmt, ob der erste Argument-String den zweiten Argument-String enthält, und gibt einen booleschen Wert `true` oder `false` zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ contains(haystack, needle)
 ### Parameter
 
 - `haystack`
-  - : Der String, der durchsucht werden soll
+  - : Der zu durchsuchende String
 - `needle`
   - : Der String, der als Teilstring von `haystack` gesucht wird
 

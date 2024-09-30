@@ -8,23 +8,23 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.userAgent`** gibt den User-Agent-String für den aktuellen Browser zurück.
+Die schreibgeschützte **`Navigator.userAgent`**-Eigenschaft gibt den User-Agent-String für den aktuellen Browser zurück.
 
 > [!NOTE]
-> Die Spezifikation verlangt von Browsern, so wenig Informationen wie möglich über dieses Feld bereitzustellen. Gehen Sie niemals davon aus, dass der Wert dieser Eigenschaft in zukünftigen Versionen desselben Browsers gleich bleibt. Versuchen Sie, es überhaupt nicht zu verwenden, oder nur für aktuelle und frühere Versionen eines Browsers. Neue Browser könnten beginnen, denselben UA oder einen Teil davon wie ein älterer Browser zu verwenden: Sie haben wirklich keine Garantie dafür, dass der angezeigte Benutzeragent tatsächlich derjenige ist, der von dieser Eigenschaft beworben wird.
+> Die Spezifikation fordert Browser auf, über dieses Feld so wenig Informationen wie möglich bereitzustellen. Gehen Sie niemals davon aus, dass der Wert dieser Eigenschaft in zukünftigen Versionen desselben Browsers gleich bleibt. Versuchen Sie, ihn überhaupt nicht oder nur für aktuelle und frühere Versionen eines Browsers zu verwenden. Neue Browser können denselben UA oder Teile davon wie ein älterer Browser verwenden: Sie haben wirklich keine Garantie, dass der Browser-Agent tatsächlich derjenige ist, der durch diese Eigenschaft angekündigt wird.
 >
-> Beachten Sie auch, dass Benutzer eines Browsers den Wert dieses Feldes ändern können, wenn sie möchten (UA-Spoofing).
+> Bedenken Sie auch, dass Benutzer eines Browsers den Wert dieses Feldes ändern können, wenn sie möchten (UA-Spoofing).
 
-Die Browser-Erkennung basierend auf dem User-Agent-String ist **unzuverlässig** und **nicht empfohlen**, da der User-Agent-String vom Benutzer konfigurierbar ist. Zum Beispiel:
+Die Browser-Identifizierung basierend auf der Erkennung des User-Agent-Strings ist **unzuverlässig** und **wird nicht empfohlen**, da der User-Agent-String benutzerkonfigurierbar ist. Zum Beispiel:
 
-- In Firefox können Sie die Voreinstellung `general.useragent.override` in `about:config` ändern. Einige Firefox-Erweiterungen tun dies; allerdings ändert dies nur den gesendeten HTTP-Header, der von `navigator.userAgent` zurückgegeben wird. Es könnte andere Methoden geben, die JavaScript-Code nutzen, um den Browser zu identifizieren.
-- Opera 6+ erlaubt Benutzern, den Browser-Identifikationsstring über ein Menü festzulegen.
+- In Firefox können Sie die Präferenz `general.useragent.override` in `about:config` ändern. Einige Firefox-Erweiterungen tun dies; dies ändert jedoch nur den HTTP-Header, der gesendet wird und von `navigator.userAgent` zurückgegeben wird. Es kann andere Methoden geben, die JavaScript-Code verwenden, um den Browser zu identifizieren.
+- Opera 6+ erlaubt es den Benutzern, den Browser-Identifizierungsstring über ein Menü festzulegen.
 
 ## Wert
 
-Ein String, der den vollständigen User-Agent-String des Browsers angibt, sowohl in [HTTP](/de/docs/Glossary/HTTP)-Headern als auch als Antwort auf diese und andere verwandte Methoden im [`Navigator`](/de/docs/Web/API/Navigator)-Objekt.
+Ein String, der den vollständigen User-Agent-String angibt, den der Browser sowohl in den [HTTP](/de/docs/Glossary/HTTP)-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`Navigator`](/de/docs/Web/API/Navigator)-Objekts bereitstellt.
 
-Der User-Agent-String basiert auf einer formalen Struktur, die in mehrere Informationsstücke zerlegt werden kann. Jedes dieser Informationsstücke stammt aus anderen navigator-Eigenschaften, die ebenfalls vom Benutzer einstellbar sind. Für weitere Informationen über die Form des User-Agent-Strings siehe den {{HTTPHeader("User-agent")}} HTTP-Header.
+Der User-Agent-String basiert auf einer formalen Struktur, die in mehrere Informationsstücke zerlegt werden kann. Jedes dieser Informationsstücke stammt von anderen Navigator-Eigenschaften, die ebenfalls durch den Benutzer einstellbar sind. Weitere Informationen zur Form des User-Agent-Strings finden Sie im {{HTTPHeader("User-agent")}}-HTTP-Header.
 
 ## Beispiele
 

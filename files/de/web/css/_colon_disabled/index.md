@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hineingetippt usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
+Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, eingegeben usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-disabled.html", "tabbed-standard")}}
 
@@ -21,7 +21,7 @@ Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseu
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein einfaches Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis, um dem Benutzer das Aktivieren/Deaktivieren der Rechnungsfelder zu ermöglichen.
+Dieses Beispiel zeigt ein grundlegendes Versandformular. Es nutzt das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event)-Event, um dem Benutzer zu ermöglichen, die Rechnungsfelder zu aktivieren/deaktivieren.
 
 ### HTML
 
@@ -56,7 +56,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Schalten Sie die deaktivierten Eingabefelder um, wenn das Kontrollkästchen angeklickt wird.
+Schaltet die deaktivierten Eingabefelder um, wenn das Kontrollkästchen angeklickt wird
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");
@@ -71,7 +71,7 @@ checkbox.addEventListener("change", () => {
 
 ### Ergebnis
 
-Markieren/Entmarkieren Sie das Kontrollkästchen, um das Styling der Rechnungsfelder zu ändern.
+Aktivieren/Deaktivieren Sie das Kontrollkästchen, um die Stilisierung der Rechnungsfelder zu ändern.
 
 {{EmbedLiveSample('Examples', 300, 250)}}
 

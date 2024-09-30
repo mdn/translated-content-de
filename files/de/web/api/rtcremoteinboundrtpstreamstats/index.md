@@ -7,50 +7,50 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCRemoteInboundRtpStreamStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken vom entfernten Endpunkt über einen bestimmten eingehenden RTP-Stream zu melden. Diese entsprechen einem ausgehenden RTP-Stream am lokalen Ende der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Das **`RTCRemoteInboundRtpStreamStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken vom entfernten Endpunkt über einen bestimmten eingehenden RTP-Stream zu melden. Diese entsprechen einem ausgehenden RTP-Stream am lokalen Ende der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
-Die Statistiken können durch Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) abgerufen werden, das von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) von `remote-inbound-rtp` finden.
+Die Statistiken können abgerufen werden, indem man durch den [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) von `remote-inbound-rtp` finden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-### Spezifische Statistiken für eingehende Verbindungen
+### Spezifische Statistiken für eingehende Remote-Daten
 
 <!-- RTCRemoteInboundRtpStreamStats -->
 
 - [`fractionLost`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/fractionLost) {{optional_inline}}
-  - : Eine Zahl, die den Anteil der für diese SSRC verlorenen Pakete seit dem letzten Sender- oder Empfängerbericht angibt.
+  - : Eine Zahl, die den Anteil der für diesen SSRC verlorenen Pakete seit dem letzten Sender- oder Empfängerbericht angibt.
 - [`localId`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/localId) {{optional_inline}}
-  - : Eine Zeichenkette, die verwendet wird, um das lokale [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekt zu finden, das dieselbe [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) teilt.
+  - : Ein String, der verwendet wird, um das lokale [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekt zu finden, das die gleiche [Synchronisierungsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) teilt.
 - [`roundTripTime`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/roundTripTime) {{optional_inline}}
-  - : Eine Zahl, die die geschätzte Round-Trip-Zeit (RTT) für diese SSRC in Sekunden angibt. Diese Eigenschaft existiert erst, wenn gültige RTT-Daten empfangen wurden.
+  - : Eine Zahl, die die geschätzte Round-Trip-Zeit (RTT) für diesen SSRC in Sekunden angibt. Diese Eigenschaft existiert nicht, bis gültige RTT-Daten empfangen wurden.
 - [`roundTripTimeMeasurements`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/roundTripTimeMeasurements) {{optional_inline}}
-  - : Eine positive ganze Zahl, die die Gesamtanzahl der gültigen Round-Trip-Zeit-Messungen für diese [Synchronisationsquelle (SSRC)](#ssrc) angibt.
+  - : Eine positive Ganzzahl, die die Gesamtzahl der gültigen Messungen der Round-Trip-Zeit anzeigt, die für diese [Synchronisierungsquelle (SSRC)](#ssrc) empfangen wurden.
 - [`totalRoundTripTime`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/totalRoundTripTime) {{optional_inline}}
   - : Eine Zahl, die die kumulative Summe aller Round-Trip-Zeit-Messungen seit Beginn der Sitzung in Sekunden angibt. Die durchschnittliche Round-Trip-Zeit kann berechnet werden, indem `totalRoundTripTime` durch [`roundTripTimeMeasurements`](#roundtriptimemeasurements) geteilt wird.
 
-### Empfangene RTP-Stream-Statistiken
+### Statistiken des empfangenen RTP-Streams
 
 <!-- RTCReceivedRtpStreamStats -->
 
 - [`jitter`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/jitter) {{optional_inline}}
-  - : Eine Zahl, die das [Paketjitter](/de/docs/Glossary/jitter) für diese Synchronisationsquelle angibt, gemessen in Sekunden.
+  - : Eine Zahl, die die [Paket-Jitter](/de/docs/Glossary/jitter) für diese Synchronisierungsquelle in Sekunden angibt.
 - [`packetsLost`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/packetsLost) {{optional_inline}}
-  - : Eine ganze Zahl, die die Gesamtanzahl der für diese SSRC verlorenen RTP-Pakete angibt, gemessen am entfernten Endpunkt. Dieser Wert kann negativ sein, wenn doppelte Pakete empfangen wurden.
+  - : Eine Ganzzahl, die die Gesamtzahl der verlorenen RTP-Pakete für diesen SSRC angibt, gemessen am entfernten Endpunkt. Dieser Wert kann negativ sein, wenn doppelte Pakete empfangen wurden.
 - [`packetsReceived`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/packetsReceived) {{optional_inline}} {{experimental_inline}}
-  - : Eine positive ganze Zahl, die die Gesamtanzahl der für diese SSRC empfangenen RTP-Pakete angibt, einschließlich erneuter Übertragungen.
+  - : Eine positive Ganzzahl, die die Gesamtzahl der empfangenen RTP-Pakete für diesen SSRC anzeigt, einschließlich erneuter Übertragungen.
 
 ### Allgemeine RTP-Stream-Statistiken
 
 <!-- RTCRtpStreamStats -->
 
 - [`codecId`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/codecId) {{optional_inline}}
-  - : Eine Zeichenkette, die das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erzeugen, das mit diesem [RTP](/de/docs/Glossary/RTP)-Stream verknüpft ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erstellen, das mit diesem [RTP](/de/docs/Glossary/RTP)-Stream verknüpft ist.
 - [`kind`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/kind)
-  - : Eine Zeichenkette, die angibt, ob der mit dem Stream verknüpfte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ein Audio- oder Video-Track ist.
+  - : Ein String, der angibt, ob der mit dem Stream verbundene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ein Audio- oder Videotrack ist.
 - [`ssrc`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc)
-  - : Eine positive ganze Zahl, die die SSRC der RTP-Pakete in diesem Stream identifiziert.
+  - : Eine positive Ganzzahl, die den SSRC der RTP-Pakete in diesem Stream identifiziert.
 - [`transportId`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/transportId) {{optional_inline}}
-  - : Eine Zeichenkette, die das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt zu erzeugen, das mit diesem RTP-Stream verknüpft ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um das [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt zu erstellen, das mit diesem RTP-Stream verknüpft ist.
 
 ### Allgemeine Instanzeigenschaften
 
@@ -59,15 +59,15 @@ Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
 <!-- RTCStats -->
 
 - [`id`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/id)
-  - : Eine Zeichenkette, die das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erzeugen.
+  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diese Satz von Statistiken zu erstellen.
 - [`timestamp`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/timestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt genommen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Stichprobe für dieses Statistikobjekt genommen wurde.
 - [`type`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/type)
-  - : Eine Zeichenkette mit dem Wert `"inbound-rtp"`, die den Typ der Statistiken angibt, die das Objekt enthält.
+  - : Ein String mit dem Wert `"inbound-rtp"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
 
-Angenommen, eine Variable `peerConnection` ist eine Instanz einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), dann wartet der untenstehende Code mit `await` auf den Statistikbericht und iteriert diesen anschließend mit `RTCStatsReport.forEach()`. Er filtert dann die Wörterbücher für nur diejenigen Berichte, die den Typ `remote-inbound-rtp` haben, und protokolliert das Ergebnis.
+Gegeben sei eine Variable `peerConnection`, die eine Instanz einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist. Der folgende Code verwendet `await`, um auf den Statistikbericht zu warten, und durchläuft ihn dann mit `RTCStatsReport.forEach()`. Er filtert die Wörterbücher nach nur jenen Berichten, deren Typ `remote-inbound-rtp` ist, und protokolliert das Ergebnis.
 
 ```js
 const stats = await myPeerConnection.getStats();

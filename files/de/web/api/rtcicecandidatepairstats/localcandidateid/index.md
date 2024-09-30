@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`localCandidateId`** des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) ist ein String, der den lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten eindeutig identifiziert, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu generieren, die zur Berechnung der Statistiken für dieses Paar von Kandidaten verwendet werden.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`localCandidateId`** ist eine Zeichenkette, die den lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten eindeutig identifiziert, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu erzeugen, die zur Berechnung der Statistiken für dieses Kandidatenpaar verwendet wurden.
 
 ## Wert
 
-Ein String, der eine eindeutige Kennung für den lokalen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) der Verbindung angibt, die von diesem `RTCIceCandidatePairStats`-Objekt beschrieben wird.
+Eine Zeichenkette, die eine eindeutige Kennung für den lokalen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für die Verbindung angibt, die durch dieses `RTCIceCandidatePairStats`-Objekt beschrieben wird.
 
 Dieser Kandidat ist die Quelle eines der beiden [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Objekte, die verwendet wurden, um den Inhalt dieses [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekts zu berechnen.
 

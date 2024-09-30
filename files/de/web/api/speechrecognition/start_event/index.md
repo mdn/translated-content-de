@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: start Ereignis"
+title: "SpeechRecognition: start-Ereignis"
 short-title: start
 slug: Web/API/SpeechRecognition/start_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`start`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst begonnen hat, eingehende Audiodaten zu lauschen, um die mit der aktuellen `SpeechRecognition`-Instanz verbundenen Grammatiken zu erkennen.
+Das **`start`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst begonnen hat, eingehende Audio-Aufnahmen mit der Absicht, die mit der aktuellen `SpeechRecognition` verbundenen Grammatiken zu erkennen, zu hören.
 
 ## Syntax
 
@@ -36,7 +36,7 @@ recognition.addEventListener("start", () => {
 });
 ```
 
-Oder verwenden Sie die `onstart`-Ereignishandler-Eigenschaft:
+Oder die `onstart`-Ereignishandler-Eigenschaft verwenden:
 
 ```js
 recognition.onstart = () => {

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) **`::-webkit-search-cancel-button`** repräsentiert einen Button (den "Abbrechen-Button") am Rand eines {{HTMLElement("input")}} mit `type="search"`, der den aktuellen Wert des {{HTMLElement("input")}} Elements löscht. Dieser Button und das Pseudo-Element sind nicht standardisiert und werden nur in WebKit und Blink unterstützt, daher das Hersteller-Präfix. Der Löschbutton wird nur bei nicht-leeren {{HTMLElement("input")}}-Elementen angezeigt.
+Das **`::-webkit-search-cancel-button`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine Schaltfläche (den "Abbrechen-Knopf") am Rand eines {{HTMLElement("input")}} vom `type="search"`, die den aktuellen Wert des {{HTMLElement("input")}} Elements löscht. Diese Schaltfläche und das Pseudoelement sind nicht standardisiert und werden nur in WebKit und Blink unterstützt, daher das Anbieterpräfix. Die Löschen-Schaltfläche wird nur bei nicht-leeren Such-{{HTMLElement("input")}} Elementen angezeigt.
 
 ## Syntax
 

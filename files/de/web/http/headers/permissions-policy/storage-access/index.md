@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `storage-access`-Direktive steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (z.B. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugang zu unpartitionierten Cookies zu beantragen.
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `storage-access` Direktive steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (d.h. eingebettet in ein {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf nicht partitionierte Cookies anzufordern.
 
-Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf unpartitionierte Cookies durch in einem Drittanbieter-Kontext geladene Seiten blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
+Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf nicht partitionierte Cookies durch in einem Drittanbieter-Kontext geladene Websites blockieren, um die Privatsphäre zu verbessern (beispielsweise zur Verhinderung von Tracking).
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Anrufe an [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotAllowedError` abgelehnt wird.
+Insbesondere in Fällen, in denen eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Anrufe von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Permissions-Policy: storage-access=<allowlist>;
 
 ## Standardrichtlinie
 
-Die standardmäßige Erlaubnisliste für `storage-access` ist `*`.
+Die Standard-Whitelist für `storage-access` ist `*`.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Die standardmäßige Erlaubnisliste für `storage-access` ist `*`.
 ## Siehe auch
 
 - [Storage Access API](/de/docs/Web/API/Storage_Access_API)
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

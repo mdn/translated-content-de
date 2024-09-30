@@ -9,20 +9,20 @@ l10n:
 
 Die **`SVGAnimatedEnumeration`**-Schnittstelle beschreibt Attributwerte, die Konstanten aus einer bestimmten Enumeration sind und animiert werden können.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal)
-  - : Ein ganzzahliger Wert, der den Basiswert des angegebenen Attributs darstellt, bevor Animationen angewendet werden.
+  - : Ein Ganzzahlwert, der den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
 - [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal)
-  - : Wenn das angegebene Attribut oder die angegebene Eigenschaft animiert wird, enthält es den aktuell animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
+  - : Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es den gleichen Wert wie `baseVal`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die `SVGAnimatedEnumeration`-Schnittstelle stellt keine spezifischen Methoden bereit.
+Die `SVGAnimatedEnumeration`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Beispiele
 
-Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
+Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}} Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -35,7 +35,7 @@ Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: S
 </svg>
 ```
 
-Dieser Ausschnitt ruft das Element ab und protokolliert die `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits) Eigenschaft. Da keine Animation stattfindet, haben sie denselben Wert.
+Dieser Ausschnitt ruft das Element ab und protokolliert den `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft. Da keine Animation stattfindet, haben sie den gleichen Wert.
 
 ```js
 const clipPathElt = document.getElementById("clip1");

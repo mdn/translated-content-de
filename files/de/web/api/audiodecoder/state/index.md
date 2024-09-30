@@ -19,7 +19,7 @@ Ein String, der einen der folgenden Werte enthält:
 - `"configured"`
   - : Der Codec hat eine gültige Konfiguration und ist bereit.
 - `"closed"`
-  - : Der Codec ist nicht mehr nutzbar und Systemressourcen wurden freigegeben.
+  - : Der Codec ist nicht mehr verwendbar und Systemressourcen wurden freigegeben.
 
 ## Beispiele
 

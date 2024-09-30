@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`dx`**-Attribut gibt eine Verschiebung entlang der x-Achse der Position eines Elements oder seines Inhalts an.
+Das **`dx`**-Attribut gibt eine Verschiebung entlang der x-Achse an der Position eines Elements oder seines Inhalts an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('feDropShadow')}}
 - {{SVGElement('feOffset')}}
@@ -55,7 +55,7 @@ line {
 
 ## feDropShadow
 
-Für {{SVGElement('feDropShadow')}} definiert `dx` die x-Offset des geworfenen Schattens. Die Einheit zur Bestimmung des Wertes des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
+Für {{SVGElement('feDropShadow')}} definiert `dx` den x-Versatz des Schattens. Die Einheit zur Bestimmung des Werts des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -73,14 +73,14 @@ Für {{SVGElement('feDropShadow')}} definiert `dx` die x-Offset des geworfenen S
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feOffset
 
-Für {{SVGElement('feOffset')}} definiert `dx` die x-Offset der Filter-Eingabegrafik. Die Einheit zur Bestimmung des Wertes des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
+Für {{SVGElement('feOffset')}} definiert `dx` den x-Versatz der Filtereingabe-Grafik. Die Einheit zur Bestimmung des Werts des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -98,7 +98,7 @@ Für {{SVGElement('feOffset')}} definiert `dx` die x-Offset der Filter-Eingabegr
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -106,9 +106,9 @@ Für {{SVGElement('feOffset')}} definiert `dx` die x-Offset der Filter-Eingabegr
 ## glyphRef
 
 > [!WARNING]
-> Seit SVG2 ist {{SVGElement('glyphRef')}} veraltet und sollte nicht mehr verwendet werden.
+> Ab SVG2 ist {{SVGElement('glyphRef')}} veraltet und sollte nicht mehr verwendet werden.
 
-Für {{SVGElement('glyphRef')}} definiert `dx` die x-Offset des Glyphs im Schriftmetriksystem.
+Für {{SVGElement('glyphRef')}} definiert `dx` den x-Versatz des Glyphs im Schriftmetriksystem.
 
 <table class="properties">
   <tbody>
@@ -126,16 +126,16 @@ Für {{SVGElement('glyphRef')}} definiert `dx` die x-Offset des Glyphs im Schrif
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## text
 
-Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Glyphen.
+Für {{SVGElement('text')}}: Wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zu dem vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die restlichen Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -161,7 +161,7 @@ Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -208,11 +208,11 @@ line {
 ## tref
 
 > [!WARNING]
-> Seit SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht mehr verwendet werden.
+> Ab SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht mehr verwendet werden.
 
-Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Glyphen.
+Für {{SVGElement('tref')}}: Wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zu dem vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die restlichen Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -238,16 +238,16 @@ Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## tspan
 
-Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle alternativen Glyphen.
+Für {{SVGElement('tspan')}}: Wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle alternativen Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Glyph relativ zu dem vorhergehenden Glyph. Wenn es weniger Werte als Glyphen gibt, verwenden die restlichen Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -273,7 +273,7 @@ Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>

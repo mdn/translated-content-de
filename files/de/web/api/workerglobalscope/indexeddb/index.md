@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}{{AvailableInWorkers("worker")}}
 
-Die **`indexedDB`** schreibgeschützte Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle bietet einen Mechanismus für Worker, um asynchron auf die Funktionen von indizierten Datenbanken zuzugreifen.
+Die schreibgeschützte **`indexedDB`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle bietet Arbeitern einen Mechanismus, um asynchron auf die Fähigkeiten von indizierten Datenbanken zuzugreifen.
 
 ## Wert
 
@@ -43,5 +43,5 @@ function openDB() {
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Einstellen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

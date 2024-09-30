@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`createConstantSource()`**-Eigenschaft der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt ein [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Objekt, das eine Audioquelle ist, die kontinuierlich ein monaurales (einkanaliges) Tonsignal ausgibt, dessen Proben alle denselben Wert haben.
+Die **`createConstantSource()`**-Eigenschaft der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt ein [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Objekt, das eine Audioquelle ist, die kontinuierlich ein monaurales (ein-Kanal) Audiosignal ausgibt, dessen Proben alle denselben Wert haben.
 
 > [!NOTE]
-> Der [`ConstantSourceNode()`](/de/docs/Web/API/ConstantSourceNode/ConstantSourceNode)-Konstruktor wird empfohlen, um einen [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`ConstantSourceNode()`](/de/docs/Web/API/ConstantSourceNode/ConstantSourceNode)-Konstruktor ist die empfohlene Methode, um ein [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) zu erstellen; siehe [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz von [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode).
+Eine [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Instanz.
 
 ## Spezifikationen
 

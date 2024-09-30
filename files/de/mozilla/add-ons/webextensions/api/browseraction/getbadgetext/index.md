@@ -26,14 +26,14 @@ let gettingText = browser.browserAction.getBadgeText(
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt den Tab an, aus dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt den Tab an, von dem der Badge-Text abgerufen werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, aus dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt das Fenster an, von dem der Badge-Text abgerufen werden soll.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Badge-Text zurückgegeben.
+- Falls sowohl windowId als auch tabId angegeben sind, schlägt die Funktion fehl.
+- Falls sowohl windowId als auch tabId weggelassen werden, wird der globale Badge-Text zurückgegeben.
 
 ### Rückgabewert
 
@@ -45,7 +45,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie den Badge-Text:
+Protokollieren des Badge-Texts:
 
 ```js
 function gotBadgeText(text) {
@@ -59,7 +59,7 @@ gettingBadgeText.then(gotBadgeText);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeText)-API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeText) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

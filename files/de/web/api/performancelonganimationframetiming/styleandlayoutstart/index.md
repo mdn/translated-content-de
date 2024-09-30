@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`styleAndLayoutStart`** schreibgeschützte Eigenschaft der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Schnittstelle gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Beginn des Zeitraums angibt, der für Stil- und Layout-Berechnungen für das aktuelle Animationsbild benötigt wird.
+Die schreibgeschützte Eigenschaft **`styleAndLayoutStart`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Beginn des Zeitraums angibt, der für Stil- und Layoutberechnungen des aktuellen Animationsrahmens aufgewendet wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Langsame Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Langsame Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_ani
 
 ## Siehe auch
 
-- [Langsame Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

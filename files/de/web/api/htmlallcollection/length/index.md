@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLAllCollection.length`**-Eigenschaft gibt die Anzahl der Elemente in dieser [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück.
+Die **`HTMLAllCollection.length`** Eigenschaft gibt die Anzahl der Elemente in dieser [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück.
 
 ## Wert
 

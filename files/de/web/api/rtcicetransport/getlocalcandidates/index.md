@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getLocalCandidates()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein Array von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekten zurück, wobei jedes Objekt einen der Kandidaten repräsentiert, die vom lokalen Gerät während der aktuellen [ICE](/de/docs/Glossary/ICE)-Agentensitzung gesammelt wurden.
+Die **`getLocalCandidates()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein Array von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekten zurück, eines für jeden der Kandidaten, die vom lokalen Gerät während der aktuellen [ICE](/de/docs/Glossary/ICE)-Agentensitzung gesammelt wurden.
 
-Die lokalen Kandidaten werden von dem ICE-Agenten in diese Liste aufgenommen, bevor sie dem Code des lokalen Clients in einem [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis übergeben werden, damit der Client die Kandidaten an den Remote-Peer weiterleiten kann.
+Die lokalen Kandidaten werden von dem ICE-Agenten in diese Liste eingefügt, bevor sie im Rahmen eines [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisses an den Code des lokalen Clients übergeben werden, sodass der Client die Kandidaten an den entfernten Peer weiterleiten kann.
 
 ## Syntax
 
@@ -24,13 +24,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein JavaScript-{{jsxref("Array")}}, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt für jeden Kandidaten enthält, der bisher während der ICE-Kandidatensammlungs-Sitzung identifiziert wurde.
+Ein JavaScript-{{jsxref("Array")}}, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt für jeden Kandidaten enthält, der bisher während der ICE-Kandidatensammlungssitzung identifiziert wurde.
 
-Sie können diese lokalen Kandidaten nicht mit passenden Remote-Kandidaten in Beziehung setzen. Um das bisher beste gefundene Paar zu ermitteln, rufen Sie [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) auf.
+Sie können diese lokalen Kandidaten nicht mit passenden entfernten Kandidaten korrelieren.
+Um das beste bisher gefundene Match zu finden, rufen Sie [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) auf.
 
 ## Beispiele
 
-Dieses einfache Beispiel erhält die Liste der lokalen Kandidaten vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) für den ersten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) und gibt dann alle Kandidaten in der Liste in der Konsole aus.
+Dieses einfache Beispiel holt die Liste der lokalen Kandidaten von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) für den ersten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) und gibt dann alle Kandidaten in der Liste in der Konsole aus.
 
 ```js
 const localCandidates = pc

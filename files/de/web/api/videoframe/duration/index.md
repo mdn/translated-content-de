@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`duration`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
+Die **`duration`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 

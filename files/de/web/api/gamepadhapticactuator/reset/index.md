@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}
 
-Die **`reset()`**-Methode des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Interfaces stoppt die Hardware davon, einen aktiven Vibrationseffekt abzuspielen.
+Die **`reset()`**-Methode der [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Schnittstelle stoppt die Hardware daran, einen aktiven Vibrationseffekt abzuspielen.
 
 ## Syntax
 
@@ -24,10 +24,10 @@ Keine.
 
 Ein Promise, das mit `"complete"` aufgelöst wird, wenn der Effekt erfolgreich zurückgesetzt wurde, oder mit `"preempted"`, wenn der Effekt gestoppt oder durch einen anderen Effekt ersetzt wurde.
 
-Das Promise kann mit den folgenden Ausnahmetypen verworfen werden:
+Das Promise kann mit den folgenden Ausnahmearten abgelehnt werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Promise wird mit `InvalidStateError` verworfen, wenn das aktuelle Dokument nicht aktiv oder versteckt ist.
+  - : Das Promise wird mit `InvalidStateError` abgelehnt, wenn das aktuelle Dokument nicht aktiv oder verborgen ist.
 
 ## Beispiele
 

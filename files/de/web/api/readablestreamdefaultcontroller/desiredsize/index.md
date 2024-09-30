@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`desiredSize`** der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Schnittstelle gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
+Die **`desiredSize`**-schreibgeschützte Eigenschaft des [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Interfaces gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
 
 ## Wert
 
-Ein ganzzahliger Wert. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange übervoll ist.
+Ein Integer. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange übervoll ist.
 
 ## Beispiele
 
-Das [Lesbare Stream mit einer zugrunde liegenden Push-Quelle und Unterstützung für Rückstau](https://streams.spec.whatwg.org/#example-rs-push-backpressure) Beispiel in der Spezifikation bietet ein gutes Beispiel für die Verwendung von `desiredSize`, um manuell zu erkennen, wann der Stream voll ist und Rückstau anzuwenden, und auch für die Verwendung von [`ReadablestreamDefaultController.error()`](/de/docs/Web/API/ReadablestreamDefaultController/error), um manuell einen Stream-Fehler auszulösen, wenn ein anderer Teil des Systems, auf den er sich stützt, ausfällt.
+Das Beispiel [A readable stream with an underlying push source and backpressure support](https://streams.spec.whatwg.org/#example-rs-push-backpressure) in der Spezifikation bietet ein gutes Beispiel für die Verwendung von `desiredSize`, um manuell zu erkennen, wann der Stream voll ist und Druck auszuüben, sowie die Verwendung von [`ReadablestreamDefaultController.error()`](/de/docs/Web/API/ReadablestreamDefaultController/error), um manuell einen Streamfehler auszulösen, wenn ein anderer Teil des Systems, auf den es angewiesen ist, fehlschlägt.
 
 ## Spezifikationen
 

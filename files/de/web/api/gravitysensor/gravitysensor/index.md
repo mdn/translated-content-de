@@ -1,5 +1,5 @@
 ---
-title: "GravitySensor: GravitySensor()-Konstruktor"
+title: "GravitySensor: GravitySensor() Konstruktor"
 short-title: GravitySensor()
 slug: Web/API/GravitySensor/GravitySensor
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
 Der **`GravitySensor()`**
-Konstruktor erstellt ein neues [`GravitySensor`](/de/docs/Web/API/GravitySensor)-Objekt, das bei jeder Messung die auf das Gerät einwirkende Schwerkraft entlang aller drei Achsen bereitstellt.
+Konstruktor erstellt ein neues [`GravitySensor`](/de/docs/Web/API/GravitySensor)-Objekt, das bei jedem Ablesen die auf das Gerät angewendete Schwerkraft entlang aller drei Achsen liefert.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ new GravitySensor(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Abtastungen pro Sekunde, d.h. die Anzahl der Male pro Sekunde, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis ausgelöst wird. Eine Ganzzahl oder Dezimalzahl kann verwendet werden, Letzteres für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer als gewünscht sein. Die Standardfrequenz ist die durch die zugrunde liegende Plattform definierte.
+      - : Die gewünschte Anzahl an Proben pro Sekunde, die genommen werden soll, was bedeutet, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis so oft pro Sekunde aufgerufen wird. Eine ganze Zahl oder ein Dezimalwert kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Ablesefrequenz hängt von der Gerätetechnik ab und kann folglich geringer als die angeforderte sein. Die Standardfrequenz ist die, die von der zugrunde liegenden Plattform definiert wird.
     - `referenceFrame` {{optional_inline}}
-      - : Das lokale Koordinatensystem, das den Referenzrahmen darstellt. Es kann entweder `'device'` oder `'screen'` sein. Der Standardwert ist `'device'`.
+      - : Das lokale Koordinatensystem, das das Bezugssystem darstellt. Es kann entweder `'device'` oder `'screen'` sein. Der Standard ist `'device'`.
 
 ### Ausnahmen
 
@@ -44,4 +44,4 @@ new GravitySensor(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

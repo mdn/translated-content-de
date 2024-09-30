@@ -1,5 +1,5 @@
 ---
-title: Realisieren gängiger Layouts mit Grids
+title: Verwirklichung gängiger Layouts mit Rastern
 slug: Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids
 l10n:
   sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Um diese Reihe von Leitfäden zum CSS-Grid-Layout abzurunden, werden wir einige verschiedene Layouts durchgehen, die einige der verschiedenen Techniken demonstrieren, die Sie beim Entwerfen mit Grid-Layout verwenden können. Wir werden uns ein Beispiel mit [grid-template-areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) ansehen, ein typisches flexibles 12-Spalten-Grid-System und auch eine Produktliste mit automatischer Platzierung. Wie Sie an diesem Satz von Beispielen sehen können, gibt es oft mehr als einen Weg, das gewünschte Ergebnis mit Grid-Layout zu erreichen. Wählen Sie die Methode, die Sie am hilfreichsten für die Probleme finden, die Sie lösen, und die Designs, die Sie umsetzen müssen.
+Um diese Reihe von Leitfäden zum CSS-Rasterlayout abzuschließen, gehen wir nun einige verschiedene Layouts durch, die einige der verschiedenen Techniken demonstrieren, die Sie beim Entwerfen mit Rasterlayout verwenden können. Wir werden ein Beispiel mit [grid-template-areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas), ein typisches flexibles 12-Spalten-Rastersystem und auch eine Produktauflistung mit automatischer Platzierung betrachten. Wie Sie aus diesen Beispielen sehen können, gibt es oft mehr als einen Weg, das gewünschte Ergebnis mit Rasterlayout zu erzielen. Wählen Sie die Methode, die Ihnen bei den Problemen, die Sie lösen, und den Designs, die Sie umsetzen müssen, am hilfreichsten erscheint.
 
-## Ein responsives Layout mit 1 bis 3 flüssigen Spalten mit `grid-template-areas`
+## Ein responsives Layout mit 1 bis 3 flexiblen Spalten unter Verwendung von `grid-template-areas`
 
-Viele Websites sind eine Variation dieses Layout-Typs, mit Inhalten, Seitenleisten, einem Header und einem Footer. In einem responsiven Design möchten Sie möglicherweise das Layout als Einzelspalte anzeigen, eine Seitenleiste bei einem bestimmten Breakpoint hinzufügen und dann ein Dreispalten-Layout für breitere Bildschirme einführen.
+Viele Webseiten sind eine Variation dieses Layouts mit Inhalt, Seitenleisten, einem Kopfbereich und einem Fußbereich. In einem responsiven Design möchten Sie das Layout möglicherweise als einzelne Spalte anzeigen, dann bei einem bestimmten Breakpoint eine Seitenleiste hinzufügen und schließlich ein Dreispaltenlayout für breitere Bildschirme einführen.
 
-![Bild der drei verschiedenen Layouts, die durch Neudefinieren unseres Grids an zwei Breakpoints erstellt wurden.](11-responsive-areas.png)
+![Bild der drei verschiedenen Layouts, die durch Neudefinition unseres Rasters an zwei Breakpoints erstellt werden.](11-responsive-areas.png)
 
-Wir werden dieses Layout mit den _benannten Template-Bereichen_ erstellen, die wir im Leitfaden _[Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)_ gelernt haben.
+Wir werden dieses Layout unter Verwendung der _benannten Template-Bereiche_ erstellen, die wir im Leitfaden _[Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)_ kennengelernt haben.
 
-Das Markup ist ein Container mit darin enthaltenen Elementen für einen Header, Footer, Hauptinhalt, Navigation, Seitenleiste und einen Block zur Platzierung von Werbung.
+Das Markup ist ein Container mit Elementen für einen Kopfbereich, einen Fußbereich, Hauptinhalt, Navigation, eine Seitenleiste und einen Block zur Platzierung von Werbung.
 
 ```css hidden
 * {
@@ -71,7 +71,7 @@ nav ul {
 </div>
 ```
 
-Da wir {{cssxref("grid-template-areas")}} verwenden, um das Layout zu erstellen, müssen wir außerhalb jeglicher Media Queries die Bereiche benennen. Wir benennen Bereiche mit der {{cssxref("grid-area")}}-Eigenschaft.
+Da wir {{cssxref("grid-template-areas")}} verwenden, um das Layout zu erstellen, müssen wir außerhalb von Medienabfragen die Bereiche benennen. Wir benennen die Bereiche mit der Eigenschaft {{cssxref("grid-area")}}.
 
 ```css
 .main-head {
@@ -94,7 +94,7 @@ Da wir {{cssxref("grid-template-areas")}} verwenden, um das Layout zu erstellen,
 }
 ```
 
-Dies wird kein Layout erstellen, jedoch haben die Elemente jetzt Namen, die wir verwenden können, um dies zu tun. Bleiben wir außerhalb jeglicher Media Queries, richten wir nun das Layout für die mobile Breite ein. Hier halten wir alles in der Quellreihenfolge, um mögliche Diskrepanzen zwischen Quelle und Anzeige zu vermeiden, wie im Leitfaden _[Grid layout and accessibility](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)_ beschrieben. Wir haben keine Spalten- oder Reihen-Tracks definiert, aber dieses Layout diktiert eine Einzelspalte, und Reihen werden erstellt, wie für jedes der Elemente im impliziten Grid benötigt.
+Dies wird noch kein Layout erstellen, jedoch haben die Elemente jetzt Namen, die wir dazu verwenden können. Wir werden das Layout für die Mobilbreite außerhalb von Medienabfragen einrichten. Hier belassen wir alles in der Reihenfolge der Quelle, um jede Trennung zwischen Quelle und Anzeige zu vermeiden, wie im Leitfaden _[Rasterlayout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)_ beschrieben. Wir haben keine Spalten- oder Zeilenbahnen definiert, aber dieses Layout sieht eine einzelne Kolumne vor, und Zeilen werden nach Bedarf für jedes der Elemente im impliziten Raster erstellt.
 
 ```css
 .wrapper {
@@ -110,7 +110,7 @@ Dies wird kein Layout erstellen, jedoch haben die Elemente jetzt Namen, die wir 
 }
 ```
 
-Mit unserem mobilen Layout können wir nun fortfahren, eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) hinzuzufügen, um dieses Layout für größere Bildschirme mit genügend Platz für die Anzeige von zwei Spalten anzupassen.
+Mit unserem mobilen Layout können wir nun eine [Medienabfrage](/de/docs/Web/CSS/CSS_media_queries) hinzufügen, um dieses Layout an größere Bildschirme anzupassen, die genug Platz bieten, um zwei Spalten anzuzeigen.
 
 ```css
 @media (min-width: 500px) {
@@ -129,9 +129,9 @@ Mit unserem mobilen Layout können wir nun fortfahren, eine [Media Query](/de/do
 }
 ```
 
-Sie können das Layout in den Werten von {{cssxref("grid-template-areas")}} formen sehen. Der `header` erstreckt sich über zwei Spaltentracks, ebenso wie die `nav`. Im dritten Reihentrack haben wir die `sidebar` neben dem `content`. Im vierten Reihentrack habe ich mich entschieden, meinen `ad`-Inhalt zu platzieren – sodass er unter der Sidebar erscheint und danach der `footer` neben ihm unterhalb des Inhalts. Wir verwenden einen Flexbox auf der Navigation, um sie in einer Zeile mit Abstand anzuzeigen.
+Sie können das entstehende Layout im Wert von {{cssxref("grid-template-areas")}} sehen. Der `header` erstreckt sich über zwei Spaltenbahnen, ebenso die `nav`. In der dritten Zeilenbahn befindet sich die `sidebar` neben dem `content`. In der vierten Zeilenbahn habe ich den `ad`-Inhalt platziert – so erscheint er unter der Seitenleiste, dann der `footer` daneben unter dem Inhalt. Wir verwenden ein Flexbox für die Navigation, um es in einer Zeile verteilt anzuzeigen.
 
-Wir können nun einen endgültigen Breakpoint hinzufügen, um zu einem Dreispalten-Layout zu wechseln.
+Wir können jetzt einen letzten Breakpoint hinzufügen, um zu einem Dreispaltenlayout überzugehen.
 
 ```css
 @media (min-width: 700px) {
@@ -149,17 +149,17 @@ Wir können nun einen endgültigen Breakpoint hinzufügen, um zu einem Dreispalt
 }
 ```
 
-Das Dreispalten-Layout hat zwei `1fr`-Einheitsseitenspalten und eine mittlere Spalte, die `4fr` als Trackgröße hat. Das bedeutet, dass der verfügbare Platz im Container in 6 aufgeteilt und proportional auf unsere drei Tracks zugewiesen wird – ein Teil jeweils an die Seitenspalten und 4 Teile in die Mitte.
+Das Dreispaltenlayout verfügt über zwei Spalten mit der Breite `1fr` und eine mittlere Spalte mit `4fr` als Bahngröße. Das bedeutet, dass der verfügbare Platz im Container in 6 Teile aufgeteilt und im Verhältnis zu unseren drei Bahnen zugewiesen wird – ein Teil jeweils an die Seitenkolumnen und 4 Teile an die Mitte.
 
-In diesem Layout zeigen wir die `nav` in der linken Spalte, neben dem `content`. In der rechten Spalte haben wir die `sidebar` und darunter die Anzeigen (`ad`). Der `footer` erstreckt sich jetzt über die gesamte Breite des Layouts. Ich verwende dann eine Flexbox, um die Navigation als Spalte anzuzeigen.
+In diesem Layout wird die `nav` in der linken Kolumne zusammen mit dem `content` angezeigt. In der rechten Kolumne befinden sich die `sidebar` und darunter die Werbung (`ad`). Der `footer` erstreckt sich nun über die gesamte untere Fläche des Layouts. Ich verwende dann eine Flexbox, um die Navigation als Kolumne anzuzeigen.
 
 {{ EmbedLiveSample('A_responsive_layout_with_1_to_3_fluid_columns_using_grid-template-areas', '800', '500') }}
 
-Dies ist ein einfaches Beispiel, zeigt jedoch, wie wir ein Grid-Layout verwenden können, um unser Layout für verschiedene Breakpoints neu zu arrangieren. Insbesondere verändern wir den Standort dieses `ad`-Blocks, je nach unseren unterschiedlichen Spaltenlayouts. Ich finde diese Methode mit benannten Bereichen sehr hilfreich in der Prototyp-Phase, da es einfach ist, mit dem Standort der Elemente zu experimentieren. Sie könnten immer damit beginnen, Grid auf diese Weise für Prototypen zu verwenden, auch wenn Sie sich nicht vollständig darauf in der Produktion verlassen können, aufgrund der Browser, die Ihre Website besuchen.
+Dies ist ein einfaches Beispiel, zeigt aber, wie Sie ein Rasterlayout verwenden können, um Ihr Layout für verschiedene Breakpoints neu anzuordnen. Insbesondere ändern wir die Platzierung des `ad`-Blocks in meinen verschiedenen Kolumnen-Setups, wie es angemessen ist. Diese Methode der benannten Bereiche finde ich in der Prototypenphase sehr hilfreich, da es einfach ist, mit der Platzierung von Elementen zu spielen. Sie könnten jederzeit beginnen, Raster auf diese Weise zum Prototyping zu verwenden, auch wenn Sie sich beim Einsatz in der Produktion nicht vollständig darauf verlassen können, da die Browser, die Ihre Website besuchen, dies möglicherweise nicht unterstützen.
 
 ## Ein flexibles 12-Spalten-Layout
 
-Wenn Sie mit einem der vielen Frameworks oder Gridsysteme gearbeitet haben, sind Sie möglicherweise daran gewöhnt, Ihre Seite auf einem flexiblen 12- oder 16-Spalten-Grid anzuordnen. Wir können dieses Art von System mit CSS-Grid-Layout erstellen. Als einfaches Beispiel erstellen wir ein flexibles 12-Spalten-Grid, das 12 `1fr`-Einheitenspalten-Tracks hat, sie haben alle eine Startlinie namens `col-start`. Das bedeutet, dass wir zwölf Grid-Linien namens `col-start` haben werden.
+Wenn Sie mit einem der vielen Frameworks oder Rastersysteme gearbeitet haben, könnten Sie es gewohnt sein, Ihre Seite auf einem flexiblen 12- oder 16-Spalten-Raster aufzubauen. Wir können dieses System mit CSS-Rasterlayout erstellen. Als einfaches Beispiel lassen Sie uns ein flexibles 12-Spalten-Raster erstellen, das 12 `1fr`-Spaltenbahnen hat, alle benannte Startlinie `col-start`. Das bedeutet, dass wir zwölf Rasternlinien mit dem Namen `col-start` haben werden.
 
 ```css hidden
 .wrapper {
@@ -186,7 +186,7 @@ Wenn Sie mit einem der vielen Frameworks oder Gridsysteme gearbeitet haben, sind
 }
 ```
 
-Um zu demonstrieren, wie dieses Gridsystem funktioniert, habe ich vier Kindelemente innerhalb meines Wrappers.
+Um zu demonstrieren, wie dieses Rastersystem funktioniert, habe ich vier Kind-Elemente in meinem Wrapper.
 
 ```html
 <div class="wrapper">
@@ -201,7 +201,7 @@ Um zu demonstrieren, wie dieses Gridsystem funktioniert, habe ich vier Kindeleme
 </div>
 ```
 
-Wir können diese dann auf das Grid mit den benannten Linien und dem Keyword `span` platzieren.
+Wir können sie dann auf dem Raster unter Verwendung der benannten Linien und des Schlüsselworts Span platzieren.
 
 ```css
 .item1 {
@@ -223,17 +223,17 @@ Wir können diese dann auf das Grid mit den benannten Linien und dem Keyword `sp
 
 {{ EmbedLiveSample('A_flexible_12-column_layout', '800', '400') }}
 
-Wie im [Leitfaden zu benannten Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) beschrieben, verwenden wir die benannte Linie, um unser Element zu platzieren. Da wir 12 Linien mit demselben Namen haben, verwenden wir den Namen und dann den Index der Linie. Sie könnten auch nur den Linienindex verwenden, wenn Sie dies bevorzugen, und die Verwendung benannter Linien ganz vermeiden.
+Wie im [Leitfaden zu benannten Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) beschrieben, verwenden wir die benannte Linie, um unser Element zu platzieren. Da wir 12 Linien mit demselben Namen haben, verwenden wir den Namen und dann den Index der Linie. Sie könnten auch den Linienindex selbst verwenden, wenn Sie es vorziehen, und benannte Linien ganz vermeiden.
 
-Anstatt die Endliniennummer festzulegen, habe ich mich entschieden, zu sagen, wie viele Tracks dieses Element sich über `span` erstrecken soll. Dieser Ansatz gefällt mir, da wir, wenn wir mit einem Mehrspalten-Layoutsystem arbeiten, Blöcke meistens in Bezug auf die Anzahl der Grid-Tracks, die sie überspannen, betrachten und das für unterschiedliche Breakpoints anpassen. Um zu sehen, wie die Blöcke sich an die Tracks anpassen, verwenden Sie den [Firefox-Grid-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html). Dieser zeigt deutlich, wie unsere Elemente platziert sind.
+Anstatt die Endliniennummer festzulegen, habe ich mich entschieden zu sagen, wie viele Bahnen dieses Element überspannen sollte, unter Verwendung des `span`-Schlüsselwortes. Mir gefällt dieser Ansatz, da wir beim Arbeiten mit einem System mit mehreren Spaltenlayout üblicherweise Blöcke in Bezug auf die Anzahl der Bahnen des Rasters, die sie überspannen, betrachten und dies für verschiedene Breakpoints anpassen. Um zu sehen, wie die Blöcke sich an die Bahnen anpassen, verwenden Sie den [Firefox-Rasterinspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html). Es zeigt deutlich, wie unsere Elemente platziert sind.
 
-![Zeigt die platzierten Elemente im Grid mit hervorgehobenen Grid-Tracks.](11-grid-inspector-12col.png)
+![Das Bild zeigt, wie die Elemente auf dem Raster mit markierten Rasterbahnen platziert sind.](11-grid-inspector-12col.png)
 
-Es gibt einige wesentliche Unterschiede in der Arbeitsweise eines Grid-Layouts im Vergleich zu den Gridsystemen, die Sie möglicherweise zuvor verwendet haben. Wie Sie sehen können, müssen wir kein zusätzliches Markup hinzufügen, um eine Reihe zu erstellen. Gridsysteme müssen dies tun, um zu verhindern, dass Elemente in die darüberliegende Reihe springen. Mit CSS Grid-Layout können wir Dinge in Reihen platzieren, ohne Gefahr, dass sie in die darüberliegende Reihe aufsteigen, wenn diese leer ist. Aufgrund dieser _strikten_ Spalten- und Reihenplatzierung können wir auch leicht Leerraum in unserem Layout belassen. Wir benötigen auch keine speziellen Klassen, um Dinge zu verschieben oder zu ziehen, um sie in das Grid einzurücken. Es reicht aus, die Start- und Endlinie für das Element anzugeben.
+Es gibt einige wesentliche Unterschiede, wie ein Rasterlayout im Vergleich zu den Rastersystemen funktioniert, die Sie möglicherweise zuvor verwendet haben. Wie Sie sehen können, müssen wir kein Markup hinzufügen, um eine Zeile zu erstellen, Rastersysteme müssen dies tun, um zu verhindern, dass Elemente in die darüberliegende Zeile "springen". Mit CSS-Rasterlayout können wir Dinge in Zeilen platzieren, ohne dass die Gefahr besteht, dass sie in die darüberliegende Zeile hochgezogen werden, wenn diese leer ist. Aufgrund dieser _strikten_ Spalten- und Zeilenplatzierung können wir auch leicht Leerraum in unserem Layout lassen. Außerdem benötigen wir keine speziellen Klassen, um Dinge zu ziehen oder zu schieben, um sie im Raster einzurücken. Alles, was wir tun müssen, ist, die Start- und Endlinie für das Element zu spezifizieren.
 
-## Aufbau eines Layouts mit dem 12-Spalten-System
+## Ein Layout mit dem 12-Spalten-System erstellen
 
-Um zu sehen, wie diese Layoutmethode in der Praxis funktioniert, können wir das gleiche Layout erstellen, das wir mit {{cssxref("grid-template-areas")}} erstellt haben, diesmal jedoch mit dem 12-Spalten-Gridsystem. Beginnen wir mit demselben Markup, das im Beispiel für Grid-Template-Bereiche verwendet wurde.
+Um zu sehen, wie diese Layoutmethode in der Praxis funktioniert, können wir dasselbe Layout erstellen, das wir mit {{cssxref("grid-template-areas")}} erstellt haben, diesmal jedoch mit dem 12-Spalten-Rastersystem. Lassen Sie uns mit demselben Markup beginnen, das für das Grid-Template-Bereiche-Beispiel verwendet wurde.
 
 ```css hidden
 * {
@@ -287,7 +287,7 @@ nav ul {
 </div>
 ```
 
-Wir können dann unser Grid, wie im Beispiel 12-Spalten-Layout oben, einrichten.
+Wir können dann unser Raster einrichten, wie im obigen Beispiel des 12-Spalten-Layouts.
 
 ```css
 .wrapper {
@@ -297,9 +297,9 @@ Wir können dann unser Grid, wie im Beispiel 12-Spalten-Layout oben, einrichten.
 }
 ```
 
-Wir werden erneut ein responsives Layout erstellen, diesmal jedoch mit benannten Linien. Jeder Breakpoint verwendet ein 12-Spalten-Grid, jedoch ändert sich die Anzahl der Tracks, die die Elemente überspannen, je nach Größe des Bildschirms.
+Wir werden dies erneut zu einem responsiven Layout machen, diesmal jedoch unter Verwendung benannter Linien. Jeder Breakpoint wird ein 12-Spalten-Raster verwenden, jedoch ändert sich die Anzahl der Bahnen, die die Elemente überspannen, je nach Größe des Bildschirms.
 
-Wir beginnen mit "mobile first", und alles, was wir für die schmalsten Bildschirme möchten, ist, dass die Elemente in Quellreihenfolge bleiben und sich alle über das gesamte Grid erstrecken.
+Wir starten mobil zuerst, und alles, was wir für die schmalsten Bildschirme wollen, ist, dass die Elemente in Quellreihenfolge bleiben und sich über das gesamte Raster erstrecken.
 
 ```css
 .wrapper > * {
@@ -307,9 +307,9 @@ Wir beginnen mit "mobile first", und alles, was wir für die schmalsten Bildschi
 }
 ```
 
-Beim nächsten Breakpoint wollen wir zu einem Zweispaltenlayout wechseln. Unser Header und die Navigation erstrecken sich weiterhin über das gesamte Grid, daher müssen wir keine Positionierung für sie festlegen. Die Seitenleiste beginnt an der ersten Linienzeile namens `col-start` und erstreckt sich über 3 Linien. Sie folgt der Zeilenzeile 3, da Header und Navigation in den ersten beiden Reihentracks sind.
+Am nächsten Breakpoint möchten wir zu einem Zweispaltenlayout wechseln. Unser Header und die Navigation erstrecken sich weiterhin über das gesamte Raster, daher müssen wir keine Positionierung für sie angeben. Die Seitenleiste beginnt auf der ersten Spaltenlinie namens col-start, umspannt 3 Linien. Sie befindet sich nach Zeilenlinie 3, da der Header und die Navigation in den ersten beiden Zeilenbahnen sind.
 
-Das Werbepanel befindet sich unter der Seitenleiste, beginnt also an Grid-Zeilenzeile 4. Dann haben wir den Inhalt und den Footer, die bei `col-start` 4 beginnen und sich über 9 Tracks erstrecken, die sie zum Ende des Grids führen.
+Das Anzeigefeld befindet sich unter der Seitenleiste, beginnt also an der Rasterzeilenlinie 4. Dann haben wir den Inhalt und den Footer, der bei col-start 4 beginnt und 9 Bahnen überspannt, die sie bis zum Ende des Rasters bringen.
 
 ```css
 @media (min-width: 500px) {
@@ -332,7 +332,7 @@ Das Werbepanel befindet sich unter der Seitenleiste, beginnt also an Grid-Zeilen
 }
 ```
 
-Schließlich wechseln wir zur Drei-Spalten-Version dieses Layouts. Der Header erstreckt sich weiterhin über das gesamte Grid, aber jetzt bewegt sich die Navigation nach unten und wird zur ersten Sidebar, neben dem Inhalt und der Sidebar. Der Footer erstreckt sich nun ebenfalls über das gesamte Layout.
+Schließlich gehen wir zur dreispaltigen Version dieses Layouts. Der Header erstreckt sich weiterhin über das gesamte Raster, aber jetzt bewegt sich die Navigation nach unten, um die erste Seitenleiste zu werden, mit dem Inhalt und dann die Seitenleiste daneben. Der Footer erstreckt sich nun auch über das gesamte Layout.
 
 ```css
 @media (min-width: 700px) {
@@ -363,17 +363,17 @@ Schließlich wechseln wir zur Drei-Spalten-Version dieses Layouts. Der Header er
 
 {{ EmbedLiveSample('Building_a_layout_using_the_12-column_system', '800', '450') }}
 
-Einmal mehr ist der [Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) nützlich, um zu sehen, wie unser Layout Form angenommen hat.
+Einmal mehr ist der [Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) nützlich, um uns zu helfen zu sehen, wie unser Layout Form angenommen hat.
 
-![Zeigt das Layout mit den vom Grid Inspector hervorgehobenen Grid-Tracks.](11-grid-inspector-12col-layout.png)
+![Das Bild zeigt das Layout mit den vom Rasterinspektor markierten Rasterbahnen.](11-grid-inspector-12col-layout.png)
 
-Etwas zu beachten beim Erstellen dieses Layouts ist, dass wir nicht jeden einzelnen Punkt auf dem Grid bei jedem Breakpoint explizit platzieren mussten. Wir konnten die Platzierung beibehalten, die für frühere Breakpoints eingerichtet wurde – ein Vorteil des "mobile first"-Ansatzes. Wir konnten außerdem die automatische Platzierung des Grids nutzen. Indem wir Elemente in einer logischen Reihenfolge halten, übernimmt die automatische Platzierung einen großen Teil der Arbeit für uns beim Platzieren von Elementen auf dem Grid. Im letzten Beispiel in diesem Leitfaden werden wir ein Layout erstellen, das vollständig auf automatische Platzierung angewiesen ist.
+Etwas, das zu beachten ist, während wir dieses Layout erstellen, ist, dass wir nicht jedes Element explizit an jedem Breakpoint auf dem Raster positionieren mussten. Wir konnten die Platzierung übernehmen, die für frühere Breakpoints eingerichtet wurde – ein Vorteil des Arbeitens "mobil zuerst". Wir können auch die automatische Platzierung des Rasters nutzen. Indem wir die Elemente in einer logischen Reihenfolge halten, erledigt die automatische Platzierung viel Arbeit für uns, indem sie Elemente auf dem Raster platziert. Im letzten Beispiel in diesem Leitfaden werden wir ein Layout erstellen, das vollständig auf automatischer Platzierung beruht.
 
-## Eine Produktliste mit automatischer Platzierung
+## Eine Produktauflistung mit automatischer Platzierung
 
-Viele Layouts bestehen im Wesentlichen aus Sets von "Karten" - Produktlisten, Bildergalerien usw. Ein Grid kann es sehr einfach machen, diese Listen auf eine Weise zu erstellen, die responsiv ist, ohne dass [Media Queries](/de/docs/Web/CSS/CSS_media_queries) benötigt werden, um dies zu gewährleisten. In diesem nächsten Beispiel kombiniere ich CSS Grid und Flexbox-Layouts, um ein einfaches Produktlistenlayout zu erstellen.
+Viele Layouts sind im Grunde "Karten"-Sets – Produktlisten, Bildergalerien und so weiter. Ein Raster kann es sehr einfach machen, diese Auflistungen auf eine Weise zu erstellen, die responsiv ist, ohne dass Sie dazu [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) hinzufügen müssen, um es so zu machen. Im nächsten Beispiel kombiniere ich CSS-Raster und Flexbox-Layouts, um ein einfaches Produktlistenlayout zu erstellen.
 
-Das Markup für meine Liste ist eine ungeordnete Liste von Elementen. Jedes Element enthält eine Überschrift, etwas Text von unterschiedlicher Höhe und einen Aktionslink.
+Das Markup für meine Liste ist eine ungeordnete Liste von Elementen. Jedes Element enthält eine Überschrift, etwas Text unterschiedlicher Höhe und einen Aufruf-zur-Aktion-Link.
 
 ```html
 <ul class="listing">
@@ -457,7 +457,7 @@ h2 {
 }
 ```
 
-Wir werden ein Grid mit einer flexiblen Anzahl von flexiblen Spalten erstellen. Ich möchte, dass sie niemals kleiner als 200 Pixel werden und dann jeden verfügbaren verbleibenden Platz gleichmäßig teilen - sodass wir immer gleich breite Spaltentracks erhalten. Wir erreichen dies mit der `minmax()`-Funktion in unserer Wiederholungsnotierung für die Track-Größe.
+Wir werden ein Raster mit einer flexiblen Anzahl flexibler Spalten erstellen. Ich möchte, dass sie nie kleiner als 200 Pixel werden und dann den verfügbaren verbleibenden Platz gleichmäßig teilen – sodass wir immer Spaltenbahnen gleicher Breite erhalten. Wir erreichen dies mit der `minmax()`-Funktion in unserer Wiederholungsnotation für die Bahngröße.
 
 ```css
 .listing {
@@ -469,9 +469,9 @@ Wir werden ein Grid mit einer flexiblen Anzahl von flexiblen Spalten erstellen. 
 }
 ```
 
-Sobald wir dieses CSS hinzufügen, beginnen die Elemente, sich als Grid anzuordnen. Wenn wir das Fenster kleiner oder breiter machen, ändert sich die Anzahl der Spaltentracks – ohne dass wir Breakpoints mit Media Queries hinzufügen und das Grid neu definieren müssen.
+Sobald wir dieses CSS hinzufügen, beginnen die Elemente, sich als Raster anzuordnen. Wenn wir das Fenster kleiner oder breiter machen, ändert sich die Anzahl der Spaltenbahnen – ohne dass wir Breakpoints mit Medienabfragen hinzufügen und das Raster neu definieren müssen.
 
-Wir können dann das Innere der Boxen mit einem kleinen Einsatz von Flexbox ordnen. Ich setze das Listenelement auf `display: flex` und die `flex-direction` auf `column`. Wir können dann einen automatischen Rand auf der `.cta` verwenden, um diese Leiste nach unten in die Box zu schieben.
+Wir können dann das Innere der Boxen mit einem kleinen Touch von Flexbox bereinigen. Ich setze das Listenelement auf `display: flex` und die `flex-direction` auf `column`. Wir können dann einen automatischen Rand auf `.cta` verwenden, um diese Leiste nach unten in die Box zu schieben.
 
 ```css
 .listing li {
@@ -491,17 +491,17 @@ Wir können dann das Innere der Boxen mit einem kleinen Einsatz von Flexbox ordn
 }
 ```
 
-Dies ist wirklich einer der Hauptgründe, warum jemand Flexbox anstelle von Grid verwenden würde, wenn er/sie nur etwas in einer einzigen Dimension ausrichtet oder verteilt, ist das ein Flexbox-Anwendungsfall.
+Dies ist wirklich einer der Hauptgründe, warum jemand Flexbox anstelle von Grid verwenden würde, wenn er entweder etwas in einer einzigen Dimension ausrichtet oder verteilt, dann ist das ein Flexbox-Anwendungsfall.
 
 {{ EmbedLiveSample('A_product_listing_with_auto-placement', '800', '900') }}
 
-## Verhindern von Lücken mit dem dense-Stichwort
+## Verhindern von Lücken mit dem dichten Schlüsselwort
 
-Das sieht jetzt alles ziemlich fertig aus, manchmal haben wir jedoch diese Karten, die deutlich mehr Inhalt enthalten als die anderen. Es könnte schön sein, wenn diese sich über zwei Tracks erstrecken, damit sie nicht so hoch sind. Wir haben eine Klasse `wide` auf meinem größeren Element, und wir fügen eine Regel {{cssxref("grid-column-end")}} mit einem Wert von `span 2` hinzu. Nun weist das Grid diesem Element beim Auftauchen zwei Tracks zu. Bei einigen Breakpoints bedeutet dies, dass wir eine Lücke im Grid bekommen – wo kein Platz vorhanden ist, um ein Element über zwei Tracks anzuordnen.
+Das sieht jetzt ziemlich vollständig aus, wir haben jedoch manchmal diese Karten, die viel mehr Inhalt enthalten als die anderen. Es könnte schön sein, diese zwei Bahnen überspannen zu lassen, und dann wären sie nicht so hoch. Wir haben eine Klasse von `wide` auf meinem größeren Element, und wir fügen eine Regel {{cssxref("grid-column-end")}} mit dem Wert `span 2` hinzu. Jetzt, wenn das Raster auf dieses Element stößt, wird es ihm zwei Bahnen zuweisen. An manchen Breakpoints bedeutet das, dass wir eine Lücke im Raster bekommen – wo kein Platz ist, um ein Zwei-Bahn-Element anzuordnen.
 
-![Das Layout hat Lücken, da kein Platz vorhanden ist, um ein Element über zwei Tracks anzuordnen.](11-grid-auto-flow-sparse.png)
+![Das Layout hat Lücken, weil kein Platz ist, um ein Zwei-Bahnen-Element anzuordnen.](11-grid-auto-flow-sparse.png)
 
-Wir können ein Grid veranlassen, diese Lücken zu beseitigen, indem wir {{cssxref("grid-auto-flow", "grid-auto-flow: dense")}} auf dem Grid-Container setzen. Seien Sie jedoch vorsichtig dabei, denn dies nimmt den Elementen ihre logische Quellreihenfolge. Sie sollten dies nur tun, wenn Ihre Elemente keine feste Reihenfolge haben – und sich der [Probleme](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility#visual_not_logical_re-ordering) im Klaren sein, dass die Tab-Reihenfolge der Quelle folgt und nicht Ihrer umgeordneten Anzeige.
+Wir können veranlassen, dass ein Raster diese Lücken auffüllt, indem wir {{cssxref("grid-auto-flow", "grid-auto-flow: dense")}} auf dem Rastercontainer setzen. Achten Sie jedoch darauf, dies zu tun, da es Elemente aus ihrer logischen Quellreihenfolge herausnimmt. Sie sollten dies nur tun, wenn Ihre Elemente keine feste Reihenfolge haben – und seien Sie sich der [Probleme](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility#visual_not_logical_re-ordering) bewusst, da die Tab-Reihenfolge der Quelle folgt und Ihr neu geordnetes Display nicht.
 
 ```html hidden
 <ul class="listing">
@@ -599,14 +599,14 @@ h2 {
 
 {{ EmbedLiveSample('Preventing_gaps_with_the_dense_keyword', '800', '900') }}
 
-Diese Technik der Verwendung von automatischer Platzierung mit bestimmten Regeln für bestimmte Elemente ist sehr nützlich und kann Ihnen helfen, Inhalte zu verwalten, die beispielsweise durch ein CMS ausgegeben werden, bei denen Sie wiederholte Elemente haben und möglicherweise einer bestimmten Klasse zugeordnet sind, während sie in das HTML gerendert werden.
+Diese Technik der Verwendung von automatischer Platzierung mit einigen Regeln, die auf bestimmte Elemente angewendet werden, ist sehr nützlich und kann Ihnen bei der Bearbeitung von Inhalt helfen, der zum Beispiel von einem CMS ausgegeben wird, bei dem Sie wiederholte Elemente haben und möglicherweise einer bestimmten Klasse hinzufügen können, während sie in das HTML gerendert werden.
 
 ## Weitere Erkundung
 
-Der beste Weg, um das Grid-Layout zu erlernen, besteht darin, weiterhin Beispiele wie die hier behandelten zu erstellen. Wählen Sie etwas, das Sie normalerweise mit Ihrem bevorzugten Framework oder mithilfe von Floats erstellen, und sehen Sie, ob Sie es mit Grid erstellen können. Vergessen Sie nicht, nach Beispielen zu suchen, die nicht mit aktuellen Methoden erstellt werden können. Das könnte bedeuten, sich von Magazinen oder anderen nicht webbasierten Quellen inspirieren zu lassen. Grid Layout eröffnet Möglichkeiten, die wir zuvor nicht hatten, wir müssen uns für dessen Nutzung nicht an die gleichen alten Layouts binden.
+Der beste Weg, um das Rasterlayout zu erlernen, besteht darin, weiterhin Beispiele wie die durchzugehen, die wir hier behandelt haben. Wählen Sie etwas, das Sie normalerweise mit Ihrem bevorzugten Framework oder mit Floats bauen, und sehen Sie, ob Sie es mit einem Raster erstellen können. Vergessen Sie nicht, nach Beispielen zu suchen, die mit den aktuellen Methoden unmöglich zu bauen sind. Das könnte bedeuten, sich von Magazinen oder anderen Nicht-Web-Quellen inspirieren zu lassen. Das Rasterlayout eröffnet Möglichkeiten, die wir bisher nicht hatten, wir müssen uns nicht an die gleichen alten Layouts binden, um es zu verwenden.
 
-- [CSS grid layout](/de/docs/Web/CSS/CSS_grid_layout)
-- [CSS Layout: Grids](/de/docs/Learn/CSS/CSS_layout/Grids)
-- [A complete guide to CSS grid](https://css-tricks.com/snippets/css/complete-guide-grid/) auf CSS-Tricks (2023)
+- [CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout)
+- [CSS-Layout: Raster](/de/docs/Learn/CSS/CSS_layout/Grids)
+- [Ein vollständiger Leitfaden zu CSS-Raster](https://css-tricks.com/snippets/css/complete-guide-grid/) auf CSS-Tricks (2023)
 - [Grid by example](https://gridbyexample.com/)
-- [CSS grid website layout examples](https://www.quackit.com/css/grid/examples/css_grid_website_layout_examples.cfm) auf quackit.com
+- [CSS-Raster-Website-Layout-Beispiele](https://www.quackit.com/css/grid/examples/css_grid_website_layout_examples.cfm) auf quackit.com

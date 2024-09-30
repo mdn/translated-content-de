@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`createTBody()`**-Methode von
+Die **`createTBody()`** Methode von
 [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Objekten erstellt und gibt ein neues
-{{HTMLElement("tbody")}}-Element zurück, das mit einem gegebenen {{HtmlElement("table")}} verbunden ist.
+{{HTMLElement("tbody")}}-Element zurück, das mit einem bestimmten {{HtmlElement("table")}} assoziiert ist.
 
 > [!NOTE]
 > Im Gegensatz zu [`HTMLTableElement.createTHead()`](/de/docs/Web/API/HTMLTableElement/createTHead) und
 > [`HTMLTableElement.createTFoot()`](/de/docs/Web/API/HTMLTableElement/createTFoot) erstellt `createTBody()`
-> systematisch ein neues `<tbody>`-Element, selbst wenn die Tabelle bereits einen oder mehrere `tbody`-Elemente enthält. In diesem Fall wird das neue `<tbody>` hinter den bestehenden eingefügt.
+> systematisch ein neues `<tbody>`-Element, selbst wenn die Tabelle bereits einen oder mehrere `<tbody>`-Elemente enthält. In diesem Fall wird das neue Element nach den bestehenden eingefügt.
 
 ## Syntax
 

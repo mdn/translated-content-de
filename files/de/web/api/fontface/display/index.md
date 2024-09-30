@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`display`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces bestimmt, wie eine Schriftart angezeigt wird, basierend darauf, ob und wann sie heruntergeladen und bereit zur Nutzung ist. Diese Eigenschaft entspricht dem CSS-Deskriptor `font-display`.
+Die **`display`**-Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace) Schnittstelle legt fest, wie ein Schriftsatz angezeigt wird, basierend darauf, ob und wann er heruntergeladen und gebrauchsfertig ist. Diese Eigenschaft entspricht dem CSS-Deskriptor `font-display`.
 
-Wenn diese Eigenschaft verwendet wird, hat das Schriftladen eine Zeitleiste mit drei Perioden. Die Länge der ersten beiden Perioden hängt vom Wert der Eigenschaft und dem Benutzeragenten ab. (Siehe unten.)
+Wenn diese Eigenschaft verwendet wird, hat das Schriftladen eine Zeitleiste mit drei Perioden. Die Länge der ersten beiden Perioden hängt von dem Wert der Eigenschaft und dem Benutzeragenten ab. (Siehe unten.)
 
-- Block-Periode
-  - : Der Browser bereitet unsichtbar eine Ersatzschrift vor. Wenn die Schriftart während dieser Zeit geladen wird, wird sie zur Anzeige des Textes verwendet und die Anzeige ist abgeschlossen.
-- Swap-Periode
-  - : Wenn die Schriftart immer noch nicht geladen ist, wird die Ersatzschrift gezeigt. Sobald die Schriftart geladen wird, wird die Ersatzschrift gegen die heruntergeladene Schrift ausgetauscht.
+- Blockperiode
+  - : Der Browser bereitet unsichtbar eine Ersatzschrift vor. Wenn der Schriftsatz während dieser Zeit lädt, wird er verwendet, um den Text anzuzeigen, und die Anzeige ist abgeschlossen.
+- Austauschperiode
+  - : Wenn der Schriftsatz noch nicht geladen ist, wird die Ersatzschrift angezeigt. Wenn der Schriftsatz geladen wird, wird die Ersatzschrift gegen die heruntergeladene Schrift getauscht.
 - Fehlerperiode
-  - : Wenn die Schriftart immer noch nicht geladen ist, wird die Ersatzschrift gezeigt und es findet kein Austausch statt.
+  - : Wenn der Schriftsatz weiterhin nicht geladen ist, wird die Ersatzschrift angezeigt und es erfolgt kein Austausch.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte.
 
 - `auto`
-  - : Verwendet die von dem Benutzeragenten bereitgestellte Schriftanzeigesstrategie.
+  - : Verwendet die vom Benutzeragenten bereitgestellte Anzeigenstrategie für Schriften.
 - `block`
-  - : Gibt der Schriftart eine kurze Block-Periode und eine unendliche Swap-Periode. Die Spezifikation empfiehlt 3 Sekunden für die Block-Periode, allerdings kann dies von Browser zu Browser variieren.
+  - : Verleiht dem Schriftsatz eine kurze Blockperiode und eine unbegrenzte Austauschperiode. Die Spezifikation empfiehlt 3 Sekunden für die Blockperiode, obwohl dies von Browser zu Browser variieren kann.
 - `fallback`
-  - : Gibt der Schriftart eine kurze Block-Periode und eine kurze Swap-Periode. Die Spezifikation empfiehlt 100 ms oder weniger für die Block-Periode und 3 Sekunden für die Swap-Periode, obwohl diese Werte von Browser zu Browser variieren können.
+  - : Verleiht dem Schriftsatz eine kurze Blockperiode und eine kurze Austauschperiode. Die Spezifikation empfiehlt 100 ms oder weniger für die Blockperiode und 3 Sekunden für die Austauschperiode, obwohl diese Werte von Browser zu Browser variieren können.
 - `optional`
-  - : Gibt der Schriftart eine kurze Block-Periode und keine Swap-Periode. Die Spezifikation empfiehlt 100 ms oder weniger, obwohl dies von Browser zu Browser variieren kann.
+  - : Verleiht dem Schriftsatz eine kurze Blockperiode und keine Austauschperiode. Die Spezifikation empfiehlt 100 ms oder weniger, obwohl dies von Browser zu Browser variieren kann.
 - `swap`
-  - : Gibt der Schriftart eine 0-Sekunden-Block-Periode und eine unendliche Swap-Periode.
+  - : Verleiht dem Schriftsatz eine Blockperiode von 0 Sekunden und eine unbegrenzte Austauschperiode.
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Das **`abort`**-Ereignis des [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird ausgelöst, wenn die zugehörige Anfrage abgebrochen wird, z. B. durch die Verwendung von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort).
+Das **`abort`** Ereignis des [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird ausgelöst, wenn die zugehörige Anforderung abgebrochen wird, d.h. unter Verwendung von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener('abort', (event) => { })
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-In den folgenden Snippets erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft). Später überprüfen wir, ob das Signal abgebrochen wurde, indem wir eine Ereignishandler-Eigenschaft verwenden.
+In den folgenden Code-Snippets erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft). Später prüfen wir, ob das Signal abgebrochen wurde, indem wir eine Ereignis-Handler-Eigenschaft verwenden.
 
 Sie können das `abort`-Ereignis mit einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode erkennen:
 
@@ -39,7 +39,7 @@ signal.addEventListener("abort", () => {
 });
 ```
 
-Oder verwenden Sie die `onabort`-Ereignishandler-Eigenschaft:
+Oder verwenden Sie die `onabort`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const controller = new AbortController();

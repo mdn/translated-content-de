@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`clear()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) Schnittstelle löscht alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
+Die **`clear()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces löscht alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -31,7 +31,7 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
+Sehen Sie sich [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel an.
 
 ## Spezifikationen
 

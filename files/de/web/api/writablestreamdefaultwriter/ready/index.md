@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ready`**-Eigenschaft der
-[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle gibt ein {{jsxref("Promise")}}
-zurück, das aufgelöst wird, wenn sich die gewünschte Größe der internen Warteschlange des Streams von
-nicht-positiv zu positiv ändert. Dies signalisiert, dass der Stream keinen Rückstau mehr anwendet.
+Die schreibgeschützte Eigenschaft **`ready`** des
+[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces gibt ein {{jsxref("Promise")}}
+zurück, das aufgelöst wird, wenn sich die gewünschte Größe der internen Warteschlange des Streams von nicht-positiv zu positiv ändert, was signalisiert, dass kein Backpressure mehr angewendet wird.
 
 ## Wert
 
@@ -19,10 +18,7 @@ Ein {{jsxref("Promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt zwei Verwendungen der `ready`-Eigenschaft. Die erste Verwendung nutzt
-`ready`, um sicherzustellen, dass der `WritableStream` mit dem Schreiben fertig ist und
-somit in der Lage ist, Daten zu empfangen, bevor ein binäres Chunk gesendet wird. Die zweite Überprüfung stellt ebenfalls fest, ob
-der `WritableStream` mit dem Schreiben fertig ist, dieses Mal jedoch, weil das Schreiben abgeschlossen sein muss, bevor der Schreiber geschlossen werden kann.
+Das folgende Beispiel zeigt zwei Verwendungen der `ready`-Eigenschaft. Die erste Verwendung stellt sicher, dass der `WritableStream` das Schreiben abgeschlossen hat und somit in der Lage ist, Daten zu empfangen, bevor ein binärer Block gesendet wird. Die zweite überprüft ebenfalls, ob der `WritableStream` das Schreiben abgeschlossen hat, jedoch in diesem Fall, weil das Schreiben abgeschlossen sein muss, bevor der Writer geschlossen werden kann.
 
 ```js
 function sendMessage(message, writableStream) {

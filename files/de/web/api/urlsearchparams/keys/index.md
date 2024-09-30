@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: keys() Methode"
+title: "URLSearchParams: keys()-Methode"
 short-title: keys()
 slug: Web/API/URLSearchParams/keys
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`keys()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
-Interfaces gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der die Iteration
-durch alle in diesem Objekt enthaltenen Schlüssel ermöglicht. Die Schlüssel sind Strings.
+Die **`keys()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Schnittstelle gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der die Iteration über alle in diesem Objekt enthaltenen Schlüssel ermöglicht. Die Schlüssel sind Zeichenfolgen.
 
 ## Syntax
 
@@ -55,4 +53,4 @@ key2
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL) Interface.
+- Die [`URL`](/de/docs/Web/API/URL) Schnittstelle.

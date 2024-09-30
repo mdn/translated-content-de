@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um den Browser-Cache global zu aktivieren oder zu deaktivieren.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um den Browser-Cache global zu aktivieren oder zu deaktivieren.
 
-Der zugrundeliegende Wert ist ein boolean.
+Der zugrunde liegende Wert ist ein boolescher Wert.
 
 ## Browser-Kompatibilität
 
@@ -17,7 +17,7 @@ Der zugrundeliegende Wert ist ein boolean.
 
 ## Beispiele
 
-Aktuellen Wert dieser Einstellung abrufen:
+Abrufen des aktuellen Wertes dieser Einstellung:
 
 ```js
 function logResult(result) {

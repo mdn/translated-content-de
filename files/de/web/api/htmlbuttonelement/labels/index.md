@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLButtonElement.labels`** gibt eine
+Die **`HTMLButtonElement.labels`** schreibgeschützte Eigenschaft gibt eine
 [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
 {{HTMLElement("button")}}-Element verknüpft sind.
 

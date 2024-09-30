@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Das **`activate`** Ereignis wird ausgelöst, wenn ein Sensor aktiviert wird. Das bedeutet, dass er beginnt, Messwerte zu erfassen.
+Das **`activate`**-Ereignis wird ausgelöst, wenn ein Sensor aktiviert wird. Das bedeutet, dass er beginnt, Messwerte zu erfassen.
 
-Die [`Sensor`](/de/docs/Web/API/Sensor) Schnittstelle ist eine Basisklasse, `onactivate` und das `activate` Ereignis können nur in einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
+Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse, `onactivate` und das `activate`-Ereignis können nur auf einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("activate", (event) => {});
@@ -28,9 +28,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-### Protokollieren, wenn ein Beschleunigungsmesser bereit ist zu messen
+### Protokollieren, wenn ein Beschleunigungsmesser bereit ist, Messungen durchzuführen
 
-Dieses Beispiel fügt einen Ereignislistener hinzu, um die Aktivierung eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) zu protokollieren.
+Dieses Beispiel fügt einen Event Listener hinzu, um die Aktivierung eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) zu protokollieren.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });

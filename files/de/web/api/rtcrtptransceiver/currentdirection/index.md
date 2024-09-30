@@ -8,39 +8,39 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`currentDirection`** des [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) ist ein String, der die aktuell ausgehandelte Richtung des Transceivers anzeigt.
+Die schreibgeschützte [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Eigenschaft **`currentDirection`** ist ein String, der die aktuell ausgehandelte Richtung des Transceivers angibt.
 
-Die Richtung weist darauf hin, ob der Transceiver das Senden und/oder Empfangen von [RTP](/de/docs/Glossary/RTP)-Daten anbietet oder ob er inaktiv oder gestoppt ist und keine Daten senden oder empfangen wird.
+Die Richtung gibt an, ob der Transceiver anbietet, RTP-Daten zu senden und/oder zu empfangen oder ob er inaktiv oder gestoppt ist und keine Daten senden oder empfangen wird.
 
-Die bevorzugte Richtung des Transceivers kann mit der [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction)-Eigenschaft gesetzt und ausgelesen werden. Eine Änderung von `direction` löst eine Neuverhandlung aus, die möglicherweise dazu führt, dass sich auch `currentDirection` ändert.
+Die bevorzugte Richtung des Transceivers kann über die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction)-Eigenschaft festgelegt und gelesen werden. Eine Änderung der `direction` löst eine Neuverhandlung aus, die letztendlich auch zu einer Änderung der `currentDirection` führen kann.
 
 ## Wert
 
-Der Wert ist anfänglich `null`, vor der Verhandlung mittels eines Angebots/Antworts.
+Der Wert ist zunächst `null`, vor der Aushandlung mittels eines Angebots/Antworts.
 
-Nach der Verhandlung ist der Wert ein String mit einem der folgenden Werte:
+Nach der Aushandlung ist der Wert ein String mit einem der folgenden Werte:
 
 - `"sendrecv"`
-  - : Transceiver bietet das Senden und Empfangen von RTP-Daten an:
-    - `RTCRtpSender`: Bietet das Senden von RTP-Daten an und wird dies tun, wenn der Remote-Peer die Verbindung akzeptiert und mindestens eine der Kodierungen des Senders aktiv ist.
-    - `RTCRtpReceiver`: Bietet das Empfangen von RTP-Daten an und wird dies tun, wenn der Remote-Peer akzeptiert.
+  - : Der Transceiver bietet an, RTP-Daten zu senden und zu empfangen:
+    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und wird dies tun, wenn der entfernte Teilnehmer die Verbindung akzeptiert und mindestens eine der Encodings des Senders aktiv ist.
+    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen und tut dies, wenn der entfernte Teilnehmer dies akzeptiert.
 - `"sendonly"`
-  - : Transceiver bietet das Senden, aber nicht das Empfangen von RTP-Daten an:
-    - `RTCRtpSender`: Bietet das Senden von RTP-Daten an und wird dies tun, wenn der Remote-Peer die Verbindung akzeptiert und mindestens eine der Kodierungen des Senders aktiv ist.
-    - `RTCRtpReceiver`: Bietet _nicht_ das Empfangen von RTP-Daten an und wird dies nicht tun.
+  - : Der Transceiver bietet an, RTP-Daten zu senden, aber nicht zu empfangen:
+    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und wird dies tun, wenn der entfernte Teilnehmer die Verbindung akzeptiert und mindestens eine der Encodings des Senders aktiv ist.
+    - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen und wird dies nicht tun.
 - `"recvonly"`
-  - : Transceiver bietet das Empfangen, aber nicht das Senden von RTP-Daten an:
-    - `RTCRtpSender`: Bietet _nicht_ das Senden von RTP-Daten an und wird dies nicht tun.
-    - `RTCRtpReceiver`: Bietet das Empfangen von RTP-Daten an und wird dies tun, wenn der Remote-Peer dies anbietet.
+  - : Der Transceiver bietet an, RTP-Daten zu empfangen, aber nicht zu senden:
+    - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
+    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen, und wird dies tun, wenn der entfernte Teilnehmer dies anbietet.
 - `"inactive"`
-  - : Transceiver ist inaktiv:
-    - `RTCRtpSender`: Bietet _nicht_ das Senden von RTP-Daten an und wird dies nicht tun.
-    - `RTCRtpReceiver`: Bietet _nicht_ das Empfangen von RTP-Daten an und wird dies nicht tun.
+  - : Der Transceiver ist inaktiv:
+    - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
+    - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen und wird dies nicht tun.
 - `"stopped"`
   - : Dies ist der Endzustand des Transceivers.
     Der Transceiver ist gestoppt und wird keine RTP-Daten senden oder empfangen oder dies anbieten.
-    - `RTCRtpSender`: Bietet _nicht_ das Senden von RTP-Daten an und wird dies nicht tun.
-    - `RTCRtpReceiver`: Bietet _nicht_ das Empfangen von RTP-Daten an und wird dies nicht tun.
+    - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
+    - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen und wird dies nicht tun.
 
 ## Spezifikationen
 

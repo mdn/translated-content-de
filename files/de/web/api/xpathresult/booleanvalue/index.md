@@ -8,21 +8,17 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`booleanValue`**-Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den booleschen Wert eines Ergebnisses zurück, dessen
-[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `BOOLEAN_TYPE` ist.
+Die schreibgeschützte **`booleanValue`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den booleschen Wert eines Ergebnisses zurück, wobei [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `BOOLEAN_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der boolesche Wert des `XPathResult`, das von
-[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
+Der Rückgabewert ist der boolesche Wert des `XPathResult`, das von [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls der [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `BOOLEAN_TYPE` ist, wird eine
-[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `BOOLEAN_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

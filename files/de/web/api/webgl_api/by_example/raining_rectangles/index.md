@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Scissor_animation","Learn/WebGL/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Ausschneiden, Animation und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Beschneiden, Animation und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Ausschneiden
+## Animation und Benutzerinteraktion mit Beschneiden
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe und so weiter) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie auf sie klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was dabei hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Ausschneideoperationen. Es ist eine Vorschau einer vollständigen grafischen Anwendung, die verschiedene Phasen der [WebGL](/de/docs/Glossary/WebGL) Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Beschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der [WebGL](/de/docs/Glossary/WebGL)-Grafik-Pipeline und Zustandsmaschine manipuliert.
 
-Zusätzlich demonstriert das Beispiel, wie die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsrahmen und dafür, dass die Animation auf Benutzereingaben reagiert. Hier wird die Spielschleife mittels Timeouts implementiert.
+Darüber hinaus wird in diesem Beispiel gezeigt, wie die WebGL-Funktionsaufrufe in eine Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsbilder und dafür, dass die Animation auf Benutzereingaben reagiert. Hier wird die Spielschleife mittels Timeouts implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>

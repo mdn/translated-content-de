@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: setParameter()-Methode"
+title: "XSLTProcessor: setParameter() Methode"
 short-title: setParameter()
 slug: Web/API/XSLTProcessor/setParameter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im im Prozessor importierten Stylesheet.
+Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im Stylesheet, das in den Prozessor importiert wurde.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ setParameter(namespaceURI, localName, value)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
+  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie der leere String (`""`) behandelt.
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 - `value`
   - : Der Wert des Parameters.
     > [!NOTE]
-    > Firefox unterstützt alle Arten von Parametern. Chrome, Edge und Safari unterstützen nur String-Parameter.
+    > Firefox unterstützt jede Art von Parametern. Chrome, Edge und Safari unterstützen nur Zeichenfolgenparameter.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von setParameter()
 
-Dieses Beispiel zeigt, wie Parameter von JavaScript an ein XSLT-Stylesheet übergeben werden, indem `setParameter()` verwendet wird. Dies ermöglicht eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern.
+Dieses Beispiel zeigt, wie Parameter von JavaScript zu einem XSLT-Stylesheet mit `setParameter()` übergeben werden, um eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern zu ermöglichen.
 
 #### HTML
 

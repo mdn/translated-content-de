@@ -9,13 +9,13 @@ l10n:
 
 Die **`:where()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)-Funktion nimmt eine Selektorliste als Argument und wählt jedes Element aus, das von einem der Selektoren in dieser Liste ausgewählt werden kann.
 
-Der Unterschied zwischen `:where()` und {{CSSxRef(":is", ":is()")}} besteht darin, dass `:where()` immer eine [Spezifität](/de/docs/Web/CSS/Specificity) von 0 hat, während `:is()` die Spezifität des spezifischsten Selektors in seinen Argumenten annimmt.
+Der Unterschied zwischen `:where()` und {{CSSxRef(":is", ":is()")}} besteht darin, dass `:where()` immer 0 [Spezifität](/de/docs/Web/CSS/Specificity) hat, während `:is()` die Spezifität des spezifischsten Selektors in seinen Argumenten annimmt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-where.html", "tabbed-shorter")}}
 
 ## Syntax
 
-Die `:where()`-Pseudoklasse erfordert eine [Selektorliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine durch Kommas getrennte Liste von einem oder mehreren Selektoren, als Argument. Die Liste darf kein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
+Die `:where()`-Pseudoklasse erfordert eine [Selektorliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine durch Kommas getrennte Liste von einem oder mehreren Selektoren, als ihr Argument. Die Liste darf kein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
 
 ```css-nolint
 :where(<complex-selector-list>) {
@@ -23,11 +23,11 @@ Die `:where()`-Pseudoklasse erfordert eine [Selektorliste](/de/docs/Web/CSS/CSS_
 }
 ```
 
-### Nachgiebige Selektorparsing
+### Fehlerverzeihende Selektorparsing
 
-Die Spezifikation definiert `:is()` und `:where()` als akzeptierende [nachgiebige Selektorlisten](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list).
+Die Spezifikation definiert `:is()` und `:where()` als akzeptierend eine [fehlerverzeihende Selektorliste](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list).
 
-In CSS, wenn eine Selektorliste verwendet wird und einer der Selektoren ungültig ist, wird die gesamte Liste als ungültig angesehen. Bei Verwendung von `:is()` oder `:where()` wird anstelle der gesamten Liste von Selektoren, die ungültig ist, wenn ein Selektor nicht geparst werden kann, der fehlerhafte oder nicht unterstützte Selektor ignoriert und die anderen verwendet.
+In CSS, wenn eine Selektorliste verwendet wird, führt ein fehlerhafter Selektor dazu, dass die gesamte Liste als ungültig angesehen wird. Bei der Verwendung von `:is()` oder `:where()` wird anstelle der gesamten Selektorliste der fehlerhafte oder nicht unterstützte Selektor ignoriert, und die anderen werden verwendet.
 
 ```css
 :where(:valid, :unsupported) {
@@ -35,7 +35,7 @@ In CSS, wenn eine Selektorliste verwendet wird und einer der Selektoren ungülti
 }
 ```
 
-Wird dennoch korrekt geparst und stimmt mit `:valid` überein, selbst in Browsern, die `:unsupported` nicht unterstützen, wohingegen:
+Wird immer noch korrekt geparst und passt zu `:valid`, auch in Browsern, die `:unsupported` nicht unterstützen, wohingegen:
 
 ```css
 :valid,
@@ -44,13 +44,13 @@ Wird dennoch korrekt geparst und stimmt mit `:valid` überein, selbst in Browser
 }
 ```
 
-In Browsern ignoriert wird, die `:unsupported` nicht unterstützen, auch wenn sie `:valid` unterstützen.
+In Browsern ignoriert wird, die `:unsupported` nicht unterstützen, selbst wenn sie `:valid` unterstützen.
 
 ## Beispiele
 
 ### Vergleich von :where() und :is()
 
-Dieses Beispiel zeigt, wie `:where()` funktioniert und illustriert auch den Unterschied zwischen `:where()` und `:is()`.
+Dieses Beispiel zeigt, wie `:where()` funktioniert, und illustriert auch den Unterschied zwischen `:where()` und `:is()`.
 
 Nehmen Sie das folgende HTML:
 
@@ -106,7 +106,7 @@ Nehmen Sie das folgende HTML:
 
 In diesem etwas konstruierten Beispiel haben wir zwei Artikel, die jeweils einen Abschnitt, eine Randbemerkung und eine Fußzeile enthalten. Sie unterscheiden sich durch die Klassen, die zur Markierung der Kindelemente verwendet werden.
 
-Um das Auswählen der Links darin einfacher, aber dennoch deutlich zu machen, könnten wir `:is()` oder `:where()` auf folgende Weise verwenden:
+Um die Links darin einfacher, aber dennoch unterscheidbar zu machen, könnten wir `:is()` oder `:where()` wie folgt verwenden:
 
 ```css
 html {
@@ -123,7 +123,7 @@ html {
 }
 ```
 
-Was ist jedoch, wenn wir später die Farbe der Links in den Fußzeilen mit einem einfachen Selektor überschreiben möchten?
+Was aber, wenn wir später die Farbe der Links in den Fußzeilen mit einem einfachen Selektor überschreiben wollen?
 
 ```css
 footer a {
@@ -131,12 +131,12 @@ footer a {
 }
 ```
 
-Dies wird nicht für die roten Links funktionieren, da die Selektoren innerhalb von `:is()` zur Spezifität des gesamten Selektors beitragen und Klassenselektoren eine höhere Spezifität haben als Elementselektoren.
+Dies funktioniert nicht für die roten Links, weil die Selektoren innerhalb von `:is()` zur Spezifität des gesamten Selektors beitragen, und Klassenselektoren eine höhere Spezifität als Elementselektoren haben.
 
-Selektoren innerhalb von `:where()` hingegen haben eine Spezifität von 0, sodass der orangefarbene Fußzeilenlink von unserem einfachen Selektor überschrieben wird.
+Jedoch haben Selektoren innerhalb von `:where()` eine Spezifität von 0, sodass der orange Fußzeilenlink von unserem einfachen Selektor überschrieben wird.
 
 > [!NOTE]
-> Sie können dieses Beispiel auch auf GitHub finden; siehe [is-where](https://mdn.github.io/css-examples/is-where/).
+> Sie finden dieses Beispiel auch auf GitHub; siehe [is-where](https://mdn.github.io/css-examples/is-where/).
 
 {{EmbedLiveSample('Examples', '100%', 600)}}
 
@@ -152,4 +152,4 @@ Selektoren innerhalb von `:where()` hingegen haben eine Spezifität von 0, sodas
 
 - {{CSSxRef(":is", ":is()")}}
 - [Selektorliste](/de/docs/Web/CSS/Selector_list)
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [Web-Komponenten](/de/docs/Web/API/Web_components)

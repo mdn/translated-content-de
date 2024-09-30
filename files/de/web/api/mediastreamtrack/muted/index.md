@@ -8,21 +8,26 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte **`muted`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen boolean-Wert zurück, der angibt, ob der Track derzeit nicht in der Lage ist, Mediendaten auszugeben.
+Die **`muted`** schreibgeschützte Eigenschaft des
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die Spur derzeit nicht in der Lage ist, Medienausgabe bereitzustellen.
 
 > [!NOTE]
-> Um eine Möglichkeit zu implementieren, damit Nutzer einen Track stummschalten oder die Stummschaltung aufheben können, verwenden Sie die [`enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Eigenschaft. Wenn ein Track durch Setzen von `enabled` auf `false` deaktiviert wird, erzeugt er nur leere Frames (Audio-Frames, in denen jeder Sample 0 ist, oder Video-Frames, in denen jeder Pixel schwarz ist).
+> Um eine Möglichkeit zu implementieren, wie Benutzer eine Spur stumm schalten und die Stummschaltung aufheben können, verwenden Sie die
+> [`enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Eigenschaft. Wenn eine Spur durch Setzen von `enabled` auf `false` deaktiviert wird, erzeugt sie nur leere Frames
+> (Audio-Frames, bei denen jede Probe 0 ist, oder Video-Frames, bei denen jeder Pixel schwarz ist).
 
 ## Wert
 
-Ein boolean-Wert, der `true` ist, wenn der Track derzeit stummgeschaltet ist, oder `false`, wenn der Track derzeit nicht stummgeschaltet ist.
+Ein Boolean, der `true` ist, wenn die Spur derzeit stummgeschaltet ist, oder
+`false`, wenn die Spur derzeit nicht stummgeschaltet ist.
 
 > [!NOTE]
-> Wenn möglich, vermeiden Sie es, `muted` abzufragen, um den Stummschaltungsstatus des Tracks zu überwachen. Fügen Sie stattdessen Event-Listener für die [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event)- und [`unmute`](/de/docs/Web/API/MediaStreamTrack/unmute_event)-Events hinzu.
+> Vermeiden Sie es nach Möglichkeit, die `muted`-Eigenschaft abzufragen, um den Stummschaltungsstatus der Spur zu überwachen.
+> Stattdessen sollten Sie Ereignis-Listener für die [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event) und [`unmute`](/de/docs/Web/API/MediaStreamTrack/unmute_event) Ereignisse hinzufügen.
 
 ## Beispiele
 
-Dieses Beispiel zählt die Anzahl der Tracks in einem Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, die derzeit stummgeschaltet sind.
+Dieses Beispiel zählt die Anzahl der momentan stummgeschalteten Spuren in einem Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten.
 
 ```js
 let mutedCount = 0;

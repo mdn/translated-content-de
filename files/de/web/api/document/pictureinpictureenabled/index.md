@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`pictureInPictureEnabled`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces zeigt an, ob der Bild-in-Bild-Modus verfügbar ist oder nicht.
+Die schreibgeschützte **`pictureInPictureEnabled`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt an, ob der Bild-in-Bild-Modus verfügbar ist oder nicht.
 
-Der Bild-in-Bild-Modus ist standardmäßig verfügbar, sofern nicht anderweitig durch eine [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture) festgelegt.
+Der Bild-in-Bild-Modus ist standardmäßig verfügbar, es sei denn, es ist anders durch eine [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture) spezifiziert.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keine Fehler auslösen, wenn sie modifiziert wird (auch nicht im strikten Modus); der Setter ist eine No-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird kein Fehler ausgelöst, wenn sie modifiziert wird (auch im Strict-Modus); der Setter hat keine Funktion und wird ignoriert.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus wechseln und in einem schwebenden Fenster angezeigt werden kann, indem [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) aufgerufen wird. Ist der Bild-in-Bild-Modus nicht verfügbar, ist dieser Wert `false`.
+Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus wechseln und in einem schwebenden Fenster angezeigt werden kann, indem [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) aufgerufen wird. Wenn der Bild-in-Bild-Modus nicht verfügbar ist, ist dieser Wert `false`.
 
 ## Beispiele
 

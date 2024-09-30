@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`send()`**-Methode der [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Schnittstelle stellt Nachrichten für den entsprechenden MIDI-Port in die Warteschlange. Die Nachricht kann sofort gesendet werden oder mit einem optionalen Zeitstempel, um das Senden zu verzögern.
+Die **`send()`**-Methode der [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Schnittstelle reiht Nachrichten für den entsprechenden MIDI-Port ein. Die Nachricht kann sofort gesendet werden oder mit einem optionalen Zeitstempel, um das Senden zu verzögern.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ send(data, timestamp)
 ### Parameter
 
 - `data`
-  - : Eine Sequenz von einem oder mehreren [gültigen MIDI-Nachrichten](https://midi.org/about-midi-part-3midi-messages). Jeder Eintrag repräsentiert ein einzelnes Byte Daten.
+  - : Eine Sequenz von einem oder mehreren [gültigen MIDI-Nachrichten](https://midi.org/about-midi-part-3midi-messages). Jedes Element repräsentiert ein einzelnes Datenbyte.
 - `timestamp` {{optional_inline}}
-  - : Ein [`DOMHighResTimestamp`](/de/docs/Web/API/DOMHighResTimestamp) mit der Zeit in Millisekunden, wann die Nachricht gesendet werden soll (relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)).
+  - : Ein [`DOMHighResTimestamp`](/de/docs/Web/API/DOMHighResTimestamp), der die Zeit in Millisekunden angibt, wann die Nachricht gesendet werden soll (relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)).
 
 ### Rückgabewert
 
@@ -33,13 +33,13 @@ Keiner ({{jsxref("undefined")}}).
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `data` keine gültige Sequenz ist oder keine gültige MIDI-Nachricht enthält.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `data` eine exklusive Systemnachricht ist und der [`MIDIAccess`](/de/docs/Web/API/MIDIAccess) keinen exklusiven Zugriff ermöglicht hat.
+  - : Wird ausgelöst, wenn `data` eine System-Exklusiv-Nachricht ist und der [`MIDIAccess`](/de/docs/Web/API/MIDIAccess) keinen exklusiven Zugriff ermöglicht hat.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Port getrennt ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein mittlerer C-Ton sofort gesendet, gefolgt von einer Note-Off-Nachricht eine Sekunde später.
+Im folgenden Beispiel wird sofort eine Mittlere C-Note gesendet, gefolgt von einer Note-Off-Nachricht eine Sekunde später.
 
 ```js
 function sendMiddleC(midiAccess, portID) {

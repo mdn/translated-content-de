@@ -7,35 +7,35 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die **alertdialog**-Rolle wird bei modalen Alarmdialogen verwendet, die den Arbeitsablauf eines Nutzers unterbrechen, um eine wichtige Nachricht zu übermitteln und eine Antwort zu erfordern.
+Die **alertdialog** Rolle wird für modale Warnmeldungsdialoge verwendet, die einen Arbeitsablauf des Benutzers unterbrechen, um eine wichtige Nachricht zu übermitteln und eine Antwort zu verlangen.
 
 ## Beschreibung
 
-Die `alertdialog`-Rolle wird verwendet, um Nutzer über dringende Informationen zu informieren, die sofortige Aufmerksamkeit erfordern. Das Hinzufügen von `role="alertdialog"` zu dem Element, das den Dialog enthält, hilft unterstützenden Technologien, den Inhalt als gruppiert und von anderen Seiteninhalten getrennt zu erkennen. Beispiele umfassen Fehlermeldungen, die eine Bestätigung erfordern, und andere Aktionsbestätigungsaufforderungen.
+Die Rolle `alertdialog` wird verwendet, um Benutzer über dringende Informationen zu informieren, die ihre unmittelbare Aufmerksamkeit erfordern. Das Hinzufügen von `role="alertdialog"` zu dem Element, das den Dialog enthält, hilft assistierender Technologie, den Inhalt als gruppiert und vom restlichen Seiteninhalt getrennt zu erkennen. Beispiele umfassen Fehlermeldungen, die eine Bestätigung erfordern, sowie andere Bestätigungsmeldungen.
 
-Wie der Name schon sagt, ist `alertdialog` eine Mischung aus den Rollen [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role) und [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role). `alertdialog` ist eine Art von `dialog` mit ähnlichen Anwendungsfällen wie `alert`, jedoch dann, wenn eine Benutzerantwort erforderlich ist.
+Wie der Name schon sagt, ist `alertdialog` eine Kombination aus den Rollen [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role) und [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role). `alertdialog` ist ein Typ von `dialog` mit ähnlichen Anwendungsfällen wie `alert`, aber für Situationen, in denen eine Benutzerantwort erforderlich ist.
 
 > [!NOTE]
-> Die `alertdialog`-Rolle sollte nur für Alarmmeldungen verwendet werden, die mit interaktiven Steuerelementen verbunden sind. Wenn ein Alarmdialog nur statische Inhalte enthält und keine interaktiven Steuerelemente besitzt, verwenden Sie stattdessen [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role).
+> Die Rolle `alertdialog` sollte nur für Warnmeldungen verwendet werden, die über zugehörige interaktive Steuerelemente verfügen. Wenn ein Warnmeldungsdialog nur statische Inhalte enthält und keine interaktiven Steuerelemente, sollte stattdessen [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role) verwendet werden.
 
-Da es sich um eine Art Dialog handelt, sind die Zustände, Eigenschaften und Anforderungen an die Tastaturfokussierung der [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)-Rolle auch auf die `alertdialog`-Rolle anwendbar.
+Als eine Art von Dialog gelten die Zustände, Eigenschaften und Tastaturfokusanforderungen der Rolle [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role) auch für die Rolle `alertdialog`.
 
-Aufgrund seiner dringenden Natur, die den Arbeitsablauf des Nutzers unterbricht, müssen Alarmdialoge stets [modal](/de/docs/Web/Accessibility/ARIA/Attributes/aria-modal) sein.
+Aufgrund ihrer dringenden Natur, die den Arbeitsablauf des Benutzers unterbricht, müssen Warnmeldungsdialoge immer [modal](/de/docs/Web/Accessibility/ARIA/Attributes/aria-modal) sein.
 
-Der Alarmdialog muss mindestens ein fokussierbares Steuerelement haben — wie Bestätigen, Schließen und Abbrechen — und der Fokus muss auf dieses Steuerelement verschoben werden, wenn der Alarmdialog erscheint. Alertdialogs können zusätzliche interaktive Steuerelemente wie Textfelder und Kontrollkästchen haben.
+Der Warnmeldungsdialog muss mindestens ein fokussierbares Steuerelement haben — wie Bestätigen, Schließen und Abbrechen — und der Fokus muss auf dieses Steuerelement verschoben werden, wenn der Warnmeldungsdialog erscheint. Alertdialogs können zusätzliche interaktive Steuerelemente wie Textfelder und Kontrollkästchen enthalten.
 
-Die `alertdialog`-Rolle soll nicht als Ersatz für andere Dialoge verwendet werden, einschließlich keiner Bestätigung erfordernden `alert`-Dialoge ([`Window.alert()`](/de/docs/Web/API/Window/alert)) und Eingabeaufforderungen ([`Window.prompt()`](/de/docs/Web/API/Window/prompt)).
+Die Rolle `alertdialog` darf nicht als Ersatz für andere Dialoge verwendet werden, einschließlich der keine Bestätigung erfordernden `alert` Dialoge ([`Window.alert()`](/de/docs/Web/API/Window/alert)) und Eingabeaufforderungen ([`Window.prompt()`](/de/docs/Web/API/Window/prompt)).
 
-Das Hinzufügen von `role="alertdialog"` allein reicht nicht aus, um einen Alarmdialog zugänglich zu machen. Folgende Punkte müssen ebenfalls beachtet werden:
+Das Hinzufügen von `role="alertdialog"` allein reicht nicht aus, um einen Warnmeldungsdialog barrierefrei zu gestalten. Folgendes muss ebenfalls getan werden:
 
-- Der Alarmdialog muss ordnungsgemäß beschriftet sein
+- Der Warnmeldungsdialog muss ordnungsgemäß gekennzeichnet sein
 - Der Tastaturfokus muss korrekt verwaltet werden
 
-Das `alertdialog` muss einen zugänglichen Namen haben, der mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) definiert wird. Der Text des Alarmdialogs muss eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) mittels [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) haben.
+Das `alertdialog` muss einen zugänglichen Namen haben, definiert mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label). Der Text des Warnmeldungsdialogs muss eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) haben.
 
 ## Beispiele
 
-### Beispiel 1: Ein einfacher Alarmdialog
+### Beispiel 1: Ein einfacher Warnmeldungsdialog
 
 ```html
 <div
@@ -50,7 +50,7 @@ Das `alertdialog` muss einen zugänglichen Namen haben, der mit [`aria-labelledb
 </div>
 ```
 
-Das obige Codebeispiel zeigt, wie ein Alarmdialog mit einer Nachricht und einem OK-Button ausgezeichnet wird.
+Der obige Codeausschnitt zeigt, wie ein Warnmeldungsdialog mit nur einer Nachricht und einem OK-Button ausgezeichnet wird.
 
 ### Beispiel 2: Bestätigungsdialog mit zwei Optionen
 
@@ -83,14 +83,14 @@ Das obige Codebeispiel zeigt, wie ein Alarmdialog mit einer Nachricht und einem 
 </div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 
-  - : Verwenden Sie dieses Attribut, um das alertdialog zu beschriften. Das `aria-labelledby`-Attribut ist in der Regel die ID des Elements, das verwendet wird, um das alertdialog zu betiteln.
+  - : Verwenden Sie dieses Attribut, um das `alertdialog` zu kennzeichnen. Das `aria-labelledby` Attribut ist in der Regel die ID des Elements, das das `alertdialog` betitelt.
 
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
-  - : Verwenden Sie dieses Attribut, um die Beschreibung der Inhalte des Alarmdialogs zu umfassen. Der Wert des `aria-describedby`-Attributs ist in der Regel die ID des Elements, das die Nachrichten des Alarmdialogs enthält und üblicherweise direkt nach dem Titel kommt.
+  - : Verwenden Sie dieses Attribut, um die Beschreibung der Inhalte des Warnmeldungsdialogs zu umfassen. Der Wert des `aria-describedby` Attributs ist in der Regel die ID des Elements, das die Nachrichten des Warnmeldungsdialogs enthält, üblicherweise direkt nach dem Titel.
 
 ## Spezifikationen
 

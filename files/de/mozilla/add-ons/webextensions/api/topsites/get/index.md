@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhält ein Array mit Informationen über Seiten, die der Benutzer häufig und kürzlich besucht hat.
+Ruft ein Array ab, das Informationen über Seiten enthält, die der Benutzer häufig und kürzlich besucht hat.
 
-Browser führen eine Liste von Seiten, die der Benutzer oft und kürzlich besucht. Sie nutzen diese Liste, um dem Benutzer zu helfen, diese Orte leicht wiederzufinden. Zum Beispiel bietet Firefox standardmäßig eine Liste der am häufigsten besuchten Seiten auf der "Neuer Tab"-Seite an.
+Browser führen eine Liste von Seiten, die der Benutzer oft und kürzlich besucht. Sie verwenden diese Liste, um dem Benutzer zu helfen, leicht zu diesen Orten zurückzukehren. Firefox beispielsweise bietet standardmäßig eine Liste der meistbesuchten Seiten auf der "Neuer Tab"-Seite.
 
-Um zu bestimmen, welche Seiten in der Liste erscheinen und in welcher Reihenfolge sie erscheinen, kombiniert der Browser "Häufigkeit" – wie oft der Benutzer die Seite besucht hat – und "Neuheit" – wie kürzlich der Benutzer die Seite besucht hat.
+Um zu bestimmen, welche Seiten in der Liste erscheinen und in welcher Reihenfolge sie erscheinen, kombiniert der Browser "Häufigkeit" – wie oft der Benutzer die Seite besucht hat – und "Aktualität" – wie kürzlich der Benutzer die Seite besucht hat.
 
-Der Browser kann dann weitere Filterungen auf diese Liste anwenden, bevor sie dem Benutzer präsentiert wird. Zum Beispiel listet die "Neuer Tab"-Seite in Firefox nur eine Seite pro Domain auf, und der Benutzer kann Seiten aus der Liste blockieren.
+Der Browser kann diese Liste dann weiter filtern, bevor er sie dem Benutzer präsentiert. Zum Beispiel listet die "Neuer Tab"-Seite in Firefox nur eine Seite pro Domain auf, und der Benutzer kann Seiten blockieren, um sie aus der Liste zu entfernen.
 
-Die `topSites.get()` API ermöglicht einer Erweiterung den Zugriff auf diese Liste. Ohne Optionen aufgerufen, liefert sie die gefilterte Liste der Seiten – also die, die auf der "Neuer Tab"-Seite erscheint. Durch Angabe verschiedener Optionen ist es jedoch möglich, dass eine Erweiterung die ungefilterte Liste der Seiten erhält.
+Die `topSites.get()` API ermöglicht es einer Erweiterung, Zugang zu dieser Liste zu erhalten. Ohne Optionen aufgerufen, liefert sie die gefilterte Liste der Seiten – also die, die auf der "Neuer Tab"-Seite erscheint. Durch das Angeben verschiedener Optionen ist es jedoch möglich, dass eine Erweiterung die ungefilterte Liste der Seiten erhält.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -33,28 +33,28 @@ let gettingTopSites = browser.topSites.get(
 
 - `options`
 
-  - : `object`. Optionen zur Modifikation der zurückgegebenen Liste der Seiten. Dies kann eine der folgenden Eigenschaften umfassen:
+  - : `object`. Optionen zur Modifikation der zurückgegebenen Seitenliste. Diese können folgende Eigenschaften umfassen:
 
     - `includeBlocked` {{optional_inline}}
-      - : `Boolean`. Beinhaltet Seiten, die der Benutzer von der "Neuer Tab"-Seite entfernt hat. Standardmäßig `false`.
+      - : `Boolean`. Einschließen von Seiten, die der Benutzer von der "Neuer Tab"-Seite entfernt hat. Standardwert ist `false`.
     - `includeFavicon` {{optional_inline}}
-      - : `Boolean`. Beinhaltet Favicons in den Ergebnissen, für Seiten, auf denen sie verfügbar sind. Standardmäßig `false`.
+      - : `Boolean`. Favicons in den Ergebnissen enthalten, für Seiten, wo sie verfügbar sind. Standardwert ist `false`.
     - `includePinned` {{optional_inline}}
-      - : `Boolean`. Beinhaltet Seiten, die der Benutzer auf der Firefox Neuer-Tab-Seite angeheftet hat.
-        Standardmäßig `false`.
+      - : `Boolean`. Enthält Seiten, die der Benutzer an die Firefox-Neutabseite angepinnt hat.
+        Standardwert ist `false`.
     - `includeSearchShortcuts` {{optional_inline}}
-      - : `Boolean`. Beinhaltet Suchverknüpfungen, die auf der Firefox Neuer-Tab-Seite erscheinen.
-        Standardmäßig `false`.
+      - : `Boolean`. Beinhaltet Suchverknüpfungen, die auf der Firefox-Neutabseite erscheinen.
+        Standardwert ist `false`.
     - `limit` {{optional_inline}}
-      - : `Integer`. Die Anzahl der zurückzugebenden Seiten. Dies muss eine Zahl zwischen 1 und 100 sein, inklusive. Standardmäßig 12.
+      - : `Integer`. Die Anzahl der zurückzugebenden Seiten. Dies muss eine Zahl zwischen 1 und 100 sein, einschließlich. Standardwert ist 12.
     - `newtab` {{optional_inline}}
-      - : `Boolean`. Wenn enthalten, gibt die Methode die Liste der Seiten zurück, die erscheinen, wenn der Benutzer einen neuen Tab öffnet. Bei Einbeziehung und Einstellung auf `true` ignoriert die Methode alle anderen Parameter außer `limit` und `includeFavicon`. Standardmäßig `false`.
+      - : `Boolean`. Wenn enthalten, gibt die Methode die Liste der Seiten zurück, die angezeigt werden, wenn der Benutzer einen neuen Tab öffnet. Wenn enthalten und auf `true` gesetzt, ignoriert die Methode alle anderen Parameter außer `limit` und `includeFavicon`. Standardwert ist `false`.
     - `onePerDomain` {{optional_inline}}
-      - : `Boolean`. Nur eine Seite pro Domain einbeziehen. Standardmäßig `true`.
+      - : `Boolean`. Nur eine Seite pro Domain einbeziehen. Standardwert ist `true`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Dieses wird mit einem Array von {{WebExtAPIRef("topSites.MostVisitedURL", "MostVisitedURL")}} Objekten erfüllt, eines für jede Seite, die auf der "Neuer Tab"-Seite des Browsers aufgelistet ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Dieses wird mit einem Array von {{WebExtAPIRef("topSites.MostVisitedURL", "MostVisitedURL")}}-Objekten erfüllt, eines für jede Seite, die auf der "Neuer Tab"-Seite des Browsers aufgelistet ist. Tritt ein Fehler auf, wird das Versprechen mit einer Fehlermeldung zurückgewiesen.
 
 ## Browser-Kompatibilität
 
@@ -62,7 +62,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Diese
 
 ## Beispiele
 
-Dieser Code protokolliert den Titel und die URL für alle Seiten auf der "Neuer Tab"-Seite:
+Dieser Code protokolliert den Titel und die URL aller Seiten auf der "Neuer Tab"-Seite:
 
 ```js
 function logTopSites(topSitesArray) {
@@ -78,7 +78,7 @@ function onError(error) {
 browser.topSites.get().then(logTopSites, onError);
 ```
 
-Dieser Code protokolliert den Titel und die URL für alle Top-Seiten, einschließlich der vom Benutzer blockierten und potenziell mehrere Seiten in derselben Domain:
+Dieser Code protokolliert den Titel und die URL aller Top-Seiten, einschließlich derjenigen, die der Benutzer blockiert hat, und potenziell einschließlich mehrerer Seiten in derselben Domain:
 
 ```js
 function logTopSites(topSitesArray) {
@@ -102,7 +102,7 @@ browser.topSites
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.topSites`](https://developer.chrome.com/docs/extensions/reference/api/topSites) API.
+> Diese API basiert auf der [`chrome.topSites`](https://developer.chrome.com/docs/extensions/reference/api/topSites) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

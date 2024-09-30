@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`track`** schreibgeschützte Eigenschaft der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Schnittstelle gibt das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurück, das von dem `RTCRtpSender` verarbeitet wird.
+Die schreibgeschützte Eigenschaft **`track`** des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Interfaces gibt das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, das vom `RTCRtpSender` verarbeitet wird.
 
 ## Wert
 
-Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das die Medien repräsentiert, die mit dem `RTCRtpSender` verbunden sind. Wenn keine Spur mit dem Sender verknüpft ist, ist dieser Wert `null`, in welchem Fall der Sender nichts überträgt.
+Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das die Medien repräsentiert, die mit dem `RTCRtpSender` verknüpft sind. Wenn kein Track mit dem Sender verknüpft ist, ist dieser Wert `null`. In diesem Fall überträgt der Sender nichts.
 
 ## Spezifikationen
 

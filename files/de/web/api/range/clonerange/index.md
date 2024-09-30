@@ -1,5 +1,5 @@
 ---
-title: "Range: cloneRange() Methode"
+title: "Range: cloneRange()-Methode"
 short-title: cloneRange()
 slug: Web/API/Range/cloneRange
 l10n:
@@ -9,11 +9,11 @@ l10n:
 {{ APIRef("DOM") }}
 
 Die **`Range.cloneRange()`**-Methode gibt ein
-[`Range`](/de/docs/Web/API/Range)-Objekt mit identischen Grenzpunkten zum geklonten
+[`Range`](/de/docs/Web/API/Range)-Objekt mit identischen Grenzpunkten zu dem geklonten
 [`Range`](/de/docs/Web/API/Range) zurück.
 
-Der zurückgegebene Klon wird durch Wert kopiert, nicht durch Referenz, sodass eine Änderung in einem der beiden
-[`Range`](/de/docs/Web/API/Range) das andere nicht beeinflusst.
+Der zurückgegebene Klon wird als Wertkopie und nicht als Referenzkopie erstellt, sodass eine Änderung in einem der beiden
+[`Range`](/de/docs/Web/API/Range)-Objekte das andere nicht beeinflusst.
 
 ## Syntax
 
@@ -47,4 +47,4 @@ clone = range.cloneRange();
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`screenschange`**-Ereignis des [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Interfaces wird ausgelöst, wenn sich der Satz der verfügbaren Bildschirme des Systems geändert hat: Das heißt, ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird durch eine Änderung im [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Array widergespiegelt.
+Das **`screenschange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich die Menge der dem System zur Verfügung stehenden Bildschirme geändert hat: d. h., ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird durch eine Änderung im [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Array widergespiegelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("screenschange", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben, die Änderung zu melden, alle Fenster zu schließen und sie dann alle erneut zu öffnen, um die neue Konfiguration anzupassen:
+Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben, die Änderung zu melden, alle Fenster zu schließen und dann alle wieder zu öffnen, um die neue Konfiguration zu berücksichtigen:
 
 ```js
 const screenDetails = await window.getScreenDetails();

@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.getElementsByTagNameNS()`** Methode gibt eine
-Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von Elementen mit dem angegebenen Tag-Namen zurück, die zum angegebenen Namespace gehören. Sie ist ähnlich der Methode [`Document.getElementsByTagNameNS`](/de/docs/Web/API/Document/getElementsByTagNameNS), außer dass ihre Suche auf Nachkommen des angegebenen Elements beschränkt ist.
+Die **`Element.getElementsByTagNameNS()`** Methode gibt ein
+Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von Elementen mit dem angegebenen Tag-Namen zurück, die zu dem
+angegebenen Namensraum gehören. Sie ist ähnlich wie [`Document.getElementsByTagNameNS`](/de/docs/Web/API/Document/getElementsByTagNameNS), mit dem Unterschied, dass die Suche auf die Nachkommen des angegebenen Elements beschränkt ist.
 
 ## Syntax
 
@@ -20,12 +21,13 @@ getElementsByTagNameNS(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Die namespaceURI der zu suchenden Elemente (siehe
-    [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI) und [`Attr.namespaceURI`](/de/docs/Web/API/Attr/namespaceURI)). Wenn Sie zum Beispiel nach XHTML-Elementen suchen müssen, verwenden Sie die XHTML-namespaceURI,
+  - : Die Namensraum-URI der zu suchenden Elemente (siehe
+    [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI) und [`Attr.namespaceURI`](/de/docs/Web/API/Attr/namespaceURI)). Zum
+    Beispiel, wenn Sie nach XHTML-Elementen suchen müssen, verwenden Sie die XHTML-Namensraum-URI,
     `http://www.w3.org/1999/xhtml`.
 - `localName`
   - : Entweder der lokale Name der zu suchenden Elemente oder der
-    spezielle Wert `"*"`, der alle Elemente matcht (siehe
+    spezielle Wert `"*"`, der zu allen Elementen passt (siehe
     [`Element.localName`](/de/docs/Web/API/Element/localName) und [`Attr.localName`](/de/docs/Web/API/Attr/localName)).
 
 ### Rückgabewert

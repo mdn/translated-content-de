@@ -1,5 +1,5 @@
 ---
-title: "Document: securitypolicyviolation-Ereignis"
+title: "Document: securitypolicyviolation Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/Document/securitypolicyviolation_event
 l10n:
@@ -10,17 +10,17 @@ l10n:
 
 Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
 
-Das Ereignis wird im Dokument ausgelöst, wenn eine Verletzung der CSP-Richtlinie des Dokuments vorliegt (und es kann auch von Elementen im Dokument bubblen).
+Das Ereignis wird im Dokument ausgelöst, wenn eine Verletzung der CSP-Richtlinie des Dokuments auftritt (und kann auch von Elementen im Dokument aus "bubbeln").
 
 Dieses Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [komponiert](/de/docs/Web/API/Event/composed).
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis zu einem Objekt auf oberster Ebene hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
-> Obwohl die Eigenschaft in HTML-Elementen existiert, können Sie erst dann einen Handler zuweisen, wenn die Elemente geladen sind, zu diesem Zeitpunkt wird dieses Ereignis jedoch bereits ausgelöst worden sein.
+> Sie sollten den Handler für dieses Ereignis zu einem obersten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Obwohl die Eigenschaft in HTML-Elementen existiert, können Sie der Eigenschaft keinen Handler zuweisen, bis die Elemente geladen wurden. Zu diesem Zeitpunkt wurde dieses Ereignis jedoch bereits ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -36,7 +36,7 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie eine Ereignishandlerfunktion mit der `onsecuritypolicyviolation`-Ereignishandlereigenschaft oder `addEventListener()` im `Document` hinzufügen können.
+Der folgende Code zeigt, wie Sie möglicherweise eine Ereignishandlerfunktion mit der `onsecuritypolicyviolation` Ereignishandler-Eigenschaft oder `addEventListener()` im `Document` hinzufügen.
 
 ```js
 document.onsecuritypolicyviolation = (e) => {

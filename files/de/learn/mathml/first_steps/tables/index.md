@@ -1,5 +1,5 @@
 ---
-title: MathML-Tabellen
+title: MathML Tabellen
 slug: Learn/MathML/First_steps/Tables
 l10n:
   sourceCommit: 865acb22b74a49927b98267566369d4677414f53
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps/Three_famous_mathematical_formulas", "Learn/MathML/First_steps")}}
 
-Sobald alle grundlegenden mathematischen Notationen bekannt sind, bleibt noch die tabellarische Layoutgestaltung zu berücksichtigen, die für matrixähnliche Ausdrücke und andere fortgeschrittene mathematische Layouts verwendet werden kann.
+Sobald alle grundlegenden mathematischen Notationen bekannt sind, bleibt die tabellarische Darstellung zu betrachten, die für matrixähnliche Ausdrücke und andere fortgeschrittene mathematische Layouts verwendet werden kann.
 
 <table>
   <tbody>
@@ -17,11 +17,11 @@ Sobald alle grundlegenden mathematischen Notationen bekannt sind, bleibt noch di
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, Grundkenntnisse in
+        >, grundlegende Kenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Arbeiten mit Dateien</a
-        >, und HTML-Grundlagen (studieren Sie
+          >Umgang mit Dateien</a
+        > und HTML-Grundlagen (siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
         >. und <a href="/de/docs/Learn/HTML/Tables"
@@ -32,18 +32,17 @@ Sobald alle grundlegenden mathematischen Notationen bekannt sind, bleibt noch di
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertraut werden mit MathML-tabellarischen Elementen und einige
-        Anwendungsfälle kennen.
+        Vertrautheit mit MathML-Tabellenelementen zu erlangen und sich einiger Anwendungsfälle bewusst zu sein.
       </td>
     </tr>
   </tbody>
 </table>
 
-## MathML-tabellarische Elemente
+## MathML-Tabellenelemente
 
-Die MathML-tabellarischen Elemente ähneln denen für [HTML-Tabellen](/de/docs/Learn/HTML/Tables): das `<mtable>`-Element repräsentiert eine mathematische Tabelle, es hat `<mtr>`-Elemente als Kinder (die Zeilen darstellen), die jeweils `<mtd>`-Elemente als Kinder haben (die Zellen darstellen). Ein `<mtable>`-Element kann überall in einer MathML-Formel eingefügt werden. Das `<mtd>`-Element kann eine beliebige Anzahl von MathML-Kindern enthalten und stellt sie als `<mrow>`-Container dar.
+Die MathML-Tabellenelemente sind ähnlich den [HTML-Tabellen](/de/docs/Learn/HTML/Tables): das `<mtable>`-Element repräsentiert eine mathematische Tabelle, es hat `<mtr>`-Elemente als Kinder (repräsentiert Zeilen), die jeweils `<mtd>`-Elemente als Kinder haben (repräsentiert Zellen). Ein `<mtable>`-Element kann überall in einer MathML-Formel eingefügt werden. Das `<mtd>`-Element kann eine beliebige Anzahl von MathML-Kindern enthalten und wird sie als `<mrow>`-Container anordnen.
 
-Tabellen werden typischerweise für matrixähnliche Ausdrücke (einschließlich Vektoren) verwendet. Hier ist ein einfaches Beispiel aus dem [Artikel über die CSS `matrix()` Funktion](/de/docs/Web/CSS/transform-function/matrix):
+Tabellen werden typischerweise für matrixähnliche Ausdrücke (einschließlich Vektoren) verwendet. Hier ist ein einfaches Beispiel aus dem [Artikel über die CSS `matrix()`-Funktion](/de/docs/Web/CSS/transform-function/matrix):
 
 ```html hidden
 <link
@@ -126,9 +125,9 @@ Tabellen werden typischerweise für matrixähnliche Ausdrücke (einschließlich 
 
 {{ EmbedLiveSample('MathML_tabular_elements', 700, 200, "", "") }}
 
-## Zellen, die mehrere Zeilen und Spalten umfassen
+## Zellen erlauben, sich über mehrere Zeilen und Spalten zu erstrecken
 
-Dies ist erneut ähnlich wie bei [HTML-Tabellen](/de/docs/Learn/HTML/Tables/Basics#allowing_cells_to_span_multiple_rows_and_columns). Das `<mtd>`-Element akzeptiert die Attribute `columnspan` und `rowspan`, um anzuzeigen, dass die Zelle mehrere Zeilen und Spalten umfasst. Unten spannt die innere Matrix zwei Spalten der äußeren Matrix:
+Dies ist ebenfalls ähnlich wie bei [HTML-Tabellen](/de/docs/Learn/HTML/Tables/Basics#allowing_cells_to_span_multiple_rows_and_columns). Das `<mtd>`-Element akzeptiert die Attribute `columnspan` und `rowspan`, um anzuzeigen, dass sich die Zelle über mehrere Zeilen und Spalten erstreckt. Unten erstreckt sich die innere Matrix über zwei Spalten der äußeren Matrix:
 
 ```html hidden
 <!doctype html>
@@ -216,11 +215,11 @@ Dies ist erneut ähnlich wie bei [HTML-Tabellen](/de/docs/Learn/HTML/Tables/Basi
 {{ EmbedLiveSample('allowing_cells_to_span_multiple_rows_and_columns', 700, 200, "", "") }}
 
 > [!NOTE]
-> Aus historischen Gründen wird das MathML-Attribut für das Spaltenfüllen `columnspan` und nicht `colspan` genannt.
+> Aus historischen Gründen wird das MathML-Attribut für das Erstrecken über Spalten `columnspan` und nicht `colspan` genannt.
 
 ## Verwendung für fortgeschrittenes Layout
 
-Neben der Darstellung von matrixähnlichen Objekten werden MathML-Tabellen manchmal für fortschrittliches Layout innerhalb mathematischer Formeln verwendet, wie zum Beispiel in [Wikipedias Definition des Legendre-Symbols](https://en.wikipedia.org/wiki/Legendre_symbol). Hier sind die verschiedenen Fälle auf drei verschiedenen Zeilen geschrieben, während die Werte und Bedingungen auf zwei verschiedenen Spalten platziert sind.
+Neben der Darstellung matrixähnlicher Objekte werden MathML-Tabellen manchmal für fortgeschrittene Layouts innerhalb mathematischer Formeln verwendet, zum Beispiel in [Wikipedias Definition des Legendre-Symbols](https://en.wikipedia.org/wiki/Legendre_symbol). Hier werden die verschiedenen Fälle auf drei verschiedenen Zeilen geschrieben, während die Werte und Bedingungen auf zwei verschiedene Spalten verteilt sind.
 
 ```html hidden
 <!doctype html>
@@ -299,13 +298,13 @@ Neben der Darstellung von matrixähnlichen Objekten werden MathML-Tabellen manch
 {{ EmbedLiveSample('Usage_for_advanced_layout', 700, 200, "", "") }}
 
 > [!WARNING]
-> Der [`<mtable>`-Artikel](/de/docs/Web/MathML/Element/mtable) bietet über spezielle Attribute wie Ausrichtung oder Abstand erweiterte Layoutoptionen. Diese entstanden, bevor CSS-Äquivalente existierten, und waren ursprünglich für Renderer gedacht, die nicht CSS-kompatibel waren. Diese Attribute sind jedoch möglicherweise nicht in allen Browsern implementiert. Zukünftig ist es wahrscheinlich, dass der Einsatz von `<mtable>` für rein Layout-Zwecke (d.h. nicht für tatsächliche matrixähnliche Objekte) durch CSS-basierte Alternativen ersetzt werden kann.
+> Der [`<mtable>`-Artikel](/de/docs/Web/MathML/Element/mtable) bietet über spezielle Attribute wie Ausrichtung oder Abstände umfangreichere Layout-Optionen. Diese entstanden vor den CSS-Äquivalenten und wurden ursprünglich für Renderer entwickelt, die CSS-unabhängig waren. Diese Attribute sind jedoch möglicherweise nicht in allen Browsern implementiert. In Zukunft ist es wahrscheinlich, dass die Verwendungen von `<mtable>` für rein layoutbezogene Zwecke (d. h. nicht für tatsächliche matrixähnliche Objekte) durch CSS-basierte Alternativen ersetzt werden können.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir die Elemente `<mtable>`, `<mtr>` und `<mtd>` besprochen, die den HTML-Elementen für Tabellen entsprechen. Wir haben gesehen, wie man sie zur Darstellung matrixähnlicher Objekte verwenden kann und wie sie manchmal für fortgeschrittenes Layout genutzt werden.
+In diesem Artikel haben wir die `<mtable>`, `<mtr>` und `<mtd>`-Elemente besprochen, die das Äquivalent zu HTML-Tabellenelementen sind. Wir haben gesehen, wie man sie zur Darstellung matrixähnlicher Objekte verwendet und wie sie manchmal für fortgeschrittene Layouts eingesetzt werden.
 
-Sie haben dieses Modul fast abgeschlossen — wir haben nur noch eine Sache zu tun. In der [Bewertung zu drei berühmten mathematischen Formeln](/de/docs/Learn/MathML/First_steps/Three_famous_mathematical_formulas) werden Sie Ihr neues Wissen nutzen, um einen kleinen mathematischen Artikel mit HTML und MathML neu zu schreiben.
+Sie haben dieses Modul fast abgeschlossen – es gibt nur noch eine Sache zu tun. In der [Bewertung zu drei berühmten mathematischen Formeln](/de/docs/Learn/MathML/First_steps/Three_famous_mathematical_formulas) werden Sie Ihr neues Wissen nutzen, um einen kleinen mathematischen Artikel mit HTML und MathML neu zu schreiben.
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps/Three_famous_mathematical_formulas", "Learn/MathML/First_steps")}}
 

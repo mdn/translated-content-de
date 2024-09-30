@@ -8,20 +8,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`pendingLocalDescription`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das eine ausstehende Konfigurationsänderung für die lokale Seite der Verbindung beschreibt.
+Die schreibgeschützte **`pendingLocalDescription`**-Eigenschaft des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das eine anstehende Konfigurationsänderung für das lokale Ende der Verbindung beschreibt.
 
-Dies beschreibt nicht die aktuelle Verbindung, sondern wie sie möglicherweise in naher Zukunft existieren wird.
-Verwenden Sie [`RTCPeerConnection.currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) oder [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription), um den aktuellen Status des Endpunkts zu erhalten.
-Für Details zu den Unterschieden siehe [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
+Dies beschreibt nicht die Verbindung, wie sie derzeit besteht, sondern wie sie in naher Zukunft existieren könnte. Verwenden Sie [`RTCPeerConnection.currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) oder [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription), um den aktuellen Zustand des Endpunkts zu erhalten. Details zu den Unterschieden finden Sie unter [Anstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Verbindungsseite.
 
 ## Wert
 
-Wenn eine Änderung der lokalen Beschreibung im Gange ist, wird eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) zurückgegeben, die die vorgeschlagene Konfiguration beschreibt.
-Andernfalls wird `null` zurückgegeben.
+Wenn eine lokale Beschreibung in Bearbeitung ist, handelt es sich um eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), die die vorgeschlagene Konfiguration beschreibt. Andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel betrachtet die `pendingLocalDescription`, um festzustellen, ob eine Beschreibung geändert wird.
+Dieses Beispiel überprüft die `pendingLocalDescription`, um festzustellen, ob eine Beschreibungsänderung verarbeitet wird.
 
 ```js
 const pc = new RTCPeerConnection();
@@ -43,8 +40,7 @@ if (sd) {
 {{Compat}}
 
 > [!NOTE]
-> Die Hinzufügung von `pendingLocalDescription` und [`currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) zur WebRTC-Spezifikation ist relativ neu.
-> In Browsern, die diese nicht unterstützen, ist nur [`localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) verfügbar.
+> Die Hinzufügung von `pendingLocalDescription` und [`currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) zur WebRTC-Spezifikation ist relativ neu. In Browsern, die sie nicht unterstützen, ist nur [`localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) verfügbar.
 
 ## Siehe auch
 

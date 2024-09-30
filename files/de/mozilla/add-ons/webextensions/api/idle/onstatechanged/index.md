@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Event-Listener erhält einen String, der einen von drei Werten hat:
+Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Ereignislistener erhält einen String, der einen der drei Werte hat:
 
 - "locked", wenn der Bildschirm gesperrt ist oder der Bildschirmschoner aktiviert wird
-- "idle", wenn das System entsperrt ist und der Benutzer für eine festgelegte Anzahl von Sekunden keine Eingabe gemacht hat. Diese Zahl ist standardmäßig 60, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} eingestellt werden.
-- "active", wenn der Benutzer eine Eingabe auf einem inaktiven System macht.
+- "idle", wenn das System entsperrt ist und der Benutzer für eine bestimmte Anzahl von Sekunden keine Eingabe gemacht hat. Diese Anzahl ist standardmäßig auf 60 gesetzt, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} geändert werden.
+- "active", wenn der Benutzer eine Eingabe in einem inaktiven System macht.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -58,7 +58,7 @@ browser.idle.onStateChanged.addListener(newState);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

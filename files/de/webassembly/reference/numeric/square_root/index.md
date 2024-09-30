@@ -1,5 +1,5 @@
 ---
-title: Quadratwurzel
+title: Square root
 slug: WebAssembly/Reference/Numeric/Square_root
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`sqrt`** Anweisungen, kurz für _Quadratwurzel_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
+Die **`sqrt`**-Anweisungen, abgekürzt für _square root_ (Quadratwurzel), werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
 
 {{EmbedInteractiveExample("pages/wat/sqrt.html", "tabbed-standard")}}
 
@@ -23,7 +23,7 @@ f32.sqrt
 ;; the top item on the stack will now be 17
 ```
 
-| Anweisung  | Binärer Opcode |
-| ---------- | -------------- |
-| `f32.sqrt` | `0x91`         |
-| `f64.sqrt` | `0x9f`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.sqrt`  | `0x91`         |
+| `f64.sqrt`  | `0x9f`         |

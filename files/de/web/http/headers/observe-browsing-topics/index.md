@@ -8,22 +8,22 @@ l10n:
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browserherstellern abgelehnt. Einzelheiten zur Ablehnung finden Sie im Abschnitt [Standards Positionen](/de/docs/Web/API/Topics_API#standards_positions).
+> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Details zur Ablehnung finden Sie im Abschnitt [Standards positions](/de/docs/Web/API/Topics_API#standards_positions).
 
-Der **`Observe-Browsing-Topics`** Response-Header wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Seite (d.h. der Seite, auf der der Ad-Tech-`<iframe>` eingebettet ist) im Antwortcode einer Anfrage ermittelt wurden, die durch eine [Funktion, die die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde. Der Browser wird diese Themen anschließend verwenden, um die wichtigsten Themen für den aktuellen Benutzer für zukünftige Epochen zu berechnen.
+Der **`Observe-Browsing-Topics`** Response-Header wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Website (d.h. der Seite, auf der das Werbetechnologie-`<iframe>` eingebettet ist) abgeleitet wurden, wie im Antworttext auf eine Anfrage, die von einer [Funktion, die die Topics API ermöglicht](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api) erzeugt wurde, beobachtet. Der Browser wird diese Themen anschließend verwenden, um die Hauptthemen für den aktuellen Benutzer für zukünftige Epochen zu berechnen.
 
-Weitere Details finden Sie unter [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using).
+Weitere Einzelheiten finden Sie unter [Using the Topics API](/de/docs/Web/API/Topics_API/Using).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
-        [Response-Header](/de/docs/Glossary/Response_header)
+        [Antwort-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -38,11 +38,11 @@ Observe-Browsing-Topics: ?1
 ### Direktiven
 
 - `?1`
-  - : Eine Zeichenfolge, die erklärt, dass Themen von Interesse, die aus der URL der aufrufenden Seite (d.h. der Seite, auf der der Ad-Tech-`<iframe>` eingebettet ist) abgeleitet wurden, als beobachtet markiert werden. Der Browser wird diese Themen anschließend verwenden, um Benutzungsthemen für einen Benutzer für zukünftige Epochen zu berechnen.
+  - : Eine Zeichenfolge, die erklärt, dass Themen von Interesse, die aus der URL der aufrufenden Website (d.h. der Seite, auf der das Werbetechnologie-`<iframe>` eingebettet ist) abgeleitet wurden, als beobachtet markiert sind. Der Browser wird diese Themen anschließend verwenden, um Benutzerinteressen für zukünftige Epochen zu berechnen.
 
 ## Spezifikationen
 
-Dieses Feature ist kein Bestandteil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert wird.
+Diese Funktion ist kein Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

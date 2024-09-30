@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognitionEvent: interpretation-Eigenschaft"
+title: "SpeechRecognitionEvent: Interpretation-Eigenschaft"
 short-title: interpretation
 slug: Web/API/SpeechRecognitionEvent/interpretation
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`interpretation`** des [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
+Die **`interpretation`**-Eigenschaft des Schnittstellenobjekts [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent) ist schreibgeschützt und gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
 
 Dies kann beispielsweise durch die SISR-Spezifikation der Semantik in einer Grammatik bestimmt werden (siehe [Semantic Interpretation for Speech Recognition (SISR) Version 1.0](https://www.w3.org/TR/semantic-interpretation/) für Spezifikation und Beispiele).
 
 ## Wert
 
-Der zurückgegebene Wert kann von jedem Typ sein. Wenn keine semantische Interpretation vom Spracherkennungssystem zurückgegeben wurde, wird `null` zurückgegeben.
+Der zurückgegebene Wert kann jeden Typ haben. Wenn keine semantische Interpretation vom Spracherkennungssystem zurückgegeben wurde, wird `null` zurückgegeben.
 
 ## Beispiele
 

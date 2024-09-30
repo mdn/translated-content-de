@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`formData()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragetext und gibt ihn als ein Versprechen zurück, das sich mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt auflöst.
+Die **`formData()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces
+liest den Anfrage-Body und gibt ihn als ein `Promise` zurück, das mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt aufgelöst wird.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt auflöst.
+Ein {{jsxref("Promise")}}, das mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt aufgelöst wird.
 
 ## Beispiele
 

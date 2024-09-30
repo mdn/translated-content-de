@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**`undefined`** ist ein [primitiver Wert](/de/docs/Glossary/primitive), der automatisch zu [Variablen](/de/docs/Glossary/variable) zugewiesen wird, die gerade deklariert wurden, oder zu formalen [Argumenten](/de/docs/Glossary/Argument), für die keine tatsächlichen Argumente vorliegen.
+**`undefined`** ist ein [primitiver](/de/docs/Glossary/primitive) Wert, der automatisch [Variablen](/de/docs/Glossary/variable) zugewiesen wird, die gerade erst deklariert wurden, oder formalen [Argumenten](/de/docs/Glossary/Argument), für die keine tatsächlichen Argumente vorhanden sind.
 
 ## Beispiel
 
@@ -20,4 +20,4 @@ console.log(`x's value is ${x}`); //logs "x's value is undefined"
 ## Siehe auch
 
 - [Undefined value](https://en.wikipedia.org/wiki/Undefined_value) auf Wikipedia
-- [JavaScript data types and data structures](/de/docs/Web/JavaScript/Data_structures)
+- [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)

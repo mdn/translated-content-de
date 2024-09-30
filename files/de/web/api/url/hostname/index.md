@@ -8,12 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`hostname`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
-ist eine Zeichenkette, die den [Domainnamen](/de/docs/Glossary/domain_name) der URL enthält.
+Die **`hostname`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der den [Domainnamen](/de/docs/Glossary/domain_name) der URL enthält.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 

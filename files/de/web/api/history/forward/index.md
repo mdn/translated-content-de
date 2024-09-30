@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`forward()`**-Methode der [`History`](/de/docs/Web/API/History)-Schnittstelle bewirkt, dass der Browser um eine Seite in der Sitzungs-Historie vorwärts bewegt wird. Sie hat den gleichen Effekt wie der Aufruf von [`history.go(1)`](/de/docs/Web/API/History/go).
+Die **`forward()`** Methode des [`History`](/de/docs/Web/API/History) Interfaces bewirkt, dass der Browser eine Seite im Sitzungsverlauf vorwärts geht. Sie hat denselben Effekt wie ein Aufruf von [`history.go(1)`](/de/docs/Web/API/History/go).
 
-Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Tritt auf, wenn das zugeordnete Dokument nicht vollständig aktiv ist. Browser drosseln auch Navigationsvorgänge und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig ausgeführt wird.
+  - : Wird geworfen, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch Navigationsaufrufe und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
 
 ## Beispiele
 
-Die folgenden Beispiele erstellen einen Button, der einen Schritt in der Sitzungs-Historie vorwärts bewegt.
+Die folgenden Beispiele erzeugen einen Button, der einen Schritt im Sitzungsverlauf vorwärts geht.
 
 ### HTML
 

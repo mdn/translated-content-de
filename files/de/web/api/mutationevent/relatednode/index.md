@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die schreibgeschützte Eigenschaft **`relatedNode`** der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück, der den mit dem Ereignis verbundenen Knoten anzeigt, wie den geänderten Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
+Die **`relatedNode`**-Eigenschaft des schreibgeschützten [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Interfaces gibt einen String zurück, der den Knoten bezeichnet, der mit dem Ereignis in Beziehung steht, wie der geänderte Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
 
 ## Wert
 

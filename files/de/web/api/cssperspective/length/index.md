@@ -11,7 +11,7 @@ l10n:
 Die **`length`**-Eigenschaft des
 [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)-Interfaces legt die Entfernung von z=0 fest.
 
-Sie wird verwendet, um ein Perspektiventransform an das Element und dessen Inhalt anzuwenden. Wenn der Wert 0 oder eine negative Zahl ist, wird kein Perspektiventransform angewendet.
+Sie wird verwendet, um eine Perspektivtransformation auf das Element und seinen Inhalt anzuwenden. Wenn der Wert 0 oder eine negative Zahl ist, wird keine Perspektivtransformation angewendet.
 
 ## Wert
 

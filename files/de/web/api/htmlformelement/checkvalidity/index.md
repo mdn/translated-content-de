@@ -1,5 +1,5 @@
 ---
-title: "HTMLFormElement: checkValidity()-Methode"
+title: "HTMLFormElement: checkValidity() Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLFormElement/checkValidity
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob alle zugehörigen Steuerelemente die auf sie angewendeten [Einschränkungsvalidierungs](/de/docs/Web/HTML/Constraint_validation)regeln erfüllen. Die Methode löst außerdem ein [`ungültig`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis für jedes ungültige Element aus, jedoch nicht für das Formularelement selbst. Da es kein Standard-Browserverhalten für `checkValidity()` gibt, hat das Abbrechen dieses `ungültig`-Ereignisses keine Auswirkung.
+Die **`checkValidity()`** Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob alle zugehörigen Steuerelemente alle auf sie angewendeten [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) Regeln erfüllen. Die Methode löst auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event) Ereignis für jedes ungültige Element aus, jedoch nicht für das Formularelement selbst. Da es kein Standardverhalten des Browsers für `checkValidity()` gibt, hat das Abbrechen dieses `invalid` Ereignisses keinen Effekt.
 
 > [!NOTE]
-> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<form>`-Elemente basierend auf der Gültigkeit ihrer zugehörigen Formularelemente angewendet, nicht auf die Gültigkeit des `<form>`-Elements selbst.
+> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<form>` Elemente basierend auf der Gültigkeit der dazugehörigen Formularelemente angewendet, nicht auf die Gültigkeit des `<form>` Elements selbst.
 
 ## Syntax
 

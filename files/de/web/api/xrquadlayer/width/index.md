@@ -1,5 +1,5 @@
 ---
-title: "XRQuadLayer: width Eigenschaft"
+title: "XRQuadLayer: width-Eigenschaft"
 short-title: width
 slug: Web/API/XRQuadLayer/width
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`width`**-Eigenschaft des [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)-Interfaces gibt die Breite der Ebene in Metern an.
+Die **`width`**-Eigenschaft des [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)-Interfaces repräsentiert die Breite der Ebene in Metern.
 
 ## Wert
 

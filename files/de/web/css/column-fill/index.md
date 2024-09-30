@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-fill`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert, wie der Inhalt eines Elements ausgeglichen wird, wenn es in Spalten aufgeteilt wird.
+Die **`column-fill`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie der Inhalt eines Elements aufgeteilt wird, wenn er in Spalten aufgebrochen wird.
 
 {{EmbedInteractiveExample("pages/css/column-fill.html")}}
 
@@ -26,14 +26,14 @@ column-fill: revert-layer;
 column-fill: unset;
 ```
 
-Die `column-fill`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der Anfangswert ist `balance`, sodass der Inhalt über die Spalten ausgeglichen wird.
+Die `column-fill`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte spezifiziert. Der Anfangswert ist `balance`, sodass der Inhalt über die Spalten hinweg ausgeglichen wird.
 
 ### Werte
 
 - `auto`
-  - : Spalten werden nacheinander gefüllt. Der Inhalt benötigt nur den Raum, den er braucht, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
+  - : Spalten werden der Reihe nach gefüllt. Der Inhalt nimmt nur den benötigten Platz ein, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
 - `balance`
-  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten wie [Seitenausgabe](/de/docs/Web/CSS/CSS_paged_media) wird nur das letzte Fragment ausgeglichen. Daher wird in der Seitenausgabe nur die letzte Seite ausgeglichen.
+  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z. B. [paged media](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Daher wird in paged media nur die letzte Seite ausgeglichen.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ Die `column-fill`-Eigenschaft wird als einer der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Ausgleichen des Spalteninhalts
+### Ausgleichen von Spalteninhalten
 
 #### HTML
 
@@ -92,9 +92,9 @@ p.fill-balance {
 {{Compat}}
 
 > [!WARNING]
-> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` in verschiedenen Browsern aufgrund ungelöster Probleme in der Spezifikation.
+> Bei `column-fill` gibt es aufgrund ungelöster Probleme in der Spezifikation einige Interoperabilitätsprobleme und Fehler in verschiedenen Browsern.
 >
-> Insbesondere bei Verwendung von `column-fill: auto`, um Spalten nacheinander zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multicol-Container im Blockmaß (z.B. Höhe in einem horizontalen Schreibmodus) eine Größe hat. Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorhanden ist.
+> Insbesondere beim Verwenden von `column-fill: auto`, um Spalten der Reihe nach zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn das mehrspaltige Container-Element eine Größe in der Blockdimension hat (z. B. Höhe in einem horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorliegt.
 
 ## Siehe auch
 

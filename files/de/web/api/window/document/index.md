@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-**`window.document`** gibt eine Referenz auf das im Fenster enthaltene [document](/de/docs/Web/API/Document) zurück.
+**`window.document`** gibt eine Referenz auf das im Fenster enthaltene [Dokument](/de/docs/Web/API/Document) zurück.
 
 ## Wert
 
-Ein [document](/de/docs/Web/API/Document)-Objekt.
+Ein [Document](/de/docs/Web/API/Document) Objekt.
 
 ## Beispiele
 

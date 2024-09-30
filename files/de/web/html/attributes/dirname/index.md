@@ -8,26 +8,30 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`dirname`**-Attribut kann auf das {{htmlelement("textarea")}}-Element und mehrere {{htmlelement("input")}}-Typen angewendet werden und beschreibt die Richtung der Texteingabe des Elements bei der Formularübermittlung. Der Browser verwendet den Wert dieses Attributs, um zu bestimmen, ob der eingegebene Text von links nach rechts oder von rechts nach links ausgerichtet ist. Wenn verwendet, wird der Wert der Textrichtung des Elements zusammen mit dem Wert des `dirname`-Attributs als Name des Feldes in die Formulardaten übernommen.
+Das **`dirname`**-Attribut kann bei dem {{htmlelement("textarea")}}-Element sowie bei mehreren {{htmlelement("input")}}-Typen verwendet werden und beschreibt die Leserichtung des Textinhalts des Elements während der Formularübermittlung.
+Der Browser verwendet den Wert dieses Attributs, um zu bestimmen, ob der vom Benutzer eingegebene Text links-nach-rechts oder rechts-nach-links orientiert ist.
+Wenn es verwendet wird, wird der Leserichtungswert des Elements zusammen mit dem Wert des `dirname`-Attributs als Name des Feldes in den Formulardaten übermittelt.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Das `dirname`-Attribut kann bei jedem {{htmlelement("textarea")}}-Element oder jedem {{htmlelement("input")}}-Element mit den Typen {{htmlelement("input/hidden", "hidden")}}, {{htmlelement("input/text", "text")}}, {{htmlelement("input/search", "search")}}, {{htmlelement("input/tel", "tel")}}, {{htmlelement("input/url", "url")}}, {{htmlelement("input/email", "email")}}, {{htmlelement("input/password", "password")}}, {{htmlelement("input/submit", "submit")}}, {{htmlelement("input/reset", "reset")}} oder {{htmlelement("input/button", "button")}} verwendet werden.
+Das `dirname`-Attribut kann bei jedem {{htmlelement("textarea")}}-Element oder bei jedem {{htmlelement("input")}}-Element mit {{htmlelement("input/hidden", "hidden")}}, {{htmlelement("input/text", "text")}}, {{htmlelement("input/search", "search")}}, {{htmlelement("input/tel", "tel")}}, {{htmlelement("input/url", "url")}}, {{htmlelement("input/email", "email")}}, {{htmlelement("input/password", "password")}}, {{htmlelement("input/submit", "submit")}}, {{htmlelement("input/reset", "reset")}} oder {{htmlelement("input/button", "button")}} Typ verwendet werden.
 
-Das Format der übermittelten Daten ist `{dirname_value}={direction}`, wobei `{dirname_value}` der Wert des `dirname`-Attributs und `{direction}` die Richtung des Textes ist. Zum Beispiel, wenn der Benutzer "Hello" in ein Element mit den Attributen `name="comment"` und `dirname="comment-direction"` eingibt, werden die URL-kodierten Formulardaten für `GET`-Anfragen `comment=Hello&comment-direction=ltr` sein. Die Richtung ist eine der folgenden:
+Das Format der übermittelten Daten ist `{dirname_value}={direction}`, wobei `{dirname_value}` der Wert des `dirname`-Attributs und `{direction}` die Leserichtung des Textes ist.
+Zum Beispiel, wenn der Benutzer "Hello" in ein Element mit den Attributen `name="comment"` und `dirname="comment-direction"` eingibt, sind die URL-codierten Formulardaten für `GET`-Anfragen `comment=Hello&comment-direction=ltr`.
+Die Leserichtung ist eine der folgenden:
 
 - `rtl`
-  - : Der vom Benutzer eingegebene Text hat eine von rechts nach links verlaufende Schreibrichtung.
+  - : Der vom Benutzer eingegebene Text hat eine rechts-nach-links Schriftrichtung.
 - `ltr`
-  - : Der vom Benutzer eingegebene Text hat eine von links nach rechts verlaufende Schreibrichtung.
+  - : Der vom Benutzer eingegebene Text hat eine links-nach-rechts Schriftrichtung.
 
-Wenn keine Textrichtung angegeben ist, verwendet der Benutzeragent die Richtung des übergeordneten Elements, das das Formular enthält, und wenn dies nicht angegeben ist, die Standardrichtung des Benutzeragenten.
+Wenn keine Textausrichtung angegeben wird, verwendet der Benutzeragent die Leserichtung des übergeordneten Elements, das das Formular enthält, und wenn diese nicht angegeben ist, die Standardleserichtung des Benutzeragenten.
 
 ## Beispiele
 
-### Richtung des Textarea-Elements
+### Leserichtung des Textarea-Elements
 
-In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem Textarea-Element, dass die Textrichtung automatisch basierend auf dem vom Benutzer eingegebenen Text bestimmt wird:
+In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem textarea-Element, dass die Leserichtung automatisch basierend auf dem vom Benutzer eingegebenen Text bestimmt wird:
 
 ```html
 <form method="get" action="https://www.example.com/submit">
@@ -36,15 +40,16 @@ In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem Textarea-Elemen
 </form>
 ```
 
-Wenn der Benutzer das Formular übermittelt, enthält der Benutzeragent zwei Felder, eines namens `comment` mit dem Wert "سيب" und eines namens `comment-direction` mit dem Wert "rtl". Der URL-kodierte Übermittlungskörper sieht folgendermaßen aus:
+Wenn der Benutzer das Formular abschickt, inkludiert der Benutzeragent zwei Felder, eines namens `comment` mit dem Wert "سيب", und eines namens `comment-direction` mit dem Wert "rtl".
+Der URL-codierte Übermittlungskörper sieht folgendermaßen aus:
 
 ```url
 https://www.example.com/submit?comment=%D8%B3%D9%8A%D8%A8&comment-direction=rtl
 ```
 
-### Richtung des Input-Elements
+### Leserichtung des Input-Elements
 
-In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem Input-Element, dass die Textrichtung automatisch basierend auf dem vom Benutzer eingegebenen Text bestimmt wird:
+In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem input-Element, dass die Leserichtung automatisch basierend auf dem vom Benutzer eingegebenen Text bestimmt wird:
 
 ```html
 <form method="get" action="https://www.example.com/submit">
@@ -58,15 +63,15 @@ In diesem Beispiel ermöglicht das `dir="auto"`-Attribut auf dem Input-Element, 
 </form>
 ```
 
-Wenn der Benutzer das Formular übermittelt, enthält der Benutzeragent zwei Felder, eines namens `comment-input` mit dem Wert "Hello" und eines namens `comment-direction` mit dem Wert "ltr":
+Wenn der Benutzer das Formular abschickt, inkludiert der Benutzeragent zwei Felder, eines namens `comment-input` mit dem Wert "Hello", und eines namens `comment-direction` mit dem Wert "ltr":
 
 ```url
 https://www.example.com/submit?comment-input=Hello&comment-direction=ltr
 ```
 
-### Vererbung der Richtung
+### Vererbung der Leserichtung
 
-Die folgenden `<input>`- und `<textarea>`-Elemente haben kein `dir`-Attribut, sodass sie die explizite Richtung ihres übergeordneten Elements erben, das `rtl` ist:
+Die folgenden `<input>` und `<textarea>`-Elemente haben kein `dir`-Attribut, daher erben sie die explizite Leserichtung ihres übergeordneten Elements, das `rtl` ist:
 
 ```html
 <div dir="rtl">
@@ -82,7 +87,7 @@ Die folgenden `<input>`- und `<textarea>`-Elemente haben kein `dir`-Attribut, so
 </div>
 ```
 
-Der URL-kodierte Übermittlungskörper sieht folgendermaßen aus:
+Der URL-codierte Übermittlungskörper sieht folgendermaßen aus:
 
 ```url
 https://www.example.com/submit?user=LTR+Username&user-direction=rtl&comment=LTR+Comment&comment-direction=rtl

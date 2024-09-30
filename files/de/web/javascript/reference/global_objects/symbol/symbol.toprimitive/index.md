@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`[Symbol.toPrimitive]()`** Methode von {{jsxref("Symbol")}} Werten gibt diesen Symbolwert zurück.
+Die Methode **`[Symbol.toPrimitive]()`** von {{jsxref("Symbol")}}-Werten gibt diesen Symbolwert zurück.
 
 ## Syntax
 
@@ -22,18 +22,16 @@ symbolValue[Symbol.toPrimitive](hint)
 
 ### Rückgabewert
 
-Der primitive Wert des angegebenen {{jsxref("Symbol")}} Objekts.
+Der primitive Wert des angegebenen {{jsxref("Symbol")}}-Objekts.
 
 ## Beschreibung
 
-Die `[Symbol.toPrimitive]()` Methode von {{jsxref("Symbol")}} gibt den primitiven
+Die Methode `[Symbol.toPrimitive]()` von {{jsxref("Symbol")}} gibt den primitiven
 Wert eines Symbol-Objekts als Symbol-Datentyp zurück. Das `hint`
 Argument wird nicht verwendet.
 
-JavaScript ruft die `[Symbol.toPrimitive]()` Methode auf, um ein Objekt in einen
-primitiven Wert zu konvertieren. Es ist selten erforderlich, die `[Symbol.toPrimitive]()` Methode
-selbst aufzurufen; JavaScript ruft sie automatisch auf, wenn es ein Objekt antrifft, bei dem
-ein primitiver Wert erwartet wird.
+JavaScript ruft die Methode `[Symbol.toPrimitive]()` auf, um ein Objekt in einen
+primitiven Wert umzuwandeln. Normalerweise müssen Sie die Methode `[Symbol.toPrimitive]()` nicht selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt in einem Kontext auftaucht, der einen primitiven Wert erfordert.
 
 ## Beispiele
 

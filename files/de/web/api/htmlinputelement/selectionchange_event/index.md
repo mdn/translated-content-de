@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("input")}}-Elements geändert wird.
-Dies umfasst sowohl Änderungen im ausgewählten Zeichenspektrum als auch die Bewegung des Cursors.
+Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("input")}}-Elements verändert wird. Dies umfasst sowohl Änderungen im ausgewählten Zeichenbereich als auch die Bewegung des Cursors.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
-Das Ereignis wird normalerweise verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("input")}} hinzugefügt wird, und in der Handler-Funktion durch die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gelesen wird.
+In der Regel wird das Ereignis verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("input")}} hinzugefügt wird und in der Handler-Funktion die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gelesen werden.
 
-Es ist auch möglich, einen Listener für den `onselectionchange` Ereignishandler hinzuzufügen und in der Handler-Funktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Dies ist jedoch nicht sehr nützlich, um Änderungen an \_Text_ausschnitten zu erhalten.
+Es ist auch möglich, einen Listener auf den `onselectionchange` Ereignishandler hinzuzufügen und innerhalb der Handler-Funktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Dies ist jedoch nicht sehr nützlich, um Änderungen an _Text_-Auswahlen zu erhalten.
 
 ## Syntax
 
@@ -33,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der im {{HTMLElement("input")}}-Element ausgewählte Text ermittelt wird.
+Das folgende Beispiel zeigt, wie der im {{HTMLElement("input")}} ausgewählte Text abgerufen wird.
 
 ### HTML
 

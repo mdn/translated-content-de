@@ -7,12 +7,12 @@ l10n:
 
 {{DefaultAPISidebar("CSS Counter Styles")}}
 
-Das CSS Counter Styles Modul ermöglicht es, benutzerdefinierte Zählerstile zu definieren, die für CSS-Listenmarker und generierte Inhaltszähler verwendet werden können.
+Das CSS Counter Styles-Modul ermöglicht es, benutzerdefinierte Zählerstile zu definieren, die für CSS-Listenmarkierungen und generierte Inhaltszähler verwendet werden können.
 
 ## Schnittstellen
 
 - [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)
-  - : Repräsentiert eine {{cssxref("@counter-style")}} Regel.
+  - : Repräsentiert eine {{cssxref("@counter-style")}}-Regel.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Das CSS Counter Styles Modul ermöglicht es, benutzerdefinierte Zählerstile zu 
 
 ## Siehe auch
 
-- [CSS Counter Styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
 - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)

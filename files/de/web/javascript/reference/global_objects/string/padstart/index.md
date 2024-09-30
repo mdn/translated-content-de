@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`padStart()`** Methode von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer anderen Zeichenkette auf (mehrmals, falls nötig), bis die resultierende Zeichenkette die angegebene Länge erreicht. Das Auffüllen erfolgt vom Anfang dieser Zeichenkette.
+Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem anderen String (mehrfach, falls erforderlich) auf, bis der resultierende String die angegebene Länge erreicht. Das Auffüllen wird am Anfang dieses Strings angewendet.
 
 {{EmbedInteractiveExample("pages/js/string-padstart.html")}}
 
@@ -21,17 +21,13 @@ padStart(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge der resultierenden Zeichenkette, nachdem das aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Die Zeichenkette, mit der das aktuelle `str` aufgefüllt wird. Wenn
-    `padString` zu lang ist, um innerhalb der
-    `targetLength` zu bleiben, wird es am Ende abgeschnitten.
-    Der Standardwert ist das Unicode-"Leerzeichen"-Zeichen (U+0020).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Unicode-"Leerzeichen"-Zeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit
-`padString`, das vom Anfang angewendet wird.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, angewendet vom Start.
 
 ## Beispiele
 
@@ -45,7 +41,7 @@ Ein {{jsxref("String")}} der angegebenen `targetLength` mit
 "abc".padStart(1); // "abc"
 ```
 
-### Umwandlung von Zahlen in Zeichenketten mit fester Breite
+### Konvertierung auf feste Breite für String-Nummern
 
 ```js
 // JavaScript version of: (unsigned)

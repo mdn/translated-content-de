@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Daten-Eigenschaft **`Math.PI`** repräsentiert das Verhältnis des Umfangs eines Kreises zu seinem Durchmesser, ungefähr 3.14159.
+Die statische Dateneigenschaft **`Math.PI`** repräsentiert das Verhältnis des Umfangs eines Kreises zu seinem Durchmesser, ungefähr 3.14159.
 
 {{EmbedInteractiveExample("pages/js/math-pi.html")}}
 
@@ -23,7 +23,7 @@ Die statische Daten-Eigenschaft **`Math.PI`** repräsentiert das Verhältnis des
 
 ## Beschreibung
 
-Da `PI` eine statische Eigenschaft von `Math` ist, verwendet man sie immer als `Math.PI`, statt als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `PI` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.PI` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

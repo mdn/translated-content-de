@@ -1,5 +1,5 @@
 ---
-title: "HTMLScriptElement: blocking Eigenschaft"
+title: "HTMLScriptElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLScriptElement/blocking
 l10n:
@@ -14,10 +14,10 @@ Sie spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wide
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungs-Token sein, die die blockierten Operationen angeben:
+Ein String. Muss eine durch Leerzeichen getrennte Liste von Blockierungstokens sein, die unten aufgeführt sind und die zu blockierenden Operationen anzeigen:
 
 - `render`
-  - : Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
+  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 

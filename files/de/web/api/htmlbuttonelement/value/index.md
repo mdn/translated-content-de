@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenkette oder die leere Zeichenkette, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/button#value)-Attribut des Elements wider.
+Die **`value`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenkette oder die leere Zeichenkette, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/button#value)-Attribut des Elements wider.
 
 ## Wert
 

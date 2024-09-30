@@ -1,5 +1,5 @@
 ---
-title: "HTMLOptGroupElement: disabled-Eigenschaft"
+title: "HTMLOptGroupElement: disabled Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLOptGroupElement/disabled
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft des [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) Interfaces ist ein boolescher Wert, der das `optgroup`-Element-Attribut [`disabled`](/de/docs/Web/HTML/Element/optgroup#disabled) widerspiegelt. Dieses Attribut gibt an, ob die Steuerung deaktiviert ist.
+Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) ist ein boolescher Wert, der das Attribut [`disabled`](/de/docs/Web/HTML/Element/optgroup#disabled) des {{htmlelement("optgroup")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement deaktiviert ist.
 
-Wenn deaktiviert, sind die `option`-Element-Nachkommen des `<optgroup>`-Elements unbenutzbar, nicht anklickbar und nicht auswählbar. Diese deaktivierten `<option>`s entsprechen dem {{cssxref(":disabled")}}-Selektor, selbst wenn ihr `disabled`-Eigenschaftswert falsch ist.
+Wenn es deaktiviert ist, sind die {{htmlelement("option")}}-Elementnachkommen des `<optgroup>`-Elements unbrauchbar, nicht anklickbar und nicht auswählbar. Diese deaktivierten `<option>`s entsprechen dem {{cssxref(":disabled")}}-Selektor, selbst wenn ihr `disabled`-Eigenschaftswert false ist.
 
 ## Wert
 
@@ -34,5 +34,5 @@ optionGroup.disabled = true;
 
 ## Siehe auch
 
-- HTML [`disabled`](/de/docs/Web/HTML/Attributes/disabled) Attribut
+- HTML-Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
 - CSS {{cssxref(":disabled")}} und {{cssxref(":enabled")}} Pseudoklassen

@@ -1,5 +1,5 @@
 ---
-title: "FormData: getAll()-Methode"
+title: "FormData: getAll() Methode"
 short-title: getAll()
 slug: Web/API/FormData/getAll
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`getAll()`**-Methode des [`FormData`](/de/docs/Web/API/FormData)-Interfaces gibt alle Werte zurück, die mit einem bestimmten Schlüssel aus einem `FormData`-Objekt verknüpft sind.
+Die **`getAll()`** Methode des [`FormData`](/de/docs/Web/API/FormData) Interfaces gibt alle Werte zurück, die mit einem gegebenen Schlüssel innerhalb eines `FormData` Objekts verknüpft sind.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ getAll(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen des Schlüssels darstellt, den Sie abrufen möchten.
+  - : Ein String, der den Namen des Schlüssels repräsentiert, den Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein Array von Werten, dessen Schlüssel mit dem angegebenen `name` übereinstimmt. Andernfalls eine leere Liste.
+Ein Array von Werten, dessen Schlüssel dem angegebenen `name` entspricht. Andernfalls eine leere Liste.
 
 ## Beispiele
 
-Falls wir zwei `username`-Werte zu einer [`FormData`](/de/docs/Web/API/FormData) mit der Methode [`append()`](/de/docs/Web/API/FormData/append) hinzufügen:
+Wenn wir zwei `username` Werte zu einem [`FormData`](/de/docs/Web/API/FormData) mit der Methode [`append()`](/de/docs/Web/API/FormData/append) hinzufügen:
 
 ```js
 formData.append("username", "Chris");
 formData.append("username", "Bob");
 ```
 
-Die folgende `getAll()`-Methode gibt beide `username`-Werte in einem Array zurück:
+Wird die folgende `getAll()` Methode beide `username` Werte in einem Array zurückgeben:
 
 ```js
 formData.getAll("username"); // Returns ["Chris", "Bob"]
@@ -50,5 +50,5 @@ formData.getAll("username"); // Returns ["Chris", "Bob"]
 
 ## Siehe auch
 
-- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [Verwendung von FormData Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`segment()`** von {{jsxref("Intl.Segmenter")}}-Instanzen segmentiert einen String gemäß der Lokalisierung und Granularität dieses `Intl.Segmenter`-Objekts.
+Die **`segment()`**-Methode von {{jsxref("Intl.Segmenter")}}-Instanzen segmentiert einen String entsprechend der Locale und Granularität des `Intl.Segmenter`-Objekts.
 
 {{EmbedInteractiveExample("pages/js/intl-segmenter-prototype-segment.html")}}
 
@@ -24,7 +24,7 @@ segment(input)
 
 ### Rückgabewert
 
-Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabe-Strings enthält und dabei die Lokalisierung und Granularität des Segmenters verwendet.
+Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabestrings enthält und die Locale und Granularität des Segmenter verwendet.
 
 ## Beispiele
 

@@ -8,23 +8,17 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`open`**-Eigenschaft des
-[`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein boolescher Wert, der das
-[`open`](/de/docs/Web/HTML/Element/dialog#open)-HTML-Attribut widerspiegelt, und anzeigt, ob das {{htmlelement("dialog")}}
-für Interaktionen verfügbar ist.
+Die **`open`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein boolescher Wert, der das [`open`](/de/docs/Web/HTML/Element/dialog#open)-HTML-Attribut widerspiegelt und anzeigt, ob das {{htmlelement("dialog")}} für Interaktionen verfügbar ist.
 
 ## Wert
 
-Ein boolescher Wert, der den Zustand des [`open`](/de/docs/Web/HTML/Element/dialog#open)-HTML-Attributs darstellt. `true` bedeutet, es ist gesetzt, und daher wird das Dialogfeld angezeigt. `false` bedeutet, es ist nicht gesetzt, und daher wird das Dialogfeld nicht angezeigt.
+Ein boolescher Wert, der den Zustand des [`open`](/de/docs/Web/HTML/Element/dialog#open)-HTML-Attributs darstellt. `true` bedeutet, es ist gesetzt und daher wird der Dialog angezeigt. `false` bedeutet, es ist nicht gesetzt und daher wird der Dialog nicht angezeigt.
 
-Die Eigenschaft ist nicht schreibgeschützt – es ist möglich, den Wert programmatisch zu setzen, um das Dialogfeld anzuzeigen oder zu verbergen.
+Die Eigenschaft ist nicht schreibgeschützt — es ist möglich, den Wert zu setzen, um den Dialog programmatisch anzuzeigen oder zu verbergen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Anklicken ein
-{{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
-Von dort aus können Sie auf den _Abbrechen_-Button klicken, um das Dialogfeld zu schließen (über die
-[`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button abschicken.
+Das folgende Beispiel zeigt einen einfachen Button, der bei Klick ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Von dort können Sie den _Abbrechen_-Button klicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Senden-Button abschicken.
 
 ```html
 <!-- Simple pop-up dialog box -->
@@ -80,4 +74,4 @@ Von dort aus können Sie auf den _Abbrechen_-Button klicken, um das Dialogfeld z
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("dialog")}}.

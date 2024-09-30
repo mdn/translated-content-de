@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overscroll-behavior-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Inline-Grenze eines scrollbaren Bereichs erreicht wird.
+Die **`overscroll-behavior-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Grenze einer Scroll-Fläche in der Inline-Richtung erreicht wird.
 
 Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
 
@@ -27,16 +27,16 @@ overscroll-behavior-inline: revert-layer;
 overscroll-behavior-inline: unset;
 ```
 
-Die `overscroll-behavior-inline` Eigenschaft wird als Schlüsselwort angegeben, das aus der untenstehenden Werteliste gewählt wird.
+Die Eigenschaft `overscroll-behavior-inline` wird als ein Schlüsselwort angegeben, das aus der folgenden Liste von Werten ausgewählt wird.
 
 ### Werte
 
 - `auto`
-  - : Das standardmäßige Verhalten bei Überlauf des Scrolls tritt wie gewohnt auf.
+  - : Das standardmäßige Überlaufverhalten beim Scrollen tritt wie gewohnt auf.
 - `contain`
-  - : Das standardmäßige Verhalten bei Überlauf des Scrolls (z. B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert gesetzt ist. Es tritt jedoch keine [scroll chaining](/de/docs/Glossary/Scroll_chaining) in benachbarten scrollbaren Bereichen auf; die darunterliegenden Elemente werden nicht gescrollt. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Das standardmäßige Überlaufverhalten beim Scrollen (z.B. "Bounce"-Effekte) wird innerhalb des Elements, bei welchem dieser Wert gesetzt ist, beobachtet. Es tritt jedoch kein [Scroll-Chaining](/de/docs/Glossary/Scroll_chaining) in benachbarten Scroll-Bereichen auf; die darunter liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
 - `none`
-  - : Es tritt kein Scroll-Chaining in benachbarten Bereichen auf, und das standardmäßige Verhalten bei Überlauf des Scrolls wird verhindert.
+  - : Es tritt kein Scroll-Chaining in benachbarten Scroll-Bereichen auf, und das standardmäßige Überlaufverhalten beim Scrollen wird verhindert.
 
 ## Formale Definition
 
@@ -48,11 +48,11 @@ Die `overscroll-behavior-inline` Eigenschaft wird als Schlüsselwort angegeben, 
 
 ## Beispiele
 
-### Verhindern von Inline-Overscrolling
+### Verhindern von Inline-Überscrollen
 
-In diesem Demo-Beispiel haben wir zwei Block-Level-Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("width")}}, sodass die Seite horizontal scrollt. Die innere Box hat eine kleine Breite (und {{cssxref("height")}}) und passt bequem in den Viewport, aber ihr Inhalt hat eine große Breite, sodass auch sie horizontal scrollt.
+In dieser Demo haben wir zwei Blockelemente, eines im anderen. Das äußere Kästchen hat eine große {{cssxref("width")}} festgelegt, sodass die Seite horizontal scrollen wird. Das innere Kästchen hat eine kleine Breite (und {{cssxref("height")}}), sodass es bequem im Ansichtsfenster sitzt, aber sein Inhalt hat eine große Breite, sodass es ebenfalls horizontal scrollen wird.
 
-Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht ist, beginnt die ganze Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in der Inline-Richtung zu vermeiden, haben wir `overscroll-behavior-inline: contain` auf die innere Box gesetzt.
+Standardmäßig, wenn das innere Kästchen gescrollt wird und eine Scrolldem Grenze erreicht wird, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in der Inline-Richtung zu verhindern, haben wir `overscroll-behavior-inline: contain` auf das innere Kästchen gesetzt.
 
 #### HTML
 

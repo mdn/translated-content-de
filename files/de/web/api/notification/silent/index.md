@@ -8,19 +8,15 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`silent`** des
-[`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt an, ob die Benachrichtigung lautlos sein soll, d.h. keine Töne oder Vibrationen ausgegeben werden, unabhängig von den Geräteeinstellungen. Dies wird in der `silent`-Option des
-[`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die **`silent`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces ist eine schreibgeschützte Eigenschaft, die angibt, ob die Benachrichtigung lautlos erfolgen soll, d. h. ohne Ton oder Vibrationen, unabhängig von den Geräteeinstellungen. Dies wird in der `silent`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 
-Ein boolescher Wert oder `null`. Wenn `true`, ist die Benachrichtigung lautlos; wenn `null`, werden die Standardgeräte-Einstellungen respektiert.
+Ein boolescher Wert oder `null`. Wenn `true`, erfolgt die Benachrichtigung lautlos; wenn `null`, werden die Standardeinstellungen des Geräts berücksichtigt.
 
 ## Beispiele
 
-Das folgende Code-Snippet soll eine lautlose Benachrichtigung auslösen; es wird ein einfaches
-`options`-Objekt erstellt und dann die Benachrichtigung mit dem
-[`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor ausgelöst.
+Das folgende Snippet soll eine lautlose Benachrichtigung auslösen; ein einfaches `options`-Objekt wird erstellt und dann die Benachrichtigung mithilfe des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors ausgelöst.
 
 ```js
 const options = {

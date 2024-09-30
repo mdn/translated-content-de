@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`play()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet der Aufruf von `play()` die Animation erneut und spielt sie von Anfang an ab.
+Die **`play()`**-Methode der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle des [Web Animations API](/de/docs/Web/API/Web_Animations_API) startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet ein Aufruf von `play()` die Animation neu, indem sie von Anfang an abgespielt wird.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im [Wachstums-/Schrumpfungs-Alice-Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)-Beispiel führt das Klicken oder Tippen auf den Kuchen dazu, dass die Wachstumsanimation von Alice (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird, und löst zudem die Animation des Kuchens aus. Zwei `Animation.play()`s, ein `EventListener`:
+Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) führt ein Klick oder Tippen auf den Kuchen dazu, dass die Wachstumsanimation von Alice (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird, sowie die Animation des Kuchens ausgelöst wird. Zwei `Animation.play()`, ein `EventListener`:
 
 ```js
 // The cake has its own animation:
@@ -69,8 +69,8 @@ cake.addEventListener("touchstart", growAlice, false);
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseiten-Animationen verwenden können.
-- [`Animation.pause()`](/de/docs/Web/API/Animation/pause), um eine Animation zu pausieren.
-- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse), um eine Animation rückwärts abzuspielen.
-- [`Animation.finish()`](/de/docs/Web/API/Animation/finish), um eine Animation zu beenden.
-- [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel), um eine Animation abzubrechen.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
+- [`Animation.pause()`](/de/docs/Web/API/Animation/pause) um eine Animation anzuhalten.
+- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse) um eine Animation rückwärts abzuspielen.
+- [`Animation.finish()`](/de/docs/Web/API/Animation/finish) um eine Animation zu beenden.
+- [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) um eine Animation abzubrechen.

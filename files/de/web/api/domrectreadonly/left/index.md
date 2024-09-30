@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`left`** schreibgeschützte Eigenschaft des **`DOMRectReadOnly`**-Interfaces gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, falls `width` negativ ist.)
+Die schreibgeschützte Eigenschaft **`left`** der **`DOMRectReadOnly`**-Schnittstelle gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, wenn `width` negativ ist.)
 
 ## Wert
 

@@ -12,13 +12,13 @@ Die schreibgeschützte Eigenschaft **`CharacterBoundsUpdateEvent.rangeEnd`** rep
 
 ## Wert
 
-Ein {{jsxref("Number")}}.
+Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
 ### Lesen des `rangeEnd`-Wertes
 
-Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis verwendet wird und wie die Werte der Eigenschaften `rangeStart` und `rangeEnd` gelesen werden.
+Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis verwendet wird und wie die Werte der Eigenschaften `rangeStart` und `rangeEnd` ausgelesen werden können.
 
 ```js
 const editContext = new EditContext();

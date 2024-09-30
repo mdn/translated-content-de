@@ -1,5 +1,5 @@
 ---
-title: "Navigator: wakeLock Eigenschaft"
+title: "Navigator: wakeLock-Eigenschaft"
 short-title: wakeLock
 slug: Web/API/Navigator/wakeLock
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ApiRef("Screen Wake Lock API")}}{{securecontext_header}}
 
-Die **`wakeLock`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`WakeLock`](/de/docs/Web/API/WakeLock)-Interface zurück, das es einem Dokument ermöglicht, einen Bildschirm-Wachsamkeitssperre zu erwerben. Solange eine Bildschirm-Wachsamkeitssperre aktiv ist, wird der Benutzeragent versuchen, das Gerät daran zu hindern, den Bildschirm zu dimmen, vollständig auszuschalten oder einen Bildschirmschoner anzuzeigen.
+Die schreibgeschützte **`wakeLock`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt eine [`WakeLock`](/de/docs/Web/API/WakeLock)-Schnittstelle zurück, die es einem Dokument ermöglicht, eine Bildschirm-Aufwach-Sperre zu erwerben.
+Während eine Bildschirm-Aufwach-Sperre aktiv ist, wird der Benutzeragent versuchen, zu verhindern, dass das Gerät den Bildschirm dimmt, vollständig ausschaltet oder einen Bildschirmschoner anzeigt.
 
 ## Syntax
 

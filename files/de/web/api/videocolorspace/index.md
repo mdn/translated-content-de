@@ -17,13 +17,13 @@ Die **`VideoColorSpace`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/Web
 ## Instanz-Eigenschaften
 
 - [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) {{ReadOnlyInline}}
-  - : Ein String, der die Farbprimären beschreibt, die den Farbumfang ([gamut](/de/docs/Glossary/gamut)) eines Videomusters angeben.
+  - : Ein String, der das Farbprimär beschreibt, der den Farb[gamut](/de/docs/Glossary/gamut) einer Video-Probe beschreibt.
 - [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)
-  - : Ein String, der die Transfercharakteristiken von Videomustern enthält.
+  - : Ein String, der die Übertragungscharakteristika der Video-Proben enthält.
 - [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)
-  - : Ein String, der die Matrixkoeffizienten beschreibt, die die Beziehung zwischen Musterkomponentenwerten und Farbkoordinaten darstellen.
+  - : Ein String, der die Matrix-Koeffizienten enthält, die die Beziehung zwischen Probenkomponentenwerten und Farbkoordinaten beschreiben.
 - [`VideoColorSpace.fullRange`](/de/docs/Web/API/VideoColorSpace/fullRange)
-  - : Ein {{jsxref("Boolean")}}. Wenn `true`, wird angezeigt, dass vollwertige Farbwerte verwendet werden.
+  - : Ein {{jsxref("Boolean")}}. Wenn `true` ist, zeigt dies an, dass volle Farbwerte verwendet werden.
 
 ## Instanz-Methoden
 

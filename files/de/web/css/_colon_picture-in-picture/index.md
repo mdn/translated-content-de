@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf das Element zu, das sich aktuell im Picture-in-Picture-Modus befindet.
+Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt das Element aus, das sich derzeit im Picture-in-Picture-Modus befindet.
 
 ## Syntax
 
@@ -17,13 +17,13 @@ Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/We
 }
 ```
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
-Die Pseudoklasse `:picture-in-picture` ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass die Größe, der Stil oder das Layout des Inhalts automatisch angepasst wird, wenn ein Video zwischen Picture-in-Picture und dem traditionellen Präsentationsmodus wechselt.
+Die `:picture-in-picture` Pseudoklasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass Größe, Stil oder Layout von Inhalten automatisch angepasst werden, wenn ein Video zwischen Picture-in-Picture und herkömmlichen Präsentationsmodi wechselt.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Video einen Schatten, wenn es im schwebenden Fenster angezeigt wird.
+In diesem Beispiel hat ein Video einen Box-Schatten, wenn es im schwebenden Fenster angezeigt wird.
 
 ### HTML
 
@@ -40,7 +40,7 @@ Das HTML der Seite sieht folgendermaßen aus:
 <video id="pip-video"></video>
 ```
 
-Das {{HTMLElement("video")}} mit der ID `"pip-video"` wird zwischen einem roten Box-Schatten und keinem wechseln, abhängig davon, ob es im Picture-in-Picture-Schwebefenster angezeigt wird oder nicht.
+Das {{HTMLElement("video")}} mit der ID `"pip-video"` wird zwischen einem roten Box-Schatten wechseln oder nicht, abhängig davon, ob es im schwebenden Picture-in-Picture-Fenster angezeigt wird.
 
 ### CSS
 
@@ -62,7 +62,7 @@ Die Magie passiert im CSS.
 
 ## Siehe auch
 
-- [Picture-in-picture API](/de/docs/Web/API/Picture-in-Picture_API)
+- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API)
 - [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
 - [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
 - [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)

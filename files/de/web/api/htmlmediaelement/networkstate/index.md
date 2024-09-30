@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Eigenschaft **`HTMLMediaElement.networkState`** gibt den aktuellen Status der Medienabfrage über das Netzwerk an.
+Die **`HTMLMediaElement.networkState`**-Eigenschaft gibt den aktuellen Status des Abrufs von Medien über das Netzwerk an.
 
 ## Wert
 
 Ein `unsigned short`. Mögliche Werte sind:
 
-| Konstante           | Wert | Beschreibung                                                                                     |
-| ------------------- | ---- | ------------------------------------------------------------------------------------------------ |
-| `NETWORK_EMPTY`     | 0    | Es gibt noch keine Daten. Außerdem ist `readyState` `HAVE_NOTHING`.                              |
-| `NETWORK_IDLE`      | 1    | Das HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, nutzt aber nicht das Netzwerk. |
-| `NETWORK_LOADING`   | 2    | Der Browser lädt HTMLMediaElement-Daten herunter.                                                |
-| `NETWORK_NO_SOURCE` | 3    | Keine HTMLMediaElement-Quelle gefunden.                                                          |
+| Konstante           | Wert  | Beschreibung                                                                           |
+| ------------------- | ----- | ------------------------------------------------------------------------------------- |
+| `NETWORK_EMPTY`     | 0     | Es sind noch keine Daten vorhanden. Außerdem ist `readyState` auf `HAVE_NOTHING`.     |
+| `NETWORK_IDLE`      | 1     | HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, nutzt aber das Netzwerk nicht. |
+| `NETWORK_LOADING`   | 2     | Der Browser lädt HTMLMediaElement-Daten herunter.                                     |
+| `NETWORK_NO_SOURCE` | 3     | Keine HTMLMediaElement-Quelle gefunden.                                                   |
 
 ## Beispiele
 
-Dieses Beispiel wird auf das Abspielen des Audio-Elements hören und dann überprüfen, ob weiterhin Daten geladen werden.
+Dieses Beispiel wird das Audio-Element überwachen, um zu beginnen, es abzuspielen, und dann überprüfen, ob es noch Daten lädt.
 
 ```html
 <audio id="example" preload="auto">

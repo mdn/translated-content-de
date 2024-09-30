@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`URL`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt den Speicherort des Dokuments als Zeichenkette zurück.
+Die **`URL`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Dokumentenstandort als Zeichenkette zurückgibt.
 
 ## Wert
 
@@ -45,4 +45,4 @@ document.getElementById("url").textContent = document.URL;
 
 ## Siehe auch
 
-- Die [`document.documentURI`](/de/docs/Web/API/Document/documentURI)-Eigenschaft, die den gleichen Wert zurückgibt.
+- Die [`document.documentURI`](/de/docs/Web/API/Document/documentURI)-Eigenschaft, die denselben Wert zurückgibt.

@@ -12,11 +12,11 @@ Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbare
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthalten hat, ist diese Liste leer. Wenn irgendwelche Dateien im Ziehvorgang enthalten sind, wird einer der Typen die Zeichenkette `Files` sein.
+Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthält, wird diese Liste leer sein. Wenn Dateien in den Ziehvorgang einbezogen sind, wird einer der Typen der String `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und [`items`](/de/docs/Web/API/DataTransfer/items).
+Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
 
 ```html
 <!doctype html>
@@ -103,7 +103,7 @@ Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und [`items`](/de
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

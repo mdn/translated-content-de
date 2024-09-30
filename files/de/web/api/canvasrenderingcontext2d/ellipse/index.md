@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.ellipse()`** Methode der Canvas 2D API fügt einen elliptischen Bogen zum aktuellen Unterpfad hinzu.
+Die
+**`CanvasRenderingContext2D.ellipse()`**
+Methode der Canvas 2D API fügt einen elliptischen Bogen zum aktuellen Unterpfad hinzu.
 
 ## Syntax
 
@@ -17,7 +19,7 @@ ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
 ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, counterclockwise)
 ```
 
-Die Methode `ellipse()` erzeugt einen elliptischen Bogen, der bei `(x, y)` zentriert ist, mit den Radien `radiusX` und `radiusY`. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und folgt der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
+Die `ellipse()` Methode erstellt einen elliptischen Bogen, der am Mittelpunkt `(x, y)` mit den Radien `radiusX` und `radiusY` zentriert ist. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und verläuft in der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
 
 ### Parameter
 
@@ -30,13 +32,13 @@ Die Methode `ellipse()` erzeugt einen elliptischen Bogen, der bei `(x, y)` zentr
 - `radiusY`
   - : Der Radius der Nebenachse der Ellipse. Muss nicht-negativ sein.
 - `rotation`
-  - : Die Drehung der Ellipse, ausgedrückt in Bogenmaß.
+  - : Die Rotation der Ellipse, ausgedrückt in Radiant.
 - `startAngle`
-  - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse beginnt, gemessen im Uhrzeigersinn von der positiven x-Achse und ausgedrückt in Bogenmaß.
+  - : Der [Exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse beginnt, im Uhrzeigersinn vom positiven x-Achse gemessen und in Radiant ausgedrückt.
 - `endAngle`
-  - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse endet, gemessen im Uhrzeigersinn von der positiven x-Achse und ausgedrückt in Bogenmaß.
+  - : Der [Exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse endet, im Uhrzeigersinn vom positiven x-Achse gemessen und in Radiant ausgedrückt.
 - `counterclockwise` {{optional_inline}}
-  - : Ein optionaler boolescher Wert, der, falls `true`, die Ellipse gegen den Uhrzeigersinn (entgegen dem Uhrzeigersinn) zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
+  - : Ein optionaler boolescher Wert, der bei `true` die Ellipse gegen den Uhrzeigersinn (entgegengesetzt dem Uhrzeigersinn) zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
 
 ### Rückgabewert
 
@@ -44,9 +46,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Vollständige Ellipse zeichnen
+### Zeichnen einer vollständigen Ellipse
 
-Dieses Beispiel zeichnet eine Ellipse in einem Winkel von π/4 Bogenmaß (45°). Um eine vollständige Ellipse zu erzeugen, beginnt der Bogen bei einem Winkel von 0 Bogenmaß (0°) und endet bei einem Winkel von 2π Bogenmaß (360°).
+Dieses Beispiel zeichnet eine Ellipse in einem Winkel von π/4 Radiant (45°). Um eine vollständige Ellipse zu zeichnen, beginnt der Bogen bei einem Winkel von 0 Radiant (0°) und endet bei einem Winkel von 2π Radiant (360°).
 
 #### HTML
 
@@ -123,5 +125,5 @@ ctx.fill();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - Verwenden Sie [`CanvasRenderingContext2D.arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc), um einen kreisförmigen Bogen zu zeichnen

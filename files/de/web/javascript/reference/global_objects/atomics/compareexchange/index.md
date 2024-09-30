@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.compareExchange()`** tauscht einen angegebenen Ersetzungswert an einer bestimmten Position im Array aus, wenn ein erwarteter Wert dem alten Wert entspricht. Sie gibt den alten Wert an dieser Position zurück, unabhängig davon, ob er dem erwarteten Wert entsprach oder nicht. Diese atomare Operation garantiert, dass keine andere Schreiboperation erfolgt, bis der geänderte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.compareExchange()`** tauscht einen gegebenen Ersatzwert an einer bestimmten Position im Array aus, wenn ein gegebener erwarteter Wert dem alten Wert entspricht. Sie gibt den alten Wert an dieser Position zurück, unabhängig davon, ob er dem erwarteten Wert entsprach oder nicht. Diese atomare Operation garantiert, dass keine andere Schreiboperation erfolgt, bis der geänderte Wert zurückgeschrieben wurde.
 
 {{EmbedInteractiveExample("pages/js/atomics-compareexchange.html")}}
 
@@ -20,11 +20,11 @@ Atomics.compareExchange(typedArray, index, expectedValue, replacementValue)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein ganzzahliges Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein `replacementValue` ausgetauscht wird.
+  - : Die Position im `typedArray`, an der ein `replacementValue` ausgetauscht werden soll.
 - `expectedValue`
-  - : Der Wert, der auf Gleichheit geprüft werden soll.
+  - : Der Wert, um auf Gleichheit zu prüfen.
 - `replacementValue`
   - : Die Zahl, die ausgetauscht werden soll.
 
@@ -35,9 +35,9 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`). Wenn der Rückg
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Ganzzahltypen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
 ## Beispiele
 
@@ -52,11 +52,11 @@ Atomics.compareExchange(ta, 0, 7, 12); // returns 7, the old value
 Atomics.load(ta, 0); // 12
 ```
 
-### Überprüfung des Rückgabewerts
+### Überprüfen des Rückgabewerts
 
-Der [Vergleich-und-Austausch](https://en.wikipedia.org/wiki/Compare-and-swap) garantiert, dass der neue Wert basierend auf aktuellen Informationen berechnet wird; wenn der Wert in der Zwischenzeit von einem anderen Thread aktualisiert wurde, würde das Schreiben fehlschlagen. Daher sollten Sie den Rückgabewert von `compareExchange()` überprüfen, um festzustellen, ob es fehlgeschlagen ist, und gegebenenfalls einen erneuten Versuch unternehmen.
+Das [Compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap) garantiert, dass der neue Wert auf Basis aktueller Informationen berechnet wird; wenn der Wert in der Zwischenzeit von einem anderen Thread aktualisiert wurde, würde das Schreiben scheitern. Daher sollten Sie den Rückgabewert von `compareExchange()` überprüfen, um festzustellen, ob es fehlgeschlagen ist, und bei Bedarf erneut versuchen.
 
-Hier ist ein Beispiel für einen atomaren Addierer (mit derselben Funktionalität wie {{jsxref("Atomics.add()")}}), adaptiert aus dem verlinkten Wikipedia-Artikel:
+Hier ist ein Beispiel eines atomaren Addierers (gleiche Funktionalität wie {{jsxref("Atomics.add()")}}), adaptiert aus dem verlinkten Wikipedia-Artikel:
 
 ```js
 function add(mem, index, value) {
@@ -69,7 +69,7 @@ function add(mem, index, value) {
 }
 ```
 
-Zuerst liest es den Wert am angegebenen Index aus und versucht dann, ihn mit dem neuen Wert zu aktualisieren. Es versucht es erneut, bis es den Wert erfolgreich aktualisiert hat.
+Es liest zunächst den Wert an dem angegebenen Index und versucht dann, ihn mit dem neuen Wert zu aktualisieren. Es versucht es immer wieder, bis es erfolgreich den Wert aktualisiert.
 
 ## Spezifikationen
 

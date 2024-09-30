@@ -8,11 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.parent`**-Eigenschaft ist eine Referenz auf das übergeordnete Fenster des aktuellen Fensters oder Unterfensters.
+Die **`Window.parent`**-Eigenschaft ist eine Referenz auf das übergeordnete
+Fenster oder Unterrahmen des aktuellen Fensters.
 
-Hat ein Fenster kein übergeordnetes Element, verweist seine `parent`-Eigenschaft auf sich selbst.
+Wenn ein Fenster kein übergeordnetes Element hat, ist seine `parent`-Eigenschaft eine Referenz
+auf sich selbst.
 
-Wenn ein Fenster in einem {{htmlelement("iframe")}}, {{htmlelement("object")}} oder {{htmlelement("frame")}} geladen wird, ist das übergeordnete Element das Fenster mit dem Element, das das Fenster einbettet.
+Wenn ein Fenster in einem {{htmlelement("iframe")}}, {{htmlelement("object")}} oder
+{{htmlelement("frame")}} geladen wird, ist sein übergeordnetes Element das Fenster mit dem Element, das das
+Fenster einbettet.
 
 ## Wert
 
@@ -36,5 +40,6 @@ if (window.parent !== window.top) {
 
 ## Siehe auch
 
-- [`window.frameElement`](/de/docs/Web/API/Window/frameElement) gibt das spezifische Element zurück (wie `<iframe>`), in das das `window` eingebettet ist.
+- [`window.frameElement`](/de/docs/Web/API/Window/frameElement) gibt das spezifische Element zurück (wie
+  `<iframe>`), in das das `window` eingebettet ist.
 - [`window.top`](/de/docs/Web/API/Window/top) gibt eine Referenz auf das oberste Fenster zurück.

@@ -7,9 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch ist die Lautstärke des Medienelements derzeit vom Benutzer "gesperrt".
+Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das in der Lage ist, Ton abzuspielen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber das Audiovolumen des Medienelements ist derzeit vom Benutzer "gesperrt".
 
-Benutzeragenten können Medien-`muted` oder `volume`-Werte entsprechend den Benutzereinstellungen festlegen (z. B. das letzte eingestellte Volumen über Sitzungen hinweg, für jede Website separat oder anderweitig merken). Ein Element, das `:volume-locked` ist, kann nicht stummgeschaltet, aktiviert oder dessen Lautstärke über JavaScript geändert werden. Der gesperrte Status ist eine Voreinstellung des Betriebssystems oder des Benutzeragenten.
+Benutzeragenten können Medien [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Werte gemäß den Benutzereinstellungen festlegen (z.B. das letzte eingestellte Volumen über Sitzungen hinweg merken, pro Seite oder auf andere Weise).
+Ein Element, das `:volume-locked` ist, kann weder stummgeschaltet, entstummt noch kann sein Volumen über JavaScript geändert werden. Der gesperrte Status ist eine Voreinstellung des Betriebssystems oder des Benutzeragenten.
 
 ## Syntax
 
@@ -50,4 +51,4 @@ video:volume-locked {
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten
+- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Objekten

@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontPaletteValuesRule`** Schnittstelle repräsentiert eine {{cssxref("@font-palette-values")}} [At-Regel](/de/docs/Web/CSS/At-rule).
+Die **`CSSFontPaletteValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-palette-values")}} [At-Regel](/de/docs/Web/CSS/At-rule).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSFontPaletteValuesRule.name`](/de/docs/Web/API/CSSFontPaletteValuesRule/name) {{ReadOnlyInline}}
-  - : Ein String mit dem Namen der Schriftpalette.
+  - : Ein String mit dem Namen der Schriftartpalette.
 - [`CSSFontPaletteValuesRule.fontFamily`](/de/docs/Web/API/CSSFontPaletteValuesRule/fontFamily) {{ReadOnlyInline}}
-  - : Ein String, der die Schriftfamilien angibt, auf die die Regel angewendet werden muss.
+  - : Ein String, der die Schriftarten angibt, auf die die Regel angewendet werden muss.
 - [`CSSFontPaletteValuesRule.basePalette`](/de/docs/Web/API/CSSFontPaletteValuesRule/basePalette) {{ReadOnlyInline}}
-  - : Ein String, der die mit der Regel verbundene Basis-Palette angibt.
+  - : Ein String, der die mit der Regel assoziierte Basis-Palette angibt.
 - [`CSSFontPaletteValuesRule.overrideColors`](/de/docs/Web/API/CSSFontPaletteValuesRule/overrideColors) {{ReadOnlyInline}}
-  - : Ein String, der die Farben der überschriebenen Basis-Palette und die neuen Farben angibt.
+  - : Ein String, der die Farben der Basis-Palette angibt, die überschrieben werden und die neuen Farben.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Erbt Methoden von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Zugehörige Schriftfamilie mit CSSOM lesen
+### Zugehörige Schriftartfamilie mit CSSOM lesen
 
-Dieses Beispiel definiert zunächst eine {{cssxref("@import")}} und eine {{cssxref("@font-palette-values")}} At-Regel. Dann liest es die {{cssxref("@font-palette-values")}} Regel und zeigt ihren Namen an. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule` Objekt zurück, von dem wir `fontFamily` abrufen können.
+Dieses Beispiel definiert zuerst eine {{cssxref("@import")}} und eine {{cssxref("@font-palette-values")}} At-Regel. Dann wird die {{cssxref("@font-palette-values")}} Regel gelesen und ihr Name angezeigt. Da diese Regeln im letzten ins Dokument hinzugefügten Stylesheet leben, ist die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule), die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule`-Objekt zurück, aus dem wir auf `fontFamily` zugreifen können.
 
 #### HTML
 

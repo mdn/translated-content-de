@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannelStats: protocol-Eigenschaft"
+title: "RTCDataChannelStats: Protokoll-Eigenschaft"
 short-title: protocol
 slug: Web/API/RTCDataChannelStats/protocol
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`protocol`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats) Wörterbuchs gibt einen String zurück, der das [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) des zugehörigen Datenkanals enthält.
+Die **`protocol`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt einen String zurück, der das [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) des zugehörigen Datenkanals enthält.
 
-Der Wert wird von der Website oder App definiert, wenn sie den Datenkanal erstellt.
+Der Wert wird von der Website oder App definiert, wenn der Datenkanal erstellt wird.
 
 ## Wert
 
-Ein String, der denselben Wert enthält wie die [`RTCDataChannel.protocol`](/de/docs/Web/API/RTCDataChannel/protocol) Eigenschaft des zugehörigen Datenkanals.
+Ein String, der denselben Wert wie die [`RTCDataChannel.protocol`](/de/docs/Web/API/RTCDataChannel/protocol)-Eigenschaft des zugehörigen Datenkanals enthält.
 
-Wenn kein Protokoll definiert wurde, ist dies der leere String ("").
+Wenn kein Protokoll definiert wurde, wird dies der leere String ("") sein.
 
 ## Spezifikationen
 

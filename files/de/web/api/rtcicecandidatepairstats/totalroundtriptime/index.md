@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`totalRoundTripTime`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekts ist die Gesamtzeit, die von dem Senden von [STUN](/de/docs/Glossary/STUN)-Anfragen bis zum Empfangen der Antworten vergangen ist. Dies gilt für alle solche Anfragen, die bisher für das von diesem `RTCIceCandidatePairStats`-Objekt beschriebene Kandidatenpaar gemacht wurden. Dieser Wert umfasst sowohl die Konnektivitäts- als auch die Zustimmungstest-Anfragen.
+Die **`totalRoundTripTime`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs ist die Gesamtzeit, die vergangen ist zwischen dem Senden von [STUN](/de/docs/Glossary/STUN)-Anfragen und dem Empfang der Antworten, für alle derartigen Anfragen, die bisher bei dem von diesem `RTCIceCandidatePairStats`-Objekt beschriebenen Kandidatenpaar getätigt wurden. Dieser Wert umfasst sowohl Verbindlichkeitsprüfungen als auch Zustimmungsprüfungen.
 
 ## Wert
 
-Dieser Gleitkommawert gibt die gesamte Anzahl der Sekunden an, die zwischen dem Versenden von STUN-Konnektivitäts- und Zustimmungstest-Anfragen und dem Erhalt ihrer Antworten vergangen sind, für alle bis dahin auf der beschriebenen Verbindung durchgeführten Anfragen zu diesem Kandidatenpaar.
+Dieser Fließkommawert gibt die gesamte Anzahl an Sekunden an, die vergangen sind, zwischen dem Senden von STUN-Verbindlichkeits- und Zustimmungsprüfungsanfragen und dem Empfang ihrer Antworten, für alle derartigen Anfragen, die bisher auf der Verbindung des beschriebenen Kandidatenpaars getätigt wurden.
 
-Sie können die durchschnittliche Round-Trip-Time (RTT) berechnen, indem Sie diesen Wert durch den Wert der [`responsesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/responsesReceived)-Eigenschaft teilen:
+Sie können die durchschnittliche Rundlaufzeit (RTT) berechnen, indem Sie diesen Wert durch den Wert der [`responsesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/responsesReceived)-Eigenschaft teilen:
 
 ```js
 rtt =

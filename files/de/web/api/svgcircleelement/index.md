@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGCircleElement`**-Schnittstelle ist eine Schnittstelle für das {{SVGElement("circle")}}-Element.
+Die **`SVGCircleElement`** Schnittstelle ist eine Schnittstelle für das {{SVGElement("circle")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -20,7 +20,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGeometry
 - [`SVGCircleElement.cy`](/de/docs/Web/API/SVGCircleElement/cy) {{ReadOnlyInline}}
   - : Diese Eigenschaft definiert die y-Koordinate des Zentrums des `<circle>`-Elements. Sie wird durch das {{SVGAttr("cy")}}-Attribut des Elements angegeben.
 - [`SVGCircleElement.r`](/de/docs/Web/API/SVGCircleElement/r) {{ReadOnlyInline}}
-  - : Diese Eigenschaft definiert den Radius des `<circle>`-Elements. Sie wird durch das {{SVGAttr("r")}}-Attribut des Elements angegeben.
+  - : Diese Eigenschaft definiert den Radius des `<circle>`-Elements. Sie wird durch das {{SVGAttr("r")}} des Elements angegeben.
 
 ## Instanz-Methoden
 
@@ -28,7 +28,7 @@ _Erbt Methoden von ihrer Elternschnittstelle, [`SVGGeometryElement`](/de/docs/We
 
 ## Beispiele
 
-### Skalierung eines Kreises
+### Kreis vergrößern oder verkleinern
 
 In diesem Beispiel zeichnen wir einen Kreis und vergrößern oder verkleinern zufällig seinen Radius, wenn Sie darauf klicken.
 
@@ -64,7 +64,7 @@ function clickCircle() {
 }
 ```
 
-{{EmbedLiveSample('Skalierung eines Kreises', '', '300')}}
+{{EmbedLiveSample('Kreis vergrößern oder verkleinern', '', '300')}}
 
 ## Spezifikationen
 

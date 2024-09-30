@@ -1,5 +1,5 @@
 ---
-title: "CookieChangeEvent: CookieChangeEvent() Konstruktor"
+title: "CookieChangeEvent: CookieChangeEvent()-Konstruktor"
 short-title: CookieChangeEvent()
 slug: Web/API/CookieChangeEvent/CookieChangeEvent
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Der **`CookieChangeEvent()`** Konstruktor erstellt ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent) Objekt,
-welches der Ereignistyp des [`change`](/de/docs/Web/API/CookieStore/change_event) Ereignisses ist, das bei einer [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn sich ein Cookie ändert.
-Dieser Konstruktor wird vom Browser aufgerufen, wenn ein Veränderungsereignis auftritt.
+Der **`CookieChangeEvent()`**-Konstruktor erstellt ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Objekt,
+welches der Ereignistyp des [`change`](/de/docs/Web/API/CookieStore/change_event)-Ereignisses ist, das bei einem [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn Änderungen an einem Cookie erfolgen.
+Dieser Konstruktor wird vom Browser aufgerufen, wenn ein Änderungsereignis auftritt.
 
 > [!NOTE]
-> Dieser Ereignis-Konstruktor wird in der Regel nicht für Produktionswebsites benötigt. Sein Hauptzweck liegt in Tests, die eine Instanz dieses Ereignisses erfordern.
+> Dieser Ereignis-Konstruktor wird in der Regel nicht für Produktionswebsites benötigt. Seine primäre Verwendung ist für Tests, die eine Instanz dieses Ereignisses erfordern.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ new CookieChangeEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Er ist groß-/kleinschreibungssensitiv und wird von Browsern immer auf `change` gesetzt.
+  - : Ein String mit dem Namen des Ereignisses. Er ist case-sensitive und Browser setzen ihn immer auf `change`.
 - `options` {{Optional_Inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
     - `changed` {{Optional_Inline}}
       - : Ein Array, das die geänderten Cookies enthält.
     - `deleted` {{Optional_Inline}}
@@ -35,7 +35,7 @@ new CookieChangeEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent) Objekt.
+Ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Objekt.
 
 ## Spezifikationen
 

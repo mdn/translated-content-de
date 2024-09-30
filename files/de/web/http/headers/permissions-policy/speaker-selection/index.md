@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `speaker-selection` steuert, ob das aktuelle Dokument berechtigt ist, Audioausgabegeräte (Lautsprecher, Kopfhörer usw.) aufzulisten und auszuwählen.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `speaker-selection` steuert, ob das aktuelle Dokument berechtigt ist, Audioausgabegeräte (Lautsprecher, Kopfhörer usw.) aufzulisten und auszuwählen.
 
-Speziell in Fällen, in denen eine definierte Richtlinie die Verwendung dieser Funktion blockiert:
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert:
 
-- [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) gibt keine Geräte vom Typ _Audioausgabe_ zurück.
-- [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) zeigt das Auswahlfenster für die Audioausgabe nicht an, und das zurückgegebene {{jsxref("Promise")}} wird mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt.
+- [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) wird keine Geräte vom Typ _Audioausgabe_ zurückgeben.
+- [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) wird das Popup zur Auswahl einer Audioausgabe nicht anzeigen, und der zurückgegebene {{jsxref("Promise")}} wird mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt.
 - [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) und [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) werfen einen `NotAllowedError`, wenn sie für eine Audioausgabe aufgerufen werden.
 
 ## Syntax
@@ -22,7 +22,7 @@ Permissions-Policy: speaker-selection=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, das Feature zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
@@ -39,4 +39,4 @@ Die Standard-Allowlist für `speaker-selection` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

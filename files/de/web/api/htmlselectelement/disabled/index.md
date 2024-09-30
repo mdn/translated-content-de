@@ -10,7 +10,7 @@ l10n:
 
 Die **`HTMLSelectElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das
 [`disabled`](/de/docs/Web/HTML/Element/select#disabled)
-HTML-Attribut widerspiegelt, welches angibt, ob die Steuerung deaktiviert ist. Wenn sie deaktiviert ist, akzeptiert sie keine Klicks. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
+HTML-Attribut widerspiegelt, welches anzeigt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
 
 ## Wert
 

@@ -9,9 +9,9 @@ l10n:
 
 Ein Modem ("**Modulator-Demodulator**") ist ein Gerät, das digitale Informationen in analoge Signale umwandelt und umgekehrt, um Daten über Netzwerke zu senden.
 
-Verschiedene Arten werden für unterschiedliche Netzwerke verwendet: DSL-Modems für Telefonleitungen, Wi-Fi-Modems für kabellose Funksignale im Nahbereich, 3G-Modems für Mobilfunkmasten und so weiter.
+Verschiedene Arten werden für verschiedene Netzwerke verwendet: DSL-Modems für Telefonleitungen, Wi-Fi-Modems für drahtlose Kurzstreckenfunksignale, 3G-Modems für Mobilfunkdatentürme und so weiter.
 
-Modems unterscheiden sich von [Routern](/de/docs/Glossary/Router), aber viele Unternehmen verkaufen Modems kombiniert mit Routern.
+Modems unterscheiden sich von [Routern](/de/docs/Glossary/Router), aber viele Unternehmen verkaufen Modems, die mit Routern kombiniert sind.
 
 ## Siehe auch
 

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: hasUnpartitionedCookieAccess() Methode"
+title: "Document: hasUnpartitionedCookieAccess()-Methode"
 short-title: hasUnpartitionedCookieAccess()
 slug: Web/API/Document/hasUnpartitionedCookieAccess
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`hasUnpartitionedCookieAccess()`** Methode des [`Document`](/de/docs/Web/API/Document) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf [Drittanbieter-](/de/docs/Web/Privacy/Third-party_cookies), [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies hat.
+Die **`hasUnpartitionedCookieAccess()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf [Drittanbieter-](/de/docs/Web/Privacy/Third-party_cookies) und [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies hat.
 
 Diese Methode ist Teil der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 
@@ -28,12 +28,12 @@ Keine.
 
 Ein {{jsxref("Promise")}}, das mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf Drittanbieter-Cookies hat — `true`, wenn ja, und `false`, wenn nicht.
 
-Siehe [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) für mehr Details.
+Siehe [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) für weitere Details.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
+  - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
 
 ## Beispiele
 
@@ -65,4 +65,4 @@ document.hasUnpartitionedCookieAccess().then((hasAccess) => {
 
 - [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess), [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess), [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
-- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)
+- [Einführung in die Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)

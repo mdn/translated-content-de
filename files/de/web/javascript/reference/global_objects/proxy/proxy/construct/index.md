@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`handler.construct()`** ist eine Falle für die `[[Construct]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}}-Operator verwendet wird. Damit die `new`-Operation am resultierenden Proxy-Objekt gültig ist, muss das zur Initialisierung des Proxys verwendete Ziel selbst ein gültiger Konstruktor sein.
+Die **`handler.construct()`**-Methode ist eine Falle für die `[[Construct]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}}-Operator verwendet wird. Damit die new-Operation auf dem resultierenden Proxy-Objekt gültig ist, muss das zur Initialisierung des Proxy verwendete Ziel selbst ein gültiger Konstruktor sein.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-construct.html", "taller")}}
 
@@ -25,32 +25,32 @@ new Proxy(target, {
 Die folgenden Parameter werden an die `construct()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das Ziel-Konstrukturobjekt.
+  - : Das Zielkonstruktorobjekt.
 - `argumentsList`
   - : Ein {{jsxref("Array")}}, das die an den Konstruktor übergebenen Argumente enthält.
 - `newTarget`
-  - : Der Konstruktor, der ursprünglich aufgerufen wurde.
+  - : Der ursprünglich aufgerufene Konstruktor.
 
 ### Rückgabewert
 
-Die `construct()`-Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt darstellt.
+Die `construct()`-Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt repräsentiert.
 
 ## Beschreibung
 
-### Abfangmöglichkeiten
+### Abfangungen
 
 Diese Falle kann folgende Operationen abfangen:
 
-- Den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator: `new myFunction(...args)`
+- Der [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator: `new myFunction(...args)`
 - {{jsxref("Reflect.construct()")}}
 
 Oder jede andere Operation, die die `[[Construct]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[Construct]]`-Interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Construct]]`-interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- `target` muss selbst ein Konstruktor sein.
+- Der `target` muss selbst ein Konstruktor sein.
 - Das Ergebnis muss ein {{jsxref("Object")}} sein.
 
 ## Beispiele
@@ -83,7 +83,7 @@ const p = new Proxy(function () {}, {
 new p(); // TypeError is thrown
 ```
 
-Der folgende Code initialisiert den Proxy unsachgemäß. Das `target` bei der Proxy-Initialisierung muss selbst ein gültiger Konstruktor für den {{jsxref("Operators/new", "new")}}-Operator sein.
+Der folgende Code initialisiert den Proxy unsachgemäß. Der `target` bei der Proxy-Initialisierung muss für den {{jsxref("Operators/new", "new")}}-Operator selbst ein gültiger Konstruktor sein.
 
 ```js example-bad
 const p = new Proxy(

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.fromEntries()`** wandelt eine Liste von Schlüssel-Wert-Paaren in ein Objekt um.
+Die statische Methode **`Object.fromEntries()`** verwandelt eine Liste von Schlüssel-Wert-Paaren in ein Objekt.
 
 {{EmbedInteractiveExample("pages/js/object-fromentries.html")}}
 
@@ -21,10 +21,10 @@ Object.fromEntries(iterable)
 
 - `iterable`
 
-  - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), wie ein {{jsxref("Array")}} oder {{jsxref("Map")}}, das eine Liste von Objekten enthält. Jedes Objekt sollte zwei Eigenschaften haben:
+  - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), wie ein {{jsxref("Array")}} oder eine {{jsxref("Map")}}, das eine Liste von Objekten enthält. Jedes Objekt sollte zwei Eigenschaften haben:
 
     - `0`
-      - : Ein String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), das den Eigenschaftsschlüssel repräsentiert.
+      - : Ein String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), das den Eigenschaftsschlüssel darstellt.
     - `1`
       - : Der Eigenschaftswert.
 
@@ -36,18 +36,18 @@ Ein neues Objekt, dessen Eigenschaften durch die Einträge des Iterables gegeben
 
 ## Beschreibung
 
-Die Methode `Object.fromEntries()` nimmt eine Liste von Schlüssel-Wert-Paaren und gibt ein neues Objekt zurück, dessen Eigenschaften durch diese Einträge gegeben sind. Das Argument `iterable` sollte ein Objekt sein, das eine `[Symbol.iterator]()`-Methode implementiert. Die Methode gibt ein Iterator-Objekt zurück, das array-ähnliche Objekte mit zwei Elementen erzeugt. Das erste Element ist ein Wert, der als Eigenschaftsschlüssel verwendet wird, und das zweite Element ist der Wert, der mit diesem Eigenschaftsschlüssel verbunden wird.
+Die Methode `Object.fromEntries()` nimmt eine Liste von Schlüssel-Wert-Paaren und gibt ein neues Objekt zurück, dessen Eigenschaften durch diese Einträge gegeben sind. Das Argument `iterable` wird erwartet, ein Objekt zu sein, das eine `[Symbol.iterator]()`-Methode implementiert. Die Methode gibt ein Iterator-Objekt zurück, das Array-ähnliche Objekte mit zwei Elementen produziert. Das erste Element ist ein Wert, der als Eigenschaftsschlüssel verwendet wird, und das zweite Element ist der Wert, der diesem Eigenschaftsschlüssel zugeordnet werden soll.
 
-`Object.fromEntries()` führt das Umgekehrte von {{jsxref("Object.entries()")}} aus, außer dass `Object.entries()` nur Eigenschaften mit String-Schlüssel zurückgibt, während `Object.fromEntries()` auch Eigenschaften mit Symbol-Schlüssel erstellen kann.
+`Object.fromEntries()` führt die Umkehrung von {{jsxref("Object.entries()")}} aus, wobei `Object.entries()` nur Eigenschaften mit String-Schlüsseln zurückgibt, während `Object.fromEntries()` auch Symbol-Schlüssel erstellen kann.
 
 > [!NOTE]
-> Im Gegensatz zu {{jsxref("Array.from()")}} verwendet `Object.fromEntries()` nicht den Wert von `this`, daher erzeugt der Aufruf auf einem anderen Konstruktor keine Objekte dieses Typs.
+> Im Gegensatz zu {{jsxref("Array.from()")}} verwendet `Object.fromEntries()` nicht den Wert von `this`, sodass der Aufruf bei einem anderen Konstruktor keine Objekte dieses Typs erstellt.
 
 ## Beispiele
 
-### Konvertieren einer Map in ein Objekt
+### Umwandeln einer Map in ein Objekt
 
-Mit `Object.fromEntries` können Sie von {{jsxref("Map")}} zu {{jsxref("Object")}} konvertieren:
+Mit `Object.fromEntries` können Sie von einer {{jsxref("Map")}} auf ein {{jsxref("Object")}} konvertieren:
 
 ```js
 const map = new Map([
@@ -58,9 +58,9 @@ const obj = Object.fromEntries(map);
 console.log(obj); // { foo: "bar", baz: 42 }
 ```
 
-### Konvertieren eines Arrays in ein Objekt
+### Umwandeln eines Arrays in ein Objekt
 
-Mit `Object.fromEntries` können Sie von {{jsxref("Array")}} zu {{jsxref("Object")}} konvertieren:
+Mit `Object.fromEntries` können Sie von einem {{jsxref("Array")}} auf ein {{jsxref("Object")}} konvertieren:
 
 ```js
 const arr = [
@@ -72,9 +72,9 @@ const obj = Object.fromEntries(arr);
 console.log(obj); // { 0: "a", 1: "b", 2: "c" }
 ```
 
-### Objekttransformationen
+### Objektumwandlungen
 
-Mit `Object.fromEntries`, seiner Umkehrmethode {{jsxref("Object.entries()")}} und [Array-Methoden zur Manipulation](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods) können Sie Objekte wie folgt transformieren:
+Mit `Object.fromEntries`, seiner Gegenmethode {{jsxref("Object.entries()")}} und [Array-Manipulationsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods) können Sie Objekte wie folgt umwandeln:
 
 ```js
 const object1 = { a: 1, b: 2, c: 3 };

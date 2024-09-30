@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feSpecularLighting>`** [SVG](/de/docs/Web/SVG) Filterprimitiv beleuchtet eine Quellgrafik unter Verwendung des Alphakanals als Bump-Map. Das resultierende Bild ist ein RGBA-Bild basierend auf der Lichtfarbe. Die Beleuchtungsberechnung folgt der standardmäßigen spekulären Komponente des [Phong-Beleuchtungsmodells](https://en.wikipedia.org/wiki/Phong_reflection_model). Das resultierende Bild hängt von der Lichtfarbe, der Lichtposition und der Oberflächengeometrie der Eingabe-Bump-Map ab. Das Ergebnis der Beleuchtungsberechnung wird hinzugefügt. Das Filterprimitiv geht davon aus, dass sich der Betrachter in der z-Richtung im Unendlichen befindet.
+Das **`<feSpecularLighting>`** [SVG](/de/docs/Web/SVG) Filter-Primitive beleuchtet eine Ausgangsgrafik unter Verwendung des Alphakanals als Bump-Map. Das resultierende Bild ist ein RGBA-Bild basierend auf der Lichtfarbe. Die Beleuchtungsberechnung folgt der standardmäßigen spekulären Komponente des [Phong-Beleuchtungsmodells](https://en.wikipedia.org/wiki/Phong_reflection_model). Das resultierende Bild hängt von der Lichtfarbe, der Lichtposition und der Oberflächengestaltung der Eingabebumpmap ab. Das Ergebnis der Beleuchtungsberechnung wird hinzugefügt. Das Filter-Primitive geht davon aus, dass der Betrachter in der z-Richtung im Unendlichen ist.
 
-Dieses Filterprimitiv erzeugt ein Bild, das den spekulären Reflexionsteil der Beleuchtungsberechnung enthält. Eine solche Karte ist dazu gedacht, mit einer Textur unter Verwendung des `add`-Begriffs der arithmetischen Methode {{SVGElement("feComposite")}} kombiniert zu werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten hinzugefügt werden, bevor sie auf das Texturbild angewendet werden.
+Dieses Filter-Primitive erzeugt ein Bild, das den spekulären Reflexionsteil der Beleuchtungsberechnung enthält. Eine solche Karte soll mit einer Textur unter Verwendung des `add` Terms der arithmetischen Methode {{SVGElement("feComposite")}} kombiniert werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten hinzugefügt werden, bevor sie auf das Texturbild angewendet werden.
 
 ## Verwendungskontext
 
@@ -25,7 +25,7 @@ Dieses Filterprimitiv erzeugt ein Bild, das den spekulären Reflexionsteil der B
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement).
 
 ## Beispiel
 
@@ -88,4 +88,4 @@ Dieses Element implementiert die [`SVGFESpecularLightingElement`](/de/docs/Web/A
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

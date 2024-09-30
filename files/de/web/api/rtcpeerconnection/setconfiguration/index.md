@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: setConfiguration()-Methode"
+title: "RTCPeerConnection: setConfiguration() Methode"
 short-title: setConfiguration()
 slug: Web/API/RTCPeerConnection/setConfiguration
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`setConfiguration()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle legt die aktuelle Konfiguration der Verbindung basierend auf den Werten des angegebenen Objekts fest. Dadurch können Sie die von der Verbindung verwendeten ICE-Server und die zu verwendenden Transportprotokolle ändern.
+Die **`setConfiguration()`**-Methode der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) legt die aktuelle Konfiguration der Verbindung basierend auf den Werten fest, die im angegebenen Objekt enthalten sind. Dies ermöglicht es Ihnen, die von der Verbindung verwendeten ICE-Server und die zu verwendenden Transport-Richtlinien zu ändern.
 
-Der häufigste Anwendungsfall für diese Methode (und selbst dann möglicherweise kein sehr häufiger Anwendungsfall) ist das Ersetzen der zu verwendenden ICE-Server. Zwei mögliche Szenarien, in denen dies geschehen könnte:
+Der häufigste Anwendungsfall für diese Methode (und selbst dieser ist wahrscheinlich nicht sehr häufig) besteht darin, die Menge der zu verwendenden ICE-Server zu ersetzen. Zwei potenzielle Szenarien, in denen dies möglich sein könnte:
 
-- Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) wurde instanziiert, ohne ICE-Server anzugeben. Wenn z.B. der [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktor ohne Parameter aufgerufen wurde, müssen Sie `setConfiguration()` aufrufen, um ICE-Server hinzuzufügen, bevor die ICE-Aushandlung beginnen kann.
-- Eine Neuverhandlung der Verbindung ist erforderlich, und es muss aus irgendeinem Grund ein anderer Satz von ICE-Servern verwendet werden. Vielleicht ist der Benutzer in eine neue Region umgezogen, sodass die Verwendung neuer regionaler ICE-Server erforderlich ist. In dieser Situation könnte man `setConfiguration()` aufrufen, um zu neuen regionalen ICE-Servern zu wechseln, und dann einen [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) initiieren.
+- Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) wurde erstellt, ohne ICE-Server anzugeben. Wenn zum Beispiel der [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktor ohne Parameter aufgerufen wurde, müssten Sie dann `setConfiguration()` aufrufen, um ICE-Server hinzuzufügen, bevor die ICE-Verhandlung beginnen kann.
+- Eine Neuverhandlung der Verbindung ist erforderlich, und aus irgendeinem Grund muss ein anderes Set von ICE-Servern verwendet werden. Vielleicht hat sich der Benutzer in eine neue Region bewegt, sodass die Verwendung neuer regionaler ICE-Server notwendig ist. In diesem Fall könnte man `setConfiguration()` aufrufen, um auf neue regionale ICE-Server zu wechseln, und dann einen [ICE Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) initiieren.
 
 > [!NOTE]
-> Sie können die Identitätsinformationen für eine Verbindung nicht ändern, nachdem sie bereits festgelegt wurden.
+> Sie können die Identitätsinformationen einer Verbindung nicht ändern, sobald diese bereits festgelegt wurden.
 
 ## Syntax
 
@@ -27,14 +27,14 @@ setConfiguration(configuration)
 ### Parameter
 
 - `configuration`
-  - : Ein Objekt, das die festzulegenden Optionen bereitstellt. Die Änderungen sind nicht additiv; stattdessen ersetzen die neuen Werte vollständig die vorhandenen Werte. Weitere Informationen zu den zulässigen Optionen finden Sie in [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters).
+  - : Ein Objekt, das die zu setzenden Optionen bereitstellt. Die Änderungen sind nicht additiv; stattdessen ersetzen die neuen Werte vollständig die bestehenden. Weitere Informationen zu erlaubten Optionen finden Sie unter [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters).
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine oder mehrere URLs, die in `configuration.iceServers` angegeben sind, ein [TURN](/de/docs/Glossary/TURN)-Server ist, aber keine vollständigen Anmeldeinformationen bereitgestellt werden (d.h., entweder der `username` oder das `credential` fehlt oder wenn `credentialType` `"password"` ist und `credential` kein String ist). Dies verhindert eine erfolgreiche Anmeldung beim Server.
+  - : Wird ausgelöst, wenn eine oder mehrere der in `configuration.iceServers` angegebenen URLs ein [TURN](/de/docs/Glossary/TURN)-Server sind, jedoch keine vollständigen Anmeldeinformationen bereitgestellt werden (d.h. entweder der `username` oder die `credential` fehlt, oder wenn `credentialType` `"password"` ist und `credential` kein String ist). Dies verhindert eine erfolgreiche Anmeldung beim Server.
 - `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `configuration` geänderte Identitätsinformationen enthält, die Verbindung jedoch bereits Identitätsinformationen spezifiziert hat. Dies geschieht, wenn `configuration.peerIdentity` oder `configuration.certificates` gesetzt sind und ihre Werte von der aktuellen Konfiguration abweichen. Dies kann auch ausgelöst werden, wenn es Änderungen an `configuration.bundlePolicy` oder `configuration.rtcpMuxPolicy` oder an `configuration.iceCandidatePoolSize` gibt, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) bereits aufgerufen wurde.
+  - : Wird ausgelöst, wenn die `configuration` geänderte Identitätsinformationen enthält, die Verbindung jedoch bereits Identitätsinformationen festgelegt hat. Dies tritt auf, wenn `configuration.peerIdentity` oder `configuration.certificates` festgelegt sind und deren Werte sich von der aktuellen Konfiguration unterscheiden. Dies kann auch auftreten, wenn Änderungen an `configuration.bundlePolicy` oder `configuration.rtcpMuxPolicy`, oder an `configuration.iceCandidatePoolSize` vorgenommen werden, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) bereits aufgerufen wurde.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geschlossen ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
@@ -44,7 +44,7 @@ setConfiguration(configuration)
 
 ## Beispiel
 
-In diesem Beispiel wurde bereits festgestellt, dass ein ICE-Neustart erforderlich ist und die Aushandlung mit einem anderen ICE-Server durchgeführt werden muss.
+In diesem Beispiel wurde bereits festgestellt, dass ein ICE-Neustart erforderlich ist und dass die Verhandlung mit einem anderen ICE-Server durchgeführt werden muss.
 
 ```js
 const restartConfig = {
@@ -68,7 +68,7 @@ myPeerConnection
   .catch(window.reportError);
 ```
 
-Zuerst wird ein neues Objekt, `restartConfig`, erstellt, das den neuen ICE-Server und seine Anmeldeinformationen spezifiziert. Dieses wird dann `setConfiguration()` übergeben. Die ICE-Aushandlung wird durch Aufrufen von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) neu gestartet, wobei `true` als Wert der `iceRestart`-Option angegeben wird. Von dort aus führen wir den Prozess wie gewohnt fort, indem wir die lokale Beschreibung auf das zurückgegebene Angebot setzen und dieses Angebot dann an den anderen Teilnehmer senden.
+Zunächst wird ein neues Objekt `restartConfig` erstellt, das den neuen ICE-Server und dessen Anmeldeinformationen angibt. Dieses wird dann in `setConfiguration()` übergeben. Die ICE-Verhandlung wird durch Aufrufen von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer), wobei `true` als Wert der `iceRestart`-Option angegeben wird, neu gestartet. Von dort aus erfolgt der Rest des Prozesses wie gewohnt, indem die lokale Beschreibung auf das zurückgegebene Angebot gesetzt wird und dieses Angebot dann an den anderen Teilnehmer gesendet wird.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mod()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt einen Modulus zurück, der übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript-[Restoperator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Der Modulus ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Er übernimmt immer das Vorzeichen des Divisors.
+Die **`mod()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt ein Modulus zurück, das übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript [Modulo-Operator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Das Modulus ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Es nimmt immer das Vorzeichen des Divisors an.
 
-> Beispielsweise gibt die CSS-`mod(21, -4)`-Funktion den Rest `-1` zurück. Wenn man 21 durch -4 teilt, ergibt das 5 mit einem Rest von -1. Die vollständige Berechnung ist `21 / -4 = -4 * 5 - 1`.
+> Zum Beispiel gibt die CSS `mod(21, -4)` Funktion das Restwert `-1` zurück. Beim Teilen von 21 durch -4 ist das Ergebnis 5 mit einem Rest von -1. Die vollständige Berechnung ist `21 / -4 = -4 * 5 - 1`.
 
 ## Syntax
 
@@ -40,18 +40,18 @@ transition-duration: mod(20s / 2, 3000ms * 2); /* 4s */
 
 ### Parameter
 
-Die `mod(dividend, divisor)`-Funktion akzeptiert zwei durch Komma getrennte Werte als Parameter. Beide Parameter müssen denselben Typ haben, [number](/de/docs/Web/CSS/number), [dimension](/de/docs/Web/CSS/dimension), oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten der beiden Parameter nicht identisch sein müssen, müssen sie vom gleichen Dimensionstyp sein, wie beispielsweise {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}}, um gültig zu sein.
+Die Funktion `mod(dividend, divisor)` akzeptiert zwei durch Komma getrennte Werte als Parameter. Beide Parameter müssen denselben Typ haben, [number](/de/docs/Web/CSS/number), [dimension](/de/docs/Web/CSS/dimension), oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten in den beiden Parametern nicht gleich sein müssen, müssen sie denselben Dimensionstyp haben, wie {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}}, um gültig zu sein.
 
 - `dividend`
 
-  - : Eine Berechnung, die zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} aufgelöst wird und den Dividend darstellt.
+  - : Eine Berechnung, die sich zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Dividend darstellt.
 
 - `divisor`
-  - : Eine Berechnung, die zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} aufgelöst wird und den Divisor darstellt.
+  - : Eine Berechnung, die sich zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Divisor darstellt.
 
 ### Rückgabewert
 
-Gibt ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} (entspricht dem Typ der Parameter) zurück, das den Modulus darstellt, der das übrig gebliebene Ergebnis der Operation ist.
+Gibt ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} zurück (entspricht dem Typ der Parameter), das das Modulus darstellt, also den übrig gebliebenen Wert der Operation.
 
 - Wenn `divisor` `0` ist, ist das Ergebnis `NaN`.
 - Wenn `dividend` unendlich ist, ist das Ergebnis `NaN`.

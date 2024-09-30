@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`x`**-Eigenschaft des [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Interfaces gibt eine Zahl zurück, die die Winkelgeschwindigkeit des Geräts entlang seiner x-Achse angibt.
+Die schreibgeschützte Eigenschaft **`x`** des [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Interfaces liefert eine Zahl, die die Winkelgeschwindigkeit des Geräts entlang seiner x-Achse angibt.
 
 ## Wert
 
-Ein {{jsxref('Number')}}.
+Eine {{jsxref('Number')}}.
 
 ## Beispiele
 
-Das Gyroskop wird typischerweise im Callback des [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignisses abgerufen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Das Gyroskop wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let gyroscope = new Gyroscope({ frequency: 60 });

@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("service")}}
 
-Der **`ExtendableCookieChangeEvent()`** Konstruktor erstellt ein neues [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent) Objekt, welches der Ereignistyp ist, der an das [`cookiechange`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookiechange_event) Ereignis übergeben wird, das im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgelöst wird, wenn Änderungen an Cookies auftreten, die mit der Cookie-Änderungsabonnementliste des Service Workers übereinstimmen. Dieser Konstruktor wird vom Browser aufgerufen, wenn ein Änderungsereignis auftritt.
+Der **`ExtendableCookieChangeEvent()`** Konstruktor erstellt ein neues [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent) Objekt, welches der Ereignistyp ist, der an das [`cookiechange`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookiechange_event) Ereignis übergeben wird. Dieses tritt im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) auf, wenn Änderungen an Cookies auftreten, die der Abonnementliste der Dienstarbeiter für Cookie-Änderungen entsprechen. Dieser Konstruktor wird vom Browser aufgerufen, wenn ein Änderungsereignis auftritt.
 
 > [!NOTE]
-> Dieser Ereigniskonstruktor wird im Allgemeinen nicht für Produktionswebsites benötigt. Seine primäre Verwendung ist für Tests, die eine Instanz dieses Ereignisses erfordern.
+> Dieser Ereigniskonstruktor wird im Allgemeinen nicht für Produktionswebsites benötigt. Sein primärer Nutzen liegt in Tests, die eine Instanz dieses Ereignisses erfordern.
 
 ## Syntax
 
@@ -23,14 +23,13 @@ new ExtendableCookieChangeEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `cookiechange`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitiv und Browser setzen es immer auf `cookiechange`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definiert sind_, die folgenden Eigenschaften haben kann:
     - `changed` {{optional_inline}}
-      - : Ein Array, das ein geändertes Cookie enthält.
+      - : Ein Array mit einem geänderten Cookie.
     - `deleted` {{optional_inline}}
-      - : Ein Array, das ein gelöschtes Cookie enthält.
+      - : Ein Array mit einem gelöschten Cookie.
 
 ### Rückgabewert
 

@@ -1,5 +1,5 @@
 ---
-title: "OffscreenCanvas: contextlost-Ereignis"
+title: "OffscreenCanvas: contextlost Ereignis"
 short-title: contextlost
 slug: Web/API/OffscreenCanvas/contextlost_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Das **`contextlost`**-Ereignis des [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Interfaces wird ausgelöst, wenn der Browser feststellt, dass der [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)-Kontext verloren gegangen ist. Kontexte können aus verschiedenen Gründen verloren gehen, z. B. durch einen Absturz des zugehörigen GPU-Treibers oder wenn der Anwendungsspeicher ausgeht, und so weiter.
+Das **`contextlost`** Ereignis der [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Schnittstelle wird ausgelöst, wenn der Browser erkennt, dass der [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) Kontext verloren gegangen ist. Kontexte können aus verschiedenen Gründen verloren gehen, wie z.B. wenn ein zugehöriger GPU-Treiber abstürzt oder die Anwendung keinen Speicherplatz mehr hat.
 
-Standardmäßig versucht der Benutzeragent, den Kontext wiederherzustellen, und löst dann das [`contextrestored`-Ereignis](/de/docs/Web/API/OffscreenCanvas/contextrestored_event) aus. Benutzerdefinierter Code kann verhindern, dass der Kontext wiederhergestellt wird, indem während der Ereignisbehandlung [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen wird.
+Standardmäßig versucht der User-Agent, den Kontext wiederherzustellen und löst dann das [`contextrestored` Ereignis](/de/docs/Web/API/OffscreenCanvas/contextrestored_event) aus. Benutzer-Code kann verhindern, dass der Kontext wiederhergestellt wird, indem [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) während der Ereignisbehandlung aufgerufen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("contextlost", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Codefragment erkennt das `contextlost`-Ereignis.
+Der folgende Codeausschnitt erkennt das `contextlost` Ereignis.
 
 ```js
 const canvas = new OffscreenCanvas(256, 256);
@@ -59,6 +59,6 @@ canvas.addEventListener("contextlost", (event) => {
 
 ## Siehe auch
 
-- [`OffScreenCanvas: contextrestored`-Ereignis](/de/docs/Web/API/OffscreenCanvas/contextrestored_event)
+- [`OffScreenCanvas: contextrestored` Ereignis](/de/docs/Web/API/OffscreenCanvas/contextrestored_event)
 - [`OffscreenCanvasRenderingContext2D.isContextLost()`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D#canvasrenderingcontext2d.iscontextlost)
-- [`HTMLCanvasElement: contextlost`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event)
+- [`HTMLCanvasElement: contextlost` Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event)

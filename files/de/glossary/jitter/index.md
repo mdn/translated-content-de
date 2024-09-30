@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Jitter** ist der Begriff, der im Bereich Computernetzwerke verwendet wird, um die [Paketverzögerungsvariation](https://en.wikipedia.org/wiki/Packet_delay_variation) zu beschreiben – die Variabilität in der Geschwindigkeit, mit der Pakete an einem Ziel ankommen (der Durchschnitt der quadrierten Abweichung von der mittleren Paketankunftsrate).
+**Jitter** ist der Begriff, der im Bereich der Computernetzwerke für die [Paketverzögerungsvariation](https://en.wikipedia.org/wiki/Packet_delay_variation) verwendet wird — die Abweichung in der Rate, mit der Pakete an einem Ziel ankommen (das Durchschnittsmaß der quadrierten Differenz von der mittleren Paketankunftsrate).
 
-"Hoher Jitter" weist darauf hin, dass Pakete mit erheblich variierenden Raten ankommen, möglicherweise bedingt durch Netzwerküberlastung, Paketverlust und die Weiterleitung von Paketen in einem Stream über verschiedene Wege.
+"Hoher Jitter" deutet darauf hin, dass Pakete in deutlich variierenden Raten ankommen, möglicherweise aufgrund von Netzwerküberlastung, Paketverlust und der Weiterleitung von Paketen in einem Stream über verschiedene Pfade.
 
-Hoher Jitter kann die Leistung von Echtzeit-Webanwendungen, einschließlich Sprach-/Video-Streaming und Online-Gaming, erheblich beeinträchtigen.
+Hoher Jitter kann die Leistung von Echtzeit-Webanwendungen erheblich beeinträchtigen, einschließlich Sprach-/Videostreaming und Online-Gaming.

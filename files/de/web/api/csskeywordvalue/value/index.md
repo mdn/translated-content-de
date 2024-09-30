@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`value`**-Eigenschaft des
-[`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Interfaces gibt den Wert des
+Die **`value`**-Eigenschaft der
+[`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Schnittstelle gibt den Wert des
 `CSSKeywordValue` zurück oder setzt ihn.
 
 ## Wert
@@ -19,11 +19,11 @@ Ein String.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die `value`-Eigenschaft ein leerer {{jsxref('String')}} ist, während sie gesetzt wird.
+  - : Wird ausgelöst, wenn die `value`-Eigenschaft beim Setzen ein leerer {{jsxref('String')}} ist.
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück.
+Das folgende Beispiel setzt die CSS {{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück.
 
 ```js
 let indicator = document.getElementById("indicator");

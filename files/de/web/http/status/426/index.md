@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`426 Upgrade Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage unter Verwendung des aktuellen Protokolls abgelehnt hat, aber bereit sein könnte, dies zu tun, nachdem der Client zu einem anderen Protokoll gewechselt ist.
+Der HTTP-Statuscode **`426 Upgrade Required`** (Client-Fehlerantwort) bedeutet, dass der Server die Ausführung der Anfrage mit dem aktuellen Protokoll verweigerte, aber möglicherweise bereit ist, dies nach einem Upgrade des Clients auf ein anderes Protokoll zu tun.
 
-Der Server sendet einen {{HTTPHeader("Upgrade")}}-Header mit dieser Antwort, um das erforderliche(n) Protokoll(e) anzugeben.
+Der Server sendet einen {{HTTPHeader("Upgrade")}}-Header mit dieser Antwort, um die erforderlichen Protokolle anzugeben.
 
 ## Status
 
@@ -21,14 +21,14 @@ Der Server sendet einen {{HTTPHeader("Upgrade")}}-Header mit dieser Antwort, um 
 
 ### Upgrade erforderlich von HTTP/1.1
 
-Angenommen, eine GET-Anfrage an ein System:
+Bei einer GET-Anfrage an ein System:
 
 ```http
 GET /resources HTTP/1.1
 Host: example.com
 ```
 
-Der Ursprungsserver erwartet, dass Anfragen in [HTTP/3](/de/docs/Glossary/HTTP_3) gestellt werden:
+Erwartet der Ursprungsserver, dass Anfragen in [HTTP/3](/de/docs/Glossary/HTTP_3) erfolgen:
 
 ```http
 HTTP/1.1 426 Upgrade Required
@@ -46,6 +46,6 @@ This service requires use of the HTTP/3.0 protocol.
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatus-Codes](/de/docs/Web/HTTP/Status)
 - {{HTTPHeader("Upgrade")}}
 - {{HTTPStatus("101", "101 Switching Protocols")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`operator`**-Attribut hat zwei Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es die zu ausführende Kompositions- oder Morphing-Operation.
+Das Attribut **`operator`** hat zwei Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es die zu durchführende Zusammensetzungs- oder Morphing-Operation.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -47,7 +47,7 @@ svg {
 
 ## feComposite
 
-Für {{SVGElement("feComposite")}} definiert `operator` die Kompositionsoperation, die ausgeführt werden soll.
+Für {{SVGElement("feComposite")}} definiert `operator` die zu durchführende Zusammensetzungs-Operation.
 
 <table class="properties">
   <tbody>
@@ -89,11 +89,11 @@ Für {{SVGElement("feComposite")}} definiert `operator` die Kompositionsoperatio
     `result = k1*i1*i2 + k2*i1 + k3*i2 + k4`
 
     wobei:
-    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes angeben, die auf `in` bzw. `in2` abgebildet werden, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die Werte der Attribute mit demselben Namen angeben.
+    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes darstellen, die jeweils `in` und `in2` zugeordnet sind, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}} und {{SVGAttr("k4")}} die Werte der gleichnamigen Attribute darstellen.
 
 ## feMorphology
 
-Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d.h. verdünnt) oder erweitert (verdickt) wird.
+Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d. h. verdünnt) oder dilatiert (verdickt) werden soll.
 
 <table class="properties">
   <tbody>

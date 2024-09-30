@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`sliCount`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Verzeichnisses gibt an, wie viele **Slice Loss Indication** (**SLI**)-Pakete der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) vom entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) für den durch dieses Objekt beschriebenen RTP-Stream empfangen hat.
+Die **`sliCount`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs gibt an, wie viele **Slice Loss Indication** (**SLI**)-Pakete der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) vom entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) für den RTP-Stream erhalten hat, der durch dieses Objekt beschrieben wird.
 
-Ein SLI-Paket wird von einem Decoder verwendet, um dem Encoder (dem Sender) mitzuteilen, dass er eine Korruption eines oder mehrerer aufeinanderfolgender Makroblöcke, in Scan-Reihenfolge, in den empfangenen Medien erkannt hat. Im Allgemeinen ist es von Interesse, dass je höher diese Zahl ist, desto mehr werden die Stream-Daten zwischen dem Sender und dem Empfänger beschädigt, was dazu führt, dass der Empfänger erneute Übertragungen anfordert oder Frames vollständig verwirft.
+Ein SLI-Paket wird von einem Decoder verwendet, um dem Encoder (dem Sender) mitzuteilen, dass es eine Beschädigung von einem oder mehreren aufeinanderfolgenden Makroblöcken, in Scan-Reihenfolge, im empfangenen Medium festgestellt hat. Im Allgemeinen ist von Interesse, dass je höher diese Zahl ist, desto mehr werden die Streamdaten zwischen dem Sender und dem Empfänger beschädigt, was den Empfänger dazu veranlasst, Übertragungen erneut anzufordern oder Frames vollständig zu verwerfen.
 
 ## Wert
 
-Eine vorzeichenlose ganze Zahl, die die Anzahl der SLI-Pakete angibt, die der Sender vom Empfänger aufgrund verlorener Läufe von Makroblöcken erhalten hat. Ein hoher Wert von `sliCount` kann auf ein unzuverlässiges Netzwerk hinweisen.
+Eine positive ganze Zahl, die die Anzahl der SLI-Pakete angibt, die der Sender vom Empfänger aufgrund verlorener Makroblock-Runs erhalten hat. Ein hoher Wert von `sliCount` kann ein Hinweis auf ein unzuverlässiges Netzwerk sein.
 
-Dies ist ein sehr technischer Teil der Funktionsweise von Videocodecs. Für Details siehe {{RFC(4585, "6.3.2")}}.
+Dies ist ein sehr technischer Teil davon, wie Videocodecs funktionieren. Für Details siehe {{RFC(4585, "6.3.2")}}.
 
 > [!NOTE]
 > Dieser Wert ist nur für Videomedien vorhanden.

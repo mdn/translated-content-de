@@ -8,13 +8,13 @@ l10n:
 
 {{ApiRef}}
 
-Die **`embeds`** schreibgeschützte Eigenschaft des
+Die schreibgeschützte **`embeds`**-Eigenschaft des 
 [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der eingebetteten
 {{htmlelement("embed")}}-Elemente im aktuellen Dokument zurück.
 
 ## Wert
 
-Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Spezifikationen
 

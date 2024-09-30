@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef('WebSockets API')}}
 
-Der **`EventSource()`**
-Konstruktor gibt ein neu erstelltes [`EventSource`](/de/docs/Web/API/EventSource) zurück, das eine
-entfernte Ressource repräsentiert.
+Der **`EventSource()`**-Konstruktor gibt einen neu erstellten [`EventSource`](/de/docs/Web/API/EventSource) zurück, der eine entfernte Ressource darstellt.
 
 ## Syntax
 
@@ -22,14 +20,13 @@ new EventSource(url, options)
 ### Parameter
 
 - `url`
-  - : Ein String, der den Ort der entfernten Ressource repräsentiert, die die Events/Nachrichten bereitstellt.
+  - : Ein String, der den Ort der entfernten Ressource repräsentiert, die die Ereignisse/Nachrichten bereitstellt.
 - `options` {{optional_inline}}
 
   - : Bietet Optionen zur Konfiguration der neuen Verbindung. Die möglichen Einträge sind:
 
     - `withCredentials` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und angibt,
-        ob für CORS Anmeldedaten `include` gesetzt sein sollen.
+      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist und angibt, ob CORS so eingestellt werden soll, dass Anmeldeinformationen `include` enthalten sein sollen.
 
 ## Beispiele
 
@@ -46,7 +43,7 @@ evtSource.onmessage = (e) => {
 ```
 
 > [!NOTE]
-> Sie finden ein vollständiges Beispiel auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel finden Sie auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 

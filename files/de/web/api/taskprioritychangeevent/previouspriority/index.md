@@ -1,5 +1,5 @@
 ---
-title: "TaskPriorityChangeEvent: previousPriority-Eigenschaft"
+title: "TaskPriorityChangeEvent: vorherigePriorität-Eigenschaft"
 short-title: previousPriority
 slug: Web/API/TaskPriorityChangeEvent/previousPriority
 l10n:
@@ -8,19 +8,20 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`previousPriority`**-Eigenschaft des [`TaskPriorityChangeEvent`](/de/docs/Web/API/TaskPriorityChangeEvent)-Interfaces gibt die Priorität des entsprechenden [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück, bevor sie geändert wurde und dieses [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis ausgelöst wurde.
+Die schreibgeschützte **`previousPriority`**-Eigenschaft des [`TaskPriorityChangeEvent`](/de/docs/Web/API/TaskPriorityChangeEvent)-Interfaces gibt die Priorität des entsprechenden [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück, bevor diese geändert wurde und dieses [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis ausgelöst wurde.
 
-Dies ist der Wert, der im Argument `options.previous` des [`TaskPriorityChangeEvent`-Konstruktors](/de/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent) gesetzt wurde. <!-- link? -->
+Dies ist der Wert, der im [`TaskPriorityChangeEvent`-Konstruktor](/de/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent)-Argument `options.previous` festgelegt wurde. <!-- link? -->
 
-Die neue Priorität der Aufgabe kann aus `event.target.priority` gelesen werden.
+Die neue Priorität der Aufgabe kann durch `event.target.priority` gelesen werden.
 
 ## Wert
 
-Ein String, der die Priorität der zugeordneten Aufgabe angibt, bevor sie geändert wurde. Dies wird einer der folgenden Werte sein: [`"user-blocking"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-blocking), [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#background).
+Ein String, der die Priorität der zugehörigen Aufgabe angibt, bevor sie geändert wurde.
+Dieser wird einer der folgenden sein: [`"user-blocking"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-blocking), [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#background).
 
 ## Beispiele
 
-Der folgende Code zeigt, wie `previousPriority` in einem Handler für ein `prioritychange`-Ereignis abgerufen wird.
+Der untenstehende Code zeigt, wie `previousPriority` in einem Handler für ein `prioritychange`-Ereignis abgerufen wird.
 
 ```js
 // Listen for 'prioritychange' events on the controller's signal.
@@ -33,7 +34,7 @@ controller.signal.addEventListener("prioritychange", (event) => {
 });
 ```
 
-Ein umfassenderes Live-Beispiel finden Sie in [`prioritychange`-Ereignis > Beispiele](/de/docs/Web/API/TaskSignal/prioritychange_event).
+Ein vollständigeres Live-Beispiel kann in [`prioritychange` event > Examples](/de/docs/Web/API/TaskSignal/prioritychange_event) gefunden werden.
 
 ## Spezifikationen
 

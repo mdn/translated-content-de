@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ASCII** (_American Standard Code for Information Interchange_) ist ein [Zeichenkodierungs](/de/docs/Glossary/character_encoding)-Standard, der 7-Bit verwendet, um 128 [Zeichen](/de/docs/Glossary/character) darzustellen, die von Computern und anderen Geräten zur Kodierung von Buchstaben, Zahlen, Satzzeichen und Steuerzeichen in digitaler Form verwendet werden.
+**ASCII** (_American Standard Code for Information Interchange_) ist ein [Zeichencodierungsstandard](/de/docs/Glossary/character_encoding), der 7-Bit verwendet, um 128 [Zeichen](/de/docs/Glossary/character) darzustellen, die von Computern und anderen Geräten zum Kodieren von Buchstaben, Zahlen, Satzzeichen und Steuerzeichen in digitaler Form verwendet werden.
 
-Die ersten 33 ASCII-[Codepunkte](/de/docs/Glossary/code_point) sind nicht druckbare Steuerzeichen, einschließlich des Wagenrücklaufs, Zeilenumbruchs, Tabulators und mehrerer veralteter nicht druckbarer Codes, die aus der ursprünglichen Nutzung zur Darstellung von Telegrafencodes stammen. Die anderen 95 sind druckbare Zeichen, einschließlich Ziffern (0-9), Kleinbuchstaben (a-z) und Großbuchstaben (A-Z) sowie Satzzeichen.
+Die ersten 33 ASCII-[Codepunkte](/de/docs/Glossary/code_point) sind nicht druckbare Steuerzeichen, einschließlich Wagenrücklauf, Zeilenumbruch, Tabulator und einige veraltete nicht druckbare Codes, die aus der ursprünglichen Darstellung von Telegraphencodes stammen. Die anderen 95 sind druckbare Zeichen, einschließlich Ziffern (0-9), Kleinbuchstaben (a-z) und Großbuchstaben (A-Z) sowie Satzzeichen.
 
-In der modernen Zeit verwenden die meisten Computersysteme stattdessen [Unicode](/de/docs/Glossary/Unicode), das eine Erweiterung von ASCII ist und Millionen von Codepunkten unterstützt. [UTF-8](/de/docs/Glossary/UTF-8) hat ASCII 2007 im Web abgelöst.
+In der modernen Zeit verwenden die meisten Computersysteme [Unicode](/de/docs/Glossary/Unicode) stattdessen, das eine Erweiterung von ASCII ist und Millionen von Codepunkten unterstützt. [UTF-8](/de/docs/Glossary/UTF-8) hat ASCII im Web im Jahr 2007 abgelöst.
 
 ## Siehe auch
 

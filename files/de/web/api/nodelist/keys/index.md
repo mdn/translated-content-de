@@ -9,7 +9,7 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`NodeList.keys()`** Methode gibt einen
-{{jsxref("Iteration_protocols", 'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen. Die Schlüssel sind `unsigned integer`.
+{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel in diesem Objekt zu durchlaufen. Die Schlüssel sind `unsigned integer`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ keys()
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiel
 

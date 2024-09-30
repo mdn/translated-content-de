@@ -7,13 +7,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`HIDDevice`**-Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert ein HID-Gerät. Sie bietet Eigenschaften für den Zugriff auf Informationen über das Gerät sowie Methoden zum Öffnen und Schließen der Verbindung und zum Senden und Empfangen von Berichten.
+Das **`HIDDevice`** Interface der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert ein HID-Gerät. Es bietet Eigenschaften für den Zugriff auf Informationen über das Gerät, Methoden zum Öffnen und Schließen der Verbindung sowie zum Senden und Empfangen von Berichten.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget).
+Dieses Interface erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 - [`HIDDevice.opened`](/de/docs/Web/API/HIDDevice/opened) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt einen {{jsxref("boolean")}} zurück, der true ist, wenn das Gerät eine offene Verbindung hat.
@@ -24,7 +24,7 @@ Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API
 - [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt einen String zurück, der den Produktnamen des HID-Geräts enthält.
 - [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Array von Berichtsformaten für das HID-Gerät zurück.
+  - : Gibt ein Array von Berichtformaten für das HID-Gerät zurück.
 
 ### Ereignisse
 
@@ -33,24 +33,24 @@ Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API
 
 ## Instanzmethoden
 
-Diese Schnittstelle erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget).
+Dieses Interface erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 - [`HIDDevice.open()`](/de/docs/Web/API/HIDDevice/open) {{Experimental_Inline}}
-  - : Öffnet eine Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung erfolgreich hergestellt wurde.
+  - : Öffnet eine Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung erfolgreich war.
 - [`HIDDevice.close()`](/de/docs/Web/API/HIDDevice/close) {{Experimental_Inline}}
   - : Schließt die Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung geschlossen wurde.
 - [`HIDDevice.forget()`](/de/docs/Web/API/HIDDevice/forget) {{Experimental_Inline}}
-  - : Schließt die Verbindung zu diesem HID-Gerät und setzt die Zugriffserlaubnis zurück, und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Erlaubnis zurückgesetzt wurde.
+  - : Schließt die Verbindung zu diesem HID-Gerät und setzt die Zugriffsberechtigung zurück. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Berechtigung zurückgesetzt wurde.
 - [`HIDDevice.sendReport()`](/de/docs/Web/API/HIDDevice/sendReport) {{Experimental_Inline}}
-  - : Sendet einen Ausgabereport an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
+  - : Sendet einen Output-Bericht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
 - [`HIDDevice.sendFeatureReport()`](/de/docs/Web/API/HIDDevice/sendFeatureReport) {{Experimental_Inline}}
-  - : Sendet einen Feature-Report an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
+  - : Sendet einen Feature-Bericht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
 - [`HIDDevice.receiveFeatureReport()`](/de/docs/Web/API/HIDDevice/receiveFeatureReport) {{Experimental_Inline}}
-  - : Empfängt einen Feature-Report von diesem HID-Gerät in Form eines {{jsxref("Promise")}}, der mit einem {{jsxref("DataView")}} aufgelöst wird. Dies ermöglicht einen typisierten Zugriff auf den Inhalt dieser Nachricht.
+  - : Empfängt einen Feature-Bericht von diesem HID-Gerät in Form eines {{jsxref("Promise")}}, das mit einem {{jsxref("DataView")}} aufgelöst wird. Dies ermöglicht einen typisierten Zugriff auf den Inhalt dieser Nachricht.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt das Lauschen auf ein `inputreport` Ereignis, das der Anwendung ermöglicht, zu erkennen, welche Taste auf einem Joy-Con-Rechts-Gerät gedrückt wird.
+Das folgende Beispiel zeigt, wie ein `inputreport`-Event gehört wird, das es der Anwendung ermöglicht zu erkennen, welcher Knopf auf einem Joy-Con-Rechts-Gerät gedrückt wird.
 
 ```js
 device.addEventListener("inputreport", (event) => {

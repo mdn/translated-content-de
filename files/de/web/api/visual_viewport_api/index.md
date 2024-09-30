@@ -7,35 +7,35 @@ l10n:
 
 {{DefaultAPISidebar("Visual Viewport")}}
 
-Die **Visual Viewport API** bietet einen expliziten Mechanismus zum Abfragen und Ändern der Eigenschaften des [visual viewport](/de/docs/Glossary/visual_viewport) des Fensters. Der visual viewport ist der sichtbare Teil eines Bildschirms, der Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere Bildschirmartefakte, die nicht mit den Abmessungen einer Seite skalieren, ausschließt.
+Die **Visual Viewport API** bietet einen expliziten Mechanismus für das Abfragen und Ändern der Eigenschaften des Fensters im [visuellen Viewport](/de/docs/Glossary/visual_viewport). Der visuelle Viewport ist der sichtbare Teil eines Bildschirms, ohne Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere Bildschirm-Artefakte, die nicht mit den Abmessungen einer Seite skalieren.
 
 ## Konzepte und Verwendung
 
-Das mobile Web enthält zwei Viewports, den layout viewport und den visual viewport. Der layout viewport deckt alle Elemente auf einer Seite ab, während der visual viewport das ist, was tatsächlich auf dem Bildschirm sichtbar ist. Wenn der Benutzer in die Seite hineinzoomt, verkleinert sich der visual viewport, aber der layout viewport bleibt unverändert. Benutzeroberflächenmerkmale wie die Bildschirmtastatur (OSK) können den visual viewport verkleinern, ohne den layout viewport zu beeinflussen.
+Das mobile Web enthält zwei Viewports: den Layout-Viewport und den visuellen Viewport. Der Layout-Viewport umfasst alle Elemente auf einer Seite, der visuelle Viewport ist das, was tatsächlich auf dem Bildschirm sichtbar ist. Wenn der Benutzer in die Seite hineinzoomt, verkleinert sich der visuelle Viewport, während der Layout-Viewport unverändert bleibt. Benutzeroberflächenfunktionen wie die Bildschirmtastatur (OSK) können den visuellen Viewport verkleinern, ohne den Layout-Viewport zu beeinflussen.
 
-Was passiert, wenn ein Element einer Webseite auf dem Bildschirm sichtbar sein muss, unabhängig vom sichtbaren Teil einer Webseite? Zum Beispiel, was passiert, wenn Sie eine Reihe von Bildsteuerungen benötigen, die auf dem Bildschirm bleiben müssen, unabhängig vom Zoomlevel des Geräts? Aktuelle Browser verhalten sich unterschiedlich in Bezug auf diese Situation. Der visual viewport ermöglicht es Webentwicklern, dieses Problem zu lösen, indem Elemente relativ zum angezeigten Bildschirm positioniert werden.
+Was passiert, wenn ein Webseitenelement auf dem Bildschirm sichtbar sein muss, unabhängig vom sichtbaren Teil einer Webseite? Zum Beispiel, wenn Sie möchten, dass eine Reihe von Bildsteuerelementen auf dem Bildschirm bleibt, unabhängig vom Pinch-Zoom-Level des Geräts? Aktuelle Browser variieren in der Handhabung solcher Fälle. Der visuelle Viewport ermöglicht es Webentwicklern, dieses Problem zu lösen, indem sie Elemente relativ zu dem positionieren, was auf dem Bildschirm angezeigt wird.
 
-Um auf den visual viewport eines Fensters zuzugreifen, können Sie ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt von der [`window.visualViewport`](/de/docs/Web/API/Window/visualViewport)-Eigenschaft erhalten. Das Objekt enthält eine Reihe von Eigenschaften, die den Viewport beschreiben. Es fügt auch drei Ereignisse hinzu, [`resize`](/de/docs/Web/API/VisualViewport/resize_event), [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) und [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event), die auftreten, wenn der visual viewport geändert wird, scrollt und eine Scroll-Aktion abgeschlossen wurde.
+Um auf den visuellen Viewport eines Fensters zuzugreifen, können Sie ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt von der [`window.visualViewport`](/de/docs/Web/API/Window/visualViewport)-Eigenschaft abrufen. Das Objekt enthält eine Reihe von Eigenschaften, die den Viewport beschreiben. Es fügt auch drei Ereignisse hinzu: [`resize`](/de/docs/Web/API/VisualViewport/resize_event), [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) und [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event), die ausgelöst werden, wenn der visuelle Viewport in der Größe verändert, gescrollt oder das Scrollen abgeschlossen ist.
 
-Die ersten beiden Ereignisse erlauben es Ihnen, Elemente relativ zum visual viewport zu positionieren, wenn er gescrollt oder gezoomt wird, was normalerweise am layout viewport verankert wäre. Das `scrollend`-Ereignis ermöglicht es Ihnen, ein Element zu aktualisieren, wenn eine Scroll-Aktion abgeschlossen ist. Beispielsweise können Sie diese Ereignisse verwenden, um ein Element fest mit dem visual viewport zu verankern, während es hineingezoomt und gescrollt wird, und es zu aktualisieren, wenn das Scrollen endet.
+Die ersten beiden Ereignisse erlauben es Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während es gescrollt oder gezoomt wird, was normalerweise dem Layout-Viewport verankert wäre. Das `scrollend`-Ereignis erlaubt es Ihnen, ein Element zu aktualisieren, wenn ein Scrollvorgang abgeschlossen ist. Zum Beispiel können Sie diese Ereignisse nutzen, um ein Element fest mit dem visuellen Viewport zu verankern, während es gezoomt und gescrollt wird, und es zu aktualisieren, wenn das Scrollen endet.
 
 ## Schnittstellen
 
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)
-  - : Stellt den visual viewport für ein bestimmtes Fenster dar. Ein `VisualViewport`-Objekt eines Fensters bietet Informationen über die Position und Größe des Viewports und empfängt die [`resize`](/de/docs/Web/API/VisualViewport/resize_event), [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) und [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event) Ereignisse.
+  - : Repräsentiert den visuellen Viewport für ein bestimmtes Fenster. Das `VisualViewport`-Objekt eines Fensters bietet Informationen über die Position und Größe des Viewports und empfängt die Ereignisse [`resize`](/de/docs/Web/API/VisualViewport/resize_event), [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) und [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event).
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) {{ReadOnlyInline}}
-  - : Ein schreibgeschützter Verweis auf das [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt des Fensters. Wenn diese Eigenschaft nicht existiert, wird die API nicht unterstützt.
+  - : Ein schreibgeschützter Verweis auf das `VisualViewport`-Objekt des Fensters. Wenn diese Eigenschaft nicht existiert, wird die API nicht unterstützt.
 
 ## Beispiele
 
-Unser [Visual Viewport API](https://mdn.github.io/dom-examples/visual-viewport-api/)-Beispiel bietet eine grundlegende Demonstration, wie die verschiedenen Funktionen des visual viewport funktionieren, einschließlich der drei Ereignistypen. Laden Sie die Seite in unterstützten Desktop- und mobilen Browsern und versuchen Sie, auf der Seite zu scrollen und einzugruppen. Bei `resize` und `scroll` wird das Informationsfeld repositioniert, um dieselbe Position relativ zum visual viewport beizubehalten, und die angezeigten Ansichts- und Scrollinformationen werden aktualisiert. Auch bei `resize` und `scroll` ändern wir die Farbe des Feldes, um anzuzeigen, dass etwas passiert, und ändern sie bei `scrollend` zurück.
+Unser [Beispiel zur Visual Viewport API](https://mdn.github.io/dom-examples/visual-viewport-api/) bietet eine grundlegende Demonstration, wie die verschiedenen Funktionen des visuellen Viewports arbeiten, einschließlich der drei Ereignistypen. Laden Sie die Seite in unterstützende Desktop- und mobile Browser und versuchen Sie, durch die Seite zu scrollen und zu zoomen. Bei `resize` und `scroll` wird die Informationsbox neu positioniert, um die gleiche Position relativ zum visuellen Viewport beizubehalten, und die darin angezeigten Viewport- und Scrollinformationen werden aktualisiert. Außerdem ändern wir bei `resize` und `scroll` die Boxfarbe, um anzuzeigen, dass etwas passiert, und stellen sie bei `scrollend` wieder zurück.
 
-Sie werden feststellen, dass bei Desktop-Browsern die Werte von [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) und [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) aktualisiert werden, wenn das Fenster gescrollt wird — die Position des visual viewport ändert sich nicht. In mobilen Browsern hingegen werden die Werte von [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) und [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) im Allgemeinen aktualisiert — normalerweise ist es der visual viewport, der sich ändert, anstatt der Fensterposition.
+Sie werden feststellen, dass bei Desktop-Browsern die Werte von [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) und [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) aktualisiert werden, während das Fenster gescrollt wird – die Position des visuellen Viewports ändert sich nicht. Bei mobilen Browsern hingegen werden in der Regel die Werte von [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) und [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) aktualisiert – normalerweise ändert sich der visuelle Viewport und nicht die Fensterposition.
 
-Das Beispiel-HTML kann unten gesehen werden. Das Informationsfeld wird durch ein {{htmlelement("div")}} mit einer `id` von `output` dargestellt.
+Der folgende HTML-Code zeigt das Beispiel. Die Informationsbox wird durch ein {{htmlelement("div")}} mit einer `id` von `output` dargestellt.
 
 ```html
 <p id="instructions">
@@ -48,9 +48,9 @@ Das Beispiel-HTML kann unten gesehen werden. Das Informationsfeld wird durch ein
 </div>
 ```
 
-Aus Gründen der Kürze erklären wir das CSS des Beispiels nicht — es ist nicht wichtig, um die Demo zu verstehen. Sie können es über den obigen Beispiel-Link überprüfen.
+Wir erklären das CSS des Beispiels aus Gründen der Kürze nicht – es ist zum Verständnis der Demo nicht wichtig. Sie können es über den obigen Beispiel-Link einsehen.
 
-Im JavaScript beginnen wir damit, Verweise auf das Informationsfeld zu erhalten, das wir aktualisieren werden, während die Seite gezoomt und gescrollt wird, sowie auf die beiden darin enthaltenen Absätze. Der erste enthält die gemeldeten Werte von [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) und [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop), während der zweite die gemeldeten Werte von [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) und [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) enthält.
+Im JavaScript beginnen wir, indem wir Referenzen auf die Informationsbox abrufen, die wir aktualisieren werden, während die Seite gezoomt und gescrollt wird, sowie auf die beiden darin enthaltenen Absätze. Der erste wird berichtete Werte von [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) und [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) enthalten, während der zweite gemeldete Werte von [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) und [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) enthalten wird.
 
 ```js
 const output = document.getElementById("output");
@@ -58,10 +58,10 @@ const visualInfo = document.getElementById("visual-info");
 const windowInfo = document.getElementById("window-info");
 ```
 
-Als nächstes definieren wir die beiden Schlüsselfunktionen, die wir ausführen werden, wenn die Ereignisse ausgelöst werden:
+Als nächstes definieren wir die beiden Schlüsselfunktionen, die wir ausführen, wenn die Ereignisse ausgelöst werden:
 
-- `scrollUpdater()` wird bei `resize` und `scroll` ausgelöst: Diese Funktion aktualisiert die Position des Informationsfeldes relativ zum visual viewport, indem die Eigenschaften [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) und [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) abgefragt werden und ihre Werte verwendet werden, um die relevanten [inset properties](/de/docs/Glossary/inset_properties) zu aktualisieren. Wir ändern auch die Hintergrundfarbe des Informationsfeldes, um anzuzeigen, dass etwas passiert, und führen die Funktion `updateText()` aus, um die im Feld angezeigten Werte zu aktualisieren.
-- Die Funktion `scrollEndUpdater()` wird bei `scrollend` ausgelöst: Diese Funktion stellt die ursprüngliche Farbe des Informationsfeldes wieder her und führt die Funktion `updateText()` aus, um sicherzustellen, dass die neuesten Werte bei `scrollend` angezeigt werden.
+- `scrollUpdater()` wird bei `resize` und `scroll` ausgelöst: Diese Funktion aktualisiert die Position der Informationsbox relativ zum visuellen Viewport, indem sie die Eigenschaften [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) und [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) abfragt und deren Werte verwendet, um die Werte der relevanten [Einpassungseigenschaften](/de/docs/Glossary/inset_properties) zu aktualisieren. Wir ändern auch die Hintergrundfarbe der Informationsbox, um anzuzeigen, dass etwas passiert, und führen die `updateText()`-Funktion aus, um die angezeigten Werte in der Box zu aktualisieren.
+- Die `scrollEndUpdater()`-Funktion wird bei `scrollend` ausgelöst: Diese stellt die ursprüngliche Farbe der Informationsbox wieder her und führt die `updateText()`-Funktion aus, um sicherzustellen, dass die neuesten Werte bei `scrollend` angezeigt werden.
 
 ```js
 const scrollUpdater = () => {
@@ -77,7 +77,7 @@ const scrollendUpdater = () => {
 };
 ```
 
-Die Funktion `updateText()` sieht so aus — sie setzt den [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) des ersten Absatzes, um die aktuellen Werte von `VisualViewport.offsetLeft` und `VisualViewport.offsetTop` anzuzeigen, und den `HTMLElement.innerText` des zweiten Absatzes, um die aktuellen Werte von `Window.scrollX` und `Window.scrollY` anzuzeigen. Nachdem `updateText()` definiert ist, rufen wir es sofort auf, damit das Informationsfeld beim Laden der Seite korrekt angezeigt wird.
+Die `updateText()`-Funktion sieht wie folgt aus – sie setzt den [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) des ersten Absatzes, um die aktuellen Werte von `VisualViewport.offsetLeft` und `VisualViewport.offsetTop` anzuzeigen, und den `HTMLElement.innerText` des zweiten Absatzes, um die aktuellen Werte von `Window.scrollX` und `Window.scrollY` anzuzeigen. Nachdem wir `updateText()` definiert haben, rufen wir es sofort auf, damit die Informationsbox beim Laden der Seite korrekt angezeigt wird.
 
 ```js
 function updateText() {
@@ -91,12 +91,12 @@ updateText();
 ```
 
 > [!NOTE]
-> Wir runden alle Werte auf zwei Dezimalstellen mit der Methode {{jsxref("Number.toFixed()")}}, da einige Browser sie als Subpixelwert anzeigen, möglicherweise mit einer großen Anzahl von Dezimalstellen.
+> Wir kürzen alle Werte mit der Methode {{jsxref("Number.toFixed()")}} auf zwei Dezimalstellen, da einige Browser sie als Subpixelwert mit potenziell vielen Dezimalstellen anzeigen können.
 
-Nun setzen wir Ereignishandler-Eigenschaften sowohl beim visual viewport als auch beim [`Window`](/de/docs/Web/API/Window)-Objekt, um die Schlüsselfunktionen sowohl auf mobilen als auch auf Desktop-Geräten zur richtigen Zeit auszuführen:
+Nun setzen wir Ereignishandlereigenschaften sowohl für das visuelle Viewport- als auch für das [`Window`](/de/docs/Web/API/Window)-Objekt, um die Schlüsselfunktionen zu den entsprechenden Zeiten sowohl auf mobilen als auch auf Desktop-Geräten auszuführen:
 
-- Wir setzen die Handler auf `window`, damit die Position und der Inhalt des Informationsfeldes bei herkömmlichen Fenster-Scrollvorgängen aktualisiert werden, z. B. wenn Sie die Seite in einem Desktop-Browser scrollen.
-- Wir setzen die Handler auf `visualViewport`, damit die Position und der Inhalt des Informationsfeldes bei Scroll-/Zoomvorgängen des visual viewport aktualisiert werden, z. B. wenn Sie die Seite in einem mobilen Browser scrollen und hineinzummen.
+- Wir setzen die Handler auf `window`, damit die Informationsbox-Position und die Inhalte bei konventionellen Fensterscrolloperationen aktualisiert werden, beispielsweise wenn Sie die Seite in einem Desktop-Browser scrollen.
+- Wir setzen die Handler auf `visualViewport`, damit die Informationsbox-Position und die Inhalte bei Scroll-/Zoomoperationen des visuellen Viewports aktualisiert werden, beispielsweise wenn Sie die Seite in einem mobilen Browser scrollen und zoomen.
 
 ```js
 visualViewport.onresize = scrollUpdater;

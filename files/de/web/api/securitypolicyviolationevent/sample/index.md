@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`sample`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der ein Sample der Ressource darstellt, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung verursacht hat.
+Die schreibgeschützte **`sample`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle ist ein String, der eine Probe der Ressource darstellt, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung verursacht hat.
 
-Dies ist nur für [`script-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#style-src) Verletzungen relevant, wenn die entsprechende `Content-Security-Policy`-Direktive das [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample)-Schlüsselwort enthält. Außerdem wird dies nur gefüllt, wenn die Ressource ein Inline-Skript, ein Ereignishandler oder ein Stil ist — externe Ressourcen, die eine Verletzung verursachen, erzeugen kein Sample.
+Dies betrifft nur Verstöße gegen [`script-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#style-src), wenn die entsprechende `Content-Security-Policy`-Direktive das Stichwort [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample) enthält. Darüber hinaus wird dies nur ausgefüllt, wenn es sich bei der Ressource um ein Inline-Skript, einen Ereignis-Handler oder einen Stil handelt — externe Ressourcen, die eine Verletzung verursachen, generieren keine Probe.
 
-> [!NOTE] Verletzungsberichte sollten als vom Angreifer kontrollierte Daten betrachtet werden.
-> Der Inhalt dieses Feldes sollte vor dem Speichern oder Rendern bereinigt werden.
+> [!NOTE] Verletzungsberichte sollten als angreifergesteuerte Daten betrachtet werden.
+> Der Inhalt dieses Feldes sollte bereinigt werden, bevor er gespeichert oder gerendert wird.
 
 ## Wert
 
-Ein String, der ein Sample der Ressource enthält, die die Verletzung verursacht hat, in der Regel die ersten 40 Zeichen oder der leere String.
+Ein String, der eine Probe der Ressource enthält, die den Verstoß verursacht hat, normalerweise die ersten 40 Zeichen oder der leere String.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn die Reihenfolge der Kinder eines Ordners geändert wurde, weil die Reihenfolge in der Benutzeroberfläche sortiert wurde. Dies wird nicht als Ergebnis eines Aufrufs an {{WebExtAPIRef("bookmarks.move()")}} oder einer Drag-Operation in der Benutzeroberfläche aufgerufen.
+Wird ausgelöst, wenn sich die Reihenfolge der Kinder eines Ordners aufgrund einer Sortierung in der Benutzeroberfläche geändert hat. Dies wird nicht durch einen Aufruf von {{WebExtAPIRef("bookmarks.move()")}} oder durch einen Drag-and-Drop-Vorgang in der Benutzeroberfläche ausgelöst.
 
 ## Syntax
 
@@ -22,29 +22,29 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hören Sie auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
 
     - `id`
       - : `string`. ID des Ordners, dessen Kinder neu geordnet wurden.
     - `reorderInfo`
-      - : `object`. Objekt, das zusätzliche Objekte enthält. Siehe den Abschnitt [reorderInfo](#reorderinfo_2) für weitere Details.
+      - : `object`. Objekt, das weitere Objekte enthält. Siehe den Abschnitt [reorderInfo](#reorderinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
 ### reorderInfo
 
 - `childIds`
-  - : `array` von `string`. Array, das die IDs aller Lesezeichen in diesem Ordner in der Reihenfolge enthält, in der sie jetzt in der Benutzeroberfläche angezeigt werden.
+  - : `array` von `string`. Array, das die IDs aller Lesezeichen-Elemente in diesem Ordner in der Reihenfolge enthält, in der sie jetzt in der Benutzeroberfläche erscheinen.
 
 ## Browser-Kompatibilität
 
@@ -68,7 +68,7 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChildrenReordered). Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChildrenReordered) API. Diese Dokumentation ist aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

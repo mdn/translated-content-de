@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Element/input/file).
+Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Element/input/file).
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-file-selector-button.html", "tabbed-shorter")}}
 
@@ -59,7 +59,7 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit den Regeln des UA-Stylesheets folgt. Insbesondere Schriften und Farben werden nicht unbedingt vom `input`-Element geerbt.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und als solches den Regeln des UA-Stylesheets entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element geerbt.
 
 ### Fallback-Beispiel
 

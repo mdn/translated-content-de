@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Typ des Browserfensters, das dies ist.
+Der Typ des Browserfensters.
 
 ## Typ
 
@@ -25,7 +25,7 @@ Werte dieses Typs sind `strings`. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-WindowType) API von Chromium. Diese Dokumentation leitet sich von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-WindowType)-API von Chromium. Diese Dokumentation wurde aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`parentStyleSheet`**-Eigenschaft des
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt das Stylesheet zurück, das das gegebene Stylesheet einbindet, falls vorhanden.
+Die **`parentStyleSheet`**-Eigenschaft der
+[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt das Stylesheet zurück, das das angegebene Stylesheet einbindet, sofern vorhanden.
 
 ## Wert
 
@@ -22,10 +22,9 @@ Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt.
 const sheet = stylesheet.parentStyleSheet ?? stylesheet;
 ```
 
-## Hinweise
+## Anmerkungen
 
-Diese Eigenschaft gibt `null` zurück, wenn das aktuelle Stylesheet ein übergeordnetes
-Stylesheet ist oder wenn die Einbindung von Stylesheets nicht unterstützt wird.
+Diese Eigenschaft gibt `null` zurück, wenn das aktuelle Stylesheet ein oberstes Stylesheet ist oder wenn die Einbindung von Stylesheets nicht unterstützt wird.
 
 ## Spezifikationen
 

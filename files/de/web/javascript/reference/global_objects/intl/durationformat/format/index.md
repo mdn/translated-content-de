@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer entsprechend den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
+Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ format(duration)
 ### Parameter
 
 - `duration`
-  - : Das zu formatierende Dauer-Objekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`.
+  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`.
 
 ### Rückgabewert
 
-Ein String, der die angegebene `duration` entsprechend dem Gebietsschema und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
+Ein String, der die gegebene `duration` gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Der Output kann jedoch zwischen Implementierungen variieren, selbst innerhalb desselben Gebietsschemas — diese Variationen sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht dem entsprechen, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Jedoch kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — solche Abweichungen sind durch das Design erlaubt und von der Spezifikation zugelassen. Es könnte auch nicht das sein, was Sie erwarten. Zum Beispiel kann die Zeichenfolge nicht trennende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format()
 
-Das folgende Beispiel zeigt, wie ein Dauer-Formatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen Duration-Formatter mit der englischen Sprache erstellt.
 
 ```js
 const duration = {
@@ -60,7 +60,7 @@ new Intl.DurationFormat("en", { style: "narrow" }).format(duration);
 // "1y 2mo 3w 3d 4h 5m 6s 7ms 8μs 9ns"
 ```
 
-### Verwendung von format() mit verschiedenen Gebietsschemas und Stilen
+### Verwendung von format() mit verschiedenen Lokalisierungen und Stilen
 
 ```js
 const duration = {

@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`sign()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) enthält eine Berechnung und gibt `-1` zurück, wenn der numerische Wert des Arguments negativ ist, `+1`, wenn der numerische Wert des Arguments positiv ist, `0⁺`, wenn der numerische Wert des Arguments 0⁺ ist, und `0⁻`, wenn der numerische Wert des Arguments 0⁻ ist.
+Die **`sign()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Functions) enthält eine Berechnung und gibt `-1` zurück, wenn der numerische Wert des Arguments negativ ist, `+1` wenn der numerische Wert des Arguments positiv ist, `0⁺` wenn der numerische Wert des Arguments 0⁺ ist, und `0⁻` wenn der numerische Wert des Arguments 0⁻ ist.
 
 > [!NOTE]
-> Während {{CSSxRef("abs")}} den Absolutwert des Arguments zurückgibt, gibt `sign()` das Vorzeichen des Arguments zurück.
+> Während {{CSSxRef("abs")}} den absoluten Wert des Arguments zurückgibt, liefert `sign()` das Vorzeichen des Arguments.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ top: sign(20vh - 100px);
 
 ### Parameter
 
-Die Funktion `sign(x)` akzeptiert nur einen Wert als ihren Parameter.
+Die Funktion `sign(x)` akzeptiert nur einen Wert als Parameter.
 
 - `x`
-  - : Eine Berechnung, die zu einer Zahl aufgelöst wird.
+  - : Eine Berechnung, die sich zu einer Zahl auflöst.
 
 ### Rückgabewert
 
-Eine Zahl, die das Vorzeichen von `A` darstellt:
+Eine Zahl, die das Vorzeichen von `A` repräsentiert:
 
 - Wenn `x` positiv ist, wird `1` zurückgegeben.
 - Wenn `x` negativ ist, wird `-1` zurückgegeben.
@@ -44,7 +44,7 @@ Eine Zahl, die das Vorzeichen von `A` darstellt:
 
 ### Hintergrundbildposition
 
-Zum Beispiel werden bei {{cssxref("background-position")}} positive Prozentwerte auf eine negative Länge und umgekehrt aufgelöst, wenn das Hintergrundbild größer als der Hintergrundbereich ist. Daher könnte `sign(10%)` `1` oder `-1` zurückgeben, je nachdem, wie der Prozentwert aufgelöst wird! (Oder sogar `0`, wenn es gegen eine Länge von null aufgelöst wird.)
+Zum Beispiel werden in {{cssxref("background-position")}} positive Prozentsätze zu einer negativen Länge und umgekehrt aufgelöst, wenn das Hintergrundbild größer als der Hintergrundbereich ist. Daher könnte `sign(10%)` `1` oder `-1` zurückgeben, je nachdem, wie der Prozentsatz aufgelöst wird! (Oder sogar `0`, wenn es gegen eine null Länge aufgelöst wird.)
 
 ```css
 div {
@@ -52,9 +52,9 @@ div {
 }
 ```
 
-### Positionsrichtung
+### Richtung der Position
 
-Ein weiterer Anwendungsfall ist die Steuerung der Position des Elements. Entweder ein positiver oder ein negativer Wert.
+Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("position")}} des Elements. Entweder ein positiver oder ein negativer Wert.
 
 ```css
 div {

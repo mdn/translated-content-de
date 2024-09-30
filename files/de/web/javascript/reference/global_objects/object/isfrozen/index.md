@@ -29,7 +29,7 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt eingefroren ist od
 
 ## Beschreibung
 
-Ein Objekt ist genau dann eingefroren, wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, all seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (das heißt, Eigenschaften, die keine Zugriffseigenschaften mit Getter- oder Setter-Komponenten sind) nicht beschreibbar sind.
+Ein Objekt ist eingefroren, wenn und nur wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, alle seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (d. h. Eigenschaften, die keine Accessor-Eigenschaften mit Getter- oder Setter-Komponenten sind) nicht beschreibbar sind.
 
 ## Beispiele
 
@@ -121,9 +121,9 @@ Object.isExtensible(frozen); // false
 Object.isSealed(frozen); // true
 ```
 
-### Nicht-Objekt-Argument
+### Argument ohne Objektcharakter
 
-In ES5 erzeugt diese Methode einen {{jsxref("TypeError")}}, wenn das Argument kein Objekt (ein primitiver Wert) ist. In ES2015 wird `true` ohne Fehler zurückgegeben, wenn ein Nicht-Objekt-Argument übergeben wird, da primitive Werte per Definition unveränderlich sind.
+In ES5 führt das Übergeben eines Nicht-Objekts (eines primitiven Werts) zu einem {{jsxref("TypeError")}}. In ES2015 wird `true` zurückgegeben, ohne dass ein Fehler auftritt, wenn ein Nicht-Objekt-Argument übergeben wird, da primitive Werte per Definition unveränderlich sind.
 
 ```js
 Object.isFrozen(1);

@@ -8,30 +8,37 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`qpSum`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein Wert, der durch die Addition der **Quantisierungsparameter** (**QP**)-Werte für jedes bisher produzierte Frame auf dem Videokanal erzeugt wird, das diesem `RTCOutboundRtpStreamStats`-Objekt entspricht.
+Die **`qpSum`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein Wert, der durch Addition der **Quantisierungsparameter** (**QP**)-Werte für jedes vom Sender bisher produzierte Frame auf dem Videotrack, der diesem `RTCOutboundRtpStreamStats`-Objekt entspricht, ermittelt wird.
 
-Im Allgemeinen gilt: Je höher diese Zahl ist, desto stärker ist die Videodatenkompression.
+Im Allgemeinen gilt: Je höher dieser Wert ist, desto stärker komprimiert sind die Videodaten.
 
 ## Wert
 
-Ein unsignierter 64-Bit-Ganzzahlwert, der die Summe des Quantisierungsparameterwerts (QP) für jedes bisher gesendete Frame auf dem durch das [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekt beschriebenen Kanal anzeigt. Da der Wert des QP in der Regel größer ist, um höhere Kompressionsfaktoren anzuzeigen, gilt: Je größer diese Summe ist, desto stärker wurde der Stream im Allgemeinen komprimiert.
+Ein nicht-unterbrochener 64-Bit-Ganzzahlenwert, der die Summe der Quantisierungsparameter (QP)-Werte für jedes bisher auf dem von dem [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekt beschriebenen Track gesendete Frame angibt. Da der QP-Wert typischerweise größer ist, um höhere Komprimierungsfaktoren anzugeben, gilt: Je größer diese Summe ist, desto stärker war der Stream im Allgemeinen komprimiert.
 
 > [!NOTE]
 > Dieser Wert ist nur für Videomedien verfügbar.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-[Quantisierung](https://en.wikipedia.org/wiki/Quantization) ist der Prozess der Anwendung von verlustbehafteter Kompression auf einen Wertebereich, was zu einem einzelnen **Quantenwert** führt. Dieser Wert ersetzt den Wertebereich, wodurch die Anzahl der verschiedenen Werte im gesamten Datensatz reduziert wird, was die Daten besser komprimierbar macht. Der Quantisierungsprozess und das Ausmaß der Kompression können durch einen oder mehrere Parameter gesteuert werden.
+[Quantisierung](https://en.wikipedia.org/wiki/Quantization) ist der Prozess der Anwendung verlustbehafteter Komprimierung
+auf einen Wertebereich, wodurch ein einzelner **Quantisierungswert** entsteht. Dieser Wert ersetzt den Wertebereich und reduziert dadurch die Anzahl der verschiedenen Werte,
+die im gesamten Datensatz vorkommen, sodass die Daten leichter komprimierbar werden. Der Quantisierungsprozess und die Menge der Komprimierung können durch einen oder mehrere Parameter gesteuert werden.
 
-Es ist wichtig zu beachten, dass sich der Wert des QP periodisch ändern kann – sogar bei jedem Frame – sodass es schwierig ist, sicher zu wissen, wie bedeutend die Kompression ist. Das Beste, was Sie tun können, ist, eine Schätzung vorzunehmen. Sie können den Wert von [`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded) verwenden, um die Anzahl der bisher kodierten Frames zu ermitteln, und daraus einen Durchschnitt berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
+Es ist wichtig zu beachten, dass sich der Wert von QP periodisch ändern kann — sogar bei jedem Frame —, sodass es schwierig ist, genau zu wissen, wie erheblich die Komprimierung ist. Das Beste, was Sie tun können, ist eine Schätzung abzugeben. Sie können den Wert von [`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded) verwenden, um die Anzahl der bisher codierten Frames zu ermitteln und daraus einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
 
-Auch die genaue Bedeutung des QP-Werts hängt vom verwendeten [Codec](/de/docs/Glossary/codec) ab. Zum Beispiel kann für den VP8-Codec der QP-Wert zwischen 1 und 127 liegen und befindet sich im Frame-Header-Element `"y_ac_qi"`, dessen Wert in {{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP-Bereich von 0 bis 51; in diesem Fall ist es ein Index, der zur Ableitung einer Skalierungsmatrix während des Quantisierungsprozesses verwendet wird. Zusätzlich ist QP vermutlich nicht der einzige Parameter, den der Codec zur Anpassung der Kompression verwendet. Siehe die individuellen Codecspezifikationen für Details.
+Außerdem hängt die genaue Bedeutung des QP-Werts vom verwendeten [Codec](/de/docs/Glossary/codec) ab. Zum Beispiel kann der QP-Wert für den VP8-Codec zwischen 1 und 127 liegen und wird
+im Frame-Header-Element `"y_ac_qi"` gefunden, dessen Wert in
+{{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP-Wert, der von 0 bis 51 reicht; in diesem Fall ist es ein
+Index, der verwendet wird, um eine Skalierungsmatrix abzuleiten, die während des Quantisierungsprozesses verwendet wird.
+Zusätzlich ist QP wahrscheinlich nicht der einzige Parameter, den der Codec verwendet, um die
+Komprimierung anzupassen. Siehe die einzelnen Codec-Spezifikationen für Details.
 
 ## Beispiele
 
 ### Berechnung der durchschnittlichen Quantisierung
 
-Die unten gezeigte `calculateAverageQP()`-Funktion berechnet den durchschnittlichen QP für das Objekt, das RTP-Stream-Statistiken enthält, und gibt 0 zurück, wenn das Objekt keinen RTP-Stream beschreibt.
+Die unten gezeigte Funktion `calculateAverageQP()` berechnet den durchschnittlichen QP-Wert für das Objekt, das RTP-Stream-Statistiken enthält, und gibt 0 zurück, wenn das Objekt keinen RTP-Stream beschreibt.
 
 ```js
 function calculateAverageQP(stats) {

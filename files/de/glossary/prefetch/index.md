@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Prefetching bezieht sich auf die Praxis, Dokumente oder Subressourcen spekulativ im Hintergrund abzurufen, für Seiten, zu denen der Nutzer wahrscheinlich in naher Zukunft navigieren wird. Dies kann die Ladezeit der vorab abgerufenen Seite erheblich verkürzen, falls der Nutzer sich entscheidet, zu ihr zu navigieren. Prefetching könnte beispielsweise verwendet werden, um die Seite abzurufen, die durch einen "Weiter"-Button verlinkt ist, oder deren Subressourcen, oder ein Link-Popup, über das ein Nutzer schwebt, oder Suchergebnisse.
+Prefetching bezieht sich auf die Praxis, Dokumente oder Subressourcen spekulativ im Hintergrund zu laden, für Seiten, die der Benutzer wahrscheinlich in naher Zukunft besuchen wird. Dies kann die Ladezeit der vorgeladenen Seite erheblich reduzieren, wenn der Benutzer sich entscheidet, dorthin zu navigieren. Prefetching könnte beispielsweise verwendet werden, um die Seite zu laden, die mit einem "Weiter"-Button verknüpft ist, oder ihre Subressourcen, oder ein Link-Popup, über das ein Benutzer fährt, oder Suchergebnisse.
 
 ### Ressourcen-Prefetching
 
-Ressourcen sollten im Voraus abgerufen werden, basierend darauf, wie wahrscheinlich es ist, dass sie für eine zukünftige Navigation benötigt werden. Browser können dies für einige Ressourcen automatisch ableiten, wie z. B. die aktuelle URL in der Adressleiste.
+Ressourcen sollten basierend darauf vorgeladen werden, wie wahrscheinlich es ist, dass sie in einer zukünftigen Navigation benötigt werden. Browser können dies automatisch für einige Ressourcen ableiten, wie z.B. die aktuelle URL in der Adressleiste.
 
-Dies kann durch die Verwendung von [`<link rel="prefetch">`](/de/docs/Web/HTML/Attributes/rel/prefetch) erfolgen (die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) behandelt nur Dokument-Prefetching für Navigationen):
+Dies kann mithilfe von [`<link rel="prefetch">`](/de/docs/Web/HTML/Attributes/rel/prefetch) durchgeführt werden (die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) behandelt nur Dokument-Prefetches für Navigationen):
 
 ```html
 <link rel="prefetch" href="next.html" />
@@ -21,7 +21,7 @@ Dies kann durch die Verwendung von [`<link rel="prefetch">`](/de/docs/Web/HTML/A
 
 ### Dokument-Prefetching
 
-Entwickler können dem Browser auf unterschiedliche Arten Hinweise geben, welche Navigationen vorab abgerufen werden sollten:
+Entwickler können dem Browser Hinweise zu Navigationen geben, die vorgeladen werden sollten, auf unterschiedliche Weise:
 
 [`<link rel="prefetch">`](/de/docs/Web/HTML/Attributes/rel/prefetch):
 
@@ -29,7 +29,7 @@ Entwickler können dem Browser auf unterschiedliche Arten Hinweise geben, welche
 <link rel="prefetch" href="next.html" />
 ```
 
-[Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) prefetch:
+[Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Prefetch:
 
 ```html
 <script type="speculationrules">
@@ -44,11 +44,11 @@ Entwickler können dem Browser auf unterschiedliche Arten Hinweise geben, welche
 </script>
 ```
 
-Die Speculation Rules API behandelt Dokument-Prefetching für Navigationen viel besser als `<link rel="prefetch">`; erstere wurde speziell für diesen Zweck entwickelt, während letztere eine Reihe von Einschränkungen aufweist; siehe [`<link rel="prefetch">`](/de/docs/Web/HTML/Attributes/rel/prefetch) für Details.
+Die Speculation Rules API behandelt Dokument-Prefetches für Navigationen viel besser als `<link rel="prefetch">`; die erstere wurde speziell für diesen Zweck entwickelt, während die letztere eine Reihe von Einschränkungen hat; siehe [`<link rel="prefetch">`](/de/docs/Web/HTML/Attributes/rel/prefetch) für Details.
 
 ### DNS-Prefetching
 
-[DNS-Prefetching](/de/docs/Web/HTML/Attributes/rel/dns-prefetch) löst Domain-Namen im Voraus auf und beschleunigt so die Ladezeiten, indem die mit der Domain-Suche zum Anforderungszeitpunkt verbundene Zeit verkürzt wird.
+[DNS-Prefetching](/de/docs/Web/HTML/Attributes/rel/dns-prefetch) löst Domainnamen im Voraus auf und beschleunigt die Ladezeiten, indem es die mit der Domänensuche zur Anforderungszeit verbundene Zeit reduziert.
 
 ```html
 <link rel="dns-prefetch" href="https://example.com/" />

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das Attribut **`accent-height`** definiert die Entfernung vom Ursprung zur Spitze von Akzentzeichen, gemessen durch eine Entfernung im Schriftkoordinatensystem.
+Das **`accent-height`**-Attribut definiert den Abstand vom Ursprung bis zum oberen Rand der Akzentzeichen, gemessen innerhalb des Schriftkoordinatensystems.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -15,7 +15,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## font-face
 
-Für {{SVGElement("font-face")}} definiert `accent-height` die Entfernung vom Ursprung zur Spitze von Akzentzeichen, gemessen durch eine Entfernung im Schriftkoordinatensystem.
+Für {{SVGElement("font-face")}} definiert `accent-height` den Abstand vom Ursprung bis zum oberen Rand der Akzentzeichen, gemessen innerhalb des Schriftkoordinatensystems.
 
 <table class="properties">
   <tbody>

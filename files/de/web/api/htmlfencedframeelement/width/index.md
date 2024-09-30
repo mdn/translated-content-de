@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`width`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) ruft den Wert des entsprechenden {{htmlelement("fencedframe")}} `width`-Attributs ab und setzt ihn, welches die Breite des Elements angibt.
+Die **`width`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) ruft den Wert des entsprechenden {{htmlelement("fencedframe")}}-`width`-Attributs ab und setzt diesen, welches die Breite des Elements angibt.
 
-Die Größe des eingebetteten Inhalts kann durch die internen `contentWidth`- und `contentHeight`-Eigenschaften des [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen führt eine Änderung der `width`- oder [`height`](/de/docs/Web/API/HTMLFencedFrameElement/height) des `<fencedframe>` dazu, dass die Größe des eingebetteten Containers auf der Seite verändert wird, aber das Dokument innerhalb des Containers wird visuell an die Größe angepasst. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch interne `contentWidth`- und `contentHeight`-Eigenschaften des `<fencedframe>`-[`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts festgelegt werden. In solchen Fällen führt das Ändern der `width`- oder [`height`](/de/docs/Web/API/HTMLFencedFrameElement/height) des `<fencedframe>` dazu, dass sich die Größe des eingebetteten Containers auf der Seite ändert, aber das Dokument innerhalb des Containers wird visuell skaliert, um zu passen. Die berichtete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleibt unverändert.
 
 ## Wert
 

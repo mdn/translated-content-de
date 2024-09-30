@@ -8,13 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Der Wert der **`WorkerNavigator.appCodeName`**-Eigenschaft ist
-immer `"Mozilla"`, in jedem Browser. Diese Eigenschaft wird nur aus
-Kompatibilitätsgründen beibehalten.
+Der Wert der **`WorkerNavigator.appCodeName`**-Eigenschaft ist in jedem Browser immer `"Mozilla"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten
-> Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen realen Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
 
 ## Wert
 

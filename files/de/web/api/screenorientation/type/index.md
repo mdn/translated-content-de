@@ -1,5 +1,5 @@
 ---
-title: "ScreenOrientation: Typ-Eigenschaft"
+title: "ScreenOrientation: type-Eigenschaft"
 short-title: type
 slug: Web/API/ScreenOrientation/type
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Screen Orientation")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interfaces gibt den aktuellen Orientierungstyp des Dokuments zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
+Die schreibgeschützte **`type`**-Eigenschaft des [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interface gibt den aktuellen Orientedokumenttyp zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
 
 ## Wert
 

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`focused`**-Eigenschaft des schreibgeschützten Interfaces [`WindowClient`](/de/docs/Web/API/WindowClient) ist ein boolescher Wert, der anzeigt, ob der aktuelle Client den Fokus hat.
+Die **`focused`** schreibgeschützte Eigenschaft des
+[`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces ist ein boolescher Wert, der angibt, ob der aktuelle Client den Fokus hat.
 
 ## Wert
 

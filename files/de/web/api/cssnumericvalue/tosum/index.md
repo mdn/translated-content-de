@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: toSum()-Methode"
+title: "CSSNumericValue: Methode toSum()"
 short-title: toSum()
 slug: Web/API/CSSNumericValue/toSum
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, das zu den angegebenen Einheiten umgerechnet wird.
+Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, um Werte in die angegebenen Einheiten zu ändern.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ toSum(units)
 ### Parameter
 
 - `units`
-  - : Die Einheiten, in die umgerechnet werden soll.
+  - : Die Einheiten, in die konvertiert werden soll.
 
 ### Rückgabewert
 

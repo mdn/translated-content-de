@@ -9,7 +9,7 @@ l10n:
 {{ APIRef("Pointer Events") }}
 
 Die schreibgeschützte Eigenschaft **`pointerType`** des
-[`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt den Gerätetyp an (Maus, Stift oder Touch),
+[`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt den Gerätetyp (Maus, Stift oder Berührung) an,
 der ein bestimmtes Zeigerereignis verursacht hat.
 
 ## Wert
@@ -21,13 +21,17 @@ Der Zeigertyp des Ereignisses. Die unterstützten Werte sind die folgenden Zeich
 - `"pen"`
   - : Das Ereignis wurde durch ein Stift- oder Stylusgerät erzeugt.
 - `"touch"`
-  - : Das Ereignis wurde durch einen Touch, zum Beispiel einen Finger, erzeugt.
+  - : Das Ereignis wurde durch eine Berührung, wie z.B. einen Finger, erzeugt.
 
-Wenn der Gerätetyp vom Browser nicht erkannt werden kann, kann der Wert eine leere Zeichenfolge (`""`) sein. Wenn der Browser Zeigergerätetypen unterstützt, die nicht in der obigen Liste enthalten sind, sollte der Wert _vendor-prefixed_ sein, um Konflikte mit Namen für unterschiedliche Gerätetypen zu vermeiden.
+Kann der Gerätetyp durch den Browser nicht erkannt werden, kann der Wert eine leere Zeichenfolge
+(`""`) sein. Wenn der Browser Zeigereingabegerätetypen unterstützt, die nicht oben aufgeführt sind,
+sollte der Wert _anbieterspezifisch_ sein, um Konflikte bei der Namensgebung für
+verschiedene Gerätetypen zu vermeiden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man den Wert der `pointerType`-Eigenschaft verwendet, um die entsprechende Verarbeitungsfunktion für den Zeigertyp aufzurufen.
+Dieses Beispiel zeigt die Verwendung des Werts der `pointerType`-Eigenschaft, um die
+entsprechende Verarbeitungsfunktion für den Zeigertyp aufzurufen.
 
 ```js
 targetElement.addEventListener(

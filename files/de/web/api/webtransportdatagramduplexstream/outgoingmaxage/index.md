@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`outgoingMaxAge`**-Eigenschaft der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) ruft das maximal zulässige Alter für ausgehende Datagramme in Millisekunden ab oder setzt es.
+Die **`outgoingMaxAge`**-Eigenschaft des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt das maximale Alter für ausgehende Datagramme in Millisekunden an oder setzt dieses.
 
 ## Wert
 

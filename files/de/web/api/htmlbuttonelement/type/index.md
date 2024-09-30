@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ist ein String, der den Verhaltenstyp des {{HTMLElement("button")}}-Elements angibt.
+Die **`type`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ist ein String, der den Verhaltenstyp des {{HTMLElement("button")}}-Elements angibt.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{HTMLElement("button")}}-Elements wider.
 
@@ -16,7 +16,7 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{
 
 Ein String, der den Typ darstellt.
 
-Die möglichen Werte sind in der [Button-Typen](/de/docs/Web/API/HTMLButtonElement#htmlbuttonelement.type)-Sektion des Attributs aufgelistet.
+Die möglichen Werte sind im Abschnitt [buttontypen](/de/docs/Web/API/HTMLButtonElement#htmlbuttonelement.type) des Attributs aufgelistet.
 
 ## Beispiel
 

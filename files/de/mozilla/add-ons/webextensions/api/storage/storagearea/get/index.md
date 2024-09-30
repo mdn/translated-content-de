@@ -24,20 +24,20 @@ let results = browser.storage.<storageType>.get(
 ### Parameter
 
 - `keys`
-  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Strings _oder_ ein Objekt, das Standardwerte angibt), um das/die abzurufende(n) Element(e) im Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, wird der gesamte Speicherinhalt abgerufen.
+  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Strings _oder_ ein Objekt, das Standardwerte angibt), um die abzurufenden Elemente aus dem Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, werden die gesamten Speicherinhalte abgerufen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das in ein `results`-Objekt aufgelöst wird, das jedes im Speicherbereich gefundene Objekt in `keys` enthält. Wenn `keys` ein Objekt ist, haben Schlüssel, die im Speicherbereich nicht gefunden wurden, ihre Werte aus dem `keys`-Objekt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das zu einem `results`-Objekt aufgelöst wird, das jedes im Speicherbereich gefundene Objekt in `keys` enthält. Wenn `keys` ein Objekt ist, erhalten Schlüssel, die im Speicherbereich nicht gefunden werden, ihre Werte vom `keys`-Objekt.
 
-Wenn der Vorgang fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Vorgang fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
-Wenn kein verwalteter Speicher eingerichtet ist, wird `undefined` zurückgegeben.
+Wenn verwalteter Speicher nicht gesetzt ist, wird `undefined` zurückgegeben.
 
 > [!WARNING]
-> Wenn es innerhalb eines Inhaltsskripts in Firefox-Versionen vor 52 verwendet wird, wird das von `browser.storage.local.get()` zurückgegebene Promise mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die oben beschriebenen `keys`, die im Speicherbereich gefunden wurden.
+> Wenn es in einem Inhalts-Skript in Firefox-Versionen vor 52 verwendet wird, wird das von `browser.storage.local.get()` zurückgegebene Promise mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die im Speicherbereich gefundenen `keys`, wie oben beschrieben.
 >
-> Das Promise wird korrekt mit einem Objekt erfüllt, wenn es im Hintergrundkontext verwendet wird (Hintergrundskripte, Popups, Optionen-Seiten usw.).
+> Das Promise wird korrekt mit einem Objekt erfüllt, wenn es im Hintergrundkontext (Hintergrundskripte, Popups, Optionsseiten usw.) verwendet wird.
 >
 > Wenn diese API als `chrome.storage.local.get()` verwendet wird, wird korrekt ein Objekt an die Callback-Funktion übergeben.
 
@@ -58,7 +58,7 @@ browser.storage.local.set({
 });
 ```
 
-Definieren Sie Erfolgs- und Fehler-Handler für das Promise:
+Erfolgs- und Fehlerbehandler für das Promise definieren:
 
 ```js
 function onGot(item) {
@@ -70,7 +70,7 @@ function onError(error) {
 }
 ```
 
-Ohne `keys`-Argument alles abrufen:
+Ohne das `keys`-Argument alles abrufen:
 
 ```js
 let gettingItem = browser.storage.local.get();
@@ -111,7 +111,7 @@ gettingItem.then(onGot, onError);
 // -> Object { kitten: Object, monster: Object }
 ```
 
-Mit einem Objekt, das Objektnamen als Schlüssel und Standardwerte als Werte hat:
+Mit einem Objekt mit Objektnamen als Schlüsseln und dem Standardwert als Wert:
 
 ```js
 let gettingItem = browser.storage.local.get({
@@ -136,7 +136,7 @@ chrome.storage.local.get("kitten", (items) => {
 });
 ```
 
-Oder unter Verwendung eines Promise
+Oder unter Verwendung eines Promises
 
 ```js
 let gettingItem = new Promise((resolve) =>
@@ -146,4 +146,4 @@ gettingItem.then(onGot); // -> Object { kitten: Object }
 ```
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

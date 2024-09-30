@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`has()`**-Methode der
-[`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) Schnittstelle gibt ein {{jsxref('Boolean')}} zurück, das angibt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
+Die **`has()`** Methode des
+[`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Interfaces gibt einen {{jsxref('Boolean')}} zurück, der angibt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
 
 ## Syntax
 

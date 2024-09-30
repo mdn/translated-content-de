@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebRTC API")}}
 
-Die **`track`**-Eigenschaft des schreibgeschützten
-[`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Interfaces gibt den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der mit der aktuellen [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Instanz verknüpft ist.
+Die schreibgeschützte **`track`**-Eigenschaft der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Schnittstelle gibt den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der mit der aktuellen [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Instanz verknüpft ist.
 
 ## Wert
 

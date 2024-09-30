@@ -1,5 +1,5 @@
 ---
-title: "URL: username Eigenschaft"
+title: "URL: username-Eigenschaft"
 short-title: username
 slug: Web/API/URL/username
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`username`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
-ist ein String, der den Benutzernamen enthält, der vor dem Domainnamen angegeben wird.
+Die **`username`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der den Benutzernamen enthält, der vor dem Domainnamen angegeben ist.
 
 ## Wert
 

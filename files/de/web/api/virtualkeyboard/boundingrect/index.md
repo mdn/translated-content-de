@@ -1,5 +1,5 @@
 ---
-title: "VirtualKeyboard: boundingRect Eigenschaft"
+title: "VirtualKeyboard: boundingRect-Eigenschaft"
 short-title: boundingRect
 slug: Web/API/VirtualKeyboard/boundingRect
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`boundingRect`**-Eigenschaft des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) Interfaces enthält ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe der Bildschirmtastatur angibt, die die Webseite überlagert.
+Die **`boundingRect`**-Eigenschaft der [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle enthält ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe der Bildschirmtastatur angibt, die die Webseite überlagert.
 
-Die Bildschirmtastatur wird den Viewport überlagern, wenn die [Virtual Keyboard API](/de/docs/Web/API/VirtualKeyboard_API) verwendet wird, um zu verhindern, dass der Browser den Viewport automatisch anpasst. Dies wird erreicht, indem die [`overlaysContent`](/de/docs/Web/API/VirtualKeyboard/overlaysContent)-Eigenschaft auf `true` gesetzt wird.
+Die Bildschirmtastatur wird den Viewport überlagern, wenn die [Virtual Keyboard API](/de/docs/Web/API/VirtualKeyboard_API) verwendet wird, um zu verhindern, dass der Browser den Viewport automatisch ändert. Dies geschieht durch Setzen der [`overlaysContent`](/de/docs/Web/API/VirtualKeyboard/overlaysContent)-Eigenschaft auf `true`.
 
 ## Wert
 
 Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe der virtuellen Tastatur im Viewport angibt.
 
-Die `x`, `y`, `width` und `height` Koordinaten des Rechtecks sind nützlich, um Inhalte auf der Webseite neu zu positionieren, die sichtbar bleiben müssen, wenn die virtuelle Tastatur angezeigt wird.
+Die `x`-, `y`-, `width`- und `height`-Koordinaten des Rechtecks sind nützlich, um Inhalte auf der Webseite neu zu positionieren, die sichtbar bleiben müssen, selbst wenn die virtuelle Tastatur angezeigt wird.
 
 ```js
 const { x, y, width, height } = navigator.virtualKeyboard.boundingRect;

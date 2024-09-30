@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`deref()`**-Methode von {{jsxref("WeakRef")}}-Instanzen gibt den Zielwert dieses `WeakRef` zurück oder `undefined`, wenn der Zielwert durch die Speicherbereinigung entfernt wurde.
+Die **`deref()`**-Methode von {{jsxref("WeakRef")}}-Instanzen gibt den Zielwert dieses `WeakRef` zurück oder `undefined`, wenn der Zielwert der Speicherbereinigung unterzogen wurde.
 
 ## Syntax
 
@@ -21,17 +21,18 @@ Keine.
 
 ### Rückgabewert
 
-Der Zielwert des WeakRef, der entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist. Gibt `undefined` zurück, wenn der Wert durch die Speicherbereinigung entfernt wurde.
+Der Zielwert des WeakRef, der entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist. Gibt `undefined` zurück, wenn der Wert der Speicherbereinigung unterzogen wurde.
 
 ## Beschreibung
 
-Sehen Sie sich den Abschnitt [Hinweise zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) auf der {{jsxref("WeakRef")}}-Seite für einige wichtige Hinweise an.
+Siehe den Abschnitt [Hinweise zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) auf der {{jsxref("WeakRef")}}-Seite für einige wichtige Hinweise.
 
 ## Beispiele
 
 ### Verwendung von deref()
 
-Sehen Sie sich den Abschnitt [Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples) auf der {{jsxref("WeakRef")}}-Seite für das vollständige Beispiel an.
+Siehe den Abschnitt [Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples)
+auf der {{jsxref("WeakRef")}}-Seite für das vollständige Beispiel.
 
 ```js
 const tick = () => {

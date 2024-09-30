@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasGradient`**-Schnittstelle repräsentiert ein [opakes Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das einen Farbverlauf beschreibt. Es wird durch die Methoden [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient), [`CanvasRenderingContext2D.createConicGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient) oder [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient) zurückgegeben.
+Die **`CanvasGradient`**-Schnittstelle repräsentiert ein [undurchsichtiges Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das einen Farbverlauf beschreibt. Es wird von den Methoden [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient), [`CanvasRenderingContext2D.createConicGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient) oder [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient) zurückgegeben.
 
 Es kann als [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) verwendet werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Als opaikes Objekt gibt es keine offengelegten Eigenschaften._
+_Als ein undurchsichtiges Objekt gibt es keine offengelegte Eigenschaft._
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`CanvasGradient.addColorStop()`](/de/docs/Web/API/CanvasGradient/addColorStop)
   - : Fügt dem Farbverlauf einen neuen Stopp hinzu, der durch einen `offset` und eine `color` definiert ist.
@@ -30,5 +30,5 @@ _Als opaikes Objekt gibt es keine offengelegten Eigenschaften._
 
 ## Siehe auch
 
-- Erzeugungsmethoden in [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D).
+- Erstellmethoden in [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D).
 - Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement).

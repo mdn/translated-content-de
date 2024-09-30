@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die **`BluetoothCharacteristicProperties`**-Schnittstelle der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) stellt die Operationen bereit, die für die gegebene [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic) zulässig sind.
+Das **`BluetoothCharacteristicProperties`**-Interface der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) bietet die Operationen, die für das gegebene [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic) gültig sind.
 
-Diese Schnittstelle wird durch den Aufruf von [`BluetoothRemoteGATTCharacteristic.properties`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/properties) zurückgegeben.
+Dieses Interface wird zurückgegeben, indem [`BluetoothRemoteGATTCharacteristic.properties`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/properties) aufgerufen wird.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`authenticatedSignedWrites`](/de/docs/Web/API/BluetoothCharacteristicProperties/authenticatedSignedWrites) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn signiertes Schreiben des Charakteristikwerts erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn das signierte Schreiben des Characteristic-Werts erlaubt ist.
 - [`broadcast`](/de/docs/Web/API/BluetoothCharacteristicProperties/broadcast) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn die Übertragung des Charakteristikwerts mit dem Server Characteristic Configuration Descriptor erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Broadcasten des Characteristic-Werts mittels des Server Characteristic Configuration Descriptors erlaubt ist.
 - [`indicate`](/de/docs/Web/API/BluetoothCharacteristicProperties/indicate) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn die Anzeigen des Charakteristikwerts mit Bestätigung erlaubt sind.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn Angabe des Characteristic-Werts mit Bestätigung erlaubt ist.
 - [`notify`](/de/docs/Web/API/BluetoothCharacteristicProperties/notify) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn Benachrichtigungen des Charakteristikwerts ohne Bestätigung erlaubt sind.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn Benachrichtigungen des Characteristic-Werts ohne Bestätigung erlaubt sind.
 - [`read`](/de/docs/Web/API/BluetoothCharacteristicProperties/read) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Lesen des Charakteristikwerts erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Lesen des Characteristic-Werts erlaubt ist.
 - [`reliableWrite`](/de/docs/Web/API/BluetoothCharacteristicProperties/reliableWrite) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn zuverlässiges Schreiben auf die Charakteristik erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn zuverlässiges Schreiben zum Characteristic erlaubt ist.
 - [`writableAuxiliaries`](/de/docs/Web/API/BluetoothCharacteristicProperties/writableAuxiliaries) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn zuverlässiges Schreiben auf den Charakteristik-Deskriptor erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn zuverlässiges Schreiben zum Characteristic-Descriptor erlaubt ist.
 - [`write`](/de/docs/Web/API/BluetoothCharacteristicProperties/write) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Schreiben auf die Charakteristik mit Antwort erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Schreiben zum Characteristic mit Antwort erlaubt ist.
 - [`writeWithoutResponse`](/de/docs/Web/API/BluetoothCharacteristicProperties/writeWithoutResponse) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Schreiben auf die Charakteristik ohne Antwort erlaubt ist.
+  - : Gibt einen `boolean` zurück, der `true` ist, wenn das Schreiben zum Characteristic ohne Antwort erlaubt ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man feststellen kann, ob eine GATT-Charakteristik unterstützte Wertänderungsbenachrichtigungen bietet.
+Das folgende Beispiel zeigt, wie man feststellt, ob ein GATT-Charakteristikum Benachrichtigungen bei Wertänderungen unterstützt.
 
 ```js
 let device = await navigator.bluetooth.requestDevice({

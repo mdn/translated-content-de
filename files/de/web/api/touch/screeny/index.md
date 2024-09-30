@@ -1,5 +1,5 @@
 ---
-title: "Touch: screenY-Eigenschaft"
+title: "Touch: screenY Eigenschaft"
 short-title: screenY
 slug: Web/API/Touch/screenY
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Gibt die Y-Koordinate des Berührungspunkts relativ zum Bildschirm zurück, ohne jeglichen Scroll-Offset.
+Gibt die Y-Koordinate des Berührungspunkts relativ zum Bildschirm zurück, ohne jeglichen Scrollversatz einzuschließen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Das [Touch.screenX-Beispiel](/de/docs/Web/API/Touch/screenX#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
+Das [Beispiel zu Touch.screenX](/de/docs/Web/API/Touch/screenX#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
 
 ## Spezifikationen
 

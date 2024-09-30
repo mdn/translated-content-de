@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`duration`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Audiosignals in Mikrosekunden angibt.
+Die schreibgeschützte Eigenschaft **`duration`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden angibt.
 
 ## Wert
 

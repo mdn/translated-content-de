@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Parameter nach Rest-Parameter"
+title: "SyntaxError: parameter nach Rest-Parameter"
 slug: Web/JavaScript/Reference/Errors/Parameter_after_rest_parameter
 l10n:
   sourceCommit: 38bd4d88564b9a1539fb4d1b4ba6fa04b0a10063
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "parameter after rest parameter" tritt auf, wenn in einer Parameterliste ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) von etwas anderem gefolgt wird, einschließlich eines anderen Rest-Parameters, eines formalen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
+Der JavaScript-Ausnahmefehler "parameter after rest parameter" tritt auf, wenn ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) in einer Parameterliste von etwas anderem gefolgt wird, einschließlich eines weiteren Rest-Parameters, eines formalen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
 
 ## Meldung
 
@@ -17,13 +17,13 @@ SyntaxError: parameter after rest parameter (Firefox)
 SyntaxError: Unexpected token ','. Rest parameter should be the last parameter in a function declaration. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schief gelaufen?
 
-Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente sammelt, die an die Funktion übergeben werden. Es macht also keinen Sinn, danach noch Parameter zu haben. Das nächste nicht-leere Zeichen muss die schließende Klammer der Parameterliste sein.
+Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente sammelt, die an die Funktion übergeben werden. Daher macht es keinen Sinn, weitere Parameter nach ihm zu haben. Das nächste Nicht-Leerzeichen-Zeichen muss die schließende Klammer der Parameterliste sein.
 
 ## Beispiele
 

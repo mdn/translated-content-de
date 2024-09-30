@@ -8,38 +8,38 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft **`inputMode`** spiegelt den Wert des [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode)-Attributs des Elements wider.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inputMode`** spiegelt den Wert des [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode)-Attributs des Elements wider.
 
-Sie liefert einen Hinweis auf die Art der Daten, die der Benutzer möglicherweise beim Bearbeiten des Elements oder seiner Inhalte eingeben könnte. Dadurch kann der Browser eine geeignete virtuelle Tastatur anzeigen.
+Sie gibt einen Hinweis auf die Art der Daten, die der Benutzer möglicherweise beim Bearbeiten des Elements oder dessen Inhalte eingibt. Dadurch kann der Browser eine geeignete virtuelle Tastatur anzeigen.
 
-Sie wird hauptsächlich für {{HTMLElement("input")}}-Elemente verwendet, kann jedoch bei jedem Element im [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Modus eingesetzt werden.
+Sie wird hauptsächlich bei {{HTMLElement("input")}}-Elementen verwendet, kann jedoch bei jedem Element im [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Modus eingesetzt werden.
 
 ## Wert
 
 Dieses Attribut kann einen der folgenden Werte haben:
 
 - `decimal`
-  - : Dezimalzahlen-Eingabetastatur, die die Ziffern und das Dezimaltrennzeichen für die Sprache des Benutzers enthält (typischerweise <kbd>.</kbd> oder <kbd>,</kbd>).
+  - : Eine numerische Tastatur für Bruchzahlen, die die Ziffern und das Dezimaltrennzeichen für die Benutzer-Lokalisierung enthält (typischerweise <kbd>.</kbd> oder <kbd>,</kbd>).
 - `email`
   - : Eine virtuelle Tastatur, die für die Eingabe von E-Mail-Adressen optimiert ist.
-    Typischerweise enthält sie das Zeichen <kbd>@</kbd> sowie andere Optimierungen.
+    Typischerweise enthält diese das Zeichen <kbd>@</kbd> sowie weitere Optimierungen.
 - `none`
   - : Keine virtuelle Tastatur. Dies wird verwendet, wenn die Seite ihre eigene Tastatureingabesteuerung implementiert.
 - `numeric`
-  - : Numerische Eingabetastatur, die nur die Ziffern 0–9 erfordert.
-    Geräte zeigen möglicherweise auch eine Minustaste an.
+  - : Numerische Eingabetastatur, die nur die Ziffern 0–9 benötigt.
+    Geräte können optional einen Minus-Tasten anzeigen.
 - `search`
-  - : Eine virtuelle Tastatur, die für die Sucheingabe optimiert ist.
-    Zum Beispiel kann die [Return/Submit-Taste](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute) als "Suchen" beschriftet sein.
+  - : Eine virtuelle Tastatur, die für Sucheingaben optimiert ist.
+    Beispielsweise könnte die [Return/Submit-Taste](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute) mit "Suchen" beschriftet sein.
 - `tel`
-  - : Ein Eingabefeld für Telefonnummern, das die Ziffern 0–9, das Sternchen (<kbd>\*</kbd>) und das Rautensymbol (<kbd>#</kbd>) enthält.
+  - : Eine Telefon-Tastatur, die die Ziffern 0–9, das Sternchen (<kbd>\*</kbd>), und das Raute-Symbol (<kbd>#</kbd>) umfasst.
 - `text`
-  - : Standard-Eingabetastatur für die aktuelle Sprache des Benutzers.
+  - : Standard-Eingabetastatur für die aktuelle Lokalisierung des Benutzers.
 - `url`
   - : Eine Tastatur, die für die Eingabe von URLs optimiert ist.
     Diese kann zum Beispiel die <kbd>/</kbd>-Taste prominenter anzeigen.
 
-Für Details zur Verwendung dieses Attributs siehe die Seite für das [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) HTML-Attribut, das diese Eigenschaft widerspiegelt.
+Für Details zur Nutzung dieses Attributs siehe die Seite für das [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode)-HTML-Attribut, das diese Eigenschaft widerspiegelt.
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ Für Details zur Verwendung dieses Attributs siehe die Seite für das [`inputmod
 
 ## Siehe auch
 
-- [inputmode](/de/docs/Web/HTML/Global_attributes#inputmode) Attribut
+- [inputmode](/de/docs/Web/HTML/Global_attributes#inputmode)-Attribut

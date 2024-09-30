@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`global.get`**-Anweisung lädt den Wert einer globalen Variablen auf den Stapel.
+Die **`global.get`**-Anweisung lädt den Wert einer globalen Variable auf den Stapel.
 
 {{EmbedInteractiveExample("pages/wat/global_get.html", "tabbed-standard")}}
 

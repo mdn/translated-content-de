@@ -9,11 +9,11 @@ l10n:
 
 **BiDi** (BiDirectional) beschreibt ein Dokument, das sowohl von rechts nach links (RTL) als auch von links nach rechts (LTR) verlaufenden Text enthält.
 
-Benutzeroberflächen sollten BiDi-Inhalte korrekt anzeigen, aber viele scheitern daran. Ein Beispiel ist die hebräische Übersetzung des Namens Sarah: שרה, buchstabiert (von rechts nach links) sin (ש), resh (ר), heh (ה). Viele Programme würden die Buchstaben in umgekehrter Reihenfolge anzeigen.
+Benutzeroberflächen sollten BiDi-Inhalte korrekt anzeigen, aber viele scheitern daran. Ein Beispiel ist die hebräische Übersetzung des Namens Sarah: שרה, von rechts nach links geschrieben Sin (ש), Resh (ר), Heh (ה). Viele Programme würden die Buchstaben in der umgekehrten Reihenfolge anzeigen.
 
-Es ist möglich, die Anzeige von links nach rechts in eine Anzeige von rechts nach links umzuschalten, aber dabei geht die Fähigkeit verloren, BiDi-Skripte korrekt anzuzeigen - mindestens eines wird immer falsch dargestellt. Mit Unterstützung für bidirektionale Skripte ist es möglich, Zeichen aus verschiedenen Schriftsystemen auf derselben Seite zu mischen, unabhängig von der Schreibrichtung.
+Es ist möglich, die Anzeigereihenfolge von links nach rechts in eine von rechts nach links umzuwandeln, aber dadurch wird die Fähigkeit, BiDi-Skripte korrekt anzuzeigen, geopfert – mindestens eines wird immer falsch angezeigt. Mit Unterstützung für bidirektionale Skripte ist es möglich, Zeichen aus verschiedenen Skripten auf derselben Seite zu mischen, unabhängig von der Schreibrichtung.
 
-Der Unicode-Standard bietet die Grundlagen für vollständige BiDi-Unterstützung mit detaillierten Regeln, wie Mischungen aus links-nach-rechts und rechts-nach-links Skripten zu codieren und anzuzeigen sind.
+Der Unicode-Standard bietet Grundlagen für vollständige BiDi-Unterstützung, mit detaillierten Regeln, wie Mischungen von links-nach-rechts und rechts-nach-links Skripten kodiert und angezeigt werden sollen.
 
 ## Siehe auch
 

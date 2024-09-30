@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`demote`**-Anweisung wird verwendet, um Zahlen vom Typ `f64` in den Typ `f32` zu konvertieren (herabzustufen).
+Die **`demote`**-Anweisung wird verwendet, um Zahlen des Typs `f64` in den Typ `f32` zu konvertieren (herabzustufen).
 
 {{EmbedInteractiveExample("pages/wat/demote.html", "tabbed-taller")}}
 

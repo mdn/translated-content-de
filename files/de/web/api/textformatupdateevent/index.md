@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein [Eingabemethoden-Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den Text anwenden möchte, der in einem bearbeitbaren Bereich geschrieben wird, der an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angefügt ist.
+Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den in einer bearbeitbaren Region verfassten Text anwenden möchte, die mit einer Instanz von [`EditContext`](/de/docs/Web/API/EditContext) verbunden ist.
 
 Diese Schnittstelle erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 
@@ -25,9 +25,9 @@ Diese Schnittstelle erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### IME-komponierten Text formatieren
+### IME-verfassten Text formatieren
 
-Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren.
+Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um das Format des Textes in der bearbeitbaren Region zu aktualisieren.
 
 ```html
 <canvas id="editor-canvas"></canvas>

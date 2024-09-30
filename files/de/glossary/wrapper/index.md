@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In Programmiersprachen wie JavaScript ist ein Wrapper eine Funktion, die dazu bestimmt ist, eine oder mehrere andere Funktionen aufzurufen, manchmal rein aus Bequemlichkeit und manchmal, um sie so anzupassen, dass sie im Prozess eine etwas andere Aufgabe erfüllen.
+In Programmiersprachen wie JavaScript ist ein Wrapper eine Funktion, die dazu gedacht ist, eine oder mehrere andere Funktionen aufzurufen, manchmal lediglich aus Bequemlichkeit und manchmal, um sie so anzupassen, dass sie dabei eine etwas andere Aufgabe erfüllen.
 
 Zum Beispiel sind SDK-Bibliotheken für AWS Beispiele für Wrapper.
 

@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleSheet: addRule()-Methode"
+title: "CSSStyleSheet: addRule() Methode"
 short-title: addRule()
 slug: Web/API/CSSStyleSheet/addRule
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die veraltete _Legacy-Methode_ **`addRule()`** des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Interfaces fügt dem Stylesheet eine neue Regel hinzu. Sie sollten diese Methode vermeiden und stattdessen die standardmäßigere Methode [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) verwenden.
+Die veraltete Schnittstelle [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) verwendet die **`addRule()`** _Legacy-Methode_, um eine neue Regel zum Stylesheet hinzuzufügen. Sie sollten diese Methode vermeiden und stattdessen die standardmäßigere [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) Methode verwenden.
 
 ## Syntax
 
@@ -19,29 +19,29 @@ addRule(selector, styleBlock, index)
 ### Parameter
 
 - `selector`
-  - : Ein String, der den Selektor-Teil der CSS-Regel angibt. Der Standardwert ist der String `undefined`.
+  - : Ein Zeichenfolgenwert, der den Selektoranteil der CSS-Regel angibt. Der Standardwert ist die Zeichenfolge `undefined`.
 - `styleBlock`
-  - : Ein String, der den Style-Block angibt, der auf Elemente angewendet wird, die mit dem `selector` übereinstimmen. Der Standardwert ist der String `undefined`.
+  - : Eine Zeichenfolge, die den Stilblock angibt, der auf Elemente angewendet werden soll, die dem `selector` entsprechen. Der Standardwert ist die Zeichenfolge `undefined`.
 - `index` {{optional_inline}}
-  - : Ein optionaler Index in der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) des Stylesheets, an dem die neue Regel eingefügt wird. Wenn `index` nicht angegeben ist, wird der nächste Index nach dem letzten derzeit in der Liste befindlichen Element verwendet (das heißt, der Wert von `cssStyleSheet.cssRules.length`).
+  - : Ein optionaler Index in der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) des Stylesheets, an dem die neue Regel eingefügt werden soll. Wird `index` nicht angegeben, wird der nächste Index nach dem letzten Element in der Liste verwendet (also der Wert von `cssStyleSheet.cssRules.length`).
 
 ### Rückgabewert
 
 Gibt immer -1 zurück.
 
-Beachten Sie, dass aufgrund einiger eher esoterischer Regeln, wo Sie Regeln legal einfügen können, möglicherweise eine Ausnahme ausgelöst wird. Weitere Informationen finden Sie unter [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule).
+Beachten Sie, dass es aufgrund von etwas exotischen Regeln darüber, wo Sie legal Regeln einfügen können, möglich ist, dass eine Ausnahme ausgelöst wird. Weitere Informationen finden Sie unter [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule).
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
-Diese Methode wird von Browsern implementiert, indem sie einen String mit dem Template Literal `` `${selector}{${styleBlock}}` `` erstellen und ihn dann in die standardmäßige Methode [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) übergeben.
+Diese Methode wird von Browsern implementiert, indem ein String unter Verwendung des Template-Literals `` `${selector}{${styleBlock}}` `` konstruiert und dann in die standardmäßige [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) Methode übergeben wird.
 
-Daher können Sie vorhandenen Code wie den folgenden:
+Daher kann der bestehende Code wie folgt umgeschrieben werden:
 
 ```js
 cssStyleSheet.addRule(selector, styles, 0);
 ```
 
-umformulieren, um die standardmäßigere `insertRule()` zu verwenden, wie folgt:
+Sie können dies umschreiben und die standardmäßigere `insertRule()` Methode wie folgt verwenden:
 
 ```js
 cssStyleSheet.insertRule(`${selector} {${styles}}`, 0);
@@ -57,5 +57,5 @@ cssStyleSheet.insertRule(`${selector} {${styles}}`, 0);
 
 ## Siehe auch
 
-- [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
-- [Verwendung von dynamischen Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

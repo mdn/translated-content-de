@@ -1,5 +1,5 @@
 ---
-title: XSLT-Elemente Referenz
+title: XSLT Elements Referenz
 slug: Web/XSLT/Element
 l10n:
   sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
@@ -7,27 +7,27 @@ l10n:
 
 {{XsltSidebar}}
 
-Hier werden zwei Arten von Elementen besprochen: Top-Level-Elemente und Anweisungen. Ein Top-Level-Element muss als Kind von entweder `<xsl:stylesheet>` oder `<xsl:transform>` erscheinen. Eine Anweisung hingegen ist mit einer Vorlage verbunden. Ein Stylesheet kann mehrere Vorlagen enthalten. Eine dritte Art von Element, die hier nicht besprochen wird, ist das Literal Result Element (LRE). Ein LRE erscheint ebenfalls in einer Vorlage. Es besteht aus jedem Nicht-Anweisungselement, das unverändert in das Ergebnisdokument kopiert werden soll, zum Beispiel ein `<hr>` Element in einem HTML-Konvertierungs-Stylesheet.
+Es gibt zwei Arten von Elementen, die hier besprochen werden: Top-Level-Elemente und Anweisungen. Ein Top-Level-Element muss als Kind entweder von `<xsl:stylesheet>` oder `<xsl:transform>` erscheinen. Eine Anweisung hingegen ist mit einer Vorlage verbunden. Ein Stylesheet kann mehrere Vorlagen enthalten. Eine dritte Art von Element, die hier nicht besprochen wird, ist das Literal-Resultat-Element (LRE). Ein LRE erscheint ebenfalls in einer Vorlage. Es besteht aus jedem Nicht-Anweisungselement, das unverändert in das Ergebnisdokument kopiert werden soll, zum Beispiel ein `<hr>`-Element in einem HTML-Konvertierungs-Stylesheet.
 
-In diesem Zusammenhang kann auch jedes Attribut in einem LRE und einige Attribute einer begrenzten Anzahl von XSLT-Elementen eine sogenannte Attributwertvorlage (attribute value template) enthalten. Eine Attributwertvorlage ist eine Zeichenkette, die einen eingebetteten XPath-Ausdruck enthält, der verwendet wird, um den Wert eines Attributs zu bestimmen. Zur Laufzeit wird der Ausdruck ausgewertet und das Ergebnis der Auswertung wird anstelle des XPath-Ausdrucks eingesetzt. Beispielsweise nehmen wir an, dass eine Variable `image-dir` wie folgt definiert ist:
+In diesem Zusammenhang kann jedes Attribut in einem LRE und einige Attribute einer begrenzten Anzahl von XSLT-Elementen auch eine sogenannte Attributwertvorlage enthalten. Eine Attributwertvorlage ist ein String, der einen eingebetteten XPath-Ausdruck enthält, der verwendet wird, um den Wert eines Attributs anzugeben. Zur Laufzeit wird der Ausdruck ausgewertet und das Ergebnis der Auswertung ersetzt den XPath-Ausdruck. Zum Beispiel, nehmen wir an, dass eine Variable `image-dir` wie folgt definiert ist:
 
 ```xml
 <xsl:variable name="image-dir">/images</xsl:variable>
 ```
 
-Der zu bewertende Ausdruck wird in geschweifte Klammern gesetzt:
+Der Ausdruck, der ausgewertet werden soll, wird in geschweifte Klammern gesetzt:
 
 ```xml
 <img src="{$image-dir}/mygraphic.jpg"/>
 ```
 
-Dies würde Folgendes ergeben:
+Dies würde zu folgendem Ergebnis führen:
 
 ```xml
 <img src="/images/mygraphic.jpg"/>
 ```
 
-Die folgenden Element-Anmerkungen enthalten eine Beschreibung, eine Syntaxauflistung, eine Liste der erforderlichen und optionalen Attribute, eine Beschreibung des Typs und der Position, ihre Quelle in der W3C-Empfehlung und eine Erklärung des Grades der aktuellen Gecko-Unterstützung.
+Die folgenden Elementanmerkungen enthalten eine Beschreibung, eine Syntax-Auflistung, eine Liste der erforderlichen und optionalen Attribute, eine Beschreibung des Typs und der Position, ihre Quelle in der W3C-Empfehlung und eine Erklärung des aktuellen Gecko-Supports.
 
 - [`<xsl:apply-imports>`](/de/docs/Web/XSLT/Element/apply-imports)
 - [`<xsl:apply-templates>`](/de/docs/Web/XSLT/Element/apply-templates)
@@ -43,7 +43,7 @@ Die folgenden Element-Anmerkungen enthalten eine Beschreibung, eine Syntaxauflis
 - [`<xsl:fallback>`](/de/docs/Web/XSLT/Element/fallback) _(nicht unterstützt)_
 - [`<xsl:for-each>`](/de/docs/Web/XSLT/Element/for-each)
 - [`<xsl:if>`](/de/docs/Web/XSLT/Element/if)
-- [`<xsl:import>`](/de/docs/Web/XSLT/Element/import) _(meistens unterstützt)_
+- [`<xsl:import>`](/de/docs/Web/XSLT/Element/import) _(größtenteils unterstützt)_
 - [`<xsl:include>`](/de/docs/Web/XSLT/Element/include)
 - [`<xsl:key>`](/de/docs/Web/XSLT/Element/key)
 - [`<xsl:message>`](/de/docs/Web/XSLT/Element/message)

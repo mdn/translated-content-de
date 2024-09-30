@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`lighting-color`** Attribut definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
+Das Attribut **`lighting-color`** definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDiffuseLighting")}}
 - {{SVGElement("feSpecularLighting")}}
@@ -52,7 +52,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "200")}}
+{{EmbedLiveSample("Beispiel", "420", "200")}}
 
 ## Verwendungshinweise
 

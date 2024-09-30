@@ -8,11 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.location`** Leseeigenschaft gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über den aktuellen Standort des Dokuments enthält.
+Die **`Window.location`** Leseeigenschaft gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt mit Informationen über den aktuellen Standort des Dokuments zurück.
 
 Obwohl `Window.location` ein _schreibgeschütztes_ `Location`-Objekt ist, können Sie ihm auch einen String zuweisen.
-Dies bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als ob es ein String wäre:
-`location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
+Das bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als wäre es ein String: `location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
 
 Siehe [`Location`](/de/docs/Web/API/Location) für alle verfügbaren Eigenschaften.
 
@@ -30,16 +29,16 @@ alert(location); // alerts "https://developer.mozilla.org/en-US/docs/Web/API/Win
 
 ### Beispiel 1: Navigieren zu einer neuen Seite
 
-Wann immer ein neuer Wert dem Location-Objekt zugewiesen wird, wird ein Dokument mit der URL geladen, als ob `location.assign()` mit der geänderten URL aufgerufen worden wäre.
+Immer wenn ein neuer Wert dem Standortobjekt zugewiesen wird, wird ein Dokument unter Verwendung der URL geladen, als ob `location.assign()` mit der geänderten URL aufgerufen worden wäre.
 
-Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) zu einer Ausnahme führen können und die Navigation fehlschlägt.
+Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) dazu führen können, dass eine Ausnahme geworfen wird und die Navigation fehlschlägt.
 
 ```js
 location.assign("https://www.mozilla.org"); // or
 location = "https://www.mozilla.org";
 ```
 
-### Beispiel 2: Die aktuelle Seite neu laden
+### Beispiel 2: Neuladen der aktuellen Seite
 
 ```js
 location.reload();
@@ -47,7 +46,7 @@ location.reload();
 
 ### Beispiel 3
 
-Betrachten Sie das folgende Beispiel, das die Seite neu lädt, indem es die Methode [`replace()`](/de/docs/Web/API/Location/replace) verwendet, um den Wert von `location.pathname` in den Hash einzufügen:
+Betrachten Sie das folgende Beispiel, das die Seite neu lädt, indem die [`replace()`](/de/docs/Web/API/Location/replace)-Methode verwendet wird, um den Wert von `location.pathname` in das Hash einzufügen:
 
 ```js
 function reloadPageWithHash() {
@@ -55,7 +54,7 @@ function reloadPageWithHash() {
 }
 ```
 
-### Beispiel 4: Die Eigenschaften der aktuellen URL in einem Alarmdialog anzeigen
+### Beispiel 4: Anzeigen der Eigenschaften der aktuellen URL in einem Dialogfeld
 
 ```js
 function showLoc() {
@@ -74,7 +73,7 @@ function showLoc() {
 // in html: <button onclick="showLoc();">Show location properties</button>
 ```
 
-### Beispiel 5: Eine Zeichenkette von Daten durch Ändern der `search`-Eigenschaft an den Server senden
+### Beispiel 5: Eine Zeichenkette von Daten an den Server senden, indem die `search`-Eigenschaft geändert wird
 
 ```js
 function sendData(data) {
@@ -84,9 +83,9 @@ function sendData(data) {
 // in html: <button onclick="sendData('Some data');">Send data</button>
 ```
 
-Die aktuelle URL mit "?Some%20data" angehängt wird an den Server gesendet (wenn keine Aktion vom Server durchgeführt wird, wird das aktuelle Dokument mit dem geänderten Suchstring neu geladen).
+Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (wenn keine Aktion vom Server erfolgt, wird das aktuelle Dokument mit der geänderten Suchzeichenfolge neu geladen).
 
-### Beispiel 6: Lesezeichen verwenden, ohne die `hash`-Eigenschaft zu ändern
+### Beispiel 6: Verwenden von Lesezeichen ohne Ändern der `hash`-Eigenschaft
 
 ```html
 <!doctype html>
@@ -368,7 +367,7 @@ Die aktuelle URL mit "?Some%20data" angehängt wird an den Server gesendet (wenn
 </html>
 ```
 
-… dasselbe, aber mit einem animierten Seiten-Scroll:
+… dasselbe, aber mit einer animierten Seitenrolle:
 
 ```js
 const showBookmark = (() => {
@@ -444,8 +443,8 @@ const showBookmark = (() => {
 
 ## Siehe auch
 
-- Die Schnittstelle des zurückgegebenen Werts, [`Location`](/de/docs/Web/API/Location)
-- Ähnliche Informationen, jedoch am Dokument angehängt,
+- Das Interface des zurückgegebenen Werts, [`Location`](/de/docs/Web/API/Location)
+- Eine ähnliche Information, aber dem Dokument angehängt,
   [`Document.location`](/de/docs/Web/API/Document/location)
-- [Manipulation des Browserverlaufs](/de/docs/Web/API/History_API)
+- [Manipulieren des Browserverlaufs](/de/docs/Web/API/History_API)
 - [`hashchange`](/de/docs/Web/API/Window/hashchange_event)

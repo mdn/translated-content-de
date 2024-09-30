@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert ihn.
+Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert diesen.
 
 {{EmbedInteractiveExample("pages/js/expressions-unary-negation.html")}}
 
@@ -19,7 +19,7 @@ Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert ih
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Operandentypen überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [erzwingt zuerst die Umwandlung des Operanden in einen numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft dessen Typ. Er führt eine BigInt-Negation durch, wenn der Operand ein BigInt wird; andernfalls führt er eine Zahlennegation durch.
+Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zunächst [wandelt er den Operanden in einen numerischen Wert um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet dessen Typ. Er führt eine BigInt-Negation durch, wenn der Operand zu einem BigInt wird; andernfalls führt er eine Zahlennegation durch.
 
 ## Beispiele
 
@@ -66,7 +66,7 @@ const y = -x;
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentialrechnung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

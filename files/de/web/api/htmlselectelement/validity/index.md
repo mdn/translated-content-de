@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`validity`** der Schnittstelle [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
+Die schreibgeschützte **`validity`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements repräsentiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiel
 
-Das folgende Beispiel erfasst den Gültigkeitszustand eines `select`-Elements und verarbeitet ihn, wenn er nicht gültig ist:
+Das folgende Beispiel ermittelt den Gültigkeitszustand eines `select`-Elements und verarbeitet es, falls es nicht gültig ist:
 
 ```js
 const select = document.getElementById("mySelect");

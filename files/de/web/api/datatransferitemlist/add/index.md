@@ -9,7 +9,7 @@ l10n:
 {{APIRef("HTML Drag and Drop API")}}
 
 Die **`DataTransferItemList.add()`** Methode erstellt ein neues
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
+[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder ein String eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt zurückgegeben.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ add(file)
 - `type`
   - : Ein String des Typs des Drag-Elements. Einige Beispieltypen sind `text/html` und `text/plain`.
 - `file`
-  - : Ein [`File`](/de/docs/Web/API/File)-Objekt. In diesem Fall muss kein Typ angegeben werden.
+  - : Ein [`File`](/de/docs/Web/API/File) Objekt. In diesem Fall muss kein Typ angegeben werden.
 
 ### Rückgabewert
 
-Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten. Falls das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
+Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der String `data`-Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ gleich dem angegebenen Typ-Parameter ist.
+  - : Wird ausgelöst, wenn der String `data` übergeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
 
 ## Beispiele
 
@@ -141,7 +141,7 @@ function dragend_handler(ev) {
 
 {{EmbedLiveSample('Examples', 400, 300)}}
 
-{{LiveSampleLink('Examples', 'Result link')}}
+{{LiveSampleLink('Examples', 'Ergebnislink')}}
 
 ## Spezifikationen
 

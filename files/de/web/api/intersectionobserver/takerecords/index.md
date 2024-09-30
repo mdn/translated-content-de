@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`takeRecords()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten zurück, eines für jedes gezielte Element, das seit der letzten Überprüfung der Schnittpunkte eine Schnittpunktänderung erfahren hat, entweder explizit durch einen Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Rückrufs des Beobachters.
+Die Methode **`takeRecords()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten zurück, eines für jedes gezielte Element, das seit dem letzten Überprüfen der Schnittmengen eine Veränderung in der Schnittmenge erfahren hat, entweder explizit durch einen Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Rückrufs des Beobachters.
 
 > [!NOTE]
-> Wenn Sie den Rückruf verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen. Der Aufruf dieser Methode löscht die ausstehenden Schnittpunktlisten, sodass der Rückruf nicht ausgeführt wird.
+> Wenn Sie den Rückruf verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen. Ein Aufruf dieser Methode leert die Liste der ausstehenden Schnittmengen, daher wird der Rückruf nicht ausgeführt.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten, eines für jedes Ziel-Element, dessen Schnittpunkt mit der Wurzel sich seit der letzten Überprüfung der Schnittpunkte geändert hat.
+Ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten, eines für jedes Zielelement, dessen Schnittmenge mit dem Root sich seit dem letzten Überprüfen der Schnittmengen verändert hat.
 
 ## Spezifikationen
 

@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`get()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle
-gibt einen Byte-String aller Werte eines Headers innerhalb eines `Headers`-Objekts
-mit einem gegebenen Namen zurück. Wenn der angeforderte Header im `Headers`-Objekt nicht existiert, wird `null` zurückgegeben.
+Die **`get()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces
+liefert einen Byte-String aller Werte eines Headers innerhalb eines `Headers`-Objekts
+mit einem gegebenen Namen. Existiert der angeforderte Header nicht im `Headers`-Objekt,
+gibt sie `null` zurück.
 
-Aus Sicherheitsgründen können einige Header nur von der Nutzeragentur gesteuert werden. Diese
+Aus Sicherheitsgründen können einige Header nur vom User-Agent kontrolliert werden. Diese
 Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name)
 und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
 
@@ -25,14 +26,12 @@ get(name)
 ### Parameter
 
 - `name`
-  - : Der Name des HTTP-Headers, dessen Werte Sie aus dem
-    `Headers`-Objekt abrufen möchten. Wenn der angegebene Name nicht der Name eines HTTP-Headers ist, wirft diese
-    Methode einen {{jsxref("TypeError")}}. Der Name ist nicht case-sensitiv.
+  - : Der Name des HTTP-Headers, dessen Werte Sie aus dem `Headers`-Objekt abrufen möchten.
+    Wenn der angegebene Name nicht der Name eines HTTP-Headers ist, löst diese Methode einen {{jsxref("TypeError")}} aus. Der Name ist nicht case-sensitiv.
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}}-Sequenz, die die Werte des abgerufenen Headers darstellt, oder
-`null`, wenn dieser Header nicht gesetzt ist.
+Eine {{jsxref("String")}}-Sequenz, die die Werte des abgerufenen Headers darstellt, oder `null`, wenn dieser Header nicht gesetzt ist.
 
 ## Beispiele
 
@@ -43,16 +42,14 @@ const myHeaders = new Headers(); // Currently empty
 myHeaders.get("Not-Set"); // Returns null
 ```
 
-Sie könnten einen Header mithilfe von [`Headers.append`](/de/docs/Web/API/Headers/append) hinzufügen und ihn dann
-mit `get()` abrufen:
+Sie könnten diesem mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen und ihn dann mit `get()` abrufen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
 myHeaders.get("Content-Type"); // Returns "image/jpeg"
 ```
 
-Wenn dem Header mehrere Werte zugeordnet sind, enthält der Byte-String alle
-Werte in der Reihenfolge, in der sie dem Headers-Objekt hinzugefügt wurden:
+Falls der Header mehrere Werte enthält, wird der Byte-String alle Werte in der Reihenfolge enthalten, in der sie dem Headers-Objekt hinzugefügt wurden:
 
 ```js
 myHeaders.append("Accept-Encoding", "deflate");

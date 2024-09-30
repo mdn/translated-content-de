@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`renderHeight`**-Schreibgeschützte Eigenschaft der [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Schnittstelle beschreibt die empfohlene Zielhöhe zum Rendern jeder Augenansicht in Pixeln.
+Die schreibgeschützte Eigenschaft **`renderHeight`** des [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Interfaces beschreibt die empfohlene Renderziel-Höhe jedes Augenansichtsfensters in Pixeln.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde von der [WebXR-Device-API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Diese Eigenschaft ist bereits in Geräte-Pixeleinheiten angegeben, daher ist es nicht notwendig, mit [Window.devicePixelRatio](/de/docs/Web/API/Window/devicePixelRatio) zu multiplizieren, bevor sie auf [HTMLCanvasElement.height](/de/docs/Web/API/HTMLCanvasElement/height) gesetzt wird.
+Dies ist bereits in Geräte-Pixeleinheiten, daher gibt es keine Notwendigkeit, mit [Window.devicePixelRatio](/de/docs/Web/API/Window/devicePixelRatio) zu multiplizieren, bevor sie auf [HTMLCanvasElement.height](/de/docs/Web/API/HTMLCanvasElement/height) gesetzt wird.
 
 ## Wert
 
@@ -25,9 +25,9 @@ Siehe [`VREyeParameters`](/de/docs/Web/API/VREyeParameters#examples) für Beispi
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie wird nicht mehr als Standard etabliert.
+Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR-Device-API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für mehr Informationen.
+Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Meta-Leitfaden zur Umstellung von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

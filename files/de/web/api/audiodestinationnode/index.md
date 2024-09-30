@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `AudioDestinationNode`-Interface repräsentiert das Endziel eines Audiografen in einem bestimmten Kontext – normalerweise die Lautsprecher Ihres Geräts. Es kann auch der Knoten sein, der die Audiodaten "aufzeichnet", wenn er mit einem `OfflineAudioContext` verwendet wird.
+Das `AudioDestinationNode`-Interface repräsentiert das Endziel eines Audiographen in einem bestimmten Kontext – normalerweise die Lautsprecher Ihres Geräts. Es kann auch der Knoten sein, der die Audiodaten "aufzeichnet", wenn er mit einem `OfflineAudioContext` verwendet wird.
 
-`AudioDestinationNode` hat keinen Ausgang (da es der Ausgang ist, kann kein weiteres `AudioNode` danach im Audiograf verbunden werden) und einen Eingang. Die Anzahl der Kanäle im Eingang muss zwischen `0` und dem Wert von `maxChannelCount` liegen, sonst wird eine Ausnahme ausgelöst.
+`AudioDestinationNode` hat keine Ausgabe (da es _die_ Ausgabe ist, kann im Audiograph kein weiterer `AudioNode` nach ihm verknüpft werden) und einen Eingang. Die Anzahl der Kanäle am Eingang muss zwischen `0` und dem Wert von `maxChannelCount` liegen, sonst wird eine Ausnahme ausgelöst.
 
 Das `AudioDestinationNode` eines bestimmten `AudioContext` kann über die [`AudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination)-Eigenschaft abgerufen werden.
 
@@ -42,18 +42,18 @@ Das `AudioDestinationNode` eines bestimmten `AudioContext` kann über die [`Audi
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt Eigenschaften von seinem Elternobjekt, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`AudioDestinationNode.maxChannelCount`](/de/docs/Web/API/AudioDestinationNode/maxChannelCount)
-  - : Ein `unsigned long`, das die maximale Anzahl der Kanäle definiert, die das physische Gerät verarbeiten kann.
+  - : Ein `unsigned long`, das die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Methode; erbt Methoden von seinem Elternobjekt, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Es gibt keine komplexe Einrichtung für die Verwendung eines `AudioDestinationNode` — standardmäßig stellt es den Ausgang des Systems des Benutzers dar (z. B. ihre Lautsprecher), daher kann es mit nur wenigen Codezeilen in einen Audiograf eingefügt werden:
+Es gibt keine komplexe Einrichtung für die Verwendung eines `AudioDestinationNode` – standardmäßig repräsentiert dies die Ausgabe des Systems des Benutzers (z.B. ihre Lautsprecher), sodass Sie es in einem Audiographen mit nur wenigen Codezeilen anschließen können:
 
 ```js
 const audioCtx = new AudioContext();
@@ -62,7 +62,7 @@ source.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 ```
 
-Um eine vollständigere Implementierung zu sehen, schauen Sie sich eines unserer MDN Web Audio-Beispiele an, wie [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin).
+Um eine vollständigere Implementierung zu sehen, können Sie eines unserer MDN Web Audio-Beispiele ausprobieren, wie etwa [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin).
 
 ## Spezifikationen
 

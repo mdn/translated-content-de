@@ -7,55 +7,55 @@ l10n:
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Lassen Sie uns einen Blick darauf werfen, wie Sie mit der [Web Audio API](/de/docs/Web/API/Web_Audio_API) beginnen können. Wir werden uns kurz einige Konzepte ansehen und dann ein einfaches Boombox-Beispiel studieren, mit dem wir einen Audiotrack laden, abspielen und pausieren sowie die Lautstärke und das Stereo-Panning ändern können.
+Lassen Sie uns einen Blick darauf werfen, wie man mit der [Web Audio API](/de/docs/Web/API/Web_Audio_API) anfängt. Wir werden kurz einige Konzepte betrachten und dann ein einfaches Boombox-Beispiel studieren, das es uns ermöglicht, einen Audiotrack zu laden, ihn abzuspielen und zu pausieren sowie Lautstärke und Stereo-Panning zu ändern.
 
-Die Web Audio API ersetzt nicht das {{HTMLElement("audio")}}-Media-Element, sondern ergänzt es, genau wie {{HTMLElement("canvas")}} neben dem {{HTMLElement("img")}}-Element existiert. Ihr Anwendungsfall bestimmt, welche Tools Sie zur Implementierung von Audio verwenden. Wenn Sie die Wiedergabe eines Audiotracks steuern möchten, bietet das `<audio>`-Media-Element eine bessere, schnellere Lösung als die Web Audio API. Wenn Sie komplexere Audioverarbeitung sowie die Wiedergabe durchführen möchten, bietet die Web Audio API weitaus mehr Leistung und Kontrolle.
+Die Web Audio API ersetzt nicht das {{HTMLElement("audio")}}-Medienelement, sondern ergänzt es, genau wie {{HTMLElement("canvas")}} neben dem {{HTMLElement("img")}}-Element koexistiert. Ihr Anwendungsfall wird bestimmen, welche Werkzeuge Sie zur Implementierung von Audio verwenden. Wenn Sie die Wiedergabe eines Audiotracks steuern möchten, bietet das `<audio>`-Medienelement eine bessere, schnellere Lösung als die Web Audio API. Wenn Sie komplexere Audiobearbeitungen zusammen mit der Wiedergabe durchführen möchten, bietet die Web Audio API viel mehr Leistung und Kontrolle.
 
-Ein leistungsstarkes Merkmal der Web Audio API ist, dass sie keine strikte "Soundrufbeschränkung" hat. Zum Beispiel gibt es keine Obergrenze von 32 oder 64 gleichzeitigen Soundaufrufen. Einige Prozessoren können in der Lage sein, mehr als 1.000 gleichzeitige Sounds ohne Stottern abzuspielen.
+Ein leistungsstarkes Merkmal der Web Audio API ist, dass sie keine strikte "Soundaufrufbegrenzung" hat. So gibt es beispielsweise keine Obergrenze von 32 oder 64 Soundaufrufen gleichzeitig. Einige Prozessoren können mehr als 1.000 gleichzeitige Sounds ohne Stottern abspielen.
 
 ## Beispielcode
 
 Unsere Boombox sieht so aus:
 
-![Eine Boombox mit Wiedergabe-, Pan- und Lautstärkeregelungen](boombox.png)
+![Eine Boombox mit Steuerungen für Abspielen, Panning und Lautstärke](boombox.png)
 
-Beachten Sie das Retro-Kassettendeck mit einem Wiedergabeknopf und Vol- sowie Pan-Schiebereglern, um die Lautstärke und das Stereo-Panning zu ändern. Wir könnten dies viel komplexer gestalten, aber für den anfänglichen Lernprozess ist dies ideal.
+Beachten Sie das Retro-Kassettenlaufwerk mit einem Wiedergabeknopf sowie Lautstärke- und Panning-Regler, die es Ihnen ermöglichen, Lautstärke und Stereo-Panning zu ändern. Wir könnten dies viel komplexer gestalten, aber dies ist ideal für einfaches Lernen in dieser Phase.
 
-[Sehen Sie sich das abschließende Demo hier auf Codepen an](https://codepen.io/Rumyra/pen/qyMzqN/), oder sehen Sie den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/audio-basics).
+[Schauen Sie sich das endgültige Demo hier auf Codepen an](https://codepen.io/Rumyra/pen/qyMzqN/), oder sehen Sie sich den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/audio-basics) an.
 
-## Audiografiken
+## Audiografen
 
-Alles innerhalb der Web Audio API basiert auf dem Konzept eines Audiografik, das aus Knoten besteht.
+Alles innerhalb der Web Audio API basiert auf dem Konzept eines Audiografen, der aus Knoten besteht.
 
-Die Web Audio API verarbeitet Audiooperationen in einem **Audio-Kontext** und wurde entwickelt, um **modulare Leitung** zu ermöglichen. Grundlegende Audiooperationen werden mit **Audio-Knoten** durchgeführt, die miteinander verbunden sind, um eine **Audio-Leitungsgrafik** zu bilden. Sie haben Eingangsknoten, die die Quelle der Sounds sind, die Sie manipulieren, Modifikationsknoten, die diese Sounds nach Wunsch ändern, und Ausgangsknoten (Ziele), die es Ihnen ermöglichen, diese Sounds zu speichern oder zu hören.
+Die Web Audio API führt Audio-Operationen innerhalb eines **Audio-Kontextes** aus und wurde entwickelt, um **modulares Routing** zu ermöglichen. Grundlegende Audio-Operationen werden mit **Audio-Knoten** durchgeführt, die miteinander verbunden sind, um einen **Audio-Routing-Grafen** zu bilden. Sie haben Eingangsknoten, die die Quelle der Klänge sind, die Sie bearbeiten, Änderungsknoten, die diese Klänge nach Wunsch verändern, und Ausgangsknoten (Ziele), die es Ihnen ermöglichen, diese Klänge zu speichern oder zu hören.
 
-Mehrere Audioquellen mit unterschiedlichen Kanalbelegungen werden unterstützt, sogar innerhalb eines einzelnen Kontextes. Aufgrund dieses modularen Designs können Sie komplexe Audiofunktionen mit dynamischen Effekten erstellen.
+Es werden mehrere Audioquellen mit unterschiedlichen Kanal-Layouts unterstützt, auch innerhalb eines einzelnen Kontextes. Aufgrund dieses modularen Designs können Sie komplexe Audiofunktionen mit dynamischen Effekten erstellen.
 
 ## Audio-Kontext
 
-Um mit der Web Audio API etwas tun zu können, müssen wir eine Instanz des Audio-Kontextes erstellen. Dadurch erhalten wir Zugriff auf alle Funktionen und Fähigkeiten der API.
+Um mit der Web Audio API irgendetwas tun zu können, müssen wir eine Instanz des Audio-Kontextes erstellen. Dies gibt uns dann Zugriff auf alle Funktionen und Eigenschaften der API.
 
 ```js
 const audioContext = new AudioContext();
 ```
 
-Was passiert, wenn wir das tun? Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) wird für uns automatisch erstellt und zu einem Online-Audiokontext erweitert. Das wollen wir, weil wir live Sound abspielen möchten.
+Was passiert also, wenn wir dies tun? Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) wird automatisch für uns erstellt und zu einem Online-Audio-Kontext erweitert. Dies wollen wir, weil wir live Klang abspielen möchten.
 
 > [!NOTE]
-> Wenn Sie nur Audiodaten verarbeiten möchten, z. B. puffern und streamen, aber nicht abspielen, sollten Sie darüber nachdenken, ein [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) zu erstellen.
+> Wenn Sie nur Audiodaten verarbeiten wollen, z.B. Puffern und Streamen, ohne sie abzuspielen, sollten Sie erwägen, einen [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) zu erstellen.
 
-## Sound laden
+## Laden von Sounds
 
-Jetzt benötigt der von uns erstellte Audiokontext noch etwas Sound, um abgespielt zu werden. Es gibt einige Möglichkeiten, dies mit der API zu tun. Beginnen wir mit einer einfachen Methode — da wir eine Boombox haben, möchten wir höchstwahrscheinlich einen vollständigen Songtrack abspielen. Auch aus Gründen der Barrierefreiheit ist es schön, diesen Track im DOM sichtbar zu machen. Wir stellen den Song auf der Seite über ein {{htmlelement("audio")}}-Element bereit.
+Jetzt benötigt der von uns erstellte Audio-Kontext einige Sounds, um sie durch ihn abzuspielen. Es gibt einige Möglichkeiten, dies mit der API zu tun. Beginnen wir mit einer einfachen Methode — da wir eine Boombox haben, möchten wir höchstwahrscheinlich einen vollständigen Song abspielen. Außerdem ist es für die Barrierefreiheit schön, diesen Track im DOM verfügbar zu machen. Wir werden den Song auf der Seite mit einem {{htmlelement("audio")}}-Element sichtbar machen.
 
 ```html
 <audio src="myCoolTrack.mp3"></audio>
 ```
 
 > [!NOTE]
-> Wenn die Sounddatei, die Sie laden, sich auf einem anderen Domain befindet, müssen Sie das `crossorigin`-Attribut verwenden. Weitere Informationen finden Sie unter [Cross Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS).
+> Wenn die Sounddatei, die Sie laden, in einer anderen Domain gehalten wird, müssen Sie das `crossorigin`-Attribut verwenden; siehe [Cross Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS) für weitere Informationen.
 
-Um alle Vorteile der Web Audio API zu nutzen, müssen wir die Quelle aus diesem Element nehmen und sie in den von uns erstellten Kontext "einspeisen". Zum Glück gibt es eine Methode, die genau das ermöglicht — [`AudioContext.createMediaElementSource`](/de/docs/Web/API/AudioContext/createMediaElementSource):
+Um all die schönen Dinge verwenden zu können, die wir mit der Web Audio API erhalten, müssen wir die Quelle aus diesem Element entnehmen und in den von uns erstellten Kontext _einbinden_. Glücklicherweise gibt es eine Methode, die es uns ermöglicht, genau das zu tun — [`AudioContext.createMediaElementSource`](/de/docs/Web/API/AudioContext/createMediaElementSource):
 
 ```js
 // get the audio element
@@ -66,17 +66,17 @@ const track = audioContext.createMediaElementSource(audioElement);
 ```
 
 > [!NOTE]
-> Das oben gezeigte `<audio>`-Element wird im DOM durch ein Objekt vom Typ [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) dargestellt, das mit einer eigenen Funktionalität ausgestattet ist. All dies bleibt erhalten; wir ermöglichen lediglich, dass der Sound der Web Audio API zur Verfügung steht.
+> Das `<audio>`-Element oben ist im DOM durch ein Objekt vom Typ [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) dargestellt, das mit eigenen Funktionalitäten ausgestattet ist. All dies bleibt intakt; wir machen den Sound lediglich in der Web Audio API verfügbar.
 
-## Sound steuern
+## Steuerung von Sound
 
-Beim Abspielen von Sound im Web ist es wichtig, dem Benutzer die Kontrolle über den Sound zu geben. Abhängig vom Anwendungsfall gibt es unzählige Optionen, aber wir werden die Funktionen zum Abspielen/Pausieren des Sounds, zum Ändern der Lautstärke und zum Panning des Tracks von links nach rechts bereitstellen.
+Beim Abspielen von Sound im Web ist es wichtig, dem Benutzer die Kontrolle zu ermöglichen. Abhängig vom Anwendungsfall gibt es eine Vielzahl von Optionen, aber wir werden die Funktionalität zum Abspielen/Pausieren des Sounds, zur Änderung der Lautstärke und zum Panning von links nach rechts bereitstellen.
 
-Das programmatische Steuern von Sound über JavaScript-Code wird von den Autoplay-Richtlinien der Browser abgedeckt und wird wahrscheinlich ohne Erlaubnis blockiert (oder durch eine Zulassungsliste). Autoplay-Richtlinien erfordern in der Regel entweder eine ausdrückliche Erlaubnis oder eine Benutzerinteraktion mit der Seite, bevor Skripte zur Wiedergabe von Audio führen können.
+Die Steuerung von Sound programmgesteuert durch JavaScript-Code wird durch die Richtlinien zur Autoplay-Unterstützung der Browser abgedeckt, daher ist es wahrscheinlich, dass sie blockiert wird, solange keine Erlaubnis vom Benutzer gewährt wurde (oder es eine Positivliste gibt). Autoplay-Richtlinien erfordern typischerweise entweder eine ausdrückliche Erlaubnis oder eine Benutzerinteraktion mit der Seite, bevor Skripte das Abspielen von Audio auslösen können.
 
-Diese speziellen Anforderungen bestehen im Wesentlichen, weil unerwartete Geräusche störend und aufdringlich sein und zu Zugänglichkeitsproblemen führen können. Weitere Informationen finden Sie in unserem Artikel [Autoplay-Leitfaden für Media und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide).
+Diese besonderen Anforderungen bestehen im Wesentlichen, weil unerwartete Sounds unangenehm und aufdringlich sein können und Barrierefreiheitsprobleme verursachen können. Weitere Informationen hierzu finden Sie in unserem Artikel [Autoplay-Leitfaden für Medien- und Web-Audio-APIs](/de/docs/Web/Media/Autoplay_guide).
 
-Da unsere Skripte Audio als Reaktion auf ein Benutzerereignis (z. B. einen Klick auf einen Wiedergabeknopf) abspielen, sind wir in einer guten Ausgangslage und sollten keine Probleme mit der Autoplay-Blockierung haben. Sehen wir uns also zunächst unsere Funktionen zum Abspielen und Pausieren an. Wir haben einen Wiedergabeknopf, der sich in einen Pausenknopf ändert, wenn der Track abgespielt wird:
+Da unsere Skripte Audio als Reaktion auf ein Benutzereingabeereignis abspielen (zum Beispiel einem Klick auf einen Wiedergabeknopf), sind wir gut aufgestellt und sollten keine Probleme durch Autoplay-Blockierungen haben. Also, lassen Sie uns mit unserer Abspiel- und Pausen-Funktionalität beginnen. Wir haben einen Wiedergabeknopf, der sich in einen Pausenknopf verwandelt, sobald der Track läuft:
 
 ```html
 <button data-playing="false" role="switch" aria-checked="false">
@@ -84,19 +84,19 @@ Da unsere Skripte Audio als Reaktion auf ein Benutzerereignis (z. B. einen Klick
 </button>
 ```
 
-Bevor wir unseren Track abspielen können, müssen wir unsere Audiografik vom Audiosource-/Eingabeknoten zum Ziel verbinden.
+Bevor wir unseren Track abspielen können, müssen wir unseren Audiografen vom Audioquellen-/Eingabeknoten zum Ziel verbinden.
 
-Wir haben bereits einen Eingabeknoten erstellt, indem wir unser Audioelement in die API eingefügt haben. In der Regel müssen Sie keinen Ausgabeknoten erstellen. Sie können einfach Ihre anderen Knoten mit [`BaseAudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination) verbinden, das die Situation für Sie regelt:
+Wir haben bereits einen Eingabeknoten erstellt, indem wir unser Audioelement in die API eingebunden haben. Meistens brauchen Sie keinen Ausgabeknoten zu erstellen; Sie können einfach Ihre anderen Knoten mit [`BaseAudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination) verbinden, was die Situation für Sie handhabt:
 
 ```js
 track.connect(audioContext.destination);
 ```
 
-Eine gute Möglichkeit, sich diese Knoten vorzustellen, besteht darin, eine Audiografik zu zeichnen, um sie zu visualisieren. So sieht unsere aktuelle Audiografik aus:
+Ein guter Weg, diese Knoten zu visualisieren, ist, einen Audiografen zu zeichnen, so dass man ein Bild davon bekommt. Dies ist unser aktueller Audiograf:
 
-![Eine Audiografik mit einer Audiosource, die mit dem Standardziel verbunden ist](graph1.jpg)
+![ein Audiograf mit einer Audioelementquelle, die mit dem Standardziel verbunden ist](graph1.jpg)
 
-Jetzt können wir die Funktionen für Abspielen und Pausieren hinzufügen.
+Nun können wir die Abspiel- und Pausenfunktionalität hinzufügen.
 
 ```js
 // Select our play button
@@ -123,7 +123,7 @@ playButton.addEventListener(
 );
 ```
 
-Wir müssen auch berücksichtigen, was zu tun ist, wenn der Track abgespielt ist. Unser `HTMLMediaElement` löst ein `ended`-Ereignis aus, sobald es abgespielt ist. Wir können darauf hören und entsprechend Code ausführen:
+Wir müssen auch berücksichtigen, was zu tun ist, wenn der Track das Abspielen beendet. Unser `HTMLMediaElement` löst ein `ended`-Ereignis aus, sobald es mit dem Abspielen fertig ist, so dass wir darauf hören und entsprechend Code ausführen können:
 
 ```js
 audioElement.addEventListener(
@@ -135,38 +135,38 @@ audioElement.addEventListener(
 );
 ```
 
-## Soundmodifikation
+## Veränderung von Sound
 
-Lassen Sie uns in einige grundlegende Modifikationsknoten eintauchen, um den Sound zu ändern, den wir haben. Hier kommt die Web Audio API wirklich zur Geltung. Zuallererst ändern wir die Lautstärke. Dies kann mit einem [`GainNode`](/de/docs/Web/API/GainNode) erfolgen, der repräsentiert, wie groß unsere Schallwelle ist.
+Lassen Sie uns in einige grundlegende Änderungsknoten eintauchen, um den Klang zu verändern, den wir haben. Hier beginnt die Web Audio API wirklich nützlich zu werden. Zunächst ändern wir die Lautstärke. Dies kann mit einem [`GainNode`](/de/docs/Web/API/GainNode) gemacht werden, der repräsentiert, wie groß unsere Schallwelle ist.
 
-Es gibt zwei Möglichkeiten, Knoten mit der Web Audio API zu erstellen. Sie können die Factory-Methode im Kontext selbst verwenden (z. B. `audioContext.createGain()`) oder den Konstruktor des Knotens (z. B. `new GainNode()`). Wir verwenden in unserem Code die Factory-Methode:
+Es gibt zwei Möglichkeiten, Knoten mit der Web Audio API zu erstellen. Sie können die Fabrikmethode im Kontext selbst verwenden (z.B. `audioContext.createGain()`) oder über einen Konstruktor des Knotens (z.B. `new GainNode()`). Wir werden die Fabrikmethode in unserem Code verwenden:
 
 ```js
 const gainNode = audioContext.createGain();
 ```
 
-Jetzt müssen wir unsere Audiografik von zuvor aktualisieren, damit der Eingang mit dem Gain verbunden ist und der Gain-Knoten mit dem Ziel:
+Nun müssen wir unseren Audiografen von vorhin aktualisieren, damit der Eingang mit dem Gain verbunden ist, dann der Gain-Knoten mit dem Ziel verbunden ist:
 
 ```js
 track.connect(gainNode).connect(audioContext.destination);
 ```
 
-Dies wird unsere Audiografik so aussehen lassen:
+Dies lässt unseren Audiografen so aussehen:
 
-![Eine Audiografik mit einer Audiosource, die mit einem Gain-Knoten verbunden ist, der die Audiosource modifiziert und dann zum Standardziel weitergeht](graph2.jpg)
+![ein Audiograf mit einer Audioelementquelle, die mit einem Gain-Knoten verbunden ist, der die Audioquelle verändert, und dann zum Standardziel geht](graph2.jpg)
 
-Der Standardwert für Gain ist 1; das hält die aktuelle Lautstärke gleich. Gain kann auf ein Minimum von etwa -3,4028235E38 und ein Maximum von etwa 3,4028235E38 gesetzt werden (Float-Zahlenbereich in JavaScript). Hier lassen wir die Boombox den Gain auf bis zu 2 (doppelte Lautstärke) und auf 0 (was das Sound effektiv stumm schaltet) bewegen.
+Der Standardwert für Gain ist 1; dies hält die aktuelle Lautstärke gleich. Gain kann auf ein Minimum von etwa -3.4028235E38 und ein Maximum von etwa 3.4028235E38 (Gleitkommazahlenbereich in JavaScript) gesetzt werden. Hier erlauben wir der Boombox, den Gain bis auf 2 (doppelte Original-Lautstärke) und bis auf 0 zu bewegen (das wird unseren Sound effektiv stummschalten).
 
-Geben wir dem Benutzer die Kontrolle darüber — wir verwenden ein [Range-Input](/de/docs/Web/HTML/Element/input/range):
+Lassen Sie uns dem Benutzer die Möglichkeit geben, dies zu tun — wir verwenden einen [Bereichs-Input](/de/docs/Web/HTML/Element/input/range):
 
 ```html
 <input type="range" id="volume" min="0" max="2" value="1" step="0.01" />
 ```
 
 > [!NOTE]
-> Range-Inputs sind ein wirklich praktischer Eingabetyp zur Aktualisierung von Werten in Audio-Knoten. Sie können die Bereiche von Werten festlegen und direkt mit den Parametern des Audio-Knotens verwenden.
+> Bereichs-Inputs sind ein wirklich praktischer Eingabetyp zum Aktualisieren von Werten auf Audio-Knoten. Sie können die Werte eines Bereichs angeben und sie direkt mit den Parametern des Audio-Knotens verwenden.
 
-Lassen Sie uns den Wert dieses Inputs erfassen und den Gain-Wert aktualisieren, wenn der Eingabeknoten durch den Benutzer geändert wird:
+Lassen Sie uns diesen Eingabewert erfassen und den Gain-Wert aktualisieren, wenn der Eingabeknoten vom Benutzer geändert wird:
 
 ```js
 const volumeControl = document.querySelector("#volume");
@@ -181,26 +181,26 @@ volumeControl.addEventListener(
 ```
 
 > [!NOTE]
-> Die Werte von Knotenobjekten (z. B. `GainNode.gain`) sind keine einfachen Werte; sie sind tatsächlich Objekte des Typs [`AudioParam`](/de/docs/Web/API/AudioParam) — dies sind Parameter. Deshalb müssen wir die `value`-Eigenschaft von `GainNode.gain` setzen, anstatt den Wert direkt auf `gain` zu setzen. Dies macht sie viel flexibler und ermöglicht es, dem Parameter eine spezifische Menge von Werten zu übergeben, zwischen denen über einen bestimmten Zeitraum gewechselt wird.
+> Die Werte von Knotenobjekten (z.B. `GainNode.gain`) sind keine einfachen Werte; sie sind tatsächlich Objekte vom Typ [`AudioParam`](/de/docs/Web/API/AudioParam) — diese werden Parameter genannt. Deshalb müssen wir `GainNode.gain`s `value`-Eigenschaft setzen, anstatt den Wert direkt auf `gain` zu setzen. Das ermöglicht es ihnen, viel flexibler zu sein, indem sie zum Beispiel eine spezifische Menge von Werten über einen festgelegten Zeitraum ändernd zu übergeben.
 
-Großartig, jetzt kann der Benutzer die Lautstärke des Tracks ändern! Der Gain-Knoten ist der perfekte Knoten, wenn Sie Stummschaltungsfunktionen hinzufügen möchten.
+Großartig, jetzt kann der Benutzer die Lautstärke des Tracks aktualisieren! Der Gain-Knoten ist der perfekte Knoten, wenn Sie Stummschaltfunktionen hinzufügen möchten.
 
-## Hinzufügen von Stereo-Panning zu unserer App
+## Stereo-Panning zu unserer App hinzufügen
 
-Lassen Sie uns einen weiteren Modifikationsknoten hinzufügen, um zu üben, was wir gerade gelernt haben.
+Lassen Sie uns einen weiteren Änderungsknoten hinzufügen, um das, was wir gerade gelernt haben, zu üben.
 
-Es gibt einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)-Knoten, der das Gleichgewicht des Sounds zwischen den linken und rechten Lautsprechern verändert, wenn der Benutzer Stereo-Funktionen hat.
+Es gibt einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)-Knoten, der das Gleichgewicht des Klangs zwischen den linken und rechten Lautsprechern ändert, wenn der Benutzer Stereo-Fähigkeiten hat.
 
 > [!NOTE]
-> Der `StereoPannerNode` ist für einfache Fälle gedacht, in denen Sie nur Stereo-Panning von links nach rechts wünschen.
-> Es gibt auch einen [`PannerNode`](/de/docs/Web/API/PannerNode), der eine große Kontrolle über 3D-Raum oder Klang _Spatialization_ ermöglicht, um komplexere Effekte zu erzeugen.
-> Dieser wird in Spielen und 3D-Apps verwendet, um zum Beispiel Vögel zu simulieren, die über den Benutzer hinwegfliegen, oder um Sounds zu erzeugen, die von hinten kommen.
+> Der `StereoPannerNode` ist für einfache Fälle, in denen Sie nur Stereo-Panning von links nach rechts möchten.
+> Es gibt auch einen [`PannerNode`](/de/docs/Web/API/PannerNode), der eine große Menge Kontrolle über den 3D-Raum oder Sound-_Spatialization_ ermöglicht, um komplexere Effekte zu erstellen.
+> Dies wird in Spielen und 3D-Anwendungen verwendet, um beispielsweise Vögel die über Kopf fliegen zu erstellen, oder Sound, der von hinten kommt.
 
-Um es zu visualisieren, gestalten wir unsere Audiografik so, dass sie folgendermaßen aussieht:
+Um dies zu visualisieren, werden wir unseren Audiografen nun so aussehen lassen:
 
-![Ein Bild, das die Audiografik mit einem Eingangsknoten, zwei Modifikationsknoten (einem Gain-Knoten und einem Stereo-Pan-Knoten) und einem Zielknoten zeigt.](graphpan.jpg)
+![Ein Bild des Audiografen, das einen Eingabeknoten, zwei Änderungsknoten (einen Gain-Node und einen Stereo-Panner-Node) und einen Zielknoten zeigt.](graphpan.jpg)
 
-Diesmal verwenden wir die Konstruktormethode zum Erstellen eines Knotens. Wenn wir dies tun, müssen wir den Kontext und alle Optionen übergeben, die der bestimmte Knoten erfordern kann:
+Lassen Sie uns diesmal die Knoten-Erstellung mit der Konstruktor-Methode verwenden. Wenn wir es auf diese Weise tun, müssen wir den Kontext und alle Optionen, die der spezifische Knoten erfordern kann, übergeben:
 
 ```js
 const pannerOptions = { pan: 0 };
@@ -208,15 +208,15 @@ const panner = new StereoPannerNode(audioContext, pannerOptions);
 ```
 
 > [!NOTE]
-> Die Konstruktormethode zum Erstellen von Knoten wird derzeit nicht von allen Browsern unterstützt. Die älteren Factory-Methoden sind weiter verbreitet.
+> Die Konstruktor-Methode zur Erstellung von Knoten wird derzeit nicht von allen Browsern unterstützt. Die älteren Fabrikmethoden werden breiter unterstützt.
 
-Hier reicht unser Wertebereich von -1 (ganz links) bis 1 (ganz rechts). Verwenden wir erneut einen Eingabetyp, um diesen Parameter zu variieren:
+Hier reichen unsere Werte von -1 (ganz links) bis 1 (ganz rechts). Erneut verwenden wir einen Bereichstyp-Input, um diesen Parameter zu variieren:
 
 ```html
 <input type="range" id="panner" min="-1" max="1" value="0" step="0.01" />
 ```
 
-Wir verwenden die Werte dieses Inputs, um unsere Panner-Werte auf dieselbe Weise anzupassen, wie wir es zuvor getan haben:
+Wir verwenden die Werte aus diesem Input, um unsere Panner-Werte auf die gleiche Weise anzupassen, wie wir es zuvor getan haben:
 
 ```js
 const pannerControl = document.querySelector("#panner");
@@ -230,30 +230,30 @@ pannerControl.addEventListener(
 );
 ```
 
-Lassen Sie uns unsere Audiografik wieder anpassen, um alle Knoten miteinander zu verbinden:
+Lassen Sie uns unseren Audiografen erneut anpassen, um alle Knoten zu verbinden:
 
 ```js
 track.connect(gainNode).connect(panner).connect(audioContext.destination);
 ```
 
-Das Einzige, was noch zu tun bleibt, ist, die App auszuprobieren: [Sehen Sie sich das abschließende Demo hier auf Codepen an](https://codepen.io/Rumyra/pen/qyMzqN/).
+Das Einzige, was noch zu tun bleibt, ist die App auszuprobieren: [Schauen Sie sich das endgültige Demo hier auf Codepen an](https://codepen.io/Rumyra/pen/qyMzqN/).
 
 ## Zusammenfassung
 
-Großartig! Wir haben eine Boombox, die unser 'Tape' abspielt, und wir können die Lautstärke und das Stereo-Panning anpassen, was uns eine ziemlich grundlegende, funktionierende Audiografik bietet.
+Großartig! Wir haben eine Boombox, die unser 'Tape' abspielt, und wir können die Lautstärke und das Stereo-Panning anpassen, was uns ein ziemlich grundlegendes funktionierendes Audiograf liefert.
 
-Das umfasst einige Grundlagen, die Sie benötigen, um Audio zu Ihrer Website oder Web-App hinzuzufügen. Die Web Audio API bietet noch viel mehr Funktionen, aber sobald Sie das Konzept der Knoten und das Zusammenstellen Ihrer Audiografik verstanden haben, können wir uns komplexeren Funktionen zuwenden.
+Dies umfasst eine ganze Menge Grundlagen, die Sie benötigen würden, um Audio zu Ihrer Website oder Web-App hinzuzufügen. Die Web Audio API bietet noch viel mehr Funktionalität, aber wenn Sie das Konzept von Knoten verstehen und Ihren Audiografen zusammenstellen können, können wir uns auf die Betrachtung komplexerer Funktionalitäten konzentrieren.
 
 ## Weitere Beispiele
 
-Es gibt weitere Beispiele, um mehr über die Web Audio API zu lernen.
+Es gibt andere Beispiele, um mehr über die Web Audio API zu lernen.
 
-Der [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) ist ein lustiger Stimmenmanipulator und eine Web-App zur Klangvisualisierung, mit der Sie verschiedene Effekte und Visualisierungen auswählen können. Die Anwendung ist ziemlich rudimentär, aber sie demonstriert die gleichzeitige Nutzung mehrerer Funktionen der Web Audio API. ([Führen Sie den Voice-change-O-matic live aus](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)).
+Das [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) ist ein unterhaltsamer Stimmenmanipulator und eine Sound-Visualisierungs-Web-App, die es Ihnen ermöglicht, verschiedene Effekte und Visualisierungen auszuwählen. Die Anwendung ist ziemlich rudimentär, zeigt aber die gleichzeitige Verwendung mehrerer Funktionen der Web Audio API. ([Führen Sie das Voice-change-O-matic live aus](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)).
 
-![Eine Benutzeroberfläche mit einer angezeigten Schallwelle und Optionen zur Auswahl von Stimmeffekten und Visualisierungen.](voice-change-o-matic.png)
+![Eine Benutzeroberfläche mit einer angezeigten Schallwelle und Optionen zur Auswahl von Stimm-Effekten und Visualisierungen.](voice-change-o-matic.png)
 
-Eine weitere speziell entwickelte Anwendung, um die Web Audio API zu demonstrieren, ist das [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/), eine einfache Webanwendung, mit der Sie Tonhöhe und Lautstärke ändern können, indem Sie den Mauszeiger bewegen. Es bietet auch eine psychedelische Lichtshow ([siehe Violent Theremin Quellcode](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin)).
+Eine weitere Anwendung, die speziell zur Demonstration der Web Audio API entwickelt wurde, ist das [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/), eine einfache Web-Anwendung, die es Ihnen ermöglicht, Tonhöhe und Lautstärke durch Bewegen Ihrer Mauszeigers zu ändern. Es bietet auch eine psychedelische Lichtshow ([sehen Sie sich den Quellcode von Violent Theremin an](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin)).
 
-![Eine Seite voller Regenbogenfarben, mit zwei Buttons, die als Clear screen und mute beschriftet sind.](violent-theremin.png)
+![Eine Seite voller Regenbogenfarben, mit zwei Tasten, die Clear screen und mute beschriftet sind.](violent-theremin.png)
 
-Siehe auch unser [webaudio-examples Repo](https://github.com/mdn/webaudio-examples) für weitere Beispiele.
+Sehen Sie sich auch unser [webaudio-examples repo](https://github.com/mdn/webaudio-examples) für weitere Beispiele an.

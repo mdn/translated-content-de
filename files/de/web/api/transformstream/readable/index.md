@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`readable`** schreibgeschützte Eigenschaft des [`TransformStream`](/de/docs/Web/API/TransformStream)-Interface gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem `TransformStream` gesteuert wird.
+Die schreibgeschützte **`readable`**-Eigenschaft des [`TransformStream`](/de/docs/Web/API/TransformStream)-Interfaces gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem `TransformStream` gesteuert wird.
 
 ## Wert
 

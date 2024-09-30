@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **baseline** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
+Der Begriff **Baseline** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}

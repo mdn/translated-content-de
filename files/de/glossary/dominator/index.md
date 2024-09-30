@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Graphentheorie dominiert der Knoten A den Knoten B, wenn jeder Pfad vom Wurzelknoten zu B durch A verläuft.
+In der Graphentheorie dominiert der Knoten A den Knoten B, wenn jeder Pfad vom Wurzelknoten zu B durch A führt.
 
-Dieses Konzept ist wichtig für die [Garbage Collection](/de/docs/Glossary/garbage_collection), da es bedeutet, dass B nur über A erreichbar ist. Wenn der Garbage Collector feststellt, dass A nicht erreichbar und zum Freigeben geeignet ist, dann wäre B ebenfalls nicht erreichbar und zum Freigeben geeignet. Objekte, die von A dominiert werden, tragen folglich zur retained size von A bei: das heißt, die gesamte Speichermenge, die freigegeben werden könnte, wenn A selbst freigegeben würde.
+Dieses Konzept ist wichtig für die [Garbage Collection](/de/docs/Glossary/garbage_collection), da es bedeutet, dass B nur über A erreichbar ist. Wenn der Garbage Collector feststellt, dass A unerreichbar und für die Rückgewinnung berechtigt ist, wäre auch B unerreichbar und für die Rückgewinnung berechtigt. Objekte, die von A dominiert werden, tragen zur gehaltenen Größe von A bei, das heißt, zur gesamten Menge an Speicher, die freigegeben werden könnte, wenn A selbst freigegeben würde.
 
 ## Siehe auch
 

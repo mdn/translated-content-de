@@ -1,5 +1,5 @@
 ---
-title: "AudioBufferSourceNode: buffer-Eigenschaft"
+title: "AudioBufferSourceNode: buffer Eigenschaft"
 short-title: buffer
 slug: Web/API/AudioBufferSourceNode/buffer
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`buffer`**-Eigenschaft der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Schnittstelle ermöglicht die Wiedergabe von Audio, indem ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) als Quelle der Audiodaten verwendet wird.
+Die **`buffer`** Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) Schnittstelle ermöglicht die Wiedergabe von Audio unter Verwendung eines [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) als Quelle der Klangdaten.
 
-Wenn die `buffer`-Eigenschaft auf den Wert `null` gesetzt ist, erzeugt der Knoten einen Kanal, der Stille enthält (d. h., jede Probe ist 0).
+Wenn die `buffer` Eigenschaft auf den Wert `null` gesetzt ist, generiert der Knoten einen einzelnen Kanal, der nur Stille enthält (das heißt, jeder Samplewert ist 0).
 
 ## Wert
 
-Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die Daten enthält, die den Klang repräsentieren, den der Knoten abspielen wird.
+Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die Daten enthält, die den Klang darstellen, den der Knoten abspielen wird.
 
 ## Beispiele
 
 > [!NOTE]
-> Für ein vollständiges funktionierendes Beispiel sehen Sie [dieses Code-Beispiel live](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [sehen Sie sich den Quellcode an](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
+> Für ein vollständiges funktionierendes Beispiel, sehen Sie sich [diesen live laufenden Code](https://mdn.github.io/webaudio-examples/audio-buffer/) an oder [betrachten Sie den Quellcode](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);

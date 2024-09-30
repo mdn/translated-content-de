@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`defaultSelected`**-Eigenschaft der [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Schnittstelle gibt den standardmäßigen ausgewählten Zustand des Elements an. Diese Eigenschaft spiegelt das [`selected`](/de/docs/Web/HTML/Element/option#selected)-Attribut des {{htmlelement("option")}}-Elements wider. Das Vorhandensein des `selected`-Attributs setzt die `defaultSelected`-Eigenschaft auf `true`.
+Die **`defaultSelected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt den standardmäßigen ausgewählten Zustand des Elements an. Diese Eigenschaft spiegelt das [`selected`](/de/docs/Web/HTML/Element/option#selected)-Attribut des {{htmlelement("option")}}-Elements wider. Das Vorhandensein des `selected`-Attributs setzt die `defaultSelected`-Eigenschaft auf `true`.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 

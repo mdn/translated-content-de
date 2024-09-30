@@ -7,40 +7,40 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufgezähltes](/de/docs/Glossary/Enumerated) Attribut, das die Richtung des Textes des Elements angibt.
+Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das die Richtung des Textes des Elements angibt.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-dir.html","tabbed-standard")}}
 
 Es kann die folgenden Werte haben:
 
-- `ltr`, was _von links nach rechts_ bedeutet und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
-- `rtl`, was _von rechts nach links_ bedeutet und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
-- `auto`, wodurch der Benutzeragent entscheidet. Es verwendet einen einfachen Algorithmus, indem es die Zeichen im Element parst, bis es ein Zeichen mit einer starken Direktionalität findet, und wendet dann diese Direktionalität auf das gesamte Element an.
+- `ltr`, was _links nach rechts_ bedeutet und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
+- `rtl`, was _rechts nach links_ bedeutet und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
+- `auto`, was den Benutzeragenten entscheiden lässt. Es verwendet einen grundlegenden Algorithmus, der die Zeichen im Element analysiert, bis es ein Zeichen mit starker Richtung findet, und wendet dann diese Richtung auf das gesamte Element an.
 
 > [!NOTE]
-> Der Wert `auto` sollte für Daten mit unbekannter Direktionalität verwendet werden, wie Daten aus Benutzereingaben oder externen Daten.
+> Der Wert `auto` sollte für Daten mit unbekannter Richtung verwendet werden, wie Daten, die durch Benutzereingaben oder externe Daten kommen.
 
-Wenn nicht angegeben, wird der Wert vom [Elternelement](#vererbung) geerbt.
+Wenn nicht spezifiziert, wird der Wert [vom Elternelement](#vererbung) geerbt.
 
-Dieses Attribut kann von den CSS-Eigenschaften {{ cssxref("direction") }} und {{ cssxref("unicode-bidi") }} überschrieben werden, wenn eine CSS-Seite aktiv ist und das Element diese Eigenschaften unterstützt.
+Dieses Attribut kann durch die CSS-Eigenschaften {{ cssxref("direction") }} und {{ cssxref("unicode-bidi") }} überschrieben werden, wenn eine CSS-Seite aktiv ist und das Element diese Eigenschaften unterstützt.
 
-Da die Textrichtung semantisch mit dem Inhalt und nicht mit der Präsentation zusammenhängt, wird empfohlen, dass Webentwickler dieses Attribut anstelle der zugehörigen CSS-Eigenschaften verwenden, wenn möglich. Auf diese Weise wird der Text auch in einem Browser korrekt angezeigt, der CSS nicht unterstützt oder in dem CSS deaktiviert ist.
+Da die Textausrichtung semantisch mit dem Inhalt und nicht mit der Präsentation verbunden ist, wird empfohlen, dass Webentwickler dieses Attribut anstelle der zugehörigen CSS-Eigenschaften verwenden, wenn möglich. Auf diese Weise wird der Text auch in einem Browser korrekt angezeigt, der CSS nicht unterstützt oder CSS deaktiviert hat.
 
 ## Vererbung
 
-Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert, der auf seinem [übergeordneten Knoten](/de/docs/Glossary/Node/DOM) festgelegt ist, das ihn wiederum von seinem übergeordneten Element erben kann, und so weiter.
+Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert von seinem [übergeordneten Knoten](/de/docs/Glossary/Node/DOM), der wiederum seinen Wert möglicherweise von seinem übergeordneten Element erbt usw.
 
-## Verwendungshinweise
+## Anwendungsnotizen
 
-Ein Bild kann sein `dir`-Attribut auf `"rtl"` gesetzt haben, in welchem Fall die HTML-Attribute `title` und `alt` als `"rtl"` formatiert und definiert werden.
+Ein Bild kann seine `dir`-Eigenschaft auf `"rtl"` setzen, wobei in diesem Fall die HTML-Attribute `title` und `alt` als `"rtl"` formatiert und definiert werden.
 
-Wenn eine Tabelle ihr `dir`-Attribut auf `"rtl"` setzt, wird die Spaltenreihenfolge von rechts nach links arrangiert.
+Wenn eine Tabelle ihr `dir` auf `"rtl"` gesetzt hat, wird die Spaltenreihenfolge von rechts nach links angeordnet.
 
 Dieses Attribut ist für das {{ HTMLElement("bdo") }}-Element obligatorisch, wo es eine andere semantische Bedeutung hat.
 
-Dieses Attribut wird _nicht_ vom {{ HTMLElement("bdi") }}-Element geerbt. Wenn es nicht gesetzt ist, ist sein Wert `auto`.
+Dieses Attribut wird vom {{ HTMLElement("bdi") }}-Element _nicht_ vererbt. Wenn es nicht gesetzt ist, lautet sein Wert `auto`.
 
-Browser können es den Benutzern erlauben, die Schreibrichtung von {{ HTMLElement("input") }}- und {{ HTMLElement("textarea") }}-Feldern zu ändern, um die Inhaltserstellung zu unterstützen. Chrome und Safari bieten eine Option für die Schreibrichtung im Kontextmenü der Eingabefelder. Firefox verwendet <kbd>Strg</kbd>/<kbd>Cmd</kbd> + <kbd>Umschalt</kbd> + <kbd>X</kbd>, aktualisiert jedoch NICHT den Wert des `dir`-Attributs.
+Browser können es Benutzern ermöglichen, die Richtung von {{ HTMLElement("input") }} und {{ HTMLElement("textarea") }}s zu ändern, um beim Erstellen von Inhalten zu unterstützen. Chrome und Safari bieten im Kontextmenü von Eingabefeldern eine Optionsmöglichkeit zur Richtungsänderung. Firefox verwendet <kbd>Strg</kbd>/<kbd>Befehl</kbd> + <kbd>Umschalt</kbd> + <kbd>X</kbd>, aktualisiert aber NICHT den Wert des `dir`-Attributs.
 
 ## Spezifikationen
 

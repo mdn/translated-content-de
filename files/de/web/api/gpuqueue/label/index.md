@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`** schreibgeschützte Eigenschaft der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+Die schreibgeschützte **`label`**-Eigenschaft der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Sie können es direkt auf dem `GPUQueue`-Objekt abrufen und festlegen.
+Sie können es direkt am `GPUQueue`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Ein String. Wenn zuvor kein Label-Wert festgelegt wurde, gibt das Abrufen der `label`-Eigenschaft einen leeren String zurück.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ device.queue.label = "myqueue";
 console.log(device.queue.label); // "myqueue"
 ```
 
-Sie können das Label der Warteschlange auch direkt beim Anfordern des Geräts festlegen, wie in diesem Beispiel:
+Sie können das Label der Warteschlange auch zu dem Zeitpunkt festlegen, an dem Sie das Gerät anfordern, wie folgt:
 
 ```js
 const device = adapter.requestDevice({

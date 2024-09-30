@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-decoration-line`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Art der Dekoration fest, die auf den Text in einem Element angewendet wird, wie z.B. eine Unter- oder Überstreichung.
+Die **`text-decoration-line`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Art der Dekoration fest, die auf den Text in einem Element angewendet wird, z.B. eine Unter- oder Überstreichung.
 
 {{EmbedInteractiveExample("pages/css/text-decoration-line.html")}}
 
-Wenn mehrere Zeilen-Dekorationseigenschaften gleichzeitig festgelegt werden, kann es bequemer sein, die Kurzformeigenschaft {{cssxref("text-decoration")}} zu verwenden.
+Wenn Sie mehrere Textdekorationseigenschaften gleichzeitig festlegen, kann es bequemer sein, die Kurzschreibweiseigenschaft {{cssxref("text-decoration")}} zu verwenden.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ text-decoration-line: revert-layer;
 text-decoration-line: unset;
 ```
 
-Die `text-decoration-line` Eigenschaft wird als `none` angegeben, oder als **einer oder mehrere** durch Leerzeichen getrennte Werte aus der folgenden Liste.
+Die Eigenschaft `text-decoration-line` wird als `none` oder als **eine oder mehrere** durch Leerzeichen getrennte Werte aus der unten stehenden Liste angegeben.
 
 ### Werte
 
@@ -48,7 +48,7 @@ Die `text-decoration-line` Eigenschaft wird als `none` angegeben, oder als **ein
 - `line-through`
   - : Jede Textzeile hat eine dekorative Linie, die durch die Mitte verläuft.
 - `blink`
-  - : Der Text blinkt (wechselt zwischen sichtbar und unsichtbar). Konforme Benutzeragenten lassen den Text möglicherweise nicht blinken. Dieser Wert ist **veraltet** zugunsten von [CSS-Animationen](/de/docs/Web/CSS/animation).
+  - : Der Text blinkt (wechselnd zwischen sichtbar und unsichtbar). Konforme Benutzeragenten können den Text möglicherweise nicht blinken lassen. Dieser Wert ist **veraltet** zugunsten von [CSS-Animationen](/de/docs/Web/CSS/animation).
 
 ## Formale Definition
 
@@ -60,7 +60,7 @@ Die `text-decoration-line` Eigenschaft wird als `none` angegeben, oder als **ein
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```html
 <p class="wavy">Here's some text with wavy red underline!</p>
@@ -91,7 +91,7 @@ Die `text-decoration-line` Eigenschaft wird als `none` angegeben, oder als **ein
 
 ## Siehe auch
 
-- Wenn mehrere Zeilen-Dekorationseigenschaften gleichzeitig festgelegt werden, kann es bequemer sein, die Kurzformeigenschaft {{cssxref("text-decoration")}} zu verwenden, die auch Folgendes umfasst:
+- Wenn Sie mehrere Textdekorationseigenschaften gleichzeitig festlegen, kann es bequemer sein, die Kurzschreibweiseigenschaft {{cssxref("text-decoration")}} zu verwenden, die außerdem umfasst:
   - {{cssxref("text-decoration-style")}}
   - {{cssxref("text-decoration-color")}}
   - {{cssxref("text-decoration-thickness")}}

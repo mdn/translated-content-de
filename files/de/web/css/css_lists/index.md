@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Listen und Zähler** Modul ermöglicht die Gestaltung und Positionierung von Listenelement-Markern und die Manipulation ihrer Werte mit einer Kombination aus Zeichenfolgen, Zählern und anderen Funktionen.
+Das **CSS-Listen und Zähler** Modul ermöglicht die Gestaltung und Positionierung von Listeneinträgen und die Manipulation ihrer Werte mit einer Kombination von Zeichenfolgen, Zählern und anderen Funktionen.
 
-Ein Listenelement-Marker, sei es ein Aufzählungssymbol oder ein ordinaler Zähler, ist sein definierendes Merkmal. Listenelemente sind nicht auf {{HTMLElement("li")}}-Elemente beschränkt, die innerhalb von {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}-Elementen verschachtelt sind. Vielmehr sind Listenelemente alle Elemente, bei denen `display: list-item` gesetzt ist.
+Ein Listeneintrag wird durch seinen Marker definiert, sei es ein Bullet-Symbol oder ein Ordnungszähler. Listeneinträge sind nicht auf {{HTMLElement("li")}} Elemente beschränkt, die in {{HTMLElement("ol")}} oder {{HTMLElement("ul")}} Elemente eingebettet sind. Vielmehr sind Listeneinträge alle Elemente mit `display: list-item`.
 
-Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und zurückzusetzen, festzulegen, welche [counter-styles](/de/docs/Web/CSS/CSS_counter_styles) oder Symbole als Marker verwendet werden sollen, und diese Marker zu positionieren. Es bietet Entwicklern auch die Möglichkeit, angepasste Marker zu erstellen.
+Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und zurückzusetzen, festzulegen, welche [Counter-Styles](/de/docs/Web/CSS/CSS_counter_styles) oder Symbole als Marker verwendet werden sollen, und die Position dieser Marker festzulegen. Es bietet Entwicklern auch die Möglichkeit, benutzerdefinierte Marker zu erstellen.
 
 ## Referenz
 
@@ -25,9 +25,9 @@ Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und 
 - {{cssxref("list-style-position")}}
 - {{cssxref("list-style")}} Kurzschreibweise
 
-Es gibt auch eine `marker-side` Eigenschaft, die noch vollständig definiert oder implementiert werden muss.
+Es gibt auch eine `marker-side` Eigenschaft, die noch nicht vollständig definiert oder implementiert ist.
 
-### Pseudo-Elemente
+### Pseudoelemente
 
 - {{cssxref("::marker")}}
 
@@ -44,18 +44,18 @@ Es gibt auch eine `marker-side` Eigenschaft, die noch vollständig definiert ode
 
 ## Leitfäden
 
-- [Konsistente Listeneinrückung](/de/docs/Web/CSS/CSS_lists/Consistent_list_indentation)
+- [Konsistente Listen-Einrückung](/de/docs/Web/CSS/CSS_lists/Consistent_list_indentation)
 
-  - : Erläutert, wie man eine konsistente Listeneinrückung über verschiedene Browser hinweg erreicht.
+  - : Erklärt, wie man eine konsistente Listen-Einrückung in verschiedenen Browsern erreicht.
 
-- [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
-  - : Erläutert, wie man die CSS-Zähler-Eigenschaften verwendet, um Listenzähler zu kontrollieren.
+- [CSS-Zähler verwenden](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
+  - : Erklärt, wie die CSS-Zähler-Eigenschaften zur Steuerung von Listenzählern verwendet werden.
 
 ## Verwandte Konzepte
 
-- [CSS-Zähler-Stile](/de/docs/Web/CSS/CSS_counter_styles)
+- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles)
 
-  - {{cssxref("@counter-style")}} Regel
+  - {{cssxref("@counter-style")}} At-Regel
   - [`<counter-style-name>`](/de/docs/Web/CSS/@counter-style#counter-style-name) Datentyp
   - [`<symbol>`](/de/docs/Web/CSS/@counter-style/symbols#values) Datentyp
   - {{cssxref("symbols", "symbols()")}} Funktion
@@ -70,6 +70,6 @@ Es gibt auch eine `marker-side` Eigenschaft, die noch vollständig definiert ode
 
 ## Siehe auch
 
-- [CSS-Zähler-Stile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [CSS Generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul

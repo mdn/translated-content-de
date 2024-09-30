@@ -7,22 +7,22 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitentests ist es zu prüfen, ob Sie unseren Artikel [Grundlegende native Formularsteuerelemente](/de/docs/Learn/Forms/Basic_native_form_controls) verstanden haben.
+Das Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie unseren Artikel zu [Grundlegenden nativen Formularsteuerelementen](/de/docs/Learn/Forms/Basic_native_form_controls) verstanden haben.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie steckenbleiben, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Sollten Sie Schwierigkeiten haben, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Grundlegende Steuerelemente 1
 
-Diese Aufgabe beginnt sanft, indem Sie zwei `<input>`-Elemente erstellen sollen, für die Benutzer-ID und das Passwort, zusammen mit einem Absende-Button.
+Diese Aufgabe beginnt angenehm und fordert Sie auf, zwei `<input>`-Elemente für die Benutzer-ID und das Passwort sowie eine Schaltfläche zum Absenden zu erstellen.
 
 1. Erstellen Sie geeignete Eingabefelder für Benutzer-ID und Passwort.
-2. Sie sollten diese auch semantisch mit ihren Textetiketten verknüpfen.
-3. Erstellen Sie einen Absende-Button innerhalb des verbleibenden Listenelements, mit dem Button-Text "Log in".
+2. Diese sollten auch semantisch mit ihren Textlabels verknüpft sein.
+3. Erstellen Sie eine Schaltfläche zum Absenden innerhalb des verbleibenden Listenelements mit dem Text "Log in".
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/basic-controls/basic-controls1.html", '100%', 700)}}
 
@@ -32,14 +32,14 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Grundlegende Steuerelemente 2
 
-Die nächste Aufgabe erfordert, dass Sie funktionierende Sätze von Kontrollkästchen und Optionsfeldern erstellen, basierend auf den bereitgestellten Textetiketten.
+Die nächste Aufgabe erfordert von Ihnen, funktionierende Sets von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textlabels zu erstellen.
 
-1. Verwandeln Sie die Inhalte des ersten `<fieldset>` in eine Gruppe von Optionsfeldern — es sollte nur möglich sein, einen Pony-Charakter gleichzeitig auszuwählen.
+1. Wandeln Sie die Inhalte des ersten `<fieldset>` in eine Gruppe von Optionsfeldern um – es sollte immer nur ein Pony-Charakter gleichzeitig ausgewählt werden können.
 2. Stellen Sie sicher, dass das erste Optionsfeld beim Laden der Seite ausgewählt ist.
-3. Verwandeln Sie den Inhalt des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen.
-4. Fügen Sie ein paar weitere Hotdog-Auswahlmöglichkeiten hinzu.
+3. Wandeln Sie die Inhalte des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen um.
+4. Fügen Sie ein paar weitere Hotdog-Optionen Ihrer Wahl hinzu.
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/basic-controls/basic-controls2.html", '100%', 700)}}
 
@@ -49,13 +49,13 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Grundlegende Steuerelemente 3
 
-Die letzte Aufgabe in diesem Set erfordert, dass Sie einen Dateiauswähler erstellen.
+Die letzte Aufgabe in diesem Set erfordert von Ihnen, einen Dateiauswähler zu erstellen.
 
 1. Erstellen Sie einen grundlegenden Dateiauswähler.
 2. Erlauben Sie dem Benutzer, mehrere Dateien gleichzeitig auszuwählen.
-3. Stellen Sie sicher, dass der Dateiauswähler nur JPG- und PNG-Bilder akzeptiert.
+3. Erlauben Sie dem Dateiauswähler, nur JPG- und PNG-Bilder zu akzeptieren.
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/basic-controls/basic-controls3.html", '100%', 700)}}
 

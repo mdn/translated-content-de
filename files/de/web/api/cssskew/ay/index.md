@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`ay`**-Eigenschaft der
-[`CSSSkew`](/de/docs/Web/API/CSSSkew)-Schnittstelle ruft den Winkel ab, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren, und setzt ihn.
+Die **`ay`**-Eigenschaft des
+[`CSSSkew`](/de/docs/Web/API/CSSSkew)-Interfaces liest und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
 
 ## Wert
 

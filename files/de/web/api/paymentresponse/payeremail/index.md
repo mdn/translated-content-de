@@ -8,7 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte Eigenschaft `payerEmail` der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Schnittstelle gibt die vom Benutzer bereitgestellte E-Mail-Adresse zurück. Diese Option ist nur vorhanden, wenn die Option `requestPayerEmail` im `options`-Objekt, das an den [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird, auf `true` gesetzt ist.
+Die schreibgeschützte Eigenschaft `payerEmail` des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)
+Interfaces gibt die vom Benutzer angegebene E-Mail-Adresse zurück. Diese Option ist nur verfügbar,
+wenn die Option `requestPayerEmail` im `options`-Objekt, das an den
+[`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird, auf `true` gesetzt ist.
 
 ## Wert
 

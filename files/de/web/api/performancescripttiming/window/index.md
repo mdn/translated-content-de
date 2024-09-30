@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`window`** schreibgeschützte Eigenschaft der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt einen Verweis auf ein [`Window`](/de/docs/Web/API/Window)-Objekt zurück, das das `window` des Containers (d. h. entweder das Dokument der obersten Ebene oder einem {{htmlelement("iframe")}}) repräsentiert, in dem das Skript mit dem langen Animationsrahmen (LoAF) ausgeführt wurde.
+Die schreibgeschützte **`window`**-Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt eine Referenz auf ein [`Window`](/de/docs/Web/API/Window)-Objekt zurück, das das `window` des Containers (d.h. entweder das Dokument der obersten Ebene oder ein {{htmlelement("iframe")}}) repräsentiert, in dem das Skript ausgeführt wurde, das den langen Animationsrahmen (LoAF) verursacht hat.
 
 ## Wert
 
-Ein [`Window`](/de/docs/Web/API/Window)-Objekt oder `null`, wenn das Fenster nicht mehr aktiv ist (der Objektverweis ist ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)).
+Ein [`Window`](/de/docs/Web/API/Window)-Objekt oder `null`, wenn das Fenster nicht mehr aktiv ist (die Objektreferenz ist ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)).
 
 ## Beispiele
 
-Siehe [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele in Bezug auf die Long Animation Frames API.
+Siehe [Timing von langen Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die sich auf die Long Animation Frames API beziehen.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_ani
 
 ## Siehe auch
 
-- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Timing von langen Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

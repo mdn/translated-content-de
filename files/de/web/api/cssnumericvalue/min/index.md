@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: min() Methode"
+title: "CSSNumericValue: min()-Methode"
 short-title: min()
 slug: Web/API/CSSNumericValue/min
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`min()`** Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle gibt den niedrigsten Wert von den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
+Die **`min()`**-Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den kleinsten Wert unter den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 
 ## Beispiele
 
-Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele veranschaulichen, was passiert, wenn dies nicht der Fall ist.
+Wie zuvor erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele zeigen, was passiert, wenn dies nicht der Fall ist.
 
 ```js
 // Prints "1cm"

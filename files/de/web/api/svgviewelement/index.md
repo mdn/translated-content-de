@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGViewElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("view")}}-Elementen sowie Methoden zu deren Manipulation.
+Das **`SVGViewElement`**-Interface bietet Zugriff auf die Eigenschaften von {{SVGElement("view")}}-Elementen sowie Methoden zu ihrer Manipulation.
 
 {{InheritanceDiagram}}
 
-## Instanzen-Eigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

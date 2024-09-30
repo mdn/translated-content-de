@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl der Datenblöcke zurück, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
+Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtzahl der Blöcke zurück, die in der internen Warteschlange enthalten sein können, bevor der Gegendruck angewendet wird.
 
 ## Werte
 
-Eine ganze Zahl, die die Anzahl der Datenblöcke repräsentiert.
+Ein ganzzahliger Wert, der die Anzahl der Blöcke darstellt.
 
 ## Beispiele
 
@@ -35,17 +35,7 @@ const readableStream = new ReadableStream(
 );
 
 const size = queuingStrategy.size(chunk);
-console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}{{APIRef("Streams")}}{{AvailableInWorkers}}
-
-Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl der Datenblöcke zurück, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
-
-## Werte
-
-Eine ganze Zahl, die die Anzahl der Datenblöcke repräsentiert.
-
-## Beispiele
-
-);
+console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}$`);
 ```
 
 ## Spezifikationen

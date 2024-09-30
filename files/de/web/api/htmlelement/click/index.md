@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: click() Methode"
+title: "HTMLElement: click()-Methode"
 short-title: click()
 slug: Web/API/HTMLElement/click
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.click()`** Methode simuliert einen Mausklick auf ein Element. Wenn sie auf einem Element aufgerufen wird, wird das [`click`](/de/docs/Web/API/Element/click_event) Ereignis des Elements ausgelöst (es sei denn, sein [`disabled`](/de/docs/Web/HTML/Attributes/disabled) Attribut ist gesetzt).
+Die **`HTMLElement.click()`**-Methode simuliert einen Mausklick auf ein Element. Bei Aufruf auf einem Element wird das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis des Elements ausgelöst (es sei denn, das Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled) ist gesetzt).
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Nullish Coalescing Assignment (`??=`)** Operator, auch bekannt als **Logical Nullish Assignment** Operator, wertet nur den rechten Operanden aus und weist diesem dem linken Operanden zu, wenn der linke Operand [nullish](/de/docs/Glossary/nullish) (`null` oder `undefined`) ist.
+Der **Nullish Coalescing Assignment (`??=`)**-Operator, auch bekannt als **Logical Nullish Assignment**-Operator, wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand [nullish](/de/docs/Glossary/nullish) (`null` oder `undefined`) ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-nullish-coalescing-assignment.html")}}
 
@@ -19,16 +19,16 @@ x ??= y
 
 ## Beschreibung
 
-Nullish Coalescing Assignment [_Short-Circuits_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x ??= y` gleichwertig ist zu `x ?? (x = y)`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+Der Nullish Coalescing Assignment-Operator verwendet [_Short-Circuiting_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x ??= y` gleichbedeutend mit `x ?? (x = y)` ist, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Keine Zuweisung wird durchgeführt, wenn die linke Seite nicht nullish ist, aufgrund des Short-Circuiting des [Nullish Coalescing](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) Operators. Beispielsweise führt das Folgende nicht zu einem Fehler, obwohl `x` eine `const` ist:
+Es wird keine Zuweisung vorgenommen, wenn die linke Seite nicht nullish ist, aufgrund des Short-Circuiting des [Nullish Coalescing](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)-Operators. Zum Beispiel wirft das folgende keinen Fehler, obwohl `x` eine `const` ist:
 
 ```js
 const x = 1;
 x ??= 2;
 ```
 
-Auch das Folgende würde den Setter nicht auslösen:
+Auch würde das Folgende den Setter nicht auslösen:
 
 ```js
 const x = {
@@ -43,7 +43,7 @@ const x = {
 x.value ??= 2;
 ```
 
-Tatsächlich wird `y` nicht ausgewertet, wenn `x` nicht nullish ist.
+Tatsächlich wird `y` überhaupt nicht ausgewertet, wenn `x` nicht nullish ist.
 
 ```js
 const x = 1;
@@ -53,9 +53,9 @@ x ??= console.log("y evaluated");
 
 ## Beispiele
 
-### Verwendung des Nullish Coalescing Assignment
+### Verwendung von Nullish Coalescing Assignment
 
-Sie können den Nullish Coalescing Assignment Operator verwenden, um Standardwerte auf Objekteigenschaften anzuwenden. Im Vergleich zur Verwendung von Destructuring und [Standardwerten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value) wendet `??=` den Standardwert auch an, wenn die Eigenschaft den Wert `null` hat.
+Sie können den Nullish Coalescing Assignment-Operator verwenden, um Standardwerte auf Objekteigenschaften anzuwenden. Im Vergleich zur Verwendung von Destructuring und [Standardwerten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value) gilt `??=` auch, wenn die Eigenschaft den Wert `null` hat.
 
 ```js
 function config(options) {
@@ -78,7 +78,7 @@ config({}); // { duration: 100, speed: 25 }
 
 ## Siehe auch
 
-- [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Nullish Coalescing-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Nullish](/de/docs/Glossary/Nullish)
 - [Truthy](/de/docs/Glossary/Truthy)
 - [Falsy](/de/docs/Glossary/Falsy)

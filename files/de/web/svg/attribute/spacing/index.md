@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`spacing`**-Attribut gibt an, wie der User Agent den Abstand zwischen typografischen Zeichen bestimmen soll, die entlang eines Pfades dargestellt werden sollen.
+Das Attribut **`spacing`** gibt an, wie der Benutzeragent den Abstand zwischen typografischen Zeichen bestimmen soll, die auf einem Pfad gerendert werden sollen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
@@ -33,9 +33,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto`
-  - : Dieser Wert gibt an, dass der User Agent Layout-Algorithmen für Text-auf-einem-Pfad verwenden soll, um den Abstand zwischen den typografischen Zeichen visuell ansprechend anzupassen.
+  - : Dieser Wert zeigt an, dass der Benutzeragent Algorithmen zur Text-auf-einem-Pfad-Anordnung verwenden sollte, um den Abstand zwischen typografischen Zeichen anzupassen, um optisch ansprechende Ergebnisse zu erzielen.
 - `exact`
-  - : Dieser Wert gibt an, dass die typografischen Zeichen genau gemäß den Abstandsregeln dargestellt werden sollen, wie sie in den Layoutregeln für Text-auf-einem-Pfad festgelegt sind.
+  - : Dieser Wert bedeutet, dass die typografischen Zeichen genau entsprechend den Abstandsregeln rendert werden sollen, wie sie durch die Layoutregeln für Text-auf-einem-Pfad festgelegt sind.
 
 ## Spezifikationen
 

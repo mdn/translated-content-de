@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`sortingCode`**-Eigenschaft der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle gibt einen String zurück, der einen Postsortierungscode enthält, wie er in Frankreich verwendet wird.
+Die schreibgeschützte **`sortingCode`**-Eigenschaft der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle gibt einen String zurück, der einen Postsortiercode enthält, wie er in Frankreich verwendet wird.
 
 ## Wert
 
-Ein String, der den Sortierungscode-Teil der Adresse enthält.
+Ein String, der den Sortiercode-Teil der Adresse enthält.
 
 ## Spezifikationen
 

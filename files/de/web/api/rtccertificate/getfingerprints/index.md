@@ -10,7 +10,7 @@ l10n:
 
 Die **`getFingerprints()`**-Methode des **[`RTCCertificate`](/de/docs/Web/API/RTCCertificate)**-Interfaces wird verwendet, um ein Array von Zertifikat-Fingerabdrücken zu erhalten.
 
-Eine Anwendung kann diese Methode verwenden, um die Fingerabdrücke des Client-Zertifikats mit den Fingerabdrücken des Server-Zertifikats zu vergleichen. Der Server und der Client können unterschiedliche Sätze von Algorithmen unterstützen: Alle Fingerabdruckwerte für die vom Client und Server unterstützten Algorithmen sollten übereinstimmen.
+Eine Anwendung kann diese Methode verwenden, um die Fingerabdrücke des Client-Zertifikats mit den Fingerabdrücken des Server-Zertifikats zu vergleichen. Der Server und der Client können unterschiedliche Sätze von Algorithmen unterstützen: Alle Fingerabdruckwerte für den Satz von Algorithmen, die sowohl vom Client als auch vom Server unterstützt werden, sollten übereinstimmen.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerabdruckwerten. Jeder Fingerabdruck wird durch ein Objekt mit den folgenden Eigenschaften dargestellt:
+Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerabdruckwerten. Jeder Fingerabdruck wird durch ein Objekt mit den folgenden Eigenschaften repräsentiert:
 
 - `algorithm`
-  - : Ein String, der den Hash-Algorithmus angibt, der verwendet wurde, um den Fingerabdruck in `value` zu erstellen. Erlaubte Werte beinhalten: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- aus [RFC4572] Abschnitt 5. -->
+  - : Ein String, der den Hash-Funktionsalgorithmus angibt, der zum Erstellen des Fingerabdrucks in `value` verwendet wurde. Erlaubte Werte sind: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- aus [RFC4572] Abschnitt 5. -->
 - `value`
-  - : Ein String, der den Zertifikat-Fingerabdruck in einem hexadezimalen Kleinbuchstaben-String enthält, berechnet mit der `algorithm`-Hash-Funktion. Das Format ist genauer definiert in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5).
+  - : Ein String, der den Zertifikat-Fingerabdruck im Kleinbuchstaben-Hex-String enthält, wie mit der `algorithm`-Hash-Funktion berechnet. Das Format ist genauer in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5) definiert.
 
 ## Beispiele
 
-### Erhalten von Zertifikat-Fingerabdrücken
+### Abrufen von Zertifikat-Fingerabdrücken
 
-Dieses Beispiel zeigt, wie Sie Zertifikat-Fingerabdrücke erhalten und sie mit Fingerabdrücken eines Servers vergleichen könnten.
+Dieses Beispiel zeigt, wie Sie Zertifikat-Fingerabdrücke abrufen und sie mit Fingerabdrücken eines Servers vergleichen können.
 
-Zuerst erstellen wir eine Verbindung und erhalten die Fingerabdrücke. Wir erhalten auch die Fingerabdrücke vom Server über einen "bestimmten Mechanismus".
+Zuerst erstellen wir eine Verbindung und erhalten die Fingerabdrücke. Wir erhalten auch die Fingerabdrücke vom Server über einen „gewissen Mechanismus“.
 
 ```js
 const rtcPeerConnection = new RTCPeerConnection();
@@ -49,7 +49,7 @@ const fingerprintsFromClient = rtcPeerConnection.certificate.getFingerprints();
 const fingerprintsFromServer = ...;
 ```
 
-Es gibt zahlreiche Möglichkeiten, die Fingerabdruck-Arrays zu vergleichen. Hier wandeln wir die Arrays in Dictionary-Objekte um, wobei der Algorithmusname die Eigenschaft ist, und vergleichen sie dann. Dies funktioniert, weil nur ein Fingerabdruckwert für jeden Algorithmus existieren kann. (Es gibt viele andere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen).
+Es gibt zahlreiche Möglichkeiten, die Fingerprint-Arrays zu vergleichen. Hier konvertieren wir die Arrays in Wörterbuchobjekte, wobei der Algorithmusname die Eigenschaft ist, und vergleichen sie dann. Dies funktioniert, da für jeden Algorithmus nur ein Fingerprint-Wert existieren kann. (Es gibt viele andere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen).
 
 ```js
 let clientFingerprintDict = Object.fromEntries(

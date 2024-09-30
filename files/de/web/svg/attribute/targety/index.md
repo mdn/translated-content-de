@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`targetY`**-Attribut bestimmt die vertikale Positionierung der Faltungsmatrix relativ zu einem bestimmten Zielpixel im Eingabebild. Die oberste Zeile der Matrix ist Zeilennummer Null. Der Wert muss so sein, dass: `0` <= `targetY` < {{SVGAttr("order")}} `Y`.
+Das **`targetY`**-Attribut bestimmt die Positionierung in vertikaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die oberste Zeile der Matrix ist Zeile Nummer null. Der Wert muss so sein, dass: `0` <= `targetY` < {{SVGAttr("order")}} `Y`.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -33,7 +33,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<integer>`
-  - : Dieser Wert gibt die Positionierung in vertikaler Richtung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingabebild an.
+  - : Dieser Wert gibt die Positionierung in vertikaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild an.
 
 ## Spezifikationen
 

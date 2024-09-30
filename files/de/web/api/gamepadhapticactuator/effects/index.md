@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`effects`** des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Interfaces gibt ein Array von aufgezählten Werten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktuator unterstützt.
+Die schreibgeschützte Eigenschaft **`effects`** der Schnittstelle [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator) gibt ein Array von aufgezählten Werten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktor unterstützt.
 
 ## Wert
 
 Ein Array, das die unterstützten haptischen Effekte darstellt. Mögliche enthaltene Werte sind:
 
 - `"dual-rumble"`
-  - : Ein positioneller Rumpel-Effekt, der durch doppelte Vibrationsmotoren in jedem Griff eines Controllers erzeugt wird, die unabhängig vibriert werden können.
+  - : Ein positionsbezogener Rummbeleffekt, der durch zwei Vibrationsmotoren in jedem Griff eines Controllers erzeugt wird und unabhängig vibrieren kann.
 - `"trigger-rumble"`
-  - : Lokalisierte Rumpel-Effekte auf der Oberfläche der Abzugstasten eines Controllers, erzeugt durch Vibrationsmotoren, die sich in jeder Taste befinden. Diese Tasten haben meist die Form von federbelasteten Abzügen.
+  - : Lokalisierte Rummbeleffekte auf der Oberfläche der Abzugstasten eines Controllers, die durch Vibrationsmotoren in jeder Taste erzeugt werden. Diese Tasten haben meist die Form von federbelasteten Abzügen.
 
 > [!NOTE]
-> Wenn ein Effekt, von dem bekannt ist, dass er von der Hardware unterstützt wird, nicht aufgeführt ist, könnte dies daran liegen, dass der Browser das Abspielen von Effekten dieses Typs nicht unterstützt.
+> Wenn ein bekannterweise unterstützter Effekt nicht aufgelistet ist, könnte es daran liegen, dass der Browser das Abspielen von Effekten dieses Typs nicht unterstützt.
 
 ## Beispiele
 

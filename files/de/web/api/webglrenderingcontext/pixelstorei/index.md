@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: Methode pixelStorei()"
 short-title: pixelStorei()
 slug: Web/API/WebGLRenderingContext/pixelStorei
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.pixelStorei()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert die Pixel-Speichermodi.
+Die **`WebGLRenderingContext.pixelStorei()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt die Pixel-Speichermodi fest.
 
 ## Syntax
 
@@ -19,9 +19,11 @@ pixelStorei(pname, param)
 ### Parameter
 
 - `pname`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welchen Parameter Sie festlegen möchten. Siehe unten für mögliche Werte.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Parameter gesetzt werden soll. Siehe unten für mögliche
+    Werte.
 - `param`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der einen Wert angibt, auf den der `pname` Parameter eingestellt werden soll. Siehe unten für mögliche Werte.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der einen Wert angibt, auf den der `pname`
+    Parameter gesetzt werden soll. Siehe unten für mögliche Werte.
 
 ### Rückgabewert
 
@@ -59,7 +61,7 @@ Keiner ({{jsxref("undefined")}}).
     </tr>
     <tr>
       <td><code>gl.UNPACK_FLIP_Y_WEBGL</code></td>
-      <td>Spiegelt die Quelldaten entlang ihrer vertikalen Achse, wenn wahr.</td>
+      <td>Spiegeln der Quelldaten entlang der vertikalen Achse, wenn wahr.</td>
       <td>[`GLboolean`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>false</td>
       <td>true, false</td>
@@ -67,7 +69,7 @@ Keiner ({{jsxref("undefined")}}).
     </tr>
     <tr>
       <td><code>gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL</code></td>
-      <td>Multipliziert den Alphakanal in die anderen Farbkanäle</td>
+      <td>Multipliziert den Alphakanal in die anderen Farbkanäle hinein</td>
       <td>[`GLboolean`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>false</td>
       <td>true, false</td>
@@ -84,7 +86,7 @@ Keiner ({{jsxref("undefined")}}).
   </tbody>
 </table>
 
-Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL-2-Kontext", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
 
 <table class="no-markdown">
   <thead>
@@ -100,7 +102,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
   <tbody>
     <tr>
       <td><code>gl.PACK_ROW_LENGTH</code></td>
-      <td>Anzahl der Pixel in einer Reihe.</td>
+      <td>Anzahl der Pixel in einer Zeile.</td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
       <td>0 bis <code>Infinity</code></td>
@@ -109,7 +111,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
     <tr>
       <td><code>gl.PACK_SKIP_PIXELS</code></td>
       <td>
-        Anzahl der Pixellokationen, die übersprungen werden, bevor das erste Pixel in den
+        Anzahl der Pixelpositionen, die übersprungen werden, bevor das erste Pixel in den
         Speicher geschrieben wird.
       </td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
@@ -120,8 +122,8 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
     <tr>
       <td><code>gl.PACK_SKIP_ROWS</code></td>
       <td>
-        Anzahl der Reihen von Pixellokationen, die übersprungen werden, bevor das erste Pixel in den
-        Speicher geschrieben wird
+        Anzahl der Pixelreihen, die übersprungen werden, bevor das erste Pixel
+        in den Speicher geschrieben wird
       </td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
@@ -130,7 +132,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
     </tr>
     <tr>
       <td><code>gl.UNPACK_ROW_LENGTH</code></td>
-      <td>Anzahl der Pixel in einer Reihe.</td>
+      <td>Anzahl der Pixel in einer Zeile.</td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
       <td>0 bis <code>Infinity</code></td>
@@ -138,7 +140,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
     </tr>
     <tr>
       <td><code>gl.UNPACK_IMAGE_HEIGHT</code></td>
-      <td>Bildhöhe, die für das Lesen von Pixeldaten aus dem Speicher verwendet wird</td>
+      <td>Bildhöhe für das Lesen von Pixeldaten aus dem Speicher verwendet</td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
       <td>0 bis <code>Infinity</code></td>
@@ -148,7 +150,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
       <td><code>gl.UNPACK_SKIP_PIXELS</code></td>
       <td>
         Anzahl der Pixelbilder, die übersprungen werden, bevor das erste Pixel aus dem
-        Speicher gelesen wird.
+        Speicher gelesen wird
       </td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
@@ -158,8 +160,8 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
     <tr>
       <td><code>gl.UNPACK_SKIP_ROWS</code></td>
       <td>
-        Anzahl der Reihen von Pixellokationen, die übersprungen werden, bevor das erste Pixel aus dem
-        Speicher gelesen wird
+        Anzahl der Pixelreihen, die übersprungen werden, bevor das erste Pixel aus
+        dem Speicher gelesen wird
       </td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
@@ -170,7 +172,7 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
       <td><code>gl.UNPACK_SKIP_IMAGES</code></td>
       <td>
         Anzahl der Pixelbilder, die übersprungen werden, bevor das erste Pixel aus dem
-        Speicher gelesen wird.
+        Speicher gelesen wird
       </td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>0</td>
@@ -182,9 +184,9 @@ Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 
 
 ## Beispiele
 
-Das Festlegen des Pixel-Speichermodus wirkt sich auf die
-[`WebGLRenderingContext.readPixels()`](/de/docs/Web/API/WebGLRenderingContext/readPixels) Operationen aus, sowie auf das Entpacken von
-Texturen mit den Methoden [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und
+Das Setzen des Pixel-Speichermodus wirkt sich auf die
+[`WebGLRenderingContext.readPixels()`](/de/docs/Web/API/WebGLRenderingContext/readPixels)-Operationen aus, sowie auf das Entpacken
+von Texturen mit den Methoden [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und
 [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D).
 
 ```js

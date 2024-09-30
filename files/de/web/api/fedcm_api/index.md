@@ -7,37 +7,37 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("FedCM API")}}
 
-Die **Federated Credential Management API** (oder _FedCM API_) bietet einen standardisierten Mechanismus, mit dem Identitätsanbieter (Identity Providers, IdPs) Identitätsföderierungsdienste im Web auf datenschutzfreundliche Weise verfügbar machen können, ohne dass [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und Weiterleitungen erforderlich sind. Dazu gehört eine JavaScript-API, die die Verwendung von föderierter Authentifizierung für Aktivitäten wie das Anmelden oder Registrieren auf einer Website ermöglicht.
+Die **API für föderiertes Anmelde-Management** (oder _FedCM API_) bietet einen standardisierten Mechanismus für Identitätsanbieter (IdPs), um Identitätsföderationsdienste im Web auf eine datenschutzfreundliche Weise bereitzustellen, ohne dass [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und Redirects erforderlich sind. Dies umfasst eine JavaScript-API, die die Verwendung von föderierter Authentifizierung für Aktivitäten wie Anmelden oder Registrieren auf einer Website ermöglicht.
 
 ## FedCM-Konzepte
 
-Identitätsföderation ist die Übertragung der Benutzer-Authentifizierung von einer Website, die Benutzeranmeldung oder -registrierung erfordert, wie z.B. eine E-Commerce- oder Social-Networking-Site (auch bekannt als abhängige Partei oder RP), an einen vertrauenswürdigen dritten Identitätsanbieter (IdP) wie Google, Facebook/Meta, GitHub etc.
+Identitätsföderation ist die Delegation der Benutzer-Authentifizierung von einer Website, die eine Benutzerregistrierung oder -anmeldung erfordert, wie etwa einer E-Commerce- oder sozialen Netzwerkseite (auch bekannt als relying party oder RP), an einen vertrauenswürdigen Drittanbieter-Identitätsanbieter (IdP) wie Google, Facebook/Meta, GitHub usw.
 
-Abhängige Parteien (RPs) können sich mit IdPs integrieren, sodass Benutzer sich mit den Konten anmelden können, die sie beim IdP registriert haben. Die Identitätsföderation durch eine kleine Anzahl spezialisierter IdPs hat die Web-Authentifizierung in Bezug auf Sicherheit, Verbraucherzuversicht und Benutzererfahrung verbessert, verglichen mit der Verwaltung der eigenen Anmeldebedürfnisse jeder Seite mit separaten Benutzernamen und Passwörtern.
+Vertrauensparteien (RPs) können sich in IdPs integrieren, sodass Benutzer sich mit Konten anmelden können, die sie beim IdP registriert haben. Identitätsföderation über eine kleine Anzahl dedizierter IdPs hat das Web-Authentifizierungsverfahren in Bezug auf Sicherheit, Verbrauchervertrauen und Benutzererfahrung verbessert, im Vergleich dazu, dass jede Seite ihre eigenen Anmeldeanforderungen mit separaten Benutzernamen und Passwörtern verwaltet.
 
-Das Problem besteht darin, dass die traditionelle Identitätsföderation auf {{htmlelement("iframe")}}s, Weiterleitungen und Drittanbieter-Cookies beruht, die auch für das Tracking von Drittanbietern verwendet werden. Browser schränken die Nutzung dieser Funktionen ein, um die Privatsphäre der Benutzer zu schützen, aber eine Nebenwirkung ist, dass dadurch legitime, nicht-trackingbezogene Anwendungen schwieriger zu implementieren sind, darunter auch die Identitätsföderation.
+Das Problem ist, dass die traditionelle Identitätsföderation auf {{htmlelement("iframe")}}s, Redirects und Drittanbieter-Cookies basiert, die auch für Drittanbieter-Tracking verwendet werden. Browser schränken die Nutzung dieser Funktionen ein, um die Privatsphäre der Benutzer zu schützen. Ein Nebeneffekt ist jedoch, dass dies die Implementierung gültiger, nicht tracking-orientierter Anwendungen erschwert, wie z.B. die Identitätsföderation.
 
 Dies betrifft die föderierte Anmeldung im Allgemeinen sowie spezifischere Anwendungsfälle der Identitätsföderation:
 
-- [OIDC-Front-Channel-Abmeldung](https://openid.net/specs/openid-connect-frontchannel-1_0.html): Dieser Ablauf erfordert, dass der IdP mehrere RP-`<iframe>`s einbettet, die auf RP-Cookies angewiesen sind.
-- Soziale Widgets: Um soziale Widgets bereitzustellen, muss das IdP-Drittanbieter-Cookie aus dem RP-Top-Level-Ursprung bereitgestellt werden.
-- Personalisierte Schaltflächen: Die Anzeige personalisierter Anmeldeinformationen auf einem {{htmlelement("button")}} im RP-Ursprung wird als IdP-`<iframe>` implementiert, das Drittanbieter-Cookies erfordert.
-- Sitzungsauffrischung ohne Top-Level-Navigation oder Popups.
+- [OIDC Front-Channel Logout](https://openid.net/specs/openid-connect-frontchannel-1_0.html): Dieser Ablauf erfordert, dass der IDP mehrere RP-`<iframe>`s einbettet, die auf RP-Cookies angewiesen sind.
+- Soziale Widgets: Um soziale Widgets bereitzustellen, muss das IdP-Drittanbieter-Cookie von der RP-Top-Level-Quelle bereitgestellt werden.
+- Personalisierte Buttons: Die Anzeige personalisierter Anmeldeinformationen auf einem {{htmlelement("button")}} in der RP-Quelle wird als IdP-`<iframe>` implementiert, das Drittanbieter-Cookies benötigt.
+- Sitzungsaktualisierung ohne Top-Level-Navigation oder Pop-ups.
 
-FedCM zielt darauf ab, dieses Problem zu umgehen, indem ein spezieller Mechanismus für federierte Identitätsabläufe im Web bereitgestellt wird, der es unterstützenden Browsern ermöglicht, spezielle UI-Elemente auf RPs bereitzustellen, sodass Benutzer ein IdP-Konto zur Anmeldung auswählen können.
+FedCM zielt darauf ab, dieses Problem zu umgehen, indem es einen dedizierten Mechanismus für föderierte Identitätsabläufe im Web bereitstellt und unterstützende Browser mit speziellen UI-Elementen auf RPs ausstattet, sodass Benutzer ein IdP-Konto für die Anmeldung auswählen können.
 
-Es gibt zwei Teile bei der Verwendung der FedCM API, die in den unten verlinkten Leitfäden behandelt werden:
+Es gibt zwei Teile zur Nutzung der FedCM API, die in den unten verlinkten Leitfäden behandelt werden:
 
 1. [IdP-Integration mit FedCM](/de/docs/Web/API/FedCM_API/IDP_integration) — was ein Identitätsanbieter bereitstellen muss, damit ein RP sich mit ihm integrieren kann.
-2. [RP-föderierte Anmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in) — die FedCM-Funktionalität, die ein RP verwenden muss, um einen Benutzer mithilfe seines IdP-Kontos anzumelden. Eine FedCM-Anmeldeanforderung wird mit der Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) initiiert.
+2. [RP föderierte Anmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in) — die FedCM-Funktionalität, die ein RP verwenden muss, um einen Benutzer mit seinem IdP-Konto anzumelden. Eine FedCM-Anmeldeanforderung wird mit der Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) initiiert.
 
-> [!NOTE] > [Google Sign In](https://developers.google.com/identity/gsi/web/guides/overview) ist ein Beispiel für einen IdP, der bereits FedCM unterstützt. [Umstellung auf FedCM](https://developers.google.com/identity/gsi/web/guides/fedcm-migration) bietet Anweisungen für RPs, die vorhandene Apps, die Google Sign In verwenden, auf föderierte Anmeldung umstellen möchten.
+> **Note:** [Google Sign In](https://developers.google.com/identity/gsi/web/guides/overview) ist ein Beispiel für ein IdP, das bereits FedCM unterstützt. [Migrate to FedCM](https://developers.google.com/identity/gsi/web/guides/fedcm-migration) bietet Anleitungen für RPs, die bestehende Apps, die Google Sign In verwenden, auf föderierte Anmeldung umstellen möchten.
 
-## Integration der Berechtigungsrichtlinie und `<iframe>`-Unterstützung
+## Permissions-Policy-Integration und `<iframe>`-Unterstützung
 
-Die {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) kann verwendet werden, um die Berechtigung zur Nutzung von FedCM zu steuern, insbesondere die Nutzung der Methode [`get()`](/de/docs/Web/API/CredentialsContainer/get).
+Die {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) kann verwendet werden, um die Berechtigung zur Nutzung von FedCM zu steuern, insbesondere die Verwendung der [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Methode.
 
-Entwickler können explizit die Berechtigung für ein {{htmlelement("iframe")}} erteilen, FedCM über das `allow`-Attribut zu verwenden:
+Entwickler können einem {{htmlelement("iframe")}} explizit die Erlaubnis erteilen, FedCM über das Attribut `allow` zu verwenden:
 
 ```html
 <iframe src="3rd-party.example" allow="identity-credentials-get"></iframe>
@@ -45,24 +45,24 @@ Entwickler können explizit die Berechtigung für ein {{htmlelement("iframe")}} 
 
 Die Verfügbarkeit von FedCM innerhalb von `<iframe>`s ermöglicht einige Anwendungsfälle:
 
-- Größere Websites möchten nicht, dass ein Drittanbieter-Anmeldeskript die Kontrolle über das Top-Level-Frame übernimmt; stattdessen möchten sie dieses Skript hinzufügen und FedCM aus einem {{htmlelement("iframe")}} aufrufen.
-- Einige `<iframes>` können selbst föderierte Authentifizierung benötigen.
+- Größere Websites werden nicht möchten, dass ein Drittanbieter-Anmeldeskript die Kontrolle über den Top-Level-Frame erhält; stattdessen werden sie dieses Skript hinzufügen und FedCM aus einem {{htmlelement("iframe")}} heraus aufrufen wollen.
+- Einige `<iframe>`s benötigen möglicherweise selbst föderierte Authentifizierung.
 
 ## Schnittstellen
 
 - [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)
-  - : Repräsentiert ein Benutzeridentitäts-Credential, das aus erfolgreicher föderierter Authentifizierung resultiert. Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option einschließt, wird durch eine Instanz von [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) erfüllt.
+  - : Repräsentiert ein Benutzeridentitätsnachweis, das sich aus einer erfolgreichen föderierten Authentifizierung ergibt. Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option enthält, wird mit einer Instanz von [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) erfüllt.
 - [`IdentityProvider`](/de/docs/Web/API/IdentityProvider)
-  - : Repräsentiert einen IdP und bietet Zugang zu verwandten Informationen und Funktionen.
+  - : Repräsentiert einen IdP und bietet Zugriff auf relevante Informationen und Funktionalitäten.
 - [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)
-  - : Definiert Anmeldefunktionen für IdPs, einschließlich der Methode [`Navigator.login.setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) zum [Aktualisieren des Anmeldestatus des IdP](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
+  - : Definiert Anmeldefunktionalitäten für IdPs, einschließlich der Methode [`Navigator.login.setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) zur [Aktualisierung des IdP-Anmeldestatus](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
 
-## Erweiterungen von anderen Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get), die `identity`-Option.
-  - : `identity` ist ein Objekt mit Details zu föderierten IdPs, die eine abhängig Partei (RP)-Website verwenden kann, um Benutzer anzumelden. Es bewirkt, dass ein `get()`-Aufruf eine Anfrage zur Anmeldung eines Benutzers bei einem RP mit einem IdP auslöst.
+  - : `identity` ist ein Objekt, das Details von föderierten IdPs enthält, die eine relying party (RP) verwenden kann, um Benutzer anzumelden. Dadurch wird ein `get()`-Aufruf zur Anforderung initiiert, dass ein Benutzer sich mit einem IdP bei einer RP anmeldet.
 - [`Navigator.login`](/de/docs/Web/API/Navigator/login)
-  - : Bietet Zugang zum [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt des Browsers.
+  - : Bietet Zugriff auf das [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt des Browsers.
 
 ## HTTP-Header
 
@@ -71,12 +71,12 @@ Die Verfügbarkeit von FedCM innerhalb von `<iframe>`s ermöglicht einige Anwend
 
 ## Beispiele
 
-- [FedCM-Anmeldebeispiel](https://fedcm-rp-demo.glitch.me/)
-  - [RP-Quellcode](https://glitch.com/edit/#!/fedcm-rp-demo?path=server.js%3A1%3A0)
-  - [IdP-Quellcode](https://glitch.com/edit/#!/fedcm-idp-demo?path=server.js%3A1%3A0)
-- [FedCM `<iframe>`-Anmeldung](https://fedcm-main-frame.glitch.me/)
-  - [RP-`<iframe>`-Seitenquellcode](https://glitch.com/edit/#!/fedcm-main-frame?path=index.html%3A1%3A0)
-  - [IdP-Quellcode](https://glitch.com/edit/#!/webid-fcm-idp-single?path=server.js%3A1%3A0)
+- [FedCM Anmeldebeispiel](https://fedcm-rp-demo.glitch.me/)
+  - [RP Quellcode](https://glitch.com/edit/#!/fedcm-rp-demo?path=server.js%3A1%3A0)
+  - [IdP Quellcode](https://glitch.com/edit/#!/fedcm-idp-demo?path=server.js%3A1%3A0)
+- [FedCM `<iframe>` Anmeldung](https://fedcm-main-frame.glitch.me/)
+  - [RP `<iframe>` Seitencode](https://glitch.com/edit/#!/fedcm-main-frame?path=index.html%3A1%3A0)
+  - [IdP Quellcode](https://glitch.com/edit/#!/webid-fcm-idp-single?path=server.js%3A1%3A0)
 
 ## Spezifikationen
 

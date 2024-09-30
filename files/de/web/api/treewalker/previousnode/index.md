@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: previousNode()-Methode"
+title: "TreeWalker: previousNode() Methode"
 short-title: previousNode()
 slug: Web/API/TreeWalker/previousNode
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.previousNode()`**-Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum vorhergehenden _sichtbaren_ Knoten in der Dokumentenreihenfolge und gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten nicht existiert oder er vor dem _Root-Knoten_ liegt, der bei der Objekterstellung definiert wurde, gibt sie `null` zurück und der aktuelle Knoten wird nicht geändert.
+Die **`TreeWalker.previousNode()`** Methode bewegt den aktuellen
+[`Node`](/de/docs/Web/API/Node) zum vorhergehenden _sichtbaren_ Knoten in der Dokumentreihenfolge und
+gibt den gefundenen Knoten zurück. Wenn kein solcher Knoten existiert oder sich dieser vor dem _Wurzelknoten_ befindet, der bei der Erstellung des Objekts definiert wurde, gibt die Methode `null` zurück und der aktuelle Knoten bleibt unverändert.
 
 ## Syntax
 
@@ -22,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node) Objekt oder `null`.
 
 ## Beispiele
 
@@ -50,4 +52,4 @@ const node = treeWalker.previousNode(); // returns null as there is no parent
 
 ## Siehe auch
 
-- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface, zu dem es gehört.

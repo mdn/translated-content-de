@@ -1,5 +1,5 @@
 ---
-title: "Storage: key()-Methode"
+title: "Storage: Methode key()"
 short-title: key()
 slug: Web/API/Storage/key
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`key()`**-Methode des [`Storage`](/de/docs/Web/API/Storage)-Interfaces,
-gibt, wenn eine Zahl `n` übergeben wird, den Namen des n-ten Schlüssels in einem gegebenen `Storage`-Objekt zurück. Die Reihenfolge der Schlüssel wird durch den Benutzeragenten definiert, daher sollten Sie sich nicht darauf verlassen.
+Die **`key()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt, wenn sie mit einer Zahl n aufgerufen wird, den Namen des n-ten Schlüssels in einem gegebenen `Storage`-Objekt zurück. Die Reihenfolge der Schlüssel wird vom Benutzeragenten definiert, daher sollten Sie sich nicht darauf verlassen.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ key(index)
 ### Parameter
 
 - `index`
-  - : Ein ganzzahliger Wert, der die Nummer des Schlüssels repräsentiert, dessen Name Sie erhalten möchten. Dies ist ein nullbasiertes Index.
+  - : Eine ganze Zahl, die die Nummer des Schlüssels darstellt, dessen Namen Sie erhalten möchten. Dies ist ein nullbasierter Index.
 
 ### Rückgabewert
 
@@ -29,7 +28,7 @@ wird `null` zurückgegeben.
 
 ## Beispiele
 
-Die folgende Funktion iteriert über die lokalen Speicher-Schlüssel:
+Die folgende Funktion iteriert über die Schlüssel des lokalen Speichers:
 
 ```js
 function forEachKey(callback) {
@@ -39,7 +38,7 @@ function forEachKey(callback) {
 }
 ```
 
-Die folgende Funktion iteriert über die lokalen Speicher-Schlüssel und erhält den für jeden Schlüssel gesetzten Wert:
+Die folgende Funktion iteriert über die Schlüssel des lokalen Speichers und ruft den für jeden Schlüssel gesetzten Wert ab:
 
 ```js
 for (let i = 0; i < localStorage.length; i++) {
@@ -48,7 +47,7 @@ for (let i = 0; i < localStorage.length; i++) {
 ```
 
 > [!NOTE]
-> Für ein Beispiel aus der Praxis siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Für ein Praxisbeispiel siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

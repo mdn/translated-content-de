@@ -11,13 +11,13 @@ l10n:
 
 Die [Khronos Group](https://www.khronos.org/) pflegt WebGL, das auf [OpenGL](/de/docs/Glossary/OpenGL) ES 2.0 basiert.
 
-Sie können WebGL innerhalb des [HTML](/de/docs/Glossary/HTML) {{HTMLElement("canvas")}}-Elements aufrufen, das eine Renderoberfläche bereitstellt.
+Sie können WebGL innerhalb des [HTML](/de/docs/Glossary/HTML) {{HTMLElement("canvas")}}-Elements aufrufen, welches eine Rendering-Oberfläche bereitstellt.
 
 Alle großen [Browser](/de/docs/Glossary/Browser) unterstützen mittlerweile WebGL, aber seine Verfügbarkeit hängt auch von externen Faktoren ab (z. B. GPU-Unterstützung).
 
 ## Siehe auch
 
-- [WebGL](https://en.wikipedia.org/wiki/WebGL) auf Wikipedia
-- [Überprüfung der WebGL-Unterstützung](https://get.webgl.org/)
+- [WebGL](https://de.wikipedia.org/wiki/WebGL) auf Wikipedia
+- [Prüfen Sie die WebGL-Unterstützung](https://get.webgl.org/)
 - [WebGL auf MDN](/de/docs/Web/API/WebGL_API)
 - [Unterstützungstabelle für WebGL](https://caniuse.com/#feat=webgl)

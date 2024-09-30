@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: readBuffer()-Methode"
+title: "WebGL2RenderingContext: readBuffer() Methode"
 short-title: readBuffer()
 slug: Web/API/WebGL2RenderingContext/readBuffer
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.readBuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) wählt einen Farb-Puffer als Quelle für Pixel für nachfolgende Aufrufe von [`copyTexImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D), [`copyTexSubImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexSubImage2D), [`copyTexSubImage3D`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D) oder [`readPixels`](/de/docs/Web/API/WebGLRenderingContext/readPixels) aus.
+Die **`WebGL2RenderingContext.readBuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) wählt einen Farb-Buffer als Quelle für Pixel für nachfolgende Aufrufe von [`copyTexImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D), [`copyTexSubImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexSubImage2D), [`copyTexSubImage3D`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D) oder [`readPixels`](/de/docs/Web/API/WebGLRenderingContext/readPixels) aus.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ readBuffer(source)
 
 - `source`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Farb-Puffer angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Farb-Buffer angibt. Mögliche Werte:
 
     - `gl.BACK`
-      - : Liest vom hinteren Farb-Puffer.
+      - : Liest aus dem hinteren Farb-Buffer.
     - `gl.NONE`
-      - : Liest von keinem Farb-Puffer.
+      - : Liest aus keinem Farb-Buffer.
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Liest von einem der 16 Farb-Anhangs-Puffer.
+      - : Liest aus einem der 16 Farb-Anhang-Buffer.
 
 ### Rückgabewert
 

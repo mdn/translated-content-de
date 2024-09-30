@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der
-[`GPUSampler`](/de/docs/Web/API/GPUSampler)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUSampler`](/de/docs/Web/API/GPUSampler) Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem man eine `label`-Eigenschaft in dem Beschreibungsobjekt bereitstellt, das in den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler)-Aufruf übergeben wird, oder Sie können es direkt am `GPUSampler`-Objekt festlegen und abrufen.
+Dies kann durch Bereitstellung einer `label` Eigenschaft in dem Descriptor-Objekt gesetzt werden, das in den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) Aufruf übergeben wird, oder Sie können es direkt am `GPUSampler` Objekt setzen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies zuvor nicht wie oben beschrieben festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht zuvor wie oben beschrieben gesetzt wurde, ist es ein leerer String.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPUSampler.label`:
+Setzen und Abrufen eines Labels über `GPUSampler.label`:
 
 ```js
 // ...
@@ -33,7 +32,7 @@ sampler.label = "mysampler";
 console.log(sampler.label); // "mysampler"
 ```
 
-Festlegen eines Labels über den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler)-Aufruf und anschließendes Abrufen über `GPUSampler.label`:
+Setzen eines Labels über den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) Aufruf und dann Abrufen über `GPUSampler.label`:
 
 ```js
 // ...

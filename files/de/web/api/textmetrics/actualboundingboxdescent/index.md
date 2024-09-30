@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `actualBoundingBoxDescent` des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, das den Abstand von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegebenen horizontalen Linie zum unteren Rand des Begrenzungsrechtecks, das zum Rendern des Textes verwendet wird, in CSS-Pixeln angibt.
+Die schreibgeschützte Eigenschaft `actualBoundingBoxDescent` der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle ist ein `double`, das den Abstand von der durch das Attribut [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie bis zum unteren Rand des Begrenzungsrechtecks, das zum Rendern des Textes verwendet wird, in CSS-Pixeln angibt.
 
 ## Beispiele
 

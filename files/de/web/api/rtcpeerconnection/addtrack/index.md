@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: addTrack()-Methode"
+title: "RTCPeerConnection: Methode addTrack()"
 short-title: addTrack()
 slug: Web/API/RTCPeerConnection/addTrack
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`addTrack()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces fügt eine neue Medienspur zu dem Satz von Spuren hinzu, die an den anderen Teilnehmer übertragen werden.
+Die **`addTrack()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle fügt eine neue Media-Tracks zu der Menge von Tracks hinzu, die an den anderen Peer übertragen werden.
 
 > [!NOTE]
-> Das Hinzufügen einer Spur zu einer Verbindung löst eine Neuverhandlung aus, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis ausgelöst wird.
-> Siehe [Beginning negotiation](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#starting_negotiation) für Details.
+> Das Hinzufügen eines Tracks zu einer Verbindung löst eine Neuverhandlung aus, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis ausgelöst wird.
+> Siehe [Beginn der Verhandlung](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#starting_negotiation) für Details.
 
 ## Syntax
 
@@ -26,45 +26,45 @@ addTrack(track, stream1, stream2, /* …, */ streamN)
 ### Parameter
 
 - `track`
-  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das die Medienspur repräsentiert, die der Peer-Verbindung hinzugefügt werden soll.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Media-Track darstellt, der zur Peer-Verbindung hinzugefügt werden soll.
 - `stream1`, …, `streamN` {{optional_inline}}
-  - : Ein oder mehrere lokale [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekte, denen die Spur hinzugefügt werden soll.
+  - : Ein oder mehrere lokale [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekte, zu denen der Track hinzugefügt werden soll.
 
-Die angegebene `track` muss nicht unbedingt bereits Teil eines der angegebenen `stream`s sein.
-Stattdessen sind die `stream`s eine Möglichkeit, Spuren am empfangenden Ende der Verbindung zu gruppieren und dafür zu sorgen, dass sie synchronisiert sind.
-Alle Spuren, die am lokalen Ende der Verbindung zum selben Stream hinzugefügt werden, befinden sich auch am entfernten Ende im selben Stream.
+Der angegebene `track` muss nicht notwendigerweise bereits Teil eines der angegebenen `stream`s sein.
+Vielmehr sind die `stream`s eine Möglichkeit, Tracks auf der Empfangsseite der Verbindung zu gruppieren und sicherzustellen, dass sie synchronisiert werden.
+Alle Tracks, die auf derselben Seite der Verbindung zu demselben Stream hinzugefügt werden, befinden sich auf dem Remote-Ende im selben Stream.
 
 ### Rückgabewert
 
-Das [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekt, welches zum Übertragen der Mediadaten verwendet wird.
+Das [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekt, welches zur Übertragung der Mediendaten verwendet wird.
 
 > [!NOTE]
-> Jeder `RTCRtpSender` wird mit einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gepaart, um einen [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) zu bilden.
-> Der zugehörige Empfänger ist stummgeschaltet (was darauf hinweist, dass er keine Pakete liefern kann), bis und es sei denn, ein oder mehrere Streams werden vom entfernten Peer zum Empfänger hinzugefügt.
+> Jeder `RTCRtpSender` ist mit einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gepaart, um einen [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) zu bilden.
+> Der zugehörige Empfänger ist stummgeschaltet (was anzeigt, dass er keine Pakete liefern kann), bis und sofern nicht ein oder mehrere Streams von dem Remote-Peer zum Empfänger hinzugefügt werden.
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebene Spur (oder alle ihre zugrundeliegenden Streams) bereits Teil der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist.
+  - : Wird ausgelöst, wenn der angegebene Track (oder alle seine zugrundeliegenden Streams) bereits Teil der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geschlossen ist.
 
-## Hinweise zur Verwendung
+## Nutzungsnotizen
 
-### Hinzufügen von Spuren zu mehreren Streams
+### Tracks zu mehreren Streams hinzufügen
 
-Nach dem `track`-Parameter können Sie optional ein oder mehrere [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekte angeben, zu denen die Spur hinzugefügt werden soll.
-Nur Spuren werden von einem Teilnehmer zum anderen gesendet, nicht Streams.
-Da Streams für jeden Teilnehmer spezifisch sind, bedeutet das Angeben eines oder mehrerer Streams, dass der andere Teilnehmer automatisch einen entsprechenden Stream (oder Streams) am anderen Ende der Verbindung erstellt und dann die empfangene Spur automatisch zu diesen Streams hinzufügt.
+Nach dem `track`-Parameter können Sie optional ein oder mehrere [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekte angeben, zu denen der Track hinzugefügt werden soll.
+Es werden nur Tracks von einem Peer zum anderen gesendet, nicht Streams.
+Da Streams spezifisch für jeden Peer sind, bedeutet das Angeben eines oder mehrerer Streams, dass der andere Peer einen entsprechenden Stream (oder Streams) automatisch am anderen Ende der Verbindung erstellt und dann den empfangenen Track zu diesen Streams hinzufügt.
 
-#### Spurlose Spuren
+#### Streamlose Tracks
 
-Wenn keine Streams angegeben sind, ist die Spur **spurlos**.
-Das ist vollkommen akzeptabel, obwohl es dem entfernten Teilnehmer obliegt, zu entscheiden, in welchen Stream die Spur eingefügt werden soll, falls überhaupt.
-Dies ist eine sehr gebräuchliche Art, `addTrack()` beim Aufbau vieler Arten einfacher Anwendungen zu verwenden, bei denen nur ein Stream benötigt wird.
-Wenn zum Beispiel alles, was Sie mit dem entfernten Teilnehmer teilen, ein einzelner Stream mit einer Audiospur und einer Videospur ist, müssen Sie sich nicht darum kümmern, welche Spur in welchem Stream ist, daher können Sie genauso gut den Transceiver es für Sie erledigen lassen.
+Wenn keine Streams angegeben werden, ist der Track **streamlos**.
+Dies ist völlig akzeptabel, obwohl es dem Remote-Peer obliegt, zu entscheiden, in welchen Stream der Track eingefügt werden soll, falls überhaupt.
+Dies ist eine sehr gängige Weise, `addTrack()` zu verwenden, wenn viele Arten von einfachen Anwendungen erstellt werden, bei denen nur ein Stream benötigt wird.
+Zum Beispiel, wenn Sie dem Remote-Peer nur einen einzelnen Stream mit einem Audio- und einem Videotrack teilen, brauchen Sie sich nicht darum zu kümmern, welchen Track in welchem Stream verwaltet werden soll. Sie können also den Transceiver dies für Sie erledigen lassen.
 
-Hier ist ein Beispiel für eine Funktion, die [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um einen Stream von der Kamera und dem Mikrofon eines Benutzers zu erhalten, und dann jede Spur aus dem Stream zur Peer-Verbindung hinzufügt, ohne für jede Spur einen Stream anzugeben:
+Hier ist ein Beispiel, das eine Funktion zeigt, die [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um einen Stream von der Kamera und dem Mikrofon eines Benutzers zu erhalten und dann jeden Track aus dem Stream zur Peer-Verbindung hinzuzufügen, ohne für jeden Track einen Stream anzugeben:
 
 ```js
 async function openCall(pc) {
@@ -78,8 +78,8 @@ async function openCall(pc) {
 }
 ```
 
-Das Ergebnis ist ein Satz von Spuren, die an den entfernten Teilnehmer gesendet werden, ohne Stream-Zuordnungen.
-Der Handler für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis beim entfernten Teilnehmer ist verantwortlich dafür, zu bestimmen, welchem Stream jede Spur hinzugefügt werden soll, selbst wenn das bedeutet, dass sie alle zum selben Stream hinzugefügt werden.
+Das Ergebnis ist, dass eine Reihe von Tracks an den Remote-Peer gesendet wird, ohne dass Stream-Zuordnungen vorliegen.
+Der Handler für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis auf dem Remote-Peer ist dafür verantwortlich, zu bestimmen, in welchen Stream jeder Track hinzugefügt wird, selbst wenn das bedeutet, sie alle zu demselben Stream hinzuzufügen.
 Der [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler könnte so aussehen:
 
 ```js
@@ -98,11 +98,11 @@ pc.ontrack = (ev) => {
 };
 ```
 
-Hier fügt der `track`-Event-Handler die Spur dem ersten vom Ereignis angegebenen Stream hinzu, falls ein Stream angegeben wird.
-Andernfalls wird beim ersten Aufruf von `ontrack` ein neuer Stream erstellt und an das Videoelement angehängt, und dann wird die Spur dem neuen Stream hinzugefügt.
-Von da an werden neue Spuren diesem Stream hinzugefügt.
+Hier fügt der `track`-Ereignishandler den Track dem ersten vom Ereignis angegebenen Stream hinzu, falls ein Stream angegeben ist.
+Andernfalls wird beim ersten Aufruf von `ontrack` ein neuer Stream erstellt und dem Videoelement angefügt, und dann wird der Track dem neuen Stream hinzugefügt.
+Ab diesem Zeitpunkt werden neue Tracks zu diesem Stream hinzugefügt.
 
-Sie könnten auch einfach für jede empfangene Spur einen neuen Stream erstellen:
+Sie könnten auch einfach für jeden empfangenen Track einen neuen Stream erstellen:
 
 ```js
 pc.ontrack = (ev) => {
@@ -115,12 +115,12 @@ pc.ontrack = (ev) => {
 };
 ```
 
-#### Zuordnung von Spuren zu bestimmten Streams
+#### Zuordnung von Tracks zu bestimmten Streams
 
-Indem Sie einen Stream angeben und `RTCPeerConnection` Streams für Sie erstellen lassen, werden die Spur-Zuordnungen der Streams automatisch von der WebRTC-Infrastruktur für Sie verwaltet.
-Dies umfasst Dinge wie Änderungen der [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers und das Anhalten von Spuren mit [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack).
+Durch die Angabe eines Streams und das zulassen von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), Streams für Sie zu erstellen, werden die Tracks' Zuordnungen zu Streams automatisch von der WebRTC-Infrastruktur für Sie verwaltet.
+Dies umfasst Dinge wie Änderungen der [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers und Tracks, die mit [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) gestoppt werden.
 
-Betrachten Sie zum Beispiel diese Funktion, die eine Anwendung verwenden könnte, um die Eingaben der Kamera und des Mikrofons eines Geräts über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) an einen entfernten Teilnehmer zu übertragen:
+Betrachten Sie zum Beispiel diese Funktion, die eine Anwendung verwenden könnte, um das Streaming von Kamera- und Mikrofoneingaben eines Geräts über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu einem Remote-Peer zu beginnen:
 
 ```js
 async function openCall(pc) {
@@ -134,47 +134,47 @@ async function openCall(pc) {
 }
 ```
 
-Der entfernte Teilnehmer könnte dann einen [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Event-Handler verwenden, der folgendermaßen aussieht:
+Der Remote-Peer könnte dann einen [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignishandler verwenden, der so aussieht:
 
 ```js
 pc.ontrack = ({ streams: [stream] }) => (videoElem.srcObject = stream);
 ```
 
-Dies legt den aktuellen Stream des Videoelements auf den Stream, der die Spur enthält, die zur Verbindung hinzugefügt wurde.
+Dieser setzt den aktuellen Stream des Videoelements auf den, der den zur Verbindung hinzugefügten Track enthält.
 
 ### Wiederverwendete Sender
 
-Diese Methode gibt einen neuen `RTCRtpSender` oder eine bestehende Instanz zur Wiederverwendung zurück.
-Eine `RTCRtpSender`-Instanz ist nur dann für die Wiederverwendung kompatibel, wenn sie die folgenden Kriterien erfüllt:
+Diese Methode gibt entweder einen neuen `RTCRtpSender` oder eine bestehende Instanz zur Wiederverwendung zurück.
+Eine `RTCRtpSender`-Instanz ist nur dann zur Wiederverwendung kompatibel, wenn sie die folgenden Kriterien erfüllt:
 
-- Es gibt keine Spur, die bereits mit dem Sender verknüpft ist.
-- Der mit dem Sender verknüpfte [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) hat einen [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), dessen [`track`](/de/docs/Web/API/RTCRtpReceiver/track)-Eigenschaft eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) spezifiziert, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) dem `kind` des bei `RTCPeerConnection.addTrack()` angegebenen `track`-Parameters entspricht. Dies stellt sicher, dass ein Transceiver entweder nur Audio oder Video und niemals beides gleichzeitig verarbeitet.
+- Es ist kein Track bereits mit dem Sender verknüpft.
+- Der mit dem Sender verknüpfte [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) verfügt über einen [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), dessen [`track`](/de/docs/Web/API/RTCRtpReceiver/track)-Eigenschaft eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) dem `kind` des beim Aufruf von `RTCPeerConnection.addTrack()` angegebenen `track`-Parameters entspricht. Dies stellt sicher, dass ein Transceiver nur Audio oder Video und niemals beides behandelt.
 - Die [`RTCRtpTransceiver.currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection)-Eigenschaft ist nicht `"stopped"`.
-- Der in Betracht gezogene `RTCRtpSender` wurde noch nie zum Senden von Daten verwendet.
+- Der `RTCRtpSender`, der in Betracht gezogen wird, wurde nie verwendet, um Daten zu senden.
   Wenn die [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) des Transceivers jemals `"sendrecv"` oder `"sendonly"` war, kann der Sender nicht wiederverwendet werden.
 
-Wenn all diese Kriterien erfüllt sind, wird der Sender wiederverwendet, was diese Änderungen am bestehenden `RTCRtpSender` und seinem `RTCRtpTransceiver` zur Folge hat:
+Wenn all diese Kriterien erfüllt sind, wird der Sender wiederverwendet, was dazu führt, dass diese Änderungen am bestehenden `RTCRtpSender` und seinem `RTCRtpTransceiver` erfolgen:
 
-- Der `RTCRtpSender`'s [`track`](/de/docs/Web/API/RTCRtpSender/track) wird auf die angegebene Spur gesetzt.
-- Die Menge der mit dem Sender verknüpften Streams wird auf die in dieser Methode übergebene Streamliste `stream...` gesetzt.
+- Der `RTCRtpSender`'s [`track`](/de/docs/Web/API/RTCRtpSender/track) wird auf den angegebenen Track gesetzt.
+- Die Menge der dem Sender zugeordneten Streams wird auf die Liste der Streams gesetzt, die in diese Methode übergeben werden, `stream...`.
 - Der zugehörige [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) hat seine `currentDirection` aktualisiert, um anzuzeigen, dass er sendet;
-  wenn sein aktueller Wert `"recvonly"` ist, wird er zu `"sendrecv"`, und wenn sein aktueller Wert `"inactive"` ist, wird er zu `"sendonly"`.
+  wenn sein aktueller Wert `"recvonly"` ist, wird er zu `"sendrecv"` und wenn sein aktueller Wert `"inactive"` ist, wird er zu `"sendonly"`.
 
 ### Neue Sender
 
-Wenn kein vorhandener Sender existiert, der wiederverwendet werden kann, wird ein neuer erstellt. Dies führt auch zur Erstellung der zugehörigen Objekte, die existieren müssen. Der Prozess der Erstellung eines neuen Senders führt zu diesen Änderungen:
+Wenn kein vorhandener und wiederverwendbarer Sender existiert, wird ein neuer erstellt. Dies führt ebenfalls zur Erstellung der zugehörigen Objekte, die existieren müssen. Der Prozess zur Erstellung eines neuen Senders führt zu diesen Änderungen:
 
-- Der neue `RTCRtpSender` wird mit der angegebenen Spur und einer Gruppe von Streams erstellt.
-- Ein neuer [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) wird mit einer _neuen_ [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) als seiner [`track`](/de/docs/Web/API/RTCRtpReceiver/track)-Eigenschaft erstellt (nicht der Spur, die beim Aufruf von `addTrack()` als Parameter angegeben wurde).
-  Die `kind` dieser Spur wird so eingestellt, dass sie dem `kind` der als Eingabeparameter bereitgestellten Spur entspricht.
+- Der neue `RTCRtpSender` wird mit dem angegebenen Track und der Menge an Stream(s) erstellt.
+- Ein neuer [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) wird mit einem _neuen_ [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) als seiner [`track`](/de/docs/Web/API/RTCRtpReceiver/track)-Eigenschaft erstellt (nicht der beim Aufruf von `addTrack()` angegebene Track).
+  Dieser Track's [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) wird so eingestellt, dass er dem `kind` des als Eingabeparameter bereitgestellten Tracks entspricht.
 - Ein neuer [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) wird erstellt und mit dem neuen Sender und Empfänger verknüpft.
-- Die `direction` des neuen Transceivers wird auf `"sendrecv"` gesetzt.
-- Der neue Transceiver wird zu dem Satz der Transceiver der `RTCPeerConnection` hinzugefügt.
+- Die `direction` ([`RTCRtpTransceiver/direction`](/de/docs/Web/API/RTCRtpTransceiver/direction)) des neuen Transceivers wird auf `"sendrecv"` gesetzt.
+- Der neue Transceiver wird zur Menge der Transceiver der `RTCPeerConnection` hinzugefügt.
 
 ## Beispiele
 
-Dieses Beispiel ist aus dem im Artikel [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) vorgestellten Code und dem entsprechenden Beispielcode gezogen.
-Es stammt aus der `handleVideoOfferMsg()`-Methode dort, die aufgerufen wird, wenn eine Angebotsnachricht vom entfernten Teilnehmer empfangen wird.
+Dieses Beispiel stammt aus dem im Artikel [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) vorgestellten Code und seinem dazugehörigen Beispielcode.
+Es stammt aus der Methode `handleVideoOfferMsg()`, die aufgerufen wird, wenn eine Angebotsnachricht vom Remote-Peer empfangen wird.
 
 ```js
 const mediaConstraints = {
@@ -193,13 +193,13 @@ pc.setRemoteDescription(desc)
   });
 ```
 
-Dieser Code nimmt SDP, das vom entfernten Teilnehmer empfangen wurde, und erstellt eine neue [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), um es an [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) zu übergeben.
-Sobald das gelingt, wird [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um Zugriff auf die lokale Webcam und das Mikrofon zu erhalten.
+Dieser Code nimmt SDP, die vom Remote-Peer empfangen wurde, und erstellt eine neue [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), die an [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergeben werden soll.
+Sobald dies erfolgreich ist, verwendet er [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die lokale Webcam und das Mikrofon zu erhalten.
 
 Wenn das erfolgreich ist, wird der resultierende Stream als Quelle für ein {{HTMLElement("video")}}-Element zugewiesen, das durch die Variable `previewElement` referenziert wird.
 
 Der letzte Schritt besteht darin, das lokale Video über die Peer-Verbindung an den Anrufer zu senden.
-Dies wird erreicht, indem man jede Spur im Stream hinzufügt, indem man über die Liste iteriert, die von [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) zurückgegeben wird, und sie an `addTrack()` zusammen mit dem `stream` übergibt, von dem sie ein Bestandteil sind.
+Dies geschieht, indem jeder Track im Stream hinzugefügt wird, indem über die Liste iteriert wird, die von [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) zurückgegeben wird, und sie an `addTrack()` zusammen mit dem `stream`, dessen Bestandteil sie sind, übergeben wird.
 
 ## Spezifikationen
 
@@ -212,5 +212,5 @@ Dies wird erreicht, indem man jede Spur im Stream hinzufügt, indem man über di
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
+- [Einführung in das Echtzeit-Transportprotokoll (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
 - [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)

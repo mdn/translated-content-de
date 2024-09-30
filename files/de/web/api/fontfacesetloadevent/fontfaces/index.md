@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSetLoadEvent: fontfaces Eigenschaft"
+title: "FontFaceSetLoadEvent: fontfaces-Eigenschaft"
 short-title: fontfaces
 slug: Web/API/FontFaceSetLoadEvent/fontfaces
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die schreibgeschützte **`fontfaces`**-Eigenschaft der [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)-Schnittstelle gibt ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen zurück, von denen jede eine einzeln nutzbare Schriftart darstellt.
+Die **`fontfaces`** schreibgeschützte Eigenschaft des [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)-Interfaces gibt ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen zurück, von denen jede eine einzelne verwendbare Schriftart darstellt.
 
 ## Wert
 

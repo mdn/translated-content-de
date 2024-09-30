@@ -1,5 +1,5 @@
 ---
-title: "ElementInternals: role-Eigenschaft"
+title: "ElementInternals: Role-Eigenschaft"
 short-title: role
 slug: Web/API/ElementInternals/role
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`role`** schreibgeschützte Eigenschaft der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) gibt die [WAI-ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Roles) für das Element zurück. Beispielsweise könnte eine Checkbox die [`role="checkbox"`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) haben.
+Die schreibgeschützte **`role`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die [WAI-ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Roles) des Elements zurück. Ein Beispiel: Ein Kontrollkästchen könnte [`role="checkbox"`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) haben.
 
 ## Wert
 

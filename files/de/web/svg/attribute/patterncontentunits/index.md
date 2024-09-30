@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`patternContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
+Das Attribut **`patternContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des <pattern>-Elements verwendet werden soll.
 
 > [!NOTE]
-> Dieses Attribut hat keine Wirkung, wenn das Attribut {{ SVGAttr("viewBox") }} auf dem {{ SVGElement("pattern") }}-Element spezifiziert ist.
+> Dieses Attribut hat keine Wirkung, wenn das Attribut {{ SVGAttr("viewBox") }} auf dem <pattern>-Element angegeben ist.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('pattern')}}
 
@@ -68,7 +68,7 @@ svg {
 
 ## pattern
 
-Für {{SVGElement('pattern')}} definiert `patternContentUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
+Für {{SVGElement('pattern')}} definiert `patternContentUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
 
 <table class="properties">
   <tbody>
@@ -88,9 +88,9 @@ Für {{SVGElement('pattern')}} definiert `patternContentUnits` das Koordinatensy
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, das definiert wurde, als die Kachel des Musters erstellt wurde.
+  - : Dieser Wert gibt an, dass sich sämtliche Koordinaten innerhalb des <pattern>-Elements auf das Benutzerkoordinatensystem beziehen, wie es beim Erstellen der Mustervorlage definiert wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe angesehen werden, als ob der Inhalt des {{ SVGElement("pattern") }} an ein `"0 0 1 1"` {{ SVGAttr("viewBox") }} für eine Mustekachel mit einer Breite und Höhe von 100% gebunden wäre.
+  - : Dieser Wert gibt an, dass sich sämtliche Koordinaten innerhalb des <pattern>-Elements relativ zur Begrenzungsbox des Elements beziehen, auf das das Muster angewendet wird. Eine Begrenzungsbox könnte als identisch betrachtet werden, als ob der Inhalt des <pattern> an eine `"0 0 1 1"`-{{ SVGAttr("viewBox") }} für eine Mustervorlage mit einer Breite und Höhe von 100 % gebunden wäre.
 
 ## Spezifikationen
 

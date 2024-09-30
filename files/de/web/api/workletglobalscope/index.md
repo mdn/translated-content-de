@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SecureContext_Header}}
 
-Das **`WorkletGlobalScope`**-Interface ist eine abstrakte Klasse, von der spezifische Worklet-Scope-Klassen erben. Jedes `WorkletGlobalScope` definiert eine neue globale Umgebung.
+Das **`WorkletGlobalScope`**-Interface ist eine abstrakte Klasse, die von spezifischen Worklet-Scope-Klassen geerbt wird. Jedes `WorkletGlobalScope` definiert eine neue globale Umgebung.
 
 > [!NOTE]
-> In der Regel müssen Sie nicht direkt mit diesem Interface interagieren. Es ist eine Basisklasse, die zum Erben vorgesehen ist. Sie werden die Unterklassen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) innerhalb von [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Objekten oder [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope) innerhalb von CSS-Paint-[`Worklet`](/de/docs/Web/API/Worklet)-Objekten antreffen.
+> Normalerweise müssen Sie nicht direkt mit diesem Interface interagieren. Es ist ein Basis-Interface, das zur Vererbung gedacht ist. Sie werden den Unterklassen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) in [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Objekten oder [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope) in CSS-Paint-[`Worklet`](/de/docs/Web/API/Worklet)-Objekten begegnen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Keine.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Keine.
 

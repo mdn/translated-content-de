@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`dataset`**-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle ermöglicht den Lese-/Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/SVG/Attribute/data-*) (`data-*`) von Elementen. Sie stellt eine Zeichenkettenzuordnung ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) mit einem Eintrag für jedes `data-*`-Attribut bereit.
+Die **`dataset`** Lese-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement) Schnittstelle ermöglicht den Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/SVG/Attribute/data-*) (`data-*`) von Elementen. Sie stellt eine Zeichenfolgenkarte ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) bereit, die jeweils einen Eintrag für jedes `data-*` Attribut enthält.
 
-Weitere Informationen zum Verhalten von `dataset` finden Sie unter [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset).
+Weitere Informationen über das Verhalten von `dataset` finden Sie unter [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset).
 
 ## Wert
 
-Eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
+Ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
 
 ## Beispiele
 

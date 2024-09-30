@@ -13,15 +13,15 @@ Die **`CSSSupportsRule`**-Schnittstelle repräsentiert eine einzelne CSS-{{cssxr
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das CSS enthält eine CSS-Feature-Anfrage mit der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/At-rule), die eine Stilregel enthält. Diese wird die erste `CSSRule` sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt daher ein `CSSSupportsRule`-Objekt zurück.
+Das CSS enthält eine CSS-Funktionsabfrage mithilfe der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/At-rule), die eine Stilregel umfasst. Dies wird die erste CSSRule sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt daher ein `CSSSupportsRule`-Objekt zurück.
 
 ```css
 @supports (display: grid) {

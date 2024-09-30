@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`removeTrack()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle veranlasst das lokale Ende der Verbindung, das Senden von Medien von dem angegebenen Track zu stoppen, ohne den entsprechenden [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) tatsächlich aus der Liste der Sender zu entfernen, wie sie von [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) gemeldet wird. Wenn der Track bereits gestoppt ist oder sich nicht in der Senderliste der Verbindung befindet, hat diese Methode keine Wirkung.
+Die **`removeTrack()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle teilt dem lokalen Ende der Verbindung mit, dass das Senden von Medien von dem angegebenen Track gestoppt werden soll, ohne den entsprechenden [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) tatsächlich aus der Liste der Sender zu entfernen, die von [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) gemeldet wird. Wenn der Track bereits gestoppt ist oder sich nicht in der Senderliste der Verbindung befindet, hat diese Methode keine Wirkung.
 
-Wenn die Verbindung bereits verhandelt wurde ([`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) ist auf `"stable"` gesetzt), wird sie als erneut verhandlungsbedürftig gekennzeichnet; der Remote-Peer wird die Änderung erst nach dieser Verhandlung bemerken. Ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um das lokale Ende darüber zu informieren, dass diese Verhandlung stattfinden muss.
+Wenn die Verbindung bereits verhandelt wurde ([`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) ist auf `"stable"` gesetzt), wird sie als erneut zu verhandeln markiert; der Remote-Peer wird die Änderung erst erleben, wenn diese Verhandlung erfolgt. Ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um das lokale Ende darüber zu informieren, dass diese Verhandlung erfolgen muss.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ removeTrack(sender)
 ### Parameter
 
 - `sender`
-  - : Ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der den zu entfernenden Sender aus der Verbindung angibt.
+  - : Ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der den zu entfernenden Sender der Verbindung spezifiziert.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ removeTrack(sender)
 
 ## Beispiel
 
-Dieses Beispiel fügt einer Verbindung einen Videotrack hinzu und richtet einen Listener auf eine Schaltfläche ein, die den Track entfernt, wenn der Benutzer auf die Schaltfläche klickt.
+Dieses Beispiel fügt einer Verbindung einen Videotrack hinzu und richtet einen Listener für eine Schaltfläche zum Schließen ein, der den Track entfernt, wenn der Benutzer auf die Schaltfläche klickt.
 
 ```js
 let pc;

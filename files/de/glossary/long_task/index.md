@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Long Task** ist eine Aufgabe, die mehr als 50 ms zur Fertigstellung benötigt.
+Ein **long task** ist eine Aufgabe, die mehr als 50ms zur Fertigstellung benötigt.
 
-Es handelt sich um eine ununterbrochene Periode, in der der [Main-UI-Thread](/de/docs/Glossary/main_thread) für 50 ms oder länger beschäftigt ist. Häufige Beispiele sind lang laufende Ereignis-Handler, aufwendige [Reflows](/de/docs/Glossary/reflow) und andere Neudarstellungen sowie Arbeiten, die der Browser zwischen den verschiedenen Umdrehungen der Ereignisschleife ausführt und die 50 ms überschreiten.
+Es handelt sich um eine ununterbrochene Zeitspanne, in der der [Haupt-UI-Thread](/de/docs/Glossary/main_thread) 50 ms oder länger ausgelastet ist. Häufige Beispiele sind lang laufende Ereignishandler, aufwendige [Reflows](/de/docs/Glossary/reflow) und andere Neudarstellungen sowie Arbeiten, die der Browser zwischen verschiedenen Runden der Ereignisschleife ausführt und die länger als 50 ms dauern.
 
 ## Siehe auch
 

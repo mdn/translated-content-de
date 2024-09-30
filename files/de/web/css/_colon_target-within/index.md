@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das entweder ein Zielelement ist oder ein Element _enthält_, das ein Ziel ist. Ein Zielelement ist ein einzigartiges Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die mit dem Fragment der URL übereinstimmt. Mit anderen Worten, es repräsentiert ein Element, das selbst durch die {{CSSxRef(":target")}} Pseudoklasse übereinstimmt oder einen Nachkommen hat, der durch `:target` übereinstimmt. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das ein Ziel-Element ist oder ein Element _enthält_, das ein Ziel ist. Ein Ziel-Element ist ein einzigartiges Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die mit dem Fragment der URL übereinstimmt. Mit anderen Worten, es repräsentiert ein Element, das selbst durch die {{CSSxRef(":target")}}-Pseudoklasse übereinstimmt oder einen Nachkommen hat, der durch `:target` übereinstimmt. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
 
 ```css
 /* Selects a <div> when one of its descendants is a target */
@@ -28,7 +28,7 @@ div:target-within {
 
 ### Hervorhebung eines Artikels
 
-Die `:target-within` Pseudoklasse kann verwendet werden, um den Artikel hervorzuheben, wenn irgendetwas innerhalb direkt verlinkt wurde. Die `:target` Pseudoklasse wird ebenfalls verwendet, um anzuzeigen, welches Element gezielt wurde.
+Die `:target-within`-Pseudoklasse kann verwendet werden, um den Artikel hervorzuheben, wenn etwas darin direkt verlinkt wurde. Die `:target`-Pseudoklasse wird ebenfalls verwendet, um anzuzeigen, welches Element das Ziel ist.
 
 #### HTML
 

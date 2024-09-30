@@ -8,15 +8,17 @@ l10n:
 
 {{deprecated_header}}{{ APIRef("HTML DOM") }}
 
-Die veraltete **`HTMLFontElement.face`**-Eigenschaft ist ein String, der das [`face`](/de/docs/Web/HTML/Element/font#face) HTML-Attribut widerspiegelt und eine kommagetrennte Liste von einem oder mehreren Schriftartnamen enthält.
+Die veraltete
+**`HTMLFontElement.face`**
+Eigenschaft ist ein String, der das [`face`](/de/docs/Web/HTML/Element/font#face) HTML-Attribut widerspiegelt und eine kommagetrennte Liste von einem oder mehreren Schriftartnamen enthält.
 
-Der Dokumenttext wird im Standardstil als die erste Schriftart gerendert, die der Browser des Clients unterstützt. Wenn keine aufgelistete Schriftart auf dem lokalen System installiert ist, verwendet der Browser typischerweise die proportionale oder festbreite Schriftart für dieses System.
+Der Dokumenttext wird im Standardstil als das erste Schriftbild gerendert, das vom Browser des Clients unterstützt wird. Falls keine der aufgelisteten Schriftarten auf dem lokalen System installiert ist, verwendet der Browser in der Regel die proportionale oder festbreite Schriftart für dieses System.
 
-Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxe folgen:
+Das Format des Strings muss einer der folgenden HTML-Mikrosyntaxen entsprechen:
 
-| Mikrosyntax                                                 | Beschreibung                                                                       | Beispiele         |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- |
-| Liste von einem oder mehreren gültigen Schriftfamiliennamen | _Eine Liste von Schriftartnamen, die auf dem lokalen System vorhanden sein müssen_ | `courier,verdana` |
+| Mikrosyntax                                 | Beschreibung                                                        | Beispiele         |
+| ------------------------------------------- | ------------------------------------------------------------------- | ----------------- |
+| Liste von einem oder mehreren gültigen Schriftfamiliennamen | _Eine Liste von Schriftnamen, die auf dem lokalen System vorhanden sein müssen_ | `courier,verdana` |
 
 ## Wert
 
@@ -41,4 +43,4 @@ f.face = "arial";
 
 ## Siehe auch
 
-- Das [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement)-Interface, zu dem es gehört.
+- Die [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) Schnittstelle, zu der es gehört.

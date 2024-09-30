@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`isDisjointFrom()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der angibt, ob diese Menge keine gemeinsamen Elemente mit der angegebenen Menge hat.
+Die **`isDisjointFrom()`** Methode von {{jsxref("Set")}} Instanzen nimmt ein Set und gibt einen booleschen Wert zurück, der angibt, ob dieses Set keine gemeinsamen Elemente mit dem gegebenen Set hat.
 
 ## Syntax
 
@@ -18,38 +18,38 @@ isDisjointFrom(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [mengenähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
 
 ### Rückgabewert
 
-`true`, wenn diese Menge keine gemeinsamen Elemente mit der `other`-Menge hat, andernfalls `false`.
+`true`, wenn dieses Set keine gemeinsamen Elemente mit dem `other` Set hat, andernfalls `false`.
 
 ## Beschreibung
 
-Zwei Mengen sind _disjunkt_, wenn sie keine gemeinsamen Elemente haben. In mathematischer Notation:
+Zwei Sets sind _disjunkt_, wenn sie keine gemeinsamen Elemente haben. In mathematischer Notation:
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mi>A</mi><mtext>&nbsp;ist disjunkt von&nbsp;</mtext><mi>B</mi><mo stretchy="false">⇔</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo><mi>∅</mi></mrow><annotation encoding="TeX">A\text{ ist disjunkt von }B \Leftrightarrow A\cap B = \empty</annotation></semantics>
+  <semantics><mrow><mi>A</mi><mtext>&nbsp;ist disjunkt zu&nbsp;</mtext><mi>B</mi><mo stretchy="false">⇔</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo><mi>∅</mi></mrow><annotation encoding="TeX">A\text{ ist disjunkt zu }B \Leftrightarrow A\cap B = \empty</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit einem Venn-Diagramm dargestellt:
+Und mit einem Venn-Diagramm:
 
 ![Ein Venn-Diagramm mit zwei Kreisen. A und B sind disjunkt, weil die Kreise keine überlappende Region haben.](diagram.svg)
 
-`isDisjointFrom()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt die zugrunde liegenden Daten in `this` abruft, ohne Benutzercode aufzurufen. Sein Verhalten hängt dann von der Größe von `this` und `other` ab:
+`isDisjointFrom()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es die zugrunde liegenden Daten direkt aus `this` abruft, ohne benutzerdefinierten Code aufzurufen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
 
-- Wenn es in `this` mehr Elemente als `other.size` gibt, wird über `other` iteriert, indem seine `keys()`-Methode aufgerufen wird. Falls ein Element in `other` in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()`-Iterator, indem seine `return()`-Methode aufgerufen wird). Andernfalls gibt es `true` zurück.
-- Andernfalls wird über die Elemente in `this` iteriert und `false` zurückgegeben, wenn ein Element `e` in `this` `other.has(e)` dazu veranlasst, einen [truthy](/de/docs/Glossary/Truthy) Wert zurückzugeben. Andernfalls gibt es `true` zurück.
+- Wenn es mehr Elemente in `this` als `other.size` gibt, werden die Elemente von `other` durch Aufruf der `keys()` Methode iteriert, und wenn irgendein Element in `other` in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()` Iterator durch Aufruf der `return()` Methode). Andernfalls gibt es `true` zurück.
+- Andernfalls werden die Elemente in `this` durchlaufen, und `false` wird zurückgegeben, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. Andernfalls gibt es `true` zurück.
 
-Aufgrund dieser Implementierung hängt die Effizienz von `isDisjointFrom()` hauptsächlich von der Größe der kleineren Menge zwischen `this` und `other` ab (vorausgesetzt, Mengen können in unterlinearer Zeit zugegriffen werden).
+Aufgrund dieser Implementierung hängt die Effizienz von `isDisjointFrom()` hauptsächlich von der Größe des kleineren Sets zwischen `this` und `other` ab (unter der Annahme, dass Sets in sublinearer Zeit zugänglich sind).
 
 ## Beispiele
 
 ### Verwendung von isDisjointFrom()
 
-Die Menge der perfekten Quadrate (<20) ist disjunkt zur Menge der Primzahlen (<20), weil ein perfektes Quadrat per Definition in das Produkt zweier ganzer Zahlen zerlegbar ist, während 1 auch nicht als Primzahl gilt:
+Die Menge der perfekten Quadrate (<20) ist disjunkt von der Menge der Primzahlen (<20), weil ein perfektes Quadrat per Definition in das Produkt zweier ganzer Zahlen zerlegbar ist, während 1 auch nicht als Primzahl betrachtet wird:
 
 ```js
 const primes = new Set([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -57,7 +57,7 @@ const squares = new Set([1, 4, 9, 16]);
 console.log(primes.isDisjointFrom(squares)); // true
 ```
 
-Die Menge der perfekten Quadrate (<20) ist nicht disjunkt zur Menge der zusammengesetzten Zahlen (<20), weil alle nicht-1 perfekten Quadrate per Definition zusammengesetzte Zahlen sind:
+Die Menge der perfekten Quadrate (<20) ist nicht disjunkt von der Menge der zusammengesetzten Zahlen (<20), weil alle nicht-1 perfekten Quadrate per Definition zusammengesetzte Zahlen sind:
 
 ```js
 const composites = new Set([4, 6, 8, 9, 10, 12, 14, 15, 16, 18]);

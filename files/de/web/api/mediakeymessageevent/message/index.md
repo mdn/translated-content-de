@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`MediaKeyMessageEvent.message`**
-gibt ein {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück.
-Nachrichten variieren je nach Schlüsselsystem.
+Die schreibgeschützte Eigenschaft **`MediaKeyMessageEvent.message`** gibt einen {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltentschlüsselungsmodul zurück. Die Nachrichten variieren je nach Schlüssel-System.
 
 ## Wert
 

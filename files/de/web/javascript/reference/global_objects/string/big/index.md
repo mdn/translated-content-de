@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`big()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in einem {{HTMLElement("big")}} Element einbettet (`<big>str</big>`), wodurch dieser String in großer Schrift angezeigt wird.
+Die **`big()`**-Methode von {{jsxref("String")}}-Werten erstellt einen Zeichenfolgenwert, der diese Zeichenfolge in ein {{HTMLElement("big")}}-Element einbettet (`<big>str</big>`), wodurch diese Zeichenfolge in einer großen Schrift angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Für den Fall von `big()` wurde das `<big>` Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS) Eigenschaften verwenden.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `big()` wurde das `<big>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<big>` Start-Tag beginnt, dann den Text `str` enthält, und dann mit einem `</big>` End-Tag endet.
+Eine Zeichenfolge, die mit einem `<big>`-Start-Tag beginnt, dann der Text `str` und dann ein `</big>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von big()
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Inhalt des Dokuments damit:
+Der folgende Code erstellt eine HTML-Zeichenfolge und ersetzt dann den Body des Dokuments durch diese:
 
 ```js
 const contentString = "Hello, world";
@@ -47,7 +47,7 @@ Dies wird das folgende HTML erstellen:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `big` kein gültiges Element mehr ist.
 
-Anstatt `big()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-size")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style) Attribut manipulieren:
+Anstatt `big()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie die {{cssxref("font-size")}} über das Attribut [`element.style`](/de/docs/Web/API/HTMLElement/style) manipulieren:
 
 ```js
 document.getElementById("yourElemId").style.fontSize = "2em";

@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`deleteObjectStore()`** Methode des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Interfaces zerstört den Object Store mit dem angegebenen Namen in der verbundenen Datenbank sowie alle Indizes, die darauf verweisen.
+Die **`deleteObjectStore()`** Methode des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) Schnittstelle zerstört den Objektspeicher mit dem angegebenen Namen in der verbundenen Datenbank, zusammen mit allen damit referenzierten Indizes.
 
-Wie bei [`IDBDatabase.createObjectStore`](/de/docs/Web/API/IDBDatabase/createObjectStore) kann diese Methode _nur_ innerhalb einer [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)-Transaktion aufgerufen werden.
+Wie bei [`IDBDatabase.createObjectStore`](/de/docs/Web/API/IDBDatabase/createObjectStore) kann diese Methode _nur_ innerhalb einer [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event) Transaktion aufgerufen werden.
 
 ## Syntax
 
@@ -21,8 +21,8 @@ deleteObjectStore(name)
 ### Parameter
 
 - `name`
-  - : Der Name des Object Stores, den Sie löschen möchten. Namen sind
-    groß-/klein-schreibungssensitiv.
+  - : Der Name des Objektspeichers, den Sie löschen möchten. Namen sind
+    case-sensitiv.
 
 ### Rückgabewert
 
@@ -31,11 +31,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Methode nicht von einem `versionchange`-Transaktions-Callback aufgerufen wurde.
+  - : Wird ausgelöst, wenn die Methode nicht aus einem `versionchange` Transaktions-Callback aufgerufen wurde.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine Anfrage an eine Quellendatenbank gestellt wird, die nicht existiert (z.B. gelöscht oder entfernt wurde.)
+  - : Wird ausgelöst, wenn eine Anfrage an eine Quell-Datenbank gestellt wird, die nicht existiert (z. B. gelöscht oder entfernt wurde).
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, einen nicht existierenden Object Store zu löschen.
+  - : Wird ausgelöst, wenn versucht wird, einen nicht existierenden Objektspeicher zu löschen.
 
 ## Beispiele
 
@@ -70,9 +70,9 @@ request.onupgradeneeded = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Einstellung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

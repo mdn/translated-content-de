@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies könnte beispielsweise passieren, wenn der darunterliegende Speicher entfernt wird oder wenn der Benutzer die Datenbank in den Verlaufseinstellungen des Browsers löscht.
+Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies könnte beispielsweise passieren, wenn der zugrunde liegende Speicher entfernt wird oder wenn der Benutzer die Datenbank in den Verlaufspräferenzen des Browsers löscht.
 
-Beachten Sie, dass es nicht ausgelöst wird, wenn die Datenbankverbindung normal mit [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
+Beachten Sie, dass es nicht ausgelöst wird, wenn die Datenbankverbindung normal über [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("close", (event) => {});
@@ -57,7 +57,7 @@ dBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel, unter Verwendung der `onclose`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe Beispiel, bei dem die `onclose` Eigenschaft anstelle von `addEventListener()` verwendet wird:
 
 ```js
 // Open the database

@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`responsesSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Wörterbuchs gibt die Gesamtanzahl der gesendeten [STUN](/de/docs/Glossary/STUN)-Konnektivitätsprüfungsantworten an, die bisher auf der Verbindung gesendet wurden, die durch dieses Kandidatenpaar beschrieben wird.
+Die **`responsesSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtzahl der [STUN](/de/docs/Glossary/STUN)-Verbindungstestantworten an, die bisher auf der Verbindung gesendet wurden, die von diesem Kandidatenpaar beschrieben wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Antworten angibt, die auf eine [STUN](/de/docs/Glossary/STUN)-Konnektivitätsprüfungsanfrage gesendet wurden.
+Ein ganzzahliger Wert, der die Anzahl der Male angibt, die eine Antwort auf eine [STUN](/de/docs/Glossary/STUN)-Verbindungstestanforderung gesendet wurde.
 
 > [!NOTE]
-> Da es nicht möglich ist, zwischen Konnektivitätsprüfungsanfragen und Einwilligungsanfragen zu unterscheiden, umfasst dieser Wert beide.
+> Da es nicht möglich ist, zwischen Verbindungstestanforderungen und Zustimmungsgesuchen zu unterscheiden, umfasst dieser Wert beide.
 
 ## Spezifikationen
 

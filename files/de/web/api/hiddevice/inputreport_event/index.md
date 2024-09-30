@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Das **`inputreport`**-Ereignis der [`HIDDevice`](/de/docs/Web/API/HIDDevice) Schnittstelle wird ausgelöst, wenn ein neuer Report vom HID-Gerät empfangen wird.
+Das **`inputreport`** Ereignis des [`HIDDevice`](/de/docs/Web/API/HIDDevice) Interface wird ausgelöst, wenn ein neuer Bericht vom HID-Gerät empfangen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("inputreport", (event) => {});
@@ -28,18 +28,18 @@ Ein [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent). Erbt von [`Ev
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 - [`HIDInputReportEvent.data`](/de/docs/Web/API/HIDInputReportEvent/data) {{ReadOnlyInline}}
-  - : Ein {{jsxref("DataView")}}, das die Daten aus dem Input-Report enthält, wobei die `reportId` ausgeschlossen wird, falls die HID-Schnittstelle Report-IDs verwendet.
+  - : Ein {{jsxref("DataView")}}, das die Daten aus dem Eingabereport enthält, ohne die `reportId`, wenn das HID-Interface Report-IDs verwendet.
 - [`HIDInputReportEvent.device`](/de/docs/Web/API/HIDInputReportEvent/device) {{ReadOnlyInline}}
-  - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Instanz, die die HID-Schnittstelle repräsentiert, die den Input-Report gesendet hat.
+  - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz, die das HID-Interface darstellt, das den Eingabereport gesendet hat.
 - [`HIDInputReportEvent.reportId`](/de/docs/Web/API/HIDInputReportEvent/reportId) {{ReadOnlyInline}}
-  - : Das Ein-Byte-Identifikationspräfix für diesen Report oder 0, wenn die HID-Schnittstelle keine Report-IDs verwendet.
+  - : Das Ein-Byte-Identifikationspräfix für diesen Report oder 0, wenn das HID-Interface keine Report-IDs verwendet.
 
 ## Beispiel
 
-Das folgende Beispiel demonstriert das Abhören eines `inputreport`-Ereignisses, das es der Anwendung ermöglicht, zu erkennen, welcher Knopf auf einem Joy-Con Right-Gerät gedrückt wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie ein `inputreport` Ereignis überwacht wird, das es der Anwendung ermöglicht zu erkennen, welcher Knopf auf einem Joy-Con Right Gerät gedrückt wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 device.addEventListener("inputreport", (event) => {

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Antwortheader **`NEL`** wird verwendet, um die Protokollierung von Netzwerkabfragen zu konfigurieren.
+Der HTTP **`NEL`** Antwort-Header wird verwendet, um das Protokollieren von Netzwerkrequests zu konfigurieren.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -38,4 +38,4 @@ NEL: { "report_to": "name_of_reporting_group", "max_age": 12345, "include_subdom
 
 ## Siehe auch
 
-- [Erläuterung zu Network Error Logging (NEL)](/de/docs/Web/HTTP/Network_Error_Logging)
+- [Network Error Logging (NEL) Erklärungsansatz](/de/docs/Web/HTTP/Network_Error_Logging)

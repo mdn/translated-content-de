@@ -7,9 +7,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`Gyroscope`**-Schnittstelle der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die Winkelgeschwindigkeit des Geräts entlang aller drei Achsen.
+Das **`Gyroscope`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die Winkelgeschwindigkeit des Geräts entlang aller drei Achsen.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den Gerätesensor `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann diese Funktion durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den Sensor des Geräts `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Zusätzlich kann diese Funktion durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -29,11 +29,11 @@ Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den Gerä
 
 ## Instanzmethoden
 
-_`Gyroscope` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`Gyroscope` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Interfaces, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_`Gyroscope` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, [`Sensor`](/de/docs/Web/API/Sensor)._
+_`Gyroscope` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seinem übergeordneten Interface, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiel
 

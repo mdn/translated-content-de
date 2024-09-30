@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Objekten füllt diesen String mit einem angegebenen String auf (bei Bedarf wiederholt), sodass der resultierende String eine bestimmte Länge erreicht. Das Auffüllen wird am Ende dieses Strings angewendet.
+Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (bei Bedarf wiederholt), so dass der resultierende String eine bestimmte Länge erreicht. Das Padding wird am Ende dieses Strings angewendet.
 
 {{EmbedInteractiveExample("pages/js/string-padend.html")}}
 
@@ -21,13 +21,13 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der aktuelle String unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` gepolstert wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der aktuelle String unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird es abgeschnitten: Für von links nach rechts verlaufende Sprachen wird der linkeste Teil und für von rechts nach links verlaufende Sprachen der rechteste angewendet. Der Standardwert für diesen Parameter ist " " (`U+0020`).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird er gekürzt: Für links-nach-rechts-Sprachen wird der linke Teil und für rechts-nach-links-Sprachen der rechte Teil angewendet. Der Standardwert für diesen Parameter ist " " (`U+0020`).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit dem `padString`, der am Ende des aktuellen `str` angewendet wurde.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit dem `padString`, der am Ende des aktuellen `str` angewendet wird.
 
 ## Beispiele
 

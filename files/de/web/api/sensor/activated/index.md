@@ -1,5 +1,5 @@
 ---
-title: "Sensor: activated Eigenschaft"
+title: "Sensor: activated-Eigenschaft"
 short-title: activated
 slug: Web/API/Sensor/activated
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`activated`** schreibgeschützte Eigenschaft
-des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt einen booleschen Wert zurück, der anzeigt,
-ob der Sensor aktiv ist.
+Die schreibgeschützte **`activated`**-Eigenschaft
+des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der Sensor aktiv ist.
 
-Da [`Sensor`](/de/docs/Web/API/Sensor) eine Basisklasse ist, kann `activated` nur aus einer ihrer abgeleiteten Klassen gelesen werden.
+Da [`Sensor`](/de/docs/Web/API/Sensor) eine Basisklasse ist, kann `activated` nur von einer ihrer abgeleiteten Klassen ausgelesen werden.
 
 ## Wert
 

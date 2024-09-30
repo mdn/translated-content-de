@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`matches()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) ausgewählt werden würde.
+Die **`matches()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle testet, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) ausgewählt würde.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ matches(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) enthält, gegen die das [`Element`](/de/docs/Web/API/Element) getestet wird.
+  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) enthält, um das [`Element`](/de/docs/Web/API/Element) zu testen.
 
 ### Rückgabewert
 
-`true`, wenn das [`Element`](/de/docs/Web/API/Element) mit den `selectors` übereinstimmt. Andernfalls `false`.
+`true`, wenn das [`Element`](/de/docs/Web/API/Element) die `selectors` erfüllt. Andernfalls `false`.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `selectors` nicht als CSS-Selektorliste geparst werden kann.
+  - : Ausgelöst, wenn `selectors` nicht als CSS-Selektorliste geparst werden können.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ for (const bird of birds) {
 }
 ```
 
-Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das Element tatsächlich ein `class`-Attribut mit dem Wert `endangered` hat.
+Dies wird "Der Philippinenadler ist gefährdet!" in der Konsole ausgeben, da das Element tatsächlich ein `class`-Attribut mit dem Wert `endangered` hat.
 
 ## Spezifikationen
 

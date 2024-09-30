@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.search`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die {{jsxref("String.prototype.search()")}}-Methode prüft dieses Symbol bei ihrem ersten Argument auf die Methode, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
+Die statische Dateneigenschaft **`Symbol.search`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die Methode {{jsxref("String.prototype.search()")}} sucht dieses Symbol in ihrem ersten Argument nach der Methode, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
 
-Für mehr Informationen, siehe [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
 
 {{EmbedInteractiveExample("pages/js/symbol-search.html")}}
 

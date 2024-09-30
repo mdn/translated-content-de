@@ -8,23 +8,24 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`frameRate`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der im Objekt, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, vorhanden ist (und auf `true` gesetzt ist), wenn und nur wenn der [Benutzeragent](/de/docs/Glossary/user_agent) die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)-Einschränkung unterstützt.
+Das **`frameRate`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Dictionaries ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt wird), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)-Einschränkung unterstützt.
 
-Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
+Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 
-Die `frameRate`-Einschränkung kann verwendet werden, um akzeptable obere und untere Grenzen für die Video-Bildrate für eine neue Videospur festzulegen oder um eine genaue Bildrate anzugeben, die bereitgestellt werden muss, damit die Anfrage erfolgreich ist. Durch Überprüfung des Wertes dieser Eigenschaft können Sie feststellen, ob der Benutzeragent das Einschränken der Videospurkonfiguration durch die Bildrate zulässt. Siehe das [Beispiel](#beispiele), um zu sehen, wie dies verwendet werden kann.
+Die `frameRate`-Einschränkung kann verwendet werden, um akzeptable obere und untere Grenzen der Bildrate für eine neue Videoaufnahme festzulegen oder um eine genaue Bildrate zu spezifizieren, die erforderlich ist, damit die Anfrage erfolgreich ist.
+Durch Überprüfen des Werts dieser Eigenschaft können Sie feststellen, ob der User-Agent die Einschränkung der Videoaufnahmekonfiguration durch die Bildrate erlaubt. Siehe das [Beispiel](#beispiele), um zu sehen, wie dies verwendet werden kann.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden, wenn der Benutzeragent die `frameRate`-Einschränkung unterstützt.
-Wenn die Eigenschaft nicht vorhanden ist, erlaubt der Benutzeragent nicht, Einschränkungen für die Bildrate für Videospuren festzulegen.
+Diese Eigenschaft ist im Dictionary vorhanden, wenn der User-Agent die `frameRate`-Einschränkung unterstützt.
+Wenn die Eigenschaft nicht vorhanden ist, erlaubt der User-Agent nicht, Grenzen für die Bildrate von Videoaufnahmen festzulegen.
 
 > [!NOTE]
 > Wenn diese Eigenschaft vorhanden ist, ist ihr Wert immer `true`.
 
 ## Beispiele
 
-Dieses einfache Beispiel prüft, ob Ihr Browser das Einschränken der Bildrate beim Anfordern von Videospuren unterstützt.
+Dieses einfache Beispiel prüft, ob Ihr Browser die Einschränkung der Bildrate bei der Anforderung von Videoaufnahmen unterstützt.
 
 ### JavaScript
 
@@ -57,7 +58,7 @@ Die Ausgabe, die zeigt, ob Ihr Browser die `frameRate`-Einschränkung unterstüt
 {{ EmbedLiveSample('Examples', 600, 80) }}
 
 Während dieses Beispiel trivial ist, können Sie die einfache Ausgabe von "Unterstützt" vs.
-"Nicht unterstützt" mit Code ersetzen, um alternative Methoden zur Bereitstellung der audiovisuellen Informationen, die Sie mit dem Benutzer teilen möchten, oder anderweitig zu arbeiten.
+"Nicht unterstützt" durch Code ersetzen, um alternative Methoden zur Präsentation der audiovisuellen Informationen bereitzustellen, die Sie mit dem Benutzer teilen oder anderweitig bearbeiten möchten.
 
 ## Spezifikationen
 

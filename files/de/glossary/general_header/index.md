@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**General header** ist ein veralteter Begriff, der sich auf einen [HTTP-Header](/de/docs/Glossary/HTTP_header) bezieht, der sowohl in Anforderungs- als auch in Antwortnachrichten verwendet werden kann, sich jedoch nicht auf den Inhalt selbst bezieht (ein Header, der sich auf den Inhalt bezog, wurde als [Entity-Header](/de/docs/Glossary/entity_header) bezeichnet). Abhängig vom Kontext, in dem sie verwendet werden, können allgemeine Header entweder [Antwort-](/de/docs/Glossary/Response_header) oder [Anforderungs-Header](/de/docs/Glossary/request_header) sein (z. B. {{HTTPheader("Cache-Control")}}).
+**General header** ist ein veralteter Begriff für einen [HTTP-Header](/de/docs/Glossary/HTTP_header), der sowohl in Anforderungs- als auch in Antwortnachrichten verwendet werden kann, aber nicht auf den Inhalt selbst zutrifft (ein Header, der auf den Inhalt angewendet wurde, wurde als [Entity-Header](/de/docs/Glossary/entity_header) bezeichnet). Abhängig vom Kontext, in dem sie verwendet werden, können General-Header entweder [Antwort-](/de/docs/Glossary/Response_header) oder [Anforderungsheader](/de/docs/Glossary/request_header) sein (z. B. {{HTTPheader("Cache-Control")}}).
 
 > [!NOTE]
-> Aktuelle Versionen der HTTP/1.1-Spezifikation kategorisieren Header nicht speziell als "General headers". Diese werden nun einfach abhängig vom Kontext als [Antwort-](/de/docs/Glossary/Response_header) oder [Anforderungs-Header](/de/docs/Glossary/request_header) bezeichnet.
+> Aktuelle Versionen der HTTP/1.1-Spezifikation kategorisieren Header nicht explizit als "General-Header". Diese werden nun je nach Kontext einfach als [Antwort-](/de/docs/Glossary/Response_header) oder [Anforderungsheader](/de/docs/Glossary/request_header) bezeichnet.

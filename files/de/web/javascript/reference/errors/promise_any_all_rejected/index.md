@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde aufgelöst" tritt auf, wenn alle an {{jsxref("Promise.any()")}} übergebenen Promises abgelehnt werden. Es ist der einzige eingebaute Gebrauch von {{jsxref("AggregateError")}}.
+Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde aufgelöst" tritt auf, wenn alle Promises, die an {{jsxref("Promise.any()")}} übergeben wurden, abgelehnt werden. Es ist die einzige eingebaute Verwendung von {{jsxref("AggregateError")}}.
 
-## Nachricht
+## Meldung
 
 ```plain
 AggregateError: All promises were rejected (V8-based)
@@ -23,7 +23,7 @@ AggregateError (Safari)
 
 ## Was ist schiefgelaufen?
 
-`Promise.any()` wird nur dann abgelehnt, wenn alle ihm übergebenen Promises abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array der Ablehnungsgründe zu erhalten. Siehe [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling) für weitere Informationen darüber, wie Sie asynchron abgelehnte Promises behandeln können. Dieser Fehler tritt auch auf, wenn `Promise.any()` ein leeres Iterable erhält.
+`Promise.any()` schlägt nur fehl, wenn alle übergebenen Promises abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array der Ablehnungsgründe zu erhalten. Siehe [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling) für weitere Informationen darüber, wie asynchron abgelehnte Promises behandelt werden. Dieser Fehler wird auch ausgelöst, wenn `Promise.any()` ein leeres Iterable erhält.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Promise.any([]).catch((error) => {
 });
 ```
 
-### Behandlung aller Ablehnungen
+### Umgang mit allen Ablehnungen
 
 ```js
 const promises = [

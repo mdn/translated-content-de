@@ -12,7 +12,7 @@ Die **`length`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackL
 
 ## Wert
 
-Eine ganze Zahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 

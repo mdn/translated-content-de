@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`bias`**-Attribut verschiebt den Bereich des Filters. Nach Anwendung der {{SVGAttr("kernelMatrix")}} des {{SVGElement("feConvolveMatrix")}}-Elements auf das Eingabebild, um eine Zahl zu erhalten, und nach Anwendung des {{SVGAttr("divisor")}}-Attributs, wird das `bias`-Attribut zu jeder Komponente hinzugefügt. Dies ermöglicht die Darstellung von Werten, die sonst auf 0 oder 1 geklammert würden.
+Das **`bias`**-Attribut verschiebt den Bereich des Filters. Nach dem Anwenden der {{SVGAttr("kernelMatrix")}} des {{SVGElement("feConvolveMatrix")}}-Elements auf das Eingabebild, um eine Zahl zu erhalten, und nach dem Anwenden des {{SVGAttr("divisor")}}-Attributs, wird das `bias`-Attribut zu jeder Komponente hinzugefügt. Dies ermöglicht die Darstellung von Werten, die sonst auf 0 oder 1 begrenzt würden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
-## Anmerkungen zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -34,7 +34,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Eine Anwendung von `bias` ist, wenn es wünschenswert ist, dass ein Grauwert von 0,5 die Nullreaktion des Filters darstellt.
+Eine Anwendung des `bias`-Attributs ist, wenn es wünschenswert ist, dass ein Grauwert von 0,5 die Nullantwort des Filters darstellt.
 
 ## Spezifikationen
 

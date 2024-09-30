@@ -20,23 +20,23 @@ new FetchEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn immer auf `fetch`.
+    Es ist case-sensitiv und Browser setzen es immer auf `fetch`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definiert sind_, die folgenden Eigenschaften aufweisen kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `request`
       - : Das [`Request`](/de/docs/Web/API/Request)-Objekt, das den Ereignishandler ausgelöst hätte.
     - `preloadResponse`
       - : Ein {{jsxref("Promise")}}, das eine zuvor geladene Antwort an den Client zurückgibt.
     - `clientId` {{optional_inline}}
-      - : Der [`Client`](/de/docs/Web/API/Client), den der aktuelle Service Worker kontrolliert. Standardmäßig `""`.
+      - : Der [`Client`](/de/docs/Web/API/Client), den der aktuelle Service Worker steuert. Standardmäßig `""`.
     - `isReload` {{deprecated_inline}} {{optional_inline}}
-      - : Ein boolescher Wert, der anzeigt, ob die Seite bei Auslösen des Ereignisses neu geladen wurde oder nicht. `true`, wenn ja, und `false`, wenn nicht. In der Regel ist das Drücken der Aktualisierungstaste im Browser ein Neustart, während das Klicken auf einen Link und das Drücken der Zurück-Taste kein Neustart ist. Wenn nicht vorhanden, ist der Standardwert `false`.
+      - : Ein boolescher Wert, der angibt, ob die Seite neu geladen wurde, als das Ereignis ausgelöst wurde. `true` wenn ja, und `false` wenn nicht. Normalerweise ist das Drücken der Aktualisierungsschaltfläche in einem Browser ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Schaltfläche kein Neuladen ist. Wenn nicht vorhanden, ist der Standardwert `false`.
     - `replacesClientId` {{optional_inline}}
       - : Ein String, der den Client identifiziert, der durch `resultingClientId` ersetzt wird. Standardmäßig `""`.
     - `resultingClientId` {{optional_inline}}
-      - : Ein String, der die neue `clientId` enthält, falls sich der Client als Ergebnis des Ladevorgangs der Seite ändert. Standardmäßig `""`.
+      - : Ein String, der die neue `clientId` enthält, wenn sich der Client aufgrund des Seitenladevorgangs ändert. Standardmäßig `""`.
     - `handled`
-      - : Ein _ausstehendes_ Promise, das erfüllt wird, sobald das Ereignis bearbeitet wurde.
+      - : Ein _ausstehendes_ Promise, das erfüllt wird, sobald das Ereignis verarbeitet wurde.
 
 ### Rückgabewert
 

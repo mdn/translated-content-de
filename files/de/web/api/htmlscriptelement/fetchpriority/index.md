@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`fetchPriority`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein Hinweis, der dem Browser angibt, wie er das Abrufen eines externen Skripts im Verhältnis zu anderen externen Skripten priorisieren soll.
+Die **`fetchPriority`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces stellt einen Hinweis für den Browser dar, wie das Laden eines externen Skripts im Vergleich zu anderen externen Skripten priorisiert werden sollte.
 
 Sie spiegelt das `fetchpriority`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -17,20 +17,20 @@ Sie spiegelt das `fetchpriority`-Attribut des {{HTMLElement("script")}}-Elements
 Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
 
 - `high`
-  - : Das externe Skript wird mit hoher Priorität im Verhältnis zu anderen externen Skripten abgerufen.
+  - : Lädt das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten.
 - `low`
-  - : Das externe Skript wird mit niedriger Priorität im Verhältnis zu anderen externen Skripten abgerufen.
+  - : Lädt das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten.
 - `auto`
-  - : Standardmodus, der keine Präferenz für die Abrufpriorität angibt.
-    Der Browser entscheidet, was am besten für den Benutzer ist.
+  - : Standardmodus, der keine Präferenz für die Ladepriorität angibt.
+    Der Browser entscheidet, was für den Benutzer am besten ist.
 
-Wenn das `fetchpriority`-Attribut nicht angegeben ist oder mit einem anderen Wert angegeben wird, entspricht es der Angabe `auto`.
+Wenn das `fetchpriority`-Attribut nicht angegeben ist oder mit einem anderen Wert angegeben ist, ist es dasselbe, als wäre es mit `auto` angegeben.
 
-Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, externe Skriptabrufe mit hoher oder niedriger Priorität zu signalisieren. Dies kann nützlich sein, wenn es auf {{HTMLElement("script")}}-Elemente angewendet wird, um externe Skripte zu signalisieren, die früh im Ladeprozess "wichtig" für die Benutzererfahrung sind.
+Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, hohe oder niedrige Priorität für das Laden externer Skripte anzugeben. Dies kann nützlich sein, wenn es auf {{HTMLElement("script")}}-Elemente angewendet wird, um externe Skripte zu kennzeichnen, die früh im Ladeprozess für die Benutzererfahrung "wichtig" sind.
 
-Die Auswirkungen des Hinweises auf das Ressourcen-Loading sind browserspezifisch, daher sollten Sie auf mehreren Browser-Engines testen.
+Die Auswirkungen des Hinweises auf das Laden von Ressourcen sind browserspezifisch, daher sollten Sie auf mehreren Browser-Engines testen.
 
-Verwenden Sie es sparsam für Ausnahmefälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch zu bestimmen, wie das externe Skript am besten geladen werden soll. Übermäßige Verwendung kann zu Leistungseinbußen führen.
+Verwenden Sie es sparsam für außergewöhnliche Fälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch den besten Weg zum Laden des externen Skripts zu ermitteln. Übermäßiger Gebrauch kann zu einer Verschlechterung der Leistung führen.
 
 ## Beispiele
 

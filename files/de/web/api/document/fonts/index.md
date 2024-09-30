@@ -1,5 +1,5 @@
 ---
-title: "Document: fonts Eigenschaft"
+title: "Document: fonts-Eigenschaft"
 short-title: fonts
 slug: Web/API/Document/fonts
 l10n:
@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`fonts`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document) Interfaces gibt das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments zurück.
+Die **`fonts`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments zurück.
 
 Diese Funktion ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API).
 
 ## Wert
 
-Der zurückgegebene Wert ist das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments.
-Das `FontFaceSet` Interface ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten usw.
+Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments. Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten etc.
 
 ## Beispiele
 
-### Operation nach dem Laden von Schriftarten durchführen
+### Durchführung einer Operation, nachdem die Schriftarten geladen sind
 
 ```js
 document.fonts.ready.then((fontFaceSet) => {
@@ -32,7 +31,7 @@ document.fonts.ready.then((fontFaceSet) => {
 });
 ```
 
-Das Promise wird erfüllt, wenn die Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Die Menge der verwendeten Schriftarten kann von der Menge der _deklarierten_ Schriftarten abweichen, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert wurden) nicht rechtzeitig geladen werden konnten.
+Das Versprechen wird erfüllt, wenn Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Der Satz der verwendeten Schriftarten kann sich von dem der _deklarierten_ Schriftarten unterscheiden, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert sind) nicht rechtzeitig geladen werden konnten.
 
 ## Spezifikationen
 
@@ -44,5 +43,5 @@ Das Promise wird erfüllt, wenn die Lade- und Layout-Operationen aller verwendet
 
 ## Siehe auch
 
-- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface
-- [`FontFace`](/de/docs/Web/API/FontFace) Interface
+- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle
+- [`FontFace`](/de/docs/Web/API/FontFace)

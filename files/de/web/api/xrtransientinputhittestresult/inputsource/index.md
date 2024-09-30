@@ -18,7 +18,7 @@ Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt.
 
 ### Filtern von Eingabequellen
 
-Die `inputSource`-Eigenschaft ermöglicht es Ihnen, Trefferergebnisse nach Eingabequelle zu filtern.
+Die `inputSource`-Eigenschaft ermöglicht es Ihnen, die Ergebnisliste des Treffer-Tests basierend auf der Eingabequelle zu filtern.
 
 ```js
 // frame loop

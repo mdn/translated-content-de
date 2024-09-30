@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Viewport stellt in der Computergrafik einen polygonalen (normalerweise rechteckigen) Bereich dar, der derzeit betrachtet wird. In Bezug auf Webbrowser bezeichnet er den Teil des Dokuments, den Sie sich ansehen und der aktuell in seinem Fenster sichtbar ist (oder auf dem Bildschirm, wenn das Dokument im Vollbildmodus betrachtet wird). Inhalte außerhalb des Viewports sind erst sichtbar, wenn sie in den Sichtbereich gescrollt werden.
+Ein Viewport stellt ein polygonales (normalerweise rechteckiges) Gebiet in der Computergrafik dar, das derzeit betrachtet wird. In Bezug auf Webbrowser bezieht es sich auf den Teil des Dokuments, den Sie betrachten und der derzeit im Fenster sichtbar ist (oder auf dem Bildschirm, wenn das Dokument im Vollbildmodus betrachtet wird). Inhalte außerhalb des Viewports sind nicht sichtbar, bis sie beim Scrollen in den sichtbaren Bereich gelangen.
 
-Der momentan sichtbare Teil des Viewports wird als **[visual viewport](/de/docs/Glossary/visual_viewport)** bezeichnet. Dieser kann kleiner sein als der Layout-Viewport, beispielsweise wenn der Benutzer hineingezoomt hat. Der [layout viewport](/de/docs/Glossary/layout_viewport) bleibt gleich, aber der visuelle Viewport wird kleiner.
+Der Teil des Viewports, der derzeit sichtbar ist, wird als **[visual viewport](/de/docs/Glossary/visual_viewport)** bezeichnet. Dieser kann kleiner als der Layout-Viewport sein, zum Beispiel wenn der Benutzer durch Pinch-to-Zoom gezoomt hat. Der [layout viewport](/de/docs/Glossary/layout_viewport) bleibt gleich, aber der visuelle Viewport wurde kleiner.
 
 ## Siehe auch
 
 - [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API)
 - [Viewport](https://en.wikipedia.org/wiki/Viewport) auf Wikipedia
-- [A tale of two viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)
+- [Eine Geschichte von zwei Viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)
 - Verwandte Glossarbegriffe:
-  - [Visual viewport](/de/docs/Glossary/Visual_viewport)
-  - [Layout viewport](/de/docs/Glossary/Layout_viewport)
+  - [Visueller Viewport](/de/docs/Glossary/Visual_viewport)
+  - [Layout-Viewport](/de/docs/Glossary/Layout_viewport)

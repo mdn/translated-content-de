@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMetaElement.media`**-Eigenschaft ermöglicht die Angabe von Medien für `theme-color`-Metadaten.
+Die **`HTMLMetaElement.media`**-Eigenschaft ermöglicht das Festlegen der Medien für `theme-color` Metadaten.
 
-Die `theme-color`-Eigenschaft erlaubt das Setzen der Farbe der Browser-Toolbar oder UI in Browsern und Betriebssystemen, die diese Eigenschaft unterstützen. Die `media`-Eigenschaft ermöglicht das Festlegen unterschiedlicher Theme-Farben für verschiedene `media`-Werte.
+Die `theme-color`-Eigenschaft ermöglicht es, die Farbe der Browser-Toolbar oder der Benutzeroberfläche in Browsern und Betriebssystemen zu setzen, die diese Eigenschaft unterstützen. Die `media`-Eigenschaft ermöglicht es, unterschiedliche Themenfarben für verschiedene `media`-Werte festzulegen.
 
 ## Wert
 
@@ -18,11 +18,9 @@ Ein String.
 
 ## Beispiele
 
-### Setzen der Theme-Farbe für den Dunkelmodus
+### Die Themenfarbe für den Dunkelmodus festlegen
 
-Das folgende Beispiel erstellt ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`theme-color`](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) gesetzt ist.
-Das `content`-Attribut wird auf `#3c790a` gesetzt, das `media`-Attribut auf `prefers-color-scheme: dark` und das Element wird dem Dokument `<head>` hinzugefügt.
-Wenn ein Nutzer den Dunkelmodus in seinem Betriebssystem ausgewählt hat, kann die `media`-Eigenschaft verwendet werden, um eine andere `theme-color` festzulegen:
+Das folgende Beispiel erstellt ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`theme-color`](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) gesetzt ist. Das `content`-Attribut wird auf `#3c790a` gesetzt, das `media`-Attribut wird auf `prefers-color-scheme: dark` gesetzt, und das Element wird dem Dokument `<head>` hinzugefügt. Wenn ein Benutzer in seinem Betriebssystem einen Dunkelmodus angegeben hat, kann die `media`-Eigenschaft verwendet werden, um eine andere `theme-color` zu setzen:
 
 ```js
 const meta = document.createElement("meta");
@@ -32,11 +30,11 @@ meta.media = "(prefers-color-scheme: dark)";
 document.head.appendChild(meta);
 ```
 
-### Festlegen von Theme-Farben je nach Gerätegröße
+### Themenfarben nach Gerätegröße festlegen
 
-Die meisten Meta-Eigenschaften können nur einmal verwendet werden. Allerdings kann `theme-color` mehrfach verwendet werden, wenn eindeutige `media`-Werte angegeben werden.
+Die meisten Meta-Eigenschaften können nur einmal verwendet werden. `theme-color` kann jedoch mehrfach verwendet werden, wenn eindeutige `media`-Werte angegeben werden.
 
-Dieses Beispiel fügt zwei Meta-Elemente mit einer `theme-color` hinzu; eines für alle Geräte und ein weiteres für kleine Bildschirme. Die Reihenfolge der Übereinstimmung der `media`-Abfrage ist wichtig, daher sollte die spezifischere Abfrage später im Dokument hinzugefügt werden, wie unten gezeigt:
+Dieses Beispiel fügt zwei Meta-Elemente mit einer `theme-color` hinzu; eines für alle Geräte und ein weiteres für kleine Bildschirme. Die Reihenfolge, in der die `media`-Abfrage übereinstimmt, ist von Bedeutung, sodass die spezifischere Abfrage später im Dokument hinzugefügt werden sollte, wie unten gezeigt:
 
 ```js
 // Add a theme-color for all devices

@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: offsetParent-Eigenschaft"
+title: "HTMLElement: offsetParent Eigenschaft"
 short-title: offsetParent
 slug: Web/API/HTMLElement/offsetParent
 l10n:
@@ -8,28 +8,25 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.offsetParent`** gibt eine Referenz auf das Element zurück, welches das nächste (im Darstellungsbaum nächstgelegene) positionierte Vorfahrenelement ist.
+Die schreibgeschützte Eigenschaft **`HTMLElement.offsetParent`** gibt eine Referenz auf das Element zurück, das das nächste (im Hierarchie-Containment am nächsten gelegene) positionierte Vorfahrenelement ist.
 
-Ein positionierter Vorfahre kann sein:
+Ein positionierter Vorfahre könnte sein:
 
 - ein [Containing Block](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) für absolut positionierte Elemente
-- ein Element mit einem anderen effektiven [Zoom](/de/docs/Web/CSS/zoom)-Wert (das heißt, das Produkt aller Zoomskalen seiner Eltern) als dieses Element
-- `td`, `th`, `table` für den Fall, dass das Element selbst statisch positioniert ist.
+- ein Element mit einem unterschiedlichen effektiven [Zoom](/de/docs/Web/CSS/zoom)-Wert (das heißt, das Produkt aller Zoom-Skalen seiner Eltern) von diesem Element
+- `td`, `th`, `table`, falls das Element selbst statisch positioniert ist.
 
-Wenn es kein positioniertes Vorfahrenelement gibt, wird `body` zurückgegeben.
+Wenn es kein positioniertes Vorfahrenelement gibt, wird der `body` zurückgegeben.
 
-> **Note:** `offsetParent` gibt `null` in den folgenden
-> Situationen zurück:
+> **Note:** `offsetParent` gibt `null` in den folgenden Situationen zurück:
 >
-> - Das Element oder ein beliebiger Vorfahre hat die Eigenschaft `display` auf
->   `none` gesetzt.
-> - Das Element hat die Eigenschaft `position` auf `fixed` gesetzt
->   (Firefox gibt `<body>` zurück).
+> - Das Element oder ein beliebiger Vorfahre hat die Eigenschaft `display` auf `none` gesetzt.
+> - Das Element hat die Eigenschaft `position` auf `fixed` gesetzt (Firefox gibt `<body>` zurück).
 > - Das Element ist `<body>` oder `<html>`.
 
-`offsetParent` ist nützlich, da
+`offsetParent` ist nützlich, weil
 [`offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop) und
-[`offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft) relativ zu dessen Innenkante sind.
+[`offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft) relativ zum inneren Rand des Elementes sind.
 
 ## Wert
 

@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`X-Forwarded-Host`** (XFH)-Header ist ein De-facto-Standard-Header zur Identifizierung des ursprünglichen Hosts, der vom Client im {{HTTPHeader("Host")}}-HTTP-Request-Header angefordert wurde.
+Der **`X-Forwarded-Host`** (XFH) Header ist ein faktischer Standardheader zur Identifizierung des ursprünglichen Hosts, der vom Client im {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
 
-Hostnamen und Ports von Reverse-Proxies (Load Balancer, CDNs) können sich von dem Ursprungsserver unterscheiden, der die Anfrage bearbeitet. In diesem Fall ist der `X-Forwarded-Host`-Header nützlich, um zu bestimmen, welcher Host ursprünglich verwendet wurde.
+Hostnamen und Ports von Reverse-Proxys (Load-Balancer, CDNs) können sich vom Ursprungsserver unterscheiden, der die Anfrage bearbeitet. In diesem Fall ist der `X-Forwarded-Host` Header nützlich, um festzustellen, welcher Host ursprünglich verwendet wurde.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Stück Inhalt mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
+Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Inhaltselement mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
 
 {{EmbedInteractiveExample("pages/tabbed/data.html", "tabbed-shorter")}}
 
@@ -16,11 +16,11 @@ Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Stü
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `value`
-  - : Dieses Attribut gibt die maschinenlesbare Übersetzung des Inhalts des Elements an.
+  - : Dieses Attribut spezifiziert die maschinenlesbare Übersetzung des Inhalts des Elements.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt Produktnamen, die jeweils mit einer Produktnummer verknüpft sind.
+Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch auch jeden Namen mit einer Produktnummer.
 
 ```html
 <p>New Products</p>
@@ -47,31 +47,31 @@ Das folgende Beispiel zeigt Produktnamen, die jeweils mit einer Produktnummer ve
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
-        >, fühlbarer Inhalt.
+          >Phrasierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -80,14 +80,14 @@ Das folgende Beispiel zeigt Produktnamen, die jeweils mit einer Produktnummer ve
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generic</a
+            >generisch</a
           ></code
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

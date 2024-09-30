@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: invalid Unicode code point \u{} escape 
 
 ## Was ist schiefgelaufen?
 
-Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) muss die `\c` [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben von `A` bis `Z` oder `a` bis `z` gefolgt werden, und die `\u` Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern gefolgt werden oder von 1 bis 6 hexadezimalen Ziffern, die in geschweifte Klammern (`{}`) eingeschlossen sind. Darüber hinaus müssen bei der Verwendung der `\u{xxx}` Escape-Sequenz die Ziffern einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass dessen Wert `10FFFF` nicht überschreiten darf.
+Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) muss die `\c` [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben zwischen `A` und `Z` oder `a` und `z` gefolgt werden, und die `\u` Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern oder 1 bis 6 hexadezimalen Ziffern, die in geschweifte Klammern (`{}`) eingeschlossen sind, gefolgt werden. Außerdem müssen die Ziffern bei der Verwendung der `\u{xxx}`-Escape-Sequenz einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass ihr Wert `10FFFF` nicht überschreiten darf.
 
 ## Beispiele
 

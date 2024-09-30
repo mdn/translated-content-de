@@ -2,26 +2,26 @@
 title: ImageBitmap
 slug: Web/API/ImageBitmap
 l10n:
-  sourceCommit: 387d0d4d8690c0d2c9db1b85eae28ffea0f3ac1f
+  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`ImageBitmap`**-Schnittstelle repräsentiert ein Bitmap-Bild, das ohne ungebührliche Latenz auf ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten mit der [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap) Fabrikmethode erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourcenschonenden Weg, um Texturen für das Rendering in WebGL vorzubereiten.
+Die **`ImageBitmap`**-Schnittstelle repräsentiert ein Bitmap-Bild, das ohne übermäßige Latenz auf ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten mithilfe der Fabrikmethode [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) oder [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourcensparenden Weg, um Texturen für das Rendering in WebGL vorzubereiten.
 
-`ImageBitmap` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`ImageBitmap` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Instanz-Eigenschaften
 
 - [`ImageBitmap.height`](/de/docs/Web/API/ImageBitmap/height) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, das die Höhe in CSS-Pixeln des `ImageData` darstellt.
+  - : Ein `unsigned long`, der die Höhe in CSS-Pixeln des `ImageData` repräsentiert.
 - [`ImageBitmap.width`](/de/docs/Web/API/ImageBitmap/width) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, das die Breite in CSS-Pixeln des `ImageData` darstellt.
+  - : Ein `unsigned long`, der die Breite in CSS-Pixeln des `ImageData` repräsentiert.
 
 ## Instanz-Methoden
 
 - [`ImageBitmap.close()`](/de/docs/Web/API/ImageBitmap/close)
-  - : Frigibt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
+  - : Entsorgt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
 
 ## Spezifikationen
 
@@ -33,7 +33,8 @@ Die **`ImageBitmap`**-Schnittstelle repräsentiert ein Bitmap-Bild, das ohne ung
 
 ## Siehe auch
 
-- [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap)
+- [`Window.createImageBitmap`](/de/docs/Web/API/Window/createImageBitmap)
+- [`WorkerGlobalScope.createImageBitmap`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap)
 - [`CanvasRenderingContext2D.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)
 - [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)
 - [`OffscreenCanvas.transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap)

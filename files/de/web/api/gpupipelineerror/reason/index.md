@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`reason`** des [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError)-Interfaces definiert den Grund, warum die Pipeline-Erstellung maschinenlesbar fehlgeschlagen ist.
+Die schreibgeschützte **`reason`**-Eigenschaft des [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError)-Interfaces definiert in maschinenlesbarer Form den Grund, warum die Pipelineerstellung fehlgeschlagen ist.
 
 ## Wert
 
 Ein enumerierter Wert, der einer der folgenden sein kann:
 
 - `"internal"`
-  - : Die Pipeline-Erstellung ist aufgrund eines internen Fehlers fehlgeschlagen (siehe [`GPUInternalError`](/de/docs/Web/API/GPUInternalError) für weitere Informationen zu dieser Art von Fehlern).
+  - : Die Pipelineerstellung ist aufgrund eines internen Fehlers fehlgeschlagen (siehe [`GPUInternalError`](/de/docs/Web/API/GPUInternalError) für weitere Informationen über diese Art von Fehlern).
 - `"validation"`
-  - : Die Pipeline-Erstellung ist aufgrund eines Validierungsfehlers fehlgeschlagen (siehe [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) für weitere Informationen zu dieser Art von Fehlern).
+  - : Die Pipelineerstellung ist aufgrund eines Validierungsfehlers fehlgeschlagen (siehe [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) für weitere Informationen über diese Art von Fehlern).
 
 ## Beispiele
 
-Siehe die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples) für ein Beispiel mit einer `GPUPipelineError`-Objektinstanz.
+Ein Beispiel mit einer `GPUPipelineError`-Objektinstanz finden Sie auf der Hauptseite von [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples).
 
 ## Spezifikationen
 

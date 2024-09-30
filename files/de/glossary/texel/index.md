@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der 3D-Grafik ist ein **Texel** ein einzelnes Pixel innerhalb einer Textur. _Texturen_ sind Bilder, die auf der Oberfläche eines Polygons innerhalb eines gerenderten 3D-Bildes dargestellt werden. Eine Textur wird durch eine Sammlung von Texeln charakterisiert, ähnlich wie ein Bild durch eine Sammlung von Pixeln charakterisiert wird.
+In der 3D-Grafik ist ein **Texel** ein einzelnes Pixel innerhalb einer Textur. _Texturen_ sind Bilder, die auf der Oberfläche eines Polygons in einem 3D-gerenderten Bild dargestellt werden. Eine Textur ist durch eine Sammlung von Texeln charakterisiert, ähnlich wie ein Bild durch eine Sammlung von Pixeln charakterisiert ist.
 
-Ein Pixel in einer Rasterbilddatei ist eine Folge von Bits, die Farbdaten und manchmal Opazitätsdaten enthalten, welche auf Anzeigepixel auf einem Ausgabegerät wie einem Computermonitor abgebildet werden. Wenn ein Pixel zu einem Bild gehört, das als Texturressource verwendet wird, wird es als 'Textur-Pixel' oder kurz 'Texel' bezeichnet. Statt direkt auf Bildschirm-Pixel abgebildet zu werden, wird ein Texel auf einen Ort im Koordinatenraum des 3D-Objekts, das modelliert wird, abgebildet. Texturen können verwendet werden, um Farbe und andere Oberflächenmerkmale wie Tiefe und Reflexion widerzugeben. Mehrere Texturen können übereinandergelegt werden, um komplexe Oberflächenüberlagerungen zu erstellen.
+Ein Pixel in einer Rasterbilddatei ist eine Reihe von Bits, die Farbdaten und manchmal Transparenzdaten enthalten und die auf Anzeigepixel auf einem Ausgabegerät wie einem Computermonitor abgebildet werden. Wenn ein Pixel zu einem Bild gehört, das als Texturressource verwendet wird, wird es als 'Texture Pixel' oder verkürzt 'Texel' bezeichnet. Anstatt direkt auf Bildschirm-Pixel abgebildet zu werden, werden die Daten eines Texels auf eine Position im Koordinatenraum des 3D-Objekts abgebildet, das modelliert wird. Texturen können verwendet werden, um Farbe und andere Oberflächenmerkmale wie Tiefe und Reflexionseigenschaften darzustellen. Mehrere Texturen können geschichtet werden, um komplexe Oberflächenüberlagerungen zu erzeugen.
 
-Der Prozess, die entsprechenden Texel ihren korrespondierenden Punkten auf einem Polygon zuzuordnen, wird als **Textur-Mapping** bezeichnet. Das Textur-Mapping ist eine Phase im Prozess des Renderns eines 3D-Bildes zur Anzeige. Wenn das Quell-Texel-Raster und das Ziel-Pixel-Raster nicht übereinstimmen, wird zusätzlich eine **Texturfilterung** angewendet, um die resultierenden texturgemappten Pixel zu glätten (Textur _Vergrößerung_ oder _Verkleinerung_). Das endgültige Ergebnis des Rendering-Prozesses ist eine abgeflachte 2D-Projektion des 3D-Modells, bei der die Textur um das Modell 'gewickelt' wurde.
+Der Prozess des Zuordnens der entsprechenden Texel zu ihren entsprechenden Punkten auf einem Polygon wird als **Texturabbildung** bezeichnet. Die Texturabbildung ist eine Phase des Prozesses der Darstellung eines 3D-Bildes für die Anzeige. Wenn das Quelltexelraster und das Zielpixelraster nicht übereinstimmen, wird eine zusätzliche **Texturfilterung** angewendet, um die resultierenden texturierten Pixel (Texturvergrößerung oder -verkleinerung) zu glätten. Das Endergebnis des Rendering-Prozesses ist eine abgeflachte 2D-Projektion des 3D-Modells, bei der die Textur um das Modell 'gewickelt' wurde.
 
-Während der Render-Pipeline wird das Textur-Mapping normalerweise vor der Beleuchtung der Szene durchgeführt; in WebGL wird die Beleuchtung jedoch als Teil des Textur-Mapping-Prozesses ausgeführt.
+Während der Render-Pipeline wird die Texturabbildung typischerweise vor der Beleuchtung der Szene durchgeführt; jedoch wird im WebGL die Beleuchtung als Teil des Texturabbildungsprozesses durchgeführt.
 
 ## Siehe auch
 
 - [Texel (Grafik)](<https://en.wikipedia.org/wiki/Texel_(graphics)>) auf Wikipedia
-- [Texture Mapping](https://en.wikipedia.org/wiki/Texture_mapping) auf Wikipedia
-- [Texture Filtering](https://en.wikipedia.org/wiki/Texture_filtering) auf Wikipedia
+- [Texturabbildung](https://en.wikipedia.org/wiki/Texture_mapping) auf Wikipedia
+- [Texturfilterung](https://en.wikipedia.org/wiki/Texture_filtering) auf Wikipedia
 - [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL)
 - [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL)
-- [Texturen in WebGL animieren](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
+- [Texturen animieren in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)

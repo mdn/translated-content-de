@@ -1,5 +1,5 @@
 ---
-title: "HTMLImageElement: width property"
+title: "HTMLImageElement: width Eigenschaft"
 short-title: width
 slug: Web/API/HTMLImageElement/width
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die Breite an, mit der ein Bild in [CSS-Pixel](/de/docs/Glossary/CSS_pixel) gezeichnet wird, wenn es auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird. Andernfalls ist es die natürliche, an die Pixeldichte angepasste Breite des Bildes.
+Die **`width`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die Breite an, mit der ein Bild in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) gezeichnet wird, wenn es auf einem visuellen Medium wie einem Bildschirm oder Drucker dargestellt wird. Andernfalls ist es die natürliche, pixeldichtekorrigierte Breite des Bildes.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite des Bildes angibt. Wie die Breite definiert ist, hängt davon ab, ob das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird oder nicht:
+Ein ganzzahliger Wert, der die Breite des Bildes angibt. Die Art und Weise, wie die Breite definiert wird, hängt davon ab, ob das Bild auf einem visuellen Medium dargestellt wird:
 
-- Wenn das Bild auf ein visuelles Medium gerendert wird, wird die Breite in [CSS-Pixel](/de/docs/Glossary/CSS_pixel) angegeben.
-- Wenn das Bild nicht auf ein visuelles Medium gerendert wird, wird seine Breite unter Verwendung der natürlichen (intrinsischen) Breite, angepasst an die Anzeige-Dichte, wie durch [`naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) angezeigt, dargestellt.
+- Wenn das Bild auf einem visuellen Medium dargestellt wird, wird die Breite in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) angegeben.
+- Wenn das Bild nicht auf einem visuellen Medium dargestellt wird, wird seine Breite unter Verwendung der natürlichen (intrinsischen) Breite des Bildes dargestellt, angepasst an die Darstellungsdichte wie durch [`naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) angegeben.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr mittels des [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attributs bereitgestellt. Eine ist 200px breit und die andere 400px breit. Das [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Attribut wird verwendet, um die Breite anzugeben, mit der das Bild in Abhängigkeit von der Breite des Viewports gezeichnet werden soll.
+In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr mithilfe des [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attributs bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Das [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Attribut wird verwendet, um die Breite anzugeben, mit der das Bild bei gegebener Bildschirmbreite gezeichnet werden soll.
 
 ### HTML
 
@@ -39,7 +39,7 @@ Für Viewports bis zu 400px Breite wird das Bild mit einer Breite von 200px geze
 
 ### JavaScript
 
-JavaScript betrachtet die `width`-Eigenschaft, um die Breite des Bildes zum aktuellen Zeitpunkt zu bestimmen. Dies wird in den [`load`](/de/docs/Web/API/Window/load_event)- und [`resize`](/de/docs/Web/API/Window/resize_event)-Ereignishandlern des Fensters durchgeführt, damit immer die aktuellsten Breiteninformationen verfügbar sind.
+JavaScript betrachtet die `width` Eigenschaft, um die aktuelle Breite des Bildes zu bestimmen. Dies wird in den Event-Handlern [`load`](/de/docs/Web/API/Window/load_event) und [`resize`](/de/docs/Web/API/Window/resize_event) des Fensters durchgeführt, sodass immer die aktuellsten Breiteninformationen verfügbar sind.
 
 ```js
 const clockImage = document.querySelector("img");
@@ -57,7 +57,7 @@ window.addEventListener("resize", updateWidth);
 
 {{EmbedLiveSample("Examples", 640, 450)}}
 
-Dieses Beispiel lässt sich einfacher ausprobieren {{LiveSampleLink('Examples', 'in its own window')}}.
+Dieses Beispiel ist möglicherweise leichter auszuprobieren {{LiveSampleLink('Examples', 'in its own window')}}.
 
 ## Spezifikationen
 

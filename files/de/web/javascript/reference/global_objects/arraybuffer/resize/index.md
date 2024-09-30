@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`resize()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen ändert die Größe des `ArrayBuffer` auf die angegebene Größe in Bytes.
+Die **`resize()`** Methode von {{jsxref("ArrayBuffer")}} Instanzen ändert die Größe des `ArrayBuffer` auf die angegebene Größe in Bytes.
 
 {{EmbedInteractiveExample("pages/js/arraybuffer-resize.html")}}
 
@@ -20,7 +20,7 @@ resize(newLength)
 ### Parameter
 
 - `newLength`
-  - : Die neue Länge, in Bytes, auf die der `ArrayBuffer` geändert werden soll.
+  - : Die neue Länge in Bytes, auf die der `ArrayBuffer` geändert werden soll.
 
 ### Rückgabewert
 
@@ -35,15 +35,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `resize()`-Methode ändert die Größe eines `ArrayBuffer` auf die durch den Parameter `newLength` angegebene Größe, vorausgesetzt, der `ArrayBuffer` ist [änderbar](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resizable) und die neue Größe ist kleiner oder gleich der {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} des `ArrayBuffer`. Neue Bytes werden mit 0 initialisiert.
+Die `resize()` Methode ändert die Größe eines `ArrayBuffer` auf die durch den `newLength` Parameter angegebene Größe, vorausgesetzt, der `ArrayBuffer` ist [änderbar](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resizable) und die neue Größe ist kleiner oder gleich der {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} des `ArrayBuffer`. Neue Bytes werden mit 0 initialisiert.
 
-Beachten Sie, dass Sie `resize()` sowohl zum Verkleinern als auch zum Vergrößern eines `ArrayBuffer` verwenden können — es ist zulässig, dass `newLength` kleiner als die aktuelle {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des `ArrayBuffer` ist.
+Beachten Sie, dass Sie mit `resize()` sowohl verkleinern als auch vergrößern können — es ist zulässig, dass `newLength` kleiner als die aktuelle {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des `ArrayBuffer` ist.
 
 ## Beispiele
 
 ### Verwendung von resize()
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes änderbar ist, prüfen dann seine `resizable`-Eigenschaft und ändern die Größe, wenn `resizable` `true` zurückgibt:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Byte geändert werden kann, prüfen dann seine `resizable`-Eigenschaft und ändern die Größe, wenn `resizable` `true` zurückgibt:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });

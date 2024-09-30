@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-UTF-8 (UCS Transformation Format 8) ist die am weitesten verbreitete [Zeichenkodierung](/de/docs/Glossary/Character_encoding) im World Wide Web. Jedes Zeichen wird durch ein bis vier Bytes dargestellt. UTF-8 ist rückwärtskompatibel mit [ASCII](/de/docs/Glossary/ASCII) und kann jedes standardmäßige Unicode-Zeichen darstellen.
+UTF-8 (UCS Transformation Format 8) ist die am häufigsten verwendete [Zeichenkodierung](/de/docs/Glossary/Character_encoding) im World Wide Web. Jedes Zeichen wird durch ein bis vier Bytes dargestellt. UTF-8 ist rückwärtskompatibel mit [ASCII](/de/docs/Glossary/ASCII) und kann jedes standardmäßige Unicode-Zeichen repräsentieren.
 
-Die ersten 128 UTF-8-Zeichen entsprechen genau den ersten 128 ASCII-Zeichen (nummeriert 0-127), was bedeutet, dass vorhandener ASCII-Text bereits gültiges UTF-8 ist. Alle anderen Zeichen verwenden zwei bis vier Bytes. Jedes Byte hat einige Bits, die für Kodierungszwecke reserviert sind. Da nicht-ASCII-Zeichen mehr als ein Byte für die Speicherung benötigen, besteht die Gefahr, dass sie beschädigt werden, wenn die Bytes getrennt und nicht wieder zusammengefügt werden.
+Die ersten 128 UTF-8-Zeichen entsprechen genau den ersten 128 ASCII-Zeichen (nummeriert 0-127), was bedeutet, dass bestehender ASCII-Text bereits gültiges UTF-8 ist. Alle anderen Zeichen verwenden zwei bis vier Bytes. Jedes Byte hat einige Bits, die für Kodierungszwecke reserviert sind. Da nicht-ASCII-Zeichen mehr als ein Byte für die Speicherung benötigen, besteht die Gefahr, dass sie beschädigt werden, wenn die Bytes getrennt und nicht wieder zusammengefügt werden.
 
 ## Siehe auch
 

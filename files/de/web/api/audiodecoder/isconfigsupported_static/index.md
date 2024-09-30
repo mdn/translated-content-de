@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`isConfigSupported()`** statische Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Schnittstelle überprüft, ob die angegebene Konfiguration unterstützt wird (das heißt, ob [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Objekte erfolgreich mit der angegebenen Konfiguration konfiguriert werden können).
+Die **`isConfigSupported()`** statische Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle überprüft, ob die gegebene Konfiguration unterstützt wird (das heißt, ob [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
 
 ## Syntax
 
@@ -19,25 +19,25 @@ AudioDecoder.isConfigSupported(config)
 ### Parameter
 
 - `config`
-  - : Das Wörterbuch-Objekt, das von [`AudioDecoder.configure`](/de/docs/Web/API/AudioDecoder/configure) akzeptiert wird.
+  - : Das Wörterbuchobjekt, das von [`AudioDecoder.configure`](/de/docs/Web/API/AudioDecoder/configure) akzeptiert wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
+Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das folgende Mitglieder enthält:
 
 - `supported`
-  - : Ein boolescher Wert, der `true` ist, wenn die angegebene Konfiguration vom Decoder unterstützt wird.
+  - : Ein boolescher Wert, der `true` ist, wenn die gegebene Konfiguration durch den Decoder unterstützt wird.
 - `config`
-  - : Eine Kopie der angegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
+  - : Eine Kopie der gegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte (wie eine negative `sampleRate`) enthalten sind.
+  - : Wird geworfen, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn sie keine erforderlichen Werte hat (wie ein leeres `codec`-Feld) oder ungültige Werte hat (wie eine negative `sampleRate`).
 
 ## Beispiele
 
-Das folgende Beispiel testet, ob der Browser mehrere Audio-Codecs unterstützt.
+Das folgende Beispiel testet, ob der Browser mehrere Audiocodecs unterstützt.
 
 ```js
 const codecs = ["mp4a.40.2", "mp3", "alaw", "ulaw"];

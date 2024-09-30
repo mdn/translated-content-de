@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: firstElementChild Eigenschaft"
+title: "DocumentFragment: firstElementChild-Eigenschaft"
 short-title: firstElementChild
 slug: Web/API/DocumentFragment/firstElementChild
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`DocumentFragment.firstElementChild`**-Eigenschaft gibt das erste Kind-`Element` des Dokumentfragments zurück oder `null`, wenn keine Kind-Elemente vorhanden sind.
+Die **`DocumentFragment.firstElementChild`** schreibgeschützte Eigenschaft gibt das erste Kind-`Element` des Dokumentfragments zurück oder `null`, wenn keine Kindelemente vorhanden sind.
 
 ## Wert
 

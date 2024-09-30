@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert die Ruby-Text-Komponente einer Ruby-Annotation, die zur Bereitstellung von Aussprache-, Übersetzungs- oder Transliteration-Informationen für ostasiatische Typografie verwendet wird. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
+Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert die Ruby-Textkomponente einer Ruby-Annotation, die zur Bereitstellung von Aussprache-, Übersetzungs- oder Transliteration-Informationen für ostasiatische Typografie verwendet wird. Das `<rt>`-Element muss immer in einem {{HTMLElement("ruby")}}-Element enthalten sein.
 
 {{EmbedInteractiveExample("pages/tabbed/rt.html", "tabbed-shorter")}}
 
-Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
+Sehen Sie sich den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele an.
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -58,12 +58,12 @@ body {
       </td>
     </tr>
     <tr>
-      <th scope="row">Wege der Tag-Auslassung</th>
+      <th scope="row">Tag-Auslassung</th>
       <td>
-        Der End-Tag kann weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
-        unmittelbar von einem <code>&#x3C;rt></code>- oder
-        {{HTMLElement("rp")}}-Element gefolgt wird oder wenn es keinen weiteren Inhalt im
-        übergeordneten Element gibt
+        Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
+        unmittelbar von einem <code>&#x3C;rt></code> oder
+        {{HTMLElement("rp")}}-Element gefolgt wird, oder wenn im
+        übergeordneten Element kein Inhalt mehr vorhanden ist.
       </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ body {
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -80,7 +80,7 @@ body {
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

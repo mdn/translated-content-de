@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces erhält oder setzt den Rückgabewert für das {{htmlelement("dialog")}}, normalerweise um anzuzeigen, welcher Button gedrückt wurde, um es zu schließen.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ruft den Rückgabewert für das {{htmlelement("dialog")}}-Element ab oder legt ihn fest, normalerweise um anzugeben, welcher Button vom Benutzer zum Schließen gedrückt wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den `returnValue` des Dialogs darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen Button, um ein {{htmlelement("dialog")}} zu öffnen, das ein Formular über die `showModal()`-Methode enthält. Das Skript weist dem `returnValue` einen Anfangswert von `initialValue` zu. Der Bestätigungsbutton (`confirmBtn`) sendet das Formular mit Validierung ab, und der "X"-Button sendet das Formular ohne Validierung ab. Das Absenden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`. Der Reset-Button hat einen Ereignis-Handler, der den Dialog schließt; er hat keinen Einfluss auf den `returnValue`. Auch das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste tut dies nicht.
+Das folgende Beispiel zeigt einen Button, um ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode zu öffnen. Das Skript weist dem `returnValue` einen anfänglichen Wert von `initialValue` zu. Der Bestätigungsbutton (`confirmBtn`) sendet das Formular mit Validierung ab und der "X"-Button sendet das Formular ohne Validierung ab. Das Absenden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`. Der Reset-Button hat einen Ereignishandler, der den Dialog schließt; er hat keinen Einfluss auf den `returnValue`. Ebenso wenig hat das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste eine Auswirkung.
 
 ```html
 <!-- Simple pop-up dialog box containing a form -->
@@ -103,7 +103,7 @@ Das folgende Beispiel zeigt einen Button, um ein {{htmlelement("dialog")}} zu ö
 </style>
 ```
 
-### Resultat
+### Ergebnis
 
 {{ EmbedLiveSample('Examples', '100%', '200px') }}
 

@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das **`loadeddata`** Ereignis wird ausgelöst, wenn der Frame an der aktuellen Wiedergabeposition des Mediums vollständig geladen ist, oft der erste Frame.
+Das **`loadeddata`** Ereignis wird ausgelöst, wenn der Rahmen an der aktuellen Wiedergabeposition des Mediums geladen wurde; oft der erste Rahmen.
 
 > [!NOTE]
 > Dieses Ereignis wird auf mobilen/Tablet-Geräten nicht ausgelöst, wenn der Datensparmodus in den Browsereinstellungen aktiviert ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("loadeddata", (event) => {});
@@ -29,7 +29,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `loadeddata` Ereignis des HTMLMediaElements hinzu und senden eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `loadeddata` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -44,7 +44,7 @@ video.addEventListener("loadeddata", (event) => {
 });
 ```
 
-Verwendung der `onloadeddata` Ereignis-Handler-Eigenschaft:
+Verwendung der `onloadeddata` Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

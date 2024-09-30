@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: abort()-Methode"
+title: "IDBTransaction: abort() Methode"
 short-title: abort()
 slug: Web/API/IDBTransaction/abort
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der Schnittstelle [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) macht alle Änderungen an Objekten in der Datenbank, die mit dieser Transaktion verbunden sind, rückgängig.
+Die **`abort()`** Methode des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces macht alle Änderungen an Objekten in der mit dieser Transaktion verbundenen Datenbank rückgängig.
 
-Alle während dieser Transaktion erstellten ausstehenden [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekte haben ihr [`IDBRequest.error`](/de/docs/Web/API/IDBRequest/error)-Attribut auf einen `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) gesetzt.
+Alle während dieser Transaktion erstellten ausstehenden [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekte haben ihr [`IDBRequest.error`](/de/docs/Web/API/IDBRequest/error)-Attribut auf einen `AbortError`-[`DOMException`](/de/docs/Web/API/DOMException) gesetzt.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion bereits festgeschrieben oder abgebrochen wurde.
+  - : Wird ausgelöst, wenn die Transaktion bereits abgeschlossen oder abgebrochen wurde.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einem Objekt-Store einige Daten hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Event-Handler angehängt sind, um über das Ergebnis des Transaktionsöffnens im Falle eines Erfolgs oder Fehlers zu berichten. Am Ende brechen wir alle Aktivitäten ab, die unter der aktuellen Transaktion mit `abort()` durchgeführt wurden. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen einem Objektspeicher einige Daten hinzu. Beachten Sie auch die an die Transaktions-Ereignishandler angehängten Funktionen, um das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder Fehlers zu berichten. Am Ende brechen wir alle unter der aktuellen Transaktion durchgeführten Aktivitäten mit `abort()` ab. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -114,7 +114,7 @@ function addData() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursor: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die Schnittstelle **`GPUCommandBuffer`** der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übermittelt werden können.
+Die **`GPUCommandBuffer`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übermittelt werden können.
 
 Ein `GPUCommandBuffer` wird über die Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) erstellt; die darin aufgezeichneten GPU-Befehle werden zur Ausführung eingereicht, indem der `GPUCommandBuffer` als Parameter eines Aufrufs von [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) übergeben wird.
 
 > [!NOTE]
-> Sobald ein `GPUCommandBuffer`-Objekt übermittelt wurde, kann es nicht erneut verwendet werden.
+> Sobald ein `GPUCommandBuffer`-Objekt eingereicht wurde, kann es nicht erneut verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPUCommandBuffer/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 

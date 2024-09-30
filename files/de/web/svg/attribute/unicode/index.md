@@ -7,17 +7,17 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`unicode`**-Attribut gibt ein oder mehrere [Unicode](/de/docs/Glossary/Unicode)-Zeichen an, die die Sequenz von Unicode-Zeichen anzeigen, die einem [Glyph](/de/docs/Glossary/glyph) entspricht.
+Das **`unicode`** Attribut legt ein oder mehrere [Unicode](/de/docs/Glossary/Unicode)-Zeichen fest, die die Sequenz von Unicode-Zeichen angeben, die einem [Glyph](/de/docs/Glossary/glyph) entsprechen.
 
-Wenn ein Zeichen angegeben wird, entspricht dieses Glyph dem gegebenen Unicode-Zeichen. Wenn mehrere Zeichen angegeben werden, entspricht dieses Glyph der gegebenen Sequenz von Unicode-Zeichen. Eine Verwendung einer Zeichenfolge sind Ligaturen. Zum Beispiel, wenn `unicode="ffl"` angegeben ist, wird das gegebene Glyph verwendet, um die Zeichenfolge "f", "f" und "l" darzustellen.
+Wenn ein Zeichen angegeben wird, dann entspricht dieses Glyph dem angegebenen Unicode-Zeichen. Wenn mehrere Zeichen angegeben werden, dann entspricht dieses Glyph der angegebenen Sequenz von Unicode-Zeichen. Eine Verwendung einer Zeichenfolge ist Ligaturen. Zum Beispiel, wenn `unicode="ffl"`, dann wird das angegebene Glyph verwendet, um die Sequenz der Zeichen "f", "f" und "l" darzustellen.
 
-Es ist oft nützlich, sich auf Zeichen mit XML-Zeichenreferenzen zu beziehen, die in hexadezimaler oder dezimaler Notation ausgedrückt werden. Zum Beispiel könnte `unicode="ffl"` als XML-Zeichenreferenzen in hexadezimaler Notation als `unicode="&#x66;&#x66;&#x6c;"` oder in dezimaler Notation als `unicode="&#102;&#102;&#108;"` ausgedrückt werden.
+Es ist oft nützlich, sich auf Zeichen unter Verwendung von XML-Zeichenreferenzen zu beziehen, die in hexadezimaler oder dezimaler Notation ausgedrückt sind. Zum Beispiel könnte `unicode="ffl"` als XML-Zeichenreferenzen in hexadezimaler Notation als `unicode="&#x66;&#x66;&#x6c;"` oder in dezimaler Notation als `unicode="&#102;&#102;&#108;"` ausgedrückt werden.
 
-Das `unicode`-Attribut trägt zum Prozess bei, zu entscheiden, welche Glyphe(n) verwendet werden, um welche Zeichen darzustellen.
+Das `unicode` Attribut trägt zum Prozess bei, der entscheidet, welche Glyphen verwendet werden, um welche Zeichen darzustellen.
 
 ## Elemente
 
-Sie können dieses Attribut mit dem {{SVGElement("glyph")}} SVG-Element verwenden.
+Sie können dieses Attribut zusammen mit dem {{SVGElement("glyph")}} SVG-Element verwenden.
 
 ## Nutzungsnotizen
 
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit dem {{SVGElement("glyph")}} SVG-Element verwende
 </table>
 
 - `<string>`
-  - : Dieser Wert spezifiziert ein oder mehrere Unicode-Zeichen, die einem Glyph entsprechen.
+  - : Dieser Wert gibt ein oder mehrere Unicode-Zeichen an, die einem Glyph entsprechen.
 
 ## Spezifikationen
 

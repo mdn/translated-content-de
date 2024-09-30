@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`kind`**-Schreibgeschützte Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle gibt einen enumerierten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
+Die schreibgeschützte **`kind`**-Eigenschaft des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Interfaces gibt einen enumerierten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
 
 ## Wert
 

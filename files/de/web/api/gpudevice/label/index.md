@@ -1,5 +1,5 @@
 ---
-title: "GPUDevice: label-Eigenschaft"
+title: "GPUDevice: label Eigenschaft"
 short-title: label
 slug: Web/API/GPUDevice/label
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle ist ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`** schreibgeschützte Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces ist ein String, der als Bezeichnung verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Wert
 
-Ein String. Wenn kein Labelwert vorher festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Ein String. Wenn kein Bezeichnungswert zuvor festgelegt wurde, gibt das Abrufen der Bezeichnung einen leeren String zurück.
 
 ## Beispiele
 

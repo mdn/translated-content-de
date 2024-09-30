@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Der `blocked` Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert.
+Der `blocked`-Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert.
 
-Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("blocked", (event) => {});
@@ -30,7 +30,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten [`Event`](/de/docs/Web/API/Event)-Schnittstelle._
+_Erbt auch Eigenschaften von seinem Elterninterface, [`Event`](/de/docs/Web/API/Event)._
 
 - [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.
@@ -76,7 +76,7 @@ DBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Verwendung der `onblocked` Eigenschaft:
+Verwendung der `onblocked`-Eigenschaft:
 
 ```js
 // Open the database

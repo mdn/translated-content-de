@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`speakAs`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) ruft den Wert des Deskriptors {{cssxref("@counter-style/speak-as","speak-as")}} ab und setzt ihn. Wenn dem Deskriptor kein Wert zugewiesen wurde, gibt dieses Attribut eine leere Zeichenkette zurück.
+Die **`speakAs`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) ruft den Wert des Deskriptors {{cssxref("@counter-style/speak-as","speak-as")}} ab und setzt ihn. Wenn für den Deskriptor kein Wert festgelegt ist, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Eine Zeichenkette
+Ein String
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Wenn man `speakAs` abruft, erhält man den Wert "bullets".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Abrufen von `speakAs` gibt uns den Wert "bullets" zurück.
 
 ```css
 @counter-style box-corner {

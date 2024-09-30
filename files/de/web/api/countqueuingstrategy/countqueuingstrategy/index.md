@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`CountQueuingStrategy()`** Konstruktor
-erstellt und gibt eine neue Instanz eines `CountQueuingStrategy`-Objekts zurück.
+Der **`CountQueuingStrategy()`** Konstruktor erstellt und gibt eine Instanz eines `CountQueuingStrategy`-Objekts zurück.
 
 ## Syntax
 
@@ -22,7 +21,7 @@ new CountQueuingStrategy(options)
 - `options`
   - : Ein Objekt mit der folgenden Eigenschaft:
     - `highWaterMark`
-      - : Die Gesamtanzahl der Chunks, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
+      - : Die Gesamtanzahl der Blöcke, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
 
 ### Rückgabewert
 

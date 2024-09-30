@@ -14,10 +14,9 @@ l10n:
 
 Die veraltete
 **`PerformanceTiming.domainLookupStart`**
-schreibgeschützte Eigenschaft gibt einen `unsigned long long` zurück, der den Moment
-in Millisekunden seit dem UNIX-Epoch repräsentiert, an dem die Domain-Suche beginnt. Wenn eine persistente
-Verbindung verwendet wird oder die Informationen im Cache oder in einer lokalen Ressource gespeichert sind, wird der
-Wert derselbe sein wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
+schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment
+in Millisekunden seit der UNIX-Epoche darstellt, an dem die Domain-Abfrage beginnt. Wenn
+eine permanente Verbindung verwendet wird oder die Informationen im Cache oder einer lokalen Ressource gespeichert sind, wird der Wert derselbe sein wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
 
 ## Wert
 

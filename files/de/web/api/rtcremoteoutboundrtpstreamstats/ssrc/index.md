@@ -10,22 +10,20 @@ l10n:
 
 Die **`ssrc`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs enthält einen positiven Ganzzahlwert, der die Synchronisationsquelle (SSRC) dieses Stroms von [RTP](/de/docs/Glossary/RTP)-Paketen identifiziert.
 
-Eine Quelle könnte etwas wie ein Mikrofon oder eine Mixeranwendung sein, die mehrere Quellen kombiniert.
-Alle Pakete von derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander geordnet werden.
-Beachten Sie, dass zwei Streams mit demselben `ssrc`-Wert auf dieselbe Quelle verweisen.
+Eine Quelle könnte beispielsweise ein Mikrofon oder eine Mixer-Anwendung sein, die mehrere Quellen kombiniert.
+Alle Pakete von derselben Quelle verwenden dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander geordnet werden.
+Beachten Sie, dass zwei Ströme mit demselben `ssrc`-Wert sich auf dieselbe Quelle beziehen.
 
 ## Wert
 
-Ein positiver 32-Bit-Ganzzahlwert, der die SSRC der RTP-Pakete eindeutig identifiziert, deren Statistiken durch dieses [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekt abgedeckt sind.
+Ein positiver 32-Bit-Ganzzahlwert, der das SSRC der RTP-Pakete eindeutig identifiziert, deren Statistiken von diesem [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekt abgedeckt werden.
 
-Die Art und Weise, wie SSRC-Werte generiert werden, ist nicht durch die Spezifikation vorgeschrieben, auch wenn sie Empfehlungen ausspricht.
-Sie sollten keine Annahmen auf der Grundlage des `ssrc`-Werts machen, außer dass alle Objekte mit demselben `ssrc`-Wert auf dieselbe Quelle verweisen.
-Siehe {{RFC("3550", "", "8")}} für zusätzliche Informationen über `ssrc`.
+Die Art und Weise, wie SSRC-Werte generiert werden, wird nicht durch die Spezifikation vorgeschrieben, obwohl sie Empfehlungen gibt. Sie sollten keine Annahmen basierend auf dem Wert von `ssrc` machen, außer dass zwei Objekte mit demselben `ssrc`-Wert sich auf dieselbe Quelle beziehen. Weitere Informationen zu `ssrc` finden Sie in {{RFC("3550", "", "8")}}.
 
 > [!NOTE]
-> Die Spezifikation enthält ein Beispiel, das Werte für `ssrc` unter Verwendung von MD5 generiert.
-> Obwohl nicht genau Teil des Standards, ist es ein gutes Verfahren, das von einigen Browsern verwendet werden kann; andere können andere Methoden verwenden, wie z.B. Zufallszahlengeneratoren.
-> _Verlassen Sie sich nicht_ darauf, dass diese Werte etwas anderes bedeuten als "diese Objekte sind mit derselben Quelle verbunden".
+> Die Spezifikation enthält ein Beispiel, das Werte für `ssrc` mit MD5 generiert.
+> Obwohl es nicht genau Teil des Standards ist, ist es ein gutes Verfahren, das von einigen Browsern verwendet werden kann; andere können andere Methoden verwenden, wie zum Beispiel Zufallszahlengeneratoren.
+> _Verlassen Sie sich nicht_ darauf, dass diese Werte etwas anderes bedeuten als "diese Objekte sind mit derselben Quelle verbunden."
 
 ## Spezifikationen
 

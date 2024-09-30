@@ -1,5 +1,5 @@
 ---
-title: "Document: replaceChildren() Methode"
+title: "Document: Methode replaceChildren()"
 short-title: replaceChildren()
 slug: Web/API/Document/replaceChildren
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.replaceChildren()`** Methode ersetzt die
-bestehenden Kinder eines `Dokument` durch einen angegebenen neuen Satz von Kindern.
+Die **`Document.replaceChildren()`**-Methode ersetzt die vorhandenen Kinder eines `Document` mit einer spezifizierten neuen Menge von Kindern.
 
 ## Syntax
 
@@ -22,7 +21,7 @@ replaceChildren(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Ein Satz von [`Node`](/de/docs/Web/API/Node) Objekten oder Strings, um die bestehenden Kinder des `Documents` zu ersetzen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Document` von allen Kindknoten geleert.
+  - : Eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, mit denen die vorhandenen Kinder des `Document` ersetzt werden. Wenn keine Ersetzungsobjekte angegeben werden, wird das `Document` von allen Kindknoten geleert.
 
 ### Rückgabewert
 
@@ -31,13 +30,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die [Einschränkungen des Knotendiagramms](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
+  - : Wird ausgelöst, wenn die [Beschränkungen des Baumknotens](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
 
 ## Beispiele
 
 ### Ein Dokument leeren
 
-`replaceChildren()` bietet eine sehr bequeme Möglichkeit, ein Dokument von allen seinen Kindern zu leeren. Sie rufen es ohne Argumente auf dem Dokument auf:
+`replaceChildren()` bietet einen sehr praktischen Mechanismus zum Leeren eines Dokuments von all seinen Kindern. Sie rufen es ohne Argument auf dem Dokument auf:
 
 ```js
 document.replaceChildren();

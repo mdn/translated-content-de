@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die **`skipTransition()`** Methode der [`ViewTransition`](/de/docs/Web/API/ViewTransition) Schnittstelle überspringt den Animationsanteil der Ansichtsübergänge, führt aber das zugehörige Ansichtsupdate dennoch aus.
+Die **`skipTransition()`** Methode des [`ViewTransition`](/de/docs/Web/API/ViewTransition) Schnittstelle überspringt den Animationsanteil des View-Übergangs, lässt jedoch die zugehörige Ansicht-Update ausführen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ## Beispiele
 
-### Überspringen eines SPA-Ansichtsübergangs
+### Überspringen eines SPA-View-Übergangs
 
 ```js
 // start new view transition
@@ -36,7 +36,7 @@ const transition = document.startViewTransition(() => displayNewImage());
 transition.skipTransition();
 ```
 
-### Überspringen eines MPA-Ansichtsübergangs
+### Überspringen eines MPA-View-Übergangs
 
 ```js
 // Fired on the current (outgoing) page
@@ -60,4 +60,4 @@ document.addEventListener("pagereveal", (event) => {
 
 ## Siehe auch
 
-- [Smooth and simple transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

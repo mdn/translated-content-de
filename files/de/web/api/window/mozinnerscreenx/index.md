@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{Non-standard_Header}}
 
-Ruft die X-Koordinate der oberen linken Ecke des Ansichtsfensters des Fensters in Bildschirmkoordinaten ab.
+Ermittelt die X-Koordinate der oberen linken Ecke des Ansichtsfensters des Fensters, in Bildschirmkoordinaten.
 
 > [!NOTE]
-> Diese Koordinate wird in CSS-Pixeln und nicht in Hardware-Pixeln angegeben. Das bedeutet, dass sie vom Zoomfaktor beeinflusst werden kann; um die tatsächliche Anzahl der physischen Bildschirm-Pixel zu berechnen, sollten Sie die `nsIDOMWindowUtils.screenPixelsPerCSSPixel`-Eigenschaft verwenden.
+> Diese Koordinate wird in CSS-Pixeln und nicht in Hardware-Pixeln angegeben. Das bedeutet, dass sie vom Zoomlevel beeinflusst werden kann; um die tatsächliche Anzahl physischer Bildschirm-Pixel zu berechnen, sollten Sie die Eigenschaft `nsIDOMWindowUtils.screenPixelsPerCSSPixel` verwenden.
 
 ## Wert
 

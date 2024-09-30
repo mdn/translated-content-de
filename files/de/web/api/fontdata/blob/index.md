@@ -1,5 +1,5 @@
 ---
-title: "FontData: blob() Methode"
+title: "FontData: blob()-Methode"
 short-title: blob()
 slug: Web/API/FontData/blob
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die **`blob()`** Methode der [`FontData`](/de/docs/Web/API/FontData) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
+Die **`blob()`**-Methode des [`FontData`](/de/docs/Web/API/FontData) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, das die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
+Ein {{jsxref("Promise")}}, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, das die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
 
 ## Beispiele
 
-Die `blob()` Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT) Daten – dies ist ein Schriftartdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
+Die `blob()`-Methode bietet Zugriff auf Low-Level-[SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftartdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
 
 ```js
 async function computeOutlineFormat() {

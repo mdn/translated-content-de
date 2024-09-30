@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`namespaceURI`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt die Namespace-URI des Attributs zurück oder `null`, wenn das Element sich nicht in einem Namespace befindet.
+Die schreibgeschützte **`namespaceURI`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces gibt den Namespace-URI des Attributs zurück oder `null`, wenn das Element nicht in einem Namespace ist.
 
-Die Namespace-URI wird bei der Erstellung des [`Attr`](/de/docs/Web/API/Attr) festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann mit [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS) erstellt werden.
+Der Namespace-URI wird bei der Erstellung des [`Attr`](/de/docs/Web/API/Attr) festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann mit [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS) erstellt werden.
 
 > [!NOTE]
-> Ein Attribut erbt seinen Namespace nicht von dem Element, an das es gebunden ist. Wenn einem Attribut nicht ausdrücklich ein Namespace zugewiesen wird, hat es keinen Namespace.
+> Ein Attribut erbt seinen Namespace nicht von dem Element, an das es angehängt ist. Wenn ein Attribut nicht explizit einen Namespace erhält, hat es keinen Namespace.
 
-Der Browser übernimmt nicht die Kontrolle oder Validierung der Namespaces an sich. Es obliegt der JavaScript-Anwendung, bei Bedarf eine Validierung durchzuführen. Beachten Sie auch, dass das Namespace-Präfix, sobald es mit einem bestimmten Attributknoten verknüpft ist, nicht geändert werden kann.
+Der Browser behandelt oder erzwingt die Namespace-Validierung nicht von sich aus. Es liegt in der Verantwortung der JavaScript-Anwendung, die erforderliche Validierung durchzuführen. Beachten Sie auch, dass das Namespace-Präfix, sobald es einem bestimmten Attributknoten zugeordnet ist, nicht geändert werden kann.
 
 ## Wert
 
-Ein String, der die URI des Namespace enthält, oder `null`, wenn das Attribut sich nicht in einem Namespace befindet.
+Ein String, der den URI des Namensraums enthält, oder `null`, wenn das Attribut nicht in einem Namespace ist.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Ergebnisse für ein Attribut mit Präfix in einem HTML-Element und einem SVG-Element. Da HTML keine Namespaces verarbeitet, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird die URI des XML-Namespaces zurückgegeben, `http://www.w3.org/XML/1998/namespace`.
+Das folgende Beispiel zeigt die Ergebnisse für ein präfixiertes Attribut im Fall eines HTML-Elements und eines SVG-Elements. Da HTML keine Namensräume behandelt, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird der URI des XML-Namensraums, `http://www.w3.org/XML/1998/namespace`, zurückgegeben.
 
 ### HTML
 
@@ -72,6 +72,6 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgibt, [`Attr.localName`](/de/docs/Web/API/Attr/localName), den lokalen Teil des Namens, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Präfix.
-- Die [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft, die gleichwertig mit dieser, aber für ein [`Element`](/de/docs/Web/API/Element) ist.
+- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgeben, [`Attr.localName`](/de/docs/Web/API/Attr/localName), den lokalen Teil des Namens, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Präfix.
+- Die [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft, die diesem entspricht, aber für ein [`Element`](/de/docs/Web/API/Element).
 - Die Methode [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS), die ein Attribut mit einem gegebenen Namespace erstellt.

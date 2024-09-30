@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: root-Eigenschaft"
+title: "TreeWalker: root Eigenschaft"
 short-title: root
 slug: Web/API/TreeWalker/root
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`TreeWalker.root`** Eigenschaft gibt den Wurzel-[`Node`](/de/docs/Web/API/Node) zurück, den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) durchläuft.
+Die schreibgeschützte Eigenschaft **`TreeWalker.root`** gibt den Stamm[`Node`](/de/docs/Web/API/Node) zurück, den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) durchläuft.
 
 ## Wert
 

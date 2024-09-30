@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `windowId`-Wert, der das Fehlen eines Browserfensters darstellt.
+Der `windowId` Wert, der das Fehlen eines Browser-Fensters darstellt.
 
 ## Browser-Kompatibilität
 
@@ -16,7 +16,7 @@ Der `windowId`-Wert, der das Fehlen eines Browserfensters darstellt.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#property-WINDOW_ID_NONE)-API von Chromium. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#property-WINDOW_ID_NONE) API von Chromium. Diese Dokumentation wurde von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT-Strings-Paket stellt Funktionen zur Verfügung, die die Manipulation von Zeichenfolgen ermöglichen. Der Namensraum für das Strings-Paket ist `http://exslt.org/strings`.
+Das EXSLT Strings-Paket bietet Funktionen zur Manipulation von Zeichenfolgen. Der Namensraum für das Strings-Paket ist `http://exslt.org/strings`.
 
 {{SubpagesWithSummaries}}

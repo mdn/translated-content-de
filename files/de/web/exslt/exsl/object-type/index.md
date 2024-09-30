@@ -10,7 +10,7 @@ l10n:
 `exsl:object-type()` gibt einen String zurück, der den Typ des angegebenen Objekts angibt.
 
 > [!NOTE]
-> Die meisten [XSLT](/de/docs/Web/XSLT)-Objekttypen können sicher ineinander umgewandelt werden; jedoch verursachen bestimmte Umwandlungen Fehlerbedingungen. Insbesondere die Behandlung von etwas, das kein Knoten-Set ist, als Knoten-Set wird dies tun. Diese Funktion ermöglicht es Autoren benannter Vorlagen und Erweiterungsfunktionen, die Flexibilität bei Parameterwerten leicht zu gewährleisten.
+> Die meisten [XSLT](/de/docs/Web/XSLT)-Objekttypen können sicher ineinander umgewandelt werden; jedoch führen bestimmte Umwandlungen zu Fehlerzuständen. Insbesondere die Behandlung von etwas, das kein Knoten-Set ist, als ein Knoten-Set wird dies tun. Diese Funktion ermöglicht es Autoren von benannten Templates und Erweiterungsfunktionen, Flexibilität bei den Parameterwerten einfach zu bieten.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ exsl:object-type(object)
 
 ### Rückgabewert
 
-Der Typ des Objekts, das einer der folgenden sein wird:
+Der Typ des Objekts, der einer der folgenden sein wird:
 
 - `string`
 - `number`

@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das **`ECT`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Request-Headerfeld zeigt den [effektiven Verbindungstyp](/de/docs/Glossary/effective_connection_type) an: `slow-2g`, `2g`, `3g`, `4g`.
+Der **`ECT`** [Client-Hinweis](/de/docs/Web/HTTP/Client_hints) Anforderungsheader gibt den [effektiven Verbindungstyp](/de/docs/Glossary/effective_connection_type) an: `slow-2g`, `2g`, `3g`, `4g`.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
+        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -25,12 +25,12 @@ Das **`ECT`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Request-Headerfeld z
   </tbody>
 </table>
 
-Der Wert repräsentiert das "Netzwerkprofil", das am besten zur Latenz und Bandbreite der Verbindung passt, anstatt der tatsächlichen Mechanismen, die für die Datenübertragung verwendet werden. Zum Beispiel könnte `2g` verwendet werden, um eine langsame Wi-Fi-Verbindung mit hoher Latenz und niedriger Bandbreite darzustellen, während `4g` für ein schnelles faserbasiertes Breitbandnetzwerk stehen könnte.
+Der Wert repräsentiert das "Netzwerkprofil", das am besten zur Latenz und Bandbreite der Verbindung passt, anstatt der tatsächlichen Mechanismen, die für die Datenübertragung verwendet werden. Zum Beispiel könnte `2g` verwendet werden, um eine langsame Wi-Fi-Verbindung mit hoher Latenz und niedriger Bandbreite darzustellen, während `4g` verwendet werden könnte, um ein schnelles Glasfaser-Breitbandnetz darzustellen.
 
-Der Hinweis ermöglicht es einem Server, zu entscheiden, welche Informationen basierend auf den allgemeinen Charakteristika des Netzwerks gesendet werden. Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen bei weniger leistungsfähigen Verbindungen senden. Der Wert kann auch als Ausgangspunkt für die Bestimmung der zu sendenden Informationen verwendet werden, die weiter durch die Informationen in den {{HTTPHeader("RTT")}} und {{HTTPHeader("Downlink")}} Hinweisen verfeinert werden.
+Der Hinweis ermöglicht es einem Server, auszuwählen, welche Informationen basierend auf den allgemeinen Eigenschaften des Netzwerks gesendet werden. Zum Beispiel könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen bei weniger leistungsfähigen Verbindungen senden. Der Wert könnte auch als Ausgangspunkt verwendet werden, um zu bestimmen, welche Informationen gesendet werden, und wird dann weiter verfeinert durch Informationen in den {{HTTPHeader("RTT")}} und {{HTTPHeader("Downlink")}} Hinweisen.
 
 > [!NOTE]
-> Ein Server, der `ECT` in {{HTTPHeader("Accept-CH")}} angibt, kann es auch in {{HTTPHeader("Vary")}} angeben, um anzuzeigen, dass Antworten für verschiedene ECT-Werte zwischengespeichert werden sollten.
+> Ein Server, der `ECT` in {{HTTPHeader("Accept-CH")}} angibt, kann auch {{HTTPHeader("Vary")}} spezifizieren, um darauf hinzuweisen, dass Antworten für verschiedene ECT-Werte zwischengespeichert werden sollen.
 
 ## Syntax
 
@@ -41,17 +41,17 @@ ECT: <value>
 ## Direktiven
 
 - \<value>
-  - : Ein Wert, der den [effektiven Verbindungstyp](/de/docs/Glossary/effective_connection_type) anzeigt. Dies ist einer von: `slow-2g`, `2g`, `3g` oder `4g`.
+  - : Ein Wert, der den [effektiven Verbindungstyp](/de/docs/Glossary/effective_connection_type) angibt. Dies ist einer von: `slow-2g`, `2g`, `3g` oder `4g`.
 
 ## Beispiele
 
-Ein Server muss zuerst einwilligen, den `ECT` Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Response-Header sendet, der `ECT` enthält.
+Ein Server muss zunächst optieren, den `ECT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header sendet, der `ECT` enthält.
 
 ```http
 Accept-CH: ECT
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen einen `ECT` Header zurücksenden:
+Dann könnte der Client bei nachfolgenden Anfragen einen `ECT`-Header zurücksenden:
 
 ```http
 ECT: 2g
@@ -67,13 +67,13 @@ ECT: 2g
 
 ## Siehe auch
 
-- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- Netzwerk-Client-Hints
+- [Verbesserung des Benutzerdatenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- Netzwerkclient-Hinweise
 
   - {{HTTPHeader("Downlink")}}
   - {{HTTPHeader("RTT")}}
   - {{HTTPHeader("Save-Data")}}
 
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
 - [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)

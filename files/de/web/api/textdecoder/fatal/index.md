@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`fatal`**-Eigenschaft der [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Schnittstelle ist ein {{jsxref('Boolean')}}, der angibt, ob der Fehlermodus fatal ist.
+Die **`fatal`** schreibgeschützte Eigenschaft der [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Schnittstelle ist ein {{jsxref('Boolean')}}, das angibt, ob der Fehlermodus fatal ist.
 
-Wenn die Eigenschaft auf `true` gesetzt ist, wirft ein Decoder einen {{jsxref("TypeError")}}, wenn beim Decodieren fehlerhafte Daten auftreten.
-Wenn `false`, ersetzt der Decoder die ungültigen Daten durch das Ersatzzeichen `U+FFFD` (�).
+Wenn die Eigenschaft `true` ist, wirft der Decoder einen {{jsxref("TypeError")}}, wenn er beim Dekodieren fehlerhafte Daten antrifft.
+Ist sie `false`, ersetzt der Decoder die ungültigen Daten durch das Ersetzungszeichen `U+FFFD` (�).
 Der Wert der Eigenschaft wird im [`TextDecoder()`-Konstruktor](/de/docs/Web/API/TextDecoder/TextDecoder) festgelegt.
 
 ## Wert

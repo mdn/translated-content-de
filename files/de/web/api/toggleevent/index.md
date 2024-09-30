@@ -9,8 +9,8 @@ l10n:
 
 Die **`ToggleEvent`**-Schnittstelle stellt ein Ereignis dar, das den Benutzer darüber informiert, dass sich der Zustand eines Elements geändert hat.
 
-Es handelt sich um das Ereignisobjekt für die `HTMLElement`-Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), die bei Popovers ausgelöst werden, wenn diese zwischen sichtbar und versteckt wechseln (vor bzw. nach der Änderung).
-Es ist auch das Ereignisobjekt für das `HTMLDetailsElement`-Ereignis [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event), das ausgelöst wird, wenn ein `<details>`-Element zwischen geöffnet und geschlossen umgeschaltet wird.
+Es ist das Ereignisobjekt für die `HTMLElement`-Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), die ausgelöst werden, wenn Popovers zwischen den Zuständen sichtbar und verborgen wechseln (bzw. vor und nach der Änderung).
+Es ist ebenfalls das Ereignisobjekt für das `HTMLDetailsElement`-Ereignis [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event), das ausgelöst wird, wenn ein `<details>`-Element zwischen den Zuständen geöffnet und geschlossen wechselt.
 
 {{InheritanceDiagram}}
 
@@ -30,7 +30,7 @@ _Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Event`](/de/docs
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -57,5 +57,5 @@ popover.addEventListener("beforetoggle", (event) => {
 ## Siehe auch
 
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [`beforetoggle`-Ereignis](/de/docs/Web/API/HTMLElement/beforetoggle_event)
-- [`toggle`-Ereignis](/de/docs/Web/API/HTMLElement/toggle_event)
+- [`beforetoggle` Ereignis](/de/docs/Web/API/HTMLElement/beforetoggle_event)
+- [`toggle` Ereignis](/de/docs/Web/API/HTMLElement/toggle_event)

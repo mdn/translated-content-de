@@ -10,9 +10,7 @@ l10n:
 
 Die **`type`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein String mit dem Wert `"local-candidate"`.
 
-Unterschiedliche Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
-Der Typ gibt die Menge von Statistiken an, die in einem bestimmten Iterationsschritt durch das Objekt verfügbar sind.
-Ein Wert von `"local-candidate"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) definiert sind.
+Unterschiedliche Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das von einem Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der `type` zeigt den Satz von Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind. Ein Wert von `"local-candidate"` zeigt an, dass die im aktuellen Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) definiert sind.
 
 ## Wert
 

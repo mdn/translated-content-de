@@ -7,27 +7,27 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-left`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-left`** [Kurznotation](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Rands](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-left.html")}}
 
-Wie bei allen Kurzformeigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die sie setzen kann, auch wenn sie nicht angegeben sind. Die nicht angegebenen werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+Wie bei allen Kurznotationseigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Tatsächlich entspricht er diesem hier:
+Er entspricht tatsächlich diesem hier:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils dazu, dass kein Rahmen vorhanden ist.
+Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
 
-## Bestandteileigenschaften
+## Bestandeigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -50,7 +50,7 @@ border-left: revert-layer;
 border-left: unset;
 ```
 
-Die drei Werte der Kurzformeigenschaft können in beliebiger Reihenfolge angegeben werden und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurznotationseigenschaft können in beliebiger Reihenfolge angegeben werden, wobei einer oder zwei weggelassen werden können.
 
 ### Werte
 
@@ -71,7 +71,7 @@ Die drei Werte der Kurzformeigenschaft können in beliebiger Reihenfolge angegeb
 
 ## Beispiele
 
-### Anwenden eines linken Rahmens
+### Anwenden eines linken Rands
 
 #### HTML
 

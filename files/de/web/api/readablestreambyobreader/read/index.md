@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`read()`** Methode des [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Interfaces wird verwendet, um Daten in eine Ansicht auf einen vom Benutzer bereitgestellten Puffer von einem zugehörigen [lesbaren Bytestrom](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) zu lesen. Eine Anfrage nach Daten wird aus den internen Warteschlangen des Stroms erfüllt, wenn dort Daten vorhanden sind. Wenn die Warteschlangen leer sind, kann die Anfrage als Zero-Copy-Übertragung von der zugrunde liegenden Bytequelle bereitgestellt werden.
+Die **`read()`**-Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle wird verwendet, um Daten in eine Ansicht auf einem vom Benutzer bereitgestellten Puffer aus einem zugehörigen [lesbaren Bytestream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) zu lesen. Eine Anfrage nach Daten wird aus den internen Warteschlangen des Streams bedient, wenn Daten vorhanden sind. Wenn die Stream-Warteschlangen leer sind, kann die Anfrage als Zero-Copy-Übertragung aus der zugrunde liegenden Byte-Quelle geliefert werden.
 
-Die Methode nimmt als Argument eine Ansicht auf einen Puffer, in den die bereitgestellten Daten gelesen werden sollen, und gibt ein {{jsxref("Promise")}} zurück. Das Promise wird mit einem Objekt erfüllt, das die Eigenschaften `value` und `done` hat, wenn Daten verfügbar sind oder wenn der Strom abgebrochen wird. Wenn der Strom einen Fehler aufweist, wird das Promise mit dem entsprechenden Fehlerobjekt abgelehnt.
+Die Methode nimmt als Argument eine Ansicht auf einen Puffer, in den gelesene Daten eingelesen werden sollen, und gibt ein {{jsxref("Promise")}} zurück. Das Promise wird mit einem Objekt erfüllt, das die Eigenschaften `value` und `done` enthält, wenn Daten verfügbar werden oder wenn der Stream abgebrochen wird. Wenn der Stream einen Fehler aufweist, wird das Promise mit dem entsprechenden Fehlerobjekt abgelehnt.
 
-Wenn ein Datenblock geliefert wird, enthält die `value`-Eigenschaft eine neue Ansicht. Diese ist eine Ansicht über denselben Puffer/Speicher (und vom selben Typ) wie die ursprüngliche `view`, die an die `read()`-Methode übergeben wurde, nun gefüllt mit dem neuen Datenblock. Beachten Sie, dass nach Erfüllung des Promises die ursprüngliche `view`, die an die Methode übergeben wurde, getrennt und nicht mehr verwendbar ist. Das Promise wird mit einem `value: undefined` erfüllt, wenn der Strom abgebrochen wurde. In diesem Fall wird der Speicherbereich der `view` verworfen und nicht an den Aufrufer zurückgegeben (alle zuvor in den Puffer der Ansicht gelesenen Daten gehen verloren).
+Wenn ein Datenblock bereitgestellt wird, enthält die Eigenschaft `value` eine neue Ansicht. Diese ist eine Ansicht auf denselben Puffer/Memory-Bereich (und vom gleichen Typ) wie die ursprüngliche `view`, die an die `read()`-Methode übergeben wurde, jetzt gefüllt mit dem neuen Datenblock. Beachten Sie, dass die ursprüngliche `view`, die an die Methode übergeben wurde, nach Erfüllung des Promise getrennt und nicht mehr verwendbar ist. Das Promise wird mit `value: undefined` erfüllt, wenn der Stream abgebrochen wurde. In diesem Fall wird der Speicherbereich von `view` verworfen und nicht an den Aufrufer zurückgegeben (alle zuvor gelesenen Daten im Puffer der Ansicht gehen verloren).
 
-Die `done`-Eigenschaft gibt an, ob noch mehr Daten erwartet werden. Der Wert ist `true`, wenn der Strom geschlossen oder abgebrochen ist, und andernfalls `false`.
+Die `done`-Eigenschaft gibt an, ob noch weitere Daten erwartet werden. Der Wert wird auf `true` gesetzt, wenn der Stream geschlossen oder abgebrochen ist, und ansonsten auf `false`.
 
 ## Syntax
 
@@ -25,55 +25,55 @@ read(view)
 ### Parameter
 
 - `view`
-  - : Die Ansicht, in die die Daten gelesen werden sollen.
+  - : Die Ansicht, in die Daten gelesen werden sollen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das je nach Zustand des Stroms mit einem Ergebnis erfüllt/abgelehnt wird.
+Ein {{jsxref("Promise")}}, das erfüllt/abgelehnt wird, abhängig vom Status des Streams.
 
-Die folgenden Möglichkeiten bestehen:
+Folgende Möglichkeiten bestehen:
 
-- Wenn ein Datenblock verfügbar ist und der Strom noch aktiv ist, wird das Promise mit einem Objekt der Form erfüllt:
+- Wenn ein Datenblock verfügbar ist und der Stream noch aktiv ist, wird das Promise mit einem Objekt der Form erfüllt:
 
   ```js
   { value: theChunk, done: false }
   ```
 
-  `theChunk` ist eine Ansicht, die die neuen Daten enthält. Dies ist eine Ansicht desselben Typs und über denselben Speicher wie die `view`, die an die `read()`-Methode übergeben wurde. Die ursprüngliche `view` wird getrennt und nicht mehr verwendbar sein.
+  `theChunk` ist eine Ansicht, die die neuen Daten enthält. Dies ist eine Ansicht des gleichen Typs und über denselben Speicherbereich wie die `view`, die an die `read()`-Methode übergeben wurde. Die ursprüngliche `view` wird getrennt und ist nicht mehr verwendbar.
 
-- Wenn der Strom geschlossen ist, wird das Promise mit einem Objekt der Form erfüllt (wobei `theChunk` dieselben Eigenschaften wie oben hat):
+- Wenn der Stream geschlossen ist, wird das Promise mit einem Objekt der folgenden Form erfüllt (wobei `theChunk` die gleichen Eigenschaften wie oben hat):
 
   ```js
   { value: theChunk, done: true }
   ```
 
-- Wenn der Strom abgebrochen wird, wird das Promise mit einem Objekt der Form erfüllt:
+- Wenn der Stream abgebrochen wird, wird das Promise mit einem Objekt der Form erfüllt:
 
   ```js
   { value: undefined, done: true }
   ```
 
-  In diesem Fall wird der Speicher verworfen.
+  In diesem Fall wird der Speicherbereich verworfen.
 
-- Wenn der Strom einen Fehler wirft, wird das Promise mit dem entsprechenden Fehler abgelehnt.
+- Wenn der Stream einen Fehler wirft, wird das Promise mit dem entsprechenden Fehler abgelehnt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader`, der Strom hat keinen Besitzer, die Ansicht ist kein Objekt oder wurde getrennt, die Länge der Ansicht ist 0, oder [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) wird aufgerufen (wenn eine ausstehende Leseanforderung vorliegt).
+  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader`, der Stream hat keinen Eigentümer, die Ansicht ist kein Objekt oder wurde getrennt, die Länge der Ansicht ist 0, oder [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) wird aufgerufen (wenn eine ausstehende Leseanforderung besteht).
 
 ## Beispiele
 
-Der Beispielcode hier stammt aus den Live-Beispielen unter [Using readable byte streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
+Der im Folgenden gezeigte Beispielcode stammt aus den Live-Beispielen in [Using readable byte streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
 
-Zuerst erstellen wir den Reader mithilfe von [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem Strom, wobei wir `mode: "byob"` im Optionsparameter angeben. Wir müssen auch einen `ArrayBuffer` erstellen, der das "Backing Memory" der Ansichten ist, in die wir schreiben werden.
+Zuerst erstellen wir den Leser mithilfe von [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) für den Stream, wobei `mode: "byob"` im Optionsparameter angegeben wird. Wir müssen auch einen `ArrayBuffer` erstellen, der das "Back-End" der Ansichten darstellt, die wir beschreiben werden.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
 let buffer = new ArrayBuffer(4000);
 ```
 
-Eine Funktion, die den Reader verwendet, wird unten gezeigt. Diese ruft die `read()`-Methode rekursiv auf, um Daten in den Puffer zu lesen. Die Methode nimmt ein [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [typisierte Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), das eine Ansicht über den Teil des ursprünglichen Array-Puffers ist, der noch nicht beschrieben wurde. Die Parameter der Ansicht werden aus den Daten berechnet, die in vorherigen Aufrufen empfangen wurden und einen Offset im ursprünglichen Array-Puffer definieren.
+Eine Funktion, die den Leser verwendet, wird unten gezeigt. Diese ruft rekursiv die `read()`-Methode auf, um Daten in den Puffer zu lesen. Die Methode nimmt ein [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [typed array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), welches eine Ansicht über den Teil des ursprünglichen Array-Buffers ist, der noch nicht beschrieben wurde. Die Parameter der Ansicht werden anhand der in vorherigen Aufrufen empfangenen Daten berechnet, die einen Offset in den ursprünglichen Array-Buffer definieren.
 
 ```js
 readStream(reader);
@@ -110,7 +110,7 @@ function readStream(reader) {
 }
 ```
 
-Wenn keine Daten mehr im Strom vorhanden sind, erfüllt sich die `read()`-Methode mit einem Objekt, dessen Eigenschaft `done` auf `true` gesetzt ist, und die Funktion kehrt zurück.
+Wenn keine weiteren Daten im Stream vorhanden sind, wird die `read()`-Methode mit einem Objekt mit der Eigenschaft `done`, die auf `true` gesetzt ist, erfüllt, und die Funktion gibt zurück.
 
 ## Spezifikationen
 
@@ -122,5 +122,5 @@ Wenn keine Daten mehr im Strom vorhanden sind, erfüllt sich die `read()`-Method
 
 ## Siehe auch
 
-- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader)-Konstruktor
+- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
 - [Using readable byte stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

@@ -8,10 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`keyboard`**-Eigenschaft
-der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`Keyboard`](/de/docs/Web/API/Keyboard)-Objekt zurück,
-das Zugriff auf Funktionen bietet, die Tastaturlayout-Karten abrufen und das Erfassen von Tasteneingaben
-von der physischen Tastatur umschalten.
+Die schreibgeschützte Eigenschaft **`keyboard`** des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`Keyboard`](/de/docs/Web/API/Keyboard)-Objekt zurück, das Zugriff auf Funktionen bietet, um Tastaturlayoutkarten abzurufen und das Erfassen von Tastendrücken von der physischen Tastatur umzuschalten.
 
 ## Wert
 

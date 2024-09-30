@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{securecontext_header}}
 
-Die **`caches`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist.
-Dieses Objekt ermöglicht Funktionen wie das Speichern von Assets für die Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
+Die schreibgeschützte **`caches`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen für die Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
 
 ## Wert
 

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die `updateTiming()`-Methode der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle aktualisiert die angegebenen Timing-Eigenschaften für einen Animationseffekt.
+Die `updateTiming()`-Methode der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle aktualisiert die angegebenen Zeiteigenschaften für einen Animationseffekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ updateTiming(timing)
 ### Parameter
 
 - `timing` {{optional_inline}}
-  - : Ein Objekt, das null oder mehr der Eigenschaften aus dem Rückgabewert von [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming) enthält und die zu aktualisierenden Timing-Eigenschaften darstellt.
+  - : Ein Objekt, das null oder mehr der Eigenschaften aus dem Rückgabewert von [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming) enthält, die die zu aktualisierenden Zeiteigenschaften darstellen.
 
 ### Rückgabewert
 
@@ -28,13 +28,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ungültige Werte für eine der Timing-Eigenschaften angegeben werden.
+  - : Wird ausgelöst, wenn ungültige Werte für eine der Zeiteigenschaften angegeben werden.
 
 ### Beispiele
 
-#### Nebeneffekte
+#### Seiteneffekte
 
-`updateTiming()` kann dazu führen, dass eine zugeordnete [`Animation`](/de/docs/Web/API/Animation) startet oder stoppt, wenn zum Beispiel der Effekt einer laufenden Animation so verkürzt wird, dass ihre Endzeit vor [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt, oder der Effekt einer abgeschlossenen Animation so verlängert wird, dass ihre Endzeit nach [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt.
+`updateTiming()` kann dazu führen, dass eine zugehörige [`Animation`](/de/docs/Web/API/Animation) beginnt oder aufhört zu spielen, wenn beispielsweise der Effekt einer laufenden Animation verkürzt wird, sodass seine Endzeit vor der [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt oder der Effekt einer beendeten Animation verlängert wird, sodass seine Endzeit nach der [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt.
 
 ```js
 const animation = document.body.animate([], { duration: 1000 });

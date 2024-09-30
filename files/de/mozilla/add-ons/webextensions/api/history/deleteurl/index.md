@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt alle Besuche der angegebenen URL aus dem Browser-Verlauf.
+Entfernt alle Besuche der angegebenen URL aus dem Browserverlauf.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -38,7 +38,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird o
 
 ## Beispiele
 
-Entfernen Sie alle Besuche von "https://example.org/" aus dem Verlauf und überprüfen Sie, dass diese URL nicht mehr von {{WebExtAPIRef("history.search()")}} zurückgegeben wird:
+Entfernen Sie alle Besuche von "https\://example.org/" aus dem Verlauf und überprüfen Sie dann, dass diese URL nicht mehr von {{WebExtAPIRef("history.search()")}} zurückgegeben wird:
 
 ```js
 let urlToRemove = "https://example.org/";
@@ -65,7 +65,7 @@ let deletingUrl = browser.history.deleteUrl({ url: urlToRemove });
 deletingUrl.then(onRemoved);
 ```
 
-Entfernen Sie die zuletzt besuchte Seite aus dem Verlauf, mit einem Listener für {{WebExtAPIRef("history.onVisitRemoved")}}, um die URL der entfernten Seite zu protokollieren:
+Entfernen Sie die zuletzt besuchte Seite aus dem Verlauf mit einem Listener für {{WebExtAPIRef("history.onVisitRemoved")}}, um die URL der entfernten Seite zu protokollieren:
 
 ```js
 function onRemoved(removeInfo) {
@@ -95,7 +95,7 @@ searching.then(onGot);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteUrl) API von Chromium. Diese Dokumentation wird aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteUrl) API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

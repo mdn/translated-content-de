@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`DeviceMotionEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) bietet Webentwicklern Informationen über die Geschwindigkeit von Änderungen der Position und Ausrichtung des Geräts.
+Die **`DeviceMotionEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) bietet Webentwicklern Informationen über die Geschwindigkeit der Änderungen der Position und Orientierung des Geräts.
 
 > [!WARNING]
-> Derzeit behandeln Firefox und Chrome die Koordinaten nicht auf dieselbe Weise. Achten Sie darauf, wenn Sie sie verwenden.
+> Derzeit behandeln Firefox und Chrome die Koordinaten nicht auf die gleiche Weise. Seien Sie vorsichtig bei der Verwendung.
 
 {{InheritanceDiagram}}
 
@@ -24,11 +24,11 @@ Die **`DeviceMotionEvent`**-Schnittstelle der [Device Orientation Events](/de/do
 - [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) {{ReadOnlyInline}}
   - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z mit dem Einfluss der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
+  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z unter Berücksichtigung der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Änderungsrate der Ausrichtung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
+  - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen Alpha, Beta und Gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
 - [`DeviceMotionEvent.interval`](/de/docs/Web/API/DeviceMotionEvent/interval) {{ReadOnlyInline}}
-  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem Daten vom Gerät abgerufen werden.
+  - : Eine Zahl, die das Intervall in Millisekunden darstellt, in dem Daten vom Gerät abgerufen werden.
 
 ## Beispiel
 

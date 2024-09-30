@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **XMLHttpRequest.readyState**-Eigenschaft gibt den Zustand zurück, in dem sich ein `XMLHttpRequest`-Client befindet. Ein XHR-Client kann sich in einem der folgenden Zustände befinden:
+Die **XMLHttpRequest.readyState**-Eigenschaft gibt den Zustand an, in dem sich ein XMLHttpRequest-Client befindet. Ein XHR-Client existiert in einem der folgenden Zustände:
 
-| Wert | Zustand            | Beschreibung                                                     |
-| ---- | ------------------ | ---------------------------------------------------------------- |
-| `0`  | `UNSENT`           | Client wurde erstellt. `open()` wurde noch nicht aufgerufen.     |
-| `1`  | `OPENED`           | `open()` wurde aufgerufen.                                       |
-| `2`  | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar. |
-| `3`  | `LOADING`          | Herunterladen; `responseText` enthält teilweise Daten.           |
-| `4`  | `DONE`             | Der Vorgang ist abgeschlossen.                                   |
+| Wert  | Zustand            | Beschreibung                                                    |
+| ----- | ------------------ | --------------------------------------------------------------- |
+| `0`   | `UNSENT`           | Der Client wurde erstellt. `open()` wurde noch nicht aufgerufen.|
+| `1`   | `OPENED`           | `open()` wurde aufgerufen.                                      |
+| `2`   | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar.|
+| `3`   | `LOADING`          | Wird heruntergeladen; `responseText` enthält teilweise Daten.   |
+| `4`   | `DONE`             | Der Vorgang ist abgeschlossen.                                  |
 
 - UNSENT
-  - : Der `XMLHttpRequest`-Client wurde erstellt, aber die Methode `open()` wurde noch nicht aufgerufen.
+  - : Der XMLHttpRequest-Client wurde erstellt, aber die open()-Methode wurde noch nicht aufgerufen.
 - OPENED
-  - : Die Methode `open()` wurde aufgerufen. In diesem Zustand können die Anforderungsheader mit der Methode [setRequestHeader()](/de/docs/Web/API/XMLHttpRequest/setRequestHeader) gesetzt werden, und die Methode [send()](/de/docs/Web/API/XMLHttpRequest/send) kann aufgerufen werden, um den Abruf zu starten.
+  - : Die open()-Methode wurde aufgerufen. Während dieses Zustands können die Anfrage-Header mit der [setRequestHeader()]-Methode(/de/docs/Web/API/XMLHttpRequest/setRequestHeader) gesetzt werden und die [send()]-Methode(/de/docs/Web/API/XMLHttpRequest/send) kann aufgerufen werden, die den Abruf initiieren wird.
 - HEADERS_RECEIVED
-  - : `send()` wurde aufgerufen, alle Weiterleitungen (falls vorhanden) wurden gefolgt und die Antwort-Header wurden empfangen.
+  - : send() wurde aufgerufen, alle Weiterleitungen (falls vorhanden) wurden verfolgt und die Antwort-Header wurden empfangen.
 - LOADING
-  - : Der Körper der Antwort wird empfangen. Wenn [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) "text" oder ein leerer String ist, enthält [`responseText`](/de/docs/Web/API/XMLHttpRequest/responseText) den teilweise geladenen Text der Antwort.
+  - : Der Körper der Antwort wird empfangen. Wenn [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) "text" oder leer ist, enthält [`responseText`](/de/docs/Web/API/XMLHttpRequest/responseText) den teilweise geladenen Text der Antwort.
 - DONE
-  - : Der Abrufvorgang ist abgeschlossen. Dies kann bedeuten, dass entweder der Datentransfer erfolgreich abgeschlossen oder fehlgeschlagen ist.
+  - : Der Abrufvorgang ist abgeschlossen. Das kann bedeuten, dass der Datentransfer entweder erfolgreich abgeschlossen oder fehlgeschlagen ist.
 
 ## Beispiel
 

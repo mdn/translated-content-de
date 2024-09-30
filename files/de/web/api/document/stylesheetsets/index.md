@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte **`styleSheetSets`**-Eigenschaft gibt eine aktuelle Liste aller derzeit verfügbaren Style-Sheet-Sets zurück.
+Die **`styleSheetSets`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die eine Live-Liste aller derzeitig verfügbaren Style Sheet Sets zurückgibt.
 
 ## Wert
 
-Eine Liste der verfügbaren Style-Sheet-Sets.
+Eine Liste der verfügbaren Style Sheet Sets.
 
 ## Beispiele
 
-Angenommen, es gibt ein {{HTMLElement("ul")}} (Listen-)Element mit der ID "sheetList", so können Sie es mit den Namen aller verfügbaren Style-Sheet-Sets mit einem Code wie diesem füllen:
+Für ein {{HTMLElement("ul")}} (Listen-)Element mit der ID "sheetList" können Sie es mit den Namen aller verfügbaren Style Sheet Sets wie folgt befüllen:
 
 ```js
 const list = document.getElementById("sheetList");
@@ -33,7 +33,7 @@ for (const sheet of sheets) {
 
 ## Hinweise
 
-Die Liste der verfügbaren Style-Sheet-Sets wird erstellt, indem alle für das Dokument verfügbaren Style-Sheets in der Reihenfolge, in der sie im Attribut [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) aufgeführt sind, aufgezählt werden und der `title` jedes Style-Sheets, das einen Titel hat, der Liste hinzugefügt wird. Duplikate werden aus der Liste entfernt (unter Verwendung eines groß- und kleinschreibungssensitiven Vergleichs).
+Die Liste der verfügbaren Style Sheet Sets wird erstellt, indem alle für das Dokument verfügbaren Stylesheets aufgelistet werden, in der Reihenfolge, in der sie im [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Attribut gelistet sind. Der `title` jedes Stylesheets, das einen Titel hat, wird zur Liste hinzugefügt. Duplikate werden aus der Liste entfernt (unter Verwendung eines Groß-Klein-Schreibungssensitiven Vergleichs).
 
 ## Browser-Kompatibilität
 

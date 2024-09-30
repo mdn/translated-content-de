@@ -9,9 +9,9 @@ l10n:
 {{ APIRef("HTML DOM") }} {{deprecated_header}}
 
 > [!NOTE]
-> Diese Eigenschaft wurde als veraltet von der W3C-technischen Empfehlung für HTML 4.01 erklärt, zugunsten der Verwendung der DTD zur Ermittlung von Versionsinformationen eines Dokuments.
+> Diese Eigenschaft wurde von der W3C technischen Empfehlung für HTML 4.01 als veraltet erklärt, zugunsten der Verwendung der DTD, um Versionsinformationen für ein Dokument zu erhalten.
 
-Gibt Versionsinformationen über die Dokumenttypdefinition (DTD) eines Dokuments zurück. Während diese Eigenschaft von Mozilla erkannt wird, ist der Rückgabewert dieser Eigenschaft immer eine leere Zeichenkette.
+Gibt Versionsinformationen über die Dokumenttyp-Definition (DTD) eines Dokuments zurück. Während diese Eigenschaft von Mozilla erkannt wird, ist der Rückgabewert für diese Eigenschaft immer eine leere Zeichenkette.
 
 ## Spezifikationen
 

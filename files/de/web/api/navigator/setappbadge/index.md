@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die Methode **`setAppBadge()`** der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle setzt ein Abzeichen auf das mit dieser App verknüpfte Symbol. Wenn ein Wert an die Methode übergeben wird, wird dieser als Wert des Abzeichens gesetzt. Andernfalls wird das Abzeichen als Punkt oder ein anderes vom System definiertes Indikator angezeigt.
+Die **`setAppBadge()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle setzt ein Abzeichen auf das mit dieser App verbundene Symbol. Wenn ein Wert an die Methode übergeben wird, wird dieser als Wert des Abzeichens festgelegt. Andernfalls wird das Abzeichen als Punkt oder ein anderes vom System definiertes Symbol angezeigt.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Richtlinie](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 

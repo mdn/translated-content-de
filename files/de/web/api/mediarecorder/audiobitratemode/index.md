@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}{{SeeCompatTable}}
 
-Die **`audioBitrateMode`** schreibgeschützte Eigenschaft des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den Bitratenmodus zurück, der zur Kodierung von Audiospuren verwendet wird.
+Die schreibgeschützte **`audioBitrateMode`**-Eigenschaft des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den Bitratenmodus zurück, der zur Kodierung von Audiotracks verwendet wird.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Einer der folgenden:
 - `constant`
   - : Der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) kodiert mit dieser konstanten Bitrate.
 - `variable`
-  - : Der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) kodiert mit dieser variablen Bitrate, wodurch mehr Platz für komplexe Signale und weniger Platz für weniger komplexe Signale verwendet wird.
+  - : Der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) kodiert mit dieser variablen Bitrate, wodurch mehr Platz für komplexe Signale und weniger Platz für weniger komplexe Signale genutzt wird.
 
 ## Spezifikationen
 

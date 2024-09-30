@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ermittelt den Titel der Page Action.
+Ruft den Titel der Seiteaktion ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,11 +26,11 @@ let gettingTitle = browser.pageAction.getTitle(
   - : `object`.
 
     - `tabId`
-      - : `integer`. Die ID des Tabs, der die Page Action enthält, deren Titel Sie ermitteln möchten.
+      - : `integer`. Die ID des Tab, der die Seiteaktion enthält, deren Titel Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Page Action enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Seiteaktion enthält.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel protokolliert den Titel der Page Action, wenn der Benutzer auf ihr Symbol klickt:
+Dieses Beispiel protokolliert den Titel der Seiteaktion, wenn der Benutzer auf ihr Icon klickt:
 
 ```js
 function gotTitle(title) {
@@ -56,7 +56,7 @@ browser.pageAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getTitle) API von Chromium. Diese Dokumentation wurde von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getTitle) API von Chromium. Diese Dokumentation leitet sich von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

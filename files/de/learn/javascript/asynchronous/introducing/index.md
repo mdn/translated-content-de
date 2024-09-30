@@ -7,38 +7,38 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/JavaScript/Asynchronous/Promises", "Learn/JavaScript/Asynchronous")}}
 
-In diesem Artikel erläutern wir, was asynchrones Programmieren ist, warum wir es brauchen, und besprechen kurz einige der Methoden, wie asynchrone Funktionen historisch in JavaScript implementiert wurden.
+In diesem Artikel erklären wir, was asynchrones Programmieren ist, warum wir es benötigen und diskutieren kurz einige der Methoden, wie asynchrone Funktionen historisch in JavaScript implementiert wurden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Ein gutes Verständnis der JavaScript-Grundlagen, einschließlich Funktionen und Ereignis-Handler.
+        Ein angemessenes Verständnis der grundlegenden JavaScript-Konzepte, einschließlich Funktionen und Ereignishandler.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein Verständnis darüber zu erlangen, was asynchrones JavaScript ist, wie es sich von synchronem JavaScript unterscheidet und warum wir es benötigen.
+        Vertrautheit mit asynchronem JavaScript zu erlangen, den Unterschied zu synchronem JavaScript zu verstehen und zu erkennen, warum wir es benötigen.
       </td>
     </tr>
   </tbody>
 </table>
 
-Asynchrones Programmieren ist eine Technik, die es Ihrem Programm ermöglicht, eine potenziell langwierige Aufgabe zu starten und dennoch auf andere Ereignisse zu reagieren, während diese Aufgabe ausgeführt wird, anstatt darauf warten zu müssen, bis die Aufgabe abgeschlossen ist. Sobald diese Aufgabe abgeschlossen ist, wird Ihrem Programm das Ergebnis präsentiert.
+Asynchrones Programmieren ist eine Technik, die es Ihrem Programm ermöglicht, eine potenziell langlaufende Aufgabe zu starten und gleichzeitig auf andere Ereignisse zu reagieren, während diese Aufgabe ausgeführt wird, anstatt warten zu müssen, bis diese Aufgabe abgeschlossen ist. Sobald die Aufgabe abgeschlossen ist, wird Ihrem Programm das Ergebnis präsentiert.
 
-Viele von Browsern bereitgestellte Funktionen, insbesondere die interessantesten, können potenziell lange dauern und sind daher asynchron. Zum Beispiel:
+Viele Funktionen, die von Browsern bereitgestellt werden, insbesondere die interessantesten, können potenziell lange dauern und sind daher asynchron. Zum Beispiel:
 
 - HTTP-Anfragen mit [`fetch()`](/de/docs/Web/API/Window/fetch) durchführen
-- Auf die Kamera oder das Mikrofon eines Benutzers mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zugreifen
-- Einen Benutzer auswählen lassen, welche Dateien er verwenden möchte, mit [`showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker)
+- Zugriff auf die Kamera oder das Mikrofon eines Benutzers mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
+- Benutzer auffordern, Dateien mit [`showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) auszuwählen
 
-Auch wenn Sie vielleicht nicht sehr häufig eigene asynchrone Funktionen implementieren müssen, werden Sie mit großer Wahrscheinlichkeit lernen müssen, diese korrekt zu nutzen.
+Auch wenn Sie möglicherweise nicht sehr oft Ihre eigenen asynchronen Funktionen _implementieren_ müssen, ist es sehr wahrscheinlich, dass Sie sie korrekt _verwenden_ müssen.
 
-In diesem Artikel beginnen wir damit, das Problem mit langandauernden synchronen Funktionen zu betrachten, die asynchrones Programmieren notwendig machen.
+In diesem Artikel beginnen wir mit der Betrachtung des Problems mit langlaufenden synchronen Funktionen, die asynchrones Programmieren notwendig machen.
 
-## Synchrones Programmieren
+## Synchrone Programmierung
 
 Betrachten Sie den folgenden Code:
 
@@ -53,11 +53,11 @@ Dieser Code:
 
 1. Deklariert eine Zeichenkette namens `name`.
 2. Deklariert eine weitere Zeichenkette namens `greeting`, die `name` verwendet.
-3. Gibt den Gruß in der JavaScript-Konsole aus.
+3. Gibt die Begrüßung in der JavaScript-Konsole aus.
 
-Wir sollten hier festhalten, dass der Browser das Programm effektiv Zeile für Zeile durcharbeitet, in der Reihenfolge, in der wir es geschrieben haben. An jedem Punkt wartet der Browser darauf, dass die Zeile ihre Arbeit beendet, bevor er zur nächsten Zeile übergeht. Er muss dies tun, da jede Zeile von der zuvor geleisteten Arbeit abhängt.
+Wir sollten hier beachten, dass der Browser das Programm effektiv Schritt für Schritt durchläuft, in der Reihenfolge, in der wir es geschrieben haben. An jedem Punkt wartet der Browser darauf, dass die Zeile ihre Arbeit beendet, bevor er zur nächsten Zeile weitergeht. Er muss dies tun, weil jede Zeile von der Arbeit abhängt, die in den vorhergehenden Zeilen erledigt wurde.
 
-Das macht dies zu einem **synchronen Programm**. Es wäre immer noch synchron, selbst wenn wir eine separate Funktion aufrufen würden, wie in diesem Beispiel:
+Das macht dieses Programm zu einem **synchronen Programm**. Es wäre immer noch synchron, selbst wenn wir eine separate Funktion aufrufen würden, wie hier:
 
 ```js
 function makeGreeting(name) {
@@ -70,13 +70,13 @@ console.log(greeting);
 // "Hello, my name is Miriam!"
 ```
 
-Hier ist `makeGreeting()` eine **synchrone Funktion**, weil der Aufrufer darauf warten muss, dass die Funktion ihre Arbeit beendet und einen Wert zurückgibt, bevor der Aufrufer fortfahren kann.
+Hier ist `makeGreeting()` eine **synchrone Funktion**, weil der Aufrufer warten muss, bis die Funktion ihre Arbeit beendet hat und einen Wert zurückgibt, bevor der Aufrufer fortfahren kann.
 
-### Eine lang andauernde synchrone Funktion
+### Eine langlaufende synchrone Funktion
 
-Was, wenn die synchrone Funktion lange dauert?
+Was ist, wenn die synchrone Funktion lange dauert?
 
-Das folgende Programm verwendet einen sehr ineffizienten Algorithmus, um beim Klicken auf den Button "Generate primes" mehrere große Primzahlen zu erzeugen. Je höher die Anzahl von Primzahlen ist, die ein Benutzer angibt, desto länger dauert die Operation.
+Das folgende Programm verwendet einen sehr ineffizienten Algorithmus, um mehrere große Primzahlen zu generieren, wenn ein Benutzer auf die Schaltfläche „Primzahlen erzeugen“ klickt. Je höher die Anzahl der vom Benutzer angegebenen Primzahlen ist, desto länger dauert der Vorgang.
 
 ```html
 <label for="quota">Number of primes:</label>
@@ -126,15 +126,15 @@ document.querySelector("#reload").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Eine lang andauernde synchrone Funktion", 600, 120)}}
+{{EmbedLiveSample("Eine langlaufende synchrone Funktion", 600, 120)}}
 
-Versuchen Sie, auf "Generate primes" zu klicken. Je nachdem, wie schnell Ihr Computer ist, wird es wahrscheinlich ein paar Sekunden dauern, bis das Programm die Nachricht "Fertig!" anzeigt.
+Versuchen Sie, auf „Primzahlen erzeugen“ zu klicken. Abhängig davon, wie schnell Ihr Computer ist, wird es wahrscheinlich einige Sekunden dauern, bis das Programm die Meldung „Fertig!“ anzeigt.
 
-### Das Problem mit lang andauernden synchronen Funktionen
+### Das Problem mit langlaufenden synchronen Funktionen
 
-Das nächste Beispiel ist genau wie das letzte, außer dass wir ein Textfeld hinzugefügt haben, in das Sie tippen können. Dieses Mal klicken Sie auf "Generate primes" und versuchen, unmittelbar danach in das Textfeld zu tippen.
+Das nächste Beispiel ist genau wie das letzte, außer dass wir ein Textfeld hinzugefügt haben, in das Sie tippen können. Dieses Mal klicken Sie auf „Primzahlen erzeugen“ und versuchen, sofort danach in das Textfeld zu tippen.
 
-Sie werden feststellen, dass während unsere `generatePrimes()`-Funktion läuft, unser Programm völlig unresponsiv ist: Sie können nichts tippen, nichts anklicken oder sonst irgendetwas tun.
+Sie werden feststellen, dass während unsere `generatePrimes()` Funktion ausgeführt wird, unser Programm völlig unempfindlich ist: Sie können nichts eingeben, nichts anklicken oder irgendetwas anderes tun.
 
 ```html hidden
 <label for="quota">Number of primes:</label>
@@ -195,28 +195,28 @@ document.querySelector("#reload").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Das Problem mit lang andauernden synchronen Funktionen", 600, 200)}}
+{{EmbedLiveSample("Das Problem mit langlaufenden synchronen Funktionen", 600, 200)}}
 
-Der Grund hierfür ist, dass dieses JavaScript-Programm _einzelsträngig_ ist. Ein Thread ist eine Abfolge von Anweisungen, die ein Programm ausführt. Da das Programm aus einem einzigen Thread besteht, kann es immer nur eine Sache gleichzeitig tun: Wenn es also auf unseren langandauernden synchronen Aufruf wartet, kann es nichts anderes tun.
+Der Grund dafür ist, dass dieses JavaScript-Programm _einfädig_ ist. Ein Thread ist eine Folge von Anweisungen, denen ein Programm folgt. Da das Programm aus einem einzigen Thread besteht, kann es nur eine Sache gleichzeitig tun: Wenn es also auf unseren langlaufenden synchronen Aufruf wartet, um zurückzukehren, kann es nichts anderes tun.
 
 Was wir brauchen, ist eine Möglichkeit, damit unser Programm:
 
-1. Eine langwierige Operation durch Aufrufen einer Funktion beginnen kann.
-2. Diese Funktion die Operation starten und sofort zurückkehren kann, sodass unser Programm weiterhin auf andere Ereignisse reagieren kann.
-3. Die Funktion die Operation so ausführen kann, dass sie den Hauptthread nicht blockiert, z.B. indem ein neuer Thread gestartet wird.
-4. Uns das Ergebnis der Operation mitteilen kann, wenn diese schließlich abgeschlossen ist.
+1. Einen langlaufenden Vorgang durch Aufrufen einer Funktion startet.
+2. Diese Funktion den Vorgang starten und sofort zurückkehren lässt, damit unser Programm immer noch auf andere Ereignisse reagieren kann.
+3. Die Funktion den Vorgang in einer Weise ausführt, die den Haupt-Thread nicht blockiert, beispielsweise durch Starten eines neuen Threads.
+4. Uns benachrichtigt, wenn der Vorgang schließlich abgeschlossen ist.
 
-Genau das ermöglichen asynchrone Funktionen. Der Rest dieses Moduls erklärt, wie sie in JavaScript implementiert werden.
+Genau das ermöglichen uns asynchrone Funktionen. Der Rest dieses Moduls erklärt, wie sie in JavaScript implementiert werden.
 
-## Ereignis-Handler
+## Ereignishandler
 
-Die eben gesehene Beschreibung von asynchronen Funktionen mag Sie an Ereignis-Handler erinnern, und wenn das der Fall ist, haben Sie recht. Ereignis-Handler sind wirklich eine Form von asynchronem Programmieren: Sie stellen eine Funktion (den Ereignis-Handler) bereit, der nicht sofort, sondern immer dann aufgerufen wird, wenn das Ereignis eintritt. Wenn "das Ereignis" "die asynchrone Operation ist abgeschlossen" ist, dann könnte dieses Ereignis verwendet werden, um den Anrufer über das Ergebnis eines asynchronen Funktionsaufrufs zu informieren.
+Die eben beschriebene Darstellung von asynchronen Funktionen könnte Sie an Ereignishandler erinnern, und wenn ja, hätten Sie recht. Ereignishandler sind wirklich eine Form des asynchronen Programmierens: Sie stellen eine Funktion zur Verfügung (den Ereignishandler), die nicht sofort aufgerufen wird, sondern immer dann, wenn das Ereignis eintritt. Wenn "das Ereignis" "der asynchrone Vorgang ist abgeschlossen" ist, könnte dieses Ereignis verwendet werden, um den Aufrufer über das Ergebnis eines asynchronen Funktionsaufrufs zu benachrichtigen.
 
-Einige frühe asynchrone APIs nutzten Ereignisse genau auf diese Weise. Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) API ermöglicht es, HTTP-Anfragen an einen entfernten Server mit JavaScript zu stellen. Da dies lange dauern kann, ist es eine asynchrone API, und Sie werden über den Fortschritt und den eventuellen Abschluss einer Anfrage benachrichtigt, indem Sie Ereignis-Listener an das `XMLHttpRequest`-Objekt anhängen.
+Einige frühe asynchrone APIs nutzten Ereignisse genau auf diese Weise. Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) API ermöglicht es Ihnen, HTTP-Anfragen an einen entfernten Server mit JavaScript zu stellen. Da dies lange dauern kann, ist es eine asynchrone API, und Sie werden über den Fortschritt und den endgültigen Abschluss einer Anforderung informiert, indem Sie Ereignis-Listener an das `XMLHttpRequest`-Objekt anhängen.
 
-Das folgende Beispiel zeigt dies in Aktion. Drücken Sie "Click to start request", um eine Anfrage zu senden. Wir erstellen eine neue [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und hören auf ihr Ereignis [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event). Der Handler protokolliert eine "Fertig!"-Nachricht zusammen mit dem Status-Code.
+Das folgende Beispiel zeigt das in Aktion. Drücken Sie "Klicken, um Anfrage zu starten", um eine Anfrage zu senden. Wir erstellen eine neue [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und hören auf ihr [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event) Ereignis. Der Handler protokolliert eine "Fertig!" Meldung zusammen mit dem Statuscode.
 
-Nachdem wir den Ereignis-Listener hinzugefügt haben, senden wir die Anfrage. Beachten Sie, dass wir danach "Started XHR request" protokollieren können: Das heißt, unser Programm kann weiterlaufen, während die Anfrage ausgeführt wird, und unser Ereignis-Handler wird aufgerufen, wenn die Anfrage abgeschlossen ist.
+Nachdem wir den Ereignis-Listener hinzugefügt haben, senden wir die Anfrage. Beachten Sie, dass wir danach "XHR-Anfrage gestartet" protokollieren können: Das heißt, unser Programm kann weiterlaufen, während die Anfrage durchgeführt wird, und unser Ereignishandler wird aufgerufen, wenn die Anfrage abgeschlossen ist.
 
 ```html
 <button id="xhr">Click to start request</button>
@@ -258,15 +258,15 @@ document.querySelector("#reload").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Ereignis-Handler", 600, 120)}}
+{{EmbedLiveSample("Ereignishandler", 600, 120)}}
 
-Dies ist genau wie die [Ereignis-Handler, die wir in einem vorherigen Modul kennengelernt haben](/de/docs/Learn/JavaScript/Building_blocks/Events), außer dass statt dem Ereignis eine Benutzeraktion, wie das Klicken eines Buttons, das Ereignis eine Änderung des Zustands eines Objekts ist.
+Das ist genau wie die [Ereignishandler, die wir in einem früheren Modul behandelt haben](/de/docs/Learn/JavaScript/Building_blocks/Events), mit dem Unterschied, dass das Ereignis keine Benutzeraktion ist, wie z.B. das Klicken eines Benutzers auf einen Button, sondern eine Zustandsänderung eines Objekts.
 
-## Callbacks
+## Rückruffunktionen
 
-Ein Ereignis-Handler ist eine spezielle Art von Callback. Ein Callback ist einfach eine Funktion, die einer anderen Funktion übergeben wird, mit der Erwartung, dass der Callback zur passenden Zeit aufgerufen wird. Wie wir gerade gesehen haben, waren Callbacks früher die Hauptweise, wie asynchrone Funktionen in JavaScript implementiert wurden.
+Ein Ereignishandler ist eine spezielle Art von Rückruffunktion. Eine Rückruffunktion ist einfach eine Funktion, die an eine andere Funktion übergeben wird, mit der Erwartung, dass die Rückruffunktion zur geeigneten Zeit aufgerufen wird. Wie wir gerade gesehen haben, waren Rückrufe früher der Hauptweg, um asynchrone Funktionen in JavaScript zu implementieren.
 
-Allerdings kann Code, der auf Callbacks basiert, schwer zu verstehen sein, wenn der Callback selbst Funktionen aufrufen muss, die einen Callback akzeptieren. Dies ist eine häufige Situation, wenn Sie eine Operation durchführen müssen, die sich in eine Reihe von asynchronen Funktionen aufteilt. Zum Beispiel, betrachten Sie das Folgende:
+Allerdings kann rückruffasierte Code schwer verständlich werden, wenn der Rückruf selbst Funktionen aufrufen muss, die einen Rückruf akzeptieren. Das ist eine häufige Situation, wenn Sie eine Operation ausführen müssen, die sich in eine Reihe von asynchronen Funktionen unterteilt. Zum Beispiel:
 
 ```js
 function doStep1(init) {
@@ -292,7 +292,7 @@ function doOperation() {
 doOperation();
 ```
 
-Hier haben wir eine einzelne Operation, die in drei Schritte unterteilt ist, wobei jeder Schritt vom letzten Schritt abhängt. In unserem Beispiel fügt der erste Schritt der Eingabe 1 hinzu, der zweite fügt 2 hinzu und der dritte fügt 3 hinzu. Ausgehend von einer Eingabe von 0 beträgt das Endergebnis 6 (0 + 1 + 2 + 3). Als synchrones Programm ist dies sehr einfach. Aber was, wenn wir die Schritte mit Callbacks implementieren?
+Hier haben wir eine einzige Operation, die in drei Schritte unterteilt ist, wobei jeder Schritt von dem letzten Schritt abhängt. In unserem Beispiel addiert der erste Schritt 1 zur Eingabe, der zweite addiert 2, und der dritte addiert 3. Beginnend mit einem Eingang von 0 ist das Endergebnis 6 (0 + 1 + 2 + 3). Als synchrones Programm ist dies sehr geradlinig. Aber was, wenn wir die Schritte mit Rückrufen implementieren?
 
 ```js
 function doStep1(init, callback) {
@@ -323,10 +323,10 @@ function doOperation() {
 doOperation();
 ```
 
-Da wir Callbacks innerhalb von Callbacks aufrufen müssen, erhalten wir eine tief verschachtelte `doOperation()`-Funktion, die viel schwieriger zu lesen und zu debuggen ist. Dies wird manchmal als "Callback-Hölle" oder die "Pyramide des Schreckens" bezeichnet (weil die Einrückung wie eine Pyramide auf der Seite aussieht).
+Weil wir Rückrufe innerhalb von Rückrufen aufrufen müssen, erhalten wir eine tief verschachtelte `doOperation()`-Funktion, die viel schwerer zu lesen und zu debuggen ist. Dies wird manchmal als "Callback-Hölle" oder die "Pyramide des Schreckens" bezeichnet (weil die Einrückung wie eine umgedrehte Pyramide aussieht).
 
-Wenn wir Callbacks auf diese Weise verschachteln, kann es auch sehr schwierig werden, Fehler zu handhaben: oft müssen Sie Fehler auf jeder Ebene der "Pyramide" handhaben, anstatt nur einmal auf der höchsten Ebene Fehlerbehandlung zu haben.
+Wenn wir Rückrufe auf diese Weise verschachteln, kann es auch sehr schwierig werden, Fehler zu behandeln: Oft müssen Sie Fehler auf jeder Ebene der "Pyramide" behandeln, anstatt nur einmal auf der obersten Ebene die Fehlerbehandlung vorzunehmen.
 
-Aus diesen Gründen verwenden die meisten modernen asynchronen APIs keine Callbacks mehr. Stattdessen ist das Fundament des asynchronen Programmierens in JavaScript das {{jsxref("Promise")}}, und das ist das Thema des nächsten Artikels.
+Aus diesen Gründen verwenden die meisten modernen asynchronen APIs keine Rückrufe mehr. Stattdessen bildet das Fundament der asynchronen Programmierung in JavaScript das {{jsxref("Promise")}}, und das ist das Thema des nächsten Artikels.
 
 {{NextMenu("Learn/JavaScript/Asynchronous/Promises", "Learn/JavaScript/Asynchronous")}}

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`sessionId`**-Eigenschaft der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle enthält eine eindeutige Zeichenkette, die vom Content Decryption Module (CDM) für das aktuelle Medienobjekt und seine zugehörigen Schlüssel oder Lizenzen generiert wird.
+Die **`sessionId`**-Eigenschaft des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces ist schreibgeschützt und enthält eine eindeutige Zeichenfolge, die vom Content Decryption Module (CDM) für das aktuelle Medienobjekt und seine zugehörigen Schlüssel oder Lizenzen generiert wird.
 
 ## Wert
 
-Ein Zeichenkette.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 

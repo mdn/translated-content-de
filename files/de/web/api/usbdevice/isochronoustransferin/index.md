@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`isochronousTransferIn()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBIsochronousInTransferResult`](/de/docs/Web/API/USBIsochronousInTransferResult) aufgelöst wird, wenn zeitkritische Informationen an das USB-Gerät übertragen wurden (empfangen wurden).
+Die **`isochronousTransferIn()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird mit einem [`USBIsochronousInTransferResult`](/de/docs/Web/API/USBIsochronousInTransferResult), wenn zeitkritische Informationen an das USB-Gerät übertragen wurden (empfangen wurden).
 
 ## Syntax
 
@@ -25,7 +25,7 @@ isochronousTransferIn(endpointNumber, packetLengths)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`USBIsochronousInTransferResult`](/de/docs/Web/API/USBIsochronousInTransferResult) aufgelöst wird.
+Ein {{jsxref("Promise")}}, das aufgelöst wird mit einem [`USBIsochronousInTransferResult`](/de/docs/Web/API/USBIsochronousInTransferResult).
 
 ## Spezifikationen
 

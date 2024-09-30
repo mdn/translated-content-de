@@ -1,5 +1,5 @@
 ---
-title: "OES_draw_buffers_indexed: blendFuncSeparateiOES() Methode"
+title: "OES_draw_buffers_indexed: blendFuncSeparateiOES()-Methode"
 short-title: blendFuncSeparateiOES()
 slug: Web/API/OES_draw_buffers_indexed/blendFuncSeparateiOES
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `blendFuncSeparateiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung definiert, welche Funktion verwendet wird, wenn Pixel für RGB- und Alpha-Komponenten separat für einen bestimmten Zeichenpuffer gemischt werden.
+Die `blendFuncSeparateiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung definiert, welche Funktion verwendet wird, wenn RGB- und Alphakomponenten eines bestimmten Zeichenpuffers getrennt gemischt werden.
 
-Siehe [`OES_draw_buffers_indexed.blendFunciOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendFunciOES) für das Setzen von RGB und Alpha zusammen und [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) für die WebGL 1 Version dieser Methode.
+Siehe [`OES_draw_buffers_indexed.blendFunciOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendFunciOES) für das gleichzeitige Setzen von RGB und Alpha und [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) für die WebGL 1-Version dieser Methode.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ blendFuncSeparateiOES(buf, srcRGB, dstRGB, srcAlpha, dstAlpha)
 ### Parameter
 
 - `buf`
-  - : Eine ganze Zahl `i`, die den Zeichenpuffer spezifiziert, der mit der Konstante `gl.DRAW_BUFFERi` assoziiert ist. Siehe [WebGL Zeichenpufferkonstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Ein ganzzahliger `i`, der den Zeichenpuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist. Siehe [WebGL-Zeichenpuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 - `srcRGB`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die rot-, grün- und blau- (RGB) Quellmischfaktoren spezifiziert. Akzeptiert die gleichen Enums wie der `srcRGB`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die Rot-, Grün- und Blau- (RGB) Quell-Mischfaktoren angibt. Akzeptiert die gleichen Enums wie der `srcRGB`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
 - `dstRGB`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die rot-, grün- und blau- (RGB) Zielmischfaktoren spezifiziert. Akzeptiert die gleichen Enums wie der `dstRGB`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die Rot-, Grün- und Blau- (RGB) Ziel-Mischfaktoren angibt. Akzeptiert die gleichen Enums wie der `dstRGB`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
 - `srcAlpha`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Quellmischfaktor spezifiziert. Akzeptiert die gleichen Enums wie der `srcAlpha`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Quell-Mischfaktor angibt. Akzeptiert die gleichen Enums wie der `srcAlpha`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
 - `dstAlpha`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Zielmischfaktor spezifiziert. Akzeptiert die gleichen Enums wie der `srcAlpha`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Ziel-Mischfaktor angibt. Akzeptiert die gleichen Enums wie der `srcAlpha`-Parameter in [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate).
 
 ### Rückgabewert
 
@@ -39,13 +39,13 @@ Keiner ({{jsxref("undefined")}}).
 
 - Wenn `buf` kein gültiger Wert ist, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
 - Wenn `srcRGB`, `dstRGB`, `srcAlpha` oder `dstAlpha` nicht einer der möglichen Werte sind, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
-- Die gleichen Mischbeschränkungen wie für [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) gelten: Wenn eine konstante Farbe und ein konstanter Alpha-Wert zusammen als Quell- und Zielwerte verwendet werden, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
+- Die gleichen Einschränkungen des Blendings wie für [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) gelten: Wenn eine konstante Farbe und ein konstanter Alphawert gemeinsam als Quell- und Zielfaktoren verwendet werden, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
 
 ## Beispiele
 
-### Einstellen und Abfragen der Mischfunktionen
+### Setzen und Abfragen der Mischfunktionen
 
-Im folgenden Beispiel werden die Mischfunktionen für die Zeichenpuffer `gl.DRAW_BUFFER0` (Aufruf, bei dem `buf` 0 ist) und `gl.DRAW_BUFFER1` (Aufruf, bei dem `buf` 1 ist) festgelegt.
+Das folgende Beispiel setzt die Mischfunktionen für die Zeichenpuffer `gl.DRAW_BUFFER0` (Aufruf, bei dem `buf` 0 ist) und `gl.DRAW_BUFFER1` (Aufruf, bei dem `buf` 1 ist).
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -60,7 +60,7 @@ ext.blendFuncSeparateiOES(
 );
 ```
 
-Um die Mischfunktionen für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzufragen, verwenden Sie die Konstanten `BLEND_SRC_RGB`, `BLEND_SRC_ALPHA`, `BLEND_DST_RGB` und `BLEND_DST_ALPHA` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter):
+Um die Mischfunktionen für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` zu erhalten, verwenden Sie die Abfrage der Konstanten `BLEND_SRC_RGB`, `BLEND_SRC_ALPHA`, `BLEND_DST_RGB` und `BLEND_DST_ALPHA` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter):
 
 ```js
 // For gl.DRAW_BUFFER0

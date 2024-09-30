@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`BluetoothRemoteGATTCharacteristic.uuid`**-Eigenschaft gibt einen String zurück, der die UUID der Eigenschaft enthält, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für die Herzfrequenzmessungseigenschaft.
+Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTCharacteristic.uuid`** gibt einen String zurück, der die UUID der Eigenschaft enthält, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für die Herzfrequenzmessungs-Eigenschaft.
 
 ## Wert
 

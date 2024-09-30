@@ -8,20 +8,21 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `Q`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Double, das einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor), oder _Gütefaktor_, darstellt.
+Die `Q`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Double, das einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor) oder _Qualitätsfaktor_ darstellt.
 
-Es handelt sich um einen dimensionslosen Wert mit einem Standardwert von `1` und einem nominalen Bereich von `0.0001` bis `1000`.
+Es ist ein dimensionsloser Wert mit einem Standardwert von `1` und einem nominalen Bereich von `0,0001` bis `1000`.
 
 ## Wert
 
 Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, nicht schreibgeschützt.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der von ihm dargestellte Wert dies nicht.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filterknotens. Für vollständigere umgesetzte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filterknotens.
+Für vollständigere angewandte Beispiele/Informationen, schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
@@ -65,4 +66,4 @@ biquadFilter.gain.value = 25;
 
 ## Siehe auch
 
-- [Verwendung des Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

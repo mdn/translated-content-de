@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Native Client-Architektur. Diese kann auf einigen Plattformen von der arch abweichen.
+Die Architektur des Native Client. Diese kann bei einigen Plattformen von `arch` abweichen.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"arm"`, `"x86-32"`, `"x86-64"`.
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind: `"arm"`, `"x86-32"`, `"x86-64"`.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"arm"`, `"x86-32"`,
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf dem [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformNaclArch) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformNaclArch) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

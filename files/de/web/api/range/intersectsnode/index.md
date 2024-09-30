@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.intersectsNode()`**-Methode gibt einen booleschen Wert zurück, der angibt, ob der angegebene [`Node`](/de/docs/Web/API/Node) den [`Range`](/de/docs/Web/API/Range) schneidet.
+Die **`Range.intersectsNode()`** Methode gibt einen booleschen Wert zurück, der angibt, ob der gegebene [`Node`](/de/docs/Web/API/Node) den [`Range`](/de/docs/Web/API/Range) schneidet.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ intersectsNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), mit dem der [`Range`](/de/docs/Web/API/Range) verglichen werden soll.
 
 ### Rückgabewert
 

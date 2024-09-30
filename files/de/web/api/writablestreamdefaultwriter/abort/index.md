@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle bricht den Stream ab und signalisiert, dass der Erzeuger nicht mehr erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle wartenden Schreibvorgänge verworfen werden.
+Die **`abort()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle bricht den Stream ab und signalisiert, dass der Producer den Stream nicht mehr erfolgreich beschreiben kann. Der Stream wird sofort in einen Fehlerzustand versetzt, wobei alle in der Warteschlange befindlichen Schreibvorgänge verworfen werden.
 
-Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie die des zugehörigen Streams ([`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)). Wenn nicht, wird ein zurückgewiesenes Versprechen zurückgegeben.
+Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie bei dem zugehörigen Stream ([`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)). Ist dies nicht der Fall, wird ein abgelehntes Versprechen zurückgegeben.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ abort(reason)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Stream abgebrochen wird, oder mit einem Fehler abgelehnt wird, falls der Writer inaktiv oder der empfangende Stream ungültig war.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Stream abgebrochen wird, oder mit einem Fehler abgelehnt wird, wenn der Writer inaktiv oder der Empfangs-Stream ungültig ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie abzubrechen versuchen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream), oder er ist gesperrt.
+  - : Der Stream, den Sie versuchen abzubrechen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream) oder ist gesperrt.
 
 ## Beispiele
 

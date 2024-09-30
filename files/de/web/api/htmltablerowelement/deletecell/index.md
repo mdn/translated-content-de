@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteCell()`** Methode des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces entfernt eine spezifische Tabellenzelle aus einem gegebenen {{htmlelement("tr")}}.
+Die **`deleteCell()`**-Methode des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces entfernt eine bestimmte Tabellenzelle aus einer gegebenen {{htmlelement("tr")}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteCell(index)
 ### Parameter
 
 - `index`
-  - : Der Zellindex der zu entfernenden Zelle. Wenn `index` `-1` ist oder der Anzahl der Zellen entspricht, wird die letzte Zelle der Zeile entfernt.
+  - : Der Zellindex der zu entfernenden Zelle. Wenn `index` `-1` ist oder gleich der Anzahl der Zellen, wird die letzte Zelle der Zeile entfernt.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn `index` größer ist als die Anzahl der Zellen oder kleiner als `-1`.
+  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zellen oder kleiner als `-1`.
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um eine neue Zelle an eine Zeile anzufügen.
+Dieses Beispiel verwendet [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um einer Zeile eine neue Zelle hinzuzufügen.
 
 ### HTML
 

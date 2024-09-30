@@ -3,13 +3,12 @@ title: "WebGL2RenderingContext: bindVertexArray()-Methode"
 short-title: bindVertexArray()
 slug: Web/API/WebGL2RenderingContext/bindVertexArray
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.bindVertexArray()`** Methode der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt an den Puffer.
+Die **`WebGL2RenderingContext.bindVertexArray()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt an den Puffer.
 
 ## Syntax
 

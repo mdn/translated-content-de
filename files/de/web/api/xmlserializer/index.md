@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("XMLSerializer")}}
 
-Das `XMLSerializer`-Interface stellt die [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString)-Methode zur Verfügung, um einen XML-String zu erstellen, der einen [DOM](/de/docs/Glossary/DOM)-Baum darstellt.
+Das `XMLSerializer`-Interface stellt die Methode [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) bereit, um eine XML-Zeichenkette zu erstellen, die einen [DOM](/de/docs/Glossary/DOM)-Baum darstellt.
 
 > [!NOTE]
-> Der resultierende XML-String muss nicht zwingend wohlgeformtes XML sein.
+> Die resultierende XML-Zeichenkette ist nicht garantiert als gut geformtes XML.
 
 ## Konstruktor
 
@@ -20,13 +20,13 @@ Das `XMLSerializer`-Interface stellt die [`serializeToString()`](/de/docs/Web/AP
 ## Instanzmethoden
 
 - [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString)
-  - : Gibt den serialisierten Teilbaum als String zurück.
+  - : Gibt den serialisierten Teilbaum einer Zeichenkette zurück.
 
 ## Beispiele
 
-### Serialisierung von XML in einen String
+### Serialisieren von XML in eine Zeichenkette
 
-Dieses Beispiel serialisiert ein ganzes Dokument in einen String, der XML enthält.
+Dieses Beispiel serialisiert ein gesamtes Dokument in eine Zeichenkette, die XML enthält.
 
 ```js
 const s = new XMLSerializer();
@@ -34,20 +34,20 @@ const str = s.serializeToString(document);
 saveXML(str);
 ```
 
-Dies beinhaltet das Erstellen eines neuen `XMLSerializer`-Objekts und anschließend das Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) an [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` repräsentiert eine Funktion, die dann den serialisierten String speichert.
+Dies umfasst das Erstellen eines neuen `XMLSerializer`-Objekts und das Übergeben des [`Document`](/de/docs/Web/API/Document), das mit [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) serialisiert wird. Dies gibt das XML-Äquivalent des Dokuments zurück. `saveXML()` repräsentiert eine Funktion, die dann die serialisierte Zeichenkette speichert.
 
 ### Einfügen von Knoten in ein DOM basierend auf XML
 
-Dieses Beispiel verwendet die [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)-Methode, um ein neues DOM-[`Node`](/de/docs/Web/API/Node) in den Body des [`Document`](/de/docs/Web/API/Document) einzufügen, basierend auf XML, das durch Serialisieren eines [`Element`](/de/docs/Web/API/Element)-Objekts erstellt wurde.
+Dieses Beispiel verwendet die Methode [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML), um einen neuen DOM-[`Node`](/de/docs/Web/API/Node) in den Body des [`Document`](/de/docs/Web/API/Document) einzufügen, basierend auf XML, das durch Serialisieren eines [`Element`](/de/docs/Web/API/Element)-Objekts erstellt wurde.
 
 > [!NOTE]
-> In der Praxis sollten Sie normalerweise stattdessen die [`importNode()`](/de/docs/Web/API/Document/importNode)-Methode aufrufen, um den neuen Knoten in das DOM zu importieren, und dann eine der folgenden Methoden aufrufen, um den Knoten zum DOM-Baum hinzuzufügen:
+> In der realen Welt sollten Sie normalerweise stattdessen die Methode [`importNode()`](/de/docs/Web/API/Document/importNode) aufrufen, um den neuen Knoten in das DOM zu importieren, und dann eine der folgenden Methoden verwenden, um den Knoten zum DOM-Baum hinzuzufügen:
 >
-> - Die [`Element.append()`](/de/docs/Web/API/Element/append)/[`Element.prepend()`](/de/docs/Web/API/Element/prepend) und [`Document.append()`](/de/docs/Web/API/Document/append)/[`Document.prepend()`](/de/docs/Web/API/Document/prepend)-Methoden.
-> - Die [`Element.replaceWith`](/de/docs/Web/API/Element/replaceWith)-Methode (um einen vorhandenen Knoten durch den neuen zu ersetzen).
-> - Die [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)-Methode.
+> - Die Methoden [`Element.append()`](/de/docs/Web/API/Element/append)/[`Element.prepend()`](/de/docs/Web/API/Element/prepend) und [`Document.append()`](/de/docs/Web/API/Document/append)/[`Document.prepend()`](/de/docs/Web/API/Document/prepend).
+> - Die Methode [`Element.replaceWith`](/de/docs/Web/API/Element/replaceWith) (um einen vorhandenen Knoten durch den neuen zu ersetzen)
+> - Die Methode [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement).
 
-Da `insertAdjacentHTML()` einen String und keinen `Node` als seinen zweiten Parameter akzeptiert, wird `XMLSerializer` zuerst verwendet, um den Knoten in einen String zu konvertieren.
+Da `insertAdjacentHTML()` eine Zeichenkette und nicht einen `Node` als zweiten Parameter akzeptiert, wird `XMLSerializer` verwendet, um den Knoten zuerst in eine Zeichenkette zu konvertieren.
 
 ```js
 const inp = document.createElement("input");
@@ -58,7 +58,7 @@ const inp_xmls = XMLS.serializeToString(inp); // First convert DOM node into a s
 document.body.insertAdjacentHTML("afterbegin", inp_xmls);
 ```
 
-Der Code erstellt ein neues {{HTMLElement("input")}}-Element, indem er [`Document.createElement()`](/de/docs/Web/API/Document/createElement) aufruft, und serialisiert es dann mit [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) in XML.
+Der Code erstellt ein neues {{HTMLElement("input")}}-Element durch Aufruf von [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und serialisiert es dann in XML mithilfe von [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString).
 
 Sobald dies geschehen ist, wird `insertAdjacentHTML()` verwendet, um das `<input>`-Element in das DOM einzufügen.
 
@@ -72,5 +72,5 @@ Sobald dies geschehen ist, wird `insertAdjacentHTML()` verwendet, um das `<input
 
 ## Siehe auch
 
-- [Parsing und Serialisierung von XML](/de/docs/Web/XML/Parsing_and_serializing_XML)
+- [Parsen und Serialisieren von XML](/de/docs/Web/XML/Parsing_and_serializing_XML)
 - [`DOMParser`](/de/docs/Web/API/DOMParser)

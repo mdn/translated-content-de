@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`fontsize()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("font")}}-Element (`<font size="...">str</font>`) einbettet, wodurch dieser String in der angegebenen Schriftgröße angezeigt wird.
+Die **`fontsize()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("font")}}-Element (`<font size="...">str</font>`) einbettet, wodurch dieser String in der angegebenen Schriftgröße angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Falle von `fontsize()` wurde das `<font>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `fontsize()` wurde das `<font>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
 
 ## Syntax
 
@@ -21,21 +21,21 @@ fontsize(size)
 ### Parameter
 
 - `size`
-  - : Eine Ganzzahl zwischen 1 und 7 oder ein String, der eine vorzeichenbehaftete Ganzzahl zwischen 1 und 7 repräsentiert.
+  - : Ein ganzzahliger Wert zwischen 1 und 7 oder ein String, der einen vorzeichenbehafteten ganzzahligen Wert zwischen 1 und 7 darstellt.
 
 ### Rückgabewert
 
-Ein String, beginnend mit einem `<font size="size">`-Start-Tag (doppelte Anführungszeichen in `size` werden durch `&quot;` ersetzt), dann der Text `str` und dann ein `</font>`-End-Tag.
+Ein String, der mit einem `<font size="size">`-Start-Tag beginnt (doppelte Anführungszeichen in `size` werden durch `&quot;` ersetzt), dann der Text `str` folgt und schließlich mit einem `</font>`-End-Tag endet.
 
 ## Beschreibung
 
-Die `fontsize()`-Methode selbst fügt die String-Teile einfach zusammen, ohne jegliche Validierung oder Normalisierung. Um jedoch gültige {{HTMLElement("font")}}-Elemente zu erstellen, setzen Sie, wenn Sie `size` als Ganzzahl angeben, die Schriftgröße von `str` auf eine der 7 definierten Größen. Sie können `size` als String wie `"-2"` oder `"+3"` angeben, um die Schriftgröße von `str` relativ zu 3, dem Standardwert, anzupassen.
+Die `fontsize()`-Methode selbst fügt einfach die String-Teile zusammen, ohne irgendeine Validierung oder Normalisierung. Um jedoch gültige {{HTMLElement("font")}}-Elemente zu erstellen, legen Sie die Schriftgröße von `str` auf eine der 7 definierten Größen fest, wenn Sie die Größe als Ganzzahl angeben. Sie können `size` als String wie `"-2"` oder `"+3"` angeben, um die Schriftgröße von `str` relativ zu 3, dem Standardwert, anzupassen.
 
 ## Beispiele
 
 ### Verwendung von fontsize()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der unten stehende Code erstellt einen HTML-String und ersetzt dann den Körper des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -43,7 +43,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.fontsize(7);
 ```
 
-Dies erzeugt folgendes HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <font size="7">Hello, world</font>
@@ -52,7 +52,7 @@ Dies erzeugt folgendes HTML:
 > [!WARNING]
 > Diese Markup ist ungültig, da `font` kein gültiges Element mehr ist.
 
-Statt `fontsize()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Sie können beispielsweise {{cssxref("font-size")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
+Anstatt `fontsize()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriften zu manipulieren. Zum Beispiel können Sie die {{cssxref("font-size")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
 
 ```js
 document.getElementById("yourElemId").style.fontSize = "7pt";

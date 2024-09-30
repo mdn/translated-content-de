@@ -1,5 +1,5 @@
 ---
-title: "AudioEncoder: flush()-Methode"
+title: "AudioEncoder: flush() Methode"
 short-title: flush()
 slug: Web/API/AudioEncoder/flush
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`**-Methode des [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
+Die **`flush()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
 
 ## Syntax
 

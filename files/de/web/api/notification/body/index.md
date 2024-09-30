@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: body-Eigenschaft"
+title: "Notification: body-Eigenschaft"
 short-title: body
 slug: Web/API/Notification/body
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`body`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt den Textkörper der Benachrichtigung an, wie in der `body`-Option des Konstruktors [`Notification()`](/de/docs/Web/API/Notification/Notification) angegeben.
+Die schreibgeschützte **`body`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt den Textkörper der Benachrichtigung an, wie in der `body`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 

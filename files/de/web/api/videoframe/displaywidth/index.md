@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`displayWidth`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Breite des `VideoFrame` nach Anwendung von Seitenverhältnis-Anpassungen zurück.
+Die **`displayWidth`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Breite des `VideoFrame` nach der Anwendung von Seitenverhältnis-Anpassungen zurück.
 
 ## Wert
 
-Ein Ganzzahlwert.
+Ein Integer.
 
 ## Beispiele
 

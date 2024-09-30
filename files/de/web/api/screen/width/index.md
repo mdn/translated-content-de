@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`Screen.width`** ausschließlich lesbare Eigenschaft gibt die Breite des Bildschirms in CSS-Pixeln zurück.
+Die schreibgeschützte Eigenschaft **`Screen.width`** gibt die Breite des Bildschirms in CSS-Pixeln zurück.
 
 ## Wert
 
@@ -23,9 +23,9 @@ if (window.screen.width >= 1024 && window.screen.height >= 768) {
 }
 ```
 
-## Hinweise
+## Anmerkungen
 
-Beachten Sie, dass nicht die gesamte von dieser Eigenschaft angegebene Breite für das Fenster selbst verfügbar sein muss. Wenn andere Widgets Platz beanspruchen, der nicht vom `window`-Objekt genutzt werden kann, gibt es einen Unterschied zwischen `window.screen.width` und `window.screen.availWidth`. Siehe auch [`screen.height`](/de/docs/Web/API/Screen/height).
+Beachten Sie, dass nicht die gesamte von dieser Eigenschaft angegebene Breite dem Fenster selbst zur Verfügung stehen muss. Wenn andere Widgets Platz beanspruchen, der vom `window`-Objekt nicht genutzt werden kann, gibt es einen Unterschied zwischen `window.screen.width` und `window.screen.availWidth`. Siehe auch [`screen.height`](/de/docs/Web/API/Screen/height).
 
 ## Spezifikationen
 

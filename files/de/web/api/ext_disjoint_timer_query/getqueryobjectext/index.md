@@ -1,5 +1,5 @@
 ---
-title: "EXT_disjoint_timer_query: getQueryObjectEXT()-Methode"
+title: "EXT_disjoint_timer_query: getQueryObjectEXT() Methode"
 short-title: getQueryObjectEXT()
 slug: Web/API/EXT_disjoint_timer_query/getQueryObjectEXT
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`EXT_disjoint_timer_query.getQueryObjectEXT()`**-Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Zustand eines
-Abfrageobjekts zurück.
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Status eines
+Query-Objekts zurück.
 
 ## Syntax
 
@@ -23,14 +23,15 @@ getQueryObjectEXT(query, pname)
 - `query`
   - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, aus dem Informationen zurückgegeben werden sollen.
 - `pname`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Muss entweder `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche Informationen zurückgegeben werden sollen. Muss
+    `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
 
 ### Rückgabewert
 
-Abhängig von `pname`:
+Hängt von `pname` ab:
 
 - Wenn `pname` `ext.QUERY_RESULT_EXT` ist: Ein
-  [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types), der das Abfrageergebnis enthält.
+  [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types), das das Abfrageergebnis enthält.
 - Wenn `pname` `ext.QUERY_RESULT_AVAILABLE_EXT` ist: Ein
   [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
 

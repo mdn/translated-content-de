@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`source`** nur-lesbare Eigenschaft der
-[`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Schnittstelle gibt eine Referenz auf das
-[`Client`](/de/docs/Web/API/Client)-Objekt zurück, von dem die Nachricht gesendet wurde.
+Die schreibgeschützte **`source`**-Eigenschaft der [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Schnittstelle gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, von dem die Nachricht gesendet wurde.
 
 ## Wert
 
-Ein [`Client`](/de/docs/Web/API/Client)-, [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)- oder [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt.
+Ein [`Client`](/de/docs/Web/API/Client), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) oder [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt.
 
 ## Beispiele
 
-Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu reagieren, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
+Wenn der folgende Code in einem Service Worker verwendet wird, um auf Push-Nachrichten zu reagieren, indem die über [`PushMessageData`](/de/docs/Web/API/PushMessageData) empfangenen Daten über eine [Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API) an den Hauptkontext gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
 
 ```js
 let port;

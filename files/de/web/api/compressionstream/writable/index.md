@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
+Die **`writable`** schreibgeschützte Eigenschaft der [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) aus einem `CompressionStream` zurück.
+Das folgende Beispiel gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) von einem `CompressionStream` zurück.
 
 ```js
 let stream = new CompressionStream("gzip");

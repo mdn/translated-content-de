@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
 
-Wenn auf `true` gesetzt, wird ein Lesezeichen, das vom Benutzer ausgewählt wird, in einem neuen Tab geöffnet. Wenn auf `false` (der Standardwert) gesetzt, werden Lesezeichen im aktuellen Tab geöffnet.
+Wenn auf `true` gesetzt, wird ein Lesezeichen, wenn vom Benutzer ausgewählt, in einem neuen Tab geöffnet. Wenn auf `false` (der Standardwert) gesetzt, werden Lesezeichen im aktuellen Tab geöffnet.
 
 ## Browser-Kompatibilität
 
@@ -17,7 +17,7 @@ Wenn auf `true` gesetzt, wird ein Lesezeichen, das vom Benutzer ausgewählt wird
 
 ## Beispiele
 
-Stellen Sie die Einstellung auf `true`:
+Einstellung auf `true` setzen:
 
 ```js
 function logResult(result) {

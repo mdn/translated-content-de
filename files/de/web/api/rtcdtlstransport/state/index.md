@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`state`**-Eigenschaft des [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Interfaces gibt Informationen, die den Zustand eines Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**) Transports beschreiben.
+Die schreibgeschützte **`state`**-Eigenschaft des [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Interfaces liefert Informationen, die den Zustand eines Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**) Transports beschreiben.
 
 ## Wert
 
 Ein String. Sein Wert ist einer der folgenden:
 
 - `new`
-  - : Der anfängliche Zustand, wenn DTLS noch nicht mit der Aushandlung begonnen hat.
+  - : Der Anfangszustand, wenn DTLS noch nicht mit der Aushandlung begonnen hat.
 - `connecting`
-  - : DTLS befindet sich im Prozess der Aushandlung einer sicheren Verbindung und der Überprüfung des Remote-Fingerabdrucks.
+  - : DTLS befindet sich im Prozess der Aushandlung einer sicheren Verbindung und der Überprüfung des entfernten Fingerabdrucks.
 - `connected`
-  - : DTLS hat die Aushandlung einer sicheren Verbindung abgeschlossen und den Remote-Fingerabdruck überprüft.
+  - : DTLS hat die Aushandlung einer sicheren Verbindung abgeschlossen und den entfernten Fingerabdruck verifiziert.
 - `closed`
-  - : Der Transport wurde absichtlich geschlossen, entweder durch den Empfang eines `close_notify`-Alarms oder durch den Aufruf von [`RTCPeerConnection.close()`](/de/docs/Web/API/RTCPeerConnection/close).
+  - : Der Transport wurde absichtlich geschlossen, entweder durch Empfang einer `close_notify`-Warnung oder durch Aufruf von [`RTCPeerConnection.close()`](/de/docs/Web/API/RTCPeerConnection/close).
 - `failed`
-  - : Der Transport ist aufgrund eines Fehlers fehlgeschlagen (wie z.B. Empfang eines Fehlalarms oder Versagen bei der Validierung des Remote-Fingerabdrucks).
+  - : Der Transport ist aufgrund eines Fehlers fehlgeschlagen (zum Beispiel durch Empfang einer Fehlerwarnung oder das Nichtbestehen der Validierung des entfernten Fingerabdrucks).
 
 ## Beispiele
 
-Siehe [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport#examples) für Beispielcode.
+Sehen Sie sich [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport#examples) für Beispielcode an.
 
 ## Spezifikationen
 
@@ -39,5 +39,5 @@ Siehe [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport#examples) für Beis
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)

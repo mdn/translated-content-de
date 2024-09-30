@@ -7,22 +7,22 @@ l10n:
 
 {{DefaultAPISidebar("Insertable Streams for MediaStreamTrack API")}}
 
-Die **Insertable Streams für MediaStreamTrack API** bietet eine Methode zum Hinzufügen neuer Komponenten zu einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
+Die **Insertable Streams für MediaStreamTrack API** bietet eine Methode, um neue Komponenten zu einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) hinzuzufügen.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Beim Verarbeiten von Video oder Audio möchten Sie manchmal zusätzliche Elemente einfügen oder den Stream anderweitig verarbeiten. Beispielsweise könnte eine Anwendung zwei Tracks kombinieren müssen, wie eine Wetterkarte und ein Video eines Moderators, der die Karte erklärt. Oder Sie möchten einen Track verarbeiten, um Hintergründe zu verwischen, Hintergrundgeräusche zu entfernen oder andere Elemente hinzuzufügen (wie das Hinzufügen von lustigen Hüten zu Personen usw.). Diese API bietet eine Methode dazu, indem sie direkten Zugriff auf den Stream gewährt, sodass dieser manipuliert werden kann.
+Beim Verarbeiten von Video- oder Audiodaten möchten Sie manchmal zusätzliche Elemente einfügen oder den Stream anderweitig verarbeiten. Zum Beispiel könnte eine Anwendung zwei Tracks beinhalten, die kombiniert werden müssen, wie eine Wetterkarte und ein Video eines Sprechers, der die Karte erklärt. Oder Sie möchten einen Track verarbeiten, um Hintergründe zu verwischen, Hintergrundgeräusche zu entfernen oder andere Elemente einzuführen (z. B. lustige Hüte auf Personen setzen usw.). Diese API bietet eine Methode, dies zu tun, indem sie direkten Zugriff auf den Stream gewährt und somit dessen Manipulation ermöglicht.
 
 ## Schnittstellen
 
 - [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator)
   - : Erstellt einen [`WritableStream`](/de/docs/Web/API/WritableStream), der als Quelle für einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) dient.
 - [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)
-  - : Nutzt die Quelle eines [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts und erzeugt einen Stream aus Medien-Frames.
+  - : Verbraucht die Quelle eines [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts und erzeugt einen Strom von Medienframes.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und zeigt eine Barcode-Scanner-Anwendung, die einen Barcode in einem Video-Stream hervorhebt. Dies transformiert den Stream, der über [`MediaStreamTrackProcessor.readable`](/de/docs/Web/API/MediaStreamTrackProcessor/readable) zugegriffen wird.
+Das folgende Beispiel stammt aus dem Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und demonstriert eine Barcode-Scanner-Anwendung, die einen Barcode in einem Videostream hervorhebt. Dies transformiert den Stream, der über [`MediaStreamTrackProcessor.readable`](/de/docs/Web/API/MediaStreamTrackProcessor/readable) abgerufen wird.
 
 ```js
 const stream = await getUserMedia({ video: true });

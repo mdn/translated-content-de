@@ -11,7 +11,7 @@ Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Abstand f�
 
 {{EmbedInteractiveExample("pages/css/shape-margin.html")}}
 
-Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Kanten der Form (dem **float-Element**) und dem umgebenden Inhalt anzupassen.
+Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Rändern der Form (dem **float-Element**) und dem umgebenden Inhalt anzupassen.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ shape-margin: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Legt den Rand der Form auf einen {{cssxref("&lt;length&gt;")}} Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenen Blocks des Elements fest.
+  - : Legt den Abstand der Form auf einen {{cssxref("&lt;length&gt;")}}-Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenen Blocks des Elements fest.
 
 ## Formale Definition
 
@@ -96,7 +96,7 @@ section {
 ## Siehe auch
 
 - [CSS Shapes](/de/docs/Web/CSS/CSS_shapes)
-- [Übersicht über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [Überblick über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-image-threshold")}}
 - {{cssxref("&lt;basic-shape&gt;")}}

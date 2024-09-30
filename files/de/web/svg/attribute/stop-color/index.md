@@ -7,19 +7,19 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`stop-color`** gibt an, welche Farbe an einem Farbverlauf-Stopp verwendet werden soll.
+Das **`stop-color`** Attribut gibt an, welche Farbe an einem Gradientenstopp verwendet werden soll.
 
 > [!NOTE]
-> In Bezug auf Verläufe behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Verläufe nicht im vorab multiplizierten Raum, daher bedeutet `transparent` tatsächlich transparentes Schwarz. Das Spezifizieren eines `stop-color`-Werts mit `transparent` entspricht dem Spezifizieren eines `stop-color`-Werts mit `black` und einem {{SVGAttr("stop-opacity")}}-Wert von `0`.
+> In Bezug auf Gradienten behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Gradienten nicht im vorab multiplizierten Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Das heißt, die Angabe eines `stop-color` mit dem Wert `transparent` entspricht der Angabe eines `stop-color` mit dem Wert `black` und einem {{SVGAttr("stop-opacity")}} mit dem Wert `0`.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-color` als CSS-Eigenschaft verwendet werden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("stop")}}
 
-## Verwendungshinweise
+## Anwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -47,11 +47,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `currentcolor`
-  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann in gleicher Weise angegeben werden wie in einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute.
+  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann in gleicher Weise wie innerhalb einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute angegeben werden.
 - `<color>`
   - : Dieser Wert gibt einen Farbwert an.
 - `<icccolor>`
-  - : Dieser Wert bezieht sich auf ein ICC-Farbprofil.
+  - : Dieser Wert bezieht sich auf ein ICC-Farbenprofil.
 
 ## Spezifikationen
 

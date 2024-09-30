@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`TreeWalker.filter`** gibt den `NodeFilter` zurück, der mit dem [`TreeWalker`](/de/docs/Web/API/TreeWalker) verknüpft ist.
+Die schreibgeschützte Eigenschaft **`TreeWalker.filter`** gibt den `NodeFilter` zurück, der mit dem [`TreeWalker`](/de/docs/Web/API/TreeWalker) verbunden ist.
 
-Beim Erstellen des `TreeWalker` wird das Filterobjekt als dritter Parameter übergeben, und seine Methode `acceptNode()` wird auf jedem einzelnen Knoten aufgerufen, um zu bestimmen, ob er akzeptiert werden soll oder nicht.
+Beim Erstellen des `TreeWalker` wird das Filterobjekt als dritter Parameter übergeben, und seine Methode `acceptNode()` wird bei jedem einzelnen Knoten aufgerufen, um zu bestimmen, ob er angenommen werden soll oder nicht.
 
 ## Wert
 
-Ein `NodeFilter`-Objekt.
+Ein `NodeFilter` Objekt.
 
 ## Beispiele
 
@@ -41,4 +41,4 @@ nodeFilter = treeWalker.filter; // document.body in this case
 
 ## Siehe auch
 
-- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker) Schnittstelle, zu der es gehört.

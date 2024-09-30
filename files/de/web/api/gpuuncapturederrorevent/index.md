@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUUncapturedErrorEvent`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Eventobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis, das für die Telemetrie und zur Meldung unerwarteter Fehler verwendet wird.
+Die **`GPUUncapturedErrorEvent`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ereignisobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice)-[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Event, das für Telemetrie und zur Meldung unerwarteter Fehler verwendet wird.
 
 Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
 
@@ -20,14 +20,14 @@ Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevic
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seiner Elternklasse, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
 
 - [`error`](/de/docs/Web/API/GPUUncapturedErrorEvent/error) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein [`GPUError`](/de/docs/Web/API/GPUError)-Objektinstanz, das Zugriff auf die Details des Fehlers bietet.
+  - : Eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts, die Zugriff auf die Details des Fehlers bietet.
 
 ## Beispiele
 
-Sie könnten so etwas wie das folgende Beispiel als globalen Mechanismus verwenden, um alle Fehler zu erfassen, die nicht durch Fehlerbereiche behandelt werden.
+Sie könnten etwas wie das Folgende als globalen Mechanismus verwenden, um alle Fehler zu erfassen, die nicht durch Fehlerbereiche behandelt werden.
 
 ```js
 // ...
@@ -55,4 +55,4 @@ device.addEventListener("uncapturederror", (event) => {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [Best Practices für die Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU-Fehlerbehandlung: Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

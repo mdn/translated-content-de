@@ -1,5 +1,5 @@
 ---
-title: "XRAnchor: delete() Methode"
+title: "XRAnchor: delete()-Methode"
 short-title: delete()
 slug: Web/API/XRAnchor/delete
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`delete()`**-Methode des [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Interfaces entfernt einen Anchor. Dies kann nützlich sein, wenn eine Anwendung nicht mehr daran interessiert ist, Aktualisierungen zu einem Anchor zu erhalten.
+Die **`delete()`**-Methode der [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Schnittstelle entfernt einen Anker. Dies kann nützlich sein, wenn eine Anwendung keine weiteren Aktualisierungen zu einem Anker mehr erhalten möchte.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Entfernen aller Anchors
+### Entfernen aller Anker
 
 ```js
 let anchorsCollection = new Set();

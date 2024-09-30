@@ -7,14 +7,14 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`translate`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [enumeriertes](/de/docs/Glossary/Enumerated) Attribut, das verwendet wird, um zu bestimmen, ob die _übersetzbaren Attributwerte_ eines Elements und dessen [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder übersetzt werden sollen, wenn die Seite lokalisiert wird, oder ob sie unverändert bleiben sollen.
+Das **`translate`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das verwendet wird, um anzugeben, ob die _übersetzbaren Attribut_-Werte eines Elements und seine [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt oder unverändert gelassen werden sollen.
 
 Es kann die folgenden Werte haben:
 
-- ein leerer String oder `yes`, was anzeigt, dass das Element übersetzt werden soll, wenn die Seite lokalisiert wird.
+- Leerzeichen oder `yes`, was anzeigt, dass das Element bei der Lokalisierung der Seite übersetzt werden soll.
 - `no`, was anzeigt, dass das Element nicht übersetzt werden darf.
 
-Obwohl nicht alle Browser dieses Attribut erkennen, wird es von automatischen Übersetzungssystemen wie Google Translate respektiert und möglicherweise auch von Werkzeugen, die von menschlichen Übersetzern verwendet werden. Daher ist es wichtig, dass Web-Autoren dieses Attribut verwenden, um Inhalte zu kennzeichnen, die nicht übersetzt werden sollen.
+Obwohl nicht alle Browser dieses Attribut erkennen, wird es von automatischen Übersetzungssystemen wie Google Translate berücksichtigt und möglicherweise auch von Werkzeugen, die von menschlichen Übersetzern verwendet werden. Daher ist es wichtig, dass Webautoren dieses Attribut verwenden, um Inhalte zu kennzeichnen, die nicht übersetzt werden sollen.
 
 ## Beispiele
 
@@ -38,5 +38,5 @@ In diesem Beispiel wird das `translate`-Attribut verwendet, um Übersetzungswerk
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 - Die [`HTMLElement.translate`](/de/docs/Web/API/HTMLElement/translate)-Eigenschaft, die dieses Attribut widerspiegelt.
-- [Verwendung des translate-Attributs in HTML](https://www.w3.org/International/questions/qa-translate-flag).
-- HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang)
+- [Verwendung des HTML `translate`-Attributs](https://www.w3.org/International/questions/qa-translate-flag).
+- HTML [`lang`](/de/docs/Web/HTML/Global_attributes#lang) Attribut

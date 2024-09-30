@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaDisabled`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)-Attributs wider, welches anzeigt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedient werden kann.
+Die **`ariaDisabled`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)-Attributs wider, das angibt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedienbar ist.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` erlaubt die Definition standardmäßiger Semantik auf einem benutzerdefinierten Element. Diese können von autordefinierten Attributen überschrieben werden, stellen aber sicher, dass die Standards, bei Löschung dieser Attribute durch den Autor oder bei dessen Unterlassung, erhalten bleiben. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungstext](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, die Standardsemantik für ein benutzerdefiniertes Element festzulegen. Diese können durch vom Autor definierte Attribute überschrieben werden, sorgen jedoch dafür, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLCollection: item() Methode"
+title: "HTMLCollection: `item()`-Methode"
 short-title: item()
 slug: Web/API/HTMLCollection/item
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Methode `item()`
-gibt das Element zurück, das an dem angegebenen Offset in der Sammlung zu finden ist.
+Die Methode `item()` der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)
+gibt das Element zurück, das sich an dem angegebenen Offset in der Sammlung befindet.
 
 > [!NOTE]
-> Da der Inhalt einer `HTMLCollection` live ist, können und werden Änderungen am zugrunde liegenden DOM die Position einzelner
-> Elemente in der Sammlung verändern, sodass der Indexwert für ein gegebenes Element nicht unbedingt konstant bleibt.
+> Da der Inhalt einer `HTMLCollection` live ist, können Änderungen am zugrunde liegenden DOM die Position einzelner Elemente in der Sammlung ändern. Daher bleibt der Indexwert für ein gegebenes Element nicht notwendigerweise konstant.
 
 ## Syntax
 
@@ -24,15 +23,15 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Die Position des [`Element`](/de/docs/Web/API/Element), das zurückgegeben werden soll. Elemente erscheinen in einer
-    `HTMLCollection` in derselben Reihenfolge, in der sie im Quelltext des Dokuments erscheinen.
+  - : Die Position des zurückzugebenden [`Element`](/de/docs/Web/API/Element). Elemente erscheinen in einer
+    `HTMLCollection` in der gleichen Reihenfolge, in der sie im Dokumentenquellcode erscheinen.
 
 ### Rückgabewert
 
-Das [`Element`](/de/docs/Web/API/Element) am angegebenen Index oder `null`, wenn
-`index` kleiner als null oder größer oder gleich der length-Eigenschaft ist.
+Das [`Element`](/de/docs/Web/API/Element) an dem angegebenen Index oder `null`, wenn
+`index` kleiner als null oder größer oder gleich der Längeneigenschaft ist.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 Die `item()`-Methode gibt ein nummeriertes Element aus einer
 `HTMLCollection` zurück. In JavaScript ist es einfacher, die

@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`PermissionStatus`**-Schnittstelle der [Permissions API](/de/docs/Web/API/Permissions_API) bietet den Status eines Objekts und einen Ereignis-Handler zum Überwachen von Änderungen dieses Status.
+Das **`PermissionStatus`**-Interface der [Permissions API](/de/docs/Web/API/Permissions_API) liefert den Status eines Objekts und einen Ereignishandler zur Überwachung von Änderungen dieses Status.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`PermissionStatus.name`](/de/docs/Web/API/PermissionStatus/name) {{ReadOnlyInline}}
-  - : Gibt den Namen einer angeforderten Berechtigung zurück, identisch mit dem `name`, der an [`Permissions.query`](/de/docs/Web/API/Permissions/query) übergeben wurde.
+  - : Gibt den Namen einer angeforderten Berechtigung zurück, identisch mit dem `name`, der an [`Permissions.query`](/de/docs/Web/API/Permissions/query) übergeben wird.
 - [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) {{ReadOnlyInline}}
-  - : Gibt den Status einer angeforderten Berechtigung zurück; entweder `'granted'`, `'denied'` oder `'prompt'`.
+  - : Gibt den Status einer angeforderten Berechtigung zurück; einer von `'granted'`, `'denied'` oder `'prompt'`.
 
 ### Ereignisse
 

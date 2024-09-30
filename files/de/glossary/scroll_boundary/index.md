@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **scroll boundary** (Blätterränder) ist der Punkt, an dem ein scrollbares Element in eine bestimmte Richtung, entweder oben oder unten (oder links/rechts bei horizontalem Scrollen), nicht weiter gescrollt werden kann. Dies ist typischerweise der Rand des [scrollports](/de/docs/Glossary/Scroll_container#scrollport).
+Eine **Scroll-Grenze** ist der Punkt, an dem ein scrollbareres Element in einer bestimmten Richtung nicht weiter gescrollt werden kann, entweder oben oder unten (oder links/rechts bei horizontalem Scrollen). Dies ist typischerweise der Rand des [Scrollports](/de/docs/Glossary/Scroll_container#scrollport).
 
-Wenn der Inhalt eines [scroll containers](/de/docs/Glossary/Scroll_container) die Containergröße in der Scrollrichtung nicht überschreitet, wird der Container zu jeder Zeit als an seiner Scrollgrenze betrachtet. Dies liegt daran, dass es keinen zusätzlichen Inhalt zum Scrollen gibt. Wenn das Scrollen des Inhalts verhindert wird, beispielsweise wenn {{cssxref("overflow", "overflow: hidden")}} eingestellt ist, ist das Element kein scroll container, und folglich gibt es keine scroll boundary.
+Wenn der Inhalt eines [Scroll-Containers](/de/docs/Glossary/Scroll_container) in der Scroll-Richtung die Größe des Containers nicht überschreitet, wird der Container jederzeit als an seiner Scroll-Grenze betrachtet. Dies liegt daran, dass es keinen zusätzlichen Inhalt gibt, durch den gescrollt werden könnte. Wenn das Scrollen des Inhalts verhindert wird, z.B. wenn {{cssxref("overflow", "overflow: hidden")}} gesetzt ist, ist das Element kein Scroll-Container und daher gibt es keine Scroll-Grenze.
 
-Wenn der Scrollgrenze des Scrollports durch Benutzerscrollen des Inhalts erreicht wird, kann ein visueller Effekt wie ein Bounce oder eine funktionale Aktion wie Pull-to-Refresh auf mobilen Geräten auftreten. Dieses Standardverhalten des Browsers wird als **boundary default action** bezeichnet.
+Wenn die Scroll-Grenze des Scrollports durch das Scrollen des Inhalts durch einen Benutzer erreicht wird, kann ein visueller Effekt wie ein Bounce oder eine funktionale Aktion wie "Pull-to-Refresh" auf mobilen Geräten auftreten. Dieses standardmäßige Browserverhalten wird als **Boundary Default Action** bezeichnet.
 
-Beispielsweise verursacht das Herunterziehen einer Seite auf mobilen Geräten, wenn man sich bereits am oberen Ende befindet, einen Bounce-Effekt und manchmal eine Seitenaktualisierung. Dieser Bounce oder diese Aktualisierung ist die boundary default action.
+Zum Beispiel löst das Ziehen einer Seite auf mobilen Geräten nach unten, wenn man sich bereits oben befindet, einen Bounce-Effekt aus und manchmal auch eine Seitenaktualisierung. Dieser Bounce oder Refresh ist die Boundary Default Action.
 
-Boundary default actions können lokal oder nicht-lokal sein.
+Boundary Default Actions können lokal oder nicht lokal sein.
 
-- Eine **lokale boundary default** ist die Aktion, die an der Grenze eines spezifischen scrollbaren Bereichs erfolgt, der auf dieses Element beschränkt ist. Diese Aktion wird als _lokal_ betrachtet, da sie keine Auswirkungen auf andere übergeordnete Container oder den Rest der Webseite hat.
+- Eine **lokale Boundary Default** ist die Aktion, die an der Grenze eines spezifischen scrollbaren Bereichs stattfindet, der auf dieses Element beschränkt ist. Diese Aktion gilt als _lokal_, da sie keine Auswirkungen auf übergeordnete Container oder den Rest der Webseite hat.
 
-- Eine **nicht-lokale boundary default action** tritt auf, wenn das Erreichen der Scrollgrenze eines scroll containers Auswirkungen über das spezifische gescrollte Element hinaus hat. Ein Beispiel hierfür ist [scroll chaining](/de/docs/Glossary/Scroll_chaining), bei dem das Erreichen der Scrollgrenze eines Elements das Scrollen in einem übergeordneten oder vorangehenden Element auslöst und möglicherweise sogar eine aktionenübergreifende Aktion, wie die Navigation, initiiert.
+- Eine **nicht-lokale Boundary Default Action** tritt auf, wenn das Erreichen der Scroll-Grenze eines Scroll-Containers Auswirkungen über das spezifische gescrollte Element hinaus hat. Ein Beispiel dafür ist das [Scroll-Chaining](/de/docs/Glossary/Scroll_chaining), bei dem das Erreichen der Scroll-Grenze eines Elements das Scrollen in einem übergeordneten oder Vorfahren-Element auslöst und möglicherweise sogar eine seitenweite Aktion, wie z.B. Navigation, initiiert.
 
 ## Siehe auch
 
 - {{CSSxRef("overscroll-behavior")}} CSS-Eigenschaft
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS Overscroll Behavior](/de/docs/Web/CSS/CSS_overscroll_behavior)-Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul

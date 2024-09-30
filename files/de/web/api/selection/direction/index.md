@@ -8,19 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`direction`**-Eigenschaft der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle ist ein String, der die Richtung der aktuellen Auswahl angibt.
+Die **`direction`**-Schreibgeschützte Eigenschaft des [`Selection`](/de/docs/Web/API/Selection)-Interfaces ist ein String, der die Richtung der aktuellen Auswahl angibt.
 
-Der Wert wird durch die Reihenfolge bestimmt, in der der Benutzer die Begrenzungspunkte der Auswahl festlegt.
-Zum Beispiel könnte ein Benutzer eine Auswahl treffen, indem er auf einen Startpunkt klickt, den Cursor zieht und an einem Endpunkt loslässt.
-Wenn der Endpunkt später im Dokument liegt als der Startpunkt, ist die Richtung "forwards", während die Richtung "backwards" ist, wenn der Endpunkt vor dem Startpunkt liegt.
-Der Wert ist "directionless" (richtungslos), wenn keine Richtung vom Benutzer angegeben wird. Zum Beispiel, wenn der Benutzer die Auswahl durch einen Doppelklick auf ein Wort oder Element getroffen hat oder die Auswahl programmgesteuert erfolgte.
+Der Wert wird durch die Reihenfolge bestimmt, in der der Benutzer die Auswahlgrenzen festlegt.
+Zum Beispiel könnte ein Benutzer eine Auswahl treffen, indem er an einem Startpunkt klickt, den Cursor zieht und an einem Endpunkt loslässt.
+Befindet sich der Endpunkt später im Dokument als der Startpunkt, ist die Richtung "forwards", während die Richtung "backwards" ist, wenn der Endpunkt vor dem Startpunkt im Dokument liegt.
+Der Wert ist "directionless", wenn keine Richtung durch den Benutzer impliziert wird. Beispielsweise, wenn der Benutzer die Auswahl durch Doppelklicken auf ein Wort oder Element vorgenommen hat, oder die Auswahl programmgesteuert erstellt wurde.
 
-Die Richtung ändert sich nicht, wenn der Bereich der Auswahl verändert wird, zum Beispiel mit Methoden wie [`Range.selectNode()`](/de/docs/Web/API/Range/selectNode).
+Die Richtung ändert sich nicht, wenn der Bereich einer Auswahl verändert wird, zum Beispiel durch Methoden wie [`Range.selectNode()`](/de/docs/Web/API/Range/selectNode).
 
 ## Wert
 
-Ein String, der die Art der aktuellen Auswahl beschreibt.
-Mögliche Werte sind:
+Ein String, der den Typ der aktuellen Auswahl beschreibt. Mögliche Werte sind:
 
 - `backward`
   - : Die Auswahl ist rückwärts.
@@ -31,11 +30,11 @@ Mögliche Werte sind:
 
 ## Beispiele
 
-Dieses Beispiel ermöglicht es Ihnen zu testen, wie die `direction`-Eigenschaft funktioniert, indem es die aktuelle Richtung des innerhalb eines Absatzes ausgewählten Textes protokolliert.
+Dieses Beispiel ermöglicht es Ihnen, zu testen, wie die `direction`-Eigenschaft funktioniert, indem die aktuelle Richtung des innerhalb eines Absatzes ausgewählten Textes protokolliert wird.
 
 ### HTML
 
-Das HTML zeigt nur ein Absatz-Element mit etwas Text, den Sie auswählen können.
+Das HTML zeigt nur ein Absatz-Element mit etwas Text an, den Sie auswählen können.
 
 ```html
 <p id="text-box">
@@ -43,7 +42,7 @@ Das HTML zeigt nur ein Absatz-Element mit etwas Text, den Sie auswählen können
 </p>
 ```
 
-Beachten Sie, dass es auch ein "verborgenes" Protokollierungsfeld (und zugehörigen Code) gibt, das dem Muster im [Leitfaden zur Anzeige eines einzelnen Protokolleintrags](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples#displaying_a_single_entry_log) für das Schreiben von Live-Beispielen folgt.
+Beachten Sie, dass es auch ein "verstecktes" Protokollfeld (und zugehörigen Code) gibt, das dem Muster im [Leitfaden zum Anzeigen eines einzelnen Eintragsprotokolls](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples#displaying_a_single_entry_log) für die Erstellung von Live-Beispielen folgt.
 
 ```css hidden
 #log {
@@ -68,8 +67,8 @@ function log(text) {
 }
 ```
 
-Der Code überprüft, ob die `direction`-Eigenschaft definiert ist, und fügt in diesem Fall einen Listener für das [`selectionchange` Ereignis](/de/docs/Web/API/Document/selectionchange_event) hinzu, der die aktuelle Auswahl erfasst und ihre Richtung protokolliert.
-Wenn die Eigenschaft nicht unterstützt wird, protokolliert der Code dies und blendet den Text zur Auswahl aus.
+Der Code überprüft, ob die `direction`-Eigenschaft definiert ist, und fügt in diesem Fall einen Listener für das [`selectionchange`-Ereignis](/de/docs/Web/API/Document/selectionchange_event) hinzu, welches die aktuelle Auswahl ermittelt und deren Richtung protokolliert.
+Wenn die Eigenschaft nicht unterstützt wird, protokolliert der Code dies und blendet den Text für die Auswahl aus.
 
 ```js
 const input = document.getElementById("text-box");
@@ -87,7 +86,7 @@ if ("direction" in Selection.prototype) {
 
 ### Ergebnis
 
-Wenn die Eigenschaft unterstützt wird, wählen Sie Text aus, indem Sie doppelklicken, und ziehen Sie die Auswahl in verschiedene Richtungen.
+Wenn die Eigenschaft unterstützt wird, wählen Sie Text per Doppelklick und Auswahl-Ziehen-Loslassen in verschiedenen Richtungen aus.
 
 {{EmbedLiveSample("Examples")}}
 

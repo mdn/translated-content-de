@@ -8,21 +8,16 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`detune`**-Eigenschaft des
-[`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam),
-welches die Verstimmung der Schwingung in [Cents](https://en.wikipedia.org/wiki/Cent_%28music%29) darstellt.
+Die **`detune`**-Eigenschaft der Schnittstelle [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Oszillation in [Cent](https://en.wikipedia.org/wiki/Cent_%28music%29) repräsentiert.
 
-Zum Beispiel verstimmen Werte von +100 und -100 die Quelle um einen Halbton nach oben oder unten,
-während +1200 und -1200 sie um eine Oktave nach oben oder unten verstimmen.
+Zum Beispiel verstimmen die Werte +100 und -100 die Quelle um einen Halbton nach oben oder unten, während +1200 und -1200 sie um eine Oktave nach oben oder unten verstimmen.
 
 ## Wert
 
-Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam),
-dessen Wert die Verstimmung der Schwingung in [Cents](https://en.wikipedia.org/wiki/Cent_%28music%29) angibt.
+Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), dessen Wert die Verstimmung der Oszillation in [Cent](https://en.wikipedia.org/wiki/Cent_%28music%29) angibt.
 
 > [!NOTE]
-> Obwohl der zurückgegebene `AudioParam` schreibgeschützt ist, ist der
-> Wert, den er repräsentiert, dies nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, es nicht.
 
 ## Beispiele
 

@@ -7,17 +7,13 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das `WebTransportSendStream`-Interface der [WebTransport API](/de/docs/Web/API/WebTransport_API) ist ein spezialisiertes [`WritableStream`](/de/docs/Web/API/WritableStream), das verwendet wird, um ausgehende Daten in sowohl unidirektionalen als auch bidirektionalen [`WebTransport`](/de/docs/Web/API/WebTransport)-Streams zu senden.
+Das `WebTransportSendStream`-Interface der [WebTransport-API](/de/docs/Web/API/WebTransport_API) ist ein spezialisierter [`WritableStream`](/de/docs/Web/API/WritableStream), der verwendet wird, um ausgehende Daten in sowohl unidirektionalen als auch bidirektionalen [`WebTransport`](/de/docs/Web/API/WebTransport)-Streams zu senden.
 
-Der Sendestream ist ein [writable stream](/de/docs/Web/API/Streams_API/Using_writable_streams) von [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), in den geschrieben werden kann, um Daten an einen Server zu senden.
-Er bietet zusätzlich Streaming-Funktionen wie das Festlegen der Sende-Reihenfolge und das Abrufen von Stream-Statistiken.
+Der Sendestream ist ein [schreibbarer Stream](/de/docs/Web/API/Streams_API/Using_writable_streams) von [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), der beschrieben werden kann, um Daten zu einem Server zu senden. Er bietet zusätzlich Streaming-Funktionen wie das Festlegen der Versandreihenfolge und das Abrufen von Stream-Statistiken.
 
-Objekte dieses Typs werden nicht direkt konstruiert.
-Beim Erstellen eines unidirektionalen Streams gibt die Methode [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) ein Objekt dieses Typs zurück, um Daten zu senden.
-Beim Erstellen eines bidirektionalen Streams mit der Methode [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream) wird ein [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream) zurückgegeben, und das Sendestream-Objekt kann über dessen [`writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Eigenschaft abgerufen werden.
-Wenn ein bidirektionaler Stream von der Gegenstelle initiiert wird, kann ein Objekt dieses Typs ähnlich mit [`WebTransport.incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) abgerufen werden.
+Objekte dieses Typs werden nicht direkt konstruiert. Beim Erstellen eines unidirektionalen Streams gibt [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) ein Objekt dieses Typs zum Senden von Daten zurück. Beim Erstellen eines bidirektionalen Streams mit [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream) gibt die Methode einen [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream) zurück, und das Sendestream-Objekt kann aus seiner [`writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Eigenschaft erhalten werden. Wenn ein bidirektionaler Stream vom entfernten Ende initiiert wird, kann ein Objekt dieses Typs ähnlich über [`WebTransport.incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) abgerufen werden.
 
-`WebTransportSendStream` ist ein [transferable object](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`WebTransportSendStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 {{InheritanceDiagram}}
 
@@ -35,11 +31,11 @@ _Erbt auch Methoden von seiner Elternschnittstelle, [`WritableStream`](/de/docs/
 <!-- WebTransportSendStream.sendGroup not implemented in any browser -->
 
 - [`WebTransportSendStream.sendOrder`](/de/docs/Web/API/WebTransportSendStream/sendOrder) {{Experimental_Inline}}
-  - : Gibt die Sendpriorität dieses Streams relativ zu anderen Streams an, für die der Wert festgelegt wurde.
+  - : Gibt an, welche Sendpriorität dieser Stream relativ zu anderen Streams hat, für die der Wert festgelegt wurde.
 
 ## Beispiele
 
-Sehen Sie sich [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) für ein Beispiel an, wie man einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von `WebTransportSendStream`-Objekten erhält.
+Siehe [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) für ein Beispiel, wie ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von `WebTransportSendStream`-Objekten abgerufen werden kann.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "InterventionReportBody: toJSON()-Methode"
+title: "InterventionReportBody: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/InterventionReportBody/toJSON
 l10n:
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Objekts ist.
+Ein JSON-Objekt, das die Serialisierung des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Objekts darstellt.
 
 ## Beispiele
 

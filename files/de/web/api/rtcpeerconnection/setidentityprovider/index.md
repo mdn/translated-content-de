@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`setIdentityProvider()`** Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle setzt den Identitätsanbieter (IdP) auf das im Parameter angegebene Tripel: seinen Namen, das Protokoll, das zur Kommunikation mit ihm verwendet wird (optional) und einen optionalen Benutzernamen. Der IdP wird nur verwendet, wenn eine Bestätigung erforderlich ist.
+Die **`setIdentityProvider()`** Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle setzt den Identity Provider (IdP) auf das im Parameter angegebene Tripel: dessen Name, das verwendete Protokoll zur Kommunikation (optional) und ein optionaler Benutzername. Der IdP wird nur dann verwendet, wenn ein Nachweis erforderlich ist.
 
 Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
 
@@ -23,16 +23,16 @@ setIdentityProvider(domainname, protocol, username)
 ### Parameter
 
 - `domainname`
-  - : Eine Zeichenkette, die den Domainnamen darstellt, an dem der IdP sich befindet.
+  - : Ein String, der den Domainnamen darstellt, an dem sich der IdP befindet.
 - `protocol` {{optional_Inline}}
-  - : Eine Zeichenkette, die das Protokoll darstellt, welches zur Kommunikation mit dem IdP verwendet wird.
-    Standardmäßig ist dies `"default"` und wird verwendet, um die URL zu bestimmen, an der der IdP zuhört.
+  - : Ein String, der das Protokoll darstellt, das zur Kommunikation mit dem IdP verwendet wird.
+    Es hat standardmäßig den Wert `"default"` und wird verwendet, um die URL zu bestimmen, unter der der IdP lauscht.
 - `username` {{optional_Inline}}
-  - : Eine Zeichenkette, die den Benutzernamen darstellt, der mit dem IdP verbunden ist.
+  - : Ein String, der den Benutzernamen repräsentiert, der mit dem IdP verknüpft ist.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiel
 

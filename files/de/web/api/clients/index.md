@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `Clients`-Interface bietet Zugriff auf [`Client`](/de/docs/Web/API/Client)-Objekte. Greifen Sie über `[`self`](/de/docs/Web/API/ServiceWorkerGlobalScope).clients` innerhalb eines [Service-Workers](/de/docs/Web/API/Service_Worker_API) darauf zu.
+Das `Clients`-Interface bietet Zugriff auf [`Client`](/de/docs/Web/API/Client)-Objekte. Sie können darauf über `[`self`](/de/docs/Web/API/ServiceWorkerGlobalScope).clients` in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) zugreifen.
 
 ## Instanzmethoden
 
 - [`Clients.get()`](/de/docs/Web/API/Clients/get)
-  - : Gibt ein {{jsxref("Promise")}} für einen [`Client`](/de/docs/Web/API/Client) zurück, der zu einer gegebenen [`id`](/de/docs/Web/API/Client/id) passt.
+  - : Gibt ein {{jsxref("Promise")}} für einen [`Client`](/de/docs/Web/API/Client) zurück, der einer gegebenen [`id`](/de/docs/Web/API/Client/id) entspricht.
 - [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll)
-  - : Gibt ein {{jsxref("Promise")}} für ein Array von [`Client`](/de/docs/Web/API/Client)-Objekten zurück. Ein Optionsargument ermöglicht es Ihnen, die zurückgegebenen Clienttypen zu steuern.
+  - : Gibt ein {{jsxref("Promise")}} für ein Array von [`Client`](/de/docs/Web/API/Client)-Objekten zurück. Ein Optionsargument ermöglicht es Ihnen, die zurückgegebenen Client-Typen zu kontrollieren.
 - [`Clients.openWindow()`](/de/docs/Web/API/Clients/openWindow)
   - : Öffnet ein neues Browserfenster für eine gegebene URL und gibt ein {{jsxref("Promise")}} für den neuen [`WindowClient`](/de/docs/Web/API/WindowClient) zurück.
 - [`Clients.claim()`](/de/docs/Web/API/Clients/claim)
-  - : Ermöglicht einem aktiven Service-Worker, sich selbst als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für alle Clients innerhalb seines [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) festzulegen.
+  - : Ermöglicht einem aktiven Service Worker, sich als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für alle Clients innerhalb seines [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) zu setzen.
 
 ## Beispiele
 

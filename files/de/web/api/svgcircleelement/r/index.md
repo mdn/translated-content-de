@@ -1,5 +1,5 @@
 ---
-title: "SVGCircleElement: r Eigenschaft"
+title: "SVGCircleElement: r-Eigenschaft"
 short-title: r
 slug: Web/API/SVGCircleElement/r
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`r`** des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Interfaces spiegelt das {{SVGAttr("r")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert damit den Radius des Kreises.
+Die **`r`** Leseeigenschaft des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Interfaces spiegelt das {{SVGAttr("r")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert damit den Radius des Kreises.
 
-Falls nicht angegeben, wirkt es sich so aus, als ob der Wert auf `0` gesetzt ist.
+Wenn nicht angegeben, entspricht die Wirkung dem Setzen des Wertes auf `0`.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der den Radius des Kreises darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das den Radius des Kreises darstellt.
 
 ## Beispiele
 

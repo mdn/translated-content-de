@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`backgroundFetch`**-Eigenschaft des schreibgeschützten
-[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf ein
-[`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt zurück, das verwendet werden kann, um Hintergrundabruffunktionen zu starten.
+Die schreibgeschützte **`backgroundFetch`**-Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz zu einem [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt zurück, mit dem Hintergrundfetch-Operationen initiiert werden können.
 
 ## Wert
 
@@ -18,9 +16,9 @@ Ein [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt.
 
 ## Beispiele
 
-### Initiierung eines Hintergrundabrufs
+### Initiieren eines Hintergrundfetchs
 
-Der folgende Code greift auf die `backgroundFetch`-Eigenschaft zu und verwendet sie, um einen Hintergrundabruf zu starten.
+Der folgende Code greift auf die `backgroundFetch`-Eigenschaft zu und verwendet sie, um eine Hintergrundfetch-Operation zu initiieren.
 
 ```js
 // main.js

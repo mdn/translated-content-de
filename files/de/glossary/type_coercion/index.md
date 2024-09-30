@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Typumwandlung ist die automatische oder implizite Konvertierung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen zu Zahlen). Die _[Typkonvertierung](/de/docs/Glossary/Type_conversion)_ ist der _Typumwandlung_ ähnlich, da sie beide Werte von einem Datentyp in einen anderen konvertieren, mit einem entscheidenden Unterschied – die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
+Typumwandlung ist die automatische oder implizite Umwandlung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen in Zahlen). _[Typkonvertierung](/de/docs/Glossary/Type_conversion)_ ist ähnlich wie die _Typumwandlung_, da beide Werte von einem Datentyp in einen anderen umwandeln, mit einem entscheidenden Unterschied — die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
 
 ## Beispiele
 
@@ -19,9 +19,9 @@ let sum = value1 + value2;
 console.log(sum);
 ```
 
-Im obigen Beispiel hat JavaScript die `9` von einer Zahl in eine Zeichenfolge umgewandelt und dann die beiden Werte zusammengefügt, was zu einer Zeichenfolge von `59` führt. JavaScript hatte die Wahl zwischen einer Zeichenfolge oder einer Zahl und entschied sich für eine Zeichenfolge.
+Im obigen Beispiel hat JavaScript die `9` von einer Zahl in eine Zeichenkette umgewandelt und dann die beiden Werte zusammengefügt, was zu einer Zeichenkette `59` führt. JavaScript hatte die Wahl zwischen einer Zeichenkette oder einer Zahl und entschied sich für eine Zeichenkette.
 
-Der Compiler hätte die `5` in eine Zahl umwandeln und eine Summe von `14` zurückgeben können, hat es aber nicht. Um dieses Ergebnis zu erzielen, müssten Sie die `5` explizit in eine Zahl konvertieren, indem Sie die {{jsxref("Global_Objects/Number", "Number()")}} Methode verwenden:
+Der Compiler hätte das `5` in eine Zahl umwandeln und eine Summe von `14` zurückgeben können, hat dies aber nicht getan. Um dieses Ergebnis zu erzielen, müssten Sie das `5` explizit mithilfe der {{jsxref("Global_Objects/Number", "Number()")}} Methode in eine Zahl umwandeln:
 
 ```js
 sum = Number(value1) + value2;

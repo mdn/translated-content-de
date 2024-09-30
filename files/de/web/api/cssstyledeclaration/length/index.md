@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte Eigenschaft gibt eine Ganzzahl zurück, die die Anzahl der Stil-Deklarationen in diesem CSS-Deklarationsblock darstellt.
+Die schreibgeschützte Eigenschaft gibt eine ganze Zahl zurück, die die Anzahl der Stildeklarationen in diesem CSS-Deklarationsblock darstellt.
 
 ## Wert
 
-Eine Ganzzahl, die die Anzahl der Stile angibt, die explizit am Elternteil der Instanz festgelegt wurden.
+Eine ganze Zahl, die die Anzahl der Stile angibt, die explizit auf dem Elternteil der Instanz gesetzt sind.
 
 ## Beispiele
 
-Das folgende Beispiel ermittelt die Anzahl der explizit festgelegten Stile des folgenden HTML-Elements:
+Das Folgende ermittelt die Anzahl der explizit gesetzten Stile auf dem folgenden HTML-Element:
 
 ```html
 <div

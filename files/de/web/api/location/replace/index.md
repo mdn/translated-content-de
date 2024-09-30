@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`replace()`**-Methode des [`Location`](/de/docs/Web/API/Location)
-Interfaces ersetzt die aktuelle Ressource mit der Ressource an der angegebenen URL. Der Unterschied
-zur [`assign()`](/de/docs/Web/API/Location/assign)-Methode besteht darin, dass nach der Verwendung von
-`replace()` die aktuelle Seite nicht in der Sitzungs-`History` gespeichert wird,
-was bedeutet, dass der Benutzer nicht die _Zurück_-Schaltfläche verwenden kann, um zu dieser zurückzukehren.
+Die **`replace()`**-Methode der [`Location`](/de/docs/Web/API/Location)
+Schnittstelle ersetzt die aktuelle Ressource durch die an der angegebenen URL. Der Unterschied
+zur [`assign()`](/de/docs/Web/API/Location/assign) Methode ist, dass nach Verwendung von
+`replace()` die aktuelle Seite nicht in der Sitzungs-[`History`](/de/docs/Web/API/History)
+gespeichert wird, was bedeutet, dass der Benutzer nicht die _Zurück_-Taste verwenden kann, um zu ihr zu navigieren.
 Nicht zu verwechseln mit der {{jsxref("String")}} Methode {{jsxref("String.prototype.replace()")}}.
 
 ## Syntax
@@ -29,13 +29,13 @@ replace(url)
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Browser beschränken Navigationsaufrufe und können diesen Fehler werfen, eine Warnung erzeugen oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+  - : Browser drosseln Navigationen und können diesen Fehler werfen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der übergebene `url`-Parameter keine gültige URL ist.
+  - : Wird ausgelöst, wenn der bereitgestellte `url`-Parameter keine gültige URL ist.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -56,6 +56,6 @@ window.location.replace(
 
 ## Siehe auch
 
-- Das [`Location`](/de/docs/Web/API/Location) Interface, zu dem es gehört.
+- Die [`Location`](/de/docs/Web/API/Location) Schnittstelle, zu der sie gehört.
 - Ähnliche Methoden: [`Location.assign()`](/de/docs/Web/API/Location/assign) und
   [`Location.reload()`](/de/docs/Web/API/Location/reload).

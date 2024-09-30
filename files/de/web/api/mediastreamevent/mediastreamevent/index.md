@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
+Der **`MediaStreamEvent()`** Konstruktor erzeugt ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent)-Objekt.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues [`MediaStreamEvent`]
 - `type`
   - : Ein String mit dem Namen des Ereignisses, wie `addstream` oder `removestream`.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind, folgende Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften die folgenden Eigenschaften haben kann:
     - `stream`
-      - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), das den Stream repräsentiert, der von dem Ereignis betroffen ist.
+      - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream darstellt, der vom Ereignis betroffen ist.
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
+Ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent)-Objekt.
 
 ## Beispiel
 

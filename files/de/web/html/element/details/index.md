@@ -1,5 +1,5 @@
 ---
-title: "<details>: Das Details-Disclosure-Element"
+title: "<details>: Das Details Ausklappelement"
 slug: Web/HTML/Element/details
 l10n:
   sourceCommit: 9c09b183a5ce844a75c2f22e909d03f71ca329fc
@@ -7,21 +7,21 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<details>`** [HTML](/de/docs/Web/HTML) Element erstellt ein Disclosure-Widget, bei dem Informationen nur sichtbar sind, wenn das Widget in einen "offenen" Zustand umgeschaltet wird. Eine Zusammenfassung oder Beschriftung muss mit dem {{HTMLElement("summary")}} Element bereitgestellt werden.
+Das **`<details>`** [HTML](/de/docs/Web/HTML) Element erstellt ein Ausklapp-Widget, bei dem Informationen nur sichtbar sind, wenn das Widget in den "geöffneten" Zustand umgeschaltet wird. Eine Zusammenfassung oder Beschriftung muss mit dem {{HTMLElement("summary")}}-Element bereitgestellt werden.
 
-Ein Disclosure-Widget wird typischerweise auf dem Bildschirm mit einem kleinen Dreieck dargestellt, das sich dreht (oder verdreht), um den offenen/geschlossenen Status anzuzeigen, mit einem Etikett neben dem Dreieck. Der Inhalt des `<summary>` Elements wird als Etikett für das Disclosure-Widget verwendet. Der Inhalt des `<details>` bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
+Ein Ausklapp-Widget wird typischerweise auf dem Bildschirm mit einem kleinen Dreieck angezeigt, das sich dreht (oder verdreht), um den offenen/geschlossenen Status anzuzeigen, mit einer Beschriftung neben dem Dreieck. Der Inhalt des `<summary>`-Elements wird als Beschriftung für das Ausklapp-Widget verwendet. Der Inhalt des `<details>` bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
 
 {{EmbedInteractiveExample("pages/tabbed/details.html", "tabbed-shorter")}}
 
-Ein `<details>` Widget kann in einem von zwei Zuständen sein. Der Standardzustand _geschlossen_ zeigt nur das Dreieck und das Etikett innerhalb von `<summary>` an (oder eine [Nutzeragent](/de/docs/Glossary/user_agent)-definierte Standardzeichenfolge, wenn kein `<summary>` vorhanden ist).
+Ein `<details>`-Widget kann in einem von zwei Zuständen sein. Der standardmäßige _geschlossene_ Zustand zeigt nur das Dreieck und die Beschriftung innerhalb von `<summary>` an (oder eine [Benutzeragent](/de/docs/Glossary/user_agent)-definierte Standardzeichenfolge, wenn kein `<summary>` vorhanden ist).
 
-Wenn der Benutzer auf das Widget klickt oder es fokussiert und dann die Leertaste drückt, "dreht" es sich auf und offenbart seinen Inhalt. Der übliche Gebrauch eines Dreiecks, das sich dreht oder verdreht, um das Öffnen oder Schließen des Widgets darzustellen, ist der Grund, warum diese manchmal "twisty" genannt werden.
+Wenn der Benutzer auf das Widget klickt oder den Fokus darauf legt und dann die Leertaste drückt, "verdreht" es sich und zeigt seinen Inhalt. Die übliche Verwendung eines sich drehenden oder verdrehenden Dreiecks zur Darstellung des Öffnens oder Schließens des Widgets ist der Grund, warum diese manchmal "Twisty" genannt werden.
 
-Sie können CSS verwenden, um das Disclosure-Widget zu stylen, und Sie können das Widget programmatisch öffnen und schließen, indem Sie sein [`open`](#open) Attribut setzen/entfernen. Leider gibt es derzeit keine integrierte Möglichkeit, den Übergang zwischen offen und geschlossen zu animieren.
+Sie können CSS verwenden, um das Ausklapp-Widget zu stylen, und Sie können das Widget programmatisch öffnen und schließen, indem Sie das [`open`](#open)-Attribut setzen/entfernen. Leider gibt es derzeit keine eingebaute Möglichkeit, die Übergänge zwischen geöffnetem und geschlossenem Zustand zu animieren.
 
-Standardmäßig ist das Widget im geschlossenen Zustand nur so hoch, dass es das Disclosure-Dreieck und die Zusammenfassung anzeigt. Wenn es geöffnet ist, erweitert sich das Widget, um die im Inneren enthaltenen Details anzuzeigen.
+Standardmäßig ist das Widget im geschlossenen Zustand nur so hoch, dass das Ausklapp-Dreieck und die Zusammenfassung angezeigt werden. Wenn es geöffnet wird, erweitert es sich, um die darin enthaltenen Details anzuzeigen.
 
-Vollständig standardkonforme Implementierungen wenden automatisch das CSS `{{cssxref("display")}}: list-item` auf das {{HTMLElement("summary")}} Element an. Sie können dies nutzen, um sein Erscheinungsbild weiter anzupassen. Siehe [Anpassen des Disclosure-Widgets](#anpassung_des_disclosure-widgets) für weitere Details.
+Vollständig standardkonforme Implementierungen wenden automatisch das CSS `{{cssxref("display")}}: list-item` auf das {{HTMLElement("summary")}}-Element an. Sie können dies nutzen, um das Erscheinungsbild weiter anzupassen. Weitere Details finden Sie unter [Anpassen des Ausklapp-Widgets](#anpassen_des_ausklapp-widgets).
 
 ## Attribute
 
@@ -29,24 +29,24 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `open`
 
-  - : Dieses boolesche Attribut gibt an, ob die Details – also der Inhalt des `<details>` Elements – derzeit sichtbar sind. Die Details werden angezeigt, wenn dieses Attribut vorhanden ist, oder ausgeblendet, wenn dieses Attribut fehlt. Standardmäßig ist dieses Attribut nicht vorhanden, was bedeutet, dass die Details nicht sichtbar sind.
+  - : Dieses boolesche Attribut gibt an, ob die Details — das heißt, der Inhalt des `<details>`-Elements — derzeit sichtbar sind. Die Details werden angezeigt, wenn dieses Attribut existiert, oder ausgeblendet, wenn dieses Attribut fehlt. Standardmäßig fehlt dieses Attribut, was bedeutet, dass die Details nicht sichtbar sind.
 
     > [!NOTE]
-    > Sie müssen dieses Attribut vollständig entfernen, um die Details auszublenden. `open="false"` macht die Details sichtbar, da dieses Attribut ein boolesches Attribut ist.
+    > Sie müssen dieses Attribut vollständig entfernen, um die Details auszublenden. `open="false"` macht die Details sichtbar, da dieses Attribut boolesch ist.
 
 - `name`
 
-  - : Dieses Attribut ermöglicht es, mehrere `<details>` Elemente zu verbinden, wobei jeweils nur eines geöffnet sein kann. Dies ermöglicht Entwicklern, UI-Funktionen wie Akkordeons ohne Scripting einfach zu erstellen.
+  - : Dieses Attribut ermöglicht es, mehrere `<details>`-Elemente miteinander zu verbinden, sodass jeweils nur eines geöffnet werden kann. Dies ermöglicht es Entwicklern, UI-Features wie Akkordeons einfach ohne Skripte zu erstellen.
 
-    Das `name` Attribut spezifiziert einen Gruppennamen – geben Sie mehreren `<details>` Elementen denselben `name` Wert, um sie zu gruppieren. Nur eines der gruppierten `<details>` Elemente kann gleichzeitig geöffnet sein – das Öffnen eines wird dazu führen, dass ein anderes geschlossen wird. Wenn mehreren gruppierten `<details>` Elementen das `open` Attribut gegeben wird, wird nur das erste in der Quellreihenfolge geöffnet dargestellt.
+    Das `name`-Attribut gibt einen Gruppennamen an — geben Sie mehreren `<details>`-Elementen denselben `name`-Wert, um sie zu gruppieren. Nur eines der gruppierten `<details>`-Elemente kann gleichzeitig geöffnet sein — das Öffnen eines schließt ein anderes. Wenn mehreren gruppierten `<details>`-Elementen das `open`-Attribut gegeben ist, wird nur das erste in der Quellreihenfolge als geöffnet angezeigt.
 
-    > **Hinweis:** `<details>` Elemente müssen nicht aufeinander folgend im Quellcode sein, um Teil derselben Gruppe zu sein.
+    > **Hinweis:** `<details>`-Elemente müssen nicht nebeneinander in der Quelle stehen, um Teil derselben Gruppe zu sein.
 
 ## Ereignisse
 
-Zusätzlich zu den üblichen Ereignissen, die von HTML-Elementen unterstützt werden, unterstützt das `<details>` Element das [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event) Ereignis, welches an das `<details>` Element gesendet wird, wann immer sich sein Status zwischen offen und geschlossen ändert. Es wird _nachdem_ der Status geändert wurde gesendet, obwohl wenn der Status mehrfach geändert wird, bevor der Browser das Ereignis senden kann, die Ereignisse konsolidiert werden, sodass nur eines gesendet wird.
+Zusätzlich zu den üblichen Ereignissen, die von HTML-Elementen unterstützt werden, unterstützt das `<details>`-Element das [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event)-Ereignis, das an das `<details>`-Element gesendet wird, wann immer sich sein Zustand zwischen geöffnet und geschlossen ändert. Es wird _nach_ der Zustandsänderung gesendet, obwohl, wenn sich der Zustand mehrmals ändert, bevor der Browser das Ereignis senden kann, die Ereignisse zusammengefasst werden, sodass nur eines gesendet wird.
 
-Sie können einen Event-Listener für das `toggle` Ereignis verwenden, um zu erkennen, wann sich der Zustand des Widgets ändert:
+Sie können einen Ereignislistener für das `toggle`-Ereignis verwenden, um zu erkennen, wann das Widget den Zustand ändert:
 
 ```js
 details.addEventListener("toggle", (event) => {
@@ -60,9 +60,9 @@ details.addEventListener("toggle", (event) => {
 
 ## Beispiele
 
-### Ein einfaches Disclosure-Beispiel
+### Ein einfaches Ausklappbeispiel
 
-Dieses Beispiel zeigt ein einfaches `<details>` Element mit einem `<summary>`.
+Dieses Beispiel zeigt ein einfaches `<details>`-Element mit einem `<summary>`.
 
 ```html
 <details>
@@ -79,9 +79,9 @@ Dieses Beispiel zeigt ein einfaches `<details>` Element mit einem `<summary>`.
 
 {{EmbedLiveSample("A_simple_disclosure_example", 650, 150)}}
 
-### Erstellen eines geöffneten Disclosure-Feldes
+### Erstellen einer geöffneten Ausklappbox
 
-Um das `<details>` Feld im geöffneten Zustand zu starten, fügen Sie das boolesche `open` Attribut hinzu:
+Um die `<details>`-Box im offenen Zustand zu starten, fügen Sie das boolesche `open`-Attribut hinzu:
 
 ```html
 <details open>
@@ -98,9 +98,9 @@ Um das `<details>` Feld im geöffneten Zustand zu starten, fügen Sie das booles
 
 {{EmbedLiveSample("Creating_an_open_disclosure_box", 650, 150)}}
 
-### Mehrere benannte Disclosure-Felder
+### Mehrere benannte Ausklappboxen
 
-Wir fügen mehrere `<details>` Felder ein, alle mit demselben Namen, sodass jeweils nur eines geöffnet sein kann:
+Wir fügen mehrere `<details>`-Boxen hinzu, alle mit demselben Namen, sodass jeweils nur eine gleichzeitig geöffnet sein kann:
 
 ```html
 <details name="reqs">
@@ -132,11 +132,11 @@ Wir fügen mehrere `<details>` Felder ein, alle mit demselben Namen, sodass jewe
 
 {{EmbedLiveSample("Multiple named disclosure boxes", 650, 150)}}
 
-Versuchen Sie, alle Disclosure-Widgets zu öffnen. Wenn Sie eines öffnen, schließen alle anderen automatisch.
+Versuchen Sie, alle Ausklapp-Widgets zu öffnen. Wenn Sie eines öffnen, schließen sich alle anderen automatisch.
 
-### Anpassung des Erscheinungsbildes
+### Anpassen des Erscheinungsbildes
 
-Nun wenden wir etwas CSS an, um das Erscheinungsbild des Disclosure-Felds zu individualisieren.
+Jetzt wenden wir etwas CSS an, um das Erscheinungsbild der Ausklappbox anzupassen.
 
 #### CSS
 
@@ -171,9 +171,9 @@ details[open] > summary {
 }
 ```
 
-Dieses CSS erzeugt ein Aussehen, das einer Registerkarten-Schnittstelle ähnelt, bei der das Klicken auf die Registerkarte sie öffnet, um ihren Inhalt zu enthüllen.
+Dieses CSS erstellt ein Erscheinungsbild, das einer Registerkartenoberfläche ähnelt, bei der durch Klicken auf die Registerkarte diese geöffnet wird, um ihren Inhalt anzuzeigen.
 
-Der Selektor `details[open]` kann verwendet werden, um das Element zu stylen, welches geöffnet ist.
+Der Selektor `details[open]` kann verwendet werden, um das Element zu stylen, das geöffnet ist.
 
 #### HTML
 
@@ -192,11 +192,11 @@ Der Selektor `details[open]` kann verwendet werden, um das Element zu stylen, we
 
 {{EmbedLiveSample("Customizing_the_appearance", 650, 150)}}
 
-### Anpassung des Disclosure-Widgets
+### Anpassen des Ausklapp-Widgets
 
-Das Dreieck, das das Disclosure darstellt, kann angepasst werden, obwohl dies nicht breit unterstützt wird. Es gibt Unterschiede in der Browserunterstützung für diese Anpassung aufgrund experimenteller Implementierungen, als das Element standardisiert wurde, sodass wir für eine Weile mehrere Ansätze verwenden müssen.
+Das Ausklapp-Dreieck selbst kann angepasst werden, obwohl dies nicht so umfassend unterstützt wird. Es gibt Unterschiede darin, wie Browser diese Anpassung aufgrund experimenteller Implementierungen beim Standardisieren des Elements unterstützen, daher müssen wir für eine Weile mehrere Ansätze verwenden.
 
-Das {{HTMLElement("summary")}} Element unterstützt die {{cssxref("list-style")}} Kurzschreibweise und seine Langhandschreibweisen, wie {{cssxref("list-style-type")}}, um das Disclosure-Dreieck in das zu ändern, was Sie wünschen (normalerweise mit {{cssxref("list-style-image")}}). Zum Beispiel können wir das Symbol des Disclosure-Widgets entfernen, indem wir `list-style: none` setzen.
+Das {{HTMLElement("summary")}}-Element unterstützt die {{cssxref("list-style")}}-Kurzschreibweise und seine Langformschreibweisen, wie {{cssxref("list-style-type")}}, um das Ausklapp-Dreieck in etwas anderes zu ändern (normalerweise mit {{cssxref("list-style-image")}}). Zum Beispiel können wir das Symbol des Ausklapp-Widgets entfernen, indem wir `list-style: none` setzen.
 
 #### CSS
 
@@ -228,7 +228,7 @@ details > p {
 }
 ```
 
-Dieses CSS erzeugt ein Aussehen, das einer Registerkarten-Schnittstelle ähnelt, bei der das Aktivieren der Registerkarte sie erweitert und öffnet, um ihren Inhalt zu enthüllen.
+Dieses CSS erstellt ein Erscheinungsbild, das einer Registerkartenoberfläche ähnelt, bei der das Aktivieren der Registerkarte diese erweitert und öffnet, um ihren Inhalt anzuzeigen.
 
 #### HTML
 
@@ -259,29 +259,29 @@ Dieses CSS erzeugt ein Aussehen, das einer Registerkarten-Schnittstelle ähnelt,
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, Abschnittswurzel, interaktiver Inhalt, tastbarer Inhalt.
+          >Fließender Inhalt</a
+        >, Abschnittswurzel, interaktiver Inhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Ein {{HTMLElement("summary")}} Element gefolgt von
+        Ein {{HTMLElement("summary")}}-Element gefolgt von
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließendem Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind verpflichtend.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>

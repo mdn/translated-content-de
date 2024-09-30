@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`appinstalled`**-Ereignis der [Web Manifest API](/de/docs/Web/Manifest) wird ausgelöst, wenn der Browser eine Seite erfolgreich als Anwendung installiert hat.
+Das **`appinstalled`** Ereignis der [Web Manifest API](/de/docs/Web/Manifest) wird ausgelöst, wenn der Browser erfolgreich eine Seite als Anwendung installiert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("appinstalled", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie können das `appinstalled`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `appinstalled` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener("appinstalled", () => {
@@ -36,7 +36,7 @@ window.addEventListener("appinstalled", () => {
 });
 ```
 
-Oder verwenden Sie die `onappinstalled`-Ereignishandler-Eigenschaft:
+Oder Sie verwenden die `onappinstalled` Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onappinstalled = () => {

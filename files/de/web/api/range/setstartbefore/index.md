@@ -1,5 +1,5 @@
 ---
-title: "Range: setStartBefore() Methode"
+title: "Range: setStartBefore()-Methode"
 short-title: setStartBefore()
 slug: Web/API/Range/setStartBefore
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setStartBefore()`**-Methode setzt die Startposition
-eines [`Range`](/de/docs/Web/API/Range) relativ zu einem anderen [`Node`](/de/docs/Web/API/Node). Der übergeordnete
-[`Node`](/de/docs/Web/API/Node) des Starts des [`Range`](/de/docs/Web/API/Range) wird derselbe wie der des
-`referenceNode` sein.
+Die **`Range.setStartBefore()`**-Methode setzt die Startposition eines [`Range`](/de/docs/Web/API/Range) relativ zu einem anderen [`Node`](/de/docs/Web/API/Node). Der Eltern-[`Node`](/de/docs/Web/API/Node) des Starts des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie der des `referenceNode`.
 
 ## Syntax
 
@@ -47,4 +44,4 @@ range.setStartBefore(referenceNode);
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

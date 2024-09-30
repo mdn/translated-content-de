@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`label`**-Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle gibt eine Zeichenkette zurück, die dieses Gerät beschreibt (zum Beispiel „Externe USB-Webcam“).
+Die schreibgeschützte Eigenschaft **`label`** des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Interfaces gibt eine Zeichenkette zurück, die dieses Gerät beschreibt (zum Beispiel "Externe USB-Webcam").
 
-Diese Eigenschaft ist nur verfügbar, wenn der `MediaStream` aktiv genutzt wird oder wenn dauerhafte Berechtigungen erteilt wurden.
+Nur verfügbar während der aktiven Nutzung eines `MediaStream` oder wenn dauerhafte Berechtigungen erteilt wurden.
 
 ## Wert
 
-Eine Zeichenkette, die das Mediengerät beschreibt. Aus Sicherheitsgründen ist das `label` immer eine leere Zeichenkette (`""`), wenn der Benutzer nicht die Erlaubnis erhalten hat, mindestens ein Mediengerät zu verwenden, entweder durch das Starten eines Streams von Mikrofon oder Kamera oder durch die Erteilung dauerhafter Berechtigungen.
+Eine Zeichenkette, die das Mediengerät beschreibt. Aus Sicherheitsgründen ist das `label` immer eine leere Zeichenkette (`""`), wenn der Benutzer keine Berechtigung zur Verwendung mindestens eines Mediengeräts erhalten hat, sei es durch Starten eines Streams vom Mikrofon oder der Kamera oder durch erteilte dauerhafte Berechtigungen.
 
 ## Spezifikationen
 

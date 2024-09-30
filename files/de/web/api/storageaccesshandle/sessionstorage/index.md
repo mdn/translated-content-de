@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`sessionStorage`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes Session-[`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException).
+Die **`sessionStorage`**-Eigenschaft der [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Schnittstelle gibt ein nicht partitioniertes [`Storage`](/de/docs/Web/API/Storage)-Objekt für die Sitzung zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls eine `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Wert
 
@@ -29,7 +29,7 @@ document.requestStorageAccess({ sessionStorage: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Sehen Sie sich [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel an.
 
 ## Spezifikationen
 

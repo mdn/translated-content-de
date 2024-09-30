@@ -1,5 +1,5 @@
 ---
-title: "Animation: startTime-Eigenschaft"
+title: "Animation: Eigenschaft startTime"
 short-title: startTime
 slug: Web/API/Animation/startTime
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation.startTime`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces ist ein doppelt-genauer Gleitkommawert, der die geplante Zeit angibt, wann die Wiedergabe einer Animation beginnen soll.
+Die **`Animation.startTime`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces ist ein Gleitkommawert doppelter Genauigkeit, der angibt, wann die Wiedergabe einer Animation planmäßig beginnen soll.
 
-Die **Startzeit** einer Animation ist der Zeitwert ihrer [`timeline`](/de/docs/Web/API/DocumentTimeline), wenn deren Ziel-`KeyframeEffect`(/de/docs/Web/API/KeyframeEffect) geplant ist, die Wiedergabe zu beginnen. Die **Startzeit** einer Animation ist anfänglich ungelöst (bedeutet, dass sie `null` ist, da sie keinen Wert hat).
+Die **Startzeit** einer Animation ist der Zeitwert ihrer [`timeline`](/de/docs/Web/API/DocumentTimeline), wenn der zugehörige [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) zur Wiedergabe angesetzt wird. Die **Startzeit** einer Animation ist anfangs ungelöst (das bedeutet, dass sie `null` ist, da sie keinen Wert hat).
 
 ## Wert
 
-Eine Gleitkommazahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert lesen, um zu bestimmen, was die aktuelle Startzeit ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt starten zu lassen.
+Eine Gleitkommazahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert lesen, um festzustellen, auf welche Startzeit er derzeit gesetzt ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt starten zu lassen.
 
 ## Beispiele
 
-Im [Beispiel zur Web Animations API](https://codepen.io/rachelnabors/pen/zxYexJ?editors=0010) können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen allen die gleiche `startTime` wie der ursprünglichen laufenden Katze geben:
+Im Beispiel [Running on Web Animations API](https://codepen.io/rachelnabors/pen/zxYexJ?editors=0010) können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen allen die gleiche `startTime` wie der ursprünglichen laufenden Katze geben:
 
 ```js
 const catRunning = document
@@ -50,9 +50,9 @@ function animateNewCatWithWAAPI() {
 
 ## Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `animation.startTime` abhängig von den Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, wobei die Präzision dann 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist, beträgt.
+Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `animation.startTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in welchem Fall die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` beträgt, je nachdem, welcher größer ist.
 
-Beispielsweise wird bei reduzierter Zeitpräzision das Ergebnis von `animation.startTime` immer ein Vielfaches von 0,002 sein, oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
+Zum Beispiel wird bei reduzierter Zeitpräzision das Ergebnis von `animation.startTime` immer ein Vielfaches von 0.002 sein, oder ein Vielfaches von 0.1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
 
 ```js
 // reduced time precision (2ms) in Firefox 60

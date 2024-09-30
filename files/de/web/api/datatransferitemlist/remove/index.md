@@ -1,5 +1,5 @@
 ---
-title: "DataTransferItemList: remove() Methode"
+title: "DataTransferItemList: remove()-Methode"
 short-title: remove()
 slug: Web/API/DataTransferItemList/remove
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.remove()`**-Methode entfernt das
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) an dem angegebenen Index aus der Liste. Ist der Index
-kleiner als null oder größer als die Länge der Liste minus eins, wird die Liste nicht
-verändert.
+Die **`DataTransferItemList.remove()`**-Methode entfernt das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) an dem angegebenen Index aus der Liste. Wenn der Index kleiner als null oder größer als die Länge der Liste minus eins ist, wird die Liste nicht verändert.
 
 ## Syntax
 
@@ -22,9 +19,7 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der
-    `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste
-    unverändert.
+  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste unverändert.
 
 ### Rückgabewert
 
@@ -33,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Drag-Datenspeicher nicht im Lese-/Schreibmodus ist und das Element daher nicht entfernt werden kann.
+  - : Wird ausgelöst, wenn der Drag-Datenspeicher nicht im Lese-/Schreibmodus ist und daher das Element nicht entfernt werden kann.
 
 ## Beispiele
 

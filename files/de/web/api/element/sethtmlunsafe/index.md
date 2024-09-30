@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setHTMLUnsafe()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, welches dann den Teilbaum des Elements im DOM ersetzt. Die Eingabe-HTML kann [declarative shadow roots](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten.
+Die **`setHTMLUnsafe()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, das dann den Subtree des Elements im DOM ersetzt. Das eingegebene HTML kann [deklarative Schattenwurzeln](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten.
 
-Das Suffix "Unsafe" im Methodennamen weist darauf hin, dass die Methode keine potenziell unsicheren XSS-relevanten Eingaben, wie zum Beispiel `<script>` Elemente sowie Skript- oder Event-Handler-Inhaltsattribute, bereinigt oder entfernt.
+Das Suffix "Unsafe" im Methodennamen weist darauf hin, dass die Methode keine potenziell unsicheren, XSS-relevanten Eingaben wie `<script>`-Elemente und Script- oder Ereignis-Handler-Attributinhalte bereinigt oder entfernt.
 
-Wenn der HTML-String mehr als eine [declarative shadow root](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) in einem bestimmten Shadow-Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt - nachfolgende Deklarationen werden als `<template>` Elemente innerhalb dieser Shadow-Root geparst.
+Wenn der HTML-String mehr als eine [deklarative Schattenwurzel](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) in einem bestimmten Schatten-Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt — nachfolgende Deklarationen werden als `<template>`-Elemente innerhalb dieser Schattenwurzel geparst.
 
 > [!NOTE]
-> Diese Methode sollte anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, wenn ein HTML-String deklarative Shadow-Roots enthalten kann.
+> Diese Methode sollte anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, wenn ein HTML-String deklarative Schattenwurzeln enthalten kann.
 
 ## Syntax
 

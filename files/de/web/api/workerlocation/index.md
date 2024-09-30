@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`WorkerLocation`**-Schnittstelle definiert den absoluten Ort des Skripts, das vom [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird. Ein solches Objekt wird für jeden Worker initialisiert und ist über die [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location)-Eigenschaft verfügbar, die durch Aufruf von `self.location` erhalten wird.
+Die **`WorkerLocation`**-Schnittstelle definiert die absolute Position des Skripts, das von dem [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird. Ein solches Objekt wird für jeden Worker initialisiert und ist über die [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location)-Eigenschaft verfügbar, die durch den Aufruf von `self.location` erhalten wird.
 
-Diese Schnittstelle ist nur innerhalb eines JavaScript-Skripts sichtbar, das im Kontext eines Web Workers ausgeführt wird.
+Diese Schnittstelle ist nur innerhalb eines JavaScript-Skripts sichtbar, das im Kontext eines Web-Workers ausgeführt wird.
 
 ## Instanzeigenschaften
 
 - [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenfolge zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält.
+  - : Gibt einen String zurück, der die serielle Darstellung der [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält.
 - [`WorkerLocation.protocol`](/de/docs/Web/API/WorkerLocation/protocol) {{ReadOnlyInline}}
   - : Gibt den [`protocol`](/de/docs/Web/API/URL/protocol)-Teil des Standorts des Workers zurück.
 - [`WorkerLocation.host`](/de/docs/Web/API/WorkerLocation/host) {{ReadOnlyInline}}
@@ -35,7 +35,7 @@ Diese Schnittstelle ist nur innerhalb eines JavaScript-Skripts sichtbar, das im 
 ## Instanzmethoden
 
 - [`WorkerLocation.toString()`](/de/docs/Web/API/WorkerLocation/toString)
-  - : Gibt eine Zeichenfolge zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält. Es ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
+  - : Gibt einen String zurück, der die serielle Darstellung der [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält. Es ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ Diese Schnittstelle ist nur innerhalb eines JavaScript-Skripts sichtbar, das im 
 ## Siehe auch
 
 - Andere Worker-bezogene Schnittstellen: [`Worker`](/de/docs/Web/API/Worker), [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
-- [Using web workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

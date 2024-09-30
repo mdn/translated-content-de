@@ -1,5 +1,5 @@
 ---
-title: "ReportingObserver: observe()-Methode"
+title: "ReportingObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/ReportingObserver/observe
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Reporting API")}}
 
 Die **`observe()`**-Methode des
-[`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Interfaces weist einen Reporting-Observer an, mit dem Sammeln von Berichten in seiner Berichtswarteschlange zu beginnen.
+[`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Interfaces weist einen Reporting Observer an, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen.
 
 ## Syntax
 

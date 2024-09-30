@@ -8,23 +8,22 @@ l10n:
 
 {{APIRef("Background Tasks")}}
 
-Die schreibgeschützte **`didTimeout`**-Eigenschaft des
-**[`IdleDeadline`](/de/docs/Web/API/IdleDeadline)**-Interfaces ist ein Boolean-Wert, der anzeigt, ob der Leerlauf-Callback aufgerufen wird, weil das bei [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) angegebene Timeout-Intervall abgelaufen ist.
+Die schreibgeschützte **`didTimeout`**-Eigenschaft der
+**[`IdleDeadline`](/de/docs/Web/API/IdleDeadline)**-Schnittstelle ist ein Boolescher Wert, der angibt, ob der Idle-Callback aufgerufen wird, weil das beim Aufrufen von [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) angegebene Timeout-Intervall abgelaufen ist.
 
-Wenn `didTimeout` `true` ist, wird die `IdleDeadline`-Objekt-Methode
-[`timeRemaining()`](/de/docs/Web/API/IdleDeadline/timeRemaining)
-ungefähr 0 zurückgeben.
+Wenn `didTimeout` `true` ist, wird die `IdleDeadline`-Objektmethode
+[`timeRemaining()`](/de/docs/Web/API/IdleDeadline/timeRemaining) ungefähr 0 zurückgeben.
 
-Leerlauf-Callbacks unterstützen das Konzept eines Timeouts, um sicherzustellen, dass die anstehende Aufgabe tatsächlich ausgeführt wird, selbst wenn der Benutzeragent nie genügend freie Zeit zur Verfügung hat. Ihr Callback prüft typischerweise den Wert von `didTimeout`, wenn eine Aktion ausgeführt werden muss, selbst wenn der Browser zu beschäftigt ist, um Ihnen Zeit zu gewähren. Sie sollten reagieren, indem Sie die benötigte Aufgabe oder idealerweise einen minimalen Arbeitsaufwand ausführen, um den Fortschritt aufrechtzuerhalten, und dann einen neuen Callback terminieren, um erneut zu versuchen, den Rest der Arbeit zu erledigen.
+Idle-Callbacks unterstützen das Konzept eines Timeouts, um sicherzustellen, dass die Aufgabe, die sie ausführen sollen, tatsächlich ausgeführt wird, selbst wenn der Benutzeragent nie genügend inaktive Zeit zur Verfügung hat. Ihr Callback sollte typischerweise den Wert von `didTimeout` überprüfen, wenn eine Aktion ausgeführt werden muss, auch wenn der Browser zu beschäftigt ist, um Ihnen die Zeit zu gewähren; Sie sollten reagieren, indem Sie die benötigte Aufgabe oder idealerweise eine minimale Menge an Arbeit ausführen, die erledigt werden kann, um den Ablauf aufrechtzuerhalten, und dann einen neuen Callback planen, um zu versuchen, den Rest der Arbeit zu erledigen.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der Callback aufgrund des Ablaufs des Timeout-Zeitraums ausgeführt wird, oder `false`, wenn der Callback ausgeführt wird, weil der Benutzeragent im Leerlauf ist und dem Callback Zeit zur Verfügung stellt.
+Ein Boolescher Wert, der `true` ist, wenn der Callback aufgrund des Ablaufens des Callback-Timeouts ausgeführt wird, oder `false`, wenn der Callback ausgeführt wird, weil der Benutzeragent inaktiv ist und dem Callback Zeit zur Verfügung stellt.
 
 ## Beispiele
 
 Siehe unser [komplettes Beispiel](/de/docs/Web/API/Background_Tasks_API#example)
-im Artikel [Kooperative Planung der Hintergrundaufgaben-API](/de/docs/Web/API/Background_Tasks_API).
+im Artikel [Kooperative Planung von Hintergrundaufgaben API](/de/docs/Web/API/Background_Tasks_API).
 
 ## Spezifikationen
 
@@ -36,7 +35,7 @@ im Artikel [Kooperative Planung der Hintergrundaufgaben-API](/de/docs/Web/API/Ba
 
 ## Siehe auch
 
-- [Kooperative Planung der Hintergrundaufgaben](/de/docs/Web/API/Background_Tasks_API)
+- [Kollaborative Planung von Hintergrundaufgaben](/de/docs/Web/API/Background_Tasks_API)
 - [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)
 - [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)
 - [`Window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback)

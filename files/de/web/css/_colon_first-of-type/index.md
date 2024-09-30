@@ -21,7 +21,7 @@ Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS
 
 ## Beispiele
 
-### Stilierung des ersten Absatzes
+### Gestaltung des ersten Absatzes
 
 #### HTML
 
@@ -46,7 +46,7 @@ p:first-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie verschachtelte Elemente ebenfalls angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein Typselektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [Universal-Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typ-Selektor angegeben wird.
 
 #### HTML
 

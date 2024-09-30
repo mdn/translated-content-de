@@ -1,17 +1,19 @@
 ---
-title: "WebGL2RenderingContext: uniformMatrix[234]x[234]fv() Methode"
+title: "WebGL2RenderingContext: uniformMatrix[234]x[234]fv()-Methode"
 short-title: uniformMatrix[234]x[234]fv()
 slug: Web/API/WebGL2RenderingContext/uniformMatrix
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.uniformMatrix[234]x[234]fv()`** Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) spezifizieren Matrixwerte für Uniform-Variablen.
+Die **`WebGL2RenderingContext.uniformMatrix[234]x[234]fv()`**-Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) spezifizieren Matrixwerte für uniforme Variablen.
 
 > [!NOTE]
-> Es gibt keine `2x2`, `3x3` und `4x4` Versionen dieser Methode. Sie werden in `2`, `3` und `4` abgekürzt. Siehe die Syntax unten.
+> Es gibt keine `2x2`, `3x3` und `4x4` Versionen
+> dieser Methode. Sie werden in `2`, `3` und `4`
+> abgekürzt. Siehe die Syntax unten.
 
 ## Syntax
 
@@ -56,11 +58,11 @@ uniformMatrix4fv(location, transpose, data, srcOffset, srcLength)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das den Ort des Uniform-Attributs enthält, das modifiziert werden soll.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das den Speicherort des zu ändernden Uniform-Attributs enthält.
 - `transpose`
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob die Matrix transponiert werden soll.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Matrix transponiert werden soll.
 - `data`
-  - : Ein {{jsxref("Float32Array")}} von Float-Werten.
+  - : Ein {{jsxref("Float32Array")}} aus Float-Werten.
 
 ### Rückgabewert
 

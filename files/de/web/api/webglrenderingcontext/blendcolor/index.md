@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode blendColor()"
+title: "WebGLRenderingContext: blendColor()-Methode"
 short-title: blendColor()
 slug: Web/API/WebGLRenderingContext/blendColor
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.blendColor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um die Blendfaktoren von Quelle und Ziel festzulegen.
+Die **`WebGLRenderingContext.blendColor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) dient dazu, die Quell- und Ziel-Mischfaktoren festzulegen.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ blendColor(red, green, blue, alpha)
 - `blue`
   - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die blaue Komponente im Bereich von 0 bis 1. Der Standardwert ist 0.
 - `alpha`
-  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die Alphakomponente (Transparenz) im Bereich von 0 bis 1. Der Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die Alpha-Komponente (Transparenz) im Bereich von 0 bis 1. Der Standardwert ist 0.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Um die Mischfarbe festzulegen, verwenden Sie:
+Um die Mischfarbe einzustellen, verwenden Sie:
 
 ```js
 gl.blendColor(0, 0.5, 1, 1);

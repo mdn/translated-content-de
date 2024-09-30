@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`message`**-Eigenschaft des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interfaces gibt eine Nachricht zurück, die den Fehler ausführlicher beschreibt.
+Die **`message`**-Eigenschaft, die nur lesbar ist, der [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Schnittstelle gibt eine Nachricht zurück, die den Fehler detaillierter beschreibt.
 
 ## Wert
 
-Ein String, der mehr Details über den aufgetretenen Fehler enthält. Beachten Sie, dass die Spezifikation die genaue Wortwahl dieser Nachrichten nicht definiert — dies ist den Implementierern überlassen.
+Ein String, der mehr Details über den aufgetretenen Fehler enthält. Beachten Sie, dass die Spezifikation die genaue Formulierung dieser Nachrichten nicht definiert – dies liegt im Ermessen der Implementierenden.
 
 ## Beispiele
 

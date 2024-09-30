@@ -10,7 +10,7 @@ l10n:
 Die Methode **`bookmarks.removeTree()`** entfernt rekursiv einen Lesezeichen-Ordner und dessen gesamten Inhalt.
 
 > [!WARNING]
-> Wenn Ihre Erweiterung versucht, einen Lesezeichenbaum aus dem Stammknoten des Lesezeichenbaums zu entfernen, wird ein Fehler mit der Nachricht "The bookmark root cannot be modified" ausgelöst und das Lesezeichen wird nicht entfernt.
+> Wenn Ihre Erweiterung versucht, einen Lesezeichen-Baum vom Stammknoten des Lesezeichen-Baums zu entfernen, wird ein Fehler mit der Nachricht "The bookmark root cannot be modified" ausgelöst, und das Lesezeichen wird nicht entfernt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,7 +25,7 @@ let removingTree = browser.bookmarks.removeTree(
 ### Parameter
 
 - `id`
-  - : Ein {{jsxref("string")}}, das die ID des zu löschenden Ordnerknotens samt seiner Nachkommen angibt.
+  - : Ein {{jsxref("string")}}, der die ID des Ordnerknotens angibt, der zusammen mit seinen Nachkommen gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Wenn der Knoten, der dem `id`-Parameter entspricht, nicht gefunden werden kann, 
 
 ## Beispiele
 
-Dieses Beispiel sucht einen Lesezeichen-Ordner mit dem Namen "MDN" und löscht ihn zusammen mit seinem gesamten Inhalt.
+Dieses Beispiel findet einen Lesezeichen-Ordner mit dem Namen "MDN" und löscht ihn zusammen mit seinem gesamten Inhalt.
 
 ```js
 function onRemoved() {
@@ -64,7 +64,7 @@ searchingBookmarks.then(removeMDN, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-removeTree) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-removeTree) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

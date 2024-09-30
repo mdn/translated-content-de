@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`altitudeAngle`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle repräsentiert den Winkel zwischen der Achse eines Transducers (zeigende Vorrichtung oder Stift) und der X-Y-Ebene eines Geräteschirms. Der Höhenwinkel beschreibt, ob der Transducer senkrecht zum Bildschirm, parallel oder in einem Winkel dazwischen steht.
+Die **`altitudeAngle`**-Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Winkel zwischen einer Übertragungsachse (einem Zeiger oder Stylus) und der X-Y-Ebene eines Geräts darstellt. Der Höhenwinkel beschreibt, ob der Transducer senkrecht zum Bildschirm, parallel oder in einem Zwischenausschnitt ist.
 
-Abhängig von der spezifischen Hardware und Plattform werden Benutzeragenten wahrscheinlich nur ein Set von Werten für die Ausrichtung des Transducers relativ zur Bildschirmebene erhalten — entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltx) und [`tiltY`](/de/docs/Web/API/PointerEvent/tilty) oder `altitudeAngle` und [`azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle).
+Je nach spezifischer Hardware und Plattform erhalten Benutzeragenten wahrscheinlich nur einen Satz von Werten für die Orientierung der Übertragungsachse relativ zur Bildebene — entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltx) und [`tiltY`](/de/docs/Web/API/PointerEvent/tilty) oder `altitudeAngle` und [`azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle).
 
 ![Der Azimutwinkel eines Zeigers im Vergleich zum Höhenwinkel](./azimuth_altitude_angles.svg)
 
-Für eine zusätzliche Veranschaulichung dieser Eigenschaft, siehe [Abbildung 4 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_altitudeAngle).
+Für eine zusätzliche Darstellung dieser Eigenschaft siehe [Abbildung 4 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_altitudeAngle).
 
 ## Wert
 
-Ein Winkel im Bogenmaß zwischen `0` und `π/2`, wobei `0` parallel zur Geräteoberfläche (X-Y-Ebene) und `π/2` senkrecht zur Oberfläche ist. Standardmäßig ist der Wert `π/2` (senkrecht zur Oberfläche), was sich von dem [`altitudeAngle` in Touch-Ereignissen](https://w3c.github.io/touch-events/#dom-touch-altitudeangle) unterscheidet, das standardmäßig `0` (parallel zur Oberfläche) ist. Für Hardware und Plattformen, die keine Neigung oder Winkel melden, beträgt der Wert `π/2`.
+Ein Winkel in Radianten zwischen `0` und `π/2`, wobei `0` parallel zur Geräteoberfläche (X-Y-Ebene) ist und `π/2` senkrecht zur Oberfläche ist. Standardmäßig `π/2` (senkrecht zur Oberfläche), was sich von der [`altitudeAngle` in Touch-Events](https://w3c.github.io/touch-events/#dom-touch-altitudeangle) unterscheidet, die standardmäßig `0` (parallel zur Oberfläche) ist. Für Hardware und Plattformen, die keinen Neigungs- oder Winkelbericht geben, beträgt der Wert `π/2`.
 
 ## Beispiel
 

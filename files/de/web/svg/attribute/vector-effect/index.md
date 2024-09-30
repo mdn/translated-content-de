@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Die **`vector-effect`** Eigenschaft gibt den Vektoreffekt an, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden vor allen anderen Zusammensetzungsoperationen angewendet, d.h. Filtern, Masken und Clips.
+Die **`vector-effect`** Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d.h. vor Filtern, Masken und Ausschnitten.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `vector-effect` als CSS-Eigenschaft verwendet werden.
@@ -30,7 +30,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -54,19 +54,19 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `none`
-  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d.h. das Standard-Renditionverhalten wird verwendet, das darin besteht, zuerst die Geometrie einer Form mit einer angegebenen Farbe zu füllen und dann die Umrisse mit einer angegebenen Farbe zu konturieren.
+  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d.h. das Standardanzeigeverhalten wird verwendet, welches darin besteht, zuerst die Geometrie einer Form mit einer angegebenen Farbe zu füllen und dann die Kontur mit einer angegebenen Farbe zu umranden.
 - `non-scaling-stroke`
-  - : Dieser Wert ändert die Art und Weise, wie ein Objekt konturiert wird. Normalerweise bedeutet das Konturieren das Berechnen der Konturpfade der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Konturen mit der Konturlackierung (Farbe oder Gradient). Der resultierende visuelle Effekt dieses Wertes besteht darin, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierung und Schertransformationen) und vom Zoomlevel abhängt.
+  - : Dieser Wert modifiziert die Art und Weise, wie ein Objekt umrandet wird. Normalerweise beinhaltet das Umrandung das Berechnen der Umrisslinie des Pfades der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Umrisslinie mit der Umrandungsfarbe (Farbe oder Verlauf). Der resultierende visuelle Effekt dieses Wertes ist, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierung und Schertransformationen) und dem Zoomlevel abhängt.
 - `non-scaling-size`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Der Maßstab dieses Benutzerkoordinatensystems ändert sich nicht trotz etwaiger Transformationsänderungen aus einem übergeordneten Koordinatenraum. Es spezifiziert jedoch nicht die Unterdrückung von Rotation und Scherung. Zudem spezifiziert es nicht den Ursprung des Benutzerkoordinatensystems. Da dieser Wert die Skalierung des Benutzerkoordinatensystems unterdrückt, hat es auch die Eigenschaften von `non-scaling-stroke`.
+  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Der Maßstab dieses Benutzerkoordinatensystems ändert sich trotz aller Transformationsänderungen eines übergeordneten Koordinatenraums nicht. Es gibt jedoch keine Unterdrückung der Drehung und Scherung an. Außerdem wird der Ursprung des Benutzerkoordinatensystems nicht angegeben. Da dieser Wert die Skalierung des Benutzerkoordinatensystems unterdrückt, hat er auch die Eigenschaften von `non-scaling-stroke`.
 - `non-rotation`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Die Rotation und Scherung dieses Benutzerkoordinatensystems wird unterdrückt trotz etwaiger Transformationsänderungen aus einem übergeordneten Koordinatenraum. Es spezifiziert jedoch nicht die Unterdrückung der Skalierung. Zudem spezifiziert es nicht den Ursprung des Benutzerkoordinatensystems.
+  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Die Drehung und Scherung dieses Benutzerkoordinatensystems wird trotz aller Transformationsänderungen eines übergeordneten Koordinatenraums unterdrückt. Es gibt jedoch keine Unterdrückung der Skalierung. Außerdem wird der Ursprung des Benutzerkoordinatensystems nicht angegeben.
 - `fixed-position`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Die Position des Benutzerkoordinatensystems ist festgelegt trotz etwaiger Transformationsänderungen aus einem übergeordneten Koordinatenraum. Es spezifiziert jedoch nicht die Unterdrückung von Rotation, Scherung und Skalierung. Wenn dieser Vektoreffekt und die {{SVGAttr("transform")}} Eigenschaft gleichzeitig definiert sind, wird diese Eigenschaft für diesen Effekt konsumiert.
+  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das vom Element und seinen Nachkommen verwendet wird. Die Position des Benutzerkoordinatensystems bleibt fest, trotz aller Transformationsänderungen eines übergeordneten Koordinatenraums. Es gibt jedoch keine Unterdrückung der Drehung, Scherung und Skalierung. Wenn dieser Vektoreffekt und die {{SVGAttr("transform")}} Eigenschaft gleichzeitig definiert sind, wird diese Eigenschaft für diesen Effekt verwendet.
 
 ## Beispiele
 
-### Festlegung von `vector-effect` als `non-scaling-stroke`
+### Setzen von `vector-effect` auf `non-scaling-stroke`
 
 ```html
 <svg viewBox="0 0 500 240">

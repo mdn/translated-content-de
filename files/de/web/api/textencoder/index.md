@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextEncoder`**-Schnittstelle nimmt einen Strom von Codepunkten als Eingabe und gibt einen Strom von UTF-8 Bytes aus.
+Die **`TextEncoder`**-Schnittstelle nimmt einen Strom von Codepunkten als Eingabe und gibt einen Strom von UTF-8-Bytes aus.
 
 ## Konstruktor
 
@@ -26,10 +26,10 @@ _Die `TextEncoder`-Schnittstelle erbt keine Eigenschaften._
 _Die `TextEncoder`-Schnittstelle erbt keine Methoden._
 
 - [`TextEncoder.encode()`](/de/docs/Web/API/TextEncoder/encode)
-  - : Nimmt einen String als Eingabe und gibt ein {{jsxref("Uint8Array")}} zurück, das den UTF-8-kodierten Text enthält.
+  - : Nimmt einen String als Eingabe und gibt ein {{jsxref("Uint8Array")}} mit UTF-8-kodiertem Text zurück.
 - [`TextEncoder.encodeInto()`](/de/docs/Web/API/TextEncoder/encodeInto)
-  - : Nimmt einen zu kodierenden String und ein Ziel-{{jsxref("Uint8Array")}}, in das der resultierende UTF-8-kodierte Text eingefügt wird, und gibt ein Objekt zurück, das den Fortschritt der Kodierung anzeigt.
-    Dies kann potenziell leistungsfähiger sein als die ältere `encode()`-Methode.
+  - : Nimmt einen zu kodierenden String und ein Ziel-{{jsxref("Uint8Array")}}, um den resultierenden UTF-8-kodierten Text zu platzieren, und gibt ein Objekt zurück, das den Fortschritt der Kodierung anzeigt.
+    Dies ist potenziell effizienter als die ältere `encode()`-Methode.
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ console.log(view); // Uint8Array(3) [226, 130, 172]
 ## Siehe auch
 
 - Die [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Schnittstelle, die die inverse Operation beschreibt.
-- [Node.js unterstützt globalen Export ab v11.0.0](https://nodejs.org/api/util.html#util_class_util_textencoder)
+- [Node.js unterstützt den globalen Export ab v11.0.0](https://nodejs.org/api/util.html#util_class_util_textencoder)

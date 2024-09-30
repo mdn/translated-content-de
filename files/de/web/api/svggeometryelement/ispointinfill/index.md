@@ -1,5 +1,5 @@
 ---
-title: "SVGGeometryElement: isPointInFill()-Methode"
+title: "SVGGeometryElement: isPointInFill() Methode"
 short-title: isPointInFill()
 slug: Web/API/SVGGeometryElement/isPointInFill
 l10n:
@@ -8,7 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGGeometryElement.isPointInFill()`**-Methode bestimmt, ob ein bestimmter Punkt innerhalb der Füllform eines Elements liegt. Es gelten die normalen Hit-Test-Regeln; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt als innerhalb der Füllung angesehen wird. Das `point`-Argument wird als Punkt im lokalen Koordinatensystem des Elements interpretiert.
+Die **`SVGGeometryElement.isPointInFill()`**-Methode ermittelt,
+ob ein gegebener Punkt innerhalb der Füllfläche eines Elements liegt. Normale Hit-Test-Regeln
+gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt,
+ob ein Punkt als innerhalb der Füllung betrachtet wird. Das `point`-Argument wird
+als ein Punkt im lokalen Koordinatensystem des Elements interpretiert.
 
 ## Syntax
 
@@ -19,11 +23,12 @@ isPointInFill(point)
 ### Parameter
 
 - `point`
-  - : Ein DOMPointInit-Objekt, das als Punkt im lokalen Koordinatensystem des Elements interpretiert wird.
+  - : Ein DOMPointInit-Objekt, das als Punkt im lokalen Koordinatensystem
+    des Elements interpretiert wird.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob der gegebene Punkt innerhalb der Füllung liegt oder nicht.
+Ein boolescher Wert, der anzeigt, ob der gegebene Punkt innerhalb der Füllung liegt oder nicht.
 
 ## Beispiele
 

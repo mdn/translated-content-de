@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle zerstört das Gerät und verhindert weitere Operationen darauf.
+Die **`destroy()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle zerstört das Gerät, wodurch weitere Operationen darauf verhindert werden.
 
 Beachten Sie, dass:
 
-- Alle aktuell für die [`GPUQueue`](/de/docs/Web/API/GPUQueue) des Geräts anstehenden Befehle ausgeführt werden, bevor das Gerät zerstört wird.
-- Alle mit dem Gerät erstellten WebGPU-Ressourcen (Buffern, Texturen usw.) ebenfalls zerstört werden.
-- Alle mit dem Gerät erstellten gemappten Buffer ungemappt werden.
+- Alle derzeit im Gerät's [`GPUQueue`](/de/docs/Web/API/GPUQueue) eingereihten Befehle werden ausgeführt, bevor das Gerät zerstört wird.
+- Alle WebGPU-Ressourcen, die mit dem Gerät erstellt wurden (Buffer, Texturen, etc.), werden ebenfalls zerstört.
+- Alle gemappten Buffer, die mit dem Gerät erstellt wurden, werden umgemappt.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

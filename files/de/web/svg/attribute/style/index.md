@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`style`** Attribut ermöglicht es, ein Element mithilfe von [CSS](/de/docs/Glossary/CSS)-Deklarationen zu stylen. Es funktioniert identisch wie [das `style` Attribut in HTML](/de/docs/Web/HTML/Global_attributes/style).
+Das **`style`**-Attribut ermöglicht es, ein Element mithilfe von [CSS](/de/docs/Glossary/CSS)-Deklarationen zu stylen. Es funktioniert identisch wie [das `style`-Attribut in HTML](/de/docs/Web/HTML/Global_attributes/style).
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -34,7 +34,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "120")}}
 
-## Nutzungshinweise
+## Anmerkungen zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -44,7 +44,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>Keine</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -55,7 +55,7 @@ svg {
 
 - `<style>`
 
-  - : Die Syntax der Styldaten hängt von der Stylesheet-Sprache ab. Standardmäßig ist die Stylesheet-Sprache [CSS](/de/docs/Web/CSS).
+  - : Die Syntax der Stil-Daten hängt von der Stylesheet-Sprache ab. Standardmäßig ist die Stylesheet-Sprache [CSS](/de/docs/Web/CSS).
 
 ## Spezifikationen
 
@@ -68,4 +68,4 @@ svg {
 ## Siehe auch
 
 - {{SVGElement("style")}}
-- [HTML `style` Attribut](/de/docs/Web/HTML/Global_attributes/style)
+- [HTML `style`-Attribut](/de/docs/Web/HTML/Global_attributes/style)

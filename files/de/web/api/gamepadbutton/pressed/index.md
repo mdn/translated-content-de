@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`GamepadButton.pressed`**-Eigenschaft des
-[`GamepadButton`](/de/docs/Web/API/GamepadButton)-Interfaces gibt ein `boolean` zurück, das angibt, ob der Button momentan gedrückt (`true`) oder nicht gedrückt (`false`) ist.
+Die **`GamepadButton.pressed`**-Eigenschaft des [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Interfaces gibt einen `boolean` zurück, der anzeigt, ob der Knopf derzeit gedrückt (`true`) oder nicht gedrückt (`false`) ist.
 
 ## Beispiele
 
@@ -35,4 +34,4 @@ Ein boolean-Wert.
 
 ## Siehe auch
 
-- [Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+- [Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

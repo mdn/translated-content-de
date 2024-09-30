@@ -8,8 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`data`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt ein
-{{jsxref("DataView")}} zurück, das die rohen Bytes der Nutzlast des Datensatzes enthält.
+Die **`data`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt ein {{jsxref("DataView")}} zurück, das die Rohbytes der Nutzlast des Records enthält.
 
 ## Syntax
 
@@ -19,11 +18,11 @@ NDEFRecord.data
 
 ### Wert
 
-Ein {{jsxref("DataView")}}, das die kodierten Nutzlastdaten des Datensatzes enthält.
+Ein {{jsxref("DataView")}}, das die kodierten Nutzlastdaten des Records enthält.
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über die Datensätze in einem [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das aus [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) abgerufen wird. Nachdem ein Datensatz basierend auf seinem [`mediaType`](/de/docs/Web/API/NDEFRecord/mediaType) ausgewählt wurde, wird das in der `data`-Eigenschaft gespeicherte dekodiert.
+Das folgende Beispiel durchläuft die Records in einem [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das aus [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) abgerufen wird. Nachdem ein Record basierend auf seinem [`mediaType`](/de/docs/Web/API/NDEFRecord/mediaType) ausgewählt wurde, wird dekodiert, was in der `data`-Eigenschaft gespeichert ist.
 
 ```js
 const ndef = new NDEFReader();

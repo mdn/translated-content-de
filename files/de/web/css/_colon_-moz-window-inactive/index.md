@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die auf jedes Element zutrifft, während es sich in einem inaktiven Fenster befindet.
+Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element abgleicht, während es sich in einem inaktiven Fenster befindet.
 
-`:-moz-window-inactive` funktioniert auch in HTML-Dokumenten.
+`:-moz-window-inactive` funktioniert auch in Inhalt-HTML-Dokumenten.
 
 > [!NOTE]
-> Vor der Einführung dieser Pseudoklasse wurde das Anpassen von Stilen für Hintergrundfenster erreicht, indem ein Attribut (`active="true"`) auf dem obersten Ebene des XUL-Chromfensters gesetzt wurde. Dieses Attribut wird nicht mehr verwendet.
+> Vor der Hinzufügung dieser Pseudoklasse wurde das Vergeben unterschiedlicher Stile an Hintergrundfenster durch das Setzen eines Attributs (`active="true"`) auf dem obersten XUL-Chrome-Fenster erreicht. Dieses Attribut wird nicht mehr verwendet.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel ändert das Aussehen des Hintergrunds einer Box, je nachdem, ob ihr Fenster aktiv ist oder nicht.
+Dieses Beispiel ändert das Aussehen des Hintergrunds einer Box, abhängig davon, ob ihr Fenster aktiv oder inaktiv ist.
 
 ### HTML
 
@@ -50,13 +50,13 @@ Dieses Beispiel ändert das Aussehen des Hintergrunds einer Box, je nachdem, ob 
 
 ### Ergebnis
 
-Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} ansehen.
+Das Ergebnis dieses Codes wird unten angezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} betrachten.
 
 {{EmbedLiveSample('Examples', 220, 220)}}
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 
@@ -69,4 +69,4 @@ Nicht Teil eines Standards.
 
   - [`:active`](/de/docs/Web/CSS/:active)
 
-- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)-Eigenschaft für reguläre DOMs und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement)-Eigenschaft für [Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Wurzeln.
+- Die Eigenschaft [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) für reguläre DOMs und die Eigenschaft [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement) für Wurzeln des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM).

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`add()`**-Methode der
-[`ContentIndex`](/de/docs/Web/API/ContentIndex)-Schnittstelle registriert ein Element im [Content Index](/de/docs/Web/API/Content_Index_API).
+Die **`add()`**-Methode der [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Schnittstelle registriert ein Element im [Inhaltsindex](/de/docs/Web/API/Content_Index_API).
 
 ## Syntax
 
@@ -21,26 +20,21 @@ add(contentDescription)
 
 - `contentDescription`
 
-  - : Ein {{jsxref('Object')}}, das die folgenden Daten enthält:
+  - : Ein {{jsxref('Object')}} mit den folgenden Daten:
 
     - `id`
       - : Ein eindeutiger {{jsxref('String')}}-Bezeichner.
     - `title`
-      - : Ein {{jsxref('String')}}-Titel für das Element. Wird in
-        benutzerseitig sichtbaren Inhaltslisten verwendet.
+      - : Ein {{jsxref('String')}}-Titel für das Element. Wird in für Benutzer sichtbaren Inhaltslisten verwendet.
     - `description`
-      - : Eine {{jsxref('String')}}-Beschreibung des Elements. Wird
-        in benutzerseitig sichtbaren Inhaltslisten verwendet.
+      - : Eine {{jsxref('String')}}-Beschreibung des Elements. Wird in für Benutzer sichtbaren Inhaltslisten verwendet.
     - `url`
-      - : Ein {{jsxref('String')}} mit der URL des entsprechenden
-        HTML-Dokuments. Muss unter dem Gültigkeitsbereich des aktuellen
-        [Service Workers](/de/docs/Web/API/ServiceWorker) sein.
+      - : Ein {{jsxref('String')}} mit der URL des entsprechenden HTML-Dokuments. Muss im Geltungsbereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
     - `category` {{Optional_Inline}}
 
-      - : Eine {{jsxref('String')}}, die die
-        Kategorie des Inhalts definiert. Kann sein:
+      - : Ein {{jsxref('String')}}, das die Kategorie des Inhalts definiert. Kann sein:
 
-        - `''` Ein leerer {{jsxref('String')}}, dies ist der Standard.
+        - `''` Ein leerer {{jsxref('String')}}, dies ist der Standardwert.
         - `homepage`
         - `article`
         - `video`
@@ -51,17 +45,17 @@ add(contentDescription)
       - : Ein {{jsxref('Array')}} von Bildressourcen, definiert als ein {{jsxref('Object')}} mit den folgenden Daten:
 
         - `src`
-          - : Eine URL-{{jsxref('String')}} des Quellbildes.
+          - : Eine URL-{{jsxref('String')}} der Bildquelle.
         - `sizes` {{Optional_Inline}}
           - : Eine {{jsxref('String')}}-Darstellung der Bildgröße.
         - `type` {{Optional_Inline}}
           - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) des Bildes.
         - `label` {{Optional_Inline}}
-          - : Ein String, der den zugänglichen Namen des Icons darstellt.
+          - : Ein String, der den zugänglichen Namen des Symbols darstellt.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit `undefined` erfüllt wird.
+Gibt ein {{jsxref("Promise")}} zurück, das sich mit `undefined` auflöst.
 
 ### Ausnahmen
 
@@ -70,15 +64,13 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit `undefined` erfüllt wird.
   - : Diese Ausnahme wird unter den folgenden Bedingungen ausgelöst:
 
     - Die Registrierung des Service Workers ist nicht vorhanden oder der Service Worker enthält kein [`FetchEvent`](/de/docs/Web/API/FetchEvent).
-    - Einer der `id`, `title`, `description` oder `url` Parameter fehlt, ist nicht vom Typ {{jsxref('String')}}, oder ein leerer {{jsxref('String')}}.
-    - Der `url` Parameter entspricht nicht der [Same-Origin Policy](/de/docs/Glossary/same-origin_policy) mit dem [Service Worker](/de/docs/Web/API/ServiceWorker).
-    - Eines der Elemente in `icons` ist kein Bildtyp oder das Abrufen eines der Elemente in `icons` scheiterte mit einem Netzwerkfehler oder Decodierfehler.
+    - Einer der Parameter `id`, `title`, `description` oder `url` fehlt, ist nicht vom Typ {{jsxref('String')}} oder ein leerer {{jsxref('String')}}.
+    - Der `url`-Parameter entspricht nicht der [Same-Origin-Policy](/de/docs/Glossary/same-origin_policy) mit dem [Service Worker](/de/docs/Web/API/ServiceWorker).
+    - Eines der Elemente in `icons` ist kein Bildtyp, oder beim Abrufen eines der Elemente in `icons` trat ein Netzwerkfehler oder ein Dekodierungsfehler auf.
 
 ## Beispiele
 
-Hier deklarieren wir ein Element im korrekten Format und erstellen eine asynchrone
-Funktion, die die `add`-Methode verwendet, um es mit dem
-[Content Index](/de/docs/Web/API/Content_Index_API) zu registrieren.
+Hier deklarieren wir ein Element im korrekten Format und erstellen eine asynchrone Funktion, die die `add`-Methode verwendet, um es im [Inhaltsindex](/de/docs/Web/API/Content_Index_API) zu registrieren.
 
 ```js
 // our content
@@ -116,8 +108,7 @@ async function registerContent(data) {
 }
 ```
 
-Die `add`-Methode kann auch innerhalb des
-Gültigkeitsbereichs des [Service Workers](/de/docs/Web/API/ServiceWorker) verwendet werden.
+Die `add`-Methode kann auch im Geltungsbereich des [Service Workers](/de/docs/Web/API/ServiceWorker) verwendet werden.
 
 ```js
 // our content

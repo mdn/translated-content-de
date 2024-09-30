@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.prepend()`** Methode fügt eine Reihe von
+Die **`Element.prepend()`**-Methode fügt eine Gruppe von
 [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind
 des [`Element`](/de/docs/Web/API/Element) ein. Zeichenfolgen werden als
 äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
@@ -24,7 +24,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
 
 ## Beispiele
 
@@ -69,10 +69,10 @@ div.prepend("Some text", p);
 console.log(div.childNodes); // NodeList [ #text "Some text", <p> ]
 ```
 
-### Die prepend-Methode ist nicht eingefasst
+### Die prepend-Methode ist nicht einfügbar
 
-Die `prepend()` Methode wird nicht im `with`-Statement eingefasst.
-Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
+Die `prepend()`-Methode ist nicht in die `with`-Anweisung eingefügt.
+Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
 let div = document.createElement("div");

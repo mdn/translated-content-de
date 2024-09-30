@@ -1,5 +1,5 @@
 ---
-title: "NodeList: length Eigenschaft"
+title: "NodeList: length-Eigenschaft"
 short-title: length
 slug: Web/API/NodeList/length
 l10n:
@@ -16,7 +16,7 @@ Ein ganzzahliger Wert, der die Anzahl der Elemente in einer `NodeList` darstellt
 
 ## Beispiele
 
-Die `length`-Eigenschaft ist in der DOM-Programmierung oft nützlich. Sie wird häufig verwendet, um die Länge einer Liste zu testen und zu prüfen, ob sie überhaupt existiert. Auch wird sie oft als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
+Die `length`-Eigenschaft ist oft nützlich in der DOM-Programmierung. Sie wird häufig verwendet, um die Länge einer Liste zu testen, um festzustellen, ob diese überhaupt existiert. Sie wird auch häufig als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
 
 ```js
 // All the paragraphs in the document

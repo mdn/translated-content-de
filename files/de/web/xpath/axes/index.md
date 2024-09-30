@@ -7,33 +7,33 @@ l10n:
 
 {{XsltSidebar}}
 
-Im [XPath](/de/docs/Web/XPath)-Standard gibt es dreizehn verschiedene Achsen. Eine Achse stellt eine Beziehung zum Kontextknoten dar und wird verwendet, um Knoten relativ zu diesem Knoten im Baum zu lokalisieren.
+Es gibt dreizehn verschiedene Achsen in der [XPath](/de/docs/Web/XPath)-Spezifikation. Eine Achse repräsentiert eine Beziehung zum Kontextknoten und wird verwendet, um Knoten relativ zu diesem Knoten im Baum zu lokalisieren.
 
-Für weitere Informationen zur Verwendung von XPath-Ausdrücken, siehe bitte den Abschnitt [Zum Weiterlesen](/de/docs/Web/XSLT/Transforming_XML_with_XSLT#for_further_reading) am Ende des Dokuments [Transforming XML with XSLT](/de/docs/Web/XSLT/Transforming_XML_with_XSLT). Siehe auch den [Abschnitt 'axes' im xpath spec](https://www.w3.org/TR/xpath-30/#axes).
+Für weitere Informationen zur Verwendung von XPath-Ausdrücken lesen Sie bitte den Abschnitt [Weiterführende Literatur](/de/docs/Web/XSLT/Transforming_XML_with_XSLT#for_further_reading) am Ende des Dokuments [Transforming XML with XSLT](/de/docs/Web/XSLT/Transforming_XML_with_XSLT). Siehe auch den ['axes'-Abschnitt in der xpath-Spezifikation](https://www.w3.org/TR/xpath-30/#axes).
 
 - `ancestor`
-  - : Bezeichnet alle Vorfahren des Kontextknotens, beginnend mit dem übergeordneten Knoten und fortlaufend bis zum Wurzelknoten.
+  - : Gibt alle Vorfahren des Kontextknotens an, beginnend mit dem Elternknoten und bis zum Wurzelknoten.
 - `ancestor-or-self`
-  - : Bezeichnet den Kontextknoten und alle seine Vorfahren, einschließlich des Wurzelknotens.
+  - : Gibt den Kontextknoten und alle seine Vorfahren, einschließlich des Wurzelknotens, an.
 - `attribute`
-  - : Bezeichnet die Attribute des Kontextknotens. Nur Elemente haben Attribute. Diese Achse kann mit dem At-Zeichen (`@`) abgekürzt werden.
+  - : Gibt die Attribute des Kontextknotens an. Nur Elemente haben Attribute. Diese Achse kann mit dem At-Zeichen (`@`) abgekürzt werden.
 - `child`
-  - : Bezeichnet die Kinder des Kontextknotens. Wenn ein XPath-Ausdruck keine Achse angibt, wird diese standardmäßig angenommen. Da nur der Wurzelknoten oder Elementknoten Kinder haben, wird jede andere Verwendung nichts auswählen.
+  - : Gibt die Kinder des Kontextknotens an. Wenn ein XPath-Ausdruck keine Achse angibt, wird diese standardmäßig angenommen. Da nur der Wurzelknoten oder Elementknoten Kinder haben, wird jede andere Verwendung nichts auswählen.
 - `descendant`
-  - : Bezeichnet alle Kinder des Kontextknotens und alle deren Kinder und so weiter. Attribut- und Namespace-Knoten sind **nicht** eingeschlossen - der `parent` eines `attribute`-Knotens ist ein Elementknoten, jedoch sind `attribute`-Knoten nicht die Kinder ihrer Eltern.
+  - : Gibt alle Kinder des Kontextknotens und alle deren Kinder usw. an. Attribut- und Namensraumknoten sind **nicht** enthalten - der `parent` eines `attribute`-Knotens ist ein Elementknoten, aber `attribute`-Knoten sind nicht die Kinder ihrer Eltern.
 - `descendant-or-self`
-  - : Bezeichnet den Kontextknoten und alle seine Nachkommen. Attribut- und Namespace-Knoten sind **nicht** eingeschlossen - der `parent` eines `attribute`-Knotens ist ein Elementknoten, aber `attribute`-Knoten sind nicht die Kinder ihrer Eltern.
+  - : Gibt den Kontextknoten und alle seine Nachkommen an. Attribut- und Namensraumknoten sind **nicht** enthalten - der `parent` eines `attribute`-Knotens ist ein Elementknoten, aber `attribute`-Knoten sind nicht die Kinder ihrer Eltern.
 - `following`
-  - : Bezeichnet alle Knoten, die nach dem Kontextknoten erscheinen, mit Ausnahme der `descendant`-, `attribute`- und `namespace`-Knoten.
+  - : Gibt alle Knoten an, die nach dem Kontextknoten erscheinen, mit Ausnahme von `descendant`, `attribute` und `namespace`-Knoten.
 - `following-sibling`
-  - : Bezeichnet alle Knoten, die denselben Elternteil wie der Kontextknoten haben und im Quelldokument nach dem Kontextknoten erscheinen.
+  - : Gibt alle Knoten an, die denselben Elternknoten wie der Kontextknoten haben und nach dem Kontextknoten im Quelldokument erscheinen.
 - `namespace` _(nicht unterstützt)_
-  - : Bezeichnet alle Knoten, die im Gültigkeitsbereich für den Kontextknoten sind. In diesem Fall muss der Kontextknoten ein Elementknoten sein.
+  - : Gibt alle Knoten an, die im Gültigkeitsbereich des Kontextknotens liegen. In diesem Fall muss der Kontextknoten ein Elementknoten sein.
 - `parent`
-  - : Bezeichnet den einzelnen Knoten, der das Elternteil des Kontextknotens ist. Er kann als zwei Punkte (`..`) abgekürzt werden.
+  - : Gibt den einzelnen Knoten an, der der Elternknoten des Kontextknotens ist. Er kann als zwei Punkte (`..`) abgekürzt werden.
 - `preceding`
-  - : Bezeichnet alle Knoten, die dem Kontextknoten im Dokument vorangehen, mit Ausnahme der `ancestor`-, `attribute`- und `namespace`-Knoten.
+  - : Gibt alle Knoten an, die dem Kontextknoten im Dokument vorausgehen, mit Ausnahme von `ancestor`, `attribute` und `namespace`-Knoten.
 - `preceding-sibling`
-  - : Bezeichnet alle Knoten, die denselben Elternteil wie der Kontextknoten haben und im Quelldokument vor dem Kontextknoten erscheinen.
+  - : Gibt alle Knoten an, die denselben Elternknoten wie der Kontextknoten haben und vor dem Kontextknoten im Quelldokument erscheinen.
 - `self`
-  - : Bezeichnet den Kontextknoten selbst. Er kann als ein einzelner Punkt (`.`) abgekürzt werden.
+  - : Gibt den Kontextknoten selbst an. Er kann als ein einzelner Punkt (`.`) abgekürzt werden.

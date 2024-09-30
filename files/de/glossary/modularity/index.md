@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff Modularität bezieht sich auf das Maß, in dem die Komponenten eines Systems getrennt und neu kombiniert werden können. Es handelt sich auch um die Aufteilung eines Softwarepakets in logische Einheiten. Der Vorteil eines modularen Systems liegt darin, dass die Teile unabhängig voneinander betrachtet werden können.
+Der Begriff Modularität bezieht sich auf das Maß, in dem die Komponenten eines Systems getrennt und neu kombiniert werden können. Er beschreibt auch die Aufteilung eines Softwarepakets in logische Einheiten. Der Vorteil eines modularen Systems besteht darin, dass man die Teile unabhängig voneinander betrachten kann.
 
 ## Siehe auch
 
-- [Modularität](https://en.wikipedia.org/wiki/Modularity) auf Wikipedia
+- [Modularity](https://en.wikipedia.org/wiki/Modularity) auf Wikipedia

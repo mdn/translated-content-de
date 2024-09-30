@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:otherwise>`-Element wird verwendet, um die Aktion zu definieren, die durchgeführt werden soll, wenn keine der `<xsl:when>`-Bedingungen zutrifft. Es ist ähnlich dem `else` oder `default`-Fall in anderen Programmiersprachen.
+Das `<xsl:otherwise>`-Element wird verwendet, um die Aktion zu definieren, die ausgeführt werden soll, wenn keine der `<xsl:when>`-Bedingungen zutrifft. Es ist ähnlich dem `else` oder `default`-Fall in anderen Programmiersprachen.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Typ
 
-Unteranweisung, muss als letztes Kind eines `<xsl:choose>`-Elements in einer Vorlage erscheinen.
+Unteranweisung, muss das letzte Kind eines `<xsl:choose>`-Elements innerhalb eines Templates sein.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ XSLT, Abschnitt 9.2
 
 ## Gecko-Unterstützung
 
-Unterstützt.
+Wird unterstützt.

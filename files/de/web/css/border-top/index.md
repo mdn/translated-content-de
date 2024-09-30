@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-top`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-top`** [Kurzschrift](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Randes](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-top.html")}}
 
-Wie bei allen Kurzschreibweisen setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Nicht angegebene Werte werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschrift-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Die nicht spezifizierten werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Es ist tatsächlich dasselbe wie dieser:
+Er ist tatsächlich derselbe wie dieser hier:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nichtangeben des Teils `border-style` zu keinem Rahmen.
+Der vor `border-top` angegebene Wert von {{cssxref("border-top-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rand.
 
-## Konstituierende Eigenschaften
+## Zuordnende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
 
 - [`border-top-color`](/de/docs/Web/CSS/border-top-color)
 - [`border-top-style`](/de/docs/Web/CSS/border-top-style)
@@ -50,7 +50,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzschrifteigenschaft können in beliebiger Reihenfolge angegeben werden, wobei einer oder zwei davon weggelassen werden können.
 
 ### Werte
 
@@ -71,7 +71,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Anwenden eines oberen Rahmens
+### Anwendung eines oberen Randes
 
 #### HTML
 
@@ -92,7 +92,7 @@ div {
 }
 ```
 
-#### Ergebnis
+#### Ergebnisse
 
 {{EmbedLiveSample('Applying_a_top_border')}}
 

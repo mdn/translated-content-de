@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechRecognitionResult`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine einzelne Erkennungsübereinstimmung, die mehrere [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte enthalten kann.
+Die **`SpeechRecognitionResult`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert einen einzelnen Erkennungstreffer, der mehrere [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte enthalten kann.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob dieses Ergebnis endgültig (true) oder nicht (false) ist. Wenn ja, dann ist dies das letzte Mal, dass dieses Ergebnis zurückgegeben wird; wenn nicht, handelt es sich um ein Zwischenergebnis, das später aktualisiert werden kann.
+  - : Ein boolescher Wert, der angibt, ob dieses Ergebnis endgültig (true) oder nicht (false) ist — dies ist das letzte Mal, dass dieses Ergebnis zurückgegeben wird; wenn nicht, ist das Ergebnis vorläufig und kann später aktualisiert werden.
 - [`SpeechRecognitionResult.length`](/de/docs/Web/API/SpeechRecognitionResult/length) {{ReadOnlyInline}}
-  - : Gibt die Länge des "Arrays" zurück — die Anzahl der im Ergebnis enthaltenen [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte (auch als "n-beste Alternativen" bezeichnet).
+  - : Gibt die Länge des "Arrays" zurück — die Anzahl der im Ergebnis enthaltenen [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte (auch als "n-best alternatives" bezeichnet).
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`SpeechRecognitionResult.item`](/de/docs/Web/API/SpeechRecognitionResult/item)
-  - : Ein Standard-Getter, der den Zugriff auf [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte innerhalb des Ergebnisses über Array-Syntax ermöglicht.
+  - : Ein standardmäßiger Getter, der den Zugriff auf [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte innerhalb des Ergebnisses über Array-Syntax ermöglicht.
 
 ## Beispiele
 
-Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 ```js
 recognition.onresult = (event) => {

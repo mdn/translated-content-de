@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`delete()`** Methode von {{jsxref("Map")}} Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
+Die **`delete()`**-Methode von {{jsxref("Map")}}-Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-delete.html")}}
 
@@ -20,11 +20,11 @@ mapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map` Objekt entfernt werden soll.
+  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt entfernt werden soll.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `Map` Objekt vorhanden war und entfernt wurde, oder
+`true`, wenn ein Element im `Map`-Objekt existierte und entfernt wurde, oder
 `false`, wenn das Element nicht existiert.
 
 ## Beispiele

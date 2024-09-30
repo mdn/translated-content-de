@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**RSS** (Really Simple Syndication) bezieht sich auf mehrere XML-Dokumentformate, die für die Veröffentlichung von Website-Updates entwickelt wurden. Wenn Sie das RSS-Feed einer Website abonnieren, sendet die Website Informationen und Aktualisierungen an Ihren RSS-Reader in einem RSS-Dokument, das als _Feed_ bezeichnet wird, sodass Sie nicht alle Ihre Lieblingswebsites manuell überprüfen müssen.
+**RSS** (Really Simple Syndication) bezieht sich auf mehrere XML-Dokumentformate, die für die Veröffentlichung von Website-Updates entwickelt wurden. Wenn Sie ein RSS-Feed einer Website abonnieren, sendet die Website Informationen und Updates an Ihren RSS-Reader in einem RSS-Dokument, das _Feed_ genannt wird, sodass Sie nicht alle Ihre bevorzugten Websites manuell überprüfen müssen.
 
 ## Siehe auch
 

@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Leert den Browser-Cache.
+Löscht den Cache des Browsers.
 
-Beachten Sie, dass diese Funktion zwar ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt entgegennehmen kann, dieses jedoch ignoriert wird. Der gesamte Cache wird immer gelöscht, wenn diese Funktion verwendet wird.
+Beachten Sie, dass obwohl diese Funktion ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt annehmen kann, wird dieses ignoriert. Der gesamte Cache wird immer gelöscht, wenn diese Funktion verwendet wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,15 +24,15 @@ let removing = browser.browsingData.removeCache(
 ### Parameter
 
 - `removalOptions` {{optional_inline}}
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter hat keine Wirkung.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter hat keine Auswirkung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Löschung abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Den Browser-Cache leeren:
+Den Browser-Cache löschen:
 
 ```js
 function onRemoved() {

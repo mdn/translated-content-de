@@ -1,5 +1,5 @@
 ---
-title: "CSS: highlights statische Eigenschaft"
+title: "CSS: highlights Static-Eigenschaft"
 short-title: highlights
 slug: Web/API/CSS/highlights_static
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische, schreibgeschützte **`highlights`** Eigenschaft der [`CSS`](/de/docs/Web/API/CSS)-Schnittstelle ermöglicht den Zugriff auf das `HighlightRegistry`, das zum Stylen beliebiger Textbereiche unter Verwendung der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) genutzt wird.
+Die statische, schreibgeschützte **`highlights`**-Eigenschaft des [`CSS`](/de/docs/Web/API/CSS)-Interfaces ermöglicht den Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) zu stylen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Das [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert das Erstellen mehrerer Textbereiche, das Erstellen eines `Highlight`-Objekts für diese, das Registrieren dieses Highlights im `HighlightRegistry`, und schließlich das Stylen der Textbereiche mithilfe des {{cssxref("::highlight", "::highlight()")}} Pseudoelements.
+Das folgende Beispiel zeigt, wie mehrere Textbereiche erstellt, dann ein `Highlight`-Objekt für diese Bereiche erstellt, dieses Highlight im `HighlightRegistry` registriert und schließlich die Textbereiche mit dem {{cssxref("::highlight", "::highlight()")}}-Pseudo-Element gestylt werden.
 
 ```js
 const parentNode = document.getElementById("foo");
@@ -52,4 +52,4 @@ CSS.highlights.set("my-custom-highlight", myCustomHighlight);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

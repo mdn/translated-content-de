@@ -1,5 +1,5 @@
 ---
-title: "CloseEvent: CloseEvent() Konstruktor"
+title: "CloseEvent: CloseEvent()-Konstruktor"
 short-title: CloseEvent()
 slug: Web/API/CloseEvent/CloseEvent
 l10n:
@@ -21,15 +21,15 @@ new CloseEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `close`.
+    Es ist case-sensitiv und die Browser setzen es immer auf `close`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften folgende Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `wasClean` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die Verbindung sauber geschlossen wurde oder nicht. Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob die Verbindung sauber geschlossen wurde oder nicht. Standardmäßig ist dies `false`.
     - `code` {{optional_inline}}
-      - : Ein ganzzahliges Element, das den vom Server gesendeten _Verbindungsschlusscode_ darstellt. Der Standardwert ist `0`.
+      - : Ein Integer, der den _Verbindungsschlusscode_ darstellt, der vom Server gesendet wurde. Standardmäßig ist dies `0`.
     - `reason` {{optional_inline}}
-      - : Ein String, der einen menschenlesbaren Grund enthält, warum der Server die Verbindung geschlossen hat. Der Standardwert ist `''`.
+      - : Ein String, der einen menschenlesbaren Grund enthält, warum der Server die Verbindung geschlossen hat. Standardmäßig ist dies `''`.
 
 ### Rückgabewert
 
@@ -45,4 +45,4 @@ Ein neues [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Objekt.
 
 ## Siehe auch
 
-- [`CloseEvent`](/de/docs/Web/API/CloseEvent), die Schnittstelle der Objekte, die es konstruiert.
+- [`CloseEvent`](/de/docs/Web/API/CloseEvent), das Interface der Objekte, die es konstruiert.

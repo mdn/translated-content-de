@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Prüft, ob das benannte PKCS #11-Modul derzeit in Firefox installiert ist.
+Überprüft, ob das benannte PKCS #11-Modul derzeit in Firefox installiert ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,7 +22,7 @@ let checking = browser.pkcs11.isModuleInstalled(
 ### Parameter
 
 - `name`
-  - : `string`. Name des zu überprüfenden Moduls.
+  - : `string`. Name des Moduls, das überprüft werden soll.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Prüft, ob das Modul mit dem Namen "pkcs11_module" installiert ist:
+Überprüft, ob das Modul mit dem Namen "pkcs11_module" installiert ist:
 
 ```js
 function logIsInstalled(isInstalled) {

@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`regexp:match()` führt eine Übereinstimmung mit regulären Ausdrücken auf einem String durch und gibt die gefundenen Teilübereinstimmungen als Ergebnis zurück.
+`regexp:match()` führt eine reguläre Ausdrucksüberprüfung auf einem String durch und gibt die als Ergebnis gefundenen Teilübereinstimmungen zurück.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ regexp:match(targetString, regExpString[, flagsString])
 ### Parameter
 
 - `targetString`
-  - : Der String, auf dem die Übereinstimmung mit regulären Ausdrücken durchgeführt wird.
+  - : Der String, auf dem die reguläre Ausdrucksüberprüfung durchgeführt werden soll.
 - `regExpString`
-  - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet wird.
+  - : Der zu bewertende reguläre Ausdruck im JavaScript-Stil.
 - `flagsString` {{optional_inline}}
   - : Ein optionaler String, der Zeichenflags enthält.
 
 Die Zeichenflags sind:
 
 - `g`
-  - : Globale Übereinstimmung. Die Teilübereinstimmungen jedes Vorkommens im String werden zurückgegeben. Wenn dieses Flag nicht angegeben ist, werden nur die Teilübereinstimmungen des ersten Vorkommens zurückgegeben.
+  - : Globale Übereinstimmung. Die Teilübereinstimmungen jeder Übereinstimmung im String werden zurückgegeben. Wenn dieses Flag nicht angegeben ist, werden nur die Teilübereinstimmungen der ersten Übereinstimmung zurückgegeben.
 - `i`
-  - : Groß-/Kleinschreibung ignorieren. Wenn dieses Flag angegeben ist, wird die Übereinstimmung ohne Berücksichtigung der Groß-/Kleinschreibung durchgeführt.
+  - : Groß-/Kleinschreibungunabhängige Übereinstimmung. Wenn dieses Flag angegeben ist, wird die Übereinstimmung ohne Beachtung der Groß-/Kleinschreibung durchgeführt.
 
 ### Rückgabewert
 
-Eine Knotenmenge von `match`-Elementen, von denen jedes den Stringwert eines Teils des ersten Parameterstrings hat, wie er durch den regulären Ausdruck erfasst wurde. Wenn die Übereinstimmung nicht global ist, hat das erste `match`-Element den Wert des durch den gesamten regulären Ausdruck passenden Abschnitts des Strings.
+Eine Knotenmenge von `match`-Elementen, von denen jedes den Stringwert eines Teils des ersten Parameterstrings hat, wie er durch den regulären Ausdruck erfasst wurde. Wenn die Übereinstimmung nicht global ist, hat das erste übereinstimmende Element den Wert des Teils des Strings, der durch den gesamten regulären Ausdruck übereinstimmt.
 
 Zum Beispiel:
 

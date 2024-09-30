@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`mathematical`** Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine mathematische Grundlinienausrichtung für horizontal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem.
+Das **`mathematical`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine mathematische Basislinienausrichtung für horizontal ausgerichtete Glyphenlayouts zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 

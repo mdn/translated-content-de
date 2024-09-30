@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`animVal`**-Eigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration) Schnittstelle enthält den aktuellen Wert einer SVG-Aufzählung. Wenn keine Animation vorliegt, ist es derselbe Wert wie der [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
+Die **`animVal`**-Eigenschaft des [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Interfaces enthält den aktuellen Wert einer SVG-Enumeration. Wenn keine Animation vorliegt, ist es derselbe Wert wie der [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
 
 ## Wert
 
-Ein Integer, der den aktuellen Wert der Aufzählung enthält
+Ein Ganzzahlwert, der den aktuellen Wert der Enumeration enthält
 
 ## Beispiele
 
@@ -59,7 +59,7 @@ function displayLog() {
 displayLog();
 ```
 
-{{EmbedLiveSample("Beispiele", "280", "260")}}
+{{EmbedLiveSample("Examples", "280", "260")}}
 
 ## Spezifikationen
 

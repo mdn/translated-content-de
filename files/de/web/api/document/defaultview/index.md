@@ -1,5 +1,5 @@
 ---
-title: "Document: Eigenschaft defaultView"
+title: "Document: defaultView-Eigenschaft"
 short-title: defaultView
 slug: Web/API/Document/defaultView
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef}}
 
-In Browsern gibt **`document.defaultView`** das
-[`window`](/de/docs/Web/API/Window)-Objekt zurück, das mit [einem Dokument](/de/docs/Glossary/Browsing_context) verknüpft ist, oder `null`, wenn keines verfügbar ist.
+In Browsern gibt **`document.defaultView`** das [`window`](/de/docs/Web/API/Window)-Objekt zurück, das mit [einem Dokument](/de/docs/Glossary/Browsing_context) verknüpft ist, oder `null`, wenn keines verfügbar ist.
 
 Diese Eigenschaft ist schreibgeschützt.
 

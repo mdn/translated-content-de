@@ -1,5 +1,5 @@
 ---
-title: "Range: setEnd()-Methode"
+title: "Range: Methode setEnd()"
 short-title: setEnd()
 slug: Web/API/Range/setEnd
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setEnd()`**-Methode setzt die Endposition eines [`Range`](/de/docs/Web/API/Range) auf den angegebenen Offset im angegebenen Knoten. Wenn der Endpunkt höher (weiter oben im Dokument) als der Startpunkt gesetzt wird, entsteht ein kollabierter Bereich, wobei Anfangs- und Endpunkte beide auf die angegebene Endposition gesetzt werden.
+Die **`Range.setEnd()`**-Methode setzt die Endposition eines [`Range`](/de/docs/Web/API/Range) auf die angegebene Verschiebung in den spezifizierten Knoten. Wenn der Endpunkt höher (weiter oben im Dokument) als der Startpunkt gesetzt wird, führt dies zu einem zusammengeklappten Bereich, bei dem die Start- und Endpunkte beide auf die angegebene Endposition gesetzt werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ setEnd(endNode, endOffset)
 - `endNode`
   - : Der [`Node`](/de/docs/Web/API/Node), in dem der [`Range`](/de/docs/Web/API/Range) enden soll.
 - `endOffset`
-  - : Eine ganze Zahl größer oder gleich null, die den Offset für das Ende des `Range` ab dem Beginn von `endNode` darstellt.
+  - : Eine ganze Zahl, die größer als oder gleich null ist und den Versatz für das Ende des `Range` vom Start des `endNode` darstellt.
 
 ### Rückgabewert
 
@@ -32,11 +32,15 @@ Keiner ({{jsxref("undefined")}}).
 - `InvalidNodeTypeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der durch `endNode` angegebene Knoten ist ein Doctype-Knoten; Bereichs-Endpunkte können nicht innerhalb eines Doctype-Knotens liegen.
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der durch `endOffset` angegebene Wert ist entweder größer oder gleich der Länge des Knotens oder kleiner als null.
+  - : Der durch `endOffset` angegebene Wert ist entweder größer als oder gleich der Länge des Knotens oder kleiner als null.
 
-## Hinweise zur Verwendung
+## Gebrauchshinweise
 
-Wenn `endNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `endOffset` die Anzahl der Zeichen vom Start von `endNode`. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist `endOffset` die Anzahl der Kindknoten zwischen dem Beginn des `endNode`.
+Wenn das `endNode` ein [`Node`](/de/docs/Web/API/Node) des Typs [`Text`](/de/docs/Web/API/Text),
+[`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `endOffset`
+die Anzahl der Zeichen vom Start von `endNode`. Für andere
+[`Node`](/de/docs/Web/API/Node)-Typen ist `endOffset` die Anzahl der Kindknoten zwischen
+dem Start des `endNode`.
 
 ## Beispiele
 
@@ -47,7 +51,8 @@ const endOffset = endNode.childNodes.length;
 range.setEnd(endNode, endOffset);
 ```
 
-> **Note:** `setEnd()` wird häufig in Verbindung mit [`setStart()`](/de/docs/Web/API/Range/setStart) verwendet, um einen Bereich vollständig zu konfigurieren.
+> **Note:** `setEnd()` wird häufig in Verbindung mit
+> [`setStart()`](/de/docs/Web/API/Range/setStart) verwendet, um einen Bereich vollständig zu konfigurieren.
 
 ## Spezifikationen
 
@@ -59,4 +64,4 @@ range.setEnd(endNode, endOffset);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
+- [Die DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

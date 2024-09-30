@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Fordern Sie auf, die Berechtigungen aufzugeben, die im angegebenen {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgeführt sind.
+Fordern Sie auf, die im angegebenen {{WebExtAPIRef("permissions.Permissions")}} Objekt aufgeführten Berechtigungen aufzugeben.
 
-Das `Permissions`-Argument kann entweder eine `origins`-Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions`-Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides. Berechtigungen müssen aus der Menge von Berechtigungen stammen, die im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) manifest.json-Schlüssel definiert sind.
+Das `Permissions` Argument kann entweder eine `origins` Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions` Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides. Berechtigungen müssen aus der Menge der im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) manifest.json-Schlüssel definierten Berechtigungen stammen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,11 +24,11 @@ let removing = browser.permissions.remove(
 ### Parameter
 
 - `permissions`
-  - : Ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt.
+  - : Ein {{WebExtAPIRef("permissions.Permissions")}} Objekt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die im `permissions`-Argument aufgeführten Berechtigungen nun nicht mehr der Erweiterung gewährt werden, oder `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit `true` erfüllt wird, wenn die im `permissions` Argument aufgeführten Berechtigungen der Erweiterung jetzt nicht mehr gewährt werden, oder mit `false` andernfalls.
 
 ## Browser-Kompatibilität
 
@@ -55,4 +55,4 @@ document.querySelector("#remove").addEventListener("click", remove);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.

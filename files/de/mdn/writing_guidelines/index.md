@@ -7,45 +7,45 @@ l10n:
 
 {{MDNSidebar}}
 
-MDN Web Docs ist ein Open-Source-Projekt. Die unten aufgeführten Abschnitte beschreiben unsere Richtlinien, _was_ wir dokumentieren und _wie_ wir es auf den MDN Web Docs tun. Um mehr darüber zu erfahren, _wie Sie beitragen können_, sehen Sie sich unsere [Beitragsrichtlinien](/de/docs/MDN/Community) an.
+MDN Web Docs ist ein Open-Source-Projekt. Die unten aufgeführten Abschnitte beschreiben unsere Richtlinien für _was_ wir dokumentieren und _wie_ wir dies auf MDN Web Docs tun. Um mehr über _wie man beiträgt_ zu erfahren, lesen Sie unsere [Beitragsrichtlinien](/de/docs/MDN/Community).
 
 - [Was wir schreiben](/de/docs/MDN/Writing_guidelines/What_we_write)
 
-  - : Dieser Abschnitt behandelt, was wir in den MDN Web Docs aufnehmen und was nicht, sowie eine Reihe anderer Richtlinien, wie z.B. wann wir über neue Technologien schreiben, den Vorschlagsprozess für Inhalte und ob wir externe Links akzeptieren. Dies ist ein guter Ausgangspunkt, wenn Sie in Erwägung ziehen, für uns Inhalte zu schreiben oder zu aktualisieren. Dieser Abschnitt enthält auch:
+  - : Dieser Abschnitt behandelt, was wir auf MDN Web Docs einbeziehen und was nicht, sowie eine Reihe anderer Richtlinien, wie z.B. wann wir über neue Technologien schreiben, den Vorschlagsprozess für Inhalte und ob wir externe Links akzeptieren. Dies ist ein guter Ausgangspunkt, wenn Sie in Erwägung ziehen, Inhalte für uns zu schreiben oder zu aktualisieren. Dieser Abschnitt umfasst auch:
 
     - [Aufnahmekriterien](/de/docs/MDN/Writing_guidelines/What_we_write/Criteria_for_inclusion)
 
-      - : Bietet detaillierte Kriterien für Inhalte, die in den MDN Web Docs aufgenommen werden sollen, den Antragsprozess für die Aufnahme neuer Dokumentationen in MDN Web Docs und die Erwartungen und Richtlinien für eine antragstellende Partei.
+      - : Bietet detaillierte Kriterien für Inhalte, die auf MDN Web Docs aufgenommen werden, den Bewerbungsprozess, um neue Dokumentationen auf MDN Web Docs hinzuzufügen, und die Erwartungen und Richtlinien für eine Partei, die sich bewirbt.
 
-- [Unser Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide)
+- [Unser Styleguide für das Schreiben](/de/docs/MDN/Writing_guidelines/Writing_style_guide)
 
-  - : Der Schreibstil-Leitfaden behandelt die Sprache und den Stil, den wir beim Schreiben auf den MDN Web Docs verwenden. Er behandelt auch, wie man [Codebeispiele formatiert](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
+  - : Der Styleguide für das Schreiben behandelt die Sprache und den Stil, die wir auf MDN Web Docs verwenden. Er behandelt auch, wie man [Codebeispiele formatiert](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
 
-- [Anleitung zum Schreiben für MDN Web Docs](/de/docs/MDN/Writing_guidelines/Howto)
+- [Anleitung für das Schreiben auf MDN Web Docs](/de/docs/MDN/Writing_guidelines/Howto)
 
-  - : Dieser Abschnitt behandelt alle Informationen zum Erstellen und Bearbeiten von Seiten, einschließlich bestimmter Prozesse und Techniken, die wir befolgen. Dieser Abschnitt liefert Informationen zum Einstieg, einen allgemeinen Überblick über die Struktur von Seiten und wo Sie Anleitungen zu bestimmten Aufgaben finden. Zu den Themen in diesem Abschnitt gehören:
+  - : Dieser Abschnitt umfasst alle Informationen zum Erstellen und Bearbeiten von Seiten, einschließlich bestimmter Prozesse und Techniken, die wir befolgen. Dieser Abschnitt bietet Informationen für den Einstieg, einen allgemeinen Überblick darüber, wie Seiten strukturiert sind, und wo man Anleitungen zu spezifischen Aufgaben findet. Diese Abschnitt behandelt Themen wie:
 
     - [Wie man eine Technologie recherchiert](/de/docs/MDN/Writing_guidelines/Howto/Research_technology)
 
-      - : Dieser Abschnitt bietet einige praktische Tipps zur Recherche einer Technologie, die Sie dokumentieren.
+      - : Dieser Abschnitt bietet einige praktische Tipps zum Recherchieren einer Technologie, die Sie dokumentieren.
 
-    - [Wie man Seiten erstellt, bewegt und löscht](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting)
+    - [Wie man Seiten erstellt, verschiebt und löscht](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting)
 
-      - : Dieser Abschnitt erklärt, wie wir eine Seite auf den MDN Web Docs erstellen, bewegen oder löschen. Außerdem wird erklärt, wie wir eine Seite umleiten, wenn sie bewegt oder gelöscht wird.
+      - : Dieser Abschnitt erklärt, wie wir eine Seite auf MDN Web Docs erstellen, verschieben oder löschen. Er erklärt auch, wie wir eine Seite umleiten, wenn wir sie verschieben oder löschen.
 
     - [Wie man Markdown verwendet](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN)
 
-      - : Das von uns verwendete Markdown-Format leitet sich von [GitHub flavored markdown (GFM)](https://github.github.com/gfm/) ab. Dieser Abschnitt ist ein Leitfaden zum Markdown, das wir auf MDN Web Docs verwenden, einschließlich Formaten für spezifische Seitenelemente wie Notizen und Definitionslisten.
+      - : Das von uns verwendete Markdown-Format basiert auf [GitHub flavored markdown (GFM)](https://github.github.com/gfm/). Dieser Abschnitt ist ein Leitfaden für das Markdown, das wir auf MDN Web Docs verwenden, einschließlich Formate für spezifische Seitenelemente, wie Notizen und Definitionslisten.
 
     - [Bilder und Medien hinzufügen](/de/docs/MDN/Writing_guidelines/Howto/Images_media)
 
-      - : Dieser Abschnitt beschreibt die Anforderungen für die Aufnahme von Medien in Seiten, wie z.B. Bildern.
+      - : Dieser Abschnitt beschreibt die Anforderungen für das Einbinden von Medien auf Seiten, wie Bilder.
 
     - [Wie man eine CSS-Eigenschaft dokumentiert](/de/docs/MDN/Writing_guidelines/Howto/Document_a_CSS_property)
 
       - : Dieser Artikel erklärt, wie man eine Seite für eine CSS-Eigenschaft schreibt, einschließlich Layout und Inhalt.
 
-    - [Wie man eine API-Referenz dokumentiert](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference)
+    - [Wie man ein API-Referenzdokument erstellt](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference)
 
       - : Dieser Abschnitt erklärt, wie man an das Dokumentieren einer Web-API herangeht.
 
@@ -53,21 +53,21 @@ MDN Web Docs ist ein Open-Source-Projekt. Die unten aufgeführten Abschnitte bes
 
       - : Dieser Artikel erklärt, wie man eine neue Referenzseite für einen HTTP-Header erstellt.
 
-    - [Wie man einen Eintrag in das Glossar hinzufügt](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary)
+    - [Wie man einen Eintrag zum Glossar hinzufügt](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary)
 
-      - : Dieser Artikel erklärt, wie man Einträge im MDN Web Docs-Glossar hinzufügt und verlinkt. Es bietet auch Richtlinien zum Layout und Inhalt von Glossareinträgen.
+      - : Dieser Artikel erklärt, wie man Einträge im MDN Web Docs Glossar hinzufügt und verlinkt. Er bietet auch Richtlinien zum Layout und Inhalt von Glossareinträgen.
 
 - [Seitentypen auf MDN Web Docs](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types)
 
-  - : Jede Seite auf den MDN Web Docs hat einen spezifischen Seitentyp, sei es eine CSS-Referenzseite oder eine JavaScript-Leitfaden-Seite. Dieser Abschnitt listet die verschiedenen Seitentypen auf und bietet Vorlagen für jeden Typ. Es ist eine gute Idee, diese zu durchstöbern, um zu verstehen, welchen Seitentyp Sie schreiben.
+  - : Jede Seite auf MDN Web Docs hat einen spezifischen Seitentyp, sei es eine CSS-Referenzseite oder eine JavaScript-Leitfaden-Seite. Dieser Abschnitt listet die verschiedenen Seitentypen auf und bietet Vorlagen für jeden Typ. Es ist eine gute Idee, diese zu durchsuchen, um zu verstehen, welchen Seitentyp Sie schreiben.
 
 - [Seitenstrukturen auf MDN Web Docs](/de/docs/MDN/Writing_guidelines/Page_structures)
 
-  - : Dieser Abschnitt behandelt die verschiedenen Seitenstrukturen, die wir verwenden, um eine konsistente Darstellung von Informationen auf den MDN Web Docs zu gewährleisten. Dies umfasst:
+  - : Dieser Abschnitt behandelt die verschiedenen Seitenstrukturen, die wir verwenden, um eine konsistente Darstellung der Informationen auf MDN Web Docs zu gewährleisten. Dies beinhaltet:
 
     - [Syntaxabschnitte](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections)
 
-      - : Der Syntaxabschnitt einer Referenzseite auf den MDN Web Docs enthält ein Syntaxkästchen, das die genaue Syntax eines Features definiert. Dieser Artikel erklärt, wie man Syntaxkästen für Referenzartikel schreibt.
+      - : Der Syntaxabschnitt einer Referenzseite auf MDN Web Docs enthält ein Syntaxfeld, das die genaue Syntax eines Features definiert. Dieser Artikel erklärt, wie man Syntaxfelder für Referenzartikel schreibt.
 
     - [Codebeispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples)
 
@@ -75,24 +75,24 @@ MDN Web Docs ist ein Open-Source-Projekt. Die unten aufgeführten Abschnitte bes
 
     - [Banner und Hinweise](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices)
 
-      - : Manchmal benötigt ein Artikel einen besonderen Hinweis. Dies kann der Fall sein, wenn die Seite veraltete Technologien oder anderes Material behandelt, das nicht in Produktionscode verwendet werden sollte. Dieser Artikel behandelt die gebräuchlichsten Fälle und wie man damit umgeht.
+      - : Manchmal benötigt ein Artikel einen speziellen Hinweis. Dies könnte der Fall sein, wenn die Seite veraltete Technologie oder anderes Material behandelt, das nicht in Produktionscode verwendet werden sollte. Dieser Artikel behandelt die häufigsten Fälle und wie man mit ihnen umgeht.
 
     - [Spezifikationstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Specification_tables)
 
-      - : Jede Referenzseite auf den MDN Web Docs sollte Informationen über die Spezifikation oder Spezifikationen bereitstellen, in denen diese API oder Technologie definiert wurde. Dieser Artikel zeigt, wie diese Tabellen aussehen und erklärt, wie man sie hinzufügt.
+      - : Jede Referenzseite auf MDN Web Docs sollte Informationen über die Spezifikation(en) enthalten, in der/denen die API oder Technologie definiert wurde. Dieser Artikel zeigt, wie diese Tabellen aussehen und erklärt, wie man sie hinzufügt.
 
     - [Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables)
 
-      - : MDN Web Docs hat ein Standardformat für Kompatibilitätstabellen für unsere offene Webdokumentation. Dieser Artikel erklärt, wie man die Datenbank pflegt, die zur Erstellung der Kompatibilitätstabellen verwendet wird, sowie wie man die Tabellen in Artikel integriert.
+      - : MDN Web Docs hat ein Standardformat für Kompatibilitätstabellen für unsere Open-Web-Dokumentation. Dieser Artikel erklärt, wie man die Datenbank aktualisiert, die zur Erstellung der Kompatibilitätstabellen verwendet wird, sowie wie man die Tabellen in Artikel integriert.
 
     - [Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros)
 
-      - : Makros sind Abkürzungen, die auf Seiten verwendet werden, um Inhalte zu erzeugen, wie z. B. Seitenleisten. Dieser Abschnitt listet die Makros auf, die wir verwenden, und was sie tun.
+      - : Makros sind Abkürzungen, die in Seiten verwendet werden, um Inhalte zu generieren, wie z.B. Seitenleisten. Dieser Abschnitt listet die von uns verwendeten Makros auf und erklärt ihre Funktionen.
 
-- [Zuschreibungen und Urheberrechtsinformationen](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license)
+- [Quellenangaben und Informationen zur urheberrechtlichen Lizenzierung](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license)
 
-  - : Beschreibt unsere Richtlinie zur Nutzung von MDN Web Docs-Inhalten an anderen Stellen im Web, wie man die Erlaubnis erhält, Inhalte auf MDN zu veröffentlichen, und Tipps zum Verlinken auf MDN-Inhalte.
+  - : Beschreibt unsere Richtlinien zur Verwendung von Inhalten von MDN Web Docs an anderen Stellen im Web, wie man die Erlaubnis erhält, Inhalte auf MDN zu veröffentlichen, und Tipps zum Verlinken von MDN-Inhalten.
 
-- [Wie man eine Technologie etikettiert](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete)
+- [Wie man eine Technologie kennzeichnet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete)
 
-  - : Dieser Abschnitt behandelt unsere Definitionen für die Begriffe veraltet, abgelehnt und experimentell und bietet Richtlinien dazu, wie man eine Technologie damit etikettiert und wann wir Inhalte von den MDN Web Docs entfernen.
+  - : Dieser Abschnitt behandelt unsere Definitionen für die Begriffe veraltet, abgelehnt und experimentell und bietet Richtlinien dazu, wie man eine Technologie mit diesen Begriffen kennzeichnet und wann wir Inhalte aus MDN Web Docs entfernen.

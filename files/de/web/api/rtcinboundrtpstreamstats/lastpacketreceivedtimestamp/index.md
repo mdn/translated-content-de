@@ -1,5 +1,5 @@
 ---
-title: "RTCInboundRtpStreamStats: lastPacketReceivedTimestamp-Eigenschaft"
+title: "RTCInboundRtpStreamStats: Eigenschaft lastPacketReceivedTimestamp"
 short-title: lastPacketReceivedTimestamp
 slug: Web/API/RTCInboundRtpStreamStats/lastPacketReceivedTimestamp
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`lastPacketReceivedTimestamp`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt den Zeitpunkt an, zu dem das zuletzt empfangene Paket von dieser Quelle eingetroffen ist.
+Die **`lastPacketReceivedTimestamp`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die Zeit an, zu der das zuletzt empfangene Paket von dieser Quelle angekommen ist.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem das zuletzt empfangene Paket in diesem RTP-Strom eingetroffen ist.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit angibt, zu der das zuletzt empfangene Paket auf diesem RTP-Strom angekommen ist.
 
 > [!NOTE]
 > Dieser Wert unterscheidet sich vom [`timestamp`](/de/docs/Web/API/RTCInboundRtpStreamStats/timestamp),
-> der den Zeitpunkt repräsentiert, an dem das Statistikobjekt erstellt wurde.
+> welcher die Zeit angibt, zu der das Statistikobjekt erstellt wurde.
 
 ## Spezifikationen
 

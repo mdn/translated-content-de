@@ -1,5 +1,5 @@
 ---
-title: "HTMLDialogElement: Methode show()"
+title: "HTMLDialogElement: show() Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt den Dialog modelllos an, d.h. sie erlaubt weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
+Die **`show()`** Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)
+Interfaces zeigt das Dialogfeld modelless an, d.h. es erlaubt weiterhin die Interaktion mit Inhalt außerhalb des Dialogs.
 
 ## Syntax
 
@@ -22,11 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} öffnet, das ein Formular über die `show()`-Methode enthält. Von dort aus können Sie den _Abbrechen_-Button anklicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button übermitteln.
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er geklickt wird, ein
+{{htmlelement("dialog")}} mit einem Formular über die `show()`-Methode öffnet. Von
+dort aus können Sie den _Cancel_-Button anklicken, um den Dialog zu schließen (über die
+[`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Submit-Button absenden.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
@@ -94,4 +98,4 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmle
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

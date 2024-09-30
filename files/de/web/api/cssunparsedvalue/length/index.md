@@ -8,17 +8,16 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`length`**-Schreibgeschützte Eigenschaft des
-[`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Interfaces gibt die Anzahl der Elemente im Objekt zurück.
+Die **`length`** schreibgeschützte Eigenschaft der
+[`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Schnittstelle gibt die Anzahl der Elemente im Objekt zurück.
 
 ## Wert
 
-Eine ganze Zahl.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir den [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)
-Konstruktor und fragen dann die Länge ab:
+In diesem Beispiel verwenden wir den [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)-Konstruktor und fragen dann die Länge ab:
 
 ```js
 const values = new CSSUnparsedValue(["1em", "#445566", "-45px"]);

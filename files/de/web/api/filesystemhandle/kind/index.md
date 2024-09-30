@@ -8,18 +8,18 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`kind`**-schreibgeschützte Eigenschaft des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces gibt den Typ des Eintrags zurück. Dies ist `'file'`, wenn der zugehörige Eintrag eine Datei ist, oder `'directory'`. Sie wird verwendet, um Dateien von Verzeichnissen zu unterscheiden, wenn über den Inhalt eines Verzeichnisses iteriert wird.
+Die schreibgeschützte **`kind`**-Eigenschaft des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces gibt den Typ des Eintrags zurück. Dies ist `'file'`, wenn der zugehörige Eintrag eine Datei ist, oder `'directory'`. Sie wird verwendet, um Dateien von Verzeichnissen zu unterscheiden, wenn über die Inhalte eines Verzeichnisses iteriert wird.
 
 ## Wert
 
-Ein String, der sein kann:
+Ein String, der Folgendes sein kann:
 
-- `'file'`: Wenn der Handle ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) ist.
-- `'directory'`: Wenn der Handle ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
+- `'file'`: Wenn das Handle ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) ist.
+- `'directory'`: Wenn das Handle ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
 
 ## Beispiele
 
-Die folgende Funktion ermöglicht es dem Benutzer, eine Datei über den Dateiauswahldialog zu wählen und prüft dann, ob der zurückgegebene Handle eine Datei oder ein Verzeichnis ist.
+Die folgende Funktion ermöglicht es dem Benutzer, eine Datei über den Dateiauswahldialog auszuwählen, und prüft dann, ob das zurückgegebene Handle eine Datei oder ein Verzeichnis ist.
 
 ```js
 // store a reference to our file handle

@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`xChannelSelector`**-Attribut gibt an, welcher Farbkanal von {{SVGAttr("in2")}} verwendet werden soll, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
+Das **`xChannelSelector`**-Attribut gibt an, welcher Farbkanal aus {{SVGAttr("in2")}} verwendet wird, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
 
 ## Elemente
 
-Sie können dieses Attribut mit dem SVG-Element {{SVGElement("feDisplacementMap")}} verwenden.
+Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Element verwenden.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit dem SVG-Element {{SVGElement("feDisplacementMap"
 - `B`
   - : Dieses Schlüsselwort gibt an, dass der blaue Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 - `A`
-  - : Dieses Schlüsselwort gibt an, dass der Alpha-Kanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der Alphakanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 
 ## Beispiele
 

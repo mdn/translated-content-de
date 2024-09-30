@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`subscribe()`** Methode der Schnittstelle [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager) abonniert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für Cookie-Änderungsereignisse.
+Die **`subscribe()`** Methode der [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager) Schnittstelle abonniert ein [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für Cookie-Änderungsereignisse.
 
 ## Syntax
 
@@ -20,16 +20,16 @@ subscribe(subscriptions)
 
 - `subscriptions`
 
-  - : Ein Array von Objekten, von denen jedes die folgenden Eigenschaften hat:
+  - : Ein Array von Objekten, die jeweils die folgenden Eigenschaften haben:
 
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `url`
-      - : Ein String mit der URL eines Cookie-Bereichs. Dieser kann enger gefasst sein als der Bereich der Service Worker-Registrierung.
+      - : Ein String mit der URL eines Cookie-Bereichs. Diese kann enger gefasst sein als der Bereich der Service Worker-Registrierung.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn das Abonnement abgeschlossen ist.
+Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, wenn das Abonnement abgeschlossen ist.
 
 ### Ausnahmen
 
@@ -38,14 +38,14 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn
 
 ## Beispiele
 
-In diesem Beispiel abonniert die durch `registration` dargestellte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Änderungsereignisse für das Cookie namens `"cookie1"` mit einem Bereich von `"/path1"`.
+In diesem Beispiel abonniert die durch `registration` dargestellte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Änderungsereignisse für das Cookie mit dem Namen `"cookie1"` und einem Bereich von `"/path1"`.
 
 ```js
 const subscriptions = [{ name: "cookie1", url: `/path1` }];
 await registration.cookies.subscribe(subscriptions);
 ```
 
-Die URL, die an die `subscribe()`-Methode übergeben wird, kann enger gefasst sein als der Bereich der Service Worker-Registrierung. Im folgenden Beispiel ist das Abonnement für `/path/one/`, sodass es Änderungsereignisse für Änderungen am ersten Cookie, aber nicht am zweiten erhält.
+Die URL, die der `subscribe()` Methode übergeben wird, kann enger gefasst sein als der Service Worker-Registrierungsbereich. Im folgenden Beispiel ist das Abonnement für `/path/one/`, sodass es Änderungsereignisse für Änderungen am ersten Cookie, aber nicht am zweiten, erhält.
 
 ```js
 registration.cookies.subscribe([{ name: "cookie1", url: "/path/one/" }]); // subscription

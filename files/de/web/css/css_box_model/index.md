@@ -1,5 +1,5 @@
 ---
-title: CSS-Boxmodell
+title: CSS box model
 slug: Web/CSS/CSS_box_model
 l10n:
   sourceCommit: 1b9f8e62afc890f2f00d6f9043f3ce0ff2ac4dfb
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Boxmodell**-Modul definiert die Eigenschaften `height`, `width`, `margin` und `padding`, die zusammen mit [Rand-Eigenschaften](/de/docs/Web/CSS/CSS_backgrounds_and_borders) das CSS-[Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) bilden.
+Das **CSS box model**-Modul definiert die `height`, `width`, `margin` und `padding` Eigenschaften, die zusammen mit den [Rahmeneigenschaften](/de/docs/Web/CSS/CSS_backgrounds_and_borders) das CSS [box model](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) bilden.
 
-Jedes sichtbare Element auf einer Webseite ist eine Box, die gemäß dem [visuellen Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model) angeordnet ist. CSS-Eigenschaften definieren deren Größe, Position und Stapelreihenfolge, wobei die Eigenschaften des Boxmodells (und andere) die extrinsische Größe jeder Box sowie den Raum um sie herum bestimmen.
+Jedes sichtbare Element auf einer Webseite ist eine Box, die entsprechend dem [visuellen Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model) angeordnet ist. CSS-Eigenschaften definieren deren Größe, Position und Stapelebene, wobei die Eigenschaften des Boxmodells (und andere) die extrinsische Größe jeder Box und den Raum um sie herum definieren.
 
-Jede Box hat einen rechteckigen Inhaltsbereich, in dem Text, Bilder und andere Inhalte angezeigt werden. Der Inhalt kann auf einer oder mehreren Seiten von Padding, einem Rand und einem Abstand umgeben sein. Das Padding befindet sich um den Inhalt, der Rand um das Padding, und der Abstand sitzt außerhalb des Randes. Das Boxmodell beschreibt, wie diese Merkmale — der Inhalt, das Padding, der Rand und der Abstand — zusammenwirken, um eine Box zu erstellen, wie sie von CSS angezeigt wird.
+Jede Box hat einen rechteckigen Inhaltsbereich, in dem Text, Bilder und andere Inhalte angezeigt werden. Der Inhalt kann von `padding`, einem Rahmen und einem Abstand auf einer oder mehreren Seiten umgeben sein. Das Polster umgibt den Inhalt, der Rahmen umgibt das Polster, und der Margin befindet sich außerhalb des Rahmens. Das Boxmodell beschreibt, wie diese Merkmale – der Inhalt, das Polster, der Rahmen und der Abstand – zusammenarbeiten, um eine Box zu erstellen, wie sie durch CSS angezeigt wird.
 
 ![Die Komponenten des CSS-Boxmodells](boxmodel.png)
 
-Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschaften wie `width` und `margin-top`. Fluss-relative Eigenschaften wie `inline-size` und `margin-block-start` (die sich auf die Textrichtung beziehen) sind im Modul [logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert. Das Boxmodell-Modul wird durch das [CSS-Box-Größenmodul](/de/docs/Web/CSS/CSS_box_sizing) erweitert, das den Wert der [intrinsischen Größe](/de/docs/Glossary/intrinsic_size) einführt und das Definieren von [Seitenverhältnissen](/de/docs/Glossary/aspect_ratio) für Elemente ermöglicht, die in mindestens einer Dimension automatisch dimensioniert sind.
+Das CSS-Boxmodell-Modul definiert physische (oder "seitenbezogene") Eigenschaften wie `width` und `margin-top`. Flussbezogene Eigenschaften wie `inline-size` und `margin-block-start` (die sich auf die Textrichtung beziehen) sind in [logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert. Das Boxmodell-Modul wird durch das [CSS box sizing Modul](/de/docs/Web/CSS/CSS_box_sizing) erweitert, das den [intrinsischen Größenwert](/de/docs/Glossary/intrinsic_size) einführt und das Definieren von [Seitenverhältnissen](/de/docs/Glossary/aspect_ratio) für Elemente ermöglicht, die in mindestens einer Dimension automaßgeschneidert sind.
 
 ## Referenz
 
@@ -53,11 +53,11 @@ Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschafte
 
 - [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 
-  - : Erklärt eines der grundlegenden Konzepte von CSS: das Boxmodell. Dieses Modell definiert, wie CSS Elemente anordnet, einschließlich ihrer Inhalts-, Padding-, Rand- und Abstandbereiche.
+  - : Erklärt eines der grundlegenden Konzepte von CSS: das Boxmodell. Dieses Modell beschreibt, wie CSS Elemente anordnet, einschließlich ihrer Inhalts-, Polster-, Rahmen- und Abstandsbereiche.
 
-- [Beherrschung des Rand-Zusammenbruchs](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Beherrschung des Margin-Zusammenbruchs](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
 
-  - : Manchmal werden zwei benachbarte Ränder zu einem zusammengefasst. Dieser Artikel beschreibt die Regeln, die bestimmen, wann und warum dies geschieht, und wie Sie es steuern können.
+  - : Manchmal werden zwei benachbarte Margins zu einem zusammengefasst. Dieser Artikel beschreibt die Regeln, die festlegen, wann und warum dies passiert und wie man es steuert.
 
 - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
 
@@ -65,8 +65,8 @@ Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschafte
 
 ## Verwandte Konzepte
 
-- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
-  - {{cssxref("border-width")}} Shorthand
+- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+  - {{cssxref("border-width")}} Kurzform
   - {{cssxref("border-bottom-width")}}
   - {{cssxref("border-left-width")}}
   - {{cssxref("border-right-width")}}
@@ -103,7 +103,7 @@ Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschafte
   - {{CSSxRef("border-inline-start")}}
   - {{CSSxRef("border-inline-start-width")}}
   - {{CSSxRef("border-inline-width")}}
-- [CSS-Box-Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS box sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
   - {{cssxref("aspect-ratio")}}
   - {{cssxref("contain-intrinsic-block-size")}}
   - {{cssxref("contain-intrinsic-height")}}
@@ -115,7 +115,7 @@ Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschafte
   - {{cssxref("min-height")}}
   - {{cssxref("min-width")}}
 - [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-  - {{CSSxRef("overflow")}} Shorthand
+  - {{CSSxRef("overflow")}} Kurzform
   - {{CSSxRef("overflow-block")}}
   - {{CSSxRef("overflow-clip-margin")}}
   - {{CSSxRef("overflow-inline")}}
@@ -131,8 +131,8 @@ Das CSS-Boxmodell-Modul definiert physische (oder "seitenrelative") Eigenschafte
 
 - [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
 - [CSS Flex Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS Tabelle](/de/docs/Web/CSS/CSS_table) Modul
 - [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)

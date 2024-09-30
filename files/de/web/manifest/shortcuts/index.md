@@ -1,5 +1,5 @@
 ---
-title: Shortcuts
+title: shortcuts
 slug: Web/Manifest/shortcuts
 l10n:
   sourceCommit: 54dbdfc6be6e1cb62b1c10e23356e895953fb196
@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Das `shortcuts`-Mitglied definiert ein Array von Shortcuts oder Links zu wichtigen Aufgaben oder Seiten innerhalb einer Web-App. Ein User-Agent kann diese Werte nutzen, um ein Kontextmenü zusammenzustellen, das vom Betriebssystem angezeigt wird, wenn ein Benutzer mit dem Icon der Web-App interagiert. Wenn ein Benutzer einen Shortcut aufruft, navigiert der User-Agent zur Adresse, die durch das `url`-Mitglied des Shortcuts angegeben ist.
+Das `shortcuts`-Element definiert ein Array von Shortcuts oder Links zu wichtigen Aufgaben oder Seiten innerhalb einer Webanwendung. Ein User Agent kann diese Werte verwenden, um ein Kontextmenü zusammenzustellen, das vom Betriebssystem angezeigt wird, wenn ein Benutzer mit dem Symbol der Webanwendung interagiert. Wenn ein Benutzer einen Shortcut aufruft, navigiert der User Agent zu der Adresse, die durch das `url`-Element des Shortcuts angegeben ist.
 
 ### Werte
 
@@ -15,27 +15,27 @@ Shortcut-Objekte können die folgenden Werte enthalten (nur `name` und `url` sin
 
 - `name`
 
-  - : Ein String, der dem Benutzer in einem Kontextmenü angezeigt werden kann.
+  - : Eine Zeichenkette, die dem Benutzer in einem Kontextmenü angezeigt werden kann.</td>
 
 - `short_name` {{Optional_Inline}}
 
-  - : Ein String, der angezeigt werden kann, wenn nicht genügend Platz vorhanden ist, um den vollständigen Namen des Shortcuts anzuzeigen.
+  - : Eine Zeichenkette, die angezeigt werden kann, wenn nicht genügend Platz vorhanden ist, um den vollständigen Namen des Shortcuts anzuzeigen.
 
 - `description` {{Optional_Inline}}
 
-  - : Ein String, der den Zweck des Shortcuts beschreibt. Er kann assistiver Technologie zugänglich gemacht werden.
+  - : Eine Zeichenkette, die den Zweck des Shortcuts beschreibt. Sie kann assistiven Technologien zugänglich gemacht werden.
 
 - `url`
 
   - : Eine URL innerhalb der Anwendung, die geöffnet wird, wenn der Shortcut aktiviert wird.
 
 - `icons` {{Optional_Inline}}
-  - : Eine Reihe von Symbolen, die den Shortcut darstellen.
-    Sie können z.B. im Kontextmenü verwendet werden. Wenn sie enthalten sind, muss das Symbolset ein 96x96-Pixel-Symbol umfassen.
+  - : Ein Satz von Icons, die den Shortcut repräsentieren.
+    Sie können z.B. im Kontextmenü verwendet werden. Wenn enthalten, muss das Icon-Set ein 96x96 Pixel Icon beinhalten.
 
 ## Beispiele
 
-Im Folgenden ist eine Liste von Shortcuts aufgeführt, die eine Kalender-App haben könnte:
+Die folgende Liste zeigt mögliche Shortcuts einer Kalender-App:
 
 ```json
 "shortcuts" : [

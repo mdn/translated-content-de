@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `not`-Funktion wertet einen booleschen Ausdruck aus und gibt den entgegengesetzten Wert zurück.
+Die Funktion `not` wertet einen booleschen Ausdruck aus und gibt den entgegengesetzten Wert zurück.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ not( expression )
 ### Parameter
 
 - `expression`
-  - : Der Ausdruck wird genau so ausgewertet, als ob er als Argument an die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion übergeben worden wäre.
+  - : Der Ausdruck wird genau so ausgewertet, als ob er als Argument an die Funktion [boolean()](/de/docs/Web/XPath/Functions/boolean) übergeben wurde.
 
 ### Rückgabewert
 
-Wahr für einen Ausdruck, der zu falsch ausgewertet wird; falsch für einen Ausdruck, der zu wahr ausgewertet wird.
+True für einen Ausdruck, der zu false ausgewertet wird; false für einen Ausdruck, der zu true ausgewertet wird.
 
 ## Beschreibung
 
-- Diese Funktion sollte sich ähnlich wie die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion verhalten, außer dass sie den entgegengesetzten Wert zurückgibt.
-- Sie können testen, ob ein Element kein bestimmtes Attribut hat.
+- Diese Funktion sollte sich ähnlich wie die Funktion [boolean()](/de/docs/Web/XPath/Functions/boolean) verhalten, außer dass sie den entgegengesetzten Wert zurückgibt.
+- Sie können testen, ob ein Element ein bestimmtes Attribut nicht hat.
 
   ```xml
   <xsl:for-each match="//a[not(@name and @name = 'badname')]">
@@ -41,6 +41,6 @@ Wahr für einen Ausdruck, der zu falsch ausgewertet wird; falsch für einen Ausd
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

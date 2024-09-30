@@ -1,5 +1,5 @@
 ---
-title: CSS Textdekoration
+title: CSS text decoration
 slug: Web/CSS/CSS_text_decoration
 l10n:
   sourceCommit: e1b6d7d2d02a07f7e86268c81678713fad4d9a5d
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS Text-Dekorationsmodul** definiert Funktionen, die sich auf Textdekorationen beziehen, wie zum Beispiel Unterstreichungen, Textschatten und Betonungszeichen.
+Das **CSS-Textdekoration**-Modul definiert Funktionen in Bezug auf Textdekorationen, wie z. B. Unterstreichungen, Textschatten und Betonungszeichen.
 
 ## Referenz
 
@@ -77,7 +77,7 @@ Das **CSS Text-Dekorationsmodul** definiert Funktionen, die sich auf Textdekorat
 </p>
 ```
 
-{{EmbedLiveSample('Examples','auto','320')}}
+{{EmbedLiveSample('Beispiele','auto','320')}}
 
 ## Spezifikationen
 

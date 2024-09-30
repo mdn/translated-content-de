@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`selectorText`**-Eigenschaft der [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Schnittstelle erhält und setzt die Selektoren, die mit der `CSSStyleRule` verbunden sind.
+Die **`selectorText`**-Eigenschaft des [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Interfaces gibt Selektoren zurück und setzt diese, die mit der `CSSStyleRule` assoziiert sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine Stilregel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0].selectorText` gibt daher einen Literal-String des Selektors zurück, in diesem Fall `"h1"`.
+Das CSS enthält eine Stilregel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0].selectorText` gibt daher einen buchstäblichen String des Selektors zurück, in diesem Fall `"h1"`.
 
 ```css
 h1 {

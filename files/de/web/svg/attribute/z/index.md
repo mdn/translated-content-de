@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}
 
-Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird, wobei angenommen wird, dass in dem anfänglichen Koordinatensystem die positive z-Achse in Richtung der Person, die den Inhalt betrachtet, herauskommt und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird, in der Annahme, dass in dem anfänglichen Koordinatensystem die positive z-Achse zum Betrachter des Inhalts herausragt und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
 
 ## Elemente
 
-Sie können dieses Attribut mit den unten beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
 
 ### `<fePointLight>`
 
-Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird.
+Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird.
 
 <table class="properties">
   <tbody>
@@ -36,7 +36,7 @@ Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Ach
 
 ### `<feSpotLight>`
 
-Für {{SVGElement("feSpotLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird.
+Für {{SVGElement("feSpotLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird.
 
 <table class="properties">
   <tbody>
@@ -88,7 +88,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Examples", "420", "200")}}
+{{EmbedLiveSample("Beispiele", "420", "200")}}
 
 ## Spezifikationen
 

@@ -7,25 +7,25 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das `aria-valuemin`-Attribut definiert den minimal zulässigen Wert für ein Bereichs-Widget.
+Das `aria-valuemin`-Attribut definiert den minimal erlaubten Wert für ein Range-Widget.
 
 ## Beschreibung
 
-Das `aria-valuemin`-Attribut definiert den minimalen Wert, der für Bereichs-Widgets zulässig ist. Es ist ähnlich dem `min`-Attribut von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} vom Typ [`range`](/de/docs/Web/HTML/Element/input/range), [`number`](/de/docs/Web/HTML/Element/input/number) und allen Datums-Zeit-Typen.
+Das `aria-valuemin`-Attribut definiert den minimal erlaubten Wert für Range-Widgets. Es ist ähnlich dem `min`-Attribut von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} vom Typ [`range`](/de/docs/Web/HTML/Element/input/range), [`number`](/de/docs/Web/HTML/Element/input/number) und allen Datums-Zeit-Typen.
 
-Wenn eine Rolle vom Typ Bereich erstellt wird, einschließlich [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role) und [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Roles/spinbutton_role) auf einem nicht-semantischen Element, ermöglicht das `aria-valuemin`, ein Minimum zu definieren, das kleiner als der Maximalwert ist und ein erforderliches Attribut von `slider`, `scrollbar` und `spinbutton` ist.
+Beim Erstellen einer Rolle vom Typ Range, einschließlich [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role), und [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Roles/spinbutton_role) auf einem nicht-semantischen Element, ermöglicht `aria-valuemin` die Definition eines Minimums, das kleiner als der maximale Wert ist, und ist ein erforderliches Attribut von `slider`, `scrollbar` und `spinbutton`.
 
-Das Deklarieren der minimalen und maximalen Werte ermöglicht es unterstützenden Technologien, die Größe des Bereichs den Benutzern mitzuteilen.
+Das Deklarieren der minimalen und maximalen Werte ermöglicht assistiven Technologien, die Größe des Bereichs den Nutzern zu vermitteln.
 
 Der maximale Wert wird mit [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax) definiert.
 
 > [!WARNING]
-> Die [`range`](/de/docs/Web/Accessibility/ARIA/Roles/range_role)-Rolle selbst sollte **NICHT** verwendet werden, da es sich um eine ["abstrakte"](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles) Rolle handelt. Das `aria-valuemin`-Attribut wird bei allen Untertypen der Bereichsrollen verwendet.
+> Die [`range`](/de/docs/Web/Accessibility/ARIA/Roles/range_role)-Rolle selbst sollte **NICHT** verwendet werden, da sie eine ["abstrakte"](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles) ist. Das `aria-valuemin`-Attribut wird auf allen Subtypen der Range-Rollen verwendet.
 
 ## Werte
 
 - `<number>`
-  - : Eine Dezimalzahl, unterhalb des Höchstwerts.
+  - : Eine Dezimalzahl, unterhalb des maximalen Wertes.
 
 ## Zugehörige Schnittstellen
 
@@ -58,7 +58,7 @@ Vererbt in Rollen:
 
 ## Siehe auch
 
-- [`range` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/range_role)
-- [`<input type="range>` Element `min` Attribut](/de/docs/Web/HTML/Element/input/range#min)
+- [`range`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/range_role)
+- [`<input type="range>`-Element `min`-Attribut](/de/docs/Web/HTML/Element/input/range#min)
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax)
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`length`**-Eigenschaft gibt einen ganzzahligen Wert zurück, der die Anzahl der Elemente in der Eingabequellenliste angibt, die vom [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt dargestellt wird.
+Die schreibgeschützte **`length`**-Eigenschaft gibt einen ganzzahligen Wert zurück, der die Anzahl der Elemente in der Eingabequellenliste angibt, die durch das [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt repräsentiert wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der angibt, wie viele [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte, die WebXR-Eingabequellen repräsentieren, im Array enthalten sind.
+Ein ganzzahliger Wert, der die Anzahl der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte angibt, die WebXR-Eingabequellen in dem Array darstellen.
 
 ## Beispiele
 
-In diesem Beispiel verwendet ein Spiel, das mindestens eine Eingabequelle erfordert, `length`, um dies zu überprüfen, bevor der Benutzer das Spiel spielen darf.
+In diesem Beispiel nutzt ein Spiel, das mindestens eine Eingabequelle benötigt, `length`, um dies zu überprüfen, bevor es dem Benutzer erlaubt wird, das Spiel zu spielen.
 
 ```js
 let sources = xrSession.inputSources;
@@ -32,7 +32,7 @@ if (sources.length === 0) {
 }
 ```
 
-Hier wird bei `length` gleich 0 eine hypothetische `showAlertDialog()`-Funktion mit einem Eingabeaufforderungs-String aufgerufen, der die Notwendigkeit eines Controllers erklärt. Diese Funktion enthält ein Array von Objekten, von denen jedes eine Schaltfläche beschreibt und was passieren soll, wenn diese angeklickt wird. Die erste führt den Benutzer zu einer Amazon.com-Suche nach VR-Controllern, und die zweite ruft eine `quitGame()`-Funktion auf, um das Spielprogramm zu schließen.
+Hier wird, wenn `length` 0 ist, eine hypothetische `showAlertDialog()`-Funktion mit einem Hinweisstring aufgerufen, der den Bedarf für einen Controller erklärt, sowie einem Array von Objekten, von denen jedes eine Schaltfläche beschreibt und was passieren soll, wenn sie geklickt wird. Die erste bringt den Benutzer zu einer Amazon.com-Suche nach VR-Controllern, und die zweite ruft eine `quitGame()`-Funktion auf, um das Herunterfahren des Spielprogramms zu starten.
 
 ## Spezifikationen
 

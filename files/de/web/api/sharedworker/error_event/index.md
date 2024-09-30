@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}
 
-Das **`error`** Ereignis der [`SharedWorker`](/de/docs/Web/API/SharedWorker) Schnittstelle wird ausgelöst, wenn ein Fehler im Worker auftritt.
+Das **`error`**-Ereignis der [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Schnittstelle wird ausgelöst, wenn ein Fehler im Worker auftritt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt mithilfe des [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker) Konstruktors und richtet einen `onerror` Handler für das resultierende Objekt ein:
+Der folgende Code-Schnipsel erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt mit dem [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)-Konstruktor und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
 
 ```js
 const mySharedWorker = new SharedWorker("shared-worker.js");

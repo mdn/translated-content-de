@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`text-size-adjust`** [CSS](/de/docs/Web/API/CSS) Eigenschaft steuert den Textvergrößerungsalgorithmus, der auf einigen Smartphones und Tablets verwendet wird. Andere Browser ignorieren diese Eigenschaft.
+Die **`text-size-adjust`**-Eigenschaft in [CSS](/de/docs/Web/API/CSS) steuert den Textaufblasalgorithmus, der auf einigen Smartphones und Tablets verwendet wird. Andere Browser ignorieren diese Eigenschaft.
 
-Da viele Websites nicht mit kleinen Geräten im Hinterkopf entwickelt wurden, unterscheiden sich mobile Browser von Desktop-Browsern in der Art und Weise, wie sie Webseiten darstellen. Anstatt Seiten in der Breite des Geräts anzuzeigen, verwenden sie einen [Viewport](/de/docs/Glossary/viewport), der viel breiter ist, normalerweise 800 oder 1000 Pixel. Um das extra-breite Layout zurück zur Originalgröße des Geräts zu bringen, zeigen sie entweder nur einen Teil der gesamten Darstellung oder skalieren den Viewport herunter, um zu passen.
+Da viele Websites nicht für kleine Geräte entwickelt wurden, unterscheiden sich mobile Browser von Desktop-Browsern in der Art und Weise, wie sie Webseiten rendern. Anstatt Seiten in der Breite des Geräts anzuzeigen, verwenden sie einen [Viewport](/de/docs/Glossary/viewport), der viel breiter ist, normalerweise 800 oder 1000 Pixel. Um das extra-breite Layout wieder auf die ursprüngliche Gerätegröße abzubilden, zeigen sie entweder nur einen Teil des gesamten Renders an oder skalieren den Viewport, damit er passt.
 
-Da verkleinerter Text auf einem mobilen Bildschirm sehr klein sein kann, verwenden viele mobile Browser einen Textvergrößerungsalgorithmus, um den Text zu vergrößern und lesbarer zu machen. Wenn ein Element mit Text 100% der Bildschirmbreite verwendet, erhöht der Algorithmus die Textgröße, ohne das Layout zu verändern. Die Eigenschaft `text-size-adjust` ermöglicht es Webentwicklern, dieses Verhalten zu deaktivieren oder anzupassen, da Webseiten, die für kleine Bildschirme gestaltet wurden, dieses nicht benötigen.
+Da der Text, der auf eine mobile Bildschirmgröße herunter skaliert wurde, sehr klein sein kann, wenden viele mobile Browser einen Textaufblasalgorithmus an, um den Text zu vergrößern und lesbarer zu machen. Wenn ein Element, das Text enthält, 100% der Bildschirmbreite nutzt, erhöht der Algorithmus die Textgröße, ohne das Layout zu ändern. Die `text-size-adjust`-Eigenschaft ermöglicht es Webautoren, dieses Verhalten zu deaktivieren oder anzupassen, da Webseiten, die für kleine Bildschirme entworfen wurden, es nicht benötigen.
 
 ## Syntax
 
@@ -31,16 +31,16 @@ text-size-adjust: revert-layer;
 text-size-adjust: unset;
 ```
 
-Die Eigenschaft `text-size-adjust` wird als `none`, `auto` oder ein `<percentage>` angegeben.
+Die `text-size-adjust`-Eigenschaft kann mit `none`, `auto` oder einem `<Prozentsatz>` angegeben werden.
 
 ### Werte
 
 - `none`
-  - : Deaktiviert den Vergrößerungsalgorithmus des Browsers.
+  - : Deaktiviert den Aufblasalgorithmus des Browsers.
 - `auto`
-  - : Aktiviert den Vergrößerungsalgorithmus des Browsers. Dieser Wert wird verwendet, um einen zuvor mit CSS gesetzten `none`-Wert zu entfernen.
+  - : Aktiviert den Aufblasalgorithmus des Browsers. Dieser Wert wird verwendet, um einen zuvor mit CSS gesetzten Wert `none` zu deaktivieren.
 - `<percentage>`
-  - : Aktiviert den Vergrößerungsalgorithmus des Browsers, indem ein Prozentwert angegeben wird, mit dem die Schriftgröße erhöht werden soll.
+  - : Aktiviert den Aufblasalgorithmus des Browsers und spezifiziert einen Prozentsatz, um den die Schriftgröße erhöht werden soll.
 
 ## Formale Definition
 
@@ -52,9 +52,9 @@ Die Eigenschaft `text-size-adjust` wird als `none`, `auto` oder ein `<percentage
 
 ## Beispiele
 
-### Grundlegende Deaktivierungsnutzung
+### Grundlegende Deaktivierungsverwendung
 
-Wie oben angedeutet, ist das Verhalten von `text-size-adjust` auf einer richtig entworfenen, responsiven Seite nicht notwendig, sodass Entwickler es deaktivieren können, indem sie den Wert none angeben:
+Wie oben angedeutet, ist das `text-size-adjust`-Verhalten auf einer richtig gestalteten responsiven Website nicht erforderlich. Entwickler können sich daher entscheiden, es durch Angabe des Wertes none auszuschalten:
 
 ```css
 p {
@@ -74,5 +74,5 @@ p {
 ## Siehe auch
 
 - [Apples Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW16)
-- [Beschreibung des Verhaltens von Google Chrome](https://docs.google.com/document/d/1PPcEwAhXJJ1TQShor29KWB17KJJq7UJOM34oHwYP3Zg/edit)
-- [Beschreibung des Verhaltens von Gecko](https://dbaron.org/log/20111126-font-inflation), von L. David Baron
+- [Verhaltensbeschreibung von Google Chrome](https://docs.google.com/document/d/1PPcEwAhXJJ1TQShor29KWB17KJJq7UJOM34oHwYP3Zg/edit)
+- [Geckos Verhaltensbeschreibung](https://dbaron.org/log/20111126-font-inflation) von L. David Baron

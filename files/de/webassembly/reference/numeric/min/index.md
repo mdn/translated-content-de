@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`min`** Anweisungen werden verwendet, um die kleinere von zwei Zahlen zu erhalten.
+Die **`min`** Anweisungen werden verwendet, um die niedrigere von zwei Zahlen zu ermitteln.
 
 {{EmbedInteractiveExample("pages/wat/min.html", "tabbed-taller")}}
 
@@ -24,7 +24,7 @@ f32.min
 ;; the top item on the stack will now be 3
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `f32.min` | `0x96`         |
-| `f64.min` | `0xa4`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.min`   | `0x96`         |
+| `f64.min`   | `0xa4`         |

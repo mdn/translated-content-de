@@ -1,5 +1,5 @@
 ---
-title: "Highlight: Highlight()-Konstruktor"
+title: "Highlight: Konstruktor Highlight()"
 short-title: Highlight()
 slug: Web/API/Highlight/Highlight
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt werden können.
+Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mithilfe der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt werden sollen.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ new Highlight(range1, range2, /* …, */ rangeN)
 ### Parameter
 
 - `range1`, …, `rangeN` {{optional_inline}}
-  - : Ein oder mehrere initiale [`Range`](/de/docs/Web/API/Range)-Objekte, die zum neuen Highlight hinzugefügt werden sollen.
+  - : Ein oder mehrere anfängliche [`Range`](/de/docs/Web/API/Range)-Objekte, die zum neuen Highlight hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Ein neues `Highlight`-Objekt.
 
 ## Beispiele
 
-Der untenstehende Beispielcode demonstriert, wie ein leeres Highlight-Objekt erstellt wird und dann Bereiche hinzugefügt werden:
+Der folgende Beispielcode demonstriert, wie man ein leeres Highlight-Objekt erstellt und dann Bereiche hinzufügt:
 
 ```js
 const highlight = new Highlight();
@@ -37,7 +37,7 @@ highlight.add(range1);
 highlight.add(range2);
 ```
 
-Der untenstehende Beispielcode demonstriert, wie ein neues Highlight-Objekt erstellt wird und Bereiche bei der Instanziierung hinzugefügt werden:
+Der folgende Beispielcode zeigt, wie man ein neues Highlight-Objekt erstellt und beim Erstellen Bereiche hinzufügt:
 
 ```js
 const highlight = new Highlight(range1, range2);
@@ -54,4 +54,4 @@ const highlight = new Highlight(range1, range2);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft der Texthervorhebung im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

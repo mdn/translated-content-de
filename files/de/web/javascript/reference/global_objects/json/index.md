@@ -7,30 +7,30 @@ l10n:
 
 {{JSRef}}
 
-Das **`JSON`**-Namespace-Objekt enthält statische Methoden zum Parsen von Werten aus JavaScript-Objektnotation ([JSON](/de/docs/Glossary/JSON)) und zum Konvertieren von Werten in JSON.
+Das **`JSON`** Namespace-Objekt enthält statische Methoden zur Analyse von Werten aus und Umwandlung von Werten in [JavaScript Object Notation](https://json.org/) ([JSON](/de/docs/Glossary/JSON)).
 
 ## Beschreibung
 
-Im Gegensatz zu den meisten globalen Objekten ist `JSON` kein Konstruktor. Sie können es weder mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden noch das `JSON`-Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `JSON` sind statisch (genau wie das {{jsxref("Math")}}-Objekt).
+Im Gegensatz zu den meisten globalen Objekten ist `JSON` kein Konstruktor. Sie können es nicht mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `JSON` Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `JSON` sind statisch (genau wie das {{jsxref("Math")}} Objekt).
 
 ### Unterschiede zwischen JavaScript und JSON
 
-JSON ist eine Syntax zur Serialisierung von Objekten, Arrays, Zahlen, Zeichenketten, Booleschen Werten und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Es basiert auf der JavaScript-Syntax, unterscheidet sich jedoch von JavaScript: Der größte Teil von JavaScript ist _nicht_ JSON. Zum Beispiel:
+JSON ist eine Syntax zur Serialisierung von Objekten, Arrays, Zahlen, Zeichenketten, Booleans und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Es basiert auf der JavaScript-Syntax, unterscheidet sich jedoch von JavaScript: Der größte Teil von JavaScript ist _nicht_ JSON. Zum Beispiel:
 
 - Objekte und Arrays
-  - : Eigenschaftsnamen müssen doppelt-angeführte Zeichenketten sein; [nachfolgende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind verboten.
+  - : Eigenschaftsnamen müssen doppelt-angeführte Zeichenketten sein; [nachgestellte Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind verboten.
 - Zahlen
-  - : Führende Nullen sind verboten. Ein Dezimalpunkt muss von mindestens einer Ziffer gefolgt werden. `NaN` und `Infinity` werden nicht unterstützt.
+  - : Führende Nullen sind untersagt. Ein Dezimalpunkt muss von mindestens einer Ziffer gefolgt werden. `NaN` und `Infinity` werden nicht unterstützt.
 
-Jeder JSON-Text ist ein gültiger JavaScript-Ausdruck, jedoch nur nach der [JSON-Superset](https://github.com/tc39/proposal-json-superset)-Revision. Vor der Revision sind U+2028 LINIENTRENNER und U+2029 ABSATZTRENNER in Zeichenkettenliteralen und Eigenschaftsschlüsseln in JSON erlaubt; dieselbe Verwendung in JavaScript-Zeichenkettenliteralen führt jedoch zu einem {{jsxref("SyntaxError")}}.
+Jeder JSON-Text ist ein gültiger JavaScript-Ausdruck, aber nur nach der [JSON Superset](https://github.com/tc39/proposal-json-superset) Revision. Vor der Revision sind U+2028 LINIENTRENNER und U+2029 ABSATZTRENNER in JSON-Zeichenkettenliteralen und Eigenschaftsschlüsseln erlaubt; dieselbe Verwendung in JavaScript-Zeichenkettenliteralen führt zu einem {{jsxref("SyntaxError")}}.
 
-Weitere Unterschiede sind, dass nur doppelte Anführungszeichen für Zeichenketten erlaubt sind und keine Unterstützung für {{jsxref("undefined")}} oder Kommentare besteht. Für diejenigen, die ein benutzerfreundlicheres Konfigurationsformat auf der Basis von JSON verwenden möchten, gibt es [JSON5](https://json5.org/), das vom Babel-Compiler verwendet wird, und das weit verbreitete [YAML](https://de.wikipedia.org/wiki/YAML).
+Weitere Unterschiede beinhalten die Erlaubnis nur doppelt-angeführter Zeichenketten und keine Unterstützung für {{jsxref("undefined")}} oder Kommentare. Für diejenigen, die ein benutzerfreundlicheres Konfigurationsformat basierend auf JSON nutzen möchten, gibt es [JSON5](https://json5.org/), das vom Babel-Compiler verwendet wird, und das häufiger verwendete [YAML](https://de.wikipedia.org/wiki/YAML).
 
-Der gleiche Text kann auch unterschiedliche Werte in JavaScript-Objektliteralen im Vergleich zu JSON darstellen. Weitere Informationen finden Sie unter [Objektliteral-Syntax vs. JSON](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#object_literal_syntax_vs._json).
+Dasselbe Textstück kann in JavaScript-Objektliteralen im Vergleich zu JSON unterschiedliche Werte darstellen. Für weitere Informationen siehe [Objektliterale vs. JSON](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#object_literal_syntax_vs._json).
 
 ### Vollständige JSON-Grammatik
 
-Die gültige JSON-Syntax wird formell durch die folgende Grammatik definiert, ausgedrückt in [ABNF](https://de.wikipedia.org/wiki/Augmented_Backus-Naur-Form), und vom [IETF JSON-Standard (RFC)](https://datatracker.ietf.org/doc/html/rfc8259) übernommen:
+Die gültige JSON-Syntax wird formal durch die folgende Grammatik definiert, ausgedrückt in [ABNF](https://de.wikipedia.org/wiki/Augmented_Backus-Naur-Form), und aus dem [IETF JSON Standard (RFC)](https://datatracker.ietf.org/doc/html/rfc8259) übernommen:
 
 ```plain
 JSON-text = object / array
@@ -85,27 +85,27 @@ DIGIT = %x30-39            ; 0-9
       ; DIGIT equivalent to DIGIT rule in [RFC5234]
 ```
 
-Unbedeutende [Leerzeichen](/de/docs/Glossary/whitespace) können überall vorkommen, außer innerhalb eines `JSONNumber` (Zahlen dürfen keine Leerzeichen enthalten) oder `JSONString` (wo sie als das entsprechende Zeichen in der Zeichenkette interpretiert oder einen Fehler verursachen würden). Die Zeichen Tabulator (U+0009), Wagenrücklauf (U+000D), Zeilenumbruch (U+000A) und Leerzeichen (U+0020) sind die einzigen gültigen Leerzeichen-Zeichen.
+Unwesentliche [Leerzeichen](/de/docs/Glossary/whitespace) können überall, außer innerhalb eines `JSONNumber` (Zahlen dürfen keine Leerzeichen enthalten) oder `JSONString` (wo sie als entsprechendes Zeichen in der Zeichenkette interpretiert werden oder einen Fehler verursachen würden), vorhanden sein. Die Tabulator- (U+0009), Wagenrücklauf- (U+000D), Zeilenvorschub- (U+000A) und Leerzeichen- (U+0020) Zeichen sind die einzigen gültigen Leerzeichen.
 
 ## Statische Eigenschaften
 
 - `JSON[Symbol.toStringTag]`
-  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist die Zeichenkette `"JSON"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist die Zeichenkette `"JSON"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Statische Methoden
 
 - {{jsxref("JSON.isRawJSON()")}} {{experimental_inline}}
-  - : Prüft, ob ein Wert ein vom {{jsxref("JSON.rawJSON()")}} zurückgegebener Objekt ist.
+  - : Testet, ob ein Wert ein durch {{jsxref("JSON.rawJSON()")}} zurückgegebenes Objekt ist.
 - {{jsxref("JSON.parse()")}}
-  - : Parst ein Stück Zeichenketten-Text als JSON und transformiert optional den erzeugten Wert und seine Eigenschaften, und gibt den Wert zurück.
+  - : Analysiert einen Zeichenketten-Text als JSON, transformiert optional den erzeugten Wert und dessen Eigenschaften und gibt den Wert zurück.
 - {{jsxref("JSON.rawJSON()")}} {{experimental_inline}}
-  - : Erstellt ein "rohes JSON"-Objekt, das ein Stück JSON-Text enthält. Wenn es in JSON serialisiert wird, wird das rohe JSON-Objekt behandelt, als wäre es bereits ein Stück JSON. Dieser Text muss gültiges JSON sein.
+  - : Erzeugt ein "rohes JSON"-Objekt, das ein Stück JSON-Text enthält. Wenn es zu JSON serialisiert wird, wird das rohe JSON-Objekt behandelt, als ob es bereits ein Stück JSON ist. Dieser Text muss gültiges JSON sein.
 - {{jsxref("JSON.stringify()")}}
-  - : Gibt eine JSON-Zeichenkette zurück, die dem angegebenen Wert entspricht, optional einschließlich nur bestimmter Eigenschaften oder unter Ersetzung von Eigenschaftenwerten auf eine benutzerdefinierte Weise.
+  - : Gibt eine JSON-Zeichenkette zurück, die dem angegebenen Wert entspricht, wobei optional nur bestimmte Eigenschaften einbezogen oder Eigenschaftswerte auf benutzerdefinierte Weise ersetzt werden.
 
 ## Beispiele
 
-### Beispiel-JSON
+### Beispiel JSON
 
 ```json
 {
@@ -126,7 +126,7 @@ Unbedeutende [Leerzeichen](/de/docs/Glossary/whitespace) können überall vorkom
 }
 ```
 
-Sie können die Methode {{jsxref("JSON.parse()")}} verwenden, um die obige JSON-Zeichenkette in ein JavaScript-Objekt zu konvertieren:
+Sie können die Methode {{jsxref("JSON.parse()")}} verwenden, um die obige JSON-Zeichenkette in ein JavaScript-Objekt umzuwandeln:
 
 ```js
 const jsonText = `{
@@ -151,9 +151,9 @@ console.log(JSON.parse(jsonText));
 
 ### Verlustfreie Zahlen-Serialisierung
 
-JSON kann Zahlenliterale mit beliebiger Genauigkeit enthalten. Es ist jedoch nicht möglich, alle JSON-Zahlen exakt in JavaScript darzustellen, da JavaScript die Gleitpunktdarstellung verwendet, die eine feste Genauigkeit hat. Zum Beispiel ist `12345678901234567890 === 12345678901234567000` in JavaScript, da sie dieselbe Gleitpunktdarstellung haben. Das bedeutet, dass es keine JavaScript-Zahl gibt, die genau der `12345678901234567890` JSON-Zahl entspricht.
+JSON kann Zahlenliterale mit beliebiger Genauigkeit enthalten. Es ist jedoch nicht möglich, alle JSON-Zahlen exakt in JavaScript darzustellen, da JavaScript die Fließkommadarstellung verwendet, die eine feste Genauigkeit hat. Zum Beispiel entspricht in JavaScript `12345678901234567890 === 12345678901234567000`, weil sie dieselbe Fließkommadarstellung haben. Das bedeutet, dass es keine JavaScript-Zahl gibt, die genau der `12345678901234567890` JSON-Zahl entspricht.
 
-Angenommen, Sie haben eine genaue Darstellung einer Zahl (entweder über {{jsxref("BigInt")}} oder eine benutzerdefinierte Bibliothek):
+Angenommen, Sie haben eine genaue Darstellung einer Zahl (entweder über {{jsxref("BigInt")}} oder einer benutzerdefinierten Bibliothek):
 
 ```js
 const data = {
@@ -164,18 +164,18 @@ const data = {
 };
 ```
 
-Sie möchten es serialisieren und dann auf die gleiche exakte Zahl parsen. Es gibt mehrere Schwierigkeiten:
+Sie möchten sie serialisieren und dann zur gleichen exakt identischen Zahl parsen. Dabei gibt es mehrere Schwierigkeiten:
 
-- Auf der Serialisierungsseite müssen Sie, um eine Zahl in JSON zu erhalten, eine Zahl an `JSON.stringify` übergeben, entweder über die `replacer`-Funktion oder über die `toJSON`-Methode. Aber in beiden Fällen haben Sie während der Zahlenumwandlung bereits an Genauigkeit verloren. Wenn Sie eine Zeichenkette an `JSON.stringify` übergeben, wird sie als Zeichenkette und nicht als Zahl serialisiert.
-- Auf der Parseseite können nicht alle Zahlen genau dargestellt werden. Zum Beispiel gibt `JSON.parse("12345678901234567890")` `12345678901234568000` zurück, da die Zahl auf die nächste darstellbare Zahl gerundet wird. Selbst wenn Sie eine `reviver`-Funktion verwenden, wird die Zahl bereits gerundet, bevor die `reviver`-Funktion aufgerufen wird.
+- Auf der Serialisierungsseite, um eine Zahl in JSON zu erhalten, müssen Sie eine Zahl an `JSON.stringify` übergeben, entweder über die `replacer` Funktion oder über die `toJSON` Methode. In jedem Fall haben Sie die Genauigkeit während der Zahlenkonvertierung bereits verloren. Wenn Sie eine Zeichenkette an `JSON.stringify` übergeben, wird sie als Zeichenkette und nicht als Zahl serialisiert.
+- Auf der Parsingseite können nicht alle Zahlen exakt dargestellt werden. Zum Beispiel gibt `JSON.parse("12345678901234567890")` `12345678901234568000` zurück, weil die Zahl auf die nächste darstellbare Zahl gerundet wird. Selbst wenn Sie eine `reviver` Funktion verwenden, wird die Zahl bereits gerundet, bevor die `reviver` Funktion aufgerufen wird.
 
-Es gibt allgemein zwei Möglichkeiten, um sicherzustellen, dass Zahlen verlustfrei in JSON konvertiert und zurückgeparst werden: eine beinhaltet eine JSON-Zahl, die andere eine JSON-Zeichenkette. JSON ist ein _Kommunikationsformat_, sodass Sie JSON verwenden, wahrscheinlich mit einem anderen System kommunizieren (HTTP-Anfrage, Speicherung in einer Datenbank usw.). Die beste Lösung hängt vom Empfängersystem ab.
+Im Allgemeinen gibt es zwei Möglichkeiten, um sicherzustellen, dass Zahlen verlustfrei zu JSON konvertiert und zurückgeparst werden: Eine Möglichkeit beinhaltet eine JSON-Zahl, die andere eine JSON-Zeichenkette. JSON ist ein _Kommunikationsformat_, daher kommunizieren Sie wahrscheinlich mit einem anderen System (HTTP-Anfrage, Speicherung in einer Datenbank, etc.), wenn Sie JSON verwenden. Die beste Lösung hängt vom Empfängersystem ab.
 
 #### Verwendung von JSON-Zeichenketten
 
-Wenn das Empfängersystem nicht die gleichen JSON-Verarbeitungsfähigkeiten wie JavaScript hat und keine hochpräzisen Zahlen unterstützt, möchten Sie die Zahl möglicherweise als Zeichenkette serialisieren und dann auf der Empfängerseite als Zeichenkette behandeln. Dies ist auch die einzige Option in älteren JavaScript-Versionen.
+Wenn das Empfängersystem keine gleichen JSON-Handhabungskapazitäten wie JavaScript hat und keine Hochpräzisionszahlen unterstützt, möchten Sie die Zahl möglicherweise als Zeichenkette serialisieren und dann als Zeichenkette auf der Empfängerseite behandeln. Dies ist auch die einzige Option in älteren JavaScript-Versionen.
 
-Um anzugeben, wie benutzerdefinierte Datentypen (einschließlich `BigInt`) in JSON serialisiert werden sollen, können Sie entweder eine `toJSON`-Methode zu Ihrem Datentyp hinzufügen oder die `replacer`-Funktion von {{jsxref("JSON.stringify()")}} verwenden.
+Um festzulegen, wie benutzerdefinierte Datentypen (einschließlich `BigInt`) zu JSON serialisiert werden sollen, fügen Sie entweder Ihrer Datentypklasse eine `toJSON` Methode hinzu oder verwenden Sie die `replacer` Funktion von {{jsxref("JSON.stringify()")}}.
 
 ```js
 // Using toJSON() method
@@ -193,11 +193,11 @@ const str2 = JSON.stringify(data, (key, value) => {
 });
 ```
 
-In jedem Fall sieht der JSON-Text wie `{"gross_gdp":"12345678901234567890"}` aus, wobei der Wert eine Zeichenkette und keine Zahl ist. Auf der Empfängerseite können Sie das JSON parsen und die Zeichenkette verarbeiten.
+In beiden Fällen sieht der JSON-Text wie `{"gross_gdp":"12345678901234567890"}` aus, wobei der Wert eine Zeichenkette und keine Zahl ist. Dann können Sie auf der Empfängerseite das JSON parsen und die Zeichenkette behandeln.
 
 #### Verwendung von JSON-Zahlen
 
-Wenn der Empfänger dieser Nachricht hochpräzise Zahlen nativ unterstützt (z. B. Python-Ganzzahlen), ist das Übergeben von Zahlen als JSON-Zahlen offensichtlich besser, da sie direkt in den hochpräzisen Typ geparst werden können, anstatt eine Zeichenkette aus JSON zu parsen und dann eine Zahl aus der Zeichenkette. In JavaScript können Sie beliebige Datentypen zu JSON-Zahlen serialisieren, ohne zuerst einen Zahlenwert zu erzeugen (was einen Präzisionsverlust verursacht), indem Sie {{jsxref("JSON.rawJSON()")}} verwenden, um genau anzugeben, wie der JSON-Quelltext aussehen soll.
+Wenn der Empfänger dieser Meldung von Natur aus Hochpräzisionszahlen unterstützt (wie beispielsweise Python-Integer), ist das Übergeben von Zahlen als JSON-Zahlen offensichtlich besser, weil sie direkt zum Hochpräzisionstyp geparst werden können, anstatt eine Zahl zuerst aus einer Zeichenkette zu parsen. In JavaScript können Sie beliebige Datentypen zu JSON-Zahlen serialisieren, ohne vorher einen Zahlenwert zu erzeugen (was zu einem Verlust von Genauigkeit führen würde), indem Sie {{jsxref("JSON.rawJSON()")}} verwenden, um genau festzulegen, was der JSON-Quelltext sein sollte.
 
 ```js
 // Using toJSON() method
@@ -215,9 +215,9 @@ const str2 = JSON.stringify(data, (key, value) => {
 });
 ```
 
-Der an `JSON.rawJSON` übergebene Text wird so behandelt, als wäre er bereits ein Stück JSON, sodass er nicht erneut als Zeichenkette serialisiert wird. Daher sieht der JSON-Text wie `{"gross_gdp":12345678901234567890}` aus, wobei der Wert eine Zahl ist. Dieses JSON kann dann vom Empfänger ohne zusätzliche Verarbeitung geparst werden, vorausgesetzt, das Empfängersystem hat nicht die gleichen Präzisionsbeschränkungen wie JavaScript.
+Der an `JSON.rawJSON` übergebene Text wird behandelt, als ob er bereits ein Stück JSON wäre, sodass er nicht erneut als Zeichenkette serialisiert wird. Daher sieht der JSON-Text wie `{"gross_gdp":12345678901234567890}` aus, wobei der Wert eine Zahl ist. Dieses JSON kann dann vom Empfänger ohne zusätzliche Verarbeitung geparst werden, vorausgesetzt, das Empfängersystem hat nicht dieselben Präzisionsbeschränkungen wie JavaScript.
 
-Beim Parsen von JSON, das hochpräzise Zahlen in JavaScript enthält, sollten Sie besonders vorsichtig sein, da die Funktion `JSON.parse()` die `reviver`-Funktion aufruft und der Wert, den Sie erhalten, bereits geparst ist (und an Präzision verloren hat). Sie können den Parameter `context.source` der {{jsxref("JSON.parse()")}} `reviver`-Funktion verwenden, um die Zahl selbst erneut zu parsen.
+Beim Parsen von JSON, das Hochpräzisionszahlen in JavaScript enthält, sollten Sie besonders Acht geben, weil bei der Verwendung der `reviver` Funktion von `JSON.parse()`, der Wert, den Sie erhalten, bereits geparst (und die Genauigkeit verloren ist). Sie können den Parameter `context.source` der `reviver` Funktion von {{jsxref("JSON.parse()")}} verwenden, um die Zahl selbst neu zu parsen.
 
 ```js
 const parsedData = JSON.parse(str, (key, value, context) => {

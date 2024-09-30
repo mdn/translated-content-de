@@ -1,5 +1,5 @@
 ---
-title: First Contentful Paint
+title: First contentful paint
 slug: Glossary/First_contentful_paint
 l10n:
   sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**First Contentful Paint** (FCP) ist der Zeitpunkt, an dem der Browser das erste Inhaltselement aus dem DOM rendert und somit dem Benutzer das erste Feedback gibt, dass die Seite tatsächlich geladen wird. Die Frage "Passiert etwas?" wird mit "ja" beantwortet, wenn die erste inhaltsvolle Darstellung abgeschlossen ist.
+**First Contentful Paint** (FCP) ist der Zeitpunkt, an dem der Browser das erste Stück Inhalt aus dem DOM rendert und dem Benutzer das erste Feedback gibt, dass die Seite tatsächlich lädt. Die Frage "Passiert etwas?" wird mit "Ja" beantwortet, wenn das erste contentful paint abgeschlossen ist.
 
-_Der First Contentful Paint_ Zeitstempel ist, wenn der Browser das erste Mal jeglichen Text, Bild (einschließlich Hintergrundbildern), Video, `<canvas>`, das gezeichnet wurde, oder nicht-leere SVGs gerendert hat. Dies schließt den Inhalt von iframes aus, umfasst aber Text mit ausstehenden Webfonts. Dies ist das erste Mal, dass Benutzer anfangen könnten, Seiteninhalte zu konsumieren.
+_Der First Contentful Paint_ Zeitstempel ist der Moment, an dem der Browser zum ersten Mal Text, Bild (einschließlich Hintergrundbilder), Video, `canvas`, in das gezeichnet wurde, oder eine nicht-leere SVG gerendert hat. Dies schließt Inhalte innerhalb von `iframes` aus, umfasst jedoch Text mit ausstehenden Webfonts. Dies ist das erste Mal, dass Benutzer mit dem Konsumieren von Seiteninhalten beginnen könnten.
 
 ## Siehe auch
 

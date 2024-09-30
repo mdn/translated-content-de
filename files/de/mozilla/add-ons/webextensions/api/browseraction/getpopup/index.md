@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft das HTML-Dokument ab, das als Popup für diese Browser-Action festgelegt wurde.
+Ruft das HTML-Dokument ab, das als Popup für diese Browser-Aktion festgelegt wurde.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -37,7 +37,7 @@ let gettingPopup = browser.browserAction.getPopup(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL für das Popup-Dokument enthält. Dies wird eine vollständig qualifizierte URL sein, wie z.B. `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Popups-Dokuments enthält. Dies wird eine vollständig qualifizierte URL sein, wie z.B. `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +45,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Holen Sie sich die URL des Popups:
+Rufen Sie die URL des Popups ab:
 
 ```js
 function gotPopup(popupURL) {

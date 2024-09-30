@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`BigInt()`** Funktion gibt primitive Werte des Typs BigInt zurück.
+Die **`BigInt()`** Funktion gibt primitive Werte vom Typ BigInt zurück.
 
 ## Syntax
 
@@ -15,16 +15,16 @@ Die **`BigInt()`** Funktion gibt primitive Werte des Typs BigInt zurück.
 BigInt(value)
 ```
 
-> **Note:** `BigInt()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `BigInt()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `value`
-  - : Der zu konvertierende Wert zu einem BigInt-Wert. Es kann sich um einen String, eine Ganzzahl, ein Boolean oder ein anderes `BigInt` handeln.
+  - : Der Wert, der in einen BigInt-Wert umgewandelt werden soll. Es kann sich um einen String, eine ganze Zahl, einen Boolean oder einen anderen `BigInt` handeln.
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}}-Wert. Zahlenwerte müssen Ganzzahlen sein und werden in BigInts umgewandelt. Der boolesche Wert `true` wird `1n` und `false` wird `0n`. Strings werden so geparst, als ob sie Quelltext für Ganzzahl-Literale darstellen, was bedeutet, dass sie führende und abschließende Leerzeichen haben können und mit `0b`, `0o` oder `0x` vorangestellt sein können.
+Ein {{jsxref("BigInt")}}-Wert. Zahlwerte müssen ganze Zahlen sein und werden in BigInts umgewandelt. Der boolesche Wert `true` wird zu `1n`, und `false` wird zu `0n`. Strings werden so geparst, als ob sie Quelltext für Ganzzahlliterale wären, was bedeutet, dass sie führende und abschließende Leerzeichen haben können und mit `0b`, `0o` oder `0x` beginnen können.
 
 ### Ausnahmen
 
@@ -32,16 +32,16 @@ Ein {{jsxref("BigInt")}}-Wert. Zahlenwerte müssen Ganzzahlen sein und werden in
   - : Wird ausgelöst, wenn der Parameter eine nicht-ganzzahlige Zahl ist.
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Der Parameter kann nicht in eine primitive Form konvertiert werden.
-    - Nach der Konvertierung in eine primitive Form ist das Ergebnis {{jsxref("undefined")}}, {{jsxref("Operators/null", "null")}}, {{jsxref("symbol")}}.
+    - Der Parameter kann nicht in ein primitives Objekt umgewandelt werden.
+    - Nach der Umwandlung in ein primitives Objekt ist das Ergebnis {{jsxref("undefined")}}, {{jsxref("Operators/null", "null")}}, {{jsxref("symbol")}}.
 - {{jsxref("SyntaxError")}}
   - : Wird ausgelöst, wenn der Parameter ein String ist, der nicht als `BigInt` geparst werden kann.
 
 ## Beispiele
 
-### Verwendung von BigInt() zur Umwandlung einer Zahl in ein BigInt
+### Verwendung von BigInt() zur Umwandlung einer Zahl in einen BigInt
 
-`BigInt()` ist der einzige Fall, bei dem eine Zahl in ein BigInt umgewandelt werden kann, ohne dass ein Fehler auftritt, da es sehr explizit ist. Allerdings sind nur Ganzzahlen erlaubt.
+`BigInt()` ist der einzige Fall, in dem eine Zahl ohne Fehler in einen BigInt umgewandelt werden kann, da es sehr explizit ist. Es sind jedoch nur ganze Zahlen erlaubt.
 
 ```js
 BigInt(123); // 123n

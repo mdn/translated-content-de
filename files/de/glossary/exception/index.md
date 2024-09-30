@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Exception** ist eine Bedingung, die den normalen Programmablauf unterbricht. In JavaScript sind [Syntaxfehler](/de/docs/Glossary/syntax_error) eine sehr häufige Quelle für Exceptions.
+Eine **Exception** ist eine Bedingung, die die normale Ausführung des Codes unterbricht. In JavaScript sind [Syntaxfehler](/de/docs/Glossary/syntax_error) eine sehr häufige Quelle für Exceptions.
 
 ## Siehe auch
 

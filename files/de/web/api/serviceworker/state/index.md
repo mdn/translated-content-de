@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`state`** des [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Interfaces gibt einen String zurück, der den aktuellen Zustand des Service Workers darstellt. Es kann einen der folgenden Werte annehmen: `parsed`, `installing`, `installed`, `activating`, `activated` oder `redundant`.
+Die **`state`**-Eigenschaft des schreibgeschützten [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Interfaces gibt einen String zurück, der den aktuellen Zustand des Service Workers darstellt. Er kann einen der folgenden Werte annehmen: `parsed`, `installing`, `installed`, `activating`, `activated` oder `redundant`.
 
 ## Wert
 
 Ein {{jsxref("String")}}, der einen der folgenden Werte annehmen kann:
 
 - `"parsed"`
-  - : Der Anfangszustand eines Service Workers, nachdem er heruntergeladen und als lauffähig bestätigt wurde. Ein Service Worker wird nie in diesen Zustand aktualisiert, daher wird dies niemals der Wert des [`statechange`](/de/docs/Web/API/ServiceWorker/statechange_event)-Events sein.
+  - : Der Anfangszustand eines Service Workers, nachdem er heruntergeladen und als ausführbar bestätigt wurde. Ein Service Worker wird nie in diesen Zustand aktualisiert, daher wird dies niemals der Wert des [`statechange`](/de/docs/Web/API/ServiceWorker/statechange_event)-Ereignisses sein.
 - `"installing"`
-  - : Der Service Worker in diesem Zustand gilt als ein installierender Worker. Während dieses Zustands kann [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) im `install`-Event-Handler aufgerufen werden, um die Lebensdauer des installierenden Workers zu verlängern, bis das übergebene Promise erfolgreich aufgelöst wird. Dies wird hauptsächlich verwendet, um sicherzustellen, dass der Service Worker erst aktiv wird, wenn alle Kerndatenbanken gefüllt sind.
+  - : Der Service Worker in diesem Zustand wird als installierender Worker betrachtet. Während dieses Zustands kann [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) innerhalb des `install`-Ereignis-Handlers aufgerufen werden, um die Lebensdauer des installierenden Workers zu verlängern, bis das übergebene Promise erfolgreich aufgelöst wird. Dies wird hauptsächlich verwendet, um sicherzustellen, dass der Service Worker nicht aktiv ist, bis alle grundlegenden Caches gefüllt sind.
 - `"installed"`
-  - : Der Service Worker in diesem Zustand gilt als wartender Worker.
+  - : Der Service Worker in diesem Zustand wird als wartender Worker betrachtet.
 - `"activating"`
-  - : Der Service Worker in diesem Zustand gilt als aktiver Worker. Während dieses Zustands kann [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) im `onactivate`-Event-Handler aufgerufen werden, um die Lebensdauer des aktiven Workers zu verlängern, bis das übergebene Promise erfolgreich aufgelöst wird. Keine funktionalen Events werden gesendet, bis der Zustand aktiviert wird.
+  - : Der Service Worker in diesem Zustand wird als aktiver Worker betrachtet. Während dieses Zustands kann [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) innerhalb des `onactivate`-Ereignis-Handlers aufgerufen werden, um die Lebensdauer des aktiven Workers zu verlängern, bis das übergebene Promise erfolgreich aufgelöst wird. Keine funktionalen Ereignisse werden gesendet, bis der Zustand aktiviert wird.
 - `"activated"`
-  - : Der Service Worker in diesem Zustand gilt als aktiver Worker, der bereit ist, funktionale Events zu verarbeiten.
+  - : Der Service Worker in diesem Zustand wird als aktiver Worker betrachtet, der bereit ist, funktionale Ereignisse zu bearbeiten.
 - `"redundant"`
-  - : Ein neuer Service Worker ersetzt den aktuellen oder der aktuelle Service Worker wird aufgrund eines Installationsfehlers verworfen.
+  - : Ein neuer Service Worker ersetzt den aktuellen Service Worker, oder der aktuelle Service Worker wird aufgrund eines Installationsfehlers verworfen.
 
 ## Beispiele
 
-Dieser Code-Schnipsel stammt aus dem [Beispiel zu Registrierungsevents von Service Workern](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code überwacht Änderungen im `ServiceWorker.state` und gibt dessen Wert zurück.
+Dieses Code-Snippet ist aus dem [Service Worker registration-events Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code hört auf jede Änderung im `ServiceWorker.state` und gibt dessen Wert zurück.
 
 ```js
 let serviceWorker;

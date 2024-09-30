@@ -7,24 +7,24 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<ms>`** [MathML](/de/docs/Web/MathML) Element repräsentiert einen **String**-Literal, der von Programmiersprachen und Computeralgebrasystemen interpretiert werden soll.
+Das **`<ms>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **string** Literal, das von Programmiersprachen und Computeralgebrasystemen interpretiert werden soll.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
-Einige Browser unterstützen möglicherweise auch die folgenden veralteten Attribute und rendern den Inhalt des `<ms>`-Elements umgeben von den angegebenen öffnenden und schließenden Anführungszeichen:
+Einige Browser können auch die folgenden veralteten Attribute unterstützen und den Inhalt des `<ms>`-Elements von den angegebenen Eröffnungs- und Schlusszeichen umgeben darstellen:
 
 - `lquote`
 
-  - : Das öffnende Anführungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
+  - : Das Eröffnungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
 
 - `rquote`
-  - : Das schließende Anführungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
+  - : Das Schlusszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
 
 ## Beispiele
 
-### Standardmäßige Darstellung
+### Standarddarstellung
 
 ```html
 <math display="block">
@@ -34,7 +34,7 @@ Einige Browser unterstützen möglicherweise auch die folgenden veralteten Attri
 
 {{ EmbedLiveSample('default_rendering', 700, 200, "", "") }}
 
-### Veraltete Anführungszeichenattribute
+### Veraltete Zitat-Attribute
 
 ```html
 <math display="block">

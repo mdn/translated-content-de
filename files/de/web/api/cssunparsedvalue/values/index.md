@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.values()`** Methode gibt ein neues _Array-Iterator-Objekt_ zurück, das die Werte für jeden Index im `CSSUnparsedValue`-Objekt enthält.
+Die **`CSSUnparsedValue.values()`** Methode
+gibt ein neues _Array-Iterator_-Objekt zurück, das die
+Werte für jeden Index im CSSUnparsedValue-Objekt enthält.
 
 ## Syntax
 

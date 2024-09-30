@@ -1,5 +1,5 @@
 ---
-title: "RTCVideoSourceStats: `framesPerSecond`-Eigenschaft"
+title: "RTCVideoSourceStats: framesPerSecond-Eigenschaft"
 short-title: framesPerSecond
 slug: Web/API/RTCVideoSourceStats/framesPerSecond
 l10n:
@@ -10,15 +10,15 @@ l10n:
 
 Die **`framesPerSecond`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs gibt die Anzahl der Frames an, die in der letzten Sekunde von dieser Videoquelle stammen.
 
-Die Eigenschaft ist im ersten Lebenssekunde des Statistikobjekts nicht definiert.
+Die Eigenschaft ist nicht auf dem Statistikobjekt für die erste Sekunde seiner Lebensdauer definiert.
 
 ## Wert
 
-Eine Zahl, die die Anzahl der Frames angibt, die in der letzten Sekunde von dieser Quelle stammen.
+Eine Zahl, die die Frames angibt, die in der letzten Sekunde von dieser Quelle stammen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das Statistikobjekt durchlaufen könnten, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Videoquellenstatistiken zu erhalten und dann die `framesPerSecond` extrahieren.
+Dieses Beispiel zeigt, wie Sie das Statistikobjekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, durchlaufen, um die Videoquellenstatistiken zu erhalten und dann `framesPerSecond` extrahieren.
 
 ```js
 // where sender is an RTCRtpSender

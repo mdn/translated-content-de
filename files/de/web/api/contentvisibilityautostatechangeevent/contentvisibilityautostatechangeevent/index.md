@@ -1,5 +1,5 @@
 ---
-title: "ContentVisibilityAutoStateChangeEvent: ContentVisibilityAutoStateChangeEvent() Konstruktor"
+title: "ContentVisibilityAutoStateChangeEvent: ContentVisibilityAutoStateChangeEvent()-Konstruktor"
 short-title: ContentVisibilityAutoStateChangeEvent()
 slug: Web/API/ContentVisibilityAutoStateChangeEvent/ContentVisibilityAutoStateChangeEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Containment")}}
 
-Der **`ContentVisibilityAutoStateChangeEvent()`**-Konstruktor erstellt eine neue Instanz eines [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Objekts.
+Der **`ContentVisibilityAutoStateChangeEvent()`**-Konstruktor erstellt eine neue [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Objektinstanz.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new ContentVisibilityAutoStateChangeEvent(type, options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `skipped`
-      - : Ein boolescher Wert, der auf `true` gesetzt wird, wenn der User-Agent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), oder `false` andernfalls.
+      - : Ein boolescher Wert, der auf `true` gesetzt wird, wenn der User-Agent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), andernfalls `false`.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ContentVisibilityAutoStateChangeEvent`-Objekt wird erstellt, wenn ein Event-Handler als Ergebnis des Auslösens des [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ContentVisibilityAutoStateChangeEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignisses aufgerufen wird.
 
 ```js
 canvasElem.addEventListener("contentvisibilityautostatechange", (event) => {

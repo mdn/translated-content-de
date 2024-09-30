@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnectionStats: id Eigenschaft"
+title: "RTCPeerConnectionStats: id-Eigenschaft"
 short-title: id
 slug: Web/API/RTCPeerConnectionStats/id
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`id`**-Eigenschaft des [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats)-Wörterbuchs ist ein String, der das Objekt, für das dieses Objekt Statistiken bereitstellt, eindeutig identifiziert.
+Die **`id`**-Eigenschaft des [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats)-Wörterbuchs ist ein String, der das Objekt, für welches dieses Objekt Statistikdaten liefert, eindeutig identifiziert.
 
-Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um Statistiken im Laufe der Zeit für ein bestimmtes WebRTC-Objekt, wie beispielsweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), zu überwachen.
+Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um die Statistiken über die Zeit für ein gegebenes WebRTC-Objekt, wie zum Beispiel ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), zu überwachen.
 
 ## Wert
 
-Ein String, der das Objekt, für das dieses `RTCPeerConnectionStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
+Ein String, der das Objekt, für welches dieses `RTCPeerConnectionStats`-Objekt Statistikdaten liefert, eindeutig identifiziert.
 
-Das Format des ID-Strings ist nicht in der Spezifikation definiert, daher können Sie keine zuverlässigen Annahmen über den Inhalt des Strings machen oder davon ausgehen, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
+Das Format des ID-Strings wird von der Spezifikation nicht definiert, daher können Sie keine verlässlichen Annahmen über den Inhalt des Strings machen oder davon ausgehen, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
 
 ## Spezifikationen
 

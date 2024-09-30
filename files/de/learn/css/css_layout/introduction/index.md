@@ -1,5 +1,5 @@
 ---
-title: Einführung in CSS-Layout
+title: Einführung in CSS Layout
 slug: Learn/CSS/CSS_layout/Introduction
 l10n:
   sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
@@ -7,32 +7,32 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/CSS/CSS_layout/Normal_Flow", "Learn/CSS/CSS_layout")}}
 
-In diesem Artikel werden einige der CSS-Layout-Funktionen, die wir bereits in früheren Modulen behandelt haben, wie verschiedene {{cssxref("display")}}-Werte, zusammengefasst und einige der Konzepte vorgestellt, die wir in diesem Modul behandeln werden.
+Dieser Artikel wird einige der CSS-Layout-Funktionen rekapitulieren, die wir bereits in früheren Modulen angesprochen haben, wie verschiedene {{cssxref("display")}}-Werte, und einige der Konzepte einführen, die wir in diesem Modul behandeln werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Die Grundlagen von HTML (siehe
+        Die Grundlagen von HTML (Studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (siehe
+        >), und eine Idee davon, wie CSS funktioniert (Studieren Sie
         <a href="/de/docs/Learn/CSS/First_steps">Einführung in CSS</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ihnen einen Überblick über CSS-Seitenlayouttechniken zu geben. Jede Technik kann in nachfolgenden Tutorials im Detail gelernt werden.
+        Ihnen einen Überblick über CSS-Seitenlayout-Techniken zu geben. Jede Technik kann in nachfolgenden Tutorials detaillierter erlernt werden.
       </td>
     </tr>
   </tbody>
 </table>
 
-CSS-Seitenlayouttechniken ermöglichen es uns, die Position von Elementen auf einer Webseite in Bezug auf verschiedene Faktoren zu steuern: ihre Standardposition im normalen Layoutfluss, die anderen Elemente um sie herum, ihren übergeordneten Container und das Hauptansichtsfenster/Fenster. Die Seitenlayouttechniken, die wir in diesem Modul im Detail behandeln werden, sind:
+CSS-Seitenlayout-Techniken ermöglichen es uns, Elemente in einer Webseite zu positionieren, relativ zu den folgenden Faktoren: ihrer Standardposition im normalen Layoutfluss, den anderen Elementen um sie herum, ihrem übergeordneten Container und dem Hauptansichtsfenster/Fenster. Die Seitenlayout-Techniken, die wir in diesem Modul detaillierter behandeln werden, sind:
 
-- Normal Flow
+- Normalfluss
 - Die {{cssxref("display")}}-Eigenschaft
 - Flexbox
 - Grid
@@ -41,11 +41,11 @@ CSS-Seitenlayouttechniken ermöglichen es uns, die Position von Elementen auf ei
 - Tabellenlayout
 - Mehrspaltenlayout
 
-Jede Technik hat ihre Verwendungszwecke, Vorteile und Nachteile. Keine Technik ist dafür gedacht, isoliert verwendet zu werden. Wenn Sie verstehen, wofür jede Layoutmethode gedacht ist, sind Sie in einer guten Position, um zu verstehen, welche Methode für welche Aufgabe am besten geeignet ist.
+Jede Technik hat ihre Anwendungsbereiche, Vorteile und Nachteile. Keine Technik ist dafür gedacht, isoliert verwendet zu werden. Indem Sie verstehen, wofür jede Layoutmethode ausgelegt ist, werden Sie in der Lage sein, zu verstehen, welche Methode für jede Aufgabe am geeignetsten ist.
 
-## Normal Flow
+## Normalfluss
 
-Normal Flow ist die Art und Weise, wie der Browser HTML-Seiten standardmäßig anzeigt, wenn Sie nichts tun, um das Seitenlayout zu steuern. Schauen wir uns ein kurzes HTML-Beispiel an:
+Normalfluss ist, wie der Browser HTML-Seiten standardmäßig anordnet, wenn Sie nichts tun, um das Seitenlayout zu kontrollieren. Schauen wir uns ein kurzes HTML-Beispiel an:
 
 ```html
 <p>I love my cat.</p>
@@ -63,40 +63,40 @@ Standardmäßig zeigt der Browser diesen Code wie folgt an:
 
 {{ EmbedLiveSample('Normal_flow', '100%', 200) }}
 
-Beachten Sie, wie das HTML in der genauen Reihenfolge angezeigt wird, in der es im Quellcode erscheint, mit übereinander gestapelten Elementen — der erste Absatz gefolgt von der ungeordneten Liste, gefolgt vom zweiten Absatz.
+Beachten Sie, wie das HTML in exakt der Reihenfolge angezeigt wird, in der es im Quellcode erscheint, mit Elementen, die übereinander gestapelt sind — der erste Absatz, gefolgt von der ungeordneten Liste, gefolgt vom zweiten Absatz.
 
-Die Elemente, die eines unter dem anderen erscheinen, werden als **Block**-Elemente beschrieben, im Gegensatz zu **Inline**-Elementen, die nebeneinander erscheinen wie die einzelnen Wörter in einem Absatz.
+Die Elemente, die eins unter dem anderen erscheinen, werden als **Blockelemente** beschrieben, im Gegensatz zu **Inline-Elementen**, die nebeneinander erscheinen wie die einzelnen Wörter in einem Absatz.
 
 > [!NOTE]
-> Die Richtung, in der die Inhalte von Block-Elementen angeordnet sind, wird als Blockrichtung bezeichnet. Die Blockrichtung verläuft vertikal in einer Sprache wie Englisch, die einen horizontalen Schreibmodus hat. In jeder Sprache mit einem vertikalen Schreibmodus, wie Japanisch, würde sie horizontal verlaufen. Die entsprechende Inline-Richtung ist die Richtung, in der Inline-Inhalte (wie ein Satz) verlaufen würden.
+> Die Richtung, in der Blockelementinhalte angeordnet sind, wird als Blockrichtung beschrieben. Die Blockrichtung verläuft vertikal in einer Sprache wie Englisch, die einen horizontalen Schreibmodus hat. Sie würde horizontal verlaufen in jeder Sprache mit einem vertikalen Schreibmodus, wie Japanisch. Die entsprechende Inline-Richtung ist die Richtung, in der Inline-Inhalte (wie ein Satz) verlaufen würden.
 
-Für viele der Elemente auf Ihrer Seite wird der Normal Flow genau das Layout erstellen, das Sie benötigen. Für komplexere Layouts müssen Sie jedoch dieses Standardverhalten mit einigen der Ihnen in CSS zur Verfügung stehenden Werkzeuge ändern. Mit einem gut strukturierten HTML-Dokument zu beginnen ist sehr wichtig, da Sie mit der Weise arbeiten können, wie Dinge standardmäßig angeordnet sind, anstatt dagegen anzukämpfen.
+Bei vielen der Elemente auf Ihrer Seite wird der Normalfluss genau das Layout erzeugen, das Sie benötigen. Für komplexere Layouts müssen Sie jedoch dieses Standardverhalten mit einigen der Ihnen in CSS zur Verfügung stehenden Werkzeuge ändern. Ein gut strukturiertes HTML-Dokument als Ausgangspunkt ist sehr wichtig, da Sie dann mit der Standardanordnung der Dinge arbeiten können, anstatt dagegen anzukämpfen.
 
-Die Methoden, die in CSS geändert werden können, wie Elemente angeordnet sind, sind:
+Die Methoden, die ändern können, wie Elemente in CSS angeordnet sind, sind:
 
-- **Die {{cssxref("display")}}-Eigenschaft** — Standardwerte wie `block`, `inline` oder `inline-block` können ändern, wie Elemente im Normal Flow verhalten, z.B. indem ein Block-Element wie ein Inline-Element verhalten wird (siehe [Arten von CSS-Boxen](/de/docs/Learn/CSS/Building_blocks/The_box_model#block_and_inline_boxes) für weitere Informationen). Wir haben auch ganze Layoutmethoden, die über spezifische `display`-Werte aktiviert werden, zum Beispiel [CSS grid](/de/docs/Learn/CSS/CSS_layout/Grids) und [Flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox), die ändern, wie Kindelemente innerhalb ihrer Eltern angeordnet sind.
-- **Floats** — Das Anwenden eines {{cssxref("float")}}-Wertes wie `left` kann dazu führen, dass Block-Elemente an einer Seite eines Elements entlang umwickeln, ähnlich wie Bilder manchmal Text um sich herum in Magazinlayouts haben.
-- **Die {{cssxref("position")}}-Eigenschaft** — Erlaubt es Ihnen, die Platzierung von Boxen innerhalb anderer Boxen präzise zu steuern. `static`-Positionierung ist die Standardeinstellung im Normal Flow, aber Sie können dazu führen, dass Elemente anders angeordnet sind, indem Sie andere Werte verwenden, zum Beispiel, indem Sie sie auf die Oberseite des Browseransichtsfensters fixieren.
-- **Tabellenlayout** — Funktionen, die zum Stylen von Teilen einer HTML-Tabelle entwickelt wurden, können auf Nicht-Tabellen-Elemente mit `display: table` und zugehörigen Eigenschaften verwendet werden.
-- **Mehrspaltenlayout** — Die [Multicolumn layout](/de/docs/Web/CSS/CSS_multicol_layout)-Eigenschaften können den Inhalt eines Blocks in Spalten aufteilen, wie Sie es vielleicht in einer Zeitung sehen.
+- **Die {{cssxref("display")}}-Eigenschaft** — Standardwerte wie `block`, `inline` oder `inline-block` können das Verhalten von Elementen im normalen Fluss ändern, zum Beispiel, indem ein Blockelement wie ein Inline-Element funktioniert (siehe [Arten von CSS-Boxen](/de/docs/Learn/CSS/Building_blocks/The_box_model#block_and_inline_boxes) für mehr Informationen). Wir haben auch komplette Layout-Methoden, die durch spezifische `display`-Werte aktiviert werden, zum Beispiel [CSS-Grid](/de/docs/Learn/CSS/CSS_layout/Grids) und [Flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox), die ändern, wie Kindelemente innerhalb ihrer Eltern angeordnet sind.
+- **Floats** — Die Anwendung eines {{cssxref("float")}}-Wertes wie `left` kann dazu führen, dass Blockelemente entlang einer Seite eines Elements umbrochen werden, ähnlich wie Bilder manchmal Text um sie herum in Magazinen haben.
+- **Die {{cssxref("position")}}-Eigenschaft** — Ermöglicht es Ihnen, die Platzierung von Boxen innerhalb anderer Boxen präzise zu kontrollieren. `static`-Positionierung ist die Standardeinstellung im normalen Fluss, aber Sie können Elemente anders anordnen, indem Sie andere Werte verwenden, zum Beispiel fixiert oben im Browser-Fenster.
+- **Tabellenlayout** — Funktionen, die für das Styling von Teilen einer HTML-Tabelle entwickelt wurden, können auf Nicht-Tabellen-Elemente angewendet werden, indem `display: table` und zugehörige Eigenschaften verwendet werden.
+- **Mehrspaltenlayout** — Die [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout)-Eigenschaften können bewirken, dass der Inhalt eines Blocks in Spalten angeordnet wird, wie Sie es vielleicht in einer Zeitung sehen.
 
 ## Die display-Eigenschaft
 
-Die Hauptmethoden zum Erreichen von Seitenlayout in CSS beinhalten alle das Festlegen von Werten für die `display`-Eigenschaft. Diese Eigenschaft erlaubt es uns, die Standardanzeigeweise von etwas zu ändern. Alles im Normal Flow hat einen Standardwert für `display`; d.h., eine Standardweise, wie Elemente sich verhalten. Zum Beispiel ist die Tatsache, dass Absätze in Englisch untereinander angezeigt werden, weil sie mit `display: block` formatiert sind. Wenn Sie im Absatz einen Link um etwas Text erstellen, bleibt dieser Link inline mit dem Rest des Textes und bricht nicht in eine neue Zeile. Dies liegt daran, dass das {{htmlelement("a")}}-Element standardmäßig `display: inline` ist.
+Die Hauptmethoden zur Erstellung eines Seitenlayouts in CSS beinhalten alle das Festlegen von Werten für die `display`-Eigenschaft. Diese Eigenschaft ermöglicht es uns, die Standardweise, wie etwas angezeigt wird, zu ändern. Alles im normalen Fluss hat einen Standardwert für `display`; d.h. eine Standardweise, in der Elemente verhalten sind. Zum Beispiel werden Absätze im Englischen so angezeigt, dass sie untereinander stehen, weil sie mit `display: block` gestylt sind. Wenn Sie einen Link um einen Text in einem Absatz erstellen, bleibt dieser Link inline mit dem Rest des Textes und wird nicht in eine neue Zeile gebrochen. Dies liegt daran, dass das {{htmlelement("a")}}-Element standardmäßig `display: inline` ist.
 
-Sie können dieses Standardanzeigeverhalten ändern. Zum Beispiel ist das {{htmlelement("li")}}-Element standardmäßig `display: block`, was bedeutet, dass Listenelemente in unserem englischen Dokument untereinander angezeigt werden. Wenn wir den Anzeigewert in `inline` ändern würden, würden sie nebeneinander angezeigt, ähnlich wie Wörter in einem Satz. Die Tatsache, dass Sie den Wert von `display` für jedes Element ändern können, bedeutet, dass Sie HTML-Elemente wegen ihrer semantischen Bedeutung auswählen können, ohne sich darum zu sorgen, wie sie aussehen werden. Das Aussehen ist etwas, das Sie ändern können.
+Sie können dieses Standardanzeigeverhalten ändern. Zum Beispiel ist das {{htmlelement("li")}}-Element standardmäßig `display: block`, was bedeutet, dass Listenelemente in unserem englischen Dokument untereinander angezeigt werden. Wenn wir den Anzeige-Wert auf `inline` ändern würden, würden sie nebeneinander angezeigt werden, wie Wörter in einem Satz. Die Tatsache, dass Sie den Wert von `display` für jedes Element ändern können, bedeutet, dass Sie HTML-Elemente aufgrund ihrer semantischen Bedeutung auswählen können, ohne sich darüber Gedanken zu machen, wie sie aussehen werden. Die Art und Weise, wie sie aussehen, können Sie ändern.
 
-Zusätzlich zur Möglichkeit, die Standardpräsentation von `block` zu `inline` und umgekehrt zu ändern, gibt es einige umfangreichere Layoutmethoden, die als ein Wert von `display` beginnen. Wenn Sie diese jedoch verwenden, müssen Sie in der Regel zusätzliche Eigenschaften aktivieren. Die zwei Werte, die für unsere Diskussion zurAnordnung am wichtigsten sind, sind `display: flex` und `display: grid`.
+Zusätzlich zur Möglichkeit, die Standarddarstellung zu ändern, indem man ein Element von `block` zu `inline` und umgekehrt verwandelt, gibt es einige tiefere Layout-Methoden, die mit einem `display`-Wert beginnen. Wenn Sie jedoch diese verwenden, müssen Sie im Allgemeinen zusätzliche Eigenschaften aufrufen. Die zwei Werte, die für unsere Diskussion des Layouts am wichtigsten sind, sind `display: flex` und `display: grid`.
 
 ## Flexbox
 
-Flexbox ist der Kurzname für das [Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-CSS-Modul, das es uns erleichtern soll, Dinge in einer Dimension zu layouten — entweder als Reihe oder als Spalte. Um Flexbox zu verwenden, wenden Sie `display: flex` auf das übergeordnete Element der Elemente an, die Sie layouten möchten; alle direkten Kinder werden dann zu _Flexelementen_. Wir können dies in einem einfachen Beispiel sehen.
+Flexbox ist der Kurzname für das [Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-CSS-Modul, das es uns erleichtern soll, Dinge in einer Dimension – entweder als Reihe oder als Spalte – anzuordnen. Um Flexbox zu verwenden, wenden Sie `display: flex` auf das Elternelement der Elemente an, die Sie anordnen möchten; alle seine direkten Kinder werden dann zu _Flex-Items_. Wir können dies in einem einfachen Beispiel sehen.
 
-### Festlegen von display: flex
+### display: flex einstellen
 
-Das folgende HTML-Markup gibt uns ein umschließendes Element mit der Klasse `wrapper`, in dem drei {{htmlelement("div")}}-Elemente enthalten sind. Standardmäßig würden diese als Block-Elemente angezeigt, das heißt untereinander in unserem englischen Dokument.
+Das folgende HTML-Markup gibt uns ein umschließendes Element mit einer Klasse `wrapper`, in dem sich drei {{htmlelement("div")}}-Elemente befinden. Standardmäßig würden diese als Block-Elemente angezeigt werden, das heißt, untereinander in unserem englischsprachigen Dokument.
 
-Wenn wir jedoch `display: flex` auf das übergeordnete Element anwenden, ordnen sich die drei Elemente nun in Spalten an. Dies liegt daran, dass sie zu _Flexelementen_ werden und von einigen Anfangswerten beeinflusst werden, die Flexbox auf den Flex-Container setzt. Sie werden in einer Reihe angezeigt, weil die Eigenschaft {{cssxref("flex-direction")}} des übergeordneten Elements einen Anfangswert von `row` hat. Sie scheinen sich in der Höhe zu strecken, weil die Eigenschaft {{cssxref("align-items")}} ihres übergeordneten Elements einen Anfangswert von `stretch` hat. Dies bedeutet, dass sich die Elemente auf die Höhe des Flex-Containers strecken, die in diesem Fall durch das höchste Element definiert wird. Die Elemente reihen sich alle am Anfang des Containers auf und lassen jeden zusätzlichen Platz am Ende der Reihe.
+Wenn wir jedoch `display: flex` auf das Elternelement hinzufügen, ordnen sich die drei Elemente jetzt in Spalten an. Dies liegt daran, dass sie _Flex-Items_ werden und von einigen Anfangswerten betroffen sind, die Flexbox auf den Flex-Container setzt. Sie werden in einer Reihe angezeigt, weil die Eigenschaft {{cssxref("flex-direction")}} des Elternelements einen Anfangswert von `row` hat. Sie scheinen sich in der Höhe zu strecken, weil die Eigenschaft {{cssxref("align-items")}} ihres Elternelements einen Anfangswert von `stretch` hat. Dies bedeutet, dass die Elemente sich auf die Höhe des Flex-Containers strecken, die in diesem Fall durch das höchste Element definiert ist. Die Elemente richten sich alle am Anfang des Containers aus, wodurch jeder zusätzliche Platz am Ende der Reihe verbleibt.
 
 ```css hidden
 * {
@@ -125,11 +125,11 @@ Wenn wir jedoch `display: flex` auf das übergeordnete Element anwenden, ordnen 
 
 {{ EmbedLiveSample('Setting_display_flex', '300', '200') }}
 
-### Festlegen der flex-Eigenschaft
+### Die flex-Eigenschaft einstellen
 
-Zusätzlich zu den Eigenschaften, die auf einen _Flex-Container_ angewendet werden können, gibt es auch Eigenschaften, die auf _Flexelemente_ angewendet werden können. Diese Eigenschaften können unter anderem die Art und Weise ändern, wie Elemente sich _flexen_, und es ihnen ermöglichen, sich je nach verfügbarem Platz zu erweitern oder zu verkleinern.
+Neben Eigenschaften, die auf einen _Flex-Container_ angewendet werden können, gibt es auch Eigenschaften, die auf _Flex-Items_ angewendet werden können. Diese Eigenschaften können unter anderem die Art ändern, wie sich Elemente _flexen_, wodurch sie sich je nach verfügbarem Platz ausdehnen oder zusammenziehen können.
 
-Als einfaches Beispiel können wir die {{cssxref("flex")}}-Eigenschaft auf alle unsere Kinderelemente anwenden und ihr einen Wert von `1` geben. Dies bewirkt, dass sich alle Elemente ausdehnen und den Container füllen, anstatt Platz am Ende zu lassen. Wenn mehr Platz vorhanden ist, werden die Elemente breiter; wenn weniger Platz vorhanden ist, werden sie schmaler. Darüber hinaus, wenn Sie ein weiteres Element zum Markup hinzufügen, werden die anderen Elemente alle kleiner, um Platz dafür zu schaffen; die Elemente zusammen nehmen weiterhin den gesamten Platz ein.
+Als einfaches Beispiel können wir die {{cssxref("flex")}}-Eigenschaft auf alle unsere Kindelemente anwenden und ihr einen Wert von `1` geben. Dadurch wachsen alle Elemente und füllen den Container aus, anstatt am Ende Platz zu lassen. Gibt es mehr Platz, werden die Elemente breiter; gibt es weniger, werden sie schmaler. Darüber hinaus, wenn Sie ein weiteres Element zu dem Markup hinzufügen, werden die anderen Elemente alle kleiner, um Platz dafür zu schaffen; die Elemente nehmen zusammen weiterhin den gesamten Platz ein.
 
 ```css hidden
 * {
@@ -163,15 +163,15 @@ Als einfaches Beispiel können wir die {{cssxref("flex")}}-Eigenschaft auf alle 
 {{ EmbedLiveSample('Setting_the_flex_property', '300', '200') }}
 
 > [!NOTE]
-> Dies war eine sehr kurze Einführung in das, was mit Flexbox möglich ist. Um mehr zu erfahren, siehe unseren [Flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox)-Artikel.
+> Dies war eine sehr kurze Einführung in das, was in Flexbox möglich ist. Um mehr zu erfahren, sehen Sie sich unseren [Flexbox](/de/docs/Learn/CSS/CSS_layout/Flexbox)-Artikel an.
 
 ## Grid Layout
 
-Während Flexbox für ein Eindimensionales Layout ausgelegt ist, ist das Grid-Layout für zwei Dimensionen ausgelegt — um Dinge in Reihen und Spalten auszurichten.
+Während Flexbox für eindimensionale Layouts konzipiert ist, ist Grid Layout für zwei Dimensionen gedacht – das Ausrichten von Dingen in Reihen und Spalten.
 
-### Festlegen von display: grid
+### display: grid einstellen
 
-Ähnlich wie bei Flexbox aktivieren wir das Grid-Layout mit seinem spezifischen Display-Wert — `display: grid`. Das untenstehende Beispiel verwendet ein ähnliches Markup wie das Flex-Beispiel, mit einem Container und einigen Kinderelementen. Zusätzlich zur Verwendung von `display: grid` definieren wir auch einige Reihen- und Spalten- _Spuren_ für das übergeordnete Element mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}}. Wir haben drei Spalten zu je `1fr` sowie zwei Reihen von `100px` definiert. Wir müssen keine Regeln für die Kinderelemente festlegen; sie werden automatisch in die Zellen unseres erstellten Gitters platziert.
+Ähnlich wie bei Flexbox aktivieren wir das Grid Layout mit seinem spezifischen Display-Wert — `display: grid`. Das folgende Beispiel verwendet ähnliches Markup wie das Flexbeispiel, mit einem Container und einigen Kindelementen. Neben der Verwendung von `display: grid` definieren wir auch einige Reihen- und Spalten-Tracks für das Elternelement, indem wir die {{cssxref("grid-template-rows")}}- und {{cssxref("grid-template-columns")}}-Eigenschaften entsprechend verwenden. Wir haben drei Spalten definiert, jede mit `1fr`, sowie zwei Reihen mit `100px`. Wir müssen keine Regeln für die Kindelemente setzen; sie werden automatisch in die Zellen unseres Grids platziert.
 
 ```css hidden
 * {
@@ -207,9 +207,9 @@ Während Flexbox für ein Eindimensionales Layout ausgelegt ist, ist das Grid-La
 
 {{ EmbedLiveSample('Setting_display_grid', '300', '330') }}
 
-### Platzieren von Elementen im Gitter
+### Platzierung von Elementen im Grid
 
-Sobald Sie ein Gitter haben, können Sie Ihre Elemente explizit darauf platzieren, anstatt sich auf das oben gesehene automatische Platzierungsverhalten zu verlassen. In dem nächsten Beispiel unten haben wir das gleiche Gitter definiert, aber diesmal mit drei Kinderelementen. Wir haben den Anfangs- und Endlinien jedes Elements mit den Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} festgelegt. Dies führt dazu, dass die Elemente mehrere Spuren überspannen.
+Sobald Sie ein Grid haben, können Sie Ihre Elemente explizit darauf platzieren, anstatt sich auf das automatische Platzierungsverhalten zu verlassen, das oben zu sehen war. Im folgenden Beispiel haben wir dasselbe Grid definiert, aber diesmal mit drei Kindelementen. Wir haben die Start- und Endlinie jedes Elements mit den {{cssxref("grid-column")}}- und {{cssxref("grid-row")}}-Eigenschaften festgelegt. Dies bewirkt, dass die Elemente mehrere Tracks überspannen.
 
 ```css hidden
 * {
@@ -258,22 +258,22 @@ Sobald Sie ein Gitter haben, können Sie Ihre Elemente explizit darauf platziere
 {{ EmbedLiveSample('Placing_items_on_the_grid', '300', '330') }}
 
 > [!NOTE]
-> Diese zwei Beispiele zeigen nur eine kleine Probe der Stärke von Grid-Layout. Um mehr zu erfahren, siehe unseren [Grid Layout](/de/docs/Learn/CSS/CSS_layout/Grids)-Artikel.
+> Diese beiden Beispiele zeigen nur ein kleines Beispiel für die Macht des Grid Layouts. Um mehr zu erfahren, sehen Sie sich unseren [Grid Layout](/de/docs/Learn/CSS/CSS_layout/Grids)-Artikel an.
 
-Der Rest dieses Leitfadens behandelt andere Layoutmethoden, die weniger wichtig für das Hauptlayout Ihrer Seite sind, aber dennoch helfen, spezifische Aufgaben zu erreichen. Wenn Sie die Natur jeder Layoutaufgabe verstehen, werden Sie bald feststellen, dass es oft klar ist, welcher Layouttyp für eine bestimmte Komponente Ihres Designs am besten geeignet ist.
+Der Rest dieses Leitfadens behandelt andere Layout-Methoden, die weniger wichtig für das Hauptlayout Ihrer Seite sind, aber dennoch helfen, bestimmte Aufgaben zu erfüllen. Indem Sie die Natur jeder Layout-Aufgabe verstehen, werden Sie bald feststellen, dass, wenn Sie ein bestimmtes Element Ihres Designs betrachten, die Art des Layouts, die am besten dazu geeignet ist, oft klar erkennbar ist.
 
 ## Floats
 
-Das Floaten eines Elements ändert das Verhalten dieses Elements und der Block-Elemente, die ihm im Normal Flow folgen. Das gefloatete Element wird nach links oder rechts verschoben und aus dem normalen Fluss entfernt, und der umgebende Inhalt _floatet_ um es herum.
+Das Floating eines Elements ändert das Verhalten dieses Elements und der block-level Elemente, die ihm im normalen Fluss folgen. Das gefloatete Element wird nach links oder rechts bewegt und aus dem normalen Fluss entfernt, und der umgebende Inhalt _fließt_ darum herum.
 
 Die {{cssxref("float")}}-Eigenschaft hat vier mögliche Werte:
 
 - `left` — Floatet das Element nach links.
 - `right` — Floatet das Element nach rechts.
-- `none` — Gibt an, dass überhaupt kein Float stattfinden soll. Dies ist der Standardwert.
-- `inherit` — Gibt an, dass der Wert der `float`-Eigenschaft vom übergeordneten Element des Elements geerbt werden soll.
+- `none` — Gibt an, dass kein Floaten verwendet wird. Dies ist der Standardwert.
+- `inherit` — Gibt an, dass der Wert der `float`-Eigenschaft vom Elternelement des Elements übernommen werden soll.
 
-Im Beispiel unten floaten wir ein `<div>`-Element nach links und geben ihm einen {{cssxref("margin")}} nach rechts, um den umgebenden Text davon abzuhalten. Dies gibt uns den Effekt von Text, der um das umrahmte Element herumfließt, und ist das meiste, was Sie über Floats wissen müssen, wie sie im modernen Webdesign verwendet werden.
+Im folgenden Beispiel floaten wir ein `<div>` nach links und geben ihm einen {{cssxref("margin")}} auf der rechten Seite, um den umgebenden Text von ihm wegzudrücken. Dies gibt uns den Effekt von Text, der um das Box-Element gewickelt ist, und ist das meiste, was Sie über Floats wissen müssen, wie sie im modernen Webdesign verwendet werden.
 
 ```css hidden
 body {
@@ -325,25 +325,25 @@ p {
 {{ EmbedLiveSample('Floats', '100%', 600) }}
 
 > [!NOTE]
-> Floats werden vollständig in unserer Lektion zu den [float and clear](/de/docs/Learn/CSS/CSS_layout/Floats)-Eigenschaften erklärt. Vor Techniken wie Flexbox und Grid-Layout wurden Floats als Methode zum Erstellen von Spaltenlayouts verwendet. Möglicherweise stoßen Sie immer noch auf diese Methoden im Web; wir werden diese in der Lektion zu [Veraltete Layoutmethoden](/de/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods) behandeln.
+> Floats sind vollständig in unserer Lektion über die [float and clear](/de/docs/Learn/CSS/CSS_layout/Floats)-Eigenschaften erklärt. Vor Techniken wie Flexbox und Grid Layout wurden Floats als Methode zur Erstellung von Spaltenlayouts verwendet. Sie könnten immer noch auf diese Methoden im Web stoßen; wir werden diese in der Lektion über [legacy layout methods](/de/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods) behandeln.
 
 ## Positionierungstechniken
 
-Positionierung ermöglicht es Ihnen, ein Element von der Stelle zu verschieben, an der es im normalen Fluss positioniert wäre, an eine andere Stelle. Positionierung ist keine Methode, um die Hauptlayouts einer Seite zu erstellen; sie dient mehr dazu, die Position bestimmter Elemente auf einer Seite zu verwalten und feinabzustimmen.
+Die Positionierung ermöglicht es Ihnen, ein Element von dem Ort zu verschieben, an dem es sonst im normalen Fluss platziert würde, zu einem anderen Ort. Positionierung ist keine Methode zur Erstellung der Hauptlayouts einer Seite; es geht mehr darum, die Platzierung spezifischer Elemente auf einer Seite zu verwalten und zu optimieren.
 
-Es gibt jedoch nützliche Techniken, um spezifische Layoutmuster zu erzielen, die sich auf die {{cssxref("position")}}-Eigenschaft verlassen. Das Verständnis von Positionierung hilft auch, den normalen Fluss zu verstehen und was es bedeutet, ein Element aus dem normalen Fluss zu entfernen.
+Es gibt jedoch nützliche Techniken zum Erreichen spezifischer Layoutmuster, die sich auf die {{cssxref("position")}}-Eigenschaft stützen. Das Verständnis der Positionierung hilft auch beim Verständnis des normalen Flusses und was es bedeutet, ein Element aus dem normalen Fluss zu entfernen.
 
-Es gibt fünf Arten von Positionierung, die Sie kennen sollten:
+Es gibt fünf Typen der Positionierung, die Sie kennen sollten:
 
-- **Statische Positionierung** ist der Standard, den jedes Element bekommt. Es bedeutet einfach "setze das Element in seine normale Position im Dokumentlayoutfluss – nichts Besonderes hier".
-- **Relative Positionierung** erlaubt es Ihnen, die Position eines Elements auf der Seite zu ändern, indem es relativ zu seiner Position im normalen Fluss bewegt wird, sowie es sich mit anderen Elementen auf der Seite überlappen zu lassen.
-- **Absolute Positionierung** bewegt ein Element vollständig aus dem normalen Layoutfluss der Seite und positioniert es stattdessen unter Verwendung von Offsets vom Rand eines enthaltenden Blocks. Von dort können Sie es an einer Position relativ zu den Rändern seines nächsten positionierten Vorfahren fixieren (was `<html>` wird, wenn keine anderen Vorfahren positioniert sind). Dies ist nützlich für die Erstellung komplexer Layouteffekte, wie tabellarische Boxen, bei denen verschiedene Inhaltsbereiche übereinander liegen und nach Bedarf angezeigt und verborgen werden, oder Informationsbereiche, die standardmäßig außerhalb des Bildschirms liegen, aber mit einer Steuertaste auf dem Bildschirm gleiten können.
-- **Feste Positionierung** ist sehr ähnlich zur absoluten Positionierung, außer dass es ein Element relativ zum Browser-Ansichtsfenster und nicht zu einem anderen Element fixiert. Dies ist nützlich, um Effekte wie ein dauerhaftes Navigationsmenü zu erstellen, das immer an der gleichen Stelle auf dem Bildschirm bleibt, während der Rest des Inhalts darunter scrollt.
-- **Sticky Positionierung** ist eine neuere Positionierungsmethode, die ein Element wie `position: relative` verhält, bis es einen definierten Offset vom Ansichtsfenster erreicht, worauf es genauso wie position: fixed verhält.
+- **Statische Positionierung** ist der Standard, den jedes Element erhält. Es bedeutet einfach "Setze das Element an seinen normalen Platz im Dokumentlayoutfluss – nichts Besonderes zu sehen hier".
+- **Relative Positionierung** ermöglicht es Ihnen, die Position eines Elements auf der Seite zu ändern, indem es relativ zu seiner Position im normalen Fluss verschoben wird, sowie es mit anderen Elementen auf der Seite überlappt.
+- **Absolute Positionierung** verschiebt ein Element vollständig aus dem normalen Layoutfluss der Seite, als ob es auf seiner eigenen separaten Ebene sitzt. Von dort aus können Sie es relativ zu den Kanten der nächsten positionierten Vorfahren fixieren (was `<html>` wird, wenn keine anderen Vorfahren positioniert sind). Dies ist nützlich zur Erstellung komplexer Layouteffekte, wie z. B. Registerkartenboxen, bei denen verschiedene Inhaltsfenster aufeinander liegen und nach Bedarf angezeigt und verborgen werden, oder Informationsfenster, die standardmäßig außerhalb des Bildschirms sitzen, aber über eine Steuerungstaste auf den Bildschirm gleiten können.
+- **Feste Positionierung** ist der absoluten Positionierung sehr ähnlich, außer dass sie ein Element relativ zum Browseransichtsfenster fixiert, nicht ein anderes Element. Dies ist nützlich zur Erstellung von Effekten wie ein permanentes Navigationsmenü, das immer an derselben Stelle auf dem Bildschirm bleibt, während der Rest des Inhalts darunter scrollt.
+- **Sticky Positionierung** ist eine neuere Positionierungsmethode, die ein Element wie `position: relative` agieren lässt, bis es einen definierten Offset vom Ansichtsfenster erreicht, an dem Punkt es wie `position: fixed` agiert.
 
 ### Einfaches Positionierungsbeispiel
 
-Um mit diesen Seitenlayouttechniken vertraut zu werden, zeigen wir Ihnen ein paar schnelle Beispiele. Unsere Beispiele werden alle dieselbe HTML-Struktur haben (eine Überschrift gefolgt von drei Absätzen), die wie folgt aussieht:
+Um Vertrauen mit diesen Seitenlayout-Techniken zu schaffen, zeigen wir Ihnen ein paar schnelle Beispiele. Unsere Beispiele werden alle dieselbe HTML-Struktur aufweisen (eine Überschrift gefolgt von drei Absätzen), die wie folgt ist:
 
 ```html
 <h1>Positioning</h1>
@@ -353,7 +353,7 @@ Um mit diesen Seitenlayouttechniken vertraut zu werden, zeigen wir Ihnen ein paa
 <p>I am a basic block level element.</p>
 ```
 
-Dieses HTML wird standardmäßig mit folgendem CSS gestaltet:
+Dieses HTML wird standardmäßig mit dem folgenden CSS gestylt:
 
 ```css
 body {
@@ -375,13 +375,13 @@ p {
 }
 ```
 
-Das gerenderte Ergebnis sieht wie folgt aus:
+Die gerenderte Ausgabe ist wie folgt:
 
 {{ EmbedLiveSample('Simple_positioning_example', '100%', 300) }}
 
 ### Relative Positionierung
 
-Relative Positionierung ermöglicht es Ihnen, ein Element von seiner Standardposition im Normal Flow zu verschieben. Dies bedeutet, dass Sie eine Aufgabe wie das Verschieben eines Symbols nach unten durchführen könnten, damit es sich mit einem Textlabel ausrichtet. Um dies zu tun, könnten wir die folgende Regel hinzufügen, um relative Positionierung hinzuzufügen:
+Relative Positionierung ermöglicht Ihnen, ein Element von seinem Standardplatz im normalen Fluss zu verschieben. Das bedeutet, dass Sie eine Aufgabe wie das Herunterbewegen eines Symbols, damit es mit einem Textetikett übereinstimmt, erreichen könnten. Dazu könnten wir die folgende Regel hinzufügen, um relative Positionierung hinzuzufügen:
 
 ```css
 .positioned {
@@ -391,9 +391,9 @@ Relative Positionierung ermöglicht es Ihnen, ein Element von seiner Standardpos
 }
 ```
 
-Hier geben wir unserem mittleren Absatz einen {{cssxref("position")}}-Wert von `relative`. Dies tut allein nichts, also fügen wir auch {{cssxref("top")}} und {{cssxref("left")}}-Eigenschaften hinzu. Diese dienen dazu, das betroffene Element nach unten und rechts zu verschieben. Dies könnte das Gegenteil von dem zu sein, was Sie erwarten, aber Sie müssen sich vorstellen, dass das Element auf seiner linken und oberen Seite gedrückt wird, was dazu führt, dass es sich nach rechts und unten bewegt.
+Hier geben wir unserem mittleren Absatz einen {{cssxref("position")}}-Wert von `relative`. Dies tut an sich nichts, also fügen wir auch {{cssxref("top")}}- und {{cssxref("left")}}-Eigenschaften hinzu. Diese dienen dazu, das betroffene Element nach unten und rechts zu verschieben. Dies scheint vielleicht das Gegenteil von dem zu sein, was Sie erwartet haben, aber Sie müssen es so sehen, dass das Element auf seiner linken und obersten Seite gedrückt wird, was dazu führt, dass es sich nach rechts und unten bewegt.
 
-Das Hinzufügen dieses Codes wird das folgende Ergebnis geben:
+Das Hinzufügen dieses Codes ergibt folgendes Ergebnis:
 
 ```html hidden
 <h1>Relative positioning</h1>
@@ -427,9 +427,9 @@ p {
 
 ### Absolute Positionierung
 
-Absolute Positionierung wird verwendet, um ein Element vollständig aus dem Normalfluss zu entfernen und stattdessen mit Offsets von den Rändern eines enthaltenden Blocks zu positionieren.
+Absolute Positionierung wird verwendet, um ein Element vollständig aus dem normalen Fluss zu entfernen und stattdessen mit Offsets von den Rändern eines Containerblocks zu positionieren.
 
-Zurück zu unserem ursprünglichen nicht positionierten Beispiel könnten wir die folgende CSS-Regel hinzufügen, um absolute Positionierung zu implementieren:
+Zurück zu unserem ursprünglichen nicht positionierten Beispiel, könnten wir die folgende CSS-Regel hinzufügen, um absolute Positionierung zu implementieren:
 
 ```css
 .positioned {
@@ -439,7 +439,7 @@ Zurück zu unserem ursprünglichen nicht positionierten Beispiel könnten wir di
 }
 ```
 
-Hier geben wir unserem mittleren Absatz einen {{cssxref("position")}}-Wert von `absolute` und die gleichen {{cssxref("top")}} und {{cssxref("left")}}-Eigenschaften wie zuvor. Das Hinzufügen dieses Codes erzeugt das folgende Ergebnis:
+Hier geben wir unserem mittleren Absatz einen {{cssxref("position")}}-Wert von `absolute` und dieselben {{cssxref("top")}}- und {{cssxref("left")}}-Eigenschaften wie zuvor. Das Hinzufügen dieses Codes ergibt das folgende Ergebnis:
 
 ```html hidden
 <h1>Absolute positioning</h1>
@@ -471,13 +471,13 @@ p {
 
 {{ EmbedLiveSample('Absolute_positioning', '100%', 300) }}
 
-Dies ist sehr unterschiedlich! Das positionierte Element wurde jetzt vollständig vom Rest des Seitenlayouts getrennt und liegt darüber. Die anderen beiden Absätze sitzen jetzt zusammen, als ob ihr positionierter Geschwister nicht existiert. Die {{cssxref("top")}} und {{cssxref("left")}}-Eigenschaften haben eine andere Wirkung auf absolute positionierte Elemente als bei relativ positionierten Elementen. In diesem Fall wurden die Offsets von der oberen und linken Seite der Seite berechnet. Es ist möglich, das übergeordnete Element zu ändern, das zu diesem Container wird, und wir werden uns das in der Lektion zur [Positionierung](/de/docs/Learn/CSS/CSS_layout/Positioning) ansehen.
+Dies ist sehr anders! Das positionierte Element wurde nun vollständig vom Rest des Seitenlayouts getrennt und sitzt darüber. Die anderen beiden Absätze sitzen jetzt zusammen, als ob ihr positioniertes Geschwister nicht existiert. Die {{cssxref("top")}}- und {{cssxref("left")}}-Eigenschaften haben einen anderen Effekt auf absolut positionierte Elemente als auf relativ positionierte. In diesem Fall wurden die Offsets von oben und links der Seite berechnet. Es ist möglich, das Elternelement zu ändern, das zu diesem Container wird, und wir werden uns das in der Lektion über [Positionierung](/de/docs/Learn/CSS/CSS_layout/Positioning) ansehen.
 
 ### Feste Positionierung
 
-Feste Positionierung entfernt unser Element aus dem Dokumentfluss auf die gleiche Weise wie absolute Positionierung. Allerdings werden die Offsets nicht vom Container angewendet, sondern vom Ansichtsfenster. Da das Element relativ zum Ansichtsfenster fest bleibt, können wir Effekte wie ein Menü erstellen, das während des Scrollens auf der Seite fest bleibt.
+Feste Positionierung entfernt unser Element aus dem Dokumentfluss auf die gleiche Weise wie absolute Positionierung. Allerdings werden die Offsets nicht vom Container angewendet, sondern vom Ansichtsfenster. Da sich das Element in Bezug auf das Ansichtsfenster bleibt, können wir Effekte wie ein Menü, das feststeht, während die Seite darunter scrollt, erstellen.
 
-Für dieses Beispiel enthält unser HTML drei Absätze Text, damit wir durch die Seite scrollen können, sowie ein Kästchen mit der Eigenschaft `position: fixed`.
+Für dieses Beispiel enthält unser HTML drei Absätze Text, sodass wir durch die Seite scrollen können, sowie eine Box mit der Eigenschaft `position: fixed`.
 
 ```html
 <h1>Fixed positioning</h1>
@@ -532,7 +532,7 @@ body {
 
 ### Sticky Positionierung
 
-Sticky Positionierung ist die letzte Positionierungsmethode, die uns zur Verfügung steht. Sie mischt relative Positionierung mit fester Positionierung. Wenn ein Element `position: sticky` hat, scrollt es im Normalfluss, bis es auf durch uns definierte Offsets vom Ansichtsfenster trifft. An diesem Punkt wird es "festgehalten", als ob `position: fixed` angewendet wurde.
+Sticky Positionierung ist die letzte Positionierungsmethode, die uns zur Verfügung steht. Sie mischt relative Positionierung mit festen Positionierung. Wenn ein Element `position: sticky` hat, wird es im normalen Fluss scrollen, bis es die von uns definierten Offsets vom Ansichtsfenster erreicht. An diesem Punkt wird es "fixiert", als ob `position: fixed` angewendet wurde.
 
 ```html hidden
 <h1>Sticky positioning</h1>
@@ -600,15 +600,15 @@ body {
 {{ EmbedLiveSample('Sticky_positioning', '100%', 200) }}
 
 > [!NOTE]
-> Um mehr über Positionierung zu erfahren, siehe unseren [Positionierung](/de/docs/Learn/CSS/CSS_layout/Positioning)-Artikel.
+> Um mehr über Positionierung zu erfahren, sehen Sie sich unseren [Positioning](/de/docs/Learn/CSS/CSS_layout/Positioning)-Artikel an.
 
 ## Tabellenlayout
 
-Wenn Sie sich den Quellcode älterer Websites ansehen, können Sie feststellen, dass Tabellen zur Gestaltung von Formularen verwendet wurden. HTML-Tabellen sollten für die Anzeige tabellarischer Daten reserviert werden. Die Verwendung von Tabellen für andere Zwecke als tabellarische Daten bringt viele Probleme mit sich: Tabellenlayouts sind unflexibel, sehr schwer hinsichtlich des Markups, schwer zu debuggen und semantisch falsch (z.B. haben Bildschirmleser-Benutzer Probleme beim Navigieren durch Tabellenlayouts).
+Beim Betrachten des Quellcodes älterer Websites könnten Sie entdecken, dass Tabellen für die Gestaltung von Formularen verwendet wurden. HTML-Tabellen sollten für die Anzeige tabellarischer Daten reserviert sein. Die Verwendung von Tabellen für andere Zwecke als tabellarische Daten hat viele Probleme: Tabellenlayouts sind unflexibel, sehr markuplastig, schwer zu debuggen und semantisch falsch (z.B. haben Benutzer von Bildschirmlesern Probleme, sich in Tabellenlayouts zurechtzufinden).
 
-Das Aussehen einer Tabelle auf einer Webseite bei Verwendung von Tabellen-Markup ist auf eine Reihe von CSS-Eigenschaften zurückzuführen, die ihr Layout definieren. Diese Eigenschaften können auch zur Gestaltung von Elementen verwendet werden, die keine Tabellen sind, eine Verwendung, die manchmal als "Verwendung von CSS-Tabellen" beschrieben wird. Das folgende Beispiel zeigt eine solche Verwendung.
+Das Aussehen einer Tabelle auf einer Webseite beim Verwenden von Tabellen-Markup liegt an einer Reihe von CSS-Eigenschaften, die ihr Layout definieren. Dieselben Eigenschaften können auch genutzt werden, um Elemente, die keine Tabellen sind, anzuordnen, was manchmal als "Verwendung von CSS-Tables" beschrieben wird. Das folgende Beispiel zeigt eine solche Verwendung.
 
-Schauen wir uns ein Beispiel an. Zuerst ein einfaches Markup, das ein HTML-Formular erstellt. Jedes Eingabeelement hat ein Label. Wir haben auch eine Beschriftung in einem Absatz eingefügt; eine andere Möglichkeit ist die Verwendung eines {{htmlelement("fieldset")}} mit einer {{htmlelement("legend")}}. Jedes Label/Eingabe-Paar ist für Layoutzwecke in einem {{htmlelement("div")}} eingeschlossen.
+Schauen wir uns ein Beispiel an. Zuerst ein einfaches Markup, das ein HTML-Formular erstellt. Jedes Eingabeelement hat ein Label. Wir haben auch eine Beschriftung innerhalb eines Absatzes eingefügt; eine andere Option wäre die Verwendung eines {{htmlelement("fieldset")}} mit einer {{htmlelement("legend")}}. Jedes Label-/Input-Paar ist zu Layoutzwecken in einem {{htmlelement("div")}} eingerahmt.
 
 ```html
 <form>
@@ -628,9 +628,9 @@ Schauen wir uns ein Beispiel an. Zuerst ein einfaches Markup, das ein HTML-Formu
 </form>
 ```
 
-Was das CSS betrifft, ist das meiste davon ziemlich gewöhnlich, abgesehen von den Verwendungen der {{cssxref("display")}}-Eigenschaft. Das {{htmlelement("form")}}-, die {{htmlelement("div")}}s, und die {{htmlelement("label")}}s und {{htmlelement("input")}}s wurden angewiesen, sich wie eine Tabelle, Tabellenzeilen und Tabellenzellen zu verhalten. Sie verhalten sich im Wesentlichen wie HTML-Tabellen-Markup, verursachen, dass sich die Labels und Eingaben standardmäßig schön ausrichten. Alles, was wir dann tun müssen, ist, ein wenig Größe, Ränder usw. hinzuzufügen, damit alles ein wenig ansprechender aussieht, und schon sind wir fertig.
+Was das CSS betrifft, ist es meistens recht gewöhnlich, außer für die Verwendungen der {{cssxref("display")}}-Eigenschaft. Die {{htmlelement("form")}}, {{htmlelement("div")}}s und {{htmlelement("label")}}s und {{htmlelement("input")}}s wurden angewiesen, sich wie eine Tabelle, Tabellreihe und Tabellzellen entsprechend zu verhalten. Grundsätzlich verhalten sie sich wie HTML-Tabellen-Markup, was dazu führt, dass sich die Labels und Inputs schön ausrichten. Alles, was wir dann noch tun müssen, ist etwas Größe, Rand usw. hinzuzufügen, damit alles etwas besser aussieht, und fertig sind wir.
 
-Sie werden bemerken, dass der Beschriftungsabsatz `display: table-caption;` erhalten hat, was ihn wie eine Tabellencaption agieren lässt, und `caption-side: bottom;`, um anzugeben, dass die Caption unten an der Tabelle sitzt, auch wenn das Markup vor den `<input>`-Elementen im Quellcode steht. Dies ermöglicht eine schöne Flexibilität.
+Sie werden feststellen, dass der Überschrift-Absatz `display: table-caption;` gegeben wurde, damit er sich wie eine Tabellen-{{htmlelement("caption")}} verhält, und `caption-side: bottom;`, um der Beschriftung zu sagen, dass sie unten an der Tabelle für Stylingzwecke sitzen soll, auch wenn das Markup vor den `<input>`-Elementen im Quellcode ist. Dies erlaubt eine nette Flexibilität.
 
 ```css
 html {
@@ -671,22 +671,22 @@ form p {
 }
 ```
 
-Dies gibt uns das folgende Resultat:
+Dies ergibt das folgende Ergebnis:
 
 {{ EmbedLiveSample('Table_layout', '100%', '200') }}
 
-Dieses Beispiel können Sie auch live unter [css-tables-example.html](https://mdn.github.io/learning-area/css/styling-boxes/box-model-recap/css-tables-example.html) sehen (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/box-model-recap/css-tables-example.html)).
+Sie können dieses Beispiel auch live unter [css-tables-example.html](https://mdn.github.io/learning-area/css/styling-boxes/box-model-recap/css-tables-example.html) sehen (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/box-model-recap/css-tables-example.html).)
 
 > [!NOTE]
-> Tabellenlayout, im Gegensatz zu den anderen Themen auf dieser Seite, wird in diesem Modul nicht weiter behandelt. Verwenden Sie stattdessen das [Grid-Layout](#grid_layout).
+> Tabellenlayout wird im Gegensatz zu den anderen Themen dieser Seite nicht weiter in diesem Modul behandelt. Verwenden Sie stattdessen [Grid Layout](#grid_layout).
 
 ## Mehrspaltenlayout
 
-Das Mehrspaltenlayout-CSS-Modul bietet uns eine Möglichkeit, Inhalt in Spalten anzuordnen, ähnlich wie Text in einer Zeitung fließt. Während das Lesen von oben nach unten in Spalten in einem Web-Kontext weniger nützlich ist, aufgrund der Nutzer, die nach oben und unten scrollen müssen, kann die Anordnung von Inhalten in Spalten dennoch eine nützliche Technik sein.
+Das Mehrspaltenlayout-CSS-Modul bietet uns eine Möglichkeit, Inhalte in Spalten anzuordnen, ähnlich wie Text in einer Zeitung fließt. Während das Lesen von oben nach unten in Spalten im Web-Kontext aufgrund der Notwendigkeit, hoch und runter zu scrollen, weniger nützlich ist, kann das Anordnen von Inhalten in Spalten dennoch eine nützliche Technik sein.
 
-Um einen Block in einen Mehrspalten-Container zu verwandeln, verwenden wir entweder die {{cssxref("column-count")}}-Eigenschaft, die dem Browser mitteilt, _wie viele_ Spalten wir haben möchten, oder die {{cssxref("column-width")}}-Eigenschaft, die dem Browser anweist, den Container mit so vielen Spalten wie möglich von einer _bestimmten Breite_ zu füllen.
+Um einen Block in einen Mehrspalten-Container zu verwandeln, verwenden wir entweder die {{cssxref("column-count")}}-Eigenschaft, die dem Browser angibt, _wie viele_ Spalten wir haben möchten, oder die {{cssxref("column-width")}}-Eigenschaft, die dem Browser sagt, den Container mit so vielen Spalten wie möglich einer _angegebenen Breite_ zu füllen.
 
-Im folgenden Beispiel haben wir ein HTML-Block innerhalb eines umschließenden `<div>`-Elements mit einer Klasse von `container`.
+Im untenstehenden Beispiel beginnen wir mit einem HTML-Block innerhalb eines umgebenden `<div>`-Elements mit einer Klasse `container`.
 
 ```html
 <div class="container">
@@ -715,7 +715,7 @@ Im folgenden Beispiel haben wir ein HTML-Block innerhalb eines umschließenden `
 </div>
 ```
 
-Wir verwenden eine `column-width` von 200 Pixeln auf diesem Container, was den Browser veranlasst, so viele 200-Pixel-Spalten wie möglich zu erstellen. Der verbleibende Platz zwischen den Spalten wird geteilt.
+Wir verwenden eine `column-width` von 200 Pixeln bei diesem Container, was den Browser dazu veranlasst, so viele 200 Pixel breite Spalten zu erstellen, wie passen. Der restliche Platz zwischen den Spalten wird geteilt.
 
 ```css hidden
 body {
@@ -734,6 +734,6 @@ body {
 
 ## Zusammenfassung
 
-Dieser Artikel hat eine kurze Zusammenfassung aller Layout-Technologien gegeben, die Sie kennen sollten. Lesen Sie weiter für weitere Informationen zu jeder einzelnen Technologie!
+Dieser Artikel hat eine kurze Zusammenfassung aller Layout-Technologien gegeben, die Sie kennen sollten. Lesen Sie weiter für mehr Informationen über jede einzelne Technologie!
 
 {{NextMenu("Learn/CSS/CSS_layout/Normal_Flow", "Learn/CSS/CSS_layout")}}

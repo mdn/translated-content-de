@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Das **`TaskPriorityChangeEvent`** ist die Schnittstelle für das [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis.
+Das **`TaskPriorityChangeEvent`** ist die Schnittstelle für das [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event) Ereignis.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`TaskPriorityChangeEvent()`](/de/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent)
-  - : Erstellt ein neues `TaskPriorityChangeEvent`-Objekt und setzt einen Ereignisnamen sowie die vorherige Priorität.
+  - : Erstellt ein neues `TaskPriorityChangeEvent`-Objekt, wobei ein Ereignisname und die vorherige Priorität festgelegt werden.
 
 ## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
 - [`TaskPriorityChangeEvent.previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) {{ReadOnlyInline}}
-  - : Gibt die [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) des entsprechenden [`TaskSignal`](/de/docs/Web/API/TaskSignal) _vor_ diesem [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis zurück.
+  - : Gibt die [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) des entsprechenden [`TaskSignal`](/de/docs/Web/API/TaskSignal) _vor_ diesem [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event) Ereignis zurück.
 
 ## Instanz-Methoden
 
@@ -29,7 +29,7 @@ _Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres 
 
 ## Beispiele
 
-Ein Objekt dieses Typs wird im Handler für ein `prioritychange`-Ereignis zurückgegeben. Der folgende Code zeigt einen Handler, in dem `newPriority` und `previousPriority` protokolliert werden.
+Ein Objekt dieses Typs wird im Handler für ein `prioritychange` Ereignis zurückgegeben. Der folgende Code zeigt einen Handler, in dem `newPriority` und `previousPriority` protokolliert werden.
 
 ```js
 // Listen for 'prioritychange' events on the controller's signal.
@@ -52,4 +52,4 @@ Ein umfassenderes Live-Beispiel finden Sie unter [`prioritychange` event > Examp
 
 ## Siehe auch
 
-- [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis
+- [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event) Ereignis

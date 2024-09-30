@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getInt32()`** Methode von {{jsxref("DataView")}} Instanzen liest 4 Bytes ausgehend von dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit Integer mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getint32.html")}}
 
@@ -21,18 +21,18 @@ getInt32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, von dem Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes, von dem aus die Daten am Anfang der Ansicht gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Wert im Big-Endian-Format gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Falls `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein Integer von -2147483648 bis 2147483647, inklusive.
+Eine Ganzzahl von -2147483648 bis 2147483647, inklusive.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus liest.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus lesen würde.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ console.log(dataview.getInt32(1)); // 16909060
 
 ## Siehe auch
 
-- [Leitfaden für JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int32Array")}}

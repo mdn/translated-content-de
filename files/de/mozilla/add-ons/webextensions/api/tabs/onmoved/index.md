@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn ein Tab in einem Fenster verschoben wird.
+Wird ausgelöst, wenn ein Tab innerhalb eines Fensters verschoben wird.
 
-Es wird nur ein Verschiebeereignis ausgelöst, das den Tab darstellt, den der Benutzer direkt verschoben hat. Verschiebeereignisse werden nicht für die anderen Tabs ausgelöst, die sich entsprechend bewegen müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Siehe dafür {{WebExtAPIRef('tabs.onDetached')}}.
+Es wird nur ein Verschiebeereignis ausgelöst, das den vom Benutzer direkt verschobenen Tab darstellt. Verschiebeereignisse werden nicht für andere Tabs ausgelöst, die als Reaktion verschoben werden müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Siehe dazu {{WebExtAPIRef('tabs.onDetached')}}.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ browser.tabs.onMoved.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
     - `tabId`
       - : `integer`. ID des Tabs, den der Benutzer verschoben hat.
     - `moveInfo`
-      - : `object`. Informationen über die Verschiebung. Siehe den Abschnitt [moveInfo](#moveinfo_2) für weitere Details.
+      - : `object`. Informationen über die Verschiebung. Weitere Details finden Sie im Abschnitt [moveInfo](#moveinfo_2).
 
 ## Zusätzliche Objekte
 
@@ -54,7 +54,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf und protokollieren Sie Verschiebeereignisse:
+Lauschen auf und protokollieren von Verschiebeereignissen:
 
 ```js
 function handleMoved(tabId, moveInfo) {
@@ -73,34 +73,4 @@ browser.tabs.onMoved.addListener(handleMoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onMoved) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onMoved) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

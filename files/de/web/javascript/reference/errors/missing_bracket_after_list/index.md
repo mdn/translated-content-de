@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: fehlendes ] nach Elementliste"
+title: "SyntaxError: missing ] after element list"
 slug: Web/JavaScript/Reference/Errors/Missing_bracket_after_list
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,22 +7,22 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler „fehlendes ] nach Elementliste“ tritt auf, wenn ein Fehler in der Syntax der Array-Initialisierung vorliegt. Höchstwahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
+Die JavaScript-Ausnahme "missing ] after element list" tritt auf, wenn ein Fehler in der Array-Initialisierungs-Syntax vorhanden ist. Wahrscheinlich fehlt eine abschließende eckige Klammer (`]`) oder ein Komma (`,`).
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: missing ] after element list (Firefox)
 SyntaxError: Unexpected token ';'. Expected either a closing ']' or a ',' following an array element. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}.
 
-## Was ist schiefgelaufen?
+## Was schiefgelaufen ist?
 
-Es gibt einen Fehler in der Syntax der Array-Initialisierung. Höchstwahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
+Es gibt einen Fehler in der Array-Initialisierungs-Syntax. Wahrscheinlich fehlt eine abschließende eckige Klammer (`]`) oder ein Komma (`,`).
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ const instruments = [
 const data = [{ foo: "bar" } { bar: "foo" }];
 ```
 
-Korrekt wäre:
+Richtig wäre:
 
 ```js example-good
 const list = [1, 2];

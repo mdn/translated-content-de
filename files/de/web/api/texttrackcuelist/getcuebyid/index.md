@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`getCueById()`**-Methode des [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Interfaces gibt die erste [`VTTCue`](/de/docs/Web/API/VTTCue) in der Liste zurück, die durch das `TextTrackCueList`-Objekt repräsentiert wird, deren Kennung mit dem Wert von `id` übereinstimmt.
+Die **`getCueById()`**-Methode der [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Schnittstelle gibt die erste [`VTTCue`](/de/docs/Web/API/VTTCue) in der Liste zurück, die durch das `TextTrackCueList`-Objekt dargestellt wird und deren Identifikator mit dem `id`-Wert übereinstimmt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getCueById(id)
 ### Parameter
 
 - `id`
-  - : Ein Zeichenstring, der eine Kennung für das Cue ist.
+  - : Ein String, der ein Identifikator für die Cue ist.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein [`VTTCue`](/de/docs/Web/API/VTTCue)-Objekt.
 
 ## Beispiele
 
-Die [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues)-Eigenschaft gibt eine [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList) zurück, die die aktuellen Cues für diesen speziellen Track enthält. Das Aufrufen von `cues.getCueById("second")` gibt die [`VTTCue`](/de/docs/Web/API/VTTCue) mit einer ID von "second" zurück.
+Die [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues)-Eigenschaft gibt eine [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList) zurück, die die aktuellen Cues für diesen bestimmten Track enthält. Der Aufruf von `cues.getCueById("second")` gibt die [`VTTCue`](/de/docs/Web/API/VTTCue) mit der ID "second" zurück.
 
 ```plain
 WEBVTT

@@ -10,7 +10,7 @@ l10n:
 
 Das `dragover` Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl über ein gültiges Ziel gezogen wird (alle paar hundert Millisekunden).
 
-Dieses Ereignis ist abfangbar und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblubbern.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hinaufblubbern.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgelisteten Eigenschaften sind Eigenschaften von der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
@@ -39,15 +39,15 @@ _Neben den unten aufgelisteten Eigenschaften sind Eigenschaften von der Elternsc
 
 ### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und freizugeben.
+In diesem Beispiel haben wir ein verschiebbares Element in einem Container. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und loszulassen.
 
-Wir verwenden hier drei Ereignis-Handler:
+Hier verwenden wir drei Ereignis-Handler:
 
-- im `dragstart` Ereignis-Handler erhalten wir eine Referenz zu dem Element, das der Benutzer gezogen hat
-- im `dragover` Ereignis-Handler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ihm ermöglicht, `drop` Ereignisse zu empfangen.
-- im `drop` Ereignis-Handler für die Zielzone berücksichtigen wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Zielzone.
+- Im `dragstart` Ereignis-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
+- Im `dragover` Ereignis-Handler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop` Ereignisse zu empfangen.
+- Im `drop` Ereignis-Handler für die Ablagezone verarbeiten wir das Verschieben des verschiebbaren Elements vom ursprünglichen Container zur Ablagezone.
 
-Für ein vollständiges Beispiel von Drag-and-Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
+Für ein vollständiges Beispiel zu Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
 
 #### HTML
 

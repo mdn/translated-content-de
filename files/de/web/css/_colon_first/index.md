@@ -18,7 +18,7 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo
 ```
 
 > [!NOTE]
-> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudo-Klasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie nur [absolute Längeneinheiten](/de/docs/Web/CSS/length#absolute_length_units) beim Definieren der Ränder verwenden. Alle anderen Eigenschaften werden ignoriert.
+> Sie können mit dieser Pseudo-Klasse nicht alle CSS-Eigenschaften ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie beim Festlegen der Ränder nur [absolute-Längeneinheiten](/de/docs/Web/CSS/length#absolute_length_units) verwenden. Alle anderen Eigenschaften werden ignoriert.
 
 ## Syntax
 
@@ -61,7 +61,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 ### Ergebnis
 
-Drücken Sie die Schaltfläche "Drucken!", um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten irgendwo in der Mitte sein, während andere Seiten ihre Inhalte in der Standardposition haben.
+Drücken Sie die "Drucken!"-Taste, um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich irgendwo in der Nähe der Mitte befinden, während andere Seiten ihre Inhalte an der Standardposition haben.
 
 {{ EmbedLiveSample('Examples', '80%', '150px') }}
 

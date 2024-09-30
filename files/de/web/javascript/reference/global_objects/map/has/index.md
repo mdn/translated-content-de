@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`has()`**-Methode von {{jsxref("Map")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Map existiert oder nicht.
+Die **`has()`** Methode von {{jsxref("Map")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Karte existiert oder nicht.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-has.html")}}
 
@@ -24,7 +24,7 @@ has(key)
 
 ### Rückgabewert
 
-`true`, wenn ein Element mit dem angegebenen Schlüssel im `Map`-Objekt existiert; andernfalls `false`.
+`true`, wenn ein Element mit dem angegebenen Schlüssel im `Map` Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 

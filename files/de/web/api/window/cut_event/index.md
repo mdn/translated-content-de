@@ -1,5 +1,5 @@
 ---
-title: "Window: cut Event"
+title: "Window: cut Ereignis"
 short-title: cut
 slug: Web/API/Window/cut_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`cut`**-Event wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
+Das **`cut`** Ereignis wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneiden-Aktion war. Sie können dieses Ereignis auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle abhören, um es in den Erfassungs- oder Bubbling-Phasen zu bearbeiten. Für vollständige Details zu diesem Ereignis lesen Sie bitte die Seite zum [Element: cut Event](/de/docs/Web/API/Element/cut_event).
+Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneideaktion war. Sie können auf diesem Ereignis auf der [`Window`](/de/docs/Web/API/Window) Schnittstelle hören, um es in den Capture- oder Bubbling-Phasen zu bearbeiten. Für vollständige Details zu diesem Ereignis siehe die Seite zum [Element: cut Ereignis](/de/docs/Web/API/Element/cut_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("cut", (event) => {});
@@ -22,7 +22,7 @@ addEventListener("cut", (event) => {});
 oncut = (event) => {};
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
@@ -47,5 +47,5 @@ window.addEventListener("cut", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Window/copy_event), [`paste`](/de/docs/Web/API/Window/paste_event)
-- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) zielt ab: [`cut`](/de/docs/Web/API/Element/cut_event)
-- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) zielt ab: [`cut`](/de/docs/Web/API/Document/cut_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) Ziele: [`cut`](/de/docs/Web/API/Element/cut_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) Ziele: [`cut`](/de/docs/Web/API/Document/cut_event)

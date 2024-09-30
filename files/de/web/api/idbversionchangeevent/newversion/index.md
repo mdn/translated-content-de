@@ -1,5 +1,5 @@
 ---
-title: "IDBVersionChangeEvent: newVersion-Eigenschaft"
+title: "IDBVersionChangeEvent: newVersion Eigenschaft"
 short-title: newVersion
 slug: Web/API/IDBVersionChangeEvent/newVersion
 l10n:
@@ -8,15 +8,19 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`newVersion`** schreibgeschützte Eigenschaft der [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent) Schnittstelle gibt die neue Versionsnummer der Datenbank zurück.
+Die **`newVersion`**-Eigenschaft des schreibgeschützten
+[`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent) Interfaces gibt die neue Versionsnummer der
+Datenbank zurück.
 
 ## Wert
 
-Eine Zahl, die eine 64-Bit-Ganzzahl ist oder null, wenn die Datenbank gelöscht wird.
+Eine Zahl, die ein 64-Bit-Ganzzahlwert ist, oder null, wenn die Datenbank gelöscht wird.
 
 ## Beispiele
 
-Im folgenden Codebeispiel machen wir eine Anfrage zum Öffnen einer Datenbank und fügen Handler für die Erfolgs- und Fehlerszenarien hinzu. Diese Ereignisse werden über die benutzerdefinierte `IDBVersionChangeEvent`-Schnittstelle ausgelöst. Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet machen wir eine Anfrage zum Öffnen einer Datenbank und fügen
+Handler für die Erfolgs- und Fehlerfälle hinzu. Diese Ereignisse werden über das benutzerdefinierte
+`IDBVersionChangeEvent`-Interface ausgelöst. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.querySelector("ul");
@@ -52,8 +56,8 @@ DBOpenRequest.onsuccess = (event) => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwenden von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

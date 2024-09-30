@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der [`MessagePort`](/de/docs/Web/API/MessagePort)-Schnittstelle trennt den Port, sodass er nicht mehr aktiv ist. Dies stoppt den Nachrichtenfluss zu diesem Port.
+Die **`close()`**-Methode des [`MessagePort`](/de/docs/Web/API/MessagePort)-Interfaces trennt den Port, sodass er nicht mehr aktiv ist. Dies stoppt den Nachrichtenfluss zu diesem Port.
 
 ## Syntax
 
@@ -38,7 +38,7 @@ function handleMessage(e) {
 channel.port1.start();
 ```
 
-Sie könnten das Senden von Nachrichten jederzeit stoppen, indem Sie
+Sie könnten jederzeit das Senden von Nachrichten stoppen mit
 
 ```js
 channel.port1.close();
@@ -54,4 +54,4 @@ channel.port1.close();
 
 ## Siehe auch
 
-- [Verwendung von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwenden der Kanalnachrichtenübermittlung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.altKey`** schreibgeschützte Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
+Die schreibgeschützte Eigenschaft **`MouseEvent.altKey`** ist ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
 
-Seien Sie sich bewusst, dass der Browser die <kbd>alt</kbd>-Taste nicht immer auf manchen Betriebssystemen erkennen kann.
-Auf einigen Linux-Varianten zum Beispiel wird ein linker Mausklick in Kombination mit der <kbd>alt</kbd>-Taste verwendet, um Fenster zu bewegen oder zu skalieren.
+Beachten Sie, dass der Browser unter einigen Betriebssystemen die <kbd>alt</kbd>-Taste nicht immer erkennen kann. Bei einigen Linux-Varianten wird beispielsweise ein linker Mausklick in Kombination mit der <kbd>alt</kbd>-Taste verwendet, um Fenster zu verschieben oder zu ändern.
 
 > [!NOTE]
 > Auf Macintosh-Tastaturen ist diese Taste auch als <kbd>option</kbd>-Taste bekannt.

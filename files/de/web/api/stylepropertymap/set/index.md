@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`set()`**-Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Interfaces ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
+Die **`set()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft, mit dem angegebenen Wert, innerhalb des [style-Attributs](/de/docs/Web/HTML/Global_attributes/style) des Elements.
+Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft mit dem angegebenen Wert innerhalb des [style-Attributs](/de/docs/Web/HTML/Global_attributes/style) des Elements.
 
 ```js
 // get the button element

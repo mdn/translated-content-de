@@ -7,38 +7,38 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`ReadableStreamDefaultReader`**-Schnittstelle der [Streams-API](/de/docs/Web/API/Streams_API) repräsentiert einen Standardleser, der verwendet werden kann, um von einem Netzwerk bereitgestellte Stream-Daten zu lesen (zum Beispiel bei einer Fetch-Anfrage).
+Die **`ReadableStreamDefaultReader`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Standard-Reader, der verwendet werden kann, um Datenströme aus einem Netzwerk (wie zum Beispiel einer `fetch`-Anfrage) zu lesen.
 
-Ein `ReadableStreamDefaultReader` kann verwendet werden, um von einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen, der eine zugrunde liegende Quelle jeglicher Art hat (im Gegensatz zu einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader), der nur mit Lesbaren Streams verwendet werden kann, die eine zugrunde liegende Byte-Quelle haben).
+Ein `ReadableStreamDefaultReader` kann verwendet werden, um aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen, der eine zugrunde liegende Quelle irgendeines Typs hat (im Gegensatz zu einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader), der nur mit lesbaren Strömen verwendet werden kann, die eine _zugrunde liegende Bytequelle_ haben).
 
-Beachten Sie jedoch, dass ein Zero-Copy-Transfer von einer zugrunde liegenden Quelle nur für zugrunde liegende Bytequellen, die automatisch Speicherpuffer zuweisen, unterstützt wird.
-Mit anderen Worten muss der Stream so [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein, dass sowohl [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) als auch [`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) angegeben sind.
+Beachten Sie jedoch, dass Zero-Copy-Übertragung von einer zugrunde liegenden Quelle nur für zugrunde liegende Bytequellen unterstützt wird, die Puffer automatisch zuweisen.
+Mit anderen Worten, der Stream muss [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein, wobei sowohl [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) als auch [`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) angegeben wurde.
 Für jede andere zugrunde liegende Quelle wird der Stream immer Leseanforderungen mit Daten aus internen Warteschlangen erfüllen.
 
 ## Konstruktor
 
 - [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader)
-  - : Erstellt und gibt eine `ReadableStreamDefaultReader`-Objektinstanz zurück.
+  - : Erstellt und gibt eine Instanz eines `ReadableStreamDefaultReader`-Objekts zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`ReadableStreamDefaultReader.closed`](/de/docs/Web/API/ReadableStreamDefaultReader/closed) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder fehlgeht, wenn der Stream einen Fehler auslöst oder die Sperre des Lesers freigegeben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf ein Ende des Streaming-Prozesses reagiert.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream schließt, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder die Sperre des Lesers freigegeben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf ein Ende des Streaming-Prozesses reagiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`ReadableStreamDefaultReader.cancel()`](/de/docs/Web/API/ReadableStreamDefaultReader/cancel)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Durch Aufruf dieser Methode signalisiert ein Verbraucher, dass er kein Interesse mehr am Stream hat. Das angegebene `reason`-Argument wird der zugrunde liegenden Quelle übergeben, die es möglicherweise verwendet oder auch nicht.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Das Aufrufen dieser Methode signalisiert einen Verlust des Interesses an dem Stream durch einen Verbraucher. Das übergebene `reason`-Argument wird der zugrunde liegenden Quelle übergeben, die es möglicherweise nutzt oder ignoriert.
 - [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read)
-  - : Gibt ein Promise zurück, das Zugriff auf das nächste Chunk in der internen Warteschlange des Streams bietet.
+  - : Gibt ein Versprechen zurück, das Zugriff auf den nächsten Chunk in der internen Warteschlange des Streams bietet.
 - [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock)
-  - : Gibt die Sperre des Lesers auf dem Stream frei.
+  - : Gibt die Sperre des Lesers auf den Stream frei.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine künstliche [`Response`](/de/docs/Web/API/Response) erstellt, um HTML-Fragmente, die von einer anderen Ressource abgerufen werden, in den Browser zu streamen.
+Im folgenden Beispiel wird eine künstliche [`Response`](/de/docs/Web/API/Response) erstellt, um HTML-Fragmente, die von einer anderen Ressource abgerufen wurden, an den Browser zu streamen.
 
-Es demonstriert die Verwendung eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) in Kombination mit einem {{jsxref("Uint8Array")}}.
+Es zeigt die Verwendung eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) in Kombination mit einem {{jsxref("Uint8Array")}}.
 
 ```js
 fetch("https://www.example.org/").then((response) => {
@@ -80,8 +80,8 @@ fetch("https://www.example.org/").then((response) => {
 
 ## Siehe auch
 
-- [Streams-API-Konzepte](/de/docs/Web/API/Streams_API)
+- [Streams API Konzepte](/de/docs/Web/API/Streams_API)
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
 - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
-- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und transformierenden Streams.
+- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, beschreibbaren und Transformationsströmen.
 - [Web-streams-polyfill](https://github.com/MattiasBuelens/web-streams-polyfill) oder [sd-streams](https://github.com/stardazed/sd-streams) - Polyfills

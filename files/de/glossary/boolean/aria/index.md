@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Boolean-Attribut** in ARIA ist ein [aufzählbares Attribut](/de/docs/Glossary/Enumerated), das `true` oder `false` in der Aufzählungsliste enthält.
+Ein **Boolean-Attribut** in ARIA ist ein [Aufzählungs-Attribut](/de/docs/Glossary/Enumerated), das `true` oder `false` in der aufgezählten Liste enthält.
 
-In ARIA kommen Boolesche Werte nur in Form der Zeichenketten `"true"` und `"false"` vor.
+In ARIA kommen Booleans nur in Form von Zeichenketten `"true"` und `"false"` vor.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Enumerated](/de/docs/Glossary/Enumerated), das detailliertere Verhaltensbeschreibungen und Beispiele von ARIA Boolean-Attributen enthält
-  - [Boolean attribute](/de/docs/Glossary/Boolean/HTML) in HTML
+  - [Aufzählungs-Attribut](/de/docs/Glossary/Enumerated), das mehr Verhaltensdetails und Beispiele für ARIA-Boolean-Attribute enthält
+  - [Boolean-Attribut](/de/docs/Glossary/Boolean/HTML) in HTML

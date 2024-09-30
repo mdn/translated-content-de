@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `format-number` wertet eine Zahl aus und gibt eine Zeichenkette zurück, die die Zahl in einem gegebenen Format darstellt.
+Die Funktion `format-number` wertet eine Zahl aus und gibt eine Zeichenkette zurück, die die Zahl in einem angegebenen Format darstellt.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ format-number(number, pattern, decimalFormat)
 - `pattern`
   - : Eine Zeichenkette im Format der Java-[DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)-Klasse.
 - `decimalFormat` (optional)
-  - : Der Name eines [`xsl:decimal-format`](/de/docs/Web/XSLT/Element/decimal-format)-Elements, das das zu verwendende Zahlenformat definiert. Falls ausgelassen, wird das Standard-Decimal-Format verwendet.
+  - : Der Name eines [`xsl:decimal-format`](/de/docs/Web/XSLT/Element/decimal-format)-Elements, das das zu verwendende Zahlenformat definiert. Wird es weggelassen, wird das Standarddezimalformat verwendet.
 
 ### Rückgabewert
 
@@ -31,12 +31,12 @@ Eine Zeichenkette, die die Zahl im neuen Format darstellt.
 
 ## Beschreibung
 
-Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie ist nicht Teil der Kernbibliothek von XPath.
+Diese Funktion ist eine XSLT-spezifische Erweiterung zu XPath. Sie gehört nicht zur Kernbibliothek der XPath-Funktionen.
 
 ## Spezifikationen
 
 [XSLT 1.0 12.3](https://www.w3.org/TR/1999/REC-xslt-19991116/#function-format-number)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
-Unterstützt.
+Wird unterstützt.

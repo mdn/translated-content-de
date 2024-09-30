@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das im Parameter angegebene einzelne Element aufzunehmen. Wenn das einzufügende Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+Die **`initialize()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten. Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ initialize(newItem)
 ### Parameter
 
 - `newItem`
-  - : Der [`SVGLength`](/de/docs/Web/API/SVGLength), der der Liste hinzugefügt werden soll.
+  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Der [`SVGLength`](/de/docs/Web/API/SVGLength), der der Liste hinzugefügt wurde.
+Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Der [`SVGLength`](/de/docs/Web/API/SVGLength), der der Liste hinzugefügt wurde.
 
 ## Beispiele
 
-Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein komplettes Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: <acronym>
+title: "`<acronym>`"
 slug: Web/HTML/Element/acronym
 l10n:
   sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
@@ -7,14 +7,14 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<acronym>`** [HTML](/de/docs/Web/HTML)-Element ermöglicht es Autoren, eine Zeichenfolge, die ein Akronym oder eine Abkürzung eines Wortes darstellt, klar zu kennzeichnen.
+Das **`<acronym>`** [HTML](/de/docs/Web/HTML)-Element ermöglicht es Autoren, eine Zeichenfolge deutlich anzugeben, die ein Akronym oder eine Abkürzung für ein Wort darstellt.
 
 > [!WARNING]
 > Verwenden Sie dieses Element nicht. Verwenden Sie stattdessen das {{HTMLElement("abbr")}}-Element.
 
 ## Attribute
 
-Dieses Element besitzt nur [globale Attribute](/de/docs/Web/HTML/Global_attributes), die allen Elementen gemeinsam sind.
+Dieses Element hat nur [globale Attribute](/de/docs/Web/HTML/Global_attributes), die allen Elementen gemeinsam sind.
 
 ## DOM-Schnittstelle
 
@@ -35,12 +35,14 @@ Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-S
 
 ## Standardstil
 
-Obwohl der Zweck dieses Tags rein für die Bequemlichkeit des Autors gedacht ist, variiert sein Standardstil von Browser zu Browser:
+Obwohl der Zweck dieses Tags rein für die Bequemlichkeit des Autors ist, variiert sein Standardstil von einem Browser zum anderen:
 
-- Opera, Firefox, Chrome und einige andere fügen dem Inhalt des Elements eine gepunktete Unterstreichung hinzu.
-- Einige Browser fügen nicht nur eine gepunktete Unterstreichung hinzu, sondern setzen den Text auch in Kapitälchen; um diesen Stil zu vermeiden, behebt das Hinzufügen von etwas wie {{cssxref("font-variant", "font-variant: none")}} im CSS diesen Fall.
+- Opera, Firefox, Chrome und einige andere fügen dem Inhalt des Elements eine gestrichelte Unterstreichung hinzu.
+- Einige wenige Browser fügen nicht nur eine gestrichelte Unterstreichung hinzu, sondern setzen den Inhalt auch in Kapitälchen; um dieses Styling zu vermeiden, können Sie im CSS etwas wie {{cssxref("font-variant", "font-variant: none")}} hinzufügen.
 
-Es wird daher empfohlen, dass Webautoren entweder explizit den Stil dieses Elements festlegen oder einige Unterschiede zwischen den Browsern akzeptieren.
+Es wird daher empfohlen, dass Web-Autoren dieses Element entweder ausdrücklich stylen oder einige browserübergreifende Variationen akzeptieren.
+
+<!-- ## Technische Zusammenfassung -->
 
 ## Spezifikationen
 

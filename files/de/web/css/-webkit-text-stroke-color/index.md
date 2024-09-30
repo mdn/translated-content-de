@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strich[farbe](/de/docs/Web/CSS/color_value) von Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strich-[Farbe](/de/docs/Web/CSS/color_value) der Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
 
 ## Syntax
 
@@ -40,7 +40,7 @@ Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die
 
 ## Beispiele
 
-### Variieren der Strichfarbe
+### Variierung der Strichfarbe
 
 #### HTML
 
@@ -81,8 +81,8 @@ colorPicker.addEventListener("change", (evt) => {
 
 ## Siehe auch
 
-- [Surfin' Safari Blog-Post, der dieses Feature ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
-- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Surfin' Safari Blogpost, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-fill-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke")}}

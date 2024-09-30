@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.has()`** ist ähnlich dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
+Die statische Methode **`Reflect.has()`** ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
 
 {{EmbedInteractiveExample("pages/js/reflect-has.html")}}
 
@@ -26,7 +26,7 @@ Reflect.has(target, propertyKey)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, das anzeigt, ob das `target` die Eigenschaft hat oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder nicht.
 
 ### Ausnahmen
 
@@ -35,7 +35,7 @@ Ein {{jsxref("Boolean")}}, das anzeigt, ob das `target` die Eigenschaft hat oder
 
 ## Beschreibung
 
-`Reflect.has()` bietet die reflektive Semantik der Überprüfung, ob sich eine Eigenschaft in einem Objekt befindet. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
+`Reflect.has()` bietet die reflektierende Semantik einer Überprüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
 
 ```js
 propertyKey in target;
@@ -67,7 +67,7 @@ Reflect.has(obj, "doorbell"); // true
 Reflect.has(obj, "dormitory"); // false
 ```
 
-`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, ähnlich dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
+`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, ähnlich wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator:
 
 ```js
 const a = { foo: 123 };

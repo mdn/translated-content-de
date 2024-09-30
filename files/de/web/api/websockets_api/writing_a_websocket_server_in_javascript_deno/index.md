@@ -1,5 +1,5 @@
 ---
-title: Schreiben eines WebSocket-Servers in JavaScript (Deno)
+title: Einen WebSocket-Server in JavaScript (Deno) schreiben
 slug: Web/API/WebSockets_API/Writing_a_WebSocket_server_in_JavaScript_Deno
 l10n:
   sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server unter Verwendung von Deno erstellen, zusammen mit einer dazugehörigen Webseite.
+Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket API-Server mit Deno erstellen können, zusammen mit einer begleitenden Webseite.
 
-Deno ist eine JavaScript-Laufzeitumgebung, die das Kompilieren und Cachen von TypeScript im Fluge unterstützt. Deno verfügt über einen eingebauten Formatierer, Linter, Test-Runner und mehr und implementiert zudem viele Web-APIs. Da es konform mit den Webstandards ist, werden alle Deno-spezifischen APIs unter dem `Deno`-Namespace implementiert.
+Deno ist eine JavaScript-Laufzeitumgebung, die das Kompilieren und Caching von TypeScript im laufenden Betrieb unterstützt. Deno verfügt über einen integrierten Formatter, Linter, Test Runner und mehr und implementiert außerdem viele Web-APIs. Da Deno mit den Webstandards konform ist, werden alle Deno-spezifischen APIs unter dem `Deno`-Namespace implementiert.
 
 Die [Deno-Website](https://deno.com/) bietet Anweisungen zur Installation von Deno.
 
-Deno-Version zum Zeitpunkt der Erstellung: `1.36`.
+Deno-Version zum Zeitpunkt des Schreibens: `1.36`.
 
 ## Code
 
@@ -21,7 +21,7 @@ Der Code wird in zwei Dateien enthalten sein, eine für den Server und eine für
 
 ### Server
 
-Erstellen Sie eine `main.js`-Datei. Diese Datei wird den Code für einen einfachen HTTP-Server enthalten, der auch die HTML des Clients bereitstellt.
+Erstellen Sie eine `main.js`-Datei. Diese Datei enthält den Code für einen einfachen HTTP-Server, der auch das Client-HTML bereitstellt.
 
 ```js
 Deno.serve({
@@ -53,9 +53,9 @@ Deno.serve({
 });
 ```
 
-`Deno.upgradeWebSocket()` verbessert die Verbindung zu einer WebSocket-Verbindung, was im [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) weiter erklärt wird.
+`Deno.upgradeWebSocket()` wertet die Verbindung zu einer WebSocket-Verbindung auf, was im [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) näher erklärt wird.
 
-[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) verwendet `Deno.listen()` und `Deno.serveHttp()` im Hintergrund und ist eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne sie würde der Code in etwa so aussehen.
+[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) verwendet `Deno.listen()` und `Deno.serveHttp()` im Hintergrund und ist eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne sie würde der Code ungefähr so aussehen.
 
 ```js
 for await (const conn of Deno.listen({ port: 80 })) {
@@ -67,7 +67,7 @@ for await (const conn of Deno.listen({ port: 80 })) {
 
 ### Client
 
-Erstellen Sie eine `index.html`-Datei. Diese Datei wird ein Skript enthalten, das den Server alle fünf Sekunden pingt, nachdem eine Verbindung hergestellt wurde.
+Erstellen Sie eine `index.html`-Datei. Diese Datei enthält ein Skript, das den Server alle fünf Sekunden pingt, nachdem eine Verbindung hergestellt wurde.
 
 ```html
 <!doctype html>
@@ -112,7 +112,7 @@ Erstellen Sie eine `index.html`-Datei. Diese Datei wird ein Skript enthalten, da
 </script>
 ```
 
-## Ausführen des Codes
+## Den Code ausführen
 
 Mit den beiden Dateien führen Sie die App mit Deno aus.
 
@@ -120,11 +120,11 @@ Mit den beiden Dateien führen Sie die App mit Deno aus.
 deno run --allow-net=0.0.0.0:80 --allow-read=./index.html main.js
 ```
 
-Deno verlangt, dass wir explizite Berechtigungen für den Zugriff auf die Host-Maschine erteilen.
+Deno verlangt von uns, dass wir explizit Berechtigungen erteilen, für das, worauf wir auf dem Host-Rechner zugreifen können.
 
-- `--allow-net=0.0.0.0:80` erlaubt der App, sich über den Port 80 mit localhost zu verbinden
+- `--allow-net=0.0.0.0:80` erlaubt der App, eine Verbindung zu localhost auf Port 80 herzustellen
 - `--allow-read=./index.html` erlaubt den Zugriff auf die HTML-Datei für den Client
 
 ## Siehe auch
 
-- [Schreiben von WebSocket-Servern](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)
+- [WebSocket-Server schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)

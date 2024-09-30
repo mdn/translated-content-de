@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-meter-suboptimum-value`** [Pseudoelement](/de/docs/Glossary/Pseudo-element) stylt das {{htmlelement("meter")}}-Element, wenn der Wertattribut außerhalb des low-high-Bereichs liegt und nicht dem optimalen Wert entspricht.
+Das **`::-webkit-meter-suboptimum-value`** [Pseudoelement](/de/docs/Glossary/Pseudo-element) stylt das {{htmlelement("meter")}}-Element, wenn der Wert des Attributs außerhalb des low-high-Bereichs liegt und nicht gleich dem optimalen Wert ist.
 
 Gelb ist die Standardfarbe.
 
@@ -79,7 +79,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

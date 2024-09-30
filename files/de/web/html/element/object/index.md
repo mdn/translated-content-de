@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<object>`**- [HTML](/de/docs/Web/HTML) Element repräsentiert eine externe Ressource, die als Bild, verschachtelter Browsing-Kontext oder als eine von einem Plugin zu bearbeitende Ressource behandelt werden kann.
+Das **`<object>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine externe Ressource, die als Bild, eingebetteter Browsing-Kontext oder als Ressource, die von einem Plugin behandelt wird, betrachtet werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/object.html", "tabbed-standard")}}
 
@@ -16,33 +16,33 @@ Das **`<object>`**- [HTML](/de/docs/Web/HTML) Element repräsentiert eine extern
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `archive` {{deprecated_inline}}
-  - : Eine durch Leerzeichen getrennte Liste von URIs für Archive von Ressourcen des Objekts.
+  - : Eine durch Leerzeichen getrennte Liste von URIs für Archive der Ressourcen für das Objekt.
 - `border` {{deprecated_inline}}
-  - : Die Breite eines Rahmens um die Steuerung, in Pixeln.
+  - : Die Breite des Randes um das Steuerungselement, in Pixeln.
 - `classid` {{deprecated_inline}}
-  - : Die URI der Implementierung des Objekts. Sie kann zusammen mit, oder anstelle des **data**-Attributs verwendet werden.
+  - : Der URI der Implementierung des Objekts. Kann zusammen mit oder anstelle des **data**-Attributs verwendet werden.
 - `codebase` {{deprecated_inline}}
-  - : Der Basis-Pfad zur Auflösung relativer URIs, angegeben durch **classid**, **data** oder **archive**. Wenn nicht angegeben, ist der Standard der Base-URI des aktuellen Dokuments.
+  - : Der Basis-Pfad, der zur Auflösung relativer URIs, die von **classid**, **data** oder **archive** angegeben werden, verwendet wird. Wenn nicht angegeben, ist der Standard der Basis-URI des aktuellen Dokuments.
 - `codetype` {{deprecated_inline}}
-  - : Der Inhaltstyp der durch **classid** spezifizierten Daten.
+  - : Der Inhaltstyp der Daten, die von **classid** angegeben werden.
 - `data`
-  - : Die Adresse der Ressource als gültige URL. Mindestens eine der Eigenschaften **data** und **type** muss definiert sein.
+  - : Die Adresse der Ressource als gültige URL. Mindestens eines der Attribute **data** und **type** muss definiert sein.
 - `declare` {{deprecated_inline}}
-  - : Das Vorhandensein dieses booleschen Attributs macht dieses Element nur zu einer Deklaration. Das Objekt muss durch ein nachfolgendes `<object>`-Element instanziiert werden. Wiederholen Sie das `<object>`-Element vollständig jedes Mal, wenn die Ressource erneut verwendet wird.
+  - : Die Anwesenheit dieses Booleschen Attributs macht dieses Element zu einer reinen Deklaration. Das Objekt muss von einem nachfolgenden `<object>`-Element instanziiert werden. Wiederholen Sie das `<object>`-Element vollständig jedes Mal, wenn die Ressource wiederverwendet wird.
 - `form`
-  - : Das Formularelement, mit dem das Objektelelement, falls vorhanden, verbunden ist (sein _Formularbesitzer_). Der Wert des Attributs muss eine ID eines {{HTMLElement("form")}}-Elements im selben Dokument sein.
+  - : Das Formular-Element, mit dem das Objekt-Element (sein _Formular-Eigentümer_) verbunden ist, falls vorhanden. Der Wert des Attributs muss eine ID eines {{HTMLElement("form")}}-Elements im selben Dokument sein.
 - `height`
-  - : Die Höhe der angezeigten Ressource, in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). — (Nur absolute Werte. [KEINE Prozentsätze](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))
+  - : Die Höhe der angezeigten Ressource in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). — (Nur absolute Werte. [KEINE Prozentangaben](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))
 - `name`
-  - : Der Name eines gültigen Browsing-Kontextes (HTML5) oder der Name der Steuerung (HTML 4).
+  - : Der Name eines gültigen Browsing-Kontextes (HTML5) oder der Name des Steuerelements (HTML 4).
 - `standby` {{deprecated_inline}}
-  - : Eine Nachricht, die der Browser während des Ladens der Implementierung und der Daten des Objekts anzeigen kann.
+  - : Eine Nachricht, die der Browser beim Laden der Implementierung und der Daten des Objekts anzeigen kann.
 - `type`
-  - : Der [Inhaltstyp](/de/docs/Glossary/MIME_type) der durch **data** spezifizierten Ressource. Mindestens eine der Eigenschaften **data** und **type** muss definiert sein.
+  - : Der [Inhaltstyp](/de/docs/Glossary/MIME_type) der Ressource, die von **data** angegeben wird. Mindestens eines der Attribute **data** und **type** muss definiert sein.
 - `usemap` {{deprecated_inline}}
-  - : Ein Hash-Name-Verweis auf ein {{HTMLElement("map")}}-Element; das heißt, ein '#' gefolgt vom Wert eines [`name`](/de/docs/Web/HTML/Element/map#name) eines Map-Elements.
+  - : Ein Hash-Name-Verweis auf ein {{HTMLElement("map")}}-Element; das heißt ein '#' gefolgt vom Wert eines [`name`](/de/docs/Web/HTML/Element/map#name)-Attributs eines Karten-Elements.
 - `width`
-  - : Die Breite der angezeigten Ressource, in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). — (Nur absolute Werte. [KEINE Prozentsätze](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))
+  - : Die Breite der angezeigten Ressource in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). — (Nur absolute Werte. [KEINE Prozentangaben](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))
 
 ## Beispiele
 
@@ -64,7 +64,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 {{EmbedLiveSample("Embed a video")}}
 
-Wenn das Video im Beispiel nicht geladen wird, wird dem Benutzer ein Bild als Fallback-Inhalt bereitgestellt. Der {{HTMLElement("img")}}-Tag wird verwendet, um ein Bild anzuzeigen. Wir fügen das `src`-Attribut hinzu, das auf den Pfad zu dem einzubettenden Bild setzt. Wir fügen auch das `alt`-Attribut hinzu, das dem Bild einen zugänglichen Namen verleiht. Wenn das Bild ebenfalls nicht geladen wird, wird der Inhalt des `alt`-Attributs angezeigt.
+Wenn das Video im Beispiel nicht geladen werden kann, wird dem Benutzer ein Bild als Fallback-Inhalt bereitgestellt. Das {{HTMLElement("img")}}-Tag wird verwendet, um ein Bild anzuzeigen. Wir fügen das `src`-Attribut hinzu, das auf den Pfad zu dem Bild verweist, das wir einbetten möchten. Wir fügen auch das `alt`-Attribut hinzu, welches dem Bild einen zugänglichen Namen gibt. Wenn auch das Bild nicht geladen werden kann, wird der Inhalt des `alt`-Attributs angezeigt.
 
 ## Technische Zusammenfassung
 
@@ -76,12 +76,12 @@ Wenn das Video im Beispiel nicht geladen wird, wird dem Benutzer ein Bild als Fa
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">phrasierter Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Content_categories#embedded_content">eingebetteter Inhalt</a>, greifbarer Inhalt; wenn das Element ein
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Textinhalt</a>;
+        <a href="/de/docs/Web/HTML/Content_categories#embedded_content">eingebetteter Inhalt</a>, wahrnehmbarer Inhalt; wenn das Element ein
         <a href="#usemap"><code>usemap</code></a>-Attribut hat, <a href="/de/docs/Web/HTML/Content_categories#interactive_content">interaktiver Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Content_categories#form_listed">aufgelistet</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#form_listed">aufgeführt</a>,
         <a href="/de/docs/Web/HTML/Content_categories#form_submittable">übermittelbar</a>
-        <a href="/de/docs/Web/HTML/Content_categories#form-associated_content">formularassoziiertes</a> Element.
+        <a href="/de/docs/Web/HTML/Content_categories#form-associated_content">formularbezogenes</a> Element.
       </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ Wenn das Video im Beispiel nicht geladen wird, wird dem Benutzer ein Bild als Fa
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -102,7 +102,7 @@ Wenn das Video im Beispiel nicht geladen wird, wird dem Benutzer ein Bild als Fa
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>

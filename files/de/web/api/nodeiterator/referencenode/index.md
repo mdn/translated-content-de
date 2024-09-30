@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.referenceNode`** Leseeigenschaft gibt den [`Node`](/de/docs/Web/API/Node) zurück, an den der Iterator gebunden ist; während neue Knoten eingefügt werden, bleibt der Iterator an dem durch diese Eigenschaft festgelegten Referenzknoten verankert.
+Die schreibgeschützte Eigenschaft **`NodeIterator.referenceNode`** gibt den
+[`Node`](/de/docs/Web/API/Node) zurück, an dem der Iterator verankert ist; wenn neue Knoten eingefügt werden, bleibt der Iterator an den durch diese Eigenschaft angegebenen Referenzknoten verankert.
 
 ## Wert
 

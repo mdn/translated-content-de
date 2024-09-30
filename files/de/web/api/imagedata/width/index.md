@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die readonly **`ImageData.width`**-Eigenschaft gibt die Anzahl der Pixel pro Zeile im [`ImageData`](/de/docs/Web/API/ImageData)-Objekt zurück.
+Die readonly **`ImageData.width`**-Eigenschaft gibt die Anzahl der Pixel pro Reihe im [`ImageData`](/de/docs/Web/API/ImageData)-Objekt zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-In diesem Beispiel wird ein `ImageData`-Objekt erstellt, das 200 Pixel breit und 100 Pixel hoch ist. Daher ist die `width`-Eigenschaft `200`.
+Dieses Beispiel erzeugt ein `ImageData`-Objekt, das 200 Pixel breit und 100 Pixel hoch ist. Daher ist die `width`-Eigenschaft `200`.
 
 ```js
 let imageData = new ImageData(200, 100);

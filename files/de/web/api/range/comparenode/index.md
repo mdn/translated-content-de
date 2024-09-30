@@ -1,5 +1,5 @@
 ---
-title: "Range: compareNode()-Methode"
+title: "Range: compareNode() Methode"
 short-title: compareNode()
 slug: Web/API/Range/compareNode
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_Header}}
 
-Die **`Range.compareNode()`**-Methode gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
+Die **`Range.compareNode()`** Methode gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
 Die möglichen Werte sind:
 
 - `NODE_BEFORE` (`0`)
-  - : Der Knoten beginnt vor dem `Range`.
+  - : Der Node beginnt vor dem Range
 - `NODE_AFTER` (`1`)
-  - : Der Knoten endet nach dem `Range`.
+  - : Der Node endet nach dem Range
 - `NODE_BEFORE_AND_AFTER` (`2`)
-  - : Der Knoten beginnt vor und endet nach dem `Range`.
+  - : Der Node beginnt vor und endet nach dem Range
 - `NODE_INSIDE` (`3`)
-  - : Der Knoten beginnt nach und endet vor dem `Range`, d. h. der Knoten wird vollständig durch das `Range` ausgewählt.
+  - : Der Node beginnt nach dem und endet vor dem Range, d.h. der Node wird vollständig vom Range ausgewählt.
 
 > [!WARNING]
-> Diese Methode [wurde entfernt](/de/docs/Mozilla/Firefox/Releases/3/Site_compatibility) aus [Gecko 1.9](/de/docs/Mozilla/Firefox/Releases/3) und wird in zukünftigen Versionen von Firefox, dem einzigen Browser, der sie implementierte, nicht mehr existieren; Sie sollten so bald wie möglich auf [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) umsteigen.
+> Diese Methode [wurde entfernt](/de/docs/Mozilla/Firefox/Releases/3/Site_compatibility) aus [Gecko 1.9](/de/docs/Mozilla/Firefox/Releases/3) und wird in zukünftigen Versionen von Firefox, welches der einzige Browser war, der sie implementierte, nicht mehr existieren; Sie sollten so bald wie möglich zu [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) wechseln.
 
 Die folgende Funktion kann als Ersatz verwendet werden:
 
@@ -56,7 +56,7 @@ compareNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen werden soll.
 
 ### Rückgabewert
 
@@ -72,8 +72,7 @@ returnValue = range.compareNode(document.getElementsByTagName("p").item(0));
 
 ## Anmerkungen
 
-Diese Methode ist veraltet; Sie sollten die W3C DOM-Methode
-[`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) verwenden.
+Diese Methode ist veraltet; Sie sollten die W3C DOM [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) Methode verwenden.
 
 ## Spezifikationen
 
@@ -85,4 +84,4 @@ Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Der DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)

@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Das **`DecompressionStream`**-Interface der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) ist eine API zum Dekomprimieren eines Datenstroms.
+Die **`DecompressionStream`**-Schnittstelle der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) ist eine API zum Dekomprimieren eines Datenstroms.
 
 ## Konstruktor
 
 - [`DecompressionStream()`](/de/docs/Web/API/DecompressionStream/DecompressionStream)
   - : Erstellt einen neuen `DecompressionStream`
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`DecompressionStream.readable`](/de/docs/Web/API/DecompressionStream/readable)
   - : Gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem Objekt kontrolliert wird.
@@ -23,7 +23,7 @@ Das **`DecompressionStream`**-Interface der [Compression Streams API](/de/docs/W
 
 ## Beispiele
 
-In diesem Beispiel wird ein Blob mit gzip-Komprimierung dekomprimiert.
+In diesem Beispiel wird ein Blob mit gzip-Kompression dekomprimiert.
 
 ```js
 const ds = new DecompressionStream("gzip");

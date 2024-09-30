@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUCompilationInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modulcompiler generiert werden, um Probleme mit Shader-Code zu diagnostizieren.
+Die **`GPUCompilationInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modulcompiler erzeugt werden, um Probleme mit Shader-Code zu diagnostizieren.
 
 Auf `GPUCompilationInfo` wird über [`GPUShaderModule.getCompilationInfo()`](/de/docs/Web/API/GPUShaderModule/getCompilationInfo) zugegriffen.
 
@@ -16,11 +16,11 @@ Auf `GPUCompilationInfo` wird über [`GPUShaderModule.getCompilationInfo()`](/de
 ## Instanz-Eigenschaften
 
 - [`messages`](/de/docs/Web/API/GPUCompilationInfo/messages) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die jeweils die Details einer einzelnen Shader-Kompilierungsnachricht enthalten. Nachrichten können informativ, Warnungen oder Fehler sein.
+  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, wobei jedes Objekt die Details einer einzelnen Shader-Kompiliernachricht enthält. Nachrichten können informativ, Warnungen oder Fehler sein.
 
 ## Beispiele
 
-Im untenstehenden Beispiel haben wir absichtlich eine Klammer aus einer Funktionsdeklaration in unserem Shader-Code weggelassen:
+Im untenstehenden Beispiel haben wir absichtlich eine Klammer in einer Funktionsdeklaration in unserem Shader-Code weggelassen:
 
 ```js
 const shaders = `

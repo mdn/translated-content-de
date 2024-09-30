@@ -1,5 +1,5 @@
 ---
-title: "GPUBuffer: size-Eigenschaft"
+title: "GPUBuffer: Eigenschaft size"
 short-title: size
 slug: Web/API/GPUBuffer/size
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`size`**-Eigenschaft der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle repräsentiert die Länge der Speicherzuweisung des `GPUBuffer` in Bytes.
+Die schreibgeschützte Eigenschaft **`size`** der
+[`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle stellt die Länge der Speicherzuweisung des `GPUBuffer` in Bytes dar.
 
 `size` wird über die `size`-Eigenschaft im Beschreibungsobjekt festgelegt, das beim ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) übergeben wird.
 
@@ -42,4 +43,4 @@ console.log(output.size); // 1000
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

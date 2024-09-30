@@ -1,5 +1,5 @@
 ---
-title: "<li>: Das Listenelement"
+title: "<li>: Das Listenpunkt-Element"
 slug: Web/HTML/Element/li
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,34 +7,34 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<li>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um einen Eintrag in einer Liste darzustellen. Es muss in einem übergeordneten Element enthalten sein: einer geordneten Liste ({{HTMLElement("ol")}}), einer ungeordneten Liste ({{HTMLElement("ul")}}) oder einem Menü ({{HTMLElement("menu")}}). In Menüs und ungeordneten Listen werden Listenelemente üblicherweise mit Aufzählungszeichen angezeigt. In geordneten Listen werden sie normalerweise mit einem aufsteigenden Zähler auf der linken Seite angezeigt, wie z.B. einer Zahl oder einem Buchstaben.
+Das **`<li>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um ein Element in einer Liste darzustellen. Es muss in einem übergeordneten Element enthalten sein: einer geordneten Liste ({{HTMLElement("ol")}}), einer ungeordneten Liste ({{HTMLElement("ul")}}) oder einem Menü ({{HTMLElement("menu")}}). In Menüs und ungeordneten Listen werden Listenelemente üblicherweise mit Aufzählungspunkten dargestellt. In geordneten Listen werden sie normalerweise mit einem aufsteigenden Zähler links dargestellt, z.B. einer Nummer oder einem Buchstaben.
 
 {{EmbedInteractiveExample("pages/tabbed/li.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `value`
-  - : Dieses ganzzahlige Attribut gibt den aktuellen Ordnungswert des Listenelements an, wie er durch das {{HTMLElement("ol")}}-Element definiert ist. Der einzige erlaubte Wert für dieses Attribut ist eine Zahl, auch wenn die Liste mit römischen Zahlen oder Buchstaben angezeigt wird. Listenelemente, die auf dieses folgen, setzen die Nummerierung von dem festgelegten Wert fort. Das **value**-Attribut hat keine Bedeutung für ungeordnete Listen ({{HTMLElement("ul")}}) oder für Menüs ({{HTMLElement("menu")}}).
+  - : Dieses ganzzahlige Attribut gibt den aktuellen Ordnungswert des Listenelements an, wie durch das {{HTMLElement("ol")}}-Element definiert. Der einzige erlaubte Wert für dieses Attribut ist eine Zahl, auch wenn die Liste mit römischen Ziffern oder Buchstaben angezeigt wird. Nachfolgende Listenelemente beginnen mit der im `value`-Attribut festgelegten Nummerierung weiterzuzählen. Das **value**-Attribut hat keine Bedeutung für ungeordnete Listen ({{HTMLElement("ul")}}) oder für Menüs ({{HTMLElement("menu")}}).
 - `type` {{Deprecated_inline}} {{Non-standard_Inline}}
 
   - : Dieses Zeichenattribut gibt den Nummerierungstyp an:
 
     - `a`: Kleinbuchstaben
     - `A`: Großbuchstaben
-    - `i`: Römische Ziffern in Kleinbuchstaben
-    - `I`: Römische Ziffern in Großbuchstaben
+    - `i`: römische Kleinbuchstaben
+    - `I`: römische Großbuchstaben
     - `1`: Zahlen
 
-    Dieser Typ überschreibt, falls vorhanden, den vom übergeordneten {{HTMLElement("ol")}}-Element verwendeten Typ.
+    Dieser Typ überschreibt den im übergeordneten {{HTMLElement("ol")}}-Element verwendeten, falls vorhanden.
 
     > [!NOTE]
-    > Dieses Attribut wurde veraltet; verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("list-style-type")}}.
+    > Dieses Attribut ist veraltet; verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("list-style-type")}}.
 
 ## Beispiele
 
-Für detailliertere Beispiele siehe die Seiten {{htmlelement("ol")}} und {{htmlelement("ul")}}.
+Für ausführlichere Beispiele siehe die Seiten {{htmlelement("ol")}} und {{htmlelement("ul")}}.
 
 ### Geordnete Liste
 
@@ -91,27 +91,27 @@ Für detailliertere Beispiele siehe die Seiten {{htmlelement("ol")}} und {{htmle
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flow-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Listenelement unmittelbar von einem anderen <code>&lt;li&gt;</code>-Element gefolgt wird, oder wenn es im übergeordneten Element keinen weiteren Inhalt gibt.
+        Der End-Tag kann weggelassen werden, wenn das Listenelement unmittelbar von einem weiteren <code>&lt;li&gt;</code>-Element gefolgt wird oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("ul")}}, {{HTMLElement("ol")}}, oder {{HTMLElement("menu")}}-Element. Obwohl es keine konforme Verwendung ist, kann das veraltete {{HTMLElement("dir")}} auch ein Elternteil sein.
+        Ein {{HTMLElement("ul")}}, {{HTMLElement("ol")}} oder {{HTMLElement("menu")}}-Element. Obwohl es nicht konform ist, kann auch das veraltete {{HTMLElement("dir")}} als Elternteil verwendet werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/listitem_role"
@@ -125,7 +125,7 @@ Für detailliertere Beispiele siehe die Seiten {{htmlelement("ol")}} und {{htmle
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role"><code>menuitem</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role"><code>menuitemcheckbox</code></a>,
@@ -152,9 +152,9 @@ Für detailliertere Beispiele siehe die Seiten {{htmlelement("ol")}} und {{htmle
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("ol")}}, {{HTMLElement("menu")}}, und das veraltete {{HTMLElement("dir")}};
-- CSS-Eigenschaften, die besonders nützlich sein können, um das `<li>`-Element zu stylen:
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("ol")}}, {{HTMLElement("menu")}} und das veraltete {{HTMLElement("dir")}};
+- CSS-Eigenschaften, die besonders nützlich sein können, um das `<li>`-Element zu gestalten:
 
-  - die {{cssxref("list-style")}} Eigenschaft, um die Anzeigeweise der Ordnung auszuwählen,
-  - [CSS Counter](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu handhaben,
-  - die {{cssxref("margin")}} Eigenschaft, um den Einzug des Listenelements zu steuern.
+  - die {{cssxref("list-style")}}-Eigenschaft, um die Anzeige des Ordnungskennzeichens auszuwählen,
+  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu verwalten,
+  - die {{cssxref("margin")}}-Eigenschaft, um den Einzug des Listenelements zu steuern.

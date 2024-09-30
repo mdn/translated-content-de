@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`getState()`**-Methode des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt einen Klon des vom Entwickler bereitgestellten Zustands zurück, der diesem Verlaufs-Eintrag zugeordnet ist.
+Die **`getState()`**-Methode der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt eine Kopie des vom Entwickler bereitgestellten Zustands zurück, der mit diesem Verlaufs-Eintrag verbunden ist.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein Wert, der den Zustand darstellt. Dies kann jeder [structured-cloneable](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Datentyp sein.
+Ein Wert, der den Zustand darstellt. Dies kann jeder [strukturierbar-kopierbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Datentyp sein.
 
-Wenn kein Zustand definiert ist oder wenn das aktuelle Dokument nicht vollständig aktiv ist, wird `undefined` zurückgegeben.
+Wenn kein Zustand definiert ist oder das aktuelle Dokument nicht vollständig aktiv ist, wird `undefined` zurückgegeben.
 
 ### Ausnahmen
 
@@ -55,7 +55,7 @@ async function handleReload() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API-Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API-Live-Demo](https://gigantic-honored-octagon.glitch.me/)
 - Methoden, die es ermöglichen, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)

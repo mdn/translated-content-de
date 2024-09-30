@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`mode`**-Eigenschaft des [`Lock`](/de/docs/Web/API/Lock)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Zugriffsmodus zurückgibt, der bei der Anforderung des Locks mit [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde.
-Der Modus ist entweder `"exclusive"` (Standard) oder `"shared"`.
+Die schreibgeschützte **`mode`**-Eigenschaft des [`Lock`](/de/docs/Web/API/Lock)-Interfaces gibt den Zugriffsmodus zurück, der an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde, als das Lock angefordert wurde. Der Modus ist entweder `"exclusive"` (die Standardeinstellung) oder `"shared"`.
 
 ## Wert
 
@@ -17,8 +16,7 @@ Entweder `"exclusive"` oder `"shared"`.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie die mode-Eigenschaft in dem Aufruf von [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wird.
-[`LockManager`](/de/docs/Web/API/LockManager) ist das Objekt, das von [`navigator.locks`](/de/docs/Web/API/Navigator/locks) zurückgegeben wird.
+Die folgenden Beispiele zeigen, wie die mode-Eigenschaft im Aufruf von [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wird. [`LockManager`](/de/docs/Web/API/LockManager) ist das Objekt, das von [`navigator.locks`](/de/docs/Web/API/Navigator/locks) zurückgegeben wird.
 
 ```js
 // Should show "exclusive" (the default)

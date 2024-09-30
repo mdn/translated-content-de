@@ -7,39 +7,39 @@ l10n:
 
 {{CSSRef}}
 
-CSS Shapes können mit dem Typ {{cssxref("&lt;basic-shape&gt;")}} definiert werden. In diesem Leitfaden besprechen wir, wie man Rechtecke, Kreise, Ellipsen und Polygone mit der Eigenschaft {{cssxref("shape-outside")}} erstellt. Diese Eigenschaften sind im [CSS Shapes Modul](/de/docs/Web/CSS/CSS_shapes) definiert.
+CSS-Formen können mit dem {{cssxref("&lt;basic-shape&gt;")}}-Typ definiert werden. In diesem Leitfaden besprechen wir das Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit der {{cssxref("shape-outside")}}-Eigenschaft. Diese sind im [CSS-Formen-Modul](/de/docs/Web/CSS/CSS_shapes) definiert.
 
-Bevor wir uns den Formen widmen, sollten Sie zwei Informationen verstehen, die zusammenkommen, um diese Formen zu ermöglichen:
+Bevor wir uns die Formen ansehen, ist es wichtig, zwei Informationen zu verstehen, die zusammen diese Formen ermöglichen:
 
-- Der `<basic-shape>` Typ
+- Der `<basic-shape>`-Typ
 - Die Referenzbox
 
-## Der \<basic-shape> Typ
+## Der \<basic-shape>-Typ
 
-Der [`<basic-shape>`](/de/docs/Web/CSS/basic-shape) Typ wird als Wert für all unsere grundlegenden Formen verwendet. Dieser Typ ist eine funktionale Notation: Die Funktionsklammern enthalten Argumente, die die Form beschreiben.
+Der [`<basic-shape>`](/de/docs/Web/CSS/basic-shape)-Typ wird als Wert für alle unsere grundlegenden Formen verwendet. Dieser Typ ist eine funktionale Notation: Die Funktionsklammern enthalten Argumente zur Beschreibung der Form.
 
-Die akzeptierten Argumente variieren je nach der Form, die Sie erstellen. Wir behandeln diese in den folgenden Beispielen.
+Die akzeptierten Argumente variieren je nach der Form, die Sie erstellen. Wir werden diese in den untenstehenden Beispielen behandeln.
 
 ## Die Referenzbox
 
-Das Verständnis der von CSS Shapes verwendeten Referenzbox ist wichtig bei der Verwendung grundlegender Formen, da sie das Koordinatensystem jeder Form definiert. Sie haben die Referenzbox bereits im [Leitfaden zur Erzeugung von Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values) kennengelernt, der die Referenzbox direkt verwendet, um die Form zu erstellen.
+Das Verständnis der Referenzbox, die von CSS-Formen verwendet wird, ist wichtig, wenn grundlegende Formen verwendet werden, da sie das Koordinatensystem jeder Form definiert. Sie haben die Referenzbox bereits im [Leitfaden zum Erstellen von Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values) kennengelernt, der die Referenzbox direkt verwendet, um die Form zu erstellen.
 
-Der folgende Screenshot zeigt den Firefox Shapes Inspector, der die Referenzbox eines Kreises anzeigt, der mit `shape-outside: circle(50%)` erstellt wurde. Das Element hat 20 Pixel Padding, Rand und Abstand angewandt. Der Shapes Inspector hebt diese Referenzboxen hervor.
+Der untenstehende Screenshot zeigt den Firefox Shapes Inspector, der die Referenzbox eines mit `shape-outside: circle(50%)` erzeugten Kreises anzeigt. Das Element hat 20 Pixel Padding, Rand und Margin angewendet. Der Shapes Inspector hebt diese Referenzboxen hervor.
 
-![Text, der um einen nach links geflohten Kreis herumfließt. Die linke Kante des Textes ist kreisförmig und tangiert die abgeschnittene Form außerhalb des Randes, wobei der Rand der Form folgt.](shapes-reference-box.png)
+![Text, der um einen nach links fließenden Kreis gewickelt ist. Der linke Rand des Textes ist kreisförmig und stößt auf die zugeschnittene Form außerhalb des Randes mit dem Rand, der dem Formzuschnitt folgt.](shapes-reference-box.png)
 
 Die Standard-Referenzbox für eine grundlegende Form ist die `margin-box`. Sie können im Screenshot sehen, dass die Form relativ zu diesem Teil des Box-Modells definiert ist.
 
-Während die Standard-Referenzbox die `margin-box` ist, kann diese modifiziert werden. Um für Ihre Grundform eine andere Box als Referenzbox festzulegen, fügen Sie den gewünschten Box-Wert nach Ihrer Grundformdefinition hinzu.
+Obwohl die Standard-Referenzbox die `margin-box` ist, kann diese modifiziert werden. Um eine andere Box als Referenzbox festzulegen, fügen Sie den gewünschten Box-Wert nach Ihrer Grundformdefinition hinzu.
 
-Diese beiden Deklarationen sind gleich:
+Diese beiden Deklarationen sind identisch:
 
 ```css
 shape-outside: circle(50%);
 shape-outside: circle(50%) margin-box;
 ```
 
-Damit Ihre Form eine andere Referenzbox verwendet, fügen Sie einen anderen {{cssxref("box-edge")}} Wert hinzu, beispielsweise um den Rand als Referenzbox für unseren Kreis zu verwenden, setzen Sie:
+Damit Ihre Form eine andere Referenzbox verwendet, fügen Sie einen anderen {{cssxref("box-edge")}}-Wert hinzu, z. B. um den Rand als Referenzbox für unseren Kreis zu verwenden, setzen Sie:
 
 ```css
 .shape {
@@ -47,15 +47,15 @@ Damit Ihre Form eine andere Referenzbox verwendet, fügen Sie einen anderen {{cs
 }
 ```
 
-Formen, die die Margin-Box überschreiten, werden auf die Margin-Box abgeschnitten. Die folgenden Grundformen demonstrieren dies.
+Formen, die über die Margin-Box hinausgehen, werden an der Margin-Box abgeschnitten. Die folgenden Grundformen demonstrieren dies.
 
-Für eine ausführlichere Erklärung der Referenzboxen, wie sie auf CSS Shapes angewendet werden, siehe [Understanding reference boxes for CSS shapes](http://razvancaliman.com/writing/css-shapes-reference-boxes/).
+Eine ausführlichere Erklärung der Referenzboxen in Bezug auf CSS-Formen finden Sie unter [Understanding reference boxes for CSS shapes](http://razvancaliman.com/writing/css-shapes-reference-boxes/).
 
 ## inset()
 
-Die [`inset()`](/de/docs/Web/CSS/basic-shape/inset) Funktion definiert ein Rechteck. Dies mag nicht sehr nützlich erscheinen, da das Umfließen eines Elements ohne Formen Ihnen eine rechteckige Form um das Element herum gibt. Allerdings ermöglicht der `inset()` Typ die Definition von Versätzen, wodurch der umfließende Text um das verkleinerte Rechteck über Teile des gefloateten Elements gezogen wird.
+Die [`inset()`](/de/docs/Web/CSS/basic-shape/inset)-Funktion definiert ein Rechteck. Dies erscheint vielleicht nicht sehr nützlich, da das Floaten eines Elements ohne Formen Ihnen eine rechteckige Form darum herum gibt. Der `inset()`-Typ ermöglicht jedoch die Definition von Versätzen und zieht damit den umgebenden Text um das verkleinerte Rechteck über Teile des gefloateten Elements herum.
 
-Die `inset()` Funktion nimmt bis zu vier seitliche Versatzwerte an, gefolgt vom optionalen Schlüsselwort `round` und einem {{cssxref("border-radius")}} Wert. Das untenstehende CSS erstellt eine rechteckige Form, die 20 Pixel von oben und unten und 10 Pixel von links und rechts von der Referenzbox des gefloateten Elements versetzt ist, mit einem `border-radius` Wert von 10 Pixeln.
+Die `inset()`-Funktion nimmt bis zu vier Seitenversatzwerte plus ein optionales `round`-Schlüsselwort gefolgt von einem {{cssxref("border-radius")}}-Wert. Der untenstehende CSS-Code erstellt eine rechteckige Form, die 20 Pixel von oben und unten und 10 Pixel von links und rechts von der Referenzbox des gefloateten Elements eingebettet ist, mit einem `border-radius`-Wert von 10 Pixeln.
 
 ```css
 .shape {
@@ -64,13 +64,13 @@ Die `inset()` Funktion nimmt bis zu vier seitliche Versatzwerte an, gefolgt vom 
 }
 ```
 
-Die Versatzwerte verwenden die gleichen Regeln wie die {{cssxref("margin")}} Kurzform. Vier durch Leerzeichen getrennte Werte definieren die Versätze für oben, rechts, unten und links – in dieser Reihenfolge. Sie können auch mehr als einen Versatz gleichzeitig festlegen:
+Die Versatzwerte verwenden dieselben Regeln wie die {{cssxref("margin")}}-Kurzform. Vier durch Leerzeichen getrennte Werte definieren die oberen, rechten, unteren und linken Versätze - in dieser Reihenfolge. Sie können auch mehr als einen Versatz gleichzeitig setzen:
 
-- Wenn nur ein Wert angegeben ist, gilt er für alle Seiten.
-- Wenn zwei Werte angegeben sind, werden die oberen und unteren Versätze auf den ersten Wert gesetzt und die rechten und linken Versätze auf den zweiten.
-- Wenn drei Werte angegeben sind, wird der obere auf den ersten Wert gesetzt, die linken und rechten auf den zweiten Wert und der untere auf den dritten.
+- Wenn es nur einen Wert gibt, gilt dieser für alle Seiten.
+- Bei zwei Werten werden der obere und untere Versatz auf den ersten Wert gesetzt und der rechte und linke Versatz auf den zweiten.
+- Bei drei Werten wird der obere Wert auf den ersten Wert gesetzt, der linke und rechte Wert auf den zweiten und der untere Wert auf den dritten.
 
-Die obigen Regeln können daher auch so geschrieben werden:
+Die obigen Regeln können daher auch wie folgt geschrieben werden:
 
 ```css
 .shape {
@@ -79,39 +79,39 @@ Die obigen Regeln können daher auch so geschrieben werden:
 }
 ```
 
-Im folgenden Beispiel haben wir eine `inset()` Form verwendet, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Versatzwerte, um zu sehen, wie sich die Form ändert.
+Im Beispiel unten haben wir eine `inset()`-Form verwendet, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Versatzwerte, um zu sehen, wie sich die Form ändert.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/inset.html", '100%', 800)}}
 
-Sie können auch einen Box-Wert als alternative Referenzbox hinzufügen. Ändern Sie im folgenden Beispiel die Referenzbox von `margin-box` zu `border-box`, `padding-box` oder `content-box`, um zu sehen, wie sich die Referenzbox als Ausgangspunkt ändert, bevor Versätze berechnet werden.
+Sie können auch einen Box-Wert als alternative Referenzbox hinzufügen. Im Beispiel unten, versuchen Sie, die Referenzbox von `margin-box` zu `border-box`, `padding-box` oder `content-box` zu ändern, um zu sehen, wie sich die Referenzbox geändert hat, bevor die Versätze berechnet werden.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/inset-box.html", '100%', 800)}}
 
-Sie können auch Rechtecke basierend auf Abständen von den oberen und linken Kanten der Referenzbox mit der [`rect()`](/de/docs/Web/CSS/basic-shape/rect) Funktion oder durch Breite und Höhe mit der [`xywh()`](/de/docs/Web/CSS/basic-shape/xywh) Funktion erstellen; beide unterstützen auch optionale abgerundete Ecken.
+Sie können auch Rechtecke basierend auf Abständen von den oberen und linken Kanten der Referenzbox mit der [`rect()`](/de/docs/Web/CSS/basic-shape/rect)-Funktion oder durch Breite und Höhe mit der [`xywh()`](/de/docs/Web/CSS/basic-shape/xywh)-Funktion erstellen; beide unterstützen auch optionale abgerundete Ecken.
 
 ## circle()
 
-Der [`circle()`](/de/docs/Web/CSS/basic-shape/circle) Wert für `shape-outside` kann zwei mögliche Argumente annehmen: einen `<shape-radius>`, der die Größe definiert, und `<position>`, das seine Position angibt.
+Der [`circle()`](/de/docs/Web/CSS/basic-shape/circle)-Wert für `shape-outside` kann zwei mögliche Argumente akzeptieren: einen `<shape-radius>`, der die Größe definiert, und eine `<position>`, die seine Position definiert.
 
-Die `circle()` und `ellipse()` Werte für `shape-outside` akzeptieren beide [`<shape-radius>`](/de/docs/Web/CSS/basic-shape#shape-radius) als Argument. Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder eines der Schlüsselwörter `closest-side` oder `farthest-side` sein.
+Der `circle()`- und `ellipse()`-`shape-outside`-Wert akzeptiert beide [`<shape-radius>`](/de/docs/Web/CSS/basic-shape#shape-radius) als Argument. Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder eines der Schlüsselwörter `closest-side` oder `farthest-side` sein.
 
-Der `closest-side` Schlüsselwortwert verwendet die Länge vom Mittelpunkt der Form zur nächsten Seite der Referenzbox, um die Radiuslänge zu erstellen. Der `farthest-side` Schlüsselwortwert verwendet die Länge vom Mittelpunkt der Form zur entferntesten Seite der Referenzbox.
+Der Schlüsselwortwert `closest-side` verwendet die Länge vom Zentrum der Form bis zur nächsten Seite der Referenzbox, um die Radiuslänge zu erstellen. Der Schlüsselwortwert `farthest-side` verwendet die Länge vom Zentrum der Form bis zur am weitesten entfernten Seite der Referenzbox.
 
-Das zweite Argument ist eine `position`, die einen oder zwei Schlüsselwörter umfassende [`<position>`](/de/docs/Web/CSS/position_value) Werte annimmt, um die Position des Kreismittelpunkts anzugeben. Dies wird auf die gleiche Weise spezifiziert wie {{cssxref("background-position")}}; wenn einer oder beide Werte ausgelassen werden, sind die Standardwerte `center`.
+Das zweite Argument ist eine `position`, die einen ein- oder zwei-Schlüsselwort [`<position>`](/de/docs/Web/CSS/position_value)-Wert akzeptiert, um die Position des Kreismittelpunkts anzugeben. Dies wird genauso angegeben wie {{cssxref("background-position")}}; wenn ein oder beide Werte ausgelassen werden, werden die Werte standardmäßig auf `center` gesetzt.
 
-Um einen Kreis zu erstellen, geben wir einen einzelnen Radiuswert an, gefolgt vom optionalen Schlüsselwort **at** und einem Positionswert. In diesem Beispiel wurde ein Kreis auf ein {{htmlelement("img")}} angewandt, das eine `width` und `height` von `210px` und einen `margin` von `20px` hat. Dies ergibt eine Gesamtbreite der Referenzbox von `250px`. Der `50%` Wert für den `<shape-radius>` bedeutet, dass der Radius `125px` ist. Der Positionswert ist auf `30%` gesetzt, was `30%` von links und auf der Standardhöhe `center` bedeutet.
+Um einen Kreis zu erstellen, geben wir einen einzelnen Radiuswert an, gefolgt vom Schlüsselwort **at** und einem Positionswert. In diesem Beispiel wird auf ein {{htmlelement("img")}} ein Kreis mit einer `width` und `height` von `210px` und einem `margin` von `20px` angewendet. Dies ergibt eine Gesamtbreite für die Referenzbox von `250px`. Der Wert `50%` für den `<shape-radius>` bedeutet, dass der Radius `125px` beträgt. Der Positionswert ist auf `30%` gesetzt, was `30%` von links und in der Standardvertikalen `mitte` bedeutet.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/circle.html", '100%', 800)}}
 
-Spielen Sie mit der Vergrößerung oder Verkleinerung des Kreises, indem Sie die Größe des Radius ändern, den Kreis mit dem Positionswert verschieben oder eine Referenzbox setzen, wie wir es für `inset()` getan haben.
+Spielen Sie damit, die Größe des Kreises zu vergrößern oder zu verkleinern, indem Sie die Größe des Radius ändern, den Kreis mit dem Positionswert verschieben oder eine Referenzbox festlegen, wie wir es bei `inset()` gemacht haben.
 
-Das folgende Beispiel kombiniert generierten Inhalt mit einer `circle()` Funktion, die die Schlüsselwörter `top left` für die Position verwendet. Dies erzeugt eine Viertelkreisform in der oberen linken Ecke der Seite, um die der Text fließt.
+Im Beispiel unten wird generierter Inhalt mit einer `circle()`-Funktion kombiniert, die die Schlüsselwörter `top left` für die Position verwendet. Dies erzeugt eine Viertelkreisform in der oberen linken Ecke der Seite, um die der Text herumfließen wird.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/circle-generated.html", '100%', 700)}}
 
-### Die Form wird von der Margin-Box abgeschnitten
+### Die Form wird durch die Margin-Box abgeschnitten
 
-Wie bei den [Referenzboxen](#die_referenzbox) oben erwähnt, wird die `margin-box` die Form abschneiden. Sie können dies sehen, indem Sie das Zentrum unseres Kreises Richtung Inhalt verschieben, indem Sie die Position auf `60%` setzen. Das Zentrum des Kreises wird näher beim Inhalt liegen und der Kreis wird sich über die Margin-Box hinaus erstrecken. Dies bedeutet, dass die Erweiterung abgeschnitten und quadratisch gestaltet wird.
+Wie oben bei den [Referenzboxen](#die_referenzbox) erwähnt, wird die `margin-box` die Form abschneiden. Sie können dies sehen, indem Sie das Zentrum unseres Kreises näher zum Inhalt bewegen, indem Sie die Position auf `60%` setzen. Das Zentrum des Kreises wird näher am Inhalt sein und der Kreis wird über die Margin-Box hinausgehen. Das bedeutet, dass die Erweiterung abgeschnitten und abgeflacht wird.
 
 ```css
 img {
@@ -120,32 +120,32 @@ img {
 }
 ```
 
-![Die Kreisform wird von der Margin-Box abgeschnitten](shapes-circle-clipped.png)
+![Die Kreisform wird durch die Margin-Box abgeschnitten](shapes-circle-clipped.png)
 
 ## ellipse()
 
-Eine Ellipse ist ein gedrückter Kreis. Als solches funktioniert die [`ellipse()`](/de/docs/Web/CSS/basic-shape/ellipse) Funktion sehr ähnlich wie `circle()`, außer dass wir zwei Radien, `x` und `y`, in dieser Reihenfolge angeben müssen.
+Eine Ellipse ist ein zusammengedrückter Kreis. Daher funktioniert die [`ellipse()`](/de/docs/Web/CSS/basic-shape/ellipse)-Funktion auf sehr ähnliche Weise wie `circle()`, außer dass wir zwei Radien, `x` und `y`, in dieser Reihenfolge angeben müssen.
 
-Diesen können dann wie bei `circle()` ein oder zwei `<position>` Werte folgen, um die Position des Mittelpunkts der Ellipse zu definieren. Im folgenden Beispiel haben wir eine Ellipse mit einem `x` Radius von `40%`, einem `y` Radius von `50%` und das `<position>` ist auf `left` gesetzt. Dies bedeutet, dass das Zentrum der Ellipse im Zentrum der linken Kante der Referenzbox liegt. Dies erzeugt eine Halbellipse, um die der Text fließen wird. Sie können diese Werte ändern, um zu sehen, wie sich die Ellipse verändert.
+Diese können dann, wie bei `circle()`, von einem oder zwei `<position>`-Werten gefolgt werden, um die Lage des Mittelpunkts der Ellipse zu definieren. Im folgenden Beispiel haben wir eine Ellipse mit einem `x`-Radius von `40%`, einem `y`-Radius von `50%` und die `<position>` ist auf `left` gesetzt. Dies bedeutet, dass der Mittelpunkt der Ellipse im Zentrum des linken Randes der Referenzbox liegt. Dies erzeugt eine halbe Ellipsenform, um die der Text herumfließen wird. Sie können diese Werte ändern, um zu sehen, wie sich die Ellipse verändert.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/ellipse.html", '100%', 800)}}
 
-Die Schlüsselwortwerte `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe der gefloateten Element-Referenzbox zu erstellen.
+Die Schlüsselwortwerte `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe der Referenzbox des gefloateten Elements zu erstellen.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/ellipse-keywords.html", '100%', 800)}}
 
 ## polygon()
 
-Die [`polygon()`](/de/docs/Web/CSS/basic-shape/polygon) Funktion ist komplexer und ermöglicht die Erstellung von Polygonformen mit mehreren Seiten. Diese Form akzeptiert drei oder mehr Paare von Werten (ein Polygon muss mindestens ein Dreieck zeichnen). Jedes durch Leerzeichen getrennte Wertepaar wird durch ein Komma getrennt und stellt die Koordinaten eines einzelnen Scheitelpunkts dar, der relativ zur Referenzbox gezeichnet wird. Jedes Wertepaar definiert eine Kante des Polygons, die letzte Kante wird durch das erste und letzte Satz von Koordinaten definiert.
+Die [`polygon()`](/de/docs/Web/CSS/basic-shape/polygon)-Funktion ist komplexer und ermöglicht die Erstellung von Polygonformen mit mehreren Seiten. Diese Form akzeptiert drei oder mehr Wertepaaren (ein Polygon muss zumindest ein Dreieck zeichnen). Jedes durch Leerzeichen getrennte Wertepaar wird mit einem Komma getrennt und repräsentiert die Koordinaten eines einzelnen Scheitelpunkts, der relativ zur Referenzbox gezeichnet wird. Jedes Koordinatenpaar definiert eine Kante des Polygons, wobei die letzte Kante durch die erste und letzte Koordinate definiert wird.
 
-Das untenstehende Beispiel erstellt eine Form, der der Text mit der `polygon()` Funktion folgt. Ändern Sie die Koordinatenwerte, um zu sehen, wie sich die Form ändert.
+Das folgende Beispiel erstellt eine Form, der der Text folgen kann, indem die `polygon()`-Funktion verwendet wird. Versuchen Sie, die Koordinatenwerte zu ändern, um zu sehen, wie sich die Form ändert.
 
 {{EmbedGHLiveSample("css-examples/shapes/basic-shape/polygon.html", '100%', 800)}}
 
-Um noch komplexere Formen zu erstellen, können Sie die Umrisse jeder Form mit den Funktionen [`path()`](/de/docs/Web/CSS/basic-shape/path) oder [`shape()`](/de/docs/Web/CSS/basic-shape/shape) definieren.
+Um noch komplexere Formen zu erstellen, können Sie das Umriss einer beliebigen Form mit den Funktionen [`path()`](/de/docs/Web/CSS/basic-shape/path) oder [`shape()`](/de/docs/Web/CSS/basic-shape/shape) definieren.
 
-Die Funktionen `inset()`, `circle()`, `ellipse()` und `polygon()` sind mit dem Firefox Developer Tools Shape Inspector inspizierbar und bearbeitbar. Der folgende Screenshot zeigt die hervorgehobene Form in dem Tool.
+Die Funktionen `inset()`, `circle()`, `ellipse()` und `polygon()` sind mit dem Firefox Developer Tools Shape Inspector inspizierbar und bearbeitbar. Der untenstehende Screenshot zeigt die im Tool hervorgehobene Form.
 
 ![Die Polygon-Grundform, hervorgehoben mit dem Shapes Inspector.](shapes-polygon.png)
 
-Eine weitere Ressource ist [Clippy](https://bennettfeely.com/clippy/), ein Tool zum Erstellen von Formen mit Beispielen unter Verwendung der CSS {{cssxref("clip-path")}} Eigenschaft, die dieselben grundlegenden Formfunktionen und -werte wie die Eigenschaft `shape-outside` verwendet.
+Eine weitere Ressource ist [Clippy](https://bennettfeely.com/clippy/), ein Tool zum Erstellen von Formen mit Beispielen, die die CSS-{{cssxref("clip-path")}}-Eigenschaft verwenden, welche dieselben Grundformen-Funktionen und -Werte verwendet wie die `shape-outside`-Eigenschaft.

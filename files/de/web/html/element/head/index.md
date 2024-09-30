@@ -7,16 +7,16 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<head>`** [HTML](/de/docs/Web/HTML) Element enthält maschinenlesbare Informationen ([Metadaten](/de/docs/Glossary/metadata)) über das Dokument, wie seinen [Titel](/de/docs/Web/HTML/Element/title), [Skripte](/de/docs/Web/HTML/Element/script) und [Stylesheets](/de/docs/Web/HTML/Element/style). In einem HTML-Dokument kann es nur ein `<head>` Element geben.
+Das **`<head>`** [HTML](/de/docs/Web/HTML)-Element enthält maschinenlesbare Informationen ([Metadaten](/de/docs/Glossary/metadata)) über das Dokument, wie dessen [title](/de/docs/Web/HTML/Element/title), [scripts](/de/docs/Web/HTML/Element/script) und [style sheets](/de/docs/Web/HTML/Element/style). Es kann nur ein `<head>`-Element in einem HTML-Dokument geben.
 
-> **Note:** `<head>` enthält hauptsächlich Informationen für die maschinelle Verarbeitung, nicht für die Lesbarkeit durch Menschen. Für sichtbarere Informationen, wie etwa oberste Überschriften und aufgelistete Autoren, siehe das {{HTMLElement("header")}} Element.
+> **Note:** `<head>` enthält in erster Linie Informationen zur maschinellen Verarbeitung, nicht zur Leserlichkeit für Menschen. Für Informationen, die für Menschen sichtbar sind, wie Überschriften auf oberster Ebene und aufgelistete Autoren, siehe das {{HTMLElement("header")}}-Element.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `profile` {{deprecated_inline}}
-  - : Die [URIs](/de/docs/Glossary/URI) eines oder mehrerer Metadatenprofile, getrennt durch [Leerraum](/de/docs/Glossary/whitespace).
+  - : Die [URI](/de/docs/Glossary/URI)s von einem oder mehreren Metadaten-Profilen, getrennt durch [Whitespace](/de/docs/Glossary/whitespace).
 
 ## Beispiele
 
@@ -44,29 +44,29 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <p>
           Wenn das Dokument ein {{HTMLElement("iframe")}}
-          <a href="/de/docs/Web/HTML/Element/iframe#srcdoc"><code>srcdoc</code></a> Dokument ist oder wenn Titelinformationen aus einem höheren Protokoll verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente von Metadaten-Inhalten.
+          <a href="/de/docs/Web/HTML/Element/iframe#srcdoc"><code>srcdoc</code></a> Dokument ist, oder wenn Titelinformationen von einem höheren Protokollniveau verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente von Metadateninhalt.
         </p>
         <p>
-          Andernfalls eines oder mehrere Elemente von Metadaten-Inhalten, wobei genau eines ein {{HTMLElement("title")}} Element ist.
+          Andernfalls ein oder mehrere Elemente von Metadateninhalt, wobei genau eines ein {{HTMLElement("title")}}-Element ist.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag kann weggelassen werden, wenn das erste Element innerhalb des
-        <code>&#x3C;head></code> Elements ein Element ist.<br />Das End-Tag kann
-        weggelassen werden, wenn das erste nachfolgende Element des
-        <code>&#x3C;head></code> Elements kein Leerzeichen oder Kommentar ist.
+        Das Start-Tag kann weggelassen werden, wenn das erste Element im
+        <code>&#x3C;head></code>-Element ein Element ist.<br />Das End-Tag kann
+        weggelassen werden, wenn das erste Zeichen nach dem
+        <code>&#x3C;head></code>-Element kein Leerzeichen oder ein Kommentar ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("html")}} Element, als sein erstes Kind.</td>
+      <th scope="row">Zulässige Eltern</th>
+      <td>Ein {{HTMLElement("html")}}-Element, als dessen erstes Kind.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -77,7 +77,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>

@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`HTMLMediaElement.paused`**-Eigenschaft gibt an, ob das Media-Element pausiert ist.
+Die schreibgeschützte **`HTMLMediaElement.paused`**-Eigenschaft
+gibt an, ob das Medien-Element pausiert ist.
 
 ## Wert
 
-Ein booleanischer Wert. `true` bedeutet pausiert und `false` bedeutet nicht pausiert.
+Ein boolescher Wert. `true` bedeutet pausiert und `false` bedeutet nicht pausiert.
 
 ## Beispiele
 
@@ -31,4 +32,4 @@ console.log(obj.paused); // true
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.paused`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.paused`-Eigenschaft zu definieren

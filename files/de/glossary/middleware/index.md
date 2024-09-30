@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Middleware ist ein (los definiertes) Begriff für jede Software oder Dienstleistung, die es den Teilen eines Systems ermöglicht, Daten zu kommunizieren und zu verwalten. Es ist die Software, die die Kommunikation zwischen Komponenten und die Eingabe/Ausgabe verwaltet, sodass Entwickler sich auf den spezifischen Zweck ihrer Anwendung konzentrieren können.
+Middleware ist ein (lose definierter) Begriff für jede Software oder jeden Dienst, der es den Teilen eines Systems ermöglicht, zu kommunizieren und Daten zu verwalten. Es handelt sich um die Software, die die Kommunikation zwischen Komponenten und die Eingabe/Ausgabe verarbeitet, damit Entwickler sich auf den spezifischen Zweck ihrer Anwendung konzentrieren können.
 
-In serverseitigen Webanwendungs-Frameworks wird der Begriff oft spezifischer verwendet, um vorgefertigte Softwarekomponenten zu bezeichnen, die der Anforderungs-/Antwortverarbeitungspipeline des Frameworks hinzugefügt werden können, um Aufgaben wie den Datenbankzugriff zu behandeln.
+In serverseitigen Webanwendungs-Frameworks wird der Begriff oft spezifischer verwendet, um auf vorgefertigte Softwarekomponenten zu verweisen, die zur Bearbeitung von Aufgaben wie dem Datenbankzugriff in die Anforderung/Antwort-Verarbeitungspipeline des Frameworks integriert werden können.
 
 ## Siehe auch
 

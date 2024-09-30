@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [WebRTC API](/de/docs/Web/API/WebRTC_API)-Schnittstelle [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent) besitzt die schreibgeschützte **`track`**-Eigenschaft, die den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, der zu der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde.
+Die [WebRTC API](/de/docs/Web/API/WebRTC_API)-Schnittstelle [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent) besitzt die schreibgeschützte **`track`**-Eigenschaft, die das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, das der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde.
 
 ## Wert
 
-Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der die Spur angibt, die zu der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde.
+Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), das die Spur kennzeichnet, die der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde.
 
 ## Spezifikationen
 

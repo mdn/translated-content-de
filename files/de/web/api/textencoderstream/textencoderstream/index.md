@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextEncoderStream()`** Konstruktor erstellt ein neues [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Objekt, das verwendet wird, um einen Strom von Zeichenketten in Bytes mittels UTF-8-Codierung zu konvertieren.
+Der **`TextEncoderStream()`** Konstruktor erstellt ein neues [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream) Objekt, das verwendet wird, um einen Strom von Zeichenketten in Bytes umzuwandeln, wobei die UTF-8-Kodierung verwendet wird.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel wird ein `TextEncoderStream` erstellt und verwendet, um einen Strom von Text hochzuladen.
+In diesem Beispiel wird ein `TextEncoderStream` erstellt und verwendet, um einen Textstrom hochzuladen.
 
 ```js
 const body = textStream.pipeThrough(new TextEncoderStream());

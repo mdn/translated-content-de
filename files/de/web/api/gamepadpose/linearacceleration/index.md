@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`linearAcceleration`**-Eigenschaft des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt ein Array zurück, das den linearen Beschleunigungsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Metern pro Sekunde pro Sekunde darstellt.
+Die schreibgeschützte Eigenschaft **`linearAcceleration`** des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt ein Array zurück, das den linearen Beschleunigungsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Metern pro Sekunde pro Sekunde darstellt.
 
 Mit anderen Worten, die aktuelle Beschleunigung des Sensors entlang der `x`-, `y`- und `z`-Achsen.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Daten zur linearen Beschleunigung bereitstellen kann.
+Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Daten zur linearen Beschleunigung liefern kann.
 
 ## Beispiele
 

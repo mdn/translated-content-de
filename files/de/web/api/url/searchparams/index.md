@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`searchParams`** schreibgeschützte Eigenschaft der
-[`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt zurück, das den Zugriff auf die im URL enthaltenen {{httpmethod("GET")}}-dekodierten Abfrageargumente ermöglicht.
+Die **`searchParams`** schreibgeschützte Eigenschaft des
+[`URL`](/de/docs/Web/API/URL)-Interfaces gibt ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt zurück, das
+Zugriff auf die im URL enthaltenen {{httpmethod("GET")}}-dekodierten Abfrageargumente ermöglicht.
 
 ## Wert
 

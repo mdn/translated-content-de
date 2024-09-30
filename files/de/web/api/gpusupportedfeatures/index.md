@@ -9,42 +9,42 @@ l10n:
 
 Die **`GPUSupportedFeatures`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist ein [`Set`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), das zusätzliche Funktionalitäten beschreibt, die von einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) unterstützt werden.
 
-Das `GPUSupportedFeatures`-Objekt für den aktuellen Adapter wird über die [`GPUAdapter.features`](/de/docs/Web/API/GPUAdapter/features)-Eigenschaft abgerufen.
+Auf das `GPUSupportedFeatures`-Objekt für den aktuellen Adapter wird über die [`GPUAdapter.features`](/de/docs/Web/API/GPUAdapter/features) Eigenschaft zugegriffen.
 
-Sie sollten beachten, dass nicht alle Funktionen in WebGPU in allen unterstützenden Browsern verfügbar sein werden, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Dies könnte aufgrund von Einschränkungen im zugrunde liegenden System, Browser oder Adapter der Fall sein. Zum Beispiel:
+Es ist wichtig zu beachten, dass nicht alle Funktionen in allen Browsern, die WebGPU unterstützen, verfügbar sein werden, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Dies könnte durch Einschränkungen im zugrunde liegenden System, Browser oder Adapter verursacht werden. Zum Beispiel:
 
-- Das zugrunde liegende System kann möglicherweise die Exponierung einer Funktion nicht in einer Weise garantieren, die mit einem bestimmten Browser kompatibel ist.
-- Der Browser-Anbieter hat möglicherweise keinen sicheren Weg gefunden, die Unterstützung für diese Funktion zu implementieren, oder hat möglicherweise noch keine Zeit dafür gefunden.
+- Das zugrunde liegende System kann möglicherweise die Bereitstellung einer Funktion in einer mit einem bestimmten Browser kompatiblen Weise nicht garantieren.
+- Der Browser-Anbieter hat möglicherweise noch keinen sicheren Weg gefunden, die Unterstützung für diese Funktion zu implementieren, oder hat es einfach noch nicht geschafft.
 
-Wenn Sie hoffen, eine spezifische zusätzliche Funktion in einer WebGPU-Anwendung zu nutzen, wird gründliches Testen empfohlen.
+Wenn Sie planen, eine spezifische zusätzliche Funktion in einer WebGPU-Anwendung zu nutzen, wird gründliches Testen empfohlen.
 
 {{InheritanceDiagram}}
 
 ## Verfügbare Funktionen
 
-Wir haben nicht die exakte Menge der zusätzlichen Funktionen aufgeführt, die in WebGPU verwendet werden können, da diese zwischen Implementierungen und physischen Geräten variieren und sich im Laufe der Zeit ändern wird. Für eine Liste verweisen wir auf den [Feature Index](https://gpuweb.github.io/gpuweb/#feature-index) in der Spezifikation.
+Wir haben nicht den genauen Satz zusätzlicher Funktionen aufgelistet, die in WebGPU genutzt werden können, da er je nach Implementierung und physischen Geräten unterschiedlich ist und sich im Laufe der Zeit ändern wird. Eine Liste finden Sie im [Feature Index](https://gpuweb.github.io/gpuweb/#feature-index) der Spezifikation.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Die folgenden Eigenschaften sind für alle schreibgeschützten [`Set`-ähnlichen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) verfügbar (die untenstehenden Links verweisen auf die {{jsxref("Set")}}-Referenzseite des globalen Objekts).
+Die folgenden Eigenschaften sind für alle schreibgeschützten [`Set`-ähnlichen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) verfügbar (die unten aufgeführten Links führen zur {{jsxref("Set")}} globalen Objekt-Referenzseite).
 
 - {{jsxref("Set.prototype.size", "size")}} {{Experimental_Inline}}
   - : Gibt die Anzahl der Werte im Set zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Die folgenden Methoden sind für alle schreibgeschützten [`Set`-ähnlichen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) verfügbar (die untenstehenden Links verweisen auf die {{jsxref("Set")}}-Referenzseite des globalen Objekts).
+Die folgenden Methoden sind für alle schreibgeschützten [`Set`-ähnlichen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) verfügbar (die unten aufgeführten Links führen zur {{jsxref("Set")}} globalen Objekt-Referenzseite).
 
 - {{jsxref("Set.prototype.has()", "has()")}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert im Set vorhanden ist oder nicht.
+  - : Gibt ein Boolean zurück, das angibt, ob ein Element mit dem gegebenen Wert im Set vorhanden ist.
 - {{jsxref("Set.prototype.values()", "values()")}} {{Experimental_Inline}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im Set in der Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im Set in Einfügereihenfolge ausgibt.
 - {{jsxref("Set.prototype.keys()", "keys()")}} {{Experimental_Inline}}
   - : Ein Alias für {{jsxref("Set.prototype.values()", "values()")}}.
 - {{jsxref("Set.prototype.entries()", "entries()")}} {{Experimental_Inline}}
-  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im Set in der Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im Set in Einfügereihenfolge enthält.
 - {{jsxref("Set.prototype.forEach()", "forEach()")}} {{Experimental_Inline}}
-  - : Ruft eine bereitgestellte Rückruffunktion einmal für jeden im Set vorhandenen Wert in der Einfügereihenfolge auf.
+  - : Ruft eine bereitgestellte Rückruffunktion einmal für jeden Wert im Set in Einfügereihenfolge auf.
 
 ## Beispiele
 

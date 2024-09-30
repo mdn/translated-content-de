@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`height`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des [Viewports](/de/docs/Glossary/viewport) (oder der Seitenbox, für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
+Das **`height`**- [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des [Viewports](/de/docs/Glossary/viewport) (oder der Seitenbox bei [Paged Media](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
 
 ## Syntax
 
-Die `height`-Funktion wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Höhe des Viewports repräsentiert. Es handelt sich um eine Bereichs-Funktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-height`** und **`max-height`** verwenden können, um Mindest- und Höchstwerte abzufragen.
+Das `height`-Feature wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der der Höhe des Viewports entspricht. Es handelt sich um ein Bereichsfeature, was bedeutet, dass Sie auch die Präfixvarianten **`min-height`** und **`max-height`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 
@@ -60,5 +60,5 @@ Die `height`-Funktion wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der
 
 ## Siehe auch
 
-- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

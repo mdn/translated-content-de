@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}} {{AvailableInWorkers}}
 
-Die **`getDirectory()`**-Methode des [`StorageManager`](/de/docs/Web/API/StorageManager)-Interfaces wird verwendet, um eine Referenz auf ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt zu erhalten. Dieses Objekt ermöglicht den Zugriff auf ein Verzeichnis und dessen Inhalte, die im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) gespeichert sind.
+Die **`getDirectory()`**-Methode der [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle wird verwendet, um eine Referenz zu einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt zu erhalten, das Zugriff auf ein Verzeichnis und dessen Inhalte erlaubt, die im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) gespeichert sind.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, der mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
+Ein {{jsxref('Promise')}}, das mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Benutzeragent das angeforderte Verzeichnis nicht mit dem lokalen OPFS abgleichen kann.
+  - : Wird ausgelöst, wenn der Benutzeragent das angeforderte Verzeichnis nicht auf das lokale OPFS abbilden kann.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignishandler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread:
+Die folgende asynchrone Ereignis-Handler-Funktion ist innerhalb eines Web Workers enthalten. Beim Empfang einer Nachricht vom Hauptthread führt sie:
 
-1. Wird ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), das die Wurzel des OPFS darstellt, mit `getDirectory()` abgerufen und in der Variablen `root` gespeichert.
-2. Wird ein Datei-Handle mit [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle) abgerufen.
-3. Wird ein synchroner Dateizugriffs-Handle mit [`FileSystemFileHandle.createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle) erstellt.
-4. Wird die Größe der Datei ermittelt und ein {{jsxref("ArrayBuffer")}} erstellt, um diese zu enthalten.
-5. Wird in die Datei gelesen und geschrieben.
-6. Werden die Änderungen auf die Festplatte geschrieben und der synchrone Zugriffs-Handle wird geschlossen.
+1. Ruft einen [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ab, der die Wurzel des OPFS darstellt, und speichert ihn in der Variable `root`.
+2. Holt einen Datei-Handle mit [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle).
+3. Erstellt einen synchronen Datei-Zugriffs-Handle mit [`FileSystemFileHandle.createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle).
+4. Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese zu enthalten.
+5. Lese- und Schreibvorgänge in die Datei ausführt.
+6. Persistiert die Änderungen auf die Festplatte und schließt den synchronen Zugriffs-Handle.
 
 ```js
 onmessage = async (e) => {
@@ -71,7 +71,7 @@ onmessage = async (e) => {
 ```
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser haben sie auf diese Weise implementiert. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Spezifikationen
 

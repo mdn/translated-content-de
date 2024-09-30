@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`endEvent`**-Ereignis des [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Interfaces wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
+Das **`endEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht wird.
 
 > [!NOTE]
-> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Es kann sowohl im Laufe des normalen (d.h. zeitlich geplanten oder interaktiven) Zeitachsenabspielens als auch im Fall, dass das Element mit einer DOM-Methode beendet wurde, ausgelöst werden.
+> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Es kann sowohl im Verlauf eines normalen (d.h. geplanten oder interaktiven) Zeitlinienverlaufs als auch im Fall ausgelöst werden, dass das Element mit einer DOM-Methode beendet wurde.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("endEvent", (event) => {});
@@ -34,9 +34,9 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ## Ereigniseigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Ereignistyp. Für diesen Ereignistyp zeigt es die Wiederholungsnummer für die Animation an.
+  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
+  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -102,9 +102,9 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '300')}}
 
-### Äquivalent zur Ereignisbehandler-Eigenschaft
+### Äquivalent der Ereignis-Handler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignislistener für das `end`-Ereignis mit der `onend`-Ereignisbehandler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignis-Listener für das `end`-Ereignis mit der `onend` Ereignis-Handler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onend = () => {

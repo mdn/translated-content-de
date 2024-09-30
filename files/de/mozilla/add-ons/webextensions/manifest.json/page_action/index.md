@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -39,21 +39,21 @@ l10n:
   </tbody>
 </table>
 
-Eine Seitenaktion ist ein Symbol, das Ihre Erweiterung in der URL-Leiste des Browsers hinzufügt.
+Eine Page-Action ist ein Icon, das Ihre Erweiterung in der URL-Leiste des Browsers hinzufügt.
 
 Ihre Erweiterung kann optional auch ein zugehöriges Popup bereitstellen, dessen Inhalt mithilfe von HTML, CSS und JavaScript spezifiziert wird.
 
-Sie müssen diesen Schlüssel angeben, um eine Seitenaktion in Ihre Erweiterung einzufügen. Wenn angegeben, können Sie den Button programmatisch über die {{WebExtAPIRef("pageAction")}} API manipulieren.
+Sie müssen diesen Schlüssel angeben, um eine Page-Action in Ihre Erweiterung aufzunehmen. Wenn angegeben, können Sie die Schaltfläche programmatisch mithilfe der {{WebExtAPIRef("pageAction")}} API manipulieren.
 
-Falls Sie ein Popup bereitstellen, wird dieses geöffnet, wenn der Benutzer auf das Symbol klickt, und Ihr JavaScript, das im Popup ausgeführt wird, kann die Interaktion des Benutzers damit handhaben. Wenn Sie kein Popup bereitstellen, wird ein Klickereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_pages) Ihrer Erweiterung gesendet, wenn der Benutzer auf das Symbol klickt.
+Wenn Sie ein Popup bereitstellen, wird dieses geöffnet, wenn der Benutzer auf das Icon klickt, und Ihr JavaScript, das im Popup läuft, kann die Benutzerinteraktion damit handhaben. Wenn Sie kein Popup bereitstellen, wird ein Klick-Ereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_pages) Ihrer Erweiterung gesendet, wenn der Benutzer auf das Icon klickt.
 
-Seitenaktionen sind ähnlich wie Browseraktionen, außer dass sie mit bestimmten Webseiten verknüpft sind, statt mit dem Browser als Ganzes. Wenn eine Aktion nur auf bestimmten Seiten relevant ist, sollten Sie eine Seitenaktion verwenden und sie nur auf relevanten Seiten anzeigen. Wenn eine Aktion für alle Seiten oder den Browser selbst relevant ist, verwenden Sie eine Browseraktion.
+Page-Actions sind ähnlich wie Browser-Actions, außer dass sie mit bestimmten Webseiten anstatt mit dem Browser als Ganzes verknüpft sind. Wenn eine Aktion nur auf bestimmten Seiten relevant ist, sollten Sie eine Page-Action verwenden und sie nur auf relevanten Seiten anzeigen. Wenn eine Aktion für alle Seiten oder den Browser selbst relevant ist, verwenden Sie eine Browser-Action.
 
-Während Browseraktionen standardmäßig angezeigt werden, sind Seitenaktionen standardmäßig verborgen. Sie können für einen bestimmten Tab angezeigt werden, indem Sie {{WebExtAPIRef("pageAction.show()")}} aufrufen und die `id` des Tabs übergeben. Sie können dieses Standardverhalten auch mit der Eigenschaft `show_matches` ändern.
+Während Browser-Actions standardmäßig angezeigt werden, sind Page-Actions standardmäßig ausgeblendet. Sie können für einen bestimmten Tab durch den Aufruf von {{WebExtAPIRef("pageAction.show()")}} angezeigt werden, indem Sie die `id` des Tabs übergeben. Sie können dieses Standardverhalten auch mit der Eigenschaft `show_matches` ändern.
 
 ## Syntax
 
-Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften haben kann:
+Der `page_action` Schlüssel ist ein Objekt, das bis zu drei Eigenschaften haben kann, alle optional:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -79,13 +79,13 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
         <p>Optional. Standardmäßig <code>false</code>.</p>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: Es wird in Manifest V3 ab Firefox 118 nicht mehr unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: Es wird nicht in Manifest V3 ab Firefox 118 unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
           </p>
         </div>
         <p>
-          In Firefox kann das Stylesheet unter
+          In Firefox ist das Stylesheet unter
           <code>chrome://browser/content/extension.css</code> oder
-          <code>chrome://browser/content/extension-mac.css</code> auf macOS eingesehen werden.
+          <code>chrome://browser/content/extension-mac.css</code> auf macOS abrufbar.
         </p>
         <p>
           Die
@@ -93,7 +93,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
             href="https://github.com/mdn/webextensions-examples/tree/main/latest-download"
             >latest-download</a
           >
-          Beispieerweiterung verwendet <code>browser_style</code> in ihrem Popup.
+          Beispielerweiterung verwendet <code>browser_style</code> in ihrem Popup.
         </p>
       </td>
     </tr>
@@ -101,11 +101,9 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>default_icon</code></td>
       <td><code>Object</code> oder <code>String</code></td>
       <td>
-        <p>Verwenden Sie dies, um ein Symbol für die Aktion anzugeben.</p>
+        <p>Verwenden Sie dies, um ein Icon für die Aktion anzugeben.</p>
         <p>
-          Es wird empfohlen, hier zwei Symbole anzugeben (19×19 Pixel und
-          38×38 Pixel) und sie in einem Objekt mit den Eigenschaften
-          <code>"19"</code> und <code>"38"</code> zu spezifizieren, so:
+          Es wird empfohlen, hier zwei Icons bereitzustellen (19×19 Pixel und 38×38 Pixel) und sie in einem Objekt mit den Eigenschaften <code>"19"</code> und <code>"38"</code> anzugeben, so:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -114,14 +112,12 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
     }</pre
         >
         <p>
-          Wenn Sie dies tun, wählt der Browser die richtige Symbolgröße für die
-          Pixeldichte des Bildschirms.
+          Wenn Sie dies tun, wird der Browser die richtige Icongröße für die Pixeldichte des Bildschirms wählen.
         </p>
-        <p>Sie können hier auch nur eine Zeichenfolge bereitstellen:</p>
+        <p>Sie können hier auch einfach einen String angeben:</p>
         <pre class="brush: json">"default_icon": "geo.png"</pre>
         <p>
-          Wenn Sie dies tun, wird das Symbol skaliert, um in die Symbolleiste zu passen, und
-          kann verschwommen erscheinen.
+          Wenn Sie dies tun, wird das Icon skaliert, um in die Toolbar zu passen, und könnte unscharf erscheinen.
         </p>
       </td>
     </tr>
@@ -133,7 +129,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
           Der Pfad zu einer HTML-Datei, die die Spezifikation des Popups enthält.
         </p>
         <p>
-          Die HTML-Datei kann CSS- und JavaScript-Dateien mit
+          Die HTML-Datei kann CSS- und JavaScript-Dateien mithilfe von
           <code
             ><a href="/de/docs/Web/HTML/Element/link">&#x3C;link></a></code
           >
@@ -143,22 +139,24 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
               >&#x3C;script></a
             ></code
           >
-          Elementen wie eine normale Webseite einbinden. Verwenden Sie jedoch kein
+          Elementen einbinden, genau wie eine normale Webseite. Verwenden Sie jedoch
+          nicht
           <code
             ><a href="/de/docs/Web/HTML/Element/script"
               >&#x3C;script></a
             ></code
           >
-          mit eingebettetem Code, da Sie sonst einen Content Violation Policy
-          Fehler erhalten. Stattdessen
-          muss <code><a href="/de/docs/Web/HTML/Element/script">src</a></code>
-          das Attribut verwenden, um eine separate Skriptdatei zu laden.
+          mit eingebettetem Code, da Sie sonst einen Content Violation Policy Fehler erhalten. Stattdessen
+          muss
+          <code><a href="/de/docs/Web/HTML/Element/script">src</a></code>
+          verwendet werden, um eine separate Skriptdatei zu laden.
         </p>
         <p>
-          Anders als bei einer normalen Webseite kann JavaScript, das im Popup ausgeführt wird, auf
-          alle <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
-            >WebExtension APIs</a> zugreifen
-          (vorausgesetzt, die Erweiterung hat die entsprechenden
+          Im Unterschied zu einer normalen Webseite kann JavaScript, das im Popup läuft, auf alle
+          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
+            >WebExtension APIs</a
+          >
+          zugreifen (natürlich vorausgesetzt, die Erweiterung hat die entsprechenden
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
             >Berechtigungen</a
@@ -178,7 +176,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>String</code></td>
       <td>
         <p>
-          Tooltip für das Symbol, der angezeigt wird, wenn der Benutzer den Mauszeiger darüber bewegt.
+          Tooltip für das Icon, das angezeigt wird, wenn der Benutzer mit der Maus darüber fährt.
         </p>
         <p>
           Dies ist eine
@@ -192,22 +190,22 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
     <tr>
       <td><code>hide_matches</code></td>
       <td>
-        <code>Array</code> von <code>Match Pattern</code> außer
+        <code>Array</code> von <code>Match Pattern</code>, außer
         <code>&#x3C;all_urls></code>
       </td>
       <td>
         <p>
-          Blenden Sie die Seitenaktion standardmäßig für Seiten aus, deren URLs einem der angegebenen
+          Blendet die Page-Action standardmäßig für Seiten aus, deren URLs mit einem der angegebenen
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns"
-            >Übereinstimmungsmuster</a
+            >Match Patterns</a
           >
-          entsprechen.
+          übereinstimmen.
         </p>
         <p>
-          Beachten Sie, dass Seitenaktionen standardmäßig immer ausgeblendet sind, es sei denn,
-          <code>show_matches</code> wird angegeben. Daher macht es nur Sinn, diese Eigenschaft anzugeben, wenn auch <code>show_matches</code> angegeben wird und überschreibt die Muster in <code>show_matches</code>.
+          Beachten Sie, dass Page-Actions immer standardmäßig ausgeblendet sind, es sei denn,
+          <code>show_matches</code> wird angegeben. Daher macht es nur Sinn, diese Eigenschaft zu verwenden, wenn auch <code>show_matches</code> angegeben ist und wird die Muster in <code>show_matches</code> überschreiben.
         </p>
-        <p>Beispielsweise könnte ein Wert so aussehen:</p>
+        <p>Zum Beispiel, betrachten Sie einen Wert wie:</p>
         <pre class="brush: json">
 "page_action": {
   "show_matches": ["https://*.mozilla.org/*"],
@@ -215,7 +213,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
 }</pre
         >
         <p>
-          Dies zeigt die Seitenaktion standardmäßig für alle HTTPS-URLs unter der
+          Dies zeigt die Page-Action standardmäßig für alle HTTPS-URLs unter der
           <code>"mozilla.org"</code> Domain an, außer für Seiten unter
           <code>"developer.mozilla.org"</code>.
         </p>
@@ -226,7 +224,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>Array</code> von <code>Match Pattern</code></td>
       <td>
         <p>
-          Zeigt die Seitenaktion standardmäßig für Seiten an, deren URLs einem der angegebenen Muster entsprechen.
+          Zeigt die Page-Action standardmäßig für Seiten an, deren URLs mit einem der angegebenen Muster übereinstimmen.
         </p>
         <p>Siehe auch <code>hide_matches</code>.</p>
       </td>
@@ -237,7 +235,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
       <td>
         <p>Optional. Standardmäßig <code>true</code>.</p>
         <p>
-          Steuert, ob die Seitenaktion standardmäßig in der Adressleiste angezeigt wird, wenn der Benutzer die Erweiterung installiert. Diese Eigenschaft wird seit Firefox 89 nicht mehr unterstützt.
+          Bestimmt, ob die Page-Action standardmäßig in der Adressleiste erscheint, wenn der Benutzer die Erweiterung installiert. Diese Eigenschaft wird seit Firefox 89 nicht mehr unterstützt.
         </p>
       </td>
     </tr>
@@ -255,7 +253,7 @@ Der `page_action` Schlüssel ist ein Objekt, das drei optionale Eigenschaften ha
 }
 ```
 
-Eine Seitenaktion nur mit einem Symbol, angegeben in 2 verschiedenen Größen. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Symbol klickt, mithilfe von Code wie diesem:
+Eine Page-Action mit nur einem Icon, in 2 verschiedenen Größen angegeben. Die Hintergrundskripte der Erweiterung können Klick-Ereignisse erfassen, wenn der Benutzer auf das Icon klickt, mit Code wie diesem:
 
 ```js
 browser.pageAction.onClicked.addListener(handleClick);
@@ -272,7 +270,7 @@ browser.pageAction.onClicked.addListener(handleClick);
 }
 ```
 
-Eine Seitenaktion mit einem Symbol, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Benutzer auf das Symbol klickt.
+Eine Page-Action mit einem Icon, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Benutzer auf das Icon klickt.
 
 ## Browser-Kompatibilität
 
@@ -282,4 +280,4 @@ Eine Seitenaktion mit einem Symbol, einem Titel und einem Popup. Das Popup wird 
 
 - [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)
 - [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)
-- [Browser Styles](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)
+- [Browser styles](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)

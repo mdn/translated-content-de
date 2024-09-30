@@ -1,15 +1,16 @@
 ---
-title: "WebGL2RenderingContext: getFragDataLocation()-Methode"
+title: "WebGL2RenderingContext: Methode getFragDataLocation()"
 short-title: getFragDataLocation()
 slug: Web/API/WebGL2RenderingContext/getFragDataLocation
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.getFragDataLocation()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die Zuordnung von Farbnummen zu benutzerdefinierten `varying out`-Variablen zurück.
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die Bindung von
+Farbnummern zu benutzerdefinierten, variierenden Ausgabewerten zurück.
 
 ## Syntax
 
@@ -22,11 +23,11 @@ getFragDataLocation(program, name)
 - `program`
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das abgefragt werden soll.
 - `name`
-  - : Ein String, der den Namen der benutzerdefinierten `varying out`-Variablen angibt.
+  - : Ein String, der den Namen der benutzerdefinierten, variierenden Ausgabewertvariable angibt.
 
 ### Rückgabewert
 
-Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die zugewiesene Farbnummen-Zuordnung angibt, oder `-1` andernfalls.
+Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die zugewiesene Farbnummernbindung angibt, oder `-1` andernfalls.
 
 ## Beispiele
 

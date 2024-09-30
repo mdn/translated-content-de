@@ -8,9 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.port`**-Eigenschaft ist ein
-String, der die Portnummer der URL enthält. Wenn die URL keine
-explizite Portnummer enthält, wird sie auf `''` gesetzt.
+Die **`HTMLAreaElement.port`**-Eigenschaft ist ein String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
 
 ## Wert
 
@@ -36,4 +34,4 @@ area.port; // returns '443'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

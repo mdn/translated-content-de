@@ -1,5 +1,5 @@
 ---
-title: "WEBGL_compressed_texture_astc: getSupportedProfiles() Methode"
+title: "WEBGL_compressed_texture_astc: Methode getSupportedProfiles()"
 short-title: getSupportedProfiles()
 slug: Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_compressed_texture_astc.getSupportedProfiles()`**
-Methode gibt ein Array von Zeichenketten zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
+Die Methode **`WEBGL_compressed_texture_astc.getSupportedProfiles()`** gibt ein Array von Zeichenfolgen zurück, die die Namen der von der Implementierung unterstützten ASTC-Profile enthalten.
 
 ## Syntax
 
@@ -23,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Zeichenfolgenelementen, die angeben, welche ASTC-Profile von der Implementierung unterstützt werden. Derzeit kann dies sein:
+Ein {{jsxref("Array")}} von Zeichenfallelementen, die anzeigen, welche ASTC-Profile von der Implementierung unterstützt werden. Derzeit kann dies sein:
 
 - "ldr": Low Dynamic Range.
 - "hdr": High Dynamic Range.
 
-Der Dynamikumfang bezieht sich auf das Verhältnis zwischen den hellsten und dunkelsten Teilen der Szene. Niedrige Dynamikbereiche sind zum Beispiel JPEG-Formatbilder, die 255:1 nicht überschreiten, oder CRT-Monitore, die 100:1 nicht überschreiten. Ein HDR-Bild speichert Pixelwerte, die den gesamten Tonbereich realer Szenen abdecken (100,000:1).
+Dynamischer Bereich bezieht sich auf das Verhältnis zwischen den hellsten und dunkelsten Teilen der Szene. Niedrige dynamische Bereiche sind beispielsweise JPEG-Formatbilder, die 255:1 nicht überschreiten, oder CRT-Monitore, die 100:1 nicht überschreiten. Ein HDR-Bild speichert Pixelwerte, die den gesamten Tonwertumfang von realen Szenen abdecken (100.000:1).
 
 ## Beispiele
 

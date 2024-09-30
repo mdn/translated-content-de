@@ -1,5 +1,5 @@
 ---
-title: "MediaMetadata: chapterInfo-Eigenschaft"
+title: "MediaMetadata: chapterInfo Eigenschaft"
 short-title: chapterInfo
 slug: Web/API/MediaMetadata/chapterInfo
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die **`chapterInfo`** schreibgeschützte Eigenschaft des [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt ein Array von Metadaten zu Kapitelinformationen zurück, die mit der abgespielten Mediendatei verbunden sind und durch Instanzen des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objekts dargestellt werden.
+Die schreibgeschützte Eigenschaft **`chapterInfo`** des [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt ein Array von Kapitelsinformations-Metadaten zurück, die mit der wiedergegebenen Medienquelle assoziiert sind, dargestellt durch Instanzen des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objekts.
 
-Die `chapterInfo` einer gegebenen Medienressource wird bei ihrer ersten Erstellung über die `chapterInfo`-Eigenschaft des Initialisierungsobjekts des [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)-Konstruktors festgelegt.
+Die `chapterInfo` für eine gegebene Medienressource wird beim ersten Erstellen über die `chapterInfo`-Eigenschaft des Initialisierungsobjekts des [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)-Konstruktors festgelegt.
 
 ## Wert
 
-Ein Array von [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objektinstanzen.
+Ein Array von Instanzen des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objekts.
 
 ## Beispiele
 
-Siehe die Referenzseite zu [`ChapterInformation`](/de/docs/Web/API/ChapterInformation) für ein Beispiel.
+Siehe die Referenzseite [`ChapterInformation`](/de/docs/Web/API/ChapterInformation) für ein Beispiel.
 
 ## Spezifikationen
 

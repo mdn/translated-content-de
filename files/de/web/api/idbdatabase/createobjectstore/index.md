@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`createObjectStore()`**-Methode des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Interfaces erstellt und gibt einen neuen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) zurück.
+Die **`createObjectStore()`**-Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Schnittstelle erstellt und gibt einen neuen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) zurück.
 
-Die Methode nimmt den Namen des Speichers sowie ein Parameterobjekt an, das es Ihnen ermöglicht, wichtige optionale Eigenschaften zu definieren. Sie können die Eigenschaft verwenden, um einzelne Objekte im Speicher eindeutig zu identifizieren. Da die Eigenschaft ein Identifikator ist, sollte sie für jedes Objekt eindeutig sein, und jedes Objekt sollte diese Eigenschaft haben.
+Die Methode nimmt den Namen des Speichers sowie ein Parameterobjekt entgegen, mit dem Sie wichtige optionale Eigenschaften definieren können. Diese Eigenschaft können Sie verwenden, um einzelne Objekte im Speicher eindeutig zu identifizieren. Da es sich um einen Bezeichner handelt, sollte dieser für jedes Objekt einzigartig sein, und jedes Objekt sollte diese Eigenschaft haben.
 
 Diese Methode kann _nur_ innerhalb einer [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)-Transaktion aufgerufen werden.
 
@@ -24,14 +24,14 @@ createObjectStore(name, options)
 ### Parameter
 
 - `name`
-  - : Der Name des neuen zu erstellenden Objektspeichers. Beachten Sie, dass es möglich ist, einen Objektspeicher mit einem leeren Namen zu erstellen.
+  - : Der Name des neuen zu erstellenden Objekt-Speichers. Beachten Sie, dass es möglich ist, einen Objekt-Speicher mit einem leeren Namen zu erstellen.
 - `options` {{optional_inline}}
 
   - : Ein Optionsobjekt, dessen Attribute optionale Parameter der Methode sind. Es umfasst die folgenden Eigenschaften:
     - `keyPath` {{optional_inline}}
-      - : Der [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path), der vom neuen Objektspeicher verwendet werden soll. Wenn leer oder nicht angegeben, wird der Objektspeicher ohne Schlüsselpfad erstellt und verwendet [out-of-line keys](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#out-of-line_key). Sie können auch ein Array als `keyPath` übergeben.
+      - : Der [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path), der vom neuen Objekt-Speicher verwendet wird. Wenn er leer ist oder nicht angegeben wird, wird der Objekt-Speicher ohne Schlüsselpfad erstellt und verwendet [out-of-line keys](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#out-of-line_key). Sie können auch ein Array als `keyPath` übergeben.
     - `autoIncrement` {{optional_inline}}
-      - : Falls `true`, hat der Objektspeicher einen [Schlüsselgenerator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator). Standardmäßig ist er auf <code>false</code> gesetzt.
+      - : Wenn `true`, hat der Objekt-Speicher einen [Schlüsselgenerator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator). Standardwert ist <code>false</code>.
 
 ### Rückgabewert
 
@@ -39,16 +39,16 @@ Ein neuer [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem `name` von einem der folgenden Typen auslösen:
+Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit einem `name` von einem der folgenden Typen auslösen:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn die Methode nicht aus einem `versionchange`-Transaktions-Callback aufgerufen wurde.
+  - : Wird ausgelöst, wenn die Methode nicht aus einer `versionchange`-Transaktionsrückruf aufgerufen wurde.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn eine Anfrage an eine Quelldatenbank gestellt wird, die nicht existiert (zum Beispiel, wenn die Datenbank gelöscht oder entfernt wurde). In Firefox vor Version 41 wurde in diesem Fall ebenfalls ein `InvalidStateError` ausgelöst, was irreführend war; dies wurde nun behoben (siehe [Firefox-Bug 1176165](https://bugzil.la/1176165)).
+  - : Wird ausgelöst, wenn eine Anfrage an eine Quell-Datenbank gestellt wird, die nicht existiert (zum Beispiel, wenn die Datenbank gelöscht oder entfernt wurde). In Firefox vor Version 41 wurde in diesem Fall ebenfalls ein `InvalidStateError` ausgelöst, was irreführend war; dies wurde nun behoben (siehe [Firefox-Fehler 1176165](https://bugzil.la/1176165)).
 - `ConstraintError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn ein Objektspeicher mit dem gegebenen Namen (basierend auf einem case-sensitiven Vergleich) bereits in der verbundenen Datenbank existiert.
+  - : Wird ausgelöst, wenn ein Objekt-Speicher mit dem angegebenen Namen (basierend auf einem Groß-/Kleinschreibvergleich) bereits in der verbundenen Datenbank existiert.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn `autoIncrement` auf true gesetzt ist und `keyPath` entweder ein leerer String oder ein Array mit einem leeren String enthält.
+  - : Wird ausgelöst, wenn `autoIncrement` auf true gesetzt ist und `keyPath` entweder ein leerer String oder ein Array ist, das einen leeren String enthält.
 
 ## Beispiele
 
@@ -100,10 +100,10 @@ request.onupgradeneeded = (event) => {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

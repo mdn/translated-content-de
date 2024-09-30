@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: width Eigenschaft"
+title: "HTMLVideoElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLVideoElement/width
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`** Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Interfaces gibt eine ganze Zahl zurück, die das `width` Attribut des {{HTMLElement("video")}} Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces gibt eine ganze Zahl zurück, die das `width`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 

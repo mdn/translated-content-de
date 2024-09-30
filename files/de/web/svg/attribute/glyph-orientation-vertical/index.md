@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`glyph-orientation-vertical`** Attribut beeinflusst die Menge, um die sich die aktuelle Textposition verschiebt, während jedes [Glyph](/de/docs/Glossary/glyph) gerendert wird.
+Das **`glyph-orientation-vertical`** Attribut beeinflusst den Fortschritt der aktuellen Textposition, während jedes [Glyph](/de/docs/Glossary/glyph) gerendert wird.
 
-Wenn die Inline-Fortschrittsrichtung vertikal ist und die `glyph-orientation-vertical` zu einem Orientierungswinkel führt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition entsprechend den vertikalen Metriken des Glyphs erhöht. Andernfalls, wenn der Winkel kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs erhöht.
+Wenn die Inline-Progressionsrichtung vertikal ist und `glyph-orientation-vertical` einen Orientierungswinkel ergibt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den vertikalen Metriken des Glyphs inkrementiert. Andernfalls, wenn der Winkel kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs inkrementiert.
 
-Dieses Attribut wird nur auf Text angewendet, der in einem vertikalen {{SVGAttr("writing-mode")}} geschrieben ist.
+Dieses Attribut wird nur auf Text angewendet, der in einem vertikalen {{SVGAttr("writing-mode")}} geschrieben wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `glyph-orientation-vertical` als CSS-Eigenschaft verwendet werden.
@@ -53,15 +53,16 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
   - : Vollbreite [ideographische](/de/docs/Glossary/ideographic) und vollbreite lateinische Texte werden mit einer Glyphorientierung von 0 Grad gesetzt. Ideographische Satzzeichen und andere ideographische Zeichen, die alternative horizontale und vertikale Formen haben, verwenden die vertikale Form des Glyphs. Text, der nicht vollbreit ist, wird mit einer Glyphorientierung von 90 Grad gesetzt.
 
-    Diese Neuausrichtungsregel gilt nur für den ersten Level nicht-ideographischen Text. Alle weiteren Einbettungen von Schreibmodi oder bidirektionale Verarbeitungen basieren auf der ersten Drehungsebene.
+    Diese Neuorientierungsregel gilt nur für den ersten nicht-ideographischen Text. Jede weitere Einbindung von Schreibmodi oder bidirektionaler Verarbeitung basiert auf der Rotation der ersten Ebene.
 
     > [!NOTE]
-    > Text, der auf diese "gedrehte" Weise gesetzt ist, kann Ligaturen oder andere Glyphkombinationen und -umordnungen enthalten, die für die Sprache und Schrift üblich sind. (Diese Präsentationsform deaktiviert nicht die automatische Ligaturbildung oder ähnliche kontextgesteuerte Variationen.)
+    > Text, der auf diese "rotierte" Weise gesetzt ist, kann Ligaturen oder andere Kombinationen und Neuordnungen von Glyphen enthalten, die für die Sprache und das Schriftsystem üblich sind. (Diese Präsentationsform deaktiviert nicht die automatische Ligaturbildung oder ähnliche kontextgesteuerte Variationen.)
 
-    Die Bestimmung, welche Zeichen automatisch gedreht werden sollten, kann je nach Benutzeragent variieren. Die Bestimmung basiert auf einer komplexen Interaktion zwischen Land, Sprache, Schrift, Zeicheneigenschaften, Schriftart und Zeichenkontext.
+    Die Bestimmung, welche Zeichen automatisch rotiert werden sollten, kann je nach Benutzeragent unterschiedlich sein. Die Bestimmung basiert auf einer komplexen Interaktion zwischen Land, Sprache, Schriftsystem, Zeichenmerkmalen, Schriftart und Zeichenkontext.
 
 - `<angle>`
-  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächstgelegenen der erlaubten Werte gerundet. Ein Wert von `0deg` gibt an, dass alle Glyphen mit der Oberseite der Glyphen in Richtung der Referenzorientierung gesetzt werden. Ein Wert von `90deg` gibt eine Orientierung von 90 Grad im Uhrzeigersinn von der Referenzorientierung an.
+  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächstgelegenen der zulässigen Werte gerundet.
+    Ein Wert von `0deg` gibt an, dass alle Glyphen mit der Oberseite der Glyphen zur Referenzorientierung ausgerichtet sind. Ein Wert von `90deg` zeigt eine Ausrichtung von 90 Grad im Uhrzeigersinn von der Referenzorientierung.
 
 ## Spezifikationen
 

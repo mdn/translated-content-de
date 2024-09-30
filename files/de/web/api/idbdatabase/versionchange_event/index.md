@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Das `versionchange`-Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis gesendet auf ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)) an anderer Stelle angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Tab auf dem gleichen Computer).
+Das `versionchange`-Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis wird an eine [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase) gesendet) anderswo angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Reiter auf demselben Computer).
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel wird eine Datenbank geöffnet und bei Erfolg ein Listener für `versionchange` hinzugefügt:
+Dieses Beispiel öffnet eine Datenbank und fügt bei Erfolg einen Listener für `versionchange` hinzu:
 
 ```js
 // Open the database
@@ -54,7 +54,7 @@ dBOpenRequest.addEventListener("success", (event) => {
 });
 ```
 
-Dasselbe Beispiel, unter Verwendung der `onversionchange`-Ereignishandler-Eigenschaft:
+Dasselbe Beispiel unter Verwendung der `onversionchange`-Ereignishandler-Eigenschaft:
 
 ```js
 // Open the database

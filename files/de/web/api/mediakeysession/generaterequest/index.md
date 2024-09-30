@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySession: Methode generateRequest()"
+title: "MediaKeySession: `generateRequest()` Methode"
 short-title: generateRequest()
 slug: Web/API/MediaKeySession/generateRequest
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die Methode `generateRequest()` der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, nachdem eine Medienanfrage basierend auf Initialisierungsdaten generiert wurde.
+Die `generateRequest()`-Methode des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession) Interfaces gibt ein {{jsxref('Promise')}} zurück, nachdem eine Medienanfrage basierend auf den Initialisierungsdaten erstellt wurde.
 
 ## Syntax
 

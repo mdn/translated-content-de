@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`Event()`**-Konstruktor erstellt ein neues [`Event`](/de/docs/Web/API/Event)-Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem vom Browser ausgelösten Ereignis, und kann durch ein Skript [ausgelöst](/de/docs/Web/Events/Creating_and_triggering_events) werden.
+Der **`Event()`**-Konstruktor erstellt ein neues [`Event`](/de/docs/Web/API/Event)-Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem vom Browser ausgelösten Ereignis, und kann von einem Skript [ausgelöst](/de/docs/Web/Events/Creating_and_triggering_events) werden.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ new Event(type, options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `bubbles` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis gebubbelt wird. Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob das Ereignis "bubbles". Der Standardwert ist `false`.
     - `cancelable` {{optional_inline}}
       - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann. Der Standardwert ist `false`.
     - `composed` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis Listener außerhalb eines Shadow Roots auslösen wird (siehe [`Event.composed`](/de/docs/Web/API/Event/composed) für weitere Details). Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob das Ereignis Listener außerhalb eines Shadow Roots auslösen wird (siehe [`Event.composed`](/de/docs/Web/API/Event/composed) für mehr Details). Der Standardwert ist `false`.
 
 ### Rückgabewert
 
@@ -58,4 +58,4 @@ myDiv.dispatchEvent(evt);
 
 - [`Event`](/de/docs/Web/API/Event)
 - [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)
-- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)

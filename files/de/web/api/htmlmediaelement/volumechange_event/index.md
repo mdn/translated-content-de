@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `volumechange`-Ereignis wird ausgelöst, wenn sich entweder das [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Attribut oder das [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Attribut geändert hat.
+Das `volumechange` Ereignis wird ausgelöst, wenn sich entweder das [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Attribut oder das [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Attribut geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und hat keine Blasenbildung.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubble aus.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `volumechange`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das ausgelöste Ereignis reagiert hat.
+Diese Beispiele fügen einen Event Listener für das `volumechange` Ereignis des HTMLMediaElements hinzu und geben dann eine Nachricht aus, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("volumechange", (event) => {
 });
 ```
 
-Verwendung der `onvolumechange`-Ereignishandler-Eigenschaft:
+Verwendung der `onvolumechange` Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

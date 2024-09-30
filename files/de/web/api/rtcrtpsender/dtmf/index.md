@@ -11,17 +11,16 @@ l10n:
 Die schreibgeschützte **`dtmf`**-Eigenschaft der
 **[`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)**-Schnittstelle gibt ein
 [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt zurück, das verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Töne
-über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden. Details zur Verwendung des zurückgegebenen `RTCDTMFSender`-Objekts finden Sie unter [Using DTMF](/de/docs/Web/API/WebRTC_API/Using_DTMF).
+über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden. Einzelheiten zur Verwendung des zurückgegebenen `RTCDTMFSender`-Objekts finden Sie unter [Verwendung von DTMF](/de/docs/Web/API/WebRTC_API/Using_DTMF).
 
 ## Wert
 
-Ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der zum Senden von DTMF über die RTP-Sitzung verwendet werden kann, oder
-`null`, wenn die Spur, die von der RTP-Sitzung oder der
-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) insgesamt übertragen wird, DTMF nicht unterstützt.
+Ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der verwendet werden kann, um DTMF über die RTP-Sitzung zu senden, oder `null`, wenn die Spur, die von der RTP-Sitzung übertragen wird, oder die
+[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) insgesamt DTMF nicht unterstützt.
 
 > [!NOTE]
 > Nur Audio-Tracks können DTMF unterstützen, und typischerweise wird nur ein Audio-Track pro
-> `RTCPeerConnection` einen zugehörigen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) haben.
+> `RTCPeerConnection` einen zugeordneten [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) haben.
 
 ## Beispiel
 
@@ -38,7 +37,7 @@ tbd
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Using DTMF with WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
+- [Verwendung von DTMF mit WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
 - [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)
 - [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

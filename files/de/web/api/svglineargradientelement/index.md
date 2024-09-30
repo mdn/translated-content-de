@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGLinearGradientElement`**-Schnittstelle entspricht dem {{SVGElement("linearGradient")}}-Element.
+Die **`SVGLinearGradientElement`** Schnittstelle entspricht dem {{SVGElement("linearGradient")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt außerdem Eigenschaften von ihrem übergeordneten Element, [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
 - [`SVGLinearGradientElement.x1`](/de/docs/Web/API/SVGLinearGradientElement/x1) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x1")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
@@ -24,9 +24,9 @@ _Diese Schnittstelle erbt außerdem Eigenschaften von ihrem übergeordneten Elem
 - [`SVGLinearGradientElement.y2`](/de/docs/Web/API/SVGLinearGradientElement/y2) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y2")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
 ## Spezifikationen
 

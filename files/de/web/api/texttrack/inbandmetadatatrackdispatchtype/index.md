@@ -1,5 +1,5 @@
 ---
-title: "TextTrack: Eigenschaft inBandMetadataTrackDispatchType"
+title: "TextTrack: inBandMetadataTrackDispatchType-Eigenschaft"
 short-title: inBandMetadataTrackDispatchType
 slug: Web/API/TextTrack/inBandMetadataTrackDispatchType
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`inBandMetadataTrackDispatchType`**-Schreibgeschützte Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt den In-Band-Metadaten-Dispath-Typ des Texttracks des durch das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt repräsentierten Texttracks zurück.
+Die schreibgeschützte Eigenschaft **`inBandMetadataTrackDispatchType`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt den in-band Metadaten-Dispatch-Typ des Texttracks zurück, der durch das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt dargestellt wird.
 
-Ein In-Band-Metadaten-Dispath-Typ ist ein aus einer Medienressource extrahierter String, der speziell für In-Band-Metadaten-Tracks bestimmt ist. Ein Beispiel für eine Medienressource, die solche Tracks enthalten könnte, ist eine TV-Station, die eine Sendung im Web streamt. Text-Tracks können verwendet werden, um Metadaten für gezielte Werbung, zusätzliche Informationen wie Rezeptdaten während einer Kochsendung oder Daten für ein Quizspiel während einer Gameshow einzubinden.
+Ein in-band Metadaten-Dispatch-Typ ist ein String, der speziell für in-band Metadaten-Tracks aus einer Medienressource extrahiert wird. Ein Beispiel für eine Medienressource, die solche Tracks haben könnte, ist eine Fernsehsendung, die im Internet gestreamt wird. Texttracks können verwendet werden, um Metadaten für gezielte Werbung, zusätzliche Informationen wie Rezeptdaten während einer Kochshow oder Trivia-Spiel-Daten während einer Gameshow zu enthalten.
 
-Der Wert dieses Attributs könnte genutzt werden, um diese Tracks beim Laden an spezielle Skriptmodule zu binden.
+Der Wert dieses Attributs könnte verwendet werden, um diese Tracks an spezielle Skriptmodule anzuhängen, sobald sie geladen werden.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein String, der den `inBandMetadataTrackDispatchType` enthält, oder ein leerer 
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `inBandMetadataTrackDispatchType` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der Wert von `inBandMetadataTrackDispatchType` in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

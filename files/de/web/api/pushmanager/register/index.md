@@ -11,7 +11,7 @@ l10n:
 Die **`register`**-Methode wird verwendet, um das System zu bitten, einen neuen Endpunkt für Benachrichtigungen anzufordern.
 
 > [!NOTE]
-> Diese Methode wurde durch [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) ersetzt.
+> Diese Methode wurde durch [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) abgelöst.
 
 ## Syntax
 
@@ -25,12 +25,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt zur Handhabung des Erfolgs oder Misserfolgs des Methodenaufrufs.
+Ein `DOMRequest`-Objekt, um den Erfolg oder Fehlschlag des Methodenaufrufs zu verwalten.
 
-Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage eine Zeichenkette sein, die die Endpunkt-URL ist.
+Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage eine Zeichenkette sein, die die Endpunkt-URL darstellt.
 
 > [!NOTE]
-> Wenn Sie die URL nicht mehr benötigen, verwenden Sie bitte [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister), um aufzuräumen.
+> Falls Sie die URL nicht mehr benötigen, verwenden Sie bitte [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister), um aufzuräumen.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ req.onerror = (e) => {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist Teil keiner Spezifikation und wird nicht mehr als Standard verfolgt.
 
 ## Browser-Kompatibilität
 

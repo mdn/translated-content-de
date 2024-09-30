@@ -1,5 +1,5 @@
 ---
-title: "PresentationConnection: send()-Methode"
+title: "PresentationConnection: send() Methode"
 short-title: send()
 slug: Web/API/PresentationConnection/send
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Presentation")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`send()`**-Methode des [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Interfaces signalisiert einem steuernden Browsing-Kontext, binäre oder Textdaten an einen präsentierenden Browsing-Kontext zu senden.
+Die **`send()`**-Methode der
+[`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Schnittstelle weist einen steuernden Browserkontext an,
+binäre oder Textdaten an einen darstellenden Browserkontext zu senden.
 
 ## Syntax
 
@@ -20,7 +22,7 @@ send(data)
 
 - `data`
 
-  - : Die Daten, die an den Präsentationskontext gesendet werden sollen. Sie können eines der folgenden Formate haben:
+  - : Die Daten, die an den Präsentationskontext gesendet werden sollen. Es wird eines der folgenden sein:
 
     - {{jsxref("String")}}
     - [`Blob`](/de/docs/Web/API/Blob)

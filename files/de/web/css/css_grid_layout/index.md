@@ -1,5 +1,5 @@
 ---
-title: CSS-Grid-Layout
+title: CSS grid layout
 slug: Web/CSS/CSS_grid_layout
 l10n:
   sourceCommit: 5ced6d0b9636a1b904474d1546674b305346daa0
@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Grid-Layout** Modul ist hervorragend geeignet, um eine Seite in Hauptbereiche zu unterteilen oder die Beziehung in Bezug auf Größe, Position und Ebene zwischen Teilen eines aus HTML-Elementen aufgebauten Steuerelements zu definieren.
+Das **CSS Grid Layout**-Modul ist hervorragend geeignet, um eine Seite in bedeutende Regionen zu unterteilen oder die Beziehung in Bezug auf Größe, Position und Schicht zwischen Teilen einer Steuerung zu definieren, die aus HTML-Primitiven aufgebaut ist.
 
-Ähnlich wie bei Tabellen ermöglicht das Grid-Layout dem Autor, Elemente in Spalten und Zeilen auszurichten. Mit CSS-Grid sind jedoch viele weitere Layouts möglich oder einfacher zu realisieren als mit Tabellen. Beispielsweise könnten Kindelemente eines Grid-Containers sich so positionieren, dass sie sich tatsächlich überlappen und Schichten bilden, ähnlich wie CSS-Positionierungselemente.
+Ähnlich wie Tabellen ermöglicht das Grid Layout einem Autor, Elemente in Spalten und Zeilen auszurichten. Mit CSS Grid sind jedoch viele weitere Layouts entweder möglich oder einfacher umzusetzen als mit Tabellen. Zum Beispiel könnten sich die Kinderelemente eines Grid-Containers so positionieren, dass sie tatsächlich überlappen und in Schichten anordnen, ähnlich wie bei CSS-positionierten Elementen.
 
 ## Einfaches Beispiel
 
-Das folgende Beispiel zeigt ein Raster mit drei Spalten, wobei neue Zeilen mit einer Mindesthöhe von 100 Pixeln und einem maximalen Wert von auto erzeugt werden. Elemente wurden mittels linienbasierter Platzierung auf das Raster gesetzt.
+Das untenstehende Beispiel zeigt ein Grid mit drei Spalten, bei dem neue Zeilen mit mindestens 100 Pixeln und maximal "auto" erstellt werden. Elemente wurden über lineare Platzierung auf das Grid gesetzt.
 
 ```css hidden
 * {
@@ -119,16 +119,16 @@ Das folgende Beispiel zeigt ein Raster mit drei Spalten, wobei neue Zeilen mit e
 
 ## Leitfäden
 
-- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Beziehung des Grid-Layouts zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
+- [Grundlagen des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Beziehung des Grid-Layouts mit anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
 - [Grid-Template-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Grid-Layout mit linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid-Layout mit benannten Gitternetzlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
+- [Grid-Layout mit Linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid-Layout mit benannten Grid-Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
 - [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
-- [Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-- [Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
-- [Verwirklichung häufiger Layouts mit Grids](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
+- [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
+- [Grid-Layout und Zugänglichkeit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
+- [Verwirklichung gängiger Layouts mit Grids](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
 - [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)
 - [Masonry-Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout)
 
@@ -140,18 +140,18 @@ Das folgende Beispiel zeigt ein Raster mit drei Spalten, wobei neue Zeilen mit e
 
 - Glossar:
   - [Grid](/de/docs/Glossary/Grid)
-  - [Gitterlinien](/de/docs/Glossary/Grid_Lines)
-  - [Gitterstrecken](/de/docs/Glossary/Grid_Tracks)
-  - [Gitterzelle](/de/docs/Glossary/Grid_Cell)
-  - [Gitterbereich](/de/docs/Glossary/Grid_Areas)
+  - [Grid-Linien](/de/docs/Glossary/Grid_Lines)
+  - [Grid-Tracks](/de/docs/Glossary/Grid_Tracks)
+  - [Grid-Zelle](/de/docs/Glossary/Grid_Cell)
+  - [Grid-Bereich](/de/docs/Glossary/Grid_Areas)
   - [Rinnen](/de/docs/Glossary/Gutters)
-  - [Gitterachse](/de/docs/Glossary/Grid_Axis)
-  - [Gitterreihe](/de/docs/Glossary/Grid_Row)
-  - [Gitterspalte](/de/docs/Glossary/Grid_Column)
-- Modul [Flexibles Box-Layout in CSS](/de/docs/Web/CSS/CSS_flexible_box_layout)
-- Modul [CSS-Anzeige](/de/docs/Web/CSS/CSS_display)
+  - [Grid-Achse](/de/docs/Glossary/Grid_Axis)
+  - [Grid-Zeile](/de/docs/Glossary/Grid_Row)
+  - [Grid-Spalte](/de/docs/Glossary/Grid_Column)
+- [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
 - [Grid by example](https://gridbyexample.com/)
-- [CSS-Grid-Referenz](https://tympanus.net/codrops/css_reference/grid/) über Codrops
-- [CSS-Grid-Inspektor - Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html)
-- [CSS-Grid-Spielplatz](https://mozilladevelopers.github.io/playground/css-grid/)
-- [CSS-Grid-Garten](https://cssgridgarden.com/) - Ein Spiel, um CSS-Grid zu lernen
+- [CSS Grid Referenz](https://tympanus.net/codrops/css_reference/grid/) via Codrops
+- [CSS Grid Inspector - Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html)
+- [CSS Grid Spielwiese](https://mozilladevelopers.github.io/playground/css-grid/)
+- [CSS Grid Garten](https://cssgridgarden.com/) - Ein Spiel zum Lernen von CSS Grid

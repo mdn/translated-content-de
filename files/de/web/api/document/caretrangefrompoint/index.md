@@ -1,5 +1,5 @@
 ---
-title: "Document: caretRangeFromPoint() Methode"
+title: "Document: caretRangeFromPoint()-Methode"
 short-title: caretRangeFromPoint()
 slug: Web/API/Document/caretRangeFromPoint
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_header}}
 
-Die **`caretRangeFromPoint()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein [`Range`](/de/docs/Web/API/Range)-Objekt für das Dokumentfragment zurück, das sich unter den angegebenen Koordinaten befindet.
+Die **`caretRangeFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`Range`](/de/docs/Web/API/Range)-Objekt für das Dokumentfragment unter den angegebenen Koordinaten zurück.
 
-Diese Methode ist die WebKit-eigene Implementierung der [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint)-Methode.
+Diese Methode ist die WebKit-proprietäre Implementierung der [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint)-Methode.
 
 ## Syntax
 
@@ -27,14 +27,15 @@ caretRangeFromPoint(x, y)
 
 ### Rückgabewert
 
-Einer der folgenden:
+Eines der folgenden:
 
 - Ein [`Range`](/de/docs/Web/API/Range).
-- `Null`, wenn _x_ oder _y_ negativ, außerhalb des Viewports sind oder es keinen Texteingabenknoten gibt.
+- `Null`, wenn _x_ oder _y_ negativ sind, außerhalb des Viewports liegen,
+  oder kein Texteingabeknoten vorhanden ist.
 
 ## Beispiele
 
-Besuchen Sie die [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint#Examples) Seite, um ein Live-Beispiel dieser Methode zu sehen.
+Besuchen Sie die Seite [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint#Examples), um ein Live-Beispiel dieser Methode zu sehen.
 
 ## Spezifikationen
 

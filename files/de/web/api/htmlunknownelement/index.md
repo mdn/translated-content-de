@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLUnknownElement`**-Schnittstelle repräsentiert ein ungültiges HTML-Element und leitet sich von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ab, ohne jedoch zusätzliche Eigenschaften oder Methoden zu implementieren.
+Die **`HTMLUnknownElement`** Schnittstelle repräsentiert ein ungültiges HTML-Element und leitet sich von der Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) ab, implementiert jedoch keine zusätzlichen Eigenschaften oder Methoden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 

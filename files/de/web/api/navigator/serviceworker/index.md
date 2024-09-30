@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Service Workers API")}}
 
-Die **`serviceWorker`**-Schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt das [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Objekt für das [zugehörige Dokument](https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window) zurück, welches Zugriff auf die Registrierung, Entfernung, Aktualisierung und Kommunikation mit dem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) bietet.
+Die **`serviceWorker`**-Schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt das [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Objekt für das [zugehörige Dokument](https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window) zurück, das Zugriff auf Registrierung, Entfernung, Upgrade und Kommunikation mit dem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) bietet.
 
-Das Feature ist möglicherweise nicht im privaten Modus verfügbar.
+Diese Funktion ist möglicherweise im privaten Modus nicht verfügbar.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Das Feature ist möglicherweise nicht im privaten Modus verfügbar.
 
 ## Beispiele
 
-Dieses Code-Snippet prüft, ob der Browser Service Worker unterstützt.
+Dieser Code überprüft, ob der Browser Service Worker unterstützt.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -37,4 +37,4 @@ if ("serviceWorker" in navigator) {
 ## Siehe auch
 
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

@@ -27,7 +27,7 @@ Ein String, der den primitiven Wert eines gegebenen {{jsxref("String")}}-Objekts
 
 ## Beschreibung
 
-Die `valueOf()`-Methode von {{jsxref("String")}} gibt den primitiven Wert eines {{jsxref("String")}}-Objekts als String-Datentyp zurück. Dieser Wert ist gleichwertig mit {{jsxref("String.prototype.toString()")}}.
+Die `valueOf()`-Methode von {{jsxref("String")}} gibt den primitiven Wert eines {{jsxref("String")}}-Objekts als String-Datentyp zurück. Dieser Wert ist äquivalent zu {{jsxref("String.prototype.toString()")}}.
 
 Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Code.
 

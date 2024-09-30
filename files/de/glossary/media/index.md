@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **Media** ist im Web-Kontext ein überladener Begriff; er hat unterschiedliche Bedeutungen je nach Kontext.
+Der Begriff **Media** ist im Zusammenhang mit dem Web ein überladener Begriff; er nimmt je nach Kontext unterschiedliche Bedeutungen an.
 
 {{GlossaryDisambiguation}}
 

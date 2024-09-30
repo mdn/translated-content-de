@@ -1,5 +1,5 @@
 ---
-title: "Attr: ownerElement Eigenschaft"
+title: "Attr: ownerElement-Eigenschaft"
 short-title: ownerElement
 slug: Web/API/Attr/ownerElement
 l10n:
@@ -12,11 +12,11 @@ Die schreibgeschützte **`ownerElement`**-Eigenschaft des [`Attr`](/de/docs/Web/
 
 ## Wert
 
-Das [`Element`](/de/docs/Web/API/Element), zu dem das Attribut gehört, oder `null`, wenn das Attribut nicht mit einem Element verknüpft ist.
+Das [`Element`](/de/docs/Web/API/Element), zu dem das Attribut gehört, oder `null`, wenn das Attribut mit keinem Element verknüpft ist.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt den qualifizierten Namen des Elements der ersten beiden Elemente an, wenn Sie auf den entsprechenden Button klicken.
+Das folgende Beispiel zeigt den qualifizierten Namen des Elements der ersten beiden Elemente an, wenn wir auf den entsprechenden Button klicken.
 
 ### HTML
 

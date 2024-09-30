@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: locks-Eigenschaft"
+title: "WorkerNavigator: locks Eigenschaft"
 short-title: locks
 slug: Web/API/WorkerNavigator/locks
 l10n:

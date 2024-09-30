@@ -1,5 +1,5 @@
 ---
-title: Kleiner als
+title: Less than
 slug: WebAssembly/Reference/Numeric/Less_than
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`lt`** Anweisungen, kurz für _kleiner als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`lt`**-Anweisungen, kurz für _less than_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel gepusht, andernfalls wird `0` gepusht.
 
-Die Ganzzahltypen haben separate Anweisungen für kleinere Zahlen, unterschieden nach vorzeichenbehaftet (**`lt_s`**) und vorzeichenlos (**`lt_u`**).
+Die Ganzzahltypen haben separate "less than"-Anweisungen für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/lt.html", "tabbed-taller")}}
 
@@ -27,11 +27,11 @@ i32.lt_u
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung  | Binäroperanden |
-| ---------- | -------------- |
-| `i32.lt_s` | `0x48`         |
-| `i32.lt_u` | `0x49`         |
-| `i64.lt_s` | `0x53`         |
-| `i64.lt_u` | `0x54`         |
-| `f32.lt`   | `0x5d`         |
-| `f64.lt`   | `0x63`         |
+| Anweisung  | Binärcode      |
+| ----------- | ------------- |
+| `i32.lt_s`  | `0x48`        |
+| `i32.lt_u`  | `0x49`        |
+| `i64.lt_s`  | `0x53`        |
+| `i64.lt_u`  | `0x54`        |
+| `f32.lt`    | `0x5d`        |
+| `f64.lt`    | `0x63`        |

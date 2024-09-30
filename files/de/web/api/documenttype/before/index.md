@@ -9,9 +9,9 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`DocumentType.before()`** Methode fügt eine Menge von
-[`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen in die Kinderliste des
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kindliste des
 Elternteils des `DocumentType` ein, direkt vor dem `DocumentType`.
-Zeichenfolgen werden als gleichwertige [`Text`](/de/docs/Web/API/Text) Knoten eingefügt.
+Strings werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ before(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Menge von einzufügenden [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -42,7 +42,7 @@ Keiner ({{jsxref("undefined")}}).
 Kommentarknoten sind vor Doctyp-Deklarationen gültig, aber nicht ratsam,
 da sie den Quirks-Modus in IE auslösen. Ein
 [bedingter Kommentar](https://en.wikipedia.org/wiki/Conditional_comment)
-funktioniert allerdings auch in IE:
+funktioniert jedoch auch für IE:
 
 ```js
 let docType = document.implementation.createDocumentType("html", "", "");

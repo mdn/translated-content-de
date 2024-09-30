@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`g2`** Attribut gibt eine Liste von Glyphennamen an, die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
+Das **`g2`**-Attribut gibt eine Liste von Glyphennamen an, die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
 
-Alle Glyphen mit dem angegebenen Glyphennamen sind in dem Set enthalten. Das gesamte Set der möglichen zweiten Glyphen im Kerning-Paar ist die Vereinigung der von den {{SVGAttr("u2")}} und `g2` Attributen angegebenen Glyphen.
+Alle Glyphen mit dem angegebenen Glyphennamen werden in das Set aufgenommen. Das gesamte Set möglicher zweiter Glyphen im Kerning-Paar ist die Vereinigung der Glyphen, die durch die Attribute {{SVGAttr("u2")}} und `g2` angegeben sind.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("hkern")}}
 - {{SVGElement("vkern")}}
@@ -43,7 +43,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert gibt eine kommagetrennte Sequenz von Glyphennamen an (d. h. Werte, die den {{SVGAttr("glyph-name")}} Attributen auf {{SVGElement("glyph")}} Elementen entsprechen), die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
+  - : Dieser Wert gibt eine kommagetrennte Sequenz von Glyphennamen an (also Werte, die den {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen entsprechen), die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
 
 ## Spezifikationen
 

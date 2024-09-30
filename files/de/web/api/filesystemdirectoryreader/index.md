@@ -7,12 +7,12 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Das `FileSystemDirectoryReader`-Interface der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) ermöglicht den Zugriff auf die auf [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) basierenden Objekte (in der Regel [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)), die jeden Eintrag in einem Verzeichnis darstellen.
+Die Schnittstelle `FileSystemDirectoryReader` der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) ermöglicht den Zugriff auf die auf [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) basierten Objekte (im Allgemeinen [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)), die jeden Eintrag in einem Verzeichnis darstellen.
 
 ## Instanzmethoden
 
 - [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries)
-  - : Gibt ein Array zurück, das eine bestimmte Anzahl von Einträgen des Verzeichnisses enthält. Jedes Element im Array ist ein Objekt, das auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basiert—typischerweise entweder [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry).
+  - : Gibt ein Array zurück, das eine Anzahl von Einträgen des Verzeichnisses enthält. Jedes Element im Array ist ein Objekt, das auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basiert – typischerweise entweder [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry).
 
 ## Spezifikationen
 

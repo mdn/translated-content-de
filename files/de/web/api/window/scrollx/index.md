@@ -1,5 +1,5 @@
 ---
-title: "Window: scrollX Eigenschaft"
+title: "Window: scrollX-Eigenschaft"
 short-title: scrollX
 slug: Web/API/Window/scrollX
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("CSSOM View") }}
 
-Die schreibgeschützte **`scrollX`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt die Anzahl der Pixel zurück, um die das Dokument derzeit horizontal gescrollt ist. In modernen Browsern ist dieser Wert subpixelgenau, was bedeutet, dass es sich nicht unbedingt um eine ganze Zahl handelt. Sie können die Anzahl der Pixel, um die das Dokument vertikal gescrollt ist, über die [`scrollY`](/de/docs/Web/API/Window/scrollY)-Eigenschaft erhalten.
+Die schreibgeschützte **`scrollX`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt die Anzahl der Pixel zurück, um die das Dokument derzeit horizontal gescrollt ist. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass er nicht unbedingt eine ganze Zahl ist. Sie können die Anzahl der Pixel, um die das Dokument vertikal gescrollt ist, von der [`scrollY`](/de/docs/Web/API/Window/scrollY)-Eigenschaft erhalten.
 
 ## Wert
 
-Ein doppelpräziser Gleitkommawert, der die Anzahl der Pixel angibt, um die das Dokument derzeit horizontal vom Ursprung aus gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach rechts gescrollt wurde (um mehr Inhalt auf der rechten Seite sichtbar zu machen). Technisch ausgedrückt, gibt `scrollX` die X-Koordinate des linken Randes des aktuellen [Ansichtsbereichs](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht nach links oder rechts gescrollt ist, dann ist `scrollX` 0. Wenn kein Ansichtsbereich vorhanden ist, beträgt der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät dargestellt wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine dezimale Komponente enthalten.
+Ein Gleitkommawert mit doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Dokument derzeit horizontal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach rechts gescrollt ist (um mehr Inhalt auf der rechten Seite anzuzeigen). Technisch ausgedrückt, gibt `scrollX` die X-Koordinate des linken Randes des aktuellen [Viewports](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht nach links oder rechts gescrollt ist, ist `scrollX` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, dann ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
 > [!NOTE]
 > Wenn Sie einen ganzzahligen Wert benötigen, können Sie {{jsxref("Math.round()")}} verwenden, um ihn zu runden.
 
-Es ist möglich, dass `scrollX` negativ ist, wenn das Dokument von dem initialen umgebenden Block nach links gescrollt werden kann. Zum Beispiel, wenn das Dokument von rechts nach links aufgebaut ist und der Inhalt nach links erweitert wird.
+Es ist möglich, dass `scrollX` negativ ist, wenn das Dokument vom initialen umgebenden Block nach links gescrollt werden kann. Zum Beispiel, wenn das Dokument von rechts nach links verläuft und der Inhalt nach links wächst.
 
-Safari reagiert auf Überscrollen, indem `scrollX` über die maximale Scrollposition hinaus aktualisiert wird (es sei denn, der Standard-"Bounce"-Effekt wird deaktiviert, z. B. durch das Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun.
+Safari reagiert auf das Überrollen, indem es `scrollX` über die maximale Scrollposition hinaus aktualisiert (es sei denn, der standardmäßige "Bounce"-Effekt wird deaktiviert, zum Beispiel durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun.
 
 Diese Eigenschaft ist schreibgeschützt. Um das Fenster an eine bestimmte Stelle zu scrollen, verwenden Sie [`Window.scroll()`](/de/docs/Web/API/Window/scroll).
 
@@ -33,9 +33,9 @@ if (window.scrollX > 400) {
 }
 ```
 
-## Anmerkungen
+## Hinweise
 
-Die `pageXOffset`-Eigenschaft ist ein Alias für die `scrollX`-Eigenschaft. Dies bedeutet, dass, wenn Sie keine der beiden Eigenschaften neu zugewiesen haben, `window.pageXOffset === window.scrollX` immer wahr ist.
+Die `pageXOffset`-Eigenschaft ist ein Alias für die `scrollX`-Eigenschaft. Dies bedeutet, dass `window.pageXOffset === window.scrollX` immer true ist, wenn Sie keine der Eigenschaften neu zugewiesen haben.
 
 ## Spezifikationen
 

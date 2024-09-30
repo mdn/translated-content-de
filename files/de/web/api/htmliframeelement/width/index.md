@@ -1,5 +1,5 @@
 ---
-title: "HTMLIFrameElement: width Eigenschaft"
+title: "HTMLIFrameElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLIFrameElement/width
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`** Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Schnittstelle gibt einen String zurück, der das `width` Attribut des {{HTMLElement("iframe")}} Elements widerspiegelt und die Breite des Rahmens in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und die Breite des Rahmens in CSS-Pixels angibt.
 
 ## Wert
 
-Ein String, der die Breite des Rahmens in CSS-Pixeln angibt.
+Ein String, der die Breite des Rahmens in CSS-Pixels angibt.
 
 ## Beispiele
 

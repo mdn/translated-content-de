@@ -8,19 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`address`** des [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) ist ein String, der die lokale IP-Adresse angibt, die während der Verhandlungen zur Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server verwendet wird. Der aufgetretene Fehler betraf diese Adresse.
+Die Eigenschaft **`address`** des [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) ist ein String, der die lokale IP-Adresse angibt, die für die Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server während der Verhandlungen verwendet wird. Der aufgetretene Fehler betraf diese Adresse.
 
 ## Wert
 
-Ein String, der die lokale IP-Adresse der Netzwerkverbindung zum ICE-Server angibt, mit dem die Verhandlungen stattfanden, als der Fehler auftrat. Diese Adresse identifiziert die Netzwerkschnittstelle auf dem lokalen Gerät, die verwendet wird, um zu versuchen, die Verbindung zum entfernten Peer herzustellen.
+Ein String, der die lokale IP-Adresse der Netzwerkverbindung zum ICE-Server angibt, mit dem Verhandlungen geführt wurden, als der Fehler auftrat. Diese Adresse identifiziert die Netzwerkschnittstelle auf dem lokalen Gerät, die verwendet wird, um zu versuchen, die Verbindung zum entfernten Peer herzustellen.
 
-Dies kann bei Systemen mit mehreren Netzwerken nützlich sein—Geräte mit mehr als einer Netzwerkverbindung—um zu bestimmen, welche Netzwerkschnittstelle verwendet wird. Zum Beispiel gibt es auf einem Mobiltelefon typischerweise mindestens zwei verfügbare Netzwerkschnittstellen: die Mobilfunkverbindung und eine Wi-Fi-Verbindung.
+Dies kann auf Systemen mit mehreren Home-Netzwerken—Geräten mit mehr als einer Netzwerkverbindung—nützlich sein, um festzustellen, welche Netzwerkschnittstelle verwendet wird. Auf einem Mobiltelefon gibt es zum Beispiel typischerweise mindestens zwei verfügbare Netzwerkschnittstellen: die Mobilfunkverbindung und eine Wi-Fi-Verbindung.
 
 Wenn die lokale IP-Adresse nicht als Teil eines lokalen Kandidaten offengelegt wird, ist der Wert von `address` `null`.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Handler für `icecandidateerror`-Ereignisse, der menschenlesbare Nachrichten erstellt, die die lokale Netzwerkschnittstelle für die Verbindung sowie den ICE-Server beschreiben, der verwendet wurde, um die Verbindung zu öffnen, und ruft dann eine Funktion auf, um diese sowie den Inhalt der `errorText`-Eigenschaft des Ereignisses anzuzeigen.
+Dieses Beispiel erstellt einen Handler für
+[`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignisse, der menschenlesbare Nachrichten erstellt, die die lokale Netzwerkschnittstelle für die Verbindung sowie den ICE-Server beschreiben, der verwendet wurde, um die Verbindung zu öffnen, und ruft dann eine Funktion auf, um diese anzuzeigen, sowie den Inhalt der Eigenschaft [`errorText`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorText) des Ereignisses.
 
 ```js
 pc.addEventListener("icecandidateerror", (event) => {

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
+Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textrahmen angewendet werden muss.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
+Ein {{jsxref("String")}}, der einer der folgenden Werte ist:
 
 - `"none"`: Keine Unterstreichung.
 - `"thin"`: Eine dünne Unterstreichung.
@@ -22,7 +22,7 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 
 ### Lesen der Unterstreichungsdicke, die angewendet werden muss
 
-Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die Unterstreichungsdicke zu bestimmen, die auf den formatierten Text angewendet werden muss. Beachten Sie, dass der Rückruf des Ereignislisteners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die anzuwendende Unterstreichungsdicke für den zu formatierenden Text zu bestimmen. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>
@@ -54,4 +54,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der es gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.

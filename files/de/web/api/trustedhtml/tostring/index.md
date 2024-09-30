@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toString()`**-Methode der [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Schnittstelle gibt einen String zurück, der sicher in eine Einsenke eingefügt werden kann.
+Die **`toString()`**-Methode der [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Schnittstelle gibt einen String zurück, der sicher in ein Einfügeziel eingesetzt werden kann.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der das bereinigte HTML enthält.
 
 ## Beispiele
 
-Die Konstante `escaped` ist ein Objekt, das über die Trusted Types-Richtlinie escapeHTMLPolicy erstellt wurde. Die `toString()`-Methode gibt einen String für die sichere Einfügung in ein Dokument zurück.
+Die Konstante `escaped` ist ein Objekt, das über die Trusted Types-Richtlinie escapeHTMLPolicy erstellt wird. Die Methode `toString()` gibt einen String zurück, der sicher in ein Dokument eingefügt werden kann.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {

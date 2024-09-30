@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Ereignishandler, der aufgerufen wird, wenn der Stream geöffnet wird und kurz davor ist, Daten zu liefern. Ab diesem Punkt kann die Erweiterung Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
+Ein Ereignishandler, der aufgerufen wird, wenn der Stream geöffnet wird und kurz davor steht, Daten zu liefern. Von diesem Punkt an kann die Erweiterung Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
 
 ## Browser-Kompatibilität
 
@@ -15,7 +15,7 @@ Ein Ereignishandler, der aufgerufen wird, wenn der Stream geöffnet wird und kur
 
 ## Beispiele
 
-Dieses Beispiel wird den Seiteninhalt durch "Ersatztext" ersetzen:
+Dieses Beispiel wird den Seiteninhalt mit "replacement text" ersetzen:
 
 ```js
 function listener(details) {

@@ -1,5 +1,5 @@
 ---
-title: "Element: afterscriptexecute-Event"
+title: "Element: afterscriptexecute-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Element/afterscriptexecute_event
 l10n:
@@ -13,9 +13,9 @@ l10n:
 
 Das **`afterscriptexecute`**-Ereignis wird ausgelöst, nachdem ein Skript ausgeführt wurde.
 
-Es handelt sich um ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
+Es ist ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
 
-Dieses Ereignis ist nicht abbrechbar.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
@@ -41,4 +41,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event)-Ereignis
+- [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event) Ereignis

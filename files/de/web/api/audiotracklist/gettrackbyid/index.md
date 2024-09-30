@@ -1,5 +1,5 @@
 ---
-title: "AudioTrackList: Methode getTrackById()"
+title: "AudioTrackList: getTrackById()-Methode"
 short-title: getTrackById()
 slug: Web/API/AudioTrackList/getTrackById
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **[`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById)** der **[`AudioTrackList`](/de/docs/Web/API/AudioTrackList)** gibt das erste [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt aus der Trackliste zurück, dessen [`id`](/de/docs/Web/API/AudioTrack/id) mit dem angegebenen String übereinstimmt.
-Dies ermöglicht es Ihnen, einen bestimmten Track zu finden, wenn Sie seine ID kennen.
+Die **[`AudioTrackList`](/de/docs/Web/API/AudioTrackList)**-Methode **`getTrackById()`** gibt das erste [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt aus der Liste der Tracks zurück, dessen [`id`](/de/docs/Web/API/AudioTrack/id) mit dem angegebenen String übereinstimmt. Dies ermöglicht es Ihnen, einen bestimmten Track zu finden, wenn Sie dessen ID-String kennen.
 
 ## Syntax
 
@@ -20,27 +19,17 @@ getTrackById(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID des Tracks angibt, der innerhalb der Trackliste gefunden werden soll.
+  - : Ein String, der die ID des zu lokalisierenden Tracks innerhalb der Trackliste angibt.
 
 ### Rückgabewert
 
-Ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt, das den ersten Track in der
-`AudioTrackList` angibt, dessen `id` mit dem angegebenen String übereinstimmt. Wenn kein
-Übereinstimmung gefunden wird, gibt diese Methode `null` zurück.
+Ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt, das den ersten Track innerhalb der `AudioTrackList` angibt, dessen `id` mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, gibt diese Methode `null` zurück.
 
-Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht; das heißt, in der Reihenfolge, die durch das
-Medienressource selbst definiert ist, oder, wenn die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge,
-in der die Tracks von der Medienressource deklariert werden.
+Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht; das heißt in der Reihenfolge, die durch die Medienressource selbst definiert ist, oder, wenn die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge, in der die Tracks von der Medienressource deklariert werden.
 
 ## Beispiele
 
-Dieses Beispiel schlägt ein hypothetisches Spiel vor, in dem Filme als Zwischensequenzen oder
-andere wichtige Elemente innerhalb des Spiels eingesetzt werden. Jeder Film hat einen Audiotrack für jeden Charakter,
-sowie einen für die Musik, Soundeffekte und so weiter. Diese Funktion ermöglicht es dem Spiel,
-den Audiotrack eines bestimmten Charakters zu deaktivieren, um die Leistung des Films basierend
-auf den Vorkommnissen im Spiel anzupassen; wenn der Dialog des Charakters nicht relevant ist, wird er ausgelassen.
-Offensichtlich würde das eine clevere grafische Gestaltung erfordern, um zu funktionieren, aber es ist ein
-hypothetisches Spiel.
+Dieses Beispiel schlägt ein hypothetisches Spiel vor, in dem Filme als Zwischensequenzen oder andere wichtige Szenen innerhalb des Spiels verwendet werden. Jeder Film hat einen Audio-Track für jeden Charakter, sowie einen für die Musik, Soundeffekte und so weiter. Diese Funktion ermöglicht dem Spiel, einen spezifischen Charakter-Audio-Track zu deaktivieren, um die Leistung des Films basierend auf Ereignissen im Spiel anzupassen; wenn der Dialog des Charakters nicht relevant ist, wird er ausgelassen. Offensichtlich würde das ein cleveres Grafikdesign erfordern, um das zu realisieren, aber es ist ein hypothetisches Spiel.
 
 ```js
 function disableCharacter(videoElem, characterName) {
@@ -48,9 +37,7 @@ function disableCharacter(videoElem, characterName) {
 }
 ```
 
-Diese kurze Funktion ruft die [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) ab, die die Audiospuren des Videos enthält, unter Verwendung von [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks), und ruft dann
-`getTrackById()` darauf auf, wobei der Name des Charakters angegeben wird. Der resultierende
-Track wird dann deaktiviert, indem sein [`enabled`](/de/docs/Web/API/AudioTrack/enabled)-Flag auf `false` gesetzt wird.
+Diese kurze Funktion erhält die [`AudioTrackList`](/de/docs/Web/API/AudioTrackList), die die Audio-Tracks des Videos mit [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) enthält, und ruft dann `getTrackById()` darauf auf, indem sie den Namen des Charakters angibt. Der resultierende Track wird dann deaktiviert, indem das [`enabled`](/de/docs/Web/API/AudioTrack/enabled)-Flag auf `false` gesetzt wird.
 
 ## Spezifikationen
 

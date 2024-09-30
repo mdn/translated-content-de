@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.apply()`** Methode ist ein Trap für die `[[Call]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie Funktionsaufrufen verwendet wird.
+Die Methode **`handler.apply()`** ist eine Trap für die `[[Call]]` [interne Methode eines Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die bei Operationen wie Funktionsaufrufen verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-apply.html", "taller")}}
 
@@ -22,10 +22,10 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `apply()`-Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die Methode `apply()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das zu behandelnde aufrufbare Objekt.
+  - : Das Ziel-Callable-Objekt.
 - `thisArg`
   - : Das `this`-Argument für den Aufruf.
 - `argumentsList`
@@ -33,13 +33,13 @@ Die folgenden Parameter werden an die `apply()`-Methode übergeben. `this` ist a
 
 ### Rückgabewert
 
-Die `apply()`-Methode kann einen beliebigen Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs darstellt.
+Die Methode `apply()` kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs darstellt.
 
 ## Beschreibung
 
-### Abfangmechanismen
+### Abfangvorgänge
 
-Dieser Trap kann folgende Operationen abfangen:
+Diese Trap kann folgende Operationen abfangen:
 
 - Funktionsaufruf: `proxy(...args)`
 - {{jsxref("Function.prototype.apply()")}} und {{jsxref("Function.prototype.call()")}}
@@ -49,9 +49,9 @@ Oder jede andere Operation, die die `[[Call]]` [interne Methode](/de/docs/Web/Ja
 
 ### Invarianten
 
-Die `[[Call]]` interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition gegen eine der folgenden Invarianten verstößt:
+Die `[[Call]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Definition des Handlers gegen eine der folgenden Invarianten verstößt:
 
-- Das `target` muss selbst aufrufbar sein. Das heißt, es muss ein Funktionsobjekt sein.
+- Das `target` muss selbst ein aufrufbares Objekt sein. Das heißt, es muss ein Funktionsobjekt sein.
 
 ## Beispiele
 

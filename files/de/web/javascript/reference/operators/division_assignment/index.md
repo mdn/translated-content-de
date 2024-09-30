@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Divisionszuweisungs-Operator (`/=`)** führt die [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Division Zuweisungsoperator (`/=`)** führt eine [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) bei den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-division-assignment.html")}}
 
@@ -19,11 +19,11 @@ x /= y
 
 ## Beschreibung
 
-`x /= y` ist gleichwertig mit `x = x / y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x /= y` ist gleichbedeutend mit `x = x / y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Divisionszuweisung mit Zahlen
+### Division-Zuweisung mit Zahlen
 
 ```js
 let bar = 5;
@@ -33,7 +33,7 @@ bar /= 2; // 1.25
 bar /= 0; // Infinity
 ```
 
-Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 let bar = 5;
@@ -41,7 +41,7 @@ bar /= "2"; // 2.5
 bar /= "foo"; // NaN
 ```
 
-### Divisionszuweisung mit BigInts
+### Division-Zuweisung mit BigInts
 
 ```js
 let foo = 3n;

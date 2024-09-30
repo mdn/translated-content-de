@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.empty()`** Methode entfernt alle Bereiche aus der Auswahl, sodass die Eigenschaften [`anchorNode`](/de/docs/Web/API/Selection/anchorNode) und [`focusNode`](/de/docs/Web/API/Selection/focusNode) gleich `null` sind und nichts ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignis im Dokument ausgelöst.
+Die **`Selection.empty()`** Methode entfernt alle Bereiche aus der Auswahl, wodurch die Eigenschaften [`anchorNode`](/de/docs/Web/API/Selection/anchorNode) und [`focusNode`](/de/docs/Web/API/Selection/focusNode) auf `null` gesetzt werden und nichts ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignis im Dokument ausgelöst.
 
 > [!NOTE]
 > Diese Methode ist ein Alias für die [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) Methode.
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Nachricht an, wenn etwas auf der Seite ausgewählt wird oder nicht. Dies geschieht durch das Abhören des [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignisses im Dokument. Es gibt auch einen Button, der jede Auswahl löscht, indem er `Selection.empty()` aufruft. Wenn dies passiert, wird die Auswahl geändert und die Nachricht aktualisiert.
+Dieses Beispiel zeigt eine Nachricht an, wenn etwas auf der Seite ausgewählt oder nicht ausgewählt wird. Es erreicht dies, indem es auf das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignis im Dokument hört. Es gibt auch einen Knopf, der jegliche Auswahl löscht, indem er `Selection.empty()` aufruft. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht wird aktualisiert.
 
 ```html
 <p>

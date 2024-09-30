@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem booleschen Wert erfüllt wird. Der Wert ist `true`, wenn irgendein Alarm gelöscht wurde, andernfalls `false`. Beachten Sie, dass Chrome hier immer `true` übergibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean-Wert erfüllt wird. Dieser Wert ist `true`, wenn Alarme gelöscht wurden, andernfalls `false`. Beachten Sie, dass Chrome hier immer `true` übergibt.
 
 ## Beispiele
 

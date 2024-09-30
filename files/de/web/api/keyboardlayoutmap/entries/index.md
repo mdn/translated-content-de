@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Die **`entries()`** Methode der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt zurück, das die Schlüssel/Wert-Paare enthält, in der gleichen Reihenfolge, wie sie durch eine {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine `for-in` Schleife Eigenschaften in der Prototypkette aufzählt).
+Die **`entries()`** Methode der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt zurück, das die Schlüssel/Werte-Paare in der gleichen Reihenfolge enthält wie der von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellte (der Unterschied besteht darin, dass eine `for-in` Schleife auch Eigenschaften in der Prototypkette aufzählt).
 
-Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.entries()")}}.
+Die Methode entspricht ansonsten {{jsxref("Map.prototype.entries()")}}.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) 
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft jeden positions- oder layout-spezifischen String und seinen zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel iteriert über jeden orts- oder layoutspezifischen String und dessen zugehörigen Tastencode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

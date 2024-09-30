@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`setAttributeNode()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface fügt einen neuen [`Attr`](/de/docs/Web/API/Attr) Knoten zu dem angegebenen Element hinzu.
+Die **`setAttributeNode()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle fügt ein neues [`Attr`](/de/docs/Web/API/Attr) Knoten zum angegebenen Element hinzu.
 
-Wenn Sie nicht mit dem Attributknoten arbeiten müssen (wie z. B. beim Klonen von einem anderen Element), bevor Sie ihn hinzufügen, können Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode verwenden.
+Wenn Sie nicht mit dem Attributknoten arbeiten müssen (z.B. durch Kopieren von einem anderen Element), bevor Sie ihn hinzufügen, können Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode verwenden.
 
 ## Syntax
 
@@ -51,7 +51,7 @@ d2.setAttributeNode(a.cloneNode(true));
 alert(d2.attributes[1].value);
 ```
 
-## Hinweise
+## Anmerkungen
 
 Wenn das benannte Attribut bereits auf dem Element existiert, wird dieses Attribut durch das neue ersetzt und das ersetzte Attribut wird zurückgegeben.
 

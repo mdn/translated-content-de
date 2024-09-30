@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`patternMismatch`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut festgelegten Einschränkungen entspricht.
+Die schreibgeschützte **`patternMismatch`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}-Elements, nachdem es vom Benutzer bearbeitet wurde, nicht den durch das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut festgelegten Beschränkungen entspricht.
 
 Die `patternMismatch`-Eigenschaft ist genau dann `true`, wenn alle folgenden Bedingungen zutreffen:
 
-- Das Feld unterstützt das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut — das bedeutet, dass das {{HTMLElement("input")}} vom `type` {{HTMLElement("input/text", "Text")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "E-Mail")}}, {{HTMLElement("input/url", "URL")}}, {{HTMLElement("input/password", "Passwort")}} oder {{HTMLElement("input/search", "Suche")}} ist.
+- Das Feld unterstützt das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut — was bedeutet, dass der {{HTMLElement("input")}} vom `Typ` {{HTMLElement("input/text", "text")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "email")}}, {{HTMLElement("input/url", "url")}}, {{HTMLElement("input/password", "password")}} oder {{HTMLElement("input/search", "search")}} ist.
 - Das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut enthält einen gültigen regulären Ausdruck.
-- Der Wert des {{HTMLElement("input")}} entspricht nicht den durch den Wert des [`pattern`](/de/docs/Web/HTML/Attributes/pattern) festgelegten Einschränkungen.
+- Der Wert des {{HTMLElement("input")}}-Elements entspricht nicht den durch den [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Wert festgelegten Beschränkungen.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das `ValidityState`-Objekt nicht den Einschränkungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn das `ValidityState`-Objekt den Beschränkungen nicht entspricht.
 
 ## Beispiele
 
-Gegeben ist Folgendes:
+Gegeben seien die folgenden:
 
 ```html
 <p>
@@ -53,9 +53,9 @@ Gegeben ist Folgendes:
 </p>
 ```
 
-Hier haben wir drei Abschnitte für eine nordamerikanische Telefonnummer mit einem impliziten Label, das alle drei Komponenten der Telefonnummer umfasst. Es werden jeweils 3-stellige, 3-stellige und 4-stellige Zahlen erwartet, wie es durch das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut für jedes festgelegt ist.
+Hier haben wir 3 Abschnitte für eine nordamerikanische Telefonnummer mit einem impliziten Label, das alle drei Komponenten der Telefonnummer umfasst, und erwarten jeweils 3 Ziffern, 3 Ziffern und 4 Ziffern, wie durch das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut festgelegt.
 
-Wenn die Werte zu lang oder zu kurz sind oder Zeichen enthalten, die keine Ziffern sind, wird `patternMismatch` `true` sein. Wenn `true`, stimmt das Element mit den {{cssxref(":invalid")}} CSS-Pseudoklassen überein.
+Wenn die Werte zu lang oder zu kurz sind oder Zeichen enthalten, die keine Ziffern sind, wird `patternMismatch` `true`. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} CSS-Pseudoklassen.
 
 ```css
 input:invalid {
@@ -63,12 +63,12 @@ input:invalid {
 }
 ```
 
-{{EmbedLiveSample("Beispiele", 300, 87)}}
+{{EmbedLiveSample("Examples", 300, 87)}}
 
-Beachten Sie, in diesem Fall erhalten wir ein `patternMismatch`, nicht ein [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort), wenn die Werte zu lang oder zu kurz sind, da das Muster die Länge des Wertes bestimmt. Hätten wir stattdessen die Attribute [`minlength`](/de/docs/Web/HTML/Attributes/minlength) und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength) verwendet, könnten wir feststellen, dass [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) `true` wären.
+Beachten Sie in diesem Fall, dass wir ein `patternMismatch` erhalten und nicht [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort), wenn die Werte zu lang oder zu kurz sind, da das Muster die Länge des Wertes bestimmt. Hätten wir stattdessen die [`minlength`](/de/docs/Web/HTML/Attributes/minlength)- und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)-Attribute verwendet, hätten wir vielleicht [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) als `true` erlebt.
 
 > [!NOTE]
-> Der `{{HTMLElement("input/email", "E-Mail")}}` Eingabetyp erfordert mindestens eine Übereinstimmung mit `x@y` und der `{{HTMLElement("input/url", "URL")}}`-Eingabetyp erfordert mindestens eine Übereinstimmung mit x:, wenn kein Musterattribut vorhanden ist. Ist der Wert ungültig, wird [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch) `true`, wenn kein Musterattribut vorhanden ist (oder wenn das Musterattribut für diesen Eingabetyp nicht gültig ist).
+> Der `{{HTMLElement("input/email", "email")}}`-Eingabetyp erfordert mindestens ein Muster von `x@y` und der `{{HTMLElement("input/url", "url")}}`-Typ erfordert mindestens ein Muster von `x:`, ohne dass ein Muster-Attribut vorhanden ist. Wenn sie ungültig sind, wird [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch) `true` sein, wenn kein Muster-Attribut vorhanden ist (oder wenn das Muster-Attribut für diesen Eingabetyp nicht gültig ist).
 
 ## Spezifikationen
 
@@ -81,5 +81,5 @@ Beachten Sie, in diesem Fall erhalten wir ein `patternMismatch`, nicht ein [`val
 ## Siehe auch
 
 - [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenvalidierung von Formularen](/de/docs/Learn/Forms/Form_validation)
+- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)

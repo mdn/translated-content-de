@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Network Information API")}} {{AvailableInWorkers}}
 
-Die **`saveData`**-Schreibgeschützte
-Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle gibt `true` zurück, wenn der Benutzer eine Option für reduzierten Datenverbrauch im Benutzeragenten festgelegt hat.
+Die **`saveData`** schreibgeschützte Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation) Schnittstelle gibt `true` zurück, wenn der Benutzer in der Benutzerumgebung eine Option für den reduzierten Datenverbrauch eingestellt hat.
 
 ## Wert
 

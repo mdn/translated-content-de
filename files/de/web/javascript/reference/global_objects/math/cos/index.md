@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.cos()`** gibt den Kosinus einer Zahl im Bogenmaß zurück.
+Die **`Math.cos()`** statische Methode gibt den Kosinus einer Zahl in Bogenmaß zurück.
 
 {{EmbedInteractiveExample("pages/js/math-cos.html")}}
 
@@ -24,11 +24,11 @@ Math.cos(x)
 
 ### Rückgabewert
 
-Der Kosinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Kosinus von `x`, zwischen -1 und 1 einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity`, oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `cos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cos()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `cos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cos()`, anstatt als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

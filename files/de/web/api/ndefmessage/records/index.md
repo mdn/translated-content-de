@@ -1,5 +1,5 @@
 ---
-title: "NDEFMessage: records-Eigenschaft"
+title: "NDEFMessage: records Eigenschaft"
 short-title: records
 slug: Web/API/NDEFMessage/records
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die `records`-Eigenschaft des [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Interfaces repräsentiert eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)s, die in der NDEF-Nachricht vorhanden sind.
+Die Eigenschaft `records` der [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Schnittstelle repräsentiert eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekten, die in der NDEF-Nachricht vorhanden sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekten, die die in 
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man den Inhalt einer NDEF-Nachricht liest. Zunächst wird ein Ereignishandler für [`onreading`](/de/docs/Web/API/NDEFReader/reading_event) eingerichtet, der eine Instanz von [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent) übergeben bekommt. Ein `NDEFMessage`-Objekt wird von [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) zurückgegeben. Es durchläuft `message.records` und verarbeitet jedes Record basierend auf seinem Nachrichtentyp. Das Datenmitglied ist ein {{jsxref("DataView")}}, das es ermöglicht, in UTF-16 kodierte Daten zu verarbeiten.
+Das folgende Beispiel zeigt, wie der Inhalt einer NDEF-Nachricht gelesen wird. Es wird zunächst ein Ereignishandler für [`onreading`](/de/docs/Web/API/NDEFReader/reading_event) eingerichtet, dem eine Instanz von [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent) übergeben wird. Ein `NDEFMessage`-Objekt wird aus [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) zurückgegeben. Es wird über `message.records` iteriert und jeder Datensatz basierend auf seinem Nachrichtentyp verarbeitet. Das Datenmitglied ist ein {{jsxref("DataView")}}, das den Umgang mit in UTF-16 kodierten Daten ermöglicht.
 
 ```js
 ndefReaderInst.onreading = (event) => {

@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: SpeechSynthesisUtterance() Konstruktor"
+title: "SpeechSynthesisUtterance: SpeechSynthesisUtterance()-Konstruktor"
 short-title: SpeechSynthesisUtterance()
 slug: Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Der `SpeechSynthesisUtterance()` Konstruktor der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Schnittstelle gibt eine neue `SpeechSynthesisUtterance` Objektinstanz zurück.
+Der `SpeechSynthesisUtterance()`-Konstruktor des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt eine neue Instanz des `SpeechSynthesisUtterance`-Objekts zurück.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new SpeechSynthesisUtterance(text)
 ### Parameter
 
 - `text`
-  - : Ein String, der den Text enthält, der synthetisiert wird, wenn das Gesprochene wiedergegeben wird.
+  - : Ein String, der den Text enthält, der synthetisiert wird, wenn die Äußerung gesprochen wird.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis).
+Das folgende Snippet stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis).
 
 ```js
 const synth = window.speechSynthesis;

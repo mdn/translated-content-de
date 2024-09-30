@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`mask`**-Attribut ist ein Präsentationsattribut, das hauptsächlich verwendet wird, um ein bestimmtes {{ SVGElement("mask") }}-Element mit dem Element zu verbinden, zu dem das Attribut gehört.
+Das **`mask`**-Attribut ist ein Präsentationsattribut, das hauptsächlich verwendet wird, um ein gegebenes {{ SVGElement("mask") }}-Element mit dem Element zu verbinden, zu dem das Attribut gehört.
 
 > [!NOTE]
 > Als Präsentationsattribut kann {{cssxref('mask')}} auch als CSS-Eigenschaft verwendet werden.
@@ -64,9 +64,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-Seit SVG2 wird das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und ist eine Kurzform für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}} und {{cssxref('mask-composite')}}.
+Seit SVG2 ist das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und eine Abkürzung für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}}, und {{cssxref('mask-composite')}}.
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

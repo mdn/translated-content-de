@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feTile>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive ermöglicht es, ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes zu füllen. Der Effekt ist ähnlich dem eines {{SVGElement("pattern")}}.
+Der **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht es, ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes zu füllen. Der Effekt ist ähnlich wie der eines {{SVGElement("pattern")}}.
 
 ## Verwendungskontext
 
@@ -95,4 +95,4 @@ Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETile
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

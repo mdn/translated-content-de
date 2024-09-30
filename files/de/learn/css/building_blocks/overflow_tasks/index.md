@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie das [Überlaufverhalten in CSS verstehen und wie Sie es handhaben können](/de/docs/Learn/CSS/Building_blocks/Overflowing_content).
+Dieser Fähigkeitstest soll beurteilen, ob Sie [Overflow in CSS und dessen Verwaltung](/de/docs/Learn/CSS/Building_blocks/Overflowing_content) verstehen.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
@@ -16,9 +16,9 @@ Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie das [Überlaufverhalt
 
 ## Aufgabe 1
 
-In dieser Aufgabe läuft der Inhalt aus dem Kasten über, weil er eine feste Höhe hat. Behalten Sie die Höhe bei, aber sorgen Sie dafür, dass der Kasten nur dann Bildlaufleisten erhält, wenn genug Text vorhanden ist, um einen Überlauf zu verursachen. Testen Sie, indem Sie etwas Text aus dem HTML entfernen. Wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, sollte keine Bildlaufleiste erscheinen.
+In dieser Aufgabe überläuft der Inhalt die Box, da sie eine feste Höhe hat. Behalten Sie die Höhe bei, aber sorgen Sie dafür, dass die Box nur dann Scrollbars hat, wenn genug Text vorhanden ist, um einen Overflow zu verursachen. Testen Sie, indem Sie etwas Text aus dem HTML entfernen: Wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, sollte kein Scrollbar erscheinen.
 
-![Ein kleiner Kasten mit einem Rahmen und einer vertikalen Bildlaufleiste.](mdn-overflow1.png)
+![Eine kleine Box mit einem Rahmen und einem vertikalen Scrollbar.](mdn-overflow1.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzustellen:
 
@@ -30,11 +30,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe befindet sich ein Bild im Kasten, das größer als die Abmessungen des Kastens ist, sodass es sichtbar überläuft. Ändern Sie es so, dass jedes Bild außerhalb des Kastens verborgen wird.
+In dieser Aufgabe befindet sich ein Bild in der Box, das größer ist als die Dimensionen der Box und daher sichtbar überläuft. Ändern Sie es so, dass jedes Bild außerhalb der Box versteckt wird.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Kasten mit einem Bild, das den Kasten ausfüllt, aber nicht über die Ränder hinausragt.](mdn-overflow2.png)
+![Eine Box mit einem Bild, das die Box ausfüllt, aber nicht über die Ränder hinausragt.](mdn-overflow2.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzustellen:
 

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stop-opacity`**-Attribut definiert die Deckkraft eines bestimmten Farbverlaufsstopps.
+Das Attribut **`stop-opacity`** definiert die Opazität eines bestimmten Farbverlaufsstops.
 
-Der für die Verlaufskalkulation verwendete Deckkraftwert ist das Produkt aus dem Wert von `stop-opacity` und der Deckkraft des Wertes des {{SVGAttr("stop-color")}}-Attributs. Für `stop-color`-Werte, die keine expliziten Deckkraftinformationen enthalten, wird die Deckkraft als `1` betrachtet.
+Der Opazitätswert, der für die Farbverlaufsberechnung verwendet wird, ist das Produkt aus dem Wert von `stop-opacity` und der Opazität des Wertes des {{SVGAttr("stop-color")}} Attributs. Für `stop-color` Werte, die keine expliziten Opazitätsinformationen enthalten, wird die Opazität als `1` behandelt.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-opacity` als CSS-Eigenschaft verwendet werden.
@@ -44,7 +44,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<opacity-value>`
-  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}}-Wert, der die Deckkraft des Farbverlaufsstopps angibt.
+  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}} Wert, der die Opazität des Farbverlaufsstops angibt.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "Document: createTouchList() Methode"
+title: "Document: createTouchList()-Methode"
 short-title: createTouchList()
 slug: Web/API/Document/createTouchList
 l10n:
@@ -26,13 +26,13 @@ createTouchList(touch1, touch2, /* …, */ touchN)
 ### Rückgabewert
 
 - `list`
-  - : Ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das die durch den Parameter `touches` angegebenen [`Touch`](/de/docs/Web/API/Touch)-Objekte enthält.
+  - : Ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das die durch den `touches`-Parameter spezifizierten [`Touch`](/de/docs/Web/API/Touch)-Objekte enthält.
 
 ## Beispiele
 
 Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouchList()`-Methode zur Erstellung von [`TouchList`](/de/docs/Web/API/TouchList)-Objekten.
 
-Im folgenden Codebeispiel werden einige [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target` Element erstellt, und diese Berührungspunkte werden dann verwendet, um einige [`TouchList`](/de/docs/Web/API/TouchList)-Objekte zu erstellen.
+Im folgenden Code-Snippet werden einige [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target`-Element erstellt, und diese Berührungspunkte werden dann verwendet, um einige [`TouchList`](/de/docs/Web/API/TouchList)-Objekte zu erstellen.
 
 ```js
 const target = document.getElementById("target");
@@ -53,7 +53,7 @@ const list2 = document.createTouchList(touch1, touch2);
 
 ## Spezifikationen
 
-Diese Funktion ist nicht Teil einer aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist derzeit nicht Teil einer Spezifikation. Sie ist nicht länger auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -61,7 +61,7 @@ Diese Funktion ist nicht Teil einer aktuellen Spezifikation. Sie ist nicht mehr 
 
 ## Siehe auch
 
-- [Touch Events](/de/docs/Web/API/Touch_events)
+- [Touch events](/de/docs/Web/API/Touch_events)
 - [`Touch`](/de/docs/Web/API/Touch)
 - [`TouchEvent`](/de/docs/Web/API/TouchEvent)
 - [`TouchList`](/de/docs/Web/API/TouchList)

@@ -1,5 +1,5 @@
 ---
-title: "OES_vertex_array_object: createVertexArrayOES()-Methode"
+title: "OES_vertex_array_object: createVertexArrayOES() Methode"
 short-title: createVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/createVertexArrayOES
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OES_vertex_array_object.createVertexArrayOES()`**-Methode
+Die **`OES_vertex_array_object.createVertexArrayOES()`** Methode
 der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
-[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt, das ein Vertex-Array-Objekt (VAO) darstellt,
-welches auf Vertex-Array-Daten verweist und Namen für verschiedene Sätze von Vertexdaten bereitstellt.
+[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt, das ein Vertex-Array-Objekt (VAO) darstellt. Dieses verweist auf Vertex-Array-Daten und ermöglicht es, Namen für verschiedene Sätze von Vertex-Daten zu vergeben.
 
 ## Syntax
 
@@ -25,8 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex-Array-Objekt (VAO) darstellt, welches
-auf Vertex-Array-Daten verweist.
+Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex-Array-Objekt (VAO) darstellt, welches auf Vertex-Array-Daten verweist.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "Document: createElementNS()-Methode"
+title: "Document: createElementNS() Methode"
 short-title: createElementNS()
 slug: Web/API/Document/createElementNS
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Erstellt ein Element mit dem angegebenen Namensraum-URI und qualifizierten Namen.
+Erstellt ein Element mit dem angegebenen Namespace-URI und qualifizierten Namen.
 
-Um ein Element ohne Angabe eines Namensraum-URIs zu erstellen, verwenden Sie die
-[`createElement()`](/de/docs/Web/API/Document/createElement)-Methode.
+Um ein Element ohne Angabe eines Namespace-URIs zu erstellen, verwenden Sie die
+[`createElement()`](/de/docs/Web/API/Document/createElement) Methode.
 
 ## Syntax
 
@@ -23,20 +23,20 @@ createElementNS(namespaceURI, qualifiedName, options)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der den [Namespace-URI](https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI) angibt, der dem Element zugeordnet werden soll.
-    Die [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft des erstellten Elements wird mit dem Wert von _namespaceURI_ initialisiert.
+  - : Ein String, der den [Namespace-URI](https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI) angibt, der mit dem Element verknüpft werden soll.
+    Die [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI) Eigenschaft des erstellten Elements wird mit dem Wert von _namespaceURI_ initialisiert.
     Siehe [Gültige Namespace-URIs](#wichtige_namespace-uris).
 - `qualifiedName`
   - : Ein String, der den Typ des zu erstellenden Elements angibt.
-    Die [`nodeName`](/de/docs/Web/API/Node/nodeName)-Eigenschaft des erstellten Elements wird mit dem Wert von _qualifiedName_ initialisiert.
+    Die [`nodeName`](/de/docs/Web/API/Node/nodeName) Eigenschaft des erstellten Elements wird mit dem Wert von _qualifiedName_ initialisiert.
 - `options` {{Optional_Inline}}
 
-  - : Ein optionales `ElementCreationOptions`-Objekt mit einer einzigen Eigenschaft namens `is`, deren Wert der Tag-Name für ein zuvor mit `customElements.define()` definiertes benutzerdefiniertes Element ist.
+  - : Ein optionales `ElementCreationOptions` Objekt, das eine einzelne Eigenschaft namens `is` enthält, deren Wert der Tag-Name für ein zuvor definiertes benutzerdefiniertes Element ist, das mit `customElements.define()` definiert wurde.
     Aus Gründen der Abwärtskompatibilität mit früheren Versionen der [Custom Elements-Spezifikation](https://www.w3.org/TR/custom-elements/)
-    erlauben einige Browser hier, anstelle eines Objekts einen String zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
-    Weitere Informationen zur Verwendung dieses Parameters finden Sie unter [Erweiterung nativer HTML-Elemente](https://web.dev/articles/web-components).
+    erlauben es einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
+    Siehe [Erweiterung nativer HTML-Elemente](https://web.dev/articles/web-components) für weitere Informationen zur Verwendung dieses Parameters.
 
-    Dem neuen Element wird ein `is`-Attribut zugewiesen, dessen Wert der Tag-Name des benutzerdefinierten Elements ist. Benutzerdefinierte Elemente sind ein experimentelles Feature, das nur in einigen Browsern verfügbar ist.
+    Das neue Element erhält ein `is` Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist. Benutzerdefinierte Elemente sind ein experimentelles Feature, das nur in einigen Browsern verfügbar ist.
 
 ### Rückgabewert
 
@@ -60,8 +60,9 @@ Das neue [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Dies erstellt ein neues `<div>`-Element im [XHTML](/de/docs/Glossary/XHTML)-Namespace und fügt es dem vbox-Element hinzu. Auch wenn dies kein besonders nützliches XUL-Dokument ist, zeigt es dennoch die Verwendung von
-Elementen aus zwei verschiedenen Namensräumen innerhalb eines einzigen Dokuments:
+Dies erstellt ein neues `<div>` Element im [XHTML](/de/docs/Glossary/XHTML) Namespace und
+fügt es dem vbox-Element hinzu. Auch wenn dies kein besonders nützliches XUL-Dokument ist, zeigt es dennoch die Verwendung von
+Elementen aus zwei verschiedenen Namespaces innerhalb eines einzelnen Dokuments:
 
 ```xml
 <?xml version="1.0"?>
@@ -95,8 +96,8 @@ Elementen aus zwei verschiedenen Namensräumen innerhalb eines einzigen Dokument
 ```
 
 > [!NOTE]
-> Das oben gegebene Beispiel verwendet Inline-Skripte, die in XHTML-Dokumenten nicht empfohlen werden.
-> Dieses spezifische Beispiel ist eigentlich ein XUL-Dokument mit eingebettetem XHTML,
+> Das oben angegebene Beispiel verwendet Inline-Skripte, die in XHTML-Dokumenten nicht empfohlen werden.
+> Dieses spezielle Beispiel ist tatsächlich ein XUL-Dokument mit eingebettetem XHTML,
 > jedoch gilt die Empfehlung dennoch.
 
 ## Spezifikationen

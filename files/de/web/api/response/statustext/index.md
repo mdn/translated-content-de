@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`statusText`** schreibgeschützte Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces enthält die Statusmeldung, die dem HTTP-Statuscode in [`Response.status`](/de/docs/Web/API/Response/status) entspricht.
+Die **`statusText`** schreibgeschützte Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält die Statusnachricht, die dem HTTP-Statuscode in [`Response.status`](/de/docs/Web/API/Response/status) entspricht.
 
-Zum Beispiel würde dies `OK` für den Statuscode `200`, `Continue` für `100`, `Not Found` für `404` sein.
+Zum Beispiel wäre dies `OK` für einen Statuscode `200`, `Continue` für `100`, `Not Found` für `404`.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der die dem Response zugeordnete HTTP-Statusmeldung enthält.
+Ein {{jsxref("String")}}, der die HTTP-Statusnachricht enthält, die mit der Antwort verknüpft ist.
 Der Standardwert ist "".
 
-Siehe [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status) für eine Liste von Codes und deren zugehörigen Statusmeldungen.
-Beachten Sie, dass HTTP/2 [keine Statusmeldungen unterstützt](https://fetch.spec.whatwg.org/#concept-response-status-message).
+Siehe [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status) für eine Liste von Codes und deren zugehörigen Statusnachrichten.
+Beachten Sie, dass HTTP/2 [keine Statusnachrichten unterstützt](https://fetch.spec.whatwg.org/#concept-response-status-message).
 
 ## Beispiele
 
-In unserem [Fetch Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, indem wir ihm einen JPG-Pfad übergeben.
-Wir holen diese Anfrage dann mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erzeugen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen dies in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors und übergeben ihm einen JPG-Pfad.
+Wir holen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen dies in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den `statusText`-Wert der Antwort in die Konsole protokollieren.
+Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den `statusText`-Wert der Antwort in der Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

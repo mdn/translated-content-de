@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`isUserVerifyingPlatformAuthenticatorAvailable()`** statische Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Interfaces gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst, wenn ein benutzerverifizierender Plattform-Authenticator vorhanden ist.
+Die statische Methode **`isUserVerifyingPlatformAuthenticatorAvailable()`** der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein Nutzer-verifizierender Plattform-Authenticator vorhanden ist.
 
-Ein benutzerverifizierender Plattform-Authenticator ist eine Art von Multi-Faktor-Authenticator, der Teil des Clientgeräts ist (in der Regel nicht entfernbar) und eine Aktion des Benutzers erfordert, um ihn zu identifizieren. Häufige benutzerverifizierende Plattform-Authenticatoren sind:
+Ein Nutzer-verifizierender Plattform-Authenticator ist eine Art Multi-Faktor-Authenticator, der Teil des Client-Geräts ist (in der Regel nicht abnehmbar) und eine Aktion des Nutzers erfordert, um ihn zu identifizieren. Häufige Nutzer-verifizierende Plattform-Authentifikatoren sind:
 
 - Touch ID oder Face ID (macOS und iOS)
 - Windows Hello (Windows)
-- Gerätesperre (Fingerabdruck, Gesicht, PIN, usw.) auf Android
+- Gerätesperre (Fingerabdruck, Gesichtserkennung, PIN usw.) auf Android
 
 > [!NOTE]
-> Diese Methode kann nur in Top-Level-Kontexten verwendet werden und wird beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
+> Diese Methode kann nur in obersten Kontexten verwendet werden und wird beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
 
 ## Syntax
 
@@ -31,10 +31,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu einem booleschen Wert auflöst und anzeigt, ob ein benutzerverifizierender Plattform-Authenticator verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das zu einem booleschen Wert aufgelöst wird, der angibt, ob ein Nutzer-verifizierender Plattform-Authenticator verfügbar ist oder nicht.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation übermittelte der boolesche Wert auch die Zustimmung des Benutzers, dass ein solcher Authenticator existierte.
+> In früheren Versionen der Spezifikation drückte der boolesche Wert auch die Zustimmung des Nutzers aus, einen solchen Authenticator offenzulegen.
 
 ## Beispiele
 
@@ -66,4 +66,4 @@ PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
 ## Siehe auch
 
 - [Windows Hello](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/windows-hello)
-- [Web Authentication und Windows Hello - MSDN Leitfaden](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und insbesondere die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)
+- [Web-Authentifizierung und Windows Hello – MSDN Leitfaden](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und insbesondere die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)

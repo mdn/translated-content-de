@@ -22,7 +22,7 @@ new BeforeInstallPromptEvent(type, eventInitDict)
 - `type`
   - : Ein String mit dem Namen des Ereignisses, festgelegt auf `beforeinstallpromptevent`.
 - `eventInitDict` {{optional_inline}}
-  - : Ein Objekt mit einer optionalen Eigenschaft `platforms`, das ein Array von Strings ist, welches die Plattformen auflistet, auf denen das Ereignis ausgelöst wird.
+  - : Ein Objekt mit einer einzigen optionalen Eigenschaft `platforms`, die ein Array von Strings ist und die Plattformen auflistet, auf denen das Ereignis ausgelöst wird.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ new BeforeInstallPromptEvent(type, eventInitDict)
 
 ## Siehe auch
 
-- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Anleitung zur Bereitstellung einer eigenen In-App-Installationserfahrung](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Installierbare PWAs erstellen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Anleitung zum Bereitstellen einer eigenen Installationsmöglichkeit in der App](https://web.dev/articles/customize-install) auf web.dev (2021)

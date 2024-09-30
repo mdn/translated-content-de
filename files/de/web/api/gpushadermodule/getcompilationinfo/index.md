@@ -1,5 +1,5 @@
 ---
-title: "GPUShaderModule: Methode getCompilationInfo()"
+title: "GPUShaderModule: getCompilationInfo()-Methode"
 short-title: getCompilationInfo()
 slug: Web/API/GPUShaderModule/getCompilationInfo
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getCompilationInfo()`** Methode der [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird, das Nachrichten enthält, die während der Kompilierung des `GPUShaderModule` generiert wurden.
+Die **`getCompilationInfo()`**-Methode der [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird, welches Nachrichten enthält, die während der Kompilierung des `GPUShaderModule` erzeugt wurden.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 Ein {{jsxref("Promise")}}, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird.
 
-[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) enthält eine `messages`-Eigenschaft, die ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten ist. Jedes dieser Objekte enthält die Details einer einzelnen Kompilierungsnachricht.
+[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) enthält eine `messages`-Eigenschaft, die ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten beinhaltet, von denen jedes die Details einer individuellen Kompilierungsmeldung enthält.
 
 ## Beispiele
 
-Im unten stehenden Beispiel haben wir absichtlich eine Klammer in einer Funktionsdeklaration in unserem Shader-Code ausgelassen:
+Im folgenden Beispiel haben wir absichtlich eine Klammer aus einer Funktionsdeklaration in unserem Shader-Code weggelassen:
 
 ```js
 const shaders = `

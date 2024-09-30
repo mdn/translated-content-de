@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`terminate()`**-Methode der [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController)-Schnittstelle schließt die lesbare Seite und generiert einen Fehler für die beschreibbare Seite des Streams.
+Die **`terminate()`**-Methode der [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController)-Schnittstelle schließt die lesbare Seite und erzeugt einen Fehler auf der beschreibbaren Seite des Streams.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im unten stehenden Beispiel wird die `terminate()`-Methode auf einem [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController) aufgerufen.
+Im untenstehenden Beispiel wird die `terminate()`-Methode auf einem [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController) aufgerufen.
 
 ```js
 controller.terminate();

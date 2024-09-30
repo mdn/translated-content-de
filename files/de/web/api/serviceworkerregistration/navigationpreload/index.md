@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`navigationPreload`**-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt den [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) zurück, der mit der aktuellen Service-Worker-Registrierung verknüpft ist.
+Die **`navigationPreload`** schreibgeschützte Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt den [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) zurück, der mit der aktuellen Serviceworker-Registrierung verbunden ist.
 
-Das zurückgegebene Objekt ermöglicht es, dass Ressourcen, die von einem Service Worker verwaltet werden, gleichzeitig mit dem Start des Service Workers vorab heruntergeladen werden.
+Das zurückgegebene Objekt ermöglicht es, dass von einem Service Worker verwaltete Ressourcen parallel zum Hochfahren des Service Workers präventiv heruntergeladen werden können.
 
 ## Wert
 

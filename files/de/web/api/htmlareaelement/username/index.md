@@ -8,15 +8,15 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.username`**-Eigenschaft ist eine Zeichenkette, die den Benutzernamen enthält, der vor dem Domainnamen angegeben ist.
+Die **`HTMLAreaElement.username`**-Eigenschaft ist ein String, der den vor dem Domainnamen angegebenen Benutzernamen enthält.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Den Benutzernamen aus einem area-Link abrufen
+### Den Benutzernamen von einem Bereichslink abrufen
 
 ```js
 // An <area id="myArea" href="https://anonymous:flabada@developer.mozilla.org/en-US/docs/HTMLAreaElement"> element is in the document
@@ -34,4 +34,4 @@ area.username; // returns 'anonymous'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der sie gehört.

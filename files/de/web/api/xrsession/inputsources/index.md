@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`inputSources`**-Eigenschaft des [`XRSession`](/de/docs/Web/API/XRSession)-Interfaces gibt ein [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt zurück, das alle Steuergeräte und Eingabegeräte auflistet, die ausdrücklich mit dem XR-Gerät verbunden sind und derzeit verfügbar sind. Diese Steuergeräte können Handheld-Controller, mit XR ausgestattete Handschuhe, optisch verfolgte Hände und blickbasierte Eingabemethoden umfassen. Tastaturen, Gamepads und Mäuse werden _nicht_ als WebXR-Eingabequellen betrachtet.
+Die schreibgeschützte **`inputSources`**-Eigenschaft der [`XRSession`](/de/docs/Web/API/XRSession)-Schnittstelle gibt ein [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt zurück, das alle Controller und Eingabegeräte aufführt, die ausdrücklich mit dem XR-Gerät verbunden und derzeit verfügbar sind. Diese Controller können Handcontroller, XR-ausgestattete Handschuhe, optisch verfolgte Hände und blickbasierte Eingabemethoden umfassen. Tastaturen, Gamepads und Mäuse werden _nicht_ als WebXR-Eingabequellen betrachtet.
 
 > [!NOTE]
-> Traditionelle Gamepad-Controller werden über die [Gamepad API](/de/docs/Web/API/Gamepad_API) unterstützt.
+> Traditionelle Gamepad-Controller werden über die [Gamepad-API](/de/docs/Web/API/Gamepad_API) unterstützt.
 
 ## Wert
 
-Ein [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt, das alle aktuell verknüpften Eingabegeräte auflistet, die spezifisch mit dem momentan in Gebrauch befindlichen XR-Gerät verbunden sind. Das zurückgegebene Objekt ist **live**; sobald Geräte mit dem System des Benutzers verbunden oder entfernt werden, aktualisieren sich die Inhalte der Liste, um die Änderungen widerzuspiegeln.
+Ein [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt, das alle aktuell verbundenen Eingabegeräte auflistet, die speziell mit dem derzeit verwendeten XR-Gerät verknüpft sind. Das zurückgegebene Objekt ist **live**; wenn Geräte mit dem System des Benutzers verbunden oder davon entfernt werden, aktualisiert sich der Inhalt der Liste entsprechend.
 
-## Hinweise zur Nutzung
+## Verwendungshinweise
 
-Sie können einen Handler für das `XRSession`-Ereignis [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event) hinzufügen, um benachrichtigt zu werden, wenn sich der Inhalt der Liste der verbundenen Geräte der Sitzung ändert. Sie können dann entweder den Wert von `inputSources` abrufen, um die Liste zu überprüfen, oder auf eine zuvor gespeicherte Referenz der Liste verweisen.
+Sie können einen Handler für das `XRSession`-Ereignis [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event) hinzufügen, um benachrichtigt zu werden, wenn sich der Inhalt der Liste der verbundenen Geräte der Sitzung ändert. Sie können dann entweder den Wert von `inputSources` abrufen, um die Liste zu überprüfen, oder sich auf eine Referenz der Liste beziehen, die Sie zuvor gespeichert haben.
 
 ## Spezifikationen
 
@@ -33,4 +33,4 @@ Sie können einen Handler für das `XRSession`-Ereignis [`inputsourceschange`](/
 
 - [`XRInputSource`](/de/docs/Web/API/XRInputSource)
 - Das [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)-Ereignis
-- [Gamepad API](/de/docs/Web/API/Gamepad_API)
+- [Gamepad-API](/de/docs/Web/API/Gamepad_API)

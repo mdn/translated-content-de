@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`ignoreBOM`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle ist ein {{jsxref('Boolean')}}, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
+Die schreibgeschützte Eigenschaft **`ignoreBOM`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle ist ein {{jsxref('Boolean')}}, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in der Ausgabe enthalten sein wird oder übersprungen wird.
 
 ## Wert
 
-`true`, wenn das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in den dekodierten Text einbezogen wird; `false`, wenn es beim Dekodieren übersprungen und weggelassen wird.
+`true`, wenn das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in den decodierten Text aufgenommen wird; `false`, wenn es beim Decodieren übersprungen und weggelassen wird.
 
 ## Beispiele
 

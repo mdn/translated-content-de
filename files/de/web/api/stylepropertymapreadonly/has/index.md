@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`has()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt an, ob die angegebene Eigenschaft im `StylePropertyMapReadOnly`-Objekt vorhanden ist.
+Die **`has()`**-Methode des
+[`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces zeigt an, ob die angegebene
+Eigenschaft im `StylePropertyMapReadOnly`-Objekt vorhanden ist.
 
 ## Syntax
 
@@ -27,7 +29,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Hier verwenden wir die `has()`-Methode, um zu überprüfen, ob die `padding-top`-Eigenschaft im Stilattribut der Schaltflächenelemente vorhanden ist.
+Hier verwenden wir die `has()`-Methode, um zu prüfen, ob die `padding-top`-Eigenschaft im Stil-Attribut eines Button-Elements vorhanden ist.
 
 ```js
 // get the button element

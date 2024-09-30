@@ -7,64 +7,66 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCRemoteOutboundRtpStreamStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken von einem entfernten Endpunkt über seinen ausgehenden RTP-Stream zu melden. Dies entspricht einem eingehenden Stream, der derzeit vom lokalen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt empfangen wird.
+Das **`RTCRemoteOutboundRtpStreamStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken von einem entfernten Endpunkt über dessen ausgehenden RTP-Stream zu berichten.
+Dies entspricht einem eingehenden Stream, der derzeit vom lokalen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt empfangen wird.
 
-Die Statistiken können erlangt werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchlaufen wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) von `remote-outbound-rtp` finden.
+Die Statistiken können erlangt werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, durchgegangen wird, bis man einen Bericht mit dem [`type`](#type) von `remote-outbound-rtp` findet.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-### Spezifische Statistiken für entfernte ausgehende Streams
+### Remote Outbound spezifische Statistiken
 
 - [`localId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/localId) {{optional_inline}}
-  - : Ein String, der verwendet wird, um das lokale [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt zu finden, das dieselbe [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc) teilt.
+  - : Ein String, der verwendet wird, um das lokale [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt zu finden, das die gleiche [Synchronisierungsquelle (SSRC)](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc) teilt.
 - [`remoteTimestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp) {{optional_inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel (auf dem entfernten Gerät) angibt, zu dem die Statistiken im `RTCRemoteOutboundRtpStreamStats`-Objekt vom entfernten Endpunkt gesendet wurden. Dies unterscheidet sich vom [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp); es repräsentiert den Zeitpunkt, zu dem die Statistiken des Objekts vom lokalen Endpunkt empfangen oder erzeugt wurden.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das den Zeitstempel (auf dem entfernten Gerät) angibt, zu dem die Statistiken im `RTCRemoteOutboundRtpStreamStats`-Objekt vom entfernten Endpunkt gesendet wurden. Dies unterscheidet sich vom [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp), da es die Zeit darstellt, zu der die Statistiken des Objekts vom lokalen Endpunkt empfangen oder generiert wurden.
 - `reportsSent` {{optional_inline}} {{experimental_inline}}
-  - : Eine positive ganze Zahl, die die Gesamtzahl der [RTCP](/de/docs/Glossary/RTCP)-Senderberichte (SR) Blöcke angibt, die für diese [Synchronisationsquelle (SSRC)](#ssrc) gesendet wurden.
+  - : Eine positive Ganzzahl, die die Gesamtzahl an für diese [Synchronisierungsquelle (SSRC)](#ssrc) gesendeten [RTCP](/de/docs/Glossary/RTCP)-Sender-Report-Blöcke angibt.
 - [`roundTripTimeMeasurements`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/roundTripTimeMeasurements) {{optional_inline}} {{experimental_inline}}
-  - : Eine positive Zahl, die die Gesamtzahl der gültigen Round-Trip-Time-Messungen angibt, die für diese [Synchronisationsquelle (SSRC)](#ssrc) empfangen wurden.
+  - : Eine positive Zahl, die die Gesamtanzahl der für diese [Synchronisierungsquelle (SSRC)](#ssrc) empfangenen gültigen Round-Trip-Time-Messungen darstellt.
 - [`totalRoundTripTime`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/totalRoundTripTime) {{optional_inline}} {{experimental_inline}}
   - : Eine Zahl, die die kumulative Summe aller Round-Trip-Time-Messungen seit Beginn der Sitzung in Sekunden angibt.
     Die durchschnittliche Round-Trip-Time kann berechnet werden, indem `totalRoundTripTime` durch [`roundTripTimeMeasurements`](#roundtriptimemeasurements) geteilt wird.
 
-### Gesendete RTP-Stream-Statistiken
+### Gesendete RTP Stream Statistiken
 
 <!-- RTCSentRtpStreamStats -->
 
 - `bytesSent` {{optional_inline}}
-  - : Eine positive ganze Zahl, die die Gesamtanzahl der übertragenen Bytes für diese SSRC einschließlich der erneuten Übertragungen angibt. <!-- [RFC3550] section 6.4.1 -->
+  - : Eine positive Ganzzahl, die die Gesamtanzahl der für diese SSRC gesendeten Bytes angibt, einschließlich erneuter Übertragungen. <!-- [RFC3550] section 6.4.1 -->
 - `packetsSent` {{optional_inline}}
-  - : Eine positive ganze Zahl, die die Gesamtzahl der übertragenen RTP-Pakete für diese SSRC einschließlich der erneuten Übertragungen angibt. <!-- [RFC3550] section 6.4.1 -->
+  - : Eine positive Ganzzahl, die die Gesamtzahl der für diese SSRC gesendeten RTP-Pakete angibt, einschließlich erneuter Übertragungen. <!-- [RFC3550] section 6.4.1 -->
 
-### Gemeinsame RTP-Stream-Statistiken
+### Gemeinsame RTP Stream Statistiken
 
 <!-- RTCRtpStreamStats -->
 
 - [`codecId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/codecId) {{optional_inline}}
-  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Bericht für diesen [RTP](/de/docs/Glossary/RTP) Stream zu erstellen.
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Bericht zu erstellen, der mit diesem [RTP](/de/docs/Glossary/RTP)-Stream verknüpft ist.
 - [`kind`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/kind)
-  - : Ein String, der angibt, ob der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der mit dem Stream verbunden ist, ein Audio- oder ein Videotrack ist.
+  - : Ein String, der angibt, ob der mit dem Stream verknüpfte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ein Audio- oder Video-Track ist.
 - [`ssrc`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc)
-  - : Eine positive ganze Zahl, die die Synchronisationsquelle (SSRC) der RTP-Pakete in diesem Stream identifiziert.
+  - : Eine positive Ganzzahl, die die Synchronisierungsquelle (SSRC) der RTP-Pakete in diesem Stream identifiziert.
 - [`transportId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/transportId) {{optional_inline}}
-  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) Bericht für diesen RTP-Stream zu erstellen.
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Bericht zu erstellen, der mit diesem RTP-Stream verknüpft ist.
 
-### Gemeinsame Instanzeigenschaften
+### Gemeinsame Instanz-Eigenschaften
 
-Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
+Die folgenden Eigenschaften sind für alle WebRTC-Statistikobjekte gemeinsam.
 
 <!-- RTCStats -->
 
 - [`id`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/id)
-  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erzeugen.
+  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erstellen.
 - [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Probe für dieses Statistikobjekt entnommen wurde.
 - [`type`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/type)
   - : Ein String mit dem Wert `"remote-outbound-rtp"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
-## Benutzungshinweise
+## Nutzungshinweise
 
-Die [`remoteTimestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp) Eigenschaft des `RTCRemoteOutboundRtpStreamStats`-Objekts liefert Statistiken basierend auf dem NTP-Zeitstempel der empfangenen Daten aus einem [RTCP](/de/docs/Glossary/RTCP) Senderbericht (SR) Block. Beachten Sie, dass die entfernte Uhr möglicherweise nicht mit der lokalen Uhr synchronisiert ist (weder in der aktuellen Zeit noch in der Geschwindigkeit, mit der die Zeit vergeht).
+Die [`remoteTimestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp)-Eigenschaft des `RTCRemoteOutboundRtpStreamStats`-Objekts liefert Statistiken basierend auf dem NTP-Zeitstempel der empfangenen Daten aus einem [RTCP](/de/docs/Glossary/RTCP)-Sender-Report-Block (SR).
+Beachten Sie, dass die entfernte Uhr möglicherweise nicht mit der lokalen Uhr synchronisiert ist (weder in der aktuellen Zeit noch in der Geschwindigkeit, mit der die Zeit vergeht).
 
 ## Spezifikationen
 

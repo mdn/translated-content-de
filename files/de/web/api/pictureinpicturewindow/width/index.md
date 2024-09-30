@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft des [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Interfaces gibt die Breite des schwebenden Video-Fensters in Pixel zurück.
+Die schreibgeschützte **`width`**-Eigenschaft der [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Schnittstelle gibt die Breite des schwebenden Video-Fensters in Pixeln zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ pictureInPictureWindow.width
 
 ### Wert
 
-Ein Integer-Wert, der die Breite des schwebenden Video-Fensters in Pixel angibt, wenn das Picture-in-Picture-Fenster geöffnet ist. Andernfalls gibt es `0` zurück.
+Ein ganzzahliger Wert, der die Breite des schwebenden Video-Fensters in Pixeln angibt, falls das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
 
 ## Spezifikationen
 

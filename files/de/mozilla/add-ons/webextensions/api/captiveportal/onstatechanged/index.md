@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich der Zustand des Captive-Portals ändert.
+Wird ausgelöst, wenn sich der Status des Captive Portals ändert.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ browser.captivePortal.onStateChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -35,11 +35,11 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `string` Der Zustand des Captive-Portals, einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal` sein kann.
+      - : `string` Der Status des Captive Portals, einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
 
 ## Beispiele
 
-Umgang mit einer Änderung des Captive-Portal-Status:
+Behandeln einer Änderung im Captive Portal-Status:
 
 ```js
 function handlePortalStatus(portalstatusInfo) {
@@ -56,29 +56,31 @@ browser.captivePortal.onStateChanged.addListener(handlePortalStatus);
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Die Verbreitung und Verwendung in Quellen- und Binärformen, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen des Quellcodes müssen das obige Copyright
-// Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitungen in Binärform müssen das obige
-// Copyright-Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien enthalten, die
-// mit der Verbreitung geliefert werden.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Beitragenden dürfen zur Unterstützung oder Werbung für Produkte, die von
-// dieser Software abgeleitet sind, ohne besondere vorherige schriftliche Genehmigung verwendet werden.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND BEITRAGENDEN
-// "WIE BESEHEN" UND JEGLICHE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND
-// DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE COPYRIGHTINHABER ODER BEITRAGENDEN
-// FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
-// BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
-// BEGRENZT AUF, BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
-// DATEN ODER GEWINNE; ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR, GLEICH OB IM
-// VERTRAG, HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERES)
-// DEREN SCHADEN AUS DER NUTZUNG ODER IM ZUSAMMENHANG MIT DER NUTZUNG DIESER SOFTWARE ENTSTEHT, SELBST WENN DIE MÖGLICHKEIT EINER SOLCHEN SCHÄDEN ANGEKÜNDIGT WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

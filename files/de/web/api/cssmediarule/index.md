@@ -7,26 +7,24 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSMediaRule`** Schnittstelle repräsentiert eine einzelne CSS-{{cssxref("@media")}}-Regel.
+Die **`CSSMediaRule`** Schnittstelle repräsentiert eine einzelne CSS {{cssxref("@media")}} Regel.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSMediaRule.media`](/de/docs/Web/API/CSSMediaRule/media) {{ReadOnlyInline}}
-  - : Gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene Zielmedium für Stilinformationen repräsentiert.
+  - : Gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene Zielmedium für Stilinformationen darstellt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das folgende CSS enthält eine Media Query mit einer Stilregel.
-Da diese Regel im letzten hinzugefügten Stylesheet des Dokuments enthalten ist, wird sie die erste `CSSRule` sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
-`myRules[0]` gibt ein `CSSMediaRule`-Objekt zurück, aus dem wir das `mediaText` erhalten können.
+Das folgende CSS enthält eine Media Query mit einer Stilregel. Da diese Regel im letzten zum Dokument hinzugefügten Stylesheet enthalten ist, wird sie die erste `CSSRule` sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird. `myRules[0]` gibt ein `CSSMediaRule` Objekt zurück, von dem wir das `mediaText` erhalten können.
 
 ```html
 <p id="log"></p>

@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySystemAccess: Methode createMediaKeys()"
+title: "MediaKeySystemAccess: createMediaKeys()-Methode"
 short-title: createMediaKeys()
 slug: Web/API/MediaKeySystemAccess/createMediaKeys
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die Methode `MediaKeySystemAccess.createMediaKeys()` gibt ein
-{{jsxref('Promise')}} zurück, das in einem neuen [`MediaKeys`](/de/docs/Web/API/MediaKeys) Objekt aufgelöst wird.
+Die Methode `MediaKeySystemAccess.createMediaKeys()` gibt ein {{jsxref('Promise')}} zurück, das sich in ein neues [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt auflöst.
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`count`** schreibgeschützte Eigenschaft des [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Interfaces ist eine Zahl, die die Anzahl der Abfragen angibt, die vom `GPUQuerySet` verwaltet werden.
+Die **`count`**-Eigenschaft des [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Interfaces ist eine schreibgeschützte Zahl, die die Anzahl der Abfragen spezifiziert, die vom `GPUQuerySet` verwaltet werden.
 
 ## Wert
 

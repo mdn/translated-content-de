@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`setMonth()`** Methode von {{jsxref("Date")}} Instanzen ändert den Monat und/oder den Tag des Monats für dieses Datum entsprechend der lokalen Zeit.
+Die **`setMonth()`**-Methode von {{jsxref("Date")}}-Instanzen ändert den Monat und/oder Tag des Monats für dieses Datum gemäß der Ortszeit.
 
 {{EmbedInteractiveExample("pages/js/date-setmonth.html")}}
 
@@ -21,21 +21,21 @@ setMonth(monthValue, dateValue)
 ### Parameter
 
 - `monthValue`
-  - : Ein Ganzzahl, die den Monat darstellt: 0 für Januar, 1 für Februar und so weiter.
+  - : Ein ganzzahliger Wert, der den Monat darstellt: 0 für Januar, 1 für Februar und so weiter.
 - `dateValue` {{optional_inline}}
-  - : Eine Ganzzahl von 1 bis 31, die den Tag des Monats darstellt.
+  - : Ein ganzzahliger Wert von 1 bis 31, der den Tag des Monats darstellt.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}} Objekt an Ort und Stelle und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [erzwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die in `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie den `dateValue` Parameter nicht angeben, wird derselbe Wert verwendet, der von {{jsxref("Date/getDate", "getDate()")}} zurückgegeben wird.
+Wenn Sie den `dateValue`-Parameter nicht angeben, wird der gleiche Wert wie der zurückgegeben von {{jsxref("Date/getDate", "getDate()")}} verwendet.
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Zum Beispiel, wenn Sie 15 für `monthValue` angeben, wird das Jahr um 1 erhöht und 3 wird für den Monat verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Wenn Sie zum Beispiel 15 für `monthValue` angeben, wird das Jahr um 1 erhöht und 3 wird für den Monat verwendet.
 
-Der aktuelle Tag des Monats beeinflusst das Verhalten dieser Methode. Konzeptionell wird die Anzahl der Tage, die durch den aktuellen Tag des Monats gegeben sind, zum 1. Tag des neuen Monats, der als Parameter angegeben ist, hinzugefügt, um das neue Datum zurückzugeben. Zum Beispiel, wenn der aktuelle Wert der 31. Januar 2016 ist, wird ein Aufruf von setMonth mit einem Wert von 1 den 2. März 2016 zurückgeben. Dies liegt daran, dass Februar 2016 29 Tage hatte.
+Der aktuelle Tag des Monats wird das Verhalten dieser Methode beeinflussen. Konzeptionell wird die Anzahl der Tage, die durch den aktuellen Tag des Monats angegeben wird, zum 1. Tag des neuen Monats, der als Parameter angegeben wird, hinzugefügt, um das neue Datum zurückzugeben. Zum Beispiel: Wenn der aktuelle Wert der 31. Januar 2016 ist, wird das Aufrufen von `setMonth` mit einem Wert von 1 den 2. März 2016 zurückgeben. Dies liegt daran, dass Februar im Jahr 2016 29 Tage hatte.
 
 ## Beispiele
 

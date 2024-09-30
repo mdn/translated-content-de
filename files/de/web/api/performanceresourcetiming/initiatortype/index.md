@@ -8,65 +8,65 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`initiatorType`** ist ein String, der die Webplattform-Funktion repräsentiert, die das Laden der Ressource initiiert hat.
+Die schreibgeschützte Eigenschaft **`initiatorType`** ist ein String, der die Webplattform-Funktion darstellt, die das Laden der Ressource initiiert hat.
 
 > [!NOTE]
-> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann mit einem {{HTMLElement("link")}}-Element abgerufen werden, was zu einem `initiatorType` von `link` führt. Beim Laden von Bildern mit `background: url()` in einer CSS-Datei ist der `initiatorType` `css` und nicht `img`.
+> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann mithilfe eines {{HTMLElement("link")}}-Elements abgerufen werden, was zu einem `initiatorType` von `link` führt. Beim Laden von Bildern mit `background: url()` in einer CSS-Datei wird `initiatorType` `css` und nicht `img` sein.
 
 ## Wert
 
 Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wenn keine der Bedingungen zutrifft.
 
 - `audio`
-  - : Wenn die Anforderung durch das `src`-Attribut eines {{HTMLElement("audio")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `src`-Attribut eines {{HTMLElement("audio")}}-Elements initiiert wurde.
 - `beacon`
-  - : Wenn die Anforderung durch eine [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-Methode initiiert wurde.
+  - : Wenn die Anfrage durch die [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-Methode initiiert wurde.
 - `body`
-  - : Wenn die Anforderung durch das `background`-Attribut eines {{HTMLElement("body")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `background`-Attribut eines {{HTMLElement("body")}}-Elements initiiert wurde.
 - `css`
-  - : Wenn die Anforderung durch eine CSS-`url()`-Funktion initiiert wurde.
+  - : Wenn die Anfrage durch eine CSS-`url()`-Funktion initiiert wurde.
 - `early-hint`
-  - : Wenn die Anforderung durch eine {{HTTPStatus("103")}} `Early Hint`-Antwort initiiert wurde.
+  - : Wenn die Anfrage durch eine {{HTTPStatus("103")}} `Early Hint`-Antwort initiiert wurde.
 - `embed`
-  - : Wenn die Anforderung durch das `src`-Attribut eines {{HTMLElement("embed")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `src`-Attribut eines {{HTMLElement("embed")}}-Elements initiiert wurde.
 - `fetch`
-  - : Wenn die Anforderung durch eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode initiiert wurde.
+  - : Wenn die Anfrage durch die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode initiiert wurde.
 - `frame`
-  - : Wenn die Anforderung durch das Laden eines {{HTMLElement("frame")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das Laden eines {{HTMLElement("frame")}}-Elements initiiert wurde.
 - `iframe`
-  - : Wenn die Anforderung durch das `src`-Attribut eines {{HTMLElement("iframe")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `src`-Attribut eines {{HTMLElement("iframe")}}-Elements initiiert wurde.
 - `icon` {{non-standard_inline}}
-  - : Wenn die Anforderung durch ein Favicon initiiert wurde. Nicht standardisiert und nur von Safari gemeldet.
+  - : Wenn die Anfrage durch ein Favicon initiiert wurde. Nicht standardisiert und nur von Safari gemeldet.
 - `image`
-  - : Wenn die Anforderung durch ein {{SVGElement("image")}}-Element initiiert wurde.
+  - : Wenn die Anfrage durch ein {{SVGElement("image")}}-Element initiiert wurde.
 - `img`
-  - : Wenn die Anforderung durch das `src`- oder `srcset`-Attribut eines {{HTMLElement("img")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `src`- oder `srcset`-Attribut eines {{HTMLElement("img")}}-Elements initiiert wurde.
 - `input`
-  - : Wenn die Anforderung durch ein {{HTMLElement("input")}}-Element vom Typ `image` initiiert wurde.
+  - : Wenn die Anfrage durch ein {{HTMLElement("input")}}-Element des Typs `image` initiiert wurde.
 - `link`
-  - : Wenn die Anforderung durch ein {{HTMLElement("link")}}-Element initiiert wurde.
+  - : Wenn die Anfrage durch ein {{HTMLElement("link")}}-Element initiiert wurde.
 - `navigation`
-  - : Wenn die Anforderung durch eine Navigationsanforderung initiiert wurde.
+  - : Wenn die Anfrage durch eine Navigationsanfrage initiiert wurde.
 - `object`
-  - : Wenn die Anforderung durch ein {{HTMLElement("object")}}-Element initiiert wurde.
+  - : Wenn die Anfrage durch ein {{HTMLElement("object")}}-Element initiiert wurde.
 - `ping`
-  - : Wenn die Anforderung durch das `ping` eines {{HTMLElement("a")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `ping` eines {{HTMLElement("a")}}-Elements initiiert wurde.
 - `script`
-  - : Wenn die Anforderung durch ein {{HTMLElement("script")}}-Element initiiert wurde.
+  - : Wenn die Anfrage durch ein {{HTMLElement("script")}}-Element initiiert wurde.
 - `track`
-  - : Wenn die Anforderung durch das `src` eines {{HTMLElement("track")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `src` eines {{HTMLElement("track")}}-Elements initiiert wurde.
 - `video`
-  - : Wenn die Anforderung durch das `poster` oder `src` eines {{HTMLElement("video")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage durch das `poster` oder `src` eines {{HTMLElement("video")}}-Elements initiiert wurde.
 - `xmlhttprequest`
-  - : Wenn die Anforderung durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) initiiert wurde.
+  - : Wenn die Anfrage durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) initiiert wurde.
 
 ## Beispiele
 
 ### Ressourcen filtern
 
-Die Eigenschaft `initiatorType` kann verwendet werden, um nur bestimmte Einträge der Ressourcentiming zu erhalten. Zum Beispiel nur diejenigen, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
+Die `initiatorType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten. Zum Beispiel nur diejenigen, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erzeugung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existieren.
 
 ```js
 const observer = new PerformanceObserver((list) => {

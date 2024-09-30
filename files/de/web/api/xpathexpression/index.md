@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Diese Schnittstelle ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem bestimmten Knoten ausgewertet werden kann, um Informationen von seinem [DOM](/de/docs/Glossary/DOM)-Baum zurückzugeben.
+Dieses Interface ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem spezifischen Knoten ausgewertet werden kann, um Informationen aus seinem [DOM](/de/docs/Glossary/DOM)-Baum zu erhalten.
 
-Dies ist nützlich, wenn ein Ausdruck in einer Anwendung wiederverwendet wird, da er nur einmal kompiliert wird und alle Namensraum-Präfixe, die im Ausdruck vorkommen, vorab aufgelöst werden.
+Dies ist nützlich, wenn ein Ausdruck in einer Anwendung wiederverwendet wird, da er nur einmal kompiliert wird und alle Namensraum-Präfixe, die im Ausdruck vorkommen, vorher aufgelöst werden.
 
-Objekte dieses Typs werden durch Aufruf von [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) erstellt.
+Objekte dieses Typs werden erstellt, indem [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) aufgerufen wird.
 
 ## Instanzmethoden
 
@@ -20,7 +20,7 @@ Objekte dieses Typs werden durch Aufruf von [`XPathEvaluator.createExpression()`
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Verwendung der `XPathExpression`-Schnittstelle.
+Das folgende Beispiel zeigt die Verwendung des `XPathExpression`-Interfaces.
 
 ### HTML
 

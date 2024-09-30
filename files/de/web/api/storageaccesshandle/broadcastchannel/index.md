@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: BroadcastChannel()-Eigenschaft"
+title: "StorageAccessHandle: BroadcastChannel() Eigenschaft"
 short-title: BroadcastChannel()
 slug: Web/API/StorageAccessHandle/BroadcastChannel
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel), um die Nutzung zu verstehen.
+> Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel) um die Nutzung zu verstehen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ handle.BroadcastChannel(channelName)
 
 ### Rückgabewert
 
-Ein nicht partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekt.
+Ein nicht-partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) Objekt.
 
 ### Ausnahmen
 

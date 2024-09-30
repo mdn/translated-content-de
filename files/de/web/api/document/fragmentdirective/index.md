@@ -1,5 +1,5 @@
 ---
-title: "Document: fragmentDirective Eigenschaft"
+title: "Document: fragmentDirective-Eigenschaft"
 short-title: fragmentDirective
 slug: Web/API/Document/fragmentDirective
 l10n:
@@ -8,19 +8,17 @@ l10n:
 
 {{APIRef("URL Fragment Text Directives")}}
 
-Die **`fragmentDirective`** schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document) Schnittstelle gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
+Die schreibgeschützte **`fragmentDirective`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
 
 ## Wert
 
-Ein [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) Objekt.
+Ein [`FragmentDirective`](/de/docs/Web/API/FragmentDirective)-Objekt.
 
 ## Beispiele
 
 ### Überprüfen, ob Textfragmente unterstützt werden
 
-Der untenstehende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem er das Vorhandensein des Objekts überprüft.
-Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich zur Funktionsdetektion gedacht ist.
-In Zukunft könnte es weitere Informationen enthalten.
+Der folgende Code gibt aus, ob Textfragmente in Ihrem Browser unterstützt werden, indem das Vorhandensein des Objekts überprüft wird. Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich für die Feature-Erkennung gedacht ist. In Zukunft könnten weitere Informationen enthalten sein.
 
 ```html hidden
 <pre id="log"></pre>

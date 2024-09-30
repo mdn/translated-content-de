@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`values()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jedes `Highlight`-Objekt im `HighlightRegistry`-Objekt in Einfügereihenfolge enthält.
+Die **`values()`**-Methode des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Interfaces gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jedes `Highlight`-Objekt im `HighlightRegistry`-Objekt in Einfügereihenfolge enthält.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.values()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich zur Verwendung von {{jsxref("Map.values()")}}.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Ein neues Iterator-Objekt, das jedes `Highlight`-Objekt im Register in Einfüger
 
 ## Beispiele
 
-Der folgende Code-Schnipsel zeigt, wie drei `Highlight`-Objekte erstellt und registriert werden und wie der mit der `values()`-Methode zurückgegebene Iterator verwendet wird, um die Hervorhebungen zu protokollieren:
+Der folgende Codeausschnitt zeigt, wie Sie drei `Highlight`-Objekte erstellen und registrieren und den Iterator verwenden, der von der `values()`-Methode zurückgegeben wird, um die Hervorhebungen zu protokollieren:
 
 ```js
 const fooHighlight = new Highlight();
@@ -42,7 +42,7 @@ console.log(iter.next().value); // Highlight
 console.log(iter.next().value); // Highlight
 ```
 
-Das folgende Code-Beispiel zeigt, wie man mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife über die Hervorhebungen im Register iteriert:
+Das folgende Codebeispiel zeigt, wie man mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife über die Hervorhebungen im Register iteriert:
 
 ```js
 const fooHighlight = new Highlight();
@@ -69,4 +69,4 @@ for (const highlight of CSS.highlights.values()) {
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft der Textbereichs-Hervorhebung im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`visibleRect`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, die das sichtbare Rechteck der Pixel für dieses `VideoFrame` beschreibt.
+Die **`visibleRect`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, das das sichtbare Rechteck der Pixel für dieses `VideoFrame` beschreibt.
 
 ## Wert
 
-Eine [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
 
 ## Beispiele
 
-Das folgende Beispiel druckt das `visibleRect` in die Konsole.
+Das folgende Beispiel gibt das `visibleRect` auf der Konsole aus.
 
 ```js
 console.log(VideoFrame.visibleRect);

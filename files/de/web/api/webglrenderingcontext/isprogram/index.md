@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: isProgram()-Methode"
 short-title: isProgram()
 slug: Web/API/WebGLRenderingContext/isProgram
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isProgram()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) gültig ist, andernfalls `false`.
+Die **`WebGLRenderingContext.isProgram()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isProgram(program)
 ### Parameter
 
 - `program`
-  - : Ein zu überprüfendes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das überprüft werden soll.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das Programm gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das anzeigt, ob das Programm gültig ist oder nicht.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: SharedWorker() Methode"
+title: "StorageAccessHandle: SharedWorker()-Methode"
 short-title: SharedWorker()
 slug: Web/API/StorageAccessHandle/SharedWorker
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Lesen Sie [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker), um die Nutzung zu verstehen.
+> Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker), um die Verwendung zu verstehen.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ handle.SharedWorker(aURL, options)
 - `options` {{optional_inline}}
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 
-> **Hinweis:** `options.sameSiteCookies` unterstützt nur den Wert "none", welcher der Standardwert ist.
+> **Hinweis:** `options.sameSiteCookies` unterstützt nur den Wert "none", der Standardwert ist.
 
 ### Rückgabewert
 
-Ein unpartitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt.
+Ein unpartitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt.
 
 ### Ausnahmen
 
@@ -56,7 +56,7 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
+> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
 
 ## Spezifikationen
 
@@ -69,4 +69,4 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

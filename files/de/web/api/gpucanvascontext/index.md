@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUCanvasContext`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert den WebGPU-Rendering-Kontext eines {{htmlelement("canvas")}}-Elements, das über einen Aufruf von [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) mit einem `contextType` von `"webgpu"` zurückgegeben wird.
+Das **`GPUCanvasContext`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert den WebGPU-Rendering-Kontext eines {{htmlelement("canvas")}} Elements, der über einen Aufruf von [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) mit einem `contextType` von `"webgpu"` zurückgegeben wird.
 
 {{InheritanceDiagram}}
 
@@ -19,11 +19,11 @@ Das **`GPUCanvasContext`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_AP
 ## Instanzmethoden
 
 - [`configure()`](/de/docs/Web/API/GPUCanvasContext/configure) {{Experimental_Inline}}
-  - : Konfiguriert den Kontext für die Verwendung beim Rendern mit einem gegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) und leert das Canvas zu transparentem Schwarz.
+  - : Konfiguriert den Kontext für das Rendering mit einem gegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) und setzt das Canvas auf transparentes Schwarz zurück.
 - [`getCurrentTexture()`](/de/docs/Web/API/GPUCanvasContext/getCurrentTexture) {{Experimental_Inline}}
-  - : Gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext im Dokument zusammengesetzt werden soll.
+  - : Gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die durch den Canvas-Kontext im Dokument zusammengesetzt wird.
 - [`unconfigure()`](/de/docs/Web/API/GPUCanvasContext/unconfigure) {{Experimental_Inline}}
-  - : Entfernt jegliche zuvor festgelegten Konfigurationen des Kontextes und zerstört alle Texturen, die produziert wurden, während der Canvas-Kontext konfiguriert war.
+  - : Entfernt jede zuvor gesetzte Kontextkonfiguration und zerstört alle Texturen, die während der Konfiguration des Canvas-Kontexts produziert wurden.
 
 ## Beispiele
 

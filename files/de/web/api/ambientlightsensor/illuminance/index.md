@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`illuminance`**-Eigenschaft des [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Interfaces gibt das aktuelle Lichtniveau in [Lux](https://en.wikipedia.org/wiki/Lux) der Umgebungsbeleuchtung um das Host-Gerät zurück.
+Die schreibgeschützte **`illuminance`**-Eigenschaft des [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Interfaces gibt das aktuelle Lichtniveau in [Lux](https://de.wikipedia.org/wiki/Lux) der Umgebungslichtstärke rund um das Hostgerät zurück.
 
 ## Wert
 

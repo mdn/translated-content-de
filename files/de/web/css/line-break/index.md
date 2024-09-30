@@ -32,15 +32,15 @@ line-break: unset;
 ### Werte
 
 - `auto`
-  - : Bricht den Text mit der Standardregel für Zeilenumbrüche.
+  - : Bricht Text nach der standardmäßigen Zeilenbruchregel.
 - `loose`
-  - : Bricht den Text mit der am wenigsten restriktiven Zeilenumbruchregel. Wird typischerweise für kurze Zeilen verwendet, z.B. in Zeitungen.
+  - : Bricht Text nach der am wenigsten restriktiven Zeilenbruchregel. Wird typischerweise für kurze Zeilen verwendet, wie in Zeitungen.
 - `normal`
-  - : Bricht den Text mit der gebräuchlichsten Zeilenumbruchregel.
+  - : Bricht Text nach der gebräuchlichsten Zeilenbruchregel.
 - `strict`
-  - : Bricht den Text mit der strengsten Zeilenumbruchregel.
+  - : Bricht Text nach der strengsten Zeilenbruchregel.
 - `anywhere`
-  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jedes Satzzeichen oder erhaltene Leerzeichen oder mitten in Wörtern, ohne Rücksicht auf Verbote gegen Zeilenumbrüche, selbst solche, die von Zeichen mit der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt oder durch die Eigenschaft {{cssxref("word-break")}} vorgeschrieben werden. Die unterschiedlichen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
+  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jegliches Satzzeichen oder erhaltene Leerzeichen oder mitten in Wörtern, ohne Rücksicht auf Verbote gegen Zeilenumbrüche, selbst jene, die von Zeichen der Klassen GL, WJ oder ZWJ eingeführt wurden oder durch die {{cssxref("word-break")}}-Eigenschaft vorgeschrieben sind. Die unterschiedlichen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
 
 ## Formale Definition
 
@@ -52,9 +52,9 @@ line-break: unset;
 
 ## Beispiele
 
-### Einstellen des Textumbruchs
+### Textumbruch einstellen
 
-Überprüfen Sie, ob der Text vor "々", "ぁ" und "。" umgebrochen wird.
+Überprüfen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
 
 #### HTML
 

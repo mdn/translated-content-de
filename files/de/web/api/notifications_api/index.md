@@ -7,12 +7,12 @@ l10n:
 
 {{DefaultAPISidebar("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die Notifications API ermöglicht es Webseiten, die Anzeige von Systembenachrichtigungen für den Endnutzer zu steuern. Diese liegen außerhalb des Viewports des obersten Browsing-Kontexts, sodass sie auch angezeigt werden können, wenn der Benutzer die Tabs gewechselt hat oder zu einer anderen App gewechselt ist. Die API ist so konzipiert, dass sie mit bestehenden Benachrichtigungssystemen auf verschiedenen Plattformen kompatibel ist.
+Die Notifications API ermöglicht es Webseiten, die Anzeige von Systembenachrichtigungen für den Endbenutzer zu steuern. Diese befinden sich außerhalb des obersten Browsing-Kontext-Viewports und können daher auch angezeigt werden, wenn der Benutzer die Tabs gewechselt hat oder zu einer anderen App gegangen ist. Die API wurde entwickelt, um mit bestehenden Benachrichtigungssystemen auf verschiedenen Plattformen kompatibel zu sein.
 
-## Konzepte und Verwendung
+## Konzepte und Anwendung
 
-Auf unterstützten Plattformen umfasst das Anzeigen einer Systembenachrichtigung im Allgemeinen zwei Dinge. Zuerst muss der Benutzer der aktuellen Herkunft die Erlaubnis erteilen, Systembenachrichtigungen anzuzeigen, was in der Regel erfolgt, wenn die App oder Website initialisiert wird, mithilfe der Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static).
-Diese Methode sollte nur beim Handling einer Benutzeraktion aufgerufen werden, z. B. bei der Verarbeitung eines Mausklicks. Zum Beispiel:
+Auf unterstützten Plattformen umfasst das Anzeigen einer Systembenachrichtigung in der Regel zwei Dinge. Zuerst muss der Benutzer der aktuellen Quelle die Erlaubnis erteilen, Systembenachrichtigungen anzuzeigen, was normalerweise erfolgt, wenn die App oder Website initialisiert wird, und zwar mit der Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static).
+Diese Methode sollte nur dann aufgerufen werden, wenn ein Benutzerereignis behandelt wird, beispielsweise bei einem Mausklick. Zum Beispiel:
 
 ```js
 btn.addEventListener("click", () => {
@@ -21,15 +21,15 @@ btn.addEventListener("click", () => {
 });
 ```
 
-Dies wird einen Anfragendialog erzeugen, ähnlich wie:
+Dies öffnet einen Anforderungsdialog, der folgendermaßen aussieht:
 
-![Ein Dialogfeld, das den Benutzer fragt, ob er Benachrichtigungen von dieser Herkunft erlauben möchte. Es gibt Optionen, Benachrichtigungen niemals oder zu erlauben.](screen_shot_2019-12-11_at_9.59.14_am.png)
+![Ein Dialogfeld, das den Benutzer fragt, ob er Benachrichtigungen von dieser Quelle zulassen möchte. Es gibt Optionen, Benachrichtigungen nie zu erlauben oder zu erlauben.](screen_shot_2019-12-11_at_9.59.14_am.png)
 
-Von hier aus kann der Benutzer wählen, ob er Benachrichtigungen von dieser Herkunft zulassen oder blockieren möchte. Sobald eine Entscheidung getroffen wurde, bleibt die Einstellung in der Regel für die aktuelle Sitzung bestehen.
+Hier kann der Benutzer wählen, ob er Benachrichtigungen von dieser Quelle zulassen oder blockieren möchte. Sobald eine Entscheidung getroffen wurde, bleibt die Einstellung in der Regel für die aktuelle Sitzung bestehen.
 
-Als Nächstes wird eine neue Benachrichtigung mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor erstellt. Dieser muss ein Titelargument erhalten und kann optional mit einem Optionsobjekt übergeben werden, um Optionen wie Textrichtung, Mitteilungstext, anzuzeigendes Symbol, abzuspielenden Benachrichtigungston und mehr anzugeben.
+Als Nächstes wird eine neue Benachrichtigung mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor erstellt. Dieser muss ein Titel-Argument enthalten und kann optional ein Optionsobjekt erhalten, um Optionen wie Textausrichtung, Nachrichtentext, anzuzeigendes Symbol, abzuspielenden Benachrichtigungston und mehr anzugeben.
 
-Darüber hinaus spezifiziert die Notifications API-Spezifikation eine Reihe von Ergänzungen zur [ServiceWorker API](/de/docs/Web/API/Service_Worker_API), um Service Worker zu ermöglichen, Benachrichtigungen auszulösen.
+Darüber hinaus spezifiziert die Notifications API Spezifikation eine Reihe von Erweiterungen zur [ServiceWorker API](/de/docs/Web/API/Service_Worker_API), um es Service-Workern zu ermöglichen, Benachrichtigungen auszulösen.
 
 > [!NOTE]
 > Um mehr über die Verwendung von Benachrichtigungen in Ihrer eigenen App zu erfahren, lesen Sie [Using the Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API).
@@ -39,7 +39,7 @@ Darüber hinaus spezifiziert die Notifications API-Spezifikation eine Reihe von 
 - [`Notification`](/de/docs/Web/API/Notification)
   - : Definiert ein Benachrichtigungsobjekt.
 - [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)
-  - : Repräsentiert ein Benachrichtigungsereignis, das auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) ausgelöst wird.
+  - : Repräsentiert ein Benachrichtigungsereignis, das im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet wird.
 
 ### Erweiterungen zu anderen Schnittstellen
 
@@ -48,7 +48,7 @@ Darüber hinaus spezifiziert die Notifications API-Spezifikation eine Reihe von 
 - [`notificationclose`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event) Ereignis
   - : Tritt auf, wenn ein Benutzer eine angezeigte Benachrichtigung schließt.
 - [`ServiceWorkerRegistration.getNotifications()`](/de/docs/Web/API/ServiceWorkerRegistration/getNotifications)
-  - : Gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie von der aktuellen Herkunft über die aktuelle Service Worker-Registrierung erstellt wurden.
+  - : Gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie von der aktuellen Quelle über die aktuelle Service-Worker-Registrierung erstellt wurden.
 - [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)
   - : Zeigt die Benachrichtigung mit dem angeforderten Titel an.
 

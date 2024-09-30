@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.crossOrigin`**-Eigenschaft ist die CORS-Einstellung für dieses Medienelement. Siehe [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für Details.
+Die **`HTMLMediaElement.crossOrigin`**-Eigenschaft ist die CORS-Einstellung für dieses Medienelement. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Attributes/crossorigin) für Details.
 
 ## Wert
 
-Ein String eines Schlüsselworts, der den CORS-Modus angibt, der beim Abrufen der Ressource verwendet werden soll. Mögliche Werte sind:
+Ein String eines Schlüsselwortes, das den CORS-Modus angibt, der beim Abrufen der Ressource verwendet werden soll. Mögliche Werte sind:
 
 - `anonymous` oder der leere String (`""`)
-  - : Anfragen, die vom [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet werden, verwenden den `cors` [Modus](/de/docs/Web/API/Request/mode) und den `same-origin` [Zwischenlagen](/de/docs/Web/API/Request/credentials) Modus. Das bedeutet, dass CORS aktiviert ist und Anmeldedaten gesendet werden, _wenn_ die Ressource von derselben Herkunft abgerufen wird, von der das Dokument geladen wurde.
+  - : Anfragen, die vom [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet werden, nutzen den `cors`- [Modus](/de/docs/Web/API/Request/mode) und den `same-origin`- [Credentials](/de/docs/Web/API/Request/credentials)-Modus. Das bedeutet, dass CORS aktiviert ist und Anmeldedaten gesendet werden _wenn_ die Ressource von demselben Ursprung abgerufen wird, von dem auch das Dokument geladen wurde.
 - `use-credentials`
-  - : Anfragen, die vom [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet werden, verwenden den `cors` [Modus](/de/docs/Web/API/Request/mode) und den `include` [Zwischenlagen](/de/docs/Web/API/Request/credentials) Modus. Alle Ressourcenanfragen des Elements verwenden CORS, unabhängig davon, von welcher Domain die Anforderung stammt.
+  - : Anfragen, die vom [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet werden, nutzen den `cors`- [Modus](/de/docs/Web/API/Request/mode) und den `include`- [Credentials](/de/docs/Web/API/Request/credentials)-Modus. Alle vom Element angeforderten Ressourcen verwenden CORS, unabhängig davon, von welcher Domain der Abruf erfolgt.
 
-Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert angegeben wird, ist dies dasselbe wie die Angabe von `anonymous`.
+Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert angegeben wird, entspricht dies der Angabe von `anonymous`.
 
-Wenn die `crossOrigin`-Eigenschaft nicht angegeben wird, wird die Ressource ohne CORS abgerufen (der `no-cors` [Modus](/de/docs/Web/API/Request/mode) und der `same-origin` [Zwischenlagen](/de/docs/Web/API/Request/credentials) Modus).
+Wird die `crossOrigin`-Eigenschaft nicht angegeben, wird die Ressource ohne CORS abgerufen (der `no-cors`- [Modus](/de/docs/Web/API/Request/mode) und der `same-origin`- [Credentials](/de/docs/Web/API/Request/credentials)-Modus).
 
 ## Spezifikationen
 

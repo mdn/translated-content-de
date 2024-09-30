@@ -1,5 +1,5 @@
 ---
-title: Verwendung der Kanalnachrichtenübermittlung
+title: Verwendung von Kanalnachrichten
 slug: Web/API/Channel_Messaging_API/Using_channel_messaging
 l10n:
   sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
@@ -7,32 +7,32 @@ l10n:
 
 {{DefaultAPISidebar("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es zwei separaten Skripten, die in unterschiedlichen Browsing-Kontexten ausgeführt werden und an dasselbe Dokument angehängt sind (z.B. zwei {{HTMLElement("iframe")}}-Elemente, das Hauptdokument und ein einzelnes {{HTMLElement("iframe")}}, oder zwei Dokumente über einen [`SharedWorker`](/de/docs/Web/API/SharedWorker)), direkt zu kommunizieren. Sie können Nachrichten über Kanäle in beide Richtungen (oder Pipes) mit einem Port an jedem Ende austauschen.
+Die [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es, zwei separate Skripte, die in verschiedenen Browserkontexten ausgeführt werden und mit demselben Dokument verbunden sind (z.B. zwei {{HTMLElement("iframe")}}-Elemente, das Hauptdokument und ein einzelnes {{HTMLElement("iframe")}}, oder zwei Dokumente über einen [`SharedWorker`](/de/docs/Web/API/SharedWorker)), direkt zu kommunizieren. Nachrichten können durch Zweikanäle (oder Rohre) mit einem Port an jedem Ende zwischen ihnen ausgetauscht werden.
 
-In diesem Artikel werden wir die Grundlagen der Verwendung dieser Technologie untersuchen.
+In diesem Artikel werden wir die Grundlagen der Nutzung dieser Technologie erläutern.
 
 ## Anwendungsfälle
 
-Kanalnachrichtenübermittlung ist hauptsächlich nützlich in Fällen, in denen Sie eine soziale Seite haben, die Fähigkeiten von anderen Seiten in ihre Hauptschnittstelle via IFrame einbettet, wie Spiele, Adressbücher oder ein Audioplayer mit personalisierten Musikauswahlen. Wenn diese als eigenständige Einheiten agieren, ist das in Ordnung, aber die Schwierigkeit entsteht, wenn Sie eine Interaktion zwischen der Hauptseite und den {{HTMLElement("iframe")}}-Elementen oder zwischen verschiedenen {{HTMLElement("iframe")}}-Elementen wünschen. Zum Beispiel, was wäre, wenn Sie einen Kontakt aus dem Adressbuch auf der Hauptseite hinzufügen, hohe Punktzahlen aus Ihrem Spiel in Ihr Hauptprofil übernehmen oder neue Hintergrundmusikoptionen vom Audioplayer ins Spiel hinzufügen möchten? Solche Dinge sind mit herkömmlicher Webtechnologie nicht so einfach, aufgrund der Sicherheitsmodelle, die das Web verwendet. Sie müssen darüber nachdenken, ob die Ursprünge einander vertrauen und wie die Nachrichten übermittelt werden.
+Kanalnachrichten sind vor allem nützlich in Fällen, in denen Sie eine soziale Seite haben, die Funktionen anderer Seiten über iframes in ihre Hauptschnittstelle einbettet, wie z.B. Spiele, Adressbücher oder ein Audioplayer mit personalisierten Musikwahlen. Wenn diese als eigenständige Einheiten agieren, ist alles in Ordnung, aber die Schwierigkeit entsteht, wenn Sie Interaktionen zwischen der Hauptseite und den {{HTMLElement("iframe")}}-Elementen oder zwischen verschiedenen {{HTMLElement("iframe")}}-Elementen wünschen. Zum Beispiel, was wäre, wenn Sie einen Kontakt vom Hauptseite zum Adressbuch hinzufügen, die Highscores Ihres Spiels zu Ihrem Hauptprofil hinzufügen oder neue Hintergrundmusikoptionen vom Audioplayer zum Spiel hinzufügen möchten? Solche Dinge sind mit herkömmlicher Webtechnologie nicht so einfach, da die Sicherheitsmodelle des Webs bedacht werden müssen. Sie müssen überlegen, ob die Ursprünge einander vertrauen und wie die Nachrichten übermittelt werden sollen.
 
-Nachrichtkanäle hingegen können einen sicheren Kanal bereitstellen, mit dem Sie Daten zwischen unterschiedlichen Browsing-Kontexten übermitteln können.
+Nachrichtenkanäle können dagegen einen sicheren Kanal bieten, der es ermöglicht, Daten zwischen verschiedenen Browserkontexten auszutauschen.
 
 > [!NOTE]
 > Für weitere Informationen und Ideen ist der Abschnitt [Ports as the basis of an object-capability model on the Web](https://html.spec.whatwg.org/multipage/comms.html#ports-as-the-basis-of-an-object-capability-model-on-the-web) der Spezifikation eine nützliche Lektüre.
 
 ## Einfache Beispiele
 
-Um Ihnen den Einstieg zu erleichtern, haben wir ein paar Demos auf GitHub veröffentlicht. Schauen Sie sich zuerst unsere [channel messaging basic demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) ([führen Sie sie auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)) an, die eine wirklich einfache Einzelübertragung von Nachrichten zwischen einer Seite und einem eingebetteten {{htmlelement("iframe")}} zeigt.
+Um Ihnen den Einstieg zu erleichtern, haben wir ein paar Demos auf GitHub veröffentlicht. Schauen Sie sich zuerst unsere [Grunddemonstration zur Kanalnachricht](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)) an, die eine wirklich einfache einmalige Nachrichtenübertragung zwischen einer Seite und einem eingebetteten {{htmlelement("iframe")}} zeigt.
 
-Zweitens werfen Sie einen Blick auf unsere [multimessaging demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-multimessage) ([führen Sie diese live aus](https://mdn.github.io/dom-examples/channel-messaging-multimessage/)), die eine etwas komplexere Einrichtung zeigt, die mehrere Nachrichten zwischen der Hauptseite und einem IFrame senden kann.
+Zweitens sehen Sie sich unsere [Multimessaging-Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-multimessage) an ([führen Sie diese live aus](https://mdn.github.io/dom-examples/channel-messaging-multimessage/)), die ein etwas komplexeres Setup zeigt, das mehrere Nachrichten zwischen der Hauptseite und einem IFrame senden kann.
 
-Wir konzentrieren uns in diesem Artikel auf das letztgenannte Beispiel, das folgendermaßen aussieht:
+In diesem Artikel konzentrieren wir uns auf das letztere Beispiel, das folgendermaßen aussieht:
 
-![Demo mit "Hello this is my demo", gesendet als fünf separate Nachrichten. Die Nachrichten werden als Aufzählungsliste angezeigt.](channel-messaging-demo.png)
+![Demo mit "Hello this is my demo", das als fünf separate Nachrichten gesendet wird. Die Nachrichten werden als Aufzählungsliste angezeigt.](channel-messaging-demo.png)
 
 ## Erstellen des Kanals
 
-Auf der Hauptseite des Demos haben wir ein einfaches Formular mit einem Texteingabefeld für Nachrichten, die an ein {{htmlelement("iframe")}} gesendet werden sollen. Wir haben auch einen Absatz, den wir später verwenden werden, um Bestätigungsnachrichten anzuzeigen, die wir vom {{htmlelement("iframe")}} zurückerhalten.
+Auf der Hauptseite der Demo haben wir ein einfaches Formular mit einer Texteingabe, um Nachrichten einzugeben, die an ein {{htmlelement("iframe")}} gesendet werden sollen. Wir haben auch einen Absatz, den wir später verwenden, um Bestätigungsnachrichten anzuzeigen, die wir vom {{htmlelement("iframe")}} zurückerhalten.
 
 ```js
 const input = document.getElementById("message-input");
@@ -72,15 +72,15 @@ function onMessage(e) {
 
 Wir beginnen damit, einen neuen Nachrichtenkanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor zu erstellen.
 
-Wenn das IFrame geladen ist, registrieren wir einen `onclick`-Handler für unseren Button und einen `onmessage`-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1). Schließlich übertragen wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mit der [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode.
+Wenn das IFrame geladen ist, registrieren wir einen `onclick`-Handler für unseren Button und einen `onmessage`-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1). Schließlich übertragen wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame unter Verwendung der [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode.
 
-Lassen Sie uns genauer untersuchen, wie die Zeile `iframe.contentWindow.postMessage` funktioniert. Sie nimmt drei Argumente:
+Lassen Sie uns die `iframe.contentWindow.postMessage`-Zeile genauer untersuchen. Sie nimmt drei Argumente:
 
-1. Die zu sendende Nachricht. Für diese anfängliche Portübertragung könnte diese Nachricht eine leere Zeichenfolge sein, aber in diesem Beispiel wird sie auf `'init'` gesetzt.
+1. Die gesendete Nachricht. Für diese anfängliche Portübertragung könnte diese Nachricht ein leerer String sein, aber in diesem Beispiel ist sie auf `'init'` gesetzt.
 2. Der Ursprung, an den die Nachricht gesendet werden soll. `*` bedeutet "jeder Ursprung".
-3. Ein Objekt, dessen Eigentum an den empfangenden Browsing-Kontext übertragen wird. In diesem Fall übertragen wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame, damit es zur Kommunikation mit der Hauptseite verwendet werden kann.
+3. Ein Objekt, dessen Besitz auf den empfangenden Browserkontext übertragen wird. In diesem Fall übertragen wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame, damit es zur Kommunikation mit der Hauptseite verwendet werden kann.
 
-Wenn unser Button geklickt wird, verhindern wir, dass das Formular wie gewohnt abgesendet wird, und senden dann den im Texteingabefeld eingegebenen Wert über den [`MessageChannel`](/de/docs/Web/API/MessageChannel) an das IFrame.
+Wenn unser Button geklickt wird, verhindern wir das normale Absenden des Formulars und senden dann den in unserer Texteingabe eingegebenen Wert an das IFrame über den [`MessageChannel`](/de/docs/Web/API/MessageChannel).
 
 ## Empfang des Ports und der Nachricht im IFrame
 
@@ -108,15 +108,15 @@ function onMessage(e) {
 }
 ```
 
-Wenn die anfängliche Nachricht von der Hauptseite über die [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode empfangen wird, führen wir die Funktion `initPort` aus. Diese speichert den übertragenen Port und registriert einen `onmessage`-Handler, der jedes Mal aufgerufen wird, wenn eine Nachricht durch unseren [`MessageChannel`](/de/docs/Web/API/MessageChannel) übergeben wird.
+Wenn die anfängliche Nachricht von der Hauptseite über die [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode empfangen wird, führen wir die `initPort`-Funktion aus. Diese speichert den übertragenen Port und registriert einen `onmessage`-Handler, der jedes Mal aufgerufen wird, wenn eine Nachricht durch unseren [`MessageChannel`](/de/docs/Web/API/MessageChannel) übermittelt wird.
 
-Wenn eine Nachricht von der Hauptseite empfangen wird, erstellen wir ein Listenelement und fügen es in die ungeordnete Liste ein, wobei wir die [`textContent`](/de/docs/Web/API/Node/textContent) des Listenelements auf das `data`-Attribut des Ereignisses (dies enthält die eigentliche Nachricht) setzen.
+Wenn eine Nachricht von der Hauptseite empfangen wird, erzeugen wir ein Listenelement und fügen es in die ungeordnete Liste ein, wobei wir das [`textContent`](/de/docs/Web/API/Node/textContent) des Listenelements auf den `data`-Attributwert des Ereignisses setzen (dies enthält die eigentliche Nachricht).
 
-Anschließend senden wir eine Bestätigungsnachricht zurück an die Hauptseite über den Nachrichtenkanal, indem wir [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) auf [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) aufrufen, das ursprünglich an das IFrame übertragen wurde.
+Als nächstes senden wir eine Bestätigungsnachricht zurück an die Hauptseite über den Nachrichtenkanal, indem wir [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) auf [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) aufrufen, das ursprünglich an das IFrame übertragen wurde.
 
 ## Empfang der Bestätigung auf der Hauptseite
 
-Zurück zur Hauptseite, lassen Sie uns nun die `onmessage`-Handler-Funktion betrachten.
+Kehren wir zur Hauptseite zurück und betrachten die `onmessage`-Handler-Funktion.
 
 ```js
 // Handle messages received on port1
@@ -126,7 +126,7 @@ function onMessage(e) {
 }
 ```
 
-Wenn eine Nachricht von dem IFrame zurückerhalten wird, die bestätigt, dass die ursprüngliche Nachricht erfolgreich empfangen wurde, gibt dies die Bestätigung an einen Absatz aus und leert das Texteingabefeld, um bereit für die nächste zu sendende Nachricht zu sein.
+Wenn eine Nachricht vom IFrame empfangen wird, die bestätigt, dass die ursprüngliche Nachricht erfolgreich empfangen wurde, gibt dies die Bestätigung an einen Absatz aus und leert die Texteingabe, um sie für die nächste zu sendende Nachricht bereit zu machen.
 
 ## Spezifikationen
 

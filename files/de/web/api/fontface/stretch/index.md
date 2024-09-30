@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`stretch`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft ab oder legt fest, wie die Schriftart gedehnt wird.
+Die **`stretch`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft ab oder legt fest, wie die Schriftart gestreckt wird.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-stretch", "font-stretch")}}-Deskriptor.
 

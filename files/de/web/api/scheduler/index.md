@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **`Scheduler`**-Schnittstelle der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet Methoden zum Planen von priorisierten Aufgaben.
+Das **`Scheduler`**-Interface der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet Methoden zum Planen von priorisierten Aufgaben.
 
-Ein `Scheduler` kann über das globale Objekt mit [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) oder innerhalb eines Workers mit [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler) aufgerufen werden.
+Ein `Scheduler` kann über das globale Objekt mittels [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) oder [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler) innerhalb eines Workers aufgerufen werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Keine.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)
-  - : Fügt dem Scheduler eine Aufgabe als Rückruf hinzu, wobei optional eine Priorität, ein Verzögerungszeitraum und/oder ein Signal zum Abbrechen der Aufgabe angegeben werden kann.
+  - : Fügt dem Scheduler eine Aufgabe als Callback hinzu, wobei optional eine Priorität, eine Verzögerung und/oder ein Signal zum Abbrechen der Aufgabe angegeben werden kann.
 - [`Scheduler.yield()`](/de/docs/Web/API/Scheduler/yield)
-  - : Gibt die Kontrolle des Hauptthreads an den Browser zurück und gibt ein Promise zurück, das aufgelöst wird, um die Ausführung dort fortzusetzen, wo sie unterbrochen wurde.
+  - : Gibt die Kontrolle des Haupt-Threads zurück an den Browser und gibt ein Promise zurück, das sich auflöst, um die Ausführung an der Stelle fortzusetzen, an der sie unterbrochen wurde.
 
 ## Beispiele
 
-Wenn das Feature definiert ist, wird von der {{jsxref("globalThis")}}-Eigenschaft sowohl in Workern als auch im Hauptthread eine Instanz dieses Objekts zurückgegeben.
+Wenn die Funktion definiert ist, wird eine Instanz dieses Objekts sowohl in Workern als auch im Haupt-Thread durch die {{jsxref("globalThis")}}-Eigenschaft zurückgegeben.
 
-Der folgende Code zeigt eine einfache Aufgabe, die mit dem Text 'Task executing' erfüllt wird.
+Der folgende Code zeigt eine einfache Aufgabe, die mit dem Text 'Task executing' aufgelöst wird.
 Dieser Text wird bei Erfolg protokolliert.
-Der Code zeigt auch einen `catch`-Block, der in komplexeren Codes erforderlich wäre, um zu behandeln, wenn eine Aufgabe abgebrochen wird oder ein Fehler auftritt.
+Der Code zeigt auch einen `catch`-Block, der in komplexeren Codes erforderlich wäre, um den Fall zu behandeln, wenn eine Aufgabe abgebrochen wird oder ein Fehler auftritt.
 
 ```js
 if ("scheduler" in this) {
@@ -41,7 +41,7 @@ if ("scheduler" in this) {
 }
 ```
 
-Für einen umfassenderen Beispielcode siehe [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
+Für umfassendere Beispielcodes siehe [Prioritized Task Scheduling API > Examples](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.type`** schreibgeschützte Eigenschaft gibt den `type` des Formularsteuerelements zurück.
+Die **`HTMLSelectElement.type`**-Eigenschaft (nur lesbar) gibt den `type` des Formularsteuerelements zurück.
 
 ## Wert
 
-Einer der folgenden:
+Einer der folgenden Werte:
 
 - `"select-multiple"`, wenn mehrere Werte ausgewählt werden können.
 - `"select-one"`, wenn nur ein Wert ausgewählt werden kann.
@@ -42,4 +42,4 @@ switch (select.type) {
 
 ## Siehe auch
 
-- Das {{HTMLElement("select")}} HTML-Element, das diese Schnittstelle implementiert.
+- Das {{HTMLElement("select")}} HTML-Element, das dieses Interface implementiert.

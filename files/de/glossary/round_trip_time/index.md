@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Round Trip Time (RTT)** ist die Zeitspanne, die ein Datenpaket benötigt, um zu einem Ziel gesendet zu werden, plus die Zeit, die benötigt wird, um eine Bestätigung dieses Pakets am Ursprung zurückzuerhalten. Die RTT zwischen einem Netzwerk und einem Server kann mit dem `ping`-Befehl ermittelt werden.
+**Round Trip Time (RTT)** ist die Zeitspanne, die ein Datenpaket benötigt, um zu einem Ziel gesendet zu werden, plus die Zeit, die benötigt wird, um eine Bestätigung dieses Pakets am Ursprung zurückzuerhalten. Die RTT zwischen einem Netzwerk und einem Server kann mit dem `ping`-Befehl bestimmt werden.
 
 ```bash
 ping example.com
 ```
 
-Dies gibt etwas wie folgt aus:
+Dies wird etwas wie folgt ausgeben:
 
 ```plain
 PING example.com (216.58.194.174): 56 data bytes

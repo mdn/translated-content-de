@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Der **`NavigationCurrentEntryChangeEvent()`**-Konstruktor erstellt ein neues [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Objekt.
+Der **`NavigationCurrentEntryChangeEvent()`** Konstruktor erstellt ein neues [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Objekt.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ new NavigationCurrentEntryChangeEvent(type, init)
     - `destination`
       - : Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Ort darstellt, zu dem navigiert wird.
     - `navigationType` {{optional_inline}}
-      - : Der Typ der Navigation, die zur Änderung geführt hat. Mögliche Werte sind `push`, `reload`, `replace` und `traverse`. Standardmäßig ist dies `null`.
+      - : Der Typ der Navigation, die die Änderung verursacht hat. Mögliche Werte sind `push`, `reload`, `replace` und `traverse`. Standardmäßig `null`.
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ navigation.addEventListener("currententrychange", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne client-seitige Routen: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

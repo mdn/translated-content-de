@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`attestationObject`**-Eigenschaft der [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Schnittstelle gibt ein {{jsxref("ArrayBuffer")}} zurück, das den neuen öffentlichen Schlüssel sowie eine Signatur über das gesamte `attestationObject` mit einem privaten Schlüssel enthält, der im Authenticator bei der Herstellung gespeichert wird.
+Die **`attestationObject`**-Eigenschaft des [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Interfaces gibt ein {{jsxref("ArrayBuffer")}} zurück, das den neuen öffentlichen Schlüssel sowie die Signatur über das gesamte `attestationObject` mit einem privaten Schlüssel enthält, der im Authentifikator gespeichert ist, wenn er hergestellt wird.
 
-Im Rahmen des Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt ein Authenticator ein neues Schlüsselpaar sowie ein `attestationObject` für dieses Schlüsselpaar. Der öffentliche Schlüssel, der dem privaten Schlüssel entspricht, der die Attestationssignatur erstellt hat, ist bekannt; jedoch gibt es verschiedene bekannte Attestations-Public-Key-Ketten für unterschiedliche Ökosysteme (zum Beispiel Android- oder TPM-Attestationen).
+Im Rahmen des Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt ein Authentifikator ein neues Schlüsselpaar sowie ein `attestationObject` für dieses Schlüsselpaar. Der öffentliche Schlüssel, der dem privaten Schlüssel entspricht, der die Attestationssignatur erstellt hat, ist allgemein bekannt. Es gibt jedoch verschiedene bekannte Attestations-Kettenschlüssel für unterschiedliche Ökosysteme (zum Beispiel Android- oder TPM-Attestationen).
 
 ## Wert
 
-Nach dem Dekodieren des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-kodierten `ArrayBuffer` enthält das resultierende JavaScript-Objekt die folgenden Eigenschaften:
+Nach Dekodierung des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949) kodierten `ArrayBuffer` enthält das resultierende JavaScript-Objekt die folgenden Eigenschaften:
 
 - `authData`
 
-  - : Die [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) für die Operation. Beachten Sie, dass in [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) die `authenticatorData` als Eigenschaft in einem JavaScript-Objekt exponiert ist (siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)), während sie in [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) eine Eigenschaft in einer [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-Karte ist.
+  - : Die [Authentifikator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) für die Operation. Beachten Sie, dass in [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) die `authenticatorData` als Eigenschaft in einem JavaScript-Objekt freigelegt wird (siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)), während in [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) die `authenticatorData` eine Eigenschaft in einer [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-Karte ist.
 
-    Das gleiche [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)-Feld wird sowohl von `AuthenticatorAttestationResponse` als auch von `AuthenticatorAssertionResponse` verwendet. Bei Verwendung in der Attestation enthält es ein optionales Feld, `attestedCredentialData`. Dieses Feld ist nicht enthalten, wenn es in der `AuthenticatorAssertionResponse` verwendet wird. Das attestedCredentialData-Feld enthält die `credentialId` und `credentialPublicKey`.
+    Dasselbe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) Feld wird sowohl von `AuthenticatorAttestationResponse` als auch von `AuthenticatorAssertionResponse` verwendet. Wenn es in der Attestation verwendet wird, enthält es ein optionales Feld, `attestedCredentialData`. Dieses Feld ist nicht enthalten, wenn es in der `AuthenticatorAssertionResponse` verwendet wird. Das Feld attestedCredentialData enthält die `credentialId` und `credentialPublicKey`.
 
 - `fmt`
 
@@ -34,11 +34,12 @@ Nach dem Dekodieren des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-ko
     - `"none"`
 
 - `attStmt`
-  - : Eine Attestationsaussage, die dem durch `"fmt"` definierten Format entspricht. Für weitere Informationen sehen Sie bitte [die WebAuthn-Spezifikation zu den einzelnen Formaten](https://www.w3.org/TR/webauthn/#defined-attestation-formats).
+  - : Eine Attestationsaussage, die dem von `"fmt"` definierten Format entspricht.
+    Für weitere Informationen siehe [die WebAuthn-Spezifikation zu den einzelnen Formaten](https://www.w3.org/TR/webauthn/#defined-attestation-formats).
 
 ## Beispiele
 
-Sehen Sie sich [Erstellen eines öffentlichen Schlüsselanmeldedatensatzes mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein detailliertes Beispiel an.
+Siehe [Erstellen eines öffentlichen Schlüssel-Anmeldedatensatzes mit der WebAuthn API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein ausführliches Beispiel.
 
 ## Spezifikationen
 
@@ -50,4 +51,4 @@ Sehen Sie sich [Erstellen eines öffentlichen Schlüsselanmeldedatensatzes mit d
 
 ## Siehe auch
 
-- [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create): die Methode, die verwendet wird, um eine Erklärung mit einer kryptografischen `challenge` zu erstellen, deren Signatur durch den Authenticator in `attStmt` enthalten ist, mit der angegebenen `attestation`-Transportoption.
+- [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create): die Methode, die verwendet wird, um eine Aussage mit einer kryptografischen `challenge` zu erstellen, deren Signatur durch den Authentifikator in `attStmt` enthalten ist, mit der angegebenen `attestation`-Transportoption.

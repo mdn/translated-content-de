@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoColorSpace()`** Konstruktor erstellt ein neues [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) Objekt, das einen Video-Farbraum darstellt.
+Der **`VideoColorSpace()`** Konstruktor erstellt ein neues [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) Objekt, das einen Videofarbraum darstellt.
 
 ## Syntax
 
@@ -19,32 +19,32 @@ new VideoColorSpace(options)
 
 ### Parameter
 
-Alle Werte sind standardmäßig `null`, wenn sie nicht vorhanden sind.
+Alle Werte sind auf `null` voreingestellt, wenn sie nicht vorhanden sind.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das Folgendes enthält:
     - `primaries` {{optional_inline}}
-      - : Einer der folgenden Zeichenfolgen:
+      - : Einer der folgenden Strings:
         - `"bt709"`
         - `"bt470bg"`
         - `"smpte170m"`
     - `transfer` {{optional_inline}}
-      - : Einer der folgenden Zeichenfolgen:
+      - : Einer der folgenden Strings:
         - `"bt709"`
         - `"smpte170m"`
         - `"iec61966-2-1"`
     - `matrix` {{optional_inline}}
-      - : Einer der folgenden Zeichenfolgen:
+      - : Einer der folgenden Strings:
         - `"rgb"`
         - `"bt709"`
         - `"bt470bg"`
         - `"smpte170m"`
     - `fullRange` {{optional_inline}}
-      - : Ein {{jsxref("Boolean")}}, `true`, wenn Vollbereichs-Farbwerte im Video verwendet werden.
+      - : Ein {{jsxref("Boolean")}}, `true`, wenn Vollbereichsfarbwerte im Video verwendet werden.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein neues `VideoColorSpace` Objekt mit [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) auf `"bt709"` gesetzt und [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) auf `true` gesetzt.
+Das folgende Beispiel erstellt ein neues `VideoColorSpace` Objekt mit [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) auf `"bt709"` gesetzt, und [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) auf `true` gesetzt.
 
 ```js
 const options = {

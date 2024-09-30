@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`selectURL()`**-Methode der [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Schnittstelle führt eine [URL-Auswahloperation](/de/docs/Web/API/SharedStorageSelectURLOperation) aus, die in einem Modul registriert ist, das dem aktuellen Ursprung zugehörigen [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) hinzugefügt wurde.
+Die **`selectURL()`**-Methode der [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Schnittstelle führt eine [URL-Auswahloperation](/de/docs/Web/API/SharedStorageSelectURLOperation) aus, die in einem Modul registriert ist, das zum `SharedStorageWorklet` des aktuellen Ursprungs hinzugefügt wurde.
 
 > [!NOTE]
-> Das [URL-Auswahl-Ausgabegate](/de/docs/Web/API/Shared_Storage_API#url_selection) wird verwendet, um eine URL aus einer bereitgestellten Liste auszuwählen, die dem Benutzer basierend auf den Daten des Shared Storage angezeigt wird.
+> Das [URL-Auswahl-Ausgabegate](/de/docs/Web/API/Shared_Storage_API#url_selection) wird verwendet, um eine URL aus einer bereitgestellten Liste auszuwählen, die basierend auf Daten des gemeinsamen Speichers dem Benutzer angezeigt wird.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ selectURL(name, urls, options)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen der innerhalb des Shared Storage Worklet-Moduls registrierten Operation darstellt. Er muss mit dem Namen übereinstimmen, der der Operation bei der Registrierung mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) gegeben wurde.
+  - : Ein String, der den Namen der registrierten Operation im Shared Storage Worklet-Modul darstellt. Er muss mit dem Namen übereinstimmen, der der Operation zugewiesen wurde, als sie mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) registriert wurde.
 - `urls`
-  - : Ein Array von Objekten, das die URLs repräsentiert, zwischen denen die URL-Auswahloperation wählen soll. Jedes Objekt enthält zwei Eigenschaften:
+  - : Ein Array von Objekten, das die URLs repräsentiert, zwischen denen durch die URL-Auswahloperation gewählt werden soll. Jedes Objekt enthält zwei Eigenschaften:
     - `url`
       - : Ein String, der die URL darstellt.
     - `reportingMetadata` {{optional_inline}}
-      - : Ein Objekt mit Eigenschaften, bei denen Namen Ereignistypen sind und Werte URLs zu Berichtszielen zeigen, zum Beispiel `"click" : "my-reports/report1.html"`. Die URLs fungieren als Ziele für Berichte, die mit einem Zieltyp von `"shared-storage-select-url"` eingereicht werden, typischerweise über einen Aufruf der Methode [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) oder [`Fence.setReportEventDataForAutomaticBeacons()`](/de/docs/Web/API/Fence/setReportEventDataForAutomaticBeacons).
+      - : Ein Objekt, das Eigenschaften enthält, bei denen die Namen Ereignistypen und die Werte URLs sind, die auf Berichtsziele verweisen, zum Beispiel `"click" : "my-reports/report1.html"`. Die URLs dienen als Ziele für Berichte, die mit einem Zieltyp `"shared-storage-select-url"` übermittelt werden, typischerweise über einen Aufruf der Methoden [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) oder [`Fence.setReportEventDataForAutomaticBeacons()`](/de/docs/Web/API/Fence/setReportEventDataForAutomaticBeacons).
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthalten kann:
     - `data` {{optional_inline}}
-      - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten darstellt.
+      - : Ein Objekt, das die für die Durchführung des Vorgangs erforderlichen Daten darstellt.
     - `keepAlive` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true` gesetzt, bleibt der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) des zugehörigen Worklets aktiv, und die Operation kann erneut ausgeführt werden. Daher müssen Sie `keepAlive` für jede Operation auf `true` setzen, die nicht die letzte sein soll. Der Standardwert `false` bedeutet, dass der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) nach der Ausführung der Operation beendet wird und nicht wieder ausgeführt werden kann.
+      - : Ein boolescher Wert. Falls auf `true` gesetzt, bleibt der `SharedStorageWorkletGlobalScope` des zugehörigen Worklets aktiv, und die Operation kann erneut ausgeführt werden. Daher müssen Sie `keepAlive` für jede Operation, die nicht als letzte gedacht ist, auf `true` setzen. Der Standardwert, `false`, bedeutet, dass der `SharedStorageWorkletGlobalScope` nach der Ausführung des Vorgangs beendet wird und nicht erneut ausgeführt werden kann.
     - `resolveToConfig` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true` gesetzt, wird der Erfüllungswert des von `run()` zurückgegebenen {{jsxref("Promise")}} ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt sein, das verwendet werden kann, um Inhalte in ein {{htmlelement("fencedframe")}} über sein `config`-Attribut zu laden. Der Standardwert `false` bedeutet, dass der Erfüllungswert eine URL sein wird, die verwendet werden kann, um Inhalte in ein {{htmlelement("iframe")}} zu laden.
+      - : Ein boolescher Wert. Falls auf `true` gesetzt, wird der Erfüllungswert des von `run()` zurückgegebenen {{jsxref("Promise")}} ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt sein, das verwendet werden kann, um Inhalte in ein {{htmlelement("fencedframe")}} über dessen `config`-Attribut zu laden. Der Standardwert, `false`, bedeutet, dass der Erfüllungswert eine URL sein wird, die verwendet werden kann, um Inhalte in ein {{htmlelement("iframe")}} zu laden.
 
 ### Rückgabewert
 
@@ -46,12 +46,12 @@ Ein {{jsxref("Promise")}}, das entweder mit einem [`FencedFrameConfig`](/de/docs
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn:
-    - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
-    - `urls` leer ist oder die maximal erlaubte Länge überschreitet (browser-spezifisch).
-    - Eine URL-Eigenschaft eines Objekts eine ungültige URL enthält.
-    - Der Shared Storage deaktiviert ist (z.B. über eine Browsereinstellung).
-    - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingebunden hat.
+  - : Ausgelöst, wenn:
+    - Das Worklet-Modul wurde noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt.
+    - `urls` leer ist oder die maximal zulässige Länge (die browserspezifisch ist) überschreitet.
+    - Eine `url`-Eigenschaft eines Objekts eine ungültige URL enthält.
+    - Gemeinsamer Speicher deaktiviert ist (zum Beispiel über eine Browsereinstellung).
+    - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox-Anmeldungsvorgang](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
 
 ## Beispiele
 
@@ -91,7 +91,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite an, um eine Einführung in dieses Beispiel zu erhalten und Links zu weiteren Beispielen.
+Sehen Sie die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

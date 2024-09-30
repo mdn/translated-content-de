@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`status`**-Eigenschaft des schreibgeschützten [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt. Dieser kann `"unloaded"`, `"loading"`, `"loaded"` oder `"error"` sein.
+Die schreibgeschützte **`status`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt. Einer der Werte ist `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
 
 ## Wert
 

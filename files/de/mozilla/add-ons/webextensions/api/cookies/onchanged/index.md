@@ -12,10 +12,10 @@ Das `onChanged` Ereignis der {{WebExtAPIRef("cookies")}} API wird ausgelöst, we
 > [!NOTE]
 > Wenn [Speicherpartitionierung](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) aktiv ist, enthält `cookies.Cookie.partitionKey` die Beschreibung der Speicherpartition des Cookies. Beim Ändern von Cookies ist es wichtig, diesen Wert an {{WebExtAPIRef("cookies.set()")}} oder {{WebExtAPIRef("cookies.remove()")}} zu übergeben, um sicherzustellen, dass die Erweiterung mit dem richtigen Cookie arbeitet.
 
-Beachten Sie, dass die Aktualisierung der Eigenschaften eines Cookies als zweistufiger Prozess implementiert ist:
+Beachten Sie, dass das Aktualisieren der Eigenschaften eines Cookies als zweistufiger Prozess implementiert ist:
 
-1. Zuerst wird das zu aktualisierende Cookie vollständig entfernt, was eine Benachrichtigung mit einer {{WebExtAPIRef("cookies.OnChangedCause")}} von `overwrite` erzeugt.
-2. Anschließend wird ein neues Cookie mit den aktualisierten Werten geschrieben, was eine zweite Benachrichtigung mit einer {{WebExtAPIRef("cookies.OnChangedCause")}} von `explicit` erzeugt.
+1. Zuerst wird das zu aktualisierende Cookie vollständig entfernt, was eine Benachrichtigung mit einem {{WebExtAPIRef("cookies.OnChangedCause")}} von `overwrite` erzeugt.
+2. Anschließend wird ein neues Cookie mit den aktualisierten Werten geschrieben, was eine zweite Benachrichtigung mit einem {{WebExtAPIRef("cookies.OnChangedCause")}} von `explicit` erzeugt.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Diese API ist auch als `browser.cookies.onChanged.*` verfügbar.
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es horcht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -42,18 +42,18 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält folgende Argumente:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
 
     - `changeInfo`
 
-      - : Ein `object`, das Details der aufgetretenen Änderung enthält. Seine Eigenschaften sind wie folgt:
+      - : Ein `object`, das Details über die aufgetretene Änderung enthält. Seine Eigenschaften sind wie folgt:
 
         - `removed`
-          - : Ein `boolean`, der auf `true` gesetzt wird, wenn ein Cookie entfernt wurde, und auf `false`, wenn nicht.
+          - : Ein `boolean`, der auf `true` gesetzt wird, wenn ein Cookie entfernt wurde, andernfalls auf `false`.
         - `cookie`
           - : Ein {{WebExtAPIRef('cookies.Cookie')}} Objekt, das Informationen über das gesetzte oder entfernte Cookie enthält.
         - `cause`
-          - : Ein {{WebExtAPIRef('cookies.OnChangedCause')}} Wert, der den zugrunde liegenden Grund für die Änderung des Cookies darstellt.
+          - : Ein {{WebExtAPIRef('cookies.OnChangedCause')}} Wert, der den zugrunde liegenden Grund für die Änderung des Cookies repräsentiert.
 
 ## Browser-Kompatibilität
 
@@ -77,7 +77,7 @@ browser.cookies.onChanged.addListener((changeInfo) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#event-onChanged) API von Chromium. Diese Dokumentation wurde von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`authenticatorAttachment`**-Schreibgeschützte Eigenschaft des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein String, der die allgemeine Kategorie des Authentifikators angibt, der während des zugehörigen Aufrufs von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) verwendet wird.
+Die schreibgeschützte Eigenschaft **`authenticatorAttachment`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein String, der die allgemeine Kategorie des Authentifikators angibt, der während des zugehörigen Aufrufes von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) verwendet wird.
 
 ## Wert
 
-Ein String, der einer der folgenden Werte sein wird:
+Ein String, welcher einer der folgenden Werte sein wird:
 
 - `"platform"`
-  - : Der Authentifikator ist Teil des Geräts, auf dem WebAuthn läuft (genannt ein **Plattform-Authentifikator**), daher wird WebAuthn mit ihm mittels eines für diese Plattform verfügbaren Transports kommunizieren, wie beispielsweise einer plattformspezifischen API. Ein öffentlicher Schlüssel-Datensatz, der an einen Plattform-Authentifikator gebunden ist, wird als **Plattform-Anmeldeinformation** bezeichnet.
+  - : Der Authentifikator ist Teil des Geräts, auf dem WebAuthn läuft (als **Plattform-Authenticator** bezeichnet), daher wird WebAuthn mit ihm über ein für diese Plattform verfügbares Transportmittel kommunizieren, wie zum Beispiel eine plattformspezifische API. Ein öffentlicher Schlüssel, der an einen Plattform-Authenticator gebunden ist, wird als **Plattform-Anmeldedaten** bezeichnet.
 - `"cross-platform"`
-  - : Der Authentifikator ist nicht Teil des Geräts, auf dem WebAuthn läuft (genannt ein **Roaming-Authentifikator**, da er zwischen verschiedenen Geräten wechseln kann), daher wird WebAuthn mit ihm mittels eines plattformübergreifenden Transportprotokolls wie Bluetooth oder NFC kommunizieren. Ein öffentlicher Schlüssel-Datensatz, der an einen Roaming-Authentifikator gebunden ist, wird als **Roaming-Anmeldeinformation** bezeichnet.
+  - : Der Authentifikator ist nicht Teil des Geräts, auf dem WebAuthn läuft (als **Roaming-Authenticator** bezeichnet, da er zwischen verschiedenen Geräten wechseln kann), daher wird WebAuthn mit ihm über ein plattformübergreifendes Transportprotokoll wie Bluetooth oder NFC kommunizieren. Ein öffentlicher Schlüssel, der an einen Roaming-Authenticator gebunden ist, wird als **Roaming-Anmeldedaten** bezeichnet.
 
 ## Beispiele
 

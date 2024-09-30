@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser die schrägen Schriftarten synthetisieren darf, wenn sie in einer Schriftfamilie fehlen.
+Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen zu spezifizieren, ob der Browser den oblique Schriftschnitt synthetisieren darf, wenn er in einer Schriftfamilie fehlt.
 
-Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftartensynthese zu steuern.
+Es ist oft bequem, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Typenschnitt-Synthesewerte zu steuern.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ font-synthesis-style: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass die fehlende schräge Schriftart bei Bedarf vom Browser synthetisiert werden kann.
+  - : Gibt an, dass der fehlende oblique Schriftschnitt bei Bedarf vom Browser synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthetisierung der fehlenden schrägen Schriftart durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass das Synthetisieren des fehlenden oblique Schriftschnitts durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ font-synthesis-style: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese von schrägen Schriftarten
+### Deaktivierung der Synthese des obliquen Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthese der schrägen Schriftart durch den Browser in der `Montserrat` Schriftart deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des obliquen Schriftschnitts durch den Browser in der `Montserrat` Schriftart deaktiviert wird.
 
 #### HTML
 

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`min`** Attribut gibt den Mindestwert der aktiven Animationsdauer an.
+Das **`min`** Attribut spezifiziert den Minimalwert der aktiven Animationsdauer.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -75,7 +75,7 @@ svg {
 </table>
 
 - `<clock-value>`
-  - : Gibt die Länge des Mindestwerts der aktiven Dauer an, gemessen in lokaler Zeit. Der Wert muss größer als 0 sein.
+  - : Gibt die Länge des Minimalwerts der aktiven Dauer an, gemessen in lokaler Zeit. Der Wert muss größer als 0 sein.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **`readable`** schreibgeschützte Eigenschaft der [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die schreibgeschützte Eigenschaft **`readable`** des [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von einem `DecompressionStream` zurück.
+Das folgende Beispiel gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus einem `DecompressionStream` zurück.
 
 ```js
 let stream = new DecompressionStream("gzip");

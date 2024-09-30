@@ -13,20 +13,20 @@ Die **`CSSAnimation`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/W
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Objekt, [`Animation`](/de/docs/Web/API/Animation)._
 
 - [`CSSAnimation.animationName`](/de/docs/Web/API/CSSAnimation/animationName) {{ReadOnlyInline}}
-  - : Gibt den Animationsnamen als Zeichenkette zurück.
+  - : Gibt den Animationsnamen als String zurück.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Diese Schnittstelle erbt Methoden von ihrem übergeordneten Objekt, [`Animation`](/de/docs/Web/API/Animation)._
 
 ## Beispiele
 
-### Inspektion der zurückgegebenen CSSAnimation
+### Untersuchung der zurückgegebenen CSSAnimation
 
-Die Animation im folgenden Beispiel ist in CSS mit dem Namen `slide-in` definiert. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array von allen [`Animation`](/de/docs/Web/API/Animation)-Objekten zurück. In unserem Fall ergibt dies ein `CSSAnimation`-Objekt, das die in CSS erstellte Animation repräsentiert.
+Die Animation im folgenden Beispiel ist in CSS mit dem Namen `slide-in` definiert. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück. In unserem Fall wird ein `CSSAnimation`-Objekt zurückgegeben, das die in CSS erstellte Animation repräsentiert.
 
 ```css
 .animate {

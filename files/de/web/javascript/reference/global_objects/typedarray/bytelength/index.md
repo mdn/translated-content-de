@@ -7,17 +7,17 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteLength`** Zugriffseigenschaft von {{jsxref("TypedArray")}} Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
+Die **`byteLength`** Zugriffseigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
 
 {{EmbedInteractiveExample("pages/js/typedarray-bytelength.html", "shorter")}}
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ erstellt wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray objects](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ konstruiert wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
 ## Beispiele
 
-### Verwendung der Eigenschaft byteLength
+### Verwendung der byteLength-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -42,5 +42,5 @@ uint8offSet.byteLength; // 6 (due to the offset of the constructed Uint8Array)
 
 ## Siehe auch
 
-- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- Leitfaden [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}

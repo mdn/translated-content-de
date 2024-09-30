@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische Methode **`CSS.escape()`** gibt einen String zurück, der den übergebenen String in entkommener Form enthält, hauptsächlich zur Verwendung als Teil eines CSS-Selectors.
+Die **`CSS.escape()`** statische Methode gibt einen
+String zurück, der den übergebenen, escaped String enthält, hauptsächlich zur
+Verwendung als Teil eines CSS-Selektors.
 
 ## Syntax
 
@@ -19,17 +21,17 @@ CSS.escape(str)
 ### Parameter
 
 - `str`
-  - : Der zu entkommende String.
+  - : Der zu escapende String.
 
 ### Rückgabewert
 
-Der entkommene String.
+Der escapte String.
 
 ## Beispiele
 
 ### Grundlegende Ergebnisse
 
-<!-- Note: the {} need to be triple-escaped, once for Yari -->
+<!-- Hinweis: die {} müssen dreifach escaped werden, einmal für Yari -->
 
 ```js-nolint
 CSS.escape(".foo#bar"); // "\\.foo\\#bar"
@@ -39,15 +41,15 @@ CSS.escape(0); // "\\30 ", the Unicode code point of '0' is 30
 CSS.escape('\0'); // "\ufffd", the Unicode REPLACEMENT CHARACTER
 ```
 
-### Anwendungsbeispiele im Kontext
+### Verwendung im Kontext
 
-Um einen String zur Verwendung als Teil eines Selectors zu entkommen, kann die Methode `escape()` verwendet werden:
+Um einen String für die Verwendung als Teil eines Selektors zu escapen, kann die `escape()` Methode verwendet werden:
 
 ```js
 const element = document.querySelector(`#${CSS.escape(id)} > img`);
 ```
 
-Die Methode `escape()` kann auch zum Entkommen von Strings verwendet werden, obwohl sie Zeichen entkommt, die nicht unbedingt entkommen werden müssen:
+Die `escape()` Methode kann auch für das Escapen von Strings verwendet werden, obwohl sie Zeichen escaped, die nicht zwingend escapet werden müssten:
 
 ```js
 const element = document.querySelector(`a[href="#${CSS.escape(fragment)}"]`);
@@ -64,4 +66,4 @@ const element = document.querySelector(`a[href="#${CSS.escape(fragment)}"]`);
 ## Siehe auch
 
 - Das [`CSS`](/de/docs/Web/API/CSS) Interface, in dem sich diese statische Methode befindet.
-- [Ein Polyfill für CSS.escape](https://github.com/mathiasbynens/CSS.escape/blob/master/css.escape.js)
+- [Ein Polyfill für die CSS.escape](https://github.com/mathiasbynens/CSS.escape/blob/master/css.escape.js)

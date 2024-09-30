@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die **`keys()`**-Methode des [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Interfaces gibt ein neues Iterator-Objekt zurück, das die Schlüssel für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
+Die **`keys()`**-Methode der
+[`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Schlüssel für jedes Element in der Statuskarte in der Einfügereihenfolge enthält.
 
 ## Syntax
 

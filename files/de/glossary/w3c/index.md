@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das _World Wide Web Consortium_ (W3C) ist ein internationales Gremium, das [Web-bezogene](/de/docs/Glossary/World_Wide_Web) Regeln und Rahmenwerke pflegt.
+Das _World Wide Web Consortium_ (W3C) ist eine internationale Organisation, die Regeln und Rahmenwerke im Zusammenhang mit dem [Web](/de/docs/Glossary/World_Wide_Web) pflegt.
 
-Es besteht aus über 350 Mitgliedsorganisationen, die gemeinsam Webstandards entwickeln, Outreach-Programme durchführen und ein offenes Forum für Diskussionen über das Web unterhalten. Das W3C koordiniert Unternehmen in der Branche, um sicherzustellen, dass sie die gleichen W3C-Standards implementieren.
+Es besteht aus über 350 Mitgliedsorganisationen, die gemeinsam Webstandards entwickeln, Outreach-Programme durchführen und ein offenes Forum für Diskussionen über das Web unterhalten. Das W3C koordiniert Unternehmen in der Branche, um sicherzustellen, dass sie dieselben W3C-Standards umsetzen.
 
 Jeder Standard durchläuft vier Reifestufen: Working Draft (WD), Candidate Recommendation (CR), Proposed Recommendation (PR) und W3C Recommendation (REC).
 

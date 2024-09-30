@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet wird.
+Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet werden soll.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
@@ -46,7 +46,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Anmerkungen zur Verwendung
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -73,9 +73,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} größer als null sein. Werte, die keine ganzen Zahlen sind, werden abgeschnitten, d.h. auf den nächsten ganzzahligen Wert in Richtung Null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie auf die erste Zahl voreingestellt.
+  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} größer als null sein. Werte, die keine Ganzzahlen sind, werden abgeschnitten, d.h. auf den nächstgelegenen ganzzahligen Wert in Richtung null abgerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie auf die erste Zahl standardisiert.
 
-    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu sehr hoher CPU-Belastung führen und liefern in der Regel keine Ergebnisse, die den Leistungsaufwand rechtfertigen.
+    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einem sehr hohen CPU-Overhead führen und liefern in der Regel keine Ergebnisse, die den Einfluss auf die Leistung rechtfertigen.
 
 ## Spezifikationen
 

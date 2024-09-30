@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}} [At-Regel](/de/docs/Web/CSS/At-rule), die es Entwicklern ermöglicht, für jede Schriftart einen gemeinsamen Namen zuzuweisen, um Feature-Indizes zu spezifizieren, die in {{cssxref("font-variant-alternates")}} verwendet werden.
+Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}} [At-Regel](/de/docs/Web/CSS/At-rule), die es Entwicklern ermöglicht, für jede Schriftart einen gemeinsamen Namen zuzuweisen, um Feature-Indizes festzulegen, die in {{cssxref("font-variant-alternates")}} verwendet werden sollen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSFontFeatureValuesRule.fontFamily`](/de/docs/Web/API/CSSFontFeatureValuesRule/fontFamily)
-  - : Ein String, der die Schriftfamilie identifiziert, auf die diese Regel angewendet wird.
+  - : Ein String, der die Schriftfamilie identifiziert, für die diese Regel gilt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
@@ -26,7 +26,7 @@ _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ### Schriftfamilie lesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Anschließend verwenden wir die CSSOM, um diese Schriftfamilien auszulesen und sie im Log anzuzeigen.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Anschließend verwenden wir das CSSOM, um diese Schriftfamilien auszulesen und protokollieren sie.
 
 #### HTML
 

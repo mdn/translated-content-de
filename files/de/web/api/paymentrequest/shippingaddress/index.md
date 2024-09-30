@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`shippingAddress`** schreibgeschützte Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer angegebene Lieferadresse zurück. Standardmäßig ist sie `null`.
+Die **`shippingAddress`**-Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer bereitgestellte Lieferadresse zurück. Sie ist standardmäßig `null`.
 
 ## Wert
 
 ## Beispiele
 
-In der Regel wird der Benutzeragent den Wert der `shippingAddress`-Eigenschaft ausfüllen. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
+Im Allgemeinen wird der Wert der `shippingAddress`-Eigenschaft durch den User Agent ausgefüllt. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
 
-Im folgenden Beispiel variiert die Versandkosten je nach Geographie. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die korrekten Versandkosten festzulegen.
+Im untenstehenden Beispiel variiert die Versandkosten abhängig von der Geografie. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die richtigen Versandkosten festzulegen.
 
 ```js
 // Initialization of PaymentRequest arguments are excerpted for the sake of

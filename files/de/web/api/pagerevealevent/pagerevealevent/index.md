@@ -23,7 +23,7 @@ new PageRevealEvent(type, init)
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `viewTransition` {{optional_inline}}
-      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven Ansichtswechsel für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn kein aktiver Ansichtswechsel vorhanden ist.
+      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Übergangsansicht für die entsprechende Navigation darstellt. Standardmäßig `null`, wenn es keinen aktiven Übergang gibt.
 
 ## Beispiele
 

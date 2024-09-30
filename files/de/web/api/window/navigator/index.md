@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Window.navigator`** gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, das Methoden und Eigenschaften über die Anwendung enthält, die das Skript ausführt.
+Die schreibgeschützte **`Window.navigator`**-Eigenschaft gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, das Methoden und Eigenschaften bezüglich der Anwendung enthält, die das Skript ausführt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Das [`navigator`](/de/docs/Web/API/Navigator)-Objekt.
 
 ## Beispiele
 
-### Beispiel 1: Browser erkennen und einen String zurückgeben
+### Beispiel 1: Browser-Erkennung und Rückgabe eines Strings
 
 ```js
 function getBrowserName(userAgent) {

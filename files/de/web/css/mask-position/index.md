@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition fest, relativ zur Maskenpositionsebene, die durch {{cssxref("mask-origin")}} definiert ist, für jedes definierte Maskenbild.
+Die **`mask-position`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die anfängliche Position relativ zur Maskenpositionsebene fest, die durch {{cssxref("mask-origin")}} festgelegt wird, für jedes definierte Maskenbild.
 
 ## Syntax
 
@@ -38,12 +38,12 @@ mask-position: revert-layer;
 mask-position: unset;
 ```
 
-Ein oder mehrere `<position>` Werte, getrennt durch Kommas.
+Ein oder mehrere `<position>`-Werte, getrennt durch Kommata.
 
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Kanten des Box-Elements darstellen. Es können relative oder absolute Verschiebungen angegeben werden. Beachten Sie, dass die Position auch außerhalb des Box-Elements festgelegt werden kann.
+  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Ränder des Elementrahmens darstellen. Relative oder absolute Versätze können angegeben werden. Beachten Sie, dass die Position außerhalb des Elementrahmens festgelegt werden kann.
 
 ## Formale Definition
 
@@ -55,9 +55,9 @@ Ein oder mehrere `<position>` Werte, getrennt durch Kommas.
 
 ## Beispiele
 
-### Maskenposition einstellen
+### Maskenposition festlegen
 
-Ändern Sie den `mask-position` Wert auf einen der oben beschriebenen zulässigen Werte.
+Ändern Sie den `mask-position`-Wert in einen der oben beschriebenen zulässigen Werte.
 Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern Sie den Wert von `-webkit-mask-position`.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-position.html", '100%', 760)}}
@@ -72,4 +72,4 @@ Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern
 
 ## Siehe auch
 
-- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)

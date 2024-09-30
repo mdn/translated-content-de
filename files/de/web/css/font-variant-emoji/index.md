@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-emoji`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Standarddarstellungsstil für die Anzeige von Emojis fest.
+Die **`font-variant-emoji`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Standard-Darstellungsstil für die Anzeige von Emojis fest.
 
-Traditionell wurde dies durch Anhängen eines _Variationsselektors_, `U+FE0E` für Text und `U+FE0F` für Emoji, an den Emoji-Codepunkt erreicht. Nur Emojis, die zu einer [Unicode Emoji-Darstellungssequenz](https://www.unicode.org/emoji/charts/emoji-variants.html) beitragen, werden von dieser Eigenschaft beeinflusst.
+Traditionell wurde dies durch Anhängen eines _Variation Selectors_, `U+FE0E` für Text und `U+FE0F` für Emoji, an den Emoji-Codepunkt durchgeführt. Nur Emojis, die zu einer [Unicode-Emoji-Präsentationssequenz](https://www.unicode.org/emoji/charts/emoji-variants.html) beitragen, werden von dieser Eigenschaft beeinflusst.
 
 ## Syntax
 
@@ -28,18 +28,18 @@ font-variant-emoji: revert-layer;
 font-variant-emoji: unset;
 ```
 
-Die Eigenschaft `font-variant-emoji` wird mit einem einzelnen Schlüsselwort aus der untenstehenden Liste angegeben.
+Die `font-variant-emoji` Eigenschaft wird unter Verwendung eines einzelnen Schlüsselwortwerts aus der folgenden Liste festgelegt.
 
 ### Werte
 
 - `normal`
-  - : Ermöglicht es einem Browser, auszuwählen, wie das Emoji angezeigt wird. Dies folgt oft der Einstellung des Betriebssystems.
+  - : Ermöglicht einem Browser auszuwählen, wie das Emoji angezeigt wird. Dies folgt oft der Einstellung des Betriebssystems.
 - `text`
-  - : Rendert das Emoji, als ob es den Unicode-Textvariationsselektor (`U+FE0E`) verwenden würde.
+  - : Rendert das Emoji, als ob es den Unicode Text Variation Selector (`U+FE0E`) verwenden würde.
 - `emoji`
-  - : Rendert das Emoji, als ob es den Unicode-Emoji-Variationsselektor (`U+FE0F`) verwenden würde.
+  - : Rendert das Emoji, als ob es den Unicode Emoji Variation Selector (`U+FE0F`) verwenden würde.
 - `unicode`
-  - : Rendert das Emoji gemäß den [Eigenschaften der Emoji-Darstellung](https://www.unicode.org/reports/tr51/tr51-23.html#Emoji_Presentation). Wenn der Variationsselektor `U+FE0E` oder `U+FE0F` vorhanden ist, wird dieser Wert überschrieben.
+  - : Rendert das Emoji gemäß den [Emoji Präsentaionseigenschaften](https://www.unicode.org/reports/tr51/tr51-23.html#Emoji_Presentation). Wenn der `U+FE0E` oder `U+FE0F` Variation Selector vorhanden ist, wird dieser die Wertsetzung überschreiben.
 
 ## Formale Definition
 
@@ -51,19 +51,19 @@ Die Eigenschaft `font-variant-emoji` wird mit einem einzelnen Schlüsselwort aus
 
 ## Barrierefreiheit
 
-Obwohl die Verwendung von Emojis lustig erscheinen mag, sollten Sie deren Auswirkungen auf die Barrierefreiheit, insbesondere für Nutzer mit Seh- und kognitiven Beeinträchtigungen, berücksichtigen. Berücksichtigen Sie folgende Faktoren bei der Verwendung von Emojis:
+Während die Verwendung von Emojis lustig erscheinen mag, sollten Sie deren Auswirkungen auf die Barrierefreiheit berücksichtigen, insbesondere für Benutzer mit visuellen und kognitiven Beeinträchtigungen. Berücksichtigen Sie die folgenden Faktoren bei der Verwendung von Emojis:
 
-- Anzeige auf Screen-Readern: Screen-Reader lesen den Alt-Text eines Emojis vor. Beachten Sie dies, um die Position eines Emojis im Inhalt zu berücksichtigen. Wiederholte und übermäßige Verwendung von Emojis hat negative Auswirkungen auf Benutzer von Screen-Readern. Es ist besser, Emojis anstelle von Emoticons zu verwenden; Emoticons werden als Satzzeichen vorgelesen.
+- Anzeige auf Screenreadern: Screenreader lesen den Alt-Text eines Emojis vor. Beachten Sie dies, um die Position eines Emojis im Inhalt zu berücksichtigen. Wiederholte und übermäßige Verwendung von Emojis wirkt sich nachteilig auf Benutzer von Screenreadern aus. Es ist besser, Emojis als Emoticons zu verwenden; Emoticons werden als Interpunktionszeichen vorgelesen.
 
-- Kontrast mit dem Hintergrund: Berücksichtigen Sie bei der Verwendung von Emojis deren Farben und wie diese mit der Hintergrundfarbe harmonieren, insbesondere wenn Sie Hintergrundfarben haben, die sich ändern können, wie z. B. bei hellen/dunklen Modi.
+- Kontrast zum Hintergrund: Achten Sie bei der Verwendung von Emojis auf deren Farben und wie diese mit der Hintergrundfarbe harmonieren, insbesondere wenn Sie Hintergrundfarben verwenden, die sich ändern können, wie z. B. hell/dunkel Modi.
 
-- Absicht der Verwendung: Verwenden Sie keine Emojis, um Wörter zu ersetzen, da Ihr Verständnis der Emoji-Bedeutung von dem der Nutzer abweichen kann. Bedenken Sie auch, dass Emojis in verschiedenen Kulturen und Regionen unterschiedliche Bedeutungen haben könnten. Unsere Empfehlung ist, die Verwendung auf allgemein bekannte Emojis zu beschränken.
+- Verwendungsabsicht: Verwenden Sie keine Emojis, um Wörter zu ersetzen, da Ihr Verständnis der Emoji-Bedeutung von dem der Benutzer abweichen kann. Berücksichtigen Sie auch, dass Emojis in verschiedenen Kulturen und Regionen unterschiedliche Bedeutungen haben können. Unsere Empfehlung ist es, die Nutzung vorzugsweise auf allgemein bekannte Emojis zu beschränken.
 
 ## Beispiele
 
-### Ändern der Art und Weise, wie ein Emoji dargestellt wird
+### Änderung der Art, wie ein Emoji angezeigt wird
 
-Dieses Beispiel zeigt, wie man ein Emoji in seiner `text`- oder `emoji`-Darstellung rendern kann.
+Dieses Beispiel zeigt, wie Sie ein Emoji in seiner `text` oder `emoji` Präsentationsform rendern können.
 
 #### HTML
 

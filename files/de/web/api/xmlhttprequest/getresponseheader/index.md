@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: getResponseHeader() Methode"
+title: "XMLHttpRequest: getResponseHeader()-Methode"
 short-title: getResponseHeader()
 slug: Web/API/XMLHttpRequest/getResponseHeader
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Methode **`getResponseHeader()`** gibt den String zurück, der den Text des Wertes eines bestimmten Headers enthält.
+Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`getResponseHeader()`** gibt den String zurück, der den Text eines bestimmten Header-Werts enthält.
 
-Wenn es mehrere Antwort-Header mit demselben Namen gibt, werden ihre Werte als einzelner, zusammengefügter String zurückgegeben, wobei jeder Wert durch ein Komma und ein Leerzeichen vom vorherigen getrennt ist. Die Methode `getResponseHeader()` gibt den Wert als UTF-Byte-Sequenz zurück.
+Wenn es mehrere Antwort-Header mit demselben Namen gibt, werden deren Werte als ein einzelner zusammengefasster String zurückgegeben, wobei jeder Wert durch ein Komma und ein Leerzeichen vom vorherigen getrennt ist. Die Methode `getResponseHeader()` gibt den Wert als UTF-Byte-Sequenz zurück.
 
 > [!NOTE]
-> Die Suche nach dem Header-Namen ist nicht case-sensitiv.
+> Die Suche nach dem Header-Namen erfolgt ohne Berücksichtigung der Groß- und Kleinschreibung.
 
-Wenn Sie den Rohstring aller Header benötigen, verwenden Sie die Methode [`getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders), die den gesamten Rohheader-String zurückgibt.
+Wenn Sie den rohen String aller Header benötigen, verwenden Sie die Methode [`getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders), die den gesamten Roh-Header-String zurückgibt.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ getResponseHeader(headerName)
 
 ### Rückgabewert
 
-Ein String, der den Textwert des Headers darstellt, oder `null`, falls die Antwort noch nicht eingegangen ist oder der Header in der Antwort nicht existiert.
+Ein String, der den Textwert des Headers darstellt, oder `null`, wenn die Antwort noch nicht empfangen wurde oder der Header in der Antwort nicht existiert.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event) Handler wird eingerichtet, um zu prüfen, ob der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) darauf hinweist, dass die Header empfangen wurden; wenn dies der Fall ist, wird der Wert des {{httpheader("Content-Type")}} Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) mittels Aufruf von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
+In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Handler wird eingerichtet, um auf den [`readyState`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest/readyState) zu achten, der anzeigt, dass die Header empfangen wurden; in diesem Fall wird der Wert des {{httpheader("Content-Type")}}-Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durch Aufrufen von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
 
 ```js
 const client = new XMLHttpRequest();

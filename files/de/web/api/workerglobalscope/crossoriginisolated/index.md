@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob sich die Website in einem status der Cross-Origin-Isolation befindet. Dieser Status reduziert das Risiko von Seitenkanalangriffen und ermöglicht einige zusätzliche Fähigkeiten:
+Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob sich die Website in einem Cross-Origin-Isolationszustand befindet. Dieser Zustand mindert das Risiko von Seitenkanalangriffen und schaltet einige Fähigkeiten frei:
 
-- {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen Anruf von [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) oder [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) gesendet werden.
-- [`Performance.now()`](/de/docs/Web/API/Performance/now) bietet eine bessere Genauigkeit.
+- Ein {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen Aufruf von [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) oder [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) gesendet werden.
+- [`Performance.now()`](/de/docs/Web/API/Performance/now) bietet bessere Präzision.
 - [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory) kann aufgerufen werden.
 
-Eine Website befindet sich in einem Zustand der Cross-Origin-Isolation, wenn der Antwort-Header {{HTTPHeader("Cross-Origin-Opener-Policy")}} den Wert `same-origin` und der {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-Header den Wert `require-corp` oder `credentialless` hat.
+Eine Website befindet sich in einem Cross-Origin-Isolationszustand, wenn der Antwort-Header {{HTTPHeader("Cross-Origin-Opener-Policy")}} den Wert `same-origin` hat und der {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-Header den Wert `require-corp` oder `credentialless` hat.
 
 ## Wert
 

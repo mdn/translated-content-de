@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: drawImage()-Methode"
+title: "CanvasRenderingContext2D: drawImage() Methode"
 short-title: drawImage()
 slug: Web/API/CanvasRenderingContext2D/drawImage
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.drawImage()`**-Methode der Canvas 2D API bietet verschiedene Möglichkeiten, ein Bild auf die Leinwand zu zeichnen.
+Die **`CanvasRenderingContext2D.drawImage()`**-Methode der Canvas-2D-API bietet verschiedene Möglichkeiten, ein Bild auf die Leinwand zu zeichnen.
 
 ## Syntax
 
@@ -23,23 +23,30 @@ drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 ### Parameter
 
 - `image`
-  - : Ein Element, das in den Kontext gezeichnet werden soll. Die Spezifikation erlaubt jede Canvas-Bildquelle, insbesondere ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement), ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement), ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap), ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) oder ein [`VideoFrame`](/de/docs/Web/API/VideoFrame).
+  - : Ein Element, das in den Kontext gezeichnet werden soll. Die Spezifikation erlaubt jede Canvasbildquelle, insbesondere,
+    ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement),
+    ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement),
+    ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
+    ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
+    ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap),
+    ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas),
+    oder ein [`VideoFrame`](/de/docs/Web/API/VideoFrame).
 - `sx` {{optional_inline}}
-  - : Die x-Achsen-Koordinate der oberen linken Ecke des Teilrechtecks der Quell-`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument wegzulassen.
+  - : Die x-Koordinate der oberen linken Ecke des Teilrechtecks des Quell`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument auszulassen.
 - `sy` {{optional_inline}}
-  - : Die y-Achsen-Koordinate der oberen linken Ecke des Teilrechtecks der Quell-`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument wegzulassen.
+  - : Die y-Koordinate der oberen linken Ecke des Teilrechtecks des Quell`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument auszulassen.
 - `sWidth` {{optional_inline}}
-  - : Die Breite des Teilrechtecks der Quell-`image`, das in den Zielkontext gezeichnet werden soll. Wenn nicht angegeben, wird das gesamte Rechteck von den Koordinaten `sx` und `sy` bis zur unteren rechten Ecke des Bildes verwendet. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument wegzulassen. Ein negativer Wert wird das Bild spiegeln.
+  - : Die Breite des Teilrechtecks des Quell`image`, das in den Zielkontext gezeichnet werden soll. Wenn nicht angegeben, wird das gesamte Rechteck von den Koordinaten `sx` und `sy` bis zur unteren rechten Ecke des Bildes verwendet. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument auszulassen. Ein negativer Wert dreht das Bild.
 - `sHeight` {{optional_inline}}
-  - : Die Höhe des Teilrechtecks der Quell-`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument wegzulassen. Ein negativer Wert wird das Bild spiegeln.
+  - : Die Höhe des Teilrechtecks des Quell`image`, das in den Zielkontext gezeichnet werden soll. Verwenden Sie die 3- oder 5-Argument-Syntax, um dieses Argument auszulassen. Ein negativer Wert dreht das Bild.
 - `dx`
-  - : Die x-Achsen-Koordinate auf der Ziel-Leinwand, an der die obere linke Ecke der Quell-`image` platziert werden soll.
+  - : Die x-Koordinate im Ziel-Canvas, an der die obere linke Ecke des Quell`image` platziert werden soll.
 - `dy`
-  - : Die y-Achsen-Koordinate auf der Ziel-Leinwand, an der die obere linke Ecke der Quell-`image` platziert werden soll.
+  - : Die y-Koordinate im Ziel-Canvas, an der die obere linke Ecke des Quell`image` platziert werden soll.
 - `dWidth`
-  - : Die Breite, mit der die `image` auf der Ziel-Leinwand gezeichnet werden soll. Dies ermöglicht eine Skalierung des gezeichneten Bildes. Wenn nicht angegeben, wird das Bild nicht in der Breite skaliert, wenn es gezeichnet wird. Beachten Sie, dass dieses Argument in der 3-Argument-Syntax nicht enthalten ist.
+  - : Die Breite, mit der das `image` im Ziel-Canvas gezeichnet werden soll. Dies ermöglicht eine Skalierung des gezeichneten Bildes. Wenn nicht angegeben, wird das Bild beim Zeichnen in der Breite nicht skaliert. Beachten Sie, dass dieses Argument nicht in der 3-Argument-Syntax enthalten ist.
 - `dHeight`
-  - : Die Höhe, mit der die `image` auf der Ziel-Leinwand gezeichnet werden soll. Dies ermöglicht eine Skalierung des gezeichneten Bildes. Wenn nicht angegeben, wird das Bild nicht in der Höhe skaliert, wenn es gezeichnet wird. Beachten Sie, dass dieses Argument in der 3-Argument-Syntax nicht enthalten ist.
+  - : Die Höhe, mit der das `image` im Ziel-Canvas gezeichnet werden soll. Dies ermöglicht eine Skalierung des gezeichneten Bildes. Wenn nicht angegeben, wird das Bild beim Zeichnen in der Höhe nicht skaliert. Beachten Sie, dass dieses Argument nicht in der 3-Argument-Syntax enthalten ist.
 
 ### Rückgabewert
 
@@ -48,15 +55,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Bild keine Bilddaten hat oder wenn die Breite oder Höhe der Leinwand oder des Quellrechtecks null ist.
+  - : Wird ausgelöst, wenn das Bild keine Bilddaten hat oder wenn die Breite oder Höhe des Canvas oder des Quellrechtecks null ist.
 - `TypeMismatchError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein `null`- oder `undefined`-Bild als Parameter übergeben wird.
+  - : Wird ausgelöst, wenn ein `null` oder `undefined` Bild als Parameter übergeben wird.
 
 ## Beispiele
 
-### Ein Bild auf die Leinwand zeichnen
+### Zeichnen eines Bildes auf das Canvas
 
-Dieses Beispiel zeichnet ein Bild auf die Leinwand mithilfe der `drawImage()`-Methode.
+Dieses Beispiel zeichnet ein Bild auf das Canvas unter Verwendung der `drawImage()`-Methode.
 
 #### HTML
 
@@ -73,7 +80,7 @@ Dieses Beispiel zeichnet ein Bild auf die Leinwand mithilfe der `drawImage()`-Me
 
 #### JavaScript
 
-Das Quellbild wird von den Koordinaten (33, 71) mit einer Breite von 104 und einer Höhe von 124 entnommen. Es wird bei (21, 20) auf die Leinwand gezeichnet, wo es auf eine Breite von 87 und eine Höhe von 104 skaliert wird.
+Das Quellbild wird von den Koordinaten (33, 71) mit einer Breite von 104 und einer Höhe von 124 entnommen. Es wird auf das Canvas bei (21, 20) gezeichnet, wo es eine Breite von 87 und eine Höhe von 104 erhält.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -89,11 +96,11 @@ image.addEventListener("load", (e) => {
 
 {{ EmbedLiveSample('Drawing_an_image_to_the_canvas', 700, 180) }}
 
-### Verstehen der Größe des Quell-Elements
+### Verständnis der Größe des Quell-Elements
 
 Die `drawImage()`-Methode verwendet die _intrinsische Größe in CSS-Pixeln_ des Quell-Elements beim Zeichnen.
 
-Wenn Sie beispielsweise ein `Image` laden und die optionalen Größenparameter in dessen [Konstruktor](/de/docs/Web/API/HTMLImageElement/Image) angeben, müssen Sie die `naturalWidth`- und `naturalHeight`-Eigenschaften der erstellten Instanz verwenden, um Dinge wie Zuschneide- und Skalierungsbereiche korrekt zu berechnen, anstatt `element.width` und `element.height`. Dasselbe gilt für `videoWidth` und `videoHeight`, wenn das Element ein {{htmlelement("video")}}-Element ist, und so weiter.
+Zum Beispiel, wenn Sie ein `Image` laden und die optionalen Größenparameter in seinem [Konstruktor](/de/docs/Web/API/HTMLImageElement/Image) angeben, müssen Sie die `naturalWidth`- und `naturalHeight`-Eigenschaften der erstellten Instanz verwenden, um Dinge wie Zuschneiden und Skalieren richtig zu berechnen, anstatt `element.width` und `element.height`. Dasselbe gilt für `videoWidth` und `videoHeight`, wenn das Element ein {{htmlelement("video")}}-Element ist, und so weiter.
 
 #### HTML
 
@@ -143,9 +150,9 @@ function drawImageActualSize() {
 
 ## Hinweise
 
-- `drawImage()` funktioniert nur korrekt auf einem [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), wenn dessen [`HTMLMediaElement.readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) größer als 1 ist (d.h., **seek**-Ereignis nach dem Setzen der `currentTime`-Eigenschaft ausgelöst).
-- `drawImage()` wird beim Zeichnen, Zuschneiden und/oder Skalieren immer die _intrinsische Größe in CSS-Pixeln_ des Quell-Elements verwenden.
-- In einigen älteren Browserversionen wird `drawImage()` alle EXIF-Metadaten in Bildern ignorieren, einschließlich der Ausrichtung. Dieses Verhalten ist besonders problematisch auf iOS-Geräten. Sie sollten die Ausrichtung selbst erkennen und `rotate()` verwenden, um sie zu korrigieren.
+- `drawImage()` funktioniert nur korrekt auf einem [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), wenn dessen [`HTMLMediaElement.readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) größer als 1 ist (d.h. das **seek**-Ereignis ausgelöst wird, nachdem die `currentTime`-Eigenschaft gesetzt wurde).
+- `drawImage()` verwendet immer die _intrinsische Größe in CSS-Pixeln_ des Quell-Elements beim Zeichnen, Zuschneiden und/oder Skalieren.
+- In einigen älteren Browserversionen ignoriert `drawImage()` alle EXIF-Metadaten in Bildern, einschließlich der Ausrichtung. Dieses Verhalten ist besonders auf iOS-Geräten problematisch. Sie sollten die Ausrichtung selbst erkennen und `rotate()` verwenden, um sie richtig darzustellen.
 
 ## Siehe auch
 

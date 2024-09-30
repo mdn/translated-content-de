@@ -10,16 +10,16 @@ l10n:
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Type</th>
+      <th scope="row">Typ</th>
       <td><code>Array</code></td>
     </tr>
   </tbody>
 </table>
 
-Das `related_applications`-Feld ist ein Array von Objekten, das native Anwendungen spezifiziert, die auf der zugrunde liegenden Plattform installierbar oder zugänglich sind — zum Beispiel eine native Android-Anwendung, die über den Google Play Store erhältlich ist. Solche Anwendungen sollen Alternativen zur Website des Manifests darstellen, die eine ähnliche/äquivalente Funktionalität bieten — wie das native App-Äquivalent.
+Das `related_applications`-Feld ist ein Array von Objekten, das native Anwendungen spezifiziert, die auf der zugrundeliegenden Plattform installierbar oder zugänglich sind - zum Beispiel eine native Android-Anwendung, die über den Google Play Store erhältlich ist. Solche Anwendungen sollen Alternativen zur Webseite des Manifests darstellen, die ähnliche/gleichwertige Funktionalitäten bieten - wie das native App-Äquivalent.
 
 > [!NOTE]
-> Entwickler können angeben, dass die nativen Anwendungen gegenüber der Webanwendung bevorzugt werden, indem sie `prefer_related_applications` auf `true` setzen.
+> Entwickler können angeben, dass die nativen Anwendungen der Webanwendung vorgezogen werden, indem sie `prefer_related_applications` auf `true` setzen.
 
 ## Beispiele
 
@@ -41,13 +41,13 @@ Das `related_applications`-Feld ist ein Array von Objekten, das native Anwendung
 
 ## Eigenschaften verwandter Anwendungen
 
-Anwendungsobjekte können die folgenden Eigenschaften enthalten:
+Applikationsobjekte können die folgenden Eigenschaften enthalten:
 
-| Mitglied   | Beschreibung                                                                                                                      |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Mitglied   | Beschreibung                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | `platform` | Die Plattform, auf der die Anwendung zu finden ist. [Liste der verfügbaren Werte](https://github.com/w3c/manifest/wiki/Platforms) |
-| `url`      | Die URL, unter der die Anwendung zu finden ist.                                                                                   |
-| `id`       | Die ID, die verwendet wird, um die Anwendung auf der angegebenen Plattform darzustellen.                                          |
+| `url`      | Die URL, unter der die Anwendung zu finden ist.                                                                                |
+| `id`       | Die ID, die verwendet wird, um die Anwendung auf der angegebenen Plattform zu repräsentieren.                                  |
 
 ## Spezifikationen
 

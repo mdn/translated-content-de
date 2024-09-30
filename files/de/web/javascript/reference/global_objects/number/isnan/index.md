@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Number.isNaN()`** bestimmt, ob der übergebene Wert der Zahlenwert {{jsxref("NaN")}} ist, und gibt `false` zurück, wenn der Eingangswert nicht vom Typ Number ist. Es ist eine robustere Version der ursprünglichen, globalen Funktion {{jsxref("isNaN()")}}.
+Die statische Methode **`Number.isNaN()`** bestimmt, ob der übergebene Wert der Zahlenwert {{jsxref("NaN")}} ist, und gibt `false` zurück, wenn die Eingabe nicht vom Typ Number ist. Es ist eine robustere Version der ursprünglichen globalen Funktion {{jsxref("isNaN()")}}.
 
 {{EmbedInteractiveExample("pages/js/number-isnan.html", "taller")}}
 
@@ -20,19 +20,19 @@ Number.isNaN(value)
 ### Parameter
 
 - `value`
-  - : Der zu testende Wert für {{jsxref("NaN")}}.
+  - : Der Wert, der auf {{jsxref("NaN")}} getestet werden soll.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der gegebene Wert eine Zahl mit dem Wert {{jsxref("NaN")}} ist. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der angegebene Wert eine Zahl mit dem Wert {{jsxref("NaN")}} ist. Andernfalls `false`.
 
 ## Beschreibung
 
-Die Funktion `Number.isNaN()` bietet eine bequeme Möglichkeit, auf Gleichheit mit `NaN` zu prüfen. Beachten Sie, dass Sie die Gleichheit mit `NaN` weder mit dem [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) noch dem [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) Operator testen können, da im Gegensatz zu allen anderen Wertvergleichen in JavaScript diese immer `false` ergeben, wenn einer der Operanden {{jsxref("NaN")}} ist, selbst wenn der andere Operand ebenfalls {{jsxref("NaN")}} ist.
+Die Funktion `Number.isNaN()` bietet eine bequeme Möglichkeit, auf Gleichheit mit `NaN` zu prüfen. Beachten Sie, dass Sie die Gleichheit mit `NaN` nicht mit den Operatoren [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) oder [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) testen können, da diese, im Gegensatz zu allen anderen Wertvergleichen in JavaScript, immer `false` ergeben, wenn einer der Operanden {{jsxref("NaN")}} ist, selbst wenn der andere Operand ebenfalls {{jsxref("NaN")}} ist.
 
-Da `x !== x` nur für `NaN` unter allen möglichen JavaScript-Werten wahr ist, kann `Number.isNaN(x)` auch durch einen Test auf `x !== x` ersetzt werden, obwohl Letzteres weniger lesbar ist.
+Da `x !== x` nur für `NaN` unter allen möglichen JavaScript-Werten wahr ist, kann `Number.isNaN(x)` auch durch einen Test für `x !== x` ersetzt werden, obwohl letzterer weniger lesbar ist.
 
-Im Gegensatz zur globalen Funktion {{jsxref("isNaN()")}} konvertiert die Methode `Number.isNaN()` den Parameter nicht in eine Zahl. Dies macht es sicher, Werte zu übergeben, die normalerweise in {{jsxref("NaN")}} umgewandelt würden, aber tatsächlich nicht denselben Wert wie {{jsxref("NaN")}} haben. Das bedeutet auch, dass nur Werte vom Typ Number, die auch {{jsxref("NaN")}} sind, `true` zurückgeben.
+Im Gegensatz zur globalen Funktion {{jsxref("isNaN()")}} erzwingt die Methode `Number.isNaN()` keine Umwandlung des Parameters in eine Zahl. Dies macht es sicher, Werte zu übergeben, die normalerweise in {{jsxref("NaN")}} umgewandelt würden, aber tatsächlich nicht denselben Wert wie {{jsxref("NaN")}} darstellen. Dies bedeutet auch, dass nur Werte des Typs Number, die ebenfalls {{jsxref("NaN")}} sind, `true` zurückgeben.
 
 ## Beispiele
 
@@ -45,9 +45,9 @@ Number.isNaN(0 / 0); // true
 Number.isNaN(37); // false
 ```
 
-### Unterschied zwischen Number.isNaN() und global isNaN()
+### Unterschied zwischen Number.isNaN() und globalem isNaN()
 
-`Number.isNaN()` versucht nicht, den Parameter in eine Zahl umzuwandeln, daher geben Nicht-Zahlen immer `false` zurück. Die folgenden Beispiele sind alle `false`:
+`Number.isNaN()` versucht nicht, den Parameter in eine Zahl umzuwandeln, sodass Nicht-Zahlen immer `false` zurückgeben. Die folgenden sind alle `false`:
 
 ```js
 Number.isNaN("NaN");
@@ -62,7 +62,7 @@ Number.isNaN("");
 Number.isNaN(" ");
 ```
 
-Die globale Funktion {{jsxref("isNaN()")}} zwingt ihren Parameter zu einer Zahl:
+Die globale Funktion {{jsxref("isNaN()")}} konvertiert ihren Parameter zu einer Zahl:
 
 ```js
 isNaN("NaN"); // true

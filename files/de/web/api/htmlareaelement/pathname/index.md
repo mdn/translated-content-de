@@ -9,13 +9,13 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAreaElement.pathname`**-Eigenschaft ist ein
-String, der ein anfängliches `'/'` enthält, gefolgt von dem Pfad der
-URL ohne die Abfragezeichenfolge oder das Fragment (oder der leere String, falls kein
+Zeichenfolgenwert, der ein anfängliches `'/'` enthält, gefolgt von dem Pfad der
+URL ohne die Abfragezeichenfolge oder den Fragmentteil (oder die leere Zeichenfolge, wenn kein
 Pfad vorhanden ist).
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -35,4 +35,4 @@ area.pathname; // returns '/en-US/docs/HTMLAreaElement'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

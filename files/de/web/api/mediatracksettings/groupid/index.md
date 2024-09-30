@@ -8,25 +8,26 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`groupId`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist ein während der Browsersitzung eindeutiger String, der die Gerätegruppe identifiziert, die die Quelle für den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie im [`MediaTrackConstraints.groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId) beschrieben, die Sie bei einem Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) angegeben haben.
+Die **`groupId`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) Dictionaries ist eine sitzungsübergreifend eindeutige
+Zeichenkette, die die Gruppe von Geräten identifiziert, welche die Quelle für den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält. Dies ermöglicht es Ihnen herauszufinden, welcher Wert ausgewählt wurde, um den angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie in der [`MediaTrackConstraints.groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId) Eigenschaft beschrieben, die Sie beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) angegeben haben.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.groupId`](/de/docs/Web/API/MediaTrackSupportedConstraints/groupId) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser unbekannte Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.groupId`](/de/docs/Web/API/MediaTrackSupportedConstraints/groupId) prüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die sie nicht kennen.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Informationen nicht enthält, werden mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbundene Tracks diese Eigenschaft niemals enthalten.
+Da [RTP](/de/docs/Glossary/RTP) diese Informationen nicht enthält, werden Spuren, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals enthalten.
 
 ## Wert
 
-Ein String, dessen Wert ein während der Browsersitzung eindeutiger Bezeichner für eine Gruppe von Geräten ist, die die Quelle des Track-Inhalts umfasst. Zwei Geräte teilen dieselbe Gruppen-ID, wenn sie zum selben physischen Hardwaregerät gehören. Beispielsweise hat ein Headset zwei Geräte: ein Mikrofon, das als Quelle für Audiotracks dienen kann, und einen Lautsprecher, der als Ausgabe für Audio dienen kann.
+Eine Zeichenkette, deren Wert eine sitzungsübergreifend eindeutige Kennung für eine Gruppe von Geräten ist, welche die Quelle der Inhalte der Spur enthält. Zwei Geräte teilen sich die gleiche Gruppen-ID, wenn sie zum selben physischen Hardwaregerät gehören. Zum Beispiel hat ein Headset zwei Geräte: ein Mikrofon, das als Quelle für Audiotracks dienen kann, und einen Lautsprecher, der als Audioausgabe dienen kann.
 
-Die Gruppen-ID ist nicht über mehrere Browsersitzungen hinweg nutzbar. Sie kann jedoch verwendet werden, um sicherzustellen, dass Audioeingabe und -ausgabe beide auf demselben Headset erfolgen, oder um sicherzustellen, dass die eingebaute Kamera und das Mikrofon eines Telefons für Videokonferenzen verwendet werden.
+Die Gruppen-ID ist nicht über mehrere Sitzungssitzungen hinweg nutzbar. Sie kann jedoch verwendet werden, um sicherzustellen, dass Audioeingabe und -ausgabe beide mit demselben Headset durchgeführt werden, oder um sicherzustellen, dass die eingebaute Kamera und das Mikrofon eines Telefons für Videokonferenzen genutzt werden.
 
-Der tatsächliche Wert des Strings wird jedoch durch die Quelle des Tracks bestimmt, und es gibt keine Garantie, welche Form er annehmen wird, obwohl die Spezifikation empfiehlt, dass es sich um eine GUID handelt.
+Der tatsächliche Wert der Zeichenkette wird von der Quelle des Tracks bestimmt, und es gibt keine Garantie, welche Form sie annehmen wird, obwohl die Spezifikation empfiehlt, dass sie eine GUID ist.
 
-Da diese Eigenschaft nicht stabil über Browsersitzungen hinweg ist, ist ihre Nützlichkeit beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) im Allgemeinen darauf beschränkt, sicherzustellen, dass Aufgaben, die während derselben Browsersitzung durchgeführt werden, Geräte aus derselben Gruppe verwenden (oder dass sie keine Geräte aus derselben Gruppe verwenden). Es gibt keine Situation, in der die groupId beim Aufruf von `applyConstraints()` nützlich wäre, da der Wert nicht geändert werden kann.
+Da diese Eigenschaft zwischen Sitzungssitzungen nicht stabil bleibt, ist ihre Nützlichkeit beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) im Allgemeinen darauf beschränkt, sicherzustellen, dass Aufgaben, die während derselben Sitzungssitzung ausgeführt werden, Geräte aus derselben Gruppe verwenden (oder dass sie keine Geräte aus derselben Gruppe verwenden). Es gibt keine Situation, in der die `groupId`-Eigenschaft beim Aufrufen von `applyConstraints()` nützlich ist, da der Wert nicht geändert werden kann.
 
 ## Beispiele
 
-Siehe das [Beispiel zum Ausprobieren von Einschränkungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`origin`** des [`URL`](/de/docs/Web/API/URL)-Interfaces gibt einen String zurück, der die Unicode-Darstellung des Ursprungs der dargestellten URL enthält.
+Die **`origin`** schreibgeschützte Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen String zurück, der die Unicode-Serialisierung des Ursprungs der repräsentierten URL enthält.
 
-Die genaue Struktur variiert je nach URL-Typ:
+Die genaue Struktur variiert je nach Art der URL:
 
-- Für URLs mit den Schemen `http:` oder `https:` besteht der Ursprung aus dem Schema gefolgt von `//`, gefolgt von der Domain, gefolgt von `:`, gefolgt von dem Port (dem Standardport, `80` bzw. `443`, falls explizit angegeben).
+- Für URLs mit den Schemen `http:` oder `https:`: das Schema gefolgt von `//`, gefolgt von der Domain, gefolgt von `:`, gefolgt vom Port (der Standardport, `80` bzw. `443`, falls explizit angegeben).
 - Für URLs mit dem `file:`-Schema ist der Wert vom Browser abhängig.
-- Für URLs mit dem `blob:`-Schema ist es der Ursprung der URL, die auf `blob:` folgt. Zum Beispiel hat `blob:https://mozilla.org` den Ursprung `https://mozilla.org`.
+- Für URLs mit dem `blob:`-Schema ist der Ursprung der URL nach `blob:`. Zum Beispiel, `blob:https://mozilla.org` wird `https://mozilla.org` haben.
 
 ## Wert
 
@@ -43,5 +43,5 @@ console.log(url.origin); // 'https://mozilla.org:8080'
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface
-- Glossarbegriff [origin](/de/docs/Glossary/origin)
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle
+- [origin](/de/docs/Glossary/origin) Glossarbegriff

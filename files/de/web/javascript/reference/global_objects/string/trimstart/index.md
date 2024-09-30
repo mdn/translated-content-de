@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` darstellt, befreit von Leerzeichen am Anfang (linke Seite). Leerzeichen sind definiert als [Whitespace-Zeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) plus [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Ein neuer String, der `str` darstellt, von dem die Leerzeichen am Anfang (linke Seite) entfernt wurden. Leerzeichen sind definiert als [Weißraum](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn der Anfang von `str` keine Leerzeichen enthält, wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn der Anfang von `str` keine Leerzeichen hat, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ### Aliasing
 
-Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, implementierten Engines auch die nicht standardisierte Methode `trimLeft`. Aus Konsistenzgründen mit {{jsxref("String/padStart", "padStart()")}}, wurde bei der Standardisierung der Name `trimStart` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimLeft` ein Alias zu `trimStart`, und sie verweisen auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
+Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, implementierten Engines auch die nicht standardisierte Methode `trimLeft`. Um jedoch konsistent mit {{jsxref("String/padStart", "padStart()")}} zu sein, wurde bei der Standardisierung der Name `trimStart` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimLeft` ein Alias für `trimStart`, und sie beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
 
 ```js
 String.prototype.trimLeft.name === "trimStart";
@@ -41,7 +41,7 @@ String.prototype.trimLeft.name === "trimStart";
 
 ### Verwendung von trimStart()
 
-Das folgende Beispiel entfernt Leerzeichen vom Anfang von `str`, jedoch nicht von seinem Ende.
+Im folgenden Beispiel werden Leerzeichen vom Anfang von `str` entfernt, jedoch nicht vom Ende.
 
 ```js
 let str = "   foo  ";

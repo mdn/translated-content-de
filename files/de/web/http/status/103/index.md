@@ -7,17 +7,17 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`103 Early Hints`** [informational response](/de/docs/Web/HTTP/Status#information_responses) kann von einem Server gesendet werden, während er noch eine Antwort vorbereitet, und enthält Hinweise zu den Sites und Ressourcen, die der Server in der endgültigen Antwort verlinken erwartet. Dies ermöglicht es einem Browser, zu Sites [vorzuverbinden](/de/docs/Web/HTML/Attributes/rel/preconnect) oder mit dem [Vorabladen](/de/docs/Web/HTML/Attributes/rel/preload) von Ressourcen zu beginnen, noch bevor der Server eine endgültige Antwort vorbereitet und gesendet hat. Vom Client geladene Ressourcen, die durch frühe Hinweise angegeben wurden, werden sofort nach Empfang der Hinweise geholt.
+Der HTTP **`103 Early Hints`** [informative Antwort](/de/docs/Web/HTTP/Status#information_responses) kann von einem Server gesendet werden, während er noch eine Antwort vorbereitet. Er enthält Hinweise zu den Websites und Ressourcen, auf die die endgültige Antwort des Servers voraussichtlich verweisen wird. Dies ermöglicht es einem Browser, schon vor der endgültigen Antwort des Servers [Preconnect](/de/docs/Web/HTML/Attributes/rel/preconnect) zu Websites herzustellen oder mit dem [Preloading](/de/docs/Web/HTML/Attributes/rel/preload) von Ressourcen zu beginnen. Vom Client frühzeitig geladene Ressourcen werden sofort abgerufen, sobald die Hinweise empfangen werden.
 
-Die frühe Hinweis-Antwort ist hauptsächlich zur Verwendung mit dem {{HTTPHeader("Link")}}-Header vorgesehen, der aufzuladende Ressourcen angibt. Sie kann auch einen [`Content-Security-Policy`](/de/docs/Web/HTTP/CSP)-Header enthalten, der während der Verarbeitung des frühen Hinweises durchgesetzt wird.
+Die frühe Hinweis-Antwort ist hauptsächlich zur Verwendung mit dem {{HTTPHeader("Link")}}-Header gedacht, der die zu ladenden Ressourcen angibt. Sie kann auch einen [`Content-Security-Policy`](/de/docs/Web/HTTP/CSP)-Header enthalten, der beim Verarbeiten des frühen Hinweises durchgesetzt wird.
 
-Ein Server kann mehrere `103`-Antworten senden, beispielsweise nach einer Weiterleitung. Browser verarbeiten nur die erste frühe Hinweis-Antwort, und diese Antwort muss verworfen werden, wenn die Anfrage zu einer grenzüberschreitenden Weiterleitung führt.
+Ein Server könnte mehrere `103`-Antworten senden, zum Beispiel im Anschluss an eine Umleitung. Browser verarbeiten nur die erste frühe Hinweis-Antwort, und diese Antwort muss verworfen werden, wenn die Anfrage zu einer Cross-Origin-Umleitung führt.
 
 > [!NOTE]
-> Aus Kompatibilitäts- und Sicherheitsgründen wird empfohlen, [HTTP `103 Early Hints`-Antworten nur über HTTP/2 oder später zu senden](https://www.rfc-editor.org/rfc/rfc8297#section-3), es sei denn, es ist bekannt, dass der Client Informationsantworten korrekt verarbeitet.
+> Aus Kompatibilitäts- und Sicherheitsgründen wird empfohlen, [HTTP `103 Early Hints`-Antworten nur über HTTP/2 oder später zu senden](https://www.rfc-editor.org/rfc/rfc8297#section-3), es sei denn, es ist bekannt, dass der Client informative Antworten korrekt behandelt.
 >
-> Die meisten Browser begrenzen aus diesem Grund die Unterstützung auf HTTP/2 oder später. Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten.
-> Trotzdem verwenden die untenstehenden Beispiele die übliche Notation im HTTP/1.1-Stil.
+> Die meisten Browser beschränken die Unterstützung aus diesen Gründen auf HTTP/2 oder später. Siehe unten zur [Browser-Kompatibilität](#browser-kompatibilität).
+> Trotzdem verwenden die folgenden Beispiele aus konventionellen Gründen die HTTP/1.1-Stilnotation.
 
 ## Syntax
 
@@ -27,23 +27,23 @@ Ein Server kann mehrere `103`-Antworten senden, beispielsweise nach einer Weiter
 
 ## Beispiele
 
-### Vorverbindungsbeispiel
+### Preconnect-Beispiel
 
-Die folgende `103`-frühe Hinweismeldung zeigt eine frühe Hinweismeldung, bei der der Server angibt, dass der Client möglicherweise eine Verbindung zu einem bestimmten Ursprung (`https://cdn.example.com`) vorab herstellen möchte. Genau wie das HTML-Attribut [`rel=preconnect`](/de/docs/Web/HTML/Attributes/rel/preconnect) ist dies ein Hinweis darauf, dass die Seite wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt und dass der Browser das Benutzererlebnis verbessern kann, indem er proaktiv eine Verbindung zu diesem Ursprung herstellt.
+Die folgende `103`-Frühhinweisantwort zeigt eine frühe Hinweisantwort, bei der der Server anzeigt, dass der Client eine Verbindung zu einem bestimmten Ursprung (`https://cdn.example.com`) vorab herstellen möchte. Genau wie das HTML-Attribut [`rel=preconnect`](/de/docs/Web/HTML/Attributes/rel/preconnect) ist dies ein Hinweis darauf, dass die Seite wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt und dass der Browser die Benutzererfahrung verbessern kann, indem er präventiv eine Verbindung zu diesem Ursprung herstellt.
 
 ```http
 103 Early Hint
 Link: <https://cdn.example.com>; rel=preconnect, <https://cdn.example.com>; rel=preconnect; crossorigin
 ```
 
-Dieses Beispiel verbindet sich zweimal mit `https://cdn.example.com`:
+Dieses Beispiel stellt zweimal eine Verbindung zu `https://cdn.example.com` her:
 
-- Die erste Verbindung würde zum Laden von Ressourcen genutzt, die ohne CORS abgerufen werden können, wie z.B. Bilder.
-- Die zweite Verbindung beinhaltet das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut und würde zum Laden von [CORS](/de/docs/Web/HTTP/CORS)-geschützten Ressourcen, wie Schriftarten, verwendet.
+- Die erste Verbindung würde verwendet werden, um Ressourcen zu laden, die ohne CORS abgerufen werden können, wie z.B. Bilder.
+- Die zweite Verbindung umfasst das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut und würde zum Laden von [CORS](/de/docs/Web/HTTP/CORS)-geschützten Ressourcen, wie z.B. Schriftarten, verwendet.
 
-CORS-geschützte Ressourcen müssen über eine völlig separate Verbindung geholt werden. Wenn Sie nur eine Art von Ressource von einem Ursprung benötigen, müssen Sie nur einmal vorverbinden.
+CORS-geschützte Ressourcen müssen über eine vollständig separate Verbindung abgerufen werden. Wenn Sie nur eine Art von Ressource von einem Ursprung benötigen, müssen Sie auch nur einmal vorab verbinden.
 
-Anschließend sendet der Server die endgültige Antwort. Diese beinhaltet eine crossorigin-Schriftartenvorabladen und ein `<img>`, das vom zusätzlichen Ursprung geladen wird.
+Anschließend sendet der Server die endgültige Antwort. Diese umfasst ein crossorigin-Schriftarten-Preload und ein `<img>`, das von dem zusätzlichen Ursprung geladen wird.
 
 ```http
 200 OK
@@ -57,16 +57,16 @@ Content-Type: text/html
 ...
 ```
 
-### Vorabladen-Beispiel
+### Preload-Beispiel
 
-Die folgende `103`-frühe Hinweismeldung gibt an, dass ein Stylesheet `style.css` möglicherweise von der endgültigen Antwort benötigt wird.
+Die folgende `103`-Frühhinweisantwort zeigt ein Stylesheet `style.css`, das möglicherweise von der endgültigen Antwort benötigt wird.
 
 ```http
 103 Early Hint
 Link: </style.css>; rel=preload; as=style
 ```
 
-Anschließend sendet der Server die endgültige Antwort. Diese beinhaltet einen Link zum Stylesheet, der möglicherweise bereits vom frühen Hinweis vorabgeladen wurde.
+Anschließend sendet der Server die endgültige Antwort. Diese beinhaltet einen Link zum Stylesheet, das möglicherweise schon vom frühen Hinweis geladen wurde.
 
 ```http
 200 OK
@@ -78,7 +78,7 @@ Content-Type: text/html
 ...
 ```
 
-### Frühe Hinweisantwort mit CSP
+### Frühhinweisantwort mit CSP
 
 Das folgende Beispiel zeigt die gleiche frühe Hinweisantwort, jedoch mit einem `Content-Security-Policy`-Header.
 
@@ -88,7 +88,7 @@ Content-Security-Policy: style-src: self;
 Link: </style.css>; rel=preload; as=style
 ```
 
-Die frühe Antwort beschränkt das Vorabladen auf den gleichen Ursprung wie die Anfrage. Das Stylesheet wird vorab geladen, wenn der Ursprung übereinstimmt.
+Die frühe Antwort beschränkt das Preloading auf denselben Ursprung wie die Anfrage. Das Stylesheet wird geladen, wenn der Ursprung übereinstimmt.
 
 Die endgültige Antwort könnte die CSP auf `none` setzen, wie unten gezeigt. Das Stylesheet wurde bereits vorab geladen, wird jedoch nicht verwendet, wenn die Seite gerendert wird.
 

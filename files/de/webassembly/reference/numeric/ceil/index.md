@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl auf die nächste ganze Zahl aufzurunden.
+Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl aufgerundet wird.
 
 {{EmbedInteractiveExample("pages/wat/ceil.html", "tabbed-standard")}}
 
@@ -23,7 +23,7 @@ f32.ceil
 ;; the top item on the stack will now be 3
 ```
 
-| Instruction | Binary opcode |
-| ----------- | ------------- |
-| `f32.ceil`  | `0x8d`        |
-| `f64.ceil`  | `0x9b`        |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.ceil`  | `0x8d`         |
+| `f64.ceil`  | `0x9b`         |

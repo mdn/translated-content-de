@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef}}{{Non-standard_Header}}
 
-Aktualisiert den Zustand von Befehlen des aktuellen Chrome-Fensters (UI).
+Aktualisiert den Status von Befehlen des aktuellen Chrome-Fensters (UI).
 
 ## Syntax
 
@@ -19,19 +19,19 @@ updateCommands(commandName)
 ### Parameter
 
 - `commandName`
-  - : Ein String, der beschreibt, um welche Art von Aktualisierungsereignis es sich handelt (z.B. ob wir gerade fett schreiben).
+  - : Ein String, der beschreibt, um welche Art von Aktualisierungsereignis es sich handelt (z. B. ob wir gerade fett schreiben).
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Hinweise
 
-Dies aktiviert oder deaktiviert Elemente (Indem das "disabled"-Attribut am Befehls-Knoten je nach Bedarf gesetzt oder gelöscht wird) oder stellt sicher, dass der Befehlsstatus den Zustand der Auswahl widerspiegelt, indem aktuelle Statusinformationen im "state"-Attribut der XUL-Befehls-Knoten gesetzt werden.
+Dies aktiviert oder deaktiviert Elemente (indem das "disabled"-Attribut am Befehls-Knoten entsprechend gesetzt oder entfernt wird) oder stellt sicher, dass der Befehlsstatus den Status der Auswahl widerspiegelt, indem aktuelle Statusinformationen im "state"-Attribut der XUL-Befehls-Knoten eingestellt werden.
 
 ## Spezifikationen
 
-DOM Level 0. Kein Teil der Spezifikation.
+DOM Level 0. Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

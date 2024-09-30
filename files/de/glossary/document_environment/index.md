@@ -1,5 +1,5 @@
 ---
-title: Dokumentumgebung
+title: Document environment
 slug: Glossary/Document_environment
 l10n:
   sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Wenn die JavaScript-Globale Umgebung ein Fenster oder ein `iframe` ist, wird sie als **Dokumentumgebung** bezeichnet. Eine globale Umgebung ist eine Umgebung, die keine äußere Umgebung hat.
+Wenn die JavaScript-Globale Umgebung ein `window` oder ein `iframe` ist, wird sie als **document environment** bezeichnet. Eine globale Umgebung ist eine Umgebung, die keine äußere Umgebung hat.
 
 ## Siehe auch
 

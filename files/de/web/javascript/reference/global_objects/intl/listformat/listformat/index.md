@@ -19,16 +19,16 @@ new Intl.ListFormat(locales)
 new Intl.ListFormat(locales, options)
 ```
 
-> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Sprachkennungen. Die Standard-Lokale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Lokalen unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Lokale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen über diese Option siehe [Lokale Identifikation und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der einzusetzende Locale-Abgleichalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Lokalisierung und Verhandlung von Locale-Informationen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
       - : Gibt die Art der Gruppierung an. Mögliche Werte sind:
         - `"conjunction"` (Standard)
@@ -36,9 +36,9 @@ new Intl.ListFormat(locales, options)
         - `"disjunction"`
           - : Für "oder"-basierte Gruppierung der Listenelemente: "A, B, oder C"
         - `"unit"`
-          - : Für die Gruppierung der Listenelemente als Einheit (weder "und"- noch "oder"-basiert): "A, B, C"
+          - : Für die Gruppierung der Listenelemente als Einheit (weder "und"-basiert noch "oder"-basiert): "A, B, C"
     - `style`
-      - : Der Gruppierungsstil (zum Beispiel, ob Listentrenner und Konjunktionen enthalten sind). Mögliche Werte sind:
+      - : Der Gruppierungsstil (beispielsweise, ob Listentrenner und Konjunktionen eingeschlossen sind). Mögliche Werte sind:
         - `"long"` (Standard)
           - : Z.B. "A, B, und C"
         - `"short"`
@@ -53,9 +53,9 @@ new Intl.ListFormat(locales, options)
 
 ## Beispiele
 
-### Verwendung von format
+### Format verwenden
 
-Das folgende Beispiel zeigt, wie ein List Formatter unter Verwendung der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Listformator für die englische Sprache erstellt wird.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

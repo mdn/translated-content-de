@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Registriert einen Rückruf für einen Ereignis-Listener zu einem Ereignis.
+Registriert einen Ereignis-Listener-Callback zu einem Ereignis.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ events.Event.addListener(listener)
 
 - `listener`
 
-  - : Funktion, die aufgerufen wird, wenn das Ereignis eintritt. Die Parameter dieser Funktion hängen vom Typ des Ereignisses ab.
+  - : Funktion, die aufgerufen wird, wenn das Ereignis auftritt. Die Parameter dieser Funktion hängen von der Art des Ereignisses ab.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addListener) API von Chromium. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addListener) API. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

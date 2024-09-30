@@ -1,5 +1,5 @@
 ---
-title: "URLPattern: Methode test()"
+title: "URLPattern: test()-Methode"
 short-title: test()
 slug: Web/API/URLPattern/test
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`test()`**-Methode der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle akzeptiert eine URL oder ein Objekt mit URL-Teilen und gibt einen booleschen Wert zurück, der angibt, ob die gegebene Eingabe mit dem aktuellen Muster übereinstimmt.
+Die **`test()`**-Methode der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle nimmt eine URL oder ein Objekt mit URL-Teilen und gibt einen booleschen Wert zurück, der anzeigt, ob die gegebene Eingabe mit dem aktuellen Muster übereinstimmt.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ test(input, baseURL)
 ### Parameter
 
 - `input`
-  - : Die URL oder die URL-Teile, die abgeglichen werden sollen. Dies kann entweder ein String oder ein Objekt sein, das die einzelnen URL-Teile bereitstellt. Die Objektmitglieder können `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL` sein. Ausgelassene Teile im Objekt werden als leere Zeichenfolgen behandelt. Wenn die Eingabe nicht analysiert werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
+  - : Die URL oder URL-Teile, gegen die abgeglichen werden soll. Dies kann entweder ein String oder ein Objekt sein, das die einzelnen URL-Teile bereitstellt. Die Objektmitglieder können `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL` sein. Ausgelassene Teile im Objekt werden als leere Strings behandelt. Wenn die Eingabe nicht geparst werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
 - `baseURL` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die verwendet wird, wenn `input` eine relative URL ist. Wenn nicht angegeben, ist der Standardwert `undefined`. Wenn dieser Parameter nicht analysiert werden kann, wird die Methode `false` zurückgeben.
+  - : Ein String, der die Basis-URL darstellt, die verwendet wird, wenn `input` eine relative URL ist. Wenn nicht angegeben, ist der Wert standardmäßig `undefined`. Wenn dieser Parameter nicht geparst werden kann, gibt die Methode `false` zurück.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Ein {{jsxref("boolean")}}.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die `test()`-Methode verwendet wird, um eine URL mit einem Muster abzugleichen. Das Beispiel gibt das Ergebnis der `test()`-Aufrufe in der Konsole aus.
+Dieses Beispiel zeigt, wie die `test()`-Methode verwendet wird, um eine URL gegen ein Muster abzugleichen. Das Beispiel gibt das Ergebnis der `test()`-Aufrufe in der Konsole aus.
 
 ```js
 const pattern = new URLPattern("http{s}?://*.example.com/books/:id");
@@ -77,4 +77,5 @@ console.log(
 
 ## Siehe auch
 
-- Ein Polyfill von `URLPattern` ist [auf GitHub](https://github.com/kenchris/urlpattern-polyfill) verfügbar.
+- Ein Polyfill von `URLPattern` ist verfügbar
+  [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)

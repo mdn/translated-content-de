@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`clone()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle erstellt ein neues `VideoFrame`-Objekt, das auf die gleiche Medienressource wie das Original verweist.
+Die **`clone()`**-Methode des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces erstellt ein neues `VideoFrame`-Objekt, das auf die gleiche Medienressource wie das Original verweist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues, geklontes [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt.
+Ein neues geklontes [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt.
 
 ### Ausnahmen
 
@@ -31,7 +31,7 @@ Ein neues, geklontes [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel klont eine Kopie von `VideoFrame` als `videoFrame2`.
+Im folgenden Beispiel wird eine Kopie von `VideoFrame` als `videoFrame2` geklont.
 
 ```js
 let videoFrame2 = VideoFrame.clone();

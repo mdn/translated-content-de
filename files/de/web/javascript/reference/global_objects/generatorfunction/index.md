@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Das **`GeneratorFunction`**-Objekt stellt Methoden für [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) bereit. In JavaScript ist jede Generatorfunktion tatsächlich ein `GeneratorFunction`-Objekt.
+Das **`GeneratorFunction`**-Objekt bietet Methoden für [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*). In JavaScript ist jede Generatorfunktion tatsächlich ein `GeneratorFunction`-Objekt.
 
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code abgerufen werden:
+Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
@@ -37,7 +37,7 @@ Diese Eigenschaften sind auf `GeneratorFunction.prototype` definiert und werden 
 - `GeneratorFunction.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"GeneratorFunction"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `GeneratorFunction`-Instanz.
+Diese Eigenschaften sind Eigeneigenschaften jeder `GeneratorFunction`-Instanz.
 
 - {{jsxref("GeneratorFunction/prototype", "prototype")}}
   - : Wird verwendet, wenn die Funktion als Konstruktor mit dem [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator verwendet wird. Es wird zum Prototyp des neuen Objekts.
@@ -57,7 +57,7 @@ _Erbt Instanzmethoden von seinem Elternteil {{jsxref("Function")}}_.
 ## Siehe auch
 
 - [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*)
-- [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
+- [`function*`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
 - {{jsxref("Function")}}
 - {{jsxref("AsyncFunction")}}
 - {{jsxref("AsyncGeneratorFunction")}}

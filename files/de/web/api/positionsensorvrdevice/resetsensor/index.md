@@ -1,5 +1,5 @@
 ---
-title: "PositionSensorVRDevice: resetSensor() Methode"
+title: "PositionSensorVRDevice: Methode resetSensor()"
 short-title: resetSensor()
 slug: Web/API/PositionSensorVRDevice/resetSensor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{deprecated_header}}{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`resetSensor()`**-Methode der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle kann verwendet werden, um den Sensor bei Bedarf zurückzusetzen, wodurch die Positions- und Orientierungswerte auf null gesetzt werden.
+Die **`resetSensor()`**-Methode der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle _kann verwendet werden, um den Sensor bei Bedarf zurückzusetzen und die_ Positions- und Orientierungswerte auf null zurückzusetzen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Demo verwendet die WebVR API, um die Ansicht einer einfachen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Szene in jedem Frame einer [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife zu aktualisieren. Es enthält unter anderem eine "Reset Sensor"-Schaltfläche in der Benutzeroberfläche, die beim Drücken die `resetSensor()`-Funktion am Positionssensor ausführt. Der JavaScript-Code sieht folgendermaßen aus:
+Das folgende Demo verwendet die WebVR API, um die Ansicht einer einfachen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Szene in jedem Frame einer [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife zu aktualisieren. Es verfügt unter anderem über einen "Sensor zurücksetzen"-Button in der Benutzeroberfläche, der beim Drücken die Funktion `resetSensor()` auf dem Positionssensor ausführt. Der JavaScript-Code sieht folgendermaßen aus:
 
 ```js
 document.querySelector("button").onclick = () => {
@@ -34,7 +34,7 @@ document.querySelector("button").onclick = () => {
 };
 ```
 
-Wenn die Schaltfläche gedrückt wird, werden die aktuelle Position, Orientierung usw. des Sensors/Head-Mounted Displays auf 0 gesetzt — dies macht die Methode nützlich für die Kalibrierung, wenn eine App zum ersten Mal geladen wird.
+Wenn der Button gedrückt wird, wird die aktuelle Position, Ausrichtung usw. des Sensors/Head-Mounted Displays auf 0 gesetzt — das macht die Methode nützlich für die Kalibrierung, wenn eine App erstmals geladen wird.
 
 ## Browser-Kompatibilität
 

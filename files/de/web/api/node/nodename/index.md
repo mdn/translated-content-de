@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nodeName`**-Eigenschaft von [`Node`](/de/docs/Web/API/Node) gibt den Namen des aktuellen Knotens als Zeichenkette zurück.
+Die schreibgeschützte **`nodeName`**-Eigenschaft von [`Node`](/de/docs/Web/API/Node) gibt den Namen des aktuellen Knotens als Zeichenfolge zurück.
 
 ## Wert
 
-Eine Zeichenkette. Die Werte für die verschiedenen Knotentypen sind:
+Eine Zeichenfolge. Werte für die verschiedenen Arten von Knoten sind:
 
 - [`Attr`](/de/docs/Web/API/Attr)
-  - : Der Wert von [`Attr.name`](/de/docs/Web/API/Attr/name), das ist der _qualifizierte Name_ des Attributs.
+  - : Der Wert von [`Attr.name`](/de/docs/Web/API/Attr/name), das heißt der _qualifizierte Name_ des Attributs.
 - [`CDATASection`](/de/docs/Web/API/CDATASection)
-  - : Die Zeichenkette `"#cdata-section"`.
+  - : Die Zeichenfolge `"#cdata-section"`.
 - [`Comment`](/de/docs/Web/API/Comment)
-  - : Die Zeichenkette `"#comment"`.
+  - : Die Zeichenfolge `"#comment"`.
 - [`Document`](/de/docs/Web/API/Document)
-  - : Die Zeichenkette `"#document"`.
+  - : Die Zeichenfolge `"#document"`.
 - [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)
-  - : Die Zeichenkette `"#document-fragment"`.
+  - : Die Zeichenfolge `"#document-fragment"`.
 - [`DocumentType`](/de/docs/Web/API/DocumentType)
   - : Der Wert von [`DocumentType.name`](/de/docs/Web/API/DocumentType/name)
 - [`Element`](/de/docs/Web/API/Element)
-  - : Der Wert von [`Element.tagName`](/de/docs/Web/API/Element/tagName), das ist der _Großbuchstabenname_ des Element-Tags, wenn es sich um ein HTML-Element handelt,
-    oder der _Kleinbuchstabenname_ des Element-Tags, wenn es sich um ein XML-Element handelt (wie ein SVG- oder MATHML-Element).
+  - : Der Wert von [`Element.tagName`](/de/docs/Web/API/Element/tagName), das heißt der _Großbuchstabenname_ des Element-Tags, wenn ein HTML-Element vorliegt,
+    oder das _Kleinbuchstabenelement_-Tag, wenn ein XML-Element (wie ein SVG- oder MATHML-Element) vorliegt.
 - [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)
   - : Der Wert von [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target)
 - [`Text`](/de/docs/Web/API/Text)
-  - : Die Zeichenkette `"#text"`.
+  - : Die Zeichenfolge `"#text"`.
 
 ## Beispiel
 

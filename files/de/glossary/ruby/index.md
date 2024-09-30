@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Ruby** ist eine Open-Source-Programmiersprache. In einem [Web](/de/docs/Glossary/world_wide_web)-Kontext wird Ruby häufig serverseitig mit dem _Ruby On Rails_ (ROR) Framework verwendet, um Websites/Apps zu erstellen.
+**Ruby** ist eine Open-Source-Programmiersprache. Im [Web](/de/docs/Glossary/world_wide_web)-Kontext wird Ruby häufig serverseitig mit dem _Ruby On Rails_ (ROR) Framework verwendet, um Websites/Apps zu erstellen.
 
-Ruby ist auch eine Methode zur Annotation von ostasiatischen Texten in HTML-Dokumenten, um Ausspracheinformationen bereitzustellen; siehe das {{HTMLElement("ruby")}}-Element.
+Ruby ist auch eine Methode zur Anmerkung ostasiatischer Texte in HTML-Dokumenten, um Ausspracheinformationen bereitzustellen; siehe das {{HTMLElement("ruby")}} Element.
 
 ## Siehe auch
 

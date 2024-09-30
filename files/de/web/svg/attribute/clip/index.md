@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`clip`**-Attribut ist ein Präsentationsattribut, das den sichtbaren Bereich eines Elements definiert.
+Das **`clip`** Attribut ist ein Präsentationsattribut, das den sichtbaren Bereich eines Elements definiert.
 
-Dieses Attribut hat dieselben Parameterwerte wie die für die CSS-Eigenschaft {{cssxref("clip")}} definierten. Werteinheitenlose Werte, die die aktuellen Benutzerkoordinaten anzeigen, sind bei den Koordinatenwerten auf dem `rect()` zulässig. Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des von dem gegebenen Element erstellten Viewports.
+Dieses Attribut hat die gleichen Parameterwerte wie für die CSS-Eigenschaft {{cssxref("clip")}} definiert. Einheitslose Werte, die aktuelle Benutzerkoordinaten anzeigen, sind für die Koordinatenwerte im `rect()` erlaubt. Der Wert `auto` definiert einen Clip-Pfad entlang der Grenzen des vom angegebenen Element erstellten Ansichtsfensters.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,7 +44,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 150)}}
+{{EmbedLiveSample("Beispiel", '100%', 150)}}
 
 ## Verwendungshinweise
 
@@ -68,7 +68,7 @@ svg {
   </tbody>
 </table>
 
-Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des von dem gegebenen Element erstellten Viewports. Der Wert `rect()` definiert ein Clipping-Rechteck nach dem folgenden Syntaxschema: `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` geben Versätze von der _oberen Randkante_ des Element-Viewports an, während `<right>` und `<left>` Versätze von der _linken Randkante_ des Element-Viewports angeben.
+Der Wert `auto` definiert einen Clip-Pfad entlang der Grenzen des vom angegebenen Element erstellten Ansichtsfensters. Der Wert `rect()` definiert ein Clip-Rechteck nach folgender Syntax: `rect(<oben>, <rechts>, <unten>, <links>)`. Die Werte `<oben>` und `<unten>` geben die Abstände von der _oberen Randkante_ des Elementansichtsfensters an, während `<rechts>` und `<links>` die Abstände von der _linken Randkante_ des Elementansichtsfensters angeben.
 
 ## Spezifikationen
 

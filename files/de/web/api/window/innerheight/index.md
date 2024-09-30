@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte **`innerHeight`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt die innere Höhe des Fensters in Pixeln zurück, einschließlich der Höhe der horizontalen Scrollleiste, falls vorhanden.
+Die schreibgeschützte **`innerHeight`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt die Innenhöhe des Fensters in Pixeln zurück, einschließlich der Höhe der horizontalen Scrollleiste, falls vorhanden.
 
-Der Wert von `innerHeight` wird aus der Höhe des [Layout-Viewports](/de/docs/Glossary/layout_viewport) des Fensters entnommen. Die Breite kann mit der [`innerWidth`](/de/docs/Web/API/Window/innerWidth)-Eigenschaft erhalten werden.
+Der Wert von `innerHeight` wird von der Höhe des [Layout-Viewports](/de/docs/Glossary/layout_viewport) des Fensters übernommen. Die Breite kann mit der [`innerWidth`](/de/docs/Web/API/Window/innerWidth)-Eigenschaft ermittelt werden.
 
 ## Wert
 
 Ein ganzzahliger Wert, der die Höhe des Layout-Viewports des Fensters in Pixeln angibt. Die Eigenschaft ist schreibgeschützt und hat keinen Standardwert.
 
-Um die Höhe des Fensters zu ändern, rufen Sie eine der Resize-Methoden auf, wie [`resizeTo()`](/de/docs/Web/API/Window/resizeTo) oder [`resizeBy()`](/de/docs/Web/API/Window/resizeBy).
+Um die Höhe des Fensters zu ändern, rufen Sie eine der Vergrößerungsmethoden auf, wie beispielsweise [`resizeTo()`](/de/docs/Web/API/Window/resizeTo) oder [`resizeBy()`](/de/docs/Web/API/Window/resizeBy).
 
-## Anwendungsnotizen
+## Anwendungshinweise
 
-Um die Höhe des Fensters abzüglich der horizontalen Scrollleiste und eventueller Rahmen zu erhalten, verwenden Sie stattdessen die [`clientHeight`](/de/docs/Web/API/Element/clientHeight)-Eigenschaft des Root-{{HTMLElement("html")}}-Elements.
+Um die Höhe des Fensters abzüglich der horizontalen Scrollleiste und eventueller Rahmen zu erhalten, verwenden Sie stattdessen die [`clientHeight`](/de/docs/Web/API/Element/clientHeight)-Eigenschaft des Wurzelelements {{HTMLElement("html")}}.
 
-Sowohl `innerHeight` als auch `innerWidth` sind in jedem Fenster verfügbar oder in jedem Objekt, das sich wie ein Fenster verhält, wie z.B. ein Tab oder Frame.
+Sowohl `innerHeight` als auch `innerWidth` sind in jedem Fenster oder jedem Objekt, das sich wie ein Fenster verhält, wie z. B. einem Tab oder Frame, verfügbar.
 
 ## Beispiele
 
@@ -41,15 +41,17 @@ console.log(top.innerHeight);
 // will log the height of the viewport of the outermost frameset
 ```
 
-Um die Größe eines Fensters zu ändern, siehe [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy) und [`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
+Um die Größe eines Fensters zu ändern, siehe [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy) und
+[`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
-Um die äußere Höhe eines Fensters zu erhalten, d.h. die Höhe des gesamten Browserfensters, siehe [`window.outerHeight`](/de/docs/Web/API/Window/outerHeight).
+Um die äußere Höhe eines Fensters, d. h. die Höhe des gesamten Browserfensters, zu ermitteln, siehe
+[`window.outerHeight`](/de/docs/Web/API/Window/outerHeight).
 
 ### Grafisches Beispiel
 
 Die folgende Abbildung zeigt den Unterschied zwischen `outerHeight` und `innerHeight`.
 
-![innerHeight vs. outerHeight Abbildung](firefoxinnervsouterheight2.png)
+![innerHeight vs. outerHeight Illustration](firefoxinnervsouterheight2.png)
 
 ## Demo
 

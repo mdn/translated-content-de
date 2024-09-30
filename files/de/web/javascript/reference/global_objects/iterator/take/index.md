@@ -18,22 +18,22 @@ take(limit)
 ### Parameter
 
 - `limit`
-  - : Die Anzahl der zu übernehmenden Elemente vom Start der Iteration.
+  - : Die Anzahl der Elemente, die vom Beginn der Iteration an genommen werden sollen.
 
 ### Rückgabewert
 
-Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Der zurückgegebene Iterator-Helfer liefert die Elemente im ursprünglichen Iterator einzeln aus und vervollständigt dann (die `next()`-Methode erzeugt `{ value: undefined, done: true }`), sobald `limit` Elemente ausgegeben wurden oder wenn der ursprüngliche Iterator erschöpft ist, je nachdem, was zuerst eintritt.
+Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Der zurückgegebene Iterator-Helfer liefert die Elemente im ursprünglichen Iterator nacheinander und beendet dann die Iteration (die `next()`-Methode produziert `{ value: undefined, done: true }`), sobald `limit`-Elemente geliefert wurden oder wenn der ursprüngliche Iterator erschöpft ist, je nachdem, was zuerst eintritt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `limit` zu {{jsxref("NaN")}} oder negativ wird, wenn es [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
+  - : Wird ausgelöst, wenn `limit` zu {{jsxref("NaN")}} wird oder negativ ist, wenn es [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
 
 ## Beispiele
 
 ### Verwendung von take()
 
-Im folgenden Beispiel wird ein Iterator erstellt, der Begriffe der Fibonacci-Folge liefert und dann die ersten drei Begriffe protokolliert:
+Im folgenden Beispiel wird ein Iterator erstellt, der Elemente der Fibonacci-Folge liefert, und dann werden die ersten drei Elemente protokolliert:
 
 ```js
 function* fibonacci() {
@@ -52,9 +52,9 @@ console.log(seq.next().value); // 2
 console.log(seq.next().value); // undefined
 ```
 
-### Verwendung von take() mit einer for...of Schleife
+### Verwendung von take() mit einer for...of-Schleife
 
-`take()` ist am praktischsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
+`take()` ist am bequemsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
 
 ```js
 for (const n of fibonacci().take(5)) {
@@ -69,9 +69,9 @@ for (const n of fibonacci().take(5)) {
 // 5
 ```
 
-Da `fibonacci()` ein unendlicher Iterator ist, können Sie eine `for`-Schleife nicht verwenden, um sie direkt zu durchlaufen.
+Da `fibonacci()` ein unendlicher Iterator ist, können Sie ihn nicht direkt mit einer `for`-Schleife durchlaufen.
 
-### Kombination von drop() mit take()
+### Kombinieren von drop() mit take()
 
 Sie können `take()` mit {{jsxref("Iterator.prototype.drop()")}} kombinieren, um einen Ausschnitt eines Iterators zu erhalten:
 
@@ -97,16 +97,16 @@ for (const n of fibonacci().take(5).drop(2)) {
 // 5
 ```
 
-### Untere und obere Grenzen der Zählung bei take
+### Untere und obere Grenzen des take-Zählers
 
-Wenn `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
+Wenn `limit` negativ ist oder {{jsxref("NaN")}}, wird ein {{jsxref("RangeError")}} ausgelöst:
 
 ```js
 fibonacci().take(-1); // RangeError: -1 must be positive
 fibonacci().take(undefined); // RangeError: undefined must be positive
 ```
 
-Wenn `limit` größer als die Gesamtanzahl der Elemente ist, die der Iterator erzeugen kann (wie z.B. {{jsxref("Infinity")}}), verhält sich der zurückgegebene Iterator-Helfer im Wesentlichen wie der ursprüngliche Iterator:
+Wenn `limit` größer als die Gesamtanzahl der Elemente ist, die der Iterator erzeugen kann (wie {{jsxref("Infinity")}}), hat der zurückgegebene Iterator-Helfer im Wesentlichen das gleiche Verhalten wie der ursprüngliche Iterator:
 
 ```js
 for (const n of new Set([1, 2, 3]).values().take(Infinity)) {

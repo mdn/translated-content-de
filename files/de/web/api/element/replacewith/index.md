@@ -1,5 +1,5 @@
 ---
-title: "Element: replaceWith()-Methode"
+title: "Element: Methode replaceWith()"
 short-title: replaceWith()
 slug: Web/API/Element/replaceWith
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`Element.replaceWith()`**-Methode ersetzt dieses
-`Element` in der Kinderliste seines Elternteils mit einer Menge von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+`Element` in der Kindliste seines übergeordneten Elements durch eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ replaceWith(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen zum Ersetzen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die ersetzt werden sollen.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
@@ -50,10 +50,9 @@ console.log(div.outerHTML);
 // "<div><span></span></div>"
 ```
 
-### `replaceWith()` ist unscoopable
+### `replaceWith()` ist unscopeable
 
-Die `replaceWith()`-Methode wird nicht in die `with`
-Anweisung eingeschlossen. Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
+Die `replaceWith()`-Methode ist nicht im `with`-Statement eingeschlossen. Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
 
 ```js
 with (node) {

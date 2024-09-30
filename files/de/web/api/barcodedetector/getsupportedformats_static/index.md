@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`getSupportedFormats()`** statische Methode
-der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector) Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von unterstützten Barcode-Formattypen erfüllt.
+Die **`getSupportedFormats()`** statische Methode der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von unterstützten Barcode-Formattypen erfüllt wird.
 
 ## Syntax
 
@@ -23,12 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von
-[unterstützten Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
+Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von [unterstützten Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen geworfen.
+Es werden keine Ausnahmen ausgelöst.
 
 ## Beispiele
 

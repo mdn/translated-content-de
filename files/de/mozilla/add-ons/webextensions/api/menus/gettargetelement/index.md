@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt das Element für eine gegebene `targetElementId` zurück
+Gibt das Element für eine gegebene `targetElementId` zurück.
 
-Diese Methode steht allen Erweiterungsskript-Kontexten (Inhalts-Skripte, Hintergrundseiten und andere Erweiterungsseiten) zur Verfügung und gibt das Element für eine gegebene `info.targetElementId` zurück, vorausgesetzt, dass das Element noch im Dokument existiert, in dem die Methode aufgerufen wird.
+Diese Methode ist für alle Erweiterungsskript-Kontexte verfügbar (Inhalts-Skripte, Hintergrundseiten und andere Erweiterungsseiten) und gibt das Element für eine gegebene `info.targetElementId` zurück, vorausgesetzt, dass das Element noch im Dokument vorhanden ist, in dem die Methode aufgerufen wird.
 
-Die Methode funktioniert nur im Dokument, das das durch einen Rechtsklick ausgewählte Element enthält, und die `targetElementId` verfällt, sobald der Benutzer ein anderes Kontextmenü öffnet.
+Die Methode funktioniert nur im Dokument, das das mit der rechten Maustaste angeklickte Element enthält, und die `targetElementId` verfällt, wenn der Benutzer ein anderes Kontextmenü öffnet.
 
-> [!NOTE] `menus.getTargetElement` gibt das angeforderte Element nur zurück, wenn es im selben Kontext wie das Dokument, das das Element enthält, aufgerufen wird, beispielsweise mit Inhalts-Skripten (wie im untenstehenden Beispiel gezeigt).
+> **Note:** `menus.getTargetElement` gibt das angeforderte Element nur dann zurück, wenn es im selben Kontext wie das Dokument aufgerufen wird, das das Element enthält, beispielsweise durch die Verwendung von Inhalts-Skripten (wie im unten stehenden Beispiel gezeigt).
 
 Eine Erweiterung benötigt die Berechtigung "menus", um diese API zu verwenden.
 
@@ -30,11 +30,11 @@ let elem = browser.menus.getTargetElement(targetElementId);
 
 ### Rückgabewert
 
-Das Element, auf das sich der `targetElementId`-Parameter bezieht. Ist der `targetElementId`-Parameter ungültig, gibt die Methode `null` zurück.
+Das Element, auf das durch den `targetElementId`-Parameter verwiesen wird. Wenn der `targetElementId`-Parameter nicht gültig ist, gibt die Methode `null` zurück.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die `getTargetElement`-Methode, um das Element zu erhalten, auf das sich die `info.targetElementId`-Eigenschaft bezieht, und entfernt es anschließend.
+Das folgende Beispiel verwendet die Methode `getTargetElement`, um das Element zu erhalten, auf das durch die Eigenschaft `info.targetElementId` verwiesen wird, und entfernt es dann.
 
 ```js
 browser.menus.create({

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Opera** ist der fünftmeist genutzte Web-[Browser](/de/docs/Glossary/browser), der 1996 öffentlich veröffentlicht wurde und ursprünglich nur auf Windows lief. Opera verwendet seit 2013 [Blink](/de/docs/Glossary/Blink) als Layout-Engine (zuvor [Presto](/de/docs/Glossary/Presto)). Opera existiert auch in Versionen für Mobilgeräte und Tablets.
+**Opera** ist der fünftmeistgenutzte Web-[Browser](/de/docs/Glossary/browser), der 1996 öffentlich veröffentlicht wurde und ursprünglich nur unter Windows lief. Seit 2013 verwendet Opera [Blink](/de/docs/Glossary/Blink) als Layout-Engine (davor [Presto](/de/docs/Glossary/Presto)). Opera ist auch in Versionen für Mobilgeräte und Tablets verfügbar.
 
 ## Siehe auch
 
 - [Opera Browser](https://en.wikipedia.org/wiki/Opera_Browser) auf Wikipedia
-- [Opera Browser Website](https://www.opera.com/)
+- [Opera Browser-Website](https://www.opera.com/)

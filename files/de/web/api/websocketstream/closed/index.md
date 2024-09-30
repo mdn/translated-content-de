@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`closed`** der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung geschlossen ist. Das Objekt enthält den Schließcode und den Grund.
+Die **`closed`** schreibgeschützte Eigenschaft des [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung geschlossen ist. Das Objekt enthält den Schließcode und den Grund.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein Promise, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften
 - `reason`
   - : Ein String, der eine menschenlesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wurde.
 
-Das Promise wird abgelehnt, wenn die WebSocket-Verbindung nicht sauber geschlossen wurde (für einen sauberen Abschluss muss die zugehörige TCP-Verbindung _nach_ dem Abschluss des WebSocket-Schließen-Handshakes geschlossen werden).
+Das Promise wird abgelehnt, wenn die WebSocket-Verbindung nicht sauber geschlossen wurde (für ein sauberes Schließen muss die zugehörige TCP-Verbindung _nachdem_ der WebSocket-Schließhandshake abgeschlossen ist, geschlossen werden).
 
 ## Beispiele
 
@@ -35,11 +35,11 @@ wss.closed.then((result) => {
 });
 ```
 
-Siehe [Verwendung von WebSocketStream zum Schreiben eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit vollständiger Erklärung.
+Siehe [Verwendung von WebSocketStream, um einen Client zu schreiben](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit ausführlicher Erklärung.
 
 ## Spezifikationen
 
-Zurzeit nicht Bestandteil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Stand der Standardisierung.
 
 ## Browser-Kompatibilität
 

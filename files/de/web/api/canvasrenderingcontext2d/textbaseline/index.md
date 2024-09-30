@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.textBaseline`**-Eigenschaft der Canvas 2D API gibt die aktuelle Text-Basislinie an, die beim Zeichnen von Text verwendet wird.
+Die **`CanvasRenderingContext2D.textBaseline`**-Eigenschaft der Canvas 2D API legt die aktuelle Text-Basislinie fest, die beim Zeichnen von Text verwendet wird.
 
 ## Wert
 
 Mögliche Werte:
 
 - `"top"`
-  - : Die Text-Basislinie ist die Oberseite des em-Quadrats.
+  - : Die Text-Basislinie ist die Oberseite des "em"-Quadrats.
 - `"hanging"`
-  - : Die Text-Basislinie ist die hängende Basislinie. (Verwendet von tibetischen und anderen indischen Schriften.)
+  - : Die Text-Basislinie ist die hängende Basislinie. (Wird von tibetischen und anderen indischen Schriften verwendet.)
 - `"middle"`
-  - : Die Text-Basislinie ist die Mitte des em-Quadrats.
+  - : Die Text-Basislinie ist die Mitte des "em"-Quadrats.
 - `"alphabetic"`
   - : Die Text-Basislinie ist die normale alphabetische Basislinie. Standardwert.
 - `"ideographic"`
-  - : Die Text-Basislinie ist die ideografische Basislinie; dies ist der Boden des Körpers der Zeichen, wenn der Hauptteil der Zeichen unter die alphabetische Basislinie hervortritt. (Verwendet von chinesischen, japanischen und koreanischen Schriften.)
+  - : Die Text-Basislinie ist die ideographische Basislinie; dies ist der Boden des Hauptkörpers der Zeichen, wenn der Hauptkörper der Zeichen unterhalb der alphabetischen Basislinie hervorsteht. (Wird von chinesischen, japanischen und koreanischen Schriften verwendet.)
 - `"bottom"`
-  - : Die Text-Basislinie ist die Unterseite des Begrenzungsrahmens. Dies unterscheidet sich von der ideografischen Basislinie darin, dass die ideografische Basislinie keine Abwärtsstriche berücksichtigt.
+  - : Die Text-Basislinie ist die Unterseite des Begrenzungsrahmens. Dies unterscheidet sich von der ideographischen Basislinie darin, dass die ideographische Basislinie keine Abstriche berücksichtigt.
 
 Der Standardwert ist `"alphabetic"`.
 
@@ -33,7 +33,7 @@ Der Standardwert ist `"alphabetic"`.
 
 ### Vergleich der Eigenschaftswerte
 
-Dieses Beispiel zeigt die verschiedenen `textBaseline`-Eigenschaftswerte.
+Dieses Beispiel zeigt die verschiedenen Werte der `textBaseline`-Eigenschaft.
 
 #### HTML
 
@@ -75,7 +75,7 @@ baselines.forEach((baseline, index) => {
 
 ### Vergleich der Eigenschaftswerte auf derselben Linie
 
-Wie im vorherigen Beispiel zeigt auch dieses Beispiel die verschiedenen `textBaseline`-Eigenschaftswerte, aber in diesem Fall sind sie alle horizontal entlang derselben Linie ausgerichtet — um besser sichtbar zu machen, wie sie sich voneinander unterscheiden.
+Wie im vorherigen Beispiel zeigt dieses Beispiel die verschiedenen Werte der `textBaseline`-Eigenschaft, jedoch in diesem Fall alle horizontal auf derselben Linie ausgerichtet - um es einfacher zu machen, die Unterschiede zu erkennen.
 
 #### HTML
 

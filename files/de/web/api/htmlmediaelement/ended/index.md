@@ -12,9 +12,9 @@ Die **`HTMLMediaElement.ended`**-Eigenschaft gibt an, ob das Medien-Element die 
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn das im Element enthaltene Medium die Wiedergabe beendet hat.
+Ein boolescher Wert, der `true` ist, wenn die im Element enthaltenen Medien das Abspielen beendet haben.
 
-Wenn die Quelle des Mediums ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist, hat dieser Wert `true`, wenn der Wert der [`active`](/de/docs/Web/API/MediaStream/active)-Eigenschaft des Streams `false` ist.
+Wenn die Quelle der Medien ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist, ist dieser Wert `true`, wenn der Wert der [`active`](/de/docs/Web/API/MediaStream/active)-Eigenschaft des Streams `false` ist.
 
 ## Beispiele
 

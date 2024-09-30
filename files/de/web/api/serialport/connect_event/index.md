@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`connect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn ein Port mit dem Gerät verbunden wurde. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbaren Geräten wie solchen, die über USB verbunden sind, assoziiert sind.
+Das **`connect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn ein Port eine Verbindung zum Gerät hergestellt hat. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbaren Geräten wie solchen, die über USB angeschlossen sind, verbunden sind.
 
-Dieses Ereignis wird zur Instanz von [`Serial`](/de/docs/Web/API/Serial) weitergeleitet, die diese Schnittstelle zurückgegeben hat.
+Dieses Ereignis blubbert zur Instanz von [`Serial`](/de/docs/Web/API/Serial), die diese Schnittstelle zurückgegeben hat.
 
 ## Syntax
 
@@ -26,17 +26,17 @@ onconnect = (event) => {};
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Bubbling
+## Blubbern
 
-Dieses Ereignis wird an [`Serial`](/de/docs/Web/API/Serial) weitergeleitet. Die Eigenschaft `event.target` bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das weitergeleitet wird.
+Dieses Ereignis blubbert zu [`Serial`](/de/docs/Web/API/Serial). Die `event.target`-Eigenschaft bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das nach oben blubbert.
 
 Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Beispiele
 
-### Benachrichtigung, wenn ein bestimmter Port verbunden wird
+### Benachrichtigung, wenn ein spezifischer Port verbunden wird
 
-Die Methode [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) gibt ein {{jsxref("Promise")}} zurück, das mit einem vom Benutzer gewählten [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird.
+Die [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)-Methode gibt ein {{jsxref("Promise")}} zurück, das auf ein vom Benutzer ausgewähltes [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird.
 
 ```js
 // Prompt user to choose a serial port
@@ -47,9 +47,9 @@ port.addEventListener("connect", (event) => {
 });
 ```
 
-### Lauschen auf neu verbundene Ports
+### Abhören neuer verbundener Ports
 
-Das `connect`-Ereignis wird an das [`Serial`](/de/docs/Web/API/Serial)-Objekt weitergeleitet, wo Sie auf neu verbundene Ports lauschen können.
+Das `connect`-Ereignis blubbert zum [`Serial`](/de/docs/Web/API/Serial)-Objekt, wo Sie auf alle neu verbundenen Ports hören können.
 
 ```js
 navigator.serial.addEventListener("connect", (event) => {
@@ -68,4 +68,4 @@ navigator.serial.addEventListener("connect", (event) => {
 
 ## Siehe auch
 
-- [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignis
+- [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event)-Ereignis

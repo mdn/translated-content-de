@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Die **`Credential`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) bietet Informationen über eine Entität (normalerweise einen Benutzer), normalerweise als Voraussetzung für eine Vertrauensentscheidung.
+Das **`Credential`** Interface der [Credential Management API](/de/docs/Web/API/Credential_Management_API) liefert Informationen über eine Entität (meistens ein Benutzer) normalerweise als Voraussetzung für eine Vertrauensentscheidung.
 
-`Credential`-Objekte können folgende Typen haben:
+`Credential` Objekte können von den folgenden Typen sein:
 
 - [`FederatedCredential`](/de/docs/Web/API/FederatedCredential)
 - [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)
@@ -17,14 +17,14 @@ Die **`Credential`**-Schnittstelle der [Credential Management API](/de/docs/Web/
 - [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)
 - [`OTPCredential`](/de/docs/Web/API/OTPCredential)
 
-## Instanz-Eigenschaften
+## Instanzen-Eigenschaften
 
 - [`Credential.id`](/de/docs/Web/API/Credential/id) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der die Kennung des Berechtigungsnachweises enthält. Dies könnte eine GUID, ein Benutzername oder eine E-Mail-Adresse sein.
 - [`Credential.type`](/de/docs/Web/API/Credential/type) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der den Typ des Berechtigungsnachweises enthält. Gültige Werte sind `password`, `federated`, `public-key`, `identity` und `otp`. (Für [`PasswordCredential`](/de/docs/Web/API/PasswordCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential), [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) und [`OTPCredential`](/de/docs/Web/API/OTPCredential))
 
-## Instanz-Methoden
+## Instanzen-Methoden
 
 Keine.
 

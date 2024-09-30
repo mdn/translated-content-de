@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Tab aus einem Fenster gelöst wird, zum Beispiel weil es zwischen Fenstern verschoben wird.
+Wird ausgelöst, wenn ein Tab von einem Fenster getrennt wird, beispielsweise weil es zwischen Fenstern verschoben wird.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ browser.tabs.onDetached.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -35,9 +35,9 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tabId`
-      - : `integer`. ID des Tabs, der gelöst wurde.
+      - : `integer`. ID des Tabs, der getrennt wurde.
     - `detachInfo`
-      - : `object`. ID des vorherigen Fensters und der Index des Tabs darin. Weitere Details siehe im Abschnitt [detachInfo](#detachinfo_2).
+      - : `object`. ID des vorherigen Fensters und Index des Tabs darin. Siehe den Abschnitt [detachInfo](#detachinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -50,7 +50,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Lösevorgänge und protokollieren Sie die Informationen:
+Lauschen Sie auf Trennungsereignisse und protokollieren Sie die Informationen:
 
 ```js
 function handleDetached(tabId, detachInfo) {
@@ -69,7 +69,7 @@ browser.tabs.onDetached.addListener(handleDetached);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onDetached)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onDetached) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

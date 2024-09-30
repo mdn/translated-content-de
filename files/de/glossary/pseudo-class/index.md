@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-In CSS bezeichnet ein **Pseudo-class**-Selektor Elemente basierend auf ihrem Zustand und nicht auf Informationen aus dem Dokumentbaum. Zum Beispiel wendet der Selektor {{cssxref(":visited", "a:visited")}} Stile nur auf Links an, die der Benutzer bereits besucht hat.
+Im CSS zielt ein **Pseudoklassen**-Selektor auf Elemente ab, basierend auf ihrem Zustand, statt auf Informationen aus dem Dokumentenbaum. Zum Beispiel wendet der Selektor {{cssxref(":visited", "a:visited")}} Stile nur auf Links an, die der Benutzer bereits besucht hat.
 
 ## Siehe auch
 
-- [Dokumentation zu Pseudo-classes](/de/docs/Web/CSS/Pseudo-classes)
+- [Pseudoklassen-Dokumentation](/de/docs/Web/CSS/Pseudo-classes)

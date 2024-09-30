@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser mit dem Importieren eines Satzes von Lesezeichen begonnen hat.
+Wird ausgelöst, wenn der Browser beginnt, eine Reihe von Lesezeichen zu importieren.
 
-Während ein Satz von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} sehr häufig ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener aufwendig ist, sollten Sie auch `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} abhören. Wenn Sie `onImportBegan` empfangen, ignorieren Sie `onCreated`, bis Sie `onImportEnded` empfangen. Sie können alle anderen Benachrichtigungen wie gewohnt behandeln.
+Während eine Reihe von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} sehr oft ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener ressourcenintensiv ist, sollten Sie auch auf `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} hören. Wenn Sie `onImportBegan` empfangen, ignorieren Sie `onCreated`, bis Sie `onImportEnded` empfangen. Alle anderen Benachrichtigungen können wie üblich behandelt werden.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, sonst `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 

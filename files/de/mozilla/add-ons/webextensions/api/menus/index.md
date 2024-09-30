@@ -7,52 +7,52 @@ l10n:
 
 {{AddonSidebar}}
 
-Elemente zum Menüsystem des Browsers hinzufügen.
+Fügen Sie Elemente zum Menüsystem des Browsers hinzu.
 
-Diese API ist an die [„contextMenus“](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API von Chrome angelehnt, die Chrome-Erweiterungen ermöglicht, Elemente dem Kontextmenü des Browsers hinzuzufügen. Die `browser.menus` API fügt einige Funktionen zur API von Chrome hinzu.
+Diese API basiert auf Chromes [„contextMenus“](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API, welche es Chrome-Erweiterungen ermöglicht, Elemente zum Kontextmenü des Browsers hinzuzufügen. Die `browser.menus` API ergänzt die API von Chrome um einige Funktionen.
 
-Vor Firefox 55 wurde diese API ursprünglich auch `contextMenus` genannt, und dieser Name wurde als Alias beibehalten, sodass Sie `contextMenus` verwenden können, um Code zu schreiben, der sowohl in Firefox als auch in anderen Browsern funktioniert.
+Vor Firefox 55 wurde diese API auch ursprünglich `contextMenus` genannt, und dieser Name wurde als Alias beibehalten, sodass Sie `contextMenus` verwenden können, um Code zu schreiben, der sowohl in Firefox als auch in anderen Browsern funktioniert.
 
-Um diese API zu nutzen, müssen Sie die `menus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben. Sie können auch den Alias `contextMenus` anstelle von `menus` verwenden, aber wenn Sie das tun, müssen die APIs als `browser.contextMenus` aufgerufen werden.
+Um diese API zu verwenden, müssen Sie die `menus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben. Sie können auch den `contextMenus`-Alias anstelle von `menus` verwenden, aber wenn Sie dies tun, müssen auf die APIs als `browser.contextMenus` zugegriffen werden.
 
-Abgesehen von [`menus.getTargetElement()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement) kann diese API nicht von Content Scripts verwendet werden.
+Mit Ausnahme von [`menus.getTargetElement()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement) kann diese API nicht von Inhalts-Skripten aus verwendet werden.
 
 ## Erstellen von Menüelementen
 
 Um ein Menüelement zu erstellen, rufen Sie die Methode {{WebExtAPIRef("menus.create()")}} auf. Sie übergeben dieser Methode ein Objekt mit Optionen für das Element, einschließlich der Element-ID, des Elementtyps und der Kontexte, in denen es angezeigt werden soll.
 
-In einer Firefox-Erweiterung, die nicht-persistente [Hintergrundseiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) (Ereignisseiten) verwendet, oder in jeder Chrome-Erweiterung rufen Sie `menus.create` innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}} Listeners auf. In einer Firefox-Erweiterung, die persistente Hintergrundseiten verwendet, führen Sie einen Aufruf auf oberster Ebene aus. Weitere Informationen finden Sie unter {{WebExtAPIRef("menus.create()")}}.
+In einer Firefox-Erweiterung mit nicht-persistenten [Hintergrundseiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) (Ereignisseiten) oder in einer beliebigen Chrome-Erweiterung rufen Sie `menus.create` innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. In einer Firefox-Erweiterung mit persistenten Hintergrundseiten wird ein Aufruf auf oberster Ebene gemacht. Weitere Informationen finden Sie unter {{WebExtAPIRef("menus.create()")}}.
 
-Hören Sie auf Klicks auf Ihr Menüelement, indem Sie einen Listener zum {{WebExtAPIRef("menus.onClicked")}} Ereignis hinzufügen. Dieser Listener erhält ein {{WebExtAPIRef("menus.OnClickData")}} Objekt, das die Details des Ereignisses enthält.
+Hören Sie auf Klicks auf Ihr Menüelement, indem Sie einen Listener zum Ereignis {{WebExtAPIRef("menus.onClicked")}} hinzufügen. Dieser Listener erhält ein Objekt vom Typ {{WebExtAPIRef("menus.OnClickData")}}, das die Details des Ereignisses enthält.
 
-Sie können vier verschiedene Arten von Menüelementen erstellen, basierend auf dem Wert der `type`-Eigenschaft, die Sie in den Optionen für `create()` angeben:
+Sie können vier verschiedene Arten von Menüelementen erstellen, basierend auf dem Wert der `type`-Eigenschaft, die Sie in den Optionen zu `create()` angeben:
 
-- "normal": ein Menüelement, das nur ein Label anzeigt
-- "checkbox": ein Menüelement, das einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Ein Klick auf das Element schaltet das Häkchen um. Der Klick-Listener erhält zwei zusätzliche Eigenschaften: "checked", was angibt, ob das Element jetzt angehakt ist, und "wasChecked", was angibt, ob das Element vor dem Klickereignis angehakt war.
-- "radio": ein Menüelement, das eine von mehreren Auswahlmöglichkeiten darstellt. Genau wie ein Kontrollkästchen zeigt es auch ein Häkchen neben dem Label an, und sein Klick-Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radioelement erstellen, fungieren die Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann angehakt sein, und ein Klick auf ein Element macht es zum angehakten Element.
-- "separator": eine Linie, die eine Gruppe von Elementen trennt.
+- „normal“: ein Menüelement, das nur ein Label anzeigt
+- „checkbox“: ein Menüelement, das einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Wenn man auf das Element klickt, wird das Häkchen umgeschaltet. Der Klick-Listener erhält zwei zusätzliche Eigenschaften: „checked“, das anzeigt, ob das Element jetzt markiert ist, und „wasChecked“, das anzeigt, ob das Element vor dem Klick-Ereignis markiert war.
+- „radio“: ein Menüelement, das eine von mehreren Wahlmöglichkeiten darstellt. Wie auch ein Checkboxelement, zeigt es ein Häkchen neben dem Label an, und sein Klick-Listener zeigt „checked“ und „wasChecked“ an. Wenn Sie jedoch mehr als ein Radioelement erstellen, funktionieren diese Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann markiert sein, und ein Klick auf ein Element macht es zum markierten Element.
+- „separator“: eine Linie, die eine Gruppe von Elementen trennt.
 
-Wenn Sie mehr als ein Kontextmenüelement oder mehr als ein Werkzeuge-Menüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Das übergeordnete Element des Untermenüs wird mit dem Namen der Erweiterung beschriftet. Zum Beispiel hier eine Erweiterung namens "Menu demo", die zwei Kontextmenüelemente hinzugefügt hat:
+Wenn Sie mehr als ein Kontextmenüelement oder mehr als ein Werkzeugmenüelement erstellt haben, werden die Elemente in ein Untermenü platziert. Das Eltern-Menü des Untermenüs wird mit dem Namen der Erweiterung beschriftet. Zum Beispiel hier eine Erweiterung namens „Menu demo“, die zwei Kontextmenüelemente hinzugefügt hat:
 
-![Kontextmenü mit zwei Elementen mit den Labels click me und click me too!](menus-1.png)
+![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!](menus-1.png)
 
 ## Icons
 
-Wenn Sie für Ihre Erweiterung Icons mit dem ["icons" Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) spezifiziert haben, zeigt Ihr Menüelement das angegebene Icon neben seinem Label an. Der Browser versucht, ein 16x16 Pixel großes Icon für eine normale Anzeige oder ein 32x32 Pixel großes Icon für eine Hochauflösungsanzeige auszuwählen:
+Wenn Sie Icons für Ihre Erweiterung mit dem ["icons"-Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) angegeben haben, zeigt Ihr Menüelement das angegebene Icon neben seinem Label an. Der Browser wird versuchen, ein 16x16 Pixel großes Icon für eine normale Anzeige oder ein 32x32 Pixel großes Icon für eine Anzeige mit hoher Dichte zu wählen:
 
-![Kontextmenü mit zwei Elementen mit den Labels click me und click me too!](menus-2.png)
+![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!](menus-2.png)
 
-Nur für Elemente in einem Untermenü können Sie benutzerdefinierte Icons angeben, indem Sie die `icons` Option an {{WebExtAPIRef("menus.create()")}} übergeben:
+Nur für Elemente in einem Untermenü können Sie benutzerdefinierte Icons angeben, indem Sie die `icons`-Option an {{WebExtAPIRef("menus.create()")}} übergeben:
 
-![Kontextmenü mit zwei Elementen mit den Labels click me und click me too!. Die click me Option ist mit einem grünen Farbdosen-Symbol gekennzeichnet. Die click me too Option ist mit einem blauen Farbdosen-Symbol gekennzeichnet.](menus-3.png)
+![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!. Die Option Click me ist mit einem grünen Farbdosensymbol gekennzeichnet. Die Option Click me too ist mit einem blauen Farbdosensymbol gekennzeichnet.](menus-3.png)
 
 ## Beispiel
 
-Hier ist ein Kontextmenü mit 4 Elementen: ein normales Element, zwei Radioelemente mit Trennlinien auf jeder Seite und ein Kontrollkästchen. Die Radioelemente sind mit benutzerdefinierten Icons versehen.
+Hier ist ein Kontextmenü mit 4 Elementen: ein normales Element, zwei Radioelemente mit Trennern auf jeder Seite und ein Kontrollkästchen. Die Radioelemente erhalten benutzerdefinierte Icons.
 
-![Kontextmenü mit vier Elementen mit den Labels remove me, Greenify, Bluify und uncheck me. Greenify und Bluify sind Radioknöpfe mit benutzerdefinierten Icons.](menus-4.png)
+![Kontextmenü mit vier Elementen mit der Bezeichnung remove me, Greenify, Bluify und uncheck me. Greenify und Bluify sind Radiobuttons mit benutzerdefinierten Symbolen.](menus-4.png)
 
-Sie könnten ein solches Untermenü mit folgendem Code erstellen:
+Sie könnten ein solches Untermenü mit einem Code wie diesem erstellen:
 
 ```js
 browser.menus.create(
@@ -131,38 +131,38 @@ browser.menus.create(
 - {{WebExtAPIRef("menus.ContextType")}}
   - : Die verschiedenen Kontexte, in denen ein Menü erscheinen kann.
 - {{WebExtAPIRef("menus.ItemType")}}
-  - : Der Typ eines Menüelements: "normal", "checkbox", "radio", "separator".
+  - : Der Typ des Menüelements: „normal“, „checkbox“, „radio“, „separator“.
 - {{WebExtAPIRef("menus.OnClickData")}}
   - : Informationen, die gesendet werden, wenn ein Menüelement angeklickt wird.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}}
-  - : Die maximale Anzahl von obersten Erweiterungselementen, die zu einem Menüelement hinzugefügt werden können, dessen ContextType "browser_action" oder "page_action" ist.
+  - : Die maximale Anzahl von Erweiterungselementen auf oberster Ebene, die zu einem Menüelement hinzugefügt werden können, dessen ContextType „browser_action“ oder „page_action“ ist.
 
 ## Funktionen
 
 - {{WebExtAPIRef("menus.create()")}}
   - : Erstellt ein neues Menüelement.
-- {{WebExtApiRef("menus.getTargetElement()")}}
+- {{WebExtAPIRef("menus.getTargetElement()")}}
   - : Gibt das Element für eine gegebene `info.targetElementId` zurück.
-- {{WebExtApiRef("menus.overrideContext()")}}
-  - : Alle standardmäßigen Firefox-Menüelemente verbergen, um eine benutzerdefinierte Kontextmenü-Benutzeroberfläche bereitzustellen.
+- {{WebExtAPIRef("menus.overrideContext()")}}
+  - : Blendet alle standardmäßigen Firefox-Menüelemente aus, um eine benutzerdefinierte Kontextmenü-Benutzeroberfläche bereitzustellen.
 - {{WebExtAPIRef("menus.refresh()")}}
-  - : Ein derzeit angezeigtes Menü aktualisieren.
+  - : Aktualisiert ein derzeit angezeigtes Menü.
 - {{WebExtAPIRef("menus.remove()")}}
   - : Entfernt ein Menüelement.
 - {{WebExtAPIRef("menus.removeAll()")}}
   - : Entfernt alle von dieser Erweiterung hinzugefügten Menüelemente.
 - {{WebExtAPIRef("menus.update()")}}
-  - : Ein zuvor erstelltes Menüelement aktualisieren.
+  - : Aktualisiert ein zuvor erstelltes Menüelement.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("menus.onClicked")}}
-  - : Wird ausgelöst, wenn ein Menüelement angeklickt wird.
+  - : Wird ausgelöst, wenn auf ein Menüelement geklickt wird.
 - {{WebExtAPIRef("menus.onHidden")}}
-  - : Wird ausgelöst, wenn der Browser ein Menü verbirgt.
+  - : Wird ausgelöst, wenn der Browser ein Menü ausblendet.
 - {{WebExtAPIRef("menus.onShown")}}
   - : Wird ausgelöst, wenn der Browser ein Menü anzeigt.
 
@@ -173,7 +173,7 @@ browser.menus.create(
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus). Diese Dokumentation stammt von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API. Diese Dokumentation stammt von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

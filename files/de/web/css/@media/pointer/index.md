@@ -7,25 +7,25 @@ l10n:
 
 {{CSSRef}}
 
-Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) überprüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat und, falls ja, wie genau das _primäre_ Zeigegerät ist.
+Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) überprüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat, und falls ja, wie genau das _primäre_ Zeigegerät ist.
 
 > [!NOTE]
-> Wenn Sie die Genauigkeit _irgendeines_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
+> Wenn Sie die Genauigkeit eines _beliebigen_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
 
 ## Syntax
 
-Das `pointer`-Feature wird als ein Schlüsselwortwert spezifiziert, der aus der unten stehenden Liste ausgewählt wird.
+Das `pointer`-Feature wird als Schlüsselwortwert angegeben, das aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Das primäre Eingabemechanismus umfasst kein Zeigegerät.
+  - : Der primäre Eingabemechanismus umfasst kein Zeigegerät.
 - `coarse`
-  - : Das primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie beispielsweise einen Finger auf einem Touchscreen.
+  - : Der primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie einen Finger auf einem Touchscreen.
 - `fine`
-  - : Das primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie beispielsweise eine Maus.
+  - : Der primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie eine Maus.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit feinen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit groben primären Zeigegeräten.
+Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit präzisen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit groben primären Zeigegeräten.
 
 ### HTML
 

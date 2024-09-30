@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Gibt die Farbtiefe des Bildschirms zurück. Gemäß dem CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Weitere Informationen finden Sie im Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität).
+Gibt die Farbtiefe des Bildschirms zurück. Gemäß CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für diejenigen, die dies nicht tun.
 
 ## Wert
 

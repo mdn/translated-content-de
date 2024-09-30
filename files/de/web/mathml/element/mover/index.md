@@ -7,14 +7,14 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mover>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck anzubringen. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
+Das **`<mover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck anzubringen. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das darüber liegende Skript als Akzent behandelt werden soll (d.h. größer und näher an der Basis gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Überskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet wird).
 
 ## Beispiele
 
@@ -46,4 +46,4 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 ## Siehe auch
 
 - {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("munderover") }} (Unterskript-Overskript-Paar)
+- {{ MathMLElement("munderover") }} (Unterskript-Überskript-Paar)

@@ -11,7 +11,7 @@ Die statische Methode **`Math.atan()`** gibt den Arkustangens (in Radiant) einer
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚝𝚊𝚗</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arctan</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>the unique&nbsp;</mtext><mi>y</mi><mo>∊</mo><mrow><mo>[</mo><mrow><mo>−</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><mo>]</mo></mrow><mtext>&nbsp;such that&nbsp;</mtext><mo lspace="0em" rspace="0em">tan</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.atan}(x)} = \arctan(x) = \text{the unique } y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \text{ such that } \tan(y) = x</annotation></semantics>
+  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚝𝚊𝚗</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arctan</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>die eindeutige&nbsp;</mtext><mi>y</mi><mo>∊</mo><mrow><mo>[</mo><mrow><mo>−</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><mo>]</mo></mrow><mtext>&nbsp;so dass&nbsp;</mtext><mo lspace="0em" rspace="0em">tan</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.atan}(x)}} = \arctan(x) = \text{die eindeutige } y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \text{ so dass } \tan(y) = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -34,7 +34,7 @@ Der Arkustangens (Winkel in Radiant zwischen <math><semantics><mrow><mo>-</mo><m
 
 ## Beschreibung
 
-Da `atan()` eine statische Methode von `Math` ist, wird sie immer als `Math.atan()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `atan()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atan()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ Math.atan(Infinity); // 1.5707963267948966  (π/2)
 const theta = (x, y) => Math.atan(y / x);
 ```
 
-Beachten Sie, dass es sinnvoll sein kann, die `theta`-Funktion zu vermeiden und stattdessen {{jsxref("Math.atan2()")}} zu verwenden, die einen größeren Bereich (zwischen -π und π) hat und das Ausgeben von `NaN` für Fälle vermeidet, in denen `x` `0` ist.
+Beachten Sie, dass Sie möglicherweise die `theta`-Funktion vermeiden und stattdessen {{jsxref("Math.atan2()")}} verwenden möchten, die einen größeren Bereich (zwischen -π und π) hat und die Ausgabe von `NaN` für Fälle wie wenn `x` `0` ist, vermeidet.
 
 ## Spezifikationen
 

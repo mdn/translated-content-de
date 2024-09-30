@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`SpeechGrammarList`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten, die Wörter oder Wörtergruppen enthalten, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammarList`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten, die Wörter oder Muster von Wörtern enthalten, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird mit dem [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in Zukunft ebenfalls unterstützt werden.
+Grammatik wird unter Verwendung des [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. In Zukunft könnten auch andere Formate unterstützt werden.
 
 ## Konstruktor
 
 - [`SpeechGrammarList()`](/de/docs/Web/API/SpeechGrammarList/SpeechGrammarList) {{Experimental_Inline}}
   - : Erstellt ein neues `SpeechGrammarList`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SpeechGrammarList.length`](/de/docs/Web/API/SpeechGrammarList/length) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück, die in der `SpeechGrammarList` enthalten sind.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`SpeechGrammarList.item()`](/de/docs/Web/API/SpeechGrammarList/item) {{Experimental_Inline}}
-  - : Standard-Gatter — ermöglicht das Abrufen einzelner [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte aus der `SpeechGrammarList` mittels Array-Syntax.
+  - : Standard-Getter — ermöglicht das Abrufen einzelner [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte von der `SpeechGrammarList` mithilfe von Array-Syntax.
 - [`SpeechGrammarList.addFromURI()`](/de/docs/Web/API/SpeechGrammarList/addFromURI) {{Experimental_Inline}}
-  - : Nimmt eine Grammatik von einer bestimmten URI und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+  - : Nimmt eine Grammatik, die an einer bestimmten URI vorhanden ist, und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 - [`SpeechGrammarList.addFromString()`](/de/docs/Web/API/SpeechGrammarList/addFromString) {{Experimental_Inline}}
-  - : Fügt eine Grammatik als Zeichenfolge der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+  - : Fügt eine Grammatik in einem String der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
 ## Beispiele
 
-In unserem einfachen Beispiel [Speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer) erstellen wir eine neue `SpeechRecognition`-Objektinstanz mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) Konstruktor, erstellen eine neue `SpeechGrammarList`, fügen unsere Grammatik-Zeichenfolge mit der Methode [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString) hinzu und setzen sie als die Grammatik, die von der `SpeechRecognition`-Instanz mit der Eigenschaft [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars) erkannt wird.
+In unserem einfachen [Beispiel zur Sprachfarbänderung](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer) erstellen wir eine neue `SpeechRecognition`-Objektinstanz mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor, erstellen eine neue `SpeechGrammarList`, fügen unsere Grammatikzeichenfolge mit der Methode [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString) hinzu und setzen sie als die Grammatik, die von der `SpeechRecognition`-Instanz erkannt wird, mit der [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars)-Eigenschaft.
 
 ```js
 const grammar =

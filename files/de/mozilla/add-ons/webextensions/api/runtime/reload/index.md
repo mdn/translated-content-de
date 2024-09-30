@@ -9,7 +9,7 @@ l10n:
 
 Lädt die Erweiterung neu.
 
-Falls es ausstehende Updates für die Erweiterung gibt, die durch Hören auf {{WebExtAPIRef("runtime.onUpdateAvailable")}} zurückgestellt wurden, werden diese beim Neuladen angewendet.
+Wenn Aktualisierungen für die Erweiterung ausstehen, die durch das Anhören von {{WebExtAPIRef("runtime.onUpdateAvailable")}} zurückgestellt wurden, werden sie bei der Neuladung angewendet.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ## Beispiele
 
-Laden Sie die Erweiterung neu, wenn der Benutzer auf das Symbol einer Browser-Aktion klickt:
+Lädt die Erweiterung neu, wenn der Benutzer auf das Symbol einer Browseraktion klickt:
 
 ```js
 browser.browserAction.onClicked.addListener((tab) => {
@@ -38,7 +38,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-reload) API von Chromium. Diese Dokumentation stammt von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-reload) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

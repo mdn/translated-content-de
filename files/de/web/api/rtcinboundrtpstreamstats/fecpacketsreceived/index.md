@@ -20,16 +20,16 @@ const fecPacketsReceived = rtcInboundRtpStreamStats.fecPacketsReceived
 
 ### Wert
 
-Ein nicht signierter Ganzzahlwert, der die Gesamtanzahl der FEC-Pakete angibt, die während dieser RTP-Sitzung vom entfernten Peer empfangen wurden. Forward Error Correction verwendet eine exklusive ODER-Methode, um Paritätsprüfungen der empfangenen Daten durchzuführen.
+Ein positiver Integer-Wert, der die Gesamtanzahl der FEC-Pakete angibt, die während dieser RTP-Sitzung vom entfernten Peer empfangen wurden. Forward Error Correction verwendet eine Exklusiv-Oder-Methode, um Paritätsprüfungen der empfangenen Daten durchzuführen.
 
-Durch die Verwendung der FEC-Paritätsinformationen, um beschädigte Pakete zu rekonstruieren, kann vermieden werden, dass beschädigte Pakete erneut gesendet werden müssen, was wiederum dazu beiträgt, Verzögerungen zu reduzieren oder die Notwendigkeit, beschädigte Frames vollständig zu überspringen, zu vermeiden.
+Durch den Einsatz der FEC-Paritätsinformationen, um beschädigte Pakete zu rekonstruieren, kann es möglich sein, das erneute Senden beschädigter Pakete zu vermeiden, was wiederum hilft, Verzögerungen zu reduzieren, oder ganz auf das Überspringen beschädigter Frames zu verzichten.
 
 > [!NOTE]
-> Dieser Zähler kann auch inkrementiert werden, wenn FEC-Pakete zusammen mit Medieninhalten in-band ankommen; dies kann beispielsweise bei Opus passieren.
+> Dieser Zähler kann auch inkrementiert werden, wenn FEC-Pakete zusammen mit Medieninhalten im In-Band-Format ankommen; dies kann beispielsweise bei Opus vorkommen.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Es ist möglich, dass ein Teil der empfangenen FEC-Pakete verworfen wurde, anstatt verwendet zu werden. Dies kann geschehen, wenn die von den FEC-Paketen abgedeckten Pakete bereits erfolgreich empfangen oder bereits mit einem zuvor empfangenen FEC-Paket rekonstruiert wurden. Dies kann auch passieren, wenn das FEC-Paket außerhalb des Zeitfensters eintrifft, in dem der Client versuchen wird, es zu verwenden.
+Es ist möglich, dass ein Teil der empfangenen FEC-Pakete verworfen wurde, anstatt verwendet zu werden. Dies kann passieren, wenn die von den FEC-Paketen abgedeckten Pakete bereits erfolgreich empfangen oder bereits mit einem zuvor empfangenen FEC-Paket rekonstruiert wurden. Dies kann auch passieren, wenn das FEC-Paket außerhalb des Zeitfensters ankommt, in dem der Client versuchen wird, es zu verwenden.
 
 Wenn Sie wissen möchten, wie viele der empfangenen Pakete verworfen wurden, können Sie den Wert von [`fecPacketsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/fecPacketsDiscarded) prüfen.
 
@@ -43,4 +43,4 @@ Wenn Sie wissen möchten, wie viele der empfangenen Pakete verworfen wurden, kö
 
 ## Siehe auch
 
-- {{RFC(5109)}} (RTP-Payload-Format für generische Forward Error Correction)
+- {{RFC(5109)}} (RTP-Payload-Format für generische Vorwärtsfehlerkorrektur)

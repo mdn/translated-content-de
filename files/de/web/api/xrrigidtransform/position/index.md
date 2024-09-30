@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Eigenschaft **`position`** ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt, das den 3D-Punkt in Metern angibt, der die Übersetzungskomponente der Transformation beschreibt.
+Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) Eigenschaft **`position`** ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Objekt, das den 3D-Punkt in Metern angibt und die Translation des Transformationskomponenten beschreibt.
 
 ## Wert
 
-Ein schreibgeschützter [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die 3D-Position der Transformationsmatrix angibt. Die Einheiten sind Meter.
+Ein schreibgeschützter [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die 3D-Position der Transformationsmatrix darstellt. Die Einheiten sind in Metern.
 
 > [!NOTE]
 > Die `w`-Komponente des Punktes ist immer 1,0.
 
 ## Beispiele
 
-Um einen Referenzraum zu erstellen, der verwendet werden kann, um ein Objekt auf Augenhöhe zu platzieren (angenommen, die Augenhöhe beträgt 1,5 Meter):
+Um einen Referenzraum zu erstellen, der verwendet werden kann, um ein Objekt auf Augenhöhe zu platzieren (angenommen, die Augenhöhe liegt bei 1,5 Metern):
 
 ```js
 function onSessionStarted(xrSession) {
@@ -52,13 +52,13 @@ function refSpaceCreated(refSpace) {
 }
 ```
 
-Nach dem Einrichten des Grafik-Kontexts für die Nutzung von WebXR wird zunächst überprüft, ob die Variable `immersiveSession` `true` ist; wenn ja, fordern wir zunächst einen `bounded-floor`-Referenzraum an. Wenn dies fehlschlägt (wahrscheinlich, weil `bounded-floor` nicht unterstützt wird), versuchen wir, einen `local-floor`-Referenzraum anzufordern.
+Nachdem der Grafik-Kontext für die WebXR-Nutzung eingerichtet wurde, wird zuerst geprüft, ob die Variable `immersiveSession` `true` ist; wenn ja, wird zuerst ein `bounded-floor` Referenzraum angefordert. Wenn das fehlschlägt (vermutlich weil `bounded-floor` nicht unterstützt wird), versuchen wir, einen `local-floor` Referenzraum anzufordern.
 
-Wenn wir uns nicht in einer immersiven Sitzung befinden, fordern wir stattdessen einen `viewer`-Referenzraum an.
+Wenn wir uns nicht in einer immersiven Sitzung befinden, fordern wir stattdessen einen `viewer` Referenzraum an.
 
-In allen Fällen, sobald der Raum erhalten wurde, wird er in die Funktion `refSpaceCreated()` übergeben. Für immersive Räume wird der angegebene Raum für die zukünftige Verwendung gespeichert. Bei Inline-Sitzungen wissen wir jedoch, dass wir uns in einem Raum befinden, der nicht automatisch für die Fußbodenniveau angepasst ist, daher fordern wir einen verschobenen Referenzraum an, um die Höhe des Betrachters auf 1,5 Meter über dem angenommenen Fußbodenniveau von 0 Metern zu verschieben. Dieser neue Referenzraum wird anstelle des ursprünglich empfangenen Raums verwendet.
+In allen Fällen wird, sobald der Raum erhalten wurde, dieser in die `refSpaceCreated()` Funktion übergeben. Für immersive Räume wird der angegebene Raum für die zukünftige Nutzung gespeichert. Für Inline-Sitzungen wissen wir jedoch, dass wir uns in einem Raum befinden, der nicht automatisch für das Bodenniveau angepasst ist, daher fordern wir einen Offset-Referenzraum an, um die Höhe des Betrachters auf 1,5 Meter über dem angenommenen Bodenniveau von 0 Metern zu verschieben. Dieser neue Referenzraum wird anstelle des ursprünglich erhaltenen verwendet.
 
-Schließlich wird eine Anfrage für einen Animationsrahmen übermittelt.
+Schließlich wird ein Animationsframe-Antrag eingereicht.
 
 ## Spezifikationen
 

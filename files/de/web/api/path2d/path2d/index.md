@@ -9,8 +9,7 @@ l10n:
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
 Der **`Path2D()`** Konstruktor gibt ein neu instanziiertes
-`Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine
-Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht.
+`Path2D` Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ new Path2D(d)
 ### Parameter
 
 - `path` {{optional_inline}}
-  - : Bei Aufruf mit einem anderen `Path2D`-Objekt wird eine Kopie des
+  - : Bei Aufruf mit einem anderen `Path2D` Objekt wird eine Kopie des
     `path`-Arguments erstellt.
 - `d` {{optional_inline}}
   - : Bei Aufruf mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht, wird ein neuer Pfad
@@ -33,7 +32,7 @@ new Path2D(d)
 
 ### Erstellen und Kopieren von Pfaden
 
-Dieses Beispiel erstellt und kopiert einen `Path2D`-Pfad.
+Dieses Beispiel erstellt und kopiert einen `Path2D` Pfad.
 
 ```html hidden
 <canvas id="canvas"></canvas>
@@ -55,12 +54,12 @@ ctx.stroke(path2);
 
 {{ EmbedLiveSample('Creating_and_copying_paths', 700, 180) }}
 
-### Verwendung von SVG-Pfaden
+### Verwenden von SVG-Pfaden
 
-Dieses Beispiel erstellt einen `Path2D`-Pfad unter Verwendung von [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorial/Paths). Der Pfad bewegt sich zum
-Punkt (`M10 10`) und bewegt sich dann horizontal 80 Punkte nach rechts
+Dieses Beispiel erstellt einen `Path2D` Pfad unter Verwendung von [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorial/Paths). Der Pfad bewegt sich zu
+Punkt (`M10 10`) und dann 80 Punkte horizontal nach rechts
 (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links
-(`h -80`), und dann zurück zum Start (`Z`).
+(`h -80`) und schließlich zurück zum Start (`Z`).
 
 ```html hidden
 <canvas id="canvas"></canvas>

@@ -1,15 +1,16 @@
 ---
-title: "WebGLRenderingContext: isRenderbuffer() Methode"
+title: "WebGLRenderingContext: isRenderbuffer()-Methode"
 short-title: isRenderbuffer()
 slug: Web/API/WebGLRenderingContext/isRenderbuffer
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isRenderbuffer()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) gültig ist, und `false`, wenn nicht.
+Die **`WebGLRenderingContext.isRenderbuffer()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der
+übergebene [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) gültig ist, und `false` andernfalls.
 
 ## Syntax
 
@@ -20,11 +21,11 @@ isRenderbuffer(renderbuffer)
 ### Parameter
 
 - `renderbuffer`
-  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer), der überprüft werden soll.
+  - : Ein zu überprüfender [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer).
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob das Renderbuffer gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Renderbuffer gültig ist oder nicht.
 
 ## Beispiele
 
@@ -51,4 +52,4 @@ gl.isRenderbuffer(renderbuffer);
 - [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
 - [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
 - [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
-- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

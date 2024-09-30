@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft des [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces ruft den Ordinaten oder die y-Achse des Übersetzungsvektors ab und legt diese fest.
+Die **`y`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle erhält und setzt die Ordinate oder y-Achse des Translationsvektors.
 
 ## Wert
 
-Ein Gleitkommawert (double) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein doppelter ganzzahliger Wert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-In Arbeit
+To Do
 
 ## Spezifikationen
 

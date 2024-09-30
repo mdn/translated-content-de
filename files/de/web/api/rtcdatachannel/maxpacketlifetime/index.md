@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`maxPacketLifeTime`** gibt die Zeitdauer in Millisekunden zurück, die es dem Browser erlaubt ist, zu versuchen, eine Nachricht zu übertragen, wie beim Erstellen des Datenkanals festgelegt, oder `null`. Dies begrenzt die Zeit, wie lange der Browser versuchen kann, die Nachricht zu übertragen und erneut zu übertragen, bevor er aufgibt.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft
+**`maxPacketLifeTime`** gibt die Zeit in Millisekunden an, die dem Browser erlaubt ist, um zu versuchen, eine Nachricht zu übertragen, wie beim Erstellen des Datenkanals festgelegt, oder `null`. Dies begrenzt, wie lange der Browser versuchen kann, die Nachricht zu übertragen und erneut zu übertragen, bevor er aufgibt.
 
 ## Wert
 
-Die Anzahl der Millisekunden, über die der Browser versuchen kann, die Nachricht zu übertragen, bis er entweder erfolgreich ist oder aufgibt. Wenn dies nicht festgelegt wurde, als [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen wurde, um den Datenkanal zu erstellen, ist dieser Wert `null`.
+Die Anzahl der Millisekunden, über die der Browser weiterhin versuchen kann, die Nachricht zu übertragen, bis er entweder Erfolg hat oder aufgibt. Wenn diese Eigenschaft nicht festgelegt wurde, als [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen wurde, um den Datenkanal zu erstellen, ist dieser Wert `null`.
 
 ## Spezifikationen
 

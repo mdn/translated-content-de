@@ -9,9 +9,9 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Der **`CSSSkewX()`** Konstruktor erstellt ein neues
-[`CSSSkewX`](/de/docs/Web/API/CSSSkewX)-Objekt, das den
-[`skewX()`](/de/docs/Web/CSS/transform-function/skewX)-Wert der
-einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS darstellt.
+[`CSSSkewX`](/de/docs/Web/API/CSSSkewX) Objekt, das den
+[`skewX()`](/de/docs/Web/CSS/transform-function/skewX)
+Wert der individuellen {{CSSXRef('transform')}} Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ new CSSSkewX(ax)
 ### Parameter
 
 - [`ax`](/de/docs/Web/API/CSSSkewx/ax)
-  - : Ein Wert für den `ax`-Winkel des zu konstruierenden [`CSSSkewX`](/de/docs/Web/API/CSSSkewX)-Objekts. Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+  - : Ein Wert für den `ax` Winkel des zu konstruierenden [`CSSSkewX`](/de/docs/Web/API/CSSSkewX) Objekts. Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 
 ## Beispiele
 
-In Bearbeitung
+Noch ausstehend
 
 ## Spezifikationen
 

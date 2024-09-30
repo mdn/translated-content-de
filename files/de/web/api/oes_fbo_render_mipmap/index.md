@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `OES_fbo_render_mipmap` Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, jede Ebene einer Textur an ein `framebuffer`-Objekt anzuhängen.
+Die `OES_fbo_render_mipmap` Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, jede Ebene einer Textur an ein Framebuffer-Objekt anzuhängen.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Lehrgang](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verfügbar.
+> Diese Erweiterung ist nur in {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verfügbar.
 > In WebGL2 ist die Funktionalität dieser Erweiterung standardmäßig im WebGL 2-Kontext verfügbar.
 
 ## Beispiele

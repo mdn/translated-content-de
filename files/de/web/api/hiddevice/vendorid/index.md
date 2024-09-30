@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`vendorId`** schreibgeschützte Eigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt die Hersteller-ID des angeschlossenen HID-Geräts zurück. Diese identifiziert den Hersteller des Geräts.
+Die schreibgeschützte Eigenschaft **`vendorId`** der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle gibt die Vendor-ID des angeschlossenen HID-Geräts zurück. Diese identifiziert den Hersteller des Geräts.
 
 ## Wert
 
-Ein Integer. Wenn das Gerät keine Hersteller-ID hat oder die Hersteller-ID nicht zugänglich ist, gibt dies `0` zurück.
+Ein Integer. Wenn das Gerät keine Vendor-ID hat oder die Vendor-ID nicht zugänglich ist, wird `0` zurückgegeben.
 
 ## Beispiele
 
-Das folgende Beispiel ruft Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und gibt den Wert von `vendorId` in der Konsole aus.
+Das folgende Beispiel ruft Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und protokolliert den Wert von `vendorId` in der Konsole.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {

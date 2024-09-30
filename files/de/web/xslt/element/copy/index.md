@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:copy>`-Element überträgt eine flache Kopie (den Knoten und alle zugehörigen Namespace-Knoten) des aktuellen Knotens in das Ausgabedokument. Es kopiert weder Kinder noch Attribute des aktuellen Knotens.
+Das `<xsl:copy>`-Element überträgt eine flache Kopie (den Knoten und jeden zugehörigen Namespace-Knoten) des aktuellen Knotens in das Ausgabedokument. Es kopiert weder Kinder noch Attribute des aktuellen Knotens.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 ### Optionale Attribute
 
 - `use-attribute-sets`
-  - : Listet Attributsätze auf, die auf den Ausgabeknoten angewendet werden sollen, falls es sich um ein Element handelt. Die Namen der Sätze sollten durch Leerzeichen getrennt sein.
+  - : Listet Attributsets auf, die auf den Ausgabeknoten angewendet werden sollen, falls es sich um ein Element handelt. Die Namen der Sets sollten durch Leerzeichen getrennt werden.
 
 ### Typ
 

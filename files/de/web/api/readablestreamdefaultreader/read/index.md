@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`read()`** Methode des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Interfaces gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf das nächste Stück im internen Warteschlangen des Streams gewährt.
+Die **`read()`** Methode des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Interfaces gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf das nächste Stück im internen Warteschlangen des Streams bietet.
 
 ## Syntax
 
@@ -22,8 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich je nach Zustand des Streams erfüllt oder ablehnt.
-Die verschiedenen Möglichkeiten sind wie folgt:
+Ein {{jsxref("Promise")}}, das je nach Zustand des Streams mit einem Ergebnis erfüllt/abgelehnt wird. Die verschiedenen Möglichkeiten sind wie folgt:
 
 - Wenn ein Stück verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
 - Wenn der Stream geschlossen wird, wird das Promise mit einem Objekt der Form `{ value: undefined, done: true }` erfüllt.
@@ -32,18 +31,15 @@ Die verschiedenen Möglichkeiten sind wie folgt:
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer oder [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) wird aufgerufen (wenn eine ausstehende Leseanforderung besteht).
+  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer, oder [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) wird aufgerufen (wenn es eine ausstehende Leseanforderung gibt).
 
 ## Beispiele
 
 ### Beispiel 1 - Einfaches Beispiel
 
-Dieses Beispiel zeigt die grundlegende Nutzung der API, versucht jedoch nicht, Komplikationen wie Stream-Stücke, die nicht an Zeilenenden enden, zu behandeln.
+Dieses Beispiel zeigt die grundlegende API-Nutzung, versucht jedoch nicht, mit Komplikationen wie zum Beispiel Stream-Stücken, die nicht an Zeilengrenzen enden, umzugehen.
 
-In diesem Beispiel ist `stream` ein zuvor erstellter benutzerdefinierter `ReadableStream`.
-Es wird mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde.
-(Siehe unser [Einfaches Zufallsstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code).
-Jedes Stück wird nacheinander gelesen und als Array von UTF-8-Bytes in der Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen ist. Dann verlassen wir die rekursive Funktion und geben den gesamten Strom in einem anderen Teil der Benutzeroberfläche aus.
+In diesem Beispiel ist `stream` ein zuvor erstellter benutzerdefinierter `ReadableStream`. Er wird mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde. (siehe unser [Einfaches Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Jedes Stück wird nacheinander gelesen und als Array von UTF-8-Bytes in die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen ist, woraufhin wir aus der rekursiven Funktion austreten und den gesamten Stream in einem anderen Teil der UI ausdrucken.
 
 ```js
 function fetchStream() {
@@ -77,10 +73,9 @@ function fetchStream() {
 }
 ```
 
-### Beispiel 2 - Verarbeitung von Textzeilen
+### Beispiel 2 - Text zeilenweise behandeln
 
-Dieses Beispiel zeigt, wie Sie möglicherweise eine Textdatei abrufen und sie als einen Strom von Textzeilen behandeln.
-Es behandelt Stream-Stücke, die nicht an Zeilenenden enden, und die Umwandlung von `Uint8Array` in Strings.
+Dieses Beispiel zeigt, wie Sie möglicherweise eine Textdatei abrufen und als Strom von Textzeilen behandeln. Es befasst sich mit Stream-Stücken, die nicht an Zeilengrenzen enden, und mit der Umwandlung von `Uint8Array` in Zeichenketten.
 
 ```js
 async function* makeTextFileLineIterator(fileURL) {

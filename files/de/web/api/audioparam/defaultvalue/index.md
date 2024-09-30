@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`defaultValue`** der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle repräsentiert den Anfangswert der Attribute, wie er vom spezifischen [`AudioNode`](/de/docs/Web/API/AudioNode), das den `AudioParam` erzeugt, definiert wurde.
+Die schreibgeschützte **`defaultValue`**-Eigenschaft der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle repräsentiert den Anfangswert der Attribute, wie sie vom spezifischen [`AudioNode`](/de/docs/Web/API/AudioNode) festgelegt werden, der das `AudioParam` erstellt.
 
 ## Wert
 
-Eine Gleitkommazahl ({{jsxref("Number")}}).
+Eine Gleitkomma-{{jsxref("Number")}}.
 
 ## Beispiele
 

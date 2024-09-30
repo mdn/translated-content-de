@@ -24,7 +24,7 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel gibt die Version von manifest.json an, die von dieser Erweiterung verwendet wird.
+Dieser Schlüssel gibt die Version der manifest.json an, die von dieser Erweiterung verwendet wird.
 
 ## Beispiel
 

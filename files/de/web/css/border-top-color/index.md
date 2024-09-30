@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} festgelegt werden.
+Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements. Sie kann auch mit den Kurzschreibweisen {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/border-top-color.html")}}
 
@@ -30,7 +30,7 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die Eigenschaft `border-top-color` wird als einzelner Wert angegeben.
+Die `border-top-color` Eigenschaft wird als Einzelwert angegeben.
 
 ### Werte
 
@@ -47,7 +47,7 @@ Die Eigenschaft `border-top-color` wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein einfaches Div mit Rahmen
+### Ein einfaches div mit einem Rahmen
 
 #### HTML
 
@@ -88,7 +88,7 @@ Die Eigenschaft `border-top-color` wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweise-Eigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
+- Die Rahmen-bezogenen CSS-Kurzschreibweisen: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
 - Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
-- Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
-- Der Standardfarbwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die anderen Rahmen-bezogenen CSS-Eigenschaften, die auf den gleichen Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
+- Der Standard [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) Farbwert.

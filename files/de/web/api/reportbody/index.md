@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`ReportBody`**-Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von dieser Schnittstelle und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
+Die **`ReportBody`** Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Inhalt eines Berichts. Einzelne Berichtstypen erben von dieser Schnittstelle und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
 
 ### Berichte, die von `ReportBody` erben
 
@@ -24,7 +24,7 @@ Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zur Beobachtung von Interventionsberichten. Die [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle erbt von `ReportBody`.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Eingriffsberichte zu beobachten. Die [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) Schnittstelle erbt von `ReportBody`.
 
 ```js
 const options = {

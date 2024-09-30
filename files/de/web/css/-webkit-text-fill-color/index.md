@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Füll-[Farbe](/de/docs/Web/CSS/color_value) der Zeichen eines Textes fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Füllung der Zeichenfarbe eines Textes an. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die F
 ### Werte
 
 - `<color>`
-  - : Die Vordergrundfüllfarbe des Textinhalts des Elements.
+  - : Die vordere Füllfarbe des Textinhalts des Elements.
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogbeitrag zur Ankündigung dieses Features](https://webkit.org/blog/85/introducing-text-stroke/)
+- [Surfin' Safari Blog-Beitrag zur Ankündigung dieses Features](https://webkit.org/blog/85/introducing-text-stroke/)
 - [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}

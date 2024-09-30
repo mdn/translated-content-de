@@ -1,5 +1,5 @@
 ---
-title: "CSSPseudoElement: element-Eigenschaft"
+title: "CSSPseudoElement: element Eigenschaft"
 short-title: element
 slug: Web/API/CSSPseudoElement/element
 l10n:
@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`element`**-Eigenschaft der [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Schnittstelle gibt eine Referenz auf das Ursprungselement des Pseudo-Elements zurück, mit anderen Worten auf sein Eltern-Element.
+Die schreibgeschützte Eigenschaft **`element`** des
+[`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt eine Referenz auf das ursprungliche Element des Pseudo-Elements zurück, mit anderen Worten, auf sein Eltern-Element.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element), das das Ursprungselement des Pseudo-Elements repräsentiert.
+Ein [`Element`](/de/docs/Web/API/Element), das das ursprungliche Element des Pseudo-Elements darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Beziehung zwischen `CSSPseudoElement.element` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
+Das folgende Beispiel zeigt die Beziehung zwischen
+`CSSPseudoElement.element` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");

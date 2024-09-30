@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`contains()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle gibt einen booleschen Wert zurück — `true`, wenn die zugrunde liegende Liste das gegebene Token enthält, andernfalls `false`.
+Die **`contains()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle
+gibt einen booleschen Wert zurück — `true`, wenn die zugrunde liegende Liste das angegebene Token enthält, sonst `false`.
 
 ## Syntax
 
@@ -19,15 +20,20 @@ contains(token)
 ### Parameter
 
 - `token`
-  - : Ein String, der das Token darstellt, dessen Existenz in der Liste Sie überprüfen möchten.
+  - : Ein String, der das Token darstellt,
+    nach dessen Vorhandensein in der Liste Sie suchen möchten.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn die aufrufende Liste `token` enthält, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die aufgerufene Liste
+`token` enthält, sonst `false`.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element über [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` gesetzt sind. Wir testen dann das Vorhandensein von `"c"` in der Liste und schreiben das Ergebnis in das `<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die an einem
+{{htmlelement("span")}}-Element als `DOMTokenList` mit
+[`Element.classList`](/de/docs/Web/API/Element/classList) gesetzt sind. Wir testen dann das Vorhandensein von `"c"` in
+der Liste und schreiben das Ergebnis in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 

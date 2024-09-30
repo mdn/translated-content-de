@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`href`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der die gesamte URL enthält.
+Die **`href`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein Zeichenstring, der die gesamte URL enthält.
 
 ## Wert
 
-Ein String.
+Ein Zeichenstring.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ console.log(url.href); // Logs: 'https://developer.mozilla.org/en-US/docs/Web/AP
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

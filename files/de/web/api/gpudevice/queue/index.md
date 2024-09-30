@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`queue`** des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück.
+Die **`queue`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück. Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Eine Instanz des [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Objekts.
+Ein [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Objektinstanz.
 
 ## Beispiele
 
-Grundlegender Zugriff auf die [`GPUQueue`](/de/docs/Web/API/GPUQueue):
+Einfacher Zugriff auf [`GPUQueue`](/de/docs/Web/API/GPUQueue):
 
 ```js
 async function init() {
@@ -43,7 +43,7 @@ async function init() {
 ```
 
 > [!NOTE]
-> Weitere Queue-Beispiele finden Sie auf den Referenzseiten der [`GPUQueue`](/de/docs/Web/API/GPUQueue).
+> Für weitere Beispiele zu Queues, siehe die [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Referenzseiten.
 
 ## Spezifikationen
 
@@ -55,4 +55,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

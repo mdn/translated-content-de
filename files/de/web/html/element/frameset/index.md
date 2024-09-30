@@ -10,16 +10,16 @@ l10n:
 Das **`<frameset>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um {{HTMLElement("frame")}}-Elemente zu enthalten.
 
 > [!NOTE]
-> Da die Verwendung von Frames zugunsten der Verwendung von {{HTMLElement("iframe")}} nun nicht mehr empfohlen wird, wird dieses Element von modernen Websites normalerweise nicht verwendet.
+> Da die Verwendung von Frames zugunsten der Verwendung von {{HTMLElement("iframe")}} jetzt nicht mehr empfohlen wird, wird dieses Element von modernen Websites typischerweise nicht mehr verwendet.
 
 ## Attribute
 
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cols` {{Deprecated_Inline}}
-  - : Dieses Attribut spezifiziert die Anzahl und die Größe der horizontalen Bereiche in einem Frameset.
+  - : Dieses Attribut gibt die Anzahl und Größe der horizontalen Bereiche in einem Frameset an.
 - `rows` {{Deprecated_Inline}}
-  - : Dieses Attribut spezifiziert die Anzahl und die Größe der vertikalen Bereiche in einem Frameset.
+  - : Dieses Attribut gibt die Anzahl und Größe der vertikalen Bereiche in einem Frameset an.
 
 ## Beispiel
 
@@ -42,7 +42,7 @@ Ein Frameset-Dokument hat ein `<frameset>`-Element anstelle eines {{HTMLElement(
 </html>
 ```
 
-Wenn Sie eine andere HTML-Seite in den {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
+Wenn Sie eine andere HTML-Seite in das {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
 
 ## Spezifikationen
 

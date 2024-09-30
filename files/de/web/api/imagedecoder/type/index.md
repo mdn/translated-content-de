@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`type`**-Eigenschaft des schreibgeschützten [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces spiegelt den während der Konstruktion konfigurierten [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) wider.
+Die **`type`**-Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces, die nur gelesen werden kann, gibt den [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) wieder, der während der Konstruktion konfiguriert wurde.
 
 ## Wert
 

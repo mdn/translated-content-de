@@ -11,9 +11,9 @@ Die Kategorie der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning"
 
 ## Typ
 
-Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
-- `"content_script"`: Die Leistungswarnung betrifft ein langsames `content script` in der hörenden Erweiterung.
+- `"content_script"`: Die Leistungswarnung betrifft ein langsames Content-Script in der abhörenden Erweiterung.
 
 {{WebExtExamples("h2")}}
 

@@ -1,5 +1,5 @@
 ---
-title: "FileSystemSyncAccessHandle: flush() Methode"
+title: "FileSystemSyncAccessHandle: flush()-Methode"
 short-title: flush()
 slug: Web/API/FileSystemSyncAccessHandle/flush
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`flush()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle speichert alle Änderungen, die an der mit dem Handle verknüpften Datei über die [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write)-Methode vorgenommen wurden, auf der Festplatte.
+Die **`flush()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle speichert alle Änderungen, die über die [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write)-Methode an der mit dem Handle verknüpften Datei vorgenommen wurden, auf der Festplatte.
 
-Bitte beachten Sie, dass Sie diese Methode nur aufrufen müssen, wenn die Änderungen zu einem bestimmten Zeitpunkt auf die Festplatte geschrieben werden sollen. Ansonsten können Sie das zugrundeliegende Betriebssystem die Verwaltung übernehmen lassen, was in den meisten Fällen in Ordnung sein sollte.
+Bitte beachten Sie, dass Sie diese Methode nur aufrufen müssen, wenn Sie die Änderungen zu einem bestimmten Zeitpunkt auf der Festplatte speichern müssen. Andernfalls können Sie das zugrundeliegende Betriebssystem dies automatisch erledigen lassen, was in den meisten Fällen ausreichend sein sollte.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), `flush()`, [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), `flush()`, [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementierten sie auf diese Weise. In allen aktuellen Browsern, die diese Methoden unterstützen, werden sie jedoch als synchrone Methoden implementiert.
 
 ## Syntax
 
@@ -27,22 +27,22 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref('undefined')}}).
+Keine ({{jsxref('undefined')}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das zugeordnete Zugriffs-Handle bereits geschlossen ist.
+  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread:
+Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread wird:
 
-- Erstellt sie ein synchrones Datei-Zugriffs-Handle.
-- Bestimmt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese aufzunehmen.
-- Liest den Inhalt der Datei in den Puffer.
-- Kodiert die Nachricht und schreibt sie an das Ende der Datei.
-- Speichert die Änderungen auf der Festplatte und schließt das Zugriffs-Handle.
+- Ein synchroner Datei-Zugriffs-Handle erstellt.
+- Die Größe der Datei ermittelt und ein {{jsxref("ArrayBuffer")}} erstellt, um sie aufzunehmen.
+- Der Dateiinhalt in den Puffer gelesen.
+- Die Nachricht kodiert und am Ende der Datei geschrieben.
+- Die Änderungen auf der Festplatte gespeichert und das Zugriffs-Handle geschlossen.
 
 ```js
 onmessage = async (e) => {
@@ -85,4 +85,4 @@ onmessage = async (e) => {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Die File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

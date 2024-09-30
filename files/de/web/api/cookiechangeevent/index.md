@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Die **`CookieChangeEvent`**-Schnittstelle der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) ist der Ereignistyp des [`change`](/de/docs/Web/API/CookieStore/change_event)-Ereignisses, das bei einem [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn Cookies erstellt oder gelöscht werden.
+Die **`CookieChangeEvent`**-Schnittstelle der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) ist der Eventtyp des [`change`](/de/docs/Web/API/CookieStore/change_event)-Ereignisses, das an einem [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn Cookies erstellt oder gelöscht werden.
 
 > [!NOTE]
 > Ein Cookie, das durch das Einfügen eines anderen Cookies mit demselben Namen, derselben Domain und demselben Pfad ersetzt wird, wird ignoriert und löst kein Änderungsereignis aus.
@@ -19,22 +19,22 @@ Die **`CookieChangeEvent`**-Schnittstelle der [Cookie Store API](/de/docs/Web/AP
 - [`CookieChangeEvent()`](/de/docs/Web/API/CookieChangeEvent/CookieChangeEvent)
   - : Erstellt ein neues `CookieChangeEvent`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 - [`CookieChangeEvent.changed`](/de/docs/Web/API/CookieChangeEvent/changed) {{ReadOnlyInline}}
-  - : Ein Array, das alle neu erstellten Cookies auflistet. Beachten Sie, dass Cookies mit einem Ablaufdatum in der Vergangenheit ausgeschlossen werden, da diese Cookies sofort gelöscht werden.
+  - : Ein Array, das alle neu erstellten Cookies auflistet. Beachten Sie, dass dies Cookies ausschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden, da diese Cookies sofort gelöscht werden.
 - [`CookieChangeEvent.deleted`](/de/docs/Web/API/CookieChangeEvent/deleted) {{ReadOnlyInline}}
-  - : Ein Array, das alle Cookies auflistet, die entfernt wurden, entweder weil sie abgelaufen sind oder weil sie explizit gelöscht wurden. Beachten Sie, dass dies Cookies einschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden.
+  - : Ein Array, das alle Cookies auflistet, die entweder abgelaufen sind oder explizit gelöscht wurden. Beachten Sie, dass dies Cookies einschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Diese Schnittstelle erbt auch Methoden von [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-In diesem Beispiel protokolliert der Ereignis-Listener beim Setzen des Cookies das Ereignis in der Konsole. Dies ist ein `CookieChangeEvent`-Objekt mit der [`changed`](/de/docs/Web/API/CookieChangeEvent/changed)-Eigenschaft, die ein Objekt enthält, das das gerade gesetzte Cookie darstellt.
+In diesem Beispiel, wenn das Cookie gesetzt wird, protokolliert der Event-Listener das Ereignis in die Konsole. Dies ist ein `CookieChangeEvent`-Objekt mit der [`changed`](/de/docs/Web/API/CookieChangeEvent/changed)-Eigenschaft, die ein Objekt enthält, das das gerade gesetzte Cookie repräsentiert.
 
 ```js
 cookieStore.addEventListener("change", (event) => {

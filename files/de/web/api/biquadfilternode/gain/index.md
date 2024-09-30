@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `gain`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam) — ein Double, das den [Gain](https://en.wikipedia.org/wiki/Gain) darstellt, der im aktuellen Filteralgorithmus verwendet wird.
+Die `gain`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam) — ein Doppelwert, der den in der aktuellen Filteralgorithmus verwendeten [gain](https://en.wikipedia.org/wiki/Gain) repräsentiert.
 
-Wenn ihr Wert positiv ist, stellt sie einen tatsächlichen Gain dar; wenn negativ, eine Dämpfung.
+Wenn ihr Wert positiv ist, stellt sie einen tatsächlichen Gain dar; wenn negativ, stellt sie eine Abschwächung dar.
 
 Sie wird in dB ausgedrückt, hat einen Standardwert von `0` und kann einen Wert in einem nominalen Bereich von `-40` bis `40` annehmen.
 
@@ -19,12 +19,12 @@ Sie wird in dB ausgedrückt, hat einen Standardwert von `0` und kann einen Wert 
 Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der von ihm dargestellte Wert dies nicht.
 
 ## Beispiele
 
 Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext, um einen Biquad-Filterknoten zu erstellen.
-Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Für vollständigere angewandte Beispiele/Informationen werfen Sie einen Blick auf unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo (siehe [app.js lines 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

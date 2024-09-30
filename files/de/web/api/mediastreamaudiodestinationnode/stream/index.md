@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `stream`-Eigenschaft der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle repräsentiert einen [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen Audio-`MediaStreamTrack` mit derselben Anzahl von Kanälen wie der Knoten selbst enthält.
+Die `stream`-Eigenschaft des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces repräsentiert einen [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen Audio-`MediaStreamTrack` mit der gleichen Anzahl von Kanälen wie der Knoten selbst enthält.
 
-Sie können diese Eigenschaft verwenden, um einen Stream aus dem Audiographen zu extrahieren und in eine andere Struktur einzuspeisen, wie z.B. einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
+Sie können diese Eigenschaft verwenden, um einen Stream aus dem Audiograf zu extrahieren und ihn in eine andere Struktur einzuspeisen, wie z.B. in einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen Audiotrac
 
 ## Beispiele
 
-Siehe [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples) für Beispielcode, der einen `MediaStreamAudioDestinationNode` erstellt und dessen `stream`-Eigenschaft als Quelle für aufzuzeichnenden Audio-Inhalt verwendet.
+Siehe [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples) für Beispielcode, der einen `MediaStreamAudioDestinationNode` erstellt und dessen `stream`-Eigenschaft als Quelle für aufzuzeichnendes Audio verwendet.
 
 ## Spezifikationen
 

@@ -5,13 +5,13 @@ l10n:
   sourceCommit: b6f343538eac4a803943b4e99b0c0545b372645a
 ---
 
-EXSLT ist eine Sammlung von Erweiterungen zu [XSLT](/de/docs/Web/XSLT). Es gibt eine Reihe von Modulen; diejenigen, die von Firefox unterstützt werden, sind unten aufgeführt:
+EXSLT ist eine Sammlung von Erweiterungen zu [XSLT](/de/docs/Web/XSLT). Es gibt eine Reihe von Modulen; die von Firefox unterstützten sind unten aufgeführt:
 
 {{SubpagesWithSummaries}}
 
 ## EXSLT-Module
 
-Um eine EXSLT-Funktion zu verwenden, müssen Sie den Namensraum deklarieren, in welchem die Funktion sich befindet, und dann das entsprechende Präfix beim Aufruf der Funktion verwenden. Zum Beispiel, um das reguläre Ausdrücke-Paket zu nutzen:
+Um eine EXSLT-Funktion zu verwenden, müssen Sie den Namensraum deklarieren, in dem sich die Funktion befindet, und dann das entsprechende Präfix beim Aufruf der Funktion verwenden. Zum Beispiel, um das Reguläre Ausdrücke-Paket zu verwenden:
 
 ```xml
 <xsl:stylesheet version="1.0"
@@ -28,7 +28,7 @@ Um eine EXSLT-Funktion zu verwenden, müssen Sie den Namensraum deklarieren, in 
 
 ### Common
 
-Das EXSLT Common-Paket bietet grundlegende Funktionen, die die Fähigkeiten von XSLT erweitern. Der Namensraum für das Common-Paket ist `http://exslt.org/common`.
+Das EXSLT-Common-Paket bietet grundlegende Funktionen, die die Fähigkeiten von XSLT erweitern. Der Namensraum für das Common-Paket ist `http://exslt.org/common`.
 
 #### Funktionen
 
@@ -37,7 +37,7 @@ Das EXSLT Common-Paket bietet grundlegende Funktionen, die die Fähigkeiten von 
 
 ### Math
 
-Das EXSLT Math-Paket bietet Funktionen zum Arbeiten mit numerischen Werten und zum Vergleichen von Knoten. Der Namensraum für das Math-Paket ist `http://exslt.org/math`.
+Das EXSLT-Math-Paket bietet Funktionen zum Arbeiten mit numerischen Werten und zum Vergleichen von Knoten. Der Namensraum für das Math-Paket ist `http://exslt.org/math`.
 
 #### Funktionen
 
@@ -46,11 +46,11 @@ Das EXSLT Math-Paket bietet Funktionen zum Arbeiten mit numerischen Werten und z
 - [`math:max()`](/de/docs/Web/EXSLT/math/max)
 - [`math:min()`](/de/docs/Web/EXSLT/math/min)
 
-### Regular expressions
+### Reguläre Ausdrücke
 
-Das EXSLT Regular Expressions-Paket bietet Funktionen, die das Testen, Abgleichen und Ersetzen von Text mit regulären Ausdrücken im JavaScript-Stil ermöglichen.
+Das EXSLT Reguläre Ausdrücke-Paket bietet Funktionen, die das Testen, Abgleichen und Ersetzen von Text mit regulären Ausdrücken im JavaScript-Stil ermöglichen.
 
-Der Namensraum für das EXSLT Regular Expressions-Paket ist `http://exslt.org/regular-expressions`.
+Der Namensraum für die EXSLT Reguläre Ausdrücke ist `http://exslt.org/regular-expressions`.
 
 #### Funktionen
 
@@ -60,7 +60,7 @@ Der Namensraum für das EXSLT Regular Expressions-Paket ist `http://exslt.org/re
 
 ### Sets
 
-Das EXSLT Sets-Paket bietet Funktionen, die es Ihnen ermöglichen, Mengenoperationen durchzuführen. Der Namensraum dieser Funktionen ist `http://exslt.org/sets`.
+Das EXSLT-Sets-Paket bietet Funktionen, die die Durchführung von Mengenoperationen ermöglichen. Der Namensraum für diese Funktionen ist `http://exslt.org/sets`.
 
 #### Funktionen
 
@@ -73,7 +73,7 @@ Das EXSLT Sets-Paket bietet Funktionen, die es Ihnen ermöglichen, Mengenoperati
 
 ### Strings
 
-Das EXSLT Strings-Paket bietet Funktionen, die die Manipulation von Zeichenketten ermöglichen. Der Namensraum für das Strings-Paket ist `http://exslt.org/strings`.
+Das EXSLT-Strings-Paket bietet Funktionen, die die Manipulation von Strings ermöglichen. Der Namensraum für das Strings-Paket ist `http://exslt.org/strings`.
 
 #### Funktionen
 
@@ -104,7 +104,7 @@ Das EXSLT Strings-Paket bietet Funktionen, die die Manipulation von Zeichenkette
     </li>
     <li class="toggle">
       <details open>
-        <summary><a href="/de/docs/Web/EXSLT/regexp">Regular expressions (regexp)</a></summary>
+        <summary><a href="/de/docs/Web/EXSLT/regexp">Reguläre Ausdrücke (regexp)</a></summary>
         {{ListSubpagesForSidebar("/de/docs/Web/EXSLT/regexp", "", "", "regexp:", ")")}}
       </details>
     </li>

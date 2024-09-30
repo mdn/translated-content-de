@@ -8,19 +8,27 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`pictureInPictureElement`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit in diesem Dokument im Bild-in-Bild-Modus angezeigt wird, oder `null`, wenn der Bild-in-Bild-Modus derzeit nicht verwendet wird.
+Die schreibgeschützte **`pictureInPictureElement`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit im Bild-im-Bild-Modus in diesem Dokument dargestellt wird, oder `null`, wenn der Bild-im-Bild-Modus derzeit nicht verwendet wird.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird beim Ändern kein Fehler ausgelöst (selbst im strikten Modus); der Setter ist eine No-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird sie beim Versuch, sie zu ändern (auch im strengen Modus), keinen Fehler auslösen; der Setter ist eine No-Operation und wird ignoriert.
 
 ## Wert
 
-Eine Referenz auf das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich derzeit im Bild-in-Bild-Modus befindet.
+Ein Verweis auf das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich derzeit im Bild-im-Bild-Modus befindet.
 
-Gibt `null` zurück, wenn das Dokument kein zugehöriges Element im Bild-in-Bild-Modus hat. Zum Beispiel gibt es kein Bild-in-Bild-Element oder das Element stammt aus einem iframe.
+Gibt `null` zurück, wenn das Dokument kein zugehöriges Element im Bild-im-Bild-Modus hat. Zum Beispiel gibt es kein Bild-im-Bild-Element oder das Element stammt aus einem iframe.
 
 ## Beispiele
 
-Dieses Beispiel präsentiert eine Funktion, `exitPictureInPicture()`, die den von `pictureInPictureElement` zurückgegebenen Wert testet. Wenn sich das Dokument im Bild-in-Bild-Modus befindet (`pictureInPictureElement` ist nicht `null`), wird [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture) ausgeführt, um den Bild-in-Bild-Modus zu beenden.
+Dieses Beispiel präsentiert eine Funktion, `exitPictureInPicture()`, die den von `pictureInPictureElement` zurückgegebenen Wert testet. Wenn sich das Dokument im Bild-im-Bild-Modus befindet (`pictureInPictureElement` ist nicht `null`), wird [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture) ausgeführt, um den Bild-im-Bild-Modus zu beenden.
+
+```js
+function exitPictureInPicture() {
+  if (document.pictureInPictureElement) {
+    document.exitPictureInPicture();
+  }
+}
+```
 
 ## Spezifikationen
 

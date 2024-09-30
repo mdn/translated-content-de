@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`MessagePort`**-Schnittstelle der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) repräsentiert einen der beiden Ports eines [`MessageChannel`](/de/docs/Web/API/MessageChannel), der es ermöglicht, Nachrichten von einem Port zu senden und am anderen auf deren Ankunft zu lauschen.
+Das **`MessagePort`**-Interface der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) repräsentiert einen der beiden Ports eines [`MessageChannel`](/de/docs/Web/API/MessageChannel), welcher es ermöglicht, Nachrichten von einem Port zu senden und sie am anderen zu empfangen.
 
-`MessagePort` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`MessagePort` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 {{InheritanceDiagram}}
 
@@ -18,11 +18,11 @@ Die **`MessagePort`**-Schnittstelle der [Channel Messaging API](/de/docs/Web/API
 _Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage)
-  - : Sendet eine Nachricht vom Port und überträgt optional den Besitz von Objekten an andere Browsing-Kontexte.
+  - : Sendet eine Nachricht vom Port und überträgt optional die Eigentümerschaft von Objekten an andere Browsing-Kontexte.
 - [`start()`](/de/docs/Web/API/MessagePort/start)
-  - : Startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen (nur erforderlich, wenn [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird; es ist impliziert, wenn [`onmessage`](/de/docs/Web/API/MessagePort/message_event) verwendet wird).
+  - : Startet das Senden von im Port wartenden Nachrichten (nur erforderlich bei Verwendung von [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener); es ist impliziert bei der Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)).
 - [`close()`](/de/docs/Web/API/MessagePort/close)
-  - : Trennt den Port, so dass er nicht mehr aktiv ist.
+  - : Trennt den Port, sodass er nicht mehr aktiv ist.
 
 ## Ereignisse
 
@@ -37,9 +37,9 @@ _Erbt Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTa
 
 Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird.
 
-Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame, indem wir zusammen mit einer Nachricht die [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode verwenden.
+Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mittels der Methode [`window.postMessage`](/de/docs/Web/API/Window/postMessage) zusammen mit einer Nachricht.
 
-Wenn eine Nachricht vom IFrame zurück empfangen wird, gibt die `onMessage`-Funktion die Nachricht in einem Absatz aus.
+Wenn eine Nachricht vom IFrame zurückkommt, gibt die `onMessage`-Funktion die Nachricht an einen Absatz aus.
 
 ```js
 const channel = new MessageChannel();
@@ -65,7 +65,7 @@ function onMessage(e) {
 }
 ```
 
-Für ein vollständiges funktionierendes Beispiel siehe unser [Grundlehrgang zur Kanalnachricht](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel, schauen Sie sich unser [Kanal-Messaging-Grundlagen-Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([starten Sie es auch live](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -77,4 +77,4 @@ Für ein vollständiges funktionierendes Beispiel siehe unser [Grundlehrgang zur
 
 ## Siehe auch
 
-- [Verwendung des Kanalnachrichtensystems](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

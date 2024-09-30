@@ -7,17 +7,17 @@ l10n:
 
 {{JSRef}}
 
-Die **`size`**-Zugriffseigenschaft von {{jsxref("Map")}}-Instanzen gibt die Anzahl der Elemente in dieser Map zurück.
+Die **`size`** Zugriffs-Eigenschaft von {{jsxref("Map")}} Instanzen gibt die Anzahl der Elemente in dieser Map zurück.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-size.html")}}
 
 ## Beschreibung
 
-Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Map`-Objekt hat. Eine Set-Accessor-Funktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
+Der Wert von `size` ist eine ganze Zahl, die angibt, wie viele Einträge das `Map` Objekt enthält. Eine set-Zugriffsfunktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
 
 ## Beispiele
 
-### Nutzung von size
+### Verwendung von size
 
 ```js
 const myMap = new Map();

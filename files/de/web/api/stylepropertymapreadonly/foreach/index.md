@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`StylePropertyMapReadOnly.forEach()`**-Methode führt eine gegebene Funktion für jedes Element von [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) einmal aus.
+Die **`StylePropertyMapReadOnly.forEach()`**-Methode führt eine bereitgestellte Funktion einmal pro Element des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) aus.
 
 ## Syntax
 
@@ -21,18 +21,18 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die auszuführende Funktion für jedes Element, mit drei Argumenten:
+  - : Die Funktion, die für jedes Element ausgeführt wird und drei Argumente entgegennimmt:
 
     - `currentValue`
-      - : Der Wert des aktuellen Elements, das verarbeitet wird.
+      - : Der Wert des aktuell verarbeiteten Elements.
     - `index` {{optional_inline}}
-      - : Der Index des aktuellen Elements, das verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements.
     - `array` {{optional_inline}}
-      - : Das StylePropertyMapReadOnly, auf dem `forEach()` aufgerufen wird.
+      - : Das `StylePropertyMapReadOnly`, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d.h., die Referenz
-    `Object`) bei der Ausführung von `callback` verwendet wird.
+  - : Wert, der als **`this`** (d.h. die Referenz
+    `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
 

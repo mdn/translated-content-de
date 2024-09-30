@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Ereignis-Handler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Dem Handler wird ein [`Event`-Objekt](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft übergeben. Die `data`-Eigenschaft enthält ein Datenstück der Antwort als {{jsxref("ArrayBuffer")}}.
+Ein Ereignishandler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Der Handler erhält ein [`Event`-Objekt](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft. Die `data`-Eigenschaft enthält ein Stück der Antwortdaten als ein {{jsxref("ArrayBuffer")}}.
 
 Um die Daten zu dekodieren, verwenden Sie entweder [`TextDecoder`](/de/docs/Web/API/TextDecoder) oder [`Blob`](/de/docs/Web/API/Blob).
 
-Ohne einen `ondata` Listener erhalten Sie den ursprünglichen Antwortkörper nicht und der Ausgabestream ist leer, es sei denn, {{WebEXTAPIRef("webRequest.StreamFilter.write", "write")}} wird aufgerufen.
+Ohne einen `ondata`-Listener erhalten Sie den ursprünglichen Antwortinhalt nicht, und der Ausgabestream bleibt leer, es sei denn, es wird {{WebEXTAPIRef("webRequest.StreamFilter.write", "write")}} aufgerufen.
 
 ## Beispiele
 
-Dieses Beispiel fügt einen `ondata` Listener hinzu, der "Example" in der Antwort durch "WebExtension Example" ersetzt, indem die Methode {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwendet wird.
+Dieses Beispiel fügt einen `ondata`-Listener hinzu, der "Example" in der Antwort durch "WebExtension Example" ersetzt, indem die Methode {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwendet wird.
 
 > [!NOTE]
-> Dieses Beispiel funktioniert nur für Vorkommen von "Example", die vollständig innerhalb eines Datenstücks enthalten sind, und nicht für solche, die sich über zwei Stücke erstrecken (was bei großen Dokumenten ungefähr in 0,1 % der Fälle passieren kann). Zusätzlich behandelt es nur UTF-8-kodierte Dokumente. Eine echte Implementierung müsste komplexer sein.
+> Dieses Beispiel funktioniert nur für Vorkommen von "Example", die vollständig innerhalb eines Datenstücks enthalten sind, und nicht für solche, die zwei Stücke (was bei großen Dokumenten ungefähr zu 0,1% der Zeit passieren kann) überspannen. Außerdem befasst es sich nur mit UTF-8-kodierten Dokumenten. Eine echte Implementierung müsste komplexer sein.
 
 ```js
 function listener(details) {
@@ -53,7 +53,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Ein weiteres Beispiel für die Handhabung großer Dokumente:
+Ein weiteres Beispiel zur Handhabung großer Dokumente:
 
 ```js
 function listener(details) {
@@ -76,7 +76,7 @@ function listener(details) {
         str += decoder.decode(data[i], { stream });
       }
     }
-    str = str.replaceAll("Example", "WebExtension ![](1-e6b1889d.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -109,7 +109,7 @@ function listener(details) {
     }
     str += decoder.decode(); // end-of-stream
 
-    str = str.replaceAll("Example", "WebExtension ![](2-29c21e23.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -139,7 +139,7 @@ function listener(details) {
     data.push(decoder.decode());
 
     let str = data.join("");
-    str = str.replaceAll("Example", "WebExtension ![](3-2a757ac6.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -167,7 +167,7 @@ function listener(details) {
   filter.onstop = async (event) => {
     const blob = new Blob(data, { type: "text/html" });
     let str = await blob.text();
-    str = str.replaceAll("Example", "WebExtension ![](4-5d88cc17.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -199,10 +199,7 @@ function listener(details) {
     const doc = parser.parseFromString(str, blob.type);
     const nodes = doc.querySelectorAll("title, h1");
     for (const node of nodes) {
-      node.innerText = node.innerText.replaceAll(
-        "Example",
-        "WebExtension ![](5-c22c64ab.md)",
-      );
+      node.innerText = node.innerText.replaceAll("Example", "WebExtension $&");
     }
     filter.write(encoder.encode(doc.documentElement.outerHTML));
     filter.close();
@@ -216,7 +213,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel kombiniert alle Puffer in einen einzigen Puffer:
+Dieses Beispiel kombiniert alle Buffer zu einem einzigen Buffer:
 
 ```js
 function listener(details) {
@@ -241,7 +238,7 @@ function listener(details) {
       writeOffset += buffer.length;
     }
     let str = decoder.decode(combinedArray);
-    str = str.replaceAll("Example", "WebExtension ![](6-6e12caed.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -271,7 +268,7 @@ function listener(details) {
     const blob = new Blob(data, { type: "text/html" });
     const buffer = await blob.arrayBuffer();
     let str = decoder.decode(buffer);
-    str = str.replaceAll("Example", "WebExtension ![](7-361d626d.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -284,7 +281,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel zeigt, wie man erkennen kann, ob es sich um das letzte Stück in der Antwort handelt:
+Dieses Beispiel zeigt, wie man erkennen kann, ob es das letzte Stück in der Antwort ist:
 
 ```js
 function listener(details) {
@@ -303,7 +300,7 @@ function listener(details) {
   };
 
   filter.onstop = (event) => {
-    str = str.replaceAll("Example", "WebExtension ![](8-cb068d97.md)");
+    str = str.replaceAll("Example", "WebExtension $&");
     filter.write(encoder.encode(str));
     filter.close();
   };

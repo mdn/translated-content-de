@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte Eigenschaft **`Touch.pageX`** gibt die X-Koordinate des Berührungspunkts relativ zum Ansichtfenster zurück, einschließlich jeglicher Scroll-Versätze.
+Die schreibgeschützte Eigenschaft **`Touch.pageX`** gibt die X-Koordinate des Berührungspunkts relativ zum Ansichtsfenster, einschließlich etwaiger Bildlauf-Verschiebung, zurück.
 
 ## Wert
 
-Ein `double` Gleitkommawert, der die X-Koordinate des Berührungspunkts relativ zum Ansichtfenster repräsentiert, einschließlich jeglicher Scroll-Versätze.
+Ein `double` Gleitkommawert, der die X-Koordinate des Berührungspunkts relativ zum Ansichtsfenster, einschließlich etwaiger Bildlauf-Verschiebung, darstellt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie auf die Eigenschaften `Touch.pageX` und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) des [`Touch`](/de/docs/Web/API/Touch)-Objekts zugegriffen wird. Die Eigenschaft `Touch.pageX` ist die horizontale Koordinate eines Berührungspunkts relativ zum Ansichtfenster (in CSS-Pixeln), einschließlich jeglicher Scroll-Versätze. Die Eigenschaft [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) ist die vertikale Koordinate eines Berührungspunkts relativ zum Ansichtfenster (in CSS-Pixeln), einschließlich jeglicher Scroll-Versätze.
+Dieses Beispiel veranschaulicht, wie auf die Eigenschaften `Touch.pageX` des [`Touch`](/de/docs/Web/API/Touch)-Objekts und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) zugegriffen wird. Die Eigenschaft `Touch.pageX` ist die horizontale Koordinate eines Berührungspunkts relativ zum Ansichtsfenster (in CSS-Pixel), einschließlich etwaiger Bildlauf-Verschiebung. Die Eigenschaft [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) ist die vertikale Koordinate eines Berührungspunkts relativ zum Ansichtsfenster (in CSS-Pixel), einschließlich etwaiger Bildlauf-Verschiebung.
 
-Im folgenden einfachen Codeausschnitt nehmen wir an, dass der Benutzer einen oder mehrere Berührungskontakte auf dem `source`-Element initiiert, die Berührungspunkte bewegt und dann alle Kontakte mit der Oberfläche löst. Wenn der [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis-Handler aufgerufen wird, werden die `Touch.pageX`- und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY)-Koordinaten jedes Berührungspunkts über die Liste [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches) des Ereignisses abgerufen.
+Im folgenden einfachen Code-Snippet nehmen wir an, dass der Benutzer einen oder mehrere Berührungskontakte auf dem `source`-Element initiiert, die Berührungspunkte bewegt und dann alle Kontakte mit der Oberfläche beendet. Wenn der [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignishandler aufgerufen wird, werden die `Touch.pageX`- und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY)-Koordinaten jedes Berührungspunkts über die [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches)-Liste aufgerufen.
 
 ```js
 // Register a touchmove listeners for the 'source' element

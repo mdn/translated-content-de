@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaHasPopup`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements anzeigt, z. B. ein Menü oder Dialog, das durch ein Element ausgelöst werden kann.
+Die **`ariaHasPopup`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements, wie Menü oder Dialog, angibt, das durch ein Element ausgelöst werden kann.
 
 ## Wert
 
@@ -30,11 +30,11 @@ Ein String mit einem der folgenden Werte:
   - : Das Element hat ein Popup, das ein Dialog ist.
 
 > [!WARNING]
-> Beachten Sie, dass die Unterstützung für die verschiedenen `aria-haspopup`-Werte je nach Element, für das das Attribut angegeben ist, variieren kann. Stellen Sie sicher, dass `aria-haspopup` gemäß der ARIA-Spezifikation verwendet wird und dass es ordnungsgemäß funktioniert, wenn Sie es mit den erforderlichen Browsern und unterstützenden Technologien testen.
+> Beachten Sie, dass die Unterstützung für die verschiedenen `aria-haspopup`-Werte je nach Element, dem das Attribut zugewiesen ist, variieren kann. Stellen Sie sicher, dass Sie `aria-haspopup` in Übereinstimmung mit der ARIA-Spezifikation verwenden und dass es wie erwartet funktioniert, wenn Sie es mit den erforderlichen Browsern und unterstützenden Technologien testen.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-haspopup`-Attribut des Elements mit der ID `animal` auf `"true"` gesetzt. Mit `ariaHasPopup` aktualisieren wir den Wert auf `"listbox"`, was der erwartete Wert für ein Kombinationsfeld ist, das ein `listbox`-Popup aufruft.
+In diesem Beispiel wird das `aria-haspopup`-Attribut des Elements mit der ID `animal` auf `"true"` gesetzt. Mit `ariaHasPopup` aktualisieren wir den Wert auf `"listbox"`, was der erwartete Wert für eine Kombinationsfeld ist, das ein `listbox`-Popup aufruft.
 
 ```html
 <div class="animals-combobox">

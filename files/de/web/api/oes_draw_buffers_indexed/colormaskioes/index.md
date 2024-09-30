@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `colorMaskiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung legt fest, welche Farbkomponenten beim Zeichnen oder Rendern für einen bestimmten Zeichnungspuffer aktiviert oder deaktiviert werden sollen. Es ist die indizierte Version der Methode [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask) aus WebGL 1.
+Die Methode `colorMaskiOES()` der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung legt fest, welche Farbkomponenten beim Zeichnen oder Rendern für einen bestimmten Zeichenpuffer aktiviert oder deaktiviert werden. Es ist die indizierte Version der Methode [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask) aus WebGL 1.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ colorMaskiOES(buf, r, g, b, a)
 ### Parameter
 
 - `buf`
-  - : Ein ganzzahliger Wert `i`, der den Zeichnungspuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist, siehe [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Ein ganzzahliger Wert `i`, der den Zeichenpuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist. Siehe [WebGL Zeichenpufferkonstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 - `r`
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die rote Farbkomponente in den Zeichnungspuffer geschrieben werden soll oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die rote Farbkomponente in den Zeichenpuffer geschrieben werden soll oder nicht.
 - `g`
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die grüne Farbkomponente in den Zeichnungspuffer geschrieben werden soll oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die grüne Farbkomponente in den Zeichenpuffer geschrieben werden soll oder nicht.
 - `b`
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die blaue Farbkomponente in den Zeichnungspuffer geschrieben werden soll oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die blaue Farbkomponente in den Zeichenpuffer geschrieben werden soll oder nicht.
 - `a`
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die rote alpha (Transparenz-) Komponente in den Zeichnungspuffer geschrieben werden soll oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die rote Alpha-Komponente (Transparenz) in den Zeichenpuffer geschrieben werden soll oder nicht.
 
 ### Rückgabewert
 
@@ -39,9 +39,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Setzen und Abrufen von Farbmasken
+### Einstellen und Abrufen von Farbmasken
 
-Sie können die Farbmasken für die Zeichnungspuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` wie folgt setzen:
+Sie können die Farbmasken für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` wie folgt einstellen:
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -50,7 +50,7 @@ ext.colorMaskiOES(0, 1, 0, 0, 0);
 ext.colorMaskiOES(1, 0, 1, 0, 0);
 ```
 
-Um die Farbmasken für die Zeichnungspuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzurufen, fragen Sie die Konstante `COLOR_WRITEMASK` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter) ab:
+Um die Farbmasken für die Zeichenpuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzurufen, können Sie die Konstante `COLOR_WRITEMASK` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter) abfragen:
 
 ```js
 gl.getIndexedParameter(gl.COLOR_WRITEMASK, 0);

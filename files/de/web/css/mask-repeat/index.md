@@ -9,7 +9,7 @@ l10n:
 
 Die **`mask-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Maskenbilder wiederholt werden. Ein Maskenbild kann entlang der horizontalen Achse, der vertikalen Achse, auf beiden Achsen oder gar nicht wiederholt werden.
 
-Standardmäßig werden die wiederholten Bilder auf die Größe des Elements zugeschnitten, können jedoch skaliert werden, um (mithilfe von `round`) zu passen oder gleichmäßig von einem Ende zum anderen verteilt werden (mithilfe von `space`).
+Standardmäßig werden die wiederholten Bilder auf die Größe des Elements zugeschnitten, aber sie können so skaliert werden, dass sie passen (mit `round`) oder gleichmäßig von Anfang bis Ende verteilt werden (mit `space`).
 
 ## Syntax
 
@@ -45,19 +45,19 @@ mask-repeat: revert-layer;
 mask-repeat: unset;
 ```
 
-Ein oder mehrere `<repeat-style>` Werte, durch Kommas getrennt.
+Ein oder mehrere `<repeat-style>`-Werte, getrennt durch Kommata.
 
 ### Werte
 
 - `<repeat-style>`
 
-  - : Die Syntax mit einem Wert ist eine Abkürzung für die vollständige Zwei-Wert-Syntax:
+  - : Die Ein-Wert-Syntax ist eine Kurzform für die vollständige Zwei-Wert-Syntax:
 
     <table class="standard-table">
       <thead>
         <tr>
           <th>Einzelwert</th>
-          <th>Entsprechender Zwei-Wert</th>
+          <th>Zweiwertige Entsprechung</th>
         </tr>
       </thead>
       <tbody>
@@ -88,33 +88,34 @@ Ein oder mehrere `<repeat-style>` Werte, durch Kommas getrennt.
       </tbody>
     </table>
 
-    In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Hier ist eine Erklärung, wie jede Option in einer der beiden Richtungen funktioniert:
+    In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Hier ist eine Erklärung, wie jede Option für jede Richtung funktioniert:
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>repeat</code></td>
           <td>
-            Das Bild wird so oft wie nötig wiederholt, um den gesamten Bereich des Maskenmalens abzudecken. Das letzte Bild wird abgeschnitten, wenn es nicht passt.
+            Das Bild wird so oft wiederholt, wie nötig, um das gesamte Maskenmalbereich abzudecken. Das letzte Bild wird zugeschnitten, wenn es nicht passt.
           </td>
         </tr>
         <tr>
           <td><code>space</code></td>
           <td>
-            Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Das erste und letzte Bild werden an beiden Seiten des Elements fixiert, und Weißraum wird gleichmäßig zwischen den Bildern verteilt. Die
-            {{cssxref("mask-position")}} Eigenschaft wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden angezeigt werden. Die einzige Situation, in der es zu einem Zuschneiden bei der Verwendung von <code>space</code> kommt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
+            Das Bild wird so oft wie möglich ohne Zuschnitt wiederholt. Die ersten und letzten Bilder werden auf beiden Seiten des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die 
+            {{cssxref("mask-position")}} Eigenschaft wird ignoriert, es sei denn, es kann ohne Zuschnitt nur ein Bild angezeigt werden. Der einzige Fall, in dem bei Verwendung von <code>space</code> ein Zuschnitt erfolgt, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
           </td>
         </tr>
         <tr>
           <td><code>round</code></td>
           <td>
-            Wenn der verfügbare Platz wächst, werden die wiederholten Bilder gedehnt (ohne Lücken), bis Platz für ein weiteres Bild ist. Wenn ein weiteres Bild hinzugefügt wird, komprimieren sich alle aktuellen, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte gedehnt werden, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px komprimieren.
+            Wenn der erlaubte Raum größer wird, dehnen sich die wiederholten Bilder aus (ohne Lücken), bis Platz für ein weiteres Bild vorhanden ist. Wenn das nächste Bild hinzugefügt wird, komprimieren sich alle aktuellen Bilder, um Platz zu schaffen.
+            Beispiel: Ein Bild mit einer Originalbreite von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px breit ist, dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px komprimiert.
           </td>
         </tr>
         <tr>
           <td><code>no-repeat</code></td>
           <td>
-            Das Bild wird nicht wiederholt (und daher wird der Maskenmalbereich nicht zwingend vollständig abgedeckt). Die Position des nicht wiederholten Maskenbildes wird durch die {{cssxref("mask-position")}} CSS Eigenschaft definiert.
+            Das Bild wird nicht wiederholt (und daher wird der Maskenmalbereich möglicherweise nicht vollständig abgedeckt). Die Position des nicht wiederholten Maskenbildes wird durch die {{cssxref("mask-position")}} CSS-Eigenschaft definiert.
           </td>
         </tr>
       </tbody>
@@ -130,13 +131,13 @@ Ein oder mehrere `<repeat-style>` Werte, durch Kommas getrennt.
 
 ## Beispiele
 
-### Wiederholung für eine einzelne Maske festlegen
+### Festlegen der Wiederholung für eine einzelne Maske
 
 {{EmbedGHLiveSample("css-examples/masking/mask-repeat.html", '100%', 700)}}
 
 ### Unterstützung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild unterschiedliche `<repeat-style>` Werte angeben, getrennt durch Kommas:
+Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommata:
 
 ```css
 .examplethree {
@@ -145,7 +146,7 @@ Sie können für jedes Maskenbild unterschiedliche `<repeat-style>` Werte angebe
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgestimmt, von zuerst angegebenem bis zuletzt.
+Jedes Bild wird dem entsprechenden Wiederholungsstil zugeordnet, von der zuerst angegebenen zur zuletzt genannten.
 
 ## Spezifikationen
 

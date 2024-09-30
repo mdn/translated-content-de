@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: setNamedItem() Methode"
+title: "NamedNodeMap: Methode setNamedItem()"
 short-title: setNamedItem()
 slug: Web/API/NamedNodeMap/setNamedItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle fügt das durch seinen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) dem Map hinzu. Wenn bereits ein [`Attr`](/de/docs/Web/API/Attr) mit demselben Namen im Map vorhanden ist, wird es _ersetzt_.
+Die **`setNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle fügt das durch seinen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) in die Map ein. Wenn bereits ein [`Attr`](/de/docs/Web/API/Attr) mit demselben Namen in der Map vorhanden ist, wird es _ersetzt_.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setNamedItem(attr)
 ### Parameter
 
 - `attr`
-  - : Das Attribut, das in das Map eingefügt werden soll.
+  - : das Attribut, das in die Map eingefügt werden soll.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Gibt das alte Attribut zurück, wenn es ersetzt wurde, oder `null`, wenn das Att
 ### Ausnahmen
 
 - `InUseAttributeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Attribut noch Teil eines anderen Maps ist.
+  - : Wird ausgelöst, wenn das Attribut noch Teil einer anderen Map ist.
 
 ## Beispiel
 
@@ -60,7 +60,7 @@ try {
 pre.textContent = result;
 ```
 
-{{EmbedLiveSample("Example", "100%", 160)}}
+{{EmbedLiveSample("Beispiel", "100%", 160)}}
 
 ## Spezifikationen
 

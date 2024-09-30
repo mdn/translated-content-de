@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das HTTP-Header {{HTTPHeader("Permissions-Policy")}} `autoplay`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Medieninhalte automatisch abzuspielen, die über das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interface angefordert werden.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `autoplay` steuert, ob dem aktuellen Dokument erlaubt ist, Medien automatisch abzuspielen, die über die Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) angefordert werden.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert und keine Benutzerinteraktionen stattgefunden haben, wird das von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegebene {{jsxref("Promise")}} mit einer [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt. Das [`autoplay`](/de/docs/Web/HTML/Element/audio#autoplay)-Attribut von {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieses Features blockiert und keine Benutzerinteraktionen stattfanden, wird das von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegebene {{jsxref("Promise")}} mit einem [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt. Das [`autoplay`](/de/docs/Web/HTML/Element/audio#autoplay) Attribut bei {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elementen wird ignoriert.
 
 > [!NOTE]
-> Für weitere Details über Autoplay und die Blockierung von Autoplay, siehe den Artikel [Autoplay-Leitfaden für Medien und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide).
+> Weitere Details zu Autoplay und dem Blockieren von Autoplay finden Sie im Artikel [Autoplay-Leitfaden für Media- und Web-Audio-APIs](/de/docs/Web/Media/Autoplay_guide).
 
 ## Syntax
 
@@ -21,11 +21,11 @@ Permissions-Policy: autoplay=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `autoplay` ist `self`.
+Die standardmäßige Allowliste für `autoplay` ist `self`.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Die Standard-Allowlist für `autoplay` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

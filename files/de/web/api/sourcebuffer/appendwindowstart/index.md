@@ -8,31 +8,24 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`appendWindowStart`**-Eigenschaft des
-[`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces kontrolliert den Zeitstempel für den Beginn des [Append-Fensters](https://w3c.github.io/media-source/#append-window), ein
-Zeitstempelbereich, der verwendet werden kann, um zu filtern, welche Mediendaten zum
-`SourceBuffer` hinzugefügt werden. Kodierte Medienbilder mit Zeitstempeln innerhalb dieses Bereichs werden hinzugefügt, während diejenigen außerhalb des Bereichs herausgefiltert werden.
+Die **`appendWindowStart`**-Eigenschaft der
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle steuert den Zeitstempel für den Beginn des [Append-Fensters](https://w3c.github.io/media-source/#append-window), ein Zeitstempelbereich, der verwendet werden kann, um zu filtern, welche Mediendaten dem `SourceBuffer` hinzugefügt werden. Kodierte Medienrahmen mit Zeitstempeln innerhalb dieses Bereichs werden hinzugefügt, während solche außerhalb des Bereichs herausgefiltert werden.
 
-Der Standardwert von `appendWindowStart` entspricht der Wiedergabestartzeit,
-welche die Anfangszeit der abspielbaren Medien darstellt.
+Der Standardwert von `appendWindowStart` ist die Präsentationsstartzeit, welche die Anfangszeit der abspielbaren Medien ist.
 
 ## Wert
 
-Ein Double, das die Startzeit des Append-Fensters in Sekunden angibt.
+Ein Gleitkommawert, der den Startzeitpunkt des Append-Fensters in Sekunden angibt.
 
 ### Ausnahmen
 
-Die folgenden Ausnahmen können beim Festlegen eines neuen Wertes für diese Eigenschaft ausgelöst werden:
+Die folgenden Ausnahmen können ausgelöst werden, wenn ein neuer Wert für diese Eigenschaft festgelegt wird:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, den Wert auf weniger als 0 oder auf einen Wert größer
-    oder gleich
-    [`SourceBuffer.appendWindowEnd`](/de/docs/Web/API/SourceBuffer/appendWindowEnd) zu setzen.
+  - : Wird ausgelöst, wenn versucht wird, den Wert kleiner als 0 oder auf einen Wert zu setzen, der größer oder gleich
+    [`SourceBuffer.appendWindowEnd`](/de/docs/Web/API/SourceBuffer/appendWindowEnd) ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn dieses [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt gerade aktualisiert wird (d.h.
-    seine [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft ist
-    derzeit `true`), oder dieses `SourceBuffer` wurde
-    vom [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt.
+  - : Wird ausgelöst, wenn dieses [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt gerade aktualisiert wird (d.h. seine [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft derzeit `true` ist) oder dieser `SourceBuffer` aus dem [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`length`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Länge des Substrings darstellt, dem die Nachricht entspricht.
+Die **`length`**-Schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Länge des Substrings darstellt, dem die Nachricht entspricht.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `length` die Anzahl der UTF-16-Codeeinheiten im Shader-Code-Substring, dem die Nachricht entspricht. Wenn die Nachricht einem einzelnen Punkt statt einem Substring entspricht, ist `length` 0.
+Genauer gesagt ist `length` die Anzahl der UTF-16-Codeeinheiten im Shader-Code-Substring, dem die Nachricht entspricht. Wenn die Nachricht einem einzelnen Punkt anstelle eines Substrings entspricht, beträgt `length` 0.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ Genauer gesagt ist `length` die Anzahl der UTF-16-Codeeinheiten im Shader-Code-S
 }
 ```
 
-Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

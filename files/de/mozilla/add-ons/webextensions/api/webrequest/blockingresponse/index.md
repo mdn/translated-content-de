@@ -9,9 +9,9 @@ l10n:
 
 Ein Objekt dieses Typs wird von Ereignis-Listenern zurückgegeben, die `"blocking"` in ihrem `extraInfoSpec`-Argument gesetzt haben.
 
-Durch das Setzen bestimmter Eigenschaften in `BlockingResponse` kann der Listener Netzwerk-Anfragen modifizieren.
+Durch das Setzen bestimmter Eigenschaften in `BlockingResponse` kann der Listener Netzwerkanforderungen anpassen.
 
-Beachten Sie, dass Sie nicht alle Eigenschaften dieses Objekts in jedem Listener setzen können: Die Eigenschaften, die Sie setzen können, hängen von dem Ereignis ab, das diesen Listener ausgelöst hat, wie unten beschrieben.
+Beachten Sie, dass Sie nicht alle Eigenschaften dieses Objekts in jedem Listener setzen können: Welche Eigenschaften gesetzt werden können, hängt von dem Ereignis ab, das diesen Listener ausgelöst hat, wie unten beschrieben.
 
 ## Typ
 
@@ -19,29 +19,29 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `authCredentials` {{optional_inline}}
 
-  - : `object`. Wenn gesetzt, wird die Anfrage mit den angegebenen Anmeldedaten durchgeführt. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onAuthRequired", "onAuthRequired")}} setzen. Die `authCredentials`-Eigenschaft ist ein Objekt mit den folgenden Eigenschaften:
+  - : `object`. Wenn gesetzt, wird die Anfrage mit den angegebenen Anmeldedaten durchgeführt. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onAuthRequired", "onAuthRequired")}} setzen. Die Eigenschaft `authCredentials` ist ein Objekt mit den folgenden Eigenschaften:
 
     - `username`
-      - : `string`. Bereitzustellender Benutzername.
+      - : `string`. Benutzername, der bereitgestellt werden soll.
     - `password`
-      - : `string`. Bereitzustellendes Passwort.
+      - : `string`. Passwort, das bereitgestellt werden soll.
 
 - `cancel` {{optional_inline}}
   - : `boolean`. Wenn `true`, wird die Anfrage abgebrochen. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}}, {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}}, {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} und {{WebExtAPIRef("webRequest.onAuthRequired", "onAuthRequired")}} setzen.
 - `redirectUrl` {{optional_inline}}
 
-  - : `string`. Dies ist eine URL, und wenn sie gesetzt ist, wird die ursprüngliche Anfrage zu dieser URL umgeleitet. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} oder {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} setzen.
+  - : `string`. Dies ist eine URL und, wenn gesetzt, wird die ursprüngliche Anfrage auf diese URL umgeleitet. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} oder {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} setzen.
 
-    Umleitungen zu nicht-HTTP-Schemata wie data: sind erlaubt, werden aber derzeit nicht unterstützt ([Firefox-Bug 707624](https://bugzil.la/707624)). Weiterleitungen verwenden die gleiche Anfragemethode wie die ursprüngliche Anfrage, es sei denn, sie werden vom `onHeadersReceived`-Stadium initiiert, in diesem Fall wird die GET-Methode verwendet.
+    Umleitungen zu Nicht-HTTP-Schemata wie data: sind erlaubt, werden jedoch derzeit nicht unterstützt ([Firefox-Fehler 707624](https://bugzil.la/707624)). Umleitungen verwenden die gleiche Anfragemethode wie die ursprüngliche Anfrage, es sei denn, sie werden im Stadium `onHeadersReceived` initiiert, in welchem Fall die Umleitung die GET-Methode verwendet.
 
-    Wenn eine Erweiterung eine öffentliche (z. B. HTTPS) URL auf eine [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die manifest.json-Datei der Erweiterung einen [web_accessible_resources](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources)-Schlüssel enthalten, der die URL für die Erweiterungsseite auflistet.
+    Wenn eine Erweiterung eine öffentliche (z. B. HTTPS) URL zu einer [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die manifest.json-Datei der Erweiterung einen [web_accessible_resources](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) Schlüssel enthalten, der die URL für die Erweiterungsseite auflistet.
 
 - `requestHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Dies ist ein {{WebExtAPIRef('webRequest.HttpHeaders', "HttpHeaders")}}-Objekt, ein Array, in dem jedes Objekt einen Header darstellt. Wenn gesetzt, wird die Anfrage mit diesen Headern und nicht mit den ursprünglichen Headern durchgeführt. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} setzen.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Dies ist ein {{WebExtAPIRef('webRequest.HttpHeaders', "HttpHeaders")}}-Objekt, ein Array, in dem jedes Objekt einen Header darstellt. Falls gesetzt, wird die Anfrage mit diesen Headern statt der ursprünglichen Header durchgeführt. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} setzen.
 - `responseHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Dies ist ein {{WebExtAPIRef('webRequest.HttpHeaders', "HttpHeaders")}}-Objekt, ein Array, in dem jedes Objekt einen Header darstellt. Wenn gesetzt, wird angenommen, dass der Server mit diesen Antwort-Headern anstelle der Originale geantwortet hat. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} setzen. Wenn mehrere Erweiterungen versuchen, denselben Header zu setzen (z.B. `Content-Security-Policy`), wird nur eine der Änderungen erfolgreich sein.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Dies ist ein {{WebExtAPIRef('webRequest.HttpHeaders', "HttpHeaders")}}-Objekt, ein Array, in dem jedes Objekt einen Header darstellt. Falls gesetzt, wird angenommen, dass der Server mit diesen Antwort-Headern statt der ursprünglichen geantwortet hat. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} setzen. Wenn mehrere Erweiterungen versuchen, denselben Header zu setzen (zum Beispiel `Content-Security-Policy`), wird nur eine der Änderungen erfolgreich sein.
 - `upgradeToSecure` {{optional_inline}}
-  - : `boolean`. Wenn auf `true` gesetzt und die ursprüngliche Anfrage eine HTTP-Anfrage ist, wird dadurch verhindert, dass die ursprüngliche Anfrage gesendet wird und stattdessen eine sichere (HTTPS) Anfrage durchgeführt. Wenn eine Erweiterung `redirectUrl` in `onBeforeRequest` zurückgibt, wird `upgradeToSecure` für diese Anfrage ignoriert. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} setzen.
+  - : `boolean`. Wenn auf `true` gesetzt und die ursprüngliche Anfrage ist eine HTTP-Anfrage, wird die ursprüngliche Anfrage verhindert und stattdessen eine sichere (HTTPS) Anfrage durchgeführt. Wenn eine Erweiterung `redirectUrl` in `onBeforeRequest` zurückgibt, wird `upgradeToSecure` für diese Anfrage ignoriert. Sie können diese Eigenschaft nur in {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} setzen.
 
 ## Browser-Kompatibilität
 
@@ -50,7 +50,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-BlockingResponse) API. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-BlockingResponse). Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

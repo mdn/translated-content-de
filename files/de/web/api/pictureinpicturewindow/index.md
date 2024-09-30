@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **`PictureInPictureWindow`**-Schnittstelle stellt ein Objekt dar, das in der Lage ist, programmatisch die **`Breite`** und **`Höhe`** sowie das **`Resize Event`** des schwebenden Videofensters zu erhalten.
+Das **`PictureInPictureWindow`**-Interface repräsentiert ein Objekt, das in der Lage ist, programmgesteuert die **`width`** und **`height`** sowie das **`resize event`** des schwebenden Videofensters zu erhalten.
 
-Ein Objekt mit dieser Schnittstelle wird unter Verwendung des [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)-Promise-Rückgabewerts erhalten.
+Ein Objekt mit diesem Interface wird durch den Rückgabewert des Versprechens von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) erhalten.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Die `PictureInPictureWindow`-Schnittstelle erbt keine Eigenschaften._
+_Das `PictureInPictureWindow`-Interface erbt keine Eigenschaften._
 
 - [`PictureInPictureWindow.width`](/de/docs/Web/API/PictureInPictureWindow/width) {{ReadOnlyInline}}
   - : Bestimmt die Breite des schwebenden Videofensters.
@@ -24,18 +24,18 @@ _Die `PictureInPictureWindow`-Schnittstelle erbt keine Eigenschaften._
 
 ## Instanz-Methoden
 
-_Die `PictureInPictureWindow`-Schnittstelle erbt keine Methoden._
+_Das `PictureInPictureWindow`-Interface erbt keine Methoden._
 
 ## Ereignisse
 
-_Die `PictureInPictureWindow`-Schnittstelle erbt keine Ereignisse._
+_Das `PictureInPictureWindow`-Interface erbt keine Ereignisse._
 
 - [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event)
   - : Wird an ein `PictureInPictureWindow` gesendet, wenn das schwebende Videofenster in der Größe verändert wird.
 
 ## Beispiele
 
-Gegeben sind ein `<button>` und ein `<video>`, beim Klicken des Buttons wird das Video im Picture-in-Picture-Modus angezeigt; wir fügen dann ein Ereignis hinzu, um die Dimensionen des schwebenden Videofensters in der Konsole auszugeben.
+Gegeben sind ein `<button>` und ein `<video>`. Wenn der Button geklickt wird, wechselt das Video in den Bild-in-Bild-Modus; wir fügen dann ein Ereignis an, um die Abmessungen des schwebenden Videofensters in die Konsole auszugeben.
 
 ```js
 const button = document.querySelector("button");

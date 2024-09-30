@@ -9,7 +9,7 @@ l10n:
 
 **HTTP/3** ist die kommende Hauptversion des [HTTP-Netzwerkprotokolls](/de/docs/Web/HTTP/Basics_of_HTTP), die auf [HTTP/2](/de/docs/Glossary/HTTP_2) folgt.
 
-Der Hauptpunkt von HTTP/3 ist, dass es ein neues [UDP](/de/docs/Glossary/UDP)-Protokoll namens QUIC verwendet, anstatt [TCP](/de/docs/Glossary/TCP).
+Der Hauptpunkt von HTTP/3 ist, dass es ein neues [UDP](/de/docs/Glossary/UDP)-Protokoll namens QUIC verwendet, anstelle von [TCP](/de/docs/Glossary/TCP).
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **CSS-Eigenschaft** ist ein Merkmal (wie Farbe), dessen zugehöriger Wert einen Aspekt definiert, wie der Browser das Element darstellen soll.
+Eine **CSS-Eigenschaft** ist eine Charakteristik (wie Farbe), deren zugeordneter Wert einen Aspekt definiert, wie der Browser das Element darstellen soll.
 
 Hier ist ein Beispiel für eine CSS-Regel:
 

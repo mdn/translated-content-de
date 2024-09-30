@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`installing`** schreibgeschützte Eigenschaft des
-[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt einen Service Worker zurück, dessen
-[`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) `installing` ist. Diese Eigenschaft ist
-anfänglich auf `null` gesetzt.
+Die **`installing`** schreibgeschützte Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt einen Service Worker zurück, dessen [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) `installing` ist. Diese Eigenschaft wird anfänglich auf `null` gesetzt.
 
 ## Wert
 
-Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt, falls es sich derzeit im `installing`-Zustand befindet.
+Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt, wenn es sich aktuell im `installing`-Zustand befindet.
 
 ## Spezifikationen
 
@@ -28,5 +25,5 @@ Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt, falls es sich derz
 ## Siehe auch
 
 - [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

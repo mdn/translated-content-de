@@ -7,24 +7,24 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mtd>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert eine Zelle in einer Tabelle oder einer Matrix. Es darf nur in einem {{ MathMLElement("mtr") }}-Element erscheinen. Dieses Element ähnelt dem {{ HTMLElement("td") }}-Element von [HTML](/de/docs/Web/HTML).
+Das **`<mtd>`** [MathML](/de/docs/Web/MathML) Element repräsentiert eine Zelle in einer Tabelle oder einer Matrix. Es darf nur in einem {{ MathMLElement("mtr") }} Element erscheinen. Dieses Element ist dem {{ HTMLElement("td") }} Element von [HTML](/de/docs/Web/HTML) ähnlich.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `columnspan`
-  - : Ein nicht-negativer Ganzzahlenwert, der angibt, über wie viele Spalten sich die Zelle erstreckt.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, über wie viele Spalten sich die Zelle erstreckt.
 - `rowspan`
-  - : Ein nicht-negativer Ganzzahlenwert, der angibt, über wie viele Zeilen sich die Zelle erstreckt.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, über wie viele Zeilen sich die Zelle erstreckt.
 
-Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
+Einige Browser können auch die folgenden Attribute unterstützen:
 
 - `columnalign` {{Non-standard_Inline}}
-  - : Gibt die horizontale Ausrichtung dieser Zelle an und überschreibt die von {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
+  - : Gibt die horizontale Ausrichtung dieser Zelle an und überschreibt die durch {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
     Mögliche Werte sind: `left`, `center` und `right`.
 - `rowalign` {{Non-standard_Inline}}
-  - : Gibt die vertikale Ausrichtung dieser Zelle an und überschreibt die von {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
+  - : Gibt die vertikale Ausrichtung dieser Zelle an und überschreibt die durch {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
     Mögliche Werte sind: `axis`, `baseline`, `bottom`, `center` und `top`.
 
 ## Beispiele
@@ -62,7 +62,7 @@ Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
 </math>
 ```
 
-{{EmbedLiveSample('Alignment with row number')}}
+{{EmbedLiveSample('Ausrichtung mit Zeilennummer')}}
 
 ## Spezifikationen
 

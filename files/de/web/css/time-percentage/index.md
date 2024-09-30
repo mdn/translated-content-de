@@ -11,7 +11,7 @@ Der **`<time-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/
 
 ## Syntax
 
-Siehe die Dokumentation für {{Cssxref("time")}} und {{Cssxref("percentage")}} für Details zu den einzelnen Syntaxen, die von diesem Typ zugelassen sind.
+Bitte schauen Sie in die Dokumentation für {{Cssxref("time")}} und {{Cssxref("percentage")}}, um Details zu den einzelnen Syntaxen zu erhalten, die von diesem Typ erlaubt sind.
 
 ## Formale Syntax
 
@@ -21,7 +21,7 @@ Siehe die Dokumentation für {{Cssxref("time")}} und {{Cssxref("percentage")}} f
 
 ### Verwendung in calc()
 
-Wo ein `<time-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Zeit aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann.
+Wo ein `<time-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Zeit aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann.
 
 ### Gültige Prozentsätze
 

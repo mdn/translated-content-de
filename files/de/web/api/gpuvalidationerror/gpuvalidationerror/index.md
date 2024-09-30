@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUValidationError()`** Konstruktor erstellt eine neue
-[`GPUValidationError`](/de/docs/Web/API/GPUValidationError) Objektinstanz.
+Der **`GPUValidationError()`** Konstruktor erzeugt eine neue Instanz des [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) Objekts.
 
 ## Syntax
 
@@ -20,13 +19,13 @@ new GPUValidationError(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der eine für Menschen lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
+  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUValidationError` Objekt zu erstellen. Der User-Agent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein Validierungsfehler durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis auftritt.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUValidationError`-Objekt zu erstellen. Der User-Agent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein Validierungsfehler durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis auftritt.
 
-Siehe die Hauptseite [`GPUValidationError`](/de/docs/Web/API/GPUValidationError#examples) für ein spezifisches Beispiel, das eine `GPUValidationError` Objektinstanz beinhaltet.
+Siehe die Hauptseite [`GPUValidationError`](/de/docs/Web/API/GPUValidationError#examples) für ein spezifisches Beispiel, das eine Instanz eines `GPUValidationError`-Objekts betrifft.
 
 ## Spezifikationen
 
@@ -39,4 +38,4 @@ Siehe die Hauptseite [`GPUValidationError`](/de/docs/Web/API/GPUValidationError#
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU-Fehlerbehandlungs-Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Error Handling Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

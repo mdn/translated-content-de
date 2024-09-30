@@ -8,16 +8,17 @@ l10n:
 
 {{APIRef("Web Share API")}}{{securecontext_header}}
 
-Die **`canShare()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt `true` zurück, wenn der äquivalente Aufruf von [`navigator.share()`](/de/docs/Web/API/Navigator/share) erfolgreich wäre.
+Die **`canShare()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt `true` zurück, wenn der entsprechende Aufruf von [`navigator.share()`](/de/docs/Web/API/Navigator/share) erfolgreich wäre.
 
-Die Methode gibt `false` zurück, wenn die Daten nicht _validiert_ werden können. Gründe dafür, dass Daten ungültig sein könnten, umfassen:
+Die Methode gibt `false` zurück, wenn die Daten nicht _validiert_ werden können. Gründe, warum die Daten ungültig sein könnten, sind:
 
-- Der `data`-Parameter wurde weggelassen oder enthält nur Eigenschaften mit unbekannten Werten. Beachten Sie, dass jegliche Eigenschaften, die vom Benutzeragenten nicht erkannt werden, ignoriert werden.
+- Der `data`-Parameter wurde weggelassen oder enthält nur Eigenschaften mit unbekannten Werten. Beachten Sie, dass alle Eigenschaften, die dem Benutzeragenten nicht bekannt sind, ignoriert werden.
 - Eine URL ist schlecht formatiert.
-- Dateien sind angegeben, aber die Implementierung unterstützt kein Teilen von Dateien.
-- Das Teilen der angegebenen Daten würde vom Benutzeragenten als "feindliche Freigabe" angesehen werden.
+- Dateien werden angegeben, aber die Implementierung unterstützt kein Datei-Sharing.
+- Das Teilen der angegebenen Daten würde vom Benutzeragenten als ein "feindlicher Teilen" angesehen werden.
 
-Die [Web Share API](/de/docs/Web/API/Web_Share_API) ist durch die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share)-Berechtigungsrichtlinie geregelt. Die `canShare()`-Methode gibt `false` zurück, wenn die Berechtigung unterstützt wird, aber nicht erteilt wurde.
+Die [Web Share API](/de/docs/Web/API/Web_Share_API) wird durch die Berechtigungsrichtlinie [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) gesteuert.
+Die `canShare()`-Methode gibt `false` zurück, wenn die Berechtigung unterstützt, aber nicht erteilt wurde.
 
 ## Syntax
 
@@ -30,18 +31,18 @@ canShare(data)
 
 - `data` {{optional_inline}}
 
-  - : Ein Objekt, das die zu testenden Freigabedaten definiert.
-    Typischerweise wird ein Objekt mit den gleichen Eigenschaften an [`navigator.share()`](/de/docs/Web/API/Navigator/share) übergeben, wenn dieser Aufruf `true` zurückgibt.
+  - : Ein Objekt, das die zu testenden Share-Daten definiert.
+    Typischerweise wird ein Objekt mit denselben Eigenschaften an [`navigator.share()`](/de/docs/Web/API/Navigator/share) übergeben, wenn dieser Aufruf `true` zurückgibt.
 
-    Eigenschaften, die dem Benutzeragenten unbekannt sind, werden ignoriert. Freigabedaten werden nur anhand von Eigenschaften bewertet, die vom Benutzeragenten verstanden werden.
-    Alle Eigenschaften sind optional, aber mindestens eine bekannte Dateneigenschaft muss angegeben sein, oder die Methode gibt `false` zurück.
+    Eigenschaften, die dem Benutzeragenten unbekannt sind, werden ignoriert; freigegebene Daten werden nur anhand von Eigenschaften beurteilt, die dem Benutzeragenten bekannt sind.
+    Alle Eigenschaften sind optional, aber es muss mindestens eine bekannte Dateneigenschaft angegeben werden, oder die Methode gibt `false` zurück.
 
     Mögliche Werte sind:
 
     - `url` {{optional_inline}}
       - : Ein String, der eine zu teilende URL darstellt.
     - `text` {{optional_inline}}
-      - : Ein String, der zu teilenden Text darstellt.
+      - : Ein String, der den zu teilenden Text darstellt.
     - `title` {{optional_inline}}
       - : Ein String, der den zu teilenden Titel darstellt.
     - `files` {{optional_inline}}
@@ -49,17 +50,17 @@ canShare(data)
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die angegebene `data` mit [`Navigator.share()`](/de/docs/Web/API/Navigator/share) geteilt werden kann, ansonsten `false`.
+Gibt `true` zurück, wenn die angegebenen `data` mit [`Navigator.share()`](/de/docs/Web/API/Navigator/share) geteilt werden können, andernfalls `false`.
 
 ## Beispiele
 
-### URL von MDN senden
+### Senden der MDN-URL
 
 Das Beispiel verwendet `navigator.canShare()`, um zu überprüfen, ob `navigator.share()` die angegebenen Daten teilen kann.
 
 #### HTML
 
-Das HTML erstellt einfach einen Absatz, in dem das Ergebnis des Tests angezeigt wird.
+Das HTML erstellt nur einen Absatz, in dem das Ergebnis des Tests angezeigt wird.
 
 ```html
 <p class="result"></p>
@@ -88,16 +89,16 @@ if (!navigator.canShare) {
 
 #### Ergebnis
 
-Der untenstehende Kasten sollte angeben, ob `navigator.canShare()` in diesem Browser unterstützt wird und, falls ja, ob wir `navigator.share()` benutzen können, um die angegebenen Daten zu teilen:
+Der untenstehende Kasten sollte angeben, ob `navigator.canShare()` in diesem Browser unterstützt wird und, wenn ja, ob wir `navigator.share()` verwenden können, um die angegebenen Daten zu teilen:
 
 {{EmbedLiveSample('Sending_the_MDN_URL')}}
 
-### Beispiel zur Funktionsüberprüfung
+### Beispiel zur Funktionserkennung
 
-Diese Methode prüft, ob eine bestimmte Dateneigenschaft gültig und teilbar ist.
-Wenn sie mit einer einzelnen `data`-Eigenschaft verwendet wird, gibt sie nur dann `true` zurück, wenn diese Eigenschaft gültig ist und auf der Plattform geteilt werden kann.
+Diese Methode testet, ob eine bestimmte Dateneigenschaft gültig und teilbar ist.
+Wenn sie mit einer einzelnen `data`-Eigenschaft verwendet wird, gibt sie nur `true` zurück, wenn diese Eigenschaft gültig ist und auf der Plattform geteilt werden kann.
 
-Der Code unten zeigt, wie überprüft wird, ob eine Dateneigenschaft unterstützt wird.
+Der untenstehende Code zeigt, wie überprüft wird, ob eine Dateneigenschaft unterstützt wird.
 
 ```js
 // Feature that may not be supported

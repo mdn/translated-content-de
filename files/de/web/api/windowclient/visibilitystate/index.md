@@ -1,5 +1,5 @@
 ---
-title: "WindowClient: visibilityState-Eigenschaft"
+title: "WindowClient: Sichtbarkeitsstatus-Eigenschaft"
 short-title: visibilityState
 slug: Web/API/WindowClient/visibilityState
 l10n:
@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`visibilityState`** des
-[`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces zeigt die Sichtbarkeit des aktuellen Clients an.
-Dieser Wert kann einer der folgenden sein: `"hidden"`, `"visible"` oder
-`"prerender"`.
+Die schreibgeschützte **`visibilityState`**-Eigenschaft des [`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann einer der folgenden sein: `"hidden"`, `"visible"` oder `"prerender"`.
 
 ## Wert
 
-Ein String (siehe [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) für Werte).
+Ein String (siehe [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) für mögliche Werte).
 
 ## Beispiele
 

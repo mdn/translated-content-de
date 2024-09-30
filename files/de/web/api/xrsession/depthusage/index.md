@@ -8,20 +8,21 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`depthUsage`**-Eigenschaft einer `immersive-ar`-[`XRSession`](/de/docs/Web/API/XRSession) beschreibt, welche Tiefenerkennungsnutzung verwendet wird.
+Die _schreibgeschützte_ **`depthUsage`**-Eigenschaft einer `immersive-ar`
+[`XRSession`](/de/docs/Web/API/XRSession) beschreibt, welche Nutzung der Tiefensensoren eingesetzt wird.
 
 ## Wert
 
 Diese Eigenschaft kann die folgenden Werte zurückgeben:
 
 - `cpu-optimized`
-  - : Die Tiefendaten sind zur Verwendung auf der CPU vorgesehen; siehe das [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)-Interface.
+  - : Die Tiefendaten sind zur Verwendung auf der CPU vorgesehen; siehe das [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) Interface.
 - `gpu-optimized`
-  - : Die Tiefendaten sind zur Verwendung auf der GPU vorgesehen; siehe das [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Interface.
+  - : Die Tiefendaten sind zur Verwendung auf der GPU vorgesehen; siehe das [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation) Interface.
 
 ## Beispiele
 
-Um die gewünschte Nutzungsmethode anzufordern, müssen Sie eine `usagePreference` angeben, wenn Sie eine Sitzung mit [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern. Hier kann der Anrufer sowohl CPU- als auch GPU-optimierte Nutzung behandeln. Die Reihenfolge zeigt die Präferenz für die CPU:
+Um die gewünschte Nutzungsmethode anzufordern, müssen Sie eine `usagePreference` angeben, wenn Sie eine Sitzung mit [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern. Hier kann der Aufrufer sowohl CPU- als auch GPU-optimierte Nutzung verarbeiten. Die Reihenfolge zeigt die Präferenz für die CPU an:
 
 ```js
 navigator.xr.requestSession("immersive-ar", {
@@ -33,7 +34,7 @@ navigator.xr.requestSession("immersive-ar", {
 });
 ```
 
-Um zu überprüfen, welche Nutzung vom Benutzeragenten ausgewählt wurde, können Sie die `depthUsage`-Eigenschaft aufrufen:
+Um zu überprüfen, welche Nutzung von der Benutzeragentur ausgewählt wurde, können Sie die `depthUsage`-Eigenschaft aufrufen:
 
 ```js
 console.log(session.depthUsage); // either "cpu-optimized" or "gpu-optimized"

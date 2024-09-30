@@ -1,5 +1,5 @@
 ---
-title: "ImageTrackList: Eigenschaft selectedIndex"
+title: "ImageTrackList: selectedIndex-Eigenschaft"
 short-title: selectedIndex
 slug: Web/API/ImageTrackList/selectedIndex
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selectedIndex`**-Eigenschaft der [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Schnittstelle gibt den `Index` des ausgewählten Tracks zurück.
+Die **`selectedIndex`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt den `index` des ausgewählten Tracks zurück.
 
 ## Wert
 
-Ein Ganzzahlwert.
+Ein Integer.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`open()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces fordert das Betriebssystem auf, das HID-Gerät zu öffnen.
+Die **`open()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle fordert das Betriebssystem auf, das HID-Gerät zu öffnen.
 
 > [!NOTE]
 > HID-Geräte werden nicht automatisch geöffnet. Daher muss ein von [`HID.requestDevice()`](/de/docs/Web/API/HID/requestDevice) zurückgegebenes [`HIDDevice`](/de/docs/Web/API/HIDDevice) mit dieser Methode geöffnet werden, bevor es zum Datentransfer verfügbar ist.
@@ -25,14 +25,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Verbindung geöffnet ist.
+Ein {{jsxref("Promise")}}, das mit `undefined` auflöst, sobald die Verbindung geöffnet ist.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Verbindung bereits geöffnet ist.
+  - : Wird geworfen, wenn die Verbindung bereits geöffnet ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Versuch, die Verbindung zu öffnen, aus irgendeinem Grund fehlschlägt.
+  - : Wird geworfen, wenn der Versuch, die Verbindung zu öffnen, aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 

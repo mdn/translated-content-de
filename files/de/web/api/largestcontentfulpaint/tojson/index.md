@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`** Methode des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Repräsentation des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Objekts zurück.
+Die **`toJSON()`** Methode der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts zurück.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Objekts darstellt.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts ist.
 
-Das JSON enthält nicht die [`element`](/de/docs/Web/API/LargestContentfulPaint/element)-Eigenschaft, da sie vom Typ [`Element`](/de/docs/Web/API/Element) ist und keine `toJSON()`-Operation bietet.
+Das JSON enthält nicht die [`element`](/de/docs/Web/API/LargestContentfulPaint/element) Eigenschaft, da diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, welches keine `toJSON()` Operation bereitstellt.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### Verwendung der toJSON Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Repräsentation des `LargestContentfulPaint`-Objekts zurück.
+In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `LargestContentfulPaint` Objekts.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -58,7 +58,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

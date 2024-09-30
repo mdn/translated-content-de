@@ -1,5 +1,5 @@
 ---
-title: "MediaList: deleteMedium() Methode"
+title: "MediaList: deleteMedium()-Methode"
 short-title: deleteMedium()
 slug: Web/API/MediaList/deleteMedium
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die `deleteMedium()` Methode der [`MediaList`](/de/docs/Web/API/MediaList) Schnittstelle entfernt die gegebene Medienabfrage aus dieser `MediaList`.
+Die `deleteMedium()`-Methode des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces entfernt aus dieser `MediaList` die angegebene Media Query.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteMedium(medium)
 ### Parameter
 
 - `medium`
-  - : Ein String, der die zu entfernende Medienabfrage aus der Liste enthält.
+  - : Ein String, der die zu entfernende Media Query aus der Liste enthält.
 
 ### Rückgabewert
 
@@ -28,12 +28,12 @@ Keiner ([undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined))
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die zu entfernende Medienabfrage nicht in der Liste ist.
+  - : Wird ausgelöst, wenn die zu entfernende Media Query nicht in der Liste vorhanden ist.
 
 ## Beispiele
 
-Das folgende Beispiel entfernt die Medienabfrage `print` aus der
-`MediaList`, die mit dem ersten auf das aktuelle Dokument angewendeten Stylesheet verknüpft ist.
+Im Folgenden wird die Media Query `print` von der
+`MediaList` entfernt, die mit dem ersten Stylesheet im aktuellen Dokument verknüpft ist.
 
 ```js
 const stylesheet = document.styleSheets[0];

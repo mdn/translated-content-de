@@ -1,5 +1,5 @@
 ---
-title: "SyncManager: register() Methode"
+title: "SyncManager: register()-Methode"
 short-title: register()
 slug: Web/API/SyncManager/register
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers}}
 
-Die **`register()`** Methode des [`SyncManager`](/de/docs/Web/API/SyncManager) Interfaces registriert ein Synchronisationsereignis, das ein [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event) Ereignis innerhalb des zugehörigen Service Workers auslöst, sobald die Netzwerkverbindung verfügbar ist.
+Die **`register()`**-Methode des [`SyncManager`](/de/docs/Web/API/SyncManager)-Interfaces registriert ein Synchronisationsereignis, das ein [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event)-Ereignis innerhalb des zugehörigen Service Workers auslöst, sobald Netzwerkverbindung verfügbar ist.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ register(tag)
 ### Parameter
 
 - `tag`
-  - : Ein Bezeichner für dieses Synchronisationsereignis. Dies wird der Wert der `tag` Eigenschaft des [`SyncEvent`](/de/docs/Web/API/SyncEvent) sein, das dem [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event) Ereignishandler des Service Workers übergeben wird.
+  - : Ein Bezeichner für dieses Synchronisationsereignis. Dies wird der Wert der `tag`-Eigenschaft des [`SyncEvent`](/de/docs/Web/API/SyncEvent) sein, das an den `sync`-Ereignishandler des Service Workers übergeben wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der zu {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich zu {{jsxref("undefined")}} auflöst.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Service Worker nicht aktiv ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn Hintergrundsynchronisierung vom Benutzer deaktiviert wurde.
+  - : Wird ausgelöst, wenn der Hintergrund-Sync vom Benutzer deaktiviert wurde.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion registriert eine Hintergrundsynchronisation aus einem Browserkontext:
+Die folgende asynchrone Funktion registriert einen Hintergrund-Sync aus einem Browserkontext:
 
 ```js
 async function syncMessagesLater() {

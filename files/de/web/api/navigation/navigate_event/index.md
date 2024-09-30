@@ -1,5 +1,5 @@
 ---
-title: "Navigation: navigate Event"
+title: "Navigation: navigate-Ereignis"
 short-title: navigate
 slug: Web/API/Navigation/navigate_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`navigate`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, sodass Sie bei Bedarf eingreifen können.
+Das **`navigate`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird. Es bietet die Möglichkeit, die Navigation bei Bedarf abzufangen.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Umgang mit einer Navigation mittels `intercept()`
+### Eine Navigation mit `intercept()` behandeln
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -57,11 +57,11 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, hätte man, um etwas Ähnliches zu tun, alle Klickereignisse auf Links überwachen, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen müssen, und die Seitenansicht basierend auf der neuen URL einrichten. Und dies hätte nicht alle Navigationen behandelt — nur von Benutzern initiierte Link-Klicks.
+> Bevor die Navigation API verfügbar war, mussten Sie, um etwas Ähnliches zu erreichen, alle Klick-Ereignisse auf Links überwachen, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten. Dies hätte jedoch nicht alle Navigationsarten erfasst - nur vom Benutzer initiierte Link-Klicks.
 
-### Umgang mit Scrollen mittels `scroll()`
+### Scrollen mit `scroll()` behandeln
 
-In diesem Beispiel zur Abfangung einer Navigation beginnt die `handler()`-Funktion damit, einige Artikelinhalte abzurufen und darzustellen, ruft dann aber im Anschluss einige sekundäre Inhalte ab und stellt diese dar. Es ist sinnvoll, die Seite zu den Hauptartikelinhalten zu scrollen, sobald diese verfügbar sind, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte dargestellt sind. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen die beiden eingefügt.
+In diesem Beispiel des Abfangens einer Navigation beginnt die `handler()`-Funktion damit, einige Artikelinhalte abzurufen und darzustellen. Anschließend werden einige sekundäre Inhalte abgerufen und dargestellt. Es ist sinnvoll, die Seite so bald wie möglich zum Hauptartikelinhalt zu scrollen, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte dargestellt sind. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen den beiden eingefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -96,6 +96,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Moderner clientseitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)

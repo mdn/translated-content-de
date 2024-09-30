@@ -7,36 +7,36 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Paket oder Netzwerkpaket ist ein formatiertes Datenstück, das über ein Netzwerk gesendet wird. Die Hauptkomponenten eines Netzwerkpakets sind die Nutzdaten und die Steuerinformationen. Die Nutzdaten werden als _Payload_ bezeichnet. Die Steuerinformationen sind die Informationen zur Übermittlung der Payload. Sie bestehen aus Netzwerkadressen für die Quelle und das Ziel, Sequenzierungsinformationen und Fehlererkennungscodes und befinden sich in der Regel in den Paket-Headern und -Footer.
+Ein Paket oder Netzwerkpaket ist ein formatiertes Datenstück, das über ein Netzwerk gesendet wird. Die Hauptkomponenten eines Netzwerkpakets sind die Benutzerdaten und die Steuerinformationen. Die Benutzerdaten werden als _Nutzlast_ bezeichnet. Die Steuerinformationen sind die Informationen zur Zustellung der Nutzlast. Diese bestehen aus Netzwerkadressen für die Quelle und das Ziel, Sequenzierungsinformationen und Fehlererkennungscodes und befinden sich in der Regel in den Paket-Headern und -Fußzeilen.
 
 ## Was ein Paket enthält
 
 ### Hop-Limit
 
-Ein Hop tritt auf, wenn ein Paket von einem Netzwerk zum nächsten Netzwerk weitergeleitet wird. Es ist ein Feld, das bei jedem Durchgang eines Pakets um eins verringert wird; sobald das Hop-Limit 0 erreicht, ist der Sendebetrieb fehlgeschlagen und das Paket wird verworfen.
+Ein Hop tritt auf, wenn ein Paket von einem Netzwerk in das nächste Netzwerk übergeben wird. Es handelt sich um ein Feld, das bei jedem Durchlauf eines Pakets um eins verringert wird; sobald das Hop-Limit 0 erreicht, ist die Sendung fehlgeschlagen und das Paket wird verworfen.
 
-Mit der Zeit kann die Anzahl der Pakete, die innerhalb geschlossener Kreisläufe zirkulieren, zunehmen, was schließlich zum Ausfall des Netzwerks führen kann.
+Mit der Zeit kann die Anzahl der Pakete, die innerhalb geschlossener Schaltungen wandern, die Netzwerke überlasten und schließlich zu deren Versagen führen.
 
 ### Fehlererkennung und -korrektur
 
-Fehlererkennung und -korrektur sind Codes, die verwendet werden, um Fehler zu erkennen und Korrekturen auf die Fehler anzuwenden, die auftreten, wenn Daten an den Empfänger übertragen werden. Es gibt zwei Arten der Fehlerkorrektur: Rückwärts- und Vorwärtsfehlerkorrektur. Rückwärtsfehlerkorrektur bedeutet, dass der Empfänger den Sender bittet, die gesamte Dateneinheit erneut zu übertragen. Vorwärtsfehlerkorrektur bedeutet, dass der Empfänger den Fehlerkorrekturcode verwendet, der die Fehler automatisch korrigiert.
+Fehlererkennung und -korrektur sind Codes, die verwendet werden, um Fehler zu erkennen und Korrekturen anzuwenden, die auftreten, wenn Daten an den Empfänger übertragen werden. Es gibt zwei Arten von Fehlerkorrekturen: rückwärtsgerichtete und vorwärtsgerichtete Fehlerkorrektur. Bei der rückwärtsgerichteten Fehlerkorrektur fordert der Empfänger den Sender auf, die gesamte Dateneinheit erneut zu senden. Bei der vorwärtsgerichteten Fehlerkorrektur verwendet der Empfänger den Fehlerkorrekturcode, der die Fehler automatisch korrigiert.
 
-Am Sender erfolgt die Berechnung, bevor das Paket gesendet wird. Wenn es am Ziel empfangen wird, wird die Prüfsumme neu berechnet und mit der im Paket verglichen.
+Am Sender wird die Berechnung durchgeführt, bevor das Paket gesendet wird. Beim Empfang am Ziel wird die Prüfsumme erneut berechnet und mit der im Paket verglichen.
 
 ### Priorität
 
-Dieses Feld gibt an, welches Paket eine höhere Priorität gegenüber den anderen haben sollte. Die Warteschlange mit hoher Priorität wird schneller geleert als die mit niedrigerer Priorität, wenn das Netzwerk überlastet ist.
+Dieses Feld gibt an, welches Paket eine höhere Priorität gegenüber anderen haben sollte. Die Warteschlange mit hoher Priorität wird schneller geleert als Warteschlangen mit niedrigerer Priorität, wenn das Netzwerk überlastet ist.
 
 ### Adressen
 
 Beim Routing von Netzwerkpaketen sind zwei Netzwerkadressen erforderlich: die Quelladresse des sendenden Hosts und die Zieladresse des empfangenden Hosts.
 
-### Benutzerdaten - Payload
+### Benutzerdaten - Nutzlast
 
-Payload sind die Daten, die im Auftrag einer Anwendung übertragen werden. Sie sind in der Regel variabel lang, bis zu einem Maximum, das durch das Netzwerkprotokoll und manchmal durch die Ausrüstung auf dem Weg festgelegt wird.
+Die Nutzlast sind die Daten, die im Auftrag einer Anwendung übertragen werden. Sie ist in der Regel von variabler Länge, bis zu einem Maximum, das vom Netzwerkprotokoll und manchmal von der Ausrüstung auf dem Weg festgelegt wird.
 
-## Verwendete Referenzen
+## Verwendete Quellen
 
 - [Network packet](https://en.wikipedia.org/wiki/Network_packet)
 - [Hop (networking)](<https://en.wikipedia.org/wiki/Hop_(networking)>)
-- [How error detection and correction works](https://www.techradar.com/news/computing/how-error-detection-and-correction-works-1080736)
+- [Wie Fehlererkennung und -korrektur funktioniert](https://www.techradar.com/news/computing/how-error-detection-and-correction-works-1080736)

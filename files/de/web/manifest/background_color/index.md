@@ -7,14 +7,14 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Das `background_color`-Mitglied definiert eine Hintergrundfarbe als Platzhalter für die Anwendungsseite, die angezeigt wird, bevor das Stylesheet geladen ist.
+Das `background_color`-Element definiert eine Platzhalter-Hintergrundfarbe für die Anwendungsseite, die angezeigt wird, bevor das Stylesheet geladen ist.
 
 Dieser Wert wird vom Benutzeragenten verwendet, um die Hintergrundfarbe eines Shortcuts zu zeichnen, wenn das Manifest verfügbar ist, bevor das Stylesheet geladen wurde.
 
-Daher sollte `background_color` der {{cssxref("background-color")}} CSS-Eigenschaft im Stylesheet der Website entsprechen, um einen reibungslosen Übergang zwischen dem Start der Webanwendung und dem Laden der Website-Inhalte zu gewährleisten.
+Daher sollte `background_color` der {{cssxref("background-color")}} CSS-Eigenschaft im Stylesheet der Website entsprechen, um einen nahtlosen Übergang zwischen dem Start der Webanwendung und dem Laden des Inhalts der Website zu ermöglichen.
 
 > [!NOTE]
-> Das `background_color`-Mitglied ist lediglich dazu gedacht, die Benutzererfahrung während des Ladens des Haupt-Stylesheets aus dem Netzwerk oder dem Speichermedium zu verbessern; es wird nicht vom Benutzeragenten als {{cssxref("background-color")}} CSS-Eigenschaft verwendet, wenn das Stylesheet der progressiven Web-App verfügbar ist.
+> Das `background_color`-Element ist nur dazu gedacht, das Benutzererlebnis zu verbessern, während das Haupt-Stylesheet aus dem Netzwerk oder vom Speichermedium geladen wird; es wird vom Benutzeragenten nicht als {{cssxref("background-color")}} CSS-Eigenschaft verwendet, wenn das Stylesheet der Progressive Web App verfügbar ist.
 
 ## Beispiele
 

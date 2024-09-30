@@ -7,23 +7,23 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `meter`-Rolle wird verwendet, um ein Element zu kennzeichnen, das als Messgerät fungiert.
+Die `meter`-Rolle wird verwendet, um ein Element zu identifizieren, das als Zähler verwendet wird.
 
 > [!NOTE]
-> Wenn möglich, wird empfohlen, ein natives {{HTMLElement("meter")}}-Element anstelle der `meter`-Rolle zu verwenden, da native Elemente von Benutzeragenten und unterstützenden Technologien besser unterstützt werden.
+> Wo möglich, wird empfohlen, ein natives {{HTMLElement("meter")}}-Element anstelle der `meter`-Rolle zu verwenden, da native Elemente von Benutzeragenten und unterstützender Technologie breiter unterstützt werden.
 
 ## Beschreibung
 
-Ein Messgerät ist eine grafische Anzeige eines numerischen Wertes innerhalb eines definierten Bereichs, z.B. zur Anzeige des Batteriestands. Ein Messgerät ist nicht geeignet für Werte ohne eine sinnvolle maximale Grenze. Messgeräte sollten nicht zur Angabe von Fortschritt (z.B. Laden) verwendet werden; dafür sollte das {{HTMLElement('progress')}}-Element genutzt werden.
+Ein Zähler ist eine grafische Anzeige eines numerischen Wertes innerhalb eines definierten Bereichs. Zum Beispiel die Anzeige des Batteriestands in Prozent. Ein Zähler ist nicht geeignet für Werte, die kein sinnvolles maximales Limit haben. Zähler sollten nicht verwendet werden, um Fortschritt anzuzeigen (zum Beispiel beim Laden), hierfür sollte das {{HTMLElement('progress')}}-Element verwendet werden.
 
 Jedes Element mit `role="meter"` muss auch eines der folgenden Attribute haben:
 
 - Ein [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribut.
-- Ein [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut, das auf ein Element verweist, das den Messwert beschreibt.
+- Ein [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut, das auf ein Element mit Text verweist, der den Zähler beschreibt.
 
-### Alle Nachfahren sind präsent
+### Alle Nachkommen sind präsentativ
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die in einer Plattform-Zugänglichkeits-API nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente innerhalb eines `meter` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachfahrenelemente eines `meter`-Elements an, da diese Rolle keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur Text enthalten können. Accessibility-APIs haben keine Möglichkeit, semantische Elemente, die in einem `meter` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) auf alle Nachkommenelemente eines `meter`-Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
 Betrachten Sie zum Beispiel das folgende `meter`-Element, das eine Überschrift enthält.
 
@@ -31,34 +31,34 @@ Betrachten Sie zum Beispiel das folgende `meter`-Element, das eine Überschrift 
 <div role="meter"><h3>Title of my meter</h3></div>
 ```
 
-Da Nachkommen von `meter` präsent sind, ist der folgende Code äquivalent:
+Da Nachkommen von `meter` präsentativ sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="meter"><h3 role="presentation">Title of my meter</h3></div>
 ```
 
-Aus der Perspektive eines Benutzers von unterstützenden Technologien existiert die Überschrift nicht, da die vorherigen Codebeispiele im [Barrierefreiheitsbaum](/de/docs/Glossary/Accessibility_tree) dem folgenden entsprechen:
+Aus der Perspektive des Benutzers der unterstützenden Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem Folgenden im [Accessibility-Tree](/de/docs/Glossary/Accessibility_tree) entsprechen:
 
 ```html
 <div role="meter">Title of my meter</div>
 ```
 
-### Zugeordnete ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow)
-  - : Auf einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax` gesetzt, der den aktuellen Wert des Messinstruments anzeigt.
+  - : Wird auf einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax` gesetzt, der den aktuellen Wert des Zählers angibt.
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)
-  - : Unterstützende Technologien präsentieren den Wert von `aria-valuenow` oft als Prozentsatz. Wenn dies nicht genau wäre, verwenden Sie diese Eigenschaft, um den Messwert verständlich zu machen.
+  - : Unterstützende Technologien präsentieren den Wert von `aria-valuenow` oft als Prozentsatz. Wenn dies nicht genau wäre, verwenden Sie diese Eigenschaft, um den Zählerwert verständlich zu machen.
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)
-  - : Auf einen Dezimalwert gesetzt, der den Mindestwert darstellt, der kleiner als `aria-valuemax` ist.
+  - : Wird auf einen Dezimalwert gesetzt, der den Mindestwert darstellt und kleiner als `aria-valuemax` ist.
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax)
-  - : Auf einen Dezimalwert gesetzt, der den Höchstwert darstellt, der größer als `aria-valuemin` ist.
+  - : Wird auf einen Dezimalwert gesetzt, der den Maximalwert darstellt und größer als `aria-valuemin` ist.
 
-Es wird empfohlen, ein natives {{HTMLElement("meter")}}-Element anstelle der `meter`-Rolle zu verwenden. Benutzeragenten bieten ein stilisiertes Widget für das {{HTMLElement("meter")}}-Element basierend auf dem aktuellen `value` in Bezug auf die `min`- und `max`-Werte. Bei Verwendung nicht-semantischer Elemente müssen alle Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS nachgebildet werden.
+Es wird empfohlen, ein natives {{HTMLElement("meter")}}-Element anstelle der `meter`-Rolle zu verwenden. Benutzeragenten bieten ein stilisiertes Widget für das {{HTMLElement("meter")}}-Element basierend auf dem aktuellen `value`, wie es sich auf die `min`- und `max`-Werte bezieht. Bei der Verwendung von nicht-semantischen Elementen müssen alle Merkmale des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS nachgebildet werden.
 
 ## Beispiele
 
-Ein Beispiel für ein Messgerät mit `role="meter"`:
+Ein Beispiel für einen Zähler mit `role="meter"`:
 
 ```html
 <div
@@ -73,7 +73,7 @@ Ein Beispiel für ein Messgerät mit `role="meter"`:
 </div>
 ```
 
-Im obigen Szenario, wenn sich der `aria-valuenow`-Wert aktualisiert, muss auch die Breite der SVG aktualisiert werden, wie im [W3C-Arbeitsbeispiel für Messgeräte](https://www.w3.org/TR/wai-aria-practices-1.2/examples/meter/meter.html) zu sehen ist.
+Im obigen Szenario muss, wenn sich der Wert von `aria-valuenow` ändert, auch die Breite des SVG aktualisiert werden, wie im [W3C-Arbeitsbeispiel für einen Zähler](https://www.w3.org/TR/wai-aria-practices-1.2/examples/meter/meter.html) zu sehen ist.
 
 ## Spezifikationen
 

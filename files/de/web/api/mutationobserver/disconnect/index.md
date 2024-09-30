@@ -1,5 +1,5 @@
 ---
-title: "MutationObserver: disconnect()-Methode"
+title: "MutationObserver: disconnect() Methode"
 short-title: disconnect()
 slug: Web/API/MutationObserver/disconnect
 l10n:
@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Die Methode **`disconnect()`** von [`MutationObserver`](/de/docs/Web/API/MutationObserver)
-teilt dem Beobachter mit, dass er aufhören soll, auf Mutationen zu achten.
+Die [`MutationObserver`](/de/docs/Web/API/MutationObserver) Methode
+**`disconnect()`** weist den Beobachter an, das Überwachen von
+Mutationen zu stoppen.
 
 Der Beobachter kann wiederverwendet werden, indem seine
-[`observe()`](/de/docs/Web/API/MutationObserver/observe)-Methode erneut aufgerufen wird.
+[`observe()`](/de/docs/Web/API/MutationObserver/observe) Methode erneut aufgerufen wird.
 
 ## Syntax
 
@@ -29,17 +30,22 @@ Keine.
 `undefined`.
 
 > [!NOTE]
-> Alle Benachrichtigungen über Mutationen, die bereits _erkannt_, aber _noch nicht an den Beobachter gemeldet_ wurden, werden verworfen.
-> Um die erkannten, aber noch nicht gemeldeten Mutationen zu behalten und zu bearbeiten, verwenden Sie die Methode
-> [`takeRecords()`](/de/docs/Web/API/MutationObserver/takeRecords).
+> Alle Benachrichtigungen über bereits _erfasste_, aber _noch nicht gemeldete_
+> Mutationen werden verworfen.
+> Um die erfassten, aber nicht gemeldeten Mutationen zu behalten und zu verarbeiten, verwenden Sie
+> die [`takeRecords()`](/de/docs/Web/API/MutationObserver/takeRecords) Methode.
 
-## Verwendungshinweise
+## Anwendungsnotizen
 
-Wenn das beobachtete Element aus dem DOM entfernt und anschließend vom Garbage-Collection-Mechanismus des Browsers freigegeben wird, hört der `MutationObserver` auf, das entfernte Element zu beobachten. Der `MutationObserver` selbst kann jedoch weiter existieren, um andere vorhandene Elemente zu beobachten.
+Wenn das beobachtete Element aus dem DOM entfernt und dann anschließend vom 
+Garbage-Collection-Mechanismus des Browsers freigegeben wird, wird der `MutationObserver` aufhören, 
+das entfernte Element zu beobachten. Der `MutationObserver` selbst kann jedoch weiterhin existieren, 
+um andere vorhandene Elemente zu beobachten.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Beobachter und trennt die Verbindung zu ihm, wodurch er für eine mögliche Wiederverwendung verfügbar bleibt.
+Dieses Beispiel erstellt einen Beobachter und trennt dann die Verbindung von ihm, wodurch er für eine
+mögliche Wiederverwendung verfügbar bleibt.
 
 ```js
 const targetNode = document.querySelector("#someElement");

@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: target-Eigenschaft"
+title: "MutationRecord: target Eigenschaft"
 short-title: target
 slug: Web/API/MutationRecord/target
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`target`** von [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das Ziel (d.h. der mutierte/geänderte Knoten) einer Mutation, die mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wurde.
+Die schreibgeschützte Eigenschaft **`target`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das Ziel (d.h. der mutierte/geänderte Knoten) einer Mutation, die mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Der [`Node`](/de/docs/Web/API/Node), der von der Mutation betroffen ist.
+Der [`Node`](/de/docs/Web/API/Node), den die Mutation beeinflusst hat.
 
 - Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `attributes` ist, ist dies das [`Element`](/de/docs/Web/API/Element), dessen Attribute sich geändert haben.
-- Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `characterData` ist, ist dies der [`CharacterData`](/de/docs/Web/API/CharacterData) Knoten.
+- Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `characterData` ist, ist dies der [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten.
 - Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `childList` ist, ist dies der [`Node`](/de/docs/Web/API/Node), dessen Kinder sich geändert haben.
 
 ## Beispiele
 
-### Protokollierung des Ziels einer Mutation
+### Das Ziel einer Mutation protokollieren
 
-Im folgenden Beispiel gibt es zwei Divs: ein rotes Div (`#red-div`) und ein blaues Div (`#blue-div`), innerhalb eines Container-Divs `#container`. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird erstellt, um den Container zu beobachten. Der Beobachter überwacht Änderungen der `childlist` und hat auch `subtree: true`, sodass er Änderungen an den Kindern der Kinder des Containers beobachtet.
+Im folgenden Beispiel gibt es zwei Divs: ein rotes Div (`#red-div`) und ein blaues Div (`#blue-div`), innerhalb eines Container-Divs `#container`. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird erstellt, um den Container zu beobachten. Der Beobachter überwacht Änderungen an der Kinderliste und hat auch `subtree: true`, sodass er Änderungen an den Kindern der Kinder des Containers beobachtet.
 
-Der Rückruf des Beobachters protokolliert das `target` des Mutation Records. Wenn wir Knoten zu `#red-div` oder `#blue-div` hinzufügen, wird das `target` dementsprechend `#red-div` oder `#blue-div` sein.
+Der Rückruf des Beobachters protokolliert das `target` des Mutationseintrags. Wenn wir Knoten zu `#red-div` oder `#blue-div` hinzufügen, wird das `target` entsprechend `#red-div` oder `#blue-div` sein.
 
 #### HTML
 

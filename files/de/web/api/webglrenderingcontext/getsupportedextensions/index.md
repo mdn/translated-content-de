@@ -3,10 +3,10 @@ title: "WebGLRenderingContext: getSupportedExtensions() Methode"
 short-title: getSupportedExtensions()
 slug: Web/API/WebGLRenderingContext/getSupportedExtensions
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.getSupportedExtensions()`** Methode
 gibt eine Liste aller unterstützten [WebGL](/de/docs/Web/API/WebGL_API)
@@ -41,7 +41,7 @@ spezifisches Erweiterungsobjekt zu erhalten.
 
 ## WebGL-Erweiterungen
 
-Erweiterungen für die WebGL API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
+Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie werden auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
 
 ## Spezifikationen
 

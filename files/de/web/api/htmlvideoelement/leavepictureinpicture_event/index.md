@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `leavepictureinpicture` Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) den Bild-in-Bild-Modus erfolgreich verlässt.
+Das `leavepictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) den Picture-in-Picture-Modus erfolgreich verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und ist nicht bubbelnd.
+Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-Diese Schnittstelle übernimmt auch Eigenschaften von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event).
+Dieses Interface erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `leavepictureinpicture` Ereignis des HTMLVideoElements hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `leavepictureinpicture`-Ereignis des HTMLVideoElements hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -55,7 +55,7 @@ button.onclick = () => {
 };
 ```
 
-Verwendung der `onleavepictureinpicture` Ereignishandler-Eigenschaft:
+Verwendung der `onleavepictureinpicture`-Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("#video");

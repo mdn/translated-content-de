@@ -8,17 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getElementsByClassName`** Methode der
-[`Document`](/de/docs/Web/API/Document) Schnittstelle gibt ein array-ähnliches Objekt
-aller Kindelemente zurück, die alle angegebenen Klassennamen besitzen.
+Die **`getElementsByClassName`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein array-ähnliches Objekt aller Kind-Elemente zurück, die alle angegebenen Klassennamen besitzen.
 
-Wenn die Methode auf das
-[`document`](/de/docs/Web/API/Document) Objekt angewendet wird, wird das gesamte Dokument durchsucht, einschließlich des
-Wurzelknotens. Sie können auch [`getElementsByClassName()`](/de/docs/Web/API/Element/getElementsByClassName) auf jedem Element aufrufen; es werden nur Elemente zurückgegeben, die Nachfahren des angegebenen Wurzelelements mit den gegebenen Klassennamen sind.
+Wenn sie auf das [`document`](/de/docs/Web/API/Document)-Objekt aufgerufen wird, wird das gesamte Dokument durchsucht, einschließlich des Wurzelknotens. Sie können [`getElementsByClassName()`](/de/docs/Web/API/Element/getElementsByClassName) auch auf jedem Element aufrufen; es werden nur Elemente zurückgegeben, die Nachfolger des angegebenen Wurzelelements mit den angegebenen Klassennamen sind.
 
 > [!WARNING]
-> Dies ist eine live [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Änderungen im DOM werden
-> in der Sammlung reflektiert, sobald sie auftreten. Wenn ein Element, das von dieser Sammlung ausgewählt wurde, nicht mehr den Selektorbedingungen entspricht, wird es automatisch entfernt. Seien Sie sich dessen bei Iterationen bewusst.
+> Dies ist eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Änderungen im DOM
+> werden im Array widergespiegelt, sobald die Änderungen auftreten. Wenn ein durch dieses Array ausgewähltes Element nicht mehr für den Selektor qualifiziert ist, wird es automatisch entfernt. Beachten Sie dies zu Iterationszwecken.
 
 ## Syntax
 
@@ -29,41 +25,39 @@ getElementsByClassName(names)
 ### Parameter
 
 - `names`
-  - : Ein String, der den/die Klassennamen darstellt, die übereinstimmen sollen; mehrere Klassennamen sind durch Leerzeichen getrennt.
+  - : Ein String, der den/die zu treffenden Klassennamen darstellt; mehrere Klassen werden durch Leerzeichen getrennt.
 
 ### Rückgabewert
 
-Eine live [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente.
+Eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente.
 
 ## Beispiele
 
-Holen Sie alle Elemente, die eine Klasse 'test' haben:
+Holen Sie sich alle Elemente, die eine Klasse 'test' haben:
 
 ```js
 document.getElementsByClassName("test");
 ```
 
-Holen Sie alle Elemente, die sowohl die Klassen 'red' als auch 'test' haben:
+Holen Sie sich alle Elemente, die sowohl die 'red'- als auch die 'test'-Klassen haben:
 
 ```js
 document.getElementsByClassName("red test");
 ```
 
-Holen Sie alle Elemente, die eine Klasse 'test' haben, innerhalb eines Elements mit der ID 'main':
+Holen Sie sich alle Elemente, die eine Klasse 'test' innerhalb eines Elements mit der ID 'main' haben:
 
 ```js
 document.getElementById("main").getElementsByClassName("test");
 ```
 
-Holen Sie das erste Element mit der Klasse 'test', oder `undefined`, wenn kein
-passendes Element vorhanden ist:
+Holen Sie sich das erste Element mit einer Klasse 'test' oder `undefined`, wenn es kein übereinstimmendes Element gibt:
 
 ```js
 document.getElementsByClassName("test")[0];
 ```
 
-Wir können auch Methoden von Array.prototype auf jede [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) anwenden, indem wir die `HTMLCollection` als _this_ Wert der Methode übergeben. Hier
-finden wir alle `div` Elemente, die eine Klasse 'test' haben:
+Wir können auch Methoden von `Array.prototype` auf jede [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) anwenden, indem wir die `HTMLCollection` als _this_-Wert der Methode übergeben. Hier werden wir alle div-Elemente finden, die eine Klasse 'test' haben:
 
 ```js
 const testElements = document.getElementsByClassName("test");
@@ -73,9 +67,9 @@ const testDivs = Array.prototype.filter.call(
 );
 ```
 
-### Das erste Element mit der Klasse 'test' erhalten
+### Holen Sie sich das erste Element dessen Klasse 'test' ist
 
-Dies ist die am häufigsten verwendete Methode der Operation.
+Dies ist die am häufigsten verwendete Betriebsart.
 
 ```html
 <html lang="en">
@@ -102,9 +96,7 @@ Dies ist die am häufigsten verwendete Methode der Operation.
 
 ### Beispiel für mehrere Klassen
 
-`document.getElementsByClassName` funktioniert sehr ähnlich wie
-`document.querySelector` und `document.querySelectorAll`. Es werden nur
-Elemente ausgewählt, die ALLE der angegebenen Klassennamen besitzen.
+`document.getElementsByClassName` funktioniert sehr ähnlich wie `document.querySelector` und `document.querySelectorAll`. Es werden nur Elemente mit ALLEN der angegebenen Klassennamen ausgewählt.
 
 #### HTML
 

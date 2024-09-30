@@ -7,21 +7,21 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Arch`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anfrage-Header liefert die zugrunde liegende CPU-Architektur des User-Agents, wie ARM oder x86.
+Der **`Sec-CH-UA-Arch`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) im Anforderungs-Header liefert die zugrunde liegende CPU-Architektur des User-Agents, wie ARM oder x86.
 
-Dies könnte beispielsweise von einem Server verwendet werden, um das korrekte Binärformat eines ausführbaren Programms zum Herunterladen für einen Benutzer auszuwählen und anzubieten.
+Dies könnte von einem Server verwendet werden, um beispielsweise das richtige Binärformat einer ausführbaren Datei auszuwählen und zum Download anzubieten.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
+        [Anforderungs-Header](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -40,14 +40,15 @@ Sec-CH-UA-Arch: <arch>
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Arch` Header an, indem er das {{HTTPHeader("Accept-CH")}} in eine Antwort auf eine Anfrage des Clients einschließt, wobei der Name des gewünschten Headers als Token verwendet wird:
+Ein Server fordert den `Sec-CH-UA-Arch` Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer Antwort auf eine Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Arch
 ```
 
-Der Client kann entscheiden, den Hinweis bereitzustellen und den `Sec-CH-UA-Arch` Header in nachfolgende Anfragen aufzunehmen. Zum Beispiel könnte auf einem Windows-X86-basierten Computer der Client den Header wie folgt hinzufügen:
+Der Client kann sich entscheiden, den Hinweis bereitzustellen, und fügt den `Sec-CH-UA-Arch` Header zu nachfolgenden Anfragen hinzu.
+Zum Beispiel könnte auf einem Windows X86-basierten Computer der Header wie folgt hinzugefügt werden:
 
 ```http
 GET /GET /my/page HTTP/1.1
@@ -59,7 +60,7 @@ Sec-CH-UA-Platform: "Windows"
 Sec-CH-UA-Arch: "x86"
 ```
 
-Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) zur Anfrage hinzugefügt werden, auch wenn sie nicht in der Serverantwort angegeben sind.
+Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) der Anfrage hinzugefügt werden, obwohl sie in der Serverantwort nicht angegeben sind.
 
 ## Spezifikationen
 
@@ -71,7 +72,7 @@ Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#
 
 ## Siehe auch
 
-- [Client-Hints](/de/docs/Web/HTTP/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - [Verbesserung der Nutzer-Privatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}

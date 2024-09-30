@@ -1,5 +1,5 @@
 ---
-title: CSS-Schriftartenlade
+title: CSS font loading
 slug: Web/CSS/CSS_font_loading
 l10n:
   sourceCommit: fe5361c29eab373c0b60d07bb86dbf0048220110
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das Modul **CSS-Schriftartenlade** beschreibt Ereignisse und Schnittstellen, die zum dynamischen Laden von Schriftartressourcen verwendet werden.
+Das **CSS font loading**-Modul beschreibt Ereignisse und Schnittstellen, die zum dynamischen Laden von Schriftartenressourcen verwendet werden.
 
 ## Referenz
 
@@ -33,8 +33,8 @@ Das Modul **CSS-Schriftartenlade** beschreibt Ereignisse und Schnittstellen, die
 
 ## Leitfäden
 
-- [CSS-Schriftartenlade-API](/de/docs/Web/API/CSS_Font_Loading_API)
-  - : Überblick über die CSS-Schriftartenlade-API, die Ereignisse und Schnittstellen für das dynamische Laden von Schriftartressourcen bereitstellt.
+- [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API)
+  - : Überblick über die CSS Font Loading API, die Ereignisse und Schnittstellen für das dynamische Laden von Schriftartenressourcen bereitstellt.
 
 ## Verwandte Konzepte
 
@@ -51,4 +51,4 @@ Das Modul **CSS-Schriftartenlade** beschreibt Ereignisse und Schnittstellen, die
 
 ## Siehe auch
 
-- [CSS-Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul

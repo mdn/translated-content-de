@@ -9,13 +9,14 @@ l10n:
 {{APIRef("Web Speech API")}}
 
 Die **`interimResults`**-Eigenschaft des
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces steuert, ob Zwischenergebnisse zurückgegeben werden sollen (`true`) oder nicht (`false`). Zwischenergebnisse sind Ergebnisse, die noch nicht endgültig sind (z.B. ist die [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal)-Eigenschaft `false`).
+[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces steuert, ob vorläufige Ergebnisse zurückgegeben werden sollen (`true`) oder nicht (`false`). Vorläufige Ergebnisse sind Ergebnisse, die noch nicht endgültig sind (z.B. ist die [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal)-Eigenschaft `false`).
 
 Der Standardwert für **`interimResults`** ist `false`.
 
 ## Wert
 
-Ein Boolescher Wert, der den Zustand der aktuellen `SpeechRecognition`-Zwischenergebnisse darstellt. `true` bedeutet, dass Zwischenergebnisse zurückgegeben werden, und `false` bedeutet, dass sie nicht zurückgegeben werden.
+Ein boolescher Wert, der den Status der aktuellen
+`SpeechRecognition`-Zwischenergebnisse darstellt. `true` bedeutet, dass vorläufige Ergebnisse zurückgegeben werden, und `false` bedeutet, dass sie nicht zurückgegeben werden.
 
 ## Beispiele
 

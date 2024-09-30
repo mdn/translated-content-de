@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`cx`** Attribut definiert die x-Achsen-Koordinate eines Mittelpunktes.
+Das **`cx`**-Attribut definiert die x-Achsenkoordinate eines Mittelpunktes.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -16,7 +16,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("radialGradient")}}
 
 > [!NOTE]
-> Als _Geometrieeigenschaft_ kann {{cssxref("cx")}} auch als CSS-Eigenschaft für `<circle>` und `<ellipse>` verwendet werden.
+> Als _geometrische Eigenschaft_ kann {{cssxref("cx")}} auch als CSS-Eigenschaft für `<circle>` und `<ellipse>` verwendet werden.
 
 ## Beispiel
 
@@ -45,7 +45,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} definiert `cx` die x-Achsen-Koordinate des Zentrums der Form.
+Für {{SVGElement('circle')}} definiert `cx` die x-Achsenkoordinate des Mittelpunkts der Form.
 
 <table class="properties">
   <tbody>
@@ -65,11 +65,11 @@ Für {{SVGElement('circle')}} definiert `cx` die x-Achsen-Koordinate des Zentrum
 </table>
 
 > [!NOTE]
-> Die x-Achsen-Koordinate des Zentrums des `<circle>` kann auch mit der {{cssxref("cx")}} _Geometrieeigenschaft_ definiert werden. Wenn sie in CSS festgelegt ist, überschreibt der `cx` Eigenschaftswert den `cx` Attributwert.
+> Die x-Achsenkoordinate des Mittelpunkts des `<circle>` kann auch mit der {{cssxref("cx")}} _geometrischen Eigenschaft_ definiert werden. Wenn in CSS festgelegt, überschreibt der `cx`-Eigenschaftswert den `cx`-Attributwert.
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} definiert `cx` die x-Achsen-Koordinate des Zentrums der Form.
+Für {{SVGElement('ellipse')}} definiert `cx` die x-Achsenkoordinate des Mittelpunkts der Form.
 
 <table class="properties">
   <tbody>
@@ -89,11 +89,11 @@ Für {{SVGElement('ellipse')}} definiert `cx` die x-Achsen-Koordinate des Zentru
 </table>
 
 > [!NOTE]
-> Die x-Achsen-Koordinate des Zentrums des `<ellipse>` kann auch mit der {{cssxref("cx")}} _Geometrieeigenschaft_ definiert werden. Wenn sie in CSS festgelegt ist, überschreibt der `cx` Eigenschaftswert den `cx` Attributwert.
+> Die x-Achsenkoordinate des Mittelpunkts des `<ellipse>` kann auch mit der {{cssxref("cx")}} _geometrischen Eigenschaft_ definiert werden. Wenn in CSS festgelegt, überschreibt der `cx`-Eigenschaftswert den `cx`-Attributwert.
 
 ## radialGradient
 
-Für {{SVGElement('radialGradient')}} definiert `cx` die x-Achsen-Koordinate des Endkreises für den radialen Verlauf.
+Für {{SVGElement('radialGradient')}} definiert `cx` die x-Achsenkoordinate des Endkreises für den radialen Verlauf.
 
 <table class="properties">
   <tbody>
@@ -180,4 +180,4 @@ svg {
 - {{SVGAttr("r")}}
 - {{SVGAttr("rx")}}
 - {{SVGAttr("ry")}}
-- Geometrieeigenschaften: {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- Geometrische Eigenschaften: {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}

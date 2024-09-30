@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`font-stretch`** gibt den gewünschten Grad der Kondensation oder Erweiterung der Glyphen an, die zum Rendern des Textes verwendet werden.
+Das **`font-stretch`** Attribut gibt den gewünschten Grad der Stauchung oder Dehnung der Glyphen an, die zum Rendern des Textes verwendet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-stretch` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-{{cssxref("font-stretch")}}-Eigenschaft.
+> Als Präsentationsattribut kann `font-stretch` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-stretch")}}.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -19,7 +19,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

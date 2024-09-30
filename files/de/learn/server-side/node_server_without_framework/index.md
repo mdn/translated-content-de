@@ -7,11 +7,11 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser Artikel bietet einen einfachen statischen Dateiserver, der mit reinem [Node.js](https://nodejs.org/en/) ohne die Verwendung eines Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir benötigen, von den integrierten APIs bereitgestellt wird und nur ein paar Codezeilen erforderlich sind.
+Dieser Artikel bietet einen einfachen statischen Dateiserver, der mit reinem [Node.js](https://nodejs.org/en/) ohne die Verwendung eines Frameworks erstellt wurde. Der aktuelle Zustand von Node.js ist so, dass fast alles, was wir benötigen, durch die eingebauten APIs und nur wenige Codezeilen bereitgestellt wird.
 
 ## Beispiel
 
-Ein einfacher statischer Dateiserver, der mit Node.js gebaut wurde:
+Ein einfacher statischer Dateiserver, der mit Node.js erstellt wurde:
 
 ```js
 import * as fs from "node:fs";
@@ -73,7 +73,7 @@ import * as http from "node:http";
 import * as path from "node:path";
 ```
 
-Als nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Abhören auf `PORT` starten können.
+Als nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Hören auf `PORT` starten können.
 
 ```js
 http
@@ -85,11 +85,11 @@ http
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 ```
 
-Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei bereitgestellt werden kann (der Serverprozess hat Zugang und es wurde keine Pfad-Traversal-Schwachstelle gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, der den Erfolg anzeigt (anderenfalls geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` zu finden sind. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
+Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei bedient werden kann (der Serverprozess hat Zugriff und es wird keine Pfad-Traversierungslücke gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, der Erfolg anzeigt (ansonsten geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` zu finden sind. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
 
-Die Erweiterung der angeforderten Datei wird geparst und in Kleinbuchstaben umgewandelt. Danach suchen wir in der `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
+Die Erweiterung der angeforderten Datei wird analysiert und in Kleinbuchstaben umgewandelt. Danach suchen wir in der `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
 
-Schließlich, wenn es keine Fehler gibt, senden wir die angeforderte Datei. Der `file.stream` wird einen `Readable`-Stream enthalten, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
+Schließlich senden wir die angeforderte Datei, wenn keine Fehler auftreten. Der `file.stream` enthält einen `Readable`-Stream, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
 
 ```js
 res.writeHead(statusCode, { "Content-Type": mimeType });

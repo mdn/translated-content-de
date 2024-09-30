@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt ein BCP 47-Sprachtag zurück, das die Sprache der Stimme angibt.
+Die **`lang`** schreibgeschützte Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen BCP 47-Sprach-Tag zurück, der die Sprache der Stimme angibt.
 
 ## Wert
 

@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Transfer-Encoding`** Header legt die Art der Codierung fest, die zum Übertragen von Nachrichten zwischen Knoten im Netzwerk verwendet wird.
+Der **`Transfer-Encoding`**-Header gibt die Form der Kodierung an, die zum Übertragen von Nachrichten zwischen Knoten im Netzwerk verwendet wird.
 
 > [!WARNING]
-> HTTP/2 verbietet alle Verwendungen des Transfer-Encoding Headers mit Ausnahme der spezifischen für HTTP/2: `"trailers"`.
-> HTTP/2 und später bietet seine eigenen effizienteren Mechanismen für Datenstreaming als "chunked transfer" und verbietet die Verwendung des Headers.
-> Die Nutzung des Headers in HTTP/2 kann wahrscheinlich zu einem spezifischen `protocol error` führen, da das HTTP/2-Protokoll die Verwendung verbietet.
+> HTTP/2 verbietet alle Verwendungen des Transfer-Encoding-Headers außer dem HTTP/2-spezifischen: `"trailers"`.
+> HTTP/2 und spätere Versionen bieten effizientere Mechanismen für das Daten-Streaming als Chunked Transfer und verbieten die Verwendung des Headers.
+> Die Verwendung des Headers in HTTP/2 kann wahrscheinlich zu einem spezifischen `protocol error` führen, da das HTTP/2-Protokoll die Verwendung verbietet.
 
-`Transfer-Encoding` ist ein [Hop-by-hop-Header](/de/docs/Web/HTTP/Headers#hop-by-hop_headers), der auf eine Nachricht zwischen zwei Knoten angewendet wird, nicht auf die Ressource selbst.
-Jedes Segment einer Multi-Knoten-Verbindung kann unterschiedliche `Transfer-Encoding` Werte verwenden.
-Wenn Sie Daten über die gesamte Verbindung komprimieren möchten, verwenden Sie stattdessen den End-to-end {{HTTPHeader("Content-Encoding")}} Header.
+`Transfer-Encoding` ist ein [hop-by-hop header](/de/docs/Web/HTTP/Headers#hop-by-hop_headers), der auf eine Nachricht zwischen zwei Knoten angewendet wird, nicht auf eine Ressource selbst.
+Jedes Segment einer Multi-Knoten-Verbindung kann unterschiedliche `Transfer-Encoding`-Werte verwenden.
+Wenn Sie Daten über die gesamte Verbindung komprimieren möchten, verwenden Sie stattdessen den end-to-end {{HTTPHeader("Content-Encoding")}}-Header.
 
-Wenn dieser bei einer Antwort auf einen {{HTTPMethod("HEAD")}}-Request ohne Body vorhanden ist, zeigt er den Wert an, der auf die entsprechende {{HTTPMethod("GET")}} Nachricht angewendet worden wäre.
+Wenn er in der Antwort auf eine {{HTTPMethod("HEAD")}}-Anfrage vorhanden ist, die keinen Body hat, gibt er den Wert an, der auf die entsprechende {{HTTPMethod("GET")}}-Nachricht angewendet worden wäre.
 
 <table class="properties">
   <tbody>
@@ -50,27 +50,27 @@ Transfer-Encoding: gzip, chunked
 ## Direktiven
 
 - `chunked`
-  - : Daten werden in einer Reihe von Blöcken gesendet. Der {{HTTPHeader("Content-Length")}} Header wird in diesem Fall weggelassen und am Anfang jedes Blocks muss die Länge des aktuellen Blocks im Hexadezimalformat hinzugefügt werden, gefolgt von `\r\n` und dann der Block selbst, gefolgt von einem weiteren `\r\n`.
-    Der endende Block ist ein normaler Block, mit der Ausnahme, dass seine Länge null ist.
-    Er wird gefolgt vom Trailer, der aus einer (möglicherweise leeren) Sequenz von Header-Feldern besteht.
+  - : Daten werden in einer Reihe von Blöcken gesendet. Der {{HTTPHeader("Content-Length")}}-Header wird in diesem Fall weggelassen und am Anfang jedes Blocks muss die Länge des aktuellen Blocks in hexadezimalem Format hinzugefügt werden, gefolgt von `\r\n` und dann dem Block selbst, gefolgt von einem weiteren `\r\n`.
+    Der abschließende Block ist ein regulärer Block, mit der Ausnahme, dass seine Länge null ist.
+    Er wird vom Trailer gefolgt, der aus einer (möglicherweise leeren) Sequenz von Header-Feldern besteht.
 - `compress`
-  - : Ein Format, das den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW) Algorithmus verwendet.
-    Der Wertename wurde vom UNIX _compress_ Programm übernommen, das diesen Algorithmus implementierte.
-    Wie das compress-Programm, das aus den meisten UNIX-Distributionen verschwunden ist, wird diese Inhaltscodierung heutzutage von fast keinem Browser mehr verwendet, teilweise aufgrund eines Patentrechts, das 2003 abgelaufen ist.
+  - : Ein Format unter Verwendung des [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW)-Algorithmus.
+    Der Wertename wurde vom UNIX-Programm _compress_ übernommen, das diesen Algorithmus implementierte.
+    Wie das Compress-Programm, das von den meisten UNIX-Distributionen verschwunden ist, wird diese Content-Encoding heutzutage von fast keinem Browser mehr verwendet, teilweise aufgrund eines Patentproblems (das 2003 ablief).
 - `deflate`
-  - : Verwendung der [zlib](https://en.wikipedia.org/wiki/Zlib) Struktur (definiert in [RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)), mit dem [_deflate_](https://en.wikipedia.org/wiki/DEFLATE) Kompressionsalgorithmus (definiert in [RFC 1951](https://datatracker.ietf.org/doc/html/rfc1952)).
+  - : Verwendung der [zlib](https://en.wikipedia.org/wiki/Zlib)-Struktur (definiert in [RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)), mit dem [_deflate_](https://en.wikipedia.org/wiki/DEFLATE)-Kompessionsalgorithmus (definiert in [RFC 1951](https://datatracker.ietf.org/doc/html/rfc1952)).
 - `gzip`
-  - : Ein Format, das die [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) verwendet, mit einer 32-Bit CRC.
-    Dies ist ursprünglich das Format des UNIX _gzip_ Programms.
-    Der HTTP/1.1 Standard empfiehlt auch, dass die Server, die diese Inhaltscodierung unterstützen, `x-gzip` als Alias erkennen sollten, aus Kompatibilitätsgründen.
+  - : Ein Format unter Verwendung der [Lempel-Ziv-Kodierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77), mit einem 32-Bit-CRC.
+    Dies ist ursprünglich das Format des UNIX-Programms _gzip_.
+    Der HTTP/1.1-Standard empfiehlt auch, dass die Server, die dieses Content-Encoding unterstützen, `x-gzip` als Alias erkennen sollten, aus Kompatibilitätsgründen.
 
 ## Beispiele
 
 ### Chunked Encoding
 
 Chunked Encoding ist nützlich, wenn größere Datenmengen an den Client gesendet werden und die Gesamtgröße der Antwort möglicherweise nicht bekannt ist, bis die Anfrage vollständig verarbeitet wurde.
-Zum Beispiel bei der Generierung einer großen HTML-Tabelle als Ergebnis einer Datenbankabfrage oder beim Übertragen großer Bilder.
-Eine chunked Antwort sieht folgendermaßen aus:
+Zum Beispiel beim Generieren einer großen HTML-Tabelle, die aus einer Datenbankabfrage resultiert, oder beim Übertragen großer Bilder.
+Eine Chunked-Antwort sieht folgendermaßen aus:
 
 ```http
 HTTP/1.1 200 OK
@@ -98,5 +98,5 @@ Developer Network\r\n
 - {{HTTPHeader("Accept-Encoding")}}
 - {{HTTPHeader("Content-Encoding")}}
 - {{HTTPHeader("Content-Length")}}
-- Header-Felder, die die Verwendung von Trailers regeln: {{HTTPHeader("TE")}} (Anfragen) und {{HTTPHeader("Trailer")}} (Antworten).
-- [Chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)
+- Header-Felder, die die Verwendung von Trails regeln: {{HTTPHeader("TE")}} (Anfragen) und {{HTTPHeader("Trailer")}} (Antworten).
+- [Chunked Transfer Encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)

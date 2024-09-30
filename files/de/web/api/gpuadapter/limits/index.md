@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`limits`**-Eigenschaft der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt zurück, das die vom Adapter unterstützten Grenzen beschreibt.
+Die schreibgeschützte **`limits`**-Eigenschaft der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt zurück, das die durch den Adapter unterstützten Grenzen beschreibt.
 
-Es ist zu beachten, dass Browser, anstatt die genauen Grenzen jeder GPU zu melden, wahrscheinlich unterschiedliche Tier-Werte verschiedener Grenzen melden, um die einzigartige Information zu reduzieren, die für Drive-by-Fingerprinting verfügbar ist. Zum Beispiel könnten die Tiers einer bestimmten Grenze 2048, 8192 und 32768 sein. Wenn das tatsächliche Limit Ihrer GPU 16384 beträgt, wird der Browser dennoch 8192 melden.
+Sie sollten beachten, dass Browser, anstatt die genauen Grenzen jeder GPU zu melden, wahrscheinlich verschiedene Stufenwerte unterschiedlicher Grenzen angeben, um die einzigartige Information zu reduzieren, die für Drive-by-Fingerprinting verfügbar ist. Beispielsweise könnten die Stufen einer bestimmten Grenze 2048, 8192 und 32768 sein. Wenn das tatsächliche Limit Ihrer GPU 16384 ist, wird der Browser dennoch 8192 melden.
 
-Da verschiedene Browser dies unterschiedlich handhaben und sich die Tier-Werte im Laufe der Zeit ändern können, ist es schwierig, eine genaue Angabe darüber zu machen, welche Grenzwerte zu erwarten sind — gründliches Testen wird empfohlen.
+Da verschiedene Browser dies unterschiedlich handhaben und sich die Stufenwerte im Laufe der Zeit ändern können, ist es schwierig, einen genauen Überblick darüber zu geben, welche Grenzwerte zu erwarten sind — gründliches Testen wird empfohlen.
 
 ## Wert
 
-Ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objektinstanz.
+Eine Instanz eines [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekts.
 
 ## Beispiele
 
-Im folgenden Code fragen wir den `GPUAdapter.limits`-Wert von `maxBindGroups` ab, um zu sehen, ob er gleich oder größer als 6 ist. Unser theoretisches Beispiel-App benötigt idealerweise 6 Bind-Gruppen. Wenn der zurückgegebene Wert >= 6 ist, fügen wir ein maximales Limit von 6 zum `requiredLimits`-Objekt hinzu und fordern mithilfe von [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) ein Gerät mit dieser Limitanforderung an:
+Im folgenden Beispielcode fragen wir den `GPUAdapter.limits`-Wert von `maxBindGroups` ab, um festzustellen, ob er gleich oder größer als 6 ist. Unser theoretisches Anwendungsbeispiel benötigt idealerweise 6 Bind-Gruppen, daher fügen wir, wenn der zurückgegebene Wert >= 6 ist, ein maximales Limit von 6 zum `requiredLimits`-Objekt hinzu und fordern ein Gerät mit diesem Limit an, indem wir [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) verwenden:
 
 ```js
 async function init() {
@@ -58,4 +58,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

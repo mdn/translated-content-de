@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Die **`textTracks`** schreibgeschützte Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle gibt eine Liste der Textspuren zurück, die aktuell im `SourceBuffer` enthalten sind.
+Die **`textTracks`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt eine Liste der Textspuren zurück, die derzeit im `SourceBuffer` enthalten sind.
 
 ## Wert
 

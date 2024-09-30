@@ -8,9 +8,10 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`sheet`**-Eigenschaft der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle enthält das Stylesheet, das mit der `ProcessingInstruction` verknüpft ist.
+Die schreibgeschützte **`sheet`**-Eigenschaft der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle
+enthält das Stylesheet, das der `ProcessingInstruction` zugeordnet ist.
 
-Die `xml-stylesheet`-Verarbeitungsanweisung wird verwendet, um ein Stylesheet in einer XML-Datei zu verknüpfen.
+Die `xml-stylesheet`-Verarbeitungsanweisung wird verwendet, um ein Stylesheet in einer XML-Datei zuzuordnen.
 
 ## Wert
 
@@ -36,4 +37,4 @@ Die `sheet`-Eigenschaft der Verarbeitungsanweisung gibt das [`StyleSheet`](/de/d
 
 ## Siehe auch
 
-- Die [DOM API](/de/docs/Web/API/Document_Object_Model)
+- Die [DOM-API](/de/docs/Web/API/Document_Object_Model)

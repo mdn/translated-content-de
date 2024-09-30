@@ -7,13 +7,13 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLTableColElement`** Schnittstelle bietet Eigenschaften zur Manipulation einzelner oder gruppierter Tabellenspaltenelemente.
+Die **`HTMLTableColElement`**-Schnittstelle bietet Eigenschaften zur Manipulation einzelner oder gruppierter Tabellenspalten-Elemente.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
+_Erbt Eigenschaften von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 - [`HTMLTableColElement.align`](/de/docs/Web/API/HTMLTableColElement/align) {{deprecated_inline}}
   - : Ein String, der die horizontale Ausrichtung der Zellen-Daten in der Spalte angibt.
@@ -22,15 +22,15 @@ _Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/AP
 - [`HTMLTableColElement.chOff`](/de/docs/Web/API/HTMLTableColElement/chOff) {{deprecated_inline}}
   - : Ein String, der den Versatz für das Ausrichtungszeichen darstellt.
 - [`HTMLTableColElement.span`](/de/docs/Web/API/HTMLTableColElement/span)
-  - : Eine positive Zahl, die das [`span`](/de/docs/Web/HTML/Element/col#span) HTML-Attribut widerspiegelt und die Anzahl der Spalten angibt, auf die die Attribute dieses Objekts angewendet werden.
+  - : Eine positive Zahl, die das [`span`](/de/docs/Web/HTML/Element/col#span) HTML-Attribut widerspiegelt und die Anzahl der Spalten angibt, auf die die Attribute dieses Objekts angewendet werden sollen.
 - [`HTMLTableColElement.vAlign`](/de/docs/Web/API/HTMLTableColElement/vAlign) {{deprecated_inline}}
   - : Ein String, der die vertikale Ausrichtung der Zellen-Daten in der Spalte angibt.
 - [`HTMLTableColElement.width`](/de/docs/Web/API/HTMLTableColElement/width) {{deprecated_inline}}
-  - : Ein String, der die Standardbreite der Spalte darstellt.
+  - : Ein String, der die Standard-Breite der Spalte darstellt.
 
 ## Instanzmethoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
+_Keine spezifische Methode; erbt Methoden von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 ## Spezifikationen
 

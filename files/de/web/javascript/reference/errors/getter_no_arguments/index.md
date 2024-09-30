@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Getter-Funktionen dürfen keine Argumente haben" tritt auf, wenn ein [getter](/de/docs/Web/JavaScript/Reference/Functions/get) deklariert ist und die Parameterliste nicht leer ist.
+Die JavaScript-Ausnahme "getter functions must have no arguments" tritt auf, wenn ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) deklariert wird und die Parameterliste nicht leer ist.
 
 ## Nachricht
 
@@ -23,9 +23,9 @@ SyntaxError: Unexpected identifier 'x'. getter functions must have no parameters
 
 ## Was ist schiefgelaufen?
 
-Die [`get`](/de/docs/Web/JavaScript/Reference/Functions/get) Eigenschaftssyntax sieht wie eine Funktion aus, ist jedoch strenger und nicht alle Funktionssyntax ist erlaubt. Ein Getter wird immer ohne Argumente aufgerufen, daher ist es wahrscheinlich ein Fehler, ihn mit einem Parameter zu definieren.
+Die [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)-Eigenschaftssyntax sieht aus wie eine Funktion, ist aber strikter und nicht alle Funktionssyntax ist erlaubt. Ein Getter wird immer ohne Argumente aufgerufen, daher ist es wahrscheinlich ein Fehler, ihn mit Parametern zu definieren.
 
-Beachten Sie, dass dieser Fehler nur für Eigenschaftsgetter mit der `get`-Syntax gilt. Wenn Sie den Getter mit {{jsxref("Object.defineProperty()")}} usw. definieren, wird der Getter als normale Funktion definiert, obwohl es wahrscheinlich immer noch ein Fehler ist, wenn der Getter Argumente erwartet, da er ohne solche aufgerufen wird.
+Beachten Sie, dass dieser Fehler nur für Eigenschafts-Getter gilt, die die `get`-Syntax verwenden. Wenn Sie den Getter mit {{jsxref("Object.defineProperty()")}} usw. definieren, wird der Getter als normale Funktion definiert, obwohl es wahrscheinlich immer noch ein Fehler ist, wenn der Getter Argumente erwartet, da er ohne solche aufgerufen wird.
 
 ## Beispiele
 

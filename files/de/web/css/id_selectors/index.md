@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut genau mit dem im Selektor angegebenen Wert übereinstimmen.
+Der CSS-**ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut exakt mit dem im Selektor angegebenen Wert übereinstimmen.
 
 ```css
 /* The element with id="demo" */
@@ -22,13 +22,13 @@ Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de
 #id_value { style properties }
 ```
 
-Beachten Sie, dass dies syntaktisch (aber nicht spezifitätsmäßig) dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
+Beachten Sie, dass dies syntaktisch (aber nicht hinsichtlich der Spezifität) dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
 
 ```css
 [id=id_value] { style properties }
 ```
 
-Der `id_value`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
+Der `id_value`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escapet](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
 
 ## Beispiele
 
@@ -97,5 +97,5 @@ Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner un
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [Learn CSS: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

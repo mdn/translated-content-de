@@ -8,13 +8,13 @@ l10n:
 
 {{ApiRef("HTML DOM")}}{{Deprecated_header}}{{non-standard_header}}
 
-Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Nutzers zurück, die anzeigt, ob der Nutzer von Websites und Werbeanbietern nicht verfolgt werden möchte.
+Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Benutzers zurück, die angibt, ob der Benutzer Websites und Werbetreibende auffordert, ihn nicht zu verfolgen.
 
-Der Wert der Eigenschaft entspricht dem des {{httpheader("DNT")}} HTTP-Headers, d.h. Werte von `"1"`, `"0"` oder `null`.
+Der Wert der Eigenschaft spiegelt den des {{httpheader("DNT")}} HTTP-Headers wider, d.h. Werte von `"1"`, `"0"` oder `null`.
 
-Die gesamte DNT (Do Not Track)-Spezifikation wurde eingestellt. Das Mechanismusdesign war fehlerhaft, da es sich um eine kooperative Funktion zwischen Nutzern, Websites und Browsern handelte. Die Idee ist, dass der Nutzer der _Website_ mitteilt, ihn nicht zu verfolgen, und die _Website_ dem nachkommt. Es gibt jedoch keine strenge Durchsetzung dieser Richtlinie, sodass Werbeseiten den DNT-Header ignorierten und Nutzer dennoch verfolgten. Das Feature ist daher nutzlos. Darüber hinaus ist es schädlich, da es mehr Nutzer-[Fingerabdrücke](/de/docs/Glossary/Fingerprinting) im Header hinterlässt, die benutzt werden können, um Nutzer noch mehr zu verfolgen.
+Die gesamte DNT (Do Not Track)-Spezifikation wurde eingestellt. Das Design des Mechanismus war fehlerhaft, da es ein kooperatives Merkmal zwischen Benutzern, Websites und Browsern war. Die Idee war, dass der Benutzer der _Website_ mitteilt, ihn nicht zu verfolgen, und die _Website_ dem zustimmen würde. Es gibt jedoch keine strikte Durchsetzung dieser Richtlinie, sodass Werbe-Websites den DNT-Header ignorierten und Benutzer dennoch verfolgten. Das Merkmal ist daher nutzlos. Darüber hinaus ist es schädlich, da es mehr Benutzer-[Fingerabdruck](/de/docs/Glossary/Fingerprinting) im Header hinterlässt, der verwendet werden kann, um Benutzer noch mehr zu verfolgen.
 
-Browser erforschen andere durchsetzbarere Datenschutzfunktionen, wie z. B. [global privacy control](/de/docs/Web/API/Navigator/globalPrivacyControl), Einschränkungen für Drittanbieter-Cookies und mehr.
+Browser erforschen andere durchsetzbare Datenschutzfunktionen, wie z.B. [global privacy control](/de/docs/Web/API/Navigator/globalPrivacyControl), Einschränkungen bei Drittanbieter-Cookies und mehr.
 
 ## Wert
 

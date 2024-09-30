@@ -7,18 +7,18 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<munderover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Akzente oder Grenzen sowohl unter als auch über einem Ausdruck hinzuzufügen.
+Das **`<munderover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Akzente oder Grenzen sowohl unter als auch über einem Ausdruck anzubringen.
 
-Es verwendet die folgende Syntax: `<munderover> base untereskript obereskript </munderover>`
+Es verwendet die folgende Syntax: `<munderover> base underscript overscript </munderover>`
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Oberskript als Akzent behandelt werden soll (d. h. größer und näher zum Basisausdruck gezeichnet wird).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Überskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet werden soll).
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Untereskript als Akzent behandelt werden soll (d. h. größer und näher zum Basisausdruck gezeichnet wird).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet werden soll).
 
 ## Beispiele
 
@@ -52,4 +52,4 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 ## Siehe auch
 
 - {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("mover") }} (Oberskript)
+- {{ MathMLElement("mover") }} (Überskript)

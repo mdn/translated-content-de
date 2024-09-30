@@ -1,5 +1,5 @@
 ---
-title: "CustomElementRegistry: whenDefined()-Methode"
+title: "CustomElementRegistry: whenDefined() Methode"
 short-title: whenDefined()
 slug: Web/API/CustomElementRegistry/whenDefined
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`whenDefined()`**-Methode des Interfaces [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert ist.
+Die **`whenDefined()`** Methode der
+[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert ist.
 
 ## Syntax
 
@@ -23,13 +24,13 @@ whenDefined(name)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem Konstruktor des [benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) erfüllt wird, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert wird. Wenn bereits ein benutzerdefiniertes Element mit diesem Namen definiert wurde, wird das Promise sofort erfüllt.
+Ein {{jsxref("Promise")}}, das mit dem Konstruktor des [benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) erfüllt wird, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert wird. Wenn bereits ein benutzerdefiniertes Element mit dem Namen definiert wurde, wird das Promise sofort erfüllt.
 
 Das Promise wird mit einem `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn der Name kein [gültiger Name für benutzerdefinierte Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) ist.
 
 ## Beispiele
 
-Dieses Beispiel verwendet `whenDefined()`, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert sind. Das Menü zeigt Platzhalterinhalte, bis die eigentlichen Menüinhalte bereit sind.
+In diesem Beispiel wird `whenDefined()` verwendet, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert werden. Das Menü zeigt Platzhalterinhalte an, bis der eigentliche Menüinhalt bereit steht.
 
 ```html
 <nav id="menu-container">

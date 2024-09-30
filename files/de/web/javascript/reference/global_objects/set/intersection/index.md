@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`intersection()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die sowohl in dieser Menge als auch in der gegebenen Menge vorhanden sind.
+Die **`intersection()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die sowohl in diesem Set als auch im angegebenen Set enthalten sind.
 
 ## Syntax
 
@@ -18,17 +18,17 @@ intersection(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die sowohl in dieser Menge als auch in der `other`-Menge vorhanden sind.
+Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die sowohl in diesem Set als auch im `other`-Set vorhanden sind.
 
 ## Beschreibung
 
-In der mathematischen Notation wird die _Schnittmenge_ definiert als:
+In mathematischer Notation wird _Schnittmenge_ definiert als:
 
-<!-- Hinweis: die {} müssen doppelt escaped werden, einmal für Yari -->
+<!-- Note: the {} need to be double-escaped, once for Yari -->
 <!-- prettier-ignore-start -->
 <math display="block">
   <semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo><mo stretchy="false">{</mo><mi>x</mi><mo>∊</mo><mi>A</mi><mo>∣</mo><mi>x</mi><mo>∊</mo><mi>B</mi><mo stretchy="false">}</mo></mrow><annotation encoding="TeX">A\cap B = \\{x\in A\mid x\in B\\}</annotation></semantics>
@@ -37,20 +37,20 @@ In der mathematischen Notation wird die _Schnittmenge_ definiert als:
 
 Und unter Verwendung eines Venn-Diagramms:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Der Schnittpunkt von A und B ist der Bereich, in dem sie sich überlappen.](diagram.svg)
+![Ein Venn-Diagramm, bei dem sich zwei Kreise überschneiden. Die Schnittmenge von A und B ist der Bereich, in dem sie sich überschneiden.](diagram.svg)
 
-`intersection()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt die zugrunde liegenden Daten in `this` abruft, ohne benutzerdefinierten Code aufzurufen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
+`intersection()` akzeptiert [set-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da die zugrunde liegenden Daten direkt in `this` abgerufen werden, ohne benutzerdefinierten Code aufzurufen. Dann hängt das Verhalten von den Größen von `this` und `other` ab:
 
-- Wenn es mehr Elemente in `this` als `other.size` gibt, dann iteriert es über `other` durch den Aufruf seiner `keys()`-Methode und erstellt eine neue Menge mit allen erzeugten Elementen, die auch in `this` vorhanden sind.
-- Andernfalls iteriert es über die Elemente in `this` und erstellt eine neue Menge mit allen Elementen `e` in `this`, die bewirken, dass `other.has(e)` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt.
+- Wenn `this` mehr Elemente enthält als `other.size`, wird `other` durch Aufrufen seiner `keys()`-Methode iteriert, und ein neues Set wird mit allen erzeugten Elementen erstellt, die auch in `this` vorhanden sind.
+- Andernfalls wird über die Elemente von `this` iteriert, und ein neues Set wird mit allen Elementen `e` in `this` erstellt, die `other.has(e)` dazu bringen, einen [wahrheitsgemäßen](/de/docs/Glossary/Truthy) Wert zurückzugeben.
 
-Aufgrund dieser Implementierung hängt die Effizienz von `intersection()` hauptsächlich von der Größe der kleineren Menge zwischen `this` und `other` ab (vorausgesetzt, dass auf Mengen in sublinearer Zeit zugegriffen werden kann). Die Reihenfolge der Elemente in der zurückgegebenen Menge entspricht der der kleineren von `this` und `other`.
+Aufgrund dieser Implementierung hängt die Effizienz von `intersection()` hauptsächlich von der Größe des kleineren Sets zwischen `this` und `other` ab (vorausgesetzt, dass auf Sets in sublinearer Zeit zugegriffen werden kann). Die Reihenfolge der Elemente im zurückgegebenen Set entspricht der des kleineren von `this` und `other`.
 
 ## Beispiele
 
 ### Verwendung von intersection()
 
-Das folgende Beispiel berechnet die Schnittmenge zwischen der Menge der ungeraden Zahlen (<10) und der Menge der perfekten Quadrate (<10). Das Ergebnis ist die Menge ungerader Zahlen, die perfekte Quadrate sind.
+Das folgende Beispiel berechnet die Schnittmenge zwischen der Menge ungerader Zahlen (<10) und der Menge perfekter Quadrate (<10). Das Ergebnis ist die Menge ungerader Zahlen, die perfekte Quadrate sind.
 
 ```js
 const odds = new Set([1, 3, 5, 7, 9]);

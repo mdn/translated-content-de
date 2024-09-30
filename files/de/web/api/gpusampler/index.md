@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUSampler`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Objekt, das steuern kann, wie Shader Texturressourcendaten transformieren und filtern.
+Die **`GPUSampler`**-Schnittstelle der [WebGPU-API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Objekt, das steuert, wie Shader Textur-Ressourcendaten transformieren und filtern.
 
 Ein `GPUSampler`-Objekt wird mit der Methode [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) erstellt.
 
@@ -16,11 +16,11 @@ Ein `GPUSampler`-Objekt wird mit der Methode [`GPUDevice.createSampler()`](/de/d
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPUSampler/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, welches verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der eine Bezeichnung für das Objekt bereitstellt, die beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen verwendet werden kann.
 
 ## Beispiele
 
-Der folgende Codeausschnitt erstellt einen `GPUSampler`, der trilineares Filtern durchführt und Texturkoordinaten wiederholt:
+Der folgende Ausschnitt erstellt einen `GPUSampler`, der trilineare Filterung durchführt und Texturkoordinaten wiederholt:
 
 ```js
 // ...
@@ -33,7 +33,7 @@ const sampler = device.createSampler({
 });
 ```
 
-Das WebGPU-Beispiel [Shadow Mapping sample](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) verwendet Vergleichs-Sampler, um aus einer Tiefentextur Schatten zu rendern.
+Das WebGPU-Beispiel [Shadow Mapping sample](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) verwendet Vergleichssampler, um aus einer Tiefentextur Schatten zu rendern.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Das WebGPU-Beispiel [Shadow Mapping sample](https://webgpu.github.io/webgpu-samp
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

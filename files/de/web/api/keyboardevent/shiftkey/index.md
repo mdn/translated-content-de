@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Shift</kbd>-Taste (`true`) gedrückt wurde oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Umschalt</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
 
-Das Drücken der Shift-Taste kann auch das [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Zum Beispiel erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
+Das Drücken der Umschalttaste kann auch den [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Zum Beispiel erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
 
 ## Wert
 

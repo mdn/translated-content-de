@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die schreibgeschützte Eigenschaft **`Animation.finished`** der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Animation das Abspielen beendet hat.
+Die **`Animation.finished`**-Eigenschaft des [Web Animations API](/de/docs/Web/API/Web_Animations_API) ist eine schreibgeschützte Eigenschaft, die ein {{jsxref("Promise")}} zurückgibt, das aufgelöst wird, sobald die Animation das Abspielen beendet hat.
 
 > [!NOTE]
-> Jedes Mal, wenn die Animation den `finished`-Abspielzustand verlässt (d.h. wenn sie erneut abgespielt wird), wird ein neues `Promise` für diese Eigenschaft erstellt. Das neue `Promise` wird aufgelöst, sobald die neue Animationssequenz abgeschlossen ist.
+> Jedes Mal, wenn die Animation den `finished`-Spielzustand verlässt (das heißt, wenn sie erneut zu spielen beginnt), wird ein neues `Promise` für diese Eigenschaft erstellt. Das neue `Promise` wird aufgelöst, sobald die neue Animationssequenz abgeschlossen ist.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}-Objekt, das aufgelöst wird, sobald die Animation abgeschlossen ist.
+Ein {{jsxref("Promise")}}-Objekt, das aufgelöst wird, sobald die Animation beendet ist.
 
 ## Beispiele
 
-Der folgende Code wartet, bis alle auf dem Element `elem` laufenden Animationen abgeschlossen sind, und entfernt dann das Element aus dem DOM-Baum:
+Der folgende Code wartet, bis alle auf dem Element `elem` laufenden Animationen beendet sind, und löscht dann das Element aus dem DOM-Baum:
 
 ```js
 Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(

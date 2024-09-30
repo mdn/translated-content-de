@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem Sie eine `label`-Eigenschaft im Descriptor-Objekt bereitstellen, das beim ursprünglichen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) übergeben wird, oder Sie können es direkt auf dem `GPUBindGroup`-Objekt festlegen und abrufen.
+Dies kann durch Bereitstellung einer `label`-Eigenschaft im Deskripturobjekt, das im ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf übergeben wird, gesetzt werden. Alternativ kann es direkt am `GPUBindGroup`-Objekt gelesen und geschrieben werden.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben zuvor festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPUBindGroup.label`:
+Setzen und Abrufen eines Labels über `GPUBindGroup.label`:
 
 ```js
 // ...
@@ -40,7 +40,7 @@ bindGroup.label = "mybindgroup";
 console.log(bindGroup.label); // "mybindgroup";
 ```
 
-Festlegen eines Labels über den ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf und anschließendes Abrufen über `GPUBindGroup.label`:
+Setzen eines Labels über den ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf und dann Abrufen desselben über `GPUBindGroup.label`:
 
 ```js
 // ...

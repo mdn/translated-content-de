@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`generateKeyFrame()`**-Methode der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Schnittstelle veranlasst einen Video-Encoder, einen Schlüsselbildrahmen zu erzeugen.
+Die **`generateKeyFrame()`**-Methode der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Schnittstelle veranlasst einen Video-Encoder, einen Schlüsselrahmen zu erzeugen.
 
 ## Syntax
 
@@ -21,46 +21,45 @@ generateKeyFrame(rid)
 
 - `rid` {{optional_inline}}
 
-  - : Ein String, der die "Restriction Identifier" ("RID") des Streams/Encoders enthält, der den neuen Schlüsselbildrahmen erzeugen muss.
+  - : Ein String, der die "Einschränkungskennung" ("RID") des Streams/Encoders enthält, der den neuen Schlüsselrahmen erzeugen muss.
 
-    Der Wert muss zwischen 1 und 255 Zeichen (einschließlich) lang sein und darf nur die alphanumerischen Zeichen, Unterstriche und Bindestriche (`A-Z`, `a-z`, `0-9`, `-`, `_`) enthalten.
-    RIDs sind groß- und kleinschreibungssensitiv und müssen für den Peer-Kommunikationskanal eindeutig sein.
-    <!-- RFC8851 erlaubt '-' und '_' und unbegrenzte Länge. RFC 8852 widerspricht (https://www.rfc-editor.org/errata/eid7132) -->
+    Der Wert muss zwischen 1 und 255 Zeichen lang sein (einschließlich) und nur alphanumerische Zeichen, Unterstrich und Bindestrich (`A-Z`, `a-z`, `0-9`, `-`, `_`) enthalten.
+    RIDs sind groß- und kleinschreibungssensitiv und müssen eindeutig für den Peer-Kommunikationskanal sein.
+    <!-- RFC8851 erlaubt '-' und '_' und unbeschränkte Länge. RFC 8852 widerspricht (https://www.rfc-editor.org/errata/eid7132) -->
 
-    Der erste Encoder, der mit dem angegebenen `rid` übereinstimmt, wird verwendet.
-    Wenn kein Encoder dem `rid` entspricht, wird der erste Encoder verwendet, und `rid` wird auf die Einschränkungen des Encoders gesetzt.
+    Der erste Encoder, der mit dem angegebenen `rid` übereinstimmt, wird verwendet. Wenn kein Encoder mit dem `rid` übereinstimmt, wird der erste Encoder verwendet und `rid` auf die Einschränkungen des Encoders gesetzt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit dem Zeitstempel des Rahmens erfüllt oder mit einem Ausnahmefehler abgelehnt wird.
+Ein {{jsxref("Promise")}}, das mit dem Zeitstempel des Rahmens erfüllt wird oder mit einem Ausnahmefehler abgelehnt wird.
 
 ### Ausnahmen
 
 - `InvalidStateError`
-  - : Der Encoder verarbeitet keine Videobilder oder ist `undefined`.
+  - : Der Encoder verarbeitet keine Videorahmen oder ist `undefined`.
 - `TypeError`
-  - : Das bereitgestellte `rid` entspricht nicht den Grammatikanforderungen.
+  - : Der bereitgestellte `rid` entspricht nicht den Grammaturanfordungen.
 - `NotFoundError`
-  - : Es sind keine Video-Encoder vorhanden. Dies könnte ausgelöst werden, wenn der entsprechende `RTCRtpSender` nicht aktiv ist oder sein Track beendet ist.
+  - : Es gibt keine Video-Encoder. Dies könnte auftreten, wenn der entsprechende `RTCRtpSender` nicht aktiv ist oder dessen Track beendet ist.
 
 ## Beschreibung
 
-Diese Methode kann von einem Transformator aufgerufen werden, der ausgehende codierte Video-Frames verarbeitet, um das Senden eines neuen vollständigen (Schlüssel-)Bildrahmens zu erzwingen. Es könnte von einem [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) benötigt werden, das Frames verschlüsselt, um sicherzustellen, dass, wenn ein neuer Verschlüsselungsschlüssel hinzugefügt wird, ein mit diesem Schlüssel verschlüsselter Schlüsselframe so schnell wie möglich gesendet wird.
+Diese Methode kann von einem Transformator aufgerufen werden, der ausgehende codierte Videorahmen verarbeitet, um das Senden eines neuen vollständigen (Schlüssel-)Rahmens zu erzwingen. Dies könnte von einem [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) benötigt werden, das Rahmen verschlüsselt, um sicherzustellen, dass, wenn ein neuer Verschlüsselungsschlüssel hinzugefügt wird, ein mit diesem Schlüssel verschlüsselter Schlüsselrahmen so schnell wie möglich gesendet wird.
 
-Der Sender kann ein RID (auch als "Restriction Identifier" oder "RTP Stream ID" bezeichnet) angeben, um zu steuern, welcher Codec den neuen Schlüsselbildrahmen erzeugt. Ein Stream kann (Simulcast) mehrere Versionen derselben Quelle enthalten, jeweils mit unterschiedlichen Eigenschaften wie Auflösung und Bildrate. Das RID wird verwendet, um einen bestimmten RTP-Stream anzugeben und somit den Encoder, der einen neuen Rahmen erzeugen muss. Beachten Sie, dass die verfügbaren RID-Werte festgelegt werden, wenn der von der Verbindung verwendete Transceiver erstellt wird. Die verwendeten RID-Werte können abgefragt werden, indem `RTCRtpSender.getParameters()` aufgerufen und die [`encodings`](/de/docs/Web/API/RTCRtpSender/getParameters#encodings)-Eigenschaft des zurückgegebenen Wertes inspiziert wird.
+Der Sender kann ein RID (auch als "restriction identifier" oder "RTP stream ID" bezeichnet) angeben, um zu steuern, welcher Codec den neuen Schlüsselrahmen erzeugt. Ein Stream kann (Simulcast) mehrere Versionen derselben Quelle enthalten, jeweils mit unterschiedlichen Eigenschaften wie Auflösung und Bildrate. Das RID wird verwendet, um einen bestimmten RTP-Stream anzugeben und damit den Encoder, der einen neuen Rahmen erzeugen muss. Beachten Sie, dass die verfügbaren RID-Werte festgelegt werden, wenn das von der Verbindung verwendete Transceiver erstellt wird. Die verwendeten RID-Werte können durch Aufruf von [`RTCRtpSender.getParameters()`](/de/docs/Web/API/RTCRtpSender/getParameters) und Überprüfung der [`encodings`](/de/docs/Web/API/RTCRtpSender/getParameters#encodings)-Eigenschaft des zurückgegebenen Werts abgefragt werden.
 
-Das von der Methode zurückgegebene Promise wird aufgelöst, kurz bevor der entsprechende Schlüsselframe in eine `RTCRtpScriptTransformer`-readable eingereiht wird.
+Das von der Methode zurückgegebene Versprechen wird aufgelöst, kurz bevor der entsprechende Schlüsselrahmen in einem `RTCRtpScriptTransformer`-Lesestrahler eingereiht wird.
 
 > [!NOTE]
-> Das gleichzeitige Senden mehrerer Streams (RID) wird als "Simulcast" bezeichnet. Diese Funktion stellt einer [Middlebox](https://en.wikipedia.org/wiki/Middlebox) denselben Stream in mehreren Qualitätsstufen bereit, sodass diese die Bandbreite verwalten kann, indem sie geeignete Stufen selektiv an die Teilnehmer überträgt und die Auflösung schnell auf die Fliege (d. h. Umschalten auf Übertragung von niedriger Qualität für alle außer dem aktiven Sprecher) umschaltet. Der Empfänger erhält immer nur einen Stream, weshalb die vergleichbare Empfängermethode [`RTCRtpScriptTransformer.sendKeyFrameRequest()`](/de/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest) nicht erfordert, dass ein RID angegeben wird.
+> Das gleichzeitige Senden mehrerer Streams (RID) wird als "Simulcast" bezeichnet. Diese Funktion bietet einer [Middlebox](https://en.wikipedia.org/wiki/Middlebox) denselben Stream in mehreren Videoqualitätsstufen und ermöglicht es, die Bandbreite zu verwalten, indem selektiv geeignete Stufen an Teilnehmer übertragen werden und die Auflösung schnell im laufenden Betrieb umgeschaltet wird (d.h. umschalten, um minderwertiges Video für alle außer dem aktiven Sprecher weiterzuleiten). Der Empfänger erhält nur je einen Stream, weshalb die vergleichbare Empfängermethode [`RTCRtpScriptTransformer.sendKeyFrameRequest()`](/de/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest) nicht erfordert, dass ein RID angegeben wird.
 
 ## Beispiele
 
-### Senden eines Schlüsselbildrahmens
+### Senden eines Schlüsselrahmens
 
-Das folgende Beispiel zeigt, wie der Hauptthread einen Verschlüsselungsschlüssel an einen Sender-Transformator übergeben und den Codec dazu veranlassen könnte, einen Schlüsselbildrahmen zu erzeugen.
+Das folgende Beispiel zeigt, wie der Hauptthread einen Verschlüsselungsschlüssel an eine Absendertransformation übergeben und den Codec dazu veranlassen könnte, einen Schlüsselrahmen zu erzeugen.
 
-Beachten Sie, dass der Hauptthread keinen direkten Zugriff auf das [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Objekt hat, daher muss er den Schlüssel und RID an den Worker übergeben. Hier erfolgt dies über einen `MessageChannel`, wobei der zweite Port an den im Worker ausgeführten Transformationscode übergeben wird. Der Code geht davon aus, dass bereits eine Peer-Verbindung besteht und `videoSender` ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) ist.
+Da der Hauptthread keinen direkten Zugriff auf das [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Objekt hat, muss er den Schlüssel und RID an den Worker übergeben. Hier machen wir das mit einem `MessageChannel`, indem wir den zweiten Port in den Worker-Code übertragen, der im Worker ausgeführt wird. Der Code geht davon aus, dass bereits eine Peer-Verbindung besteht und `videoSender` ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) ist.
 
 ```js
 const worker = new Worker("worker.js");
@@ -80,7 +79,7 @@ channel.port1.postMessage({
 });
 ```
 
-Der [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Event-Handler im Worker erhält den Port und verwendet ihn, um auf `message`-Ereignisse zu lauschen. Wenn ein Ereignis empfangen wird, erhält er das `rid` und den `key` und ruft dann `generateKeyFrame()` auf.
+Der [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignishandler im Worker erhält den Port und nutzt ihn, um auf `message`-Ereignisse zu hören. Wenn ein Ereignis empfangen wird, erhält es das `rid` und den `key` und ruft dann `generateKeyFrame()` auf.
 
 ```js
 event.transformer.options.port.onmessage = (event) => {
@@ -103,4 +102,4 @@ event.transformer.options.port.onmessage = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von WebRTC Codierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

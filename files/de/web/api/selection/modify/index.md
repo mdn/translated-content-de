@@ -1,5 +1,5 @@
 ---
-title: "Selection: modify() Methode"
+title: "Selection: modify()-Methode"
 short-title: modify()
 slug: Web/API/Selection/modify
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Selection.modify()`** Methode wendet eine Änderung auf die
-aktuelle Auswahl oder die Cursorposition an, indem einfache Textbefehle verwendet werden.
+Die **`Selection.modify()`**-Methode wendet eine Änderung auf die aktuelle Auswahl oder die Cursorposition an, indem einfache textuelle Befehle verwendet werden.
 
 ## Syntax
 
@@ -20,18 +19,17 @@ modify(alter, direction, granularity)
 ### Parameter
 
 - `alter`
-  - : Der Änderungstyp, der angewendet werden soll. Geben Sie `"move"` an, um die aktuelle Cursorposition zu verschieben, oder `"extend"`, um die aktuelle Auswahl zu erweitern.
+  - : Die Art der anzuwendenden Änderung. Geben Sie `"move"` an, um die aktuelle Cursorposition zu verschieben oder `"extend"`, um die aktuelle Auswahl zu erweitern.
 - `direction`
-  - : Die Richtung, in die die aktuelle Auswahl angepasst werden soll. Sie können
-    `"forward"` oder `"backward"` angeben, um die Auswahl basierend auf der Sprache an der Auswahlposition in die entsprechende Richtung anzupassen. Wenn Sie in eine bestimmte Richtung anpassen möchten, können Sie `"left"` oder `"right"` angeben.
+  - : Die Richtung, in der die aktuelle Auswahl angepasst werden soll. Sie können `"forward"` oder `"backward"` angeben, um in die entsprechende Richtung basierend auf der Sprache am Auswahlpunkt anzupassen. Wenn Sie in eine spezifische Richtung anpassen möchten, können Sie `"left"` oder `"right"` angeben.
 - `granularity`
-  - : Die Entfernung, um die die aktuelle Auswahl oder Cursorposition angepasst werden soll. Sie können nach `"character"`, `"word"`, `"sentence"`, `"line"`, `"paragraph"`, `"lineboundary"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"` verschieben.
+  - : Die Distanz, um die die aktuelle Auswahl oder Cursorposition angepasst werden soll. Sie können nach `"character"`, `"word"`, `"sentence"`, `"line"`, `"paragraph"`, `"lineboundary"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"` bewegen.
 
 > [!NOTE]
-> Firefox implementiert **nicht** `"sentence"`, `"paragraph"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"`. WebKit und Blink dagegen schon.
+> Firefox implementiert **nicht** `"sentence"`, `"paragraph"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"`. WebKit und Blink tun es.
 
 > [!NOTE]
-> Ab Firefox 5 umfasst die Granularität `"word"` nicht mehr den folgenden Leerraum, unabhängig vom Standardplattformverhalten. Dies macht das Verhalten konsistenter und gleicht es der früheren Funktionsweise von WebKit an, obwohl sie ihr Verhalten kürzlich geändert haben.
+> Ab Firefox 5 schließt die `"word"` Granularität nicht mehr den folgenden Raum ein, unabhängig vom Standardplattformverhalten. Dies macht das Verhalten konsistenter und funktioniert so, wie es WebKit früher tat, aber leider haben sie kürzlich ihr Verhalten geändert.
 
 ### Rückgabewert
 
@@ -39,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die verschiedenen `granularity` Optionen für das Ändern einer Auswahl. Klicken Sie irgendwo innerhalb des Beispiels (optional, indem Sie etwas Text auswählen) und klicken Sie dann auf die Schaltfläche, um die Auswahl zu erweitern.
+Dieses Beispiel demonstriert die verschiedenen `granularity`-Optionen zum Ändern einer Auswahl. Klicken Sie irgendwo in das Beispiel (optional mit ausgewähltem Text), und klicken Sie dann auf die Schaltfläche, um die Auswahl zu erweitern.
 
 ### HTML
 
@@ -101,4 +99,4 @@ function modify() {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.

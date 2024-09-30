@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`processingEnd`**-Eigenschaft gibt die Zeit zurück, zu der der letzte Ereignishandler die Ausführung beendet hat.
 
-Sie ist gleich [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart), wenn es keine solchen Ereignishandler gibt.
+Sie ist gleich [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart), wenn keine solchen Ereignishandler vorhanden sind.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Zeitstempel.
 
 ### Verwendung der processingEnd-Eigenschaft
 
-Die `processingEnd`-Eigenschaft kann verwendet werden, wenn man Ereignis-Timing-Einträge beobachtet ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)). Zum Beispiel, um die Eingabeverzögerung oder die Zeiten der Ereignisverarbeitung zu berechnen.
+Die `processingEnd`-Eigenschaft kann verwendet werden, wenn man Ereignis-Timing-Einträge beobachtet ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)). Zum Beispiel, um die Eingabeverzögerung oder die Bearbeitungszeiten von Ereignissen zu berechnen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

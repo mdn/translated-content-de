@@ -8,12 +8,12 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.anchorNode`** gibt den
+Die **`Selection.anchorNode`** schreibgeschützte Eigenschaft gibt den
 [`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl beginnt.
 
 Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links
-(umgekehrte Dokumentreihenfolge) treffen. Der Anker ist der Punkt, an dem der Benutzer die Auswahl begonnen hat. Dies
-kann visualisiert werden, indem Sie die Umschalttaste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur drücken. Der
+(entgegen der Dokumentreihenfolge) treffen. Der Anker ist dort, wo der Benutzer die Auswahl begonnen hat. Dies kann
+veranschaulicht werden, indem Sie die Umschalttaste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur drücken. Der
 Anker der Auswahl bewegt sich nicht, aber der Fokus der Auswahl, das andere Ende der
 Auswahl, bewegt sich.
 

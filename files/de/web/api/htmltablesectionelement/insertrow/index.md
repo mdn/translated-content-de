@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces fügt eine neue Zeile
-({{HtmlElement("tr")}}) in das angegebene Tabellenabschnittselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder
+Die **`insertRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle fügt eine neue Zeile
+({{HtmlElement("tr")}}) in das angegebene Tabellensektionselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder
 {{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
 
-> **Note:** `insertRow()` fügt die Zeile direkt in den
-> Abschnitt ein. Die Zeile muss nicht separat angefügt werden, wie es der Fall wäre, wenn
-> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue
+> **Note:** `insertRow()` fügt die Zeile direkt in die
+> Sektion ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn 
+> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet wurde, um das neue
 > `<tr>`-Element zu erstellen.
 
 ## Syntax
@@ -27,22 +27,22 @@ insertRow(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der
-    Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` ist oder gleich der Anzahl der Zeilen,
+    wird die Zeile als letzte Zeile angehängt. 
     Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue Zeile verweist.
+Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das die neue Zeile referenziert.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zeilen oder kleiner als `-1`.
+  - : Wird ausgelöst, wenn `index` größer als die Anzahl der Zeilen oder kleiner als `-1` ist.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; zudem wird ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Reihen in der Tabelle aktualisiert.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es wird auch ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Zeilen in der Tabelle aktualisiert.
 
 ### HTML
 

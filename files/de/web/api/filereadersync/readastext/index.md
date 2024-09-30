@@ -1,5 +1,5 @@
 ---
-title: "FileReaderSync: Methode readAsText()"
+title: "FileReaderSync: readAsText()-Methode"
 short-title: readAsText()
 slug: Web/API/FileReaderSync/readAsText
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}} {{AvailableInWorkers("worker_except_service")}}
 
-Die **`readAsText()`**-Methode des [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Interfaces ermöglicht das synchrone Einlesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten in einen String. Dieses Interface ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da es synchrone Ein-/Ausgabe ermöglicht, die potenziell blockieren könnte.
+Die **`readAsText()`**-Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle ermöglicht das synchrone Lesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten in eine Zeichenkette. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workers](/de/docs/Web/API/Worker), da sie synchrone I/O-Operationen ermöglicht, die potenziell blockierend sein könnten.
 
 ## Syntax
 
@@ -20,29 +20,29 @@ readAsText(blob, encoding)
 ### Parameter
 
 - `blob`
-  - : Das zu lesende [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob).
+  - : Die zu lesende [`File`](/de/docs/Web/API/File) oder der zu lesende [`Blob`](/de/docs/Web/API/Blob).
 - `encoding` {{optional_inline}}
-  - : Der optionale Parameter spezifiziert die zu verwendende Kodierung (z.B. `iso-8859-1` oder `UTF-8`). Wenn nicht vorhanden, wendet die Methode einen Erkennungsalgorithmus an.
+  - : Der optionale Parameter gibt die zu verwendende Kodierung an (z.B. `iso-8859-1` oder `UTF-8`). Wenn er nicht vorhanden ist, wird die Methode einen Erkennungsalgorithmus anwenden.
 
 ### Rückgabewert
 
-Ein String, der die Eingabedaten repräsentiert.
+Eine Zeichenkette, die die Eingabedaten repräsentiert.
 
 ### Ausnahmen
 
-Die folgenden Ausnahmen können von dieser Methode ausgelöst werden:
+Die folgende Ausnahmen können von dieser Methode ausgelöst werden:
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource, die durch das DOM-[`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentiert wird, nicht gefunden werden kann, z.B. weil sie gelöscht wurde.
+  - : Wird ausgelöst, wenn die durch die DOM-[`File`](/de/docs/Web/API/File) oder den [`Blob`](/de/docs/Web/API/Blob) repräsentierte Ressource nicht gefunden werden kann, z.B., weil sie gelöscht wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen festgestellt wird:
-    - die Ressource wurde von einem Dritten geändert;
-    - es werden zu viele Leseoperationen gleichzeitig durchgeführt;
-    - die Datei, auf die die Ressource verweist, ist unsicher für die Nutzung aus dem Web (z.B. handelt es sich um eine Systemdatei).
+    - Die Ressource wurde von einem Dritten verändert;
+    - zu viele Lesevorgänge werden gleichzeitig durchgeführt;
+    - die Datei, auf die die Ressource verweist, ist unsicher für eine Nutzung aus dem Web (wie z.B. eine Systemdatei).
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einem gleichzeitigen Sperren, nicht gelesen werden kann.
+  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie z.B. einer konkurrierenden Sperre, nicht gelesen werden kann.
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die von jedem Browser definierte Längenbegrenzung überschreitet.
+  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die durch jeden Browser definierte Längenbeschränkung überschreitet.
 
 ## Spezifikationen
 

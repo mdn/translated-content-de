@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten ähnlich wie die [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) Methode. Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
+Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten ähnlich der [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) Methode. Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
 
 > [!NOTE]
 > Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) verfügbar.
@@ -23,7 +23,7 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -34,11 +34,11 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
     - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
 
 - `first`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array der Vektorpunkte angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Startindex im Array der Vektorpunkte angibt.
 - `count`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Indizes angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der zu rendernden Indizes angibt.
 - `primcount`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen des Bereichs von Elementen angibt, die ausgeführt werden sollen.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der auszuführenden Instanzen des Bereichs von Elementen angibt.
 
 ### Rückgabewert
 

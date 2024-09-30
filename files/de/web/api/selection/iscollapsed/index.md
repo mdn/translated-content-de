@@ -1,5 +1,5 @@
 ---
-title: "Selection: isCollapsed-Eigenschaft"
+title: "Selection: isCollapsed Eigenschaft"
 short-title: isCollapsed
 slug: Web/API/Selection/isCollapsed
 l10n:
@@ -8,9 +8,14 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte **`Selection.isCollapsed`**-Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob derzeit Text ausgewählt ist oder nicht. Kein Text ist ausgewählt, wenn die Anfangs- und Endpunkte der Auswahl an derselben Position im Inhalt liegen.
+Die schreibgeschützte **`Selection.isCollapsed`**-Eigenschaft gibt einen
+booleschen Wert zurück, der angibt, ob aktuell Text ausgewählt ist oder nicht.
+Es ist kein Text ausgewählt, wenn die Start- und Endpunkte der Auswahl an derselben
+Position im Inhalt liegen.
 
-Beachten Sie, dass eine zusammengeklappte Auswahl dennoch ein (oder mehr, in Gecko) [`Range`](/de/docs/Web/API/Range)s haben kann, sodass [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) möglicherweise nicht null ist. In diesem Szenario kann der Aufruf der [`Selection`](/de/docs/Web/API/Selection)-Objektmethode [`getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) ein `Range`-Objekt zurückgeben, das zusammengeklappt ist.
+Beachten Sie, dass eine kollabierte Auswahl dennoch einen (oder mehr, in Gecko)
+[`Range`](/de/docs/Web/API/Range) haben kann, sodass [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) möglicherweise nicht null ist. In diesem
+Fall kann der Aufruf der Methode [`getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) eines [`Selection`](/de/docs/Web/API/Selection)-Objekts ein kollabiertes `Range`-Objekt zurückgeben.
 
 ## Wert
 

@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die `includes()`-Methode des [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein bestimmter Schlüssel innerhalb des Schlüsselbereichs liegt.
+Die `includes()`-Methode der [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+Schnittstelle gibt einen booleschen Wert zurück, der anzeigt, ob ein bestimmter Schlüssel innerhalb des Schlüsselbereichs liegt.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ includes(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel, den Sie in Ihrem Schlüsselbereich überprüfen möchten. Dies kann jeder Typ sein.
+  - : Der Schlüssel, den Sie in Ihrem Schlüsselbereich überprüfen möchten. Dies kann jede Art von Wert sein.
 
 ### Rückgabewert
 
@@ -53,9 +54,9 @@ keyRangeValue.includes("W");
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern von Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [Aufgaben-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

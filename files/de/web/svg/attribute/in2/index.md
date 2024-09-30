@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`in2`**-Attribut identifiziert das zweite Eingabefeld für die gegebene Filterprimitive. Es funktioniert genau wie das {{SVGAttr("in")}}-Attribut.
+Das **`in2`**-Attribut identifiziert den zweiten Eingang für die gegebene Filterprimitive. Es funktioniert genau wie das {{SVGAttr("in")}}-Attribut.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## feBlend
 
-Für {{SVGElement("feBlend")}} definiert `in2` das zweite Eingabebild für die Mischoperation.
+Für {{SVGElement("feBlend")}} definiert `in2` das zweite Eingangsbild für die Mischoperation.
 
 <table class="properties">
   <tbody>
@@ -33,8 +33,8 @@ Für {{SVGElement("feBlend")}} definiert `in2` das zweite Eingabebild für die M
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten Ergebnis
-        der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das
+        Ergebnis der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>
@@ -46,7 +46,7 @@ Für {{SVGElement("feBlend")}} definiert `in2` das zweite Eingabebild für die M
 
 ## feComposite
 
-Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingabebild für die Kompositionsoperation.
+Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingangsbild für die Kompositionsoperation.
 
 <table class="properties">
   <tbody>
@@ -62,8 +62,8 @@ Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingabebild für d
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten Ergebnis
-        der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das
+        Ergebnis der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingabebild für d
 
 ## feDisplacementMap
 
-Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingabebild, welches verwendet wird, um die Pixel im Bild zu verschieben, das im {{SVGAttr("in")}}-Attribut definiert ist.
+Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingangsbild, das verwendet wird, um die Pixel im Bild zu verschieben, das im {{SVGAttr("in")}}-Attribut definiert ist.
 
 <table class="properties">
   <tbody>
@@ -91,8 +91,8 @@ Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingabebild,
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten Ergebnis
-        der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das
+        Ergebnis der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>

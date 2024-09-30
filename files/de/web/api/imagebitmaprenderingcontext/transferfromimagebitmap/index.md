@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`**-Methode zeigt das angegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) im mit diesem Rendering-Kontext verbundenen Canvas an. Die Eigentümerschaft des `ImageBitmap` wird ebenfalls an das Canvas übertragen.
+Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`** Methode zeigt das angegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) im Canvas an, das mit diesem Rendering-Kontext verbunden ist. Der Besitz des `ImageBitmap` wird ebenfalls auf das Canvas übertragen.
 
-Diese Methode wurde zuvor `transferImageBitmap()` genannt, wurde jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebruch zu vermeiden.
+Diese Methode hieß zuvor `transferImageBitmap()`, wurde jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Code-Brüche zu vermeiden.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ transferFromImageBitmap(bitmap)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -63,6 +63,6 @@ htmlCanvas.transferFromImageBitmap(bitmap);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert, [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext)
+- Das Interface, das diese Methode definiert, [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext)
 - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
 - [`OffscreenCanvas.transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap)

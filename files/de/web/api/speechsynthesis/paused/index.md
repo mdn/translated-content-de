@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`paused`**-Eigenschaft des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn das `SpeechSynthesis`-Objekt sich in einem pausierten Zustand befindet, oder `false`, wenn nicht.
+Die schreibgeschützte **`paused`**-Eigenschaft des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn sich das `SpeechSynthesis`-Objekt in einem pausierten Zustand befindet, oder `false`, wenn dies nicht der Fall ist.
 
-Sie kann auf [`paused`](/de/docs/Web/API/SpeechSynthesis/pause) gesetzt werden, auch wenn aktuell nichts durch das Objekt gesprochen wird. Wenn dann [`utterances`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Warteschlange hinzugefügt werden, werden sie nicht gesprochen, bis das `SpeechSynthesis`-Objekt mit [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume) wieder fortgesetzt wird.
+Sie kann auf [`paused`](/de/docs/Web/API/SpeechSynthesis/pause) gesetzt werden, auch wenn momentan nichts darüber gesprochen wird. Falls [`utterances`](/de/docs/Web/API/SpeechSynthesisUtterance) dann zur Äußerungswarteschlange hinzugefügt werden, werden sie nicht gesprochen, bis das `SpeechSynthesis`-Objekt mit [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume) fortgesetzt wird.
 
 ## Wert
 

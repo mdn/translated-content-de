@@ -1,5 +1,5 @@
 ---
-title: "Window: reportError()-Methode"
+title: "Window: reportError() Methode"
 short-title: reportError()
 slug: Web/API/Window/reportError
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`reportError()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces kann verwendet werden, um Fehler an die Konsole oder Event-Handler globaler Bereiche zu melden, wodurch ein nicht abgefangener JavaScript-Ausnahmefall simuliert wird.
+Die **`reportError()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces kann verwendet werden, um Fehler an die Konsole oder Ereignis-Handler globaler Bereiche zu melden, ähnlich wie bei einer nicht abgefangenen JavaScript-Ausnahme.
 
-Diese Funktion ist hauptsächlich für benutzerdefinierte Event-Dispatching- oder Callback-manipulierende Bibliotheken gedacht.
-Bibliotheken können diese Funktion nutzen, um Fehler im Callback-Code abzufangen und sie an den Top-Level-Handler weiterzuleiten.
-Dies stellt sicher, dass eine Ausnahme in einem Callback nicht verhindert, dass andere verarbeitet werden, während gleichzeitig die Stack-Trace-Informationen für das Debugging auf Top-Ebene leicht verfügbar bleiben.
+Dieses Feature ist hauptsächlich für benutzerdefinierte Bibliotheken zur Ereignisverteilung oder zur Manipulation von Callback-Funktionen gedacht.
+Bibliotheken können dieses Feature nutzen, um Fehler im Callback-Code abzufangen und sie erneut dem obersten Handler zu übergeben.
+Dies stellt sicher, dass eine Ausnahme in einem Callback nicht verhindert, dass andere verarbeitet werden, und gleichzeitig sind die Stack-Trace-Informationen für das Debugging auf der obersten Ebene weiterhin verfügbar.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ reportError(throwable)
 ### Parameter
 
 - `throwable`
-  - : Ein Fehlerobjekt wie ein {{jsxref("TypeError")}}.
+  - : Ein Error-Objekt wie ein {{jsxref("TypeError")}}.
 
 ### Rückgabewert
 
@@ -32,11 +32,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Methode wird ohne Fehlerargument aufgerufen.
+  - : Die Methode wird ohne Fehler-Argument aufgerufen.
 
 ## Beispiele
 
-Feature-Test für die Methode mit:
+Feature-Test für die Methode:
 
 ```js
 if (typeof window.reportError === "function") {
@@ -44,8 +44,8 @@ if (typeof window.reportError === "function") {
 }
 ```
 
-Der folgende Code zeigt, wie Sie einen Fehler erstellen und melden können und wie dieser entweder mit der `onerror`-Event-Handler-Eigenschaft oder durch Hinzufügen eines Listeners für das `error`-Event abgefangen werden kann.
-Beachten Sie, dass der Handler, der `onerror` zugewiesen ist, `true` zurückgeben muss, um zu verhindern, dass das Ereignis weiterverbreitet wird.
+Der folgende Code zeigt, wie Sie einen Fehler erstellen und melden können und wie dieser entweder über die `onerror`-Ereignishandler-Eigenschaft oder durch Hinzufügen eines Listeners für das `error`-Ereignis abgefangen werden kann.
+Beachten Sie, dass der Handler, der `onerror` zugewiesen wird, `true` zurückgeben muss, um die weitere Ausbreitung des Ereignisses zu stoppen.
 
 ```js
 const newError = new Error("Some error message", "someFile.js", 11);

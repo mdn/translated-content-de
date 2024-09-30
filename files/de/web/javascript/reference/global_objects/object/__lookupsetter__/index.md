@@ -8,9 +8,9 @@ l10n:
 {{JSRef}} {{Deprecated_Header}}
 
 > [!NOTE]
-> Dieses Merkmal ist zugunsten der {{jsxref("Object.getOwnPropertyDescriptor()")}} API veraltet. Das Verhalten dieser Methode wird nur aus Gründen der Web-Kompatibilität spezifiziert und muss in keiner Plattform implementiert werden. Es funktioniert möglicherweise nicht überall.
+> Diese Funktion ist zugunsten der {{jsxref("Object.getOwnPropertyDescriptor()")}} API veraltet. Das Verhalten dieser Methode ist nur für die Web-Kompatibilität spezifiziert und muss nicht auf allen Plattformen implementiert werden. Möglicherweise funktioniert sie nicht überall.
 
-Die **`__lookupSetter__()`**-Methode von {{jsxref("Object")}}-Instanzen gibt die Funktion zurück, die als Setter für die angegebene Eigenschaft gebunden ist.
+Die **`__lookupSetter__()`** Methode von {{jsxref("Object")}} Instanzen gibt die Funktion zurück, die als Setter an die angegebene Eigenschaft gebunden ist.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ __lookupSetter__(prop)
 ### Parameter
 
 - `prop`
-  - : Ein String, der den Namen der Eigenschaft enthält, dessen Setter zurückgegeben werden soll.
+  - : Ein String, der den Namen der Eigenschaft enthält, deren Setter zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Die Funktion, die als Setter für die angegebene Eigenschaft gebunden ist. Gibt `undefined` zurück, wenn keine solche Eigenschaft gefunden wird oder die Eigenschaft eine [Daten-Eigenschaft](/de/docs/Web/JavaScript/Data_structures#data_property) ist.
+Die Funktion, die als Setter an die angegebene Eigenschaft gebunden ist. Gibt `undefined` zurück, wenn keine solche Eigenschaft gefunden wird oder die Eigenschaft eine [Dateneigenschaft](/de/docs/Web/JavaScript/Data_structures#data_property) ist.
 
 ## Beschreibung
 
-Alle Objekte, die von `Object.prototype` erben (also alle außer [null-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)) erben die `__lookupSetter__()`-Methode. Wenn ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/get) für eine Eigenschaft eines Objektes definiert wurde, ist es nicht möglich, die Setter-Funktion über diese Eigenschaft zu referenzieren, da diese Eigenschaft die Funktion nur aufruft, wenn sie gesetzt wird. `__lookupSetter__()` kann verwendet werden, um eine Referenz zur Setter-Funktion zu erhalten.
+Alle Objekte, die von `Object.prototype` erben (das heißt alle außer [`null`-Prototyp Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototyp-objekte)), erben die `__lookupSetter__()` Methode. Wenn ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/get) für eine Eigenschaft eines Objekts definiert wurde, ist es nicht möglich, die Setter-Funktion durch diese Eigenschaft zu referenzieren, da diese Eigenschaft die Funktion nur beim Setzen aufruft. `__lookupSetter__()` kann verwendet werden, um eine Referenz auf die Setter-Funktion zu erhalten.
 
-`__lookupSetter__()` durchsucht die [Prototypenkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), um die angegebene Eigenschaft zu finden. Wenn irgendein Objekt entlang der Prototypenkette die angegebene [eigene Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) hat, wird das `set`-Attribut des [Eigenschaftsdeskriptors](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) für diese Eigenschaft zurückgegeben. Wenn diese Eigenschaft eine Daten-Eigenschaft ist, wird `undefined` zurückgegeben. Wenn die Eigenschaft entlang der gesamten Prototypenkette nicht gefunden wird, wird ebenfalls `undefined` zurückgegeben.
+`__lookupSetter__()` durchläuft die [Prototyp-Kette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), um die angegebene Eigenschaft zu finden. Wenn ein Objekt entlang der Prototyp-Kette die angegebene [eigene Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) hat, wird das `set` Attribut des [Eigenschaftsdeskriptors](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) für diese Eigenschaft zurückgegeben. Wenn diese Eigenschaft eine Dateneigenschaft ist, wird `undefined` zurückgegeben. Wenn die Eigenschaft entlang der gesamten Prototyp-Kette nicht gefunden wird, wird ebenfalls `undefined` zurückgegeben.
 
-`__lookupSetter__()` ist in der Spezifikation als "normativ optional" definiert, was bedeutet, dass keine Implementierung dies umsetzen muss. Jedoch implementieren alle großen Browser es, und wegen seines fortgesetzten Gebrauchs ist es unwahrscheinlich, dass es entfernt wird. Wenn ein Browser `__lookupSetter__()` implementiert, muss er auch die Methoden [`__lookupGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__), [`__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) und [`__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) implementieren.
+`__lookupSetter__()` ist in der Spezifikation als "normativ optional" definiert, was bedeutet, dass keine Implementierung erforderlich ist, um dies zu implementieren. Alle großen Browser implementieren es jedoch, und aufgrund seiner fortgesetzten Nutzung ist es unwahrscheinlich, dass es entfernt wird. Wenn ein Browser `__lookupSetter__()` implementiert, muss er auch die Methoden [`__lookupGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__), [`__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) und [`__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) implementieren.
 
 ## Beispiele
 
@@ -50,9 +50,9 @@ obj.__lookupSetter__("foo");
 // [Function: set foo]
 ```
 
-### Nachschlagen eines Setters einer Eigenschaft auf die standardmäßige Weise
+### Das Auffinden eines Setters einer Eigenschaft auf die Standardweise
 
-Sie sollten die {{jsxref("Object.getOwnPropertyDescriptor()")}} API verwenden, um den Setter einer Eigenschaft nachzuschlagen. Im Vergleich zu `__lookupSetter__()` ermöglicht diese Methode das Nachschlagen von [Symbol-](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)Eigenschaften. Die `Object.getOwnPropertyDescriptor()`-Methode funktioniert auch mit [null-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects), die nicht von `Object.prototype` erben und daher die `__lookupSetter__()`-Methode nicht haben. Wenn das Verhalten von `__lookupSetter__()`, die Prototypenkette hochzulaufen, wichtig ist, können Sie es selbst mit {{jsxref("Object.getPrototypeOf()")}} implementieren.
+Sie sollten die {{jsxref("Object.getOwnPropertyDescriptor()")}} API verwenden, um den Setter einer Eigenschaft nachzuschlagen. Im Vergleich zu `__lookupSetter__()` ermöglicht diese Methode das Nachschlagen von [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) Eigenschaften. Die Methode `Object.getOwnPropertyDescriptor()` funktioniert auch mit [`null`-Prototyp Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototyp-objekte), die nicht von `Object.prototype` erben und daher die `__lookupSetter__()` Methode nicht haben. Wenn das Verhalten von `__lookupSetter__()` beim Durchlaufen der Prototyp-Kette von Bedeutung ist, können Sie es mit {{jsxref("Object.getPrototypeOf()")}} selbst implementieren.
 
 ```js
 const obj = {
@@ -103,4 +103,4 @@ console.log(findSetter(obj2, "foo")); // [Function: set foo]
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}
 - [`Object.prototype.__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__)
 - [`Object.prototype.__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__)
-- [JS-Leitfaden: Definieren von Gettern und Settern](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_getters_and_setters)
+- [JS Leitfaden: Definieren von Gettern und Settern](/de/docs/Web/JavaScript/Guide/Working_with_objects#definieren_von_gettern_und_settern)

@@ -29,7 +29,7 @@ document.requestStorageAccess({ indexedDB: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeren Beispiel.
+> Lesen Sie [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
 
 ## Spezifikationen
 

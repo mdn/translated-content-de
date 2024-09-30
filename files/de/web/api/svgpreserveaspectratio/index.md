@@ -9,16 +9,16 @@ l10n:
 
 ## SVG preserveAspectRatio Schnittstelle
 
-Die `SVGPreserveAspectRatio` Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }} Attribut, das für einige der SVG-Elemente verfügbar ist.
+Die `SVGPreserveAspectRatio` Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }} Attribut, das für einige Elemente von SVG verfügbar ist.
 
-Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen werden.
+Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Ebenfalls implementieren</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden,
       <td>
         <a
           href="https://www.w3.org/TR/SVG/coords.html#InterfaceSVGPreserveAspectRatio"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Ausgabe)</a
         >
       </td>
     </tr>
@@ -86,7 +86,7 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden,
       </td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht zu den vordefinierten Typen gehört. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
       </td>
     </tr>
     <tr>
@@ -193,7 +193,7 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden,
       <td><code>SVG_MEETORSLICE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht zu den vordefinierten Typen gehört. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
       </td>
     </tr>
     <tr>
@@ -231,25 +231,25 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden,
       <td>unsigned short</td>
       <td>
         Der Typ des Ausrichtungswertes, wie er durch eine der
-        <code>SVG_PRESERVEASPECTRATIO_*</code> Konstanten definiert wird, die auf dieser Schnittstelle definiert sind.
+        <code>SVG_PRESERVEASPECTRATIO_*</code> Konstanten auf dieser Schnittstelle angegeben ist.
       </td>
     </tr>
     <tr>
       <td><code>meetOrSlice</code></td>
       <td>unsigned short</td>
       <td>
-        Der Typ des meet-or-slice-Wertes, wie er durch eine der
-        <code>SVG_MEETORSLICE_*</code> Konstanten definiert wird, die auf dieser Schnittstelle definiert sind.
+        Der Typ des Meet-or-Slice-Wertes, wie er durch eine der
+        <code>SVG_MEETORSLICE_*</code> Konstanten auf dieser Schnittstelle angegeben ist.
       </td>
     </tr>
   </tbody>
 </table>
 
-**Ausnahmen bei der Einstellung:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs an einem schreibgeschützten Objekt zu ändern.
+**Ausnahmen bei der Einstellung:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs bei einem schreibgeschützten Objekt zu ändern.
 
 ## Instanz-Methoden
 
-Die `SVGPreserveAspectRatio` Schnittstelle bietet keine spezifischen Methoden.
+Die `SVGPreserveAspectRatio` Schnittstelle stellt keine spezifischen Methoden zur Verfügung.
 
 ## Spezifikationen
 

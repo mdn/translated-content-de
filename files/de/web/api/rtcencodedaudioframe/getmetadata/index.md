@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`getMetadata()`**-Methode der [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Schnittstelle gibt ein Objekt zurück, das die Metadaten enthält, die mit dem Frame verbunden sind.
+Die **`getMetadata()`**-Methode des [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Interfaces gibt ein Objekt zurück, das die mit dem Frame verbundenen Metadaten enthält.
 
-Dies schließt Informationen zum Frame ein, einschließlich der verwendeten Audio-Codierung, der Synchronisationsquelle und beitragenden Quellen sowie der Sequenznummer (für eingehende Frames).
+Dies umfasst Informationen über den Frame, einschließlich der verwendeten Audio-Codierung, der Synchronisationsquelle und der beitragenden Quellen sowie der Sequenznummer (bei eingehenden Frames).
 
 ## Syntax
 
@@ -27,26 +27,26 @@ Keine.
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `synchronizationSource`
-  - : Ein positiver Ganzzahlwert, der die Synchronisationsquelle ("ssrc") des Streams von RTP-Paketen angibt, die durch diesen Frame beschrieben werden.
+  - : Ein positiver ganzzahliger Wert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen Frame beschrieben werden.
     Eine Quelle könnte beispielsweise ein Mikrofon oder eine Mixer-Anwendung sein, die mehrere Quellen kombiniert.
     Alle Pakete von derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander geordnet werden.
-    Beachten Sie, dass zwei Frames mit demselben Wert sich auf dieselbe Quelle beziehen.
+    Beachten Sie, dass zwei Frames mit demselben Wert auf dieselbe Quelle verweisen.
 - `payloadType`
-  - : Ein positiver Ganzzahlwert im Bereich von 0 bis 127, der das Format der RTP-Nutzlast beschreibt.
-    Die Zuordnungen von Werten zu Formaten sind in RFC3550 definiert und speziell in [Abschnitt 6: Nutzlasttypdefinitionen](https://www.rfc-editor.org/rfc/rfc3551#section-6) von RFC3551.
+  - : Ein positiver ganzzahliger Wert im Bereich von 0 bis 127, der das Format der RTP-Nutzlast beschreibt.
+    Die Zuordnungen von Werten zu Formaten sind in RFC3550 definiert und genauer in [Abschnitt 6: Definitionen der Nutzlasttypen](https://www.rfc-editor.org/rfc/rfc3551#section-6) von RFC3551.
 - `contributingSources`
-  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zu dem Frame beigetragen haben.
+  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zum Frame beigetragen haben.
     Betrachten Sie den Fall einer Konferenzanwendung, die Audio von mehreren Benutzern kombiniert.
-    Die `synchronizationSource` würde die ssrc der Anwendung einschließen, während `contributingSources` die ssrc-Werte aller individuellen Audioquellen einschließen würde.
+    Die `synchronizationSource` würde die ssrc der Anwendung enthalten, während `contributingSources` die ssrc-Werte aller einzelnen Audioquellen enthalten würde.
 - `sequenceNumber`
-  - : Die Sequenznummer eines eingehenden Audio-Frames (nicht für ausgehende Frames verwendet), die zur Rekonstruktion der ursprünglichen Sende-Reihenfolge von Frames verwendet werden kann.
+  - : Die Sequenznummer eines eingehenden Audio-Frames (nicht für ausgehende Frames verwendet), die zum Rekonstruieren der ursprünglichen Sendereihenfolge von Frames verwendet werden kann.
     Dies ist eine Zahl zwischen 0 und 32767.
-    Beachten Sie, dass während die Zahlen bei der Sendung sequentiell zugewiesen werden, sie bei 32767 überlaufen und wieder bei 0 beginnen.
-    Um zwei Frame-Sequenznummern zu vergleichen und festzustellen, ob eine nach der anderen angenommen wird, müssen Sie die [arithmetische Sequenznummer](https://en.wikipedia.org/wiki/Serial_number_arithmetic) verwenden. <!-- [RFC1982] -->
+    Beachten Sie, dass, obwohl die Zahlen beim Senden sequenziell zugewiesen werden, sie bei 32767 überlaufen und wieder bei 0 beginnen.
+    Daher müssen Sie zur Vergleichung zweier Frame-Sequenznummern, um zu bestimmen, ob eine als nach einer anderen angenommen wird, [Seriennummern-Arithmetik](https://en.wikipedia.org/wiki/Serial_number_arithmetic) verwenden.
 
 ## Beispiele
 
-Dieses Beispiel einer [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)-Implementierung zeigt, wie Sie die Frame-Metadaten in einer `transform()`-Funktion abrufen und protokollieren könnten.
+Diese [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)-Implementierung zeigt, wie Sie in einer `transform()`-Funktion möglicherweise die Frame-Metadaten abrufen und protokollieren können.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -67,8 +67,8 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Das resultierende Objekt von einem lokalen Mikrofon könnte ähnlich dem unten gezeigten aussehen.
-Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gibt, und keine `sequenceNumber`, da es sich um einen ausgehenden Frame handelt.
+Das resultierende Objekt von einem lokalen Mikrofon könnte wie das unten gezeigte aussehen.
+Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gibt, und keine `sequenceNumber`, da dies ein ausgehender Frame ist.
 
 ```js
 {

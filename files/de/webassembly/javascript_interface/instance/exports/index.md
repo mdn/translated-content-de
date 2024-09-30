@@ -7,14 +7,13 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`exports`** schreibgeschützte Eigenschaft des
-[`WebAssembly.Instance`](/de/docs/WebAssembly/JavaScript_interface/Instance)-Objektprototyps gibt ein Objekt zurück, das alle aus der WebAssembly-Modulinstanz exportierten Funktionen als seine Mitglieder enthält, sodass sie von JavaScript aus zugegriffen und verwendet werden können.
+Die **`exports`**-Eigenschaft des schreibgeschützten Prototyps des [`WebAssembly.Instance`](/de/docs/WebAssembly/JavaScript_interface/Instance)-Objekts gibt ein Objekt zurück, das alle Funktionen enthält, die aus der WebAssembly-Modulinstanz exportiert wurden, um deren Zugriff und Nutzung durch JavaScript zu ermöglichen.
 
 ## Beispiele
 
 ### Verwendung von exports
 
-Nachdem einige WebAssembly-Bytecodes mittels `fetch` abgerufen wurden, kompilieren und instanziieren wir das Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static)-Funktion, wobei eine JavaScript-Funktion in das WebAssembly-Modul importiert wird. Wir rufen dann eine [Exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions) auf, die von der `Instance` exportiert wird.
+Nach dem Abrufen einiger WebAssembly-Bytecode mittels fetch kompiliert und instanziiert man das Modul mithilfe der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), wobei eine JavaScript-Funktion in das WebAssembly-Modul importiert wird. Anschließend wird eine [exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Exported_functions) aufgerufen, die von der `Instance` exportiert wird.
 
 ```js
 const importObject = {
@@ -31,8 +30,7 @@ WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
 ```
 
 > [!NOTE]
-> Sie finden dieses Beispiel auch als [instantiate-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html)
-> auf GitHub ([Sie können es auch live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/instantiate-streaming.html)).
+> Sie können dieses Beispiel auch als [instantiate-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html) auf GitHub finden ([sehen Sie es sich auch live an](https://mdn.github.io/webassembly-examples/js-api-examples/instantiate-streaming.html)).
 
 ## Spezifikationen
 
@@ -46,4 +44,4 @@ WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

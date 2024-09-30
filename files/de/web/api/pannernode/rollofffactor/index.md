@@ -8,27 +8,27 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `rolloffFactor`-Eigenschaft der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle ist ein Doppelwert, der beschreibt, wie schnell die Lautstärke verringert wird, wenn sich die Quelle vom Zuhörer entfernt. Dieser Wert wird von allen Distanzmodellen verwendet. Der Standardwert der `rolloffFactor`-Eigenschaft ist `1`.
+Die `rolloffFactor`-Eigenschaft der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle ist ein Doppelwert, der beschreibt, wie schnell die Lautstärke reduziert wird, wenn sich die Quelle vom Hörer entfernt. Dieser Wert wird von allen Distanzmodellen verwendet. Der Standardwert der `rolloffFactor`-Eigenschaft ist `1`.
 
 ## Wert
 
-Eine Zahl, deren Bereich je nach [`distanceModel`](/de/docs/Web/API/PannerNode/distanceModel) des Panners wie folgt variiert (negative Werte sind nicht erlaubt):
+Eine Zahl, deren Bereich vom [`distanceModel`](/de/docs/Web/API/PannerNode/distanceModel) des Panners abhängt, wie folgt (negative Werte sind nicht erlaubt):
 
 - `"linear"`
-  - : Der Bereich liegt zwischen 0 und 1.
+  - : Der Bereich ist 0 bis 1.
 - `"inverse"`
-  - : Der Bereich liegt zwischen 0 und `Infinity`.
+  - : Der Bereich ist 0 bis `Infinity`.
 - `"exponential"`
-  - : Der Bereich liegt zwischen 0 und `Infinity`.
+  - : Der Bereich ist 0 bis `Infinity`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der Eigenschaft ein Wert zugewiesen wurde, der außerhalb des akzeptierten Bereichs liegt.
+  - : Ausgelöst, wenn der Eigenschaft ein Wert zugewiesen wurde, der außerhalb des akzeptierten Bereichs liegt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie verschiedene `rolloffFactor`-Werte beeinflussen, wie die Lautstärke des Testtons mit zunehmendem Abstand zum Zuhörer abnimmt:
+Dieses Beispiel zeigt, wie unterschiedliche `rolloffFactor`-Werte beeinflussen, wie die Lautstärke des Testtons mit zunehmender Entfernung vom Hörer abnimmt:
 
 ```js
 const context = new AudioContext();
@@ -66,7 +66,7 @@ scheduleTestTone(0.1, context.currentTime + NOTE_LENGTH * 2);
 
 Nach dem Ausführen dieses Codes sollten die resultierenden Wellenformen in etwa so aussehen:
 
-![Eine Wellenformvisualisierung von drei Oszillatortönen, die in Web Audio erzeugt werden. Jeder Oszillator bewegt sich mit der gleichen Geschwindigkeit vom Zuhörer weg, aber mit unterschiedlichen rolloffFactors, die den resultierenden Lautstärkeabfall beeinflussen.](screen_shot_2018-10-11_at_23.22.37.png)
+![Eine Wellenformvisualisierung von drei in Web Audio erzeugten Oszillatortönen. Jeder Oszillator entfernt sich mit der gleichen Geschwindigkeit vom Hörer, aber mit unterschiedlichen rolloffFactors, die den resultierenden Lautstärkeabfall beeinflussen.](screen_shot_2018-10-11_at_23.22.37.png)
 
 ## Spezifikationen
 
@@ -79,4 +79,4 @@ Nach dem Ausführen dieses Codes sollten die resultierenden Wellenformen in etwa
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web Audio-Räumlichkeit](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Grundlagen der Web Audio-Raumklang](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)

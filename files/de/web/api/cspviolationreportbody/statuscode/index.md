@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`statusCode`**-Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist eine schreibgeschützte Zahl, die den [HTTP-Statuscode](/de/docs/Web/HTTP/Status) der Antwort auf die Anfrage darstellt, die eine Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) ausgelöst hat (beim Laden eines Fensters oder Workers).
+Die **`statusCode`**-Eigenschaft des schreibgeschützten [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist eine Zahl, die den [HTTP-Statuscode](/de/docs/Web/HTTP/Status) der Antwort auf die Anfrage darstellt, die eine Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) ausgelöst hat (beim Laden eines Fensters oder eines Arbeiters).
 
 ## Wert
 
@@ -16,8 +16,7 @@ Eine Zahl, die den HTTP-Statuscode der Antwort auf die Anfrage darstellt, die di
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
-Jedes Mal, wenn die Callback-Funktion aufgerufen wird, protokollieren wir den Statuscode für den ersten Eintrag des Berichtsarrays.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Inhaltsverletzungsberichte vom Typ `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, protokollieren wir den Statuscode für den ersten Eintrag des Berichte-Arrays.
 
 ```js
 const observer = new ReportingObserver(
@@ -34,7 +33,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben kann, aber aus Gründen der Übersichtlichkeit protokollieren wir nur den Statuscode des ersten Berichts.
+Beachten Sie, dass es mehrere Berichte im zurückgegebenen Array geben könnte. Der Einfachheit halber protokollieren wir jedoch nur den Statuscode des ersten Berichts.
 
 ## Spezifikationen
 

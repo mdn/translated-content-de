@@ -10,7 +10,7 @@ l10n:
 
 Die **`type`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein String mit dem Wert `"inbound-rtp"`.
 
-Unterschiedliche Statistiken werden durch das Iterieren über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt erlangt, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der Typ gibt die Menge an Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind. Ein Wert von `"inbound-rtp"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats) definiert sind.
+Unterschiedliche Statistiken werden durch Iteration über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt gewonnen, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der `type` gibt die Menge an Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind. Ein Wert von `"inbound-rtp"` zeigt an, dass die Statistiken, die im aktuellen Schritt verfügbar sind, diejenigen sind, die in [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats) definiert sind.
 
 ## Wert
 

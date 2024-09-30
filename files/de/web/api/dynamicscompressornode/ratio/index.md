@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `ratio`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Menge an Änderung in dB darstellt, die im Eingangspegel erforderlich ist, um eine Änderung von 1 dB im Ausgangspegel zu bewirken.
+Die `ratio`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Änderungsmenge in dB darstellt, die erforderlich ist, um eine Änderung von 1 dB im Ausgang zu erreichen.
 
 Der Standardwert der `ratio`-Eigenschaft ist `12` und kann zwischen `1` und `20` eingestellt werden.
 
-![Beschreibt die Auswirkung verschiedener Ratios auf das Ausgangssignal](webaudioratio.png)
+![Beschreibt den Effekt verschiedener Ratios auf das Ausgangssignal](webaudioratio.png)
 
 ## Wert
 
@@ -29,7 +29,7 @@ const compressor = audioCtx.createDynamicsCompressor();
 compressor.ratio.value = 12;
 ```
 
-Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigere Beispielcodes.
+Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigeren Beispielcode.
 
 ## Spezifikationen
 

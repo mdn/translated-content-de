@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoDecoder()`**-Konstruktor erstellt ein neues [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Objekt mit dem bereitgestellten `init.output`-Rückruf als Ausgabe-Rückruf, dem bereitgestellten `init.error`-Rückruf als Fehler-Rückruf und dem [`VideoDecoder.state`](/de/docs/Web/API/VideoDecoder/state) auf `"unconfigured"` gesetzt.
+Der **`VideoDecoder()`**-Konstruktor erstellt ein neues [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Objekt mit dem bereitgestellten `init.output`-Callback als Ausgabe-Callback, dem bereitgestellten `init.error`-Callback als Fehler-Callback und dem [`VideoDecoder.state`](/de/docs/Web/API/VideoDecoder/state), das auf `"unconfigured"` gesetzt ist.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ new VideoDecoder(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das zwei Rückrufe enthält.
+  - : Ein Objekt, das zwei Callbacks enthält.
     - `output`
-      - : Ein Rückruf, der ein [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt als einziges Argument übernimmt.
+      - : Ein Callback, das ein [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt als einziges Argument annimmt.
     - `error`
-      - : Ein Rückruf, der ein {{jsxref("Error")}}-Objekt als einziges Argument übernimmt.
+      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument annimmt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `VideoDecoder` mit den beiden erforderlichen Rückruffunktionen erstellt, eine, um den dekodierten Frame zu verarbeiten, und die andere, um Fehler zu behandeln.
+Im folgenden Beispiel wird ein `VideoDecoder` mit den zwei erforderlichen Callback-Funktionen erstellt, eine zur Verarbeitung des dekodierten Frames und die andere zur Behandlung von Fehlern.
 
 ```js
 const videoDecoder = new VideoDecoder({

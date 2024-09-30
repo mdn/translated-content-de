@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`height`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs gibt die Höhe in Pixeln des letzten Rahmens an, der von dieser Quelle stammt.
+Die **`height`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) Wörterbuchs gibt die Höhe, in Pixeln, des letzten Frames an, der von dieser Quelle stammt.
 
-Diese Eigenschaft wird erst im Statistikobjekt definiert, nachdem der erste Frame erzeugt wurde.
+Diese Eigenschaft wird im Statistikobjekt erst nach der Erzeugung des ersten Frames definiert.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine positive Zahl, die die Höhe in Pixeln angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das Statistikobjekt durchlaufen könnten, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Videoquellenstatistiken zu erhalten und dann die `height` zu extrahieren.
+Dieses Beispiel zeigt, wie Sie durch das Statistikobjekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, iterieren können, um die Videoquellenstatistiken zu erhalten und dann die `height` extrahieren.
 
 ```js
 // where sender is an RTCRtpSender

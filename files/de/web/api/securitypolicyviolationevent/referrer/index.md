@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`referrer`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein Zeichenfolgenwert, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt wurde. Dies wird eine URL oder `null` sein.
+Die **`referrer`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein Zeichenfolgenwert, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt wurde.
+Dies kann eine URL oder `null` sein.
 
 ## Wert
 
-Eine Zeichenfolge, die die URL für den Referrer der Ressourcen darstellt, deren Richtlinie verletzt wurde, oder `null`.
+Eine Zeichenfolge, die die URL des Referrers für die Ressourcen, deren Richtlinie verletzt wurde, darstellt, oder `null`.
 
 ## Beispiele
 

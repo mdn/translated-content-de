@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `parent`-Achse gibt den einzelnen Knoten an, der das übergeordnete Element des Kontextknotens ist. Sie kann als zwei Punkte (`..`) abgekürzt werden.
+Die Elternachse bezeichnet den einzelnen Knoten, der das übergeordnete Element des Kontextknotens ist. Sie kann mit zwei Punkten (`..`) abgekürzt werden.

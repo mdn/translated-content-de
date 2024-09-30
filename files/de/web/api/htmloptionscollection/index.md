@@ -2,23 +2,30 @@
 title: HTMLOptionsCollection
 slug: Web/API/HTMLOptionsCollection
 l10n:
-  sourceCommit: b921b8d779314f2098a1669d8269b36107ecfbb1
+  sourceCommit: a5e089d79bf681e27fc6bdb9e4026b2489ffa4d9
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLOptionsCollection`**-Schnittstelle repräsentiert eine Sammlung von [`<option>`](/de/docs/Web/HTML/Element/option)-HTML-Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zum Auswählen aus der Liste sowie optional zum Ändern ihrer Elemente. Dieses Objekt wird nur von der `options`-Eigenschaft des [select](/de/docs/Web/API/HTMLSelectElement)-Elements zurückgegeben.
+Die **`HTMLOptionsCollection`**-Schnittstelle repräsentiert eine Sammlung von [`<option>`](/de/docs/Web/HTML/Element/option)-HTML-Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zur Auswahl aus der Liste sowie optional zur Änderung ihrer Elemente. Dieses Objekt wird nur von der `options`-Eigenschaft von [select](/de/docs/Web/API/HTMLSelectElement) zurückgegeben.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- `length`
-  - : `unsigned long`. Wie spezifikationsgemäß optional erlaubt, ist diese Eigenschaft nicht schreibgeschützt. Sie können entweder Optionen vom Ende entfernen, indem Sie den Wert verringern, oder leere Optionen am Ende hinzufügen, indem Sie den Wert erhöhen. Mozilla erlaubt dies, während andere Implementierungen möglicherweise eine [DOMException](/de/docs/Web/API/DOMException) auslösen könnten.
+- [`HTMLOptionsCollection.length`](/de/docs/Web/API/HTMLOptionsCollection/length)
+  - : Gibt die Anzahl der Optionen in der Sammlung zurück oder setzt sie.
+- [`HTMLOptionsCollection.selectedIndex`](/de/docs/Web/API/HTMLOptionsCollection/selectedIndex)
+  - : Die Indexnummer des ersten ausgewählten {{HTMLElement("option")}}-Elements. Der Wert `-1` zeigt an, dass kein Element ausgewählt ist.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden ihrer Elternschnittstelle, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
+_Diese Schnittstelle erbt die Methoden ihres Elternteils, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
+
+- [`HTMLOptionsCollection.add()`](/de/docs/Web/API/HTMLOptionsCollection/add)
+  - : Fügt ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)- oder [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Element zur Sammlung der `option`-Elemente hinzu oder fügt es vor einer angegebenen Option hinzu.
+- [`HTMLOptionsCollection.remove()`](/de/docs/Web/API/HTMLOptionsCollection/remove)
+  - : Entfernt das Element an der angegebenen Stelle aus der Optionssammlung.
 
 ## Spezifikationen
 
@@ -32,4 +39,6 @@ _Diese Schnittstelle erbt die Methoden ihrer Elternschnittstelle, [`HTMLCollecti
 
 - [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)
 - [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)
-- [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)
+- [Indexierte Sammlungen Leitfaden](/de/docs/Web/JavaScript/Guide/Indexed_collections)

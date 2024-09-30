@@ -19,22 +19,22 @@ let userSettings = await browser.browserAction.getUserSettings();
 
 ### Parameter
 
-Diese Funktion benötigt keine Parameter.
+Diese Funktion nimmt keine Parameter entgegen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ein Objekt mit folgenden Eigenschaften erfüllt:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das folgende Eigenschaften hat:
 
 - `userSettings`
 
-  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält, mit folgenden Eigenschaften:
+  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält mit diesen Eigenschaften:
 
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Gibt an, ob der Benutzer das Symbol der Aktion an die Browser-Oberfläche angeheftet hat. Diese Einstellung gibt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Oberfläche ab.
+      - : `boolean`. Ob der Benutzer das Symbol der Aktion an die Browser-Oberfläche angeheftet hat. Diese Einstellung gibt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Oberfläche ab.
 
 ## Beispiele
 
-Dieser Code gibt eine Meldung aus, die anzeigt, ob die Browser-Aktion angeheftet ist oder nicht:
+Dieser Code protokolliert eine Nachricht, die angibt, ob die Browser-Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {

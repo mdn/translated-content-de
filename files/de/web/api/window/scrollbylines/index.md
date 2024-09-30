@@ -1,5 +1,5 @@
 ---
-title: "Window: scrollByLines()-Methode"
+title: "Window: scrollByLines() Methode"
 short-title: scrollByLines()
 slug: Web/API/Window/scrollByLines
 l10n:
@@ -19,7 +19,7 @@ scrollByLines(lines)
 ### Parameter
 
 - `lines`
-  - : Die Anzahl der Zeilen, um die das Dokument gescrollt werden soll. Dies kann eine positive oder negative ganze Zahl sein.
+  - : Die Anzahl der Zeilen, um die das Dokument gescrollt werden soll. Es kann sich um eine positive oder negative ganze Zahl handeln.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
-Dies ist Teil keiner Spezifikation.
+Dies ist nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

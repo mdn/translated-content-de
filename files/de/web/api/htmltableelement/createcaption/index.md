@@ -9,14 +9,11 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.createCaption()`** Methode gibt das
-{{HtmlElement("caption")}}-Element zurück, das mit einem gegebenen {{HtmlElement("table")}} assoziiert ist.
-Falls kein `<caption>`-Element in der Tabelle existiert, erstellt diese Methode
-es und gibt es dann zurück.
+{{HtmlElement("caption")}}-Element zurück, das mit einem bestimmten {{HtmlElement("table")}} verbunden ist.
+Wenn kein `<caption>`-Element in der Tabelle existiert, wird dieses durch die Methode erstellt und anschließend zurückgegeben.
 
 > [!NOTE]
-> Wenn keine Beschriftung existiert, fügt `createCaption()` eine
-> neue Beschriftung direkt in die Tabelle ein. Die Beschriftung muss nicht separat
-> hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<caption>`-Element zu erstellen.
+> Wenn keine Beschriftung existiert, fügt `createCaption()` eine neue Beschriftung direkt in die Tabelle ein. Die Beschriftung muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<caption>`-Element zu erstellen.
 
 ## Syntax
 
@@ -34,7 +31,7 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um einer Tabelle, die anfänglich keine hat, eine Beschriftung hinzuzufügen.
+Dieses Beispiel verwendet JavaScript, um einer Tabelle, die ursprünglich keine hat, eine Beschriftung hinzuzufügen.
 
 ### HTML
 

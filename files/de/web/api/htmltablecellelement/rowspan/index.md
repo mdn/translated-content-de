@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowSpan`** schreibgeschützte Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle repräsentiert die Anzahl der Zeilen, die diese Zelle überspannen muss; sie ermöglicht es der Zelle, Platz über mehrere Zeilen der Tabelle einzunehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
+Die **`rowSpan`**-Nur-Lese-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces repräsentiert die Anzahl der Zeilen, die diese Zelle überspannen muss; dies ermöglicht es der Zelle, Raum über mehrere Zeilen der Tabelle einzunehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Zeilen darstellt. Ist sie `0`, bedeutet dies, dass alle verbleibenden Zeilen in der Spalte gemeint sind.
+Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet das alle verbleibenden Zeilen in der Spalte.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Werts wird ein von 0 abweichender Wert auf die nächstgelegene strikt positive Zahl _beschränkt_.
+> Beim Festlegen eines neuen Wertes wird ein Wert, der ungleich 0 ist, auf die nächstgelegene, strikt positive Zahl _geklemmt_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel stellt zwei Schaltflächen bereit, um die Zeilenanzahl der ersten Zelle des Tabellenkörpers zu ändern.
 
 ### HTML
 

@@ -16,7 +16,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus. Dieser Wert wird `undefined` sein, sobald das Promise aufgelöst wird.
+Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus, dieser wird `undefined` sein, sobald das Promise aufgelöst wird.
 
 ```js
 let tracks = imageDecoder.tracks;

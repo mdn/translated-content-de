@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`domOverlayState`**-Eigenschaft einer `immersive-ar`-[`XRSession`](/de/docs/Web/API/XRSession) liefert Informationen über das DOM-Overlay, wenn das Feature aktiviert ist.
+Die _schreibgeschützte_ **`domOverlayState`**-Eigenschaft einer `immersive-ar`-`XRSession` bietet Informationen über das DOM-Overlay, wenn die Funktion aktiviert ist.
 
 ## Wert
 
-Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn das DOM-Overlay-Feature nicht unterstützt oder nicht aktiviert ist, oder ein Objekt, das Informationen über den Zustand des DOM-Overlays mit den folgenden Eigenschaften enthält:
+Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn die DOM-Overlay-Funktion nicht unterstützt oder nicht aktiviert ist, oder ein Objekt, das Informationen über den Zustand des DOM-Overlays mit den folgenden Eigenschaften enthält:
 
 - `type`
 
   - : Ein String, der angibt, wie das DOM-Overlay angezeigt wird. Mögliche Werte:
     - `screen`
-      - : Das Overlay wird auf dem gesamten bildschirmbasierten Gerät gezeichnet (für tragbare AR-Geräte).
+      - : Das Overlay wird auf dem gesamten bildschirmbasierten Gerät gezeichnet (für Handheld-AR-Geräte).
     - `head-locked`
-      - : Das Overlay wird an einem head-locked UI gezeichnet, das den darstellbaren Viewport ausfüllt und der Bewegung des Benutzers folgt.
+      - : Das Overlay wird als benutzerfixierte UI dargestellt, die den darstellbaren Viewport ausfüllt und den Kopfbewegungen des Benutzers folgt.
     - `floating`
-      - : Das Overlay erscheint als ein in den Raum schwebendes Rechteck, das vor dem Benutzer gehalten wird. Es füllt nicht unbedingt den gesamten Raum aus und/oder ist strikt head-locked.
+      - : Das Overlay erscheint als rechteckiger Bereich, der im Raum schwebt und sich vor dem Benutzer befindet. Es füllt nicht unbedingt den gesamten Raum aus und/oder ist strikt kopfgebunden.
 
 ## Beispiele
 
-### Überprüfen, welches DOM-Overlay aktiviert wurde
+### Überprüfung, welches DOM-Overlay aktiviert ist
 
 ```js
 if (session.domOverlayState) {

@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode remove()"
+title: "Element: remove()-Methode"
 short-title: remove()
 slug: Web/API/Element/remove
 l10n:
@@ -39,10 +39,10 @@ const element = document.getElementById("div-02");
 element.remove(); // Removes the div with the 'div-02' id
 ```
 
-### `Element.remove()` ist nicht einschränkbar
+### `Element.remove()` ist nicht umgrenzbar
 
-Die `remove()`-Methode ist nicht auf die `with`-Anweisung beschränkt.
-Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
+Die `remove()`-Methode wird nicht in die `with`-Anweisung eingebunden.
+Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
 with (node) {

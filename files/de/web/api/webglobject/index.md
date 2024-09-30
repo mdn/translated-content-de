@@ -2,16 +2,16 @@
 title: WebGLObject
 slug: Web/API/WebGLObject
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}{{SeeCompatTable}}
+{{APIRef("WebGL")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`WebGLObject`** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und die Elternschnittstelle für alle WebGL-Objekte.
+Das **`WebGLObject`** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und die übergeordnete Schnittstelle für alle WebGL-Objekte.
 
-Dieses Objekt hat keine öffentlichen Eigenschaften oder Methoden für sich.
+Dieses Objekt hat keine öffentlichen Eigenschaften oder Methoden.
 
-Falls der WebGL-Kontext verloren geht, wird das interne _invalidated_ Flag aller `WebGLObject` Instanzen auf `true` gesetzt.
+Wenn der WebGL-Kontext verloren geht, wird das interne _invalidated_ Flag aller `WebGLObject`-Instanzen auf `true` gesetzt.
 
 ## Von `WebGLObject` abgeleitete Objekte
 

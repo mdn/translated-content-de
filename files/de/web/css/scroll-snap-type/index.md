@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie strikt Snap-Punkte im Scroll-Container durchgesetzt werden, falls ein solcher existiert.
+Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie strikt Schnapp-Punkte im Scroll-Container durchgesetzt werden, falls vorhanden.
 
 {{EmbedInteractiveExample("pages/css/scroll-snap-type.html")}}
 
-Die Angabe genauer Animationen oder physikalischer Eigenschaften, die zur Durchsetzung dieser Snap-Punkte verwendet werden, ist nicht durch diese Eigenschaft abgedeckt, sondern dem Benutzeragenten überlassen.
+Die Spezifikation genauer Animationen oder physikalischer Eigenschaften zur Durchsetzung dieser Schnapp-Punkte fällt nicht unter diese Eigenschaft, sondern bleibt dem User-Agent überlassen.
 
 ## Syntax
 
@@ -43,24 +43,24 @@ scroll-snap-type: unset;
 ### Werte
 
 - `none`
-  - : Wenn der visuelle [Viewport](/de/docs/Glossary/viewport) dieses Scroll-Containers gescrollt wird, muss er Snap-Punkte ignorieren.
+  - : Wenn der visuelle [Viewport](/de/docs/Glossary/viewport) dieses Scroll-Containers gescrollt wird, müssen Schnapp-Punkte ignoriert werden.
 - `x`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner horizontalen Achse.
+  - : Der Scroll-Container schnappt nur zu Schnapp-Positionen auf seiner horizontalen Achse.
 - `y`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner vertikalen Achse.
+  - : Der Scroll-Container schnappt nur zu Schnapp-Positionen auf seiner vertikalen Achse.
 - `block`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Block-Achse.
+  - : Der Scroll-Container schnappt nur zu Schnapp-Positionen auf seiner Block-Achse.
 - `inline`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Inline-Achse.
+  - : Der Scroll-Container schnappt nur zu Schnapp-Positionen auf seiner Inline-Achse.
 - `both`
-  - : Der Scroll-Container schnappt unabhängig in beiden Achsen zu Snap-Positionen (möglicherweise schnappt er zu verschiedenen Elementen in jeder Achse).
+  - : Der Scroll-Container schnappt unabhängig zu Schnapp-Positionen auf beiden Achsen (möglicherweise zu verschiedenen Elementen auf jeder Achse).
 - `mandatory`
-  - : Der visuelle Viewport dieses Scroll-Containers muss zu einer Snap-Position schnappen, wenn er nicht aktuell gescrollt wird.
+  - : Der visuelle Viewport dieses Scroll-Containers muss zu einer Schnapp-Position schnappen, wenn er nicht aktuell gescrollt wird.
 - `proximity`
-  - : Der visuelle Viewport dieses Scroll-Containers kann zu einer Snap-Position schnappen, wenn er nicht aktuell gescrollt wird. Der Benutzeragent entscheidet, ob er schnappt oder nicht, basierend auf den Scroll-Parametern. Dies ist die standardmäßige Snap-Striktheit, wenn eine Snap-Achse angegeben ist.
+  - : Der visuelle Viewport dieses Scroll-Containers kann zu einer Schnapp-Position schnappen, wenn er nicht aktuell gescrollt wird. Der User-Agent entscheidet, ob er snappen soll oder nicht, basierend auf den Scroll-Parametern. Dies ist die standardmäßige Schnapp-Striktheit, wenn eine Schnapp-Achse angegeben ist.
 
 > [!NOTE]
-> Wenn sich der Inhalt im Snap-Port ändert (z.B. hinzugefügt, verschoben, gelöscht oder in der Größe verändert) oder der Wert einer scroll-snap-bezogenen Eigenschaft (z.B. `scroll-snap-type` oder `scroll-margin`) geändert wird, wird der Scroll-Container entsprechend dem neuesten Wert von `scroll-snap-type` [erneut geschnappt](https://drafts.csswg.org/css-scroll-snap/#re-snap).
+> Wenn der Inhalt im Snap-Port geändert wird (z.B. hinzugefügt, verschoben, gelöscht oder in der Größe verändert) oder der Wert einer scroll-schnapp-bezogenen Eigenschaft (z.B. `scroll-snap-type` oder `scroll-margin`) geändert wird, wird der Scroll-Container gemäß dem neuesten Wert von `scroll-snap-type` [erneut geschnappt](https://drafts.csswg.org/css-scroll-snap/#re-snap).
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ scroll-snap-type: unset;
 
 ## Beispiele
 
-### Snappen in verschiedene Achsen
+### Schnappen auf unterschiedlichen Achsen
 
 #### HTML
 

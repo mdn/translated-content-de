@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef}}
 
-Gibt die Anzahl der Rahmen (entweder {{HTMLElement("frame")}}- oder {{HTMLElement("iframe")}}-Elemente) im Fenster zurück.
+Gibt die Anzahl der Frames (entweder {{HTMLElement("frame")}} oder
+{{HTMLElement("iframe")}} Elemente) im Fenster zurück.
 
 ## Wert
 

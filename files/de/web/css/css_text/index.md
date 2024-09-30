@@ -1,5 +1,5 @@
 ---
-title: CSS-Text
+title: CSS text
 slug: Web/CSS/CSS_text
 l10n:
   sourceCommit: 46208a9448a1f51e40b3ee1dfe8dc8a657a74ccd
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Text** Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbrüche, Ausrichtung und Justierung, Umgang mit Leerzeichen und Texttransformation.
+Das **CSS text** Modul definiert, wie die Textmanipulation durchgeführt wird, wie Zeilenumbrüche, Ausrichtung und Justierung, Behandlung von Leerzeichen und Texttransformation.
 
 ## Referenz
 

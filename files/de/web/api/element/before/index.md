@@ -1,5 +1,5 @@
 ---
-title: "Element: before() Methode"
+title: "Element: before()-Methode"
 short-title: before()
 slug: Web/API/Element/before
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.before()`** Methode fügt eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils dieses
-`Element`s ein, unmittelbar vor diesem `Element`.
+Die **`Element.before()`**-Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des Elternteils dieses
+`Element` ein, direkt vor diesem `Element`.
 Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
@@ -64,7 +64,7 @@ console.log(container.outerHTML);
 // "<div>Text<p></p></div>"
 ```
 
-### Einfügen eines Elements und Textes
+### Einfügen eines Elements und von Text
 
 ```js
 let container = document.createElement("div");

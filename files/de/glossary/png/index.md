@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**PNG** (Portable Network Graphics) ist ein Grafikdateiformat, das verlustfreie Datenkomprimierung unterstützt.
+**PNG** (Portable Network Graphics) ist ein Grafikdateiformat, das verlustfreie Datenkompression unterstützt.
 
 ## Siehe auch
 

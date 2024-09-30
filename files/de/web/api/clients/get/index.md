@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`get()`**-Methode der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle ruft einen Service-Worker-Client ab, der mit einer gegebenen `id` übereinstimmt, und gibt ihn in einem {{jsxref("Promise")}} zurück.
+Die **`get()`**-Methode des
+[`Clients`](/de/docs/Web/API/Clients)-Interfaces ruft einen Service Worker-Client ab, der mit einer gegebenen
+`id` übereinstimmt, und gibt ihn in einem {{jsxref("Promise")}} zurück.
 
 ## Syntax
 
@@ -19,11 +21,11 @@ get(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die id des Clients repräsentiert, den Sie abrufen möchten.
+  - : Ein String, der die id des Clients darstellt, den Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf ein [`Client`](/de/docs/Web/API/Client)-Objekt oder `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`Client`](/de/docs/Web/API/Client)-Objekt oder `undefined` aufgelöst wird.
 
 ## Beispiele
 

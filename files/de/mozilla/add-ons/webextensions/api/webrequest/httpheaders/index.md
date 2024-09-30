@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Array von HTTP-Headern. Jeder Header wird als Objekt mit zwei Eigenschaften dargestellt: `name` und entweder `value` oder `binaryValue`.
+Ein Array von HTTP-Headern. Jeder Header wird als ein Objekt mit zwei Eigenschaften dargestellt: `name` und entweder `value` oder `binaryValue`.
 
 ## Typ
 
-Ein `array` von `object`s. Jedes Objekt hat die folgenden Eigenschaften:
+Ein `array` von `object`s. Jedes Objekt besitzt folgende Eigenschaften:
 
 - `name`
   - : `string`. Name des HTTP-Headers.
@@ -27,7 +27,7 @@ Ein `array` von `object`s. Jedes Objekt hat die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-HttpHeaders) API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-HttpHeaders) API. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -36,32 +36,25 @@ Ein `array` von `object`s. Jedes Objekt hat die folgenden Eigenschaften:
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions des Quellcodes müssen den obigen Copyright-
-// Hinweis, diese Bedingungen und den folgenden Haftungsausschluss
-// beibehalten.
-//    * Redistributions in binärer Form müssen den obigen
-// Copyright-Hinweis, diese Liste der Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
-// beibehalten, die mit der Verteilung bereitgestellt werden.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte zu unterstützen
-// oder zu bewerben, die aus dieser Software abgeleitet sind, ohne
-// vorherige ausdrückliche schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER
-// IMPLIZIERTE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER
-// MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, SIND
-// AUSGESCHLOSSEN. IN KEINEM FALL SOLLEN DIE COPYRIGHTINHABER ODER
-// MITWIRKENDEN FÜR DIREKTE, INDIREKTE, BEILÄUFIG ENTSTANDENE,
-// BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER
-// NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER
-// DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN- ODER
-// GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR
-// GEMACHT WERDEN, WIE AUCH IMMER VERURSACHT UND UNABHÄNGIG VON DER
-// THEORIE DER HAFTUNG, OB IN VERTRAGSHAFTUNG, STRIKTER HAFTUNG ODER
-// DELIKTHAFTUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG),
-// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WORDEN
-// IST.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: isPointInPath() Methode"
+title: "CanvasRenderingContext2D: isPointInPath()-Methode"
 short-title: isPointInPath()
 slug: Web/API/CanvasRenderingContext2D/isPointInPath
 l10n:
@@ -10,7 +10,8 @@ l10n:
 
 Die
 **`CanvasRenderingContext2D.isPointInPath()`**
-Methode der Canvas 2D API gibt an, ob der angegebene Punkt sich im aktuellen Pfad befindet oder nicht.
+Methode der Canvas 2D API gibt an, ob der angegebene Punkt im
+aktuellen Pfad enthalten ist oder nicht.
 
 ## Syntax
 
@@ -24,35 +25,38 @@ isPointInPath(path, x, y, fillRule)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des zu überprüfenden Punktes, unverändert von der aktuellen
-    Transformation des Kontextes.
+  - : Die x-Achsen-Koordinate des zu überprüfenden Punkts, unbeeinflusst von der aktuellen
+    Transformation des Kontexts.
 - `y`
-  - : Die y-Achsen-Koordinate des zu überprüfenden Punktes, unverändert von der aktuellen
-    Transformation des Kontextes.
+  - : Die y-Achsen-Koordinate des zu überprüfenden Punkts, unbeeinflusst von der aktuellen
+    Transformation des Kontexts.
 - `fillRule`
 
-  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfades liegt.
+  - : Der Algorithmus, nach dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfads liegt.
     Mögliche Werte:
 
     - `nonzero`
-      - : Die [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
+      - : Die [Non-Zero-Winding-Rule](https://en.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [even-odd winding rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [Even-Odd-Winding-Rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, gegen den überprüft wird. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad
+    verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolean, der `true` ist, wenn sich der angegebene Punkt im aktuellen oder angegebenen Pfad befindet, andernfalls `false`.
+  - : Ein Boolean, der `true` ist, wenn der angegebene Punkt im
+    aktuellen oder angegebenen Pfad enthalten ist, andernfalls `false`.
 
 ## Beispiele
 
-### Überprüfung eines Punktes im aktuellen Pfad
+### Überprüfung eines Punkts im aktuellen Pfad
 
-In diesem Beispiel wird die `isPointInPath()` Methode verwendet, um zu überprüfen, ob sich ein Punkt im aktuellen Pfad befindet.
+Dieses Beispiel verwendet die `isPointInPath()`-Methode, um zu überprüfen, ob ein Punkt innerhalb
+des aktuellen Pfads liegt.
 
 #### HTML
 
@@ -77,10 +81,10 @@ result.innerText = ctx.isPointInPath(30, 70);
 
 {{ EmbedLiveSample('Checking_a_point_in_the_current_path', 700, 220) }}
 
-### Überprüfung eines Punktes im angegebenen Pfad
+### Überprüfung eines Punkts im angegebenen Pfad
 
-Immer wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor in einem kreisförmigen
-`Path2D` Pfad befindet. Falls ja, wird der Kreis grün, andernfalls rot.
+Wann immer Sie die Maus bewegen, überprüft dieses Beispiel, ob der Cursor in einem kreisförmigen
+`Path2D`-Pfad ist. Wenn ja, wird der Kreis grün, andernfalls ist er rot.
 
 #### HTML
 
@@ -126,7 +130,10 @@ canvas.addEventListener("mousemove", (event) => {
 
 ### Gecko-spezifische Anmerkung
 
-- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) hat diese Methode die Koordinaten des angegebenen Punktes nicht korrekt mit der aktuellen Transformationsmatrix multipliziert, bevor sie mit dem Pfad verglichen wurden. Jetzt funktioniert diese Methode korrekt, selbst wenn der Kontext gedreht, skaliert oder anderweitig transformiert wird.
+- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) versagte diese Methode
+  fälschlicherweise, die Koordinaten des angegebenen Punkts mit der aktuellen
+  Transformationsmatrix zu multiplizieren, bevor sie mit dem Pfad verglichen wurden. Jetzt funktioniert diese Methode korrekt,
+  selbst wenn der Kontext gedreht, skaliert oder anderweitig transformiert wurde.
 
 ## Siehe auch
 

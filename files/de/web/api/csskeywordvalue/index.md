@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSKeywordValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt, um CSS-Schlüsselwörter und andere Bezeichner darzustellen.
+Die **`CSSKeywordValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren.
 
-Der Instanzname der Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), was bedeutet, dass er überall dort, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgibt.
+Der Name der Schnittstelleninstanz ist ein [stringifier](/de/docs/Glossary/stringifier), was bedeutet, dass sie überall, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgeben wird.
 
 {{InheritanceDiagram}}
 
@@ -21,7 +21,7 @@ Der Instanzname der Schnittstelle ist ein [Stringifier](/de/docs/Glossary/string
 ## Instanzeigenschaften
 
 - [`CSSKeywordValue.value`](/de/docs/Web/API/CSSKeywordValue/value)
-  - : Gibt den Wert von `CSSKeywordValue` zurück oder setzt ihn.
+  - : Gibt den Wert des `CSSKeywordValue` zurück oder setzt ihn.
 
 ## Instanzmethoden
 
@@ -29,7 +29,7 @@ _Erbt Methoden von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück, indem das inline [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut beim Betrachten im [Developer Tools Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) auf `style="display: initial"` gesetzt wird.
+Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück, indem das Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) auf `style="display: initial"` gesetzt wird, wenn es im [Entwicklertools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
 
 ```css hidden
 #myElement {

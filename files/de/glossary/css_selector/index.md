@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CSS-Selector** ist der Teil einer CSS-Regel, der beschreibt, welche Elemente in einem Dokument zur Regel passen. Die passenden Elemente erhalten den in der Regel angegebenen Stil.
+Ein **CSS-Selector** ist der Teil einer CSS-Regel, der beschreibt, auf welche Elemente in einem Dokument die Regel angewendet wird. Die übereinstimmenden Elemente erhalten den in der Regel angegebenen Stil.
 
 ## Beispiel
 
@@ -35,9 +35,9 @@ div.warning {
 }
 ```
 
-Die Selektoren hier sind `"p"` (welches die Farbe Grün auf den Text innerhalb eines {{HTMLElement("p")}}-Elements anwendet), `"div.warning"` (was jedes {{HTMLElement("div")}}-Element mit der [class](/de/docs/Web/HTML/Global_attributes/class) `"warning"` wie eine Warnbox aussehen lässt), und `"#customized"`, welches die Basis-Schriftart des Elements mit der ID `"customized"` auf 16-Pixel-große Lucida Grande oder eine der angegebenen Fallback-Schriftarten setzt.
+Die Selektoren hier sind `"p"` (die die Farbe Grün auf den Text in jedem {{HTMLElement("p")}}-Element anwenden), `"div.warning"` (das jedes {{HTMLElement("div")}}-Element mit der [class](/de/docs/Web/HTML/Global_attributes/class) `"warning"` wie eine Warnbox aussehen lässt) und `"#customized"`, das die Basis-Schriftart des Elements mit der ID `"customized"` auf 16 Pixel hohe Lucida Grande oder eine der wenigen Alternativ-Schriftarten einstellt.
 
-Wir können dann dieses CSS auf einige HTML anwenden, wie zum Beispiel:
+Wir können dann dieses CSS auf ein HTML anwenden, wie zum Beispiel:
 
 ```html
 <p>This is happy text.</p>
@@ -55,7 +55,7 @@ Wir können dann dieses CSS auf einige HTML anwenden, wie zum Beispiel:
 </div>
 ```
 
-Der daraus resultierende Seiteninhalt wird so gestylt:
+Der resultierende Seiteninhalt wird folgendermaßen gestylt:
 
 {{EmbedLiveSample("Example", 640, 240)}}
 
@@ -64,25 +64,25 @@ Der daraus resultierende Seiteninhalt wird so gestylt:
 - [Erfahren Sie mehr über CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) in unserer Einführung in CSS.
 - Grundlegende Selektoren
 
-  - [Typ Selektoren](/de/docs/Web/CSS/Type_selectors) `elementname`
-  - [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) `.classname`
-  - [ID Selektoren](/de/docs/Web/CSS/ID_selectors) `#idname`
+  - [Typ-Selektoren](/de/docs/Web/CSS/Type_selectors) `elementname`
+  - [Klassen-Selektoren](/de/docs/Web/CSS/Class_selectors) `.classname`
+  - [ID-Selektoren](/de/docs/Web/CSS/ID_selectors) `#idname`
   - [Universelle Selektoren](/de/docs/Web/CSS/Universal_selectors) `* ns|* *|*`
-  - [Attribut Selektoren](/de/docs/Web/CSS/Attribute_selectors) `[attr=value]`
+  - [Attribut-Selektoren](/de/docs/Web/CSS/Attribute_selectors) `[attr=value]`
   - [Zustandsselektoren](/de/docs/Web/CSS/Pseudo-classes) `a:active, a:visited`
 
-- Gruppen von Selektoren
+- Gruppierungsselektoren
 
-  - [Selektor-Liste](/de/docs/Web/CSS/Selector_list) `A, B`
+  - [Selector-Liste](/de/docs/Web/CSS/Selector_list) `A, B`
 
 - Kombinatoren
 
-  - [Direkt-Nachfolger Selektoren](/de/docs/Web/CSS/Next-sibling_combinator) `A + B`
-  - [Nachfolgende Geschwister Selektoren](/de/docs/Web/CSS/Subsequent-sibling_combinator) `A ~ B`
-  - [Kind Selektoren](/de/docs/Web/CSS/Child_combinator) `A > B`
-  - [Nachfolger Selektoren](/de/docs/Web/CSS/Descendant_combinator) `A B`
+  - [Nachbarselektoren](/de/docs/Web/CSS/Next-sibling_combinator) `A + B`
+  - [Nachfolgende-Nachbarselektoren](/de/docs/Web/CSS/Subsequent-sibling_combinator) `A ~ B`
+  - [Kindselektoren](/de/docs/Web/CSS/Child_combinator) `A > B`
+  - [Nachfahren-Selektoren](/de/docs/Web/CSS/Descendant_combinator) `A B`
 
 - Pseudo
 
-  - [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) `:`
+  - [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) `:`
   - [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements) `::`

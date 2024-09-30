@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`xlink:title`**-Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
+Das Attribut **`xlink:title`** wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
 
-Die Verwendung dieser Information hängt stark von der Art der Verarbeitung ab, die durchgeführt wird. Es kann beispielsweise verwendet werden, um Titel für Anwendungen bereitzustellen, die von sehbehinderten Nutzern verwendet werden, um eine Tabelle von Links zu erstellen oder um Hilfetext darzustellen, der erscheint, wenn ein Nutzer den Mauszeiger über eine startende Ressource bewegt.
+Die Verwendung dieser Informationen hängt stark von der Art der Verarbeitung ab. Sie können beispielsweise verwendet werden, um Titel für Anwendungen verfügbar zu machen, die von sehbehinderten Nutzern genutzt werden, oder um eine Linktabelle zu erstellen, oder um Hilfetexte anzuzeigen, die erscheinen, wenn ein Benutzer den Mauszeiger über eine Startressource bewegt.
 
 > [!NOTE]
-> Neue Inhalte sollten ein {{SVGElement("title")}}-Kind-Element anstelle eines `xlink:title`-Attributs verwenden.
+> Für neue Inhalte sollte ein {{SVGElement("title")}} Kind-Element anstelle eines `xlink:title` Attributs verwendet werden.
 
 ## Elemente
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -38,7 +38,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tref")}}
 - {{SVGElement("use")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -64,7 +64,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<anything>`
-  - : Dieser Wert spezifiziert den Titel, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
+  - : Dieser Wert gibt den Titel an, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
 
 ## Spezifikationen
 

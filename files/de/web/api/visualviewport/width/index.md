@@ -12,7 +12,7 @@ Die schreibgeschützte **`width`**-Eigenschaft der [`VisualViewport`](/de/docs/W
 
 ## Wert
 
-Ein double.
+Ein Double.
 
 ## Spezifikationen
 

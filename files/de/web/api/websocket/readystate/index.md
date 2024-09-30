@@ -12,12 +12,12 @@ Die schreibgeschützte Eigenschaft **`WebSocket.readyState`** gibt den aktuellen
 
 ## Wert
 
-Eine Zahl, die einer der vier möglichen Zustandskonstanten ist, die in der [`WebSocket`](/de/docs/Web/API/WebSocket)-Schnittstelle definiert sind:
+Eine Zahl, die einem der vier möglichen Zustandskonstanten entspricht, die in der [`WebSocket`](/de/docs/Web/API/WebSocket)-Schnittstelle definiert sind:
 
 - `WebSocket.CONNECTING` (0)
   - : Der Socket wurde erstellt. Die Verbindung ist noch nicht geöffnet.
 - `WebSocket.OPEN` (1)
-  - : Die Verbindung ist offen und bereit zur Kommunikation.
+  - : Die Verbindung ist geöffnet und bereit zur Kommunikation.
 - `WebSocket.CLOSING` (2)
   - : Die Verbindung wird gerade geschlossen.
 - `WebSocket.CLOSED` (3)

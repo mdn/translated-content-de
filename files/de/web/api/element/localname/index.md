@@ -1,5 +1,5 @@
 ---
-title: "Element: localName Eigenschaft"
+title: "Element: localName-Eigenschaft"
 short-title: localName
 slug: Web/API/Element/localName
 l10n:
@@ -16,8 +16,7 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 
 ## Beispiele
 
-(Muss mit dem XML-Content-Typ bereitgestellt werden, wie `text/xml` oder
-`application/xhtml+xml`.)
+(Muss mit dem XML-Content-Typ bereitgestellt werden, wie `text/xml` oder `application/xhtml+xml`.)
 
 ```xml
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -47,7 +46,7 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 
 ## Hinweise
 
-Der lokale Name eines Knotens ist der Teil des qualifizierten Knotennamens, der hinter dem Doppelpunkt steht. Qualifizierte Namen werden typischerweise in XML als Teil der Namespace(s) der jeweiligen XML-Dokumente verwendet. Zum Beispiel ist in dem qualifizierten Namen `ecomm:partners` `partners` der lokale Name und `ecomm` das Präfix:
+Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens, der nach dem Doppelpunkt kommt. Qualifizierte Namen werden typischerweise in XML als Teil der Namensräume der jeweiligen XML-Dokumente verwendet. Zum Beispiel ist in dem qualifizierten Namen `ecomm:partners` `partners` der lokale Name und `ecomm` das Präfix:
 
 ```xml
 <ecomm:business id="soda_shop" type="brick_n_mortar" xmlns:ecomm="http://example.com/ecomm">
@@ -59,7 +58,7 @@ Der lokale Name eines Knotens ist der Teil des qualifizierten Knotennamens, der 
 ```
 
 > [!NOTE]
-> Während die Eigenschaft den Fall der internen DOM-Speicherung zurückgibt, die in Kleinbuchstaben erfolgt, gibt die [`tagName`](/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurück.
+> Während die Eigenschaft die Kleinschreibung des internen DOM-Speichers zurückgibt, beachten Sie, dass die [`tagName`](https://developer.mozilla.org/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
 
 ## Spezifikationen
 

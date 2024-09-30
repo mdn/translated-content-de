@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`AudioDecoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) dekodiert Audio-Segmente.
+Das **`AudioDecoder`**-Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) dekodiert Audiodatenblöcke.
 
 {{InheritanceDiagram}}
 
@@ -18,35 +18,35 @@ Die **`AudioDecoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCod
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioDecoder.decodeQueueSize`](/de/docs/Web/API/AudioDecoder/decodeQueueSize) {{ReadOnlyInline}}
-  - : Eine ganze Zahl, die die Anzahl der Anfragen in der Dekodierungsschlange darstellt.
+  - : Eine ganze Zahl, die die Anzahl der Dekodierwarteschlangenanforderungen darstellt.
 - [`AudioDecoder.state`](/de/docs/Web/API/AudioDecoder/state) {{ReadOnlyInline}}
-  - : Repräsentiert den Zustand des zugrunde liegenden Codecs und ob er für die Dekodierung konfiguriert ist.
+  - : Stellt den Zustand des zugrunde liegenden Codecs dar und ob dieser für das Dekodieren konfiguriert ist.
 
 ### Ereignisse
 
 - [`dequeue`](/de/docs/Web/API/AudioDecoder/dequeue_event)
-  - : Wird ausgelöst, um eine Verringerung der [`AudioDecoder.decodeQueueSize`](/de/docs/Web/API/AudioDecoder/decodeQueueSize) anzuzeigen.
+  - : Wird ausgelöst, um eine Abnahme in [`AudioDecoder.decodeQueueSize`](/de/docs/Web/API/AudioDecoder/decodeQueueSize) zu signalisieren.
 
 ## Statische Methoden
 
 - [`AudioDecoder.isConfigSupported()`](/de/docs/Web/API/AudioDecoder/isConfigSupported_static)
-  - : Gibt ein Versprechen zurück, das anzeigt, ob die bereitgestellte `AudioDecoderConfig` unterstützt wird.
+  - : Gibt ein Promise zurück, das angibt, ob die bereitgestellte `AudioDecoderConfig` unterstützt wird.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioDecoder.configure()`](/de/docs/Web/API/AudioDecoder/configure)
-  - : Fügt eine Steuerungsnachricht zur Konfiguration des Audio-Decoders für die Dekodierung von Segmenten hinzu.
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Audiodecoder für das Dekodieren von Audiodatenblöcken zu konfigurieren.
 - [`AudioDecoder.decode()`](/de/docs/Web/API/AudioDecoder/decode)
-  - : Fügt eine Steuerungsnachricht hinzu, um ein gegebenes Audio-Segment zu dekodieren.
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um einen gegebenen Audiodatenblock zu dekodieren.
 - [`AudioDecoder.flush()`](/de/docs/Web/API/AudioDecoder/flush)
-  - : Gibt ein Versprechen zurück, das sich auflöst, sobald alle ausstehenden Nachrichten in der Schlange abgeschlossen sind.
+  - : Gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
 - [`AudioDecoder.reset()`](/de/docs/Web/API/AudioDecoder/reset)
-  - : Setzt alle Zustände einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenschlange und alle ausstehenden Rückrufe zurück.
+  - : Setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
 - [`AudioDecoder.close()`](/de/docs/Web/API/AudioDecoder/close)
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 

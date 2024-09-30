@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`XRHitTestResult`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält ein einzelnes Ergebnis eines Treffertests. Sie können ein Array von `XRHitTestResult`-Objekten für einen Frame erhalten, indem Sie [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) aufrufen.
+Die **`XRHitTestResult`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält ein einzelnes Ergebnis eines Treffer-Tests. Sie können ein Array von `XRHitTestResult`-Objekten für einen Frame erhalten, indem Sie [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) aufrufen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Keine.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor) aufgelöst wird, der aus dem Treffertestergebnis erstellt wurde.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor) aufgelöst wird, der aus dem Treffer-Test-Ergebnis erstellt wurde.
 - [`XRHitTestResult.getPose()`](/de/docs/Web/API/XRHitTestResult/getPose) {{Experimental_Inline}}
-  - : Gibt die [`XRPose`](/de/docs/Web/API/XRPose) des Treffertestergebnisses relativ zum angegebenen Basisspace zurück.
+  - : Gibt die [`XRPose`](/de/docs/Web/API/XRPose) des Treffer-Test-Ergebnisses relativ zum angegebenen Basisraum zurück.
 
 ## Beispiele
 
-### Abrufen von `XRHitTestResult`-Objekten innerhalb der Frame-Schleife
+### Erhalten von `XRHitTestResult`-Objekten innerhalb der Frame-Schleife
 
-Neben der Anzeige von `XRHitTestResult` innerhalb einer Frame-Schleife demonstriert dieses Beispiel einige Dinge, die Sie tun müssen, bevor Sie dieses Objekt anfordern. Legen Sie bei der Einrichtung der Sitzung `"hit-test"` als eines der `requiredFeatures` fest. Rufen Sie als Nächstes [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) mit den gewünschten Referenzen auf. (Erhalten Sie diese durch Aufrufen von [`XRSession.requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace).) Dies gibt eine [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) zurück, die Sie in der Frame-Schleife verwenden, um `XRHitTestResult`-Objekte zu erhalten.
+Neben dem Anzeigen von `XRHitTestResult` innerhalb einer Frame-Schleife demonstriert dieses Beispiel einige Dinge, die Sie tun müssen, bevor Sie dieses Objekt anfordern. Während der Sitzungseinrichtung geben Sie `"hit-test"` als eines der `requiredFeatures` an. Rufen Sie als Nächstes [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) mit den gewünschten Referenzen auf. (Erhalten Sie dies, indem Sie [`XRSession.requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) aufrufen.) Dies gibt eine [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) zurück. Diese verwenden Sie in der Frame-Schleife, um `XRHitTestResult`-Objekte zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -50,7 +50,7 @@ function onXRFrame(time, xrFrame) {
 }
 ```
 
-### Abrufen der Pose des Treffertestergebnisses
+### Erhalten der Pose des Treffer-Test-Ergebnisses
 
 Verwenden Sie [`getPose()`](/de/docs/Web/API/XRHitTestResult/getPose), um die Pose des Ergebnisses abzufragen.
 
@@ -62,9 +62,9 @@ if (hitTestResults.length > 0) {
 }
 ```
 
-### Erstellen eines Ankers aus einem Treffertestergebnis
+### Erstellen eines Ankers von einem Treffer-Test-Ergebnis
 
-Sobald Sie Schnittpunkte auf realen Oberflächen mithilfe von Treffertests gefunden haben, können Sie einen [`XRAnchor`](/de/docs/Web/API/XRAnchor) erstellen, um ein virtuelles Objekt an diesem Ort zu befestigen.
+Sobald Sie durch Treffer-Testen Schnittpunkte auf realen Oberflächen gefunden haben, können Sie einen [`XRAnchor`](/de/docs/Web/API/XRAnchor) erstellen, um ein virtuelles Objekt an diesem Ort zu befestigen.
 
 ```js
 hitTestResult.createAnchor().then(

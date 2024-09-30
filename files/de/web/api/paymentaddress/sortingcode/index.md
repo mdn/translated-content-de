@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`sortingCode`** schreibgeschützte Eigenschaft des
-[`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der einen Postleitzahlensortiercode enthält, wie er in Frankreich verwendet wird.
+Die schreibgeschützte **`sortingCode`**-Eigenschaft des
+[`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der einen Postsortierungscode enthält, wie er in Frankreich verwendet wird.
 
 ## Wert
 
-Ein String, der den Sortiercode des Adressenteils enthält.
+Ein String, der den Sortierungscodeabschnitt der Adresse enthält.
 
 ## Browser-Kompatibilität
 

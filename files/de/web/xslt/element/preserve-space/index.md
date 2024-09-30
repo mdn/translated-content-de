@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:preserve-space>`-Element definiert die Elemente im Quelldokument, für die Leerzeichen beibehalten werden sollen. Wenn es mehr als ein Element gibt, trennen Sie die Namen mit einem Leerzeichen. Das Beibehalten von Leerzeichen ist die Standardeinstellung, daher muss dieses Element nur verwendet werden, um ein `<xsl:strip-space>`-Element zu konterkarieren.
+Das `<xsl:preserve-space>`-Element definiert die Elemente im Quelldokument, für die Leerzeichen beibehalten werden sollen. Wenn es mehr als ein Element gibt, trennen Sie die Namen mit einem Leerzeichen. Das Beibehalten von Leerzeichen ist die Standardeinstellung, daher muss dieses Element nur verwendet werden, um ein `<xsl:strip-space>`-Element auszugleichen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Typ
 
-Top-Level, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Oberste Ebene, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 

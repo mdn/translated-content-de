@@ -19,12 +19,11 @@ substring(string, start, length)
 ### Parameter
 
 - `string`
-  - : Der zu evaluierende String.
+  - : Der zu bewertende String.
 - `start`
-  - : Die Position innerhalb des `string`, an der der Teilstring beginnt.
+  - : Die Position innerhalb von `string`, an der der Substring beginnt.
 - `length` {{optional_inline}}
-  - : Die Länge des Teilstrings.
-    Wenn ausgelassen, wird der zurückgegebene String jedes Zeichen von der `start`-Position bis zum Ende des `string` enthalten.
+  - : Die Länge des Substrings. Wenn ausgelassen, enthält der zurückgegebene String jedes Zeichen von der `start`-Position bis zum Ende des `string`.
 
 ### Rückgabewert
 
@@ -32,12 +31,12 @@ Ein String.
 
 ## Beschreibung
 
-Wie bei anderen XPath-Funktionen ist die Position nicht nullbasiert. Das erste Zeichen im String hat die Position 1, nicht 0.
+Wie bei anderen XPath-Funktionen ist die Position nicht null-basiert. Das erste Zeichen im String hat die Position 1, nicht 0.
 
 ## Spezifikationen
 
 [XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-substring)
 
-## Gecko-Unterstützung
+## Gecko-Kompatibilität
 
 Unterstützt.

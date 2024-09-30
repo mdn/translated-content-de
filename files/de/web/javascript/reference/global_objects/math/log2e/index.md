@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.LOG2E`** repräsentiert den Logarithmus von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) zur Basis 2, ungefähr 1,442.
+Die **`Math.LOG2E`** statische Dateneigenschaft repräsentiert den Logarithmus zur Basis 2 von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 1,442.
 
 {{EmbedInteractiveExample("pages/js/math-log2e.html", "shorter")}}
 
@@ -23,7 +23,7 @@ Die statische Dateneigenschaft **`Math.LOG2E`** repräsentiert den Logarithmus v
 
 ## Beschreibung
 
-Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.LOG2E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E` und nicht als Eigenschaft eines erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

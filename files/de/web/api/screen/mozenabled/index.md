@@ -1,5 +1,5 @@
 ---
-title: "Screen: `mozEnabled`-Eigenschaft"
+title: "Screen: mozEnabled-Eigenschaft"
 short-title: mozEnabled
 slug: Web/API/Screen/mozEnabled
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Dieses Boolean-Attribut steuert den Bildschirm des Geräts. Wenn es auf `false` gesetzt wird, wird der Bildschirm ausgeschaltet.
+Dieses boolesche Attribut steuert den Bildschirm des Geräts. Wenn es auf `false` gesetzt wird, schaltet sich der Bildschirm aus.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Spezifikationen
 
-Kein Teil einer Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

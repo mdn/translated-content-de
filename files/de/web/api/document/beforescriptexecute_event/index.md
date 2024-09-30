@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{non-standard_header}}
 
-Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} kurz vor der Ausführung steht. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `beforescriptexecute` Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, etwa mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
@@ -40,7 +40,7 @@ document.onbeforescriptexecute = starting;
 
 ## Spezifikationen
 
-Ist nicht Teil einer Spezifikation.
+Kein Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -48,5 +48,5 @@ Ist nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) Ereignis von `Document`
+- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) Ereignis des `Document`
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

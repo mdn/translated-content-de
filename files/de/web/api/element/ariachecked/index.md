@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaChecked`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributes wider, welches den aktuellen "checked"-Status von Kontrollkästchen, Optionsfeldern und anderen Widgets, die einen checked-Zustand haben, angibt.
+Die **`ariaChecked`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributs wider, das den aktuellen "checked"-Zustand von Checkboxen, Radio-Buttons und anderen Widgets, die einen checked-Zustand haben, anzeigt.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="checkbox"`, da dieses Element eingebaute Semantiken hat und keine ARIA-Attribute benötigt.
+> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="checkbox"`, da dieses Element eingebaute Semantik hat und keine ARIA-Attribute benötigt.
 
 ## Wert
 
@@ -20,15 +20,15 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element ist aktiviert.
 - `"mixed"`
-  - : Gibt einen gemischten Wert für ein Tri-State-Kontrollkästchen oder ein Menüelement-Kontrollkästchen an.
+  - : Gibt einen gemischten Moduswert für ein Drei-Zustands-Checkbox oder ein Menüeintrags-Checkbox an.
 - `"false"`
-  - : Das Element unterstützt das Aktivieren, ist derzeit jedoch nicht aktiviert.
+  - : Das Element unterstützt das Aktiviertsein, ist aber derzeit nicht aktiviert.
 - `"undefined"`
-  - : Das Element unterstützt das Aktivieren nicht.
+  - : Das Element unterstützt das Aktiviertsein nicht.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-checked`-Attribut des Elements mit der ID `checkBoxInput` auf "false" gesetzt, was anzeigt, dass dieses Eingabefeld derzeit nicht aktiviert ist. Mit `ariaChecked` aktualisieren wir den Wert auf "true".
+In diesem Beispiel wird das `aria-checked`-Attribut des Elements mit der ID `checkBoxInput` auf "false" gesetzt, was anzeigt, dass dieses Eingabefeld derzeit nicht aktiviert ist. Mithilfe von `ariaChecked` aktualisieren wir den Wert auf "true".
 
 ```html
 <span

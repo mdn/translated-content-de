@@ -8,25 +8,23 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`mode`**-Eigenschaft des schreibgeschützten [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Interfaces gibt den aktuellen Modus für den Datenzugriff auf die Objektspeicher im Geltungsbereich der Transaktion zurück (d.h. soll der Modus nur lesend sein oder möchten Sie in die Objektspeicher schreiben?). Der Standardwert ist `readonly`.
+Die schreibgeschützte **`mode`**-Eigenschaft der [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Schnittstelle gibt den aktuellen Modus für den Zugriff auf die Daten in den Objektspeichern im Geltungsbereich der Transaktion zurück (d.h. soll der Modus schreibgeschützt sein oder möchten Sie die Objektspeicher beschreiben?). Der Standardwert ist `readonly`.
 
 ## Wert
 
-Ein Objekt, das den Modus für die Isolierung des Datenzugriffs in den aktuellen Objektspeichern definiert: Ein String, der den Modus für die Isolierung des Datenzugriffs in den aktuellen Objektspeichern definiert. Die folgenden Werte sind verfügbar:
+Ein Objekt, das den Modus für die Isolierung des Zugriffs auf Daten in den aktuellen Objektspeichern definiert:
+Ein String, der den Modus für die Isolierung des Zugriffs auf Daten in den aktuellen Objektspeichern definiert. Die folgenden Werte sind verfügbar:
 
 - `readonly`
-  - : Ermöglicht das Lesen, aber nicht das Ändern von Daten.
+  - : Erlaubt das Lesen, aber keine Änderungen der Daten.
 - `readwrite`
-  - : Ermöglicht das Lesen und Schreiben von Daten, die in vorhandenen Datenspeichern geändert werden können.
+  - : Erlaubt das Lesen und Ändern der Daten in bestehenden Datenspeichern.
 - `versionchange`
-  - : Ermöglicht beliebige Operationen, einschließlich solcher, die Objektspeicher und Indizes löschen und erstellen.
-    Dieser Modus dient zum Aktualisieren der Versionsnummer von Transaktionen, falls der Bedarf beim Aufruf von [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory/open) festgestellt wird.
-    Transaktionen dieses Modus können nicht gleichzeitig mit anderen Transaktionen laufen.
-    Transaktionen in diesem Modus sind als _Upgrade-Transaktionen_ bekannt.
+  - : Erlaubt alle Operationen, einschließlich derjenigen, die Objektspeicher und Indizes löschen und erstellen. Dieser Modus ist zum Aktualisieren der Versionsnummer von Transaktionen bestimmt, wenn beim Aufruf von [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory/open) der Bedarf erkannt wird. Transaktionen in diesem Modus können nicht gleichzeitig mit anderen Transaktionen ausgeführt werden. Transaktionen in diesem Modus sind als _Upgrade-Transaktionen_ bekannt.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einem Objektspeicher Daten hinzu. Beachten Sie auch die Funktionen, die an Transaktions-Ereignis-Handler angehängt sind, um über das Ergebnis des Transaktionsöffnungsvorgangs im Erfolgs- oder Fehlereignis zu berichten. Am Ende protokollieren wir den Modus der aktuellen Transaktion mit `mode`. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen einem Objektspeicher einige Daten hinzu. Beachten Sie auch die Funktionen, die an Transaktions-Event-Handler angehängt sind, um das Ergebnis des Transaktionsöffnens im Erfolgs- oder Fehlerfall zu melden. Am Ende protokollieren wir den Modus der aktuellen Transaktion mit `mode`. Für ein vollständig funktionierendes Beispiel sehen Sie unsere [To-do Notifications App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -106,9 +104,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Kursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Beispielreferenz: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

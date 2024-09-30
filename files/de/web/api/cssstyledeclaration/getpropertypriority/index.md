@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleDeclaration: getPropertyPriority()-Methode"
+title: "CSSStyleDeclaration: Methode getPropertyPriority()"
 short-title: getPropertyPriority()
 slug: Web/API/CSSStyleDeclaration/getPropertyPriority
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **CSSStyleDeclaration.getPropertyPriority()**-Methoden-Schnittstelle gibt
-einen String zurück, der alle explizit gesetzten Prioritäten der CSS-Eigenschaft
-bereitstellt.
+Die Schnittstelle der Methode **CSSStyleDeclaration.getPropertyPriority()** gibt einen String zurück, der alle explizit gesetzten Prioritäten auf der CSS-Eigenschaft bereitstellt.
 
 ## Syntax
 
@@ -21,16 +19,15 @@ getPropertyPriority(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Namen der zu prüfenden Eigenschaft darstellt.
+  - : Ein String, der den zu überprüfenden Eigenschaftsnamen darstellt.
 
 ### Rückgabewert
 
-Ein String, der die Priorität (z.B. `"important"`) darstellt, falls eine vorhanden ist.
-Wenn keine vorhanden ist, wird der leere String zurückgegeben.
+Ein String, der die Priorität (z. B. `"important"`) darstellt, falls eine existiert. Wenn keine existiert, wird der leere String zurückgegeben.
 
 ## Beispiele
 
-Der folgende JavaScript-Code prüft, ob `margin` in einer CSS-Selektorregel als wichtig markiert ist:
+Der folgende JavaScript-Code überprüft, ob `margin` als wichtig in einer CSS-Selektorregel markiert ist:
 
 ```js
 const declaration = document.styleSheets[0].cssRules[0].style;

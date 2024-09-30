@@ -1,5 +1,5 @@
 ---
-title: Name
+title: name
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/name
 l10n:
   sourceCommit: b54285107143d2273663e056ed1a18fb0917bc57
@@ -26,7 +26,7 @@ l10n:
 
 Name der Erweiterung. Dieser wird verwendet, um die Erweiterung in der Benutzeroberfläche des Browsers und auf Websites wie addons.mozilla.org zu identifizieren.
 
-Es ist eine gute Praxis, den Namen so kurz zu halten, dass er in der Benutzeroberfläche angezeigt werden kann. Außerdem kann die Länge des Namens einer veröffentlichten Erweiterung begrenzt sein. Zum Beispiel im Februar 2024:
+Es ist eine gute Praxis, den Namen kurz genug zu halten, damit er in der Benutzeroberfläche angezeigt werden kann. Auch die Länge des Namens einer veröffentlichten Erweiterung kann begrenzt sein. Zum Beispiel, ab Februar 2024:
 
 - addons.mozilla.org akzeptiert maximal 50 Zeichen.
 - Der Chrome Web Store akzeptiert maximal 75 Zeichen.

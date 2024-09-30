@@ -1,5 +1,5 @@
 ---
-title: "WEBGL_lose_context: restoreContext() Methode"
+title: "WEBGL_lose_context: restoreContext()-Methode"
 short-title: restoreContext()
 slug: Web/API/WEBGL_lose_context/restoreContext
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WEBGL_lose_context.restoreContext()** Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, das Wiederherstellen des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekts zu simulieren.
+Die **WEBGL_lose_context.restoreContext()**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, das Wiederherstellen des Kontexts eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekts zu simulieren.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Browser melden WebGL-Fehler standardmäßig möglicherweise nicht. Die Fehlerberichterstattung in WebGL funktioniert, indem [`getError()`](/de/docs/Web/API/WEBGLRenderingContext/getError) aufgerufen und auf Fehler überprüft wird. Die folgenden Ausnahmen können ausgelöst werden:
+Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. Die Fehlerberichterstattung von WebGL funktioniert durch Aufruf von [`getError()`](/de/docs/Web/API/WEBGLRenderingContext/getError) und Überprüfung auf Fehler. Die folgenden Ausnahmen können ausgelöst werden:
 
 - `INVALID_OPERATION`
-  - : Ausgelöst, wenn der Kontext nicht verloren gegangen ist.
+  - : Wird ausgelöst, wenn der Kontext nicht verloren war.
 
 ## Beispiele
 
 Mit dieser Methode können Sie das
 [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event)
-Ereignis simulieren:
+-Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

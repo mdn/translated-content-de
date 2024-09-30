@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `type`-Eigenschaft der [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Schnittstelle ist ein String (enum)-Wert, der die Art des Filteralgorithmus definiert, den der Knoten implementiert.
+Die `type`-Eigenschaft der [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Schnittstelle ist ein String (enum)-Wert, der angibt, welche Art von Filteralgorithmus der Knoten implementiert.
 
 ## Wert
 
@@ -28,41 +28,41 @@ Ein String (enum), der einen [BiquadFilterType](https://webaudio.github.io/web-a
     <tr>
       <th scope="row"><code>lowpass</code></th>
       <td>
-        Standard-Tiefpassfilter zweiter Ordnung mit 12 dB/Oktave-Abfall.
-        Frequenzen unterhalb der Grenzfrequenz passieren; Frequenzen darüber
-        werden abgeschwächt.
+        Standard-Resonanz-Tiefpassfilter zweiter Ordnung mit 12dB/Oktave Abfall.
+        Frequenzen unterhalb der Grenzfrequenz werden durchgelassen; Frequenzen darüber werden
+        abgeschwächt.
       </td>
       <td>Die Grenzfrequenz.</td>
       <td>
-        Gibt an, wie ausgeprägt die Frequenz um die Grenzfrequenz ist. Je höher
-        der Wert, desto größer ist der Peak.
+        Zeigt an, wie stark die Frequenz um die Grenzfrequenz hervorgehoben wird. Je größer der
+        Wert ist, desto größer ist die Hervorhebung.
       </td>
       <td><em>Nicht verwendet</em></td>
     </tr>
     <tr>
       <th scope="row"><code>highpass</code></th>
       <td>
-        Standard-Hochpassfilter zweiter Ordnung mit 12 dB/Oktave-Abfall.
-        Frequenzen unterhalb der Grenzfrequenz werden abgeschwächt;
-        Frequenzen darüber passieren.
+        Standard-Resonanz-Hochpassfilter zweiter Ordnung mit 12dB/Oktave Abfall.
+        Frequenzen unterhalb der Grenzfrequenz werden abgeschwächt; Frequenzen darüber werden
+        durchgelassen.
       </td>
       <td>Die Grenzfrequenz.</td>
       <td>
-        Gibt an, wie ausgeprägt die Frequenz um die Grenzfrequenz ist. Je höher
-        der Wert, desto größer ist der Peak.
+        Zeigt an, wie stark die Frequenz um die Grenzfrequenz hervorgehoben wird. Je größer der
+        Wert, desto größer die Hervorhebung.
       </td>
       <td><em>Nicht verwendet</em></td>
     </tr>
     <tr>
       <th scope="row"><code>bandpass</code></th>
       <td>
-        Standard-Bandpassfilter zweiter Ordnung. Frequenzen außerhalb des
-        angegebenen Bereichs werden abgeschwächt; Frequenzen innerhalb
-        passieren.
+        Standard-Bandpassfilter zweiter Ordnung. Frequenzen außerhalb des gegebenen
+        Frequenzbereichs werden abgeschwächt; die Frequenzen innerhalb werden
+        durchgelassen.
       </td>
-      <td>Die Mitte des Frequenzbereichs.</td>
+      <td>Der Mittelpunkt des Frequenzbereichs.</td>
       <td>
-        Steuert die Breite des Frequenzbands. Je höher der
+        Steuert die Breite des Frequenzbands. Je größer der
         <code>Q</code>-Wert, desto größer das Frequenzband.
       </td>
       <td><em>Nicht verwendet</em></td>
@@ -70,67 +70,62 @@ Ein String (enum), der einen [BiquadFilterType](https://webaudio.github.io/web-a
     <tr>
       <th scope="row"><code>lowshelf</code></th>
       <td>
-        Standard-Tiefschaltfilter zweiter Ordnung. Frequenzen unterhalb der
-        Frequenz werden verstärkt oder abgeschwächt; Frequenzen darüber
-        bleiben unverändert.
+        Standard-Tiefenregalfilter zweiter Ordnung. Frequenzen niedriger als die
+        Frequenz erhalten einen Boost oder eine Abschwächung; Frequenzen darüber bleiben
+        unverändert.
       </td>
       <td>
-        Das obere Limit der verstärkten oder abgeschwächten Frequenzen.
+        Die obere Grenze der Frequenzen, die geboostet oder abgeschwächt werden.
       </td>
       <td><em>Nicht verwendet</em></td>
       <td>
-        Die Verstärkung in dB, die angewendet wird; ist sie negativ, erfolgt
-        eine Dämpfung.
+        Der anzuwendende Boost in dB; ist dieser negativ, erfolgt eine Abschwächung.
       </td>
     </tr>
     <tr>
       <th scope="row"><code>highshelf</code></th>
       <td>
-        Standard-Hochschaltfilter zweiter Ordnung. Frequenzen über der
-        Frequenz werden verstärkt oder abgeschwächt; Frequenzen darunter
-        bleiben unverändert.
+        Standard-Höhenregalfilter zweiter Ordnung. Frequenzen höher als die
+        Frequenz erhalten einen Boost oder eine Abschwächung; Frequenzen darunter bleiben
+        unverändert.
       </td>
       <td>
-        Das untere Limit der verstärkten oder abgeschwächten Frequenzen.
+        Die untere Grenze der Frequenzen, die geboostet oder abgeschwächt werden.
       </td>
       <td><em>Nicht verwendet</em></td>
       <td>
-        Die Verstärkung in dB, die angewendet wird; ist sie negativ, erfolgt
-        eine Dämpfung.
+        Der anzuwendende Boost in dB; ist dieser negativ, erfolgt eine Abschwächung.
       </td>
     </tr>
     <tr>
       <th scope="row"><code>peaking</code></th>
       <td>
-        Frequenzen innerhalb des Bereichs werden verstärkt oder
-        abgeschwächt; Frequenzen außerhalb bleiben unverändert.
+        Frequenzen innerhalb des Bereichs erhalten einen Boost oder eine Abschwächung; Frequenzen
+        außerhalb bleiben unverändert.
       </td>
       <td>
-        Die Mitte des Frequenzbereichs, der verstärkt oder abgeschwächt
-        wird.
+        Die Mitte des Frequenzbereichs, der geboostet oder abgeschwächt wird.
       </td>
       <td>
-        Steuert die Breite des Frequenzbands. Je höher der
+        Steuert die Breite des Frequenzbands. Je größer der
         <code>Q</code>-Wert, desto größer das Frequenzband.
       </td>
       <td>
-        Die Verstärkung in dB, die angewendet wird; ist sie negativ, erfolgt
-        eine Dämpfung.
+        Der anzuwendende Boost in dB; ist dieser negativ, erfolgt eine Abschwächung.
       </td>
     </tr>
     <tr>
       <th scope="row"><code>notch</code></th>
       <td>
-        Standard-
+        Standard
         <a href="https://en.wikipedia.org/wiki/Band-stop_filter">Kerbfilter</a>,
-        auch als <em>Bandsperre</em> oder <em>Bandunterdrückungsfilter</em>
-        bekannt. Es ist das Gegenteil eines Bandpassfilters: Frequenzen
-        außerhalb des angegebenen Bereichs passieren; Frequenzen innerhalb
-        werden abgeschwächt.
+        auch genannt <em>Bandstopp</em> oder <em>Bandverwerfung</em> Filter. Es ist das Gegenteil eines Bandpassfilters:
+        Frequenzen außerhalb des gegebenen Frequenzbereichs werden durchgelassen;
+        Frequenzen innerhalb werden abgeschwächt.
       </td>
-      <td>Die Mitte des Frequenzbereichs.</td>
+      <td>Der Mittelpunkt des Frequenzbereichs.</td>
       <td>
-        Steuert die Breite des Frequenzbands. Je höher der
+        Steuert die Breite des Frequenzbands. Je größer der
         <code>Q</code>-Wert, desto größer das Frequenzband.
       </td>
       <td><em>Nicht verwendet</em></td>
@@ -138,20 +133,23 @@ Ein String (enum), der einen [BiquadFilterType](https://webaudio.github.io/web-a
     <tr>
       <th scope="row"><code>allpass</code></th>
       <td>
-        Standard-Alle-Pass-Filter zweiter Ordnung.
-        Es lässt alle Frequenzen durch, ändert jedoch das
-        Phasenverhältnis zwischen den verschiedenen Frequenzen.
+        Standard-Allpassfilter zweiter Ordnung.
+        <a
+          href="https://en.wikipedia.org/wiki/All-pass_filter#Digital_Implementation"
+          >Allpassfilter</a>.
+        Lässt alle Frequenzen durch, verändert aber die
+        Phasenbeziehung zwischen den verschiedenen Frequenzen.
       </td>
       <td>
         Die Frequenz mit der maximalen
-        <a href="https://en.wikipedia.org/wiki/Group_delay_and_phase_delay">
-          Gruppenlaufzeit</a>, d.h. die Frequenz, bei der die Mitte des
-        Phasenübergangs auftritt.
+        <a href="https://en.wikipedia.org/wiki/Group_delay_and_phase_delay"
+          >Gruppenlaufzeit</a>,
+        das heißt, die Frequenz, bei der das Zentrum des Phasenübergangs
+        auftritt.
       </td>
       <td>
-        Steuert, wie scharf der Übergang bei der mittleren Frequenz ist.
-        Je größer dieser Parameter ist, desto schärfer und größer wird
-        der Übergang sein.
+        Steuert, wie scharf der Übergang bei der mittleren Frequenz ist. Je größer
+        dieser Parameter ist, desto schärfer und größer wird der Übergang sein.
       </td>
       <td><em>Nicht verwendet</em></td>
     </tr>
@@ -160,7 +158,8 @@ Ein String (enum), der einen [BiquadFilterType](https://webaudio.github.io/web-a
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext, um einen Biquad-Filterknoten zu erstellen. Für umfassendere Beispiele und Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines `AudioContext`, um einen Biquad-Filterknoten zu erstellen.
+Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

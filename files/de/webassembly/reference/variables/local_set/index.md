@@ -1,5 +1,5 @@
 ---
-title: Lokale Zuweisung
+title: Local set
 slug: WebAssembly/Reference/Variables/Local_set
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`local.set`** Anweisung weist einer lokalen Variable Werte zu.
+Die **`local.set`** Anweisung setzt die Werte einer lokalen Variable.
 
 {{EmbedInteractiveExample("pages/wat/local.html", "tabbed-taller")}}
 
@@ -21,6 +21,6 @@ i32.const 2
 local.set $val
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `local.set` | `0x21`         |
+| Anweisung    | Binärer Opcode |
+| ------------ | -------------- |
+| `local.set`  | `0x21`         |

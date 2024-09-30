@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Cumulative Layout Shift (CLS)** ist eine Nutzbarkeitskennzahl für Webseiten, die von Google als eine der [Core Web Vital](https://web.dev/explore/learn-core-web-vitals) Metriken entwickelt wurde.
+**Cumulative Layout Shift (CLS)** ist eine Nutzbarkeitsmetrik für Websites, die von Google als eine der [Core Web Vital](https://web.dev/explore/learn-core-web-vitals) Metriken entwickelt wurde.
 
-Sie misst, in welchem Umfang Benutzer unvorhergesehene Layout-Verschiebungen erleben, bei denen Elemente der Seite unerwartet verschoben werden: das heißt, sie sind nicht das Ergebnis einer Benutzeraktion wie das Drücken eines Knopfes oder Teil einer Animation.
+Sie misst das Ausmaß, in dem Benutzer unerwarteten Layout-Verschiebungen begegnen, bei denen Elemente der Seite auf unerwartete Weise verschoben werden: also solche, die nicht das Ergebnis einer Benutzeraktion wie das Drücken eines Buttons oder Teil einer Animation sind.
 
-Layout-Verschiebungen können beispielsweise durch {{htmlelement("img")}} oder {{htmlelement("video")}} Elemente verursacht werden, denen keine `width` und `height` Attribute zugewiesen sind, sodass der Browser nicht weiß, wie viel Platz sie einnehmen werden, bis sie geladen sind.
+Layout-Verschiebungen können beispielsweise durch `<img>` oder `<video>` Elemente verursacht werden, die keine `width` und `height` Attribute haben, sodass der Browser nicht weiß, wie viel Platz sie beanspruchen werden, bis sie geladen sind.
 
-Das [`LayoutShift`](/de/docs/Web/API/LayoutShift) Interface, Teil der [Performance API](/de/docs/Web/API/Performance_API), kann verwendet werden, um einzelne Layout-Verschiebungen zu messen, die dann zur Berechnung des CLS-Wertes für eine Webseite genutzt werden können.
+Das [`LayoutShift`](/de/docs/Web/API/LayoutShift) Interface, das Teil der [Performance API](/de/docs/Web/API/Performance_API) ist, kann verwendet werden, um einzelne Layout-Verschiebungen zu messen, die dann zur Berechnung des CLS-Wertes für eine Webseite genutzt werden können.
 
 ## Siehe auch
 

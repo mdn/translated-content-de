@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextEncoder.encode()`** Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den im Parameter angegebenen Text enthält und mit der spezifischen Methode für das [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekt kodiert ist.
+Die **`TextEncoder.encode()`** Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den im Parameter angegebenen Text enthält, der mit der spezifischen Methode dieses [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekts kodiert wurde.
 
 ## Syntax
 

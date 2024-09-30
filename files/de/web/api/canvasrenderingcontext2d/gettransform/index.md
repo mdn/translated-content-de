@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: Methode getTransform()"
+title: "CanvasRenderingContext2D: getTransform() Methode"
 short-title: getTransform()
 slug: Web/API/CanvasRenderingContext2D/getTransform
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.getTransform()`**-Methode der Canvas 2D API ruft die aktuelle Transformationsmatrix ab, die auf den Kontext angewendet wird.
+Die **`CanvasRenderingContext2D.getTransform()`**-Methode der Canvas 2D API ruft die aktuell auf den Kontext angewendete Transformationsmatrix ab.
 
 ## Syntax
 
@@ -33,19 +33,16 @@ Die Transformationsmatrix wird beschrieben durch:
 <!-- prettier-ignore-end -->
 
 > [!NOTE]
-> Das zurückgegebene Objekt ist nicht live, daher wirkt sich eine Aktualisierung auf dieses
-> nicht auf die aktuelle Transformationsmatrix aus, und eine Aktualisierung der aktuellen
-> Transformationsmatrix wirkt sich nicht auf eine bereits zurückgegebene `DOMMatrix` aus.
+> Das zurückgegebene Objekt ist nicht live, sodass eine Aktualisierung desselben die aktuelle Transformationsmatrix nicht beeinflusst und die Aktualisierung der aktuellen Transformationsmatrix keine Auswirkungen auf eine bereits zurückgegebene `DOMMatrix` hat.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir zwei {{htmlelement("canvas")}}-Elemente. Wir
-wenden eine Transformation auf den Kontext des ersten Canvas an, indem wir
-[`CanvasRenderingContext2D.setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform) verwenden und ein Quadrat darauf zeichnen. Dann rufen wir die Matrix damit ab, indem wir `getTransform()` verwenden.
+Im folgenden Beispiel haben wir zwei {{htmlelement("canvas")}}-Elemente. Wir wenden eine
+Transformation auf den Kontext des ersten Canvas an, indem wir
+[`CanvasRenderingContext2D.setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform) verwenden und ein Quadrat darauf zeichnen. Danach rufen wir die Matrix mit `getTransform()` ab.
 
-Wir wenden dann die abgerufene Matrix direkt auf den zweiten Canvas-Kontext an, indem wir das
-`DOMMatrix`-Objekt direkt an `setTransform()` übergeben und zeichnen einen Kreis
-darauf.
+Anschließend wenden wir die abgerufene Matrix direkt auf den Kontext des zweiten Canvas an, indem wir das
+`DOMMatrix`-Objekt direkt an `setTransform()` übergeben, und zeichnen einen Kreis darauf.
 
 ### HTML
 
@@ -94,5 +91,5 @@ ctx2.fill();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)

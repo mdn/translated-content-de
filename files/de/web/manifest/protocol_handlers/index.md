@@ -7,26 +7,27 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-Das `protocol_handlers`-Element spezifiziert ein Array von Objekten, die Protokolle sind, die von dieser Web-App registriert und gehandhabt werden können. Protokoll-Handler registrieren die Anwendung in den Anwendungseinstellungen eines Betriebssystems; die Registrierung verknüpft eine bestimmte Anwendung mit dem angegebenen Protokollschema. Zum Beispiel öffnen registrierte E-Mail-Anwendungen beim Verwenden des Protokoll-Handlers `mailto://` auf einer Webseite.
+Das `protocol_handlers`-Mitglied gibt ein Array von Objekten an, die Protokolle darstellen, die diese Web-App registrieren und handhaben kann. Protokoll-Handler registrieren die Anwendung in den Anwendungseinstellungen eines Betriebssystems; die Registrierung verknüpft eine spezifische Anwendung mit dem angegebenen Protokollschema. Beispielsweise öffnen sich registrierte E-Mail-Anwendungen, wenn auf einer Webseite der Protokoll-Handler `mailto://` verwendet wird.
 
-Nachdem eine Web-App als Protokoll-Handler registriert wurde, würde beim Klicken eines Nutzers auf einen Hyperlink mit einem spezifischen Schema wie `mailto://` oder `web+music://` aus einem Browser oder einer nativen App heraus die registrierte PWA geöffnet und die URL empfangen.
+Nach der Registrierung einer Web-App als Protokoll-Handler würde, wenn ein Benutzer auf einen Hyperlink mit einem spezifischen Schema wie `mailto://` oder `web+music://` aus einem Browser oder einer nativen App klickt, die registrierte PWA geöffnet und die URL empfangen werden.
 
 ### Werte
 
-Protokoll-Handler-Objekte können folgende Werte enthalten:
+Protokoll-Handler-Objekte können die folgenden Werte enthalten:
 
 - `protocol` {{experimental_inline}}
 
-  - : Ein erforderlicher String, der das zu behandelnde Protokoll enthält; z.B.: `mailto`, `ms-word`, `web+jngl`.
+  - : Ein erforderlicher String, der das zu handhabende Protokoll enthält; z.B.: `mailto`, `ms-word`, `web+jngl`.
 
 - `url` {{experimental_inline}}
-  - : Erforderliche HTTPS-URL innerhalb des Anwendungs-[`scope`](/de/docs/Web/Manifest/scope), die das Protokoll handhabt.
-    Das `%s`-Token wird durch die URL ersetzt, die mit dem Schema des Protokoll-Handlers beginnt. Wenn `url` eine relative
-    URL ist, wird die Basis-URL die URL des Manifests sein.
+  - : Erforderliche HTTPS-URL innerhalb des Anwendungs-[`scope`](/de/docs/Web/Manifest/scope), die das Protokoll
+    handhaben wird.
+    Der `%s`-Token wird durch die mit dem Protokoll-Handler-Schema beginnende URL ersetzt. Wenn `url` eine relative URL
+    ist, ist die Basis-URL die URL des Manifests.
 
 ## Beispiele
 
-In diesem Beispiel deklariert ein Web-App-Manifest, dass die App registriert werden soll, um die Protokolle `web+jngl` und `web+jnglstore` zu handhaben.
+In diesem Beispiel erklärt ein Web-App-Manifest, dass die App so registriert werden soll, dass sie die Protokolle `web+jngl` und `web+jnglstore` handhabt.
 
 ```json
 "protocol_handlers": [
@@ -41,9 +42,9 @@ In diesem Beispiel deklariert ein Web-App-Manifest, dass die App registriert wer
 ]
 ```
 
-Ein Entwickler kann ein Feld in der manifest.json hinzufügen, um zu deklarieren, welche Protokolle die Web-App handhaben kann. Wie im obigen Beispiel zu sehen ist, heißt der Schlüssel `protocol_handlers` und enthält ein Array von Protokoll-Handler-Deklarationsobjekten.
+Ein Entwickler kann ein Feld in die manifest.json hinzufügen, um zu erklären, welche Protokolle die Web-App handhaben kann. Wie im obigen Beispiel zu sehen ist, heißt der Schlüssel `protocol_handlers`, und er enthält ein Array von Deklarationsobjekten für Protokoll-Handler.
 
-Das Registrieren von Anwendungen zum Handhaben von URL-Schemata ist betriebssystemabhängig. Diese Zuordnung erfolgt normalerweise während der Anwendungsinstallation, kann aber auch nachträglich von einer bereits installierten App aus erfolgen.
+Die Registrierung von Anwendungen zur Handhabung von URL-Schemata ist betriebssystemabhängig. Diese Zuordnung erfolgt in der Regel während der Anwendungsinstallation, kann aber auch nachträglich von einer bereits installierten App vorgenommen werden.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: createBuffer() Methode"
 short-title: createBuffer()
 slug: Web/API/WebGLRenderingContext/createBuffer
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.createBuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erzeugt und initialisiert einen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie beispielsweise Vertex- oder Farbinformationen speichert.
+Die **`WebGLRenderingContext.createBuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert einen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie Vertices oder Farben speichert.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie beispielsweise Vertex- oder Farbinformationen speichert.
+Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie Vertices oder Farben speichert.
 
 ## Beispiele
 
-### Einen Buffer erstellen
+### Erstellen eines Buffers
 
 ```js
 const canvas = document.getElementById("canvas");

@@ -8,17 +8,17 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`size`**-Attribut definiert die Breite des {{htmlelement('input')}}- und die Höhe des {{htmlelement('select')}}-Elements. Für ein `input`-Element definiert es die Anzahl der Zeichen, die der Benutzeragent dem Benutzer beim Bearbeiten des Wertes anzeigt. Für ein `select`-Element definiert es die Anzahl der Optionen, die dem Benutzer angezeigt werden sollten. Dies muss eine gültige, nicht-negative ganze Zahl größer als null sein.
+Das **`size`**-Attribut definiert die Breite des {{htmlelement('input')}}- und die Höhe des {{htmlelement('select')}}-Elements. Für ein `input`-Element definiert es die Anzahl der Zeichen, die der Benutzeragent dem Benutzer beim Bearbeiten des Wertes anzeigt. Für ein `select`-Element definiert es die Anzahl der Optionen, die dem Benutzer angezeigt werden sollen. Dies muss eine gültige nicht-negative ganze Zahl größer als Null sein.
 
-Wenn keine `size` angegeben wird oder ein ungültiger Wert spezifiziert ist, hat das Eingabeelement keine deklarierte Größe, und das Formularelement wird die Standardbreite basierend auf dem Benutzeragenten haben. Wenn CSS das Element mit Eigenschaften zur Breite beeinflusst, hat CSS Vorrang.
+Wenn keine `size`-Angabe gemacht wird oder ein ungültiger Wert angegeben ist, wird keine Größe für das Eingabefeld deklariert, und das Steuerelement des Formulars wird die standardmäßige Breite des Benutzeragents haben. Wenn CSS das Element auf eine Weise anvisiert, die die Breite beeinflusst, hat CSS Vorrang.
 
-Das `size`-Attribut hat keinen Einfluss auf die Überprüfung von Einschränkungen.
+Das `size`-Attribut hat keinen Einfluss auf die Constraints-Validierung.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-size.html", "tabbed-standard")}}
 
 ## Beispiele
 
-Durch Hinzufügen von `size` zu einigen Eingabetypen kann die Breite des Eingabefeldes gesteuert werden. Die Angabe von `size` bei einem `select`-Element ändert die Höhe und definiert, wie viele Optionen im geschlossenen Zustand sichtbar sind.
+Durch das Hinzufügen von `size` zu einigen `input`-Typen kann die Breite des Eingabefeldes gesteuert werden. Das Hinzufügen von `size` zu einem `select` verändert die Höhe und bestimmt, wie viele Optionen im geschlossenen Zustand sichtbar sind.
 
 ```html
 <label for="fruit">Enter a fruit</label>

@@ -22,15 +22,15 @@ let removing = browser.tabs.remove(
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer` Die IDs des Tabs oder der Tabs, die geschlossen werden sollen.
+  - : `integer` oder `array` von `integer`. Die IDs des oder der zu schließenden Tabs.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle angegebenen Tabs entfernt wurden oder ihre `beforeunload`-Eingabeaufforderungen behandelt wurden. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle angegebenen Tabs entfernt wurden oder deren `beforeunload`-Prompts behandelt wurden. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Schließen eines einzelnen Tabs:
+Einen einzelnen Tab schließen:
 
 ```js
 function onRemoved() {
@@ -45,7 +45,7 @@ let removing = browser.tabs.remove(2);
 removing.then(onRemoved, onError);
 ```
 
-Schließen mehrerer Tabs:
+Mehrere Tabs schließen:
 
 ```js
 function onRemoved() {
@@ -67,34 +67,39 @@ removing.then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-remove)-API von Chromium. Diese Dokumentation wird aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-remove)-API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verteilung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter der Bedingung erlaubt, dass die folgenden
+// Bedingungen eingehalten werden:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen des Quellcodes müssen das obige
+// Urheberrecht, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss enthalten.
+//    * Weiterverteilungen in binärer Form müssen das obige
+// Urheberrecht, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen
+// Materialien, die mit der Verteilung bereitgestellt werden,
+// enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von
+// dieser Software abgeleitet wurden, ohne spezifische vorherige
+// schriftliche Genehmigung zu unterstützen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" UND JEDERE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG,
+// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF STILLSCHWEIGENDE GEWÄHRLEISTUNGEN
+// DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK SIND
+// AUSGESCHLOSSEN. IN KEINEM FALL SOLLEN DIE URHEBERRECHTSINHABER ODER
+// MITWIRKENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE
+// ODER FOLGESCHÄDEN HAFTBAR SEIN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF 
+// DIE BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, 
+// DATENVERLUST ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) 
+// ABER UNABHÄNGIG VON DER URSACHE UND DER HAFTUNGSTHEORIE, OB IN VERTRAG, 
+// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT
+// ODER ANDERWEITIG) AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEND, SELBST WENN 
+// AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

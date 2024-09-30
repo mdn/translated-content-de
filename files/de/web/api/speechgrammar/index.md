@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`SpeechGrammar`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammar`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird unter Verwendung des [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in der Zukunft ebenfalls unterstützt werden.
+Grammatik wird mittels des [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in der Zukunft ebenfalls unterstützt werden.
 
 ## Konstruktor
 
 - [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{Experimental_Inline}}
   - : Erstellt ein neues `SpeechGrammar`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{Experimental_Inline}}
-  - : Setzt und gibt einen String zurück, der die Grammatik aus der `SpeechGrammar`-Objektinstanz enthält.
+  - : Setzt und gibt einen String zurück, der die Grammatik innerhalb der `SpeechGrammar`-Objektinstanz enthält.
 - [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{Experimental_Inline}}
   - : Setzt und gibt das Gewicht des `SpeechGrammar`-Objekts zurück.
 

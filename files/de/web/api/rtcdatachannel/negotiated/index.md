@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: negotiated Eigenschaft"
+title: "RTCDataChannel: negotiated-Eigenschaft"
 short-title: negotiated
 slug: Web/API/RTCDataChannel/negotiated
 l10n:
@@ -9,25 +9,24 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die schreibgeschützte `RTCDataChannel`-Eigenschaft
-**`negotiated`** zeigt an, ob die
-Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) von der Web-App
-(`true`) oder durch die WebRTC-Schicht (`false`) ausgehandelt wurde. **Der
+**`negotiated`** gibt an, ob die Verbindung des
+[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) von der Web-Anwendung
+(`true`) oder von der WebRTC-Schicht (`false`) ausgehandelt wurde. **Der
 Standardwert ist `false`.**
 
-Weitere Informationen zu dieser Eigenschaft finden Sie unter [Erstellen eines Datenkanals](/de/docs/Web/API/WebRTC_API/Using_data_channels#creating_a_data_channel).
+Für weitere Informationen zu dieser Eigenschaft siehe [Erstellen eines Datenkanals](/de/docs/Web/API/WebRTC_API/Using_data_channels#creating_a_data_channel).
 
 ## Wert
 
 `true`, wenn die Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) von der
-Web-App selbst ausgehandelt wurde; `false`, wenn die Aushandlung von der WebRTC-
-Schicht durchgeführt wurde. Der Standardwert ist `false`.
+Web-Anwendung selbst ausgehandelt wurde; `false`, wenn die Aushandlung von der
+WebRTC-Schicht durchgeführt wurde. Der Standardwert ist `false`.
 
 ## Beispiel
 
-Das folgende Code-Snippet überprüft den Wert von `negotiated`; wenn er
+Das folgende Codebeispiel überprüft den Wert von `negotiated`; falls dieser
 `true` ist, wird eine Funktion namens `shutdownRemoteChannel()`
-mit der [`id`](/de/docs/Web/API/RTCDataChannel/id) des Kanals aufgerufen; vermutlich würde dies
-implementiert werden, um ein Abschaltsignal an den entfernten Peer zu senden, bevor die
+aufgerufen, die mit der [`id`](/de/docs/Web/API/RTCDataChannel/id) des Kanals versehen wird; vermutlich würde diese Funktion implementiert werden, um ein Abschaltsignal an den entfernten Teilnehmer zu übermitteln, bevor die
 Verbindung beendet wird.
 
 ```js

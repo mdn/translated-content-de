@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die `PluginArray`-Schnittstelle wird verwendet, um eine Liste von [`Plugin`](/de/docs/Web/API/Plugin)-Objekten zu speichern, welche die verfügbaren [Plugins](/de/docs/Mozilla/Add-ons/Plugins) beschreiben; sie wird von der [`navigator.plugins`](/de/docs/Web/API/Navigator/plugins)-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, aber besitzt die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mit Hilfe der Klammernotation (`plugins[2]`), sowie über die Methoden `item(index)` und `namedItem("name")`.
+Das `PluginArray`-Interface wird verwendet, um eine Liste von [`Plugin`](/de/docs/Web/API/Plugin)-Objekten zu speichern, die die verfügbaren [Plugins](/de/docs/Mozilla/Add-ons/Plugins) beschreiben. Es wird durch die [`navigator.plugins`](/de/docs/Web/API/Navigator/plugins)-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, es hat jedoch die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mittels Klammernotation (`plugins[2]`) sowie über die Methoden `item(index)` und `namedItem("name")`.
 
 > [!NOTE]
 > Eigene Eigenschaften von `PluginArray`-Objekten sind in den neuesten Browserversionen nicht mehr aufzählbar.
@@ -24,7 +24,7 @@ Die `PluginArray`-Schnittstelle wird verwendet, um eine Liste von [`Plugin`](/de
 - [`PluginArray.namedItem`](/de/docs/Web/API/PluginArray/namedItem) {{Deprecated_Inline}}
   - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) mit dem angegebenen Namen zurück.
 - [`PluginArray.refresh`](/de/docs/Web/API/PluginArray/refresh) {{Deprecated_Inline}}
-  - : Aktualisiert alle Plugins auf der aktuellen Seite und lädt optional Dokumente neu.
+  - : Aktualisiert alle Plugins auf der aktuellen Seite, optional mit Neuladen der Dokumente.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ for (let i = 0; i < pluginsLength; i++) {
 }
 ```
 
-Das folgende Beispiel zeigt Informationen über die installierten Plugins an.
+Das folgende Beispiel zeigt Informationen über das/die installierte(n) Plugin(s) an.
 
 ```js
 const pluginsLength = navigator.plugins.length;
@@ -75,4 +75,4 @@ for (let i = 0; i < pluginsLength; i++) {
 
 {{Compat}}
 
-Zusätzlich zur Auflistung eines jeden Plugins als Pseudo-Array über numerische Eigenschaften mit Nullbasierung stellt Firefox Eigenschaften bereit, die den Plugin-Namen direkt auf dem PluginArray-Objekt abbilden.
+Zusätzlich zur Auflistung jedes Plugins als Pseudo-Array mit nullbasierten numerischen Eigenschaften stellt Firefox Eigenschaften zur Verfügung, die der Pluginname direkt am PluginArray-Objekt sind.

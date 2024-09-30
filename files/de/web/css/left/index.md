@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft beteiligt sich an der Festlegung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
+Die **`left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft beteiligt sich an der Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese [`inset`-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/left.html")}}
 
@@ -38,34 +38,34 @@ left: unset;
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}, der darstellt:
+  - : Ein negativer, nuller oder positiver {{cssxref("&lt;length&gt;")}}, der folgendes repräsentiert:
 
     - für _absolut positionierte Elemente_ die Entfernung zum linken Rand des umschließenden Blocks.
-    - für [_ankerpositionierte Elemente_](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values) löst die {{cssxref("anchor()")}}-Funktion einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position des linken oder rechten Rands des zugeordneten _Ankerelements_ auf.
-    - für _relativ positionierte Elemente_ die Entfernung, die das Element rechts von seiner normalen Position bewegt wird.
+    - für [_anker-positionierte Elemente_](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values) löst sich die {{cssxref("anchor()")}}-Funktion zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position des linken oder rechten Randes des zugehörigen _Ankerelements_ auf.
+    - für _relativ positionierte Elemente_ die Entfernung, um die das Element von seiner normalen Position nach rechts verschoben wird.
 
 - {{cssxref("&lt;percentage&gt;")}}
   - : Ein {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
 - `auto`
 
-  - : Bestimmt, dass:
+  - : Gibt an, dass:
 
-    - für _absolut positionierte Elemente_ die Position des Elements auf der {{Cssxref("right")}}-Eigenschaft basiert, während `width: auto` als Breite basierend auf dem Inhalt behandelt wird; oder falls `right` ebenfalls `auto` ist, das Element dort positioniert wird, wo es horizontal positioniert sein sollte, wenn es ein statisches Element wäre.
-    - für _relativ positionierte Elemente_ die Entfernung des Elements von seiner normalen Position auf der {{Cssxref("right")}}-Eigenschaft basiert; oder falls `right` ebenfalls `auto` ist, das Element horizontal nicht bewegt wird.
+    - für _absolut positionierte Elemente_ die Position des Elements basierend auf der {{Cssxref("right")}}-Eigenschaft festgelegt wird, während `width: auto` als Breite basierend auf dem Inhalt behandelt wird; oder wenn `right` ebenfalls `auto` ist, wird das Element dort positioniert, wo es horizontal positioniert werden würde, wenn es ein statisches Element wäre.
+    - für _relativ positionierte Elemente_ die Entfernung des Elements von seiner normalen Position basierend auf der {{Cssxref("right")}}-Eigenschaft festgelegt wird; oder wenn `right` ebenfalls `auto` ist, wird das Element horizontal überhaupt nicht verschoben.
 
 - `inherit`
-  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert von seinem Elternelement (das möglicherweise nicht sein umschließender Block ist). Dieser berechnete Wert wird dann behandelt, als ob er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, oder das `auto`-Schlüsselwort wäre.
+  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert des übergeordneten Elements (was möglicherweise nicht sein umschließender Block ist). Dieser berechnete Wert wird dann behandelt, als wäre er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}} oder das `auto`-Schlüsselwort.
 
 ## Beschreibung
 
-Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h. der Wert der {{cssxref("position")}}-Eigenschaft):
+Die Wirkung von `left` hängt davon ab, wie das Element positioniert wird (d. h. vom Wert der {{cssxref("position")}}-Eigenschaft):
 
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung zwischen dem äußeren Rand der linken Kante des Elements und der inneren Grenze der linken Kante seines umschließenden Blocks an. (Der umschließende Block ist der Vorfahr, zu dem das Element relativ positioniert ist.) Falls das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/CSS_anchor_positioning/Using) hat und der Eigenschaftswert eine {{cssxref("anchor()")}}-Funktion enthält, positioniert `left` die linke Kante des positionierten Elements relativ zur Position des angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)-Rands. Die `left`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
-- Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung an, die die linke Kante des Elements nach rechts von ihrer normalen Position bewegt wird.
-- Wenn `position` auf `sticky` gesetzt ist, wird die `left`-Eigenschaft zur Berechnung des sticky-Constraint-Rechtecks verwendet.
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung zwischen dem äußeren Rand des linken Randes des Elements und dem inneren Rand des linken Randes seines umschließenden Blocks an. (Der umschließende Block ist der Vorfahre, zu dem das Element relativ positioniert ist.) Wenn das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/CSS_anchor_positioning/Using) hat und der Eigenschaftswert eine {{cssxref("anchor()")}}-Funktion enthält, positioniert `left` den linken Rand des positionierten Elements relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)-Kante. Die `left`-Eigenschaft ist mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>` [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values).
+- Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung an, um die der linke Rand des Elements von seiner normalen Position nach rechts verschoben wird.
+- Wenn `position` auf `sticky` gesetzt ist, wird die `left`-Eigenschaft zur Berechnung des klebrigen Begrenzungsrechtecks verwendet.
 - Wenn `position` auf `static` gesetzt ist, hat die `left`-Eigenschaft _keine Wirkung_.
 
-Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind, und Breitenbeschränkungen dies nicht verhindern, wird das Element gedehnt, um beide zu erfüllen. Wenn das Element nicht gedehnt werden kann, um beide zu erfüllen, ist die Position des Elements _überbestimmt_. In diesem Fall hat der `left`-Wert Vorrang, wenn der Container von links nach rechts ist; der `right`-Wert hat Vorrang, wenn der Container von rechts nach links ist.
+Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbeschränkungen dies zulassen, streckt sich das Element, um beide zu erfüllen. Wenn das Element sich nicht strecken kann, um beide zu erfüllen, ist die Position des Elements _überspezifiziert_. In diesem Fall hat der Wert von `left` Vorrang, wenn der Container von links nach rechts ausgerichtet ist; der `right`-Wert hat Vorrang, wenn der Container von rechts nach links ausgerichtet ist.
 
 ## Formale Definition
 
@@ -77,7 +77,7 @@ Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind, und Breitenbesc
 
 ## Beispiele
 
-### Positionierung von Elementen
+### Elemente positionieren
 
 #### HTML
 
@@ -208,6 +208,6 @@ pre {
 
 ## Siehe auch
 
-- {{cssxref("inset")}}, die Kurzform für alle verwandten Eigenschaften: {{cssxref("top")}}, {{cssxref("bottom")}}, und {{cssxref("right")}}
-- Die abgebildeten logischen Eigenschaften: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}} und die Kurzformen {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
+- {{cssxref("inset")}}, die Kurzform für alle verwandten Eigenschaften: {{cssxref("top")}}, {{cssxref("bottom")}} und {{cssxref("right")}}
+- Die zugeordneten logischen Eigenschaften: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}} und {{cssxref("inset-inline-end")}} sowie die Kurzformen {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
 - {{cssxref("position")}}

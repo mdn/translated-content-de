@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**POP3** (Post Office Protocol) ist ein sehr gängiges [Protokoll](/de/docs/Glossary/protocol) zum Abrufen von E-Mails von einem Mailserver über eine [TCP](/de/docs/Glossary/TCP)-Verbindung. Im Gegensatz zum neueren [IMAP](/de/docs/Glossary/IMAP), das aufgrund seiner komplexeren Struktur schwieriger zu implementieren ist, unterstützt POP3 keine Ordner.
+**POP3** (Post Office Protocol) ist ein sehr verbreitetes [Protokoll](/de/docs/Glossary/protocol) zum Abrufen von E-Mails von einem Mailserver über eine [TCP](/de/docs/Glossary/TCP)-Verbindung. Im Gegensatz zum neueren [IMAP](/de/docs/Glossary/IMAP), welches aufgrund seiner komplexeren Struktur schwieriger zu implementieren ist, unterstützt POP3 keine Ordner.
 
-Clients rufen normalerweise alle Nachrichten ab und löschen sie anschließend vom Server, aber POP3 erlaubt es, eine Kopie auf dem Server zu behalten. Fast alle E-Mail-Server und -Clients unterstützen derzeit POP3.
+Clients rufen normalerweise alle Nachrichten ab und löschen sie dann vom Server, aber POP3 erlaubt es, eine Kopie auf dem Server zu behalten. Fast alle E-Mail-Server und -Clients unterstützen derzeit POP3.
 
 ## Siehe auch
 

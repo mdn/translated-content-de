@@ -26,7 +26,7 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir die `values()`-Methode, um die Werte innerhalb unseres [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugänglich zu machen.
+In diesem Beispiel verwenden wir die `values()`-Methode, um auf die Werte im [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugreifen zu können.
 
 ```js
 // get a button element

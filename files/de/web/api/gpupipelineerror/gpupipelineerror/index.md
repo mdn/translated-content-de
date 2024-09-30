@@ -1,5 +1,5 @@
 ---
-title: "GPUPipelineError: GPUPipelineError() Konstruktor"
+title: "GPUPipelineError: GPUPipelineError()-Konstruktor"
 short-title: GPUPipelineError()
 slug: Web/API/GPUPipelineError/GPUPipelineError
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUPipelineError()`** Konstruktor erzeugt eine neue Instanz eines [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) Objekts.
+Der **`GPUPipelineError()`**-Konstruktor erstellt eine neue Instanz des [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError)-Objekts.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new GPUPipelineError(message, options)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Ein String, der eine menschenlesbare Nachricht enthält, die erklärt, warum der Fehler aufgetreten ist. Wenn nicht angegeben, wird `message` standardmäßig auf einen leeren String (`""`) gesetzt.
+  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist. Wenn nicht angegeben, ist der Standardwert von `message` ein leerer String (`""`).
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `reason`
@@ -29,9 +29,9 @@ new GPUPipelineError(message, options)
 
 ## Beispiele
 
-Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUPipelineError` Objekt zu erstellen. Der User-Agent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein {{jsxref("Promise")}}, das von einem Aufruf von [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) zurückgegeben wird, ablehnt und damit ein Pipeline-Fehlschlagen signalisiert.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUPipelineError`-Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein geeignetes Objekt zu erstellen, wenn ein {{jsxref("Promise")}} zurückgegeben wird, indem ein Aufruf von [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) abgelehnt wird, was auf einen Pipeline-Fehler hinweist.
 
-Siehe die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples) für ein Beispiel, das eine `GPUPipelineError` Objektinstanz beinhaltet.
+Siehe die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples) für ein Beispiel mit einer `GPUPipelineError`-Objektinstanz.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ Siehe die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#exam
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Error Handling Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- [WebGPU Best Practices zur Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)

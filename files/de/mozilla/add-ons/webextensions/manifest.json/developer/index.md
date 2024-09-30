@@ -1,5 +1,5 @@
 ---
-title: Entwickler
+title: developer
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/developer
 l10n:
   sourceCommit: d86e14de2e66319fc0a0ec0539a05400dea5a453
@@ -35,9 +35,9 @@ l10n:
   </tbody>
 </table>
 
-Der Name des Entwicklers der Erweiterung und die URL seiner Homepage, vorgesehen zur Anzeige in der Benutzeroberfläche des Browsers.
+Der Name des Entwicklers der Erweiterung und die URL zu seiner Homepage, vorgesehen für die Anzeige in der Benutzeroberfläche des Browsers.
 
-Das Objekt und beide seiner Eigenschaften sind optional. Die Eigenschaften "name" und "url" überschreiben, wenn vorhanden, die Schlüssel [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url). Dieses Objekt erlaubt nur die Angabe eines einzigen Entwicklernamen und einer URL.
+Das Objekt und beide seiner Eigenschaften sind optional. Die Eigenschaften "name" und "url" überschreiben, falls vorhanden, die Schlüssel [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url). Dieses Objekt erlaubt es nur, einen einzigen Entwicklernamen und eine URL anzugeben.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

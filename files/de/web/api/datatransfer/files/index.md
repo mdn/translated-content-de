@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`files`** schreibgeschützte Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Ziehung-Operation. Falls die Operation keine Dateien umfasst, ist die Liste leer.
+Die **`files`** schreibgeschützte Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien umfasst, ist die Liste leer.
 
 Diese Funktion kann verwendet werden, um Dateien vom Desktop eines Benutzers in den Browser zu ziehen.
 
 > [!NOTE]
-> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb des `drop`-Ereignisses zugegriffen werden. Für alle anderen Ereignisse wird die `files`-Eigenschaft leer sein, da der zugrunde liegende Datenspeicher in einem [geschützten Modus](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) ist.
+> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb des `drop`-Ereignisses abgerufen werden. Bei allen anderen Ereignissen wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegender Datenspeicher sich in einem [geschützten Modus](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) befindet.
 
 ## Wert
 
-Eine [`Liste`](/de/docs/Web/API/FileList) der Dateien in einer Ziehung-Operation, ein Listenelement für jede Datei in der Operation. Wenn die Ziehung-Operation keine Dateien enthielt, ist die Liste leer.
+Eine [`Liste`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, wobei jeder Listeneintrag einer Datei in der Operation entspricht. Wenn die Drag-Operation keine Dateien hatte, ist die Liste leer.
 
 ## Beispiele
 

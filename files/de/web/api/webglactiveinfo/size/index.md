@@ -3,12 +3,12 @@ title: "WebGLActiveInfo: size-Eigenschaft"
 short-title: size
 slug: Web/API/WebGLActiveInfo/size
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebGLActiveInfo.size`**-Eigenschaft ist eine {{jsxref("Number")}}, die die Größe der angeforderten Daten darstellt, die durch den Aufruf der Methoden [`getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) oder [`getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben wird.
+Die schreibgeschützte **`WebGLActiveInfo.size`**-Eigenschaft ist eine {{jsxref("Number")}}, die die Größe der angeforderten Daten darstellt, die durch Aufrufen der Methoden [`getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) oder [`getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 
 ## Beispiele
 

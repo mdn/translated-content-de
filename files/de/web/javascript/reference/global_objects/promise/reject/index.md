@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Promise.reject()`**-statische Methode gibt ein `Promise`-Objekt zurück, das mit einem angegebenen Grund abgelehnt wird.
+Die statische Methode **`Promise.reject()`** gibt ein `Promise`-Objekt zurück, das mit einem gegebenen Grund abgelehnt wird.
 
 {{EmbedInteractiveExample("pages/js/promise-reject.html")}}
 
@@ -24,19 +24,19 @@ Promise.reject(reason)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem angegebenen Grund abgelehnt wird.
+Ein {{jsxref("Promise")}}, das mit dem gegebenen Grund abgelehnt wird.
 
 ## Beschreibung
 
-Die statische Funktion `Promise.reject` gibt ein abgelehntes `Promise` zurück. Zu Debugging-Zwecken und für selektive Fehlerbehandlung ist es nützlich, `reason` als `instanceof` {{jsxref("Error")}} zu machen.
+Die statische Funktion `Promise.reject` gibt ein `Promise` zurück, das abgelehnt wird. Zu Debugging-Zwecken und zur selektiven Fehlerbehandlung ist es nützlich, den `reason` als `instanceof` {{jsxref("Error")}} zu gestalten.
 
-`Promise.reject()` ist generisch und unterstützt die Subklassierung, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann, und das Ergebnis wird ein Promise des Unterklasstyps sein. Dazu muss der Konstruktor der Unterklasse die gleiche Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — eine einzelne `executor`-Funktion akzeptieren, die mit den `resolve`- und `reject`-Callbacks als Parameter aufgerufen werden kann. `Promise.reject()` ist im Wesentlichen eine Abkürzung für `new Promise((resolve, reject) => reject(reason))`.
+`Promise.reject()` ist generisch und unterstützt Subklassifizierung, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein `Promise` des Unterklasstyps sein wird. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — wobei eine einzelne `executor`-Funktion akzeptiert wird, die mit den `resolve`- und `reject`-Rückrufparametern aufgerufen werden kann. `Promise.reject()` ist im Wesentlichen eine Kurzform für `new Promise((resolve, reject) => reject(reason))`.
 
-Anders als {{jsxref("Promise.resolve()")}} verpackt `Promise.reject()` den `reason` immer in einem neuen `Promise`-Objekt, selbst wenn `reason` bereits ein `Promise` ist.
+Anders als {{jsxref("Promise.resolve()")}} umschließt `Promise.reject()` den `reason` immer in einem neuen `Promise`-Objekt, selbst wenn `reason` bereits ein `Promise` ist.
 
 ## Beispiele
 
-### Verwenden der statischen Methode Promise.reject()
+### Verwendung der statischen Methode Promise.reject()
 
 ```js
 Promise.reject(new Error("fail")).then(
@@ -51,7 +51,7 @@ Promise.reject(new Error("fail")).then(
 
 ### Ablehnen mit einem Promise
 
-Anders als {{jsxref("Promise.resolve")}} nutzt die Methode `Promise.reject` keine bestehenden `Promise`-Instanzen erneut. Sie gibt immer eine neue `Promise`-Instanz zurück, die `reason` umhüllt.
+Im Gegensatz zu {{jsxref("Promise.resolve")}} verwendet die Methode `Promise.reject` keine bestehenden `Promise`-Instanzen erneut. Sie gibt immer eine neue `Promise`-Instanz zurück, die `reason` umschließt.
 
 ```js
 const p = Promise.resolve(1);
@@ -62,9 +62,9 @@ rejected.catch((v) => {
 });
 ```
 
-### Aufrufen von reject() auf einem Nicht-Promise-Konstruktor
+### Aufrufen von reject() mit einem Nicht-Promise-Konstruktor
 
-`Promise.reject()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der die gleiche Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir es auf einem Konstruktor aufrufen, der `console.log` als `reject` übergibt:
+`Promise.reject()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert. Beispielsweise können wir es auf einem Konstruktor aufrufen, der `console.log` als `reject` übergibt:
 
 ```js
 class NotPromise {

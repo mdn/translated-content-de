@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getState()`** Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, dessen Eigenschaften angeben, ob das Vorladen aktiviert ist und welcher Wert im {{HTTPHeader("Service-Worker-Navigation-Preload")}} HTTP-Header gesendet wird.
+Die **`getState()`**-Methode des [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das in ein Objekt aufgelöst wird. Dieses Objekt enthält Eigenschaften, die angeben, ob das Vorladen aktiviert ist und welcher Wert im {{HTTPHeader("Service-Worker-Navigation-Preload")}} HTTP-Header gesendet wird.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einem Objekt auflöst, das die folgenden Eigenschaften hat:
+Ein {{jsxref("Promise")}}, das in ein Objekt aufgelöst wird, welches die folgenden Eigenschaften hat:
 
 - `enabled`
-  - : `true`, wenn das Vorladen aktiviert ist, andernfalls `false`.
+  - : `true`, wenn das Vorladen aktiviert ist, und `false` andernfalls.
 - `headerValue`
-  - : Eine Zeichenkette, die den Wert enthält, der im `Service-Worker-Navigation-Preload` HTTP-Header nach einem Vorladen mit [`fetch()`](/de/docs/Web/API/Window/fetch) gesendet wird.
-    Dies ist standardmäßig `true`, es sei denn, der Wert wurde mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) geändert.
+  - : Ein String, der den Wert enthält, der im `Service-Worker-Navigation-Preload` HTTP-Header nach einem Vorlade-[`fetch()`](/de/docs/Web/API/Window/fetch) gesendet wird.
+    Dieser Wert ist standardmäßig `true`, es sei denn, er wurde mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) geändert.
 
 ### Ausnahmen
 
@@ -37,7 +37,7 @@ Ein {{jsxref("Promise")}}, das sich mit einem Objekt auflöst, das die folgenden
 
 ## Beispiele
 
-Der unten stehende Code zeigt eine Anfrage für den aktuellen Status, die gestellt wird, sobald der Service Worker bereit ist.
+Der untenstehende Code zeigt eine Anfrage nach dem aktuellen Zustand, die ausgeführt wird, sobald der Service Worker bereit ist.
 
 ```js
 navigator.serviceWorker.ready

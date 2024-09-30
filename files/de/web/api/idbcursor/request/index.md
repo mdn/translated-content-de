@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`request`** schreibgeschützte Eigenschaft des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt das [`IDBRequest`](/de/docs/Web/API/IDBRequest) zurück, das verwendet wird, um den Cursor zu erhalten.
+Die **`request`** schreibgeschützte Eigenschaft des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt das [`IDBRequest`](/de/docs/Web/API/IDBRequest) zurück, das verwendet wurde, um den Cursor zu erhalten.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Instanz des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekts.
 
 ## Beispiele
 
-Wenn Sie einen Cursor öffnen, steht die `request`-Eigenschaft in diesem Cursor-Objekt zur Verfügung, um Ihnen mitzuteilen, von welchem Request-Objekt der Cursor stammt. Zum Beispiel:
+Wenn Sie einen Cursor öffnen, steht die `request`-Eigenschaft auf diesem Cursor-Objekt zur Verfügung, um Ihnen mitzuteilen, von welchem Anfrage-Objekt der Cursor stammt. Zum Beispiel:
 
 ```js
 function displayData() {
@@ -54,7 +54,7 @@ function displayData() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselsbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

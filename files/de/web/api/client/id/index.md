@@ -1,5 +1,5 @@
 ---
-title: "Client: id Eigenschaft"
+title: "Client: id-Eigenschaft"
 short-title: id
 slug: Web/API/Client/id
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`id`**-Eigenschaft des [`Client`](/de/docs/Web/API/Client)-Interfaces gibt die universell eindeutige Kennung des [`Client`](/de/docs/Web/API/Client)-Objekts zurück.
+Die schreibgeschützte **`id`**-Eigenschaft der [`Client`](/de/docs/Web/API/Client)-Schnittstelle gibt die universell eindeutige Kennung des [`Client`](/de/docs/Web/API/Client)-Objekts zurück.
 
 ## Wert
 

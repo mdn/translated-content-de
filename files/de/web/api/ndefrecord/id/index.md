@@ -8,10 +8,9 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`id`**-Eigenschaft des
-[`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Datensatz-Identifier zurück, bei dem es sich um eine absolute oder relative URL handelt, die zur Identifizierung des Datensatzes verwendet wird.
+Die **`id`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den Datensatzbezeichner zurück, der eine absolute oder relative URL ist und zur Identifizierung des Datensatzes verwendet wird.
 
-Dieser Identifier wird vom Erzeuger des Datensatzes erstellt, der allein für die Durchsetzung der Eindeutigkeit des Datensatz-Identifiers verantwortlich ist. Web NFC signiert den NFC-Inhalt nicht, daher sollte der Datensatzverbraucher keine Annahmen über die Integrität oder Authentizität des Identifiers oder eines anderen Teils der Datensätze treffen.
+Dieser Bezeichner wird vom Ersteller des Datensatzes generiert, der allein für die Durchsetzung der Einzigartigkeit des Datensatzbezeichners verantwortlich ist. Web NFC signiert die NFC-Inhalte nicht, daher sollten Datensatzkonsumenten keine Annahmen über die Integrität oder Authentizität des Bezeichners oder eines anderen Teils der Datensätze treffen.
 
 ## Syntax
 

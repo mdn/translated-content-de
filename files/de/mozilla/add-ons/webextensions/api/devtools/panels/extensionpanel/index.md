@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `ExtensionPanel` repräsentiert ein Panel, das zu den Entwicklertools hinzugefügt wurde. Es ist die Auflösung des [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das von [`browser.devtools.panels.create()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/create) zurückgegeben wird.
+Ein `ExtensionPanel` stellt ein Panel dar, das zu den DevTools hinzugefügt wurde. Es ist das Ergebnis des [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das von [`browser.devtools.panels.create()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/create) zurückgegeben wird.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie definieren zwei Ereignisse, `onShown` und `onHidden`.
 
-- `onShown` wird ausgelöst, wenn das Panel in den Entwicklertools angezeigt wird (zum Beispiel, weil der Benutzer auf die Registerkarte des Panels im Entwicklertools-Fenster geklickt hat).
-- `onHidden` wird ausgelöst, wenn das Panel ausgeblendet wird (zum Beispiel, weil der Benutzer zu einer anderen Registerkarte im Entwicklertools-Fenster gewechselt hat).
+- `onShown` wird ausgelöst, wenn das Panel in den DevTools angezeigt wird (zum Beispiel, weil der Benutzer auf den Tab des Panels im DevTools-Fenster geklickt hat).
+- `onHidden` wird ausgelöst, wenn das Panel ausgeblendet wird (zum Beispiel, weil der Benutzer zu einem anderen Tab im DevTools-Fenster gewechselt hat).
 
 ## Browser-Kompatibilität
 
@@ -50,7 +50,7 @@ browser.devtools.panels
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
+> Diese API basiert auf Chromiums [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

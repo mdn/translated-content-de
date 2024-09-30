@@ -11,20 +11,20 @@ Die **`SVGFEPointLightElement`**-Schnittstelle entspricht dem {{SVGElement("fePo
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanz Eigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFEPointLightElement.x`](/de/docs/Web/API/SVGFEPointLightElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEPointLightElement.y`](/de/docs/Web/API/SVGFEPointLightElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEPointLightElement.z`](/de/docs/Web/API/SVGFEPointLightElement/z) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("z")}}-Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der dem {{SVGAttr("z")}}-Attribut des gegebenen Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer Eltern-, [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die Methoden ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

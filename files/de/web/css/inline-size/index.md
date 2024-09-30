@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`inline-size`** definiert die horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("width")}}- oder der {{cssxref("height")}}-Eigenschaft, je nach Wert von {{cssxref("writing-mode")}}.
+Die **`inline-size`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert die horizontale oder vertikale Größe eines Block-Elements, abhängig vom Schreibmodus. Sie entspricht entweder der {{cssxref("width")}}- oder der {{cssxref("height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
 Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `inline-size` auf die Höhe des Elements; andernfalls bezieht er sich auf die Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("block-size")}}, die die andere Dimension des Elements definiert.
 
@@ -42,7 +42,7 @@ inline-size: unset;
 
 ### Werte
 
-Die `inline-size`-Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
+Die `inline-size`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften.
 
 ## Formale Definition
 
@@ -54,7 +54,7 @@ Die `inline-size`-Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften 
 
 ## Beispiele
 
-### Festlegen der Inline-Größe in Pixel
+### Inline-Größe in Pixeln festlegen
 
 #### HTML
 

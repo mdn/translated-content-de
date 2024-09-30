@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "invalid date" tritt auf, wenn versucht wird, ein ungültiges Datum in einen ISO-Datumsstring zu konvertieren.
+Die JavaScript-Ausnahme "invalid date" tritt auf, wenn ein ungültiges Datum versucht wird, in einen ISO-Datumsstring umgewandelt zu werden.
 
 ## Nachricht
 
@@ -23,13 +23,13 @@ RangeError: Invalid Date (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sie konvertieren einen [ungültigen Datumswert](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) in einen ISO-Datumsstring. Dies geschieht normalerweise auf eine von drei Arten:
+Sie konvertieren einen [ungültigen Datumswert](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) in einen ISO-Datumsstring. Dies geschieht normalerweise auf eine der drei folgenden Arten:
 
-- Aufruf der Methode {{jsxref("Date/toISOString", "toISOString()")}}
-- Aufruf der Methode {{jsxref("Date/toJSON", "toJSON()")}}, die implizit `toISOString` aufruft
-- Verwenden von {{jsxref("JSON.stringify()")}}, um das Datum zu serialisieren, was implizit `toJSON` aufruft
+- Aufrufen der Methode {{jsxref("Date/toISOString", "toISOString()")}}
+- Aufrufen der Methode {{jsxref("Date/toJSON", "toJSON()")}}, welche implizit `toISOString` aufruft
+- Verwendung von {{jsxref("JSON.stringify()")}}, um das Datum zu serialisieren, was implizit `toJSON` aufruft
 
-Ein _ungültiges Datum_ entsteht, wenn Sie versuchen, einen ungültigen Datumsstring zu parsen oder den Zeitstempel auf einen außerhalb der Grenzen liegenden Wert zu setzen. Ungültige Daten führen normalerweise dazu, dass alle Datumsmethoden {{jsxref("NaN")}} oder andere spezielle Werte zurückgeben. Solche Daten haben jedoch keine gültigen ISO-String-Darstellungen, daher wird ein Fehler ausgelöst, wenn Sie dies versuchen.
+Ein _ungültiges Datum_ entsteht, wenn Sie versuchen, einen ungültigen Datumsstring zu parsen oder den Zeitstempel auf einen Wert außerhalb des zulässigen Bereichs zu setzen. Ungültige Daten führen in der Regel dazu, dass alle Datumsmethoden {{jsxref("NaN")}} oder andere spezielle Werte zurückgeben. Solche Daten haben jedoch keine gültigen ISO-String-Darstellungen, daher wird ein Fehler ausgelöst, wenn Sie versuchen, dies zu tun.
 
 ## Beispiele
 
@@ -42,14 +42,14 @@ invalid.toJSON(); // RangeError: invalid date
 JSON.stringify({ date: invalid }); // RangeError: invalid date
 ```
 
-Die meisten anderen Methoden geben jedoch spezielle Werte zurück:
+Jedoch geben die meisten anderen Methoden spezielle Werte zurück:
 
 ```js example-bad
 invalid.toString(); // "Invalid Date"
 invalid.getDate(); // NaN
 ```
 
-Für weitere Details siehe die Dokumentation von {{jsxref("Date.parse()")}}.
+Für nähere Informationen siehe die Dokumentation zu {{jsxref("Date.parse()")}}.
 
 ### Gültige Fälle
 

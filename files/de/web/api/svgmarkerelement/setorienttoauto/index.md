@@ -1,5 +1,5 @@
 ---
-title: "SVGMarkerElement: setOrientToAuto()-Methode"
+title: "SVGMarkerElement: setOrientToAuto() Methode"
 short-title: setOrientToAuto()
 slug: Web/API/SVGMarkerElement/setOrientToAuto
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`setOrientToAuto()`**-Methode des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces setzt den Wert des `orient`-Attributs auf `auto`.
+Die **`setOrientToAuto()`**-Methode der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle setzt den Wert des `orient`-Attributs auf `auto`.
 
 ## Syntax
 

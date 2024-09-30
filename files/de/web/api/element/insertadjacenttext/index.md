@@ -1,5 +1,5 @@
 ---
-title: "Element: insertAdjacentText() Methode"
+title: "Element: Methode insertAdjacentText()"
 short-title: insertAdjacentText()
 slug: Web/API/Element/insertAdjacentText
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`insertAdjacentText()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle fügt einen neuen Textknoten an einer angegebenen relativen Position im Verhältnis zu dem Element, von dem sie aufgerufen wird, ein.
+Die **`insertAdjacentText()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces fügt, basierend auf einer relativen Position und einem String, einen neuen Textknoten an der angegebenen Position relativ zu dem Element, von dem aus sie aufgerufen wird, ein.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ insertAdjacentText(where, data)
 
 - `where`
 
-  - : Ein String, der die Position im Verhältnis zu dem Element, von dem die Methode aufgerufen wird, angibt; muss einer der folgenden Strings sein:
+  - : Ein String, der die Position relativ zu dem Element angibt, von dem die Methode aufgerufen wird; muss einer der folgenden Strings sein:
 
     - `'beforebegin'`: Vor dem `element` selbst.
-    - `'afterbegin'`: Direkt innerhalb des `element`, vor seinem ersten Kind.
-    - `'beforeend'`: Direkt innerhalb des `element`, nach seinem letzten Kind.
+    - `'afterbegin'`: Direkt im `element`, vor seinem ersten Kind.
+    - `'beforeend'`: Direkt im `element`, nach seinem letzten Kind.
     - `'afterend'`: Nach dem `element` selbst.
 
 - `data`
-  - : Ein String, aus dem ein neuer Textknoten erstellt wird, der an der angegebenen Position `where` relativ zu dem Element, von dem die Methode aufgerufen wird, eingefügt wird.
+  - : Ein String, aus dem ein neuer Textknoten erstellt werden soll, der an der angegebenen Position `where` relativ zu dem Element eingefügt wird, von dem die Methode aufgerufen wird.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `where` keinen anerkannten Wert darstellt.
+  - : Wird ausgelöst, wenn `where` kein anerkannter Wert ist.
 
 ### Visualisierung der Positionsnamen
 
@@ -52,9 +52,7 @@ Keiner ({{jsxref("undefined")}}).
 ```
 
 > [!NOTE]
-> Die Positionen `beforebegin` und
-> `afterend` funktionieren nur, wenn der Knoten in einem Baum ist und ein
-> Elternelement hat.
+> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten in einem Baum ist und ein Element-Parent hat.
 
 ## Beispiele
 
@@ -68,10 +66,7 @@ afterBtn.addEventListener("click", () => {
 });
 ```
 
-Werfen Sie einen Blick auf unser [insertAdjacentText.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentText.html)
-Demo auf GitHub (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentText.html) an.) Hier haben wir einen einfachen Absatz. Sie können etwas Text in das Formularelement eingeben und dann die Schaltflächen _Insert before_ und _Insert after_ drücken, um
-den Text vor oder nach dem vorhandenen Absatztext mit
-`insertAdjacentText()` einzufügen. Beachten Sie, dass der vorhandene Textknoten nicht hinzugefügt wird — es werden weitere Textknoten mit den neuen Ergänzungen erstellt.
+Sehen Sie sich unser [insertAdjacentText.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentText.html) Demo auf GitHub an (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentText.html) an). Hier haben wir einen einfachen Absatz. Sie können Text in das Formularelement eingeben und dann die Buttons _Vorher einfügen_ und _Nachher einfügen_ drücken, um ihn mit `insertAdjacentText()` vor oder nach dem vorhandenen Absatztext einzufügen. Beachten Sie, dass der vorhandene Textknoten nicht erweitert wird—weitere Textknoten werden erstellt, die die neuen Ergänzungen enthalten.
 
 ## Spezifikationen
 

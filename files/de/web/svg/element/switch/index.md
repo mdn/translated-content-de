@@ -7,24 +7,24 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<switch>`** [SVG](/de/docs/Web/SVG)-Element wertet alle Attribute {{SVGAttr("requiredFeatures")}}, {{SVGAttr("requiredExtensions")}} und {{SVGAttr("systemLanguage")}} seiner direkten Kindelemente in Reihenfolge aus und rendert dann das erste Kind, bei dem diese Attribute auf true ausgewertet werden.
+Das **`<switch>`** [SVG](/de/docs/Web/SVG) Element evaluiert die Attribute {{SVGAttr("requiredFeatures")}}, {{SVGAttr("requiredExtensions")}} und {{SVGAttr("systemLanguage")}} seiner direkten Kindelemente in der Reihenfolge und rendert das erste Kindelement, bei dem diese Attribute als wahr bewertet werden.
 
-Andere direkte Kindelemente werden übergangen und daher nicht gerendert. Wenn ein Kindelement ein Container-Element ist, wie z.B. {{SVGElement("g")}}, wird auch sein Unterbaum verarbeitet/gerendert oder übergangen/nicht gerendert.
+Andere direkte Kinder werden umgangen und daher nicht gerendert. Wenn ein Kindelement ein Container-Element ist, wie {{SVGElement("g")}}, wird dessen Unterbaum ebenfalls verarbeitet/gerendert oder umgangen/nicht gerendert.
 
 > [!NOTE]
-> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>`-Elements. Insbesondere hat das Setzen von `display:none` auf ein Kindelement keinen Einfluss auf die true/false-Prüfung für die `<switch>`-Verarbeitung.
+> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>` Elements. Insbesondere hat das Setzen von `display:none` auf ein Kindelement keinen Einfluss auf die Wahrheitsprüfung für die `<switch>`-Verarbeitung.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement) Schnittstelle.
 
-## SVG \<switch>-Beispiel
+## SVG-<switch>-Beispiel
 
-Dieses Beispiel demonstriert das Anzeigen unterschiedlicher Textinhalte, abhängig von den Spracheinstellungen des Browsers. Das `switch`-Element zeigt das erste seiner Kindelemente an, dessen `systemLanguage`-Attribut mit der Sprache des Benutzers übereinstimmt, oder das Ersatzelement ohne `systemLanguage`-Attribut, falls keine Übereinstimmungen vorliegen.
+Dieses Beispiel zeigt, wie je nach Spracheinstellung des Browsers unterschiedlicher Textinhalt angezeigt wird. Das `switch`-Element zeigt das erste seiner Kindelemente an, dessen `systemLanguage`-Attribut mit der Sprache des Nutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage`-Attribut, falls keine Übereinstimmung vorliegt.
 
 ### HTML
 

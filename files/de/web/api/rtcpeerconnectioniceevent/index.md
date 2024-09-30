@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCPeerConnectionIceEvent`**-Schnittstelle repräsentiert Ereignisse, die in Bezug auf [ICE](/de/docs/Glossary/ICE)-Kandidaten beim Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Die **`RTCPeerConnectionIceEvent`**-Schnittstelle stellt Ereignisse dar, die in Bezug auf [ICE](/de/docs/Glossary/ICE)-Kandidaten mit dem Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
-Es gibt nur ein Ereignis dieses Typs: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
+Nur ein Ereignis ist von diesem Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Da ein `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, implementiert dieses Ereignis auch diese Eigenschaften_.
+_Ein `RTCPeerConnectionIceEvent` als ein [`Event`](/de/docs/Web/API/Event) implementiert auch diese Eigenschaften_.
 
 - [`RTCPeerConnectionIceEvent.candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) {{ReadOnlyInline}}
-  - : Enthält den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der mit dem Ereignis verknüpft ist, oder `null`, wenn dieses Ereignis anzeigt, dass keine weiteren Kandidaten folgen werden.
+  - : Enthält den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der mit dem Ereignis verknüpft ist, oder `null`, wenn dieses Ereignis anzeigt, dass keine weiteren Kandidaten mehr kommen werden.
 
 ## Konstruktoren
 
 - [`RTCPeerConnectionIceEvent()`](/de/docs/Web/API/RTCPeerConnectionIceEvent/RTCPeerConnectionIceEvent)
-  - : Gibt ein neues `RTCPeerConnectionIceEvent` zurück. Es akzeptiert zwei Parameter: der erste ist ein String, der den Typ des Ereignisses darstellt; der zweite ist ein Wörterbuch, das den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, auf den es sich bezieht.
+  - : Gibt ein neues `RTCPeerConnectionIceEvent` zurück. Es nimmt zwei Parameter entgegen, der erste ist ein String, der den Typ des Ereignisses darstellt; der zweite ist ein Wörterbuch, das den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, auf den es sich bezieht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Da ein `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, implementiert dieses Ereignis auch diese Eigenschaften. Es gibt keine spezifische Methode für [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)._
+_Ein `RTCPeerConnectionIceEvent` als ein [`Event`](/de/docs/Web/API/Event) implementiert auch diese Eigenschaften. Es gibt keine spezifische [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)-Methode._
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ pc.onicecandidate = (ev) => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Dessen übliches Ziel: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+- Sein übliches Ziel: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).

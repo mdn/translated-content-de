@@ -1,5 +1,5 @@
 ---
-title: "NavigationHistoryEntry: url Eigenschaft"
+title: "NavigationHistoryEntry: url-Eigenschaft"
 short-title: url
 slug: Web/API/NavigationHistoryEntry/url
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`url`** schreibgeschützte Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Interface gibt die absolute URL dieses Verlaufseintrags zurück. Wenn der Eintrag einem anderen Dokument als dem aktuellen entspricht (wie wenn die Eigenschaft `sameDocument` `false` ist), und dieses Dokument mit einem {{httpheader("Referrer-Policy")}} Header, der auf `no-referrer` oder `origin` gesetzt ist, abgerufen wurde, gibt die Eigenschaft `null` zurück. Wenn das aktuelle Dokument nicht vollständig aktiv ist, wird ein leerer String zurückgegeben.
+Die **`url`**-Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces (nur lesbar) gibt die absolute URL dieses Verlaufs-Eintrags zurück. Wenn der Eintrag einem anderen Dokument als dem aktuellen entspricht (wenn die `sameDocument`-Eigenschaft `false` ist) und dieses Dokument mit einem {{httpheader("Referrer-Policy")}}-Header mit den Werten `no-referrer` oder `origin` abgerufen wurde, gibt die Eigenschaft `null` zurück. Wenn das aktuelle Dokument nicht vollständig aktiv ist, gibt sie einen leeren String zurück.
 
 ## Wert
 
@@ -31,6 +31,6 @@ console.log(current.url);
 
 ## Siehe auch
 
-- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: Die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

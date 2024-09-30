@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`width`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces stellt die Breite der `GPUTexture` dar.
+Die **`width`** schreibgeschützte Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Breite der `GPUTexture`.
 
-Diese wird basierend auf dem Wert der `size`-Eigenschaft im Deskriptorobjekt festgelegt, das beim anfänglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wurde.
+Dies wird basierend auf dem Wert der `size`-Eigenschaft im Deskriptorobjekt festgelegt, das beim ursprünglich aufgerufenen [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 

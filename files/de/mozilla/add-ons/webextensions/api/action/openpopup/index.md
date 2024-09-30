@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Öffnen Sie das Popup der Browser-Aktion.
+Öffnen Sie das Popup der Browseraktion.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Öffnen Sie das Popup, wenn der Benutzer ein Element im Kontextmenü auswählt:
+Öffnen Sie das Popup, wenn der Benutzer ein Kontextmenüelement auswählt:
 
 ```js
 browser.menus.create({

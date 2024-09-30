@@ -7,37 +7,37 @@ l10n:
 
 {{DefaultAPISidebar("Resize Observer API")}}
 
-Die Resize Observer API bietet einen leistungsfähigen Mechanismus, mit dem Code ein Element auf Änderungen seiner Größe überwachen kann, wobei bei jeder Größenänderung Benachrichtigungen an den Beobachter gesendet werden.
+Die Resize Observer API bietet einen leistungsstarken Mechanismus, mit dem Code die Größe eines Elements überwachen kann, wobei dem Beobachter jedes Mal Benachrichtigungen übermittelt werden, wenn sich die Größe ändert.
 
 ## Konzepte und Nutzung
 
-Es gibt eine Vielzahl von Anwendungsfällen für Techniken des responsiven Designs (und andere), die auf Änderungen der Größe eines Elements reagieren. Deren Implementierungen waren bisher jedoch oft improvisiert und/oder unzuverlässig.
+Es gibt eine ganze Reihe von Anwendungsfällen für Techniken des responsiven Designs (und andere), die auf Änderungen der Größe eines Elements reagieren, aber ihre Implementierungen waren bisher oft ungeschickt und/oder anfällig.
 
-Zum Beispiel sind [Media Queries](/de/docs/Web/CSS/CSS_media_queries) / [`window.matchMedia`](/de/docs/Web/API/Window/matchMedia) großartig, um Layouts an bestimmten Punkten zu aktualisieren, wenn sich die Größe des Ansichtsfensters ändert. Aber was, wenn Sie das Layout als Reaktion auf die Größenänderung eines bestimmten Elements ändern möchten, das nicht der äußere Container ist?
+Zum Beispiel sind [Media Queries](/de/docs/Web/CSS/CSS_media_queries) / [`window.matchMedia`](/de/docs/Web/API/Window/matchMedia) großartig, um Layouts an bestimmten Punkten zu aktualisieren, wenn sich die Größe des Ansichtsfensters ändert. Aber was ist, wenn Sie das Layout als Reaktion auf die Größenänderung eines bestimmten Elements ändern möchten, das nicht der äußere Container ist?
 
-Um dies zu erreichen, wäre eine eingeschränkte Lösung, auf Änderungen eines geeigneten Ereignisses zu lauschen, das auf das Element hinweist, dessen Größe Sie ändern möchten (z.B. das [resize event](/de/docs/Web/API/Window/resize_event) des Fensters). Anschließend könnten Sie die neuen Dimensionen oder andere Merkmale des Elements nach einer Größenänderung mit [`Element.getBoundingClientRect`](/de/docs/Web/API/Element/getBoundingClientRect) oder [`Window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) feststellen.
+Um dies zu erreichen, wäre eine begrenzte Lösung, auf Änderungen eines geeigneten Ereignisses zu lauschen, das auf das Element hinweist, das Sie interessiert, wenn es seine Größe ändert (z.B. das Fenster- [resize event](/de/docs/Web/API/Window/resize_event)), und dann herauszufinden, was die neuen Abmessungen oder andere Merkmale des Elements nach einer Größenänderung sind, z.B. mit [`Element.getBoundingClientRect`](/de/docs/Web/API/Element/getBoundingClientRect) oder [`Window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle).
 
-Eine solche Lösung funktioniert jedoch tendenziell nur für eingeschränkte Anwendungsfälle, ist leistungstechnisch schlecht (die oben genannten Methoden ständig aufzurufen, würde zu einem großen Leistungseinbruch führen) und funktioniert oft nicht, wenn sich die Fenstergröße des Browsers nicht ändert.
+Eine solche Lösung neigt dazu, nur für begrenzte Anwendungsfälle zu funktionieren, ist schlecht für die Leistung (das kontinuierliche Aufrufen der oben genannten Methoden würde zu einem erheblichen Leistungseinbruch führen) und funktioniert oft nicht, wenn sich die Größe des Browserfensters nicht ändert.
 
-Die Resize Observer API bietet eine Lösung genau für diese Art von Problemen und mehr, sodass Sie Änderungen an der Größe des Inhalts oder des Rahmenfelds eines Elements auf eine leistungsstarke Weise einfach beobachten und darauf reagieren können. Sie bietet eine JavaScript-Lösung für das häufig diskutierte Fehlen von [element queries](https://www.xanthir.com/b4PR0) in der Webplattform.
+Die Resize Observer API bietet eine Lösung genau für diese Art von Problemen und noch mehr, da sie es Ihnen leicht ermöglicht, Änderungen in der Größe des Inhalts oder des Rahmenkastens eines Elements auf leistungsstarke Weise zu beobachten und darauf zu reagieren. Sie bietet eine JavaScript-Lösung für den oft diskutierten Mangel an [Element Queries](https://www.xanthir.com/b4PR0) in der Webplattform.
 
-Die Nutzung ist einfach und im Wesentlichen die gleiche wie bei anderen Beobachtern wie [Performance Observer](/de/docs/Web/API/PerformanceObserver) oder [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API) — Sie erstellen ein neues [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) Objekt mit dem [`ResizeObserver()`](/de/docs/Web/API/ResizeObserver/ResizeObserver) Konstruktor und verwenden dann [`ResizeObserver.observe()`](/de/docs/Web/API/ResizeObserver/observe), um Änderungen an der Größe eines bestimmten Elements zu überwachen. Eine in den Konstruktor eingerichtete Callback-Funktion wird jedes Mal ausgeführt, wenn sich die Größe ändert, und bietet Zugriff auf die neuen Dimensionen, sodass Sie auf diese Änderungen beliebig reagieren können.
+Die Nutzung ist einfach und nahezu identisch mit anderen Observern wie zum Beispiel [Performance Observer](/de/docs/Web/API/PerformanceObserver) oder [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API) — Sie erstellen ein neues [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Objekt mit dem [`ResizeObserver()`](/de/docs/Web/API/ResizeObserver/ResizeObserver)-Konstruktor und verwenden dann [`ResizeObserver.observe()`](/de/docs/Web/API/ResizeObserver/observe), um es auf Änderungen der Größe eines bestimmten Elements reagieren zu lassen. Eine im Konstruktor eingerichtete Rückruffunktion wird dann jedes Mal ausgeführt, wenn sich die Größe ändert, wodurch der Zugriff auf die neuen Abmessungen gewährt wird und Sie können als Antwort auf diese Änderungen alles tun, was Sie möchten.
 
 ## Schnittstellen
 
 - [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)
-  - : Bietet die Möglichkeit, neue Beobachter zu registrieren und das Beobachten von Elementen zu starten und zu stoppen.
+  - : Bietet die Möglichkeit, neue Beobachter zu registrieren sowie das Beobachten von Elementen zu starten und zu stoppen.
 - [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)
-  - : Beschreibt ein einzelnes Element, das in seiner Größe verändert wurde, und identifiziert das Element sowie seine neue Größe.
+  - : Beschreibt ein einzelnes Element, das in der Größe geändert wurde, identifiziert das Element und seine neue Größe.
 
 ## Beispiele
 
-Einige einfache Beispiele finden Sie in unserem GitHub-Repository:
+Sie finden ein paar einfache Beispiele in unserem GitHub-Repo:
 
-- [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html) ([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)): Ein einfaches Beispiel mit einem grünen Kasten, der als Prozentsatz der Ansichtsfenstergröße dimensioniert ist. Wenn sich die Größe des Ansichtsfensters ändert, ändern sich die abgerundeten Ecken des Kastens proportional zur Größe des Kastens. Wir könnten dies einfach mit {{cssxref("border-radius")}} als Prozentsatz implementieren, aber das führt schnell zu hässlich aussehenden elliptischen Ecken, während die obige Lösung Ihnen schöne runde Ecken bietet, die mit der Kasten-Größe skalieren.
-- [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)): Hier verwenden wir den Resize Observer, um die {{cssxref("font-size")}} einer Überschrift und eines Absatzes zu ändern, während der Wert eines Schiebereglers geändert wird und der enthaltene `<div>` seine Breite ändert. Dies zeigt, dass Sie auf Änderungen der Größe eines Elements reagieren können, auch wenn sie nichts mit dem Ansichtsfenster zu tun haben.
+- [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)): Ein einfaches Beispiel mit einem grünen Kasten, der als Prozentsatz der Ansichtsfenstergröße formatiert ist. Wenn die Größe des Ansichtsfensters geändert wird, ändern sich die abgerundeten Ecken des Kastens proportional zur Größe des Kastens. Wir könnten dies einfach mit {{cssxref("border-radius")}} in Prozent umsetzen, aber das führt schnell zu hässlich aussehenden elliptischen Ecken, während die obige Lösung Ihnen schöne runde Ecken bietet, die mit der Kasten-Größe skalieren.
+- [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)): Hier verwenden wir den Resize Observer, um die {{cssxref("font-size")}} einer Überschrift und eines Absatzes zu ändern, wenn der Wert eines Schiebereglers geändert wird, was dazu führt, dass sich die Breite des enthaltenden `<div>` ändert. Dies zeigt, dass Sie auf Änderungen in der Größe eines Elements reagieren können, selbst wenn sie nichts mit dem Ansichtsfenster zu tun haben.
 
-Der Code folgt normalerweise diesem Muster (entnommen aus resize-observer-border-radius.html):
+Der Code folgt in der Regel diesem Muster (entnommen aus resize-observer-border-radius.html):
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
@@ -72,4 +72,4 @@ resizeObserver.observe(document.querySelector("div"));
 
 ## Siehe auch
 
-- [ResizeObserver: It's Like document.onresize for Elements](https://web.dev/articles/resize-observer)
+- [ResizeObserver: It’s Like document.onresize for Elements](https://web.dev/articles/resize-observer)

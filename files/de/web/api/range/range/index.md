@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Der **`Range()`** Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende das globale [`Document`](/de/docs/Web/API/Document)-Objekt sind.
+Der **`Range()`** Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende das globale [`Document`](/de/docs/Web/API/Document)-Objekt ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()` Konstruktor und legen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter) fest. Anschließend wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
+In diesem Beispiel erstellen wir einen neuen `Range` mit dem `Range()` Konstruktor und setzen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Anschließend wählen wir den Range mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
 
 ### HTML
 
@@ -68,5 +68,5 @@ selection.addRange(range);
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
 - [`Document.createRange()`](/de/docs/Web/API/Document/createRange)

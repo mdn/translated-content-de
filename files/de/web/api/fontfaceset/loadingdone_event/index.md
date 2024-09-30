@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Das `loadingdone` Ereignis wird ausgelöst, wenn das Dokument alle Schriftarten geladen hat.
+Das `loadingdone` Ereignis wird ausgelöst, wenn das Dokument alle Schriften geladen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("loadingdone", (event) => {});
@@ -22,7 +22,7 @@ onloadingdone = (event) => {};
 
 ## Beispiel
 
-Im folgenden Beispiel wird, wenn die Schriftart `Ephesis` das Laden abgeschlossen hat, "Font loading complete" in die Konsole ausgegeben.
+Im folgenden Beispiel wird, wenn die Schriftart `Ephesis` fertig geladen ist, "Font loading complete" in die Konsole gedruckt.
 
 ```js
 document.fonts.onloadingdone = () => {

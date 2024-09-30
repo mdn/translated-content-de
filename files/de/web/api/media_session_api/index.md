@@ -7,26 +7,26 @@ l10n:
 
 {{DefaultAPISidebar("Media Session API")}}
 
-Die **Media Session API** bietet eine Möglichkeit, Mediebenachrichtigungen anzupassen. Dies erfolgt durch das Bereitstellen von Metadaten, die vom Benutzeragenten für die von Ihrer Webanwendung abgespielten Medien angezeigt werden sollen.
+Die **Media Session API** bietet eine Möglichkeit, Medienbenachrichtigungen anzupassen. Sie tut dies, indem sie Metadaten bereitstellt, die vom Benutzeragenten für die Medien angezeigt werden, die Ihre Web-App abspielt.
 
-Sie bietet auch Aktionshandler, die der Browser nutzen kann, um auf plattformspezifische Medientasten zuzugreifen, wie Hardware-Tasten auf Tastaturen, Headsets, Fernbedienungen, und Software-Tasten in Benachrichtigungsbereichen und auf dem Sperrbildschirm mobiler Geräte. So können Sie nahtlos über Ihr Gerät Webmedien steuern, auch wenn Sie nicht auf die Webseite schauen.
+Sie bietet auch Aktions-Handler, die der Browser verwenden kann, um auf Plattform-Medientasten zuzugreifen, wie Hardwaretasten auf Tastaturen, Headsets, Fernbedienungen und Softwaretasten in Benachrichtigungsbereichen und auf Sperrbildschirmen von mobilen Geräten. So können Sie nahtlos durch Ihr Gerät bereitgestellte Medien steuern, selbst wenn Sie die Webseite nicht ansehen.
 
-Das Ziel ist es, den Benutzern zu ermöglichen, zu wissen, was gespielt wird und es zu steuern, ohne die spezifische Seite öffnen zu müssen, die es gestartet hat. Um die Media Session API unterstützen zu können, muss ein Browser zuerst über einen Mechanismus verfügen, um auf die Mediensteuerungen auf Betriebssystemebene zuzugreifen und von diesen gesteuert zu werden (wie Firefox's [MediaControl](https://bugzil.la/1648100)).
+Das Ziel ist es, Benutzern zu ermöglichen, zu wissen, was abgespielt wird und es zu steuern, ohne dass sie die spezielle Seite öffnen müssen, die es gestartet hat. Um die Media Session API zu unterstützen, benötigt ein Browser zunächst einen Mechanismus, um auf die Medienkontrollen auf Betriebssystemebene zuzugreifen und von diesen gesteuert zu werden (wie beispielsweise Firefox' [MediaControl](https://bugzil.la/1648100)).
 
-## Konzepte und Nutzung der Media Session
+## Medien-Sitzungskonzepte und Verwendung
 
-Das [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interface erlaubt es einer Webseite, reichhaltige Metadaten an die Plattform-Benutzeroberfläche für abgespielte Medien zu liefern. Diese Metadaten umfassen den Titel, den Namen des Künstlers (Erstellers), das Album (Sammlung), das Artwork und Kapitelinformationen. Die Plattform kann diese Metadaten in Medienzentren, Benachrichtigungen, Gerätesperrbildschirmen usw. anzeigen. Beispielsweise könnten verschiedene Geräte die Mediendaten aus der Media Session API wie folgt präsentieren:
+Das [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interface erlaubt es einer Website, umfassende Metadaten an die Plattform-UI für Medien, die abgespielt werden, bereitzustellen. Diese Metadaten umfassen den Titel, den Namen des Künstlers (Erstellers), das Album (Sammlung), sowie Bilder und Kapitelinformationen. Die Plattform kann diese Metadaten in Medienzentren, Benachrichtigungen, Gerätesperrbildschirmen und so weiter anzeigen. Zum Beispiel können verschiedene Geräte die Media Session API-Daten wie folgt präsentieren:
 
-![Mediendaten für den Titel und das Artwork des Sintel-Trailers auf einem Desktop-Browser, einem Mobiltelefon und einer Smartwatch](media-session-ui.jpg)
+![Medien-Sitzungsdaten für den Titel und das Artwork des Sintel-Trailers, präsentiert auf einem Desktop-Browser, einem Mobiltelefon und einer Smartwatch](media-session-ui.jpg)
 
 > [!CALLOUT]
-> Ursprüngliche Bildquelle: [Customize media notifications and playback controls with the Media Session API](https://web.dev/articles/media-session) auf web.dev (2024)
+> Originalbildquelle: [Customize media notifications and playback controls with the Media Session API](https://web.dev/articles/media-session) auf web.dev (2024)
 
-Das [`MediaSession`](/de/docs/Web/API/MediaSession)-Interface ermöglicht es Benutzern, die Wiedergabe von Medien über benutzeragentendefinierte Interface-Elemente zu steuern. Die Interaktion mit diesen Elementen löst Aktionshandler auf der Webseite aus, die das Medium abspielt. Da mehrere Seiten diese API gleichzeitig verwenden können, ist der Benutzeragent dafür verantwortlich, die Aktionshandler der richtigen Seite aufzurufen. Wenn kein von der Seite definiertes Verhalten verfügbar ist, stellt der Benutzeragent Standardverhalten bereit.
+Das [`MediaSession`](/de/docs/Web/API/MediaSession)-Interface ermöglicht es Benutzern, die Wiedergabe von Medien über benutzeragentendefinierte Interface-Elemente zu steuern. Die Interaktion mit diesen Elementen löst Aktions-Handler auf der Webseite aus, die die Medien abspielt. Da mehrere Seiten gleichzeitig diese API verwenden können, ist der Benutzeragent verantwortlich für das Aufrufen der Aktions-Handler der korrekten Seite. Der Benutzeragent bietet Standardverhalten, wenn kein seitendefiniertes Verhalten verfügbar ist.
 
 ## Zugriff auf die Media Session API
 
-Das primäre Interface für die Media Session API ist das [`MediaSession`](/de/docs/Web/API/MediaSession)-Interface. Anstatt Ihre eigene `MediaSession`-Instanz zu erstellen, greifen Sie über die [`navigator.mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Eigenschaft auf die API zu. Zum Beispiel, um den aktuellen Status der Mediensitzung auf `playing` zu setzen:
+Das primäre Interface für die Media Session API ist das [`MediaSession`](/de/docs/Web/API/MediaSession)-Interface. Anstatt Ihre eigene `MediaSession`-Instanz zu erstellen, greifen Sie mit der [`navigator.mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Eigenschaft auf die API zu. Zum Beispiel, um den aktuellen Status der Medien-Sitzung auf `playing` zu setzen:
 
 ```js
 navigator.mediaSession.playbackState = "playing";
@@ -35,17 +35,17 @@ navigator.mediaSession.playbackState = "playing";
 ## Schnittstellen
 
 - [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)
-  - : Repräsentiert die Metadaten für ein einzelnes Kapitel einer Medienressource (z. B. eine Video- oder Audiodatei).
+  - : Repräsentiert die Metadaten für ein individuelles Kapitel einer Medienressource (z.B. eine Video- oder Audiodatei).
 - [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)
-  - : Ermöglicht einer Webseite das Anbieten von reichhaltigen Medien-Metadaten zur Anzeige in einer Plattform-Benutzeroberfläche.
+  - : Ermöglicht es einer Webseite, umfassende Medienmetadaten zur Anzeige in einer Plattform-UI bereitzustellen.
 - [`MediaSession`](/de/docs/Web/API/MediaSession)
-  - : Erlaubt einer Webseite das Bereitstellen benutzerdefinierter Verhaltensweisen für standardmäßige Medienwiedergabeinteraktionen.
+  - : Ermöglicht es einer Webseite, benutzerdefinierte Verhaltensweisen für Standard-Medienwiedergabe-Interaktionen bereitzustellen.
 
 ## Beispiele
 
-### Einrichten von Aktionshandlern für einen Musikplayer
+### Einrichten von Aktions-Handlern für einen Musik-Player
 
-Das folgende Beispiel zeigt die Erkennung der Media Session API. Es erstellt dann ein Metadatenobjekt für die Sitzung und fügt Aktionshandler für die Benutzersteuerungsaktionen hinzu:
+Das folgende Beispiel zeigt die Funktionserkennung für die Media Session API. Anschließend wird ein Metadatenobjekt für die Sitzung instanziiert und Aktions-Handler für die Benutzersteuerungsaktionen hinzugefügt:
 
 ```js
 if ("mediaSession" in navigator) {
@@ -126,7 +126,7 @@ if ("mediaSession" in navigator) {
 }
 ```
 
-Einige Benutzeragenten deaktivieren das automatische Abspielen von Medienelementen auf mobilen Geräten und erfordern eine Benutzerinteraktion, um Medien zu starten. Das folgende Beispiel fügt einem auf der Seite befindlichen Abspielknopf ein `pointerup`-Ereignis hinzu, das dann verwendet wird, um den Mediensitzungscode zu starten:
+Einige Benutzeragenten deaktivieren die automatische Wiedergabe für Medienelemente auf mobilen Geräten und erfordern eine Benutzeraktion, um Medien zu starten. Das folgende Beispiel fügt ein `pointerup`-Ereignis zu einem Play-Button auf der Seite hinzu, das dann verwendet wird, um den Medien-Sitzungscode zu starten:
 
 ```js
 playButton.addEventListener("pointerup", (event) => {
@@ -144,9 +144,9 @@ playButton.addEventListener("pointerup", (event) => {
 });
 ```
 
-### Verwenden von Aktionshandlern zur Steuerung einer Präsentation
+### Verwenden von Aktions-Handlern zur Steuerung einer Präsentation
 
-Die `"previousslide"`- und `"nextslide"`-Aktionshandler können verwendet werden, um das Vor- und Zurückbewegen durch eine Präsentation zu steuern, beispielsweise wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Fenster setzt und die vom Browser bereitgestellten Steuerungen zum Navigieren durch die Folien betätigt.
+Die `"previousslide"`- und `"nextslide"`-Aktions-Handler können verwendet werden, um zum Beispiel das Vorwärts- und Rückwärtsbewegen durch eine Präsentation zu steuern, wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Fenster setzt und die vom Browser bereitgestellten Steuerungen für die Navigation durch Folien drückt.
 
 ```js
 try {

@@ -1,5 +1,5 @@
 ---
-title: "CSSRuleList: Die item()-Methode"
+title: "CSSRuleList: item()-Methode"
 short-title: item()
 slug: Web/API/CSSRuleList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`item()`**-Methode der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Schnittstelle gibt das [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt an dem angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
+Die **`item()`**-Methode der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Schnittstelle gibt das [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt am angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Eine ganze Zahl.
+  - : Ein Integer.
 
 ### Rückgabewert
 
-Eine [`CSSRule`](/de/docs/Web/API/CSSRule).
+Ein [`CSSRule`](/de/docs/Web/API/CSSRule).
 
 ## Beispiele
 
-Im folgenden Beispiel gehen wir davon aus, dass die `myRules`-Liste nur drei Elemente enthält.
+Im folgenden Beispiel nehmen wir an, dass die Liste `myRules` nur drei Elemente enthält.
 
 ```js
 let myRules = document.styleSheets[0].cssRules;

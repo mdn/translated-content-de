@@ -1,5 +1,5 @@
 ---
-title: "Storage: removeItem()-Methode"
+title: "Storage: removeItem() Methode"
 short-title: removeItem()
 slug: Web/API/Storage/removeItem
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`removeItem()`**-Methode des [`Storage`](/de/docs/Web/API/Storage)-Interfaces entfernt einen Schlüssel aus dem gegebenen `Storage`-Objekt, wenn der Schlüsselname übergeben wird und existiert.
+Die **`removeItem()`** Methode des [`Storage`](/de/docs/Web/API/Storage)-Interface entfernt, wenn sie mit einem Schlüsselnamen aufgerufen wird, diesen Schlüssel aus dem gegebenen `Storage`-Objekt, sofern er existiert.
 Das **`Storage`**-Interface der [Web Storage API](/de/docs/Web/API/Web_Storage_API) bietet Zugriff auf den Sitzungs- oder lokalen Speicher einer bestimmten Domain.
 
-Wenn kein Element mit dem angegebenen Schlüssel vorhanden ist, unternimmt diese Methode nichts.
+Existiert kein Element, das dem angegebenen Schlüssel zugeordnet ist, unternimmt diese Methode nichts.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Die folgende Funktion erstellt drei Datenelemente im lokalen Speicher und entfernt anschließend das `image`-Datenelement.
+Die folgende Funktion erstellt drei Datenelemente im lokalen Speicher und entfernt dann das `image`-Datenelement.
 
 ```js
 function populateStorage() {
@@ -55,7 +55,7 @@ function populateStorage() {
 ```
 
 > [!NOTE]
-> Um dies in einem realen Beispiel zu sehen, besuchen Sie unseren [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Um dies in einem Beispiel aus der realen Welt zu sehen, lesen Sie unser [Web Storage-Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

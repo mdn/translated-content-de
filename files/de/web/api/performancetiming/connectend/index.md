@@ -9,11 +9,10 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+> Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.connectEnd`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, zu dem die Netzwerkverbindung geöffnet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Verbindungsaufbau-Endzeit angegeben. Wenn eine persistente Verbindung verwendet wird, ist der Wert derselbe wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart). Eine Verbindung gilt als geöffnet, wenn alle sicheren Verbindungshandshakes oder SOCKS-Authentifizierungen abgeschlossen sind.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.connectEnd`** gibt einen `unsigned long long` zurück, der den Moment darstellt, in Millisekunden seit dem UNIX-Epoch, zu dem die Verbindung im Netzwerk geöffnet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Zeit des Verbindungsaufbaus angegeben. Wenn eine persistente Verbindung verwendet wird, entspricht der Wert dem von [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart). Eine Verbindung wird als geöffnet betrachtet, wenn alle sicheren Verbindungshandshakes oder SOCKS-Authentifizierungen abgeschlossen sind.
 
 ## Wert
 
@@ -29,4 +28,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der es gehört.

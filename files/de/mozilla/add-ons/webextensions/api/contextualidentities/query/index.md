@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft Informationen über alle kontextbezogenen Identitäten ab oder über diejenigen kontextbezogenen Identitäten, die einem bestimmten Filterargument entsprechen.
+Liefert Informationen über alle kontextuellen Identitäten oder über die kontextuellen Identitäten, die einem bestimmten Filterargument entsprechen.
 
-Dies ist eine asynchrone Funktion, die einen [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -23,14 +23,14 @@ let getContext = browser.contextualIdentities.query(
 
 - `details`
 
-  - : `object`. Ein Objekt, das verwendet werden kann, um die zurückgegebenen kontextbezogenen Identitäten zu filtern. Dies kann jede der folgenden Eigenschaften enthalten:
+  - : `object`. Ein Objekt, das verwendet werden kann, um die zurückgegebenen kontextuellen Identitäten zu filtern. Es kann eine der folgenden Eigenschaften enthalten:
 
     - `name` {{optional_inline}}
-      - : `string`. Nur kontextbezogene Identitäten mit diesem Namen zurückgeben.
+      - : `string`. Gibt nur kontextuelle Identitäten mit diesem Namen zurück.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} Objekten erfüllt wird, wobei jedes eine einzelne Identität beschreibt. Wenn die Funktion für kontextbezogene Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} Objekten erfüllt wird, wobei jedes eine einzelne Identität beschreibt. Wenn die kontextuelle Identitätsfunktion nicht aktiviert ist, wird das Promise abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Abrufen aller kontextbezogenen Identitäten und Protokollieren ihrer Namen:
+Abrufen aller kontextuellen Identitäten und Protokollierung ihrer Namen:
 
 ```js
 function onGot(contexts) {
@@ -54,7 +54,7 @@ function onError(error) {
 browser.contextualIdentities.query({}).then(onGot, onError);
 ```
 
-Abrufen aller kontextbezogenen Identitäten, deren Namen "my-thing" sind, und Protokollieren ihrer Namen:
+Abrufen aller kontextuellen Identitäten, deren Namen "my-thing" sind, und Protokollierung ihrer Namen:
 
 ```js
 function onGot(contexts) {

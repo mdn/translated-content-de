@@ -8,10 +8,7 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`host`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)
-Schnittstelle ist ein String, der den Host enthält, also den
-_Hostnamen_, und, wenn der _Port_ der URL nicht leer ist, einen
-`':'`, gefolgt vom _Port_ der URL.
+Die **`host`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den Host enthält, also den _hostname_, und dann, falls der _port_ der URL nicht leer ist, einen `':'`, gefolgt vom _port_ der URL.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mphantom>`** [MathML](/de/docs/Web/MathML)-Element wird unsichtbar gerendert, jedoch werden die Dimensionen (wie Höhe, Breite und Baseline-Position) beibehalten.
+Das **`<mphantom>`** [MathML](/de/docs/Web/MathML)-Element wird unsichtbar gerendert, aber die Dimensionen (wie Höhe, Breite und Baseline-Position) bleiben erhalten.
 
 ## Attribute
 

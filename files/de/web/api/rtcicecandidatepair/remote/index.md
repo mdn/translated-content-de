@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePair: remote-Eigenschaft"
+title: "RTCIceCandidatePair: remote Eigenschaft"
 short-title: remote
 slug: Web/API/RTCIceCandidatePair/remote
 l10n:
@@ -12,11 +12,11 @@ Die **`remote`**-Eigenschaft des **[`RTCIceCandidatePair`](/de/docs/Web/API/RTCI
 
 ## Wert
 
-Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des entfernten Endes eines funktionierenden ICE-Kandidatenpaares beschreibt. Das `RTCIceCandidatePair` wird durch die Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) von `RTCIceTransport` zurückgegeben.
+Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des entfernten Endes eines funktionierenden ICE-Kandidatenpaars beschreibt. Das `RTCIceCandidatePair` wird durch die Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) zurückgegeben.
 
 ## Beispiele
 
-Dieses Einzeilen-Beispiel holt das aktuelle Kandidatenpaar und daraus den entfernten Kandidaten.
+Dieses einzeilige Beispiel erhält das aktuelle Kandidatenpaar und daraus den entfernten Kandidaten.
 
 ```js
 const candidatePair = pc
@@ -25,7 +25,7 @@ const candidatePair = pc
 const remoteCandidate = candidatePair.remote;
 ```
 
-Das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird gefunden, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird. Im ersten `RTCRtpSender` erhalten wir das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über das die Mediendaten übertragen werden, und schließlich daraus das `RTCIceTransport`.
+Der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird ermittelt, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird. Im ersten `RTCRtpSender` erhalten wir den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über den die Mediendaten übertragen werden, und schließlich daraus den `RTCIceTransport`.
 
 ## Spezifikationen
 

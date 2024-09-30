@@ -7,13 +7,13 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die schreibgeschützte **`buffer`** Prototyp-Eigenschaft des [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) Objekts gibt den im Speicher enthaltenen Puffer zurück. Abhängig davon, ob der Speicher mit `shared: true` erstellt wurde oder nicht, ist der Puffer entweder ein {{jsxref("ArrayBuffer")}} oder ein {{jsxref("SharedArrayBuffer")}}.
+Die schreibgeschützte **`buffer`** Prototypeigenschaft des [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) Objekts gibt den im Speicher enthaltenen Puffer zurück. Abhängig davon, ob der Speicher mit `shared: true` erstellt wurde oder nicht, ist der Puffer entweder ein {{jsxref("ArrayBuffer")}} oder ein {{jsxref("SharedArrayBuffer")}}.
 
 ## Beispiele
 
 ### Verwendung von buffer
 
-Das folgende Beispiel (siehe [memory.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/memory.html) auf GitHub, und [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/memory.html)) lädt und instanziiert den geladenen memory.wasm-Bytecode mit der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), während der Speicher, der in der Zeile darüber erstellt wurde, importiert wird. Anschließend speichert es einige Werte in diesem Speicher, exportiert eine Funktion und verwendet die exportierte Funktion, um diese Werte zu summieren.
+Das folgende Beispiel (siehe [memory.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/memory.html) auf GitHub, und [sehen Sie es sich auch live an](https://mdn.github.io/webassembly-examples/js-api-examples/memory.html)) lädt und instanziiert den geladenen memory.wasm-Bytecode mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) Funktion, während der Speicher importiert wird, der in der vorherigen Zeile erstellt wurde. Anschließend werden einige Werte in diesem Speicher gespeichert, eine Funktion exportiert und die exportierte Funktion verwendet, um diese Werte zu summieren.
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -44,5 +44,5 @@ WebAssembly.instantiateStreaming(fetch("memory.wasm"), {
 ## Siehe auch
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

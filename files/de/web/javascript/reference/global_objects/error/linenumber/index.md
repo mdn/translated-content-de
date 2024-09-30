@@ -1,5 +1,5 @@
 ---
-title: "Fehler: lineNumber"
+title: "Error: lineNumber"
 slug: Web/JavaScript/Reference/Global_Objects/Error/lineNumber
 l10n:
   sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`lineNumber`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz enthält die Zeilennummer in der Datei, die diesen Fehler ausgelöst hat.
+Die **`lineNumber`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält die Zeilennummer in der Datei, die diesen Fehler verursacht hat.
 
 ## Wert
 
-Eine positive ganze Zahl.
+Eine positive Ganzzahl.
 
 {{js_property_attributes(1, 0, 1)}}
 
@@ -27,7 +27,7 @@ try {
 }
 ```
 
-### Alternatives Beispiel mit Error-Event
+### Alternatives Beispiel mit dem Fehlerereignis
 
 ```js
 window.addEventListener("error", (e) => {
@@ -37,7 +37,7 @@ const e = new Error("Could not parse input");
 throw e;
 ```
 
-Dies ist keine standardisierte Funktion und fehlt es an weitreichender Unterstützung. Siehe die Browser-Kompatibilitätstabelle unten.
+Dies ist keine standardisierte Funktion und verfügt über keine breite Unterstützung. Siehe die Browser-Kompatibilitätstabelle unten.
 
 ## Spezifikationen
 

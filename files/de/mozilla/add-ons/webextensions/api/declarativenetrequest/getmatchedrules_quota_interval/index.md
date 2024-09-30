@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Das Zeitintervall, innerhalb dessen Aufrufe von {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}} {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} gemacht werden können, angegeben in Minuten. Zusätzliche Aufrufe schlagen sofort fehl und führen zu einer Promise-Ablehnung. Anrufe, die mit einer Benutzerinteraktion verbunden sind, sind von der Quote ausgenommen.
+Das Zeitintervall, innerhalb dessen {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}}-Aufrufe von {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} erfolgen können, angegeben in Minuten. Zusätzliche Aufrufe schlagen sofort fehl und führen zu einer Promise-Ablehnung. Aufrufe, die mit einer Benutzeraktion verbunden sind, sind von der Quote ausgenommen.
 
-Der Wert beträgt `10`.
+Der Wert ist `10`.
 
 {{WebExtExamples("h2")}}
 

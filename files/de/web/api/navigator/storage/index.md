@@ -8,11 +8,12 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Storage")}}
 
-Die **`Navigator.storage`**-Schreibgeschützte Eigenschaft gibt das Singleton-Objekt [`StorageManager`](/de/docs/Web/API/StorageManager) zurück, das verwendet wird, um auf die allgemeinen Speicherkapazitäten des Browsers für die aktuelle Website oder App zuzugreifen. Das zurückgegebene Objekt ermöglicht es Ihnen, die Persistenz von Datenspeichern zu untersuchen und zu konfigurieren sowie ungefähr zu erfahren, wie viel Speicherplatz Ihr Browser für die lokale Speicherung noch verfügbar hat.
+Die **`Navigator.storage`**
+schreibgeschützte Eigenschaft gibt das Singleton-Objekt [`StorageManager`](/de/docs/Web/API/StorageManager) zurück, das verwendet wird, um die allgemeinen Speichermöglichkeiten des Browsers für die aktuelle Seite oder App zu nutzen. Das zurückgegebene Objekt ermöglicht es Ihnen, die Persistenz von Datenspeichern zu überprüfen und zu konfigurieren sowie grob zu erfahren, wie viel Platz Ihrem Browser noch zur lokalen Datenspeicherung zur Verfügung steht.
 
 ## Wert
 
-Ein [`StorageManager`](/de/docs/Web/API/StorageManager)-Objekt, das Sie verwenden können, um die Persistenz gespeicherter Daten zu verwalten und um grob zu bestimmen, wie viel Speicherplatz für die Speicherung von Daten zur Verfügung steht.
+Ein [`StorageManager`](/de/docs/Web/API/StorageManager)-Objekt, das Sie verwenden können, um Persistenz für gespeicherte Daten zu gewährleisten und um grob zu bestimmen, wie viel Platz noch für die Speicherung von Daten vorhanden ist.
 
 ## Spezifikationen
 

@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudoelement erzeugt, dessen Inhalt durch seine {{CSSxRef("list-style")}} Eigenschaften festgelegt wird (zum Beispiel ein Aufzählungspunkt) zusammen mit einem Hauptblock des angegebenen Typs für den eigenen Inhalt.
+Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem durch seine {{CSSxRef("list-style")}} Eigenschaften angegebenen Inhalt erzeugt (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Hauptfeld des angegebenen Typs für die eigenen Inhalte.
 
 ## Syntax
 
-Ein einzelner Wert von `list-item` sorgt dafür, dass das Element sich wie ein Listenelement verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
+Ein einzelner Wert von `list-item` führt dazu, dass das Element sich wie ein Listenelement verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
 
-`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
+`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}}-Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat der Hauptblock einen äußeren Anzeigetyp `block`.
+> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, erhält das Hauptfeld einen äußeren Anzeigetyp von `block`.
 
 ## Formale Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: Eigenschaft manufacturerName"
+title: "USBDevice: manufacturerName-Eigenschaft"
 short-title: manufacturerName
 slug: Web/API/USBDevice/manufacturerName
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`manufacturerName`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt den Namen der Organisation, die das USB-Gerät hergestellt hat, an.
+Die schreibgeschützte Eigenschaft **`manufacturerName`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt den Namen der Organisation an, die das USB-Gerät hergestellt hat.
 
 ## Wert
 

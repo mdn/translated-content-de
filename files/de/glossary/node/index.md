@@ -11,4 +11,4 @@ Der Begriff **Node** kann je nach Kontext mehrere Bedeutungen haben. Er kann sic
 
 {{GlossaryDisambiguation}}
 
-Eine weitere Verwendung des Begriffs ist im Zusammenhang mit [Node.js](/de/docs/Glossary/Node.js)
+Eine andere Verwendung des Wortes ist im Zusammenhang mit [Node.js](/de/docs/Glossary/Node.js)

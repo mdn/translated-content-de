@@ -16,18 +16,18 @@ l10n:
   </tbody>
 </table>
 
-Das `short_name`-Mitglied ist ein String, der den Namen der Webanwendung darstellt, der dem Benutzer angezeigt wird, falls nicht genug Platz vorhanden ist, um [`name`](/de/docs/Web/Manifest/name) anzuzeigen (z. B. als Beschriftung für ein Symbol auf dem Startbildschirm des Telefons). `short_name` ist richtungsfähig, was bedeutet, dass es basierend auf dem Wert der Manifestmitglieder [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest) von links nach rechts oder von rechts nach links angezeigt werden kann.
+Das `short_name`-Mitglied ist eine Zeichenkette, die den Namen der Webanwendung darstellt, der angezeigt wird, wenn nicht genügend Platz verfügbar ist, um [`name`](/de/docs/Web/Manifest/name) darzustellen (z. B. als Beschriftung für ein Symbol auf dem Startbildschirm des Telefons). `short_name` ist richtungsfähig, was bedeutet, dass es je nach Wert der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest)-Manifestmitglieder von links nach rechts oder von rechts nach links angezeigt werden kann.
 
 ## Beispiele
 
-Einfaches `short_name` in einer von links nach rechts geschriebenen Sprache:
+Einfaches `short_name` in einer von links nach rechts verlaufenden Sprache:
 
 ```json
 "name": "Awesome application",
 "short_name": "Awesome app"
 ```
 
-`short_name` auf Arabisch, das von rechts nach links angezeigt wird:
+`short_name` in Arabisch, das von rechts nach links angezeigt wird:
 
 ```json
 "dir": "rtl",

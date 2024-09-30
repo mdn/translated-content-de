@@ -1,5 +1,5 @@
 ---
-title: "Window: messageerror Ereignis"
+title: "Window: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/Window/messageerror_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das `messageerror` Ereignis wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
+Das `messageerror`-Ereignis wird bei einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die von der Nachrichtensender gesendeten Daten.
+  - : Die vom Nachrichten-Emitter gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
+  - : Ein String, der den Ursprung des Nachrichten-Emitters darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann) darstellt den Nachrichtensender.
+  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichten-Emitter darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort) Objekten, die die mit dem Kanal verbundenen Ports darstellen, über die die Nachricht gesendet wird (sofern zutreffend, z. B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen geteilten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal assoziierten Ports darstellen, über den die Nachricht gesendet wird (soweit zutreffend, z.B. bei Nachrichtenübermittlung in Kanälen oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
-Lauschen Sie auf `messageerror` mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Ein Listener für `messageerror` mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 window.addEventListener("messageerror", (event) => {
@@ -53,7 +53,7 @@ window.addEventListener("messageerror", (event) => {
 });
 ```
 
-Dasselbe, aber mit der `onmessageerror` Ereignis-Handler-Eigenschaft:
+Das Gleiche, jedoch mit der `onmessageerror`-Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onmessageerror = (event) => {

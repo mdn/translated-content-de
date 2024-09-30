@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`delete()`**-Methode von {{jsxref("Set")}}-Instanzen entfernt einen angegebenen Wert aus diesem Set, falls er sich im Set befindet.
+Die **`delete()`** Methode von {{jsxref("Set")}} Instanzen entfernt einen angegebenen Wert aus diesem Set, wenn er im Set vorhanden ist.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-delete.html")}}
 
@@ -20,16 +20,15 @@ setInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der aus dem `Set` entfernt werden soll.
+  - : Der Wert, der aus `Set` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `value` bereits im
-`Set` war; andernfalls `false`.
+Gibt `true` zurück, wenn `value` bereits in `Set` war; andernfalls `false`.
 
 ## Beispiele
 
-### Verwenden der delete()-Methode
+### Verwendung der delete() Methode
 
 ```js
 const mySet = new Set();
@@ -43,7 +42,7 @@ console.log(mySet.has("foo")); // false; the "foo" element is no longer present.
 
 ### Löschen eines Objekts aus einem Set
 
-Da Objekte durch Referenz verglichen werden, müssen Sie sie durch Überprüfung einzelner Eigenschaften löschen, wenn Sie keine Referenz zum ursprünglichen Objekt haben.
+Da Objekte durch Referenz verglichen werden, müssen Sie sie durch Überprüfung einzelner Eigenschaften löschen, wenn Sie keine Referenz auf das ursprüngliche Objekt haben.
 
 ```js
 const setObj = new Set(); // Create a new set.

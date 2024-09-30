@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`messagesSent`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs liefert die Gesamtzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event), die für gesendete Nachrichten auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ausgelöst wurden.
+Die **`messagesSent`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt die Gesamtanzahl der [`message` Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) zurück, die für gesendete Nachrichten auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ausgelöst wurden.
 
 ## Wert
 
-Ein positiver Ganzzahlenwert, der die Gesamtanzahl der `message`-Ereignisse für ausgehende Daten auf dem zugehörigen Datenkanal angibt.
+Ein positiver ganzzahliger Wert, der die Gesamtanzahl der `message`-Ereignisse für ausgehende Daten auf dem zugehörigen Datenkanal angibt.
 
 ## Spezifikationen
 

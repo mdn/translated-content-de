@@ -1,5 +1,5 @@
 ---
-title: "TouchList: Länge-Eigenschaft"
+title: "TouchList: length-Eigenschaft"
 short-title: length
 slug: Web/API/TouchList/length
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`length`**-Eigenschaft gibt die Anzahl der Elemente (Berührungspunkte) in einer gegebenen [`TouchList`](/de/docs/Web/API/TouchList) an.
+Die **`length`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die die Anzahl der Elemente (Berührungspunkte) in einer gegebenen [`TouchList`](/de/docs/Web/API/TouchList) angibt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Die Anzahl der Berührungspunkte in `touchList`.
 
 ## Beispiele
 
-Dieses Codebeispiel veranschaulicht die Verwendung der [`TouchList`](/de/docs/Web/API/TouchList)-Schnittstelle, der `item`-Methode und der `length`-Eigenschaft.
+Dieses Codebeispiel zeigt die Verwendung der [`TouchList`](/de/docs/Web/API/TouchList)-Schnittstelle mit der [`item`](/de/docs/Web/API/TouchList/item)-Methode und der `length`-Eigenschaft.
 
 ```js
 const target = document.getElementById("target");

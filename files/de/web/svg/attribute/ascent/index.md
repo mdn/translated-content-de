@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`ascent`**-Attribut definiert die maximale unakzentuierte Höhe der Schriftart innerhalb des Schriftkoordinatensystems.
+Das **`ascent`**-Attribut definiert die maximale Höhe der Schriftart ohne Akzent im Koordinatensystem der Schriftart.
 
-Wenn das Attribut nicht angegeben ist, wirkt es so, als ob das Attribut auf den Unterschied zwischen dem Wert von {{SVGAttr("units-per-em")}} und dem Wert von {{SVGAttr("vert-origin-y")}} für die entsprechende Schriftart gesetzt wäre.
+Wenn das Attribut nicht angegeben ist, ist die Wirkung so, als wäre das Attribut auf die Differenz zwischen dem {{SVGAttr("units-per-em")}}-Wert und dem {{SVGAttr("vert-origin-y")}}-Wert für die entsprechende Schriftart gesetzt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## font-face
 
-Für {{SVGElement("font-face")}} definiert `ascent` die maximale unakzentuierte Höhe der Schriftart innerhalb des Schriftkoordinatensystems.
+Für {{SVGElement("font-face")}} definiert `ascent` die maximale Höhe der Schriftart ohne Akzent im Koordinatensystem der Schriftart.
 
 <table class="properties">
   <tbody>
@@ -30,7 +30,7 @@ Für {{SVGElement("font-face")}} definiert `ascent` die maximale unakzentuierte 
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Unterschied zwischen {{SVGAttr("units-per-em")}} und
+        Differenz zwischen {{SVGAttr("units-per-em")}} und
         {{SVGAttr("vert-origin-y")}}
       </td>
     </tr>

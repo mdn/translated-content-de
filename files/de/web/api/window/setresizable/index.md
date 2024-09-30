@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{deprecated_header}}{{non-standard_header}}
 
-Diese Methode hat keine Funktion; sie ist ein No-Op. Sie wird ausschließlich aus Kompatibilitätsgründen mit Netscape 4.x beibehalten.
+Diese Methode tut nichts; sie ist eine No-Op. Sie wird ausschließlich für die Kompatibilität mit Netscape 4.x beibehalten.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
-Nicht Teil aktueller Spezifikationen.
+Teil keiner aktuellen Spezifikationen.
 
 ## Browser-Kompatibilität
 

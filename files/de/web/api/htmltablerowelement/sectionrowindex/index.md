@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`sectionRowIndex`** schreibgeschützte Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces stellt die Position einer Zeile innerhalb des aktuellen Abschnitts dar ({{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}}).
+Die **`sectionRowIndex`** schreibgeschützte Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces repräsentiert die Position einer Zeile innerhalb des aktuellen Abschnitts ({{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}}).
 
 ## Wert
 

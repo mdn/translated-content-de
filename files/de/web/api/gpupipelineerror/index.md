@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUPipelineError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Pipeline-Fehler. Dies ist der Wert, der empfangen wird, wenn ein von einem {{jsxref("Promise")}} zurückgegebenes Versprechen bei einem Aufruf von [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) zurückgewiesen wird.
+Die **`GPUPipelineError`**-Schnittstelle der [WebGPU-API](/de/docs/Web/API/WebGPU_API) beschreibt einen Pipeline-Fehler. Dies ist der Wert, der empfangen wird, wenn ein von einem {{jsxref("Promise")}} zurückgegebenes Versprechen durch einen Aufruf von [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) abgelehnt wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`GPUPipelineError()`](/de/docs/Web/API/GPUPipelineError/GPUPipelineError) {{Experimental_Inline}}
-  - : Erstellt eine neue `GPUPipelineError`-Objektinstanz.
+  - : Erstellt eine neue Instanz des `GPUPipelineError`-Objekts.
 
-## Instanzen-Eigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`DOMException`](/de/docs/Web/API/DOMException)._
 
 - [`reason`](/de/docs/Web/API/GPUPipelineError/reason) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein aufgezählter Wert, der den Grund angibt, warum die Pipelinenerstellung auf maschinenlesbare Weise fehlgeschlagen ist.
+  - : Ein enumerierter Wert, der den Grund für das Scheitern der Pipeline-Erstellung in maschinenlesbarer Weise definiert.
 
 ## Beispiele
 
-Im folgenden Codebeispiel versuchen wir, eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) mit [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) zu erstellen. Wir haben jedoch unseren Compute-Pipeline-`entryPoint` als `"maijn"` falsch geschrieben (es sollte `"main"` sein), daher schlägt die Pipelinenerstellung fehl, und unser `catch`-Block gibt den resultierenden Grund und die Fehlermeldung in der Konsole aus.
+Im folgenden Code-Beispiel versuchen wir, eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) mit [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) zu erstellen. Wir haben jedoch unseren Compute-Pipeline-`entryPoint` als `"maijn"` falsch geschrieben (es sollte `"main"` sein), daher schlägt die Pipeline-Erstellung fehl, und unser `catch`-Block gibt den resultierenden Grund und die Fehlermeldung in der Konsole aus.
 
 ```js
 // ...
@@ -51,7 +51,7 @@ try {
 // ...
 ```
 
-In diesem Fall ist der gegebene `reason` `"Validation"`, und die `message` lautet `"Entry point "maijn" doesn't exist in the shader module [ShaderModule]."`
+In diesem Fall ist der angegebene `reason` `"Validation"`, und die `message` ist `"Entry point "maijn" doesn't exist in the shader module [ShaderModule]."`
 
 ## Spezifikationen
 
@@ -63,5 +63,5 @@ In diesem Fall ist der gegebene `reason` `"Validation"`, und die `message` laute
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Error Handling best practices](https://toji.dev/webgpu-best-practices/error-handling)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- [WebGPU-Fehlerbehandlungs-Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

@@ -12,7 +12,7 @@ Zugriff auf spezielle, nur für Erweiterungen verfügbare DOM-Funktionen.
 ## Funktionen
 
 - {{WebExtAPIRef("dom.openOrClosedShadowRoot()")}}
-  - : Ruft das offene oder geschlossene Shadow-Root ab, das von dem angegebenen Element gehostet wird. Wenn das Shadow-Root nicht am Element angefügt ist, wird `null` zurückgegeben.
+  - : Gibt das offene Schattenverwurzel oder das geschlossene Schattenverwurzel zurück, das von dem angegebenen Element gehostet wird. Wenn das Schattenverwurzel nicht an das Element angefügt ist, wird `null` zurückgegeben.
 
 {{WebExtExamples("h2")}}
 

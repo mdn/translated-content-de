@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Shorthand-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) zum Festlegen der einzelnen logischen Inline-Randeigenschaften-Werte an einer einzigen Stelle im Stylesheet.
+Die **`border-inline`**-[CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzformeigenschaft](/de/docs/Web/CSS/Shorthand_properties) zum Setzen der einzelnen logischen, inline-spezifischen Rahmenwerte an einer einzigen Stelle im Stylesheet.
 
 {{EmbedInteractiveExample("pages/css/border-inline.html")}}
 
-Die physischen Ränder, auf die `border-inline` abbildet, hängen vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}}, und {{cssxref("border-left")}}, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die physikalischen Rahmen, auf die `border-inline` abbildet, hängen vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Sie entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
-Die Ränder in der anderen Dimension können mit {{cssxref("border-block")}} gesetzt werden, das {{cssxref("border-block-start")}} und {{cssxref("border-block-end")}} setzt.
+Die Rahmen in der anderen Dimension können mit {{cssxref("border-block")}}, das {{cssxref("border-block-start")}} und {{cssxref("border-block-end")}} setzt, bestimmt werden.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteile der Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -99,5 +99,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft ordnet einer der physikalischen Rand-Eigenschaften zu: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
+- Diese Eigenschaft wird einer der physikalischen Rahmeneigenschaften zugeordnet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

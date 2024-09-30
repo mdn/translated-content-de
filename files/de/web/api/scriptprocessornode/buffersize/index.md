@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
-Die `bufferSize`-Eigenschaft des [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Interfaces gibt eine Ganzzahl zurück, die sowohl die Eingabe- als auch die Ausgabepuffergröße in Sample-Frames darstellt. Ihr Wert kann eine Zweierpotenz im Bereich von `256` – `16384` sein.
+Die `bufferSize`-Eigenschaft des [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Interfaces gibt einen Integer-Wert zurück, der sowohl die Eingabe- als auch die Ausgabe-Puffergröße in Sample-Frames darstellt. Sein Wert kann eine Zweierpotenz im Bereich von `256` bis `16384` sein.
 
 > [!NOTE]
 > Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und das [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Interface ersetzt.
 
 ## Wert
 
-Eine Ganzzahl.
+Ein Integer-Wert.
 
 ## Beispiele
 

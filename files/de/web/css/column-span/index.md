@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-span`** [CSS](/de/docs/Web/CSS) Eigenschaft macht es möglich, dass ein Element über alle Spalten spannt, wenn sein Wert auf `all` gesetzt ist.
+Die **`column-span`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, dass ein Element über alle Spalten hinweg spannt, wenn ihr Wert auf `all` gesetzt ist.
 
 {{EmbedInteractiveExample("pages/css/column-span.html")}}
 
-Ein Element, das über mehrere Spalten spannt, wird als **spannendes Element** bezeichnet.
+Ein Element, das über mehr als eine Spalte spannt, wird als **spannendes Element** bezeichnet.
 
 ## Syntax
 
@@ -28,14 +28,14 @@ column-span: revert-layer;
 column-span: unset;
 ```
 
-Die `column-span` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `column-span`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `none`
   - : Das Element spannt nicht über mehrere Spalten.
 - `all`
-  - : Das Element spannt über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten ausgeglichen, bevor das Element erscheint. Das Element erzeugt einen neuen Blockformatierungskontext.
+  - : Das Element spannt über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten ausgeglichen, bevor das Element erscheint. Das Element etabliert einen neuen Blockformatierungskontext.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ Die `column-span` Eigenschaft wird als einer der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Eine Überschrift über Spalten spannen
+### Einen Überschrift über Spalten spannen lassen
 
 In diesem Beispiel wird die Überschrift so gestaltet, dass sie über alle Spalten des Artikels spannt.
 
@@ -105,6 +105,6 @@ h2 {
 
 ## Siehe auch
 
-- [Spanen und Ausgleichen von Spalten](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
-- [Inline-Elemente](/de/docs/Glossary/Inline-level_content)
+- [Spalten spannen und ausbalancieren](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
+- [Inline-Level-Elemente](/de/docs/Glossary/Inline-level_content)
 - [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)

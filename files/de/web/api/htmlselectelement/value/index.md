@@ -10,7 +10,7 @@ l10n:
 
 Die **`HTMLSelectElement.value`**-Eigenschaft enthält den Wert des ersten ausgewählten {{htmlelement("option")}}-Elements, das mit diesem {{htmlelement("select")}}-Element verknüpft ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, beispielsweise um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der den Wert des ersten ausgewählten {{htmlelement("option")}}-Elem
 
 ## Beispiele
 
-### Abrufen des ausgewählten Wertes
+### Den ausgewählten Wert abrufen
 
 ```html
 <label for="bird-select">Choose a bird:</label>
@@ -53,7 +53,7 @@ select.addEventListener("change", () => {
 }
 ```
 
-{{EmbedLiveSample("Abrufen des ausgewählten Wertes")}}
+{{EmbedLiveSample("Den ausgewählten Wert abrufen")}}
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ select.addEventListener("change", () => {
 
 ## Siehe auch
 
-- Das {{HTMLElement("select")}}-HTML-Element, das dieses Interface implementiert.
+- Das {{HTMLElement("select")}} HTML-Element, welches diese Schnittstelle implementiert.

@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`opened`**-Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt an, ob eine Sitzung mit einem gekoppelten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
+Die schreibgeschützte Eigenschaft **`opened`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt an, ob eine Sitzung mit einem gepaarten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein {{jsxref("boolean")}}.
 
 ## Beispiele
 
-Dieses Beispiel ist für ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie man prüft, ob ein Gerät geöffnet ist, bevor [`USBDevice.controlTransferOut`](/de/docs/Web/API/USBDevice/controlTransferOut) aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
+Dieses Beispiel bezieht sich auf ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie überprüft wird, ob ein Gerät geöffnet ist, bevor [`USBDevice.controlTransferOut`](/de/docs/Web/API/USBDevice/controlTransferOut) aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übergeben werden können und wie dies geschieht, ist speziell und einzigartig für jedes Gerät.
+> Welche Daten an ein USB-Gerät übermittelt werden können und wie sie übermittelt werden, ist spezifisch und einzigartig für jedes Gerät.
 
 ```js
 async function setDeviceColor(usbDevice, r, g, b) {

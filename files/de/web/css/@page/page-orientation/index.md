@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} At-Regel steuert die Rotation einer gedruckten Seite. Er behandelt den Fluss von Inhalten über die Seiten, wenn die Ausrichtung einer Seite geändert wird. Dieses Verhalten unterscheidet sich vom [`size`](/de/docs/Web/CSS/@page/size) Deskriptor, da ein Benutzer die Richtung definieren kann, in der die Seite gedreht wird.
+Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} at-rule steuert die Drehung einer gedruckten Seite. Er verwaltet den Fluss von Inhalten über die Seiten hinweg, wenn sich die Ausrichtung einer Seite ändert. Dieses Verhalten unterscheidet sich vom [`size`](/de/docs/Web/CSS/@page/size) Deskriptor, da ein Benutzer die Richtung definieren kann, in die die Seite gedreht wird.
 
-Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von Druckdokumenten, insbesondere wenn Dokumente beidseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden sollen. Dies ist besonders nützlich, um Inhalte wie Tabellen, die möglicherweise breiter als der Rest des Inhalts sind, in einer anderen Ausrichtung darzustellen.
+Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von gedruckten Dokumenten, insbesondere wenn Dokumente beidseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden. Dies ist besonders nützlich, um Inhalte wie Tabellen, die breiter als der Rest des Inhalts sein können, in einer anderen Ausrichtung anzuordnen.
 
-> **Note:** [Randboxen](/de/docs/Web/CSS/@page#margin_at-rules) und andere Positionselemente haben keine spezielle Interaktion mit diesem Deskriptor. Ränder werden normal auf der ungedrehten Seite gestaltet und dann zusammen mit allem anderen gedreht.
+> **Note:** [Randboxen](/de/docs/Web/CSS/@page#margin_at-rules) und andere Positionselemente haben keine besondere Wechselwirkung mit diesem Deskriptor. Ränder werden wie normal auf der ungedrehten Seite angeordnet und dann zusammen mit allem anderen gedreht.
 
 ## Syntax
 
@@ -35,11 +35,11 @@ Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von Druckdokumenten, 
 ## Werte
 
 - `upright`
-  - : Es wird keine Ausrichtung angewendet und die Seite wird normal layoutet und formatiert.
+  - : Keine Ausrichtung wird angewendet, und die Seite wird wie normal ausgelegt und formatiert.
 - `rotate-left`
-  - : Nachdem eine Seite layoutet wurde, muss die Seite um eine Vierteldrehung nach links (gegen den Uhrzeigersinn) gedreht angezeigt werden.
+  - : Nachdem die Seite ausgelegt ist, muss die Seite um eine Vierteldrehung nach links (gegen den Uhrzeigersinn) gedreht angezeigt werden.
 - `rotate-right`
-  - : Nachdem die Seite layoutet wurde, muss die Seite um eine Vierteldrehung nach rechts (im Uhrzeigersinn) gedreht angezeigt werden.
+  - : Nachdem die Seite ausgelegt ist, muss die Seite um eine Vierteldrehung nach rechts (im Uhrzeigersinn) gedreht angezeigt werden.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von Druckdokumenten, 
 
 ### Gedruckte Seiten drehen
 
-Dieses Beispiel zeigt, wie der Inhalt eines Druckdokuments gedreht werden kann, um dem Seiteninhalt und der Seitenposition zu entsprechen.
+Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden können, um zum Seiteninhalt und zur Seitenposition zu passen.
 
 ```html hidden
 <fieldset id="printStyle">
@@ -293,7 +293,7 @@ Dieses Beispiel zeigt, wie der Inhalt eines Druckdokuments gedreht werden kann, 
 
 #### CSS
 
-In diesem ersten Teil des CSS-Codes werden [benannte Seiten](/de/docs/Web/CSS/@page#named_pages) eingerichtet, um die Richtung zu definieren, in der der Inhalt gedreht wird.
+Im ersten Teil des CSS-Codes werden [benannte Seiten](/de/docs/Web/CSS/@page#named_pages) eingerichtet, um die Richtung festzulegen, in die der Inhalt gedreht werden soll.
 
 ```css
 @page upright {
@@ -334,7 +334,7 @@ p {
 }
 ```
 
-Im folgenden zweiten Teil des CSS-Codes wird eine definierte benannte Seitenregel für die Selektoren, wie `<section class="left">…</section>`, deklariert.
+Der folgende zweite Teil des CSS-Codes deklariert eine oben definierte benannte Seitenregel für die Selektoren, wie `<section class="left">…</section>`.
 
 ```css
 @media print {
@@ -359,7 +359,7 @@ printButton.addEventListener("click", () => {
 
 ### Ergebnis
 
-Klicken Sie auf die Schaltfläche "Drucken", um die Seiten gedreht zu sehen.
+Klicken Sie auf den Druckknopf, um die gedrehten Seiten zu sehen.
 
 {{ EmbedLiveSample('Rotating_printed_pages', '100%', 520) }}
 

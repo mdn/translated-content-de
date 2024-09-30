@@ -3,12 +3,12 @@ title: "HTMLSelectElement: selectedIndex-Eigenschaft"
 short-title: selectedIndex
 slug: Web/API/HTMLSelectElement/selectedIndex
 l10n:
-  sourceCommit: b921b8d779314f2098a1669d8269b36107ecfbb1
+  sourceCommit: a5e089d79bf681e27fc6bdb9e4026b2489ffa4d9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLSelectElement.selectedIndex`**-Eigenschaft ist ein `long`, das den Index des ersten oder letzten ausgewählten {{HTMLElement("option")}}-Elements widerspiegelt, abhängig vom Wert von `multiple`. Der Wert `-1` zeigt an, dass kein Element ausgewählt ist.
+Die **`selectedIndex`**-Eigenschaft des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces ist der numerische Index des ersten ausgewählten {{HTMLElement("option")}}-Elements in einem {{HTMLElement("select")}}-Element, falls vorhanden, oder `−1`, wenn kein `<option>` ausgewählt ist. Das Setzen dieser Eigenschaft wählt die Option an diesem Index aus und deselektiert alle anderen Optionen, während das Setzen auf `-1` alle aktuell ausgewählten Optionen deselektiert.
 
 ## Wert
 

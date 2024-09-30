@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`max`**-Eigenschaft des [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Interfaces repräsentiert die obere Grenze des Bereichs des {{HTMLElement("progress")}}-Elements.
+Die **`max`**-Eigenschaft der [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Schnittstelle stellt die obere Grenze des Bereichs des {{HTMLElement("progress")}}-Elements dar.
 
 ## Wert
 
@@ -40,7 +40,7 @@ setInterval(() => {
 }, 100);
 ```
 
-{{EmbedLiveSample("Beispiele", "100%", 30)}}
+{{EmbedLiveSample("Examples", "100%", 30)}}
 
 ## Spezifikationen
 

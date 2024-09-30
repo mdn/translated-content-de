@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `ConvolverNode`-Schnittstelle ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine lineare Faltung auf einem gegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) durchführt, häufig verwendet, um einen Halleffekt zu erzielen. Ein `ConvolverNode` hat immer genau einen Eingang und einen Ausgang.
+Das `ConvolverNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine Lineare Faltung auf einem gegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) durchführt, häufig genutzt, um einen Halleffekt zu erzielen. Ein `ConvolverNode` hat immer genau einen Eingang und einen Ausgang.
 
 > [!NOTE]
-> Für weitere Informationen zur Theorie hinter der linearen Faltung, siehe den [Artikel zur Faltung auf Wikipedia](https://de.wikipedia.org/wiki/Faltung).
+> Für weitere Informationen über die Theorie hinter der Linearen Faltung, siehe den [Artikel über Faltung auf Wikipedia](https://en.wikipedia.org/wiki/Convolution).
 
 {{InheritanceDiagram}}
 
@@ -33,7 +33,7 @@ Die `ConvolverNode`-Schnittstelle ist ein [`AudioNode`](/de/docs/Web/API/AudioNo
       <td><code>1</code>, <code>2</code>, oder <code>4</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalinterpretation</th>
+      <th scope="row">Kanal-Interpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -42,24 +42,24 @@ Die `ConvolverNode`-Schnittstelle ist ein [`AudioNode`](/de/docs/Web/API/AudioNo
 ## Konstruktor
 
 - [`ConvolverNode()`](/de/docs/Web/API/ConvolverNode/ConvolverNode)
-  - : Erstellt eine neue Instanz eines `ConvolverNode`-Objekts.
+  - : Erstellt eine neue `ConvolverNode`-Objektinstanz.
 
 ## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`ConvolverNode.buffer`](/de/docs/Web/API/ConvolverNode/buffer)
-  - : Ein mono, stereo oder 4-Kanal _[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)_ mit der (möglicherweise mehrkanaligen) Impulsantwort, die vom `ConvolverNode` verwendet wird, um den Halleffekt zu erzeugen.
+  - : Ein mono, stereo oder 4-kanaliger _[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)_, der die (möglicherweise mehrkanalige) Impulsantwort enthält, die vom `ConvolverNode` verwendet wird, um den Halleffekt zu erstellen.
 - [`ConvolverNode.normalize`](/de/docs/Web/API/ConvolverNode/normalize)
-  - : Ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer bei Einstellung des `buffer`-Attributs durch eine gleichstarke Normalisierung skaliert wird oder nicht.
+  - : Ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Buffer durch eine Gleichleistungs-Normalisierung skaliert wird, wenn das `buffer`-Attribut gesetzt wird, oder nicht.
 
 ## Instanz-Methoden
 
 _Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## ConvolverNode Beispiel
+## ConvolverNode-Beispiel
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Convolver-Knotens.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext, um einen Convolver-Node zu erstellen.
 
 > [!NOTE]
 > Sie müssen eine Impulsantwort finden, um das folgende Beispiel abzuschließen. Siehe dieses [Codepen](https://codepen.io/DonKarlssonSan/pen/doVKRE) für ein angewandtes Beispiel.

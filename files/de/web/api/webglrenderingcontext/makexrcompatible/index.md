@@ -3,14 +3,14 @@ title: "WebGLRenderingContext: makeXRCompatible() Methode"
 short-title: makeXRCompatible()
 slug: Web/API/WebGLRenderingContext/makeXRCompatible
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`makeXRCompatible()`** von [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) stellt sicher, dass der durch den `WebGLRenderingContext` beschriebene Rendering-Kontext bereit ist, die Szene für das immersive [WebXR](/de/docs/Web/API/WebXR_Device_API) Gerät zu rendern, auf dem sie angezeigt werden soll. Falls erforderlich, kann die [WebGL](/de/docs/Web/API/WebGL_API) Ebene den Kontext neu konfigurieren, um bereit zu sein, auf einem anderen Gerät als ursprünglich vorgesehen zu rendern.
+Die Methode **`makeXRCompatible()`** des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) stellt sicher, dass der vom `WebGLRenderingContext` beschriebene Rendering-Kontext bereit ist, die Szene für das immersive [WebXR](/de/docs/Web/API/WebXR_Device_API)-Gerät zu rendern, auf dem sie angezeigt werden soll. Gegebenenfalls kann die [WebGL](/de/docs/Web/API/WebGL_API)-Ebene den Kontext neu konfigurieren, um auf einem anderen Gerät zu rendern, als ursprünglich vorgesehen war.
 
-Dies ist nützlich, wenn Sie eine Anwendung haben, die mit einer herkömmlichen 2D-Anzeige gestartet werden kann, aber dann in ein 3D-Immersionssystem überführt werden kann.
+Dies ist nützlich, wenn Sie eine Anwendung haben, die zunächst auf einem Standard-2D-Display präsentiert werden kann, aber dann auf ein 3D-Immersionssystem umgeschaltet werden kann.
 
 ## Syntax
 
@@ -24,30 +24,30 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der erfolgreich aufgelöst wird, sobald der WebGL-Kontext bereit ist, um [WebXR](/de/docs/Web/API/WebXR_Device_API) Inhalte zu rendern.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der erfolgreich aufgelöst wird, sobald der WebGL-Kontext bereit ist, um [WebXR](/de/docs/Web/API/WebXR_Device_API)-Inhalte zu rendern.
 
 ### Ausnahmen
 
-Diese Methode wirft keine herkömmlichen Ausnahmen; stattdessen wird das Promise mit einem der folgenden Fehler als der an den Ablehnungshandler übergebene Wert abgelehnt:
+Diese Methode wirft keine traditionellen Ausnahmen; stattdessen wird das Promise mit einem der folgenden Fehler als Wert, der in den Ablehnungs-Handler übergeben wird, abgelehnt:
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn das Umschalten des Kontexts auf den WebXR-kompatiblen Kontext fehlgeschlagen ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn der WebGL-Kontext verloren gegangen ist oder kein verfügbares WebXR-Gerät vorhanden ist.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Da `makeXRCompatible()` möglicherweise den zugrunde liegenden WebGL-Kontext durch einen neuen ersetzt, der die neue Rendering-Hardware nutzt, können die bestehenden Inhalte des Kontextes verloren gehen und müssten deshalb neu gerendert werden. Daher werden die Ereignisse [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) verwendet: das erste gibt Ihnen die Gelegenheit, alles zu verwerfen, was Sie nicht mehr benötigen, während das zweite Ihnen die Gelegenheit gibt, Ressourcen zu laden und die Szene im neuen Kontext zu rendern.
+Da `makeXRCompatible()` möglicherweise den zugrunde liegenden WebGL-Kontext durch einen neuen ersetzt, der die neue Rendering-Hardware verwendet, können die vorhandenen Inhalte des Kontexts verloren gehen und müssten daher neu gerendert werden. Aus diesem Grund werden die Ereignisse [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) verwendet: das erste gibt Ihnen die Möglichkeit, alles zu verwerfen, was Sie nicht mehr benötigen, während das zweite Ihnen die Möglichkeit gibt, Ressourcen zu laden und die Szene im neuen Kontext vorzubereiten und zu rendern.
 
-Obwohl diese Methode über die [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Schnittstelle verfügbar ist, wird sie tatsächlich durch die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) und nicht durch WebGL definiert.
+Obwohl diese Methode über das [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Interface verfügbar ist, wird sie tatsächlich von der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) und nicht von WebGL definiert.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Logik, die Sie möglicherweise in einem Spiel finden, das mit WebGL gestartet wird, um Menüs und andere Benutzeroberflächen darzustellen und WebGL zur Darstellung des Gameplays verwendet, aber eine Schaltfläche im Hauptmenü hat, die die Option bietet, das Spiel im WebXR-Modus zu starten.
+Dieses Beispiel zeigt eine Code-Logik, die Sie in einem Spiel finden könnten, das mit WebGL startet, um Menüs und andere Benutzeroberflächen anzuzeigen, und WebGL verwendet, um das Gameplay zu rendern. Es gibt jedoch einen Knopf im Hauptmenü, der eine Option bietet, das Spiel im WebXR-Modus zu starten.
 
 ### HTML
 
-Das HTML für die Schaltflächen sieht folgendermaßen aus:
+Die HTML-Struktur für die Schaltflächen sieht wie folgt aus:
 
 ```html
 <button class="green button" type="button">Start Game</button>
@@ -56,11 +56,11 @@ Das HTML für die Schaltflächen sieht folgendermaßen aus:
 </button>
 ```
 
-Die erste Schaltfläche startet das Spiel und zeigt es weiterhin wie gewohnt auf dem Bildschirm an. Die zweite Schaltfläche wird verwendet, um das Spiel im `immersive-vr` Modus zu starten. Beachten Sie die Aufnahme einer `use-webxr` Klasse auf der VR-Modus-Schaltfläche. Dies ist wichtig, wie wir gleich sehen werden.
+Die erste Schaltfläche startet das Spiel und präsentiert es wie gewohnt auf dem Bildschirm. Die zweite Schaltfläche wird verwendet, um das Spiel im `immersive-vr`-Modus zu starten. Beachten Sie die Einbeziehung einer `use-webxr`-Klasse auf der VR-Modus-Schaltfläche. Dies ist wichtig, worauf wir gleich eingehen werden.
 
 ### JavaScript
 
-Der Code, der das Starten der Grafiken, das Umschalten in den VR-Modus usw. behandelt, sieht folgendermaßen aus:
+Der Code, der das Starten der Grafik, das Umschalten in den VR-Modus usw. behandelt, sieht folgendermaßen aus:
 
 ```js
 const outputCanvas = document.querySelector(".output-canvas");
@@ -135,13 +135,13 @@ function startGame() {
 }
 ```
 
-Dies funktioniert, indem zwei Schaltflächen vorhanden sind, von denen eine das Spiel normal startet und die andere das Spiel im VR-Modus startet. Beide nutzen die `handleStartButtonClick()` Funktion als ihre Ereignishandler. Die Funktion ermittelt, dass die geklickte Schaltfläche diejenige ist, die den `immersive-vr` Modus anfordert, indem sie überprüft, ob die Schaltfläche die `use-webxr` Klasse hat. Wenn die vom Benutzer angeklickte Schaltfläche diese Klasse hat (und wir bestätigt haben, dass WebXR verfügbar ist, indem wir sicherstellen, dass die [`navigator.xr`](/de/docs/Web/API/Navigator/xr) Eigenschaft existiert), verwenden wir [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession), um eine neue WebXR-Sitzung anzufordern und setzen die `usingXR` Flagge auf `true`.
+Dies funktioniert, indem zwei Schaltflächen verwendet werden: eine, die das Spiel normal startet, und die andere, die das Spiel im VR-Modus startet. Beide verwenden die Funktion `handleStartButtonClick()` als ihren Event-Handler. Die Funktion ermittelt, dass die Schaltfläche, die angeklickt wurde, diejenige ist, die den `immersive-vr`-Modus anfordert, indem überprüft wird, ob die Schaltfläche die Klasse `use-webxr` hat. Wenn die vom Benutzer angeklickte Schaltfläche diese Klasse hat (und wir bestätigt haben, dass WebXR verfügbar ist, indem wir sicherstellen, dass die [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Eigenschaft existiert), verwenden wir [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession), um eine neue WebXR-Sitzung zu beantragen und setzen das `usingXR`-Flag auf `true`.
 
-Wenn die andere Schaltfläche geklickt wurde, stellen wir sicher, dass `xrSession` `NULL` ist und löschen `usingXR` auf `false`.
+Wenn die andere Schaltfläche angeklickt wurde, stellen wir sicher, dass `xrSession` `NULL` ist und setzen `usingXR` auf `false`.
 
-Dann wird die `startGame()` Funktion aufgerufen, um den Beginn des Spiels auszulösen.
+Dann wird die `startGame()`-Funktion aufgerufen, um den Beginn des Gameplays auszulösen.
 
-Es werden Handler für sowohl [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) als auch [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) bereitgestellt; im ersten Fall stellen wir sicher, dass wir uns dessen bewusst sind, dass der Zustand wiederhergestellt werden kann, während wir im zweiten Fall die Szene tatsächlich neu laden, um sicherzustellen, dass wir die richtigen Ressourcen für die aktuelle Bildschirm- oder Headsetkonfiguration haben.
+Es werden Handler sowohl für [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) als auch für [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) bereitgestellt; im ersten Fall sorgen wir dafür, dass wir wissen, dass der Zustand wiederhergestellt werden kann, während wir im zweiten Fall tatsächlich die Szene neu laden, um sicherzustellen, dass wir die richtigen Ressourcen für die aktuelle Bildschirm- oder Headset-Konfiguration haben.
 
 ## Spezifikationen
 

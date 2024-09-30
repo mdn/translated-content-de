@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt an, welche Art von Daten im {{HTMLElement("input")}}-Element erlaubt sind, zum Beispiel eine Zahl, ein Datum oder eine E-Mail. Browser werden das passende Widget und Verhalten auswählen, um Nutzern zu helfen, einen gültigen Wert einzugeben.
+Die **`type`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt die Art der im {{HTMLElement("input")}}-Element zulässigen Daten an, beispielsweise eine Zahl, ein Datum oder eine E-Mail. Browser wählen das geeignete Widget und Verhalten, um Benutzern zu helfen, einen gültigen Wert einzugeben.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut des {{HTMLElement("input")}}-Elements wider.
 
@@ -16,7 +16,7 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut des {{H
 
 Ein String, der den Typ repräsentiert.
 
-Die möglichen Werte sind im Abschnitt [input types](/de/docs/Web/HTML/Element/input#input_types) des Attributs aufgelistet.
+Mögliche Werte sind im Abschnitt [input types](/de/docs/Web/HTML/Element/input#input_types) des Attributs aufgelistet.
 
 ## Beispiel
 

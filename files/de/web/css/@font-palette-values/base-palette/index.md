@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) **`base-palette`** wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die zur Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die Palette mit dem Index 0 verwendet.
+Der **`base-palette`** CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die für die Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die bei Index 0 definierte Palette verwendet.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ Der CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) **`base-palette`** wird v
 }
 ```
 
-Der [Deskriptor](/de/docs/Glossary/CSS_Descriptor) `base-palette` wird mit einem nullbasierten Index der vom Schriftart-Ersteller erstellten Paletten angegeben.
+Der `base-palette`-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird mit einem Null-basierten Index der vom Schriftgestalter erstellten Paletten angegeben.
 
 ### Werte
 
@@ -34,9 +34,9 @@ Der [Deskriptor](/de/docs/Glossary/CSS_Descriptor) `base-palette` wird mit einem
 
 ## Beispiele
 
-### Änderung der Standardpalette in einer Schriftart
+### Ändern der Standardpalette in einer Schriftart
 
-Dieses Beispiel zeigt anhand der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zwei Instanzen, in denen die Standardpalette der Schriftart in eine alternative vom Schriftart-Ersteller erstellte Palette umgeschaltet wird.
+Dieses Beispiel verwendet die [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/), um zwei Instanzen zu zeigen, wie die Standardpalette in der Schriftart durch eine vom Schriftgestalter erstellte alternative Palette ersetzt wird.
 
 #### HTML
 
@@ -79,7 +79,7 @@ h2 {
 
 #### Ergebnis
 
-![Beispiel, das 3 verschiedene Basis-Paletten der Rocher-Farbfont zeigt](./rocher-color-font-alt-base-palettes.jpg)
+![Beispiel zeigt 3 verschiedene Basis-Paletten der Rocher-Farbfont](./rocher-color-font-alt-base-palettes.jpg)
 
 ## Spezifikationen
 

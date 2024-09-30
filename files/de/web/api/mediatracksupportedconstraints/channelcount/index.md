@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`channelCount`** der [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Diktionär ist ein schreibgeschützter Boolean-Wert, der im Objekt vorhanden ist (und auf `true` gesetzt), das von der Methode [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, und zwar nur dann, wenn der [User Agent](/de/docs/Glossary/user_agent) die `channelCount`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
+Das **`channelCount`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der in dem durch [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt nur dann vorhanden ist (und auf `true` gesetzt wird), wenn der [User Agent](/de/docs/Glossary/user_agent) die `channelCount`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie in der Liste nicht enthalten, daher wird dieser Wert niemals `false` sein.
 
-Sie können auf das unterstützte Einschränkungs-Diktionär zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können das Wörterbuch der unterstützten Einschränkungen abrufen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
 ## Wert
 
-Diese Eigenschaft ist im Diktionär vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `channelCount`-Einschränkung unterstützt. Ist die Eigenschaft nicht vorhanden, fehlt sie im unterstützen Einschränkungs-Diktionär, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert zu betrachten.
+Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `channelCount`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt sie im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
 
 ## Beispiele
 

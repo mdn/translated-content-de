@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`postalCode`** schreibgeschützte Eigenschaft der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Schnittstelle gibt einen String zurück, der einen von einer Gerichtsbarkeit für die Postzustellung verwendeten Code enthält, beispielsweise den [ZIP Code](https://en.wikipedia.org/wiki/ZIP_Code) in den Vereinigten Staaten oder den [Postal Index Number](https://en.wikipedia.org/wiki/Postal_Index_Number) (PIN-Code) in Indien.
+Die schreibgeschützte Eigenschaft **`postalCode`** des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der einen von einer Gerichtsbarkeit für die Postzustellung verwendeten Code enthält. Zum Beispiel den [ZIP Code](https://en.wikipedia.org/wiki/ZIP_Code) in den Vereinigten Staaten oder die [Postal Index Number](https://en.wikipedia.org/wiki/Postal_Index_Number) (PIN-Code) in Indien.
 
 ## Wert
 
-Ein String, der den Postleitzahlenteil der Adresse enthält. Eine Postleitzahl ist ein String (entweder numerisch oder alphanumerisch), der von einem Postdienst verwendet wird, um die Postzustellung und -verteilung zu optimieren.
+Ein String, der den Postleitzahl-Teil der Adresse enthält. Eine Postleitzahl ist ein String (entweder numerisch oder alphanumerisch), der von einem Postdienst verwendet wird, um die Postzustellung und -verteilung zu optimieren.
 
-Verschiedene Länder verwenden dafür unterschiedliche Begriffe. In den meisten Teilen der Welt ist es als "Postleitzahl" bekannt. In den Vereinigten Staaten wird der ZIP-Code verwendet. Indien verwendet PIN-Codes.
+Verschiedene Länder verwenden unterschiedliche Begriffe dafür. In den meisten Teilen der Welt wird sie als "post code" oder "postal code" bezeichnet. In den Vereinigten Staaten wird der ZIP-Code verwendet. Indien verwendet PIN-Codes.
 
 ## Browser-Kompatibilität
 
@@ -22,4 +22,4 @@ Verschiedene Länder verwenden dafür unterschiedliche Begriffe. In den meisten 
 
 ## Siehe auch
 
-- Universelle Postunion: [Universal Post\*Code® Database](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions)
+- Universal Postal Union: [Universal Post\*Code® Database](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions)

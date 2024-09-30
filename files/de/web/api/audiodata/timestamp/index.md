@@ -1,5 +1,5 @@
 ---
-title: "AudioData: timestamp-Eigenschaft"
+title: "AudioData: timestamp Eigenschaft"
 short-title: timestamp
 slug: Web/API/AudioData/timestamp
 l10n:
@@ -12,7 +12,7 @@ Die **`timestamp`** schreibgeschützte Eigenschaft des [`AudioData`](/de/docs/We
 
 ## Wert
 
-Ein Ganzzahlwert.
+Ein Integer.
 
 ## Beispiele
 

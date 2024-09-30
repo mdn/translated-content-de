@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`to`** Attribut gibt den Endwert des Attributs an, das während der Animation modifiziert wird.
+Das **`to`** Attribut gibt den Endwert des Attributs an, das während der Animation geändert wird.
 
 Der Wert des Attributs ändert sich zwischen dem Wert des {{SVGAttr("from")}} Attributs und diesem Wert.
 
@@ -56,16 +56,16 @@ Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Nein</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-Der genaue Wertetyp für dieses Attribut hängt vom Wert des zu animierenden Attributs ab.
+Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
 
 Wenn eine Liste von Werten über das {{SVGAttr("values")}} Attribut definiert wird, wird das `to` Attribut ignoriert.
 
@@ -81,16 +81,16 @@ Für das {{SVGElement("set")}} Element gibt `to` den Wert für das Attribut wäh
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Nein</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-Der genaue Wertetyp für dieses Attribut hängt vom Wert des zu animierenden Attributs ab.
+Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
 
 ## Spezifikationen
 

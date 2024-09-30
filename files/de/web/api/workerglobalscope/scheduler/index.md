@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`scheduler`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces ist der Einstiegspunkt zur Verwendung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
+Die schreibgeschützte Eigenschaft **`scheduler`** des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces ist der Einstiegspunkt zur Nutzung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
 
-Sie gibt eine [`Scheduler`](/de/docs/Web/API/Scheduler)-Objektinstanz zurück, die die Methoden [`postTask()`](/de/docs/Web/API/Scheduler/postTask) und [`yield()`](/de/docs/Web/API/Scheduler/yield) enthält, mit denen priorisierte Aufgaben geplant werden können.
+Sie gibt eine Instanz des [`Scheduler`](/de/docs/Web/API/Scheduler)-Objekts zurück, die die Methoden [`postTask()`](/de/docs/Web/API/Scheduler/postTask) und [`yield()`](/de/docs/Web/API/Scheduler/yield) enthält, die zur Planung von priorisierten Aufgaben verwendet werden können.
 
 ## Wert
 
@@ -18,8 +18,8 @@ Ein [`Scheduler`](/de/docs/Web/API/Scheduler).
 
 ## Beispiele
 
-Der untenstehende Code zeigt eine sehr einfache Verwendung der Eigenschaft und ihres zugehörigen Interfaces.
-Er demonstriert, wie geprüft wird, ob die Eigenschaft existiert, und dann eine Aufgabe gepostet wird, die ein Versprechen zurückgibt.
+Der unten stehende Code zeigt eine sehr grundlegende Verwendung der Eigenschaft und ihres zugehörigen Interfaces.
+Es wird demonstriert, wie überprüft wird, ob die Eigenschaft existiert, und dann eine Aufgabe erstellt wird, die ein Versprechen zurückgibt.
 
 ```js
 // Check if the prioritized task API is supported
@@ -40,7 +40,7 @@ if ("scheduler" in self) {
 }
 ```
 
-Für umfassende Beispielcodes, die die Verwendung der API zeigen, siehe [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
+Für umfassenden Beispielcode zur Verwendung der API siehe [Prioritized Task Scheduling API > Examples](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
 
 ## Spezifikationen
 

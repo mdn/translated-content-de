@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die **`updateCallbackDone`** schreibgeschützte Eigenschaft der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, wenn das Promise, das von der Callback-Funktion der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben wird, erfüllt wird, oder abgelehnt wird, wenn es abgelehnt wird.
+Die schreibgeschützte Eigenschaft **`updateCallbackDone`** der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, wenn das von der Callback-Funktion der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegebene Versprechen erfüllt wird, oder abgelehnt wird, wenn es abgelehnt wird.
 
-`updateCallbackDone` ist nützlich, wenn Sie sich nicht um den Erfolg/Misserfolg einer Übergangsanimation auf derselben Seite (SPA) kümmern müssen, sondern nur wissen möchten, ob und wann das DOM aktualisiert wird.
+`updateCallbackDone` ist nützlich, wenn es Ihnen egal ist, ob eine gleiche Dokumenten (SPA) View Transition Animation erfolgreich ist oder nicht, und Sie nur wissen möchten, ob und wann das DOM aktualisiert wird.
 
 > [!NOTE]
-> Im Fall eines Seitenübergangs über Dokumentengrenzen hinweg (MPA) wird das `updateCallbackDone`-Promise des zugehörigen `ViewTransition` automatisch erfüllt.
+> Im Fall eines über Dokumente hinweg (MPA) View Transitions wird das `updateCallbackDone`-Promise der zugehörigen `ViewTransition` automatisch erfüllt.
 
 ## Wert
 
@@ -42,4 +42,4 @@ Siehe [Transitions als Verbesserung](https://developer.chrome.com/docs/web-platf
 
 ## Siehe auch
 
-- [Fließende und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Nahtlose und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

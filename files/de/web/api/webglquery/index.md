@@ -2,14 +2,14 @@
 title: WebGLQuery
 slug: Web/API/WebGLQuery
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLQuery`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und bietet Möglichkeiten, um Informationen asynchron abzufragen. Standardmäßig stehen Okklusionsabfragen und Primitive-Abfragen zur Verfügung.
+Die **`WebGLQuery`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und bietet Möglichkeiten, Informationen asynchron abzufragen. Standardmäßig sind Okklusionsabfragen und Primitive-Abfragen verfügbar.
 
-Eine andere Art von Abfragen sind disjunkte Timer-Abfragen, die es Ihnen ermöglichen, die Leistung und das Profiling Ihrer GPU zu messen. Disjunkte Timer-Abfragen sind nur mit der [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query) Erweiterung verfügbar.
+Eine andere Art von Abfragen sind disjunkte Zeitmesserabfragen, die es Ihnen ermöglichen, die Leistung und das Profiling Ihrer GPU zu messen. Disjunkte Zeitmesserabfragen sind nur mit der [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)-Erweiterung verfügbar.
 
 {{InheritanceDiagram}}
 

@@ -8,25 +8,42 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`orientationX`**-Eigenschaft der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle gibt die X- (horizontale) Komponente der Richtung an, in die die Audioquelle in einem 3D-kartesischen Koordinatenraum ausgerichtet ist.
+Die **`orientationX`**-Eigenschaft des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces gibt die X-Komponente (horizontal) der Richtung an, in die die Audioquelle in einem 3D-kartesischen Koordinatensystem zeigt.
 
-Der vollständige Vektor wird durch die Position der Audioquelle definiert, angegeben als ([`positionX`](/de/docs/Web/API/PannerNode/positionX), [`positionY`](/de/docs/Web/API/PannerNode/positionY), [`positionZ`](/de/docs/Web/API/PannerNode/positionZ)), und die Ausrichtung der Audioquelle (d. h. die Richtung, in die sie zeigt), angegeben als (`orientationX`, [`orientationY`](/de/docs/Web/API/PannerNode/orientationY), [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ)).
+Der vollständige Vektor wird durch die Position der Audioquelle definiert, angegeben als
+([`positionX`](/de/docs/Web/API/PannerNode/positionX), [`positionY`](/de/docs/Web/API/PannerNode/positionY),
+[`positionZ`](/de/docs/Web/API/PannerNode/positionZ)), und die Orientierung
+der Audioquelle (d.h. die Richtung, in die sie zeigt), angegeben als
+(`orientationX`,
+[`orientationY`](/de/docs/Web/API/PannerNode/orientationY),
+[`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ)).
 
-Je nach Richtwirkung des Klangs (wie durch die Attribute [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) und [`coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain) angegeben), kann die Ausrichtung des Klangs das wahrgenommene Volumen des Klangs beim Abspielen verändern. Wenn der Klang auf den Zuhörer gerichtet ist, wird er lauter sein als wenn der Klang vom Zuhörer weg gerichtet ist.
+Abhängig von der Direktionalität des Klangs (wie durch die Attribute
+[`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle),
+[`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) und
+[`coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain) angegeben), kann die Orientierung des
+Klangs die wahrgenommene Lautstärke des Klangs beeinflussen, während er abgespielt wird. Wenn der Klang
+in Richtung des Zuhörers zeigt, ist er lauter als wenn er vom Zuhörer weg zeigt.
 
-Das in dieser Eigenschaft enthaltene [`AudioParam`](/de/docs/Web/API/AudioParam) ist schreibgeschützt; Sie können jedoch den Wert des Parameters ändern, indem Sie ihm einen neuen Wert über die [`AudioParam.value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft zuweisen.
+Der von dieser Eigenschaft enthaltene [`AudioParam`](/de/docs/Web/API/AudioParam) ist schreibgeschützt; Sie können den Parameterwert jedoch trotzdem ändern, indem Sie der [`AudioParam.value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft einen neuen Wert zuweisen.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam), dessen `value` die X-Komponente der Richtung ist, in die die Audioquelle im 3D-kartesischen Koordinatenraum ausgerichtet ist.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam), dessen `value` der X-Komponente der Richtung entspricht, in die die Audioquelle im 3D-kartesischen Koordinatensystem zeigt.
 
 ## Beispiel
 
-In diesem Beispiel zeigen wir, wie sich die Änderung der Orientierungsparameter eines [`PannerNode`](/de/docs/Web/API/PannerNode) in Kombination mit [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle) und [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) auf die Lautstärke auswirkt. Um uns zu veranschaulichen, wie der Orientierungsvektor beeinflusst, können wir die [Rechte-Hand-Regel](https://en.wikipedia.org/wiki/Right-hand_rule) verwenden:
+In diesem Beispiel demonstrieren wir, wie das Ändern der Orientierungsparameter eines
+[`PannerNode`](/de/docs/Web/API/PannerNode) in Kombination mit [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle) und
+[`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) die Lautstärke beeinflusst. Um zu visualisieren, wie der Orientierungsvektor
+wirkt, können wir die [Rechte-Hand-Regel](https://en.wikipedia.org/wiki/Right-hand_rule) verwenden:
 
-![Dieses Diagramm veranschaulicht, wie die Orientierung der Vektoren des PannerNode die Richtung des Schallkegels beeinflusst.](pannernode-orientation.png)
+![Dieses Diagramm zeigt, wie die Orientierungsvektoren des PannerNode die Richtung des Klangkegels beeinflussen.](pannernode-orientation.png)
 
-Zuerst schreiben wir eine Hilfsfunktion, um unseren _Orientierungsvektor_ zu ermitteln. Die X- und Z-Komponenten stehen immer im 90°-Winkel zueinander, daher können wir die Sinus- und Kosinusfunktionen verwenden, die um denselben Betrag in Bogenmaß versetzt sind. Normalerweise würde dies jedoch bedeuten, dass der [`PannerNode`](/de/docs/Web/API/PannerNode) bei 0°-Rotation **links** vom Zuhörer zeigt – da `x = cos(0) = 1` und `z = sin(0) = 0`. Es ist nützlicher, den Winkel um -90° zu verschieben, was bedeutet, dass der [`PannerNode`](/de/docs/Web/API/PannerNode) bei 0°-Rotation **direkt auf den Zuhörer** zeigt.
+Zuerst schreiben wir eine Hilfsfunktion, um unseren _Orientierungsvektor_ herauszufinden.
+Die X- und Z-Komponenten stehen immer im 90°-Winkel zueinander, sodass wir die Sinus- und Kosinusfunktionen verwenden können, die um denselben Betrag in Radianten versetzt sind.
+Normalerweise würde dies jedoch bedeuten, dass der [`PannerNode`](/de/docs/Web/API/PannerNode) bei einer Rotation von 0° nach **links** des Zuhörers zeigt – da `x = cos(0) = 1` und `z = sin(0) = 0`.
+Es ist nützlicher, den Winkel um -90° zu versetzen, was bedeutet, dass der [`PannerNode`](/de/docs/Web/API/PannerNode) bei einer Rotation von 0° **direkt auf den Zuhörer** zeigt.
 
 ```js
 // this utility converts amount of rotation around the Y axis
@@ -44,7 +61,8 @@ const yRotationToVector = (degrees) => {
 };
 ```
 
-Jetzt können wir unser [`AudioContext`](/de/docs/Web/API/AudioContext), einen Oszillator und einen [`PannerNode`](/de/docs/Web/API/PannerNode) erstellen:
+Nun können wir unseren [`AudioContext`](/de/docs/Web/API/AudioContext), einen Oszillator und einen
+[`PannerNode`](/de/docs/Web/API/PannerNode) erstellen:
 
 ```js
 const context = new AudioContext();
@@ -56,7 +74,7 @@ const panner = new PannerNode(context);
 panner.panningModel = "HRTF";
 ```
 
-Als nächstes richten wir den _Kegel_ unseres räumlichen Klangs ein und bestimmen den Bereich, in dem er zu hören ist:
+Als nächstes richten wir den _Kegel_ unseres räumlich angepassten Klangs ein und bestimmen den Bereich, in dem er gehört werden kann:
 
 ```js
 // this value determines the size of the area in which the sound volume is constant
@@ -77,7 +95,8 @@ panner.coneOuterGain = 0;
 panner.positionZ.setValueAtTime(1, context.currentTime);
 ```
 
-Nachdem wir den [`PannerNode`](/de/docs/Web/API/PannerNode) eingerichtet haben, können wir nun einige Aktualisierungen für seine Y-Achsen-Rotation planen:
+Nachdem wir den [`PannerNode`](/de/docs/Web/API/PannerNode) eingerichtet haben, können wir nun einige Updates für seine
+Rotation um die Y-Achse planen:
 
 ```js
 // calculate the vector for no rotation
@@ -97,7 +116,7 @@ panner.orientationY.setValueAtTime(y2, context.currentTime + 2);
 panner.orientationZ.setValueAtTime(z2, context.currentTime + 2);
 ```
 
-Lassen Sie uns schließlich alle unsere Nodes verbinden und den Oszillator starten!
+Zuletzt verbinden wir alle unsere Nodes und starten den Oszillator!
 
 ```js
 osc.connect(panner).connect(context.destination);

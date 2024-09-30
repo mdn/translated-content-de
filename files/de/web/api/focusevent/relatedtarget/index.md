@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`relatedTarget`** Eigenschaft des [`FocusEvent`](/de/docs/Web/API/FocusEvent)-Interfaces ist das sekundäre Ziel, abhängig vom Ereignistyp:
+Die schreibgeschützte **`relatedTarget`**-Eigenschaft des [`FocusEvent`](/de/docs/Web/API/FocusEvent)-Interfaces ist das sekundäre Ziel, abhängig von der Art des Ereignisses:
 
 <table class="no-markdown">
   <thead>
@@ -42,7 +42,7 @@ Die **`relatedTarget`** Eigenschaft des [`FocusEvent`](/de/docs/Web/API/FocusEve
   </tbody>
 </table>
 
-Beachten Sie, dass [viele Elemente keinen Fokus haben können](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495), was ein häufiger Grund dafür ist, dass `relatedTarget` `null` ist. `relatedTarget` kann auch aus Sicherheitsgründen auf `null` gesetzt werden, z.B. beim Navigieren mit der Tabulatortaste in oder aus einer Seite heraus.
+Beachten Sie, dass [viele Elemente keinen Fokus erhalten können](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495), was ein häufiger Grund dafür ist, dass `relatedTarget` `null` ist. `relatedTarget` kann auch aus Sicherheitsgründen auf `null` gesetzt sein, beispielsweise beim Wechseln zwischen Tabs auf oder von einer Seite.
 
 [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) ist eine ähnliche Eigenschaft für Mausereignisse.
 

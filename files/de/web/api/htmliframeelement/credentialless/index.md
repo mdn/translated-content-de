@@ -1,5 +1,5 @@
 ---
-title: "HTMLIFrameElement: credentialless Eigenschaft"
+title: "HTMLIFrameElement: Credentialless-Eigenschaft"
 short-title: credentialless
 slug: Web/API/HTMLIFrameElement/credentialless
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`credentialless`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt an, ob das {{htmlelement("iframe")}} credentialless ist. Das bedeutet, dass Dokumente innerhalb des Frames in neuen, temporären Kontexten geladen werden.
+Die **`credentialless`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle gibt an, ob das {{htmlelement("iframe")}} credentialless ist, was bedeutet, dass Dokumente innerhalb des Elements in neuen, temporären Kontexten geladen werden.
 
-Diese Kontexte haben keinen Zugriff auf die Netzwerkinformationen, Cookies und Speicherdaten, die mit ihrem Ursprung verbunden sind. Stattdessen verwenden sie neue, lokale Daten, die an die Lebensdauer des obersten Dokuments gebunden sind. Das bedeutet, dass gespeicherte Daten nicht mehr zugänglich sind, nachdem der Benutzer die Seite verlässt oder neu lädt.
+Diese Kontexte haben keinen Zugriff auf ihr Netzwerk, Cookies und Speicherdaten, die mit ihrem Ursprung verknüpft sind. Stattdessen verwenden sie neue Kontexte, die auf die Lebensdauer des übergeordneten Dokuments beschränkt sind. Dies bedeutet, dass alle gespeicherten Daten nach dem Verlassen oder Neuladen der Seite nicht mehr zugänglich sind.
 
-Im Gegenzug können die Einbettungsregeln der {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) gelockert werden, sodass Dokumente mit gesetztem COEP Drittanbieter-Dokumente einbetten können, die dies nicht tun. Siehe [IFrame credentialless](/de/docs/Web/Security/IFrame_credentialless) für eine ausführlichere Erklärung.
+Im Gegenzug können die Einbettungsregeln der {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) aufgehoben werden, sodass Dokumente mit gesetztem COEP Drittanbieterdokumente einbetten können, die dies nicht haben. Siehe [IFrame credentialless](/de/docs/Web/Security/IFrame_credentialless) für eine ausführlichere Erklärung.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein boolescher Wert. Der Standardwert ist `false`; setzen Sie ihn auf `true`, um
 
 ## Beispiele
 
-### Abrufen
+### Abfragen
 
 Spezifizieren Sie ein credentialless `<iframe>` wie folgt:
 
@@ -33,22 +33,22 @@ Spezifizieren Sie ein credentialless `<iframe>` wie folgt:
   credentialless></iframe>
 ```
 
-Geben Sie den Wert der `credentialless`-Eigenschaft zurück:
+Geben Sie den `credentialless`-Eigenschaftswert zurück:
 
 ```js
 const iframeElem = document.querySelector("iframe");
 console.log(iframeElem.credentialless); // will return true in supporting browsers
 ```
 
-### Festlegen
+### Setzen
 
-Alternativ spezifizieren Sie das Minimum an Details im HTML:
+Alternativ können Sie das Minimum an Details im HTML angeben:
 
 ```html
 <iframe width="960" height="600"> </iframe>
 ```
 
-Und setzen Sie `credentialless` auf `true`, laden Sie dann die Inhalte des `<iframe>` über ein Skript:
+Und setzen Sie `credentialless` auf `true`, um dann den `<iframe>`-Inhalt über ein Skript zu laden:
 
 ```js
 const iframeElem = document.querySelector("iframe");

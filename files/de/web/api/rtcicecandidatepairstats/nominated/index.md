@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePairStats: Eigenschaft nominated"
+title: "RTCIceCandidatePairStats: nominated-Eigenschaft"
 short-title: nominated
 slug: Web/API/RTCIceCandidatePairStats/nominated
 l10n:
@@ -8,16 +8,25 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Eigenschaft **`nominated`** gibt an, ob das durch das zugrunde liegende `RTCIceCandidatePair` beschriebene Kandidatenpaar dazu nominiert wurde, als Konfiguration für die WebRTC-Verbindung verwendet zu werden.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Eigenschaft
+**`nominated`** gibt an, ob das durch das zugrunde liegende `RTCIceCandidatePair`
+beschriebene Kandidatenpaar zur Verwendung als Konfiguration für die WebRTC-Verbindung
+nominiert wurde.
 
 ## Wert
 
-Ein Boolescher Wert, der von der ICE-Schicht auf `true` gesetzt wird, wenn der kontrollierende Benutzeragent angegeben hat, dass das Kandidatenpaar zur Konfiguration der WebRTC-Verbindung zwischen den beiden Peers verwendet werden soll.
+Ein boolescher Wert, der von der ICE-Schicht auf `true` gesetzt wird, wenn der kontrollierende
+Benutzeragent angegeben hat, dass das Kandidatenpaar zur Konfiguration der WebRTC-Verbindung
+zwischen den beiden Peers verwendet werden soll.
 
 > [!NOTE]
-> Wenn mehrere Kandidatenpaare gleichzeitig nominiert werden, wird das mit der höheren Priorität zur Verwendung ausgewählt.
+> Wenn mehr als ein Kandidatenpaar gleichzeitig nominiert wird, wird dasjenige
+> mit der höheren Priorität zur Verwendung ausgewählt.
 
-Sobald ein Kandidatenpaar nominiert wurde und sich beide Peers auf die angegebene Konfiguration umgestellt haben, kann der ICE-Verhandlungsprozess möglicherweise enden (oder er kann fortgesetzt werden, um der Verbindung die Anpassung an sich ändernde Bedingungen zu ermöglichen).
+Sobald ein Kandidatenpaar nominiert wurde und sich die beiden Peers jeweils so konfiguriert
+haben, dass sie die angegebene Konfiguration verwenden, kann der ICE-Aushandlungsprozess
+möglicherweise enden (oder er kann fortgesetzt werden, um der Verbindung die Anpassung an
+sich ändernde Bedingungen zu ermöglichen).
 
 ## Spezifikationen
 

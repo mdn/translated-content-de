@@ -1,5 +1,5 @@
 ---
-title: "FileReader: abort()-Methode"
+title: "FileReader: abort() Methode"
 short-title: abort()
 slug: Web/API/FileReader/abort
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces bricht den Lesevorgang ab. Nach Rückkehr wird der [`readyState`](/de/docs/Web/API/FileReader/readyState) `DONE` sein.
+Die **`abort()`** Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces bricht den Lesevorgang ab. Nach der Rückkehr wird der [`readyState`](/de/docs/Web/API/FileReader/readyState) `DONE` sein.
 
 ## Syntax
 

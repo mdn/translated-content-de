@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die Schnittstelle des File and Directory Entries API, **`FileSystem`**, wird verwendet, um ein Dateisystem darzustellen. Diese Objekte können über die [`filesystem`](/de/docs/Web/API/FileSystemEntry/filesystem)-Eigenschaft eines beliebigen Dateisystemeintrags erhalten werden. Einige Browser bieten zusätzliche APIs, um Dateisysteme zu erstellen und zu verwalten, wie zum Beispiel die `requestFileSystem()`-Methode von Chrome.
+Die Schnittstelle des File and Directory Entries API **`FileSystem`** wird verwendet, um ein Dateisystem darzustellen. Diese Objekte können über die [`filesystem`](/de/docs/Web/API/FileSystemEntry/filesystem)-Eigenschaft eines beliebigen Dateisystemeintrags abgerufen werden. Einige Browser bieten zusätzliche APIs zur Erstellung und Verwaltung von Dateisystemen, wie zum Beispiel die `requestFileSystem()`-Methode von Chrome.
 
-Diese Schnittstelle gewährt Ihnen keinen Zugriff auf das Dateisystem der Benutzer. Stattdessen haben Sie ein „virtuelles Laufwerk“ innerhalb der Browser-Sandbox. Wenn Sie Zugriff auf das Dateisystem der Benutzer erhalten möchten, müssen Sie den Benutzer einbeziehen, zum Beispiel durch die Installation einer Chrome-Erweiterung. Die relevante Chrome-API finden Sie [hier](https://developer.chrome.com/docs/apps/reference/fileSystem).
+Diese Schnittstelle gewährt keinen Zugriff auf das Dateisystem der Benutzer. Stattdessen haben Sie ein "virtuelles Laufwerk" innerhalb der Browser-Sandbox. Wenn Sie Zugriff auf das Dateisystem der Benutzer erhalten möchten, müssen Sie den Benutzer aktiv einbeziehen, beispielsweise durch die Installation einer Chrome-Erweiterung. Die relevante Chrome-API finden Sie [hier](https://developer.chrome.com/docs/apps/reference/fileSystem).
 
 ## Grundlegende Konzepte
 
-Es gibt zwei Möglichkeiten, Zugriff auf ein `FileSystem`-Objekt zu erhalten:
+Es gibt zwei Möglichkeiten, um Zugriff auf ein `FileSystem`-Objekt zu erhalten:
 
-1. Sie können direkt nach einem fragen, das ein nur für Ihre Web-App erstelltes, isoliertes Dateisystem darstellt, indem Sie `window.requestFileSystem()` aufrufen. Wenn dieser Aufruf erfolgreich ist, wird ein Callback-Handler ausgeführt, der als Parameter ein `FileSystem`-Objekt erhält, das das Dateisystem beschreibt.
+1. Sie können direkt ein Dateisystem anfordern, das speziell für Ihre Web-App in der Sandbox erstellt wurde, indem Sie `window.requestFileSystem()` aufrufen. Wenn dieser Aufruf erfolgreich ist, wird ein Callback-Handler ausgeführt, der als Parameter ein `FileSystem`-Objekt erhält, das das Dateisystem beschreibt.
 2. Sie können es von einem Dateisystemeintragsobjekt über dessen [`filesystem`](/de/docs/Web/API/FileSystemEntry/filesystem)-Eigenschaft erhalten.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`FileSystem.name`](/de/docs/Web/API/FileSystem/name) {{ReadOnlyInline}}
-  - : Ein String, der den Namen des Dateisystems darstellt. Dieser Name ist innerhalb der gesamten Liste der freigegebenen Dateisysteme einzigartig.
+  - : Ein String, der den Namen des Dateisystems darstellt. Dieser Name ist eindeutig unter allen freigelegten Dateisystemen.
 - [`FileSystem.root`](/de/docs/Web/API/FileSystem/root) {{ReadOnlyInline}}
-  - : Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Stammverzeichnis des Dateisystems darstellt. Über dieses Objekt können Sie auf alle Dateien und Verzeichnisse im Dateisystem zugreifen.
+  - : Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Wurzelverzeichnis des Dateisystems darstellt. Über dieses Objekt können Sie auf alle Dateien und Verzeichnisse im Dateisystem zugreifen.
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ Es gibt zwei Möglichkeiten, Zugriff auf ein `FileSystem`-Objekt zu erhalten:
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in das File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) und [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry), und [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)

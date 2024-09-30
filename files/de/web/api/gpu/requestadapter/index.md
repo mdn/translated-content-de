@@ -1,5 +1,5 @@
 ---
-title: "GPU: requestAdapter()-Methode"
+title: "GPU: Methode requestAdapter()"
 short-title: requestAdapter()
 slug: Web/API/GPU/requestAdapter
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`requestAdapter()`**-Methode des [`GPU`](/de/docs/Web/API/GPU)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird. Von hier aus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice), Adapter-Informationen, Funktionen und Grenzen anfordern.
+Die **`requestAdapter()`**-Methode der [`GPU`](/de/docs/Web/API/GPU)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objekts erfüllt wird. Hieraus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern, Informationen zum Adapter sowie Funktionen und Grenzen abrufen.
 
-Beachten Sie, dass der User-Agent entscheidet, ob ein Adapter zurückgegeben wird. Falls ja, erfolgt die Auswahl gemäß der angegebenen Optionen. Wenn keine Optionen bereitgestellt werden, wird der Standardadapter verwendet, der normalerweise für die meisten Zwecke ausreichend ist.
+Bitte beachten Sie, dass der Benutzeragent entscheidet, ob ein Adapter zurückgegeben wird. Wenn ja, wählt er entsprechend den angegebenen Optionen aus. Wenn keine Optionen angegeben werden, bietet das Gerät Zugriff auf den Standardadapter, der normalerweise für die meisten Zwecke ausreichend ist.
 
 ## Syntax
 
@@ -27,31 +27,31 @@ requestAdapter(options)
 
     - `powerPreference` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der dem User-Agent einen Hinweis darauf gibt, welche Art von Adapter aus den verfügbaren Adaptern des Systems gewählt werden soll. Verfügbare Werte sind:
+      - : Ein enumerierter Wert, der verwendet werden kann, um dem Benutzeragenten einen Hinweis zu geben, welche Klasse von Adapter aus den verfügbaren Adaptern des Systems gewählt werden sollte. Verfügbare Werte sind:
 
         - `undefined` (oder nicht angegeben), was keinen Hinweis gibt.
-        - `"low-power"`, was einen Hinweis zur Priorisierung von Energieeinsparung gegenüber Leistung gibt. Wenn Ihre App mit dieser Einstellung gut funktioniert, wird empfohlen, sie zu verwenden, da sie die Akkulaufzeit auf tragbaren Geräten erheblich verbessern kann. Dies ist normalerweise die Standardeinstellung, wenn keine Optionen angegeben sind.
-        - `"high-performance"`, was einen Hinweis zur Priorisierung der Leistung gegenüber dem Energieverbrauch gibt. Es wird empfohlen, diesen Wert nur dann anzugeben, wenn es absolut notwendig ist, da er die Akkulaufzeit auf tragbaren Geräten erheblich verringern kann. Es kann auch zu vermehrtem Verlust von [`GPUDevice`](/de/docs/Web/API/GPUDevice) führen — das System kann manchmal entscheiden, auf einen energieeffizienteren Adapter zu wechseln, um Strom zu sparen.
+        - `"low-power"`, was einen Hinweis gibt, Energiesparfunktionen über die Leistung zu priorisieren. Wenn Ihre App mit dieser Einstellung gut funktioniert, wird empfohlen, sie zu verwenden, da sie die Akkulaufzeit auf tragbaren Geräten erheblich verbessern kann. Dies ist normalerweise der Standardwert, wenn keine Optionen angegeben werden.
+        - `"high-performance"`, was einen Hinweis gibt, die Leistung über den Energieverbrauch zu priorisieren. Es wird empfohlen, diesen Wert nur anzugeben, wenn es absolut notwendig ist, da er die Akkulaufzeit auf tragbaren Geräten erheblich verringern kann. Dies kann auch zu einem erhöhten Verlust des [`GPUDevice`](/de/docs/Web/API/GPUDevice) führen – das System kann manchmal entscheiden, auf einen energiesparenderen Adapter umzuschalten, um Energie zu sparen.
 
-        Das Hauptziel dieses Hinweises ist es, zu beeinflussen, welche GPU in einem Multi-GPU-System verwendet wird. Beispielsweise haben einige Laptops eine energieeffiziente integrierte GPU und eine leistungsstarke diskrete GPU. Verschiedene Faktoren können beeinflussen, welcher Adapter zurückgegeben wird, einschließlich Batteriestatus, angeschlossene Bildschirme oder entfernbarer GPUs.
+        Der Hauptzweck dieses Hinweises besteht darin, zu beeinflussen, welche GPU in einem Multi-GPU-System verwendet wird. Beispielsweise haben einige Laptops eine energiesparende integrierte GPU und eine leistungsstarke diskrete GPU. Verschiedene Faktoren können beeinflussen, welcher Adapter zurückgegeben wird, einschließlich Akkustatus, angeschlossener Bildschirme oder entfernbarer GPUs.
 
         > [!NOTE]
-        > In Chrome auf Dual-GPU-macOS-Geräten wird beim Aufruf von `requestAdapter()` ohne `powerPreference`-Option die leistungsstarke diskrete GPU zurückgegeben, wenn das Gerät des Benutzers mit Netzstrom betrieben wird. Andernfalls wird die energieeffiziente integrierte GPU zurückgegeben.
+        > Auf Chrome, das auf macOS-Geräten mit dualer GPU läuft, wird, wenn `requestAdapter()` ohne die Option `powerPreference` aufgerufen wird, die leistungsstarke diskrete GPU zurückgegeben, wenn das Gerät des Benutzers mit Netzstrom betrieben wird. Andernfalls wird die energiesparende integrierte GPU zurückgegeben.
 
 ### Fallback-Adapter
 
-Der vom User-Agent bereitgestellte Adapter kann ein **Fallback-Adapter** sein, wenn dieser als die geeignetste verfügbare Option angesehen wird. Ein Fallback-Adapter weist in der Regel erhebliche Leistungseinschränkungen auf, bietet jedoch eine Kombination aus höherer Kompatibilität, vorhersehbarerem Verhalten oder verbesserter Privatsphäre. Beispielsweise können einige Browser eine softwarebasierte Implementierung der API über einen Fallback-Adapter anbieten. Ein Fallback-Adapter ist nicht auf jedem System verfügbar.
+Der vom Benutzeragenten bereitgestellte Adapter kann ein **Fallback-Adapter** sein, wenn dies als die am besten geeignete verfügbare Option erachtet wird. Ein Fallback-Adapter hat in der Regel erhebliche Leistungseinschränkungen im Austausch für eine Kombination aus größerer Kompatibilität, vorhersehbarem Verhalten oder verbesserter Privatsphäre. Beispielsweise können einige Browser eine softwarebasierte Implementierung der API über einen Fallback-Adapter bereitstellen. Ein Fallback-Adapter wird nicht auf jedem System verfügbar sein.
 
-Wenn Sie verhindern möchten, dass Ihre Apps auf Fallback-Adaptern laufen, sollten Sie das [`GPUAdapter.isFallbackAdapter`](/de/docs/Web/API/GPUAdapter/isFallbackAdapter)-Attribut überprüfen, bevor Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern.
+Wenn Sie verhindern möchten, dass Ihre Anwendungen auf Fallback-Adaptern ausgeführt werden, sollten Sie das Attribut [`GPUAdapter.isFallbackAdapter`](/de/docs/Web/API/GPUAdapter/isFallbackAdapter) überprüfen, bevor Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern.
 
 > [!NOTE]
-> Die Spezifikation enthält eine `forceFallbackAdapter`-Option für `requestAdapter()`. Dies ist ein boolean, der, wenn er auf `true` gesetzt ist, den User-Agent dazu zwingt, einen Fallback-Adapter zurückzugeben, falls einer verfügbar ist. Dies wird derzeit von keinem Browser unterstützt.
+> Die Spezifikation umfasst eine `forceFallbackAdapter`-Option für `requestAdapter()`. Dies ist ein boolescher Wert, der, wenn auf `true` gesetzt, den Benutzeragenten zwingt, einen Fallback-Adapter zurückzugeben, falls einer verfügbar ist. Dies wird derzeit von keinem Browser unterstützt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das bei erfolgreichem Abschluss mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird.
+Ein {{jsxref("Promise")}}, das bei Erfolg der Anfrage mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird.
 
-`requestAdapter()` wird auf `null` aufgelöst, wenn kein geeigneter Adapter verfügbar ist.
+`requestAdapter()` wird zu `null`, wenn kein geeigneter Adapter verfügbar ist.
 
 ### Ausnahmen
 

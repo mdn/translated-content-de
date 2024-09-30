@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`transaction`**-Eigenschaft der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt das Transaktionsobjekt zurück, zu dem dieser Objekt-Store gehört.
+Die **`transaction`** schreibgeschützte Eigenschaft des
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt das Transaktionsobjekt zurück, zu dem dieser
+Objektspeicher gehört.
 
 ## Wert
 
@@ -16,7 +18,7 @@ Ein [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Store mit `add()` hinzu. Nachdem der Objekt-Store erstellt wurde, loggen wir `objectStore.transaction` in die Konsole. Ein vollständiges, funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion für unsere Datenbank und fügen einige Daten zu einem Objektspeicher hinzu, indem wir `add()` verwenden. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.transaction` in die Konsole. Ein vollständiges funktionsfähiges Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -90,7 +92,7 @@ function addData() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Bearbeiten Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwenden von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

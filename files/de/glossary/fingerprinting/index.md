@@ -7,20 +7,20 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Fingerprinting** ist eine Praxis, bei der Websites einen bestimmten Browser (und infolgedessen einen bestimmten Benutzer) identifizieren, indem sie unterscheidbare Merkmale des Browsers und des zugrunde liegenden Betriebssystems sammeln und kombinieren. Elemente eines Fingerabdrucks könnten beispielsweise umfassen:
+**Fingerprinting** ist eine Praxis, bei der Websites einen bestimmten Browser (und damit indirekt einen bestimmten Benutzer) identifizieren, indem sie unterscheidbare Merkmale des Browsers und des zugrunde liegenden Betriebssystems sammeln und kombinieren. Elemente eines Fingerabdrucks könnten zum Beispiel beinhalten:
 
 - die Browserversion
 - die Zeitzone und bevorzugte Sprache
-- die Menge der auf dem System verfügbaren Video- oder Audiocodecs
+- die verfügbaren Video- oder Audiocodecs auf dem System
 - die auf dem System installierten Schriftarten
 - den Zustand der Browsereinstellungen
-- die Größe und Auflösung des Computerbildschirms
+- die Bildschirmgröße und Auflösung des Computers
 
-Eine Website kann solche Informationen abrufen, indem sie JavaScript und CSS auf dem Gerät ausführt. Durch die Kombination dieser Daten kann häufig ein einzigartiger Fingerabdruck für einen Browser erstellt werden, der verwendet werden kann, um Benutzer im Internet zu verfolgen.
+Eine Website kann solche Informationen abrufen, indem sie JavaScript und CSS auf dem Gerät ausführt. Durch die Kombination dieser Daten kann oft ein einzigartiger Fingerabdruck für einen Browser erstellt werden, der dann verwendet werden kann, um Benutzer im Web zu verfolgen.
 
-Webstandards sind so konzipiert, dass sie die Fähigkeit einer Website, identifizierende Informationen zu sammeln, minimieren, und Browser fügen in der Regel auch eigene Schutzmaßnahmen hinzu.
+Webstandards sind so gestaltet, dass sie die Fähigkeit einer Website, identifizierende Informationen zu sammeln, minimieren, und Browser fügen in der Regel eigene Schutzmaßnahmen hinzu.
 
 ## Siehe auch
 
-- [Cover Your Tracks](https://coveryourtracks.eff.org/): ein Werkzeug, das zeigt, welche Daten eine Website nutzen kann, um Ihren Browser zu identifizieren.
-- [Mitigating Browser Fingerprinting in Web Specifications](https://www.w3.org/TR/fingerprinting-guidance/): bewährte Verfahren für Autoren von Spezifikationen zur Vermeidung von Fingerprinting.
+- [Cover Your Tracks](https://coveryourtracks.eff.org/): ein Tool, das zeigt, welche Daten eine Website verwenden kann, um Ihren Browser zu identifizieren.
+- [Mitigating Browser Fingerprinting in Web Specifications](https://www.w3.org/TR/fingerprinting-guidance/): bewährte Vorgehensweisen für Spezifikationsautoren zur Verhinderung von Fingerprinting.

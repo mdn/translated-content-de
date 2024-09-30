@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Zugriffseigenschaft **`byteOffset`** von {{jsxref("TypedArray")}}-Instanzen gibt den Offset (in Bytes) dieses typisierten Arrays vom Beginn seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`**-Zugriffseigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den Offset (in Bytes) dieses typisierten Arrays vom Anfang seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 ## Beschreibung
 
@@ -15,7 +15,7 @@ Die `byteOffset`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Fu
 
 ## Beispiele
 
-### Verwendung der Eigenschaft byteOffset
+### Verwendung der byteOffset-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);

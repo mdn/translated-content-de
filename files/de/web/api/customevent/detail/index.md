@@ -1,5 +1,5 @@
 ---
-title: "CustomEvent: Detail-Eigenschaft"
+title: "CustomEvent: detail-Eigenschaft"
 short-title: detail
 slug: Web/API/CustomEvent/detail
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft der [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Schnittstelle gibt die Daten zurück, die beim Initialisieren des Events übergeben wurden.
+Die schreibgeschützte **`detail`**-Eigenschaft der [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Schnittstelle gibt alle Daten zurück, die bei der Initialisierung des Ereignisses übergeben wurden.
 
 ## Wert
 
-Welche Daten auch immer das Event mit initialisiert wurde.
+Welche Daten auch immer das Ereignis initialisiert wurden.
 
 ## Beispiel
 

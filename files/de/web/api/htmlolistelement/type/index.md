@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der Schnittstelle [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement) gibt die Art des Markers an, der zur Darstellung einer geordneten Liste verwendet werden soll.
+Die **`type`**-Eigenschaft der [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Schnittstelle gibt die Art des Markers an, der verwendet werden soll, um eine geordnete Liste darzustellen.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/ol#type)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
@@ -19,7 +19,7 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/ol#type)-Attribut des {{HTML
 
 Ein String, der den Typ darstellt.
 
-Die möglichen Werte sind im Abschnitt [Markertypen](/de/docs/Web/HTML/Element/ol#type) des Attributs aufgelistet.
+Die möglichen Werte sind im Abschnitt Attribut [markertypes](/de/docs/Web/HTML/Element/ol#type) aufgeführt.
 
 ## Beispiele
 

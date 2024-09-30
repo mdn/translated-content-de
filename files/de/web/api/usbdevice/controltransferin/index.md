@@ -20,16 +20,16 @@ controlTransferIn(setup, length)
 
 - `setup`
 
-  - : Ein Objekt, das Optionen setzt für. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
 
     - `requestType`
-      - : Muss einer der drei Werte sein, die angeben, ob die Übertragung `"standard"` (üblich für alle USB-Geräte), `"class"` (üblich für eine industriestandardisierte Klasse von Geräten) oder `"vendor"` ist.
+      - : Muss einer von drei Werten sein, die festlegen, ob die Übertragung `"standard"` (allgemein für alle USB-Geräte), `"class"` (allgemein für eine industriestandardmäßige Geräteklasse) oder `"vendor"` ist.
     - `recipient`
-      - : Spezifiziert das Ziel der Übertragung auf dem Gerät, eins von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
+      - : Gibt das Ziel der Übertragung auf dem Gerät an, eine der folgenden Optionen: `"device"`, `"interface"`, `"endpoint"`, oder `"other"`.
     - `request`
       - : Ein herstellerspezifischer Befehl.
     - `value`
-      - : Herstellerspezifische Anforderungsparameter.
+      - : Herstellerspezifische Anfrageparameter.
     - `index`
       - : Die Schnittstellennummer des Empfängers.
 
@@ -38,7 +38,7 @@ controlTransferIn(setup, length)
 
 ### Rückgabewert
 
-{{jsxref("promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
+Ein {{jsxref("promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

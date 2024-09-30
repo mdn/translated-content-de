@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-To do
+In Bearbeitung
 
 ## Spezifikationen
 

@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Akzentfarbe](/de/docs/Glossary/accent) für Benutzeroberflächensteuerungen fest, die von einigen Elementen generiert werden.
+Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Akzentfarbe](/de/docs/Glossary/accent) für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
 
 {{EmbedInteractiveExample("pages/css/accent-color.html")}}
 
-Browser, die `accent-color` unterstützen, wenden es derzeit auf die folgenden HTML-Elemente an:
+Browser, die `accent-color` unterstützen, wenden diese derzeit auf die folgenden HTML-Elemente an:
 
 - [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)
 - [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)
 - [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)
 - [`<progress>`](/de/docs/Web/HTML/Element/progress)
 
-Jeder Benutzeragent hat eine Akzentfarbe mit Variationen, um die Lesbarkeit und den Kontrast sicherzustellen. Diese Akzentfarbe wird nicht von jeder Benutzeroberflächensteuerung oder in jedem Zustand der Steuerung verwendet. Die `accent-color` wird nur auf Benutzeroberflächensteuerungen angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
+Jeder User Agent hat eine Akzentfarbe mit Variationen, um Lesbarkeit und Kontrast zu gewährleisten. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement oder in jedem Zustand des Steuerelements verwendet. Die `accent-color` wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
 
 ## Syntax
 
@@ -43,7 +43,7 @@ accent-color: unset;
 ### Werte
 
 - `auto`
-  - : Repräsentiert eine von der Benutzeroberfläche gewählte Farbe, die der Akzentfarbe der Plattform entsprechen sollte, falls vorhanden.
+  - : Repräsentiert eine von der Benutzeragentur gewählte Farbe, die, wenn möglich, der Akzentfarbe der Plattform entsprechen sollte.
 - {{cssxref("&lt;color&gt;")}}
   - : Gibt die Farbe an, die als Akzentfarbe verwendet werden soll.
 

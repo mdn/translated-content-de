@@ -8,14 +8,12 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.insertNode()`**-Methode fügt einen Knoten am Anfang
-des [`Range`](/de/docs/Web/API/Range) ein.
+Die **`Range.insertNode()`**-Methode fügt ein Node am Anfang des [`Range`](/de/docs/Web/API/Range) ein.
 
-Der neue Knoten wird am Startpunkt des `Range` eingefügt. Wenn der
-neue Knoten zu einem Text-`Node` hinzugefügt werden soll, wird dieser `Node` an der Einfügestelle geteilt,
-und die Einfügung erfolgt zwischen den beiden Textknoten.
+Das neue Node wird am Anfangspunkt des `Range` eingefügt. Wenn das
+neue Node zu einem Text-[`Node`](/de/docs/Web/API/Node) hinzugefügt werden soll, wird dieser `Node` an der Einfügestelle geteilt und die Einfügung erfolgt zwischen den beiden Text-Nodes.
 
-Wenn der neue Knoten ein Dokumentfragment ist, werden stattdessen die Kinder des Dokumentfragments eingefügt.
+Wenn das neue Node ein Dokumentfragment ist, werden stattdessen die Kinder des Dokumentfragments eingefügt.
 
 ## Syntax
 
@@ -26,7 +24,7 @@ insertNode(newNode)
 ### Parameter
 
 - `newNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der am Anfang des `range` eingefügt werden soll.
+  - : Das [`Node`](/de/docs/Web/API/Node), das am Anfang des `range` eingefügt werden soll.
 
 ### Rückgabewert
 
@@ -52,4 +50,4 @@ range.insertNode(newNode);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Die DOM-Schnittstellen-Übersicht](/de/docs/Web/API/Document_Object_Model)

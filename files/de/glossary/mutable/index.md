@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **veränderbarer** Wert ist einer, der geändert werden kann, ohne einen völlig neuen Wert zu erstellen, im Vergleich zu [unveränderlichen Werten](/de/docs/Glossary/immutable).
+Ein **mutabler** Wert ist einer, der verändert werden kann, ohne einen völlig neuen Wert zu erstellen, im Vergleich zu [unveränderlichen Werten](/de/docs/Glossary/immutable).
 
-In [JavaScript](/de/docs/Glossary/JavaScript) sind [Objekte](/de/docs/Glossary/Object) und [Arrays](/de/docs/Glossary/Array) standardmäßig veränderbar — ihre Eigenschaften und Elemente können geändert werden, ohne dass ein neues Objekt oder Array erstellt wird. Im Gegensatz dazu sind [primitive Werte](/de/docs/Glossary/primitive) unveränderlich — sobald ein primitiver Wert erstellt ist, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, einem anderen Wert zugewiesen werden kann.
+In [JavaScript](/de/docs/Glossary/JavaScript) sind [Objekte](/de/docs/Glossary/Object) und [Arrays](/de/docs/Glossary/Array) standardmäßig veränderlich — ihre Eigenschaften und Elemente können geändert werden, ohne ein neues Objekt oder Array zu erstellen. Im Gegensatz dazu sind [primitive Werte](/de/docs/Glossary/primitive) unveränderlich — sobald ein primitiver Wert erstellt wurde, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, neu zugewiesen werden kann.
 
 ## Siehe auch
 

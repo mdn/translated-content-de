@@ -8,9 +8,10 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-`setAttributeNS` fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs mit dem angegebenen Namespace und Namen.
+`setAttributeNS` fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs
+mit dem angegebenen Namensraum und Namen.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespace angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
 
 ## Syntax
 
@@ -21,9 +22,10 @@ setAttributeNS(namespace, name, value)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace des Attributs angibt.
+  - : Ein String, der den Namensraum des Attributs angibt.
 - `name`
-  - : Ein String, der das Attribut mit seinem qualifizierten Namen identifiziert, also ein Namespace-Prefix gefolgt von einem Doppelpunkt und einem lokalen Namen.
+  - : Ein String, der das Attribut durch seinen qualifizierten Namen identifiziert;
+    das heißt, ein Namensraum-Präfix gefolgt von einem Doppelpunkt und einem lokalen Namen.
 - `value`
   - : Der gewünschte String-Wert des neuen Attributs.
 
@@ -42,9 +44,9 @@ d.setAttributeNS(
 );
 ```
 
-## Hinweise
+## Anmerkungen
 
-`setAttributeNS` ist die einzige Methode für Namespaced-Attribute, die den voll qualifizierten Namen erwartet, d.h. `"namespace:localname"`.
+`setAttributeNS` ist die einzige Methode für Namensraum-Attribute, die den vollständig qualifizierten Namen erwartet, d.h. `"namespace:localname"`.
 
 ## Spezifikationen
 

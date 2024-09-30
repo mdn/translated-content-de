@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`subject`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt eine Referenz auf das Subjekt-Element zurück, dessen Sichtbarkeit innerhalb seines nächstgelegenen übergeordneten scrollbaren Elements (Scroller) den Fortschritt der Zeitleiste steuert.
+Die schreibgeschützte **`subject`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb seines nächsten vorfahren-scrollfähigen Elements (Scroller) den Fortschritt der Zeitachse steuert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Siehe die Hauptseite von [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
+Siehe die Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
 
 ## Spezifikationen
 

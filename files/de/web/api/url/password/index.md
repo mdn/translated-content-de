@@ -11,11 +11,11 @@ l10n:
 Die **`password`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
 ist ein String, der das vor dem Domainnamen angegebene Passwort enthält.
 
-## Value
+## Wert
 
 Ein String.
 
-## Examples
+## Beispiele
 
 ```js
 const url = new URL(
@@ -24,7 +24,7 @@ const url = new URL(
 console.log(url.password); // Logs "flabada"
 ```
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

@@ -7,38 +7,38 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das **`NamedNodeMap`**-Interface repräsentiert eine Sammlung von [`Attr`](/de/docs/Web/API/Attr)-Objekten. Objekte innerhalb eines `NamedNodeMap` sind im Gegensatz zu [`NodeList`](/de/docs/Web/API/NodeList) in keiner bestimmten Reihenfolge angeordnet, obwohl sie ähnlich wie in einem Array über einen Index zugänglich sind.
+Das **`NamedNodeMap`** Interface repräsentiert eine Sammlung von [`Attr`](/de/docs/Web/API/Attr)-Objekten. Objekte innerhalb eines `NamedNodeMap` sind nicht in einer bestimmten Reihenfolge, im Gegensatz zu [`NodeList`](/de/docs/Web/API/NodeList), obwohl sie wie in einem Array über einen Index aufgerufen werden können.
 
-Ein `NamedNodeMap`-Objekt ist _dynamisch_ und wird daher automatisch aktualisiert, wenn Änderungen an seinen Inhalten intern oder anderswo vorgenommen werden.
+Ein `NamedNodeMap`-Objekt ist _live_ und wird daher automatisch aktualisiert, wenn Änderungen an seinem Inhalt intern oder an anderer Stelle vorgenommen werden.
 
 > [!NOTE]
-> Obwohl `NamedNodeMap` genannt, befasst sich dieses Interface nicht mit [`Node`](/de/docs/Web/API/Node)-Objekten, sondern mit [`Attr`](/de/docs/Web/API/Attr)-Objekten, die eine spezialisierte Klasse von [`Node`](/de/docs/Web/API/Node)-Objekten sind.
+> Obwohl als `NamedNodeMap` bezeichnet, befasst sich dieses Interface nicht mit [`Node`](/de/docs/Web/API/Node)-Objekten, sondern mit [`Attr`](/de/docs/Web/API/Attr)-Objekten, die eine spezialisierte Klasse von [`Node`](/de/docs/Web/API/Node)-Objekten sind.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Dieses Interface erbt keine Eigenschaft._
 
 - [`NamedNodeMap.length`](/de/docs/Web/API/NamedNodeMap/length) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Objekte in der Map zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Dieses Interface erbt keine Methode._
 
 - [`NamedNodeMap.getNamedItem()`](/de/docs/Web/API/NamedNodeMap/getNamedItem)
-  - : Gibt ein [`Attr`](/de/docs/Web/API/Attr) zurück, das dem angegebenen Namen entspricht.
+  - : Gibt ein [`Attr`](/de/docs/Web/API/Attr) zurück, das dem gegebenen Namen entspricht.
 - [`NamedNodeMap.setNamedItem()`](/de/docs/Web/API/NamedNodeMap/setNamedItem)
-  - : Ersetzt oder fügt das in der Map identifizierte [`Attr`](/de/docs/Web/API/Attr) durch den angegebenen Namen hinzu.
+  - : Ersetzt oder fügt das in der Map durch den gegebenen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) hinzu.
 - [`NamedNodeMap.removeNamedItem()`](/de/docs/Web/API/NamedNodeMap/removeNamedItem)
-  - : Entfernt das durch die Map identifizierte [`Attr`](/de/docs/Web/API/Attr).
+  - : Entfernt das durch die gegebene Map identifizierte [`Attr`](/de/docs/Web/API/Attr).
 - [`NamedNodeMap.item()`](/de/docs/Web/API/NamedNodeMap/item)
-  - : Gibt das [`Attr`](/de/docs/Web/API/Attr) am angegebenen Index zurück oder `null`, wenn der Index größer oder gleich der Anzahl der Knoten ist.
+  - : Gibt das [`Attr`](/de/docs/Web/API/Attr) an dem gegebenen Index zurück oder `null`, wenn der Index höher oder gleich der Anzahl der Knoten ist.
 - [`NamedNodeMap.getNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/getNamedItemNS)
-  - : Gibt ein durch einen Namensraum und den zugehörigen lokalen Namen identifiziertes [`Attr`](/de/docs/Web/API/Attr) zurück.
+  - : Gibt ein [`Attr`](/de/docs/Web/API/Attr) zurück, das durch einen Namensraum und einen zugehörigen lokalen Namen identifiziert wird.
 - [`NamedNodeMap.setNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/setNamedItemNS)
-  - : Ersetzt oder fügt das in der Map durch den angegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) hinzu.
+  - : Ersetzt oder fügt das in der Map durch den gegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) hinzu.
 - [`NamedNodeMap.removeNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/removeNamedItemNS)
-  - : Entfernt das durch den angegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr).
+  - : Entfernt das durch den gegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr).
 
 ## Spezifikationen
 

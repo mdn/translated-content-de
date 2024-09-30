@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Der **`PerformanceObserver()`** Konstruktor erstellt ein neues [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekt mit dem angegebenen Beobachter-`callback`. Der Beobachter-Callback wird aufgerufen, wenn [Performance-Eintrag-Ereignisse](/de/docs/Web/API/PerformanceEntry) für die registrierten [Eintragstypen](/de/docs/Web/API/PerformanceEntry/entryType), über die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode, aufgezeichnet werden.
+Der **`PerformanceObserver()`**-Konstruktor erstellt ein neues [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekt mit dem angegebenen Beobachter-`callback`. Der Beobachter-Callback wird aufgerufen, wenn [Performance-Entry-Ereignisse](/de/docs/Web/API/PerformanceEntry) für die registrierten [Entry-Typen](/de/docs/Web/API/PerformanceEntry/entryType) aufgezeichnet werden, über die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode.
 
 ## Syntax
 
@@ -20,12 +20,12 @@ new PerformanceObserver(callback)
 
 - `callback`
 
-  - : Ein `PerformanceObserverCallback`-Callback, das aufgerufen wird, wenn beobachtete Performance-Ereignisse aufgezeichnet werden. Wenn der Callback aufgerufen wird, stehen die folgenden Parameter zur Verfügung:
+  - : Ein `PerformanceObserverCallback`-Callback, das aufgerufen wird, wenn beobachtete Performance-Ereignisse aufgezeichnet werden. Wenn der Callback aufgerufen wird, stehen folgende Parameter zur Verfügung:
 
     - `entries`
-      - : Die [Liste der Performance-Beobachtereinträge](/de/docs/Web/API/PerformanceObserverEntryList).
+      - : Die [Liste der Performance-Observer-Entries](/de/docs/Web/API/PerformanceObserverEntryList).
     - `observer`
-      - : Das [`observer`](/de/docs/Web/API/PerformanceObserver)-Objekt, das die oben genannten Einträge empfängt.
+      - : Das [`observer`](/de/docs/Web/API/PerformanceObserver)-Objekt, das die oben genannten Entries erhält.
     - `options`
 
       - : Ein Objekt mit den folgenden Eigenschaften:
@@ -34,17 +34,17 @@ new PerformanceObserver(callback)
 
           - : Die Anzahl der Einträge, die nicht aufgezeichnet werden konnten, weil der interne Puffer des [`Performance`](/de/docs/Web/API/Performance)-Objekts voll war.
 
-            Beachten Sie, dass dies nur beim ersten Aufruf des Observers des Callbacks bereitgestellt wird, wenn die gepufferten Einträge wiedergegeben werden. Sobald der Beobachter zukünftige Beobachtungen vornimmt, muss er den Puffer nicht mehr verwenden. Nach dem ersten Mal wird `options` ein leeres Objekt (`{}`) sein.
+            Beachten Sie, dass dies nur bereitgestellt wird, wenn der Beobachter den Callback das erste Mal aufruft und die gepufferten Einträge wiedergegeben werden. Sobald der Beobachter mit zukünftigen Beobachtungen beginnt, benötigt er den Puffer nicht mehr. Nach dem ersten Mal wird `options` ein leeres Objekt (`{}`) sein.
 
 ### Rückgabewert
 
-Ein neues [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekt, das den angegebenen `callback` aufruft, wenn beobachtete Performance-Ereignisse auftreten.
+Ein neues [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekt, das den angegebenen `callback` aufruft, wenn beobachtete Performance-Ereignisse eintreten.
 
 ## Beispiele
 
-### Erstellen eines PerformanceObserver
+### Erstellen eines PerformanceObservers
 
-Das folgende Beispiel erstellt einen `PerformanceObserver`, der auf "mark" ([`PerformanceMark`](/de/docs/Web/API/PerformanceMark)) und "measure" ([`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)) Ereignisse achtet. Der `perfObserver`-Callback stellt eine `list` ([`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)) bereit, die es Ihnen ermöglicht, beobachtete Performance-Einträge zu erhalten.
+Das folgende Beispiel erstellt einen `PerformanceObserver`, der nach "mark"-([`PerformanceMark`](/de/docs/Web/API/PerformanceMark)) und "measure"-([`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)) Ereignissen sucht. Der `perfObserver`-Callback liefert eine `list` ([`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)), die es Ihnen ermöglicht, die beobachteten Performance-Entries zu erhalten.
 
 ```js
 function perfObserver(list, observer) {
@@ -61,9 +61,9 @@ const observer = new PerformanceObserver(perfObserver);
 observer.observe({ entryTypes: ["measure", "mark"] });
 ```
 
-### Herausgefallene Puffereinträge
+### Verworfene Buffer-Einträge
 
-Sie können [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) mit einem `buffered`-Flag verwenden, um auf vergangene Performance-Einträge zu hören. Es gibt jedoch eine Puffergrößenbegrenzung. Der Performance-Observer-Callback enthält ein `options`-Objekt: Beim ersten Aufruf des Callbacks durch den Observer enthält der `options`-Parameter eine `droppedEntriesCount`-Eigenschaft, die Ihnen sagt, wie viele Einträge aufgrund des vollen Pufferspeichers herausgefallen sind. Nachfolgende Callbacks werden einen leeren `options`-Parameter haben.
+Sie können [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) mit einem `buffered`-Flag verwenden, um vergangene Performance-Entries abzuhören. Es gibt jedoch ein Limit der Puffergröße. Der Performance-Observer-Callback enthält ein `options`-Objekt: Wenn der Beobachter den Callback das erste Mal aufruft, hat der `options`-Parameter eine `droppedEntriesCount`-Eigenschaft, die Ihnen mitteilt, wie viele Einträge aufgrund des vollen Pufferspeichers verworfen wurden. Nachfolgende Callbacks haben einen leeren `options`-Parameter.
 
 ```js
 function perfObserver(list, observer, options) {
@@ -81,7 +81,7 @@ const observer = new PerformanceObserver(perfObserver);
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Normalerweise gibt es viele Ressourcentiming-Einträge, und speziell für diese Einträge können Sie auch einen größeren Puffer mit [`performance.setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize) festlegen und das [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event)-Ereignis überwachen.
+In der Regel gibt es viele Einträge der Ressourcentiming, und für genau diese Einträge können Sie auch einen größeren Puffer mit [`performance.setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize) einstellen und das [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event)-Ereignis überwachen.
 
 ## Spezifikationen
 

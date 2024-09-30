@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: send() Methode"
+title: "RTCDataChannel: send()-Methode"
 short-title: send()
 slug: Web/API/RTCDataChannel/send
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`send()`** Methode der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) Schnittstelle sendet Daten über den Datenkanal zum entfernten Peer. Dies kann jederzeit erfolgen, außer während des anfänglichen Prozesses der Erstellung des zugrundeliegenden Transportkanals. Daten, die vor der Verbindung gesendet werden, werden, wenn möglich, zwischengespeichert (oder es tritt ein Fehler auf, falls dies nicht möglich ist), und werden auch zwischengespeichert, wenn sie gesendet werden, während die Verbindung sich schließt oder geschlossen ist.
+Die **`send()`**-Methode des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Interfaces sendet Daten über den Datenkanal zum Remote-Peer. Dies kann jederzeit geschehen, außer während des Anfangsprozesses der Erstellung des zugrunde liegenden Transportkanals. Daten, die vor dem Verbindungsaufbau gesendet werden, werden, wenn möglich, zwischengespeichert (oder es tritt ein Fehler auf, falls dies nicht möglich ist) und werden ebenfalls zwischengespeichert, wenn sie während des Schließens oder nach dem Schließen der Verbindung gesendet werden.
 
 > [!NOTE]
-> Verschiedene Browser haben unterschiedliche Einschränkungen bezüglich der Größe der Nachrichten, die Sie senden können. Es existieren Spezifikationen, um festzulegen, wie große Nachrichten automatisch fragmentiert werden können, aber nicht alle Browser implementieren diese, und diejenigen, die es tun, haben verschiedene zusätzliche Einschränkungen. Dies wird mit der Zeit weniger kompliziert, aber für den Moment, wenn Sie Fragen haben, siehe [Verständnis der Nachrichtenlimitgrößen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits).
+> Verschiedene Browser haben unterschiedliche Beschränkungen bezüglich der Größe der Nachricht, die Sie senden können. Es gibt Spezifikationen, um zu definieren, wie große Nachrichten automatisch fragmentiert werden können, jedoch implementieren nicht alle Browser diese, und diejenigen, die es tun, haben verschiedene zusätzliche Beschränkungen. Dies wird im Laufe der Zeit weniger kompliziert werden, aber wenn Sie jetzt Fragen dazu haben, lesen Sie bitte [Verstehen von Nachrichtenbegrenzungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits).
 
 ## Syntax
 
@@ -22,24 +22,24 @@ send(data)
 ### Parameter
 
 - `data`
-  - : Die Daten, die über die Verbindung übertragen werden sollen. Dies kann ein String, ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt sein.
+  - : Die Daten, die über die Verbindung übertragen werden sollen. Dies kann ein String, ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt sein.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Datenkanal seine eigene Verbindung noch nicht abgeschlossen hat (d.h. sein [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) ist `connecting`). Der Datenkanal muss seine eigene Verbindung herstellen, weil er einen separaten Transportkanal von dem der Medieninhalte verwendet. Dieser Fehler tritt ohne Senden oder Zwischenspeichern der `data` auf.
+  - : Wird ausgelöst, wenn der Datenkanal seine eigene Verbindung noch nicht fertiggestellt hat (das heißt, sein [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) ist `connecting`). Der Datenkanal muss seine eigene Verbindung herstellen, da er einen separaten Transportkanal von dem der Medieninhalte verwendet. Dieser Fehler tritt ohne Senden oder Zwischenspeichern der `data` auf.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebenen `data` zwischengespeichert werden müssten und nicht genügend Platz im Puffer vorhanden ist. In diesem Szenario wird der zugrunde liegende Transport sofort geschlossen.
+  - : Wird ausgelöst, wenn die angegebenen `data` zwischengespeichert werden müssten und dafür kein Platz im Puffer ist. In diesem Szenario wird der zugrunde liegende Transport sofort geschlossen.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die angegebenen `data` zu groß sind, um vom anderen Peer empfangen zu werden. Da es mehrere Techniken gibt, um große Daten in kleinere Teile für den Transfer aufzuteilen, kann es möglich sein, Szenarien zu begegnen, in denen der andere Peer nicht dieselben Techniken unterstützt. Zum Beispiel, wenn ein Peer ein moderner Browser ist, der die Verwendung des `EOR` (End of Record) Flags unterstützt, um anzuzeigen, wann eine empfangene Nachricht das letzte Stück eines in mehreren Teilen gesendeten Objekts mit `send()` ist. Für weitere Informationen zu Nachrichtenbegrenzungen siehe [Verständnis der Nachrichtenlimitgrößen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits).
+  - : Wird ausgelöst, wenn die angegebenen `data` zu groß sind, damit der andere Peer sie empfangen kann. Da es mehrere Techniken gibt, um große Daten in kleinere Stücke für die Übertragung aufzuteilen, kann es zu Szenarien kommen, in denen der andere Peer nicht die gleichen Techniken unterstützt. Zum Beispiel, wenn ein Peer ein moderner Browser ist, der das `EOR` (End of Record)-Flag unterstützt, um anzuzeigen, wann eine empfangene Nachricht das letzte Stück eines mehrteiligen Objekts ist, das mit `send()` gesendet wird. Für weitere Informationen über Größenbeschränkungen von Nachrichten siehe [Verstehen von Nachrichtenbegrenzungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits).
 
 ## Beispiele
 
-In diesem Beispiel wird eine Routine namens `sendMessage()` erstellt; sie akzeptiert ein Objekt als Eingabe und sendet an den entfernten Peer über die [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) eine JSON-Zeichenfolge mit dem angegebenen Objekt und einem Zeitstempel.
+In diesem Beispiel wird eine Routine namens `sendMessage()` erstellt; sie akzeptiert ein Objekt als Eingabe und sendet über das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ein JSON-String mit dem angegebenen Objekt und einem Zeitstempel an den Remote-Peer.
 
 ```js
 const pc = new RTCPeerConnection();

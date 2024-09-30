@@ -1,5 +1,5 @@
 ---
-title: 'TypeError: "x" ist kein Konstruktor'
+title: "TypeError: \"x\" ist kein Konstruktor"
 slug: Web/JavaScript/Reference/Errors/Not_a_constructor
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „ist kein Konstruktor“ tritt auf, wenn versucht wurde, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable kein Konstruktor ist.
+Der JavaScript-Ausnahmefehler "ist kein Konstruktor" tritt auf, wenn versucht wurde, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable kein Konstruktor ist.
 
 ## Nachricht
 
@@ -23,7 +23,7 @@ TypeError: x is not a constructor (V8-based & Firefox & Safari)
 
 Es wurde versucht, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor. Siehe [Konstruktor](/de/docs/Glossary/Constructor) oder den [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) für weitere Informationen darüber, was ein Konstruktor ist.
 
-Es gibt viele globale Objekte, wie {{jsxref("String")}} oder {{jsxref("Array")}}, die mit `new` konstruiert werden können. Einige globale Objekte sind jedoch nicht konstruierbar und deren Eigenschaften und Methoden sind statisch. Die folgenden JavaScript-Standard-Built-in-Objekte sind keine Konstruktoren: {{jsxref("Math")}}, {{jsxref("JSON")}}, {{jsxref("Symbol")}}, {{jsxref("Reflect")}}, {{jsxref("Intl")}}, {{jsxref("Atomics")}}.
+Es gibt viele globale Objekte, wie {{jsxref("String")}} oder {{jsxref("Array")}}, die über `new` konstruierbar sind. Einige globale Objekte sind dies jedoch nicht und deren Eigenschaften und Methoden sind statisch. Die folgenden JavaScript-Standard eingebauten Objekte sind kein Konstruktor: {{jsxref("Math")}}, {{jsxref("JSON")}}, {{jsxref("Symbol")}}, {{jsxref("Reflect")}}, {{jsxref("Intl")}}, {{jsxref("Atomics")}}.
 
 [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) können ebenfalls nicht als Konstruktoren verwendet werden.
 
@@ -49,7 +49,7 @@ const obj = new f();
 
 ### Ein Autokonstruktor
 
-Angenommen, Sie möchten einen Objekttyp für Autos erstellen. Sie möchten, dass dieser Objekttyp `Car` genannt wird und dass er Eigenschaften für Marke, Modell und Baujahr hat. Um dies zu tun, würden Sie die folgende Funktion schreiben:
+Nehmen wir an, Sie möchten einen Objekttyp für Autos erstellen. Sie möchten, dass dieser Objekttyp `Car` genannt wird und dass er Eigenschaften für Marke, Modell und Baujahr hat. Um dies zu tun, würden Sie die folgende Funktion schreiben:
 
 ```js
 function Car(make, model, year) {
@@ -67,9 +67,9 @@ const mycar = new Car("Eagle", "Talon TSi", 1993);
 
 ### In Promises
 
-Beim Zurückgeben eines sofort erfüllten oder sofort abgelehnten Promises müssen Sie kein `new Promise(...)` erstellen und darauf reagieren. Verwenden Sie stattdessen die [`Promise.resolve()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) oder [`Promise.reject()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) [statischen Methoden](<https://en.wikipedia.org/wiki/Method_(computer_programming)#Static_methods>).
+Wenn Sie ein sofort aufgelöstes oder sofort abgelehntes Promise zurückgeben, müssen Sie kein `new Promise(...)` erstellen und darauf handeln. Stattdessen verwenden Sie die statischen Methoden [`Promise.resolve()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) oder [`Promise.reject()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject).
 
-Dies ist nicht zulässig (der [`Promise`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) wird nicht korrekt aufgerufen) und wird eine `TypeError: this is not a constructor`-Ausnahme werfen:
+Dies ist illegal (der [`Promise`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) wird nicht korrekt aufgerufen) und wird eine `TypeError: this is not a constructor` Ausnahme werfen:
 
 ```js example-bad
 const fn = () => {
@@ -77,7 +77,7 @@ const fn = () => {
 };
 ```
 
-Dies ist zulässig, aber unnötig lang:
+Dies ist legal, aber unnötig lang:
 
 ```js
 const fn = () => {
@@ -87,7 +87,7 @@ const fn = () => {
 };
 ```
 
-Stattdessen verwenden Sie die statische Methode:
+Stattdessen geben Sie die statische Methode zurück:
 
 ```js example-good
 const resolveAlways = () => {

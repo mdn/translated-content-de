@@ -1,5 +1,5 @@
 ---
-title: Farbmaskierung
+title: Color Masking
 slug: Web/API/WebGL_API/By_example/Color_masking
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,21 +7,21 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Simple_color_animation","Learn/WebGL/By_example/Basic_scissoring")}}
 
-Dieses WebGL-Beispiel modifiziert zufällige Farben, indem eine Farbmaskierung angewendet wird, um den Bereich der angezeigten Farben auf bestimmte Schattierungen zu beschränken.
+Dieses WebGL-Beispiel verändert zufällige Farben, indem es eine Farbmaskierung anwendet, um den Bereich der angezeigten Farben auf spezifische Farbtöne zu beschränken.
 
 ## Maskierung zufälliger Farben
 
 {{EmbedLiveSample("Masking_random_colors",660,425)}}
 
-Dieses Beispiel verändert die zufällige Farbanimation, indem eine Farbmaskierung mit [`colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask) angewendet wird. Sie können sich die Farbmaskierungsoperation so vorstellen, als ob Sie durch getöntes Glas oder einen Farbfilter auf die farbige Leinwand schauen. Indem die blauen und grünen Kanäle maskiert werden, wird nur die rote Komponente der Pixel aktualisiert, und es ist, als ob Sie durch ein rotes getöntes Glas blicken.
+Dieses Beispiel verändert die zufällige Farbanimation, indem es eine Farbmaskierung mit [`colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask) anwendet. Sie können sich den Farbmaskierungsvorgang so vorstellen, als ob Sie durch getöntes Glas oder einen Farbfilter auf die farbige Leinwand schauen würden. Indem die blauen und grünen Kanäle maskiert werden, kann nur der rote Bestandteil der Pixel aktualisiert werden, und daher ist es, als ob Sie durch ein rot getöntes Glas schauen würden.
 
-Farbmaskierung erlaubt es uns, einige Grundlagen der [Farblehre](https://en.wikipedia.org/wiki/Color_theory) zu demonstrieren. Durch das Maskieren bestimmter Kanäle neigen wir die angezeigten Farben in Richtung der Komplementärfarbe. Das Maskieren sowohl von Blau als auch von Rot würde uns also Grüntöne geben. Das Maskieren nur des blauen Kanals würde uns Gelbtöne geben (einschließlich Schattierungen von Orange, Braun, Olivgrün und Gelbgrün), die Komplementärfarbe von Blau. Ebenso würde das Maskieren nur von Grün Magentatöne ergeben (auch Purpur, Karminrot usw.), und das Maskieren nur von Rot würde Cyan-Töne ergeben (auch Seegrün, Blau usw.).
+Farbmaskierung erlaubt es uns, einige Grundlagen der [Farblehre](https://en.wikipedia.org/wiki/Color_theory) zu demonstrieren. Wenn wir einen oder mehrere Kanäle maskieren, verschieben wir die angezeigten Farben in Richtung der Komplementärfarbe. So würde das Maskieren sowohl des blauen als auch des roten Kanals uns Grüntöne liefern. Das Maskieren nur des blauen Kanals würde uns Gelbtöne (einschließlich Orangetöne, Braun, Oliv und Gelbgrün), die Komplementärfarben von Blau, liefern. Ebenso würde das Maskieren nur des grünen Kanals uns Magentatöne (auch Purpur, Karmesinrot usw.) geben, und das Maskieren nur des roten Kanals würde Cyan-Töne (auch Seegrün, Blau usw.) liefern.
 
-Beachten Sie, dass die Aufrufe von `colorMask()` nur erfolgen, wenn der Benutzer auf eine der Umschalttasten klickt. Das Rendering erfolgt jedoch jede Sekunde, mithilfe des Timers. Der Farbmaskenzustand von [WebGL](/de/docs/Glossary/WebGL) bleibt erhalten, daher müssen wir `colorMask()` nicht bei jedem Frame aufrufen, um die Farbmaske einzurichten. Dies ist ein wichtiger Aspekt der WebGL-Zustandsmaschine. Es ermöglicht uns, WebGL in einer einzigen Initialisierungsphase einzurichten und dann nur noch Zeichenbefehle für jedes Frame auszuführen.
+Beachten Sie, dass die Aufrufe von `colorMask()` nur erfolgen, wenn der Benutzer auf eine der Toggle-Schaltflächen klickt. Aber das Rendern erfolgt jede Sekunde über den Timer. Der Farbmaskszustand von [WebGL](/de/docs/Glossary/WebGL) wird beibehalten, sodass wir nicht in jedem Frame `colorMask()` aufrufen müssen, um die Farbmaske einzurichten. Dies ist ein wichtiger Aspekt der WebGL-Zustandsmaschine. Es ermöglicht uns, WebGL in einer einzigen Initialisierungsphase einzurichten und dann nur Zeichenbefehle für jeden Frame auszuführen.
 
-Die Farbmaskierung gibt Ihnen eine feine Kontrolle über die Aktualisierung der Pixelwerte auf dem Bildschirm. Indem Sie die Farbkanäle begrenzen, die durch jeden Zeichenbefehl geschrieben werden, können Sie jeden Kanal beispielsweise verwenden, um ein anderes Graustufenbild zu speichern. Alternativ können Sie die [RGB](/de/docs/Glossary/RGB)-Komponenten für Farbe verwenden, aber die Alphakomponente für einige benutzerdefinierte Pixeldaten Ihrer Erfindung.
+Farbmaskierung gibt Ihnen eine feine Kontrolle über die Aktualisierung von Pixelwerten auf dem Bildschirm. Indem Sie die Farbkanäle einschränken, die durch jeden Zeichenbefehl geschrieben werden, können Sie jeden Kanal beispielsweise verwenden, um ein anderes Graustufenbild zu speichern. Alternativ könnten Sie die [RGB](/de/docs/Glossary/RGB)-Komponenten für Farbe verwenden, aber die Alpha-Komponente für einige benutzerdefinierte Pixeldaten Ihrer Erfindung.
 
-Schließlich lehrt uns die Farbmaskierung, dass [WebGL](/de/docs/Glossary/WebGL) nicht nur eine Zustandsmaschine ist, sondern auch eine _Grafik-Pipeline_. Dies bedeutet, dass Grafikoperationen in WebGL in einer bestimmten Reihenfolge ausgeführt werden, wobei die Ausgabe jeder Operation als Eingabe der nächsten dient. Beispielsweise setzt die Löschoperation den Wert jedes Pixels auf die gewählte Löschfarbe. Maskierung erfolgt später in der Pipeline und modifiziert den Pixel-Farbwert, sodass das endgültige Ergebnis auf dem Bildschirm die Löschfarbe ist, getönt durch die Farbmaske.
+Schließlich lehrt uns die Farbmaskierung, dass [WebGL](/de/docs/Glossary/WebGL) nicht nur eine Zustandsmaschine ist, sondern auch eine _Grafikpipeline_. Dies bedeutet, dass Grafikoperationen in WebGL in einer bestimmten Reihenfolge durchgeführt werden, wobei das Ergebnis jeder Operation als Eingabe für die nächste dient. So setzt beispielsweise der Löschvorgang den Wert jedes Pixels auf die gewählte Löschfarbe. Die Maskierung erfolgt später in der Pipeline und modifiziert den Pixelfarbwert, sodass das endgültige Ergebnis auf dem Bildschirm das der Löschfarbe ist, getönt durch die Farbmaske.
 
 ```html
 <p>Tinting the displayed colors with color masking.</p>

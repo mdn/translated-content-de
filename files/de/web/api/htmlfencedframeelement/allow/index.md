@@ -1,5 +1,5 @@
 ---
-title: "HTMLFencedFrameElement: allow-Eigenschaft"
+title: "HTMLFencedFrameElement: allow Eigenschaft"
 short-title: allow
 slug: Web/API/HTMLFencedFrameElement/allow
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`allow`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) erhält und setzt den Wert des entsprechenden {{htmlelement("fencedframe")}} `allow`-Attributs, das eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) darstellt, die auf den Inhalt angewendet wird, wenn er erstmals eingebettet wird.
+Die **`allow`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) erhält und setzt den Wert des entsprechenden {{htmlelement("fencedframe")}}-`allow`-Attributs, das eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) darstellt, die auf den Inhalt angewendet wird, wenn dieser erstmals eingebettet wird.
 
-Nicht alle Berechtigungsrichtlinien sind in Fenced Frames erlaubt. Die erlaubten Berechtigungen sind unter [Berechtigungsrichtlinien, die für Fenced Frames verfügbar sind](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) aufgelistet – diese sind erforderlich, damit Inhalte von Fenced Frames, die von den angegebenen APIs stammen, geladen werden können. Wenn Sie das `allow`-Attribut nicht setzen, werden diese Berechtigungen standardmäßig erlaubt. Wenn Sie den Berechtigungsumfang einschränken möchten, müssen Sie sicherstellen, dass alle erforderlichen Berechtigungen für die verwendeten APIs im `allow`-Attribut festgelegt sind.
+Nicht alle Berechtigungsrichtlinien sind in "fenced frames" erlaubt. Die erlaubten Berechtigungen sind unter [Permissions policies available to fenced frames](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) aufgelistet — diese sind erforderlich, damit Inhalte aus den angegebenen APIs in einem "fenced frame" geladen werden. Wenn Sie das `allow`-Attribut nicht setzen, werden diese Berechtigungen standardmäßig erlaubt. Wenn Sie die berechtigten Berechtigungen einschränken möchten, müssen Sie sicherstellen, dass alle erforderlichen Berechtigungen für die von Ihnen verwendeten APIs im `allow`-Attribut gesetzt sind.
 
 ## Wert
 
-Ein String, der eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) darstellt.
+Ein String, der eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) repräsentiert.
 
 ## Beispiele
 
@@ -33,5 +33,5 @@ console.log(frame.allow);
 
 ## Siehe auch
 
-- [Fenced Frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
+- [Fenced frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
 - [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

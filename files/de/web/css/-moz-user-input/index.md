@@ -9,9 +9,9 @@ l10n:
 
 In Mozilla-Anwendungen bestimmt **`-moz-user-input`**, ob ein Element Benutzereingaben akzeptiert.
 
-Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es normalerweise keine akzeptiert. Sie kann nur noch verwendet werden, um Benutzereingaben zu deaktivieren.
+Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es normalerweise keine annimmt. Sie kann nur verwendet werden, um Benutzereingaben zu deaktivieren.
 
-> **Note:** `-moz-user-input` war einer der Vorschläge, die zur vorgeschlagenen CSS 3 {{cssxref("user-input")}} Eigenschaft führten, die noch nicht den Candidate Recommendation Status erreicht hat (Aufforderung zur Implementierung). Eine ähnliche Eigenschaft, `user-focus`, wurde in [frühen Entwürfen eines Vorgängers der Benutzeroberfläche für CSS3-Spezifikation](https://www.w3.org/TR/2000/WD-css3-userint-20000216) vorgeschlagen, aber von der Arbeitsgruppe abgelehnt.
+> **Note:** `-moz-user-input` war einer der Vorschläge, die zur geplanten CSS 3 {{cssxref("user-input")}} Eigenschaft führten, welche noch nicht den Status eines Candidate Recommendation (Aufruf zur Implementierung) erreicht hat. Eine ähnliche Eigenschaft, `user-focus`, wurde in [frühzeitigen Entwürfen eines Vorgängers der Benutzeroberfläche für die CSS3-Spezifikation](https://www.w3.org/TR/2000/WD-css3-userint-20000216) vorgeschlagen, wurde jedoch von der Arbeitsgruppe abgelehnt.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit ver
 ### Werte
 
 - `auto`
-  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben entgegennimmt, wie ein {{HTMLElement("textarea")}}.
+  - : Das Element wird auf Benutzereingaben reagieren, wenn es normalerweise Benutzereingaben annimmt, wie etwa ein {{HTMLElement("textarea")}}.
 - `none`
-  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht zu {{CSSxRef(":active")}}.
+  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht {{CSSxRef(":active")}}.
 
 ## Formale Definition
 

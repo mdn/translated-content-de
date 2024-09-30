@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`fullPath`**-Eigenschaft der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Schnittstelle gibt einen String zurück, der den vollständigen, absoluten Pfad vom Wurzelverzeichnis des Dateisystems zur Datei angibt, die durch den Eintrag repräsentiert wird.
+Die schreibgeschützte **`fullPath`**-Eigenschaft des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces gibt einen String zurück, der den vollständigen, absoluten Pfad vom Wurzelverzeichnis des Dateisystems zu der durch den Eintrag repräsentierten Datei angibt.
 
-Dies kann auch als ein Pfad angesehen werden, der relativ zum Wurzelverzeichnis ist, wobei ein "/" vorangestellt wird, um ihn absolut zu machen.
+Dies kann auch als ein Pfad betrachtet werden, der relativ zum Wurzelverzeichnis ist, mit einem vorangestellten "/" um ihn absolut zu machen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der den vollständigen Pfad des Eintrags angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion, die mit einem Dateisystem aufgerufen wird; es erhält dann einen [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) für eine Datei namens `data.json` und gibt deren vollständigen Pfad zurück.
+Dieses Beispiel zeigt eine Funktion, die mit einem Dateisystem aufgerufen wird; sie erhält dann ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) für eine Datei mit dem Namen `data.json` und gibt deren vollständigen Pfad zurück.
 
 ```js
 function gotFileSystem(fs) {
@@ -37,7 +37,7 @@ function gotFileSystem(fs) {
 }
 ```
 
-Offensichtlich ist dies etwas konstruiert, da wir wissen, dass der vollständige Pfad der Datei `"/data.json"` ist, nachdem wir ihn gerade selbst nachgeschlagen haben, aber das Konzept gilt für Szenarien, in denen Sie ihn nicht kennen.
+Offensichtlich ist dies etwas konstruiert, da wir wissen, dass der vollständige Pfad der Datei `"/data.json"` ist, da wir ihn selbst gerade nachgeschlagen haben, aber das Konzept hält für Szenarien stand, in denen Sie ihn nicht kennen.
 
 ## Spezifikationen
 

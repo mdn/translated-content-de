@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der
-[`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle zerstört den `GPUBuffer`.
+Die **`destroy()`** Methode der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) Schnittstelle zerstört den `GPUBuffer`.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 

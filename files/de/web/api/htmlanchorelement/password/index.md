@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.password`**-Eigenschaft ist ein
-String, der das Passwort enthält, das vor dem Domainnamen angegeben ist.
+Die **`HTMLAnchorElement.password`**-Eigenschaft ist ein String, der das vor dem Domainnamen angegebene Passwort enthält.
 
 Wenn es gesetzt wird, ohne vorher die
-[`username`](/de/docs/Web/API/HTMLAnchorElement/username)-Eigenschaft zu setzen, schlägt es stillschweigend fehl.
+[`username`](/de/docs/Web/API/HTMLAnchorElement/username)
+Eigenschaft festzulegen, schlägt es stillschweigend fehl.
 
 ## Wert
 
@@ -36,4 +36,4 @@ anchor.password; // returns 'flabada'
 
 ## Siehe auch
 
-- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.

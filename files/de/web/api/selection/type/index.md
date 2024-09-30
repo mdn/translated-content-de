@@ -9,7 +9,7 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`type`** schreibgeschützte Eigenschaft des
-[`Selection`](/de/docs/Web/API/Selection)-Interfaces gibt einen String zurück, der den
+[`Selection`](/de/docs/Web/API/Selection) Interfaces gibt einen String zurück, der den
 Typ der aktuellen Auswahl beschreibt.
 
 ## Wert
@@ -20,16 +20,16 @@ Werte sind:
 - `None`
   - : Es wurde derzeit keine Auswahl getroffen.
 - `Caret`
-  - : Die Auswahl ist zusammengeklappt (d. h. der Caret befindet sich an einem
+  - : Die Auswahl ist zusammengeklappt (d.h. der Cursor befindet sich auf einem
     Text, aber es wurde kein Bereich ausgewählt).
 - `Range`
   - : Ein Bereich wurde ausgewählt.
 
 ## Beispiele
 
-In diesem Beispiel wird der Event-Handler jedes Mal ausgelöst, wenn eine neue Auswahl getroffen wird.
+In diesem Beispiel wird der Ereignishandler jedes Mal ausgelöst, wenn eine neue Auswahl erfolgt.
 `console.log(selection.type)` gibt `Caret` oder
-`Range` zurück, abhängig davon, ob der Caret an einem einzelnen Punkt im
+`Range` zurück, abhängig davon, ob der Cursor an einem einzelnen Punkt im
 Text platziert ist oder ein Bereich ausgewählt wurde.
 
 ```js

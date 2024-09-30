@@ -9,11 +9,11 @@ l10n:
 
 Aktualisiert ein Menü, das gerade angezeigt wird.
 
-Aktualisiert die Menüeinträge der Erweiterung in dem Menü, das der Browser derzeit anzeigt, einschließlich Änderungen, die seit der Anzeige des Menüs vorgenommen wurden. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das Wiederaufbauen eines angezeigten Menüs ist ein aufwendiger Vorgang; rufen Sie diese Methode nur bei Bedarf auf.
+Aktualisiert die Menüelemente der Erweiterung im Menü, das der Browser aktuell anzeigt, einschließlich Änderungen, die vorgenommen wurden, seit das Menü gezeigt wurde. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das Neuladen eines angezeigten Menüs ist eine kostspielige Operation. Rufen Sie diese Methode nur auf, wenn es notwendig ist.
 
-Dies würde typischerweise innerhalb eines {{WebExtAPIRef("menus.onShown")}} Ereignishandlers aufgerufen werden, nachdem der Handler Änderungen am Menü vorgenommen hat.
+Dies wird typischerweise von einem {{WebExtAPIRef("menus.onShown")}} Ereignishandler aufgerufen, nachdem der Handler Aktualisierungen am Menü vorgenommen hat.
 
-Firefox stellt diese Funktion sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
+Firefox stellt diese Funktion sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum zur Verfügung.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieses Beispiel hört darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann den `openLabelledId`-Menüpunkt mit dem Hostnamen des Links:
+Dieses Beispiel wartet darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann das `openLabelledId`-Menüelement mit dem Hostnamen des Links:
 
 ```js
 function updateMenuItem(linkHostname) {

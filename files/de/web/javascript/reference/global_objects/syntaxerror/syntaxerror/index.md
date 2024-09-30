@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`SyntaxError()`** Konstruktor erstellt {{jsxref("SyntaxError")}} Objekte.
+Der **`SyntaxError()`**-Konstruktor erstellt {{jsxref("SyntaxError")}}-Objekte.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ SyntaxError(message, fileName)
 SyntaxError(message, fileName, lineNumber)
 ```
 
-> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `SyntaxError`.
+> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `SyntaxError`-Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Menschlich lesbare Beschreibung des Fehlers
+  - : Eine verständliche Beschreibung des Fehlers
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+        Bei Auffangen und erneutem Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}

@@ -1,5 +1,5 @@
 ---
-title: "Blockiert: Benutzerdefinierte Cookie-Berechtigung"
+title: "Blocked: Custom cookie permission"
 slug: Web/Privacy/Storage_Access_Policy/Errors/CookieBlockedByPermission
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,7 +7,7 @@ l10n:
 
 {{QuicklinksWithSubPages("Web/Privacy/Storage_Access_Policy/Errors")}}
 
-## Meldung
+## Nachricht
 
 Firefox:
 
@@ -17,12 +17,12 @@ CookieBlockedByPermission=Request to access cookies or storage on "X" was blocke
 
 ## Was ist schiefgelaufen?
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicherplatz wurde blockiert, da eine benutzerdefinierte Berechtigung festgelegt wurde.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da eine vom Benutzer definierte Berechtigung festgelegt ist.
 
 Die Berechtigung kann geändert oder entfernt werden durch:
 
-- Aufrufen von _Einstellungen > Inhaltsblockierung > Cookies und Websitedaten_
-- Klicken auf den Button _Berechtigungen verwalten_ und Aktualisieren der aufgelisteten Ausnahmen
+- Gehen Sie zu _Einstellungen > Inhaltsblockierung > Cookies und Websitedaten_
+- Klicken Sie auf die Schaltfläche _Berechtigungen verwalten_ und aktualisieren Sie die aufgeführten Ausnahmen
 
 ## Siehe auch
 

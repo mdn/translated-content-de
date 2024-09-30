@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`byteLength`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt die Länge der codierten Audiodaten in Bytes zurück.
+Die **`byteLength`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt die Länge der kodierten Audiodaten in Bytes zurück.
 
 ## Wert
 
-Ein Ganzzahl.
+Ein Integer.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `byteLength` in der Konsole ausgegeben.
+Im folgenden Beispiel wird `byteLength` in der Konsole ausgegeben.
 
 ```js
 const init = {

@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`documentURI`** des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt den Speicherort des Dokuments als Zeichenfolge zurück.
+Die schreibgeschützte **`documentURI`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt den Speicherort des Dokuments als Zeichenfolge zurück.
 
 ## Wert
 

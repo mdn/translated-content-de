@@ -8,27 +8,27 @@ l10n:
 {{CSSRef}}{{SeeCompatTable}}
 
 > [!NOTE]
-> Diese Funktion wird von keinem Benutzeragent unterstützt und ihre Spezifikationen können sich ändern.
+> Diese Funktion wird von keinem Benutzeragenten unterstützt und ihre Spezifikationen können sich ändern.
 
-Das **`prefers-reduced-data`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer Inhalte angefordert hat, die weniger Internetverkehr verbrauchen.
+Das **`prefers-reduced-data`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer Webinhalte angefordert hat, die weniger Internetverkehr verbrauchen.
 
 ## Syntax
 
 - `no-preference`
-  - : Gibt an, dass der Benutzer dem System keine Präferenz mitgeteilt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
+  - : Gibt an, dass der Benutzer keine Präferenz gegenüber dem System geäußert hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch ausgewertet.
 - `reduce`
-  - : Gibt an, dass der Benutzer eine Präferenz für leichte alternative Inhalte geäußert hat.
+  - : Gibt an, dass der Benutzer die Präferenz für leichtere alternative Inhalte geäußert hat.
 
 ## Benutzerpräferenzen
 
-Derzeit implementiert kein Benutzeragent diese Funktion, obwohl verschiedene Betriebssysteme solche Präferenzen unterstützen. Falls diese Media-Abfrage jemals umgesetzt wird, werden Benutzeragenten wahrscheinlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
+Derzeit implementiert kein Benutzeragent dieses Feature, obwohl verschiedene Betriebssysteme solche Präferenzen unterstützen. Falls diese Media-Query jemals implementiert wird, werden Benutzeragenten wahrscheinlich auf die Einstellungen zurückgreifen, die vom Betriebssystem bereitgestellt werden.
 
 ## Beispiele
 
 > [!NOTE]
 > Kein Browser implementiert derzeit diese Funktion, daher wird das folgende Beispiel nicht funktionieren.
 
-In diesem Beispiel wird die `montserrat-regular.woff2` Schriftdatei weder vorab geladen noch heruntergeladen, wenn der Benutzer eine reduzierte Datenmenge bevorzugt. In diesem Fall dient der "[system font stack](https://css-tricks.com/snippets/css/system-font-stack/)" als Ersatzschriftart:
+In diesem Beispiel wird die Schriftartdatei `montserrat-regular.woff2` weder vorab geladen noch heruntergeladen, wenn der Benutzer eine reduzierte Datennutzung bevorzugt. In diesem Fall dient der "[System Font Stack](https://css-tricks.com/snippets/css/system-font-stack/)" als Ersatzschriftart:
 
 ### HTML
 

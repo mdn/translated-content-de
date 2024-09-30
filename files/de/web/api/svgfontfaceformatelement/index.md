@@ -9,17 +9,17 @@ l10n:
 
 Die **`SVGFontFaceFormatElement`**-Schnittstelle entspricht den {{SVGElement("font-face-format")}}-Elementen.
 
-Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("font-face-format")}}-Elements über das SVG-DOM ist nicht möglich.
+Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("font-face-format")}}-Elements über das SVG DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt aber Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt aber Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

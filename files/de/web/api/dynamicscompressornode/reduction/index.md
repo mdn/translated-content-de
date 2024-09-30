@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte **`reduction`**-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein Float und repräsentiert die Menge an Verstärkungsreduktion, die derzeit vom Kompressor auf das Signal angewendet wird.
+Die schreibgeschützte Eigenschaft **`reduction`** des [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Interfaces ist ein Float, der die Menge an derzeit vom Kompressor auf das Signal angewandter Verstärkungsreduktion darstellt.
 
-Sie ist für Messzwecke gedacht und gibt einen Wert in dB zurück oder `0` (keine Verstärkungsreduktion), wenn kein Signal in die `DynamicsCompressorNode` eingespeist wird. Der Wertebereich liegt zwischen `-20` und `0` (in dB).
+Für Messzwecke vorgesehen, gibt es einen Wert in dB zurück, oder `0` (keine Verstärkungsreduktion), wenn kein Signal in den `DynamicsCompressorNode` eingespeist wird. Der Wertebereich liegt zwischen `-20` und `0` (in dB).
 
 ## Wert
 
@@ -24,7 +24,7 @@ const compressor = audioCtx.createDynamicsCompressor();
 const myReduction = compressor.reduction;
 ```
 
-Sehen Sie sich [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigere Beispielcodes an.
+Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigeren Beispielcode.
 
 ## Spezifikationen
 

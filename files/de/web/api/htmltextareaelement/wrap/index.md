@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`wrap`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt an, wie die Kontrolle den Wert für die Formularübermittlung umbrechen soll. Sie spiegelt das [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap)-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur dann eine Wirkung hat, wenn auch das [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)-Attribut gesetzt ist.
+Die **`wrap`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, wie die Steuerung den Wert zur Formularübermittlung umbrechen soll. Sie spiegelt das [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap)-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur dann Wirkung zeigt, wenn auch das [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)-Attribut gesetzt ist.
 
 ## Wert
 
-Siehe [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap) für die möglichen Werte. Standardmäßig auf `"soft"` gesetzt.
+Siehe [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap) für die möglichen Werte. Standardwert ist `"soft"`.
 
 ## Beispiele
 

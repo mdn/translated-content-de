@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `usb`-Direktiv steuert, ob das aktuelle Dokument die [WebUSB-API](/de/docs/Web/API/WebUSB_API) verwenden darf.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `usb` steuert, ob das aktuelle Dokument die [WebUSB API](/de/docs/Web/API/WebUSB_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die [`Navigator.usb`](/de/docs/Web/API/Navigator/usb)-Eigenschaft nicht verfügbar sein.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die Eigenschaft [`Navigator.usb`](/de/docs/Web/API/Navigator/usb) nicht verfügbar sein.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: usb=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Das Standardzulassungsverzeichnis für `usb` ist `self`.
+Die Standard-`allowlist` für `usb` ist `self`.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Das Standardzulassungsverzeichnis für `usb` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader('Permissions-Policy')}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

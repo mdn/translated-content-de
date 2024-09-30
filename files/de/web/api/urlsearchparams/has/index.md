@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: has()-Methode"
+title: "URLSearchParams: has() Methode"
 short-title: has()
 slug: Web/API/URLSearchParams/has
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`has()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der angegebene Parameter in den Suchparametern enthalten ist.
+Die **`has()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der angegebene Parameter in den Suchparametern vorhanden ist.
 
-Ein Parametername und ein optionaler Wert werden verwendet, um Parameter abzugleichen. Wenn nur ein Parametername angegeben wird, gibt die Methode `true` zurück, wenn ein Parameter im Abfrage-String mit dem Namen übereinstimmt, andernfalls `false`. Wenn sowohl ein Parametername als auch ein Wert angegeben sind, gibt die Methode `true` zurück, wenn ein Parameter sowohl mit dem Namen als auch mit dem Wert übereinstimmt.
+Ein Parametername und ein optionaler Wert werden verwendet, um Parameter abzugleichen.
+Wenn nur ein Parametername angegeben ist, gibt die Methode `true` zurück, wenn irgendwelche Parameter in der Abfragezeichenfolge den Namen entsprechen, und `false` ansonsten.
+Wenn sowohl ein Parametername als auch ein Wert angegeben sind, gibt die Methode `true` zurück, wenn ein Parameter sowohl den Namen als auch den Wert entspricht.
 
 ## Syntax
 
@@ -22,9 +24,9 @@ has(name, value)
 ### Parameter
 
 - `name`
-  - : Der Name des zu suchenden Parameters.
+  - : Der Name des zu vergleichenden Parameters.
 - `value`
-  - : Der Wert des Parameters, zusammen mit dem angegebenen Namen, der abgeglichen werden soll.
+  - : Der Wert des Parameters, zusammen mit dem angegebenen Namen, zum Abgleichen.
 
 ### Rückgabewert
 
@@ -32,9 +34,9 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-### Überprüfen auf Parameter mit angegebenem Namen
+### Überprüfung eines Parameters mit angegebenem Namen
 
-Dieses Beispiel zeigt, wie überprüft wird, ob der Abfrage-String einen Parameter mit einem bestimmten Namen enthält.
+Dieses Beispiel zeigt, wie überprüft wird, ob die Abfragezeichenfolge Parameter mit einem bestimmten Namen hat.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3");
@@ -46,7 +48,7 @@ console.log(`bark?:\t${params.has("bark")}`);
 console.log(`foo?:\t${params.has("foo")}`);
 ```
 
-Das untenstehende Log zeigt, ob die Parameter `bar`, `bark` und `foo` im Abfrage-String vorhanden sind.
+Das untenstehende Protokoll zeigt, ob die Parameter `bar`, `bark` und `foo` in der Abfragezeichenfolge vorhanden sind.
 
 ```plain
 bar?:  true
@@ -54,9 +56,9 @@ bark?: false
 foo?:  true
 ```
 
-### Überprüfen auf Parameter mit angegebenem Namen und Wert
+### Überprüfung eines Parameters mit angegebenem Namen und Wert
 
-Dieses Beispiel zeigt, wie überprüft wird, ob der Abfrage-String einen Parameter enthält, der mit einem bestimmten Namen und Wert übereinstimmt.
+Dieses Beispiel zeigt, wie überprüft wird, ob die Abfragezeichenfolge einen Parameter hat, der sowohl einem bestimmten Namen als auch einem Wert entspricht.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3");
@@ -68,7 +70,7 @@ console.log(`bar=2?:\t${params.has("bar", "2")}`);
 console.log(`foo=4?:\t${params.has("foo", "4")}`);
 ```
 
-Nur der zweite Wert oben sollte `true` sein, da nur der Parametername `bar` mit dem Wert `2` übereinstimmt.
+Nur der zweite Wert sollte `true` sein, da nur der Parametername `bar` mit dem Wert `2` übereinstimmt.
 
 ```plain
 bar=1?: false
@@ -76,9 +78,9 @@ bar=2?: true
 foo=4?: false
 ```
 
-Wenn Ihr Browser die `value`-Option nicht unterstützt, wird die Methode nur nach dem Namen abgleichen, und alle Ergebnisse sollten `true` sein.
+Wenn Ihr Browser die `value`-Option nicht unterstützt, wird die Methode den Namen abgleichen, und alle Ergebnisse sollten `true` sein.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

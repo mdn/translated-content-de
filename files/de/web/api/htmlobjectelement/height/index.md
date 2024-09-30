@@ -9,13 +9,11 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`height`**-Eigenschaft des
-[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück,
-der das HTML-Attribut [`height`](/de/docs/Web/HTML/Element/object#height) widerspiegelt und die
-angezeigte Höhe der Ressource in CSS-Pixeln angibt.
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Interface gibt eine Zeichenfolge zurück, die das [`height`](/de/docs/Web/HTML/Element/object#height) HTML-Attribut widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 

@@ -23,7 +23,7 @@ Die **`CompressionStream`**-Schnittstelle der [Compression Streams API](/de/docs
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream mit Gzip-Komprimierung komprimiert.
+In diesem Beispiel wird ein Datenstrom unter Verwendung der "gzip"-Komprimierung komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

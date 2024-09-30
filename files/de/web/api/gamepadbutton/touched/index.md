@@ -1,5 +1,5 @@
 ---
-title: "GamepadButton: touched-Eigenschaft"
+title: "GamepadButton: Touched-Eigenschaft"
 short-title: touched
 slug: Web/API/GamepadButton/touched
 l10n:
@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`touched`**-Eigenschaft der [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Schnittstelle gibt einen `boolean` zurück, der anzeigt, ob eine Taste, die Berührungen erkennen kann, derzeit berührt (`true`) oder nicht berührt (`false`) ist.
+Die **`touched`**-Eigenschaft des
+[`GamepadButton`](/de/docs/Web/API/GamepadButton)-Interfaces gibt einen `boolean`-Wert zurück, der anzeigt, ob eine Taste, die Berührung erkennen kann, derzeit berührt (`true`) oder nicht berührt (`false`) ist.
 
-Wenn die Taste nicht in der Lage ist, Berührungen zu erkennen, aber einen analogen Wert zurückgeben kann, wird die Eigenschaft `true` sein, wenn der Wert größer als `0` ist, und `false` sonst. Wenn die Taste nicht in der Lage ist, Berührungen zu erkennen und nur einen digitalen Wert melden kann, sollte sie die [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed)-Eigenschaft spiegeln.
+Wenn die Taste nicht in der Lage ist, Berührung zu erkennen, aber einen analogen Wert zurückgeben kann, ist die Eigenschaft `true`, wenn der Wert größer als `0` ist, und `false` andernfalls. Wenn die Taste nicht in der Lage ist, Berührung zu erkennen und nur einen digitalen Wert berichten kann, sollte sie die [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed)-Eigenschaft widerspiegeln.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}. `True`, wenn berührt.
+Ein {{jsxref("Boolean")}}. `true`, wenn berührt.
 
 ## Beispiele
 

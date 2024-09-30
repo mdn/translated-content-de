@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`configurationName`**-Eigenschaft der [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Schnittstelle gibt den vom Gerät bereitgestellten Namen zurück, um diese Konfiguration zu beschreiben. Dieser ist gleich dem Wert des Zeichenfolgen-Deskriptors mit dem Index, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des Konfigurationsdeskriptors angegeben ist, das diese Konfiguration definiert.
+Die **`configurationName`**-Eigenschaft, die nur lesbar ist, der [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Schnittstelle gibt den vom Gerät bereitgestellten Namen zurück, der diese Konfiguration beschreibt. Dieser entspricht dem Wert des String-Beschreibers mit dem Index, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des Konfigurationsbeschreibers definiert ist, das diese Konfiguration beschreibt.
 
 ## Wert
 
-Der vom Gerät bereitgestellte Name zur Beschreibung dieser Konfiguration.
+Der vom Gerät bereitgestellte Name, der diese Konfiguration beschreibt.
 
 ## Spezifikationen
 

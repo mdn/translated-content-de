@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft **`error`** des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interfaces gibt den Typ des aufgetretenen Fehlers zurück.
+Die **`error`** schreibgeschützte Eigenschaft des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interface gibt den Typ des aufgetretenen Fehlers zurück.
 
 ## Wert
 
-Ein String, der den Typ des Fehlers benennt. Die möglichen Fehlertypen sind:
+Ein String, der den Fehlertyp benennt. Die möglichen Fehlertypen sind:
 
 - `no-speech`
-  - : Es wurde keine Spracheingabe erkannt.
+  - : Es wurde keine Sprache erkannt.
 - `aborted`
-  - : Die Spracheingabe wurde auf irgendeine Weise abgebrochen, möglicherweise durch ein benutzerspezifisches Verhalten wie eine Schaltfläche, die der Benutzer drücken kann, um die Spracheingabe abzubrechen.
+  - : Die Spracheingabe wurde auf irgendeine Weise abgebrochen, möglicherweise durch ein anwenderspezifisches Verhalten wie eine Schaltfläche, die der Benutzer drücken kann, um die Spracheingabe abzubrechen.
 - `audio-capture`
   - : Die Audioaufnahme ist fehlgeschlagen.
 - `network`
   - : Die für den Abschluss der Erkennung erforderliche Netzwerkkommunikation ist fehlgeschlagen.
 - `not-allowed`
-  - : Der Benutzeragent hat jegliche Spracheingabe aus Gründen der Sicherheit, des Datenschutzes oder der Benutzerpräferenz nicht zugelassen.
+  - : Der Benutzeragent hat aus Sicherheits-, Datenschutz- oder Benutzervorlieben-Gründen jegliche Spracheingabe nicht zugelassen.
 - `service-not-allowed`
-  - : Der Benutzeragent hat den angeforderten Spracherkennungsdienst nicht zugelassen, entweder weil der Benutzeragent ihn nicht unterstützt oder aus Gründen der Sicherheit, des Datenschutzes oder der Benutzerpräferenz. In diesem Fall wäre ein anderer, besser geeigneter Spracherkennungsdienst erlaubt.
+  - : Der Benutzeragent hat den angeforderten Sprachdienst nicht zugelassen, entweder weil der Benutzeragent ihn nicht unterstützt oder aus Sicherheits-, Datenschutz- oder Benutzervorlieben-Gründen. In diesem Fall würde ein anderer, besser geeigneter Sprachdienst verwendet werden.
 - `bad-grammar`
-  - : Es gab einen Fehler in der Spracherkennungsgrammatik oder den semantischen Tags, oder das gewählte Grammatikformat oder das Format der semantischen Tags wurde nicht unterstützt.
+  - : Es gab einen Fehler in der Sprachgrammatik oder den semantischen Tags oder das gewählte Grammatikformat oder semantische Tag-Format wurde nicht unterstützt.
 - `language-not-supported`
-  - : Der Benutzeragent unterstützt die Sprache nicht, die im Wert des [`lang`](/de/docs/Web/API/SpeechRecognition/lang)-Attributs des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts angegeben ist. Die Menge der unterstützten Sprachen hängt vom Browser ab, und es gibt keinen Weg vom Frontend-Code aus, um programmgesteuert zu bestimmen, welche Sprachen der Browser eines Benutzers für die Spracherkennung unterstützt.
+  - : Der Benutzeragent unterstützt die in der [`lang`](/de/docs/Web/API/SpeechRecognition/lang)-Attributwert des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts angegebene Sprache nicht. Der Satz der unterstützten Sprachen ist browserabhängig und es gibt keine Möglichkeit von Frontend-Code aus, programmgesteuert zu bestimmen, welche Sprachen der Browser eines Nutzers für die Spracherkennung unterstützt.
 
 ## Beispiele
 

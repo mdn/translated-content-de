@@ -1,5 +1,5 @@
 ---
-title: "RangeError: ungültige Array-Länge"
+title: "RangeError: invalid array length"
 slug: Web/JavaScript/Reference/Errors/Invalid_array_length
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
@@ -7,9 +7,12 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Ungültige Array-Länge" tritt auf, wenn eine Array-Länge angegeben wird, die entweder negativ, eine Dezimalzahl oder größer als das maximal von der Plattform unterstützte Limit ist (d. h. beim Erstellen eines {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}}, oder beim Setzen der {{jsxref("Array/length", "length")}} Eigenschaft).
+Die JavaScript-Ausnahme "Invalid array length" tritt auf, wenn eine Array-Länge angegeben wird, die entweder negativ, eine Gleitkommazahl ist oder das Maximum überschreitet, das von der Plattform unterstützt wird (zum Beispiel beim Erstellen eines {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}}, oder beim Setzen der {{jsxref("Array/length", "length")}}-Eigenschaft).
 
-Die maximal zulässige Array-Länge hängt von der Plattform, dem Browser und der Browserversion ab. Für ein {{jsxref("Array")}} beträgt die maximale Länge 2<sup>32</sup>-1. Für ein {{jsxref("ArrayBuffer")}} beträgt das Maximum 2<sup>31</sup>-1 (2GiB-1) auf 32-Bit-Systemen. Ab Firefox Version 89 ist der Maximalwert von {{jsxref("ArrayBuffer")}} 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen.
+Die maximal zulässige Array-Länge hängt von der Plattform, dem Browser und der Browserversion ab.
+Für ein {{jsxref("Array")}} ist die maximale Länge 2<sup>32</sup>-1.
+Für ein {{jsxref("ArrayBuffer")}} ist das Maximum 2<sup>31</sup>-1 (2GiB-1) auf 32-Bit-Systemen.
+Ab Version 89 von Firefox ist der Maximalwert von {{jsxref("ArrayBuffer")}} 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen.
 
 > **Note:** `Array` und `ArrayBuffer` sind unabhängige Datenstrukturen (die Implementierung der einen beeinflusst die andere nicht).
 
@@ -29,13 +32,13 @@ RangeError: length too large (Safari)
 
 ## Was ist schiefgelaufen?
 
-Der Fehler kann auftreten, wenn versucht wird, ein {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}} mit einer ungültigen Länge zu erstellen, einschließlich:
+Der Fehler kann auftreten, wenn versucht wird, ein {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}} mit einer ungültigen Länge zu erzeugen. Dazu gehören:
 
-- Negativer Länge, über den Konstruktor oder durch Setzen der {{jsxref("Array/length", "length")}} Eigenschaft.
-- Nicht-ganzzahliger Länge, über den Konstruktor oder durch Setzen der {{jsxref("Array/length", "length")}} Eigenschaft. (Der `ArrayBuffer`-Konstruktor zwingt die Länge zu einem Ganzzahlwert, aber der `Array`-Konstruktor nicht.)
-- Überschreiten der maximal von der Plattform unterstützten Länge. Für Arrays beträgt die maximale Länge 2<sup>32</sup>-1. Für `ArrayBuffer` beträgt die maximale Länge 2<sup>31</sup>-1 (2GiB-1) auf 32-Bit-Systemen oder 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen. Dies kann über den Konstruktor, durch Setzen der `length`-Eigenschaft oder durch Array-Methoden geschehen, die implizit die Länge setzen (wie {{jsxref("Array/push", "push")}} und {{jsxref("Array/concat", "concat")}}).
+- Negative Länge, über den Konstruktor oder das Setzen der {{jsxref("Array/length", "length")}}-Eigenschaft.
+- Nicht-ganzzahlige Länge, über den Konstruktor oder das Setzen der {{jsxref("Array/length", "length")}}-Eigenschaft. (Der `ArrayBuffer`-Konstruktor zwingt die Länge zu einer ganzen Zahl, der `Array`-Konstruktor jedoch nicht.)
+- Überschreiten der maximalen von der Plattform unterstützten Länge. Für Arrays ist die maximale Länge 2<sup>32</sup>-1. Für `ArrayBuffer` ist die maximale Länge 2<sup>31</sup>-1 (2GiB-1) auf 32-Bit-Systemen oder 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen. Dies kann über den Konstruktor geschehen, durch das Setzen der `length`-Eigenschaft oder durch Array-Methoden, die implizit die length-Eigenschaft setzen (wie {{jsxref("Array/push", "push")}} und {{jsxref("Array/concat", "concat")}}).
 
-Wenn Sie ein `Array` mit dem Konstruktor erstellen, möchten Sie wahrscheinlich die Literal-Notation stattdessen verwenden, da das erste Argument als Länge des `Array` interpretiert wird. Andernfalls möchten Sie möglicherweise die Länge begrenzen, bevor Sie die `length`-Eigenschaft setzen oder sie als Argument des Konstruktors verwenden.
+Wenn Sie ein `Array` mit dem Konstruktor erstellen, möchten Sie wahrscheinlich stattdessen die Literalnotation verwenden, da das erste Argument als Länge des `Array` interpretiert wird. Andernfalls möchten Sie möglicherweise die Länge begrenzen, bevor Sie die length-Eigenschaft festlegen oder sie als Argument des Konstruktors verwenden.
 
 ## Beispiele
 

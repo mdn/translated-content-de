@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CIA (Confidentiality, Integrity, Availability)** (auch genannt das CIA-Triad oder AIC-Triad) ist ein Modell, das die Richtlinien einer Organisation für Informationssicherheit leitet.
+**CIA (Confidentiality, Integrity, Availability)** (auch als CIA-Triad oder AIC-Triad bezeichnet) ist ein Modell, das die Richtlinien einer Organisation für Informationssicherheit leitet.
 
 ## Siehe auch
 

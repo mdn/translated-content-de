@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`local`**-Eigenschaft des **[`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)**-Wörterbuchs gibt das [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, das die Konfiguration des lokalen Endes einer funktionsfähigen WebRTC-Verbindung beschreibt.
+Die **`local`**-Eigenschaft des **[`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)** Dictionaries gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der die Konfiguration des lokalen Endes einer funktionsfähigen WebRTC-Verbindung beschreibt.
 
 ## Wert
 
-Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), das die Konfiguration des lokalen Endes eines funktionsfähigen Paars von ICE-Kandidaten beschreibt.
-Das `RTCIceCandidatePair` wird von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) zurückgegeben.
+Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des lokalen Endes eines funktionsfähigen Paares von ICE-Kandidaten beschreibt.
+Das `RTCIceCandidatePair` wird von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) zurückgegeben.
 
 ## Beispiele
 
@@ -26,8 +26,8 @@ const candidatePair = pc
 const localCandidate = candidatePair.local;
 ```
 
-Das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird gefunden, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird.
-Im ersten `RTCRtpSender` erhalten wir das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über das die Mediendaten übertragen werden, und schließlich daraus das `RTCIceTransport`.
+Der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird gefunden, indem die Liste von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) Objekten für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird.
+Im ersten `RTCRtpSender` erhalten wir den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über den die Mediendaten übertragen werden und schließlich daraus den `RTCIceTransport`.
 
 ## Spezifikationen
 

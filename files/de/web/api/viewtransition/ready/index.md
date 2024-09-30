@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die schreibgeschützte Eigenschaft **`ready`** der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudoelement-Baum erstellt wurde und die Übergangsanimation kurz vor dem Start steht.
+Die **`ready`**-Eigenschaft, eine schreibgeschützte Eigenschaft des [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Interfaces, ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudoelementbaum erstellt wurde und die Übergangsanimation kurz vor dem Start steht.
 
-`ready` wird abgelehnt, wenn der Übergang nicht gestartet werden kann. Dies kann aufgrund von Fehlkonfigurationen passieren, zum Beispiel bei doppelten {{cssxref("view-transition-name")}}s, oder wenn der an [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Callback wirft oder ein Promise zurückgibt, das abgelehnt wird.
+`ready` wird abgelehnt, wenn der Übergang nicht beginnen kann. Dies kann durch eine Fehlkonfiguration verursacht werden, zum Beispiel durch doppelte {{cssxref("view-transition-name")}}, oder wenn der an [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Rückruf eine Ausnahme auslöst oder ein abgelehntes Promise zurückgibt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein Promise.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten kreisförmigen Enthüllungs-Übergang zu starten, der sich bei einem Klick von der Position des Benutzercursors aus ausbreitet; die Animation wird von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt.
+Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten, kreisförmigen Anzeigeübergang auszulösen, der von der Position des Cursors des Benutzers bei einem Klick ausgeht, mit einer Animation, die von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
 
 ```js
 // Store the last click event
@@ -67,7 +67,7 @@ function spaNavigate(data) {
 }
 ```
 
-Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Animation auszuschalten und die alten und neuen Anzeigestände in keiner Weise miteinander zu vermischen (der neue Zustand "wischt" direkt über den alten Zustand, anstatt überzugehen):
+Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation zu deaktivieren und zu verhindern, dass die alten und neuen Ansichtsstatus in irgendeiner Weise ineinander überblenden (der neue Status "wischt" über den alten Status hinweg, anstatt hineinzutransitionieren):
 
 ```css
 ::view-transition-image-pair(root) {
@@ -92,4 +92,4 @@ Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Ani
 
 ## Siehe auch
 
-- [Weiche und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Glatte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

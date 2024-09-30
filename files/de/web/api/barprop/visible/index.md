@@ -8,20 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`visible`**-Eigenschaft der [`BarProp`](/de/docs/Web/API/BarProp)-Schnittstelle gibt `true` zurück, wenn das von ihr dargestellte Benutzeroberflächenelement sichtbar ist.
+Die schreibgeschützte Eigenschaft **`visible`** der [`BarProp`](/de/docs/Web/API/BarProp)-Schnittstelle gibt `true` zurück, wenn das von ihr repräsentierte Benutzeroberflächenelement sichtbar ist.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, der wahr ist, wenn das oberste Fenster durch [`window.open`](/de/docs/Web/API/Window/open) geöffnet wurde, und das [`popup`](/de/docs/Web/API/Window/open#popup)-Feature aktiviert ist.
+Ein {{jsxref("Boolean")}}, der wahr ist, wenn das oberste Fenster durch [`window.open`](/de/docs/Web/API/Window/open) mit der aktivierten [`popup`](/de/docs/Web/API/Window/open#popup)-Funktion geöffnet wird.
 
 > [!NOTE]
-> Historisch gesehen zeigte dies an, ob das verwendete Schnittstellenelement sichtbar ist
-> oder nicht. Aus Datenschutzgründen stellt dies jedoch nicht mehr die tatsächliche Sichtbarkeit jedes
-> Schnittstellenelements dar.
+> Historisch gesehen stellte dies dar, ob das verwendete Oberflächenelement sichtbar ist oder nicht. Aus Datenschutzgründen repräsentiert dies jedoch nicht mehr die tatsächliche Sichtbarkeit jedes Oberflächenelements.
 
 ## Beispiele
 
-Das folgende Beispiel gibt `true` in der Konsole aus, wenn das Fenster kein Popup ist.
+Das folgende Beispiel gibt `true` in die Konsole aus, wenn das Fenster kein Popup ist.
 
 ```js
 console.log(window.locationbar.visible);

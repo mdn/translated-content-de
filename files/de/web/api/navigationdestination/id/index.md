@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`id`** der Schnittstelle [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String, andernfalls.
+Die schreibgeschützte **`id`**-Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String ansonsten.
 
-Die `id` ist ein eindeutiger, von der Benutzeroberfläche generierter Wert, der immer den Verlaufseintrag darstellt. Er ist nützlich, um einen Verlaufseintrag mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
+Die `id` ist ein einzigartiger, vom User-Agent generierter Wert, der immer den Verlaufseintrag darstellt. Sie ist nützlich, um einen Verlaufseintrag mit einer externen Ressource wie einem Speicher-Cache zu verknüpfen.
 
 ## Wert
 
-Ein String, der die `id` des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt oder ein leerer String.
+Ein String, der die `id` des Ziel-`NavigationHistoryEntry` darstellt, oder ein leerer String.
 
 ## Beispiele
 
@@ -34,6 +34,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

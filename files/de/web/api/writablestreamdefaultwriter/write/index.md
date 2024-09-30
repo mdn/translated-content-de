@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultWriter: write()-Methode"
+title: "WritableStreamDefaultWriter: write() Methode"
 short-title: write()
 slug: Web/API/WritableStreamDefaultWriter/write
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`write()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle schreibt einen übergebenen Datenblock (`chunk`) in einen [`WritableStream`](/de/docs/Web/API/WritableStream) und dessen zugrundeliegendes Ziel (`sink`), und gibt dann ein {{jsxref("Promise")}} zurück, das angibt, ob der Schreibvorgang erfolgreich war oder fehlgeschlagen ist.
+Die **`write()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle schreibt einen übergebenen Datenblock in einen [`WritableStream`](/de/docs/Web/API/WritableStream) und dessen zugrundeliegenden Sink und gibt ein {{jsxref("Promise")}} zurück, das auflöst, um den Erfolg oder Misserfolg des Schreibvorgangs anzuzeigen.
 
-Beachten Sie, dass der Begriff "Erfolg" vom zugrundeliegenden Ziel abhängt; er könnte bedeuten, dass der Block akzeptiert wurde, aber nicht notwendigerweise, dass er sicher an seinem endgültigen Ziel gespeichert ist.
+Beachten Sie, dass die Definition von „Erfolg“ vom zugrundeliegenden Sink abhängt; es könnte bedeuten, dass der Block akzeptiert wurde, und nicht unbedingt, dass er sicher an seinem endgültigen Ziel gespeichert wurde.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ write(chunk)
 ### Parameter
 
 - `chunk`
-  - : Ein Block aus Binärdaten, der an den `WritableStream` übergeben wird.
+  - : Ein Block von Binärdaten, der an den `WritableStream` übergeben werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das bei einem erfolgreichen Schreibvorgang mit `undefined` erfüllt wird, oder abgelehnt wird, wenn der Schreibvorgang fehlschlägt oder der Stream vor Beginn des Schreibprozesses fehlerhaft wird.
+Ein {{jsxref("Promise")}}, das bei erfolgreichem Schreiben mit `undefined` erfüllt wird oder abgelehnt wird, wenn das Schreiben fehlschlägt oder der Stream fehlerhaft wird, bevor der Schreibprozess gestartet wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Ziel-Stream ist kein schreibbarer Stream oder hat keinen Besitzer.
+  - : Der Zielstream ist kein beschreibbarer Stream oder hat keinen Eigentümer.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten `sink` und einer von der API bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens `sendMessage()` auf, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jeden Block des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit Erfolg oder Misserfolg von Blöcken und Streams umzugehen.
+Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten Sink und einer von der API bereitgestellten Wartestrategie. Es ruft dann eine Funktion namens `sendMessage()` auf, übergibt den neu erstellten Stream und einen String. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die ein Exemplar von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jeden Block des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um den Erfolg oder Misserfolg von Blöcken und Streams zu behandeln.
 
 ```js
 const list = document.querySelector("ul");
@@ -102,7 +102,7 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [Einfaches Schreiber-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Sie finden den vollständigen Code in unserem [einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
 ## Spezifikationen
 

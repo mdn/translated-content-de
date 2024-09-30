@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Abstand an, um den der [Maskenrand](/de/docs/Web/CSS/mask-border) eines Elements von seinem Randkasten entfernt wird.
+Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Abstand an, um den der [Maskenrand](/de/docs/Web/CSS/mask-border) eines Elements von seinem Randkasten gesetzt wird.
 
 ## Syntax
 
@@ -35,19 +35,19 @@ mask-border-outset: revert-layer;
 mask-border-outset: unset;
 ```
 
-Die `mask-border-outset` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
+Die Eigenschaft `mask-border-outset` kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder eine {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben wird, gilt derselbe Ausbruch **für alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Ausbruch für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt der erste Ausbruch für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Ausbrüche für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, gilt derselbe Abstand für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt der erste Abstand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Abstände in folgender Reihenfolge für **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Maskenrand-Ausbruchs als Dimension.
+  - : Die Größe des Maskenrandabstands als Dimension.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des Maskenrand-Ausbruchs als Vielfaches der entsprechenden {{cssxref("border-width")}}.
+  - : Die Größe des Maskenrandabstands als Vielfaches der entsprechenden {{cssxref("border-width")}}.
 
 ## Formale Definition
 
@@ -61,7 +61,7 @@ Die `mask-border-outset` Eigenschaft kann mit einem, zwei, drei oder vier Werten
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit nirgendwo unterstützt zu werden. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, die Maske vom inneren Rand des Randkastens des Elements weg zu bewegen — Sie können sie verwenden, um die Maske von einem Punkt der Grenze aus starten zu lassen, anstatt von der Innenseite.
+Diese Eigenschaft scheint derzeit noch nirgends unterstützt zu werden. Sobald sie unterstützt wird, wird sie dazu dienen, die Maske vom inneren Rand des Randkastens des Elements weg zu bewegen — Sie können sie verwenden, um die Maske so zu positionieren, dass sie teilweise über den Rand hinaus beginnt, anstatt innerhalb davon.
 
 ```css
 mask-border-outset: 1rem;
@@ -74,7 +74,7 @@ Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaf
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Randmaskeneigenschaften, die in Chromium unterstützt werden), damit Sie sich eine Vorstellung von der Wirkung machen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Randmaskeneigenschaften in Chromium), sodass Sie eine Vorstellung vom Effekt erhalten können.
 
 ## Spezifikationen
 

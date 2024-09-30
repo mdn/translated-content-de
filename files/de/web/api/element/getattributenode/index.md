@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode getAttributeNode()"
+title: "Element: getAttributeNode()-Methode"
 short-title: getAttributeNode()
 slug: Web/API/Element/getAttributeNode
 l10n:
@@ -10,7 +10,7 @@ l10n:
 
 Gibt das angegebene Attribut des angegebenen Elements als [`Attr`](/de/docs/Web/API/Attr)-Knoten zurück.
 
-Diese Methode ist nützlich, wenn Sie die [Instanzeigenschaften](/de/docs/Web/API/Attr#instance_properties) des Attributs benötigen. Wenn Sie nur den Wert des Attributs benötigen, können Sie stattdessen die Methode [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) verwenden.
+Diese Methode ist nützlich, wenn Sie die [Instanzeigenschaften](/de/docs/Web/API/Attr#instance_properties) des Attributs benötigen. Wenn Sie nur den Wert des Attributs benötigen, können Sie stattdessen die [`getAttribute()`](/de/docs/Web/API/Element/getAttribute)-Methode verwenden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getAttributeNode(attrName)
 ### Parameter
 
 - `attrName`
-  - : Ein Zeichenfolgenwert, der den Namen des Attributs enthält.
+  - : Ein String, der den Namen des Attributs enthält.
 
 ### Rückgabewert
 
@@ -38,9 +38,9 @@ alert(idAttr.value === "top");
 
 ## Hinweise
 
-Wenn diese Methode auf ein HTML-Element in einem DOM, das als HTML-Dokument gekennzeichnet ist, aufgerufen wird, setzt `getAttributeNode` ihr Argument in Kleinbuchstaben, bevor es weitergeht.
+Wenn die Methode auf ein HTML-Element in einem als HTML-Dokument gekennzeichneten DOM aufgerufen wird, wird das Argument von `getAttributeNode` vor der weiteren Verarbeitung in Kleinbuchstaben umgewandelt.
 
-Der `Attr`-Knoten erbt von `Node`, wird jedoch nicht als Teil des Dokumentbaums betrachtet. Allgemeine `Node`-Attribute wie [parentNode](/de/docs/Web/API/Node/parentNode), [previousSibling](/de/docs/Web/API/Node/previousSibling) und [nextSibling](/de/docs/Web/API/Node/nextSibling) sind für einen `Attr`-Knoten `null`. Sie können jedoch das Element abrufen, zu dem das Attribut gehört, mit der Eigenschaft `ownerElement`.
+Der `Attr`-Knoten erbt von `Node`, wird jedoch nicht als Teil des Dokumentbaums betrachtet. Häufige `Node`-Attribute wie [parentNode](/de/docs/Web/API/Node/parentNode), [previousSibling](/de/docs/Web/API/Node/previousSibling) und [nextSibling](/de/docs/Web/API/Node/nextSibling) sind für einen `Attr`-Knoten `null`. Sie können jedoch das Element, zu dem das Attribut gehört, mit der Eigenschaft `ownerElement` abrufen.
 
 ## Spezifikationen
 

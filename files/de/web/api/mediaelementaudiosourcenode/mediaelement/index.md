@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`mediaElement`**-Eigenschaft des [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Interfaces zeigt das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) an, das den Audio-Track enthält, von dem der Knoten Audio empfängt.
+Die schreibgeschützte **`mediaElement`**-Eigenschaft des [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Interfaces gibt das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) an, das den Audiotrack enthält, von dem der Knoten Audio empfängt.
 
-Dieser Stream wurde beim Erstellen des Knotens angegeben, entweder mithilfe des [`MediaElementAudioSourceNode()`](/de/docs/Web/API/MediaElementAudioSourceNode/MediaElementAudioSourceNode)-Konstruktors oder der Methode [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource).
+Dieser Stream wurde beim Erstellen des Knotens angegeben, entweder über den [`MediaElementAudioSourceNode()`](/de/docs/Web/API/MediaElementAudioSourceNode/MediaElementAudioSourceNode)-Konstruktor oder die [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource)-Methode.
 
 ## Wert
 

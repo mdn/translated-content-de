@@ -1,5 +1,5 @@
 ---
-title: Client-Server-Übersicht
+title: Client-Server Übersicht
 slug: Learn/Server-side/First_steps/Client-Server_overview
 l10n:
   sourceCommit: cb02a672ccfd2489ee9fbbf67b3ac6322de50987
@@ -7,65 +7,65 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Server-side/First_steps/Introduction", "Learn/Server-side/First_steps/Web_frameworks", "Learn/Server-side/First_steps")}}
 
-Nun, da Sie den Zweck und die potenziellen Vorteile der serverseitigen Programmierung kennen, werden wir im Detail untersuchen, was passiert, wenn ein Server eine "dynamische Anfrage" von einem Browser erhält. Da der meiste serverseitige Code von Websites Anfragen und Antworten auf ähnliche Weise verarbeitet, wird Ihnen dies helfen zu verstehen, was Sie tun müssen, wenn Sie Ihren eigenen Code schreiben.
+Jetzt, da Sie die Ziele und potenziellen Vorteile der serverseitigen Programmierung kennen, werden wir im Detail untersuchen, was passiert, wenn ein Server eine "dynamische Anfrage" von einem Browser erhält. Da der Großteil des serverseitigen Codes von Websites Anfragen und Antworten auf ähnliche Weise verarbeitet, wird Ihnen dies helfen zu verstehen, was Sie tun müssen, wenn Sie Ihren eigenen Code schreiben.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegendes Verständnis davon, was ein Webserver ist.
+        Ein grundlegendes Verständnis dafür, was ein Webserver ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen von Client-Server-Interaktionen auf einer dynamischen Website und insbesondere welche Operationen durch serverseitigen Code durchgeführt werden müssen.
+        Verständnis der Client-Server-Interaktionen in einer dynamischen Website und insbesondere der Operationen, die vom serverseitigen Code ausgeführt werden müssen.
       </td>
     </tr>
   </tbody>
 </table>
 
-Es gibt keinen echten Code in der Diskussion, da wir noch kein Web-Framework ausgewählt haben, um unseren Code zu schreiben! Diese Diskussion ist jedoch immer noch sehr relevant, da das beschriebene Verhalten von Ihrem serverseitigen Code implementiert werden muss, unabhängig davon, welche Programmiersprache oder welches Web-Framework Sie auswählen.
+Im Abschnitt wird kein echter Code behandelt, da wir noch keinen Web-Framework ausgewählt haben, mit dem wir unseren Code schreiben! Diese Erörterung ist jedoch weiterhin sehr relevant, da das beschriebene Verhalten von Ihrem serverseitigen Code umgesetzt werden muss, unabhängig davon, welche Programmiersprache oder welches Web-Framework Sie wählen.
 
-## Webserver und HTTP (ein Überblick)
+## Webserver und HTTP (eine Einführung)
 
-Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) über das **H**yper**T**ext **T**ransfer **P**rotocol ([HTTP](/de/docs/Web/HTTP)). Wenn Sie auf einer Webseite einen Link anklicken, ein Formular absenden oder eine Suche durchführen, sendet der Browser eine _HTTP-Anfrage_ an den Server.
+Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) über das **H**yper**T**ext **T**ransfer **P**rotocol ([HTTP](/de/docs/Web/HTTP)). Wenn Sie auf einen Link auf einer Webseite klicken, ein Formular absenden oder eine Suche durchführen, sendet der Browser eine _HTTP-Anfrage_ an den Server.
 
-Diese Anfrage umfasst:
+Diese Anfrage beinhaltet:
 
-- Eine URL, die den Zielserver und die Ressource identifiziert (z. B. eine HTML-Datei, einen bestimmten Datenpunkt auf dem Server oder ein Tool, das ausgeführt werden soll).
-- Eine Methode, die die erforderliche Aktion definiert (zum Beispiel, um eine Datei abzurufen oder einige Daten zu speichern oder zu aktualisieren). Die verschiedenen Methoden/Verben und deren zugehörige Aktionen sind unten aufgeführt:
+- Eine URL, die den Zielserver und die Ressource identifiziert (z.B. eine HTML-Datei, einen bestimmten Datenpunkt auf dem Server oder ein Tool, das ausgeführt werden soll).
+- Eine Methode, die die erforderliche Aktion definiert (zum Beispiel, um eine Datei abzurufen oder einige Daten zu speichern oder zu aktualisieren). Die verschiedenen Methoden/Verben und ihre zugehörigen Aktionen sind unten aufgeführt:
 
-  - `GET`: Abrufen einer spezifischen Ressource (z. B. einer HTML-Datei mit Informationen über ein Produkt oder eine Liste von Produkten).
-  - `POST`: Erstellen einer neuen Ressource (z. B. Hinzufügen eines neuen Artikels zu einem Wiki, Hinzufügen eines neuen Kontakts zu einer Datenbank).
-  - `HEAD`: Abrufen der Metadateninformationen über eine spezifische Ressource ohne den Body wie `GET`. Sie könnten beispielsweise eine `HEAD`-Anfrage verwenden, um herauszufinden, wann eine Ressource zuletzt aktualisiert wurde, und dann nur die (teurere) `GET`-Anfrage verwenden, um die Ressource herunterzuladen, wenn sie geändert wurde.
-  - `PUT`: Aktualisieren einer vorhandenen Ressource (oder Erstellen einer neuen, falls diese nicht existiert).
-  - `DELETE`: Löschen der angegebenen Ressource.
-  - `TRACE`, `OPTIONS`, `CONNECT`, `PATCH`: Diese Verben sind für weniger gängige/fortgeschrittene Aufgaben gedacht und werden hier nicht behandelt.
+  - `GET`: Holen Sie sich eine bestimmte Ressource (z.B. eine HTML-Datei mit Informationen über ein Produkt oder eine Liste von Produkten).
+  - `POST`: Erstellen Sie eine neue Ressource (z.B. einen neuen Artikel zu einem Wiki hinzufügen, einen neuen Kontakt in einer Datenbank hinzufügen).
+  - `HEAD`: Holen Sie sich die Metadateninformation zu einer bestimmten Ressource, ohne den Body, wie es `GET` tun würde. Sie könnten zum Beispiel eine `HEAD`-Anfrage verwenden, um herauszufinden, wann eine Ressource zuletzt aktualisiert wurde, und dann nur die (teurer) `GET`-Anfrage verwenden, um die Ressource herunterzuladen, falls sie sich geändert hat.
+  - `PUT`: Aktualisieren Sie eine vorhandene Ressource (oder erstellen Sie eine neue, falls sie nicht existiert).
+  - `DELETE`: Löschen Sie die angegebene Ressource.
+  - `TRACE`, `OPTIONS`, `CONNECT`, `PATCH`: Diese Verben sind für weniger übliche/fortgeschrittene Aufgaben, daher werden wir sie hier nicht behandeln.
 
-- Zusätzliche Informationen können in der Anfrage kodiert werden (zum Beispiel HTML-Formulardaten). Informationen können wie folgt kodiert werden:
+- Zusätzliche Informationen können mit der Anfrage verschlüsselt werden (z.B. HTML-Formulardaten). Informationen können wie folgt codiert werden:
 
-  - URL-Parameter: `GET`-Anfragen kodieren Daten in der URL, die an den Server gesendet wird, indem Name/Wert-Paare an dessen Ende hinzugefügt werden — zum Beispiel `http://example.com?name=Fred&age=11`. Sie haben immer ein Fragezeichen (`?`), das den Rest der URL von den URL-Parametern trennt, ein Gleichheitszeichen (`=`), das jeden Namen von seinem zugehörigen Wert trennt, und ein Et-Zeichen (`&`), das jedes Paar trennt. URL-Parameter sind von Natur aus "unsicher", da sie von Benutzern geändert und dann erneut übermittelt werden können. Daher werden URL-Parameter/`GET`-Anfragen nicht für Anfragen verwendet, die Daten auf dem Server aktualisieren.
-  - `POST`-Daten. `POST`-Anfragen fügen neue Ressourcen hinzu, die im Anfragetext kodiert sind.
-  - Client-seitige Cookies. Cookies enthalten Sitzungsdaten über den Client, einschließlich Schlüsseln, die der Server verwenden kann, um deren Anmeldestatus und Berechtigungen/Zugriffsrechte auf Ressourcen zu bestimmen.
+  - URL-Parameter: `GET`-Anfragen kodieren Daten in der URL, die an den Server gesendet wird, indem Name/Wert-Paare angehängt werden — zum Beispiel `http://example.com?name=Fred&age=11`. Sie haben immer ein Fragezeichen (`?`), das den Rest der URL von den URL-Parametern trennt, ein Gleichheitszeichen (`=`), das jeden Namen von seinem zugehörigen Wert trennt, und ein Kaufmanns-Und (`&`), das jedes Paar trennt. URL-Parameter sind von Natur aus "unsicher", da sie von Benutzern geändert und dann erneut übermittelt werden können. Daher werden URL-Parameter/`GET`-Anfragen nicht für Anfragen verwendet, die Daten auf dem Server aktualisieren.
+  - `POST`-Daten: `POST`-Anfragen fügen neue Ressourcen hinzu, deren Daten innerhalb des Requests im Body verschlüsselt sind.
+  - Client-seitige Cookies: Cookies enthalten Sitzungsdaten über den Client, einschließlich Schlüssel, die der Server verwenden kann, um ihren Login-Status und Berechtigungen/Zugriffe auf Ressourcen zu bestimmen.
 
-Webserver warten auf Client-Anforderungsnachrichten, verarbeiten sie bei Eingang und antworten dem Webbrowser mit einer HTTP-Antwortnachricht. Die Antwort enthält einen [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status), der angibt, ob die Anfrage erfolgreich war oder nicht (z. B. {{HTTPStatus("200", "200 OK")}} für Erfolg, {{HTTPStatus("404", "404 Not Found")}}, wenn die Ressource nicht gefunden werden kann, {{HTTPStatus("403", "403 Forbidden")}}, wenn der Benutzer nicht berechtigt ist, die Ressource zu sehen, usw.). Der Body der Antwort auf eine erfolgreiche `GET`-Anfrage enthält die angeforderte Ressource.
+Webserver warten auf Anfrage-Nachrichten von Clients, verarbeiten sie, wenn sie eintreffen, und antworten dem Webbrowser mit einer HTTP-Antwortnachricht. Die Antwort enthält einen [HTTP-Statuscode](/de/docs/Web/HTTP/Status), der angibt, ob die Anfrage erfolgreich war (z.B. {{HTTPStatus("200", "200 OK")}} für Erfolg, {{HTTPStatus("404", "404 Not Found")}}, wenn die Ressource nicht gefunden werden kann, {{HTTPStatus("403", "403 Forbidden")}}, wenn der Benutzer nicht autorisiert ist, die Ressource zu sehen, usw.). Der Body der Antwort auf eine erfolgreiche `GET`-Anfrage enthält die angeforderte Ressource.
 
-Wenn eine HTML-Seite zurückgegeben wird, wird sie vom Webbrowser gerendert. Im Rahmen der Verarbeitung kann der Browser Links zu anderen Ressourcen entdecken (z. B. verweist eine HTML-Seite normalerweise auf JavaScript- und CSS-Dateien) und wird separate HTTP-Anfragen senden, um diese Dateien herunterzuladen.
+Wenn eine HTML-Seite zurückgegeben wird, wird sie vom Webbrowser gerendert. Während der Verarbeitung kann der Browser Links zu anderen Ressourcen entdecken (z.B. eine HTML-Seite verweist normalerweise auf JavaScript- und CSS-Dateien) und wird separate HTTP-Anfragen senden, um diese Dateien herunterzuladen.
 
-Sowohl statische als auch dynamische Websites (die in den folgenden Abschnitten behandelt werden) verwenden genau dasselbe Kommunikationsprotokoll/-muster.
+Sowohl statische als auch dynamische Websites (die in den folgenden Abschnitten behandelt werden) verwenden genau dasselbe Kommunikationsprotokoll/Muster.
 
 ### Beispiel für eine GET-Anfrage/Antwort
 
-Sie können eine einfache `GET`-Anfrage machen, indem Sie auf einen Link klicken oder auf einer Website suchen (wie auf einer Suchmaschinenseite). Zum Beispiel wird die HTTP-Anfrage, die gesendet wird, wenn Sie auf MDN nach dem Begriff "client-server overview" suchen, ungefähr so aussehen wie der unten gezeigte Text (es wird nicht identisch sein, da Teile der Nachricht von Ihrem Browser/Setup abhängen).
+Sie können eine einfache `GET`-Anfrage stellen, indem Sie auf einen Link klicken oder auf einer Website suchen (wie bei einer Suchmaschinen-Startseite). Zum Beispiel sieht die HTTP-Anfrage, die gesendet wird, wenn Sie auf MDN nach dem Begriff "Client-Server Übersicht" suchen, sehr ähnlich wie der unten gezeigte Text aus (sie wird nicht identisch sein, da Teile der Nachricht von Ihrem Browser/Setup abhängen).
 
 > [!NOTE]
-> Das Format von HTTP-Nachrichten ist in einem "Web-Standard" definiert ([RFC9110](https://httpwg.org/specs/rfc9110.html#messages)). Sie müssen dieses Detailniveau nicht kennen, aber jetzt wissen Sie zumindest, woher das alles stammt!
+> Das Format von HTTP-Nachrichten ist in einem "Webstandard" definiert ([RFC9110](https://httpwg.org/specs/rfc9110.html#messages)). Sie müssen dieses Detailniveau nicht kennen, aber jetzt wissen Sie zumindest, woher das alles kam!
 
 #### Die Anfrage
 
-Jede Zeile der Anfrage enthält Informationen darüber. Der erste Teil wird **Header** genannt und enthält nützliche Informationen über die Anfrage, ähnlich wie ein [HTML-Kopf](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML) nützliche Informationen über ein HTML-Dokument enthält (aber nicht den eigentlichen Inhalt selbst, der im Body ist):
+Jede Zeile der Anfrage enthält Informationen darüber. Der erste Teil wird als **Header** bezeichnet und enthält nützliche Informationen über die Anfrage, ähnlich wie ein [HTML-Kopf](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML) nützliche Informationen über ein HTML-Dokument enthält (aber nicht den eigentlichen Inhalt selbst, der sich im Body befindet):
 
 ```http
 GET /en-US/search?q=client+server+overview&topic=apps&topic=html&topic=css&topic=js&topic=api&topic=webdev HTTP/1.1
@@ -83,36 +83,36 @@ Accept-Language: en-US,en;q=0.8,es;q=0.6
 Cookie: sessionid=6ynxs23n521lu21b1t136rhbv7ezngie; csrftoken=zIPUJsAZv6pcgCBJSCj1zU6pQZbfMUAT; dwf_section_edit=False; dwf_sg_task_completion=False; _gat=1; _ga=GA1.2.1688886003.1471911953; ffo=true
 ```
 
-Die erste und zweite Zeile enthalten die meisten der oben besprochenen Informationen:
+Die erste und zweite Zeile enthalten die meisten der oben genannten Informationen:
 
-- Der Anfragetyp (`GET`).
+- Die Art der Anfrage (`GET`).
 - Die Zielressourcen-URL (`/en-US/search`).
 - Die URL-Parameter (`q=client%2Bserver%2Boverview&topic=apps&topic=html&topic=css&topic=js&topic=api&topic=webdev`).
 - Die Ziel/Host-Website (developer.mozilla.org).
-- Das Ende der ersten Zeile enthält auch eine kurze Zeichenfolge, die das spezifische Protokollversion identifiziert (`HTTP/1.1`).
+- Am Ende der ersten Zeile befindet sich auch eine kurze Zeichenfolge, die die spezifische Protokollversion identifiziert (`HTTP/1.1`).
 
-Die letzte Zeile enthält Informationen über die clientseitigen Cookies — Sie können hier sehen, dass das Cookie eine ID zum Sitzungsmanagement enthält (`Cookie: sessionid=6ynxs23n521lu21b1t136rhbv7ezngie; …`).
+Die letzte Zeile enthält Informationen über die clientseitigen Cookies — Sie können in diesem Fall sehen, dass das Cookie eine ID zur Verwaltung von Sitzungen enthält (`Cookie: sessionid=6ynxs23n521lu21b1t136rhbv7ezngie; …`).
 
-Die restlichen Zeilen enthalten Informationen über den verwendeten Browser und die Art von Antworten, die er verarbeiten kann.
-Beispielsweise können Sie sehen, dass:
+Die restlichen Zeilen enthalten Informationen über den verwendeten Browser und die Art der Antworten, die er verarbeiten kann.
+Zum Beispiel können Sie hier sehen, dass:
 
-- Mein Browser (`User-Agent`) ist Mozilla Firefox (`Mozilla/5.0`).
+- Mein Browser (`User-Agent`) Mozilla Firefox ist (`Mozilla/5.0`).
 - Er kann gzip-komprimierte Informationen akzeptieren (`Accept-Encoding: gzip`).
-- Er kann den angegebenen Zeichensatz (`Accept-Charset: ISO-8859-1,UTF-8;q=0.7,*;q=0.7`) und Sprachen (`Accept-Language: en-US,en;q=0.8,es;q=0.6`) akzeptieren.
-- Die `Referer`-Zeile gibt die Adresse der Webseite an, die den Link zu dieser Ressource enthalten hat (d.h. den Ursprung der Anfrage, `https://developer.mozilla.org/en-US/`).
+- Er kann den angegebenen Zeichensatz (`Accept-Charset: ISO-8859-1,UTF-8;q=0.7,*;q=0.7`) und die Sprachen (`Accept-Language: en-US,en;q=0.8,es;q=0.6`) akzeptieren.
+- Die `Referer`-Zeile gibt die Adresse der Webseite an, die den Link zu dieser Ressource enthalten hat (d.h. die Herkunft der Anfrage, `https://developer.mozilla.org/en-US/`).
 
-HTTP-Anfragen können auch einen Body haben, der in diesem Fall jedoch leer ist.
+HTTP-Anfragen können auch einen Body enthalten, dieser ist jedoch in diesem Fall leer.
 
 #### Die Antwort
 
-Der erste Teil der Antwort auf diese Anfrage wird unten gezeigt. Der Header enthält Informationen wie die folgenden:
+Der erste Teil der Antwort auf diese Anfrage ist unten gezeigt. Der Header enthält Informationen wie die folgenden:
 
-- Die erste Zeile enthält den Antwortcode `200 OK`, der uns mitteilt, dass die Anfrage erfolgreich war.
-- Wir sehen, dass die Antwort im `text/html`-Format vorliegt (`Content-Type`).
-- Wir sehen auch, dass sie den UTF-8-Zeichensatz verwendet (`Content-Type: text/html; charset=utf-8`).
-- Der Kopf gibt auch an, wie groß sie ist (`Content-Length: 41823`).
+- Die erste Zeile enthält den Antwortcode `200 OK`, der uns sagt, dass die Anfrage erfolgreich war.
+- Wir können sehen, dass die Antwort im `text/html`-Format ist (`Content-Type`).
+- Wir können auch sehen, dass sie den UTF-8-Zeichensatz verwendet (`Content-Type: text/html; charset=utf-8`).
+- Der Kopf teilt uns auch mit, wie groß er ist (`Content-Length: 41823`).
 
-Am Ende der Nachricht sehen wir den **Body**-Inhalt — der enthält das eigentliche HTML, das von der Anfrage zurückgegeben wurde.
+Am Ende der Nachricht sehen wir den **Body**-Inhalt — der den tatsächlichen HTML-Code enthält, der durch die Anfrage zurückgegeben wurde.
 
 ```http
 HTTP/1.1 200 OK
@@ -137,15 +137,15 @@ Content-Length: 41823
   …
 ```
 
-Der Rest des Antwort-Headers enthält Informationen über die Antwort (z. B. wann sie generiert wurde), den Server und wie er erwartet, dass der Browser die Seite behandelt (z. B. die `X-Frame-Options: DENY`-Zeile, die dem Browser mitteilt, dass diese Seite nicht in einem {{htmlelement("iframe")}} auf einer anderen Seite eingebettet werden darf).
+Der Rest des Antwort-Headers enthält Informationen über die Antwort (z.B. wann sie erstellt wurde), den Server und wie der Browser die Seite handhaben soll (z.B. die Zeile `X-Frame-Options: DENY` weist den Browser an, diese Seite nicht in einem {{htmlelement("iframe")}} auf einer anderen Seite einzubetten).
 
 ### Beispiel für eine POST-Anfrage/Antwort
 
-Ein HTTP-`POST` wird gemacht, wenn Sie ein Formular absenden, das Informationen enthält, die auf dem Server gespeichert werden sollen.
+Ein HTTP `POST` wird durchgeführt, wenn Sie ein Formular absenden, das Informationen enthält, die auf dem Server gespeichert werden sollen.
 
 #### Die Anfrage
 
-Der unten stehende Text zeigt die HTTP-Anfrage, die gesendet wird, wenn ein Benutzer auf dieser Seite neue Profildetails einreicht. Das Format der Anfrage ist fast identisch mit dem der oben gezeigten `GET`-Anfrage, obwohl die erste Zeile diese Anfrage als `POST` identifiziert.
+Der untenstehende Text zeigt die HTTP-Anfrage, die gestellt wird, wenn ein Benutzer neue Profildaten auf dieser Seite überträgt. Das Format der Anfrage ist fast dasselbe wie das zuvor gezeigte `GET`-Anfragebeispiel, obwohl die erste Zeile diese Anfrage als `POST` kennzeichnet.
 
 ```http
 POST /en-US/profiles/hamishwillee/edit HTTP/1.1
@@ -167,11 +167,11 @@ Cookie: sessionid=6ynxs23n521lu21b1t136rhbv7ezngie; _gat=1; csrftoken=zIPUJsAZv6
 csrfmiddlewaretoken=zIPUJsAZv6pcgCBJSCj1zU6pQZbfMUAT&user-username=hamishwillee&user-fullname=Hamish+Willee&user-title=&user-organization=&user-location=Australia&user-locale=en-US&user-timezone=Australia%2FMelbourne&user-irc_nickname=&user-interests=&user-expertise=&user-twitter_url=&user-stackoverflow_url=&user-linkedin_url=&user-mozillians_url=&user-facebook_url=
 ```
 
-Der Hauptunterschied besteht darin, dass die URL keine Parameter enthält. Wie Sie sehen können, sind die Informationen aus dem Formular im Body der Anfrage kodiert (zum Beispiel ist der neue vollständige Benutzername gesetzt durch: `&user-fullname=Hamish+Willee`).
+Der Hauptunterschied ist, dass die URL keine Parameter hat. Wie Sie sehen können, sind die Informationen aus dem Formular im Body der Anfrage kodiert (zum Beispiel wird der neue Benutzer-Vollname festgelegt mit: `&user-fullname=Hamish+Willee`).
 
 #### Die Antwort
 
-Die Antwort auf die Anfrage wird unten gezeigt. Der Statuscode `302 Found` teilt dem Browser mit, dass der Post erfolgreich war und dass er eine zweite HTTP-Anfrage senden muss, um die im `Location`-Feld angegebene Seite zu laden. Die Informationen sind ansonsten ähnlich wie bei der Antwort auf eine `GET`-Anfrage.
+Die Antwort auf die Anfrage ist unten dargestellt. Der Statuscode `302 Found` teilt dem Browser mit, dass das Posten erfolgreich war und dass er eine zweite HTTP-Anfrage stellen muss, um die im `Location`-Feld angegebene Seite zu laden. Die Informationen sind ansonsten ähnlich wie bei der Antwort auf eine `GET`-Anfrage.
 
 ```http
 HTTP/1.1 302 FOUND
@@ -190,74 +190,74 @@ Content-Length: 0
 ```
 
 > [!NOTE]
-> Die in diesen Beispielen gezeigten HTTP-Antworten und -Anfragen wurden mit der [Fiddler](https://www.telerik.com/download/fiddler)-Anwendung erfasst, aber Sie können ähnliche Informationen mit Web-Sniffern (z. B. [WebSniffer](https://websniffer.com/)) oder Paketanalysatoren wie [Wireshark](https://www.wireshark.org/) erhalten. Sie können dies selbst ausprobieren. Verwenden Sie eines der verlinkten Tools und navigieren Sie dann durch eine Seite und bearbeiten Sie Profilinformationen, um die verschiedenen Anfragen und Antworten zu sehen. Die meisten modernen Browser haben ebenfalls Tools, die Netzwerk-Anfragen überwachen (z. B. das [Network Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html)-Tool in Firefox).
+> Die in diesen Beispielen gezeigten HTTP-Antworten und -Anfragen wurden mit der [Fiddler](https://www.telerik.com/download/fiddler)-Anwendung erfasst, aber Sie können ähnliche Informationen mit Web-Sniffern (z.B. [WebSniffer](https://websniffer.com/)) oder Paket-Analysatoren wie [Wireshark](https://www.wireshark.org/) erhalten. Sie können dies selbst ausprobieren. Verwenden Sie eines der verlinkten Tools und navigieren Sie dann durch eine Website und bearbeiten Sie Profildaten, um die verschiedenen Anfragen und Antworten zu sehen. Die meisten modernen Browser haben ebenfalls Tools, die Netzwerkanfragen überwachen (zum Beispiel das [Netzwerkmonitor-Tool](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) in Firefox).
 
-## Statische Seiten
+## Statische Websites
 
-Eine _statische Seite_ ist eine, die immer denselben fest kodierten Inhalt vom Server zurückgibt, wann immer eine bestimmte Ressource angefordert wird. Wenn Sie also beispielsweise eine Seite über ein Produkt unter `/static/myproduct1.html` haben, wird dieselbe Seite jedem Benutzer zurückgegeben. Wenn Sie ein weiteres ähnliches Produkt auf Ihrer Seite hinzufügen, müssen Sie eine weitere Seite hinzufügen (z. B. `myproduct2.html`) und so weiter. Dies kann wirklich ineffizient werden — was passiert, wenn Sie zu Tausenden von Produktseiten gelangen? Sie würden viel Code auf jeder Seite wiederholen (die grundlegende Seitenschablone, die Struktur usw.), und wenn Sie etwas an der Seitenstruktur ändern wollten — wie zum Beispiel einen neuen Abschnitt "Verwandte Produkte" hinzufügen — dann müssten Sie jede Seite einzeln ändern.
+Eine _statische Website_ ist eine, die immer denselben hartcodierten Inhalt vom Server zurückgibt, wann immer eine bestimmte Ressource angefordert wird. Wenn Sie also eine Seite über ein Produkt bei `/static/myproduct1.html` haben, wird diese gleiche Seite jedem Benutzer zurückgegeben. Wenn Sie ein weiteres ähnliches Produkt auf Ihrer Seite hinzufügen, müssen Sie eine weitere Seite hinzufügen (z.B. `myproduct2.html`) und so weiter. Dies kann wirklich ineffizient werden — was passiert, wenn Sie zu Tausenden von Produktseiten kommen? Sie würden viel Code auf jeder Seite wiederholen (das Grundgerüst der Seite, die Struktur etc.), und wenn Sie irgendetwas an der Seitenstruktur ändern wollten — zum Beispiel einen neuen Abschnitt "verwandte Produkte" hinzufügen — müssten Sie jede Seite einzeln ändern.
 
 > [!NOTE]
-> Statische Seiten sind ausgezeichnet, wenn Sie nur eine geringe Anzahl von Seiten haben und denselben Inhalt an jeden Benutzer senden möchten. Sie können jedoch erhebliche Kosten bei der Verwaltung verursachen, wenn die Anzahl der Seiten größer wird.
+> Statische Websites sind hervorragend, wenn Sie eine geringe Anzahl von Seiten haben und jedem Benutzer denselben Inhalt senden möchten. Sie können jedoch erhebliche Wartungskosten verursachen, wenn die Anzahl der Seiten größer wird.
 
-Lassen Sie uns rekapitulieren, wie dies funktioniert, indem wir erneut das Architekturdiagramm einer statischen Seite anschauen, das wir im letzten Artikel betrachtet haben.
+Lassen Sie uns noch einmal auffrischen, wie dies funktioniert, indem wir uns noch einmal das Diagramm der statischen Website-Architektur ansehen, das wir im letzten Artikel betrachtet haben.
 
 ![Ein vereinfachtes Diagramm eines statischen Webservers.](basic_static_app_server.png)
 
-Wenn ein Benutzer auf eine Seite navigieren möchte, sendet der Browser eine HTTP-`GET`-Anfrage, in der die URL seiner HTML-Seite angegeben ist. Der Server ruft das angeforderte Dokument aus seinem Dateisystem ab und gibt eine HTTP-Antwort mit dem Dokument und einem [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status) von `200 OK` zurück (was Erfolg anzeigt). Der Server kann einen anderen Statuscode zurückgeben, zum Beispiel `404 Not Found`, wenn die Datei nicht auf dem Server vorhanden ist, oder `301 Moved Permanently`, wenn die Datei existiert, aber an einen anderen Ort umgeleitet wurde.
+Wenn ein Benutzer zu einer Seite navigieren möchte, sendet der Browser eine HTTP-`GET`-Anfrage, die die URL seiner HTML-Seite spezifiziert. Der Server ruft das angeforderte Dokument aus seinem Dateisystem ab und gibt eine HTTP-Antwort zurück, die das Dokument und einen [HTTP-Statuscode](/de/docs/Web/HTTP/Status) von `200 OK` enthält (was Erfolg anzeigt). Der Server könnte einen anderen Statuscode zurückgeben, zum Beispiel `404 Not Found`, wenn die Datei nicht auf dem Server vorhanden ist, oder `301 Moved Permanently`, wenn die Datei existiert, aber an einen anderen Ort umgeleitet wurde.
 
-Der Server für eine statische Seite wird nur jemals `GET`-Anfragen verarbeiten müssen, da der Server keine veränderbaren Daten speichert. Er ändert auch seine Antworten nicht basierend auf HTTP-Anfragedaten (z. B. URL-Parameter oder Cookies).
+Der Server einer statischen Website wird nur jemals in der Lage sein, GET-Anfragen zu verarbeiten, da der Server keine modifizierbaren Daten speichert. Es ändert auch nicht seine Antworten basierend auf HTTP-Anfrage-Daten (z.B. URL-Parameter oder Cookies).
 
-Zu verstehen, wie statische Seiten funktionieren, ist dennoch nützlich beim Erlernen der serverseitigen Programmierung, da dynamische Seiten Anfragen für statische Dateien (CSS, JavaScript, statische Bilder usw.) auf genau dieselbe Weise verarbeiten.
+Das Verständnis, wie statische Websites funktionieren, ist dennoch nützlich beim Erlernen der serverseitigen Programmierung, weil dynamische Websites Anfragen für statische Dateien (CSS, JavaScript, statische Bilder etc.) auf genau dieselbe Weise behandeln.
 
-## Dynamische Seiten
+## Dynamische Websites
 
-Eine _dynamische Seite_ ist eine, die Inhalte basierend auf der spezifischen Anfrage-URL und den Daten generieren und zurückgeben kann (anstatt immer dieselbe fest kodierte Datei für eine bestimmte URL zurückzugeben). Am Beispiel einer Produkt-Seite würde der Server Produkt-"Daten" in einer Datenbank anstelle einzelner HTML-Dateien speichern. Beim Empfang einer HTTP-`GET`-Anfrage nach einem Produkt ermittelt der Server die Produkt-ID, ruft die Daten aus der Datenbank ab und konstruiert dann die HTML-Seite für die Antwort, indem er die Daten in eine HTML-Vorlage einfügt. Dies hat erhebliche Vorteile gegenüber einer statischen Seite:
+Eine _dynamische Website_ ist eine, die Inhalte basierend auf der spezifischen Anforderungs-URL und Daten generieren und zurückgeben kann (anstatt immer dieselbe fest codierte Datei für eine bestimmte URL zurückzugeben). Am Beispiel einer Produktseite würde der Server Produkt"daten" in einer Datenbank speichern, anstelle individueller HTML-Dateien. Wenn eine HTTP-`GET`-Anfrage für ein Produkt eingeht, bestimmt der Server die Produkt-ID, ruft die Daten aus der Datenbank ab und erstellt dann die HTML-Seite für die Antwort, indem er die Daten in ein HTML-Template einfügt. Das hat große Vorteile gegenüber einer statischen Website:
 
-Die Verwendung einer Datenbank ermöglicht es, dass die Produktinformationen effizient auf eine leicht erweiterbare, änderbare und durchsuchbare Weise gespeichert werden.
+Die Verwendung einer Datenbank ermöglicht es, Produktinformationen effizient auf eine leicht erweiterbare, modifizierbare und durchsuchbare Weise zu speichern.
 
-Die Verwendung von HTML-Vorlagen macht es sehr einfach, die HTML-Struktur zu ändern, da dies nur an einer Stelle in einer einzigen Vorlage und nicht über potenziell tausende von statischen Seiten geschehen muss.
+Die Verwendung von HTML-Templates macht es sehr einfach, die HTML-Struktur zu ändern, da dies nur an einer Stelle, in einem einzigen Template, und nicht auf potenziell Tausenden von statischen Seiten erfolgen muss.
 
 ### Anatomie einer dynamischen Anfrage
 
-Dieser Abschnitt bietet eine Schritt-für-Schritt-Übersicht über den "dynamischen" HTTP-Anfrage- und Antwortzyklus und baut auf dem auf, was wir im letzten Artikel mit viel mehr Details betrachtet haben. Um die Dinge "real" zu halten, verwenden wir den Kontext einer Website für Sportteammanager, auf der ein Trainer den Teamnamen und die Teamgröße in einem HTML-Formular auswählen kann, um eine vorgeschlagene "beste Aufstellung" für ihr nächstes Spiel zu erhalten.
+Dieser Abschnitt bietet einen Schritt-für-Schritt-Überblick über den „dynamischen“ HTTP-Anfrage- und Antwortzyklus und baut auf dem auf, was wir im letzten Artikel betrachtet haben, mit viel mehr Details. Um das Ganze "realistisch" zu halten, verwenden wir den Kontext einer Website eines Sportmannschafts-Managers, auf der ein Trainer den Namen seiner Mannschaft und die Größe des Teams in einem HTML-Formular auswählen und eine vorgeschlagene "beste Aufstellung" für ihr nächstes Spiel erhalten kann.
 
-Das Diagramm unten zeigt die Hauptelemente der "Team Coach"-Website zusammen mit nummerierten Beschriftungen für die Abfolge der Operationen, wenn der Trainer auf ihre "beste Team"-Liste zugreift. Die Teile der Seite, die sie dynamisch machen, sind die _Webanwendung_ (so bezeichnen wir den serverseitigen Code, der HTTP-Anfragen verarbeitet und HTTP-Antworten zurückgibt), die _Datenbank_, die Informationen über Spieler, Teams, Trainer und deren Beziehungen enthält, und die _HTML-Vorlagen_.
+Das Diagramm unten zeigt die Hauptelemente der "Team Coach"-Website, zusammen mit nummerierten Labels für die Reihenfolge der Operationen, wenn der Coach auf seine "beste Teamauswahl"-Liste zugreift. Die Teile der Website, die sie dynamisch machen, sind die _Web Application_ (so nennen wir den serverseitigen Code, der HTTP-Anfragen verarbeitet und HTTP-Antworten zurückgibt), die _Datenbank_, die Informationen über Spieler, Teams, Trainer und deren Beziehungen enthält, und die _HTML-Templates_.
 
-![Dies ist ein Diagramm eines einfachen Webservers mit Schrittzahlen für jeden der Schritte der Client-Server-Interaktion.](web_application_with_html_and_steps.png)
+![Dies ist ein Diagramm eines einfachen Webservers mit Schrittnummern für jeden Schritt der Client-Server-Interaktion.](web_application_with_html_and_steps.png)
 
-Nachdem der Trainer das Formular mit dem Teamnamen und der Spieleranzahl eingereicht hat, ist die Abfolge der Operationen:
+Nachdem der Trainer das Formular mit dem Teamnamen und der Anzahl der Spieler übermittelt hat, ist die Reihenfolge der Operationen:
 
-1. Der Webbrowser erstellt eine HTTP-`GET`-Anfrage an den Server unter Verwendung der Basis-URL für die Ressource (`/best`) und kodiert das Team und die Spielerzahl entweder als URL-Parameter (z. B. `/best?team=my_team_name&show=11`) oder als Teil des URL-Musters (z. B. `/best/my_team_name/11/`). Eine `GET`-Anfrage wird verwendet, weil die Anfrage nur Daten abrufen (nicht Daten ändern) soll.
-2. Der _Webserver_ erkennt, dass die Anfrage "dynamisch" ist, und leitet sie zur Verarbeitung an die _Webanwendung_ weiter (der Webserver bestimmt, wie er mit verschiedenen URLs umgehen soll, basierend auf Musterabgleichsregeln, die in seiner Konfiguration definiert sind).
-3. Die _Webanwendung_ identifiziert, dass die _Absicht_ der Anfrage darin besteht, die "beste Teamliste" basierend auf der URL (`/best/`) abzurufen und ermittelt den erforderlichen Teamnamen und die Anzahl der Spieler aus der URL. Die _Webanwendung_ ruft dann die erforderlichen Informationen aus der Datenbank ab (unter Verwendung zusätzlicher "interner" Parameter, um zu definieren, welche Spieler "am besten" sind, und möglicherweise auch indem sie die Identität des eingeloggten Trainers aus einem clientseitigen Cookie abruft).
-4. Die _Webanwendung_ erstellt dynamisch eine HTML-Seite, indem sie die Daten (aus der _Datenbank_) in Platzhalter innerhalb einer HTML-Vorlage einfügt.
-5. Die _Webanwendung_ gibt das generierte HTML an den Webbrowser zurück (über den _Webserver_) zusammen mit einem HTTP-Statuscode von 200 ("Erfolg"). Wenn irgendetwas das Zurückgeben des HTMLs verhindert, wird die _Webanwendung_ einen anderen Code zurückgeben – zum Beispiel "404", um anzuzeigen, dass das Team nicht existiert.
-6. Der Webbrowser wird dann mit der Verarbeitung des zurückgegebenen HTMLs beginnen und separate Anfragen senden, um alle anderen CSS- oder JavaScript-Dateien, auf die verwiesen wird, zu erhalten (siehe Schritt 7).
-7. Der Webserver lädt statische Dateien aus dem Dateisystem und gibt sie direkt an den Browser zurück (auch hier erfolgt die korrekte Dateiverarbeitung basierend auf Konfigurationsregeln und URL-Musterabgleich).
+1. Der Webbrowser erstellt eine HTTP-`GET`-Anfrage an den Server unter Verwendung der Basis-URL für die Ressource (`/best`) und kodiert das Team und die Spieleranzahl entweder als URL-Parameter (z.B. `/best?team=my_team_name&show=11`) oder als Teil des URL-Musters (z.B. `/best/my_team_name/11/`). Eine `GET`-Anfrage wird verwendet, da die Anfrage nur Daten abruft (und keine Daten ändert).
+2. Der _Webserver_ erkennt, dass die Anfrage "dynamisch" ist, und leitet sie zur Verarbeitung an die _Web Application_ weiter (der Webserver entscheidet, wie mit verschiedenen URLs basierend auf Mustermatchingregeln, die in seiner Konfiguration definiert sind, umzugehen ist).
+3. Die _Web Application_ identifiziert, dass das _Ziel_ der Anfrage darin besteht, die "beste Teamliste" basierend auf der URL (`/best/`) zu erhalten, und ermittelt den erforderlichen Teamnamen und die Anzahl der Spieler aus der URL. Die _Web Application_ holt dann die erforderlichen Informationen aus der Datenbank (unter Verwendung zusätzlicher "interner" Parameter zur Definition, welche Spieler "best" sind, und möglicherweise auch unter Verwendung der Identität des eingeloggten Trainers aus einem clientseitigen Cookie).
+4. Die _Web Application_ erstellt dynamisch eine HTML-Seite, indem sie die Daten (aus der _Datenbank_) in Platzhalter innerhalb eines HTML-Templates einfügt.
+5. Die _Web Application_ gibt das generierte HTML an den Webbrowser zurück (über den _Webserver_), zusammen mit einem HTTP-Statuscode von 200 ("Erfolg"). Sollte irgendetwas die Rückgabe des HTMLs verhindern, wird die _Web Application_ einen anderen Code zurückgeben – zum Beispiel „404“, um anzuzeigen, dass das Team nicht existiert.
+6. Der Webbrowser beginnt dann, das zurückgegebene HTML zu verarbeiten und sendet separate Anfragen, um alle anderen CSS- oder JavaScript-Dateien abzurufen, auf die es verweist (siehe Schritt 7).
+7. Der Webserver lädt statische Dateien aus dem Dateisystem und gibt sie direkt an den Browser zurück (wiederum basiert die korrekte Dateiverarbeitung auf Konfigurationsregeln und URL-Mustermatching).
 
-Eine Operation zur Aktualisierung eines Datensatzes in der Datenbank würde ähnlich behandelt werden, außer dass wie bei jeder Datenbankaktualisierung die HTTP-Anfrage vom Browser als `POST`-Anfrage kodiert werden sollte.
+Ein Vorgang zum Aktualisieren eines Datensatzes in der Datenbank würde ähnlich behandelt, außer dass wie bei jeder Datenbankaktualisierung die HTTP-Anfrage des Browsers als `POST`-Anfrage kodiert werden sollte.
 
-### Andere Arbeiten ausführen
+### Andere Arbeiten erledigen
 
-Die Aufgabe einer _Webanwendung_ besteht darin, HTTP-Anfragen zu empfangen und HTTP-Antworten zurückzugeben. Während die Interaktion mit einer Datenbank zum Abrufen oder Aktualisieren von Informationen sehr häufige Aufgaben sind, kann der Code gleichzeitig andere Dinge tun oder überhaupt nicht mit einer Datenbank interagieren.
+Die Aufgabe einer _Web Application_ besteht darin, HTTP-Anfragen zu empfangen und HTTP-Antworten zurückzugeben. Während die Interaktion mit einer Datenbank zur Datenabfrage oder -aktualisierung sehr häufige Aufgaben sind, kann der Code gleichzeitig andere Dinge tun oder überhaupt nicht mit einer Datenbank interagieren.
 
-Ein gutes Beispiel für eine zusätzliche Aufgabe, die eine _Webanwendung_ ausführen könnte, wäre das Senden einer E-Mail an Benutzer, um deren Registrierung auf der Website zu bestätigen. Die Seite könnte auch Protokollierungen oder andere Operationen durchführen.
+Ein gutes Beispiel für eine zusätzliche Aufgabe, die eine _Web Application_ ausführen könnte, wäre das Senden einer E-Mail an Benutzer, um ihre Registrierung auf der Seite zu bestätigen. Die Seite könnte auch Protokollierung durchführen oder andere Operationen ausführen.
 
 ### Etwas anderes als HTML zurückgeben
 
-Serverseitiger Website-Code muss keine HTML-Fragmente/Dateien in der Antwort zurückgeben. Es kann stattdessen dynamisch erstellen und andere Arten von Dateien (Text, PDF, CSV usw.) oder sogar Daten (JSON, XML usw.) zurückgeben.
+Serverseitiger Website-Code muss nicht unbedingt HTML-Snippets/Dateien in der Antwort zurückgeben. Es kann stattdessen dynamisch andere Dateitypen (Text, PDF, CSV, etc.) oder sogar Daten (JSON, XML, etc.) erstellen und zurückgeben.
 
-Dies ist besonders relevant für Websites, die durch das Abrufen von Inhalten vom Server mit JavaScript arbeiten und die Seite dynamisch aktualisieren, anstatt immer eine neue Seite zu laden, wenn neuer Inhalt angezeigt werden soll. Siehe [Daten vom Server abrufen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) für mehr über die Motivation für diesen Ansatz und wie dieses Modell aus Sicht des Clients aussieht.
+Dies ist besonders relevant für Websites, die durch Abrufen von Inhalten vom Server mit JavaScript arbeiten und die Seite dynamisch aktualisieren, anstatt immer eine neue Seite zu laden, wenn neuer Inhalt angezeigt werden soll. Weitere Informationen zur Motivation für diesen Ansatz und wie dieses Modell aus Sicht des Clients aussieht, finden Sie unter [Daten vom Server abrufen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data).
 
 ## Web-Frameworks vereinfachen die serverseitige Webprogrammierung
 
-Serverseitige Web-Frameworks erleichtern das Schreiben von Code zur Handhabung der oben beschriebenen Operationen erheblich.
+Serverseitige Web-Frameworks erleichtern das Schreiben von Code, um die oben beschriebenen Operationen zu handhaben.
 
-Eine der wichtigsten Operationen, die sie ausführen, ist die Bereitstellung einfacher Mechanismen, um URLs für verschiedene Ressourcen/Seiten bestimmten Handler-Funktionen zuzuordnen. Dies erleichtert es, den Code, der mit jedem Ressourcentyp verbunden ist, getrennt zu halten. Es bringt auch Vorteile in Bezug auf die Wartung mit sich, weil Sie die URL, die zur Bereitstellung eines bestimmten Features verwendet wird, an einer Stelle ändern können, ohne die Handler-Funktion ändern zu müssen.
+Eine der wichtigsten Aufgaben, die sie durchführen, ist die Bereitstellung einfacher Mechanismen, um URLs für verschiedene Ressourcen/Seiten zu spezifischen Handler-Funktionen zuzuordnen. Dies erleichtert es, den Code, der mit jedem Ressourcentyp zu tun hat, separat zu halten. Es hat auch Vorteile hinsichtlich Wartung, da Sie die URL, die verwendet wird, um eine bestimmte Funktion zu liefern, an einer Stelle ändern können, ohne die Handler-Funktion ändern zu müssen.
 
-Zum Beispiel das folgende Django (Python)-Code-Snippet, das zwei URL-Muster zwei Ansichtsfunktions zuordnet. Das erste Muster stellt sicher, dass eine HTTP-Anfrage mit einer Ressourcen-URL von `/best` an eine Funktion mit dem Namen `index()` im `views`-Modul weitergeleitet wird. Eine Anfrage, die das Muster `/best/junior`, hat, wird stattdessen an die `junior()`-Ansichtsfunktion weitergeleitet.
+Betrachten Sie zum Beispiel den folgenden Django (Python)-Code, der zwei URL-Muster mit zwei View-Funktionen verknüpft. Das erste Muster sorgt dafür, dass eine HTTP-Anfrage mit einer Ressourcen-URL von `/best` an eine Funktion namens `index()` im Modul `views` übergeben wird. Eine Anfrage, die das Muster `/best/junior` hat, wird stattdessen an die `junior()`-View-Funktion übergeben.
 
-````python
+```python
 # file: best/urls.py
 #
 
@@ -267,14 +267,18 @@ from . import views
 
 urlpatterns = [
     # example: /best/
-    url(r'^
+    url(r'^$', views.index),
+    # example: /best/junior/
+    url(r'^junior/$', views.junior),
+]
+```
 
 > [!NOTE]
-> Die ersten Parameter in den `url()`-Funktionen mögen etwas seltsam aussehen (z. B. `r'^junior/$'`), weil sie eine Musterabgleichstechnologie namens "reguläre Ausdrücke" (RegEx oder RE) verwenden. Sie müssen nicht wissen, wie reguläre Ausdrücke an dieser Stelle funktionieren, außer dass sie es uns ermöglichen, Muster in der URL (anstatt der oben fest codierten Werte) abzugleichen und sie als Parameter in unseren Ansichtsfunktionen zu verwenden. Zum Beispiel könnte ein wirklich einfacher RegEx sagen: "ergreife einen einzelnen Großbuchstaben, gefolgt von 4 bis 7 Kleinbuchstaben."
+> Die ersten Parameter in den `url()`-Funktionen mögen etwas seltsam aussehen (z.B. `r'^junior/$'`), weil sie eine Mustermatchingtechnik namens "reguläre Ausdrücke" (RegEx oder RE) verwenden. Sie müssen jetzt nicht wissen, wie reguläre Ausdrücke funktionieren, außer dass sie es uns erlauben, Muster in der URL zu erkennen (anstatt die hartkodierten Werte oben) und sie als Parameter in unseren View-Funktionen zu verwenden. Als Beispiel könnte ein wirklich einfaches RegEx sagen "passen Sie einen einzelnen Großbuchstaben gefolgt von 4 bis 7 Kleinbuchstaben an."
 
-Das Web-Framework macht es auch einfach für eine Ansichts-Funktion, Informationen aus der Datenbank abzurufen. Die Struktur unserer Daten wird in Modellen definiert, die Python-Klassen sind, die die zu speichernden Felder in der zugrundeliegenden Datenbank definieren. Wenn wir ein Modell namens _Team_ mit einem Feld namens "_team_type_" haben, dann können wir eine einfache Abfragesyntax verwenden, um alle Teams mit einem bestimmten Typ abzurufen.
+Das Web-Framework macht es auch einfach für eine View-Funktion, Informationen aus der Datenbank abzurufen. Die Struktur unserer Daten wird in Modellen definiert, die Python-Klassen sind, die die Felder definieren, die in der zugrunde liegenden Datenbank gespeichert werden. Wenn wir ein Modell namens _Team_ mit einem Feld namens "_team_type_" haben, können wir eine einfache Abfragesyntax verwenden, um alle Teams zurückzubekommen, die einen bestimmten Typ haben.
 
-Das Beispiel unten erhält eine Liste aller Teams, die den genauen (groß- und kleinschreibungssensiblen) `team_type` von "junior" haben — beachten Sie das Format: Feldname (`team_type`) gefolgt von doppeltem Unterstrich und dann der Typ des zu verwendenden Abgleichs (in diesem Fall `exact`). Es gibt viele andere Arten von Abgleichen und wir können sie verknüpfen. Wir können auch die Reihenfolge und die Anzahl der zurückgegebenen Ergebnisse steuern.
+Das folgende Beispiel erhält eine Liste aller Teams, die den genauen (groß-/kleinschreibungssensitiven) `team_type` von "junior" haben — beachten Sie das Format: Feldname (`team_type`) gefolgt von Doppel-Underscore und dann die Art des Abgleichs, der verwendet werden soll (in diesem Fall `exact`). Es gibt viele andere Arten von Übereinstimmungen und wir können sie verketten. Wir können auch die Reihenfolge und die Anzahl der zurückgegebenen Ergebnisse steuern.
 
 ```python
 #best/views.py
@@ -287,63 +291,16 @@ def junior(request):
     list_teams = Team.objects.filter(team_type__exact="junior")
     context = {'list': list_teams}
     return render(request, 'best/index.html', context)
-````
-
-Nachdem die `junior()`-Funktion die Liste der Junior-Teams erhalten hat, ruft sie die `render()`-Funktion auf, übergibt die ursprüngliche `HttpRequest`, eine HTML-Vorlage und ein "Kontext"-Objekt, das die Informationen definiert, die in der Vorlage enthalten sein sollen. Die `render()`-Funktion ist eine Komfortfunktion, die HTML unter Verwendung eines Kontexts und einer HTML-Vorlage generiert und es in einem `HttpResponse`-Objekt zurückgibt.
-
-Offensichtlich können Web-Frameworks Ihnen bei vielen anderen Aufgaben helfen. Wir besprechen viele weitere Vorteile und einige beliebte Web-Framework-Optionen im nächsten Artikel.
-
-## Zusammenfassung
-
-An diesem Punkt sollten Sie einen guten Überblick über die Operationen haben, die serverseitiger Code ausführen muss, und einige der Möglichkeiten kennen, wie ein serverseitiges Web-Framework dies erleichtern kann.
-
-In einem folgenden Modul werden wir Ihnen helfen, das beste Web-Framework für Ihre erste Website auszuwählen.
-
-{{PreviousMenuNext("Learn/Server-side/First_steps/Introduction", "Learn/Server-side/First_steps/Web_frameworks", "Learn/Server-side/First_steps")}}, views.index), # example: /best/junior/
-url(r'^junior/
-
-> [!NOTE]
-> Die ersten Parameter in den `url()`-Funktionen mögen etwas seltsam aussehen (z. B. `r'^junior/$'`), weil sie eine Musterabgleichstechnologie namens "reguläre Ausdrücke" (RegEx oder RE) verwenden. Sie müssen nicht wissen, wie reguläre Ausdrücke an dieser Stelle funktionieren, außer dass sie es uns ermöglichen, Muster in der URL (anstatt der oben fest codierten Werte) abzugleichen und sie als Parameter in unseren Ansichtsfunktionen zu verwenden. Zum Beispiel könnte ein wirklich einfacher RegEx sagen: "ergreife einen einzelnen Großbuchstaben, gefolgt von 4 bis 7 Kleinbuchstaben."
-
-Das Web-Framework macht es auch einfach für eine Ansichts-Funktion, Informationen aus der Datenbank abzurufen. Die Struktur unserer Daten wird in Modellen definiert, die Python-Klassen sind, die die zu speichernden Felder in der zugrundeliegenden Datenbank definieren. Wenn wir ein Modell namens _Team_ mit einem Feld namens "_team_type_" haben, dann können wir eine einfache Abfragesyntax verwenden, um alle Teams mit einem bestimmten Typ abzurufen.
-
-Das Beispiel unten erhält eine Liste aller Teams, die den genauen (groß- und kleinschreibungssensiblen) `team_type` von "junior" haben — beachten Sie das Format: Feldname (`team_type`) gefolgt von doppeltem Unterstrich und dann der Typ des zu verwendenden Abgleichs (in diesem Fall `exact`). Es gibt viele andere Arten von Abgleichen und wir können sie verknüpfen. Wir können auch die Reihenfolge und die Anzahl der zurückgegebenen Ergebnisse steuern.
-
-![](5-f6def72a.md)
-
-Nachdem die `junior()`-Funktion die Liste der Junior-Teams erhalten hat, ruft sie die `render()`-Funktion auf, übergibt die ursprüngliche `HttpRequest`, eine HTML-Vorlage und ein "Kontext"-Objekt, das die Informationen definiert, die in der Vorlage enthalten sein sollen. Die `render()`-Funktion ist eine Komfortfunktion, die HTML unter Verwendung eines Kontexts und einer HTML-Vorlage generiert und es in einem `HttpResponse`-Objekt zurückgibt.
-
-Offensichtlich können Web-Frameworks Ihnen bei vielen anderen Aufgaben helfen. Wir besprechen viele weitere Vorteile und einige beliebte Web-Framework-Optionen im nächsten Artikel.
-
-## Zusammenfassung
-
-An diesem Punkt sollten Sie einen guten Überblick über die Operationen haben, die serverseitiger Code ausführen muss, und einige der Möglichkeiten kennen, wie ein serverseitiges Web-Framework dies erleichtern kann.
-
-In einem folgenden Modul werden wir Ihnen helfen, das beste Web-Framework für Ihre erste Website auszuwählen.
-
-{{PreviousMenuNext("Learn/Server-side/First_steps/Introduction", "Learn/Server-side/First_steps/Web_frameworks", "Learn/Server-side/First_steps")}}, views.junior),
-]
-
 ```
 
-> [!NOTE]
-> Die ersten Parameter in den `url()`-Funktionen mögen etwas seltsam aussehen (z. B. `r'^junior/$'`), weil sie eine Musterabgleichstechnologie namens "reguläre Ausdrücke" (RegEx oder RE) verwenden. Sie müssen nicht wissen, wie reguläre Ausdrücke an dieser Stelle funktionieren, außer dass sie es uns ermöglichen, Muster in der URL (anstatt der oben fest codierten Werte) abzugleichen und sie als Parameter in unseren Ansichtsfunktionen zu verwenden. Zum Beispiel könnte ein wirklich einfacher RegEx sagen: "ergreife einen einzelnen Großbuchstaben, gefolgt von 4 bis 7 Kleinbuchstaben."
+Nachdem die Funktion `junior()` die Liste der Junior-Teams erhalten hat, ruft sie die Funktion `render()` auf, übergibt den ursprünglichen `HttpRequest`, ein HTML-Template und ein "Kontext"-Objekt, das die in das Template aufzunehmenden Informationen definiert. Die Funktion `render()` ist eine Komfortfunktion, die HTML unter Verwendung eines Kontexts und eines HTML-Templates generiert und es in einem `HttpResponse`-Objekt zurückgibt.
 
-Das Web-Framework macht es auch einfach für eine Ansichts-Funktion, Informationen aus der Datenbank abzurufen. Die Struktur unserer Daten wird in Modellen definiert, die Python-Klassen sind, die die zu speichernden Felder in der zugrundeliegenden Datenbank definieren. Wenn wir ein Modell namens _Team_ mit einem Feld namens "_team_type_" haben, dann können wir eine einfache Abfragesyntax verwenden, um alle Teams mit einem bestimmten Typ abzurufen.
-
-Das Beispiel unten erhält eine Liste aller Teams, die den genauen (groß- und kleinschreibungssensiblen) `team_type` von "junior" haben — beachten Sie das Format: Feldname (`team_type`) gefolgt von doppeltem Unterstrich und dann der Typ des zu verwendenden Abgleichs (in diesem Fall `exact`). Es gibt viele andere Arten von Abgleichen und wir können sie verknüpfen. Wir können auch die Reihenfolge und die Anzahl der zurückgegebenen Ergebnisse steuern.
-
-![](5-f6def72a.md)
-
-Nachdem die `junior()`-Funktion die Liste der Junior-Teams erhalten hat, ruft sie die `render()`-Funktion auf, übergibt die ursprüngliche `HttpRequest`, eine HTML-Vorlage und ein "Kontext"-Objekt, das die Informationen definiert, die in der Vorlage enthalten sein sollen. Die `render()`-Funktion ist eine Komfortfunktion, die HTML unter Verwendung eines Kontexts und einer HTML-Vorlage generiert und es in einem `HttpResponse`-Objekt zurückgibt.
-
-Offensichtlich können Web-Frameworks Ihnen bei vielen anderen Aufgaben helfen. Wir besprechen viele weitere Vorteile und einige beliebte Web-Framework-Optionen im nächsten Artikel.
+Offensichtlich können Web-Frameworks Ihnen bei vielen weiteren Aufgaben helfen. Wir erörtern viele weitere Vorteile und einige beliebte Web-Framework-Auswahlen im nächsten Artikel.
 
 ## Zusammenfassung
 
-An diesem Punkt sollten Sie einen guten Überblick über die Operationen haben, die serverseitiger Code ausführen muss, und einige der Möglichkeiten kennen, wie ein serverseitiges Web-Framework dies erleichtern kann.
+An dieser Stelle sollten Sie einen guten Überblick über die Aufgaben haben, die serverseitiger Code ausführen muss, und einige der Möglichkeiten kennen, wie ein serverseitiges Web-Framework dies erleichtern kann.
 
 In einem folgenden Modul werden wir Ihnen helfen, das beste Web-Framework für Ihre erste Website auszuwählen.
 
 {{PreviousMenuNext("Learn/Server-side/First_steps/Introduction", "Learn/Server-side/First_steps/Web_frameworks", "Learn/Server-side/First_steps")}}
-```

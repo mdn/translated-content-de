@@ -7,41 +7,41 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das **`TextFormat`** Interface repräsentiert spezifische Formatierungen, die auf einen Textbereich in einem bearbeitbaren Textabschnitt angewendet werden sollten, der mit einer [`EditContext`](/de/docs/Web/API/EditContext) Instanz verbunden ist. Die Textformatierung wird vom [Eingabemethoden-Editor](/de/docs/Glossary/Input_Method_Editor) (IME) Fenster angefordert, mit dem der Benutzer Text erstellt.
+Die **`TextFormat`**-Schnittstelle repräsentiert spezifische Formatierungen, die auf einen Textbereich in einer editierbaren Textregion angewendet werden sollen, die an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angeschlossen ist. Die Textformatierung wird vom [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster angefordert, mit dem der Benutzer Text verfasst.
 
-Wenn Sie einen der Standard-bearbeitbaren Bereiche des Webs verwenden, wie beispielsweise ein [`<textarea>`](/de/docs/Web/HTML/Element/textarea) Element, wird die IME-Zusammensetzung vom Browser und Betriebssystem für Sie gehandhabt. Zum Beispiel können beim Einsatz des japanischen IME in einem `textarea` auf Windows die folgenden Textformatierungen angewendet werden:
+Wenn Sie eine der standardmäßigen editierbaren Regionen des Webs verwenden, wie z.B. ein [`<textarea>`](/de/docs/Web/HTML/Element/textarea)-Element, wird die IME-Komposition von Browser und Betriebssystem für Sie gehandhabt. Zum Beispiel können bei Verwendung eines japanischen IME in einem Textbereich unter Windows die folgenden Textformate angewendet werden:
 
-- Wenn Text mit der Tastatur eingeben wird, haben die getippten Zeichen eine dünne wellenförmige Unterstreichung:
+- Wenn Text mit der Tastatur eingegeben wird, haben die getippten Zeichen eine dünne gewellte Unterstreichung:
 
-  ![Ein Textbereich in Microsoft Edge unter Windows mit japanischem Text, der aus dem IME-Fenster erstellt wird](./ime-squiggle-underline.png)
+  ![Ein Textbereich in Microsoft Edge auf Windows mit etwas japanischem Text, der im IME-Fenster verfasst wird](./ime-squiggle-underline.png)
 
 - Wenn der Benutzer einen Vorschlag aus der Liste der Kandidaten im IME-Fenster auswählt, wird der Text ersetzt und mit einer dicken durchgezogenen Linie unterstrichen:
 
-  ![Ein Textbereich in Microsoft Edge unter Windows mit japanischem Text, der aus dem IME-Fenster ausgewählt wird](./ime-solid-underline.png)
+  ![Ein Textbereich in Microsoft Edge auf Windows mit etwas japanischem Text, der aus dem IME-Fenster ausgewählt wird](./ime-solid-underline.png)
 
-Wenn Sie Ihren eigenen benutzerdefinierten bearbeitbaren Bereich mit der [EditContext API](/de/docs/Web/API/EditContext_API) erstellen, müssen Sie die IME-Zusammensetzung selbst behandeln. Sie sollten das [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event) Ereignis überwachen, das Ihnen die Liste der Textformate gibt, die das IME-Fenster auf den zu erstellenden Text anwenden möchte. Sie sollten dann die Formatierung des angezeigten Textes in Ihrem bearbeitbaren Bereich entsprechend aktualisieren.
+Wenn Sie Ihre eigene benutzerdefinierte editierbare Region mithilfe der [EditContext API](/de/docs/Web/API/EditContext_API) erstellen, müssen Sie die IME-Komposition selbst verwalten. Sie sollten auf das [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event)-Ereignis lauschen, das Ihnen die Liste der Textformate gibt, die das IME-Fenster auf den verfassten Text anwenden möchte. Sie sollten dann die Formatierung des Textes, der in Ihrer editierbaren Region dargestellt wird, entsprechend aktualisieren.
 
 ## Konstruktor
 
 - [`TextFormat()`](/de/docs/Web/API/TextFormat/TextFormat) {{experimental_inline}}
-  - : Gibt eine neue `TextFormat` Instanz zurück.
+  - : Gibt eine neue `TextFormat`-Instanz zurück.
 
 ## Instanz-Eigenschaften
 
 - [`TextFormat.rangeStart`](/de/docs/Web/API/TextFormat/rangeStart) {{readonlyinline}} {{experimental_inline}}
-  - : Die Startposition des Textbereichs, der mit dem angegebenen Textformat formatiert werden muss.
+  - : Die Startposition des Textbereichs, der mit dem gegebenen Textformat formatiert werden muss.
 - [`TextFormat.rangeEnd`](/de/docs/Web/API/TextFormat/rangeEnd) {{readonlyinline}} {{experimental_inline}}
-  - : Die Endposition des Textbereichs, der mit dem angegebenen Textformat formatiert werden muss.
+  - : Die Endposition des Textbereichs, der mit dem gegebenen Textformat formatiert werden muss.
 - [`TextFormat.underlineStyle`](/de/docs/Web/API/TextFormat/underlineStyle) {{readonlyinline}} {{experimental_inline}}
-  - : Der Unterstreichungsstil, der auf den formatierten Textbereich angewendet werden muss.
+  - : Der Stil der Unterstreichung, die auf den zu formatierenden Textbereich angewendet werden muss.
 - [`TextFormat.underlineThickness`](/de/docs/Web/API/TextFormat/underlineThickness) {{readonlyinline}} {{experimental_inline}}
-  - : Die Dicke der Unterstreichung, die auf den formatierten Textbereich angewendet werden muss.
+  - : Die Dicke der Unterstreichung, die auf den zu formatierenden Textbereich angewendet werden muss.
 
 ## Beispiele
 
-### Verwendung des `textformatupdate` Ereignisses
+### Verwenden des `textformatupdate`-Ereignisses
 
-Im folgenden Beispiel wird das `textformatupdate` Ereignis verwendet, um die verschiedenen Formate zu protokollieren, die das IME-Zusammensetzungsfenster auf Textbereiche im bearbeitbaren Element anwenden möchte. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster verwendet wird, um Text zu erstellen.
+Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die verschiedenen Formate zu protokollieren, die das IME-Zusammenstellungsfenster auf Textbereiche im editierbaren Element anwenden möchte. Beachten Sie, dass die Ereignis-Listener-Rückruffunktion in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster verwendet wird, um Text zu verfassen.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>

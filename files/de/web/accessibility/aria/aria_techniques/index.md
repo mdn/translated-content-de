@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-ARIA definiert Semantiken, die auf Elemente angewendet werden können, wobei diese in **Rollen** (die eine Art von Benutzerschnittstellenelement definieren) sowie **Zustände** und **Eigenschaften** unterteilt sind, die von einer Rolle unterstützt werden. Autoren müssen einem Element während seines Lebenszyklus eine ARIA-Rolle und die entsprechenden Zustände und Eigenschaften zuweisen, es sei denn, das Element verfügt bereits über angemessene ARIA-Semantiken (durch Verwendung eines geeigneten HTML-Elements). Das Hinzufügen von ARIA-Semantiken zeigt einem Browser-Accessibility-API nur zusätzliche Informationen an und beeinflusst nicht das DOM einer Seite.
+ARIA definiert Semantiken, die auf Elemente angewendet werden können. Diese sind in **Rollen** (die eine Art Benutzerschnittstellenelement definieren) und **Zustände** und **Eigenschaften**, die von einer Rolle unterstützt werden, unterteilt. Autoren müssen einem Element eine ARIA-Rolle sowie die entsprechenden Zustände und Eigenschaften während seines Lebenszyklus zuweisen, es sei denn, das Element verfügt bereits über geeignete ARIA-Semantiken (durch die Verwendung eines geeigneten HTML-Elements). Die Hinzufügung von ARIA-Semantiken stellt lediglich zusätzliche Informationen für die Zugangs-API eines Browsers bereit und beeinflusst nicht das DOM einer Seite.
 
 ## Rollen
 
@@ -34,9 +34,9 @@ ARIA definiert Semantiken, die auf Elemente angewendet werden können, wobei die
 - [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
 - [`treeitem`](/de/docs/Web/Accessibility/ARIA/Roles/treeitem_role)
 
-### Zusammengesetzte Rollen
+### Komposit-Rollen
 
-Die folgenden Techniken beschreiben jede zusammengesetzte Rolle sowie deren erforderliche und optionale Kinderrollen.
+Die folgenden Techniken beschreiben jede Kompositrolle sowie ihre erforderlichen und optionalen Kinderrollen.
 
 - [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role)
 - [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) (einschließlich [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role), [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role), [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) Rollen)
@@ -96,7 +96,7 @@ Die folgenden Techniken beschreiben jede zusammengesetzte Rolle sowie deren erfo
 - [`status`](/de/docs/Web/Accessibility/ARIA/Roles/status_role)
 - [`timer`](/de/docs/Web/Accessibility/ARIA/Roles/timer_role)
 
-### Fensterrollen
+### Fenster-Rollen
 
 - [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Roles/alertdialog_role)
 - [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)
@@ -138,7 +138,7 @@ Die folgenden Techniken beschreiben jede zusammengesetzte Rolle sowie deren erfo
 - [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
 
-### Drag-&-Drop-Attribute
+### Drag &amp; Drop-Attribute
 
 - [`aria-dropeffect`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect) {{deprecated_inline}}
 - [`aria-grabbed`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-grabbed) {{deprecated_inline}}
@@ -162,6 +162,6 @@ Die folgenden Techniken beschreiben jede zusammengesetzte Rolle sowie deren erfo
 - [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)
 - [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)
 
-### Microsoft-Edge-spezifische Eigenschaften
+### MicrosoftEdge-spezifische Eigenschaften
 
 - `x-ms-aria-flowfrom` {{Non-standard_Inline}}

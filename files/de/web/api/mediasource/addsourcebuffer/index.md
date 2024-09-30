@@ -1,5 +1,5 @@
 ---
-title: "MediaSource: Methode addSourceBuffer()"
+title: "MediaSource: addSourceBuffer()-Methode"
 short-title: addSourceBuffer()
 slug: Web/API/MediaSource/addSourceBuffer
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`addSourceBuffer()`**-Methode des
-[`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces erstellt ein neues [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) mit dem angegebenen [MIME-Typ](/de/docs/Glossary/MIME_type) und fügt es der `MediaSource`-[`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste hinzu. Das neue
-`SourceBuffer` wird ebenfalls zurückgegeben.
+Die **`addSourceBuffer()`**-Methode der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle erstellt einen neuen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) des angegebenen [MIME-Typs](/de/docs/Glossary/MIME_type) und fügt ihn der `sourceBuffers`-Liste der `MediaSource` hinzu. Der neue `SourceBuffer` wird ebenfalls zurückgegeben.
 
 ## Syntax
 
@@ -21,26 +19,26 @@ addSourceBuffer(mimeType)
 ### Parameter
 
 - `mimeType`
-  - : Ein String, der den MIME-Typ des zu erstellenden und hinzuzufügenden [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zur [`MediaSource`](/de/docs/Web/API/MediaSource) angibt.
+  - : Ein String, der den MIME-Typ des zu erstellenden und zur [`MediaSource`](/de/docs/Web/API/MediaSource) hinzuzufügenden [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) angibt.
 
 ### Rückgabewert
 
-Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt, das den neuen Quellpuffer darstellt, der erstellt und zur Mediendatei hinzugefügt wurde.
+Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt, das den neu erstellten und zur Mediensource hinzugefügten Source Buffer darstellt.
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Wert für `mimeType` ein leerer String anstelle eines gültigen MIME-Typs ist.
+  - : Wird ausgelöst, wenn der für `mimeType` angegebene Wert ein leerer String ist und kein gültiger MIME-Typ.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die [`MediaSource`](/de/docs/Web/API/MediaSource) nicht im `"open"`-Zustand (`readyState`) ist.
+  - : Wird ausgelöst, wenn sich die [`MediaSource`](/de/docs/Web/API/MediaSource) nicht im `"open"` [`readyState`](/de/docs/Web/API/MediaSource/readyState) befindet.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene `mimeType` vom [User-Agent](/de/docs/Glossary/user_agent) nicht unterstützt wird oder nicht mit den MIME-Typen anderer [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte kompatibel ist, die bereits in der `sourceBuffers`-Liste der Medienquelle enthalten sind.
+  - : Wird ausgelöst, wenn der angegebene `mimeType` vom [User Agent](/de/docs/Glossary/user_agent) nicht unterstützt wird oder nicht mit den MIME-Typen anderer [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte kompatibel ist, die bereits in der `sourceBuffers`-Liste der Mediensource enthalten sind.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der User-Agent keine weiteren `SourceBuffer`-Objekte verarbeiten kann oder die Erstellung eines neuen `SourceBuffer` mit dem angegebenen `mimeType` zu einer [nicht unterstützten Konfiguration von `SourceBuffer`s](https://w3c.github.io/media-source/#sourcebuffer-configuration) führen würde.
+  - : Wird ausgelöst, wenn der User Agent keine weiteren `SourceBuffer`-Objekte verarbeiten kann oder wenn die Erstellung eines neuen `SourceBuffer` mit dem angegebenen `mimeType` zu einer [nicht unterstützten Konfiguration von `SourceBuffer`n](https://w3c.github.io/media-source/#sourcebuffer-configuration) führen würde.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus einem einfachen Beispiel, geschrieben von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Das folgende Snippet stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie die vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const assetURL = "frag_bunny.mp4";

@@ -13,7 +13,7 @@ Das {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt, das von 
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `fingerprint`
 
@@ -28,35 +28,35 @@ Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
   - : `Boolean`. `true`, wenn das Zertifikat eines der im Browser installierten Vertrauensanker ist, andernfalls `false`.
 - `issuer`
 
-  - : `String`. Name der Organisation, die dieses Zertifikat ausgestellt hat, dargestellt als Distinguished Name und formatiert als kommagetrennte Liste relativer Distinguished Names, jeweils in der Form "type=value".
+  - : `String`. Name der Organisation, die dieses Zertifikat ausgestellt hat, dargestellt als Distinguished Name und formatiert als kommaseparierte Liste von Relative Distinguished Names, jede in der Form "type=value".
 
     Zum Beispiel: "CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US".
 
 - `rawDER`
-  - : `Array` von `Number`. Wenn [`webRequest.getSecurityInfo()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/getSecurityInfo) mit der `rawDER`-Option aufgerufen wurde und diese auf `true` gesetzt wurde, enthält dies die DER-Codierung des Zertifikats.
+  - : `Array` von `Number`. Wenn [`webRequest.getSecurityInfo()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/getSecurityInfo) mit der `rawDER`-Option aufgerufen wurde und diese auf `true` gesetzt ist, enthält dies die DER-Codierung des Zertifikats.
 - `serialNumber`
   - : `String`. Die [Seriennummer](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.2) des Zertifikats.
 - `subject`
 
-  - : `String`. Name der Organisation, die dieses Zertifikat ausgestellt hat, dargestellt als Distinguished Name und formatiert als kommagetrennte Liste relativer Distinguished Names, jeweils in der Form "type=value".
+  - : `String`. Name der Organisation, die dieses Zertifikat ausgestellt hat, dargestellt als Distinguished Name und formatiert als kommaseparierte Liste von Relative Distinguished Names, jede in der Form "type=value".
 
     Zum Beispiel: "CN=\*.cdn.mozilla.net,O=Mozilla Corporation,L=Mountain View,ST=California,C=US".
 
 - `subjectPublicKeyInfoDigest`
 
-  - : `Object`. Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : `Object`. Ein Objekt mit den folgenden Eigenschaften:
 
     - `sha256`
-      - : `String`. Base64-kodierter SHA-256-Hash der DER-codierten [öffentlichen Schlüsselinfo](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.7).
+      - : `String`. Base64-kodierter SHA-256-Hash der DER-kodierten [Öffentlicher Schlüsselinfo](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.7).
 
 - `validity`
 
-  - : `Object`. Gültigkeitszeitraum für das Zertifikat. Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : `Object`. Gültigkeitszeitraum für das Zertifikat. Ein Objekt mit den folgenden Eigenschaften:
 
     - `start`
-      - : `Number`. Der Beginn des Gültigkeitszeitraums des Zertifikats in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+      - : `Number`. Der Beginn des Gültigkeitszeitraums des Zertifikats in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
     - `end`
-      - : `Number`. Das Ende des Gültigkeitszeitraums des Zertifikats in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+      - : `Number`. Das Ende des Gültigkeitszeitraums des Zertifikats in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
 
 ## Browser-Kompatibilität
 

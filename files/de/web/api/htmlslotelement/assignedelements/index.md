@@ -10,7 +10,7 @@ l10n:
 
 Die **`assignedElements()`**-Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Interfaces gibt eine Sequenz der Elemente zurück, die diesem Slot (und keinen anderen Knoten) zugewiesen sind.
 
-Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz der Elemente zurück, die diesem Slot sowie den Elementen zugewiesen sind, die anderen Slots zugewiesen sind, die Nachkommen dieses Slots sind. Wenn keine zugewiesenen Elemente gefunden werden, wird der Fallback-Inhalt des Slots zurückgegeben.
+Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz sowohl der Elemente zurück, die diesem Slot zugewiesen sind, als auch der Elemente, die anderen Slots, die Nachkommen dieses Slots sind, zugewiesen sind. Wenn keine zugewiesenen Elemente gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ assignedElements(options)
   - : Ein Objekt, das Optionen für die zurückzugebenden Knoten festlegt. Die verfügbaren Optionen sind:
 
     - `flatten`
-      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Elemente aller verfügbaren untergeordneten `<slot>`-Elemente (`true`) oder nicht (`false`) zurückgegeben werden sollen. Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Elemente aller verfügbaren Kind-`<slot>`-Elemente (`true`) zurückgegeben werden sollen oder nicht (`false`). Standardmäßig `false`.
 
 ### Rückgabewert
 

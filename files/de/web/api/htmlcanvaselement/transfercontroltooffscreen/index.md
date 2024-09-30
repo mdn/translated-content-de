@@ -1,5 +1,5 @@
 ---
-title: "HTMLCanvasElement: transferControlToOffscreen() Methode"
+title: "HTMLCanvasElement: transferControlToOffscreen()-Methode"
 short-title: transferControlToOffscreen()
 slug: Web/API/HTMLCanvasElement/transferControlToOffscreen
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.transferControlToOffscreen()`** Methode überträgt die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, entweder im Haupt-Thread oder in einem Worker.
+Die **`HTMLCanvasElement.transferControlToOffscreen()`**-Methode überträgt die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, entweder im Haupt-Thread oder in einem Worker.
 
 ## Syntax
 
@@ -54,5 +54,5 @@ worker.postMessage({ canvas: offscreen }, [offscreen]);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
+- Die Schnittstelle, die diese Methode definiert, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
 - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)

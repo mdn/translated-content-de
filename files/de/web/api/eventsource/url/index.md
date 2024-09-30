@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef('WebSockets API')}}
 
-Die **`url`**-Eigenschaft der
-[`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen String zurückgibt, der die URL der Quelle darstellt.
+Die schreibgeschützte **`url`**-Eigenschaft der
+[`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle gibt einen String zurück, der die
+URL der Quelle darstellt.
 
 ## Wert
 
@@ -23,7 +24,7 @@ console.log(evtSource.url);
 ```
 
 > [!NOTE]
-> Sie können ein vollständiges Beispiel auf GitHub finden — siehe [Simple SSE demo using PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel finden Sie auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 

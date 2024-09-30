@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Die **`CredentialsContainer`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) stellt Methoden zur Verfügung, um Anmeldeinformationen anzufordern und den Benutzer-Agenten zu benachrichtigen, wenn Ereignisse wie erfolgreiches An- oder Abmelden eintreten. Diese Schnittstelle ist von [`Navigator.credentials`](/de/docs/Web/API/Navigator/credentials) aus zugänglich.
+Die **`CredentialsContainer`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) stellt Methoden zur Verfügung, um Anmeldeinformationen anzufordern und den Benutzeragenten zu benachrichtigen, wenn Ereignisse wie erfolgreiches Anmelden oder Abmelden auftreten. Diese Schnittstelle ist zugänglich über [`Navigator.credentials`](/de/docs/Web/API/Navigator/credentials).
 
 ## Instanz-Eigenschaften
 
@@ -20,9 +20,9 @@ Keine.
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get)
   - : Gibt ein {{jsxref("Promise")}} zurück, das mit der [`Credential`](/de/docs/Web/API/Credential)-Instanz aufgelöst wird, die den bereitgestellten Parametern entspricht.
 - [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)
-  - : Setzt ein Flag, das angibt, ob ein automatisches Anmelden für zukünftige Besuche des aktuellen Ursprungs zulässig ist, und gibt dann ein leeres {{jsxref("Promise")}} zurück. Beispielsweise könnten Sie dies aufrufen, nachdem sich ein Benutzer von einer Website abgemeldet hat, um sicherzustellen, dass er bei seinem nächsten Besuch der Website nicht automatisch angemeldet wird. Frühere Versionen der Spezifikation nannten diese Methode `requireUserMediation()`. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung.
+  - : Setzt ein Flag, das angibt, ob das automatische Anmelden für zukünftige Besuche der aktuellen Quelle erlaubt ist, und gibt dann ein leeres {{jsxref("Promise")}} zurück. Zum Beispiel könnten Sie dies aufrufen, nachdem ein Benutzer sich von einer Website abmeldet, um sicherzustellen, dass er bei einem späteren Besuch der Seite nicht automatisch angemeldet wird. Frühere Versionen der Spezifikation nannten diese Methode `requireUserMediation()`. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details zur Unterstützung.
 - [`CredentialsContainer.store()`](/de/docs/Web/API/CredentialsContainer/store)
-  - : Speichert einen Satz von Anmeldeinformationen für einen Benutzer in einer bereitgestellten [`Credential`](/de/docs/Web/API/Credential)-Instanz und gibt diese Instanz in einem {{jsxref("Promise")}} zurück.
+  - : Speichert eine Reihe von Anmeldeinformationen für einen Benutzer in einer bereitgestellten [`Credential`](/de/docs/Web/API/Credential)-Instanz und gibt diese Instanz in einem {{jsxref("Promise")}} zurück.
 
 ## Spezifikationen
 

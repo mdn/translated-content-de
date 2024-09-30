@@ -1,5 +1,5 @@
 ---
-title: Lokalisierung
+title: Localization
 slug: Glossary/Localization
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -9,28 +9,28 @@ l10n:
 
 **Lokalisierung** (l10n) ist der Prozess der Anpassung einer Software-Benutzeroberfläche an eine spezifische Kultur.
 
-Die folgenden Faktoren sind üblich zu berücksichtigen:
+Folgende Faktoren sind häufig zu berücksichtigen:
 
 - Sprache
-- Einheit von Maßeinheiten (z. B. Kilometer in Europa, Meilen in den USA)
-- Textrichtung (z. B. europäische Sprachen sind links-nach-rechts, Arabisch rechts-nach-links)
-- Großschreibung im lateinischen Schriftsystem (z. B. verwendet Englisch Großbuchstaben für Wochentage, Spanisch Kleinbuchstaben)
-- Anpassung von Redewendungen (z. B. "es regnet Katzen und Hunde" macht keinen Sinn, wenn es wörtlich übersetzt wird)
-- Verwendung von Register (z. B. unterscheidet sich in Japan die respektvolle Sprache erheblich von der zwanglosen Sprache)
+- Maßeinheit (z. B. Kilometer in Europa, Meilen in den USA)
+- Textausrichtung (z. B. europäische Sprachen verlaufen von links nach rechts, Arabisch von rechts nach links)
+- Großschreibung im lateinischen Schriftsystem (z. B. werden im Englischen die Wochentage großgeschrieben, im Spanischen klein)
+- Anpassung von Redewendungen (z. B. ergibt "es regnet Katzen und Hunde" keinen Sinn, wenn wörtlich übersetzt)
+- Verwendung von Register (z. B. unterscheidet sich in Japan die höfliche Sprache außergewöhnlich von der Umgangssprache)
 - Zahlenformat (z. B. 10 000,00 in Deutschland vs. 10,000.00 in den USA)
 - Datumsformat
 - Währung
-- kulturelle Bezüge
+- Kulturelle Referenzen
 - Papiergröße
 - Farbpsychologie
 - Einhaltung lokaler Gesetze
-- lokale Feiertage
-- persönliche Namen
+- Lokale Feiertage
+- Personennamen
 
-Die ergänzende Praxis, ein System so zu gestalten, dass es leicht zu lokalisieren ist, wird [Internationalisierung](/de/docs/Glossary/Internationalization) genannt.
+Die ergänzende Praxis, ein System so zu gestalten, dass es einfach zu lokalisieren ist, wird als [Internationalisierung](/de/docs/Glossary/Internationalization) bezeichnet.
 
 ## Siehe auch
 
-- [Lokalisierung](https://en.wikipedia.org/wiki/Language_localisation) auf Wikipedia
+- [Localization](https://en.wikipedia.org/wiki/Language_localisation) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Internationalisierung](/de/docs/Glossary/Internationalization)
+  - [Internationalization](/de/docs/Glossary/Internationalization)

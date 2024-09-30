@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: stalled event"
+title: "HTMLMediaElement: stalled Ereignis"
 short-title: stalled
 slug: Web/API/HTMLMediaElement/stalled_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `stalled`-Ereignis wird ausgelöst, wenn der Benutzeragent versucht, Mediendaten abzurufen, aber Daten unerwartet nicht bereitgestellt werden.
+Das `stalled` Ereignis wird ausgelöst, wenn der Benutzeragent versucht, Mediendaten zu laden, die Daten jedoch unerwartet nicht verfügbar sind.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("stalled", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `stalled`-Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Event-Handler auf das Ereignis reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `stalled` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("stalled", (event) => {
 });
 ```
 
-Verwendung der `onstalled`-Event-Handler-Eigenschaft:
+Verwendung der `onstalled` Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

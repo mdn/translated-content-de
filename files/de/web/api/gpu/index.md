@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPU`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ausgangspunkt für die Nutzung von WebGPU. Es kann genutzt werden, um einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurückzugeben, von dem aus Sie Geräte anfordern, Funktionen und Grenzen konfigurieren und mehr tun können.
+Das **`GPU`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ausgangspunkt zur Nutzung von WebGPU. Es kann verwendet werden, um einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurückzugeben, mit dem Sie Geräte anfordern, Funktionen und Einschränkungen konfigurieren und mehr machen können.
 
 Das `GPU`-Objekt für den aktuellen Kontext wird über die Eigenschaften [`Navigator.gpu`](/de/docs/Web/API/Navigator/gpu) oder [`WorkerNavigator.gpu`](/de/docs/Web/API/WorkerNavigator/gpu) aufgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein [`WGSLLanguageFeatures`](/de/docs/Web/API/WGSLLanguageFeatures)-Objekt, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`requestAdapter()`](/de/docs/Web/API/GPU/requestAdapter) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird. Von diesem aus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern, die primäre Schnittstelle für die Nutzung der WebGPU-Funktionalität.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird. Von diesem können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern, das die primäre Schnittstelle zur Nutzung der WebGPU-Funktionalität darstellt.
 - [`getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat) {{Experimental_Inline}}
-  - : Gibt das optimale Leinwand-Texturformat für die Anzeige von Inhalten mit 8-Bit-Tiefe und Standard-Dynamikumfang auf dem aktuellen System zurück.
+  - : Gibt das optimale Canvas-Texturformat für die Anzeige von 8-Bit-Tiefe, Standard-Dynamikbereich-Inhalt auf dem aktuellen System zurück.
 
 ## Beispiele
 

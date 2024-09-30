@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: textLength Eigenschaft"
+title: "HTMLTextAreaElement: textLength-Eigenschaft"
 short-title: textLength
 slug: Web/API/HTMLTextAreaElement/textLength
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`textLength`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ist eine nicht-negative Ganzzahl, die die Anzahl der Zeichen in UTF-16-Codeeinheiten des Wertes des {{htmlelement("textarea")}}-Elements darstellt. Es ist eine Abkürzung für den Zugriff auf die {{jsxref("String/length", "length")}}-Eigenschaft ihres [`value`](/de/docs/Web/API/HTMLTextAreaElement/value) Attributs.
+Die **`textLength`** schreibgeschützte Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ist eine nicht-negative Ganzzahl, die die Anzahl der Zeichen in UTF-16-Codeeinheiten des `textarea`-Elementwerts darstellt. Es ist eine Abkürzung für den Zugriff auf die {{jsxref("String/length", "length")}}-Eigenschaft des [`value`](/de/docs/Web/API/HTMLTextAreaElement/value).
 
 ## Wert
 

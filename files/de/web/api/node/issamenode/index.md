@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`isSameNode()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
-ist ein veraltetes Alias für den [`===` strikte Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
-Das heißt, sie prüft, ob zwei Knoten identisch sind
+Die **`isSameNode()`** Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
+ist ein veraltetes Alias für den [strikten Gleichheitsoperator `===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+Das heißt, sie prüft, ob zwei Knoten dieselben sind
 (mit anderen Worten, ob sie auf dasselbe Objekt verweisen).
 
 > [!NOTE]
-> Es gibt keinen Grund, `isSameNode()` zu verwenden; stattdessen sollte der `===` strikte Gleichheitsoperator verwendet werden.
+> Es ist nicht notwendig, `isSameNode()` zu verwenden; stattdessen verwenden Sie den strikten Gleichheitsoperator `===`.
 
 ## Syntax
 
@@ -25,18 +25,18 @@ isSameNode(otherNode)
 ### Parameter
 
 - `otherNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), gegen den geprüft werden soll.
+  - : Der zu prüfende [`Node`](/de/docs/Web/API/Node).
     > [!NOTE]
     > Dieser Parameter ist nicht optional, kann jedoch auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein Boolean-Wert, der `true` ist, wenn beide Knoten streng gleich sind, `false` andernfalls.
+Ein boolescher Wert, der `true` ist, wenn beide Knoten strikt gleich sind, `false`, wenn nicht.
 
 ## Beispiel
 
 In diesem Beispiel erstellen wir drei {{HTMLElement("div")}}-Blöcke. Der erste und dritte
-haben denselben Inhalt und Attribute, während der zweite unterschiedlich ist. Dann führen wir etwas
+haben denselben Inhalt und dieselben Attribute, während der zweite unterschiedlich ist. Dann führen wir etwas
 JavaScript aus, um die Knoten mit `isSameNode()` zu vergleichen und die Ergebnisse auszugeben.
 
 ### HTML

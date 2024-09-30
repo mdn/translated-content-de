@@ -1,5 +1,5 @@
 ---
-title: "MIDIInput: midimessage Ereignis"
+title: "MIDIInput: midimessage-Ereignis"
 short-title: midimessage
 slug: Web/API/MIDIInput/midimessage_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web MIDI API")}}{{securecontext_header}}
 
-Das `midimessage`-Ereignis der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) wird ausgelöst, wenn der entsprechende MIDI-Port dieses [`MIDIInput`](/de/docs/Web/API/MIDIInput) mit dem Empfang von einem oder mehreren MIDI-Nachrichten fertig ist. Eine Instanz von [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent), die die empfangene Nachricht enthält, wird an den Ereignishandler übergeben.
+Das `midimessage`-Ereignis der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) wird ausgelöst, wenn der MIDI-Port, der diesem [`MIDIInput`](/de/docs/Web/API/MIDIInput) entspricht, das Empfangen von einem oder mehreren MIDI-Nachrichten beendet. Eine Instanz von [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent), die die empfangene Nachricht enthält, wird an den Ereignis-Handler übergeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("midimessage", (event) => {});
@@ -35,7 +35,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Even
 
 ## Beispiele
 
-Im folgenden Beispiel wird auf allen Eingangsports auf `midimessage`-Ereignisse gehört. Wenn eine Nachricht empfangen wird, wird die [`MIDIMessageEvent.data`](/de/docs/Web/API/MIDIMessageEvent/data)-Eigenschaft in der Konsole ausgegeben.
+Im folgenden Beispiel wird auf allen Eingangsports nach `midimessage`-Ereignissen gelauscht. Wenn eine Nachricht empfangen wird, wird die Eigenschaft [`MIDIMessageEvent.data`](/de/docs/Web/API/MIDIMessageEvent/data) in der Konsole ausgegeben.
 
 ```js
 inputs.forEach((input) => {

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`setActionHandler()`**-Methode der [`MediaSession`](/de/docs/Web/API/MediaSession)-Schnittstelle legt einen Handler für eine Media-Session-Aktion fest.
-Diese Aktionen ermöglichen es einer Web-App, Benachrichtigungen zu empfangen, wenn der Benutzer physische oder virtuelle Mediensteuerungen eines Geräts, wie z.B. Wiedergabe-, Stopp- oder Suchlauf-Tasten, aktiviert.
+Die **`setActionHandler()`**-Methode der [`MediaSession`](/de/docs/Web/API/MediaSession)-Schnittstelle setzt einen Handler für eine Media-Session-Aktion. Diese Aktionen ermöglichen es einer Web-App, Benachrichtigungen zu empfangen, wenn der Nutzer die eingebauten physischen oder auf dem Bildschirm angezeigten Mediensteuerungen eines Geräts, wie z.B. Play-, Stopp- oder Such-Tasten, verwendet.
 
 ## Syntax
 
@@ -20,45 +19,55 @@ setActionHandler(type, callback)
 ### Parameter
 
 - `type`
-  - : Ein String, der einen Aktionstyp darstellt, auf den zugehört werden soll. Er wird einer der folgenden sein:
+  - : Ein String, der einen Aktionstyp darstellt, auf den gehört werden soll. Es wird einer der folgenden sein:
     - `hangup`
       - : Beendet einen Anruf.
     - `nextslide`
-      - : Wechselt zur nächsten Folie bei der Präsentation eines Folien-Sets.
+      - : Wechselt zur nächsten Folie, wenn ein Folienstapel präsentiert wird.
     - `nexttrack`
-      - : Springt zur nächsten Wiedergabespur.
+      - : Geht zur Wiedergabe des nächsten Titels über.
     - `pause`
-      - : Pausiert die Wiedergabe der Medien.
+      - : Pausiert die Wiedergabe des Mediums.
     - `play`
-      - : Beginnt (oder setzt) die Wiedergabe der Medien fort.
+      - : Beginnt (oder setzt fort) die Wiedergabe des Mediums.
     - `previousslide`
-      - : Wechselt zur vorherigen Folie bei der Präsentation eines Folien-Sets.
+      - : Wechselt zur vorherigen Folie, wenn ein Folienstapel präsentiert wird.
     - `previoustrack`
-      - : Geht zur vorherigen Wiedergabespur zurück.
+      - : Geht zum vorherigen Titel zurück.
     - `seekbackward`
-      - : Sucht rückwärts durch die Medien von der aktuellen Position. Die `seekOffset`-Eigenschaft, die an den Callback übergeben wird, gibt die Zeitspanne an, um die rückwärts gesucht werden soll.
+      - : Sucht rückwärts durch das Medium ab der aktuellen Position.
+        Die `seekOffset`-Eigenschaft, die an den Callback übergeben wird, spezifiziert die Zeitspanne, die rückwärts gesucht werden soll.
     - `seekforward`
-      - : Sucht vorwärts von der aktuellen Position durch die Medien. Die `seekOffset`-Eigenschaft, die an den Callback übergeben wird, gibt die Zeitspanne an, um die vorwärts gesucht werden soll.
+      - : Sucht vorwärts ab der aktuellen Position durch das Medium.
+        Die `seekOffset`-Eigenschaft, die an den Callback übergeben wird, spezifiziert die Zeitspanne, die vorwärts gesucht werden soll.
     - `seekto`
-      - : Verschiebt die Wiedergabeposition zu einer angegebenen Zeit innerhalb der Medien. Die Zeit, zu der gesucht werden soll, wird in der `seekTime`-Eigenschaft angegeben, die an den Callback übergeben wird. Wenn Sie beabsichtigen, mehrere `seekto`-Operationen in schneller Abfolge durchzuführen, können Sie auch die `fastSeek`-Eigenschaft mit einem Wert von `true` an den Callback übergeben. Dies teilt dem Browser mit, dass er Schritte zur Optimierung der wiederholten Operationen unternehmen kann, was wahrscheinlich zu einer verbesserten Leistung führt.
+      - : Verschiebt die Wiedergabeposition auf die angegebene Zeit innerhalb des Mediums.
+        Die zu suchende Zeit ist in der `seekTime`-Eigenschaft angegeben, die an den Callback übergeben wird.
+        Wenn Sie planen, mehrere `seekto`-Operationen in schneller Folge durchzuführen, können Sie auch die `fastSeek`-Eigenschaft angeben, die mit einem Wert von `true` an den Callback übergeben wird.
+        Dies teilt dem Browser mit, dass er Schritte unternehmen kann, um wiederholte Operationen zu optimieren, was wahrscheinlich zu einer verbesserten Leistung führt.
     - `skipad`
-      - : Überspringt die derzeit abgespielte Werbung oder den Werbespot. Diese Aktion kann je nach Plattform und [User-Agent](/de/docs/Glossary/user_agent) möglicherweise nicht verfügbar sein oder aufgrund von Abonnementstufen oder anderen Umständen deaktiviert sein.
+      - : Überspringt die aktuell laufende Werbung oder den Werbespot.
+        Diese Aktion kann je nach Plattform und [User Agent](/de/docs/Glossary/user_agent) verfügbar sein oder nicht, oder kann aufgrund des Abonnementlevels oder anderer Umstände deaktiviert sein.
     - `stop`
-      - : Beendet die Wiedergabe vollständig.
+      - : Stoppt die Wiedergabe vollständig.
     - `togglecamera`
-      - : Schaltet die aktive Kamera des Benutzers ein oder aus.
+      - : Schaltet die aktive Kamera des Nutzers ein oder aus.
     - `togglemicrophone`
-      - : Schaltet das Mikrofon des Benutzers stumm oder ein.
+      - : Stummschalten oder Aktivieren des Mikrofons des Nutzers.
 - `callback`
-  - : Eine Funktion, die aufgerufen wird, wenn der angegebene Aktionstyp ausgelöst wird. Der Callback sollte keinen Wert zurückgeben. Der Callback erhält ein Wörterbuch, das die folgenden Eigenschaften enthält:
+  - : Eine Funktion, die aufgerufen wird, wenn der angegebene Aktionstyp ausgelöst wird. Der Callback sollte keinen Wert zurückgeben. Der Callback erhält ein Wörterbuch mit den folgenden Eigenschaften:
     - `action`
-      - : Ein String, der den Aktionstyp darstellt. Diese Eigenschaft ermöglicht es, dass ein einzelner Callback mehrere Aktionstypen behandeln kann.
+      - : Ein String, der den Aktionstyp darstellt. Diese Eigenschaft ermöglicht es einem einzelnen Callback, mehrere Aktionstypen zu verarbeiten.
     - `fastSeek` {{optional_inline}}
-      - : Eine [`seekto`](#seekto)-Aktion kann _optional_ diese Eigenschaft enthalten, die einen Boolean-Wert darstellt, der angibt, ob ein "schneller" Suchlauf durchgeführt werden soll. Ein "schneller" Suchlauf wird in einer schnellen Abfolge durchgeführt, wie zum Beispiel beim schnellen Vor- oder Rücklauf durch die Medien, beim schnellen Durchblättern. Diese Eigenschaft kann verwendet werden, um anzuzeigen, dass die kürzestmögliche Methode zur Durchführung des Suchlaufs verwendet werden sollte. `fastSeek` ist bei der letzten Aktion in der Suchabfolge in dieser Situation nicht enthalten.
+      - : Eine [`seekto`](#seekto)-Aktion kann _optional_ diese Eigenschaft enthalten, wobei es sich um einen booleschen Wert handelt, der angibt, ob ein "schnelles" Suchen durchgeführt werden soll.
+        Ein "schnelles" Suchen ist ein Suchen, das in schneller Folge durchgeführt wird, beispielsweise beim schnellen Vor- oder Zurückspulen durch das Medium, indem schnell nacheinander durchgesprungen wird.
+        Diese Eigenschaft kann verwendet werden, um anzugeben, dass die kürzest mögliche Methode zum Suchen des Mediums verwendet werden sollte.
+        `fastSeek` ist bei der letzten Aktion in der Suchsequenz in dieser Situation nicht enthalten.
     - `seekOffset` {{optional_inline}}
-      - : Wenn die `action` entweder [`seekforward`](#seekforward) oder [`seekbackward`](#seekbackward) ist und diese Eigenschaft vorhanden ist, handelt es sich um einen Fließkommawert, der angibt, um wie viele Sekunden die Wiedergabeposition vorwärts oder rückwärts verschoben werden soll. Wenn diese Eigenschaft nicht vorhanden ist, sollten diese Aktionen eine vernünftige Standarddistanz zum Überspringen vorwärts oder rückwärts wählen (z. B. 7 oder 10 Sekunden).
+      - : Wenn die `action` entweder [`seekforward`](#seekforward) oder [`seekbackward`](#seekbackward) ist und diese Eigenschaft vorhanden ist, handelt es sich um einen Gleitkommawert, der angibt, um wie viele Sekunden die Wiedergabeposition vor- oder zurückbewegt werden soll.
+        Wenn diese Eigenschaft nicht vorhanden ist, sollten diese Aktionen eine angemessene Standarddistanz für das Vor- oder Zurückspringen wählen (zum Beispiel 7 oder 10 Sekunden).
     - `seekTime` {{optional_inline}}
-      - : Wenn die `action` [`seekto`](#seekto) ist, muss diese Eigenschaft vorhanden sein und einen Fließkommawert darstellen, der die absolute Zeit innerhalb der Medien angibt, zu der die Wiedergabeposition verschoben werden soll, wobei 0 den Anfang der Medien angibt. Diese Eigenschaft ist bei anderen Aktionstypen nicht vorhanden.
+      - : Wenn die `action` [`seekto`](#seekto) ist, muss diese Eigenschaft vorhanden sein und einen Gleitkommawert darstellen, der die absolute Zeit innerhalb des Mediums angibt, zu der die Wiedergabeposition verschoben werden soll, wobei 0 den Anfang des Mediums darstellt. Diese Eigenschaft ist bei anderen Aktionstypen nicht vorhanden.
 
 ### Rückgabewert
 
@@ -68,13 +77,13 @@ Keiner ({{jsxref("undefined")}}).
 
 Um einen zuvor festgelegten Aktions-Handler zu entfernen, rufen Sie `setActionHandler()` erneut auf und geben `null` als `callback` an.
 
-Der Aktions-Handler erhält als Eingabe einen einzigen Parameter: ein Objekt, das sowohl den Aktionstyp enthält (damit dieselbe Funktion mehrere Aktionstypen behandeln kann), als auch Daten, die zur Durchführung der Aktion erforderlich sind.
+Der Aktions-Handler erhält als Eingabe einen einzelnen Parameter: ein Objekt, das sowohl den Aktionstyp als auch die Daten liefert, die zur Durchführung der Aktion benötigt werden, sodass dieselbe Funktion mehrere Aktionstypen verarbeiten kann.
 
 ## Beispiele
 
-### Einrichten von Aktions-Handlern für einen Musik-Player
+### Einrichten von Aktions-Handlern für einen Musikplayer
 
-Dieses Beispiel erstellt eine neue Medien-Session und weist ihr Aktions-Handler zu, die nichts tun.
+Dieses Beispiel erstellt eine neue Media-Session und weist ihr Aktions-Handler zu, die nichts tun.
 
 ```js
 if ("mediaSession" in navigator) {
@@ -155,7 +164,7 @@ if ("mediaSession" in navigator) {
 }
 ```
 
-Das folgende Beispiel richtet zwei Funktionen für Wiedergabe und Pause ein und verwendet sie dann als Callbacks mit den entsprechenden Aktions-Handlern.
+Das folgende Beispiel richtet zwei Funktionen für das Abspielen und Pausieren ein und verwendet diese als Rückrufe mit den entsprechenden Aktions-Handlern.
 
 ```js
 const actionHandlers = [
@@ -193,7 +202,7 @@ for (const [action, handler] of actionHandlers) {
 }
 ```
 
-Dieses Beispiel verwendet geeignete Aktions-Handler, um das Suchen in beide Richtungen durch die abgespielten Medien zu ermöglichen.
+Dieses Beispiel verwendet geeignete Aktions-Handler, um das Suchen in beide Richtungen durch das spielende Medium zu ermöglichen.
 
 ```js
 navigator.mediaSession.setActionHandler("seekbackward", (evt) => {
@@ -209,7 +218,7 @@ navigator.mediaSession.setActionHandler("seekforward", (evt) => {
 });
 ```
 
-Um einen Medien-Aktions-Handler zu entfernen, weisen Sie ihm `null` zu.
+Um einen Medienaktions-Handler zu entfernen, weisen Sie ihn null zu.
 
 ```js
 navigator.mediaSession.setActionHandler("nexttrack", null);
@@ -217,7 +226,7 @@ navigator.mediaSession.setActionHandler("nexttrack", null);
 
 ### Unterstützung mehrerer Aktionen in einer Handler-Funktion
 
-Sie können auch, wenn Sie möchten, eine einzelne Funktion verwenden, um mehrere Aktionstypen zu behandeln, indem Sie den Wert der `action`-Eigenschaft überprüfen:
+Sie können auch, wenn Sie es vorziehen, eine einzige Funktion verwenden, um mehrere Aktionstypen zu verarbeiten, indem Sie den Wert der `action`-Eigenschaft überprüfen:
 
 ```js
 let skipTime = 7;
@@ -240,11 +249,11 @@ function handleSeek(details) {
 }
 ```
 
-Hier behandelt die `handleSeek()`-Funktion sowohl `seekbackward` als auch `seekforward`-Aktionen.
+Hier verarbeitet die `handleSeek()`-Funktion sowohl `seekbackward`- als auch `seekforward`-Aktionen.
 
-### Verwenden von Aktions-Handlern zur Steuerung einer Folienpräsentation
+### Verwendung von Aktions-Handlern zur Steuerung einer Folienpräsentation
 
-Die `"previousslide"`- und `"nextslide"`-Aktions-Handler können verwendet werden, um das Vorwärts- und Rückwärtsblättern durch eine Folienpräsentation zu handhaben, beispielsweise wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Fenster legt und die vom Browser bereitgestellten Steuerungen zum Navigieren durch die Folien drückt.
+Die `"previousslide"`- und `"nextslide"`-Aktions-Handler können verwendet werden, um das Vor- und Zurückblättern durch eine Folienpräsentation zu steuern, beispielsweise wenn der Nutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Fenster schiebt und die vom Browser gelieferten Steuerungen zum Navigieren durch die Folien verwendet.
 
 ```js
 try {
@@ -268,7 +277,7 @@ try {
 }
 ```
 
-Siehe [Präsentation von Folien / Medien-Session-Beispiel](https://googlechrome.github.io/samples/media-session/slides.html) für ein funktionierendes Beispiel.
+Siehe [Presenting Slides / Media Session Sample](https://googlechrome.github.io/samples/media-session/slides.html) für ein funktionierendes Beispiel.
 
 ## Spezifikationen
 

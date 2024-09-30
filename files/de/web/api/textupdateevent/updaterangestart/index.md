@@ -1,5 +1,5 @@
 ---
-title: "TextUpdateEvent: updateRangeStart-Eigenschaft"
+title: "TextUpdateEvent: Eigenschaft updateRangeStart"
 short-title: updateRangeStart
 slug: Web/API/TextUpdateEvent/updateRangeStart
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`TextUpdateEvent.updateRangeStart`** gibt die Anfangsposition des Textbereichs an, der im [`EditContext`](/de/docs/Web/API/EditContext)-Objekt ersetzt wird.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.updateRangeStart`** gibt die Startposition des Textbereichs an, der im [`EditContext`](/de/docs/Web/API/EditContext)-Objekt ersetzt wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Verwendung von `textupdate`, um den eingefügten Text und die Position anzuzeigen
+### Verwenden von `textupdate`, um den eingefügten Text und die Position anzuzeigen
 
 ```html
 <div id="editor"></div>

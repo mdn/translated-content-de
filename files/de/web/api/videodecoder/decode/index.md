@@ -1,5 +1,5 @@
 ---
-title: "VideoDecoder: decode() Methode"
+title: "VideoDecoder: decode()-Methode"
 short-title: decode()
 slug: Web/API/VideoDecoder/decode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces reiht eine Kontrollnachricht ein, um ein gegebenes Videostück zu dekodieren.
+Die **`decode()`** Methode der [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes Videostück zu dekodieren.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ decode(chunk)
 ### Parameter
 
 - `chunk`
-  - : Ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt, das ein Stück kodierten Videos repräsentiert.
+  - : Ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt, das ein Stück kodiertes Video darstellt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/VideoDecoder/state) nicht `configured` ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `chunk` nicht dekodiert werden kann, weil er für die Dekodierung auf andere Frames angewiesen ist.
+  - : Wird ausgelöst, wenn der `chunk` aufgrund von Abhängigkeiten zu anderen Frames nicht dekodiert werden kann.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die `decode()`-Methode verwendet wird, um [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekte zu dekodieren, die aus kodierten Videodaten erstellt wurden.
+Das folgende Beispiel zeigt, wie Sie die `decode()`-Methode verwenden, um [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekte zu dekodieren, die aus kodierten Videodaten erstellt wurden.
 
 ```js
 const responses = await downloadVideoChunksFromServer(timestamp);

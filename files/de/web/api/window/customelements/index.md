@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`customElements`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurückgibt. Dieses kann verwendet werden, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über bereits registrierte benutzerdefinierte Elemente zu erhalten.
+Die schreibgeschützte **`customElements`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine Referenz auf das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück, das verwendet werden kann, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über bereits registrierte benutzerdefinierte Elemente zu erhalten.
 
 ## Beispiele
 
-Das häufigste Beispiel, das Sie für die Verwendung dieser Eigenschaft sehen werden, ist der Zugriff auf die [`CustomElementRegistry.define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode, um ein neues benutzerdefiniertes Element zu definieren und zu registrieren, z.B.:
+Das häufigste Beispiel, das man für die Nutzung dieser Eigenschaft sieht, ist der Zugriff auf die [`CustomElementRegistry.define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode, um ein neues benutzerdefiniertes Element zu definieren und zu registrieren, z. B.:
 
 ```js
 let customElementRegistry = window.customElements;
 customElementRegistry.define("my-custom-element", MyCustomElement);
 ```
 
-Üblicherweise wird dies jedoch auf folgende Weise verkürzt:
+Üblicherweise wird es jedoch auf etwas wie das Folgende verkürzt:
 
 ```js
 customElements.define(
@@ -38,7 +38,7 @@ customElements.define(
 );
 ```
 
-Weitere Anwendungsbeispiele finden Sie in unserem [web-components-examples](https://github.com/mdn/web-components-examples/) Repository.
+Siehe unser [web-components-examples](https://github.com/mdn/web-components-examples/) Repository für weitere Verwendungsbeispiele.
 
 ## Spezifikationen
 

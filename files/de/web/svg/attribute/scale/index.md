@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`scale`** Attribut definiert den Verschiebungsskalierungsfaktor, der bei einer {{SVGElement("feDisplacementMap")}} Filterprimitive verwendet werden soll. Der Betrag wird im Koordinatensystem ausgedrückt, das durch das {{SVGAttr("primitiveUnits")}} Attribut am {{SVGElement("filter")}} Element festgelegt wurde.
+Das **`scale`**-Attribut definiert den Displacement-Skalierungsfaktor, der auf eine {{SVGElement("feDisplacementMap")}}-Filterprimitive angewendet werden soll. Der Betrag wird im Koordinatensystem angegeben, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feDisplacementMap")}}
 
@@ -48,9 +48,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "480", "200")}}
+{{EmbedLiveSample("Beispiel", "480", "200")}}
 
-## Hinweise zur Nutzung
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ svg {
 
 - `<number>`
 
-  - : Dieser Wert definiert den Skalierungsfaktor für die Verschiebung.
+  - : Dieser Wert definiert den Skalierungsfaktor für das Displacement.
 
-    Wenn der Wert dieses Attributs `0` ist, hat diese Operation keine Auswirkung auf das Quellbild.
+    Wenn der Wert dieses Attributs `0` ist, hat diese Operation keinen Effekt auf das Quellbild.
 
 ## Spezifikationen
 

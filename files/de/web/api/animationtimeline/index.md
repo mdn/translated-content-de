@@ -7,16 +7,16 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das `AnimationTimeline`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert die Zeitachse einer Animation. Dieses Interface existiert, um Zeitachsenmerkmale zu definieren, die von anderen Zeitachsenarten geerbt werden:
+Das `AnimationTimeline`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert die Zeitleiste einer Animation. Dieses Interface existiert, um Zeitleistenfunktionen zu definieren, die von anderen Zeitleistentypen geerbt werden:
 
 - [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline)
 - [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
 - [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) {{ReadOnlyInline}}
-  - : Gibt den Zeitwert in Millisekunden für diese Zeitachse zurück oder `null`, wenn diese Zeitachse inaktiv ist.
+  - : Gibt den Zeitwert in Millisekunden für diese Zeitleiste zurück oder `null`, wenn diese Zeitleiste inaktiv ist.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<hkern>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht die Feinabstimmung des horizontalen Abstands zwischen zwei Glyphen. Dieser Prozess wird als [Kerning](https://en.wikipedia.org/wiki/Kerning) bezeichnet.
+Das **`<hkern>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht die Feinabstimmung des horizontalen Abstands zwischen zwei Glyphen. Dieser Vorgang wird als [Kerning](https://en.wikipedia.org/wiki/Kerning) bezeichnet.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -38,4 +38,4 @@ Dieses Element implementiert die [`SVGHKernElement`](/de/docs/Web/API/SVGHKernEl
 - {{SVGElement("font")}}
 - {{SVGElement("glyph")}}
 - {{SVGElement("vkern")}}
-- [SVG-Tutorial: SVG Fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)

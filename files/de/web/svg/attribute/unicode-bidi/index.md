@@ -7,21 +7,21 @@ l10n:
 
 {{SVGRef}}
 
-Das **`unicode-bidi`** Attribut gibt an, wie die Ansammlung des Hintergrundbildes verwaltet wird.
+Das Attribut **`unicode-bidi`** legt fest, wie die Anhäufung des Hintergrundbildes verwaltet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `unicode-bidi` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der [CSS `unicode-bidi`](/de/docs/Web/CSS/unicode-bidi) Eigenschaft.
 
 ## Elemente
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 - {{SVGElement("text")}}
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -40,7 +40,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der CSS {{cssxref("unicode-bidi")}} Eigenschaft.
+Für eine Beschreibung der Werte siehe die CSS {{cssxref("unicode-bidi")}} Eigenschaft.
 
 ## Spezifikationen
 

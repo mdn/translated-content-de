@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`TrustedTypePolicy`**-Schnittstelle der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) definiert eine Gruppe von Funktionen, die `TrustedType`-Objekte erstellen.
+Das **`TrustedTypePolicy`**-Interface der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) definiert eine Gruppe von Funktionen, die `TrustedType`-Objekte erstellen.
 
-Ein `TrustedTypePolicy`-Objekt wird von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt, um eine Richtlinie zur Durchsetzung von Sicherheitsregeln für Eingaben zu definieren. Daher hat `TrustedTypePolicy` keinen Konstruktor.
+Ein `TrustedTypePolicy`-Objekt wird durch [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt, um eine Richtlinie zur Durchsetzung von Sicherheitsregeln für Eingaben zu definieren. Daher hat `TrustedTypePolicy` keinen Konstruktor.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`TrustedTypePolicy.name`](/de/docs/Web/API/TrustedTypePolicy/name) {{ReadOnlyInline}}
   - : Ein String, der den Namen der Richtlinie enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML)
   - : Erstellt ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt.
@@ -27,9 +27,9 @@ Ein `TrustedTypePolicy`-Objekt wird von [`TrustedTypePolicyFactory.createPolicy(
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine Richtlinie, die [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte mithilfe von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt. Wir können dann [`TrustedTypePolicy.createHTML`](/de/docs/Web/API/TrustedTypePolicy/createHTML) verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt wird.
+Im folgenden Beispiel erstellen wir eine Richtlinie, die [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte mithilfe von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt. Wir können dann [`TrustedTypePolicy.createHTML`](/de/docs/Web/API/TrustedTypePolicy/createHTML) verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt werden kann.
 
-Der bereinigte Wert kann dann mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingefügt werden können.
+Der bereinigte Wert kann dann mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingeschleust werden können.
 
 ```html
 <div id="myDiv"></div>

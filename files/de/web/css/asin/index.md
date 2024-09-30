@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzige Berechnung, die die Anzahl der Bogenmaß repräsentiert, die einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` entsprechen.
+Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Arcus-Sinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß in einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellt.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ transform: rotate(asin(e / 3));
 
 ### Parameter
 
-Die `asin(number)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `asin(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
   - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
 
 ### Rückgabewert
 
-Der Arkussinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurück.
+Der Arcus-Sinus einer `number` gibt immer einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurück.
 
-- Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
-- Wenn `number` `0⁻` ist, ist das Ergebnis `0⁻`.
+- Wenn `number` kleiner als `-1` oder größer als `1` ist, lautet das Ergebnis `NaN`.
+- Wenn `number` `0⁻` ist, lautet das Ergebnis `0⁻`.
 
 ### Formale Syntax
 
@@ -43,7 +43,7 @@ Der Arkussinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwisch
 
 ### Elemente drehen
 
-Die `asin()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `asin()` Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "rotate")}} Funktion zu drehen, da sie einen {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 

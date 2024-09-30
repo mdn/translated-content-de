@@ -8,4 +8,4 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-XMLHttpRequest.channel ist ein `nsIChannel`, das vom Objekt verwendet wird, wenn die Anfrage ausgeführt wird. Dies ist `null`, wenn der Kanal noch nicht erstellt wurde. Im Fall einer Multipart-Anfrage ist dies der initiale Kanal, nicht die verschiedenen Teile der Multipart-Anfrage. **Erfordert erhöhte Berechtigungen, um darauf zuzugreifen.**
+XMLHttpRequest.channel ist ein `nsIChannel`, das von dem Objekt bei der Durchführung der Anforderung verwendet wird. Dies ist `null`, wenn der Kanal noch nicht erstellt wurde. Im Falle einer Mehrteil-Anforderung ist dies der initiale Kanal, nicht die verschiedenen Teile der Mehrteil-Anforderung. **Erfordert erhöhte Berechtigungen für den Zugriff.**

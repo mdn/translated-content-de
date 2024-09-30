@@ -8,9 +8,13 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`search`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein Suchstring, auch _Query-String_ genannt, der eine Zeichenkette mit einem `'?'` gefolgt von den Parametern der URL ist.
+Die **`search`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle
+ist ein Suchstring, auch _query string_ genannt, der aus einem
+String besteht, der ein `'?'` enthält, gefolgt von den Parametern der
+URL.
 
-Moderne Browser bieten die [`URL.searchParams`](/de/docs/Web/API/URL/searchParams)-Eigenschaft an, um das Parsen der Parameter aus dem Query-String zu erleichtern.
+Moderne Browser bieten die [`URL.searchParams`](/de/docs/Web/API/URL/searchParams)-Eigenschaft, die es einfach macht,
+die Parameter aus dem Suchstring zu extrahieren.
 
 ## Wert
 
@@ -35,4 +39,4 @@ console.log(url.search); // Logs "?q=123"
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

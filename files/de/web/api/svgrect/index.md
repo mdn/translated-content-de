@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Der **`SVGRect`** repräsentiert ein Rechteck. Rechtecke bestehen aus einem `x`- und `y`-Koordinatenpaar, das einen minimalen `x`-Wert, einen minimalen `y`-Wert sowie eine `width` und `height` identifiziert, die auf nicht-negative Werte beschränkt sind.
+Das **`SVGRect`** repräsentiert ein Rechteck. Rechtecke bestehen aus einem `x`- und `y`-Koordinatenpaar, das einen minimalen `x`-Wert und einen minimalen `y`-Wert identifiziert, sowie einer `width` und `height`, die auf nicht-negative Werte beschränkt sind.
 
-Ein **`SVGRect`**-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen.
+Ein **`SVGRect`**-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu modifizieren, eine Ausnahme hervorrufen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SVGRect.x`](/de/docs/Web/API/SVGRect/x)
-  - : Die genaue Auswirkung dieser Koordinate hängt von jedem Element ab. Wenn das Attribut nicht angegeben ist, ist die Wirkung so, als ob ein Wert von `0` angegeben wäre.
+  - : Die genaue Wirkung dieser Koordinate hängt von jedem Element ab. Wenn das Attribut nicht angegeben ist, wirkt es sich so aus, als ob ein Wert von `0` angegeben wäre.
 - [`SVGRect.y`](/de/docs/Web/API/SVGRect/y)
-  - : Die genaue Auswirkung dieser Koordinate hängt von jedem Element ab. Wenn das Attribut nicht angegeben ist, ist die Wirkung so, als ob ein Wert von `0` angegeben wäre.
+  - : Die genaue Wirkung dieser Koordinate hängt von jedem Element ab. Wenn das Attribut nicht angegeben ist, wirkt es sich so aus, als ob ein Wert von `0` angegeben wäre.
 - [`SVGRect.width`](/de/docs/Web/API/SVGRect/width)
-  - : Dies repräsentiert die Breite des Rechtecks. Ein negativer Wert führt zu einem Fehler. Ein Wert von `0` deaktiviert das Rendering des Elements.
+  - : Dies repräsentiert die Breite des Rechtecks. Ein negativer Wert führt zu einem Fehler. Ein Wert von `0` deaktiviert die Darstellung des Elements.
 - [`SVGRect.height`](/de/docs/Web/API/SVGRect/height)
-  - : Dies repräsentiert die Höhe des Rechtecks. Ein negativer Wert führt zu einem Fehler. Ein Wert von `0` deaktiviert das Rendering des Elements.
+  - : Dies repräsentiert die Höhe des Rechtecks. Ein negativer Wert führt zu einem Fehler. Ein Wert von `0` deaktiviert die Darstellung des Elements.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`disconnect()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces stoppt den Druckbeobachter-Callback, damit keine Druckdatensätze mehr von allen Quellen empfangen werden.
+Die **`disconnect()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces stoppt den Rückruf des Druckbeobachters, sodass keine Druckaufzeichnungen mehr von allen Quellen empfangen werden.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Stoppen eines Druckbeobachters
+### Einen Druckbeobachter stoppen
 
-Das folgende Beispiel sammelt 20 Proben und trennt dann den Druckbeobachter, um den Empfang weiterer Druckdatensätze zu deaktivieren.
+Das folgende Beispiel sammelt 20 Stichproben und trennt dann den Druckbeobachter, um das Empfangen weiterer Druckaufzeichnungen zu deaktivieren.
 
 ```js
 const samples = [];

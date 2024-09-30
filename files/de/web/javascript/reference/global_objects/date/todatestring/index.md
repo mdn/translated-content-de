@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toDateString()`**-Methode von {{jsxref("Date")}}-Instanzen gibt eine Zeichenkette zurück, die den Datumsanteil dieses Datums darstellt, interpretiert in der lokalen Zeitzone.
+Die **`toDateString()`**-Methode von {{jsxref("Date")}}-Instanzen gibt einen String zurück, der den Datumsanteil dieses Datums im lokalen Zeitzonenformat darstellt.
 
 {{EmbedInteractiveExample("pages/js/date-todatestring.html")}}
 
@@ -23,23 +23,23 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den Datumsanteil des angegebenen Datums darstellt (siehe Beschreibung für das Format). Gibt `"Invalid Date"` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein String, der den Datumsanteil des angegebenen Datums darstellt (siehe Beschreibung für das Format). Gibt `"Invalid Date"` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-{{jsxref("Date")}}-Instanzen beziehen sich auf einen speziellen Zeitpunkt. `toDateString()` interpretiert das Datum in der lokalen Zeitzone und formatiert den _Datums_-Teil auf Englisch. Es verwendet immer das folgende Format, getrennt durch Leerzeichen:
+{{jsxref("Date")}}-Instanzen beziehen sich auf einen spezifischen Zeitpunkt. `toDateString()` interpretiert das Datum in der lokalen Zeitzone und formatiert den _Datums_-Teil auf Englisch. Es verwendet immer das folgende Format, getrennt durch Leerzeichen:
 
-1. Die ersten drei Buchstaben des Wochentagnamens
+1. Die ersten drei Buchstaben des Wochentagsnamens
 2. Die ersten drei Buchstaben des Monatsnamens
-3. Zweistelliger Tag des Monats, links mit einer Null aufgefüllt, falls nötig
-4. Vierstellige Jahreszahl (mindestens), links mit Nullen aufgefüllt, falls nötig. Kann ein negatives Vorzeichen haben
+3. Zweistelliger Tag des Monats, links mit einer Null aufgefüllt, falls erforderlich
+4. Vierstelliges Jahr (mindestens), links mit Nullen aufgefüllt, falls erforderlich. Kann ein negatives Vorzeichen haben
 
 Zum Beispiel: "Thu Jan 01 1970".
 
-- Wenn Sie nur den _Zeit_-Teil erhalten möchten, verwenden Sie {{jsxref("Date/toTimeString", "toTimeString()")}}.
-- Wenn Sie sowohl Datum als auch Zeit erhalten möchten, verwenden Sie {{jsxref("Date/toString", "toString()")}}.
-- Wenn Sie möchten, dass das Datum als UTC und nicht als lokale Zeitzone interpretiert wird, verwenden Sie {{jsxref("Date/toUTCString", "toUTCString()")}}.
-- Wenn Sie das Datum in einem benutzerfreundlicheren Format (z. B. Lokalisation) formatieren möchten, verwenden Sie {{jsxref("Date/toLocaleDateString", "toLocaleDateString()")}}.
+- Falls Sie nur den _Zeit_-Teil erhalten möchten, verwenden Sie {{jsxref("Date/toTimeString", "toTimeString()")}}.
+- Um sowohl Datum als auch Zeit zu erhalten, verwenden Sie {{jsxref("Date/toString", "toString()")}}.
+- Wenn Sie möchten, dass das Datum als UTC statt als lokale Zeitzone interpretiert wird, verwenden Sie {{jsxref("Date/toUTCString", "toUTCString()")}}.
+- Falls Sie das Datum in einem benutzerfreundlicheren Format (z.B. Lokalisierung) formatieren möchten, verwenden Sie {{jsxref("Date/toLocaleDateString", "toLocaleDateString()")}}.
 
 ## Beispiele
 

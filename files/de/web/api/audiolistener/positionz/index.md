@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte `positionZ`-Eigenschaft der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das die z-Position des Listeners im dreidimensionalen kartesischen Raum darstellt.
+Die schreibgeschützte Eigenschaft `positionZ` der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das die z-Position des Listeners im 3D-Kartesischen Raum darstellt.
 
 > [!NOTE]
-> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower eingestellt ist, oder ansonsten [_k-rate_](/de/docs/Web/API/AudioParam#k-rate).
+> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower eingestellt ist, oder andernfalls [_k-rate_](/de/docs/Web/API/AudioParam#k-rate).
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0, und er kann zwischen posiver und negativer Unendlichkeit variieren.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist 0 und es kann zwischen positiver und negativer Unendlichkeit liegen.
 
 ## Beispiele
 
-Siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) für ein Beispielcode.
+Siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) für Beispielcode.
 
 ## Spezifikationen
 

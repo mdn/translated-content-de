@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`window`**-Eigenschaft der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext im Picture-in-Picture-Fenster repräsentiert.
+Die schreibgeschützte **`window`**-Eigenschaft der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture) Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window) Instanz zurück, die den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters darstellt.
 
 ## Wert
 
-Ein [`Window`](/de/docs/Web/API/Window)-Objekt, falls das Picture-in-Picture-Fenster bereits mit [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) geöffnet wurde, oder `null` andernfalls.
+Eine [`Window`](/de/docs/Web/API/Window) Objektinstanz, wenn das Picture-in-Picture-Fenster bereits mit [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) geöffnet wurde, oder `null` sonst.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: tooShort Eigenschaft"
+title: "ValidityState: tooShort-Eigenschaft"
 short-title: tooShort
 slug: Web/API/ValidityState/tooShort
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`tooShort`** Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState) Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("output")}}, {{HTMLElement("fieldset")}} oder {{HTMLElement("textarea")}}, nachdem er vom Benutzer bearbeitet wurde, kleiner ist als die durch das `minlength` Attribut des Elements festgelegte minimale Codeeinheiten-Länge.
+Die schreibgeschützte **`tooShort`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("output")}}, {{HTMLElement("fieldset")}} oder {{HTMLElement("textarea")}}, nachdem er vom Benutzer bearbeitet wurde, kürzer ist als die durch das `minlength`-Attribut des Elements festgelegte minimale Code-Element-Länge.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der `ValidityState` nicht den Anforderungen entspricht.
+Ein Boolean, der `true` ist, wenn der `ValidityState` den Einschränkungen nicht entspricht.
 
 ## Beispiele
 
-### Eingabe mit zu kurzem Zeichenfolgenwert
+### Eingabefeld mit zu kurzem Zeichenfolgenwert
 
-Das folgende Beispiel überprüft die Gültigkeit eines [Text-Eingabeelements](/de/docs/Web/HTML/Element/input/text).
-Eine Einschränkung wurde unter Verwendung des [`minlength` Attributs](/de/docs/Web/HTML/Element/input/text#minlength) hinzugefügt, sodass die Eingabe eine Zeichenfolge mit mindestens 4 Zeichen erwartet.
-Wenn der Benutzer eine zu kurze Zeichenfolge eingibt, schlägt die Validierung der Einschränkung fehl und die zugehörigen Stile, die der {{cssxref(":invalid")}} CSS-Pseudoklasse entsprechen, werden angewendet.
+Das folgende Beispiel überprüft die Gültigkeit eines [Texteingabeelements](/de/docs/Web/HTML/Element/input/text).
+Es wurde eine Einschränkung mit dem [`minlength`-Attribut](/de/docs/Web/HTML/Element/input/text#minlength) hinzugefügt, sodass die Eingabe eine Zeichenfolge mit mindestens 4 Zeichen erwartet.
+Wenn der Benutzer eine zu kurze Zeichenfolge eingibt, schlägt die Einschränkungsvalidierung des Elements fehl, und die dem CSS-Pseudoklasse {{cssxref(":invalid")}} entsprechenden Stile werden angewendet.
 
 ```css
 input:invalid {
@@ -75,5 +75,5 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - [Anleitung: Formular-Datenvalidierung](/de/docs/Learn/Forms/Form_validation)

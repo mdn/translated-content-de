@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`neg`** Anweisungen, abgekürzt für _negate_, werden verwendet, um eine Zahl zu negieren. Das heißt, eine positive Zahl in eine negative Zahl und eine negative Zahl in eine positive Zahl umzuwandeln.
+Die **`neg`**-Anweisungen, kurz für _negieren_, werden verwendet, um eine Zahl zu negieren. Das heißt, eine positive Zahl in eine negative und eine negative Zahl in eine positive Zahl umzuwandeln.
 
 {{EmbedInteractiveExample("pages/wat/neg.html", "tabbed-standard")}}
 
@@ -23,7 +23,7 @@ f32.neg
 ;; the top item on the stack will now be -2.7
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `f32.neg` | `0x8c`         |
-| `f64.neg` | `0x9a`         |
+| Anweisung  | Binärer Opcode |
+|------------|----------------|
+| `f32.neg`  | `0x8c`         |
+| `f64.neg`  | `0x9a`         |

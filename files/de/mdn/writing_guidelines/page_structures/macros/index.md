@@ -1,5 +1,5 @@
 ---
-title: Makros verwenden
+title: Die Verwendung von Makros
 slug: MDN/Writing_guidelines/Page_structures/Macros
 l10n:
   sourceCommit: cb1c745168764c4646631e7c4289319d782cc83b
@@ -7,40 +7,39 @@ l10n:
 
 {{MDNSidebar}}
 
-Die Plattform [Yari](https://github.com/mdn/yari), auf der MDN läuft, stellt ein Makrosystem zur Verfügung, [KumaScript](https://github.com/mdn/yari/tree/main/docs/kumascript), das es ermöglicht, bestimmte Aufgaben zu automatisieren. Dieser Artikel bietet Informationen darüber, wie Sie die Makros von MDN innerhalb von Artikeln aufrufen können.
+Die [Yari](https://github.com/mdn/yari)-Plattform, auf der MDN läuft, bietet ein Makrosystem, [KumaScript](https://github.com/mdn/yari/tree/main/docs/kumascript), das es ermöglicht, bestimmte Aufgaben zu automatisieren. Dieser Artikel bietet Informationen dazu, wie man die Makros von MDN innerhalb von Artikeln aufruft.
 
-Der [KumaScript-Leitfaden](https://github.com/mdn/yari/blob/main/docs/kumascript/README.md) bietet einen detaillierten Einblick in die Verwendung von Makros auf MDN, daher ist dieser Abschnitt eher ein kurzer Überblick.
+Der [KumaScript-Leitfaden](https://github.com/mdn/yari/blob/main/docs/kumascript/README.md) bietet einen umfassenden Überblick darüber, wie man Makros auf MDN verwendet, daher ist dieser Abschnitt eher eine kurze Übersicht.
 
-## Wie Makros implementiert sind
+## Wie Makros implementiert werden
 
-Makros auf MDN werden unter Verwendung von server-ausgeführtem [JavaScript](/de/docs/Web/JavaScript) Code implementiert, der mit [Node.js](https://nodejs.org/en/) interpretiert wird.
-Darauf aufbauend haben wir eine Reihe von Bibliotheken implementiert, die Dienste und Funktionen bereitstellen, um Makros die Interaktion mit der Plattform und ihren Inhalten zu ermöglichen.
+Makros auf MDN werden mithilfe von serverseitig ausgeführtem [JavaScript](/de/docs/Web/JavaScript)-Code implementiert, der mit [Node.js](https://nodejs.org/en/) interpretiert wird. Darüber hinaus haben wir eine Reihe von Bibliotheken implementiert, die Dienste und Funktionen bieten, damit Makros mit der Plattform und deren Inhalten interagieren können.
 
 ## Verwendung eines Makros im Inhalt
 
-Um ein Makro zu verwenden, schließen Sie den Aufruf des Makros zusammen mit seinen Parametern, falls vorhanden, in ein Paar doppelter geschweifter Klammern ein:
+Um ein Makro zu verwenden, schließen Sie den Makroaufruf zusammen mit seinen Parametern, falls vorhanden, in ein Paar geschweifter Doppelklammern ein:
 
 ```plain
 \{{macroname(parameter-list)}}
 ```
 
-Einige Hinweise zu Makroaufrufen:
+Einige Anmerkungen zu Makroaufrufen:
 
-- Makronamen sind groß- und kleinschreibungsempfindlich, aber es wird versucht, häufige Schreibfehler in der Großschreibung zu korrigieren; Sie können alle Kleinbuchstaben verwenden, auch wenn der Makroname Großbuchstaben enthält, und Sie können ein Makro mit Kleinbuchstaben beginnen, dessen Name normalerweise mit einem Kleinbuchstaben beginnt.
+- Makronamen sind case-sensitive, jedoch wird versucht, häufige Groß-/Kleinschreibfehler zu korrigieren; Sie können alles in Kleinbuchstaben schreiben, auch wenn der Makroname Großbuchstaben verwendet, und Sie können ein Makro großschreiben, dessen Name normalerweise mit einem Kleinbuchstaben beginnt.
 - Parameter werden durch Kommas getrennt.
 - Wenn keine Parameter vorhanden sind, können Sie die Klammern vollständig weglassen; `\{{macroname()}}` und `\{{macroname}}` sind identisch.
-- Numerische Parameter können in Anführungszeichen stehen oder nicht. Dies hängt von Ihnen ab (wenn Sie jedoch eine Versionsnummer mit mehreren Dezimalstellen haben, muss sie in Anführungszeichen stehen).
-- Wenn Sie Fehler erhalten, überprüfen Sie Ihren Code sorgfältig. Wenn Sie immer noch nicht herausfinden können, was los ist, lesen Sie [Fehlerbehebung bei Kumaskript-Fehlern](https://github.com/mdn/yari/blob/main/docs/kumascript/troubleshooting-errors.md), um Hilfe zu erhalten.
+- Numerische Parameter können in Anführungszeichen stehen oder auch nicht. Das liegt bei Ihnen (wenn Sie allerdings eine Versionsnummer mit mehreren Dezimalstellen haben, muss diese in Anführungszeichen stehen).
+- Bei Fehlern überprüfen Sie Ihren Code sorgfältig. Wenn Sie das Problem immer noch nicht herausfinden können, lesen Sie [Fehlersuche bei KumaScript-Fehlern](https://github.com/mdn/yari/blob/main/docs/kumascript/troubleshooting-errors.md) zur Hilfe.
 
-Makros werden stark zwischengespeichert; für jeden Satz von Eingabewerten (sowohl Parameter als auch Umgebungswerte wie die URL, für die das Makro ausgeführt wurde) werden die Ergebnisse gespeichert und wiederverwendet. Das bedeutet, dass das Makro tatsächlich nur ausgeführt wird, wenn sich die Eingaben ändern.
+Makros werden stark zwischengespeichert; für jeden Satz von Eingabewerten (sowohl Parameter als auch Umgebungswerte wie die URL, für die das Makro ausgeführt wurde) werden die Ergebnisse gespeichert und wiederverwendet. Das bedeutet, dass das Makro nur tatsächlich ausgeführt wird, wenn sich die Eingaben ändern.
 
-Makros können so einfach sein, dass sie einfach einen größeren Textblock einfügen oder Inhalte aus einem anderen Teil von MDN austauschen, oder so komplex, dass sie durch das Durchsuchen von Teilen der Website einen gesamten Inhaltsindex erstellen, das Ergebnis gestalten und Links hinzufügen.
+Makros können so einfach sein, dass sie nur einen größeren Textblock einfügen oder Inhalte aus einem anderen Teil von MDN einfügen, oder so komplex, dass sie ein ganzes Inhaltsverzeichnis erstellen, indem sie Teile der Seite durchsuchen, die Ausgabe gestalten und Links hinzufügen.
 
-Sie können unsere am häufigsten verwendeten Makros auf der Seite [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros) nachlesen; außerdem können Sie die [vollständigen Quellen für alle Makros](https://github.com/mdn/yari/tree/main/kumascript/macros) durchsuchen. Die meisten Makroquellen enthalten eine eingebaute Dokumentation in Form von Kommentaren am Anfang.
+Sie können mehr über die am häufigsten verwendeten Makros auf der Seite [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros) lesen; außerdem können Sie die [vollständigen Quellen aller Makros](https://github.com/mdn/yari/tree/main/kumascript/macros) durchstöbern. Die meisten Makroquellen haben Dokumentationen als Kommentare am Anfang eingebaut.
 
 ## Siehe auch
 
-- [Seitenleistenmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
-- [Linkmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
-- [Funktionsstatusmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
+- [Seitenleisten-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
+- [Link-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
+- [Feature-Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
 - [Liste der Makros](https://github.com/mdn/yari/tree/main/kumascript/macros) auf GitHub

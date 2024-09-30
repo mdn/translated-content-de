@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Gibt einen String zurück, der die Plattform des Browsers darstellt. Die Spezifikation erlaubt es, dass Browser immer den leeren String zurückgeben, daher sollten Sie sich nicht darauf verlassen, dass diese Eigenschaft eine zuverlässige Antwort liefert.
+Gibt einen String zurück, der die Plattform des Browsers darstellt. Die Spezifikation erlaubt es den Browsern, immer den leeren String zurückzugeben, sodass Sie sich nicht auf diese Eigenschaft verlassen sollten, um eine zuverlässige Antwort zu erhalten.
 
 ## Wert
 
-Ein String, der die Plattform identifiziert, auf der der Browser ausgeführt wird, oder ein leerer String, wenn der Browser es ablehnt (oder nicht in der Lage ist), die Plattform zu identifizieren. `platform` ist ein String, der ein leerer String sein muss oder einen String, der die Plattform darstellt, auf der der Browser ausgeführt wird.
+Ein String, der die Plattform identifiziert, auf der der Browser läuft, oder ein leerer String, falls der Browser die Plattform nicht identifizieren möchte (oder nicht in der Lage ist, sie zu identifizieren). `platform` ist ein String, der entweder ein leerer String oder ein String sein muss, der die Plattform beschreibt, auf der der Browser ausgeführt wird.
 
 Zum Beispiel: `"MacIntel"`, `"Win32"`, `"FreeBSD i386"`, `"WebTV OS"`.
 

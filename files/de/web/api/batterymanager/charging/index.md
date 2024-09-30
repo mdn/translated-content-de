@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: Eigenschaft charging"
+title: "BatteryManager: charging-Eigenschaft"
 short-title: charging
 slug: Web/API/BatteryManager/charging
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`charging`** des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces ist ein Boolescher Wert, der angibt, ob der Akku des Geräts momentan geladen wird oder nicht. Wenn sich der Wert ändert, wird das [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event)-Ereignis ausgelöst.
+Die schreibgeschützte **`charging`**-Eigenschaft des [`BatteryManager`](/de/docs/Web/API/BatteryManager) Interfaces ist ein Boolean-Wert, der angibt, ob der Akku des Geräts derzeit geladen wird oder nicht. Wenn sich dieser Wert ändert, wird das [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event)-Ereignis ausgelöst.
 
-Wenn der Akku geladen wird oder der Benutzeragent den Akkustatus nicht melden kann, ist dieser Wert `true`. Andernfalls ist er `false`.
+Wenn der Akku geladen wird oder der User-Agent den Akkustatus nicht melden kann, ist dieser Wert `true`. Andernfalls ist er `false`.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 

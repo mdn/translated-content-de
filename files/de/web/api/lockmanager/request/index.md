@@ -8,15 +8,21 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`request()`**-Methode der [`LockManager`](/de/docs/Web/API/LockManager)-Schnittstelle fordert ein [`Lock`](/de/docs/Web/API/Lock)-Objekt mit Parametern an, die seinen Namen und seine Eigenschaften spezifizieren. Das angeforderte `Lock` wird an eine Callback-Funktion übergeben, während die Funktion selbst ein {{jsxref('Promise')}} zurückgibt, das mit dem Ergebnis des Callbacks aufgelöst (oder verworfen) wird, nachdem das Lock freigegeben wurde, oder verworfen wird, wenn die Anfrage abgebrochen wird.
+Die **`request()`**-Methode der [`LockManager`](/de/docs/Web/API/LockManager)-Schnittstelle fordert ein [`Lock`](/de/docs/Web/API/Lock)-Objekt an, wobei Parameter dessen Namen und Eigenschaften spezifizieren.
+Das angeforderte `Lock` wird an eine Callback-Funktion übergeben, während die Funktion selbst ein {{jsxref('Promise')}} zurückgibt, das mit dem Ergebnis des Callbacks aufgelöst (oder abgelehnt) wird, nachdem der Lock freigegeben wurde, oder abgelehnt wird, wenn die Anforderung abgebrochen wird.
 
 Die `mode`-Eigenschaft des `options`-Parameters kann entweder `"exclusive"` oder `"shared"` sein.
 
-Fordern Sie ein `"exclusive"`-Lock an, wenn es nur von einem Code-Instanz zu einem Zeitpunkt gehalten werden soll. Dies gilt sowohl für Code in Tabs als auch in Workern. Verwenden Sie dies, um wechselseitigen exklusiven Zugriff auf eine Ressource darzustellen. Wenn ein `"exclusive"`-Lock für einen bestimmten Namen gehalten wird, kann kein anderes Lock mit demselben Namen gehalten werden.
+Fordern Sie eine `"exclusive"`-Sperre an, wenn sie nur von einer Code-Instanz zu einem Zeitpunkt gehalten werden sollte.
+Dies gilt sowohl für Code in Registerkarten als auch in Workern. Verwenden Sie dies, um einen gegenseitig ausschließenden Zugriff auf eine Ressource zu repräsentieren.
+Wenn eine `"exclusive"`-Sperre für einen bestimmten Namen gehalten wird, kann keine andere Sperre mit demselben Namen gehalten werden.
 
-Fordern Sie ein `"shared"`-Lock an, wenn mehrere Instanzen des Codes gemeinsamen Zugriff auf eine Ressource haben können. Wenn ein `"shared"`-Lock für einen bestimmten Namen gehalten wird, können andere `"shared"`-Locks für denselben Namen gewährt werden, aber keine `"exclusive"`-Locks mit diesem Namen können gehalten oder gewährt werden.
+Fordern Sie eine `"shared"`-Sperre an, wenn mehrere Instanzen des Codes gemeinsam auf eine Ressource zugreifen können.
+Wenn eine `"shared"`-Sperre für einen bestimmten Namen gehalten wird, können andere `"shared"`-Sperren für denselben Namen gewährt werden, aber keine `"exclusive"`-Sperren mit diesem Namen können gehalten oder gewährt werden.
 
-Dieses gemeinsame/exklusive Sperrmuster ist in Datenbank-Transaktionsarchitekturen gebräuchlich, um zum Beispiel mehreren gleichzeitigen Lesern zu erlauben (jeder fordert ein `"shared"`-Lock an), jedoch nur einem Schreiber (ein einziges `"exclusive"`-Lock). Dies ist als Leser-Schreiber-Muster bekannt. In der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird dies als `"readonly"`- und `"readwrite"`-Transaktionen ausgestellt, die dieselben Semantiken haben.
+Dieses Muster von gemeinsamer/exklusiver Sperre ist in der Datenbank-Transaktionsarchitektur üblich, um zum Beispiel mehrere gleichzeitige Leser zuzulassen (jeder fordert eine `"shared"`-Sperre an), aber nur einen Schreiber (eine einzelne `"exclusive"`-Sperre).
+Dies ist als das Leser-Schreiber-Muster bekannt.
+Im [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird dies als `"readonly"` und `"readwrite"`-Transaktionen angezeigt, die dieselbe Semantik besitzen.
 
 ## Syntax
 
@@ -29,56 +35,65 @@ request(name, options, callback)
 
 - `name`
 
-  - : Ein Bezeichner für das Lock, das Sie anfordern möchten.
+  - : Ein Bezeichner für die Sperre, die Sie anfordern möchten.
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das die Eigenschaften des Locks beschreibt, das Sie erstellen möchten. Gültige Werte sind:
+  - : Ein Objekt, das die Eigenschaften der Sperre beschreibt, die Sie erstellen möchten.
+    Gültige Werte sind:
 
     - `mode` {{optional_inline}}
 
-      - : Entweder `"exclusive"` oder `"shared"`. Der Standardwert ist `"exclusive"`.
+      - : Entweder `"exclusive"` oder `"shared"`.
+        Der Standardwert ist `"exclusive"`.
 
     - `ifAvailable` {{optional_inline}}
 
-      - : Wenn `true`, wird die Lock-Anforderung nur gewährt, wenn sie nicht bereits gehalten wird. Wenn sie nicht gewährt werden kann, wird der Callback mit `null` statt mit einer `Lock`-Instanz aufgerufen. Der Standardwert ist `false`.
+      - : Wenn `true`, wird die Sperranforderung nur gewährt, wenn sie nicht bereits gehalten wird.
+        Wenn sie nicht gewährt werden kann, wird das Callback mit `null` anstelle einer `Lock`-Instanz ausgeführt.
+        Der Standardwert ist `false`.
 
     - `steal` {{optional_inline}}
 
-      - : Wenn `true`, werden alle gehaltenen Locks mit demselben Namen freigegeben, und die Anfrage wird gewährt, wobei alle in der Warteschlange stehenden Anfragen vorgezogen werden. Der Standardwert ist `false`.
+      - : Wenn `true`, werden alle gehaltenen Sperren mit demselben Namen freigegeben und die Anforderung wird gewährt, wodurch alle dafür eingereihten Anfragen vorweggenommen werden.
+        Der Standardwert ist `false`.
 
         > [!WARNING]
-        > Mit Vorsicht verwenden!
-        > Code, der zuvor innerhalb des Locks ausgeführt wurde, wird weiter ausgeführt und kann mit dem Code kollidieren, der jetzt das Lock hält.
+        > Verwenden Sie dies mit Vorsicht!
+        > Code, der zuvor innerhalb der Sperre ausgeführt wurde, läuft weiter und kann mit dem Code in Konflikt geraten, der die Sperre jetzt hält.
 
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) (die [`signal`](/de/docs/Web/API/AbortController/signal)-Eigenschaft eines [`AbortController`](/de/docs/Web/API/AbortController)); wenn angegeben und der [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen wird, wird die Lock-Anfrage fallen gelassen, wenn sie noch nicht gewährt wurde.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) (die [`signal`](/de/docs/Web/API/AbortController/signal)-Eigenschaft eines [`AbortController`](/de/docs/Web/API/AbortController));
+        wenn angegeben und der [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen wurde, wird die Sperranforderung fallengelassen, wenn sie noch nicht gewährt wurde.
 
 - `callback`
-  - : Methode, die aufgerufen wird, wenn das Lock gewährt wird. Das Lock wird automatisch freigegeben, wenn der Callback zurückkehrt (oder eine Ausnahme geworfen wird). Gewöhnlich ist der Callback eine asynchrone Funktion, was dazu führt, dass das Lock erst dann freigegeben wird, wenn die asynchrone Funktion vollständig abgeschlossen ist.
+  - : Methode, die aufgerufen wird, wenn die Sperre gewährt wird.
+    Die Sperre wird automatisch freigegeben, wenn das Callback zurückkehrt (oder eine Ausnahme ausgelöst wird).
+    In der Regel ist das Callback eine asynchrone Funktion, die dafür sorgt, dass die Sperre erst freigegeben wird, wenn die asynchrone Funktion vollständig beendet ist.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit dem Ergebnis des Callbacks aufgelöst (oder verworfen) wird, nachdem das Lock freigegeben wurde, oder verworfen wird, wenn die Anfrage abgebrochen wird.
+Ein {{jsxref('Promise')}} das mit dem Ergebnis des Callbacks aufgelöst (oder abgelehnt) wird, nachdem die Sperre freigegeben wurde, oder abgelehnt wird, wenn die Anforderung abgebrochen wird.
 
 ### Ausnahmen
 
-Diese Methode kann ein Promise zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) von einem der folgenden Typen verworfen wird:
+Diese Methode kann ein Promise zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen abgelehnt wird:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Umgebungsdokument nicht vollständig aktiv ist.
+  - : Wird ausgelöst, wenn das Dokument der Umgebungen nicht vollständig aktiv ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Lock-Manager für die aktuelle Umgebung nicht erlangt werden kann.
+  - : Wird ausgelöst, wenn ein Sperrenmanager für die aktuelle Umgebung nicht bezogen werden kann.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `name` mit einem Bindestrich (`-`) beginnt, beide Optionen `steal` und `ifAvailable` `true` sind, oder wenn die Option `signal` existiert und _entweder_ die Option `steal` oder `ifAvailable` `true` ist.
+  - : Wird ausgelöst, wenn `name` mit einem Bindestrich (`-`) beginnt, sowohl die Optionen `steal` als auch `ifAvailable` `true` sind oder wenn die `signal`-Option vorhanden ist und _entweder_ die Option `steal` oder `ifAvailable` `true` ist.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Option `signal` existiert und abgebrochen wird.
+  - : Wird ausgelöst, wenn die Option `signal` vorhanden ist und abgebrochen wird.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-Das folgende Beispiel zeigt die grundlegende Verwendung der `request()`-Methode mit einer asynchronen Funktion als Callback. Sobald der Callback aufgerufen wird, kann kein anderer laufender Code an diesem Ursprung `my_resource` halten, bis der Callback zurückkehrt.
+Das folgende Beispiel zeigt die grundlegende Verwendung der `request()`-Methode mit einer asynchronen Funktion als Callback.
+Sobald das Callback aufgerufen wird, kann kein anderer laufender Code unter diesem Ursprung `my_resource` halten, bis das Callback zurückkehrt.
 
 ```js
 await navigator.locks.request("my_resource", async (lock) => {
@@ -86,11 +101,12 @@ await navigator.locks.request("my_resource", async (lock) => {
 });
 ```
 
-### Beispiel für `mode`
+### `mode` Beispiel
 
 Das folgende Beispiel zeigt, wie man die `mode`-Option für Leser und Schreiber verwendet.
 
-Beachten Sie, dass beide Funktionen ein Lock namens `my_resource` verwenden. Die `do_read()` fordert ein Lock im `'shared'`-Modus an, was bedeutet, dass mehrere Aufrufe gleichzeitig über verschiedene Ereignis-Handler, Tabs oder Worker erfolgen können.
+Beachten Sie, dass beide Funktionen eine Sperre namens `my_resource` verwenden.
+Die Funktion `do_read()` fordert eine Sperre im `'shared'`-Modus an, was bedeutet, dass mehrere Aufrufe gleichzeitig über verschiedene Ereignishandler, Registerkarten oder Worker stattfinden können.
 
 ```js
 async function do_read() {
@@ -104,7 +120,8 @@ async function do_read() {
 }
 ```
 
-Die `do_write()`-Funktion verwendet dasselbe Lock, aber im `'exclusive'`-Modus, was die Aufrufung des `request()`-Aufrufs in `do_read()` verzögert, bis der Schreibvorgang abgeschlossen ist. Dies gilt für Ereignis-Handler, Tabs oder Worker.
+Die `do_write()`-Funktion verwendet dieselbe Sperre, jedoch im `'exclusive'`-Modus, wodurch die Ausführung des `request()`-Aufrufs in `do_read()` verzögert wird, bis der Schreibvorgang abgeschlossen ist.
+Dies gilt über Ereignishandler, Registerkarten oder Worker hinweg.
 
 ```js
 async function do_write() {
@@ -118,9 +135,11 @@ async function do_write() {
 }
 ```
 
-### Beispiel für `ifAvailable`
+### `ifAvailable` Beispiel
 
-Um ein Lock nur zu greifen, wenn es nicht bereits gehalten wird, verwenden Sie die `ifAvailable`-Option. In dieser Funktion bedeutet `await`, dass die Methode nicht zurückkehrt, bis der Callback abgeschlossen ist. Da das Lock nur gewährt wird, wenn es verfügbar war, vermeidet dieser Aufruf das Warten darauf, dass das Lock anderswo freigegeben wird.
+Um eine Sperre nur zu erhalten, wenn sie nicht bereits gehalten wird, verwenden Sie die `ifAvailable`-Option.
+In dieser Funktion bedeutet `await`, dass die Methode erst zurückkehrt, wenn das Callback abgeschlossen ist.
+Da die Sperre nur gewährt wird, wenn sie verfügbar war, vermeidet dieser Aufruf, auf die Freigabe der Sperre an anderer Stelle warten zu müssen.
 
 ```js
 await navigator.locks.request(
@@ -138,9 +157,9 @@ await navigator.locks.request(
 );
 ```
 
-### Beispiel für `signal`
+### `signal` Beispiel
 
-Um nur für eine kurze Zeit auf ein Lock zu warten, verwenden Sie die `signal`-Option.
+Um nur für eine kurze Zeit auf eine Sperre zu warten, verwenden Sie die `signal`-Option.
 
 ```js
 const controller = new AbortController();

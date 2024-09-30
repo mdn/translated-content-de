@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`autocapitalize`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert das Kapitalisierungsverhalten des Elements für Benutzereingaben. Sie ist auf allen HTML-Elementen verfügbar, wirkt sich jedoch nicht auf alle aus, einschließlich:
+Die **`autocapitalize`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert das Kapitalisierungsverhalten eines Elements für Benutzereingaben. Sie ist für alle HTML-Elemente verfügbar, hat jedoch nicht auf alle einen Effekt, einschließlich:
 
 - {{htmlelement("input")}} und {{htmlelement("textarea")}}-Elemente.
-- Jedes Element mit aktiviertem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable).
+- Jedes Element mit der [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Eigenschaft.
 
-`autocapitalize` beeinflusst nicht das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem beispielsweise der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
+`autocapitalize` beeinflusst das Verhalten beim Tippen auf einer physischen Tastatur nicht. Es beeinflusst das Verhalten anderer Eingabemethoden, wie virtuelle Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem beispielsweise automatisch der erste Buchstabe jedes Satzes groß geschrieben wird.
 
-Es spiegelt den Wert des globalen HTML-Attributs [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize) wider.
+Es spiegelt den Wert des [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize)-HTML-Globalattributs wider.
 
 ## Wert
 
-Ein String, der das Kapitalisierungsverhalten des Elements für Benutzereingaben darstellt. Gültige Werte sind wie folgt:
+Ein String, der das Kapitalisierungsverhalten eines Elements für Benutzereingaben repräsentiert. Gültige Werte sind wie folgt:
 
 - `none` oder `off`
-  - : Es sollte keine automatische Großschreibung angewendet werden, das heißt, alle Buchstaben sollten standardmäßig kleingeschrieben werden.
+  - : Es sollte keine Autokapitalisierung angewendet werden, das heißt, alle Buchstaben sollen standardmäßig klein geschrieben werden.
 - `sentences` oder `on`
-  - : Der erste Buchstabe jedes Satzes sollte standardmäßig großgeschrieben werden; alle anderen Buchstaben sollten standardmäßig kleingeschrieben werden.
+  - : Der erste Buchstabe jedes Satzes sollte standardmäßig groß geschrieben werden; alle anderen Buchstaben sollten standardmäßig klein geschrieben werden.
 - `words`
-  - : Der erste Buchstabe jedes Wortes sollte standardmäßig großgeschrieben werden; alle anderen Buchstaben sollten standardmäßig kleingeschrieben werden.
+  - : Der erste Buchstabe jedes Wortes sollte standardmäßig groß geschrieben werden; alle anderen Buchstaben sollten standardmäßig klein geschrieben werden.
 - `characters`
-  - : Alle Buchstaben sollten standardmäßig großgeschrieben werden.
+  - : Alle Buchstaben sollten standardmäßig groß geschrieben werden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man das Kapitalisierungsverhalten für Benutzereingaben über ein Skript steuert:
+Das folgende Beispiel zeigt, wie das Kapitalisierungsverhalten für Benutzereingaben mit einem Skript gesteuert werden kann:
 
 ```html
 <div>Current capitalization behavior is: <span id="ac-label"></span></div>
@@ -72,4 +72,4 @@ controller.addEventListener("input", (e) => {
 
 ## Siehe auch
 
-- [`autocapitalize`](/de/docs/Web/HTML/Global_attributes#autocapitalize) globales HTML-Attribut
+- [`autocapitalize`](/de/docs/Web/HTML/Global_attributes#autocapitalize) HTML-Globalattribut

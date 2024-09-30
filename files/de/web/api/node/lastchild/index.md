@@ -1,5 +1,5 @@
 ---
-title: "Node: lastChild-Eigenschaft"
+title: "Node: lastChild Eigenschaft"
 short-title: lastChild
 slug: Web/API/Node/lastChild
 l10n:
@@ -8,17 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`lastChild`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt das letzte Kind des Knotens zurück oder `null`, wenn es keine Kindknoten gibt.
+Die schreibgeschützte **`lastChild`**-Eigenschaft der [`Node`](https://developer.mozilla.org/de/docs/Web/API/Node)-Schnittstelle gibt das letzte Kind des Knotens zurück oder `null`, wenn keine Kindknoten vorhanden sind.
 
 > [!NOTE]
-> Diese Eigenschaft gibt jeden Knotentyp zurück, der das letzte Kind des aktuellen Knotens ist.
-> Es kann sich dabei um einen [`Text`](/de/docs/Web/API/Text)- oder einen [`Comment`](/de/docs/Web/API/Comment)-Knoten handeln.
-> Wenn Sie das letzte [`Element`](/de/docs/Web/API/Element), das ein Kind eines anderen Elements ist, erhalten möchten,
-> ziehen Sie in Betracht, [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) zu verwenden.
+> Diese Eigenschaft gibt jeden Knoten zurück, der das letzte Kind von diesem ist.
+> Es kann ein [`Text`](https://developer.mozilla.org/de/docs/Web/API/Text)- oder ein [`Comment`](https://developer.mozilla.org/de/docs/Web/API/Comment)-Knoten sein.
+> Wenn Sie das letzte [`Element`](https://developer.mozilla.org/de/docs/Web/API/Element) abrufen möchten, das ein Kind eines anderen Elements ist, ziehen Sie die Verwendung von [`Element.lastElementChild`](https://developer.mozilla.org/de/docs/Web/API/Element/lastElementChild) in Betracht.
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node), der das letzte Kind des Knotens ist, oder `null`, wenn es keine Kindknoten gibt.
+Ein [`Node`](https://developer.mozilla.org/de/docs/Web/API/Node)-Objekt, das das letzte Kind des Knotens ist, oder `null`, wenn keine Kindknoten vorhanden sind.
 
 ## Beispiel
 
@@ -37,5 +36,5 @@ const corner_td = tr.lastChild;
 
 ## Siehe auch
 
-- [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
-- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)
+- [`Node.firstChild`](https://developer.mozilla.org/de/docs/Web/API/Node/firstChild)
+- [`Element.lastElementChild`](https://developer.mozilla.org/de/docs/Web/API/Element/lastElementChild)

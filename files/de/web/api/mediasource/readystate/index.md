@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`readyState`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein Enum zurück, das den Status der aktuellen `MediaSource` repräsentiert. Die drei möglichen Werte sind:
+Die **`readyState`**-Nur-Lese-Eigenschaft der
+[`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle gibt ein Enum zurück, das den Zustand des aktuellen `MediaSource` darstellt. Die drei möglichen Werte sind:
 
-- `closed`: Die Quelle ist momentan nicht an ein Medienelement angehängt.
-- `open`: Die Quelle ist an ein Medienelement angehängt und bereit, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte zu empfangen.
-- `ended`: Die Quelle ist an ein Medienelement angehängt, aber der Stream wurde durch einen Aufruf von [`MediaSource.endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) beendet.
+- `closed`: Die Quelle ist derzeit nicht an ein Medien-Element angehängt.
+- `open`: Die Quelle ist an ein Medien-Element angehängt und bereit, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte zu empfangen.
+- `ended`: Die Quelle ist an ein Medien-Element angehängt, aber der Stream wurde über einen Aufruf von [`MediaSource.endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) beendet.
 
 ## Wert
 
@@ -20,7 +21,7 @@ Ein String.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Der folgende Codeausschnitt stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 let mediaSource;

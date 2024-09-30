@@ -7,11 +7,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("VirtualKeyboard API")}}{{securecontext_header}}
 
-Die **`VirtualKeyboard`**-Schnittstelle der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API) ist auf Geräten nützlich, die über virtuelle Bildschirmeingabetastaturen verfügen, wie z. B. Tablets, Mobiltelefone oder andere Geräte, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist.
+Die **`VirtualKeyboard`**-Schnittstelle der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API) ist auf Geräten nützlich, die Bildschirm-Tastaturen haben, wie Tablets, Mobiltelefone oder andere Geräte, bei denen möglicherweise keine Hardwaretastatur verfügbar ist.
 
-Die `VirtualKeyboard`-Schnittstelle ermöglicht es, sich von der automatischen Art und Weise, wie Browser mit virtuellen Bildschirmeingabetastaturen umgehen, abzumelden, indem die Höhe des Ansichtsfensters reduziert wird, um Platz für die virtuelle Tastatur zu schaffen. Sie können verhindern, dass der Browser die Größe des Ansichtsfensters ändert, die Position und Größe der virtuellen Tastatur erkennt — um das Layout Ihrer Webseite als Folge anzupassen — und die virtuelle Tastatur programmatisch anzuzeigen oder auszublenden.
+Die `VirtualKeyboard`-Schnittstelle ermöglicht es, das automatische Verhalten der Webbrowser in Bezug auf Bildschirm-Tastaturen zu umgehen, indem die Höhe des Viewports reduziert wird, um Platz für die Bildschirm-Tastatur zu schaffen. Sie können verhindern, dass der Browser die Größe des Viewports ändert, die Position und Größe der Bildschirm-Tastatur erkennen und das Layout Ihrer Webseite entsprechend anpassen sowie die Bildschirm-Tastatur programmatisch ein- oder ausblenden.
 
-Sie greifen auf die `VirtualKeyboard`-Schnittstelle zu, indem Sie [`navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) verwenden.
+Sie greifen auf die `VirtualKeyboard`-Schnittstelle über [`navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) zu.
 
 {{InheritanceDiagram}}
 
@@ -20,27 +20,27 @@ Sie greifen auf die `VirtualKeyboard`-Schnittstelle zu, indem Sie [`navigator.vi
 _Die `VirtualKeyboard`-Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VirtualKeyboard.boundingRect`](/de/docs/Web/API/VirtualKeyboard/boundingRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Geometrie der virtuellen Tastatur beschreibt.
+  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Geometrie der Bildschirm-Tastatur beschreibt.
 - [`VirtualKeyboard.overlaysContent`](/de/docs/Web/API/VirtualKeyboard/overlaysContent) {{Experimental_Inline}}
-  - : Ein {{jsxref('Boolean')}}, das definiert, ob der Browser die virtuelle Bildschirmeingabetastatur weiter verwalten soll.
+  - : Ein {{jsxref('Boolean')}}, der bestimmt, ob der Browser die Bildschirm-Tastatur aufhören soll zu verwalten.
 
 ## Instanz-Methoden
 
 _Die `VirtualKeyboard`-Schnittstelle erbt Methoden von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VirtualKeyboard.show()`](/de/docs/Web/API/VirtualKeyboard/show) {{experimental_inline}}
-  - : Zeigt die virtuelle Tastatur an.
+  - : Zeigt die Bildschirm-Tastatur an.
 - [`VirtualKeyboard.hide()`](/de/docs/Web/API/VirtualKeyboard/hide) {{experimental_inline}}
-  - : Blendet die virtuelle Tastatur aus.
+  - : Verbirgt die Bildschirm-Tastatur.
 
 ## Ereignisse
 
 - [`geometrychange`](/de/docs/Web/API/VirtualKeyboard/geometrychange_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn sich die Geometrie der virtuellen Bildschirmeingabetastatur ändert, was passiert, wenn die virtuelle Tastatur erscheint oder verschwindet.
+  - : Wird ausgelöst, wenn sich die Geometrie der Bildschirm-Tastatur ändert, was passiert, wenn die Bildschirm-Tastatur erscheint oder verschwindet.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt, wie Sie sich vom automatischen Verhalten der virtuellen Tastatur abmelden und die Geometrie der virtuellen Tastatur auf der Webseite erkennen können:
+Das folgende Beispiel demonstriert, wie man das automatische Verhalten der Bildschirm-Tastatur umgeht und die Geometrie der Bildschirm-Tastatur auf der Webseite erkennt:
 
 ```js
 if ("virtualKeyboard" in navigator) {

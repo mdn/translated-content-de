@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **unäre Plus-Operator (`+`)** geht seinem Operanden voraus und wertet diesen aus, versucht jedoch, ihn [in eine Zahl zu konvertieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), falls er nicht bereits eine ist.
+Der **unäre Plus-Operator (`+`)** steht vor seinem Operanden und ergibt seinen Operanden, versucht jedoch, [ihn in eine Zahl umzuwandeln](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), falls er es nicht bereits ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-unary-plus.html", "taller")}}
 
@@ -19,9 +19,9 @@ Der **unäre Plus-Operator (`+`)** geht seinem Operanden voraus und wertet diese
 
 ## Beschreibung
 
-Obwohl die unäre Negation (`-`) auch Nicht-Zahlen konvertieren kann, ist das unäre Plus der schnellste und bevorzugte Weg, etwas in eine Zahl umzuwandeln, da es keine weiteren Operationen auf die Zahl ausführt.
+Obwohl die unäre Negation (`-`) ebenfalls Nicht-Zahlen umwandeln kann, ist das unäre Plus die schnellste und bevorzugte Methode, um etwas in eine Zahl umzuwandeln, da es keine anderen Operationen auf die Zahl ausführt.
 
-Das unäre Plus führt die exakt gleichen Schritte wie die normale [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) durch, die von den meisten eingebauten Methoden erwartet wird. Es kann Zeichenfolgenrepräsentationen von Ganzzahlen und Fließkommazahlen sowie die Nicht-Zeichenfolgenwerte `true`, `false` und `null` konvertieren. Ganzzahlen sowohl im Dezimal- als auch im Hexadezimalformat (`0x`-präfix) werden unterstützt. Negative Zahlen werden unterstützt (jedoch nicht für Hexadezimale). Falls ein bestimmter Wert nicht geparst werden kann, wird er zu {{jsxref("NaN")}} ausgewertet. Im Gegensatz zu anderen arithmetischen Operatoren, die sowohl mit Zahlen als auch mit [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) arbeiten, führt die Verwendung des `+` Operators auf BigInt-Werten zu einem {{jsxref("TypeError")}}.
+Das unäre Plus führt genau dieselben Schritte wie die normale [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) aus, die von den meisten eingebauten Methoden, die Zahlen erwarten, verwendet wird. Es kann sowohl Zeichenfolgendarstellungen von ganzen Zahlen und Fließkommazahlen als auch die Nicht-Zeichenfolgenwerte `true`, `false` und `null` umwandeln. Ganze Zahlen im Dezimal- und Hexadezimalformat (mit `0x`-Präfix) werden unterstützt. Negative Zahlen werden unterstützt (jedoch nicht für Hexadezimalzahlen). Wenn ein bestimmter Wert nicht analysiert werden kann, wird er zu {{jsxref("NaN")}} ausgewertet. Im Gegensatz zu anderen arithmetischen Operatoren, die sowohl mit Zahlen als auch mit [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) arbeiten, führt die Verwendung des `+`-Operators auf BigInt-Werten zu einem {{jsxref("TypeError")}}.
 
 ## Beispiele
 
@@ -63,7 +63,7 @@ console.log(+y);
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentialrechnung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)

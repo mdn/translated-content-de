@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Der **`NotificationEvent()`** Konstruktor erstellt ein neues [`NotificationEvent`](/de/docs/Web/API/NotificationEvent) Objekt.
+Der **`NotificationEvent()`** Konstruktor erstellt ein neues [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Objekt.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ new NotificationEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn auf `notificationclick` oder `notificationclose`.
+    Dieser ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `notificationclick` oder `notificationclose`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `notification`
-      - : Ein [`Notification`](/de/docs/Web/API/Notification) Objekt, das als Benachrichtigung verwendet werden soll, auf der das Ereignis ausgelöst wird.
+      - : Ein [`Notification`](/de/docs/Web/API/Notification)-Objekt, das als die Benachrichtigung verwendet wird, auf der das Ereignis ausgelöst wird.
     - `action` {{optional_inline}}
-      - : Eine Aktion, die mit der Benachrichtigung verbunden ist. Standardmäßig `""`.
+      - : Eine mit der Benachrichtigung verbundene Aktion. Standardmäßig ist es `""`.
 
 ### Rückgabewert
 
-Ein neues [`NotificationEvent()`](/de/docs/Web/API/NotificationEvent) Objekt.
+Ein neues [`NotificationEvent()`](/de/docs/Web/API/NotificationEvent)-Objekt.
 
 ## Beispiele
 

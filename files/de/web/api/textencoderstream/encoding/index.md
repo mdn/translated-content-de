@@ -1,5 +1,5 @@
 ---
-title: "TextEncoderStream: encoding Eigenschaft"
+title: "TextEncoderStream: encoding-Eigenschaft"
 short-title: encoding
 slug: Web/API/TextEncoderStream/encoding
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`encoding`** des [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Interfaces gibt einen String zurück, der den Namen des Kodierungsalgorithmus enthält, der vom aktuellen `TextEncoderStream`-Objekt verwendet wird.
+Die schreibgeschützte **`encoding`**-Eigenschaft des [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Interfaces gibt einen String zurück, der den Namen des von dem aktuellen `TextEncoderStream`-Objekt verwendeten Kodierungsalgorithmus enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der `utf-8` kodierte Daten enthält.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie `encoding` von einem `TextEncoderStream`-Objekt zurückgegeben wird.
+Das folgende Beispiel demonstriert, wie die `encoding`-Eigenschaft von einem `TextEncoderStream`-Objekt zurückgegeben wird.
 
 ```js
 stream = new TextEncoderStream();

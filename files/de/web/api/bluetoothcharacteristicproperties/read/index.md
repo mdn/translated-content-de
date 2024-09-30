@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`read`** schreibgeschützte Eigenschaft des [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Interfaces gibt einen `boolean` zurück, der `true` ist, wenn das Lesen des Eigenschaftswertes erlaubt ist.
+Die **`read`**-Eigenschaft des [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Interfaces ist eine schreibgeschützte Eigenschaft und gibt ein `boolean` zurück, das `true` ist, wenn das Lesen des Merkmalswertes zulässig ist.
 
 ## Wert
 

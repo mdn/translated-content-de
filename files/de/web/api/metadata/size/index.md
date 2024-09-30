@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`size`**-Eigenschaft der [`Metadata`](/de/docs/Web/API/Metadata)-Schnittstelle gibt die Größe in Bytes der referenzierten Datei oder eines anderen Dateisystemobjekts auf der Festplatte an.
+Die schreibgeschützte **`size`**-Eigenschaft des [`Metadata`](/de/docs/Web/API/Metadata)-Interfaces gibt die Größe in Bytes der referenzierten Datei oder eines anderen Dateisystemobjekts auf der Festplatte an.
 
 ## Wert
 
@@ -37,7 +37,7 @@ workingDirectory.getFile(
 
 ## Spezifikationen
 
-Dieses Merkmal wurde aus allen Spezifikationen entfernt und befindet sich nicht im Prozess der Standardisierung.
+Diese Funktion wurde aus allen Spezifikationen entfernt und befindet sich nicht im Prozess der Standardisierung.
 
 ## Browser-Kompatibilität
 

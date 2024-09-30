@@ -7,23 +7,23 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die `USBOutTransferResult`-Schnittstelle des [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert das Ergebnis eines Aufrufs der `transferOut()`- und `controlTransferOut()`-Methoden der `USBDevice`-Schnittstelle. Sie repräsentiert das Ergebnis einer Anfrage zur Übertragung von Daten vom USB-Host an das USB-Gerät.
+Das `USBOutTransferResult`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert das Ergebnis eines Aufrufs der `transferOut()` und `controlTransferOut()`-Methoden des `USBDevice`-Interface. Es stellt das Ergebnis einer Anforderung zur Datenübertragung vom USB-Host zum USB-Gerät dar.
 
 ## Konstruktor
 
 - [`USBOutTransferResult()`](/de/docs/Web/API/USBOutTransferResult/USBOutTransferResult) {{Experimental_Inline}}
   - : Erstellt ein neues `USBOutTransferResult`-Objekt mit den bereitgestellten Feldern `status` und `bytesWritten`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`USBOutTransferResult.bytesWritten`](/de/docs/Web/API/USBOutTransferResult/bytesWritten) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Anzahl der Bytes zurück, die bei der Übertragungsanforderung an das Gerät gesendet wurden.
+  - : Gibt die Anzahl der Bytes aus der Übertragungsanforderung zurück, die an das Gerät gesendet wurden.
 - [`USBOutTransferResult.status`](/de/docs/Web/API/USBOutTransferResult/status) {{ReadOnlyInline}} {{Experimental_Inline}}
 
   - : Gibt den Status der Übertragungsanforderung zurück, einer von:
 
     - `"ok"` - Die Übertragung war erfolgreich.
-    - `"stall"` - Das Gerät meldete einen Fehler, indem es eine Stall-Bedingung am Endpunkt erzeugte. Ein Stall an einem Bulk- oder Interrupt-Endpunkt muss durch Aufruf von `clearHalt()` aufgehoben werden, bevor `transferOut()` erneut aufgerufen werden kann.
+    - `"stall"` - Das Gerät zeigte einen Fehler an, indem es eine Blockierungsbedingung am Endpunkt generierte. Eine Blockierung an einem Bulk- oder Interrupt-Endpunkt muss durch Aufruf von `clearHalt()` gelöst werden, bevor `transferOut()` erneut aufgerufen werden kann.
 
 ## Spezifikationen
 

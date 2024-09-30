@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbdienstes (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf eine Form angewendet wird.
+Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Opazität des Paint-Servers (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf eine Form angewendet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `fill-opacity` als CSS-Eigenschaft verwendet werden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -80,7 +80,7 @@ svg {
 </table>
 
 > [!NOTE]
-> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies noch nicht weit verbreitet unterstützt (_siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es am besten, die Deckkraft mit einem Wert im Bereich `[0-1]` zu setzen.
+> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies noch nicht weitgehend unterstützt (_Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es empfehlenswert, die Opazität mit einem Wert im Bereich `[0-1]` festzulegen.
 
 ## Spezifikationen
 

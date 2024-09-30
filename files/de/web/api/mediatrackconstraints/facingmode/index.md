@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`facingMode`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode)-eigenschaft anwendbar sind.
+Die **`facingMode`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das die gewünschten oder zwingenden Einschränkungen für den Wert der [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode)-Eigenschaft beschreibt.
 
-Falls nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode) überprüfen, der von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals enthalten.
+Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, beinhalten Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, niemals diese Eigenschaft.
 
 ## Wert
 
-Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das angibt, welche akzeptablen, idealen und/oder exakten (obligatorischen) Ausrichtungen für eine Videospur akzeptabel sind.
+Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das eine oder mehrere akzeptable, ideale und/oder exakte (verpflichtende) Ausrichtungen spezifiziert, die für eine Videospur akzeptabel sind.
 
-Ein `exact`-Wert in diesem Fall gibt an, dass der spezifizierte Modus für die Ausrichtung speziell erforderlich ist; zum Beispiel:
+Ein `exact`-Wert in diesem Fall gibt an, dass die angegebene Ausrichtung zwingend erforderlich ist; zum Beispiel:
 
 ```js
 const constraints = {
@@ -26,22 +26,22 @@ const constraints = {
 };
 ```
 
-Dies zeigt an, dass nur eine benutzerorientierte Kamera akzeptabel ist; wenn keine benutzerorientierte Kamera vorhanden ist oder der Benutzer die Erlaubnis zur Nutzung dieser Kamera verweigert, wird die Medienanforderung fehlschlagen.
+Dies gibt an, dass nur eine nach vorne gerichtete Kamera akzeptabel ist; wenn es keine nach vorne gerichtete Kamera gibt oder der Benutzer die Erlaubnis zur Nutzung dieser Kamera verweigert, wird die Medienanforderung fehlschlagen.
 
-Die folgenden Zeichenfolgen sind als Werte für den Modus der Ausrichtung zulässig. Sie können separate Kameras darstellen, oder sie können Richtungen darstellen, in die eine verstellbare Kamera gerichtet werden kann.
+Die folgenden Zeichenfolgen sind als Werte für die facing mode erlaubt. Diese können separate Kameras darstellen oder Richtungen, in die eine verstellbare Kamera gerichtet werden kann.
 
 - `"user"`
-  - : Die Videoquelle ist auf den Benutzer gerichtet; dazu gehört beispielsweise die Frontkamera eines Smartphones.
+  - : Die Videoquelle ist dem Benutzer zugewandt; dies schließt zum Beispiel die Frontkamera eines Smartphones ein.
 - `"environment"`
-  - : Die Videoquelle ist vom Benutzer weggerichtet und zeigt damit ihre Umgebung an. Dies ist die Rückkamera eines Smartphones.
+  - : Die Videoquelle ist vom Benutzer abgewandt und zeigt auf dessen Umgebung. Dies ist die Rückkamera eines Smartphones.
 - `"left"`
-  - : Die Videoquelle ist auf den Benutzer gerichtet, aber zu dessen linker Seite, beispielsweise eine Kamera, die auf den Benutzer, aber über deren linke Schulter gerichtet ist.
+  - : Die Videoquelle ist dem Benutzer zugewandt, aber auf seine linke Seite, wie eine Kamera, die auf den Benutzer, aber über seine linke Schulter gerichtet ist.
 - `"right"`
-  - : Die Videoquelle ist auf den Benutzer gerichtet, aber zu deren rechter Seite, beispielsweise eine Kamera, die auf den Benutzer, aber über deren rechte Schulter gerichtet ist.
+  - : Die Videoquelle ist dem Benutzer zugewandt, aber auf seine rechte Seite, wie eine Kamera, die auf den Benutzer, aber über seine rechte Schulter gerichtet ist.
 
 ## Beispiele
 
-Siehe das Beispiel [Einschränkungs-Rechner](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel des [Constraint Übungswerkzeugs](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 

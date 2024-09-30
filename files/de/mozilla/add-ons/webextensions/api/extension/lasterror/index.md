@@ -8,7 +8,7 @@ l10n:
 {{AddonSidebar}}
 
 > [!WARNING]
-> Diese Funktion ist veraltet, verwenden Sie stattdessen {{WebExtAPIRef("runtime.lastError")}}.
+> Diese Funktion ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("runtime.lastError")}}.
 
 Ein Alias für {{WebExtAPIRef("runtime.lastError")}}.
 
@@ -19,7 +19,7 @@ Ein Alias für {{WebExtAPIRef("runtime.lastError")}}.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-lastError) API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-lastError) API von Chromium. Diese Dokumentation leitet sich von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

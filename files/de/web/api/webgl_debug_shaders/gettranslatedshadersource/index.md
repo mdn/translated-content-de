@@ -1,5 +1,5 @@
 ---
-title: "WEBGL_debug_shaders: getTranslatedShaderSource()-Methode"
+title: "WEBGL_debug_shaders: getTranslatedShaderSource() Methode"
 short-title: getTranslatedShaderSource()
 slug: Web/API/WEBGL_debug_shaders/getTranslatedShaderSource
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_debug_shaders.getTranslatedShaderSource()`**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht Ihnen das Debuggen eines übersetzten Shaders.
+Die **`WEBGL_debug_shaders.getTranslatedShaderSource()`** Methode ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht Ihnen das Debuggen eines übersetzten Shaders.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Ein {{jsxref("String")}}, der den übersetzten Shader-Quellcode enthält. Ein le
 
 - kein Quellcode definiert wurde oder,
 - [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) noch nicht aufgerufen wurde oder,
-- die Übersetzung des Shaders fehlgeschlagen ist.
+- die Übersetzung für den Shader fehlgeschlagen ist.
 
 ## Beispiele
 

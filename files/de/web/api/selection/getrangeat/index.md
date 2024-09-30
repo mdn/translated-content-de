@@ -8,12 +8,12 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`getRangeAt()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle gibt ein Range-Objekt zurück, das einen derzeit ausgewählten Bereich darstellt.
+Die **`getRangeAt()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle gibt ein `Range`-Objekt zurück, das eine derzeit ausgewählte Range repräsentiert.
 
-Wenn die Endpunkte des ausgewählten Bereichs innerhalb eines [Shadow-Trees](/de/docs/Glossary/shadow_tree) liegen, hat JavaScript keine Sichtbarkeit der Shadow-Knoten, und die Methode sollte den Bereich neu fokussieren, um das Host-Element einzuschließen, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten noch nicht, und der zurückgegebene Bereich ist unvorhersehbar.
+Wenn sich die Endpunkte der ausgewählten Range innerhalb eines [Shadow-DOM-Baums](/de/docs/Glossary/shadow_tree) befinden, hat JavaScript keinen Zugriff auf die Schattenknoten, und die Methode sollte die Range um den Host-Element erweitern, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten bisher nicht, und die zurückgegebene Range ist unvorhersehbar.
 
 > [!NOTE]
-> Wenn innerhalb von Knoten ausgewählt wird, die möglicherweise eine Shadow-Root enthalten, können Sie [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwenden, um einen Auswahlsbereich innerhalb eines Shadow-Trees zu erhalten oder die Auswahl zuverlässig auf den Host-Knoten zu fokussieren.
+> Beim Selektieren innerhalb von Knoten, die eine Shadow-Root enthalten könnten, kann [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwendet werden, um eine Auswahl-Range innerhalb eines Shadow-Baums zu erhalten oder um die Auswahl zuverlässig auf den Host-Knoten zu übertragen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ getRangeAt(index)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index des zurückzugebenden Bereichs.
+  - : Der nullbasierte Index der zurückzugebenden Range.
     Eine negative Zahl oder eine Zahl, die größer oder gleich [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) ist, führt zu einem Fehler.
 
 ### Rückgabewert

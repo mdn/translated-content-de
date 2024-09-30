@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **ARPANET** (Advanced Research Projects Agency NETwork) war ein frühes Computernetzwerk, das 1969 als robustes Medium zur Übertragung sensibler militärischer Daten und zur Verbindung führender Forschungsgruppen in den Vereinigten Staaten aufgebaut wurde. Zunächst lief auf dem ARPANET das NCP (Network Control Protocol) und anschließend die erste Version des Internetprotokolls oder die [TCP](/de/docs/Glossary/TCP)/[IP](/de/docs/Glossary/IPv4)-Suite, wodurch ARPANET einen bedeutenden Teil des entstehenden [Internet](/de/docs/Glossary/Internet) darstellte. ARPANET wurde Anfang 1990 geschlossen.
+Das **ARPANET** (Advanced Research Projects Agency NETwork) war ein frühes Computernetzwerk, das 1969 als robustes Medium zur Übertragung von sensiblen militärischen Daten und zur Verbindung führender Forschungsgruppen in den Vereinigten Staaten aufgebaut wurde. ARPANET verwendete zunächst das NCP (Network Control Protocol) und später die erste Version des Internetprotokolls oder die [TCP](/de/docs/Glossary/TCP)/[IP](/de/docs/Glossary/IPv4)-Suite, was ARPANET zu einem bedeutenden Bestandteil des entstehenden [Internets](/de/docs/Glossary/Internet) machte. ARPANET wurde Anfang 1990 geschlossen.
 
 ## Siehe auch
 

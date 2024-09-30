@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_multi_draw.multiDrawElementsInstancedWEBGL()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) rendert mehrere Primitive aus
+Die **`WEBGL_multi_draw.multiDrawElementsInstancedWEBGL()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) rendert mehrere Primitiven aus
 Array-Daten. Sie ist identisch mit mehreren Aufrufen der
 [`gl.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)
 Methode.
@@ -29,7 +29,7 @@ multiDrawElementsInstancedWEBGL(mode,
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -44,10 +44,10 @@ multiDrawElementsInstancedWEBGL(mode,
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
     (von [`GLint`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste der zu rendernden Indizes angibt.
+    das eine Liste von Zahlen der zu rendernden Indizes angibt.
 - `countsOffset`
   - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `countsList`-Array definiert.
+    das den Startpunkt im `countsList` Array definiert.
 - type
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
@@ -63,21 +63,21 @@ multiDrawElementsInstancedWEBGL(mode,
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
     (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Startindizes für die Vektorpunkt-Arrays angibt.
+    das eine Liste von Startindizes für die Arrays von Vektorpunkten angibt.
 - `offsetsOffset`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `offsetsList`-Array definiert.
+    das den Startpunkt im `offsetsList` Array definiert.
 - `instanceCountsList`
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
     (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste der Anzahl von Instanzen der auszuführenden Elementbereiche angibt.
+    das eine Liste von Zahlen der Instanzen des zu ausführenden Bereichs der Elemente angibt.
 - `instanceCountsOffset`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `instanceCountsList`-Array definiert.
+    das den Startpunkt im `instanceCountsList` Array definiert.
 - `drawCount`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types),
-    der die Anzahl der Instanzen der auszuführenden Elementbereiche angibt.
+    das die Anzahl der Instanzen des zu ausführenden Bereichs der Elemente angibt.
 
 ### Rückgabewert
 
@@ -86,10 +86,10 @@ Keiner.
 ### Ausnahmen
 
 - Wenn `mode` nicht einer der akzeptierten Werte ist, wird ein
-  `gl.INVALID_ENUM`-Fehler ausgelöst.
+  `gl.INVALID_ENUM` Fehler ausgelöst.
 - Wenn `drawCount` oder Elemente in `countsList`,
   `offsetsList` oder `instanceCountsList` negativ sind,
-  wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
+  wird ein `gl.INVALID_VALUE` Fehler ausgelöst.
 
 ## Beispiele
 

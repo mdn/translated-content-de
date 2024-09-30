@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „invalid assignment left-hand side“ tritt auf, wenn irgendwo eine unerwartete Zuweisung erfolgt ist. Dies kann ausgelöst werden, wenn ein einzelnes `=`-Zeichen anstelle von `==` oder `===` verwendet wurde.
+Die JavaScript-Ausnahme "ungültige Zuweisung auf der linken Seite" tritt auf, wenn irgendwo eine unerwartete Zuweisung erfolgt ist. Dies kann ausgelöst werden, wenn ein einzelnes `=` Zeichen anstelle von `==` oder `===` verwendet wurde.
 
 ## Meldung
 
@@ -25,9 +25,9 @@ ReferenceError: Left side of assignment is not a reference. (Safari)
 
 {{jsxref("SyntaxError")}} oder {{jsxref("ReferenceError")}}, abhängig von der Syntax.
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Es gab irgendwo eine unerwartete Zuweisung. Dies könnte auf eine Verwechslung eines [Zuweisungsoperators](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators) mit einem [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators#equality_operators) zurückzuführen sein. Während ein einzelnes `=` ein Wert einer Variablen zuweist, vergleichen die `==`- oder `===`-Operatoren einen Wert.
+Es gab irgendwo eine unerwartete Zuweisung. Dies kann beispielsweise durch eine Verwechslung eines [Zuweisungsoperators](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators) und eines [Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators#equality_operators) verursacht werden. Während ein einzelnes `=` Zeichen einem Variablen einen Wert zuweist, vergleichen die `==` oder `===` Operatoren einen Wert.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ const str = "Hello, "
 // SyntaxError: invalid assignment left-hand side
 ```
 
-In der `if`-Anweisung möchten Sie einen Gleichheitsoperator (`===`) verwenden, und für die Zeichenfolgenverkettung wird der Plus-Operator (`+`) benötigt.
+In der `if`-Anweisung möchten Sie einen Gleichheitsoperator (`===`) verwenden, und für die Zeichenkettenverkettung wird der Plus (`+`) Operator benötigt.
 
 ```js-nolint example-good
 if (Math.PI + 1 === 3 || Math.PI + 1 === 4) {
@@ -59,7 +59,7 @@ const str = "Hello, "
 
 ### Zuweisungen, die ReferenceErrors erzeugen
 
-Ungültige Zuweisungen erzeugen nicht immer Syntaxfehler. Manchmal ist die Syntax fast korrekt, aber zur Laufzeit wertet der Ausdruck auf der linken Seite zu einem _Wert_ anstatt zu einer _Referenz_ aus, sodass die Zuweisung dennoch ungültig ist. Solche Fehler treten später bei der Ausführung auf, wenn die Anweisung tatsächlich ausgeführt wird.
+Ungültige Zuweisungen führen nicht immer zu Syntaxfehlern. Manchmal ist die Syntax fast korrekt, aber zur Laufzeit wird der Ausdruck auf der linken Seite in einen _Wert_ anstatt in eine _Referenz_ ausgewertet, sodass die Zuweisung immer noch ungültig ist. Solche Fehler treten später während der Ausführung auf, wenn die Anweisung tatsächlich ausgeführt wird.
 
 ```js-nolint example-bad
 function foo() {
@@ -68,7 +68,7 @@ function foo() {
 foo() = 1; // ReferenceError: invalid assignment left-hand side
 ```
 
-Funktionsaufrufe, [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Aufrufe, [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) und [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) sind alle Werte anstelle von Referenzen. Wenn Sie sie auf der linken Seite verwenden möchten, muss das Zuweisungsziel eine Eigenschaft ihrer erzeugten Werte sein.
+Funktionsaufrufe, [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Aufrufe, [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) und [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) sind alle Werte anstatt Referenzen. Wenn Sie diese auf der linken Seite verwenden möchten, muss das Zuweisungsziel eine Eigenschaft ihrer erzeugten Werte sein.
 
 ```js example-good
 function foo() {
@@ -78,9 +78,9 @@ foo().a = 1;
 ```
 
 > [!NOTE]
-> In Firefox und Safari erzeugt das erste Beispiel einen `ReferenceError` im nicht-strikten Modus und einen `SyntaxError` im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode). Chrome wirft einen Laufzeit-`ReferenceError` sowohl für strikte als auch nicht-strikte Modi.
+> In Firefox und Safari erzeugt das erste Beispiel einen `ReferenceError` im Nicht-Strikt-Modus und einen `SyntaxError` im [Strikt-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode). Chrome wirft einen Laufzeit-`ReferenceError` sowohl im Strikt- als auch im Nicht-Strikt-Modus.
 
-### Optionale Verkettung als Zuweisungsziel verwenden
+### Verwendung der optionalen Verkettung als Zuweisungsziel
 
 [Optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) ist kein gültiges Ziel einer Zuweisung.
 
@@ -88,7 +88,7 @@ foo().a = 1;
 obj?.foo = 1; // SyntaxError: invalid assignment left-hand side
 ```
 
-Stattdessen müssen Sie zuerst den nullish Fall absichern.
+Stattdessen müssen Sie zuerst den Nullfall abfangen.
 
 ```js example-good
 if (obj) {

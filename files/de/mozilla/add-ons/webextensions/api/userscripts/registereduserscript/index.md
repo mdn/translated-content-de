@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `RegisteredUserScript`-Objekt wird durch einen Aufruf von {{WebExtAPIRef("userScripts.register","userScripts.register()")}} zurückgegeben und repräsentiert die in diesem Aufruf registrierten Benutzer-Skripte.
+Ein `RegisteredUserScript`-Objekt wird durch einen Aufruf von {{WebExtAPIRef("userScripts.register","userScripts.register()")}} zurückgegeben und repräsentiert die in diesem Aufruf registrierten Benutzerskripte.
 
-Das Objekt definiert eine einzelne Methode, {{WebExtAPIRef("userScripts.RegisteredUserScript.unregister","unregister()")}}, die verwendet wird, um die Benutzer-Skripte abzumelden.
+Das Objekt definiert eine einzige Methode, {{WebExtAPIRef("userScripts.RegisteredUserScript.unregister","unregister()")}}, die zum Abmelden der Benutzerskripte verwendet wird.
 
 > [!NOTE]
-> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es aus dem Gültigkeitsbereich herausfällt), werden die zugehörigen Skripte automatisch abgemeldet. Daher sollten Sie eine Referenz auf dieses Objekt behalten, solange Sie möchten, dass die Benutzer-Skripte registriert bleiben.
+> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es außerhalb des Geltungsbereichs gelangt), werden die zugehörigen Skripte automatisch abgemeldet. Daher sollten Sie eine Referenz auf dieses Objekt beibehalten, solange Sie möchten, dass die Benutzerskripte registriert bleiben.
 
 ## Methoden
 
 - {{WebExtAPIRef("userScripts.RegisteredUserScript.unregister","unregister()")}}
-  - : Meldet die Benutzer-Skripte ab, die durch dieses Objekt repräsentiert werden.
+  - : Meldet die durch dieses Objekt repräsentierten Benutzerskripte ab.
 
 ## Browser-Kompatibilität
 

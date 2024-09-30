@@ -9,16 +9,14 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`transportId`**-Eigenschaft
-identifiziert eindeutig das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das inspiziert wurde, um die transportbezogenen Statistiken zu erhalten, die im
+identifiziert eindeutig das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das überprüft wurde, um die transportbezogenen Statistiken zu erhalten, die im
 [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekt enthalten sind.
 
 ## Wert
 
-Ein String, der das `RTCIceTransport`-
-Objekt eindeutig identifiziert, aus dem die transportbezogenen Daten für die Statistiken in diesem [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekt stammen.
+Ein String, der das `RTCIceTransport`-Objekt eindeutig identifiziert, aus dem die transportbezogenen Daten für die in diesem [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) enthaltenen Statistiken gewonnen wurden.
 
-Die transportbezogenen Statistiken stammen aus den Eigenschaften des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)
-Wörterbuchs.
+Die transportbezogenen Statistiken stammen von den Eigenschaften des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: canMakePayment()-Methode"
+title: "PaymentRequest: canMakePayment() Methode"
 short-title: canMakePayment()
 slug: Web/API/PaymentRequest/canMakePayment
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die Methode **`canMakePayment()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer vom [User-Agent](/de/docs/Glossary/user_agent) unterstützten Zahlungsmethode kompatibel ist.
+Die Methode **`canMakePayment()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer Zahlungsart kompatibel ist, die vom [User-Agent](/de/docs/Glossary/user_agent) unterstützt wird.
 
-Sie können dies aufrufen, bevor Sie [`show()`](/de/docs/Web/API/PaymentRequest/show) aufrufen, um ein optimiertes Benutzererlebnis zu bieten, wenn der Browser des Benutzers keine der von Ihnen akzeptierten Zahlungsmethoden verarbeiten kann.
+Sie können dies vor dem Aufruf von [`show()`](/de/docs/Web/API/PaymentRequest/show) verwenden, um eine optimierte Benutzererfahrung zu bieten, wenn der Browser des Benutzers keine der von Ihnen akzeptierten Zahlungsmethoden verarbeiten kann.
 
-Beispielsweise könnten Sie `canMakePayment()` aufrufen, um zu bestimmen, ob der Browser den Benutzer die Zahlung mittels der Payment Request API durchführen lässt. Falls dies nicht der Fall ist, könnten Sie auf eine andere Zahlungsmethode zurückgreifen oder eine Liste von Methoden anbieten, die nicht von der Payment Request API verarbeitet werden (oder sogar Anweisungen zur Zahlung per Post oder Telefon bereitstellen).
+Zum Beispiel könnten Sie `canMakePayment()` aufrufen, um zu bestimmen, ob der Browser es dem Benutzer erlaubt, die Payment Request API zu nutzen. Falls dies nicht möglich ist, könnten Sie auf eine andere Zahlungsmethode zurückgreifen oder eine Liste von Methoden anbieten, die nicht von der Payment Request API behandelt werden (oder sogar Anweisungen zum Bezahlen per Post oder Telefon bereitstellen).
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}} für einen booleschen Wert, der auf `true` aufgelöst wird, wenn der User-Agent eine der bei der Instanziierung der Anfrage mit dem [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor bereitgestellten Zahlungsmethoden unterstützt. Wenn die Zahlung nicht verarbeitet werden kann, erhält das Versprechen den Wert `false`.
+Ein {{jsxref("Promise")}} auf einen booleschen Wert, der zu `true` aufgelöst wird, wenn der User-Agent eine der beim Erstellen der Anfrage mit dem [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor angegebenen Zahlungsmethoden unterstützt. Kann die Zahlung nicht verarbeitet werden, erhält das Promise den Wert `false`.
 
 > [!NOTE]
-> Wenn Sie diese Methode zu oft aufrufen, kann es sein, dass der Browser das zurückgegebene Versprechen mit einem `DOMException` ablehnt.
+> Wenn Sie dies zu oft aufrufen, kann der Browser das zurückgegebene Promise mit einem `DOMException` ablehnen.
 
 ## Beispiele
 
-Im folgenden Beispiel, das [einem Demo-Auszug](https://rsolomakhin.github.io/samples/paymentrequest/can-make-payment/) entnommen ist, wird ein `PaymentRequest`-Objekt sowohl für Apple Pay als auch für Example Pay asynchron erstellt. Es wird der Aufruf von `canMakePayment()` in eine Feature-Erkennung eingebunden, und ein entsprechender Callback wird entsprechend der Auflösung des `Promise` aufgerufen.
+Im folgenden Beispiel, [aus einer Demo entnommen](https://rsolomakhin.github.io/samples/paymentrequest/can-make-payment/), wird ein `PaymentRequest`-Objekt sowohl für Apple Pay als auch für Example Pay asynchron erstellt. Der Aufruf von `canMakePayment()` wird in eine Feature-Erkennung eingebunden und abhängig von der Auflösung des `Promise` wird ein geeigneter Rückruf aufgerufen.
 
 ```js
 async function initPaymentRequest() {

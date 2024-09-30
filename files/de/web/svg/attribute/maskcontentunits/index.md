@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`maskContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("mask") }}-Elements verwendet werden soll.
+Das **`maskContentUnits`** Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("mask") }} Elements verwendet werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -51,11 +51,11 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
 ## Maske
 
-Für {{SVGElement("mask")}} definiert `maskContentUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
+Für {{SVGElement("mask")}} definiert `maskContentUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
 
 <table class="properties">
   <tbody>
@@ -75,9 +75,9 @@ Für {{SVGElement("mask")}} definiert `maskContentUnits` das Koordinatensystem, 
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements auf das Benutzerkoordinatensystem bezogen sind, wie es definiert wurde, als die Maske erstellt wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}} Elements sich auf das Benutzerkoordinatensystem beziehen, wie es beim Erstellen der Maske definiert wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements relativ zur Begrenzungsbox des Elements sind, auf das die Maske angewendet wird. Eine Begrenzungsbox könnte als identisch betrachtet werden, als ob der Inhalt der {{ SVGElement("mask") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}} Elements relativ zum Begrenzungsrahmen des Elements sind, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als gleich angesehen werden, als wäre der Inhalt der {{ SVGElement("mask") }} an einen `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden.
 
 ## Spezifikationen
 

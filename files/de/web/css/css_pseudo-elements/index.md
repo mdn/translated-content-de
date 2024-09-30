@@ -1,5 +1,5 @@
 ---
-title: CSS Pseudo-Elemente
+title: CSS-Pseudo-Elemente
 slug: Web/CSS/CSS_pseudo-elements
 l10n:
   sourceCommit: 6b730e3cfdf0f51940b44efa71bd59c84ce76e71
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS Pseudo-Element** Modul definiert abstrakte Elemente, die nicht direkt im Dokumentbaum vorhanden sind. Diese abstrakten Elemente, genannt Pseudo-Elemente, repräsentieren Teile des Renderbaums, die ausgewählt und gestylt werden können. Pseudo-Elemente werden verwendet, um Abstraktionen über den Dokumentbaum hinaus zu erstellen, die der Dokumentbaum nicht bietet.
+Das **CSS-Pseudo-Elemente** Moduls definiert abstrakte Elemente, die nicht direkt im Dokumentbaum vorhanden sind. Diese abstrakten Elemente, Pseudo-Elemente genannt, repräsentieren Teile des Renderbaums, die ausgewählt und gestylt werden können. Pseudo-Elemente werden verwendet, um Abstraktionen über den Dokumentbaum hinaus zu schaffen.
 
-Pseudo-Elemente werden mit einem Doppelpunkte-Präfix (`::`) versehen. Sie fügen Pseudo-Elemente Selektoren hinzu (wie in `p::first-line`), um diese Schein-Elemente anzusprechen und zu stylen.
+Pseudo-Elemente werden mit einem Doppelpunkten (`::`) vorangestellt. Sie fügen Pseudo-Elemente zu Selektoren hinzu (wie in `p::first-line`), um diese Schein-Elemente anzusprechen und zu stylen.
 
-Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht in HTML enthalten sind und Bereiche von Inhalten, die sonst nicht angesprochen werden können, ohne zusätzlichen Markup hinzuzufügen. Betrachten Sie den Platzhalter eines {{HTMLelement("input")}} Elements. Dies ist ein abstraktes Element und kein separates Knoten im Dokumentbaum. Sie können diesen Platzhalter mittels des {{CSSXref("::placeholder")}} Pseudo-Elements auswählen. Ein weiteres Beispiel ist das {{CSSXref("::selection")}} Pseudo-Element, das den aktuell von einem Nutzer hervorgehobenen Inhalt abgleicht, wodurch Sie das, was beim Interagieren des Nutzers mit dem Inhalt ausgewählt wird, stylen können. Ebenso zielt das {{CSSXref("::first-line")}} Pseudo-Element auf die erste Zeile eines Elements ab und wird automatisch aktualisiert, wenn die Zeichenanzahl der ersten Zeile sich ändert, ohne die Zeilenlänge des Elements abfragen zu müssen.
+Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enthalten sind, und Inhaltsabschnitte, die sonst nicht ohne zusätzliches Markup angesprochen werden können. Betrachten Sie den Platzhalter eines {{HTMLelement("input")}}-Elements. Dies ist ein abstraktes Element und kein eigenständiger Knoten im Dokumentbaum. Sie können diesen Platzhalter durch das {{CSSXref("::placeholder")}} Pseudo-Element auswählen. Ein weiteres Beispiel ist das {{CSSXref("::selection")}} Pseudo-Element, das den aktuell von einem Benutzer hervorgehobenen Inhalt anspricht und es Ihnen ermöglicht, das Hervorgehobene zu stylen, während der Benutzer mit dem Inhalt interagiert und die Auswahl ändert. Ähnlich zielt das {{CSSXref("::first-line")}} Pseudo-Element auf die erste Zeile eines Elements ab und aktualisiert sich automatisch, wenn sich die Zeichenanzahl der ersten Zeile ändert, ohne die Längen der Zeilen des Elements zu überprüfen.
 
 ## Referenz
 
@@ -37,43 +37,43 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht in HTML enth
 
 ### Begriffe
 
-- [Pseudo-Element](/de/docs/Glossary/Pseudo-element) Glossar-Begriff
+- [Pseudo-Element](/de/docs/Glossary/Pseudo-element) Glossarbegriff
 
 ## Leitfäden
 
-- [CSS Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
+- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
 
-  - : Alphabetische Liste der Pseudo-Elemente, die durch alle CSS-Spezifikationen und WebVTT definiert sind.
+  - : Alphabetische Liste der Pseudo-Elemente, die in allen CSS-Spezifikationen und WebVTT definiert sind.
 
 - [Bausteine: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 
-  - : Teil des CSS-Bausteinabschnitts über Selektoren. Dieser Artikel definiert, was ein Pseudo-Element ist und wie es mit Pseudo-Klassen kombiniert werden kann, um Inhalte mit `::before` und `::after` Pseudo-Elementen zu generieren.
+  - : Teil des CSS-Bausteine-Abschnitts über Selektoren. Dieser Artikel definiert, was ein Pseudo-Element ist und wie es mit Pseudo-Klassen kombiniert und zur Generierung von Inhalten mit `::before` und `::after` Pseudo-Elementen verwendet werden kann.
 
-- [Anleitung zum Erstellen von dekorativen Boxen mit Pseudo-Elementen](/de/docs/Learn/CSS/Howto/Create_fancy_boxes#pseudo-elements)
+- [Anleitung: Wie man schicke Boxen mit Pseudo-Elementen erstellt](/de/docs/Learn/CSS/Howto/Create_fancy_boxes#pseudo-elements)
 
-  - : Beispiel für das Styling von generierten Inhalten mithilfe von `::before` und `::after` Pseudo-Elementen für visuelle Effekte.
+  - : Beispiel für das Styling von generierten Inhalten durch die Verwendung von `::before` und `::after` Pseudo-Elementen für visuelle Effekte.
 
 ## Verwandte Konzepte
 
 - {{cssxref("::backdrop")}}
 
-- Web Video Text Tracks Format (WebVTT) Hinweise:
+- Web Video Text Tracks Format (WebVTT) Markierungen:
 
   - {{cssxref("::cue")}}
   - {{cssxref("::cue", "::cue()")}}
 
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
 
   - {{CSSXref(":host")}}
   - {{CSSXref(":host_function", ":host()")}}
   - {{CSSXref(":host-context", ":host-context()")}}
   - {{CSSXref("::slotted", "::slotted()")}}
 
-- [CSS Shadow Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
+- [CSS-Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
 
   - {{CSSXref("::part")}}
 
-- [CSS View Transitions](/de/docs/Web/CSS/CSS_view_transitions) Modul
+- [CSS-Ansichtsübergänge](/de/docs/Web/CSS/CSS_view_transitions) Modul
 
   - {{cssxref("::view-transition")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-image-pair()")}} {{Experimental_Inline}}
@@ -81,7 +81,7 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht in HTML enth
   - {{cssxref("::view-transition-new()")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-old()")}} {{Experimental_Inline}}
 
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
 
   - [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors)
   - [Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators)
@@ -94,7 +94,7 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht in HTML enth
 - [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attribut des `<input>` Elements
 - [`:placeholder-shown`](/de/docs/Web/CSS/:placeholder-shown) Selektor
 
-- [CSS generierte Inhalte](/de/docs/Web/CSS/CSS_generated_content)
+- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)
 
   - {{cssxref("content")}} Eigenschaft
   - {{cssxref("quotes")}} Eigenschaft
@@ -112,7 +112,7 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht in HTML enth
 ## Siehe auch
 
 - [Spezifität](/de/docs/Web/CSS/Specificity)
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
-- [CSS generierte Inhalte](/de/docs/Web/CSS/CSS_generated_content) Modul
-- [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS-Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
+- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

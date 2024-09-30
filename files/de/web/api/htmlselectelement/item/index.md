@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: item()-Methode"
+title: "HTMLSelectElement: item() Methode"
 short-title: item()
 slug: Web/API/HTMLSelectElement/item
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.item()`**-Methode gibt das [`Element`](/de/docs/Web/API/Element) zurück, das dem [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) entspricht, dessen Position in der Optionsliste dem im Parameter angegebenen Index entspricht, oder `null`, wenn keine vorhanden sind.
+Die **`HTMLSelectElement.item()`** Methode gibt das [`Element`](/de/docs/Web/API/Element) zurück, das dem [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) entspricht, dessen Position in der Optionsliste dem im Parameter angegebenen Index entspricht, oder `null`, falls keine vorhanden sind.
 
-In JavaScript ist die Verwendung der Arrayklammernsyntax mit einem `unsigned long`, wie `selectElt[index]`, gleichbedeutend mit `selectElt.namedItem(index)`.
+Im JavaScript ist die Verwendung der Array-Klammer-Syntax mit einem `unsigned long`, wie `selectElt[index]`, gleichbedeutend mit `selectElt.namedItem(index)`.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Eine nicht-negative ganze Zahl, die die Position der Option in der Liste darstellt.
+  - : Eine nicht negative Ganzzahl, die die Position der Option in der Liste darstellt.
 
 ### Rückgabewert
 

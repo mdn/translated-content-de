@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLSubImage: colorTexture-Eigenschaft"
+title: "XRWebGLSubImage: Eigenschaft colorTexture"
 short-title: colorTexture
 slug: Web/API/XRWebGLSubImage/colorTexture
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`colorTexture`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces repräsentiert das Farb-`WebGLTexture`-Objekt für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), um darauf zu rendern.
+Die schreibgeschützte **`colorTexture`**-Eigenschaft der [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Schnittstelle repräsentiert das Farb-`WebGLTexture`-Objekt für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) zur Wiedergabe.
 
 ## Wert
 
-Eine undurchsichtige [`WebGLTexture`](/de/docs/Web/API/WebGLTexture). Details finden Sie unter [WebXR undurchsichtige Texturen](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures).
+Ein undurchsichtiges [`WebGLTexture`](/de/docs/Web/API/WebGLTexture). Siehe [undurchsichtige WebXR-Texturen](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures) für Details.
 
 ## Beispiele
 

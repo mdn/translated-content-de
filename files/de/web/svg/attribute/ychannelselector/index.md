@@ -11,9 +11,9 @@ Das **`yChannelSelector`** Attribut gibt an, welcher Farbkanal von {{SVGAttr("in
 
 ## Elemente
 
-Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Element verwenden.
+Sie können dieses Attribut mit dem SVG-Element {{SVGElement("feDisplacementMap")}} verwenden.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -33,13 +33,13 @@ Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Elem
 </table>
 
 - `R`
-  - : Dieses Schlüsselwort gibt an, dass der rote Farbkanal des Eingangsbildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingangsbildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der rote Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
 - `G`
-  - : Dieses Schlüsselwort gibt an, dass der grüne Farbkanal des Eingangsbildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingangsbildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der grüne Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
 - `B`
-  - : Dieses Schlüsselwort gibt an, dass der blaue Farbkanal des Eingangsbildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingangsbildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der blaue Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
 - `A`
-  - : Dieses Schlüsselwort gibt an, dass der Alphakanal des Eingangsbildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingangsbildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der Alphakanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der y-Achse zu verschieben.
 
 ## Beispiele
 
@@ -91,7 +91,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiele", "480", "200")}}
+{{EmbedLiveSample("Examples", "480", "200")}}
 
 ## Spezifikationen
 

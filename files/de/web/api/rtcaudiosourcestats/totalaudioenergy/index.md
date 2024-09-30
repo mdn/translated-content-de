@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`totalAudioEnergy`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) Dictionary repräsentiert die gesamte Audioenergie der Medienquelle über die Lebensdauer dieses Statistik-Objekts.
+Die **`totalAudioEnergy`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Wörterbuchs stellt die gesamte Audioenergie der Medienquelle über die Lebensdauer dieses Statistikobjekts dar.
 
-Die Gesamtenergie über eine bestimmte Dauer kann bestimmt werden, indem der Wert dieser Eigenschaft, der durch zwei verschiedene `getStats()`-Aufrufe zurückgegeben wird, subtrahiert wird.
+Die Gesamtenergie über einen bestimmten Zeitraum kann durch Abziehen des Wertes dieser Eigenschaft, der durch zwei verschiedene `getStats()`-Aufrufe zurückgegeben wird, bestimmt werden.
 
 > [!NOTE]
-> Für Audioenergie von extern bezogenen Tracks siehe [`RTCInboundRtpStreamStats.totalAudioEnergy`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalAudioEnergy).
+> Für die Audioenergie von remote bezogenen Spuren siehe [`RTCInboundRtpStreamStats.totalAudioEnergy`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalAudioEnergy).
 
 ## Wert
 
-Eine Zahl, die durch Summieren der Energie jeder Probe über die Lebensdauer dieses Statistik-Objekts erzeugt wird.
+Eine Zahl, die durch Summierung der Energie aller Samples über die Lebensdauer dieses Statistikobjekts erzeugt wird.
 
-Die Energie jeder Probe wird berechnet, indem der Wert der Probe durch den höchstmöglichen, codierbaren Wert geteilt, das Ergebnis quadriert und dann mit der Dauer der Probe in Sekunden multipliziert wird.
-Dies wird als Gleichung unten dargestellt:
+Die Energie jedes Samples wird berechnet, indem der Wert des Samples durch den höchstintensiven kodierbaren Wert geteilt, das Ergebnis quadriert und anschließend mit der Dauer des Samples in Sekunden multipliziert wird.
+Dies wird in der folgenden Gleichung gezeigt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -28,7 +28,7 @@ Dies wird als Gleichung unten dargestellt:
 </math>
 <!-- prettier-ignore-end -->
 
-Beachten Sie, dass bei Verwendung mehrerer Audiokanäle die Audioenergie einer Probe sich auf die höchste Energie eines Kanals bezieht.
+Beachten Sie, dass, wenn mehrere Audio-Kanäle verwendet werden, die Audioenergie eines Samples sich auf die höchste Energie eines Kanals bezieht.
 
 ## Spezifikationen
 

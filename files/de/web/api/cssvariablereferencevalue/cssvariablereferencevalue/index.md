@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Erstellt ein neues [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue).
+Erstellt eine neue [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue).
 
 ## Syntax
 
@@ -20,9 +20,9 @@ new CSSVariableReferenceValue(variable, fallback)
 ### Parameter
 
 - `variable`
-  - : Ein [Benutzerdefinierter Eigenschaftsname](/de/docs/Web/CSS/--*).
+  - : Ein [benutzerdefinierter Eigenschaftenname](/de/docs/Web/CSS/--*).
 - `fallback` {{optional_inline}}
-  - : Ein [Benutzerdefinierter Eigenschafts-Fallbackwert](/de/docs/Web/CSS/Using_CSS_custom_properties#custom_property_fallback_values).
+  - : Ein [Fallback-Wert für benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties#custom_property_fallback_values).
 
 ## Spezifikationen
 

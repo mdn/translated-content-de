@@ -1,5 +1,5 @@
 ---
-title: "CryptoKey: extractable-Eigenschaft"
+title: "CryptoKey: extractable Eigenschaft"
 short-title: extractable
 slug: Web/API/CryptoKey/extractable
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`extractable`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt an, ob der Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) extrahiert werden kann.
+Die schreibgeschützte **`extractable`**-Eigenschaft des [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Interfaces gibt an, ob der Schlüssel mithilfe von [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) extrahiert werden kann oder nicht.
 
-Wenn der Schlüssel nicht exportiert werden kann, wird [`exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) eine Ausnahme auslösen, wenn sie zur Extraktion verwendet werden.
+Wenn der Schlüssel nicht exportiert werden kann, werfen sowohl [`exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) als auch [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) eine Ausnahme, wenn sie zur Extraktion verwendet werden.
 
 ## Wert
 

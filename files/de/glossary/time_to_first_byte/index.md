@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Time to First Byte** (TTFB) bezieht sich auf die Zeit zwischen der Anforderung einer Seite durch den Browser und dem Empfang des ersten Bytes an Informationen vom Server. Diese Zeit umfasst die [DNS](/de/docs/Glossary/DNS)-Abfrage und das Herstellen der Verbindung mittels eines [TCP](/de/docs/Glossary/TCP)-Handshakes und eines [TLS](/de/docs/Glossary/TLS)-Handshakes, falls die Anfrage über [HTTPS](/de/docs/Glossary/HTTPS) erfolgt.
+**Time to First Byte** (TTFB) bezeichnet die Zeitspanne zwischen der Anforderung einer Seite durch den Browser und dem Empfang des ersten Bytes der Information vom Server. Diese Zeit umfasst die [DNS](/de/docs/Glossary/DNS)-Abfrage sowie das Herstellen der Verbindung mittels eines [TCP](/de/docs/Glossary/TCP)-Handshakes und eines [TLS](/de/docs/Glossary/TLS)-Handshakes, falls die Anfrage über [HTTPS](/de/docs/Glossary/HTTPS) erfolgt.
 
-TTFB ist die Zeit, die zwischen dem Start der Anforderung und dem Start der Antwort in Millisekunden vergeht:
+TTFB ist die Zeit, die zwischen dem Beginn der Anfrage und dem Beginn der Antwort vergeht, gemessen in Millisekunden:
 
 ```plain
 TTFB = responseStart - navigationStart
@@ -17,6 +17,6 @@ TTFB = responseStart - navigationStart
 
 ## Siehe auch
 
-- [Eine typische HTTP-Session](/de/docs/Web/HTTP/Session)
+- [Ein typisches HTTP-Sitzung](/de/docs/Web/HTTP/Session)
 - [PerformanceResourceTiming](/de/docs/Web/API/PerformanceResourceTiming)
 - [PerformanceTiming](/de/docs/Web/API/PerformanceTiming)

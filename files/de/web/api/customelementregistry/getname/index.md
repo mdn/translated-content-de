@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`getName()`**-Methode des
-[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Interfaces gibt den Namen für ein
-zuvor definiertes benutzerdefiniertes Element zurück.
+Die **`getName()`**-Methode des [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) Interfaces gibt den Namen eines zuvor definierten benutzerdefinierten Elements zurück.
 
 ## Syntax
 
@@ -25,7 +23,7 @@ getName(constructor)
 
 ### Rückgabewert
 
-Der Name für das zuvor definierte benutzerdefinierte Element oder `null`, wenn kein benutzerdefiniertes Element mit dem Konstruktor definiert ist.
+Der Name des zuvor definierten benutzerdefinierten Elements oder `null`, wenn kein benutzerdefiniertes Element mit dem Konstruktor definiert ist.
 
 ## Beispiele
 

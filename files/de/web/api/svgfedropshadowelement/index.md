@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEDropShadowElement`**-Schnittstelle entspricht dem {{SVGElement("feDropShadow")}}-Element.
+Die **`SVGFEDropShadowElement`** Schnittstelle entspricht dem {{SVGElement("feDropShadow")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -32,13 +32,13 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SV
 - [`SVGFEDropShadowElement.width`](/de/docs/Web/API/SVGFEDropShadowElement/width) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des angegebenen Elements entspricht.
 - [`SVGFEDropShadowElement.x`](/de/docs/Web/API/SVGFEDropShadowElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFEDropShadowElement/x), das dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
 - [`SVGFEDropShadowElement.y`](/de/docs/Web/API/SVGFEDropShadowElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFEDropShadowElement/y), das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFEDropShadowElement.setStdDeviation()`](/de/docs/Web/API/SVGFEDropShadowElement/setStdDeviation)
   - : Setzt die Werte für das `stdDeviation`-Attribut.

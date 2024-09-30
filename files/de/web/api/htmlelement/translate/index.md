@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: translate Eigenschaft"
+title: "HTMLElement: translate-Eigenschaft"
 short-title: translate
 slug: Web/API/HTMLElement/translate
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`translate`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces zeigt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt werden sollen oder ob sie unverändert bleiben.
+Die **`translate`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt werden sollen oder ob sie unverändert bleiben sollen.
 
 Sie spiegelt den Wert des globalen HTML-Attributs [`translate`](/de/docs/Web/HTML/Global_attributes/translate) wider.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt werden sollen; andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt werden sollen, andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Übersetzung mittels Skript aktiviert oder deaktiviert werden kann:
+Das folgende Beispiel zeigt, wie die Übersetzung per Skript aktiviert oder deaktiviert wird:
 
 ```html
 <div>
@@ -60,4 +60,4 @@ controller.addEventListener("change", (e) => {
 
 ## Siehe auch
 
-- [`translate`](/de/docs/Web/HTML/Global_attributes#translate) globales HTML-Attribut
+- HTML-Globalattribut [`translate`](/de/docs/Web/HTML/Global_attributes#translate)

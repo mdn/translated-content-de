@@ -1,5 +1,5 @@
 ---
-title: "AudioNode: Eigenschaft channelCountMode"
+title: "AudioNode: channelCountMode-Eigenschaft"
 short-title: channelCountMode
 slug: Web/API/AudioNode/channelCountMode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `channelCountMode` des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen.
+Die `channelCountMode`-Eigenschaft der [`AudioNode`](/de/docs/Web/API/AudioNode)-Schnittstelle repräsentiert einen enumerierten Wert, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen.
 
 ## Wert
 
@@ -16,25 +16,25 @@ Die möglichen Werte des enumerierten Wertes `channelCountMode` und ihre Bedeutu
 
 - `max`
 
-  - : Die Anzahl der Kanäle entspricht der maximalen Anzahl von Kanälen aller Verbindungen.
-    In diesem Fall wird `channelCount` ignoriert und nur up-mixing durchgeführt.
+  - : Die Anzahl der Kanäle entspricht der maximalen Anzahl der Kanäle aller Verbindungen.
+    In diesem Fall wird `channelCount` ignoriert und es erfolgt nur ein Hochmischen.
 
-    Die folgenden AudioNode-Kinder haben standardmäßig diesen Wert: [`GainNode`](/de/docs/Web/API/GainNode), [`DelayNode`](/de/docs/Web/API/DelayNode), [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode), [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode).
+    Die folgenden Kinder von AudioNode haben diesen Wert standardmäßig: [`GainNode`](/de/docs/Web/API/GainNode), [`DelayNode`](/de/docs/Web/API/DelayNode), [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode), [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode).
 
 - `clamped-max`
 
-  - : Die Anzahl der Kanäle entspricht der maximalen Anzahl von Kanälen aller Verbindungen, die auf den Wert von `channelCount` begrenzt ist.
+  - : Die Anzahl der Kanäle entspricht der maximalen Anzahl der Kanäle aller Verbindungen, begrenzt auf den Wert von `channelCount`.
 
-    Die folgenden AudioNode-Kinder haben standardmäßig diesen Wert: [`PannerNode`](/de/docs/Web/API/PannerNode), [`ConvolverNode`](/de/docs/Web/API/ConvolverNode), [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)
+    Die folgenden Kinder von AudioNode haben diesen Wert standardmäßig: [`PannerNode`](/de/docs/Web/API/PannerNode), [`ConvolverNode`](/de/docs/Web/API/ConvolverNode), [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)
 
 - `explicit`
 
   - : Die Anzahl der Kanäle wird durch den Wert von `channelCount` definiert.
 
-    Die folgenden AudioNode-Kinder haben standardmäßig diesen Wert: [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode), [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode), [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)
+    Die folgenden Kinder von AudioNode haben diesen Wert standardmäßig: [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode), [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode), [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)
 
 > [!NOTE]
-> In älteren Versionen der Spezifikation war der Standard für einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) `max`.
+> In älteren Versionen der Spezifikation war der Standardwert für einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) `max`.
 
 ## Beispiele
 

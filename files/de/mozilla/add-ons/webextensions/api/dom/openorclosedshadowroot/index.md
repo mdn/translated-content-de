@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft die offene oder geschlossene `shadow root` ab, die vom angegebenen Element gehostet wird. Wenn die `shadow root` nicht an das Element angefügt ist, wird `null` zurückgegeben.
+Ruft den offenen Shadow Root oder den geschlossenen Shadow Root ab, der von dem angegebenen Element gehostet wird. Wenn der Shadow Root nicht an das Element angehängt ist, wird `null` zurückgegeben.
 
 > [!NOTE]
-> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft repräsentiert die `shadow root`, die vom Element gehostet wird, unabhängig davon, ob ihr [`mode`](/de/docs/Web/API/ShadowRoot/mode) `open` oder `closed` ist.
+> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft stellt den von dem Element gehosteten Shadow Root dar, unabhängig davon, ob dessen [`mode`](/de/docs/Web/API/ShadowRoot/mode) `open` oder `closed` ist.
 >
-> Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um eine `shadow root` zu einem Element hinzuzufügen.
+> Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem Element einen Shadow Root hinzuzufügen.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ let shadowRoot = browser.dom.openOrClosedShadowRoot(
 
 ### Rückgabewert
 
-Eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objektinstanz, unabhängig davon, ob ihr
+Eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objektinstanz, unabhängig davon, ob deren
 [`mode`](/de/docs/Web/API/ShadowRoot/mode) auf `open` oder
-`closed` eingestellt ist, oder `null`, wenn keine `shadow root` vorhanden ist.
+`closed` gesetzt ist, oder `null`, wenn kein Shadow Root vorhanden ist.
 
 ## Browser-Kompatibilität
 

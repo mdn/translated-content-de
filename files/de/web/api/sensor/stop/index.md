@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`stop()`**-Methode des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces deaktiviert den aktuellen Sensor.
+Die **`stop()`**-Methode der [`Sensor`](/de/docs/Web/API/Sensor)-Schnittstelle deaktiviert den aktuellen Sensor.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

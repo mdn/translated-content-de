@@ -8,10 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.pathname`**-Eigenschaft ist ein
-String, der ein anfängliches `'/'` gefolgt vom Pfad der
-URL enthält, ohne den Abfrage-String oder das Fragment (oder der leere String, wenn kein
-Pfad vorhanden ist).
+Die **`HTMLAnchorElement.pathname`**-Eigenschaft ist ein String, der ein anfängliches `'/'` enthält, gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder das Fragment (oder der leere String, wenn kein Pfad vorhanden ist).
 
 ## Wert
 
@@ -35,4 +32,4 @@ anchor.pathname; // returns '/en-US/docs/HTMLAnchorElement'
 
 ## Siehe auch
 
-- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

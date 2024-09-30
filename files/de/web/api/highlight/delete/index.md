@@ -10,7 +10,7 @@ l10n:
 
 Die **`delete()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle entfernt ein angegebenes [`Range`](/de/docs/Web/API/Range)-Objekt aus einem `Highlight`-Objekt.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ähnelt diese Verwendung dem {{jsxref("Set.delete()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.delete()")}}.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Gibt `true` zurück, wenn `range` bereits im `Highlight` war; andernfalls `false
 
 ## Beispiele
 
-Der folgende Code-Schnipsel zeigt, wie ein neues Highlight mit zwei Bereichen erstellt und dann einer von ihnen gelöscht wird:
+Der folgende Codeausschnitt zeigt, wie Sie ein neues Highlight mit zwei Bereichen erstellen und dann einen davon löschen:
 
 ```js
 const range1 = new Range();
@@ -53,4 +53,4 @@ console.log(highlight.size); // 1
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

@@ -1,5 +1,5 @@
 ---
-title: Verwenden von WebRTC-Datenkanälen
+title: Verwendung von WebRTC-Datenkanälen
 slug: Web/API/WebRTC_API/Using_data_channels
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,25 +7,25 @@ l10n:
 
 {{DefaultAPISidebar("WebRTC")}}
 
-In diesem Leitfaden werden wir untersuchen, wie man einem Peer-Verbindung einen Datenkanal hinzufügt, der dann zum sicheren Austausch beliebiger Daten verwendet werden kann; das heißt, jede Art von Daten, die wir wünschen, in jedem gewünschten Format.
+In diesem Leitfaden werden wir untersuchen, wie man einen Datenkanal zu einer Peer-Verbindung hinzufügt, der dann verwendet werden kann, um beliebige Daten sicher auszutauschen; das heißt, jede Art von Daten, in jedem beliebigen Format.
 
 > [!NOTE]
-> Da alle WebRTC-Komponenten Verschlüsselung verwenden müssen, werden alle Daten, die über einen `RTCDataChannel` übertragen werden, automatisch mit Datagram Transport Layer Security (**DTLS**) gesichert. Weitere Informationen finden Sie im Abschnitt [Sicherheit](#sicherheit) unten.
+> Da alle WebRTC-Komponenten verschlüsselt werden müssen, werden alle auf einem `RTCDataChannel` übertragenen Daten automatisch mit Datagram Transport Layer Security (**DTLS**) gesichert. Weitere Informationen finden Sie unter [Sicherheit](#sicherheit) unten.
 
 ## Erstellen eines Datenkanals
 
 Der zugrunde liegende Datentransport, der vom [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendet wird, kann auf zwei Arten erstellt werden:
 
-- Lassen Sie WebRTC den Transport erstellen und dem entfernten Peer für Sie ankündigen (indem ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis ausgelöst wird). Dies ist der einfache Weg und funktioniert für eine Vielzahl von Anwendungsfällen, bietet jedoch möglicherweise nicht genügend Flexibilität für Ihre Bedürfnisse.
-- Schreiben Sie Ihren eigenen Code, um den Datentransport zu verhandeln und signalisieren Sie dem anderen Peer über eigenen Code, dass er sich mit dem neuen Kanal verbinden muss.
+- Lassen Sie WebRTC den Transport erstellen und es für Sie dem entfernten Peer ankündigen (indem es ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis empfangen lässt). Dies ist der einfache Weg und funktioniert für eine Vielzahl von Anwendungsfällen, ist jedoch möglicherweise nicht flexibel genug für Ihre Bedürfnisse.
+- Schreiben Sie Ihren eigenen Code, um den Datentransport auszuhandeln, und schreiben Sie Ihren eigenen Code, um dem anderen Peer zu signalisieren, dass er sich mit dem neuen Kanal verbinden muss.
 
-Lassen Sie uns jeden dieser Fälle betrachten, beginnend mit dem ersten, der am häufigsten vorkommt.
+Schauen wir uns jeden dieser Fälle genauer an, beginnend mit dem ersten, dem am häufigsten verwendeten.
 
-### Automatische Verhandlung
+### Automatische Aushandlung
 
-Oft können Sie der Peer-Verbindung erlauben, die Verhandlung der Verbindung für den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) für Sie zu übernehmen. Dafür rufen Sie [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf, ohne einen Wert für die `negotiated`-Eigenschaft anzugeben, oder indem Sie die Eigenschaft mit einem Wert von `false` angeben. Dadurch wird der `RTCPeerConnection` automatisch ausgelöst, die Verhandlungen für Sie zu übernehmen und den entfernten Peer dazu zu bringen, einen Datenkanal zu erstellen und die beiden über das Netzwerk zu verbinden.
+Oft können Sie die Peer-Verbindung die Aushandlung der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Verbindung für Sie erledigen lassen. Dazu rufen Sie [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf, ohne einen Wert für die `negotiated`-Eigenschaft anzugeben, oder legen Sie die Eigenschaft auf `false` fest. Dies wird automatisch das `RTCPeerConnection` dazu bringen, die Aushandlungen für Sie zu übernehmen, wodurch der entfernte Peer einen Datenkanal erstellt und die beiden über das Netzwerk miteinander verbindet.
 
-Das `RTCDataChannel`-Objekt wird sofort von `createDataChannel()` zurückgegeben; Sie können erkennen, wann die Verbindung erfolgreich hergestellt wurde, indem Sie auf das [`open`](/de/docs/Web/API/RTCDataChannel/open_event)-Ereignis warten, das an das `RTCDataChannel` gesendet wird.
+Das `RTCDataChannel`-Objekt wird sofort von `createDataChannel()` zurückgegeben; Sie können erkennen, wann die Verbindung erfolgreich hergestellt wurde, indem Sie auf das [`open`](/de/docs/Web/API/RTCDataChannel/open_event)-Ereignis achten, das an das `RTCDataChannel` gesendet wird.
 
 ```js
 let dataChannel = pc.createDataChannel("MyApp Channel");
@@ -35,11 +35,11 @@ dataChannel.addEventListener("open", (event) => {
 });
 ```
 
-### Manuelle Verhandlung
+### Manuelle Aushandlung
 
-Um die Datenkanalverbindung manuell zu verhandeln, müssen Sie zuerst ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt unter Verwendung der Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf dem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen, wobei Sie in den Optionen eine `negotiated`-Eigenschaft festlegen, die auf `true` gesetzt ist. Dies signalisiert der Peer-Verbindung, nicht zu versuchen, den Kanal in Ihrem Namen zu verhandeln.
+Um die Datenkanalverbindung manuell auszuhandeln, müssen Sie zunächst ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt erstellen, indem Sie die [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)-Methode auf dem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwenden und in den Optionen eine `negotiated`-Eigenschaft mit dem Wert `true` angeben. Das signalisiert der Peer-Verbindung, den Kanal nicht in Ihrem Namen auszuhandeln.
 
-Verhandeln Sie dann die Verbindung außerhalb des Bandes, zum Beispiel über einen Webserver oder andere Mittel. Dieser Prozess sollte dem entfernten Peer signalisieren, dass er sein eigenes `RTCDataChannel` mit der `negotiated`-Eigenschaft ebenfalls auf `true` setzen soll, und denselben [`id`](/de/docs/Web/API/RTCDataChannel/id) verwenden. Dies verbindet die beiden Objekte über die `RTCPeerConnection`.
+Dann verhandeln Sie die Verbindung außerhalb des Bandes, mithilfe eines Webservers oder anderer Mittel. Dieser Prozess sollte dem entfernten Peer signalisieren, dass er seinen eigenen `RTCDataChannel` mit der `negotiated`-Eigenschaft ebenfalls auf `true` setzen sollte, unter Verwendung derselben [`id`](/de/docs/Web/API/RTCDataChannel/id). Dies wird die beiden Objekte über das `RTCPeerConnection`-Netzwerk miteinander verbinden.
 
 ```js
 let dataChannel = pc.createDataChannel("MyApp Channel", {
@@ -53,41 +53,41 @@ dataChannel.addEventListener("open", (event) => {
 requestRemoteChannel(dataChannel.id);
 ```
 
-In diesem Codebeispiel wird der Kanal mit `negotiated` auf `true` gesetzt, dann wird eine Funktion namens `requestRemoteChannel()` verwendet, um die Verhandlung auszulösen, um einen entfernten Kanal mit derselben ID wie der lokale Kanal zu erstellen.
+In diesem Code-Schnipsel wird der Kanal mit `negotiated` auf `true` erstellt, dann wird eine Funktion namens `requestRemoteChannel()` verwendet, um die Aushandlung auszulösen, um einen entfernten Kanal mit derselben ID wie der lokale Kanal zu erstellen.
 
-Auf diese Weise können Sie Datenkanäle erstellen, bei denen jeder Peer unterschiedliche Eigenschaften verwendet, und Kanäle deklarativ erstellen, indem Sie denselben Wert für `id` verwenden.
+Dies ermöglicht es Ihnen, Datenkanäle mit jedem Peer unter Verwendung unterschiedlicher Eigenschaften zu erstellen und Kanäle deklarativ zu erstellen, indem Sie denselben Wert für `id` verwenden.
 
 ## Pufferung
 
-WebRTC-Datenkanäle unterstützen die Pufferung von ausgehenden Daten. Dies wird automatisch gehandhabt. Während es keine Möglichkeit gibt, die Größe des Puffers zu steuern, können Sie lernen, wie viel Daten derzeit gepuffert sind, und Sie können wählen, benachrichtigt zu werden, wenn der Puffer langsam an vorgereiteten Daten abnimmt. Dadurch können Sie effiziente Routinen schreiben, die sicherstellen, dass immer Daten gesendet werden können, ohne zu viel Speicher zu verwenden oder den Kanal vollständig zu überlasten.
+WebRTC-Datenkanäle unterstützen die Pufferung von ausgehenden Daten. Dies wird automatisch gehandhabt. Obwohl es keine Möglichkeit gibt, die Größe des Puffers zu steuern, können Sie erfahren, wie viele Daten derzeit gepuffert sind, und Sie können wählen, durch ein Ereignis benachrichtigt zu werden, wenn der Puffer beginnt, wenig wartende Daten zu haben. Dies erleichtert das Schreiben effizienter Routinen, die sicherstellen, dass immer Daten bereit sind, gesendet zu werden, ohne den Speicher übermäßig zu nutzen oder den Kanal vollständig zu überlasten.
 
-## Grenzen für die Nachrichtenlänge verstehen
+## Verständnis der Größenbeschränkungen für Nachrichten
 
-Für alle Daten, die über ein Netzwerk übertragen werden, gibt es Größenbeschränkungen. Auf fundamentaler Ebene können die einzelnen Netzwerkpakete nicht größer als ein bestimmter Wert sein (die genaue Zahl hängt vom Netzwerk und der verwendeten Transportschicht ab). Auf Anwendungsebene - das heißt innerhalb der Implementierung des [Benutzeragenten](/de/docs/Glossary/user_agent) für WebRTC, auf dem Ihr Code läuft - implementiert die WebRTC-Implementierung Funktionen, um Nachrichten zu unterstützen, die größer sind als die maximale Paketgröße der Netzzstransportschicht.
+Für alle Daten, die über ein Netzwerk übertragen werden, gibt es Größenbeschränkungen. Auf einer grundlegenden Ebene können die einzelnen Netzwerpakete nicht größer als ein bestimmter Wert sein (die genaue Zahl hängt vom Netzwerk und der verwendeten Transportschicht ab). Auf Anwendungsebene - das heißt, innerhalb der [User Agents](/de/docs/Glossary/user_agent)-Implementierung von WebRTC, auf der Ihr Code läuft - implementiert die WebRTC-Implementierung Funktionen, um Nachrichten zu unterstützen, die größer sind als die maximale Paketgröße auf der Transportschicht des Netzwerks.
 
-Dies kann die Dinge komplizieren, da Sie nicht unbedingt wissen, welche Größenbeschränkungen für verschiedene Benutzeragenten gelten und wie sie reagieren, wenn eine größere Nachricht gesendet oder empfangen wird. Selbst wenn Benutzeragenten dieselbe Basisbibliothek zur Bearbeitung des Stream Control Transmission Protocol (SCTP) verwenden, kann es dennoch Unterschiede aufgrund der Art und Weise, wie die Bibliothek verwendet wird, geben. Beispielsweise verwenden sowohl Firefox als auch Google Chrome die Bibliothek [`usrsctp`](https://github.com/sctplab/usrsctp) zur Implementierung von SCTP, aber es gibt dennoch Situationen, in denen die Datenübertragung in einem `RTCDataChannel` aufgrund von Unterschieden in der Art und Weise, wie sie die Bibliothek aufrufen und auf Fehler reagieren, die sie zurückgibt, fehlschlagen kann.
+Dies kann die Dinge verkomplizieren, da Sie nicht unbedingt wissen, welche Größenbeschränkungen es für verschiedene User Agents gibt und wie sie reagieren, wenn eine größere Nachricht gesendet oder empfangen wird. Selbst wenn User Agents dieselbe zugrunde liegende Bibliothek zur Handhabung von Stream Control Transmission Protocol (SCTP)-Daten verwenden, kann es dennoch Unterschiede geben, wie die Bibliothek verwendet wird. Zum Beispiel verwenden sowohl Firefox als auch Google Chrome die [`usrsctp`](https://github.com/sctplab/usrsctp)-Bibliothek zur Implementierung von SCTP, aber es gibt dennoch Situationen, in denen der Datentransfer auf einem `RTCDataChannel` aufgrund von Unterschieden darin, wie sie die Bibliothek aufrufen und auf Fehler reagieren, die sie zurückgibt, scheitern kann.
 
-Wenn zwei Benutzer, die Firefox ausführen, über einen Datenkanal kommunizieren, ist das Größenlimit für Nachrichten viel größer als wenn Firefox und Chrome kommunizieren, denn Firefox implementiert eine inzwischen veraltete Technik zum Senden großer Nachrichten in mehreren SCTP-Nachrichten, die Chrome nicht hat. Chrome wird stattdessen eine Serie von Nachrichten sehen, die es als komplett betrachtet, und sie als mehrere Nachrichten an das empfangende `RTCDataChannel` liefern.
+Wenn zwei Benutzer, die Firefox ausführen, auf einem Datenkanal kommunizieren, ist das Größtenlimit der Nachrichten viel größer als wenn Firefox und Chrome kommunizieren, da Firefox eine mittlerweile veraltete Technik implementiert, um große Nachrichten in mehreren SCTP-Nachrichten zu senden, was Chrome nicht tut. Chrome sieht stattdessen eine Reihe von Nachrichten, die es für vollständig hält, und liefert sie an das empfangende `RTCDataChannel` als mehrere Nachrichten.
 
-Nachrichten kleiner als 16 KiB können bedenkenlos gesendet werden, da alle großen Benutzeragenten sie gleich behandeln. Darüber hinaus wird es komplizierter.
+Nachrichten kleiner als 16 KiB können ohne weiteres gesendet werden, da alle großen User Agents sie auf die gleiche Weise behandeln. Darüber hinaus werden die Dinge komplizierter.
 
 ### Bedenken bei großen Nachrichten
 
-Derzeit ist es nicht praktisch, `RTCDataChannel` für Nachrichten größer als 64 KiB zu verwenden (16 KiB, wenn Sie einen plattformübergreifenden Austausch von Daten unterstützen möchten). Das Problem entsteht dadurch, dass SCTP - das Protokoll, das zum Senden und Empfangen von Daten auf einem `RTCDataChannel` verwendet wird - ursprünglich für die Verwendung als Signalisierungsprotokoll konzipiert wurde. Es wurde damit gerechnet, dass die Nachrichten relativ klein sind. Die Unterstützung für Nachrichten, die größer als die [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) der Netzwerkschicht sind, wurde fast als Nachgedanke hinzugefügt, falls Signalisierungsnachrichten größer als die MTU sein müssen. Dieses Feature erfordert, dass jedes Stück der Nachricht fortlaufende Sequenznummern hat, sodass sie nacheinander ohne andere Daten, die dazwischen übermittelt werden, gesendet werden müssen.
+Derzeit ist es nicht praktikabel, `RTCDataChannel` für Nachrichten zu verwenden, die größer als 64 KiB (16 KiB, wenn Sie einen browserübergreifenden Datenaustausch unterstützen möchten) sind. Das Problem ergibt sich aus der Tatsache, dass SCTP - das Protokoll zum Senden und Empfangen von Daten auf einem `RTCDataChannel` - ursprünglich als Signalisierungsprotokoll konzipiert wurde. Es wurde erwartet, dass Nachrichten relativ klein wären. Die Unterstützung für Nachrichten größer als das Netzwerk-Layer-MTU (https://en.wikipedia.org/wiki/Maximum_transmission_unit) wurde fast als Nachgedanke hinzugefügt, falls Signalisierungsnachrichten größer als das MTU sein müssten. Diese Funktion erfordert, dass jedes Stück der Nachricht aufeinanderfolgende Sequenznummern hat, sodass sie nacheinander gesendet werden müssen, ohne dass andere Daten dazwischen eingefügt werden.
 
-Dies wurde schließlich zu einem Problem. Im Laufe der Zeit begannen verschiedene Anwendungen (einschließlich solcher, die WebRTC implementieren) SCTP für die Übertragung größerer und größerer Nachrichten zu verwenden. Schließlich wurde erkannt, dass, wenn die Nachrichten zu groß werden, die Übertragung einer großen Nachricht alle anderen Datenübertragungen auf diesem Datenkanal blockieren kann - einschließlich kritischer Signalisierungsnachrichten.
+Dies wurde schließlich zu einem Problem. Mit der Zeit begannen verschiedene Anwendungen (einschließlich solcher, die WebRTC implementieren), SCTP zu verwenden, um immer größere Nachrichten zu übertragen. Schließlich wurde erkannt, dass, wenn die Nachrichten zu groß werden, es möglich ist, dass die Übertragung einer großen Nachricht alle anderen Datenübertragungen auf diesem Datenkanal blockiert - einschließlich kritischer Signalisierungsnachrichten.
 
-Dies wird ein Problem, wenn Browser die aktuelle Norm zur Unterstützung größerer Nachrichten ordnungsgemäß unterstützen - das End-of-Record (EOR)-Flag, das angibt, wann eine Nachricht die letzte in einer Serie ist, die als einzelne Nutzlast behandelt werden sollte. Dies ist in Firefox 57 implementiert, aber in Chrome noch nicht implementiert (siehe [Chromium Fehler 7774](https://bugs.chromium.org/p/webrtc/issues/detail?id=7774)). Mit eingeführter EOR-Unterstützung können `RTCDataChannel`-Nutzlasten viel größer sein (offiziell bis zu 256 KiB, aber die Implementierung von Firefox begrenzt sie auf beeindruckende 1 GiB). Selbst bei 256 KiB ist das groß genug, um merkliche Verzögerungen bei der Bearbeitung dringend Daten zu verursachen. Wenn Sie noch größer gehen, können die Verzögerungen unerträglich werden, es sei denn, Sie sind sich Ihrer Betriebsbedingungen sicher.
+Dieses Problem wird auftreten, wenn Browser die aktuelle Norm zur Unterstützung größerer Nachrichten ordnungsgemäß unterstützen - die End-of-Record (EOR)-Kennzeichnung, die anzeigt, wann eine Nachricht die letzte in einer Reihe ist, die als einzelne Nutzlast behandelt werden sollte. Dies ist in Firefox 57 implementiert, aber noch nicht in Chrome (siehe [Chromium Bug 7774](https://bugs.chromium.org/p/webrtc/issues/detail?id=7774)). Mit EOR-Unterstützung können `RTCDataChannel`-Nutzlasten viel größer sein (offiziell bis zu 256 KiB, aber die Firefox-Implementierung begrenzt sie auf gewaltige 1 GiB). Selbst bei 256 KiB ist das groß genug, um spürbare Verzögerungen bei der Bearbeitung dringender Daten zu verursachen. Wenn Sie noch größer werden, können die Verzögerungen unerträglich werden, es sei denn, Sie sind sich Ihrer Betriebsbedingungen sicher.
 
-Um dieses Problem zu lösen, wurde ein neues System von **Stream-Schedulern** (häufig als "SCTP ndata Spezifikation" bezeichnet) entwickelt, um es möglich zu machen, Nachrichten, die auf verschiedenen Streams gesendet werden, einschließlich Streams, die zum Implementieren von WebRTC-Datenkanälen verwendet werden, zu verflechten. Dieser [Vorschlag](https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-sctp-ndata) befindet sich noch im Entwurfsstadium der IETF, aber einmal implementiert, wird es möglich sein, Nachrichten mit im Wesentlichen keinen Größenbeschränkungen zu senden, da die SCTP-Schicht die zugrunde liegenden Teilnachrichten automatisch verflechten wird, um sicherzustellen, dass die Daten jedes Kanals die Gelegenheit haben, durchzukommen.
+Um dieses Problem zu lösen, wurde ein neues System von **Streamscheduler** entworfen (üblicherweise als "SCTP ndata specification" bezeichnet), um es möglich zu machen, Nachrichten zu verflechten, die auf verschiedenen Streams gesendet werden, einschließlich der Streams, die zur Implementierung von WebRTC-Datenkanälen verwendet werden. Dieser [Vorschlag](https://datatracker.ietf.org/doc/html/draft-ietf-tsvwg-sctp-ndata) befindet sich noch im IETF-Entwurfsform, aber sobald er implementiert ist, wird es möglich sein, Nachrichten mit im Wesentlichen keinen Größenbeschränkungen zu senden, da die SCTP-Schicht die zugrunde liegenden Unternachrichten automatisch verflichtet, um sicherzustellen, dass die Daten jedes Kanals die Möglichkeit haben, durchzukommen.
 
-Die Unterstützung von Firefox für ndata ist im Prozess der Implementierung; siehe [Firefox Bug 1381145](https://bugzil.la/1381145), um zu verfolgen, wann es für den allgemeinen Gebrauch verfügbar wird. Das Chrome-Team verfolgt ihre Implementierung der ndata-Unterstützung in [Chrome Bug 5696](https://bugs.chromium.org/p/webrtc/issues/detail?id=5696).
+Die Unterstützung von ndata in Firefox befindet sich im Implementierungsprozess; siehe [Firefox bug 1381145](https://bugzil.la/1381145), um dessen Verfügbarkeit für die allgemeine Nutzung zu verfolgen. Das Chrome-Team verfolgt die Implementierung ihrer ndata-Unterstützung in [Chrome Bug 5696](https://bugs.chromium.org/p/webrtc/issues/detail?id=5696).
 
 > [!NOTE]
-> Ein Großteil der Informationen in diesem Abschnitt basiert teilweise auf dem Blogbeitrag [Demystifying WebRTC's Data Channel Message Size Limitations](https://lgrahl.de/articles/demystifying-webrtc-dc-size-limit.html), geschrieben von Lennart Grahl. Er geht dort etwas detaillierter ein, aber da seitdem Browser aktualisiert wurden, könnte einiges davon veraltet sein. Zusätzlich wird es im Laufe der Zeit immer mehr, besonders wenn EOR- und ndata-Unterstützung vollständig in den großen Browsern integriert sind.
+> Ein großer Teil der Informationen in diesem Abschnitt basiert teilweise auf dem Blog-Beitrag [Demystifying WebRTC's Data Channel Message Size Limitations](https://lgrahl.de/articles/demystifying-webrtc-dc-size-limit.html), geschrieben von Lennart Grahl. Er geht dort etwas weiter ins Detail, aber da die Browser mittlerweile aktualisiert wurden, könnte ein Teil davon veraltet sein. Außerdem wird es mit der Zeit mehr veralten, insbesondere sobald EOR- und ndata-Unterstützung vollständig in den großen Browsern integriert ist.
 
 ## Sicherheit
 
-Alle Daten, die über WebRTC übertragen werden, sind verschlüsselt. Im Falle von `RTCDataChannel` wird die Verschlüsselung Datagram Transport Layer Security (DTLS) verwendet, die auf [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS) basiert. Da TLS verwendet wird, um jede HTTPS-Verbindung zu sichern, sind alle Daten, die Sie über einen Datenkanal senden, so sicher wie alle anderen, vom Browser des Benutzers gesendeten oder empfangenen Daten.
+Alle mit WebRTC übertragenen Daten werden verschlüsselt. Im Fall von `RTCDataChannel` wird die Verschlüsselung mittels Datagram Transport Layer Security (DTLS) durchgeführt, das auf [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS) basiert. Da TLS zur Sicherung jeder HTTPS-Verbindung verwendet wird, sind alle Daten, die Sie über einen Datenkanal senden, genauso sicher wie alle anderen Daten, die von den Browsern der Benutzer gesendet oder empfangen werden.
 
-Grundsätzlich, da WebRTC eine Peer-to-Peer-Verbindung zwischen zwei Benutzeragenten ist, passieren die Daten niemals den Web- oder Anwendungsserver. Dies reduziert die Möglichkeiten, die Daten abzufangen.
+Grundlegender ist noch, dass WebRTC eine Peer-to-Peer-Verbindung zwischen zwei User Agents ist, sodass die Daten nicht über den Web- oder Anwendungsserver geleitet werden. Dies reduziert die Möglichkeiten, dass die Daten abgefangen werden.

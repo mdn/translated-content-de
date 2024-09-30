@@ -7,53 +7,53 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`BackgroundFetchRegistration`**-Interface der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) repräsentiert einen individuellen Hintergrundabruf.
+Die **`BackgroundFetchRegistration`** Schnittstelle der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) repräsentiert einen individuellen Hintergrundabruf.
 
-Eine Instanz von `BackgroundFetchRegistration` wird durch die Methoden [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) oder [`BackgroundFetchManager.get()`](/de/docs/Web/API/BackgroundFetchManager/get) zurückgegeben und hat daher keinen Konstruktor.
+Eine `BackgroundFetchRegistration` Instanz wird von den Methoden [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) oder [`BackgroundFetchManager.get()`](/de/docs/Web/API/BackgroundFetchManager/get) zurückgegeben und hat daher keinen Konstruktor.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Objekt, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`BackgroundFetchRegistration.id`](/de/docs/Web/API/BackgroundFetchRegistration/id) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein String, der die ID des Hintergrundabrufs enthält.
 - [`BackgroundFetchRegistration.uploadTotal`](/de/docs/Web/API/BackgroundFetchRegistration/uploadTotal) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine {{jsxref("number")}}, die die Gesamtanzahl der hochzuladenden Bytes enthält.
+  - : Eine {{jsxref("number")}}, die die Gesamtzahl der zu ladenden Bytes enthält.
 - [`BackgroundFetchRegistration.uploaded`](/de/docs/Web/API/BackgroundFetchRegistration/uploaded) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine {{jsxref("number")}}, die die Größe in Bytes angibt, die erfolgreich gesendet wurde, zunächst `0`.
+  - : Eine {{jsxref("number")}}, die die Größe in Bytes enthält, die erfolgreich gesendet wurde, anfangs `0`.
 - [`BackgroundFetchRegistration.downloadTotal`](/de/docs/Web/API/BackgroundFetchRegistration/downloadTotal) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine {{jsxref("number")}}, die die Gesamtgröße in Bytes dieses Downloads enthält. Dies ist der Wert, der festgelegt wurde, als der Hintergrundabruf registriert wurde, oder `0`.
+  - : Eine {{jsxref("number")}}, die die Gesamtsgröße in Bytes dieses Downloads enthält. Dies ist der Wert, der beim Registrieren des Hintergrundabrufs gesetzt wurde, oder `0`.
 - [`BackgroundFetchRegistration.downloaded`](/de/docs/Web/API/BackgroundFetchRegistration/downloaded) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine {{jsxref("number")}}, die die Größe in Bytes angibt, die heruntergeladen wurde, zunächst `0`.
+  - : Eine {{jsxref("number")}}, die die Größe in Bytes enthält, die heruntergeladen wurde, anfangs `0`.
 - [`BackgroundFetchRegistration.result`](/de/docs/Web/API/BackgroundFetchRegistration/result) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt anfangs einen leeren String zurück, bei Abschluss entweder den String `"success"` oder `"failure"`.
+  - : Gibt zunächst einen leeren String zurück, bei Abschluss entweder den String `"success"` oder `"failure"`.
 - [`BackgroundFetchRegistration.failureReason`](/de/docs/Web/API/BackgroundFetchRegistration/failureReason) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String mit einem Wert, der einen Grund für einen Hintergrundabruf-Fehlschlag anzeigt. Kann einer der folgenden Werte sein: `""`, `"aborted"`, `"bad-status"`, `"fetch-error"`, `"quota-exceeded"`, `"download-total-exceeded"`.
+  - : Ein String mit einem Wert, der einen Grund für einen Hintergrundabruf-Fehler angibt. Kann einer der folgenden Werte sein: `""`, `"aborted"`, `"bad-status"`, `"fetch-error"`, `"quota-exceeded"`, `"download-total-exceeded"`.
 - [`BackgroundFetchRegistration.recordsAvailable`](/de/docs/Web/API/BackgroundFetchRegistration/recordsAvailable) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{jsxref("boolean")}}, der anzeigt, ob das `recordsAvailable`-Flag gesetzt ist.
+  - : Ein {{jsxref("boolean")}}, das angibt, ob das `recordsAvailable` Flag gesetzt ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von seinem übergeordneten Objekt, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`BackgroundFetchRegistration.abort()`](/de/docs/Web/API/BackgroundFetchRegistration/abort) {{Experimental_Inline}}
   - : Bricht den Hintergrundabruf ab. Gibt ein {{jsxref("Promise")}} zurück, das mit `true` aufgelöst wird, wenn der Abruf erfolgreich abgebrochen wurde.
 - [`BackgroundFetchRegistration.match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) {{Experimental_Inline}}
-  - : Gibt ein einzelnes [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Objekt zurück, das das erste Übereinstimmungsergebnis für die Argumente ist.
+  - : Gibt ein einzelnes [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) Objekt zurück, das das erste übereinstimmende für die Argumente ist.
 - [`BackgroundFetchRegistration.matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Objekten aufgelöst wird, die Anfragen und Antworten enthalten.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) Objekten aufgelöst wird, die Anfragen und Antworten enthalten.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seinem übergeordneten Objekt, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Ereignisse von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ab, oder durch Zuweisung eines Ereignislisteners zur `oneventname`-Eigenschaft dieses Interfaces.
+Diese Ereignisse werden mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignis-Listeners zu der `oneventname` Eigenschaft dieser Schnittstelle überwacht.
 
 - [`progress`](/de/docs/Web/API/BackgroundFetchRegistration/progress_event) {{Experimental_Inline}}
 
-  - : Wird ausgelöst, wenn es eine Änderung an einer der folgenden Eigenschaften gibt:
+  - : Wird ausgelöst, wenn sich eine der folgenden Eigenschaften ändert:
     [`uploaded`](/de/docs/Web/API/BackgroundFetchRegistration/uploaded),
     [`downloaded`](/de/docs/Web/API/BackgroundFetchRegistration/downloaded),
     [`result`](/de/docs/Web/API/BackgroundFetchRegistration/result) oder
@@ -83,13 +83,13 @@ navigator.serviceWorker.ready.then(async (swReg) => {
 });
 ```
 
-Das Protokollieren der [`id`](/de/docs/Web/API/BackgroundFetchRegistration/id) in die Konsole gibt `"my-fetch"` zurück.
+Das Protokollieren der [`id`](/de/docs/Web/API/BackgroundFetchRegistration/id) in der Konsole gibt `"my-fetch"` zurück.
 
 ```js
 console.log(bgFetch.id); // "my-fetch"
 ```
 
-Die Methode [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) kann verwendet werden, um ein bestimmtes [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) aus denjenigen zu finden, die Teil der Registrierung sind.
+Die [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) Methode kann verwendet werden, um ein bestimmtes [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) aus denen, die Teil der Registrierung sind, zu finden.
 
 ```js
 bgFetch.match("/ep-5.mp3").then(async (record) => {

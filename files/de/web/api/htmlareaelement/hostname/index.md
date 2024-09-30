@@ -12,8 +12,8 @@ Die **`HTMLAreaElement.hostname`**-Eigenschaft ist ein String, der die Domain de
 
 ## Wert
 
-Ein String, der die Domain der URL enthält, die mit dem `area`-Element verknüpft ist.
-Er kann sowohl als Setter als auch als Getter verwendet werden.
+Ein String, der die Domain der URL enthält, die mit dem `area`-Element verbunden ist.
+Es kann sowohl als Setter als auch als Getter verwendet werden.
 
 ## Beispiele
 
@@ -59,4 +59,4 @@ log.textContent += `area2 hostname: ${area2.hostname}`; // 'coolexample.com'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Schnittstelle, zu der es gehört.

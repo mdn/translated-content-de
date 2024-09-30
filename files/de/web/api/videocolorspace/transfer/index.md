@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`transfer`** des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt die opto-elektronischen Übertragungseigenschaften des Videos zurück.
+Die **`transfer`**-Schreibgeschützte Eigenschaft der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle gibt die opto-elektronischen Transfercharakteristika des Videos zurück.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"bt709"`
-  - : Übertragungseigenschaften, die von BT.709 verwendet werden.
+  - : Transfercharakteristiken, die von BT.709 verwendet werden.
 - `"smpte170m"`
-  - : Übertragungseigenschaften, die von BT.601 NTSC verwendet werden.
+  - : Transfercharakteristiken, die von BT.601 NTSC verwendet werden.
 - `"iec61966-2-1"`
-  - : Übertragungseigenschaften, die von sRGBA verwendet werden.
+  - : Transfercharakteristiken, die von sRGBA verwendet werden.
 
 ## Beispiele
 

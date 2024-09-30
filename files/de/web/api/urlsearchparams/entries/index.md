@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`entries()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Interfaces gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der die Iteration durch alle Schlüssel/Wert-Paare ermöglicht, die in diesem Objekt enthalten sind. Der Iterator gibt Schlüssel/Wert-Paare in der gleichen Reihenfolge zurück, in der sie im Abfrage-String erscheinen. Der Schlüssel und der Wert jedes Paares sind Zeichenfolgen.
+Die **`entries()`** Methode des
+[`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Interfaces gibt einen
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der die Iteration durch alle Schlüssel/Wert-Paare ermöglicht, die in diesem Objekt enthalten sind. Der Iterator gibt Schlüssel/Wert-Paare in derselben Reihenfolge zurück, wie sie in der Abfragezeichenfolge erscheinen. Der Schlüssel und der Wert jedes Paares sind Zeichenfolgen.
 
 ## Syntax
 

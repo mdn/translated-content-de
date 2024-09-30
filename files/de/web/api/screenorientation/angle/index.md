@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Screen Orientation")}}
 
-Die schreibgeschützte **`angle`**-Eigenschaft der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle gibt den aktuellen Orientierungswinkel des Dokuments zurück.
+Die schreibgeschützte **`angle`**-Eigenschaft des
+[`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interfaces gibt den aktuellen Orientierungswinkel des Dokuments zurück.
 
 ## Wert
 
-Eine vorzeichenlose kurze Ganzzahl.
+Eine vorzeichenlose Kurzform eines Ganzzahltyps.
 
 ## Spezifikationen
 

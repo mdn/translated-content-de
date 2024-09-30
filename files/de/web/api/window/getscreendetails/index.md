@@ -1,5 +1,5 @@
 ---
-title: "Window: Methode getScreenDetails()"
+title: "Window: getScreenDetails()-Methode"
 short-title: getScreenDetails()
 slug: Web/API/Window/getScreenDetails
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`getScreenDetails()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz eines [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekts erfüllt wird, welches die Details aller für das Gerät des Benutzers verfügbaren Bildschirme repräsentiert.
+Die **`getScreenDetails()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objektinstanz erfüllt wird, die die Details aller für das Gerät des Benutzers verfügbaren Bildschirme darstellt.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Instanz eines [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekts erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objektinstanz erfüllt wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) festgelegt ist, die die Nutzung der [Window Management API](/de/docs/Web/API/Window_Management_API) blockiert, oder wenn der Benutzer die Berechtigungsanfrage des Browsers zur Nutzung der API ausdrücklich abgelehnt hat.
+  - : Wird ausgelöst, wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}}- [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) gesetzt ist, die die Nutzung der [Window Management API](/de/docs/Web/API/Window_Management_API) blockiert, oder wenn der Benutzer die Berechtigungsanfrage des Browsers zur Nutzung der API ausdrücklich abgelehnt hat.
 
 ## Beispiele
 
-Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Berechtigung kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, um `window-management` zu überprüfen). Vorausgesetzt, sie erteilen die Erlaubnis, enthält das resultierende [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt Details zu allen Bildschirmen, die dem System des Benutzers zur Verfügung stehen.
+Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Anzeigen zu verwalten (der Status dieser Berechtigung kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, um `window-management` zu prüfen). Wenn er die Erlaubnis erteilt, enthält das resultierende [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt Details zu allen für das System des Benutzers verfügbaren Bildschirmen.
 
 Das folgende Beispiel öffnet ein Fenster in voller Größe auf jedem verfügbaren Bildschirm.
 
@@ -52,7 +52,7 @@ for (const screen of screenDetails.screens) {
 ```
 
 > [!NOTE]
-> Sehen Sie sich [Multi-window learning environment](https://mdn.github.io/dom-examples/window-management-api/) für ein vollständiges Beispiel an (sehen Sie auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
+> Siehe [Lernumgebung für mehrere Fenster](https://mdn.github.io/dom-examples/window-management-api/) für ein vollständiges Beispiel (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
 
 ## Spezifikationen
 

@@ -28,19 +28,19 @@ mask-mode: revert-layer;
 mask-mode: unset;
 ```
 
-Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten Schlüsselwortwerte angegeben, getrennt durch Kommas.
+Die Eigenschaft `mask-mode` wird als eines oder mehrere der unten aufgeführten Schlüsselwortwerte angegeben, getrennt durch Kommas.
 
 ### Werte
 
 - `alpha`
-  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alpha-Kanal) des Maskenschichtbildes als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alpha-Kanal) des Maskenbildelements als Maskenwerte verwendet werden sollen.
 - `luminance`
-  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenschichtbildes als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenbildelements als Maskenwerte verwendet werden sollen.
 - `match-source`
 
-  - : Wenn die Eigenschaft {{cssxref("mask-image")}} vom Typ `<mask-source>` ist, sollten die Luminanzwerte des Maskenschichtbildes als Maskenwerte verwendet werden.
+  - : Wenn die Eigenschaft {{cssxref("mask-image")}} vom Typ `<mask-source>` ist, sollten die Luminanzwerte des Maskenbildelements als Maskenwerte verwendet werden.
 
-    Handelt es sich um den Typ {{cssxref("&lt;image&gt;")}}, sollten die Alphawerte des Maskenschichtbildes als Maskenwerte verwendet werden.
+    Wenn sie vom Typ {{cssxref("&lt;image&gt;")}} ist, sollten die Alphawerte des Maskenbildelements als Maskenwerte verwendet werden.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten 
 
 ## Beispiele
 
-### Verwendung von Alphamaskenmodus
+### Verwendung des Alpha-Maskenmodus
 
 {{EmbedGHLiveSample("css-examples/masking/mask-mode.html", '100%', 760)}}
 

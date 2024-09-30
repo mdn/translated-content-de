@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`noreferrer`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Attributes/rel) Attribut der {{HTMLElement("a")}}, {{HTMLElement("area")}}, und {{HTMLElement("form")}} Elemente weist den Browser an, beim Navigieren zur Zielressource den {{HTTPHeader("Referer")}} Header auszulassen und ansonsten keine Referrer-Informationen weiterzugeben — und zusätzlich sich so zu verhalten, als ob das [`noopener`](/de/docs/Web/HTML/Attributes/rel/noopener) Schlüsselwort ebenfalls angegeben wäre.
+Das Schlüsselwort **`noreferrer`** für das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut der {{HTMLElement("a")}}, {{HTMLElement("area")}}, und {{HTMLElement("form")}} Elemente weist den Browser an, beim Navigieren zur Zielressource den {{HTTPHeader("Referer")}}-Header auszulassen und keine Referrer-Informationen preiszugeben — und zusätzlich so zu agieren, als ob das [`noopener`](/de/docs/Web/HTML/Attributes/rel/noopener) Schlüsselwort ebenfalls angegeben wäre.
 
 ## Spezifikationen
 

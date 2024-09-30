@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("Device Memory API")}}{{securecontext_header}}{{AvailableInWorkers}}
 
-Die Fähigkeiten eines Clientgeräts hängen weitgehend von der verfügbaren RAM-Menge ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder Geräteeigenschaften anhand anderer Faktoren wie dem Gerätehersteller oder User-Agent-Strings ableiten.
+Die Fähigkeiten eines Client-Geräts hängen maßgeblich von der verfügbaren RAM-Menge ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder die Geräteeigenschaften anhand anderer Faktoren wie dem Gerätehersteller oder den User-Agent-Strings ableiten.
 
 ## Bestimmung des Gerätespeichers
 
-Es gibt zwei Möglichkeiten, die ungefähre Menge an RAM zu bestimmen, die ein Gerät hat: Verwenden Sie die Device Memory JavaScript-API oder akzeptieren Sie Client Hints.
+Es gibt zwei Möglichkeiten, die ungefähre Menge an RAM zu bestimmen, die ein Gerät hat: Verwenden Sie die Device Memory JavaScript API oder akzeptieren Sie Client Hints.
 
 ### JavaScript-API
 
-Sie können die ungefähre Menge an RAM eines Geräts abfragen, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
+Sie können die ungefähre Menge an RAM abfragen, die ein Gerät hat, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
 
 ```js
 const RAM = navigator.deviceMemory;
@@ -23,7 +23,7 @@ const RAM = navigator.deviceMemory;
 
 ### Client Hints
 
-Sie können auch den HTTP-Header [Client Hints](/de/docs/Web/HTTP/Client_hints) mit der Anweisung `Device-Memory` verwenden, um die gleiche ungefähre RAM-Kapazität zu erhalten.
+Sie können auch den [Client Hints](/de/docs/Web/HTTP/Client_hints) HTTP-Header mit der `Device-Memory`-Richtlinie verwenden, um die gleiche ungefähre RAM-Kapazität abzurufen.
 
 ## Schnittstellen
 

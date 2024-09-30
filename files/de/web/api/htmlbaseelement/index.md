@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Schnittstelle **`HTMLBaseElement`** enthält die Basis-URI für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, wie sie in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
+Das **`HTMLBaseElement`**-Interface enthält den Basis-URI für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, wie im [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface beschrieben.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLBaseElement.href`](/de/docs/Web/API/HTMLBaseElement/href)
-  - : Ein String, der das HTML-Attribut [`href`](/de/docs/Web/HTML/Element/base#href) widerspiegelt und eine Basis-URL für relative URLs im Dokument enthält.
+  - : Ein String, der das [`href`](/de/docs/Web/HTML/Element/base#href)-HTML-Attribut widerspiegelt und eine Basis-URL für relative URLs im Dokument enthält.
 - [`HTMLBaseElement.target`](/de/docs/Web/API/HTMLBaseElement/target)
-  - : Ein String, der das HTML-Attribut [`target`](/de/docs/Web/HTML/Element/base#target) widerspiegelt und einen Standard-Ziel-Browsing-Kontext oder -Frame für Elemente enthält, die keine Zielreferenz angegeben haben.
+  - : Ein String, der das [`target`](/de/docs/Web/HTML/Element/base#target)-HTML-Attribut widerspiegelt und einen Standard-Ziel-Browsing-Kontext oder Rahmen für Elemente enthält, die keine Zielreferenz angegeben haben.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](
 
 ## Siehe auch
 
-- HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("base") }}
+- HTML-Element, das dieses Interface implementiert: {{ HTMLElement("base") }}

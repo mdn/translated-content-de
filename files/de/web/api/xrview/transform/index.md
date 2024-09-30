@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`transform`**-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung des Standpunkts relativ zum [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) bietet, der beim Aufrufen der Methode [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) angegeben wurde, um das Ansichtsobjekt zu erhalten.
+Die schreibgeschützte **`transform`**-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung des Blickpunkts relativ zum [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) angibt, das angegeben wurde, als die Methode [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) aufgerufen wurde, um das View-Objekt zu erhalten.
 
-Mit dem `transform` können Sie die Ansicht als Kamera innerhalb der 3D-Szene positionieren. Wenn Sie stattdessen die traditionellere View-Matrix benötigen, können Sie diese über `view.transform.inverse.matrix` erhalten; dies erhält die zugrunde liegende [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der inversen [`inverse`](/de/docs/Web/API/XRRigidTransform/inverse) des Transforms.
+Mit dem `transform` können Sie dann die Ansicht als Kamera innerhalb der 3D-Szene positionieren. Wenn Sie stattdessen die traditionellere View-Matrix benötigen, können Sie diese mit `view.transform.inverse.matrix` erhalten; dies liefert die zugrunde liegende [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der [`inverse`](/de/docs/Web/API/XRRigidTransform/inverse) des Transforms.
 
 ## Wert
 
-Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung des durch die `XRView` dargestellten Standpunkts angibt.
+Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung des durch das `XRView` dargestellten Blickpunkts angibt.
 
 ## Beispiele
 
-Für jede Ansicht, die die dargestellte Szene bildet, repräsentiert das `transform` der Ansicht die Position und Orientierung des Betrachters oder der Kamera relativ zum Ursprung des Referenzraums. Sie können dann die Inverse dieser Matrix verwenden, um die Objekte in Ihrer Szene zu transformieren, ihre Platzierung und Orientierung anzupassen und so die Bewegung des Betrachters durch den Raum zu simulieren.
+Für jede Ansicht, die die dargestellte Szene bildet, repräsentiert das `transform` der Ansicht die Position und Orientierung des Betrachters oder der Kamera relativ zum Ursprung des Referenzraums. Sie können dann die Inverse dieser Matrix verwenden, um die Objekte in Ihrer Szene zu transformieren, um ihre Platzierung und Orientierung anzupassen und die Bewegung des Betrachters durch den Raum zu simulieren.
 
-In diesem Beispiel sehen wir einen Umriss eines Codefragments, das während des Renderings eines [`XRFrame`](/de/docs/Web/API/XRFrame) verwendet wird und das Ansichtstransform verwendet, um Objekte während des Renderings in der Welt zu platzieren.
+In diesem Beispiel sehen wir einen Umriss eines Codeausschnitts, der während des Renderns eines [`XRFrame`](/de/docs/Web/API/XRFrame) verwendet wird und der das View-Transform verwendet, um Objekte während des Renderings in der Welt zu platzieren.
 
 ```js
 const modelViewMatrix = mat4.create();
@@ -40,21 +40,21 @@ for (const view of pose.views) {
 }
 ```
 
-Zwei Matrizen werden außerhalb der Rendering-Schleife erstellt; dies vermeidet, dass Matrizen wiederholt zugewiesen und freigegeben werden, und reduziert im Allgemeinen den Overhead, indem dieselbe Matrix für jedes gerenderte Objekt wiederverwendet wird.
+Zwei Matrizen werden außerhalb der Render-Schleife erstellt; dies vermeidet das wiederholte Allokieren und Deallokieren der Matrizen und reduziert im Allgemeinen den Overhead, indem dieselbe Matrix für jedes gerenderte Objekt wiederverwendet wird.
 
-Dann iterieren wir über jede [`XRView`](/de/docs/Web/API/XRView), die in der Liste der [`views`](/de/docs/Web/API/XRViewerPose/views) von [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) gefunden wird. Es gibt normalerweise zwei: eine für das linke Auge und eine für das rechte, aber es kann auch nur eine sein, wenn sich der Modus im Monoskop-Betrieb befindet. Derzeit unterstützt WebXR nicht mehr als zwei Ansichten pro Pose, obwohl Raum gelassen wurde, die Spezifikation in Zukunft mit einigen Ergänzungen der API zu erweitern.
+Dann iterieren wir über jedes [`XRView`](/de/docs/Web/API/XRView) in der Liste der [`views`](/de/docs/Web/API/XRViewerPose/views) von [`XRViewerPose`](/de/docs/Web/API/XRViewerPose). In der Regel gibt es zwei: eines für das linke Auge und eines für das rechte, aber es kann auch nur eines sein, wenn der monokulare Modus aktiviert ist. Derzeit unterstützt WebXR nicht mehr als zwei Ansichten pro Pose, obwohl Raum für die Erweiterung der Spezifikation gelassen wurde, um dies in Zukunft mit einigen Ergänzungen zur API zu unterstützen.
 
-Für jede Ansicht erhalten wir deren Viewport und übergeben diesen an WebGL mit [`gl.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport). Für das linke Auge wird dies die linke Hälfte der Leinwand sein, während das rechte Auge die rechte Hälfte verwendet.
+Für jede Ansicht erhalten wir ihren Viewport und übergeben diesen mit [`gl.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport) an WebGL. Für das linke Auge wird dies die linke Hälfte der Leinwand sein, während das rechte Auge die rechte Hälfte verwendet.
 
-Dann iterieren wir über jedes Objekt, das die Szene bildet. Die Modellansichtsmatrix jedes Objekts wird berechnet, indem dessen eigene Matrix, die die eigene Position und Orientierung des Objekts beschreibt, mit den zusätzlichen Position- und Orientierungsanpassungen multipliziert wird, die erforderlich sind, um die Bewegung der Kamera zu entsprechen. Um die "kameraorientierte" Transformationsmatrix in eine "objektorierte" Transformation zu konvertieren, verwenden wir die Inverse des Transforms, und zwar die Matrix, die durch [`view.transform.inverse.matrix`](/de/docs/Web/API/XRRigidTransform/matrix) zurückgegeben wird. Die resultierende Modellansichtsmatrix wendet alle Transformierungen an, die erforderlich sind, um das Objekt basierend auf den relativen Positionen des Objekts und der Kamera zu bewegen und zu drehen. Dies wird die Bewegung der Kamera simulieren, obwohl wir tatsächlich das Objekt bewegen.
+Dann iterieren wir über jedes Objekt, das die Szene bildet. Die Model-View-Matrix jedes Objekts wird berechnet, indem seine eigene Matrix, die die eigene Position und Orientierung des Objekts beschreibt, mit den zusätzlichen Position- und Orientierungsanpassungen multipliziert wird, die erforderlich sind, um die Bewegung der Kamera nachzuvollziehen. Um die "kamera-fokussierte" Transform-Matrix in eine "objekt-fokussierte" zu konvertieren, verwenden wir die Inverse des Transforms, indem wir die Matrix nehmen, die von [`view.transform.inverse.matrix`](/de/docs/Web/API/XRRigidTransform/matrix) geliefert wird. Die resultierende Model-View-Matrix wird alle benötigten Transformationen anwenden, um das Objekt basierend auf den relativen Positionen des Objekts und der Kamera zu bewegen und zu rotieren. Dies simuliert die Bewegung der Kamera, obwohl wir tatsächlich das Objekt bewegen.
 
-Wir berechnen dann die Normalen für die Modellansichtsmatrix, indem wir sie invertieren und dann transponieren.
+Wir berechnen dann die Normalen für die Model-View-Matrix, indem wir sie invertieren und dann transponieren.
 
-Schließlich rufen wir die `render()`-Routine des Objekts auf und übergeben dabei die `modelViewMatrix` und die `normalMatrix`, damit der Renderer das Objekt korrekt platzieren und beleuchten kann.
+Schließlich rufen wir die `render()`-Routine des Objekts auf, wobei wir die `modelViewMatrix` und `normalMatrix` übergeben, damit der Renderer das Objekt korrekt platzieren und beleuchten kann.
 
 > [!NOTE]
-> Dieses Beispiel ist aus einem größeren Beispiel abgeleitet…
-> **<<<--- beenden und Link hinzufügen --->>>**
+> Dieses Beispiel ist aus einem größeren Beispiel abgeleitet...
+> **<<<--- finish and add link --->>>**
 
 ## Spezifikationen
 

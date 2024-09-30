@@ -1,5 +1,5 @@
 ---
-title: Mozilla-vendorpräfixierte CSS-Erweiterungen
+title: Mozilla vendor-prefixed CSS Erweiterungen
 slug: Web/CSS/Mozilla_Extensions
 l10n:
   sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Firefox unterstützt eine Reihe von _Mozilla-Erweiterungen zu [CSS](/de/docs/Web/CSS)_, einschließlich Eigenschaften, Werte, Pseudo-Elementen und Pseudo-Klassen, At-Regeln und Medienabfragen. Diese Erweiterungen sind mit `-moz-` vorangestellt.
+Firefox unterstützt eine Reihe von _Mozilla Erweiterungen für [CSS](/de/docs/Web/CSS)_, einschließlich Eigenschaften, Werte, Pseudo-Elemente und Pseudo-Klassen, At-Regeln und Media Queries. Diese Erweiterungen sind mit `-moz-` vorangestellt.
 
 > [!NOTE]
-> Diese Erweiterungen sind größtenteils experimentell oder veraltet, werden aber zur Rückwärtskompatibilität beibehalten. Vermeiden Sie deren Verwendung auf Produktionswebsites.
+> Diese Erweiterungen sind meist experimentell oder veraltet, werden aber für die Rückwärtskompatibilität beibehalten. Vermeiden Sie deren Verwendung auf Produktionswebsites.
 
-## Exklusive Mozilla-Eigenschaften
+## Mozilla-spezifische Eigenschaften
 
 - {{CSSxRef("box-align", "-moz-box-align")}} {{deprecated_inline}}
 - {{CSSxRef("box-direction", "-moz-box-direction")}} {{deprecated_inline}}
@@ -29,62 +29,62 @@ Firefox unterstützt eine Reihe von _Mozilla-Erweiterungen zu [CSS](/de/docs/Web
 - {{CSSxRef("-moz-user-input")}} {{non-standard_inline}}
 - {{CSSxRef("user-modify", "-moz-user-modify")}} {{non-standard_inline}}
 
-## Früher proprietäre, jetzt standardisierte Eigenschaften
+## Ehemals proprietäre Eigenschaften, die jetzt Standard sind
 
 > [!NOTE]
-> Um die Kompatibilität Ihres CSS zu maximieren, sollten Sie die nicht vorangestellten standardisierten Eigenschaften anstelle der unten aufgelisteten vorangestellten verwenden. Sobald eine Eigenschaft standardisiert und ohne Präfix implementiert ist, wird die vorangestellte Version in der Regel nach einer Weile eingestellt.
+> Um die Kompatibilität Ihres CSS zu maximieren, sollten Sie die nicht-vorangestellten Standard-Eigenschaften anstelle der unten aufgeführten vorangestellten verwenden. Sobald eine bestimmte Eigenschaft standardisiert und ohne Präfix implementiert ist, wird die vorangestellte Version typischerweise nach einiger Zeit entfernt.
 
 ### A
 
-- {{CSSxRef("animation", "-moz-animation")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-delay", "-moz-animation-delay")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-direction", "-moz-animation-direction")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-duration", "-moz-animation-duration")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-fill-mode", "-moz-animation-fill-mode")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-iteration-count", "-moz-animation-iteration-count")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-name", "-moz-animation-name")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-play-state", "-moz-animation-play-state")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("animation-timing-function","-moz-animation-timing-function")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("animation", "-moz-animation")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-delay", "-moz-animation-delay")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-direction", "-moz-animation-direction")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-duration", "-moz-animation-duration")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-fill-mode", "-moz-animation-fill-mode")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-iteration-count", "-moz-animation-iteration-count")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-name", "-moz-animation-name")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-play-state", "-moz-animation-play-state")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("animation-timing-function","-moz-animation-timing-function")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 - {{CSSxRef("appearance","-moz-appearance")}} {{Experimental_Inline}}
 
 ### B
 
-- {{CSSxRef("backface-visibility", "-moz-backface-visibility")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("backface-visibility", "-moz-backface-visibility")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 - {{CSSxRef("background-clip", "-moz-background-clip")}} {{deprecated_inline}}
 - {{CSSxRef("background-origin", "-moz-background-origin")}} {{deprecated_inline}}
-- {{CSSxRef("box-decoration-break", "-moz-background-inline-policy")}} {{deprecated_inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("box-decoration-break")}})
+- {{CSSxRef("box-decoration-break", "-moz-background-inline-policy")}} {{deprecated_inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("box-decoration-break")}})
 - {{CSSxRef("background-size", "-moz-background-size")}} {{deprecated_inline}}
-- {{CSSxRef("border-inline-end", "-moz-border-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-end")}})
-- {{CSSxRef("border-inline-color", "-moz-border-end-color")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-end-color")}})
-- {{CSSxRef("border-inline-style", "-moz-border-end-style")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-end-style")}})
-- {{CSSxRef("border-inline-width", "-moz-border-end-width")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-end-width")}})
+- {{CSSxRef("border-inline-end", "-moz-border-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-end")}})
+- {{CSSxRef("border-inline-color", "-moz-border-end-color")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-end-color")}})
+- {{CSSxRef("border-inline-style", "-moz-border-end-style")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-end-style")}})
+- {{CSSxRef("border-inline-width", "-moz-border-end-width")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-end-width")}})
 - {{CSSxRef("border-image", "-moz-border-image")}} {{Deprecated_Inline}}
-- {{CSSxRef("border-inline-start", "-moz-border-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-start")}})
-- {{CSSxRef("border-inline-start-color", "-moz-border-start-color")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-start-color")}})
-- {{CSSxRef("border-inline-start-style", "-moz-border-start-style")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-start-style")}})
-- {{CSSxRef("border-inline-start-width", "-moz-border-start-width")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("border-inline-start-width")}})
-- {{CSSxRef("box-sizing", "-moz-box-sizing")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("border-inline-start", "-moz-border-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-start")}})
+- {{CSSxRef("border-inline-start-color", "-moz-border-start-color")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-start-color")}})
+- {{CSSxRef("border-inline-start-style", "-moz-border-start-style")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-start-style")}})
+- {{CSSxRef("border-inline-start-width", "-moz-border-start-width")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("border-inline-start-width")}})
+- {{CSSxRef("box-sizing", "-moz-box-sizing")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 
 ### C
 
 - {{CSSxRef("clip-path")}} {{Experimental_Inline}} (Anwendung auf mehr als SVG)
-- {{CSSxRef("column-count", "-moz-column-count")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-fill", "-moz-column-fill")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-gap", "-moz-column-gap")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-width", "-moz-column-width")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-rule", "-moz-column-rule")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-rule-width", "-moz-column-rule-width")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-rule-style", "-moz-column-rule-style")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("column-rule-color", "-moz-column-rule-color")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("column-count", "-moz-column-count")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-fill", "-moz-column-fill")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-gap", "-moz-column-gap")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-width", "-moz-column-width")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-rule", "-moz-column-rule")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-rule-width", "-moz-column-rule-width")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-rule-style", "-moz-column-rule-style")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("column-rule-color", "-moz-column-rule-color")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 
 ### F–M
 
 - {{CSSxRef("filter")}} {{Experimental_Inline}} (Anwendung auf mehr als SVG)
-- {{CSSxRef("font-feature-settings", "-moz-font-feature-settings")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("font-language-override", "-moz-font-language-override")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("hyphens", "-moz-hyphens")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("margin-inline-end", "-moz-margin-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("margin-inline-end")}})
-- {{CSSxRef("margin-inline-start", "-moz-margin-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("margin-inline-start")}})
+- {{CSSxRef("font-feature-settings", "-moz-font-feature-settings")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("font-language-override", "-moz-font-language-override")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("hyphens", "-moz-hyphens")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("margin-inline-end", "-moz-margin-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("margin-inline-end")}})
+- {{CSSxRef("margin-inline-start", "-moz-margin-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("margin-inline-start")}})
 - {{CSSxRef("mask")}} {{Experimental_Inline}} (Anwendung auf mehr als SVG)
 
 ### O
@@ -98,10 +98,10 @@ Firefox unterstützt eine Reihe von _Mozilla-Erweiterungen zu [CSS](/de/docs/Web
 
 ### P
 
-- {{CSSxRef("padding-inline-end", "-moz-padding-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("padding-inline-end")}})
-- {{CSSxRef("padding-inline-start", "-moz-padding-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie das standardisierte {{CSSxRef("padding-inline-start")}})
-- {{CSSxRef("perspective", "-moz-perspective")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("perspective-origin", "-moz-perspective-origin")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("padding-inline-end", "-moz-padding-end")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("padding-inline-end")}})
+- {{CSSxRef("padding-inline-start", "-moz-padding-start")}} {{Deprecated_Inline}} (Nicht mehr unterstützt; verwenden Sie den Standard {{CSSxRef("padding-inline-start")}})
+- {{CSSxRef("perspective", "-moz-perspective")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("perspective-origin", "-moz-perspective-origin")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 - {{CSSxRef("pointer-events")}} {{Experimental_Inline}} (Anwendung auf mehr als SVG)
 
 ### T–U
@@ -112,14 +112,14 @@ Firefox unterstützt eine Reihe von _Mozilla-Erweiterungen zu [CSS](/de/docs/Web
 - {{CSSxRef("text-decoration-line", "-moz-text-decoration-line")}} {{deprecated_inline}}
 - {{CSSxRef("text-decoration-style", "-moz-text-decoration-style")}} {{deprecated_inline}}
 - {{CSSxRef("text-size-adjust", "-moz-text-size-adjust")}} {{Experimental_Inline}}
-- {{CSSxRef("transform", "-moz-transform")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transform-origin", "-moz-transform-origin")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transform-style", "-moz-transform-style")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transition", "-moz-transition")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transition-delay", "-moz-transition-delay")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transition-duration", "-moz-transition-duration")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transition-property", "-moz-transition-property")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
-- {{CSSxRef("transition-timing-function", "-moz-transition-timing-function")}} {{Deprecated_Inline}} (Vorangestellte Version wird noch unterstützt)
+- {{CSSxRef("transform", "-moz-transform")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transform-origin", "-moz-transform-origin")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transform-style", "-moz-transform-style")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transition", "-moz-transition")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transition-delay", "-moz-transition-delay")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transition-duration", "-moz-transition-duration")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transition-property", "-moz-transition-property")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
+- {{CSSxRef("transition-timing-function", "-moz-transition-timing-function")}} {{Deprecated_Inline}} (Vorangestellte Version weiterhin unterstützt)
 - {{CSSxRef("user-select", "-moz-user-select")}} {{Experimental_Inline}}
 
 ## Werte
@@ -221,7 +221,7 @@ Eigenschaft: {{CSSxRef("appearance", "-moz-appearance")}}
 
 Eigenschaft: {{CSSxRef("background-image")}}
 
-#### Verläufe
+#### Gradienten
 
 - {{CSSxRef("gradient/linear-gradient","-moz-linear-gradient")}} {{Deprecated_Inline}}
 - {{CSSxRef("gradient/radial-gradient","-moz-radial-gradient")}} {{Deprecated_Inline}}
@@ -230,7 +230,7 @@ Eigenschaft: {{CSSxRef("background-image")}}
 
 - {{CSSxRef("element","-moz-element")}}
 
-#### Subimages
+#### Sub-Bilder
 
 - {{CSSxRef("-moz-image-rect")}}
 
@@ -238,7 +238,7 @@ Eigenschaft: {{CSSxRef("background-image")}}
 
 Eigenschaft: {{CSSxRef("border-color")}}
 
-- `-moz-use-text-color` {{deprecated_inline}} (entfernt in [Firefox Bug 1306214](https://bugzil.la/1306214)); verwenden Sie stattdessen {{CSSxRef("color_value#currentcolor_keyword","currentcolor")}}.
+- `-moz-use-text-color` {{deprecated_inline}} (entfernt in [Firefox Bug 1306214](https://bugzil.la/1306214)); verwenden Sie {{CSSxRef("color_value#currentcolor_keyword","currentcolor")}} stattdessen.
 
 ### order-style und outline-style
 
@@ -248,7 +248,7 @@ Eigenschaften: {{CSSxRef("border-style")}} und {{CSSxRef("outline-style")}}
 - `-moz-bg-outset` {{deprecated_inline}}
 - `-moz-bg-solid` {{deprecated_inline}}
 
-### &lt;color&gt;-Schlüsselwörter
+### &lt;color&gt; Schlüsselwörter
 
 Typ: {{CSSxRef("&lt;color&gt;")}}
 
@@ -401,7 +401,7 @@ Eigenschaft: {{CSSxRef("user-select", "-moz-user-select")}}
 - `-moz-all`
 - `-moz-none`
 
-### width, min-width, und max-width
+### width, min-width, and max-width
 
 Eigenschaften: {{CSSxRef("width")}}, {{CSSxRef("min-width")}}, und {{CSSxRef("max-width")}}
 
@@ -496,18 +496,18 @@ Eigenschaften: {{CSSxRef("width")}}, {{CSSxRef("min-width")}}, und {{CSSxRef("ma
 
 - {{CSSxRef("@document", "@-moz-document")}}
 
-## Medienmerkmale
+## Media Features
 
 - {{CSSxRef("@media/-moz-device-pixel-ratio", "-moz-device-pixel-ratio")}} {{deprecated_inline}}
 - {{CSSxRef("@media/-moz-os-version", "-moz-os-version")}}
 - {{CSSxRef("@media/-moz-touch-enabled", "-moz-touch-enabled")}}
 - {{CSSxRef("@media/-moz-windows-glass", "-moz-windows-glass")}}
 
-## Sonstiges
+## Andere
 
 - {{CSSxRef("-moz-alt-content")}} (siehe [Firefox Bug 11011](https://bugzil.la/11011))
 
 ## Siehe auch
 
-- [Vendorpräfix](/de/docs/Glossary/Vendor_Prefix) Glossareintrag
-- [WebKit-vendorpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- [Vendor Prefix](/de/docs/Glossary/Vendor_Prefix) Glossarbegriff
+- [WebKit vendor-prefixed CSS Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)

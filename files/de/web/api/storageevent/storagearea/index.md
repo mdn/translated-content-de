@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`storageArea`**-Eigenschaft des [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Interfaces gibt das Speicherobjekt zurück, das betroffen wurde.
+Die **`storageArea`**-Eigenschaft des [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Interfaces gibt das Speicherobjekt zurück, das betroffen war.
 
 ## Wert
 

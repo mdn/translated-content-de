@@ -1,5 +1,5 @@
 ---
-title: Leitfaden zum Scroll-Anchoring
+title: Leitfaden zu Scroll-Anker
 slug: Web/CSS/overflow-anchor/Guide_to_scroll_anchoring
 l10n:
   sourceCommit: 7ab2f95b22919d8b897754e8a66981d0b9a4e2c4
@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Als Nutzer des Webs sind Sie wahrscheinlich mit dem Problem vertraut, das das Scroll-Anchoring löst. Sie besuchen eine lange Seite mit einer langsamen Verbindung und beginnen zu scrollen, um den Inhalt zu lesen. Während Sie lesen, springt plötzlich der Teil der Seite, den Sie betrachten. Dies geschieht, weil große Bilder oder andere Elemente weiter oben im Inhalt gerade geladen wurden.
+Als Nutzer des Webs sind Sie wahrscheinlich mit dem Problem vertraut, das durch Scroll-Anker gelöst wird. Sie surfen auf einer langen Seite mit einer langsamen Verbindung und beginnen zu scrollen, um den Inhalt zu lesen; während Sie lesen, springt der Teil der Seite, den Sie gerade betrachten. Dies geschieht, weil große Bilder oder andere Elemente weiter oben im Inhalt nachgeladen werden.
 
-Scroll-Anchoring ist eine Browserfunktion, die dieses Problem des Inhaltsspringens lösen soll, das auftritt, wenn Inhalte geladen werden, nachdem der Nutzer bereits zu einem neuen Teil des Dokuments gescrollt hat.
+Scroll-Anker ist ein Browser-Feature, das dieses Problem des Inhaltsspringens lösen soll, das auftritt, wenn Inhalte geladen werden, nachdem der Nutzer bereits zu einem neuen Teil des Dokuments gescrollt hat.
 
 ## Wie funktioniert es?
 
-Scroll-Anchoring passt die Scroll-Position an, um die Änderungen außerhalb des Viewports zu kompensieren. Das bedeutet, dass der Punkt im Dokument, den der Nutzer betrachtet, im Viewport bleibt. Dies kann bedeuten, dass sich ihre Scroll-Position ändert, in Bezug darauf, wie _weit_ sie durch das Dokument gescrollt sind.
+Scroll-Anker passt die Scroll-Position an, um die Änderungen außerhalb des Ansichtsfensters auszugleichen. Das bedeutet, dass der Punkt im Dokument, den der Nutzer betrachtet, im Ansichtsfenster bleibt, was bedeuten kann, dass sich ihre Scroll-Position tatsächlich ändert, gemessen daran, wie _weit_ sie durch das Dokument gescrollt haben.
 
-## Wie schalte ich Scroll-Anchoring ein?
+## Wie aktiviere ich Scroll-Anker?
 
-Das müssen Sie nicht! Die Funktion ist standardmäßig in unterstützenden Browsern aktiviert. In den meisten Fällen ist das verankerte Scrollen genau das, was Sie wollen – ein Springen des Inhalts ist eine unvorteilhafte Erfahrung für jeden.
+Das müssen Sie nicht! Die Funktion ist standardmäßig in unterstützenden Browsern aktiviert. In den meisten Fällen ist verankertes Scrollen genau das, was Sie möchten — Inhaltssprünge sind für niemanden eine gute Erfahrung.
 
-## Was mache ich, wenn ich es debuggen muss?
+## Was, wenn ich es debuggen muss?
 
-Wenn sich Ihre Seite mit aktiviertem Scroll-Anchoring nicht gut verhält, liegt es wahrscheinlich daran, dass ein `scroll`-Ereignislistener nicht gut mit dem zusätzlichen Scrollen zur Kompensation der Ankerknotenbewegung umgeht.
+Wenn sich Ihre Seite mit aktiviertem Scroll-Anker nicht gut verhält, liegt das wahrscheinlich daran, dass ein `scroll`-Ereignislistener das zusätzliche Scrollen zur Kompensation der Ankerknotenbewegung nicht gut handhabt.
 
-Sie können überprüfen, ob das Deaktivieren von Scroll-Anchoring das Problem in Firefox behebt, indem Sie `layout.css.scroll-anchoring.enabled` in `about:config` auf `false` setzen.
+Sie können überprüfen, ob das Deaktivieren von Scroll-Anker das Problem in Firefox behebt, indem Sie `layout.css.scroll-anchoring.enabled` auf `false` in `about:config` ändern.
 
-Wenn das der Fall ist, können Sie mit dem Schalter `layout.css.scroll-anchoring.highlight` überprüfen, welchen Knoten Firefox als Anker verwendet. Dieser zeigt eine violette Überlagerung über dem Ankerknoten an.
+Wenn dies der Fall ist, können Sie überprüfen, welchen Knoten Firefox als Anker verwendet, indem Sie den Schalter `layout.css.scroll-anchoring.highlight` verwenden. Dies zeigt eine lila Überlagerung über dem Ankerknoten an.
 
-Wenn ein Knoten als Anker nicht geeignet erscheint, können Sie ihn mithilfe von {{cssxref("overflow-anchor")}} ausschließen, wie unten beschrieben.
+Wenn ein Knoten nicht geeignet scheint, ein Anker zu sein, können Sie ihn mit {{cssxref("overflow-anchor")}}, wie unten beschrieben, ausschließen.
 
-## Was mache ich, wenn ich es deaktivieren muss?
+## Was, wenn ich es deaktivieren muss?
 
-Die Spezifikation bietet eine neue Eigenschaft, {{cssxref("overflow-anchor")}}, mit der das Scroll-Anchoring im gesamten oder einem Teil des Dokuments deaktiviert werden kann. Es ist im Wesentlichen eine Möglichkeit, das neue Verhalten abzulehnen.
+Die Spezifikation bietet eine neue Eigenschaft, {{cssxref("overflow-anchor")}}, die verwendet werden kann, um Scroll-Anker für das gesamte oder einen Teil des Dokuments zu deaktivieren. Im Wesentlichen ist es eine Möglichkeit, sich gegen das neue Verhalten zu entscheiden.
 
 Die einzigen möglichen Werte sind `auto` oder `none`:
 
-- `auto` ist der Initialwert; solange der Nutzer einen unterstützenden Browser hat, wird das Scroll-Anchoring-Verhalten ausgelöst, und es sollte zu weniger Inhaltssprüngen kommen.
-- `none` bedeutet, dass Sie das Dokument oder einen Teil des Dokuments explizit vom Scroll-Anchoring ausgeschlossen haben.
+- `auto` ist der Anfangswert; solange der Nutzer einen unterstützten Browser hat, tritt das Verhalten des Scroll-Ankers auf und sie sollten weniger Inhaltsprünge sehen.
+- `none` bedeutet, dass Sie das Dokument oder einen Teil des Dokuments ausdrücklich vom Scroll-Anker abgemeldet haben.
 
-Um das gesamte Dokument auszuschließen, können Sie es im {{htmlelement("body")}}-Element festlegen:
+Um das gesamte Dokument auszuschließen, können Sie es auf dem {{htmlelement("body")}}-Element setzen:
 
 ```css
 body {
@@ -46,7 +46,7 @@ body {
 }
 ```
 
-Um einen bestimmten Teil des Dokuments auszuschließen, verwenden Sie `overflow-anchor: none` für dessen Container-Element:
+Um einen bestimmten Teil des Dokuments auszuschließen, verwenden Sie `overflow-anchor: none` auf seinem Containerelement:
 
 ```css
 .container {
@@ -55,11 +55,11 @@ Um einen bestimmten Teil des Dokuments auszuschließen, verwenden Sie `overflow-
 ```
 
 > [!NOTE]
-> Die Spezifikation beschreibt, dass, wenn Scroll-Anchoring abgelehnt wurde, Sie nicht von einem untergeordneten Element aus wieder in das Scroll-Anchoring einsteigen können. Zum Beispiel, wenn Sie für das gesamte Dokument ablehnen, können Sie nicht `overflow-anchor: auto` an anderer Stelle im Dokument setzen, um es für einen Unterabschnitt wieder zu aktivieren.
+> Die Spezifikation legt fest, dass, sobald ein Scroll-Anker ausgeschlossen wurde, Sie es nicht von einem Kindelement aus wieder aktivieren können. Beispielsweise, wenn Sie für das gesamte Dokument eine Abmeldung vornehmen, können Sie nicht an anderer Stelle im Dokument `overflow-anchor: auto` setzen, um es für einen Abschnitt wieder zu aktivieren.
 
 ### Unterdrückungsauslöser
 
-Die Spezifikation beschreibt auch einige _Unterdrückungsauslöser_, die das Scroll-Anchoring in Bereichen deaktivieren, in denen es problematisch sein könnte. Wenn einer der Auslöser am Ankerknoten oder einem seiner Vorfahren auftritt, wird das Ankern unterdrückt.
+Die Spezifikation beschreibt auch einige _Unterdrückungsauslöser_, die Scroll-Anker in Bereichen deaktivieren, in denen es problematisch sein könnte. Wenn einer der Auslöser auf dem Ankerknoten oder einem seiner Vorfahren auftritt, wird das Ankern unterdrückt.
 
 Diese Unterdrückungsauslöser sind Änderungen am berechneten Wert einer der folgenden Eigenschaften:
 
@@ -68,15 +68,15 @@ Diese Unterdrückungsauslöser sind Änderungen am berechneten Wert einer der fo
 - Alle {{cssxref("width")}}- oder {{cssxref("height")}}-bezogenen Eigenschaften
 - {{cssxref("transform")}} und die einzelnen Transformationseigenschaften {{cssxref("translate")}}, {{cssxref("scale")}}, und {{cssxref("rotate")}}
 
-Zusätzlich deaktivieren Änderungen an {{cssxref("position")}} innerhalb der Scroll-Box ebenfalls das Scroll-Anchoring.
+Zusätzlich deaktiviert jede Änderung von {{cssxref("position")}} innerhalb der Scrollbox ebenfalls den Scroll-Anker.
 
 > [!NOTE]
-> In [Firefox-Bug 1584285](https://bugzil.la/1584285) wurde das `layout.css.scroll-anchoring.suppressions.enabled`-Flag zu Firefox Nightly hinzugefügt, um das Deaktivieren dieser Auslöser zu ermöglichen.
+> Im [Firefox Bug 1584285](https://bugzil.la/1584285) wurde das Flag `layout.css.scroll-anchoring.suppressions.enabled` zu Firefox Nightly hinzugefügt, um das Deaktivieren dieser Auslöser zu ermöglichen.
 
-## Weiterführende Literatur
+## Weiterführende Lektüre
 
-- [Erläuterungsdokument auf der WICG-Seite](https://github.com/WICG/ScrollAnchoring/blob/master/explainer.md)
-- [Scroll-Anchoring für Webentwickler auf dem Chromium-Blog](https://blog.chromium.org/2017/04/scroll-anchoring-for-web-developers.html)
+- [Erklärungsdokument auf der WICG-Website](https://github.com/WICG/ScrollAnchoring/blob/master/explainer.md)
+- [Scroll-Anker für Webentwickler im Chromium-Blog](https://blog.chromium.org/2017/04/scroll-anchoring-for-web-developers.html)
 
 ## Browser-Kompatibilität
 
@@ -84,4 +84,4 @@ Zusätzlich deaktivieren Änderungen an {{cssxref("position")}} innerhalb der Sc
 
 ### Kompatibilitätsnotizen
 
-Wenn Sie testen müssen, ob Scroll-Anchoring in einem Browser verfügbar ist, verwenden Sie [Feature Queries](/de/docs/Web/CSS/@supports), um die Unterstützung für die Eigenschaft `overflow-anchor` zu prüfen.
+Wenn Sie testen müssen, ob Scroll-Anker in einem Browser verfügbar ist, verwenden Sie [Feature Queries](/de/docs/Web/CSS/@supports), um die Unterstützung der `overflow-anchor`-Eigenschaft zu testen.

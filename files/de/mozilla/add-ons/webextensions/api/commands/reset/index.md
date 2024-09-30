@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt die Beschreibung und die Tastenkombination eines gegebenen Befehls auf die Werte zurück, die im [`commands` manifest.json Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) der Erweiterung angegeben sind.
+Setzt die Beschreibung und Tastenkombination des angegebenen Befehls auf die Werte zurück, die im [`commands`-Schlüssel der manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) der Erweiterung angegeben sind.
 
-Dies macht effektiv alle Änderungen rückgängig, die am Befehl mit der Funktion {{WEbExtAPIRef("commands.update()")}} vorgenommen wurden.
+Dies macht effektiv alle Änderungen rückgängig, die mit der Funktion {{WEbExtAPIRef("commands.update()")}} am Befehl vorgenommen wurden.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Diese Funktion ist asynchron und gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ browser.commands.reset(
 ### Parameter
 
 - `name`
-  - : `string`. Name des Befehls, der zurückgesetzt werden soll, wie durch die `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}}-Objekts angegeben.
+  - : `string`. Name des zurückzusetzenden Befehls, wie er durch die `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Setzt den Befehl mit dem Namen "my-command" zurück, wenn der Benutzer auf die Schaltfläche "reset" klickt:
+Setzt den Befehl mit dem Namen "my-command" zurück, wenn der Benutzer auf die Schaltfläche "Zurücksetzen" klickt:
 
 ```js
 const commandName = "my-command";

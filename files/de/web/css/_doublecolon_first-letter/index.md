@@ -7,32 +7,32 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::first-letter`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den ersten Buchstaben der ersten Zeile eines [Blockcontainers](/de/docs/Web/CSS/Visual_formatting_model#block_containers) an, allerdings nur, wenn ihm keine anderen Inhalte (wie Bilder oder Inline-Tabellen) vorausgehen.
+Das **`::first-letter`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den ersten Buchstaben der ersten Zeile eines [Block Containers](/de/docs/Web/CSS/Visual_formatting_model#block_containers) an, aber nur, wenn diesem kein anderer Inhalt (wie Bilder oder Inline-Tabellen) vorangeht.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-first-letter.html", "tabbed-shorter")}}
 
-Der erste Buchstabe eines Elements lässt sich nicht immer leicht bestimmen:
+Der erste Buchstabe eines Elements ist nicht immer leicht zu identifizieren:
 
-- Satzzeichen, die dem ersten Buchstaben vorangehen oder unmittelbar folgen, werden ebenfalls beachtet. Satzzeichen umfassen alle Unicode-Zeichen, die in den Klassen _open_ (Ps), _close_ (Pe), _initial quote_ (Pi), _final quote_ (Pf) und _other punctuation_ (Po) definiert sind.
+- Satzzeichen, die dem ersten Buchstaben vorausgehen oder unmittelbar folgen, werden mit eingeschlossen. Zu den Satzzeichen gehören alle Unicode-Zeichen, die in die Klassen _open_ (Ps), _close_ (Pe), _initial quote_ (Pi), _final quote_ (Pf) und _other punctuation_ (Po) fallen.
 - Einige Sprachen haben Digraphen, die immer zusammen großgeschrieben werden, wie das `IJ` im Niederländischen. In diesen Fällen sollten beide Buchstaben des Digraphen vom `::first-letter` Pseudo-Element erfasst werden.
-- Eine Kombination des {{ cssxref("::before") }} Pseudo-Elements und der {{ cssxref("content") }} Eigenschaft kann Text am Anfang des Elements einfügen. In diesem Fall wird `::first-letter` den ersten Buchstaben dieses generierten Inhalts erfassen.
+- Eine Kombination des {{ cssxref("::before") }} Pseudo-Elements und der {{ cssxref("content") }} Eigenschaft kann Text am Anfang des Elements einfügen. In diesem Fall erfasst `::first-letter` den ersten Buchstaben dieses generierten Inhalts.
 
 > [!NOTE]
-> CSS hat die `::first-letter` Notation (mit zwei Doppelpunkten) eingeführt, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Rückwärtskompatibilität akzeptieren Browser auch `:first-letter`, das früher eingeführt wurde.
+> CSS führte die `::first-letter` Notation (mit zwei Doppelpunkten) ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:first-letter`, das früher eingeführt wurde.
 >
-> Die Unterstützung von Digraphen wie `IJ` im Niederländischen ist schlecht. Überprüfen Sie die Kompatibilitätstabelle unten, um den aktuellen Stand der Unterstützung zu sehen.
+> Die Browserunterstützung für Digraphen wie `IJ` im Niederländischen ist schlecht. Überprüfen Sie die Kompatibilitätstabelle unten, um den aktuellen Stand der Unterstützung zu sehen.
 
 ## Erlaubte Eigenschaften
 
-Nur eine kleine Teilmenge von CSS-Eigenschaften kann mit dem `::first-letter` Pseudo-Element verwendet werden:
+Nur eine kleine Untermenge von CSS-Eigenschaften kann mit dem `::first-letter` Pseudo-Element verwendet werden:
 
-- Alle Schriftarteigenschaften: {{ Cssxref("font") }}, {{ Cssxref("font-style") }}, {{cssxref("font-feature-settings")}}, {{cssxref("font-kerning")}}, {{cssxref("font-language-override")}}, {{cssxref("font-stretch")}}, {{cssxref("font-synthesis")}}, {{ Cssxref("font-variant") }}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-position")}}, {{ Cssxref("font-weight") }}, {{ Cssxref("font-size") }}, {{cssxref("font-size-adjust")}}, {{ Cssxref("line-height") }} und {{ Cssxref("font-family") }}
+- Alle Schrift-Eigenschaften: {{ Cssxref("font") }}, {{ Cssxref("font-style") }}, {{cssxref("font-feature-settings")}}, {{cssxref("font-kerning")}}, {{cssxref("font-language-override")}}, {{cssxref("font-stretch")}}, {{cssxref("font-synthesis")}}, {{ Cssxref("font-variant") }}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-position")}}, {{ Cssxref("font-weight") }}, {{ Cssxref("font-size") }}, {{cssxref("font-size-adjust")}}, {{ Cssxref("line-height") }} und {{ Cssxref("font-family") }}
 - Alle Hintergrund-Eigenschaften: {{ Cssxref("background") }}, {{ Cssxref("background-color") }}, {{ Cssxref("background-image") }}, {{cssxref("background-clip")}}, {{cssxref("background-origin")}}, {{ Cssxref("background-position") }}, {{ Cssxref("background-repeat") }}, {{ cssxref("background-size") }}, {{ Cssxref("background-attachment") }}, und {{cssxref("background-blend-mode")}}
 - Alle Rand-Eigenschaften: {{ Cssxref("margin") }}, {{ Cssxref("margin-top") }}, {{ Cssxref("margin-right") }}, {{ Cssxref("margin-bottom") }}, {{ Cssxref("margin-left") }}
-- Alle Füllungs-Eigenschaften: {{ Cssxref("padding") }}, {{ Cssxref("padding-top") }}, {{ Cssxref("padding-right") }}, {{ Cssxref("padding-bottom") }}, {{ Cssxref("padding-left") }}
-- Alle Rahmen-Eigenschaften: die Kurzschreibweise {{ Cssxref("border") }}, {{ Cssxref("border-style") }}, {{ Cssxref("border-color") }}, {{ cssxref("border-width") }}, {{ cssxref("border-radius") }}, {{cssxref("border-image")}}, und die Langschreibweise
+- Alle Auffüllungs-Eigenschaften: {{ Cssxref("padding") }}, {{ Cssxref("padding-top") }}, {{ Cssxref("padding-right") }}, {{ Cssxref("padding-bottom") }}, {{ Cssxref("padding-left") }}
+- Alle Rahmen-Eigenschaften: die Kurzschreibweisen {{ Cssxref("border") }}, {{ Cssxref("border-style") }}, {{ Cssxref("border-color") }}, {{ cssxref("border-width") }}, {{ cssxref("border-radius") }}, {{cssxref("border-image")}}, und die Langschreibweisen Eigenschaften
 - Die {{ cssxref("color") }} Eigenschaft
-- Die {{ cssxref("text-decoration") }}, {{cssxref("text-shadow")}}, {{ cssxref("text-transform") }}, {{ cssxref("letter-spacing") }}, {{ cssxref("word-spacing") }} (wenn angebracht), {{ cssxref("line-height") }}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}}, {{cssxref("box-shadow")}}, {{ cssxref("float") }}, {{ cssxref("vertical-align") }} (nur wenn `float` `none` ist) CSS-Eigenschaften
+- Die {{ cssxref("text-decoration") }}, {{cssxref("text-shadow")}}, {{ cssxref("text-transform") }}, {{ cssxref("letter-spacing") }}, {{ cssxref("word-spacing") }} (wenn zutreffend), {{ cssxref("line-height") }}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}}, {{cssxref("box-shadow")}}, {{ cssxref("float") }}, {{ cssxref("vertical-align") }} (nur wenn `float` `none` ist) CSS-Eigenschaften
 
 ## Syntax
 
@@ -90,7 +90,7 @@ h2 + p::first-letter {
 
 ### Effekt auf spezielle Satzzeichen und nicht-lateinische Zeichen
 
-Dieses Beispiel zeigt den Effekt von `::first-letter` auf spezielle Satzzeichen und nicht-lateinische Zeichen.
+Dieses Beispiel veranschaulicht den Effekt von `::first-letter` auf spezielle Satzzeichen und nicht-lateinische Zeichen.
 
 #### HTML
 
@@ -123,12 +123,12 @@ p::first-letter {
 
 {{ EmbedLiveSample('Effect_on_special_punctuation_and_non-Latin_characters', '100%', 350) }}
 
-### Styling des ersten Buchstabens in einem SVG Textelement
+### Stil des ersten Buchstabens in SVG Text-Element
 
 In diesem Beispiel verwenden wir das `::first-letter` Pseudo-Element, um den ersten Buchstaben eines SVG {{SVGElement("text")}} Elements zu stylen.
 
 > [!NOTE]
-> Zum Zeitpunkt des Schreibens hat diese Funktion [begrenzte Unterstützung](#browser-kompatibilität).
+> Zum Zeitpunkt des Schreibens hat diese Funktion [eingeschränkte Unterstützung](#browser-kompatibilität).
 
 #### HTML
 

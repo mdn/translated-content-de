@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: playbackRate Eigenschaft"
+title: "HTMLMediaElement: playbackRate-Eigenschaft"
 short-title: playbackRate
 slug: Web/API/HTMLMediaElement/playbackRate
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.playbackRate`**-Eigenschaft legt die Rate fest, mit der die Medienwiedergabe erfolgt. Diese wird verwendet, um Benutzersteuerungen für Schnellvorlauf, Zeitlupe usw. zu implementieren. Die normale Wiedergaberate wird mit diesem Wert multipliziert, um die aktuelle Rate zu erhalten. Ein Wert von 1,0 gibt normale Geschwindigkeit an.
+Die **`HTMLMediaElement.playbackRate`**-Eigenschaft legt die Rate fest, mit der das Medium abgespielt wird. Dies wird verwendet, um Benutzersteuerungen für Schnellvorlauf, Zeitlupe und Ähnliches zu implementieren. Die normale Wiedergabegeschwindigkeit wird mit diesem Wert multipliziert, um die aktuelle Rate zu erhalten. Ein Wert von 1,0 bedeutet normale Geschwindigkeit.
 
-Ein negativer `playbackRate`-Wert zeigt an, dass die Medien rückwärts abgespielt werden sollen, aber die Unterstützung dafür ist noch nicht weit verbreitet. (Details siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Ein negativer `playbackRate`-Wert zeigt an, dass das Medium rückwärts abgespielt werden soll, aber die Unterstützung dafür ist noch nicht weit verbreitet. (Details finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität)).
 
-Der Ton wird stummgeschaltet, wenn der Schnellvorlauf oder die Zeitlupe außerhalb eines nützlichen Bereichs liegt (zum Beispiel schaltet Gecko den Ton außerhalb des Bereichs von `0.25` bis `4.0` stumm).
+Der Ton wird stummgeschaltet, wenn der Schnellvorlauf oder die Zeitlupe außerhalb eines nützlichen Bereichs liegt (beispielsweise schaltet Gecko den Ton außerhalb des Bereichs von `0.25` bis `4.0` stumm).
 
-Die Tonhöhe des Audios wird standardmäßig korrigiert. Sie können die Tonhöhenkorrektur über die [`HTMLMediaElement.preservesPitch`](/de/docs/Web/API/HTMLMediaElement/preservesPitch)-Eigenschaft deaktivieren.
+Die Tonhöhe des Audios wird standardmäßig korrigiert. Sie können die Tonhöhenkorrektur mit der [`HTMLMediaElement.preservesPitch`](/de/docs/Web/API/HTMLMediaElement/preservesPitch)-Eigenschaft deaktivieren.
 
 ## Wert
 
-Ein [`double`](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). `1.0` ist "normale Geschwindigkeit", Werte unter `1.0` lassen das Medium langsamer als normal abspielen, höhere Werte lassen es schneller abspielen. (**Standard:** `1.0`)
+Ein [`double`](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). `1.0` steht für "normale Geschwindigkeit", Werte unter `1.0` lassen das Medium langsamer als normal abspielen, höhere Werte schneller. (**Standard:** `1.0`)
 
 ## Beispiele
 
@@ -38,5 +38,5 @@ console.log(obj.playbackRate); // Expected Output: 1
 ## Siehe auch
 
 - [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.playbackRate`-Eigenschaft
-- Browser-Fehlerberichte zur Unterstützung negativer `playbackRate` in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1468019) und [Blink](https://issues.chromium.org/issues/40410591) (Chrome, etc.)
+- Browser-Fehlermeldungen zur Unterstützung negativer `playbackRate` in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1468019) und [Blink](https://issues.chromium.org/issues/40410591) (Chrome, etc.)
 - Das Web Hypertext Application Technology Working Group (WHATWG) [Problem, um Unterstützung für negative `playbackRate` zu verlangen](https://github.com/whatwg/html/issues/3754)

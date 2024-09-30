@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das Objekt **`Intl.Collator`** ermöglicht sprachsensitive Zeichenfolgenvergleiche.
+Das **`Intl.Collator`**-Objekt ermöglicht sprachabhängige Zeichenfolgenvergleiche.
 
 {{EmbedInteractiveExample("pages/js/intl-collator.html")}}
 
@@ -19,29 +19,29 @@ Das Objekt **`Intl.Collator`** ermöglicht sprachsensitive Zeichenfolgenvergleic
 ## Statische Methoden
 
 - {{jsxref("Intl/Collator/supportedLocalesOf", "Intl.Collator.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die der bereitgestellten Locales enthält, die unterstützt werden, ohne auf die Standardlocale der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die unterstützt werden, ohne auf die Standardsprache des Laufzeitsystems zurückgreifen zu müssen.
 
 ## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `Intl.Collator.prototype` definiert und werden von allen Instanzen von `Intl.Collator` geteilt.
+Diese Eigenschaften sind auf `Intl.Collator.prototype` definiert und werden von allen `Intl.Collator` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Intl.Collator.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.Collator`-Instanzen ist der initiale Wert der {{jsxref("Intl/Collator/Collator", "Intl.Collator")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.Collator` Instanzen ist der Anfangswert der {{jsxref("Intl/Collator/Collator", "Intl.Collator")}} Konstruktor.
 - `Intl.Collator.prototype[Symbol.toStringTag]`
-  - : Der initiale Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.Collator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.Collator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("Intl/Collator/compare", "Intl.Collator.prototype.compare()")}}
   - : Getter-Funktion, die zwei Zeichenfolgen gemäß der Sortierreihenfolge dieses `Intl.Collator`-Objekts vergleicht.
 - {{jsxref("Intl/Collator/resolvedOptions", "Intl.Collator.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung des Objekts berechneten Locale- und Sortieroptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, das die während der Initialisierung des Objekts berechneten Locale- und Sortieroptionen widerspiegelt.
 
 ## Beispiele
 
 ### Verwendung von Collator
 
-Das folgende Beispiel demonstriert die unterschiedlichen potenziellen Ergebnisse für eine Zeichenfolge, die vor, nach oder auf gleicher Ebene wie eine andere auftritt:
+Das folgende Beispiel demonstriert die unterschiedlichen potenziellen Ergebnisse, wenn ein String vor, nach oder auf der gleichen Ebene wie ein anderer auftritt:
 
 ```js
 console.log(new Intl.Collator().compare("a", "c")); // -1, or some other negative value
@@ -49,11 +49,11 @@ console.log(new Intl.Collator().compare("c", "a")); // 1, or some other positive
 console.log(new Intl.Collator().compare("a", "a")); // 0
 ```
 
-Beachten Sie, dass die in dem obigen Code gezeigten Ergebnisse zwischen Browsern und Browserversionen variieren können. Dies liegt daran, dass die Werte implementierungsspezifisch sind. Das heißt, die Spezifikation verlangt lediglich, dass die Vor- und Nachwerte negativ und positiv sind.
+Beachten Sie, dass die in den obigen Code gezeigten Ergebnisse zwischen verschiedenen Browsern und Browserversionen variieren können. Dies liegt daran, dass die Werte implementationsspezifisch sind. Das heißt, die Spezifikation erfordert nur, dass die Vor- und Nachwerte negativ und positiv sind.
 
 ### Verwendung von Locales
 
-Die von [`Intl.Collator.prototype.compare()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare) bereitgestellten Ergebnisse variieren zwischen Sprachen. Um die Sortierreihenfolge der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten, stellen Sie sicher, dass Sie diese Sprache (und möglicherweise einige Ausweichsprachen) mit dem Argument `locales` angeben:
+Die durch [`Intl.Collator.prototype.compare()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare) bereitgestellten Ergebnisse variieren zwischen den Sprachen. Um die Sortierreihenfolge der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, stellen Sie sicher, dass Sie diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem `locales`-Argument angeben:
 
 ```js
 // in German, ä sorts with a
@@ -67,7 +67,7 @@ console.log(new Intl.Collator("sv").compare("ä", "z"));
 
 ### Verwendung von Optionen
 
-Die von [`Intl.Collator.prototype.compare()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare) bereitgestellten Ergebnisse können mit dem Argument `options` angepasst werden:
+Die durch [`Intl.Collator.prototype.compare()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare) bereitgestellten Ergebnisse können mithilfe des `options`-Arguments angepasst werden:
 
 ```js
 // in German, ä has a as the base letter

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Status-Antwortcode **`418 I'm a teapot`** gibt an, dass der Server sich weigert, Kaffee zu kochen, weil er dauerhaft eine Teekanne ist. Ein kombinierter Kaffee-/Teekessel, der vorübergehend keinen Kaffee hat, sollte stattdessen {{HTTPStatus("503")}} zurückgeben. Dieser Fehler ist eine Anspielung auf das Hyper Text Coffee Pot Control Protocol, das in Aprilscherzen in den Jahren 1998 und 2014 definiert wurde.
+Der HTTP-Statusantwortcode **`418 I'm a teapot`** zeigt an, dass der Server sich weigert, Kaffee zu kochen, weil er dauerhaft eine Teekanne ist. Eine kombinierte Kaffee-/Teekanne, die vorübergehend keinen Kaffee hat, sollte stattdessen {{HTTPStatus("503")}} zurückgeben. Dieser Fehler bezieht sich auf das Hyper Text Coffee Pot Control Protocol, das in den Aprilscherzen von 1998 und 2014 definiert wurde.
 
-Einige Websites verwenden diese Antwort für Anfragen, die sie nicht bearbeiten möchten, wie z.B. automatisierte Anfragen.
+Einige Websites verwenden diese Antwort für Anfragen, die sie nicht bearbeiten möchten, wie zum Beispiel automatisierte Abfragen.
 
 ## Status
 
@@ -23,5 +23,5 @@ Einige Websites verwenden diese Antwort für Anfragen, die sie nicht bearbeiten 
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatus-Codes](/de/docs/Web/HTTP/Status)
 - [Wikipedia: Hyper Text Coffee Pot Control Protocol](https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol)

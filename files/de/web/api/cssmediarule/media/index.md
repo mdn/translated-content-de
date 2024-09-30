@@ -9,7 +9,8 @@ l10n:
 {{ APIRef("CSSOM") }}
 
 Die schreibgeschützte **`media`**-Eigenschaft der
-[`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)-Schnittstelle gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene Zielmedium für Style-Informationen darstellt.
+[`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)-Schnittstelle gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene
+Zielmedium für Stilinformationen darstellt.
 
 ## Wert
 
@@ -17,10 +18,10 @@ eine [`MediaList`](/de/docs/Web/API/MediaList)
 
 ## Beispiele
 
-Der CSS enthält eine Medienabfrage mit einer Stilregel. Diese wird die erste
+Das CSS enthält eine Media Query mit einer Stilregel. Dies wird die erste
 [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-Der Aufruf von `myRules[0].media` gibt daher ein [`MediaList`](/de/docs/Web/API/MediaList)-
-Objekt zurück, das die Medienabfrage darstellt.
+Ein Aufruf von `myRules[0].media` gibt daher ein [`MediaList`](/de/docs/Web/API/MediaList)-Objekt
+zurück, das die Media Query darstellt.
 
 ```css
 @media (min-width: 500px) {

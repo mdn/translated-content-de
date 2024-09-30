@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`recordType`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Typ des Datensatzes zurück.
+Die **`recordType`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den Typ des Datensatzes zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ NDEFRecord.recordType
 
 ### Wert
 
-Ein String, der einer der folgenden Werte sein kann:
+Ein String, der einer der folgenden sein kann:
 
 - `"empty"`
   - : Ein leerer NDEF-Datensatz.
@@ -27,17 +27,17 @@ Ein String, der einer der folgenden Werte sein kann:
 - `"url"`
   - : Ein URI-NDEF-Datensatz.
 - `"smart-poster"`
-  - : Ein "Smart Poster" NDEF-Datensatz.
+  - : Ein "Smart Poster"-NDEF-Datensatz.
 - `"absolute-url"`
   - : Ein absoluter URL-NDEF-Datensatz.
 - `"mime"`
-  - : Ein [MIME type](/de/docs/Glossary/MIME_type) NDEF-Datensatz.
+  - : Ein [MIME-Typ](/de/docs/Glossary/MIME_type)-NDEF-Datensatz.
 - `"unknown"`
-  - : Der Typ des NDEF-Datensatzes ist nicht bekannt.
+  - : Der NDEF-Datensatztyp ist nicht bekannt.
 - lokaler Typname
-  - : Repräsentiert einen lokalen Typnamen, der häufig verwendet wird, um einen in einem anderen Datensatz eingebetteten NDEF-Datensatz zu spezifizieren.
+  - : Repräsentiert einen lokalen Typnamen, der häufig verwendet wird, um einen NDEF-Datensatz anzugeben, der in einem anderen Datensatz eingebettet ist.
 - externer Typname
-  - : Ein benutzerdefinierter String, der aus einem Domainnamen und einem benutzerdefinierten Typnamen besteht, die durch einen Doppelpunkt (":") getrennt sind.
+  - : Ein benutzerdefinierter String bestehend aus einem Domainnamen und einem benutzerdefinierten Typnamen, getrennt durch einen Doppelpunkt (":").
 
 ## Spezifikationen
 

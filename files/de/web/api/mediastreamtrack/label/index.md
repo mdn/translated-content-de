@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte **`label`**-Eigenschaft des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt einen String zurück, der ein vom [User-Agent](/de/docs/Glossary/user_agent) zugewiesenes Label enthält, das die Quelle des Tracks identifiziert, wie zum Beispiel `"interne Mikrofon"`.
+Die schreibgeschützte **`label`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen String zurück, der ein vom [User Agent](/de/docs/Glossary/user_agent) zugewiesenes Label enthält, das die Quelle des Tracks identifiziert, wie zum Beispiel `"internal microphone"`.
 
-Der String kann leer sein und bleibt so lange leer, bis eine Quelle verbunden wurde. Wenn der Track von seiner Quelle getrennt wird, ändert sich das Label nicht.
+Der String kann leer sein und bleibt leer, solange keine Quelle verbunden wurde. Wenn der Track von seiner Quelle getrennt wird, ändert sich das Label nicht.
 
 ## Syntax
 

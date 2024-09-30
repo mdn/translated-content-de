@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Das `upgradeneeded`-Ereignis wird ausgelöst, wenn versucht wird, eine Datenbank mit einer höheren Versionsnummer als der aktuellen zu öffnen.
+Das `upgradeneeded`-Ereignis wird ausgelöst, wenn versucht wird, eine Datenbank mit einer höheren Versionsnummer als der aktuellen Version zu öffnen.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("upgradeneeded", (event) => {});
@@ -30,7 +30,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seiner übergeordneten [`Event`](/de/docs/Web/API/Event)-Schnittstelle._
 
 - [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.
@@ -39,7 +39,7 @@ _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und behandelt das `upgradeneeded`-Ereignis, indem es alle notwendigen Aktualisierungen des Objekt-Speichers vornimmt.
+Dieses Beispiel öffnet eine Datenbank und behandelt das `upgradeneeded`-Ereignis, indem es notwendige Updates im Objekt-Store durchführt.
 
 ```js
 // Open the database
@@ -63,7 +63,7 @@ dBOpenRequest.addEventListener("upgradeneeded", (event) => {
 });
 ```
 
-Dies ist dasselbe Beispiel, jedoch wird die `onupgradeneeded`-Ereignis-Handler-Eigenschaft verwendet.
+Dies ist dasselbe Beispiel, verwendet jedoch die onupgradeneeded-Event-Handler-Eigenschaft.
 
 ```js
 // Open the database

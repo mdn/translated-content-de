@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Das **`XRHitTestSource`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwaltet Abonnements für Treffer-Tests. Sie können ein `XRHitTestSource`-Objekt durch die Methode [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) erhalten.
+Das **`XRHitTestSource`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwaltet Hit-Test-Abonnements. Sie können ein `XRHitTestSource`-Objekt mit der Methode [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) erhalten.
 
-Dieses Objekt enthält selbst keine Treffer-Testergebnisse, wird jedoch verwendet, um Treffer-Tests für jedes [`XRFrame`](/de/docs/Web/API/XRFrame) zu berechnen, indem [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) aufgerufen wird, welches [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekte zurückgibt.
+Dieses Objekt enthält selbst keine Hit-Test-Ergebnisse, aber es wird verwendet, um für jeden [`XRFrame`](/de/docs/Web/API/XRFrame) Hit-Tests zu berechnen, indem [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) aufgerufen wird, was [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekte zurückgibt.
 
 ## Instanz-Eigenschaften
 
@@ -18,13 +18,13 @@ Keine.
 ## Instanz-Methoden
 
 - [`XRHitTestSource.cancel()`](/de/docs/Web/API/XRHitTestSource/cancel) {{Experimental_Inline}}
-  - : Meldet das Abonnement für den Treffer-Test ab.
+  - : Meldet das Abonnement vom Hit-Test ab.
 
 ## Beispiele
 
 ### Erhalten eines `XRHitTestSource`-Objekts für eine Sitzung
 
-Rufen Sie [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) auf, um eine Treffer-Testquelle zu erhalten.
+Rufen Sie [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) auf, um eine Hit-Test-Quelle zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -50,9 +50,9 @@ function onXRFrame(time, xrFrame) {
 }
 ```
 
-### Vom Treffer-Test abmelden
+### Vom Hit-Test abmelden
 
-Um sich von einer Treffer-Testquelle abzumelden, rufen Sie [`XRHitTestSource.cancel()`](/de/docs/Web/API/XRHitTestSource/cancel) auf. Da das Objekt dann nicht mehr verwendbar ist, können Sie aufräumen und das `XRHitTestSource`-Objekt auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
+Um sich von einer Hit-Test-Quelle abzumelden, rufen Sie [`XRHitTestSource.cancel()`](/de/docs/Web/API/XRHitTestSource/cancel) auf. Da das Objekt nicht mehr verwendbar ist, können Sie aufräumen und das `XRHitTestSource`-Objekt auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
 
 ```js
 hitTestSource.cancel();

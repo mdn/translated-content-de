@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode linkProgram()"
+title: "WebGLRenderingContext: linkProgram()-Methode"
 short-title: linkProgram()
 slug: Web/API/WebGLRenderingContext/linkProgram
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`linkProgram()`** der Schnittstelle [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) verknüpft ein angegebenes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), um den Prozess der Vorbereitung des GPU-Codes für die Fragment- und Vertex-Shader des Programms abzuschließen.
+Die **`linkProgram()`**-Methode des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Interfaces verknüpft ein gegebenes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) und vervollständigt den Prozess der Vorbereitung des GPU-Codes für die Fragment- und Vertex-Shader des Programms.
 
 ## Syntax
 

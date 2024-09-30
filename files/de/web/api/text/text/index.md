@@ -1,5 +1,5 @@
 ---
-title: "Text: Text()-Konstruktor"
+title: "Text: Text() Konstruktor"
 short-title: Text()
 slug: Web/API/Text/Text
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM")}}
 
-Der **`Text()`**-Konstruktor gibt ein neues [`Text`](/de/docs/Web/API/Text)-Objekt zurück mit dem optionalen im Parameter angegebenen String als dessen Textinhalt.
+Der **`Text()`** Konstruktor gibt ein neues [`Text`](/de/docs/Web/API/Text)-Objekt zurück, wobei der optionale String, der als Parameter angegeben wird, als sein Textinhalt dient.
 
 ## Syntax
 

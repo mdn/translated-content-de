@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`id`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs ist ein String, der das Objekt, für das dieses Objekt Statistiken bereitstellt, eindeutig identifiziert.
+Die **`id`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs ist ein String, der das Objekt, für das diese Objektstatistiken bereitgestellt werden, eindeutig identifiziert.
 
-Mit der `id` können Sie dieses Statistikobjekt mit anderen in Beziehung setzen, um Statistiken über die Zeit für ein bestimmtes WebRTC-Objekt, wie zum Beispiel ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) oder eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), zu überwachen.
+Mit der `id` können Sie dieses Statistikobjekt mit anderen in Beziehung setzen, um Statistiken im Laufe der Zeit für ein bestimmtes WebRTC-Objekt zu überwachen, wie z.B. ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) oder eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 ## Wert
 
 Ein String, der das Objekt, für das dieses `RTCTransportStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Das Format des ID-Strings ist von der Spezifikation nicht definiert, so dass Sie keine zuverlässigen Annahmen über den Inhalt des Strings machen oder davon ausgehen können, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
+Das Format des ID-Strings ist von der Spezifikation nicht definiert, daher können Sie keine verlässlichen Annahmen über den Inhalt des Strings machen oder davon ausgehen, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
 
 ## Spezifikationen
 

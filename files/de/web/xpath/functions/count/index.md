@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `count` zählt die Anzahl der Knoten in einer Node-Set und gibt eine Ganzzahl zurück.
+Die `count` Funktion zählt die Anzahl der Knoten in einem Knoten-Set und gibt eine ganze Zahl zurück.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ count( node-set )
 ### Parameter
 
 - `node-set`
-  - : Die zu zählende Node-Set.
+  - : Das zu zählende Knoten-Set.
 
 ### Rückgabewert
 
-Eine Ganzzahl, die die Anzahl der Knoten in einer Node-Set darstellt.
+Eine ganze Zahl, die die Anzahl der Knoten in einem Knoten-Set darstellt.
 
 ## Spezifikationen
 
 [XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-count)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

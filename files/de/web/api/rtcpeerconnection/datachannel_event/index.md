@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`datachannel`**-Ereignis wird an eine Instanz von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zur Verbindung hinzugefügt wurde, als Ergebnis des Aufrufs von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) durch den entfernten Peer.
+Ein **`datachannel`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz gesendet, wenn ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zur Verbindung hinzugefügt wurde, als Ergebnis des Aufrufs von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) durch den entfernten Peer.
 
 > [!NOTE]
-> Dieses Ereignis wird _nicht_ ausgelöst, wenn die lokale Seite der Verbindung den Kanal erstellt.
+> Dieses Ereignis wird _nicht_ ausgelöst, wenn das lokale Ende der Verbindung den Kanal erstellt.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht aufgeblasen.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js
 addEventListener("datachannel", (event) => {});
@@ -36,11 +36,11 @@ Ein [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent). Erbt von [`Ev
 _Erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
 - [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel) {{ReadOnlyInline}}
-  - : Gibt den mit dem Ereignis verknüpften [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück.
+  - : Gibt den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück, der mit dem Ereignis verknüpft ist.
 
 ## Beispiele
 
-Dieses Beispiel richtet eine Funktion ein, die `datachannel`-Ereignisse verarbeitet, indem sie die benötigten Informationen sammelt, um mit dem neu hinzugefügten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu kommunizieren und indem Ereignis-Handler für die Ereignisse hinzugefügt werden, die auf diesem Kanal auftreten.
+Dieses Beispiel richtet eine Funktion ein, die `datachannel`-Ereignisse verarbeitet, indem sie die benötigten Informationen sammelt, um mit dem neu hinzugefügten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu kommunizieren, und fügt Ereignisbehandler für die Ereignisse hinzu, die auf diesem Kanal auftreten.
 
 ```js
 pc.addEventListener(
@@ -55,9 +55,9 @@ pc.addEventListener(
 );
 ```
 
-`receiveChannel` wird auf den Wert der [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft des Ereignisses gesetzt, die das `RTCDataChannel`-Objekt angibt, welches den Datenkanal darstellt, der den entfernten Peer mit dem lokalen verbindet.
+`receiveChannel` wird auf den Wert der [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft des Ereignisses gesetzt, die das `RTCDataChannel`-Objekt spezifiziert, das den Datenkanal darstellt, der den entfernten Peer mit dem lokalen verbindet.
 
-Dieser gleiche Code kann auch stattdessen die `ondatachannel`-Ereignis-Handler-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle verwenden, wie folgt:
+Dieser gleiche Code kann auch stattdessen die `ondatachannel`-Ereignisbehandlungseigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle verwenden, wie folgt:
 
 ```js
 pc.ondatachannel = (ev) => {
@@ -78,7 +78,7 @@ pc.ondatachannel = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
 - [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)

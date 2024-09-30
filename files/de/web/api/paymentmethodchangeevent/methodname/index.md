@@ -1,5 +1,5 @@
 ---
-title: "PaymentMethodChangeEvent: methodName-Eigenschaft"
+title: "PaymentMethodChangeEvent: Eigenschaft methodName"
 short-title: methodName
 slug: Web/API/PaymentMethodChangeEvent/methodName
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte **`methodName`**-Eigenschaft des [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)-Interfaces ist ein String, der den aktuell vom Benutzer ausgewählten Zahlungsanbieter eindeutig identifiziert. Der Zahlungsanbieter kann eine Zahlungstechnologie wie Apple Pay oder Android Pay sein, und jeder Zahlungsanbieter kann mehrere Zahlungsmethoden unterstützen; Änderungen an der Zahlungsmethode innerhalb des Zahlungsanbieters werden durch das `PaymentMethodChangeEvent` beschrieben.
+Die schreibgeschützte **`methodName`**-Eigenschaft der [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)-Schnittstelle ist ein String, der den vom Benutzer derzeit ausgewählten Zahlungshandler eindeutig identifiziert. Der Zahlungshandler kann eine Zahlungstechnologie wie Apple Pay oder Android Pay sein, und jeder Zahlungshandler kann mehrere Zahlungsmethoden unterstützen; Änderungen der Zahlungsmethode innerhalb des Zahlungshandlers werden durch das `PaymentMethodChangeEvent` beschrieben.
 
 ## Wert
 
-Ein String, der den aktuell ausgewählten Zahlungsanbieter eindeutig identifiziert. Dies kann ein String aus der Liste der standardisierten Zahlungsmethoden-Identifikatoren sein oder eine URL, die vom Zahlungsdienstleister verwendet wird. Weitere Informationen finden Sie unter [Payment method identifiers](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers).
+Ein String, der den aktuell ausgewählten Zahlungshandler eindeutig identifiziert. Dies kann eine Auswahl aus der Liste standardisierter Zahlungsmethoden-Identifikatoren sein oder eine URL, die vom Zahlungsdienstleister verwendet wird. Weitere Informationen finden Sie unter [Zahlungsmethoden-Identifikatoren](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers).
 
 Der Standardwert ist der leere String, `""`.
 
 ## Beispiele
 
-Dieses Beispiel verwendet das [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis, um Änderungen an der für Apple Pay ausgewählten Zahlungsmethode zu überwachen, um einen Rabatt zu berechnen, falls der Benutzer sich entscheidet, eine Visa-Karte als Zahlungsmethode zu verwenden.
+Dieses Beispiel verwendet das [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis, um Änderungen an der für Apple Pay ausgewählten Zahlungsmethode zu überwachen, um einen Rabatt zu berechnen, wenn der Benutzer sich entscheidet, eine Visa-Karte als Zahlungsmethode zu verwenden.
 
 ```js
 request.onpaymentmethodchange = (ev) => {
@@ -41,7 +41,7 @@ request.onpaymentmethodchange = (ev) => {
 const response = await request.show();
 ```
 
-Beachten Sie, dass die `methodDetails`-Eigenschaft von der `calculateDiscount()`-Funktion verwendet wird, um einen Zahlungsrabatt zu berechnen, und dann [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufgerufen wird, um das Ereignis mit dem berechneten Update zu aktualisieren.
+Beachten Sie, dass die `methodDetails`-Eigenschaft von der `calculateDiscount()`-Funktion genutzt wird, um eventuelle Zahlungsrabatte zu berechnen, und anschließend wird [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufgerufen, um das Ereignis mit dem berechneten Update zu aktualisieren.
 
 ## Spezifikationen
 

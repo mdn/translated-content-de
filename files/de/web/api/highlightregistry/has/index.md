@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`has()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen im Verzeichnis existiert.
+Die **`has()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein [`Highlight`](/de/docs/Web/API/Highlight) Objekt mit dem angegebenen Namen im Registry existiert oder nicht.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.has()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Map.has()")}}.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ has(name)
 ### Parameter
 
 - `name`
-  - : Der Name des `Highlight`-Objekts, dessen Vorhandensein im Verzeichnis überprüft werden soll.
+  - : Der Name des `Highlight` Objekts, dessen Vorhandensein in der Registry überprüft werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Highlight mit dem angegebenen Namen im Verzeichnis existiert; andernfalls `false`.
+Gibt `true` zurück, wenn ein Highlight mit dem angegebenen Namen in der Registry vorhanden ist; andernfalls `false`.
 
 ## Beispiele
 
@@ -48,4 +48,4 @@ myHighlight.has("bar"); // false
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

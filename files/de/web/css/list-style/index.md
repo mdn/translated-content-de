@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`list-style`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es Ihnen, alle Listengestileigenschaften auf einmal festzulegen.
+Die **`list-style`** CSS-[Kurzschreibweiseigenschaft](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es Ihnen, alle Listenstileigenschaften auf einmal festzulegen.
 
 {{EmbedInteractiveExample("pages/css/list-style.html")}}
 
-Die Werte dieser Eigenschaft werden auf Listenelemente angewendet, einschließlich {{HTMLElement("li")}}-Elementen und Elementen mit `{{cssxref("display")}}: list-item;`. Da diese Eigenschaft vererbt wird, kann sie auf ein Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um das gleiche Listenstyling auf alle verschachtelten Elemente anzuwenden.
+Die Werte dieser Eigenschaft werden auf Listenelemente angewendet, einschließlich {{HTMLElement("li")}}-Elemente und Elemente mit `{{cssxref("display")}}: list-item;`. Da diese Eigenschaft vererbt wird, kann sie auf ein Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) angewendet werden, um denselben Listenstil auf alle verschachtelten Elemente anzuwenden.
 
-## Bestandteilende Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -51,7 +51,7 @@ list-style: revert-layer;
 list-style: unset;
 ```
 
-Die `list-style`-Eigenschaft wird als ein, zwei oder drei Werte in beliebiger Reihenfolge angegeben. Wenn {{cssxref("list-style-type")}} und {{cssxref("list-style-image")}} beide festgelegt sind, wird `list-style-type` als Fallback verwendet, wenn das Bild nicht verfügbar ist.
+Die `list-style`-Eigenschaft wird als ein, zwei oder drei Werte in beliebiger Reihenfolge angegeben. Wenn sowohl {{cssxref("list-style-type")}} als auch {{cssxref("list-style-image")}} gesetzt sind, wird `list-style-type` als Fallback verwendet, falls das Bild nicht verfügbar ist.
 
 ### Werte
 
@@ -74,9 +74,9 @@ Die `list-style`-Eigenschaft wird als ein, zwei oder drei Werte in beliebiger Re
 
 ## Barrierefreiheit
 
-Safari erkennt geordnete oder ungeordnete Listen nicht als Listen im Barrierefreiheitsbaum, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des {{HTMLElement("nav")}}-Navigations-Elements verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler betrachtet.
+Safari erkennt geordnete oder ungeordnete Listen nicht als Listen im Barrierefreiheitstree, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des {{HTMLElement("nav")}}-Navigationselements verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler betrachtet.
 
-Um sicherzustellen, dass Listen als Listen angekündigt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Roles/list_role) den {{HTMLElement("ol")}}- und {{HTMLElement("ul")}}-Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dies stellt die Listensemantik ohne Beeinträchtigung des Designs wieder her:
+Um sicherzustellen, dass Listen als Listen angekündigt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Roles/list_role) zu {{HTMLElement("ol")}} und {{HTMLElement("ul")}}-Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dies stellt die Listensemantik wieder her, ohne das Design zu beeinflussen:
 
 ```html
 <ul role="list">
@@ -85,7 +85,7 @@ Um sicherzustellen, dass Listen als Listen angekündigt werden, fügen Sie [`rol
 </ul>
 ```
 
-Wenn eine ARIA `role` keine Option für Ihren Code ist, kann stattdessen CSS verwendet werden. Das Hinzufügen von nicht-leerem [Pseudo-Content](/de/docs/Web/CSS/content) wie Text oder Bildern vor jedem Listenelement kann die Listensemantik wiederherstellen, beeinträchtigt jedoch das visuelle Erscheinungsbild. Safari bestimmt, ob der hinzugefügte Pseudo-Content als barrierefreier Inhalt ausreicht, und stellt die Listensemantik wieder her, wenn dies der Fall ist. Im Allgemeinen betrachtet Safari Text und Bilder als ausreichend, weshalb das `content: "+ ";` unten funktioniert (erfordert jedoch zusätzliche Stilgebung, um das Design nicht zu beeinträchtigen).
+Wenn ein ARIA-`role` für Ihren Code nicht in Frage kommt, kann stattdessen CSS verwendet werden. Indem nicht-leerer [Pseudo-Content](/de/docs/Web/CSS/content) wie Text oder Bilder vor jedem Listenelement hinzugefügt wird, kann die Listensemantik wiederhergestellt werden, was sich jedoch auf das visuelle Erscheinungsbild auswirkt. Safari entscheidet, ob der hinzugefügte Pseudo-Content als barrierefreier Inhalt ausreicht und stellt die Listensemantik wieder her, falls dies der Fall ist. Im Allgemeinen betrachtet Safari Text und Bilder als ausreichend, weshalb `content: "+ ";` im Folgenden funktioniert (erfordert jedoch zusätzliches Styling, um das Design nicht zu beeinflussen).
 
 ```css
 ul {
@@ -99,16 +99,16 @@ ul li::before {
 
 Eine Deklaration von `content: "";` (ein leerer String) wird ignoriert, ebenso wie `content`-Werte, die nur Leerzeichen enthalten, wie `content: " ";`.
 
-Diese CSS-Workarounds sollten nur verwendet werden, wenn eine HTML-Lösung nicht verfügbar ist, und nur nach Tests, um sicherzustellen, dass sie keine unerwarteten Verhaltensweisen hervorrufen, die das Benutzererlebnis negativ beeinflussen könnten.
+Diese CSS-Workarounds sollten nur verwendet werden, wenn eine HTML-Lösung nicht verfügbar ist, und erst nach einer Überprüfung, um sicherzustellen, dass sie keine unerwarteten Verhaltensweisen hervorrufen, die sich negativ auf die Benutzererfahrung auswirken können.
 
 - ['Fixing' Lists](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) (2023)
 - [VoiceOver und list-style-type: none](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html) (2017)
-- [WCAG verstehen: Erstellen von Inhalten, die auf verschiedene Arten präsentiert werden können](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.3_%E2%80%94_Create_content_that_can_be_presented_in_different_ways)
-- [Erfolgskriterium 1.3.1 verstehen: Info und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+- [Verständnis der WCAG: Erstellen Sie Inhalte, die auf verschiedene Arten präsentiert werden können](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.3_%E2%80%94_Create_content_that_can_be_presented_in_different_ways)
+- [Verständnis des Erfolgs-Kriteriums 1.3.1: Information und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
 
 ## Beispiele
 
-### Listenstiltyp und Position setzen
+### Einstellung des Listenstil-Typs und der Position
 
 #### HTML
 

@@ -27,7 +27,7 @@ Ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt.
 
 ## Beispiele
 
-Lassen Sie uns nur ein paar Eigenschaften und Werte abrufen. Beginnen wir damit, einen Link innerhalb eines Absatzes in unserem HTML zu erstellen und eine Definitionsliste hinzuzufügen, die wir mit JavaScript füllen werden:
+Lassen Sie uns nur einige wenige Eigenschaften und Werte abrufen. Beginnen wir mit der Erstellung eines Links innerhalb eines Absatzes in unserem HTML und fügen wir eine Definitionsliste hinzu, die wir mit JavaScript befüllen werden:
 
 ```html
 <p>
@@ -48,7 +48,7 @@ a {
 }
 ```
 
-Wir verwenden die [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) des Elements, um ein _StylePropertyMapReadOnly_-Objekt zurückzugeben. Wir erstellen ein Array von interessierenden Eigenschaften und verwenden die `get()`-Methode von StylePropertyMapReadOnly, um nur diese Werte abzurufen.
+Wir verwenden das [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) des Elements, um ein _StylePropertyMapReadOnly_-Objekt zurückzugeben. Wir erstellen ein Array von interessanten Eigenschaften und verwenden die `get()`-Methode von StylePropertyMapReadOnly, um nur diese Werte abzurufen.
 
 ```js
 // get the element
@@ -91,4 +91,4 @@ for (const property of ofInterest) {
 ## Siehe auch
 
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
-- [Lernen Sie Houdini: das CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Learning Houdini: das CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)

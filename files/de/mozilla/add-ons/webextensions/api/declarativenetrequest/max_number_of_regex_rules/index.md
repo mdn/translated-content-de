@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl an regulären Ausdrucksregeln, die eine Erweiterung hinzufügen kann.
+Die maximale Anzahl regulärer Ausdrücke, die eine Erweiterung hinzufügen kann.
 
-In Chrome beträgt der Wert 1000, und dieses Limit wird getrennt für das Set dynamischer und sitzungsgesteuerter Regeln sowie für die im Regelressourcendatei angegebenen Regeln bewertet.
+In Chrome beträgt der Wert 1000, und dieses Limit wird separat für die Gruppe der dynamischen und sitzungsgebundenen Regeln sowie für die im Regelressourcendatei angegebenen Regeln bewertet.
 
-In Firefox wird dieses Limit getrennt pro Regelsatz bewertet.
+In Firefox wird dieses Limit separat pro Regelset bewertet.
 
 In Safari gibt es kein separates Limit für die Anzahl der `regexFilter`-Regeln.
 

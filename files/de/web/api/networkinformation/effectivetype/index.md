@@ -1,5 +1,5 @@
 ---
-title: "NetworkInformation: effectiveType-Eigenschaft"
+title: "NetworkInformation: effectiveType Eigenschaft"
 short-title: effectiveType
 slug: Web/API/NetworkInformation/effectiveType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Network Information API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`effectiveType`**-Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle gibt den effektiven Typ der Verbindung zurück, das bedeutet einer der Werte `slow-2g`, `2g`, `3g` oder `4g`. Dieser Wert wird unter Verwendung einer Kombination aus kürzlich beobachteten Round-Trip-Zeiten und Downlink-Werten bestimmt.
+Die schreibgeschützte **`effectiveType`**-Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle gibt den effektiven Typ der Verbindung zurück, das heißt, einen von `slow-2g`, `2g`, `3g` oder `4g`. Dieser Wert wird mithilfe einer Kombination aus kürzlich beobachteten Ping-Zeiten und Downlink-Werten bestimmt.
 
 ## Wert
 
@@ -24,5 +24,5 @@ Ein String, der entweder `slow-2g`, `2g`, `3g` oder `4g` ist.
 
 ## Siehe auch
 
-- [Effective Connection Type](/de/docs/Glossary/Effective_connection_type)
+- [Effektiver Verbindungstyp](/de/docs/Glossary/Effective_connection_type)
 - {{HTTPHeader("ECT")}}

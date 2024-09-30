@@ -10,9 +10,8 @@ l10n:
 
 Die **`Range.toString()`**-Methode ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Text des [`Range`](/de/docs/Web/API/Range) zurückgibt.
 
-Das Aufrufen des Inhalts eines [`Range`](/de/docs/Web/API/Range) durch eine Warnmeldung führt zu einem impliziten
-`toString()`-Aufruf, daher ist der Vergleich von Range und Text über einen Warn-Dialog
-ineffektiv.
+Das Anzeigen des Inhalts eines [`Range`](/de/docs/Web/API/Range) erzeugt einen impliziten
+`toString()`-Aufruf. Daher ist der Vergleich von Bereich und Text über ein Dialogfeld unwirksam.
 
 ## Syntax
 
@@ -64,4 +63,4 @@ document.getElementById("log").textContent = range.toString();
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)

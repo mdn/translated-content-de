@@ -1,5 +1,5 @@
 ---
-title: "XRTransientInputHitTestSource: cancel() Methode"
+title: "XRTransientInputHitTestSource: cancel()-Methode"
 short-title: cancel()
 slug: Web/API/XRTransientInputHitTestSource/cancel
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`cancel()`** Methode der [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Schnittstelle meldet einen transienten Eingabe-Treffer-Test ab.
+Die **`cancel()`**-Methode der [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Schnittstelle meldet einen transienten Eingabetreffer-Test ab.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Abmeldung vom Treffer-Test
+### Von Treffer-Test abmelden
 
-Die `cancel()` Methode meldet von einer transienten Eingabe-Treffer-Testquelle ab. Da das [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Objekt nicht mehr verwendbar sein wird, können Sie aufräumen und es auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
+Die `cancel()`-Methode meldet von einer transienten Eingabetreffer-Quelle ab. Da das [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Objekt nicht mehr verwendbar sein wird, können Sie es bereinigen und auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
 
 ```js
 transientHitTestSource.cancel();

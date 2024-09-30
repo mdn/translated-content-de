@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`BackgroundFetchEvent`**-Schnittstelle der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) ist der Ereignistyp für Hintergrundabrufereignisse, die im [Service Worker Global Scope](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgelöst werden.
+Das **`BackgroundFetchEvent`** Interface der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) ist der Ereignistyp für Background Fetch-Ereignisse, die im [Service Worker-Global Scope](/de/docs/Web/API/ServiceWorkerGlobalScope) gesendet werden.
 
-Sie ist der Ereignistyp, der an das [`backgroundfetchclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchclick_event)-Ereignis und das [`backgroundfetchabort`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchabort_event)-Ereignis übergeben wird.
+Es ist der Ereignistyp, der an das [`backgroundfetchclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchclick_event) Ereignis und das [`backgroundfetchabort`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchabort_event) Ereignis übergeben wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`BackgroundFetchEvent()`](/de/docs/Web/API/BackgroundFetchEvent/BackgroundFetchEvent) {{Experimental_Inline}}
-  - : Erstellt ein neues `BackgroundFetchEvent`-Objekt. Dieser Konstruktor wird typischerweise nicht genutzt, da der Browser diese Objekte selbst erstellt und sie an Hintergrundabrufereignis-Rückrufe bereitstellt.
+  - : Erstellt ein neues `BackgroundFetchEvent` Objekt. Dieser Konstruktor wird normalerweise nicht verwendet, da der Browser diese Objekte selbst erstellt und sie den Background Fetch-Ereignisrückrufen zur Verfügung stellt.
 
 ## Instanz-Eigenschaften
 
@@ -33,7 +33,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel öffnet sich ein neues Fenster, wenn der Benutzer auf die Benutzeroberfläche klickt, die den Herunterladestatus anzeigt. Die aktuelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) wird durch Aufrufen von `event.registration` zurückgegeben.
+In diesem Beispiel öffnet sich ein neues Fenster, wenn der Benutzer auf die Benutzeroberfläche klickt, die den Fortschritt des Downloads anzeigt. Die aktuelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) wird durch Aufrufen von `event.registration` zurückgegeben.
 
 ```js
 addEventListener("backgroundfetchclick", (event) => {

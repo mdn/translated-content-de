@@ -9,55 +9,55 @@ l10n:
 
 Verwenden Sie die `history` API, um mit dem Browserverlauf zu interagieren.
 
-Wenn Sie Informationen über den Sitzungsverlauf des Browsers suchen, sehen Sie sich die [History-Schnittstelle](/de/docs/Web/API/History) an.
+Wenn Sie nach Informationen über den Sitzungsverlauf des Browsers suchen, siehe die [History-Schnittstelle](/de/docs/Web/API/History).
 
 > [!NOTE]
-> Downloads werden als [`HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekte behandelt. Daher werden Ereignisse wie [`history.onVisited`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/onVisited) für Downloads ausgelöst.
+> Downloads werden als [`HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem) Objekte behandelt. Daher werden Ereignisse wie [`history.onVisited`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/onVisited) auch für Downloads ausgelöst.
 
-Der Browserverlauf ist eine chronologische Aufzeichnung der Seiten, die ein Benutzer besucht hat. Die History API ermöglicht es Ihnen:
+Der Browserverlauf ist ein chronologisches Verzeichnis der Seiten, die der Benutzer besucht hat. Die history API ermöglicht es Ihnen:
 
 - [nach Seiten zu suchen, die im Browserverlauf erscheinen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/search)
 - [einzelne Seiten aus dem Browserverlauf zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteUrl)
 - [Seiten zum Browserverlauf hinzuzufügen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/addUrl)
 - [alle Seiten aus dem Browserverlauf zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteAll).
 
-Der Benutzer hat jedoch möglicherweise eine einzelne Seite mehrfach besucht, daher hat die API auch das Konzept der "Besuche". So können Sie mit dieser API auch:
+Der Benutzer könnte jedoch eine einzelne Seite mehrmals besucht haben, daher hat die API auch das Konzept der "Besuche". So können Sie diese API auch verwenden, um:
 
-- [das gesamte Set von Besuchen, das der Benutzer zu einer bestimmten Seite gemacht hat, abrufen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/getVisits)
-- [Besuche von Seiten, die innerhalb eines bestimmten Zeitraums gemacht wurden, löschen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteRange).
+- [den vollständigen Satz von Besuchen zu einem bestimmten Seite abzurufen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/getVisits)
+- [Besuche für alle Seiten, die während eines bestimmten Zeitraums gemacht wurden, zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteRange).
 
-Um diese API zu verwenden, muss eine Erweiterung die "history"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese API zu nutzen, muss eine Erweiterung die "history" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
 
 ## Typen
 
 - {{WebExtAPIRef("history.TransitionType")}}
-  - : Beschreibt, wie der Browser zu einer bestimmten Seite navigiert ist.
+  - : Beschreibt, wie der Browser zu einer bestimmten Seite navigierte.
 - {{WebExtAPIRef("history.HistoryItem")}}
   - : Bietet Informationen über eine bestimmte Seite im Browserverlauf.
 - {{WebExtAPIRef("history.VisitItem")}}
-  - : Beschreibt einen einzelnen Besuch auf einer Seite.
+  - : Beschreibt einen einzelnen Besuch einer Seite.
 
 ## Funktionen
 
 - {{WebExtAPIRef("history.search()")}}
-  - : Durchsucht den Browserverlauf nach [`history.HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekten, die den angegebenen Kriterien entsprechen.
+  - : Durchsucht den Browserverlauf nach [`history.HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem) Objekten, die den angegebenen Kriterien entsprechen.
 - {{WebExtAPIRef("history.getVisits()")}}
-  - : Ruft Informationen über Besuche auf einer bestimmten Seite ab.
+  - : Ruft Informationen über Besuche einer bestimmten Seite ab.
 - {{WebExtAPIRef("history.addUrl()")}}
-  - : Fügt einen Eintrag zum Browserverlauf über einen Besuch auf der angegebenen Seite hinzu.
+  - : Fügt einen Eintrag im Browserverlauf für einen Besuch der angegebenen Seite hinzu.
 - {{WebExtAPIRef("history.deleteUrl()")}}
   - : Entfernt alle Besuche der angegebenen URL aus dem Browserverlauf.
 - {{WebExtAPIRef("history.deleteRange()")}}
-  - : Entfernt alle Besuche von Seiten, die der Benutzer innerhalb des angegebenen Zeitraums gemacht hat.
+  - : Entfernt alle Besuche von Seiten, die der Benutzer während des angegebenen Zeitraums gemacht hat.
 - {{WebExtAPIRef("history.deleteAll()")}}
   - : Entfernt alle Besuche aus dem Browserverlauf.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("history.onTitleChanged")}}
-  - : Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite aufgezeichnet wird.
+  - : Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite protokolliert wird.
 - {{WebExtAPIRef("history.onVisited")}}
-  - : Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht, und stellt die {{WebExtAPIRef("history.HistoryItem")}}-Daten für diese Seite bereit.
+  - : Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht, und stellt die {{WebExtAPIRef("history.HistoryItem")}} Daten für diese Seite bereit.
 - {{WebExtAPIRef("history.onVisitRemoved")}}
   - : Wird ausgelöst, wenn eine URL vollständig aus dem Browserverlauf entfernt wird.
 
@@ -68,7 +68,7 @@ Um diese API zu verwenden, muss eine Erweiterung die "history"-[Berechtigung](/d
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history) API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}{{SeeCompatTable}}
 
-Das **`method`**-Attribut zeigt die Methode an, nach der Text entlang des Pfades eines {{SVGElement("textPath")}}-Elements gerendert werden soll.
+Das **`method`**-Attribut gibt die Methode an, nach der Text entlang des Pfades eines {{SVGElement("textPath")}}-Elements gerendert werden soll.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
 ## textPath
 
-Für {{SVGElement("textPath")}} gibt `method` an, welche Methode verwendet wird, um Text entlang des Pfades zu rendern.
+Für {{SVGElement("textPath")}} gibt `method` die Methode an, nach der Text entlang des Pfades gerendert werden soll.
 
 <table class="properties">
   <tbody>
@@ -35,9 +35,9 @@ Für {{SVGElement("textPath")}} gibt `method` an, welche Methode verwendet wird,
 </table>
 
 - align
-  - : Dieser Wert gibt an, dass die Zeichen so gerendert werden sollen, dass sie nicht gestreckt oder verzerrt sind. Die Zeichen werden rotiert, skaliert und gestreckt, wenn sie gerendert werden. Dies kann zur Folge haben, dass bei Schriften mit verbundenen Zeichen (z. B. Kursivschriften) die Verbindungen möglicherweise nicht richtig ausgerichtet sind, wenn Text entlang des Pfades gerendert wird.
+  - : Dieser Wert gibt an, dass die Zeichen so gerendert werden sollen, dass sie nicht gestreckt oder verzerrt werden. Die Zeichen werden beim Rendern gedreht, skaliert und gestreckt. Daher können sich die Verbindungen bei Schriftarten mit verbundenen Zeichen (z. B. Schreibschrift) möglicherweise nicht korrekt ausrichten, wenn der Text entlang des Pfades gerendert wird.
 - stretch
-  - : Dieser Wert gibt an, dass die Konturen der Zeichen in Pfade umgewandelt und dann gestreckt und möglicherweise verzerrt werden. Bei diesem Ansatz bleiben verbundene Zeichen, wie in Kursivschriften, erhalten.
+  - : Dieser Wert gibt an, dass die Umrisse der Zeichen in Pfade umgewandelt und dann gestreckt und möglicherweise verzerrt werden. Mit diesem Ansatz bleiben die Verbindungen bei verbundenen Zeichen, wie bei Schreibschriften, erhalten.
 
 ## Spezifikationen
 

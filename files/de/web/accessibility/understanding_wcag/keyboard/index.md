@@ -7,40 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Um vollständig barrierefrei zu sein, muss eine Webseite von jemandem, der nur eine Tastatur benutzt, zugänglich und steuerbar sein. Dies umfasst Benutzer von Bildschirmlesegeräten, aber kann auch Benutzer einschließen, die Schwierigkeiten haben, ein Zeigegerät wie eine Maus oder eine Trackball zu bedienen, deren Maus derzeit nicht funktioniert oder die lieber eine Tastatur für die Eingabe verwenden, wann immer dies möglich ist.
+Um vollständig barrierefrei zu sein, muss eine Webseite von jemandem bedient werden können, der nur eine Tastatur zur Steuerung nutzt. Dies umfasst Nutzer von Screenreadern, aber auch Personen, die Schwierigkeiten haben, ein Zeigegerät wie eine Maus oder einen Trackball zu bedienen, deren Maus momentan nicht funktioniert, oder die es bevorzugen, wann immer möglich, die Tastatur zur Eingabe zu nutzen.
 
-## Fokusierbare Elemente sollten interaktive Semantik haben
+## Fokussierbare Elemente sollten interaktive Semantik haben
 
-Wenn ein Element über die Tastatur fokussierbar ist, sollte es interaktiv sein; das heißt, der Benutzer sollte in der Lage sein, etwas damit zu tun und irgendeine Art von Änderung herbeizuführen (zum Beispiel einen Link zu aktivieren oder eine Option zu ändern).
+Wenn ein Element mit der Tastatur fokussiert werden kann, sollte es interaktiv sein; das heißt, der Benutzer sollte damit etwas tun können, das eine Änderung bewirkt (zum Beispiel einen Link aktivieren oder eine Option ändern).
 
 > [!NOTE]
-> Eine wichtige Ausnahme von dieser Regel ist, wenn das Element das `role="document"` in einem interaktiven Kontext (wie `role="application"`) hat. In einem solchen Fall ist das Fokussieren des eingebetteten Dokuments der einzige Weg, um unterstützende Technologien in einen nicht-interaktiven Zustand zurückzuführen (oft als "Browse-Modus" bezeichnet).
+> Eine wichtige Ausnahme von dieser Regel ist, wenn das Element `role="document"` innerhalb eines interaktiven Kontexts (wie `role="application"`) zugewiesen bekommen hat. In einem solchen Fall ist das Fokussieren des geschachtelten Dokuments der einzige Weg, um unterstützende Technologie in einen nicht-interaktiven Zustand zurückzuversetzen (oft als "Browse-Modus" bezeichnet).
 
-Die meisten interaktiven Elemente sind standardmäßig fokussierbar; Sie können ein Element fokussierbar machen, indem Sie ihm einen `tabindex=0` Attributwert hinzufügen. Sie sollten jedoch `tabindex` nur hinzufügen, wenn Sie das Element auch interaktiv gemacht haben, beispielsweise durch das Definieren geeigneter Event-Handler für Tastaturereignisse.
-
-### Siehe auch
-
-- [tabindex](/de/docs/Web/HTML/Global_attributes/tabindex) globales HTML-Attribut
-- Element: [keydown event](/de/docs/Web/API/Element/keydown_event)
-- Element: [keyup event](/de/docs/Web/API/Element/keyup_event)
-
-## Vermeiden Sie die Verwendung von `tabindex` Attributen größer als Null
-
-Das `tabindex` Attribut zeigt an, dass ein Element über die Tastatur fokussierbar ist. Ein Wert von Null bedeutet, dass das Element Teil der Standard-Fokusreihenfolge ist, die auf der Reihenfolge der Elemente im HTML-Dokument basiert. Ein positiver Wert setzt das Element vor diejenigen in der Standardreihenfolge; Elemente mit positiven Werten werden in der Reihenfolge ihrer `tabindex` Werte fokussiert (1, dann 2, dann 3, usw.).
-
-Dies führt zu Verwirrung für Benutzer, die nur die Tastatur verwenden, wenn sich die Fokusreihenfolge von der logischen Reihenfolge der Seite unterscheidet. Eine bessere Strategie ist es, das HTML-Dokument so zu strukturieren, dass fokussierbare Elemente in einer logischen Reihenfolge stehen, ohne dass es notwendig ist, sie mit positiven `tabindex` Werten neu zu ordnen.
-
-### Siehe auch
-
-- [tabindex](/de/docs/Web/HTML/Global_attributes/tabindex) globales HTML-Attribut
-- [Verständnis der Fokusreihenfolge](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html)
-- [Verwenden Sie keinen Tabindex größer als 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html)
-
-## Anklickbare Elemente müssen fokussierbar und sollten interaktive Semantik haben
-
-Wenn ein Element mit einem Zeigegerät, wie einer Maus, angeklickt werden kann, sollte es auch über die Tastatur fokussierbar sein, und der Benutzer sollte durch Interaktion etwas tun können.
-
-Ein Element ist anklickbar, wenn es einen `onclick` Event-Handler definiert hat. Sie können es fokussierbar machen, indem Sie ihm einen `tabindex=0` Attributwert hinzufügen. Sie können es über die Tastatur bedienbar machen, indem Sie einen `onkeydown` Event-Handler definieren; in den meisten Fällen sollte die vom Event-Handler ausgeführte Aktion für beide Typen von Ereignissen dieselbe sein.
+Die meisten interaktiven Elemente sind standardmäßig fokussierbar; Sie können ein Element fokussierbar machen, indem Sie ihm ein `tabindex=0` Attribut hinzufügen. Sie sollten jedoch nur `tabindex` hinzufügen, wenn Sie das Element auch interaktiv gemacht haben, zum Beispiel durch das Definieren geeigneter Ereignis-Handler für Tastaturereignisse.
 
 ### Siehe auch
 
@@ -48,9 +24,33 @@ Ein Element ist anklickbar, wenn es einen `onclick` Event-Handler definiert hat.
 - Element: [keydown event](/de/docs/Web/API/Element/keydown_event)
 - Element: [keyup event](/de/docs/Web/API/Element/keyup_event)
 
-## Interaktive Elemente müssen mit einer Tastatur aktiviert werden können
+## Vermeiden Sie die Verwendung des `tabindex`-Attributs größer als null
 
-Wenn der Benutzer mit einem Element durch Berührung oder ein Zeigegerät interagieren kann, sollte das Element auch die Interaktion über die Tastatur unterstützen. Das heißt, wenn Sie Event-Handler für Touch- oder Klickevents definiert haben, sollten Sie diese auch für Tastaturereignisse definieren. Die Event-Handler für Tastaturereignisse sollten im Wesentlichen dieselbe Interaktion ermöglichen wie die Touch- oder Klick-Handler.
+Das `tabindex`-Attribut gibt an, dass ein Element mit der Tastatur fokussierbar ist. Ein Wert von null zeigt an, dass das Element Teil der Standardfokusreihenfolge ist, die sich nach der Anordnung der Elemente im HTML-Dokument richtet. Ein positiver Wert setzt das Element vor jene in der Standardreihenfolge; Elemente mit positiven Werten werden in der Reihenfolge ihrer `tabindex`-Werte fokussiert (1, dann 2, dann 3, etc.).
+
+Dies führt zu Verwirrung bei Nutzern, die nur die Tastatur verwenden, wenn die Fokusreihenfolge von der logischen Reihenfolge der Seite abweicht. Eine bessere Strategie ist es, das HTML-Dokument so zu strukturieren, dass fokussierbare Elemente in einer logischen Reihenfolge stehen, ohne dass eine Neuanordnung mit positiven `tabindex`-Werten nötig ist.
+
+### Siehe auch
+
+- [tabindex](/de/docs/Web/HTML/Global_attributes/tabindex) globales HTML-Attribut
+- [Understanding focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html)
+- [Don't use tabindex greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html)
+
+## Klickbare Elemente müssen fokussierbar und sollten interaktiv sein
+
+Wenn ein Element mit einem Zeigegerät wie einer Maus angeklickt werden kann, sollte es auch mit der Tastatur fokussierbar sein, und der Benutzer sollte durch die Interaktion damit etwas tun können.
+
+Ein Element ist klickbar, wenn es einen definierten `onclick`-Ereignis-Handler hat. Sie können es fokussierbar machen, indem Sie ihm ein `tabindex=0` Attribut hinzufügen. Sie können es mit der Tastatur bedienbar machen, indem Sie einen `onkeydown`-Ereignis-Handler definieren; in den meisten Fällen sollte die Aktion, die vom Ereignis-Handler ausgeführt wird, für beide Arten von Ereignissen gleich sein.
+
+### Siehe auch
+
+- [tabindex](/de/docs/Web/HTML/Global_attributes/tabindex) globales HTML-Attribut
+- Element: [keydown event](/de/docs/Web/API/Element/keydown_event)
+- Element: [keyup event](/de/docs/Web/API/Element/keyup_event)
+
+## Interaktive Elemente müssen mit der Tastatur aktivierbar sein
+
+Wenn der Benutzer mit einem Element über Berührung oder ein Zeigegerät interagieren kann, sollte das Element auch die Interaktion mit der Tastatur unterstützen. Das heißt, wenn Sie Ereignis-Handler für Berührungs- oder Klickereignisse definiert haben, sollten Sie diese auch für Tastaturereignisse definieren. Die Tastatur-Ereignis-Handler sollten im Wesentlichen dieselbe Interaktion wie die Berührungs- oder Klick-Handler ermöglichen.
 
 ### Siehe auch
 
@@ -59,20 +59,20 @@ Wenn der Benutzer mit einem Element durch Berührung oder ein Zeigegerät intera
 
 ## Interaktive Elemente müssen fokussierbar sein
 
-Wenn der Benutzer mit einem Element interagieren kann (zum Beispiel durch Berührung oder ein Zeigegerät), sollte es auch über die Tastatur fokussierbar sein. Sie können es fokussierbar machen, indem Sie ihm einen `tabindex=0` Attributwert hinzufügen. Dadurch wird das Element der Liste der Elemente hinzugefügt, die durch Drücken der <kbd>Tab</kbd>-Taste in der im HTML-Dokument definierten Reihenfolge fokussiert werden können.
+Wenn der Benutzer mit einem Element (zum Beispiel über Berührung oder ein Zeigegerät) interagieren kann, sollte es mit der Tastatur fokussierbar sein. Sie können es fokussierbar machen, indem Sie ihm ein `tabindex=0` Attribut hinzufügen. Dadurch wird das Element der Liste der Elemente hinzugefügt, die durch Drücken der <kbd>Tab</kbd>-Taste in der im HTML-Dokument definierten Reihenfolge fokussiert werden können.
 
 ### Siehe auch
 
 - [tabindex](/de/docs/Web/HTML/Global_attributes/tabindex) globales HTML-Attribut
 
-## Fokussierbares Element muss Fokus-Styling haben
+## Fokussierbare Elemente müssen Stile für den Fokus haben
 
-Jedes Element, das über die Tastaturfokussierung empfangen kann, sollte eine sichtbare Gestaltung haben, die anzeigt, wann das Element fokussiert ist. Sie können dies mit den CSS-Pseudoklassen [`:focus`](/de/docs/Web/CSS/:focus) und [`:focus-visible`](/de/docs/Web/CSS/:focus-visible) tun.
+Jedes Element, das mit der Tastatur fokussiert werden kann, sollte sichtbare Stile haben, die anzeigen, wann das Element fokussiert ist. Sie können dies mit den CSS-Pseudoklassen [`:focus`](/de/docs/Web/CSS/:focus) und [`:focus-visible`](/de/docs/Web/CSS/:focus-visible) erreichen.
 
-Standardmäßig fokussierbare Elemente wie Links und Eingabefelder erhalten vom Browser besondere Styling, daher müssen Sie möglicherweise kein Fokus-Styling für solche Elemente angeben, es sei denn, Sie möchten, dass das Fokus-Styling deutlicher erkennbar ist.
+Standardmäßig fokussierbare Elemente wie Links und Eingabefelder erhalten vom Browser automatisch spezielle Stile, sodass Sie für solche Elemente möglicherweise keine Fokus-Stile festlegen müssen, es sei denn, Sie möchten, dass die Fokus-Stile auffälliger sind.
 
-Wenn Sie eigene fokussierbare Komponenten erstellen, stellen Sie sicher, dass Sie auch Fokus-Styling für diese definieren.
+Wenn Sie eigene fokussierbare Komponenten erstellen, sollten Sie sicherstellen, dass Sie auch Fokus-Stile für sie definieren.
 
 ### Siehe auch
 
-- [Verwendung von CSS zur Änderung der Präsentation einer UI-Komponente, wenn sie den Fokus erhält](https://www.w3.org/WAI/WCAG21/Techniques/css/C15.html)
+- [Using CSS to change the presentation of a UI component when it receives focus](https://www.w3.org/WAI/WCAG21/Techniques/css/C15.html)

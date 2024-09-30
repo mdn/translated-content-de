@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLProgressElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("progress")}}-Element verknüpft sind.
+Die **`HTMLProgressElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der mit dem {{HTMLElement("progress")}}-Element verbundenen {{HTMLElement("label")}}-Elemente zurück.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<progress>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<progress>`-Element verbundenen `<label>`-Elemente enthält.
 
 ## Beispiele
 

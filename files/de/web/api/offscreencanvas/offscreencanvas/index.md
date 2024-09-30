@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Der **`OffscreenCanvas()`** Konstruktor gibt ein neu instanziertes [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt zurück.
+Der **`OffscreenCanvas()`** Konstruktor gibt ein neu instanziiertes [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt zurück.
 
 ## Syntax
 
@@ -19,14 +19,13 @@ new OffscreenCanvas(width, height)
 ### Parameter
 
 - `width`
-  - : Die Breite der Offscreen-Leinwand.
+  - : Die Breite des Offscreen-Canvas.
 - `height`
-  - : Die Höhe der Offscreen-Leinwand.
+  - : Die Höhe des Offscreen-Canvas.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine neue Offscreen-Leinwand unter Verwendung des `OffscreenCanvas()` Konstruktors.
-Wir initialisieren dann einen [WebGL](/de/docs/Web/API/WebGL_API) Kontext darauf, indem wir die [`getContext()`](/de/docs/Web/API/OffscreenCanvas/getContext) Methode verwenden.
+Dieses Beispiel erstellt ein neues Offscreen-Canvas mit dem `OffscreenCanvas()` Konstruktor. Wir initialisieren dann einen [WebGL](/de/docs/Web/API/WebGL_API)-Kontext darauf mit der [`getContext()`](/de/docs/Web/API/OffscreenCanvas/getContext)-Methode.
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);

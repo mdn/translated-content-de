@@ -1,5 +1,5 @@
 ---
-title: "CSSSkewY: ay-Eigenschaft"
+title: "CSSSkewY: ay Eigenschaft"
 short-title: ay
 slug: Web/API/CSSSkewY/ay
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`ay`**-Eigenschaft des
-[`CSSSkewY`](/de/docs/Web/API/CSSSkewY)-Interfaces holt und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
+Die **`ay`**-Eigenschaft des [`CSSSkewY`](/de/docs/Web/API/CSSSkewY)-Interfaces ruft den Winkel ab und setzt ihn, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-To do
+Noch zu erledigen
 
 ## Spezifikationen
 

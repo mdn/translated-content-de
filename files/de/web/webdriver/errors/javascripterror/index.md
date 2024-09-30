@@ -7,13 +7,13 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **JavaScript**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein vom Benutzer bereitgestelltes Skript nicht ausgeführt werden kann.
+Der **JavaScript-Fehler** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein vom Benutzer bereitgestelltes Skript nicht ausgeführt werden kann.
 
-Die zugrunde liegende Ursache des Ausführungsfehlers wird oft in der Fehlermeldung angegeben, zusammen mit einem vom JavaScript-Engine des Browsers bereitgestellten Stacktrace.
+Die zugrunde liegende Ursache des Ausführungsfehlers wird häufig in der Fehlermeldung angegeben, zusammen mit einem Stacktrace, der von der JavaScript-Engine im Browser bereitgestellt wird.
 
 ## Beispiel
 
-Betrachten Sie das folgende eingefügte Skript, das versucht, eine undefinierte Variable zu verwenden. In JavaScript führt dies normalerweise dazu, dass ein ReferenceError ausgelöst wird. WebDriver erkennt diesen Fehler und serialisiert ihn als JavaScript-Fehler:
+Betrachten Sie das folgende eingebettete Skript, das versucht, eine undefinierte Variable zu verwenden. In JavaScript führt dies normalerweise dazu, dass ein `ReferenceError` ausgelöst wird. WebDriver fängt diesen Fehler ab und serialisiert ihn als JavaScript-Fehler:
 
 ```python
 from selenium import webdriver

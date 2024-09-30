@@ -11,7 +11,7 @@ Eine **IP-Adresse** ist eine Zahl, die verwendet wird, um jedes Gerät in einem 
 
 _IP_ steht für _Internet Protocol_, welches die [Protokollschicht](https://docs.oracle.com/cd/E19683-01/806-4075/ipov-7/index.html) ist, mit der die Adresse verbunden ist.
 
-"IP-Adresse" bezieht sich typischerweise immer noch auf 32-Bit-IPv4-Adressen, bis IPv6 weiter verbreitet eingesetzt wird.
+Der Begriff "IP-Adresse" bezieht sich typischerweise immer noch auf 32-Bit-IPv4-Adressen, bis IPv6 breiter implementiert wird.
 
 ## Siehe auch
 

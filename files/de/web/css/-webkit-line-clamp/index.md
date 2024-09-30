@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht das Begrenzen des Inhalts eines [Block](/de/docs/Glossary/block) auf die angegebene Anzahl von Zeilen.
+Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines [Blocks](/de/docs/Glossary/block) auf die angegebene Anzahl von Zeilen zu begrenzen.
 
-Sie funktioniert nur in Kombination mit der {{cssxref("display")}} Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` eingestellt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}} Eigenschaft, die auf `vertical` gesetzt ist. Trotz ihrer Veralterung ist die Abhängigkeit dieser drei Eigenschaften vollständig spezifiziert und wird weiterhin unterstützt.
+Sie funktioniert nur in Kombination mit der {{cssxref("display")}} Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}} Eigenschaft, die auf `vertical` gesetzt ist. Trotz ihres veralteten Status ist die gegenseitige Abhängigkeit dieser drei Eigenschaften vollständig spezifiziert und wird weiterhin unterstützt.
 
-In den meisten Fällen sollten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, da ansonsten der Inhalt nicht abgeschnitten wird, aber ein Ellipse nach der festgelegten Anzahl von Zeilen angezeigt wird.
+In den meisten Fällen möchten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, da sonst der Inhalt nicht abgeschnitten wird, aber ein Auslassungszeichen dennoch nach der angegebenen Anzahl von Zeilen angezeigt wird.
 
-Wenn sie auf Ankerelemente angewendet wird, kann die Trunkierung in der Mitte des Textes erfolgen, nicht unbedingt am Ende.
+Wenn sie auf Ankerelemente angewendet wird, kann das Abschneiden in der Mitte des Textes erfolgen, nicht unbedingt am Ende.
 
 > [!NOTE]
-> Diese Eigenschaft wurde ursprünglich in WebKit implementiert und weist einige Probleme auf, wie zum Beispiel die Abhängigkeit von zwei weiteren veralteten Eigenschaften. Sie wurde im [CSS Overflow Module Level 4](https://drafts.csswg.org/css-overflow-4/#propdef--webkit-line-clamp) für die Unterstützung älterer Versionen standardisiert. Das CSS Overflow Module Level 4 definiert auch eine {{cssxref("line-clamp")}} Eigenschaft, die dazu gedacht ist, diese Eigenschaft zu ersetzen und ihre Probleme zu vermeiden. Allerdings unterstützen alle Browser, die `line-clamp` unterstützen, aus Kompatibilitätsgründen auch `-webkit-line-clamp`.
+> Diese Eigenschaft wurde ursprünglich in WebKit implementiert und hat einige Probleme, wie zum Beispiel die Abhängigkeit von zwei anderen älteren Eigenschaften. Sie wurde im [CSS Overflow Module Level 4](https://drafts.csswg.org/css-overflow-4/#propdef--webkit-line-clamp) für Legacy-Unterstützung standardisiert. Das CSS Overflow Module Level 4 definiert auch eine {{cssxref("line-clamp")}} Eigenschaft, die diese Eigenschaft ersetzen und ihre Probleme vermeiden soll. Alle Browser, die `line-clamp` unterstützen, werden jedoch auch `-webkit-line-clamp` aus Kompatibilitätsgründen unterstützen.
 
 ## Syntax
 
@@ -39,9 +39,9 @@ Wenn sie auf Ankerelemente angewendet wird, kann die Trunkierung in der Mitte de
 ### Werte
 
 - `none`
-  - : Dieser Wert gibt an, dass der Inhalt nicht begrenzt wird.
+  - : Dieser Wert gibt an, dass der Inhalt nicht abgeschnitten wird.
 - {{cssxref("integer")}}
-  - : Dieser Wert legt die Anzahl der Zeilen fest, nach denen der Inhalt begrenzt wird. Er muss größer als 0 sein.
+  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt abgeschnitten wird. Es muss größer als 0 sein.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ Wenn sie auf Ankerelemente angewendet wird, kann die Trunkierung in der Mitte de
 
 ## Beispiele
 
-### Einen Absatz kürzen
+### Abschneiden eines Absatzes
 
 #### HTML
 

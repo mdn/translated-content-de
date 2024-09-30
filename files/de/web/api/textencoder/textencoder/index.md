@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextEncoder()`** Konstruktor gibt ein neu erstelltes [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekt zurück, das einen Bytestrom mit UTF-8-Codierung generieren wird.
+Der **`TextEncoder()`** Konstruktor gibt ein neu erstelltes [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekt zurück, das einen Byte-Stream mit UTF-8-Codierung erzeugt.
 
 ## Syntax
 

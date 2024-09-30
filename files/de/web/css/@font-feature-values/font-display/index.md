@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`font-display`** Deskriptor für die {{cssxref("@font-feature-values")}} At-Regel setzt den Standardwert dafür, wie eine Schriftart angezeigt wird, basierend darauf, ob und wann sie heruntergeladen wird. Ein Wert für den `font-display` Deskriptor innerhalb eines `@font-feature-values` Blocks legt den Standardwert des `font-display` Deskriptors für die {{cssxref("@font-face")}} At-Regel für alle Schriften mit dem gleichen {{cssxref("@font-face/font-family", "font-family")}} Wert fest.
+Der **`font-display`** Deskriptor für die {{cssxref("@font-feature-values")}} At-Regel legt den Standardwert fest, wie eine Schriftart angezeigt wird, basierend darauf, ob und wann sie heruntergeladen wird. Das Festlegen eines Werts für den `font-display` Deskriptor innerhalb eines `@font-feature-values` Blocks setzt den Standardwert des `font-display` Deskriptors für die {{cssxref("@font-face")}} At-Regel für alle Schriften mit demselben {{cssxref("@font-face/font-family", "font-family")}} Wert.
 
 ## Syntax
 
@@ -23,29 +23,29 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Strategie zur Schriftanzeige wird durch den Benutzeragenten definiert.
+  - : Die Strategie zur Schriftanzeige wird vom User-Agent festgelegt.
 - `block`
-  - : Gibt der Schriftart eine kurze Blockierungsperiode, in der Regel etwa 3 Sekunden, und eine unbegrenzte Austauschperiode.
+  - : Gibt der Schriftart eine kurze Blockperiode, in der Regel etwa 3 Sekunden, und eine unendliche Austauschperiode.
 - `swap`
-  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und eine unbegrenzte Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine unendliche Austauschperiode.
 - `fallback`
-  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und eine kurze Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine kurze Austauschperiode.
 - `optional`
-  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und keine Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und keine Austauschperiode.
 
 ## Beschreibung
 
-Der `font-display` Deskriptor für `@font-feature-values` bestimmt die Zeitplanung der Schriftanzeige; er tut dies, indem er einen Standardwert für `font-display` für `@font-face` mit demselben `font-family` Namen setzt. Wenn `font-display` in `@font-face` weggelassen wird, sucht der Benutzeragent zunächst nach dem `font-display` Wert, der über `@font-feature-values` für die relevante Schriftfamilie gesetzt wurde. Wird kein Wert gefunden, verwendet der Benutzeragent den `auto` Wert für `font-display`, in diesem Fall bestimmt der Benutzeragent die Strategie zur Schriftanzeige.
+Der `font-display` Deskriptor für `@font-feature-values` bestimmt die Schriftanzeige-Zeitlinie; er tut dies, indem er einen Standardwert für `font-display` für `@font-face` für denselben `font-family` Namen festlegt. Wenn `font-display` in `@font-face` ausgelassen wird, sucht der User-Agent zuerst nach dem `font-display` Wert, der über `@font-feature-values` für die relevante Schriftfamilie gesetzt wurde. Wenn kein Wert gefunden wird, verwendet der User-Agent den `auto` Wert für `font-display`, wobei der User-Agent die Strategie zur Schriftanzeige bestimmt.
 
-Die Zeitplanung der Schriftanzeige basiert auf einem Timer, der startet, wenn der Benutzeragent versucht, eine bestimmte heruntergeladene Schriftart zu verwenden. Die Zeit wird in drei Perioden unterteilt, wie unten aufgeführt. Diese Perioden bestimmen das Darstellungsverhalten jedes Elements, das die Schriftart verwendet.
+Die Schriftanzeige-Zeitlinie basiert auf einem Timer, der startet, wenn der User-Agent versucht, eine bestimmte heruntergeladene Schriftart zu verwenden. Die Zeitlinie ist in drei Perioden unterteilt, wie unten aufgeführt. Diese Perioden bestimmen das Rendering-Verhalten jedes Elements, das die Schriftart verwendet.
 
-- Schrift **Blockierungsperiode**: Wenn die Schriftart nicht geladen ist, werden Elemente, die versuchen, die Schriftart zu verwenden, mit einer _unsichtbaren_ Ersatzschriftart gerendert. Der Browser blockiert das sichtbare Textrendering und reserviert einen Platz für den anzuzeigenden Text basierend auf den Metriken der Ersatzschriftart. Während der Blockierungsperiode ist der Text nicht sichtbar. Am Ende der Blockierungsperiode, wenn die Schrift nicht geladen wurde, wird der Text in der Ersatzschrift gerendert.
+- Schrift **Block**-Periode: Wenn die Schriftart nicht geladen ist, werden Elemente, die versuchen, die Schriftart zu verwenden, mit einer _unsichtbaren_ Ersatzschriftart gerendert. Der Browser blockiert das sichtbare Text-Rendering, wobei ein Platz für den anzuzeigenden Text basierend auf Metriken der Ersatzschrift frei gehalten wird. Während der Blockperiode ist der Text nicht sichtbar. Am Ende der Blockperiode, wenn die Schrift nicht geladen wurde, wird der Text mit der Ersatzschrift dargestellt.
 
-- Schrift **Austauschperiode**: Die Austauschperiode tritt nach der Blockierungsperiode ein (wenn es eine gibt), und wenn die Schriftart noch nicht erfolgreich geladen wurde. Elemente, die versuchen, die noch nicht geladene Schriftart zu verwenden, werden mit der nächstverfügbaren Ersatzschriftart gerendert. Die zuvor unsichtbare Ersatzschriftart wird auf den Bildschirm gemalt. Wenn die Schrift während der Austauschperiode erfolgreich geladen wird, wird der mit der Ersatzschrift gerenderte Text mit der neu geladenen Schrift aktualisiert — oder ausgetauscht. Dieser Schritt löst ein Neuzeichnen aus.
+- Schrift **Swap**-Periode: Die Swap-Periode tritt nach der Blockperiode (falls vorhanden) auf, und wenn die Schriftart noch nicht erfolgreich geladen wurde. Elemente, die versuchen, die noch nicht geladene Schriftart zu verwenden, werden mit der nächsten verfügbaren Ersatzschriftart gerendert. Die zuvor unsichtbare Ersatzschrift wird auf den Bildschirm gemalt. Wenn die Schrift während der Swap-Periode erfolgreich geladen wird, wird der Text, der in der Ersatzschrift gerendert wurde, mit der neu geladenen Schrift aktualisiert — oder ausgetauscht. Dieser Schritt löst ein Neuzeichnen aus.
 
-- Schrift **Fehlerperiode**: Wenn die Schriftart nicht geladen ist, bevor die Austauschperiode abläuft oder bevor die Blockierungsperiode abläuft (wenn es keine Austauschperiode gibt, wie im Fall von `optional`), behandelt der Benutzeragent die Schrift als fehlgeschlagenen Ladeversuch. Infolgedessen wird der Inhalt in der Ersatzschrift sichtbar.
+- Schrift **Fehler**-Periode: Wenn die Schriftart bis zum Ablauf der Swap-Periode oder bis zum Ende der Blockperiode nicht geladen wurde (falls es keine Swap-Periode gibt, wie es bei `optional` der Fall ist), behandelt der User-Agent die Schriftart als fehlerhaften Ladevorgang. Infolgedessen wird der Inhalt in der Ersatzschrift sichtbar.
 
-Der `font-display` Deskriptor ermöglicht es Ihnen, eine Standardanzeigepolitik für alle `@font-face` Regeln festzulegen, einschließlich derjenigen, die nicht unter der Kontrolle des Autors stehen, wie z.B. Drittanbieter `@font-face` Regeln. Wenn der `font-display` Wert über `@font-feature-values` festgelegt wird, wird er zum Standardwert für das gesamte Schriftfamilie. Allerdings überschreibt jeder innerhalb einzelner `@font-face` Blöcke definierte `font-display` Wert diesen Standard, aber nur für die Blöcke, in denen der Deskriptor definiert ist.
+Der `font-display` Deskriptor ermöglicht Ihnen das Festlegen einer Standardanzeigepolitik für alle `@font-face` Regeln, einschließlich solcher, die nicht unter der Kontrolle des Autors stehen, wie z.B. Drittanbieter `@font-face` Regeln. Wenn der `font-display` Wert über `@font-feature-values` gesetzt wird, wird er zum Standardwert für `font-display` und auf die gesamte Schriftfamilie angewendet. Jeder innerhalb einzelner `@font-face` Blöcke definierte `font-display` Wert wird diesen Standard jedoch für jene Blöcke überschreiben, in denen der Deskriptor definiert ist.
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ Der `font-display` Deskriptor ermöglicht es Ihnen, eine Standardanzeigepolitik 
 }
 ```
 
-Der `font-display` Deskriptor in diesem Beispiel setzt den Standardwert `font-display` für die "Leitura" Schrift auf `swap` für alle `@font-face` Blöcke. Es kann mehrere `@font-face` Blöcke geben, die mehrere Schriftdateien für eine einzelne Schriftfamilie importieren. Wenn einer dieser `@font-face` Blöcke einen `font-display` Deskriptor enthält, wird der angegebene Wert nur für diese spezifische Schriftdatei verwendet. Alle anderen Blöcke, die keinen `font-display` Deskriptor enthalten, verwenden standardmäßig `swap` anstelle des Standardwertes `auto` des Benutzeragenten.
+Der `font-display` Deskriptor in diesem Beispiel setzt den Standardwert von `font-display` für die "Leitura" Schrift auf `swap` für alle `@font-face` Blöcke. Es kann mehrere `@font-face` Blöcke geben, die mehrere Schriftdateien für eine einzelne Schriftfamilie importieren. Wenn einer dieser `@font-face` Blöcke einen `font-display` Deskriptor enthält, wird der angegebene Wert nur für diese spezifische Schriftdatei verwendet. Alle anderen Blöcke, die keinen `font-display` Deskriptor enthalten, verwenden standardmäßig `swap` anstelle des standardmäßigen `auto` des User-Agents.
 
 ## Spezifikationen
 
@@ -66,9 +66,9 @@ Der `font-display` Deskriptor in diesem Beispiel setzt den Standardwert `font-di
 
 ## Browser-Kompatibilität
 
-Es gibt keinen Browser, der diese Funktion implementiert.
+Es gibt keinen Browser, der dieses Feature implementiert.
 
 ## Siehe auch
 
 - {{cssxref("@font-face/font-display", "font-display")}} Deskriptor für {{cssxref("@font-face")}} At-Regel
-- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul

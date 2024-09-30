@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`willValidate`** der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle zeigt an, ob das {{htmlelement("input")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn es Bedingungen gibt, die es von der Einschränkungsvalidierung ausschließen, einschließlich:
+Die **`willValidate`** schreibgeschützte Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt an, ob das {{htmlelement("input")}}-Element ein Kandidat für die [Einschränkungsüberprüfung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn irgendwelche Bedingungen es von der Einschränkungsüberprüfung ausschließen, einschließlich:
 
-- Sein [`type`](/de/docs/Web/API/HTMLInputElement/type) ist eines von `hidden`, `reset` oder `button`;
+- Sein [`type`](/de/docs/Web/API/HTMLInputElement/type) ist einer von `hidden`, `reset` oder `button`;
 - Es hat einen {{HTMLElement("datalist")}}-Vorfahren;
 - Seine [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft ist `true`.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 
@@ -31,5 +31,5 @@ Ein boolean-Wert.
 - [`HTMLInputElement.checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
-- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

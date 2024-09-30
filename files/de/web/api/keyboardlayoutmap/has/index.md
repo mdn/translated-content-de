@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: has() Methode"
+title: "KeyboardLayoutMap: has()-Methode"
 short-title: has()
 slug: Web/API/KeyboardLayoutMap/has
 l10n:
@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}
 
-Die **`has()`** Methode der Schnittstelle [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) gibt einen booleschen Wert zurück, der anzeigt, ob das Objekt ein Element mit dem angegebenen Schlüssel enthält.
+Die **`has()`**-Methode der
+[`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das
+Objekt ein Element mit dem angegebenen Schlüssel enthält.
 
-Eine Liste der gültigen Schlüssel finden Sie in der Spezifikation [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system).
+Eine Liste gültiger Schlüssel finden Sie in der
+[UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) Spezifikation.
 
-Die Methode ist ansonsten die gleiche wie {{jsxref("Map.prototype.has()")}}.
+Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.has()")}}.
 
 ## Syntax
 
@@ -23,7 +26,7 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel eines Elements, nach dem in der Map gesucht wird.
+  - : Der Schlüssel eines Elements, nach dem in der Map gesucht werden soll.
 
 ### Rückgabewert
 
@@ -31,7 +34,7 @@ Ein {{jsxref('Boolean')}}, der angibt, ob der angegebene Schlüssel gefunden wur
 
 ## Beispiele
 
-Das folgende Beispiel überprüft, ob der standort- oder layout-spezifische String, der mit dem Tastaturcode korrespondiert, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht, vorhanden ist.
+Im folgenden Beispiel wird überprüft, ob die orts- oder layoutspezifische Zeichenfolge, die dem Tastaturcode entspricht, der der 'W'-Taste auf einer englischen QWERTY-Tastatur zugeordnet ist, existiert.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

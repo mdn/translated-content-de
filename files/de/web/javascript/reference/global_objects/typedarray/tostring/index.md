@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der das spezifizierte typisierte Array und seine Elemente darstellt. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
+Die **`toString()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt eine Zeichenfolge zurück, die das spezifizierte typisierte Array und dessen Elemente darstellt. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-tostring.html", "shorter")}}
 
@@ -23,15 +23,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des typisierten Arrays darstellt.
+Eine Zeichenfolge, die die Elemente des typisierten Arrays darstellt.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toString()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Siehe {{jsxref("Array.prototype.toString()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Konvertieren eines typisierten Arrays in einen String
+### Konvertierung eines typisierten Arrays in eine Zeichenfolge
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);

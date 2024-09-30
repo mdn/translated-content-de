@@ -7,12 +7,12 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das **`AudioWorkletProcessor`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert den Audiocode hinter einem benutzerdefinierten [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode). Es befindet sich im [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) und läuft auf dem Web Audio Rendering-Thread. Ein darauf basierender [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) läuft wiederum auf dem Hauptthread.
+Das **`AudioWorkletProcessor`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert einen Audiobearbeitungscode hinter einem benutzerdefinierten [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode). Es befindet sich im [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) und läuft im Web Audio Rendering-Thread. Im Gegenzug läuft ein darauf basierender [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) im Haupt-Thread.
 
 ## Konstruktor
 
 > [!NOTE]
-> Der `AudioWorkletProcessor` und Klassen, die davon abgeleitet sind, können nicht direkt aus einem vom Benutzer bereitgestellten Code instanziiert werden. Stattdessen werden sie nur intern durch die Erstellung eines zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)s erstellt. Der Konstruktor der abgeleiteten Klasse wird mit einem Optionsobjekt aufgerufen, sodass Sie benutzerdefinierte Initialisierungsverfahren durchführen können – siehe die Seite zum Konstruktor für Details.
+> Der `AudioWorkletProcessor` und die davon abgeleiteten Klassen können nicht direkt vom Benutzer-Code instanziiert werden. Stattdessen werden sie nur intern durch die Erstellung eines zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)s erzeugt. Der Konstruktor der abgeleiteten Klasse wird mit einem Optionsobjekt aufgerufen, damit Sie eine benutzerdefinierte Initialisierungsprozedur durchführen können — Details dazu finden Sie auf der Constructor-Seite.
 
 - [`AudioWorkletProcessor()`](/de/docs/Web/API/AudioWorkletProcessor/AudioWorkletProcessor)
   - : Erstellt eine neue Instanz eines `AudioWorkletProcessor`-Objekts.
@@ -20,37 +20,37 @@ Das **`AudioWorkletProcessor`**-Interface der [Web Audio API](/de/docs/Web/API/W
 ## Instanz-Eigenschaften
 
 - [`port`](/de/docs/Web/API/AudioWorkletProcessor/port) {{ReadOnlyInline}}
-  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück, der für die bidirektionale Kommunikation zwischen dem Prozessor und dem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), zu dem er gehört, verwendet wird. Das andere Ende ist unter der [`port`](/de/docs/Web/API/AudioWorkletNode/port)-Eigenschaft des Knotens verfügbar.
+  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück, der für die bidirektionale Kommunikation zwischen dem Prozessor und dem zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) verwendet wird. Das andere Ende ist unter der [`port`](/de/docs/Web/API/AudioWorkletNode/port)-Eigenschaft des Knotens verfügbar.
 
 ## Instanz-Methoden
 
-_Das `AudioWorkletProcessor`-Interface definiert keine eigenen Methoden. Sie müssen jedoch eine [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode bereitstellen, die zum Verarbeiten des Audiostreams aufgerufen wird._
+_Das `AudioWorkletProcessor`-Interface definiert keine eigenen Methoden. Sie müssen jedoch eine [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode bereitstellen, die aufgerufen wird, um den Audiostream zu verarbeiten._
 
 ## Ereignisse
 
 _Das `AudioWorkletProcessor`-Interface reagiert auf keine Ereignisse._
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 ### Abgeleitete Klassen
 
-Um benutzerdefinierten Audioverarbeitungscode zu definieren, müssen Sie von der `AudioWorkletProcessor`-Schnittstelle eine Klasse ableiten. Obwohl auf der Schnittstelle nicht definiert, muss die abgeleitete Klasse die [`process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode besitzen. Diese Methode wird für jeden Block von 128 Sample-Frames aufgerufen und nimmt Eingabe- und Ausgabearrays sowie berechnete Werte von benutzerdefinierten [`AudioParam`](/de/docs/Web/API/AudioParam)s (falls definiert) als Parameter an. Sie können Eingaben und Audioparameterwerte verwenden, um das Ausgabe-Array zu füllen, das standardmäßig Stille enthält.
+Um einen benutzerdefinierten Audiobearbeitungscode zu definieren, müssen Sie eine Klasse aus dem `AudioWorkletProcessor`-Interface ableiten. Obwohl es nicht im Interface definiert ist, muss die abgeleitete Klasse die [`process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode enthalten. Diese Methode wird für jeden Block von 128 Sample-Frames aufgerufen und nimmt Eingabe- und Ausgabe-Arrays sowie berechnete Werte benutzerdefinierter [`AudioParam`](/de/docs/Web/API/AudioParam)s (falls definiert) als Parameter entgegen. Sie können Eingaben und Audioparameterwerte verwenden, um das Ausgabearray zu füllen, das standardmäßig Stille enthält.
 
-Optional können Sie benutzerdefinierte [`AudioParam`](/de/docs/Web/API/AudioParam)s für Ihren Knoten bereitstellen, indem Sie eine [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)-Eigenschaft als _statischen Getter_ auf dem Prozessor bereitstellen. Das Array von auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor)-basierenden Objekten, das zurückgegeben wird, wird intern verwendet, um die [`AudioParam`](/de/docs/Web/API/AudioParam)s während der Instanziierung des `AudioWorkletNode` zu erstellen.
+Optional, wenn Sie benutzerdefinierte [`AudioParam`](/de/docs/Web/API/AudioParam)s auf Ihrem Knoten wollen, können Sie eine [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)-Eigenschaft als _statischen Getter_ auf dem Prozessor bereitstellen. Das zurückgegebene Array von [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor)-basierten Objekten wird intern verwendet, um die [`AudioParam`](/de/docs/Web/API/AudioParam)s während der Instanzierung des `AudioWorkletNode` zu erstellen.
 
-Die resultierenden `AudioParam`s befinden sich in der [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft des Knotens und können mit Standardmethoden wie [`linearRampToValueAtTime`](/de/docs/Web/API/AudioParam/linearRampToValueAtTime) automatisiert werden. Ihre berechneten Werte werden in die [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode des Prozessors übergeben, damit Sie die Knotenausgabe entsprechend formen können.
+Die resultierenden `AudioParam`s befinden sich in der [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft des Knotens und können mit Standardmethoden wie [`linearRampToValueAtTime`](/de/docs/Web/API/AudioParam/linearRampToValueAtTime) automatisiert werden. Ihre berechneten Werte werden in die [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode des Prozessors übergeben, damit Sie die Knoten-Ausgabe entsprechend gestalten können.
 
 ### Audioverarbeitung
 
-Ein Beispielalgorithmus zur Erstellung eines benutzerdefinierten Audioverarbeitungsmechanismus ist:
+Ein Beispielalgorithmus zur Erstellung eines benutzerdefinierten Audiobearbeitungsmechanismus ist:
 
 1. Erstellen Sie eine separate Datei;
 2. In der Datei:
 
-   1. Erweitern Sie die `AudioWorkletProcessor`-Klasse (siehe ["Abgeleitete Klassen"-Abschnitt](#abgeleitete_klassen)) und liefern Sie Ihre eigene [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode darin;
+   1. Erweitern Sie die `AudioWorkletProcessor`-Klasse (siehe Abschnitt ["Abgeleitete Klassen"]( #deriving_classes)) und stellen Sie Ihre eigene [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode darin bereit;
    2. Registrieren Sie den Prozessor mit der Methode [`AudioWorkletGlobalScope.registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor);
 
-3. Laden Sie die Datei mit der Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) über die [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet)-Eigenschaft Ihres Audiokontexts;
+3. Laden Sie die Datei mit der Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) auf die [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet)-Eigenschaft Ihres Audiokontexts;
 4. Erstellen Sie einen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) basierend auf dem Prozessor. Der Prozessor wird intern durch den `AudioWorkletNode`-Konstruktor instanziiert.
 5. Verbinden Sie den Knoten mit den anderen Knoten.
 
@@ -77,7 +77,7 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
 registerProcessor("white-noise-processor", WhiteNoiseProcessor);
 ```
 
-Als Nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), indem wir ihm den Namen des Prozessors übergeben, und verbinden dann den Knoten mit einem Audiografie.
+Als Nächstes laden wir in unserem Hauptskript die Prozessoren, erstellen eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), indem wir ihm den Namen des Prozessors übergeben, und verbinden dann den Knoten mit einem Audiograf.
 
 ```js
 const audioContext = new AudioContext();

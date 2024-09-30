@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Dual-Tone Multi-Frequency** (**DTMF**)-Signalisierung ist ein System, bei dem hörbare Töne verwendet werden, um die Betätigung von Tasten auf einem Tastenfeld darzustellen. Häufig wird in den Vereinigten Staaten als "Tonwahl" (nach dem Touch-Tone-Warenzeichen, das verwendet wurde, als der Übergang von der Impulswahl zur DTMF begann) bezeichnet, ermöglicht DTMF die Signalisierung der Ziffern 0-9 sowie der Buchstaben "A" bis "D" und der Symbole "#" und "\*". Wenige Telefontastaturen enthalten die Buchstaben, die typischerweise für Steuersignale des Telefonnetzes verwendet werden.
+Das **Dual-Tone Multi-Frequency** (**DTMF**) Signaling ist ein System, bei dem hörbare Töne verwendet werden, um die Tasten eines Tastenfeldes darzustellen. In den Vereinigten Staaten häufig als "Touch Tone" bezeichnet (nach dem Touch-Tone-Markenzeichen, das bei der Umstellung von Pulstelefonie auf DTMF verwendet wurde), ermöglicht DTMF die Signalisierung der Ziffern 0-9 sowie der Buchstaben "A" bis "D" und der Symbole "#" und "\*". Nur wenige Telefon-Tastenfelder beinhalten die Buchstaben, die typischerweise für Steuerungssignale durch das Telefonnetzwerk verwendet werden.
 
-Computer können DTMF verwenden, wenn sie ein Modem wählen oder wenn sie Befehle an ein Menüs-System im Rahmen von Telefonkonferenzen oder für andere Zwecke senden.
+Computer können DTMF verwenden, wenn sie ein Modem wählen oder wenn sie Befehle an ein Menüsystem für Telefonkonferenzen oder andere Zwecke senden.
 
 ## Siehe auch
 

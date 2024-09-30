@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Selektoren**-Modul definiert die Muster, um Elemente auszuwählen, auf die dann eine Reihe von CSS-Regeln zusammen mit deren {{cssxref("specificity")}} angewendet werden. Das CSS-Selektoren-Modul bietet uns mehr als 60 Selektoren und fünf Kombinatoren. [Andere Module](#verwandte_konzepte) bieten zusätzliche Pseudo-Klassen-Selektoren und Pseudo-Elemente.
+Das **CSS-Selektoren**-Modul definiert Muster zur Auswahl von Elementen, auf die eine Reihe von CSS-Regeln und deren {{cssxref("specificity")}} angewendet werden. Das CSS-Selektoren-Modul bietet uns mehr als 60 Selektoren und fünf Kombinatoren. [Andere Module](#verwandte_konzepte) bieten zusätzliche Pseudo-Klassen-Selektoren und Pseudo-Elemente.
 
-In CSS sind Selektoren Muster, die verwendet werden, um die Elemente zu finden oder auszuwählen, die Sie stylen möchten. Selektoren werden auch in JavaScript verwendet, um die DOM-Knoten auszuwählen, die als [`NodeList`](/de/docs/Web/API/NodeList) zurückgegeben werden sollen.
+In CSS sind Selektoren Muster, die verwendet werden, um die Elemente, die Sie stylen möchten, zu finden oder auszuwählen. Selektoren werden auch in JavaScript verwendet, um die Auswahl von DOM-Knoten zu ermöglichen, die als [`NodeList`](/de/docs/Web/API/NodeList) zurückgegeben werden.
 
-Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielrichten von HTML-Elementen basierend auf ihrem Typ, ihren Attributen, aktuellen Zuständen und sogar ihrer Position im DOM. Kombinatoren erlauben es Ihnen, präziser zu sein, wenn Sie Elemente auswählen, indem Sie Elemente basierend auf ihrer Beziehung zu anderen Elementen auswählen.
+Selektoren, die in CSS oder JavaScript verwendet werden, ermöglichen die gezielte Auswahl von HTML-Elementen basierend auf ihrem Typ, ihren Attributen, ihrem aktuellen Zustand und sogar ihrer Position im DOM. Kombinatoren ermöglichen eine präzisere Auswahl von Elementen anhand ihrer Beziehung zu anderen Elementen.
 
 ## Referenz
 
-### Kombinatoren und Trennzeichen
+### Kombinatoren und Separatoren
 
-- `+` ([Adjacent-Sibling-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator))
+- `+` ([Nachfolgender Geschwister Kombinator](/de/docs/Web/CSS/Next-sibling_combinator))
 - `>` ([Kind-Kombinator](/de/docs/Web/CSS/Child_combinator))
 - `||` ([Spalten-Kombinator](/de/docs/Web/CSS/Column_combinator))
-- `~` ([Allgemeiner Geschwister-Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator))
+- `~` ([Nachfolgender Geschwister Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator))
 - " " ([Nachfahre-Kombinator](/de/docs/Web/CSS/Descendant_combinator))
-- `|` ([Namensraum-Trennzeichen](/de/docs/Web/CSS/Namespace_separator))
+- `|` ([Namespace-Separator](/de/docs/Web/CSS/Namespace_separator))
 
 ### Selektoren
 
@@ -58,7 +58,7 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
 - {{CSSXref(":last-of-type")}}
 - {{CSSXref(":link")}}
 - {{CSSXref(":local-link")}}
-- `:matches()` (veralteter Legacy-Selektor-Alias für {{CSSXref(":is", ":is()")}})
+- `:matches()` (veraltetes Legacy-Selektor-Alias für {{CSSXref(":is", ":is()")}})
 - {{CSSXref(":modal")}}
 - {{CSSXref(":muted")}}
 - {{CSSXref(":not", ":not()")}}
@@ -99,7 +99,7 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
 
 ## Begriffe
 
-- [Pseudo-Klasse](/de/docs/Glossary/Pseudo-class) Glossarbegriff
+- [Pseudo-Klasse](/de/docs/Glossary/Pseudo-class) Glossareintrag
 - [Funktionale Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes)
 - [Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators)
 - [Einfacher Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector)
@@ -113,38 +113,38 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
 
 - [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
 
-  - : Überblick über die verschiedenen Arten von einfachen Selektoren und verschiedenen Kombinatoren, die in den CSS-Selektoren- und den CSS-Pseudo-Modulen definiert sind.
+  - : Überblick über die verschiedenen Arten von einfachen Selektoren und verschiedenen Kombinatoren, die in den CSS-Selektoren und den CSS-Pseudo-Modulen definiert sind.
 
 - [CSS-Selektorstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
 
-  - : Erklärung der Struktur von CSS-Selektoren und der im CSS-Selektoren-Modul eingeführten Terminologien, die von "einfacher Selektor" bis "verzeihende relative Selektorenliste" reichen.
+  - : Erklärung der Struktur von CSS-Selektoren und der in den CSS-Selektoren-Modulen eingeführten Begriffe, die von "einfacher Selektor" bis "verzeihende relative Selektorenliste" reichen.
 
 - [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
 
-  - : Listet die Pseudo-Klassen auf, Selektoren, die es ermöglichen, Elemente basierend auf Zustandsinformationen auszuwählen, die nicht im Dokumentbaum enthalten sind, definiert in den verschiedenen CSS-Modulen und HTML.
+  - : Listet die Pseudo-Klassen auf, Selektoren, die die Auswahl von Elementen basierend auf Zustandsinformationen ermöglichen, die nicht im Dokumentbaum enthalten sind und in den verschiedenen CSS-Modulen und HTML definiert sind.
 
 - [Lernen: CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
 
-  - : Teil der CSS-Bausteine, enthält Tutorials zu [Typ-, Klassen- und ID-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors), [Attribut-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors), [Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements), [Kombinatoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Combinators), [Kaskade, Spezifität und Vererbung](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance), und [Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers).
+  - : Teil der CSS-Bausteine, enthält Tutorials zu [Typ-, Klassen- und ID-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors), [Attribut-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors), [Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements), [Kombinatoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Combinators), [Kaskade, Spezifität und Vererbung](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) und [Kaskadenebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers).
 
-- [Verwendung der `:target` Pseudo-Klasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)
+- [Verwendung der `:target`-Pseudo-Klasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)
 
-  - : Lernen Sie, wie Sie die {{CSSXref(":target")}} Pseudo-Klasse verwenden, um das Ziel-Element eines URL-Fragment-Identifiers zu stylen.
+  - : Lernen Sie, wie Sie die {{CSSXref(":target")}}-Pseudo-Klasse verwenden, um das Ziel-Element eines URL-Fragment-Identifiers zu stylen.
 
 - [Lernen: UI-Pseudo-Klassen](/de/docs/Learn/Forms/UI_pseudo-classes)
 
-  - : Lernen Sie die verschiedenen UI-Pseudo-Klassen kennen, die für das Stylen von Formularen in verschiedenen Zuständen verfügbar sind.
+  - : Lernen Sie die verschiedenen verfügbaren UI-Pseudo-Klassen, um Formulare in verschiedenen Zuständen zu stylen.
 
-- [DOM-Elemente mit Selektoren lokalisieren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
+- [Aufspüren von DOM-Elementen mithilfe von Selektoren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
 
-  - : Die Selektoren-API ermöglicht die Verwendung von Selektoren in JavaScript, um Elementknoten aus dem DOM abzurufen.
+  - : Die Selektoren API ermöglicht es, Selektoren in JavaScript zu verwenden, um Elementknoten aus dem DOM zu erhalten.
 
 ## Verwandte Konzepte
 
 - {{CSSXref(":popover-open")}} Pseudo-Klasse
 - {{CSSXref(":state","state()")}} Pseudo-Klasse
 - [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) Modul
-  - [`&` Nesting-Selektor](/de/docs/Web/CSS/Nesting_selector)
+  - [`&` Verschachtelungs-Selektor](/de/docs/Web/CSS/Nesting_selector)
 - [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
 
   - {{CSSXref(":host")}} Pseudo-Klasse
@@ -152,7 +152,7 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
   - {{cssxref(":host-context", ":host-context()")}} Pseudo-Klasse
   - {{CSSXref("::slotted")}} Pseudo-Element
 
-- [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/CSS_pseudo-elements) (repräsentiert Entitäten, die nicht im HTML enthalten sind)
+- [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/CSS_pseudo-elements) (repräsentiert Entitäten, die nicht in HTML enthalten sind)
 
   - {{CSSXref("::after")}}
   - {{CSSXref("::before")}}
@@ -166,11 +166,11 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
   - {{CSSXref("::spelling-error")}}
   - {{CSSXref("::target-text")}}
 
-- [CSS-Schatten-Teile-Modul](/de/docs/Web/CSS/CSS_shadow_parts)
+- [CSS-Shadow-Parts-Modul](/de/docs/Web/CSS/CSS_shadow_parts)
 
   - {{CSSXref("::part")}} Pseudo-Element
 
-- [CSS-positioniertes Layout-Modul](/de/docs/Web/CSS/CSS_positioned_layout)
+- [CSS-positionsbezogenes Layout-Modul](/de/docs/Web/CSS/CSS_positioned_layout)
 
   - {{CSSxRef("::backdrop")}}
 
@@ -195,6 +195,6 @@ Selektoren, egal ob in CSS oder JavaScript verwendet, ermöglichen das Zielricht
 ## Siehe auch
 
 - [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/CSS_pseudo-elements)
-- [CSS-Kaskaden- und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
+- [CSS Kaskade und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
 - [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)

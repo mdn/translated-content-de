@@ -9,10 +9,10 @@ l10n:
 
 Das `WebSocket`-Objekt bietet die API zum Erstellen und Verwalten einer [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung zu einem Server sowie zum Senden und Empfangen von Daten über die Verbindung.
 
-Zum Konstruieren eines `WebSocket` verwenden Sie den [`WebSocket()`](/de/docs/Web/API/WebSocket/WebSocket) Konstruktor.
+Um ein `WebSocket` zu erstellen, verwenden Sie den [`WebSocket()`](/de/docs/Web/API/WebSocket/WebSocket) Konstruktor.
 
 > [!NOTE]
-> Die `WebSocket`-API hat keine Möglichkeit, [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) anzuwenden. Wenn Nachrichten schneller eintreffen, als die Anwendung sie verarbeiten kann, wird die Anwendung entweder den Speicher des Geräts durch das Puffern dieser Nachrichten füllen, oder aufgrund von 100 % CPU-Auslastung nicht mehr reagieren, oder beides. Für eine Alternative, die automatisch Backpressure bietet, siehe [`WebSocketStream`](/de/docs/Web/API/WebSocketStream).
+> Die `WebSocket`-API hat keine Möglichkeit, [Rückstaudruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) anzuwenden. Wenn Nachrichten schneller eintreffen, als die Anwendung sie verarbeiten kann, wird entweder der Speicher des Geräts durch Pufferung dieser Nachrichten gefüllt, die Anwendung wird aufgrund von 100% CPU-Auslastung nicht mehr ansprechbar, oder beides. Für eine Alternative, die automatisch Rückstaudruck bietet, siehe [`WebSocketStream`](/de/docs/Web/API/WebSocketStream).
 
 {{InheritanceDiagram}}
 
@@ -21,22 +21,22 @@ Zum Konstruieren eines `WebSocket` verwenden Sie den [`WebSocket()`](/de/docs/We
 - [`WebSocket()`](/de/docs/Web/API/WebSocket/WebSocket)
   - : Gibt ein neu erstelltes `WebSocket`-Objekt zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType)
   - : Der binäre Datentyp, der von der Verbindung verwendet wird.
 - [`WebSocket.bufferedAmount`](/de/docs/Web/API/WebSocket/bufferedAmount) {{ReadOnlyInline}}
-  - : Die Anzahl der Bytes von eingereihten Daten.
+  - : Die Anzahl von Bytes in der Warteschlange.
 - [`WebSocket.extensions`](/de/docs/Web/API/WebSocket/extensions) {{ReadOnlyInline}}
   - : Die vom Server ausgewählten Erweiterungen.
 - [`WebSocket.protocol`](/de/docs/Web/API/WebSocket/protocol) {{ReadOnlyInline}}
-  - : Das vom Server ausgewählte Subprotokoll.
+  - : Das vom Server ausgewählte Sub-Protokoll.
 - [`WebSocket.readyState`](/de/docs/Web/API/WebSocket/readyState) {{ReadOnlyInline}}
-  - : Der aktuelle Status der Verbindung.
+  - : Der aktuelle Zustand der Verbindung.
 - [`WebSocket.url`](/de/docs/Web/API/WebSocket/url) {{ReadOnlyInline}}
-  - : Die absolute URL des WebSockets.
+  - : Die absolute URL des `WebSocket`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`WebSocket.close()`](/de/docs/Web/API/WebSocket/close)
   - : Schließt die Verbindung.
@@ -45,20 +45,20 @@ Zum Konstruieren eines `WebSocket` verwenden Sie den [`WebSocket()`](/de/docs/We
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit `addEventListener()` oder indem Sie einem Ereignislistener die `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Hören Sie auf diese Ereignisse mit `addEventListener()` oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen.
 
 - [`close`](/de/docs/Web/API/WebSocket/close_event)
-  - : Wird ausgelöst, wenn eine Verbindung zu einem `WebSocket` geschlossen wird.
-    Auch über die `onclose`-Eigenschaft verfügbar
+  - : Wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geschlossen wird.
+    Auch verfügbar über die `onclose`-Eigenschaft.
 - [`error`](/de/docs/Web/API/WebSocket/error_event)
-  - : Wird ausgelöst, wenn eine Verbindung zu einem `WebSocket` aufgrund eines Fehlers geschlossen wurde, z. B. wenn einige Daten nicht gesendet werden konnten.
-    Auch über die `onerror`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` aufgrund eines Fehlers geschlossen wurde, z. B. wenn einige Daten nicht gesendet werden konnten.
+    Auch verfügbar über die `onerror`-Eigenschaft.
 - [`message`](/de/docs/Web/API/WebSocket/message_event)
-  - : Wird ausgelöst, wenn Daten über ein `WebSocket` empfangen werden.
-    Auch über die `onmessage`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn Daten über einen `WebSocket` empfangen werden.
+    Auch verfügbar über die `onmessage`-Eigenschaft.
 - [`open`](/de/docs/Web/API/WebSocket/open_event)
-  - : Wird ausgelöst, wenn eine Verbindung zu einem `WebSocket` geöffnet wird.
-    Auch über die `onopen`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geöffnet wird.
+    Auch verfügbar über die `onopen`-Eigenschaft.
 
 ## Beispiele
 
@@ -87,4 +87,4 @@ socket.addEventListener("message", (event) => {
 
 ## Siehe auch
 
-- [Anwendungen für WebSocket-Clients schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`configurations`**-Schreibgeschützte Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist ein {{jsxref("array")}} von gerätespezifischen Schnittstellen zur Steuerung eines verbundenen USB-Geräts.
+Die schreibgeschützte **`configurations`**-Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist ein {{jsxref("array")}} von gerätespezifischen Schnittstellen zur Steuerung eines gekoppelten USB-Geräts.
 
 ## Wert
 

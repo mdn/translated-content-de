@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`HTMLTemplateElement.content`**-Eigenschaft gibt den Inhalt eines `<template>`-Elements zurück (ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)).
+Die **`HTMLTemplateElement.content`**-Eigenschaft gibt den Vorlageninhalt eines `<template>`-Elements zurück (ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)).
 
 ## Wert
 

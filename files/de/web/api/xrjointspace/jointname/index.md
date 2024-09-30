@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}
 
-Die schreibgeschützte **`jointName`**-Eigenschaft des [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Interfaces enthält den Namen des Gelenks, das es verfolgt.
+Die schreibgeschützte **`jointName`**-Eigenschaft des [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Interfaces enthält den Namen des Gelenks, das sie verfolgt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der den Namen des Gelenks angibt. Siehe die Liste der Handgelenke au
 
 ### Abrufen des `jointName`
 
-Bei einem `XRJointSpace` wird die `jointName`-Eigenschaft den Namen des Handgelenks enthalten.
+Bei einem `XRJointSpace` enthält die `jointName`-Eigenschaft den Namen des Handgelenks.
 
 ```js
 navigator.xr

@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`relList`** der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge der Link-Typen enthält, die die Beziehung zwischen der vom {{HTMLElement("link")}}-Element dargestellten Ressource und dem aktuellen Dokument anzeigen.
+Die **`relList`**-Eigenschaft des schreibgeschützten [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge der Link-Typen enthält, die die Beziehung zwischen der durch das {{HTMLElement("link")}}-Element dargestellten Ressource und dem aktuellen Dokument angeben.
 
-Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
+Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die
+[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
 
 ## Wert
 
-Eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
+Eine Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
 
 ## Beispiele
 
@@ -38,7 +39,7 @@ for (const link of links) {
 
 ## Siehe auch
 
-- Die entsprechende Eigenschaft an {{HTMLElement("a")}} und {{HTMLElement("area")}},
+- Die entsprechende Eigenschaft auf {{HTMLElement("a")}} und {{HTMLElement("area")}},
   [`HTMLAnchorElement.relList`](/de/docs/Web/API/HTMLAnchorElement/relList) und [`HTMLAreaElement.relList`](/de/docs/Web/API/HTMLAreaElement/relList).
-- Dieselbe Liste aber als durch Leerzeichen getrennte Tokens in einer Zeichenkette:
+- Die gleiche Liste, aber als durch Leerzeichen getrennte Token in einer Zeichenfolge:
   [`HTMLLinkElement.rel`](/de/docs/Web/API/HTMLLinkElement/rel)

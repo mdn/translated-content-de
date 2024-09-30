@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Full-Version-List`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungsheader liefert die Branding- und vollständige Versionsinformationen des User-Agents.
+Der **`Sec-CH-UA-Full-Version-List`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Request Header liefert die Marken- und vollständigen Versionsinformationen des User-Agents.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungsheader](/de/docs/Glossary/Request_header),
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
+        [Request Header](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
@@ -25,20 +25,20 @@ Der **`Sec-CH-UA-Full-Version-List`** [User-Agent-Client-Hint](/de/docs/Web/HTTP
   </tbody>
 </table>
 
-Der **`Sec-CH-UA-Full-Version-List`** Header liefert die Marken- und vollständigen Versionsinformationen für jede Marke, die mit dem Browser verknüpft ist, in einer durch Komma getrennten Liste.
+Der **`Sec-CH-UA-Full-Version-List`** Header stellt die Marken- und vollständigen Versionsinformationen für jede Marke bereit, die mit dem Browser verbunden ist, in einer durch Kommas getrennten Liste.
 
-Eine Marke ist ein Handelsname für den User-Agent wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari. Ein User-Agent kann mehrere verknüpfte Marken haben. Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im **`Sec-CH-UA-Full-Version-List`** Header bereitstellen.
+Eine Marke ist ein Handelsname für den User-Agent wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari. Ein User-Agent kann mehrere verbundene Marken haben. Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im **`Sec-CH-UA-Full-Version-List`** Header angeben.
 
-Der Header ermöglicht es dem Server somit, seine Antwort basierend sowohl auf gemeinsamen Marken als auch auf besonderen Anpassungen in ihren spezifischen jeweiligen Builds anzupassen.
+Der Header ermöglicht es dem Server daher, seine Antwort basierend auf sowohl gemeinsamen Marken als auch auf speziellen Anpassungen in ihren jeweiligen spezifischen Builds anzupassen.
 
-Der Header kann "falsche" Marken in beliebiger Position und mit beliebigem Namen enthalten. Dies ist ein Merkmal, das darauf abzielt, zu verhindern, dass Server unbekannte User-Agents sofort ablehnen, indem sie User-Agents dazu zwingen, über ihre Markenidentität zu lügen.
+Der Header kann "gefälschte" Marken in beliebiger Position und mit beliebigem Namen enthalten. Dies ist eine Funktion, um zu verhindern, dass Server unbekannte User-Agents direkt ablehnen und User-Agents zwingen, über ihre Markenidentität zu lügen.
 
 > [!NOTE]
-> Dies ähnelt {{HTTPHeader("Sec-CH-UA")}}, enthält jedoch für jede Marke die vollständige Versionsnummer anstelle der signifikanten Versionsnummer.
+> Dies ist ähnlich wie {{HTTPHeader("Sec-CH-UA")}}, enthält aber die vollständige Versionsnummer anstelle der signifikanten Versionsnummer für jede Marke.
 
 ## Syntax
 
-Eine durch Kommas getrennte Liste von Marken in der User-Agent-Markenliste und ihrer zugehörigen vollständigen Versionsnummer. Die Syntax für einen einzelnen Eintrag hat folgendes Format:
+Eine durch Kommas getrennte Liste von Marken in der User-Agent-Markenliste und deren zugehörige vollständige Versionsnummer. Die Syntax für einen einzelnen Eintrag hat folgendes Format:
 
 ```http
 Sec-CH-UA-Full-Version-List: "<brand>";v="<full version>", ...
@@ -47,20 +47,20 @@ Sec-CH-UA-Full-Version-List: "<brand>";v="<full version>", ...
 ### Direktiven
 
 - `<brand>`
-  - : Eine Marke, die mit dem User-Agent verknüpft ist, wie "Chromium", "Google Chrome". Dies kann eine absichtlich falsche Marke sein, wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert sollte sich im Laufe der Zeit ändern und unvorhersehbar sein).
+  - : Eine Marke, die mit dem User-Agent verbunden ist, wie "Chromium", "Google Chrome". Dies kann eine absichtlich falsche Marke sein wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert wird erwartet, sich über die Zeit zu ändern und unvorhersehbar zu sein).
 - `<full version>`
-  - : Eine vollständige Versionsnummer, wie 98.0.4750.0.
+  - : Eine vollständige Versionsnummer, z.B. 98.0.4750.0.
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Full-Version-List` Header an, indem er {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine beliebige Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version-List` Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf eine beliebige Anfrage des Clients einschließt, unter Verwendung des Namens des gewünschten Headers als Token:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version-List
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen und den `Sec-CH-UA-Full-Version-List` Header zu nachfolgenden Anfragen hinzuzufügen, wie unten gezeigt:
+Der Client kann sich entscheiden, den Hint bereitzustellen und den `Sec-CH-UA-Full-Version-List` Header zu späteren Anfragen hinzuzufügen, wie unten gezeigt:
 
 ```http
 GET /my/page HTTP/1.1
@@ -82,8 +82,8 @@ Sec-CH-UA-Platform: "Linux"
 
 ## Siehe auch
 
-- [Client-Hints](/de/docs/Web/HTTP/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

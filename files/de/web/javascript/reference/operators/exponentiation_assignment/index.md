@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Exponentiation-Zuweisungsoperator (`**=`)\*\* führt eine [Exponentiation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Exponentiation-Zuweisungsoperator (`**=`)** führt die [Exponentiation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) an den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-exponentiation-assignment.html")}}
 
@@ -19,7 +19,7 @@ x **= y
 
 ## Beschreibung
 
-`x **= y` ist äquivalent zu `x = x ** y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x **= y` ist äquivalent zu `x = x ** y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ let bar = 5;
 bar **= 2; // 25
 ```
 
-Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Werte, die keine BigInts sind, werden in Zahlen umgewandelt:
 
 ```js
 let baz = 5;

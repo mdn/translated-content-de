@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `seeked` Ereignis wird ausgelöst, wenn ein Suchvorgang abgeschlossen ist, die aktuelle Wiedergabeposition sich geändert hat und das Boolean Attribut `seeking` auf `false` geändert wurde.
+Das `seeked` Ereignis wird ausgelöst, wenn eine Suchoperation abgeschlossen ist, die aktuelle Wiedergabeposition sich geändert hat und das Boolean-Attribut `seeking` auf `false` geändert wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("seeked", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `seeked` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Ereignis reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `seeked` Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("seeked", (event) => {
 });
 ```
 
-Verwendung der `onseeked` Ereignishandler-Eigenschaft:
+Verwendung der `onseeked` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

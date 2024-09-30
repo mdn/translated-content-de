@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`error`**-Eigenschaft des
-[`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent)-Interfaces ist eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts und bietet Zugriff auf die Details des Fehlers.
+Die **`error`** schreibgeschützte Eigenschaft der [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent)-Schnittstelle ist eine [`GPUError`](/de/docs/Web/API/GPUError)-Objektinstanz, die Zugriff auf die Details des Fehlers bietet.
 
 ## Wert
 
-Eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts.
+Eine [`GPUError`](/de/docs/Web/API/GPUError)-Objektinstanz.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent#examples) für ein Beispiel an.
+Siehe die Hauptseite [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent#examples) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -30,4 +29,4 @@ Sehen Sie sich die Hauptseite von [`GPUUncapturedErrorEvent`](/de/docs/Web/API/G
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Best Practices für Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)
+- [Beste Praktiken zur Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling)

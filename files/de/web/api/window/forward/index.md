@@ -1,5 +1,5 @@
 ---
-title: "Window: forward() Methode"
+title: "Window: forward()-Methode"
 short-title: forward()
 slug: Web/API/Window/forward
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{Non-standard_header}} {{deprecated_header}}
 
-Bewegt das Fenster ein Dokument vorwärts in der Historie. Dies war eine Firefox-spezifische Methode und wurde in Firefox 31 entfernt.
+Bewegt das Fenster ein Dokument in der Historie vorwärts. Dies war eine Firefox-spezifische Methode und wurde in Firefox 31 entfernt.
 
 > [!NOTE]
-> Verwenden Sie stattdessen die Standardmethode [`history.forward()`](/de/docs/Web/API/History/forward).
+> Verwenden Sie stattdessen die standardmäßige [`history.forward()`](/de/docs/Web/API/History/forward)-Methode.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ function goForward() {
 
 ## Spezifikationen
 
-Dies ist kein Bestandteil einer Spezifikation.
+Dies ist Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

@@ -1,5 +1,5 @@
 ---
-title: "Element: focusin-Ereignis"
+title: "Element: focusin Ereignis"
 short-title: focusin
 slug: Web/API/Element/focusin_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`focusin`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhält, nach dem [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis. Der Unterschied zwischen den beiden Ereignissen besteht darin, dass `focusin` aufsteigt, während `focus` dies nicht tut.
+Das **`focusin`** Ereignis tritt auf, wenn ein Element den Fokus erhalten hat, nach dem [`focus`](/de/docs/Web/API/Element/focus_event) Ereignis. Die beiden Ereignisse unterscheiden sich darin, dass `focusin` durchblubbert, während `focus` dies nicht tut.
 
-Das Gegenteil von `focusin` ist das [`focusout`](/de/docs/Web/API/Element/focusout_event)-Ereignis, das ausgelöst wird, wenn das Element den Fokus verliert.
+Das Gegenteil von `focusin` ist das [`focusout`](/de/docs/Web/API/Element/focusout_event) Ereignis, das ausgelöst wird, wenn das Element den Fokus verloren hat.
 
-Das `focusin`-Ereignis kann nicht abgebrochen werden.
+Das `focusin` Ereignis ist nicht abbruchbar.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)_.
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)_.
 
 - [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
   - : Das Element, das den Fokus verliert, falls vorhanden.
@@ -77,7 +77,7 @@ form.addEventListener("focusout", (event) => {
 {{Specifications}}
 
 > [!NOTE]
-> Die Spezifikation _UI Events_ beschreibt eine [Reihenfolge der Fokuserereignisse](/de/docs/Web/API/FocusEvent#order_of_events), die von dem abweicht, was aktuelle Browser implementieren.
+> Die _UI Events_ Spezifikation beschreibt eine [Reihenfolge der Fokus-Ereignisse](/de/docs/Web/API/FocusEvent#order_of_events), die von den aktuellen Browsern anders implementiert wird.
 
 ## Browser-Kompatibilität
 
@@ -86,4 +86,4 @@ form.addEventListener("focusout", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`blur`](/de/docs/Web/API/Element/blur_event), [`focus`](/de/docs/Web/API/Element/focus_event), [`focusout`](/de/docs/Web/API/Element/focusout_event)
-- [Fokussieren: focus/blur](https://javascript.info/focus-blur)
+- [Fokus: focus/blur](https://javascript.info/focus-blur)

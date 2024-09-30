@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CSS-Descriptor** definiert die Merkmale einer [At-Regel](/de/docs/Web/CSS/At-rule). At-Regeln können einen oder mehrere Deskriptoren haben. Jeder Descriptor hat:
+Ein **CSS-Descriptor** definiert die Merkmale einer [at-rule](/de/docs/Web/CSS/At-rule). At-Rules können einen oder mehrere Deskriptoren haben. Jeder Deskriptor hat:
 
 - Einen Namen
 - Einen Wert, der die Komponentenwerte enthält

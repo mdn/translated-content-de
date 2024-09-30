@@ -10,9 +10,9 @@ l10n:
 
 Die **`open()`**-Methode der [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Schnittstelle macht das mit diesem `MIDIPort` verbundene MIDI-Gerät explizit verfügbar.
 
-Wenn der Port erfolgreich geöffnet wird, wird ein neues [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent) in die `MIDIPort`-[`statechange`](/de/docs/Web/API/MIDIPort/statechange_event) und `MIDIAccess`-[`statechange`](/de/docs/Web/API/MIDIAccess/statechange_event)-Ereignisse eingereiht, und die [`MIDIPort.connection`](/de/docs/Web/API/MIDIPort/connection)-Eigenschaft wird auf `"open"` geändert.
+Wenn der Port erfolgreich geöffnet wird, wird ein neues [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent) zu den `MIDIPort`- und `MIDIAccess`-[`statechange`](/de/docs/Web/API/MIDIPort/statechange_event) Ereignissen hinzugefügt, und die [`MIDIPort.connection`](/de/docs/Web/API/MIDIPort/connection)-Eigenschaft wird auf `"open"` gesetzt.
 
-Wenn der Port bereits geöffnet ist, wenn diese Methode aufgerufen wird, wird das Versprechen erfolgreich aufgelöst.
+Wenn der Port bereits geöffnet ist, wenn diese Methode aufgerufen wird, wird das Promise erfolgreich aufgelöst.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich erhalten wurde.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich gewährt wurde.
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Versprechen wird mit diesem Fehler abgelehnt, wenn der Port nicht verfügbar ist und nicht geöffnet werden kann.
+  - : Das Promise wird mit diesem Fehler abgelehnt, wenn der Port nicht verfügbar ist und nicht geöffnet werden kann.
 
 ## Beispiele
 

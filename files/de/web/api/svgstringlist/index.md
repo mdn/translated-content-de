@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG-String-Listen-Schnittstelle
+## SVG string list Schnittstelle
 
 Das `SVGStringList` definiert eine Liste von Zeichenfolgen.
 
-Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGStringList` Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Auch implementieren</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -97,7 +97,8 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td><code>length</code></td>
       <td><code>unsigned long</code></td>
       <td>
-        Ein Spiegelwert der in <code>numberOfItems</code>, für Konsistenz mit anderen Schnittstellen. {{non-standard_inline}}
+        Ein Spiegel der Wert in <code>numberOfItems</code> zur Konsistenz
+        mit anderen Schnittstellen. {{non-standard_inline}}
       </td>
     </tr>
   </tbody>
@@ -108,7 +109,7 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
 <table class="no-markdown">
   <thead>
     <tr>
-      <th>Name &amp; Argumente</th>
+      <th>Name &#x26; Argumente</th>
       <th>Rückgabe</th>
       <th>Beschreibung</th>
     </tr>
@@ -121,13 +122,14 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td><em>void</em></td>
       <td>
         <p>
-          Löscht alle bestehenden aktuellen Elemente aus der Liste, sodass eine leere Liste entsteht.
+          Löscht alle vorhandenen Elemente aus der Liste, wodurch die Liste leer wird.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -139,13 +141,18 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td>string</td>
       <td>
         <p>
-          Löscht alle bestehenden aktuellen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene Einzelobjekt zu halten. Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+          Löscht alle vorhandenen Elemente aus der Liste und initialisiert die
+          Liste neu, um das durch den Parameter angegebene Einzelteil zu halten. Wenn das
+          eingefügte Element bereits in einer Liste ist, wird es vor seinem Einfügen aus seiner vorherigen
+          Liste entfernt. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in
+          die Liste eingefügt wurde.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -157,13 +164,16 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td>string</td>
       <td>
         <p>
-          Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das Element selbst und keine Kopie. Jegliche Änderungen am Element werden sofort in der Liste widergespiegelt. Das erste Element hat die Nummer 0.
+          Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das
+          Element selbst und keine Kopie. Alle Änderungen am Element
+          werden sofort in der Liste reflektiert. Das erste Element ist Nummer 0.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -176,13 +186,22 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td>string</td>
       <td>
         <p>
-          Fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste Element hat die Nummer 0. Wenn <code>newItem</code> bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der Index des einzufügenden Elements vor der Entfernung des Elements liegt. Wenn der <code>index</code> gleich 0 ist, wird das neue Element an den Anfang der Liste eingefügt. Wenn der Index größer oder gleich <code>numberOfItems</code> ist, wird das neue Element am Ende der Liste angehängt.
+          Fügt ein neues Element in die Liste an der angegebenen Position ein. Das erste
+          Element ist Nummer 0. Wenn <code>newItem</code> bereits in einer Liste ist, wird es
+          aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+          Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element
+          bereits in dieser Liste ist, beachten Sie, dass der Index des einzufügenden
+          Elements vor dem Entfernen des Elements liegt. Wenn der <code>index</code> gleich
+          0 ist, dann wird das neue Element an der Spitze der Liste eingefügt. Wenn der
+          Index größer oder gleich <code>numberOfItems</code> ist, dann wird das
+          neue Element am Ende der Liste angehängt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -196,17 +215,24 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td>string</td>
       <td>
         <p>
-          Ersetzt ein bestehendes Element in der Liste durch ein neues Element. Wenn <code>newItem</code> bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der Index des zu ersetzenden Elements vor der Entfernung des Elements liegt.
+          Ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Wenn
+          <code>newItem</code> bereits in einer Liste ist, wird es aus seiner
+          vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+          Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element
+          bereits in dieser Liste ist, beachten Sie, dass der Index des zu ersetzenden
+          Elements vor dem Entfernen des Elements liegt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer oder gleich <code>numberOfItems</code> ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer
+            oder gleich <code>numberOfItems</code> ist.
           </li>
         </ul>
       </td>
@@ -219,16 +245,18 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       </td>
       <td>string</td>
       <td>
-        <p>Entfernt ein bestehendes Element aus der Liste.</p>
+        <p>Entfernt ein vorhandenes Element aus der Liste.</p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer oder gleich <code>numberOfItems</code> ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer
+            oder gleich <code>numberOfItems</code> ist.
           </li>
         </ul>
       </td>
@@ -242,13 +270,16 @@ Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden, was bed
       <td>string</td>
       <td>
         <p>
-          Fügt ein neues Element am Ende der Liste ein. Wenn <code>newItem</code> bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
+          Fügt ein neues Element am Ende der Liste hinzu. Wenn <code>newItem</code> bereits
+          in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in
+          diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
-            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>

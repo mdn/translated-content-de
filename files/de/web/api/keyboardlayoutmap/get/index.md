@@ -11,9 +11,9 @@ l10n:
 Die **`get()`**-Methode der
 [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt das Element mit dem angegebenen Schlüssel zurück.
 
-Eine Liste gültiger Schlüssel findet sich in der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system)-Spezifikation.
+Eine Liste gültiger Schlüssel finden Sie in der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) Spezifikation.
 
-Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.get()")}}.
+Die Methode funktioniert ansonsten genauso wie {{jsxref("Map.prototype.get()")}}.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Der Wert des angegebenen Schlüssels.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der orts- oder layoutspezifische String abgerufen wird, der mit dem Tastaturcode korrespondiert, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht.
+Das folgende Beispiel zeigt, wie man den orts- oder layoutspezifischen String abruft, der dem Tastaturcode entspricht, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

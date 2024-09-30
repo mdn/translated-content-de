@@ -8,12 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `currentTime`-Nur-Lese-Eigenschaft der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
-Schnittstelle gibt ein Doppel zurück, das einen ständig steigenden Hardware-Zeitstempel in Sekunden darstellt. Dieser kann zur Planung der Audiowiedergabe, zur Visualisierung von Zeitlinien usw. benutzt werden. Er beginnt bei 0.
+Die schreibgeschützte `currentTime`-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
+Interfaces gibt einen Double-Wert zurück, der einen ständig zunehmenden Hardware-Zeitstempel in Sekunden darstellt, welcher für die Planung von Audio-Wiedergaben, zur Visualisierung von Zeitachsen, etc. verwendet werden kann. Dieser beginnt bei 0.
 
 ## Wert
 
-Eine Gleitkommazahl.
+Eine Fließkommazahl.
 
 ## Beispiele
 
@@ -26,11 +26,11 @@ const audioCtx = new AudioContext();
 console.log(audioCtx.currentTime);
 ```
 
-## Reduzierte Zeitgenauigkeit
+## Reduzierte Zeitpräzision
 
-Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Genauigkeit von `audioCtx.currentTime` je nach Browsereinstellungen abgerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Genauigkeit 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher Wert größer ist.
+Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `audioCtx.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
-Beispielsweise ist bei reduzierter Zeitgenauigkeit das Ergebnis von `audioCtx.currentTime` immer ein Vielfaches von 0,002 oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
+Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `audioCtx.currentTime` immer ein Vielfaches von 0,002 sein oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting`.
 
 ```js
 // reduced time precision (2ms) in Firefox 60
@@ -60,4 +60,4 @@ audioCtx.currentTime;
 
 ## Siehe auch
 
-- [Leitfaden zur Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

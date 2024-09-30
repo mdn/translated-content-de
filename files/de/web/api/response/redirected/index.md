@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`redirected`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle zeigt an, ob die Antwort das Ergebnis einer Anforderung ist, die Sie gestellt haben und die umgeleitet wurde.
+Die schreibgeschützte **`redirected`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt an, ob die Antwort das Ergebnis einer von Ihnen angeforderten Umleitung ist.
 
 > [!NOTE]
-> Sich auf `redirected` zu verlassen, um Weiterleitungen herauszufiltern, macht es einfach für eine gefälschte Weiterleitung, Ihr Inhalt daran zu hindern, wie erwartet zu funktionieren.
+> Sich auf `redirected` zu verlassen, um Umleitungen auszuschließen, kann dazu führen, dass eine gefälschte Umleitung verhindert, dass Ihr Inhalt wie erwartet funktioniert.
 > Stattdessen sollten Sie die Filterung vornehmen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen.
-> Siehe das Beispiel [Weiterleitungen nicht zulassen](#weiterleitungen_nicht_zulassen), das zeigt, wie dies gemacht wird.
+> Siehe das Beispiel [Umleitungen verbieten](#umleitungen_verbieten), das dies zeigt.
 
 ## Wert
 
@@ -21,13 +21,13 @@ Ein boolescher Wert, der `true` ist, wenn die Antwort anzeigt, dass Ihre Anfrage
 
 ## Beispiele
 
-### Weiterleitungen erkennen
+### Erkennen von Umleitungen
 
-Zu überprüfen, ob die Antwort von einer umgeleiteten Anfrage stammt, ist so einfach wie das Überprüfen dieses Flags auf dem [`Response`](/de/docs/Web/API/Response)-Objekt.
-Im untenstehenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der Abrufoperation eine Umleitung stattgefunden hat.
-Beachten Sie jedoch, dass dies nicht so sicher ist, wie das direkte Ablehnen von Weiterleitungen, wenn diese unerwartet sind, wie im Abschnitt [Weiterleitungen nicht zulassen](#weiterleitungen_nicht_zulassen) unten beschrieben.
+Zu überprüfen, ob die Antwort auf eine umgeleitete Anfrage zurückzuführen ist, ist so einfach wie das Überprüfen dieses Flags auf dem [`Response`](/de/docs/Web/API/Response)-Objekt.
+Im folgenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der Fetch-Operation eine Umleitung erfolgt ist.
+Beachten Sie jedoch, dass dies nicht so sicher ist, wie das vollständige Ablehnen von Umleitungen, wenn diese unerwartet sind, wie im Abschnitt [Umleitungen verbieten](#umleitungen_verbieten) unten beschrieben.
 
-Die [`url`](/de/docs/Web/API/Response/url)-Eigenschaft gibt die endgültige URL nach Weiterleitungen zurück.
+Die [`url`](/de/docs/Web/API/Response/url)-Eigenschaft gibt die endgültige URL nach Umleitungen zurück.
 
 ```js
 fetch("awesome-picture.jpg")
@@ -44,9 +44,9 @@ fetch("awesome-picture.jpg")
   });
 ```
 
-### Weiterleitungen nicht zulassen
+### Umleitungen verbieten
 
-Da es durch das manuelle Filtern von Weiterleitungen mittels `redirected` möglich ist, gefälschte Weiterleitungen zuzulassen, sollten Sie stattdessen den Weiterleitungsmodus auf `"error"` im `init`-Parameter setzen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, wie folgt:
+Da die manuelle Filterung von Umleitungen mit `redirected` die Fälschung von Umleitungen ermöglichen kann, sollten Sie stattdessen den Umleitungsmodus auf `"error"` im `init`-Parameter setzen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, wie folgt:
 
 ```js
 fetch("awesome-picture.jpg", { redirect: "error" })

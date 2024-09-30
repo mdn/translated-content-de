@@ -1,5 +1,5 @@
 ---
-title: SVG Filter-Tutorial
+title: SVG Filters Tutorial
 slug: Web/SVG/Tutorial/SVG_Filters_Tutorial
 l10n:
   sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
@@ -9,13 +9,13 @@ l10n:
 
 ## Filter
 
-SVG ermöglicht uns die Nutzung ähnlicher Werkzeuge wie die Bitmap-Beschreibungs-Sprache, wie z.B. Schatten, Unschärfeeffekte oder sogar die Kombination der Ergebnisse verschiedener Filter. Mit dem Filter-Element `<filter>` ist es möglich, diese Effekte hinzuzufügen und später an ein Objekt zu binden.
+SVG ermöglicht es uns, ähnliche Werkzeuge wie die Bitmap-Beschreibungssprache zu verwenden, wie beispielsweise die Nutzung von Schatten-, Unschärfeeffekten oder sogar das Zusammenführen der Ergebnisse verschiedener Filter. Mit dem Filter-Element `<filter>` ist es möglich, diese Effekte hinzuzufügen und später an ein Objekt anzuhängen.
 
-Filter wirken wie Schichten. Beim Erstellen dieser sollten Sie versuchen, den Effekt Schritt für Schritt anzuwenden und zu testen.
+Filter wirken wie Ebenen. Beim Erstellen sollten Sie versuchen, den Effekt Schritt für Schritt anzuwenden und zu testen.
 
-Dieses Element hat verschiedene Attribute, die uns helfen, die Clip-Region zu erstellen. Zwischen den Filter-Tags können wir die _Primitiven_ definieren, die uns ermöglichen, den gewünschten Effekt umzusetzen. Eine dieser Primitiven ist die [feGaussianBlur](https://www.w3.org/TR/SVG/filters.html#feGaussianBlurElement). Das Schlüsselwort [SourceAlpha](https://www.w3.org/TR/SVG/filters.html#SourceAlpha) identifiziert den Eingang für diese Primitive, in diesem Fall ist der Eingang `in`. Die Menge an Unschärfe, die angewendet werden soll, wird mit dem Attribut `stdDeviation` festgelegt.
+Dieses Element hat verschiedene Attribute, die uns helfen, die Zuschneideregion zu erstellen. Zwischen den Filter-Tags können wir die _Primitiven_ definieren, die es uns ermöglichen, den gewünschten Effekt zu implementieren. Eine dieser Primitiven ist der [feGaussianBlur](https://www.w3.org/TR/SVG/filters.html#feGaussianBlurElement). Das Schlüsselwort [SourceAlpha](https://www.w3.org/TR/SVG/filters.html#SourceAlpha) identifiziert die Eingabe für diese Primitive, in diesem Fall die Eingabe `in`. Die Menge der anzuwendenden Unschärfe wird mit dem Attribut `stdDeviation` festgelegt.
 
-### SVG-Filter-Beispiel
+### SVG Filter-Beispiel
 
 ```html
 <defs>
@@ -29,9 +29,9 @@ Dieses Element hat verschiedene Attribute, die uns helfen, die Clip-Region zu er
 </g>
 ```
 
-Das obige Beispiel wird nicht das gewünschte Ergebnis produzieren. Stattdessen müssen wir mehr Filter-Primitiven hinzufügen, die die gewünschte Darstellung erzeugen. Durch das Hinzufügen von `feoffset` und `result` wird die Effekt-Schicht definiert.
+Das obige Beispiel wird nicht die gewünschten Ergebnisse liefern. Stattdessen müssen wir mehr Filter-Primitiven hinzufügen, die das gewünschte Rendering ermöglichen. Durch das Hinzufügen von `feoffset` und `result` wird die Effekt-Ebene definiert.
 
-Das Attribut `<result>` ist eine Referenz, die später verwendet werden kann. Es unterscheidet sich deutlich von einer XML-ID und kann nur innerhalb des tatsächlichen `filter` referenziert werden. Die **`<feoffset>`**-Primitive hat das Unschärfeergebnis des Gaußschen Weichzeichners. Die **`<feMerge>`**-Primitive enthält die Knoten **`<feMergeNode>`**, wobei als Eingabe das Resultat offsetBlur genommen wird, sodass es unter der `sourceGraphic` erscheint.
+Das `<result>`-Attribut ist eine Referenz, die später verwendet werden kann. Es unterscheidet sich deutlich von einer XML-ID und kann nur innerhalb des aktuellen `filter` referenziert werden. Die **`<feoffset>`**-Primitive hat das Unschärfeergebnis aus dem Gaußschen Weichzeichner. Die **`<feMerge>`**-Primitive enthält die Knoten **`<feMergeNode>`**, die als Eingabe das Ergebnis offsetBlur verwenden, sodass es unterhalb der `sourceGraphic` erscheint.
 
 ### Implementierung weiterer Primitiven
 

@@ -1,5 +1,5 @@
 ---
-title: Veralteter Element-Referenzfehler
+title: Stale element reference
 slug: Web/WebDriver/Errors/StaleElementReference
 l10n:
   sourceCommit: 4a6dacf8c68925a8538585be3b2728bcb271241e
@@ -7,17 +7,17 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **veraltete Element-Referenzfehler** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, weil das referenzierte [Web-Element](/de/docs/Web/WebDriver/WebElement) nicht mehr mit dem [DOM](/de/docs/Glossary/DOM) verknüpft ist.
+Der Fehler **stale element reference** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/WebElement) nicht mehr mit dem [DOM](/de/docs/Glossary/DOM) verbunden ist.
 
-Jedes DOM-Element wird in WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als ein _[Web-Element](/de/docs/Web/WebDriver/WebElement)_. Die Web-Element-Referenz ist eine [UUID](/de/docs/Glossary/UUID), die verwendet wird, um Befehle für bestimmte Elemente auszuführen, wie z.B. [den Tag-Namen eines Elements abzurufen](/de/docs/Web/WebDriver/Commands/GetElementTagName) und [eine Eigenschaft eines Elements abzurufen](/de/docs/Web/WebDriver/Commands/GetElementProperty).
+Jedes DOM-Element wird im WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Die Webelement-Referenz ist eine [UUID](/de/docs/Glossary/UUID), die verwendet wird, um Befehle auszuführen, die auf bestimmte Elemente abzielen, wie z.B. [Abrufen des Tag-Namens eines Elements](/de/docs/Web/WebDriver/Commands/GetElementTagName) und [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Commands/GetElementProperty) eines Elements.
 
-Wenn ein Element nicht mehr mit dem DOM verknüpft ist, d.h. es wurde aus dem Dokument entfernt oder das Dokument hat sich verändert, ist es als _veraltet_ zu bezeichnen. Veralterung tritt beispielsweise auf, wenn Sie eine Web-Element-Referenz haben und das Dokument, aus dem sie abgerufen wurde, navigiert.
+Wenn ein Element nicht mehr mit dem DOM verbunden ist, d.h. es aus dem Dokument entfernt wurde oder sich das Dokument geändert hat, wird es als _veraltet_ bezeichnet. Veralterung tritt beispielsweise auf, wenn Sie eine Webelement-Referenz haben und das Dokument, aus dem sie abgerufen wurde, navigiert.
 
 ## Beispiele
 
-### Dokumentennavigation
+### Dokumentnavigation
 
-Bei der Navigation werden alle Web-Element-Referenzen des vorherigen Dokuments zusammen mit dem Dokument verworfen. Dies wird dazu führen, dass jede nachfolgende Interaktion mit dem [Web-Element](/de/docs/Web/WebDriver/WebElement) mit dem veralteten Element-Referenzfehler fehlschlägt:
+Bei einer Navigation werden alle Webelement-Referenzen zum vorherigen Dokument zusammen mit dem Dokument verworfen. Dies führt dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) mit dem Fehler "stale element reference" fehlschlägt:
 
 ```python
 import urllib
@@ -45,9 +45,9 @@ Ausgabe:
 StaleElementReferenceException: The element reference of e75a1764-ff73-40fa-93c1-08cb90394b65 is stale either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
 ```
 
-### Knotenentfernung
+### Knotenanwendung
 
-Wenn ein Dokumentenknoten aus dem DOM entfernt wird, wird seine Web-Element-Referenz ungültig. Dies wird auch dazu führen, dass jede nachfolgende Interaktion mit dem [Web-Element](/de/docs/Web/WebDriver/WebElement) mit dem veralteten Element-Referenzfehler fehlschlägt:
+Wenn ein Dokumentknoten aus dem DOM entfernt wird, wird seine Webelement-Referenz ungültig. Dies führt ebenfalls dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) mit dem Fehler "stale element reference" fehlschlägt:
 
 ```python
 import urllib

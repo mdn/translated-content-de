@@ -1,5 +1,5 @@
 ---
-title: "ViewTimeline: ViewTimeline()-Konstruktor"
+title: "ViewTimeline: ViewTimeline() Konstruktor"
 short-title: ViewTimeline()
 slug: Web/API/ViewTimeline/ViewTimeline
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("History API")}}{{SeeCompatTable}}
 
-Der **`ViewTimeline()`**-Konstruktor erstellt eine neue Instanz des [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Objekts.
+Der **`ViewTimeline()`** Konstruktor erstellt eine neue [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) Objektinstanz.
 
 ## Syntax
 
@@ -23,37 +23,37 @@ new ViewTimeline(options)
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
 
     - `subject`
-      - : Eine Referenz zu einem [`Element`](/de/docs/Web/API/Element), das das Subjektelement darstellt, dessen Sichtbarkeit innerhalb seines nächstgelegenen scrollbaren Vorfahrenelements (Scroller) den Fortschritt der Zeitleiste steuert.
+      - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das das Subjektelement darstellt, dessen Sichtbarkeit innerhalb seines nächstgelegenen vorhaltbaren Elementes (Scroller) den Fortschritt der Zeitachse steuern wird.
     - `axis` {{optional_inline}}
 
-      - : Ein Enumerationswert, der die Scrollachse darstellt, die den Fortschritt der Zeitleiste steuert. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der die Scrollachse repräsentiert, die den Fortschritt der Zeitachse antreiben wird. Mögliche Werte sind:
 
-        - `"block"`: Der Scrollbalken auf der Blockachse des Scrollcontainers, die Achse in Richtung senkrecht zum Textfluss innerhalb einer Zeile. Für horizontale Schreibrichtungen wie Standard-Englisch entspricht dies `"y"`, während es für vertikale Schreibrichtungen `"x"` entspricht.
-        - `"inline"`: Der Scrollbalken auf der Inline-Achse des Scrollcontainers, die Achse in Richtung parallel zum Textfluss in einer Zeile. Für horizontale Schreibrichtungen entspricht dies `"x"`, während es für vertikale Schreibrichtungen `"y"` entspricht.
-        - `"y"`: Der Scrollbalken auf der vertikalen Achse des Scrollcontainers.
-        - `"x"`: Der Scrollbalken auf der horizontalen Achse des Scrollcontainers.
+        - `"block"`: Die Scrollleiste auf der Blockachse des Scrollcontainers, welche die Achse in der Richtung senkrecht zum Fluss von Text innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie etwa das Standardenglisch, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
+        - `"inline"`: Die Scrollleiste auf der Inline-Achse des Scrollcontainers, welche die Achse in der Richtung parallel zum Fluss von Text innerhalb einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
+        - `"y"`: Die Scrollleiste auf der vertikalen Achse des Scrollcontainers.
+        - `"x"`: Die Scrollleiste auf der horizontalen Achse des Scrollcontainers.
 
-        Wenn weggelassen, ist der Standardwert für `axis` `"block"`.
+        Wird dieser weggelassen, wird `axis` standardmäßig auf `"block"` gesetzt.
 
     - `inset` {{optional_inline}}
 
-      - : Ein Wert oder ein Array von Werten, die eine Anpassung der Position des Scrollports darstellen (siehe [Scrollcontainer](/de/docs/Glossary/Scroll_container) für mehr Details), in dem das Subjekt als sichtbar gilt. Mögliche Werte sind:
+      - : Ein Wert oder ein Array von Werten, die eine Anpassung der Position des Scrollports repräsentieren (siehe [Scrollcontainer](/de/docs/Glossary/Scroll_container) für mehr Details), in dem das Subjekt als sichtbar angesehen wird. Mögliche Werte sind:
 
-        - `"auto"`: Die Standardboxposition wird verwendet.
-        - Ein String: Wenn ein String angegeben ist, kann er aus einem oder zwei Werten bestehen, die `auto` oder ein CSS-{{cssxref("length-percentage")}}-Wert sind. Anders gesagt, der String sollte ein gültiger {{cssxref("view-timeline-inset")}}-Wert sein.
-        - Ein Array aus einem oder zwei Werten, die `"auto"` oder ein geeigneter [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein können, um eine Längen- oder Prozentsatzverschiebung darzustellen (zum Beispiel `CSS.px()` oder `CSS.percent()`). Wenn ein Array bereitgestellt wird, repräsentiert der erste Wert die Startversetzung (die den [`ViewTimeline.endOffset`](/de/docs/Web/API/ViewTimeline/endOffset)-Wert beeinflusst) und der zweite Wert die Endversetzung (die den [`ViewTimeline.startOffset`](/de/docs/Web/API/ViewTimeline/startOffset)-Wert beeinflusst).
+        - `"auto"`: Die Standardpositionsbox wird verwendet.
+        - Ein String: Wenn ein String angegeben ist, kann dieser aus einem oder zwei Werten bestehen, die `auto` oder einem CSS-{{cssxref("length-percentage")}}-Wert entsprechen. Anders ausgedrückt sollte der String ein gültiger {{cssxref("view-timeline-inset")}}-Wert sein.
+        - Ein Array aus einem oder zwei Werten, die `"auto"` oder ein geeigneter [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein können, um einen Längen- oder Prozentsatzversatz darzustellen (beispielsweise `CSS.px()` oder `CSS.percent()`). Wenn ein Array bereitgestellt wird, repräsentiert der erste Wert den Startversatz (der den [`ViewTimeline.endOffset`](/de/docs/Web/API/ViewTimeline/endOffset)-Wert beeinflusst) und der zweite Wert repräsentiert den Endversatz (der den [`ViewTimeline.startOffset`](/de/docs/Web/API/ViewTimeline/startOffset)-Wert beeinflusst).
 
         Wenn das Array nur einen Wert hat, wird dieser dupliziert.
 
-        Wenn weggelassen, ist der Standardwert für `inset` `auto`.
+        Wird dieser weggelassen, wird `inset` standardmäßig auf `auto` gesetzt.
 
 ### Rückgabewert
 
-Eine neue Instanz des [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Objekts.
+Eine neue [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) Objektinstanz.
 
 ## Beispiele
 
-Siehe die Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline).
 
 ## Spezifikationen
 
@@ -66,6 +66,6 @@ Siehe die Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Be
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

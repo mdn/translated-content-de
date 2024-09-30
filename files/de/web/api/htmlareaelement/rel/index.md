@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.rel`**-Eigenschaft spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine Zeichenkette, die eine durch Leerzeichen getrennte Liste von Link-Typen enthält, die die Beziehung zwischen der vom {{HTMLElement("area")}}-Element dargestellten Ressource und dem aktuellen Dokument angeben.
+Die **`HTMLAreaElement.rel`**-Eigenschaft spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um einen String, der eine durch Leerzeichen getrennte Liste von Link-Typen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("area")}}-Element repräsentiert wird, und dem aktuellen Dokument anzeigt.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ for (const area of areas) {
 
 ## Siehe auch
 
-- Die äquivalente Eigenschaft auf {{HTMLElement("a")}} und {{HTMLElement("link")}},
+- Die entsprechende Eigenschaft von {{HTMLElement("a")}} und {{HTMLElement("link")}},
   [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel) und [`HTMLLinkElement.rel`](/de/docs/Web/API/HTMLLinkElement/rel).
-- Die gleiche Liste, jedoch als Tokens: [`HTMLAreaElement.relList`](/de/docs/Web/API/HTMLAreaElement/relList)
+- Die gleiche Liste, aber als Tokens: [`HTMLAreaElement.relList`](/de/docs/Web/API/HTMLAreaElement/relList)

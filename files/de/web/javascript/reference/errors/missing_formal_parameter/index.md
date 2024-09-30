@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "missing formal parameter" tritt auf, wenn Ihre Funktionsdeklaration keine gültigen Parameter enthält.
+Der JavaScript-Fehler "missing formal parameter" tritt auf, wenn Ihre Funktionsdeklaration gültige Parameter vermissen lässt.
 
 ## Meldung
 
@@ -23,15 +23,15 @@ SyntaxError: Unexpected string literal "x". Expected a parameter pattern or a ')
 
 ## Was ist schiefgelaufen?
 
-"Formal parameter" ist ein anderer Ausdruck für "Funktionsparameter". Ihre Funktionsdeklaration fehlt gültige Parameter. In der Deklaration einer Funktion müssen die Parameter [Bezeichner](/de/docs/Glossary/Identifier) sein, nicht irgendwelche Werte wie Zahlen, Zeichenfolgen oder Objekte. Das Deklarieren von Funktionen und das Aufrufen von Funktionen sind zwei separate Schritte. Deklarationen erfordern Bezeichner als Parameter, und nur beim Aufrufen (Invokation) der Funktion, liefern Sie die Werte, die die Funktion verwenden soll.
+"Formalparameter" ist ein anspruchsvoller Ausdruck für "Funktionsparameter". Ihre Funktionsdeklaration fehlt es an gültigen Parametern. In der Deklaration einer Funktion müssen die Parameter [Bezeichner](/de/docs/Glossary/Identifier) sein, nicht irgendwelche Werte wie Zahlen, Strings oder Objekte. Funktionen zu deklarieren und Funktionen aufzurufen sind zwei separate Schritte. Deklarationen erfordern Bezeichner als Parameter, und nur beim Aufruf (Invocation) der Funktion geben Sie die Werte an, die die Funktion verwenden soll.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) können Bezeichner nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Bezeichner unterscheidet sich von einer **Zeichenkette** darin, dass eine Zeichenkette Daten ist, während ein Bezeichner Teil des Codes ist.
+In [JavaScript](/de/docs/Glossary/JavaScript) können Bezeichner nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Bezeichner unterscheidet sich von einem **String** darin, dass ein String Daten darstellt, während ein Bezeichner Teil des Codes ist.
 
 ## Beispiele
 
-### Richtige Funktionsparameter bereitstellen
+### Geben Sie ordnungsgemäße Funktionsparameter an
 
-Funktionsparameter müssen bei der Einrichtung einer Funktion Bezeichner sein. Alle diese Funktionsdeklarationen schlagen fehl, da sie Werte für ihre Parameter bereitstellen:
+Funktionsparameter müssen Bezeichner sein, wenn eine Funktion eingerichtet wird. Alle diese Funktionsdeklarationen schlagen fehl, da sie Werte für ihre Parameter bereitstellen:
 
 ```js-nolint example-bad
 function square(3) {

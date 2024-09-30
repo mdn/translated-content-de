@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-position`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen zu spezifizieren, ob ein Browser die Subskript- und Superskript-"Position"-Schriftarten synthetisieren darf, wenn diese in einer Schriftfamilie fehlen, während {{cssxref("font-variant-position")}} verwendet wird, um die Positionen festzulegen.
+Die **`font-synthesis-position`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen festzulegen, ob ein Browser die Tief- und Hochstellungsschriftarten synthetisieren darf, wenn sie in einer Schriftfamilie fehlen, während {{cssxref("font-variant-position")}} zum Festlegen der Positionen verwendet wird.
 
-Die **`font-synthesis-position`** Eigenschaft hat keine Wirkung beim Einsatz der {{htmlelement("sup")}} und {{htmlelement("sub")}} Elemente.
+Die **`font-synthesis-position`** Eigenschaft hat keine Wirkung bei der Verwendung der {{htmlelement("sup")}} und {{htmlelement("sub")}} Elemente.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftart-Synthesewerte zu kontrollieren.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftart-Synthese-Werte zu steuern.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ font-synthesis-position: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass eine fehlende Positionsschriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass eine fehlende Positionsschriftart bei Bedarf vom Browser synthetisiert werden kann.
 - `none`
   - : Gibt an, dass die Synthese einer fehlenden Positionsschriftart durch den Browser nicht erlaubt ist.
 
@@ -45,9 +45,9 @@ font-synthesis-position: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese der Positionsschriftart
+### Deaktivieren der Synthese von Positionsschriftarten
 
-Dieses Beispiel zeigt, wie die Synthese der Superskript- und Subskriptschriftarten durch den Browser in der `Montserrat` Schriftart deaktiviert wird.
+Dieses Beispiel zeigt die Deaktivierung der Synthese von Hoch- und Tiefstellungsschriftarten durch den Browser in der `Montserrat`-Schrift.
 
 #### HTML
 
@@ -99,5 +99,5 @@ Dieses Beispiel zeigt, wie die Synthese der Superskript- und Subskriptschriftart
 
 ## Siehe auch
 
-- {{cssxref("font-synthesis")}} Kurzschreibweise, {{cssxref("font-synthesis-style")}}, {{cssxref("font-synthesis-weight")}}
+- {{cssxref("font-synthesis")}} Kurzform, {{cssxref("font-synthesis-style")}}, {{cssxref("font-synthesis-weight")}}
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-variant-position")}}, {{cssxref("font-weight")}}

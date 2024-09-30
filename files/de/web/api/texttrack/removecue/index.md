@@ -1,5 +1,5 @@
 ---
-title: "TextTrack: removeCue()-Methode"
+title: "TextTrack: Methode removeCue()"
 short-title: removeCue()
 slug: Web/API/TextTrack/removeCue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`removeCue()`**-Methode der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle entfernt eine Spur aus der Liste der Spuren.
+Die **`removeCue()`** Methode der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle entfernt eine Untertitelung aus der Liste der Untertitelungen.
 
 ## Syntax
 
@@ -23,19 +23,19 @@ removeCue(cue)
 
 ### Rückgabewert
 
-Nicht definiert.
+Undefiniert.
 
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebene Spur nicht in der Liste der Spuren gefunden wird.
+  - : Wird ausgelöst, wenn die angegebene Untertitelung nicht in der Liste der Untertitelungen gefunden wird.
 
 > [!NOTE]
-> Die [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle ist eine abstrakte Klasse, die als Elternklasse für andere Spurenschnittstellen wie [`VTTCue`](/de/docs/Web/API/VTTCue) verwendet wird. Daher übergeben Sie beim Entfernen einer Spur einen der Spurtypen, die von `TextTrackCue` erben.
+> Die [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle ist eine abstrakte Klasse, die als Elternteil für andere Untertitelungsschnittstellen wie [`VTTCue`](/de/docs/Web/API/VTTCue) verwendet wird. Daher wird beim Entfernen einer Untertitelung einer der Untertitelungstypen übergeben, der von `TextTrackCue` erbt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine Spur zu einer Video-Textspur mit `addCue()` hinzugefügt und dann mit `removeCue` entfernt.
+Im folgenden Beispiel wird einer Video-Textspur eine Untertitelung mit `addCue()` hinzugefügt und dann mit `removeCue` entfernt.
 
 ```js
 let video = document.querySelector("video");

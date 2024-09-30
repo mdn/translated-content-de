@@ -10,7 +10,8 @@ l10n:
 
 Die **`ports`** schreibgeschützte Eigenschaft des
 [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Interfaces gibt das Array zurück, das die
-[`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals darstellen (der Kanal, über den die Nachricht gesendet wird).
+[`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des assoziierten Nachrichtenkanals darstellen
+(der Kanal, über den die Nachricht gesendet wird.)
 
 ## Wert
 
@@ -18,7 +19,7 @@ Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten.
 
 ## Beispiele
 
-Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu antworten, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Nachricht über Kanal](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
+Wenn der folgende Code in einem Service Worker verwendet wird, um auf Push-Nachrichten zu antworten, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, ist das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent`.
 
 ```js
 let port;
@@ -48,6 +49,6 @@ self.onmessage = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API)

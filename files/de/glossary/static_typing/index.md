@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **statisch typisierte** Sprache ist eine Sprache (wie Java, C oder C++), bei der die Variablentypen zur Kompilierzeit bekannt sind. In den meisten dieser Sprachen müssen die Typen ausdrücklich vom Programmierer angegeben werden; in anderen Fällen (wie OCaml) ermöglicht die Typinferenz dem Programmierer, ihre Variablentypen nicht angeben zu müssen.
+Eine **statisch typisierte** Sprache ist eine Sprache (wie Java, C oder C++), bei der die Variablentypen zur Kompilierzeit bekannt sind. In den meisten dieser Sprachen müssen Typen ausdrücklich vom Programmierer angegeben werden; in anderen Fällen (wie OCaml) ermöglicht die Typinferenz dem Programmierer, die Variablentypen nicht anzugeben.
 
 ## Siehe auch
 

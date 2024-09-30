@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse ancestor-or-self bezeichnet den Kontextknoten und alle dessen Vorgänger, einschließlich des Wurzelknotens.
+Die Achse ancestor-or-self zeigt den Kontextknoten und alle seine Vorgängerknoten an, einschließlich des Wurzelknotens.

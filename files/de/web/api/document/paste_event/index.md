@@ -1,5 +1,5 @@
 ---
-title: "Document: paste Ereignis"
+title: "Document: paste Event"
 short-title: paste
 slug: Web/API/Document/paste_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`paste`**-Ereignis wird ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`paste`**-Ereignis wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine Einfügeaktion initiiert.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Einfügeaktion war. Sie können dieses Ereignis auf der Schnittstelle [`Document`](/de/docs/Web/API/Document) abhören, um es in den Erfassungs- oder Bubbling-Phasen zu behandeln. Für vollständige Einzelheiten zu diesem Ereignis siehe die Seite zum [Element: paste Ereignis](/de/docs/Web/API/Element/paste_event).
+Das ursprüngliche Ziel für dieses Ereignis ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Einfügeaktion war. Sie können dieses Ereignis auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle abhören, um es in den Capture- oder Bubbling-Phasen zu verarbeiten. Für vollständige Details zu diesem Ereignis siehe die Seite zum [Element: paste Event](/de/docs/Web/API/Element/paste_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("paste", (event) => {});
@@ -30,7 +30,7 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 
 ## Beispiele
 
-Um informiert zu werden, wenn ein Benutzer Daten von seiner Zwischenablage in die Webseite einfügt, können Sie einen Handler zu Ihrer [`Document`](/de/docs/Web/API/Document)-Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie folgt:
+Um benachrichtigt zu werden, wenn ein Benutzer Daten von seiner Zwischenablage auf die Webseite einfügt, können Sie einen Handler zu Ihrer [`Document`](/de/docs/Web/API/Document)-Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie hier gezeigt:
 
 ```js
 document.addEventListener("paste", (event) => {
@@ -38,7 +38,7 @@ document.addEventListener("paste", (event) => {
 });
 ```
 
-Alternativ können Sie die `Document.onpaste`-Ereignisbehandlereigenschaft verwenden, um einen Handler für das `paste`-Ereignis festzulegen:
+Alternativ können Sie die `Document.onpaste`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `paste`-Ereignis festzulegen:
 
 ```js
 document.onpaste = (event) => {
@@ -57,5 +57,5 @@ document.onpaste = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Document/copy_event), [`cut`](/de/docs/Web/API/Document/cut_event)
-- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) Ziele: [`paste`](/de/docs/Web/API/Element/paste_event)
-- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Ziele: [`paste`](/de/docs/Web/API/Window/paste_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) Targets: [`paste`](/de/docs/Web/API/Element/paste_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Targets: [`paste`](/de/docs/Web/API/Window/paste_event)

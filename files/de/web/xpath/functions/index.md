@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Im Folgenden finden Sie eine kommentierte Liste der Kernfunktionen von [XPath](/de/docs/Web/XPath) und der XSLT-spezifischen Erweiterungen zu XPath, einschließlich einer Beschreibung, der Syntax, einer Liste der Argumente, des Ergebnistypen und der Quelle in der entsprechenden W3C-Empfehlung. Für weitere Informationen zur Verwendung von XPath/XSLT-Funktionen lesen Sie bitte die Seite [Zum Weiterlesen](/de/docs/Web/XSLT/Transforming_XML_with_XSLT).
+Im Folgenden finden Sie eine kommentierte Liste der Kernfunktionen von [XPath](/de/docs/Web/XPath) und XSLT-spezifische Erweiterungen zu XPath, einschließlich einer Beschreibung, Syntax, einer Liste von Argumenten, Ergebnistyp und Quelle in der entsprechenden W3C-Empfehlung. Für weitere Informationen zur Verwendung von XPath/XSLT-Funktionen besuchen Sie bitte die Seite [For Further Reading](/de/docs/Web/XSLT/Transforming_XML_with_XSLT).
 
 - [boolean()](/de/docs/Web/XPath/Functions/boolean)
 - [ceiling()](/de/docs/Web/XPath/Functions/ceiling)

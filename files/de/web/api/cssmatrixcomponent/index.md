@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSMatrixComponent`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Werte [matrix()](/de/docs/Web/CSS/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/transform-function/matrix3d) der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSMatrixComponent`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die [matrix()](/de/docs/Web/CSS/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/transform-function/matrix3d) Werte der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -23,7 +23,7 @@ Das **`CSSMatrixComponent`**-Interface der [CSS Typed Object Model API](/de/docs
 
 ## Beispiele
 
-To do.
+In Bearbeitung.
 
 ## Spezifikationen
 

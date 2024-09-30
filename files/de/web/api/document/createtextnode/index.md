@@ -19,7 +19,7 @@ createTextNode(data)
 ### Parameter
 
 - `data`
-  - : Ein String, der die Daten enthält, die im Textknoten eingefügt werden sollen.
+  - : Ein String, der die Daten enthält, die in den Textknoten eingefügt werden sollen.
 
 ### Rückgabewert
 

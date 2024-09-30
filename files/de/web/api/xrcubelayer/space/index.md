@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`space`**-Eigenschaft der [`XRCubeLayer`](/de/docs/Web/API/XRCubeLayer)-Schnittstelle repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Benutzers.
+Die **`space`**-Eigenschaft des [`XRCubeLayer`](/de/docs/Web/API/XRCubeLayer)-Interfaces repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`XRSpace`](/de/docs/Web/API/XRSpace).
 
 ## Beispiele
 
-### Aktualisierung des Bereichs der Würfelebene
+### Aktualisieren des `space` einer Würfelebene
 
-Die Methode [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) erstellt eine Würfelebene und erfordert eine `space`-Eigenschaft, die bereitgestellt werden muss. Die `XRCubeLayer.space`-Eigenschaft kann nach der Erstellung der Ebene verwendet werden, um den verwendeten Bereich abzurufen oder ihn auf einen neuen einzustellen.
+Die Methode [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) erstellt eine Würfelebene und erfordert, dass eine `space`-Eigenschaft angegeben wird. Die `XRCubeLayer.space`-Eigenschaft kann nach der Erstellung der Ebene verwendet werden, um den verwendeten `space` abzurufen oder um ihn auf einen neuen zu setzen.
 
 ```js
 const cubeLayer = xrGlBinding.createCubeLayer({

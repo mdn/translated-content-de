@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Methode **`setStreams()`** des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verknüpft den Sender's [`track`](/de/docs/Web/API/RTCRtpSender/track) mit den angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten.
+Die Methode **`setStreams()`** des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) assoziiert den Sender's [`track`](/de/docs/Web/API/RTCRtpSender/track) mit den angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ setStreams(mediaStream1, mediaStream2, /* …, */ mediaStreamN)
 ### Parameter
 
 - `mediaStreamN` {{optional_inline}}
-  - : Eine beliebige Anzahl von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, die als Argumente angegeben werden und die Streams identifizieren, zu denen der `RTCRtpSender`'s [`track`](/de/docs/Web/API/RTCRtpSender/track) gehört.
-    Wenn dieser Parameter nicht angegeben wird, werden keine neuen Streams mit dem Track verknüpft.
+  - : Eine beliebige Anzahl von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, die als Argumente angegeben werden und die Streams identifizieren, zu denen der `RTCRtpSender`-`track` gehört.
+    Wenn dieser Parameter nicht angegeben wird, werden keine neuen Streams mit dem Track assoziiert.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -36,14 +36,14 @@ Kein ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-`setStreams()` ist rein additiv. Es entfernt den Track nicht aus irgendwelchen Streams; es fügt ihn zu neuen hinzu.
-Wenn Sie Streams angeben, zu denen der Track bereits gehört, bleibt dieser Stream unbeeinflusst.
+`setStreams()` ist rein additiv. Es entfernt den Track nicht aus vorhandenen Streams; es fügt ihn neuen hinzu.
+Wenn Sie Streams angeben, zu denen der Track bereits gehört, bleibt dieser Stream unverändert.
 
-Sobald der Track zu allen Streams hinzugefügt wurde, wird eine Neubewertung der Verbindung durch das Auslösen des [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignisses am [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), zu dem der Sender gehört, ausgelöst.
+Sobald der Track zu allen Streams hinzugefügt wurde, wird eine Neuverhandlung der Verbindung durch das Auslösen des [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignisses an den [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ausgelöst, zu dem der Sender gehört.
 
 ## Beispiele
 
-Dieses Beispiel fügt alle Tracks einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) dem angegebenen Stream hinzu.
+Dieses Beispiel fügt alle Tracks eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) dem angegebenen Stream hinzu.
 
 ```js
 function addTracksToStream(stream) {
@@ -57,8 +57,8 @@ function addTracksToStream(stream) {
 }
 ```
 
-Nach dem Aufruf der Methode [`getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), um die Liste der Sender der Verbindung zu erhalten, durchläuft die Funktion `addTracksToStream()` die Liste.
-Für jeden Sender, bei dem der Track nicht null ist und dessen Transportzustand `connected` ist, rufen wir `setStreams()` auf, um den Track zum angegebenen `stream` hinzuzufügen.
+Nach dem Aufruf der Methode [`getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), um die Liste der Sender der Verbindung zu erhalten, iteriert die Funktion `addTracksToStream()` über die Liste.
+Für jeden Sender, wenn der Track des Senders nicht null und der Zustand seines Transports `connected` ist, rufen wir `setStreams()` auf, um den Track zu dem angegebenen `stream` hinzuzufügen.
 
 ## Spezifikationen
 

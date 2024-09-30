@@ -1,16 +1,17 @@
 ---
-title: "WebGLRenderingContext: clearDepth()-Methode"
+title: "WebGLRenderingContext: clearDepth() Methode"
 short-title: clearDepth()
 slug: Web/API/WebGLRenderingContext/clearDepth
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.clearDepth()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt den Löschwert für den Tiefenpuffer fest.
 
-Dies gibt an, welcher Tiefenwert beim Aufruf der [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)-Methode verwendet werden soll. Der Wert wird zwischen 0 und 1 geklammert.
+Dies gibt an, welcher Tiefenwert verwendet werden soll, wenn die
+[`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)-Methode aufgerufen wird. Der Wert wird zwischen 0 und 1 begrenzt.
 
 ## Syntax
 
@@ -21,7 +22,8 @@ clearDepth(depth)
 ### Parameter
 
 - `depth`
-  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den Tiefenwert angibt, der beim Löschen des Tiefenpuffers verwendet wird. Standardwert: 1.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den zu verwendenden Tiefenwert angibt, wenn der Tiefenpuffer
+    gelöscht wird. Standardwert: 1.
 
 ### Rückgabewert
 
@@ -33,7 +35,8 @@ Keiner ({{jsxref("undefined")}}).
 gl.clearDepth(0.5);
 ```
 
-Um den aktuellen klaren Tiefenwert abzurufen, fragen Sie die Konstante `DEPTH_CLEAR_VALUE` ab.
+Um den aktuellen Tiefenlöschwert zu erhalten, fragen Sie die `DEPTH_CLEAR_VALUE`
+Konstante ab.
 
 ```js
 gl.getParameter(gl.DEPTH_CLEAR_VALUE);

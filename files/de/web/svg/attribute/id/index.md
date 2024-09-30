@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`id`** Attribut weist einem Element einen eindeutigen Namen zu.
+Das **`id`**-Attribut weist einem Element einen eindeutigen Namen zu.
 
-Sie können dieses Attribut bei jedem SVG-Element verwenden.
+Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 ## Beispiel
 
@@ -34,7 +34,7 @@ Sie können dieses Attribut bei jedem SVG-Element verwenden.
 
 {{EmbedLiveSample("Example", "120", "120")}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -55,12 +55,12 @@ Sie können dieses Attribut bei jedem SVG-Element verwenden.
 
 - \<id>
 
-  - : Gibt die ID des Elements an. Die ID muss innerhalb des Knotens eindeutig sein, darf nicht leer sein und keine Leerzeichen enthalten.
+  - : Gibt die ID des Elements an. Die ID muss innerhalb des Knoteninhaltsbaums eindeutig sein, darf nicht als leerer String angegeben werden und darf keine Leerzeichen enthalten.
 
     > [!NOTE]
-    > Sie sollten die Verwendung von `id`-Werten vermeiden, die als SVG-Ansichtsspezifikation (z. B. `MyDrawing.svg#svgView(viewBox(0,200,1000,1000))`) oder als einfaches Medienfragment interpretiert werden, wenn sie als URL-Zielfragment verwendet werden.
+    > Sie sollten die Verwendung von `id`-Werten vermeiden, die als eine SVG-Ansichtsspezifikation (z. B. `MyDrawing.svg#svgView(viewBox(0,200,1000,1000))`) oder ein grundlegendes Medienfragment geparst werden, wenn sie als URL-Ziel-Fragment verwendet werden.
 
-    Es muss in XML-Dokumenten gültig sein. Ein eigenständiges SVG-Dokument verwendet die XML 1.0-Syntax, die besagt, dass gültige IDs nur die vorgesehenen Zeichen (Buchstaben, Ziffern und einige Satzzeichen) enthalten und nicht mit einer Ziffer, einem Punkt (.) oder einem Bindestrich (-) beginnen.
+    Sie muss in XML-Dokumenten gültig sein. Ein eigenständiges SVG-Dokument verwendet die XML 1.0-Syntax, welche angibt, dass gültige IDs nur bestimmte Zeichen (Buchstaben, Ziffern und einige Satzzeichen) enthalten und nicht mit einer Ziffer, einem Punkt (.) oder einem Bindestrich (-) beginnen.
 
 ## Spezifikationen
 

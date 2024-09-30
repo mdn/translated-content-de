@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`in`**-Attribut identifiziert die Eingabe für das angegebene Filter-Primitive.
+Das **`in`** Attribut identifiziert die Eingabe für das gegebene Filter-Primitive.
 
-Der Wert kann entweder einer der sechs unten definierten Schlüsselwörter sein oder eine Zeichenkette, die mit einem vorherigen Wert des {{SVGAttr("result")}}-Attributs innerhalb desselben {{SVGElement("filter")}}-Elements übereinstimmt. Wenn kein Wert angegeben wird und dies das erste Filter-Primitive ist, verwendet dieses Filter-Primitive `SourceGraphic` als Eingabe. Wenn kein Wert angegeben wird und es sich um ein nachfolgendes Filter-Primitive handelt, verwendet dieses Filter-Primitive das Ergebnis des vorherigen Filter-Primitives als Eingabe.
+Der Wert kann entweder einer der sechs unten definierten Schlüsselwörter sein oder ein String, der mit einem vorherigen Wert des {{SVGAttr("result")}} Attributs innerhalb desselben {{SVGElement("filter")}} Elements übereinstimmt. Wenn kein Wert angegeben wird und dies das erste Filter-Primitive ist, wird dieses Filter-Primitive `SourceGraphic` als Eingabe verwenden. Wenn kein Wert angegeben wird und dies ein nachfolgendes Filter-Primitive ist, wird dieses Filter-Primitive das Ergebnis des vorherigen Filter-Primitives als seine Eingabe nutzen.
 
-Wenn der Wert für {{SVGAttr("result")}} innerhalb eines gegebenen {{SVGElement("filter")}}-Elements mehrfach auftritt, dann wird eine Referenz auf dieses Ergebnis das nächstgelegene vorherige Filter-Primitive mit dem angegebenen Wert für das Attribut {{SVGAttr("result")}} verwenden.
+Wenn der Wert für {{SVGAttr("result")}} mehrfach innerhalb eines gegebenen {{SVGElement("filter")}} Elements erscheint, dann wird eine Referenz zu diesem Ergebnis das nächstliegende vorausgehende Filter-Primitive mit dem gegebenen Wert für das Attribut {{SVGAttr("result")}} nutzen.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -30,7 +30,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 
-## Verwendungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -46,8 +46,8 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für das erste Filter-Primitive, ansonsten Ergebnis
-        des vorherigen Filter-Primitives
+        <code>SourceGraphic</code> für das erste Filter-Primitive, andernfalls
+        das Ergebnis des vorhergehenden Filter-Primitives
       </td>
     </tr>
     <tr>
@@ -58,26 +58,26 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `SourceGraphic`
-  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das {{SVGElement("filter")}}-Element waren.
+  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das {{SVGElement("filter")}} Element waren.
 - `SourceAlpha`
-  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das `<filter>`-Element waren. `SourceAlpha` hat alle Regeln wie `SourceGraphic`, verwendet jedoch nur den Alpha-Kanal.
+  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das `<filter>` Element waren. `SourceAlpha` folgt allen Regeln von `SourceGraphic`, außer dass nur der Alphakanal verwendet wird.
 - `BackgroundImage`
-  - : Dieses Schlüsselwort repräsentiert einen Abbild-Snapshot des SVG-Dokuments unterhalb des Filterbereichs zum Zeitpunkt der Ausführung des `<filter>`-Elements.
+  - : Dieses Schlüsselwort repräsentiert einen Bild-Snapshot des SVG-Dokuments unterhalb der Filterregion zum Zeitpunkt der Ausführung des `<filter>` Elements.
 - `BackgroundAlpha`
-  - : Entspricht `BackgroundImage`, jedoch wird nur der Alpha-Kanal verwendet.
+  - : Das gleiche wie `BackgroundImage`, außer dass nur der Alphakanal verwendet wird.
 - `FillPaint`
-  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("fill")}}-Eigenschaft des Zielelements für den Filtereffekt. In vielen Fällen ist das `FillPaint` überall opak, aber es kann anders sein, wenn eine Form mit einem Verlauf oder Muster bemalt wird, das selbst transparente oder halbtransparente Teile enthält.
+  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("fill")}} Eigenschaft des Zielelements für den Filtereffekt. In vielen Fällen ist das `FillPaint` überall undurchsichtig, aber das muss nicht der Fall sein, wenn eine Form mit einem Verlauf oder Muster gemalt ist, das selbst transparente oder halbtransparente Teile enthält.
 - `StrokePaint`
-  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("stroke")}}-Eigenschaft des Zielelements für den Filtereffekt. In vielen Fällen ist das `StrokePaint` überall opak, aber es kann anders sein, wenn eine Form mit einem Verlauf oder Muster bemalt wird, das selbst transparente oder halbtransparente Teile enthält.
+  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("stroke")}} Eigenschaft des Zielelements für den Filtereffekt. In vielen Fällen ist das `StrokePaint` überall undurchsichtig, aber das muss nicht der Fall sein, wenn eine Form mit einem Verlauf oder Muster gemalt ist, das selbst transparente oder halbtransparente Teile enthält.
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein zugewiesener Name für das Filter-Primitive in Form eines {{cssxref("custom-ident")}}. Wenn angegeben, können die Grafiken, die aus der Verarbeitung dieses Filter-Primitives resultieren, von einem in-Attribut auf einem nachfolgenden Filter-Primitive innerhalb desselben Filter-Elements referenziert werden. Wenn kein Wert angegeben wird, steht die Ausgabe nur zur Wiederverwendung als implizite Eingabe in das nächste Filter-Primitive zur Verfügung, wenn dieses Filter-Primitive keinen Wert für sein in-Attribut bereitstellt.
+  - : Dieser Wert ist ein zugewiesener Name für das Filter-Primitive in Form eines {{cssxref("custom-ident")}}. Wenn angegeben, können die Grafiken, die aus der Verarbeitung dieses Filter-Primitives resultieren, durch ein in Attribut auf einem nachfolgenden Filter-Primitive innerhalb desselben Filterelements referenziert werden. Wenn kein Wert angegeben ist, wird die Ausgabe nur zur Wiederverwendung als implizite Eingabe in das nächste Filter-Primitive zur Verfügung stehen, falls dieses Filter-Primitive keinen Wert für sein in Attribut angibt.
 
 ## Lösung für BackgroundImage
 
-`BackgroundImage` wird in modernen Browsern nicht als Filterquelle unterstützt (siehe die [feComposite Kompatibilitätstabelle](/de/docs/Web/SVG/Element/feComposite#browser_compatibility)). Daher müssen wir eines der Bilder importieren, um es selbst im Filter zu mischen, indem wir ein `<feImage>`-Element verwenden.
+`BackgroundImage` wird in modernen Browsern nicht als Filterquelle unterstützt (siehe die [feComposite-Kompatibilitätstabelle](/de/docs/Web/SVG/Element/feComposite#browser_compatibility)). Wir müssen daher eines der Bilder importieren, die innerhalb des Filters selbst über ein `<feImage>` Element zu mischen sind.
 
 > [!NOTE]
-> Der Firefox [Bug 455986](https://bugzil.la/455986) bedeutet, dass `feImage` keine partiellen Bilder laden kann, einschließlich Kreise, Rechtecke, Pfade oder anderer im Dokument definierter Fragmente. Damit dieses Beispiel in mehr Browsern funktioniert, wird ein vollständiges externes Bild des Logos geladen.
+> Firefox [Bug 455986](https://bugzil.la/455986) bedeutet, dass `feImage` keine Teilbilder laden kann, einschließlich Kreisen, Rechtecken, Pfaden oder anderen im Dokument definierten Fragmenten. Damit dieses Beispiel in mehr Browsern funktioniert, wird ein vollständiges externes Bild des Logos geladen.
 
 ### HTML
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Das **`devicechange`** Ereignis wird an eine [`MediaDevices`](/de/docs/Web/API/MediaDevices) Instanz gesendet, wann immer ein Mediengerät wie eine Kamera, ein Mikrofon oder ein Lautsprecher mit dem System verbunden oder davon entfernt wird.
+Das **`devicechange`** Ereignis wird an eine [`MediaDevices`](/de/docs/Web/API/MediaDevices) Instanz gesendet, wenn ein Mediengerät wie eine Kamera, ein Mikrofon oder ein Lautsprecher mit dem System verbunden oder davon entfernt wird.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergereicht.
+Dieses Ereignis ist nicht abbruchsicher und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-In diesem Beispiel erstellen wir eine Funktion namens `updateDeviceList()`, die einmal aufgerufen wird, wenn [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erfolgreich einen Stream erhält, und dann jedes Mal aufgerufen wird, wenn sich die Geräteliste ändert. Es werden im Browserfenster zwei Listen angezeigt: eine von Audiogeräten und eine von Videogeräten, jeweils mit dem Gerätenamen (Label) und ob es sich um ein Ein- oder Ausgabegerät handelt. Da das Beispiel einen Handler für das `devicechange` Ereignis bereitstellt, wird die Liste immer dann aktualisiert, wenn ein Mediengerät an das Gerät angeschlossen oder davon entfernt wird, auf dem das Beispiel ausgeführt wird.
+In diesem Beispiel erstellen wir eine Funktion namens `updateDeviceList()`, die einmal aufgerufen wird, wenn [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erfolgreich einen Stream erhält, und dann jedes Mal aufgerufen wird, wenn sich die Geräteliste ändert. Es werden im Browserfenster zwei Listen angezeigt: eine für Audiogeräte und eine für Videogeräte, jeweils mit dem Gerätenamen (Label) und der Angabe, ob es sich um ein Eingabe- oder Ausgabegerät handelt. Da das Beispiel einen Handler für das `devicechange` Ereignis bereitstellt, wird die Liste jedes Mal aktualisiert, wenn ein Mediengerät an das Gerät angeschlossen oder davon entfernt wird, auf dem das Beispiel läuft.
 
 ```html hidden
 <p>Click the start button below to begin the demonstration.</p>
@@ -145,7 +145,7 @@ const videoList = document.getElementById("videoList");
 
 ### Abrufen und Zeichnen der Geräteliste
 
-Schauen wir uns nun `updateDeviceList()` selbst an. Diese Methode wird immer dann aufgerufen, wenn wir die aktuelle Liste der Mediengeräte abrufen und die angezeigten Listen von Audio- und Videogeräten mit diesen Informationen aktualisieren möchten.
+Sehen wir uns nun `updateDeviceList()` selbst an. Diese Methode wird jedes Mal aufgerufen, wenn wir die aktuelle Liste der Mediengeräte abrufen und dann die angezeigten Listen der Audio- und Videogeräte mit diesen Informationen aktualisieren möchten.
 
 ```js
 function updateDeviceList() {
@@ -168,17 +168,28 @@ function updateDeviceList() {
 }
 ```
 
-`updateDeviceList()` besteht ausschließlich aus einem Aufruf der Funktion [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) auf dem [`MediaDevices`](/de/docs/Web/API/MediaDevices) Objekt, das in der [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) Eigenschaft referenziert wird, sowie dem Code, der ausgeführt wird, wenn das {{jsxref("promise")}} der `enumerateDevices()` erfüllt wird. Der Fulfillment-Handler wird aufgerufen, wenn die Geräteliste bereit ist. Die Liste wird als Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekten in den Fulfillment-Handler übergeben, die jeweils ein Medien-Ein- oder Ausgabegerät beschreiben.
+`updateDeviceList()` besteht vollständig aus einem Aufruf der Funktion
+[`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) auf dem
+[`MediaDevices`](/de/docs/Web/API/MediaDevices) Objekt, das in der
+[`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) Eigenschaft referenziert wird, sowie dem Code, der ausgeführt wird, wenn der
+{{jsxref("promise")}} zurückgegeben von `enumerateDevices()` erfüllt wird. Der
+Erfüllungs-Handler wird aufgerufen, wenn die Geräteliste bereit ist. Die Liste wird als Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekten in den Erfüllungs-Handler übergeben, wobei jedes eine Medien-Ein- oder -Ausgabegerät beschreibt.
 
-Eine {{jsxref("Array.forEach", "forEach()")}} Schleife wird verwendet, um alle Geräte zu durchsuchen. Für jedes Gerät erstellen wir ein neues {{HTMLElement("li")}} Objekt, das zur Anzeige für den Benutzer verwendet wird.
+Eine {{jsxref("Array.forEach", "forEach()")}} Schleife wird verwendet, um alle
+Geräte zu durchsuchen. Für jedes Gerät erstellen wir ein neues {{HTMLElement("li")}} Objekt, das dem Benutzer angezeigt wird.
 
-Die Zeile `let [kind, type, direction] = device.kind.match(/(\w+)(input|output)/i);` verdient besondere Beachtung. Dies verwendet [Destrukturierende Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), um die Werte der ersten drei Elemente im Array, das von {{jsxref("String.match()")}} zurückgegeben wird, den Variablen `kind`, `type` und `direction` zuzuweisen. Wir tun dies, weil der Wert von [`MediaDeviceInfo.kind`](/de/docs/Web/API/MediaDeviceInfo/kind) ein einzelner String ist, der sowohl den Medientyp als auch die Richtung, in der die Medien fließen, enthält, wie z.B. "audioinput" oder "videooutput". Diese Zeile extrahiert also den Typ ("audio" oder "video") und die Richtung ("input" oder "output"), damit sie verwendet werden können, um den in der Liste angezeigten String zu konstruieren.
+Die Zeile
+`let [kind, type, direction] = device.kind.match(/(\w+)(input|output)/i);`
+verdient besondere Beachtung. Diese nutzt [Destructuring Assignment](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), um die Werte der ersten drei Elemente des Arrays, das von {{jsxref("String.match()")}} zurückgegeben wird, den Variablen `kind`, `type` und `direction` zuzuweisen. Wir machen dies, weil der Wert von
+[`MediaDeviceInfo.kind`](/de/docs/Web/API/MediaDeviceInfo/kind) ein einzelner String ist, der sowohl den Medientyp als auch die Richtung, in die die Medien fließen, umfasst, wie beispielsweise "audioinput" oder "videooutput". Diese Zeile zieht dann den Typ ("audio" oder "video") und die Richtung ("input" oder "output") heraus, um die Zeichenkette zu konstruieren, die in der Liste angezeigt wird.
 
-Sobald der String zusammengebaut ist, der den Gerätenamen fettgedruckt und die Richtung in Klammern enthält, wird er der entsprechenden Liste durch den Aufruf von [`appendChild()`](/de/docs/Web/API/Node/appendChild) auf `audioList` oder `videoList` hinzugefügt, je nach Gerätetyp.
+Sobald die Zeichenkette zusammengefügt ist, die den Gerätenamen in Fettschrift und die Richtung in Klammern enthält, wird sie durch Aufruf von [`appendChild()`](/de/docs/Web/API/Node/appendChild) zur entsprechenden Liste hinzugefügt, entweder `audioList` oder `videoList`, je nach Gerätetyp.
 
 ### Umgang mit Änderungen der Geräteliste
 
-Wir rufen `updateDeviceList()` an zwei Stellen auf. Das erste Mal im Fulfillment-Handler des [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) Versprechens, um die Liste initial auszufüllen, wenn der Stream geöffnet wird. Das zweite ist im Ereignishandler für dieses `devicechange` Ereignis:
+Wir rufen `updateDeviceList()` an zwei Stellen auf. Die erste ist im
+[`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) Promise-Erfüllungs-Handler, um die Liste beim Öffnen des Streams initial auszufüllen. Die zweite ist im
+Ereignis-Handler für dieses `devicechange` Ereignis:
 
 ```js
 navigator.mediaDevices.ondevicechange = (event) => {
@@ -186,7 +197,8 @@ navigator.mediaDevices.ondevicechange = (event) => {
 };
 ```
 
-Mit diesem Code rufen wir jedes Mal, wenn der Benutzer eine Kamera, ein Mikrofon oder ein anderes Mediengerät anschließt oder ausschaltet, `updateDeviceList()` auf, um die Liste der verbundenen Geräte neu zu zeichnen.
+Mit diesem Code wird jedes Mal, wenn der Benutzer eine Kamera, ein Mikrofon oder ein anderes
+Mediengerät anschließt oder ein- oder ausschaltet, `updateDeviceList()` aufgerufen, um die Liste der angeschlossenen Geräte neu zu zeichnen.
 
 ### Ergebnis
 

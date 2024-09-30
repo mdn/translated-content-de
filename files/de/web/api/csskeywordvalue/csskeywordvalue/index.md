@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSKeywordValue()`**-Konstruktor
-erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Objekt, das CSS-Schlüsselwörter und
-andere Bezeichner repräsentiert.
+Der **`CSSKeywordValue()`** Konstruktor erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) Objekt, das CSS-Schlüsselwörter und andere Bezeichner repräsentiert.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ new CSSKeywordValue(val)
 ### Parameter
 
 - `value`
-  - : Setzt oder gibt den Wert des neuen `CSSKeywordValue` zurück.
+  - : Legt den Wert des neuen `CSSKeywordValue` fest oder gibt ihn zurück.
 
 ### Ausnahmen
 
@@ -30,10 +28,7 @@ new CSSKeywordValue(val)
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück,
-indem das inline
-[`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut
-auf `style="display: initial"` gesetzt wird, wenn es im [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
+Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück, indem das inline [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut auf `style="display: initial"` gesetzt wird, wenn es in den [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
 
 ```css hidden
 #myElement {

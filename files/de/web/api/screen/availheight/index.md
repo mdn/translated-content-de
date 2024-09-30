@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`availHeight`**-Eigenschaft des [`Screen`](/de/docs/Web/API/Screen)-Interfaces gibt die Höhe in CSS-Pixeln des für Webinhalte verfügbaren Bereichs auf dem Bildschirm zurück. Da [`Screen`](/de/docs/Web/API/Screen) auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle unter der Eigenschaft [`window.screen`](/de/docs/Web/API/Window/screen) verfügbar ist, greifen Sie mit `window.screen.availHeight` auf `availHeight` zu.
+Die schreibgeschützte **`availHeight`**-Eigenschaft der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle gibt die Höhe in CSS-Pixeln des für Webinhalte verfügbaren Raums auf dem Bildschirm zurück. Da [`Screen`](/de/docs/Web/API/Screen) auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle über die [`window.screen`](/de/docs/Web/API/Window/screen)-Eigenschaft verfügbar ist, greifen Sie mit `window.screen.availHeight` auf `availHeight` zu.
 
-Ebenso können Sie [`Screen.availWidth`](/de/docs/Web/API/Screen/availWidth) verwenden, um die Anzahl der horizontal für den Browser verfügbaren Pixel zu ermitteln.
+Sie können ähnlich [`Screen.availWidth`](/de/docs/Web/API/Screen/availWidth) verwenden, um die Anzahl der Pixel zu ermitteln, die horizontal für den Browser verfügbar sind.
 
 ## Wert
 
-Ein numerischer Wert, der angibt, wie viele CSS-Pixel der verfügbare Raum des Bildschirms hoch ist. Dies kann nicht größer sein als der Wert von [`window.screen.height`](/de/docs/Web/API/Screen/height) und ist kleiner, falls das Gerät oder der Benutzer-Agent vertikalen Raum für sich selbst reserviert.
+Ein numerischer Wert, der angibt, wie viele CSS-Pixel hoch der verfügbare Raum auf dem Bildschirm ist. Dieser Wert kann nicht größer sein als der Wert von [`window.screen.height`](/de/docs/Web/API/Screen/height) und wird geringer sein, wenn das Gerät oder der Benutzeragent vertikalen Raum für sich selbst reserviert.
 
-Zum Beispiel auf einem Mac, bei dem das Dock am unteren Bildschirmrand platziert ist (was standardmäßig der Fall ist), entspricht der Wert von `availHeight` ungefähr dem Wert von `height` (der gesamten Höhe des Bildschirms in CSS-Pixeln) abzüglich der Höhen des Docks und der Menüleiste, wie im unten stehenden Diagramm zu sehen. Diese nehmen nur `availHeight` ein, wenn sie immer angezeigt werden: Wenn die Seite im Vollbildmodus ist oder das Dock so konfiguriert ist, dass es automatisch ein- und ausgeblendet wird, werden sie in `availHeight` nicht mitgezählt.
+Zum Beispiel, auf einem Mac, bei dem das Dock unten am Bildschirm positioniert ist (was standardmäßig der Fall ist), ist der Wert von `availHeight` ungefähr der Wert von `height` (die Gesamthöhe des Bildschirms in CSS-Pixeln) abzüglich der Höhen von Dock und Menüleiste, wie im untenstehenden Diagramm zu sehen. Sie nehmen nur `availHeight` in Anspruch, wenn sie immer angezeigt werden: Wenn die Seite im Vollbildmodus angezeigt wird oder das Dock so konfiguriert ist, dass es automatisch ein- und ausgeblendet wird, werden sie bei `availHeight` nicht berücksichtigt.
 
-![Diagramm, das zeigt, wie Screen.availHeight in Bezug zu Screen.height und dem Bildschirminhalt steht](availheight-diagram.svg)
+![Diagramm, das zeigt, wie Screen.availHeight mit Screen.height und dem Bildschirminhalt zusammenhängt](availheight-diagram.svg)
 
 ## Beispiele
 
-Wenn Ihre Webanwendung ein neues Fenster öffnen muss, wie z. B. eine Werkzeugpalette, die mehrere Panels enthalten kann, und Sie es so positionieren möchten, dass es den gesamten vertikalen verfügbaren Raum einnimmt, können Sie dies mit einem Code wie dem hier gezeigten tun.
+Wenn Ihre Webanwendung ein neues Fenster öffnen muss, wie beispielsweise eine Werkzeugpalette, die mehrere Tafeln enthalten kann, und es so positionieren möchte, dass es den gesamten verfügbaren vertikalen Raum einnimmt, können Sie dies mit einem Code tun, der dem hier gezeigten ähnelt.
 
-Im Hauptfenster wird der folgende Code verwendet, wenn es Zeit ist, die Panels zu öffnen.
+Im Hauptfenster wird, wenn es an der Zeit ist, die Tafeln zu öffnen, ein Code wie der folgende verwendet.
 
 ```js
 const paletteWindow = window.open(
@@ -34,17 +34,17 @@ const paletteWindow = window.open(
 );
 ```
 
-Der HTML-Code des Panel-Fensters in `panels.html` enthält eigenen JavaScript-Code, der ausgeführt wird, sobald das Fenster erstellt wird. Es muss nicht auf ein bestimmtes Ereignis (oder überhaupt ein Ereignis) warten. Dieser Code kümmert sich um die Größenänderung des Fensters basierend auf dem verfügbaren Platz:
+Der HTML-Code des Tafelfensters in `panels.html` enthält eigenen JavaScript-Code, der ausgeführt wird, sobald das Fenster erstellt wird. Es muss nicht einmal auf ein bestimmtes Ereignis (oder irgendein Ereignis) warten. Dieser Code kümmert sich um die Anpassung der Fenstergröße basierend auf dem verfügbaren Raum:
 
 ```js
 window.outerHeight = window.screen.availHeight;
 ```
 
-Das Ergebnis sieht ähnlich aus wie unten gezeigt. Beachten Sie das Panel-Fenster, das den gesamten verfügbaren vertikalen Raum auf der linken Seite des Bildschirms einnimmt.
+Das Ergebnis sieht ähnlich aus wie unten dargestellt. Beachten Sie das Tafelfenster, das den gesamten verfügbaren vertikalen Raum am linken Bildschirmrand ausfüllt.
 
 ![Screenshot des Beispiels für Screen.availHeight](screen-availheight.png)
 
-Auf einem Windows-System würde dies ähnlich funktionieren, indem das Fenster geöffnet und vertikal so dimensioniert wird, dass es den gesamten verfügbaren vertikalen Raum nutzt und Platz für die Taskleiste und andere Benutzeroberflächenelemente lässt, die Platz reservieren.
+Auf einem Windows-System würde dies ähnlich funktionieren, indem das Fenster geöffnet und vertikal so dimensioniert wird, dass es den gesamten verfügbaren vertikalen Raum nutzt und Platz für die Taskleiste und andere Interface-Elemente lässt, die Raum reservieren.
 
 ## Spezifikationen
 

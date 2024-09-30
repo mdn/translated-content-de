@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getVideoTracks()`**-Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle gibt eine Sequenz von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten zurück, die die Videospuren in diesem Stream darstellen.
+Die **`getVideoTracks()`**-Methode des [`MediaStream`](/de/docs/Web/API/MediaStream)-Interfaces gibt eine Sequenz von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten zurück, die die Videospuren in diesem Stream repräsentieren.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, eines für jede Videospur, die im Medienstream enthalten ist. Videospuren sind diejenigen Spuren, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft `video` ist. Das Array ist leer, wenn der Stream keine Videospuren enthält.
+Ein Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, eines für jede Videospur im Medienstream. Videospuren sind die Spuren, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft `video` ist. Das Array ist leer, wenn der Stream keine Videospuren enthält.
 
 > [!NOTE]
-> Die Reihenfolge der Spuren ist von der Spezifikation nicht definiert und kann von einem Aufruf von `getVideoTracks()` zum anderen unterschiedlich sein.
+> Die Reihenfolge der Spuren ist durch die Spezifikation nicht definiert und kann von einem Aufruf von `getVideoTracks()` zum nächsten unterschiedlich sein.
 
 ## Beispiele
 
-Im folgenden Beispiel, das aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html) extrahiert wurde, wird `getVideoTracks()` verwendet, um eine Spur abzurufen, die an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wird.
+Das folgende Beispiel, entnommen aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet `getVideoTracks()`, um eine Spur für die Übergabe an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor abzurufen.
 
 ```js
 let imageCapture;

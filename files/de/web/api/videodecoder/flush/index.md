@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`**-Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange bearbeitet wurden.
+Die **`flush()`**-Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit undefined aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit undefiniert aufgelöst wird.
 
 ### Ausnahmen
 

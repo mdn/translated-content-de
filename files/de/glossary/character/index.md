@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Zeichen** ist entweder ein Symbol (Buchstabe, Zahl, Satzzeichen) oder ein nicht druckbares "Steuerzeichen" (z.B. Wagenrücklauf oder weiches Trennzeichen). [UTF-8](/de/docs/Glossary/UTF-8) ist der am weitesten verbreitete Zeichensatz und umfasst die Grapheme der populärsten menschlichen Sprachen.
+Ein **Zeichen** ist entweder ein Symbol (Buchstabe, Zahl, Satzzeichen) oder ein nicht druckbares "Steuerelement" (z.B. Wagenrücklauf oder bedingter Trennstrich). [UTF-8](/de/docs/Glossary/UTF-8) ist der am häufigsten verwendete Zeichensatz und enthält die Grapheme der meisten beliebten menschlichen Sprachen.
 
 ## Siehe auch
 
 - [Character (computing)](<https://en.wikipedia.org/wiki/Character_(computing)>) auf Wikipedia
-- [Character encoding](https://en.wikipedia.org/wiki/Character_encoding) auf Wikipedia
+- [Zeichenkodierung](https://en.wikipedia.org/wiki/Character_encoding) auf Wikipedia
 - Verwandte Glossarbegriffe:
   - [ASCII](/de/docs/Glossary/ASCII)
 - [UTF-8](https://en.wikipedia.org/wiki/UTF-8) auf Wikipedia

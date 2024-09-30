@@ -24,11 +24,11 @@ let removingItem = browser.storage.<storageType>.remove(
 ### Parameter
 
 - `keys`
-  - : Ein String oder ein Array von Strings, die den Schlüssel bzw. die Schlüssel der zu entfernenden Elemente repräsentieren.
+  - : Ein String oder ein Array von Strings, das den oder die Schlüssel der zu entfernenden Elemente repräsentiert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Falls der Vorgang fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -36,7 +36,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Entfernen eines einzelnen Elements:
+Ein einzelnes Element entfernen:
 
 ```js
 function onRemoved() {
@@ -54,4 +54,4 @@ removeKitten.then(onRemoved, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

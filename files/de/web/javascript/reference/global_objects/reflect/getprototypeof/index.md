@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Reflect.getPrototypeOf()`** statische Methode ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp-Objekt des angegebenen Objekts zurück.
+Die statische Methode **`Reflect.getPrototypeOf()`** ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototypenobjekt des angegebenen Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/reflect-getprototypeof.html")}}
 
@@ -20,11 +20,11 @@ Reflect.getPrototypeOf(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, von dem das Prototyp-Objekt abgerufen werden soll.
+  - : Das Zielobjekt, dessen Prototyp abgerufen werden soll.
 
 ### Rückgabewert
 
-Das Prototyp-Objekt des angegebenen Objekts, das entweder ein Objekt oder `null` sein kann.
+Der Prototyp des angegebenen Objekts, der ein Objekt oder `null` sein kann.
 
 ### Ausnahmen
 
@@ -33,9 +33,9 @@ Das Prototyp-Objekt des angegebenen Objekts, das entweder ein Objekt oder `null`
 
 ## Beschreibung
 
-`Reflect.getPrototypeOf()` bietet die reflektierende Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} liegt darin, wie Nicht-Objekt-Ziele behandelt werden. `Reflect.getPrototypeOf()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es zu einem Objekt zwingt.
+`Reflect.getPrototypeOf()` bietet die reflektierende Semantik des Abrufens des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} ist, wie nicht-objektartige Ziele behandelt werden. `Reflect.getPrototypeOf()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es zu einem Objekt zwingt.
 
-`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
 
 ## Beispiele
 

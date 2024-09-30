@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getInt8()`** von {{jsxref("DataView")}} Instanzen liest 1 Byte am angegebenen Byte-Offset dieser `DataView` und interpretiert es als 8-Bit-Ganzzahl mit Vorzeichen.
+Die **`getInt8()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Ganzzahl mit Vorzeichen.
 
 {{EmbedInteractiveExample("pages/js/dataview-getint8.html")}}
 
@@ -20,7 +20,7 @@ getInt8(byteOffset)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, von dem aus die Daten gelesen werden sollen.
+  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Eine Ganzzahl von -128 bis 127, inklusive.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus gelesen wird.
+  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinauslesen würde.
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ console.log(dataview.getInt8(1)); // 1
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int8Array")}}

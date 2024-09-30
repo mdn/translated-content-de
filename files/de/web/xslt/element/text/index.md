@@ -25,14 +25,14 @@ Keine.
 
 - `disable-output-escaping`
 
-  - : Gibt an, ob Sonderzeichen beim Schreiben in die Ausgabe unescaped sind. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` und nicht als `&gt;` ausgegeben.
+  - : Gibt an, ob spezielle Zeichen beim Schreiben an die Ausgabe escape-codiert werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` und nicht als `&gt;` ausgegeben.
 
     > [!NOTE]
-    > Ältere Browser können das Ergebnis der Transformation (die „Ausgabe“ unten) möglicherweise nicht serialisieren, was dieses Attribut in solchen Kontexten irrelevant macht. Verwenden Sie stattdessen numerische Werte, um HTML-Entitäten auszugeben, z. B. `&#160;` für `&nbsp;`.
+    > Ältere Browser könnten das Ergebnis der Transformation (die "Ausgabe" unten) nicht serialisieren, was dieses Attribut in solchen Kontexten irrelevant macht. Um HTML-Entitäten auszugeben, verwenden Sie stattdessen numerische Werte, z.B. `&#160;` für `&nbsp;`.
 
 ### Typ
 
-Anweisung, erscheint innerhalb einer Vorlage.
+Instruktion, erscheint innerhalb einer Vorlage.
 
 ## Spezifikationen
 

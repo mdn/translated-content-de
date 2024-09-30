@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: framebufferTexture2D()-Methode"
+title: "WebGLRenderingContext: framebufferTexture2D() Methode"
 short-title: framebufferTexture2D()
 slug: Web/API/WebGLRenderingContext/framebufferTexture2D
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.framebufferTexture2D()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) verbindet eine Textur mit einem [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer).
+Die **`WebGLRenderingContext.framebufferTexture2D()`**-Methode des [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine Textur an ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer).
 
 ## Syntax
 
@@ -20,85 +20,74 @@ framebufferTexture2D(target, attachment, textarget, texture, level)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (target) spezifiziert. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
 
-      - : Sammlung von Pufferdaten zur Speicherung von Farbe, Alpha,
-        Tiefe und Schablonenpuffern, die zur Darstellung eines Bildes verwendet werden.
+      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind folgende Werte zusätzlich verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
-      - : Wird als Ziel für Zeichnungs-, Rendering-, Lösch- und Schreibvorgänge verwendet.
+      - : Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
-      - : Wird als Quelle für Lesevorgänge verwendet.
+      - : Wird als Quelle für Leseoperationen verwendet.
 
-    Bei der Bindung setzt `gl.FRAMEBUFFER` sowohl die
-    `gl.DRAW_FRAMEBUFFER` als auch `gl.READ_FRAMEBUFFER` Bindungspunkte. Bei der Referenzierung bezieht sich `gl.FRAMEBUFFER` auf den
-    `gl.DRAW_FRAMEBUFFER` Bindungspunkt.
+    Beim Binden setzt `gl.FRAMEBUFFER` sowohl die Bindungspunkte `gl.DRAW_FRAMEBUFFER` als auch `gl.READ_FRAMEBUFFER`. Beim Referenzieren bezieht sich `gl.FRAMEBUFFER` auf die Bindung `gl.DRAW_FRAMEBUFFER`.
 
 - `attachment`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Anhangspunkt für die
-    `texture` angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Anhangspunkt für die `texture` festlegt. Mögliche Werte:
 
     - `gl.COLOR_ATTACHMENT0`: Befestigt die Textur am Farb-Puffer des Framebuffers.
     - `gl.DEPTH_ATTACHMENT`: Befestigt die Textur am Tiefen-Puffer des Framebuffers.
     - `gl.STENCIL_ATTACHMENT`: Befestigt die Textur am Schablonen-Puffer des Framebuffers.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind folgende Werte zusätzlich verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
 
-    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefe und Schablonenpuffer.
-    - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 gl.COLOR_ATTACHMENT3 gl.COLOR_ATTACHMENT4 gl.COLOR_ATTACHMENT5 gl.COLOR_ATTACHMENT6 gl.COLOR_ATTACHMENT7 gl.COLOR_ATTACHMENT8 gl.COLOR_ATTACHMENT9 gl.COLOR_ATTACHMENT10 gl.COLOR_ATTACHMENT11 gl.COLOR_ATTACHMENT12 gl.COLOR_ATTACHMENT13 gl.COLOR_ATTACHMENT14 gl.COLOR_ATTACHMENT15`
+    - `gl.DEPTH_STENCIL_ATTACHMENT`: Datenhaltung für Tiefen- und Schablonenpuffer.
+    - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 ... gl.COLOR_ATTACHMENT15`
 
     Bei Verwendung der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) Erweiterung:
 
-    - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie
-      `gl.COLOR_ATTACHMENT0`)
-    - `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ext.COLOR_ATTACHMENT3_WEBGL ext.COLOR_ATTACHMENT4_WEBGL ext.COLOR_ATTACHMENT5_WEBGL ext.COLOR_ATTACHMENT6_WEBGL ext.COLOR_ATTACHMENT7_WEBGL ext.COLOR_ATTACHMENT8_WEBGL ext.COLOR_ATTACHMENT9_WEBGL ext.COLOR_ATTACHMENT10_WEBGL ext.COLOR_ATTACHMENT11_WEBGL ext.COLOR_ATTACHMENT12_WEBGL ext.COLOR_ATTACHMENT13_WEBGL ext.COLOR_ATTACHMENT14_WEBGL ext.COLOR_ATTACHMENT15_WEBGL`
+    - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie `gl.COLOR_ATTACHMENT0`)
+    - `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ... ext.COLOR_ATTACHMENT15_WEBGL`
 
     Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung:
 
-    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Schablonenpuffer-Datenspeicherung.
+    - `gl.DEPTH_STENCIL_ATTACHMENT`: Datenhaltung für Tiefen- und Schablonenpuffer.
 
 - `textarget`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Texturziel angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Texturziel spezifiziert. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Ein 2D-Bild.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Bild für die positive X-Seite des
-      Würfels.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Bild für die negative X-Seite des
-      Würfels.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Bild für die positive Y-Seite des
-      Würfels.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Bild für die negative Y-Seite des
-      Würfels.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Bild für die positive Z-Seite des
-      Würfels.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Bild für die negative Z-Seite des
-      Würfels.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Bild für die positive X-Seite des Würfels.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Bild für die negative X-Seite des Würfels.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Bild für die positive Y-Seite des Würfels.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Bild für die negative Y-Seite des Würfels.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Bild für die positive Z-Seite des Würfels.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Bild für die negative Z-Seite des Würfels.
 
 - `texture`
-  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) Objekt, dessen Bild angebracht werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, dessen Bild angehängt werden soll.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Mipmap-Ebene des Texturbildes angibt, das angehängt werden soll. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Mipmap-Level des anzuhängenden Texturbildes angibt. Muss 0 sein.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_ENUM` Fehler wird geworfen, wenn
 
   - `target` nicht `gl.FRAMEBUFFER` ist.
   - `attachment` nicht einer der akzeptierten Anhangspunkte ist.
   - `textarget` nicht eines der akzeptierten Texturziele ist.
 
-- Ein `gl.INVALID_VALUE` Fehler wird ausgelöst, wenn `level` nicht 0 ist.
-- Ein `gl.INVALID_OPERATION` Fehler wird ausgelöst, wenn `texture` nicht 0 oder der Name eines existierenden Texturobjekts ist.
+- Ein `gl.INVALID_VALUE` Fehler wird geworfen, wenn `level` nicht 0 ist.
+- Ein `gl.INVALID_OPERATION` Fehler wird geworfen, wenn `texture` nicht 0 oder der Name eines existierenden Texturobjekts ist.
 
 ## Beispiele
 

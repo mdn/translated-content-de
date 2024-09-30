@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`glyph-name`**-Attribut gibt den Namen eines [Glyphs](/de/docs/Glossary/glyph) an.
+Das **`glyph-name`** Attribut gibt den Namen eines [Glyphen](/de/docs/Glossary/glyph) an.
 
-Es wird empfohlen, dass Glyph-Namen innerhalb einer Schriftart eindeutig sind. Die Glyph-Namen können in Situationen verwendet werden, in denen [Unicode](/de/docs/Glossary/Unicode)-Zeichennummern nicht genügend Informationen geben, um das korrekte Glyph zuzugreifen, wie zum Beispiel, wenn es mehrere Glyphen pro Unicode-Zeichen gibt.
+Es wird empfohlen, dass Glyphennamen innerhalb einer Schriftart eindeutig sind. Die Glyphennamen können in Situationen verwendet werden, in denen [Unicode](/de/docs/Glossary/Unicode)-Zeichennummern nicht genügend Informationen liefern, um auf den richtigen Glyphen zuzugreifen, z. B. wenn es mehrere Glyphen pro Unicode-Zeichen gibt.
 
-Die Glyph-Namen können in [Kerning](/de/docs/Glossary/kerning)-Definitionen referenziert werden, die durch die {{SVGElement("hkern")}}- und {{SVGElement("vkern")}}-Elemente erstellt wurden.
+Die Glyphennamen können in [Kerning](/de/docs/Glossary/kerning)-Definitionen referenziert werden, die von {{SVGElement("hkern")}} und {{SVGElement("vkern")}} Elementen erstellt wurden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -37,7 +37,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert spezifiziert eine kommagetrennte Liste von Namen für das Glyph.
+  - : Dieser Wert gibt eine durch Kommas getrennte Liste von Namen für den Glyphen an.
 
 ## Spezifikationen
 

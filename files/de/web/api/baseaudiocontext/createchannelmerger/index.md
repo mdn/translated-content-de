@@ -8,13 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createChannelMerger()` Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) Schnittstelle erstellt einen [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode),
-der Kanäle aus mehreren Audioströmen zu einem einzigen Audiostrom kombiniert.
+Die Methode `createChannelMerger()` des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erstellt einen [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode), der Kanäle aus mehreren Audioströmen zu einem einzelnen Audiostrom kombiniert.
 
 > [!NOTE]
-> Der Konstruktor [`ChannelMergerNode()`](/de/docs/Web/API/ChannelMergerNode/ChannelMergerNode) ist die
-> empfohlene Methode, um einen [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode) zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der Konstruktor [`ChannelMergerNode()`](/de/docs/Web/API/ChannelMergerNode/ChannelMergerNode) wird empfohlen, um einen [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode) zu erzeugen; siehe [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,7 +22,7 @@ createChannelMerger(numberOfInputs)
 ### Parameter
 
 - `numberOfInputs`
-  - : Die Anzahl der Kanäle in den Eingangs-Audioströmen, die der Ausgabestrom enthalten wird; der Standardwert ist 6, falls dieser Parameter nicht angegeben ist.
+  - : Die Anzahl der Kanäle in den Eingangsaudioströmen, die der Ausgangsstrom enthalten wird; der Standardwert ist 6, wenn dieser Parameter nicht angegeben wird.
 
 ### Rückgabewert
 
@@ -33,7 +30,7 @@ Ein [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Stereo-Track (z. B. ein Musikstück) getrennt und die linke und rechte Spur unterschiedlich verarbeitet werden können. Um sie zu verwenden, müssen Sie die zweiten und dritten Parameter der [`AudioNode.connect(AudioNode)`](/de/docs/Web/API/AudioNode/connect) Methode verwenden, die es Ihnen ermöglichen, sowohl den Index des Kanals, von dem verbunden werden soll, als auch den Index des Kanals, zu dem verbunden werden soll, anzugeben.
+Das folgende Beispiel zeigt, wie Sie einen Stereo-Track (zum Beispiel ein Musikstück) trennen und den linken und rechten Kanal unterschiedlich verarbeiten könnten. Dazu müssen Sie die zweite und dritte Parameter der Methode [`AudioNode.connect(AudioNode)`](/de/docs/Web/API/AudioNode/connect) verwenden, die es Ihnen ermöglichen, sowohl den Index des Kanals anzugeben, von dem verbunden werden soll, als auch den Index des Kanals, zu dem verbunden werden soll.
 
 ```js
 const ac = new AudioContext();

@@ -1,5 +1,5 @@
 ---
-title: "MediaTrackSupportedConstraints: noiseSuppression-Eigenschaft"
+title: "MediaTrackSupportedConstraints: Eigenschaft noiseSuppression"
 short-title: noiseSuppression
 slug: Web/API/MediaTrackSupportedConstraints/noiseSuppression
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch enthält die schreibgeschützte Boolesche Eigenschaft **`noiseSuppression`**, die im Objekt, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, vorhanden ist (und auf `true` gesetzt ist), wenn und nur wenn der [Benutzeragent](/de/docs/Glossary/user_agent) die **`noiseSuppression`**-Einschränkung unterstützt. Falls die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, was bedeutet, dass dieser Wert niemals `false` sein wird.
+Das **`noiseSuppression`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints) Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der nur dann vorhanden ist (und auf `true` gesetzt wird) in dem Objekt, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die **`noiseSuppression`**-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 
-Sie können auf das unterstützte Einschränkungs-Wörterbuch zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
-Die `noiseSuppression`-Einschränkung gibt an, ob der Browser die Fähigkeit bietet, den Pegel (die Lautstärke) von Medienspuren automatisch zu steuern; dies hängt natürlich davon ab, ob das einzelne Gerät eine automatische Pegelsteuerung unterstützt.
+Die `noiseSuppression`-Einschränkung gibt an, ob der Browser die Fähigkeit bietet, die Verstärkung (Lautstärke) auf Medienspuren automatisch zu steuern; dies hängt natürlich auch davon ab, ob das einzelne Gerät die automatische Verstärkungsregelung unterstützt.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch (und ihr Wert ist immer `true`) vorhanden, wenn der Benutzeragent die `noiseSuppression`-Einschränkung unterstützt (und somit die Geräuschunterdrückung auf Audiospuren unterstützt). Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im unterstützten Einschränkungs-Wörterbuch, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert anzusehen.
+Diese Eigenschaft ist im Wörterbuch vorhanden (und der Wert ist immer `true`), wenn der User-Agent die `noiseSuppression`-Einschränkung unterstützt (und damit Rauschunterdrückung auf Audio-Tracks). Wenn die Eigenschaft nicht vorhanden ist, fehlt sie im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert zu betrachten.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, ob Ihr Browser die `noiseSuppression`-Einschränkung unterstützt.
+Dieses Beispiel zeigt, ob Ihr Browser die `noiseSuppression`-Einschränkung unterstützt oder nicht.
 
 ```html hidden
 <div id="result"></div>

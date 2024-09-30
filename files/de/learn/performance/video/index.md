@@ -1,5 +1,5 @@
 ---
-title: "Multimedia: video"
+title: "Multimedia: Video"
 slug: Learn/Performance/video
 l10n:
   sourceCommit: 7972ac25580ffbfb160e6d40013bbab3013d7cbe
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Performance/Multimedia", "Learn/Performance/javascript_performance", "Learn/Performance")}}
 
-Wie wir im vorherigen Abschnitt gelernt haben, machen Medien, hauptsächlich Bilder und Videos, über 70% der heruntergeladenen Bytes einer durchschnittlichen Website aus. Wir haben bereits einen Blick darauf geworfen, wie Bilder optimiert werden können. Dieser Artikel befasst sich mit der Optimierung von Videos zur Verbesserung der Web-Performance.
+Wie wir im vorherigen Abschnitt gelernt haben, machen Medien, nämlich Bilder und Videos, über 70 % der heruntergeladenen Bytes für die durchschnittliche Website aus. Wir haben bereits die Optimierung von Bildern betrachtet. Dieser Artikel befasst sich mit der Optimierung von Videos, um die Web-Performance zu verbessern.
 
 <table>
   <tbody>
@@ -17,44 +17,44 @@ Wie wir im vorherigen Abschnitt gelernt haben, machen Medien, hauptsächlich Bil
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, und grundlegende Kenntnisse in
+        >, und Grundkenntnisse in
         <a href="/de/docs/Learn/Getting_started_with_the_web"
-          >clientseitigen Webtechnologien</a
+          >clientseitigen Web-Technologien</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
+      <th scope="row">Zielsetzung:</th>
       <td>
-        Sie lernen die verschiedenen Videoformate kennen, deren Einfluss auf die Leistung und wie man die Auswirkungen von Videos auf die gesamte Ladezeit der Seite reduzieren kann, während die kleinste Videodateigröße basierend auf der Dateityp-Unterstützung jedes Browsers bereitgestellt wird.
+        Lernen Sie die verschiedenen Videoformate kennen, deren Einfluss auf die Leistung, und wie Sie die Auswirkungen von Videos auf die gesamte Ladezeit der Seite reduzieren können, während Sie die kleinste Videodateigröße basierend auf dem Dateityp-Support jedes Browsers bereitstellen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Warum sollte man Multimedia optimieren?
+## Warum sollten Sie Ihr Multimedia optimieren?
 
-Für die durchschnittliche Website kommen [25 % der Bandbreite von Videos](https://discuss.httparchive.org/t/state-of-the-web-top-image-optimization-strategies/1367). Die Optimierung von Videos bietet ein großes Potenzial für erhebliche Bandbreiteneinsparungen, die zu einer besseren Website-Performance führen.
+Bei der durchschnittlichen Website stammen [25 % der Bandbreite von Videos](https://discuss.httparchive.org/t/state-of-the-web-top-image-optimization-strategies/1367). Das Optimieren von Videos kann zu sehr großen Einsparungen bei der Bandbreite führen, die sich in einer besseren Website-Performance übersetzen.
 
-## Optimierung der Videoübertragung
+## Optimierung der Video-Bereitstellung
 
-Die folgenden Abschnitte beschreiben die folgenden Optimierungstechniken:
+Die folgenden Abschnitte beschreiben die Optimierungstechniken:
 
 - [Alle Videos komprimieren](#alle_videos_komprimieren)
 - [Reihenfolge der `<source>`-Elemente optimieren](#optimize_source_order)
-- [Audio von stummgeschalteten Videos entfernen](#audio_von_stummgeschalteten_videos_entfernen)
-- [Video Preload optimieren](#video_preload)
+- [Audio von stummen Videos entfernen](#audio_von_stummen_videos_entfernen)
+- [Video-Preload optimieren](#video-preload)
 - [Streaming in Betracht ziehen](#streaming_in_betracht_ziehen)
 
 ### Alle Videos komprimieren
 
-Die meisten Videokomprimierungen vergleichen benachbarte Frames innerhalb eines Videos, um Details zu entfernen, die in beiden Frames identisch sind. Komprimieren Sie das Video und exportieren Sie es in mehrere Videoformate, einschließlich WebM und MPEG-4/H.264.
+Die meiste Videokompressionsarbeit vergleicht benachbarte Frames innerhalb eines Videos, um Details zu entfernen, die in beiden Frames identisch sind. Komprimieren Sie das Video und exportieren Sie es in mehrere Videoformate, einschließlich WebM und MPEG-4/H.264.
 
-Ihre Videosoftware verfügt wahrscheinlich über eine Funktion zur Reduzierung der Dateigröße. Falls nicht, gibt es Online-Tools wie [FFmpeg](https://www.ffmpeg.org/) (im folgenden Abschnitt besprochen), die kodieren, dekodieren, konvertieren und andere Optimierungsfunktionen durchführen.
+Ihre Videobearbeitungssoftware hat wahrscheinlich eine Funktion zur Reduzierung der Dateigröße. Wenn nicht, gibt es Online-Tools wie [FFmpeg](https://www.ffmpeg.org/) (im folgenden Abschnitt besprochen), die kodieren, dekodieren, konvertieren und andere Optimierungsfunktionen ausführen.
 
 ### Reihenfolge der `<source>`-Elemente optimieren
 
-Reihen Sie die Videoquellen vom kleinsten zum größten. Zum Beispiel: Bei Video-Komprimierungen im Format von 10MB und 12MB deklarieren Sie die 10MB-Ressource zuerst:
+Ordnen Sie Videoquellen von klein nach groß. Zum Beispiel, wenn Videos in den Formaten mit 10MB und 12MB komprimiert sind, deklarieren Sie die 10MB-Ressource zuerst:
 
 ```html
 <video width="400" height="300" controls="controls">
@@ -65,11 +65,11 @@ Reihen Sie die Videoquellen vom kleinsten zum größten. Zum Beispiel: Bei Video
 </video>
 ```
 
-Der Browser lädt das erste Format herunter, das er versteht. Das Ziel ist es, kleinere Versionen größeren Versionen vorzuziehen. Achten Sie darauf, dass auch die am meisten komprimierte Version des Videos noch gut aussieht. Manche Komprimierungsalgorithmen können Videos aussehen lassen wie animierte GIFs. Auch wenn ein 128 Kb Video wie eine bessere Benutzererfahrung als ein 10 MB Download wirken könnte, kann ein körniges GIF-ähnliches Video das Marken- oder Projektimage schädigen.
+Der Browser lädt das erste Format herunter, das er versteht. Das Ziel ist es, kleinere Versionen vor größeren Versionen anzubieten. Bei der kleinsten Version stellen Sie sicher, dass das am meisten komprimierte Video immer noch gut aussieht. Es gibt einige Kompressionsalgorithmen, bei denen das Video (schlecht) wie ein animiertes GIF aussehen kann. Während ein 128 Kb Video besser als ein 10 MB Download erscheinen mag, könnte ein körniges GIF-ähnliches Video schlecht auf die Marke oder das Projekt zurückfallen.
 
-### Audio von stummgeschalteten Videos entfernen
+### Audio von stummen Videos entfernen
 
-Für Hero-Videos oder andere Videos ohne Audio ist das Entfernen von Audio sinnvoll.
+Für Hero-Videos oder andere Videos ohne Ton ist das Entfernen von Audio sinnvoll.
 
 ```html
 <video autoplay="" loop="" muted playsinline="" id="hero-video">
@@ -78,30 +78,30 @@ Für Hero-Videos oder andere Videos ohne Audio ist das Entfernen von Audio sinnv
 </video>
 ```
 
-Der oben gezeigte Hero-Video-Code ist häufig auf Konferenzwebsites und Unternehmens-Homepages zu finden. Er enthält ein Video, das automatisch abgespielt, in einer Schleife wiedergegeben und stummgeschaltet ist. Es gibt keine Steuerelemente, sodass es nicht möglich ist, Audio zu hören. Oft ist das Audio leer, aber trotzdem vorhanden und belastet trotzdem die Bandbreite. Es gibt keinen Grund, Audio mit einem Video bereitzustellen, das immer stumm ist. **Das Entfernen von Audio kann 20 % der Bandbreite sparen.**
+Dieser Hero-Video-Code (oben) ist auf Konferenzwebsites und Unternehmens-Homepages häufig. Es enthält ein Video, das automatisch abgespielt, wiederholt und stummgeschaltet ist. Es gibt keine Bedienelemente, daher gibt es keine Möglichkeit, Audio zu hören. Das Audio ist oft leer, aber immer noch vorhanden und verbraucht weiterhin Bandbreite. Es gibt keinen Grund, Audio mit Videos bereitzustellen, die immer stummgeschaltet sind. **Das Entfernen von Audio kann 20 % der Bandbreite einsparen.**
 
-Je nach Ihrer Softwareauswahl können Sie möglicherweise Audio während des Exportierens und Komprimierens entfernen. Wenn nicht, kann ein kostenloses Hilfsprogramm namens [FFmpeg](https://www.ffmpeg.org/) dies für Sie tun. Dies ist der FFmpeg-Befehl, um Audio zu entfernen:
+Je nach Ihrer Wahl der Software können Sie Audio möglicherweise während des Exports und der Kompression entfernen. Wenn nicht, kann ein kostenloses Hilfsprogramm namens [FFmpeg](https://www.ffmpeg.org/) dies für Sie erledigen. Dies ist die FFmpeg-Befehlsfolge zum Entfernen von Audio:
 
 ```bash
 ffmpeg -i original.mp4 -an -c:v copy audioFreeVersion.mp4
 ```
 
-### Video Preload
+### Video-Preload
 
-Das `preload`-Attribut hat drei verfügbare Optionen: `auto`, `metadata` und `none`. Die Standardeinstellung ist `metadata`. Diese Einstellungen steuern, wie viel von einer Videodatei beim Laden der Seite heruntergeladen wird. Sie können Daten sparen, indem Sie den Download für weniger populäre Videos aufschieben.
+Das Attribut `preload` hat drei verfügbare Optionen: `auto`, `metadata` und `none`. Die Standardeinstellung ist `metadata`. Diese Einstellungen steuern, wie viel von einer Videodatei mit der Seitenladung heruntergeladen wird. Sie können Daten sparen, indem Sie den Download für weniger beliebte Videos aufschieben.
 
-Mit der Einstellung `preload="none"` wird kein Video heruntergeladen, bis die Wiedergabe beginnt. Dies verzögert den Start, bietet jedoch signifikante Dateneinsparungen für Videos mit einer geringen Wiedergabewahrscheinlichkeit.
+Das Setzen von `preload="none"` führt dazu, dass kein Teil des Videos bis zur Wiedergabe heruntergeladen wird. Es verzögert den Start, bietet aber erhebliche Dateneinsparungen für Videos mit geringer Wahrscheinlichkeit der Wiedergabe.
 
-Eine bescheidenere Einsparung bietet die Einstellung `preload="metadata"`, bei der bis zu 3 % des Videos beim Laden der Seite heruntergeladen werden können. Dies ist eine nützliche Option für einige kleine oder mäßig große Dateien.
+Durch das Setzen von `preload="metadata"` können bis zu 3 % des Videos bei der Seitenladung heruntergeladen werden, was moderate Bandbreiteneinsparungen bietet. Dies ist eine nützliche Option für einige kleine oder mittelgroße Dateien.
 
-Wenn Sie die Einstellung auf `auto` ändern, wird dem Browser mitgeteilt, das gesamte Video automatisch herunterzuladen. Dies sollte nur dann erfolgen, wenn die Wiedergabe sehr wahrscheinlich ist. Andernfalls verschwendet es viel Bandbreite.
+Die Änderung der Einstellung auf `auto` weist den Browser an, das gesamte Video automatisch herunterzuladen. Tun Sie dies nur, wenn die Wiedergabe sehr wahrscheinlich ist. Andernfalls verschwendet es viel Bandbreite.
 
 ### Streaming in Betracht ziehen
 
-[Video-Streaming ermöglicht es, die richtige Videogröße und Bandbreite](https://www.smashingmagazine.com/2018/10/video-playback-on-the-web-part-2/) (basierend auf der Netzwerkgeschwindigkeit) an den Endbenutzer zu liefern. Ähnlich wie bei responsiven Bildern, wird das Video in der korrekten Größe an den Browser geliefert, was einen schnellen Video-Start, geringes Puffern und optimierte Wiedergabe gewährleistet.
+[Video-Streaming ermöglicht es, die richtige Videogröße und Bandbreite](https://www.smashingmagazine.com/2018/10/video-playback-on-the-web-part-2/) (basierend auf der Netzwerkgeschwindigkeit) für den Endbenutzer bereitzustellen. Ähnlich wie bei responsiven Bildern wird das richtige Größen-Video an den Browser geliefert, was schnellen Video-Start, geringes Buffering und optimierte Wiedergabe gewährleistet.
 
 ## Fazit
 
-Die Optimierung von Videos hat das Potenzial, die Leistungsfähigkeit von Websites erheblich zu verbessern. Videodateien sind im Vergleich zu anderen Website-Dateien relativ groß und verdienen immer Aufmerksamkeit. Dieser Artikel erklärt, wie Sie Website-Videos durch Reduzierung der Dateigröße, mit (HTML-)Download-Einstellungen und durch Streaming optimieren können.
+Das Optimieren von Videos hat das Potenzial, die Website-Performance erheblich zu verbessern. Videodateien sind im Vergleich zu anderen Website-Dateien relativ groß und immer einer Überlegung wert. Dieser Artikel erklärt, wie Sie Website-Videos durch die Reduzierung der Dateigröße, mit (HTML)-Download-Einstellungen und durch Streaming optimieren können.
 
 {{PreviousMenuNext("Learn/Performance/Multimedia", "Learn/Performance/javascript_performance", "Learn/Performance")}}

@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Erforderlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -48,17 +48,17 @@ l10n:
   </tbody>
 </table>
 
-Eine Action ist ein Button, den Ihre Erweiterung zur Symbolleiste des Browsers hinzufügt. Der Button hat ein Icon und kann optional ein Popup haben, dessen Inhalt mithilfe von HTML, CSS und JavaScript festgelegt wird.
+Eine Aktion ist ein Button, den Ihre Erweiterung zur Toolbar des Browsers hinzufügt. Der Button hat ein Icon und kann optional ein Popup beinhalten, dessen Inhalt mithilfe von HTML, CSS und JavaScript spezifiziert wird.
 
-Dieser Schlüssel ersetzt [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in Manifest-V3-Erweiterungen.
+Dieser Schlüssel ersetzt [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in Manifest V3-Erweiterungen.
 
-Sie müssen diesen Schlüssel angeben, um in Ihrer Erweiterung einen Button in der Browser-Symbolleiste einzufügen. Wenn angegeben, können Sie den Button programmatisch mit der {{WebExtAPIRef("action")}}-API manipulieren.
+Sie müssen diesen Schlüssel angeben, um einen Toolbar-Button in Ihrer Erweiterung einzuschließen. Wenn angegeben, können Sie den Button programmatisch mit der {{WebExtAPIRef("action")}} API manipulieren.
 
-Wenn Sie ein Popup angeben, wird dieses geöffnet, wenn der Nutzer den Button anklickt, und Ihr JavaScript, das im Popup läuft, kann die Interaktion des Nutzers damit verarbeiten. Wenn kein Popup angegeben wird, wird beim Klick des Nutzers ein Klick-Event an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) Ihrer Erweiterung gesendet.
+Wenn Sie ein Popup bereitstellen, wird es geöffnet, wenn der Benutzer auf den Button klickt, und Ihr JavaScript im Popup kann die Interaktion des Benutzers damit verarbeiten. Wenn Sie kein Popup bereitstellen, wird ein Klickereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) Ihrer Erweiterung gesendet, wenn der Benutzer auf den Button klickt.
 
 ## Syntax
 
-Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaften haben kann:
+Der `action`-Schlüssel ist ein Objekt, das eine oder mehrere dieser Eigenschaften enthalten kann, alle optional:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -81,10 +81,10 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
       </td>
       <td><code>Boolean</code></td>
       <td>
-        <p>Optional, standardmäßig <code>false</code>.</p>
+        <p>Optional, Standardwert ist <code>false</code>.</p>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: Die Unterstützung wurde in Manifest V3 in Firefox 118 entfernt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3-Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: Seine Unterstützung in Manifest V3 wurde in Firefox 118 entfernt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
           </p>
         </div>
       </td>
@@ -95,27 +95,27 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
       <td><code>String</code></td>
       <td>
         <p>
-          Definiert den Teil des Browsers, in dem der Button zunächst platziert wird. Dies ist ein String, der einen der vier folgenden Werte annehmen kann:
+          Definiert den Teil des Browsers, in dem der Button anfänglich platziert wird. Dies ist ein String, der einen von vier Werten haben kann:
         </p>
         <ul>
           <li>
-            "navbar": Der Button wird in der Hauptsymbolleiste des Browsers neben der URL-Leiste platziert.
+            "navbar": Der Button wird in der Haupt-Toolbar des Browsers, neben der URL-Leiste, platziert.
           </li>
           <li>"menupanel": Der Button wird in einem Popup-Panel platziert.</li>
           <li>
-            "tabstrip": Der Button wird in der Symbolleiste platziert, die die Browsertabs enthält.
+            "tabstrip": Der Button wird in der Toolbar platziert, die die Tabs des Browsers enthält.
           </li>
           <li>
-            "personaltoolbar": Der Button wird in der Lesezeichen-Symbolleiste platziert.
+            "personaltoolbar": Der Button wird in der Lesezeichen-Toolbar platziert.
           </li>
         </ul>
         <p>Diese Eigenschaft wird nur in Firefox unterstützt.</p>
-        <p>Diese Eigenschaft ist optional und standardmäßig auf "menupanel" gesetzt.</p>
+        <p>Diese Eigenschaft ist optional und hat standardmäßig den Wert "menupanel".</p>
         <p>
-          Firefox merkt sich die <code>default_area</code>-Einstellung einer Erweiterung, auch wenn diese deinstalliert und anschließend neu installiert wird. Um den Browser zu zwingen, einen neuen Wert für <code>default_area</code> anzunehmen, muss die ID der Erweiterung geändert werden.
+          Firefox speichert die <code>default_area</code>-Einstellung für eine Erweiterung, selbst wenn diese Erweiterung deinstalliert und anschließend neu installiert wird. Um den Browser zu zwingen, einen neuen Wert für <code>default_area</code> anzuerkennen, muss die ID der Erweiterung geändert werden.
         </p>
         <p>
-          Eine Erweiterung kann den Ort des Buttons nach der Installation nicht ändern, aber der Nutzer kann den Button möglicherweise über den eingebauten UI-Anpassungsmechanismus des Browsers verschieben.
+          Eine Erweiterung kann nicht den Ort des Buttons ändern, nachdem sie installiert wurde, aber der Benutzer kann möglicherweise den Button mithilfe des eingebauten Mechanismus zur UI-Anpassung des Browsers verschieben.
         </p>
       </td>
     </tr>
@@ -125,15 +125,16 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
       <td><code>Object</code> oder <code>String</code></td>
       <td>
         <p>
-          Verwenden Sie diese Option, um ein oder mehrere Icons für die Aktion anzugeben. Das Icon wird standardmäßig in der Browser-Symbolleiste angezeigt.
+          Verwenden Sie dies, um ein oder mehrere Icons für die Aktion anzugeben. Das Icon wird standardmäßig in der Browser-Toolbar angezeigt.
         </p>
         <p>
-          Icons werden als URLs relativ zur manifest.json-Datei angegeben.
+          Icons werden als URLs relativ zur Datei manifest.json angegeben.
         </p>
         <p>Sie können eine einzelne Icon-Datei angeben, indem Sie hier einen String angeben:</p>
         <pre class="brush: json">"default_icon": "path/to/geo.svg"</pre>
         <p>
-          Um mehrere Icons in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an. Der Name jeder Eigenschaft ist die Höhe des Icons in Pixeln und muss in einen Integer konvertierbar sein. Der Wert ist die URL. Zum Beispiel:
+          Um mehrere Icons in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an.
+          Der Name jeder Eigenschaft ist die Höhe des Icons in Pixeln und muss in einen Integer konvertierbar sein. Der Wert ist die URL. Zum Beispiel:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -142,7 +143,11 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
     }</pre
         >
         <p>
-          Sie können nicht mehrere Icons in denselben Größen angeben.<br /><br />Weitere Hinweise finden Sie unter <a href="#choosing_icon_sizes">Auswahl der Icon-Größen</a>.
+          Sie können nicht mehrere Icons derselben Größe angeben.<br /><br />Sehen Sie
+          <a href="#choosing_icon_sizes"
+            >Auswahl der Icon-Größen</a
+          >
+          für weitere Hinweise dazu.
         </p>
       </td>
     </tr>
@@ -155,7 +160,7 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
           Der Pfad zu einer HTML-Datei, die die Spezifikation des Popups enthält.
         </p>
         <p>
-          Die HTML-Datei kann CSS- und JavaScript-Dateien einschließen mit
+          Die HTML-Datei kann CSS- und JavaScript-Dateien einbinden, indem
           <code
             ><a href="/de/docs/Web/HTML/Element/link">&#x3C;link></a></code
           >
@@ -165,25 +170,36 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
               >&#x3C;script></a
             ></code
           >
-          -Elementen, genau wie eine normale Webseite. Allerdings muss
+          Elemente wie bei einer normalen Webseite verwendet werden. Jedoch
+          muss ein
           <code
-            ><a href="/de/docs/Web/HTML/Element/script">src</a></code>
-          Attribut verwenden, um eine Datei zu laden. Verwenden Sie keine
+            ><a href="/de/docs/Web/HTML/Element/script"
+              >&#x3C;script>
+            </a></code
+          >
+          Element ein
+          <code><a href="/de/docs/Web/HTML/Element/script">src</a></code>
+          Attribut haben, um eine Datei zu laden. Verwenden Sie kein
           <code
             ><a href="/de/docs/Web/HTML/Element/script"
               >&#x3C;script></a
             ></code
           >
-          mit eingebettetem Code, da Sie einen verwirrenden Fehler in Bezug auf die Content Violation Policy erhalten würden.
+          mit eingebettetem Code, da Sie andernfalls einen verwirrenden Content Violation
+          Policy-Fehler erhalten werden.
         </p>
         <p>
-          Anders als bei einer normalen Webseite kann JavaScript, das im Popup läuft, auf alle
-          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API">WebExtension-APIs</a>
-          zugreifen (vorausgesetzt, die Erweiterung hat die entsprechenden
+          Im Gegensatz zu einer normalen Webseite kann JavaScript, das im Popup läuft, auf
+          alle
+          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
+            >WebExtension APIs</a
+          >
+          zugreifen (vorbehaltlich, dass die Erweiterung über die entsprechenden
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
             >Berechtigungen</a
-          >).
+          >
+          verfügt).
         </p>
         <p>
           Dies ist eine
@@ -200,7 +216,7 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
       <td><code>String</code></td>
       <td>
         <p>
-          Tooltip für den Button, der angezeigt wird, wenn der Nutzer seine Maus darüber bewegt. Wenn der Button zum Menüpanel des Browsers hinzugefügt wird, wird dies ebenfalls unter dem App-Symbol angezeigt.
+          Tooltip für den Button, wird angezeigt, wenn der Benutzer mit der Maus darüber fährt. Wenn der Button zum Menüpanel des Browsers hinzugefügt wird, wird dies auch unter dem App-Icon angezeigt.
         </p>
         <p>
           Dies ist eine
@@ -217,26 +233,29 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
       <td><code>Array</code></td>
       <td>
         <p>
-          Diese Eigenschaft ermöglicht es Ihnen, verschiedene Icons für Themes anzugeben, je nachdem, ob Firefox erkennt, dass das Theme dunklen oder hellen Text verwendet.
+          Diese Eigenschaft ermöglicht es Ihnen, verschiedene Icons für Themes anzugeben, abhängig davon, ob Firefox erkennt, dass das Theme dunklen oder hellen Text verwendet.
         </p>
         <p>
-          Wenn diese Eigenschaft vorhanden ist, handelt es sich um ein Array, das mindestens ein <code>ThemeIcons</code>-Objekt enthält. Ein <code>ThemeIcons</code>-Objekt enthält drei erforderliche Eigenschaften:
+          Wenn diese Eigenschaft vorhanden ist, handelt es sich um ein Array, das mindestens ein
+          <code>ThemeIcons</code>-Objekt enthält. Ein <code>ThemeIcons</code>-Objekt
+          enthält drei verpflichtende Eigenschaften:
         </p>
         <dl>
           <dt><code>"dark"</code></dt>
           <dd>
-            Eine URL, die auf ein Icon zeigt. Dieses Icon wird angezeigt, wenn ein Theme mit dunklem Text aktiv ist (wie das Firefox Light Theme und das Standard-Theme, wenn kein default_icon angegeben ist).
+            Eine URL, die auf ein Icon verweist. Dieses Icon wird angezeigt, wenn ein Theme mit dunklem Text aktiv ist (wie z.B. das Firefox Light-Theme oder das Standard-Theme, wenn kein default_icon angegeben ist).
           </dd>
           <dt><code>"light"</code></dt>
           <dd>
-            Eine URL, die auf ein Icon zeigt. Dieses Icon wird angezeigt, wenn ein Theme mit hellem Text aktiv ist (wie das Firefox Dark Theme).
+            Eine URL, die auf ein Icon verweist. Dieses Icon wird angezeigt, wenn ein Theme mit hellem Text aktiv ist (wie z.B. das Firefox Dark-Theme).
           </dd>
           <dt><code>"size"</code></dt>
           <dd>Die Größe der beiden Icons in Pixeln.</dd>
         </dl>
         <p>Icons werden als URLs relativ zur manifest.json-Datei angegeben.</p>
         <p>
-          Sie sollten 16x16 und 32x32 (für Retina-Display) <code>ThemeIcons</code> bereitstellen.
+          Sie sollten 16x16 und 32x32 (für Retina-Displays)
+          <code>ThemeIcons</code> bereitstellen.
         </p>
       </td>
     </tr>
@@ -245,14 +264,14 @@ Der `action`-Schlüssel ist ein Objekt, das die folgenden optionalen Eigenschaft
 
 ## Auswahl der Icon-Größen
 
-Das Icon der Aktion muss möglicherweise in verschiedenen Größen in verschiedenen Kontexten angezeigt werden:
+Das Icon der Aktion muss möglicherweise in verschiedenen Größen in unterschiedlichen Kontexten angezeigt werden:
 
-- Das Icon wird in der Browser-Symbolleiste angezeigt. Ältere Versionen von Firefox unterstützten die Option, das Icon im Menü-Panel des Browsers zu platzieren (das Panel, das öffnet, wenn der Nutzer das "Hamburger"-Symbol anklickt). In diesen Versionen von Firefox war das Icon im Menü-Panel größer als das Icon in der Symbolleiste.
-- Auf einem hochdichten Display wie einem Retina-Bildschirm müssen Icons doppelt so groß sein.
+- Das Icon wird in der Browser-Toolbar angezeigt. Ältere Versionen von Firefox unterstützten die Option, das Icon im Menüpanel des Browsers (das Panel, das sich öffnet, wenn der Benutzer auf das "Hamburger"-Icon klickt) zu platzieren. In diesen Versionen von Firefox war das Icon im Menüpanel größer als das Icon in der Toolbar.
+- Auf einem hochauflösenden Display wie einem Retina-Bildschirm müssen Icons doppelt so groß sein.
 
-Wenn der Browser in einer bestimmten Situation kein Icon in der passenden Größe finden kann, wird die am besten passende Größe gewählt und skaliert. Das Skalieren kann dazu führen, dass das Icon unscharf erscheint, daher ist es wichtig, die Icon-Größen sorgfältig auszuwählen.
+Wenn der Browser kein Icon der richtigen Größe für eine gegebene Situation findet, wählt er die beste Übereinstimmung und skaliert es. Skalierung kann das Icon unscharf erscheinen lassen, daher ist es wichtig, die Icon-Größen sorgfältig auszuwählen.
 
-Es gibt zwei Hauptansätze dazu. Sie können ein einzelnes Icon als SVG-Datei bereitstellen, und es wird korrekt skaliert:
+Es gibt zwei Hauptansätze dafür. Sie können ein einzelnes Icon als SVG-Datei bereitstellen, und es wird korrekt skaliert:
 
 ```json
 "default_icon": "path/to/geo.svg"
@@ -262,10 +281,10 @@ Alternativ können Sie mehrere Icons in verschiedenen Größen bereitstellen, un
 
 In Firefox:
 
-- Die Standardhöhe und -breite für Icons in der Symbolleiste beträgt 16 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
-- Die Standardhöhe und -breite für Icons im Menüpanel beträgt 32 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
+- Die Standardhöhe und -breite für Icons in der Toolbar ist 16 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
+- Die Standardhöhe und -breite für Icons im Menüpanel ist 32 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 
-So können Sie Icons bereitstellen, die genau auf normalen und Retina-Displays passen, indem Sie drei Icon-Dateien bereitstellen und sie wie folgt angeben:
+Sie können also Icons bereitstellen, die genau passen, sowohl auf normalen als auch Retina-Displays, indem Sie drei Icon-Dateien bereitstellen und sie so angeben:
 
 ```json
 "default_icon": {
@@ -275,7 +294,7 @@ So können Sie Icons bereitstellen, die genau auf normalen und Retina-Displays p
 }
 ```
 
-Wenn Firefox keine genaue Übereinstimmung für die Größe findet, die es möchte, wird es das kleinste angegebene Icon wählen, das größer als die ideale Größe ist. Wenn alle Icons kleiner als die ideale Größe sind, wird das größte angegebene Icon gewählt.
+Wenn Firefox keine exakte Übereinstimmung für die gewünschte Größe findet, wählt es das kleinste angegebene Icon, das größer als die ideale Größe ist. Wenn alle Icons kleiner als die ideale Größe sind, wählt es das größte angegebene Icon.
 
 ## Beispiel
 
@@ -288,7 +307,7 @@ Wenn Firefox keine genaue Übereinstimmung für die Größe findet, die es möch
 }
 ```
 
-Eine Aktion mit nur einem Icon, das in 2 Größen angegeben ist. Die Hintergrundskripte der Erweiterung können Klick-Events empfangen, wenn der Nutzer das Icon mit folgendem Code anklickt:
+Eine Aktion mit nur einem Icon, in 2 Größen angegeben. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Icon klickt, mit Code wie diesem:
 
 ```js
 browser.action.onClicked.addListener(handleClick);
@@ -305,7 +324,7 @@ browser.action.onClicked.addListener(handleClick);
 }
 ```
 
-Eine Aktion mit einem Icon, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Nutzer den Button anklickt.
+Eine Aktion mit einem Icon, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Benutzer auf den Button klickt.
 
 ## Browser-Kompatibilität
 

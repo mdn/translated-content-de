@@ -9,7 +9,7 @@ l10n:
 
 Aktualisiert ein zuvor erstelltes Menüelement.
 
-Zur Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
+Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,40 +25,40 @@ let updating = browser.menus.update(
 ### Parameter
 
 - `id`
-  - : `integer` oder `string`. Die ID des Elements, das aktualisiert werden soll.
+  - : `integer` oder `string`. Die ID des zu aktualisierenden Elements.
 - `updateProperties`
 
-  - : `object`. Die zu aktualisierenden Eigenschaften. Die gleichen wie das `createProperties` Objekt, das an {{WebExtAPIRef("menus.create()", "menus.create()")}} übergeben wurde, mit der Ausnahme, dass `id` nicht gesetzt werden kann. Zusätzlich können `icons` nur für Menübefehle geändert werden, nicht im obersten Kontextmenü. Das oberste Icon entspricht dem Haupicon der Erweiterung, wie es in der Manifestdatei der Erweiterung angegeben ist.
+  - : `object`. Die Eigenschaften, die aktualisiert werden sollen. Dieselben wie das `createProperties`-Objekt, das an {{WebExtAPIRef("menus.create()", "menus.create()")}} übergeben wurde, außer dass `id` nicht gesetzt werden kann. Zusätzlich können `icons` nur bei Menübefehlen geändert werden, nicht im Kontextmenü der obersten Ebene. Das Icon der obersten Ebene entspricht dem primären Icon der Erweiterung, wie es in der Manifest-Datei der Erweiterung deklariert ist.
 
     - `checked` {{optional_inline}}
-      - : `boolean`. Der Anfangszustand eines Kontrollkästchens oder eines Auswahlelements: `true` für ausgewählt und `false` für nicht ausgewählt. Nur ein Auswahlelement kann gleichzeitig in einer Gruppe von Auswahlelementen ausgewählt sein.
+      - : `boolean`. Der Anfangszustand eines Kontrollkästchen- oder Radio-Elements: `true` für ausgewählt und `false` für nicht ausgewählt. In einer Gruppe von Radio-Elementen kann jeweils nur ein Element ausgewählt sein.
     - `command` {{optional_inline}}
 
-      - : `string`. String, der eine Aktion beschreibt, die ausgeführt werden soll, wenn der Benutzer auf das Element klickt. Die anerkannten Werte sind:
+      - : `string`. Zeichenkette, die eine Aktion beschreibt, die ausgeführt werden soll, wenn der Benutzer auf das Element klickt. Anerkannte Werte sind:
 
-        - `"_execute_browser_action"`: simuliert einen Klick auf die Browseraktion der Erweiterung und öffnet deren Popup, falls vorhanden (nur Manifest V2)
+        - `"_execute_browser_action"`: simuliert einen Klick auf die Browser-Aktion der Erweiterung und öffnet deren Popup, falls vorhanden (nur Manifest V2)
         - `"_execute_action"`: simuliert einen Klick auf die Aktion der Erweiterung und öffnet deren Popup, falls vorhanden (nur Manifest V3)
-        - `"_execute_page_action"`: simuliert einen Klick auf die Seitenaktion der Erweiterung und öffnet deren Popup, falls vorhanden
+        - `"_execute_page_action"`: simuliert einen Klick auf die Seiten-Aktion der Erweiterung und öffnet deren Popup, falls vorhanden
         - `"_execute_sidebar_action"`: öffnet die Seitenleiste der Erweiterung
 
-        Siehe die Dokumentation zu speziellen Tastenkombinationen im Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts) der manifest.json für Details.
+        Siehe die Dokumentation zu speziellen Tastenkombinationen im manifest.json-Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts) für Details.
 
-        Wenn einer der anerkannten Werte angegeben wird, löst ein Klick auf das Element nicht das {{WebExtAPIRef("menus.onClicked")}}-Ereignis aus; stattdessen wird die Standardaktion ausgelöst, wie z. B. das Öffnen eines Pop-ups. Andernfalls löst ein Klick auf das Element {{WebExtAPIRef("menus.onClicked")}} aus, und das Ereignis kann verwendet werden, um ein Fallback-Verhalten zu implementieren.
+        Wenn einer der anerkannten Werte angegeben wird, löst ein Klick auf das Element nicht das {{WebExtAPIRef("menus.onClicked")}}-Ereignis aus; stattdessen wird die Standardaktion ausgeführt, z. B. das Öffnen eines Popups. Andernfalls löst ein Klick auf das Element {{WebExtAPIRef("menus.onClicked")}} aus, und das Ereignis kann verwendet werden, um ein Ersatzverhalten zu implementieren.
 
     - `contexts` {{optional_inline}}
 
-      - : `array` von `{{WebExtAPIRef('menus.ContextType')}}`. Array von Kontexten, in denen dieses Menüelement erscheint. Wenn diese Option weggelassen wird:
+      - : `array` von `{{WebExtAPIRef('menus.ContextType')}}`. Array von Kontexten, in denen dieses Menüelement erscheinen wird. Wenn diese Option weggelassen wird:
 
-        - wenn der übergeordnete Eintrag Kontexte gesetzt hat, erbt dieses Element die Kontexte seines übergeordneten Eintrags
-        - andernfalls erhält das Element ein Kontextarray von \["page"].
+        - übernimmt das Element die Kontexte seines übergeordneten Elements, wenn dieses gesetzt ist
+        - andernfalls wird dem Element ein Kontextarray von \["page"] zugewiesen.
 
     - `documentUrlPatterns` {{optional_inline}}
-      - : `array` von `string`. Ermöglicht es Ihnen, das Element so zu beschränken, dass es nur für Dokumente gilt, deren URL mit einem der angegebenen [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) übereinstimmt. Dies gilt auch für Frames.
+      - : `array` von `string`. Ermöglicht die Einschränkung des Elements auf Dokumente, deren URL einem der angegebenen [Übereinstimmungsmuster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entspricht. Dies gilt auch für Frames.
     - `enabled` {{optional_inline}}
-      - : `boolean`. Gibt an, ob dieses Menüelement aktiviert oder deaktiviert ist. Standardmäßig `true`.
+      - : `boolean`. Ob dieses Menüelement aktiviert oder deaktiviert ist. Standardmäßig `true`.
     - `icons` {{optional_inline}}
 
-      - : `object`. Ein oder mehrere benutzerdefinierte Symbole, die neben dem Element angezeigt werden. Benutzerdefinierte Symbole können nur für Elemente eingestellt werden, die in Untermenüs erscheinen. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Symbol: Der Name der Eigenschaft sollte die Größe des Symbols in Pixeln enthalten, und der Pfad ist relativ zum Symbol aus dem Stammverzeichnis der Erweiterung. Der Browser versucht, ein 16x16-Pixel-Symbol für eine normale Anzeige oder ein 32x32-Pixel-Symbol für eine hochauflösende Anzeige auszuwählen. Um ein Skalieren zu vermeiden, können Sie Icons so angeben:
+      - : `object`. Ein oder mehrere benutzerdefinierte Icons, die neben dem Element angezeigt werden. Benutzerdefinierte Icons können nur für Elemente in Untermenüs festgelegt werden. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Icon: Der Name der Eigenschaft sollte die Größe des Icons in Pixel enthalten, und der Pfad ist relativ zum Icon aus dem Stammverzeichnis der Erweiterung. Der Browser versucht, ein 16x16 Pixel großes Icon für eine normale Anzeige oder ein 32x32 Pixel großes Icon für eine Anzeige mit hoher Dichte auszuwählen. Um eine Skalierung zu vermeiden, können Sie Icons wie folgt angeben:
 
         ```js
         browser.menus.create({
@@ -69,7 +69,7 @@ let updating = browser.menus.update(
         });
         ```
 
-        Alternativ können Sie ein einzelnes SVG-Symbol angeben, das entsprechend skaliert wird:
+        Alternativ können Sie eine einzige SVG-Grafik angeben, die dann entsprechend skaliert wird:
 
         ```js
         browser.menus.create({
@@ -80,40 +80,40 @@ let updating = browser.menus.update(
         ```
 
         > [!NOTE]
-        > Das Menüelement auf oberster Ebene verwendet die im Manifest angegebenen [icons](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) anstelle der mit diesem Schlüssel angegebenen.
+        > Das Menüelement der obersten Ebene verwendet die [Icons](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons), die im Manifest angegeben sind, anstatt der mit diesem Schlüssel angegebenen.
 
     - `id` {{optional_inline}}
-      - : `string`. Die eindeutige ID, die diesem Element zugeordnet wird. Obligatorisch für Ereignisseiten. Kann nicht dieselbe sein wie eine andere ID für diese Erweiterung.
+      - : `string`. Die eindeutige ID, die diesem Element zugewiesen wird. Obligatorisch für Ereignisseiten. Kann nicht identisch mit einer anderen ID dieser Erweiterung sein.
     - `onclick` {{optional_inline}}
-      - : `function`. Die Funktion, die aufgerufen wird, wenn auf das Menüelement geklickt wird. Ereignisseiten können dies nicht verwenden: stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
+      - : `function`. Die Funktion, die aufgerufen wird, wenn das Menüelement angeklickt wird. Ereignisseiten können dies nicht verwenden: Stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
     - `parentId` {{optional_inline}}
-      - : `integer` oder `string`. Die ID eines übergeordneten Menüelements; dies macht das Element zu einem untergeordneten Element eines zuvor hinzugefügten Elements. Hinweis: Wenn Sie mehr als ein Menüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Das Untermenü des übergeordneten Elements wird mit dem Namen der Erweiterung beschriftet.
+      - : `integer` oder `string`. Die ID eines übergeordneten Menüelements; dies macht das Element zu einem Kind eines zuvor hinzugefügten Elements. Hinweis: Wenn Sie mehr als ein Menüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Der übergeordnete Punkt des Untermenüs ist mit dem Namen der Erweiterung gekennzeichnet.
     - `targetUrlPatterns` {{optional_inline}}
-      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, aber ermöglicht das Filtern basierend auf dem `href` von Anker-Tags und dem `src`-Attribut von img/audio/video-Tags. Dieser Parameter unterstützt jedes URL-Schema, auch solche, die normalerweise in einem Muster nicht erlaubt sind.
+      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, ermöglicht es jedoch die Filterung basierend auf dem `href` von Anker-Tags und dem `src`-Attribut von img/audio/video-Tags. Dieser Parameter unterstützt jedes URL-Schema, auch solche, die normalerweise in einem Übereinstimmungsmuster nicht erlaubt sind.
     - `title` {{optional_inline}}
 
-      - : `string`. Der Text, der im Element angezeigt wird. Pflichtangabe, es sei denn, `type` ist "separator".
+      - : `string`. Der Text, der im Element angezeigt wird. Obligatorisch, es sei denn, `type` ist "separator".
 
-        Sie können "`%s`" im String verwenden. Wenn Sie dies in einem Menüelement tun und etwas Text auf der Seite ausgewählt ist, wenn das Menü angezeigt wird, wird der ausgewählte Text in den Titel eingefügt. Zum Beispiel, wenn `title` "Übersetze '%s' ins Schweinlatein" ist und der Benutzer das Wort "cool" auswählt, dann das Menü aktiviert, lautet der Titel des Menüelements: "Übersetze 'cool' ins Schweinlatein".
+        Sie können "`%s`" in der Zeichenkette verwenden. Wenn Sie dies in einem Menüelement tun und etwas Text auf der Seite ausgewählt ist, wenn das Menü angezeigt wird, wird der ausgewählte Text in den Titel interpoliert. Wenn `title` zum Beispiel "Übersetze '%s' ins Pig Latin" lautet und der Benutzer das Wort "cool" auswählt, dann das Menü aktiviert, dann wird der Titel des Menüelements lauten: "Übersetze 'cool' ins Pig Latin".
 
-        Wenn der Titel ein Kaufmannszeichen "&" enthält, wird das nächste Zeichen als Zugriffstaste für das Element verwendet, und das Kaufmannszeichen wird nicht angezeigt. Ausnahmen hierzu sind:
+        Wenn der Titel ein "&" enthält, wird das nächste Zeichen als Zugriffstaste für das Element verwendet, und das "&" wird nicht angezeigt. Ausnahmen hiervon sind:
 
-        - Wenn das nächste Zeichen ebenfalls ein Kaufmannszeichen ist: dann wird ein einzelnes Kaufmannszeichen angezeigt und keine Zugriffstaste gesetzt. In der Praxis wird "&&" verwendet, um ein einzelnes Kaufmannszeichen anzuzeigen.
-        - Wenn die nächsten Zeichen die Interpolationsanweisung "%s" sind: dann wird das Kaufmannszeichen nicht angezeigt und keine Zugriffstaste gesetzt.
-        - Wenn das Kaufmannszeichen das letzte Zeichen im Titel ist: dann wird das Kaufmannszeichen nicht angezeigt und keine Zugriffstaste gesetzt.
+        - Wenn das nächste Zeichen auch ein "&" ist: dann wird ein einzelner "&" angezeigt und keine Zugriffstaste gesetzt. Effektiv wird "&&" verwendet, um ein einzelnes "&" anzuzeigen.
+        - Wenn die nächsten Zeichen die Interpolationsrichtlinie "%s" sind: dann wird das "&" nicht angezeigt und es wird keine Zugriffstaste gesetzt.
+        - Wenn das "&" das letzte Zeichen im Titel ist: dann wird das "&" nicht angezeigt und es wird keine Zugriffstaste gesetzt.
 
-        Nur das erste Kaufmannszeichen wird verwendet, um eine Zugriffstaste einzustellen: folgende Kaufmannszeichen werden nicht angezeigt, aber keine Tasten werden gesetzt. So wird "\&A und \&B" als "A und B" angezeigt und "A" wird als Zugriffstaste gesetzt.
+        Nur das erste "&" wird verwendet, um eine Zugriffstaste zu setzen: Nachfolgende "&" werden nicht angezeigt, setzen aber keine Tasten. So wird "\&A and \&B" als "A and B" angezeigt und die Taste "A" als Zugriffstaste gesetzt.
 
     - `type` {{optional_inline}}
-      - : `{{WebExtAPIRef('menus.ItemType')}}`. Der Typ des Menüeintrags: "normal", "checkbox", "radio", "separator". Standardmäßig "normal".
+      - : `{{WebExtAPIRef('menus.ItemType')}}`. Der Typ des Menüelements: "normal", "checkbox", "radio", "separator". Standardmäßig "normal".
     - `viewTypes` {{optional_inline}}
-      - : `{{WebExtAPIRef('extension.ViewType')}}`. Liste der Ansichtstypen, in denen das Menüelement angezeigt wird. Standardmäßig jede Ansicht, einschließlich derjenigen ohne `viewType`.
+      - : `{{WebExtAPIRef('extension.ViewType')}}`. Liste der Ansichtsarten, in denen das Menüelement angezeigt wird. Standardmäßig jede Ansicht, einschließlich solcher ohne `viewType`.
     - `visible` {{optional_inline}}
-      - : `boolean`. Gibt an, ob das Element im Menü angezeigt wird. Standardmäßig `true`.
+      - : `boolean`. Ob das Element im Menü angezeigt wird. Standardmäßig `true`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, falls die Aktualisierung erfolgreich war, oder mit einer Fehlermeldung abgelehnt wird, falls die Aktualisierung fehlgeschlagen ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, wenn die Aktualisierung erfolgreich war, oder abgelehnt mit einer Fehlermeldung, wenn die Aktualisierung fehlgeschlagen ist.
 
 ## Beispiele
 
@@ -151,7 +151,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-update) API. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-update) API von Chromium. Diese Dokumentation leitet sich von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

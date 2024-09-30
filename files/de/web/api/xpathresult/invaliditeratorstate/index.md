@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`invalidIteratorState`** Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces zeigt an, dass der Iterator ungültig geworden ist.
-Es ist `true`, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType)
-`UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und
-das Dokument seit der Rückgabe dieses Ergebnisses verändert wurde.
+Die schreibgeschützte **`invalidIteratorState`**-Eigenschaft der
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle zeigt an, dass der Iterator ungültig geworden ist. Sie ist `true`, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType)
+`UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und das Dokument seit der Rückgabe dieses Ergebnisses geändert wurde.
 
 ## Wert
 

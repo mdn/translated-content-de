@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.childElementCount`** schreibgeschützte Eigenschaft gibt die Anzahl der Kindelemente dieses Elements zurück.
+Die **`Element.childElementCount`** schreibgeschützte Eigenschaft
+gibt die Anzahl der untergeordneten Elemente dieses Elements zurück.
 
 ## Beispiele
 

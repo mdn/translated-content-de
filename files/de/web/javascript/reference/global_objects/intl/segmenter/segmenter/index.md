@@ -19,24 +19,24 @@ new Intl.Segmenter(locales)
 new Intl.Segmenter(locales, options)
 ```
 
-> **Hinweis:** `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachtag oder eine {{jsxref("Intl.Locale")}} Instanz oder ein Array solcher Sprachbezeichner. Die Standard-Lokalisierung der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keiner der angegebenen Lokalisierungsbezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeit wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle optional):
+  - : Ein Objekt mit den folgenden Eigenschaften, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Algorithmus zur Sprachraumübereinstimmung. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Identifikation und Aushandlung des Sprachraums](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Locale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Locale-Identifizierung und -Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `granularity`
-      - : Wie fein das Eingabematerial aufgeteilt werden soll. Mögliche Werte sind:
+      - : Wie fein das Eingabematerial gesplittet werden soll. Mögliche Werte sind:
         - `"grapheme"` (Standard)
-          - : Teilt das Eingabematerial an den Grenzen der Graphem-Cluster (wie vom Benutzer wahrgenommene Zeichen) unter Berücksichtigung der Sprache auf.
+          - : Teilt die Eingabe in Segmente bei Grapheme-Cluster-Grenzen (vom Benutzer wahrgenommene Zeichen) auf, wie es durch die Locale bestimmt wird.
         - `"word"`
-          - : Teilt das Eingabematerial an Wortgrenzen unter Berücksichtigung der Sprache auf.
+          - : Teilt die Eingabe in Segmente bei Wortgrenzen, wie es durch die Locale bestimmt wird.
         - `"sentence"`
-          - : Teilt das Eingabematerial an Satzgrenzen unter Berücksichtigung der Sprache auf.
+          - : Teilt die Eingabe in Segmente bei Satzgrenzen, wie es durch die Locale bestimmt wird.
 
 ### Rückgabewert
 
@@ -45,13 +45,13 @@ Eine neue [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/In
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
+  - : Ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt, wie man Wörter in einem String auf Japanisch zählt (wo das Aufteilen des Strings mit `String`-Methoden ein falsches Ergebnis geliefert hätte).
+Das folgende Beispiel zeigt, wie man Wörter in einem String mit der japanischen Sprache zählt (wo das Aufteilen des Strings mit `String`-Methoden ein falsches Ergebnis geliefert hätte).
 
 ```js
 const text = "吾輩は猫である。名前はたぬき。";

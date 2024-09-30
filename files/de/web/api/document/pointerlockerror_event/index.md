@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Das **`pointerlockerror`** Ereignis wird ausgelöst, wenn das Sperren des Zeigers aus technischen Gründen oder aufgrund verweigerter Berechtigung fehlgeschlagen ist.
+Das **`pointerlockerror`**-Ereignis wird ausgelöst, wenn das Sperren des Zeigers fehlgeschlagen ist (aus technischen Gründen oder weil die Berechtigung verweigert wurde).
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("pointerlockerror", (event) => {});

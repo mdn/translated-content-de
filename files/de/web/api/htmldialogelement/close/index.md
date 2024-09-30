@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`close()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle schließt das {{htmlelement("dialog")}}.
-Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die **`close()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces schließt das {{htmlelement("dialog")}}. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
 
 ## Syntax
 
@@ -29,8 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} öffnet, das ein Formular über die `showModal()` Methode enthält.
-Von dort aus können Sie auf die _X_ Taste klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()` Methode) oder das Formular über den Senden-Button absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Von dort aus können Sie den _X_-Button anklicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()`-Methode), oder das Formular über den Absenden-Button einreichen.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
@@ -89,8 +87,7 @@ Von dort aus können Sie auf die _X_ Taste klicken, um den Dialog zu schließen 
 </script>
 ```
 
-Wenn die "X" Taste vom `type="submit"` wäre, würde der Dialog geschlossen, ohne dass JavaScript erforderlich wäre.
-Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Element/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
+Wenn der "X"-Button den `type="submit"`-Attributwert hätte, würde der Dialog geschlossen, ohne dass JavaScript erforderlich wäre. Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Element/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
 
 ### Ergebnis
 
@@ -106,4 +103,4 @@ Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, 
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

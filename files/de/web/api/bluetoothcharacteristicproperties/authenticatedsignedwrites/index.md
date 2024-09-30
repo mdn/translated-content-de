@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`authenticatedSignedWrites`** schreibgeschützte Eigenschaft der [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Schnittstelle gibt einen `boolean` zurück, der `true` ist, wenn das signierte Schreiben auf den Charakteristikwert erlaubt ist.
+Die **`authenticatedSignedWrites`** Schreibgeschützte Eigenschaft des [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Interfaces gibt einen `boolean` zurück, der `true` ist, wenn ein signiertes Schreiben auf den Charakteristikwert gestattet ist.
 
 ## Wert
 
-Ein booleanischer Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 

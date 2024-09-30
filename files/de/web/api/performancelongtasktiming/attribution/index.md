@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`attribution`** schreibgeschützte Eigenschaft des [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Interfaces gibt ein Array von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekten zurück.
+Die **`attribution`**-Eigenschaft des readonly-Interfaces [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) gibt ein Array von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekten zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Array")}} von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttri
 
 ## Beispiele
 
-### Aufzeichnung von Zuschreibungen für lange Aufgaben
+### Protokollierung von Attributen für lange Aufgaben
 
 ```js
 const observer = new PerformanceObserver((list) => {

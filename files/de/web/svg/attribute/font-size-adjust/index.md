@@ -10,7 +10,7 @@ l10n:
 Das Attribut `font-size-adjust` ermöglicht es Autoren, einen Aspektwert für ein Element anzugeben, der die x-Höhe der bevorzugten Schriftart in einer Ersatzschriftart beibehält.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-size-adjust` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("font-size-adjust")}} für weitere Informationen.
+> Als Präsentationsattribut kann `font-size-adjust` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-size-adjust")}}.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", "600", "100")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -75,14 +75,14 @@ svg {
 </table>
 
 - `none`
-  - : Wählen Sie die Schriftgröße nur basierend auf der {{ Cssxref("font-size") }}-Eigenschaft.
+  - : Wählen Sie die Größe der Schriftart nur basierend auf der {{ Cssxref("font-size") }} Eigenschaft.
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Wählen Sie die Schriftgröße so, dass ihre Kleinbuchstaben (wie durch die x-Höhe der Schrift bestimmt) das angegebene Vielfache der {{ Cssxref("font-size") }} sind.
+  - : Wählen Sie die Größe der Schriftart so, dass ihre Kleinbuchstaben (bestimmt durch die x-Höhe der Schriftart) die angegebene Zahl multipliziert mit der {{ Cssxref("font-size") }} sind.
 
-    Die angegebene Zahl sollte im Allgemeinen das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Das bedeutet, dass die bevorzugte Schriftart, wenn verfügbar, in allen Browsern gleich groß erscheint, unabhängig davon, ob sie `font-size-adjust` unterstützen.
+    Die angegebene Zahl sollte im Allgemeinen das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Dies bedeutet, dass die erstgewählte Schriftart, wenn sie verfügbar ist, in Browsern unabhängig davon, ob sie `font-size-adjust` unterstützen, dieselbe Größe hat.
 
-    `0` ergibt Text von Nullhöhe (versteckter Text).
+    `0` ergibt Text ohne Höhe (versteckter Text).
 
 ## Spezifikationen
 

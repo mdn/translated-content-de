@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`radius`**-Attribut repräsentiert den Radius (oder die Radien) für die Operation auf einem gegebenen {{SVGElement("feMorphology")}} Filter-Primitive.
+Das **`radius`** Attribut repräsentiert den Radius (oder die Radien) für die Operation auf einem gegebenen {{SVGElement("feMorphology")}} Filter-Primitive.
 
-Wenn zwei Zahlen angegeben werden, repräsentiert die erste Zahl den x-Radius und die zweite den y-Radius. Wird eine Zahl angegeben, wird dieser Wert sowohl für x als auch für y verwendet. Die Werte befinden sich im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird.
+Wenn zwei Zahlen angegeben werden, repräsentiert die erste Zahl den x-Radius und die zweite den y-Radius. Wenn nur eine Zahl angegeben wird, wird dieser Wert sowohl für x als auch für y verwendet. Die Werte befinden sich im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}} Attribut auf dem {{SVGElement("filter")}} Element festgelegt ist.
 
-Ein negativer oder Nullwert deaktiviert die Wirkung des gegebenen Filter-Primitives (d. h., das Ergebnis ist das Filtereingangsbild).
+Ein negativer oder null Wert deaktiviert den Effekt des gegebenen Filter-Primitives (d.h. das Ergebnis ist das Filtereingabebild).
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 

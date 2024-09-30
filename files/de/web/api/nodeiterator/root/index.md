@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`NodeIterator.root`** repräsentiert den [`Node`](/de/docs/Web/API/Node), der die Wurzel dessen ist, was der [`NodeIterator`](/de/docs/Web/API/NodeIterator) durchläuft.
+Die schreibgeschützte Eigenschaft **`NodeIterator.root`** repräsentiert den
+[`Node`](/de/docs/Web/API/Node), der die Wurzel dessen ist, was der [`NodeIterator`](/de/docs/Web/API/NodeIterator)
+durchläuft.
 
 ## Wert
 
@@ -39,4 +41,4 @@ root = nodeIterator.root; // document.body in this case
 
 ## Siehe auch
 
-- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).
+- Das zugehörige Interface: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

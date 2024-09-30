@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: clear() Methode"
+title: "FontFaceSet: clear()-Methode"
 short-title: clear()
 slug: Web/API/FontFaceSet/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`clear()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle entfernt alle Schriften, die über diese Schnittstelle hinzugefügt wurden. Schriften, die mit der {{cssxref("@font-face")}}-Regel hinzugefügt wurden, werden nicht entfernt.
+Die **`clear()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle entfernt alle über diese Schnittstelle hinzugefügten Schriftarten. Schriftarten, die mit der {{cssxref("@font-face")}}-Regel hinzugefügt wurden, werden nicht entfernt.
 
 ## Syntax
 

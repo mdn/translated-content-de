@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`matrix`**-Eigenschaft des [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent)-Interfaces erhält und setzt eine 2D- oder 3D-Matrix.
+Die **`matrix`**-Eigenschaft des [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent)-Interfaces ruft eine 2D- oder 3D-Matrix ab und setzt sie.
 
 Siehe die Seiten [matrix()](/de/docs/Web/CSS/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/transform-function/matrix3d) für Beispiele.
 
@@ -18,7 +18,7 @@ eine Matrix.
 
 ## Beispiele
 
-To do.
+Noch zu erstellen.
 
 ## Spezifikationen
 

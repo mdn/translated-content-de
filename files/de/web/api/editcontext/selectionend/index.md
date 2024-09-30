@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die nur-lesbare **`selectionEnd`**-Eigenschaft des [`EditContext`](/de/docs/Web/API/EditContext) verweist auf den Versatz innerhalb des bearbeitbaren Textinhalts, an dem die aktuelle Auswahl endet.
+Die schreibgeschützte **`selectionEnd`**-Eigenschaft des [`EditContext`](/de/docs/Web/API/EditContext) bezieht sich auf den Offset innerhalb des bearbeitbaren Textinhalts, der das Ende der aktuellen Auswahl darstellt.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine {{jsxref("Number")}}
 
 ## Beispiele
 
-### Verwenden von `selectionEnd`, um die Benutzerauswahl in einem bearbeitbaren Canvas darzustellen
+### Verwendung von `selectionEnd`, um die Benutzerauswahl in einer bearbeitbaren Leinwand darzustellen
 
-Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` verwendet werden, um die aktuelle Auswahl in einem `<canvas>`-Element darzustellen, das mit einem `EditContext` assoziiert ist.
+Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` genutzt werden, um die aktuelle Auswahl in einem `<canvas>`-Element zu zeichnen, das mit einem `EditContext` verbunden ist.
 
 ```html
 <canvas id="editor-canvas"></canvas>

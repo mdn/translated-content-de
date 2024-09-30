@@ -1,5 +1,5 @@
 ---
-title: "<bdo>: Das Element zur Übersteuerung von Bidirektionalem Text"
+title: "<bdo>: Das Bidirectional Text Override Element"
 slug: Web/HTML/Element/bdo
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,19 +7,19 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML) Element übersteuert die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung dargestellt wird.
+Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung dargestellt wird.
 
 {{EmbedInteractiveExample("pages/tabbed/bdo.html", "tabbed-standard")}}
 
-Die Zeichen des Textes werden von dem Startpunkt in der angegebenen Richtung gezeichnet; die Orientierung der einzelnen Zeichen wird nicht beeinflusst (Zeichen werden beispielsweise nicht rückwärts gezeichnet).
+Die Zeichen des Textes werden vom Ausgangspunkt in die vorgegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (die Zeichen werden zum Beispiel nicht rückwärts gezeichnet).
 
 ## Attribute
 
-Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `dir`
 
-  - : Die Richtung, in der der Text im Inhalt dieses Elements gerendert werden soll. Mögliche Werte sind:
+  - : Die Richtung, in die der Text innerhalb dieses Elements gerendert werden soll. Mögliche Werte sind:
 
     - `ltr`: Gibt an, dass der Text in einer Links-nach-Rechts-Richtung verlaufen soll.
     - `rtl`: Gibt an, dass der Text in einer Rechts-nach-Links-Richtung verlaufen soll.
@@ -36,11 +36,11 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
 
 {{EmbedLiveSample('Examples')}}
 
-## Hinweise
+## Anmerkungen
 
-Die HTML 4 Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -52,31 +52,31 @@ Die HTML 4 Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalte</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
-        >, greifbare Inhalte.
+          >Phrasierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind notwendig.</td>
+      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Phrasierungsinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -97,8 +97,7 @@ Die HTML 4 Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
-        implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"
             >HTMLSpanElement</a

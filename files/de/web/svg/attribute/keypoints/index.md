@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`keyPoints`**-Attribut gibt die einfache Dauer einer Animation an.
+Das Attribut **`keyPoints`** gibt die einfache Dauer einer Animation an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "120")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -76,13 +76,13 @@ svg {
 
 - `<number> [; <number>] ;?`
 
-  - : Dieser Wert definiert eine durch Semikolons getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungspfads das Objekt sich zu dem in {{SVGAttr("keyTimes")}} angegebenen Zeitpunkt bewegen soll. Die Entfernung wird entlang des Pfads berechnet, der durch das {{SVGAttr("path")}}-Attribut angegeben wird. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes`-Werteliste.
+  - : Dieser Wert definiert eine durch Semikolons getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungspfads sich das Objekt zu dem durch den entsprechenden {{SVGAttr("keyTimes")}}-Wert angegebenen Zeitpunkt bewegen soll. Der Abstand wird entlang des vom {{SVGAttr("path")}}-Attribut angegebenen Pfades berechnet. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes`-Attributliste.
 
-    Wenn eine Liste von Schlüsselpunkten angegeben wird, müssen genau so viele Werte in der `keyPoints`-Liste wie in der `keyTimes`-Liste vorhanden sein.
+    Wenn eine Liste von Schlüsselpunkten angegeben ist, muss die `keyPoints`-Liste genau so viele Werte enthalten wie die `keyTimes`-Liste.
 
-    Wenn sich ein Semikolon am Ende des Wertes befindet, das optional von einem Leerzeichen gefolgt wird, werden sowohl das Semikolon als auch das Leerzeichen ignoriert.
+    Wenn sich am Ende des Wertes ein Semikolon befindet, das optional von Leerzeichen gefolgt ist, werden sowohl das Semikolon als auch die nachfolgenden Leerzeichen ignoriert.
 
-    Falls es Fehler in der Wertangabe gibt (z.B. ungültige Werte, zu viele oder zu wenige Werte), stellt dies einen Fehler dar.
+    Sollten Fehler in der Wertangabe auftreten (z. B. ungültige Werte, zu viele oder zu wenige Werte), liegt ein Fehler vor.
 
 ## Spezifikationen
 

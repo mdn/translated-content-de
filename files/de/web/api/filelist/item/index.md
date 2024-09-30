@@ -1,5 +1,5 @@
 ---
-title: "FileList: item() Methode"
+title: "FileList: item()-Methode"
 short-title: item()
 slug: Web/API/FileList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`item()`** Methode der [`FileList`](/de/docs/Web/API/FileList) Schnittstelle gibt ein [`File`](/de/docs/Web/API/File) Objekt zurück, das die Datei am angegebenen Index in der Dateiliste darstellt.
+Die **`item()`**-Methode der [`FileList`](/de/docs/Web/API/FileList)-Schnittstelle gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das die Datei am angegebenen Index in der Dateiliste darstellt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ item(index)
 
 ### Rückgabewert
 
-Ein [`File`](/de/docs/Web/API/File) Objekt, das die angeforderte Datei darstellt.
+Ein [`File`](/de/docs/Web/API/File)-Objekt, das die angeforderte Datei darstellt.
 
 ## Beispiele
 
-### Den Namen einer Datei drucken
+### Den Namen einer Datei ausgeben
 
 In diesem Beispiel verwenden wir `item()`, um das erste Element in der `FileList` auszuwählen.
 

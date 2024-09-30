@@ -7,11 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`410 Gone`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Zielressource auf dem Ursprungsserver nicht mehr verfügbar ist und dieser Zustand wahrscheinlich dauerhaft ist.
-Eine 410-Antwort ist standardmäßig cachefähig.
+Der HTTP-Statuscode **`410 Gone`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Zielressource auf dem Ursprungsserver nicht mehr verfügbar ist und dass dieser Zustand wahrscheinlich dauerhaft ist. Eine 410-Antwort ist standardmäßig zwischenspeicherbar.
 
-Clients sollten Anfragen für Ressourcen, die eine 410-Antwort zurückgeben, nicht wiederholen, und Website-Besitzer sollten Links, die diesen Code zurückgeben, entfernen oder ersetzen.
-Wenn Serverbesitzer nicht wissen, ob dieser Zustand temporär oder dauerhaft ist, sollte stattdessen ein {{HTTPStatus(404)}}-Statuscode verwendet werden.
+Clients sollten Anfragen für Ressourcen, die eine 410-Antwort zurückgeben, nicht wiederholen, und Website-Besitzer sollten Links, die diesen Code zurückgeben, entfernen oder ersetzen. Wenn Serverbesitzer nicht wissen, ob dieser Zustand vorübergehend oder dauerhaft ist, sollte ein {{HTTPStatus(404)}}-Statuscode verwendet werden.
 
 ## Status
 
@@ -21,9 +19,9 @@ Wenn Serverbesitzer nicht wissen, ob dieser Zustand temporär oder dauerhaft ist
 
 ## Beispiele
 
-### Anfordern einer veralteten Ressource
+### Anforderung einer veralteten Ressource
 
-Die folgende `GET`-Anfrage gilt für eine Seite mit nicht mehr gültigem Werbeinhalten:
+Die folgende `GET`-Anfrage betrifft eine Seite mit Werbeinhalten, die nicht mehr gültig sind:
 
 ```http
 GET /promotions/summer-2023 HTTP/1.1

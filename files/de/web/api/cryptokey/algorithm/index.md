@@ -1,5 +1,5 @@
 ---
-title: "CryptoKey: algorithm Eigenschaft"
+title: "CryptoKey: algorithm-Eigenschaft"
 short-title: algorithm
 slug: Web/API/CryptoKey/algorithm
 l10n:
@@ -10,11 +10,11 @@ l10n:
 
 Die schreibgeschützte **`algorithm`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt ein Objekt zurück, das den Algorithmus beschreibt, für den dieser Schlüssel verwendet werden kann, sowie alle zugehörigen zusätzlichen Parameter.
 
-Das zurückgegebene Objekt hängt von dem Algorithmus ab, der zur Erzeugung des Schlüssels verwendet wurde.
+Das zurückgegebene Objekt hängt vom Algorithmus ab, der zur Erzeugung des Schlüssels verwendet wurde.
 
 ## Wert
 
-Ein Objekt entsprechend:
+Ein Objekt, das entspricht:
 
 - [`AesKeyGenParams`](/de/docs/Web/API/AesKeyGenParams), wenn der Algorithmus eine der AES-Varianten ist.
 - [`RsaHashedKeyGenParams`](/de/docs/Web/API/RsaHashedKeyGenParams), wenn der Algorithmus eine der RSA-Varianten ist.

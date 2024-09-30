@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`scope`** schreibgeschützte Eigenschaft der Schnittstelle [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) gibt einen String zurück, der eine URL darstellt, die den Registrierungsbereich eines Service Workers definiert; das heißt, den Bereich von URLs, den ein Service Worker kontrollieren kann. Dies wird mit dem `scope`-Parameter festgelegt, der in dem Aufruf von [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) angegeben wird, welcher den Service Worker registriert.
+Die schreibgeschützte **`scope`**-Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt einen String zurück, der eine URL darstellt und den Registrierungsbereich eines Service Workers definiert; das heißt, den Bereich von URLs, die ein Service Worker kontrollieren kann. Dies wird mit dem `scope`-Parameter festgelegt, der beim Aufruf von [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) angegeben wird, um den Service Worker zu registrieren.
 
 ## Wert
 
-Gibt einen String zurück, der eine URL darstellt, die den Registrierungsbereich eines Service Workers definiert.
+Gibt einen String zurück, der eine URL darstellt und den Registrierungsbereich eines Service Workers definiert.
 
 ## Spezifikationen
 
@@ -24,6 +24,6 @@ Gibt einen String zurück, der eine URL darstellt, die den Registrierungsbereich
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Code-Beispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

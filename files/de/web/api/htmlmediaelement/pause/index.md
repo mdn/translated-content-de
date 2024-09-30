@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: pause() Methode"
+title: "HTMLMediaElement: pause()-Methode"
 short-title: pause()
 slug: Web/API/HTMLMediaElement/pause
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.pause()`**-Methode pausiert die Wiedergabe
-des Mediums. Befindet sich das Medium bereits im pausierten Zustand, hat diese Methode keine Auswirkung.
+Die **`HTMLMediaElement.pause()`**-Methode stoppt die Wiedergabe der Medien. Wenn die Medien bereits im pausierten Zustand sind, hat diese Methode keine Wirkung.
 
 ## Syntax
 

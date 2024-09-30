@@ -1,5 +1,5 @@
 ---
-title: "RTCEncodedAudioFrame: Timestamp-Eigenschaft"
+title: "RTCEncodedAudioFrame: timestamp-Eigenschaft"
 short-title: timestamp
 slug: Web/API/RTCEncodedAudioFrame/timestamp
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}{{deprecated_header}}{{non-standard_header}}
 
-Die schreibgeschützte **`timestamp`**-Eigenschaft der [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Schnittstelle gibt an, zu welchem Zeitpunkt die Abtastung der Frame-Daten begonnen hat.
+Die readonly-Eigenschaft **`timestamp`** des [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Interfaces gibt die Zeit an, zu der das Sampling des Frames begonnen hat.
 
 ## Wert
 
-Eine positive Ganzzahl, die das Abtastmoment des ersten Bytes in diesem Frame in Mikrosekunden enthält.
+Eine positive Ganzzahl, die den Sampling-Moment des ersten Bytes in diesem Frame in Mikrosekunden enthält.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Eine positive Ganzzahl, die das Abtastmoment des ersten Bytes in diesem Frame in
 
 ## Siehe auch
 
-- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwenden von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

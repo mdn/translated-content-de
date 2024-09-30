@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Der **used value** eines [CSS](/de/docs/Web/CSS)-Eigenschaftswerts ist der Wert, nachdem alle Berechnungen am [computed value](/de/docs/Web/CSS/computed_value) durchgeführt wurden.
+Der **used value** einer [CSS](/de/docs/Web/CSS) Eigenschaft ist ihr Wert, nachdem alle Berechnungen auf den [computed value](/de/docs/Web/CSS/computed_value) durchgeführt wurden.
 
-Nachdem der [User-Agent](/de/docs/Glossary/user_agent) seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen used value. Die used values von Dimensionen (z. B. {{cssxref("width")}}, {{cssxref("line-height")}}) sind in Pixeln. Die used values von Kurzschreibweise-Eigenschaften (z. B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie {{cssxref("position")}} und {{cssxref("float")}}.
+Nachdem der [user agent](/de/docs/Glossary/user_agent) seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen verwendeten Wert (*used value*). Die verwendeten Werte von Dimensionen (z. B. {{cssxref("width")}}, {{cssxref("line-height")}}) werden in Pixeln angegeben. Die verwendeten Werte von Kurzformeigenschaften (z. B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie mit {{cssxref("position")}} und {{cssxref("float")}}.
 
 > [!NOTE]
-> Die [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) DOM-API gibt den [resolved value](/de/docs/Web/CSS/resolved_value) zurück, der je nach Eigenschaft entweder der [computed value](/de/docs/Web/CSS/computed_value) oder der used value sein kann.
+> Die [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) DOM-API gibt den [resolved value](/de/docs/Web/CSS/resolved_value) zurück, der je nach Eigenschaft entweder der [computed value](/de/docs/Web/CSS/computed_value) oder der verwendete Wert sein kann.
 
 ## Beispiel
 
-Dieses Beispiel berechnet und zeigt den verwendeten `width`-Wert von drei Elementen an (aktualisiert bei Größenänderung):
+Dieses Beispiel berechnet und zeigt den verwendeten `width`-Wert von drei Elementen (Updates bei Größenänderung):
 
 ### HTML
 
@@ -83,9 +83,9 @@ window.addEventListener("resize", updateAllUsedWidths);
 
 {{ EmbedLiveSample('Example', '80%', 372) }}
 
-## Unterschied zum Computed Value
+## Unterschied zum computed value
 
-CSS 2.0 definierte nur den _computed value_ als den letzten Schritt bei der Berechnung einer Eigenschaft. Anschließend führte CSS 2.1 die eindeutige Definition des used value ein. Ein Element konnte dann explizit eine Breite/Höhe eines übergeordneten Elements erben, dessen computed value ein Prozentsatz ist. Für CSS-Eigenschaften, die nicht vom Layout abhängen (z. B. `display`, `font-size` oder `line-height`), sind die computed values und used values identisch. Folgende sind die CSS 2.1-Eigenschaften, die vom Layout abhängen und daher unterschiedliche Werte für computed value und used value aufweisen (entnommen aus [CSS 2.1 Changes: Specified, computed, and actual values](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
+CSS 2.0 definierte nur _computed value_ als den letzten Schritt in der Berechnung einer Eigenschaft. Dann führte CSS 2.1 die explizite Definition des verwendeten Wertes ein. Ein Element konnte dann explizit eine Breite/Höhe eines Elternteils erben, dessen berechneter Wert ein Prozentsatz ist. Für CSS-Eigenschaften, die nicht vom Layout abhängen (z. B. `display`, `font-size` oder `line-height`), sind die berechneten Werte und verwendeten Werte identisch. Folgende CSS 2.1 Eigenschaften hängen vom Layout ab und haben daher einen unterschiedlichen computed value und verwendeten Wert: (aus [CSS 2.1 Changes: Specified, computed, and actual values](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
 
 - `background-position`
 - `bottom`, `left`, `right`, `top`
@@ -102,7 +102,7 @@ CSS 2.0 definierte nur den _computed value_ als den letzten Schritt bei der Bere
 ## Siehe auch
 
 - [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle)
-- Wichtige Konzepte in CSS:
+- Wichtige CSS-Konzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/Syntax)
   - [Kommentare](/de/docs/Web/CSS/Comments)
   - [Spezifität](/de/docs/Web/CSS/Specificity)
@@ -112,10 +112,10 @@ CSS 2.0 definierte nur den _computed value_ als den letzten Schritt bei der Bere
   - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
   - [Randkollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
   - Werte
-    - [Initialwerte](/de/docs/Web/CSS/initial_value)
-    - [Computed values](/de/docs/Web/CSS/computed_value)
-    - [Resolved values](/de/docs/Web/CSS/resolved_value)
+    - [Anfangswerte](/de/docs/Web/CSS/initial_value)
+    - [Berechnete Werte](/de/docs/Web/CSS/computed_value)
+    - [Aufgelöste Werte](/de/docs/Web/CSS/resolved_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/actual_value)
   - [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-  - [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+  - [Kurzform-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
   - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

@@ -1,5 +1,5 @@
 ---
-title: "Window: matchMedia()-Methode"
+title: "Window: matchMedia() Methode"
 short-title: matchMedia()
 slug: Web/API/Window/matchMedia
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef}}
 
-Die **`matchMedia()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das dann verwendet werden kann, um festzustellen, ob das [`document`](/de/docs/Web/API/Document) der [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)-Zeichenfolge entspricht. Außerdem kann damit das Dokument überwacht werden, um zu erkennen, wann es mit dieser Media Query übereinstimmt (oder nicht mehr übereinstimmt).
+Die **`matchMedia()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces
+gibt ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das verwendet werden kann, um zu bestimmen, ob das [`document`](/de/docs/Web/API/Document) die [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) Zeichenfolge erfüllt und um das Dokument zu überwachen, um zu erkennen, wann es diese Media-Query erfüllt (oder nicht mehr erfüllt).
 
 ## Syntax
 
@@ -19,23 +20,23 @@ matchMedia(mediaQueryString)
 ### Parameter
 
 - `mediaQueryString`
-  - : Eine Zeichenfolge, die die Media Query angibt, die in ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) geparst werden soll.
+  - : Ein String, der die zu parsende Media-Query als [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) angibt.
 
 ### Rückgabewert
 
-Ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt für die Media Query. Verwenden Sie die Eigenschaften und Ereignisse dieses Objekts, um Übereinstimmungen zu erkennen und Änderungen dieser Übereinstimmungen im Laufe der Zeit zu überwachen.
+Ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt für die Media-Query. Verwenden Sie die Eigenschaften und Ereignisse dieses Objekts, um Übereinstimmungen zu erkennen und um Änderungen dieser Übereinstimmungen im Laufe der Zeit zu überwachen.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Sie können die zurückgegebene Media Query sowohl für sofortige als auch für ereignisgesteuerte Prüfungen verwenden, um festzustellen, ob das Dokument der Media Query entspricht.
+Sie können die zurückgegebene Media-Query sowohl für sofortige als auch für ereignisgesteuerte Überprüfungen verwenden, um festzustellen, ob das Dokument die Media-Query erfüllt.
 
-Um eine einmalige, sofortige Prüfung durchzuführen, ob das Dokument der Media Query entspricht, betrachten Sie den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft, die `true` ist, wenn das Dokument die Anforderungen der Media Query erfüllt.
+Um eine einmalige, sofortige Überprüfung durchzuführen, ob das Dokument die Media-Query erfüllt, schauen Sie sich den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft an, die `true` ist, wenn das Dokument die Anforderungen der Media-Query erfüllt.
 
-Wenn Sie ständig darüber informiert werden müssen, ob das Dokument der Media Query entspricht oder nicht, können Sie stattdessen das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis überwachen, das an das Objekt gesendet wird. Im Artikel über [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) gibt es [ein gutes Beispiel dafür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes).
+Wenn Sie jederzeit informiert bleiben müssen, ob das Dokument die Media-Query erfüllt oder nicht, können Sie stattdessen das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis beobachten, das an das Objekt gesendet wird. Es gibt [ein gutes Beispiel dafür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes) im Artikel über [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 
 ## Beispiele
 
-Dieses Beispiel führt die Media Query `(max-width: 600px)` aus und zeigt den Wert der `matches`-Eigenschaft des resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an; dementsprechend wird die Ausgabe "true" sein, wenn der Ansichtsbereich 600 Pixel oder schmaler ist, und "false", wenn das Fenster breiter ist.
+Dieses Beispiel führt die Media-Query `(max-width: 600px)` aus und zeigt den Wert der `matches`-Eigenschaft der resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an. Das Ergebnis zeigt "true", wenn der Viewport kleiner oder gleich 600 Pixel breit ist, und "false", wenn das Fenster breiter ist.
 
 ### JavaScript
 
@@ -45,7 +46,7 @@ let mql = window.matchMedia("(max-width: 600px)");
 document.querySelector(".mq-value").innerText = mql.matches;
 ```
 
-Der JavaScript-Code übergibt die zu prüfende Media Query an `matchMedia()`, um sie zu kompilieren, und setzt dann den [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft des Ergebnisses, sodass angezeigt wird, ob das Dokument der Media Query zu dem Zeitpunkt entspricht, zu dem die Seite geladen wurde.
+Der JavaScript-Code übergibt die Media-Query an `matchMedia()`, um sie zu kompilieren, und setzt dann den [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft der Ergebnisse, um anzugeben, ob das Dokument die Media-Query zum Zeitpunkt des Ladevorgangs der Seite erfüllt.
 
 ### HTML
 
@@ -71,7 +72,7 @@ Ein einfaches `<span>`, um die Ausgabe zu empfangen.
 
 {{EmbedLiveSample("Examples", "100%", "60")}}
 
-Für zusätzliche Codebeispiele siehe [Testing media queries programmatically](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries).
+Siehe [Programmatische Tests von Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) für zusätzliche Codebeispiele.
 
 ## Spezifikationen
 
@@ -83,6 +84,6 @@ Für zusätzliche Codebeispiele siehe [Testing media queries programmatically](/
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Using media queries from code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media-Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

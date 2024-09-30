@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `EXT_texture_compression_rgtc` Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet 4 RGTC-komprimierte Texturformate. RGTC ist ein blockbasiertes Texturkompressionsformat, das sich für unkomprimierte und komprimierte Rot- und Rot-Grün-Texturen eignet (**R**ot-**G**rün **T**extur**k**ompression).
+Die `EXT_texture_compression_rgtc`-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt vier RGTC-komprimierte Texturformate zur Verfügung. RGTC ist ein blockbasiertes Texturkompressionsformat, das für vorzeichenbehaftete und vorzeichenlose Rot- und Rot-Grün-Texturen geeignet ist (**R**ed-**G**reen **T**exture **C**ompression).
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie in der [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Die Unterstützung hängt vom Grafikkartentreiber des Systems ab. Es gibt keine Unterstützung unter Windows.
+> Die Unterstützung hängt vom Grafiktreiber des Systems ab. Es gibt keine Unterstützung unter Windows.
 >
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch in {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexten verfügbar.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden durch 4 Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
+Die komprimierten Texturformate werden durch vier Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 - `ext.COMPRESSED_RED_RGTC1_EXT`
-  - : Jeder 4x4 Block von Texeln besteht aus 64 Bit unkomprimierten roten Bilddaten. Siehe auch [BC4 unsigned](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc4).
+  - : Jeder 4x4-Block von Texeln besteht aus 64 Bits vorzeichenlosem Rot-Bilddaten. Siehe auch [BC4 unsigned](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc4).
 - `ext.COMPRESSED_SIGNED_RED_RGTC1_EXT`
-  - : Jeder 4x4 Block von Texeln besteht aus 64 Bit komprimierten roten Bilddaten. Siehe auch [BC4 signed](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc4).
+  - : Jeder 4x4-Block von Texeln besteht aus 64 Bits vorzeichenbehafteten Rot-Bilddaten. Siehe auch [BC4 signed](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc4).
 - `ext.COMPRESSED_RED_GREEN_RGTC2_EXT`
-  - : Jeder 4x4 Block von Texeln besteht aus 64 Bit komprimierten unkomprimerten roten Bilddaten, gefolgt von 64 Bit komprimerten unkomprimerten grünen Bilddaten. Siehe auch [BC5 unsigned](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc5).
+  - : Jeder 4x4-Block von Texeln besteht aus 64 Bits komprimierter vorzeichenloser Rot-Bilddaten, gefolgt von 64 Bits komprimierter vorzeichenloser Grün-Bilddaten. Siehe auch [BC5 unsigned](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc5).
 - `ext.COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT`
-  - : Jeder 4x4 Block von Texeln besteht aus 64 Bit komprimierten komprimerten roten Bilddaten, gefolgt von 64 Bit komprimierten komprimerten grünen Bilddaten. Siehe auch [BC5 signed](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc5).
+  - : Jeder 4x4-Block von Texeln besteht aus 64 Bits komprimierter vorzeichenbehafteter Rot-Bilddaten, gefolgt von 64 Bits komprimierter vorzeichenbehafteter Grün-Bilddaten. Siehe auch [BC5 signed](https://learn.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression#bc5).
 
 ## Beispiele
 

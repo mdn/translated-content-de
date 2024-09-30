@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`search`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein Suchstring, auch _query string_ genannt; das heißt, ein String, der ein `'?'` gefolgt von den Parametern der URL enthält.
+Die **`search`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein Suchstring, auch bekannt als _Abfragezeichenkette_; das heißt, ein String, der ein `'?'` enthält, gefolgt von den Parametern der URL.
 
-Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), um das Herausparsen der Parameter aus dem Querystring zu erleichtern.
+Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples) an, um das Parsen der Parameter aus der Abfragezeichenkette zu erleichtern.
 
 ## Wert
 

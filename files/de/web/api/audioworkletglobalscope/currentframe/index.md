@@ -1,5 +1,5 @@
 ---
-title: "AudioWorkletGlobalScope: currentFrame-Eigenschaft"
+title: "AudioWorkletGlobalScope: currentFrame Eigenschaft"
 short-title: currentFrame
 slug: Web/API/AudioWorkletGlobalScope/currentFrame
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`currentFrame`**-Eigenschaft des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces gibt eine ganze Zahl zurück, die den ständig zunehmenden aktuellen Sample-Frame des zu verarbeitenden Audio-Blocks darstellt. Sie wird nach der Verarbeitung jedes Audio-Blocks um 128 (die Größe eines Render-Quantum) erhöht.
+Die schreibgeschützte **`currentFrame`**-Eigenschaft der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Schnittstelle gibt ein Integer zurück, das den stetig zunehmenden aktuellen Sample-Frame des zu verarbeitenden Audio-Blocks darstellt. Es wird nach der Verarbeitung jedes Audio-Blocks um 128 (die Größe eines Render-Quantum) erhöht.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine ganze Zahl.
 
 ## Beispiele
 
-Der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hat Zugriff auf die spezifischen Eigenschaften von [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope):
+Der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hat Zugriff auf die spezifischen Eigenschaften des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope):
 
 ```js
 // AudioWorkletProcessor defined in : test-processor.js
@@ -50,7 +50,7 @@ console.log(usefulVariable);
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors und verbindet den Node mit einem Audiograph. Wir sollten die Ausgabe von [`console.log()`](/de/docs/Web/API/Console/log_static) Aufrufen in der Konsole sehen:
+Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors an ihn und verbindet den Knoten mit einem Audio-Graph. Wir sollten die Ausgabe der [`console.log()`](/de/docs/Web/API/Console/log_static)-Aufrufe in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();

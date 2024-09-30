@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: add() Methode"
+title: "FontFaceSet: add()-Methode"
 short-title: add()
 slug: Web/API/FontFaceSet/add
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`add()`** Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle fügt einen neuen Font zum Set hinzu.
+Die **`add()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle fügt eine neue Schriftart zum Set hinzu.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ add(font)
 ### Parameter
 
 - `font`
-  - : Ein [`FontFace`](/de/docs/Web/API/FontFace), der zum Set hinzugefügt werden soll.
+  - : Ein [`FontFace`](/de/docs/Web/API/FontFace), das dem Set hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Ein neues [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
 ### Ausnahmen
 
 - `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn dieser Font bereits über die CSS {{cssxref("@font-face")}} Regel eingebunden ist.
+  - : Wird ausgelöst, wenn diese Schriftart bereits über die CSS-{{cssxref("@font-face")}}-Regel enthalten ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`FontFace`](/de/docs/Web/API/FontFace)-Objekt erstellt und dann der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) hinzugefügt.
+Im folgenden Beispiel wird ein neues [`FontFace`](/de/docs/Web/API/FontFace)-Objekt erstellt und dann dem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) hinzugefügt.
 
 ```js
 const font = new FontFace("MyFont", "url(myFont.woff2)");

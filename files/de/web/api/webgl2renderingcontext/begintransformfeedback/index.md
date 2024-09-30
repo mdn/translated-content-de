@@ -3,10 +3,10 @@ title: "WebGL2RenderingContext: beginTransformFeedback()-Methode"
 short-title: beginTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/beginTransformFeedback
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.beginTransformFeedback()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) startet eine Transform-Feedback-Operation.
 
@@ -20,7 +20,7 @@ beginTransformFeedback(primitiveMode)
 
 - `primitiveMode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Ausgabetyp der Primitive angibt, die in die Pufferobjekte aufgezeichnet werden, die für das Transform-Feedback gebunden sind. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Ausgabetyp der Primitiven spezifiziert, die in die Buffer-Objekte aufgezeichnet werden, die für das Transform-Feedback gebunden sind. Mögliche Werte:
 
     - `gl.POINTS`
     - `gl.LINES`

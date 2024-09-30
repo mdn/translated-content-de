@@ -1,5 +1,5 @@
 ---
-title: "IIRFilterNode: Methode getFrequencyResponse()"
+title: "IIRFilterNode: getFrequencyResponse()-Methode"
 short-title: getFrequencyResponse()
 slug: Web/API/IIRFilterNode/getFrequencyResponse
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `getFrequencyResponse()` der [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Schnittstelle nimmt die aktuellen Filteralgorithmen-Einstellungen und berechnet die Frequenzantwort für die in einem angegebenen Frequenzarray spezifizierten Frequenzen.
+Die `getFrequencyResponse()`-Methode der [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Schnittstelle verwendet die aktuellen Einstellungen des Filteralgorithmus und berechnet die Frequenzantwort für Frequenzen, die in einem bestimmten Frequenzarray angegeben sind.
 
-Die beiden Ausgabearrays, `magResponseOutput` und `phaseResponseOutput`, müssen vor dem Aufruf dieser Methode erstellt werden; sie müssen die gleiche Größe wie das Array der Eingabefrequenzwerte (`frequencyArray`) haben.
+Die beiden Ausgabearrays, `magResponseOutput` und `phaseResponseOutput`, müssen vor dem Aufruf dieser Methode erstellt werden; sie müssen die gleiche Größe wie das Eingabefrequenzarray (`frequencyArray`) haben.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ getFrequencyResponse(frequencyArray, magResponseOutput, phaseResponseOutput)
 ### Parameter
 
 - `frequencyArray`
-  - : Ein {{jsxref("Float32Array")}}, das ein Array von Frequenzen in Hertz enthält, das gefiltert werden soll.
+  - : Ein {{jsxref("Float32Array")}}, das ein Array von Frequenzen in Hertz enthält, die gefiltert werden sollen.
 - `magResponseOutput`
-  - : Ein {{jsxref("Float32Array")}} zur Aufnahme der berechneten Magnituden der Frequenzantwort für jeden Frequenzwert im `frequencyArray`.
+  - : Ein {{jsxref("Float32Array")}}, um die berechneten Magnituden der Frequenzantwort für jeden Frequenzwert im `frequencyArray` zu empfangen.
 - `phaseResponseOutput`
-  - : Ein {{jsxref("Float32Array")}} zur Aufnahme der berechneten Phasenantwortwerte in Radiant für jeden Frequenzwert im Eingabe-`frequencyArray`.
+  - : Ein {{jsxref("Float32Array")}}, um die berechneten Phasenantwortwerte in Radiant für jeden Frequenzwert im Eingabearray `frequencyArray` zu empfangen.
 
 ### Rückgabewert
 
@@ -34,11 +34,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wirft einen Fehler, wenn die drei bereitgestellten Arrays nicht alle die gleiche Länge haben.
+  - : Wird ausgelöst, wenn die drei bereitgestellten Arrays nicht alle die gleiche Länge haben.
 
 ## Beispiele
 
-Im folgenden Beispiel verwenden wir einen IIR-Filter auf einem Medienstrom (für eine vollständige Demo siehe unser [stream-source-buffer demo](https://mdn.github.io/webaudio-examples/stream-source-buffer/) live oder [lesen Sie den Quellcode](https://github.com/mdn/webaudio-examples/blob/main/stream-source-buffer/index.html)). Als Teil dieser Demo erhalten wir die Frequenzantworten für diesen IIR-Filter für fünf Beispiel-Frequenzen. Wir erstellen zuerst die benötigten {{jsxref("Float32Array")}}-Objekte: eines enthält die Eingabefrequenzen und zwei, um die Ausgabemagnitude- und Phasenwerte zu empfangen:
+Im folgenden Beispiel verwenden wir einen IIR-Filter auf einem Medienstream (für eine vollständige Demo siehe unser [stream-source-buffer Demo](https://mdn.github.io/webaudio-examples/stream-source-buffer/) live oder [lesen Sie den Quellcode](https://github.com/mdn/webaudio-examples/blob/main/stream-source-buffer/index.html)). Als Teil dieser Demo erhalten wir die Frequenzantworten für diesen IIR-Filter für fünf Beispiel-Frequenzen. Wir erstellen zuerst die benötigten {{jsxref("Float32Array")}}-Objekte, eines mit den Eingabefrequenzen und zwei, um die Ausgaben der Magnituden- und Phasenwerte zu empfangen:
 
 ```js
 const myFrequencyArray = new Float32Array(5);
@@ -52,7 +52,7 @@ const magResponseOutput = new Float32Array(5);
 const phaseResponseOutput = new Float32Array(5);
 ```
 
-Als Nächstes erstellen wir ein {{ htmlelement("ul") }}-Element in unserem HTML, um unsere Ergebnisse zu enthalten, und greifen in unserem JavaScript darauf zu:
+Als nächstes erstellen wir ein {{ htmlelement("ul") }}-Element in unserem HTML, um unsere Ergebnisse zu enthalten, und holen eine Referenz darauf in unserem JavaScript:
 
 ```html
 <p>IIR filter frequency response for:</p>
@@ -63,7 +63,7 @@ Als Nächstes erstellen wir ein {{ htmlelement("ul") }}-Element in unserem HTML,
 const freqResponseOutput = document.querySelector(".freq-response-output");
 ```
 
-Schließlich, nachdem wir unseren Filter erstellt haben, verwenden wir `getFrequencyResponse()`, um die Antwortdaten zu generieren und in unsere Arrays zu setzen. Dann durchlaufen wir jeden Datensatz und geben sie in einer menschenlesbaren Liste am unteren Rand der Seite aus:
+Schließlich, nach der Erstellung unseres Filters, verwenden wir `getFrequencyResponse()`, um die Antwortdaten zu erzeugen und in unsere Arrays zu setzen, durchlaufen dann jedes Datenset und geben sie in einer leicht lesbaren Liste am unteren Rand der Seite aus:
 
 ```js
 const feedforwardCoefficients = [0.1, 0.2, 0.3, 0.4, 0.5];

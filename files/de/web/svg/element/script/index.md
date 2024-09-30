@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG-`script`-Element ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
+Das SVG-Element `script` ermöglicht es, Skripte zu einem SVG-Dokument hinzuzufügen.
 
 > [!NOTE]
-> Während das SVG-`script`-Element dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede. Zum Beispiel verwendet es das {{SVGAttr('href')}}-Attribut anstelle von [`src`](/de/docs/Web/HTML/Element/script#src) und es unterstützt bisher keine ECMAScript-Module (siehe Browser-Kompatibilität unten für Details).
+> Während das SVG-Element `script` dem HTML-Element {{HTMLElement('script')}} entspricht, gibt es einige Unterschiede, wie z.B. die Verwendung des Attributs {{SVGAttr('href')}} anstelle von [`src`](/de/docs/Web/HTML/Element/script#src) und dass bisher keine ECMAScript-Module unterstützt werden (siehe unten zur Browser-Kompatibilität).
 
 ## Beispiel
 
@@ -54,19 +54,19 @@ Click the circle to change colors.
 ## Attribute
 
 - [`crossorigin`](/de/docs/Web/HTML/Element/script#crossorigin)
-  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) wie beim HTML-{{HTMLElement('script')}}-Element.
-    _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin), wie sie für das HTML-Element {{HTMLElement('script')}} festgelegt sind.
+    _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Die [URL](/de/docs/Glossary/URL) zum Skript, das geladen werden soll.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die [URL](/de/docs/Glossary/URL) zum zu ladenden Skript.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Skriptsprachtyp, der verwendet werden soll.
-    _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
+    _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die [URL](/de/docs/Glossary/URL) zum Skript, das geladen werden soll.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die [URL](/de/docs/Glossary/URL) zum zu ladenden Skript.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

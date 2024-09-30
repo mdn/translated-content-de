@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`[Symbol.iterator]()`** Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) Schnittstelle implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es Statistikberichten, von den meisten Syntaxen konsumiert zu werden, die Iterables erwarten, wie beispielsweise die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Schlüssel-Wert-Paare des Berichts in der Einfügereihenfolge liefert.
+Die **`[Symbol.iterator]()`** Methode des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) Interfaces implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, Statistikberichte mit den meisten Syntaxen zu konsumieren, die Iterables erwarten, wie zum Beispiel die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Schlüssel-Werte-Paare des Berichts in Einfüge-Reihenfolge liefert.
 
-Der Anfangswert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der Anfangswert der [`RTCStatsReport.entries()`](/de/docs/Web/API/RTCStatsReport/entries) Methode.
+Der anfängliche Wert dieser Eigenschaft ist das gleiche Funktionsobjekt wie der anfängliche Wert der [`RTCStatsReport.entries()`](/de/docs/Web/API/RTCStatsReport/entries) Methode.
 
-Die Methode entspricht ansonsten der [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator).
+Die Methode ist ansonsten identisch mit [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator).
 
 ## Syntax
 
@@ -23,7 +23,7 @@ RTCStatsReport[Symbol.iterator]()
 ### Rückgabewert
 
 Der gleiche Rückgabewert wie [`RTCStatsReport.entries()`](/de/docs/Web/API/RTCStatsReport/entries).
-Dies ist ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das die Schlüssel-Wert (`id`-"Statistik-Wörterbuch") Paare des Berichts liefert.
+Dies ist ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das die Schlüssel-Werte (`id`-"Statistik-Dictionary") Paare des Berichts liefert.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSMathProduct`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert das Ergebnis, das durch den Aufruf von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten Objekt [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Das **`CSSMathProduct`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) stellt das Ergebnis dar, das durch den Aufruf von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird. Es erbt Eigenschaften und Methoden von seinem Eltern-Interface [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
@@ -23,11 +23,11 @@ Die **`CSSMathProduct`**-Schnittstelle der [CSS Typed Object Model API](/de/docs
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle erben, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Das Interface kann auch Methoden von seinem Eltern-Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Instanz-Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle erben, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Das Interface kann auch Methoden von seinem Eltern-Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Spezifikationen
 

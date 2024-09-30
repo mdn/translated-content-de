@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **CSS numerischen Fabrikfunktionen**, wie `CSS.em()` und `CSS.turn()`, sind Methoden, die [CSSUnitValues](/de/docs/Web/API/CSSUnitValue) zurückgeben, wobei der Wert das numerische Argument ist und die Einheit der Name der verwendeten Methode ist. Diese Funktionen erstellen neue numerische Werte weniger umständlich als mit dem [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue)-Konstruktor.
+Die **CSS numerischen Fabrikfunktionen**, wie `CSS.em()` und `CSS.turn()`, sind Methoden, die [CSSUnitValues](/de/docs/Web/API/CSSUnitValue) zurückgeben, wobei der Wert das numerische Argument ist und die Einheit der Name der verwendeten Methode. Diese Funktionen erstellen neue numerische Werte weniger umständlich als der Gebrauch des [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue) Konstruktors.
 
 ## Syntax
 
@@ -62,7 +62,7 @@ CSS.fr(number)
 
 ## Beispiele
 
-Wir verwenden die `CSS.vmax()` numerische Fabrikfunktion zur Erstellung eines [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue):
+Wir verwenden die `CSS.vmax()` numerische Fabrikfunktion, um einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zu erstellen:
 
 ```js
 const height = CSS.vmax(50);
@@ -72,7 +72,7 @@ console.log(height.value); // 50
 console.log(height.unit); // vmax
 ```
 
-In diesem Beispiel setzen wir den Rand auf unserem Element mit der `CSS.px()` Fabrikfunktion:
+In diesem Beispiel setzen wir den Rand unseres Elements mit der `CSS.px()` Fabrikfunktion:
 
 ```js
 myElement.attributeStyleMap.set("margin", CSS.px(40));

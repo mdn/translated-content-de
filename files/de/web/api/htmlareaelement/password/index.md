@@ -9,11 +9,11 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAreaElement.password`**-Eigenschaft ist ein
-String, der das vor dem Domainnamen angegebene Passwort enthält.
+String, der das Passwort enthält, das vor dem Domainnamen angegeben wird.
 
-Wenn sie gesetzt wird, ohne dass zuvor die
+Wenn es gesetzt wird, ohne zuerst die
 [`username`](/de/docs/Web/API/HTMLAreaElement/username)
-Eigenschaft festgelegt wurde, schlägt sie ohne Hinweis fehl.
+Eigenschaft zu setzen, schlägt es stillschweigend fehl.
 
 ## Wert
 
@@ -37,4 +37,4 @@ area.password; // returns 'flabada'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel für das Mausereignis, falls vorhanden.
+Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel für das Mausereignis, falls es eines gibt.
 
 Das bedeutet:
 
@@ -24,7 +24,7 @@ Das bedeutet:
     <tr>
       <td>[`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
       <td>
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
@@ -36,7 +36,7 @@ Das bedeutet:
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
     </tr>
     <tr>
@@ -45,13 +45,13 @@ Das bedeutet:
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
     </tr>
     <tr>
       <td>[`mouseover`](/de/docs/Web/API/Element/mouseover_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
       <td>
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
@@ -60,7 +60,7 @@ Das bedeutet:
     <tr>
       <td>[`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
       <td>
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
@@ -72,16 +72,15 @@ Das bedeutet:
         Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
       </td>
     </tr>
   </tbody>
 </table>
 
-Für Ereignisse ohne sekundäres Ziel gibt `relatedTarget`
-`null` zurück.
+Für Ereignisse ohne sekundäres Ziel gibt `relatedTarget` `null` zurück.
 
-[`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget) ist eine ähnliche Eigenschaft für Fokuserignisse.
+[`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget) ist eine ähnliche Eigenschaft für Fokusereignisse.
 
 ## Wert
 
@@ -89,7 +88,7 @@ Ein [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekt oder `null`.
 
 ## Beispiele
 
-Versuchen Sie, den Mauszeiger in die roten und blauen Kästchen hinein und heraus zu bewegen.
+Versuchen Sie, den Mauszeiger in die roten und blauen Kästchen zu bewegen und wieder heraus.
 
 ### HTML
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.previousNode()`**-Methode gibt den vorherigen Knoten in der Menge zurück, die durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellt wird, und bewegt die Position des Iterators innerhalb der Menge rückwärts.
+Die **`NodeIterator.previousNode()`**-Methode gibt den vorhergehenden Knoten in der durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellten Menge zurück und bewegt die Position des Iterators innerhalb der Menge rückwärts.
 
 Diese Methode gibt `null` zurück, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
 
-In alten Browsern, wie in früheren Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR`-[`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach)-Methode aufgerufen wird. In neueren Browsern wird dies nie ausgelöst.
+In älteren Browsern, wie in älteren Versionen der Spezifikationen angegeben, kann die Methode die Ausnahme `INVALID_STATE_ERR` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der Methode [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach) aufgerufen wird. Aktuelle Browser werfen diese Ausnahme nie.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Node`](/de/docs/Web/API/Node), der den Knoten vor dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge darstellt, oder `null`, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
+Ein [`Node`](/de/docs/Web/API/Node), der den Knoten vor dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge repräsentiert, oder `null`, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
 
 ## Beispiele
 
@@ -54,4 +54,4 @@ previousNode = nodeIterator.previousNode(); // same result, since we backtracked
 
 ## Siehe auch
 
-- Die Schnittstelle, zu der sie gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).
+- Die Schnittstelle, zu der es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

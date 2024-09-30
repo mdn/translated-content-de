@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`candidate`**-Eigenschaft
-der [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Schnittstelle gibt den
-[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) zurück, der mit dem Ereignis verknüpft ist.
+Die schreibgeschützte **`candidate`**-Eigenschaft der [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Schnittstelle gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) zurück, der mit dem Ereignis verbunden ist.
 
 ## Wert
 
-Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt, das den ICE-Kandidaten repräsentiert, der empfangen wurde, oder `null`, um anzuzeigen, dass es keine weiteren Kandidaten für diese Verhandlungssitzung gibt.
+Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt, das den ICE-Kandidaten darstellt, der empfangen wurde, oder `null`, um anzuzeigen, dass keine weiteren Kandidaten für diese Verhandlungssitzung vorhanden sind.
 
 ## Beispiel
 

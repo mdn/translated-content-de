@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Gibt die serialisierte `ServiceWorker`-Skript-URL zurück, die als Teil der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) definiert ist. Muss sich im selben Ursprung wie das Dokument befinden, das den `ServiceWorker` registriert.
+Gibt die serialisierte Skript-URL des `ServiceWorker` zurück, die als Teil der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) definiert ist. Muss im gleichen Ursprung wie das Dokument sein, das den `ServiceWorker` registriert.
 
 ## Wert
 

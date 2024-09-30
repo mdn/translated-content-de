@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Typ `InterruptReason` der {{WebExtAPIRef("downloads")}} API definiert eine Reihe von möglichen Gründen, warum ein Download unterbrochen wurde.
+Der Typ `InterruptReason` der {{WebExtAPIRef("downloads")}} API definiert eine Reihe möglicher Gründe, warum ein Download unterbrochen wurde.
 
-Die `error`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten entnommen wird.
+Die `error`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten stammt.
 
 ## Typ
 
-Werte dieses Typs sind Strings. Mögliche Werte sind in Kategorien unterteilt, wobei jede Kategorie denselben Substring am Anfang hat:
+Werte dieses Typs sind Strings. Mögliche Werte sind in Kategorien unterteilt, wobei jede Gruppe den gleichen Anfangs-Substring hat:
 
 Dateibezogene Fehler:
 
@@ -61,4 +61,4 @@ Sonstige:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-InterruptReason) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-InterruptReason) API von Chromium.

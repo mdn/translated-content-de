@@ -7,19 +7,19 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`color-interpolation-filters`** gibt den Farbraum für Bildgebungsoperationen an, die über Filtereffekte durchgeführt werden.
+Das Attribut **`color-interpolation-filters`** spezifiziert den Farbraum für Bildoperationen, die über Filtereffekte durchgeführt werden.
 
 > [!NOTE]
-> Diese Eigenschaft hat nur Auswirkungen auf Filteroperationen. Daher hat sie keinen Einfluss auf Filterprimitiven wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}} oder {{SVGElement("feFlood")}}.
+> Diese Eigenschaft wirkt sich nur auf Filteroperationen aus. Daher hat sie keinen Effekt auf Filterprimitive wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}} oder {{SVGElement("feFlood")}}.
 >
-> `color-interpolation-filters` hat einen anderen Initialwert als {{SVGAttr("color-interpolation")}}. `color-interpolation-filters` hat einen Initialwert von `linearRGB`, während `color-interpolation` einen Initialwert von `sRGB` hat. Somit erfolgen standardmäßig Filtereffektoperationen im linearRGB-Farbraum, während alle anderen Farbinterpolationen standardmäßig im sRGB-Farbraum stattfinden.
+> `color-interpolation-filters` hat einen anderen Anfangswert als {{SVGAttr("color-interpolation")}}. `color-interpolation-filters` hat einen Anfangswert von `linearRGB`, während `color-interpolation` einen Anfangswert von `sRGB` hat. In der Standardeinstellung erfolgen Filtereffekt-Operationen somit im linearRGB-Farbraum, während alle anderen Farbinterpolationen standardmäßig im sRGB-Farbraum erfolgen.
 >
-> Es hat keinen Einfluss auf Filterfunktionen, die im [sRGB](/de/docs/Glossary/RGB)-Farbraum arbeiten.
+> Es hat keinen Effekt auf Filterfunktionen, die im [sRGB](/de/docs/Glossary/RGB) Farbraum arbeiten.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `color-interpolation-filters` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('color-interpolation-filters')}} für mehr.
+> Als Präsentationsattribut kann `color-interpolation-filters` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('color-interpolation-filters')}} für weitere Informationen.
 
-Man kann dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feBlend")}}
@@ -60,11 +60,11 @@ Man kann dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent entweder die `sRGB`- oder `linearRGB`-Farbräume für die Farbinterpolation wählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
+  - : Gibt an, dass der Benutzeragent entweder die `sRGB`- oder `linearRGB`-Farbräume für die Farbinterpolation wählen kann. Diese Option gibt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
 - `sRGB`
   - : Gibt an, dass die Farbinterpolation im sRGB-Farbraum erfolgen soll.
 - `linearRGB`
-  - : Gibt an, dass die Farbinterpolation im linearisierten RGB-Farbraum erfolgen soll, wie in [der sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
+  - : Gibt an, dass die Farbinterpolation im linearisierten RGB-Farbraum erfolgen soll, wie in der [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
 
 ## Spezifikationen
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`beforeprint`** Ereignis wird ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau vorbereitet wird.
+Das **`beforeprint`**-Ereignis wird ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau angezeigt werden soll.
 
-Die [`afterprint`](/de/docs/Web/API/Window/afterprint_event) und `beforeprint` Ereignisse ermöglichen es Seiten, ihren Inhalt zu ändern, bevor der Druck beginnt (vielleicht um ein Banner zu entfernen, zum Beispiel) und diese Änderungen nach Abschluss des Druckvorgangs wieder rückgängig zu machen. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Regel bevorzugen, aber es kann in einigen Fällen notwendig sein, diese Ereignisse zu nutzen.
+Die [`afterprint`](/de/docs/Web/API/Window/afterprint_event)- und `beforeprint`-Ereignisse erlauben es Seiten, ihren Inhalt zu ändern, bevor der Druckvorgang beginnt (zum Beispiel um ein Banner zu entfernen) und diese Änderungen nach dem Abschluss des Drucks wieder rückgängig zu machen. Im Allgemeinen sollten Sie bevorzugt eine [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Regel verwenden, aber es kann in einigen Fällen notwendig sein, diese Ereignisse zu nutzen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("beforeprint", (event) => {});
@@ -35,7 +35,7 @@ window.addEventListener("beforeprint", (event) => {
 });
 ```
 
-Verwendung der `onbeforeprint` Ereignis-Handler-Eigenschaft:
+Verwendung der `onbeforeprint`-Ereignishandlereigenschaft:
 
 ```js
 window.onbeforeprint = (event) => {

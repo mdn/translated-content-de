@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`str:tokenize()` teilt einen String unter Verwendung eines Satzes von Zeichen als Trennzeichen auf, die bestimmen, wo die Trennungen erfolgen sollen. Es wird ein Knoten-Set zurückgegeben, das die resultierenden Strings enthält.
+`str:tokenize()` teilt einen String unter Verwendung einer Menge von Zeichen als Trennzeichen, die bestimmen, wo die Teilungen stattfinden sollen, und gibt eine Knotenmenge zurück, die die resultierenden Strings enthält.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ str:tokenize(string, delimiters)
 ### Parameter
 
 - `string`
-  - : Der String, der tokenisiert werden soll.
+  - : Der zu tokenisierende String.
 - `delimiters`
-  - : Jedes Zeichen in diesem String wird beim Tokenisieren als Worttrennzeichen verwendet.
+  - : Jedes Zeichen in diesem String wird als Worttrenner beim Tokenisieren verwendet.
 
 ### Rückgabewert
 
-Ein Knoten-Set von `token`-Elementen, die jeweils ein Token aus dem `string` enthalten.
+Eine Knotenmenge von `token`-Elementen, die jeweils ein Token aus dem `string` enthalten.
 
 ## Beispiel
 
@@ -32,7 +32,7 @@ Ein Knoten-Set von `token`-Elementen, die jeweils ein Token aus dem `string` ent
 str:tokenize('2007-09-14-03T11:40:23', '-T:')
 ```
 
-Gibt ein Knoten-Set wie dieses zurück:
+Gibt eine Knotenmenge zurück, die so aussieht:
 
 ```xml
 <token>2007</token>

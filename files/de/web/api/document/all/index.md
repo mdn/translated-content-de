@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}
 
-Die schreibgeschützte **`all`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück, die am Dokumentknoten verwurzelt ist.
+Die schreibgeschützte **`all`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück, die am Dokumentknoten verankert ist.
 
-Anstatt `document.all` zu verwenden, um eine [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) aller Elemente des Dokuments in Dokumentreihenfolge zurückzugeben, können Sie [`Document.querySelectorAll`](/de/docs/Web/API/Document/querySelectorAll) verwenden, um eine [`NodeList`](/de/docs/Web/API/NodeList) aller Elemente des Dokuments in Dokumentreihenfolge zurückzugeben:
+Statt `document.all` zu verwenden, um eine [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) aller Elemente des Dokuments in Dokumentreihenfolge zurückzugeben, können Sie [`Document.querySelectorAll`](/de/docs/Web/API/Document/querySelectorAll) verwenden, um eine [`NodeList`](/de/docs/Web/API/NodeList) aller Elemente des Dokuments in Dokumentreihenfolge zurückzugeben:
 
 ```js
 const allElements = document.querySelectorAll("*");

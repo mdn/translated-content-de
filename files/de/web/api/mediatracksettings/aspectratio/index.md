@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`aspectRatio`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine Gleitkommazahl mit doppelter Genauigkeit, die das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, wie es derzeit konfiguriert ist. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um den von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie in der [`MediaTrackConstraints.aspectRatio`](/de/docs/Web/API/MediaTrackConstraints/aspectRatio)-Eigenschaft beschrieben, die Sie entweder beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
+Das **`aspectRatio`**-Eigenschaftswörterbuch von [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) ist eine Gleitkommazahl mit doppelter Genauigkeit, die das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, wie es derzeit konfiguriert ist. Dies ermöglicht es Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft zu erfüllen, wie sie in der Eigenschaft [`MediaTrackConstraints.aspectRatio`](/de/docs/Web/API/MediaTrackConstraints/aspectRatio) beschrieben sind, die Sie beim Aufruf von entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
 
-Falls nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.aspectRatio`](/de/docs/Web/API/MediaTrackSupportedConstraints/aspectRatio) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser unbekannte Einschränkungen ignorieren.
+Falls erforderlich, können Sie ermitteln, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.aspectRatio`](/de/docs/Web/API/MediaTrackSupportedConstraints/aspectRatio) abfragen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
 ## Wert
 
-Eine Gleitkommazahl mit doppelter Genauigkeit, die die aktuelle Konfiguration des Seitenverhältnisses der Spur angibt. Das Seitenverhältnis wird berechnet, indem die Breite der Spur durch ihre Höhe geteilt und das Ergebnis auf zehn Dezimalstellen gerundet wird. Beispielsweise kann das standardmäßige 16:9-High-Definition-Seitenverhältnis als 1920/1080 oder 1.7777777778 berechnet werden.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die aktuelle Konfiguration des Seitenverhältnisses des Tracks angibt. Das Seitenverhältnis wird berechnet, indem die Breite des Tracks durch seine Höhe geteilt und das Ergebnis auf zehn Dezimalstellen gerundet wird. Zum Beispiel kann das standardmäßige 16:9-High-Definition-Seitenverhältnis als 1920/1080 oder 1.7777777778 berechnet werden.
 
 ## Beispiele
 
-Siehe das Beispiel im [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das [Constraint-Übungsprogramm](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
 
 ## Spezifikationen
 

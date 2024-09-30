@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: port Eigenschaft"
+title: "WorkerLocation: port-Eigenschaft"
 short-title: port
 slug: Web/API/WorkerLocation/port
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`port`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`port`](/de/docs/Web/API/URL/port)-Teil des Standorts des Workers zurück.
+Die **`port`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Objekts gibt den [`port`](/de/docs/Web/API/URL/port) Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -31,4 +31,4 @@ const result = location.port; // Returns '8080'
 
 ## Siehe auch
 
-- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Interface, zu dem es gehört.

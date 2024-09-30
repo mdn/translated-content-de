@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `createAnalyser()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), der genutzt werden kann, um Audio-Zeit- und -Frequenzdaten zu erfassen und Datenvisualisierungen zu erstellen.
+Die `createAnalyser()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erstellt ein [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), welches verwendet werden kann, um Audio-Zeit- und Frequenzdaten offenzulegen und Datenvisualisierungen zu erstellen.
 
 > [!NOTE]
-> Der [`AnalyserNode()`](/de/docs/Web/API/AnalyserNode/AnalyserNode)-Konstruktor ist der empfohlene Weg, um einen [`AnalyserNode`](/de/docs/Web/API/AnalyserNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`AnalyserNode()`](/de/docs/Web/API/AnalyserNode/AnalyserNode)-Konstruktor wird empfohlen, um ein [`AnalyserNode`](/de/docs/Web/API/AnalyserNode) zu erstellen; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 > [!NOTE]
-> Weitere Informationen zur Nutzung dieses Nodes finden Sie auf der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Seite.
+> Weitere Informationen zur Verwendung dieses Knotens finden Sie auf der
+> [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Seite.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ Ein [`AnalyserNode`](/de/docs/Web/API/AnalyserNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Nutzung eines AudioContext zum Erstellen eines Analyser-Nodes, dann die Verwendung von requestAnimationFrame(), um fortlaufend Zeitdomaindaten zu sammeln und eine "Oszilloskop-ähnliche" Ausgabe des aktuellen Audioeingangs zu erzeugen. Für vollständigere praktische Beispiele/Informationen, schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)-Demo an (sehen Sie sich [app.js Zeilen 108-193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code an).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Analyser-Knotens. Anschließend wird `requestAnimationFrame()` verwendet, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-Stil"-Ausgabe des aktuellen Audioeingangs zu zeichnen. Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)-Demo an (siehe [app.js Zeilen 108-193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
@@ -93,4 +94,4 @@ draw();
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

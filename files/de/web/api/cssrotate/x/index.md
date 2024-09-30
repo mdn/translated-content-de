@@ -1,5 +1,5 @@
 ---
-title: "CSSRotate: x-Eigenschaft"
+title: "CSSRotate: x Eigenschaft"
 short-title: x
 slug: Web/API/CSSRotate/x
 l10n:
@@ -9,15 +9,15 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`x`**-Eigenschaft der
-[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle erhält und setzt die Abszisse oder x-Achse des Übersetzungsvektors.
+[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle ruft die Abszisse oder x-Achse des Verschiebungsvektors ab und setzt sie.
 
 ## Wert
 
-Ein Gleitkommawert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-Noch zu tun
+Zu tun
 
 ## Spezifikationen
 

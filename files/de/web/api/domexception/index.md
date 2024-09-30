@@ -7,103 +7,103 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`DOMException`**-Schnittstelle stellt ein ungewöhnliches Ereignis (eine **Ausnahme**) dar, das als Ergebnis eines Methodenaufrufs oder des Zugriffs auf eine Eigenschaft einer Web-API auftritt. Dies ist die Art und Weise, wie Fehlerbedingungen in Web-APIs beschrieben werden.
+Die **`DOMException`**-Schnittstelle repräsentiert ein anormales Ereignis (eine **Exception**), das auftritt, wenn eine Methode aufgerufen oder eine Eigenschaft einer Web-API aufgerufen wird. Auf diese Weise werden Fehlerbedingungen in Web-APIs beschrieben.
 
-Jede Ausnahme hat einen **Name**, ein kurzer, im "PascalCase"-Stil gehaltener String, der den Fehler oder die außergewöhnliche Bedingung identifiziert.
+Jede Exception hat einen **Namen**, der ein kurzer "PascalCase"-String ist, der den Fehler oder die anormale Bedingung identifiziert.
 
-`DOMException` ist ein [serialisierbares Objekt](/de/docs/Glossary/Serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`DOMException` ist ein [serialisierbares Objekt](/de/docs/Glossary/Serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 ## Konstruktor
 
 - [`DOMException()`](/de/docs/Web/API/DOMException/DOMException)
-  - : Gibt ein `DOMException`-Objekt mit einer angegebenen Nachricht und einem Namen zurück.
+  - : Gibt ein `DOMException`-Objekt mit einer spezifizierten Nachricht und einem Namen zurück.
 
 ## Instanzeigenschaften
 
 - [`DOMException.code`](/de/docs/Web/API/DOMException/code) {{deprecated_inline}} {{ReadOnlyInline}}
-  - : Gibt einen der veralteten Fehlercode-Konstanten zurück oder `0`, wenn keiner übereinstimmt.
+  - : Gibt einen der alten Fehlercode-Konstanten oder `0` zurück, wenn keiner übereinstimmt.
 - [`DOMException.message`](/de/docs/Web/API/DOMException/message) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der eine mit dem gegebenen [Fehlernamen](#fehlernamen) verbundene Nachricht oder Beschreibung darstellt.
+  - : Gibt einen String zurück, der eine Nachricht oder Beschreibung enthält, die mit dem gegebenen [Fehlernamen](#fehlernamen) assoziiert ist.
 - [`DOMException.name`](/de/docs/Web/API/DOMException/name) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der eine der mit einem [Fehlernamen](#fehlernamen) verbundenen Zeichenfolgen enthält.
+  - : Gibt einen String zurück, der einen der Strings enthält, die mit einem [Fehlernamen](#fehlernamen) assoziiert sind.
 
 ## Fehlernamen
 
-Häufige Fehlernamen sind hier aufgeführt. Einige APIs definieren ihre eigenen Namenssätze, sodass dies nicht unbedingt eine vollständige Liste ist.
+Hier sind einige häufige Fehlernamen aufgelistet. Einige APIs definieren ihre eigenen Namenssets, sodass dies nicht unbedingt eine vollständige Liste ist.
 
-Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernamen haben, sondern stattdessen nur einen veralteten Konstantencode-Wert und einen veralteten Konstantennamen:
+Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernamen haben, sondern nur einen alten konstanten Codewert und einen alten konstanten Namen:
 
-- Veralteter Code-Wert: `2`, veralteter Konstantenname: `DOMSTRING_SIZE_ERR`
-- Veralteter Code-Wert: `6`, veralteter Konstantenname: `NO_DATA_ALLOWED_ERR`
-- Veralteter Code-Wert: `16`, veralteter Konstantenname: `VALIDATION_ERR`
+- Alter Codewert: `2`, alter konstanter Name: `DOMSTRING_SIZE_ERR`
+- Alter Codewert: `6`, alter konstanter Name: `NO_DATA_ALLOWED_ERR`
+- Alter Codewert: `16`, alter konstanter Name: `VALIDATION_ERR`
 
 > [!NOTE]
-> Da Fehler historisch gesehen durch einen numerischen Wert identifiziert wurden, der mit einer benannten Variablen übereinstimmte, die diesen Wert definiert, geben einige der folgenden Einträge den veralteten Code-Wert und den konstanten Namen an, die in der Vergangenheit verwendet wurden.
+> Da historisch die Fehler durch einen numerischen Wert identifiziert wurden, der mit einer benannten Variablen korrespondierte, die diesen Wert definiert hat, geben einige der Einträge unten den alten Zahlenwert und den konstanten Namen an, der in der Vergangenheit verwendet wurde.
 
 - `IndexSizeError`
-  - : Der Index befindet sich nicht im erlaubten Bereich. Zum Beispiel kann dies vom [`Range`](/de/docs/Web/API/Range)-Objekt ausgelöst werden. (Veralteter Code-Wert: `1` und veralteter Konstantenname: `INDEX_SIZE_ERR`)
+  - : Der Index liegt nicht im zulässigen Bereich. Beispielweise kann dies vom [`Range`](/de/docs/Web/API/Range)-Objekt ausgelöst werden. (Alter Codewert: `1` und alter konstanter Name: `INDEX_SIZE_ERR`)
 - `HierarchyRequestError`
-  - : Die Knotenbaum-Hierarchie ist nicht korrekt. (Veralteter Code-Wert: `3` und veralteter Konstantenname: `HIERARCHY_REQUEST_ERR`)
+  - : Die Baumstruktur des Knotens ist nicht korrekt. (Alter Codewert: `3` und alter konstanter Name: `HIERARCHY_REQUEST_ERR`)
 - `WrongDocumentError`
-  - : Das Objekt befindet sich im falschen [`Document`](/de/docs/Web/API/Document). (Veralteter Code-Wert: `4` und veralteter Konstantenname: `WRONG_DOCUMENT_ERR`)
+  - : Das Objekt befindet sich im falschen [`Document`](/de/docs/Web/API/Document). (Alter Codewert: `4` und alter konstanter Name: `WRONG_DOCUMENT_ERR`)
 - `InvalidCharacterError`
-  - : Der String enthält ungültige Zeichen. (Veralteter Code-Wert: `5` und veralteter Konstantenname: `INVALID_CHARACTER_ERR`)
+  - : Der String enthält ungültige Zeichen. (Alter Codewert: `5` und alter konstanter Name: `INVALID_CHARACTER_ERR`)
 - `NoModificationAllowedError`
-  - : Das Objekt kann nicht modifiziert werden. (Veralteter Code-Wert: `7` und veralteter Konstantenname: `NO_MODIFICATION_ALLOWED_ERR`)
+  - : Das Objekt kann nicht verändert werden. (Alter Codewert: `7` und alter konstanter Name: `NO_MODIFICATION_ALLOWED_ERR`)
 - `NotFoundError`
-  - : Das Objekt kann hier nicht gefunden werden. (Veralteter Code-Wert: `8` und veralteter Konstantenname: `NOT_FOUND_ERR`)
+  - : Das Objekt kann hier nicht gefunden werden. (Alter Codewert: `8` und alter konstanter Name: `NOT_FOUND_ERR`)
 - `NotSupportedError`
-  - : Die Operation wird nicht unterstützt. (Veralteter Code-Wert: `9` und veralteter Konstantenname: `NOT_SUPPORTED_ERR`)
+  - : Die Operation wird nicht unterstützt. (Alter Codewert: `9` und alter konstanter Name: `NOT_SUPPORTED_ERR`)
 - `InvalidStateError`
-  - : Das Objekt befindet sich in einem ungültigen Zustand. (Veralteter Code-Wert: `11` und veralteter Konstantenname: `INVALID_STATE_ERR`)
+  - : Das Objekt befindet sich in einem ungültigen Zustand. (Alter Codewert: `11` und alter konstanter Name: `INVALID_STATE_ERR`)
 - `InUseAttributeError`
-  - : Das Attribut wird verwendet. (Veralteter Code-Wert: `10` und veralteter Konstantenname: `INUSE_ATTRIBUTE_ERR`)
+  - : Das Attribut wird bereits verwendet. (Alter Codewert: `10` und alter konstanter Name: `INUSE_ATTRIBUTE_ERR`)
 - `SyntaxError`
-  - : Der String entsprach nicht dem erwarteten Muster. (Veralteter Code-Wert: `12` und veralteter Konstantenname: `SYNTAX_ERR`)
+  - : Der String entsprach nicht dem erwarteten Muster. (Alter Codewert: `12` und alter konstanter Name: `SYNTAX_ERR`)
 - `InvalidModificationError`
-  - : Das Objekt kann auf diese Weise nicht modifiziert werden. (Veralteter Code-Wert: `13` und veralteter Konstantenname: `INVALID_MODIFICATION_ERR`)
+  - : Das Objekt kann auf diese Weise nicht verändert werden. (Alter Codewert: `13` und alter konstanter Name: `INVALID_MODIFICATION_ERR`)
 - `NamespaceError`
-  - : Die Operation wird von Namespaces in XML nicht erlaubt. (Veralteter Code-Wert: `14` und veralteter Konstantenname: `NAMESPACE_ERR`)
+  - : Die Operation ist nach Namespaces in XML nicht zulässig. (Alter Codewert: `14` und alter konstanter Name: `NAMESPACE_ERR`)
 - `InvalidAccessError`
-  - : Das Objekt unterstützt die Operation oder das Argument nicht. (Veralteter Code-Wert: `15` und veralteter Konstantenname: `INVALID_ACCESS_ERR`)
+  - : Das Objekt unterstützt die Operation oder das Argument nicht. (Alter Codewert: `15` und alter konstanter Name: `INVALID_ACCESS_ERR`)
 - `TypeMismatchError` {{deprecated_inline}}
-  - : Der Typ des Objekts stimmt nicht mit dem erwarteten Typ überein. (Veralteter Code-Wert: `17` und veralteter Konstantenname: `TYPE_MISMATCH_ERR`) Dieser Wert ist veraltet; die JavaScript {{jsxref("TypeError")}}-Ausnahme wird jetzt anstelle einer `DOMException` mit diesem Wert ausgelöst.
+  - : Der Typ des Objekts stimmt nicht mit dem erwarteten Typ überein. (Alter Codewert: `17` und alter konstanter Name: `TYPE_MISMATCH_ERR`) Dieser Wert ist veraltet; die JavaScript {{jsxref("TypeError")}}-Exception wird jetzt anstelle einer `DOMException` mit diesem Wert ausgelöst.
 - `SecurityError`
-  - : Die Operation ist unsicher. (Veralteter Code-Wert: `18` und veralteter Konstantenname: `SECURITY_ERR`)
+  - : Die Operation ist unsicher. (Alter Codewert: `18` und alter konstanter Name: `SECURITY_ERR`)
 - `NetworkError` {{experimental_inline}}
-  - : Ein Netzwerkfehler ist aufgetreten. (Veralteter Code-Wert: `19` und veralteter Konstantenname: `NETWORK_ERR`)
+  - : Ein Netzwerkfehler ist aufgetreten. (Alter Codewert: `19` und alter konstanter Name: `NETWORK_ERR`)
 - `AbortError` {{experimental_inline}}
-  - : Die Operation wurde abgebrochen. (Veralteter Code-Wert: `20` und veralteter Konstantenname: `ABORT_ERR`)
+  - : Die Operation wurde abgebrochen. (Alter Codewert: `20` und alter konstanter Name: `ABORT_ERR`)
 - `URLMismatchError` {{experimental_inline}}
-  - : Die angegebene URL stimmt nicht mit einer anderen URL überein. (Veralteter Code-Wert: `21` und veralteter Konstantenname: `URL_MISMATCH_ERR`)
+  - : Die angegebene URL stimmt nicht mit einer anderen URL überein. (Alter Codewert: `21` und alter konstanter Name: `URL_MISMATCH_ERR`)
 - `QuotaExceededError` {{experimental_inline}}
-  - : Das Kontingent wurde überschritten. (Veralteter Code-Wert: `22` und veralteter Konstantenname: `QUOTA_EXCEEDED_ERR`)
+  - : Das Kontingent wurde überschritten. (Alter Codewert: `22` und alter konstanter Name: `QUOTA_EXCEEDED_ERR`)
 - `TimeoutError`
-  - : Die Operation ist abgelaufen. (Veralteter Code-Wert: `23` und veralteter Konstantenname: `TIMEOUT_ERR`)
+  - : Die Operation hat das Zeitlimit überschritten. (Alter Codewert: `23` und alter konstanter Name: `TIMEOUT_ERR`)
 - `InvalidNodeTypeError` {{experimental_inline}}
-  - : Der Knoten ist für diese Operation falsch oder hat einen falschen Vorfahren. (Veralteter Code-Wert: `24` und veralteter Konstantenname: `INVALID_NODE_TYPE_ERR`)
+  - : Der Knoten ist falsch oder hat einen falschen Vorfahren für diese Operation. (Alter Codewert: `24` und alter konstanter Name: `INVALID_NODE_TYPE_ERR`)
 - `DataCloneError` {{experimental_inline}}
-  - : Das Objekt kann nicht geklont werden. (Veralteter Code-Wert: `25` und veralteter Konstantenname: `DATA_CLONE_ERR`)
+  - : Das Objekt kann nicht geklont werden. (Alter Codewert: `25` und alter konstanter Name: `DATA_CLONE_ERR`)
 - `EncodingError` {{experimental_inline}}
-  - : Die Kodierungs- oder Dekodierungsoperation ist fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Kodierungs- oder Dekodierungsoperation ist fehlgeschlagen (Kein alter Codewert und konstanter Name).
 - `NotReadableError` {{experimental_inline}}
-  - : Die Ein-/Ausleseoperation ist fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Eingabe-/Ausgabe-Leseoperation ist fehlgeschlagen (Kein alter Codewert und konstanter Name).
 - `UnknownError` {{experimental_inline}}
-  - : Die Operation ist aus einem unbekannten vorübergehenden Grund fehlgeschlagen (z. B. nicht genügend Speicher) (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Operation ist aus einem unbekannten vorübergehenden Grund fehlgeschlagen (z. B. Speichermangel) (Kein alter Codewert und konstanter Name).
 - `ConstraintError` {{experimental_inline}}
-  - : Eine Mutation in einer Transaktion ist fehlgeschlagen, weil eine Einschränkung nicht erfüllt wurde (Kein veralteter Code-Wert und Konstantenname).
+  - : Eine Änderungsoperation in einer Transaktion ist fehlgeschlagen, da eine Einschränkung nicht erfüllt wurde (Kein alter Codewert und konstanter Name).
 - `DataError` {{experimental_inline}}
-  - : Die bereitgestellten Daten sind unzureichend (Kein veralteter Code-Wert und Konstantenname).
+  - : Die bereitgestellten Daten sind unzureichend (Kein alter Codewert und konstanter Name).
 - `TransactionInactiveError` {{experimental_inline}}
-  - : Eine Anfrage wurde gegen eine Transaktion gestellt, die derzeit nicht aktiv ist oder beendet wurde (Kein veralteter Code-Wert und Konstantenname).
+  - : Eine Anfrage wurde gegen eine Transaktion gestellt, die derzeit nicht aktiv ist oder abgeschlossen ist (Kein alter Codewert und konstanter Name).
 - `ReadOnlyError` {{experimental_inline}}
-  - : Der Versuch einer Änderung in einer "read-only"-Transaktion wurde unternommen (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Versuch einer Änderungsoperation wurde in einer "readonly"-Transaktion gemacht (Kein alter Codewert und konstanter Name).
 - `VersionError` {{experimental_inline}}
-  - : Es wurde versucht, eine Datenbank mit einer niedrigeren Version als der vorhandenen zu öffnen (Kein veralteter Code-Wert und Konstantenname).
+  - : Es wurde versucht, eine Datenbank mit einer niedrigeren Version als die vorhandene Version zu öffnen (Kein alter Codewert und konstanter Name).
 - `OperationError` {{experimental_inline}}
-  - : Die Operation ist aus einem spezifikationsspezifischen Grund fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Operation ist aus einem spezifikationsspezifischen Grund fehlgeschlagen (Kein alter Codewert und konstanter Name).
 - `NotAllowedError`
-  - : Die Anfrage wird vom Benutzeragenten oder der Plattform im aktuellen Kontext nicht erlaubt, möglicherweise weil der Benutzer die Erlaubnis verweigert hat (Kein veralteter Code-Wert und Konstantenname).
+  - : Die Anfrage wird vom Benutzeragent oder der Plattform im aktuellen Kontext nicht erlaubt, möglicherweise weil der Benutzer die Erlaubnis verweigert hat (Kein alter Codewert und konstanter Name).
 
 ## Spezifikationen
 
@@ -115,5 +115,5 @@ Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernam
 
 ## Siehe auch
 
-- [Ein Polyfill für `DOMException`](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [Ein Polyfill von `DOMException`](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
 - [`DOMError`](/de/docs/Web/API/DOMError)

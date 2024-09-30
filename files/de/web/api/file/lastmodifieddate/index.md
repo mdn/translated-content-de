@@ -1,5 +1,5 @@
 ---
-title: "File: lastModifiedDate Eigenschaft"
+title: "File: lastModifiedDate-Eigenschaft"
 short-title: lastModifiedDate
 slug: Web/API/File/lastModifiedDate
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`lastModifiedDate`** der [`File`](/de/docs/Web/API/File)-Schnittstelle gibt das Datum der letzten Änderung der Datei zurück. Dateien ohne bekanntes Änderungsdatum geben das aktuelle Datum zurück.
+Die schreibgeschützte **`lastModifiedDate`**-Eigenschaft des [`File`](/de/docs/Web/API/File)-Interfaces gibt das Datum der letzten Änderung der Datei zurück. Dateien ohne ein bekanntes Änderungsdatum geben das aktuelle Datum zurück.
 
 ## Wert
 
-Ein {{JSXRef("Global_Objects/Date", "Date")}}-Objekt, das das Datum und die Uhrzeit angibt, zu der die Datei zuletzt geändert wurde.
+Ein {{JSXRef("Global_Objects/Date", "Date")}}-Objekt, das das Datum und die Uhrzeit angibt, zu denen die Datei zuletzt geändert wurde.
 
 ## Beispiele
 
@@ -27,11 +27,11 @@ for (const file of fileInput.files) {
 }
 ```
 
-## Präzisionsreduzierung der Zeit
+## Reduzierte Zeitpräzision
 
-Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Genauigkeit von `someFile.lastModifiedDate` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2ms festgelegt. Sie können auch `privacy.resistFingerprinting` aktivieren, wobei die Präzision auf 100ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem welcher größer ist, gesetzt wird.
+Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, könnte die Präzision von `someFile.lastModifiedDate` je nach Browser-Einstellungen gerundet werden. In Firefox ist die `privacy.reduceTimerPrecision`-Einstellung standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in welchem Fall die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` beträgt, je nachdem, welcher größer ist.
 
-Zum Beispiel wird bei reduzierter Zeitpräzision das Ergebnis von `someFile.lastModifiedDate.getTime()` immer ein Vielfaches von 2 sein oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
+Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `someFile.lastModifiedDate.getTime()` immer ein Vielfaches von 2 sein, oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
 
 ```js
 // reduced time precision (2ms) in Firefox 60
@@ -53,7 +53,7 @@ someFile.lastModifiedDate.getTime();
 
 ## Spezifikationen
 
-_Obwohl in frühen Entwürfen der File API-Spezifikation enthalten, wurde diese Eigenschaft daraus entfernt und ist nun nicht standardisiert. Verwenden Sie stattdessen [`File.lastModified`](/de/docs/Web/API/File/lastModified)._
+_Obwohl in frühen Entwürfen der File API-Spezifikation vorhanden, wurde diese Eigenschaft daraus entfernt und ist jetzt nicht standardisiert. Verwenden Sie stattdessen [`File.lastModified`](/de/docs/Web/API/File/lastModified)._
 
 ## Browser-Kompatibilität
 

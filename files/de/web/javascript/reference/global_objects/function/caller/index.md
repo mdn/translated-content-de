@@ -8,15 +8,15 @@ l10n:
 {{JSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
 > [!NOTE]
-> In [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode), accessing `caller` of a function throws an error — the API is removed with no replacement. This is to prevent code from being able to "walk the stack", which both poses security risks and severely limits the possibility of optimizations like inlining and tail-call optimization. For more explanation, you can read [the rationale for the deprecation of `arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee#description).
+> Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) führt der Zugriff auf `caller` einer Funktion zu einem Fehler — die API wurde entfernt, ohne Ersatz. Dies soll verhindern, dass Code den Stapel durchlaufen kann, was sowohl Sicherheitsrisiken birgt als auch die Möglichkeit von Optimierungen wie Inlining und Tail-Call-Optimierung stark einschränkt. Für weitere Erklärungen können Sie [die Begründung für die Abschaffung von `arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee#description) lesen.
 
-Die **`caller`** Zugriffs-Eigenschaft von {{jsxref("Function")}} Instanzen gibt die Funktion zurück, die diese Funktion aufgerufen hat. Für [strict](/de/docs/Web/JavaScript/Reference/Strict_mode), Arrow-, Asynchron- und Generatorfunktionen wirft der Zugriff auf die `caller`-Eigenschaft einen {{jsxref("TypeError")}}.
+Die **`caller`** Accessor-Eigenschaft von {{jsxref("Function")}}-Instanzen gibt die Funktion zurück, die diese Funktion aufgerufen hat. Für [strict](/de/docs/Web/JavaScript/Reference/Strict_mode), Arrow-, Async- und Generatorfunktionen wirft der Zugriff auf die `caller`-Eigenschaft einen {{jsxref("TypeError")}}.
 
 ## Beschreibung
 
-Wenn die Funktion `f` durch den obersten Code aufgerufen wurde, ist der Wert von `f.caller` {{jsxref("Operators/null", "null")}}; andernfalls ist es die Funktion, die `f` aufgerufen hat. Wenn die Funktion, die `f` aufgerufen hat, eine Strict-Mode-Funktion ist, ist der Wert von `f.caller` ebenfalls `null`.
+Wenn die Funktion `f` vom obersten Code-Ebene aufgerufen wurde, ist der Wert von `f.caller` {{jsxref("Operators/null", "null")}}; andernfalls ist es die Funktion, die `f` aufgerufen hat. Wenn die Funktion, die `f` aufgerufen hat, eine Strict-Mode-Funktion ist, ist der Wert von `f.caller` ebenfalls `null`.
 
-Beachten Sie, dass das einzige Verhalten, das durch die ECMAScript-Spezifikation festgelegt ist, darin besteht, dass `Function.prototype` einen anfänglichen `caller` Accessor hat, der bedingungslos einen {{jsxref("TypeError")}} für jede `get`- oder `set`-Anfrage auslöst (bekannt als "giftige Pille Accessor"), und dass Implementierungen nicht erlaubt sind, diese Semantik für irgendeine Funktion außer Nicht-Strict-Plain-Funktionen zu ändern, in diesem Fall darf der Wert keine Strict-Mode-Funktion sein. Das tatsächliche Verhalten der `caller`-Eigenschaft, sofern es sich um etwas anderes als das Auslösen eines Fehlers handelt, ist implementierungsabhängig. Zum Beispiel definiert Chrome es als eine eigene Dateneigenschaft, während Firefox und Safari den anfänglichen "giftigen" `Function.prototype.caller` Accessor erweitern, um speziell `this`-Werte zu behandeln, die Nicht-Strict-Funktionen sind.
+Beachten Sie, dass das einzige Verhalten, das von der ECMAScript-Spezifikation festgelegt ist, darin besteht, dass `Function.prototype` einen anfänglichen `caller`-Accessor hat, der bedingungslos einen {{jsxref("TypeError")}} für jeden `get`- oder `set`-Antrag wirft (bekannt als "poison pill accessor") und dass Implementierungen nicht erlaubt sind, diese Semantik für eine andere Funktion als nicht-strikte normale Funktionen zu ändern, in welchem Fall sie nicht den Wert einer Strict-Mode-Funktion haben darf. Das tatsächliche Verhalten der `caller`-Eigenschaft, wenn es etwas anderes ist als das Werfen eines Fehlers, ist implementierungsabhängig. Zum Beispiel definiert Chrome es als eigene Dateneigenschaft, während Firefox und Safari den anfänglichen Poison-Pill-`Function.prototype.caller`-Accessor erweitern, um speziell `this`-Werte zu behandeln, die nicht-strikte Funktionen sind.
 
 ```js
 (function f() {
@@ -46,13 +46,13 @@ Beachten Sie, dass das einzige Verhalten, das durch die ECMAScript-Spezifikation
 // null
 ```
 
-Diese Eigenschaft ersetzt die veraltete `arguments.caller` Eigenschaft des {{jsxref("Functions/arguments", "arguments")}} Objekts.
+Diese Eigenschaft ersetzt die veraltete `arguments.caller`-Eigenschaft des {{jsxref("Functions/arguments", "arguments")}} Objekts.
 
-Die spezielle Eigenschaft `__caller__`, die das Aktivierungsobjekt des Anrufers zurückgab und somit die Rekonstruktion des Stacks ermöglichte, wurde aus Sicherheitsgründen entfernt.
+Die spezielle Eigenschaft `__caller__`, die das Aktivierungsobjekt des Aufrufers zurückgab und so die Rekonstruktion des Stacks ermöglichte, wurde aus Sicherheitsgründen entfernt.
 
 ## Beispiele
 
-### Überprüfung des Wertes der caller-Eigenschaft einer Funktion
+### Überprüfung des Wertes der `caller`-Eigenschaft einer Funktion
 
 Der folgende Code überprüft den Wert der `caller`-Eigenschaft einer Funktion.
 
@@ -66,9 +66,9 @@ function myFunc() {
 }
 ```
 
-### Rekonstruktion des Stacks und Rekursion
+### Rekonstruktion des Stapels und Rekursion
 
-Beachten Sie, dass Sie im Falle einer Rekursion den Aufrufstack nicht mit dieser Eigenschaft rekonstruieren können. Betrachten Sie:
+Beachten Sie, dass Sie im Falle der Rekursion den Aufruf-Stack nicht mit dieser Eigenschaft rekonstruieren können. Betrachten Sie:
 
 ```js
 function f(n) {
@@ -84,19 +84,19 @@ function g(n) {
 f(2);
 ```
 
-In dem Moment, in dem `stop()` aufgerufen wird, sieht der Aufrufstack so aus:
+In dem Moment, in dem `stop()` aufgerufen wird, sieht der Aufruf-Stack so aus:
 
 ```plain
 f(2) -> g(1) -> f(1) -> g(0) -> stop()
 ```
 
-Folgendes trifft zu:
+Das Folgende ist wahr:
 
 ```js
 stop.caller === g && f.caller === g && g.caller === f;
 ```
 
-Wenn Sie also den Stack-Trace in der `stop()`-Funktion so versuchen würden:
+Wenn Sie also versuchen würden, die Stack-Verfolgung in der `stop()`-Funktion so zu erhalten:
 
 ```js
 let f = stop;
@@ -109,7 +109,7 @@ while (f) {
 
 würde die Schleife nie enden.
 
-### Strict Mode Caller
+### Strict-Modus Aufrufer
 
 Wenn der Aufrufer eine Strict-Mode-Funktion ist, ist der Wert von `caller` `null`.
 
@@ -140,7 +140,7 @@ function calleeFunc() {
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

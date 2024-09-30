@@ -1,5 +1,5 @@
 ---
-title: "CSPViolationReportBody: toJSON() Methode"
+title: "CSPViolationReportBody: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/CSPViolationReportBody/toJSON
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`toJSON()`**-Methode des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist ein _Serializer_, der eine JSON-Darstellung des `CSPViolationReportBody`-Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist ein _Serializer_, der eine JSON-Darstellung des `CSPViolationReportBody`-Objekts zurückgibt.
 
-Die Existenz einer `toJSON()`-Methode ermöglicht es, `CSPViolationReportBody`-Objekte mithilfe der {{jsxref("JSON.stringify()")}}-Methode in einen String umzuwandeln.
+Das Vorhandensein einer `toJSON()`-Methode ermöglicht es, `CSPViolationReportBody`-Objekte mit der {{jsxref("JSON.stringify()")}}-Methode in eine Zeichenkette umzuwandeln.
 
-Dies wird von der Reporting-API verwendet, um eine serialisierte Version eines Verstoßberichts zu erstellen, der an einen Reporting-Endpunkt gesendet werden soll.
+Dies wird von der Reporting-API verwendet, um eine serialisierte Version eines Verstoßberichts zu erstellen, die an einen Reporting-Endpunkt gesendet wird.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts darstellt.
+Ein JSON-Objekt, das die Serialisierung des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts ist.
 
 ## Beispiele
 
@@ -50,10 +50,10 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Wir rufen `toJSON()` auf `firstReport` auf, das eine Instanz von [`Report`](/de/docs/Web/API/Report) ist. Dadurch wird die in diesem Interface definierte `toJSON()` aufgerufen, um den `body` des Berichts zu serialisieren.
+Wir rufen `toJSON()` auf `firstReport` auf, das eine Instanz von [`Report`](/de/docs/Web/API/Report) ist, was wiederum dazu führt, dass die in dieser Schnittstelle definierte `toJSON()`-Methode aufgerufen wird, um den `body` des Berichts zu serialisieren.
 
-Für Demonstrationszwecke rufen wir auch `JSON.stringify()` auf `firstReport` auf, um einen String zu erzeugen, der die JSON-Daten enthält.
-Beim Senden oder Speichern von Berichtsinformationen ist es üblicher, dies zu tun, als `toJSON()` direkt zu verwenden.
+Zum Zweck der Demonstration rufen wir auch `JSON.stringify()` auf `firstReport` auf, um eine Zeichenkette zu erstellen, die die JSON-Daten enthält.
+Beim Senden oder Speichern von Berichtsinformationen ist es gebräuchlicher, dies zu tun, als `toJSON()` direkt zu verwenden.
 
 ## Spezifikationen
 

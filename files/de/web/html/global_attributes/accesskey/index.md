@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) liefert einen Hinweis zum Erstellen einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (einschließlich Akzentzeichen und anderer Zeichen, die von der Tastatur erzeugt werden können).
+Das **`accesskey`**-[globale Attribut](/de/docs/Web/HTML/Global_attributes) gibt einen Hinweis zur Generierung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (einschließlich akzentuierter und anderer Zeichen, die mit der Tastatur erzeugt werden können).
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-accesskey.html","tabbed-shorter")}}
 
-Die Art und Weise, wie der accesskey aktiviert wird, hängt vom Browser und der Plattform ab:
+Die Art und Weise, wie die `accesskey`-Tastenkombination aktiviert wird, hängt vom Browser und dessen Plattform ab:
 
 <table class="standard-table">
   <tbody>
@@ -44,7 +44,7 @@ Die Art und Weise, wie der accesskey aktiviert wird, hängt vom Browser und der 
     </tr>
     <tr>
       <th>Safari</th>
-      <td colspan="2">n/a</td>
+      <td colspan="2">n/v</td>
       <td><kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>key</em></kbd></td>
     </tr>
     <tr>
@@ -59,14 +59,14 @@ Die Art und Weise, wie der accesskey aktiviert wird, hängt vom Browser und der 
 
 Es gibt zahlreiche Bedenken hinsichtlich des `accesskey`-Attributs:
 
-- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder der Funktionalität unterstützender Technologien in Konflikt geraten. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, mag bei anderen Kombinationen nicht funktionieren.
-- Bestimmte `accesskey`-Werte sind möglicherweise nicht auf bestimmten Tastaturen vorhanden, insbesondere wenn die Internationalisierung ein Faktor ist. Das Anpassen an bestimmte Sprachen könnte daher weitere Probleme verursachen.
-- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Beeinträchtigungen verwirrend sein, wenn die Zahl keine logische Verbindung zu der durch sie ausgelösten Funktionalität hat.
-- Den Benutzer darüber informieren, dass `accesskey`s vorhanden sind, damit er sich der Funktionalität bewusst ist. Wenn dem System eine Methode zur Benachrichtigung des Benutzers über diese Funktion fehlt, könnte der Benutzer versehentlich `accesskey`s aktivieren.
+- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder mit Funktionalitäten von unterstützenden Technologien in Konflikt geraten. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, kann bei anderen Kombinationen nicht funktionieren.
+- Bestimmte `accesskey`-Werte sind möglicherweise auf bestimmten Tastaturen nicht vorhanden, insbesondere wenn Internationalisierung ein Thema ist. Die Anpassung an spezifische Sprachen könnte daher weitere Probleme verursachen.
+- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Einschränkungen verwirrend sein, wenn die Zahl keine logische Verbindung zu der ausgelösten Funktion hat.
+- Den Benutzer darüber informieren, dass `accesskey`s vorhanden sind, damit er sich der Funktionalität bewusst ist. Wenn das System keine Methode zur Benachrichtigung des Benutzers über dieses Feature bietet, könnte der Benutzer versehentlich `accesskey`s aktivieren.
 
-Aufgrund dieser Probleme wird im Allgemeinen empfohlen, `accesskey`s für die meisten allgemeinen Websites und Webanwendungen nicht zu verwenden.
+Aufgrund dieser Probleme wird generell davon abgeraten, `accesskey`s für die meisten allgemein zugänglichen Websites und Webanwendungen zu verwenden.
 
-- [WebAIM: Tastaturzugänglichkeit - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
+- [WebAIM: Keyboard Accessibility - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
 
 ## Spezifikationen
 

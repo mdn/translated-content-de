@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`setPeriodicWave()`**-Methode des [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Interfaces wird verwendet, um auf eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) zu verweisen, die eine periodische Wellenform definiert, die zur Formung der Ausgabe des Oszillators verwendet werden kann, wenn [`type`](/de/docs/Web/API/OscillatorNode/type) auf `custom` gesetzt ist.
+Die **`setPeriodicWave()`**-Methode der [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Schnittstelle wird verwendet, um auf eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) zu verweisen. Diese definiert eine periodische Wellenform, die genutzt werden kann, um die Ausgabe des Oszillators zu formen, wenn [`type`](/de/docs/Web/API/OscillatorNode/type) auf `custom` gesetzt ist.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht die einfache Verwendung von `createPeriodicWave()`, um eine Sinuswelle aus einer periodischen Wellenform zu rekonstruieren.
+Das folgende Beispiel zeigt die einfache Verwendung von `createPeriodicWave()`, um eine Sinuswelle aus einer periodischen Welle neu zu erstellen.
 
 ```js
 const real = new Float32Array(2);
@@ -50,11 +50,11 @@ osc.start();
 osc.stop(2);
 ```
 
-Dies funktioniert, weil ein Ton, der nur einen Grundton enthält, per Definition eine Sinuswelle ist.
+Dies funktioniert, weil ein Ton, der nur eine Grundfrequenz enthält, per Definition eine Sinuswelle ist.
 
-Hier erstellen wir eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) mit zwei Werten. Der erste Wert ist der DC-Offset, der den Wert darstellt, bei dem der Oszillator startet. 0 ist hier gut, weil wir die Kurve in der Mitte des \[-1.0; 1.0]-Bereichs starten wollen.
+Hier erstellen wir eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) mit zwei Werten. Der erste Wert ist der DC-Offset, der den Startwert des Oszillators darstellt. 0 ist hier gut, weil wir die Kurve mittig im Bereich \[-1.0; 1.0] beginnen wollen.
 
-Die zweiten und nachfolgenden Werte sind Sinus- und Kosinuskomponenten. Sie können es sich als Ergebnis einer Fourier-Transformation vorstellen, bei der Sie Frequenzbereichswerte aus Zeitbereichswerten erhalten. Hier geben Sie mit `createPeriodicWave()` die Frequenzen an, und der Browser führt eine inverse Fourier-Transformation durch, um einen Zeitbereichspuffer für die Frequenz des Oszillators zu erhalten. Hier setzen wir nur eine Komponente auf volle Lautstärke (1.0) auf dem Grundton, sodass wir eine Sinuswelle erhalten.
+Der zweite und die folgenden Werte sind Sinus- und Kosinus-Komponenten. Sie können es sich als Ergebnis einer Fourier-Transformation vorstellen, bei der Sie Frequenzbereichswerte aus Zeitbereichswerten erhalten. Hier, mit `createPeriodicWave()`, spezifizieren Sie die Frequenzen, und der Browser führt eine inverse Fourier-Transformation durch, um einen Zeitbereichspuffer für die Frequenz des Oszillators zu erhalten. Hier setzen wir nur eine Komponente bei voller Lautstärke (1.0) auf dem Grundton, sodass wir eine Sinuswelle erhalten.
 
 ## Spezifikationen
 

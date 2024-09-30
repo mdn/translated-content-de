@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`disable()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle stoppt das automatische Vorladen von Ressourcen, die durch den Service-Worker verwaltet werden und zuvor mit [`enable()`](/de/docs/Web/API/NavigationPreloadManager/enable) gestartet wurden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
+Die **`disable()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle stoppt das zuvor mit [`enable()`](/de/docs/Web/API/NavigationPreloadManager/enable) gestartete automatische Vorladen von ressourcen, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
 
-Die Methode kann im `activate`-Event-Handler des Service-Workers aufgerufen werden (bevor der `fetch`-Event-Handler aufgerufen werden kann).
+Die Methode kann im `activate`-Ereignis-Handler des Service Workers aufgerufen werden (bevor der `fetch`-Ereignis-Handler aufgerufen werden kann).
 
 ## Syntax
 
@@ -29,11 +29,11 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Es gibt keinen aktiven Worker, der mit der Registrierung verbunden ist, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
+  - : Es ist kein aktiver Worker mit der Registrierung verbunden, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie das Vorladen deaktiviert wird, nachdem zuerst mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) getestet wurde, ob es unterstützt wird.
+Der folgende Code zeigt, wie man das Vorladen deaktiviert, nachdem man zuerst mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) getestet hat, dass es unterstützt wird.
 
 ```js
 addEventListener("activate", (event) => {

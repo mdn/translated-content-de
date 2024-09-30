@@ -1,5 +1,5 @@
 ---
-title: "Range: extractContents()-Methode"
+title: "Range: extractContents() Methode"
 short-title: extractContents()
 slug: Web/API/Range/extractContents
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.extractContents()`**-Methode bewegt Inhalte des
-[`Range`](/de/docs/Web/API/Range) aus dem Dokumentbaum in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
+Die **`Range.extractContents()`**-Methode verschiebt Inhalte des [`Range`](/de/docs/Web/API/Range) von der Dokumentstruktur in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
-Event-Listener, die mit DOM-Events hinzugefügt wurden, werden während der Extraktion nicht beibehalten. HTML-Attribut-Events werden beibehalten oder dupliziert, wie es bei der [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)-Methode der Fall ist. HTML-`id`-Attribute werden ebenfalls geklont, was zu einem ungültigen Dokument führen kann, wenn ein teilweise ausgewählter Knoten extrahiert und dem Dokument hinzugefügt wird.
+Mit DOM-Ereignissen hinzugefügte Ereignislistener werden während der Extraktion nicht beibehalten. HTML-Attributereignisse werden wie bei der [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)-Methode beibehalten oder dupliziert. HTML-`id`-Attribute werden ebenfalls geklont, was zu einem ungültigen Dokument führen kann, wenn ein teilweise ausgewählter Knoten extrahiert und dem Dokument hinzugefügt wird.
 
-Teilweise ausgewählte Knoten werden geklont, um die übergeordneten Tags einzuschließen, die erforderlich sind, um das Dokumentfragment gültig zu machen.
+Teilweise ausgewählte Knoten werden geklont, um die erforderlichen Elterntags einzubeziehen, die notwendig sind, um das Dokumentfragment gültig zu machen.
 
 ## Syntax
 
@@ -40,9 +39,9 @@ const documentFragment = range.extractContents();
 document.body.appendChild(documentFragment);
 ```
 
-### Elemente zwischen Containern verschieben
+### Verschieben von Elementen zwischen Containern
 
-Dieses Beispiel ermöglicht es Ihnen, Elemente zwischen zwei Containern zu verschieben. Wählen Sie ein oder mehrere Elemente aus und klicken Sie dann auf "swap", um sie in den gegenüberliegenden Container zu verschieben.
+Dieses Beispiel ermöglicht es Ihnen, Elemente zwischen zwei Containern zu verschieben. Wählen Sie ein oder mehrere Elemente aus und klicken Sie dann auf "wechseln", um sie in den anderen Container zu verschieben.
 
 #### HTML
 
@@ -116,4 +115,4 @@ button.addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

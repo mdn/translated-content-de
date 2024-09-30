@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}} Instanzen ermöglicht eine lokalisierungsbewusste Formatierung von Zeichenfolgen, die von {{jsxref("Intl.DurationFormat")}} Formatierern erzeugt werden.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}} Instanzen ermöglicht eine ortsabhängige Formatierung von durch {{jsxref("Intl.DurationFormat")}} Formatierer erzeugten Zeichenfolgen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ formatToParts(duration)
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, das die formatierten Dauerangaben in Teilen enthält.
+Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten.
 
 ## Beschreibung
 
-Die Methode `formatToParts()` ist nützlich für die benutzerdefinierte Formatierung von Dauerobjekten. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokalisierungsspezifischen Token enthält, aus denen benutzerdefinierte Zeichenfolgen erstellt werden können, während die lokalisierungsspezifischen Teile erhalten bleiben. Die Struktur, die die Methode `formatToParts()` zurückgibt, sieht folgendermaßen aus:
+Die Methode `formatToParts()` ist nützlich für die benutzerdefinierte Formatierung von Dauerobjekten. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, die die ortsspezifischen Tokens enthalten, aus denen benutzerdefinierte Zeichenfolgen erstellt werden können, wobei die ortsspezifischen Teile erhalten bleiben. Die Struktur, die von der `formatToParts()` Methode zurückgegeben wird, sieht folgendermaßen aus:
 
 ```js
 [
@@ -42,7 +42,7 @@ Die Methode `formatToParts()` ist nützlich für die benutzerdefinierte Formatie
 
 ## Beispiele
 
-Die Methode `formatToParts` ermöglicht die lokalisierungsbewusste Formatierung von Zeichenfolgen, die von `DurationFormat` Formatierern erzeugt werden, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
+Die `formatToParts`-Methode ermöglicht ortsabhängige Formatierung von durch `DurationFormat` Formatierer erzeugten Zeichenfolgen, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
 
 ```js
 const duration = {

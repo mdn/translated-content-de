@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die `createSession()`-Methode der [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Schnittstelle gibt ein neues [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Objekt zurück, das einen Kontext für den Nachrichtenaustausch mit einem Content Decryption Module (CDM) darstellt.
+Die `createSession()`-Methode des [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Interfaces gibt ein neues [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Objekt zurück, das einen Kontext für den Nachrichtenaustausch mit einem Content Decryption Module (CDM) darstellt.
 
 ## Syntax
 

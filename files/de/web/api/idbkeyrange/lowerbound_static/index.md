@@ -1,5 +1,5 @@
 ---
-title: "IDBKeyRange: lowerBound()-statische Methode"
+title: "IDBKeyRange: lowerBound() statische Methode"
 short-title: lowerBound()
 slug: Web/API/IDBKeyRange/lowerBound_static
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`lowerBound()`**-statische Methode der [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Schnittstelle erstellt einen neuen Schlüsselbereich mit nur einer unteren Grenze. Standardmäßig schließt er den unteren Endpunktwert ein und ist geschlossen.
+Die **`lowerBound()`** statische Methode der
+[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Schnittstelle erstellt einen neuen Schlüsselsbereich mit nur einer unteren Grenze.
+Standardmäßig schließt es den unteren Endpunkt-Wert ein und ist geschlossen.
 
 ## Syntax
 
@@ -20,25 +22,31 @@ IDBKeyRange.lowerBound(lower, open)
 ### Parameter
 
 - `lower`
-  - : Gibt die untere Grenze des neuen Schlüsselbereichs an.
+  - : Gibt die untere Grenze des neuen Schlüsselsbereichs an.
 - `open` {{optional_inline}}
-  - : Gibt an, ob der untere Grenzwert den Endpunktwert ausschließt. Der Standardwert ist false.
+  - : Gibt an, ob die untere Grenze den Endpunkt-Wert ausschließt. Der Standardwert ist
+    false.
 
 ### Rückgabewert
 
-[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange): Der neu erstellte Schlüsselbereich.
+[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange): Der neu erstellte Schlüsselsbereich.
 
 ### Ausnahmen
 
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Schlüssel, der mit dem `lower`-Parameter verbunden ist, kein gültiger Schlüssel ist.
+  - : Wird ausgelöst, wenn der Schlüssel, der dem `lower`-Parameter zugeordnet ist, kein gültiger Schlüssel ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie einen Schlüsselbereich mit unterer Grenze verwenden würden. Hier deklarieren wir `keyRangeValue = IDBKeyRange.lowerBound("F", false);` — einen Bereich, der den Wert "F" und alles danach einschließt. Wir öffnen eine Transaktion (mithilfe von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und ein Objekt-Store und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei `keyRangeValue` als optionaler Schlüsselbereichswert deklariert wird. Dies bedeutet, dass der Cursor nur den Datensatz mit dem Schlüsselwert "F" und allen danach folgenden abrufen wird. Wenn wir `IDBKeyRange.lowerBound("F", true);` verwenden würden, würde der Bereich "F" nicht einschließen, sondern nur die Werte danach.
+Das folgende Beispiel veranschaulicht, wie man einen Schlüsselsbereich mit unterer Grenze verwendet. Hier deklarieren wir `keyRangeValue = IDBKeyRange.lowerBound("F", false);` — ein Bereich, der den Wert "F" und alles danach einschließt. Wir öffnen eine Transaktion (mit
+[`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und ein Objekt-Store und öffnen einen Cursor mit
+[`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei `keyRangeValue` als optionaler Schlüsselsbereichswert deklariert wird. Das bedeutet, dass der Cursor nur den Datensatz mit dem Schlüsselwert "F" und alle danach kommende abrufen wird. Wenn wir
+`IDBKeyRange.lowerBound("F", true);` verwendet hätten, dann würde der Bereich "F" nicht einschließen;
+nur die Werte danach.
 
 > [!NOTE]
-> Für ein umfassenderes Beispiel, das Ihnen erlaubt, mit dem Schlüsselbereich zu experimentieren, schauen Sie sich unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository an
+> Für ein vollständigeres Beispiel, das Ihnen erlaubt, mit dem
+> Schlüsselspektrum zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository
 > ([sehen Sie sich das Beispiel auch live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).)
 
 ```js
@@ -74,9 +82,9 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

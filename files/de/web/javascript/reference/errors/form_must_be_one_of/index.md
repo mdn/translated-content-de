@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "form muss einer von 'NFC', 'NFD', 'NFKC' oder 'NFKD' sein" tritt auf, wenn ein nicht erkannter String an die Methode {{jsxref("String.prototype.normalize()")}} übergeben wird.
+Die JavaScript-Ausnahme "form muss einer von 'NFC', 'NFD', 'NFKC' oder 'NFKD' sein" tritt auf, wenn eine nicht erkannte Zeichenkette an die Methode {{jsxref("String.prototype.normalize()")}} übergeben wird.
 
 ## Nachricht
 
@@ -21,9 +21,9 @@ RangeError: argument does not match any normalization form (Safari)
 
 {{jsxref("RangeError")}}
 
-## Was ist schiefgelaufen?
+## Was ging schief?
 
-Die Methode {{jsxref("String.prototype.normalize()")}} akzeptiert nur die folgenden vier Werte als `form`-Argument: `"NFC"`, `"NFD"`, `"NFKC"`, oder `"NFKD"`. Wenn Sie einen anderen Wert übergeben, wird ein Fehler ausgelöst. Lesen Sie die Referenz von `normalize()`, um mehr über die verschiedenen Normalisierungsformen zu erfahren.
+Die Methode {{jsxref("String.prototype.normalize()")}} akzeptiert nur die folgenden vier Werte als ihr `form`-Argument: `"NFC"`, `"NFD"`, `"NFKC"`, oder `"NFKD"`. Wenn Sie einen anderen Wert übergeben, wird ein Fehler ausgelöst. Lesen Sie die Referenz von `normalize()`, um mehr über die verschiedenen Normalisierungsformen zu erfahren.
 
 ## Beispiele
 

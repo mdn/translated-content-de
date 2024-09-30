@@ -1,5 +1,5 @@
 ---
-title: "DeprecationReportBody: columnNumber-Eigenschaft"
+title: "DeprecationReportBody: columnNumber Eigenschaft"
 short-title: columnNumber
 slug: Web/API/DeprecationReportBody/columnNumber
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`columnNumber`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt die Spalte in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
+Die schreibgeschützte Eigenschaft **`columnNumber`** der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
 
 > [!NOTE]
 > Diese Eigenschaft ist besonders nützlich in Verbindung mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile) und [`DeprecationReportBody.lineNumber`](/de/docs/Web/API/DeprecationReportBody/lineNumber), da sie die Lokalisierung der Spalte in der Datei und Zeile ermöglicht, in der der Fehler aufgetreten ist.
 
 ## Wert
 
-Ein Integer oder `null`, wenn die Spalte nicht bekannt ist.
+Ein Integer oder `null`, falls die Spalte nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `columnNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsmeldungen zu beobachten, und drucken dann den Wert von `columnNumber` in die Konsole.
 
 ```js
 let options = {

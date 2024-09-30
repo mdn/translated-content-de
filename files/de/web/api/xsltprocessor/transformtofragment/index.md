@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `transformToFragment()` Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle transformiert eine bereitgestellte [`Node`](/de/docs/Web/API/Node) Quelle in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) unter Verwendung des mit dem `XSLTProcessor` assoziierten XSLT-Stilsheets.
+Die Methode `transformToFragment()` des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces transformiert eine bereitgestellte [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) unter Verwendung des mit dem `XSLTProcessor` verbundenen XSLT-Stylesheets.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ transformToFragment(source, document)
 ### Parameter
 
 - `source`
-  - : Die [`Node`](/de/docs/Web/API/Node) Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
+  - : Die [`Node`](/de/docs/Web/API/Node)-Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
 - `document`
-  - : Das [`Document`](/de/docs/Web/API/Document), mit dem das Dokumentfragment verbunden wird. (Jedes Dokumentfragment ist mit einem Dokument verbunden, zu dem es hinzugefügt werden kann).
+  - : Das [`Document`](/de/docs/Web/API/Document), dem das Dokumentfragment zugeordnet wird. (Jedes Dokumentfragment ist mit einem Dokument verknüpft, zu dem es hinzugefügt werden kann).
 
 ### Rückgabewert
 
@@ -29,9 +29,9 @@ Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 ## Beispiele
 
-### Verwendung von transformToFragment()
+### Verwenden von transformToFragment()
 
-Dieses Beispiel zeigt, wie `transformToFragment()` verwendet wird, um XML-Daten in HTML zu transformieren, das dann direkt als Dokumentfragment in das DOM eingefügt werden kann.
+Dieses Beispiel demonstriert, wie `transformToFragment()` verwendet wird, um XML-Daten in HTML zu transformieren, die dann direkt als Dokumentfragment in den DOM eingefügt werden können.
 
 #### HTML
 

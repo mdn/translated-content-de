@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: Eigenschaft fontBoundingBoxDescent"
+title: "TextMetrics: fontBoundingBoxDescent-Eigenschaft"
 short-title: fontBoundingBoxDescent
 slug: Web/API/TextMetrics/fontBoundingBoxDescent
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `fontBoundingBoxDescent` der Schnittstelle [`TextMetrics`](/de/docs/Web/API/TextMetrics) gibt die Entfernung von der durch das Attribut [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie bis zum unteren Rand des Begrenzungsrechtecks aller zum Rendern des Textes verwendeten Schriften zurück, in CSS-Pixeln.
+Die schreibgeschützte Eigenschaft `fontBoundingBoxDescent` des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces gibt die Entfernung von der durch das Attribut [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie bis zur Unterkante des Begrenzungsrechtecks aller Schriftarten zurück, die zum Rendern des Textes verwendet werden, in CSS-Pixeln.
 
 ## Wert
 
-Eine Zahl in CSS-Pixeln.
+Eine Zahl, in CSS-Pixeln.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ const log = document.getElementById("log");
 log.innerText = `fontBoundingBoxDescent: ${descentCssPixels}`;
 ```
 
-Der Abstieg in CSS-Pixeln für den Text "Foo" in einer 25px Serif-Schriftart wird unten gezeigt.
+Der Abstieg in CSS-Pixeln für den Text "Foo" in einer 25px-Serifenschrift wird unten gezeigt.
 
 {{EmbedLiveSample('Examples', 100, 50)}}
 

@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-In HTTP-Nachrichten beschreibt der **Inhalt** die "Informationen", die im Nachrichtentext übermittelt werden (welcher auf die Kopfzeilen folgt), nachdem jegliche Nachrichtenrahmung durch die Chunked Transfer Codierung von HTTP/1.1 entfernt wurde. In HTTP/1.1 wurde dies als "Payload" bezeichnet, aber der Nachrichten-"Inhalt" unterscheidet sich von Frame-Payloads in HTTP/2 und HTTP/3, wo die Daten in einem einzelnen Frame Header-Daten, Körper-Daten oder andere Steuerinformationen sein können.
+In HTTP-Nachrichten beschreibt der **Inhalt** die 'Informationen', die im Nachrichtenkörper übermittelt werden (die auf den Header-Abschnitt folgen), nachdem jegliche Nachrichtenrahmen aus der HTTP/1.1 Chunked-Transfer-Codierung entfernt wurden. Dies wurde in HTTP/1.1 als "Payload" bezeichnet, aber der Nachrichten-"Inhalt" unterscheidet sich von Rahmen-Payloads in HTTP/2 und HTTP/3, wo die Daten in einem einzelnen Rahmen Header-Daten, Body-Daten oder andere Steuerinformationen sein könnten.
 
-Das Ziel des Nachrichteninhalts in HTTP-Anfragen und -Antworten hängt von der Anfragemethode und dem Antwortstatuscode ab. Zum Beispiel repräsentiert in einer {{HTTPMethod("PUT")}}-Anfrage der Inhalt den gewünschten Zustand der Ressource, während es in einer {{HTTPMethod("POST")}}-Anfrage Informationen sind, die verarbeitet werden sollen. Eine {{HTTPStatus("200", "200 OK")}}-Antwort auf eine {{HTTPMethod("GET")}}-Anfrage zeigt den aktuellen Zustand der Ressource, während eine Fehlerantwort den Fehler beschreibt.
+Der Zweck des Nachrichteninhalts in HTTP-Anfragen und -Antworten hängt von der Anfragemethode und dem Antwortstatuscode ab. Beispielsweise repräsentiert der Inhalt in einer {{HTTPMethod("PUT")}}-Anfrage den gewünschten Zustand der Ressource, während er in einer {{HTTPMethod("POST")}}-Anfrage die zu verarbeitenden Informationen darstellt. Eine {{HTTPStatus("200", "200 OK")}}-Antwort auf eine {{HTTPMethod("GET")}}-Anfrage zeigt den aktuellen Zustand der Ressource, während eine Fehlerantwort den Fehler beschreibt.
 
-Einige Antworten, wie beispielsweise auf {{HTTPMethod("HEAD")}}-Anfragen oder bei {{HTTPStatus("204", "204 No Content")}}- und {{HTTPStatus("204", "304 Not Modified")}}-Statuscodes, enthalten überhaupt keinen Inhalt.
+Einige Antworten, wie die auf {{HTTPMethod("HEAD")}}-Anfragen oder die Statuscodes {{HTTPStatus("204", "204 No Content")}} und {{HTTPStatus("204", "304 Not Modified")}}, enthalten überhaupt keinen Inhalt.
 
-Im folgenden HTTP/1.1-Antwort, enthält der Nachrichtentext den Inhalt `Mozilla Developer Network`:
+In der folgenden HTTP/1.1-Antwort enthält der Nachrichtenkörper den Inhalt `Mozilla Developer Network`:
 
 ```http
 HTTP/1.1 200 OK
@@ -22,7 +22,7 @@ Content-Type: text/plain
 Mozilla Developer Network
 ```
 
-In der nächsten HTTP/1.1-Antwort kodiert Transfer-Encoding die Daten in Blöcken. Der Inhalt ist schließlich immer noch `Mozilla Developer Network`, aber der Nachrichtentext enthält unterschiedliche Nachrichtendaten, um die Blöcke zu separieren:
+In der nächsten HTTP/1.1-Antwort kodiert die Transfer-Codierung die Daten in Chunks. Der Inhalt ist letztlich immer noch `Mozilla Developer Network`, aber der Nachrichtenkörper enthält unterschiedliche Nachrichtendaten, um die Chunks zu trennen:
 
 ```http
 HTTP/1.1 200 OK
@@ -43,6 +43,6 @@ Network\r\n
 
 - {{HTTPHeader("Content-Location")}}
 - {{HTTPStatus("413", "413 Content Too Large")}}
-- [Content header](/de/docs/Glossary/Content_header)
-- [RFC 9110, Abschnitt 6.4: Content](https://httpwg.org/specs/rfc9110.html#rfc.section.6.4) (ersetzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Payload Semantics)
+- [Content-Header](/de/docs/Glossary/Content_header)
+- [RFC 9110, Abschnitt 6.4: Content](https://httpwg.org/specs/rfc9110.html#rfc.section-6.4) (ersetzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Payload Semantics)
   - [Änderungen von RFC 7231](https://httpwg.org/specs/rfc9110.html#changes.from.rfc.7231)

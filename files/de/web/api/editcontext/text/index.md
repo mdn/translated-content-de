@@ -12,17 +12,17 @@ Die schreibgeschützte **`text`**-Eigenschaft des [`EditContext`](/de/docs/Web/A
 
 ## Wert
 
-Ein String, der den aktuellen bearbeitbaren Inhalt des Elements enthält, das mit dem `EditContext`-Objekt verbunden ist. Sein Anfangswert ist der leere String.
+Ein String, der den aktuellen bearbeitbaren Inhalt des Elements enthält, das dem `EditContext`-Objekt zugeordnet ist. Sein Anfangswert ist der leere String.
 
-Dieser String kann mit dem Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des DOM-Elements, das mit dem `EditContext` assoziiert ist, übereinstimmen oder auch nicht. Das assoziierte Element könnte zum Beispiel ein `<canvas>`-Element sein, das keine `textContent`-Eigenschaft besitzt. Oder das assoziierte Element könnte ein `<div>`-Element sein, das Text enthält, der sich vom `EditContext.text`-Wert unterscheidet, für eine erweiterte Darstellung.
+Dieser String kann mit dem Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des DOM-Elements, das dem `EditContext` zugeordnet ist, übereinstimmen oder auch nicht. Das zugeordnete Element könnte zum Beispiel ein `<canvas>`-Element sein, das keine `textContent`-Eigenschaft hat. Oder das zugeordnete Element könnte ein `<div>`-Element sein, das Text enthält, der sich von dem `EditContext.text`-Wert unterscheidet, um fortgeschrittenes Rendering zu ermöglichen.
 
-Die `text`-Eigenschaft des `EditContext`-Objekts kann als Modell für den bearbeitbaren Textbereich verwendet werden. Andere Eigenschaften des `EditContext`-Objekts, wie `selectionStart` und `selectionEnd`, beziehen sich auf die Offsets innerhalb des `text`-Strings.
+Die `text`-Eigenschaft des `EditContext`-Objekts kann als Modell für den bearbeitbaren Textbereich verwendet werden. Andere Eigenschaften des `EditContext`-Objekts, wie `selectionStart` und `selectionEnd`, beziehen sich auf Offsets innerhalb des `text`-Strings.
 
 ## Beispiele
 
-### Verwendung von `text` zum Rendern des Textes in einem bearbeitbaren Canvas
+### Verwendung von `text` zur Darstellung des Textes in einem bearbeitbaren Canvas
 
-Im folgenden Beispiel wird die EditContext-API verwendet, um den Text, den ein Benutzer in ein `<canvas>`-Element eingibt, darzustellen.
+Im folgenden Beispiel wird die EditContext-API verwendet, um den Text, den ein Benutzer in einem `<canvas>`-Element eingibt, darzustellen.
 
 ```html
 <canvas id="editor-canvas"></canvas>

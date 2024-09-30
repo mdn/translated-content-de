@@ -1,5 +1,5 @@
 ---
-title: "BlobEvent: BlobEvent()-Konstruktor"
+title: "BlobEvent: BlobEvent() Konstruktor"
 short-title: BlobEvent()
 slug: Web/API/BlobEvent/BlobEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Der **`BlobEvent()`**-Konstruktor gibt ein neu erstelltes [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Objekt mit einem zugehörigen [`Blob`](/de/docs/Web/API/Blob) zurück.
+Der **`BlobEvent()`** Konstruktor gibt ein neu erstelltes [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Objekt zurück, das mit einem assoziierten [`Blob`](/de/docs/Web/API/Blob) verbunden ist.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ new BlobEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Events.
-    Er ist case-sensitive, und Browser setzen ihn immer auf `dataavailable`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist Groß-/Kleinschreibung beachten, und Browser setzen es immer auf `dataavailable`.
 - `options`
-  - : Ein Objekt, das _neben den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `data`
-      - : Das [`Blob`](/de/docs/Web/API/Blob), das mit dem Event verknüpft ist.
+      - : Der mit dem Ereignis assoziierte [`Blob`](/de/docs/Web/API/Blob).
     - `timecode` {{optional_inline}}
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der zur Initialisierung des Blob-Events verwendet wird.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der zur Initialisierung des Blob-Ereignisses verwendet wird.
 
 ### Rückgabewert
 
@@ -42,4 +42,4 @@ Ein neues [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Objekt.
 
 ## Siehe auch
 
-- Das [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Interface, zu dem es gehört.
+- Die [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Schnittstelle, zu der es gehört.

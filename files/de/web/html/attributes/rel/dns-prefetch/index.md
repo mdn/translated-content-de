@@ -7,9 +7,9 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`dns-prefetch`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel) Attribut des {{HTMLElement("link")}} Elements ist ein Hinweis an Browser, dass der Nutzer wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt. Daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er vorausschauend die DNS-Auflösung für diesen Ursprung durchführt.
+Das **`dns-prefetch`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel) Attribut des {{HTMLElement("link")}} Elements ist ein Hinweis an Browser, dass der Benutzer wahrscheinlich Ressourcen aus der Quelle der Zielressource benötigt. Daher kann der Browser wahrscheinlich die Benutzererfahrung verbessern, indem er vorab die DNS-Auflösung für diese Quelle durchführt.
 
-Siehe [Verwendung von dns-prefetch](/de/docs/Web/Performance/dns-prefetch) für mehr Details.
+Siehe [Verwendung von dns-prefetch](/de/docs/Web/Performance/dns-prefetch) für weitere Details.
 
 ## Spezifikationen
 

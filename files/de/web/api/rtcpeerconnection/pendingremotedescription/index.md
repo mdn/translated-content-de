@@ -8,20 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`pendingRemoteDescription`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das eine ausstehende Konfigurationsänderung für das entfernte Ende der Verbindung beschreibt.
+Die schreibgeschützte Eigenschaft **`pendingRemoteDescription`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das eine bevorstehende Konfigurationsänderung für das entfernte Ende der Verbindung beschreibt.
 
-Dies beschreibt nicht die Verbindung, wie sie derzeit besteht, sondern wie sie in naher Zukunft existieren könnte.
-Verwenden Sie [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) oder [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription), um die aktuelle Sitzungsbeschreibung für den entfernten Endpunkt zu erhalten.
-Einzelheiten zu den Unterschieden finden Sie unter [Pending and current descriptions](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
+Dies beschreibt nicht die aktuelle Verbindung, sondern wie sie in naher Zukunft existieren könnte. Verwenden Sie [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) oder [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription), um die aktuelle Sitzungsbeschreibung für den entfernten Endpunkt zu erhalten.
+Weitere Informationen zu den Unterschieden finden Sie unter [Bevorstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 ## Wert
 
-Wenn eine Änderung der entfernten Beschreibung im Gange ist, handelt es sich um eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), die die vorgeschlagene Konfiguration beschreibt.
+Wenn eine Änderung der entfernten Beschreibung im Gange ist, handelt es sich um ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), das die vorgeschlagene Konfiguration beschreibt.
 Andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 
-In diesem Beispiel wird `pendingRemoteDescription` untersucht, um festzustellen, ob eine Änderungsbeschreibung verarbeitet wird.
+Dieses Beispiel betrachtet die `pendingRemoteDescription`, um festzustellen, ob eine Beschreibungsänderung verarbeitet wird.
 
 ```js
 const pc = new RTCPeerConnection();
@@ -43,8 +42,8 @@ if (sd) {
 {{Compat}}
 
 > [!NOTE]
-> Die Hinzufügung von `pendingRemoteDescription` und [`currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) zur WebRTC-Spezifikation ist relativ neu.
-> In Browsern, die diese nicht unterstützen, ist nur [`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) verfügbar.
+> Die Ergänzung von `pendingRemoteDescription` und [`currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) zur WebRTC-Spezifikation ist relativ neu.
+> In Browsern, die sie nicht unterstützen, ist nur [`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) verfügbar.
 
 ## Siehe auch
 

@@ -8,25 +8,28 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`innerText`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert den gerenderten Textinhalt eines Knotens und seiner Nachkommen.
+Die **`innerText`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert den gerenderten Textinhalt eines Knotens und seiner Nachkommen.
 
-Als Getter nähert sie den Text an, den der Benutzer erhalten würde, wenn er den Inhalt des Elements mit dem Cursor markiert und dann in die Zwischenablage kopiert. Als Setter ersetzt sie die Kinder des Elements durch den angegebenen Wert und wandelt Zeilenumbrüche in {{HTMLElement("br")}}-Elemente um.
+Als Getter approximiert sie den Text, den der Benutzer erhalten würde, wenn er die Inhalte des Elements mit dem Cursor markiert und dann in die Zwischenablage kopiert.
+Als Setter ersetzt sie die Kinder des Elements durch den angegebenen Wert und konvertiert alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
 
-> **Note:** `innerText` wird leicht mit [`Node.textContent`](/de/docs/Web/API/Node/textContent) verwechselt, es gibt jedoch wichtige Unterschiede zwischen den beiden. Grundsätzlich ist `innerText` sich des gerenderten Erscheinungsbildes des Textes bewusst, während `textContent` dies nicht ist.
+> **Note:** `innerText` wird leicht mit [`Node.textContent`](/de/docs/Web/API/Node/textContent) verwechselt, aber es gibt wichtige Unterschiede zwischen den beiden.
+> Grundsätzlich ist `innerText` sich des gerenderten Erscheinungsbildes des Textes bewusst, während `textContent` dies nicht ist.
 
 ## Wert
 
-Ein String, der den gerenderten Textinhalt eines Elements repräsentiert.
+Ein String, der den gerenderten Textinhalt eines Elements darstellt.
 
 Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder aus der Ansicht verborgen ist), ist der zurückgegebene Wert derselbe wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 > [!WARNING]
-> Das Setzen von `innerText` auf einem Knoten entfernt _alle_ Kinder des Knotens
-> und ersetzt sie durch einen einzigen Textknoten mit dem angegebenen String-Wert.
+> Wenn `innerText` auf einem Knoten gesetzt wird, werden _alle_ Kinder des Knotens entfernt
+> und durch einen einzelnen Textknoten mit dem angegebenen Stringwert ersetzt.
 
 ## Beispiele
 
-Dieses Beispiel vergleicht `innerText` mit [`Node.textContent`](/de/docs/Web/API/Node/textContent). Beachten Sie, wie `innerText` sich Dingen wie {{htmlElement("br")}}-Elementen bewusst ist und versteckte Elemente ignoriert.
+Dieses Beispiel vergleicht `innerText` mit [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+Beachten Sie, wie `innerText` sich Dingen wie {{htmlElement("br")}}-Elementen bewusst ist und versteckte Elemente ignoriert.
 
 ### HTML
 

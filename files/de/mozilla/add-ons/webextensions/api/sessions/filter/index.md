@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Das `Filter`-Objekt ermöglicht es Ihnen, die Anzahl der von einem Aufruf von {{WebExtAPIRef("sessions.Session", "Session")}} zurückgegebenen Objekte einzuschränken, die durch {{WebExtAPIRef("sessions.getRecentlyClosed()")}} abgerufen werden.
+Das `Filter`-Objekt ermöglicht es Ihnen, die Anzahl der von einem Aufruf von {{WebExtAPIRef("sessions.Session", "Session")}} zurückgegebenen Objekte durch einen Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} einzuschränken.
 
 ## Typ
 

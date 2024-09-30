@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{Deprecated_Header}}
 
-Gibt das Fenster von der Erfassung von Ereignissen eines bestimmten Typs frei.
+Hebt die Bindung des Fensters an Ereignisse eines bestimmten Typs auf.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ window.releaseEvents(Event.KEYPRESS);
 
 ## Hinweise
 
-Beachten Sie, dass Sie eine Liste von Ereignissen mit der folgenden Syntax an diese Methode übergeben können:
+Beachten Sie, dass Sie dieser Methode eine Liste von Ereignissen mit der folgenden Syntax übergeben können:
 `window.releaseEvents(Event.KEYPRESS | Event.KEYDOWN | Event.KEYUP)`.
 
 Siehe auch [`window.captureEvents`](/de/docs/Web/API/Window/captureEvents)

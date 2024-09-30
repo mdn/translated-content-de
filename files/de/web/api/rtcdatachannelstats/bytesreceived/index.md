@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`bytesReceived`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt die Gesamtanzahl der auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) empfangenen Nutzlast-Bytes zurück.
+Die **`bytesReceived`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt die gesamte Anzahl der Nutzdaten-Bytes zurück, die auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) empfangen wurden.
 
-Beachten Sie, dass Nicht-Nutzlast-Bytes, wie solche für das Framing und in Headern, nicht enthalten sind.
+Beachten Sie, dass Nicht-Nutzdaten-Bytes, wie solche für die Rahmung und in den Headern, nicht enthalten sind.
 
 ## Wert
 
-Ein positiver Ganzzahlwert, der die Gesamtanzahl der auf dem zugehörigen Datenkanal empfangenen Nutzlast-Bytes angibt.
+Ein positiver Ganzzahlwert, der die Gesamtanzahl der auf dem zugehörigen Datenkanal empfangenen Nutzdaten-Bytes angibt.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`unobserve()`**-Methode der [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Schnittstelle beendet die Beobachtung eines angegebenen [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
+Die **`unobserve()`** Methode des [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Interfaces beendet das Beobachten eines angegebenen [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ## Syntax
 
@@ -31,7 +31,8 @@ Keine.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus dem [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) Beispiel:
+Der folgende Codeausschnitt stammt aus dem [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html)
+([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) Beispiel:
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

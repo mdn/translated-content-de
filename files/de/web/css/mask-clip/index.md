@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-clip`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der gemalte Inhalt eines Elements muss auf diesen Bereich beschränkt werden.
+Die **`mask-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der gemalte Inhalt eines Elements muss auf diesen Bereich beschränkt sein.
 
 ## Syntax
 
@@ -41,24 +41,24 @@ mask-clip: revert-layer;
 mask-clip: unset;
 ```
 
-Eines oder mehrere der unten aufgelisteten Schlüsselwörter, getrennt durch Kommas.
+Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommas getrennt.
 
 ### Werte
 
 - `content-box`
-  - : Der gemalte Inhalt wird auf die Content-Box beschnitten.
+  - : Der gemalte Inhalt wird auf die Inhalt-Box zugeschnitten.
 - `padding-box`
-  - : Der gemalte Inhalt wird auf die Padding-Box beschnitten.
+  - : Der gemalte Inhalt wird auf die Polster-Box zugeschnitten.
 - `border-box`
-  - : Der gemalte Inhalt wird auf die Border-Box beschnitten.
+  - : Der gemalte Inhalt wird auf die Rand-Box zugeschnitten.
 - `fill-box`
-  - : Der gemalte Inhalt wird auf die Umgrenzungsbox des Objekts beschnitten.
+  - : Der gemalte Inhalt wird auf die Objekt-Begrenzungsbox zugeschnitten.
 - `stroke-box`
-  - : Der gemalte Inhalt wird auf die Begrenzungsbox des Strichs beschnitten.
+  - : Der gemalte Inhalt wird auf die Linien-Begrenzungsbox zugeschnitten.
 - `view-box`
-  - : Verwendet das nächste SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut für das Element festgelegt ist, das das SVG-Viewport erstellt, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut etablierten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
+  - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox) Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des Koordinatensystems positioniert, das durch das `viewBox` Attribut festgelegt wird, und die Dimension der Referenzbox wird auf die Breite und Höhe des `viewBox` Attributs eingestellt.
 - `no-clip`
-  - : Der gemalte Inhalt wird nicht beschnitten.
+  - : Der gemalte Inhalt wird nicht ausgeschnitten.
 - `border`
   - : Dieses Schlüsselwort verhält sich wie `border-box`.
 - `padding`
@@ -66,7 +66,7 @@ Eines oder mehrere der unten aufgelisteten Schlüsselwörter, getrennt durch Kom
 - `content`
   - : Dieses Schlüsselwort verhält sich wie `content-box`.
 - `text`
-  - : Dieses Schlüsselwort schneidet das Maskenbild auf den Text des Elements.
+  - : Dieses Schlüsselwort schneidet das Maskenbild auf den Text des Elements zu.
 
 ## Formale Definition
 
@@ -78,9 +78,9 @@ Eines oder mehrere der unten aufgelisteten Schlüsselwörter, getrennt durch Kom
 
 ## Beispiele
 
-### Eine Maske auf die Border-Box zuschneiden
+### Zuschneiden einer Maske auf die Rand-Box
 
-Ändern Sie den `mask-clip`-Wert auf einen der oben detailliert erlaubten Werte. Wenn Sie das Beispiel in einem Browser auf Chromium-Basis anzeigen, ändern Sie den Wert von `-webkit-mask-clip`.
+Ändern Sie den Wert von `mask-clip` zu einem der oben beschriebenen zulässigen Werte. Wenn Sie das Beispiel in einem Chromium-basierten Browser betrachten, ändern Sie den Wert von `-webkit-mask-clip`.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-clip.html", '100%', 800)}}
 
@@ -94,4 +94,4 @@ Eines oder mehrere der unten aufgelisteten Schlüsselwörter, getrennt durch Kom
 
 ## Siehe auch
 
-- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)

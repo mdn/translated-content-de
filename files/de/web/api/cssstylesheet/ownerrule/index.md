@@ -9,16 +9,19 @@ l10n:
 {{APIRef("CSSOM")}}
 
 Die schreibgeschützte [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Eigenschaft
-**`ownerRule`** gibt die [`CSSImportRule`](/de/docs/Web/API/CSSImportRule) zurück,
-die der {{cssxref("@import")}}-Regel entspricht, mit der das Stylesheet in das Dokument importiert wurde. Falls das Stylesheet nicht mit `@import` in das Dokument importiert wurde, ist der zurückgegebene Wert `null`.
+**`ownerRule`** gibt die [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)
+zurück, die der {{cssxref("@import")}}-Regel entspricht, welche das Stylesheet in das
+Dokument importiert hat. Wenn das Stylesheet nicht mit `@import` in das Dokument importiert wurde, ist der zurückgegebene Wert `null`.
 
 ## Wert
 
-Eine [`CSSImportRule`](/de/docs/Web/API/CSSImportRule), die der {{cssxref("@import")}}-Regel entspricht, welche das Stylesheet in das Dokument importiert hat. Falls das Stylesheet nicht mit `@import` in das Dokument importiert wurde, ist der zurückgegebene Wert `null`.
+Eine [`CSSImportRule`](/de/docs/Web/API/CSSImportRule), die der {{cssxref("@import")}}-Regel entspricht, die
+das Stylesheet in das Dokument importiert hat. Wenn das Stylesheet nicht mit `@import` in das
+Dokument importiert wurde, ist der zurückgegebene Wert `null`.
 
 ## Beispiele
 
-Dieses Code-Snippet sucht nach Regeln, die nicht mittels einer `@import`-Regel in das Dokument importiert wurden.
+Dieses Codebeispiel sucht nach Regeln, die nicht mit einer `@import`-Regel in das Dokument importiert wurden.
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -30,7 +33,8 @@ for (const rule of ruleList) {
 }
 ```
 
-Dieses Snippet erhält eine Referenz auf das mit `@import` verbundene Stylesheet und verarbeitet es auf irgendeine Weise:
+Dieses Codebeispiel erhält eine Referenz zum Stylesheet, das mit
+`@import` verbunden ist, und verarbeitet es auf irgendeine Weise:
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -52,5 +56,5 @@ for (const rule of ruleList) {
 
 ## Siehe auch
 
-- [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

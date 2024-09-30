@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: Methode setRangeText()"
+title: "HTMLInputElement: setRangeText() Methode"
 short-title: setRangeText()
 slug: Web/API/HTMLInputElement/setRangeText
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`HTMLInputElement.setRangeText()`** ersetzt einen Textbereich in einem {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element durch einen neuen String.
+Die **`HTMLInputElement.setRangeText()`** Methode ersetzt einen Textbereich in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element mit einem neuen String.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ setRangeText(replacement, start, end, selectMode)
 - `replacement`
   - : Der einzufügende String.
 - `start` {{optional_inline}}
-  - : Der indexbasierte Startpunkt des ersten zu ersetzenden Zeichens. Standard ist der aktuelle Wert von `selectionStart` (der Beginn der aktuellen Benutzerauswahl).
+  - : Der 0-basierte Index des ersten zu ersetzenden Zeichens. Der Standardwert ist der aktuelle Wert von `selectionStart` (der Anfang der aktuellen Auswahl des Benutzers).
 - `end` {{optional_inline}}
-  - : Der indexbasierte Punkt nach dem letzten zu ersetzenden Zeichen. Standard ist der aktuelle Wert von `selectionEnd` (das Ende der aktuellen Benutzerauswahl).
+  - : Der 0-basierte Index des Zeichens _nach_ dem letzten zu ersetzenden Zeichen. Der Standardwert ist der aktuelle Wert von `selectionEnd` (das Ende der aktuellen Auswahl des Benutzers).
 - `selectMode` {{optional_inline}}
 
-  - : Ein String, der definiert, wie die Auswahl nach dem Ersetzen des Textes festgelegt werden soll. Mögliche Werte:
+  - : Ein String, der definiert, wie die Auswahl nach dem Ersetzen des Textes gesetzt werden soll. Mögliche Werte:
 
     - `"select"` wählt den neu eingefügten Text aus.
     - `"start"` verschiebt die Auswahl direkt vor den eingefügten Text.
     - `"end"` verschiebt die Auswahl direkt nach den eingefügten Text.
-    - `"preserve"` versucht, die Auswahl beizubehalten. Dies ist der Standardwert.
+    - `"preserve"` versucht, die Auswahl beizubehalten. Das ist der Standardwert.
 
 ### Rückgabewert
 
@@ -42,7 +42,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf den Button in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (ausgewählt).
+Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (markiert).
 
 ### HTML
 

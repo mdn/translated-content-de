@@ -1,5 +1,5 @@
 ---
-title: "Highlight: priority Eigenschaft"
+title: "Highlight: priority-Eigenschaft"
 short-title: priority
 slug: Web/API/Highlight/priority
 l10n:
@@ -10,19 +10,19 @@ l10n:
 
 Es ist möglich, [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen, die sich in einem Dokument überschneiden.
 
-Wenn sich überschneidende Bereiche von mehreren verschiedenen [`Highlight`](/de/docs/Web/API/Highlight)-Objekten verwendet werden, und wenn diese Hervorhebungen mit {{cssxref("::highlight")}} Pseudoelementen gestylt werden, kann dies zu widersprüchlichen Stilen führen.
+Wenn sich überlappende Bereiche in mehreren verschiedenen [`Highlight`](/de/docs/Web/API/Highlight)-Objekten befinden und diese Hervorhebungen mit {{cssxref("::highlight")}}-Pseudo-Elementen gestylt werden, kann dies zu widersprüchlichen Stilen führen.
 
-Wenn sich zwei Textbereiche überlappen und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) hervorgehoben sind und wenn beide mit der `color` CSS-Eigenschaft gestylt sind, muss der Browser entscheiden, welche Farbe zum Stylen des Texts im überlappenden Teil verwendet werden soll.
+Wenn zwei Textbereiche sich überlappen und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) hervorgehoben werden, und wenn beide mit der `color`-CSS-Eigenschaft gestylt werden, muss der Browser entscheiden, welche Farbe zum Stylen des Textes im überlappenden Teil verwendet werden soll.
 
 Standardmäßig haben alle Hervorhebungen die gleiche Priorität und der Browser wählt die zuletzt registrierte Hervorhebung, um die überlappenden Teile zu stylen.
 
-Die `priority`-Eigenschaft der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle ist eine {{jsxref("Number")}}, die verwendet wird, um dieses Standardverhalten zu ändern und zu bestimmen, welcher Hervorhebungsstil zur Lösung von Stilkonflikten in überlappenden Teilen verwendet werden soll.
+Die `priority`-Eigenschaft der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle ist eine {{jsxref("Number")}}, die dieses Standardverhalten ändert und bestimmt, welcher Stil der Hervorhebung verwendet werden soll, um Stilkonflikte in überlappenden Bereichen zu lösen.
 
-Es ist zu beachten, dass alle Stile einer Hervorhebung angewendet werden und der Browser nur Konflikte lösen muss, wenn dieselben CSS-Eigenschaften von mehreren überlappenden Hervorhebungen verwendet werden. Die Konfliktlösung für Hervorhebungsstile hängt auch nicht von der Reihenfolge ab, in der die {{cssxref("::highlight")}} Pseudoelementregeln im Quelltext erscheinen, noch davon, ob CSS-Eigenschaften als `!important` markiert sind.
+Beachten Sie, dass alle Stile einer Hervorhebung angewendet werden und der Browser nur Konflikte lösen muss, wenn dieselben CSS-Eigenschaften von mehreren überlappenden Hervorhebungen verwendet werden. Die Lösung von Stilkonflikten bei Hervorhebungen hängt auch nicht von der Reihenfolge ab, in der die {{cssxref("::highlight")}}-Pseudo-Elemente in der Quelle erscheinen, oder davon, ob CSS-Eigenschaften als `!important` markiert sind.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 
@@ -70,11 +70,11 @@ CSS.highlights.set("highlight-2", highlight2);
 
 #### Ergebnis
 
-Wie unten zu sehen ist, wird der Teil des Textknotens, wo sich die beiden registrierten Hervorhebungen überlappen, standardmäßig in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert ist. Die von `highlight-1` definierte Hintergrundfarbe umfasst den gesamten `range1`-Bereich, da sie nicht mit einer anderen Hintergrundfarbe in Konflikt steht.
+Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem sich die beiden registrierten Hervorhebungen überlappen, in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wird. Die von `highlight-1` definierte Hintergrundfarbe umfasst den gesamten `range1`-Bereich, da sie nicht mit einer anderen Hintergrundfarbe in Konflikt steht.
 
 {{EmbedLiveSample("Default priority")}}
 
-### Priorität setzen
+### Priorität festlegen
 
 #### HTML
 
@@ -141,7 +141,7 @@ reset.addEventListener("click", () => {
 
 #### Ergebnis
 
-Wie unten zu sehen ist, wird der Teil des Textknotens, wo sich die beiden registrierten Hervorhebungen überlappen, standardmäßig in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert ist.
+Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem sich die beiden registrierten Hervorhebungen überlappen, in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wird.
 
 {{EmbedLiveSample("Setting priority")}}
 
@@ -156,4 +156,4 @@ Wie unten zu sehen ist, wird der Teil des Textknotens, wo sich die beiden regist
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

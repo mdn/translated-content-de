@@ -1,5 +1,5 @@
 ---
-title: "FontFace: load() Methode"
+title: "FontFace: load()-Methode"
 short-title: load()
 slug: Web/API/FontFace/load
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`load()`**-Methode des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces fordert eine Schriftart an und lädt diese, deren `source` als URL angegeben wurde. Sie gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird.
+Die **`load()`**-Methode des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces fordert eine Schriftart an und lädt sie, deren `source` als URL angegeben wurde. Sie gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird.
 
-Wenn die `source` für die Schriftart als Binärdaten angegeben wurde oder die [`status`](/de/docs/Web/API/FontFace/status)-Eigenschaft der Schriftart etwas anderes als `unloaded` ist, macht diese Methode nichts.
+Wenn die `source` für die Schriftart als Binärdaten angegeben wurde oder die Schriftart die [`status`](/de/docs/Web/API/FontFace/status)-Eigenschaft der Schriftart etwas anderes als `unloaded` ist, dann macht diese Methode nichts.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einer Referenz auf das aktuelle `FontFace`-Objekt aufgelöst wird, wenn die Schriftart geladen wird, oder mit einem `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt wird, wenn der Ladevorgang fehlschlägt.
+Ein {{jsxref('Promise')}}-Objekt, das mit einer Referenz auf das aktuelle `FontFace`-Objekt aufgelöst wird, wenn die Schriftart geladen wird, oder mit einem `NetworkError`-[`DOMException`](/de/docs/Web/API/DOMException), wenn der Ladeprozess fehlschlägt.
 
 ### Ausnahmen
 
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Gibt an, dass der Versuch, die Schriftart zu laden, fehlgeschlagen ist.
+  - : Zeigt an, dass der Versuch, die Schrift zu laden, fehlgeschlagen ist.
 
 ## Beispiele
 
-Dieses einfache Beispiel lädt eine Schriftart und verwendet sie, um Text in einem Canvas-Element (mit einer ID von `js-canvas`) anzuzeigen.
+Dieses einfache Beispiel lädt eine Schriftart und verwendet sie, um Text in einem Canvas-Element (mit der ID `js-canvas`) anzuzeigen.
 
 ```html hidden
 <canvas id="js-canvas"></canvas>

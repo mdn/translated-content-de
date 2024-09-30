@@ -7,19 +7,19 @@ l10n:
 
 {{AddonSidebar}}
 
-Definiert den `BrowserSetting` Typ, der verwendet wird, um eine Browsereinstellung darzustellen.
+Definiert den `BrowserSetting`-Typ, der verwendet wird, um eine Browsereinstellung darzustellen.
 
 ## Typen
 
 - {{WebExtAPIRef("types.BrowserSetting")}}
-  - : Stellt eine Browsereinstellung dar.
+  - : Repräsentiert eine Browsereinstellung.
 
 ## Browser-Kompatibilität
 
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.
+> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

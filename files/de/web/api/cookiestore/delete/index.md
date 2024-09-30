@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`delete()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces löscht ein Cookie mit dem angegebenen `name` oder `options`-Objekt. Die `delete()`-Methode lässt das Cookie ablaufen, indem sie das Datum auf eines in der Vergangenheit ändert.
+Die **`delete()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle löscht ein Cookie mit dem angegebenen `name` oder `options`-Objekt. Die `delete()`-Methode setzt das Ablaufdatum des Cookies, indem sie es auf ein Datum in der Vergangenheit ändert.
 
 ## Syntax
 
@@ -37,22 +37,22 @@ Oder
     - `path` {{Optional_Inline}}
       - : Ein String, der einen Pfad enthält. Standardwert ist `/`.
     - `partitioned` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn er auf `true` gesetzt wird, wird angegeben, dass das zu löschende Cookie ein partitioniertes Cookie ist. Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
+      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist. Wenn auf `true` gesetzt, wird angegeben, dass das zu löschende Cookie ein partitioniertes Cookie ist. Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn das Löschen abgeschlossen ist.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn die Löschung abgeschlossen ist.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Löschen des durch den gegebenen `name` oder `options` dargestellten Cookies fehlschlägt.
+  - : Wird ausgelöst, wenn das Löschen des durch den angegebenen `name` oder `options` dargestellten Cookies fehlschlägt.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Cookie durch die Übergabe des Namens an die `delete()`-Methode gelöscht.
+In diesem Beispiel wird ein Cookie gelöscht, indem der Name an die `delete()`-Methode übergeben wird.
 
 ```js
 const result = cookieStore.delete("cookie1");

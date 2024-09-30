@@ -1,5 +1,5 @@
 ---
-title: "CloseWatcher: close()-Methode"
+title: "CloseWatcher: close() Methode"
 short-title: close()
 slug: Web/API/CloseWatcher/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Die **`close()`**-Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle ermöglicht es Ihnen, jede Logik im `cancel`-Ereignishandler zu überspringen und sofort das `close`-Ereignis auszulösen. Sie deaktiviert dann den Close-Watcher, als ob `destroy()` aufgerufen worden wäre.
+Die **`close()`**-Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Schnittstelle ermöglicht es Ihnen, jede Logik im `cancel`-Ereignishandler zu überspringen und sofort das `close`-Ereignis zu feuern. Sie deaktiviert dann den Close Watcher, als ob `destroy()` aufgerufen worden wäre.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der `close()`-Methode
+### Verwendung der `close()` Methode
 
-Verwenden Sie die `close()`-Methode, um den Close-Watcher zu deaktivieren und ihn zu zerstören.
+Verwenden Sie die `close()`-Methode, um den Close Watcher zu deaktivieren und zu zerstören.
 
 ```js
 watcher.close();

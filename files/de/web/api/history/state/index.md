@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`state`**-Eigenschaft der [`History`](/de/docs/Web/API/History)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen Wert zurückgibt, der den Zustand am oberen Ende des Verlaufsstapels darstellt. Dies ist eine Möglichkeit, den Zustand zu betrachten, ohne auf ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis warten zu müssen.
+Die **`state`** schreibgeschützte Eigenschaft der [`History`](/de/docs/Web/API/History)-Schnittstelle gibt einen Wert zurück, der den Zustand an der Spitze des Verlaufstapels darstellt. Dies ist eine Möglichkeit, den Zustand zu betrachten, ohne auf ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis warten zu müssen.
 
 ## Wert
 
-Der Zustand am oberen Ende des Verlaufsstapels. Der Wert ist [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), bis die Methoden [`pushState()`](/de/docs/Web/API/History/pushState) oder [`replaceState()`](/de/docs/Web/API/History/replaceState) verwendet werden.
+Der Zustand an der Spitze des Verlaufstapels. Der Wert ist [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), bis die Methode [`pushState()`](/de/docs/Web/API/History/pushState) oder [`replaceState()`](/de/docs/Web/API/History/replaceState) verwendet wird.
 
 ## Beispiele
 
-Der untenstehende Code protokolliert den Wert von `history.state`, bevor die [`pushState()`](/de/docs/Web/API/History/pushState)-Methode verwendet wird, um einen Wert in den Verlauf zu schieben. Die nächste Zeile protokolliert den Wert erneut in der Konsole und zeigt, dass `history.state` nun einen Wert hat.
+Der untenstehende Code protokolliert den Wert von `history.state` bevor die Methode [`pushState()`](/de/docs/Web/API/History/pushState) verwendet wird, um einen Wert in den Verlauf zu schieben. Die nächste Zeile protokolliert den Wert erneut in die Konsole und zeigt, dass `history.state` nun einen Wert hat.
 
 ```js
 // Should be null because we haven't modified the history stack yet

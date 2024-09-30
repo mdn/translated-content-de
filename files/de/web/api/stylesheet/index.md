@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Ein Objekt, das die `StyleSheet`-Schnittstelle implementiert, repräsentiert ein einzelnes Stylesheet. CSS-Stylesheets implementieren zusätzlich die spezialisiertere [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Schnittstelle.
+Ein Objekt, das das `StyleSheet`-Interface implementiert, repräsentiert ein einzelnes Stylesheet. CSS-Stylesheets implementieren zusätzlich das spezialisiertere [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Interface.
 
 ## Instanz-Eigenschaften
 
-- [`StyleSheet.disabled`](/de/docs/Web/API/StyleSheet/disabled)
-  - : Ein boolescher Wert, der anzeigt, ob das aktuelle Stylesheet angewendet wurde oder nicht.
+- [`StyleSheet.disabled`](/de/docs/Web/API/StyleSheet/disabled) 
+  - : Ein boolescher Wert, der angibt, ob das aktuelle Stylesheet angewendet wurde oder nicht.
 - [`StyleSheet.href`](/de/docs/Web/API/StyleSheet/href) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Ort des Stylesheets repräsentiert.
+  - : Gibt einen String zurück, der den Speicherort des Stylesheets repräsentiert.
 - [`StyleSheet.media`](/de/docs/Web/API/StyleSheet/media) {{ReadOnlyInline}}
-  - : Gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene Zielmedium für Stilinformationen repräsentiert.
+  - : Gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das beabsichtigte Zielmedium für Style-Informationen darstellt.
 - [`StyleSheet.ownerNode`](/de/docs/Web/API/StyleSheet/ownerNode) {{ReadOnlyInline}}
-  - : Gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der dieses Stylesheet mit dem aktuellen Dokument assoziiert.
+  - : Gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der dieses Stylesheet mit dem aktuellen Dokument verknüpft.
 - [`StyleSheet.parentStyleSheet`](/de/docs/Web/API/StyleSheet/parentStyleSheet) {{ReadOnlyInline}}
-  - : Gibt ein `StyleSheet` zurück, das dieses enthält, falls vorhanden; gibt `null` zurück, wenn keines existiert.
+  - : Gibt ein `StyleSheet` zurück, das dieses einschließt, falls vorhanden; gibt `null` zurück, wenn es keine gibt.
 - [`StyleSheet.title`](/de/docs/Web/API/StyleSheet/title) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den beratenen Titel des aktuellen Stylesheets repräsentiert.
+  - : Gibt einen String zurück, der den empfohlenen Titel des aktuellen Stylesheets darstellt.
 - [`StyleSheet.type`](/de/docs/Web/API/StyleSheet/type) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der die Stylesheet-Sprache für dieses Stylesheet repräsentiert.
 

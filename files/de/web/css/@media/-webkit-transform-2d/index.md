@@ -8,22 +8,22 @@ l10n:
 {{CSSRef}} {{ Non-standard_header }}
 
 > [!NOTE]
-> Alle Browser unterstützen die [`transform`](/de/docs/Web/CSS/transform#browser_compatibility) Eigenschaft ohne Vendor-Präfixe. Nur WebKit (Safari), und nicht Chromium-basierte Browser, unterstützen das `-webkit-transform-2d` Medienfeature. Keine Browser unterstützen `transform`, weder ohne das Präfix noch mit der `2d` Erweiterung, als Medienabfrage. Verwenden Sie stattdessen die [`@supports (transform)`](/de/docs/Web/CSS/@supports) Feature-Abfrage.
+> Alle Browser unterstützen die [`transform`](/de/docs/Web/CSS/transform#browser_compatibility) Eigenschaft ohne Herstellerpräfixe. Nur WebKit (Safari) und nicht Chromium-basierte Browser unterstützen das `-webkit-transform-2d` Medienfeature. Keine Browser unterstützen `transform` ohne Präfix oder `2d` Erweiterung als Media Query. Verwenden Sie stattdessen die [`@supports (transform)`](/de/docs/Web/CSS/@supports) Feature Query.
 
-Das **`-webkit-transform-2d`** Boolean [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), deren Wert `true` ist, wenn vendor-präfizierte CSS 2D {{cssxref("transform")}}s und nicht standardisierte vendor-präfizierte Medienabfragen unterstützt werden.
+Das **`-webkit-transform-2d`** Boolean [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), deren Wert `true` ist, wenn CSS 2D {{cssxref("transform")}}s mit Herstellerpräfix und nicht-standardisierte Herstellerpräfix Media Queries unterstützt werden.
 
 Apple hat [eine Beschreibung in der Safari CSS Referenz](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/OtherStandardCSS3Features.html#//apple_ref/doc/uid/TP40007601-SW3).
 
 ## Syntax
 
-`-webkit-transform-2d` ist ein Boolean [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features), dessen Wert `true` ist, wenn der Browser `-webkit`-präfizierte CSS 2D {{cssxref("transform")}}s unterstützt.
+`-webkit-transform-2d` ist ein Boolean [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features), dessen Wert `true` ist, wenn der Browser CSS 2D {{cssxref("transform")}}s mit dem `-webkit` Präfix unterstützt.
 
 ### Werte
 
 - `true`
-  - : Der Browser unterstützt die 2D CSS Transforms mit dem `-webkit` Präfix.
+  - : Der Browser unterstützt die 2D CSS-Transformationen mit dem `-webkit` Präfix.
 - `false`
-  - : Die 2D CSS Transforms, die mit `-webkit` präfiziert sind, werden von dem Browser nicht unterstützt.
+  - : Die 2D CSS-Transformationen mit dem `-webkit` Präfix werden vom Browser nicht unterstützt.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ Apple hat [eine Beschreibung in der Safari CSS Referenz](https://developer.apple
 }
 ```
 
-Dieses Medienfeature wird nur von WebKit unterstützt. Die unpräfizierte [`transform`](/de/docs/Web/CSS/transform) Eigenschaft wird in allen modernen Browsern unterstützt. Verwenden Sie nach Möglichkeit eine {{cssxref("@supports")}} Feature-Abfrage:
+Dieses Medienfeature wird nur von WebKit unterstützt. Die unpräfixierte [`transform`](/de/docs/Web/CSS/transform) Eigenschaft wird in allen modernen Browsern unterstützt. Verwenden Sie nach Möglichkeit eine {{cssxref("@supports")}} Feature Query:
 
 ```css
 @supports (-webkit-transform: translate(100px, 100px)) {
@@ -49,7 +49,7 @@ Dieses Medienfeature wird nur von WebKit unterstützt. Die unpräfizierte [`tran
 
 ## Spezifikationen
 
-Nicht Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -61,6 +61,6 @@ Nicht Bestandteil eines Standards.
 - {{cssxref("@media/-webkit-transition", "-webkit-transition")}}
 - {{cssxref("@media/-webkit-animation", "-webkit-animation")}}
 - [Testseite bei quirksmode.org](https://www.quirksmode.org/css/tests/mediaqueries/animation.html)
-- {{cssxref("transform")}} und [Verwendung von CSS-Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-- {{cssxref("@media")}} und [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- {{cssxref("@supports")}} und [Verwendung von Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- {{cssxref("transform")}} und [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- {{cssxref("@media")}} und [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- {{cssxref("@supports")}} und [Verwendung von Feature Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)

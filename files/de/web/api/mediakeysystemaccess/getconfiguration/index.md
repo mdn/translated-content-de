@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`getConfiguration()`**-Methode der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle gibt ein Objekt mit der unterstützten Kombination der folgenden Konfigurationsoptionen zurück:
+Die **`getConfiguration()`**-Methode der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle liefert ein Objekt mit der unterstützten Kombination der folgenden Konfigurationsoptionen:
 
 - `initDataTypes` {{ReadOnlyInline}}
-  - : Gibt eine Liste der unterstützten Initialisierungsdatentypnamen zurück. Ein Initialisierungsdatentyp ist ein String, der das Format der Initialisierungsdaten angibt.
+  - : Gibt eine Liste der unterstützten Initialisierungs-Datentypnamen zurück. Ein Initialisierungs-Datentyp ist ein String, der das Format der Initialisierungsdaten angibt.
 - `audioCapabilities` {{ReadOnlyInline}}
-  - : Gibt eine Liste der unterstützten Audiotyp- und Fähigkeitspaare zurück.
+  - : Gibt eine Liste der unterstützten Audio-Typ- und Fähigkeits-Paare zurück.
 - `videoCapabilities` {{ReadOnlyInline}}
-  - : Gibt eine Liste der unterstützten Videotyp- und Fähigkeitspaare zurück.
+  - : Gibt eine Liste der unterstützten Video-Typ- und Fähigkeits-Paare zurück.
 - `distinctiveIdentifier` {{ReadOnlyInline}}
-  - : Gibt an, ob ein eindeutiger, dauerhafter Bezeichner erforderlich ist.
+  - : Gibt an, ob ein persistenter, unverwechselbarer Bezeichner erforderlich ist.
 - `persistentState` {{ReadOnlyInline}}
-  - : Gibt an, ob die Fähigkeit, den Zustand zu speichern, erforderlich ist.
+  - : Gibt an, ob die Möglichkeit zum Persistieren des Zustands erforderlich ist.
 
 ## Syntax
 

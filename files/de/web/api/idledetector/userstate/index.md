@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die **`userState`**-Eigenschaft des schreibgeschützten [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces gibt einen String zurück, der angibt, ob der Benutzer seit dem Aufruf von `start()` mit dem Gerät interagiert hat.
+Die schreibgeschützte Eigenschaft **`userState`** der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt einen String zurück, der angibt, ob der Benutzer seit dem Aufruf von `start()` mit dem Gerät interagiert hat.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Entweder `"active"` oder `"idle"`, wenn [`IdleDetector.start()`](/de/docs/Web/AP
 
 ## Beispiele
 
-Im folgenden Beispiel gibt der `change`-Callback den Status von `userState` und `screenState` auf der Konsole aus.
+Im folgenden Beispiel gibt der `change`-Callback den Status von `userState` und `screenState` in der Konsole aus.
 
 ```js
 idleDetector.addEventListener("change", () => {

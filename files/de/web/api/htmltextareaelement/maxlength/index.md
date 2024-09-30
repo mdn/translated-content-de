@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`maxLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die maximale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die für den Wert des {{HTMLElement("textarea")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, die für die Gültigkeit des Wertes erlaubt sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/textarea#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es kein Limit für die Länge des Wertes gibt.
+Die **`maxLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die maximale Anzahl von Zeichen (in UTF-16-Codierungseinheiten) an, die für den Wert des {{HTMLElement("textarea")}}-Elements eingegeben werden können, sowie die maximale Anzahl von Zeichen, damit der Wert gültig ist. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/textarea#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung der Wertelänge gibt.
 
 > [!NOTE]
-> Browser verhindern in der Regel, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Ist die Länge überschritten, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
+> Browser verhindern in der Regel, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut zulässt. Sollte die Länge länger sein, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `maxlength` des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `maxlength` des Elements repräsentiert, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Angenommen, das folgende HTML:
+Gegeben folgendes HTML:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Angenommen, das folgende HTML:
 </p>
 ```
 
-Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<textarea>`-Elements abzurufen oder festzulegen:
+Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<textarea>` abzurufen oder festzulegen:
 
 ```js
 const textareaElement = document.querySelector("#comment");

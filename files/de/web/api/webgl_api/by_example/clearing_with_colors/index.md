@@ -7,19 +7,19 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Detect_WebGL","Learn/WebGL/By_example/Clearing_by_clicking")}}
 
-Ein Beispiel, das zeigt, wie ein WebGL-Rendering-Kontext mit einer Volltonfarbe gelöscht wird.
+Ein Beispiel, das zeigt, wie ein WebGL-Rendering-Kontext auf eine einfarbige Fläche gelöscht wird.
 
-## Löschen des WebGL-Kontexts mit einer Volltonfarbe
+## Den WebGL-Kontext mit einer einfarbigen Fläche löschen
 
 {{EmbedLiveSample("Clearing_the_WebGL_context_with_a_solid_color",660,425)}}
 
-Das einfachste grafische [WebGL](/de/docs/Glossary/WebGL)-Programm. Richten Sie den {{domxref("WebGLRenderingContext","rendering context", "", 1)}} ein und löschen Sie ihn dann einfach vollständig in Grün. Beachten Sie, dass [CSS](/de/docs/Glossary/CSS) die Hintergrundfarbe des Canvas auf Schwarz setzt, sodass wir wissen, dass die Magie von [WebGL](/de/docs/Glossary/WebGL) funktioniert hat, wenn das Canvas grün wird.
+Das einfachste grafische [WebGL](/de/docs/Glossary/WebGL)-Programm. Richten Sie den {{domxref("WebGLRenderingContext","Rendering-Kontext", "", 1)}} ein und löschen Sie ihn dann einfach komplett grün. Beachten Sie, dass [CSS](/de/docs/Glossary/CSS) die Hintergrundfarbe des Canvas auf Schwarz setzt. Wenn das Canvas grün wird, wissen wir, dass die Magie von [WebGL](/de/docs/Glossary/WebGL) funktioniert hat.
 
-Außerdem werden Sie feststellen, dass das Löschen des Zeichenpuffers mit einer Volltonfarbe ein zweistufiger Prozess ist. Zuerst setzen wir die Löschfarbe auf Grün, indem wir die Methode [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) verwenden. Dies ändert nur einen internen Zustand von [WebGL](/de/docs/Glossary/WebGL), zeichnet aber noch nichts. Danach führen wir das Zeichnen tatsächlich aus, indem wir die Methode [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) aufrufen. Dies ist typisch dafür, wie mit WebGL gezeichnet wird. Es gibt nur eine Handvoll Methoden für das eigentliche Zeichnen (`clear()` ist eine davon). Alle anderen Methoden dienen der Einstellung und Abfrage von WebGL-Zustandsvariablen (wie der Löschfarbe).
+Darüber hinaus werden Sie feststellen, dass die Löschung des Zeichenpuffers mit einer einfarbigen Fläche ein zweistufiger Prozess ist. Zuerst setzen wir die Löschfarbe auf Grün, indem wir die Methode [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) verwenden. Dadurch wird nur ein interner Zustand von [WebGL](/de/docs/Glossary/WebGL) geändert, aber es wird noch nichts gezeichnet. Anschließend führen wir die eigentliche Zeichnung durch, indem wir die Methode [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) aufrufen. Dies ist typisch für das Zeichnen mit WebGL. Es gibt nur eine Handvoll Methoden für das eigentliche Zeichnen (`clear()` ist eine davon). Alle anderen Methoden dienen zum Setzen und Abfragen von WebGL-Zustandsvariablen (wie der Löschfarbe).
 
-Es gibt viele „Regler“ und „Schalter“, die das Zeichnen mit [WebGL](/de/docs/Glossary/WebGL) beeinflussen. Die Löschfarbe ist nur der erste von vielen, die Sie kennenlernen werden. Deshalb wird [WebGL](/de/docs/Glossary/WebGL)/[OpenGL](/de/docs/Glossary/OpenGL) oft als _Zustandsmaschine_ bezeichnet. Indem man diese „Regler“ und „Schalter“ anpasst, kann man den internen Zustand der WebGL-Maschine ändern, was wiederum beeinflusst, wie Eingaben (in diesem Fall ein Löschbefehl) in Ausgaben (in diesem Fall werden alle Pixel auf Grün gesetzt) übersetzt werden.
+Es gibt viele "Drehknöpfe" und "Schalter", die das Zeichnen mit [WebGL](/de/docs/Glossary/WebGL) beeinflussen. Die Löschfarbe ist nur der erste von vielen, die Sie kennenlernen werden. Aus diesem Grund wird [WebGL](/de/docs/Glossary/WebGL)/[OpenGL](/de/docs/Glossary/OpenGL) oft als _Zustandsmaschine_ bezeichnet. Durch das Anpassen dieser "Drehknöpfe" und "Schalter" können Sie den internen Zustand der WebGL-Maschine ändern, was wiederum beeinflusst, wie Eingaben (in diesem Fall ein Löschbefehl) in Ausgaben umgesetzt werden (in diesem Fall werden alle Pixel auf Grün gesetzt).
 
-Schließlich sei angemerkt, dass Farbe in WebGL normalerweise im [RGBA](/de/docs/Glossary/RGB)-Format vorliegt, das heißt vier numerische Komponenten für Rot, Grün, Blau und Alpha (Deckkraft). Daher nimmt `clearColor()` vier Argumente entgegen.
+Abschließend stellen wir fest, dass Farbe in WebGL normalerweise im [RGBA](/de/docs/Glossary/RGB)-Format vorliegt, also vier numerische Komponenten für Rot, Grün, Blau und Alpha (Transparenz). Daher nimmt `clearColor()` vier Argumente an.
 
 ```html
 <p>A very simple WebGL program that shows some color.</p>

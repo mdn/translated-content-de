@@ -1,5 +1,5 @@
 ---
-title: "EXT_disjoint_timer_query: deleteQueryEXT()-Methode"
+title: "EXT_disjoint_timer_query: deleteQueryEXT() Methode"
 short-title: deleteQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/deleteQueryEXT
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.deleteQueryEXT()`**-Methode der
+Die **`EXT_disjoint_timer_query.deleteQueryEXT()`** Methode der
 [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes
 [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 

@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `directory` Rolle war für eine Liste von Referenzen zu Mitgliedern einer Gruppe gedacht, wie z. B. ein statisches Inhaltsverzeichnis.
+Die `directory`-Rolle war für eine Liste von Referenzen auf Mitglieder einer Gruppe gedacht, wie ein statisches Inhaltsverzeichnis.
 
 > [!WARNING]
-> Die `directory` Rolle wurde in ARIA 1.2 als veraltet markiert
+> Die `directory`-Rolle wurde in ARIA 1.2 als veraltet markiert.
 
 ## Beschreibung
 
-Ein Verzeichnis ist ein statisches Inhaltsverzeichnis, ob verlinkt oder nicht verlinkt. Dazu gehören Inhaltsverzeichnisse, die mit Listen erstellt wurden, einschließlich verschachtelter Listen. Dynamische Inhaltsverzeichnisse hingegen könnten stattdessen eine Baumrolle verwenden.
+Ein Verzeichnis ist ein statisches Inhaltsverzeichnis, unabhängig davon, ob es verlinkt ist oder nicht. Dies schließt Inhaltsverzeichnisse ein, die mit Listen erstellt wurden, einschließlich verschachtelter Listen. Dynamische Inhaltsverzeichnisse könnten jedoch stattdessen eine tree-Rolle verwenden.
 
-Die veraltete `directory` Rolle wurde für Listen von Referenzen zu Mitgliedern einer Gruppe verwendet, wie z. B. ein statisches Inhaltsverzeichnis. Verwenden Sie stattdessen die [`list`](/de/docs/Web/Accessibility/ARIA/Roles/list_role) Rolle. Oder besser noch, nutzen Sie die {{HTMLElement('ul')}} oder {{HTMLElement('ol')}} Elemente, da die Verwendung von `directory` keine zusätzlichen Vorteile für Benutzer von unterstützenden Technologien bietet.
+Die veraltete `directory`-Rolle wurde für Listen von Referenzen auf Mitglieder einer Gruppe verwendet, wie ein statisches Inhaltsverzeichnis. Verwenden Sie stattdessen die [`list`](/de/docs/Web/Accessibility/ARIA/Roles/list_role)-Rolle. Oder, noch besser, verwenden Sie die {{HTMLElement('ul')}}- oder {{HTMLElement('ol')}}-Elemente, da die Verwendung von `directory` keine zusätzlichen Vorteile für Benutzer unterstützender Technologien bietet.
 
 ## Spezifikationen
 
@@ -24,6 +24,6 @@ Die veraltete `directory` Rolle wurde für Listen von Referenzen zu Mitgliedern 
 
 ## Siehe auch
 
-- Die [`list` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/list_role)
-- Das {{HTMLElement('ul')}} Element
-- Das {{HTMLElement('ol')}} Element
+- Die [`list`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/list_role)
+- Das {{HTMLElement('ul')}}-Element
+- Das {{HTMLElement('ol')}}-Element

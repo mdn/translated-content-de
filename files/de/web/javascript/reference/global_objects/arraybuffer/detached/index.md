@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die **`detached`** Zugriffseigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt ein boolean zurück, das angibt, ob dieser Puffer getrennt (übertragen) wurde oder nicht.
+Die **`detached`** Accessor-Eigenschaft von {{jsxref("ArrayBuffer")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieser Puffer abgetrennt (übertragen) wurde oder nicht.
 
 ## Beschreibung
 
-Die `detached`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Zugriffsfunktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert ist `false`, wenn der `ArrayBuffer` zuerst erstellt wird. Der Wert wird `true`, wenn der `ArrayBuffer` [übertragen](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) wird, wodurch die Instanz von ihrem zugrunde liegenden Speicher getrennt wird. Sobald ein Puffer getrennt wird, kann er nicht mehr verwendet werden.
+Die `detached`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert ist `false`, wenn der `ArrayBuffer` zuerst erstellt wird. Der Wert wird `true`, wenn der `ArrayBuffer` [übertragen](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) wird, wodurch die Instanz von ihrem zugrunde liegenden Speicher getrennt wird. Sobald ein Puffer abgetrennt ist, ist er nicht mehr verwendbar.
 
 ## Beispiele
 

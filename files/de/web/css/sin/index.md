@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`sin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Sinus einer Zahl zurückgibt, der einen Wert zwischen `-1` und `1` hat. Die Funktion enthält eine einzige Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, `sin(45deg)`, `sin(0.125turn)`, und `sin(3.14159 / 4)` stellen alle denselben Wert dar, ungefähr `0.707`.
+Die **`sin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Sinus einer Zahl zurückgibt, welcher ein Wert zwischen `-1` und `1` ist. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, `sin(45deg)`, `sin(0.125turn)` und `sin(3.14159 / 4)` repräsentieren alle denselben Wert, ungefähr `0.707`.
 
 ## Syntax
 
@@ -28,14 +28,14 @@ width: calc(100px * sin(e / 4));
 
 ### Parameter
 
-Die `sin(angle)` Funktion akzeptiert nur einen Wert als ihren Parameter.
+Die Funktion `sin(angle)` akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Bei der Angabe von Zahlen ohne Einheit werden sie als Anzahl von Bogenmaß interpretiert, die einen {{cssxref("&lt;angle&gt;")}} darstellen.
+  - : Eine Berechnung, die sich auf eine {{cssxref("&lt;number&gt;")}} oder einen {{cssxref("&lt;angle&gt;")}} auflöst. Wenn maßlose Zahlen angegeben werden, werden sie als Anzahl von Bogenmaß interpretiert, was einem {{cssxref("&lt;angle&gt;")}} entspricht.
 
 ### Rückgabewert
 
-Der Sinus eines `angle` wird immer eine Zahl zwischen `-1` und `1` zurückgeben.
+Der Sinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgeben.
 
 - Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 - Wenn `angle` `0⁻` ist, ist das Ergebnis `0⁻`.
@@ -46,7 +46,7 @@ Der Sinus eines `angle` wird immer eine Zahl zwischen `-1` und `1` zurückgeben.
 
 ## Beispiele
 
-### Änderung der Boxgrößen
+### Ändern der Box-Größen
 
 In diesem Beispiel wird `sin(30deg)` `0.5` zurückgeben, wodurch die Box eine Breite von `50px` und eine Höhe von `50px` erhält.
 
@@ -60,7 +60,7 @@ div {
 
 ### Steuerung der Animationsdauer
 
-Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("animation-duration")}}, indem die Dauer auf Basis des Sinuswertes reduziert wird. In diesem Fall wird die Animationsdauer `1s` betragen.
+Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("animation-duration")}}, die Dauer wird basierend auf dem Sinuswert reduziert. In diesem Fall beträgt die Animationsdauer `1s`.
 
 ```css
 div {

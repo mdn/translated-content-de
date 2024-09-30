@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoFrame()`** Konstruktor erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt, das einen Frame eines Videos darstellt.
+Der **`VideoFrame()`** Konstruktor erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) Objekt, das ein Bild eines Videos darstellt.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ new VideoFrame(data, options)
 
 ### Parameter
 
-Der erste Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem Bild. Seine Parameter sind:
+Der erste Konstruktionstyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem Bild. Die Parameter sind:
 
 - `image`
   - : Ein Bild, das die Bilddaten für das neue `VideoFrame` enthält. Es kann eines der folgenden Objekte sein:
@@ -28,18 +28,18 @@ Der erste Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/d
     ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
     ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
     ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap),
-    ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+    eine [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
     oder ein anderes [`VideoFrame`](/de/docs/Web/API/VideoFrame).
 - `options` {{Optional_Inline}}
   - : Ein Objekt, das Folgendes enthält:
     - `duration` {{Optional_Inline}}
-      - : Eine ganze Zahl, die die Dauer des Frames in Mikrosekunden darstellt.
+      - : Ein Integer, der die Dauer des Bildes in Mikrosekunden darstellt.
     - `timestamp`
-      - : Eine ganze Zahl, die den Zeitstempel des Frames in Mikrosekunden darstellt.
+      - : Ein Integer, der den Zeitstempel des Bildes in Mikrosekunden darstellt.
     - `alpha` {{Optional_Inline}}
-      - : Ein String, der beschreibt, wie der Benutzeragent beim Umgang mit Alphakanälen verfahren soll. Der Standardwert ist "keep".
-        - `"keep"`: Gibt an, dass der Benutzeragent Alphakanaldaten beibehalten soll.
-        - `"discard"`: Gibt an, dass der Benutzeragent Alphakanaldaten ignorieren oder entfernen soll.
+      - : Ein String, der beschreibt, wie der User-Agent mit Alpha-Kanälen umgehen soll. Der Standardwert ist "keep".
+        - `"keep"`: Weist darauf hin, dass der User-Agent Alpha-Kanal-Daten beibehalten soll.
+        - `"discard"`: Weist darauf hin, dass der User-Agent Alpha-Kanal-Daten ignorieren oder entfernen soll.
     - `visibleRect` {{Optional_Inline}}
       - : Ein Objekt, das das sichtbare Rechteck des `VideoFrame` darstellt und Folgendes enthält:
         - `x`
@@ -47,22 +47,22 @@ Der erste Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/d
         - `y`
           - : Die y-Koordinate.
         - `width`
-          - : Die Breite des Frames.
+          - : Die Breite des Bildes.
         - `height`
-          - : Die Höhe des Frames.
+          - : Die Höhe des Bildes.
     - `displayWidth` {{Optional_Inline}}
-      - : Die Breite des `VideoFrame`, wenn es nach der Anwendung von Anpassungen des Seitenverhältnisses angezeigt wird.
+      - : Die Breite des `VideoFrame`, wenn es nach Anpassungen des Seitenverhältnisses angezeigt wird.
     - `displayHeight` {{Optional_Inline}}
-      - : Die Höhe des `VideoFrame`, wenn es nach der Anwendung von Anpassungen des Seitenverhältnisses angezeigt wird.
+      - : Die Höhe des `VideoFrame`, wenn es nach Anpassungen des Seitenverhältnisses angezeigt wird.
 
-Der zweite Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem {{jsxref("ArrayBuffer")}}. Seine Parameter sind:
+Der zweite Konstruktionstyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem {{jsxref("ArrayBuffer")}}. Die Parameter sind:
 
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, der die Daten für das neue `VideoFrame` enthält.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die Daten für das neue `VideoFrame` enthält.
 - `options`
   - : Ein Objekt, das Folgendes enthält:
     - `format`
-      - : Ein String, der das Video-Pixelformat darstellt. Einer der folgenden Strings, die auf der Seite für die [`format`](/de/docs/Web/API/VideoFrame/format)-Eigenschaft vollständig beschrieben sind:
+      - : Ein String, der das Video-Pixelformat darstellt. Einer der folgenden Strings, die auf der Seite für die [`format`](/de/docs/Web/API/VideoFrame/format) Eigenschaft vollständig beschrieben sind:
         - `"I420"`
         - `"I420A"`
         - `"I422"`
@@ -73,20 +73,20 @@ Der zweite Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/
         - `"BGRA"`
         - `"BGRX"`
     - `codedWidth`
-      - : Breite des `VideoFrame` in Pixeln, möglicherweise einschließlich nicht sichtbarem Padding und bevor potenzielle Verhältnis-Anpassungen berücksichtigt werden.
+      - : Die Breite des `VideoFrame` in Pixel, die potenziell nicht sichtbare Auffüllung einschließen kann und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
     - `codedHeight`
-      - : Höhe des `VideoFrame` in Pixeln, möglicherweise einschließlich nicht sichtbarem Padding und bevor potenzielle Verhältnis-Anpassungen berücksichtigt werden.
+      - : Die Höhe des `VideoFrame` in Pixel, die potenziell nicht sichtbare Auffüllung einschließen kann und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
     - `timestamp`
-      - : Eine ganze Zahl, die den Zeitstempel des Frames in Mikrosekunden darstellt.
+      - : Ein Integer, der den Zeitstempel des Bildes in Mikrosekunden darstellt.
     - `duration` {{Optional_Inline}}
-      - : Eine ganze Zahl, die die Dauer des Frames in Mikrosekunden darstellt.
+      - : Ein Integer, der die Dauer des Bildes in Mikrosekunden darstellt.
     - `layout` {{Optional_Inline}}
-      - : Eine Liste mit den folgenden Werten für jede Ebene im `VideoFrame`:
+      - : Eine Liste, die die folgenden Werte für jede Ebene im `VideoFrame` enthält:
         - `offset`
-          - : Eine ganze Zahl, die die Verschiebung in Bytes darstellt, wo die gegebene Ebene beginnt.
+          - : Ein Integer, der den Versatz in Bytes darstellt, bei dem die gegebene Ebene beginnt.
         - `stride`
-          - : Eine ganze Zahl, die die Anzahl der Bytes, einschließlich Padding, darstellt, die von jeder Zeile der Ebene verwendet werden.
-            Ebenen dürfen sich nicht überschneiden. Wenn kein `layout` angegeben ist, werden die Ebenen eng gepackt.
+          - : Ein Integer, der die Anzahl der Bytes darstellt, einschließlich auffüllendem Daten, die von jeder Zeile der Ebene verwendet werden.
+            Ebenen dürfen sich nicht überlappen. Wenn kein `layout` angegeben ist, werden die Ebenen eng gepackt.
     - `visibleRect` {{Optional_Inline}}
       - : Ein Objekt, das das sichtbare Rechteck des `VideoFrame` darstellt und Folgendes enthält:
         - `x`
@@ -94,29 +94,29 @@ Der zweite Typ des Konstruktors (siehe oben) erstellt ein neues [`VideoFrame`](/
         - `y`
           - : Die y-Koordinate.
         - `width`
-          - : Die Breite des Frames.
+          - : Die Breite des Bildes.
         - `height`
-          - : Die Höhe des Frames.
+          - : Die Höhe des Bildes.
     - `displayWidth` {{Optional_Inline}}
-      - : Die Breite des `VideoFrame`, wenn es nach der Anwendung von Anpassungen des Seitenverhältnisses angezeigt wird.
+      - : Die Breite des `VideoFrame`, wenn es nach Anpassungen des Seitenverhältnisses angezeigt wird.
     - `displayHeight` {{Optional_Inline}}
-      - : Die Höhe des `VideoFrame`, wenn es nach der Anwendung von Anpassungen des Seitenverhältnisses angezeigt wird.
+      - : Die Höhe des `VideoFrame`, wenn es nach Anpassungen des Seitenverhältnisses angezeigt wird.
     - `colorSpace`
       - : Ein Objekt, das den Farbraum des `VideoFrame` darstellt und Folgendes enthält:
         - `primaries`
-          - : Ein String, der die Video-Farbprimärfarben darstellt, auf der Seite für die [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries)-Eigenschaft beschrieben.
+          - : Ein String, der die Video-Farbprimärfarben darstellt, beschrieben auf der Seite für die [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) Eigenschaft.
         - `transfer`
-          - : Ein String, der die Video-Farbübertragungsfunktion darstellt, auf der Seite für die [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)-Eigenschaft beschrieben.
+          - : Ein String, der die Video-Farbübertragungsfunktion darstellt, beschrieben auf der Seite für die [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer) Eigenschaft.
         - `matrix`
-          - : Ein String, der die Video-Farbmatrix darstellt, auf der Seite für die [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)-Eigenschaft beschrieben.
+          - : Ein String, der die Video-Farbmatrix darstellt, beschrieben auf der Seite für die [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix) Eigenschaft.
         - `fullRange`
-          - : Ein Boolean. Wenn `true`, zeigt an, dass Vollbereichs-Farbwerte verwendet werden.
+          - : Ein Boolean. Wenn `true`, wird angezeigt, dass Vollbereichs-Farbwerte verwendet werden.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `VideoFrame` abkoppeln und in Besitz nehmen wird. Wenn das Array den `ArrayBuffer` enthält, der `data` unterstützt, wird `VideoFrame` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, das `VideoFrame` abkoppelt und übernimmt. Wenn das Array den {{jsxref("ArrayBuffer")}}, der `data` unterstützt, enthält, wird `VideoFrame` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
 
 ## Beispiele
 
-Die folgenden Beispiele stammen aus dem Artikel [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs). In diesem ersten Beispiel wird ein `VideoFrame` von einem Canvas erstellt.
+Die folgenden Beispiele stammen aus dem Artikel [Videobearbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs). In diesem ersten Beispiel wird ein `VideoFrame` aus einem Canvas erstellt.
 
 ```js
 const cnv = document.createElement("canvas");
@@ -125,7 +125,7 @@ const cnv = document.createElement("canvas");
 let frame_from_canvas = new VideoFrame(cnv, { timestamp: 0 });
 ```
 
-Im folgenden Beispiel wird ein `VideoFrame` von einem {{jsxref("TypedArray")}} erstellt.
+Im folgenden Beispiel wird ein `VideoFrame` aus einem {{jsxref("TypedArray")}} erstellt.
 
 ```js
 const pixelSize = 4;

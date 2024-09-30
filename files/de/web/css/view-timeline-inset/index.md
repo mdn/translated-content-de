@@ -7,10 +7,9 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe [Scroll-Container](/de/docs/Glossary/Scroll_container) für weitere Details), in dem das Zielelement einer _benannten View Progress Timeline_ Animation als sichtbar erachtet wird. Anders ausgedrückt, ermöglicht dies das Festlegen von Start- und/oder Endwerten, die die Position der Timeline versetzen.
+Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe [Scroll-Container](/de/docs/Glossary/Scroll_container) für weitere Details), in welchem das Subjektelement einer _benannten View-Progress-Timeline_-Animation als sichtbar angesehen wird. Anders ausgedrückt, können Sie hier Start- und/oder Endwerte für Ein- oder Ausrücken (inset/outset) angeben, die die Position der Timeline verschieben.
 
-Dies kann in Kombination mit oder anstelle von {{cssxref("animation-range")}} und seinen Langform-Eigenschaften verwendet werden, die den Anwendungsbereich einer Animation entlang ihrer Timeline festlegen können.
-Siehe [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für mehr Details.
+Dies kann mit oder anstelle von {{cssxref("animation-range")}} und dessen Langform-Eigenschaften kombiniert werden, die verwendet werden können, um den Befestigungsbereich einer Animation entlang ihrer Timeline festzulegen. Weitere Einzelheiten finden Sie unter [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
 
 ## Syntax
 
@@ -28,16 +27,16 @@ view-timeline-inset: 20% 200px;
 
 ### Werte
 
-Erlaubte Werte für `view-timeline-inset` sind:
+Zulässige Werte für `view-timeline-inset` sind:
 
 - `auto`
-  - : Wenn festgelegt, wird das entsprechende {{cssxref("scroll-padding")}} (oder ein gleichwertiger Langformwert) für diesen Rand des Scrollports verwendet. Wenn dies nicht festgelegt ist (oder auf `auto` gesetzt ist), wird der Wert normalerweise 0 sein, obwohl einige Benutzeragenten Heuristiken verwenden können, um einen anderen Standardwert zu bestimmen, falls dies angemessen ist.
+  - : Wenn gesetzt, wird der entsprechende {{cssxref("scroll-padding")}} (oder ein gleichwertiger Langformwert) für diesen Rand des Scrollports verwendet. Wenn dies nicht gesetzt ist (oder auf `auto` gesetzt ist), wird der Wert normalerweise 0 sein, obwohl einige Benutzeragenten Heuristiken anwenden können, um einen anderen Standardwert zu bestimmen, wenn dies angemessen ist.
 - {{cssxref("length-percentage")}}
-  - : Jeder gültige `<length-percentage>` Wert wird als Ein-/Aussetzungswert akzeptiert.
-    - Wenn der Wert positiv ist, wird die Position des Start-/Endes der Animation um die angegebene Länge oder Prozentsatz innerhalb des Scrollports verschoben.
-    - Wenn der Wert negativ ist, wird die Position des Start-/Endes der Animation um die angegebene Länge oder Prozentsatz außerhalb des Scrollports verschoben, d.h. sie beginnt, bevor sie im Scrollport erscheint, zu animieren, oder endet nach dem Verlassen des Scrollports.
+  - : Jeder gültige `<length-percentage>`-Wert wird als Ein- oder Ausrückwert akzeptiert.
+    - Wenn der Wert positiv ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder Prozentsatz innerhalb des Scrollports verschoben.
+    - Wenn der Wert negativ ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder Prozentsatz außerhalb des Scrollports verschoben, d.h. die Animation beginnt, bevor sie im Scrollport sichtbar wird, oder endet, nachdem sie den Scrollport verlassen hat.
 
-Wenn zwei Werte angegeben werden, repräsentiert der erste Wert die Start-Ein-/Aussetzung in der relevanten Achse (wo die Animation beginnt) und der zweite Wert die End-Ein-/Aussetzung (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden die Start- und End-Ein-/Aussetzungen beide auf denselben Wert gesetzt.
+Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Ein- oder Ausrücken am Start in der relevanten Achse (wo die Animation beginnt) und der zweite Wert das Ein- oder Ausrücken am Ende (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden sowohl Start- als auch End-Ein- oder Ausrückung auf denselben Wert gesetzt.
 
 ## Formale Definition
 
@@ -49,12 +48,12 @@ Wenn zwei Werte angegeben werden, repräsentiert der erste Wert die Start-Ein-/A
 
 ## Beispiele
 
-### Erstellen einer benannten View Progress Timeline mit Inset
+### Erstellen einer benannten View-Progress-Timeline mit Inset
 
-Eine View Progress Timeline namens `--subjectReveal` wird unter Verwendung der `view-timeline` Eigenschaft an einem Zielelement mit einer `class` von `animation` definiert.
-Dies wird dann als Timeline für dasselbe Element unter Verwendung von `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Zielelement animiert wird, während es beim Scrollen nach oben durch das Dokument bewegt wird.
+Eine View-Progress-Timeline mit dem Namen `--subjectReveal` wird mit der `view-timeline` Eigenschaft an einem Subjektelement mit einer `class` von `animation` definiert.
+Dies wird dann als Timeline für dasselbe Element mit `animation-timeline: --subjectReveal;` gesetzt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es durch das Dokument nach oben bewegt wird, wenn es gescrollt wird.
 
-Eine `view-timeline-inset` Deklaration wird ebenfalls festgelegt, damit die Animation später als erwartet beginnt und früher endet.
+Eine `view-timeline-inset` Deklaration wird ebenfalls gesetzt, um die Animation später beginnen zu lassen als erwartet und früher zu enden.
 
 #### HTML
 
@@ -97,7 +96,7 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject` Element und sein umschließendes `content` Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
+Das `subject`-Element und sein umgebendes `content`-Element werden minimal gestaltet, und der Textinhalt erhält einige grundlegende Schriftart-Einstellungen:
 
 ```css
 .subject {
@@ -128,9 +127,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` gesetzt, um eine benannte View Progress Timeline zu definieren. Wir geben ihr auch eine `view-timeline-inset` Deklaration, um die Animation später als erwartet beginnen und früher enden zu lassen. Es wird auch ein `animation-timeline` Name mit demselben Wert gegeben, um anzugeben, dass dieses Element als die View Progress Timeline animiert wird.
+Dem `<div>` mit der Klasse `subject` wird auch eine Klasse `animation` zugewiesen — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Timeline zu definieren. Wir geben ihm auch eine `view-timeline-inset` Deklaration, um die Animation später beginnen zu lassen und früher zu enden. Es erhält außerdem einen `animation-timeline`-Namen mit demselben Wert, um zu erklären, dass dies das Element ist, das animiert wird, während die View-Progress-Timeline fortschreitet.
 
-Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Skala animiert, wodurch es verblasst und größer wird, während es den Scroller hinauf bewegt.
+Zuletzt wird auf dem Element eine Animation spezifiziert, die seine Opazität und Skalierung animiert, wodurch es beim Hochscrollen ein- und größer wird.
 
 ```css
 .animation {
@@ -158,7 +157,7 @@ Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft un
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Zielelement animiert wird.
+Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline with inset", "100%", "480px")}}
 
@@ -175,4 +174,4 @@ Scrollen Sie, um zu sehen, wie das Zielelement animiert wird.
 - [`animation-timeline`](/de/docs/Web/CSS/animation-timeline)
 - {{cssxref("timeline-scope")}}
 - [`view-timeline`](/de/docs/Web/CSS/view-timeline), [`view-timeline-axis`](/de/docs/Web/CSS/view-timeline-axis), [`view-timeline-name`](/de/docs/Web/CSS/view-timeline-name)
-- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

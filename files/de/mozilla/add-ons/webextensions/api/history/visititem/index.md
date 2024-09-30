@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Objekt, das einen einzelnen Besuch auf einer Seite beschreibt.
+Ein Objekt, das einen einzelnen Besuch einer Seite beschreibt.
 
 ## Typ
 
@@ -18,11 +18,11 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `visitId`
   - : `string`. Der eindeutige Bezeichner für diesen Besuch.
 - `visitTime` {{optional_inline}}
-  - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit dem Epoche-Zeitpunkt.
+  - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit dem Epoch-Zeitpunkt.
 - `referringVisitId`
-  - : `string`. Die Visit ID des Referrers.
+  - : `string`. Die Besuchs-ID des Referrers.
 - `transition`
-  - : {{WebExtAPIRef('history.TransitionType')}}. Beschreibt, wie der Browser bei dieser Gelegenheit zur Seite navigierte.
+  - : {{WebExtAPIRef('history.TransitionType')}}. Beschreibt, wie der Browser bei diesem Anlass zur Seite navigierte.
 
 ## Browser-Kompatibilität
 

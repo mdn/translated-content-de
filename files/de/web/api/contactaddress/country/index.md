@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`country`** der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle ist eine Zeichenkette, die das Land der Adresse anhand des [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)-Standards identifiziert. Die Zeichenkette ist immer in ihrer kanonischen Großbuchstabenform.
+Die **`country`**-Schreibgeschützte Eigenschaft des [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Interfaces ist ein String, der das Land der Adresse unter Verwendung des [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)-Standards angibt. Der String ist immer in seiner kanonischen Großbuchstabenschreibweise.
 
-Einige Beispiele für gültige `country`-Werte: `"US"`, `"GB"`, `"CN"` oder `"JP"`.
+Einige Beispiele für gültige `country`-Werte sind: `"US"`, `"GB"`, `"CN"` oder `"JP"`.
 
 ## Wert
 
-Eine Zeichenkette, die den ISO3166-1 alpha-2-Code enthält, der das Land identifiziert, in dem sich die Adresse befindet, oder eine leere Zeichenkette, wenn kein Land verfügbar ist. Häufig kann dies als "gleiches Land wie der Website-Betreiber" interpretiert werden.
+Ein String, der den ISO3166-1 alpha-2-Code enthält, der das Land identifiziert, in dem sich die Adresse befindet, oder ein leerer String, wenn kein Land verfügbar ist, was häufig bedeuten kann "gleiches Land wie der Seitenbetreiber."
 
 ## Spezifikationen
 

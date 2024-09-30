@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Ein **`devicechange`**-Ereignis wird auf einem [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat; beispielsweise wenn ein VR-Headset oder AR-Brillen angeschlossen oder getrennt wurden. Es handelt sich um ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
+Ein **`devicechange`**-Ereignis wird an einem [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat; zum Beispiel, wenn ein VR-Headset oder AR-Brille verbunden oder getrennt wurde. Es handelt sich um ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 > [!NOTE]
 > Nicht zu verwechseln mit dem [`MediaDevices`](/de/docs/Web/API/MediaDevices) [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event) Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("devicechange", (event) => {});
@@ -23,7 +23,7 @@ addEventListener("devicechange", (event) => {});
 ondevicechange = (event) => {};
 ```
 
-Wenn die Verwendung von WebXR durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wurde, werden keine `devicechange`-Ereignisse ausgelöst.
+Wenn die Nutzung von WebXR durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wurde, werden `devicechange`-Ereignisse nicht ausgelöst.
 
 ## Ereignistyp
 
@@ -33,15 +33,15 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ### Auslöser
 
-Ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat. Zum Beispiel, wenn ein VR-Headset oder AR-Brillen angeschlossen oder getrennt wurden.
+Wird ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat. Zum Beispiel, wenn ein VR-Headset oder AR-Brille verbunden oder getrennt wurde.
 
 ### Anwendungsfälle
 
-Sie können dieses Ereignis verwenden, um beispielsweise die Verfügbarkeit eines WebXR-kompatiblen Geräts zu überwachen, sodass Sie ein UI-Element aktivieren können, mit dem der Benutzer den immersiven Modus aktivieren kann. Dies wird im folgenden [Beispiel](#beispiele) gezeigt.
+Sie können dieses Ereignis nutzen, um beispielsweise die Verfügbarkeit eines WebXR-kompatiblen Geräts zu überwachen, damit Sie ein UI-Element aktivieren können, das der Benutzer verwenden kann, um den immersiven Modus zu aktivieren. Dies wird im [Beispiel](#beispiele) unten gezeigt.
 
 ## Beispiele
 
-Das hier gezeigte Beispiel behandelt das `devicechange`-Ereignis, indem die Verfügbarkeit der "Enter XR"-Schaltfläche basierend darauf umgeschaltet wird, ob derzeit immersive Geräte verfügbar sind oder nicht.
+Das hier gezeigte Beispiel behandelt das `devicechange`-Ereignis, indem es basierend auf der Verfügbarkeit von immersiven Geräten die Verfügbarkeit der "Enter XR"-Schaltfläche umschaltet.
 
 ```js
 if (navigator.xr) {
@@ -53,9 +53,9 @@ if (navigator.xr) {
 }
 ```
 
-Wenn ein `devicechange`-Ereignis empfangen wird, ruft der in diesem Code eingerichtete Handler die `XR`-Methode [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) auf, um herauszufinden, ob ein Gerät verfügbar ist, das immersive VR-Darstellungen verarbeiten kann. Wenn dies der Fall ist, wird die Schaltfläche für den Einstieg in den XR-Modus aktiviert; andernfalls wird sie deaktiviert.
+Wenn `devicechange` empfangen wird, ruft der in diesem Code eingerichtete Handler die `XR`-Methode [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) auf, um festzustellen, ob ein Gerät verfügbar ist, das immersive VR-Präsentationen handhaben kann. Wenn ja, wird der Button, um den XR-Modus zu betreten, aktiviert; andernfalls wird er deaktiviert.
 
-Sie können auch die `ondevicechange`-Ereignishandlereigenschaft verwenden, um einen einzelnen Handler für `devicechange`-Ereignisse festzulegen:
+Sie können auch die `ondevicechange`-Event-Handler-Eigenschaft verwenden, um einen einzigen Handler für `devicechange`-Ereignisse festzulegen:
 
 ```js
 if (navigator.xr) {

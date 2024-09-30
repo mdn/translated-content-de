@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Der **`NavigateEvent()`** Konstruktor erstellt eine neue
-[`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Objektinstanz.
+Der **`NavigateEvent()`** Konstruktor erstellt eine neue Instanz eines [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Objekt.
 
 ## Syntax
 
@@ -20,31 +19,31 @@ new NavigateEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `NavigateEvent` ist dies immer `navigate`.
+  - : Ein String, der den Typ des Ereignisses repräsentiert. Im Fall von `NavigateEvent` ist dies immer `navigate`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `canIntercept` {{optional_inline}}
-      - : Ein boolescher Wert, der definiert, ob die Navigation abgefangen werden kann oder nicht (z.B. können Sie keine Cross-Origin-Navigation abfangen). Standardmäßig `false`.
+      - : Ein Boolean, der definiert, ob die Navigation abgefangen werden kann oder nicht (z. B. kann eine Cross-Origin-Navigation nicht abgefangen werden). Standardmäßig `false`.
     - `destination`
-      - : Ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) Objekt, das den Zielort der Navigation darstellt.
+      - : Ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) Objekt, das das Ziel der Navigation repräsentiert.
     - `downloadRequest` {{optional_inline}}
-      - : Der Dateiname der angeforderten Datei für den Download im Falle einer Download-Navigation (z.B. ein {{htmlelement("a")}} oder {{htmlelement("area")}} Element mit einem `download` Attribut). Standardmäßig `null`.
+      - : Der Dateiname der angeforderten Datei im Fall einer Download-Navigation (z. B. ein {{htmlelement("a")}} oder {{htmlelement("area")}} Element mit einem `download` Attribut). Standardmäßig `null`.
     - `formData` {{optional_inline}}
-      - : Das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die übermittelten Daten im Falle einer `POST` Formularübermittlung darstellt. Standardmäßig `null`.
+      - : Das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die übermittelten Daten im Fall eines `POST`-Formularabsendung repräsentiert. Standardmäßig `null`.
     - `hashChange` {{optional_inline}}
-      - : Ein boolescher Wert, der definiert, ob es sich bei der Navigation um eine Fragment-Navigation handelt (d.h. zu einem Fragment-Identifier im selben Dokument). Standardmäßig `false`.
+      - : Ein Boolean, der definiert, ob die Navigation eine Fragmentnavigation ist (d. h. zu einem Fragmentbezeichner im selben Dokument). Standardmäßig `false`.
     - `info` {{optional_inline}}
-      - : Der `info` Datenwert, der von der initiierenden Navigationsoperation übergeben wurde (z.B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back) oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)).
+      - : Der `info` Datenwert, der durch die initiierende Navigationsoperation übergeben wurde (z. B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back), oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)).
     - `navigationType` {{optional_inline}}
       - : Der Typ der Navigation. Mögliche Werte — `push`, `reload`, `replace` und `traverse`. Standardmäßig `push`.
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das abgebrochen wird, wenn die Navigation abgebrochen wird (z.B. durch Drücken der "Stop"-Taste des Browsers oder durch Starten einer anderen Navigation, die die laufende beendet).
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das abgebrochen wird, wenn die Navigation abgebrochen wird (z. B. wenn der Benutzer die "Stop"-Schaltfläche des Browsers drückt oder eine andere Navigation beginnt und damit die laufende abbricht).
     - `userInitiated` {{optional_inline}}
-      - : Ein boolescher Wert, der definiert, ob die Navigation vom Benutzer initiiert wurde (z.B. durch Klicken auf einen Link, Einreichen eines Formulars oder Drücken der "Zurück"/"Vorwärts"-Tasten des Browsers). Standardmäßig `false`.
+      - : Ein Boolean, der definiert, ob die Navigation vom Benutzer initiiert wurde (z. B. durch Klicken auf einen Link, Absenden eines Formulars oder Drücken der "Zurück"/"Vorwärts"-Tasten des Browsers). Standardmäßig `false`.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigateEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`navigate`](/de/docs/Web/API/Navigation/navigate_event) Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigateEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des [`navigate`](/de/docs/Web/API/Navigation/navigate_event) Ereignisses aufgerufen wird.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -82,6 +81,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

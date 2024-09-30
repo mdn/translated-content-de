@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`lineTo()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), Teil der Canvas 2D API, fügt dem aktuellen Unterpfad eine gerade Linie hinzu, indem der letzte Punkt des Unterpfads mit den angegebenen `(x, y)`-Koordinaten verbunden wird.
+Die Methode **`lineTo()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), die Teil der Canvas 2D API ist, fügt dem aktuellen Unterpfad eine gerade Linie hinzu, indem der letzte Punkt des Unterpfads mit den angegebenen `(x, y)`-Koordinaten verbunden wird.
 
-Wie andere Methoden, die den aktuellen Pfad modifizieren, rendert diese Methode nicht direkt etwas. Um den Pfad auf eine Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
+Wie andere Methoden, die den aktuellen Pfad ändern, rendert diese Methode nichts direkt. Um den Pfad auf eine Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Keine ({{jsxref("undefined")}}).
 
 ### Zeichnen einer geraden Linie
 
-Dieses Beispiel zeichnet eine gerade Linie mit der `lineTo()`-Methode.
+Dieses Beispiel zeigt, wie man eine gerade Linie mit der Methode `lineTo()` zeichnet.
 
 #### HTML
 
@@ -61,7 +61,7 @@ ctx.stroke(); // Render the path
 
 ### Zeichnen verbundener Linien
 
-Jeder Aufruf von `lineTo()` (und ähnlichen Methoden) wird automatisch dem aktuellen Unterpfad hinzugefügt, was bedeutet, dass alle Linien zusammen gestrichen oder gefüllt werden. Dieses Beispiel zeichnet einen Buchstaben 'M' mit einer einzigen durchgehenden Linie.
+Jeder Aufruf von `lineTo()` (und ähnlichen Methoden) fügt automatisch dem aktuellen Unterpfad hinzu, was bedeutet, dass alle Linien gemeinsam gestroket oder gefüllt werden. Dieses Beispiel zeichnet den Buchstaben 'M' mit einer einzigen zusammenhängenden Linie.
 
 #### HTML
 

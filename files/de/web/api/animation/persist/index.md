@@ -1,5 +1,5 @@
 ---
-title: "Animation: persist() Methode"
+title: "Animation: persist()-Methode"
 short-title: persist()
 slug: Web/API/Animation/persist
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die `persist()` Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) speichert eine Animation explizit, um zu verhindern, dass sie [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird, wenn sie durch eine andere Animation ersetzt wird.
+Die `persist()`-Methode des [`Animation`](/de/docs/Web/API/Animation)-Interfaces der [Web Animations API](/de/docs/Web/API/Web_Animations_API) speichert eine Animation explizit, um zu verhindern, dass sie [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird, wenn sie durch eine andere Animation ersetzt wird.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Verwendung von `persist()`
 
-In diesem Beispiel gibt es drei Schaltflächen:
+In diesem Beispiel haben wir drei Schaltflächen:
 
-- "Dauerhafte Animation hinzufügen" und "Kurzfristige Animation hinzufügen" fügen jeweils eine neue Transformationsanimation zum roten Quadrat hinzu. Die Animationen wechseln die Richtung: Die erste ist von links nach rechts, die zweite von rechts nach links usw. "Dauerhafte Animation hinzufügen" ruft `persist()` bei der erstellten Animation auf.
+- "Persistente Animation hinzufügen" und "Transiente Animation hinzufügen" fügen jeweils eine neue Transformationsanimation zum roten Quadrat hinzu. Die Animationen wechseln die Richtung: Die erste geht von links nach rechts, die zweite von rechts nach links und so weiter. "Persistente Animation hinzufügen" ruft für die erstellte Animation `persist()` auf.
 
-- Die dritte Schaltfläche "Eine Animation abbrechen" bricht die zuletzt hinzugefügte Animation ab.
+- Die dritte Schaltfläche, "Eine Animation abbrechen", bricht die zuletzt hinzugefügte Animation ab.
 
-Das Beispiel zeigt eine Liste aller nicht abgebrochenen Animationen in der Reihenfolge, in der sie hinzugefügt wurden, zusammen mit dem `replaceState` jeder Animation.
+Das Beispiel zeigt eine Liste aller Animationen, die nicht abgebrochen wurden, in der Reihenfolge ihrer Hinzufügung, zusammen mit dem `replaceState` jeder Animation.
 
 #### HTML
 
@@ -126,9 +126,9 @@ function show(animation, offset) {
 
 #### Ergebnis
 
-Beachten Sie, dass das Hinzufügen einer neuen kurzfristigen Animation eine zuvor hinzugefügte kurzfristige Animation ersetzt. Diese Animationen werden automatisch entfernt, und ihr `replaceState` wird `"removed"` sein. Dauerhafte Animationen werden jedoch nicht entfernt.
+Beachten Sie, dass das Hinzufügen einer neuen transienten Animation jede zuvor hinzugefügte transiente Animation ersetzt. Diese Animationen werden automatisch entfernt und ihr `replaceState` wird `"removed"` sein. Persistente Animationen hingegen werden nicht entfernt.
 
-Beachten Sie auch, dass entfernte Animationen die Anzeige nicht beeinflussen; die Position des {{htmlelement("div")}} wird durch die zuletzt aktive oder gespeicherte Animation bestimmt.
+Beachten Sie auch, dass entfernte Animationen das Display nicht beeinflussen; die Position des {{htmlelement("div")}} wird durch die aktuellste aktive oder persistente Animation bestimmt.
 
 {{EmbedLiveSample("using_persist","",300)}}
 
@@ -143,6 +143,6 @@ Beachten Sie auch, dass entfernte Animationen die Anzeige nicht beeinflussen; di
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für weitere Methoden und Eigenschaften, die Sie zur Steuerung der Seitenanimation verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für weitere Methoden und Eigenschaften zur Steuerung von Webseitenanimationen.
 - [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState)
 - [`remove`](/de/docs/Web/API/Animation/remove_event) Ereignis

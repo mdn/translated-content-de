@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaKeyShortcuts`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-keyshortcuts`-Attributs wider, das Tastaturkürzel angibt, die ein Autor implementiert hat, um ein Element zu aktivieren oder den Fokus darauf zu setzen.
+Die **`ariaKeyShortcuts`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des `aria-keyshortcuts`-Attributs wider, das Tastenkombinationen angibt, die ein Autor implementiert hat, um ein Element zu aktivieren oder den Fokus darauf zu setzen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-keyshortcuts`-Attribut auf dem Element mit der ID `skip-link` auf "Alt+Shift+A" gesetzt. Mit `ariaKeyShortcuts` aktualisieren wir den Wert auf "Alt+Shift+M".
+In diesem Beispiel wird das `aria-keyshortcuts`-Attribut des Elements mit der ID `skip-link` auf "Alt+Shift+A" gesetzt. Mit `ariaKeyShortcuts` aktualisieren wir den Wert auf "Alt+Shift+M".
 
 ```html
 <a id="skip-link" href="#content" aria-keyshortcuts="Alt+Shift+A">

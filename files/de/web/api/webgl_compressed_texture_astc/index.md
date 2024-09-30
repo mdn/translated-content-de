@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_compressed_texture_astc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt die [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) komprimierten Texturformate für WebGL zur Verfügung.
+Die **`WEBGL_compressed_texture_astc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht den Zugriff auf [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) komprimierte Texturformate in WebGL.
 
-Für mehr Informationen lesen Sie den Artikel [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
+Für weitere Informationen lesen Sie den Artikel [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
 
-WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Weitere Informationen finden Sie auch unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind mittels der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> ASTC-Kompression ist typischerweise auf Mali ARM GPUs, Intel GPUs und NVIDIA Tegra Chips verfügbar.
+> ASTC-Kompression ist typischerweise verfügbar auf Mali ARM GPUs, Intel GPUs, und NVIDIA Tegra Chips.
 >
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist verfügbar in beiden, {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} und {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexten.
 
 ## Instanzmethoden
 
-Diese Erweiterung stellt eine neue Methode zur Verfügung.
+Diese Erweiterung stellt eine neue Methode bereit.
 
 - [`ext.getSupportedProfiles()`](/de/docs/Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles)
-  - : Gibt ein Array von Strings zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
+  - : Gibt ein Array von Zeichenfolgen zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden durch 28 Konstanten zur Verfügung gestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
+Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 <table class="no-markdown">
   <thead>

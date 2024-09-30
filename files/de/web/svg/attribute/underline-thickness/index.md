@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das `underline-thickness` Attribut repräsentiert die ideale Dicke der Unterstreichung. Die Dicke der Unterstreichung wird im Koordinatensystem der Schriftart ausgedrückt.
+Das Attribut `underline-thickness` stellt die ideale Dicke der Unterstreichung dar. Die Dicke der Unterstreichung wird im Koordinatensystem der Schrift ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{ SVGElement("font-face") }}
 
-## Verwendungskontext
+## Nutzungskontext
 
 <table class="properties">
   <tbody>

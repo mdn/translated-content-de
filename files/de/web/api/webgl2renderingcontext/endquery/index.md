@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: Methode endQuery()"
+title: "WebGL2RenderingContext: endQuery()-Methode"
 short-title: endQuery()
 slug: Web/API/WebGL2RenderingContext/endQuery
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.endQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) markiert das Ende eines bestimmten Abfrageziels.
+Die **`WebGL2RenderingContext.endQuery()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) markiert das Ende eines bestimmten Abfrageziels.
 
 ## Syntax
 
@@ -23,19 +23,18 @@ endQuery(target)
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Abfrage angibt. Mögliche Werte:
 
     - `gl.ANY_SAMPLES_PASSED`
-      - : Gibt eine Okklusionsabfrage an: Diese Abfragen
-        erkennen, ob ein Objekt sichtbar ist (ob die umschlossenen Zeichenbefehle den
-        Tiefentest bestehen und wenn ja, wie viele Samples bestehen).
+      - : Spezifiziert eine Okklusionsabfrage: Diese Abfragen
+        erkennen, ob ein Objekt sichtbar ist (ob die umfassten Zeichnungsbefehle den
+        Tiefentest bestehen und, wenn ja, wie viele Proben bestehen).
     - `gl.ANY_SAMPLES_PASSED_CONSERVATIVE`
-      - : Gleich wie oben, jedoch weniger
-        genau und schnellere Version.
+      - : Wie oben, aber weniger
+        genau und schneller.
     - `gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN`
-      - : Anzahl der Primitiven, die
-        in Transform-Feedback-Puffer geschrieben werden.
+      - : Anzahl der Primitiven, die in Transform-Feedback-Puffer geschrieben werden.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Hebt die Registrierung eines oder mehrerer Content-Skripte auf.
+Registriert einen oder mehrere Inhaltsskripte ab.
 
 > [!NOTE]
 > Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu verwenden, müssen Sie die Berechtigung `"scripting"` und die Berechtigung für die URL der Seite besitzen, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder über die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+Um diese API zu nutzen, müssen Sie die `"scripting"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder mit der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ await browser.scripting.unregisterContentScripts(
 ### Parameter
 
 - `scripts` {{optional_inline}}
-  - : {{WebExtAPIRef("scripting.ContentScriptFilter")}}. Ein Filter, um die dynamischen Content-Skripte zu identifizieren, die aufgehoben werden sollen. Wenn nicht angegeben, werden alle dynamischen Content-Skripte aufgehoben.
+  - : {{WebExtAPIRef("scripting.ContentScriptFilter")}}. Ein Filter zur Identifizierung der dynamischen Inhaltsskripte, die abgeriegelt werden sollen. Wenn nicht angegeben, werden alle dynamischen Inhaltsskripte abgeriegelt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle Skripte nicht mehr registriert sind. Tritt ein Fehler auf, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle Skripte abgeriegelt sind. Tritt ein Fehler auf, wird das Promise abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel hebt die Registrierung eines registrierten Content-Skripts mit der ID `a-script` auf:
+Dieses Beispiel registriert ein registriertes Inhaltsskript mit der ID `a-script` ab:
 
 ```js
 try {

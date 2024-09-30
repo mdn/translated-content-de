@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`contentDocument`**-Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`Document`](/de/docs/Web/API/Document) zurück, das das aktive Dokument des verschachtelten Browsing-Kontexts des `<object>`-Elements darstellt, falls vorhanden; andernfalls `null`.
+Die schreibgeschützte Eigenschaft **`contentDocument`** des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt ein [`Document`](/de/docs/Web/API/Document) zurück, das das aktive Dokument des im `<object>`-Element eingebetteten Browsing-Kontextes repräsentiert, falls vorhanden; andernfalls `null`.
 
 ## Wert
 

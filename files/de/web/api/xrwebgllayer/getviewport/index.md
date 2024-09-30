@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`getViewport()`** des [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Interfaces gibt den [`XRViewport`](/de/docs/Web/API/XRViewport) zurück, der verwendet werden sollte, um die angegebene [`XRView`](/de/docs/Web/API/XRView) in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzelnen Framebuffer für das linke und rechte Auge verwenden, stellt der zurückgegebene Viewport den Bereich des Framebuffers dar, in den die Szene für das vom View dargestellte Auge gerendert werden soll.
+Die **`getViewport()`**-Methode der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Schnittstelle gibt den [`XRViewport`](/de/docs/Web/API/XRViewport) zurück, der verwendet werden sollte, um den angegebenen [`XRView`](/de/docs/Web/API/XRView) in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzelnen Framebuffer für beide Augen verwenden, repräsentiert der zurückgegebene Viewport den Bereich des Framebuffers, in den die Szene für das durch die Ansicht dargestellte Auge gerendert werden soll.
 
 ## Syntax
 
@@ -23,18 +23,18 @@ getViewport(view)
 
 ### Rückgabewert
 
-Ein [`XRViewport`](/de/docs/Web/API/XRViewport)-Objekt, das den Viewport darstellt, welcher das Zeichnen auf den Teil der Schicht beschränkt, der der angegebenen `view` entspricht.
+Ein [`XRViewport`](/de/docs/Web/API/XRViewport)-Objekt, das den Viewport repräsentiert, der das Zeichnen auf den Teil der Schicht beschränkt, der der angegebenen `view` entspricht.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder die angegebene `view` nicht in einem aktiven [`XRFrame`](/de/docs/Web/API/XRFrame) ist oder wenn das `XRFrame` und der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) nicht Teil derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) sind.
+  - : Wird ausgelöst, wenn entweder die angegebene `view` nicht in einem aktiven [`XRFrame`](/de/docs/Web/API/XRFrame) ist oder sich dieses `XRFrame` und die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) nicht in derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) befinden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt teilweise, wie der Callback für die Funktion [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) aussehen könnte. Dabei wird `getViewport()` verwendet, um den Viewport zu erhalten, sodass das Zeichnen auf den Bereich beschränkt wird, der für das aktuell gerenderte Auge vorgesehen ist.
+Dieses Beispiel zeigt teilweise, wie der Callback für die [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Funktion aussehen könnte, indem `getViewport()` verwendet wird, um den Viewport zu erhalten, sodass das Zeichnen auf den für das gerade gerenderte Auge vorgesehenen Bereich beschränkt werden kann.
 
-Dies funktioniert, weil die Menge der von einem [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurückgegebenen Ansichten jeweils die Perspektive eines Auges auf die Szene darstellen. Da der Framebuffer in der Mitte geteilt ist, eine Hälfte für jedes Auge, wird durch das Setzen des WebGL-Viewports entsprechend dem Viewport der WebXR-Schicht sichergestellt, dass beim Rendern der Szene für die Pose des aktuellen Auges in die richtige Hälfte des Framebuffers gerendert wird.
+Dies funktioniert, weil die durch ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurückgegebene Menge an Ansichten jeweils die Perspektive eines Auges auf die Szene darstellt. Da der Framebuffer in zwei Hälften geteilt ist, eine für jedes Auge, wird durch das Einstellen des WebGL-Viewports auf den Viewport der WebXR-Schicht sichergestellt, dass beim Rendern der Szene für die Pose des aktuellen Auges die Szene in die richtige Hälfte des Framebuffers gerendert wird.
 
 ```js
 function drawFrame(time, frame) {

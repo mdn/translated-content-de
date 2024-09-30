@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Der **`BroadcastChannel()`** Konstruktor erstellt einen neuen
-[`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) und verbindet ihn mit dem zugrundeliegenden Kanal.
+Der **`BroadcastChannel()`** Konstruktor erzeugt einen neuen [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) und verbindet ihn mit dem zugrunde liegenden Kanal.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ new BroadcastChannel(channelName)
 ### Parameter
 
 - `channelName`
-  - : Ein String, der den Namen des Kanals darstellt; es gibt einen einzigen Kanal mit diesem Namen für alle [Browsing-Kontexte](/de/docs/Glossary/browsing_context) mit dem gleichen [Origin](/de/docs/Glossary/origin).
+  - : Ein String, der den Namen des Kanals darstellt; es gibt einen einzigen Kanal mit diesem Namen für alle [browsing contexts](/de/docs/Glossary/browsing_context) mit demselben [origin](/de/docs/Glossary/origin).
 
 ## Beispiele
 
@@ -41,4 +40,4 @@ bc.postMessage("New listening connected!");
 
 ## Siehe auch
 
-- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die Schnittstelle, zu der er gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die Schnittstelle, zu der es gehört.

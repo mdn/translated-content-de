@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die **`visible`** Schreibgeschützte Eigenschaft des [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent)-Interfaces ist ein boolescher Indikator, der angibt, ob die Fenstersteuerung-Überlagerung in einer auf Desktop installierten Progressiven Web-App sichtbar ist oder nicht.
+Die **`visible`**-Eigenschaft des [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent)-Interfaces ist eine schreibgeschützte Boolesche Eigenschaft, die angibt, ob das Fenstersteuerungs-Overlay in einer auf dem Desktop installierten Progressive Web App sichtbar ist oder nicht.
 
-Wenn der Benutzer die Funktion der [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API) ablehnt, erscheint die Standardtitel-Leiste und die Fenstersteuerungsschaltflächen erscheinen nicht als Überlagerung, in diesem Fall ist das `visible` Flag falsch.
+Wenn der Benutzer das [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API)-Feature deaktiviert, erscheint die standardmäßige Titelleiste und die Fenstersteuerungstasten nicht als Overlay, in welchem Fall das `visible`-Flag false ist.
 
 ## Spezifikationen
 

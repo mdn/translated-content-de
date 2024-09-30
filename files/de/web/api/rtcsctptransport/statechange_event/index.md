@@ -1,5 +1,5 @@
 ---
-title: "RTCSctpTransport: statechange Ereignis"
+title: "RTCSctpTransport: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/RTCSctpTransport/statechange_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`statechange`**-Ereignis wird an ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) gesendet, um eine Benachrichtigung zu geben, wenn sich die Eigenschaft [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state) geändert hat.
+Ein **`statechange`**-Ereignis wird an ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) gesendet, um eine Benachrichtigung zu liefern, wenn sich die [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state)-Eigenschaft geändert hat.
 
-<!-- Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht. -->
+<!-- Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt. -->
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Gegeben sei ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), `transport`, und eine `updateStatus()`-Funktion, die dem Nutzer Informationsstand der Verbindung präsentiert. Dieser Code richtet einen Ereignis-Handler ein, um den Nutzer zu informieren, wenn der Transport verbunden ist.
+Gegeben ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), `transport`, und eine Funktion `updateStatus()`, die dem Benutzer Verbindungsstatusinformationen präsentiert, richtet dieser Code einen Ereignishandler ein, um den Benutzer zu informieren, wenn die Verbindung aktiv ist.
 
 ```js
 pc.addEventListener(
@@ -44,7 +44,7 @@ pc.addEventListener(
 );
 ```
 
-Verwendung von `onstatechange` sieht wie folgt aus:
+Mit `onstatechange` sieht es so aus:
 
 ```js
 transport.onstatechange = (event) => {
@@ -66,5 +66,5 @@ transport.onstatechange = (event) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state)

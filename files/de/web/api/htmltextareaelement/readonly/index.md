@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`readOnly`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle zeigt an, dass der Benutzer den Wert des Steuerelements nicht ändern kann. Im Gegensatz zum [`disabled`](/de/docs/Web/API/HTMLTextAreaElement/disabled)-Attribut verhindert das `readonly`-Attribut nicht, dass der Benutzer im Steuerelement klickt oder auswählt. Es spiegelt das `{{htmlelement("textarea")}}`-Element des [`readonly`](/de/docs/Web/HTML/Element/textarea#readonly)-Attributs wider.
+Die **`readOnly`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces zeigt an, dass der Benutzer den Wert der Steuerung nicht ändern kann. Im Gegensatz zum [`disabled`](/de/docs/Web/API/HTMLTextAreaElement/disabled)-Attribut verhindert das `readonly`-Attribut nicht, dass der Benutzer auf das Steuerungselement klickt oder es auswählt. Es spiegelt das [`readonly`](/de/docs/Web/HTML/Element/textarea#readonly)-Attribut des {{htmlelement("textarea")}}-Elements wider.
 
 ## Wert
 
-Ein Boolean.
+Ein boolean.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ console.log(textArea.readOnly);
 
 - {{HTMLElement("textarea")}}
 - [`HTMLTextAreaElement.disabled`](/de/docs/Web/API/HTMLTextAreaElement/disabled)
-- {{cssxref(":read-only")}} Pseudo-Klasse
+- {{cssxref(":read-only")}} Pseudoklasse

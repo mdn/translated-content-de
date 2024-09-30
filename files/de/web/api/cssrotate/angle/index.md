@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`angle`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle ruft den Rotationswinkel ab und setzt ihn. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
+Die **`angle`**-Eigenschaft des
+[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces holt und setzt den Drehwinkel. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 ## Wert
 

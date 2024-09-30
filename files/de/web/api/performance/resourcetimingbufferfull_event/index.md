@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Das `resourcetimingbufferfull` Ereignis wird ausgelöst, wenn der [Resource Timing-Puffer](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
+Das `resourcetimingbufferfull` Ereignis wird ausgelöst, wenn der [Resource Timing Buffer](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("resourcetimingbufferfull", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ### Erhöhung der Größe, wenn der Puffer voll ist
 
-Das folgende Beispiel lauscht auf das `resourcetimingbufferfull` Ereignis und erhöht die Puffergröße mittels der [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize) Methode.
+Das folgende Beispiel hört auf das `resourcetimingbufferfull` Ereignis und vergrößert die Puffergröße mit der Methode [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize).
 
 ```js
 function increaseFilledBufferSize(event) {

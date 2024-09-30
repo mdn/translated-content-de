@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`fetch()`** Methode der Schnittstelle [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager) startet einen Hintergrundabrufvorgang, gegebenenfalls mit einer oder mehreren URLs oder [`Request`](/de/docs/Web/API/Request)-Objekten.
+Die **`fetch()`**-Methode der [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Schnittstelle initiiert einen Hintergrundabruf, basierend auf einer oder mehreren URLs oder [`Request`](/de/docs/Web/API/Request)-Objekten.
 
 ## Syntax
 
@@ -20,56 +20,57 @@ fetch(id, requests, options)
 ### Parameter
 
 - `id`
-  - : Ein vom Entwickler definierter Bezeichner, der an die anderen Methoden übergeben werden kann, um die [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) für diesen Vorgang abzurufen.
+  - : Ein vom Entwickler definierter Bezeichner, der an andere Methoden übergeben werden kann, um die [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) für diesen Vorgang abzurufen.
 - `requests`
 
   - : Ein `RequestInfo`-Objekt oder ein Array von `RequestInfo`-Objekten.
 
-    Jedes `RequestInfo`-Objekt ist entweder ein [`Request`](/de/docs/Web/API/Request)-Objekt oder ein String, der als `input`-Argument an den Konstruktor [`Request()`](/de/docs/Web/API/Request/Request) übergeben wird.
+    Jedes `RequestInfo`-Objekt ist ein [`Request`](/de/docs/Web/API/Request)-Objekt oder ein String, der als `input`-Argument an den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor übergeben wird.
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das zur Anpassung des Fortschrittsdialogs des Abrufs verwendet wird, den der Browser dem Benutzer anzeigt. Es hat die folgenden Eigenschaften:
+  - : Ein Objekt, das verwendet wird, um das Fortschrittsdialogfeld des Abrufs anzupassen, das der Browser dem Benutzer zeigt. Es hat folgende Eigenschaften:
 
     - `title` {{optional_inline}}
-      - : Ein String, der als Titel für den Fortschrittsdialog verwendet wird.
+      - : Ein String, der als Titel für das Fortschrittsdialogfeld verwendet wird.
     - `icons` {{optional_inline}}
-      - : Ein Array von Objekten, die jeweils ein Icon darstellen, das der Browser für den Fortschrittsdialog verwenden kann. Jedes Objekt hat die folgenden Eigenschaften:
+      - : Ein Array von Objekten, die jeweils ein Symbol darstellen, das der Browser für das Fortschrittsdialogfeld verwenden kann. Jedes Objekt hat die folgenden Eigenschaften:
         - `src`
-          - : Ein String, der eine URL zur Icon-Datei darstellt.
+          - : Ein String, der eine URL zur Symbol-Datei darstellt.
         - `sizes` {{optional_inline}}
-          - : Ein String, der die Größen des Bildes darstellt, ausgedrückt anhand derselben Syntax wie das `sizes`-Attribut des {{HTMLElement("link")}}-Elements.
+          - : Ein String, der die Größen des Bildes darstellt, ausgedrückt mit der gleichen Syntax wie das `sizes`-Attribut des {{HTMLElement("link")}}-Elements.
         - `type` {{optional_inline}}
-          - : Ein String, der den [MIME](/de/docs/Glossary/MIME)-Typ des Icons darstellt.
+          - : Ein String, der den [MIME](/de/docs/Glossary/MIME)-Typ des Symbols darstellt.
         - `label` {{optional_inline}}
-          - : Ein String, der den zugänglichen Namen des Icons darstellt.
+          - : Ein String, der den zugänglichen Namen des Symbols darstellt.
     - `downloadTotal` {{optional_inline}}
 
-      - : Eine Zahl, die die geschätzte gesamte Downloadgröße in Bytes für den Abrufvorgang darstellt. Diese wird verwendet, um dem Benutzer anzuzeigen, wie groß der Download ist und den Fortschritt des Downloads zu zeigen.
+      - : Eine Zahl, die die geschätzte Gesamtdownloadgröße in Bytes für den Abrufvorgang darstellt. Dies wird verwendet, um dem Benutzer anzuzeigen, wie groß der Download ist, und um den Downloadfortschritt zu zeigen.
 
-        Sobald die gesamte Downloadgröße `downloadTotal` überschreitet, wird der Abruf abgebrochen.
+        Sobald die Gesamtdownloadgröße `downloadTotal` überschreitet, wird der Abruf abgebrochen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn keine Anfrage bereitgestellt wird, wenn der Modus einer Anfrage `no-cors` ist, kein Service Worker vorhanden ist, eine Anfrage mit der angeforderten `id` bereits existiert oder die Anfrage fehlschlägt.
+  - : Tritt auf, wenn keine Anfrage bereitgestellt wird, wenn der Modus einer Anfrage `no-cors` ist, wenn kein Servicearbeiter vorhanden ist, bereits eine Anfrage mit der angeforderten `id` existiert oder die Anfrage fehlschlägt.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Gibt an, dass der Abruf abgebrochen wurde.
+  - : Zeigt an, dass der Abruf abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Gibt an, dass keine Benutzergenehmigung für Hintergrundabrufe erteilt wurde.
+  - : Zeigt an, dass keine Benutzererlaubnis für Hintergrundabrufe erteilt wurde.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Speichern von Anfragen fehlschlägt, weil das [Speicherlimit](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) des Browsers überschritten wurde.
+  - : Wird ausgelöst, wenn das Speichern von Anfragen aufgrund des Überschreitens des [Speicherlimits](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) des Browsers fehlschlägt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie `fetch()` verwendet wird, um einen Hintergrundabrufvorgang zu starten. Bei einem aktiven
-[Service Worker](/de/docs/Web/API/ServiceWorker) verwenden Sie die
+Das folgende Beispiel zeigt, wie `fetch()` verwendet wird, um einen Hintergrundabruf zu initiieren. Mit einem aktiven
+[Servicearbeiters](/de/docs/Web/API/ServiceWorker) verwenden Sie die
 [`ServiceWorkerRegistration.backgroundFetch`](/de/docs/Web/API/ServiceWorkerRegistration/backgroundFetch)-Eigenschaft, um auf das
-`BackgroundFetchManager`-Objekt zuzugreifen und dessen `fetch()`-Methode aufzurufen.
+`BackgroundFetchManager`-Objekt zuzugreifen und dessen `fetch()`
+-Methode aufzurufen.
 
 ```js
 navigator.serviceWorker.ready.then(async (swReg) => {

@@ -8,18 +8,21 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die Methode **`setRequestHeader()`** der [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) setzt den Wert eines HTTP-Anforderungsheaders. Wenn Sie `setRequestHeader()` verwenden, müssen Sie es nach dem Aufruf von [`open()`](/de/docs/Web/API/XMLHttpRequest/open) aufrufen, aber vor dem Aufruf von [`send()`](/de/docs/Web/API/XMLHttpRequest/send). Wenn diese Methode mehrmals mit demselben Header aufgerufen wird, werden die Werte zu einem einzigen Anforderungsheader zusammengeführt.
+Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`setRequestHeader()`** setzt den Wert eines HTTP-Anforderungs-Headers.
+Wenn Sie `setRequestHeader()` verwenden, müssen Sie es nach dem Aufruf von [`open()`](/de/docs/Web/API/XMLHttpRequest/open), aber vor dem Aufruf von [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufrufen.
+Wenn diese Methode mehrmals mit demselben Header aufgerufen wird, werden die Werte zu einem einzigen Anforderungs-Header zusammengeführt.
 
-Jedes Mal, wenn Sie `setRequestHeader()` nach dem ersten Aufruf aufrufen, wird der angegebene Text an das Ende des bestehenden Header-Inhalts angehängt.
+Jedes Mal, wenn Sie `setRequestHeader()` nach dem ersten Aufruf verwenden, wird der angegebene Text an das Ende des bestehenden Header-Inhalts angehängt.
 
-Wenn kein {{HTTPHeader("Accept")}}-Header gesetzt wurde, wird ein `Accept`-Header mit dem Typ „`*/*`“ mit der Anforderung gesendet, wenn [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen wird.
+Wenn kein {{HTTPHeader("Accept")}}-Header mit dieser Methode gesetzt wurde, wird ein `Accept`-Header mit dem Typ `"*/*"` mit der Anforderung gesendet, wenn [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen wird.
 
-Aus Sicherheitsgründen gibt es mehrere [verbotene Header-Namen](/de/docs/Glossary/Forbidden_header_name), deren Werte vom User-Agent kontrolliert werden. Jeder Versuch, einen dieser Header-Werte aus dem Frontend-JavaScript-Code festzulegen, wird ohne Warnung oder Fehlermeldung ignoriert.
+Aus Sicherheitsgründen gibt es mehrere [verbotene Header-Namen](/de/docs/Glossary/Forbidden_header_name), deren Werte durch den Benutzeragent gesteuert werden. Jeder Versuch, einen Wert für diese Header aus Frontend-JavaScript-Code zu setzen, wird ohne Warnung oder Fehler ignoriert.
 
-Zusätzlich kann der [`Authorization`](/de/docs/Web/HTTP/Headers/Authorization) HTTP-Header zu einer Anforderung hinzugefügt werden, wird jedoch entfernt, wenn die Anforderung über einen Cross-Origin-Redirect weitergeleitet wird.
+Zusätzlich kann der HTTP-Header [`Authorization`](/de/docs/Web/HTTP/Headers/Authorization) zu einer Anforderung hinzugefügt werden, wird aber entfernt, wenn die Anforderung plattformübergreifend weitergeleitet wird.
 
 > [!NOTE]
-> Für Ihre benutzerdefinierten Felder kann es zu einer Ausnahme "**nicht erlaubt von Access-Control-Allow-Headers in der Preflight-Antwort**" kommen, wenn Sie domänenübergreifende Anfragen senden. In diesem Fall müssen Sie den {{HTTPHeader("Access-Control-Allow-Headers")}} im Antwortheader auf der Serverseite festlegen.
+> Bei Ihren benutzerdefinierten Feldern kann beim Senden von Anfragen über Domänen hinweg eine Ausnahme "nicht erlaubt durch Access-Control-Allow-Headers in der Preflight-Antwort" auftreten.
+> In diesem Fall müssen Sie den {{HTTPHeader("Access-Control-Allow-Headers")}} in Ihrem Antwort-Header auf der Serverseite einrichten.
 
 ## Syntax
 

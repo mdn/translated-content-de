@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`handled`**-Eigenschaft des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt ein Promise zurück, das anzeigt, ob das Event vom Fetch-Algorithmus verarbeitet wurde oder nicht. Diese Eigenschaft ermöglicht die Ausführung von Code, nachdem der Browser eine Antwort konsumiert hat, und wird normalerweise zusammen mit der [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode verwendet.
+Die **`handled`**-Eigenschaft des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt ein Promise zurück, das angibt, ob das Ereignis vom Fetch-Algorithmus behandelt wurde oder nicht. Diese Eigenschaft ermöglicht die Ausführung von Code, nachdem der Browser eine Antwort verarbeitet hat, und wird normalerweise zusammen mit der [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode verwendet.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das aussteht, solange das Event nicht verarbeitet wurde, und erfüllt ist, sobald es verarbeitet wurde.
+Ein {{jsxref("Promise")}}, das anhängig ist, während das Ereignis noch nicht behandelt wurde, und erfüllt wird, sobald es behandelt wurde.
 
 ## Beispiele
 

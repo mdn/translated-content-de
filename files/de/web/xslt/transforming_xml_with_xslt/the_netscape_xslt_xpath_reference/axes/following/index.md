@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `following`-Achse gibt alle Knoten an, die nach dem Kontextknoten erscheinen, mit Ausnahme von Nachfahren-, Attribut- und Namensraum-Knoten.
+Die Achse `following` zeigt alle Knoten an, die nach dem Kontextknoten erscheinen, außer Nachkommen-, Attribut- und Namespace-Knoten.

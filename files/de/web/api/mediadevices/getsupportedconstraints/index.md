@@ -1,5 +1,5 @@
 ---
-title: "MediaDevices: getSupportedConstraints()-Methode"
+title: "MediaDevices: getSupportedConstraints() Methode"
 short-title: getSupportedConstraints()
 slug: Web/API/MediaDevices/getSupportedConstraints
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt auf Grundlage des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs zurück, dessen Mitgliedsfelder jeweils eine der einschränkbaren Eigenschaften angeben, die der [User Agent](/de/docs/Glossary/user_agent) versteht.
+Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch zurück, dessen Mitglieder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der [User Agent](/de/docs/Glossary/user_agent) versteht.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch, das die vom User Agent unterstützten Einschränkungen auflistet. Da nur vom User Agent unterstützte Einschränkungen in der Liste enthalten sind, hat jede dieser booleschen Eigenschaften den Wert `true`.
+Ein neues Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch, das die vom User Agent unterstützten Einschränkungen auflistet. Da nur die vom User Agent unterstützten Einschränkungen in der Liste enthalten sind, haben alle diese Booleschen Eigenschaften den Wert `true`.
 
 ## Beispiele
 

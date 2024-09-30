@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: play Ereignis"
+title: "HTMLMediaElement: play-Ereignis"
 short-title: play
 slug: Web/API/HTMLMediaElement/play_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `play` Ereignis wird ausgelöst, wenn die `paused` Eigenschaft von `true` auf `false` geändert wird, entweder durch die `play` Methode oder das `autoplay` Attribut.
+Das `play`-Ereignis wird ausgelöst, wenn die `paused`-Eigenschaft von `true` auf `false` geändert wird, entweder durch die `play`-Methode oder das `autoplay`-Attribut.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weiter verbreitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Namen des Ereignisses in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("play", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `play` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `play`-Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -42,7 +42,7 @@ video.addEventListener("play", (event) => {
 });
 ```
 
-Verwendung der `onplay` Ereignis-Handler-Eigenschaft:
+Verwendung der `onplay`-Ereignisbehandlereigenschaft:
 
 ```js
 const video = document.querySelector("video");

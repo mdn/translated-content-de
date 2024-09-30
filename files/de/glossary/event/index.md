@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Events sind Ressourcen, die von [DOM](/de/docs/Glossary/DOM)-Elementen erzeugt werden und durch JavaScript-Code manipuliert werden können.
+Events sind Ereignisse, die von [DOM](/de/docs/Glossary/DOM)-Elementen generiert werden und durch JavaScript-Code manipuliert werden können.
 
 ## Siehe auch
 
 - [Event-Dokumentation auf MDN](/de/docs/Web/API/Event)
-- [Offizielle Website](https://www.w3.org/TR/DOM-Level-2-Events/events.html)
+- [Offizielle Webseite](https://www.w3.org/TR/DOM-Level-2-Events/events.html)
 - [DOM Events](https://en.wikipedia.org/wiki/DOM_Events) auf Wikipedia

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vorgänge des "Picture-in-Picture", einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
+Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vorgänge im Zusammenhang mit "Picture-in-Picture", einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vo
 - [`PictureInPictureEvent()`](/de/docs/Web/API/PictureInPictureEvent/PictureInPictureEvent)
   - : Erstellt ein `PictureInPictureEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 - [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
   - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, auf das sich das Ereignis bezieht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 

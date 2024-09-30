@@ -1,5 +1,5 @@
 ---
-title: Diskussionen verwalten und lösen
+title: Verwalten und Lösen von Diskussionen
 slug: MDN/Community/Discussions/Managing_and_resolving_discussions
 l10n:
   sourceCommit: 7e97f3c5ada65b6638909bde92881a4b8d46a2b8
@@ -7,56 +7,56 @@ l10n:
 
 {{MDNSidebar}}
 
-Die MDN-Community wird ermutigt, [Diskussionen zu initiieren und sich daran zu beteiligen](/de/docs/MDN/Community/Discussions), die sich auf die MDN Web Docs-Dokumentation beziehen. Einige Diskussionen benötigen keine Lösung oder Einigung, aber wenn doch, ist es natürlich, dass diejenigen, die die Diskussion starten, erwarten, dass ihre vorgeschlagenen Ideen zu einem logischen Abschluss gelangen. Die meisten dieser Diskussionen erreichen schnell eine breite Einigung. Einige Diskussionen laufen jedoch Gefahr, festgefahren zu werden, da es keinen klaren Weg zu einer Lösung gibt, oft aufgrund unterschiedlicher Meinungen. Dieses Dokument bietet Leitlinien; es schlägt Prozesse und Strategien vor, die Ihnen helfen, innerhalb eines angemessenen Zeitraums zu einer Lösung zu gelangen, ohne dass das Gespräch ins Stocken gerät.
+Die MDN-Community wird ermutigt, [Diskussionen zu initiieren und daran teilzunehmen](/de/docs/MDN/Community/Discussions), die sich auf die MDN Web Docs-Dokumentation beziehen. Manche Diskussionen benötigen keine Lösung oder Übereinkunft, aber wenn doch, ist es natürlich, dass diejenigen, die die Diskussion beginnen, erwarten, dass ihre vorgeschlagenen Ideen zu einem logischen Abschluss kommen. Die meisten dieser Diskussionen erreichen schnell breite Übereinstimmung. Einige Diskussionen laufen jedoch Gefahr, ins Stocken zu geraten, weil ein klarer Weg zur Lösung fehlt, oft aufgrund unterschiedlicher Meinungen. Dieses Dokument bietet Richtlinien; es schlägt Prozesse und Strategien vor, die Ihnen helfen, innerhalb eines angemessenen Zeitraums eine Lösung zu erreichen, ohne dass das Gespräch ins Stocken gerät.
 
 ## Eine Diskussion zu einer Lösung führen
 
-Die meisten Diskussionen benötigen keinen formalen Lösungsprozess. Diese MDN-Diskussionsrichtlinien sind für Diskussionen gedacht, die eine zeitnahe Lösung benötigen, festgefahren sind, Gefahr laufen, festgefahren zu werden oder anderweitig nicht zu einem Abschluss kommen und von einem formalen Prozess profitieren würden:
+Die meisten Diskussionen benötigen keinen formalen Lösungsprozess. Diese MDN-Diskussionsrichtlinien sind für Diskussionen gedacht, die eine rechtzeitige Lösung benötigen, ins Stocken geraten, Gefahr laufen, ins Stocken zu geraten, oder anderweitig nicht zu einem Abschluss führen und von einem formalen Prozess profitieren würden:
 
-1. Jede Diskussion wird auf [GitHub diskutiert](https://github.com/orgs/mdn/discussions). Diese GitHub-Diskussion dient als "Quelle der Wahrheit" für das Thema.
+1. Jede Diskussion wird in einer [Diskussion auf GitHub](https://github.com/orgs/mdn/discussions) abgehalten/verankert. Diese GitHub-Diskussion dient als "Quelle der Wahrheit" für das Thema.
 
-   - Um die Kontinuität zu wahren, denken Sie daran, Zusammenfassungen und Notizen aus Besprechungen und asynchronen Diskussionen in diesem GitHub-Diskussionsfaden festzuhalten.
+   - Zur Aufrechterhaltung der Kontinuität sollten Sie Zusammenfassungen und Notizen aus allen Meetings und asynchronen Diskussionen in diesem GitHub-Diskussionsthread festhalten.
 
-2. Jedes Diskussionsthema benötigt einen Verantwortlichen. Der Verantwortliche ist oft der Autor der Diskussion, kann aber auch eine andere Person sein, die sich der Lösung der Diskussion verpflichtet hat. Der Verantwortliche ist verantwortlich für:
+2. Jedes Diskussionsthema benötigt einen Treiber. Der Treiber ist oft der Autor der Diskussion, kann aber auch eine andere Person sein, die sich der Lösung der Diskussion verpflichtet hat. Der Treiber ist verantwortlich für:
 
-   - Die Leitung des Gesprächs.
-   - Das Bewusstsein schaffen, dass die Diskussion existiert.
-   - Das Setzen von Feedback-Zeiten, das Informieren der Personen darüber, Anpassung der Zeiten bei Bedarf und Einhaltung der Zeiten, wenn es angemessen ist.
-   - Informieren aller relevanten Kanäle - Slack, Discord, Personen auf GitHub markieren und andere Kanäle, wenn angebracht - über benötigtes Feedback bis zu bestimmten Terminen.
-   - Das Thema in der Community sowie in wöchentlichen Treffen ansprechen.
-   - Bei Bedarf eine synchrone, online Face-to-Face-Besprechung organisieren (bei Meinungsverschiedenheiten). Face-to-Face-Besprechungen sollten selten und nur dann erforderlich sein (siehe Nr. 3).
-   - Zusammenfassung von Ergebnissen von Face-to-Face-Besprechungen in der relevanten Diskussion auf [Discussions](https://github.com/orgs/mdn/discussions) eingeben.
-   - Die Umsetzung der Diskussionsergebnisse leiten oder mit dem entsprechenden Teamleiter zusammenarbeiten, um sicherzustellen, dass die Ergebnisse umgesetzt werden.
+   - Die Gesprächsführung.
+   - Die Bekanntmachung der Diskussion.
+   - Festlegung und Mitteilung des Feedback-Zeitplans, Anpassung des Zeitplans nach Bedarf und Einhaltung des Zeitplans, soweit angemessen.
+   - Informationen über alle geeigneten Kanäle - Slack, Discord, Personen auf GitHub kennzeichnen und andere Kanäle, falls geeignet - über benötigtes Feedback bis zu bestimmten Terminen informieren.
+   - Das Thema in der Community und in wöchentlichen Meetings ansprechen.
+   - Organisation eines synchronen, virtuellen Treffens, falls erforderlich (bei Meinungsverschiedenheiten). Face-to-face-Meetings sollten selten und nur bei Bedarf stattfinden (siehe Punkt 3).
+   - Zusammenfassung der Ergebnisse von Face-to-face-Meetings in der relevanten Diskussion auf [Discussions](https://github.com/orgs/mdn/discussions).
+   - Die Implementierung der Diskussionsergebnisse zu leiten oder mit dem entsprechenden Teamleiter zusammenzuarbeiten, um sicherzustellen, dass die Ergebnisse umgesetzt werden.
 
-3. Face-to-Face-Besprechungen zu einer Diskussion sollten nur einberufen werden, wenn es Meinungsverschiedenheiten gibt.
+3. Face-to-face-Meetings zu einer Diskussion sollten nur bei Meinungsverschiedenheiten einberufen werden.
 
-   - Face-to-Face-Besprechungen müssen in allen relevanten [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels) angekündigt werden, wie Slack, Discord, GitHub-Diskussion usw.
-   - Die Schlussfolgerungen jeder Face-to-Face-Besprechung müssen in die GitHub-Diskussion eingegeben werden, die die Quelle der Wahrheit für die Diskussion ist.
-   - Der Verantwortliche ist dafür verantwortlich, das Treffen einzuberufen, alle Parteien zu informieren und die Ergebnisse in der GitHub-Diskussion zu berichten.
+   - Face-to-face-Meetings müssen in allen relevanten [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels) angekündigt werden, wie Slack, Discord, GitHub-Diskussion, etc.
+   - Die Ergebnisse jedes Face-to-face-Meetings müssen in die GitHub-Diskussion eingefügt werden, die die Quelle der Wahrheit für die Diskussion ist.
+   - Der Treiber ist verantwortlich dafür, das Meeting einzuberufen, alle Parteien zu informieren und die Ergebnisse in die GitHub-Diskussion zu melden.
 
-Sobald eine Einigung erzielt wurde, kann die Resolution bekannt gegeben, die Diskussion geschlossen und der Plan zur Umsetzung der Resolution in die Tat umgesetzt werden!
+Sobald eine Übereinstimmung erreicht wurde, kann die Lösung verkündet, die Diskussion geschlossen und der Plan zur Umsetzung der Lösung in die Tat umgesetzt werden!
 
-## Fortschritt und Zeitplan der Diskussion
+## Fortschritt und Zeitrahmen der Diskussion
 
-Jede Diskussion wird aufgrund der Komplexität des Themas und der Konsensstufen einen unterschiedlichen Zeitplan haben. Idealerweise sollten die meisten Diskussionen innerhalb von zwei Monaten gelöst werden, da das Thema in verschiedenen internen Meetings angesprochen werden kann. Dieser Zeitrahmen stellt sicher, dass unterschiedliche Standpunkte berücksichtigt werden und jeder Interessierte die Möglichkeit hat, sich an der Diskussion zu beteiligen.
+Jede Diskussion hat einen anderen Zeitrahmen, abhängig von der Komplexität des Themas und dem Einvernehmen. Idealerweise sollten die meisten Diskussionen innerhalb von zwei Monaten gelöst werden, damit das Thema in verschiedenen internen Meetings behandelt werden kann. Dieser Zeitrahmen gewährleistet, dass verschiedene Standpunkte berücksichtigt werden und alle Interessierten die Möglichkeit haben, an der Diskussion teilzunehmen.
 
-1. Die Diskussion posten.
-2. Einen Verantwortlichen zuweisen. Bestimmen Sie den Verantwortlichen, wenn er nicht mit dem Autor der Diskussion identisch ist.
-3. Identifizieren Sie alle wichtigen Stakeholder und benötigten Zustimmenden (die Personen, die Stellung zum Thema nehmen und ihre Zustimmung geben müssen), falls vorhanden.
-4. Informieren Sie die Zustimmenden und andere wesentliche Stimmen über die Diskussion und Ihren vorgeschlagenen Zeitplan. Falls erforderlich, nehmen Sie nach 2 Wochen erneut Kontakt auf und danach wöchentlich, bis sie Rückmeldung geben.
-5. Fügen Sie das Diskussionsthema den Agenden relevanter Meetings hinzu.
-6. Sortieren Sie nach einem Monat das Feedback, die Diskussionen und Vereinbarungen und formulieren Sie einen ersten Plan, der das Feedback in einen möglichen Aktionsplan integriert.
-7. Informieren Sie alle interessierten Parteien erneut und bitten Sie um Rückmeldung, einschließlich aller, die in irgendeiner Weise an der Diskussion teilgenommen haben.
-8. Während des zweiten Monats weiterhin die Community um Feedback zum vorgeschlagenen Plan bitten und den Plan bei neuem Feedback aktualisieren. Wiederholen Sie dies.
-9. Bei strittigen Punkten eine Online-Face-to-Face-Besprechung einberufen, um verbleibende Meinungsverschiedenheiten beizulegen (wie im Diskussionsfaden erfasst).
-10. Halten Sie die Diskussionsfäden im zweiten Monat am Leben, während Sie mit der Community an der Lösung arbeiten.
-11. [Erstellen Sie das Issue](/de/docs/MDN/Community/Issues) für den Umsetzungsplan der Resolution und setzen Sie ihn in die Tat um. ([Leitlinien zur Fehlerberichterstattung](/de/docs/MDN/Community/Issues#guidelines_for_reporting_an_issue))
-12. Schließen Sie die Diskussion.
+1. Die Diskussion veröffentlichen.
+2. Einen Treiber bestimmen. Den Treiber bestimmen, falls er nicht mit dem Diskussionsautor identisch ist.
+3. Alle wichtigen Stakeholder und benötigten Genehmiger identifizieren (die Personen, die zu dem Thema Stellung nehmen und ihre Zustimmung geben müssen), falls vorhanden.
+4. Die Genehmiger und andere wesentliche Stimmen über die Diskussion und Ihren vorgeschlagenen Zeitplan informieren. Bei Bedarf in 2-wöchigen Abständen und danach wöchentlich nachfassen, bis sie Feedback geben.
+5. Das Diskussionsthema auf die Tagesordnungen relevanter Meetings setzen.
+6. Nach einem Monat das Feedback, die Diskussionen und Vereinbarungen sichten und einen ersten Plan formulieren, der das Feedback in einen möglichen Aktionsplan integriert.
+7. Alle Interessierten erneut informieren und erneut um Feedback bitten, einschließlich aller Personen, die sich in irgendeiner Weise an der Diskussion beteiligt haben.
+8. Während des zweiten Monats weiterhin die Community nach Feedback zum vorgeschlagenen Plan fragen und den Plan in Anbetracht neuer Rückmeldungen aktualisieren. Wiederholen.
+9. Bei strittigen Punkten ein Online-Meeting arrangieren, um verbleibende Meinungsverschiedenheiten zu klären (wie im Diskussionsthread festgehalten).
+10. Die Diskussionsthreads im zweiten Monat am Leben erhalten, während Sie mit der Community auf eine Lösung hinarbeiten.
+11. [Das Issue erstellen](/de/docs/MDN/Community/Issues) für den Lösungsumsetzungsplan und umsetzen. ([Richtlinien zur Meldung von Issues](/de/docs/MDN/Community/Issues#guidelines_for_reporting_an_issue))
+12. Die Diskussion schließen.
 
-Wenn die Diskussion die Kontaktaufnahme mit und die Rückmeldung von Experten beinhaltet, kann der oben genannte Zeitrahmen nach Bedarf verlängert werden.
+Wenn die Diskussion den Kontakt zu Experten und das Einholen von Feedback erfordert, kann der obige Zeitrahmen bei Bedarf verlängert werden.
 
-### Unklare Lösungen
+### Unschlüssige Lösungen
 
-Es ist wichtig, zu einer Lösung zu kommen, aber es ist auch wichtig, sich daran zu erinnern, dass nicht alle Diskussionen zu einer umsetzbaren Lösung führen werden. Die Lösung einer Diskussion kann sein, dass "keine Entscheidung getroffen wird" oder "Lasst uns das in einem Jahr erneut betrachten". Diese sind beide gültige Lösungen!
+Es ist wichtig, zu einer Lösung zu kommen, aber es ist auch wichtig zu bedenken, dass nicht alle Diskussionen zu einer umsetzbaren Lösung führen. Das Ergebnis einer Diskussion kann "Es wird keine Entscheidung getroffen" oder "Wir sehen uns das in einem Jahr noch einmal an" lauten. Beides sind gültige Lösungen!
 
-Wenn eine Diskussion ohne umsetzbare Lösung endet, notieren Sie dies in der Diskussion und schließen Sie die Diskussion als gelöst.
+Wenn eine Diskussion ohne umsetzbare Lösung endet, vermerken Sie dies in der Diskussion und schließen Sie diese dann als gelöst.

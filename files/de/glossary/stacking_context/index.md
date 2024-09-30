@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Stacking context** beschreibt, wie Elemente auf einer Webseite erscheinen, als würden sie auf anderen Elementen liegen, ähnlich wie man Karteikarten auf seinem Schreibtisch nebeneinander oder überlappend anordnen kann.
+Ein **Stacking context** bezieht sich darauf, wie Elemente auf einer Webseite scheinbar übereinander liegen, genauso wie Sie Karteikarten auf Ihrem Schreibtisch anordnen können, um sie nebeneinander zu legen oder sich zu überlappen.
 
 ## Siehe auch
 

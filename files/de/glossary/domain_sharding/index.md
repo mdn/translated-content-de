@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Browser begrenzen die Anzahl der aktiven Verbindungen pro Domain. Um gleichzeitige Downloads von Ressourcen zu ermöglichen, die dieses Limit überschreiten, teilt das **Domain Sharding** Inhalte auf mehrere Subdomains auf. Wenn mehrere Domains genutzt werden, um mehrere Ressourcen bereitzustellen, können Browser mehr Ressourcen gleichzeitig herunterladen, was zu einer schnelleren Ladezeit der Seite und einer verbesserten Benutzererfahrung führt.
+Browser limitieren die Anzahl aktiver Verbindungen für jede Domain. Um gleichzeitige Downloads von Inhalten, die dieses Limit überschreiten, zu ermöglichen, teilt **Domain Sharding** Inhalte auf mehrere Subdomains auf. Wenn mehrere Domains verwendet werden, um mehrere Inhalte bereitzustellen, sind Browser in der Lage, mehr Ressourcen gleichzeitig herunterzuladen, was zu einer schnelleren Seitenladezeit und einer verbesserten Benutzererfahrung führt.
 
-Das Problem beim Domain Sharding in Bezug auf die Leistung ist die Kosten für zusätzliche DNS-Abfragen für jede Domain und der Overhead beim Aufbau jeder TCP-Verbindung.
+Das Problem mit Domain Sharding in Bezug auf die Leistung sind die zusätzlichen Kosten für DNS-Abfragen für jede Domain und der Overhead beim Herstellen jeder TCP-Verbindung.
 
-Die anfängliche Antwort auf eine HTTP-Anfrage ist in der Regel eine HTML-Datei, die andere Ressourcen wie JavaScript, CSS, Bilder und andere Mediendateien auflistet, die heruntergeladen werden müssen. Da Browser die Anzahl der aktiven Verbindungen pro Domain beschränken, könnte die Bereitstellung aller benötigten Ressourcen von einer einzigen Domain aus langsam sein, da die Ressourcen nacheinander heruntergeladen werden müssen. Mit Domain Sharding werden die erforderlichen Downloads von mehr als einer Domain bereitgestellt, was dem Browser ermöglicht, benötigte Ressourcen gleichzeitig herunterzuladen. Mehrere Domains sind jedoch ein Anti-Pattern, da DNS-Abfragen die anfänglichen Ladezeiten verlangsamen.
+Die anfängliche Antwort auf eine HTTP-Anfrage ist in der Regel eine HTML-Datei, die andere Ressourcen wie JavaScript, CSS, Bilder und andere Mediendateien auflistet, die heruntergeladen werden müssen. Da Browser die Anzahl aktiver Verbindungen pro Domain begrenzen, könnte die Bereitstellung aller erforderlichen Ressourcen von einer einzigen Domain aus langsam sein, da Inhalte nacheinander heruntergeladen werden müssen. Mit Domain Sharding werden die erforderlichen Downloads von mehr als einer Domain bereitgestellt, sodass der Browser die benötigten Ressourcen gleichzeitig herunterladen kann. Mehrere Domains sind jedoch ein Antimuster, da DNS-Abfragen die anfängliche Ladezeit verlangsamen.
 
-HTTP2 unterstützt unbegrenzte gleichzeitige Anfragen, wodurch Domain Sharding eine veraltete Anforderung wird, wenn HTTP/2 aktiviert ist.
+HTTP/2 unterstützt unbegrenzte gleichzeitige Anfragen, was Domain Sharding zu einer überflüssigen Anforderung macht, wenn HTTP/2 aktiviert ist.
 
 ## Siehe auch
 

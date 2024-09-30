@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Location")}} {{AvailableInWorkers}}
 
-Die **`origin`** schreibgeschützte Eigenschaft der [`Location`](/de/docs/Web/API/Location) Schnittstelle ist ein String, der die Unicode-Darstellung des Ursprungs der dargestellten URL enthält.
+Die schreibgeschützte **`origin`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle ist ein String, der die Unicode-Serialisierung des Ursprungs der vertretenen URL enthält.
 
 Die genaue Struktur variiert je nach Typ der URL:
 
-- Für URLs, die die `http:` oder `https:` Schemata verwenden, folgt auf das Schema `//`, gefolgt von der Domain, gefolgt von `:`, gefolgt von dem Port (der Standardport, `80` bzw. `443`, wenn er explizit angegeben ist).
-- Für URLs mit `file:` Schema ist der Wert vom Browser abhängig.
-- Für URLs mit dem `blob:` Schema ist es der Ursprung der URL, die auf `blob:` folgt. Zum Beispiel hat `blob:https://mozilla.org` den Ursprung `https://mozilla.org`.
+- Für URLs mit den Schemen `http:` oder `https:`, das Schema gefolgt von `//`, gefolgt von der Domain, gefolgt von `:`, gefolgt vom Port (der Standardport, `80` bzw. `443`, falls explizit angegeben).
+- Für URLs mit dem `file:`-Schema ist der Wert browserabhängig.
+- Für URLs mit dem `blob:`-Schema der Ursprung der URL nach `blob:`. Zum Beispiel hat `blob:https://mozilla.org` den Ursprung `https://mozilla.org`.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: mozSystem-Eigenschaft"
+title: "XMLHttpRequest: Eigenschaft mozSystem"
 short-title: mozSystem
 slug: Web/API/XMLHttpRequest/mozSystem
 l10n:
@@ -8,4 +8,4 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-**`mozSystem`** ist ein boolescher Wert. Wenn wahr, wird die Same-Origin-Policy für die Anfrage nicht durchgesetzt.
+**`mozSystem`** ist ein boolescher Wert. Wenn true, wird die Same-Origin-Policy bei der Anfrage nicht erzwungen.

@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Refresh`**-Antwortheader veranlasst einen Webbrowser, die Seite entweder zu aktualisieren oder umzuleiten, nachdem eine festgelegte Zeit vergangen ist, seit die Seite vollständig geladen wurde. Er ist genau äquivalent zur Verwendung des [`<meta http-equiv="refresh" content="...">`](/de/docs/Web/HTML/Element/meta#http-equiv) in HTML.
+Der **`Refresh`** Antwort-Header weist einen Webbrowser an, die Seite entweder zu aktualisieren oder weiterzuleiten, nachdem eine angegebene Zeitspanne seit dem vollständigen Laden der Seite vergangen ist. Er ist genau gleichbedeutend mit der Verwendung von [`<meta http-equiv="refresh" content="...">`](/de/docs/Web/HTML/Element/meta#http-equiv) in HTML.
 
 > [!NOTE]
-> Auch wenn er in der HTTP-Antwort vorhanden ist, wird der `Refresh`-Header trotzdem von der HTML-Lademechanik verarbeitet und findet nach HTTP- oder JavaScript-Weiterleitungen statt. Siehe [Reihenfolge der Weiterleitungspriorität](/de/docs/Web/HTTP/Redirections#order_of_precedence) für weitere Informationen.
+> Auch wenn er in der HTTP-Antwort vorhanden ist, wird der `Refresh`-Header immer noch von der HTML-Lademechanik verarbeitet und erfolgt nach HTTP- oder JavaScript-Weiterleitungen. Weitere Informationen finden Sie unter [Rangordnung der Weiterleitungen](/de/docs/Web/HTTP/Redirections#order_of_precedence).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -34,25 +34,25 @@ Refresh: <time>; url=<url>
 ```
 
 - `<time>`
-  - : Eine nicht-negative Anzahl von Sekunden, nach denen die Seite aktualisiert werden soll. Bruchteile werden erkannt, aber ignoriert; Sie sollten nur ganze Zahlen angeben.
+  - : Eine nicht-negative Anzahl von Sekunden, nach denen die Seite aktualisiert werden soll. Bruchteile werden erkannt, aber ignoriert; es sollten nur ganze Zahlen angegeben werden.
 - `<url>` {{optional_inline}}
-  - : Wenn vorhanden, wird der Browser zur angegebenen URL weiterleiten, anstatt mit der aktuellen URL zu aktualisieren. Diese URL kann in Anführungszeichen stehen oder nicht. Das Präfix `url=` ist nicht case-sensitiv und optional.
+  - : Wenn vorhanden, wird der Browser zur angegebenen URL weitergeleitet, anstatt mit der aktuellen URL zu aktualisieren. Diese URL kann mit oder ohne Anführungszeichen sein. Das `url=`-Präfix ist nicht fallabhängig und optional.
 
 ## Beispiele
 
-Dieser Header veranlasst den Browser, die Seite 5 Sekunden nachdem sie vollständig geladen wurde (das heißt, nach dem [`load`](/de/docs/Web/API/Window/load_event)-Ereignis) zu aktualisieren:
+Dieser Header bewirkt, dass der Browser die Seite 5 Sekunden nach ihrem vollständigen Laden (das heißt, nach dem [`load`](/de/docs/Web/API/Window/load_event) Ereignis) aktualisiert:
 
 ```http
 Refresh: 5
 ```
 
-Dieser Header veranlasst den Browser, 5 Sekunden nachdem die Seite vollständig geladen wurde, zur Startseite weiterzuleiten:
+Dieser Header bewirkt, dass der Browser zur Startseite weiterleitet 5 Sekunden nachdem die Seite vollständig geladen wurde:
 
 ```http
 Refresh: 5; url=https://example.com/
 ```
 
-Siehe das [`http-equiv="refresh"`](/de/docs/Web/HTML/Element/meta#refresh) Attribut in der HTML-Referenz für wichtige Informationen über die Zugänglichkeit von automatischen Weiterleitungen.
+Wichtige Informationen zu den Auswirkungen automatischer Weiterleitungen auf die Barrierefreiheit finden Sie im HTML-Verweis unter dem Attribut [`http-equiv="refresh"`](/de/docs/Web/HTML/Element/meta#refresh).
 
 ## Spezifikationen
 

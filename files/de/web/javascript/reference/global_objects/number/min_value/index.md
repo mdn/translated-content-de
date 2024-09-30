@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Daten-Eigenschaft **`Number.MIN_VALUE`** repräsentiert den kleinsten positiven numerischen Wert, der in JavaScript darstellbar ist.
+Die statische Dateneigenschaft **`Number.MIN_VALUE`** stellt den kleinsten positiven numerischen Wert dar, der in JavaScript repräsentiert werden kann.
 
 {{EmbedInteractiveExample("pages/js/number-min-value.html")}}
 
@@ -19,11 +19,11 @@ Die statische Daten-Eigenschaft **`Number.MIN_VALUE`** repräsentiert den kleins
 
 ## Beschreibung
 
-`Number.MIN_VALUE` ist die kleinste positive Zahl (nicht die negativste Zahl), die innerhalb der Fließkommapräzision dargestellt werden kann — mit anderen Worten, die Zahl, die am nächsten an 0 liegt. Die ECMAScript-Spezifikation definiert keinen genauen Wert, der von Implementierungen unterstützt werden muss — stattdessen heißt es in der Spezifikation: _"muss der kleinste nicht-null positive Wert sein, der tatsächlich durch die Implementierung dargestellt werden kann"_. Dies liegt daran, dass kleine IEEE-754-Fließkommazahlen [denormalisiert](https://en.wikipedia.org/wiki/Subnormal_number) sind, aber Implementierungen sind nicht verpflichtet, diese Darstellung zu unterstützen, in welchem Fall `Number.MIN_VALUE` möglicherweise größer ist.
+`Number.MIN_VALUE` ist die kleinste positive Zahl (nicht die am meisten negative Zahl), die innerhalb der Gleitkommapräzision dargestellt werden kann – mit anderen Worten, die Zahl, die am nächsten bei 0 liegt. Die ECMAScript-Spezifikation definiert keinen genauen Wert, den Implementierungen unterstützen müssen – stattdessen sagt die Spezifikation, dass es _„der kleinste von der Implementierung tatsächlich darstellbare von null verschiedener positiver Wert sein muss“_. Das liegt daran, dass kleine IEEE-754-Gleitkommazahlen [denormalisiert](https://en.wikipedia.org/wiki/Subnormal_number) sind, aber Implementierungen sind nicht verpflichtet, diese Darstellung zu unterstützen, in welchem Fall `Number.MIN_VALUE` größer sein kann.
 
-In der Praxis beträgt der genaue Wert in verbreiteten Engines wie V8 (verwendet von Chrome, Edge, Node.js), SpiderMonkey (verwendet von Firefox) und JavaScriptCore (verwendet von Safari) 2<sup>-1074</sup> oder `5E-324`.
+In der Praxis beträgt der genaue Wert in gängigen Engines wie V8 (verwendet von Chrome, Edge, Node.js), SpiderMonkey (verwendet von Firefox) und JavaScriptCore (verwendet von Safari) 2<sup>-1074</sup> oder `5E-324`.
 
-Da `MIN_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MIN_VALUE` und nicht als eine Eigenschaft eines Zahlenwertes.
+Da `MIN_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MIN_VALUE` und nicht als Eigenschaft eines Zahlenwerts.
 
 ## Beispiele
 

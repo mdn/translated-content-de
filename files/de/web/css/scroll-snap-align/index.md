@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-snap-align`-Eigenschaft legt die Schnapp-Position des Rahmens als Ausrichtung seines Schnapp-Bereichs (als Ausrichtungsobjekt) innerhalb des Schnapp-Ports seines Schnapp-Containers (als Ausrichtungs-Container) fest.
+Die Eigenschaft `scroll-snap-align` gibt die Snap-Position der Box als Ausrichtung ihres Snap-Bereichs (als Ausrichtungsobjekt) innerhalb des Snap-Ports ihres Snap-Containers (als Ausrichtungscontainer) an.
 
 {{EmbedInteractiveExample("pages/css/scroll-snap-align.html")}}
 
@@ -35,16 +35,16 @@ scroll-snap-align: unset;
 
 ### Werte
 
-Für die `scroll-snap-align`-Eigenschaft können ein oder zwei Werte angegeben werden. Wenn ein Wert gesetzt wird, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte gesetzt werden, steuert der erste Wert die Blockachse und der zweite Wert die Inline-Achse.
+Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte festgelegt sind, steuert der erste Wert die Blockachse und der zweite Wert die Inline-Achse.
 
 - `none`
-  - : Der Rahmen definiert keine Schnapp-Position in dieser Achse.
+  - : Die Box definiert keine Snap-Position in dieser Achse.
 - `start`
-  - : Die Startausrichtung des Schnappbereichs dieses Rahmens ist innerhalb des Schnapp-Ports des Scroll-Containers eine Schnapp-Position in dieser Achse.
+  - : Die Anfangsausrichtung des Scroll-Snap-Bereichs dieser Box innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 - `end`
-  - : Die Endausrichtung des Schnappbereichs dieses Rahmens ist innerhalb des Schnapp-Ports des Scroll-Containers eine Schnapp-Position in dieser Achse.
+  - : Die Endausrichtung des Scroll-Snap-Bereichs dieser Box innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 - `center`
-  - : Die Mittelausrichtung des Schnappbereichs dieses Rahmens ist innerhalb des Schnapp-Ports des Scroll-Containers eine Schnapp-Position in dieser Achse.
+  - : Die Mittelausrichtung des Scroll-Snap-Bereichs dieser Box innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 
 ## Formale Definition
 
@@ -65,4 +65,4 @@ Für die `scroll-snap-align`-Eigenschaft können ein oder zwei Werte angegeben w
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Well-controlled scrolling with CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

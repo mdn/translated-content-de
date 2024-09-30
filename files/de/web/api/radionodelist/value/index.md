@@ -1,5 +1,5 @@
 ---
-title: "RadioNodeList: Wert-Eigenschaft"
+title: "RadioNodeList: value-Eigenschaft"
 short-title: value
 slug: Web/API/RadioNodeList/value
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Wenn die zugrunde liegende Elementesammlung Radio-Buttons enthält, repräsentiert die **`RadioNodeList.value`**-Eigenschaft den ausgewählten Radio-Button. Beim Abrufen der `value`-Eigenschaft wird der `value` des aktuell ausgewählten Radio-Buttons als String zurückgegeben. Enthält die Sammlung keine Radio-Buttons oder befindet sich keiner der Radio-Buttons in der Sammlung im ausgewählten Zustand, wird der leere String zurückgegeben. Beim Setzen der `value`-Eigenschaft wird das erste Radio-Button-Input-Element, dessen `value`-Eigenschaft mit dem neuen Wert übereinstimmt, auf ausgewählt gesetzt.
+Wenn die zugrunde liegende Elementkollektion Radio-Buttons enthält, repräsentiert die **`RadioNodeList.value`**-Eigenschaft den ausgewählten Radio-Button. Beim Abrufen der `value`-Eigenschaft wird der `value` des momentan ausgewählten (`checked`) Radio-Buttons als Zeichenkette zurückgegeben. Wenn die Sammlung keine Radio-Buttons enthält oder keiner der Radio-Buttons in der Sammlung im `checked`-Zustand ist, wird eine leere Zeichenkette zurückgegeben. Beim Festlegen der `value`-Eigenschaft wird der erste Radio-Button-Input, dessen `value`-Eigenschaft dem neuen Wert entspricht, auf `checked` gesetzt.
 
 ## Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: "CustomElementRegistry: get()-Methode"
+title: "CustomElementRegistry: get() Methode"
 short-title: get()
 slug: Web/API/CustomElementRegistry/get
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`get()`**-Methode der
-[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle gibt den Konstruktor für ein
-zuvor definiertes benutzerdefiniertes Element zurück.
+Die **`get()`**-Methode des
+[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Interfaces gibt den Konstruktor für ein zuvor definiertes benutzerdefiniertes Element zurück.
 
 ## Syntax
 
@@ -25,7 +24,7 @@ get(name)
 
 ### Rückgabewert
 
-Der Konstruktor für das benannte benutzerdefinierte Element oder {{jsxref("undefined")}}, wenn kein benutzerdefiniertes Element mit dem Namen definiert ist.
+Der Konstruktor für das benannte benutzerdefinierte Element oder {{jsxref("undefined")}}, wenn kein benutzerdefiniertes Element mit diesem Namen definiert ist.
 
 ## Beispiele
 

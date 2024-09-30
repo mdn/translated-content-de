@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces ist ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/fieldset#disabled)-Attribut des {{htmlelement("fieldset")}}-Elements widerspiegelt und anzeigt, ob die Steuerung deaktiviert ist.
+Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) ist ein boolescher Wert, der das `disabled`-Attribut des {{htmlelement("fieldset")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob die Steuerung deaktiviert ist.
 
-Wenn es deaktiviert ist, sind alle Formularsteuerungselemente, die Nachfahren des `<fieldset>`-Elements sind, mit Ausnahme von Elementen, die Nachfahren des {{htmlelement("legend")}}-Kindes des `<fieldset>` sind, falls vorhanden, deaktiviert. Ein deaktiviertes Element ist nicht benutzbar und nicht anklickbar und entspricht dem {{cssxref(":disabled")}}-Selektor, auch wenn ihr `disabled`-Eigenschaftswert false ist.
+Wenn deaktiviert, sind alle Formularsteuerelemente, die Nachkommen des `<fieldset>`-Elements sind, mit Ausnahme der Elemente, die Nachkommen des {{htmlelement("legend")}}-Kindes des `<fieldset>` sind, falls vorhanden, deaktiviert. Ein deaktiviertes Element ist nicht benutzbar und nicht anklickbar und entspricht dem {{cssxref(":disabled")}}-Selektor, selbst wenn der Wert ihrer `disabled`-Eigenschaft falsch ist.
 
 ## Wert
 
@@ -35,4 +35,4 @@ fs.disabled = true;
 ## Siehe auch
 
 - HTML-Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-- CSS-Pseudoklassen {{cssxref(":disabled")}} und {{cssxref(":enabled")}}
+- CSS-Selektoren {{cssxref(":disabled")}} und {{cssxref(":enabled")}} Pseudoklassen

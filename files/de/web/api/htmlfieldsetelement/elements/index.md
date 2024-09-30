@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`elements`** schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt zurück, das alle Formularsteuerelemente ({{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}) enthält, die Nachkommen dieses `fieldset` sind.
+Die **`elements`** schreibgeschützte Eigenschaft der [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Schnittstelle gibt ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt zurück, das alle Formularsteuerelemente ({{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}) enthält, die Nachkommen dieses Feldsets sind.
 
-Sie können auf ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung zugreifen, indem Sie entweder einen Index oder die `name`- oder `id`-Attribute des Elements verwenden. Wenn mehrere Formularsteuerelemente denselben Namen teilen, wie es bei einer Gruppe von Optionsfeldern üblich ist, wird bei Verwendung des geteilten Namens das erste Element mit diesem Wert zurückgegeben.
+Sie können auf ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung zugreifen, indem Sie entweder einen Index oder die `name`- oder `id`-Attribute des Elements verwenden. Wenn mehrere Formularsteuerelemente denselben Namen teilen, wie es häufig bei einer Gruppe von Optionsfeldern der Fall ist, gibt die Verwendung des geteilten Namens das erste Element mit diesem Wert zurück.
 
 ## Wert
 

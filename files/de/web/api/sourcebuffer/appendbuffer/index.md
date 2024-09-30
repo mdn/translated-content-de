@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`appendBuffer()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces fügt Mediasegmentdaten aus einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt dem `SourceBuffer` hinzu.
+Die **`appendBuffer()`**-Methode der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle fügt Mediensegmentdaten aus einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt zum `SourceBuffer` hinzu.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ appendBuffer(source)
 ### Parameter
 
 - `source`
-  - : Entweder ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das die Mediasegmentdaten enthält, die Sie dem `SourceBuffer` hinzufügen möchten.
+  - : Entweder ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das die Mediensegmentdaten enthält, die Sie dem `SourceBuffer` hinzufügen möchten.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keine.
 
 ## Beispiele
 
-Noch zu bestimmen.
+TBD.
 
 ## Spezifikationen
 

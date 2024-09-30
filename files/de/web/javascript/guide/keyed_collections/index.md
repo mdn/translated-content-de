@@ -1,5 +1,5 @@
 ---
-title: Schlüsselbasierte Sammlungen
+title: Keyed collections
 slug: Web/JavaScript/Guide/Keyed_collections
 l10n:
   sourceCommit: 4d150067b98ab6e79e6f6b0bf8343ae3ebd2b641
@@ -7,15 +7,15 @@ l10n:
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Indexed_collections", "Web/JavaScript/Guide/Working_with_objects")}}
 
-Dieses Kapitel führt Sammlungen von Daten ein, die durch einen Schlüssel indexiert sind; `Map`- und `Set`-Objekte enthalten Elemente, die in der Reihenfolge der Einfügung iterierbar sind.
+Dieses Kapitel führt Sammlungen von Daten ein, die durch einen Schlüssel indiziert sind; `Map`- und `Set`-Objekte enthalten Elemente, die in der Reihenfolge der Einfügung iterierbar sind.
 
 ## Maps
 
 ### Map-Objekt
 
-Ein {{jsxref("Map")}}-Objekt ist eine einfache Schlüssel/Wert-Zuordnung und kann seine Elemente in der Einfügereihenfolge durchlaufen.
+Ein {{jsxref("Map")}}-Objekt ist eine einfache Schlüssel/Wert-Karte und kann seine Elemente in Einfüge-Reihenfolge iterieren.
 
-Der folgende Code zeigt einige grundlegende Operationen mit einer `Map`. Weitere Beispiele und die vollständige API finden Sie auf der {{jsxref("Map")}}-Referenzseite. Sie können eine {{jsxref("Statements/for...of", "for...of")}}-Schleife verwenden, um bei jedem Durchlauf ein Array von `[key, value]` zurückzugeben.
+Der folgende Code zeigt einige grundlegende Operationen mit einer `Map`. Weitere Beispiele und die vollständige API finden Sie auf der {{jsxref("Map")}}-Referenzseite. Sie können eine {{jsxref("Statements/for...of", "for...of")}}-Schleife verwenden, um ein Array von `[key, value]` für jede Iteration zurückzugeben.
 
 ```js
 const sayings = new Map();
@@ -39,30 +39,30 @@ sayings.clear();
 sayings.size; // 0
 ```
 
-### Vergleich zwischen Object und Map
+### Vergleich zwischen Objekt und Map
 
-Traditionell wurden {{jsxref("Object", "Objekte", "", 1)}} verwendet, um Strings auf Werte abzubilden. Objekte ermöglichen es Ihnen, Schlüssel auf Werte zu setzen, diese Werte abzurufen, Schlüssel zu löschen und zu erkennen, ob etwas unter einem Schlüssel gespeichert ist. `Map`-Objekte haben jedoch einige Vorteile, die sie zu besseren Zuordnungen machen.
+Traditionell wurden {{jsxref("Object", "Objekte", "", 1)}} verwendet, um Zeichenfolgen auf Werte abzubilden. Objekte ermöglichen es, Schlüssel auf Werte zu setzen, diese Werte abzurufen, Schlüssel zu löschen und zu erkennen, ob etwas unter einem Schlüssel gespeichert ist. `Map`-Objekte haben jedoch einige Vorteile, die sie zu besseren Karten machen.
 
-- Die Schlüssel eines `Object` sind [Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String) oder [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), während für eine `Map` jeder Wert als Schlüssel verwendet werden kann.
-- Sie können die `Größe` einer `Map` einfach abrufen, während Sie die Größe für ein `Object` manuell nachverfolgen müssen.
-- Die Iteration von Maps erfolgt in der Einfügereihenfolge der Elemente.
-- Ein `Object` hat ein Prototyp, daher sind in der Zuordnung Standard-Schlüssel enthalten. (Dies kann umgangen werden, indem `map = Object.create(null)` verwendet wird.)
+- Die Schlüssel eines `Object` sind [Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String) oder [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), während sie bei einer `Map` jeden beliebigen Wert haben können.
+- Sie können die `size` einer `Map` leicht ermitteln, während Sie bei einem `Object` die Größe manuell verfolgen müssen.
+- Die Iteration von Maps erfolgt in der Einfüge-Reihenfolge der Elemente.
+- Ein `Object` hat ein Prototyp, sodass es Standard-Schlüssel in der Karte gibt. (Dies kann umgangen werden, indem `map = Object.create(null)` verwendet wird.)
 
-Diese drei Tipps können Ihnen helfen, zu entscheiden, ob Sie eine `Map` oder ein `Object` verwenden sollten:
+Diese drei Tipps können Ihnen helfen zu entscheiden, ob Sie eine `Map` oder ein `Object` verwenden:
 
-- Verwenden Sie Maps anstelle von Objekten, wenn Schlüssel zur Laufzeit unbekannt sind und alle Schlüssel und Werte vom gleichen Typ sind.
-- Verwenden Sie Maps, wenn es notwendig ist, primitive Werte als Schlüssel zu speichern, da Objekte jeden Schlüssel als String behandeln, unabhängig davon, ob es sich um einen Zahlenwert, einen booleschen Wert oder einen anderen primitiven Wert handelt.
-- Verwenden Sie Objekte, wenn es eine Logik gibt, die auf einzelnen Elementen arbeitet.
+- Verwenden Sie Maps statt Objekten, wenn Schlüssel zur Laufzeit unbekannt sind und alle Schlüssel denselben Typ und alle Werte denselben Typ haben.
+- Verwenden Sie Maps, wenn primitive Werte als Schlüssel gespeichert werden müssen, da Objekte jeden Schlüssel als Zeichenfolge behandeln, egal ob es ein Zahlenwert, ein Boolescher Wert oder ein anderer primitiver Wert ist.
+- Verwenden Sie Objekte, wenn eine Logik vorliegt, die auf einzelne Elemente angewendet wird.
 
 ### WeakMap-Objekt
 
-Eine {{jsxref("WeakMap")}} ist eine Sammlung von Schlüssel/Wert-Paaren, deren Schlüssel Objekte oder [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) und deren Werte beliebige [JavaScript-Typen](/de/docs/Web/JavaScript/Data_structures) sein müssen. Es erstellt keine starken Referenzen zu seinen Schlüsseln. Das bedeutet, dass die Anwesenheit eines Objekts als Schlüssel in einer `WeakMap` nicht verhindert, dass das Objekt vom Garbage Collector gesammelt wird. Sobald ein Objekt, das als Schlüssel verwendet wurde, gesammelt wurde, werden seine entsprechenden Werte in jeder `WeakMap` ebenfalls zu Kandidaten für die Garbage Collection, solange sie nicht anderweitig stark referenziert werden. Der einzige primitive Typ, der als `WeakMap`-Schlüssel verwendet werden kann, ist das Symbol — genauer gesagt [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) — weil nicht registrierte Symbole garantiert einzigartig sind und nicht erneut erstellt werden können.
+Ein {{jsxref("WeakMap")}} ist eine Sammlung von Schlüssel/Wert-Paaren, deren Schlüssel Objekte oder [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein müssen, mit Werten eines beliebigen [JavaScript-Typs](/de/docs/Web/JavaScript/Data_structures), und die keine starken Referenzen zu ihren Schlüsseln erstellen. Das bedeutet, dass die Präsenz eines Objekts als Schlüssel in einer `WeakMap` nicht verhindert, dass das Objekt vom Speicherbereinigungsprozess erfasst wird. Sobald ein Objekt, das als Schlüssel verwendet wird, gesammelt wurde, werden seine entsprechenden Werte in jeder `WeakMap` ebenfalls Kandidaten zur Speicherbereinigung - solange sie nicht stark anderswo referenziert werden. Der einzige primitive Typ, der als `WeakMap`-Schlüssel verwendet werden kann, ist das Symbol - genauer gesagt [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) - da nicht-registrierte Symbole garantiert einzigartig sind und nicht neu erstellt werden können.
 
-Die `WeakMap`-API ist im Wesentlichen die gleiche wie die `Map`-API. Eine `WeakMap` erlaubt jedoch nicht, die Lebendigkeit ihrer Schlüssel zu beobachten, weshalb sie keine Aufzählung erlaubt. Es gibt also keine Methode, um eine Liste der Schlüssel in einer `WeakMap` zu erhalten. Wäre dies möglich, würde die Liste vom Zustand der Garbage Collection abhängen, was nicht-deterministisches Verhalten einführen würde.
+Die `WeakMap`-API ist im Wesentlichen die gleiche wie die `Map`-API. Eine `WeakMap` erlaubt jedoch nicht die Beobachtung der Lebensdauer ihrer Schlüssel, weshalb sie keine Aufzählung ermöglicht. Es gibt also keine Methode zur Erzeugung einer Liste der Schlüssel in einer `WeakMap`. Wenn es eine gäbe, wäre die Liste vom Zustand der Speicherbereinigung abhängig und würde Nichtdeterminismus einführen.
 
-Weitere Informationen und Beispielcode finden Sie auch unter "Warum WeakMap?" auf der {{jsxref("WeakMap")}}-Referenzseite.
+Weitere Informationen und Beispielcode finden Sie auch auf der Referenzseite "Warum WeakMap?" auf der {{jsxref("WeakMap")}}-Referenzseite.
 
-Eine Anwendungsfall für `WeakMap`-Objekte ist das Speichern privater Daten für ein Objekt oder das Verbergen von Implementierungsdetails. Das folgende Beispiel stammt aus Nick Fitzgeralds Blogeintrag ["Hiding Implementation Details with ECMAScript 6 WeakMaps"](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html). Die privaten Daten und Methoden gehören in das Objekt und werden im `privates`-Objekt gespeichert, welches eine `WeakMap` ist. Alles, was auf der Instanz und im Prototyp bereitgestellt wird, ist öffentlich; alles andere ist von der Außenwelt unzugänglich, da `privates` nicht aus dem Modul exportiert wird.
+Ein Anwendungsfall für `WeakMap`-Objekte ist die Speicherung privater Daten für ein Objekt oder das Verbergen von Implementierungsdetails. Das folgende Beispiel stammt aus Nick Fitzgeralds Blogbeitrag ["Hiding Implementation Details with ECMAScript 6 WeakMaps"](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html). Die privaten Daten und Methoden gehören in das Objekt und werden im `privates`-Objekt gespeichert, das eine `WeakMap` ist. Alles, was auf der Instanz und dem Prototyp freigelegt wird, ist öffentlich; alles andere ist von der Außenwelt unzugänglich, da `privates` nicht aus dem Modul exportiert wird.
 
 ```js
 const privates = new WeakMap();
@@ -87,7 +87,7 @@ module.exports = Public;
 
 ### Set-Objekt
 
-{{jsxref("Set")}}-Objekte sind Sammlungen einzigartiger Werte. Sie können seine Elemente in der Einfügereihenfolge iterieren. Ein Wert in einem `Set` darf nur einmal vorkommen; er ist einzigartig in der Sammlung des `Set`.
+{{jsxref("Set")}}-Objekte sind Sammlungen einzigartiger Werte. Sie können seine Elemente in der Reihenfolge der Einfügung iterieren. Ein Wert in einem `Set` kann nur einmal auftreten; er ist einzigartig in der Sammlung des `Set`.
 
 Der folgende Code zeigt einige grundlegende Operationen mit einem `Set`. Weitere Beispiele und die vollständige API finden Sie auf der {{jsxref("Set")}}-Referenzseite.
 
@@ -108,11 +108,11 @@ for (const item of mySet) {
 // "some text"
 ```
 
-### Umwandlung zwischen Array und Set
+### Konvertieren zwischen Array und Set
 
-Sie können ein {{jsxref("Array")}} aus einem Set erstellen, indem Sie {{jsxref("Array.from")}} oder die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) verwenden. Auch der `Set`-Konstruktor akzeptiert ein `Array` zur Umwandlung in die andere Richtung.
+Sie können ein {{jsxref("Array")}} aus einem Set mit {{jsxref("Array.from")}} oder der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) erstellen. Auch der `Set`-Konstruktor akzeptiert ein `Array`, um in die andere Richtung zu konvertieren.
 
-> **Note:** `Set`-Objekte speichern _einzigartige Werte_—sodass alle doppelten Elemente aus einem Array beim Umwandeln gelöscht werden!
+> **Hinweis:** `Set`-Objekte speichern _einzigartige Werte_ – also werden alle doppelten Elemente aus einem Array beim Konvertieren gelöscht!
 
 ```js
 Array.from(mySet);
@@ -121,33 +121,33 @@ Array.from(mySet);
 mySet2 = new Set([1, 2, 3, 4]);
 ```
 
-### Vergleich zwischen Array und Set
+### Vergleich von Array und Set
 
-Traditionell wurde eine Menge von Elementen in JavaScript in vielen Situationen in Arrays gespeichert. Das `Set`-Objekt hat jedoch einige Vorteile:
+Traditionell wurden in vielen Situationen in JavaScript Arrays verwendet, um eine Menge von Elementen zu speichern. Das `Set`-Objekt hat jedoch einige Vorteile:
 
 - Das Löschen von Array-Elementen nach Wert (`arr.splice(arr.indexOf(val), 1)`) ist sehr langsam.
-- `Set`-Objekte ermöglichen es, Elemente nach ihrem Wert zu löschen. Mit einem Array müssten Sie mittels `splice` basierend auf dem Index eines Elements löschen.
-- Der Wert {{jsxref("NaN")}} kann mit `indexOf` in einem Array nicht gefunden werden.
-- `Set`-Objekte speichern einzigartige Werte. Sie müssen nicht manuell Duplikate nachverfolgen.
+- `Set`-Objekte ermöglichen das Löschen von Elementen nach ihrem Wert. Bei einem Array müssten Sie `splice` basierend auf dem Index eines Elements durchführen.
+- Der Wert {{jsxref("NaN")}} kann nicht über `indexOf` in einem Array gefunden werden.
+- `Set`-Objekte speichern einzigartige Werte. Sie müssen Duplikate nicht manuell verfolgen.
 
 ### WeakSet-Objekt
 
-{{jsxref("WeakSet")}}-Objekte sind Sammlungen von garbage-collected Werten, einschließlich Objekten und [nicht registrierten Symbolen](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry). Ein Wert in der `WeakSet` kann nur einmal vorkommen. Er ist einzigartig in der Sammlung des `WeakSet`.
+{{jsxref("WeakSet")}}-Objekte sind Sammlungen von speicherbereinigbaren Werten, einschließlich Objekten und [nicht-registrierten Symbolen](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry). Ein Wert im `WeakSet` kann nur einmal auftreten. Er ist einzigartig in der Sammlung des `WeakSet`.
 
 Die Hauptunterschiede zum {{jsxref("Set")}}-Objekt sind:
 
-- Im Gegensatz zu `Sets` sind `WeakSets` **Sammlungen von _Objekten oder nur Symbolen_** und nicht von beliebigen Werten beliebiger Typen.
-- Das `WeakSet` ist _schwach_: Referenzen zu Objekten in der Sammlung werden schwach gehalten. Wenn es keine andere Referenz zu einem in der `WeakSet` gespeicherten Objekt gibt, können sie vom Garbage Collector gesammelt werden. Das bedeutet auch, dass es keine Liste der aktuellen Objekte in der Sammlung gibt.
+- Im Gegensatz zu `Sets` sind `WeakSets` **Sammlungen nur von _Objekten oder Symbolen_,** und nicht von beliebigen Werten jeglichen Typs.
+- Das `WeakSet` ist _schwach_: Referenzen auf Objekte in der Sammlung werden schwach gehalten. Wenn es keine andere Referenz zu einem im `WeakSet` gespeicherten Objekt gibt, können sie gesammelt werden. Das bedeutet auch, dass es keine Liste aktueller Objekte in der Sammlung gibt.
 - `WeakSets` sind nicht aufzählbar.
 
-Die Einsatzmöglichkeiten von `WeakSet`-Objekten sind begrenzt. Sie lecken keinen Speicher, sodass es sicher sein kann, DOM-Elemente als Schlüssel zu verwenden und sie zum Verfolgen von Zwecken zu markieren, zum Beispiel.
+Die Anwendungsfälle von `WeakSet`-Objekten sind begrenzt. Sie lecken keinen Speicher, daher kann es sicher sein, DOM-Elemente als Schlüssel zu verwenden und sie beispielsweise zu Markierungszwecken zu nutzen.
 
 ## Schlüssel- und Wertgleichheit von Map und Set
 
-Sowohl die Schlüsselgleichheit von `Map`-Objekten als auch die Wertgleichheit von `Set`-Objekten basieren auf dem [SameValueZero Algorithmus](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality):
+Sowohl die Schlüsselgleichheit von `Map`-Objekten als auch die Wertgleichheit von `Set`-Objekten basieren auf dem [SameValueZero-Algorithmus](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality):
 
 - Die Gleichheit funktioniert wie der Identitätsvergleichsoperator `===`.
 - `-0` und `+0` werden als gleich angesehen.
-- {{jsxref("NaN")}} wird als gleich zu sich selbst betrachtet (im Gegensatz zu `===`).
+- {{jsxref("NaN")}} wird als gleich zu sich selbst angesehen (entgegen `===`).
 
 {{PreviousNext("Web/JavaScript/Guide/Indexed_collections", "Web/JavaScript/Guide/Working_with_objects")}}

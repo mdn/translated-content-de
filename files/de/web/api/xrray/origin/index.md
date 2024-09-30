@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`origin`**-Eigenschaft des [`XRRay`](/de/docs/Web/API/XRRay)-Interfaces ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den dreidimensionalen Punkt im Raum darstellt, von dem der Strahl ausgeht, in Metern.
+Die _schreibgeschützte_ **`origin`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den dreidimensionalen Punkt im Raum darstellt, von dem der Strahl ausgeht, in Metern.
 
 ## Wert
 

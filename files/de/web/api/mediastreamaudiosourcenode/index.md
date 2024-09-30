@@ -7,15 +7,15 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`MediaStreamAudioSourceNode`**-Schnittstelle ist ein Typ von [`AudioNode`](/de/docs/Web/API/AudioNode), der als Audioquelle fungiert, deren Medien von einem [`MediaStream`](/de/docs/Web/API/MediaStream) empfangen werden, der mit den WebRTC- oder Media-Capture-and-Streams-APIs gewonnen wurde.
+Das **`MediaStreamAudioSourceNode`** Interface ist eine Art von [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert, deren Medien von einem [`MediaStream`](/de/docs/Web/API/MediaStream) empfangen werden, der mit den WebRTC- oder Media Capture- und Streams-APIs gewonnen wurde.
 
-Diese Medien können von einem Mikrofon stammen (durch [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)) oder von einem entfernten Teilnehmer in einem WebRTC-Anruf (unter Verwendung der Audiotracks der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)).
+Diese Medien könnten von einem Mikrofon (über [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)) oder von einem entfernten Teilnehmer in einem WebRTC-Gespräch (Verwendung der Audio-Tracks von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)) stammen.
 
-Ein `MediaStreamAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird mit der Methode [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource) erstellt.
+Ein `MediaStreamAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird mit der [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource) Methode erstellt.
 
-Der `MediaStreamAudioSourceNode` erhält das Audio von dem _ersten_ [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Attributswert `audio` ist. Siehe [Track-Reihenfolge](#track-reihenfolge) für weitere Informationen über die Reihenfolge der Tracks.
+Das `MediaStreamAudioSourceNode` nimmt das Audio vom _ersten_ [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) Attributswert `audio` ist. Siehe [Track-Reihenfolge](#track-reihenfolge) für weitere Informationen über die Reihenfolge der Tracks.
 
-Die Anzahl der vom Knoten ausgegebenen Kanäle entspricht der Anzahl der im ausgewählten Audiotrack gefundenen Tracks.
+Die Anzahl der Kanäle, die vom Knoten ausgegeben werden, stimmt mit der Anzahl der Tracks überein, die im ausgewählten Audio-Track gefunden werden.
 
 {{InheritanceDiagram}}
 
@@ -32,7 +32,7 @@ Die Anzahl der vom Knoten ausgegebenen Kanäle entspricht der Anzahl der im ausg
     <tr>
       <th scope="row">Anzahl der Kanäle</th>
       <td>
-        2 (aber beachten Sie, dass [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) nur für das Up-Mixing und Down-Mixing von [`AudioNode`](/de/docs/Web/API/AudioNode)-Eingängen verwendet wird und <code>MediaStreamAudioSourceNode</code> keine Eingänge hat)
+        2 (beachten Sie jedoch, dass [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) nur für das Up- und Down-Mixing von [`AudioNode`](/de/docs/Web/API/AudioNode)-Eingängen verwendet wird, und <code>MediaStreamAudioSourceNode</code> hat keine Eingänge)
       </td>
     </tr>
   </tbody>
@@ -41,30 +41,30 @@ Die Anzahl der vom Knoten ausgegebenen Kanäle entspricht der Anzahl der im ausg
 ## Konstruktor
 
 - [`MediaStreamAudioSourceNode()`](/de/docs/Web/API/MediaStreamAudioSourceNode/MediaStreamAudioSourceNode)
-  - : Erstellt eine neue `MediaStreamAudioSourceNode`-Objektinstanz mit den angegebenen Optionen.
+  - : Erstellt eine neue `MediaStreamAudioSourceNode` Objektinstanz mit den angegebenen Optionen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Neben den folgenden Eigenschaften erbt `MediaStreamAudioSourceNode` die Eigenschaften seines Elternteils, [`AudioNode`](/de/docs/Web/API/AudioNode)._
+_Zusätzlich zu den folgenden Eigenschaften erbt `MediaStreamAudioSourceNode` die Eigenschaften seines Elternteils, [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 - [`mediaStream`](/de/docs/Web/API/MediaStreamAudioSourceNode/mediaStream) {{ReadOnlyInline}}
   - : Der [`MediaStream`](/de/docs/Web/API/MediaStream), der beim Erstellen dieses `MediaStreamAudioSourceNode` verwendet wurde.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## Nutzungsnotizen
+## Verwendungshinweise
 
 ### Track-Reihenfolge
 
-Für die Zwecke der `MediaStreamTrackAudioSourceNode`-Schnittstelle wird die Reihenfolge der Audiotracks im Stream dadurch bestimmt, dass die Tracks mit [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` genommen und dann nach den Werten ihrer [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Eigenschaft in Unicode-Codepunkt-Reihenfolge sortiert werden (im Wesentlichen in alphabetischer oder lexikographischer Reihenfolge für IDs, die einfache alphanumerische Zeichenfolgen sind).
+Für die Zwecke des `MediaStreamTrackAudioSourceNode` Interface wird die Reihenfolge der Audiotracks im Stream dadurch bestimmt, dass die Tracks, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist, genommen und die Tracks dann nach den Werten ihrer [`id`](/de/docs/Web/API/MediaStreamTrack/id) Eigenschaft in Unicode-Codepoint-Reihenfolge sortiert werden (im Wesentlichen in alphabetischer oder lexikographischer Reihenfolge für IDs, die einfache alphanumerische Zeichenketten sind).
 
-Der **erste** Track ist dann der, dessen `id` zuerst kommt, wenn die IDs der Tracks alle nach Unicode-Codepunkten sortiert sind.
+Der **erste** Track ist dann der Track, dessen `id` zuerst kommt, wenn die IDs der Tracks alle in Unicode-Codepoint-Reihenfolge sortiert sind.
 
-Es ist jedoch wichtig zu beachten, dass die Regel zur Festlegung dieser Reihenfolge lange nach der Einführung dieser Schnittstelle in die [Web Audio API](/de/docs/Web/API/Web_Audio_API) hinzugefügt wurde. Daher kann man sich nicht leicht darauf verlassen, dass die Reihenfolge zwischen verschiedenen Browsern oder Browserversionen übereinstimmt.
+Es ist jedoch wichtig zu beachten, dass die Regel, die diese Reihenfolge festlegt, lange nach der ersten Einführung dieses Interfaces in die [Web Audio API](/de/docs/Web/API/Web_Audio_API) hinzugefügt wurde. Daher können Sie sich nicht einfach darauf verlassen, dass die Reihenfolge zwischen zwei Browsern oder Browserversionen übereinstimmt.
 
-Die [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Schnittstelle ist ähnlich wie `MediaStreamAudioSourceNode`, vermeidet jedoch dieses Problem, indem Sie angeben können, welchen Track Sie verwenden möchten.
+Das [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) Interface ist ähnlich wie `MediaStreamAudioSourceNode`, vermeidet jedoch dieses Problem, indem es Ihnen erlaubt zu spezifizieren, welcher Track verwendet werden soll.
 
 ## Beispiel
 

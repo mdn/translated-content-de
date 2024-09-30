@@ -8,14 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeChild()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle entfernt einen Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
+Die **`removeChild()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
+entfernt einen Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
 
 > [!NOTE]
-> Solange eine Referenz auf das entfernte Kind aufrechterhalten wird,
-> existiert es noch im Speicher, ist jedoch nicht mehr Teil des DOM.
+> Solange ein Verweis auf das entfernte Kind beibehalten wird,
+> existiert es weiterhin im Speicher, ist aber nicht mehr Teil des DOM.
 > Es kann später im Code wiederverwendet werden.
 >
-> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und keine andere Referenz erhalten bleibt,
+> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und kein anderer Verweis beibehalten wird,
 > wird es nach kurzer Zeit [automatisch aus dem Speicher gelöscht](/de/docs/Web/JavaScript/Memory_management).
 
 Im Gegensatz zu [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) behält der Rückgabewert die mit ihm verbundenen `EventListener`-Objekte bei.
@@ -29,7 +30,7 @@ removeChild(child)
 ### Parameter
 
 - `child`
-  - : Ein [`Node`](/de/docs/Web/API/Node), der der Kindknoten ist, der aus dem DOM entfernt werden soll.
+  - : Ein [`Node`](/de/docs/Web/API/Node), das der Kindknoten ist, der aus dem DOM entfernt werden soll.
 
 ### Ausnahmen
 
@@ -42,7 +43,7 @@ removeChild(child)
 
 ### Einfache Beispiele
 
-Angenommen, dieses HTML:
+Gegeben ist dieses HTML:
 
 ```html
 <div id="parent">
@@ -50,7 +51,7 @@ Angenommen, dieses HTML:
 </div>
 ```
 
-Um ein bestimmtes Element zu entfernen, wenn sein Elternknoten bekannt ist:
+Um ein bestimmtes Element zu entfernen, wenn sein übergeordneter Knoten bekannt ist:
 
 ```js
 const parent = document.getElementById("parent");
@@ -58,7 +59,7 @@ const child = document.getElementById("child");
 const throwawayNode = parent.removeChild(child);
 ```
 
-Um ein bestimmtes Element zu entfernen, ohne seinen Elternknoten angeben zu müssen:
+Um ein bestimmtes Element zu entfernen, ohne seinen übergeordneten Knoten angeben zu müssen:
 
 ```js
 const node = document.getElementById("child");
@@ -67,7 +68,7 @@ if (node.parentNode) {
 }
 ```
 
-Um alle Kinder eines Elements zu entfernen:
+Um alle Kinder von einem Element zu entfernen:
 
 ```js
 const element = document.getElementById("idOfParent");
@@ -76,7 +77,7 @@ while (element.firstChild) {
 }
 ```
 
-### TypeError verursachen
+### Einen TypeError verursachen
 
 ```html
 <!--Sample HTML code-->
@@ -91,7 +92,7 @@ const child = document.getElementById("child");
 const garbage = parent.removeChild(child);
 ```
 
-### NotFoundError verursachen
+### Einen NotFoundError verursachen
 
 ```html
 <!--Sample HTML code-->

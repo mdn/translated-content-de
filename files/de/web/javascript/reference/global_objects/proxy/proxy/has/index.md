@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.has()`** Methode ist eine Trap für die `[[HasProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/in", "in")}} Operator verwendet wird.
+Die Methode **`handler.has()`** ist eine Trap für die `[[HasProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/in", "in")}}-Operator verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-has.html", "taller")}}
 
@@ -22,7 +22,7 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `has()` Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden der `has()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
@@ -31,32 +31,32 @@ Die folgenden Parameter werden an die `has()` Methode übergeben. `this` ist an 
 
 ### Rückgabewert
 
-Die `has()` Methode muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob die Eigenschaft existiert oder nicht. Andere Werte werden [in Booleans konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die `has()`-Methode muss einen {{jsxref("Boolean")}} zurückgeben, der anzeigt, ob die Eigenschaft existiert oder nicht. Andere Werte werden in Booleans [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Interzeptionen
 
-Diese Trap kann diese Operationen abfangen:
+Diese Trap kann folgende Operationen abfangen:
 
-- Der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator: `foo in proxy`
-- [`with`](/de/docs/Web/JavaScript/Reference/Statements/with) Überprüfung: `with(proxy) { (foo); }`
+- Den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator: `foo in proxy`
+- [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Überprüfung: `with(proxy) { (foo); }`
 - {{jsxref("Reflect.has()")}}
 
 Oder jede andere Operation, die die `[[HasProperty]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[HasProperty]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[HasProperty]]`-interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Eine Eigenschaft darf nicht als nicht existent gemeldet werden, wenn sie als nicht konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `configurable: false` zurückgibt, muss die Trap `true` zurückgeben.
-- Eine Eigenschaft darf nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das bedeutet, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt, und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} einen Eigenschaftsdeskriptor für die Eigenschaft auf `target` zurückgibt, muss die Trap `true` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als nicht konfigurierbares eigenes Attribut des Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false` für die Eigenschaft auf `target` zurückgibt, muss die Trap `true` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` auf `target` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} einen Eigenschaftsbeschreiber für die Eigenschaft auf `target` zurückgibt, muss die Trap `true` zurückgeben.
 
 ## Beispiele
 
-### Abfangen des in Operators
+### Den in-Operator abfangen
 
-Der folgende Code fängt den {{jsxref("Operators/in", "in")}} Operator ab.
+Der folgende Code fängt den {{jsxref("Operators/in", "in")}}-Operator ab.
 
 ```js
 const p = new Proxy(

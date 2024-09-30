@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: Eigenschaft ideographicBaseline"
+title: "TextMetrics: Eigenschaft `ideographicBaseline`"
 short-title: ideographicBaseline
 slug: Web/API/TextMetrics/ideographicBaseline
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `ideographicBaseline` des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, das den Abstand von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegebenen horizontalen Linie zur ideographischen Grundlinie der Linienbox in CSS-Pixeln angibt.
+Die schreibgeschützte Eigenschaft `ideographicBaseline` des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, der den Abstand von der horizontalen Linie, die durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angezeigt wird, zur ideographischen Grundlinie des Linienkastens in CSS-Pixeln angibt.
 
 ## Beispiele
 

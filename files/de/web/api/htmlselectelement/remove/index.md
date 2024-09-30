@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: remove() Methode"
+title: "HTMLSelectElement: remove()-Methode"
 short-title: remove()
 slug: Web/API/HTMLSelectElement/remove
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.remove()`**-Methode entfernt das Element am angegebenen Index aus der Optionssammlung dieses Auswahl-Elements.
+Die **`HTMLSelectElement.remove()`**-Methode entfernt das Element am angegebenen Index aus der Optionssammlung für dieses `<select>`-Element.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Ein nullbasierter Ganzzahlwert für den Index des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement), das aus der Sammlung entfernt werden soll. Wenn der Index nicht gefunden wird, hat die Methode keine Auswirkung.
+  - : Ein nullbasierter Integer für den Index des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement), der aus der Sammlung entfernt werden soll. Wenn der Index nicht gefunden wird, hat die Methode keine Wirkung.
 
 ### Rückgabewert
 
@@ -59,5 +59,5 @@ HTML ist jetzt:
 
 ## Siehe auch
 
-- [`Element.remove`](/de/docs/Web/API/Element/remove), die Methode, die aufgerufen wird, wenn `remove` ohne Argumente auf ein [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) angewendet wird.
+- [`Element.remove`](/de/docs/Web/API/Element/remove), die Methode, die aufgerufen wird, wenn `remove` ohne Argumente auf einem [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) aufgerufen wird.
 - [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), das diese Methode implementiert.

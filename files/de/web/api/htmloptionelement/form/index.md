@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) besitzt, das mit diesem {{htmlelement("option")}} verbunden ist, oder `null`, wenn diese Option nicht mit einem {{htmlelement("select")}} verbunden ist, das von einem Formular besessen wird.
+Die **`form`**-Schreibgeschützte Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) besitzt, welches mit diesem {{htmlelement("option")}} verknüpft ist, oder `null`, wenn diese Option nicht mit einem {{htmlelement("select")}} verknüpft ist, das einem Formular gehört.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLSelectElement.form`](/de/docs/Web/API/HTMLSelectElement/form)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("option")}}
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden für HTML-Formulare](/de/docs/Learn/Forms)

@@ -8,28 +8,23 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`playbackState`**-Eigenschaft des
-[`MediaSession`](/de/docs/Web/API/MediaSession)-Interfaces gibt an, ob die aktuelle Mediensitzung
-wiedergegeben oder pausiert wird.
+Die **`playbackState`**-Eigenschaft der [`MediaSession`](/de/docs/Web/API/MediaSession)-Schnittstelle gibt an, ob die aktuelle Mediensitzung abgespielt oder pausiert wird.
 
 ## Wert
 
-Ein String, der den aktuellen Wiedergabestatus der Mediensitzung angibt.
-Der Wert kann einer der folgenden sein:
+Ein String, der den aktuellen Wiedergabestatus der Mediensitzung angibt. Der Wert kann einer der folgenden sein:
 
 - `none`
-  - : Der Browsing-Kontext kennt den aktuellen Wiedergabestatus derzeit nicht, oder der
+  - : Der Browsing-Kontext kennt den aktuellen Wiedergabestatus derzeit nicht oder der
     Wiedergabestatus ist zu diesem Zeitpunkt nicht verfügbar.
 - `paused`
   - : Die Medien-Sitzung des Browsers ist derzeit pausiert. Die Wiedergabe kann fortgesetzt werden.
 - `playing`
-  - : Die Medien-Sitzung des Browsers gibt derzeit Medien wieder, die pausiert werden können.
+  - : Die Medien-Sitzung des Browsers spielt derzeit Medien ab, die pausiert werden können.
 
 ## Beispiel
 
-Das folgende Beispiel richtet zwei Funktionen zum Abspielen und Pausieren ein und verwendet diese dann
-als Rückruf mit den entsprechenden Aktionshandlern. Jede Funktion nutzt die
-`playbackState`-Eigenschaft, um anzuzeigen, ob die Audiodatei abgespielt oder pausiert wird.
+Im folgenden Beispiel werden zwei Funktionen zum Abspielen und Pausieren eingerichtet und dann als Rückruf mit den entsprechenden Aktionshandlern verwendet. Jede Funktion nutzt die `playbackState`-Eigenschaft, um anzuzeigen, ob das Audio abgespielt oder pausiert wird.
 
 ```js
 const actionHandlers = [

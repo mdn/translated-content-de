@@ -1,5 +1,5 @@
 ---
-title: "UIEvent: which-Eigenschaft"
+title: "UIEvent: which Eigenschaft"
 short-title: which
 slug: Web/API/UIEvent/which
 l10n:
@@ -8,32 +8,30 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die schreibgeschützte Eigenschaft **`UIEvent.which`** des [`UIEvent`](/de/docs/Web/API/UIEvent)-Interfaces gibt eine Zahl zurück, die angibt, welche Taste auf der Maus gedrückt wurde, oder den numerischen `keyCode` oder den Zeichencode (`charCode`) der auf der Tastatur gedrückten Taste.
+Die schreibgeschützte Eigenschaft **`UIEvent.which`** der [`UIEvent`](/de/docs/Web/API/UIEvent)-Schnittstelle gibt eine Zahl zurück, die anzeigt, welche Taste auf der Maus gedrückt wurde, oder den numerischen `keyCode` oder den Zeichencode (`charCode`) der auf der Tastatur gedrückten Taste.
 
 ## Wert
 
 ### Wert für KeyboardEvent {{Non-standard_Inline}}
 
-Für [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) enthält `event.which` den numerischen Code für eine bestimmte gedrückte Taste, abhängig davon, ob es sich um eine alphanumerische oder nicht-alphanumerische Taste handelt.
-Bitte beachten Sie die veralteten [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) und [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) für weitere Details.
+Für [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) enthält `event.which` den numerischen Code für eine bestimmte gedrückte Taste, abhängig davon, ob eine alphanumerische oder nicht alphanumerische Taste gedrückt wurde. Bitte siehe die veralteten [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) und [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) für weitere Details.
 
 > [!NOTE]
-> Überlegen Sie, [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) oder [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) für neuen Code zu verwenden.
+> Erwägen Sie [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) oder [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) für neuen Code.
 
 ### Wert für MouseEvent {{Non-standard_Inline}}
 
-Für [`MouseEvent`](/de/docs/Web/API/MouseEvent) ist `event.which` eine Zahl, die eine bestimmte Taste darstellt:
+Für [`MouseEvent`](/de/docs/Web/API/MouseEvent) ist `event.which` eine Zahl, die eine bestimmte Taste repräsentiert:
 
 - `0`: Keine Taste
 - `1`: Linke Taste
 - `2`: Mittlere Taste (falls vorhanden)
 - `3`: Rechte Taste
 
-Für eine Maus, die für die linkshändige Verwendung konfiguriert ist, sind die Tastenaktionen umgekehrt.
-In diesem Fall werden die Werte von rechts nach links gelesen.
+Bei einer Maus, die für die linkshändige Verwendung konfiguriert ist, sind die Tastenaktionen umgekehrt. In diesem Fall werden die Werte von rechts nach links gelesen.
 
 > [!NOTE]
-> Erwägen Sie, [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) für neuen Code zu verwenden.
+> Erwägen Sie [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) für neuen Code.
 
 ## Beispiele
 

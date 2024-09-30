@@ -8,57 +8,57 @@ l10n:
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
 > [!NOTE]
-> Nicht zu verwechseln mit [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue), das nur eine **`IDBCursor`**-Schnittstelle mit einer zusätzlichen **`value`**-Eigenschaft ist.
+> Nicht zu verwechseln mit [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue), das ist eine **`IDBCursor`**-Schnittstelle mit einer zusätzlichen **`value`**-Eigenschaft.
 
-Die **`IDBCursor`**-Schnittstelle der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) zum Durchlaufen oder Iterieren über mehrere Datensätze in einer Datenbank.
+Die **`IDBCursor`**-Schnittstelle der [IndexedDB-API](/de/docs/Web/API/IndexedDB_API) repräsentiert einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) zum Durchlaufen oder Iterieren mehrerer Datensätze in einer Datenbank.
 
-Der Cursor hat eine Quelle, die angibt, über welchen Index oder Objekt-Store er iteriert. Er hat eine Position innerhalb des Bereichs und bewegt sich in einer Richtung, die in der Reihenfolge der Aufzeichnungsschlüssel entweder zunimmt oder abnimmt. Der Cursor ermöglicht es einer Anwendung, alle Datensätze im Bereich des Cursors asynchron zu verarbeiten.
+Der Cursor hat eine Quelle, die anzeigt, über welchen Index oder welches Objektlager er iteriert. Er hat eine Position innerhalb der Reichweite und bewegt sich in eine Richtung, die in der Reihenfolge der Schlüssel der Datensätze zunimmt oder abnimmt. Der Cursor ermöglicht es einer Anwendung, alle Datensätze im Bereich des Cursors asynchron zu verarbeiten.
 
-Sie können eine unbegrenzte Anzahl von Cursor gleichzeitig haben. Sie erhalten immer dasselbe `IDBCursor`-Objekt, das einen bestimmten Cursor repräsentiert. Operationen werden auf dem zugrundeliegenden Index oder Objekt-Store durchgeführt.
+Sie können eine unbegrenzte Anzahl von Cursors gleichzeitig haben. Sie erhalten immer dasselbe `IDBCursor`-Objekt, das einen bestimmten Cursor repräsentiert. Operationen werden auf dem zugrunde liegenden Index oder Objektlager durchgeführt.
 
 ## Instanz-Eigenschaften
 
 > **Hinweis:** [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue) ist eine **`IDBCursor`**-Schnittstelle mit einer zusätzlichen **`value`**-Eigenschaft.
 
 - [`IDBCursor.source`](/de/docs/Web/API/IDBCursor/source) {{ReadOnlyInline}}
-  - : Gibt das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBIndex`](/de/docs/Web/API/IDBIndex) zurück, über das der Cursor iteriert. Diese Funktion gibt niemals null zurück und wirft keine Ausnahme, selbst wenn der Cursor gerade iteriert wird, über sein Ende hinaus iteriert wurde oder seine Transaktion nicht aktiv ist.
+  - : Gibt den [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBIndex`](/de/docs/Web/API/IDBIndex) zurück, den der Cursor durchläuft. Diese Funktion gibt niemals null zurück und wirft keine Ausnahme, selbst wenn der Cursor derzeit durchlaufen wird, über sein Ende hinaus iteriert ist oder seine Transaktion nicht aktiv ist.
 - [`IDBCursor.direction`](/de/docs/Web/API/IDBCursor/direction) {{ReadOnlyInline}}
-  - : Gibt die Richtung der Traversierung des Cursors zurück.
+  - : Gibt die Durchlaufrichtung des Cursors zurück.
 - [`IDBCursor.key`](/de/docs/Web/API/IDBCursor/key) {{ReadOnlyInline}}
-  - : Gibt den Schlüssel für den Datensatz an der Position des Cursors zurück. Wenn sich der Cursor außerhalb seines Bereichs befindet, wird dies auf `undefined` gesetzt. Der Schlüssel des Cursors kann jeden Datentyp haben.
+  - : Gibt den Schlüssel für den Datensatz an der Position des Cursors zurück. Befindet sich der Cursor außerhalb seines Bereichs, ist dieser auf `undefined` gesetzt. Der Schlüssel des Cursors kann jeden Datentyp haben.
 - [`IDBCursor.primaryKey`](/de/docs/Web/API/IDBCursor/primaryKey) {{ReadOnlyInline}}
-  - : Gibt den aktuellen effektiven Primärschlüssel des Cursors zurück. Wenn der Cursor derzeit iteriert wird oder außerhalb seines Bereichs iteriert wurde, wird dies auf `undefined` gesetzt. Der Primärschlüssel des Cursors kann jeden Datentyp haben.
+  - : Gibt den aktuellen effektiven Primärschlüssel des Cursors zurück. Wenn der Cursor derzeit durchlaufen wird oder außerhalb seines Bereichs iteriert hat, ist dieser auf `undefined` gesetzt. Der Primärschlüssel des Cursors kann jeden Datentyp haben.
 - [`IDBCursor.request`](/de/docs/Web/API/IDBCursor/request) {{ReadOnlyInline}}
   - : Gibt das [`IDBRequest`](/de/docs/Web/API/IDBRequest) zurück, das verwendet wurde, um den Cursor zu erhalten.
 
 ## Instanz-Methoden
 
 - [`IDBCursor.advance()`](/de/docs/Web/API/IDBCursor/advance)
-  - : Legt fest, wie oft ein Cursor seine Position nach vorne bewegen soll.
+  - : Legt die Anzahl der Male fest, die ein Cursor seine Position nach vorne bewegen soll.
 - [`IDBCursor.continue()`](/de/docs/Web/API/IDBCursor/continue)
-  - : Bewegt den Cursor zur nächsten Position entlang seiner Richtung, zum Element, dessen Schlüssel dem optionalen `key`-Parameter entspricht.
+  - : Setzt den Cursor auf die nächste Position in seiner Richtung, auf das Element, dessen Schlüssel mit dem optionalen `key`-Parameter übereinstimmt.
 - [`IDBCursor.continuePrimaryKey()`](/de/docs/Web/API/IDBCursor/continuePrimaryKey)
-  - : Setzt den Cursor auf den angegebenen Indexschlüssel und Primärschlüssel, die als Argumente angegeben werden.
+  - : Setzt den Cursor auf den angegebenen Indexschlüssel und Primärschlüssel, die als Argumente angegeben sind.
 - [`IDBCursor.delete()`](/de/docs/Web/API/IDBCursor/delete)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern. Dies kann verwendet werden, um bestimmte Datensätze zu löschen.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern. Dies kann verwendet werden, um spezifische Datensätze zu löschen.
 - [`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und aktualisiert in einem separaten Thread den Wert an der aktuellen Position des Cursors im Objekt-Store. Dies kann verwendet werden, um bestimmte Datensätze zu aktualisieren.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und aktualisiert in einem separaten Thread den Wert an der aktuellen Position des Cursors im Objektlager. Dies kann verwendet werden, um spezifische Datensätze zu aktualisieren.
 
 ## Konstanten
 
 {{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Konstanten sind nicht mehr verfügbar — sie wurden in Gecko 25 entfernt. Sie sollten stattdessen die Zeichenfolgenkonstanten direkt verwenden. ([Firefox Fehler 891944](https://bugzil.la/891944))
+> Diese Konstanten sind nicht mehr verfügbar — sie wurden in Gecko 25 entfernt. Sie sollten stattdessen die Zeichenkettenkonstanten direkt verwenden. ([Firefox-Bug 891944](https://bugzil.la/891944))
 
-- `NEXT`: `"next"` : Der Cursor zeigt alle Datensätze, einschließlich Duplikaten. Er beginnt an der unteren Grenze des Schlüsselbereichs und bewegt sich aufwärts (monoton steigend in der Reihenfolge der Schlüssel).
-- `NEXTUNIQUE` : `"nextunique"` : Der Cursor zeigt alle Datensätze, ohne Duplikate. Wenn mehrere Datensätze mit demselben Schlüssel existieren, wird nur der erste iterierte abgerufen. Er beginnt an der unteren Grenze des Schlüsselbereichs und bewegt sich aufwärts.
-- `PREV`: `"prev"` : Der Cursor zeigt alle Datensätze, einschließlich Duplikaten. Er beginnt an der oberen Grenze des Schlüsselbereichs und bewegt sich abwärts (monoton fallend in der Reihenfolge der Schlüssel).
-- `PREVUNIQUE`: `"prevunique"` : Der Cursor zeigt alle Datensätze, ohne Duplikate. Wenn mehrere Datensätze mit demselben Schlüssel existieren, wird nur der erste iterierte abgerufen. Er beginnt an der oberen Grenze des Schlüsselbereichs und bewegt sich abwärts.
+- `NEXT`: `"next"` : Der Cursor zeigt alle Datensätze einschließlich Duplikate an. Er beginnt an der unteren Grenze des Schlüsselbereichs und bewegt sich aufwärts (monoton steigend in der Reihenfolge der Schlüssel).
+- `NEXTUNIQUE` : `"nextunique"` : Der Cursor zeigt alle Datensätze ohne Duplikate an. Wenn mehrere Datensätze mit demselben Schlüssel existieren, wird nur der erste iterierte zurückgegeben. Er beginnt an der unteren Grenze des Schlüsselbereichs und bewegt sich aufwärts.
+- `PREV`: `"prev"` : Der Cursor zeigt alle Datensätze einschließlich Duplikate an. Er beginnt an der oberen Grenze des Schlüsselbereichs und bewegt sich abwärts (monoton fallend in der Reihenfolge der Schlüssel).
+- `PREVUNIQUE`: `"prevunique"` : Der Cursor zeigt alle Datensätze ohne Duplikate an. Wenn mehrere Datensätze mit demselben Schlüssel existieren, wird nur der erste iterierte zurückgegeben. Er beginnt an der oberen Grenze des Schlüsselbereichs und bewegt sich abwärts.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen Cursor, um alle Datensätze im Objekt-Store zu durchlaufen. Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle davon abrufen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/).)
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen ein Objektlager ab und verwenden dann einen Cursor, um alle Datensätze im Objektlager zu durchlaufen. Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle abrufen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/).)
 
 ```js
 function displayData() {
@@ -91,8 +91,8 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Beginn von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

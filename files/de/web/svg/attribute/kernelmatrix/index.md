@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`kernelMatrix`**-Attribut definiert die Liste von Zahlen, die die Kernelmatrix für das {{SVGElement("feConvolveMatrix")}}-Element bilden.
+Das **`kernelMatrix`**-Attribut definiert die Liste von Zahlen, die die Kernel-Matrix für das {{SVGElement("feConvolveMatrix")}}-Element bilden.
 
-Die Werte sind durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein, wie im {{SVGAttr("order")}}-Attribut definiert.
+Die Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein, wie im {{SVGAttr("order")}}-Attribut definiert.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
@@ -47,7 +47,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "200")}}
+{{EmbedLiveSample("Beispiel", "420", "200")}}
 
 ## Verwendungshinweise
 
@@ -58,7 +58,7 @@ svg {
       <td>
         <code
           ><a href="/de/docs/Web/SVG/Content_type#list-of-ts"
-            >&#x3C;list of numbers></a
+            >&#x3C;Liste von Zahlen></a
           ></code
         >
       </td>
@@ -74,11 +74,11 @@ svg {
   </tbody>
 </table>
 
-- `<list of numbers>`
+- `<Liste von Zahlen>`
 
-  - : Die Liste von {{cssxref("number")}}s, die die Kernelmatrix für die Faltung bilden. Die Werte sind durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss `<orderX>` mal `<orderY>` ergeben.
+  - : Die Liste der {{cssxref("number")}}s, die die Kernel-Matrix für die Faltung bilden. Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss `<orderX>` mal `<orderY>` entsprechen.
 
-    Wenn das Ergebnis von `orderX` \* `orderY` nicht der Anzahl der Einträge in der Werteliste entspricht, wirkt das Filterprimitiv als Durchleitungsfilter.
+    Wenn das Ergebnis von `orderX` \* `orderY` nicht gleich der Anzahl der Einträge in der Werteliste ist, wirkt das Filter-Primitive als Durchlauf-Filter.
 
 ## Spezifikationen
 

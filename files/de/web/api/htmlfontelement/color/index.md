@@ -10,21 +10,21 @@ l10n:
 
 Die veraltete
 **`HTMLFontElement.color`**
-Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Element/font#color) HTML-Attribut widerspiegelt. Er enthält entweder eine benannte Farbe oder eine Farbe, die im hexadezimalen Format #RRGGBB angegeben ist.
+Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Element/font#color) HTML-Attribut widerspiegelt und entweder eine benannte Farbe oder eine Farbe im hexadezimalen #RRGGBB-Format enthält.
 
-Das Format des Strings muss einer der folgenden HTML-Mikrosyntaxen entsprechen (siehe [`<color>`](/de/docs/Web/CSS/color_value)):
+Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen (siehe [`<color>`](/de/docs/Web/CSS/color_value)):
 
-| Mikrosyntax              | Beschreibung                                             | Beispiele                 |
-| ------------------------ | -------------------------------------------------------- | ------------------------- |
-| Gültiger Farbname-String | _nameOfColor (Groß- und Kleinschreibung wird ignoriert)_ | `Green`, `green`, `GREEN` |
-| Gültiger Hex-Farb-String | _#RRGGBB_                                                | `#008000`                 |
-| RGB mit Dezimalwerten    | _rgb(x x x) (x im Bereich 0-255)_                        | `rgb(0 128 0)`            |
+| Mikrosyntax              | Beschreibung                     | Beispiele                 |
+| ------------------------ | -------------------------------- | ------------------------- |
+| Gültiger Farbnamen-String| _nameOfColor (nicht case-sensitiv)_ | `Green`, `green`, `GREEN` |
+| Gültiger Hex-Farbstring  | _#RRGGBB_                        | `#008000`                 |
+| RGB mit Dezimalwerten    | _rgb(x x x) (x im Bereich 0-255)_ | `rgb(0 128 0)`            |
 
 ## Wert
 
 Ein String.
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, so dass `elt.color = null` äquivalent zu `elt.color = ""` ist.
+Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, sodass `elt.color = null` äquivalent zu `elt.color = ""` ist.
 
 ## Beispiele
 
@@ -45,4 +45,4 @@ f.color = "green";
 
 ## Siehe auch
 
-- Die [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) Interface, zu dem es gehört.

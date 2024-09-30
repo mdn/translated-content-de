@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Öffnet das Popup der Seitenaktion.
+Öffnen Sie das Popup der Seitenaktion.
 
 Sie können diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 

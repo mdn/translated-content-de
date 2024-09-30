@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte Eigenschaft `upZ` des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den z-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung definiert, in die der Zuhörer zeigt.
+Die schreibgeschützte `upZ`-Eigenschaft der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den z-Wert des Richtungsvektors darstellt, der die Richtung definiert, in die der Hörer zeigt.
 
 > [!NOTE]
-> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf Gleichstromkraft eingestellt ist, oder _k-rate_ andernfalls.
+> Der Parameter hat die _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower eingestellt ist, ansonsten die _k-rate_.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0 und kann zwischen positivem und negativem Unendlich reichen.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0 und er kann zwischen positiver und negativer Unendlichkeit liegen.
 
 ## Beispiele
 

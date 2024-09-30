@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`cancelAndHoldAtTime()`**-Methode der
-[`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle storniert alle geplanten zukünftigen Änderungen des
-`AudioParam`, hält dessen Wert jedoch zu einem bestimmten Zeitpunkt, bis weitere Änderungen
-mit anderen Methoden vorgenommen werden.
+Die **`cancelAndHoldAtTime()`**-Methode des
+[`AudioParam`](/de/docs/Web/API/AudioParam)-Interfaces annulliert alle geplanten zukünftigen Änderungen am
+`AudioParam`, hält jedoch seinen Wert zu einem gegebenen Zeitpunkt, bis weitere Änderungen mit anderen Methoden vorgenommen werden.
 
 ## Syntax
 
@@ -22,11 +21,11 @@ cancelAndHoldAtTime(cancelTime)
 ### Parameter
 
 - `cancelTime`
-  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) zuerst erstellt wurde, nach der alle geplanten Änderungen storniert werden.
+  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) erstmals erstellt wurde und nach dem alle geplanten Änderungen annulliert werden.
 
 ### Rückgabewert
 
-Ein Verweis auf das [`AudioParam`](/de/docs/Web/API/AudioParam), auf das die Methode aufgerufen wurde.
+Ein Verweis auf das [`AudioParam`](/de/docs/Web/API/AudioParam), auf dem es aufgerufen wurde.
 
 ## Spezifikationen
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`progress`** Ereignis der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle wird ausgelöst, wenn der zugehörige Hintergrundabruf Fortschritte macht.
+Das **`progress`**-Ereignis der Schnittstelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) wird ausgelöst, wenn der zugehörige Hintergrundabruf fortschreitet.
 
-Praktisch wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften einen neuen Wert zurückgeben wird:
+Praktisch wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften einen neuen Wert zurückgibt:
 
 - [`uploaded`](/de/docs/Web/API/BackgroundFetchRegistration/uploaded),
 - [`downloaded`](/de/docs/Web/API/BackgroundFetchRegistration/downloaded),
-- [`result`](/de/docs/Web/API/BackgroundFetchRegistration/result) oder
+- [`result`](/de/docs/Web/API/BackgroundFetchRegistration/result), oder
 - [`failureReason`](/de/docs/Web/API/BackgroundFetchRegistration/failureReason).
 
 ## Syntax
@@ -32,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiel
 
-Das folgende Beispiel zeigt, wie der Fortschritt eines Downloads protokolliert wird. Der Code überprüft zunächst, ob ein `downloadTotal` bereitgestellt wurde, als der Hintergrundabruf registriert wurde. Dies wird dann verwendet, um den Prozentsatz basierend auf der `downloaded`-Eigenschaft zu berechnen.
+Das folgende Beispiel zeigt, wie der Fortschritt eines Downloads protokolliert wird. Der Code prüft zunächst, ob ein `downloadTotal` bereitgestellt wurde, als der Hintergrundabruf registriert wurde. Dies wird dann verwendet, um den Prozentsatz basierend auf der `downloaded`-Eigenschaft zu berechnen.
 
 ```js
 bgFetch.addEventListener("progress", () => {

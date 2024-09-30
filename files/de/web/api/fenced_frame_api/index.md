@@ -7,43 +7,43 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Fenced Frame API")}}
 
-Die **Fenced Frame API** bietet Funktionalität zur Kontrolle von Inhalten, die in {{htmlelement("fencedframe")}}-Elementen eingebettet sind.
+Die **Fenced Frame API** bietet Funktionalitäten zur Steuerung von Inhalten, die in {{htmlelement("fencedframe")}}-Elemente eingebettet sind.
 
 ## Konzepte und Nutzung
 
-Eine Hauptquelle für [Datenschutz-](/de/docs/Web/Privacy) und [Sicherheitsprobleme](/de/docs/Web/Security) im Web sind Inhalte, die in {{htmlelement("iframe")}}-Elementen eingebettet sind. Historisch gesehen wurden `<iframe>`s verwendet, um Drittanbieter-Cookies zu setzen, die Informationen teilen und Benutzer über Websites hinweg verfolgen können. Außerdem kann sich der in einem `<iframe>` eingebettete Inhalt mit dem einbettenden Dokument austauschen (bspw. unter Verwendung von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)).
+Eine Hauptursache von [Datenschutz-](/de/docs/Web/Privacy) und [Sicherheitsproblemen](/de/docs/Web/Security) im Web sind Inhalte, die in {{htmlelement("iframe")}}-Elemente eingebettet sind. Traditionell wurden `<iframe>`s verwendet, um Cookies von Drittanbietern zu setzen, die dazu genutzt werden können, Informationen zu teilen und Benutzer über Websites hinweg zu verfolgen. Zusätzlich kann der in einem `<iframe>` eingebettete Inhalt mit dem einbettenden Dokument kommunizieren (zum Beispiel über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)).
 
-Das einbettende Dokument kann auch Skripte verwenden, um verschiedene Informationen aus dem `<iframe>` zu lesen — zum Beispiel können Sie potenziell signifikante Tracking-/Fingerprinting-Daten aus dem eingebetteten URL vom `src`-Attribut erhalten, insbesondere wenn es [URL-Parameter](/de/docs/Web/URI#query) enthält. Das `<iframe>` kann auch Zugriff auf den DOM des einbettenden Kontexts erhalten und umgekehrt.
+Das einbettende Dokument kann auch Skripte nutzen, um diverse Arten von Informationen vom `<iframe>` auszulesen — zum Beispiel können Sie aus dem URL der eingebetteten Seite signifikante Tracking-/Fingerprinting-Daten auslesen, vor allem, wenn dieser [URL-Parameter](/de/docs/Web/URI#query) enthält. Das `<iframe>` kann auch auf den DOM des einbettenden Kontexts zugreifen und umgekehrt.
 
-Die meisten modernen Browser arbeiten an Mechanismen, um den Speicher zu partitionieren, sodass Cookie-Daten nicht mehr für Tracking verwendet werden können (siehe beispielsweise [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) oder [Firefox-Zustandspartitionierung](/de/docs/Web/Privacy/State_Partitioning)).
+Die meisten modernen Browser arbeiten an Mechanismen, um Speicher zu partitionieren, sodass Cookie-Daten nicht mehr für Tracking-Zwecke genutzt werden können (siehe z.B. [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) oder [Firefox State Partitioning](/de/docs/Web/Privacy/State_Partitioning)).
 
-`<fencedframe>`-Elemente zielen darauf ab, ein weiteres Stück dieses Puzzles zu lösen – sie sind in Form und Funktion `<iframe>`s sehr ähnlich, außer dass:
+`<fencedframe>`-Elemente zielen darauf ab, ein weiteres Stück dieses Puzzles zu lösen — sie sind in Form und Funktion `<iframe>`s sehr ähnlich, außer dass:
 
-- Die Kommunikation nicht zwischen dem `<fencedframe>`-Inhalt und seinem einbettenden Standort geteilt werden kann.
-- Ein `<fencedframe>` kann auf cross-site Daten zugreifen, jedoch nur unter einem sehr spezifischen Set kontrollierter Umstände, die die Privatsphäre des Nutzers wahren.
-- Ein `<fencedframe>` kann nicht beliebig manipuliert oder über reguläre Skripte auf seine Daten zugegriffen werden (z.B. das Lesen oder Setzen der Quell-URL). `<fencedframe>`-Inhalte können nur über [spezifische APIs](#anwendungsfälle) eingebettet werden.
+- Kommunikation nicht zwischen den `<fencedframe>`-Inhalten und der einbettenden Seite geteilt werden kann.
+- Ein `<fencedframe>` kann auf cross-site Daten zugreifen, jedoch nur in einem sehr spezifischen, kontrollierten Rahmen, der den Benutzerdatenschutz wahrt.
+- Ein `<fencedframe>` kann nicht frei manipuliert oder dessen Daten durch reguläre Skripte zugegriffen werden (zum Beispiel das Lesen oder Setzen des Quell-URLs). `<fencedframe>`-Inhalte können nur über [spezifische APIs](#anwendungsfälle) eingebettet werden.
 - Ein `<fencedframe>` kann nicht auf den DOM des einbettenden Kontexts zugreifen, noch kann der einbettende Kontext auf den DOM des `<fencedframe>` zugreifen.
 
-Für weitere Informationen über das Kommunikationsmodell von Fenced Frames lesen Sie den [Leitfaden zur Kommunikation mit eingebetteten Frames](/de/docs/Web/API/Fenced_frame_API/Communication_with_embedded_frames).
+Für weitere Informationen über das Kommunikationsmodell von fenced frames lesen Sie den [Leitfaden zur Kommunikation mit eingebetteten Frames](/de/docs/Web/API/Fenced_frame_API/Communication_with_embedded_frames).
 
 ### Anwendungsfälle
 
-`<fencedframe>`s werden von anderen APIs verwendet, um verschiedene Arten von cross-site-Inhalten einzubetten oder Daten zu sammeln, unterschiedliche Anwendungsfälle auf eine datenschutzfreundliche Weise zu erfüllen. Die meisten dieser Anwendungsfälle haben zuvor auf Drittanbieter-Cookies oder andere Mechanismen gesetzt, die schlecht für den Datenschutz waren.
+`<fencedframe>`s werden von anderen APIs genutzt, um verschiedene Arten von plattformübergreifenden Inhalten einzubetten oder Daten zu sammeln und dabei unterschiedliche Anwendungsfälle auf datenschutzfreundliche Weise zu erfüllen. Viele dieser Anwendungsfälle basierten zuvor auf Third-Party-Cookies oder anderen Mechanismen, die schlecht für den Datenschutz waren.
 
-- Die [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) bietet Zugriff auf unpartitionierte cross-site-Daten in einer sicheren Umgebung und berechnet und/oder zeigt Ergebnisse in einem `<fencedframe>` an. Zum Beispiel:
-  - Werbetreibende können die Reichweite einer Anzeige messen oder nachfolgende Anzeigen basierend darauf schalten, welche Anzeigen Benutzer bereits auf anderen Websites gesehen haben.
-  - Entwickler können A/B-Tests durchführen, indem sie einem Benutzer basierend auf einer Gruppe, der er zugeordnet ist, oder basierend auf der Anzahl der Benutzer, die jede Variante bereits gesehen haben, Variationen zeigen.
-  - Unternehmen können die Benutzererfahrung basierend darauf anpassen, was sie auf anderen Seiten gesehen haben. Zum Beispiel, wenn sie bereits eine Mitgliedschaft erworben haben, möchten Sie ihnen möglicherweise auf Ihren anderen Websites keine Mitgliedsanmeldungsanzeigen mehr anzeigen.
-- Die [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) erlaubt Entwicklern die Implementierung von interessenbasierten Bietergruppenwerbung, nämlich Remarketing und benutzerdefinierte Zielgruppenanwendungsfälle. Sie kann mehrere Gebote für Anzeigeflächen bewerten und die gewinnende Anzeige in einem `<fencedframe>` anzeigen.
-- Die [Private Aggregation API](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation) kann Daten von `<fencedframe>`s (aus dem Shared Storage oder der Protected Audience API stammend) sammeln und aggregierte Berichte erstellen.
+- Die [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) ermöglicht den Zugriff auf unpartitionierte plattformübergreifende Daten in einer sicheren Umgebung, um dort Berechnungen durchzuführen und/oder Ergebnisse in einem `<fencedframe>` anzuzeigen. Zum Beispiel:
+  - Werbetreibende können die Reichweite einer Anzeige messen oder nachfolgende Anzeigen basierend darauf schalten, welche Anzeigen Benutzer bereits auf anderen Seiten gesehen haben.
+  - Entwickler können A/B-Tests durchführen, indem sie einem Benutzer basierend auf einer Gruppe, der sie zugewiesen sind, unterschiedliche Varianten anzeigen oder je nachdem, wie viele Benutzer bereits jede Variante gesehen haben.
+  - Unternehmen können die Benutzererfahrung anpassen, basierend darauf, was der Benutzer auf anderen Seiten gesehen hat. Zum Beispiel, wenn der Benutzer bereits eine Mitgliedschaft erworben hat, möchten Sie ihm möglicherweise keine Anzeigen für die Anmeldung zur Mitgliedschaft auf Ihren anderen Plattformen zeigen.
+- Die [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) erlaubt es Entwicklern, interessenbasierte Anzeigen zu implementieren, nämlich Remarketing und Anwendungsfälle für benutzerdefinierte Zielgruppen. Sie kann mehrere Gebote für einen Anzeigenplatz bewerten und die gewinnende Anzeige in einem `<fencedframe>` anzeigen.
+- Die [Private Aggregation API](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation) kann Daten aus `<fencedframe>`s (die aus Shared Storage oder der Protected Audience API stammen) sammeln und aggregierte Berichte erstellen.
 
 ## Wie funktionieren `<fencedframe>`s?
 
-Wie oben erwähnt, steuern Sie den in einem {{htmlelement("fencedframe")}} eingebetteten Inhalt nicht direkt über reguläre Skripte.
+Wie oben erwähnt, können Sie den eingebetteten Inhalt eines {{htmlelement("fencedframe")}} nicht direkt über ein reguläres Skript steuern.
 
-Um festzulegen, welcher Inhalt in einem `<fencedframe>` angezeigt wird, generiert eine nutzende API (z.B. [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann über JavaScript als Wert der [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Eigenschaft des `<fencedframe>` festgelegt wird.
+Um festzulegen, welcher Inhalt in einem `<fencedframe>` angezeigt wird, generiert eine nutzende API (wie [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann im JavaScript als Wert der [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Eigenschaft des `<fencedframe>` gesetzt wird.
 
-Das folgende Beispiel erhält eine `FencedFrameConfig` aus einer Anzeigenauktion der Protected Audience API, welche anschließend verwendet wird, um die gewinnende Anzeige in einem `<fencedframe>` darzustellen:
+Das folgende Beispiel erhält ein `FencedFrameConfig` von einer Anzeigenauktion der Protected Audience API, das dann verwendet wird, um die gewinnende Anzeige in einem `<fencedframe>` anzuzeigen:
 
 ```js
 const frameConfig = await navigator.runAdAuction({
@@ -55,43 +55,43 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-`resolveToConfig: true` muss in den `runAdAuction()`-Aufruf aufgenommen werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn `resolveToConfig` auf `false` gesetzt ist, löst sich das resultierende {{jsxref("Promise")}} in eine opake [URN](/de/docs/Web/URI#urns) auf (z.B. `urn:uuid:c36973b5-e5d9-de59-e4c4-364f137b3c7a`), die nur in einem `<iframe>` verwendet werden kann.
+`resolveToConfig: true` muss im `runAdAuction()`-Aufruf übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Falls `resolveToConfig` auf `false` gesetzt ist, wird die resultierende {{jsxref("Promise")}} auf eine undurchsichtige [URN](/de/docs/Web/URI#urns) (zum Beispiel `urn:uuid:c36973b5-e5d9-de59-e4c4-364f137b3c7a`) aufgelöst, die nur in einem `<iframe>` verwendet werden kann.
 
-So oder so speichert der Browser eine URL, die den Zielort des einzubettenden Inhalts enthält – entweder der opaken URN zugeordnet oder der `url`-Eigenschaft der internen `FencedFrameConfig`. Der URL-Wert kann nicht von JavaScript, das im einbettenden Kontext ausgeführt wird, gelesen werden.
+In jedem Fall speichert der Browser eine URL, die den Zielort des einzubettenden Inhalts enthält — diese wird entweder der undurchsichtigen URN zugeordnet oder der internen `url`-Eigenschaft des `FencedFrameConfig`. Der URL-Wert kann nicht von JavaScript im einbettenden Kontext ausgelesen werden.
 
 > [!NOTE]
-> Unterstützung wird für opake URNs in `<iframe>`s bereitgestellt, um die Migration vorhandener Implementierungen zu [Privacy Sandbox](https://developers.google.com/privacy-sandbox)-APIs zu erleichtern. Diese Unterstützung ist als vorübergehend vorgesehen und wird in Zukunft entfernt, wenn die Akzeptanz wächst.
+> Unterstützung für undurchsichtige URNs in `<iframe>`s wird bereitgestellt, um die Migration bestehender Implementierungen zu den [Privacy Sandbox](https://developers.google.com/privacy-sandbox)-APIs zu erleichtern. Diese Unterstützung soll vorübergehend sein und wird zukünftig entfernt, wenn die Akzeptanz steigt.
 
-> **Hinweis:** `FencedFrameConfig` verfügt über eine [`setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext)-Methode, die verwendet wird, um Daten vom einbettenden Dokument an den Shared Storage des `<fencedframe>` zu übergeben. Diese könnten beispielsweise in einem [`Worklet`](/de/docs/Web/API/Worklet) über das `<fencedframe>` abgerufen und zur Erstellung eines Berichts verwendet werden. Siehe die [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) für weitere Details.
+> **Hinweis:** `FencedFrameConfig` hat eine [`setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext)-Methode, die verwendet wird, um Daten vom einbettenden Dokument in den Shared Storage des `<fencedframe>` zu übergeben. Diese könnten z.B. in einem [`Worklet`](/de/docs/Web/API/Worklet) über das `<fencedframe>` zugegriffen und für die Erstellung eines Berichts genutzt werden. Weitere Einzelheiten finden Sie in der [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage).
 
-### Zugriff auf Fenced Frame-Funktionalitäten auf dem `Fence`-Objekt
+### Zugriff auf die Funktionalität von fenced frames über das `Fence`-Objekt
 
-In Dokumenten, die in `<fencedframe>`s eingebettet sind, hat JavaScript Zugang zu einer [`Window.fence`](/de/docs/Web/API/Window/fence)-Eigenschaft, die eine [`Fence`](/de/docs/Web/API/Fence)-Instanz für dieses Dokument zurückgibt. Dieses Objekt enthält mehrere Funktionen, die speziell für die Fenced Frame-API-Funktionalität relevant sind. Zum Beispiel bietet [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) eine Möglichkeit, die Übermittlung von Berichtsdaten über ein [Beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifizierte URLs auszulösen, um Anzeigenaufrufe und -klicks zu melden.
+Innerhalb der in `<fencedframe>`s eingebetteten Dokumente hat JavaScript Zugriff auf eine [`Window.fence`](/de/docs/Web/API/Window/fence)-Eigenschaft, die eine [`Fence`](/de/docs/Web/API/Fence)-Instanz für dieses Dokument zurückgibt. Dieses Objekt enthält mehrere spezifisch für die Fenced Frame API relevante Funktionen. Zum Beispiel bietet [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) eine Möglichkeit, die Übermittlung von Berichtsdaten über ein [beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifizierte URLs auszulösen, um Anzeigenansichten und -klicks zu melden.
 
 ### Berechtigungspolicy
 
-Nur spezifische Funktionen, die für die Verwendung in `<fencedframe>`s vorgesehen sind, können über Berechtigungsrichtlinien aktiviert werden, die auf ihnen festgelegt sind; andere richtliniengesteuerte Funktionen sind in diesem Kontext nicht verfügbar. Siehe [Verfügbare Berechtigungspolicies für Fenced Frames](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) für weitere Details.
+Nur spezifische Features, die zur Verwendung in `<fencedframes>`s entworfen wurden, können über Berechtigungspolicys aktiviert werden, die auf ihnen gesetzt sind; andere polisysteuerte Features sind in diesem Kontext nicht verfügbar. Siehe [Berechtigungspolicys, die für fenced frames verfügbar sind](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) für weitere Einzelheiten.
 
 ### HTTP-Header
 
-Ein {{httpheader("Sec-Fetch-Dest")}}-Header mit einem Wert von `fencedframe` wird für alle Anfragen gesetzt, die aus einem `<fencedframe>` ausgehen, einschließlich eingebetteter Kinder-`<iframe>`s innerhalb eines `<fencedframe>`.
+Ein {{httpheader("Sec-Fetch-Dest")}}-Header mit einem Wert von `fencedframe` wird für alle Anfragen gesetzt, die von einem `<fencedframe>` aus getätigt werden, einschließlich der in einem `<fencedframe>` eingebetteten Kinder-`<iframe>`s.
 
 ```http
 Sec-Fetch-Dest: fencedframe
 ```
 
-Der Server muss einen {{httpheader("Supports-Loading-Mode")}}-Antwort-Header mit einem Wert von `fenced-frame` für jedes Dokument setzen, das in ein `<fencedframe>` geladen werden soll, oder ein `<iframe>`, das innerhalb eines `<fencedframe>` eingebettet ist.
+Der Server muss einen {{httpheader("Supports-Loading-Mode")}}-Antwortheader mit einem Wert von `fenced-frame` für jedes Dokument setzen, das in ein `<fencedframe>` oder ein in einem `<fencedframe>` eingebettetes `<iframe>` geladen werden soll.
 
 ```http
 Supports-Loading-Mode: fenced-frame
 ```
 
-Weitere Auswirkungen von Fenced Frames auf HTTP-Header sind wie folgt:
+Andere Auswirkungen von fenced frames auf HTTP-Header sind wie folgt:
 
-- [User-Agent-Client-Hinweise](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) sind innerhalb von Fenced Frames nicht verfügbar, da sie auf [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)-Delegation beruhen, die zur Datenweitergabe genutzt werden könnte.
-- Strikte [`Cross-Origin-Opener-Policy`](/de/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy)-Einstellungen werden auf neue Browsing-Kontexte angewendet, die aus Fenced Frames geöffnet werden, andernfalls könnten sie verwendet werden, um Informationen an andere Herkunftsseiten weiterzugeben. Jedes neue Fenster, das aus einem Fenced Frame geöffnet wird, wird mit [`rel="noopener"`](/de/docs/Web/HTML/Attributes/rel/noopener) und `Cross-Origin-Opener-Policy: same-origin` gesetzt, um sicherzustellen, dass [`Window.opener`](/de/docs/Web/API/Window/opener) `null` zurückgibt und es in seine eigene Browser-Kontextgruppe einzuordnen.
-- [`Content-Security-Policy: fenced-frame-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/fenced-frame-src) wurde hinzugefügt, um gültige Quellen für verschachtelte Browsing-Kontexte zu spezifizieren, die in `<fencedframe>`-Elementen geladen werden.
-- [`Content-Security-Policy: sandbox`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox)-Benutzerdefinierte Einstellungen können nicht von Fenced Frames geerbt werden, um Datenschutzprobleme zu mitigieren. Um einen Fenced Frame zu laden, müssen Sie keine `sandbox`-CSP spezifizieren (was die untenstehenden Werte impliziert), oder die folgenden Sandbox-Werte spezifizieren:
+- [User-agent client hints](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) sind innerhalb von fenced frames nicht verfügbar, da sie auf [Berechtigungspolicy](/de/docs/Web/HTTP/Permissions_Policy)-Delegation basieren, die für das Leaken von Daten genutzt werden könnte.
+- Strenge [`Cross-Origin-Opener-Policy`](/de/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy)-Einstellungen werden für neue Browsing-Kontexte erzwungen, die von innerhalb von fenced frames geöffnet werden, andernfalls könnten sie genutzt werden, um Informationen zu anderen Ursprüngen zu leaken. Jedes neue Fenster, das von innerhalb eines fenced frames geöffnet wird, wird [`rel="noopener"`](/de/docs/Web/HTML/Attributes/rel/noopener) gesetzt haben und `Cross-Origin-Opener-Policy: same-origin` um sicherzustellen, dass [`Window.opener`](/de/docs/Web/API/Window/opener) `null` zurückgibt und es in seiner eigenen Browsing-Kontextgruppe platziert.
+- [`Content-Security-Policy: fenced-frame-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/fenced-frame-src) wurde hinzugefügt, um gültige Quellen für verschachtelte Browsing-Kontexte zu spezifizieren, die in `<fencedframe>`-Elemente geladen werden.
+- [`Content-Security-Policy: sandbox`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox)-benutzerdefinierte Einstellungen können nicht von fenced frames geerbt werden, um Datenschutzprobleme zu mindern. Damit ein fenced frame geladen wird, müssen Sie kein `sandbox`-CSP spezifizieren (was impliziert, dass die unten aufgeführten Werte gemeint sind), oder Sie müssen die folgenden Sandboxing-Werte spezifizieren:
   - `allow-same-origin`
   - `allow-forms`
   - `allow-scripts`
@@ -99,41 +99,41 @@ Weitere Auswirkungen von Fenced Frames auf HTTP-Header sind wie folgt:
   - `allow-popups-to-escape-sandbox`
   - `allow-top-navigation-by-user-activation`
 
-### `beforeunload` und `unload` Ereignisse
+### `beforeunload` und `unload`-Events
 
-[`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) und [`unload`](/de/docs/Web/API/Window/unload_event) Ereignisse werden in Fenced Frames nicht ausgelöst, weil sie Informationen in Form eines Seitenlöschzeitstempels preisgeben können. Implementierungen zielen darauf ab, so viele potenzielle Lecks wie möglich auszuschließen.
+[`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) und [`unload`](/de/docs/Web/API/Window/unload_event)-Events werden für fenced frames nicht ausgelöst, da sie in Form eines Löschzeitstempels Informationen leaken können. Implementierungen zielen darauf ab, so viele potentielle Leaks wie möglich zu eliminieren.
 
 ## Schnittstellen
 
 - [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)
-  - : Repräsentiert die Navigation eines {{htmlelement("fencedframe")}}, d.h. welche Inhalte darin angezeigt werden. Ein `FencedFrameConfig` wird von einer Quelle wie der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) zurückgegeben und als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) gesetzt.
+  - : Repräsentiert die Navigation eines {{htmlelement("fencedframe")}}, d.h. welcher Inhalt darin angezeigt wird. Ein `FencedFrameConfig` wird von einer Quelle wie der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) zurückgegeben und als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) gesetzt.
 - [`Fence`](/de/docs/Web/API/Fence)
-  - : Enthält mehrere Funktionen, die für die Fenced Frame-Funktionalität relevant sind. Nur für Dokumente verfügbar, die innerhalb eines `<fencedframe>` eingebettet sind.
+  - : Enthält mehrere Funktionen, die für die fenced frame Funktionalität relevant sind. Nur für in einem `<fencedframe>` eingebettete Dokumente verfügbar.
 - [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement)
   - : Repräsentiert ein `<fencedframe>`-Element in JavaScript und bietet Eigenschaften, um es zu konfigurieren.
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.deprecatedReplaceInURN()`](/de/docs/Web/API/Navigator/deprecatedReplaceInURN)
-  - : Ersetzt angegebene Zeichenketten in der gemappten URL, die einer gegebenen opaken URN oder dem internen `url`-Eigentum eines `FencedFrameConfig` entspricht.
+  - : Ersetzt angegebene Zeichenfolgen innerhalb der zu einer gegebenen undurchsichtigen URN oder der internen `url`-Eigenschaft eines `FencedFrameConfig` zugeordneten URL.
 - [`Window.fence`](/de/docs/Web/API/Window/fence)
-  - : Gibt ein [`Fence`](/de/docs/Web/API/Fence)-Objekt für den aktuellen Dokumentenkontext zurück. Nur für Dokumente verfügbar, die innerhalb eines `<fencedframe>` eingebettet sind.
+  - : Gibt ein [`Fence`](/de/docs/Web/API/Fence)-Objekt für den aktuellen Dokumentkontext zurück. Nur für in einem `<fencedframe>` eingebettete Dokumente verfügbar.
 
-## Anmeldung und lokales Testen
+## Teilnahme und lokale Tests
 
-Bestimmte API-Funktionen, die [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s erstellen, wie [`Navigator.runAdAuction()`](/de/docs/Web/API/Navigator/runAdAuction) ([Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience)) und [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) ([Shared Storage API](/de/docs/Web/API/Shared_Storage_API)), sowie andere Funktionen wie [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent), erfordern, dass Sie Ihre Seite in einem [Privacy Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) anmelden. Wenn Sie dies nicht tun, schlagen die API-Aufrufe mit einer Konsolenwarnung fehl.
+Bestimmte API-Funktionen, die [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s erstellen, wie [`Navigator.runAdAuction()`](/de/docs/Web/API/Navigator/runAdAuction) ([Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience)) und [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) ([Shared Storage API](/de/docs/Web/API/Shared_Storage_API)), sowie andere Funktionen wie [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent), erfordern, dass Sie Ihre Seite in einem [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) anmelden. Wenn Sie dies nicht tun, werden die API-Aufrufe mit einer Konsolenwarnung fehlschlagen.
 
 > [!NOTE]
-> In Chrome können Sie Ihren Fenced Frame-Code dennoch lokal testen, ohne dass eine Anmeldung erforderlich ist. Um lokales Testen zu ermöglichen, aktivieren Sie den folgenden Chrome-Entwickler-Flag:
+> In Chrome können Sie Ihren fenced frame Code trotzdem lokal testen, ohne eine Registrierung. Um lokale Tests zu ermöglichen, aktivieren Sie das folgende Chrome-Entwickler-Flag:
 >
 > `chrome://flags/#privacy-sandbox-enrollment-overrides`
 
 ## Beispiele
 
-Die folgenden Demonstrationen verwenden alle `<fencedframe>`s:
+Die folgenden Demos verwenden alle `<fencedframe>`s:
 
-- [Shared Storage API-Demos](https://shared-storage-demo.web.app/) (die auch einige Beispiele der Private Aggregation API enthalten)
-- [Protected Audience API-Demo](https://protected-audience-demo-advertiser.web.app/)
+- [Shared Storage API Demos](https://shared-storage-demo.web.app/) (die auch einige Private Aggregation API-Beispiele enthalten)
+- [Protected Audience API Demo](https://protected-audience-demo-advertiser.web.app/)
 
 ## Spezifikationen
 
@@ -146,4 +146,4 @@ Die folgenden Demonstrationen verwenden alle `<fencedframe>`s:
 ## Siehe auch
 
 - [Fenced frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
-- [Der Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
+- [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

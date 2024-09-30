@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Erstellt ein neues, leeres [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), in das DOM-Knoten hinzugefügt werden können, um einen Offscreen-DOM-Baum zu erstellen.
+Erstellt ein neues leeres [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), in das
+DOM-Knoten hinzugefügt werden können, um einen Offscreen-DOM-Baum zu erstellen.
 
 ## Syntax
 
@@ -22,15 +23,19 @@ Keine.
 
 ### Rückgabewert
 
-Ein neu erstelltes, leeres [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt, das bereit ist, Knoten aufzunehmen.
+Ein neu erstelltes, leeres [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt, das bereit ist, Knoten einzufügen.
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
-`DocumentFragment`s sind DOM-[`Node`](/de/docs/Web/API/Node)-Objekte, die niemals Teil des Haupt-DOM-Baums sind. Der übliche Anwendungsfall besteht darin, das Dokumentfragment zu erstellen, Elemente zum Dokumentfragment hinzuzufügen und dann das Dokumentfragment zum DOM-Baum hinzuzufügen. Im DOM-Baum wird das Dokumentfragment durch all seine Kinder ersetzt.
+`DocumentFragment`s sind DOM-[`Node`](/de/docs/Web/API/Node)-Objekte, die niemals Teil
+des Haupt-DOM-Baums sind. Der übliche Anwendungsfall besteht darin, das Dokumentfragment zu erstellen, Elemente an das Dokumentfragment anzuhängen und dann das Dokumentfragment an den DOM-Baum anzuhängen.
+Im DOM-Baum wird das Dokumentfragment durch all seine Kinder ersetzt.
 
-Da sich das Dokumentfragment _im Speicher_ befindet und nicht Teil des Haupt-DOM-Baums ist, könnte die Verwendung von Dokumentfragmenten in einigen älteren Engines zu [besserer Leistung](https://johnresig.com/blog/dom-documentfragments/) führen.
+Da das Dokumentfragment _im Speicher_ und nicht Teil des Haupt-DOM-Baums ist,
+könnte die Verwendung von Dokumentfragmenten in einigen älteren Engines zu [besserer Leistung](https://johnresig.com/blog/dom-documentfragments/) führen.
 
-Sie können auch den `DocumentFragment`-Konstruktor verwenden, um ein neues Fragment zu erstellen:
+Sie können auch den `DocumentFragment`-Konstruktor verwenden, um ein neues
+Fragment zu erstellen:
 
 ```js
 const fragment = new DocumentFragment();
@@ -38,7 +43,8 @@ const fragment = new DocumentFragment();
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine Liste großer Webbrowser in einem `DocumentFragment` und fügt dann den neuen DOM-Unterbaum dem Dokument hinzu, um ihn anzuzeigen.
+Dieses Beispiel erstellt eine Liste der wichtigsten Webbrowser in einem `DocumentFragment`
+und fügt dann den neuen DOM-Unterbaum dem Dokument hinzu, das angezeigt werden soll.
 
 ### HTML
 

@@ -1,5 +1,5 @@
 ---
-title: "PannerNode: Eigenschaft maxDistance"
+title: "PannerNode: maxDistance-Eigenschaft"
 short-title: maxDistance
 slug: Web/API/PannerNode/maxDistance
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `maxDistance` des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein Doppelwert, der die maximale Entfernung zwischen der Audioquelle und dem Zuhörer darstellt. Nach dieser Entfernung wird die Lautstärke nicht weiter reduziert. Dieser Wert wird nur vom `linear` Distanzmodell verwendet.
+Die `maxDistance`-Eigenschaft des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein Double-Wert, der die maximale Entfernung zwischen der Audioquelle und dem Zuhörer darstellt, nach der die Lautstärke nicht weiter reduziert wird. Dieser Wert wird nur vom `linear`-Distanzmodell verwendet.
 
-Der Standardwert der Eigenschaft `maxDistance` ist `10000`.
+Der Standardwert der `maxDistance`-Eigenschaft ist `10000`.
 
 ## Wert
 
-Ein Doppelwert. Der Standardwert ist `10000`, und nicht positive Werte sind nicht erlaubt.
+Ein Double. Der Standardwert ist `10000`, und nicht-positive Werte sind nicht erlaubt.
 
 ### Ausnahmen
 

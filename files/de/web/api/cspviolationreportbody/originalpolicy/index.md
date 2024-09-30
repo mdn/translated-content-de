@@ -8,23 +8,26 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`originalPolicy`** des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
+Die **`originalPolicy`**-Schreibgeschützte Eigenschaft des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
 
-Dies ist der String im {{HTTPHeader("Content-Security-Policy")}} HTTP-Antwort-Header, der die Liste der [Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) und ihre Werte enthält, die die CSP-Richtlinie bilden. Beachten Sie, dass dies sich von der [`effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody/effectiveDirective) unterscheidet, die die spezifische Direktive ist, die tatsächlich verletzt wird (und die möglicherweise nicht explizit in der Richtlinie aufgeführt ist, wenn `default-src` verwendet wird).
+Dies ist der String im {{HTTPHeader("Content-Security-Policy")}}-HTTP-Antwortheader, der die Liste der [Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) und deren Werte enthält, die die CSP-Policy bilden.
+Beachten Sie, dass sich dies von der [`effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody/effectiveDirective) unterscheidet, die die spezifische Richtlinie ist, die tatsächlich verletzt wird (und die möglicherweise nicht explizit in der Richtlinie aufgeführt ist, wenn `default-src` verwendet wird).
 
 ## Wert
 
-Ein String, der die Richtlinie darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
+Ein String, der die Policy darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
 
 ## Beispiele
 
 ### CSP Inline-Skript-Verletzung
 
-Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver). Insbesondere protokolliert es die `effectiveDirective` und die `originalPolicy`, um den Unterschied klar zu machen.
+Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Insbesondere protokolliert es die `effectiveDirective` und die `originalPolicy`, um den Unterschied deutlich zu machen.
 
 #### HTML
 
-Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was es erlaubt, Skripte und andere Ressourcen von derselben Domain zu laden, jedoch nicht erlaubt, Inline-Skripte auszuführen. Das Dokument enthält auch ein Inline-Skript, das eine CSP-Verletzung auslösen sollte.
+Die unten stehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um das {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was das Laden von Skripten und anderen Ressourcen aus derselben Domain erlaubt, aber nicht das Ausführen von Inline-Skripten erlaubt.
+Das Dokument enthält auch ein Inline-Skript, das eine CSP-Verletzung auslösen sollte.
 
 ```html
 <!doctype html>
@@ -51,9 +54,11 @@ Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)
 
 #### JavaScript (main.js)
 
-Das obige Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird. Da es von derselben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
+Das oben genannte Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
+Da dies von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen vom Typ `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die `effectiveDirective` und die `originalPolicy` der Verletzung in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Rückruffunktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Berichtsarrays und verwenden ihn, um die effectiveDirective und `originalPolicy` der Verletzung in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -73,7 +78,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl möglicherweise mehrere Berichte im zurückgegebenen Array vorhanden sind, wir der Kürze halber nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass, obwohl es mehrere Berichte im zurückgegebenen Array geben kann, der Kürze halber nur die Werte des ersten Elements protokolliert werden.
 
 #### Ergebnisse
 
@@ -84,9 +89,10 @@ effectiveDirective: script-src-elem
 originalPolicy: default-src 'self'; report-to csp-endpoint
 ```
 
-Beachten Sie, dass die `originalPolicy` mit dem `<meta>`-Inhalt der `Content-Security-Policy`-Direktive im HTML übereinstimmt und angibt, dass die Richtlinie standardmäßig `self` ist (`default-src 'self'`).
+Beachten Sie, dass die `originalPolicy` mit dem `<meta>`-Inhalt der `Content-Security-Policy`-Richtlinie im HTML übereinstimmt und angibt, dass die Policy standardmäßig `self` ist (`default-src 'self'`).
 
-Die `effectiveDirective` ist `script-src-elem`, die gültige Quellen für JavaScript-{{htmlelement("script")}}-Elemente spezifiziert. Dies ist die spezifische Direktive, die tatsächlich verletzt wurde, obwohl `default-src` in der Richtlinie festgelegt war.
+Die `effectiveDirective` ist `script-src-elem`, die gültige Quellen für JavaScript-{{htmlelement("script")}}-Elemente angibt.
+Dies ist die spezifische Direktive, die tatsächlich verletzt wurde, obwohl `default-src` in der Richtlinie festgelegt wurde.
 
 ## Spezifikationen
 

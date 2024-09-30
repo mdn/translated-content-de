@@ -12,7 +12,7 @@ Die **`name`**-Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutput
 
 ## Wert
 
-Ein String, der den Namen des Elements darstellt.
+Ein String, der den Namen des Elements repräsentiert.
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: "UserActivation: isActive-Eigenschaft"
+title: "UserActivation: Eigenschaft isActive"
 short-title: isActive
 slug: Web/API/UserActivation/isActive
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`isActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster über eine [transiente Benutzeraktivierung](/de/docs/Glossary/transient_activation) verfügt.
+Die schreibgeschützte **`isActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine [vorübergehende Benutzeraktivierung](/de/docs/Glossary/transient_activation) hat.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
-### Überprüfen, ob kürzlich eine Benutzeraktion ausgeführt wurde
+### Überprüfung, ob kürzlich eine Benutzeraktion durchgeführt wurde
 
 Verwenden Sie die `isActive`-Eigenschaft, um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert.
 

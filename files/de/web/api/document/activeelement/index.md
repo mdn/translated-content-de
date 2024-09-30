@@ -8,27 +8,25 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`activeElement`**-Eigenschaft
+Die **`activeElement`** schreibgeschützte Eigenschaft
 der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOM zurück, das derzeit den Fokus hat.
 
 Oft gibt `activeElement` ein [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) oder
-[`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Objekt zurück, wenn es zurzeit die Textauswahl enthält. In diesem Fall können Sie nähere Informationen durch die Verwendung der `selectionStart`- und `selectionEnd`-Eigenschaften des Objekts erhalten.
-Zu anderen Zeiten könnte das fokussierte Element ein {{HTMLElement("select")}}-Element (Menü) oder
+[`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Objekt zurück, wenn es zu diesem Zeitpunkt die Textauswahl hat. In diesem Fall können Sie mit den Eigenschaften `selectionStart` und `selectionEnd` des Objekts weitere Details erhalten.
+Andere Male könnte das fokussierte Element ein {{HTMLElement("select")}}-Element (Menü) oder
 ein {{HTMLElement("input")}}-Element sein.
 
 Typischerweise kann ein Benutzer die Tabulatortaste drücken, um den Fokus auf der Seite zwischen
-fokussierbaren Elementen zu bewegen und die Leertaste verwenden, um eines zu aktivieren (das heißt, um eine Schaltfläche zu drücken oder einen Radiobutton umzuschalten). Welche Elemente fokussierbar sind, variiert je nach Plattform
-und aktueller Konfiguration des Browsers. Zum Beispiel sind auf macOS-Systemen Elemente, die keine Texteingabeelemente sind, standardmäßig oft nicht fokussierbar.
+fokussierbaren Elementen zu bewegen, und die Leertaste verwenden, um eines zu aktivieren (das heißt, um eine Schaltfläche zu drücken oder ein Optionsfeld umzuschalten). Welche Elemente fokussierbar sind, hängt von der Plattform
+und der aktuellen Konfiguration des Browsers ab. Beispielsweise sind auf macOS-Systemen Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar.
 
 > [!NOTE]
-> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht
-> dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können
-> die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) erhalten.
+> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) erhalten.
 
 ## Wert
 
 Das [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat, {{HTMLElement("body")}} oder
-`null`, wenn es kein fokussiertes Element gibt.
+`null`, wenn kein Element fokussiert ist.
 
 ## Beispiele
 

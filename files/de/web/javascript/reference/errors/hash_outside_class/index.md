@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Unerwartetes '#' außerhalb des Klassenkörpers"
+title: "SyntaxError: Unerwartetes '#' außerhalb des Klassenkörpers verwendet"
 slug: Web/JavaScript/Reference/Errors/Hash_outside_class
 l10n:
   sourceCommit: 41cddfdaeed4a73fb8234c332150df8e54df31e9
@@ -7,12 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Unerwartetes '#' außerhalb des Klassenkörpers verwendet" tritt auf, wenn ein Hash
-("#") in einem unerwarteten Kontext, insbesondere
-[außerhalb einer Klassendeklaration](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), gefunden wird.
-Hashes sind am Anfang einer Datei als [Hashbang-Kommentar](/de/docs/Web/JavaScript/Reference/Lexical_grammar) gültig
-oder innerhalb einer Klasse als Teil eines privaten Feldes. Sie können auf diesen Fehler stoßen, wenn Sie vergessen,
-die Anführungszeichen beim Zugriff auf eine DOM-Kennung zu setzen.
+Der JavaScript-Ausnahmefehler "Unerwartetes '#' außerhalb des Klassenkörpers verwendet" tritt auf, wenn ein Hashzeichen ("#") in einem unerwarteten Kontext gefunden wird, insbesondere [außerhalb einer Klassendeklaration](/de/docs/Web/JavaScript/Reference/Classes/Private_properties). Hashzeichen sind am Anfang einer Datei als [Hashbang-Kommentar](/de/docs/Web/JavaScript/Reference/Lexical_grammar) oder innerhalb einer Klasse als Teil eines privaten Feldes gültig. Dieser Fehler kann auftreten, wenn Sie die Anführungszeichen vergessen, während Sie versuchen, auf eine DOM-Kennung zuzugreifen.
 
 ## Meldung
 
@@ -24,9 +19,9 @@ SyntaxError: Unexpected '#' used outside of class body.
 
 {{jsxref("SyntaxError")}}
 
-## Was ging schief?
+## Was ist schiefgelaufen?
 
-Wir sind irgendwo auf ein unerwartetes `#` gestoßen. Dies kann daran liegen, dass Code verschoben wurde und nicht mehr Teil einer Klasse ist, ein Hashbang-Kommentar auf einer anderen Zeile als der ersten Zeile einer Datei gefunden wurde oder versehentlich die Anführungszeichen um eine DOM-Kennung vergessen wurden.
+Wir haben ein `#` an einem unerwarteten Ort gefunden. Dies kann darauf zurückzuführen sein, dass Code verschoben wurde und nicht mehr Teil einer Klasse ist, ein Hashbang-Kommentar, der sich nicht in der ersten Zeile einer Datei befindet, oder dass die Anführungszeichen um eine DOM-Kennung versehentlich vergessen wurden.
 
 ## Beispiele
 
@@ -38,7 +33,7 @@ In jedem Fall könnte etwas leicht falsch sein. Zum Beispiel
 document.querySelector(#some-element)
 ```
 
-Dies kann folgendermaßen behoben werden
+Dies kann behoben werden durch
 
 ```js example-good
 document.querySelector("#some-element");

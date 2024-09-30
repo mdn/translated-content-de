@@ -1,5 +1,5 @@
 ---
-title: "CanvasPattern: setTransform() Methode"
+title: "CanvasPattern: setTransform()-Methode"
 short-title: setTransform()
 slug: Web/API/CanvasPattern/setTransform
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasPattern.setTransform()`** Methode verwendet ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt als Transformationsmatrix des Musters und wendet es auf das Muster an.
+Die **`CanvasPattern.setTransform()`**-Methode verwendet ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt als Transformationsmatrix des Musters und ruft es für das Muster auf.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der `setTransform` Methode
+### Verwendung der `setTransform`-Methode
 
-Dies ist nur ein einfaches Code-Snippet, das die `setTransform` Methode verwendet, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit der angegebenen Mustertransformation aus einer [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) festlegen, und wird auf die Leinwand gezeichnet, wenn Sie beispielsweise die [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) Methode verwenden.
+Dies ist ein einfaches Codebeispiel, das die `setTransform`-Methode verwendet, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit der angegebenen Mustertransformation von einer [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuelles [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) festlegen und es mit der [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)-Methode auf die Leinwand gezeichnet wird, zum Beispiel.
 
 #### HTML
 
@@ -56,9 +56,9 @@ img.onload = () => {
 };
 ```
 
-#### Bearbeitbares Beispiel
+#### Editierbares Demo
 
-Hier ist ein bearbeitbares Beispiel des obigen Code-Snippets. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um den Effekt zu sehen.
+Hier ist ein editierbares Demo des obigen Codebeispiels. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um den Effekt zu sehen, den es hat.
 
 ```html hidden
 <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>

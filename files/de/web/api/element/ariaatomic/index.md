@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaAtomic`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider. Dieses Attribut gibt an, ob unterstützende Technologien entweder alle oder nur Teile des geänderten Bereichs präsentieren werden, basierend auf den Änderungsbenachrichtigungen, die durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definiert sind.
+Die **`ariaAtomic`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, welches angibt, ob unterstützende Technologien die gesamte oder nur Teile der veränderten Region basierend auf den Änderungsbenachrichtigungen, die durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definiert sind, präsentieren werden.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"false"`
-  - : Unterstützende Technologien werden nur die geänderten Knoten präsentieren.
+  - : Unterstützende Technologien werden nur den oder die geänderten Knoten präsentieren.
 - `"true"`
-  - : Unterstützende Technologien werden den gesamten geänderten Bereich als Ganzes präsentieren, einschließlich des vom Autor festgelegten Labels, falls vorhanden.
+  - : Unterstützende Technologien werden die gesamte veränderte Region als Ganzes präsentieren, einschließlich des vom Autor definierten Labels, falls eines existiert.
 
 ## Beispiele
 

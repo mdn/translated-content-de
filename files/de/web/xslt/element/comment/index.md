@@ -33,6 +33,6 @@ Anweisung, erscheint innerhalb einer Vorlage.
 
 XSLT, Abschnitt 7.4.
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

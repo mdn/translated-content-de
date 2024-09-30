@@ -7,25 +7,25 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der Befehl _Close Window_ der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen Top-Level-Browsing-Kontext (Fenster oder Tab) und gibt die Liste der derzeit geöffneten [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung automatisch gelöscht. Nachfolgende Befehle nach dem Ende der Sitzung verursachen daher [invalid session ID](/de/docs/Web/WebDriver/Errors/InvalidSessionID)-Fehler.
+Der _Close Window_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen obersten Browsing-Kontext (Fenster oder Tab) und gibt die Liste der momentan geöffneten [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle nach dem Ende der Sitzung führen daher zu [ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Errors/InvalidSessionID) Fehlern.
 
 ## Syntax
 
-| Methode                                      | URI-Vorlage                    |
-| -------------------------------------------- | ------------------------------ |
+| Methode                                         | URI-Vorlage                    |
+| ----------------------------------------------- | ------------------------------ |
 | [`DELETE`](/de/docs/Web/HTTP/Methods/DELETE) | `/session/{session id}/window` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Fehler
 
-- [Invalid session ID](/de/docs/Web/WebDriver/Errors/InvalidSessionID)
-  - : Die Sitzung existiert nicht.
-- [Unexpected alert open](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+- [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Errors/InvalidSessionID)
+  - : Sitzung existiert nicht.
+- [Unerwartetes offenes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Beispiel
 

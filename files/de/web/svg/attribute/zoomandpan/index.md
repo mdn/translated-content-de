@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`zoomAndPan`**-Attribut gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
+Das **`zoomAndPan`** Attribut gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
 
-Vergrößerung in diesem Kontext bedeutet den Effekt einer zusätzlichen Skalierungs- und Verschiebungstransformation auf das äußerste SVG-Dokumentfragment.
+Vergrößerung in diesem Zusammenhang bedeutet die Wirkung einer zusätzlichen Skalierungs- und Verschiebungstransformation auf das äußerste SVG-Dokumentfragment.
 
-Verschieben stellt eine Übersetzungstransformation (d. h. eine Verschiebung) auf einem SVG-Dokumentfragment als Reaktion auf eine Benutzeroberflächenaktion dar.
+Verschieben stellt eine Verschiebungstransformation (d.h. eine Verschiebung) auf einem SVG-Dokumentfragment dar, als Reaktion auf eine Benutzeroberflächenaktion.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("svg")}}
 - {{SVGElement("view")}}
@@ -50,7 +50,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

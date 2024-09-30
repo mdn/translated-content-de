@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden [`SVGRect`](/de/docs/Web/API/SVGRect) verwendet, die animiert werden können.
+Das `SVGAnimatedRect` Interface wird für Attribute von grundlegenden [`SVGRect`](/de/docs/Web/API/SVGRect) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
@@ -61,20 +61,14 @@ Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden [`SVGR
       <td><code>baseVal</code></td>
       <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor Anwendung von Animationen.
+        Der Basiswert des angegebenen Attributs, bevor irgendwelche Animationen angewendet werden.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Ein schreibgeschützter [`SVGRect`](/de/docs/Web/API/SVGRect), der den
-        aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das
-        angegebene Attribut derzeit nicht animiert wird, hat der
-        [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie
-        <code>baseVal</code>. Das durch <code>animVal</code> referenzierte
-        Objekt wird immer von dem durch <code>baseVal</code> referenzierten
-        Objekt abweichen, selbst wenn das Attribut nicht animiert wird.
+        Ein schreibgeschützter [`SVGRect`](/de/docs/Web/API/SVGRect), der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut momentan nicht animiert wird, hat der [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie <code>baseVal</code>. Das von <code>animVal</code> referenzierte Objekt wird immer von dem von <code>baseVal</code> referenzierten Objekt verschieden sein, auch wenn das Attribut nicht animiert ist.
       </td>
     </tr>
   </tbody>
@@ -82,7 +76,7 @@ Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden [`SVGR
 
 ## Instanz-Methoden
 
-_Die `SVGAnimatedRect`-Schnittstelle bietet keine speziellen Methoden._
+_Das `SVGAnimatedRect` Interface bietet keine spezifischen Methoden._
 
 ## Spezifikationen
 

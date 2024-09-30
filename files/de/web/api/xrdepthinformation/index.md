@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Das **`XRDepthInformation`**-Interface enthält Informationen über die Entfernung von Ihrem Gerät zur realen Geometrie in Ihrer Umgebung.
+Das **`XRDepthInformation`**-Interface enthält Informationen über die Entfernung vom Gerät des Benutzers zur realen Geometrie in der Umgebung des Benutzers.
 
 Dieses Interface ist das übergeordnete von:
 
@@ -16,20 +16,20 @@ Dieses Interface ist das übergeordnete von:
 - [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)
   - : Tiefeninformationen von WebGL (zurückgegeben von [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation)).
 
-In der Regel arbeiten Sie mit diesen untergeordneten Interfaces. Dennoch stellt `XRDepthInformation` einige nützliche geerbte Eigenschaften bereit:
+Sie werden in der Regel mit diesen untergeordneten Interfaces interagieren. `XRDepthInformation` bietet jedoch einige nützliche Eigenschaften, die geerbt werden:
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`XRDepthInformation.height`](/de/docs/Web/API/XRDepthInformation/height) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Enthält die Höhe des Tiefenpuffers (Anzahl der Zeilen).
 - [`XRDepthInformation.normDepthBufferFromNormView`](/de/docs/Web/API/XRDepthInformation/normDepthBufferFromNormView) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das angewendet werden muss, wenn in den Tiefenpuffer indexiert wird. Die Transformation, die die Matrix darstellt, ändert das Koordinatensystem von normalisierten Anzeigekoordinaten zu normalisierten Tiefenpuffer-Koordinaten, die dann durch `width` und `height` des Tiefenpuffers skaliert werden können, um die absoluten Tiefenpuffer-Koordinaten zu erhalten.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der angewendet werden muss, wenn in den Tiefenpuffer indiziert wird. Die Transformation, die die Matrix darstellt, ändert das Koordinatensystem von normalisierten Ansichtskonzepten zu normalisierten Tiefenpuffer-Koordinaten, die dann durch die Breite und Höhe des Tiefenpuffers skaliert werden können, um die absoluten Tiefenpuffer-Koordinaten zu erhalten.
 - [`XRDepthInformation.rawValueToMeters`](/de/docs/Web/API/XRDepthInformation/rawValueToMeters) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält den Skalierungsfaktor, mit dem die rohen Tiefenwerte multipliziert werden müssen, um die Tiefen in Metern zu erhalten.
+  - : Enthält den Skalierungsfaktor, mit dem die Rohwerter der Tiefenwerte multipliziert werden müssen, um die Tiefen in Metern zu erhalten.
 - [`XRDepthInformation.width`](/de/docs/Web/API/XRDepthInformation/width) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Enthält die Breite des Tiefenpuffers (Anzahl der Spalten).
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 

@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.append()`** Methode
-fügt eine Menge von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen nach
-dem letzten Kind des Dokuments ein. Zeichenfolgen
-werden als gleichwertige [`Text`](/de/docs/Web/API/Text) Knoten eingefügt.
+Die **`Document.append()`**-Methode
+fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten nach
+dem letzten Kind des Dokuments ein. Zeichenketten
+werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode hängt ein Kind an ein `Document` an. Um an ein beliebiges Element im Baum anzuhängen, siehe [`Element.append()`](/de/docs/Web/API/Element/append).
+Diese Methode fügt ein Kind zu einem `Document` hinzu. Um ein Kind zu einem beliebigen Element im Baum hinzuzufügen, siehe [`Element.append()`](/de/docs/Web/API/Element/append).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ append(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -39,10 +39,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein Wurzelelement an ein Dokument anhängen
+### Einfügen eines Wurzelelements in ein Dokument
 
-Wenn Sie versuchen, ein Element an ein bestehendes HTML-Dokument anzuhängen,
-könnte ein `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException) verursacht werden, falls ein {{HTMLElement("html")}} Element bereits existiert.
+Wenn Sie versuchen, ein Element in ein bestehendes HTML-Dokument einzufügen,
+kann es einen `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, da ein {{HTMLElement("html")}}-Element bereits existiert.
 
 ```js
 let html = document.createElement("html");
@@ -50,7 +50,7 @@ document.append(html);
 // HierarchyRequestError: The operation would yield an incorrect node tree.
 ```
 
-Wenn Sie ein neues Dokument ohne vorhandene Elemente erstellen, können Sie ein Wurzel-HTML-Element (oder ein Wurzel-SVG-Element) anhängen:
+Wenn Sie ein neues Dokument ohne bestehende Elemente erstellen, können Sie ein HTML-Wurzelelement (oder ein SVG-Wurzelelement) einfügen:
 
 ```js
 let doc = new Document();

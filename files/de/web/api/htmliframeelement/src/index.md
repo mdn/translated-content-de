@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die **`HTMLIFrameElement.src`** ist ein String, der das HTML-Attribut [`src`](/de/docs/Web/HTML/Element/iframe#src) widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
+Die **`HTMLIFrameElement.src`**
+Ein String, der das [`src`](/de/docs/Web/HTML/Element/iframe#src) HTML-Attribut widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
 
-Beachten Sie, dass das programmatische Entfernen des `src`-Attributs eines `<iframe>`s (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Rahmen geladen wird.
+Beachten Sie, dass das programmatische Entfernen des src-Attributs eines `<iframe>` (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Frame geladen wird.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), zusammen mit der {{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/At-rule) verwendet, repräsentiert alle linken Seiten eines gedruckten Dokuments.
+Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule), repräsentiert alle linken Seiten eines gedruckten Dokuments.
 
 ```css
 /* Selects any left-hand pages when printing */
@@ -16,10 +16,10 @@ Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 }
 ```
 
-Ob eine gegebene Seite "links" oder "rechts" ist, wird durch die hauptsächliche Schreibrichtung des Dokuments bestimmt. Zum Beispiel wird eine Seite mit einer hauptsächlichen Schreibrichtung von links nach rechts eine {{Cssxref(":right")}} Seite sein; hat sie eine hauptsächliche Schreibrichtung von rechts nach links, wird es eine `:left` Seite sein.
+Ob eine gegebene Seite "left" oder "right" ist, wird durch die Hauptschreibrichtung des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptschreibrichtung von links nach rechts hat, wird es eine {{Cssxref(":right")}} Seite sein; wenn sie eine Hauptschreibrichtung von rechts nach links hat, dann wird es eine `:left` Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann verwendet werden, um nur die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ob eine gegebene Seite "links" oder "rechts" ist, wird durch die hauptsächliche
 
 ## Beispiele
 
-### Festlegen eines Randes für linke Seiten
+### Einen Rand für linke Seiten festlegen
 
 ```css
 @page :left {

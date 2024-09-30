@@ -21,13 +21,13 @@ new MediaQueryListEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitiv, und Browser setzen ihn immer auf `change`.
+    Es ist case-sensitive, und Browser setzen es immer auf `change`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `media` {{optional_inline}}
-      - : Ein String, der eine serialisierte Media Query darstellt. Standardmäßig ist er `""`.
+      - : Ein String, der eine serialisierte Media Query darstellt. Standardmäßig ist sie `""`.
     - `matches` {{optional_inline}}
-      - : Ein boolescher Wert, der den Status der Media Query darstellt; `true`, wenn sie übereinstimmt, `false`, wenn nicht. Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der den Status der Media Query darstellt; `true`, wenn sie übereinstimmt, `false`, wenn nicht. Standardmäßig ist sie `false`.
 
 ### Rückgabewert
 

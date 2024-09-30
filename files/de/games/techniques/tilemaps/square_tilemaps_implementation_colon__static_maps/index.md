@@ -1,5 +1,5 @@
 ---
-title: "Implementierung von quadratischen Tilemaps: Statische Karten"
+title: "Quadratische Kachelkarten-Implementierung: Statische Karten"
 slug: Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps
 l10n:
   sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
@@ -7,46 +7,46 @@ l10n:
 
 {{GamesSidebar}}
 
-In diesem Artikel wird erläutert, wie statische quadratische Tilemaps mit der [Canvas API](/de/docs/Web/API/Canvas_API) implementiert werden.
+Dieser Artikel behandelt, wie statische quadratische Kachelkarten mit der [Canvas API](/de/docs/Web/API/Canvas_API) implementiert werden.
 
 > [!NOTE]
-> Beim Verfassen dieses Artikels gingen wir davon aus, dass der Leser grundlegende Kenntnisse über Canvas besitzt, z.B. wie man ein 2D-Canvas-Kontext erhält, Bilder lädt usw., was alles im [Canvas API Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) erklärt wird, sowie die grundlegenden Informationen, die in unserem Einführungsartikel zu [Tilemaps](/de/docs/Games/Techniques/Tilemaps) enthalten sind.
+> Beim Verfassen dieses Artikels gingen wir davon aus, dass der Leser bereits Grundlagen der Canvas-Technologie kennt, wie das Abrufen eines 2D-Canvas-Kontexts, das Laden von Bildern usw., die alle im [Canvas API Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) erklärt werden. Ebenso wird grundlegende Information in unserem Einführungstext zu [Kachelkarten](/de/docs/Games/Techniques/Tilemaps) behandelt.
 
-## Das Tile-Atlas
+## Das Kachel-Atlas
 
-Ein Tilemap kann ein oder mehrere Atlanten — oder Spreadsheets — verwenden, die alle Kachelbilder enthalten. Dies ist der Atlas, den wir als Beispiel verwenden und der fünf verschiedene Kacheln enthält:
+Ein Kachelkarte kann einen oder mehrere Atlanten verwenden — oder Spritesheets — die alle Kachelbilder enthalten. Dies ist der Atlas, den wir als Beispiel verwenden werden, der fünf verschiedene Kacheln enthält:
 
-![Tiles verpackt in einem Atlas](tiles.png)
+![Kacheln in einem Atlas verpackt](tiles.png)
 
-Um eine Kachel aus dem Atlas in das Canvas zu zeichnen, verwenden wir die [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)-Methode in einem Canvas-2D-Kontext. Wir müssen das Atlasbild, die Koordinaten und Dimensionen der Kachel im Atlas sowie die Zielkoordinaten und -größe angeben (eine andere Kachelgröße hier würde die Kachel skalieren.)
+Um eine Kachel aus dem Atlas in das Canvas zu zeichnen, nutzen wir die [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) Methode in einem 2D-Canvas-Kontext. Wir müssen das Bild des Atlas, die Koordinaten und Abmessungen der Kachel im Atlas sowie die Zielkoordinaten und Größe angeben (eine unterschiedliche Kachelgröße hier würde die Kachel skalieren.)
 
-Um beispielsweise die Baumkachel, die dritte im Atlas, an den Bildschirmkoordinaten `(128, 320)` zu zeichnen, würden wir `drawImage()` mit diesen Werten aufrufen:
+Um beispielsweise die Baumkachel, die dritte im Atlas, an den Bildschirmkoordinaten `(128, 320)` zu zeichnen, würden wir `drawImage()` mit folgenden Werten aufrufen:
 
 ```js
 context.drawImage(atlasImage, 192, 0, 64, 64, 128, 320, 64, 64);
 ```
 
-Um Atlanten mit mehreren Zeilen und Spalten zu unterstützen, müssen Sie wissen, wie viele Zeilen und Spalten es gibt, um das Quell-`x` und `y` berechnen zu können.
+Um Atlanten mit mehreren Zeilen und Spalten zu unterstützen, müssen Sie wissen, wie viele Zeilen und Spalten es gibt, um `x` und `y` der Quelle berechnen zu können.
 
-## Die Datenstruktur der Tilemap
+## Die Kachelkarten-Datenstruktur
 
-Um die Map-Daten zu speichern, können wir ein einfaches Objekt oder eine benutzerdefinierte Klasse verwenden. Der Einfachheit halber wurde im Beispielcode ein einfaches Objekt verwendet. Es enthält die grundlegenden Map-Eigenschaften:
+Um diese Kartendaten zu speichern, können wir ein einfaches Objekt oder eine benutzerdefinierte Klasse verwenden. Der Einfachheit halber wurde im Beispielcode ein einfaches Objekt verwendet. Es enthält die grundlegenden Karteneigenschaften:
 
-- `cols`: Die Breite der Map, in Spalten.
-- `rows`: Die Höhe der Map, in Zeilen.
-- `tsize`: Die Kachelgröße, in Pixeln.
+- `cols`: Die Breite der Karte in Spalten.
+- `rows`: Die Höhe der Karte in Zeilen.
+- `tsize`: Die Kachelgröße in Pixeln.
 - `tiles`: Ein eindimensionales Array, das das visuelle Raster enthält.
-- `getTile()`: Eine Hilfsmethode, die den Kachelindex an einer bestimmten Position abruft.
+- `getTile()`: Eine Hilfsmethode, die den Kachelindex an einer bestimmten Position ermittelt.
 
-`tiles` enthält die tatsächlichen visuellen Map-Daten. Wir stellen die Kacheln mit Indizes dar, die den Kacheln in Abhängigkeit von ihrer Position im Atlas zugeordnet sind (z.B. `0` für die ganz links gelegene Kachel.) Wir müssen jedoch **leere Kacheln** berücksichtigen, da sie für die Implementierung von Layern entscheidend sind — leere Kacheln erhalten normalerweise einen negativen Indexwert, `0` oder einen Nullwert. In diesen Beispielen werden leere Kacheln durch den Index `0` dargestellt, daher verschieben wir die Indizes der Atlanten um eins (und somit wird die erste Kachel des Atlasses dem Index `1` zugewiesen, die zweite dem Index `2` usw.)
+`tiles` enthält die tatsächlichen visuellen Kartendaten. Wir repräsentieren die Kacheln mit Indizes, die den Kacheln basierend auf ihrer Position im Atlas zugeordnet sind (z.B. `0` für die ganz links gelegene Kachel). Wir müssen jedoch **leeren Kacheln** beachten, da sie entscheidend für die Implementierung von Schichten sind — leere Kacheln erhalten üblicherweise einen negativen Indexwert, `0` oder einen Nullwert. In diesen Beispielen werden leere Kacheln durch den Index `0` repräsentiert, daher verschieben wir die Indizes der Atlanten um eins (und somit wird die erste Kachel des Atlas dem Index `1` zugewiesen, die zweite dem Index `2` usw.)
 
-Die `getTile()`-Hilfsmethode gibt die Kachel zurück, die in der angegebenen Spalte und Zeile enthalten ist. Wenn `tiles` eine 2D-Matrix wäre, wäre der zurückgegebene Wert einfach `tiles[column][row]`. Es ist jedoch üblicher, das Raster mit einem eindimensionalen Array darzustellen. In diesem Fall müssen wir die Spalte und die Zeile auf einen Array-Index abbilden:
+Die `getTile()`-Hilfsmethode gibt die Kachel an der angegebenen Spalte und Zeile zurück. Wenn `tiles` eine 2D-Matrix wäre, würde der zurückgegebene Wert einfach `tiles[column][row]` sein. Es ist jedoch üblicher, das Raster mit einem eindimensionalen Array darzustellen. In diesem Fall müssen wir die Spalte und Zeile auf einen Array-Index abbilden:
 
 ```js
 const index = row * map.cols + column;
 ```
 
-Abschließend könnte ein Beispiel für ein Tilemap-Objekt wie folgt aussehen. Dies zeigt eine 8 x 8 Karte mit Kacheln, die 64 x 64 Pixel groß sind:
+Zusammenfassend könnte ein Beispiel eines Kachelkarten-Objekts wie folgt aussehen. Dies zeigt eine 8 x 8 Karte mit Kacheln von 64 x 64 Pixeln:
 
 ```js
 const map = {
@@ -64,13 +64,13 @@ const map = {
 };
 ```
 
-## Rendern der Map
+## Rendering der Karte
 
-Wir können die Map rendern, indem wir über ihre Spalten und Zeilen iterieren. Dieses Snippet geht von den folgenden Definitionen aus:
+Wir können die Karte rendern, indem wir ihre Spalten und Zeilen durchlaufen. Dieser Ausschnitt geht von den folgenden Definitionen aus:
 
 - `context`: Ein 2D-Canvas-Kontext.
-- `tileAtlas`: Ein Bildobjekt, das den Tile-Atlas enthält.
-- `map`: Das oben besprochene Tilemap-Objekt.
+- `tileAtlas`: Ein Bildobjekt, das den Kachel-Atlas enthält.
+- `map`: Das oben besprochene Kachelkarten-Objekt.
 
 ```js
 for (let c = 0; c < map.cols; c++) {
@@ -96,6 +96,6 @@ for (let c = 0; c < map.cols; c++) {
 
 ## Demo
 
-Unsere Demo zur Implementierung statischer Tilemaps fasst den obigen Code zusammen, um zu zeigen, wie eine Implementierung dieser Map aussieht. Sie können eine [Live-Demo](https://mozdevs.github.io/gamedev-js-tiles/square/no-scroll.html) ansehen und den [vollständigen Quellcode](https://github.com/mozdevs/gamedev-js-tiles) abrufen.
+Unser Demo zur Implementierung statischer Kachelkarten fasst den obigen Code zusammen, um zu zeigen, wie eine Implementierung dieser Karte aussieht. Sie können eine [Live-Demo](https://mozdevs.github.io/gamedev-js-tiles/square/no-scroll.html) sehen und den [vollständigen Quellcode](https://github.com/mozdevs/gamedev-js-tiles) abrufen.
 
-[![Luftaufnahme eines Felds mit Bäumen, Gras und Boden, bestehend aus wiederholten Abschnitten der Tilemap.](no-scroll.png)](https://mozdevs.github.io/gamedev-js-tiles/square/no-scroll.html)
+[![Luftaufnahme eines Feldes mit Bäumen, Gras und Boden, die aus wiederholten Abschnitten der Kachelkarte bestehen.](no-scroll.png)](https://mozdevs.github.io/gamedev-js-tiles/square/no-scroll.html)

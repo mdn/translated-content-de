@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`name`**-Schreibeigenschaft des
-[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen menschenlesbaren Namen zurück, der die Stimme repräsentiert.
+Die schreibgeschützte Eigenschaft **`name`** des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen menschenlesbaren Namen zurück, der die Stimme repräsentiert.
 
 ## Wert
 

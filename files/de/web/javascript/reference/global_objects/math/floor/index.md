@@ -28,7 +28,7 @@ Die größte ganze Zahl, die kleiner oder gleich `x` ist. Es ist derselbe Wert w
 
 ## Beschreibung
 
-Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -48,9 +48,9 @@ Math.floor(Infinity); // Infinity
 
 ### Dezimalanpassung
 
-In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Erweiterungsmethode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen die Eingabe immer auf die Einheitsstelle anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen links vom Dezimalpunkt angibt, auf die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt übrig bleibt (wie "× 10<sup>-1</sup>"). Zusätzlich ermöglicht es Ihnen, die Art der Anpassung — `round`, `floor` oder `ceil` — über den `type`-Parameter auszuwählen.
+In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Verbesserung der Methode `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} darstellt. Während die drei `Math`-Funktionen den Eingabewert immer auf die Stellen der Einheitenziffer anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen angibt, die links vom Dezimalpunkt angepasst werden sollen. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt stehen bleiben würde (wie in "× 10<sup>-1</sup>"). Außerdem können Sie die Art der Anpassung — `round`, `floor` oder `ceil` — über den `type`-Parameter auswählen.
 
-Dies geschieht, indem die Zahl mit einer Potenz von 10 multipliziert wird, dann das Ergebnis auf die nächste ganze Zahl gerundet und schließlich durch die Potenz von 10 geteilt wird. Um die Genauigkeit besser zu bewahren, nutzt es die [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)-Methode von Number, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
+Dies geschieht, indem die Zahl mit einer Potenz von 10 multipliziert, das Ergebnis auf die nächste ganze Zahl gerundet und dann durch die Potenz von 10 geteilt wird. Um die Genauigkeit besser zu erhalten, nutzt es die [`toString()`-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) der Zahl, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
 
 ```js
 /**

@@ -1,5 +1,5 @@
 ---
-title: "MediaStreamTrack: contentHint-Eigenschaft"
+title: "MediaStreamTrack: Eigenschaft contentHint"
 short-title: contentHint
 slug: Web/API/MediaStreamTrack/contentHint
 l10n:
@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`contentHint`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist ein String, der einen Hinweis auf die Art des Inhalts gibt, den der Track enthält. Zulässige Werte hängen vom Wert der [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ab.
+Die **`contentHint`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist ein String, der auf den Inhaltstyp des Tracks hinweist. Zulässige Werte hängen vom Wert der [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ab.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `""`
-  - : Kein `contentHint` wurde gesetzt.
+  - : Es wurde kein `contentHint` gesetzt.
 - `"speech"`
-  - : Der Track sollte behandelt werden, als ob er Sprachdaten enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
+  - : Der Track sollte als Sprachdaten enthalten angesehen werden. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"speech-recognition"`
-  - : Der Track sollte behandelt werden, als ob er Daten für die maschinelle Spracherkennung enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
+  - : Der Track sollte so behandelt werden, als ob er Daten für maschinelle Spracherkennung enthält. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"music"`
-  - : Der Track sollte behandelt werden, als ob er Musik enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
+  - : Der Track sollte als Musik enthalten angesehen werden. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"motion"`
-  - : Der Track sollte behandelt werden, als ob er Video enthält, bei dem Bewegung wichtig ist. Zum Beispiel Webcam-Videos, Filme oder Videospiele. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
+  - : Der Track sollte so behandelt werden, als ob er Video enthält, bei dem Bewegung wichtig ist. Zum Beispiel Webcam-Videos, Filme oder Videospiele. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 - `"detail"`
-  - : Der Track sollte behandelt werden, als ob Videodetails besonders wichtig sind. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten, Malereien oder Strichzeichnungen. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
+  - : Der Track sollte so behandelt werden, als ob Video-Details besonders wichtig sind. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten, Gemälden oder Strichzeichnungen. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 - `"text"`
-  - : Der Track sollte behandelt werden, als ob Videodetails besonders wichtig sind und dass signifikante scharfe Kanten und Bereiche mit konsistenter Farbe häufig auftreten können. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
+  - : Der Track sollte so behandelt werden, als ob Video-Details besonders wichtig sind und dass häufig scharfe Kanten und Bereiche mit gleichmäßiger Farbe vorkommen können. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten. Wenn Sie diesen Wert setzen, muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 
 ## Beispiele
 
-### Eine Funktion, die das contentHint setzt
+### Eine Funktion, die den contentHint festlegt
 
-Diese Funktion nimmt einen Stream und einen `contentHint`-Wert und wendet den Hinweis auf jeden Track an. [Sehen Sie das vollständige Beispiel hier](https://webrtc.github.io/samples/src/content/capture/video-contenthint/), um zu sehen, wie unterschiedliche `contentHint`-Werte die Anzeige der Tracks verändern.
+Diese Funktion nimmt einen Stream und einen `contentHint`-Wert und wendet den Hinweis auf jeden Track an. [Sehen Sie sich das vollständige Beispiel hier an](https://webrtc.github.io/samples/src/content/capture/video-contenthint/), das zeigt, wie unterschiedliche `contentHint`-Werte beeinflussen, wie die Tracks angezeigt werden.
 
 ```js
 function setVideoTrackContentHints(stream, hint) {

@@ -1,5 +1,5 @@
 ---
-title: XML-Einführung
+title: XML Einführung
 slug: Web/XML/XML_introduction
 l10n:
   sourceCommit: 6b6907f5886f657b504aa705e68182dcba2083c5
@@ -7,9 +7,9 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/XML")}}
 
-XML (Extensible Markup Language) ist eine Auszeichnungssprache ähnlich wie [HTML](/de/docs/Glossary/HTML), jedoch ohne vordefinierte Tags zur Verwendung. Stattdessen definieren Sie Ihre eigenen Tags, die speziell auf Ihre Bedürfnisse zugeschnitten sind. Dies ist eine leistungsstarke Methode, um Daten in einem Format zu speichern, das gespeichert, durchsucht und geteilt werden kann. Am wichtigsten: Da das grundlegende Format von XML standardisiert ist, kann der Empfänger, wenn Sie XML zwischen Systemen oder Plattformen, entweder lokal oder über das Internet, teilen oder übertragen, die Daten dank der standardisierten XML-Syntax weiterhin analysieren.
+XML (Extensible Markup Language) ist eine Auszeichnungssprache ähnlich wie [HTML](/de/docs/Glossary/HTML), jedoch ohne vordefinierte Tags zur Verwendung. Stattdessen definieren Sie Ihre eigenen Tags, die speziell auf Ihre Bedürfnisse zugeschnitten sind. Dies ist eine leistungsstarke Methode, um Daten in einem Format zu speichern, das gespeichert, durchsucht und geteilt werden kann. Am wichtigsten ist, dass, da das grundlegende Format von XML standardisiert ist, wenn Sie XML über Systeme oder Plattformen hinweg freigeben oder übertragen, entweder lokal oder über das Internet, der Empfänger die Daten aufgrund der standardisierten XML-Syntax dennoch analysieren kann.
 
-Es gibt viele Sprachen, die auf XML basieren, darunter [XHTML](/de/docs/Glossary/XHTML), [MathML](/de/docs/Web/MathML), [SVG](/de/docs/Web/SVG), [RSS](/de/docs/Glossary/RSS) und [RDF](/de/docs/Glossary/RDF). Sie können auch Ihre eigene definieren.
+Es gibt viele Sprachen, die auf XML basieren, einschließlich [XHTML](/de/docs/Glossary/XHTML), [MathML](/de/docs/Web/MathML), [SVG](/de/docs/Web/SVG), [RSS](/de/docs/Glossary/RSS) und [RDF](/de/docs/Glossary/RDF). Sie können auch Ihre eigene definieren.
 
 ## Struktur eines XML-Dokuments
 
@@ -26,9 +26,9 @@ Die XML-Deklaration ist kein Tag. Sie wird für die Übertragung der Metadaten e
 #### Attribute
 
 - `version`
-  - : Die verwendete XML-Version in diesem Dokument.
+  - : Verwendete Version von XML in diesem Dokument.
 - `encoding`
-  - : Die verwendete Kodierung in diesem Dokument.
+  - : Verwendete Kodierung in diesem Dokument.
 
 ### Kommentare
 
@@ -38,13 +38,13 @@ Die XML-Deklaration ist kein Tag. Sie wird für die Übertragung der Metadaten e
 
 ## "Korrektes" XML (gültig und wohlgeformt)
 
-### Korrekte Gestaltungsrichtlinien
+### Korrekte Designregeln
 
 Damit ein XML-Dokument korrekt ist, müssen die folgenden Bedingungen erfüllt sein:
 
 - Das Dokument muss wohlgeformt sein.
 - Das Dokument muss allen XML-Syntaxregeln entsprechen.
-- Das Dokument muss den semantischen Regeln entsprechen, die üblicherweise in einem XML-Schema oder einer DTD (**[Document Type Definition](/de/docs/Glossary/Doctype))** festgelegt sind.
+- Das Dokument muss semantischen Regeln entsprechen, die in der Regel in einem XML-Schema oder einer DTD (**[Document Type Definition](/de/docs/Glossary/Doctype))** festgelegt sind.
 
 ### Beispiel
 
@@ -57,7 +57,7 @@ Damit ein XML-Dokument korrekt ist, müssen die folgenden Bedingungen erfüllt s
 </message>
 ```
 
-Schauen wir uns nun eine korrigierte Version desselben Dokuments an:
+Nun sehen wir uns eine korrigierte Version desselben Dokuments an:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -68,23 +68,23 @@ Schauen wir uns nun eine korrigierte Version desselben Dokuments an:
 </message>
 ```
 
-Ein Dokument, das einen undefinierten Tag enthält, ist ungültig. Zum Beispiel, wenn wir den `<warning>`-Tag niemals definiert haben, wäre das oben stehende Dokument nicht gültig.
+Ein Dokument, das einen undefinierten Tag enthält, ist ungültig. Zum Beispiel, wenn wir den `<warning>` Tag nie definiert hätten, wäre das Dokument oben nicht gültig.
 
 Die meisten Browser bieten einen Debugger, der schlecht geformte XML-Dokumente identifizieren kann.
 
 ## Zeichenreferenzen
 
-Wie HTML bietet XML [Zeichenreferenzen](/de/docs/Glossary/character_reference) für die Bezugnahme auf einige spezielle reservierte Zeichen (wie das Größer-als-Zeichen, das für Tags verwendet wird). Es gibt fünf dieser Zeichen, die Sie kennen sollten:
+Wie HTML bietet auch XML [Zeichenreferenzen](/de/docs/Glossary/character_reference) für die Bezugnahme auf einige spezielle reservierte Zeichen (wie ein Größer-als-Zeichen, das für Tags verwendet wird). Es gibt fünf dieser Zeichen, die Sie kennen sollten:
 
-| Entity     | Zeichen | Beschreibung                                     |
-| ---------- | ------- | ------------------------------------------------ |
-| &amp;lt;   | <       | Kleiner-als-Zeichen                              |
-| &amp;gt;   | >       | Größer-als-Zeichen                               |
-| &amp;amp;  | &       | Kaufmanns-Und                                    |
-| &amp;quot; | "       | Ein Anführungszeichen                            |
-| &amp;apos; | '       | Ein Apostroph (oder einfaches Anführungszeichen) |
+| Entity     | Character | Beschreibung                              |
+| ---------- | --------- | ----------------------------------------- |
+| &amp;lt;   | <         | Kleiner-als-Zeichen                       |
+| &amp;gt;   | >         | Größer-als-Zeichen                        |
+| &amp;amp;  | &         | Und-Zeichen                               |
+| &amp;quot; | "         | Ein doppeltes Anführungszeichen           |
+| &amp;apos; | '         | Ein Apostroph (oder einfaches Anführungszeichen) |
 
-Auch wenn es nur 5 deklarierte Zeichenreferenzen oder Entitäten gibt, können mehr durch die [Document Type Definition](/de/docs/Glossary/Doctype) des Dokuments hinzugefügt werden. Beispielsweise können Sie eine neue `&warning;`-Entität so erstellen:
+Obwohl es nur 5 deklarierte Zeichenreferenzen oder Entitäten gibt, können über die [Document Type Definition](/de/docs/Glossary/Doctype) des Dokuments mehr hinzugefügt werden. Zum Beispiel, um eine neue `&warning;`-Entität zu erstellen, können Sie dies tun:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,19 +96,19 @@ Auch wenn es nur 5 deklarierte Zeichenreferenzen oder Entitäten gibt, können m
 </body>
 ```
 
-Sie können auch numerische Zeichenreferenzen verwenden, um spezielle Zeichen anzugeben; beispielsweise ist \&#xA9; das "©"-Symbol.
+Sie können auch numerische Zeichenreferenzen verwenden, um spezielle Zeichen anzugeben; zum Beispiel ist \&#xA9; das "©" Symbol.
 
-## XML darstellen
+## Anzeige von XML
 
-XML wird normalerweise zu Beschreibungszwecken verwendet, aber es gibt Möglichkeiten, XML-Daten darzustellen. Wenn Sie nicht eine bestimmte Methode zum Rendern von XML definieren, wird das rohe XML im Browser angezeigt.
+XML wird normalerweise zu Beschreibungszwecken verwendet, aber es gibt Möglichkeiten, XML-Daten anzuzeigen. Wenn Sie keine spezifische Methode zur Darstellung von XML definieren, wird das rohe XML im Browser angezeigt.
 
-Eine Methode, XML-Ausgaben zu gestalten, besteht darin, [CSS](/de/docs/Web/CSS) anzugeben, das mit der `xml-stylesheet`-Verarbeitungsvorgabe auf das Dokument angewendet werden soll.
+Eine Möglichkeit, XML-Ausgabe zu stylen, besteht darin, [CSS](/de/docs/Web/CSS) anzugeben, das auf das Dokument angewendet wird, indem die `xml-stylesheet` Verarbeitungseinweisung verwendet wird.
 
 ```xml
 <?xml-stylesheet type="text/css" href="stylesheet.css"?>
 ```
 
-Es gibt auch eine weitere, leistungsstärkere Möglichkeit, XML darzustellen: die **Extensible Stylesheet Language Transformations** ([XSLT](/de/docs/Web/XSLT)), die verwendet werden können, um XML in andere Sprachen wie HTML zu transformieren. Dies macht XML unglaublich vielseitig.
+Es gibt auch eine andere, leistungsfähigere Möglichkeit, XML anzuzeigen: die **Extensible Stylesheet Language Transformations** ([XSLT](/de/docs/Web/XSLT)), die verwendet werden kann, um XML in andere Sprachen wie HTML zu transformieren. Dies macht XML unglaublich vielseitig.
 
 ```xml
 <?xml-stylesheet type="text/xsl" href="transform.xsl"?>
@@ -116,7 +116,7 @@ Es gibt auch eine weitere, leistungsstärkere Möglichkeit, XML darzustellen: di
 
 ## Empfehlungen
 
-Dieser Artikel ist offensichtlich nur eine sehr kurze Einführung in das, was XML ist, mit einigen kleinen Beispielen und Verweisen, um Ihnen den Einstieg zu erleichtern. Für detailliertere Informationen über XML sollten Sie im Internet nach umfassenderen Artikeln suchen.
+Dieser Artikel ist offensichtlich nur eine sehr kurze Einführung in das, was XML ist, mit einigen kleinen Beispielen und Verweisen, um Ihnen den Einstieg zu erleichtern. Für mehr Details über XML sollten Sie im Web nach ausführlicheren Artikeln suchen.
 
 Das Erlernen der HyperText Markup Language ([HTML](/de/docs/Web/HTML)) wird Ihnen helfen, XML besser zu verstehen.
 

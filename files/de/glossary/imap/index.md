@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-IMAP (Internet Message Access Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol), das zum Abrufen und Speichern von E-Mails verwendet wird. Neueren Datums als [POP](/de/docs/Glossary/POP), ermöglicht IMAP Ordner und Regeln auf dem Server.
+IMAP (Internet Message Access Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol), das zum Abrufen und Speichern von E-Mails verwendet wird. Neuer als [POP](/de/docs/Glossary/POP), ermöglicht IMAP Ordner und Regeln auf dem Server.
 
-Im Gegensatz zu POP3 erlaubt IMAP mehrere gleichzeitige Verbindungen zu einem Postfach. Clients, die auf ein Postfach zugreifen, können Informationen über Zustandsänderungen erhalten, die von anderen Clients vorgenommen wurden. IMAP bietet auch einen Modus, bei dem Clients verbunden bleiben und Informationen auf Abruf erhalten können.
+Im Gegensatz zu POP3 erlaubt IMAP mehrere gleichzeitige Verbindungen zu einem Postfach. Clients, die auf ein Postfach zugreifen, können Informationen über Zustandsänderungen erhalten, die von anderen Clients vorgenommen wurden. IMAP bietet auch einen Modus, bei dem Clients verbunden bleiben und Informationen auf Abruf erhalten.
 
-Mark Crispin entwickelte IMAP ursprünglich 1986 als _Interim Mail Access Protocol_. Die aktuelle Version ist IMAP4 Revision 1, definiert durch [RFC 3501](https://www.rfc-editor.org/info/rfc3501).
+Mark Crispin entwickelte IMAP ursprünglich 1986 als _Interim Mail Access Protocol_. IMAP4 Revision 1 ist die aktuelle Version, definiert durch [RFC 3501](https://www.rfc-editor.org/info/rfc3501).
 
 ## Siehe auch
 

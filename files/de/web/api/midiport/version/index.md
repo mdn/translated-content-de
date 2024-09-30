@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: version Eigenschaft"
+title: "MIDIPort: version-Eigenschaft"
 short-title: version
 slug: Web/API/MIDIPort/version
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`version`** des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces gibt die Version des Ports zurück.
+Die **`version`**-Schreibgeschützt Eigenschaft der [`MIDIPort`](/de/docs/Web/API/MIDIPort) Schnittstelle gibt die Version des Ports zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der die Version des Ports enthält.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingabe-Ports und gibt die Version jedes einzelnen in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt die jeweilige Version in der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

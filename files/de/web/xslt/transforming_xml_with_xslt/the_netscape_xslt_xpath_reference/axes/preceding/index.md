@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Der `preceding`-Achse gibt alle Knoten an, die dem Kontextknoten im Dokument vorausgehen, mit Ausnahme von Vorfahren-, Attribut- und Namensraumknoten.
+Die Achse `preceding` gibt alle Knoten an, die dem Kontextknoten im Dokument vorangehen, mit Ausnahme von Vorfahren-, Attribut- und Namensraumknoten.

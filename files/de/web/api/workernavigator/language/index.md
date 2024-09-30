@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`WorkerNavigator.language`** Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen String zurückgibt, der die bevorzugte Sprache des Benutzers darstellt, in der Regel die Sprache der Browser-Oberfläche.
+Die schreibgeschützte Eigenschaft **`WorkerNavigator.language`** gibt einen String zurück, der die bevorzugte Sprache des Benutzers repräsentiert, normalerweise die Sprache der Browser-Benutzeroberfläche.
 
 ## Wert
 
-Ein String, der die Sprachversion, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert, darstellt. Beispiele für gültige Sprachcodes sind "en", "en-US", "fr", "fr-FR", "es-ES" usw.
+Ein String, der die Sprachversion darstellt, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Beispiele für gültige Sprachcodes sind "en", "en-US", "fr", "fr-FR", "es-ES", etc.
 
-Beachten Sie, dass in Safari auf iOS vor Version 10.2 der Ländercode in Kleinbuchstaben zurückgegeben wird: "en-us", "fr-fr" usw.
+Beachten Sie, dass in Safari auf iOS vor Version 10.2 der zurückgegebene Ländercode kleingeschrieben ist: "en-us", "fr-fr" etc.
 
 ## Beispiele
 
-Sie können dies in einem Web Worker ausführen:
+Sie können diesen Code in einen Web Worker einfügen:
 
 ```js
 if (/^en\b/.test(navigator.language)) {

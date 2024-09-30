@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`filesystem`**-Eigenschaft des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces enthält ein [`FileSystem`](/de/docs/Web/API/FileSystem)-Objekt, das das Dateisystem repräsentiert, auf dem sich der Eintrag befindet.
+Die schreibgeschützte **`filesystem`**
+Eigenschaft des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces enthält ein
+[`FileSystem`](/de/docs/Web/API/FileSystem) Objekt, das das Dateisystem darstellt, auf dem der Eintrag sich befindet.
 
 ## Wert
 
-Ein [`FileSystem`](/de/docs/Web/API/FileSystem), das das Dateisystem repräsentiert, auf dem sich die durch das `FileSystemEntry` beschriebene Datei oder das Verzeichnis befindet.
+Ein [`FileSystem`](/de/docs/Web/API/FileSystem), das das Dateisystem darstellt, auf dem die Datei oder das Verzeichnis,
+das durch das `FileSystemEntry` beschrieben wird, sich befindet.
 
 ## Beispiele
 
-Dieses Beispiel erhält ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) für das Stammverzeichnis des Dateisystems, das eine Datei enthält.
+Dieses Beispiel erhält ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) für das Wurzelverzeichnis
+des Dateisystems, das eine Datei enthält.
 
 ```js
 let rootDirEntry = fileEntry.filesystem.root;

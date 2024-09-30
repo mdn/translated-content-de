@@ -1,5 +1,5 @@
 ---
-title: Fetch-Direktive
+title: Fetch directive
 slug: Glossary/Fetch_directive
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[CSP](/de/docs/Glossary/CSP) Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und kontrollieren, von welchen Standorten bestimmte Ressourcentypen geladen werden dürfen. Zum Beispiel erlaubt es {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten auf einer Seite auszuführen, während {{CSP("font-src")}} die Quellen von Webfonts kontrolliert.
+**[CSP](/de/docs/Glossary/CSP) Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und kontrollieren die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen. Zum Beispiel ermöglicht {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten zuzulassen, die auf einer Seite ausgeführt werden, während {{CSP("font-src")}} die Quellen von Webfonts kontrolliert.
 
-Alle Fetch-Direktiven fallen auf {{CSP("default-src")}} zurück. Das bedeutet, dass, wenn eine Fetch-Direktive im CSP-Header fehlt, der Benutzeragent nach der `default-src` Direktive suchen wird.
+Alle Fetch-Direktiven fallen auf {{CSP("default-src")}} zurück. Das bedeutet, wenn eine Fetch-Direktive im CSP-Header fehlt, wird der User Agent die `default-src`-Direktive suchen.
 
-Siehe [Fetch-Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directives) für eine vollständige Liste.
+Sehen Sie [Fetch-Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directives) für eine vollständige Liste.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getMilliseconds()`** von {{jsxref("Date")}}-Instanzen gibt die Millisekunden für dieses Datum entsprechend der lokalen Zeit zurück.
+Die Methode **`getMilliseconds()`** von {{jsxref("Date")}}-Instanzen gibt die Millisekunden für dieses Datum entsprechend der Ortszeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getmilliseconds.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, zwischen 0 und 999, der die Millisekunden für das gegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, zwischen 0 und 999, die die Millisekunden für das angegebene Datum entsprechend der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getMilliseconds()
 
-Die Variable `milliseconds` hat den Wert `0`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`, das die Millisekunden-Komponente nicht angibt, sodass sie standardmäßig 0 ist.
+Die Variable `milliseconds` hat den Wert `0`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`, das die Millisekunden-Komponente nicht angibt, sodass es standardmäßig auf 0 gesetzt wird.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

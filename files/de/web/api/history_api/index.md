@@ -7,50 +7,50 @@ l10n:
 
 {{DefaultAPISidebar("History API")}}
 
-Die **History API** bietet Zugriff auf den Sitzungsverlauf des Browsers (nicht zu verwechseln mit [WebExtensions history](/de/docs/Mozilla/Add-ons/WebExtensions/API/history)) über das globale Objekt [`history`](/de/docs/Web/API/Window/history). Sie stellt nützliche Methoden und Eigenschaften bereit, die es Ihnen ermöglichen, durch den Verlauf des Benutzers zu navigieren und den Inhalt des Verlaufstapels zu manipulieren.
+Die **History API** ermöglicht den Zugriff auf die Sitzungsverlauf des Browsers (nicht zu verwechseln mit dem [WebExtensions-Verlauf](/de/docs/Mozilla/Add-ons/WebExtensions/API/history)) über das globale Objekt [`history`](/de/docs/Web/API/Window/history). Sie stellt nützliche Methoden und Eigenschaften zur Verfügung, mit denen Sie im Verlauf des Benutzers vor- und zurücknavigieren und den Inhalt des Verlaufstapels manipulieren können.
 
 > [!NOTE]
-> Diese API ist nur im Haupt-Thread verfügbar ([`Window`](/de/docs/Web/API/Window)). Sie kann nicht in den Kontexten [`Worker`](/de/docs/Web/API/Worker) oder [`Worklet`](/de/docs/Web/API/Worklet) verwendet werden.
+> Diese API ist nur im Haupt-Thread verfügbar ([`Window`](/de/docs/Web/API/Window)). Sie kann nicht im Kontext von [`Worker`](/de/docs/Web/API/Worker) oder [`Worklet`](/de/docs/Web/API/Worklet) verwendet werden.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Durch den Verlauf des Benutzers bewegen Sie sich mit den Methoden [`back()`](/de/docs/Web/API/History/back), [`forward()`](/de/docs/Web/API/History/forward) und [`go()`](/de/docs/Web/API/History/go).
+Das Vorwärts- und Rückwärtsnavigieren im Verlauf des Benutzers erfolgt mit den Methoden [`back()`](/de/docs/Web/API/History/back), [`forward()`](/de/docs/Web/API/History/forward) und [`go()`](/de/docs/Web/API/History/go).
 
-### Vor- und zurückbewegen
+### Vorwärts- und Rückwärtsbewegung
 
-Um im Verlauf zurückzugehen:
+Um im Verlauf rückwärts zu navigieren:
 
 ```js
 history.back();
 ```
 
-Dies wirkt genau so, als ob der Benutzer auf die <kbd><strong>Zurück</strong></kbd>-Schaltfläche in der Browser-Symbolleiste geklickt hätte.
+Diese Aktion entspricht genau dem Klick des Benutzers auf den <kbd><strong>Zurück</strong></kbd>-Button in der Browser-Toolbar.
 
-Ähnlich können Sie vorwärts gehen (als ob der Benutzer auf die <kbd><strong>Vorwärts</strong></kbd>-Schaltfläche geklickt hätte), so:
+Sie können ebenso vorwärts navigieren (entspricht dem Klick des Benutzers auf den <kbd><strong>Vorwärts</strong></kbd>-Button) wie folgt:
 
 ```js
 history.forward();
 ```
 
-### Zu einem bestimmten Punkt im Verlauf gehen
+### Navigation zu einem bestimmten Punkt im Verlauf
 
 Sie können die Methode [`go()`](/de/docs/Web/API/History/go) verwenden, um eine bestimmte Seite aus dem Sitzungsverlauf zu laden, die durch ihre relative Position zur aktuellen Seite identifiziert wird. (Die relative Position der aktuellen Seite ist `0`.)
 
-Um eine Seite zurückzugehen (entspricht dem Aufruf von [`back()`](/de/docs/Web/API/History/back)):
+Um eine Seite zurückzukehren (entspricht dem Aufruf von [`back()`](/de/docs/Web/API/History/back)):
 
 ```js
 history.go(-1);
 ```
 
-Um eine Seite vorwärts zu gehen, genau wie bei einem Aufruf von [`forward()`](/de/docs/Web/API/History/forward):
+Um eine Seite nach vorne zu gehen, wie beim Aufruf von [`forward()`](/de/docs/Web/API/History/forward):
 
 ```js
 history.go(1);
 ```
 
-Ähnlich können Sie zwei Seiten vorwärts gehen, indem Sie `2` übergeben, und so weiter.
+Ebenso können Sie zwei Seiten vorangehen, indem Sie `2` übergeben, und so weiter.
 
-Eine weitere Verwendung der Methode `go()` besteht darin, die aktuelle Seite durch das Übergeben von `0` oder durch Aufruf ohne Argumente zu aktualisieren:
+Eine weitere Verwendung der `go()`-Methode besteht darin, die aktuelle Seite zu aktualisieren, indem `0` übergeben wird oder indem sie ohne Argument aufgerufen wird:
 
 ```js
 // The following statements
@@ -60,7 +60,7 @@ history.go(0);
 history.go();
 ```
 
-Sie können die Anzahl der Seiten im Verlaufstapel bestimmen, indem Sie den Wert der Eigenschaft `length` ansehen:
+Sie können die Anzahl der Seiten im Verlaufstapel ermitteln, indem Sie den Wert der Eigenschaft `length` betrachten:
 
 ```js
 const numberOfEntries = history.length;
@@ -69,13 +69,13 @@ const numberOfEntries = history.length;
 ## Schnittstellen
 
 - [`History`](/de/docs/Web/API/History)
-  - : Ermöglicht die Manipulation des Browser-_Sitzungsverlaufs_ (das heißt, der besuchten Seiten im Tab oder Rahmen, in dem die aktuelle Seite geladen ist).
+  - : Ermöglicht die Manipulation der Browser-Sitzungsverlauf (also der Seiten, die im Tab oder Frame besucht wurden, in dem die aktuelle Seite geladen ist).
 - [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)
-  - : Die Schnittstelle des [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignisses.
+  - : Die Schnittstelle für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis.
 
 ## Beispiele
 
-Das folgende Beispiel weist einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis zu. Es illustriert dann einige der Methoden des History-Objekts, um innerhalb des Browser-Verlaufs des aktuellen Tabs hinzuzufügen, zu ersetzen und zu bewegen.
+Das folgende Beispiel weist einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis zu. Es zeigt dann einige Methoden des Verlauf-Objekts, um den Verlauf des aktuellen Tabs hinzuzufügen, zu ersetzen und innerhalb zu verschieben.
 
 ```js
 window.addEventListener("popstate", (event) => {
@@ -102,5 +102,5 @@ history.go(2); // alerts "location: http://example.com/example.html?page=3, stat
 
 ## Siehe auch
 
-- [`history`](/de/docs/Web/API/Window/history) globales Objekt
-- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis
+- Globales Objekt [`history`](/de/docs/Web/API/Window/history)
+- [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis

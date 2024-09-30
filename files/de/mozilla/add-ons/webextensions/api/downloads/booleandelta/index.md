@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Typ `BooleanDelta` der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Booleans.
+Der `BooleanDelta`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Boolean-Werten.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `current` {{optional_inline}}
-  - : Ein `boolean`, der den aktuellen booleschen Wert darstellt.
+  - : Ein `boolean`, der den aktuellen Boolean-Wert darstellt.
 - `previous` {{optional_inline}}
-  - : Ein `boolean`, der den vorherigen booleschen Wert darstellt.
+  - : Ein `boolean`, der den vorherigen Boolean-Wert darstellt.
 
 ## Browser-Kompatibilität
 
@@ -25,4 +25,4 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.downloads`-API von Chromium [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-BooleanDelta).
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-BooleanDelta) API von Chromium.

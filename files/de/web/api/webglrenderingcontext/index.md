@@ -2,125 +2,125 @@
 title: WebGLRenderingContext
 slug: Web/API/WebGLRenderingContext
 l10n:
-  sourceCommit: 4904c4f3e4ea8f8efd27e9cf51b51d5c5a03de26
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Schnittstelle **`WebGLRenderingContext`** stellt eine Schnittstelle zum OpenGL ES 2.0-Grafikwiedergebungskontext für die Zeichenfläche eines HTML-{{HTMLElement("canvas")}}-Elements bereit.
+Das **`WebGLRenderingContext`** Interface bietet eine Schnittstelle zum OpenGL ES 2.0 Grafik-Rendering-Kontext für die Zeichenfläche eines HTML {{HTMLElement("canvas")}} Elements.
 
-Um auf einen WebGL-Kontext für 2D- und/oder 3D-Grafikwiedergebung zuzugreifen, rufen Sie [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf einem `<canvas>`-Element auf und übergeben Sie "webgl" als Argument:
+Um auf einen WebGL-Kontext für 2D- und/oder 3D-Grafikrendering zuzugreifen, rufen Sie [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf einem `<canvas>`-Element auf und geben "webgl" als Argument an:
 
 ```js
 const canvas = document.getElementById("myCanvas");
 const gl = canvas.getContext("webgl");
 ```
 
-Sobald Sie den WebGL-Wiedergebungskontext für eine Leinwand haben, können Sie darin rendern. Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) bietet weitere Informationen, Beispiele und Ressourcen, wie Sie mit WebGL beginnen können.
+Sobald Sie den WebGL-Rendering-Kontext für ein Canvas haben, können Sie darin Renderings erstellen. Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) enthält weitere Informationen, Beispiele und Ressourcen, wie man mit WebGL beginnt.
 
-Wenn Sie einen WebGL 2.0-Kontext benötigen, lesen Sie [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext); dies bietet Zugriff auf eine Implementierung von OpenGL ES 3.0-Grafiken.
+Wenn Sie einen WebGL 2.0-Kontext benötigen, sehen Sie sich [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) an; dieser bietet Zugriff auf eine Implementierung von OpenGL ES 3.0 Graphics.
 
 ## Konstanten
 
-Siehe die Seite mit den [WebGL-Konstanten](/de/docs/Web/API/WebGL_API/Constants).
+Siehe die Seite [WebGL-Konstanten](/de/docs/Web/API/WebGL_API/Constants).
 
 ## Der WebGL-Kontext
 
 Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Funktionen zum Umgang mit dem WebGL-Kontext:
 
 - [`WebGLRenderingContext.canvas`](/de/docs/Web/API/WebGLRenderingContext/canvas)
-  - : Eine schreibgeschützte Rückverweisung auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement). Kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn es nicht mit einem {{HTMLElement("canvas")}}-Element verknüpft ist.
+  - : Eine schreibgeschützte Rückverweisung auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement). Kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn es nicht mit einem {{HTMLElement("canvas")}} Element verknüpft ist.
 - [`WebGLRenderingContext.drawingBufferWidth`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferWidth)
-  - : Die schreibgeschützte Breite des aktuellen Zeichenpuffers. Sollte der Breite des mit diesem Kontext verknüpften Leinwandelements entsprechen.
+  - : Die schreibgeschützte Breite des aktuellen Zeichenpuffers. Sollte der Breite des mit diesem Kontext verbundenen Canvas-Elements entsprechen.
 - [`WebGLRenderingContext.drawingBufferHeight`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferHeight)
-  - : Die schreibgeschützte Höhe des aktuellen Zeichenpuffers. Sollte der Höhe des mit diesem Kontext verknüpften Leinwandelements entsprechen.
+  - : Die schreibgeschützte Höhe des aktuellen Zeichenpuffers. Sollte der Höhe des mit diesem Kontext verbundenen Canvas-Elements entsprechen.
 - [`WebGLRenderingContext.getContextAttributes()`](/de/docs/Web/API/WebGLRenderingContext/getContextAttributes)
-  - : Gibt ein `WebGLContextAttributes`-Objekt zurück, das die tatsächlichen Kontextparameter enthält. Kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgeben, wenn der Kontext verloren geht.
+  - : Gibt ein `WebGLContextAttributes`-Objekt zurück, das die tatsächlichen Kontextparameter enthält. Könnte [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgeben, wenn der Kontext verloren ist.
 - [`WebGLRenderingContext.isContextLost()`](/de/docs/Web/API/WebGLRenderingContext/isContextLost)
   - : Gibt `true` zurück, wenn der Kontext verloren ist, andernfalls `false`.
 - [`WebGLRenderingContext.makeXRCompatible()`](/de/docs/Web/API/WebGLRenderingContext/makeXRCompatible)
-  - : Stellt sicher, dass der Kontext mit der XR-Hardware des Benutzers kompatibel ist, und erstellt den Kontext bei Bedarf mit einer neuen Konfiguration neu. Dies kann verwendet werden, um eine Anwendung mit einer standardmäßigen 2D-Präsentation zu starten und später in einen VR- oder AR-Modus zu wechseln.
+  - : Stellt sicher, dass der Kontext mit der XR-Hardware des Benutzers kompatibel ist und erstellt den Kontext bei Bedarf mit einer neuen Konfiguration neu. Dies kann verwendet werden, um eine Anwendung mit standardmäßiger 2D-Darstellung zu starten und später in einen VR- oder AR-Modus zu wechseln.
 
-## Anzeigen und Clipping
+## Betrachten und Zuschneiden
 
 - [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor)
-  - : Definiert das Scherenfeld.
+  - : Definiert das Scherfenster.
 - [`WebGLRenderingContext.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport)
-  - : Legt das Ansichtsfenster fest.
+  - : Setzt das Ansichtsfenster.
 
 ## Zustandsinformationen
 
 - [`WebGLRenderingContext.activeTexture()`](/de/docs/Web/API/WebGLRenderingContext/activeTexture)
   - : Wählt die aktive Textureinheit aus.
 - [`WebGLRenderingContext.blendColor()`](/de/docs/Web/API/WebGLRenderingContext/blendColor)
-  - : Legt die Mischfaktoren für Quell- und Ziel fest.
+  - : Setzt die Quell- und Zielmischfaktoren.
 - [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation)
-  - : Setzt sowohl die RGB-Mischgleichung als auch die Alpha-Mischgleichung auf eine Einzelgleichung.
+  - : Setzt sowohl die RGB-Mischgleichung als auch die Alpha-Mischgleichung auf eine einzige Gleichung fest.
 - [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate)
-  - : Legt RGB-Mischgleichung und Alpha-Mischgleichung separat fest.
+  - : Setzt die RGB-Mischgleichung und die Alpha-Mischgleichung separat.
 - [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc)
-  - : Definiert, welche Funktion für das Mischen von Pixelarithmetik verwendet wird.
+  - : Definiert, welche Funktion für die Pixelarithmetik-Mischung verwendet wird.
 - [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate)
-  - : Definiert, welche Funktion für das Mischen von Pixelarithmetik für RGB- und Alphakomponenten separat verwendet wird.
+  - : Definiert, welche Funktion für die Pixelarithmetik-Mischung für RGB- und Alpha-Komponenten separat verwendet wird.
 - [`WebGLRenderingContext.clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)
-  - : Gibt die Farbwerte an, die beim Löschen von Farb-Buffern verwendet werden.
+  - : Gibt die Farbwerte an, die beim Löschen von Farb-Puffern verwendet werden.
 - [`WebGLRenderingContext.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth)
-  - : Gibt den Tiefenwert an, der beim Löschen des Tiefenpuffers verwendet wird.
+  - : Gibt den Tiefenwert an, der beim Löschen des Tiefen-Puffers verwendet wird.
 - [`WebGLRenderingContext.clearStencil()`](/de/docs/Web/API/WebGLRenderingContext/clearStencil)
-  - : Gibt den Schablonenwert an, der beim Löschen des Schablonenpuffers verwendet wird.
+  - : Gibt den Stencilwert an, der beim Löschen des Stencil-Puffers verwendet wird.
 - [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)
-  - : Legt fest, welche Farbkomponenten beim Zeichnen oder Rendering in einen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) aktiviert oder deaktiviert werden sollen.
+  - : Setzt, welche Farbkomponenten aktiviert oder deaktiviert werden sollen, wenn zu einem [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) gezeichnet oder gerendert wird.
 - [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace)
-  - : Gibt an, ob Vorder- und/oder Rückseiten-Polygone gekürzt werden können oder nicht.
+  - : Gibt an, ob Vorder- und/oder Rückseitenpolygone ausgeblendet werden können.
 - [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc)
-  - : Gibt eine Funktion an, die die Tiefe von eingehenden Pixeln mit dem aktuellen Tiefenpufferspeicherwert vergleicht.
+  - : Gibt eine Funktion an, die die eingehende Pixeltiefe mit dem aktuellen Tiefenpufferwert vergleicht.
 - [`WebGLRenderingContext.depthMask()`](/de/docs/Web/API/WebGLRenderingContext/depthMask)
   - : Legt fest, ob das Schreiben in den Tiefenpuffer aktiviert oder deaktiviert ist.
 - [`WebGLRenderingContext.depthRange()`](/de/docs/Web/API/WebGLRenderingContext/depthRange)
-  - : Gibt die Tiefenbereichsabbildung von normalisierten Gerätekoordinaten zu Fenster- oder Ansichtsfensterkoordinaten an.
+  - : Gibt die Tiefenbereichszuordnung von normalisierten Gerätenkoordinaten zu Fenster- oder Ansichtsfensterkoordinaten an.
 - [`WebGLRenderingContext.disable()`](/de/docs/Web/API/WebGLRenderingContext/disable)
-  - : Deaktiviert spezifische WebGL-Fähigkeiten für diesen Kontext.
+  - : Deaktiviert bestimmte WebGL-Fähigkeiten für diesen Kontext.
 - [`WebGLRenderingContext.enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)
-  - : Aktiviert spezifische WebGL-Fähigkeiten für diesen Kontext.
+  - : Aktiviert bestimmte WebGL-Fähigkeiten für diesen Kontext.
 - [`WebGLRenderingContext.frontFace()`](/de/docs/Web/API/WebGLRenderingContext/frontFace)
-  - : Gibt an, ob Polygone durch Festlegen einer Wickelrichtung front- oder rückseitig sind.
+  - : Gibt an, ob Polygone durch Festlegen einer Wickelrichtung Vorder- oder Rückseite sind.
 - [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)
-  - : Gibt einen Wert für den übergebenen Parameternamen zurück.
+  - : Gibt einen Wert für den angegebenen Parameternamen zurück.
 - [`WebGLRenderingContext.getError()`](/de/docs/Web/API/WebGLRenderingContext/getError)
   - : Gibt Fehlerinformationen zurück.
 - [`WebGLRenderingContext.hint()`](/de/docs/Web/API/WebGLRenderingContext/hint)
   - : Gibt Hinweise für bestimmte Verhaltensweisen an. Die Interpretation dieser Hinweise hängt von der Implementierung ab.
 - [`WebGLRenderingContext.isEnabled()`](/de/docs/Web/API/WebGLRenderingContext/isEnabled)
-  - : Prüft, ob eine spezifische WebGL-Fähigkeit für diesen Kontext aktiviert ist oder nicht.
+  - : Prüft, ob eine bestimmte WebGL-Fähigkeit für diesen Kontext aktiviert ist oder nicht.
 - [`WebGLRenderingContext.lineWidth()`](/de/docs/Web/API/WebGLRenderingContext/lineWidth)
-  - : Legt die Linienbreite für gerasterte Linien fest.
+  - : Legt die Linienstärke von rasterisierten Linien fest.
 - [`WebGLRenderingContext.pixelStorei()`](/de/docs/Web/API/WebGLRenderingContext/pixelStorei)
-  - : Gibt die Speichermodi für Pixel an.
+  - : Gibt die Pixel-Speichermodi an.
 - [`WebGLRenderingContext.polygonOffset()`](/de/docs/Web/API/WebGLRenderingContext/polygonOffset)
-  - : Gibt die Skalierungsfaktoren und Einheiten zum Berechnen von Tiefenwerten an.
+  - : Gibt die Skalierungsfaktoren und Einheiten an, um Tiefenwerte zu berechnen.
 - [`WebGLRenderingContext.sampleCoverage()`](/de/docs/Web/API/WebGLRenderingContext/sampleCoverage)
-  - : Gibt Multisample-Deckungsparameter für Anti-Aliasing-Effekte an.
+  - : Gibt die Multi-Sample-Coverage-Parameter für Anti-Aliasing-Effekte an.
 - [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc)
-  - : Setzt sowohl die Vorder- als auch die Rückseitenfunktion und den Referenzwert für Schablonentests.
+  - : Setzt sowohl Vorder- als auch Rückseitenfunktionen und Referenzwerte für Stencil-Tests.
 - [`WebGLRenderingContext.stencilFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/stencilFuncSeparate)
-  - : Setzt die Vorder- und/oder Rückseitenfunktion und den Referenzwert für Schablonentests.
+  - : Setzt Vorder- und/oder Rückseitenfunktionen und Referenzwerte für Stencil-Tests.
 - [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)
-  - : Steuert die Aktivierung und Deaktivierung des Schreibens einzelner Bits in die Schablonenebenen sowohl vorne als auch hinten.
+  - : Steuert das Aktivieren und Deaktivieren des Schreibens von individuellen Bits auf der Vorder- und Rückseite in die Stencil-Ebenen.
 - [`WebGLRenderingContext.stencilMaskSeparate()`](/de/docs/Web/API/WebGLRenderingContext/stencilMaskSeparate)
-  - : Steuert die Aktivierung und Deaktivierung des Schreibens einzelner Bits in die Schablonenebenen vorne und/oder hinten.
+  - : Steuert das Aktivieren und Deaktivieren des Schreibens von individuellen Bits auf Vorder- und/oder Rückseite in die Stencil-Ebenen.
 - [`WebGLRenderingContext.stencilOp()`](/de/docs/Web/API/WebGLRenderingContext/stencilOp)
-  - : Legt die Schablonentestaktionen sowohl für Vorder- als auch für Rückseiten fest.
+  - : Setzt sowohl die Vorder- als auch die Rückseiten-Stencil-Testaktionen.
 - [`WebGLRenderingContext.stencilOpSeparate()`](/de/docs/Web/API/WebGLRenderingContext/stencilOpSeparate)
-  - : Legt die Schablonentestaktionen für Vorder- und/oder Rückseiten fest.
+  - : Setzt die Vorder- und/oder Rückseiten-Stencil-Testaktionen.
 
 ## Puffer
 
 - [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
-  - : Bindet ein `WebGLBuffer`-Objekt an ein gegebenes Ziel.
+  - : Bindet ein `WebGLBuffer`-Objekt an ein angegebenes Ziel.
 - [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
-  - : Aktualisiert Pufferdaten.
+  - : Aktualisiert die Pufferdaten.
 - [`WebGLRenderingContext.bufferSubData()`](/de/docs/Web/API/WebGLRenderingContext/bufferSubData)
-  - : Aktualisiert Pufferdaten beginnend bei einem angegebenen Offset.
+  - : Aktualisiert die Pufferdaten beginnend an einem angegebenen Offset.
 - [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
   - : Erstellt ein `WebGLBuffer`-Objekt.
 - [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
@@ -133,7 +133,7 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 ## Framebuffer
 
 - [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
-  - : Bindet ein `WebGLFrameBuffer`-Objekt an ein gegebenes Ziel.
+  - : Bindet ein `WebGLFrameBuffer`-Objekt an ein angegebenes Ziel.
 - [`WebGLRenderingContext.checkFramebufferStatus()`](/de/docs/Web/API/WebGLRenderingContext/checkFramebufferStatus)
   - : Gibt den Status des Framebuffers zurück.
 - [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
@@ -141,9 +141,9 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 - [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
   - : Löscht ein `WebGLFrameBuffer`-Objekt.
 - [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
-  - : Hängt ein `WebGLRenderingBuffer`-Objekt an ein `WebGLFrameBuffer`-Objekt an.
+  - : Befestigt ein `WebGLRenderingBuffer`-Objekt an ein `WebGLFrameBuffer`-Objekt.
 - [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)
-  - : Hängt ein Texturbild an ein `WebGLFrameBuffer`-Objekt an.
+  - : Befestigt ein Texturbild an ein `WebGLFrameBuffer`-Objekt.
 - [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter)
   - : Gibt Informationen über den Framebuffer zurück.
 - [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
@@ -154,7 +154,7 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 ## Renderbuffer
 
 - [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
-  - : Bindet ein `WebGLRenderBuffer`-Objekt an ein gegebenes Ziel.
+  - : Bindet ein `WebGLRenderBuffer`-Objekt an ein angegebenes Ziel.
 - [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
   - : Erstellt ein `WebGLRenderBuffer`-Objekt.
 - [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
@@ -169,21 +169,21 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 ## Texturen
 
 - [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)
-  - : Bindet ein `WebGLTexture`-Objekt an ein gegebenes Ziel.
+  - : Bindet ein `WebGLTexture`-Objekt an ein angegebenes Ziel.
 - [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
-  - : Gibt ein 2D-Texturbild im komprimierten Format an.
+  - : Gibt ein 2D-Texturbild in einem komprimierten Format an.
 - [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)
-  - : Gibt ein 2D-Teilbild einer Textur im komprimierten Format an.
+  - : Gibt ein 2D-Textur-Subbild in einem komprimierten Format an.
 - [`WebGLRenderingContext.copyTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D)
   - : Kopiert ein 2D-Texturbild.
 - [`WebGLRenderingContext.copyTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexSubImage2D)
-  - : Kopiert ein 2D-Teilbild einer Textur.
+  - : Kopiert ein 2D-Textur-Subbild.
 - [`WebGLRenderingContext.createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture)
   - : Erstellt ein `WebGLTexture`-Objekt.
 - [`WebGLRenderingContext.deleteTexture()`](/de/docs/Web/API/WebGLRenderingContext/deleteTexture)
   - : Löscht ein `WebGLTexture`-Objekt.
 - [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap)
-  - : Erzeugt einen Satz von Mipmaps für ein `WebGLTexture`-Objekt.
+  - : Generiert ein Set von Mipmaps für ein `WebGLTexture`-Objekt.
 - [`WebGLRenderingContext.getTexParameter()`](/de/docs/Web/API/WebGLRenderingContext/getTexParameter)
   - : Gibt Informationen über die Textur zurück.
 - [`WebGLRenderingContext.isTexture()`](/de/docs/Web/API/WebGLRenderingContext/isTexture)
@@ -193,28 +193,28 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 - [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D)
   - : Aktualisiert ein Unterrechteck der aktuellen `WebGLTexture`.
 - [`WebGLRenderingContext.texParameterf()`](/de/docs/Web/API/WebGLRenderingContext/texParameter)
-  - : Setzt Textureinstellungen.
+  - : Legt Texturparameter fest.
 - [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/WebGLRenderingContext/texParameter)
-  - : Setzt Textureinstellungen.
+  - : Legt Texturparameter fest.
 
 ## Programme und Shader
 
 - [`WebGLRenderingContext.attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader)
-  - : Hängt einen `WebGLShader` an ein `WebGLProgram` an.
+  - : Befestigt ein `WebGLShader` an ein `WebGLProgram`.
 - [`WebGLRenderingContext.bindAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/bindAttribLocation)
   - : Bindet einen generischen Vertex-Index an eine benannte Attributvariable.
 - [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader)
-  - : Kompiliert einen `WebGLShader`.
+  - : Kompiliert ein `WebGLShader`.
 - [`WebGLRenderingContext.createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram)
   - : Erstellt ein `WebGLProgram`.
 - [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
-  - : Erstellt einen `WebGLShader`.
+  - : Erstellt ein `WebGLShader`.
 - [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram)
   - : Löscht ein `WebGLProgram`.
 - [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)
-  - : Löscht einen `WebGLShader`.
+  - : Löscht ein `WebGLShader`.
 - [`WebGLRenderingContext.detachShader()`](/de/docs/Web/API/WebGLRenderingContext/detachShader)
-  - : Trennt einen `WebGLShader`.
+  - : Löst ein `WebGLShader`.
 - [`WebGLRenderingContext.getAttachedShaders()`](/de/docs/Web/API/WebGLRenderingContext/getAttachedShaders)
   - : Gibt eine Liste von `WebGLShader`-Objekten zurück, die an ein `WebGLProgram` angehängt sind.
 - [`WebGLRenderingContext.getProgramParameter()`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter)
@@ -236,32 +236,32 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 - [`WebGLRenderingContext.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram)
   - : Verknüpft das übergebene `WebGLProgram`-Objekt.
 - [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource)
-  - : Setzt den Quellcode in einem `WebGLShader`.
+  - : Setzt den Quellcode in einen `WebGLShader`.
 - [`WebGLRenderingContext.useProgram()`](/de/docs/Web/API/WebGLRenderingContext/useProgram)
-  - : Verwendet das angegebene `WebGLProgram` als Teil des aktuellen Renderstatus.
+  - : Verwendet das angegebene `WebGLProgram` als Teil des aktuellen Renderzustands.
 - [`WebGLRenderingContext.validateProgram()`](/de/docs/Web/API/WebGLRenderingContext/validateProgram)
   - : Validiert ein `WebGLProgram`.
 
-## Uniformen und Attribute
+## Uniforms und Attribute
 
 - [`WebGLRenderingContext.disableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/disableVertexAttribArray)
-  - : Deaktiviert ein Vertex-Attributarray an einer angegebenen Position.
+  - : Deaktiviert ein Vertex-Attributarray an einer bestimmten Position.
 - [`WebGLRenderingContext.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray)
-  - : Aktiviert ein Vertex-Attributarray an einer angegebenen Position.
+  - : Aktiviert ein Vertex-Attributarray an einer bestimmten Position.
 - [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib)
   - : Gibt Informationen über eine aktive Attributvariable zurück.
 - [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform)
   - : Gibt Informationen über eine aktive Uniformvariable zurück.
 - [`WebGLRenderingContext.getAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/getAttribLocation)
-  - : Gibt den Ort einer Attributvariable zurück.
+  - : Gibt die Position einer Attributvariable zurück.
 - [`WebGLRenderingContext.getUniform()`](/de/docs/Web/API/WebGLRenderingContext/getUniform)
-  - : Gibt den Wert einer Uniformvariablen an einem angegebenen Ort zurück.
+  - : Gibt den Wert einer Uniformvariable an einer bestimmten Position zurück.
 - [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)
-  - : Gibt den Ort einer Uniformvariablen zurück.
+  - : Gibt die Position einer Uniformvariable zurück.
 - [`WebGLRenderingContext.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib)
-  - : Gibt Informationen über ein Vertex-Attribut an einer angegebenen Position zurück.
+  - : Gibt Informationen über ein Vertex-Attribut an einer bestimmten Position zurück.
 - [`WebGLRenderingContext.getVertexAttribOffset()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttribOffset)
-  - : Gibt die Adresse eines angegebenen Vertex-Attributs zurück.
+  - : Gibt die Adresse eines bestimmten Vertex-Attributs zurück.
 - [`WebGLRenderingContext.uniform[1234][fi][v]()`](/de/docs/Web/API/WebGLRenderingContext/uniform)
   - : Gibt einen Wert für eine Uniformvariable an.
 - [`WebGLRenderingContext.uniformMatrix[234]fv()`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix)
@@ -269,20 +269,20 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 - [`WebGLRenderingContext.vertexAttrib[1234]f[v]()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttrib)
   - : Gibt einen Wert für ein generisches Vertex-Attribut an.
 - [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
-  - : Gibt die Datenformate und Speicherorte von Vertex-Attributen in einem Vertex-Attributarray an.
+  - : Gibt die Datenformate und Positionen der Vertex-Attribute in einem Vertex-Attributarray an.
 
 ## Zeichenpuffer
 
 - [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)
-  - : Löscht angegebene Buffer auf voreingestellte Werte.
+  - : Löscht angegebene Puffer zu voreingestellten Werten.
 - [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)
   - : Rendert Primitiven aus Array-Daten.
 - [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
-  - : Rendert Primitiven aus Elementarray-Daten.
+  - : Rendert Primitiven aus Element-Array-Daten.
 - [`WebGLRenderingContext.finish()`](/de/docs/Web/API/WebGLRenderingContext/finish)
   - : Blockiert die Ausführung, bis alle zuvor aufgerufenen Befehle abgeschlossen sind.
 - [`WebGLRenderingContext.flush()`](/de/docs/Web/API/WebGLRenderingContext/flush)
-  - : Leert verschiedene Pufferbefehle, wodurch alle Befehle so schnell wie möglich ausgeführt werden.
+  - : Leert verschiedene Pufferbefehle, sodass alle Befehle so schnell wie möglich ausgeführt werden.
 
 ## Farbräume
 
@@ -296,7 +296,7 @@ Die folgenden Eigenschaften und Methoden bieten allgemeine Informationen und Fun
 Diese Methoden verwalten WebGL-Erweiterungen:
 
 - [`WebGLRenderingContext.getSupportedExtensions()`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions)
-  - : Gibt ein {{jsxref("Array")}} von Zeichenketten zurück, das alle unterstützten WebGL-Erweiterungen enthält.
+  - : Gibt ein {{jsxref("Array")}} von Zeichenfolgen zurück, das alle unterstützten WebGL-Erweiterungen enthält.
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
   - : Gibt ein Erweiterungsobjekt zurück.
 

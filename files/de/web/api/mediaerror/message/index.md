@@ -9,24 +9,21 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die schreibgeschützte Eigenschaft **`MediaError.message`** gibt einen
-lesbaren String zurück, der spezifische diagnostische Details
-zum durch das `MediaError`-Objekt beschriebenen Fehler bietet,
-oder einen leeren String (`""`), wenn keine diagnostischen Informationen ermittelt oder bereitgestellt werden können.
+menschlich lesbaren String zurück, der spezifische Diagnosedetails im Zusammenhang mit dem durch das `MediaError`-Objekt beschriebenen Fehler bietet oder einen leeren String (`""`), wenn keine Diagnoseinformationen ermittelt oder bereitgestellt werden können.
 
 ## Wert
 
-Ein String, der eine detaillierte, spezifische Erklärung dessen bietet, was schiefgelaufen ist und möglicherweise wie es behoben werden könnte. Dies ist _nicht_ eine generische Beschreibung des Werts der [`MediaError.code`](/de/docs/Web/API/MediaError/code)-Eigenschaft, sondern geht stattdessen tiefer auf die spezifischen Details dieses speziellen Fehlers und seiner Umstände ein. Wenn keine spezifischen Details verfügbar sind, ist dieser String leer.
+Ein String, der eine detaillierte und spezifische Erklärung dessen bietet, was schiefgelaufen ist und möglicherweise wie das Problem behoben werden könnte. Dies ist _nicht_ eine generische Beschreibung des Werts der [`MediaError.code`](/de/docs/Web/API/MediaError/code)-Eigenschaft, sondern geht tiefer in die spezifischen Details dieses bestimmten Fehlers und seiner Umstände. Wenn keine spezifischen Details verfügbar sind, ist dieser String leer.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein {{HTMLElement("audio")}}-Element, richtet einen Fehlerbehandler dafür ein und lässt den Benutzer Buttons klicken, um zu wählen, ob eine gültige Audiodatei oder eine fehlende Datei dem `src`-Attribut des Elements zugewiesen werden soll. Der Fehlerbehandler gibt eine Nachricht auf einer Box auf dem Bildschirm aus, die den Fehler beschreibt, einschließlich des `code` und der `message`.
+Dieses Beispiel erstellt ein {{HTMLElement("audio")}}-Element, richtet einen Fehlerbehandler dafür ein und ermöglicht es dem Benutzer, Buttons anzuklicken, um zu wählen, ob eine gültige Audiodatei oder eine fehlende Datei dem [`src`](/de/docs/Web/HTML/Element/audio#src)-Attribut des Elements zugewiesen wird. Der Fehlerbehandler gibt eine Nachricht auf einer Box auf dem Bildschirm aus, die den Fehler beschreibt, einschließlich sowohl des `code` als auch der `message`.
 
-Nur die relevanten Teile des Codes werden angezeigt; Sie können [den vollständigen Quellcode hier einsehen](https://github.com/mdn/dom-examples/tree/main/media/mediaerror).
+Nur die relevanten Teile des Codes werden angezeigt; Sie können [den vollständigen Quellcode hier sehen](https://github.com/mdn/dom-examples/tree/main/media/mediaerror).
 
-Das Beispiel erstellt ein {{HTMLElement("audio")}}-Element und lässt den Benutzer entweder
-eine gültige Musikdatei zuweisen oder einen Link zu einer Datei, die nicht existiert. Dies ermöglicht es, das Verhalten des [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignisbehandlers zu betrachten, der von einem Ereignisbehandler empfangen wird, den wir dem `<audio>`-Element selbst hinzufügen.
+Das Beispiel erstellt ein {{HTMLElement("audio")}}-Element und lässt den Benutzer entweder eine gültige Musikdatei oder einen Link zu einer nicht existierenden Datei zuweisen. Dies ermöglicht uns, das Verhalten des [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignisbehandlers zu sehen, der von einem Ereignisbehandler empfangen wird, den wir dem `<audio>`-Element selbst hinzufügen.
 
-Der Fehlerbehandler sieht wie folgt aus:
+Der Fehlerbehandler sieht folgendermaßen aus:
 
 ```js
 audioElement.onerror = () => {
@@ -62,9 +59,7 @@ audioElement.onerror = () => {
 };
 ```
 
-Dies erhält das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den Fehler aus der
-[`error`](/de/docs/Web/API/HTMLMediaElement/error)-Eigenschaft auf dem
-[`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) repräsentiert. Das `code`-Attribut des Fehlers wird überprüft, um eine generische Fehlermeldung auszugeben, und wenn `message` nicht leer ist, wird es angehängt, um zusätzliche Details bereitzustellen. Dann wird der resultierende Text im Log ausgegeben.
+Er erhält das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den Fehler beschreibt, über die [`error`](/de/docs/Web/API/HTMLMediaElement/error)-Eigenschaft auf dem [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement), das den Audioplayer darstellt. Das Attribut [`code`](/de/docs/Web/API/MediaError/code) des Fehlers wird überprüft, um eine generische Fehlermeldung anzuzeigen und, falls `message` nicht leer ist, wird es angehängt, um zusätzliche Details bereitzustellen. Dann wird der resultierende Text in das Protokoll ausgegeben.
 
 ### Ergebnis
 

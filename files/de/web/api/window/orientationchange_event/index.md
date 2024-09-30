@@ -10,13 +10,13 @@ l10n:
 
 Das `orientationchange` Ereignis wird ausgelöst, wenn sich die Ausrichtung des Geräts geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
 
-Dieses Ereignis ist veraltet. Hören Sie stattdessen auf das [`change`](/de/docs/Web/API/ScreenOrientation/change_event) Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation) Schnittstelle.
+Dieses Ereignis ist veraltet. Verwenden Sie stattdessen das [`change`](/de/docs/Web/API/ScreenOrientation/change_event) Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation) Schnittstelle.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("orientationchange", (event) => {});
@@ -40,7 +40,7 @@ window.addEventListener("orientationchange", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onorientationchange` Ereignishandler-Eigenschaft:
+Oder verwenden Sie die `onorientationchange` Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onorientationchange = (event) => {

@@ -7,22 +7,22 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebXR")}}{{SeeCompatTable}}
 
-Das **`XRRenderState`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält konfigurierbare Werte, die beeinflussen, wie die vom [`XRSession`](/de/docs/Web/API/XRSession) erzeugten Bilder zusammengesetzt werden. Diese Eigenschaften umfassen den Entfernungsbereich vom Betrachter, innerhalb dessen Inhalte gerendert werden sollen, das vertikale Sichtfeld (für Inline-Präsentationen) und einen Verweis auf den [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), der als Ziel für das Rendering der Szene verwendet wird, bevor es auf dem Display oder den Displays des XR-Geräts präsentiert wird.
+Die **`XRRenderState`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält konfigurierbare Werte, die beeinflussen, wie das von einer [`XRSession`](/de/docs/Web/API/XRSession) generierte Bildmaterial zusammengesetzt wird. Diese Eigenschaften umfassen den Entfernungsbereich vom Betrachter, innerhalb dessen der Inhalt gerendert werden soll, das vertikale Sichtfeld (für inline-Präsentationen) und eine Referenz auf die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), die als Ziel für das Rendering der Szene verwendet wird, bevor es auf dem oder den Displays des XR-Geräts präsentiert wird.
 
-Wenn Sie Änderungen mithilfe der `XRSession`-Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) anwenden, treten die angegebenen Änderungen nach dem Abschluss des aktuellen Animationsrahmens in Kraft, jedoch bevor der nächste beginnt.
+Wenn Sie Änderungen mittels der `XRSession`-Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) anwenden, treten die angegebenen Änderungen nach Abschluss des aktuellen Animationsrahmens in Kraft, jedoch vor Beginn des nächsten.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`XRRenderState.baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), von dem das Compositing-System des Browsers das Bild für die XR-Sitzung erhält.
+  - : Die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), aus der das Compositing-System des Browsers das Bild für die XR-Sitzung bezieht.
 - [`XRRenderState.depthFar`](/de/docs/Web/API/XRRenderState/depthFar) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Entfernung, in Metern, der **weiten Clipping-Ebene** vom Betrachter. Die weite Clipping-Ebene ist die Ebene, die parallel zur Anzeige verläuft, jenseits derer das Rendern der Szene nicht mehr stattfindet. Dies gibt im Wesentlichen die maximale Entfernung an, die der Benutzer sehen kann.
+  - : Die Entfernung der **fernen Clipping-Ebene** vom Betrachter in Metern. Die ferne Clipping-Ebene ist die Ebene, die parallel zum Display verläuft und jenseits derer das Rendering der Szene nicht mehr erfolgt. Diese gibt im Wesentlichen die maximale Entfernung an, die der Benutzer sehen kann.
 - [`XRRenderState.depthNear`](/de/docs/Web/API/XRRenderState/depthNear) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Entfernung, in Metern, der **nahen Clipping-Ebene** vom Betrachter. Die nahe Clipping-Ebene ist die Ebene, parallel zur Anzeige, bei der das Rendern der Szene beginnt. Alles, was näher am Betrachter ist, wird nicht gezeichnet.
+  - : Die Entfernung der **nahen Clipping-Ebene** vom Betrachter in Metern. Die nahe Clipping-Ebene ist die Ebene, die parallel zum Display verläuft und bei der das Rendering der Szene beginnt. Näher am Betrachter liegende Teile der Szene werden nicht gezeichnet.
 - [`XRRenderState.inlineVerticalFieldOfView`](/de/docs/Web/API/XRRenderState/inlineVerticalFieldOfView) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das Standard-vertikale Sichtfeld, definiert in Radiant, das verwendet wird, wenn die Sitzung im `inline`-Modus ist. `null` für alle immersiven Sitzungen.
+  - : Das standardmäßige vertikale Sichtfeld, in Bogenmaß definiert, das verwendet wird, wenn sich die Sitzung im `inline`-Modus befindet. Für alle immersiven Sitzungen ist dies `null`.
 - [`XRRenderState.layers`](/de/docs/Web/API/XRRenderState/layers) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält, die vom XR-Compositor angezeigt werden.
+  - : Ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält, die vom XR-Kompositor angezeigt werden.
 
 ## Spezifikationen
 

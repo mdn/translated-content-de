@@ -1,5 +1,5 @@
 ---
-title: "ChannelMergerNode: ChannelMergerNode() Konstruktor"
+title: "ChannelMergerNode: ChannelMergerNode()-Konstruktor"
 short-title: ChannelMergerNode()
 slug: Web/API/ChannelMergerNode/ChannelMergerNode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`ChannelMergerNode()`** Konstruktor erstellt eine neue Instanz des [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objekts.
+Der **`ChannelMergerNode()`**-Konstruktor erstellt eine neue [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objektinstanz.
 
 ## Syntax
 
@@ -20,26 +20,34 @@ new ChannelMergerNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), das den Audiokontext repräsentiert, mit dem der Knoten verbunden werden soll.
+  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), das den Audio-Kontext darstellt, mit dem der Knoten verknüpft werden soll.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die Eigenschaften definiert, die der `ChannelMergerNode` haben soll:
     - `numberOfInputs` {{optional_inline}}
       - : Eine Zahl, die die Anzahl der Eingänge definiert, die der [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode) haben soll. Wenn nicht angegeben, wird der Standardwert 6 verwendet.
     - `channelCount` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der bestimmt, wie viele Kanäle beim [Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Eine Ganzzahl, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu Eingängen des Knotens verwendet werden.
+        (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.)
+        Die Verwendung und genaue Definition hängt vom Wert von `channelCountMode` ab.
     - `channelCountMode` {{optional_inline}}
-      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerten.)
+      - : Ein String, der beschreibt, wie die Kanäle zwischen
+        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen, einschließlich der Standardwerte.)
     - `channelInterpretation` {{optional_inline}}
-      - : Ein String, der die Bedeutung der Kanäle beschreibt. Diese Interpretation wird definieren, wie das Audio [hochgemixt und heruntergemixt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerten.)
+      - : Ein String, der die Bedeutung der Kanäle beschreibt.
+        Diese Interpretation wird definieren, wie das Audio
+        [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
+        Die möglichen Werte sind `"speakers"` oder `"discrete"`.
+        (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objekts.
+Eine neue [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objektinstanz.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine Option wie `channelCount` oder `channelCountMode` einen ungültigen Wert erhalten hat.
+  - : Ausgelöst, wenn eine Option wie `channelCount` oder `channelCountMode` einen ungültigen Wert erhalten hat.
 
 ## Beispiele
 

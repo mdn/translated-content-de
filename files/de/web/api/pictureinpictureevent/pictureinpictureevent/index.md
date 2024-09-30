@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Der **`PictureInPictureEvent()`** Konstruktor gibt ein neues [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent)-Objekt zurück.
+Der **`PictureInPictureEvent()`** Konstruktor gibt ein neues [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent) Objekt zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new PictureInPictureEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Namen des Ereignisses darstellt. Er ist Groß-/Kleinschreibung-sensitiv und wird von Browsern auf `enterpictureinpicture`, `leavepictureinpicture` oder `resize` gesetzt.
+  - : Ein String, der den Namen des Events darstellt. Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn auf `enterpictureinpicture`, `leavepictureinpicture` oder `resize`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `pictureInPictureWindow`
@@ -27,7 +27,7 @@ new PictureInPictureEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent)-Objekt.
+Ein neues [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent) Objekt.
 
 ## Spezifikationen
 
@@ -39,4 +39,4 @@ Ein neues [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent)-Obje
 
 ## Siehe auch
 
-- Die [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent) Schnittstelle, zu der es gehört.
+- Die Schnittstelle [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent), zu der es gehört.

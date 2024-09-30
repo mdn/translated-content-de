@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getSettings()`**-Methode der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt ein [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekt zurück, das die aktuellen Werte jeder der einschränkbaren Eigenschaften für das aktuelle `MediaStreamTrack` enthält.
+Die **`getSettings()`**-Methode des
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt ein [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekt zurück, das die aktuellen Werte jeder der beschränkbaren Eigenschaften für den aktuellen `MediaStreamTrack` enthält.
 
-Sehen Sie sich [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) an, um Details dazu zu erfahren, wie man mit einschränkbaren Eigenschaften arbeitet.
+Weitere Informationen zum Arbeiten mit beschränkbaren Eigenschaften finden Sie unter [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 
 ## Syntax
 
@@ -24,10 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekt, das die aktuelle Konfiguration der einschränkbaren Eigenschaften des Tracks beschreibt.
+Ein [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekt, das die aktuelle Konfiguration der beschränkbaren Eigenschaften des Tracks beschreibt.
 
 > [!NOTE]
-> Das zurückgegebene Objekt identifiziert die aktuellen Werte jeder einschränkbaren Eigenschaft, einschließlich solcher, die Plattform-Standards sind und nicht ausdrücklich durch den Code der Website festgelegt wurden. Um stattdessen die zuletzt festgelegten Einschränkungen für die Eigenschaften des Tracks, wie vom Code der Website angegeben, abzurufen, verwenden Sie [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints).
+> Das zurückgegebene Objekt identifiziert die aktuellen Werte jeder beschränkbaren Eigenschaft, einschließlich derjenigen, die plattformspezifische Standardwerte sind und nicht ausdrücklich durch den Code der Website festgelegt wurden. Um stattdessen die zuletzt festgelegten Einschränkungen für die Eigenschaften des Tracks abzurufen, wie sie vom Code der Website angegeben wurden, verwenden Sie
+> [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints).
 
 ## Spezifikationen
 

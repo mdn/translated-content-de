@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.group()`** statische Methode erstellt eine neue Inline-Gruppe im [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine zusätzliche Ebene eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static) aufgerufen wird.
+Die statische Methode **`console.group()`** erstellt eine neue Inline-Gruppe im [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine Stufe weiter eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static) aufgerufen wird.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ group(label)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Sie können verschachtelte Gruppen verwenden, um Ihre Ausgabe zu organisieren, indem Sie visuell zusammenhängende Nachrichten verknüpfen. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die `console.groupCollapsed()` Methode ist ähnlich, aber der neue Block ist eingeklappt und erfordert das Klicken auf eine Offenlegungsschaltfläche, um ihn zu lesen.
+Sie können verschachtelte Gruppen verwenden, um Ihre Ausgaben zu organisieren, indem Sie visuell verwandte Nachrichten zusammenführen. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die Methode `console.groupCollapsed()` ist ähnlich, aber der neue Block ist zusammengeklappt und erfordert das Klicken auf eine Offenlegungsfläche, um ihn zu lesen.
 
-Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel, bei folgendem Code:
+Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel erzeugt der folgende Code:
 
 ```js
 console.log("This is the outer level");
@@ -45,11 +45,11 @@ console.groupEnd();
 console.log("Back to the outer level");
 ```
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
-![Ein Screenshot von Nachrichten, die in der Konsolenausgabe verschachtelt sind.](nesting.png)
+![Ein Screenshot von verschachtelten Nachrichten in der Konsolenausgabe.](nesting.png)
 
-Siehe [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Weitere Details finden Sie unter [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
 
 ## Spezifikationen
 

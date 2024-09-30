@@ -1,5 +1,5 @@
 ---
-title: "Screen: Eigenschaft isExtended"
+title: "Screen: isExtended-Eigenschaft"
 short-title: isExtended
 slug: Web/API/Screen/isExtended
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`isExtended`** des [`Screen`](/de/docs/Web/API/Screen)-Interfaces gibt `true` zurück, wenn das Gerät des Benutzers über mehrere Bildschirme verfügt, und `false`, wenn nicht.
+Die schreibgeschützte Eigenschaft **`isExtended`** der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle gibt `true` zurück, wenn das Gerät des Benutzers mehrere Bildschirme hat, und `false`, wenn nicht.
 
-Diese Eigenschaft wird typischerweise über `window.screen.isExtended` aufgerufen und kann verwendet werden, um zu testen, ob mehrere Bildschirme verfügbar sind, bevor versucht wird, ein Layout mit mehreren Fenstern und Bildschirmen unter Verwendung der [Window Management API](/de/docs/Web/API/Window_Management_API) zu erstellen.
+Diese Eigenschaft wird typischerweise über `window.screen.isExtended` abgerufen und kann verwendet werden, um zu testen, ob mehrere Bildschirme verfügbar sind, bevor versucht wird, mit der [Window Management API](/de/docs/Web/API/Window_Management_API) ein Layout mit mehreren Fenstern und Bildschirmen zu erstellen.
 
 ## Wert
 
-Ein boolescher Wert — `true`, wenn das Gerät über mehrere Bildschirme verfügt, und `false`, wenn nicht.
+Ein Boolescher Wert — `true`, wenn das Gerät mehrere Bildschirme hat, und `false`, wenn nicht.
 
 > [!NOTE]
-> Wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) festgelegt ist, die die Verwendung der Window Management API blockiert, wird `isExtended` immer `false` zurückgeben.
+> Wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) gesetzt ist, die die Nutzung der Window Management API blockiert, wird `isExtended` immer `false` zurückgeben.
 
 ## Beispiele
 

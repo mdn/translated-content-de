@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: append()-Methode"
+title: "URLSearchParams: append() Methode"
 short-title: append()
 slug: Web/API/URLSearchParams/append
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`append()`**-Methode der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) fügt ein angegebenes Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
+Die **`append()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
+Schnittstelle fügt ein spezifisches Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
 
-Wie im folgenden Beispiel gezeigt wird, erscheint der gleiche Schlüssel, wenn er mehrfach hinzugefügt wird, mehrmals in der Parameterzeichenfolge, jeweils mit dem entsprechenden Wert.
+Wie im untenstehenden Beispiel gezeigt, wird der gleiche Schlüssel, wenn er mehrmals angehängt wird,
+mehrmals in der Parameterzeichenfolge für jeden Wert erscheinen.
 
 ## Syntax
 
@@ -21,9 +23,9 @@ append(name, value)
 ### Parameter
 
 - `name`
-  - : Der Name des hinzuzufügenden Parameters.
+  - : Der Name des Parameters, der hinzugefügt werden soll.
 - `value`
-  - : Der Wert des hinzuzufügenden Parameters.
+  - : Der Wert des Parameters, der hinzugefügt werden soll.
 
 ### Rückgabewert
 

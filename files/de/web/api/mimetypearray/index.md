@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die Schnittstelle **`MimeTypeArray`** gibt ein Array von [`MimeType`](/de/docs/Web/API/MimeType)-Instanzen zurück, von denen jede Informationen über unterstützte Browser-Plugins enthält. Dieses Objekt wird durch die veraltete Eigenschaft [`Navigator.mimeTypes`](/de/docs/Web/API/Navigator/mimeTypes) zurückgegeben.
+Die Schnittstelle **`MimeTypeArray`** gibt ein Array von [`MimeType`](/de/docs/Web/API/MimeType)-Instanzen zurück, von denen jede Informationen über unterstützte Browser-Plugins enthält. Dieses Objekt wird von der veralteten Eigenschaft [`Navigator.mimeTypes`](/de/docs/Web/API/Navigator/mimeTypes) zurückgegeben.
 
-Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bestehenden Code nicht zu brechen, der sie bereits verwendet. Moderne APIs stellen Listenstrukturen mit Typen dar, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, und machen dadurch viele Array-Methoden verfügbar, während sie gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegen (wie z.B. die Elemente schreibgeschützt zu machen).
+Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bereits existierenden Code nicht zu brechen, der sie verwendet. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken auf ihre Nutzung angewandt werden (wie zum Beispiel, dass ihre Elemente schreibgeschützt sind).
 
 ## Instanz-Eigenschaften
 
@@ -25,7 +25,7 @@ Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](
 
 ## Beispiel
 
-Im folgenden Beispiel wird getestet, ob ein Plugin für den 'application/pdf'-MIME-Typ verfügbar ist und, falls ja, wird seine Beschreibung protokolliert.
+Das folgende Beispiel testet, ob ein Plugin für den 'application/pdf'-MIME-Typ verfügbar ist und falls ja, wird die Beschreibung protokolliert.
 
 ```js
 const mimeTypes = navigator.mimeTypes;

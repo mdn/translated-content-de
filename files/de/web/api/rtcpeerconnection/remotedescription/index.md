@@ -8,21 +8,32 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`remoteDescription`** schreibgeschützte Eigenschaft des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) zurück, die die Sitzung beschreibt (einschließlich Konfiguration und Medieninformationen) für das entfernte Ende der Verbindung. Falls diese noch nicht gesetzt wurde, ist der Wert `null`.
+Die schreibgeschützte **`remoteDescription`**-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) zurück, die die Sitzung (einschließlich Konfiguration und Medieninformationen) für das entfernte Ende der Verbindung beschreibt. Falls dies noch nicht gesetzt wurde, ist der Wert `null`.
 
-Der zurückgegebene Wert spiegelt typischerweise eine entfernte Beschreibung wider, die über den Signalisierungsserver empfangen wurde (entweder als Angebot oder als Antwort) und dann durch Ihren Code, welcher [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft, in Kraft gesetzt wurde.
+Der zurückgegebene Wert spiegelt typischerweise eine entfernte Beschreibung wider, die über den Signalisierungsserver empfangen wurde (entweder als Angebot oder als Antwort) und dann durch das Aufrufen von [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) in Ihrem Code wirksam gemacht wurde.
 
 ## Syntax
 
-![Syntax](_image_path_0-7a8e9064.md)
+```js-nolint
+const sessionDescription = peerConnection.remoteDescription
+```
 
-Auf einer grundlegenderen Ebene ist der zurückgegebene Wert der Wert von [`RTCPeerConnection.pendingRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/pendingRemoteDescription), wenn diese Eigenschaft nicht `null` ist; ansonsten wird der Wert von [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) zurückgegeben. Siehe [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC Konnektivitätsseite für Details zu diesem Algorithmus und warum er verwendet wird.
+Auf einer grundsätzlicheren Ebene ist der zurückgegebene Wert der Wert von [`RTCPeerConnection.pendingRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/pendingRemoteDescription), falls diese Eigenschaft nicht `null` ist; andernfalls wird der Wert von [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) zurückgegeben. Weitere Details zu diesem Algorithmus und warum er verwendet wird, finden Sie unter [Anstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 ## Beispiel
 
-Dieses Beispiel betrachtet die `remoteDescription` und zeigt einen Hinweis an, der die Felder `type` und `sdp` des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
+Dieses Beispiel betrachtet die `remoteDescription` und zeigt ein Alert-Fenster an, das die Felder `type` und `sdp` des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
 
-![Beispiel](_image_path_1-c55ea645.md)
+```js
+const pc = new RTCPeerConnection();
+// ...
+const sd = pc.remoteDescription;
+if (sd) {
+  alert(`Remote session: type='${sd.type}'; sdp description='${sd.sdp}'`);
+} else {
+  alert("No remote session yet.");
+}
+```
 
 ## Spezifikationen
 

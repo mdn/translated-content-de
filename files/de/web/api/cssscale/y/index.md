@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft des [`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces gibt die Ordinate oder y-Achse des Translationsvektors an und setzt sie.
+Die **`y`**-Eigenschaft des [`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces erhält und setzt die Ordinate oder y-Achse des Übersetzungsvectors.
 
 ## Wert
 
-Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein doppelter Ganzzahlwert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-Zu erledigen
+To Do
 
 ## Spezifikationen
 

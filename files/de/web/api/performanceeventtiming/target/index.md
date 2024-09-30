@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`target`**-Eigenschaft gibt das letzte zugehörige [`target`](/de/docs/Web/API/Event/target) des Ereignisses zurück. Dabei handelt es sich um den Knoten, auf den das Ereignis zuletzt gesendet wurde.
+Die schreibgeschützte **`target`**-Eigenschaft gibt das letzte mit dem Ereignis verbundene [`target`](/de/docs/Web/API/Event/target) zurück, welches der Knoten ist, auf den das Ereignis zuletzt übermittelt wurde.
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node), auf den das Ereignis zuletzt gesendet wurde.
+Ein [`Node`](/de/docs/Web/API/Node), auf den das Ereignis zuletzt übermittelt wurde.
 
-Oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der `Node` vom DOM-Dokument getrennt ist oder sich im [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) befindet.
+Oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der `Node` von der DOM-Dokumentstruktur getrennt oder im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) befindet.
 
 ## Beispiele
 
-### Beobachtung von Ereignissen mit einem spezifischen letzten Ziel
+### Beobachten von Ereignissen mit einem spezifischen letzten Ziel
 
-Die `target`-Eigenschaft kann verwendet werden, wenn Sie Ereigniszeit-Einträge ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) beobachten. Zum Beispiel, um Ereignisse für ein bestimmtes letztes Ziel zu protokollieren und zu messen.
+Die `target`-Eigenschaft kann verwendet werden, wenn man Einträge der Ereigniszeitmessungen ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) beobachtet. Zum Beispiel, um Ereignisse für ein bestimmtes letztes Ziel zu protokollieren und zu messen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

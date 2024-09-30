@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine [JavaScript](/de/docs/Glossary/JavaScript) [function](/de/docs/Glossary/function), die ausgeführt wird, sobald sie definiert ist. Auch bekannt als [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression).
+Eine [JavaScript](/de/docs/Glossary/JavaScript) [Funktion](/de/docs/Glossary/function), die ausgeführt wird, sobald sie definiert ist. Auch bekannt als [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression).
 
-Siehe die oben verlinkte IIFE-Glossarseite für weitere Informationen.
+Weitere Informationen finden Sie auf der oben verlinkten IIFE-Glossarseite.

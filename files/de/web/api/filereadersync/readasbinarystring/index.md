@@ -11,7 +11,7 @@ l10n:
 > [!NOTE]
 > Diese Methode ist zugunsten von [`readAsArrayBuffer()`](/de/docs/Web/API/FileReaderSync/readAsArrayBuffer) veraltet.
 
-Die **`readAsBinaryString()`**-Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle ermöglicht das synchrone Lesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten in eine Zeichenkette. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Web Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockierend wirkt.
+Die **`readAsBinaryString()`**-Methode des [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Interfaces ermöglicht es, [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte synchron in eine Zeichenkette zu lesen. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Web Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockieren könnte.
 
 ## Syntax
 
@@ -22,25 +22,25 @@ readAsBinaryString(blob)
 ### Parameter
 
 - `blob`
-  - : Das zu lesende [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob).
+  - : Die zu lesende [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob).
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die eingelesenen Daten darstellt.
+Eine Zeichenkette, die die Eingabedaten repräsentiert.
 
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die durch das DOM-[`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentierte Ressource nicht gefunden werden kann, z.B. weil sie gelöscht wurde.
+  - : Wird ausgelöst, wenn die Ressource, die durch das DOM-[`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentiert wird, nicht gefunden werden kann, z. B. weil sie gelöscht wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen erkannt wird:
-    - die Ressource wurde von einem Dritten verändert;
+    - die Ressource wurde von einem Dritten geändert;
     - es werden gleichzeitig zu viele Lesevorgänge durchgeführt;
-    - die durch die Ressource bezeichnete Datei ist unsicher für die Verwendung im Web (z.B. ist es eine Systemdatei).
+    - die durch die Ressource angezeigte Datei ist unsicher für die Verwendung im Web (z. B. eine Systemdatei).
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einer parallelen Sperre, nicht gelesen werden kann.
+  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einem gleichzeitigen Sperren, nicht gelesen werden kann.
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und das von jedem Browser definierte Längenlimit überschreitet.
+  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die von jedem Browser definierte Längenbegrenzung überschreitet.
 
 ## Spezifikationen
 

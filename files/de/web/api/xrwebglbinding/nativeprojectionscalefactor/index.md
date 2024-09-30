@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: nativeProjectionScaleFactor-Eigenschaft"
+title: "XRWebGLBinding: nativeProjectionScaleFactor Eigenschaft"
 short-title: nativeProjectionScaleFactor
 slug: Web/API/XRWebGLBinding/nativeProjectionScaleFactor
 l10n:
@@ -14,7 +14,7 @@ Für weitere Details siehe [`XRWebGLLayer.getNativeFramebufferScaleFactor()`](/d
 
 ## Wert
 
-Eine Gleitkommazahl, die angibt, um wie viel die native Framebuffer-Größe des Geräts skaliert wird.
+Eine Gleitkommazahl, die angibt, um wie viel die Größe des nativen Framebuffers des Geräts skaliert wird.
 
 ## Spezifikationen
 

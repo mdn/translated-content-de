@@ -23,15 +23,15 @@ copyTo(destination, options)
 - `options`
   - : Ein Objekt, das Folgendes enthält:
     - `planeIndex`
-      - : Der Index der Ebene, die kopiert werden soll.
+      - : Der Index der Ebene, aus der kopiert werden soll.
     - `frameOffset` {{optional_inline}}
-      - : Ein Integer, der einen Offset in den Ebenendaten angibt, ab dem die Kopie beginnen soll. Standardwert ist `0`.
+      - : Ein Integer, der einen Versatz in die Ebenendaten angibt, ab dem die Kopie beginnen soll. Standardmäßig `0`.
     - `frameCount` {{optional_inline}}
-      - : Ein Integer, der angibt, wie viele Frames kopiert werden sollen. Wenn nicht angegeben, werden alle Frames in der Ebene kopiert, beginnend mit dem im `frameOffset` angegebenen Frame.
+      - : Ein Integer, der die Anzahl der zu kopierenden Frames angibt. Wird er nicht angegeben, werden alle Frames in der Ebene kopiert, beginnend mit dem in `frameOffset` angegebenen Frame.
 
 ### Rückgabewert
 
-Undefined.
+Undefiniert.
 
 ### Ausnahmen
 
@@ -39,9 +39,9 @@ Undefined.
   - : Wird ausgelöst, wenn das `AudioData`-Objekt [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn eine der folgenden Bedingungen erfüllt ist:
-    - Die Länge des Samples ist länger als die Zielpufferlänge.
-    - Das Format des `AudioData`-Objekts beschreibt ein Planar-Format, aber `options.planeIndex` liegt außerhalb der verfügbaren Ebenenanzahl.
-    - Das Format des `AudioData`-Objekts beschreibt ein Interleaved-Format, aber `options.planeIndex` ist größer als `0`.
+    - Die Länge der Probe ist länger als die Länge des Ziels.
+    - Das Format des `AudioData`-Objekts beschreibt ein planaritisches Format, aber `options.planeIndex` liegt außerhalb der Anzahl der verfügbaren Ebenen.
+    - Das Format des `AudioData`-Objekts beschreibt ein verschachteltes Format, aber `options.planeIndex` ist größer als `0`.
 
 ## Beispiele
 

@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **Property** kann je nach Kontext mehrere Bedeutungen haben. Es könnte sich beziehen auf:
+Der Begriff **property** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}

@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## font
 
-Für {{SVGElement("font")}} Elemente gibt `vert-adv-y` den standardmäßigen vertikalen Vorschub für ein Glyph in vertikaler Ausrichtung an.
+Für {{SVGElement("font")}}-Elemente spezifiziert `vert-adv-y` den Standard-Vertikalvorschub für ein Glyphe in vertikaler Ausrichtung.
 
 <table class="properties">
   <tbody>
@@ -43,11 +43,11 @@ Für {{SVGElement("font")}} Elemente gibt `vert-adv-y` den standardmäßigen ver
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den standardmäßigen vertikalen Vorschub des Glyphs in vertikaler Richtung an
+  - : Dieser Wert gibt den Standard-Vertikalvorschub der Glyphe in vertikaler Richtung an
 
 ## glyph, missing-glyph
 
-Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `vert-adv-y` den vertikalen Vorschub für ein Glyph in vertikaler Ausrichtung an.
+Für {{SVGElement("glyph")}}- und {{SVGElement("missing-glyph")}}-Elemente spezifiziert `vert-adv-y` den Vertikalvorschub für ein Glyphe in vertikaler Ausrichtung.
 
 <table class="properties">
   <tbody>
@@ -64,7 +64,7 @@ Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <em>Wert von <code>vert-adv-y</code> des {{SVGElement("font")}}</em>
+        <em>Der <code>vert-adv-y</code> Wert von {{SVGElement("font")}}</em>
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den vertikalen Vorschub des Glyphs in vertikaler Richtung an
+  - : Dieser Wert gibt den Vertikalvorschub der Glyphe in vertikaler Richtung an
 
 ## Spezifikationen
 

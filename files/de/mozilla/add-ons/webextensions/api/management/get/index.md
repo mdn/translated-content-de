@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft ein {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekt ab, das Informationen über das angegebene Add-on enthält.
+Ruft ein {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} Objekt ab, das Informationen über das angegebene Add-on enthält.
 
-Diese API erfordert die Berechtigung "management" für die [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,11 +24,11 @@ let gettingInfo = browser.management.get(
 ### Parameter
 
 - `id`
-  - : `string`. ID des Add-ons, dessen Informationen Sie abrufen möchten.
+  - : `string`. ID des Add-ons, dessen Informationen abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekt erfüllt wird, das Informationen über das Add-on enthält. Das Promise wird abgelehnt, wenn keine Erweiterung mit der angegebenen ID installiert ist oder wenn der Anrufer nicht berechtigt ist, auf die Erweiterung zuzugreifen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} Objekt erfüllt wird, das Informationen über das Add-on enthält. Das Promise wird abgelehnt, wenn keine Erweiterung mit der angegebenen ID installiert ist oder die Erweiterung vom Aufrufer nicht zugänglich ist.
 
 ## Browser-Kompatibilität
 
@@ -52,4 +52,4 @@ getting.then(got);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-get) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-get) API. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.

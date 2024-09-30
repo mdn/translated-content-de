@@ -8,28 +8,27 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`autoIncrement`** schreibgeschützte Eigenschaft der
-[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt den Wert des Auto-Increment-Flags
-für diesen Objekt-Store zurück.
+Die **`autoIncrement`** schreibgeschützte Eigenschaft des
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt den Wert des Auto-Increment-Flags
+für diesen Object Store zurück.
 
-Beachten Sie, dass jeder Objekt-Store seinen eigenen separaten Auto-Increment-Zähler hat.
+Beachten Sie, dass jeder Object Store seinen eigenen separaten Auto-Increment-Zähler hat.
 
 ## Wert
 
 Ein boolescher Wert:
 
-| Wert    | Bedeutung                                  |
-| ------- | ------------------------------------------ |
-| `true`  | Der Objekt-Store auto-inkrementiert.       |
-| `false` | Der Objekt-Store auto-inkrementiert nicht. |
+| Wert    | Bedeutung                                    |
+| ------- | -------------------------------------------- |
+| `true`  | Der Object Store wird automatisch inkrementiert. |
+| `false` | Der Object Store wird nicht automatisch inkrementiert. |
 
 ## Beispiele
 
-Im folgenden Code-Schnipsel öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen
-einige Daten zu einem Objekt-Store mit `add()` hinzu. Nachdem der Objekt-Store erstellt wurde,
-loggen wir `objectStore.autoIncrement` in
-der Konsole. Für ein vollständiges Arbeitsbeispiel, siehe
-unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und fügen
+einige Daten zu einem Object Store mit `add()` hinzu. Nachdem der Object Store erstellt wurde, protokollieren wir `objectStore.autoIncrement` in
+die Konsole. Für ein vollständiges funktionierendes Beispiel siehe
+unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App
 ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
@@ -102,9 +101,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Änderungen an Ihren Daten vornehmen: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

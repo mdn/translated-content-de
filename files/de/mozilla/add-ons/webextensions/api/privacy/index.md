@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Zugriff auf und Ändern von verschiedenen datenschutzbezogenen Browsereinstellungen.
+Zugriff auf verschiedene datenschutzbezogene Browsereinstellungen und deren Änderung.
 
-Um die `privacy`-API zu verwenden, müssen Sie die "privacy" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
+Um die privacy API zu verwenden, müssen Sie die "privacy" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("privacy.network")}}
-  - : Zugriff auf und Ändern von Datenschutzeinstellungen im Zusammenhang mit dem Netzwerk.
+  - : Zugriff auf Netzwerkeinstellungen zum Datenschutz und deren Änderung.
 - {{WebExtAPIRef("privacy.services")}}
-  - : Zugriff auf und Ändern von Datenschutzeinstellungen im Zusammenhang mit den vom Browser oder Drittanbietern bereitgestellten Diensten.
+  - : Zugriff auf Datenschutzeinstellungen in Bezug auf die vom Browser oder von Drittanbietern bereitgestellten Dienste und deren Änderung.
 - {{WebExtAPIRef("privacy.websites")}}
-  - : Zugriff auf und Ändern von Datenschutzeinstellungen im Zusammenhang mit dem Verhalten von Websites.
+  - : Zugriff auf Datenschutzeinstellungen in Bezug auf das Verhalten von Websites und deren Änderung.
 
 ## Browser-Kompatibilität
 
@@ -27,7 +27,7 @@ Um die `privacy`-API zu verwenden, müssen Sie die "privacy" [API-Berechtigung](
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) von Chromium.
+> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

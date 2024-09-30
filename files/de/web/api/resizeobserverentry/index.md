@@ -7,37 +7,37 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Das **`ResizeObserverEntry`**-Interface repräsentiert das Objekt, das an die Rückruffunktion des [`ResizeObserver()`](/de/docs/Web/API/ResizeObserver/ResizeObserver)-Konstruktors übergeben wird. Es ermöglicht Ihnen den Zugriff auf die neuen Dimensionen des beobachteten [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
+Das **`ResizeObserverEntry`**-Interface stellt das Objekt dar, das an die Callback-Funktion des Konstruktors von [`ResizeObserver()`](/de/docs/Web/API/ResizeObserver/ResizeObserver) übergeben wird. Es ermöglicht Ihnen den Zugriff auf die neuen Dimensionen des beobachteten [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`ResizeObserverEntry.borderBoxSize`](/de/docs/Web/API/ResizeObserverEntry/borderBoxSize) {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Border-Box-Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+  - : Ein Array von Objekten, das die neue Größe des Border-Box des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
 - [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize) {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Content-Box-Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+  - : Ein Array von Objekten, das die neue Größe der Content-Box des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
 - [`ResizeObserverEntry.devicePixelContentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/devicePixelContentBoxSize) {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Content-Box-Größe in Gerätepixeln des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+  - : Ein Array von Objekten, das die neue Größe der Content-Box in Geräte-Pixeln des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
 - [`ResizeObserverEntry.contentRect`](/de/docs/Web/API/ResizeObserverEntry/contentRect) {{ReadOnlyInline}}
-  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das die neue Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird. Beachten Sie, dass dies jetzt eine Legacy-Eigenschaft ist, die aus Gründen der Abwärtskompatibilität in der Spezifikation beibehalten wird.
+  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das die neue Größe des beobachteten Elements enthält, wenn der Callback ausgeführt wird. Beachten Sie, dass dies jetzt eine veraltete Eigenschaft ist, die nur aus Gründen der Rückwärtskompatibilität in der Spezifikation belassen wurde.
 - [`ResizeObserverEntry.target`](/de/docs/Web/API/ResizeObserverEntry/target) {{ReadOnlyInline}}
   - : Ein Verweis auf das beobachtete [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 > [!NOTE]
-> Die Content-Box ist der Bereich, in dem Inhalt platziert werden kann, was bedeutet, dass es die Border-Box minus der Padding- und Rahmenbreite ist. Die Border-Box umfasst den Inhalt, das Padding und den Rahmen. Siehe [Das Boxmodell](/de/docs/Learn/CSS/Building_blocks/The_box_model) für eine weitere Erklärung.
+> Die Content-Box ist der Bereich, in dem Inhalte platziert werden können, das heißt die Border-Box minus die Padding- und Rahmenbreite. Die Border-Box umfasst den Inhalt, das Padding und den Rahmen. Siehe [Das Box-Modell](/de/docs/Learn/CSS/Building_blocks/The_box_model) für weitere Erläuterungen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Keine.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)).
+Das folgende Snippet wurde aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) entnommen.
 
-Beachten Sie, dass der Code drei verschiedene Kompatibilitätsfälle behandelt:
+Beachteen Sie, dass der Code drei verschiedene Kompatibilitätsfälle abdeckt:
 
 - Einige alte Browser unterstützen möglicherweise `contentRect`, aber nicht `contentBoxSize`.
-- Alte Versionen von Firefox unterstützen `contentBoxSize`, haben es jedoch fälschlicherweise als ein einzelnes Objekt anstelle eines Arrays implementiert.
-- Moderne Browser unterstützen `contentBoxSize` als ein Array von Objekten, um ihnen zu ermöglichen, Boxgrößen für fragmentierte Elemente zu melden (zum Beispiel in einem Mehrspaltenszenario).
+- Alte Versionen von Firefox unterstützen `contentBoxSize`, haben es jedoch fälschlicherweise als einzelnes Objekt und nicht als Array implementiert.
+- Moderne Browser unterstützen `contentBoxSize` als Array von Objekten, um Berichterstattung über Boxgrößen für fragmentierte Elemente zu ermöglichen (zum Beispiel in einem Mehrspalten-Szenario).
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

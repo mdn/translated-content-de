@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `composite` [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles) zeigt ein Widget an, das navigierbare Nachkommen oder besessene Kinder enthalten kann.
+Die `composite` [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles) weist auf ein Widget hin, das navigierbare Nachfahren oder eigene Kinder enthalten kann.
 
 > [!NOTE]
-> Die `composite` Rolle ist eine abstrakte Rolle. Sie ist hier zur Vollständigkeit der Dokumentation enthalten. Sie sollte nicht von Webautoren verwendet werden.
+> Die `composite` Rolle ist eine abstrakte Rolle. Sie wird hier zur Vollständigkeit der Dokumentation aufgenommen. Sie sollte nicht von Webautoren verwendet werden.
 
 ## Beschreibung
 
-`Composite` ist eine abstrakte Rolle, die für die Ontologie verwendet wird. Verwenden Sie diese Rolle nicht in Inhalten. Benutzen Sie stattdessen die zusammengesetzten Unterklassen von [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`select`](/de/docs/Web/Accessibility/ARIA/Roles/select_role), [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Roles/spinbutton_role) und [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role).
+`Composite` ist eine abstrakte Rolle, die für die Ontologie verwendet wird. Verwenden Sie diese Rolle nicht im Inhalt. Verwenden Sie stattdessen die zusammengesetzten Unterklassen von [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`select`](/de/docs/Web/Accessibility/ARIA/Roles/select_role), [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Roles/spinbutton_role) und [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role).
 
-## Beste Praktiken
+## Best Practices
 
 Nicht verwenden.
 

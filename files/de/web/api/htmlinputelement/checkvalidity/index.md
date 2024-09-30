@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Element alle angewendeten [Eingabebeschränkungen](/de/docs/Web/HTML/Constraint_validation) erfüllt. Wenn `false`, löst die Methode auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis auf dem Element aus. Da es kein Standard-Browserverhalten für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Wirkung.
+Die **`checkValidity()`**-Methode des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Element alle angewendeten [Einschränkungs-Validierungsregeln](/de/docs/Web/HTML/Constraint_validation) erfüllt. Wenn der Wert `false` ist, löst die Methode zudem ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis am Element aus. Da es kein Standardverhalten im Browser für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Wirkung.
 
 > [!NOTE]
-> Ein HTML {{htmlelement("input")}}-Element mit einem nicht-null-`validationMessage` wird als ungültig betrachtet, passt zur CSS-Pseudoklasse {{cssxref(":invalid")}} und führt dazu, dass `checkValidity()` `false` zurückgibt. Verwenden Sie die [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode, um die [`HTMLInputElement.validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) auf den leeren String zu setzen, um den [`validity`](/de/docs/Web/API/HTMLInputElement/validity)-Zustand auf gültig zu setzen.
+> Ein HTML-{{htmlelement("input")}}-Element mit einer nicht-NULL [`validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) wird als ungültig betrachtet, passt zur CSS-{{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` false zurückgibt. Verwenden Sie die [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode, um die [`HTMLInputElement.validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) auf den leeren String zu setzen und den [`validity`](/de/docs/Web/API/HTMLInputElement/validity)-Zustand auf gültig zu setzen.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls `false`.
+Gibt `true` zurück, wenn der Wert des Elements keine Validitätsprobleme aufweist; ansonsten gibt es `false` zurück.
 
 ## Beispiele
 
 ### HTML
 
-Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Schaltflächen ein: eine zum Überprüfen des Formulars und eine zum Absenden.
+Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Schaltflächen hinzu: eine, um das Formular zu prüfen, und eine, um es abzusenden.
 
 ```html
 <form action="#" method="post">
@@ -68,7 +68,7 @@ checkButton.addEventListener("click", () => {
 
 {{EmbedLiveSample("Examples", "100%", 220)}}
 
-Wenn `false`, wird, falls der Wert fehlt, unter 21, über 65 oder anderweitig ungültig ist, das `invalid`-Ereignis in der Konsole protokolliert. Um dem Benutzer den Fehler zu melden, verwenden Sie stattdessen [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity).
+Wenn `false`, wird, falls der Wert fehlt, unter 21, über 65 oder anderweitig ungültig ist, das ungültige Ereignis in der Konsole protokolliert. Um den Fehler dem Benutzer mitzuteilen, verwenden Sie stattdessen [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity).
 
 ## Spezifikationen
 
@@ -84,5 +84,5 @@ Wenn `false`, wird, falls der Wert fehlt, unter 21, über 65 oder anderweitig un
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Eingabebeschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Leitfaden: Einschränkungs-Validierung](/de/docs/Web/HTML/Constraint_validation)
+- CSS-{{cssxref(":valid")}}- und {{cssxref(":invalid")}}-Pseudoklassen

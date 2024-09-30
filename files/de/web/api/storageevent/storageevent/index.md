@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Web Storage API")}}
 
-Der **`StorageEvent()`**-Konstruktor erzeugt ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Objekt.
+Der **`StorageEvent()`** Konstruktor erstellt ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent) Objekt.
 
 ## Syntax
 
@@ -20,23 +20,23 @@ new StorageEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des `StorageEvent`-Typs. Er ist case-sensitive und Browser setzen ihn auf `storage`.
+  - : Ein String mit dem Namen des Typs des `StorageEvent`. Es ist case-sensitiv und Browser setzen es auf `storage`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `key` {{optional_inline}}
-      - : Ein String, der den Schlüssel des geänderten Speicherelements darstellt. Standardmäßig `null`.
+      - : Ein String, der den Schlüssel für das geänderte Speicherelement darstellt. Standardmäßig `null`.
     - `oldValue` {{optional_inline}}
       - : Ein String, der den ursprünglichen Wert des Speicherelements enthält. Standardmäßig `null`.
     - `newValue` {{optional_inline}}
       - : Ein String mit dem neuen Wert des `key`. Standardmäßig `null`.
     - `url`
-      - : Ein String mit der URL des Dokuments, dessen Speicher geändert wurde.
+      - : Ein String mit der URL des Dokuments, dessen Speicher sich geändert hat.
     - `storageArea` {{optional_inline}}
-      - : Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den betroffenen Speicher darstellt. Standardmäßig `null`.
+      - : Ein [`Storage`](/de/docs/Web/API/Storage) Objekt, das den betroffenen Speicher repräsentiert. Standardmäßig `null`.
 
 ### Rückgabewert
 
-Ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Objekt.
+Ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent) Objekt.
 
 ## Spezifikationen
 

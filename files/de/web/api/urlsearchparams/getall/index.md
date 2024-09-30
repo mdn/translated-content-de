@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`getAll()`** Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
-Schnittstelle gibt alle Werte, die mit einem bestimmten Suchparameter verbunden sind, als Array zurück.
+Die **`getAll()`** Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Schnittstelle gibt alle mit einem bestimmten Suchparameter verknüpften Werte als Array zurück.
 
 ## Syntax
 
@@ -24,7 +23,7 @@ getAll(name)
 
 ### Rückgabewert
 
-Ein Array aus Zeichenfolgen, das leer sein kann, wenn keine Werte für den angegebenen Parameter gefunden werden.
+Ein Array von Zeichenketten, das leer sein kann, wenn keine Werte für den angegebenen Parameter gefunden werden.
 
 ## Beispiele
 

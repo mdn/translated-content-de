@@ -1,5 +1,5 @@
 ---
-title: "PermissionStatus: name-Eigenschaft"
+title: "PermissionStatus: name Eigenschaft"
 short-title: name
 slug: Web/API/PermissionStatus/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`name`**-Eigenschaft des schreibgeschützten [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Interfaces gibt den Namen einer angeforderten Berechtigung zurück.
+Die **`name`** schreibgeschützte Eigenschaft des [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Interfaces gibt den Namen einer angeforderten Berechtigung zurück.
 
 ## Wert
 
-Ein schreibgeschützter Wert, der mit dem `name`-Argument identisch ist, das an [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) übergeben wurde.
+Ein schreibgeschützter Wert, der mit dem `name`-Argument identisch ist, das an [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) übergeben wird.
 
 ## Beispiele
 

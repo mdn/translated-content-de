@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Zusammenhang mit [CSP](/de/docs/Glossary/CSP) werden **document directives** in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und regeln die Eigenschaften eines Dokuments oder einer [worker](/de/docs/Web/API/Web_Workers_API)-Umgebung, auf die eine Richtlinie angewendet wird.
+In [CSP](/de/docs/Glossary/CSP) werden **document directives** in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und steuern die Eigenschaften eines Dokuments oder einer [worker](/de/docs/Web/API/Web_Workers_API) Umgebung, auf die eine Richtlinie angewendet wird.
 
-Document directives greifen nicht auf die {{CSP("default-src")}}-Richtlinie zurück.
+Document directives greifen nicht auf die {{CSP("default-src")}} Direktive zurück.
 
 Siehe [Document directives](/de/docs/Web/HTTP/Headers/Content-Security-Policy#document_directives) für eine vollständige Liste.
 

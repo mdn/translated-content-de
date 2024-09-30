@@ -1,5 +1,5 @@
 ---
-title: CSS positioniertes Layout
+title: CSS positioned layout
 slug: Web/CSS/CSS_positioned_layout
 l10n:
   sourceCommit: e1b6d7d2d02a07f7e86268c81678713fad4d9a5d
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS positioniertes Layout**-Modul definiert, wie Elemente auf einer Webseite positioniert werden.
+Das **CSS positioned layout** Modul definiert, wie Elemente auf einer Webseite positioniert werden.
 
 ## Referenz
 
@@ -32,8 +32,8 @@ Das **CSS positioniertes Layout**-Modul definiert, wie Elemente auf einer Websei
 
 ## Leitfäden
 
-- [Verstehen von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-  - : Stellt das Konzept des Stapelkontexts vor und erklärt, wie die Z-Anordnung funktioniert, mit mehreren Beispielen.
+- [Verständnis von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+  - : Stellt das Konzept des Stapelkontexts vor und erklärt, wie die Z-Ordnung funktioniert, mit mehreren Beispielen.
 
 ## Spezifikationen
 

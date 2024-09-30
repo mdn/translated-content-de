@@ -1,5 +1,5 @@
 ---
-title: "Node: Eigenschaft firstChild"
+title: "Node: firstChild Eigenschaft"
 short-title: firstChild
 slug: Web/API/Node/firstChild
 l10n:
@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`firstChild`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt das erste Kind der Node im Baum zurück oder `null`, wenn die Node keine Kinder hat.
+Die schreibgeschützte **`firstChild`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
+gibt das erste Kind des Knotens im Baum zurück
+oder `null`, wenn der Knoten keine Kinder hat.
 
-Wenn die Node ein [`Document`](/de/docs/Web/API/Document) ist, gibt diese Eigenschaft das erste Node in der Liste ihrer direkten Kinder zurück.
+Wenn der Knoten ein [`Document`](/de/docs/Web/API/Document) ist,
+gibt diese Eigenschaft den ersten Knoten in der Liste seiner unmittelbaren Kinder zurück.
 
 > [!NOTE]
-> Diese Eigenschaft kann jeden Knotentyp zurückgeben, der das erste Kind ist.
-> Es kann ein [`Text`](/de/docs/Web/API/Text) oder ein [`Comment`](/de/docs/Web/API/Comment) Node sein.
-> Wenn Sie das erste [`Element`](/de/docs/Web/API/Element) möchten, das ein Kind eines anderen Elements ist,
-> erwägen Sie die Verwendung von [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild).
+> Diese Eigenschaft gibt jeden Knoten zurück, der der erste Nachkomme dieses Knotens ist.
+> Es kann sich um einen [`Text`](/de/docs/Web/API/Text)- oder einen [`Comment`](/de/docs/Web/API/Comment)-Knoten handeln.
+> Wenn Sie das erste [`Element`](/de/docs/Web/API/Element) erhalten möchten, das ein Kind eines anderen Elements ist,
+> sollten Sie [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) verwenden.
 
 ## Wert
 
@@ -24,7 +27,8 @@ Ein [`Node`](/de/docs/Web/API/Node) oder `null`, wenn keine vorhanden sind.
 
 ## Beispiel
 
-Dieses Beispiel zeigt die Verwendung von `firstChild` und wie Leerzeichen-Nodes diese Eigenschaft beeinflussen könnten.
+Dieses Beispiel demonstriert die Verwendung von `firstChild` und wie Whitespace-Knoten
+die Verwendung dieser Eigenschaft beeinträchtigen könnten.
 
 ```html
 <p id="para-01">
@@ -37,11 +41,18 @@ Dieses Beispiel zeigt die Verwendung von `firstChild` und wie Leerzeichen-Nodes 
 </script>
 ```
 
-Im obigen Beispiel zeigt die [Konsole](/de/docs/Web/API/console) '#text' an, weil ein Textknoten eingefügt wird, um den Leerraum zwischen dem Ende der öffnenden `<p>`- und `<span>`-Tags beizubehalten. **Jedes** [Leerzeichen](/de/docs/Web/API/Document_Object_Model/Whitespace) erzeugt einen `#text`-Knoten, von einem einzelnen Leerzeichen bis zu mehreren Leerzeichen, Zeilenumbrüchen, Tabulatoren usw.
+Im obigen Beispiel zeigt die [Konsole](/de/docs/Web/API/console) '#text' an,
+weil ein Textknoten eingefügt wird, um den Whitespace zwischen dem Ende der
+öffnenden `<p>` und `<span>` Tags beizubehalten. **Jeder**
+[Whitespace](/de/docs/Web/API/Document_Object_Model/Whitespace)
+erzeugt einen `#text` Knoten, von einem einzelnen Leerzeichen bis zu mehreren Leerzeichen, Zeilenumbrüchen,
+Tabulatoren und so weiter.
 
-Ein weiterer `#text`-Knoten wird zwischen den schließenden `</span>`- und `</p>`-Tags eingefügt.
+Ein weiterer `#text` Knoten wird zwischen den schließenden
+`</span>` und `</p>` Tags eingefügt.
 
-Wenn dieser Leerraum aus der Quelle entfernt wird, werden die #text-Knoten nicht eingefügt und das span-Element wird zum ersten Kind des Absatzes.
+Wenn dieser Whitespace aus der Quelle entfernt wird, werden keine #text-Knoten eingefügt und das
+`span`-Element wird zum ersten Kind des Absatzes.
 
 ```html
 <p id="para-01"><span>First span</span></p>
@@ -52,9 +63,11 @@ Wenn dieser Leerraum aus der Quelle entfernt wird, werden die #text-Knoten nicht
 </script>
 ```
 
-Jetzt zeigt die Konsole 'SPAN' an.
+Nun zeigt die Konsole 'SPAN' an.
 
-Um das Problem zu vermeiden, dass `node.firstChild` `#text` oder `#comment` Nodes zurückgibt, kann [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) verwendet werden, um nur das erste Element-Node zurückzugeben.
+Um das Problem zu vermeiden, dass `node.firstChild` `#text`- oder
+`#comment`-Knoten zurückgibt, kann [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) verwendet werden, um
+nur den ersten Elementknoten zurückzugeben.
 
 ## Spezifikationen
 

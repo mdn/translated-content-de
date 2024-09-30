@@ -7,25 +7,25 @@ l10n:
 
 {{CSSRef}}
 
-Das Modul **CSS-Namespace** definiert die Syntax zur Verwendung von [Namespaces](/de/docs/Glossary/namespace) in CSS.
+Das **CSS-Namespaces**-Modul definiert die Syntax für die Verwendung von [Namespaces](/de/docs/Glossary/namespace) in CSS.
 
-CSS ist nicht nur für die Gestaltung von HTML gedacht. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu gestalten, von denen jedes einen anderen Namespace oder ein Dokument mit mehreren Namespaces hat.
+CSS ist nicht nur für die Gestaltung von HTML. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu gestalten, von denen jede eine andere Namespace hat oder ein Dokument enthält, das mehrere Namespaces umfasst.
 
-Die im Modul definierte At-Regel [`@namespace`](/de/docs/Web/CSS/@namespace) ermöglicht es, zwischen gleichnamigen Elementen in verschiedenen Namespaces zu unterscheiden. Element-Tagnamen sind nicht exklusiv für eine einzelne Sprache. Beispielsweise ist das `<a>`-Element nicht auf HTML beschränkt. Möglicherweise möchten Sie die `<a>`-Elemente innerhalb Ihrer SVGs anders gestalten als die Links in Ihrem HTML. Sie wollen wahrscheinlich auch sicherstellen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} das richtige Element auswählt. Namespacing kann hierbei helfen.
+Die in diesem Modul definierte [`@namespace`](/de/docs/Web/CSS/@namespace) Regel ermöglicht es, zwischen gleichnamigen Elementen in verschiedenen Namespaces zu unterscheiden. Element-Tagnamen sind nicht einzigartig für eine einzelne Sprache. Zum Beispiel ist das `<a>`-Element nicht auf HTML beschränkt. Sie möchten möglicherweise die `<a>`s innerhalb Ihrer SVGs anders gestalten als die Links in Ihrem HTML. Sie werden auch wahrscheinlich sicherstellen wollen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} das richtige Element auswählt. Namespaces können helfen.
 
-Die Regel `@namespace` wird verwendet, um einen Standard-Namespace zu deklarieren und um Namespaces an Namespace-Präfixe zu binden. Das Namespaces-Modul definiert auch die Syntax zur Verwendung dieser Präfixe zur Darstellung von namespace-qualifizierten Namen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und der Hostsprache ab.
+Die `@namespace` Regel wird verwendet, um einen Standard-Namespace zu deklarieren und um Namespaces an Namespace-Präfixe zu binden. Das Namespaces-Modul definiert auch die Syntax zur Verwendung dieser Präfixe, um namespacequalifizierte Namen darzustellen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und der Wirtssprache ab.
 
 ## Referenz
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref("@namespace")}}
 
 ## Leitfäden
 
-- [Namespaces-Crashkurs](/de/docs/Web/SVG/Namespaces_Crash_Course)
+- [Namespaces Crash-Kurs](/de/docs/Web/SVG/Namespaces_Crash_Course)
 
-  - : Detaillierter Einblick, was ein Namespace ist und wie er in XML und XML-basierten Markup-Sprachen verwendet wird.
+  - : Tiefgründige Untersuchung dessen, was ein Namespace ist und wie sie in XML und XML-basierten Auszeichnungssprachen verwendet werden.
 
 ## Verwandte Konzepte
 
@@ -61,8 +61,8 @@ Die Regel `@namespace` wird verwendet, um einen Standard-Namespace zu deklariere
 
 ## Siehe auch
 
-- [`<a>`](/de/docs/Web/SVG/Element/a#example) SVG-Element
-- [CSS `<url>`-Typ](/de/docs/Web/CSS/url_value)
-- [CSS At-Regeln](/de/docs/Web/CSS/At-rule)
-- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/At-rule-functions)
+- [`<a>`](/de/docs/Web/SVG/Element/a#example) SVG Element
+- [CSS `<url>` Typ](/de/docs/Web/CSS/url_value)
+- [CSS At-Rules](/de/docs/Web/CSS/At-rule)
+- [CSS At-Rule-Funktionen](/de/docs/Web/CSS/At-rule-functions)
 - [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)

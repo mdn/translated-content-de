@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`loadTime`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt die Zeit zurück, zu der das Element geladen wurde.
+Die **`loadTime`**-Schreibgeschützte Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt die Zeit zurück, wann das Element geladen wurde.
 
 ## Wert
 
-Ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit in Millisekunden darstellt, zu der das Element geladen wurde.
+Ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit in Millisekunden darstellt, wann das Element geladen wurde.
 
 ## Beispiele
 
-### Ausgeben von loadTime des größten inhaltsreichen Elements
+### Protokollierung des loadTime der größten inhaltsvollen Darstellung
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue `largest-contentful-paint`-Leistungseinträge zu benachrichtigen, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Performance-Einträge benachrichtigt wird, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

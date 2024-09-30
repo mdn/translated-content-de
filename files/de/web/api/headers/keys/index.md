@@ -1,5 +1,5 @@
 ---
-title: "Headers: keys()-Methode"
+title: "Headers: keys() Methode"
 short-title: keys()
 slug: Web/API/Headers/keys
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
 Die **`Headers.keys()`**-Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, mit dem alle in diesem Objekt enthaltenen Schlüssel durchlaufen werden können. Die Schlüssel sind {{jsxref("String")}}-Objekte.
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel durchzugehen. Die Schlüssel sind {{jsxref("String")}}-Objekte.
 
 ## Syntax
 

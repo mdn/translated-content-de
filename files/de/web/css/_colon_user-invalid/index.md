@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:user-invalid`** CSS [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes validierte Formularelement, dessen Wert basierend auf dessen [Gültigkeitsbeschränkungen](/de/docs/Web/HTML/Constraint_validation) nicht gültig ist, nachdem der Benutzer damit interagiert hat.
+Die **`:user-invalid`** CSS-[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes validierte Formularelement, dessen Wert basierend auf seinen [Validierungsbedingungen](/de/docs/Web/HTML/Constraint_validation) ungültig ist, nachdem der Benutzer damit interagiert hat.
 
-Die `:user-invalid` Pseudoklasse muss ein {{CSSxRef(":invalid")}}, {{CSSxRef(":out-of-range")}} oder leeres, aber {{CSSxRef(":required")}} Element zwischen der Zeit, in der der Benutzer versucht hat, das Formular abzusenden, und bevor der Benutzer erneut mit dem Formularelement interagiert hat, übereinstimmen.
+Die `:user-invalid` Pseudo-Klasse muss ein {{CSSxRef(":invalid")}}, {{CSSxRef(":out-of-range")}} oder leeres, aber {{CSSxRef(":required")}} Element zwischen dem Zeitpunkt, an dem der Benutzer versucht hat, das Formular abzuschicken, und bevor der Benutzer erneut mit dem Formularelement interagiert hat, entsprechen.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ Die `:user-invalid` Pseudoklasse muss ein {{CSSxRef(":invalid")}}, {{CSSxRef(":o
 
 ## Beispiele
 
-### Eine Farbe und ein Symbol bei :user-invalid setzen
+### Eine Farbe und ein Symbol auf :user-invalid setzen
 
-Im folgenden Beispiel werden der rote Rand und ❌ erst angezeigt, nachdem der Benutzer mit dem Feld interagiert hat. Versuchen Sie, etwas anderes als eine E-Mail-Adresse einzugeben, um es in Aktion zu sehen.
+Im folgenden Beispiel werden die rote Umrandung und das ❌ nur angezeigt, nachdem der Benutzer mit dem Feld interagiert hat. Versuchen Sie, etwas anderes als eine E-Mail-Adresse einzugeben, um es in Aktion zu sehen.
 
 ```html
 <form>

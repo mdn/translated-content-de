@@ -1,5 +1,5 @@
 ---
-title: "TransformStream: TransformStream()-Konstruktor"
+title: "TransformStream: TransformStream() Konstruktor"
 short-title: TransformStream()
 slug: Web/API/TransformStream/TransformStream
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`TransformStream()`**-Konstruktor erstellt ein neues [`TransformStream`](/de/docs/Web/API/TransformStream)-Objekt, das ein Paar von Streams darstellt: einen [`WritableStream`](/de/docs/Web/API/WritableStream), der die beschreibbare Seite repräsentiert, und einen [`ReadableStream`](/de/docs/Web/API/ReadableStream), der die lesbare Seite repräsentiert.
+Der **`TransformStream()`** Konstruktor erstellt ein neues [`TransformStream`](/de/docs/Web/API/TransformStream)-Objekt, das ein Paar von Streams repräsentiert: ein [`WritableStream`](/de/docs/Web/API/WritableStream), welches die beschreibbare Seite darstellt, und ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), welches die lesbare Seite darstellt.
 
 ## Syntax
 
@@ -23,43 +23,46 @@ new TransformStream(transformer, writableStrategy, readableStrategy)
 
 - `transformer` {{optional_inline}}
 
-  - : Ein Objekt, das den `transformer` repräsentiert. Wird es nicht bereitgestellt, wird der resultierende Stream ein **Identitäts-Transformations-Stream** sein, der alle an seine beschreibbare Seite geschriebenen Chunks unverändert an seine lesbare Seite weiterleitet.
+  - : Ein Objekt, das den `transformer` repräsentiert. Wird es nicht angegeben, resultiert der Stream in einem **Identity Transform Stream**, der alle an die beschreibbare Seite geschriebenen Chunks unverändert an die lesbare Seite weiterleitet.
 
-    Das Transformierungsobjekt kann eine der folgenden Methoden enthalten. In jeder Methode ist `controller` eine Instanz von [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController).
+    Das Transformer-Objekt kann eine der folgenden Methoden enthalten. In jeder Methode ist `controller` eine Instanz des [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController).
 
     - `start(controller)`
-      - : Wird aufgerufen, wenn der `TransformStream` konstruiert wird. Es wird typischerweise verwendet, um Chunks mithilfe von [`TransformStreamDefaultController.enqueue()`](/de/docs/Web/API/TransformStreamDefaultController/enqueue) in die Warteschlange zu stellen.
+      - : Wird aufgerufen, wenn der `TransformStream` konstruiert wird. Es wird typischerweise verwendet, um Chunks mit [`TransformStreamDefaultController.enqueue()`](/de/docs/Web/API/TransformStreamDefaultController/enqueue) in die Warteschlange einzureihen.
     - `transform(chunk, controller)`
-      - : Wird aufgerufen, wenn ein Chunk, der auf die beschreibbare Seite geschrieben wurde, transformiert werden soll und führt die Arbeit des Transformations-Streams durch. Es kann ein Promise zurückgeben, um Erfolg oder Misserfolg der Schreiboperation zu signalisieren. Wenn keine `transform()`-Methode bereitgestellt wird, wird die Identitätstransformation verwendet und der Chunk wird unverändert in die Warteschlange gestellt.
+      - : Wird aufgerufen, wenn ein an die beschreibbare Seite geschriebener Chunk bereit ist, transformiert zu werden, und führt die Arbeit des Transformations-Streams aus. Es kann ein Promise zurückgeben, um den Erfolg oder Misserfolg der Schreiboperation anzuzeigen. Wenn keine `transform()`-Methode angegeben wird, wird der Identity Transform verwendet und der Chunk wird unverändert in die Warteschlange eingereiht.
     - `flush(controller)`
-      - : Wird aufgerufen, nachdem alle auf die beschreibbare Seite geschriebenen Chunks erfolgreich transformiert wurden und die beschreibbare Seite geschlossen wird.
+      - : Wird aufgerufen, nachdem alle an die beschreibbare Seite geschriebenen Chunks erfolgreich transformiert wurden und die beschreibbare Seite kurz vor dem Schließen steht.
 
 - `writableStrategy` {{optional_inline}}
 
-  - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert. Dies nimmt zwei Parameter an:
+  - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert. Dies umfasst zwei Parameter:
 
     - `highWaterMark`
-      - : Eine nicht-negative ganze Zahl. Dies definiert die Gesamtanzahl an Chunks, die in der internen Warteschlange enthalten sein können, bevor Druck angewandt wird.
+      - : Eine nicht-negative ganze Zahl. Diese definiert die maximale Anzahl von Chunks, die in der internen Warteschlange enthalten sein können, bevor Backpressure angewendet wird.
     - `size(chunk)`
-      - : Eine Methode, die einen Parameter `chunk` enthält. Dies gibt die Größe an, die für jeden Chunk in Bytes verwendet werden soll.
+      - : Eine Methode mit einem Parameter `chunk`. Diese gibt die Größe an, die für jeden Chunk in Bytes verwendet werden soll.
 
 - `readableStrategy` {{optional_inline}}
 
-  - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert. Dies nimmt zwei Parameter an:
+  - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert. Dies umfasst zwei Parameter:
 
     - `highWaterMark`
-      - : Eine nicht-negative ganze Zahl. Dies definiert die Gesamtanzahl an Chunks, die in der internen Warteschlange enthalten sein können, bevor Druck angewandt wird.
+      - : Eine nicht-negative ganze Zahl. Diese definiert die maximale Anzahl von Chunks, die in der internen Warteschlange enthalten sein können, bevor Backpressure angewendet wird.
     - `size(chunk)`
-      - : Eine Methode, die einen Parameter `chunk` enthält. Dies gibt die Größe an, die für jeden Chunk in Bytes verwendet werden soll.
+      - : Eine Methode mit einem Parameter `chunk`. Diese gibt die Größe an, die für jeden Chunk in Bytes verwendet werden soll.
 
 > [!NOTE]
-> Sie können Ihre eigene benutzerdefinierte `readableStrategy` oder `writableStrategy` definieren oder eine Instanz von [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy) für die Objektwerte verwenden.
+> Sie könnten Ihre eigene benutzerdefinierte
+> `readableStrategy` oder `writableStrategy` definieren oder eine Instanz von
+> [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)
+> für die Objektwerte verwenden.
 
 ## Beispiele
 
-### Text in Großbuchstaben umwandeln
+### Transformieren von Text in Großbuchstaben
 
-Im folgenden Beispiel wird Text Stück für Stück in Großbuchstaben umgewandelt. Dieses Beispiel stammt aus [Streams—The Definitive Guide](https://web.dev/articles/streams), das eine Reihe von Beispielen für verschiedene Arten von Streams enthält.
+Das folgende Beispiel transformiert Text in Großbuchstaben, Chunk für Chunk. Dieses Beispiel stammt aus dem [Streams—Der definitive Leitfaden](https://web.dev/articles/streams), der eine Reihe von Beispielen verschiedener Arten von Streams enthält.
 
 ```js
 function upperCaseStream() {
@@ -86,9 +89,9 @@ fetch("./lorem-ipsum.txt").then((response) =>
 );
 ```
 
-### Einen Identitäts-Transformations-Stream erstellen
+### Erstellen eines Identity Transform Streams
 
-Wird kein `transformer`-Argument bereitgestellt, dann resultiert dies in einem Identitäts-Transformations-Stream, der alle an die beschreibbare Seite geschriebenen Chunks unverändert an die lesbare Seite weiterleitet. Im folgenden Beispiel wird ein Identitäts-Transformations-Stream verwendet, um einer Pipe Puffer hinzuzufügen.
+Wenn kein `transformer`-Argument angegeben wird, resultiert dies in einem Identity Transform Stream, der alle an die beschreibbare Seite geschriebenen Chunks unverändert an die lesbare Seite weiterleitet. Im folgenden Beispiel wird ein Identity Transform Stream verwendet, um einer Pipe Pufferung hinzuzufügen.
 
 ```js
 const writableStrategy = new ByteLengthQueuingStrategy({

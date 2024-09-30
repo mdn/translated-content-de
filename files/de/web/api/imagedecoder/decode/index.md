@@ -1,5 +1,5 @@
 ---
-title: "ImageDecoder: decode() Methode"
+title: "ImageDecoder: decode()-Methode"
 short-title: decode()
 slug: Web/API/ImageDecoder/decode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um den Frame eines Bildes zu decodieren.
+Die **`decode()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces stellt eine Steuerungsnachricht in die Warteschlange, um den Rahmen eines Bildes zu decodieren.
 
 ## Syntax
 
@@ -22,42 +22,42 @@ decode(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `frameIndex` {{optional_inline}}
-      - : Ein Integer, der den Index des zu decodierenden Frames darstellt. Standardwert ist `0` (der erste Frame).
+      - : Eine Ganzzahl, die den Index des zu decodierenden Rahmens darstellt. Standardmäßig `0` (der erste Rahmen).
     - `completeFramesOnly` {{optional_inline}}
-      - : Ein {{jsxref("boolean")}}, der standardmäßig auf `true` gesetzt ist. Wenn `false`, deutet dies darauf hin, dass der Decoder bei progressiven Bildern ein Bild mit reduzierter Detailgenauigkeit ausgeben kann. Wenn `false`, wird das Promise, das durch `decode()` zurückgegeben wird, genau einmal für jede neue Detailebene aufgelöst.
+      - : Ein {{jsxref("boolean")}}, der standardmäßig auf `true` gesetzt ist. Wenn `false`, bedeutet dies, dass der Decoder bei progressivem Bild möglicherweise ein Bild mit reduzierten Details ausgibt. Wenn `false`, wird das von `decode()` zurückgegebene Versprechen genau einmal für jedes neue Detailniveau erfüllt.
 
 ### Rückgabewert
 
 Ein {{jsxref("promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
 
 - `image`
-  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), der das decodierte Bild enthält.
+  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), das das decodierte Bild enthält.
 - `complete`
-  - : Ein {{jsxref("boolean")}}, wenn `true`, zeigt an, dass `image` die endgültige detaillierte Ausgabe enthält.
+  - : Ein {{jsxref("boolean")}}, der, wenn `true`, angibt, dass `image` die endgültige Vollauflösungs-Ausgabe enthält.
 
 ### Ausnahmen
 
-Wenn ein Fehler auftritt, wird das Promise mit der folgenden Ausnahme aufgelöst:
+Wenn ein Fehler auftritt, wird das Versprechen mit der folgenden Ausnahme aufgelöst:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn eine der folgenden Bedingungen zutrifft:
-    - `close` ist wahr, was bedeutet, dass [`close()`](/de/docs/Web/API/ImageDecoder/close) bereits aufgerufen wurde.
-    - Der angeforderte Frame existiert nicht.
+    - `close` ist true, was bedeutet, dass [`close()`](/de/docs/Web/API/ImageDecoder/close) bereits aufgerufen wurde.
+    - Der angeforderte Rahmen existiert nicht.
 
 ## Beispiele
 
-### Synchrones Decodieren eines vollständigen Bildframes
+### Synchrones Decodieren eines abgeschlossenen Bildrahmens
 
-Das folgende Beispiel decodiert den zweiten Frame (am Index `1`) und gibt den resultierenden [`VideoFrame`](/de/docs/Web/API/VideoFrame) in der Konsole aus.
+Das folgende Beispiel decodiert den zweiten Rahmen (an Index `1`) und druckt den resultierenden [`VideoFrame`](/de/docs/Web/API/VideoFrame) in die Konsole.
 
 ```js
 let result = await imageDecoder.decode({ frameIndex: 1 });
 console.log(result.image);
 ```
 
-### Teilweise Decodierung eines progressiven Bildframes
+### Partielles Decodieren eines progressiven Bildrahmens
 
-Das folgende Beispiel decodiert den ersten Frame wiederholt, bis er vollständig ist:
+Das folgende Beispiel decodiert den ersten Rahmen wiederholt, bis er vollständig ist:
 
 ```js
 let complete = false;

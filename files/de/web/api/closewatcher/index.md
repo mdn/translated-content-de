@@ -7,48 +7,48 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Die `CloseWatcher`-Schnittstelle hört auf Schließanforderungen und reagiert darauf.
+Das `CloseWatcher`-Interface hört auf Schließanfragen und reagiert darauf.
 
-Einige UI-Komponenten haben ein "Schließverhalten", was bedeutet, dass die Komponente erscheint und vom Benutzer geschlossen werden kann, sobald er damit fertig ist. Zum Beispiel: Seitenleisten, Pop-ups, Dialoge oder Benachrichtigungen.
+Einige UI-Komponenten haben ein "Schließverhalten", was bedeutet, dass die Komponente erscheint und der Benutzer sie schließen kann, wenn er mit ihr fertig ist. Zum Beispiel: Seitenleisten, Popups, Dialoge oder Benachrichtigungen.
 
-Benutzer erwarten im Allgemeinen, ein bestimmtes Mechanismus verwenden zu können, um diese Elemente zu schließen, und der Mechanismus ist tendenziell gerätespezifisch. Zum Beispiel könnte es auf einem Gerät mit Tastatur die <kbd>Esc</kbd>-Taste sein, aber Android könnte die Zurück-Taste verwenden. Für eingebettete Komponenten, wie etwa [Popover](/de/docs/Web/API/Popover_API) oder {{htmlelement("dialog")}}-Elemente, kümmert sich der Browser um diese Unterschiede und schließt das Element, wenn der Benutzer die für das Gerät passende Schließaktion ausführt. Wenn jedoch ein Webentwickler seine eigene schließbare UI-Komponente implementiert (zum Beispiel eine Seitenleiste), ist es schwierig, dieses gerätespezifische Schließverhalten zu implementieren. Die `CloseWatcher`-Schnittstelle löst dieses Problem, indem sie ein `close`-Ereignis übermittelt, wenn der Benutzer die Schließaktion für das Gerät ausführt.
+Benutzer erwarten im Allgemeinen, dass sie ein bestimmtes Mechanismus verwenden können, um diese Elemente zu schließen, und der Mechanismus ist in der Regel gerätespezifisch. Zum Beispiel könnte auf einem Gerät mit Tastatur die <kbd>Esc</kbd>-Taste verwendet werden, aber Android könnte die Zurück-Taste nutzen. Für eingebaute Komponenten wie [popover](/de/docs/Web/API/Popover_API) oder `dialog`-Elemente kümmert sich der Browser um diese Unterschiede und schließt das Element, wenn der Benutzer die für das Gerät geeignete Schließaktion ausführt. Wenn jedoch ein Webentwickler eine eigene schließbare UI-Komponente implementiert (beispielsweise eine Seitenleiste), ist es schwierig, ein solches gerätespezifisches Schließverhalten zu implementieren. Das `CloseWatcher`-Interface löst dieses Problem, indem es ein `close`-Ereignis auslöst, wenn der Benutzer die Schließaktion für das Gerät ausführt.
 
 {{InheritanceDiagram}}
 
-Die `CloseWatcher` Schnittstelle erbt von [`EventTarget`](/de/docs/Web/API/EventTarget).
+Das `CloseWatcher`-Interface erbt von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 ## Konstruktor
 
 - [`CloseWatcher()`](/de/docs/Web/API/CloseWatcher/CloseWatcher) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz von `CloseWatcher`.
+  - : Erstellt eine neue `CloseWatcher`-Instanz.
 
 ## Instanzmethoden
 
 _Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) {{Experimental_Inline}}
-  - : Löst ein `cancel`-Ereignis aus und wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, fährt mit der Auslösung eines `close`-Ereignisses fort und deaktiviert schließlich den Close-Watcher, als ob `destroy()` aufgerufen worden wäre.
+  - : Löst ein `cancel`-Ereignis aus und wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, wird ein `close`-Ereignis ausgelöst und schließlich der CloseWatcher deaktiviert, als ob `destroy()` aufgerufen wurde.
 - [`CloseWatcher.close()`](/de/docs/Web/API/CloseWatcher/close) {{Experimental_Inline}}
-  - : Löst sofort das `close`-Ereignis aus, ohne zuerst `cancel` auszulösen, und deaktiviert den Close-Watcher, als ob `destroy()` aufgerufen worden wäre.
+  - : Löst sofort das `close`-Ereignis aus, ohne vorher `cancel` auszulösen, und deaktiviert den CloseWatcher, als ob `destroy()` aufgerufen wurde.
 - [`CloseWatcher.destroy()`](/de/docs/Web/API/CloseWatcher/destroy) {{Experimental_Inline}}
-  - : Deaktiviert den Close-Watcher, sodass er keine `close`-Ereignisse mehr empfängt.
+  - : Deaktiviert den CloseWatcher, sodass er keine `close`-Ereignisse mehr empfängt.
 
 ## Ereignisse
 
 - [`cancel`](/de/docs/Web/API/CloseWatcher/cancel_event) {{Experimental_Inline}}
-  - : Ein Ereignis, das vor dem `close`-Ereignis ausgelöst wird, damit verhindert werden kann, dass `close` ausgelöst wird.
+  - : Ein Ereignis, das vor dem `close`-Ereignis ausgelöst wird, damit das `close`-Ereignis daran gehindert werden kann, ausgelöst zu werden.
 - [`close`](/de/docs/Web/API/CloseWatcher/close_event) {{Experimental_Inline}}
-  - : Ein Ereignis, das ausgelöst wird, wenn eine Schließanforderung empfangen wurde.
+  - : Ein Ereignis, das ausgelöst wird, wenn eine Schließanfrage eingegangen ist.
 
 ## Beispiele
 
-### Verarbeiten von Schließanforderungen
+### Verarbeitung von Schließanfragen
 
-In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker) und möchten sowohl die Standard-Schließmethode der Plattform (z. B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (eine Schaltfläche zum Schließen) unterstützen.
+In diesem Beispiel haben Sie Ihre eigene UI-Komponente (einen Picker) und möchten sowohl die Standard-Schließmethode der Plattform (z.B. die <kbd>Esc</kbd>-Taste) als auch Ihre individuelle Schließmethode (einen Schließknopf) unterstützen.
 
-Sie erstellen einen `CloseWatcher`, um alle `close`-Ereignisse zu bearbeiten.
+Sie erstellen einen `CloseWatcher`, um alle `close`-Ereignisse zu behandeln.
 
-Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um eine Schließanforderung zu stellen und Ihre Schließanforderung durch denselben `onclose`-Handler zu leiten, den auch die Schließmethode der Plattform verwendet.
+Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um ein Schließen anzufordern und Ihre Schließanfrage durch denselben `onclose`-Handler zu leiten, den auch die Schließmethode der Plattform nutzt.
 
 ```js
 const watcher = new CloseWatcher();
@@ -73,4 +73,4 @@ picker.querySelector(".close-button").onclick = () => watcher.requestClose();
 
 ## Siehe auch
 
-- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis für [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)
+- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis bei [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)

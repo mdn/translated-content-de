@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: texImage3D() Methode"
+title: "WebGL2RenderingContext: texImage3D()-Methode"
 short-title: texImage3D()
 slug: Web/API/WebGL2RenderingContext/texImage3D
 l10n:
-  sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.texImage3D()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein dreidimensionales Texturbild.
+Die **`WebGLRenderingContext.texImage3D()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein dreidimensionales Texturbild fest.
 
 ## Syntax
 
@@ -23,23 +23,22 @@ texImage3D(target, level, internalformat, width, height, depth, border, format, 
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) der aktiven Textur angibt.
-    Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Detaillierungsgrad angibt. Level 0 ist die Basisbildstufe und Level _n_ ist die n-te Mipmap-Reduktionsstufe.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detaillevel angibt. Level 0 ist das Basisbildlevel und Level _n_ ist das n-te Mipmap-Reduktionslevel.
 - `internalformat`
 
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Farbkomponenten in der Textur angibt. Mögliche Werte:
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Farbkomponenten in der Textur angibt. Mögliche Werte:
 
-    - `gl.ALPHA`: Verwift die roten, grünen und blauen Komponenten und liest die Alphakomponente.
-    - `gl.RGB`: Verwift die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
-    - `gl.RGBA`: Rote, grüne, blaue und Alpha-Komponenten werden aus dem Farb-Puffer gelesen.
-    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Leuchtkraftkomponente, Alpha ist 1.0.
-    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Leuchtkraft/Alpha-Komponente.
+    - `gl.ALPHA`: Verwirft die roten, grünen und blauen Komponenten und liest die Alphakomponente.
+    - `gl.RGB`: Verwirft die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
+    - `gl.RGBA`: Rote, grüne, blaue und Alphakomponenten werden aus dem Farb-Puffer gelesen.
+    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha ist 1.0.
+    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz/Alpha-Komponente.
     - `gl.R8`
     - `gl.R16F`
     - `gl.R32F`
@@ -65,20 +64,20 @@ texImage3D(target, level, internalformat, width, height, depth, border, format, 
     - `gl.RGBA8UI`
 
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Tiefe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Breite des Rands angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rands angibt. Muss 0 sein.
 - `format`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Texeldaten angibt. Die korrekten Kombinationen mit `internalformat` sind in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgeführt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Texeldaten angibt. Die korrekten Kombinationen mit `internalformat` sind in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgelistet.
 - `type`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Texeldaten angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Texeldaten angibt. Mögliche Werte:
 
-    - `gl.UNSIGNED_BYTE`: 8 Bits pro Kanal für `gl.RGBA`
+    - `gl.UNSIGNED_BYTE`: 8 Bit pro Kanal für `gl.RGBA`
     - `gl.UNSIGNED_SHORT_5_6_5`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
     - `gl.UNSIGNED_SHORT_4_4_4_4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alpha-Bits.
     - `gl.UNSIGNED_SHORT_5_5_5_1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alpha-Bit.
@@ -107,10 +106,10 @@ texImage3D(target, level, internalformat, width, height, depth, border, format, 
 
 - `srcData`
 
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt.
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt.
 
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den Datenbereich des [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten in die aktuell gebundene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) aus dem `WebGLBuffer`, der an das `PIXEL_UNPACK_BUFFER` Target gebunden ist, hochzuladen.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types)-Byte-Offset in den Datenspeicher des [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten von dem an das `PIXEL_UNPACK_BUFFER` Ziel gebundenen `WebGLBuffer` in die aktuell gebundene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) hochzuladen.
 
 ### Rückgabewert
 

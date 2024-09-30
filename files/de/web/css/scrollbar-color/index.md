@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Scrollbar-Leiste und des Schiebers fest.
+Die **`scrollbar-color`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe der Scrollleisten-Schiene und des Schiebers fest.
 
-Die **Leiste** bezieht sich auf den Hintergrund der Scrollbar, der im Allgemeinen unabhängig von der Scrollposition fest bleibt.
+Die **Schiene** bezieht sich auf den Hintergrund der Scrollleiste, der normalerweise unabhängig von der Scrollposition fixiert ist.
 
-Der **Schieber** bezieht sich auf den beweglichen Teil der Scrollbar, der normalerweise über der Leiste schwebt.
+Der **Schieber** bezieht sich auf den beweglichen Teil der Scrollleiste, der normalerweise über der Schiene schwebt.
 
-Wenn der `scrollbar-color` Wert auf dem Root-Element des Dokuments gesetzt wird, werden die Werte auf die Viewport-Scrollbars angewendet.
+Wenn der `scrollbar-color`-Wert auf das Wurzelelement des Dokuments gesetzt wird, werden die Werte auf die Scrollleisten des Ansichtsfensters angewendet.
 
 ## Syntax
 
@@ -37,22 +37,20 @@ scrollbar-color: unset;
 
 - `<scrollbar-color>`
 
-  - : Definiert die Farbe der Scrollbar.
+  - : Definiert die Farbe der Scrollleiste.
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>auto</code></td>
           <td>
-            Standard-Plattform-Rendering für den Leistenanteil der Scrollbar, in
-            Abwesenheit anderer verwandter Scrollbar-Farb-Eigenschaften.
+            Standard-Plattform-Rendering für den Schienen-Abschnitt der Scrollleiste, falls keine anderen verwandten Eigenschaften der Scrollleistenfarbe vorliegen.
           </td>
         </tr>
         <tr>
           <td><code>&#x3C;color> &#x3C;color></code></td>
           <td>
-            Wendet die erste Farbe auf den Scrollbar-Schieber an, die zweite auf die
-            Scrollbar-Leiste.
+            Wendet die erste Farbe auf den Scrollleisten-Schieber an, die zweite auf die Scrollleisten-Schiene.
           </td>
         </tr>
       </tbody>
@@ -62,7 +60,7 @@ scrollbar-color: unset;
 
 ## Barrierefreiheit
 
-Bei der Verwendung der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben ausreichend Kontrast zueinander haben. Für Schlüsselwortwerte sollten die Benutzeragenten sicherstellen, dass die von ihnen verwendeten Farben ausreichend Kontrast aufweisen. Siehe [Techniken für WCAG 2.0: G183: Verwenden eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
+Beim Verwenden der `scrollbar-color`-Eigenschaft mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben einen ausreichenden Kontrast zueinander haben. Für Schlüsselwortwerte sollten Benutzeragenten sicherstellen, dass die verwendeten Farben einen ausreichenden Kontrast aufweisen. Siehe [Techniken für WCAG 2.0: G183: Verwenden eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
 
 ## Formale Definition
 
@@ -74,7 +72,7 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten
 
 ## Beispiele
 
-### Färbung von Überlauf-Scrollbars
+### Färbung von Überlauf-Scrollleisten
 
 #### CSS
 
@@ -113,8 +111,8 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten
 
 ## Siehe auch
 
-- [Modul für CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)
-- [Modul für CSS-Scrollbar-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling)
+- [CSS overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling)-Modul
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-width")}}

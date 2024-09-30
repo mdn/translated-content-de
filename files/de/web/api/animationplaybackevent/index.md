@@ -7,23 +7,23 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die `AnimationPlaybackEvent`-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationsereignisse.
+Das `AnimationPlaybackEvent` Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationsereignisse.
 
-Während Animationsabspielen berichten sie Änderungen ihres [`playState`](/de/docs/Web/API/Animation/playState) durch Animationsereignisse.
+Während Animationen abgespielt werden, melden sie Änderungen ihres [`playState`](/de/docs/Web/API/Animation/playState) durch Animationsereignisse.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`AnimationPlaybackEvent()`](/de/docs/Web/API/AnimationPlaybackEvent/AnimationPlaybackEvent)
-  - : Erstellt eine neue Instanz des `AnimationPlaybackEvent`-Objekts.
+  - : Erstellt eine neue `AnimationPlaybackEvent` Objektinstanz.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
+  - : Die aktuelle Zeit der Animation, die das Ereignis generiert hat.
 - [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
-  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis erzeugt hat.
+  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis generiert hat.
 
 ## Spezifikationen
 

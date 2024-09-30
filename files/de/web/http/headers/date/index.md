@@ -9,8 +9,7 @@ l10n:
 
 Der allgemeine HTTP-Header **`Date`** enthält das Datum und die Uhrzeit, zu der die Nachricht erstellt wurde.
 
-> **Warning:** `Date` ist in der [Liste der verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name)
-> in der Fetch-Spezifikation aufgeführt, weshalb dieser Code den `Date`-Header nicht senden wird:
+> **Warning:** `Date` ist in der [Liste der verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name) in der Fetch-Spezifikation aufgeführt, sodass dieser Code den `Date`-Header nicht senden wird:
 >
 > ```js
 > fetch("https://httpbin.org/get", {
@@ -25,8 +24,8 @@ Der allgemeine HTTP-Header **`Date`** enthält das Datum und die Uhrzeit, zu der
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header)
+        [Request-Header](/de/docs/Glossary/Request_header),
+        [Response-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
@@ -45,12 +44,11 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - \<day-name>
-  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (beachten Sie die Großschreibung).
+  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (groß-/kleinschreibungssensitiv).
 - \<day>
-  - : 2-stellige Tagesnummer, z.B. "04" oder "23".
+  - : 2-stellige Tageszahl, z.B. "04" oder "23".
 - \<month>
-  - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
-    "Nov", "Dec" (Groß- und Kleinschreibung beachten).
+  - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (groß-/kleinschreibungssensitiv).
 - \<year>
   - : 4-stellige Jahreszahl, z.B. "1990" oder "2016".
 - \<hour>
@@ -60,7 +58,7 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 - \<second>
   - : 2-stellige Sekundenzahl, z.B. "04" oder "59".
 - GMT
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in Ortszeit.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in lokaler Zeit.
 
 ## Beispiele
 

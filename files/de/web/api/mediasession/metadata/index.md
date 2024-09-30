@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`metadata`**-Eigenschaft des [`MediaSession`](/de/docs/Web/API/MediaSession)-Interface enthält ein [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Objekt, das beschreibende Informationen über die aktuell wiedergegebene Medien bereitstellt, oder `null`, wenn die Metadaten nicht gesetzt wurden. Diese Metadaten werden vom Browser an das Gerät weitergegeben, um in einer standardmäßigen Mediensteuerungs-Benutzeroberfläche des Geräts angezeigt zu werden.
+Die **`metadata`**-Eigenschaft der [`MediaSession`](/de/docs/Web/API/MediaSession)-Schnittstelle enthält ein [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) Objekt, das beschreibende Informationen zu dem aktuell abgespielten Medium bereitstellt, oder `null`, wenn die Metadaten nicht gesetzt wurden. Diese Metadaten werden vom Browser an das Gerät zur Präsentation in einer standardmäßigen Mediensteuerungsoberfläche, die das Gerät möglicherweise bietet, bereitgestellt.
 
 ## Wert
 
-Eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata), die Informationen über die derzeit abgespielten Medien enthält.
+Eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata), die Informationen über das aktuell abgespielte Medium enthält.
 
 ## Beispiel
 
-Das folgende Beispiel überprüft die Kompatibilität und erstellt eine neue Media-Session mit den relevanten Metadaten:
+Das folgende Beispiel prüft die Kompatibilität und erstellt eine neue Mediensitzung mit den relevanten Metadaten:
 
 ```js
 if ("mediaSession" in navigator) {

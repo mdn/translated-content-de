@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`indicate`**-Eigenschaft der [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen `boolean` zurückgibt, der `true` ist, wenn Hinweise auf den Charakteristikwert mit Bestätigung erlaubt sind.
+Die **`indicate`** schreibgeschützte Eigenschaft der Schnittstelle
+[`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) gibt einen
+`boolean` zurück, der `true` ist, wenn Indikationen des Charakteristikwerts mit Bestätigung erlaubt sind.
 
 ## Wert
 

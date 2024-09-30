@@ -16,13 +16,15 @@ Ein String, der die URL des Dokuments oder Workers enthält, das gegen die CSP v
 
 ## Beispiele
 
-### CSP-Verstoß durch Inline-Skript mit Referrer-Anzeige
+### CSP Inline-Skript-Verletzung mit Referrer anzeigen
 
-In diesem Beispiel wird ein CSP-Verstoß durch ein Inline-Skript hervorgerufen und der Verstoß wird mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) gemeldet. Wir navigieren von einer anderen Seite zu der Seite und protokollieren den `referrer`, `documentURL` und `blockedURL`.
+In diesem Beispiel wird eine CSP-Verletzung mithilfe eines Inline-Skripts ausgelöst und die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) gemeldet.
+Wir navigieren von einer anderen Seite zu der Seite und protokollieren den `referrer`, `documentURL` und `blockedURL`.
 
 #### HTML
 
-Zuerst definieren wir unsere Referrer-Seite `/bounce/index.html`. Diese Seite enthält nur einen Link zu einer anderen Seite `../report_sample/index.html`.
+Zuerst definieren wir unsere Referrer-Seite `/bounce/index.html`.
+Diese Seite enthält nur einen Link zu einer anderen Seite `../report_sample/index.html`.
 
 ```html
 <!doctype html>
@@ -39,7 +41,9 @@ Zuerst definieren wir unsere Referrer-Seite `/bounce/index.html`. Diese Seite en
 </html>
 ```
 
-Die HTML-Datei `../report_sample/index.html` ist unten definiert. Diese verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um den {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was erlaubt, dass Skripte von derselben Domain geladen werden, aber nicht erlaubt, dass Inline-Skripte ausgeführt werden. Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen wird.
+Die HTML-Datei `../report_sample/index.html` ist unten definiert.
+Diese verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was das Laden von Skripten von derselben Domain erlaubt, jedoch keine Inline-Skripte ausgeführt werden können.
+Das Dokument enthält auch ein Inline-Skript, das eine CSP-Verletzung auslöst.
 
 ```html
 <!doctype html>
@@ -61,9 +65,11 @@ Die HTML-Datei `../report_sample/index.html` ist unten definiert. Diese verwende
 
 #### JavaScript (main.js)
 
-Das obige Berichtsmuster lädt auch das externe Skript `main.js`, das unten gezeigt wird. Da es von derselben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
+Das obige Bericht-Beispiel lädt auch das externe Skript `main.js`, welches unten gezeigt wird.
+Da dieses vom selben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Verletzung `documentURL`, `referrer` und `blockedURL` in die Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die `documentURL`, den `referrer` und die `blockedURL` der Verletzung in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -82,11 +88,11 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl es möglicherweise mehrere Berichte im zurückgegebenen Array gibt, wir der Übersichtlichkeit halber nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass, obwohl möglicherweise mehrere Berichte im zurückgegebenen Array enthalten sind, wir zur Vereinfachung nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Die Konsolenausgabe für den obigen Code sieht in etwa wie unten aus (die Website hängt davon ab, wie die Seiten bereitgestellt werden):
+Die Konsolenausgabe für den obigen Code könnte in etwa wie unten dargestellt aussehen (die Seite hängt davon ab, wie die Seiten bereitgestellt werden):
 
 ```plain
 documentURL: http://127.0.0.1:9999/report_sample/
@@ -94,7 +100,7 @@ referrer: http://127.0.0.1:9999/bounce/
 blockedURL: inline
 ```
 
-Beachten Sie, dass `referrer` die Seite ist, von der wir navigiert haben, `documentURL` die Seite mit dem CSP-Verstoß ist, und `blockedURL` in diesem Fall keine URL ist, sondern ein Hinweis darauf, dass der Verstoß durch ein Inline-Skript verursacht wurde.
+Beachten Sie, dass `referrer` die Seite ist, von der wir navigiert sind, `documentURL` die Seite mit der CSP-Verletzung ist und `blockedURL` in diesem Fall keine URL ist, sondern ein Hinweis darauf, dass die Verletzung durch ein Inline-Skript verursacht wurde.
 
 ## Spezifikationen
 

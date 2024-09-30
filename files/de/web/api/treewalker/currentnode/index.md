@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.currentNode`**-Eigenschaft repräsentiert den [`Node`](/de/docs/Web/API/Node), auf den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) aktuell zeigt.
+Die **`TreeWalker.currentNode`**-Eigenschaft repräsentiert den [`Node`](/de/docs/Web/API/Node), auf den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) derzeit zeigt.
 
 ## Wert
 
@@ -39,4 +39,4 @@ root = treeWalker.currentNode; // the root element as it is the first element!
 
 ## Siehe auch
 
-- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface.

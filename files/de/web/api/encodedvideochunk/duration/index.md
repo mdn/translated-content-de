@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`duration`**-Eigenschaft des schreibgeschützten [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
+Die **`duration`**-Eigenschaft des schreibgeschützten [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Eine ganze Zahl.
+Eine Ganzzahl.
 
 ## Beispiele
 

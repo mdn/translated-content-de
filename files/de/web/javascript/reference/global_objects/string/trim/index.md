@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenkette und gibt eine neue Zeichenkette zurück, ohne die ursprüngliche Zeichenkette zu ändern.
+Die **`trim()`** Methode von {{jsxref("String")}} Werten entfernt Leerzeichen von beiden Enden dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu ändern.
 
-Um eine neue Zeichenkette mit Leerzeichen entfernt von nur einem Ende zurückzugeben, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
+Um einen neuen String zurückzugeben, der nur an einem Ende beschnitten ist, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
 
 {{EmbedInteractiveExample("pages/js/string-trim.html")}}
 
@@ -25,9 +25,9 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die `str` darstellt, bei der die Leerzeichen von beiden Enden entfernt wurden. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Ein neuer String, der `str` darstellt und Leerzeichen von beiden Enden entfernt hat. Leerzeichen werden als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) definiert.
 
-Selbst wenn weder der Anfang noch das Ende von `str` Leerzeichen aufweist, wird eine neue Zeichenkette zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn weder der Anfang noch das Ende von `str` Leerzeichen hat, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beispiele
 

@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`CanvasCaptureMediaStreamTrack`** Interface der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) repräsentiert den Videotrack, der in einem [`MediaStream`](/de/docs/Web/API/MediaStream) erzeugt wird, das von einem {{HTMLElement("canvas")}} nach einem Aufruf von [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) generiert wird.
+Die Schnittstelle **`CanvasCaptureMediaStreamTrack`** des [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) repräsentiert die Videospur, die in einem [`MediaStream`](/de/docs/Web/API/MediaStream) enthalten ist und von einem {{HTMLElement("canvas")}} generiert wird, nachdem ein Aufruf von [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) erfolgt ist.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt die Eigenschaften seines Elternteils, [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
+_Diese Schnittstelle erbt die Eigenschaften ihres Elternteils, [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
 
 - [`CanvasCaptureMediaStreamTrack.canvas`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack/canvas) {{ReadOnlyInline}}
-  - : Gibt das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) Objekt zurück, dessen Oberfläche in Echtzeit erfasst wird.
+  - : Gibt das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt zurück, dessen Oberfläche in Echtzeit erfasst wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface erbt die Methoden seines Elternteils, [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
+_Diese Schnittstelle erbt die Methoden ihres Elternteils, [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
 
 - [`CanvasCaptureMediaStreamTrack.requestFrame()`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack/requestFrame)
-  - : Erzwingt manuell die Erfassung und das Senden eines Frames an den Stream. Dies ermöglicht Anwendungen, die direkt die Zeitpunkte der Frame-Erfassung angeben möchten, dies zu tun, wenn sie beim Aufruf von [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) eine `frameRate` von 0 angegeben haben.
+  - : Erzwingt manuell, dass ein Rahmen erfasst und an den Stream gesendet wird. Dies ermöglicht es Anwendungen, die die Zeiten für die Rahmenaufnahme direkt angeben möchten, dies zu tun, wenn sie eine `frameRate` von 0 beim Aufruf von [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) angegeben haben.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ _Dieses Interface erbt die Methoden seines Elternteils, [`MediaStreamTrack`](/de
 
 ## Siehe auch
 
-- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) um die Erfassung von Frames von einem Canvas zu starten
+- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream), um mit der Aufnahme von Rahmen aus einem Canvas zu beginnen.

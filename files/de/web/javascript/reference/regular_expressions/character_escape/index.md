@@ -7,11 +7,11 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **Zeichen-Escape** repräsentiert ein Zeichen, das möglicherweise nicht bequem in seiner literalen Form dargestellt werden kann.
+Ein **Zeichen-Escape** repräsentiert ein Zeichen, das möglicherweise nicht bequem in seiner wörtlichen Form dargestellt werden kann.
 
 ## Syntax
 
-<!-- Hinweis: die {} müssen doppelt escaped werden, einmal für Yari -->
+<!-- Hinweis: die {} müssen doppelt maskiert werden, einmal für Yari -->
 
 ```regex
 \f, \n, \r, \t, \v
@@ -24,37 +24,37 @@ Ein **Zeichen-Escape** repräsentiert ein Zeichen, das möglicherweise nicht beq
 \u{HHH}
 ```
 
-> **Note:** `,` ist kein Bestandteil der Syntax.
+> **Note:** `,` ist nicht Teil der Syntax.
 
 ### Parameter
 
 - `HHH`
-  - : Eine hexadezimale Zahl, die den Unicode-Codepunkt des Zeichens darstellt. Die `\xHH`-Form muss zwei hexadezimale Ziffern haben; die `\uHHHH`-Form muss vier haben; die `\u{HHH}`-Form kann 1 bis 6 hexadezimale Ziffern haben.
+  - : Eine hexadezimale Zahl, die den Unicode-Codepunkt des Zeichens darstellt. Die Form `\xHH` muss zwei hexadezimale Ziffern haben; die Form `\uHHHH` muss vier haben; die Form `\u{HHH}` kann 1 bis 6 hexadezimale Ziffern haben.
 
 ## Beschreibung
 
-Die folgenden Zeichenersetzungen werden in regulären Ausdrücken erkannt:
+Die folgenden Zeichen-Escapes werden in regulären Ausdrücken erkannt:
 
 - `\f`, `\n`, `\r`, `\t`, `\v`
-  - : Dasselbe wie in [Zeichenfolgen-Literalen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences), außer `\b`, das in Regexen eine [Wortgrenze](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion) darstellt, es sei denn, es befindet sich in einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class).
+  - : Entsprechen denselben wie in [Zeichenfolgenliteralen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences), außer `\b`, das in regulären Ausdrücken eine [Wortgrenze](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion) darstellt, es sei denn, es befindet sich in einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class).
 - `\c` gefolgt von einem Buchstaben von `A` bis `Z` oder `a` bis `z`
-  - : Repräsentiert das Steuerzeichen mit einem Wert, der dem Buchstabenwert modulo 32 entspricht. Zum Beispiel stellt `\cJ` einen Zeilenumbruch dar (`\n`), da der Codepunkt von `J` 74 ist und 74 modulo 32 gleich 10 ist, was der Codepunkt des Zeilenumbruchs ist. Da ein Großbuchstabe und seine Kleinbuchstabenform sich um 32 unterscheiden, sind `\cJ` und `\cj` äquivalent. Sie können Steuerzeichen von 1 bis 26 in dieser Form darstellen.
+  - : Repräsentiert das Steuerzeichen mit einem Wert, der dem Zeichenwert des Buchstabens modulo 32 entspricht. Zum Beispiel repräsentiert `\cJ` den Zeilenumbruch (`\n`), da der Codepunkt von `J` 74 ist und 74 modulo 32 ist 10, was der Codepunkt des Zeilenumbruchs ist. Da ein Großbuchstabe und seine Kleinschreibform sich um 32 unterscheiden, sind `\cJ` und `\cj` äquivalent. Sie können Steuerzeichen von 1 bis 26 in dieser Form darstellen.
 - `\0`
-  - : Repräsentiert das U+0000 NUL-Zeichen. Es darf nicht von einer Ziffer gefolgt werden (was es zu einer [veralteten oktalen Escape-](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) Sequenz macht).
+  - : Repräsentiert das U+0000 NUL-Zeichen. Darf nicht von einer Ziffer gefolgt werden (was es zu einer [veralteten oktalen Escape-](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) Sequenz macht).
 - `\^`, `\$`, `\\`, `\.` `\*`, `\+`, `\?`, `\(`, `\)`, `\[`, `\]`, `\\{`, `\\}`, `\|`, `\/`
-  - : Repräsentiert das Zeichen selbst. Zum Beispiel repräsentiert `\\` einen Backslash und `\(` eine linke Klammer. Diese sind [Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) in Regexen (`/` ist der Begrenzer eines Regex-Literals), daher erfordern sie ein Escape, es sei denn, sie befinden sich in einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class).
+  - : Repräsentiert das Zeichen selbst. Zum Beispiel stellt `\\` einen Backslash dar, und `\(` stellt eine linke Klammer dar. Diese sind [Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) in regulären Ausdrücken (`/` ist der Begrenzer eines Regex-Literals), daher müssen sie maskiert werden, es sei denn, sie befinden sich in einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class).
 - `\xHH`
-  - : Repräsentiert das Zeichen mit dem angegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl muss genau zwei Ziffern lang sein.
+  - : Repräsentiert das Zeichen mit dem gegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl muss genau zwei Ziffern lang sein.
 - `\uHHHH`
-  - : Repräsentiert das Zeichen mit dem angegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl muss genau vier Ziffern lang sein. Zwei solche Escape-Sequenzen können verwendet werden, um ein Surrogatpaar im [Unicode-fähigen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) zu repräsentieren. (Im Unicode-unfähigen Modus sind sie immer zwei separate Zeichen.)
+  - : Repräsentiert das Zeichen mit dem gegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl muss genau vier Ziffern lang sein. Zwei solcher Escape-Sequenzen können verwendet werden, um ein Surrogatpaar im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) darzustellen. (Im Unicode-unbewussten Modus sind sie immer zwei separate Zeichen.)
 - `\u{HHH}`
-  - : (Nur im [Unicode-fähigen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode)) Repräsentiert das Zeichen mit dem angegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl kann zwischen 1 und 6 Ziffern lang sein.
+  - : (Nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode)) Repräsentiert das Zeichen mit dem gegebenen hexadezimalen Unicode-Codepunkt. Die hexadezimale Zahl kann 1 bis 6 Ziffern lang sein.
 
-Im [Unicode-unfähigen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Escape-Sequenzen, die nicht zu den oben genannten gehören, zu _Identitäts-Escapes_: sie repräsentieren das Zeichen, das dem Backslash folgt. Zum Beispiel stellt `\a` das Zeichen `a` dar. Dieses Verhalten schränkt die Möglichkeit ein, neue Escape-Sequenzen einzuführen, ohne Rückwärtskompatibilitätsprobleme zu verursachen, und ist daher im Unicode-fähigen Modus verboten.
+Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Escape-Sequenzen, die nicht zu den oben genannten gehören, zu _Identitäts-Escapes_: Sie repräsentieren das Zeichen, das dem Backslash folgt. Zum Beispiel repräsentiert `\a` das Zeichen `a`. Dieses Verhalten beschränkt die Möglichkeit, neue Escape-Sequenzen einzuführen, ohne Kompatibilitätsprobleme zu verursachen, und ist daher im Unicode-bewussten Modus verboten.
 
-Im Unicode-unfähigen Modus können `]`, `{` und `}` [buchstäblich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) erscheinen, wenn es nicht möglich ist, sie als Ende einer Zeichenklasse oder Quantifizierer-Abgrenzer zu parsen. Dies ist eine [veraltete Syntax für die Webkompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
+Im Unicode-unbewussten Modus können `]`, `{` und `}` [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) erscheinen, wenn es nicht möglich ist, sie als das Ende einer Zeichenklasse oder Quantifizierer-Begrenzer zu parsen. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
 
-Im Unicode-unfähigen Modus werden Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, genauso dekodiert wie die mit [ASCII](/de/docs/Glossary/ASCII)-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn modulo 32 genommen. Darüber hinaus, wenn irgendwo die Form `\cX` auftritt, bei der `X` nicht eines der erkannten Zeichen ist, wird der Backslash als literales Zeichen behandelt. Diese Syntaxen sind ebenfalls veraltet.
+Im Unicode-unbewussten Modus werden Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, auf die gleiche Weise decodiert wie solche mit [ASCII](/de/docs/Glossary/ASCII)-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn man es modulo 32 nimmt. Zusätzlich, wenn die Form `\cX` überall begegnet wird, wo `X` nicht eines der anerkannten Zeichen ist, dann wird der Backslash als wörtliches Zeichen behandelt. Diese Syntaxen sind ebenfalls veraltet.
 
 ```js
 /[\c0]/.test("\x10"); // true
@@ -66,9 +66,9 @@ Im Unicode-unfähigen Modus werden Escape-Sequenzen innerhalb von [Zeichenklasse
 
 ## Beispiele
 
-### Verwenden von Zeichenersetzungen
+### Verwendung von Zeichen-Escapes
 
-Zeichenersetzungen sind nützlich, wenn Sie ein Zeichen abgleichen möchten, das nicht leicht in seiner literalen Form dargestellt werden kann. Zum Beispiel können Sie einen Zeilenumbruch nicht wörtlich in einem Regex-Literal verwenden, daher müssen Sie eine Zeichen-Escape verwenden:
+Zeichen-Escapes sind nützlich, wenn Sie ein Zeichen abgleichen möchten, das nicht einfach in seiner wörtlichen Form dargestellt werden kann. Zum Beispiel können Sie einen Zeilenumbruch nicht wörtlich in einem Regex-Literal verwenden, daher müssen Sie ein Zeichen-Escape verwenden:
 
 ```js
 const pattern = /a\nb/;
@@ -91,8 +91,8 @@ console.log(pattern.test(string)); // true
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
 - [Zeichenklassen-Escape: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-- [Literalzeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
+- [Wörtliches Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
 - [Unicode-Zeichenklassen-Escape: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
 - [Rückverweis: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-- [Wortgrenzen-Bestätigung: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)

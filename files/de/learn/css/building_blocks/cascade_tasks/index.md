@@ -1,5 +1,5 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Die Kaskade"
+title: "Testen Sie Ihre Fähigkeiten: The Cascade"
 slug: Learn/CSS/Building_blocks/Cascade_tasks
 l10n:
   sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
@@ -7,18 +7,18 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie die universellen Eigenschaftswerte zur [Steuerung der Vererbung in CSS](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) verstehen.
+Das Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie universelle Eigenschaftswerte für das [Steuern der Vererbung in CSS](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) verstehen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie einen der speziellen Werte verwenden, die wir im Abschnitt [Steuerung der Vererbung](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance) betrachtet haben. Schreiben Sie eine Deklaration in einer neuen Regel, die die Hintergrundfarbe auf weiß zurücksetzt, ohne einen tatsächlichen Farbwert zu verwenden.
+In dieser Aufgabe möchten wir, dass Sie einen der speziellen Werte verwenden, die wir im Abschnitt [Steuern der Vererbung](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance) betrachtet haben. Schreiben Sie eine Deklaration in einer neuen Regel, die die Hintergrundfarbe ohne die Verwendung eines tatsächlichen Farbwertes auf Weiß zurücksetzt.
 
-Ihr Endergebnis sollte wie auf dem Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
 ![Kaum sichtbare gelbe Links auf weißem Hintergrund.](mdn-cascade.png)
 
@@ -32,9 +32,9 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie Ihre Änderungen durch Verwendung der [Reihenfolge der Kaskadenebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#order_of_cascade_layers) vornehmen. Bearbeiten Sie eine bestehende Deklaration, ohne die lightgreen-Deklaration zu berühren, indem Sie die Reihenfolge der Kaskadenebenen verwenden, um die Links in rebeccapurple zu verwandeln.
+In dieser Aufgabe möchten wir, dass Sie Ihre Änderungen anhand der [Reihenfolge der Kaskadenebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#order_of_cascade_layers) vornehmen. Bearbeiten Sie eine bestehende Deklaration, ohne die lightgreen-Deklaration zu verändern, und verwenden Sie die Reihenfolge der Kaskadenebenen, um die Links rebeccapurple zu machen.
 
-Ihr Endergebnis sollte wie auf dem Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
 ![Kaum sichtbare gelbe Links auf weißem Hintergrund.](mdn-cascade.png)
 

@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("DOM")}}
 
-Das **Document Object Model** (**DOM**) verbindet Webseiten mit Skripten oder Programmiersprachen, indem es die Struktur eines Dokuments – wie das HTML, das eine Webseite darstellt – im Speicher abbildet. Normalerweise bezieht es sich auf JavaScript, obwohl das Modellieren von HTML-, SVG- oder XML-Dokumenten als Objekte nicht Teil der Kernsprache JavaScript ist.
+Das **Document Object Model** (**DOM**) verbindet Webseiten mit Skripten oder Programmiersprachen, indem es die Struktur eines Dokuments—wie das HTML, das eine Webseite darstellt—in der Speicherung repräsentiert. Gewöhnlich bezieht es sich auf JavaScript, auch wenn die Modellierung von HTML-, SVG- oder XML-Dokumenten als Objekte nicht Teil der Kernsprache von JavaScript ist.
 
-Das DOM stellt ein Dokument mit einem logischen Baum dar. Jeder Zweig des Baums endet in einem Knoten, und jeder Knoten enthält Objekte. DOM-Methoden ermöglichen den programmatischen Zugriff auf den Baum. Mit ihnen können Sie die Struktur, den Stil oder den Inhalt des Dokuments ändern.
+Das DOM repräsentiert ein Dokument mit einem logischen Baum. Jeder Zweig des Baums endet in einem Knoten, und jeder Knoten enthält Objekte. DOM-Methoden ermöglichen den programmatischen Zugriff auf den Baum. Mit ihnen können Sie die Struktur, den Stil oder den Inhalt des Dokuments ändern.
 
-Knoten können auch Ereignis-Handler haben, die an sie angehängt sind. Sobald ein Ereignis ausgelöst wird, werden die Ereignis-Handler ausgeführt.
+Knoten können auch Ereignishandler angehängt haben. Sobald ein Ereignis ausgelöst wird, werden die Ereignishandler ausgeführt.
 
-Um mehr darüber zu erfahren, was das DOM ist und wie es Dokumente darstellt, lesen Sie unseren Artikel [Einführung in das DOM](/de/docs/Web/API/Document_Object_Model/Introduction).
+Um mehr darüber zu erfahren, was das DOM ist und wie es Dokumente repräsentiert, lesen Sie unseren Artikel [Einführung in das DOM](/de/docs/Web/API/Document_Object_Model/Introduction).
 
 ## DOM-Schnittstellen
 
@@ -58,7 +58,7 @@ Um mehr darüber zu erfahren, was das DOM ist und wie es Dokumente darstellt, le
 
 ### Veraltete DOM-Schnittstellen
 
-Das Document Object Model wurde stark vereinfacht. Um dies zu erreichen, wurden die folgenden Schnittstellen aus den verschiedenen DOM-Level-3- oder früheren Spezifikationen entfernt. Diese stehen Webentwicklern nicht mehr zur Verfügung.
+Das Document Object Model wurde stark vereinfacht. Um dies zu erreichen, wurden die folgenden Schnittstellen in den verschiedenen DOM Level 3 oder früheren Spezifikationen entfernt. Sie stehen Webentwicklern nicht mehr zur Verfügung.
 
 - `DOMConfiguration`
 - `DOMErrorHandler`
@@ -79,13 +79,13 @@ Das Document Object Model wurde stark vereinfacht. Um dies zu erreichen, wurden 
 
 ## HTML DOM
 
-Ein Dokument, das HTML enthält, wird mit der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die HTML-Spezifikation erweitert wird, um verschiedene HTML-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um zu [`HTMLElement`](/de/docs/Web/API/HTMLElement) und verschiedenen Unterklassen zu werden, die jeweils ein oder eine Familie von eng verwandten Elementen darstellen.
+Ein Dokument, das HTML enthält, wird mithilfe der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die HTML-Spezifikation erweitert wird, um verschiedene HTML-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um zu [`HTMLElement`](/de/docs/Web/API/HTMLElement) und verschiedenen Unterklassen zu werden, die jeweils eines oder eine Familie von eng verwandten Elementen darstellen.
 
-Die HTML DOM API bietet Zugriff auf verschiedene Browserfunktionen wie Tabs und Fenster, CSS-Styles und Stylesheets, Browser-Verlauf usw. Diese Schnittstellen werden ausführlicher in der [HTML DOM API](/de/docs/Web/API/HTML_DOM_API)-Dokumentation behandelt.
+Die HTML DOM API bietet Zugriff auf verschiedene Browserfunktionen wie Tabs und Fenster, CSS-Stile und Stylesheets, den Browserverlauf usw. Diese Schnittstellen werden ausführlicher in der [HTML DOM API](/de/docs/Web/API/HTML_DOM_API) Dokumentation diskutiert.
 
 ## SVG DOM
 
-Ähnlich wird ein Dokument, das SVG enthält, ebenfalls mit der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die SVG-Spezifikation erweitert wird, um verschiedene SVG-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um zu [`SVGElement`](/de/docs/Web/API/SVGElement) und verschiedenen Unterklassen zu werden, die jeweils ein Element oder eine Familie von eng verwandten Elementen darstellen. Diese Schnittstellen werden ausführlicher in der [SVG API](/de/docs/Web/API/SVG_API)-Dokumentation behandelt.
+Ähnlich wird ein Dokument, das SVG enthält, auch mithilfe der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die SVG-Spezifikation erweitert wird, um verschiedene SVG-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um zu [`SVGElement`](/de/docs/Web/API/SVGElement) und verschiedenen Unterklassen zu werden, die jeweils ein Element oder eine Familie von eng verwandten Elementen darstellen. Diese Schnittstellen werden ausführlicher in der [SVG API](/de/docs/Web/API/SVG_API) Dokumentation diskutiert.
 
 ## Spezifikationen
 

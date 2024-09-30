@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: createFramebuffer() Methode"
+title: "WebGLRenderingContext: createFramebuffer()-Methode"
 short-title: createFramebuffer()
 slug: Web/API/WebGLRenderingContext/createFramebuffer
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.createFramebuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) Objekt.
+Die **`WebGLRenderingContext.createFramebuffer()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) Objekt.
+Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt.
 
 ## Beispiele
 
-### Ein Framebuffer erstellen
+### Erstellen eines Frame-Buffers
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -47,4 +47,4 @@ const framebuffer = gl.createFramebuffer();
 - [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
 - [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
 - [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
-- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

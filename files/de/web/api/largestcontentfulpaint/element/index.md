@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`element`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt ein Objekt zurück, das das [`Element`](/de/docs/Web/API/Element) repräsentiert, welches der größte darstellbare Inhalt ist.
+Die **`element`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt ein Objekt zurück, das das [`Element`](/de/docs/Web/API/Element) darstellt, welches den größten inhaltsvollen Anstrich im Dokument besitzt.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-### Protokollierung des größten darstellbaren Inhalts-Elements
+### Protokollierung des Elements mit dem größten inhaltsvollen Anstrich
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Leistungseinträge benachrichtigt, sobald sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
+In diesem Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, um über neue `largest-contentful-paint`-Leistungseinträge zu informieren, während sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
 
 ```js
 const observer = new PerformanceObserver((list) => {

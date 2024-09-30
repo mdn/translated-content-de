@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**First input delay** (FID) misst die Zeitspanne von dem Moment, in dem ein Benutzer erstmals mit Ihrer Website interagiert (d. h. wenn er auf einen Link klickt, einen Button antippt oder eine benutzerdefinierte, JavaScript-gesteuerte Steuerung verwendet) bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, auf diese Interaktion zu reagieren.
+**First input delay** (FID) misst die Zeit, die von der ersten Interaktion eines Nutzers mit Ihrer Website (d.h. wenn sie auf einen Link klicken, einen Button antippen oder eine benutzerdefinierte, JavaScript-gesteuerte Steuerung verwenden) bis zu dem Zeitpunkt vergeht, an dem der Browser tatsächlich auf diese Interaktion reagieren kann.
 
-Es ist die Zeitspanne in Millisekunden zwischen der ersten Benutzerinteraktion auf einer Webseite und der Reaktion des Browsers auf diese Interaktion. Scrollen und Zoomen sind in dieser Metrik nicht eingeschlossen.
+Es ist die Zeitspanne in Millisekunden zwischen der ersten Nutzerinteraktion auf einer Webseite und der Reaktion des Browsers auf diese Interaktion. Scrollen und Zoomen sind in dieser Metrik nicht enthalten.
 
-Die Zeit zwischen dem Rendern von Inhalten auf der Seite und dem Zeitpunkt, an dem die gesamte Funktionalität auf menschliche Interaktionen reagiert, variiert oft je nach Größe und Komplexität des JavaScripts, das heruntergeladen, geparst und im Haupt-Thread ausgeführt werden muss, sowie der Geschwindigkeit des Geräts oder deren Fehlen (denken Sie an mobile Geräte mit niedriger Ausstattung). Je länger die Verzögerung, desto schlechter die Benutzererfahrung. Die Reduzierung der Site-Initialisierungszeit und die Beseitigung von [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) können helfen, First Input Delays zu eliminieren.
+Die Zeit zwischen dem Zeitpunkt, an dem der Inhalt auf die Seite gerendert wird, und dem Zeitpunkt, an dem alle Funktionen für menschliche Interaktion ansprechbar werden, variiert häufig basierend auf der Größe und Komplexität des JavaScripts, das heruntergeladen, geparst und im Haupt-Thread ausgeführt werden muss, sowie der Geschwindigkeit des Geräts oder deren Fehlen (denken Sie an mobile Geräte mit geringerer Leistung). Je länger die Verzögerung, desto schlechter die Benutzererfahrung. Die Reduzierung der Initialisierungszeit der Website und das Beseitigen von [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) können dazu beitragen, die Verzögerungen der ersten Eingabe zu verringern.
 
 ## Siehe auch
 

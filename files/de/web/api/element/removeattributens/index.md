@@ -1,5 +1,5 @@
 ---
-title: "Element: removeAttributeNS()-Methode"
+title: "Element: removeAttributeNS() Methode"
 short-title: removeAttributeNS()
 slug: Web/API/Element/removeAttributeNS
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`removeAttributeNS()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces entfernt das angegebene Attribut mit dem angegebenen Namensraum von einem Element.
+Die **`removeAttributeNS()`** Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces entfernt das angegebene Attribut mit dem angegebenen Namensraum von einem Element.
 
-Wenn Sie mit HTML arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methode.
+Wenn Sie mit HTML arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die [`removeAttribute()`](/de/docs/Web/API/Element/removeAttribute) Methode.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ removeAttributeNS(namespace, attrName)
 - `namespace`
   - : Ein String, der den Namensraum des Attributs enthält.
 - `attrName`
-  - : Ein String, der den Namen des Attributs angibt, das vom aktuellen Knoten entfernt werden soll.
+  - : Ein String, der den Namen des Attributs enthält, das aus dem aktuellen Knoten entfernt werden soll.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`value`**-Eigenschaft der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)
-Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Wert der Liste als Zeichenkette serialisiert zurückgibt oder die Liste löscht und auf den angegebenen Wert setzt.
+Die **`value`**-Eigenschaft der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Wert der Liste als Zeichenkette serialisiert zurückgibt oder die Liste löscht und auf den angegebenen Wert setzt.
 
 ## Wert
 
@@ -18,7 +17,7 @@ Jedes Element wird durch ein Leerzeichen getrennt.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Dann schreiben wir den Wert der Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
+Im folgenden Beispiel wird die Liste der Klassen, die auf einem {{htmlelement("span")}}-Element gesetzt sind, als `DOMTokenList` mit [`Element.classList`](/de/docs/Web/API/Element/classList) abgerufen. Dann wird der Wert der Liste im [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben.
 
 Zuerst das HTML:
 
@@ -26,7 +25,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -34,7 +33,7 @@ const classes = span.classList;
 span.textContent = classes.value;
 ```
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

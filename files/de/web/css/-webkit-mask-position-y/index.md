@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die CSS-Eigenschaft `-webkit-mask-position-y` legt die Anfangsposition des vertikalen Bereichs eines Maskenbildes fest.
+Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Position eines Maskenbildes fest.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die Anfangsposition des verti
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante der Box-Padding anzeigt. Prozentsätze berechnen sich gegen die vertikale Dimension des Box-Padding-Bereichs. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante der Box-Padding ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante der Box-Padding ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante des Box-Paddings angibt. Prozentsätze werden relativ zur vertikalen Dimension des Box-Padding-Bereichs berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante des Box-Paddings ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante des Box-Paddings ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`

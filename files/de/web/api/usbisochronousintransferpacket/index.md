@@ -7,23 +7,23 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Das `USBIsochronousInTransferPacket`-Interface der [WebUSB-API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort auf einen Aufruf der Methode `isochronousTransferIn()` des `USBDevice`-Interfaces. Es repräsentiert den Status eines einzelnen Pakets aus einer Anfrage zum Übertragen von Daten vom USB-Gerät zum USB-Host über einen isochronen Endpunkt.
+Das `USBIsochronousInTransferPacket`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort eines Aufrufs der Methode `isochronousTransferIn()` des `USBDevice`-Interfaces. Es repräsentiert den Status eines einzelnen Pakets aus einer Anfrage zum Datentransfer vom USB-Gerät zum USB-Host über einen isochronen Endpunkt.
 
 ## Konstruktor
 
 - [`USBIsochronousInTransferPacket()`](/de/docs/Web/API/USBIsochronousInTransferPacket/USBIsochronousInTransferPacket) {{Experimental_Inline}}
-  - : Erstellt ein neues `USBIsochronousInTransferPacket`-Objekt mit den bereitgestellten `status`- und `data`-Feldern.
+  - : Erstellt ein neues `USBIsochronousInTransferPacket`-Objekt mit den bereitgestellten Feldern `status` und `data`.
 
 ## Instanzeigenschaften
 
 - [`USBIsochronousInTransferPacket.data`](/de/docs/Web/API/USBIsochronousInTransferPacket/data) {{ReadOnlyInline}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein `DataView`-Objekt zurück, das die in diesem Paket vom USB-Gerät empfangenen Daten enthält, falls vorhanden.
+  - : Gibt ein `DataView`-Objekt zurück, das die Daten enthält, die in diesem Paket vom USB-Gerät empfangen wurden, falls vorhanden.
 - [`USBIsochronousInTransferPacket.status`](/de/docs/Web/API/USBIsochronousInTransferPacket/status) {{ReadOnlyInline}} {{ReadOnlyInline}} {{Experimental_Inline}}
 
   - : Gibt den Status der Transferanfrage zurück, einer von:
 
     - `"ok"` - Der Transfer war erfolgreich.
-    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Blockierbedingung am Endpunkt erzeugt hat. Eine Blockierung an einem isochronen Endpunkt muss nicht entfernt werden.
+    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stallsituation am Endpunkt erzeugt hat. Ein Stall an einem isochronen Endpunkt muss nicht behoben werden.
     - `"babble"` - Das Gerät hat mit mehr Daten geantwortet, als erwartet wurde.
 
 ## Spezifikationen

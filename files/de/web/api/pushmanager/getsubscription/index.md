@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`PushManager.getSubscription()`** Methode des [`PushManager`](/de/docs/Web/API/PushManager) Interface ruft ein bestehendes Push-Abonnement ab.
+Die **`PushManager.getSubscription()`** Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces ruft ein bestehendes Push-Abonnement ab.
 
-Sie gibt ein {{jsxref("Promise")}} zurück, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Wenn kein bestehendes Abonnement vorhanden ist, wird auf einen `null` Wert aufgelöst.
+Sie gibt ein {{jsxref("Promise")}} zurück, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Wenn kein bestehendes Abonnement vorhanden ist, wird es zu einem `null`-Wert aufgelöst.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) Objekt oder `null` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt oder `null` aufgelöst wird.
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt von einem [Beispiel für Push-Nachrichten und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Es ist keine Live-Demo verfügbar.)
+Dieser Code-Ausschnitt stammt aus einem [Beispiel für Push-Messaging und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Keine Live-Demo verfügbar.)
 
 ```js
 // We need the service worker registration to check for a subscription

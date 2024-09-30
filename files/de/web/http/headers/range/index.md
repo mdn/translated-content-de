@@ -7,22 +7,22 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Range`** HTTP-Anforderungsheader gibt die Teile einer Ressource an, die der Server zurückgeben soll. Mehrere Teile können gleichzeitig in einem `Range`-Header angefordert werden, und der Server kann diese Bereiche in einem Multipart-Dokument zurücksenden. Wenn der Server Bereiche zurücksendet, verwendet er den Statuscode {{HTTPStatus("206", "206 Partial Content")}} für die Antwort. Wenn die Bereiche ungültig sind, gibt der Server den Fehler {{HTTPStatus("416", "416 Range Not Satisfiable")}} zurück.
+Der **`Range`**-HTTP-Anforderungsheader gibt die Teile einer Ressource an, die der Server zurückgeben soll. Mehrere Teile können gleichzeitig in einem `Range`-Header angefordert werden, und der Server kann diese Bereiche in einem mehrteiligen Dokument zurücksenden. Wenn der Server Bereiche zurücksendet, verwendet er den Statuscode {{HTTPStatus("206", "206 Partial Content")}} für die Antwort. Wenn die Bereiche ungültig sind, gibt der Server den Fehler {{HTTPStatus("416", "416 Range Not Satisfiable")}} zurück.
 
-Ein Server, der Bereichsanfragen nicht unterstützt, kann den `Range`-Header ignorieren und die gesamte Ressource mit dem Statuscode {{HTTPStatus("200")}} zurückgeben. Das Ignorieren des `Range`-Headers entspricht `Accept-Ranges: none`, daher wird der {{HTTPHeader("Accept-Ranges")}} Antwort-Header selten zu diesem Zweck verwendet.
+Ein Server, der Bereichsanforderungen nicht unterstützt, kann den `Range`-Header ignorieren und die gesamte Ressource mit einem Statuscode von {{HTTPStatus("200")}} zurückgeben. Das Ignorieren des `Range`-Headers ist gleichbedeutend mit `Accept-Ranges: none`, daher wird der Antwortheader {{HTTPHeader("Accept-Ranges")}} selten zu diesem Zweck verwendet.
 
-Derzeit sind nur [`bytes` Einheiten registriert](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units), bei denen es sich um _Offsets_ (null-basiert und inklusive) handelt. Wenn die angeforderten Daten eine angewendete [Inhaltskodierung](/de/docs/Web/HTTP/Headers/Content-Encoding) haben, stellt jeder Byte-Bereich die kodierte Byte-Sequenz dar, nicht die Bytes, die nach dem Dekodieren erhalten würden.
+Derzeit sind nur [`bytes`-Einheiten registriert](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units), die _Offsets_ sind (nullbasiert und eingeschlossen). Wenn auf die angeforderten Daten eine [Inhaltscodierung](/de/docs/Web/HTTP/Headers/Content-Encoding) angewendet wurde, stellt jeder Bytebereich die codierte Folge von Bytes dar, nicht die Bytes, die nach der Dekodierung erhalten würden.
 
-Der Header ist ein [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header), wenn die Anweisung einen einzigen Byte-Bereich spezifiziert.
+Der Header ist ein [CORS-sicherer Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header), wenn die Anweisung einen einzelnen Bytebereich angibt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -41,21 +41,21 @@ Range: <unit>=-<suffix-length>
 ## Direktiven
 
 - \<unit>
-  - : Die Einheit, in der Bereiche angegeben werden.
+  - : Die Einheit, in der die Bereiche angegeben werden.
 - \<range-start>
-  - : Ein ganzzahliger Wert in der angegebenen Einheit, der die Startposition des Anforderungsbereichs angibt.
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Startposition des Anforderungsbereichs angibt.
 - \<range-end>
-  - : Ein ganzzahliger Wert in der angegebenen Einheit, der die Endposition des angeforderten Bereichs angibt. Dieser Wert ist optional und, wenn nicht angegeben, wird das Ende der Ressource als Endpunkt des Bereichs verwendet.
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Endposition des angeforderten Bereichs angibt. Dieser Wert ist optional und, falls weggelassen, wird das Ende der Ressource als Ende des Bereichs verwendet.
 - \<suffix-length>
-  - : Ein ganzzahliger Wert, der die Anzahl der Einheiten am Ende der Ressource angibt, die zurückgegeben werden sollen.
+  - : Eine Ganzzahl, die die Anzahl der Einheiten am Ende der Ressource angibt, die zurückgegeben werden soll.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie man Anfragen mit dem `Range`-Header für CORS-safelisted Anfragen und für das Anfordern mehrerer Bereiche macht. Weitere Beispiele finden Sie im [Leitfaden für HTTP-Bereichsanfragen](/de/docs/Web/HTTP/Range_requests).
+Die folgenden Beispiele zeigen, wie Anfragen mit dem `Range`-Header für CORS-sichere Anfragen und zum Anfordern mehrerer Bereiche gemacht werden. Weitere Beispiele finden Sie im [HTTP-Bereichsanfragen-Leitfaden](/de/docs/Web/HTTP/Range_requests).
 
-### Einzelne Byte-Bereiche und CORS-safelisted Anfragen
+### Einzelne Byte-Bereiche und CORS-sichere Anfragen
 
-Der `Range`-Header ist ein [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header), wenn der Wert ein einzelner Byte-Bereich ist. Das bedeutet, dass er bei Cross-Origin-Anfragen verwendet werden kann, ohne eine [Preflight](/de/docs/Glossary/Preflight_request)-Anfrage auszulösen, was nützlich ist, um Medien anzufordern und Downloads fortzusetzen.
+Der `Range`-Header ist ein [CORS-sicherer Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header), wenn der Wert ein einzelner Bytebereich ist. Das bedeutet, dass er in plattformübergreifenden Anfragen verwendet werden kann, ohne eine [Preflight-Anfrage](/de/docs/Glossary/Preflight_request) auszulösen, was nützlich ist, um Medien anzufordern und Downloads fortzusetzen.
 
 Das folgende Beispiel fordert die ersten 500 Bytes einer Ressource an:
 
@@ -69,27 +69,27 @@ Um die zweiten 500 Bytes anzufordern:
 Range: bytes=500-999
 ```
 
-Wenn die Endposition weggelassen wird, werden alle verbleibenden Einheiten der Ressource angefordert, sodass die letzten 100 Bytes einer Ressource mit einer Länge von 1000 Bytes mit folgender Anfrage angefordert werden können:
+Das Weglassen der Endposition fordert alle verbleibenden Einheiten der Ressource an, sodass die letzten 100 Bytes einer Ressource mit einer Länge von 1000 Bytes mit folgendem Code angefordert werden können:
 
 ```http
 Range: bytes=900-
 ```
 
-Alternativ, wenn nicht bekannt ist, wie groß eine Ressource ist, können die letzten `n` Bytes mit einem Suffix-Bereich von `-n` angefordert werden:
+Alternativ, wenn nicht bekannt ist, wie groß eine Ressource ist, können die letzten `n` Bytes mit einem Suffixbereich von `-n` angefordert werden:
 
 ```http
 Range: bytes=-100
 ```
 
-### Anfordern mehrerer Bereiche
+### Mehrere Bereiche anfordern
 
-Bei einer Ressource mit einer Länge von 10000 Bytes fordert das folgende Beispiel drei separate Bereiche an; `200`-`999` (800 Bytes), `2000`-`2499` (500 Bytes) und schließlich `9500-`. Der Bereichsspezifikatorwert `9500-` lässt eine Endposition weg, was darauf hinweist, dass alle Bytes ab 9500 Teil des dritten Bereichs sind (500 Bytes).
+Angenommen, es gibt eine Ressource mit einer Länge von 10000 Bytes, fordert das folgende Beispiel drei separate Bereiche an: `200`-`999` (800 Bytes), `2000`-`2499` (500 Bytes) und schließlich `9500-`. Der Bereich-Spezifikatorwert `9500-` lässt eine Endposition aus, was anzeigt, dass alle Bytes ab 9500 Teil des dritten Bereichs sind (500 Bytes).
 
 ```http
 Range: bytes=200-999, 2000-2499, 9500-
 ```
 
-Dieses Beispiel fordert die ersten 500 und letzten 500 Bytes der Datei an. Die Anfrage kann vom Server abgelehnt werden, wenn diese Bereiche überlappen (wenn die angeforderte Ressource beispielsweise kürzer als 1000 Bytes wäre).
+Dieses Beispiel fordert die ersten 500 und die letzten 500 Bytes der Datei an. Die Anfrage kann vom Server abgelehnt werden, wenn sich diese Bereiche überlappen (wenn die angeforderte Ressource z.B. weniger als 1000 Bytes lang war).
 
 ```http
 Range: bytes=0-499, -499
@@ -111,5 +111,5 @@ Range: bytes=0-499, -499
 - {{HTTPHeader("Accept-Ranges")}}
 - {{HTTPStatus("206", "206 Partial Content")}}
 - {{HTTPStatus("416", "416 Range Not Satisfiable")}}
-- [Leitfaden für HTTP-Bereichsanfragen](/de/docs/Web/HTTP/Range_requests)
-- [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header)
+- [HTTP-Bereichsanfragen-Leitfaden](/de/docs/Web/HTTP/Range_requests)
+- [CORS-sicherer Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)

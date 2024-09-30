@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte `emHeightDescent`-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics) Schnittstelle gibt die Entfernung von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) Eigenschaft angegebenen horizontalen Linie bis zum unteren Rand des _em_-Quadrats im Zeilenkasten, in CSS-Pixeln, zurück.
+Die schreibgeschützte `emHeightDescent`-Eigenschaft des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces gibt die Entfernung von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angezeigten horizontalen Linie bis zum unteren Rand des _em_-Quadrats im Zeilenkasten in CSS-Pixeln zurück.
 
 ## Wert
 
-Eine Zahl in CSS-Pixeln.
+Eine Zahl, in CSS-Pixeln.
 
 ## Beispiele
 

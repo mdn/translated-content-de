@@ -25,25 +25,25 @@ URIError(message, fileName)
 URIError(message, fileName, lineNumber)
 ```
 
-> **Note:** `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erzeugen eine neue `URIError` Instanz.
+> **Note:** `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beides erstellt eine neue `URIError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Menschlich lesbare Beschreibung des Fehlers.
+  - : Eine menschenlesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer genaueren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme ausgelöst hat.
+  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme ausgelöst hat.
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 
 ## Beispiele
 
-### Fangen eines URIError
+### Abfangen eines URIError
 
 ```js
 try {

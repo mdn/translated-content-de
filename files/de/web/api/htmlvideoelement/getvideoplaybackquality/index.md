@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: getVideoPlaybackQuality() Methode"
+title: "HTMLVideoElement: getVideoPlaybackQuality()-Methode"
 short-title: getVideoPlaybackQuality()
 slug: Web/API/HTMLVideoElement/getVideoPlaybackQuality
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **[`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)** Methode
-**`getVideoPlaybackQuality()`** erstellt und gibt ein
-[`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zurück, das Metriken enthält, einschließlich der Anzahl der verlorenen Frames.
+Die **[`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)**-Methode **`getVideoPlaybackQuality()`** erstellt und gibt ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zurück, das Metriken enthält, einschließlich der Anzahl der verlorenen Frames.
 
-Die zurückgegebenen Daten können zur Bewertung der Qualität des Videostreams verwendet werden.
+Die zurückgegebenen Daten können verwendet werden, um die Qualität des Videostreams zu bewerten.
 
 ## Syntax
 
@@ -30,7 +28,7 @@ Ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt, das 
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert ein Element, um die Gesamtzahl der Videoframes anzuzeigen, die bisher im Wiedergabeprozess vergangen sind. Dieser Wert umfasst alle verlorenen oder beschädigten Frames, daher ist er nicht identisch mit der "Gesamtzahl der abgespielten Frames."
+Dieses Beispiel aktualisiert ein Element, um die Gesamtanzahl der Videoframes anzuzeigen, die bisher im Wiedergabeprozess abgelaufen sind. Dieser Wert umfasst auch alle verworfenen oder beschädigten Frames und entspricht daher nicht der „Gesamtanzahl der abgespielten Frames“.
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -50,5 +48,5 @@ counterElem.innerText = quality.totalVideoFrames;
 
 ## Siehe auch
 
-- Das {{HTMLElement("video")}} Element
-- Die [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality) Schnittstelle.
+- Das {{HTMLElement("video")}}-Element
+- Die [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Schnittstelle.

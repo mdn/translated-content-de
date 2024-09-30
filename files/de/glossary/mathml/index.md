@@ -13,5 +13,5 @@ l10n:
 
 - [MathML](https://en.wikipedia.org/wiki/MathML) auf Wikipedia
 - [MathML](/de/docs/Web/MathML)
-- [Erstellung von MathML](/de/docs/Web/MathML/Authoring)
+- [Verfassen von MathML](/de/docs/Web/MathML/Authoring)
 - [Was ist MathML](https://www.w3.org/Math/whatIsMathML.html)

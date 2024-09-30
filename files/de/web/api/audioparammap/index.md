@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das **`AudioParamMap`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert eine iterierbare und schreibgeschützte Menge mehrerer Audioparameter.
+Die **`AudioParamMap`** Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert eine durchlaufbare und schreibgeschützte Menge von mehreren Audioparametern.
 
-Eine `AudioParamMap`-Instanz ist ein schreibgeschütztes [`Map`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), in dem jeder Schlüssel der Name eines Parameters ist und der entsprechende Wert ein [`AudioParam`](/de/docs/Web/API/AudioParam), der den Wert dieses Parameters enthält.
+Eine `AudioParamMap`-Instanz ist ein schreibgeschütztes [`Map`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel ein Namens-String für einen Parameter ist, und der entsprechende Wert ein [`AudioParam`](/de/docs/Web/API/AudioParam) mit dem Wert dieses Parameters enthält.
 
 ## Instanzeigenschaften
 
-Die folgenden Methoden stehen allen schreibgeschützten [`Map`-ähnlichen Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) zur Verfügung (die Links unten führen zur {{jsxref("Map")}}-Referenzseite des globalen Objekts).
+Die folgenden Methoden stehen allen schreibgeschützten [`Map`-ähnlichen Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) zur Verfügung (die untenstehenden Links führen zur {{jsxref("Map")}}-Referenzseite des globalen Objekts).
 
 - {{jsxref("Map/size", "size")}}
   - : Gibt die Anzahl der Einträge in der Map zurück.
 
 ## Instanzmethoden
 
-Die folgenden Methoden stehen allen schreibgeschützten [`Map`-ähnlichen Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) zur Verfügung (die Links unten führen zur {{jsxref("Map")}}-Referenzseite des globalen Objekts).
+Die folgenden Methoden stehen allen schreibgeschützten [`Map`-ähnlichen Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) zur Verfügung (die untenstehenden Links führen zur {{jsxref("Map")}}-Referenzseite des globalen Objekts).
 
 - {{jsxref("Map/entries", "entries()")}}
-  - : Gibt ein neues [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Einträge in `[key, value]`-Paaren in der Reihenfolge der Einfügung in der Map ausgibt.
+  - : Gibt ein neues [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Einträge in `[key, value]`-Paaren in der Map in der Einfügereihenfolge liefert.
 - {{jsxref("Map/forEach", "forEach()")}}
-  - : Ruft eine bereitgestellte [Callback-Funktion](/de/docs/Glossary/callback_function) einmal für jeden in der Map vorhandenen Wert und Schlüssel in der Reihenfolge der Einfügung auf.
+  - : Ruft eine bereitgestellte [Callback-Funktion](/de/docs/Glossary/callback_function) einmal für jeden Wert und Schlüssel, der in der Map vorhanden ist, in der Einfügereihenfolge auf.
 - {{jsxref("Map/get", "get()")}}
-  - : Gibt den mit dem String-Schlüssel assoziierten [`AudioParam`](/de/docs/Web/API/AudioParam)-Wert zurück oder `undefined`, falls keiner vorhanden ist.
+  - : Gibt den [`AudioParam`](/de/docs/Web/API/AudioParam)-Wert zurück, der dem Stringschlüssel zugeordnet ist, oder `undefined`, wenn keiner vorhanden ist.
 - {{jsxref("Map/has", "has()")}}
   - : Gibt einen [boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean) zurück, der angibt, ob ein Schlüssel in der Map vorhanden ist oder nicht.
 - {{jsxref("Map/keys", "keys()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die String-Schlüssel in der Reihenfolge der Einfügung in der Map ausgibt.
+  - : Gibt ein neues Iterator-Objekt zurück, das die Stringschlüssel in der Map in der Einfügereihenfolge liefert.
 - {{jsxref("Map/values", "values()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die [`AudioParam`](/de/docs/Web/API/AudioParam)-Werte in der Map in der Reihenfolge der Einfügung ausgibt.
+  - : Gibt ein neues Iterator-Objekt zurück, das die [`AudioParam`](/de/docs/Web/API/AudioParam)-Werte in der Map in der Einfügereihenfolge liefert.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "OverconstrainedError: OverconstrainedError() Konstruktor"
+title: "OverconstrainedError: OverconstrainedError()-Konstruktor"
 short-title: OverconstrainedError()
 slug: Web/API/OverconstrainedError/OverconstrainedError
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Der **`OverconstrainedError()`** Konstruktor erstellt ein neues [`OverconstrainedError`](/de/docs/Web/API/OverconstrainedError)-Objekt, das anzeigt, dass die Menge der gewünschten Fähigkeiten für den aktuellen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) momentan nicht erfüllt werden kann. Wenn dieses Ereignis auf einem `MediaStreamTrack` ausgelöst wird, wird es stummgeschaltet, bis entweder die aktuellen Einschränkungen durchgesetzt werden können oder erfüllbare Einschränkungen angewendet werden.
+Der **`OverconstrainedError()`**-Konstruktor erstellt ein neues [`OverconstrainedError`](/de/docs/Web/API/OverconstrainedError)-Objekt, das anzeigt, dass der Satz der gewünschten Fähigkeiten für den aktuellen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit nicht erfüllt werden kann. Wenn dieses Ereignis bei einem `MediaStreamTrack` ausgelöst wird, wird es stummgeschaltet, bis entweder die aktuellen Einschränkungen hergestellt oder erfüllbare Einschränkungen angewendet werden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new OverconstrainedError()
 ### Parameter
 
 - `constraint`
-  - : Die nicht erfüllte Einschränkung.
+  - : Die Einschränkung, die nicht erfüllt wurde.
 - `message` {{optional_inline}}
   - : Text für die `message`-Eigenschaft des Fehlers. Standardmäßig ein leerer String.
 

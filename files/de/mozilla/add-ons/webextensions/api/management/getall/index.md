@@ -9,7 +9,7 @@ l10n:
 
 Ruft ein Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten ab, eines für jedes installierte Add-on.
 
-Beachten Sie, dass Google Chrome sowohl Apps als auch Add-ons abruft. In Chrome können Sie Apps von Add-ons mithilfe der `type`-Eigenschaft von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} unterscheiden.
+Beachten Sie, dass Google Chrome sowohl Apps als auch Add-ons abruft. In Chrome können Sie Apps von Add-ons anhand der `type`-Eigenschaft von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} unterscheiden.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
@@ -53,7 +53,7 @@ gettingAll.then(gotAll);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll) API. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll)-API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt das [Fenster](/de/docs/Web/API/Window) der Hintergrundseite zurück, wenn das Hintergrundskript läuft. Wenn das Skript nicht läuft, wird null zurückgegeben.
+Gibt das [Window](/de/docs/Web/API/Window) der Hintergrundseite zurück, wenn das Hintergrundskript läuft. Wenn das Skript nicht läuft, wird null zurückgegeben.
 
 Dies ist eine synchrone Funktion.
 
 > [!NOTE]
-> Diese Methode kann im privaten Modus nicht verwendet werden — sie gibt immer null zurück. Erwägen Sie stattdessen die Verwendung von {{WebExtAPIRef("runtime.sendMessage","runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect","runtime.connect()")}}. Weitere Informationen finden Sie im [Firefox-Fehler 1329304](https://bugzil.la/1329304).
+> Diese Methode kann nicht im privaten Browsing-Modus verwendet werden — sie gibt immer null zurück. Erwägen Sie die Verwendung von {{WebExtAPIRef("runtime.sendMessage","runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect","runtime.connect()")}}. Weitere Informationen finden Sie im [Firefox-Fehler 1329304](https://bugzil.la/1329304).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-`object`. [Fenster](/de/docs/Web/API/Window) der Hintergrundseite oder null.
+`object`. [Window](/de/docs/Web/API/Window) der Hintergrundseite oder null.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ function foo() {
 }
 ```
 
-Ein Skript, das in einem [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) läuft, kann diese Funktion direkt so aufrufen:
+Ein Skript, das in einem [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) ausgeführt wird, kann diese Funktion direkt folgendermaßen aufrufen:
 
 ```js
 // popup.js
@@ -56,7 +56,7 @@ page.foo(); // -> "I'm defined in background.js"
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getBackgroundPage) API von Chromium. Diese Dokumentation ist übernommen aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getBackgroundPage)-API von Chromium. Diese Dokumentation leitet sich von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

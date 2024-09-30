@@ -1,5 +1,5 @@
 ---
-title: "NotRestoredReasonDetails: toJSON() Methode"
+title: "NotRestoredReasonDetails: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/NotRestoredReasonDetails/toJSON
 l10n:
@@ -26,7 +26,7 @@ Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`NotRestoredReasonDet
 
 ## Beispiele
 
-Die folgende Funktion gibt eine JSON-Darstellung des ersten `NotRestoredReasonDetails`-Objekts des `NotRestoredReasons`-Objekts aus dem ersten `PerformanceNavigationTiming`-Objekt zurück, das derzeit in der Performance-Zeitleiste vorhanden ist:
+Die folgende Funktion gibt eine JSON-Darstellung des ersten `NotRestoredReasonDetails`-Objekts des `NotRestoredReasons`-Objekts vom ersten `PerformanceNavigationTiming`-Objekt zurück, das derzeit in der Performance-Zeitleiste vorhanden ist:
 
 ```js
 function returnNRR() {
@@ -47,5 +47,5 @@ function returnNRR() {
 ## Siehe auch
 
 - {{jsxref("JSON")}}
-- [Überwachung der Blockierungsgründe für bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [Überwachung von Blockierungsgründen des bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
 - [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

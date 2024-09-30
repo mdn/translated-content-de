@@ -1,5 +1,5 @@
 ---
-title: SVG-Bildelement
+title: SVG `image` Element
 slug: Web/SVG/Tutorial/SVG_Image_Tag
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -9,9 +9,9 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/SVG_Fonts", "Web/SVG/Tutorial/Tools_for_SVG") }}
 
-Das SVG-{{ SVGElement("image") }}-Element ermöglicht es, Rasterbilder innerhalb eines SVG-Objekts darzustellen.
+Das SVG-Element {{ SVGElement("image") }} ermöglicht das Rendern von Rasterbildern innerhalb eines SVG-Objekts.
 
-In diesem einfachen Beispiel wird ein .jpg-Bild, das durch ein {{ SVGAttr("href") }}-Attribut referenziert wird, innerhalb eines SVG-Objekts dargestellt:
+In diesem einfachen Beispiel wird ein .jpg-Bild, das durch ein {{ SVGAttr("href") }}-Attribut referenziert wird, innerhalb eines SVG-Objekts gerendert:
 
 ```xml
 <?xml version="1.0" standalone="no"?>
@@ -23,10 +23,10 @@ In diesem einfachen Beispiel wird ein .jpg-Bild, das durch ein {{ SVGAttr("href"
 </svg>
 ```
 
-Es gibt einige wichtige Dinge zu beachten (referenziert aus den [W3 Spezifikationen](https://www.w3.org/TR/SVG/struct.html#ImageElement)):
+Es gibt einige wichtige Dinge, die zu beachten sind (basierend auf den [W3-Spezifikationen](https://www.w3.org/TR/SVG/struct.html#ImageElement)):
 
-- Wenn Sie die `x`- oder `y`-Attribute nicht setzen, werden sie auf `0` gesetzt.
-- Wenn Sie die `height`- oder `width`-Attribute nicht setzen, werden sie auf `0` gesetzt.
-- Ein `height`- oder `width`-Attribut von `0` wird die Darstellung des Bildes deaktivieren.
+- Wenn Sie die Attribute `x` oder `y` nicht setzen, werden sie auf `0` gesetzt.
+- Wenn Sie die Attribute `height` oder `width` nicht setzen, werden sie auf `0` gesetzt.
+- Ein `height`- oder `width`-Attribut von `0` deaktiviert das Rendern des Bildes.
 
 {{ PreviousNext("Web/SVG/Tutorial/SVG_Fonts", "Web/SVG/Tutorial/Tools_for_SVG") }}

@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die **`changedTouches`**-Eigenschaft ist eine schreibgeschützte [`TouchList`](/de/docs/Web/API/TouchList), deren Berührungspunkte ([`Touch`](/de/docs/Web/API/Touch)-Objekte) je nach Ereignistyp wie folgt variieren:
+Die **`changedTouches`** schreibgeschützte Eigenschaft ist eine [`TouchList`](/de/docs/Web/API/TouchList), deren Berührungspunkte ([`Touch`](/de/docs/Web/API/Touch)-Objekte) je nach Ereignistyp wie folgt variieren:
 
-- Für das [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis ist es eine Liste der Berührungspunkte, die mit dem aktuellen Ereignis aktiv wurden.
-- Für das [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis ist es eine Liste der Berührungspunkte, die sich seit dem letzten Ereignis verändert haben.
-- Für die [`touchend`](/de/docs/Web/API/Element/touchend_event) und [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignisse ist es eine Liste der Berührungspunkte, die von der Oberfläche entfernt wurden (das heißt, die Menge der Berührungspunkte, die zu Fingern gehören, die die Oberfläche nicht mehr berühren).
+- Bei dem [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis ist es eine Liste der Berührungspunkte, die mit dem aktuellen Ereignis aktiv wurden.
+- Bei dem [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis ist es eine Liste der Berührungspunkte, die sich seit dem letzten Ereignis geändert haben.
+- Bei den [`touchend`](/de/docs/Web/API/Element/touchend_event)- und [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignissen ist es eine Liste der Berührungspunkte, die von der Oberfläche entfernt wurden (d.h. die Menge der Berührungspunkte, die Fingern entsprechen, die die Oberfläche nicht mehr berühren).
 
 ## Wert
 
-Eine [`TouchList`](/de/docs/Web/API/TouchList), deren [`Touch`](/de/docs/Web/API/Touch)-Objekte alle Berührungspunkte umfassen, die zu diesem Berührungsereignis beigetragen haben.
+Eine [`TouchList`](/de/docs/Web/API/TouchList), deren [`Touch`](/de/docs/Web/API/Touch)-Objekte alle Berührungspunkte enthalten, die zu diesem Berührungsereignis beigetragen haben.
 
 ## Beispiele
 

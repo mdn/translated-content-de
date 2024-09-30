@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Scope** ist der aktuelle Ausführungskontext, in dem [Werte](/de/docs/Glossary/value) und Ausdrücke "sichtbar" sind oder referenziert werden können. Wenn eine [Variable](/de/docs/Glossary/variable) oder ein Ausdruck nicht im aktuellen Scope ist, wird sie nicht zur Verwendung verfügbar sein. Scopes können auch in einer Hierarchie geschichtet sein, sodass Kind-Scopes Zugriff auf Eltern-Scopes haben, aber nicht umgekehrt.
+Der **Scope** ist der aktuelle Ausführungskontext, in dem [Werte](/de/docs/Glossary/value) und Ausdrücke "sichtbar" sind oder referenziert werden können. Wenn eine [Variable](/de/docs/Glossary/variable) oder ein Ausdruck sich nicht im aktuellen Scope befindet, steht er nicht zur Verwendung bereit. Scopes können auch hierarchisch geschichtet werden, sodass Kind-Scopes Zugriff auf Eltern-Scopes haben, aber nicht umgekehrt.
 
-JavaScript hat folgende Arten von Scopes:
+JavaScript kennt folgende Arten von Scopes:
 
-- Globaler Scope: Der Standard-Scope für alle im Skriptmodus ausgeführten Codes.
-- Modul-Scope: Der Scope für im Modulmodus ausgeführten Code.
-- Funktions-Scope: Der durch eine [Funktion](/de/docs/Glossary/function) erstellte Scope.
+- Globaler Scope: Der Standardscope für alle im Skriptmodus laufenden Codes.
+- Modul-Scope: Der Scope für im Modulmodus laufenden Code.
+- Funktions-Scope: Der mit einer [Funktion](/de/docs/Glossary/function) erstellte Scope.
 
-Darüber hinaus können mit bestimmten Syntaxen deklarierte Bezeichner, einschließlich [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) oder (im strengen Modus) [`function`](/de/docs/Web/JavaScript/Reference/Statements/function), zu einem zusätzlichen Scope gehören:
+Darüber hinaus können mit bestimmten Syntaxen deklarierte Bezeichner, einschließlich [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) oder (im strikten Modus) [`function`](/de/docs/Web/JavaScript/Reference/Statements/function), zu einem zusätzlichen Scope gehören:
 
-- Block-Scope: Der durch ein Paar geschweifter Klammern (einen [Block](/de/docs/Web/JavaScript/Reference/Statements/block)) erstellte Scope.
+- Block-Scope: Der Scope, der mit einem Paar geschweifter Klammern (einem [Block](/de/docs/Web/JavaScript/Reference/Statements/block)) erstellt wird.
 
-Eine [Funktion](/de/docs/Glossary/function) erstellt einen Scope, sodass (zum Beispiel) eine ausschließlich innerhalb der Funktion definierte Variable von außerhalb der Funktion oder innerhalb anderer Funktionen nicht zugänglich ist. Zum Beispiel ist das Folgende ungültig:
+Eine [Funktion](/de/docs/Glossary/function) erstellt einen Scope, sodass (zum Beispiel) eine ausschließlich innerhalb der Funktion definierte Variable von außerhalb der Funktion oder innerhalb anderer Funktionen nicht zugegriffen werden kann. Zum Beispiel ist das Folgende ungültig:
 
 ```js example-bad
 function exampleFunction() {
@@ -31,7 +31,7 @@ function exampleFunction() {
 console.log(x); // Causes error
 ```
 
-Das folgende Beispiel ist jedoch gültig, da die Variable außerhalb der Funktion deklariert wurde und damit global ist:
+Das folgende Beispiel ist hingegen gültig, da die Variable außerhalb der Funktion deklariert wurde und somit global ist:
 
 ```js example-good
 const x = "declared outside function";
@@ -47,7 +47,7 @@ console.log("Outside function");
 console.log(x);
 ```
 
-Blöcke scopen nur `let`- und `const`-Deklarationen, jedoch keine `var`-Deklarationen.
+Blöcke scopen nur `let`- und `const`-Deklarationen, nicht aber `var`-Deklarationen.
 
 ```js example-good
 {

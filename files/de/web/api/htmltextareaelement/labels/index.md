@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLTextAreaElement.labels`** schreibgeschützte Eigenschaft gibt ein [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("textArea")}}-Element verknüpft sind.
+Die schreibgeschützte Eigenschaft **`HTMLTextAreaElement.labels`** gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die dem {{HTMLElement("textArea")}}-Element zugeordnet sind.
 
 ## Wert
 
-Ein [`NodeList`](/de/docs/Web/API/NodeList), das die `<label>`-Elemente enthält, die mit dem `<textArea>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die dem `<textArea>`-Element zugeordnet sind.
 
 ## Beispiele
 

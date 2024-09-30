@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`** Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Interfaces setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("textarea")}}-Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
+Die **`setCustomValidity()`** Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Interface setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("textarea")}} Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keine_ benutzerdefinierte Validitätsfehlermeldung hat.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Gültigkeitsfehler.
+  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validitätsfehler.
 
 ### Rückgabewert
 
-Keinen ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel, wenn die `<textarea>`-Eingabe die Beschränkungsvalidierung nicht besteht, stellen wir benutzerdefinierte Fehler basierend auf der Beschränkung bereit, die die Validierung nicht besteht. Wenn der Wert gültig ist, setzen wir den benutzerdefinierten Fehler auf einen leeren String:
+In diesem Beispiel, wenn das `<textarea>` die Einschränkungsvalidierung nicht besteht, liefern wir benutzerdefinierte Fehler basierend auf der Einschränkung, die die Validierung nicht besteht. Wenn der Wert gültig ist, setzen wir den benutzerdefinierten Fehler auf einen leeren String:
 
 ```js
 const comment = document.getElementById("comment");
@@ -59,7 +59,7 @@ if (comment.validity.valueMissing) {
 - [`HTMLTextAreaElement.validity`](/de/docs/Web/API/HTMLTextAreaElement/validity)
 - [`HTMLTextAreaElement.checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)
 - [`HTMLTextAreaElement.reportValidity()`](/de/docs/Web/API/HTMLTextAreaElement/reportValidity)
-- [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
-- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Beschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Formular-Validierung](/de/docs/Web/HTML/Constraint_validation).
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

@@ -1,5 +1,5 @@
 ---
-title: UND
+title: AND
 slug: WebAssembly/Reference/Numeric/AND
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`and`** Anweisungen werden zur Durchführung eines bitweisen UND verwendet, ähnlich wie der **`&`** Operator in anderen Sprachen.
+Die **`and`**-Anweisungen werden verwendet, um ein bitweises UND zu durchführen, ähnlich dem **`&`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/and.html", "tabbed-taller")}}
 
@@ -24,7 +24,7 @@ i32.and
 ;; the top item on the stack will now be 1 (00000001)
 ```
 
-| Anweisung | Binäroperationscode |
-| --------- | ------------------- |
-| `i32.and` | `0x71`              |
-| `i64.and` | `0x83`              |
+| Anweisung   | Binäroperationscode |
+| ----------- | -------------------- |
+| `i32.and`   | `0x71`               |
+| `i64.and`   | `0x83`               |

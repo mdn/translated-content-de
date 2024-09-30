@@ -7,33 +7,33 @@ l10n:
 
 {{CSSRef}}
 
-Diese Schlüsselwörter spezifizieren den inneren {{CSSxRef("display")}}-Typ des Elements, der den Typ des Formatierungskontextes definiert, der seinen Inhalt anordnet (vorausgesetzt, es ist ein nicht ersetztes Element). Diese Schlüsselwörter werden als Werte der `display`-Eigenschaft verwendet und können zu Legacy-Zwecken als einzelnes Schlüsselwort verwendet werden oder wie in der Level 3-Spezifikation zusammen mit einem Wert aus den {{CSSxRef("&lt;display-outside&gt;")}}-Schlüsselwörtern definiert werden.
+Diese Schlüsselwörter spezifizieren den inneren {{CSSxRef("display")}}-Typ des Elements, der den Typ des Formatierungskontexts definiert, der seine Inhalte anordnet (vorausgesetzt, es handelt sich um ein nicht ersetztes Element). Diese Schlüsselwörter werden als Werte der `display` Eigenschaft verwendet und können aus Kompatibilitätsgründen als ein einzelnes Schlüsselwort oder, wie in der Level-3-Spezifikation definiert, zusammen mit einem Wert aus den {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwörtern verwendet werden.
 
 ## Syntax
 
-Gültige `<display-inside>`-Werte:
+Gültige `<display-inside>` Werte:
 
 - `flow`
 
-  - : Das Element ordnet seinen Inhalt mithilfe von Flusslayout an (Block-und-Inline-Layout).
+  - : Das Element ordnet seine Inhalte mittels Flusslayout (Block-und-Inline-Layout) an.
 
-    Wenn sein äußerer Anzeigetyp `inline` ist und es in einem Block- oder Inline-Formatierungskontext teilnimmt, erzeugt es eine Inline-Box. Andernfalls erzeugt es eine Block-Container-Box.
+    Wenn sein äußerer Anzeigetyp `inline` ist und es in einem Block- oder Inline-Formatierungskontext beteiligt ist, erzeugt es ein Inline-Box. Andernfalls erzeugt es ein Blockcontainer-Box.
 
-    Abhängig vom Wert anderer Eigenschaften (wie {{CSSxRef("position")}}, {{CSSxRef("float")}} oder {{CSSxRef("overflow")}}) und davon, ob es selbst in einem Block- oder Inline-Formatierungskontext teilnimmt, erstellt es entweder einen neuen [block formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seinen Inhalt oder integriert seinen Inhalt in den übergeordneten Formatierungskontext.
+    Abhängig vom Wert anderer Eigenschaften (wie {{CSSxRef("position")}}, {{CSSxRef("float")}} oder {{CSSxRef("overflow")}}) und ob es selbst in einem Block- oder Inline-Formatierungskontext beteiligt ist, etabliert es entweder einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seine Inhalte oder integriert seine Inhalte in den Formatierungskontext des übergeordneten Elements.
 
 - `flow-root`
-  - : Das Element erzeugt eine Block-Element-Box, die einen neuen [block formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt und den Formatierungsursprung definiert.
+  - : Das Element erzeugt ein Blockelement-Box, das einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) etabliert und den Formatierungs-Ursprung definiert.
 - `table`
-  - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("table")}}-Elemente. Es definiert eine Block-Level-Box.
+  - : Diese Elemente verhalten sich wie HTML {{HTMLElement("table")}}-Elemente. Es definiert eine Block-Level-Box.
 - `flex`
   - : Das Element verhält sich wie ein Blockelement und ordnet seinen Inhalt gemäß dem [Flexbox-Modell](/de/docs/Web/CSS/CSS_flexible_box_layout) an.
 - `grid`
   - : Das Element verhält sich wie ein Blockelement und ordnet seinen Inhalt gemäß dem [Grid-Modell](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) an.
 - `ruby`
-  - : Das Element verhält sich wie ein Inline-Element und ordnet seinen Inhalt gemäß dem Ruby-Formatierungsmodell an. Es verhält sich wie die entsprechenden HTML-{{HTMLElement("ruby")}}-Elemente.
+  - : Das Element verhält sich wie ein Inline-Element und ordnet seinen Inhalt gemäß dem Ruby-Formatierungsmodell an. Es verhält sich wie die entsprechenden HTML {{HTMLElement("ruby")}}-Elemente.
 
 > [!NOTE]
-> Browser, die die Zwei-Wert-Syntax unterstützen, und nur den inneren Wert finden, wie wenn `display: flex` oder `display: grid` angegeben ist, setzen ihren äußeren Wert auf `block`. Dies wird zu erwartetem Verhalten führen; zum Beispiel, wenn Sie ein Element als `display: grid` angeben, würden Sie erwarten, dass die Box, die am Gitter-Container erstellt wird, eine Block-Level-Box ist.
+> Browser, die die Zwei-Werte-Syntax unterstützen, setzen ihren äußeren Wert auf `block`, wenn nur der innere Wert gefunden wird, wie zum Beispiel bei der Angabe `display: flex` oder `display: grid`. Dies führt zu einem erwarteten Verhalten; beispielsweise erwarten Sie, dass die Box, die durch das Grid-Container-Element erstellt wird, eine Block-Level-Box ist, wenn Sie ein Element mit `display: grid` spezifizieren.
 
 ## Formale Syntax
 
@@ -41,7 +41,7 @@ Gültige `<display-inside>`-Werte:
 
 ## Beispiele
 
-In diesem Beispiel hat die übergeordnete Box `display: flow-root` erhalten und erstellt so einen neuen BFC und enthält das gefloatete Element.
+In diesem Beispiel ist der übergeordnete Box `display: flow-root` zugewiesen, wodurch ein neuer BFC etabliert wird und das schwebende Element enthalten ist.
 
 ### HTML
 

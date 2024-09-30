@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`changeType()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces legt den MIME-Typ fest, den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten sollen, dass die neuen Mediendaten diesem entsprechen. Diese Methode ermöglicht es, Codecs oder den Container-Typ während eines Streams zu ändern.
+Die **`changeType()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces legt den MIME-Typ fest, den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten sollen, um neue Mediendaten zu verarbeiten, die diesem Typ entsprechen. Dies ermöglicht es, Codecs oder den Containertyp während der Übertragung zu ändern.
 
-Ein Szenario, in dem dies hilfreich ist, besteht darin, die Anpassung der Medienquelle an die sich ändernde Bandbreitenverfügbarkeit zu unterstützen, indem man beim Wechsel der Ressourcenbedingungen von einem Codec zu einem anderen wechselt.
+Ein Szenario, in dem dies hilfreich ist, besteht darin, die Medienquelle an die sich ändernde Bandbreitenverfügbarkeit anzupassen, indem man von einem Codec zu einem anderen wechselt, wenn sich die Ressourcenbeschränkungen ändern.
 
 ## Syntax
 
@@ -21,24 +21,24 @@ changeType(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den MIME-Typ angibt, dem zukünftige Puffer entsprechen werden.
+  - : Ein Zeichenstring, der den MIME-Typ angibt, dem die zukünftigen Puffer entsprechen werden.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der angegebene String leer ist und keinen gültigen MIME-Typ angibt.
+  - : Wird ausgelöst, wenn der angegebene String leer ist, anstatt einen gültigen MIME-Typ anzugeben.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) kein Mitglied der [`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste der übergeordneten Medienquelle ist oder wenn die [`updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft des Puffers darauf hinweist, dass ein zuvor geplanter [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove) noch verarbeitet wird.
+  - : Wird ausgelöst, wenn der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) kein Mitglied der `sourceBuffers`-Liste der übergeordneten Medienquelle ist, oder wenn die `updating`-Eigenschaft des Puffers anzeigt, dass ein zuvor eingereihtes [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove) noch verarbeitet wird.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene MIME-Typ nicht unterstützt wird oder nicht mit den in der [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste vorhandenen Typen von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten unterstützt wird.
+  - : Wird ausgelöst, wenn der angegebene MIME-Typ nicht unterstützt wird oder nicht mit den Arten von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten unterstützt wird, die in der `MediaSource.sourceBuffers`-Liste vorhanden sind.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Wenn die [`readyState`](/de/docs/Web/API/MediaSource/readyState)-Eigenschaft der übergeordneten [`MediaSource`](/de/docs/Web/API/MediaSource) auf `"ended"` gesetzt ist, wird durch Aufrufen von `changeType()` die `readyState`-Eigenschaft auf `"open"` gesetzt und ein einfaches Ereignis namens [`sourceopen`](/de/docs/Web/API/MediaSource/sourceopen_event) bei der übergeordneten Medienquelle ausgelöst.
+Wenn die `readyState`-Eigenschaft der übergeordneten [`MediaSource`](/de/docs/Web/API/MediaSource) auf `"ended"` gesetzt ist, wird durch den Aufruf von `changeType()` die `readyState`-Eigenschaft auf `"open"` gesetzt und ein einfaches Ereignis namens [`sourceopen`](/de/docs/Web/API/MediaSource/sourceopen_event) bei der übergeordneten Medienquelle ausgelöst.
 
 ## Spezifikationen
 

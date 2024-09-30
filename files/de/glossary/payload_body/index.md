@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Payload-Body** einer HTTP-Nachricht ist der _Informationsteil_ ("Nutzlast") der Daten, die im HTTP-Nachrichtenkörper gesendet werden (falls vorhanden), bevor die [Transfer-Encoding](/de/docs/Web/HTTP/Headers/Transfer-Encoding) angewendet wird. Wenn kein Transfer-Encoding verwendet wird, sind der _Payload-Body_ und der _Nachrichtenkörper_ identisch!
+Der HTTP-Nachrichten-**Nutzlastkörper** ist der _Informationsteil_ ("Payload") der Daten, die im HTTP-Nachrichtenkörper gesendet werden (falls vorhanden), bevor die [Transfer-Encoding](/de/docs/Web/HTTP/Headers/Transfer-Encoding) angewendet wird. Wenn keine Transfer-Encoding verwendet wird, sind der _Nutzlastkörper_ und der _Nachrichtenkörper_ identisch!
 
-Zum Beispiel enthält der Nachrichtenkörper in dieser Antwort nur den Payload-Body: "Mozilla Developer Network":
+In diesem Beispiel enthält der Nachrichtenkörper nur den Nutzlastkörper: "Mozilla Developer Network":
 
 ```http
 HTTP/1.1 200 OK
@@ -18,7 +18,7 @@ Content-Type: text/plain
 Mozilla Developer Network
 ```
 
-Im Gegensatz dazu verwendet die nachstehende Antwort _Transfer-Encoding_, um den Payload-Body in Teile zu kodieren. Der gesendete Payload-Body (Informationen) ist immer noch "Mozilla Developer Network", aber der Nachrichtenkörper enthält zusätzliche Daten, um die Teile zu trennen:
+Im Gegensatz dazu wird in der folgenden Antwort _Transfer-Encoding_ verwendet, um den Nutzlastkörper in Chunks zu kodieren. Der gesendete Nutzlastkörper (Information) ist weiterhin "Mozilla Developer Network", aber der Nachrichtenkörper enthält zusätzliche Daten, um die Chunks zu trennen:
 
 ```http
 HTTP/1.1 200 OK
@@ -35,4 +35,4 @@ Network\r\n
 \r\n
 ```
 
-Für weitere Informationen siehe [RFC 7230, Abschnitt 3.3: Nachrichtenkörper](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3) und [RFC 7230, Abschnitt 3.3.1: Transfer-Encoding](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3.1).
+Weitere Informationen finden Sie in [RFC 7230, Abschnitt 3.3: Message Body](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3) und [RFC 7230, Abschnitt 3.3.1: Transfer-Encoding](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3.1).

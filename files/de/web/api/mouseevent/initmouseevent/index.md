@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Die **`MouseEvent.initMouseEvent()`** Methode initialisiert den Wert eines Mausereignisses, nachdem es erstellt wurde (normalerweise mit der [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) Methode).
+Die **`MouseEvent.initMouseEvent()`** Methode initialisiert den
+Wert eines Mausereignisses, nachdem es erstellt wurde (normalerweise mit der [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) Methode).
 
 > [!WARNING]
 > Verwenden Sie diese Methode nicht mehr, da sie veraltet ist.
 >
-> Verwenden Sie stattdessen spezifische Ereigniskonstruktoren, wie z.B. [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent).
-> Die Seite über das [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen zur Verwendung dieser.
+> Stattdessen sollten Sie spezifische Ereignis-Konstruktoren wie [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) verwenden.
+> Die Seite über das [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) gibt weitere Informationen über die Nutzung dieser Möglichkeit.
 
-In dieser Weise initialisierte Ereignisse müssen mit der [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) Methode erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis einzustellen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
+Ereignisse, die auf diese Weise initialisiert werden, müssen mit der [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) Methode erstellt worden sein.
+Diese Methode muss aufgerufen werden, um das Ereignis festzulegen,
+bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
 
 ## Syntax
 
@@ -30,43 +33,57 @@ initMouseEvent(type, canBubble, cancelable, view,
 ### Parameter
 
 - `type`
-  - : der String, um den [`type`](/de/docs/Web/API/Event/type) des Ereignisses festzulegen. Mögliche Typen für Mausereignisse beinhalten: `click`, `mousedown`, `mouseup`, `mouseover`, `mousemove`, `mouseout`.
+  - : der String, mit dem der [`type`](/de/docs/Web/API/Event/type) des Ereignisses festgelegt wird. Mögliche Typen
+    für Mausereignisse sind: `click`, `mousedown`,
+    `mouseup`, `mouseover`, `mousemove`,
+    `mouseout`.
 - `canBubble`
-  - : ob das Ereignis blubbern kann oder nicht. Setzt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles).
+  - : ob das Ereignis aufsteigen kann oder nicht. Legt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) fest.
 - `cancelable`
-  - : ob die Standardaktion des Ereignisses verhindert werden kann oder nicht. Setzt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable).
+  - : ob die Standardaktion des Ereignisses verhindert werden kann oder nicht. Legt den Wert von
+    [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) fest.
 - `view`
-  - : das AbstractView des Ereignisses. Sie sollten hier das [`window`](/de/docs/Web/API/Window) Objekt übergeben. Setzt den Wert von [`UIEvent.view`](/de/docs/Web/API/UIEvent/view).
+  - : die AbstractView des Ereignisses. Hier sollten Sie das [`window`](/de/docs/Web/API/Window) Objekt übergeben.
+    Legt den Wert von [`UIEvent.view`](/de/docs/Web/API/UIEvent/view) fest.
 - `detail`
-  - : die Klickanzahl des Ereignisses. Setzt den Wert von [`UIEvent.detail`](/de/docs/Web/API/UIEvent/detail).
+  - : die Anzahl der Mausklicks des Ereignisses. Legt den Wert von [`UIEvent.detail`](/de/docs/Web/API/UIEvent/detail) fest.
 - `screenX`
-  - : die Bildschirm-x-Koordinate des Ereignisses. Setzt den Wert von [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX).
+  - : die Bildschirm-x-Koordinate des Ereignisses. Legt den Wert von
+    [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) fest.
 - `screenY`
-  - : die Bildschirm-y-Koordinate des Ereignisses. Setzt den Wert von [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY).
+  - : die Bildschirm-y-Koordinate des Ereignisses. Legt den Wert von
+    [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) fest.
 - `clientX`
-  - : die Client-x-Koordinate des Ereignisses. Setzt den Wert von [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
+  - : die client x-Koordinate des Ereignisses. Legt den Wert von
+    [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) fest.
 - `clientY`
-  - : die Client-y-Koordinate des Ereignisses. Setzt den Wert von [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY).
+  - : die client y-Koordinate des Ereignisses. Legt den Wert von
+    [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) fest.
 - `ctrlKey`
 
-  - : ob die <kbd>control</kbd> Taste während des Ereignisses gedrückt wurde oder nicht. Setzt den Wert von [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey).
+  - : ob die <kbd>Strg</kbd>-Taste während des Ereignisses gedrückt wurde oder nicht. Legt den Wert
+    von [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey) fest.
 
 - `altKey`
 
-  - : ob die <kbd>alt</kbd> Taste während des Ereignisses gedrückt wurde oder nicht. Setzt den Wert von [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey).
+  - : ob die <kbd>Alt</kbd>-Taste während des Ereignisses gedrückt wurde oder nicht. Legt den Wert von
+    [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) fest.
 
 - `shiftKey`
 
-  - : ob die <kbd>shift</kbd> Taste während des Ereignisses gedrückt wurde oder nicht. Setzt den Wert von [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey).
+  - : ob die <kbd>Shift</kbd>-Taste während des Ereignisses gedrückt wurde oder nicht. Legt den Wert
+    von [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) fest.
 
 - `metaKey`
 
-  - : ob die <kbd>meta</kbd> Taste während des Ereignisses gedrückt wurde oder nicht. Setzt den Wert von [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey).
+  - : ob die <kbd>Meta</kbd>-Taste während des Ereignisses gedrückt wurde oder nicht. Legt den Wert von
+    [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) fest.
 
 - `button`
-  - : die Maus-`button` des Ereignisses.
+  - : der Maus-[`button`](/de/docs/Web/API/MouseEvent/button) des Ereignisses.
 - `relatedTarget`
-  - : das [verwandte EventTarget](/de/docs/Web/API/MouseEvent/relatedTarget) des Ereignisses. Wird nur mit einigen Ereignistypen (z.B. `mouseover` und `mouseout`) verwendet. In anderen Fällen, übergeben Sie `null`.
+  - : das [verwandte EventTarget](/de/docs/Web/API/MouseEvent/relatedTarget) des Ereignisses. Nur bei einigen Ereignistypen verwendet (z.B. `mouseover` und `mouseout`). In
+    anderen Fällen übergeben Sie `null`.
 
 ### Rückgabewert
 
@@ -130,5 +147,7 @@ simulateClick();
 
 ## Siehe auch
 
-- [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) Konstruktor, der moderne Standardweg zum Erstellen eines [`MouseEvent`](/de/docs/Web/API/MouseEvent)
-- [`Event.initEvent()`](/de/docs/Web/API/Event/initEvent) ist eine einfachere Methode mit ähnlichem Zweck. Sie ist ebenfalls veraltet und sollte nicht mehr verwendet werden.
+- Der [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) Konstruktor, die moderne
+  Standardmethode zur Erstellung eines [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`Event.initEvent()`](/de/docs/Web/API/Event/initEvent) ist eine einfachere Methode, die einen ähnlichen Zweck erfüllt. Sie
+  ist ebenfalls veraltet und sollte nicht mehr verwendet werden.

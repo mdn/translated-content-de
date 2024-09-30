@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG-animierte Zahl-Schnittstelle
+## SVG animated number Schnittstelle
 
-Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
+Die `SVGAnimatedNumber` Schnittstelle wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Ebenfalls implementieren</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Basistyps [\<Numbe
       <td><code>baseVal</code></td>
       <td>float</td>
       <td>
-        Der Basiswert des angegebenen Attributs, bevor Animationen angewendet werden.
+        Der Basiswert des angegebenen Attributs vor Anwendung jeglicher Animationen.
       </td>
     </tr>
     <tr>
@@ -74,7 +74,7 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Basistyps [\<Numbe
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedNumber`-Schnittstelle bietet keine spezifischen Methoden.
+Die `SVGAnimatedNumber` Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

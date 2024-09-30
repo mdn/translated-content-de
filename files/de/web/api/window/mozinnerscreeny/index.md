@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}{{Non-standard_Header}}
 
-Die `mozInnerScreenY`-Eigenschaft des [`Window`](/de/docs/Web/API/Window) Interfaces gibt die Y-Koordinate der oberen linken Ecke des Viewports des Fensters in Bildschirmkoordinaten zurück.
+Die `mozInnerScreenY`-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt die Y-Koordinate der oberen linken Ecke des Viewports des Fensters in Bildschirmkoordinaten zurück.
 
 > [!NOTE]
 > Diese Koordinate wird in CSS-Pixeln und nicht in Hardware-Pixeln angegeben.
 
 ## Wert
 
-Die `window.mozInnerScreenY`-Eigenschaft ist ein Gleitkommawert, der nur lesend verfügbar ist; sie hat keinen Standardwert.
+Die `window.mozInnerScreenY`-Eigenschaft ist ein Gleitkommawert, der schreibgeschützt ist; sie hat keinen Standardwert.
 
 ## Spezifikationen
 
-Dieses Merkmal ist Teil keiner aktuellen Spezifikation. Es ist nicht auf dem Weg, ein Standard zu werden.
+Dieses Feature ist nicht Teil einer aktuellen Spezifikation und ist nicht auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

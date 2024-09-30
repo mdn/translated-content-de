@@ -1,5 +1,5 @@
 ---
-title: "BlobEvent: data-Eigenschaft"
+title: "BlobEvent: Daten-Eigenschaft"
 short-title: data
 slug: Web/API/BlobEvent/data
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die schreibgeschützte **`data`**-Eigenschaft des [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Interfaces repräsentiert ein [`Blob`](/de/docs/Web/API/Blob), das mit dem Ereignis verknüpft ist.
+Die schreibgeschützte **`data`**-Eigenschaft der [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Schnittstelle repräsentiert ein mit dem Ereignis verbundenes [`Blob`](/de/docs/Web/API/Blob).
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein [`Blob`](/de/docs/Web/API/Blob)-Objekt.
 
 ## Siehe auch
 
-- Das [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Interface, zu dem es gehört.
+- Die [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Schnittstelle, zu der sie gehört.

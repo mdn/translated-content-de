@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@font-feature-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, einen gemeinsamen Namen in der {{cssxref("font-variant-alternates")}} Eigenschaft für Funktionen zu verwenden, die in OpenType unterschiedlich aktiviert werden. Dies kann helfen, Ihr CSS zu vereinfachen, wenn Sie mehrere Schriftarten verwenden.
+Die **`@font-feature-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, einen gemeinsamen Namen in der {{cssxref("font-variant-alternates")}}-Eigenschaft für unterschiedlich in OpenType aktivierte Funktionen zu verwenden. Dies kann helfen, Ihr CSS beim Einsatz mehrerer Schriftarten zu vereinfachen.
 
-Die `@font-feature-values` At-Regel kann entweder auf der obersten Ebene Ihres CSS oder innerhalb einer beliebigen CSS-Bedingungsgruppen-At-Regel verwendet werden.
+Die `@font-feature-values` At-Regel kann entweder auf der obersten Ebene Ihres CSS oder innerhalb jeder CSS-Bedingungsgruppierten At-Regel verwendet werden.
 
 ## Syntax
 
-Jeder `@font-feature-values` Block enthält eine Liste von entweder Feature-Wert-Blöcken (unten aufgeführt) oder dem {{cssxref("@font-feature-values/font-display", "font-display")}} Deskriptor.
+Jeder `@font-feature-values` Block enthält eine Liste entweder von Feature-Werteblöcken (unten aufgeführt) oder dem {{cssxref("@font-feature-values/font-display", "font-display")}} Deskriptor.
 
-### Feature-Wert-Blöcke
+### Feature-Werteblöcke
 
 - `@swash`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "swash()", "#swash")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Swash-Feature-Wert-Definition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "swash()", "#swash")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Swash-Funktionwertdefinition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
 - `@annotation`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "annotation()", "#annotation")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Annotation-Feature-Wert-Definition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "annotation()", "#annotation")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Annotation-Funktionwertdefinition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
 - `@ornaments`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "ornaments()", "#ornaments")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Ornaments-Feature-Wert-Definition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "ornaments()", "#ornaments")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Ornaments-Funktionwertdefinition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
 - `@stylistic`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "stylistic()", "#stylistic")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Stylistic-Feature-Wert-Definition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "stylistic()", "#stylistic")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Stylistic-Funktionwertdefinition erlaubt nur einen Wert: `ident1: 2` ist gültig, aber `ident2: 2 4` ist es nicht.
 - `@styleset`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "styleset()", "#styleset")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Styleset-Feature-Wert-Definition erlaubt eine unbegrenzte Anzahl von Werten: `ident1: 2 4 12 1` wird auf die OpenType-Werte `ss02`, `ss04`, `ss12` und `ss01` abgebildet. Beachten Sie, dass Werte über `99` gültig sind, aber keiner OpenType-Werte zugeordnet werden und ignoriert werden.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "styleset()", "#styleset")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Styleset-Funktionwertdefinition erlaubt eine unbegrenzte Anzahl von Werten: `ident1: 2 4 12 1` mappt auf die OpenType-Werte `ss02`, `ss04`, `ss12` und `ss01`. Beachten Sie, dass Werte höher als `99` gültig sind, aber nicht auf irgendwelche OpenType-Werte abgebildet werden und ignoriert werden.
 - `@character-variant`
-  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "character-variant()", "#character-variant")}} funktionalen Notation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Character-Variant-Feature-Wert-Definition erlaubt entweder einen oder zwei Werte: `ident1: 3` wird auf `cv03=1` abgebildet, und `ident2: 2 4` wird auf `cv02=4` abgebildet, aber `ident2: 2 4 5` ist ungültig.
+  - : Gibt einen Funktionsnamen an, der mit der {{cssxref("font-variant-alternates", "character-variant()", "#character-variant")}}-Funktionsnotation von {{cssxref("font-variant-alternates")}} funktioniert. Eine Character-Variant-Funktionwertdefinition erlaubt entweder einen oder zwei Werte: `ident1: 3` mappt auf `cv03=1`, und `ident2: 2 4` mappt auf `cv02=4`, aber `ident2: 2 4 5` ist ungültig.
 
 ## Formale Syntax
 
@@ -71,4 +71,4 @@ Jeder `@font-feature-values` Block enthält eine Liste von entweder Feature-Wert
 
 ## Siehe auch
 
-- Die {{cssxref("font-variant-alternates")}} Eigenschaft, die Werte verwendet, die diese At-Regel definiert.
+- Die {{cssxref("font-variant-alternates")}}-Eigenschaft, die Werte verwendet, die diese At-Regel definiert.

@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`channelCount`**-Eigenschaft der [`AudioNode`](/de/docs/Web/API/AudioNode)-Schnittstelle repräsentiert eine ganze Zahl, die verwendet wird, um festzulegen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen des Knotens verwendet werden.
+Die **`channelCount`**-Eigenschaft der [`AudioNode`](/de/docs/Web/API/AudioNode)-Schnittstelle repräsentiert eine Ganzzahl, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixen und Down-Mixen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden.
 
-Die Verwendung und genaue Definition von `channelCount` hängen vom Wert von [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) ab:
+Die Nutzung und genaue Definition von `channelCount` hängt vom Wert von [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) ab:
 
 - Sie wird ignoriert, wenn der Wert von `channelCountMode` `max` ist.
-- Sie wird als Maximalwert verwendet, wenn der Wert von `channelCountMode` `clamped-max` ist.
+- Sie wird als maximaler Wert verwendet, wenn der Wert von `channelCountMode` `clamped-max` ist.
 - Sie wird als exakter Wert verwendet, wenn der Wert von `channelCountMode` `explicit` ist.
 
 ## Wert
 
-Eine ganze Zahl.
+Eine Ganzzahl.
 
 ## Beispiele
 

@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`IdentityProvider`** Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identity Provider (IdP) und bietet Zugriff auf zugehörige Informationen und Funktionalitäten.
+Das **`IdentityProvider`** Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identitätsanbieter (IdP) und bietet Zugriff auf verwandte Informationen und Funktionen.
 
 {{InheritanceDiagram}}
 
 ## Statische Methoden
 
 - [`close()`](/de/docs/Web/API/IdentityProvider/close_static) {{experimental_inline}}
-  - : Stellt ein manuelles Signal für den Browser bereit, dass ein IdP-Anmeldefluss abgeschlossen ist. Dies ist beispielsweise erforderlich, um den IdP-Anmeldedialog zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP das Sammeln von Daten vom Benutzer beendet hat.
+  - : Bietet ein manuelles Signal an den Browser, dass ein Anmeldefluss eines IdPs abgeschlossen ist. Dies ist erforderlich, um beispielsweise den Anmeldedialog des IdP zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP die Datenerfassung vom Nutzer beendet hat.
 - [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static) {{experimental_inline}}
-  - : Gibt Informationen über einen vorher angemeldeten Benutzer bei seiner Rückkehr zu einem IdP zurück, die verwendet werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
+  - : Gibt Informationen über einen zuvor angemeldeten Nutzer bei seiner Rückkehr zu einem IdP zurück, die verwendet werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
 
 ## Beispiele
 

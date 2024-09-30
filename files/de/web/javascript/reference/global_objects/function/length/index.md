@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`length`** Dateneigenschaft einer {{jsxref("Function")}}-Instanz gibt die Anzahl der erwarteten Parameter der Funktion an.
+Die **`length`** Daten-Eigenschaft einer {{jsxref("Function")}} Instanz gibt die Anzahl der erwarteten Parameter der Funktion an.
 
 {{EmbedInteractiveExample("pages/js/function-length.html")}}
 
@@ -19,7 +19,7 @@ Eine Zahl.
 
 ## Beschreibung
 
-Die `length`-Eigenschaft eines {{jsxref("Function")}}-Objekts gibt an, wie viele Argumente die Funktion erwartet, d.h. die Anzahl der formalen Parameter:
+Die `length` Eigenschaft eines {{jsxref("Function")}} Objekts gibt an, wie viele Argumente die Funktion erwartet, d.h. die Anzahl der formalen Parameter:
 
 - Es werden nur Parameter vor dem ersten mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) gezählt.
 - Ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) zählt als ein einzelner Parameter.
@@ -27,13 +27,13 @@ Die `length`-Eigenschaft eines {{jsxref("Function")}}-Objekts gibt an, wie viele
 
 Im Gegensatz dazu ist {{jsxref("Functions/arguments/length", "arguments.length")}} lokal zu einer Funktion und gibt die Anzahl der tatsächlich an die Funktion übergebenen Argumente an.
 
-Der {{jsxref("Function")}}-Konstruktor ist selbst ein `Function`-Objekt. Seine `length`-Dateneigenschaft hat den Wert `1`.
+Der {{jsxref("Function")}} Konstruktor ist selbst ein `Function` Objekt. Seine `length` Daten-Eigenschaft hat den Wert `1`.
 
-Aufgrund historischer Gründe ist `Function.prototype` selbst aufrufbar. Die `length`-Eigenschaft von `Function.prototype` hat den Wert `0`.
+Aus historischen Gründen ist `Function.prototype` selbst aufrufbar. Die `length` Eigenschaft von `Function.prototype` hat den Wert `0`.
 
 ## Beispiele
 
-### Verwendung der Funktion length
+### Verwendung der function length
 
 ```js
 console.log(Function.length); // 1

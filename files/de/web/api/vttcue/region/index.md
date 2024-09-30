@@ -1,5 +1,5 @@
 ---
-title: "VTTCue: region Eigenschaft"
+title: "VTTCue: region-Eigenschaft"
 short-title: region
 slug: Web/API/VTTCue/region
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`region`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces gibt die [`VTTRegion`](/de/docs/Web/API/VTTRegion) zurück, zu der dieser Cue gehört, und legt sie fest.
+Die **`region`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces gibt die [`VTTRegion`](/de/docs/Web/API/VTTRegion) zurück, zu der dieses Cue gehört, und legt sie fest.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`VTTRegion`](/de/docs/Web/API/VTTRegion)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `region` in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und der Wert von `region` in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

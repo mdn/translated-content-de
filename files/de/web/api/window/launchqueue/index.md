@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte `launchQueue`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse. Diese ermöglicht die Implementierung einer benutzerdefinierten Launch-Navigationsbehandlung in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA), wobei der Behandlungskontext durch den `client_mode`-Wert des [`launch_handler`](/de/docs/Web/Manifest/launch_handler)-Manifestfeldes angegeben wird.
+Die schreibgeschützte Eigenschaft `launchQueue` der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse. Diese ermöglicht die Implementierung benutzerdefinierter Start-Navigationshandhabung in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA), wobei der Kontext der Handhabung durch den Wert `client_mode` im Manifestfeld [`launch_handler`](/de/docs/Web/Manifest/launch_handler) angezeigt wird.
 
-Die Funktionalität der benutzerdefinierten Launch-Navigationsbehandlung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Rückruffunktion übergeben wird.
+Die Funktionalität der benutzerdefinierten Start-Navigationshandhabung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die Rückruffunktion [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird.
 
 ## Wert
 

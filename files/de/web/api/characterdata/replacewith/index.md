@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: replaceWith() Methode"
+title: "CharacterData: replaceWith()-Methode"
 short-title: replaceWith()
 slug: Web/API/CharacterData/replaceWith
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replaceWith()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-ersetzt diesen Knoten in der Kindliste seines Elternteils
-durch eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten.
+Die **`replaceWith()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces ersetzt diesen Knoten in der Kinderliste seines Elternteils mit einer Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen.
 
-Zeichenketten werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenkette wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
+Zeichenfolgen werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenfolge wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
 
 ## Syntax
 
@@ -23,10 +21,10 @@ replaceWith(...nodes)
 ### Parameter
 
 - `nodes` {{optional_inline}}
-  - : Eine durch Kommas getrennte Liste von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten, die den aktuellen Knoten ersetzen.
+  - : Eine durch Kommas getrennte Liste von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die den aktuellen Knoten ersetzen werden.
 
 > [!NOTE]
-> Wenn keine Argumente übergeben werden, wird dieser Knoten aus dem DOM-Baum entfernt.
+> Wenn keine Argumente übergeben werden, entfernt diese Methode den Knoten aus dem DOM-Baum.
 
 ### Rückgabewert
 

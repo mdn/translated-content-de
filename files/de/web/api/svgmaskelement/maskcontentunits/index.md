@@ -1,5 +1,5 @@
 ---
-title: "SVGMaskElement: maskContentUnits Eigenschaft"
+title: "SVGMaskElement: maskContentUnits-Eigenschaft"
 short-title: maskContentUnits
 slug: Web/API/SVGMaskElement/maskContentUnits
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`maskContentUnits`** Eigenschaft der [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Schnittstelle spiegelt das {{SVGAttr("maskContentUnits")}}-Attribut wider. Sie gibt an, welches Koordinatensystem für die Inhalte des {{SVGElement("mask")}}-Elements verwendet werden soll.
+Die schreibgeschützte **`maskContentUnits`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces spiegelt das {{SVGAttr("maskContentUnits")}}-Attribut wider. Sie gibt an, welches Koordinatensystem für den Inhalt des {{SVGElement("mask")}}-Elements verwendet werden soll.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Behälter für zwei Werte, die Sie ändern können, [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
 
 ## Wert
 
-Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das das Koordinatensystem repräsentiert. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
+Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem darstellt. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
 
 - `0` (`SVG_UNIT_TYPE_UNKNOWN`)
-  - : Der Typ ist nicht einer der vordefinierten Typen.
+  - : Der Typ entspricht keinem der vordefinierten Typen.
 - `1` (`SVG_UNIT_TYPE_USERSPACEONUSE`)
-  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskContentUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als die Maske erstellt wurde. Es ist der Standardwert.
+  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskContentUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, das beim Erstellen der Maske definiert wurde. Dies ist der Standardwert.
 - `2` (`SVG_UNIT_TYPE_OBJECTBOUNDINGBOX`)
-  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zum Begrenzungsrahmen des Elements sind, auf das die Maske angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Objektbegrenzungsrahmens ist und dass die Breite und Höhe des Objektbegrenzungsrahmens als Länge von 1 Einheit betrachtet werden.
+  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zur Umgrenzungsbox des Elements sind, auf das die Maske angewendet wird. Es bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektumgrenzungsbox ist und die Breite und Höhe der Objektumgrenzungsbox als Länge von 1 Einheit betrachtet werden.
 
 ## Beispiele
 

@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `upX`-Eigenschaft des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den x-Wert des Richtungsvektors darstellt, welcher die Richtung definiert, in die der Listener zeigt.
+Die schreibgeschützte Eigenschaft `upX` des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den x-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung angibt, in die der Zuhörer zeigt.
 
 > [!NOTE]
-> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf "equalpower" gesetzt ist, oder _k-rate_ ansonsten.
+> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`panningModel`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower gesetzt ist, oder _k-rate_ anderweitig.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0, und er kann im Bereich von positiver bis negativer Unendlichkeit liegen.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0 und er kann zwischen positiver und negativer Unendlichkeit variieren.
 
 ## Beispiele
 
-Für ausführlicheren Beispielcode siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples).
+Für ausführlichere Beispielcodes siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples).
 
 ## Spezifikationen
 

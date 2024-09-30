@@ -1,5 +1,5 @@
 ---
-title: Implementierung von Steuerungen mithilfe der Gamepad API
+title: Kontrollen mit der Gamepad API implementieren
 slug: Games/Techniques/Controls_Gamepad_API
 l10n:
   sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
@@ -7,38 +7,38 @@ l10n:
 
 {{GamesSidebar}}
 
-Dieser Artikel befasst sich mit der Implementierung eines effektiven, plattformübergreifenden Steuerungssystems für Webspiele mithilfe der Gamepad API. Diese erlaubt es Ihnen, Ihre Webspiele mit Konsolenspielcontrollern zu steuern. Es wird ein Beispielspiel vorgestellt — Hungry Fridge, entwickelt von [Enclave Games](https://enclavegames.com/).
+Dieser Artikel befasst sich mit der Implementierung eines effektiven, browserübergreifenden Steuersystems für Web-Spiele mit der Gamepad API, die es Ihnen ermöglicht, Ihre Web-Spiele mit Konsolen-Gamecontrollern zu steuern. Es wird ein Beispielspiel vorgestellt — Hungry Fridge, erstellt von [Enclave Games](https://enclavegames.com/).
 
-## Steuerungen für Webspiele
+## Steuerungen für Web-Spiele
 
-Historisch gesehen war das Spielen auf einer Konsole, die an Ihren Fernseher angeschlossen ist, immer ein völlig anderes Erlebnis als das Spielen auf dem PC, hauptsächlich wegen der einzigartigen Steuerung. Es war schließlich möglich, Konsolengamepads mit Desktopspielen – entweder native Spiele oder solche, die im Browser laufen – zu verwenden, dank zusätzlicher Treiber und Plugins. Jetzt haben wir die [Gamepad API](/de/docs/Web/API/Gamepad_API), die es uns ermöglicht, Browser-basierte Spiele ohne Plugins mit Gamepad-Controllern zu spielen. Die Gamepad API erreicht dies, indem sie eine Schnittstelle bereitstellt, die Tastendrücke und Achsenänderungen offenlegt, die in JavaScript-Code zur Eingabeverarbeitung verwendet werden können. Das sind gute Zeiten für das Browser-Gaming.
+Historisch gesehen war das Spielen von Spielen auf einer Konsole, die an Ihren Fernseher angeschlossen war, immer ein völlig anderes Erlebnis als das Spielen auf dem PC, hauptsächlich wegen der einzigartigen Steuerungen. Letztendlich ermöglichten zusätzliche Treiber und Plugins die Verwendung von Konsolen-Gamepads mit Desktop-Spielen — entweder native Spiele oder solche, die im Browser laufen. Jetzt haben wir die [Gamepad API](/de/docs/Web/API/Gamepad_API), die uns die Möglichkeit gibt, browserbasierte Spiele mit Gamecontroller zu spielen, ohne Plugins. Die Gamepad API erreicht dies, indem sie eine Schnittstelle bereitstellt, die Tastendrücke und Achsenänderungen sichtbar macht, die innerhalb von JavaScript-Code zur Handhabung der Eingaben genutzt werden können. Dies sind gute Zeiten für Browser-Gaming.
 
-## Welche Gamepads sind am besten?
+## Welche Gamepads sind die besten?
 
-Die derzeit beliebtesten Gamepads sind die der Xbox 360, Xbox One, PS3 und PS4 — sie wurden umfassend getestet und funktionieren gut mit der Implementierung der Gamepad API in Browsern unter Windows und macOS.
+Die derzeit beliebtesten Gamepads sind die der Xbox 360, Xbox One, PS3 und PS4 — sie wurden gründlich getestet und funktionieren gut mit der Gamepad API-Implementierung in Browsern auf Windows und macOS.
 
-Es gibt auch eine Reihe anderer Geräte mit verschiedenen Tastenlayouts, die mehr oder weniger gut über die Browserimplementierungen hinweg funktionieren. Der im Artikel diskutierte Code wurde mit einigen Gamepads getestet, aber die bevorzugte Konfiguration des Autors ist ein drahtloses Xbox 360-Controller und der Firefox-Browser auf macOS.
+Es gibt auch eine Reihe anderer Geräte mit unterschiedlichen Tastenlayouts, die mehr oder weniger über Browser-Implementierungen funktionieren. Der in diesem Artikel besprochene Code wurde mit einigen Gamepads getestet, aber die bevorzugte Konfiguration des Autors ist ein kabelloser Xbox 360-Controller und der Firefox-Browser auf macOS.
 
 ## Fallstudie: Hungry Fridge
 
-Der [GitHub Game Off II](https://github.blog/open-source/gaming/github-game-off-ii/) Wettbewerb fand im November 2013 statt und [Enclave Games](https://enclavegames.com/) beschloss, daran teilzunehmen. Das Thema des Wettbewerbs war "Veränderung", also reichten sie ein Spiel ein, bei dem Sie den Hungry Fridge füttern müssen, indem Sie gesunde Lebensmittel (Äpfel, Karotten, Salate) antippen und "ungesunde" Lebensmittel (Bier, Burger, Pizza) vermeiden. Ein Countdown ändert alle paar Sekunden die Art von Lebensmittel, die der Kühlschrank essen möchte, also müssen Sie vorsichtig sein und schnell handeln.
+Der [GitHub Game Off II](https://github.blog/open-source/gaming/github-game-off-ii/) Wettbewerb fand im November 2013 statt und [Enclave Games](https://enclavegames.com/) beschloss, daran teilzunehmen. Das Thema des Wettbewerbs war "Wandel", also reichten sie ein Spiel ein, bei dem Sie den Hungry Fridge füttern müssen, indem Sie auf das gesunde Essen tippen (Äpfel, Karotten, Salat) und das "schlechte" Essen vermeiden (Bier, Burger, Pizza). Ein Countdown ändert alle paar Sekunden die Art des Essens, das der Kühlschrank essen möchte, sodass Sie vorsichtig und schnell handeln müssen.
 
-Die zweite, versteckte "Veränderung"-Implementierung ist die Fähigkeit, den statischen Kühlschrank in eine vollwertige, bewegliche, schießende und essende Maschine zu verwandeln. Wenn Sie den Controller anschließen, ändert sich das Spiel erheblich (Hungry Fridge wird zu Super Turbo Hungry Fridge) und Sie können den gepanzerten Kühlschrank mithilfe der Gamepad API steuern. Sie müssen das Essen abschießen, aber auch hier müssen Sie die Art von Lebensmittel finden, die der Kühlschrank zu jedem Zeitpunkt essen möchte, sonst verlieren Sie Energie.
+Die zweite, verborgene "Wandel"-Implementierung ist die Fähigkeit, den statischen Kühlschrank in eine vollwertige bewegliche, schießende und essende Maschine zu verwandeln. Wenn Sie den Controller anschließen, ändert sich das Spiel erheblich (Hungry Fridge wird zum Super Turbo Hungry Fridge) und Sie können den gepanzerten Kühlschrank mit der Gamepad API steuern. Sie müssen das Essen abschießen, aber erneut müssen Sie die Art des Essens finden, die der Kühlschrank zu jedem Zeitpunkt essen möchte, andernfalls verlieren Sie Energie.
 
-Das Spiel verkörpert zwei völlig unterschiedliche Arten von "Veränderung" — gutes Essen gegen schlechtes Essen und mobil gegen Desktop.
+Das Spiel umfasst zwei völlig unterschiedliche Arten von "Wandel" — gutes Essen vs. schlechtes Essen und Mobil vs. Desktop.
 
 ## Demo
 
-Die vollständige Version des Hungry Fridge Spiels wurde zuerst erstellt, und dann wurde eine [einfache Demo](https://end3r.github.io/Gamepad-API-Content-Kit/demo/demo.html) entwickelt, um die Gamepad API in Aktion zu zeigen und den JavaScript-Quellcode zu präsentieren. Sie ist Teil des [Gamepad API Content Kit](https://end3r.github.io/Gamepad-API-Content-Kit/), das auf GitHub verfügbar ist, wo Sie den Code ausführlich untersuchen und genau nachvollziehen können, wie er funktioniert.
+Die Vollversion des Hungry Fridge Spiels wurde zuerst entwickelt, und dann wurde eine [einfache Demo](https://end3r.github.io/Gamepad-API-Content-Kit/demo/demo.html) erstellt, um die Gamepad API in Aktion zu zeigen und den JavaScript-Quellcode zu demonstrieren. Sie ist Teil des [Gamepad API Content Kit](https://end3r.github.io/Gamepad-API-Content-Kit/), das auf GitHub verfügbar ist, wo Sie tief in den Code eintauchen und genau studieren können, wie er funktioniert.
 
-Der unten erklärte Code stammt aus der vollständigen Version des Hungry Fridge Spiels, ist jedoch fast identisch mit der aus der Demo — der einzige Unterschied besteht darin, dass in der Vollversion die Variable `turbo` verwendet wird, um zu entscheiden, ob das Spiel im Super Turbo Modus gestartet wird. Es funktioniert unabhängig und könnte auch aktiviert werden, wenn das Gamepad nicht angeschlossen ist.
+Der unten erklärte Code stammt aus der Vollversion des Hungry Fridge Spiels, ist jedoch fast identisch mit dem der Demo — der einzige Unterschied ist, dass die Vollversion die `turbo`-Variable verwendet, um zu entscheiden, ob das Spiel im Super Turbo Modus gestartet wird. Es funktioniert unabhängig, sodass es auch aktiviert werden kann, wenn das Gamepad nicht angeschlossen ist.
 
 > [!NOTE]
-> Easter Egg: Es gibt eine versteckte Möglichkeit, Super Turbo Hungry Fridge auf dem Desktop zu starten, ohne ein Gamepad angeschlossen zu haben — klicken Sie auf das Gamepad-Symbol in der oberen rechten Ecke des Bildschirms. Dadurch wird das Spiel im Super Turbo Modus gestartet und Sie können den Kühlschrank mit der Tastatur steuern: A und D zum Drehen des Turms nach links und rechts, W zum Schießen und Pfeiltasten für die Bewegung.
+> Osterzeit: Es gibt eine versteckte Option, um Super Turbo Hungry Fridge auf dem Desktop zu starten, ohne ein Gamepad angeschlossen zu haben — klicken Sie auf das Gamepad-Symbol in der oberen rechten Ecke des Bildschirms. Es wird das Spiel im Super Turbo Modus starten und Sie können den Kühlschrank mit der Tastatur steuern: A und D, um den Turm nach links und rechts zu drehen, W zum Schießen und Pfeiltasten zur Bewegung.
 
 ## Implementierung
 
-Es gibt zwei wichtige Ereignisse, die zusammen mit der Gamepad API zu verwenden sind — `gamepadconnected` und `gamepaddisconnected`. Das erste wird ausgelöst, wenn der Browser die Verbindung eines neuen Gamepads erkennt, während das zweite ausgelöst wird, wenn ein Gamepad getrennt wird (entweder physisch durch den Benutzer oder aufgrund von Inaktivität). In der Demo wird das `gamepadAPI`-Objekt verwendet, um alles, was mit der API zusammenhängt, zu speichern:
+Es gibt zwei wichtige Ereignisse, die zusammen mit der Gamepad API genutzt werden — `gamepadconnected` und `gamepaddisconnected`. Das erste wird ausgelöst, wenn der Browser die Verbindung eines neuen Gamepads erkennt, während das zweite ausgelöst wird, wenn ein Gamepad getrennt wird (entweder physisch durch den Benutzer oder aufgrund von Inaktivität). Im Demo wird das `gamepadAPI` Objekt verwendet, um alles im Zusammenhang mit der API zu speichern:
 
 ```js
 const gamepadAPI = {
@@ -55,7 +55,7 @@ const gamepadAPI = {
 };
 ```
 
-Das `buttons`-Array enthält das Xbox 360 Tastenlayout:
+Das `buttons` Array enthält das Xbox 360-Tastenlayout:
 
 ```js
 buttons: [
@@ -65,14 +65,14 @@ buttons: [
 ],
 ```
 
-Dies kann bei anderen Arten von Gamepads wie dem PS3-Controller (oder einem No-Name-Generic-Controller) unterschiedlich sein, daher sollten Sie vorsichtig sein und nicht einfach davon ausgehen, dass die erwartete Taste dieselbe ist, die Sie tatsächlich erhalten. Als nächstes richten wir zwei Event-Listener ein, um die Daten zu erhalten:
+Dies kann für andere Arten von Gamepads wie den PS3-Controller (oder einen namenlosen, generischen) unterschiedlich sein, daher müssen Sie vorsichtig sein und nicht einfach davon ausgehen, dass die erwartete Taste die tatsächliche ist. Als nächstes richten wir zwei Event-Listener ein, um die Daten zu erhalten:
 
 ```js
 window.addEventListener("gamepadconnected", gamepadAPI.connect);
 window.addEventListener("gamepaddisconnected", gamepadAPI.disconnect);
 ```
 
-Aufgrund der Sicherheitsrichtlinie müssen Sie zuerst mit dem Controller interagieren, während die Seite sichtbar ist, damit das Ereignis ausgelöst wird. Wenn die API ohne jegliche Interaktion durch den Benutzer funktionieren würde, könnte sie genutzt werden, um diese ohne deren Wissen zu identifizieren.
+Aufgrund der Sicherheitsrichtlinien müssen Sie zuerst mit dem Controller interagieren, während die Seite sichtbar ist, damit das Ereignis ausgelöst wird. Würde die API ohne jegliche Interaktion des Nutzers funktionieren, könnte sie verwendet werden, um ihn ohne sein Wissen zu identifizieren.
 
 Beide Funktionen sind ziemlich einfach:
 
@@ -84,7 +84,7 @@ connect(evt) {
 },
 ```
 
-Die `connect()`-Funktion nimmt das Ereignis als Parameter und weist das `gamepad`-Objekt der Variable `gamepadAPI.controller` zu. Wir verwenden nur ein Gamepad für dieses Spiel, daher handelt es sich um ein einzelnes Objekt statt eines Arrays von Gamepads. Wir setzen dann die `turbo`-Eigenschaft auf `true`. (Wir könnten hierzu die `gamepad.connected`-Boolean verwenden, aber wir wollten eine separate Variable haben, um den Turbo-Modus einzuschalten, ohne ein angeschlossenes Gamepad zu benötigen, aus den weiter oben erläuterten Gründen.)
+Die `connect()` Funktion nimmt das Ereignis als Parameter und weist das `gamepad` Objekt der `gamepadAPI.controller` Variablen zu. Wir verwenden nur ein Gamepad für dieses Spiel, daher ist es ein einzelnes Objekt anstelle eines Arrays von Gamepads. Wir setzen dann die `turbo`-Eigenschaft auf `true`. (Wir könnten das `gamepad.connected`-Boolean für diesen Zweck verwenden, aber wir wollten eine separate Variable haben, um den Turbo-Modus einzuschalten, ohne ein Gamepad angeschlossen zu haben, aus den oben genannten Gründen.)
 
 ```js
 disconnect(evt) {
@@ -94,24 +94,24 @@ disconnect(evt) {
 },
 ```
 
-Die `disconnect`-Funktion setzt das `gamepad.turbo property` auf `false` und entfernt die Variable, die das Gamepad-Objekt enthält.
+Die `disconnect` Funktion setzt die `gamepad.turbo property` auf `false` und entfernt die Variable, die das Gamepad-Objekt enthält.
 
-### Gamepad-Objekt
+### Gamepad Objekt
 
-Im `gamepad`-Objekt sind viele nützliche Informationen enthalten, wobei die Zustände der Tasten und Achsen die wichtigsten sind:
+Es gibt viele nützliche Informationen in dem `gamepad` Objekt enthalten, wobei die Zustände der Tasten und Achsen die wichtigsten sind:
 
 - `id`: Ein String, der Informationen über den Controller enthält.
-- `index`: Eine eindeutige Kennzeichnung für das angeschlossene Gerät.
-- `connected`: Eine Boolean-Variable, die `true` ist, wenn das Gerät angeschlossen ist.
-- `mapping`: Der Layouttyp der Tasten; `standard` ist die einzige momentan verfügbare Option.
-- `axes`: Der Zustand jeder Achse, dargestellt durch ein Array von Gleitkommazahlen.
-- `buttons` : Der Zustand jeder Taste, dargestellt durch ein Array von `GamepadButton`-Objekten mit den Eigenschaften `pressed` und `value`.
+- `index`: Eine eindeutige Kennung für das verbundene Gerät.
+- `connected`: Eine boolesche Variable, `true`, wenn das Gerät verbunden ist.
+- `mapping`: Der Layout-Typ der Tasten; `standard` ist die derzeit einzige verfügbare Option.
+- `axes`: Der Zustand jeder Achse, dargestellt durch ein Array von Gleitkommawerten.
+- `buttons`: Der Zustand jeder Taste, dargestellt durch ein Array von `GamepadButton` Objekten, die `pressed` und `value` Eigenschaften enthalten.
 
-Die `index`-Variable ist nützlich, wenn wir mehr als einen Controller anschließen und sie identifizieren wollen, um entsprechend zu handeln — zum Beispiel, wenn wir ein Zwei-Spieler-Spiel haben, das zwei angeschlossene Geräte erfordert.
+Die `index`-Variable ist nützlich, wenn wir mehr als einen Controller anschließen möchten und diese identifizieren möchten, um entsprechend zu handeln — zum Beispiel, wenn wir ein Zwei-Spieler-Spiel haben, das zwei angeschlossene Geräte erfordert.
 
-### Abfragen des Gamepad-Objekts
+### Abfrage des Gamepad-Objekts
 
-Neben `connect()` und `disconnect()` gibt es zwei weitere Methoden im `gamepadAPI`-Objekt: `update()` und `buttonPressed()`. `update()` wird in jedem Frame innerhalb der Spielschleife ausgeführt, um den aktuellen Status des Gamepad-Objekts regelmäßig zu aktualisieren:
+Neben `connect()` und `disconnect()` gibt es zwei weitere Methoden im `gamepadAPI` Objekt: `update()` und `buttonPressed()`. `update()` wird in jeder Schleife im Spiel ausgeführt, um den aktuellen Status des Gamepad-Objekts regelmäßig zu aktualisieren:
 
 ```js
 update() {
@@ -156,11 +156,11 @@ update() {
 },
 ```
 
-In jedem Frame speichert `update()` die während des vorherigen Frames gedrückten Tasten im `buttonsCache`-Array und nimmt die aktuellen von dem `gamepadAPI.controller`-Objekt. Dann schleift es durch die Tasten und Achsen, um ihre tatsächlichen Zustände und Werte zu erhalten.
+In jedem Frame speichert `update()` Tastenanschläge während des vorherigen Frames im `buttonsCache` Array und entnimmt frische aus dem `gamepadAPI.controller` Objekt. Dann durchläuft es Tasten und Achsen, um deren tatsächliche Zustände und Werte zu erhalten.
 
-### Erkennen von Tastendrücken
+### Erkennung von Tastenanschlägen
 
-Die `buttonPressed()`-Methode wird ebenfalls in der Hauptspielschleife platziert, um auf Tastendrücke zu hören. Sie nimmt zwei Parameter — die Taste, die wir hören möchten und die (optionale) Methode, dem Spiel mitzuteilen, dass das Halten der Taste akzeptiert wird. Andernfalls müssten Sie die Taste loslassen und erneut drücken, um den gewünschten Effekt zu erzielen.
+Die `buttonPressed()` Methode wird ebenfalls in der Hauptspielschleife platziert, um Tastenanschläge zu hören. Es nimmt zwei Parameter — die Taste, die wir überwachen wollen, und die (optionale) Möglichkeit, dem Spiel mitzuteilen, dass das Halten der Taste akzeptiert wird. Ohne dieses müssten Sie die Taste loslassen und erneut drücken, um den gewünschten Effekt zu erzielen.
 
 ```js
 buttonPressed(button, hold) {
@@ -187,7 +187,7 @@ buttonPressed(button, hold) {
 },
 ```
 
-Es gibt zwei Arten von Aktionen, die für eine Taste berücksichtigt werden sollten: ein einzelnes Drücken und ein Halten. Die `newPress`-Boolean-Variable zeigt an, ob es ein neues Drücken einer Taste gibt oder nicht. Anschließend durchlaufen wir das Array der gedrückten Tasten — wenn die gegebene Taste dieselbe ist wie die, die wir suchen, wird die Variable `newPress` auf `true` gesetzt. Um zu überprüfen, ob das Drücken ein neues ist, sodass der Spieler den Schlüssel nicht hält, durchlaufen wir die zwischengespeicherten Zustände der Tasten aus dem vorherigen Frame der Spielschleife. Wenn wir sie dort finden, bedeutet dies, dass die Taste gehalten wird, sodass es kein neues Drücken gibt. Im Endeffekt wird die Variable `newPress` zurückgegeben. Die `buttonPressed`-Funktion wird in der Aktualisierungsschleife des Spiels folgendermaßen verwendet:
+Es gibt zwei Arten von Aktionen, die bei einer Taste zu berücksichtigen sind: ein Single-Press und ein Halten. Die `newPress`-Boolesche-Variable zeigt an, ob es einen neuen Druck auf eine Taste gibt oder nicht. Als Nächstes durchlaufen wir das Array der gedrückten Tasten — wenn die gegebene Taste dieselbe ist, wie die, die wir suchen, wird die `newPress`-Variable auf `true` gesetzt. Um zu überprüfen, ob es sich um einen neuen Druck handelt, sodass der Spieler die Taste nicht gedrückt hält, durchlaufen wir die gecachten Zustände der Tasten aus dem vorherigen Frame der Spielschleife. Wenn wir es dort finden, bedeutet das, dass die Taste gehalten wird, also gibt es keinen neuen Druck. Am Ende wird die `newPress`-Variable zurückgegeben. Die `buttonPressed` Funktion wird in der Aktualisierungsschleife des Spiels wie folgt verwendet:
 
 ```js
 if (gamepadAPI.turbo) {
@@ -200,13 +200,13 @@ if (gamepadAPI.turbo) {
 }
 ```
 
-Wenn `gamepadAPI.turbo` `true` ist und die angegebenen Tasten gedrückt (oder gehalten) werden, führen wir die ihnen zugewiesenen Funktionen aus. In diesem Fall wird durch Drücken oder Halten von `A` die Kugel abgefeuert, und durch Drücken von `B` wird das Spiel pausiert.
+Wenn `gamepadAPI.turbo` `true` ist und die angegebenen Tasten gedrückt (oder gehalten) werden, führen wir die ihnen zugewiesenen Funktionen aus. In diesem Fall wird durch Drücken oder Halten von `A` das Projektil abgefeuert und durch Drücken von `B` wird das Spiel pausiert.
 
 ### Achsenschwelle
 
-Die Tasten haben nur zwei Zustände: `0` oder `1`, aber die Analogsticks können viele Werte haben — sie haben einen Float-Bereich zwischen `-1` und `1` entlang beider `X`- und `Y`-Achsen.
+Die Tasten haben nur zwei Zustände: `0` oder `1`, aber die Analogsticks können viele Werte haben — sie haben einen Gleitbereich zwischen `-1` und `1` entlang der `X`- und `Y`-Achsen.
 
-Gamepads können durch Inaktivität staubig werden, was bedeutet, dass das Überprüfen auf genaue -1- oder 1-Werte ein Problem sein kann. Aus diesem Grund kann es gut sein, einen Schwellenwert für die Achsenwerte festzulegen, um wirksam zu werden. Zum Beispiel wird der Fridge Tank nur nach rechts abbiegen, wenn der `X`-Wert größer als `0.5` ist:
+Gamepads können durch längere Inaktivität verstauben, was bedeutet, dass das Überprüfen auf exakte -1 oder 1-Werte problematisch sein kann. Aus diesem Grund kann es sinnvoll sein, eine Schwelle für den Wert der Achse festzulegen, damit sie Wirkung zeigt. Zum Beispiel wird der Fridge-Panzer nur nach rechts drehen, wenn der `X`-Wert größer als `0.5` ist:
 
 ```js
 if (gamepadAPI.axesStatus[0].x > 0.5) {
@@ -215,19 +215,19 @@ if (gamepadAPI.axesStatus[0].x > 0.5) {
 }
 ```
 
-Selbst wenn wir es versehentlich ein wenig bewegen oder der Stick nicht in seine ursprüngliche Position zurückkehrt, wird der Tank nicht unerwartet abbiegen.
+Auch wenn wir es versehentlich ein wenig bewegen oder der Stick nicht in seine ursprüngliche Position zurückkehrt, wird der Panzer nicht unerwartet drehen.
 
 ## Spezifikationsupdate
 
-Nach mehr als einem Jahr der Stabilität wurde die W3C Gamepad API-Spezifikation im April 2015 aktualisiert ([siehe das neueste](https://w3c.github.io/gamepad/)). Sie hat sich nicht viel verändert, aber es ist gut zu wissen, was vor sich geht — die Updates sind wie folgt.
+Nach mehr als einem Jahr Stabilität wurde im April 2015 die W3C Gamepad API Spezifikation aktualisiert ([siehe das Neueste](https://w3c.github.io/gamepad/).) Es hat sich nicht viel geändert, aber es ist gut zu wissen, was vor sich geht — die Updates sind wie folgt.
 
-### Die Gamepads abrufen
+### Abrufen der Gamepads
 
-Die Methode [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) wurde mit [einer längeren Erklärung und einem Beispielcode-Stück](https://w3c.github.io/gamepad/#navigator-interface-extension) aktualisiert. Jetzt muss die Länge des Arrays der Gamepads `n+1` sein, wobei `n` die Anzahl der angeschlossenen Geräte ist — wenn ein Gerät angeschlossen ist und es den Index von 1 hat, ist die Länge des Arrays 2, und es wird so aussehen: `[null, [object Gamepad]]`. Wenn das Gerät getrennt oder nicht verfügbar ist, wird der Wert dafür auf `null` gesetzt.
+Die Methode [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) wurde mit [einer längeren Erklärung und einem Beispielcode](https://w3c.github.io/gamepad/#navigator-interface-extension) aktualisiert. Jetzt muss die Länge des Arrays von Gamepads `n+1` sein, wobei `n` die Anzahl der angeschlossenen Geräte ist — wenn ein Gerät angeschlossen ist und es den Index 1 hat, beträgt die Länge des Arrays 2 und es sieht so aus: `[null, [object Gamepad]]`. Wenn das Gerät getrennt oder nicht verfügbar ist, wird der Wert dafür auf `null` gesetzt.
 
-### Mapping-Standard
+### Standard-Mapping
 
-Der Mapping-Typ ist jetzt ein aufzählbares Objekt anstelle eines Strings:
+Der Mappingtyp ist nun ein aufzählbares Objekt statt eines Strings:
 
 ```ts
 enum GamepadMappingType {
@@ -236,12 +236,12 @@ enum GamepadMappingType {
 }
 ```
 
-Dieses Enum definiert die Menge der bekannten Mappings für ein Gamepad. Vorerst ist nur das `standard`-Layout verfügbar, aber es könnten in Zukunft neue erscheinen. Wenn das Layout unbekannt ist, wird es auf einen leeren String gesetzt.
+Dieses Enum definiert die Menge der bekannten Mappings für ein Gamepad. Derzeit gibt es nur das `standard` Layout, aber es könnten in Zukunft neue hinzukommen. Wenn das Layout unbekannt ist, wird es auf einen leeren String gesetzt.
 
 ### Ereignisse
 
-In der Spezifikation waren mehr Ereignisse verfügbar als nur `gamepadconnected` und `gamepaddisconnected`, aber sie wurden aus der Spezifikation entfernt, da sie als nicht sehr nützlich angesehen wurden. Die Diskussion darüber, ob sie wieder aufgenommen werden sollten und in welcher Form, ist noch im Gange.
+Es gab in der Spezifikation mehr verfügbare Ereignisse als nur `gamepadconnected` und `gamepaddisconnected`, aber sie wurden aus der Spezifikation entfernt, da sie als nicht sehr nützlich erachtet wurden. Die Diskussion, ob sie zurückgebracht werden sollten und in welcher Form, ist noch im Gange.
 
 ## Zusammenfassung
 
-Die Gamepad API ist sehr einfach zu entwickeln. Jetzt ist es einfacher denn je, ein konsolenähnliches Erlebnis auf den Browser zu übertragen, ohne dass Plugins erforderlich sind. Sie können die vollständige Version des [Hungry Fridge](https://enclavegames.com/games/hungry-fridge/)-Spiels direkt in Ihrem Browser spielen. Schauen Sie sich die anderen Ressourcen im [Gamepad API Content Kit](https://end3r.github.io/Gamepad-API-Content-Kit/) an.
+Die Gamepad API ist sehr einfach zu entwickeln. Nun ist es einfacher denn je, ein Konsolen-ähnliches Erlebnis in den Browser zu bringen, ohne dass Plugins benötigt werden. Sie können die Vollversion des [Hungry Fridge](https://enclavegames.com/games/hungry-fridge/) Spiels direkt in Ihrem Browser spielen. Weitere Ressourcen finden Sie im [Gamepad API Content Kit](https://end3r.github.io/Gamepad-API-Content-Kit/).

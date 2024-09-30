@@ -1,5 +1,5 @@
 ---
-title: "Document: elementsFromPoint() Methode"
+title: "Document: elementsFromPoint()-Methode"
 short-title: elementsFromPoint()
 slug: Web/API/Document/elementsFromPoint
 l10n:
@@ -8,12 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`elementsFromPoint()`**-Methode
-der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein Array aller Elemente
-an den angegebenen Koordinaten (relativ zur Ansicht) zurück.
-Die Elemente sind vom obersten bis zum untersten Kasten der Ansicht sortiert.
+Die **`elementsFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Array von allen Elementen an den angegebenen Koordinaten (relativ zum Viewport) zurück. Die Elemente sind vom obersten bis zum untersten Kasten des Viewports geordnet.
 
-Sie arbeitet ähnlich wie die [`elementFromPoint()`](/de/docs/Web/API/Document/elementFromPoint)-Methode.
+Sie funktioniert in ähnlicher Weise wie die [`elementFromPoint()`](/de/docs/Web/API/Document/elementFromPoint)-Methode.
 
 ## Syntax
 
@@ -30,7 +27,7 @@ elementsFromPoint(x, y)
 
 ### Rückgabewert
 
-Ein Array von [`Element`](/de/docs/Web/API/Element)-Objekten, geordnet vom obersten bis zum untersten Kasten der Ansicht.
+Ein Array von [`Element`](/de/docs/Web/API/Element)-Objekten, geordnet vom obersten bis zum untersten Kasten des Viewports.
 
 ## Beispiele
 

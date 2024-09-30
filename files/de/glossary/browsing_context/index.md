@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Browsing-Kontext** ist eine Umgebung, in der ein Browser ein [`Document`](/de/docs/Web/API/Document) anzeigt. In modernen Browsern ist es normalerweise ein _Tab_, kann aber auch ein _Fenster_ oder sogar nur Teile einer Seite wie ein _frame_ oder ein _iframe_ sein.
+Ein **Browsing-Kontext** ist eine Umgebung, in der ein Browser ein [`Document`](/de/docs/Web/API/Document) anzeigt. In modernen Browsern ist dies in der Regel ein _Tab_, kann aber auch ein _Fenster_ oder sogar nur Teile einer Seite wie ein _Frame_ oder ein _iframe_ sein.
 
-Jeder Browsing-Kontext hat einen Ursprung (der des aktiven Dokuments) und eine geordnete Historie der zuvor angezeigten Dokumente.
+Jeder Browsing-Kontext hat einen Ursprung (den des aktiven Dokuments) und eine gereihte Historie der zuvor angezeigten Dokumente.
 
 Die Kommunikation zwischen Browsing-Kontexten ist stark eingeschränkt. Zwischen Browsing-Kontexten desselben Ursprungs kann ein [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) geöffnet und verwendet werden.
 

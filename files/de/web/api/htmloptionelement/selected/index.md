@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`selected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt an, ob das derzeitige Element ausgewählt ist; das heißt, ob das {{HTMLElement("option")}} ausgewählt ist oder nicht.
+Die **`selected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt die aktuelle Ausgewähltheit des Elements an; das heißt, ob das {{HTMLElement("option")}}-Element ausgewählt ist oder nicht.
 
-Das Vorhandensein des HTML-Attributs [`selected`](/de/docs/Web/HTML/Element/option#selected) zeigt an, dass die Option standardmäßig ausgewählt ist. Es zeigt nicht an, ob diese Option derzeit ausgewählt ist: Wenn sich der Zustand der Option ändert, spiegelt das `selected`-Inhaltsattribut die Änderung nicht wider; nur die `HTMLOptionElement`-`selected`-IDL-Eigenschaft wird aktualisiert. Das `selected`-Attribut wird durch die [`defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)-Eigenschaft widergespiegelt.
+Das Vorhandensein des HTML-Attributs [`selected`](/de/docs/Web/HTML/Element/option#selected) zeigt an, dass die Option standardmäßig ausgewählt ist. Es zeigt nicht an, ob diese Option derzeit ausgewählt ist: Wenn sich der Status der Option ändert, spiegelt das `selected`-Inhaltsattribut die Änderung nicht wider; nur die `selected` IDL-Eigenschaft des `HTMLOptionElement` wird aktualisiert. Das `selected`-Attribut wird durch die [`defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)-Eigenschaft widergespiegelt.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 

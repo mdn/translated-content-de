@@ -1,5 +1,5 @@
 ---
-title: "ARIA: row Rolle"
+title: "ARIA: row-Rolle"
 slug: Web/Accessibility/ARIA/Roles/row_role
 l10n:
   sourceCommit: 46e392021bad64eead1cea58be106fa364a14d8b
@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Ein Element mit `role="row"` ist eine Zeile aus Zellen innerhalb einer tabellarischen Struktur. Eine Zeile enthält eine oder mehrere Zellen, Gitterzellen oder Spaltenüberschriften und möglicherweise eine Zeilenüberschrift innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) und optional innerhalb eines [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role).
+Ein Element mit `role="row"` ist eine Zeile von Zellen innerhalb einer tabellarischen Struktur. Eine Zeile enthält eine oder mehrere Zellen, Gitternetz-Zellen oder Spaltenüberschriften und möglicherweise eine Zeilenüberschrift, innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) und optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role).
 
 ```html
 <div
@@ -36,42 +36,42 @@ Ein Element mit `role="row"` ist eine Zeile aus Zellen innerhalb einer tabellari
 
 ## Beschreibung
 
-Das Element mit `role="row"` ist eine Zeile innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) und optional innerhalb eines [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role), das als Container für eine oder mehrere [`cells`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role), [`gridcells`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), [`columnheaders`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) oder [`rowheaders`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role) innerhalb einer statischen tabellarischen Struktur dient. Wann immer möglich, wird die Verwendung nativer [HTML `<tr>`](/de/docs/Web/HTML/Element/tr) Elemente dringend empfohlen.
+Das Element `role="row"` ist eine Zeile innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role), [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) und optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role), die als Container für eine oder mehrere [`cells`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role), [`gridcells`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), [`columnheaders`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) oder [`rowheaders`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role) innerhalb einer statischen tabellarischen Struktur dient. Die Verwendung nativer [HTML `<tr>`](/de/docs/Web/HTML/Element/tr) Elemente, wann immer möglich, wird stark empfohlen.
 
-Um eine ARIA-Zeile zu erstellen, fügen Sie `role="row"` zum Containerelement hinzu. Diese Zeile sollte in einem Raster, einer Tabelle oder einem Baumraster verschachtelt sein. Eine Gruppe von Zeilen kann direkt in einem Raster, einer Tabelle oder einem Baumraster oder innerhalb einer Zeilengruppe in einem dieser Container verschachtelt werden. Jede Zeile enthält Kinderzellen. Diese Zellen können je nach Typ unterschiedlich sein, je nachdem, ob sie Spalten- oder Zeilenüberschriften oder Raster- oder normale Zellen sind.
+Um eine ARIA-Zeile zu erstellen, fügen Sie `role="row"` dem Container-Element hinzu. Diese Zeile sollte innerhalb eines Gitters, einer Tabelle oder eines Baumgitters verschachtelt sein. Eine Gruppe von Zeilen kann direkt innerhalb eines Gitters, einer Tabelle oder eines Baumgitters oder innerhalb einer Zeilengruppe in einem dieser Container verschachtelt werden. Jede Zeile enthält Kinderzellen. Diese Zellen können unterschiedlichen Typs sein, je nachdem, ob es sich um Spalten- oder Zeilenüberschriften oder um Gitter- oder normale Zellen handelt.
 
-Eine Zeile kann eine Reihe von Attributen enthalten, die die Rolle der Zeile verdeutlichen, einschließlich [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex), [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level), [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex) und [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected).
+Eine Zeile kann eine Reihe von Attributen enthalten, die die Rolle der Zeile klären, einschließlich [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex), [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level), [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex) und [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected).
 
-Befindet sich die Zeile in einem Baumraster, können Zeilen das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) Attribut enthalten, um den aktuellen Status anzuzeigen. Dies ist nicht der Fall bei einer gewöhnlichen Tabelle oder einem Raster, in dem das Attribut `aria-expanded` nicht vorhanden ist.
+Wenn sich die Zeile innerhalb eines Baumgitters befindet, können Zeilen das Attribut [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) enthalten, um den aktuellen Status anzuzeigen. Dies ist nicht der Fall bei einer gewöhnlichen Tabelle oder einem Gitter, in dem das Attribut `aria-expanded` nicht vorhanden ist.
 
-Um ein interaktives Widget mit tabellarischer Struktur zu erstellen, verwenden Sie stattdessen das Rastermuster. Wenn die Interaktion den Auswahlstatus einzelner Zellen ermöglicht, von links nach rechts und von oben nach unten navigiert werden kann oder die Benutzeroberfläche das Umordnen oder anderweitige Ändern der Reihenfolge einzelner Zellen, z. B. durch Drag & Drop, ermöglicht, verwenden Sie [grid](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [treegrid](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) statt.
+Um ein interaktives Widget mit einer tabellarischen Struktur zu erstellen, verwenden Sie stattdessen das Gittermuster. Wenn die Interaktion den Auswahlstatus einzelner Zellen bereitstellt, wenn Navigation von links nach rechts und von oben nach unten verfügbar ist oder wenn die Benutzeroberfläche das Umordnen der Zellreihenfolge ermöglicht, wie z.B. durch Ziehen und Ablegen, verwenden Sie [grid](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [treegrid](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) anstelle dessen.
 
 > [!NOTE]
-> Die Verwendung des nativen HTML-Tabellenelements ({{HTMLElement('table')}}) zusammen mit dem Tabellenzeilenelement ({{HTMLElement('tr')}}) wird, wann immer möglich, dringend empfohlen.
+> Die Verwendung des nativen HTML-Tabellenelements ({{HTMLElement('table')}}) zusammen mit dem Tabellenzeilenelement ({{HTMLElement('tr')}}) wann immer möglich, wird stark empfohlen.
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 #### Kontextrollen
 
 - [role="rowgroup"](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role)
-  - : Ein optionaler kontextueller Zeilenelternteil, der eine Beziehung zwischen nachfolgenden Zeilen herstellt. Es ist das strukturelle Äquivalent zu den Elementen thead, tfoot und tbody in einem HTML-Tabellenelement.
+  - : Ein optionales kontextuelles Zeilenelternelement, es stellt eine Beziehung zwischen untergeordneten Zeilen her. Es ist ein strukturelles Äquivalent zu den thead, tfoot und tbody Elementen in einem HTML-Tabellenelement.
 - [role="table"](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
-  - : Einer der drei möglichen Kontexte (zusammen mit grid und treegrid), in denen Sie eine Zeile finden, identifiziert die Zeile als Teil einer nicht-interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten ähnlich wie das native {{HTMLElement('table')}} HTML-Element enthält.
+  - : Einer der drei möglichen Kontexte (zusammen mit grid und treegrid), in dem Sie eine Zeile finden, identifiziert die Zeile als Teil einer nicht-interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten enthält, ähnlich dem nativen {{HTMLElement('table')}} HTML-Element.
 - [role="grid"](/de/docs/Web/Accessibility/ARIA/Roles/grid_role)
-  - : Einer der drei möglichen Kontexte (zusammen mit table und treegrid), in denen Sie eine Zeile finden, identifiziert die Zeile als Teil einer nicht-interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten ähnlich wie das native {{HTMLElement('table')}} HTML-Element enthält.
+  - : Einer der drei möglichen Kontexte (zusammen mit table und treegrid), in dem Sie eine Zeile finden, identifiziert die Zeile als Teil einer nicht-interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten enthält, ähnlich dem nativen {{HTMLElement('table')}} HTML-Element.
 - [role="treegrid"](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role)
-  - : Ähnlich einem Raster, jedoch mit Zeilen, die wie bei einem Baum erweitert und reduziert werden können.
+  - : Ähnlich einem Gitter, aber mit Zeilen, die auf die gleiche Weise wie bei einem Baum erweitert und reduziert werden können.
 
-#### Nachfolgerrollen
+#### Nachkommende Rollen
 
 - [role="cell"](/de/docs/Web/Accessibility/ARIA/Roles/cell_role)
   - : Eine Zelle in einer Zeile innerhalb eines tabellarischen Containers.
 - [role="gridcell"](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role)
   - : Eine Zelle in einer Zeile innerhalb eines Gitters oder Baumgitters.
 - [role="columnheader"](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
-  - : Eine Kopfzeile, die das strukturelle Äquivalent des HTML-Elements {{HTMLElement('th')}} mit Spaltenumfang ist ({{HTMLElement('tr', '<code>&lt;tr scope="col"&gt;</code>')}}). Im Gegensatz zu einer einfachen Zelle stellt die Rolle columnheader eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Spalte her.
+  - : Eine Überschriftenzelle, die das strukturelle Äquivalent des HTML-Elements {{HTMLElement('th')}} mit einer Spaltenreichweite darstellt ({{HTMLElement('tr', '<code>&lt;tr scope="col"&gt;</code>')}}). Anders als eine einfache Zelle stellt die columnheader-Rolle eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Spalte her.
 - [role="rowheader"](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role)
-  - : Eine Kopfzeile, die das strukturelle Äquivalent des HTML-Elements {{HTMLElement('th')}} mit Zeilenumfang ist ({{HTMLElement('tr', '<code>&lt;tr scope="row"&gt;</code>')}}). Im Gegensatz zu einer einfachen Zelle stellt die Rolle rowheader eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Zeile her.
+  - : Eine Überschriftenzelle, die das strukturelle Äquivalent des HTML-Elements {{HTMLElement('th')}} mit einer Zeilenreichweite darstellt ({{HTMLElement('tr', '<code>&lt;tr scope="row"&gt;</code>')}}). Anders als eine einfache Zelle stellt die rowheader-Rolle eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Zeile her.
 
 #### Zustände und Eigenschaften
 
@@ -79,35 +79,35 @@ Um ein interaktives Widget mit tabellarischer Struktur zu erstellen, verwenden S
 
   - : Das `aria-expanded` Attribut, das den Zustand der Zeile definiert, kann einen von drei Werten annehmen oder weggelassen werden:
 
-    - `aria-expanded="true"`: Zeile ist derzeit erweitert.
-    - `aria-expanded="false"`: Zeile ist derzeit reduziert.
+    - `aria-expanded="true"`: Die Zeile ist derzeit erweitert.
+    - `aria-expanded="false"`: Die Zeile ist derzeit reduziert.
     - `aria-expanded="undefined"` oder das Attribut fehlt: Die Zeile ist weder erweiterbar noch reduzierbar.
 
-    Wenn das Element mit dem `aria-expanded` Attribut die Erweiterung eines anderen Gruppierungscontainers steuert, der nicht 'im Besitz' des Elements ist, **sollte** der Autor den Container mit dem `aria-controls` Attribut referenzieren.
+    Wenn das Element mit dem Attribut `aria-expanded` die Erweiterung eines anderen Gruppierungscontainers steuert, der nicht "im Besitz" des Elements ist, sollte der Autor den Container mit dem Attribut `aria-controls` referenzieren.
 
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected) Zustand
 
-  - : Nur relevant, wenn sich die Zeile in einem interaktiven Container wie einem Raster oder Baumraster befindet, jedoch nicht relevant, wenn sich die Zeile in einer Tabelle befindet. Das `aria-selected` Attribut kann einen von drei Werten annehmen oder weggelassen werden:
+  - : Nur relevant, wenn sich die Zeile in einem interaktiven Container wie einem Gitter oder einem Baumgitter befindet, aber nicht relevant, wenn sich die Zeile in einer Tabelle befindet. Das `aria-selected` Attribut kann einen von drei Werten annehmen oder weggelassen werden:
 
-    - `aria-selected="true"`: Zeile ist derzeit ausgewählt
-    - `aria-selected="false"`: Zeile ist derzeit nicht ausgewählt.
+    - `aria-selected="true"`: Die Zeile ist derzeit ausgewählt.
+    - `aria-selected="false"`: Die Zeile ist derzeit nicht ausgewählt.
     - `aria-selected="undefined"` oder das Attribut fehlt: Die Zeile ist nicht auswählbar.
 
 - [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex) Attribut
 
-  - : Das `aria-colindex` Attribut ist nur erforderlich, wenn Spalten aus dem DOM ausgeblendet werden. Es wird im Allgemeinen auf die Zeilenkinder platziert, anstatt auf die Zeile selbst. Wenn die angezeigten Spalten zusammenhängend sind, kann es auf der Zeile platziert werden.
+  - : Das `aria-colindex` Attribut ist nur erforderlich, wenn Spalten im DOM ausgeblendet sind. Es wird normalerweise auf den Kinderzellen der Zeile platziert, anstatt auf der Zeile selbst. Wenn die angezeigten Spalten zusammenhängend sind, kann es auf der Zeile platziert werden.
 
-    Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtzahl der Spalten innerhalb der Tabelle, des Rasters oder Baumrasters an. Wenn es auf der Zeile platziert ist, definiert das `aria-colindex` den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtzahl der Spalten innerhalb einer Zeile. Wenn zum Beispiel in einer Tabelle mit 15 Spalten die Spalten 4, 5 und 6 sich im DOM befinden, könnte `aria-colindex="4"` auf jede Zeile gesetzt werden.
+    Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Spalten innerhalb der Tabelle, des Gitters oder des Baumgitters an. Wenn es auf der Zeile platziert ist, definiert das `aria-colindex` den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer Zeile. Zum Beispiel könnte in einer Tabelle mit 15 Spalten, und Spalten 4, 5 und 6 befinden sich im DOM, `aria-colindex="4"` auf jeder Zeile gesetzt werden.
 
-    Wenn der Satz der im DOM vorhandenen Spalten **nicht** zusammenhängend ist oder es Zellen gibt, die mehr als eine Zeile oder Spalte umfassen, setzen Sie das `aria-colindex` auf alle Kinder jeder Zeile, anstatt auf die Zeile selbst.
+    Wenn die im DOM vorhandene Spaltenmenge **nicht** zusammenhängend ist oder es Zellen gibt, die über mehr als eine Zeile oder Spalte hinweggehen, setzen Sie das `aria-colindex` auf alle Kinder jeder Zeile, anstatt auf die Zeile selbst.
 
-    Wenn sich alle Spalten im DOM befinden, ist dieses Attribut nicht erforderlich.
+    Wenn alle Spalten im DOM vorhanden sind, ist dieses Attribut nicht erforderlich.
 
 - [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex) Attribut
 
-  - : Das `aria-rowindex` Attribut ist nur erforderlich, wenn Zeilen aus dem DOM ausgeblendet werden, um anzugeben, welche Zeile in der Liste der Gesamtzeilen gelesen wird. Das Attribut, mit einem eindeutigen Wert auf jede Zeile gesetzt, nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtzahl der Zeilen innerhalb der Tabelle, des Rasters oder Baumrasters an und gibt die Position oder den Index jeder Zeile an. Wenn zum Beispiel eine Tabelle 1.500 Zeilen hat, jedoch nur die Kopfzeile sowie die Zeilen 47 und 52 im DOM sind, würde auf der Kopfzeile `aria-rowindex="1"` gesetzt werden, sowie auf der 47. und 52. Zeile `aria-rowindex="47"` und `aria-rowindex="52"` entsprechend.
+  - : Das `aria-rowindex` Attribut ist nur erforderlich, wenn Zeilen im DOM ausgeblendet sind, um anzuzeigen, welche Zeile in der Liste der Gesamtzeilen gelesen wird. Das Attribut, mit einem eindeutigen Wert auf jeder Zeile platziert, nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Zeilen innerhalb der Tabelle, des Gitters oder des Baumgitters an und gibt die Position oder den Index jeder Zeile an. Zum Beispiel, wenn eine Tabelle 1.500 Zeilen umfasst, aber nur der Header und die Zeilen 47 und 52 im DOM sind, würde `aria-rowindex="1"` auf der Header-Zeile gesetzt werden und `aria-rowindex="47"` und `aria-rowindex="52"` auf der 47. bzw. 52. Zeile.
 
-    Wenn sich alle Zeilen im DOM befinden, ist dieses Attribut nicht erforderlich.
+    Wenn alle Zeilen im DOM vorhanden sind, ist dieses Attribut nicht erforderlich.
 
 ### Tastaturinteraktionen
 
@@ -115,10 +115,10 @@ Keine
 
 ### Erforderliche JavaScript-Funktionen
 
-Keine. Für sortierbare Spalten siehe die [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) ARIA Rolle.
+Keine. Für sortierbare Spalten siehe die [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) Aria-Rolle.
 
 > [!NOTE]
-> Die erste Regel der ARIA-Nutzung lautet: Wenn Sie eine native Funktion mit den gewünschten Semantiken und Verhaltensweisen bereits eingebaut verwenden können, anstatt ein Element neu zuzuweisen und ihm eine ARIA-Rolle, -Zustand oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies. Verwenden Sie das HTML {{HTMLElement('table')}} Element anstelle der ARIA Rolle der Tabelle, wann immer möglich.
+> Die erste Regel der ARIA-Nutzung ist, dass Sie eine native Funktion mit den erforderlichen Semantiken und Verhaltensweisen verwenden können, anstatt ein Element neu zu definieren und **eine** ARIA-Rolle, einen Zustand oder ein Merkmal hinzuzufügen, um es zugänglich zu machen. Verwenden Sie das HTML {{HTMLElement('table')}} Element anstelle der ARIA-Rolle der Tabelle wann immer möglich.
 
 ## Beispiele
 
@@ -158,11 +158,11 @@ Keine. Für sortierbare Spalten siehe die [`columnheader`](/de/docs/Web/Accessib
 </div>
 ```
 
-Das obige ist eine nicht-semantische ARIA-Tabelle mit fünf von 81 Zeilen, die im DOM vorhanden sind: Eine innerhalb eines Tabellenkopfes und vier Zeilen innerhalb des Tabellenkörpers. Die Kopfzeile, allein in einer Kopfzeilengruppe, hat zwei Spaltenköpfe. Die Spalten sind sortierbar, aber derzeit nicht sortiert, wie durch die `aria-sort` Eigenschaft angegeben. Der Tabellenkörper befindet sich in einer separaten Zeilengruppe mit vier Zeilen, die sich derzeit im DOM befinden. Da nicht alle Zeilen im DOM sind, haben wir die `aria-rowindex` Eigenschaft bei jeder Zeile hinzugefügt.
+Das obige ist eine nicht-semantische ARIA-Tabelle mit fünf von 81 Zeilen, die im DOM vorhanden sind: Eine innerhalb eines Tabellenheaders und vier Zeilen innerhalb des Tabellenkörpers. Die Header-Zeile, allein in einer Header-Zeilengruppe, hat zwei Spaltenüberschriften. Die Spalten sind sortierbar, aber derzeit nicht sortiert, wie durch die `aria-sort` Eigenschaft angezeigt wird. Der Tabellenkörper befindet sich in einer separaten Zeilengruppe, mit vier Zeilen derzeit im DOM. Da nicht alle Zeilen im DOM vorhanden sind, haben wir die `aria-rowindex` Eigenschaft auf jeder Zeile hinzugefügt.
 
 ## Best Practices
 
-Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}} usw. für Datenstrukturen von Tabellen. Sie können diese ARIA-Rollen hinzufügen, um die Barrierefreiheit sicherzustellen, falls die nativen Semantiken der Tabelle entfernt werden, z. B. durch CSS. Ein relevanter Anwendungsfall für die ARIA-Tabelle Rolle ist, wenn die nativen Semantiken einer Tabelle durch die Display-Eigenschaft von CSS überschrieben werden, z. B. durch display: grid. In diesem Fall können Sie die ARIA-Tabelle Rollen verwenden, um die Semantiken wieder hinzuzufügen.
+Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}}, usw. für die Struktur von Datentabellen. Sie können diese ARIA-Rollen hinzufügen, um die Zugänglichkeit zu gewährleisten, falls die nativen Semantiken der Tabelle entfernt werden, z.B. durch CSS. Ein relevanter Anwendungsfall für die ARIA-Tabellenrolle ist, wenn die nativen Semantiken einer Tabelle durch die `display`-Eigenschaft von CSS überschrieben werden, z.B. durch `display: grid`. In diesem Fall können Sie die ARIA-Tabellenrollen verwenden, um die Semantiken wiederhinzuzufügen.
 
 ```html
 <table
@@ -200,11 +200,11 @@ Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElem
 </table>
 ```
 
-Oben ist die semantische Art, eine Tabelle zu schreiben. Die ARIA-Rollen sind nur erforderlich, wenn die nativen Semantiken der Tabelle und damit der Tabellenzeilen aufgehoben werden, z. B. durch das Setzen der [Display-Eigenschaft auf flex oder grid](/de/docs/Web/CSS/display#accessibility).
+Oben sehen Sie die semantische Art, eine Tabelle zu schreiben. Die ARIA-Rollen sind nur dann notwendig, wenn die nativen Semantiken der Tabelle und damit der Tabellenreihen durch das Setzen der [display-Eigenschaft auf flex oder grid](/de/docs/Web/CSS/display#accessibility) aufgehoben werden.
 
 ### Zusätzliche Vorteile
 
-Keine
+keine
 
 ## Spezifikationen
 
@@ -212,7 +212,7 @@ Keine
 
 ## Siehe auch
 
-- Das HTML {{HTMLElement('tr', '<code>&lt;tr&gt;</code> Tabellenzeile')}} Element
+- Das HTML {{HTMLElement('tr', '<code>&lt;tr&gt;</code> table row')}} Element
 - {{HTMLElement('table')}}
 - [Die `rowgroup` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role)
 - [Die `table` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`cssRules`**-Eigenschaft des
-[`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)-Interfaces gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Sammlung von [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekten enthält.
+Die **`cssRules`**-Eigenschaft der
+[`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)-Schnittstelle gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Sammlung von [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekten enthält.
 
 ## Wert
 

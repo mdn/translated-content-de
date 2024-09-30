@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`size`** Zugriffs-Eigenschaft von {{jsxref("Set")}} Instanzen gibt die Anzahl der (einzigartigen) Elemente in diesem Set zurück.
+Die **`size`** Accessor-Eigenschaft von {{jsxref("Set")}} Instanzen gibt die Anzahl der (einzigartigen) Elemente in dieser Menge zurück.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-size.html")}}
 
 ## Beschreibung
 
-Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Set`-Objekt hat. Eine Set-Zugriffsmethode für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
+Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Set`-Objekt hat. Eine Setter-Funktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.endQueryEXT()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) beendet eine Zeitabfrage.
+Die **`EXT_disjoint_timer_query.endQueryEXT()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) beendet eine Timer-Abfrage.
 
 ## Syntax
 

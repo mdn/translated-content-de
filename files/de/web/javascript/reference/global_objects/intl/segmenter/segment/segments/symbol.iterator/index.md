@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`[Symbol.iterator]()`** Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und erlaubt es `Segments` Objekten, von den meisten Syntaxen, die Iterables erwarten, konsumiert zu werden, wie zum Beispiel der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Segments-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Daten über jedes Segment liefert.
+Die Methode **`[Symbol.iterator]()`** von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es `Segments`-Objekten, von den meisten Syntaxen, die Iterables erwarten, wie etwa der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen, verwendet zu werden. Sie gibt ein [Segment-Iteratorobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Daten über jedes Segment liefert.
 
 {{EmbedInteractiveExample("pages/js/segments-prototype-@@iterator.html")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das Daten über jedes Segment liefert. Jedes gelieferte Objekt hat die gleichen Eigenschaften wie das Objekt, das von der [`containing()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing) Methode zurückgegeben wird.
+Ein neues [iterables Iteratorobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das Daten über jedes Segment liefert. Jedes zurückgegebene Objekt hat die gleichen Eigenschaften wie das Objekt, das von der Methode [`containing()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing) zurückgegeben wird.
 
 ## Beispiele
 
-### Iteration mit der for...of Schleife
+### Iteration mit der for...of-Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht `Segments` Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxe wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten und darüber zu iterieren.
+Beachten Sie, dass es selten notwendig ist, diese Methode direkt aufzurufen. Die Existenz der Methode `[Symbol.iterator]()` macht `Segments`-Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterationssyntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator für die Schleife zu erhalten.
 
 ```js
 const segmenter = new Intl.Segmenter("zh-CN", { granularity: "word" });
@@ -52,9 +52,9 @@ for (const value of segmenter.segment(input)) {
 */
 ```
 
-### Manuelles Erstellen des Iterators
+### Manuelles Erstellen eines Iterators
 
-Sie können weiterhin manuell die `next()` Methode des zurückgegebenen Iterator-Objekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu haben.
+Sie können immer noch manuell die `next()`-Methode des zurückgegebenen Iteratorobjekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
 
 ```js
 const segmenter = new Intl.Segmenter("fr", { granularity: "word" });
@@ -97,4 +97,4 @@ while (!result.done) {
 - [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)
 - [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment)
 - {{jsxref("Symbol.iterator")}}
-- [Iteration Protocols](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterierungsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

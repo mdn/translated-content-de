@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Bedingung** ist eine Reihe von Regeln, die den normalen Codeablauf unterbrechen oder ändern kann, abhängig davon, ob die Bedingung erfüllt ist oder nicht.
+Eine **Bedingung** ist eine Reihe von Regeln, die die normale Codeausführung unterbrechen oder ändern können, je nachdem, ob die Bedingung erfüllt ist oder nicht.
 
-Eine Anweisung oder eine Reihe von Anweisungen wird ausgeführt, wenn eine spezifische Bedingung erfüllt ist. Andernfalls wird eine andere Anweisung ausgeführt. Es ist auch möglich, die Ausführung einer Anweisung oder einer Reihe von Anweisungen zu wiederholen, solange eine Bedingung noch nicht erfüllt ist.
+Eine Anweisung oder eine Reihe von Anweisungen wird ausgeführt, wenn eine bestimmte Bedingung erfüllt ist. Andernfalls wird eine andere Anweisung ausgeführt. Es ist auch möglich, die Ausführung einer Anweisung oder einer Reihe von Anweisungen zu wiederholen, solange eine Bedingung noch nicht erfüllt ist.
 
 ## Siehe auch
 

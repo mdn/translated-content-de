@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: rejectionhandled Ereignis"
+title: "WorkerGlobalScope: rejectionhandled-Ereignis"
 short-title: rejectionhandled
 slug: Web/API/WorkerGlobalScope/rejectionhandled_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`rejectionhandled`**-Ereignis wird an den globalen Bereich des Skripts gesendet (typischerweise [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)), wann immer ein abgelehntes {{jsxref("Promise")}} verspätet behandelt wird, d. h. wenn ein Handler an das Promise angehängt wird, nachdem dessen Ablehnung ein [`unhandledrejection`](/de/docs/Web/API/WorkerGlobalScope/unhandledrejection_event)-Ereignis verursacht hat.
+Das **`rejectionhandled`**-Ereignis wird an den globalen Gültigkeitsbereich des Skripts gesendet (typischerweise [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)), wenn ein abgelehntes {{jsxref("Promise")}} nachträglich behandelt wird, d.h. wenn ein Handler an das Promise angefügt wird, nachdem dessen Ablehnung ein [`unhandledrejection`](/de/docs/Web/API/WorkerGlobalScope/unhandledrejection_event)-Ereignis verursacht hat.
 
-Dies kann beim Debugging und für die allgemeine Anwendungsresilienz in Verbindung mit dem `unhandledrejection`-Ereignis verwendet werden, das gesendet wird, wenn ein Promise abgelehnt wird, aber zur Zeit der Ablehnung kein Handler vorhanden ist.
+Dies kann beim Debugging und für die allgemeine Anwendungsresilienz verwendet werden, zusammen mit dem `unhandledrejection`-Ereignis, das gesendet wird, wenn ein Promise abgelehnt wird, aber zum Zeitpunkt der Ablehnung kein Handler vorhanden ist.
 
 ## Syntax
 
@@ -36,7 +36,7 @@ Ein [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent). Erbt von 
 
 ## Beispiel
 
-Sie können das `rejectionhandled`-Ereignis verwenden, um abgelehnte Promises zusammen mit den Gründen, warum sie abgelehnt wurden, in der Konsole zu protokollieren:
+Sie können das `rejectionhandled`-Ereignis verwenden, um abgelehnte Promises zusammen mit den Gründen für deren Ablehnung im Konsolenprotokoll zu vermerken:
 
 ```js
 self.addEventListener("rejectionhandled", (event) => {

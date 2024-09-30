@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Block-End-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Inset abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockend-Offset eines Elements, der je nach Schreibrichtung, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
+Diese [Einfüge-Eigenschaft](/de/docs/Glossary/inset_properties) hat keinen Effekt auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block-end.html")}}
 
@@ -38,7 +38,7 @@ inset-block-end: unset;
 
 ### Werte
 
-Die `inset-block-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
+Die `inset-block-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die `inset-block-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("le
 
 ## Beispiele
 
-### Block-End-Versatz setzen
+### Blockend-Offset setzen
 
 #### HTML
 
@@ -91,6 +91,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die Eigenschaften, die andere Versätze definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
 - Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

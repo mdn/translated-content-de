@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode disableVertexAttribArray()"
+title: "WebGLRenderingContext: disableVertexAttribArray() Methode"
 short-title: disableVertexAttribArray()
 slug: Web/API/WebGLRenderingContext/disableVertexAttribArray
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.disableVertexAttribArray()`**
-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) deaktiviert das generische
-Vertex-Attribut-Array an einer angegebenen Indexposition.
+Die **`WebGLRenderingContext.disableVertexAttribArray()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) schaltet das generische Vertex-Attribut-Array an einer gegebenen Indexposition aus.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ disableVertexAttribArray(index)
 ### Parameter
 
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das den Index des zu deaktivierenden Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des zu deaktivierenden Vertex-Attributs angibt.
 
 ### Rückgabewert
 

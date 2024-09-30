@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SMTP** (Simple Mail Transfer Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol), das zum Senden einer neuen E-Mail verwendet wird. Wie [POP](/de/docs/Glossary/POP) und [NNTP](/de/docs/Glossary/NNTP) ist es ein von einer [Zustandsmaschine](/de/docs/Glossary/state_machine) gesteuertes Protokoll.
+**SMTP** (Simple Mail Transfer Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol), das zum Versenden neuer E-Mails verwendet wird. Ähnlich wie [POP](/de/docs/Glossary/POP) und [NNTP](/de/docs/Glossary/NNTP) ist es ein von einer [Zustandsmaschine](/de/docs/Glossary/state_machine) gesteuertes Protokoll.
 
-Das Protokoll ist relativ einfach. Die Hauptschwierigkeiten umfassen die Unterstützung verschiedener Authentifizierungsmechanismen ([GSSAPI](https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface), [CRAM-MD5](https://en.wikipedia.org/wiki/CRAM-MD5), [NTLM](https://en.wikipedia.org/wiki/NTLM), MSN, AUTH LOGIN, AUTH PLAIN, etc.), das Behandeln von Fehlermeldungen und die Rückfallebene, wenn Authentifizierungsmechanismen fehlschlagen (z.B. behauptet der Server, einen Mechanismus zu unterstützen, tut dies aber nicht).
+Das Protokoll ist relativ unkompliziert. Die Hauptschwierigkeiten umfassen die Unterstützung verschiedener Authentifizierungsmechanismen ([GSSAPI](https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface), [CRAM-MD5](https://en.wikipedia.org/wiki/CRAM-MD5), [NTLM](https://en.wikipedia.org/wiki/NTLM), MSN, AUTH LOGIN, AUTH PLAIN, usw.), das Handhaben von Fehlermeldungen und das Rückfallen, wenn Authentifizierungsmechanismen fehlschlagen (z.B. der Server behauptet, einen Mechanismus zu unterstützen, tut es aber nicht).
 
 ## Siehe auch
 
@@ -17,5 +17,5 @@ Das Protokoll ist relativ einfach. Die Hauptschwierigkeiten umfassen die Unterst
 - Verwandte Glossarbegriffe:
   - [NNTP](/de/docs/Glossary/NNTP)
   - [POP](/de/docs/Glossary/POP)
-  - [protokoll](/de/docs/Glossary/protocol)
+  - [Protokoll](/de/docs/Glossary/protocol)
   - [Zustandsmaschine](/de/docs/Glossary/state_machine)

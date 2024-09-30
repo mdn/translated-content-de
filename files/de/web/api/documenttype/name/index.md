@@ -10,9 +10,9 @@ l10n:
 
 Die schreibgeschützte **`name`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt den Typ des Dokuments zurück.
 
-Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
+Für synthetische `DocumentType` spiegelt diese Eigenschaft den Wert wider, der im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) übergeben wurde.
 
-Für HTML-Dokumente setzen Browser sie immer auf `html`, unabhängig von dem tatsächlichen `doctype` im Quellcode.
+Für HTML-Dokumente setzen Browser diesen Wert immer auf `html`, unabhängig vom tatsächlichen `doctype` im Quellcode.
 
 ## Wert
 

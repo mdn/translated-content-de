@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`rel`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um einen String, der eine durch Leerzeichen getrennte Liste von Linktypen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("link")}}-Element dargestellt wird, und dem aktuellen Dokument angibt.
+Die **`rel`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es ist ein String, der eine durch Leerzeichen getrennte Liste von Linktypen enthält, die die Beziehung zwischen der durch das {{HTMLElement("link")}}-Element dargestellten Ressource und dem aktuellen Dokument anzeigt.
 
-Die häufigste Verwendung dieses Attributs ist das Angeben eines Links zu einem externen Stylesheet: die Eigenschaft wird auf `stylesheet` gesetzt und das [`href`](/de/docs/Web/HTML/Element/link#href)-Attribut wird auf die URL eines externen Stylesheets gesetzt, um die Seite zu formatieren.
+Die häufigste Verwendung dieses Attributs ist das Festlegen eines Links zu einem externen Stylesheet:
+die Eigenschaft wird auf `stylesheet` gesetzt, und das [`href`](/de/docs/Web/HTML/Element/link#href)-Attribut wird auf die URL eines externen Stylesheets gesetzt, um die Seite zu formatieren.
 
 ## Wert
 
@@ -35,5 +36,6 @@ for (const link of links) {
 
 ## Siehe auch
 
-- Die entsprechende Eigenschaft in {{HTMLElement("a")}} und {{HTMLElement("area")}}, [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel) und [`HTMLAreaElement.rel`](/de/docs/Web/API/HTMLAreaElement/rel).
+- Die entsprechende Eigenschaft bei {{HTMLElement("a")}} und {{HTMLElement("area")}},
+  [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel) und [`HTMLAreaElement.rel`](/de/docs/Web/API/HTMLAreaElement/rel).
 - Die gleiche Liste, jedoch als Tokens: [`HTMLLinkElement.relList`](/de/docs/Web/API/HTMLLinkElement/relList)

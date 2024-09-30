@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("y")}}-Attributes des {{SVGElement("marker")}} enthält. Es repräsentiert die y-Achsen-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs.
+Die schreibgeschützte **`y`**-Eigenschaft der Schnittstelle [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("y")}}-Attributs des {{SVGElement("marker")}} enthält. Sie repräsentiert die y-Achsen-Koordinate der _oberen linken_ Ecke des Maskenbereichs.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, dient sie lediglich als Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 

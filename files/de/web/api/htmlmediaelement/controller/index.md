@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: controller Eigenschaft"
+title: "HTMLMediaElement: controller-Eigenschaft"
 short-title: controller
 slug: Web/API/HTMLMediaElement/controller
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`HTMLMediaElement.controller`** Eigenschaft repräsentiert den Media Controller, der dem Element zugewiesen ist.
+Die **`HTMLMediaElement.controller`**-Eigenschaft repräsentiert den dem Element zugewiesenen Mediencontroller.
 
 ## Wert
 
-Ein `MediaController`-Objekt oder `null`, wenn dem Element kein Media Controller zugewiesen ist. Der Standardwert ist `null`.
+Ein `MediaController`-Objekt oder `null`, wenn dem Element kein Mediencontroller zugewiesen ist. Der Standardwert ist `null`.
 
 ## Spezifikationen
 
-Im Jahr 2016 wurde das gesamte Media Controller-Feature [aus der HTML-Spezifikation entfernt](https://github.com/w3c/html/issues/246). Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Im Jahr 2016 wurde die gesamte Media Controller-Funktion [aus der HTML-Spezifikation entfernt](https://github.com/w3c/html/issues/246). Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

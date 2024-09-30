@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel für das Ablegen verlässt.
+Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziehen-und-Ablegen-Ziel verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten propagiert werden.
+Dieses Ereignis kann nicht abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochwandern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("dragleave", (event) => {});
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
-  - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
+  - : Die Daten, die während einer Ziehen-und-Ablegen-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Zurücksetzen der Stilvorlagen der Ablagezone bei dragleave
+### Zurücksetzen der Dropzone-Stile bei dragleave
 
-In diesem Beispiel haben wir ein verschiebbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel haben wir ein verschiebbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Wir geben dem anderen Container einen lila Hintergrund, solange sich das verschiebbare Element darüber befindet, um anzuzeigen, dass es dort abgelegt werden könnte. Wir hören auf das `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das verschiebbare Element vom Container weggezogen wird.
+Wir geben dem anderen Container einen lila Hintergrund, während sich das verschiebbare Element darüber befindet, um anzuzeigen, dass es in den Container abgelegt werden könnte. Wir hören auf das `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das verschiebbare Element vom Container weggezogen wird.
 
-In diesem partiellen Beispiel haben wir jedoch das Ablegen nicht implementiert: für ein vollständiges Beispiel für Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem unvollständigen Beispiel haben wir jedoch das Ablegen nicht implementiert: ein vollständiges Beispiel für Ziehen und Ablegen finden Sie auf der Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -113,7 +113,7 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Andere Drag-and-Drop-Ereignisse:
+- Andere Ziehen-und-Ablegen-Ereignisse:
 
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)

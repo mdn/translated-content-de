@@ -20,7 +20,7 @@ createSVGPoint()
 
 ### Wert
 
-Der zurückgegebene Wert ist ein `SVGPoint`-Objekt.
+Der zurückgegebene Wert ist ein `SVGPoint` Objekt.
 
 ## Beispiel
 

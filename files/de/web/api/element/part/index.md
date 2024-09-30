@@ -8,7 +8,10 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`part`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces repräsentiert die Teile-Identifikator(en) des Elements (d.h. gesetzt durch das `part`-Attribut), die als [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurückgegeben werden. Diese können verwendet werden, um Teile eines Shadow DOMs über das {{cssxref("::part")}}-Pseudoelement zu stylen.
+Die **`part`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces
+stellt die Part-Identifier(s) des Elements dar (d.h. gesetzt mit dem `part`
+Attribut), zurückgegeben als [`DOMTokenList`](/de/docs/Web/API/DOMTokenList). Diese können verwendet werden, um Teile
+eines Shadow DOMs über das {{cssxref("::part")}} Pseudoelement zu stylen.
 
 ## Wert
 
@@ -16,7 +19,10 @@ Ein [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus unserem [shadow-part](https://mdn.github.io/web-components-examples/shadow-part/) Beispiel. Hier wird das `part`-Attribut verwendet, um die Shadow-Teile zu finden, und die `part`-Eigenschaft wird dann verwendet, um die Teile-Identifikatoren jedes Tabs zu ändern, sodass das korrekte Styling auf den aktiven Tab angewendet wird, wenn Tabs angeklickt werden.
+Der folgende Auszug stammt aus unserem [shadow-part](https://mdn.github.io/web-components-examples/shadow-part/)
+Beispiel. Hier wird das `part` Attribut verwendet, um die Shadow-Parts zu finden, und die
+`part` Eigenschaft wird dann genutzt, um die Part-Identifier jedes Tabs zu ändern, sodass
+die korrekte Stilgebung auf den aktiven Tab angewendet wird, wenn Tabs angeklickt werden.
 
 ```js
 const tabs = [];

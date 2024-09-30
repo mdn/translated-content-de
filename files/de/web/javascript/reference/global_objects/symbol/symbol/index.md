@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol()`** Funktion gibt primitive Werte des Typs Symbol zurück.
+Die **`Symbol()`** Funktion gibt primitive Werte vom Typ Symbol zurück.
 
 {{EmbedInteractiveExample("pages/js/symbol-constructor.html", "taller")}}
 
@@ -18,18 +18,18 @@ Symbol()
 Symbol(description)
 ```
 
-> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `description` {{optional_inline}}
-  - : Ein String. Eine Beschreibung des Symbols, die zum Debuggen verwendet werden kann, jedoch nicht, um auf das Symbol selbst zuzugreifen.
+  - : Ein String. Eine Beschreibung des Symbols, die zum Debuggen verwendet werden kann, aber nicht, um auf das Symbol selbst zuzugreifen.
 
 ## Beispiele
 
-### Erstellen von Symbolen
+### Symbole erstellen
 
-Um ein neues primitives Symbol zu erstellen, verwenden Sie `Symbol()` mit einem optionalen
+Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einem optionalen
 String als Beschreibung:
 
 ```js
@@ -38,7 +38,7 @@ const sym2 = Symbol("foo");
 const sym3 = Symbol("foo");
 ```
 
-Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol umwandelt. Es wird jedes Mal ein neues Symbol erstellt:
+Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol umwandelt. Es erstellt jedes Mal ein neues Symbol:
 
 ```js
 Symbol("foo") === Symbol("foo"); // false
@@ -47,16 +47,15 @@ Symbol("foo") === Symbol("foo"); // false
 ### new Symbol()
 
 Die folgende Syntax mit dem {{jsxref("Operators/new", "new")}} Operator wird einen
-{{jsxref("TypeError")}} auslösen:
+{{jsxref("TypeError")}} werfen:
 
 ```js example-bad
 const sym = new Symbol(); // TypeError
 ```
 
-Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt erstellen, anstatt eines neuen Symbolwertes, und könnte überraschend sein, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel,
-`new Boolean`, `new String` und `new Number`).
+Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt anstelle eines neuen Symbolwerts erstellen, und könnte überraschend sein, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel `new Boolean`, `new String` und `new Number`).
 
-Wenn Sie tatsächlich ein `Symbol`-Wrapper-Objekt erstellen möchten, können Sie die
+Wenn Sie wirklich ein `Symbol`-Wrapper-Objekt erstellen möchten, können Sie die
 `Object()`-Funktion verwenden:
 
 ```js

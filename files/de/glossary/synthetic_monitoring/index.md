@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Synthetic Monitoring** beinhaltet das Überwachen der Leistung einer Seite in einer 'Labor'-Umgebung, typischerweise mit Automatisierungswerkzeugen in einer möglichst konsistenten Umgebung.
+**Synthetic Monitoring** beinhaltet die Überwachung der Leistung einer Seite in einer 'Labor'-Umgebung, typischerweise mit Automatisierungswerkzeugen in einer Umgebung, die so konsistent wie möglich ist.
 
-Mit einer konsistenten Basislinie eignet sich Synthetic Monitoring gut, um die Auswirkungen von Codeänderungen auf die Leistung zu messen. Es spiegelt jedoch nicht unbedingt wider, was die Benutzer erleben.
+Mit einer konsistenten Ausgangsbasis ist das Synthetic Monitoring gut geeignet, um die Auswirkungen von Codeänderungen auf die Leistung zu messen. Allerdings spiegelt es nicht unbedingt wider, was Benutzer tatsächlich erleben.
 
-Synthetic Monitoring beinhaltet das Bereitstellen von Skripten, um den Weg zu simulieren, den ein Endbenutzer durch eine Webanwendung nehmen könnte, und die Leistungserfahrungen des Simulators zurückzumelden. Beispiele für beliebte Tools zur synthetischen Überwachung sind [WebPageTest](https://www.webpagetest.org/) und [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). Der gemessene Datenverkehr stammt nicht von Ihren tatsächlichen Benutzern, sondern ist synthetisch generierter Traffic, der Daten über die Seitenleistung sammelt.
+Synthetic Monitoring setzt Skripte ein, um den Pfad zu simulieren, den ein Endbenutzer möglicherweise durch eine Webanwendung nimmt, und berichtet über die Leistung der simulierten Erfahrungen. Beispiele für beliebte Synthetic-Monitoring-Tools sind [WebPageTest](https://www.webpagetest.org/) und [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). Der gemessene Datenverkehr stammt nicht von Ihren tatsächlichen Benutzern, sondern ist synthetisch generierter Datenverkehr, der Daten zur Seitenleistung sammelt.
 
-Im Gegensatz zu [RUM](/de/docs/Glossary/Real_User_Monitoring) bietet Synthetic Monitoring einen eingeschränkten Blick auf die Leistung, der Benutzerunterschiede nicht berücksichtigt. Es ist nützlich, um grundlegende Daten über die Leistung einer Anwendung zu erhalten und die Leistung in Entwicklungsumgebungen stichprobenartig zu überprüfen. Kombiniert mit anderen Tools, wie z. B. der Netzwerkdrosselung, kann es hervorragende Einblicke in potenzielle Problemfelder bieten.
+Im Gegensatz zum [RUM](/de/docs/Glossary/Real_User_Monitoring) bietet Synthetic Monitoring einen eingeschränkten Überblick über die Leistung, der keine Benutzerunterschiede berücksichtigt, was es nützlich macht, um grundlegende Daten über die Leistung einer Anwendung zu erhalten und die Leistung in Entwicklungsumgebungen stichprobenartig zu überprüfen. In Kombination mit anderen Tools, wie z.B. Netzwerkdrosselung, kann es hervorragende Einblicke in potenzielle Problemfelder bieten.
 
 ## Siehe auch
 

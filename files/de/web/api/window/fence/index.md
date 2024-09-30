@@ -1,5 +1,5 @@
 ---
-title: "Fenster: fence-Eigenschaft"
+title: "Window: fence Eigenschaft"
 short-title: fence
 slug: Web/API/Window/fence
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die schreibgeschützte `fence`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine [`Fence`](/de/docs/Web/API/Fence)-Objektinstanz für den aktuellen Dokumentkontext zurück.
+Die schreibgeschützte Eigenschaft `fence` der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine [`Fence`](/de/docs/Web/API/Fence)-Objektinstanz für den aktuellen Dokumentkontext zurück.
 
-`Fence`-Objekte sind nur für Dokumente verfügbar, die in {{htmlelement("fencedframe")}}s (geladen über [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s) oder in {{htmlelement("iframe")}}s (geladen über undurchsichtige URNs) eingebettet sind.
+`Fence`-Objekte stehen nur Dokumenten zur Verfügung, die innerhalb von {{htmlelement("fencedframe")}}s (geladen über [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s) oder {{htmlelement("iframe")}}s (geladen über undurchsichtige URNs) eingebettet sind.
 
 > [!NOTE]
 > Siehe [Wie funktionieren `<fencedframe>`s?](/de/docs/Web/API/Fenced_frame_API#how_do_fencedframes_work) für eine Beschreibung zu `FencedFrameConfig`s und undurchsichtigen URNs.
@@ -40,4 +40,4 @@ window.fence.reportEvent({
 ## Siehe auch
 
 - [Fenced frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
-- [Die Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
+- [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

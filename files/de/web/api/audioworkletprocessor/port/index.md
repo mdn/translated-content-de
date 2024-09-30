@@ -8,10 +8,14 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`port`**-Eigenschaft des [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Interfaces gibt den zugehörigen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück. Er kann verwendet werden, um zwischen dem Prozessor und dem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), zu dem er gehört, zu kommunizieren.
+Die schreibgeschützte **`port`**-Eigenschaft des
+[`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Interfaces gibt den zugehörigen
+[`MessagePort`](/de/docs/Web/API/MessagePort) zurück. Dieser kann verwendet werden, um zwischen dem Processor und
+dem zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zu kommunizieren.
 
 > [!NOTE]
-> Der Port am anderen Ende des Kanals ist unter der [`port`](/de/docs/Web/API/AudioWorkletNode/port)-Eigenschaft des Knotens verfügbar.
+> Der Port am anderen Ende des Kanals ist über die
+> [`port`](/de/docs/Web/API/AudioWorkletNode/port)-Eigenschaft des Knotens verfügbar.
 
 ## Wert
 
@@ -32,4 +36,4 @@ Siehe [`AudioWorkletNode.port`](/de/docs/Web/API/AudioWorkletNode/port#examples)
 ## Siehe auch
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- [Die Web Audio API verwenden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwenden der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

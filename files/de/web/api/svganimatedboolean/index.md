@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG animierte boolesche Schnittstelle
+## SVG-animierte Boolesche Schnittstelle
 
-Die `SVGAnimatedBoolean` Schnittstelle wird für Attribute des Typs boolean verwendet, die animiert werden können.
+Die `SVGAnimatedBoolean`-Schnittstelle wird für Attribute vom Typ Boolean verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Außerdem implementiert</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@ Die `SVGAnimatedBoolean` Schnittstelle wird für Attribute des Typs boolean verw
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedBoolean"
-          >SVG 1.1 (2. Auflage)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>
@@ -59,14 +59,14 @@ Die `SVGAnimatedBoolean` Schnittstelle wird für Attribute des Typs boolean verw
       <td><code>baseVal</code></td>
       <td>boolean</td>
       <td>
-        Der Basiswert des gegebenen Attributs, bevor Animationen angewendet werden.
+        Der Basiswert des angegebenen Attributs vor Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>boolean</td>
       <td>
-        Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
+        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
@@ -74,7 +74,7 @@ Die `SVGAnimatedBoolean` Schnittstelle wird für Attribute des Typs boolean verw
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedBoolean` Schnittstelle stellt keine spezifischen Methoden zur Verfügung.
+Die `SVGAnimatedBoolean`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

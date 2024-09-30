@@ -9,9 +9,9 @@ l10n:
 
 Speichert ein oder mehrere Elemente im Speicherbereich oder aktualisiert gespeicherte Elemente.
 
-Wenn Sie einen Wert mit dieser API speichern oder aktualisieren, wird das {{WebExtAPIRef("storage.onChanged")}} Ereignis ausgelöst.
+Wenn Sie einen Wert mit dieser API speichern oder aktualisieren, wird das {{WebExtAPIRef("storage.onChanged")}}-Ereignis ausgelöst.
 
-Beachten Sie, dass beim Speichern von Elementen im [`sync`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync)-Speicherbereich der Browser Quoten für die Menge der Daten, die jede Erweiterung speichern kann, durchsetzt. Siehe [Speicherquoten für Sync-Daten](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync#storage_quotas_for_sync_data).
+Beachten Sie, dass beim Speichern von Elementen im [`sync`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync)-Speicherbereich der Browser Quoten für die Datenmenge durchsetzt, die jede Erweiterung speichern kann. Siehe [Speicherquoten für synchronisierte Daten](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync#storage_quotas_for_sync_data).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,24 +23,24 @@ let settingItem = browser.storage.<storageType>.set(
 )
 ```
 
-`<storageType>` ist einer der beschreibbaren Speichertypen — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
+`<storageType>` ist einer der beschreibbaren Speicherarten — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
 
 ### Parameter
 
 - `keys`
 
-  - : Ein Objekt, das ein oder mehrere Schlüssel/Wert-Paare enthält, die gespeichert werden sollen. Wenn ein Element im Speicher vorhanden ist, wird sein Wert aktualisiert.
+  - : Ein Objekt, das ein oder mehrere Schlüssel/Wert-Paare enthält, die gespeichert werden sollen. Wenn ein Element im Speicher vorhanden ist, wird dessen Wert aktualisiert.
 
-    Werte können [primitive](/de/docs/Glossary/Primitive) (wie Zahl, Boolean oder String), {{jsxref("Array")}} oder {{jsxref("Object")}} Typen sein.
+    Werte können [primitive](/de/docs/Glossary/Primitive) Typen (wie eine Zahl, boolean oder string), {{jsxref("Array")}}- oder {{jsxref("Object")}}-Typen sein.
 
-    Im Allgemeinen ist es nicht möglich, andere Typen zu speichern, wie `Function`, `Date`, `RegExp`, `Set`, `Map`, `ArrayBuffer` usw. Einige nicht unterstützte Typen werden als leeres Objekt wiederhergestellt, während andere dazu führen, dass `set()` einen Fehler auslöst. Dieses Verhalten ist browserabhängig.
+    Es ist im Allgemeinen nicht möglich, andere Typen wie `Function`, `Date`, `RegExp`, `Set`, `Map`, `ArrayBuffer` usw. zu speichern. Einige nicht unterstützte Typen werden als leeres Objekt wiederhergestellt, während andere dazu führen, dass `set()` einen Fehler auslöst. Das Verhalten ist browser-spezifisch.
 
 > [!NOTE]
-> Wenn Sie Schlüssel aus dem Speicher entfernen möchten, verwenden Sie {{WebExtAPIRef("storage.storageArea.remove")}}. Wenn Sie einen Wert mit einem leeren Wert überschreiben möchten, verwenden Sie `null`, also `key: null`.
+> Wenn Sie Schlüssel aus dem Speicher entfernen möchten, verwenden Sie {{WebExtAPIRef("storage.storageArea.remove")}}. Wenn Sie einen Wert mit einem leeren Wert überschreiben möchten, verwenden Sie `null`, also z.B. `key: null`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird ohne Argumente, wenn die Operation erfolgreich ist. Wenn die Operation fehlschlägt, wird das `Promise` mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich ist. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
@@ -88,4 +88,4 @@ browser.storage.local.get("monster").then(gotMonster, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

@@ -14,7 +14,7 @@ Der Typ `MostVisitedURL` enthält zwei Eigenschaften: den Titel einer Seite und 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `favicon` {{optional_inline}}
-  - : `String`. Eine data: URL, die das Favicon für die Seite enthält, wenn `includeFavicon` in {{WebExtAPIRef("topSites.get()")}} angegeben wurde und das Favicon verfügbar war.
+  - : `String`. Eine data: URL, die das Favicon der Seite enthält, wenn `includeFavicon` in {{WebExtAPIRef("topSites.get()")}} angegeben wurde und das Favicon verfügbar war.
 - `title`
   - : `String`. Der Titel der Seite.
 - `url`

@@ -9,7 +9,7 @@ l10n:
 
 Die **`mask-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung einer Maske fest.
 
-Für Elemente, die als ein einzelnes Feld gerendert werden, gibt diese Eigenschaft den Maskierungspositionierungsbereich an. Mit anderen Worten spezifiziert diese Eigenschaft die Ursprungsposition eines Bildes, das durch die {{cssxref("mask-image")}} CSS-Eigenschaft angegeben ist. Für Elemente, die als mehrere Felder gerendert werden, wie Inline-Felder auf mehreren Zeilen oder Felder auf mehreren Seiten, spezifiziert sie, auf welche Felder {{cssxref("box-decoration-break")}} anwendbar ist, um den Maskierungspositionierungsbereich zu bestimmen.
+Für Elemente, die als einzelne Box gerendert werden, gibt diese Eigenschaft den Maskierungspositionierungsbereich an. Mit anderen Worten, sie legt die Ursprungsposition eines Bildes fest, das durch die {{cssxref("mask-image")}} CSS-Eigenschaft angegeben wird. Für Elemente, die als mehrere Boxen gerendert werden, wie Inline-Boxen auf mehreren Zeilen oder Boxen auf mehreren Seiten, gibt sie an, auf welche Boxen {{cssxref("box-decoration-break")}} angewendet wird, um den Maskierungspositionierungsbereich zu bestimmen.
 
 ## Syntax
 
@@ -39,28 +39,28 @@ mask-origin: revert-layer;
 mask-origin: unset;
 ```
 
-Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
+Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommas.
 
 ### Werte
 
 - `content-box`
-  - : Die Position ist relativ zur Content-Box.
+  - : Die Position ist relativ zur Inhaltsbox.
 - `padding-box`
-  - : Die Position ist relativ zur Padding-Box. Für einzelne Felder ist `0 0` die obere linke Ecke des Padding-Randes, `100% 100%` ist die untere rechte Ecke.
+  - : Die Position ist relativ zur Polsterbox. Für Einzelboxen ist `0 0` die obere linke Ecke des Polsterrandes, `100% 100%` ist die untere rechte Ecke.
 - `border-box`
-  - : Die Position ist relativ zur Border-Box.
+  - : Die Position ist relativ zur Rahmenbox.
 - `fill-box`
-  - : Die Position ist relativ zur Begrenzungsbox des Objekts.
+  - : Die Position ist relativ zur Objektbegrenzungsbox.
 - `stroke-box`
-  - : Die Position ist relativ zur Begrenzungsbox des Strichs.
+  - : Die Position ist relativ zur Strichbegrenzungsbox.
 - `view-box`
-  - : Verwendet den nächstgelegenen SVG-Viewport als Referenzbox. Wenn ein {{svgattr("viewBox")}}-Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
+  - : Verwendet das nächste SVG-Ansichtsfenster als Referenzbox. Falls ein {{svgattr("viewBox")}} Attribut für das Element, das das SVG-Ansichtsfenster erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox auf die Breite und Höhe der `viewBox` Werte eingestellt.
 - `content`
-  - : Identisch mit `content-box`.
+  - : Entspricht `content-box`.
 - `padding`
-  - : Identisch mit `padding-box`.
+  - : Entspricht `padding-box`.
 - `border`
-  - : Identisch mit `border-box`.
+  - : Entspricht `border-box`.
 
 ## Formale Definition
 
@@ -72,9 +72,9 @@ Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch K
 
 ## Beispiele
 
-### Maskenursprung auf border-box setzen
+### Ursprung der Maske auf border-box setzen
 
-Versuchen Sie einige der anderen möglichen Werte, indem Sie das CSS im folgenden Feld aktualisieren.
+Probieren Sie einige der anderen möglichen Werte aus, indem Sie das CSS in der Box unten aktualisieren.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-origin.html", '100%', 600)}}
 
@@ -88,4 +88,4 @@ Versuchen Sie einige der anderen möglichen Werte, indem Sie das CSS im folgende
 
 ## Siehe auch
 
-- [Ausschnitt und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)

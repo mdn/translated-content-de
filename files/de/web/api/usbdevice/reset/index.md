@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`reset()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das Gerät zurückgesetzt wurde und alle App-Operationen abgebrochen und ihre Versprechen abgelehnt wurden.
+Die **`reset()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das Gerät zurückgesetzt ist und alle Anwendungsoperationen abgebrochen und deren Versprechen abgelehnt wurden.
 
 ## Syntax
 

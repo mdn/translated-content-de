@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**PDF** (Portable Document Format) ist ein Dateiformat, das verwendet wird, um Dokumente zu teilen, ohne von einer bestimmten Software-Implementierung, einer Hardware-Plattform oder einem Betriebssystem abhängig zu sein. PDF bietet ein digitales Abbild eines gedruckten Dokuments und behält beim Drucken das gleiche Erscheinungsbild bei.
+**PDF** (Portable Document Format) ist ein Dateiformat, das zum Teilen von Dokumentationen verwendet wird, ohne von einer bestimmten Softwareimplementierung, Hardwareplattform oder einem Betriebssystem abhängig zu sein. PDF bietet ein digitales Abbild eines gedruckten Dokuments und behält beim Drucken das gleiche Erscheinungsbild.
 
 ## Siehe auch
 

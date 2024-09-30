@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySession: close()-Methode"
+title: "MediaKeySession: close() Methode"
 short-title: close()
 slug: Web/API/MediaKeySession/close
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die `close()`-Methode des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces zeigt an, dass die aktuelle Media-Session nicht mehr benötigt wird und dass das Content-Decryption-Modul alle mit diesem Objekt verbundenen Ressourcen freigeben und es schließen sollte.
-Anschließend gibt die Methode ein {{jsxref('Promise')}} zurück.
+Die `close()`-Methode des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces informiert darüber, dass die aktuelle Mediensitzung nicht mehr benötigt wird und das Inhaltsentschlüsselungsmodul alle mit diesem Objekt verbundenen Ressourcen freigeben und es schließen sollte.
+Danach gibt sie ein {{jsxref('Promise')}} zurück.
 
 ## Syntax
 

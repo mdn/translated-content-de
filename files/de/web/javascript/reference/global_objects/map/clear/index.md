@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`clear()`**-Methode von {{jsxref("Map")}}-Instanzen entfernt alle Elemente aus dieser Map.
+Die **`clear()`** Methode von {{jsxref("Map")}} Instanzen entfernt alle Elemente aus dieser Map.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-clear.html")}}
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -12,7 +12,7 @@ Die schreibgeschützte **`canvas`**-Eigenschaft der [`CanvasCaptureMediaStreamTr
 
 ## Wert
 
-Ein `HTMLCanvasElement`, das die Canvas angibt, die die Quelle der erfassten Frames ist.
+Ein `HTMLCanvasElement`, das die Quelle der erfassten Frames angibt.
 
 ## Beispiel
 
@@ -40,5 +40,5 @@ const canvas = stream.canvas;
 
 ## Siehe auch
 
-- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream), um einen Stream zu erstellen, der ein bestimmtes Canvas-Element erfasst.
+- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) um einen Stream zu erstellen, der ein bestimmtes Canvas-Element erfasst.
 - {{HTMLElement("canvas")}}

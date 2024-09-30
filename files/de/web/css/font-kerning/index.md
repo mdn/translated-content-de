@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-kerning`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die in einer Schriftart gespeicherten Kerning-Informationen verwendet werden sollen.
+Die **`font-kerning`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verwendung der in einer Schriftart gespeicherten Kerning-Informationen fest.
 
 {{EmbedInteractiveExample("pages/css/font-kerning.html")}}
 
-_Kerning_ definiert, wie Buchstaben räumlich angeordnet sind. In _gut gekernten_ Schriftarten führt diese Funktion zu einem gleichmäßigeren und angenehmeren Lesererlebnis als ohne.
+_Kerning_ definiert, wie Buchstaben verteilt sind. In _wohlkernigen_ Schriftarten sorgt diese Funktion dafür, dass der Zeichenabstand gleichmäßiger und angenehmer zu lesen ist als ohne.
 
-Im folgenden Bild beispielsweise nutzen die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite es tun:
+In dem Bild unten zum Beispiel verwenden die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite dies tun:
 
 ![Beispiel für font-kerning](font-kerning.png)
 
@@ -35,11 +35,11 @@ font-kerning: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser entscheidet, ob das Kerning verwendet werden soll oder nicht. Beispielsweise deaktivieren manche Browser das Kerning bei kleinen Schriftarten, da dies die Lesbarkeit beeinträchtigen könnte.
+  - : Der Browser entscheidet, ob das Font-Kerning verwendet werden soll oder nicht. Manche Browser deaktivieren zum Beispiel das Kerning bei kleinen Schriftarten, da es die Lesbarkeit beeinträchtigen könnte.
 - `normal`
-  - : Die in der Schriftart gespeicherten Kerning-Informationen müssen angewendet werden.
+  - : Die in der Schrift gespeicherten Kerning-Informationen müssen angewendet werden.
 - `none`
-  - : Die in der Schriftart gespeicherten Kerning-Informationen sind deaktiviert.
+  - : Die in der Schrift gespeicherten Kerning-Informationen sind deaktiviert.
 
 ## Formale Definition
 
@@ -51,7 +51,7 @@ font-kerning: unset;
 
 ## Beispiele
 
-### Aktivierung und Deaktivierung von Kerning
+### Kerning aktivieren und deaktivieren
 
 #### HTML
 

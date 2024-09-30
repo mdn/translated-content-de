@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`crossOrigin`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle spezifiziert die Cross-Origin Resource Sharing ([CORS](/de/docs/Glossary/CORS))-Einstellung, die beim Abrufen der Ressource verwendet werden soll.
+Die **`crossOrigin`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle legt die Einstellung für Cross-Origin Resource Sharing ([CORS](/de/docs/Glossary/CORS)) fest, die beim Abrufen der Ressource verwendet werden soll.
 
 ## Wert
 
-Ein String eines Schlüsselworts, das den zu verwendenden CORS-Modus beim Abrufen der Ressource spezifiziert. Mögliche Werte sind:
+Ein Schlüsselwort (String), das den CORS-Modus angibt, der beim Abrufen der Ressource verwendet werden soll. Mögliche Werte sind:
 
 - `anonymous` oder der leere String (`""`)
-  - : Anfragen, die vom [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gesendet werden, verwenden den `cors`-[Modus](/de/docs/Web/API/Request/mode) und den `same-origin`-[credentials](/de/docs/Web/API/Request/credentials)-Modus. Das bedeutet, dass CORS aktiviert ist und Berechtigungsnachweise gesendet werden, _wenn_ die Ressource von demselben Ursprung abgerufen wird, von dem das Dokument geladen wurde.
+  - : Anfragen, die vom [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gesendet werden, verwenden den `cors`-[Modus](/de/docs/Web/API/Request/mode) und den `same-origin`-[credentials](/de/docs/Web/API/Request/credentials)-Modus. Dies bedeutet, dass CORS aktiviert ist und Anmeldedaten gesendet werden, _wenn_ die Ressource von derselben Quelle abgerufen wird, von der das Dokument geladen wurde.
 - `use-credentials`
-  - : Anfragen, die vom [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gesendet werden, verwenden den `cors`-[Modus](/de/docs/Web/API/Request/mode) und den `include`-[credentials](/de/docs/Web/API/Request/credentials)-Modus. Alle Ressourcenanfragen des Elements verwenden CORS, unabhängig davon, von welcher Domain der Abruf erfolgt.
+  - : Anfragen, die vom [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gesendet werden, verwenden den `cors`-[Modus](/de/docs/Web/API/Request/mode) und den `include`-[credentials](/de/docs/Web/API/Request/credentials)-Modus. Alle vom Element angeforderten Ressourcen verwenden CORS, unabhängig davon, von welcher Domain der Abruf erfolgt.
 
-Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert angegeben wird, ist dies dasselbe wie die Angabe von `anonymous`.
+Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert spezifiziert wird, entspricht dies der Angabe von `anonymous`.
 
-Wenn die `crossOrigin`-Eigenschaft nicht angegeben wird, wird die Ressource ohne CORS abgerufen (der `no-cors`-[Modus](/de/docs/Web/API/Request/mode) und der `same-origin`-[credentials](/de/docs/Web/API/Request/credentials)-Modus).
+Wenn die `crossOrigin`-Eigenschaft nicht angegeben ist, wird die Ressource ohne CORS abgerufen (der `no-cors`-[Modus](/de/docs/Web/API/Request/mode) und der `same-origin`-[credentials](/de/docs/Web/API/Request/credentials)-Modus).
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}{{deprecated_header}}
 
-Die **`createNSResolver()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Sie gibt nun die Eingabe unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
+Die **`createNSResolver()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Jetzt gibt sie den Eingabewert unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
 
 ## Syntax
 

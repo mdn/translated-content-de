@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Rest-Parameter darf keinen Standardwert haben"
+title: "SyntaxError: Restparameter darf keinen Standardwert haben"
 slug: Web/JavaScript/Reference/Errors/Rest_with_default
 l10n:
   sourceCommit: 38bd4d88564b9a1539fb4d1b4ba6fa04b0a10063
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "rest parameter may not have a default" tritt auf, wenn ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) einen [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) hat. Da der Rest-Parameter immer ein Array erstellt, würde der Standardwert niemals angewendet werden.
+Die JavaScript-Ausnahme "rest parameter may not have a default" tritt auf, wenn ein [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) einen [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) hat. Da der Restparameter immer ein Array erstellt, würde der Standardwert niemals angewendet.
 
 ## Nachricht
 
@@ -23,7 +23,7 @@ SyntaxError: Unexpected token '='. Expected a ')' or a ',' after a parameter dec
 
 ## Was ist schiefgelaufen?
 
-Ein [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) gibt einem Parameter einen Standardwert, wenn das Argument nicht übergeben wird oder als `undefined`. Ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) sammelt alle verbleibenden Argumente, die an die Funktion übergeben werden, und erstellt immer ein Array. Daher ergibt es keinen Sinn, einen Standardwert für einen Rest-Parameter zu haben.
+Ein [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) gibt einem Parameter einen Standardwert, wenn das Argument nicht übergeben wird oder als `undefined` übergeben wird. Ein [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) sammelt alle restlichen Argumente, die an die Funktion übergeben werden, und erstellt immer ein Array. Daher ergibt es keinen Sinn, einen Standardwert für einen Restparameter zu haben.
 
 ## Beispiele
 
@@ -45,4 +45,4 @@ function doSomething(...args) {
 
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)
-- [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)

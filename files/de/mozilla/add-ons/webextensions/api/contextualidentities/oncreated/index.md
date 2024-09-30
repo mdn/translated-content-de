@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine neue kontextuelle Identität erstellt wird. Kontextuelle Identitäten können durch Erweiterungen mittels der `contextualIdentities` API oder direkt durch den Benutzer über die Benutzeroberfläche des Browsers erstellt werden.
+Wird ausgelöst, wenn eine neue kontextuelle Identität erstellt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities`-API erstellt werden oder direkt vom Benutzer über die Benutzeroberfläche des Browsers.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,10 +32,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `changeInfo`
-      - : `object`. Ein Objekt, das eine einzige Eigenschaft `contextualIdentity` enthält, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} Objekt ist, das die erstellte Identität repräsentiert.
+      - : `object`. Ein Objekt, das eine einzige Eigenschaft enthält, `contextualIdentity`, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}}-Objekt ist und die erstellte Identität darstellt.
 
 ## Browser-Kompatibilität
 

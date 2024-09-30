@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Der **`KeyboardEvent()`** Konstruktor erstellt ein neues
-[`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) Objekt.
+Der **`KeyboardEvent()`** Konstruktor erstellt ein neues [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-Objekt.
 
 ## Syntax
 
@@ -22,37 +21,37 @@ new KeyboardEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn auf `keydown`, `keyup` oder `keypress`.
+    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `keydown`, `keyup` oder `keypress`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `key` {{optional_inline}}
-      - : Ein String, der standardmäßig `""` ist und den Wert von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) festlegt.
+      - : Ein String, standardmäßig `""`, der den Wert von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) festlegt.
     - `code` {{optional_inline}}
-      - : Ein String, der standardmäßig `""` ist und den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) festlegt.
+      - : Ein String, standardmäßig `""`, der den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) festlegt.
     - `location` {{optional_inline}}
-      - : Ein String, der standardmäßig `0` ist und den Wert von [`KeyboardEvent.location`](/de/docs/Web/API/KeyboardEvent/location) festlegt.
+      - : Ein String, standardmäßig `0`, der den Wert von [`KeyboardEvent.location`](/de/docs/Web/API/KeyboardEvent/location) festlegt.
     - `repeat` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.repeat`](/de/docs/Web/API/KeyboardEvent/repeat) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.repeat`](/de/docs/Web/API/KeyboardEvent/repeat) festlegt.
     - `isComposing` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.isComposing`](/de/docs/Web/API/KeyboardEvent/isComposing) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.isComposing`](/de/docs/Web/API/KeyboardEvent/isComposing) festlegt.
     - `charCode` {{optional_inline}} {{deprecated_inline}}
-      - : Eine Zahl, die standardmäßig `0` ist und den Wert des veralteten [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) festlegt.
+      - : Eine Zahl, standardmäßig `0`, die den Wert des veralteten [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) festlegt.
     - `keyCode` {{optional_inline}} {{deprecated_inline}}
-      - : Eine Zahl, die standardmäßig `0` ist und den Wert des veralteten [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) festlegt.
+      - : Eine Zahl, standardmäßig `0`, die den Wert des veralteten [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) festlegt.
     - `which` {{optional_inline}} {{deprecated_inline}}
-      - : Eine Zahl, die standardmäßig `0` ist und den Wert des veralteten [`UIEvent.which`](/de/docs/Web/API/UIEvent/which) festlegt.
+      - : Eine Zahl, standardmäßig `0`, die den Wert des veralteten [`UIEvent.which`](/de/docs/Web/API/UIEvent/which) festlegt.
     - `ctrlKey` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) festlegt.
     - `shiftKey` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.shiftKey`](/de/docs/Web/API/KeyboardEvent/shiftKey) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.shiftKey`](/de/docs/Web/API/KeyboardEvent/shiftKey) festlegt.
     - `altKey` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.altKey`](/de/docs/Web/API/KeyboardEvent/altKey) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.altKey`](/de/docs/Web/API/KeyboardEvent/altKey) festlegt.
     - `metaKey` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert von [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) festlegt.
+      - : Ein boolescher Wert, standardmäßig `false`, der den Wert von [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) festlegt.
 
 ### Rückgabewert
 
-Ein neues [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) Objekt.
+Ein neues [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -64,4 +63,4 @@ Ein neues [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) Objekt.
 
 ## Siehe auch
 
-- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), die Schnittstelle der Objekte, die es konstruiert.
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), die Schnittstelle der Objekte, die es erstellt.

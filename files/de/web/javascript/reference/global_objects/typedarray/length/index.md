@@ -7,17 +7,17 @@ l10n:
 
 {{JSRef}}
 
-Die **`length`** Accessor-Eigenschaft von {{jsxref("TypedArray")}} Instanzen gibt die Länge (in Elementen) dieses typspezifischen Arrays zurück.
+Die Zugriffseigenschaft **`length`** von {{jsxref("TypedArray")}}-Instanzen gibt die Länge (in Elementen) dieses typisierten Arrays zurück.
 
 {{EmbedInteractiveExample("pages/js/typedarray-length.html", "shorter")}}
 
 ## Beschreibung
 
-Die `length` Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ erstellt wird und kann nicht geändert werden. Wenn im _TypedArray_ kein `byteOffset` oder `length` angegeben ist, wird die Länge des referenzierten {{jsxref("ArrayBuffer")}} zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `length`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ konstruiert wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die Länge des referenzierten {{jsxref("ArrayBuffer")}} zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
 ## Beispiele
 
-### Verwendung der `length` Eigenschaft
+### Verwendung der `length`-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -42,5 +42,5 @@ uint8.length; // 6 (due to the offset of the constructed Uint8Array)
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}

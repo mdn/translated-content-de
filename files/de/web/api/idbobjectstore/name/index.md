@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`name`**-Eigenschaft der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
--Schnittstelle gibt den Namen dieses Objektspeichers an.
+Die **`name`**-Eigenschaft des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt den Namen dieses Objektspeichers an.
 
 ## Wert
 
@@ -17,18 +16,18 @@ Ein String, der den Namen des Objektspeichers enthält.
 
 ### Ausnahmen
 
-Es gibt mehrere Ausnahmen, die auftreten können, wenn Sie versuchen, den Namen eines Objektspeichers zu ändern.
+Es gibt einige Ausnahmen, die auftreten können, wenn Sie versuchen, den Namen eines Objektspeichers zu ändern.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder der Objektspeicher gelöscht wurde oder die aktuelle Transaktion keine Upgrade-Transaktion ist; Sie können Indizes nur während Upgrade-Transaktionen umbenennen; das heißt, wenn der Modus `versionchange` ist.
+  - : Wird ausgelöst, wenn entweder der Objektspeicher gelöscht wurde oder die aktuelle Transaktion keine Upgrade-Transaktion ist; Sie können Indizes nur während Upgrade-Transaktionen umbenennen, das heißt, wenn der Modus `versionchange` ist.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die aktuelle Transaktion nicht aktiv ist.
 - `ConstraintError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Objektspeicher den angegebenen `name` bereits verwendet.
+  - : Wird ausgelöst, wenn ein Objektspeicher bereits den angegebenen `name` verwendet.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und fügen mithilfe von `add()` einige Daten zu einem Objektspeicher hinzu. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.name` in die Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und fügen mit `add()` einige Daten zu einem Objektspeicher hinzu. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.name` in der Konsole. Für ein vollständiges Arbeitsbeispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -99,10 +98,10 @@ function addData() {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Ihre Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursor: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).

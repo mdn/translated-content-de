@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEBlendElement`** Schnittstelle entspricht dem {{SVGElement("feBlend")}} Element.
+Die **`SVGFEBlendElement`**-Schnittstelle entspricht dem {{SVGElement("feBlend")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -24,9 +24,9 @@ Die **`SVGFEBlendElement`** Schnittstelle entspricht dem {{SVGElement("feBlend")
       <td><code>SVG_FEBLEND_MODE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ entspricht keinem der vordefinierten Typen. Es ist ungültig,
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist unzulässig,
         zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen
-        bestehenden Wert in diesen Typ zu ändern.
+        bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -62,21 +62,21 @@ Die **`SVGFEBlendElement`** Schnittstelle entspricht dem {{SVGElement("feBlend")
 _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFEBlendElement.height`](/de/docs/Web/API/SVGFEBlendElement/height) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem Attribut {{SVGAttr("height")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.in1`](/de/docs/Web/API/SVGFEBlendElement/in1) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem Attribut {{SVGAttr("in")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.in2`](/de/docs/Web/API/SVGFEBlendElement/in2) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem Attribut {{SVGAttr("in2")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("in2")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.mode`](/de/docs/Web/API/SVGFEBlendElement/mode) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), der dem Attribut {{SVGAttr("mode")}} des angegebenen Elements entspricht. Es nimmt einen der `SVG_FEBLEND_MODE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), der dem {{SVGAttr("mode")}}-Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_FEBLEND_MODE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
 - [`SVGFEBlendElement.result`](/de/docs/Web/API/SVGFEBlendElement/result) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem Attribut {{SVGAttr("result")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.width`](/de/docs/Web/API/SVGFEBlendElement/width) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem Attribut {{SVGAttr("width")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.x`](/de/docs/Web/API/SVGFEBlendElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem Attribut {{SVGAttr("x")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEBlendElement.y`](/de/docs/Web/API/SVGFEBlendElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem Attribut {{SVGAttr("y")}} des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 

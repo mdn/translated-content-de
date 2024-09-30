@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("EyeDropper API")}}{{SeeCompatTable}}
 
-Die **`EyeDropper.open()`** Methode startet den Pipettenmodus und gibt ein Promise zurück, welches erfüllt wird, sobald der Benutzer eine Farbe ausgewählt und den Pipettenmodus verlassen hat.
+Die **`EyeDropper.open()`** Methode startet den Pipettenmodus und gibt ein Promise zurück, das erfüllt wird, sobald der Benutzer eine Farbe ausgewählt und den Pipettenmodus verlassen hat.
 
 ## Syntax
 
@@ -24,29 +24,29 @@ open(options)
   - : Ein Optionsobjekt, um ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Signal zu übergeben:
 
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Der Pipettenmodus wird abgebrochen, wenn die `AbortSignal`-Methode [`abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Der Pipettenmodus wird abgebrochen, wenn die `abort()` Methode des `AbortSignal`s aufgerufen wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das schließlich aufgelöst wird, wenn der Benutzer eine Pixel-Farbe vom Bildschirm auswählt.
+Ein {{jsxref("Promise")}}, das letztendlich aufgelöst wird, wenn der Benutzer eine Pixelfarbe vom Bildschirm auswählt.
 
 Das Promise wird zu einem Objekt mit der folgenden Eigenschaft aufgelöst:
 
 - `sRGBHex`
-  - : Ein String, der die ausgewählte Farbe im hexadezimalen sRGB-Format (`#aabbcc`) darstellt.
+  - : Ein String, der die ausgewählte Farbe im hexadezimalen sRGB-Format darstellt (`#aabbcc`).
 
 ### Ausnahmen
 
 Ausnahmen werden nicht geworfen, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `open()` nicht über eine [transiente Benutzeraktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
+  - : Wird geworfen, wenn `open()` nicht über eine [vorübergehende Benutzeraktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine andere Pipette bereits geöffnet ist.
+  - : Wird geworfen, wenn bereits ein anderer Farbwähler geöffnet ist.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Benutzer die Auswahl durch Drücken der <kbd>Esc</kbd>-Taste abbricht oder wenn die Auswahl durch einen als Argument an `open()` übergebenen [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen wird.
+  - : Wird geworfen, wenn der Benutzer die Auswahl durch Drücken der <kbd>Esc</kbd>-Taste abbricht oder wenn die Auswahl durch einen übergebenen [`AbortController`](/de/docs/Web/API/AbortController) zu `open()` abgebrochen wird.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Auswahl aus anderen Gründen fehlschlägt.
+  - : Wird geworfen, wenn die Auswahl aus anderen Gründen fehlschlägt.
 
 ## Spezifikationen
 

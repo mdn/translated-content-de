@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Wenn in CSS ein Fehler auftritt, wie beispielsweise ein ungültiger Wert oder ein fehlendes Semikolon, wird der Browser (oder ein anderer User-Agent) diesen Fehler elegant abfangen, anstatt [einen Fehler auszulösen wie in JavaScript](/de/docs/Web/JavaScript/Reference/Errors). Browser zeigen keine CSS-bezogenen Warnungen an oder geben anderweitig Hinweise darauf, dass ein Fehler in den Stilen aufgetreten ist. Sie ignorieren einfach ungültige Inhalte und parsen die nachfolgenden gültigen Stile. Dies ist eine Funktion von CSS und kein Fehler.
+Wenn ein Fehler in CSS vorliegt, wie z.B. ein ungültiger Wert oder ein fehlendes Semikolon, wird der Browser (oder ein anderer Benutzeragent) anstatt [einen Fehler wie in JavaScript auszulösen](/de/docs/Web/JavaScript/Reference/Errors), sanft wiederherstellen. Browser geben keine CSS-bezogenen Warnungen aus noch zeigen sie sonst irgendwie an, dass in Styles Fehler aufgetreten sind. Sie verwerfen einfach ungültige Inhalte und analysieren die nachfolgenden gültigen Styles. Dies ist ein Merkmal von CSS, kein Fehler.
 
 Dieser Leitfaden behandelt, wie CSS-[Parser](/de/docs/Glossary/parser) ungültiges CSS verwerfen.
 
 ## CSS Parser-Fehler
 
-Wenn ein CSS-Fehler erkannt wird, ignoriert der [Parser](/de/docs/Glossary/parser) des Browsers die Zeile mit den Fehlern und verwirft den minimalen Betrag an CSS-Code, bevor er zum [Parsieren](/de/docs/Glossary/parse) des CSS wie gewohnt zurückkehrt. Die "Fehlerbehandlung" besteht einfach darin, ungültige Inhalte zu ignorieren oder zu überspringen.
+Wenn ein CSS-Fehler festgestellt wird, ignoriert der [Parser](/de/docs/Glossary/parser) des Browsers die Zeile mit den Fehlern, verwirft die minimal nötige Menge an CSS-Code, bevor er zur normalen [Analyse](/de/docs/Glossary/parse) des CSS zurückkehrt. Die "Fehlerbehandlung" besteht lediglich im Ignorieren oder Überspringen ungültiger Inhalte.
 
-Die Tatsache, dass Browser ungültigen Code ignorieren, ermöglicht die Verwendung neuer CSS-Funktionen, ohne befürchten zu müssen, dass in älteren Browsern etwas kaputtgeht. Ein Browser erkennt möglicherweise eine neue Funktion nicht, aber das ist in Ordnung. Das Verwerfen ungültiger Inhalte ohne Fehlerauslösung ermöglicht es, dass sowohl alte als auch neue Syntaxen im selben Regelset koexistieren, obwohl sie in dieser Reihenfolge angegeben werden sollten. Zum Beispiel:
+Die Tatsache, dass Browser ungültigen Code ignorieren, ermöglicht die Nutzung neuer CSS-Funktionen, ohne sich Sorgen machen zu müssen, dass in älteren Browsern etwas kaputt geht. Ein Browser erkennt möglicherweise eine neue Funktion nicht, aber das ist in Ordnung. Das Verwerfen ungültiger Inhalte ohne Fehlerauslösung erlaubt das gleichzeitige Vorhandensein alter und neuer Syntax im selben Regelwerk, obwohl man bedenken sollte, dass sie in dieser Reihenfolge angegeben werden sollten. Zum Beispiel:
 
 ```css
 div {
@@ -24,60 +24,60 @@ div {
 }
 ```
 
-Die {{cssxref("display")}}-Eigenschaft akzeptiert sowohl Legacy-Einzelwert- als auch [multi-keyword syntax](/de/docs/Web/CSS/display/multi-keyword_syntax_of_display). Browser rendern die alte Syntax, bis sie die neue Syntax als gültig erkennen, zu welchem Zeitpunkt die neue Syntax die alte überschreibt. Wenn ein Benutzer einen alten Browser hat, wird die gültige Fallback-Option nicht von dem neuen CSS überschrieben, da der Browser sie als ungültig wahrnimmt.
+Die {{cssxref("display")}}-Eigenschaft akzeptiert sowohl die ältere Ein-Wert-Syntax als auch die [Multi-Schlüsselwort-Syntax](/de/docs/Web/CSS/display/multi-keyword_syntax_of_display). Browser rendern die alte Syntax, bis sie die neue Syntax als gültig erkennen, woraufhin die neue Syntax die alte überschreibt. Wenn ein Benutzer einen alten Browser hat, wird das gültige Fallback nicht durch das neue CSS überschrieben, da der Browser es als ungültig wahrnimmt.
 
-Die Art und Menge an CSS, die ein Browser aufgrund eines Fehlers ignoriert, hängt von der Art des Fehlers ab. Einige häufige Fehlersituationen sind unten aufgeführt:
+Die Art und Menge des CSS, die ein Browser aufgrund eines Fehlers ignoriert, hängt von der Art des Fehlers ab. Einige häufige Fehlerarten sind unten aufgeführt:
 
-- Bei [Fehlern in At-Rules](#at-rule-fehler) hängt es von der At-Rule und der Fehlerart ab, ob eine einzelne Zeile oder die gesamte At-Rule ignoriert wird.
-- Wenn der [Fehler ein ungültiger Selector](#fehler_in_selektorlisten) ist, wird der gesamte Deklarationsblock ignoriert.
-- Ein [Fehler aufgrund eines fehlenden Semikolons](#fehler_innerhalb_von_css-deklarationsblöcken) zwischen Property-Deklarationen führt zu einem ungültigen Wert, in diesem Fall werden mehrere Property-Wert-Deklarationen ignoriert.
-- Wenn der [Fehler ein Property-Name oder -Wert](#fehler_innerhalb_von_css-deklarationsblöcken) ist, wie ein nicht erkannter Property-Name oder ungültiger Datentyp, wird die Property-Wert-Deklaration ignoriert.
-- Wenn der [Fehler auf einem fehlenden Endklammer](#fehler_bei_automatischen_schließungen) basiert, hängt das Ausmaß dessen, was ignoriert wird, von der Fähigkeit des Browsers ab, den Fehler als verschachteltes CSS zu parsen.
+- Bei [Fehlern in At-Regeln](#at-regel-fehler) hängt es von der At-Regel und der Art des Fehlers ab, ob eine einzelne Zeile oder die gesamte At-Regel ignoriert wird.
+- Wenn der [Fehler ein ungültiger Selektor](#fehler_in_selektorlisten) ist, wird der gesamte Deklarationsblock ignoriert.
+- Ein [Fehler aufgrund eines fehlenden Semikolons](#fehler_innerhalb_von_css-deklarationsblöcken) zwischen Eigenschaftsdeklarationen verursacht einen ungültigen Wert, in welchem Fall mehrere Eigenschafts-Wert-Deklarationen ignoriert werden.
+- Wenn der [Fehler ein Eigenschaftsname oder -wert](#fehler_innerhalb_von_css-deklarationsblöcken) ist, wie ein nicht erkannter Eigenschaftsname oder ungültiger Datentyp, wird die Eigenschafts-Wert-Deklaration ignoriert.
+- Wenn der [Fehler aufgrund einer fehlenden Endklammer](#fehler_mit_automatisch_geschlossenen_endungen) ist, hängt das Ausmaß des Ignorierten davon ab, was der Browser verarbeiten kann, um den Fehler als verschachteltes CSS zu erfassen.
 
-Nach dem Parsen jeder Deklaration, Stilregel, At-Rule usw., überprüft der Browser den geparsten Inhalt im Hinblick auf seine erwartete [Grammatik](#grammatikprüfung) für diese Konstruktion. Wenn der Inhalt nicht der erwarteten Grammatik für diese Konstruktion entspricht, betrachtet der Browser ihn als ungültig und ignoriert ihn.
+Nach dem Parsen jeder Deklaration, Stilregel, At-Regel usw. überprüft der Browser den analysierten Inhalt gegen die erwartete [Grammatik](#grammatikprüfung) für diese Konstruktion. Wenn der Inhalt nicht der erwarteten Grammatik entspricht, wird er vom Browser als ungültig betrachtet und ignoriert.
 
-### At-Rule-Fehler
+### At-Regel-Fehler
 
-Das `@`-Symbol, das in CSS-Spezifikationen als `<at-keyword-token>` bekannt ist, kennzeichnet den Beginn einer CSS-{{cssxref("at-rule")}}. Sobald eine At-Rule mit dem `@`-Symbol beginnt, wird alles bis zum ersten Semikolon (`;`) oder der öffnenden geschweiften Klammer (`{`) als Teil der Präambel der At-Rule betrachtet. Der Inhalt jeder At-Rule wird gemäß der Grammatikregeln für diese spezielle At-Rule interpretiert.
+Das `@`-Symbol, in den CSS-Spezifikationen bekannt als `<at-keyword-token>`, zeigt den Beginn einer CSS {{cssxref("at-rule")}} an. Sobald eine At-Regel mit dem `@`-Symbol beginnt, wird aus Sicht des Parsers nichts als ungültig betrachtet. Alles bis zum ersten Semikolon (`;`) oder der öffnenden geschweiften Klammer (`{`) ist Teil des Vorspanns der At-Regel. Der Inhalt jeder At-Regel wird gemäß den Grammatikregeln für diese spezielle At-Regel interpretiert.
 
-Deklarations-At-Rules, wie {{cssxref("@import")}} und {{cssxref("@namespace")}} Deklarationen, enthalten nur eine Präambel. Das Semikolon beendet die At-Rule sofort für [Deklarations-At-Rules](/de/docs/Web/CSS/At-rule#statement_at-rules). Wenn der Inhalt der Präambel gemäß der Grammatik für diese At-Rule ungültig ist, wird die At-Rule ignoriert, wobei der Browser die CSS-Analyse nach dem nächsten Semikolon fortsetzt. Zum Beispiel, wenn eine `@import` At-Rule nach einer anderen CSS-Deklaration als `@charset`, `@layer` oder anderen `@import` Anweisungen auftritt, wird die `@import` Deklaration ignoriert.
+Statement-At-Regeln, wie {{cssxref("@import")}}- und {{cssxref("@namespace")}}-Deklarationen, enthalten nur einen Vorspann. Das Semikolon endet sofort die At-Regel für [Statement-At-Regeln](/de/docs/Web/CSS/At-rule#statement_at-rules). Wenn der Inhalt des Vorspanns gemäß der Grammatik für diese At-Regel ungültig ist, wird die At-Regel ignoriert, wobei der Browser nach dem nächsten Semikolon mit dem Parsen des CSS fortfährt. Wenn beispielsweise eine `@import` At-Regel nach einer anderen CSS-Deklaration als `@charset`, `@layer` oder anderen `@import`-Anweisungen auftritt, wird die `@import`-Deklaration ignoriert.
 
 ```css
 @import "assets/fonts.css" layer(fonts);
 @namespace svg url(http://www.w3.org/2000/svg);
 ```
 
-Wenn der Parser auf eine geschweifte Klammer (`{`) stößt, bevor ein Semikolon gefunden wird, wird die At-Rule als Block-At-Rule geparst. [Block-At-Rules](/de/docs/Web/CSS/At-rule#block_at-rules) wie {{cssxref("@font-face")}} und {{cssxref("@keyframes")}} enthalten einen Block von Deklarationen, umgeben von geschweiften Klammern (`{}`). Die öffnende geschweifte Klammer zeigt dem Browser an, wo die Präambel der At-Rule endet und der Körper der At-Rule beginnt. Der Parser schaut nach vorne, sucht nach passenden Blöcken (Inhalte, die von `()`, `{}`, oder `[]` umgeben sind), bis er eine schließende geschweifte Klammer (`}`) findet, die von keiner anderen geschweiften Klammer umschlossen wird: Dies schließt den Körper der At-Rule ab.
+Wenn der Parser eine geschweifte Klammer (`{`) vor einem Semikolon entdeckt, wird die At-Regel als Block-At-Regel geparst. [Block-At-Regeln](/de/docs/Web/CSS/At-rule#block_at-rules), wie {{cssxref("@font-face")}} und {{cssxref("@keyframes")}}, enthalten einen Block von Deklarationen, der von geschweiften Klammern (`{}`) umgeben ist. Die öffnende geschweifte Klammer informiert den Browser, wo der Vorspann der At-Regel endet und der Körper der At-Regel beginnt. Der Parser sucht weiter, bis er eine schließende geschweifte Klammer (`}`) findet, die nicht von einer anderen geschweiften Klammer umschlossen wird: Dies schließt den Körper der At-Regel.
 
-Verschiedene At-Rules haben unterschiedliche Grammatikregeln, unterschiedliche (oder keine) Deskriptoren und unterschiedliche Regeln dafür, was möglicherweise die gesamte At-Rule ungültig macht. Die erwartete Grammatik für [jede At-Rule](/de/docs/Web/CSS/At-rule) und wie Fehler behandelt werden, sind auf der jeweiligen At-Rule-Seite dokumentiert. Die Behandlung von ungültigen Inhalten hängt vom Fehler ab.
+Verschiedene At-Regeln haben unterschiedliche Grammatikregeln, unterschiedliche (oder keine) Deskriptoren und unterschiedliche Regeln, was ggf. die gesamte At-Regel ungültig macht. Die erwartete Grammatik für [jede At-Regel](/de/docs/Web/CSS/At-rule) und wie Fehler behandelt werden, sind auf der jeweiligen At-Regel-Seite dokumentiert. Die Behandlung ungültiger Inhalte hängt vom Fehler ab.
 
-Zum Beispiel erfordert die `@font-face` Regel sowohl einen [`font-family`](/de/docs/Web/CSS/@font-face/font-family) als auch einen [`src`](/de/docs/Web/CSS/@font-face/src) Deskriptor. Wenn einer von beiden fehlt oder ungültig ist, ist die gesamte `@font-face` Regel ungültig. Das Hinzufügen eines nicht verwandten Deskriptors, eines anderen gültigen Font-Deskriptors mit einem ungültigen Wert oder einer Property-Stildeklaration innerhalb des `@font-face` verschachtelten Blocks macht die Font-Deklaration nicht ungültig. Solange der Font-Name und die Font-Quelle enthalten und gültig sind, wird ungültiges CSS innerhalb der At-Rule ignoriert, aber der `@font-face` Block wird dennoch geparst.
+Zum Beispiel erfordert die `@font-face`-Regel sowohl einen [`font-family`](/de/docs/Web/CSS/@font-face/font-family) als auch einen [`src`](/de/docs/Web/CSS/@font-face/src) Deskriptor. Wird einer dieser Deskriptoren weggelassen oder ist ungültig, ist die gesamte `@font-face`-Regel ungültig. Ein nicht zugehöriger Deskriptor, ein anderer gültiger Schriftart-Deskriptor mit einem ungültigen Wert, oder eine Stil-Deklarationseigenschaft innerhalb des verschachtelten `@font-face`-Blocks machen die Schriftartendeklaration nicht ungültig. Solange der Schriftartenname und die Schriftquelle enthalten und gültig sind, wird jegliches ungültige CSS innerhalb der At-Regel ignoriert, aber der `@font-face`-Block wird dennoch geparst.
 
-Obwohl die Grammatik der `@keyframe` At-Rule sehr unterschiedlich zur `@font-face` Regelgrammatik ist, wirkt sich die Art des Fehlers dennoch darauf aus, was ignoriert wird. Wichtige Deklarationen (gekennzeichnet mit dem {{cssxref("important")}} Flag) und Eigenschaften, die nicht animiert werden können, werden in Keyframe-Regeln ignoriert, beeinträchtigen jedoch nicht andere Stile, die im gleichen Keyframe-Selector-Block deklariert sind. Wenn ein ungültiger Keyframe-Selector (wie ein Prozentsatzwert kleiner als `0%` oder größer als `100%` oder eine {{cssxref("number")}} ohne `%`) hinzugefügt wird, wird die Keyframe-Selector-Liste ungültig und daher wird der Stilblock ignoriert. Ein ungültiger Keyframe-Selector macht nur den ungültigen Selector-Stilblock ungültig; er macht nicht die gesamte `@keyframe` Deklaration ungültig. Das Hinzufügen von Stilen zwischen zwei Keyframe-Selector-Blöcken hingegen macht die gesamte `@keyframe` At-Rule ungültig.
+Während die Grammatik der `@keyframe`-At-Regel sehr unterschiedlich ist zur Grammatik der `@font-face`-Regel, beeinflusst die Fehlerart dennoch, was ignoriert wird. Wichtige Deklarationen (mit dem {{cssxref("important")}}-Flag markiert) und Eigenschaften, die nicht animiert werden können, werden in Keyframe-Regeln ignoriert, aber sie beeinflussen andere in demselben Keyframe-Selektorblock deklarierte Stile nicht. Ein ungültiger Keyframe-Selektor (wie ein Prozentwert kleiner als `0%` oder größer als `100%`, oder eine {{cssxref("number")}}, die nicht mit `%` endet) macht die Keyframe-Selektor-Liste ungültig und daher wird der Stilblock ignoriert. Ein ungültiger Keyframe-Selektor macht nur den ungültigen Selektor-Stilblock ungültig; er macht nicht die gesamte `@keyframe`-Deklaration ungültig. Das Einfügen von Stilen zwischen zwei Keyframe-Selektorblöcken hingegen macht die gesamte `@keyframe`-Regel ungültig.
 
-Einige At-Rules sind nahezu immer gültig. Die {{cssxref("@layer")}} At-Rule gibt es in sowohl regulären als auch verschachtelten Formen. Die `@layer` Anweisungssyntax enthält nur die Präambel und endet mit einem Semikolon. Alternativ hat die verschachtelte Syntax Layer-Stile, die zwischen geschweiften Klammern nach der Präambel verschachtelt sind. Das Weglassen einer schließenden geschweiften Klammer kann ein Logikfehler, aber kein Syntaxfehler sein. Im Fall einer fehlenden schließenden Klammer in `@layer` werden alle Stile, die nach der Stelle kommen, an der die schließende Klammer hätte sein sollen, als Teil der im Präambel definierten Kaskadenschicht geparst. Das CSS ist gültig, da keine Syntaxfehler vorhanden sind; nichts wird verworfen. Ein Syntaxfehler kann dazu führen, dass die benannte oder anonyme Schicht leer ist, aber die Schicht wird dennoch erstellt.
+Einige At-Regeln sind nahezu immer gültig. Die {{cssxref("@layer")}}-At-Regel kommt sowohl in normaler als auch in verschachtelter Form vor. Die `@layer`-Anweisungssyntax enthält nur den Vorspann, endend mit einem Semikolon. Alternativ hat die verschachtelte Syntax die Schichtstile zwischen geschweiften Klammern nach dem Vorspann. Das Weglassen einer schließenden geschweiften Klammer kann ein logischer Fehler sein, ist jedoch kein Syntaxfehler. Im Falle einer fehlenden schließenden Klammer im `@layer` werden alle Stile, die nach der Stelle kommen, an der die schließende Klammer hätte sein sollen, als zur Kaskadenschicht im Vorspann der At-Regel definiert geparst. Das CSS ist gültig, da es keine Syntaxfehler gibt; nichts wird verworfen. Ein Syntaxfehler kann dazu führen, dass die benannte oder anonyme Schicht leer ist, aber die Schicht wird dennoch erstellt.
 
 ### Fehler in Selektorlisten
 
-Es gibt viele Möglichkeiten, wie man einen Fehler beim Schreiben eines Selectors machen kann, aber nur ungültige Selektoren verursachen eine ungültige Selektorliste (siehe [ungültige Selektorliste](/de/docs/Web/CSS/Selector_list#invalid_selector_list)).
+Es gibt viele Wege, wie Sie beim Schreiben eines Selektors einen Fehler machen könnten, aber nur ungültige Selektoren verursachen, dass eine Selektorliste ungültig wird (siehe [ungültige Selektorliste](/de/docs/Web/CSS/Selector_list#invalid_selector_list)).
 
-Wenn Sie einen {{cssxref("class_selectors", "Klassen-")}}, {{cssxref("id_selectors", "ID-")}}, oder {{cssxref("type_selectors", "Typ-")}}-Selector für eine Klasse, ID oder ein Element (oder benutzerdefiniertes Element) einschließen, das nicht existiert, kann es sich um einen Logikfehler handeln, aber es ist kein Syntaxfehler. Wenn Sie jedoch einen Tippfehler in einer Pseudo-Klasse oder einem Pseudo-Element haben, könnte dies einen ungültigen Selector erzeugen, was ein Fehler ist, den der Parser beheben muss.
+Wenn Sie einen {{cssxref("class_selectors", "Klasse")}}, {{cssxref("id_selectors", "ID")}} oder {{cssxref("type_selectors", "Typ")}}-Selektor für eine Klasse, ID oder ein Element (oder benutzerdefiniertes Element) einfügen, das nicht existiert, könnte es sich um einen logischen Fehler handeln, aber es ist kein Syntaxfehler. Jedoch, wenn Sie einen Tippfehler in einer Pseudo-Klasse oder einem Pseudo-Element haben, könnte es einen ungültigen Selektor erzeugen, was ein Fehler ist, den der Parser bearbeiten muss.
 
-Wenn eine Selektorliste ungültige Selektoren enthält, wird der gesamte Stilblock ignoriert. Es gibt Ausnahmen: Wenn der ungültige Selector innerhalb einer {{cssxref(":is")}} oder {{cssxref(":where")}} Pseudo-Klasse ist (die [fehlertolerante Selektorlisten](/de/docs/Web/CSS/Selector_list#forgiving_selector_list) akzeptieren) oder wenn der unbekannte Selector ein [`-webkit-`-Präfix-Pseudo-Element](#-webkit-_exception) ist, wird nur der unbekannte Selector ignoriert, indem er nichts trifft. Die Selektorliste wird nicht ungültig.
+Wenn eine Selektorliste ungültige Selektoren enthält, wird der gesamte Stilblock ignoriert. Es gibt Ausnahmen: Wenn der ungültige Selektor innerhalb einer {{cssxref(":is")}}- oder {{cssxref(":where")}}-Pseudo-Klasse ist (die [verzeihende Selektorlisten](/de/docs/Web/CSS/Selector_list#forgiving_selector_list) akzeptieren) oder wenn der unbekannte Selektor ein [`-webkit-`-präfixierter Pseudo-Element](#-webkit-_exception) ist, wird nur der unbekannte Selektor ignoriert, da er nichts übereinstimmtes ist. Die Selektorliste wird nicht ungültig gemacht.
 
-Außerhalb dieser Ausnahmen wird eine einzelne ungültige oder nicht unterstützte Selector in der Selektorliste die gesamte Regel ungültig machen und der gesamte Selektorblock wird ignoriert. Der Browser sucht dann nach der schließenden geschweiften Klammer und setzt das Parsen von diesem Punkt an fort.
+Abseits dieser Ausnahmen macht ein einziger ungültiger oder nicht unterstützter Selektor in der Selektorliste die gesamte Regel ungültig, und der gesamte Selektorblock wird ignoriert. Der Browser wird dann nach der schließenden geschweiften Klammer suchen und das Parsen von dort aus fortsetzen.
 
 #### `-webkit-` Ausnahme
 
-Aufgrund von Legacy-Problemen durch den übermäßigen Gebrauch von browserspezifischen Präfixen in Selektoren und [Eigenschaftsnamen (und Werten)](#vendor-präfixe) vermeiden Browser die übermäßige Ungültigmachung von Selektorlisten, indem sie alle [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements), die mit einem case-insensitive `-webkit-` Präfix beginnen und nicht mit `()` enden, als gültig behandeln.
+Aufgrund von Legacy-Problemen durch den übermäßigen Gebrauch von browser-spezifischen Präfixen in Selektoren und [Eigenschaftsnamen (und -werten)](#anbieterpräfixe) vermeiden Browser eine exzessive Ungültigmachung von Selektorlisten, indem sie alle [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements), die mit einem case-insensitiven `-webkit-`-Präfix beginnen und nicht mit `()` enden, als gültig behandeln.
 
-Das bedeutet, dass ein Pseudo-Element wie `::-webkit-works-only-in-samsung` eine Selektorliste nicht ungültig macht, unabhängig davon, in welchem Browser der Code ausgeführt wird. In solchen Fällen kann das Pseudo-Element vom Browser nicht erkannt oder unterstützt werden, aber es wird nicht dazu führen, dass die gesamte Selektorliste und ihr zugehöriger Stilblock ignoriert werden. Ein unbekannter, präfixierter Selektor mit einer Funktionsnotation von `::-webkit-imaginary-function()` wird hingegen die gesamte Selektorliste ungültig machen und der Browser wird den gesamten Selektorblock ignorieren.
+Das bedeutet, dass ein Pseudo-Element wie `::-webkit-works-only-in-samsung` eine Selektorliste nicht ungültig macht, unabhängig davon, in welchem Browser der Code ausgeführt wird. In solchen Fällen wird das Pseudo-Element möglicherweise nicht vom Browser erkannt oder unterstützt, aber es wird nicht dazu führen, dass die gesamte Selektorliste und ihr zugehöriger Stilblock ignoriert wird. Auf der anderen Seite wird ein unbekannter präfixierter Selektor mit einer Funktionsnotation von `::-webkit-imaginary-function()` die gesamte Selektorliste ungültig machen, und der Browser wird den gesamten Selektorblock ignorieren.
 
 ### Fehler innerhalb von CSS-Deklarationsblöcken
 
-Wenn es um CSS-Eigenschaften und -Werte innerhalb eines Deklarationsblocks geht, wird jedes Eigenschaft-Wert-Paar ignoriert und verworfen, wenn entweder die Eigenschaft oder der Wert ungültig ist. Wenn ein User Agent eine Liste von Deklarationen parst oder interpretiert, führt unbekannte Syntax zu jedem Punkt dazu, dass der Parser des Browsers nur die aktuelle Deklaration verwirft. Er setzt das Parsen von CSS erst nach dem nächsten Semikolon oder der schließenden geschweiften Klammer fort, je nachdem, was zuerst auftritt.
+Wenn es um CSS-Eigenschaften und Werte innerhalb eines Deklarationsblocks geht, wird das Eigenschafts-Wert-Paar ignoriert und verworfen, wenn entweder die Eigenschaft oder der Wert ungültig ist. Wenn ein Benutzeragent eine Liste von Deklarationen parst oder interpretiert, verursacht eine unbekannte Syntax an irgendeinem Punkt, dass der Parser des Browsers nur die aktuelle Deklaration verwirft. Er setzt das Parsen von CSS nach dem nächsten Semikolon oder der schließenden geschweiften Klammer entweder fort.
 
-Dieses Beispiel enthält einen Fehler. Der Parser ignoriert den Fehler (und die Kommentare), sucht nach vorne, bis er auf ein Semikolon trifft, und beginnt dann erneut zu parsen:
+Dieses Beispiel enthält einen Fehler. Der Parser ignoriert den Fehler (und die Kommentare), sucht weiter, bis er ein Semikolon findet, und beginnt dann erneut mit dem Parsen:
 
 ```css-nolint bad
 p {
@@ -90,15 +90,15 @@ p {
 }
 ```
 
-Der Grund, warum die erste Deklaration in diesem Selectorblock ungültig ist, ist das fehlende Semikolon und die Tatsache, dass die Deklaration nicht die letzte im Selectorblock ist. Die Eigenschaft ohne Semikolon wird ignoriert, ebenso wie das darauf folgende Eigenschaft-Wert-Paar, weil der Browser das Parsen erst nach einem Semikolon oder einer schließenden Klammer fortsetzt. Konkret wird der `border-color`-Wert als `red background-color: green;` geparst, was kein gültiger {{cssxref("&lt;color&gt;")}}-Wert ist.
+Der Grund, warum die erste Deklaration in diesem Selektorblock ungültig ist, liegt darin, dass das Semikolon fehlt und die Deklaration nicht die letzte im Selektorblock ist. Die Eigenschaft, bei der das Semikolon fehlt, wird ignoriert, ebenso wie das darauf folgende Eigenschafts-Wert-Paar, da der Browser erst nach einem Semikolon oder einer schließenden Klammer weiter parst. Insbesondere wird der `border-color`-Wert als `red background-color: green;` geparst, was kein gültiger {{cssxref("&lt;color&gt;")}}-Wert ist.
 
-Der {{cssxref("border-width")}} Wert von `100vh` ist wahrscheinlich ein Fehler, aber kein Fehler im Sinne der Syntax. Da er syntaktisch gültig ist, wird er parsbar sein und auf die Elemente angewendet, die dem Selektor entsprechen.
+Der {{cssxref("border-width")}}-Wert von `100vh` ist wahrscheinlich ein Fehler, aber es ist kein Fehler im Sinne der Syntax. Da er syntaktisch gültig ist, wird er geparst und auf die Elemente angewendet, die dem Selektor entsprechen.
 
-#### Vendor-Präfixe
+#### Anbieterpräfixe
 
-Eigenschaftsnamen und Eigenschaftswerte mit Vendor-Präfixen werden als ungültig behandelt und ignoriert, wenn sie von einem Browser nicht verstanden werden. Nur die einzelnen Regeln mit einer ungültigen Eigenschaft oder einem ungültigen Wert werden ignoriert. Der Parser sucht nach dem nächsten Semikolon oder der schließenden geschweiften Klammer und setzt das Parsen ab diesem Punkt fort.
+Anbieterpräfixierte Eigenschaftsnamen und Eigenschaftswerte, die von einem Browser nicht verstanden werden, werden als ungültig behandelt und ignoriert. Nur die individuellen Regeln, die eine ungültige Eigenschaft oder einen ungültigen Wert enthalten, werden ignoriert. Der Parser sucht nach dem nächsten Semikolon oder der schließenden geschweiften Klammer und setzt dann das Parsen von dort aus fort.
 
-Man kann auf altes CSS stoßen, das wie folgt aussieht:
+Sie stoßen möglicherweise auf veraltetes CSS wie das folgende:
 
 ```css example-bad
 /* Prefixed values */
@@ -119,19 +119,19 @@ Man kann auf altes CSS stoßen, das wie folgt aussieht:
 }
 ```
 
-In diesem Beispiel ist die letzte Deklaration in jedem Block in allen Browsern gültig — `display: flex;` und `border-radius: 50%;`. Aufgrund der [Kaskade](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#source_order) [Reihenfolge des Auftretens](/de/docs/Learn/CSS/Building_blocks/Cascade_layers) Regel, werden Browser alle Präfix-Deklarationen anwenden, die sie verstehen, und dann diese Werte mit der standardmäßigen unpräfixierten Version überschreiben.
+In diesem Beispiel ist die letzte Deklaration in jedem Block in allen Browsern gültig — `display: flex;` und `border-radius: 50%;`. Aufgrund der [Kaskadenreihenfolge des Auftretens](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#source_order), setzen Browser alle von ihnen verstandenen präfixierten Deklarationen um und überschreiben diese Werte dann mit der standardmäßigen, nicht präfixierten Version.
 
 > [!NOTE]
-> Vermeiden Sie, wo möglich, die Verwendung von präfixierten Eigenschaften oder Eigenschaftswerten. Wenn Sie sie verwenden müssen, deklarieren Sie die präfixierten Versionen vor der unpräfixierten Version, wie oben gezeigt.
+> Vermeiden Sie es nach Möglichkeit, präfixierte Eigenschaften oder Eigenschaftswerte einzuschließen. Wenn Sie sie verwenden müssen, deklarieren Sie die präfixierten Versionen vor der nicht präfixierten Version, wie oben gezeigt.
 
-### Fehler bei automatischen Schließungen
+### Fehler mit automatisch geschlossenen Endungen
 
-Wenn ein Stylesheet endet, während eine Regel, Deklaration, Funktion, Zeichenkette oder ein Kommentar noch geöffnet ist, schließt der Parser automatisch alles, was offen geblieben ist.
+Wenn ein Stylesheet endet, während eine Regel, Deklaration, Funktion, Zeichenfolge oder ein Kommentar noch offen ist, wird der Parser alles automatisch schließen, was nicht geschlossen war.
 
 > [!NOTE]
-> Dies gilt für externe Stylesheets, Selektorblöcke innerhalb eines HTML {{HTMLElement("style")}} Elements und Inline-Regeln innerhalb eines [`style`](/de/docs/Web/HTML/Global_attributes/style) Attributs.
+> Dies gilt für externe Stylesheets, Selektorblöcke innerhalb eines HTML-{{HTMLElement("style")}}-Elements und Inline-Regeln innerhalb eines [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attributs.
 
-Wenn der Inhalt zwischen dem letzten Semikolon und dem Ende des Stylesheets gültig ist, auch wenn er unvollständig ist, wird das CSS normal geparst. Beispielsweise, wenn Sie eine `@keyframe` Deklaration nicht schließen, bevor Sie Ihr {{htmlelement("style")}} schließen, ist die Animation immer noch gültig.
+Wenn der Inhalt zwischen dem letzten Semikolon und dem Ende des Stylesheets gültig ist, auch wenn er unvollständig ist, wird das CSS normal geparst. Zum Beispiel, wenn Sie eine `@keyframe`-Deklaration nicht abschließen, bevor Sie Ihr {{htmlelement("style")}} schließen, ist die Animation immer noch gültig.
 
 ```html-nolint example-bad
 <style>
@@ -141,11 +141,11 @@ Wenn der Inhalt zwischen dem letzten Semikolon und dem Ende des Stylesheets gül
 </style>
 ```
 
-Hier ist die `move` Animation gültig. Das ordnungsgemäße Schließen von CSS-Deklarationen führt nicht unbedingt dazu, dass die Deklarationen ungültig werden. Dennoch: Nutzen Sie nicht die nachsichtige Natur von CSS aus. Schließen Sie immer alle Ihre Deklarationen und Stilblöcke. Es macht Ihr CSS leichter lesbar und wartbar und stellt sicher, dass der Browser das CSS so parst, wie Sie es beabsichtigt haben.
+Hier ist die `move`-Animation gültig. Das Nichterschließen von CSS-Anweisungen macht die Anweisungen nicht unbedingt ungültig. Das gesagt, sollten Sie die verzeihende Natur von CSS nicht ausnutzen. Schließen Sie immer alle Ihre Anweisungen und Stilblöcke. Es macht Ihr CSS leichter lesbar und wartbar und sichert, dass der Browser das CSS so parst, wie Sie es beabsichtigt haben.
 
-#### Nicht geschlossene Kommentare
+#### Ungekürzte Kommentare
 
-Nicht geschlossene Kommentare sind Logikfehler, keine Syntaxfehler. Wenn ein Kommentar mit `/*` beginnt, aber nicht geschlossen wird, wird der gesamte CSS-Code bis zu einem schließenden Trennzeichen (`*/`) in einem nachfolgenden Kommentar oder dem Ende des Stylesheets, je nachdem, was zuerst auftritt, als Teil des Kommentars betrachtet. Obwohl ein nicht geschlossener Kommentar Ihr CSS nicht ungültig macht, führt er dazu, dass das CSS nach dem öffnenden Trennzeichen (`/*`) ignoriert wird.
+Ungekürzte Kommentare sind logische Fehler, keine Syntaxfehler. Wenn ein Kommentar mit `/*` beginnt, aber nicht geschlossen wird, ist aller CSS-Code bis zu einem Schließungszeichen (`*/`) in einem nachfolgenden Kommentar oder dem Ende des Stylesheets Teil des Kommentars. Während ein ungekürzter Kommentar Ihr CSS nicht ungültig macht, führt er dazu, dass das CSS nach dem Öffnungszeichen (`/*`) ignoriert wird.
 
 ```html example-bad
 <style>
@@ -162,19 +162,19 @@ In diesem Beispiel sind die beiden CSS-Kommentare nicht geschlossen, aber das sc
 
 ## Grammatikprüfung
 
-Nach dem Parsen jeder Deklaration, Stilregel, At-Rule usw., überprüft der User Agent, ob die Grammatik den Regeln für diese Deklaration entspricht. Wenn beispielsweise ein Eigenschaftswert vom falschen Datentyp ist oder ein Deskriptor für die beschriebene At-Rule nicht gültig ist, wird der Inhalt, der nicht mit der erwarteten Grammatik übereinstimmt, als ungültig betrachtet und ignoriert.
+Nach dem Parsen jeder Deklaration, Stilregel, At-Regel usw. überprüft der Benutzeragent, ob die Grammatik den Regeln für diese Deklaration entspricht. Wenn zum Beispiel ein Eigenschaftswert den falschen Datentyp hat oder ein Deskriptor nicht gültig für die beschriebene At-Regel ist, wird der Inhalt, der nicht der erwarteten Grammatik entspricht, als ungültig angesehen und ignoriert.
 
-Jede CSS-Eigenschaft akzeptiert spezifische Datentypen. Zum Beispiel akzeptiert die {{cssxref("background-color")}} Eigenschaft entweder einen gültigen {{cssxref("&lt;color&gt;")}} oder ein globales CSS-Schlüsselwort. Wenn der einer Eigenschaft zugewiesene Wert vom falschen Typ ist, wie beispielsweise `background-color: 45deg`, ist die Deklaration ungültig und wird daher ignoriert.
+Jede CSS-Eigenschaft akzeptiert spezifische Datentypen. Zum Beispiel akzeptiert die {{cssxref("background-color")}}-Eigenschaft entweder einen gültigen {{cssxref("&lt;color&gt;")}} oder ein CSS-Global-Schlüsselwort. Wenn der einer Eigenschaft zugewiesene Wert des falschen Typs ist, wie `background-color: 45deg`, ist die Deklaration ungültig und wird daher ignoriert.
 
 ### Ungültige benutzerdefinierte Eigenschaften
 
-Benutzerdefinierte Eigenschaften werden im Allgemeinen als gültig betrachtet, wenn sie deklariert werden, können jedoch ungültiges CSS erzeugen, wenn sie verwendet werden, d.h. sie können als Wert (über die {{cssxref("var")}} Funktion) für eine Eigenschaft verwendet werden, die diesen Werttyp nicht akzeptiert. Der Browser parst jede benutzerdefinierte Eigenschaft, sobald er sie antrifft, ohne Rücksicht darauf, wo die Eigenschaft verwendet wird.
+Benutzerdefinierte Eigenschaften werden im Allgemeinen als gültig betrachtet, wenn sie deklariert werden, können jedoch ungültiges CSS erzeugen, wenn darauf zugegriffen wird, d.h. sie können als Wert (über die {{cssxref("var")}}-Funktion) für eine Eigenschaft verwendet werden, die diesen Wertetyp nicht akzeptiert. Der Browser parst jede benutzerdefinierte Eigenschaft, wenn sie erkannt wird, ohne Rücksicht darauf, wo die Eigenschaft verwendet wird.
 
-Im Allgemeinen, wenn ein Eigenschaftswert ungültig ist, wird die Deklaration ignoriert und die Eigenschaft fällt auf den letzten gültigen Wert zurück. Ungültige berechnete Werte benutzerdefinierter Eigenschaften funktionieren jedoch etwas anders.
+Im Allgemeinen, wenn ein Eigenschaftswert ungültig ist, wird die Deklaration ignoriert und die Eigenschaft fällt auf den letzten gültigen Wert zurück. Ungültige berechnete benutzerdefinierte Eigenschaftswerte verhalten sich jedoch etwas anders.
 
-Wenn eine `var()`-Substitution ungültig ist, wird die Deklaration nicht ignoriert, und der [initiale](/de/docs/Web/CSS/initial_value) oder [vererbte](/de/docs/Web/CSS/Inheritance) Wert der Eigenschaft wird stattdessen verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, jedoch möglicherweise nicht den erwarteten.
+Wenn eine `var()`-Substitution ungültig ist, wird die Deklaration nicht ignoriert und der [initiale](/de/docs/Web/CSS/initial_value) oder [vererbte](/de/docs/Web/CSS/Inheritance) Wert der Eigenschaft wird stattdessen verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, jedoch möglicherweise nicht auf den erwarteten.
 
-Werfen wir einen Blick auf ein Beispiel, um dieses Verhalten zu veranschaulichen:
+Sehen wir uns ein Beispiel an, um dieses Verhalten zu verdeutlichen:
 
 ```css example-bad
 :root {
@@ -185,9 +185,9 @@ body {
 }
 ```
 
-Im obigen Code ist die Deklaration der benutzerdefinierten Eigenschaft gültig. Die `background-color` Deklaration ist auch zur Berechnungszeit gültig. Wenn der Browser jedoch die benutzerdefinierte Eigenschaft in `var(--theme-color)` mit `45deg` als Wert der `background-color` Eigenschaft ersetzt, ist die Grammatik ungültig. Ein {{cssxref("angle")}} ist kein gültiger `background-color` Wert. In diesem Fall wird die Deklaration nicht als ungültig ignoriert. Vielmehr, wenn eine benutzerdefinierte Eigenschaft vom falschen Typ ist, wird der Wert, falls die Eigenschaft vererbbar ist, von ihrem Elternteil geerbt. Wenn die Eigenschaft nicht vererbbar ist, wird der Standardanfangswert verwendet. Im Fall von `background-color` ist der Eigenschaftswert nicht vererbbar, daher wird der Anfangswert `transparent` verwendet.
+Im obigen Code ist die benutzerdefinierte Eigenschaftendeklaration gültig. Die `background-color`-Deklaration ist ebenfalls zur Berechnungszeit gültig. Wenn jedoch der Browser die benutzerdefinierte Eigenschaft in `var(--theme-color)` mit `45deg` als Wert der `background-color`-Eigenschaft ersetzt, ist die Grammatik ungültig. Ein {{cssxref("angle")}} ist kein gültiger `background-color`-Wert. In diesem Fall wird die Deklaration nicht als ungültig ignoriert. Vielmehr, wenn eine benutzerdefinierte Eigenschaft den falschen Typ hat, wird, wenn die Eigenschaft vererbbar ist, der Wert vom Elternteil geerbt. Wenn die Eigenschaft nicht vererbbar ist, wird der Standard-Initialwert verwendet. Im Fall von `background-color` wird der Eigenschaftswert nicht vererbt, sodass der initiale Wert von `transparent` verwendet wird.
 
-Um besser zu kontrollieren, wie benutzerdefinierte Eigenschaften zurückfallen, verwenden Sie die {{cssxref("@property")}} At-Rule, um den Anfangswert der Eigenschaft zu definieren:
+Um den Rückfall von benutzerdefinierten Eigenschaften besser zu kontrollieren, verwenden Sie die {{cssxref("@property")}}-At-Regel, um den Initialwert der Eigenschaft zu definieren:
 
 ```css example-good
 @property --theme-color {
@@ -201,4 +201,4 @@ Um besser zu kontrollieren, wie benutzerdefinierte Eigenschaften zurückfallen, 
 
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
 - [Syntax](/de/docs/Web/CSS/Syntax) Leitfaden
-- [Wertedefinitions-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [Wertdefinition Syntax](/de/docs/Web/CSS/Value_definition_syntax)

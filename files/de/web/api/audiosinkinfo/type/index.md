@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`type`** Eigenschaft des [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo) Interface ist eine schreibgeschützte Eigenschaft, die den Typ des Audioausgabegeräts zurückgibt.
+Die **`type`**-Eigenschaft des [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Typ des Audioausgabegeräts zurückgibt.
 
 ## Wert
 

@@ -11,15 +11,14 @@ l10n:
 Die **`clone()`** Methode der [`Request`](/de/docs/Web/API/Request) Schnittstelle erstellt eine Kopie des aktuellen `Request` Objekts.
 
 Wie die zugrundeliegende [`ReadableStream.tee`](/de/docs/Web/API/ReadableStream/tee) API,
-signalisiert der [`body`](/de/docs/Web/API/Request/body) eines geklonten `Response`
-Rückstaudruck mit der Geschwindigkeit des _schnelleren_ Verbrauchers der beiden bodies,
-und nicht gelesene Daten werden intern im langsamer verbrauchten `body`
-ohne jegliche Begrenzung oder Rückstaudruck in eine Warteschlange gestellt.
-Seien Sie vorsichtig, wenn Sie einen `Request` aus einem Stream konstruieren und ihn dann `clone`.
+signalisiert der [`body`](/de/docs/Web/API/Request/body) einer geklonten `Response`
+Druckausgleich mit der Rate des _schnelleren_ Verbrauchers der beiden Bodies,
+und nicht gelesene Daten werden intern auf dem langsamer konsumierten `body` ohne Begrenzung oder Druckausgleich eingereiht.
+Seien Sie vorsichtig, wenn Sie einen `Request` aus einem Stream konstruieren und diesen dann `clone`.
 
-`clone()` löst einen {{jsxref("TypeError")}} aus, wenn der Anforderungskörper bereits verwendet wurde. Tatsächlich besteht der Hauptgrund für die Existenz von `clone()` darin, die mehrfache Verwendung von body-Objekten zu ermöglichen (wenn sie nur einmal verwendet werden können).
+`clone()` löst einen {{jsxref("TypeError")}} aus, wenn der Anfragekörper bereits verwendet wurde. Tatsächlich ist der Hauptgrund, warum `clone()` existiert, um die mehrfache Nutzung von Body-Objekten zu ermöglichen (wenn sie nur einmal verwendet werden können).
 
-Wenn Sie beabsichtigen, die Anforderung zu ändern, sollten Sie den [`Request`](/de/docs/Web/API/Request) Konstruktor bevorzugen.
+Wenn Sie beabsichtigen, die Anfrage zu modifizieren, ziehen Sie vielleicht den [`Request`](/de/docs/Web/API/Request) Konstruktor vor.
 
 ## Syntax
 
@@ -33,11 +32,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Request`](/de/docs/Web/API/Request) Objekt, das eine exakte Kopie des `Request` ist, auf dem `clone()` aufgerufen wurde.
+Ein [`Request`](/de/docs/Web/API/Request) Objekt, das eine exakte Kopie des `Requests` ist, auf dem `clone()` aufgerufen wurde.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), und klonen dann die Anfrage.
+Im folgenden Beispiel erstellen wir eine neue Anfrage mithilfe des [`Request()`](/de/docs/Web/API/Request/Request) Konstruktors (für eine Bilddatei im selben Verzeichnis wie das Skript) und klonen dann die Anfrage.
 
 ```js
 const myRequest = new Request("flowers.jpg");

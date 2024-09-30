@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: deviceVersionSubminor-Eigenschaft"
+title: "USBDevice: deviceVersionSubminor Eigenschaft"
 short-title: deviceVersionSubminor
 slug: Web/API/USBDevice/deviceVersionSubminor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`deviceVersionSubminor`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt die Patch-Versionsnummer des Geräts gemäß einem semantischen Versionsschema an.
+Die schreibgeschützte Eigenschaft **`deviceVersionSubminor`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt die Patch-Versionsnummer des Geräts in einem semantischen Versionierungsschema an.
 
 ## Wert
 

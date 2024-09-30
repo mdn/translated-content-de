@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft stellt eine Compositing-Operation dar, die auf die aktuelle Maskenschicht mit den darunterliegenden Maskenschichten angewendet wird.
+Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft stellt eine Kompositionsoperation dar, die auf die aktuelle Maskenebene mit den darunterliegenden Maskenebenen angewendet wird.
 
 ## Syntax
 
@@ -26,18 +26,18 @@ mask-composite: revert-layer;
 mask-composite: unset;
 ```
 
-Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
+Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommata getrennt.
 
 ### Werte
 
-Für die Komposition wird die aktuelle Maskenschicht als _Quelle_ bezeichnet, während alle darunterliegenden Schichten als _Ziel_ bezeichnet werden.
+Für die Komposition wird die aktuelle Maskenebene als _source_ bezeichnet, während alle darunterliegenden Ebenen als _destination_ bezeichnet werden.
 
 - `add`
-  - : Die Quelle wird über das Ziel gelegt.
+  - : Die Quelle wird über dem Ziel platziert.
 - `subtract`
-  - : Die Quelle wird dort platziert, wo sie außerhalb des Ziels fällt.
+  - : Die Quelle wird dort platziert, wo sie außerhalb des Ziels liegt.
 - `intersect`
-  - : Die Teile der Quelle, die sich mit dem Ziel überlappen, ersetzen das Ziel.
+  - : Die Teile der Quelle, die das Ziel überlappen, ersetzen das Ziel.
 - `exclude`
   - : Die nicht überlappenden Bereiche von Quelle und Ziel werden kombiniert.
 
@@ -51,7 +51,7 @@ Für die Komposition wird die aktuelle Maskenschicht als _Quelle_ bezeichnet, w�
 
 ## Beispiele
 
-### Maskenschichten mit Addition kombinieren
+### Komposition von Maskenebenen mit Addition
 
 {{EmbedGHLiveSample("css-examples/masking/mask-composite.html", '100%', 550)}}
 

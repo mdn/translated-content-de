@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`autoGainControl`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das die angeforderten oder obligatorischen Einschränkungen für den Wert der [`autoGainControl`](/de/docs/Web/API/MediaTrackSettings/autoGainControl) einschränkbaren Eigenschaft beschreibt.
+Das **`autoGainControl`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das die gewünschten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`autoGainControl`](/de/docs/Web/API/MediaTrackSettings/autoGainControl) einschränkbaren Eigenschaft angewendet werden.
 
-Falls erforderlich, können Sie überprüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.autoGainControl`](/de/docs/Web/API/MediaTrackSupportedConstraints/autoGainControl) prüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Dies ist jedoch in der Regel nicht notwendig, da Browser unbekannte Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.autoGainControl`](/de/docs/Web/API/MediaTrackSupportedConstraints/autoGainControl) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
 Die automatische Verstärkungsregelung ist typischerweise eine Funktion, die von Mikrofonen bereitgestellt wird, obwohl sie auch von anderen Eingabequellen bereitgestellt werden kann.
 
 ## Wert
 
-Wenn dieser Wert einfach `true` oder `false` ist, versucht der User-Agent, Medien mit aktivierter oder deaktivierter automatischer Verstärkungsregelung gemäß der Angabe zu erhalten, wenn möglich, schlägt jedoch nicht fehl, wenn dies nicht machbar ist. Wenn der Wert stattdessen als ein Objekt mit einem `exact`-Feld angegeben wird, gibt der Boolean-Wert dieses Feldes eine erforderliche Einstellung für die Funktion der automatischen Verstärkungsregelung an; wenn dies nicht erfüllt werden kann, führt die Anfrage zu einem Fehler.
+Wenn dieser Wert ein einfaches `true` oder `false` ist, wird der Benutzeragent versuchen, Medien mit aktivierter oder deaktivierter automatischer Verstärkungsregelung gemäß der Angabe zu erhalten, wenn möglich, aber nicht fehlschlagen, wenn dies nicht möglich ist. Wenn stattdessen der Wert als Objekt mit einem `exact`-Feld angegeben wird, zeigt der Boolesche Wert dieses Feldes eine erforderliche Einstellung für das automatische Verstärkungsregelungs-Feature an; falls diese nicht erfüllt werden kann, wird die Anfrage zu einem Fehler führen.
 
 ## Beispiele
 
-Siehe das [Constraint-Beispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint-Übung](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 

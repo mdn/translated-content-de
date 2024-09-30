@@ -1,5 +1,5 @@
 ---
-title: "PerformanceScriptTiming: toJSON() Methode"
+title: "PerformanceScriptTiming: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceScriptTiming/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des `PerformanceScriptTiming`-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie liefert eine JSON-Darstellung des `PerformanceScriptTiming`-Objekts.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekts ist.
 
 ## Beispiele
 
-### Verwendung der `toJSON` Methode
+### Verwendung der `toJSON`-Methode
 
-In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Darstellung des ersten verfügbaren `PerformanceScriptTiming`-Objekts in einem beobachteten langen Animationsframe.
+In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Darstellung des ersten verfügbaren `PerformanceScriptTiming`-Objekts in einem beobachteten langen Animationsrahmen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -61,7 +61,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 
@@ -73,5 +73,5 @@ Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs
 
 ## Siehe auch
 
-- [Timing für lange Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - {{jsxref("JSON")}}

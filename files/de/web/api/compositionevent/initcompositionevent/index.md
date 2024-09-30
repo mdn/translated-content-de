@@ -1,5 +1,5 @@
 ---
-title: "CompositionEvent: initCompositionEvent() Methode"
+title: "CompositionEvent: Methode initCompositionEvent()"
 short-title: initCompositionEvent()
 slug: Web/API/CompositionEvent/initCompositionEvent
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{deprecated_header}}{{APIRef("UI Events")}}
 
-Die **`initCompositionEvent()`** Methode der [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Schnittstelle initialisiert die Attribute eines `CompositionEvent`-Objektinstanz.
+Die **`initCompositionEvent()`**-Methode des [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Interfaces initialisiert die Attribute eines `CompositionEvent`-Objektinstanz.
 
 > [!NOTE]
-> Der korrekte Weg, ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu erstellen, ist die Verwendung des Konstruktors [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent).
+> Der korrekte Weg, um ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu erstellen, ist die Verwendung des Konstruktors [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ initCompositionEvent(type, canBubble, cancelable, view, data, locale)
 - `type`
   - : Ein String, der den Typ des Zusammensetzungsereignisses darstellt; dies wird eines von `compositionstart`, `compositionupdate` oder `compositionend` sein.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis aufsteigen kann oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis sprudeln kann oder nicht.
 - `cancelable`
   - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann oder nicht.
 - `view`
-  - : Das [`Window`](/de/docs/Web/API/Window) Objekt, von dem das Ereignis generiert wurde.
+  - : Das [`Window`](/de/docs/Web/API/Window)-Objekt, von dem das Ereignis erzeugt wurde.
 - `data`
   - : Ein String, der den Wert des `data`-Attributs darstellt.
 - `locale`

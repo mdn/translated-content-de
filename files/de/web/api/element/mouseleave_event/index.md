@@ -1,5 +1,5 @@
 ---
-title: "Element: mouseleave-Ereignis"
+title: "Element: mouseleave Ereignis"
 short-title: mouseleave
 slug: Web/API/Element/mouseleave_event
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef}}
 
-Das **`mouseleave`**-Ereignis wird auf einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor eines Zeigegeräts (in der Regel eine Maus) aus dem Element herausbewegt wird.
+Das **`mouseleave`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor eines Zeigegeräts (meistens eine Maus) es verlässt.
 
-`mouseleave` und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) sind ähnlich, unterscheiden sich jedoch darin, dass `mouseleave` nicht durchläuft, während `mouseout` dies tut. Das bedeutet, dass `mouseleave` ausgelöst wird, wenn der Zeiger das Element _und_ alle seine Nachfahren verlassen hat, wohingegen `mouseout` ausgelöst wird, wenn der Zeiger das Element _oder_ einen seiner Nachfahren verlässt (auch wenn der Zeiger sich noch innerhalb des Elements befindet).
+`mouseleave` und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) sind ähnlich, unterscheiden sich aber darin, dass `mouseleave` nicht nach oben durchreicht (bubbled) und `mouseout` schon. Dies bedeutet, dass `mouseleave` ausgelöst wird, wenn der Zeiger das Element _und_ alle seine Nachkommen verlassen hat, während `mouseout` ausgelöst wird, wenn der Zeiger das Element _oder_ einen der Nachkommen des Elements verlässt (auch wenn der Zeiger sich noch innerhalb des Elements befindet).
 
-Die Ereignisse `mouseleave` und `mouseout` werden nicht ausgelöst, wenn das Element ersetzt oder aus dem DOM entfernt wird.
+Die `mouseleave` und `mouseout` Ereignisse werden nicht ausgelöst, wenn das Element ersetzt oder aus dem DOM entfernt wird.
 
-Beachten Sie, dass „aus einem Element herausbewegen“ sich auf die Position des Elements im DOM-Baum bezieht, nicht auf seine visuelle Position. Beispielsweise, wenn zwei Geschwister-Elemente positioniert sind, sodass eines innerhalb des anderen platziert ist, wird beim Bewegen vom äußeren Element in das innere Element `mouseleave` auf dem äußeren Element ausgelöst, auch wenn sich der Zeiger noch innerhalb der Grenzen des äußeren Elements befindet.
+Beachten Sie, dass "das Verlassen eines Elements" sich auf die Position des Elements im DOM-Baum bezieht, nicht auf seine visuelle Position. Wenn beispielsweise zwei Geschwisterelemente so positioniert sind, dass eines das andere umfasst, dann löst das Bewegen vom äußeren Element in das innere Element ein `mouseleave` beim äußeren Element aus, obwohl sich der Zeiger noch innerhalb der Grenzen des äußeren Elements befindet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("mouseleave", (event) => {});
@@ -39,9 +39,9 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
-  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
+  - : Die Nummer der Taste, die (falls zutreffend) gedrückt wurde, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die gedrückten Tasten (falls vorhanden), als das Mausereignis ausgelöst wurde.
+  - : Die Tasten, die gedrückt wurden (falls vorhanden), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
@@ -55,54 +55,53 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der Randeinfassung des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Randeinfassung des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
-  - : Der sekundäre Ziel-Element des Ereignisses, falls vorhanden.
+  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
 - [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>Umschalt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+  - : Gibt `true` zurück, wenn die <kbd>Shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Ereignis generiert hat (einer der `MOZ_SOURCE_*` Konstanten).
-    Dies ermöglicht es Ihnen beispielsweise, festzustellen, ob ein Mausereignis von einer tatsächlichen Maus oder durch ein Berührungsereignis erzeugt wurde (was sich auf die Genauigkeit auswirken kann, mit der Sie die dem Ereignis zugeordneten Koordinaten interpretieren).
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten). Dies ermöglicht Ihnen zum Beispiel die Bestimmung, ob ein Mausereignis von einer tatsächlichen Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die mit dem Ereignis verbundenen Koordinaten interpretieren).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Die bei einem Klick aufgewendete Druckmenge.
+  - : Die aufgebrachte Druckmenge beim Klicken.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY).
 
-### Verhalten von `mouseleave`-Ereignissen
+### Verhalten der `mouseleave` Ereignisse
 
-![Diagramm des leaveleave-Verhaltens](mouseleave.png)
+![Verhaltensdiagramm für mouseleave](mouseleave.png)
 
-Ein `mouseleave`-Ereignis wird an jedes Element der Hierarchie gesendet, wenn diese verlassen werden. Hier werden vier Ereignisse an die vier in der Hierarchie dargestellten Elemente gesendet, wenn sich der Zeiger von dem Text zu einem Bereich außerhalb der äußersten dargestellten `div` bewegt.
+Ein `mouseleave` Ereignis wird an jedes Element der Hierarchie gesendet, wenn es verlassen wird. Hier werden vier Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Mauszeiger sich vom Text zu einem Bereich außerhalb des hier dargestellten äußeren Div bewegt.
 
-### Verhalten von `mouseout`-Ereignissen
+### Verhalten der `mouseout` Ereignisse
 
-![Diagramm des mouseout-Verhaltens](mouseout.png)
+![Verhaltensdiagramm für mouseout](mouseout.png)
 
-Ein einzelnes `mouseout`-Ereignis wird an das tiefste Element des DOM-Baums gesendet, dann durchläuft es die Hierarchie, bis es von einem Handler abgebrochen oder die Wurzel erreicht wird.
+Ein einzelnes `mouseout` Ereignis wird an das tiefste Element des DOM-Baums gesendet, dann wandert es die Hierarchie hinauf, bis es von einem Handler abgebrochen wird oder die Wurzel erreicht.
 
 ## Beispiele
 
-Die Dokumentation zu [`mouseout`](/de/docs/Web/API/Element/mouseout_event#examples) enthält ein Beispiel zur Veranschaulichung des Unterschieds zwischen `mouseout` und `mouseleave`.
+Die Dokumentation zu [`mouseout`](/de/docs/Web/API/Element/mouseout_event#examples) enthält ein Beispiel, das den Unterschied zwischen `mouseout` und `mouseleave` veranschaulicht.
 
 ### mouseleave
 
-Das folgende triviale Beispiel verwendet das `mouseenter`-Ereignis, um den Rahmen auf dem `<div>` zu ändern, wenn die Maus in den ihm zugewiesenen Bereich eintritt. Anschließend wird ein Eintrag zur Liste mit der Nummer des `mouseenter`- oder `mouseleave`-Ereignisses hinzugefügt.
+Das folgende einfache Beispiel nutzt das `mouseenter` Ereignis, um den Rand des `<div>` zu ändern, wenn die Maus den für es vorgesehenen Raum betritt. Dann wird ein Element zu der Liste mit der Nummer des `mouseenter` oder `mouseleave` Ereignisses hinzugefügt.
 
 #### HTML
 
@@ -116,7 +115,7 @@ Das folgende triviale Beispiel verwendet das `mouseenter`-Ereignis, um den Rahme
 
 #### CSS
 
-Stylen des `<div>`, um es besser sichtbar zu machen.
+Gestaltung des `<div>`, um es besser sichtbar zu machen.
 
 ```css
 #mouseTarget {

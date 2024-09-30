@@ -7,34 +7,34 @@ l10n:
 
 {{DefaultAPISidebar("Screen Capture API")}}
 
-Die Screen Capture API führt Ergänzungen zur bestehenden Media Capture and Streams API ein, um es dem Benutzer zu ermöglichen, einen Bildschirm oder einen Teil eines Bildschirms (wie ein Fenster) auszuwählen, um ihn als Medienstream zu erfassen. Dieser Stream kann dann aufgenommen oder über das Netzwerk mit anderen geteilt werden.
+Die Screen Capture API fügt der bestehenden Media Capture and Streams API Erweiterungen hinzu, um es dem Benutzer zu ermöglichen, einen Bildschirm oder einen Teil eines Bildschirms (wie ein Fenster) zur Aufnahme als Medienstream auszuwählen. Dieser Stream kann dann aufgezeichnet oder mit anderen über das Netzwerk geteilt werden.
 
-## Konzepte und Verwendung der Screen Capture API
+## Konzepte und Nutzung der Screen Capture API
 
-Die Screen Capture API ist relativ einfach zu verwenden. Ihre einzige Methode ist [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia), deren Aufgabe es ist, den Benutzer aufzufordern, einen Bildschirm oder einen Teil eines Bildschirms auszuwählen, um ihn in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream) zu erfassen.
+Die Screen Capture API ist relativ einfach zu verwenden. Ihre einzige Methode ist [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia), deren Aufgabe es ist, den Benutzer aufzufordern, einen Bildschirm oder einen Teil eines Bildschirms auszuwählen, der in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream) aufgenommen werden soll.
 
-Um das Video vom Bildschirm zu erfassen, rufen Sie `getDisplayMedia()` auf `navigator.mediaDevices` auf:
+Um mit der Aufnahme von Videos vom Bildschirm zu beginnen, rufen Sie `getDisplayMedia()` auf `navigator.mediaDevices` auf:
 
 ```js
 captureStream =
   await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
 ```
 
-Das von `getDisplayMedia()` zurückgegebene {{jsxref("Promise")}} löst sich in einen [`MediaStream`](/de/docs/Web/API/MediaStream) auf, der die erfassten Medien streamt.
+Das von `getDisplayMedia()` zurückgegebene {{jsxref("Promise")}} wird auf einen [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst, der die aufgenommenen Medien streamt.
 
-Lesen Sie den Artikel [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture) für einen detaillierteren Blick darauf, wie Sie die API verwenden können, um Bildschirm-Inhalte als Stream zu erfassen.
+Für einen tiefergehenden Blick darauf, wie die API verwendet wird, um Bildschirm-Inhalte als Stream aufzunehmen, lesen Sie den Artikel [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture).
 
 ## Schnittstellen
 
 - [`CaptureController`](/de/docs/Web/API/CaptureController)
-  - : Bietet Methoden, die verwendet werden können, um eine Erfassungssitzung weiter zu manipulieren, die unabhängig von ihrer Initialisierung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) ist. Ein `CaptureController`-Objekt wird mit einer Erfassungssitzung verbunden, indem es in einem `getDisplayMedia()`-Aufruf als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
+  - : Bietet Methoden, die verwendet werden können, um eine Aufnahmesitzung weiter zu manipulieren, getrennt von ihrer Einleitung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia). Ein `CaptureController`-Objekt wird mit einer Aufnahmesitzung verknüpft, indem es in einem Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) als Wert der `controller`-Eigenschaft des options-Objekts übergeben wird.
 
-## Ergänzungen zur MediaDevices-Schnittstelle
+## Erweiterungen der MediaDevices-Schnittstelle
 
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-  - : Die Methode `getDisplayMedia()` wird der `MediaDevices`-Schnittstelle hinzugefügt. Ähnlich wie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt diese Methode ein Versprechen, das sich mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) auflöst, der den vom Benutzer ausgewählten Anzeigebereich in einem Format enthält, das den angegebenen Optionen entspricht.
+  - : Die `getDisplayMedia()`-Methode wird der `MediaDevices`-Schnittstelle hinzugefügt. Ähnlich wie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt diese Methode ein Promise, das mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst wird, das den vom Benutzer ausgewählten Anzeigebereich in einem Format enthält, das den angegebenen Optionen entspricht.
 
-## Ergänzungen zu bestehenden Wörterbüchern
+## Erweiterungen bestehender Wörterbücher
 
 Die Screen Capture API fügt den folgenden Wörterbüchern, die von anderen Spezifikationen definiert werden, Eigenschaften hinzu.
 
@@ -43,20 +43,20 @@ Die Screen Capture API fügt den folgenden Wörterbüchern, die von anderen Spez
 - [`MediaTrackConstraints.displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)
   - : Ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das angibt, welcher Typ von Anzeigefläche erfasst werden soll. Der Wert ist einer von `browser`, `monitor` oder `window`.
 - [`MediaTrackConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)
-  - : Gibt an, ob das Video im Stream eine logische Anzeigefläche darstellt (d.h. eine, die möglicherweise nicht vollständig sichtbar auf dem Bildschirm ist oder vollständig außerhalb des Bildschirms sein kann). Ein Wert von `true` zeigt an, dass eine logische Anzeigefläche erfasst werden soll.
+  - : Gibt an, ob das Video im Stream eine logische Anzeigefläche darstellt (d. h. eine, die möglicherweise nicht vollständig sichtbar ist oder vollständig außerhalb des Bildschirms liegt). Ein Wert von `true` zeigt an, dass eine logische Anzeigefläche erfasst werden soll.
 - [`MediaTrackConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)
-  - : Kontrolliert, ob das Audio, das in einem Tab abgespielt wird, weiterhin über die lokalen Lautsprecher des Benutzers wiedergegeben wird, wenn der Tab erfasst wird, oder ob es unterdrückt wird. Ein Wert von `true` zeigt an, dass es unterdrückt wird.
+  - : Steuert, ob der Ton, der in einem Tab abgespielt wird, weiterhin auf den lokalen Lautsprechern eines Benutzers wiedergegeben wird, wenn der Tab erfasst wird, oder ob er unterdrückt wird. Ein Wert von `true` zeigt an, dass er unterdrückt wird.
 
 ### MediaTrackSettings
 
 - [`MediaTrackSettings.cursor`](/de/docs/Web/API/MediaTrackSettings/cursor)
-  - : Ein String, der angibt, ob die aktuell erfasste Anzeigefläche den Mauszeiger enthält und, falls ja, ob er nur sichtbar ist, während die Maus in Bewegung ist, oder ob er immer sichtbar ist. Der Wert ist einer von `always`, `motion` oder `never`.
+  - : Ein String, der angibt, ob die aktuell erfasste Anzeigefläche den Mauszeiger einschließt und ob dieser nur sichtbar ist, wenn die Maus in Bewegung ist oder ob er immer sichtbar ist. Der Wert ist einer von `always`, `motion` oder `never`.
 - [`MediaTrackSettings.displaySurface`](/de/docs/Web/API/MediaTrackSettings/displaySurface)
   - : Ein String, der angibt, welcher Typ von Anzeigefläche aktuell erfasst wird. Der Wert ist einer von `browser`, `monitor` oder `window`.
 - [`MediaTrackSettings.logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface)
-  - : Ein boolescher Wert, der `true` ist, wenn das erfasste Video nicht direkt einem einzelnen Bildschirmbereich entspricht.
+  - : Ein boolescher Wert, der `true` ist, wenn das aufgenommene Video nicht direkt mit einem einzigen sichtbaren Anzeigebereich übereinstimmt.
 - [`MediaTrackSettings.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback)
-  - : Ein boolescher Wert, der `true` ist, wenn das erfasste Audio nicht über die lokalen Lautsprecher des Benutzers wiedergegeben wird.
+  - : Ein boolescher Wert, der `true` ist, wenn das aufgenommene Audio nicht über die lokalen Lautsprecher des Benutzers abgespielt wird.
 
 ### MediaTrackSupportedConstraints
 
@@ -67,15 +67,15 @@ Die Screen Capture API fügt den folgenden Wörterbüchern, die von anderen Spez
 - [`MediaTrackSupportedConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSupportedConstraints/suppressLocalAudioPlayback)
   - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung die Einschränkung [`MediaTrackConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback) unterstützt.
 
-## Überprüfung der Berechtigungspolitik
+## Validierung der Berechtigungsrichtlinie
 
-[Benutzeragenten](/de/docs/Glossary/User_agent), die die [Permission Policy](/de/docs/Web/HTTP/Permissions_Policy) unterstützen (entweder über den HTTP-{{HTTPHeader("Permissions-Policy")}}-Header oder das {{HTMLElement("iframe")}}-Attribut [`allow`](/de/docs/Web/HTML/Element/iframe#allow)), können den Wunsch spezifizieren, die Screen Capture API mit der Direktive `display-capture` zu verwenden:
+[Benutzeragenten](/de/docs/Glossary/User_agent), die die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) unterstützen (entweder mit dem HTTP {{HTTPHeader("Permissions-Policy")}} Header oder dem {{HTMLElement("iframe")}} Attribut [`allow`](/de/docs/Web/HTML/Element/iframe#allow)), können den Wunsch spezifizieren, die Screen Capture API mit der Direktive `display-capture` zu verwenden:
 
 ```html
 <iframe allow="display-capture" src="/some-other-document.html">…</iframe>
 ```
 
-Die standardmäßige Zulassungsliste ist `self`, was es jeglichen Inhalten innerhalb desselben Ursprungs erlaubt, die Screen Capture zu verwenden.
+Die standardmäßige Zulassungsliste ist `self`, was es jedem Inhalt innerhalb desselben Ursprungs erlaubt, die Screen Capture zu nutzen.
 
 ## Spezifikationen
 

@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Das **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer angefordert hat, dass der Webinhalt mit einem niedrigeren oder höheren Kontrast dargestellt wird.
+Die **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer eine Darstellung des Webinhalts mit geringerem oder höherem Kontrast angefordert hat.
 
 ## Syntax
 
 - `no-preference`
-  - : Gibt an, dass der Benutzer keine Präferenz im System festgelegt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
+  - : Gibt an, dass der Benutzer keine Präferenz an das System übermittelt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als false bewertet.
 - `more`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem höheren Kontrast bevorzugt.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Benutzerschnittstelle mit einem höheren Kontrast bevorzugt.
 - `less`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem niedrigeren Kontrast bevorzugt.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Benutzerschnittstelle mit einem geringeren Kontrast bevorzugt.
 - `custom`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, eine spezifische Farbpalette zu verwenden, deren Kontrast weder `more` noch `less` entspricht. Dieser Wert wird mit der vom Benutzer angegebenen Farbpalette übereinstimmen, wenn [`forced-colors: active`](/de/docs/Web/CSS/@media/forced-colors) verwendet wird.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass eine spezifische Farbpalette verwendet werden soll und der durch diese Farben implizierte Kontrast weder `more` noch `less` entspricht. Dieser Wert wird mit der von Benutzern angeforderten Farbpalette übereinstimmen, die [`forced-colors: active`](/de/docs/Web/CSS/@media/forced-colors) verwenden.
 
 ## Benutzerpräferenzen
 

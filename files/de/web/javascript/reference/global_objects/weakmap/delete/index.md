@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`delete()`**-Methode von {{jsxref("WeakMap")}} Instanzen entfernt das angegebene Element aus diesem `WeakMap`.
+Die **`delete()`** Methode von {{jsxref("WeakMap")}} Instanzen entfernt das angegebene Element aus diesem `WeakMap`.
 
 {{EmbedInteractiveExample("pages/js/weakmap-prototype-delete.html")}}
 
@@ -20,7 +20,7 @@ weakMapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `WeakMap`-Objekt entfernt werden soll.
+  - : Der Schlüssel des Elements, das vom `WeakMap`-Objekt entfernt werden soll.
 
 ### Rückgabewert
 

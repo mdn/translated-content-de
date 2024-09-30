@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`ByteLengthQueuingStrategy`** Interface der [Streams API](/de/docs/Web/API/Streams_API) bietet eine eingebaute Warteschlangen-Strategie basierend auf der Byte-Länge, die beim Erstellen von Streams verwendet werden kann.
+Die **`ByteLengthQueuingStrategy`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet eine eingebaute Warteschlangestrategie basierend auf der Bytelänge, die beim Erstellen von Streams verwendet werden kann.
 
 ## Konstruktor
 
 - [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy)
-  - : Erstellt eine neue Instanz eines `ByteLengthQueuingStrategy` Objekts.
+  - : Erstellt eine neue Instanz des `ByteLengthQueuingStrategy`-Objekts.
 
 ## Instanz-Eigenschaften
 
 - [`ByteLengthQueuingStrategy.highWaterMark`](/de/docs/Web/API/ByteLengthQueuingStrategy/highWaterMark) {{ReadOnlyInline}}
-  - : Die Gesamtanzahl der Bytes, die in der internen Warteschlange enthalten sein können, bevor [Gegendruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
+  - : Die Gesamtzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
 
 ## Instanz-Methoden
 
 - [`ByteLengthQueuingStrategy.size()`](/de/docs/Web/API/ByteLengthQueuingStrategy/size)
-  - : Gibt die `byteLength` Eigenschaft des gegebenen Chunks zurück.
+  - : Gibt die `byteLength`-Eigenschaft des gegebenen Chunks zurück.
 
 ## Beispiele
 
@@ -58,5 +58,5 @@ const size = queueingStrategy.size(chunk);
 ## Siehe auch
 
 - [Streams API](/de/docs/Web/API/Streams_API)
-- [Interne Warteschlangen und Warteschlangen-Strategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies)
+- [Interne Warteschlangen und Warteschlangestrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies)
 - [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy) Konstruktor

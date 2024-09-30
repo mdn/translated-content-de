@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Operand** ist der Teil einer Anweisung, der die vom [Operator](/de/docs/Glossary/operator) manipulierten Daten darstellt. Wenn Sie beispielsweise zwei Zahlen addieren, sind die Zahlen der Operand und "+" ist der Operator.
+Ein **Operand** ist der Teil einer Anweisung, der die vom [Operator](/de/docs/Glossary/operator) manipulierten Daten darstellt. Zum Beispiel, wenn Sie zwei Zahlen addieren, sind die Zahlen die Operanden und "+" ist der Operator.
 
 ## Siehe auch
 

@@ -1,5 +1,5 @@
 ---
-title: "ElementInternals: validity-Eigenschaft"
+title: "ElementInternals: Gültigkeits-Eigenschaft"
 short-title: validity
 slug: Web/API/ElementInternals/validity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte Eigenschaft **`validity`** des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die verschiedenen Gültigkeitszustände des Elements im Hinblick auf die Einschränkungsvalidierung darstellt.
+Die schreibgeschützte **`validity`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die verschiedenen Gültigkeitszustände darstellt, in denen sich das Element im Hinblick auf die Validierung von Einschränkungen befinden kann.
 
 ## Wert
 
@@ -17,11 +17,11 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Element nicht seine `formAssociated`-Eigenschaft auf `true` gesetzt hat.
+  - : Wird ausgelöst, wenn das Element nicht die `formAssociated`-Eigenschaft auf `true` gesetzt hat.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit `formAssociated` auf `true` gesetzt; der Wert von `validity.valid` wird in die Konsole protokolliert.
+Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit `formAssociated` auf `true` gesetzt. Der Wert von `validity.valid` wird in der Konsole protokolliert.
 
 ```js
 class CustomCheckbox extends HTMLElement {

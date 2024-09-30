@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`addCue()`**-Methode des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces fügt eine neue Cue zur Liste der Cues hinzu.
+Die **`addCue()`**-Methode der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle fügt eine neue Cue zur Liste der Cues hinzu.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ addCue(cue)
   - : Ein [`TextTrackCue`](/de/docs/Web/API/TextTrackCue).
 
 > [!NOTE]
-> Das [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interface ist eine abstrakte Klasse, die als Elternteil für andere Cue-Interfaces wie [`VTTCue`](/de/docs/Web/API/VTTCue) verwendet wird. Daher wird beim Hinzufügen eines Cues einer der Cue-Typen verwendet, die von `TextTrackCue` erben.
+> Die Schnittstelle [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) ist eine abstrakte Klasse, die als Elternklasse für andere Cue-Schnittstellen wie [`VTTCue`](/de/docs/Web/API/VTTCue) dient. Daher verwenden Sie beim Hinzufügen einer Cue einen der Cue-Typen, die von `TextTrackCue` erben.
 
 ### Rückgabewert
 
@@ -31,11 +31,11 @@ Undefiniert.
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Regeln für diese [`TextTrackList`](/de/docs/Web/API/TextTrackList) nicht mit denjenigen übereinstimmen, die für das eingehende [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) geeignet sind.
+  - : Wird ausgelöst, wenn die Regeln für diese [`TextTrackList`](/de/docs/Web/API/TextTrackList) nicht mit denen übereinstimmen, die für die eingehende [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) geeignet sind.
 
 ## Beispiele
 
-Im folgenden Beispiel werden zwei Cues zu einem Video-Text-Track mithilfe von `addCue()` hinzugefügt.
+Im folgenden Beispiel werden zwei Cues zu einem Video-Texttrack mit `addCue()` hinzugefügt.
 
 ```js
 let video = document.querySelector("video");

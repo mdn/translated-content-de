@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`frequencyBinCount`**-Schreibgeschützte Eigenschaft des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Interfaces enthält die Gesamtanzahl der Datenpunkte, die für [`AudioContext`](/de/docs/Web/API/AudioContext) [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) verfügbar sind. Dies ist die Hälfte des `Wertes` von [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize). Die Indizes der beiden Methoden haben eine lineare Beziehung zu den Frequenzen, die sie repräsentieren, zwischen 0 und der [Nyquist-Frequenz](https://en.wikipedia.org/wiki/Nyquist_frequency).
+Die **`frequencyBinCount`**-Schreibgeschützte Eigenschaft der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Schnittstelle enthält die Gesamtanzahl der Datenpunkte, die für [`AudioContext`](/de/docs/Web/API/AudioContext) [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) verfügbar sind. Dies entspricht der Hälfte des `value` der [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize). Die Indizes der beiden Methoden stehen in linearer Beziehung zu den von ihnen repräsentierten Frequenzen, zwischen 0 und der [Nyquist-Frequenz](https://en.wikipedia.org/wiki/Nyquist_frequency).
 
 ## Wert
 
-Ein vorzeichenloser Integer, der der Anzahl von Werten entspricht, die [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) und [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) in das bereitgestellte `TypedArray` kopieren.
+Ein vorzeichenloser Integer, der gleich der Anzahl der Werte ist, die [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) und [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) in das bereitgestellte `TypedArray` kopieren.
 
-Aus technischen Gründen, die mit der Definition der [Fast Fourier-Transformation](https://en.wikipedia.org/wiki/Fast_Fourier_transform) zusammenhängen, ist er immer die Hälfte des Wertes von [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize). Daher wird er einer der Werte `16`, `32`, `64`, `128`, `256`, `512`, `1024`, `2048`, `4096`, `8192` und `16384` sein.
+Aus technischen Gründen, die mit der Definition der [schnellen Fourier-Transformation](https://en.wikipedia.org/wiki/Fast_Fourier_transform) zusammenhängen, beträgt dieser Wert immer die Hälfte des [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize). Daher sind die möglichen Werte `16`, `32`, `64`, `128`, `256`, `512`, `1024`, `2048`, `4096`, `8192` und `16384`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext) zur Erstellung eines `AnalyserNode`, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um fortlaufend Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-Ausgabe" des aktuellen Audioeingangs zu zeichnen.
-Für vollständigere praxisbezogene Beispiele/Informationen, schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)-Demo an.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-Darstellung" der aktuellen Audioeingabe zu zeichnen.
+Für vollständigere praktische Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an.
 
 ```js
 const audioCtx = new AudioContext();

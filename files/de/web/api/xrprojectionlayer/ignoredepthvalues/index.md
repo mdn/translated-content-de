@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`ignoreDepthValues`**-Eigenschaft des [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Interfaces ist ein boolescher Wert, der angibt, ob der XR-Kompositor die Tiefenpufferwerte beim Rendern der Schicht nicht verwendet.
+Die schreibgeschützte **`ignoreDepthValues`**-Eigenschaft der [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Schnittstelle ist ein Boolean, der angibt, ob der XR-Kompositor bei der Darstellung der Ebene die Werte des Tiefenpuffers nicht verwendet.
 
 ## Wert
 
-Ein boolescher Wert. `true` gibt an, dass der XR-Kompositor die Tiefenpufferwerte nicht verwendet; `false` gibt an, dass der Inhalt des Tiefenpuffers beim Rendern der Schicht verwendet wird.
+Ein Boolean. `true` bedeutet, dass der XR-Kompositor die Werte des Tiefenpuffers nicht verwendet; `false` bedeutet, dass der Inhalt des Tiefenpuffers beim Rendern der Ebene verwendet wird.
 
 ## Beispiele
 
 ### Ignorieren von Tiefenwerten
 
-Wenn die `depthFormat`-Option `0` ist, wenn eine Projektschicht erstellt wird, wird die `ignoreDepthValues`-Eigenschaft `true` sein. Siehe auch [`XRWebGLBinding.createProjectionLayer()`](/de/docs/Web/API/XRWebGLBinding/createProjectionLayer).
+Wenn die Option `depthFormat` auf `0` gesetzt ist, wenn eine Projektionsebene erstellt wird, wird die Eigenschaft `ignoreDepthValues` den Wert `true` haben. Siehe auch [`XRWebGLBinding.createProjectionLayer()`](/de/docs/Web/API/XRWebGLBinding/createProjectionLayer).
 
 ```js
 let glProjectionLayer = xrGLBinding.createProjectionLayer({

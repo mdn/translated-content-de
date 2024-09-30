@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `ended` Ereignis wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wurde, weil das Ende des Mediums erreicht wurde oder keine weiteren Daten verfügbar sind.
+Das `ended` Ereignis wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wurde, weil das Ende der Medien erreicht wurde oder keine weiteren Daten verfügbar sind.
 
-Dieses Ereignis tritt auf, wenn [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) `ended` auslösen, wenn die Wiedergabe das Ende des Mediums erreicht.
+Dieses Ereignis tritt auf, wenn [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) `ended` auslösen, wenn die Wiedergabe das Ende der Medien erreicht.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergereicht.
 
 > [!NOTE]
-> Das `ended` Ereignis wird nicht ausgelöst, wenn die [`loop`](/de/docs/Web/API/HTMLMediaElement/loop) Eigenschaft `true` ist und [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) nicht negativ ist.
+> Das `ended` Ereignis wird nicht ausgelöst, wenn die [`loop`](/de/docs/Web/API/HTMLMediaElement/loop) Eigenschaft `true` ist und [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) nicht-negativ ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("ended", (event) => {});
@@ -33,7 +33,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `ended` Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `ended` Ereignis des HTMLMediaElement hinzu und geben eine Nachricht aus, wenn dieser Ereignisbehandler auf das ausgelöste Ereignis reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -47,7 +47,7 @@ video.addEventListener("ended", (event) => {
 });
 ```
 
-Verwendung der `onended` Ereignishandler-Eigenschaft:
+Verwendung der `onended` Ereignisbehandlereigenschaft:
 
 ```js
 const video = document.querySelector("video");

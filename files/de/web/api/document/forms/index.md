@@ -1,5 +1,5 @@
 ---
-title: "Document: forms Eigenschaft"
+title: "Document: forms-Eigenschaft"
 short-title: forms
 slug: Web/API/Document/forms
 l10n:
@@ -11,17 +11,17 @@ l10n:
 Die schreibgeschützte **`forms`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
 
 > [!NOTE]
-> Ähnlich können Sie eine Liste der Benutzereingabekomponenten eines Formulars mit der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft abrufen.
+> Ähnlich können Sie auf eine Liste der Benutzerkomponenten-Eingabeelemente eines Formulars mithilfe der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft zugreifen.
 
 ## Wert
 
 Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt, das alle Formulare des Dokuments auflistet. Jedes Element in der Sammlung ist ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das ein einzelnes `<form>`-Element darstellt.
 
-Wenn das Dokument keine Formulare hat, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
+Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
 
 ## Beispiele
 
-### Formulardaten abrufen
+### Formularinformationen abrufen
 
 ```html
 <!doctype html>
@@ -55,7 +55,7 @@ Wenn das Dokument keine Formulare hat, ist die zurückgegebene Sammlung leer und
 </html>
 ```
 
-### Abrufen eines Elements innerhalb eines Formulars
+### Ein Element innerhalb eines Formulars abrufen
 
 ```js
 const selectForm = document.forms[index];

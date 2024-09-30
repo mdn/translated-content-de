@@ -8,16 +8,16 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `attack`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate)-[`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeit in Sekunden darstellt, die benötigt wird, um die Verstärkung um 10 dB zu reduzieren. Sie definiert, wie schnell das Signal angepasst wird, wenn seine Lautstärke erhöht wird.
+Die `attack`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeitdauer in Sekunden darstellt, die benötigt wird, um den Pegel um 10 dB zu reduzieren. Sie definiert, wie schnell das Signal angepasst wird, wenn seine Lautstärke erhöht wird.
 
-Der Standardwert der `attack`-Eigenschaft ist `0.003` und sie kann zwischen `0` und `1` eingestellt werden.
+Der Standardwert der `attack`-Eigenschaft ist `0.003` und sie kann zwischen `0` und `1` gesetzt werden.
 
 ## Wert
 
 Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der Wert, den es darstellt, nicht.
+> Auch wenn das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der dargestellte Wert es nicht.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ const compressor = audioCtx.createDynamicsCompressor();
 compressor.attack.value = 0;
 ```
 
-Sehen Sie sich [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigeres Beispielcode an.
+Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigeren Beispielcode.
 
 ## Spezifikationen
 

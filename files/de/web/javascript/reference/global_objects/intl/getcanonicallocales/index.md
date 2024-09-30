@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Locale-Namen enthält. Duplikate werden weggelassen und die Elemente werden als strukturell gültige Sprach-Tags validiert.
+Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Sprachbezeichnungen enthält. Duplikate werden ausgelassen und die Elemente werden als strukturell gültige Sprach-Tags validiert.
 
 {{EmbedInteractiveExample("pages/js/intl-getcanonicallocales.html")}}
 
@@ -20,11 +20,11 @@ Intl.getCanonicalLocales(locales)
 ### Parameter
 
 - `locales`
-  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Locale-Namen abgerufen werden sollen.
+  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Sprachbezeichnungen abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Array, das die kanonischen Locale-Namen enthält.
+Ein Array, das die kanonischen Sprachbezeichnungen enthält.
 
 ## Beispiele
 

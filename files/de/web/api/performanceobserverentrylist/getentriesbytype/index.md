@@ -1,5 +1,5 @@
 ---
-title: "PerformanceObserverEntryList: getEntriesByType() Methode"
+title: "PerformanceObserverEntryList: Methode getEntriesByType()"
 short-title: getEntriesByType()
 slug: Web/API/PerformanceObserverEntryList/getEntriesByType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntriesByType()`** Methode der [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList) gibt eine Liste von explizit _beobachteten_ [Performance-Entry](/de/docs/Web/API/PerformanceEntry)-Objekten für einen gegebenen [Performance-Entry-Typ](/de/docs/Web/API/PerformanceEntry/entryType) zurück. Die Mitglieder der Liste werden durch die Menge von [Entry-Typen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt, die beim Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) Methode angegeben wurde. Die Liste ist in der Callback-Funktion des Observers verfügbar (als erstes Parameter im Callback).
+Die **`getEntriesByType()`**-Methode der [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList) gibt eine Liste von ausdrücklich _beobachteten_ [Performance-Eintrag](/de/docs/Web/API/PerformanceEntry)-Objekten für einen gegebenen [Performance-Eintragstyp](/de/docs/Web/API/PerformanceEntry/entryType) zurück. Die Mitglieder der Liste werden durch die Menge der [Eintragstypen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt, die im Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode angegeben werden. Die Liste ist in der Callback-Funktion des Observers verfügbar (als erster Parameter im Callback).
 
 ## Syntax
 
@@ -19,11 +19,11 @@ getEntriesByType(type)
 ### Parameter
 
 - `type`
-  - : Der Typ des Eintrags, der abgerufen werden soll, wie beispielsweise `"mark"`. Die gültigen Entry-Typen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet.
+  - : Der Typ des abzurufenden Eintrags, wie zum Beispiel `"mark"`. Die gültigen Eintragstypen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgeführt.
 
 ### Rückgabewert
 
-Eine Liste von explizit _beobachteten_ [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `type` haben. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge dargestellt. Wenn keine Objekte den angegebenen `type` haben oder kein Argument bereitgestellt wird, wird eine leere Liste zurückgegeben.
+Eine Liste von ausdrücklich _beobachteten_ [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `type` aufweisen. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge geordnet sein. Wenn keine Objekte den angegebenen `type` haben oder kein Argument übergeben wird, wird eine leere Liste zurückgegeben.
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ observer.observe({
 });
 ```
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 

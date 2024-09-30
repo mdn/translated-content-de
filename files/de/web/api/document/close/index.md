@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.close()`** Methode beendet das Schreiben in ein Dokument, das mit [`Document.open()`](/de/docs/Web/API/Document/open) geöffnet wurde.
+Die **`Document.close()`** Methode beendet das Schreiben in ein
+Dokument, das mit [`Document.open()`](/de/docs/Web/API/Document/open) geöffnet wurde.
 
 ## Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: "Range: setStart()-Methode"
+title: "Range: setStart() Methode"
 short-title: setStart()
 slug: Web/API/Range/setStart
 l10n:
@@ -8,16 +8,17 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setStart()`**-Methode legt die Startposition eines
-[`Range`](/de/docs/Web/API/Range) fest.
+Die **`Range.setStart()`** Methode setzt die Startposition eines
+[`Range`](/de/docs/Web/API/Range).
 
-Wenn `startNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text),
+Wenn der `startNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text),
 [`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `startOffset`
 die Anzahl der Zeichen vom Beginn des `startNode`. Für andere
-`Node`-Typen ist `startOffset` die Anzahl der Kindknoten vom Beginn des `startNode`.
+`Node`-Typen ist `startOffset` die Anzahl der Kindknoten
+vom Anfang des `startNode`.
 
-Wird der Startpunkt unterhalb (weiter unten im Dokument) des Endpunkts gesetzt, resultiert dies in einem
-zusammengeklappten Bereich, bei dem Start- und Endpunkt beide auf die angegebene Startposition gesetzt sind.
+Das Setzen des Startpunkts unterhalb (weiter im Dokument) des Endpunkts führt zu einem
+kollabierten Bereich, bei dem beide, Start- und Endpunkte, auf die angegebene Startposition gesetzt sind.
 
 ## Syntax
 
@@ -30,7 +31,7 @@ setStart(startNode, startOffset)
 - `startNode`
   - : Der [`Node`](/de/docs/Web/API/Node), bei dem der [`Range`](/de/docs/Web/API/Range) beginnen soll.
 - `startOffset`
-  - : Ein Integer, der größer oder gleich null ist und den Versatz für den Beginn des
+  - : Eine ganze Zahl größer oder gleich null, die den Versatz für den Beginn des
     [`Range`](/de/docs/Web/API/Range) vom Start des `startNode` darstellt.
 
 ### Rückgabewert
@@ -42,8 +43,8 @@ Keiner ({{jsxref("undefined")}}).
 ### Teil eines Elements hervorheben
 
 Dieses Beispiel verwendet die Methoden `Range.setStart()` und [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd),
-um einen Teil einer Adresse zu einem Bereich hinzuzufügen. Der ausgewählte Bereich wird dann hervorgehoben,
-indem [`Range.surroundContents()`](/de/docs/Web/API/Range/surroundContents) verwendet wird.
+um einen Teil einer Adresse zu einem Bereich hinzuzufügen. Der ausgewählte Bereich wird dann
+mit [`Range.surroundContents()`](/de/docs/Web/API/Range/surroundContents) hervorgehoben.
 
 Die Adresse enthält neun Knoten: fünf Textknoten und vier {{htmlElement("br")}}
 Elemente.
@@ -92,11 +93,11 @@ range.surroundContents(mark);
 
 {{EmbedLiveSample("Highlight_part_of_an_element", 700, 400)}}
 
-### Zeichen aus einem Textknoten erhalten
+### Zeichen aus einem Textknoten abrufen
 
-Dieses Beispiel verwendet die Methoden `Range.setStart()` und [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd),
-um den Inhalt eines Bereichs zu definieren. Der resultierende Bereich enthält das erste
-bis fünfte Zeichen innerhalb eines Textknotens.
+Dieses Beispiel verwendet die Methoden `Range.setStart()` und [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd)
+um den Inhalt eines Bereichs zu definieren. Der resultierende Bereich enthält die ersten
+bis fünften Zeichen innerhalb eines Textknotens.
 
 #### HTML
 
@@ -130,4 +131,4 @@ document.getElementById("log").textContent = range;
 
 ## Siehe auch
 
-- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das Index der DOM-Schnittstellen](/de/docs/Web/API/Document_Object_Model)

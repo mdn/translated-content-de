@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, zum ersten Mal startet. Dieses Ereignis wird nicht ausgelöst, wenn ein privates Browsing-Profil (Inkognito) gestartet wird, selbst wenn diese Erweiterung im 'split' Inkognito-Modus arbeitet.
+Wird ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, zum ersten Mal startet. Dieses Ereignis wird nicht ausgelöst, wenn ein privates Browsing- (Inkognito-) Profil gestartet wird, selbst wenn diese Erweiterung im 'geteilten' Inkognito-Modus betrieben wird.
 
 > [!NOTE]
-> Bei der Verwendung einer Ereignisseite oder eines Hintergrunddienstmitarbeiters muss die Erweiterung einen Listener zu `runtime.onStartup` auf der Ereignisseite hinzufügen, damit die Ereignisseite mindestens einmal pro Browsersitzung ausgeführt wird.
+> Bei Verwendung einer Ereignisseite oder eines Hintergrunddienstmitarbeiters muss die Erweiterung einen Listener zu `runtime.onStartup` auf der Ereignisseite hinzufügen, damit die Ereignisseite mindestens einmal pro Browsersitzung ausgeführt wird.
 
 ## Syntax
 
@@ -27,20 +27,20 @@ Alle Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt dem aufrufenden Ereignis einen `listener` hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören auf das aufrufende Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören des aufrufenden Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für das aufrufende Ereignis registriert ist. Gibt `true` zurück, wenn er aktiv ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für das aufrufende Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ### Parameter
 
-Der einzige Parameter ist `listener`, der für eine der oben genannten Funktionen verwendet wird.
+Der einzige Parameter ist `listener`, der für eine der obigen Funktionen verwendet wird.
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt.
 
 ## Beispiele
 
-Öffnen Sie <https://giphy.com/explore/cat>, wenn der Browser gestartet wird:
+Öffnen Sie <https://giphy.com/explore/cat>, wenn der Browser startet:
 
 ```js
 function handleStartup() {
@@ -59,7 +59,7 @@ browser.runtime.onStartup.addListener(handleStartup);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der ["chrome.runtime"](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onStartup) API von Chromium. Diese Dokumentation ist von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onStartup) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -68,17 +68,25 @@ browser.runtime.onStartup.addListener(handleStartup);
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions von Quellcode müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weitergaben in binärer Form müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien, die mit der Verteilung geliefert
-// werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
-// Software abgeleitet wurden, zu unterstützen oder zu bewerben, ohne vorherige
-// ausdrückliche schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN "WIE BESEHEN"
-// BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN HAFTBAR FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATEN ODER GEWINNE ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND UNTER JEGLICHER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG) AUS DER VERWENDUNG DIESER SOFTWARE ENTSTANDEN, SELBST WENN DIE MÖGLICHKEIT SOLCHER SCHÄDEN ANGEGEBEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

@@ -1,5 +1,5 @@
 ---
-title: Ableitung der Quadratischen Formel
+title: Ableitung der quadratischen Formel
 slug: Web/MathML/Examples/Deriving_the_Quadratic_Formula
 l10n:
   sourceCommit: 4f263d8dfb90fa2253e090ee339ae14d1907fa63
@@ -7,9 +7,9 @@ l10n:
 
 {{MathMLRef}}
 
-Diese Seite beschreibt die Ableitung der [Quadratic Formula](https://en.wikipedia.org/wiki/Quadratic_formula).
+Diese Seite beschreibt die Herleitung der [Quadratische Formel](https://en.wikipedia.org/wiki/Quadratic_formula).
 
-Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach x auf:
+Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach x:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -102,7 +102,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: 10pt;">Führen Sie die Division durch den führenden Koeffizienten durch.</mtext>
+            <mtext style="color: red; font-size: 10pt;">Führenden Koeffizienten herausdividieren.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -187,7 +187,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: 10pt;">Quadratische Ergänzung.</mtext>
+            <mtext style="color: red; font-size: 10pt;">Quadrat ergänzen.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -250,7 +250,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: 10pt;">Diskriminante sichtbar gemacht.</mtext>
+            <mtext style="color: red; font-size: 10pt;">Diskriminante offenbart.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -409,7 +409,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: 10pt;">Da ist die Scheitelpunktformel.</mtext>
+            <mtext style="color: red; font-size: 10pt;">Das ist die Scheitelpunktformel.</mtext>
           </mrow>
         </mtd>
       </mtr>

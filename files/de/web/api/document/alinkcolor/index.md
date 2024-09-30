@@ -1,5 +1,5 @@
 ---
-title: "Dokument: alinkColor Eigenschaft"
+title: "Document: alinkColor-Eigenschaft"
 short-title: alinkColor
 slug: Web/API/Document/alinkColor
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_header}}
 
-Gibt die Farbe eines aktiven Links im Dokumentkörper zurück oder setzt diese. Ein Link ist aktiv während der Zeit zwischen `mousedown` und `mouseup` Ereignissen.
+Gibt die Farbe eines aktiven Links im Dokumentenkörper zurück oder legt diese fest. Ein Link ist aktiv während der Zeit zwischen den `mousedown`- und `mouseup`-Ereignissen.
 
 ## Wert
 
-Ein String, der den Namen der Farbe enthält (z.B. `blue`, `darkblue`, etc.) oder den hexadezimalen Wert der Farbe (z.B. `#0000FF`).
+Ein String, der den Namen der Farbe (z.B. `blue`, `darkblue`, etc.) oder den hexadezimalen Wert der Farbe (z.B. `#0000FF`) enthält.
 
-Wenn auf den `null` Wert gesetzt, wird dieser `null` Wert in den leeren String (`""`) umgewandelt, sodass `document.alinkColor = null` gleichbedeutend mit `document.alinkColor = ""` ist.
+Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `document.alinkColor = null` gleichbedeutend mit `document.alinkColor = ""` ist.
 
 ## Hinweise
 
-Der Standardwert für diese Eigenschaft in Mozilla Firefox ist rot (`#ee0000` im hexadezimalen Format).
+Der Standardwert für diese Eigenschaft in Mozilla Firefox ist rot (`#ee0000` in Hexadezimal).
 
-`document.alinkColor` ist in [DOM Level 2 HTML](https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-26809268) veraltet. Eine Alternative ist der CSS-Selektor {{Cssxref(":active")}}.
+`document.alinkColor` ist im [DOM Level 2 HTML](https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-26809268) veraltet. Eine Alternative ist der CSS-Selektor {{Cssxref(":active")}}.
 
-Eine weitere Alternative ist `document.body.aLink`, obwohl dies in [HTML 4.01 veraltet](https://www.w3.org/TR/html401/struct/global.html#adef-alink) zugunsten der CSS-Alternative ist.
+Eine weitere Alternative ist `document.body.aLink`, obwohl dies im [HTML 4.01](https://www.w3.org/TR/html401/struct/global.html#adef-alink) zugunsten der CSS-Alternative ebenfalls veraltet ist.
 
 Firefox unterstützt sowohl `alinkColor`/`:active` als auch {{Cssxref(":focus")}}.
 

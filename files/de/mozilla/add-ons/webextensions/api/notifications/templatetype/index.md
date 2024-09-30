@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Dies ist ein String und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Arten von Benachrichtigungen: "basic", "image", "list", "progress".
+Dies ist eine Zeichenkette und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Typen von Benachrichtigungen: "basic", "image", "list", "progress".
 
-Dies wird an {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} als Eigenschaft `type` von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
+Dies wird in {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} als `type`-Eigenschaft von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
 
 ## Typ
 
-Werte dieses Typs sind Strings. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
-- `"basic"`: Die Benachrichtigung enthält:
+- `"basic"`: Die Benachrichtigung umfasst:
 
   - einen Titel (`NotificationOptions.title`)
   - eine Nachricht (`NotificationOptions.message`)
@@ -23,19 +23,19 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
   - eine zusätzliche Nachricht (`NotificationOptions.contextMessage`) {{optional_inline}}
   - bis zu zwei Schaltflächen (`NotificationOptions.buttons`) {{optional_inline}}
 
-- `"image"`: alles in `"basic"` und zusätzlich:
+- `"image"`: alles in `"basic"` und außerdem:
 
   - ein Bild (`NotificationOptions.imageUrl`)
 
-- `"list"`: alles in `"basic"` und zusätzlich:
+- `"list"`: alles in `"basic"` und außerdem:
 
   - eine Liste von Elementen (`NotificationOptions.items`)
 
-- `"progress"`: alles in `"basic"` und zusätzlich:
+- `"progress"`: alles in `"basic"` und außerdem:
 
-  - einen Fortschrittsanzeiger (`NotificationOptions.progress`)
+  - einen Fortschrittsindikator (`NotificationOptions.progress`)
 
-Derzeit unterstützt Firefox hier nur "basic".
+Aktuell unterstützt Firefox nur "basic" hier.
 
 ## Browser-Kompatibilität
 

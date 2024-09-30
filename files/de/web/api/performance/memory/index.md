@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Performance API")}} {{Deprecated_Header}}{{Non-standard_header}}
 
-Die nicht standardisierte und veraltete `performance.memory`-Eigenschaft gibt die Größe des JavaScript-Heap zurück, was hilfreich sein kann, um den Speicherbedarf von Websites zu messen und zu reduzieren.
+Die nicht standardisierte und veraltete `performance.memory`-Eigenschaft gibt die Größe des JavaScript-Heaps zurück, was hilfreich sein kann, um den Speicherverbrauch von Websites zu messen und zu reduzieren.
 
-Beachten Sie, dass die Informationen, die diese API bereitstellt, unzuverlässig sind. Sie könnten die tatsächliche Speichernutzung überschätzen, wenn Webseiten den gleichen Heap teilen, oder die tatsächliche Speichernutzung unterschätzen, wenn Webseiten Worker und/oder Cross-Site-Iframes verwenden, die in separaten Heaps zugewiesen sind. Es ist nicht standardisiert, was genau "Heap" bedeutet. Die API ist nur in auf Chromium basierenden Browsern verfügbar.
+Beachten Sie, dass die Informationen, die diese API bereitstellt, unzuverlässig sind, da sie den tatsächlichen Speicherverbrauch überschätzen könnte, wenn Webseiten denselben Heap teilen, oder den tatsächlichen Speicherverbrauch unterschätzen könnte, wenn Webseiten Worker und/oder Cross-Site-Iframes verwenden, die in separaten Heaps zugewiesen werden. Es ist nicht standardisiert, was "Heap" genau bedeutet. Die API ist nur in Chromium-basierten Browsern verfügbar.
 
-Eine neue API, die `performance.memory` ersetzen soll, ist [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory). Sie versucht, den von einer Webseite verwendeten Speicher zu schätzen.
+Eine neue API, die darauf abzielt, `performance.memory` zu ersetzen, ist [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory). Sie versucht, den von einer Webseite genutzten Speicher zu schätzen.
 
 ## Wert
 
 Die schreibgeschützte `performance.memory`-Eigenschaft ist ein Objekt mit den folgenden Eigenschaften:
 
 - `jsHeapSizeLimit`
-  - : Die maximale Größe des Heap, in Bytes, die dem Kontext zur Verfügung steht.
+  - : Die maximale Größe des Heaps, in Bytes, die dem Kontext zur Verfügung steht.
 - `totalJSHeapSize`
   - : Die insgesamt zugewiesene Heap-Größe, in Bytes.
 - `usedJSHeapSize`
-  - : Das derzeit aktive Segment des JS-Heap, in Bytes.
+  - : Der derzeit aktive Abschnitt des JS-Heaps, in Bytes.
 
 ## Beispiele
 
-### Ermitteln der JavaScript-Heap-Größen
+### Abrufen von JavaScript-Heap-Größen
 
-Ein Aufruf von `performance.memory` gibt ein Objekt wie dieses zurück:
+Der Aufruf von `performance.memory` gibt ein Objekt wie dieses zurück:
 
 ```js
 {

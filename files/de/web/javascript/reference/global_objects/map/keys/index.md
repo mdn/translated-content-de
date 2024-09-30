@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`keys()`** Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jedes Element in dieser Map in der Reihenfolge der Einfügung enthält.
+Die **`keys()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jedes Element dieser Map in Einfügereihenfolge enthält.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-keys.html")}}
 

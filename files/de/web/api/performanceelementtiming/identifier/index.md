@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`identifier`** schreibgeschützte Eigenschaft der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt den Wert des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs am Element zurück.
+Die schreibgeschützte Eigenschaft **`identifier`** des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den Wert des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs des Elements zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ### Verwendung von `identifier`
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten von vor der Beobachtererstellung zuzugreifen. Der Wert von [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming) ist `big-image`. Der Aufruf von `entry.identifier` gibt daher den String `big-image` zurück.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungsdaten vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden sind. Der Wert von [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming) ist `big-image`. Der Aufruf von `entry.identifier` gibt daher den String `big-image` zurück.
 
 ```html
 <img

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **`PressureObserver`**-Schnittstelle ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und wird verwendet, um die Druckänderungen von Systemressourcen wie der CPU zu beobachten.
+Die **`PressureObserver`**-Schnittstelle ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und wird verwendet, um die Druckänderungen von Systemressourcen wie der CPU zu überwachen.
 
 ## Konstruktor
 
@@ -17,24 +17,24 @@ Die **`PressureObserver`**-Schnittstelle ist Teil der [Compute Pressure API](/de
 ## Statische Eigenschaften
 
 - [`PressureObserver.knownSources`](/de/docs/Web/API/PressureObserver/knownSources_static) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein Array von [`source`](/de/docs/Web/API/PressureRecord/source)-Werten zurück, die vom User-Agent unterstützt werden.
+  - : Gibt ein Array von [`source`](/de/docs/Web/API/PressureRecord/source)-Werten zurück, die vom Benutzeragenten unterstützt werden.
 
 ## Instanzmethoden
 
 - [`PressureObserver.observe()`](/de/docs/Web/API/PressureObserver/observe) {{experimental_inline}}
-  - : Ruft die Rückruffunktion des Pressure-Observers auf, wenn ein Druckeintrag für die angegebene `source` beobachtet wird.
+  - : Ruft die Callback-Funktion des PressureObserver auf, wenn ein Druckdatensatz für die angegebene `source` beobachtet wird.
 - [`PressureObserver.unobserve()`](/de/docs/Web/API/PressureObserver/unobserve) {{experimental_inline}}
-  - : Stoppt die Druck-Observer-Rückruffunktion von der Entgegennahme von Druckeinträgen von der angegebenen `source`.
+  - : Stoppt die Callback-Funktion des PressureObserver von der Erfassung von Druckdatensätzen von der angegebenen `source`.
 - [`PressureObserver.disconnect()`](/de/docs/Web/API/PressureObserver/disconnect) {{experimental_inline}}
-  - : Stoppt die Druck-Observer-Rückruffunktion von der Entgegennahme von Druckeinträgen von allen Quellen.
+  - : Stoppt die Callback-Funktion des PressureObserver von der Erfassung von Druckdatensätzen aus allen Quellen.
 - [`PressureObserver.takeRecords()`](/de/docs/Web/API/PressureObserver/takeRecords) {{experimental_inline}}
-  - : Gibt die aktuelle Liste der im Druck-Observer gespeicherten Druckeinträge zurück und leert diese.
+  - : Gibt die aktuelle Liste der im PressureObserver gespeicherten Druckdatensätze zurück und leert sie dadurch.
 
 ## Beispiele
 
 ### Aktuellen Druck protokollieren
 
-Dieses Beispiel erstellt einen `PressureObserver` und führt eine Aktion aus, wann immer es eine Druckänderung gibt. Das Stichprobenintervall ist auf 1000 ms eingestellt, was bedeutet, dass es höchstens jede Sekunde Aktualisierungen gibt.
+Dieses Beispiel erstellt einen `PressureObserver` und führt Aktionen aus, sobald eine Druckänderung auftritt. Das Abtastintervall ist auf 1000 ms eingestellt, was bedeutet, dass es maximal alle Sekunde Aktualisierungen gibt.
 
 ```js
 function callback(records) {

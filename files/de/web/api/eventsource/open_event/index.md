@@ -1,5 +1,5 @@
 ---
-title: "EventSource: open Ereignis"
+title: "EventSource: open event"
 short-title: open
 slug: Web/API/EventSource/open_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `open` Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn eine Verbindung mit einer Ereignisquelle geöffnet wird.
+Das `open`-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn eine Verbindung mit einer Ereignisquelle geöffnet wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("open", (event) => {});
@@ -52,6 +52,6 @@ evtSource.onopen = (e) => {
 
 ## Siehe auch
 
-- [Server-gesendete Ereignisse verwenden](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [Verwendung von server-sent events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [`error`](/de/docs/Web/API/EventSource/error_event)
 - [`message`](/de/docs/Web/API/EventSource/message_event)

@@ -9,7 +9,7 @@ l10n:
 
 {{PreviousNext("Web/SVG/Tutorial/Texts", "Web/SVG/Tutorial/Clipping_and_masking")}}
 
-Nun sind wir bereit, unsere schönen Bilder zu verzerren. Aber zuerst wollen wir das {{SVGElement("g")}}-Element formell vorstellen. Mit diesem Helfer können Sie Eigenschaften für eine komplette Gruppe von Elementen zuweisen. Tatsächlich ist das sein einziger Zweck.
+Nun sind wir bereit, unsere schönen Bilder zu verzerren. Lassen Sie uns aber zuerst das {{SVGElement("g")}}-Element einführen. Mit diesem Helfer können Sie Eigenschaften auf einen kompletten Satz von Elementen anwenden. Tatsächlich ist das sein einziger Zweck.
 
 ## Beispiel
 
@@ -24,11 +24,11 @@ Nun sind wir bereit, unsere schönen Bilder zu verzerren. Aber zuerst wollen wir
 
 {{ EmbedLiveSample('Example', '', '100') }}
 
-Alle folgenden Transformationen werden im `transform`-Attribut eines Elements zusammengefasst. Transformationen können durch Verkettung nacheinander mithilfe von Leerzeichen verbunden werden.
+Alle folgenden Transformationen werden in einem `transform` Attribut eines Elements zusammengefasst. Transformationen können durch Verkettung und Trennung mit Leerzeichen kombiniert werden.
 
-## Translation
+## Übersetzung
 
-Es kann notwendig sein, ein Element zu verschieben, obwohl Sie es mit den entsprechenden Attributen positionieren können. Für diesen Zweck steht die `translate()`-Transformation bereit.
+Es kann notwendig sein, ein Element zu verschieben, obwohl Sie es mit den entsprechenden Attributen positionieren können. Zu diesem Zweck steht die `translate()`-Transformation bereit.
 
 ```html
 <svg width="40" height="50" style="background-color:#bff;">
@@ -36,15 +36,15 @@ Es kann notwendig sein, ein Element zu verschieben, obwohl Sie es mit den entspr
 </svg>
 ```
 
-Das Beispiel wird ein Rechteck an der Position (30,40) statt (0,0) rendern.
+Das Beispiel wird ein Rechteck rendern, das zum Punkt (30,40) statt (0,0) übersetzt wurde.
 
 {{ EmbedLiveSample('Translation', '', '100') }}
 
-Wenn der zweite Wert nicht angegeben wird, wird _0_ angenommen.
+Wenn der zweite Wert nicht angegeben wird, wird er als _0_ angenommen.
 
-## Rotation
+## Drehung
 
-Das Drehen eines Elements ist eine ziemlich häufige Aufgabe. Verwenden Sie hierfür die `rotate()`-Transformation:
+Das Drehen eines Elements ist eine recht häufige Aufgabe. Verwenden Sie dafür die `rotate()`-Transformation:
 
 ```html
 <svg width="31" height="31">
@@ -52,13 +52,13 @@ Das Drehen eines Elements ist eine ziemlich häufige Aufgabe. Verwenden Sie hier
 </svg>
 ```
 
-Dieses Beispiel zeigt ein Quadrat, das um 45 Grad gedreht ist. Der Wert für `rotate()` wird in Grad angegeben.
+Dieses Beispiel zeigt ein Quadrat, das um 45 Grad gedreht wird. Der Wert für `rotate()` wird in Grad angegeben.
 
 {{ EmbedLiveSample('Rotation', '', '100') }}
 
-## Mehrere Transformationen
+## Mehrfache Transformationen
 
-Transformationen können einfach durch Trennen mit Leerzeichen verkettet werden. Zum Beispiel sind `translate()` und `rotate()` häufig verwendete Transformationen.
+Transformationen können einfach durch Trennung mit Leerzeichen verknüpft werden. Zum Beispiel sind `translate()` und `rotate()` häufig verwendete Transformationen.
 
 ```html
 <svg width="40" height="50" style="background-color:#bff;">
@@ -71,32 +71,32 @@ Transformationen können einfach durch Trennen mit Leerzeichen verkettet werden.
 </svg>
 ```
 
-Dieses Beispiel zeigt wieder das kleine Quadrat, das diesmal auch um 45 Grad gedreht ist.
+Dieses Beispiel zeigt erneut das oben gezeigte kleine Quadrat, das dieses Mal ebenfalls um 45 Grad gedreht wird.
 
 ## Scherung
 
-Um aus unserem Rechteck eine Raute zu machen, stehen die Transformationen `skewX()` und `skewY()` zur Verfügung. Jede nimmt einen Winkel, der bestimmt, wie weit das Element geschert wird.
+Um aus unserem Rechteck eine Raute zu machen, stehen die `skewX()` und `skewY()`-Transformationen zur Verfügung. Jede erfordert einen Winkel, der bestimmt, wie weit das Element geschert wird.
 
 ## Skalierung
 
-`scale()` ändert die Größe eines Elements. Es nimmt zwei Zahlen, wobei die erste der _x_-Skalierungsfaktor und die zweite der _y_-Skalierungsfaktor ist. Die Faktoren werden als Verhältnis der transformierten Dimension zur ursprünglichen genommen. Zum Beispiel schrumpft _0.5 um 50%. Wenn die zweite Zahl weggelassen wird, wird angenommen, dass sie gleich der ersten ist._
+`scale()` ändert die Größe eines Elements. Es erfordert zwei Zahlen, wobei die erste der _x_-Skalierungsfaktor und die zweite der _y_-Skalierungsfaktor ist. Die Faktoren werden als Verhältnis der transformierten Dimension zur Originaldimension genommen. Ein Beispiel: _0,5 verkleinert um 50%. Wenn die zweite Zahl weggelassen wird, wird angenommen, dass sie der ersten Zahl entspricht._
 
 ## Komplexe Transformationen mit `matrix()`
 
-Alle oben genannten Transformationen können durch eine 2x3-Transformationsmatrix ausgedrückt werden. Um mehrere Transformationen zu kombinieren, kann man die resultierende Matrix direkt mit der `matrix(a, b, c, d, e, f)`-Transformation setzen, die Koordinaten von einem vorherigen Koordinatensystem in ein neues Koordinatensystem abbildet durch
+Alle oben genannten Transformationen können durch eine 2x3-Transformationsmatrix ausgedrückt werden. Um mehrere Transformationen zu kombinieren, kann man die resultierende Matrix direkt mit der `matrix(a, b, c, d, e, f)`-Transformation setzen, die Koordinaten von einem vorherigen Koordinatensystem in ein neues Koordinatensystem umwandelt durch
 
-<!-- Bitte beachten Sie: die {} müssen doppelt escaped werden, einmal für Yari -->
+<!-- Note: the {} need to be double-escaped, once for Yari -->
 <!-- prettier-ignore-start -->
 <math display="block">
   <semantics><mrow><mo>{</mo><mtable rowspacing="0.5ex"><mtr><mtd><msub><mi>x</mi><mstyle mathvariant="normal"><mrow><mi>newCoordSys</mi></mrow></mstyle></msub><mo>=</mo><mi>a</mi><msub><mi>x</mi><mstyle mathvariant="normal"><mrow><mi>prevCoordSys</mi></mrow></mstyle></msub><mo>+</mo><mi>c</mi><msub><mi>y</mi><mstyle mathvariant="normal"><mrow><mi>prevCoordSys</mi></mrow></mstyle></msub><mo>+</mo><mi>e</mi></mtd></mtr><mtr><mtd><msub><mi>y</mi><mstyle mathvariant="normal"><mrow><mi>newCoordSys</mi></mrow></mstyle></msub><mo>=</mo><mi>b</mi><msub><mi>x</mi><mstyle mathvariant="normal"><mrow><mi>prevCoordSys</mi></mrow></mstyle></msub><mo>+</mo><mi>d</mi><msub><mi>y</mi><mstyle mathvariant="normal"><mrow><mi>prevCoordSys</mi></mrow></mstyle></msub><mo>+</mo><mi>f</mi></mtd></mtr></mtable></mrow><annotation encoding="TeX">\left\\{ \begin{matrix} x_{\mathrm{prevCoordSys}} = a x_{\mathrm{newCoordSys}} + c y_{\mathrm{newCoordSys}} + e \\ y_{\mathrm{prevCoordSys}} = b x_{\mathrm{newCoordSys}} + d y_{\mathrm{newCoordSys}} + f \end{matrix} \right.</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Siehe ein [konkretes Beispiel in der SVG-Transformationsdokumentation](/de/docs/Web/SVG/Attribute/transform#matrix). Detaillierte Informationen zu dieser Eigenschaft finden Sie in der [SVG Recommendation](https://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined).
+Sehen Sie ein [konkretes Beispiel in der SVG-Transformationsdokumentation](/de/docs/Web/SVG/Attribute/transform#matrix). Detaillierte Informationen zu dieser Eigenschaft finden sich in der [SVG-Empfehlung](https://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined).
 
-## Auswirkungen auf Koordinatensysteme
+## Effekte auf Koordinatensysteme
 
-Bei der Verwendung von Transformationen etablieren Sie ein neues Koordinatensystem innerhalb des Elements, auf das die Transformationen angewendet werden. Das bedeutet, die Einheiten, die Sie für das Element und dessen Kinder angeben, folgen möglicherweise nicht der 1:1-Pixelzuordnung, sondern werden entsprechend der Transformation verzerrt, geschert, verschoben und skaliert.
+Bei der Verwendung von Transformationen etablieren Sie ein neues Koordinatensystem innerhalb des Elements, auf das die Transformationen angewendet werden. Das bedeutet, dass die Einheiten, die Sie für das Element und seine Kinder angeben, möglicherweise nicht der 1:1-Pixelzuordnung folgen, sondern auch verzerrt, geschert, übersetzt und skaliert werden gemäß der Transformation.
 
 ```html
 <svg width="100" height="100">
@@ -106,13 +106,13 @@ Bei der Verwendung von Transformationen etablieren Sie ein neues Koordinatensyst
 </svg>
 ```
 
-Das resultierende Rechteck im obigen Beispiel wird 100x100px groß sein. Die interessanteren Effekte ergeben sich, wenn Sie sich auf Attribute wie `userSpaceOnUse` und ähnliches verlassen.
+Das resultierende Rechteck im obigen Beispiel wird 100x100px groß sein. Die interessanteren Effekte treten auf, wenn Sie sich auf Attribute wie `userSpaceOnUse` verlassen.
 
 {{ EmbedLiveSample('Effects_on_Coordinate_Systems', '', '150') }}
 
-## Einbettung von SVG in SVG
+## SVG in SVG einbetten
 
-Im Gegensatz zu HTML erlaubt SVG das nahtlose Einbetten anderer `svg`-Elemente. Auf diese Weise können Sie auch neue Koordinatensysteme erstellen, indem Sie den `viewBox`, `width` und `height` des inneren `svg`-Elements nutzen.
+Im Gegensatz zu HTML erlaubt es SVG, andere `svg` Elemente nahtlos einzubetten. Auf diese Weise können Sie auch neue Koordinatensysteme erstellen, indem Sie den `viewBox`, die `width` und die `height` des inneren `svg`-Elements benutzen.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
@@ -122,7 +122,7 @@ Im Gegensatz zu HTML erlaubt SVG das nahtlose Einbetten anderer `svg`-Elemente. 
 </svg>
 ```
 
-Das obige Beispiel hat im Wesentlichen denselben Effekt wie das zuvor genannte, nämlich dass das Rechteck doppelt so groß ist wie angegeben.
+Das obige Beispiel hat im Wesentlichen den gleichen Effekt wie das oben genannte, nämlich dass das Rechteck doppelt so groß wird wie angegeben.
 
 {{ EmbedLiveSample('Embedding_SVG_in_SVG', '100', '150') }}
 

@@ -8,27 +8,24 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte Eigenschaft `state` des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
-Interfaces gibt den aktuellen Zustand des `AudioContext` zurück.
+Die schreibgeschützte Eigenschaft `state` des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces gibt den aktuellen Zustand des `AudioContext` zurück.
 
 ## Wert
 
 Ein String. Mögliche Werte sind:
 
 - `suspended`
-  - : Der Audio-Kontext wurde unterbrochen (mit der
-    [`AudioContext.suspend()`](/de/docs/Web/API/AudioContext/suspend)-Methode).
+  - : Der Audio-Kontext wurde angehalten (mit der Methode [`AudioContext.suspend()`](/de/docs/Web/API/AudioContext/suspend).)
 - `running`
   - : Der Audio-Kontext läuft normal.
 - `closed`
-  - : Der Audio-Kontext wurde geschlossen (mit der
-    [`AudioContext.close()`](/de/docs/Web/API/AudioContext/close)-Methode).
+  - : Der Audio-Kontext wurde geschlossen (mit der Methode [`AudioContext.close()`](/de/docs/Web/API/AudioContext/close).)
 
 ## Beispiele
 
 ### Umgang mit Zustandsänderungen
 
-Das folgende Beispiel stammt aus unserem [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Der [`onstatechange`](/de/docs/Web/API/BaseAudioContext/statechange_event)-Handler wird verwendet, um den aktuellen Zustand jedes Mal, wenn er sich ändert, in die Konsole zu protokollieren.
+Der folgende Ausschnitt stammt aus unserem [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Der [`onstatechange`](/de/docs/Web/API/BaseAudioContext/statechange_event)-Handler wird verwendet, um den aktuellen Zustand bei jeder Änderung in der Konsole zu protokollieren.
 
 ```js
 audioCtx.onstatechange = () => {
@@ -38,9 +35,7 @@ audioCtx.onstatechange = () => {
 
 ### Wiederaufnahme unterbrochener Wiedergabestände in iOS Safari
 
-In iOS Safari, wenn ein Nutzer die Seite verlässt (z.B. Tabs wechselt, den Browser minimiert oder
-den Bildschirm ausschaltet),
-ändert sich der Zustand des Audio-Kontextes in "interrupted" und muss wieder aufgenommen werden. Zum Beispiel:
+In iOS Safari, wenn ein Benutzer die Seite verlässt (z.B. Tabs wechselt, den Browser minimiert oder den Bildschirm ausschaltet), ändert sich der Zustand des Audio-Kontexts auf "unterbrochen" und muss wieder aufgenommen werden. Beispiel:
 
 ```js
 function play() {

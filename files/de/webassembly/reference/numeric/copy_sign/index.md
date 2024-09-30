@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die Anweisungen **`copysign`** werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
+Die **`copysign`**-Anweisungen werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
 
 {{EmbedInteractiveExample("pages/wat/copysign.html", "tabbed-taller")}}
 

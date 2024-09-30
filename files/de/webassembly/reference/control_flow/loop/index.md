@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`loop`** Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die `loop`-Anweisung führt nicht von selbst eine Schleife aus; Sie müssen zu dieser verzweigen, um tatsächlich eine Schleife zu erstellen.
+Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die `loop`-Anweisung selbst führt keine Schleife aus; Sie müssen zu ihr verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`** Anweisung ist das Gegenteil der `block` Anweisung, da das Verzweigen zu einer `loop` zum Anfang der Schleife springt, während das Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass während ein Verzweigen zu einer `loop` zum Anfang der Schleife springt, ein Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
 
 {{EmbedInteractiveExample("pages/wat/loop.html", "tabbed-taller")}}
 
@@ -27,6 +27,6 @@ Die **`loop`** Anweisung ist das Gegenteil der `block` Anweisung, da das Verzwei
 )
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `loop`    | `0x03`         |
+| Anweisung | Binär-Opcode |
+| --------- | ------------ |
+| `loop`    | `0x03`       |

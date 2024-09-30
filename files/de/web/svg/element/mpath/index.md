@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<mpath>`** Sub-Element für das {{SVGElement("animateMotion")}} Element bietet die Möglichkeit, ein externes {{SVGElement("path")}} Element als Definition eines Bewegungswegs zu referenzieren.
+Das **`<mpath>`** Unterelement für das {{SVGElement("animateMotion")}} Element bietet die Möglichkeit, ein externes {{SVGElement("path")}} Element als Definition eines Bewegungspfades zu referenzieren.
 
-## Nutzungskontext
+## Gebrauchskontext
 
 {{svginfo}}
 

@@ -1,5 +1,5 @@
 ---
-title: "Gamepad: Eigenschaft vibrationActuator"
+title: "Gamepad: vibrationActuator-Eigenschaft"
 short-title: vibrationActuator
 slug: Web/API/Gamepad/vibrationActuator
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Gamepad")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`vibrationActuator`** des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekt zurück, das die auf dem Controller verfügbare haptische Feedback-Hardware darstellt.
+Die schreibgeschützte **`vibrationActuator`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekt zurück, das die für den Controller verfügbare haptische Feedback-Hardware repräsentiert.
 
 > [!NOTE]
-> Die Unterstützung für diese Eigenschaft kann bei verschiedenen Kombinationen von Plattformen und Controllern variieren. Auch wenn der Controller haptisches Feedback unterstützt, kann es sein, dass die Plattform es nicht tut.
+> Die Unterstützung dieser Eigenschaft kann je nach Kombination von Plattformen und Controllern variieren. Selbst wenn der Controller haptisches Feedback unterstützt, kann es sein, dass die Plattform es nicht unterstützt.
 
 ## Wert
 

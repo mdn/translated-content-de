@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Das `DirectoryReaderSync`-Interface ermöglicht das Lesen der Einträge in einem Verzeichnis.
+Das `DirectoryReaderSync`-Interface ermöglicht es, die Einträge in einem Verzeichnis zu lesen.
 
 > [!WARNING]
-> Diese Schnittstelle ist veraltet und ist nicht mehr auf dem Standardweg.
+> Dieses Interface ist veraltet und ist nicht mehr auf dem Standardpfad.
 > _Verwenden Sie es nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Grundkonzepte
 
-Bevor Sie die einzige Methode in diesem Interface, [`readEntries()`](#readentries), aufrufen, erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (ebenso wie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden App und einem Web Worker-Thread übergeben können. Das ist kein großes Problem, da die Haupt-App und der Worker-Thread nicht dasselbe JavaScript-Objekt sehen müssen; sie müssen lediglich auf dieselben Dateien zugreifen können. Sie können dies erreichen, indem Sie anstelle einer Liste von Einträgen eine Liste von `filesystem:`-URLs – die einfach Zeichenfolgen sind – übergeben. Sie können auch die `filesystem:`-URL verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Dadurch gelangen Sie zurück zu einem DirectoryEntrySync (sowie FileEntrySync)-Objekt.
+Bevor Sie die einzige Methode in diesem Interface, [`readEntries()`](#readentries), aufrufen, erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (sowie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden App und einem Web Worker-Thread übergeben können. Das ist kein großes Problem, da es nicht wirklich nötig ist, dass die Haupt-App und der Worker-Thread dasselbe JavaScript-Objekt sehen; sie müssen lediglich auf dieselben Dateien zugreifen können. Sie können dies erreichen, indem Sie anstelle einer Liste von Einträgen eine Liste von `filesystem:`-URLs übergeben—die einfach nur Zeichenketten sind. Sie können die `filesystem:`-URL auch verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Damit gelangen Sie zurück zu einem DirectoryEntrySync (sowie FileEntrySync)-Objekt.
 
 ### Beispiel
 
-Im folgenden Code-Snippet von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten von diesen an die Haupt-App.
+Im folgenden Code-Schnipsel von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten davon an die Hauptanwendung.
 
 ```js
 // Taking care of the browser-specific prefixes.
@@ -41,7 +41,7 @@ worker.onmessage = (e) => {
 worker.postMessage({ cmd: "list" });
 ```
 
-Das Folgende ist der `worker.js`-Code, der den Inhalt des Verzeichnisses abruft.
+Das Folgende ist der Code von `worker.js`, der den Inhalt des Verzeichnisses abrufen lässt.
 
 ```js
 // worker.js
@@ -116,15 +116,15 @@ Array, das [`FileEntrySync`](/de/docs/Web/API/FileEntrySync) und [`DirectoryEntr
 
 Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                      |
-| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries geändert.                |
-| `SECURITY_ERR`      | Der Browser hat festgestellt, dass es nicht sicher war, die Metadaten nachzuschlagen. |
+| Ausnahme            | Beschreibung                                                                       |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                   |
+| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries verändert.            |
+| `SECURITY_ERR`      | Der Browser hat bestimmt, dass es nicht sicher ist, die Metadaten nachzuschlagen.  |
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist nicht mehr Teil irgendeiner Spezifikation. Es ist nicht länger auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.info()`** statische Methode gibt eine Nachricht auf der Konsole auf der Protokollebene "info" aus. Die Nachricht wird dem Benutzer nur angezeigt, wenn die Konsole so konfiguriert ist, dass die Info-Ausgabe angezeigt wird. In den meisten Fällen wird die Protokollebene in der Konsolen-Benutzeroberfläche konfiguriert. Die Nachricht kann eine spezielle Formatierung erhalten, wie zum Beispiel ein kleines "i"-Symbol daneben.
+Die **`console.info()`** statische Methode gibt eine Nachricht auf der Konsole auf dem "Info"-Log-Level aus. Die Nachricht wird nur angezeigt, wenn die Konsole so konfiguriert ist, dass sie Info-Ausgaben darstellt. In den meisten Fällen wird das Log-Level innerhalb der Konsole-UI konfiguriert. Die Nachricht kann eine spezielle Formatierung erhalten, wie z.B. ein kleines "i"-Symbol daneben.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ info(msg, subst1, /* …, */ substN)
 ### Parameter
 
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art von Trennung zwischen ihnen auf der Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` eine Zeichenkette ist, der anschließend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art von Trennung dazwischen auf der Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Eine JavaScript-Zeichenkette, die null oder mehr Ersetzungszeichenfolgen enthält, die nacheinander mit `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungszeichenfolgen. Siehe [Verwendung von Zeichenkettenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String mit null oder mehr Ersetzungsstrings, die in aufsteigender Reihenfolge durch `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungsstrings. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungszeichenfolgen innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungszeichenfolgen gibt, werden die zusätzlichen Werte selbst auf die Konsole geschrieben, nach der detaillierten Behauptungsnachricht, auf die gleiche Weise wie, wenn es keine Formatzeichenkette gibt.
+  - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst nach der ausführlichen Assert-Nachricht auf die Konsole geschrieben, in der gleichen Art und Weise, wie es der Fall ist, wenn es keinen Formatstring gibt.
 
-Siehe [Ausgabe von Text an die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Textausgabe auf die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -44,6 +44,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation für `console.info()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#info)
-- [Node.JS Dokumentation für `console.info()`](https://nodejs.org/docs/latest/api/console.html#consoleinfodata-args)
-- [Google Chromes Dokumentation für `console.info()`](https://developer.chrome.com/docs/devtools/console/api/#info)
+- [Microsoft Edge-Dokumentation für `console.info()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#info)
+- [Node.JS-Dokumentation für `console.info()`](https://nodejs.org/docs/latest/api/console.html#consoleinfodata-args)
+- [Google Chrome-Dokumentation für `console.info()`](https://developer.chrome.com/docs/devtools/console/api/#info)

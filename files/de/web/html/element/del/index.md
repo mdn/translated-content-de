@@ -7,24 +7,24 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<del>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich von Text, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise beim Rendern von "Änderungen nachverfolgen" oder Quellcode-Diff-Informationen verwendet werden. Das {{HTMLElement("ins")}}-Element kann für den entgegengesetzten Zweck verwendet werden: Um Text anzuzeigen, der dem Dokument hinzugefügt wurde.
+Das **`<del>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise genutzt werden, um "Änderungen nachverfolgen" anzuzeigen oder Differenzinformationen im Quellcode darzustellen. Das {{HTMLElement("ins")}} Element kann dagegen verwendet werden, um anzuzeigen, dass Text dem Dokument hinzugefügt wurde.
 
 {{EmbedInteractiveExample("pages/tabbed/del.html", "tabbed-standard")}}
 
-Dieses Element wird häufig (aber nicht zwingend) durch eine Durchstreich-Formatierung des Textes dargestellt.
+Dieses Element wird häufig (aber nicht zwingend) durch einen Durchstreich-Stil auf den Text gerendert.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Ein URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
+  - : Eine URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiger Datumsstring mit optionaler Zeit sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeit siehe [Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format des Strings, wenn sowohl Datum als auch Zeit enthalten sind, wird in [Lokale Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt den Zeitpunkt und das Datum der Änderung an und muss eine gültige Datumszeichenkette mit optionaler Uhrzeit sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenkette analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenkette ohne Zeitangabe siehe [Datumszeichenketten](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenkette, die sowohl Datum als auch Uhrzeit enthält, wird in [Lokale Datums- und Zeitzeichenketten](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `del`-Elements wird von den meisten Bildschirmlesern in ihrer Standardeinstellung nicht angekündigt. Es kann angekündigt werden, indem die CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelementen verwendet wird.
+Das Vorhandensein des `del`-Elements wird in der Standardkonfiguration der meisten Bildschirmlesetechnologien nicht angekündigt. Es kann angekündigt werden, indem die CSS {{cssxref("content")}}-Eigenschaft zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
 
 ```css
 del::before,
@@ -47,10 +47,10 @@ del::after {
 }
 ```
 
-Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aufgrund dessen ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt gelöscht wurde, das Verständnis beeinträchtigen würde.
+Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über gelöschte Inhalte das Verständnis beeinträchtigen würde.
 
-- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Kurznotiz dazu, Ihr Zeichen (zugänglicher) zu machen | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Stiländerungen auf Textebene anpassen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -75,7 +75,7 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst die Ankünd
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Inhalt in Phrasenform</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
@@ -93,19 +93,19 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst die Ankünd
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Inhalt in Phrasenform</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">deletion</a
@@ -134,5 +134,5 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst die Ankünd
 
 ## Siehe auch
 
-- {{HTMLElement("ins")}}-Element für Einfügungen in einen Text
-- {{HTMLElement("s")}}-Element für Durchstreichungen, die nicht die Löschung von Text darstellen
+- {{HTMLElement("ins")}} Element für Einfügungen in einen Text
+- {{HTMLElement("s")}} Element für Durchstreichung ohne Darstellung der Löschung von Text

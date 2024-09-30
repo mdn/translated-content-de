@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element im 3D-Raum vergrößert oder verkleinert. Da der Betrag der Skalierung durch einen Vektor [sx, sy, sz] definiert wird, können verschiedene Dimensionen in unterschiedlichem Maßstab skaliert werden. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element im 3D-Raum skaliert. Da der Skalierungsgrad durch einen Vektor [sx, sy, sz] definiert wird, kann sie unterschiedliche Dimensionen in verschiedenen Maßstäben skalieren. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-scale3d.html")}}
 
-Diese Skalentransformation ist durch einen dreidimensionalen Vektor gekennzeichnet. Seine Koordinaten definieren, wie viel Skalierung in jeder Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_), und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalierungstransformation wird durch einen dreidimensionalen Vektor charakterisiert. Ihre Koordinaten definieren, wie stark die Skalierung in jeder Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; liegt er innerhalb, schrumpft es. Wenn er negativ ist, resultiert eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keine Wirkung.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; innerhalb schrumpft es. Ist er negativ, ergibt sich eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keinen Effekt.
 
 ## Syntax
 
-Die `scale3d()` Funktion wird mit drei Werten spezifiziert, die den Betrag der Skalierung darstellen, der in jeder Richtung angewendet werden soll.
+Die `scale3d()` Funktion wird mit drei Werten angegeben, die den Skalierungsgrad in jeder Richtung darstellen.
 
 ```css
 scale3d(sx, sy, sz)
@@ -26,19 +26,19 @@ scale3d(sx, sy, sz)
 ### Werte
 
 - `sx`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Abszisse (horizontale, x-Komponente) des Skalierungsvektors repräsentiert.
 - `sy`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Ordinate (vertikale, y-Komponente) des Skalierungsvektors repräsentiert.
 - `sz`
   - : Ist ein {{cssxref("&lt;number&gt;")}}, der die z-Komponente des Skalierungsvektors darstellt.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -62,7 +62,7 @@ scale3d(sx, sy, sz)
 
 ## Beispiele
 
-### Ohne Änderung des Ursprungs
+### Ohne Veränderung des Ursprungs
 
 #### HTML
 
@@ -90,7 +90,7 @@ div {
 
 {{EmbedLiveSample("Without_changing_the_origin","200","200")}}
 
-### Übersetzung des Ursprungs der Transformation
+### Verschiebung des Ursprungs der Transformation
 
 #### HTML
 
@@ -134,7 +134,7 @@ div {
 - [`scaleZ()`](/de/docs/Web/CSS/transform-function/scaleZ)
 - [`translate3d()`](/de/docs/Web/CSS/transform-function/translate3d)
 - [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d)
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

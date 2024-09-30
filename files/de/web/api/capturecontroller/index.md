@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`CaptureController`**-Schnittstelle bietet Methoden, die verwendet werden können, um eine Aufnahmesitzung weiter zu manipulieren, unabhängig von ihrer Initiierung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia).
+Das **`CaptureController`**-Interface bietet Methoden, die verwendet werden können, um eine Aufnahmesitzung weiter zu manipulieren, getrennt von ihrer Initiierung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia).
 
-Ein `CaptureController`-Objekt ist mit einer Aufnahmesitzung verbunden, indem es in einem Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
+Ein `CaptureController`-Objekt wird einer Aufnahmesitzung zugeordnet, indem es in einen Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
 
 ## Konstruktor
 
@@ -19,7 +19,7 @@ Ein `CaptureController`-Objekt ist mit einer Aufnahmesitzung verbunden, indem es
 ## Instanzmethoden
 
 - [`setFocusBehavior()`](/de/docs/Web/API/CaptureController/setFocusBehavior) {{Experimental_Inline}}
-  - : Steuert, ob der aufgenommene Tab oder das Fenster fokussiert wird oder ob der Fokus bei dem Tab mit der aufnehmenden App bleibt.
+  - : Steuert, ob der aufgenommene Tab oder das Fenster fokussiert wird oder ob der Fokus bei dem Tab bleibt, das die aufnehmende Anwendung enthält.
 
 ## Beispiele
 
@@ -56,4 +56,4 @@ if (displaySurface == "browser") {
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Besseres Bildschirmteilen mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)
+- [Besseres Bildschirmfreigeben mit Conditional Focus](https://developer.chrome.com/docs/web-platform/conditional-focus/)

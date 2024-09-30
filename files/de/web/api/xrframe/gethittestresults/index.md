@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: getHitTestResults()-Methode"
+title: "XRFrame: getHitTestResults() Methode"
 short-title: getHitTestResults()
 slug: Web/API/XRFrame/getHitTestResults
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getHitTestResults()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten zurück, die Treffer-Testergebnisse für eine gegebene [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) enthalten.
+Die **`getHitTestResults()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten zurück, die Hit-Test-Ergebnisse für eine gegebene [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) enthalten.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getHitTestResults(hitTestSource)
 ### Parameter
 
 - `hitTestSource`
-  - : Ein [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt, das Abonnements für Treffer-Tests enthält.
+  - : Ein [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt, das Hit-Test-Abonnements enthält.
 
 ### Rückgabewert
 
@@ -27,9 +27,9 @@ Ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten.
 
 ## Beispiele
 
-### Erhalten von Treffer-Testergebnissen
+### Abrufen von Hit-Test-Ergebnissen
 
-Um eine Treffer-Testquelle anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der `hit-test`-Sitzungsfunktion aktiviert. Fordern Sie als Nächstes die Treffer-Testquelle mit [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) an und speichern Sie sie für die spätere Verwendung in der Frame-Schleife. Rufen Sie schließlich `getHitTestResults()` auf, um das Ergebnis zu erhalten.
+Um eine Hit-Test-Quelle anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der aktivierten Sitzungsfunktion `hit-test`. Fordern Sie als nächstes die Hit-Test-Quelle mit [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) an und speichern Sie sie zur späteren Verwendung in der Frame-Schleife. Rufen Sie schließlich `getHitTestResults()` auf, um das Ergebnis zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {

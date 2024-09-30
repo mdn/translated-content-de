@@ -7,29 +7,28 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Keep-Alive`** allgemeine Header erlaubt es dem Absender, Hinweise darüber zu geben, wie die Verbindung genutzt werden kann, um ein Timeout und eine maximale Anzahl von Anfragen festzulegen.
+Der allgemeine Header **`Keep-Alive`** ermöglicht es dem Sender, Hinweise darüber zu geben, wie die Verbindung zur Festlegung eines Timeouts und einer maximalen Anzahl von Anfragen verwendet werden kann.
 
 > [!NOTE]
-> Setzen Sie den {{HTTPHeader("Connection")}} Header auf "keep-alive", damit dieser Header irgendeine Wirkung hat.
+> Setzen Sie den {{HTTPHeader("Connection")}}-Header auf "keep-alive", damit dieser Header eine Wirkung hat.
 
 > [!WARNING]
 > Verbindungsspezifische Header-Felder wie
-> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in
-> [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
+> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
 > [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten. Chrome und
-> Firefox ignorieren sie in HTTP/2-Antworten, aber Safari entspricht den Anforderungen der HTTP/2-Spezifikation und lädt keine Antwort, die sie enthält.
+> Firefox ignorieren sie in HTTP/2-Antworten, aber Safari hält sich an die Anforderungen der HTTP/2-Spezifikation und lädt keine Antwort, die sie enthält.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anfrage-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header)
+        [Request header](/de/docs/Glossary/Request_header),
+        [Response header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Nicht erlaubter Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -45,10 +44,10 @@ Keep-Alive: parameters
 
 - `parameters`
 
-  - : Eine durch Kommata getrennte Liste von Parametern, die jeweils aus einem Bezeichner und einem durch das Gleichheitszeichen (`'='`) getrennten Wert bestehen. Die folgenden Bezeichner sind möglich:
+  - : Eine durch Kommas getrennte Liste von Parametern, die jeweils aus einem Bezeichner und einem Wert bestehen, die durch das Gleichheitszeichen (`'='`) getrennt sind. Die folgenden Bezeichner sind möglich:
 
-    - `timeout`: Eine ganze Zahl, die die Zeit in Sekunden angibt, die der Host einer inaktiven Verbindung erlaubt, offen zu bleiben, bevor sie geschlossen wird. Eine Verbindung ist inaktiv, wenn kein Datenversand oder -empfang durch einen Host erfolgt. Ein Host kann eine inaktive Verbindung länger als die angegebenen `timeout`-Sekunden offen halten, sollte jedoch versuchen, eine Verbindung für mindestens `timeout`-Sekunden aufrechtzuerhalten.
-    - `max`: Eine ganze Zahl, die die maximale Anzahl von Anfragen angibt, die auf dieser Verbindung gesendet werden können, bevor sie geschlossen wird. Es sei denn, `0`, dieser Wert wird für nicht-pipelined Verbindungen ignoriert, da eine weitere Anfrage in der nächsten Antwort gesendet wird. Ein HTTP-Pipeline kann es verwenden, um das Pipelining zu begrenzen.
+    - `timeout`: Eine Ganzzahl, die die Zeit in Sekunden angibt, während der der Host eine inaktive Verbindung offen halten darf, bevor sie geschlossen wird. Eine Verbindung ist inaktiv, wenn keine Daten gesendet oder empfangen werden. Ein Host kann eine inaktive Verbindung länger als `timeout` Sekunden offen halten, sollte aber versuchen, eine Verbindung mindestens `timeout` Sekunden lang aufrechtzuerhalten.
+    - `max`: Eine Ganzzahl, die die maximale Anzahl von Anfragen angibt, die über diese Verbindung gesendet werden können, bevor sie geschlossen wird. Sofern `0` beträgt, wird dieser Wert für nicht-pipelined Verbindungen ignoriert, da eine weitere Anfrage in der nächsten Antwort gesendet wird. Eine HTTP-Pipeline kann ihn verwenden, um das Pipeline-Limit festzulegen.
 
 ## Beispiele
 
@@ -78,4 +77,4 @@ Server: Apache
 ## Siehe auch
 
 - {{HTTPHeader("Connection")}}
-- [Verbindungsmanagement in HTTP/1.x](/de/docs/Web/HTTP/Connection_management_in_HTTP_1.x)
+- [Verwaltung der Verbindung in HTTP/1.x](/de/docs/Web/HTTP/Connection_management_in_HTTP_1.x)

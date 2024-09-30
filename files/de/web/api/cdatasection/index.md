@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`CDATASection`**-Schnittstelle repräsentiert einen CDATA-Abschnitt, der innerhalb von XML verwendet werden kann, um größere Textteile ohne Escape-Zeichen einzuschließen. Innerhalb eines CDATA-Abschnitts müssen die Symbole `<` und `&` nicht wie üblich maskiert werden.
+Die **`CDATASection`**-Schnittstelle repräsentiert einen CDATA-Abschnitt, der innerhalb von XML verwendet werden kann, um erweiterte Abschnitte von nicht entwertetem Text einzuschließen. Innerhalb eines CDATA-Abschnitts müssen die Symbole `<` und `&` nicht, wie normalerweise üblich, entwertet werden.
 
-In XML sieht ein CDATA-Abschnitt folgendermaßen aus:
+In XML sieht ein CDATA-Abschnitt wie folgt aus:
 
 ```xml
 <![CDATA[ … ]]>
@@ -23,22 +23,20 @@ Zum Beispiel:
 </foo>
 ```
 
-Die einzige Sequenz, die innerhalb eines CDATA-Abschnitts nicht erlaubt ist, ist die abschließende Sequenz des CDATA-Abschnitts selbst, `]]>`.
+Die einzige Sequenz, die innerhalb eines CDATA-Abschnitts nicht erlaubt ist, ist die Abschlusssequenz des CDATA-Abschnitts selbst, `]]>`.
 
 > [!NOTE]
-> CDATA-Abschnitte sollten nicht innerhalb von HTML verwendet werden, da sie als Kommentare angesehen und nicht angezeigt werden.
+> CDATA-Abschnitte sollten nicht innerhalb von HTML verwendet werden, da sie als Kommentare betrachtet und nicht angezeigt werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften und implementiert die ihres Elternteils
-[`Text`](/de/docs/Web/API/Text)._
+_Diese Schnittstelle hat keine spezifischen Eigenschaften und implementiert diejenigen ihres Elternteils [`Text`](/de/docs/Web/API/Text)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden und implementiert die ihres Elternteils
-[`Text`](/de/docs/Web/API/Text)._
+_Diese Schnittstelle hat keine spezifischen Methoden und implementiert diejenigen ihres Elternteils [`Text`](/de/docs/Web/API/Text)._
 
 ## Spezifikationen
 

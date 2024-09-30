@@ -9,17 +9,17 @@ l10n:
 {{APIRef("CSS Typed Object Model API")}}
 
 Die **`CSSUnitValue.value`**-Eigenschaft des
-[`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen Double-Wert zurück, der die Anzahl der Einheiten angibt.
+[`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Interfaces gibt eine Zahl (double) an, die die Anzahl der Einheiten angibt.
 
 ## Wert
 
-Ein Double.
+Ein double.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen
-`CSSUnitValue` Konstruktoren und fragt dann den
-`CSSUnitValue.value` ab.
+Im Folgenden wird ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen
+`CSSUnitValue`-Konstruktoren erstellt und dann die
+`CSSUnitValue.value` abgefragt.
 
 ```js
 const pos = new CSSPositionValue(

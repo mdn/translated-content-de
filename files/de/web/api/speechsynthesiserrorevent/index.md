@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechSynthesisErrorEvent`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die bei der Verarbeitung von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekten im Sprachdienst auftreten.
+Die **`SpeechSynthesisErrorEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die beim Verarbeiten von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekten im Sprachdienst auftreten können.
 
 {{InheritanceDiagram}}
 
@@ -18,14 +18,14 @@ Das **`SpeechSynthesisErrorEvent`**-Interface der [Web Speech API](/de/docs/Web/
 
 ## Instanz-Eigenschaften
 
-`SpeechSynthesisErrorEvent` erweitert das [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Interface, das Eigenschaften von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) erbt.
+_`SpeechSynthesisErrorEvent` erweitert die [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle, welche Eigenschaften von ihrer Elternschnittstelle [`Event`](/de/docs/Web/API/Event) erbt._
 
 - [`SpeechSynthesisErrorEvent.error`](/de/docs/Web/API/SpeechSynthesisErrorEvent/error) {{ReadOnlyInline}}
-  - : Gibt einen Fehlercode zurück, der anzeigt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
+  - : Gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
 
 ## Instanz-Methoden
 
-`SpeechSynthesisErrorEvent` erweitert das [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Interface, das Methoden von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) erbt.
+_`SpeechSynthesisErrorEvent` erweitert die [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle, welche Methoden von ihrer Elternschnittstelle [`Event`](/de/docs/Web/API/Event) erbt._
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLSubImage: colorTextureHeight-Eigenschaft"
+title: "XRWebGLSubImage: Eigenschaft colorTextureHeight"
 short-title: colorTextureHeight
 slug: Web/API/XRWebGLSubImage/colorTextureHeight
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`colorTextureHeight`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces ist eine Zahl, die die Höhe des GL-Anhangs in Pixeln darstellt.
+Die schreibgeschützte **`colorTextureHeight`** Eigenschaft der [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Schnittstelle ist eine Zahl, die die Höhe in Pixeln des GL-Attachments darstellt.
 
 ## Wert
 

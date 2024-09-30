@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um die Art und Weise zu ändern, wie der Browser mit animierten Bildern, wie GIFs, umgeht.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um die Art und Weise zu ändern, wie der Browser animierte Bilder, wie z.B. GIFs, behandelt.
 
 Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen kann:
 
-- "normal": der Standard. Animierte Bilder werden normal abgespielt.
-- "none": Bilder werden überhaupt nicht animiert.
-- "once": Die Animation wird einmal abgespielt.
+- "normal": der Standard. Animierte Bilder wie gewohnt abspielen.
+- "none": Bilder überhaupt nicht animieren.
+- "once": die Animation einmal abspielen.
 
 ## Browser-Kompatibilität
 

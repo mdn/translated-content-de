@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`hashChange`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`hashChange`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
 
 ## Wert
 
-Ein boolescher Wert—`true` wenn es sich um eine Fragmentnavigation handelt, `false` wenn nicht.
+Ein boolescher Wert—`true`, wenn die Navigation eine Fragmentnavigation ist, `false`, wenn nicht.
 
 ## Beispiele
 
@@ -51,6 +51,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

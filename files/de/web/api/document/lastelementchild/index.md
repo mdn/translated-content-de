@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Document.lastElementChild`** gibt das letzte Kindelement des Dokuments zurück, ein [`Element`](/de/docs/Web/API/Element), oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte Eigenschaft **`Document.lastElementChild`** gibt das letzte Kind-`Element` des Dokuments zurück oder `null`, wenn es keine Kindelemente gibt.
 
-Bei HTML-Dokumenten ist dies in der Regel das einzige Kindelement, das Wurzel-`<html>`-Element.
+Für HTML-Dokumente ist dies üblicherweise das einzige Kind, das Wurzelelement `<html>`.
 
-Siehe [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) für das letzte Kindelement bestimmter Elemente innerhalb eines Dokuments.
+Siehe [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) für das letzte Kindelement spezifischer Elemente innerhalb eines Dokuments.
 
 ## Wert
 
-Das Wurzel-`<html>`-Element.
+Das Wurzelelement `<html>`.
 
 ## Beispiele
 

@@ -11,7 +11,7 @@ Die **`SVGFEOffsetElement`**-Schnittstelle entspricht dem {{SVGElement("feOffset
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
@@ -32,9 +32,9 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SV
 - [`SVGFEOffsetElement.y`](/de/docs/Web/API/SVGFEOffsetElement/y) {{ReadOnlyInline}}
   - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer Eltern, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

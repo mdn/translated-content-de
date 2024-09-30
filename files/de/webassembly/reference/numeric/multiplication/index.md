@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`mul`**-Anweisungen, kurz für _Multiplikation_, werden verwendet, um eine Zahl mit einer anderen Zahl zu multiplizieren, ähnlich dem **`*`**-Operator in anderen Sprachen.
+Die **`mul`**-Anweisungen, kurz für _Multiplikation_, werden verwendet, um eine Zahl mit einer anderen zu multiplizieren, ähnlich dem **`*`**-Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/mul.html", "tabbed-taller")}}
 
@@ -24,9 +24,9 @@ i32.mul
 ;; the top item on the stack will now be 30 (10 * 3 = 30)
 ```
 
-| Anweisung | Binärcode |
-| --------- | --------- |
-| `i32.mul` | `0x6c`    |
-| `i64.mul` | `0x7e`    |
-| `f32.mul` | `0x94`    |
-| `f64.mul` | `0xa2`    |
+| Anweisung   | Binary Opcode |
+| ----------- | ------------- |
+| `i32.mul`   | `0x6c`        |
+| `i64.mul`   | `0x7e`        |
+| `f32.mul`   | `0x94`        |
+| `f64.mul`   | `0xa2`        |

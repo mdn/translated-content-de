@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Der **`ToggleEvent()`**-Konstruktor erstellt ein neues [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Objekt.
+Der **`ToggleEvent()`** Konstruktor erstellt ein neues [`ToggleEvent`](/de/docs/Web/API/ToggleEvent) Objekt.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ new ToggleEvent(type, init)
 - `type`
   - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `ToggleEvent` ist dies immer `toggle`.
 - `init`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `newState`
       - : Ein String, der den Zustand darstellt, zu dem das Element wechselt. Mögliche Werte sind `"open"` und `"closed"`.
     - `oldState`
@@ -29,9 +29,9 @@ new ToggleEvent(type, init)
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ToggleEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des Auslösens eines relevanten Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ToggleEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis eines relevant ausgelösten Ereignisses aufgerufen wird.
 
-Zum Beispiel:
+Beispiel:
 
 ```js
 const popover = document.getElementById("mypopover");

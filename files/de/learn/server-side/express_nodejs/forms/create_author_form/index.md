@@ -1,5 +1,5 @@
 ---
-title: Erstellen eines Author-Formulars
+title: Create Author Form
 slug: Learn/Server-side/Express_Nodejs/forms/Create_author_form
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,21 +7,21 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser Unterartikel zeigt, wie man eine Seite zum Erstellen von `Author`-Objekten definiert.
+Dieser Unterartikel zeigt, wie man eine Seite zur Erstellung von `Author`-Objekten definiert.
 
 ## Importieren von Validierungs- und Bereinigungsmethoden
 
-Wie beim [Genre-Formular](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form) müssen wir, um _express-validator_ zu verwenden, die Funktionen \_require_n, die wir verwenden möchten.
+Wie bei dem [Genre-Formular](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form), müssen wir, um _express-validator_ zu verwenden, die benötigten Funktionen _require_n.
 
-Öffnen Sie **/controllers/authorController.js** und fügen Sie folgende Zeile oben in der Datei (über den Routenfunktionen) hinzu:
+Öffnen Sie **/controllers/authorController.js** und fügen Sie die folgende Zeile am Anfang der Datei (oberhalb der Routenfunktionen) hinzu:
 
 ```js
 const { body, validationResult } = require("express-validator");
 ```
 
-## Controller—Get-Route
+## Controller—GET-Route
 
-Finden Sie die exportierte `author_create_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code. Dieser rendert die **author_form.pug** Ansicht und übergibt eine `title` Variable.
+Finden Sie die exportierte `author_create_get()` Controller-Methode und ersetzen Sie sie mit dem folgenden Code. Dieser rendert die **author_form.pug** View und übergibt eine `title`-Variable.
 
 ```js
 // Display Author create form on GET.
@@ -30,9 +30,9 @@ exports.author_create_get = (req, res, next) => {
 };
 ```
 
-## Controller—Post-Route
+## Controller—POST-Route
 
-Finden Sie die exportierte `author_create_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Finden Sie die exportierte `author_create_post()` Controller-Methode und ersetzen Sie sie mit dem folgenden Code.
 
 ```js
 // Handle Author create on POST.
@@ -95,16 +95,16 @@ exports.author_create_post = [
 ```
 
 > [!WARNING]
-> Validieren Sie niemals _Namen_ mit `isAlphanumeric()` (wie wir es oben gemacht haben), da viele Namen andere Zeichensätze verwenden.
+> Validieren Sie _Namen_ niemals mit `isAlphanumeric()` (wie wir es oben getan haben), da es viele Namen gibt, die andere Zeichensätze verwenden.
 > Wir tun dies hier, um zu demonstrieren, wie der Validator verwendet wird und wie er mit anderen Validatoren und Fehlerberichten verkettet werden kann.
 
-Die Struktur und das Verhalten dieses Codes sind fast genau gleich wie beim Erstellen eines `Genre`-Objekts. Zuerst validieren und bereinigen wir die Daten. Wenn die Daten ungültig sind, zeigen wir das Formular zusammen mit den ursprünglich vom Benutzer eingegebenen Daten und einer Liste von Fehlermeldungen erneut an. Wenn die Daten gültig sind, speichern wir den neuen Autoren-Datensatz und leiten den Benutzer zur Autorendetailseite weiter.
+Die Struktur und das Verhalten dieses Codes sind fast identisch mit denen zur Erstellung eines `Genre`-Objekts. Zuerst validieren und bereinigen wir die Daten. Wenn die Daten ungültig sind, zeigen wir das Formular zusammen mit den ursprünglich vom Benutzer eingegebenen Daten und einer Liste von Fehlermeldungen erneut an. Wenn die Daten gültig sind, speichern wir den neuen Autoren-Datensatz und leiten den Benutzer zur Detailseite des Autors um.
 
-Im Gegensatz zum `Genre`-Post-Handler überprüfen wir nicht, ob das `Author`-Objekt bereits existiert, bevor wir es speichern. Man könnte argumentieren, dass wir das tun sollten, auch wenn wir jetzt mehrere Autoren mit demselben Namen haben können.
+Im Gegensatz zum `Genre`-Post-Handler überprüfen wir nicht, ob das `Author`-Objekt bereits existiert, bevor wir es speichern. Man könnte argumentieren, dass wir sollten, auch wenn wir so derzeit mehrere Autoren mit dem gleichen Namen haben können.
 
-Der Validierungscode demonstriert mehrere neue Funktionen:
+Der Validierungscode zeigt einige neue Funktionen:
 
-- Wir können Validatoren verkettet anwenden, wobei `withMessage()` verwendet wird, um die Fehlermeldung anzugeben, die angezeigt wird, wenn die vorherige Validierungsmethode fehlschlägt.
+- Wir können Validatoren verkettet verwenden und mit `withMessage()` die Fehlermeldung angeben, die angezeigt werden soll, wenn die vorherige Validierungsmethode fehlschlägt.
   Dies macht es sehr einfach, spezifische Fehlermeldungen ohne viel Code-Duplikation bereitzustellen.
 
   ```js
@@ -121,8 +121,8 @@ Der Validierungscode demonstriert mehrere neue Funktionen:
   ];
   ```
 
-- Mit der `optional()` Funktion können wir eine anschließende Validierung nur dann ausführen, wenn ein Feld eingegeben wurde (dies ermöglicht es uns, optionale Felder zu validieren).
-  Zum Beispiel überprüfen wir unten, ob das optionale Geburtsdatum ein ISO8601-kompatibles Datum ist (das übergebene `{ values: "falsy" }`-Objekt bedeutet, dass wir entweder einen leeren String oder `null` als leeren Wert akzeptieren).
+- Mit der Funktion `optional()` können wir eine nachfolgende Validierung nur dann ausführen, wenn ein Feld ausgefüllt wurde (dies erlaubt uns die Validierung optionaler Felder).
+  Zum Beispiel überprüfen wir unten, ob das optionale Geburtsdatum ein ISO8601-konformes Datum ist (das übergebene Objekt `{ values: "falsy" }` bedeutet, dass wir entweder einen leeren String oder `null` als leeren Wert akzeptieren).
 
   ```js
   [
@@ -133,11 +133,11 @@ Der Validierungscode demonstriert mehrere neue Funktionen:
   ];
   ```
 
-- Parameter werden von der Anfrage als Strings empfangen. Wir können `toDate()` (oder `toBoolean()`) verwenden, um diese in die richtigen JavaScript-Typen umzuwandeln (wie am Ende der obigen Validator-Kette gezeigt).
+- Parameter werden als Strings von der Anfrage empfangen. Wir können `toDate()` (oder `toBoolean()`) verwenden, um diese in die korrekten JavaScript-Typen zu konvertieren (wie am Ende der Validatorenkette oben gezeigt).
 
-## Ansicht
+## View
 
-Erstellen Sie **/views/author_form.pug** und kopieren Sie den untenstehenden Text hinein.
+Erstellen Sie **/views/author_form.pug** und kopieren Sie den folgenden Text hinein.
 
 ```pug
 extends layout
@@ -162,25 +162,25 @@ block content
         li!= error.msg
 ```
 
-Die Struktur und das Verhalten für diese Ansicht sind genau dieselben wie für die **genre_form.pug** Vorlage, daher werden wir sie nicht erneut beschreiben.
+Die Struktur und das Verhalten dieser Ansicht sind genau die gleichen wie für die **genre_form.pug** Vorlage, also werden wir sie nicht erneut beschreiben.
 
 > [!NOTE]
-> Einige Browser unterstützen den Eingabetyp `type="date"` nicht, daher wird das Datepicker-Widget oder der Standardplatzhalter `dd/mm/yyyy` nicht angezeigt, sondern stattdessen ein leeres einfaches Textfeld. Ein Workaround besteht darin, das Attribut `placeholder='dd/mm/yyyy'` explizit hinzuzufügen, damit auch in weniger leistungsfähigen Browsern Informationen zum gewünschten Textformat angezeigt werden.
+> Einige Browser unterstützen das Eingabefeld `type="date"` nicht, sodass Sie nicht das Datumsauswahl-Widget oder die Standardeingabeaufforderung `dd/mm/yyyy` erhalten, sondern stattdessen ein leeres Textfeld. Eine Umgehungslösung ist, das Attribut `placeholder='dd/mm/yyyy'` explizit hinzuzufügen, damit Sie in weniger fähigen Browsern dennoch Informationen über das gewünschte Textformat erhalten.
 
 ### Herausforderung: Hinzufügen des Todesdatums
 
-Die obenstehende Vorlage fehlt ein Feld zur Eingabe des `date_of_death`. Erstellen Sie das Feld entsprechend dem Muster der Geburtsdatum-Formulargruppe!
+Das obige Template fehlt ein Feld für die Eingabe des `date_of_death`. Erstellen Sie das Feld nach dem gleichen Muster wie die Geburtsdatums-Formulargruppe!
 
 ## Wie sieht es aus?
 
-Starten Sie die Anwendung, öffnen Sie Ihren Browser unter `http://localhost:3000/`, und wählen Sie den Link _Create new author_ aus. Wenn alles richtig eingerichtet ist, sollte Ihre Seite in etwa so aussehen wie der folgende Screenshot. Nachdem Sie einen Wert eingegeben haben, sollte er gespeichert werden und Sie werden auf die Autorendetailseite weitergeleitet.
+Führen Sie die Anwendung aus, öffnen Sie Ihren Browser unter `http://localhost:3000/` und wählen Sie den Link _Create new author_. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite etwa so aussehen wie in folgendem Screenshot. Nachdem Sie einen Wert eingegeben haben, sollte er gespeichert werden und Sie werden zur Autordetailseite weitergeleitet.
 
 ![Author Create Page - Express Local Library site](locallibary_express_author_create_empty.png)
 
 > [!NOTE]
-> Wenn Sie mit verschiedenen Eingabeformaten für die Daten experimentieren, stellen Sie möglicherweise fest, dass das Format `yyyy-mm-dd` sich falsch verhält. Dies liegt daran, dass JavaScript Datumsstrings als einschließlich der Uhrzeit 0 Stunden behandelt, zusätzlich jedoch Datumsstrings in diesem Format (dem ISO 8601-Standard) als einschließlich der Uhrzeit 0 Stunden UTC und nicht der lokalen Zeit behandelt. Wenn Ihre Zeitzone westlich von UTC liegt, wird die Datumsanzeige als lokal betrachtet einen Tag vor dem eingegebenen Datum sein. Dies ist eine von mehreren Komplexitäten (wie mehrteilige Nachnamen und Bücher von mehreren Autoren), die wir hier nicht behandeln.
+> Wenn Sie mit verschiedenen Eingabeformaten für die Daten experimentieren, könnten Sie feststellen, dass das Format `yyyy-mm-dd` sich nicht wie erwartet verhält. Dies liegt daran, dass JavaScript Datum-Strings so behandelt, als ob sie die Zeit von 0 Stunden enthalten, und zusätzlich Datum-Strings in diesem Format (dem ISO 8601 Standard) als die Zeit 0 Stunden UTC anstatt der lokalen Zeit betrachtet. Wenn Ihre Zeitzone westlich von UTC liegt, wird die Datumsanzeige, da sie lokal ist, einen Tag vor dem von Ihnen eingegebenen Datum befinden. Dies ist eine von mehreren Komplexitäten (wie mehrteilige Familiennamen und Bücher mit mehreren Autoren), die wir hier nicht ansprechen.
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zu [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn/Server-side/Express_Nodejs/forms).
-- Fahren Sie fort mit dem nächsten Unterartikel von Teil 6: [Buchformular erstellen](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_book_form).
+- Kehren Sie zurück zum [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn/Server-side/Express_Nodejs/forms).
+- Fahren Sie mit dem nächsten Unterartikel von Teil 6 fort: [Create Book Form](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_book_form).

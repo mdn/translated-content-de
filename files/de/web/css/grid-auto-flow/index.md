@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Auto-Placement-Algorithmus funktioniert und legt fest, wie automatisch platzierte Elemente in das Raster geflossen werden.
+Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Auto-Platzierungsalgorithmus arbeitet und legt fest, wie automatisch platzierte Elemente in das Grid eingefügt werden.
 
 {{EmbedInteractiveExample("pages/css/grid-auto-flow.html")}}
 
 > [!NOTE]
-> Die `masonry-auto-flow` Eigenschaft wurde aus dem CSS [Masonry-Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout) zu Gunsten von `grid-auto-flow` entfernt.
-> Details finden Sie unter [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231).
+> Die Eigenschaft `masonry-auto-flow` wurde aus dem CSS [Masonry-Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout) zugunsten von `grid-auto-flow` entfernt.
+> Siehe [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231) für Details.
 
 ## Syntax
 
@@ -41,14 +41,14 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 ### Werte
 
 - `row`
-  - : Elemente werden durch das Füllen jeder Zeile nacheinander platziert, wobei bei Bedarf neue Zeilen hinzugefügt werden. Wenn weder `row` noch `column` angegeben sind, wird `row` angenommen.
+  - : Elemente werden durch das Auffüllen jeder Zeile nacheinander platziert, wobei bei Bedarf neue Zeilen hinzugefügt werden. Wenn weder `row` noch `column` angegeben sind, wird `row` angenommen.
 - `column`
-  - : Elemente werden durch das Füllen jeder Spalte nacheinander platziert, wobei bei Bedarf neue Spalten hinzugefügt werden.
+  - : Elemente werden durch das Auffüllen jeder Spalte nacheinander platziert, wobei bei Bedarf neue Spalten hinzugefügt werden.
 - `dense`
 
-  - : Der "dichte" Packungsalgorithmus versucht, Löcher früher im Raster zu füllen, wenn kleinere Elemente später auftreten. Dies kann dazu führen, dass Elemente in ungeordneter Reihenfolge erscheinen, wenn dadurch Löcher gefüllt werden, die durch größere Elemente entstanden sind.
+  - : Der "dichte" Packungsalgorithmus versucht, Lücken früher im Grid zu füllen, wenn kleinere Elemente später auftauchen. Dies kann dazu führen, dass Elemente in einer anderen Reihenfolge erscheinen, wenn dadurch Lücken gefüllt werden können, die von größeren Elementen hinterlassen wurden.
 
-    Wird er weggelassen, wird ein "spärlicher" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen immer nur "vorwärts" im Raster geht und niemals zurückgeht, um Löcher zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, selbst wenn dadurch Löcher entstehen, die durch spätere Elemente hätten gefüllt werden können.
+    Wenn er weggelassen wird, wird ein "sparsamer" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen nur "vorwärts" im Grid bewegt und niemals zurückgeht, um Lücken zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, selbst wenn dadurch Lücken entstehen, die von späteren Elementen hätten gefüllt werden können.
 
 ## Formale Definition
 
@@ -60,7 +60,7 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 ## Beispiele
 
-### Einstellen der automatischen Rasterplatzierung
+### Einstellen der automatischen Grid-Platzierung
 
 #### HTML
 
@@ -152,5 +152,5 @@ inputElem.addEventListener("change", changeGridAutoFlow);
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid")}}
-- [Automatische Platzierung im Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-- Video: [Einführung in automatische Rasterplatzierung und Reihenfolge](https://gridbyexample.com/video/series-auto-placement-order/)
+- [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
+- Video: [Introducing grid auto-placement and order](https://gridbyexample.com/video/series-auto-placement-order/)

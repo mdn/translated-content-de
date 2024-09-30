@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Increment (`++`)** Operator erhöht seinen Operanden um eins und gibt den Wert vor oder nach der Erhöhung zurück, abhängig davon, wo der Operator platziert wird.
+Der **Inkrementoperator (`++`)** erhöht (addiert eins zu) seinen Operanden und gibt den Wert vor oder nach der Erhöhung zurück, abhängig davon, wo der Operator platziert ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-increment.html")}}
 
@@ -20,13 +20,13 @@ x++
 
 ## Beschreibung
 
-Der `++` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt den Operanden zunächst zu einem numerischen Wert und testet dessen Typ. Er führt eine BigInt-Erhöhung durch, wenn der Operand zu einem BigInt wird; andernfalls führt er eine Zahlenerhöhung durch.
+Der `++` Operator ist für zwei Arten von Operanden überladen: Nummer und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zunächst den Operanden zu einem numerischen Wert [koerciert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet den Typ. Bei einem BigInt wird ein BigInt-Inkrement durchgeführt; andernfalls wird ein Nummer-Inkrement durchgeführt.
 
-Wird er postfix verwendet, also mit dem Operator nach dem Operanden (zum Beispiel `x++`), erhöht der Inkrementoperator und gibt den Wert vor der Erhöhung zurück.
+Wird er postfix verwendet, mit dem Operator nach dem Operanden (zum Beispiel `x++`), erhöht der Inkrementoperator den Operanden und gibt den Wert vor der Erhöhung zurück.
 
-Wird er als Präfix verwendet, also mit dem Operator vor dem Operanden (zum Beispiel `++x`), erhöht der Inkrementoperator und gibt den Wert nach der Erhöhung zurück.
+Wird er prefix verwendet, mit dem Operator vor dem Operanden (zum Beispiel `++x`), erhöht der Inkrementoperator den Operanden und gibt den Wert nach der Erhöhung zurück.
 
-Der Inkrementoperator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften; d.h. gültige [Zuordnungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `++x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, daher können Sie nicht mehrere Inkrementoperatoren hintereinander ketten.
+Der Inkrementoperator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften; d. h. gültige [Zuweisungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `++x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, daher können Sie keine mehreren Inkrementoperatoren zusammen verketten.
 
 ```js-nolint example-bad
 ++(++x); // SyntaxError: Invalid left-hand side expression in prefix operation
@@ -74,6 +74,6 @@ const y2 = ++x2;
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

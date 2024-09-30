@@ -1,5 +1,5 @@
 ---
-title: "WebSocket: open-Ereignis"
+title: "WebSocket: open Ereignis"
 short-title: open
 slug: Web/API/WebSocket/open_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `open`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geöffnet wird.
+Das `open` Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geöffnet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("open", (event) => {});
@@ -46,7 +46,7 @@ socket.addEventListener("open", (event) => {
 
 ## Siehe auch
 
-- [WebSocket: close-Ereignis](/de/docs/Web/API/WebSocket/close_event)
-- [WebSocket: error-Ereignis](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: message-Ereignis](/de/docs/Web/API/WebSocket/message_event)
-- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: close Ereignis](/de/docs/Web/API/WebSocket/close_event)
+- [WebSocket: error Ereignis](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: message Ereignis](/de/docs/Web/API/WebSocket/message_event)
+- [WebSocket Client-Anwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

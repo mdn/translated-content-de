@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`configurationValue`** der [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Schnittstelle gibt den Konfigurationswert dieser Konfiguration zurück. Dieser entspricht dem [`bConfigurationValue`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des vom Gerät definierten Konfigurationsdeskriptors.
+Die schreibgeschützte Eigenschaft **`configurationValue`** der Schnittstelle [`USBConfiguration`](/de/docs/Web/API/USBConfiguration) gibt den Konfigurationswert dieser Konfiguration zurück. Dieser entspricht dem [`bConfigurationValue`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des vom Gerät bereitgestellten Konfigurationsdeskriptors, der diese Konfiguration definiert.
 
 ## Wert
 
-Der [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) des [`USBDevice`](/de/docs/Web/API/USBDevice), der im Konstruktor der aktuellen [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Instanz angegeben wird.
+Der [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) des in den Konstruktor der aktuellen [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Instanz angegebenen [`USBDevice`](/de/docs/Web/API/USBDevice).
 
 ## Spezifikationen
 

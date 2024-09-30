@@ -1,5 +1,5 @@
 ---
-title: "IDBRequest: source-Eigenschaft"
+title: "IDBRequest: source Eigenschaft"
 short-title: source
 slug: Web/API/IDBRequest/source
 l10n:
@@ -8,15 +8,16 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`source`** schreibgeschützte Eigenschaft des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt die Quelle der Anfrage zurück, wie einen Index oder einen Objekt-Store. Wenn keine Quelle existiert (wie beim Aufruf von [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open)), wird `null` zurückgegeben.
+Die **`source`** Eigenschaft des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Quelle der Anfrage zurückgibt, wie z. B. einen Index oder einen Objektspeicher. Wenn keine Quelle existiert (wie beim Aufruf von [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open)), gibt sie `null` zurück.
 
 ## Wert
 
-Ein Objekt, das die Quelle der Anfrage darstellt, wie ein [`IDBIndex`](/de/docs/Web/API/IDBIndex), [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBCursor`](/de/docs/Web/API/IDBCursor).
+Ein Objekt, das die Quelle der Anfrage repräsentiert, wie z. B. ein [`IDBIndex`](/de/docs/Web/API/IDBIndex),
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBCursor`](/de/docs/Web/API/IDBCursor).
 
 ## Beispiele
 
-Das folgende Beispiel fordert einen bestimmten Datensatztitel an, `onsuccess` erhält den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und fügt den aktualisierten Datensatz dann in einer anderen Anfrage wieder in den Objekt-Store ein. Die Quelle der zweiten Anfrage wird in der Entwicklerkonsole protokolliert. Für ein vollständiges, funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel wird ein bestimmter Datensatztitel angefordert, `onsuccess` erhält den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar gemacht als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt dann den aktualisierten Datensatz in einer weiteren Anfrage zurück in den Objektspeicher. Die Quelle der 2. Anfrage wird in der Entwicklerkonsole protokolliert. Für ein vollständig funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -62,8 +63,8 @@ objectStoreTitleRequest.onsuccess = () => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

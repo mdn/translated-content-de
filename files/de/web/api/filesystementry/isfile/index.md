@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`isFile`**-Eigenschaft der Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) ist `true`, wenn der Eintrag eine Datei darstellt (das heißt, es ist ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)) und `false`, wenn nicht.
+Die schreibgeschützte **`isFile`**-Eigenschaft der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Schnittstelle ist `true`, wenn der Eintrag eine Datei repräsentiert (das heißt, es handelt sich um ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)) und `false`, wenn nicht.
 
-Sie können auch [`isDirectory`](/de/docs/Web/API/FileSystemEntry/isDirectory) verwenden, um zu bestimmen, ob der Eintrag ein Verzeichnis ist.
+Sie können auch [`isDirectory`](/de/docs/Web/API/FileSystemEntry/isDirectory) verwenden, um festzustellen, ob der Eintrag ein Verzeichnis ist.
 
 > [!WARNING]
-> Sie sollten nicht davon ausgehen, dass ein Eintrag, der keine Datei ist, ein Verzeichnis ist oder umgekehrt.
-> Es gibt viele Betriebssysteme mit anderen Arten von Dateideskriptoren. Stellen Sie sicher, dass Sie sowohl `isDirectory` als auch `isFile` verwenden, um sicherzustellen, dass der Eintrag etwas ist, mit dem Sie arbeiten können.
+> Sie sollten nicht annehmen, dass jeder Eintrag, der keine Datei ist, ein Verzeichnis ist oder umgekehrt.
+> Es gibt in vielen Betriebssystemen andere Arten von Dateibeschreibern. Stellen Sie sicher, dass Sie sowohl `isDirectory` als auch `isFile` verwenden, um sicherzustellen, dass der Eintrag etwas ist, mit dem Sie arbeiten können.
 
 ## Wert
 
-Ein Boolean-Wert, der angibt, ob das [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) eine Datei ist oder nicht.
+Ein Boolean, der angibt, ob das [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) eine Datei ist oder nicht.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie diese Eigenschaft verwendet werden könnte, um festzustellen, ob der Eintrag als Verzeichnis oder Datei verarbeitet werden soll. Wenn der Eintrag keines von beiden ist, wird ein Fehlerhandler mit einer entsprechenden Nachricht aufgerufen.
+Dieses Beispiel zeigt, wie diese Eigenschaft verwendet werden könnte, um zu bestimmen, ob der Eintrag als Verzeichnis oder Datei verarbeitet werden soll. Wenn der Eintrag weder noch ist, wird ein Fehlerbehandlungsprogramm mit einer entsprechenden Nachricht aufgerufen.
 
 ```js
 if (entry.isDirectory) {

@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:default`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Formularelemente aus, die in einer Gruppe verwandter Elemente die Standardeinstellung sind.
+Die **`:default`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Formularelemente aus, die in einer Gruppe verwandter Elemente die Standardwerte sind.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-default.html", "tabbed-shorter")}}
 
-Welche Elemente dieser Selektor auswählt, ist im [HTML-Standard §4.16.3 Pseudoklassen](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-default) definiert — er kann die {{htmlelement("button")}}, [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio) und {{htmlelement("option")}} Elemente umfassen:
+Was dieser Selektor abdeckt, ist im [HTML-Standard §4.16.3 Pseudoklassen](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-default) definiert — er kann die {{htmlelement("button")}}, [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio) und {{htmlelement("option")}} Elemente umfassen:
 
-- Ein Standard-`option`-Element ist das erste mit dem Attribut `selected` oder die erste aktivierte Option in der DOM-Reihenfolge. `multiple` {{htmlelement("select")}}s können mehr als eine `selected` Option haben, sodass alle mit `:default` übereinstimmen.
-- `<input type="checkbox">` und `<input type="radio">` stimmen überein, wenn sie das Attribut `checked` haben.
-- {{htmlelement("button")}} stimmt überein, wenn es der [Standard-Übermittlungsknopf](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#implicit-submission) eines {{htmlelement("form")}} ist: der erste `<button>` in DOM-Reihenfolge, der zum Formular gehört. Dies gilt auch für {{htmlelement("input")}}-Typen, die Formulare übermitteln, wie `image` oder `submit`.
+- Ein Standard-Optionselement ist das erste mit dem `selected`-Attribut oder die erste aktivierte Option in der DOM-Reihenfolge. `multiple` {{htmlelement("select")}}s können mehr als eine `selected` Option haben, daher werden alle mit `:default` übereinstimmen.
+- `<input type="checkbox">` und `<input type="radio">` stimmen überein, wenn sie das `checked`-Attribut haben.
+- {{htmlelement("button")}} stimmt überein, wenn es der [Standard-Übermittlungsbutton](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#implicit-submission) eines {{htmlelement("form")}} ist: der erste `<button>` in DOM-Reihenfolge, der zu dem Formular gehört. Dies gilt auch für {{htmlelement("input")}} Typen, die Formulare übermitteln, wie `image` oder `submit`.
 
 ## Syntax
 
@@ -74,5 +74,5 @@ input:default + label {
 ## Siehe auch
 
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn/Forms)
-- [Webformulare stylen](/de/docs/Learn/Forms/Styling_web_forms)
+- [Styling von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)
 - Verwandte HTML-Elemente: {{htmlelement("button")}}, [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), und {{htmlelement("option")}}

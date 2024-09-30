@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der von den [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attributen festgelegten Bereichsgrenzen liegt.
+Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-in-range.html", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell zu zeigen, dass der aktuelle Wert eines Feldes innerhalb der erlaubten Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes innerhalb der zulässigen Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichseinschränkung haben (und aufnehmen können). Ohne eine solche Einschränkung kann das Element weder „in-range“ noch „out-of-range“ sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -83,7 +83,7 @@ input:out-of-range + label::after {
 {{EmbedLiveSample('Examples', 600, 140)}}
 
 > [!NOTE]
-> Ein leeres `<input>` gilt nicht als außerhalb des Bereichs und wird nicht mit dem `:out-of-range` Pseudoklasse-Selektor ausgewählt. Die [`:blank`](/de/docs/Web/CSS/:blank) Pseudoklasse existiert, um leere Eingaben auszuwählen, allerdings ist diese zum Zeitpunkt des Schreibens experimentell und nicht gut unterstützt. Sie könnten auch das `required`-Attribut und die [`:invalid`](/de/docs/Web/CSS/:invalid) Pseudoklasse verwenden, um allgemeinere Logik und Gestaltung für Pflichtfelder bereitzustellen (`:invalid` gestaltet sowohl leere als auch außerhalb des Bereichs liegende Eingaben).
+> Ein leeres `<input>` zählt nicht als außerhalb des Bereichs und wird nicht mit dem `:out-of-range` Pseudoklassen-Selektor ausgewählt. Die [`:blank`](/de/docs/Web/CSS/:blank) Pseudoklasse existiert, um leere Eingaben auszuwählen, obwohl sie zum Zeitpunkt des Schreibens experimentell und nicht gut unterstützt ist. Sie könnten auch das `required`-Attribut und die [`:invalid`](/de/docs/Web/CSS/:invalid) Pseudoklasse verwenden, um allgemeinere Logik und Stil zu bieten, um Eingaben obligatorisch zu machen (`:invalid` wird sowohl leere als auch außerhalb des Bereichs liegende Eingaben stilisieren).
 
 ## Spezifikationen
 
@@ -96,4 +96,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":out-of-range")}}
-- [Formulardatenvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Formular-Datenvalidierung](/de/docs/Learn/Forms/Form_validation)

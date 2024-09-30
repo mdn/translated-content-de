@@ -1,5 +1,5 @@
 ---
-title: "IDBIndex: openCursor() Methode"
+title: "IDBIndex: openCursor()-Methode"
 short-title: openCursor()
 slug: Web/API/IDBIndex/openCursor
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`openCursor()`**-Methode des [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) über den angegebenen Schlüsselbereich.
+Die **`openCursor()`**-Methode der [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Schnittstelle gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) über den angegebenen Schlüsselbereich.
 
-Die Methode positioniert den Cursor auf dem entsprechenden Datensatz basierend auf der angegebenen Richtung.
+Die Methode setzt die Position des Cursors auf den entsprechenden Datensatz basierend auf der angegebenen Richtung.
 
-Wenn der Schlüsselbereich nicht spezifiziert oder null ist, umfasst der Bereich alle Datensätze.
+Wenn der Schlüsselbereich nicht angegeben ist oder null ist, umfasst der Bereich alle Datensätze.
 
 ## Syntax
 
@@ -25,27 +25,27 @@ openCursor(range, direction)
 ### Parameter
 
 - `range` {{optional_inline}}
-  - : Ein Schlüssel oder [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), der als Bereich des Cursors verwendet wird. Wenn nichts übergeben wird, wird dies als ein Schlüsselbereich behandelt, der alle Datensätze in diesem Objekt-Store auswählt.
+  - : Ein Schlüssel oder [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), der als Bereich des Cursors verwendet wird. Wenn nichts übergeben wird, wird standardmäßig ein Schlüsselbereich verwendet, der alle Datensätze in diesem Objektstore auswählt.
 - `direction` {{optional_inline}}
-  - : Die [Richtung](/de/docs/Web/API/IDBCursor#constants) des Cursors. Siehe [IDBCursor Konstanten](/de/docs/Web/API/IDBCursor#constants) für mögliche Werte.
+  - : Die [Richtung](/de/docs/Web/API/IDBCursor#constants) des Cursors. Siehe [IDBCursor-Konstanten](/de/docs/Web/API/IDBCursor#constants) für mögliche Werte.
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse in Bezug auf diese Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anforderung:
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage:
 
-- ein [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue)-Objekt, das auf den ersten Datensatz verweist, der der angegebenen Abfrage entspricht
-- `null`, wenn keine passenden Datensätze gefunden wurden.
+- ein [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue)-Objekt, das auf den ersten Datensatz zeigt, der mit der gegebenen Abfrage übereinstimmt
+- `null`, wenn keine übereinstimmenden Datensätze gefunden wurden.
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses [`IDBIndex`](/de/docs/Web/API/IDBIndex) inaktiv ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Wert für den Richtungsparameter ungültig ist.
+  - : Wird ausgelöst, wenn der Wert für den Parameter `direction` ungültig ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der bereitgestellte Schlüssel oder Schlüsselbereich einen ungültigen Schlüssel enthält.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
@@ -53,9 +53,9 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines de
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und holen dann den Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen einfachen Cursor auf dem Index mit `openCursor()` – dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index sortiert sind, nicht nach dem Primärschlüssel.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektstore, dann holen wir den Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen einfachen Cursor auf dem Index mit `openCursor()` – das funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
 
-Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [IndexedDB-Beispiele Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
+Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges funktionierendes Beispiel, siehe unser [IndexedDB-Beispiele Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
 
 ```js
 function displayDataByIndex() {
@@ -104,9 +104,9 @@ function displayDataByIndex() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie das Beispiel live](https://mdn.github.io/dom-examples/to-do-notifications/)).

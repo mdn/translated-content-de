@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`horiz-origin-y`** Attribut gibt die y-Koordinate im Schriftkoordinatensystem des Ursprungs eines [Glyph](/de/docs/Glossary/glyph) an, der beim Zeichnen von horizontal ausgerichtetem Text verwendet werden soll.
+Das **`horiz-origin-y`**-Attribut gibt die y-Koordinate im Koordinatensystem der Schriftart des Ursprungs eines [Glyph](https://developer.mozilla.org/de/docs/Glossary/glyph) an, die verwendet wird, wenn horizontal ausgerichteter Text gezeichnet wird.
 
 > [!NOTE]
 > Der Ursprung gilt für alle Glyphen in der Schriftart.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

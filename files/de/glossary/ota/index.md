@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-_Over The Air_ (**OTA**) bezeichnet das automatische Aktualisieren von Software auf verbundenen Geräten von einem zentralen Server. Alle Gerätebesitzer, die ein bestimmtes Set von Updates erhalten, befinden sich im gleichen "Kanal", und jedes Gerät kann oft auf mehrere Kanäle zugreifen (z. B. für Produktions- oder Ingenieursversionen).
+_Over The Air_ (**OTA**) bezieht sich auf die automatische Aktualisierung von Software auf verbundenen Geräten von einem zentralen Server. Alle Gerätebesitzer, die eine bestimmte Reihe von Updates erhalten, befinden sich auf demselben "Kanal", und jedes Gerät kann oft auf mehrere Kanäle zugreifen (z. B. für Produktions- oder Entwicklungs-Builds).
 
 ## Siehe auch
 

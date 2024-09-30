@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`primitiveUnits`**-Attribut legt das Koordinatensystem für die verschiedenen Längenwerte innerhalb der Filter-Primitiven und für die Attribute fest, die die Subregion des Filter-Primitivs definieren.
+Das **`primitiveUnits`**-Attribut legt das Koordinatensystem für die verschiedenen Längenwerte innerhalb der Filterprimitive und für die Attribute fest, die die Filterprimitiv-Teilregion definieren.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -33,9 +33,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - userSpaceOnUse
-  - : Dieser Wert gibt an, dass Längenwerte innerhalb der Filterdefinitionen Werte im aktuellen Benutzerkoordinatensystem darstellen, das zum Zeitpunkt der Referenzierung des {{SVGElement("filter")}}-Elements vorhanden ist (d.h. das Benutzerkoordinatensystem für das Element, das das {{SVGElement("filter")}}-Element über ein {{SVGAttr("filter")}}-Attribut referenziert).
+  - : Dieser Wert gibt an, dass die Längenwerte innerhalb der Filterdefinitionen Werte im aktuellen Benutzer-Koordinatensystem darstellen, das zum Zeitpunkt der Referenzierung des {{SVGElement("filter")}}-Elements vorhanden ist (d.h., das Benutzer-Koordinatensystem für das Element, das das {{SVGElement("filter")}}-Element durch ein {{SVGAttr("filter")}}-Attribut referenziert).
 - objectBoundingBox
-  - : Dieser Wert gibt an, dass Längenwerte innerhalb der Filterdefinitionen Bruchteile oder Prozentsätze des Begrenzungsrahmens des referenzierenden Elements darstellen.
+  - : Dieser Wert gibt an, dass die Längenwerte innerhalb der Filterdefinitionen Bruchteile oder Prozentsätze des Begrenzungsrahmens des referenzierenden Elements darstellen.
 
 ## Spezifikationen
 

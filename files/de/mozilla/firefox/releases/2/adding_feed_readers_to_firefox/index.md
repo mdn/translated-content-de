@@ -7,15 +7,15 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Ab Firefox 2 unterstützt Firefox die Auswahl verschiedener RSS- oder Atom-Feed-Reader, die verwendet werden sollen, wenn Sie einen Feed lesen möchten. Dieser Artikel enthält Informationen darüber, wie Sie Unterstützung für zusätzliche Reader hinzufügen können, die standardmäßig nicht unterstützt werden.
+Ab Firefox 2 unterstützt Firefox die Auswahl verschiedener RSS- oder Atom-Feed-Reader, die Sie verwenden können, wenn Sie einen Feed lesen möchten. Dieser Artikel bietet Informationen darüber, wie Sie Unterstützung für zusätzliche Reader hinzufügen können, die standardmäßig nicht unterstützt werden.
 
 ## Hinzufügen eines neuen webbasierten Feed-Readers
 
 ### Hinzufügen eines Feed-Readers aus einer Webanwendung
 
-Die Unterstützung für das Hinzufügen von Feed-Readern aus dem Web wurde aus der HTML5-Spezifikation entfernt, und die Unterstützung in Firefox ist für die Entfernung in Firefox 62 geplant. {{Deprecated_Inline}}
+Die Unterstützung für das Hinzufügen von Feed-Readern aus dem Web wurde aus der HTML5-Spezifikation entfernt, und die Firefox-Unterstützung ist zur Entfernung in Firefox 62 geplant. {{Deprecated_Inline}}
 
-In älteren Versionen kann mit JavaScript-Code im Web ein Feed-Reader mit der Funktion `navigator.registerContentHandler()` hinzugefügt werden, so:
+In älteren Versionen kann JavaScript-Code im Web einen Feed-Reader mit der Funktion `navigator.registerContentHandler()` hinzufügen, wie folgt:
 
 ```js
 navigator.registerContentHandler(
@@ -25,13 +25,13 @@ navigator.registerContentHandler(
 );
 ```
 
-Beachten Sie, dass Webinhalte auf das Hinzufügen von Handler-URLs beschränkt sind, die den gleichen Ursprung wie die Seite haben, die den Aufruf ausführt.
+Beachten Sie, dass Webinhalte darauf beschränkt sind, Handler-URLs hinzuzufügen, die denselben Ursprung haben wie die Seite, die den Aufruf durchführt.
 
-### Manuelles Hinzufügen eines neuen Feed-Readers
+### Hinzufügen eines neuen Feed-Readers manuell
 
 Die Unterstützung für das Hinzufügen neuer Feed-Reader wurde in Firefox 63 entfernt. {{deprecated_inline}}.
 
-Vor Firefox 63 mussten Sie, um Unterstützung für einen neuen webbasierten Feed-Reader hinzuzufügen, drei neue Einstellungen hinzufügen:
+Vor Firefox 63 mussten Sie zum Hinzufügen eines neuen webbasierten Feed-Readers drei neue Präferenzen hinzufügen:
 
 - `browser.contentHandlers.types.number.title`
   - : Der Name des Feed-Readers.
@@ -40,14 +40,14 @@ Vor Firefox 63 mussten Sie, um Unterstützung für einen neuen webbasierten Feed
 - `browser.contentHandlers.types.number.uri`
   - : Die URI des Feed-Readers. Verwenden Sie "%s", wo die URL des Feeds eingefügt werden soll.
 
-Das `number` sollte durch die nächsthöhere eindeutige Zahl ersetzt werden, die noch nicht verwendet wurde. Wenn Sie beispielsweise einen neuen Feed-Reader namens "Easy Reader" hinzufügen möchten und bereits Inhalts-Handler mit den Nummern 0 bis 4 definiert sind, sollten Sie eine `number` von 5 wie folgt verwenden:
+`number` sollte durch die nächste höchste eindeutige Nummer ersetzt werden, die noch nicht verwendet wurde. Wenn Sie beispielsweise einen neuen Feed-Reader namens "Easy Reader" hinzufügen möchten und es bereits definierte Content-Handler mit den Nummern 0 bis 4 gibt, sollten Sie eine `number` von 5 verwenden, wie folgt:
 
 - `browser.contentHandlers.types.5.title`: `Easy Reader`
 - `browser.contentHandlers.types.5.type`: `application/vnd.mozilla.maybe.feed`
 - `browser.contentHandlers.types.5.uri`: `http://www.theeasyreaderurl.com?feed=%s`
 
-Diese Präferenzen können Sie manuell hinzufügen, indem Sie `about:config` aufrufen.
+Sie können diese Präferenzen manuell hinzufügen, indem Sie `about:config` besuchen.
 
 ### Hinzufügen einer neuen Feed-Reader-Anwendung
 
-Der einfachste Weg, dies zu tun, ist die Verwendung der bereitgestellten Benutzeroberfläche, indem Sie das Feeds-Panel im Fenster Einstellungen (oder Optionen, je nach Plattform) verwenden.
+Der einfachste Weg, dies zu tun, besteht darin, die bereitgestellte Benutzeroberfläche zu verwenden, indem Sie das Feeds-Panel im Fenster Einstellungen (oder Optionen, je nach Plattform) verwenden.

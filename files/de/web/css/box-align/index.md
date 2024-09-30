@@ -8,13 +8,13 @@ l10n:
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt.
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des Flexbox-Moduls in CSS und wurde durch einen neueren Standard ersetzt.
 
-Die **`box-align`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie ein Element seine Inhalte quer zu seinem Layout ausrichtet. Die Wirkung der Eigenschaft ist nur sichtbar, wenn zusätzlicher Raum in der Box vorhanden ist.
+Die **`box-align`**-Eigenschaft von [CSS](/de/docs/Web/CSS) bestimmt, wie ein Element seinen Inhalt in seiner Layoutstruktur in einer senkrechten Richtung ausrichtet. Der Effekt der Eigenschaft ist nur sichtbar, wenn zusätzlicher Platz im Element vorhanden ist.
 
-Weitere Informationen zum aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+Siehe [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
 
-Die Ausrichtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
+Die Richtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -32,29 +32,29 @@ box-lines: initial;
 box-lines: unset;
 ```
 
-Die `box-align`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-align`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `start`
-  - : Die Box richtet Inhalte am Anfang aus und lässt zusätzlichen Raum am Ende.
+  - : Das Element richtet den Inhalt am Anfang aus und lässt zusätzlichen Platz am Ende.
 - `center`
-  - : Die Box richtet Inhalte in der Mitte aus und verteilt den zusätzlichen Raum gleichmäßig zwischen Anfang und Ende.
+  - : Das Element richtet den Inhalt in der Mitte aus und teilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende.
 - `end`
-  - : Die Box richtet Inhalte am Ende aus und lässt zusätzlichen Raum am Anfang.
+  - : Das Element richtet den Inhalt am Ende aus und lässt zusätzlichen Platz am Anfang.
 - `baseline`
-  - : Die Box richtet die Baselines der Inhalte aus (Texte ausrichten). Dies gilt nur, wenn die Orientierung der Box horizontal ist.
+  - : Das Element richtet die Baselines des Inhalts aus (Text wird ausgerichtet). Dies gilt nur, wenn die Orientierung des Elements horizontal ist.
 - `stretch`
-  - : Die Box streckt die Inhalte so, dass kein zusätzlicher Raum in der Box bleibt.
+  - : Das Element dehnt den Inhalt so aus, dass kein zusätzlicher Platz im Element vorhanden ist.
 
-## Hinweise
+## Anmerkungen
 
-Die Kante der Box, die für Ausrichtungszwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung der Box ab:
+Die Kante des Elements, die für Ausrichtungszwecke als _Anfang_ festgelegt wird, hängt von der Orientierung des Elements ab:
 
 - Bei horizontalen Elementen ist der _Anfang_ die obere Kante.
 - Bei vertikalen Elementen ist der _Anfang_ die linke Kante.
 
-Die gegenüberliegende Kante zum Anfang wird als _Ende_ bezeichnet.
+Die Kante gegenüber dem Anfang wird als _Ende_ bezeichnet.
 
 Wenn die Ausrichtung über das `align`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
@@ -71,7 +71,7 @@ box-align =
 
 ## Beispiele
 
-### Box-Ausrichtung festlegen
+### Festlegung der Elementausrichtung
 
 ```html
 <!doctype html>

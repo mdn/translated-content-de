@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle löscht die Liste und fügt ein einzelnes neues [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt zur Liste hinzu.
+Die **`initialize()`**-Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces leert die Liste und fügt dann ein einzelnes neues [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt zur Liste hinzu.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ initialize(obj)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des Punkts enthält, der zur Liste hinzugefügt wird, wenn diese initialisiert wird.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des Punkts enthält, der hinzugefügt werden soll, wenn die Liste initialisiert wird.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Das hinzugefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Zurückgeben von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) ergibt den Wert `5`. Nach dem Aufrufen von `initialize()`, ergibt das Zurückgeben von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) den Wert `1`.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) ergibt den Wert `5`. Nach dem Aufruf von `initialize()` ergibt die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) den Wert `1`.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

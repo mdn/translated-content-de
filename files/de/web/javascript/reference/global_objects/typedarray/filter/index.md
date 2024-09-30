@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`filter()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt eine Kopie eines Teils eines gegebenen Typisierten Arrays, gefiltert auf nur die Elemente, die den durch die bereitgestellte Funktion implementierten Test bestehen. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
+Die **`filter()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt eine Kopie eines Teils eines gegebenen typisierten Arrays, das auf die Elemente aus dem gegebenen typisierten Array reduziert ist, die den Test bestehen, der durch die bereitgestellte Funktion implementiert wird. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-filter.html")}}
 
@@ -21,7 +21,7 @@ filter(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen [wahrhaften](/de/docs/Glossary/Truthy) Wert zurückgeben, um das Element im resultierenden typisierten Array zu behalten, und einen [unwahrhaften](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um das Element im resultierenden typisierten Array zu behalten, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -29,21 +29,21 @@ filter(callbackFn, thisArg)
     - `array`
       - : Das typisierte Array, auf dem `filter()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet werden soll, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Eine Kopie des gegebenen typisierten Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn keine Elemente den Test bestehen, wird ein leeres typisiertes Array zurückgegeben.
+Eine Kopie des gegebenen typisierten Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres typisiertes Array zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.filter()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Typisierte Array-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.filter()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
 ### Herausfiltern aller kleinen Werte
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes typisiertes Array zu erstellen, in dem alle Elemente mit Werten kleiner als 10 entfernt wurden.
+Das folgende Beispiel verwendet `filter()`, um ein gefiltertes typisiertes Array zu erstellen, bei dem alle Elemente mit Werten unter 10 entfernt werden.
 
 ```js
 function isBigEnough(element, index, array) {

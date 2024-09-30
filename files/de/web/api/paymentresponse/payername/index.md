@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte Eigenschaft **`payerName`** des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt den vom Benutzer angegebenen Namen zurück. Diese Option ist nur vorhanden, wenn die Option `requestPayerName` im Optionsparameter des [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktors auf `true` gesetzt ist.
+Die schreibgeschützte Eigenschaft **`payerName`** des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt den vom Benutzer bereitgestellten Namen zurück. Diese Option ist nur vorhanden, wenn die `requestPayerName`-Option im Optionsparameter des [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktors auf `true` gesetzt ist.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUError`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist das Basisinterface für Fehler, die durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis angezeigt werden.
+Die **`GPUError`**-Schnittstelle der [WebGPU-API](/de/docs/Web/API/WebGPU_API) ist die Basisschnittstelle für Fehler, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis bekannt gemacht werden.
 
 {{InheritanceDiagram}}
 
@@ -21,8 +21,8 @@ Das **`GPUError`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist d
 Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 
 - [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope#examples)
-- [Das `GPUDevice uncapturederror` Ereignis](/de/docs/Web/API/GPUDevice/uncapturederror_event#examples)
-- [`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) und [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
+- [Das `GPUDevice uncapturederror`-Ereignis](/de/docs/Web/API/GPUDevice/uncapturederror_event#examples)
+- [`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError), und [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [Beste Praktiken zur WebGPU-Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)

@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: getParameter() Methode"
+title: "XSLTProcessor: getParameter()-Methode"
 short-title: getParameter()
 slug: Web/API/XSLTProcessor/getParameter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `getParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Interface gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
+Die `getParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ getParameter(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird wie die leere Zeichenkette (`""`) behandelt.
+  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 
 ### Rückgabewert
 
-Ein Objekt, das der mit dem Parameter assoziierte Wert ist. Es kann von jedem Typ sein.
+Ein Objekt, das den mit dem Parameter verknüpften Wert darstellt. Es kann jeden Typ haben.
 
 > [!NOTE]
-> Firefox unterstützt alle Arten von Parametern. Chrome, Edge und Safari unterstützen nur Parameter vom Typ String.
+> Firefox unterstützt jede Art von Parameter. Chrome, Edge und Safari unterstützen nur Zeichenfolgenparameter.
 
 ## Beispiele
 
 ### Verwendung von getParameter()
 
-Dieses Beispiel zeigt, wie `getParameter()` verwendet wird, um den Wert eines Parameters zu prüfen, der das Verhalten einer XSLT-Transformation steuert.
+Dieses Beispiel zeigt, wie man `getParameter()` verwendet, um den Wert eines Parameters zu überprüfen, der das Verhalten einer XSLT-Transformation steuert.
 
 ```js
 const xsltProcessor = new XSLTProcessor();

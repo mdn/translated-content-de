@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`isPrimary`** des [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein boolescher Wert, der angibt, ob der Bildschirm als primärer Bildschirm des Betriebssystems (OS) festgelegt ist oder nicht.
+Die schreibgeschützte Eigenschaft **`isPrimary`** des [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein boolescher Wert, der angibt, ob der Bildschirm als primärer Bildschirm des Betriebssystems (OS) eingestellt ist oder nicht.
 
-Das Betriebssystem, das den Browser hostet, verfügt über einen primären Bildschirm und einen oder mehrere sekundäre Bildschirme. Der primäre Bildschirm kann normalerweise vom Benutzer über die OS-Einstellungen festgelegt werden und enthält im Allgemeinen OS-Benutzeroberflächenelemente wie die Taskleiste oder das Symbol-Dock. Der primäre Bildschirm kann sich aus verschiedenen Gründen ändern, beispielsweise wenn ein Bildschirm abgesteckt wird.
+Das Betriebssystem, auf dem der Browser ausgeführt wird, hat einen primären Bildschirm und einen oder mehrere sekundäre Bildschirme. Der primäre Bildschirm kann normalerweise vom Benutzer über die Einstellungen des Betriebssystems festgelegt werden und enthält in der Regel OS-Benutzeroberfläche-Features wie die Taskleiste/das Symbol-Dock. Der primäre Bildschirm kann sich aus verschiedenen Gründen ändern, zum Beispiel wenn ein Bildschirm abgesteckt wird.
 
 ## Wert
 

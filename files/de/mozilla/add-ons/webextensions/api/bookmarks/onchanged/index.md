@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn es eine Änderung gibt bei:
+Ausgelöst, wenn es eine Änderung gibt an:
 
 - dem Titel oder der URL eines Lesezeichens
 - dem Namen eines Ordners.
@@ -25,25 +25,25 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
 
     - `id`
-      - : `string`. ID des Elements, das sich geändert hat.
+      - : `string`. ID des Elements, das geändert wurde.
     - `changeInfo`
       - : [`object`](#changeinfo). Objekt, das zwei Eigenschaften enthält: `title`, ein String, der den Titel des Elements enthält, und `url`, ein String, der die URL des Elements enthält. Wenn das Element ein Ordner ist, wird `url` weggelassen.
 
 > [!NOTE]
-> Mehrere Ereignisse können auftreten, wenn ein Lesezeichen sich ändert, und dieses changeInfo-Objekt kann nur die Daten enthalten, die sich geändert haben, anstatt aller Daten für das Lesezeichen. Mit anderen Worten, wenn sich die `url` eines Lesezeichens ändert, kann das changeInfo nur die neuen `url`-Informationen enthalten.
+> Es können mehrere Ereignisse auftreten, wenn sich ein Lesezeichen ändert, und das changeInfo-Objekt kann nur die geänderten Daten enthalten, anstatt aller Daten des Lesezeichens. Mit anderen Worten, wenn sich die `url` eines Lesezeichens ändert, kann changeInfo nur die neue `url`-Information enthalten.
 
 ## Beispiele
 
@@ -68,7 +68,7 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChanged) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

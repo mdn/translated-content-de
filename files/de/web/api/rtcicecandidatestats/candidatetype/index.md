@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidateStats: Eigenschaft candidateType"
+title: "RTCIceCandidateStats: candidateType-Eigenschaft"
 short-title: candidateType
 slug: Web/API/RTCIceCandidateStats/candidateType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`candidateType`** des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) Interface ist ein String, der den Typ des [ICE](/de/docs/Glossary/ICE) Kandidaten angibt, den das Objekt repräsentiert.
+Die **`candidateType`**-Eigenschaft der [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Schnittstelle ist ein String, der den Typ des [ICE](/de/docs/Glossary/ICE)-Kandidaten angibt, den das Objekt darstellt.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ rtcIceCandidateStats.candidateType
 
 ### Wert
 
-Ein String, dessen Wert einer der Strings ist, die in [`RTCIceCandidate.type`](/de/docs/Web/API/RTCIceCandidate/type#value) gefunden werden.
+Ein String, dessen Wert einer der in [`RTCIceCandidate.type`](/de/docs/Web/API/RTCIceCandidate/type#value) gefundenen Strings ist.
 
 ## Spezifikationen
 

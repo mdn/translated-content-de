@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`points`**-Attribut definiert eine Liste von Punkten. Jeder Punkt wird durch ein Paar von Zahlen dargestellt, die eine X- und Y-Koordinate im Benutzerskoordinatensystem repräsentieren. Wenn das Attribut eine ungerade Anzahl von Koordinaten enthält, wird die letzte ignoriert.
+Das **`points`**-Attribut definiert eine Liste von Punkten. Jeder Punkt wird durch ein Zahlenpaar definiert, das eine X- und eine Y-Koordinate im Benutzerkoordinatensystem darstellt. Wenn das Attribut eine ungerade Anzahl von Koordinaten enthält, wird die letzte ignoriert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,14 +44,14 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
 ## polyline
 
-Für {{SVGElement('polyline')}} definiert `points` eine Liste von Punkten, wobei jeder Punkt einen Scheitelpunkt der zu zeichnenden Linie darstellt. Jeder Punkt wird durch eine X- und Y-Koordinate im Benutzerskoordinatensystem definiert.
+Für {{SVGElement('polyline')}} definiert `points` eine Liste von Punkten, die jeweils einen Scheitelpunkt der zu zeichnenden Linie darstellen. Jeder Punkt wird durch eine X- und Y-Koordinate im Benutzerkoordinatensystem definiert.
 
 > [!NOTE]
-> Eine Polyline ist eine offene Form, das heißt, der letzte Punkt ist nicht mit dem ersten Punkt verbunden.
+> Eine Polyline ist eine offene Form, das bedeutet, dass der letzte Punkt nicht mit dem ersten Punkt verbunden ist.
 
 <table class="properties">
   <tbody>
@@ -89,10 +89,10 @@ svg {
 
 ## polygon
 
-Für {{SVGElement('polygon')}} definiert `points` eine Liste von Punkten, wobei jeder Punkt einen Scheitelpunkt der zu zeichnenden Form darstellt. Jeder Punkt wird durch eine X- und Y-Koordinate im Benutzerskoordinatensystem definiert.
+Für {{SVGElement('polygon')}} definiert `points` eine Liste von Punkten, die jeweils einen Scheitelpunkt der zu zeichnenden Form darstellen. Jeder Punkt wird durch eine X- und Y-Koordinate im Benutzerkoordinatensystem definiert.
 
 > [!NOTE]
-> Ein Polygon ist eine geschlossene Form, das heißt, der letzte Punkt ist mit dem ersten Punkt verbunden.
+> Ein Polygon ist eine geschlossene Form, das bedeutet, dass der letzte Punkt mit dem ersten Punkt verbunden ist.
 
 <table class="properties">
   <tbody>

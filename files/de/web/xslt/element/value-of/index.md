@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:value-of>`-Element wertet einen XPath-Ausdruck aus, konvertiert ihn in einen String und schreibt diesen String in den Ergebnisbaum.
+Das `<xsl:value-of>`-Element wertet einen XPath-Ausdruck aus, wandelt ihn in einen Zeichenfolgenwert um und schreibt diese Zeichenfolge in den Ergebnisbaum.
 
 ## Syntax
 
@@ -18,12 +18,12 @@ Das `<xsl:value-of>`-Element wertet einen XPath-Ausdruck aus, konvertiert ihn in
 ### Erforderliche Attribute
 
 - `select`
-  - : Gibt den XPath-Ausdruck an, der ausgewertet und in den Ausgabebaum geschrieben wird.
+  - : Gibt den XPath-Ausdruck an, der ausgewertet und in den Ausgabebaum geschrieben werden soll.
 
 ### Optionale Attribute
 
-- `disable-output-escaping` (Netscape serialisiert das Transformationsergebnis - das "Output" unten - nicht, daher ist dieses Attribut im Kontext im Wesentlichen irrelevant. Um HTML-Entities auszugeben, verwenden Sie stattdessen numerische Werte, z. B. `&#160` für `&nbsp`)
-  - : Gibt an, ob Sonderzeichen beim Schreiben in die Ausgabe umschrieben werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird beispielsweise das Zeichen > als `>` ausgegeben und nicht als `&gt`.
+- `disable-output-escaping` (Netscape serialisiert das Ergebnis der Transformation nicht - das "Output" unten - daher ist dieses Attribut im Kontext im Wesentlichen irrelevant. Um HTML-Entities auszugeben, verwenden Sie stattdessen numerische Werte, z.B. `&#160` für `&nbsp`)
+  - : Gibt an, ob Sonderzeichen beim Schreiben in das Ausgabeformat maskiert werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` eingestellt ist, wird beispielsweise das Zeichen > als `>`, und nicht als `&gt` ausgegeben.
 
 ### Typ
 
@@ -35,4 +35,4 @@ XSLT, Abschnitt 7.6.1.
 
 ## Gecko-Unterstützung
 
-Unterstützt, außer wie oben.
+Unterstützt, außer wie oben beschrieben.

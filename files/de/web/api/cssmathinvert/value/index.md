@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte `value`-Eigenschaft von der [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
+Die schreibgeschützte Eigenschaft `CSSMathInvert.value` der [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Zu tun
+To do
 
 ## Spezifikationen
 

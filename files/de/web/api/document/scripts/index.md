@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`scripts`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Die **`scripts`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Sie können diese wie ein Array verwenden, um auf alle Elemente in der Liste zuzugreifen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Sie können diese wie ein Array verwenden, um alle Elemente in der Liste zu erhalten.
 
 ## Beispiele
 
-Dieses Beispiel überprüft, ob die Seite irgendwelche {{HTMLElement("script")}}-Elemente enthält.
+Dieses Beispiel überprüft, ob die Seite {{HTMLElement("script")}}-Elemente enthält.
 
 ```js
 let scripts = document.scripts;

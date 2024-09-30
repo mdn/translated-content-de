@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt einen geschlossenen Tab aus der Liste der kürzlich geschlossenen Tabs des Browsers. Beachten Sie, dass die von diesem Tab besuchten Seiten nicht aus dem Browserverlauf entfernt werden. Verwenden Sie die {{WebExtAPIRef("browsingData")}} oder {{WebExtAPIRef("history")}} APIs, um den Verlauf zu entfernen.
+Entfernt einen geschlossenen Tab aus der Liste der kürzlich geschlossenen Tabs des Browsers. Beachten Sie, dass die von diesem Tab besuchten Seiten nicht aus dem Browserverlauf entfernt werden. Verwenden Sie die APIs {{WebExtAPIRef("browsingData")}} oder {{WebExtAPIRef("history")}}, um den Verlauf zu entfernen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -39,7 +39,7 @@ Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieser Code vergisst die am kürzesten zurückliegende geschlossene Sitzung, egal ob es sich um einen Tab oder ein Fenster handelt:
+Dieser Code vergisst die zuletzt geschlossene Sitzung, unabhängig davon, ob es sich um einen Tab oder ein Fenster handelt:
 
 ```js
 function forgetMostRecent(sessionInfos) {

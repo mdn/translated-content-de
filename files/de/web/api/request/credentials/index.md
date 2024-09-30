@@ -1,5 +1,5 @@
 ---
-title: "Request: credentials-Eigenschaft"
+title: "Request: `credentials`-Eigenschaft"
 short-title: credentials
 slug: Web/API/Request/credentials
 l10n:
@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`credentials`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle spiegelt den Wert wider, der dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Anmeldeinformationen mit der Anfrage sendet und ob **`Set-Cookie`**-Antwortheader beachtet werden.
+Die schreibgeschützte **`credentials`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle spiegelt den Wert wider, der dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Anmeldeinformationen mit der Anfrage sendet und ob irgendwelche **`Set-Cookie`**-Antwortheader berücksichtigt werden.
 
-Anmeldeinformationen sind Cookies, [TLS](/de/docs/Glossary/TLS)-Clientzertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Anmeldeinformationen sind Cookies, [TLS](/de/docs/Glossary/TLS)-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
 
-Weitere Details finden Sie unter [Anmeldeinformationen einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials).
+Siehe [Anmeldeinformationen einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) für weitere Details.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `omit`
-  - : Anmeldeinformationen werden niemals in der Anfrage gesendet oder in der Antwort aufgenommen.
+  - : Niemals Anmeldeinformationen in der Anfrage senden oder in der Antwort einschließen.
 - `same-origin`
-  - : Anmeldeinformationen werden nur für gleich-originierte Anfragen gesendet und aufgenommen.
+  - : Nur Anmeldeinformationen für Anfragen von gleicher Herkunft senden und einschließen.
 - `include`
-  - : Anmeldeinformationen werden immer aufgenommen, auch für Cross-Origin-Anfragen.
+  - : Immer Anmeldeinformationen einbeziehen, auch für Cross-Origin-Anfragen.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Anmeldeinformationen der Anfrage in einer Variablen:
+Im folgenden Code-Snippet erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Anmeldeinformationen der Anfrage in einer Variablen:
 
 ```js
 const request = new Request("flowers.jpg");

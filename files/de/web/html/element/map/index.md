@@ -7,16 +7,16 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image Map (einen klickbaren Linkbereich) zu definieren.
+Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird mit {{HTMLElement("area")}} Elementen verwendet, um eine Image Map (ein klickbarer Linkbereich) zu definieren.
 
 {{EmbedInteractiveExample("pages/tabbed/map.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `name`
-  - : Das `name`-Attribut verleiht der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichenzeichen enthalten. Der Wert des `name`-Attributs darf nicht dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument entsprechen. Wenn auch das [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut angegeben ist, müssen beide Attribute denselben Wert haben.
+  - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen haben. Der Wert des `name`-Attributs darf nicht gleich dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument sein. Wenn das [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut ebenfalls angegeben ist, müssen beide Attribute denselben Wert haben.
 
 ## Beispiele
 
@@ -84,7 +84,7 @@ Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>

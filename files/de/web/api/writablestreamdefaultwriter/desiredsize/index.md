@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultWriter: desiredSize Eigenschaft"
+title: "WritableStreamDefaultWriter: desiredSize-Eigenschaft"
 short-title: desiredSize
 slug: Web/API/WritableStreamDefaultWriter/desiredSize
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`desiredSize`** schreibgeschützte Eigenschaft der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) Schnittstelle gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
+Die schreibgeschützte Eigenschaft **`desiredSize`** des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces gibt die gewünschte Größe zurück, die benötigt wird, um die interne Warteschlange des Streams zu füllen.
 
 ## Wert
 
-Ein Integer. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
+Ein Ganzzahlwert. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
 
-Der Wert wird `null` sein, wenn nicht erfolgreich in den Stream geschrieben werden kann (entweder aufgrund eines Fehlers oder weil ein Abbruch ansteht) und null, wenn der Stream geschlossen ist.
+Der Wert ist `null`, wenn in den Stream nicht erfolgreich geschrieben werden kann (entweder aufgrund eines Fehlers oder wegen einer anstehenden Abbruchoperation) und null, wenn der Stream geschlossen ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Sperre des Writers wird freigegeben.
+  - : Die Sperre des Writers ist freigegeben.
 
 ## Beispiele
 

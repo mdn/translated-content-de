@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGGeometryElement.pathLength`**-Eigenschaft spiegelt das {{SVGAttr("pathLength")}}-Attribut wider und gibt die gesamte Länge des Pfades in Benutzereinheiten zurück.
+Die **`SVGGeometryElement.pathLength`**-Eigenschaft spiegelt das {{SVGAttr("pathLength")}}-Attribut wider und gibt die Gesamtlänge des Pfades in Benutzereinheiten zurück.
 
 ## Wert
 

@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLStyleElement.media`**-Eigenschaft gibt das
-vorgesehene Zielmedium für Style-Informationen an.
+Die **`HTMLStyleElement.media`**-Eigenschaft gibt das vorgesehene Zielmedium für Style-Informationen an.
 
 ## Wert
 
-Ein String, der ein einzelnes Medium oder eine durch Komma getrennte Liste beschreibt.
+Ein String, der ein einzelnes Medium oder eine durch Kommas getrennte Liste beschreibt.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`root`**-Eigenschaft der [`FileSystem`](/de/docs/Web/API/FileSystem)-Schnittstelle spezifiziert ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Stammverzeichnis des Dateisystems darstellt, zur Verwendung mit der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
+Die schreibgeschützte **`root`**-Eigenschaft der [`FileSystem`](/de/docs/Web/API/FileSystem)-Schnittstelle gibt ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt an, das das Stammverzeichnis des Dateisystems darstellt und mit der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) verwendet wird.
 
 ## Wert
 

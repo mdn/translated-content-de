@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für SVG-Zahlenliste
+## SVG-Nummernlisten-Schnittstelle
 
 Die `SVGNumberList` definiert eine Liste von [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekten.
 
-Ein `SVGNumberList`-Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGNumberList`-Objekt kann als schreibgeschützt gekennzeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
+Ein `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
 
-### Überblick über die Schnittstelle
+### Schnittstellenübersicht
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Implementiert auch</th>
-      <td>Keine</td>
+      <td>None</td>
     </tr>
     <tr>
       <th scope="row">Methoden</th>
@@ -90,20 +90,20 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 | Name                                 | Typ           | Beschreibung                          |
 | ------------------------------------ | ------------- | ------------------------------------- |
 | `numberOfItems`                      | unsigned long | Die Anzahl der Elemente in der Liste. |
 | `length` {{ non-standard_inline() }} | unsigned long | Die Anzahl der Elemente in der Liste. |
 
-## Instanzmethoden
+## Instanz-Methoden
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th>Name &amp; Argumente</th>
-      <th>Rückgabewert</th>
+      <th>Name &#x26; Argumente</th>
+      <th>Rückgabe</th>
       <th>Beschreibung</th>
     </tr>
   </thead>
@@ -115,16 +115,16 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td><var>void</var></td>
       <td>
         <p>
-          Löscht alle vorhandenen aktuellen Elemente aus der Liste, sodass eine
-          leere Liste entsteht.
+          Löscht alle vorhandenen aktuellen Elemente aus der Liste, das Ergebnis
+          ist eine leere Liste.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -140,20 +140,20 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td>
         <p>
           Löscht alle vorhandenen aktuellen Elemente aus der Liste und
-          initialisiert die Liste neu, um das angegebene einzelne Element
-          <code><var>newItem</var></code
-          > zu halten. Wenn das eingefügte Element bereits in einer Liste ist,
-          wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste
-          eingefügt wird. Das eingefügte Element ist das Element selbst und
-          keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+          initialisiert die Liste neu, um das angegebene einzelne Element zu
+          halten, das durch <code><var>newItem</var></code> spezifiziert ist.
+          Wenn das eingefügte Element bereits in einer Liste vorhanden ist, wird
+          es vor seiner Einfügung in diese Liste aus seiner vorherigen Liste
+          entfernt. Das eingefügte Element ist das Element selbst und keine
+          Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -166,17 +166,17 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td>
         <p>
           Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene
-          Element ist das Element selbst und keine Kopie. Alle vorgenommenen
-          Änderungen am Element werden sofort in der Liste widerspiegelt. Das
-          erste Element hat die Nummer <code>0</code>.
+          Element ist das Element selbst und keine Kopie. Änderungen am Element
+          werden sofort in der Liste widergespiegelt. Das erste Element ist
+          Nummer <code>0</code>.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -193,29 +193,29 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td>
         <p>
           Fügt ein neues Element an der angegebenen Position in die Liste ein.
-          Das erste Element hat die Nummer <code>0</code>.
+          Das erste Element ist Nummer <code>0</code>.
         </p>
         <p>
-          Wenn <code><var>newItem</var></code> bereits in einer Liste ist, wird
-          es aus seiner vorherigen Liste entfernt, bevor es in diese Liste
-          eingefügt wird. Das eingefügte Element ist das Element selbst und
-          keine Kopie. Wenn das Element bereits in dieser Liste ist, beachten
-          Sie, dass der Index des einzufügenden Elements vor der Entfernung des
-          Elements liegt.
+          Wenn <code><var>newItem</var></code> bereits in einer Liste vorhanden
+          ist, wird es vor seiner Einfügung in diese Liste aus seiner
+          vorherigen Liste entfernt. Das eingefügte Element ist das Element
+          selbst und keine Kopie. Wenn das Element bereits in dieser Liste ist,
+          beachten Sie, dass der Index des einzufügenden Elements vor der
+          Entfernung des Elements liegt.
         </p>
         <p>
-          Wenn der <code><var>index</var></code> gleich <code>0</code> ist, wird
-          das neue Element an den Anfang der Liste eingefügt. Wenn der Index
-          größer oder gleich <code>numberOfItems</code> ist, wird das neue
-          Element am Ende der Liste angehängt.
+          Wenn der <code><var>index</var></code> gleich <code>0</code> ist,
+          wird das neue Element am Anfang der Liste eingefügt. Liegt der Index
+          größer oder gleich <code>numberOfItems</code>, wird das neue Element
+          an das Ende der Liste angehängt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -231,26 +231,26 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td>
         <p>
           Ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
-          Wenn <code><var>newItem</var></code> bereits in einer Liste ist, wird
-          es aus seiner vorherigen Liste entfernt, bevor es in diese Liste
-          eingefügt wird. Das eingefügte Element ist das Element selbst und
-          keine Kopie. Wenn das Element bereits in dieser Liste ist, beachten
-          Sie, dass der Index des zu ersetzenden Elements vor der Entfernung des
-          Elements liegt.
+          Wenn <code><var>newItem</var></code> bereits in einer Liste
+          vorhanden ist, wird es vor seiner Einfügung in diese Liste aus seiner
+          vorherigen Liste entfernt. Das eingefügte Element ist das Element
+          selbst und keine Kopie. Wenn das Element bereits in dieser Liste
+          vorhanden ist, beachten Sie, dass der Index des zu ersetzenden
+          Elements vor der Entfernung des Elements liegt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn
-            <code><var>index</var></code
-            > größer oder gleich <code>numberOfItems</code> ist.
+            <code><var>index</var></code> größer oder gleich
+            <code>numberOfItems</code> ist.
           </li>
         </ul>
       </td>
@@ -269,14 +269,14 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn
-            <code><var>index</var></code
-            > größer oder gleich <code>numberOfItems</code> ist.
+            <code><var>index</var></code> größer oder gleich
+            <code>numberOfItems</code> ist.
           </li>
         </ul>
       </td>
@@ -292,9 +292,9 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
       <td>
         <p>
           Fügt ein neues Element am Ende der Liste ein. Wenn
-          <code><var>newItem</var></code> bereits in einer Liste ist, wird es
-          aus seiner vorherigen Liste entfernt, bevor es in diese Liste
-          eingefügt wird. Das eingefügte Element ist das Element selbst und
+          <code><var>newItem</var></code> bereits in einer Liste vorhanden ist,
+          wird es vor seiner Einfügung in diese Liste aus seiner vorherigen
+          Liste entfernt. Das eingefügte Element ist das Element selbst und
           keine Kopie.
         </p>
         <p><strong>Ausnahmen:</strong></p>
@@ -302,8 +302,8 @@ Eine `SVGNumberList` ist indizierbar und kann wie ein Array angesprochen werden.
           <li>
             eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die
-            Liste einem schreibgeschützten Attribut entspricht oder das Objekt selbst
-            schreibgeschützt ist.
+            Liste einem schreibgeschützten Attribut entspricht oder wenn das
+            Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>

@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Wiedergabeposition in der Mediendatei anstrebt.
-Ein Medium wird als suchend betrachtet, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Mediendatei angefordert hat, das Medienelement diese Position jedoch noch nicht erreicht hat.
+Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine bestimmte Wiedergabeposition in der Medienressource sucht.
+Eine Ressource wird als suchend betrachtet, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, das Medienelement diese Position jedoch noch nicht erreicht hat.
 
-Das Suchen unterscheidet sich vom {{cssxref(":buffering")}}, da das Medienelement aktuell keine Daten lädt, sondern stattdessen zu einer neuen Position im Medium springt.
-Weitere Informationen finden Sie im [Leitfaden zu Medienpufferung, Suchen und Zeitbereichen](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
+Das Suchen unterscheidet sich von {{cssxref(":buffering")}} darin, dass das Medienelement momentan keine Daten lädt, sondern stattdessen zu einer neuen Position in der Medienressource springt.
+Für weitere Informationen siehe den [Leitfaden zu Media Buffering, Seeking und Zeitbereichen](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
 
 ## Syntax
 
@@ -51,4 +51,4 @@ video:seeking {
 - {{cssxref(":playing")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)

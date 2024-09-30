@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-inline-start`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert den logischen Inline-Start-Abstand eines Elements, der je nach Schriftsystem, Richtung und Textausrichtung des Elements auf einen physischen Versatz abbildet. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Anfangs-Inset einer Zeile eines Elements, das je nach Schreibmodus des Elements, dessen Richtung und Textausrichtung einer physischen Verschiebung entspricht. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
-Diese [Versatz-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht-positionierte Elemente.
+Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-start.html")}}
 
@@ -52,7 +52,7 @@ Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref(
 
 ## Beispiele
 
-### Festlegen des Inline-Start-Versatzes
+### Festlegen des Inline-Anfangsversatzes
 
 #### HTML
 
@@ -93,6 +93,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Versätze definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

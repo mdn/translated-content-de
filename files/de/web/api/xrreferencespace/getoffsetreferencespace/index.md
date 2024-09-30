@@ -1,5 +1,5 @@
 ---
-title: "XRReferenceSpace: getOffsetReferenceSpace() Methode"
+title: "XRReferenceSpace: getOffsetReferenceSpace()-Methode"
 short-title: getOffsetReferenceSpace()
 slug: Web/API/XRReferenceSpace/getOffsetReferenceSpace
 l10n:
@@ -8,52 +8,119 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die Methode **`getOffsetReferenceSpace()`** des [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) Interfaces liefert ein neues Referenzraumobjekt, das den relativen Unterschied in der Position zwischen dem Objekt, auf dem die Methode aufgerufen wird, und einem gegebenen Punkt im 3D-Raum beschreibt. Das von `getOffsetReferenceSpace()` zurückgegebene Objekt ist ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), wenn es auf einem `XRReferenceSpace` aufgerufen wird, oder ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace), wenn es auf einem Objekt dieses Typs aufgerufen wird.
+Die **`getOffsetReferenceSpace()`**-Methode des [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Interfaces gibt ein neues Referenzraumobjekt zurück, das den relativen Positionsunterschied zwischen dem Objekt, auf dem die Methode aufgerufen wird, und einem bestimmten Punkt im dreidimensionalen Raum beschreibt. Das von `getOffsetReferenceSpace()` zurückgegebene Objekt ist ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), wenn es auf einem `XRReferenceSpace` aufgerufen wird, oder ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace), wenn es auf einem Objekt dieses Typs aufgerufen wird.
 
-Anders ausgedrückt, wenn Sie ein Objekt im 3D-Raum haben und ein anderes Objekt relativ dazu positionieren müssen, können Sie `getOffsetReferenceSpace()` aufrufen und die Position und Orientierung übergeben, die das zweite Objekt _relativ zur Position und Orientierung des Objekts, auf dem Sie `getOffsetReferenceSpace()` aufrufen_, haben soll.
+Mit anderen Worten, wenn Sie ein Objekt im 3D-Raum haben und ein anderes Objekt relativ dazu positionieren müssen, können Sie `getOffsetReferenceSpace()` aufrufen und die Position und Ausrichtung übergeben, die das zweite Objekt relativ zur Position und Ausrichtung des Objekts haben soll, auf dem Sie `getOffsetReferenceSpace()` aufrufen.
 
-Beim Zeichnen der Szene können Sie dann den Versatz-Referenzraum verwenden, um nicht nur Objekte relativ zueinander zu platzieren, sondern auch die nötigen Transformationen anzuwenden, um die Objekte richtig basierend auf der Position des Betrachters darzustellen. Dies wird im Beispiel [Implementing rotation based on non-XR inputs](#implementierung_der_rotation_basierend_auf_nicht-xr-eingaben) demonstriert, das eine Möglichkeit zeigt, diese Methode zu nutzen, um dem Benutzer zu erlauben, mit der Maus den Betrachtungswinkel zu neigen und zu drehen.
+Beim Zeichnen der Szene können Sie dann den Offset-Referenzraum verwenden, um Objekte nicht nur relativ zueinander zu positionieren, sondern auch die erforderlichen Transformationen anzuwenden, um Objekte basierend auf der Position des Betrachters korrekt darzustellen. Dies wird im Beispiel [Implementierung der Rotation basierend auf Nicht-XR-Eingaben](#implementierung_der_rotation_basierend_auf_nicht-xr-eingaben) demonstriert, das einen Weg zeigt, wie diese Methode verwendet werden kann, um dem Benutzer die Möglichkeit zu geben, mit der Maus seinen Blickwinkel zu neigen und zu schwenken.
 
 ## Syntax
+
+```js-nolint
+getOffsetReferenceSpace(originOffset)
+```
 
 ### Parameter
 
 - `originOffset`
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das den Versatz zum Ursprung des neuen Referenzraums angibt. Diese Werte werden zur Position und Orientierung des aktuellen Referenzraums addiert und das Ergebnis wird als Position und Orientierung des neu erzeugten [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) verwendet.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der den Offset zum Ursprung des neuen Referenzraums angibt. Diese Werte werden zur Position und Ausrichtung des aktuellen Referenzraums addiert, und das Ergebnis wird als Position und Ausrichtung des neu erstellten [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) verwendet.
 
 ### Rückgabewert
 
-Ein neues [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) Objekt, das einen Referenzraum mit demselben nativen Ursprung wie der Referenzraum beschreibt, auf dem die Methode aufgerufen wurde, jedoch mit einem Ursprungsversatz, der die Entfernung vom Objekt zu dem Punkt angibt, der durch `originOffset` gegeben ist.
+Ein neues [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Objekt, das einen Referenzraum mit demselben nativen Ursprung beschreibt wie der Referenzraum, auf dem die Methode aufgerufen wurde, jedoch mit einem Ursprungs-Offset, der den Abstand vom Objekt zu dem Punkt angibt, der durch `originOffset` gegeben ist.
 
-Wenn das Objekt, auf dem Sie diese Methode aufrufen, ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) ist, ist das zurückgegebene Objekt ebenfalls eines. Die [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) des neuen Referenzraums wird auf die `boundsGeometry` des ursprünglichen Objekts gesetzt, wobei jeder seiner Punkte mit dem Inversen von `originOffset` multipliziert wird.
+Wenn das Objekt, auf dem Sie diese Methode aufrufen, ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) ist, ist das zurückgegebene Objekt ebenfalls eines. Das [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) des neuen Referenzraums wird auf das `boundsGeometry` des ursprünglichen Objekts gesetzt, wobei jeder seiner Punkte mit dem Inversen von `originOffset` multipliziert wird.
 
 ## Beispiele
 
-Im Folgenden sind einige Beispiele, die zeigen, wie `getOffsetReferenceSpace()` verwendet wird.
+Im Folgenden sind einige Beispiele aufgeführt, die zeigen, wie man `getOffsetReferenceSpace()` verwendet.
 
 ### Teleportieren oder Festlegen der Position des Betrachters
 
-Beim ersten Erstellen einer Szene müssen Sie möglicherweise die Position des Benutzers innerhalb der 3D-Welt festlegen. Dies können Sie mit `getOffsetReferenceSpace()` tun.
+Beim ersten Erstellen einer Szene müssen Sie möglicherweise die Position des Benutzers in der 3D-Welt festlegen. Sie können dies mit `getOffsetReferenceSpace()` tun.
 
-In diesem Code erhalten wir einen lokalen Referenzraum und verwenden dann `getOffsetReferenceSpace()`, um einen neuen Raum zu erzeugen, dessen Ursprung auf eine durch `startPosition` gegebene Position angepasst ist und dessen Orientierung direkt entlang der Z-Achse blickt. Anschließend wird der erste Animationsframe mithilfe von [`XRSession`](/de/docs/Web/API/XRSession)'s [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) angefordert.
+```js
+xrSession.requestReferenceSpace("local").then((refSpace) => {
+  xrReferenceSpace = refSpace;
+  xrReferenceSpace = xrReferenceSpace.getOffsetReferenceSpace(
+    new XRRigidTransform(startPosition, { x: 0, y: 0, z: 1.0, w: 1.0 }),
+  );
+  xrSession.requestAnimationFrame(drawFrame);
+});
+```
 
-### Implementierung der Rotation basierend auf nicht-XR-Eingaben
+In diesem Code erhalten wir einen lokalen Referenzraum und verwenden dann `getOffsetReferenceSpace()`, um einen neuen Raum zu erstellen, dessen Ursprung auf eine durch `startPosition` angegebene Position angepasst ist und dessen Ausrichtung direkt entlang der Z-Achse schaut. Dann wird der erste Animationsrahmen unter Verwendung von [`XRSession`](/de/docs/Web/API/XRSession)`s [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) angefordert.
 
-Die von WebXR direkt unterstützten Eingabesteuerungen sind alle dedizierte VR- oder AR-Eingabegeräte. Um Maus, Tastatur oder andere Eingabegeräte zu verwenden, um Objekte im 3D-Raum zu bewegen oder anderweitig zu transformieren, oder um dem Benutzer zu erlauben, sich durch den Raum zu bewegen, müssen Sie einige Codezeilen schreiben, um die Eingaben zu lesen und die Bewegungen durchzuführen.
+### Implementierung der Rotation basierend auf Nicht-XR-Eingaben
 
-Dies ist ein weiterer guter Anwendungsfall für `getOffsetReferenceSpace()`. In diesem Beispiel zeigen wir Code, der es dem Benutzer ermöglicht, sich umzusehen, indem er mit der rechten Maustaste klickt und die Maus bewegt, um den Betrachtungswinkel zu ändern.
+Die von WebXR direkt unterstützten Eingabesteuerelemente sind alle dedizierte VR- oder AR-Eingabegeräte. Um Maus, Tastatur oder andere Eingabegeräte zu verwenden, um Objekte im 3D-Raum zu bewegen oder anderweitig zu transformieren – oder um dem Benutzer das Durchführen durch den Raum zu ermöglichen – müssen Sie etwas Code schreiben, um die Eingaben auszulesen und die Bewegungen durchzuführen.
 
-Zuerst fügen wir einen Ereignishandler für [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisse hinzu, der unseren Code zur Durchführung der Rotation aufruft, wenn die rechte Maustaste gedrückt ist. Beachten Sie auch, dass wir [`oncontextmenu`](/de/docs/Web/API/Element/contextmenu_event) durch Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf diesen Ereignissen ignorieren werden. Dies verhindert, dass durch Rechtsklick das Kontextmenü im Browser angezeigt wird.
+Dies ist ein weiterer guter Anwendungsfall für `getOffsetReferenceSpace()`. In diesem Beispiel zeigen wir Code, der es dem Benutzer ermöglicht, sich umzusehen, indem er mit der rechten Maustaste klickt und die Maus bewegt, um den Blickwinkel zu ändern.
 
-Als nächstes die `rotateViewBy()`-Funktion, die die Gier- und Neigungsrichtung des Mausblicks basierend auf den Delta-Werten der Maus aus dem `mousemove`-Ereignis aktualisiert. Die Neigung ist eingeschränkt, sodass Sie nicht über direkt nach oben oder unten hinausblicken können. Jedes Mal, wenn diese Funktion aufgerufen wird, werden die neuen Offsets verwendet, um die aktuellen Werte von `mousePitch` und `mouseYaw` zu aktualisieren.
+Zuerst fügen wir einen Ereignishandler für [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisse hinzu, der unseren Code aufruft, um die Rotation durchzuführen, wenn die rechte Maustaste gedrückt ist. Beachten Sie auch, dass wir [`oncontextmenu`](/de/docs/Web/API/Element/contextmenu_event) so einrichten, dass es ignoriert wird, indem wir [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf diesen Ereignissen aufrufen. Dies verhindert, dass durch Rechtsklicks das Kontextmenü im Browser angezeigt wird.
 
-Schließlich benötigen wir Code, der die berechnete Gier und Neigung tatsächlich auf die Orientierung des Betrachters anwendet. Diese Funktion, `applyMouseMovement()`, übernimmt das:
+```js
+canvas.oncontextmenu = (event) => {
+  event.preventDefault();
+};
+canvas.addEventListener("mousemove", (event) => {
+  if (event.buttons & 2) {
+    rotateViewBy(event.movementX, event.movementY);
+  }
+});
+```
 
-Diese Funktion erstellt eine inverse Orientierungsmatrix, die verwendet wird, um den Betrachter zu orientieren, aus den aktuellen Neigungs- und Gierwerten und verwendet diese Matrix als Quelle der Orientierung beim Aufrufen von [`XRRigidTransform()`](/de/docs/Web/API/XRRigidTransform/XRRigidTransform). Der neue Referenzraum der neuen [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) wird dann abgerufen und an den Aufrufer zurückgegeben.
+Als nächstes die Funktion `rotateViewBy()`, die die Gier- und Neigungsrichtung des Mausblicks basierend auf den Delta-Werten der Maus aus dem `mousemove`-Ereignis aktualisiert. Die Neigung ist so eingeschränkt, dass man nicht über direkt nach oben und direkt nach unten hinausschauen kann. Jedes Mal, wenn dies aufgerufen wird, werden die neuen Offsets verwendet, um die aktuellen Werte von `mousePitch` und `mouseYaw` zu aktualisieren.
 
-Dieser neue Referenzraum ist einer, in dem die Position des Betrachters unverändert ist, aber seine Orientierung basierend auf den aus den gesammelten Mausbewegungen generierten Neigungs- und Gierwerten geändert wurde. `applyMouseMovement()` sollte aufgerufen werden, wenn ein Frame gezeichnet wird, unmittelbar bevor die Pose des Betrachters mithilfe von [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) abgerufen wird, und das Rendering sollte in diesem Referenzraum durchgeführt werden.
+```js
+let mouseYaw = 0.0;
+let mousePitch = 0.0;
+const inverseOrientation = quat.create();
+const MOUSE_SPEED = 0.003;
 
-Ähnlichen Code können Sie in unserem umfassenderen WebXR-Tutorial-Artikel mit dem Titel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) finden. Besonders empfehlenswert ist der Abschnitt [Starten der WebXR-Sitzung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion#starting_up_the_webxr_session).
+function rotateViewBy(dx, dy) {
+  mouseYaw += dx * MOUSE_SPEED;
+  mousePitch += dy * MOUSE_SPEED;
+
+  if (mousePitch < -Math.PI * 0.5) {
+    mousePitch = -Math.PI * 0.5;
+  } else if (mousePitch > Math.PI * 0.5) {
+    mousePitch = Math.PI * 0.5;
+  }
+}
+```
+
+Schließlich benötigen wir Code, der tatsächlich die berechneten Gier- und Neigungswerte auf die Ansichtsausrichtung des Betrachters anwendet. Diese Funktion, `applyMouseMovement()`, übernimmt das:
+
+```js
+function applyMouseMovement(refSpace) {
+  if (!mouseYaw && !mousePitch) {
+    return refSpace;
+  }
+
+  quat.identity(inverseOrientation);
+  quat.rotateX(inverseOrientation, inverseOrientation, -mousePitch);
+  quat.rotateY(inverseOrientation, inverseOrientation, -mouseYaw);
+
+  let newTransform = new XRRigidTransform(
+    { x: 0, y: 0, z: 0 },
+    {
+      x: inverseOrientation[0],
+      y: inverseOrientation[1],
+      z: inverseOrientation[2],
+      w: inverseOrientation[3],
+    },
+  );
+
+  return refSpace.getOffsetReferenceSpace(newTransform);
+}
+```
+
+Diese Funktion erstellt eine inverse Orientierungs-Matrix, die verwendet wird, um den Betrachter zu orientieren, basierend auf den aktuellen Gier- und Neigungswerten, und verwendet diese Matrix als Quelle der Ausrichtung beim Aufruf von [`XRRigidTransform()`](/de/docs/Web/API/XRRigidTransform/XRRigidTransform). Der neue [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)`s-Referenzraum wird dann abgerufen und an den Aufrufer zurückgegeben.
+
+Dieser neue Referenzraum ist einer, in dem die Position des Betrachters unverändert bleibt, aber seine Ausrichtung basierend auf den aus den gesammelten Mauseingaben erzeugten Gier- und Neigungswerten verändert wurde. `applyMouseMovement()` sollte aufgerufen werden, wenn ein Rahmen gezeichnet wird, unmittelbar bevor die Pose des Betrachters mit [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) abgerufen wird, und das Rendering sollte in diesem Referenzraum durchgeführt werden.
+
+Ähnlichen Code können Sie in unserem umfassenderen WebXR-Tutorial-Artikel mit dem Titel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) sehen. Insbesondere sollten Sie sich den Abschnitt [Starten der WebXR-Sitzung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion#starting_up_the_webxr_session) ansehen.
 
 ## Spezifikationen
 

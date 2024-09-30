@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Brotli** ist ein universeller verlustfreier Komprimierungsalgorithmus. Er komprimiert Daten mittels einer Kombination aus einer modernen Variante des [Lempel-Ziv-Codings](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) LZ77-Algorithmus, [Huffman-Codierung](https://rosettacode.org/wiki/Huffman_coding) und Modellierung mit zweiter Ordnung, wodurch ein Komprimierungsverhältnis erzielt wird, das mit den besten derzeit verfügbaren universellen Komprimierungsmethoden vergleichbar ist.
+**Brotli** ist ein universeller verlustfreier Komprimierungsalgorithmus. Er komprimiert Daten mithilfe einer modernen Variante des [Lempel-Ziv-Codecs](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) LZ77, der [Huffman-Kodierung](https://rosettacode.org/wiki/Huffman_coding) und der Modellierung zweiter Ordnung, wodurch ein Kompressionsverhältnis erreicht wird, das vergleichbar mit den besten derzeit verfügbaren universellen Komprimierungsmethoden ist.
 
-Brotli bietet bessere Komprimierungsverhältnisse als [gzip](/de/docs/Glossary/GZip_compression) und Geschwindigkeiten, die mit [deflate](https://en.wikipedia.org/wiki/Deflate) vergleichbar sind. Jedoch ist die Brotli-Komprimierung langsamer als die Gzip-Komprimierung, daher könnte Gzip die bessere Wahl sein, wenn es um die Komprimierung von [nicht-cachefähigen](/de/docs/Glossary/Cache) Inhalten geht.
+Brotli bietet bessere Kompressionsverhältnisse als [gzip](/de/docs/Glossary/GZip_compression) und Geschwindigkeiten, die mit [deflate](https://en.wikipedia.org/wiki/Deflate) vergleichbar sind. Jedoch ist die Brotli-Komprimierung langsamer als die Gzip-Komprimierung, daher könnte gzip eine bessere Option sein, wenn es um die Komprimierung von [nicht-cachebaren](/de/docs/Glossary/Cache) Inhalten geht.
 
-Brotli ist mit den meisten modernen Browsern kompatibel, aber es könnte sinnvoll sein, eine Rückfallebene in Betracht zu ziehen.
+Brotli ist mit den meisten modernen Browsern kompatibel, aber Sie sollten eine Fallback-Lösung in Betracht ziehen.
 
 ## Siehe auch
 
-- Verwandte Glossarbegriffe:
+- Verwandte Glossareinträge:
   - [Verlustfreie Komprimierung](/de/docs/Glossary/Lossless_compression)
   - [Verlustbehaftete Komprimierung](/de/docs/Glossary/Lossy_compression)
   - [Gzip-Komprimierung](/de/docs/Glossary/Gzip_compression)

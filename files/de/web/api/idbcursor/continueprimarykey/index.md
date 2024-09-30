@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`continuePrimaryKey()`** Methode der [`IDBCursor`](/de/docs/Web/API/IDBCursor) Schnittstelle bewegt den Cursor zu dem Element, dessen Schlüssel mit dem Schlüsselparameter übereinstimmt, sowie dessen Primärschlüssel mit dem Primärschlüsselparameter übereinstimmt.
+Die **`continuePrimaryKey()`**-Methode der [`IDBCursor`](/de/docs/Web/API/IDBCursor) Schnittstelle bewegt den Cursor zu dem Element, dessen Schlüssel mit dem Schlüsselparameter übereinstimmt, sowie dessen Primärschlüssel mit dem Primärschlüsselparameter übereinstimmt.
 
-Ein typischer Anwendungsfall ist es, die Iteration dort wieder aufzunehmen, wo ein vorheriger Cursor geschlossen wurde, ohne die Schlüssel einzeln vergleichen zu müssen.
+Ein typischer Anwendungsfall ist das Fortsetzen der Iteration an der Stelle, an der ein vorheriger Cursor geschlossen wurde, ohne die Schlüssel einzeln vergleichen zu müssen.
 
-Mehrfaches Aufrufen dieser Methode, bevor neue Cursordaten geladen wurden - beispielsweise das zweimalige Aufrufen von `continuePrimaryKey()` im selben onsuccess-Handler - führt dazu, dass beim zweiten Aufruf ein `InvalidStateError` ausgelöst wird, da das got value-Flag des Cursors zurückgesetzt wurde.
+Das mehrfache Aufrufen dieser Methode, bevor neue Cursordaten geladen wurden - zum Beispiel das zweimalige Aufrufen von `continuePrimaryKey()` aus demselben onsuccess-Handler - führt dazu, dass bei dem zweiten Aufruf ein `InvalidStateError` ausgelöst wird, da das got value-Flag des Cursors zurückgesetzt wurde.
 
-Diese Methode ist nur für Cursor gültig, die von einem Index stammen. Die Verwendung für Cursor, die aus einem Object Store stammen, führt zu einem Fehler.
+Diese Methode ist nur für Cursor, die von einem Index stammen, gültig. Bei der Verwendung für Cursor, die aus einem Objektstore stammen, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ continuePrimaryKey(key, primaryKey)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel, um den Cursor zu positionieren.
+  - : Der Schlüssel, auf den der Cursor positioniert werden soll.
 - `primaryKey`
-  - : Der Primärschlüssel, um den Cursor zu positionieren.
+  - : Der Primärschlüssel, auf den der Cursor positioniert werden soll.
 
 ### Rückgabewert
 
@@ -35,23 +35,23 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses IDBCursors inaktiv ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Schlüsselparameter eine der folgenden Bedingungen erfüllt:
     - Der Schlüssel ist kein gültiger Schlüssel.
-    - Der Schlüssel ist kleiner oder gleich der Position dieses Cursors und die Richtung des Cursors ist `next` oder `nextunique`.
-    - Der Schlüssel ist größer oder gleich der Position dieses Cursors und die Richtung des Cursors ist `prev` oder `prevunique`.
+    - Der Schlüssel ist kleiner oder gleich der Position dieses Cursors, und die Richtlinie des Cursors ist `next` oder `nextunique`.
+    - Der Schlüssel ist größer oder gleich der Position dieses Cursors, und die Richtlinie dieses Cursors ist `prev` oder `prevunique`.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor derzeit iteriert oder über sein Ende hinaus iteriert wurde.
+  - : Wird ausgelöst, wenn der Cursor gerade iteriert wird oder das Ende seiner Iteration erreicht hat.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Richtung des Cursors nicht `prev` oder `next` ist.
 
 ## Beispiele
 
-Hier ist, wie Sie die Iteration aller Artikel, die mit `"javascript"` getaggt sind, seit Ihrem letzten Besuch fortsetzen können:
+So können Sie eine Iteration aller Artikel mit dem Tag `"javascript"` seit Ihrem letzten Besuch fortsetzen:
 
 ```js
 let request = articleStore.index("tag").openCursor();
@@ -88,9 +88,9 @@ request.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

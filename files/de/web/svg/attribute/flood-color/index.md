@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`flood-color`** Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Subregion der Filterprimitive zu fluten.
+Das Attribut **`flood-color`** gibt an, welche Farbe zur Flutung der aktuellen Filter-Primitive-Subregion verwendet werden soll.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `flood-color` als CSS-Eigenschaft verwendet werden.
@@ -57,7 +57,7 @@ svg {
       <td>{{cssxref("color")}}</td>
     </tr>
     <tr>
-      <th scope="row">Initialwert</th>
+      <th scope="row">Anfangswert</th>
       <td><code>black</code></td>
     </tr>
     <tr>

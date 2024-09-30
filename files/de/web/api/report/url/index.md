@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der [`Report`](/de/docs/Web/API/Report)-Schnittstelle gibt die URL des Dokuments zurück, das den Bericht erzeugt hat.
+Die schreibgeschützte Eigenschaft **`url`** des [`Report`](/de/docs/Web/API/Report)-Interfaces gibt die URL des Dokuments zurück, das den Bericht erzeugt hat.
 
 ## Wert
 
@@ -39,4 +39,4 @@ const observer = new ReportingObserver(([firstReport], observer) => {
 
 ## Siehe auch
 
-- [Reporting API](/de/docs/Web/API/Reporting_API)
+- [Reporting-API](/de/docs/Web/API/Reporting_API)

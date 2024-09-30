@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Eigenschaft **`cssRules`** gibt eine Live-[`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Echtzeit-Liste aller CSS-Regeln bereitstellt, die das Stylesheet bilden. Jedes Element in der Liste ist ein [`CSSRule`](/de/docs/Web/API/CSSRule), das eine einzelne Regel definiert.
+Die schreibgeschützte [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Eigenschaft **`cssRules`** gibt eine dynamische [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Echtzeitliste aller CSS-Regeln bereitstellt, aus denen das Stylesheet besteht. Jedes Element in der Liste ist eine [`CSSRule`](/de/docs/Web/API/CSSRule), die eine einzelne Regel definiert.
 
 ## Wert
 
-Eine live-aktualisierte [`CSSRuleList`](/de/docs/Web/API/CSSRuleList), die jede der CSS-Regeln enthält, die das Stylesheet bilden. Jeder Eintrag in der Regel-Liste ist ein [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt, das eine der das Stylesheet bildenden Regeln beschreibt.
+Eine dynamisch aktualisierte [`CSSRuleList`](/de/docs/Web/API/CSSRuleList), die jede der CSS-Regeln enthält, aus denen das Stylesheet besteht. Jeder Eintrag in der Regel-Liste ist ein [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt, das eine Regel beschreibt, die das Stylesheet bildet.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ for (let i = 0; i < ruleList.length; i++) {
 }
 ```
 
-Regeln können auch mit {{jsxref("Statements/for...of", "for...of")}} zugegriffen werden:
+Regeln können auch mithilfe von {{jsxref("Statements/for...of", "for...of")}} abgerufen werden:
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -49,4 +49,4 @@ Da `CSSRule` jedoch kein richtiges Array ist, können Sie {{jsxref("Array.forEac
 ## Siehe auch
 
 - [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
-- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Stil-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

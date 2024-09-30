@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset()`**-Funktion in [CSS](/de/docs/Web/CSS) definiert ein Rechteck mit den angegebenen Einzugsabständen von jeder Seite der Referenzbox. Es ist eine grundlegende Formfunktion, die verwendet wird, um einen der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/CSS_Types) zu definieren.
+Die **`inset()`** [CSS](/de/docs/Web/CSS) Funktion definiert ein Rechteck mit den angegebenen Einzügen von jeder Seite des Referenzrahmens. Es handelt sich um eine grundlegende Formfunktion, die dazu verwendet wird, einen der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/CSS_Types) zu definieren.
 
 {{EmbedInteractiveExample("pages/css/function-inset.html")}}
 
@@ -21,12 +21,12 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 - `<length-percentage>{1,4}`
 
-  - : Wenn alle vier Argumente angegeben sind, stellen sie die Abstände von der Referenzbox nach innen dar, die die Positionen der Ränder des Einzugsrechtecks definieren. Diese Argumente folgen der Syntax der Margin-Kurzform, die es Ihnen ermöglicht, alle vier Einzüge mit einem, zwei oder vier Werten festzulegen.
+  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Abstände oben, rechts, unten und links innerhalb des Referenzrahmens, die die Positionen der Kanten des Einsatzrechtecks definieren. Diese Argumente folgen der Syntax der Margin-Kurzform, die es Ihnen ermöglicht, alle vier Einzüge mit einem, zwei oder vier Werten festzulegen.
 
-    Wenn ein Paar von Einzügen für eine Dimension mehr als 100% dieser Dimension beträgt, werden beide Werte proportional reduziert, sodass ihre Summe 100% ergibt. Zum Beispiel wird der Wert `inset(90% 10% 60% 10%)` mit einem oberen Einzug von `90%` und einem unteren Einzug von `60%` proportional zu `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keinen Bereich einschließen und keinen {{cssxref("shape-margin")}} haben, beeinflussen nicht das Umschließen.
+    Wenn ein Paar von Einzügen für eine Dimension mehr als 100 % dieser Dimension addiert, werden beide Werte proportional reduziert, sodass ihre Summe 100 % ergibt. Zum Beispiel wird der Wert `inset(90% 10% 60% 10%)` mit einem oberen Einzug von `90%` und einem unteren Einzug von `60%` proportional auf `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keine Fläche einschließen und keinen {{cssxref("shape-margin")}} haben, wirken sich nicht auf den Umbruch aus.
 
 - `<border-radius>`
-  - : Das optionale [`<border-radius>`](/de/docs/Web/CSS/border-radius)-Argument definiert abgerundete Ecken für das Einzugsrechteck mithilfe der border-radius-Kurzform-Syntax.
+  - : Das optionale [`<border-radius>`](/de/docs/Web/CSS/border-radius) Argument (oder Argumente) definiert abgerundete Ecken für das Einsatzrechteck unter Verwendung der border-radius-Kurzformsyntax.
 
 ## Formale Syntax
 
@@ -34,9 +34,9 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 ## Beispiele
 
-### Einfaches Einzugsbeispiel
+### Einfaches Beispiel für inset
 
-Im folgenden Beispiel haben wir eine `inset()`-Form verwendet, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Offset-Werte, um zu sehen, wie sich die Form ändert.
+Im folgenden Beispiel wird eine `inset()`-Form verwendet, um Inhalte über das schwebende Element zu ziehen. Ändern Sie die Offset-Werte, um zu sehen, wie sich die Form ändert.
 
 ```html
 <div class="box">
@@ -74,7 +74,7 @@ Im folgenden Beispiel haben wir eine `inset()`-Form verwendet, um Inhalte über 
 }
 ```
 
-{{EmbedLiveSample("Einfaches Einzugsbeispiel", '100%', 280)}}
+{{EmbedLiveSample("Einfaches Beispiel für inset", '100%', 280)}}
 
 ## Spezifikationen
 
@@ -87,5 +87,5 @@ Im folgenden Beispiel haben wir eine `inset()`-Form verwendet, um Inhalte über 
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- Modul [CSS shapes](/de/docs/Web/CSS/CSS_shapes)
+- [CSS Shapes](/de/docs/Web/CSS/CSS_shapes) Modul
 - [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)

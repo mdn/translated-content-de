@@ -3,15 +3,12 @@ title: "WebGLRenderingContext: deleteTexture()-Methode"
 short-title: deleteTexture()
 slug: Web/API/WebGLRenderingContext/deleteTexture
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteTexture()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) löscht ein bestimmtes
-[`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt. Diese Methode hat keine Wirkung, wenn die Textur bereits
-gelöscht wurde.
+Die **`WebGLRenderingContext.deleteTexture()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt. Diese Methode hat keine Auswirkung, wenn die Textur bereits gelöscht wurde.
 
 ## Syntax
 
@@ -26,7 +23,7 @@ deleteTexture(texture)
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

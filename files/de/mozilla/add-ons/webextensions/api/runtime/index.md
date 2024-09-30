@@ -7,20 +7,20 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieses Modul bietet Informationen über Ihre Erweiterung und die Umgebung, in der sie ausgeführt wird.
+Dieses Modul stellt Informationen über Ihre Erweiterung und die Umgebung, in der sie ausgeführt wird, bereit.
 
-Es stellt auch Messaging-APIs bereit, die es Ihnen ermöglichen:
+Es bietet auch Messaging-APIs, die es Ihnen ermöglichen:
 
-- Kommunikation zwischen verschiedenen Teilen Ihrer Erweiterung. Für Ratschläge zur Auswahl zwischen den Messaging-Optionen siehe [Auswahl zwischen Einweg-Nachrichten und verbindungsbasiertem Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
+- Kommunikation zwischen verschiedenen Teilen Ihrer Erweiterung. Für Ratschläge zur Auswahl zwischen den Messaging-Optionen, siehe [Auswahl zwischen einmaligen Nachrichten und verbindungsbasiertem Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
 - Kommunikation mit anderen Erweiterungen.
 - Kommunikation mit nativen Anwendungen.
 
 ## Typen
 
 - {{WebExtAPIRef("runtime.Port")}}
-  - : Stellt ein Ende einer Verbindung zwischen zwei spezifischen Kontexten dar, die zum Austausch von Nachrichten genutzt werden kann.
+  - : Repräsentiert ein Ende einer Verbindung zwischen zwei spezifischen Kontexten, die zum Austausch von Nachrichten verwendet werden kann.
 - {{WebExtAPIRef("runtime.MessageSender")}}
-  - : Enthält Informationen über den Absender einer Nachricht oder einer Verbindungsanfrage.
+  - : Enthält Informationen über den Absender einer Nachricht oder Verbindungsanfrage.
 - {{WebExtAPIRef("runtime.PlatformOs")}}
   - : Identifiziert das Betriebssystem des Browsers.
 - {{WebExtAPIRef("runtime.PlatformArch")}}
@@ -34,43 +34,43 @@ Es stellt auch Messaging-APIs bereit, die es Ihnen ermöglichen:
 - {{WebExtAPIRef("runtime.OnPerformanceWarningCategory")}}
   - : Die Kategorie der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
 - {{WebExtAPIRef("runtime.OnPerformanceWarningSeverity")}}
-  - : Der Schweregrad der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
+  - : Die Schwere der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
 - {{WebExtAPIRef("runtime.OnRestartRequiredReason")}}
   - : Der Grund, warum das {{WebExtAPIRef("runtime.onRestartRequired")}}-Ereignis ausgelöst wird.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("runtime.lastError")}}
-  - : Dieser Wert wird gesetzt, wenn eine asynchrone Funktion einen Fehlerzustand hat, den sie ihrem Aufrufer melden muss.
+  - : Dieser Wert wird gesetzt, wenn eine asynchrone Funktion eine Fehlerbedingung melden muss.
 - {{WebExtAPIRef("runtime.id")}}
   - : Die ID der Erweiterung.
 
 ## Funktionen
 
 - {{WebExtAPIRef("runtime.getBackgroundPage()")}}
-  - : Ruft das [Window](/de/docs/Web/API/Window)-Objekt für die Hintergrundseite ab, die innerhalb der aktuellen Erweiterung läuft.
+  - : Ruft das [Window](/de/docs/Web/API/Window)-Objekt für die Hintergrundseite ab, die innerhalb der aktuellen Erweiterung ausgeführt wird.
 - {{WebExtAPIRef("runtime.openOptionsPage()")}}
   - : Öffnet die [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) Ihrer Erweiterung.
 - {{WebExtAPIRef("runtime.getContexts()")}}
-  - : Ruft Details zu den mit der Erweiterung verbundenen Kontexten ab.
+  - : Ruft Details über die mit der Erweiterung verbundenen Kontexte ab.
 - {{WebExtAPIRef("runtime.getFrameId()")}}
-  - : Ruft die Frame-ID eines beliebigen Fenster-Globals oder Frame-Elements ab.
+  - : Ruft die Frame-ID eines beliebigen Fenster-Global- oder Frame-Elements ab.
 - {{WebExtAPIRef("runtime.getManifest()")}}
-  - : Ruft die komplette [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei ab, serialisiert als ein Objekt.
+  - : Ruft die komplette [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei ab, serialisiert als Objekt.
 - {{WebExtAPIRef("runtime.getURL()")}}
-  - : Gibt einen vollqualifizierten URL zurück, der einen relativen Pfad von der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zu einer mit der Erweiterung gepackten Ressource ausgibt.
+  - : Gibt einen vollständig qualifizierten URL zurück, gemessen an einem relativen Pfad aus der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zu einer Ressource, die mit der Erweiterung verpackt ist.
 - {{WebExtAPIRef("runtime.setUninstallURL()")}}
-  - : Setzt eine URL, die beim Deinstallieren der Erweiterung besucht wird.
+  - : Setzt eine URL, die besucht wird, wenn die Erweiterung deinstalliert wird.
 - {{WebExtAPIRef("runtime.reload()")}}
   - : Lädt die Erweiterung neu.
 - {{WebExtAPIRef("runtime.requestUpdateCheck()")}}
-  - : Überprüft auf Updates für diese Erweiterung.
+  - : Prüft auf Updates für diese Erweiterung.
 - {{WebExtAPIRef("runtime.connect()")}}
-  - : Stellt eine Verbindung von einem Inhalteskript zum Hauptprozess der Erweiterung her, oder von einer Erweiterung zu einer anderen Erweiterung.
+  - : Stellt eine Verbindung von einem Content-Skript zum Hauptprozess der Erweiterung her oder von einer Erweiterung zu einer anderen Erweiterung.
 - {{WebExtAPIRef("runtime.connectNative()")}}
   - : Verbindet die Erweiterung mit einer nativen Anwendung auf dem Computer des Benutzers.
 - {{WebExtAPIRef("runtime.sendMessage()")}}
-  - : Sendet eine einzelne Nachricht an Ereignis-Listener innerhalb Ihrer Erweiterung oder einer anderen Erweiterung. Ähnlich wie {{WebExtAPIRef('runtime.connect')}}, aber sendet nur eine einzelne Nachricht, mit einer optionalen Antwort.
+  - : Sendet eine einzelne Nachricht an Ereignis-Listener innerhalb Ihrer Erweiterung oder einer anderen Erweiterung. Ähnlich wie {{WebExtAPIRef('runtime.connect')}}, sendet jedoch nur eine einzelne Nachricht mit einer optionalen Antwort.
 - {{WebExtAPIRef("runtime.sendNativeMessage()")}}
   - : Sendet eine einzelne Nachricht von einer Erweiterung an eine native Anwendung.
 - {{WebExtAPIRef("runtime.getPlatformInfo()")}}
@@ -83,29 +83,29 @@ Es stellt auch Messaging-APIs bereit, die es Ihnen ermöglichen:
 ## Ereignisse
 
 - {{WebExtAPIRef("runtime.onStartup")}}
-  - : Wird ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, erstmals gestartet wird. Dieses Ereignis wird nicht ausgelöst, wenn ein Inkognito-Profil gestartet wird.
+  - : Wird ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, zum ersten Mal gestartet wird. Dieses Ereignis wird nicht ausgelöst, wenn ein Inkognito-Profil gestartet wird.
 - {{WebExtAPIRef("runtime.onInstalled")}}
-  - : Wird ausgelöst, wenn die Erweiterung erstmals installiert wird, wenn die Erweiterung auf eine neue Version aktualisiert wird und wenn der Browser auf eine neue Version aktualisiert wird.
+  - : Wird ausgelöst, wenn die Erweiterung zum ersten Mal installiert wird, wenn die Erweiterung zu einer neuen Version aktualisiert wird und wenn der Browser zu einer neuen Version aktualisiert wird.
 - {{WebExtAPIRef("runtime.onSuspend")}}
-  - : Wird an die Ereignisseite gesendet, kurz bevor die Erweiterung entladen wird. Dies gibt der Erweiterung die Gelegenheit, einige Aufräumarbeiten durchzuführen.
+  - : Wird an die Ereignisseite gesendet, kurz bevor die Erweiterung entladen wird. Dies gibt der Erweiterung Gelegenheit, einige Aufräumarbeiten durchzuführen.
 - {{WebExtAPIRef("runtime.onSuspendCanceled")}}
   - : Wird nach {{WebExtAPIRef("runtime.onSuspend")}} gesendet, um anzuzeigen, dass die Erweiterung doch nicht entladen wird.
 - {{WebExtAPIRef("runtime.onUpdateAvailable")}}
-  - : Wird ausgelöst, wenn ein Update verfügbar ist, aber nicht sofort installiert wird, da die Erweiterung gerade läuft.
+  - : Wird ausgelöst, wenn ein Update verfügbar ist, aber nicht sofort installiert wird, da die Erweiterung derzeit läuft.
 - {{WebExtAPIRef("runtime.onBrowserUpdateAvailable")}} {{deprecated_inline}}
   - : Wird ausgelöst, wenn ein Update für den Browser verfügbar ist, aber nicht sofort installiert wird, weil ein Neustart des Browsers erforderlich ist.
 - {{WebExtAPIRef("runtime.onConnect")}}
-  - : Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhalteskript hergestellt wird.
+  - : Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Content-Skript hergestellt wird.
 - {{WebExtAPIRef("runtime.onConnectExternal")}}
   - : Wird ausgelöst, wenn eine Verbindung mit einer anderen Erweiterung hergestellt wird.
 - {{WebExtAPIRef("runtime.onMessage")}}
-  - : Wird ausgelöst, wenn eine Nachricht von einem Erweiterungsprozess oder einem Inhalteskript gesendet wird.
+  - : Wird ausgelöst, wenn eine Nachricht von einem Erweiterungsprozess oder einem Content-Skript gesendet wird.
 - {{WebExtAPIRef("runtime.onMessageExternal")}}
-  - : Wird ausgelöst, wenn eine Nachricht von einer anderen Erweiterung gesendet wird. Kann nicht in einem Inhalteskript verwendet werden.
+  - : Wird ausgelöst, wenn eine Nachricht von einer anderen Erweiterung gesendet wird. Kann in einem Content-Skript nicht verwendet werden.
 - {{WebExtAPIRef("runtime.onPerformanceWarning")}}
-  - : Wird ausgelöst, wenn ein Leistungsproblem zur Laufzeit für die Erweiterung erkannt wird.
+  - : Wird ausgelöst, wenn ein Laufzeit-Performanceproblem für die Erweiterung erkannt wird.
 - {{WebExtAPIRef("runtime.onRestartRequired")}}
-  - : Wird ausgelöst, wenn das Gerät neugestartet werden muss.
+  - : Wird ausgelöst, wenn das Gerät neu gestartet werden muss.
 
 ## Browser-Kompatibilität
 
@@ -114,7 +114,7 @@ Es stellt auch Messaging-APIs bereit, die es Ihnen ermöglichen:
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime) API. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

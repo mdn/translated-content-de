@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`horiz-adv-x`** Attribut gibt die horizontale Erhöhung nach dem Rendern eines [glyph](/de/docs/Glossary/glyph) in horizontaler Orientierung an.
+Das Attribut **`horiz-adv-x`** gibt den horizontalen Abstand nach dem Rendern eines [Glyph](/de/docs/Glossary/glyph) in horizontaler Ausrichtung an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## font
 
-Für {{SVGElement("font")}} Elemente gibt `horiz-adv-x` die standardmäßige horizontale Erhöhung eines Glyphs in horizontaler Orientierung an.
+Für {{SVGElement("font")}}-Elemente gibt `horiz-adv-x` den standardmäßigen horizontalen Abstand eines Glyphe in horizontaler Ausrichtung an.
 
 <table class="properties">
   <tbody>
@@ -43,11 +43,11 @@ Für {{SVGElement("font")}} Elemente gibt `horiz-adv-x` die standardmäßige hor
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die horizontale Erhöhung des Glyphs an.
+  - : Dieser Wert gibt den horizontalen Abstand der Glyphe an.
 
 ## glyph, missing-glyph
 
-Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `horiz-adv-x` die horizontale Erhöhung des Glyphs in horizontaler Orientierung an.
+Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}}-Elemente gibt `horiz-adv-x` den horizontalen Abstand der Glyphe in horizontaler Ausrichtung an.
 
 <table class="properties">
   <tbody>
@@ -64,7 +64,7 @@ Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <em>{{SVGElement("font")}}'s <code>horiz-adv-x</code> Wert</em>
+        <em>{{SVGElement("font")}}'s <code>horiz-adv-x</code>-Wert</em>
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die horizontale Erhöhung des Glyphs an.
+  - : Dieser Wert gibt den horizontalen Abstand der Glyphe an.
 
 ## Spezifikationen
 

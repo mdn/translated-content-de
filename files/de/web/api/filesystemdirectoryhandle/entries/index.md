@@ -1,5 +1,5 @@
 ---
-title: "FileSystemDirectoryHandle: entries()-Methode"
+title: "FileSystemDirectoryHandle: `entries()`-Methode"
 short-title: entries()
 slug: Web/API/FileSystemDirectoryHandle/entries
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`entries()`**-Methode des
-[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Interfaces gibt einen neuen asynchronen Iterator
-für die Iteration der Schlüssel-Wert-Paare der Einträge innerhalb des `FileSystemDirectoryHandle`
-zurück, auf dem diese Methode aufgerufen wird. Die Schlüssel-Wert-Paare liegen in Form eines Arrays wie `[key, value]` vor.
+Die **`entries()`**-Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle gibt einen neuen asynchronen Iterator für die Iteration der Schlüssel-Wert-Paare der Einträge innerhalb des `FileSystemDirectoryHandle` zurück, auf dem diese Methode aufgerufen wird. Die Schlüssel-Wert-Paare haben die Form eines Arrays wie `[key, value]`.
 
 ## Syntax
 
@@ -30,9 +27,9 @@ Ein neuer asynchroner Iterator, der die Schlüssel-Wert-Paare jedes Eintrags inn
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read`-Modus nicht `'granted'` ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read`-Modus nicht `'granted'` ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
+  - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
@@ -57,4 +54,4 @@ for await (const [key, value] of dirHandle.entries()) {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

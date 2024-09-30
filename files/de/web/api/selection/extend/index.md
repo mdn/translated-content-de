@@ -1,5 +1,5 @@
 ---
-title: "Selection: extend() Methode"
+title: "Selection: extend()-Methode"
 short-title: extend()
 slug: Web/API/Selection/extend
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.extend()`** Methode bewegt den Fokus der
-Auswahl zu einem angegebenen Punkt. Der Anker der Auswahl bewegt sich nicht. Die Auswahl
-erstreckt sich vom Anker zum neuen Fokus, unabhängig von der Richtung.
+Die **`Selection.extend()`**-Methode verschiebt den Fokus der Auswahl zu einem angegebenen Punkt. Der Anker der Auswahl bewegt sich nicht. Die Auswahl erstreckt sich vom Anker bis zum neuen Fokus, unabhängig von der Richtung.
 
 ## Syntax
 
@@ -22,14 +20,13 @@ extend(node, offset)
 ### Parameter
 
 - `node`
-  - : Der Knoten, innerhalb dessen der Fokus bewegt wird.
+  - : Der Knoten, innerhalb dessen der Fokus verschoben wird.
 - `offset` {{optional_inline}}
-  - : Die Versatzposition innerhalb von `node`, wohin der Fokus verschoben werden soll. Wenn
-    nicht angegeben, wird der Standardwert `0` verwendet.
+  - : Die Offset-Position innerhalb des `node`, wohin der Fokus verschoben wird. Wenn nicht angegeben, wird der Standardwert `0` verwendet.
 
 ### Rückgabewert
 
-None ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

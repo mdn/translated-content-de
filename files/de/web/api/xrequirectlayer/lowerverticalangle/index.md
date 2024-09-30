@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`lowerVerticalAngle`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den unteren vertikalen Winkel in Radiant für die Kugel.
+Die **`lowerVerticalAngle`**-Eigenschaft des [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Interfaces repräsentiert den unteren vertikalen Winkel in Radianten für die Kugel.
 
 ## Wert
 
-Eine Zahl, die den unteren vertikalen Winkel in Radiant für die Kugel darstellt. Wenn `lowerVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird er auf -π/2 gesetzt, und wenn er auf einen größeren Wert als π/2 gesetzt wird, wird er auf π/2 gesetzt.
+Eine Zahl, die den unteren vertikalen Winkel in Radianten für die Kugel darstellt. Wenn `lowerVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird es auf -π/2 gesetzt, und wenn es auf einen Wert größer als π/2 gesetzt wird, wird es auf π/2 gesetzt.
 
 ## Beispiele
 
-### Den unteren vertikalen Winkel einer Schicht abrufen
+### Den unteren vertikalen Winkel eines Layers abrufen
 
-Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equirect Schicht und ermöglicht die Angabe eines `lowerVerticalAngle`. Die `XREquirectLayer.lowerVerticalAngle`-Eigenschaft kann nach der Schichterstellung verwendet werden, um den verwendeten unteren vertikalen Winkel zu erhalten oder um ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt ein equirect Layer und ermöglicht die Angabe eines `lowerVerticalAngle`. Die `XREquirectLayer.lowerVerticalAngle`-Eigenschaft kann nach der Erstellung des Layers verwendet werden, um den verwendeten unteren vertikalen Winkel zu erhalten oder um ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({

@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `DoubleDelta`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert die Differenz zwischen zwei `doubles`.
+Der `DoubleDelta`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Gleitkommazahlen.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `current` {{optional_inline}}
-  - : Eine `number`, die den aktuellen `double`-Wert darstellt.
+  - : Eine `number`, die den aktuellen Gleitkommawert darstellt.
 - `previous` {{optional_inline}}
-  - : Eine `number`, die den vorherigen `double`-Wert darstellt.
+  - : Eine `number`, die den vorherigen Gleitkommawert darstellt.
 
 ## Browser-Kompatibilität
 
@@ -25,4 +25,4 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-DoubleDelta) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-DoubleDelta) API von Chromium.

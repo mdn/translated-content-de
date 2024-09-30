@@ -22,17 +22,17 @@ new EditContext(options)
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `text`
-      - : Ein String, um den anfänglichen Text des `EditContext` festzulegen.
+      - : Ein String, um den initialen Text des `EditContext` festzulegen.
     - `selectionStart`
-      - : Eine Zahl, um den anfänglichen Auswahlstart des `EditContext` festzulegen.
+      - : Eine Zahl, um den Anfang der initialen Auswahl des `EditContext` festzulegen.
     - `selectionEnd`
-      - : Eine Zahl, um das anfängliche Auswahlende des `EditContext` festzulegen.
+      - : Eine Zahl, um das Ende der initialen Auswahl des `EditContext` festzulegen.
 
 ## Beispiele
 
 ### Instanziierung eines `EditContext`-Objekts
 
-Das folgende Beispiel erstellt ein neues `EditContext`-Objekt mit dem anfänglichen Text "Hello world!" und der anfänglichen Auswahl, die den gesamten Text abdeckt.
+Das folgende Beispiel erstellt ein neues `EditContext`-Objekt mit dem initialen Text "Hello world!" und der initialen Auswahl, die den gesamten Text abdeckt.
 
 ```html
 <div id="editor"></div>

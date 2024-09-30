@@ -1,5 +1,5 @@
 ---
-title: "Element: closest()-Methode"
+title: "Element: closest() Methode"
 short-title: closest()
 slug: Web/API/Element/closest
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('DOM')}}
 
-Die **`closest()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle durchläuft das Element und seine Eltern (Richtung Dokumentwurzel), bis ein Knoten gefunden wird, der mit dem angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) übereinstimmt.
+Die **`closest()`** Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces durchläuft das Element und seine Eltern (auf das Dokumentwurzel zugehend), bis ein Knoten gefunden wird, der mit dem angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) übereinstimmt.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ closest(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String eines gültigen [CSS-Selektors](/de/docs/Learn/CSS/Building_blocks/Selectors), um das [`Element`](/de/docs/Web/API/Element) und seine Vorfahren zu überprüfen.
+  - : Ein String eines gültigen [CSS-Selektors](/de/docs/Learn/CSS/Building_blocks/Selectors), um das [`Element`](/de/docs/Web/API/Element) und seine Vorfahren zu prüfen.
 
 ### Rückgabewert
 
-Das nächste Vorfahren-`Element` oder sich selbst, das mit den `selectors` übereinstimmt. Wenn es kein solches Element gibt, `null`.
+Das nächste übergeordnete [`Element`](/de/docs/Web/API/Element) oder es selbst, das dem `selectors` entspricht. Wenn kein solches Element vorhanden ist, wird `null` zurückgegeben.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `selectors` kein gültiger CSS-Selektor sind.
+  - : Wird ausgelöst, wenn `selectors` kein gültiger CSS-Selektor ist.
 
 ## Beispiele
 
@@ -74,9 +74,9 @@ console.log(el.closest(":not(div)")); // <article>
 
 ### Kompatibilitätsnotizen
 
-- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)` `null` zurückgeben, wenn das Element nicht zuerst (direkt oder indirekt) mit dem Kontextobjekt verbunden ist, beispielsweise dem [`Document`](/de/docs/Web/API/Document)-Objekt im Fall des normalen DOM.
+- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)` `null` zurückgeben, wenn das Element nicht zuerst (direkt oder indirekt) mit dem Kontextobjekt verbunden ist, zum Beispiel dem [`Document`](/de/docs/Web/API/Document)-Objekt im Falle des normalen DOM.
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
-- Andere Methoden der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`Element.matches()`](/de/docs/Web/API/Element/matches).
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- Andere [`Element`](/de/docs/Web/API/Element)-Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`Element.matches()`](/de/docs/Web/API/Element/matches).

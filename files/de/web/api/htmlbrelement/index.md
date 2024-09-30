@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLBRElement`** Schnittstelle repräsentiert ein HTML-Zeilenumbruch-Element ({{htmlelement("br")}}). Sie erbt von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
+Das **`HTMLBRElement`** Interface repräsentiert ein HTML-Zeilenumbruch-Element ({{htmlelement("br")}}). Es erbt von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLBRElement.clear`](/de/docs/Web/API/HTMLBRElement/clear) {{deprecated_inline}}
   - : Ein String, der den Textfluss um schwebende Objekte herum angibt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](
 
 ## Siehe auch
 
-- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("br")}}
+- HTML-Element, das dieses Interface implementiert: {{HTMLElement("br")}}

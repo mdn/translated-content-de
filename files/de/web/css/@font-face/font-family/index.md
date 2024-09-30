@@ -9,7 +9,7 @@ l10n:
 
 Der **`font-family`** CSS-Deskriptor legt die Schriftfamilie für eine Schrift fest, die in einer {{cssxref("@font-face")}} At-Regel angegeben ist.
 
-Der Wert wird verwendet, um einen bestimmten `@font-face` bei der Gestaltung von Elementen mithilfe der [`font-family`](/de/docs/Web/CSS/font-family) Eigenschaft zu benennen. Jeder beliebige Name kann verwendet werden, und dieser überschreibt jeden Namen, der in den zugrunde liegenden Schriftmetriken angegeben ist.
+Der Wert wird für die Namensübereinstimmung mit einem bestimmten `@font-face` verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family) Eigenschaft gestylt werden. Jeder Name kann verwendet werden, und dies überschreibt jeden im zugrunde liegenden Schriftsatz angegebenen Namen.
 
 ## Syntax
 

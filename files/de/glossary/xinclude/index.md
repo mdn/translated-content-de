@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-XInclude ist eine W3C-Empfehlung, die Einschlusstags definiert, die es Dokumenten ermöglichen, andere Dokumente oder Teile anderer Dokumente einzubinden. Inhalte können aus anderen XML-Dateien oder aus Textdateien eingebunden werden.
+XInclude ist eine W3C-Empfehlung, die Inklusionstags definiert, welche es Dokumenten ermöglichen, andere Dokumente oder Teile von anderen Dokumenten einzuschließen. Inhalte können aus anderen XML-Dateien oder aus Textdateien eingebunden werden.
 
 Der XInclude-Mechanismus wird von keinem der großen Browser nativ unterstützt.
 

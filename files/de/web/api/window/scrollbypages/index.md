@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef}} {{Non-standard_header}}
 
-Die **`Window.scrollByPages()`**-Methode scrollt das aktuelle
-Dokument um die angegebene Anzahl von Seiten.
+Die **`Window.scrollByPages()`**-Methode scrollt das aktuelle Dokument um die angegebene Anzahl von Seiten.
 
 ## Syntax
 
@@ -20,8 +19,7 @@ scrollByPages(pages)
 ### Parameter
 
 - `pages`
-  - : Die Anzahl der zu scrollenden Seiten. Es kann eine positive oder
-    negative ganze Zahl sein.
+  - : Die Anzahl der zu scrollenden Seiten. Es kann eine positive oder negative ganze Zahl sein.
 
 ### Rückgabewert
 
@@ -39,7 +37,7 @@ window.scrollByPages(-1);
 
 ## Spezifikationen
 
-DOM Level 0. Kein Teil der Spezifikation.
+DOM Level 0. Nicht Teil der Spezifikation.
 
 ## Browser-Kompatibilität
 

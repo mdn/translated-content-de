@@ -8,16 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `normalize`-Eigenschaft des [`ConvolverNode`](/de/docs/Web/API/ConvolverNode)-Interfaces
-ist ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer
-durch eine Gleichstrom-Normalisierung skaliert wird, wenn das `buffer` Attribut gesetzt ist,
-oder nicht.
+Die `normalize`-Eigenschaft des [`ConvolverNode`](/de/docs/Web/API/ConvolverNode)-Interfaces ist ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer durch eine Gleichleistungsnormalisierung skaliert wird, wenn das `buffer`-Attribut gesetzt ist, oder nicht.
 
-Der Standardwert ist `true`, um ein gleichmäßigeres Ausgangsniveau
-des Convolvers zu erreichen, wenn er mit unterschiedlichen Impulsantworten geladen wird. Wenn `normalize`
-auf `false` gesetzt wird, dann wird die Faltung ohne
-Vorverarbeitung/Skalierung der Impulsantwort durchgeführt. Änderungen an diesem Wert werden erst
-beim nächsten Setzen des `buffer` Attributs wirksam.
+Der Standardwert ist `true`, um bei der Verwendung verschiedener Impulsantworten ein gleichmäßigeres Ausgangspegel aus dem Convolver zu erreichen. Wenn `normalize` auf `false` gesetzt wird, wird die Faltung ohne Vorverarbeitung/Skalierung der Impulsantwort gerendert. Änderungen an diesem Wert werden erst beim nächsten Setzen des `buffer`-Attributs wirksam.
 
 ## Wert
 
@@ -25,9 +18,9 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-### Normalisierung ausschalten
+### Deaktivierung der Normalisierung
 
-Das folgende Beispiel erstellt einen Convolver-Knoten und weist ihm einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu. Bevor der Audio-Puffer zugewiesen wird, wird `normalize` auf `false` gesetzt.
+Das folgende Beispiel erstellt einen Convolver-Knoten und weist ihm einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu. Vor dem Zuweisen des Audiopuffers wird `normalize` auf `false` gesetzt.
 
 ```js
 const audioCtx = new AudioContext();

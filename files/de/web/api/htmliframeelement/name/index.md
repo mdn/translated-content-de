@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ist ein Zeichenfolgenwert, der das `name`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und den spezifischen Namen des `<iframe>`-Elements angibt.
+Die **`name`**-Eigenschaft der Schnittstelle [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) ist ein Zeichenfolgenwert, der das `name`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und den spezifischen Namen des `<iframe>`-Elements angibt.
 
 ## Wert
 

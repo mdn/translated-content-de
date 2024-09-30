@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: beginPath() Methode"
+title: "CanvasRenderingContext2D: beginPath()-Methode"
 short-title: beginPath()
 slug: Web/API/CanvasRenderingContext2D/beginPath
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die
+Die Methode
 **`CanvasRenderingContext2D.beginPath()`**
-Methode der Canvas 2D API beginnt einen neuen Pfad, indem sie die Liste der Unterpfade leert. Rufen
-Sie diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
+der Canvas 2D API startet einen neuen Pfad, indem die Liste der Unterpfade geleert wird. Rufen Sie
+diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
 
 > [!NOTE]
 > Um einen neuen Unterpfad zu erstellen, der dem aktuellen
@@ -29,13 +29,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Erstellen von getrennten Pfaden
 
-Dieses Beispiel erstellt zwei Pfade, von denen jeder eine einzelne Linie enthält.
+Dieses Beispiel erstellt zwei Pfade, die jeweils eine einzelne Linie enthalten.
 
 #### HTML
 
@@ -45,7 +45,7 @@ Dieses Beispiel erstellt zwei Pfade, von denen jeder eine einzelne Linie enthäl
 
 #### JavaScript
 
-Die `beginPath()` Methode wird vor Beginn jeder Linie aufgerufen, damit sie
+Die Methode `beginPath()` wird vor Beginn jeder Linie aufgerufen, damit diese
 mit unterschiedlichen Farben gezeichnet werden können.
 
 ```js
@@ -81,5 +81,5 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath)

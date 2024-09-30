@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: getVoices() Methode"
+title: "SpeechSynthesis: Methode getVoices()"
 short-title: getVoices()
 slug: Web/API/SpeechSynthesis/getVoices
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`getVoices()`**-Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces gibt eine Liste von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle verfügbaren Stimmen auf dem aktuellen Gerät repräsentieren.
+Die Methode **`getVoices()`** der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle gibt eine Liste von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle verfügbaren Stimmen auf dem aktuellen Gerät darstellen.
 
 ## Syntax
 

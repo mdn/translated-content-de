@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`location`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt den mit dem Worker verbundenen [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) zurück. Es handelt sich um ein spezielles Location-Objekt, das hauptsächlich ein Teilmengenobjekt des [`Location`](/de/docs/Web/API/Location) für Browsing-Bereiche darstellt, jedoch an Worker angepasst wurde.
+Die schreibgeschützte **`location`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt die mit dem Worker verknüpfte [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) zurück. Es handelt sich um ein spezifisches Location-Objekt, das größtenteils ein Teilset des [`Location`](/de/docs/Web/API/Location) für Browserscopes ist, jedoch an Worker angepasst wurde.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekt.
 
 ## Beispiele
 
-Wenn Sie das Folgende in einem Dokument, das unter `localhost:8000` bereitgestellt wird, aufrufen
+Wenn Sie das Folgende in einem Dokument aufgerufen haben, das unter `localhost:8000` bereitgestellt wird
 
 ```js
 console.log(location);
 ```
 
-innerhalb eines Workers (was im Wesentlichen dem Äquivalent von `self.console.log(self.location);` entsprechen würde, da diese im Worker-Scope aufgerufen werden, der mit [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self) referenziert werden kann), erhalten Sie ein [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekt, das in die Konsole geschrieben wird — etwa so:
+innerhalb eines Werkers (was im Wesentlichen dem Äquivalent von `self.console.log(self.location);` entspricht, da diese im Kontext des Werkers aufgerufen werden, welcher mit [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self) referenziert werden kann), wird ein [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekt in die Konsole geschrieben — etwa wie das Folgende:
 
 ```plain
 WorkerLocation {hash: "", search: "", pathname: "/worker.js", port: "8000", hostname: "localhost"…}
@@ -38,10 +38,10 @@ WorkerLocation {hash: "", search: "", pathname: "/worker.js", port: "8000", host
   __proto__: WorkerLocation
 ```
 
-Sie könnten dieses Location-Objekt verwenden, um mehr Informationen über den Standort des Dokuments zurückzugeben, so wie Sie es mit einem normalen [`Location`](/de/docs/Web/API/Location)-Objekt tun würden.
+Sie könnten dieses Location-Objekt verwenden, um mehr Informationen über den Speicherort des Dokuments zu erhalten, so wie Sie es mit einem normalen [`Location`](/de/docs/Web/API/Location) Objekt tun würden.
 
 > [!NOTE]
-> Firefox hat einen Bug beim Verwenden von `console.log` innerhalb von Shared/Service-Workern (siehe [Firefox bug 1058644](https://bugzil.la/1058644)), der seltsame Ergebnisse zurückgeben kann, aber dieser sollte bald behoben sein.
+> Firefox hat einen Bug bei der Verwendung von `console.log` in gemeinsam genutzten/service Workern (siehe [Firefox Bug 1058644](https://bugzil.la/1058644)), was zu seltsamen Ergebnissen führen kann. Dies sollte jedoch bald behoben sein.
 
 ## Spezifikationen
 

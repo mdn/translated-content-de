@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse `descendant` zeigt alle Kinder des Kontextknotens an, sowie alle deren Kinder und so weiter. Attribut- und Namespace-Knoten sind **nicht** enthalten – das übergeordnete Element eines Attributknotens ist ein Elementknoten, aber Attributknoten sind nicht die Kinder ihrer Eltern.
+Die `descendant`-Achse bezeichnet alle Kinder des Kontextknotens und alle deren Kinder und so weiter. Attribut- und Namensraum-Knoten sind **nicht** enthalten - das Elternteil eines Attributknotens ist ein Elementknoten, aber Attributknoten sind nicht die Kinder ihrer Eltern.

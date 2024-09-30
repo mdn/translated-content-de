@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle ist ein standardisierter Serializer, der eine JSON-Darstellung der Eigenschaften des `ContactAddress`-Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle ist ein standardmäßiger Serialisierer, der eine JSON-Darstellung der Eigenschaften des `ContactAddress`-Objekts zurückgibt.
 
 ## Syntax
 

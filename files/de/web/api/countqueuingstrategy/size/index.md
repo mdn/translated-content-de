@@ -1,5 +1,5 @@
 ---
-title: "CountQueuingStrategy: size() Methode"
+title: "CountQueuingStrategy: size()-Methode"
 short-title: size()
 slug: Web/API/CountQueuingStrategy/size
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`size()`** Methode der
-[`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)-Schnittstelle gibt immer `1` zurück, sodass die Gesamtspeichergröße eine Zählung der Anzahl von Chunks in der Warteschlange ist.
+Die **`size()`**-Methode des
+[`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)-Interfaces gibt immer `1` zurück, sodass die
+gesamte Warteschlangengröße die Anzahl der Chunks in der Warteschlange darstellt.
 
 ## Syntax
 
@@ -59,4 +60,4 @@ const size = queuingStrategy.size();
 
 ## Siehe auch
 
-- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy) Konstruktor
+- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy)-Konstruktor

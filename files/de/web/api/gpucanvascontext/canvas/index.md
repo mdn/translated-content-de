@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`canvas`**-Eigenschaft des [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Interfaces gibt eine Referenz auf das Canvas zurück, von dem der Kontext erstellt wurde.
+Die **`canvas`**-Eigenschaft des [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das Canvas zurückgibt, aus dem der Kontext erstellt wurde.
 
 ## Wert
 
-Eine Instanz eines [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)- oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
+Eine Instanz des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)- oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
 
 ## Beispiele
 

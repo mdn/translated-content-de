@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`elementTiming`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces kennzeichnet Elemente zur Beobachtung durch die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) API. Die `elementTiming`-Eigenschaft spiegelt den Wert des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs wider.
+Die **`elementTiming`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces identifiziert Elemente zur Beobachtung in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API. Die `elementTiming`-Eigenschaft spiegelt den Wert des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs wider.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-### Den Wert von `elementTiming` protokollieren
+### Protokollierung des Wertes von `elementTiming`
 
 In diesem Beispiel setzt das Hinzufügen des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs zum {{HTMLElement("img")}}-Element das Bild zur Beobachtung.
 
@@ -28,14 +28,14 @@ In diesem Beispiel setzt das Hinzufügen des [`elementtiming`](/de/docs/Web/HTML
   id="myImage" />
 ```
 
-Sie können den String-Wert des `elementtiming` HTML-Attributs erhalten, indem Sie `el.elementTiming` aufrufen.
+Sie können den String-Wert des `elementtiming`-HTML-Attributs erhalten, indem Sie `el.elementTiming` aufrufen.
 
 ```js
 const el = document.getElementById("myImage");
 console.log(el.elementTiming); // "big-image"
 ```
 
-Für ein vollständigeres Beispiel zur Nutzung der Element Timing API, siehe [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming).
+Für ein umfassenderes Beispiel, wie man die Element Timing API verwendet, siehe [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming).
 
 ## Spezifikationen
 

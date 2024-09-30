@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keinen CSS-Eigenschaften verwendet.
+Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z. B. die Tonhöhe einer Sprechstimme, werden derzeit in keinem CSS-Attribut verwendet.
 
 ## Syntax
 
-Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; beachten Sie deren jeweilige Referenzseiten für Details zu ihren Syntaxen.
+Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; sehen Sie auf deren individuellen Referenzseiten, um Details zu deren Syntax zu erhalten.
 
 ## Beschreibung
 
 ### Verwendung in calc()
 
-Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
+Wenn ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
 
 ## Formale Syntax
 
@@ -25,7 +25,7 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 
 ## Beispiele
 
-### Gültige Prozentsatzwerte
+### Gültige Prozentwerte
 
 ```plain example-good
 90% Positive percentage
@@ -33,7 +33,7 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 -90% Negative percentage — not valid for all properties that use percentages
 ```
 
-### Ungültige Prozentsatzwerte
+### Ungültige Prozentwerte
 
 ```plain example-bad
 90 % No space is allowed between the number and the unit

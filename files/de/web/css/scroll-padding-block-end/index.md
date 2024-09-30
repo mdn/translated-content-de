@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-block-end` definiert Abstände für den Endrand in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion dient, um Elemente in das Blickfeld des Benutzers zu bringen. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
+Die Eigenschaft `scroll-padding-block-end` definiert Versätze für den Endrand in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielbereich verwendet wird, um Dinge in die Sicht des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-block-end.html")}}
 
@@ -33,9 +33,9 @@ scroll-padding-block-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand vom Block-Endrand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein innerer Versatz vom Blockendrand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Abstand wird von der Benutzeroberfläche bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und anpassen, wenn ein Wert ungleich null passender ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes tun, wenn ein nicht-null Wert angemessener ist.
 
 ## Formale Definition
 

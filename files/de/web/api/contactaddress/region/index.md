@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`region`**-Eigenschaft des [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Interfaces gibt eine Zeichenkette zurück, die die oberste Verwaltungseinheit des Landes enthält, in dem sich die Adresse befindet. Dies kann ein Staat, eine Provinz, ein Oblast oder ein Präfektur sein.
+Die schreibgeschützte **`region`**-Eigenschaft der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle liefert eine Zeichenfolge, die die oberste Verwaltungseinheit des Landes enthält, in dem sich die Adresse befindet. Dies kann ein Staat, eine Provinz, ein Oblast oder eine Präfektur sein.
 
 ## Wert
 
-Eine Zeichenkette, die die oberste Verwaltungseinheit innerhalb des Landes angibt, in dem sich die Adresse befindet. Diese Region hat in verschiedenen Ländern unterschiedliche Namen, wie z.B.: Staat, Provinz, Oblast, Präfektur oder County.
+Eine Zeichenfolge, die die oberste Verwaltungseinheit des Landes angibt, in dem sich die Adresse befindet. Diese Region hat in verschiedenen Ländern unterschiedliche Bezeichnungen, wie: Staat, Provinz, Oblast, Präfektur oder Kreis.
 
-## Hinweise zur Nutzung
+## Nutzungshinweise
 
-In einigen Ländern, wie Belgien, ist es unüblich, dass Personen eine Region als Teil ihrer Postanschrift angeben. In solchen Fällen gibt der Browser eine leere Zeichenkette als Wert der `region` zurück. Die Adresse sollte jedoch trotzdem für den beabsichtigten Zweck akzeptabel sein (z.B. zum Versand eines Produkts). Es sollte jedoch immer überprüft werden, ob die angegebenen Adressen nutzbar sind.
+In einigen Ländern, wie Belgien, ist es ungewöhnlich, dass Personen eine Region als Teil ihrer Postadresse angeben. In solchen Fällen gibt der Browser eine leere Zeichenfolge als Wert von `region` zurück. Die Adresse sollte jedoch trotzdem für den vorgesehenen Zweck verwendet werden können (z. B. um ein Produkt zu versenden). Überprüfen Sie jedoch immer die Adressen, um sicherzustellen, dass das, was der Benutzer bereitstellt, verwendbar ist.
 
 ## Spezifikationen
 

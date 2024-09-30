@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`takeRecords()`**-Methode der [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Schnittstelle gibt die aktuelle Liste der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die im Performance-Observer gespeichert sind, und leert ihn.
+Die **`takeRecords()`**-Methode des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Interfaces gibt die aktuelle Liste von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten zurück, die im Performance-Observer gespeichert sind, und leert diesen.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Eine Liste von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten.
 
 ## Beispiele
 
-### Aufzeichnungen übernehmen
+### Aufzeichnungen entnehmen
 
-Im folgenden Beispiel wird die aktuelle Liste der Performance-Einträge in `records` gespeichert und der Performance-Observer geleert.
+Das folgende Beispiel speichert die aktuelle Liste der Performance-Einträge in `records` und leert den Performance-Observer.
 
 ```js
 const observer = new PerformanceObserver((list, obj) => {

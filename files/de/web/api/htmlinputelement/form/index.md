@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{HTMLElement("input")}} besitzt, oder `null`, wenn dieses Eingabeelement von keinem Formular besessen wird.
+Die **`form`** schreibgeschützte Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{HTMLElement("input")}} besitzt, oder `null`, wenn dieses Eingabefeld zu keinem Formular gehört.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("input")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [HTML-Formulare-Leitfaden](/de/docs/Learn/Forms)

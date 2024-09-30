@@ -1,5 +1,5 @@
 ---
-title: "SVGPointList: insertItemBefore() Methode"
+title: "SVGPointList: insertItemBefore()-Methode"
 short-title: insertItemBefore()
 slug: Web/API/SVGPointList/insertItemBefore
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`insertItemBefore()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) vor einem anderen Element in der Liste ein.
+Die **`insertItemBefore()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) vor einem anderen Element in der Liste ein.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ insertItemBefore(obj, index)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des einzufügenden Punktes enthält.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des einzufügenden Punkts enthält.
 - `index`
-  - : Der Index des Elements, vor dem das Objekt eingefügt werden soll. Wenn der übergebene Index größer ist als die Länge der Liste, wird der Index auf die Listenlänge gesetzt und das Element vor dem letzten Element der Liste eingefügt.
+  - : Der Index des Elements, vor dem das Objekt eingefügt werden soll. Wenn der übergebene Index größer als die Länge der Liste ist, wird der Index auf die Listenlänge gesetzt und das Element vor dem letzten Element in der Liste eingefügt.
 
 ### Rückgabewert
 
-Das eingetragene [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
+Das eingefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
@@ -34,7 +34,7 @@ Das eingetragene [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und vor dem Punkt an Index `2` eingefügt.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und vor dem Punkt an Index `2` eingefügt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

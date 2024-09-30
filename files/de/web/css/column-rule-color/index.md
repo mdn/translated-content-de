@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Linie fest, die zwischen Spalten in einem Multi-Spalten-Layout gezeichnet wird.
+Die **`column-rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Linie fest, die in einem Mehrspalten-Layout zwischen den Spalten gezeichnet wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-color.html")}}
 
@@ -45,7 +45,7 @@ Die Eigenschaft `column-rule-color` wird als einzelner `<color>` Wert angegeben.
 
 ## Beispiele
 
-### Setzen einer blauen Spaltenlinie
+### Eine blaue Spaltenlinie setzen
 
 #### HTML
 
@@ -81,5 +81,5 @@ p {
 
 ## Siehe auch
 
-- Der {{cssxref("&lt;color&gt;")}} Datentyp
+- Der Datentyp {{cssxref("&lt;color&gt;")}}
 - Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("caret-color")}}

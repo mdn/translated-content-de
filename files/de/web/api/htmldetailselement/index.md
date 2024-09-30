@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLDetailsElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu den regulären, die es durch Vererbung von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle bereits hat) zur Manipulation von {{HTMLElement("details")}}-Elementen.
+Die **`HTMLDetailsElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle, die sie durch Vererbung ebenfalls zur Verfügung hat) zum Manipulieren von {{HTMLElement("details")}}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDetailsElement.name`](/de/docs/Web/API/HTMLDetailsElement/name)
-  - : Eine Zeichenfolge, die das [`name`](/de/docs/Web/HTML/Element/details#name)-HTML-Attribut widerspiegelt, welches es Ihnen ermöglicht, eine Gruppe von sich gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe führt dazu, dass andere Elemente der Gruppe geschlossen werden.
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/details#name)-HTML-Attribut widerspiegelt, welches es Ihnen ermöglicht, eine Gruppe von sich gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe bewirkt, dass andere Elemente der Gruppe geschlossen werden.
 - [`HTMLDetailsElement.open`](/de/docs/Web/API/HTMLDetailsElement/open)
-  - : Ein boolescher Wert, der das [`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attribut widerspiegelt und angibt, ob die Inhalte des Elements (außer das {{HTMLElement("summary")}}) dem Benutzer angezeigt werden sollen.
+  - : Ein boolescher Wert, der das [`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attribut widerspiegelt und angibt, ob die Inhalte des Elements (außer dem {{HTMLElement("summary")}}) dem Benutzer angezeigt werden sollen oder nicht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignisse
 
-Hören Sie auf dieses Ereignis, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden oder einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Hören Sie auf dieses Ereignis mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener an die `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
 
 - [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event)
-  - : Wird ausgelöst, wenn der `open`/`closed`-Zustand eines {{HtmlElement("details")}}-Elements umgeschaltet wird.
+  - : Wird ausgelöst, wenn der `offen`/`geschlossen`-Zustand eines {{HtmlElement("details")}}-Elements umgeschaltet wird.
 
 ## Spezifikationen
 

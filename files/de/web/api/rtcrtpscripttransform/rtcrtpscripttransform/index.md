@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCRtpScriptTransform()`** Konstruktor erstellt ein neues [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) Objekt.
+Der **`RTCRtpScriptTransform()`** Konstruktor erstellt ein neues [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)-Objekt.
 
-Beim Erstellen des `RTCRtpScriptTransform` wird ein entsprechender [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) im angegebenen Worker erstellt, zusammen mit den übergebenen Optionen (falls vorhanden). Objekte im dritten Parameter des Konstruktors werden übertragen.
+Die Konstruktion des `RTCRtpScriptTransform` erzeugt einen entsprechenden [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) im angegebenen Worker, zusammen mit übergebenen Optionen (falls vorhanden). Objekte im dritten Parameter des Konstruktors werden übertragen.
 
-Das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis wird dann beim Worker-Globalobjekt ausgelöst.
-Worker-Code kann die `event.transformer` Eigenschaft verwenden, um den entsprechenden [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zu erhalten, und `event.transformer.options` wird verwendet, um die Optionen abzurufen.
+Das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignis wird dann im globalen Worker-Objekt ausgelöst. Der Worker-Code kann die `event.transformer`-Eigenschaft verwenden, um den entsprechenden [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zu erhalten, und `event.transformer.options` wird verwendet, um die Optionen zu erhalten.
 
-Beachten Sie, dass die Optionen in erster Linie verwendet werden, um den Worker darüber zu informieren, ob der Transformer eingehende oder ausgehende Frames verarbeitet, damit eine entsprechende Transformation angewendet werden kann.
+Beachten Sie, dass die Optionen hauptsächlich verwendet werden, um den Worker darüber zu informieren, ob der Transformer eingehende oder ausgehende Frames verarbeitet, damit eine geeignete Transformation angewendet werden kann.
 
 ## Syntax
 
@@ -28,13 +27,13 @@ new RTCRtpScriptTransform(worker, options, transfer)
 ### Parameter
 
 - `worker`
-  - : Ein [`Worker`](/de/docs/Web/API/Worker), der den Code für einen oder mehrere WebRTC Transform-Streams definiert.
+  - : Ein [`Worker`](/de/docs/Web/API/Worker), der Code für einen oder mehrere WebRTC-Transformations-Streams definiert.
 - `options` {{optional_inline}}
   - : Ein beliebiges Objekt, das im Worker verfügbar gemacht wird.
-    Dies wird am häufigsten verwendet, um den Worker zu informieren, ob er in die WebRTC-Sender- oder -Empfänger-Pipeline einfügt und daher welche Transformation angewendet werden soll.
-    Es kann jedoch auch verwendet werden, um jedes andere Objekt zu senden, wie zum Beispiel ein [`MessagePort`](/de/docs/Web/API/MessagePort), um dynamisch mit dem Transformer zu kommunizieren.
+    Dies wird meistens verwendet, um den Worker darüber zu informieren, ob er in die WebRTC-Sender- oder Empfänger-Pipeline eingefügt wurde und daher, welche Transformation angewendet werden sollte. 
+    Es kann jedoch auch verwendet werden, um jedes andere Objekt zu senden, wie z. B. einen [`MessagePort`](/de/docs/Web/API/MessagePort) zur dynamischen Kommunikation mit dem Transformer.
 - `transfer` {{optional_inline}}
-  - : Eine optionale [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die an den Worker übertragen werden.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die an den Worker übertragen werden.
     Nach der Übertragung sind diese Objekte im Haupt-Thread nicht mehr verwendbar.
 
 ### Ausnahmen
@@ -44,8 +43,8 @@ new RTCRtpScriptTransform(worker, options, transfer)
 
 ## Beispiele
 
-Das erste Beispiel unten zeigt die Erstellung eines [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform), das dann einem [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) zugewiesen wird.
-Der Konstruktor nimmt ein optionales Objekt mit den Eigenschaften `name` und `senderTransform`.
+Das erste Beispiel unten zeigt die Konstruktion eines [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform), das dann einem [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) zugewiesen wird.
+Der Konstruktor nimmt ein optionales Objekt mit der Eigenschaft `name` und `senderTransform`.
 Der Worker kann diese Option verwenden, um zu verstehen, wann er codierte Frames vom Encoder transformiert (anstatt eingehende Frames vom Paketierer).
 
 ```js
@@ -56,8 +55,8 @@ videoSender.transform = new RTCRtpScriptTransform(worker, {
 });
 ```
 
-Jeder Eigenschaftsname und -wert kann in den Optionen verwendet werden, solange sie serialisiert (und [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects), wenn im letzten Konstruktorparameter angegeben) werden können.
-Der untenstehende Code überträgt den zweiten Port eines [`MessageChannel`](/de/docs/Web/API/MessageChannel) an den Worker, was wir möglicherweise tun, um den Transformationscode dynamisch mit (zum Beispiel) einem neuen Verschlüsselungsschlüssel zu aktualisieren.
+Jeder Eigenschaftenname und -wert kann in den Optionen verwendet werden, solange sie serialisierbar sind (und [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects), wenn im letzten Konstruktorparameter spezifiziert).
+Der unten stehende Code überträgt den zweiten Port eines [`MessageChannel`](/de/docs/Web/API/MessageChannel) an den Worker, was wir tun könnten, um den Transformationscode dynamisch mit (zum Beispiel) einem neuen Verschlüsselungsschlüssel zu aktualisieren.
 
 ```js
 // Create a worker containing a TransformStream
@@ -81,6 +80,6 @@ const transform = new RTCRtpScriptTransform(
 
 ## Siehe auch
 
-- [WebRTC Encoded Transforms verwenden](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
 - [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)
 - [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform)

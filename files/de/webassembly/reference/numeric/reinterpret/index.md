@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`reinterpret`** Anweisungen dienen dazu, die Bits einer Zahl als einen anderen Typ zu interpretieren.
+Die **`reinterpret`**-Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
 
 {{EmbedInteractiveExample("pages/wat/reinterpret.html", "tabbed-taller")}}
 

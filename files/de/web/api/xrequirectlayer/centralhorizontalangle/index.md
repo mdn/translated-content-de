@@ -12,13 +12,13 @@ Die **`centralHorizontalAngle`**-Eigenschaft des [`XREquirectLayer`](/de/docs/We
 
 ## Wert
 
-Eine Nummer, die den zentralen horizontalen Winkel in Radiant für die Kugel darstellt. Wird `centralHorizontalAngle` auf einen Wert kleiner als 0 gesetzt, wird es auf 0 gesetzt, und bei einem Wert größer als 2π wird es auf 2π gesetzt.
+Eine Zahl, die den zentralen horizontalen Winkel in Radiant für die Kugel darstellt. Wenn `centralHorizontalAngle` auf einen Wert kleiner als 0 gesetzt wird, wird er auf 0 gesetzt, und wenn er auf einen Wert größer als 2π gesetzt wird, wird er auf 2π gesetzt.
 
 ## Beispiele
 
-### Ermitteln des zentralen horizontalen Winkels einer Ebene
+### Den zentralen horizontalen Winkel eines Layers abrufen
 
-Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equirektere Ebene und ermöglicht die Angabe eines `centralHorizontalAngle`. Die Eigenschaft `XREquirectLayer.centralHorizontalAngle` kann nach Erstellung der Ebene verwendet werden, um den verwendeten zentralen horizontalen Winkel zu ermitteln oder um ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt einen equirekten Layer und ermöglicht die Angabe eines `centralHorizontalAngle`. Die Eigenschaft `XREquirectLayer.centralHorizontalAngle` kann nach der Erstellung des Layers verwendet werden, um den verwendeten zentralen horizontalen Winkel abzurufen oder ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({

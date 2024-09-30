@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`dependentLocality`**-Eigenschaft der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Schnittstelle ist ein String, der eine Sublokalitätsbezeichnung innerhalb einer Stadt enthält, wie etwa ein Stadtviertel, Bezirk, Distrikt oder, im Vereinigten Königreich, eine abhängige Lokalität. Auch bekannt als _post town_.
+Die schreibgeschützte **`dependentLocality`**-Eigenschaft der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Schnittstelle ist ein String, der eine Sublokalitätsbezeichnung innerhalb einer Stadt enthält, wie zum Beispiel ein Viertel, Stadtbezirk oder, im Vereinigten Königreich, eine abhängige Lokalität. Auch bekannt als _post town_.
 
 ## Wert
 
-Ein String, der den Sublokalitätsteil der Adresse angibt. Dieser kann ein leerer String sein, wenn keine Sublokalität verfügbar oder erforderlich ist. Er wird verwendet, um Klarheit zu schaffen, wenn eine Stadt Gebiete mit doppelten Straßennamen enthalten kann.
+Ein String, der den Sublokalitätsanteil der Adresse angibt. Dieser kann ein leerer String sein, wenn keine Sublokalität verfügbar oder erforderlich ist. Er wird verwendet, um Unklarheiten zu beseitigen, wenn eine Stadt Bereiche enthält, die Straßennamen duplizieren.
 
-Eine Sublokalität ist ein Gebiet innerhalb einer Stadt, wie ein Stadtviertel, Bezirk oder Distrikt. Im Vereinigten Königreich wird dies verwendet, um die **post town** im Vereinigten Königreich anzuzeigen (offiziell von der Royal Mail als **dependent locality** bekannt). Dies ist eine disambiguierende Funktion von Adressen in Gegenden, in denen eine Stadt Gebiete mit doppelten Straßennamen haben kann.
+Eine Sublokalität ist ein Bereich innerhalb einer Stadt, wie ein Viertel, Stadtbezirk oder Distrikt. Im Vereinigten Königreich wird dies verwendet, um die **post town** im Vereinigten Königreich anzugeben (offiziell durch die Royal Mail als **dependent locality** bekannt). Dies ist eine Funktion zur Beseitigung von Unklarheiten bei Adressen in Gebieten, in denen eine Stadt Bereiche mit gleichen Straßennamen haben kann.
 
 ## Browser-Kompatibilität
 

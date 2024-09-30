@@ -9,26 +9,25 @@ l10n:
 {{APIRef}}
 
 Die **`fetchPriority`**-Eigenschaft des
-[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces repräsentiert einen Hinweis an den Browser, wie
-er das Laden des Bildes im Vergleich zu anderen Bildern priorisieren soll.
+[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces stellt einen Hinweis für den Browser dar, wie er das Laden des Bildes im Vergleich zu anderen Bildern priorisieren sollte.
 
 ## Wert
 
 Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
 
 - `high`
-  - : Das Bild mit hoher Priorität im Vergleich zu anderen Bildern laden.
+  - : Das Bild wird mit hoher Priorität im Vergleich zu anderen Bildern geladen.
 - `low`
-  - : Das Bild mit niedriger Priorität im Vergleich zu anderen Bildern laden.
+  - : Das Bild wird mit niedriger Priorität im Vergleich zu anderen Bildern geladen.
 - `auto`
-  - : Standardmodus, der keine Präferenz für die Ladepriorität festlegt.
-    Der Browser entscheidet, was am besten für den Benutzer ist.
+  - : Standardmodus, der keine Präferenz für die Ladepriorität angibt.
+    Der Browser entscheidet, was das Beste für den Benutzer ist.
 
-Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, Signale für hohe oder niedrige Priorität für Bildladevorgänge zu senden. Dies kann nützlich sein, wenn es auf {{HTMLElement("img")}}-Elemente angewendet wird, um anzuzeigen, dass Bilder zu Beginn des Ladeprozesses "wichtig" für die Benutzererfahrung sind.
+Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, hohe oder niedrige Priorität für das Laden von Bildern anzugeben. Dies kann nützlich sein, wenn es auf {{HTMLElement("img")}}-Elemente angewendet wird, um anzuzeigen, dass Bilder früh im Ladeprozess für die Benutzererfahrung "wichtig" sind.
 
-Die Auswirkungen des Hinweises auf das Ressourcenladen sind browserspezifisch, testen Sie daher in mehreren Browser-Engines.
+Die Auswirkungen des Hinweises auf das Ressourcenladen sind browserspezifisch, daher sollten Sie Tests auf mehreren Browser-Engines durchführen.
 
-Verwenden Sie es sparsam für besondere Fälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Methode zum Laden des Bildes zu ermitteln. Übermäßige Nutzung kann die Leistung beeinträchtigen.
+Verwenden Sie es sparsam für Ausnahmefälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Ladeweise zu bestimmen. Übermäßiger Gebrauch kann zu Leistungseinbußen führen.
 
 ## Beispiele
 

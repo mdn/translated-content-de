@@ -1,5 +1,5 @@
 ---
-title: "Range: Methode selectNodeContents()"
+title: "Range: selectNodeContents()-Methode"
 short-title: selectNodeContents()
 slug: Web/API/Range/selectNodeContents
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.selectNodeContents()`**-Methode setzt das [`Range`](/de/docs/Web/API/Range), um den Inhalt eines [`Node`](/de/docs/Web/API/Node) zu umfassen.
+Die **`Range.selectNodeContents()`**-Methode setzt den [`Range`](/de/docs/Web/API/Range), um die Inhalte eines [`Node`](/de/docs/Web/API/Node) zu enthalten.
 
-Der übergeordnete `Node` des Anfangs und Endes des `Range` wird der Referenz-Knoten sein. Der `startOffset` ist 0, und der `endOffset` ist die Anzahl der Kind-`Node`s oder die Anzahl der Zeichen, die im Referenz-Knoten enthalten sind.
+Der übergeordnete `Node` des Beginns und Endes des `Range` wird der Referenzknoten sein. Der `startOffset` ist 0, und der `endOffset` ist die Anzahl der Kind-`Node`s oder die Anzahl der Zeichen, die im Referenzknoten enthalten sind.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ selectNodeContents(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), dessen Inhalt innerhalb eines [`Range`](/de/docs/Web/API/Range) ausgewählt wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), dessen Inhalte innerhalb eines [`Range`](/de/docs/Web/API/Range) ausgewählt werden.
 
 ### Rückgabewert
 
@@ -37,9 +37,7 @@ range.selectNodeContents(referenceNode);
 
 ### Live-Beispiel
 
-Dieses Beispiel ermöglicht es dem Benutzer, einen Absatz mit Schaltflächen auszuwählen und die Auswahl aufzuheben. [`Document.createRange()`](/de/docs/Web/API/Document/createRange), `Range.selectNodeContents()` und
-[`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) werden verwendet, um den Inhalt auszuwählen.
-[`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) werden verwendet, um die Auswahl aufzuheben.
+Dieses Beispiel ermöglicht es dem Benutzer, einen Absatz mit Buttons auszuwählen und abzuwählen. [`Document.createRange()`](/de/docs/Web/API/Document/createRange), `Range.selectNodeContents()` und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) werden verwendet, um den Inhalt auszuwählen. [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) werden verwendet, um ihn abzuwählen.
 
 #### HTML
 
@@ -90,4 +88,4 @@ deselectButton.addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

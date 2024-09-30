@@ -1,5 +1,5 @@
 ---
-title: "HTMLMeterElement: optimum-Eigenschaft"
+title: "HTMLMeterElement: optimum Eigenschaft"
 short-title: optimum
 slug: Web/API/HTMLMeterElement/optimum
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`optimum`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die optimale Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`optimum`](/de/docs/Web/HTML/Element/meter#optimum)-Attribut des Elements wider oder, falls nicht definiert, den Mittelwert zwischen `min`- und `max`-Werten. Der Wert von `optimum` wird durch die `min`- und `max`-Werte begrenzt.
+Die **`optimum`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces stellt die optimale Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl dar. Sie spiegelt das [`optimum`](/de/docs/Web/HTML/Element/meter#optimum)-Attribut des Elements wider oder den Mittelwert zwischen `min` und `max`, falls nicht definiert. Der Wert von `optimum` wird durch die `min`- und `max`-Werte begrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel, um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer bestimmten Bedingung zu definieren.
 
 ## Wert
 
-Eine Zahl. Standardmäßig der Mittelwert zwischen [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) und [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max), wenn nicht definiert.
+Eine Zahl. Voreingestellt auf den Mittelwert zwischen [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) und [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max), falls nicht definiert.
 
 ## Beispiele
 
-In diesem Beispiel wird kein `optimum`-Wert gesetzt.
+In diesem Beispiel ist kein `optimum`-Wert festgelegt.
 
 ```html
 <label for="review">Star rating:</label>
 <meter id="review" min="0" max="10" low="2" high="8" value="9"></meter>
 ```
 
-Auch wenn er nicht explizit definiert ist, ist das Standard-`optimum` der Mittelwert zwischen `min` und `max`, kann aber auf jeden Wert zwischen `min` und `max` (einschließlich) gesetzt werden.
+Obwohl nicht explizit definiert, ist das Standard-`optimum` der Mittelwert zwischen `min` und `max`, es kann jedoch auf jeden Wert zwischen `min` und `max`, einschließlich der Grenzen, eingestellt werden.
 
 ```js
 const meterElement = document.getElementById("fuel");

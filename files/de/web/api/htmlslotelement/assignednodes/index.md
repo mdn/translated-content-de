@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`assignedNodes()`**-Methode der [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Schnittstelle gibt eine Sequenz der den Slot zugewiesenen Knoten zurück.
+Die **`assignedNodes()`** Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) Interfaces gibt eine Sequenz der Knoten zurück, die diesem Slot zugewiesen sind.
 
-Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz der diesem Slot zugewiesenen Knoten sowie der Knoten zurück, die allen anderen Slots zugewiesen sind, die Nachkommen dieses Slots sind. Falls keine zugewiesenen Knoten gefunden werden, wird der Fallback-Inhalt des Slots zurückgegeben.
+Wenn die `flatten` Option auf `true` gesetzt ist, gibt sie eine Sequenz sowohl der Knoten zurück, die diesem Slot zugewiesen sind, als auch der Knoten, die jedem anderen Slot zugewiesen sind, der ein Nachfahre dieses Slots ist. Wenn keine zugewiesenen Knoten gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ assignedNodes(options)
   - : Ein Objekt, das Optionen für die zurückzugebenden Knoten festlegt. Die verfügbaren Optionen sind:
 
     - `flatten`
-      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Knoten aller verfügbaren Kind-`<slot>`-Elemente zurückgegeben werden sollen (`true`) oder nicht (`false`). Standard ist `false`.
+      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Knoten aller verfügbaren Kind-`<slot>`-Elemente (`true`) oder nicht (`false`) zurückgegeben werden sollen. Standard ist `false`.
 
 ### Rückgabewert
 
@@ -46,9 +46,9 @@ slots[1].addEventListener("slotchange", (e) => {
 });
 ```
 
-Hier greifen wir auf alle Slots zu und fügen dem zweiten Slot im Template einen `slotchange`-Ereignislistener hinzu – das ist der Slot, dessen Inhalte im Beispiel ständig geändert werden.
+Hier holen wir Referenzen zu allen Slots und fügen dann einen Slotchange-Event-Listener dem zweiten Slot im Template hinzu – was derjenige ist, dessen Inhalt im Beispiel immer wieder geändert wird.
 
-Jedes Mal, wenn sich das in den Slot eingefügte Element ändert, protokollieren wir einen Bericht in die Konsole, der angibt, welcher Slot sich geändert hat und welcher neue Knoten sich im Slot befindet.
+Jedes Mal, wenn das in den Slot eingefügte Element sich ändert, protokollieren wir einen Bericht in der Konsole, der angibt, welcher Slot sich geändert hat und was der neue Knoten innerhalb des Slots ist.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateSelection()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle aktualisiert den internen Status der Auswahl innerhalb des editierbaren Textkontexts. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der Textdarstellung im zugehörigen Element des `EditContext` interagiert, z.B. durch Klicken oder Ziehen mit der Maus oder durch die Verwendung der Tastatur.
+Die **`updateSelection()`** Methode des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces aktualisiert den internen Zustand der Auswahl innerhalb des bearbeitbaren Textkontexts. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der im `EditContext` zugeordneten Element dargestellten Text interagiert, z. B. durch Klicken oder Ziehen der Maus oder durch Nutzung der Tastatur.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ updateSelection(start, end)
 ### Parameter
 
 - `start`
-  - : Eine Zahl, die den neuen Anfang der Auswahl darstellt.
+  - : Eine Zahl, die den neuen Start der Auswahl darstellt.
 - `end`
   - : Eine Zahl, die das neue Ende der Auswahl darstellt.
 
-Wenn die Werte von `start` und `end` gleich sind, entspricht die Auswahl einem Cursor.
+Wenn die Werte für `start` und `end` gleich sind, entspricht die Auswahl einem Cursor.
 
 ### Ausnahmen
 
-- Wenn nur ein Argument bereitgestellt wird, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn eines der Argumente keine positive Zahl ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn nur ein Argument angegeben wird, wird eine `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn ein Argument keine positive Zahl ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 - Wenn `start` größer als `end` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Beispiele
 
-### Aktualisieren der Auswahl, wenn der Benutzer mit dem Text interagiert
+### Aktualisierung der Auswahl, wenn der Benutzer mit dem Text interagiert
 
 Dieses Beispiel zeigt, wie die `updateSelection`-Methode verwendet wird, um die Auswahl im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn die Pfeiltasten verwendet werden, um den Cursor zu bewegen oder Text im bearbeitbaren Bereich auszuwählen.
 
@@ -84,4 +84,4 @@ canvas.addEventListener("keydown", (e) => {
 
 ## Siehe auch
 
-- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der sie gehört.
+- Das [`EditContext`](/de/docs/Web/API/EditContext)-Interface, zu dem es gehört.

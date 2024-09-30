@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer mit Ihrer Erweiterung zu interagieren beginnt, indem er das Schlüsselwort in die Adressleiste eingibt und dann die Leertaste drückt.
+Wird ausgelöst, wenn der Benutzer mit Ihrer Erweiterung interagiert, indem er deren Schlüsselwort in die Adressleiste eingibt und dann die Leertaste drückt.
 
-Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}} Ereignisse ausgelöst werden.
+Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}}-Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 

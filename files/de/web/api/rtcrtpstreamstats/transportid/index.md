@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt, aus dem die in den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Eigenschaften im [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) enthaltenen Statistiken stammen, eindeutig identifiziert.
+Die **`transportId`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt, aus dem die Statistiken in den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Eigenschaften im [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) enthalten sind, eindeutig identifiziert.
 
 ## Wert
 

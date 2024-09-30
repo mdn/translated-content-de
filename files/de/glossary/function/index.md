@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder von sich selbst aufgerufen werden kann, oder eine [Variable](/de/docs/Glossary/variable), die sich auf die Funktion bezieht. Wenn eine Funktion aufgerufen wird, werden [Argumente](/de/docs/Glossary/Argument) als Eingabe an die Funktion übergeben, und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in [JavaScript](/de/docs/Glossary/JavaScript) ist auch ein [Objekt](/de/docs/Glossary/object).
+Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder von sich selbst aufgerufen werden kann, oder eine [Variable](/de/docs/Glossary/variable), die auf die Funktion verweist. Wenn eine Funktion aufgerufen wird, werden [Argumente](/de/docs/Glossary/Argument) als Eingabe an die Funktion übergeben, und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in [JavaScript](/de/docs/Glossary/JavaScript) ist auch ein [Objekt](/de/docs/Glossary/object).
 
-Ein Funktionsname ist ein [Bezeichner](/de/docs/Glossary/identifier), der als Teil einer Funktionsdeklaration oder Funktionsausdrucks enthalten ist. Der [Gültigkeitsbereich](/de/docs/Glossary/scope) des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder ein Ausdruck ist.
+Ein Funktionsname ist ein [Identifier](/de/docs/Glossary/identifier), der Teil einer Funktionsdeklaration oder eines Funktionsausdrucks ist. Der [Scope](/de/docs/Glossary/scope) des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder ein Ausdruck ist.
 
 ### Verschiedene Arten von Funktionen
 
-Eine **anonyme Funktion** ist eine Funktion ohne Funktionsnamen. Nur Funktionsausdrücke können anonym sein, Funktionsdeklarationen müssen einen Namen haben:
+Eine **anonyme Funktion** ist eine Funktion ohne Funktionsname. Nur Funktionsausdrücke können anonym sein, Funktionsdeklarationen müssen einen Namen haben:
 
 ```js
 // Anonymous function created as a function expression
@@ -23,7 +23,7 @@ Eine **anonyme Funktion** ist eine Funktion ohne Funktionsnamen. Nur Funktionsau
 () => {};
 ```
 
-Die folgenden Begriffe werden nicht in der ECMAScript-Sprachspezifikation verwendet, sondern sind Fachjargon, der verwendet wird, um verschiedene Arten von Funktionen zu bezeichnen.
+Die folgenden Begriffe werden nicht in der ECMAScript-Sprachspezifikation verwendet, sie sind Jargon, um verschiedene Arten von Funktionen zu benennen.
 
 Eine **benannte Funktion** ist eine Funktion mit einem Funktionsnamen:
 
@@ -70,7 +70,7 @@ const loop2 = (x) => {
 };
 ```
 
-Ein **sofort aufgerufener Funktionsausdruck** ([IIFE](/de/docs/Glossary/IIFE)) ist eine Funktion, die direkt aufgerufen wird, nachdem die Funktion in den Compiler des Browsers geladen wurde. Ein IIFE kann daran erkannt werden, dass es am Ende der Funktionsdefinition extra linke und rechte Klammern gibt.
+Ein **sofort ausgeführter Funktionsausdruck** ([IIFE](/de/docs/Glossary/IIFE)) ist eine Funktion, die direkt nach dem Laden in den Compiler des Browsers aufgerufen wird. Ein IIFE ist daran zu erkennen, dass es am Ende der Funktionsdefinition zusätzliche Klammern gibt.
 
 Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
 
@@ -86,7 +86,7 @@ Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
 (() => console.log("hello world"))();
 ```
 
-Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktions*aussagen* sein müssen.
+Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktions_audrücke_ sein müssen.
 
 ```js example-bad
 function foo() {
@@ -94,9 +94,9 @@ function foo() {
 }();
 ```
 
-Wenn Sie mehr über IIFEs erfahren möchten, besuchen Sie die folgende Seite auf Wikipedia: [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
+Wenn Sie mehr über IIFEs wissen möchten, schauen Sie sich die folgende Seite auf Wikipedia an: [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
 
 ## Siehe auch
 
-- [Functions](/de/docs/Web/JavaScript/Guide/Functions)
-- [Arrow Functions](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions)

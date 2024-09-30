@@ -7,21 +7,21 @@ l10n:
 
 {{AddonSidebar}}
 
-Die `devtools.network`-API ermöglicht es einer Devtools-Erweiterung, Informationen über Netzwerkanforderungen zu erhalten, die mit dem Fenster verbunden sind, an das die Devtools angehängt sind (das inspizierte Fenster).
+Die `devtools.network` API ermöglicht es einer Devtools-Erweiterung, Informationen über Netzwerk-Anfragen zu erhalten, die mit dem Fenster verbunden sind, an das die Devtools angehängt sind (das inspizierte Fenster).
 
-Wie alle `devtools`-APIs ist diese API nur für Code verfügbar, der in dem Dokument läuft, das im [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page)-Manifest.json-Schlüssel definiert ist, oder in anderen Devtools-Dokumenten, die von der Erweiterung erstellt wurden (wie das eigene Dokument des Panels). Weitere Informationen finden Sie unter [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
+Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument ausgeführt wird, das im [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) manifest.json-Schlüssel definiert ist, oder in anderen Devtools-Dokumenten, die von der Erweiterung erstellt wurden (z. B. das eigene Dokument des Panels). Weitere Informationen finden Sie unter [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ## Funktionen
 
 - [`devtools.network.getHAR()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/network/getHAR)
-  - : Holt ein [HAR-Log](http://www.softwareishard.com/blog/har-12-spec/#log) für die Seite, die im aktuellen Tab geladen ist.
+  - : Holt ein [HAR-Protokoll](http://www.softwareishard.com/blog/har-12-spec/#log) für die im aktuellen Tab geladene Seite.
 
 ## Ereignisse
 
 - [`devtools.network.onNavigated`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/network/onNavigated)
   - : Wird ausgelöst, wenn der Benutzer das inspizierte Fenster zu einer neuen Seite navigiert.
 - [`devtools.network.onRequestFinished`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/network/onRequestFinished)
-  - : Wird ausgelöst, wenn die Netzwerkanforderung abgeschlossen ist und ihre Details der Erweiterung zur Verfügung stehen.
+  - : Wird ausgelöst, wenn die Netzwerk-Anfrage abgeschlossen ist und die Details der Erweiterung zur Verfügung stehen.
 
 ## Browser-Kompatibilität
 
@@ -30,7 +30,7 @@ Wie alle `devtools`-APIs ist diese API nur für Code verfügbar, der in dem Doku
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
+> Diese API basiert auf der [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

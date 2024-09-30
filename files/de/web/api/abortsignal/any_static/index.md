@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`AbortSignal.any()`** statische Methode nimmt ein iterierbares Objekt von Abbruchsignalen und gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Eingangssignale im iterierbaren Objekt abgebrochen wird. Der [Abbruchgrund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Signals gesetzt, das abgebrochen wird. Wenn eines der gegebenen Abbruchsignale bereits abgebrochen ist, wird auch das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen.
+Die **`AbortSignal.any()`** statische Methode nimmt ein Iterable von Abbruchsignalen und gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Eingabe-Abbruchsignale abgebrochen wird. Der [Abbruchgrund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Signals gesetzt, das abgebrochen wird. Wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist, wird auch das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ AbortSignal.any(iterable)
 ### Parameter
 
 - `iterable`
-  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
+  - : Ein [Iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
 
 ### Rückgabewert
 
 Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das:
 
-- **Bereits abgebrochen** ist, wenn eines der gegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird bereits auf den [`reason`](/de/docs/Web/API/AbortSignal/reason) des ersten Abbruchsignals gesetzt, das bereits abgebrochen war.
-- **Asynchron abgebrochen** wird, wenn eines der Abbruchsignale im `iterable` abgebrochen wird. Der [`reason`](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten abgebrochenen Abbruchsignals gesetzt.
+- **Bereits abgebrochen** ist, wenn eines der gegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird bereits auf den [Grund](/de/docs/Web/API/AbortSignal/reason) des ersten Abbruchsignals gesetzt, das bereits abgebrochen war.
+- **Asynchron abgebrochen** wird, wenn ein Abbruchsignal in `iterable` abbricht. Der [Grund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Abbruchsignals gesetzt, das abgebrochen wird.
 
 ## Beispiele
 
 ### Verwendung von `AbortSignal.any()`
 
-Dieses Beispiel zeigt die Kombination eines Signals von einem [`AbortController`](/de/docs/Web/API/AbortController) und eines Timeout-Signals von [`AbortSignal.timeout`](/de/docs/Web/API/AbortSignal/timeout_static).
+Dieses Beispiel demonstriert die Kombination eines Signals von einem [`AbortController`](/de/docs/Web/API/AbortController) und eines Timeout-Signals von [`AbortSignal.timeout`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");

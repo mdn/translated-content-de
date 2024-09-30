@@ -1,5 +1,5 @@
 ---
-title: "CloseWatcher: requestClose() Methode"
+title: "CloseWatcher: requestClose()-Methode"
 short-title: requestClose()
 slug: Web/API/CloseWatcher/requestClose
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Die **`requestClose()`** Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle löst ein `cancel`-Ereignis aus, und wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, fährt sie fort, ein `close`-Ereignis auszulösen, und deaktiviert schließlich den Close Watcher, als ob `destroy()` aufgerufen worden wäre.
+Die **`requestClose()`**-Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle löst ein `cancel`-Ereignis aus. Wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, fährt die Methode fort, ein `close`-Ereignis auszulösen, und deaktiviert schließlich den Close Watcher, als ob `destroy()` aufgerufen wurde.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der `requestClose()` Methode
+### Verwendung der `requestClose()`-Methode
 
-In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker) und möchten sowohl die standardmäßige Schließmethode der Plattform (z. B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (eine Schaltfläche zum Schließen) unterstützen.
+In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker), und Sie möchten sowohl die Standard-Schließmethode der Plattform (z. B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (eine Schaltfläche zum Schließen) unterstützen.
 
-Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um eine Schließung anzufordern und Ihre Schließanforderung über denselben `onclose`-Handler zu leiten, den die Schließmethode der Plattform verwendet.
+Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um eine Schließung anzufordern und Ihre Schließanforderung durch denselben `onclose`-Handler zu leiten, den die Schließmethode der Plattform verwendet.
 
 ```js
 const watcher = new CloseWatcher();

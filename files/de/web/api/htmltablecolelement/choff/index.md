@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`chOff`**-Eigenschaft der Schnittstelle [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) hat keine Funktion. Sie spiegelt das `charoff`-Attribut des {{HTMLElement("col")}}-Elements wider.
+Die **`chOff`**-Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Schnittstelle bewirkt nichts. Sie spiegelt das `charoff`-Attribut des {{HTMLElement("col")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft war dazu gedacht, an der Möglichkeit teilzunehmen, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von den Browsern implementiert.
+> Diese Eigenschaft wurde entwickelt, um die Möglichkeit zu bieten, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenkettenwerts mit der {{cssxref("text-align")}} CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, prüfen Sie die Unterstützung eines Zeichenfolgenwerts mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
 
 ## Wert
 

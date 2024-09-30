@@ -1,5 +1,5 @@
 ---
-title: "CSSPropertyRule: inherits Eigenschaft"
+title: "CSSPropertyRule: `inherits`-Eigenschaft"
 short-title: inherits
 slug: Web/API/CSSPropertyRule/inherits
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die schreibgeschützte **`inherits`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle gibt das vererbte Kennzeichen der benutzerdefinierten Eigenschaftsregistrierung zurück, die durch die {{cssxref("@property")}}-Regel dargestellt wird. Es handelt sich um einen booleschen Wert, der beschreibt, ob die Eigenschaft standardmäßig vererbt wird oder nicht.
+Die schreibgeschützte **`inherits`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle gibt das Vererbungs-Flag der benutzerdefinierten Eigenschaftsregistrierung zurück, die durch die {{cssxref("@property")}}-Regel dargestellt wird. Sie ist ein boolescher Wert, der beschreibt, ob die Eigenschaft standardmäßig vererbt wird oder nicht.
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine einzige {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel darstellt. Die `inherits`-Eigenschaft gibt den booleschen Wert `false` zurück, da dies der Wert der `inherits`-Eigenschaft im CSS ist.
+Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel darstellt. Die `inherits`-Eigenschaft gibt den booleschen Wert `false` zurück, was dem Wert der `inherits`-Eigenschaft in der CSS entspricht.
 
 ```css
 @property --property-name {

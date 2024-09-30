@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`429 Too Many Requests`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Rate der Anfragen zu verlangsamen, wird allgemein als "[Rate Limiting](/de/docs/Glossary/rate_limit)" bezeichnet.
+Der HTTP-Statuscode **`429 Too Many Requests`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Anzahl der Anfragen zu reduzieren, wird allgemein als "[Rate Limiting](/de/docs/Glossary/rate_limit)" bezeichnet.
 
-Ein {{HTTPHeader("Retry-After")}}-Header kann in diese Antwort aufgenommen werden, um zu zeigen, wie lange ein Client warten sollte, bevor die Anfrage erneut gestellt wird.
+Ein {{HTTPHeader("Retry-After")}}-Header kann in dieser Antwort enthalten sein, um anzugeben, wie lange der Client warten soll, bevor er die Anfrage erneut stellt.
 
-Implementierungen von Rate Limiting variieren; Einschränkungen können serverweit oder pro Ressource sein. Typischerweise basieren Rate-Limiting-Einschränkungen auf der IP des Clients, können jedoch auch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert sind oder ein [Cookie](/de/docs/Glossary/cookie) enthalten.
+Implementierungen von Rate Limiting variieren; Beschränkungen können serverweit oder pro Ressource wirksam sein. Typischerweise basieren Rate-Limiting-Beschränkungen auf der IP-Adresse des Clients, können aber auch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert sind oder ein [Cookie](/de/docs/Glossary/cookie) enthalten.
 
 ## Status
 
@@ -23,14 +23,14 @@ Implementierungen von Rate Limiting variieren; Einschränkungen können serverwe
 
 ### Antwort mit Retry-After-Header
 
-Die folgende Anfrage wird wiederholt in einer Schleife von einem falsch konfigurierten Client gesendet:
+Die folgende Anfrage wird fälschlicherweise in einer Schleife von einem falsch konfigurierten Client gesendet:
 
 ```http
 GET /reports/mdn HTTP/1.1
 Host: example.com
 ```
 
-In diesem Beispiel ist ein serverweites Rate Limiting aktiv, wenn ein Client einen festgelegten Schwellenwert von Anfragen pro Minute überschreitet. Eine 429-Antwort wird mit einem {{HTTPHeader("Retry-After")}}-Header zurückgegeben, der anzeigt, dass Anfragen für diesen Client in 60 Minuten wieder erlaubt sind:
+In diesem Beispiel ist serverweites Rate Limiting aktiv, wenn ein Client einen festgelegten Schwellenwert von Anfragen pro Minute überschreitet. Eine 429-Antwort wird mit einem {{HTTPHeader("Retry-After")}}-Header zurückgegeben, der anzeigt, dass Anfragen für diesen Client in 60 Minuten wieder erlaubt sind:
 
 ```http
 HTTP/1.1 429 Too Many Requests
@@ -54,6 +54,6 @@ Retry-After: 3600
 
 ## Siehe auch
 
-- [HTTP-Antwortstatus-Codes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPHeader("Retry-After")}}
-- Python-Lösung: [How to avoid HTTP error 429 python](https://stackoverflow.com/questions/22786068/how-to-avoid-http-error-429-too-many-requests-python)
+- Python-Lösung: [Anleitung zur Vermeidung des HTTP-Fehlers 429 in Python](https://stackoverflow.com/questions/22786068/how-to-avoid-http-error-429-too-many-requests-python)

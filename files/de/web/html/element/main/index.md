@@ -7,33 +7,33 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<main>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert den dominanten Inhalt des {{HTMLElement("body")}} eines Dokuments. Der Hauptinhaltsbereich besteht aus Inhalten, die direkt mit dem zentralen Thema eines Dokuments oder der zentralen Funktionalität einer Anwendung verbunden sind oder diese erweitern.
+Das **`<main>`** [HTML](/de/docs/Web/HTML) Element repräsentiert den dominierenden Inhalt des {{HTMLElement("body")}} eines Dokuments. Der Hauptinhaltsbereich besteht aus Inhalten, die direkt mit dem zentralen Thema eines Dokuments oder der zentralen Funktionalität einer Anwendung zusammenhängen oder darauf aufbauen.
 
 {{EmbedInteractiveExample("pages/tabbed/main.html","tabbed-shorter")}}
 
-Ein Dokument darf nicht mehr als ein `<main>`-Element haben, das nicht das [`hidden`](/de/docs/Web/HTML/Global_attributes#hidden)-Attribut spezifiziert hat.
+Ein Dokument darf nicht mehr als ein `<main>` Element haben, bei dem das [`hidden`](/de/docs/Web/HTML/Global_attributes#hidden) Attribut nicht angegeben ist.
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Verwendungshinweise
 
-Der Inhalt eines `<main>`-Elements sollte im Dokument einzigartig sein. Inhalte, die über eine Reihe von Dokumenten oder Dokumentabschnitten hinweg wiederholt werden, wie beispielsweise Seitenleisten, Navigationslinks, Urheberrechtsinformationen, Website-Logos und Suchformulare, sollten nicht enthalten sein, es sei denn, das Suchformular ist die Hauptfunktion der Seite.
+Der Inhalt eines `<main>` Elements sollte einzigartig für das Dokument sein. Inhalte, die über eine Reihe von Dokumenten oder Dokumentabschnitten hinweg wiederholt werden, wie Seitenleisten, Navigationslinks, Urheberrechtsinformationen, Webseiten-Logos und Suchformulare, sollten nicht enthalten sein, es sei denn, das Suchformular ist die Hauptfunktion der Seite.
 
-`<main>` trägt nicht zur Gliederung des Dokuments bei; das heißt, im Gegensatz zu Elementen wie {{HTMLElement("body")}}, Überschriften wie {{HTMLElement("Heading_Elements", "h2")}} und dergleichen, beeinflusst `<main>` nicht das Konzept der Struktur der Seite im [DOM](/de/docs/Glossary/DOM). Es ist rein informativ.
+`<main>` trägt nicht zur Gliederung des Dokuments bei. Das bedeutet, im Gegensatz zu Elementen wie {{HTMLElement("body")}}, Überschriften wie {{HTMLElement("Heading_Elements", "h2")}} und dergleichen, beeinflusst `<main>` nicht das Konzept der Struktur der Seite im [DOM](/de/docs/Glossary/DOM). Es ist rein informativ.
 
 ## Barrierefreiheit
 
 ### Landmark
 
-Das `<main>`-Element verhält sich wie eine [`main`-Landmark](/de/docs/Web/Accessibility/ARIA/Roles/main_role)-Rolle. [Landmarks](/de/docs/Web/Accessibility/ARIA/ARIA_Techniques#landmark_roles) können von unterstützenden Technologien verwendet werden, um schnell große Abschnitte des Dokuments zu identifizieren und zu navigieren. Es wird bevorzugt, das `<main>`-Element anstelle der Deklaration `role="main"` zu verwenden, es sei denn, es gibt Bedenken hinsichtlich der [Unterstützung älterer Browser](#browser-kompatibilität).
+Das `<main>` Element verhält sich wie eine [`main` Landmark](/de/docs/Web/Accessibility/ARIA/Roles/main_role) Rolle. [Landmarks](/de/docs/Web/Accessibility/ARIA/ARIA_Techniques#landmark_roles) können von unterstützenden Technologien verwendet werden, um große Abschnitte des Dokuments schnell zu identifizieren und zu navigieren. Bevorzugen Sie die Verwendung des `<main>` Elements gegenüber der Deklaration `role="main"`, es sei denn, es gibt Bedenken hinsichtlich der Unterstützung älterer Browser.
 
 ### Navigation überspringen
 
-Das Überspringen der Navigation, auch "skipnav" genannt, ist eine Technik, die es Nutzern von unterstützenden Technologien ermöglicht, schnell große Abschnitte wiederholter Inhalte (Hauptnavigation, Infobanner usw.) zu überspringen. Dadurch kann der Nutzer den Hauptinhalt der Seite schneller erreichen.
+Das Überspringen der Navigation, auch bekannt als "skipnav", ist eine Technik, die es Benutzern von unterstützender Technologie ermöglicht, große Abschnitte wiederholter Inhalte (Hauptnavigation, Informationsbanner usw.) schnell zu umgehen. Auf diese Weise kann der Benutzer schneller auf den Hauptinhalt der Seite zugreifen.
 
-Wenn Sie dem `<main>`-Element ein [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut hinzufügen, kann es das Ziel eines Links zum Überspringen der Navigation werden.
+Wenn dem `<main>` Element ein [`id`](/de/docs/Web/HTML/Global_attributes#id) Attribut hinzugefügt wird, kann es Ziel eines Skip-Navigation-Links sein.
 
 ```html
 <body>
@@ -47,13 +47,13 @@ Wenn Sie dem `<main>`-Element ein [`id`](/de/docs/Web/HTML/Global_attributes#id)
 </body>
 ```
 
-- [WebAIM: Links zum „Überspringen der Navigation“](https://webaim.org/techniques/skipnav/)
+- [WebAIM: "Skip Navigation" Links](https://webaim.org/techniques/skipnav/)
 
 ### Lesemodus
 
-Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `<main>`-Elements sowie nach [Überschriften](/de/docs/Web/HTML/Element/Heading_Elements) und [Inhaltsstrukturierungselementen](/de/docs/Web/HTML/Element#content_sectioning), um Inhalte in eine spezialisierte Leseransicht umzuwandeln.
+Die Leseansicht-Funktion von Browsern sucht nach dem Vorhandensein des `<main>` Elements sowie [Überschriften](/de/docs/Web/HTML/Element/Heading_Elements) und [Inhaltsgliederungselementen](/de/docs/Web/HTML/Element#content_sectioning), wenn Inhalte in eine spezialisierte Leseansicht umgewandelt werden.
 
-- [Websites für den Safari Reader Mode und andere Lese-Apps erstellen.](https://medium.com/@mandy.michael/building-websites-for-safari-reader-mode-and-other-reading-apps-1562913c86c9)
+- [Webseiten für den Safari Reader-Mode und andere Lese-Apps erstellen.](https://medium.com/@mandy.michael/building-websites-for-safari-reader-mode-and-other-reading-apps-1562913c86c9)
 
 ## Beispiele
 
@@ -88,7 +88,7 @@ Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `
 
 {{EmbedLiveSample('Examples')}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -100,7 +100,7 @@ Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -108,31 +108,30 @@ Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine; sowohl die Start- als auch die End-Tags sind obligatorisch.</td>
+      <th scope="row">Weglassen des Tags</th>
+      <td>Keine; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Wo
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließender Inhalt</a
         >
         erwartet wird, aber nur, wenn es ein
         <a
           href="https://html.spec.whatwg.org/multipage/grouping-content.html#hierarchically-correct-main-element"
-          >hierarchisch korrektes <code>main</code>-Element</a
-        >
-        ist.
+          >hierarchisch korrektes <code>main</code> Element</a
+        >ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/main_role"
@@ -146,7 +145,7 @@ Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM Schnittstelle</th>
       <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
@@ -164,4 +163,4 @@ Die Reader-Modus-Funktionalität des Browsers sucht nach dem Vorhandensein des `
 
 - Grundlegende Strukturelemente: {{HTMLElement("html")}}, {{HTMLElement("head")}}, {{HTMLElement("body")}}
 - Abschnittsbezogene Elemente: {{HTMLElement("article")}}, {{HTMLElement("aside")}}, {{HTMLElement("footer")}}, {{HTMLElement("header")}}, oder {{HTMLElement("nav")}}
-- [ARIA: Main-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/main_role)
+- [ARIA: Main Rolle](/de/docs/Web/Accessibility/ARIA/Roles/main_role)

@@ -7,16 +7,16 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Credential** ist ein Objekt, das einem System ermöglicht, eine [Authentifizierungs-](/de/docs/Glossary/authentication) Entscheidung zu treffen: zum Beispiel zu entscheiden, ob ein Benutzer in ein Konto eingeloggt werden soll.
+Ein **Credential** ist ein Objekt, das es einem System ermöglicht, eine [Authentifizierungs](/de/docs/Glossary/authentication)-entscheidung zu treffen: beispielsweise ob ein Benutzer in ein Konto eingeloggt werden soll.
 
 Im Bereich der Web-Sicherheit umfassen Arten von Credentials:
 
 - ein Passwort
 - biometrische Daten
-- ein Token, das von einem einmaligen SMS-Code eingegeben wird
-- der Schlüssel, der in einem Public-Key-System wie der [Web Authentication](/de/docs/Web/API/Web_Authentication_API) verwendet wird, um Authentifizierungsbehauptungen zu erstellen
+- ein Token, das aus einem einmaligen SMS-Code eingegeben wird
+- der Schlüssel, der verwendet wird, um Authentifizierungsbehauptungen in einem Public-Key-System wie der [Web Authentication](/de/docs/Web/API/Web_Authentication_API) vorzunehmen
 
-Die [Credential Management API](/de/docs/Web/API/Credential_Management_API) ermöglicht Entwicklern das Erstellen, Speichern und Abrufen verschiedener Arten von Credentials.
+Die [Credential Management API](/de/docs/Web/API/Credential_Management_API) ermöglicht es Entwicklern, verschiedene Arten von Credentials zu erstellen, zu speichern und abzurufen.
 
 ## Siehe auch
 

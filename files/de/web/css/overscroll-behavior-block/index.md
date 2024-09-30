@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overscroll-behavior-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Begrenzung der Blockrichtung eines scrollbaren Bereichs erreicht wird.
+Die **`overscroll-behavior-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Blockrichtungsgrenze eines Scrollbereichs erreicht wird.
 
 Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
 
@@ -27,16 +27,16 @@ overscroll-behavior-block: revert-layer;
 overscroll-behavior-block: unset;
 ```
 
-Die `overscroll-behavior-block` Eigenschaft wird als ein Schlüsselwort aus der unten aufgeführten Liste von Werten angegeben.
+Die `overscroll-behavior-block` Eigenschaft wird als ein Stichwort aus der unten stehenden Werteliste spezifiziert.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten bei Überlauf beim Scrollen tritt wie gewohnt auf.
+  - : Das standardmäßige Überlaufverhalten des Scrollens tritt normal auf.
 - `contain`
-  - : Das Standardverhalten bei Überlauf beim Scrollen (z. B. „Bounce“-Effekte) wird innerhalb des Elements beobachtet, bei dem dieser Wert gesetzt ist. Allerdings findet kein [scroll chaining](/de/docs/Glossary/Scroll_chaining) in benachbarten scrollbaren Bereichen statt; die zugrunde liegenden Elemente werden nicht scrollen. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wisch-Navigation.
+  - : Standardmäßiges Überlaufverhalten des Scrollens (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert gesetzt ist. Es tritt jedoch keine [Scroll-Verkettung](/de/docs/Glossary/Scroll_chaining) bei benachbarten Scrollbereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der `contain` Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wisch-Navigation.
 - `none`
-  - : Es findet kein scroll chaining in benachbarten scrollbaren Bereichen statt und das Standardverhalten bei Überlauf beim Scrollen wird verhindert.
+  - : Keine Scroll-Verkettung tritt bei benachbarten Scrollbereichen auf und das standardmäßige Überlaufverhalten des Scrollens wird verhindert.
 
 ## Formale Definition
 
@@ -48,11 +48,11 @@ Die `overscroll-behavior-block` Eigenschaft wird als ein Schlüsselwort aus der 
 
 ## Beispiele
 
-### Verhindern des Blocküberscrollens
+### Verhindern des Block-Overscrollens
 
-In diesem Demo haben wir zwei Block-Level-Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("height")}} gesetzt, sodass die Seite vertikal scrollen wird. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) gesetzt, sodass sie bequem im Sichtfenster sitzt, aber ihr Inhalt hat eine große `height`, sodass sie auch vertikal scrollen wird.
+In diesem Beispiel haben wir zwei Block-Elemente, eines innerhalb des anderen. Die äußere Box hat eine große {{cssxref("height")}} gesetzt, damit die Seite vertikal scrollt. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) gesetzt, sodass sie bequem innerhalb des Sichtfensters sitzt, aber ihrem Inhalt wird eine große `height` gegeben, damit er auch vertikal scrollt.
 
-Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollbegrenzung erreicht wird, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in Blockrichtung zu vermeiden, haben wir `overscroll-behavior-block: contain` auf die innere Box gesetzt.
+Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht ist, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in der Blockrichtung zu vermeiden, haben wir `overscroll-behavior-block: contain` auf die innere Box gesetzt.
 
 #### HTML
 

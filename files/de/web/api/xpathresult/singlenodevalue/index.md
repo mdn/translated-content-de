@@ -8,24 +8,17 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Die schreibgeschützte **`singleNodeValue`**-Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node)-Wert oder
-`null` zurück, falls kein Knoten eines Ergebnisses mit
-[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType), das auf `ANY_UNORDERED_NODE_TYPE` oder
-`FIRST_ORDERED_NODE_TYPE` gesetzt ist, übereinstimmt.
+Die schreibgeschützte **`singleNodeValue`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node)-Wert oder `null` zurück, falls bei einem Ergebnis mit [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` kein Knoten übereinstimmte.
 
 ## Wert
 
-Der Rückgabewert ist der [`Node`](/de/docs/Web/API/Node)-Wert des `XPathResult`,
-der von [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
+Der Rückgabewert ist der [`Node`](/de/docs/Web/API/Node)-Wert des `XPathResult`, der durch [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
-`ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, wird eine
-[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) weder `ANY_UNORDERED_NODE_TYPE` noch `FIRST_ORDERED_NODE_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) des Typs `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

@@ -11,13 +11,13 @@ l10n:
 Die **`bgcolor`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) repräsentiert die Hintergrundfarbe der Tabelle.
 
 > [!NOTE]
-> Verwenden Sie dieses Attribut nicht mehr. Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("background-color")}} verwenden, indem Sie das [`style`](/de/docs/Web/API/HTMLElement/style)-Attribut des Elements modifizieren oder eine Stilregel anwenden.
+> Verwenden Sie dieses Attribut nicht mehr. Stattdessen sollten Sie die CSS-{{cssxref("background-color")}}-Eigenschaft verwenden, indem Sie das [`style`](/de/docs/Web/API/HTMLElement/style)-Attribut des Elements ändern oder eine Stilregel verwenden.
 
 ## Wert
 
 Ein String, der einen Farbwert darstellt.
 
-Wenn er auf den Wert `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.bgColor = null` gleichbedeutend ist mit `elt.bgColor = ""`.
+Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in die leere Zeichenkette (`""`) konvertiert, sodass `elt.bgColor = null` gleichbedeutend mit `elt.bgColor = ""` ist.
 
 ## Beispiele
 

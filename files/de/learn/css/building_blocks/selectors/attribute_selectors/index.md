@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors", "Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements", "Learn/CSS/Building_blocks")}}
 
-Wie Sie aus Ihrem HTML-Studium wissen, können Elemente Attribute haben, die weitere Details über das markierte Element geben. In CSS können Sie Attributselektoren verwenden, um Elemente mit bestimmten Attributen zu identifizieren. Diese Lektion zeigt Ihnen, wie Sie diese sehr nützlichen Selektoren verwenden können.
+Wie Sie aus Ihrem HTML-Studium wissen, können Elemente Attribute besitzen, die weitere Details über das markierte Element geben. In CSS können Sie Attributselektoren verwenden, um Elemente mit bestimmten Attributen anzusprechen. Diese Lektion zeigt Ihnen, wie Sie diese sehr nützlichen Selektoren verwenden.
 
 <table>
   <tbody>
@@ -16,16 +16,16 @@ Wie Sie aus Ihrem HTML-Studium wissen, können Elemente Attribute haben, die wei
       <td>
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
-          >Grundlegende Softwareinstallation</a
-        >, Grundwissen im Umgang mit
+          >Basissoftware installiert</a
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Dateien</a
-        >, HTML-Grundlagen (Studieren Sie
+          >Umgang mit Dateien</a
+        >, HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (Studieren Sie
-        <a href="/de/docs/Learn/CSS/First_steps">CSS Erste Schritte</a>.)
+        >), und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn/CSS/First_steps">CSS erste Schritte</a>).
       </td>
     </tr>
     <tr>
@@ -35,7 +35,7 @@ Wie Sie aus Ihrem HTML-Studium wissen, können Elemente Attribute haben, die wei
   </tbody>
 </table>
 
-## Präsenz- und Wertselektoren
+## Vorhandenheits- und Wertselektoren
 
 Diese Selektoren ermöglichen die Auswahl eines Elements basierend auf der bloßen Präsenz eines Attributs (zum Beispiel `href`) oder auf verschiedenen Übereinstimmungen mit dem Wert des Attributs.
 
@@ -52,16 +52,15 @@ Diese Selektoren ermöglichen die Auswahl eines Elements basierend auf der bloß
       <td><code>[<em>attr</em>]</code></td>
       <td><code>a[title]</code></td>
       <td>
-        Passt zu Elementen mit einem <em>attr</em>-Attribut (dessen Name der
-        Wert in eckigen Klammern ist).
+        Passt auf Elemente mit einem <em>attr</em>-Attribut (dessen Name der Wert in eckigen Klammern ist).
       </td>
     </tr>
     <tr>
       <td><code>[<em>attr</em>=<em>value</em>]</code></td>
       <td><code>a[href="https://example.com"]</code></td>
       <td>
-        Passt zu Elementen mit einem <em>attr</em>-Attribut, dessen Wert genau
-        <em>value</em> ist — der String in den Anführungszeichen.
+        Passt auf Elemente mit einem <em>attr</em>-Attribut, dessen Wert genau
+        <em>value</em> ist — die Zeichenkette in den Anführungszeichen.
       </td>
     </tr>
     <tr>
@@ -69,9 +68,9 @@ Diese Selektoren ermöglichen die Auswahl eines Elements basierend auf der bloß
       <td><code>p[class~="special"]</code></td>
       <td>
         <p>
-          <br />Passt zu Elementen mit einem <em>attr</em>-Attribut, dessen Wert
-          genau <em>value</em> ist oder <em>value</em> in seiner (durch
-          Leerzeichen getrennten) Liste von Werten enthält.
+          Passt auf Elemente mit einem <em>attr</em>-Attribut, dessen Wert
+          genau <em>value</em> ist oder <em>value</em> in seiner (durch Leerzeichen
+          getrennten) Liste von Werten enthält.
         </p>
       </td>
     </tr>
@@ -79,55 +78,55 @@ Diese Selektoren ermöglichen die Auswahl eines Elements basierend auf der bloß
       <td><code>[<em>attr</em>|=<em>value</em>]</code></td>
       <td><code>div[lang|="zh"]</code></td>
       <td>
-        Passt zu Elementen mit einem <em>attr</em>-Attribut, dessen Wert genau
-        <em>value</em> ist oder mit <em>value</em> beginnt, unmittelbar gefolgt
-        von einem Bindestrich.
+        Passt auf Elemente mit einem <em>attr</em>-Attribut, dessen Wert genau
+        <em>value</em> ist oder mit <em>value</em> beginnt, gefolgt von einem
+        Bindestrich.
       </td>
     </tr>
   </tbody>
 </table>
 
-Im unten stehenden Beispiel können Sie sehen, wie diese Selektoren verwendet werden.
+Im unten stehenden Beispiel können Sie sehen, wie diese Selektoren verwendet werden:
 
-- Durch die Verwendung von `li[class]` können wir jedes Listenelement mit einem Klassenattribut anpassen. Dies passt zu allen Listenelementen außer dem ersten.
-- `li[class="a"]` passt zu einem Selektor mit der Klasse `a`, aber nicht zu einem Selektor mit der Klasse `a` und einer anderen leerzeichenseparierten Klasse als Teil des Wertes. Es wählt das zweite Listenelement aus.
-- `li[class~="a"]` passt zu einer Klasse von `a`, aber auch zu einem Wert, der die Klasse `a` als Teil einer durch Leerzeichen getrennten Liste enthält. Es wählt das zweite und dritte Listenelement aus.
+- Mit `li[class]` können wir jedes Listenelement mit einem `class`-Attribut ansprechen. Dies passt auf alle Listenelemente außer das erste.
+- `li[class="a"]` passt auf einen Selektor mit einer Klasse `a`, aber nicht auf einen Selektor mit einer Klasse `a`, die als Teil des Wertes eine andere Leerzeichen geteilte Klasse hat. Es wählt das zweite Listenelement aus.
+- `li[class~="a"]` wird auf eine Klasse `a` passen, aber auch auf einen Wert, der die Klasse `a` als Teil einer durch Leerzeichen getrennten Liste enthält. Es wählt das zweite und dritte Listenelement aus.
 
 {{EmbedGHLiveSample("css-examples/learn/selectors/attribute.html", '100%', 800)}}
 
-## Substring-Matching Selektoren
+## Teilzeichenfolgen-Abgleichsselektoren
 
-Diese Selektoren ermöglichen ein fortgeschritteneres Matching von Substrings innerhalb des Werts Ihres Attributs. Wenn Sie beispielsweise Klassen von `box-warning` und `box-error` hatten und alles, was mit dem String "box-" beginnt, anpassen wollten, könnten Sie `[class^="box-"]` verwenden, um sie beide auszuwählen (oder `[class|="box"]` wie im obigen Abschnitt beschrieben).
+Diese Selektoren ermöglichen einen fortgeschritteneren Abgleich von Teilzeichenfolgen innerhalb des Wertes Ihres Attributs. Wenn Sie zum Beispiel Klassen wie `box-warning` und `box-error` haben und alles abgleichen möchten, das mit der Zeichenfolge "box-" beginnt, könnten Sie `[class^="box-"]` verwenden, um beide auszuwählen (oder `[class|="box"]`, wie in der obigen Sektion beschrieben).
 
-| Selektor        | Beispiel            | Beschreibung                                                                                 |
-| --------------- | ------------------- | -------------------------------------------------------------------------------------------- |
-| `[attr^=value]` | `li[class^="box-"]` | Passt zu Elementen mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.               |
-| `[attr$=value]` | `li[class$="-box"]` | Passt zu Elementen mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                 |
-| `[attr*=value]` | `li[class*="box"]`  | Passt zu Elementen mit einem _attr_-Attribut, dessen Wert _value_ überall im String enthält. |
+| Selektor        | Beispiel            | Beschreibung                                                                                            |
+| --------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
+| `[attr^=value]` | `li[class^="box-"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.                        |
+| `[attr$=value]` | `li[class$="-box"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                           |
+| `[attr*=value]` | `li[class*="box"]`  | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert _value_ irgendwo in der Zeichenkette enthält. |
 
-(Nebenbei: Es kann hilfreich sein zu wissen, dass `^` und `$` lange als _Anker_ in sogenannten _Regulären Ausdrücken_ verwendet werden, um _beginnt mit_ bzw. _endet mit_ zu bedeuten.)
+(Nebenbei: Es könnte helfen zu wissen, dass `^` und `$` schon lange als _Anker_ in sogenannten _regulären Ausdrücken_ verwendet werden, um _beginnt mit_ bzw. _endet mit_ zu bedeuten.)
 
 Das nächste Beispiel zeigt die Verwendung dieser Selektoren:
 
-- `li[class^="a"]` passt zu jedem Attributwert, der mit `a` beginnt, und passt damit zu den ersten beiden Listenelementen.
-- `li[class$="a"]` passt zu jedem Attributwert, der mit `a` endet, und passt damit zum ersten und dritten Listenelement.
-- `li[class*="a"]` passt zu jedem Attributwert, in dem `a` irgendwo im String erscheint, und passt damit zu allen Listenelementen.
+- `li[class^="a"]` passt auf jeden Attributwert, der mit `a` beginnt, daher stimmt es mit den ersten beiden Listenelementen überein.
+- `li[class$="a"]` passt auf jeden Attributwert, der mit `a` endet, daher stimmt es mit dem ersten und dritten Listenelement überein.
+- `li[class*="a"]` passt auf jeden Attributwert, in dem `a` irgendwo in der Zeichenkette erscheint, daher stimmt es mit allen unseren Listenelementen überein.
 
 {{EmbedGHLiveSample("css-examples/learn/selectors/attribute-substring.html", '100%', 800)}}
 
-## Groß-/Kleinschreibung
+## Groß-/Kleinschreibungsempfindlichkeit
 
-Wenn Sie Attributwerte unabhängig von der Groß-/Kleinschreibung abgleichen möchten, können Sie den Wert `i` vor der schließenden Klammer verwenden. Diese Kennzeichnung teilt dem Browser mit, [ASCII](/de/docs/Glossary/ASCII)-Zeichen ohne Berücksichtigung der Groß-/Kleinschreibung abzugleichen. Ohne die Kennzeichnung werden die Werte entsprechend der Groß-/Kleinschreibung der Dokumentsprache abgeglichen — im Fall von HTML ist dies groß-/kleinsensitiv.
+Wenn Sie Attributwerte ohne Berücksichtigung der Groß-/Kleinschreibung abgleichen möchten, können Sie den Wert `i` vor der schließenden Klammer verwenden. Dieses Flag weist den Browser an, [ASCII](/de/docs/Glossary/ASCII)-Zeichen ohne Berücksichtigung der Groß-/Kleinschreibung abzugleichen. Ohne das Flag werden die Werte entsprechend der Groß-/Kleinschreibungsempfindlichkeit der Dokumentsprache abgeglichen — im Fall von HTML wird es groß-/klein-schreibungsempfindlich sein.
 
-Im folgenden Beispiel wird der erste Selektor einen Wert anpassen, der mit `a` beginnt — er passt nur zum ersten Listenelement, da die anderen beiden Listenelemente mit einem Großbuchstaben A beginnen. Der zweite Selektor verwendet das Groß-/Kleinschreibungsinsensitiv-Kennzeichen und passt daher zu allen Listenelementen.
+Im unten stehenden Beispiel wird der erste Selektor einen Wert abgleichen, der mit `a` beginnt — es wird nur das erste Listenelement ausgewählt, da die anderen beiden Listenelemente mit einem großen A beginnen. Der zweite Selektor verwendet das Flag für Groß-/Kleinschreibungsunempfindlichkeit und stimmt daher mit allen Listenelementen überein.
 
 {{EmbedGHLiveSample("css-examples/learn/selectors/attribute-case.html", '100%', 800)}}
 
 > [!NOTE]
-> Es gibt auch einen neueren Wert `s`, der das Matching auf Groß-/Kleinschreibungsunempfindlichkeit in Kontexten erzwingen wird, in denen das Matching normalerweise nicht empfindlich ist. Allerdings wird er von Browsern weniger gut unterstützt und ist in einem HTML-Kontext nicht sehr nützlich.
+> Es gibt auch einen neueren Wert `s`, der eine Groß-/Kleinschreibungssensititive Übereinstimmung in Kontexten erzwingt, in denen die Übereinstimmung normalerweise groß-/klein-schreibungsempfindlich ist; dies wird jedoch weniger gut in Browsern unterstützt und ist in einem HTML-Kontext nicht sehr nützlich.
 
 ## Zusammenfassung
 
-Nachdem wir die Attributselektoren abgeschlossen haben, können Sie mit dem nächsten Artikel fortfahren und über [Pseudo-Klassen- und Pseudo-Elementselektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements) lesen.
+Jetzt, da wir mit Attributselektoren fertig sind, können Sie mit dem nächsten Artikel fortfahren und mehr über [Pseudo-Klassen- und Pseudo-Elementselektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements) lesen.
 
 {{PreviousMenuNext("Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors", "Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements", "Learn/CSS/Building_blocks")}}

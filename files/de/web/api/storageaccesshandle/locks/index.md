@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`locks`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes Sitzungs-[`LockManager`](/de/docs/Web/API/LockManager)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-`DOMException`-Fehler.
+Die **`locks`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes Sitzungs-`[`LockManager`](/de/docs/Web/API/LockManager)`-Objekt zurück, wenn der Zugriff gewährt wurde, und löst andernfalls ein `SecurityError`-`[`DOMException`](/de/docs/Web/API/DOMException)`-Objekt aus.
 
 ## Wert
 

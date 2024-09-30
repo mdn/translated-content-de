@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`WheelEvent.deltaZ`** ist ein
-`double`, das die Scroll-Menge entlang der z-Achse in der
-[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode)-Einheit darstellt.
+Die **`WheelEvent.deltaZ`** schreibgeschützte Eigenschaft ist ein
+`double`, das die Scrollmenge entlang der z-Achse im
+[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode) Einheitswert darstellt.
 
 ## Wert
 

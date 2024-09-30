@@ -9,12 +9,12 @@ l10n:
 
 ## Typ
 
-Ein `array` aus vier ganzen Zahlen im Bereich 0-255, die eine RGBA-Farbe definieren. Die vier Werte spezifizieren die folgenden Kanäle:
+Ein `array` von vier Ganzzahlen im Bereich von 0-255, die eine RGBA-Farbe definieren. Die vier Werte spezifizieren die folgenden Kanäle:
 
 1. Rot
 2. Grün
 3. Blau
-4. Alpha (Deckkraft).
+4. Alpha (Durchsichtigkeit).
 
 Zum Beispiel ist undurchsichtiges Rot `[255, 0, 0, 255]`.
 

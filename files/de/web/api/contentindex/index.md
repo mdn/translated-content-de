@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`ContentIndex`**-Schnittstelle der [Content Index API](/de/docs/Web/API/Content_Index_API) ermöglicht es Entwicklern, ihre offline-fähigen Inhalte beim Browser zu registrieren.
+Die **`ContentIndex`** Schnittstelle der [Content Index API](/de/docs/Web/API/Content_Index_API) ermöglicht es Entwicklern, ihre offline-fähigen Inhalte beim Browser zu registrieren.
 
 ## Instanzeigenschaften
 
@@ -16,17 +16,17 @@ Es gibt keine Eigenschaften dieser Schnittstelle.
 ## Instanzmethoden
 
 - [`ContentIndex.add()`](/de/docs/Web/API/ContentIndex/add) {{Experimental_Inline}}
-  - : Registriert ein Element im [content index](/de/docs/Web/API/Content_Index_API).
+  - : Registriert ein Element im [Content Index](/de/docs/Web/API/Content_Index_API).
 - [`ContentIndex.delete()`](/de/docs/Web/API/ContentIndex/delete) {{Experimental_Inline}}
-  - : Hebt die Registrierung eines Elements aus den aktuell indizierten Inhalten auf.
+  - : Hebt die Registrierung eines Elements aus den derzeit indexierten Inhalten auf.
 - [`ContentIndex.getAll()`](/de/docs/Web/API/ContentIndex/getAll) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Content-Index-Einträgen aufgelöst wird.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Einträgen des Inhaltsindex aufgelöst wird.
 
 ## Beispiele
 
-### Funktionsprüfung und Schnittstellenzugriff
+### Funktionsprüfung und Zugriff auf die Schnittstelle
 
-Hier erhalten wir eine Referenz zur [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) und prüfen dann die `index`-Eigenschaft, die uns Zugang zur Content-Index-Schnittstelle gibt.
+Hier erhalten wir eine Referenz zu der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) und überprüfen die `index` Eigenschaft, die uns Zugang zur Content Index-Schnittstelle gewährt.
 
 ```js
 // reference registration
@@ -39,9 +39,9 @@ if ("index" in registration) {
 }
 ```
 
-### Hinzufügen zum Content-Index
+### Hinzufügen zum Content Index
 
-Hier deklarieren wir ein Element im richtigen Format und erstellen eine asynchrone Funktion, die die [`add()`](/de/docs/Web/API/ContentIndex/add)-Methode verwendet, um es im [content index](/de/docs/Web/API/Content_Index_API) zu registrieren.
+Hier deklarieren wir ein Element im korrekten Format und erstellen eine asynchrone Funktion, die die [`add()`](/de/docs/Web/API/ContentIndex/add) Methode verwendet, um es im [Content Index](/de/docs/Web/API/Content_Index_API) zu registrieren.
 
 ```js
 // our content
@@ -81,7 +81,7 @@ async function registerContent(data) {
 
 ### Abrufen von Elementen im aktuellen Index
 
-Das untenstehende Beispiel zeigt eine asynchrone Funktion, die Elemente im [content index](/de/docs/Web/API/Content_Index_API) abruft und über jeden Eintrag iteriert, um eine Liste für die Schnittstelle zu erstellen.
+Das untenstehende Beispiel zeigt eine asynchrone Funktion, die Elemente im [Content Index](/de/docs/Web/API/Content_Index_API) abruft und über jeden Eintrag iteriert, um eine Liste für die Schnittstelle zu erstellen.
 
 ```js
 async function createReadingList() {
@@ -121,9 +121,9 @@ async function createReadingList() {
 }
 ```
 
-### Deregistrieren von indizierten Inhalten
+### Austragen indexierter Inhalte
 
-Unten sehen Sie eine asynchrone Funktion, die ein Element aus dem [content index](/de/docs/Web/API/Content_Index_API) entfernt.
+Unten befindet sich eine asynchrone Funktion, die ein Element aus dem [Content Index](/de/docs/Web/API/Content_Index_API) entfernt.
 
 ```js
 async function unregisterContent(article) {
@@ -138,7 +138,7 @@ async function unregisterContent(article) {
 }
 ```
 
-Alle oben genannten Methoden sind im Geltungsbereich des [service worker](/de/docs/Web/API/ServiceWorker) verfügbar. Sie sind von der [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)-Eigenschaft aus erreichbar:
+Alle oben beschriebenen Methoden stehen innerhalb des Geltungsbereichs des [Service Workers](/de/docs/Web/API/ServiceWorker) zur Verfügung. Sie sind über die [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self) Eigenschaft zugänglich:
 
 ```js
 // service worker script
@@ -160,5 +160,5 @@ const contentIndexItems = self.registration.index.getAll();
 
 ## Siehe auch
 
-- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Einführungsartikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
 - [Service Worker API, zusammen mit Informationen über Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)

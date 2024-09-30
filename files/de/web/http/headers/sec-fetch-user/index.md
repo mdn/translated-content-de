@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-User`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert werden, und sein Wert wird immer `?1` sein.
+Der **`Sec-Fetch-User`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert wurden, und sein Wert wird immer `?1` sein.
 
-Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigationsanfrage von einem Dokument, iframe usw. vom Benutzer initiiert wurde.
+Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigationsanfrage von einem Dokument, `iframe`, etc. durch den Benutzer ausgelöst wurde.
 
 <table class="properties">
   <tbody>
@@ -18,12 +18,12 @@ Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigatio
       <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesafelisteter Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        [CORS-safelisted Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
       </th>
       <td>nein</td>
     </tr>
@@ -38,11 +38,11 @@ Sec-Fetch-User: ?1
 
 ## Direktiven
 
-Der Wert wird immer `?1` sein. Wenn eine Anfrage durch etwas anderes als eine Benutzeraktivierung ausgelöst wird, verlangt die Spezifikation von Browsern, den Header vollständig auszulassen.
+Der Wert wird immer `?1` sein. Wenn eine Anfrage durch etwas anderes als eine Benutzeraktivierung ausgelöst wird, verlangt die Spezifikation, dass Browser den Header vollständig weglassen.
 
 ## Beispiele
 
-Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite auf dem gleichen Ursprung klickt, hätte die resultierende Anfrage die folgenden Header:
+Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite im selben Ursprung klickt, würde die resultierende Anfrage die folgenden Header haben:
 
 ```http
 Sec-Fetch-Dest: document
@@ -59,7 +59,7 @@ Sec-Fetch-User: ?1
 
 {{Compat}}
 
-## Siehe auch
+## Weitere Informationen
 
 - Verwandte Header
 

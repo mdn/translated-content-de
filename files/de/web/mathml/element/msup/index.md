@@ -7,19 +7,19 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<msup>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen Hochstellentext an einen Ausdruck anzuhängen.
+Das **`<msup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einem Ausdruck einen Hochstapler hinzuzufügen.
 
 Es verwendet die folgende Syntax: `<msup> base superscript </msup>`.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
 
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Eine {{cssxref("length-percentage")}}, die die minimale Verschiebung der Grundlinie des Hochstellers nach oben angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestverschiebung der Basislinie des Hochstaplers nach oben angibt.
 
 > [!NOTE]
-> Für das `superscriptshift` Attribut akzeptieren einige Browser möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+> Für das `superscriptshift`-Attribut können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
@@ -44,6 +44,6 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Tiefstellentext)
-- {{ MathMLElement("msubsup") }} (Tief- und Hochstellentext-Paar)
+- {{ MathMLElement("msub") }} (Tiefstapler)
+- {{ MathMLElement("msubsup") }} (Tiefstapler-Hochstapler-Paar)
 - {{ MathMLElement("mmultiscripts") }} (Vorskripte und Tensorindizes)

@@ -1,5 +1,5 @@
 ---
-title: "USB: connect Ereignis"
+title: "USB: connect-Ereignis"
 short-title: connect
 slug: Web/API/USB/connect_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`connect`** Ereignis der [`USB`](/de/docs/Web/API/USB)-Schnittstelle wird ausgelöst, wenn ein gepaartes Gerät angeschlossen wird.
+Das **`connect`**-Ereignis der [`USB`](/de/docs/Web/API/USB)-Schnittstelle wird ausgelöst, wenn ein gekoppeltes Gerät verbunden wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("connect", (event) => {});
@@ -28,7 +28,7 @@ Ein [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent). Erbt von [`Even
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgelisteten Eigenschaften sind die Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`device`](/de/docs/Web/API/USBConnectionEvent/device) {{ReadOnlyInline}}
   - : Das [`USBDevice`](/de/docs/Web/API/USBDevice), für das das Ereignis ausgelöst wird.
@@ -43,7 +43,7 @@ navigator.usb.addEventListener("connect", (event) => {
 });
 ```
 
-Alternativ können Sie die `USB.onconnect`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `connect`-Ereignis festzulegen:
+Alternativ können Sie die `USB.onconnect`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `connect`-Ereignis einzurichten:
 
 ```js
 navigator.usb.onconnect = (event) => {

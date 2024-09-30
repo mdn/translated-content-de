@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: set() Methode"
+title: "URLSearchParams: set()-Methode"
 short-title: set()
 slug: Web/API/URLSearchParams/set
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`set()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
-Interfaces legt den Wert fest, der mit einem bestimmten Suchparameter verknüpft ist. Wenn mehrere übereinstimmende Werte vorhanden sind, löscht diese Methode die anderen. Existiert der Suchparameter nicht, erstellt diese Methode ihn.
+Die **`set()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interfaces legt den Wert fest, der mit einem gegebenen Suchparameter assoziiert ist. Gibt es mehrere übereinstimmende Werte, löscht diese Methode die anderen. Existiert der Suchparameter nicht, erstellt diese Methode ihn.
 
 ## Syntax
 
@@ -20,9 +19,9 @@ set(name, value)
 ### Parameter
 
 - `name`
-  - : Der Name des zu setzenden Parameters.
+  - : Der Name des festzulegenden Parameters.
 - `value`
-  - : Der Wert des zu setzenden Parameters.
+  - : Der Wert des festzulegenden Parameters.
 
 ### Rückgabewert
 

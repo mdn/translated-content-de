@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
 
-Dieses Beispiel demonstriert, wie man einen [WebGL](/de/docs/Glossary/WebGL)-Rendering-Kontext erkennt und das Ergebnis an den Benutzer meldet.
+Dieses Beispiel zeigt, wie ein [WebGL](/de/docs/Glossary/WebGL)-Rendering-Kontext erkannt wird und das Ergebnis dem Benutzer mitgeteilt wird.
 
-## WebGL als Funktionalität erkennen
+## WebGL-Featureerkennung
 
 {{EmbedLiveSample("Feature-detecting_WebGL",660,150)}}
 
-In diesem ersten Beispiel werden wir überprüfen, ob der Browser [WebGL](/de/docs/Glossary/WebGL) unterstützt. Zu diesem Zweck werden wir versuchen, den {{domxref("WebGLRenderingContext","WebGL rendering context","",1)}} von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} ist eine Schnittstelle, über die Sie den Zustand der Grafikmaschine einstellen und abfragen, Daten an WebGL senden und Zeichenbefehle ausführen können.
+In diesem ersten Beispiel werden wir überprüfen, ob der Browser [WebGL](/de/docs/Glossary/WebGL) unterstützt. Zu diesem Zweck versuchen wir, den {{domxref("WebGLRenderingContext","WebGL rendering context","",1)}} von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} ist eine Schnittstelle, über die Sie den Zustand der Grafikeinheit setzen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
 
-Das Speichern des Zustands der Grafikmaschine innerhalb einer einzigen Kontextschnittstelle ist nicht einzigartig für [WebGL](/de/docs/Glossary/WebGL). Dies wird auch in anderen Grafik-[API](/de/docs/Glossary/API) gemacht, wie z.B. dem {{domxref("CanvasRenderingContext2D","canvas 2D rendering context", "", 1)}}. Die Eigenschaften und Variablen, die Sie anpassen können, unterscheiden sich jedoch für jede [API](/de/docs/Glossary/API).
+Den Zustand der Grafikeinheit in einer einzigen Kontextschnittstelle zu speichern, ist nicht einzigartig für [WebGL](/de/docs/Glossary/WebGL). Dies wird auch in anderen Grafik-[API](/de/docs/Glossary/API) wie dem {{domxref("CanvasRenderingContext2D", "canvas 2D rendering context", "", 1)}} gemacht. Die Eigenschaften und Variablen, die Sie anpassen können, sind jedoch für jede [API](/de/docs/Glossary/API) unterschiedlich.
 
 ```html
 <p>[ Here would go the result of WebGL feature detection ]</p>

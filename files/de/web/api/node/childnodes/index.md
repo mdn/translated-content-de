@@ -1,5 +1,5 @@
 ---
-title: "Node: childNodes Eigenschaft"
+title: "Node: Eigenschaft childNodes"
 short-title: childNodes
 slug: Web/API/Node/childNodes
 l10n:
@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`childNodes`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt eine Live-`[`NodeList`](/de/docs/Web/API/NodeList)` der Kind-`[`nodes`](/de/docs/Web/API/Node)` des angegebenen Elements zurück, wobei der erste Kind-Knoten den Index `0` hat. Kindknoten umfassen Elemente, Text und Kommentare.
+Die schreibgeschützte **`childNodes`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt eine Live-[`NodeList`](/de/docs/Web/API/NodeList) der Kind-[`Knoten`](/de/docs/Web/API/Node) des angegebenen Elements zurück, wobei der erste Kindknoten den Index `0` erhält. Kindknoten umfassen Elemente, Text und Kommentare.
 
 > [!NOTE]
-> Die `[`NodeList`](/de/docs/Web/API/NodeList)`, die live ist, bedeutet, dass sich der Inhalt jedes Mal ändert, wenn neue Kinder hinzugefügt oder entfernt werden.
+> Die `NodeList` ist live, was bedeutet, dass sich ihr Inhalt ändert, sobald neue Kinder hinzugefügt oder entfernt werden.
 >
-> Browser fügen einem Dokument Textknoten hinzu, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der beispielsweise mit `Node.childNodes[0]` erhalten wird, auf einen Leerzeichentextknoten verweisen und nicht auf das tatsächliche Element, das der Autor erhalten wollte.
+> Browser fügen einem Dokument Textknoten hinzu, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der zum Beispiel mit `Node.childNodes[0]` abgerufen wird, auf einen Leerzeichentextknoten verweisen, anstatt auf das eigentliche Element, das der Autor abrufen wollte.
 >
 > Weitere Informationen finden Sie unter [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace).
 
-Die Elemente in der Knotensammlung sind Objekte, keine Zeichenfolgen. Um Daten aus Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Um beispielsweise den Namen des ersten `childNode` zu erhalten, können Sie `elementNodeReference.childNodes[0].nodeName` verwenden.
+Die Elemente in der Sammlung von Knoten sind Objekte, keine Zeichenfolgen. Um Daten von Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Um beispielsweise den Namen des ersten childNode zu erhalten, können Sie `elementNodeReference.childNodes[0].nodeName` verwenden.
 
-Das [`document`](/de/docs/Web/API/Document)-Objekt selbst hat zwei Kinder: die Doctype-Deklaration und das Wurzelelement, das üblicherweise als `documentElement` bezeichnet wird. In HTML-Dokumenten ist letzteres das {{HTMLElement("html")}}-Element.
+Das [`document`](/de/docs/Web/API/Document)-Objekt selbst hat zwei Kinder: die Doctype-Deklaration und das Root-Element, das normalerweise als `documentElement` bezeichnet wird. In HTML-Dokumenten ist letzteres das {{HTMLElement("html")}}-Element.
 
-Es ist wichtig zu beachten, dass `childNodes` _alle_ Kindknoten enthält, einschließlich Nicht-Element-Knoten wie Text und Kommentare. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
+Es ist wichtig zu beachten, dass `childNodes` _alle_ Kindknoten umfasst, einschließlich Nicht-Element-Knoten wie Text und Kommentar. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
 
 ## Wert
 
-Eine Live-`[`NodeList`](/de/docs/Web/API/NodeList)`, die die Kinder des Knotens enthält.
+Eine Live-[`NodeList`](/de/docs/Web/API/NodeList), die die Kinder des Knotens enthält.
 
 > [!NOTE]
-> Mehrere Aufrufe von `childNodes` geben die _gleiche_ `[`NodeList`](/de/docs/Web/API/NodeList)` zurück.
+> Mehrere Aufrufe von `childNodes` geben die _gleiche_ [`NodeList`](/de/docs/Web/API/NodeList) zurück.
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ if (parg.hasChildNodes()) {
 }
 ```
 
-### Alle Kinder von einem Knoten entfernen
+### Entfernen aller Kinder von einem Knoten
 
 ```js
 // This is one way to remove all children from a node

@@ -1,6 +1,6 @@
 ---
-title: "LayoutShift: Wert-Eigenschaft"
-short-title: Wert
+title: "LayoutShift: value-Eigenschaft"
+short-title: value
 slug: Web/API/LayoutShift/value
 l10n:
   sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
@@ -8,19 +8,19 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`value`**-Eigenschaft des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces ist eine schreibgeschützte Eigenschaft und gibt den Layout-Shift-Score zurück, der als Produkt des Einflussbruchteils (Bruchteil des Viewports, der verschoben wurde) und des Entfernungsbruchteils (verschobene Entfernung als Bruchteil des Viewports) berechnet wird.
+Die eigenschaft **`value`** (nur lesbar) des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt den Layout-Shift-Score zurück, der als das Produkt aus dem Impact-Fraction (der Anteil des Viewports, der verschoben wurde) und der Distance-Fraction (die Bewegung als Anteil am Viewport) berechnet wird.
 
 ## Wert
 
-Eine Zahl zwischen `0.0` und `1.0`, die den Layout-Shift-Score angibt.
+Eine Zahl zwischen `0,0` und `1,0`, die den Layout-Shift-Score anzeigt.
 
-Dieser wird als Produkt des Einflussbruchteils (Bruchteil des Viewports, der verschoben wurde) und des Entfernungsbruchteils (verschobene Entfernung als Bruchteil des Viewports) berechnet.
+Er wird als das Produkt aus dem Impact-Fraction (der Anteil des Viewports, der verschoben wurde) und der Distance-Fraction (die Bewegung als Anteil am Viewport) berechnet.
 
 ```plain
 layout shift score = impact fraction * distance fraction
 ```
 
-Für weitere Details siehe [Layout shift score](https://web.dev/articles/cls#layout_shift_score) auf web.dev.
+Für weitere Details siehe [Layout Shift Score](https://web.dev/articles/cls#layout_shift_score) auf web.dev.
 
 ## Beispiele
 

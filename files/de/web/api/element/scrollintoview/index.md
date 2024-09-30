@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`scrollIntoView()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle scrollt die Vorfahren-Container des Elements, sodass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
+Die **`scrollIntoView()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces scrollt die Vorfahren-Container des Elements, sodass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
 
 ## Syntax
 
@@ -24,8 +24,8 @@ scrollIntoView(scrollIntoViewOptions)
 
   - : Ein boolescher Wert:
 
-    - Wenn `true`, wird der obere Rand des Elements an den oberen Rand des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
-    - Wenn `false`, wird der untere Rand des Elements an den unteren Rand des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
+    - Wenn `true`, wird die Oberseite des Elements mit der Oberseite des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
+    - Wenn `false`, wird die Unterseite des Elements mit der Unterseite des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
 
 - `scrollIntoViewOptions` {{optional_inline}}
   {{experimental_inline}}
@@ -33,16 +33,18 @@ scrollIntoView(scrollIntoViewOptions)
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort oder mit einem sanften Übergang erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Scrollen soll sanft animieren
-        - `instant`: Scrollen soll sofort in einem einzigen Sprung erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: das Scrollen sollte sanft animiert erfolgen
+        - `instant`: das Scrollen sollte sofort in einem einzigen Sprung erfolgen
+        - `auto`: das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
     - `block` {{optional_inline}}
       - : Definiert die vertikale Ausrichtung.
-        Eine von `start`, `center`, `end` oder `nearest`. Standard ist `start`.
+        Einer von `start`, `center`, `end` oder
+        `nearest`. Standard ist `start`.
     - `inline` {{optional_inline}}
       - : Definiert die horizontale Ausrichtung.
-        Eine von `start`, `center`, `end` oder `nearest`. Standard ist `nearest`.
+        Einer von `start`, `center`, `end` oder
+        `nearest`. Standard ist `nearest`.
 
 ### Rückgabewert
 
@@ -61,9 +63,9 @@ element.scrollIntoView({ block: "end" });
 element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 ```
 
-### Steuerung der oberen/unteren Ausrichtung
+### Steuerung der Ausrichtung oben/unten
 
-Standardmäßig wird das Element am oberen (oder unteren) Rand des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es eine feste Kopfzeile auf der Seite gibt.
+Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es einen festen Header auf der Seite gibt.
 
 #### HTML
 

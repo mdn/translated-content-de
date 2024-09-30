@@ -17,11 +17,11 @@ last()
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der der Kontextgröße aus dem Ausdrucksauswertungskontext entspricht.
+Eine ganze Zahl, die der Kontextgröße aus dem Ausdrucksauswertungskontext entspricht.
 
 ## Beschreibung
 
-- Dies wird oft in Kombination mit der [position()](/de/docs/Web/XPath/Functions/position) Funktion verwendet, um zu bestimmen, ob ein bestimmter Knoten der letzte in einem Knoten-Set ist.
+- Dies wird häufig mit der Funktion [position()](/de/docs/Web/XPath/Functions/position) verwendet, um zu bestimmen, ob ein bestimmter Knoten der letzte in einer Knotenmenge ist.
 
 ## Spezifikationen
 

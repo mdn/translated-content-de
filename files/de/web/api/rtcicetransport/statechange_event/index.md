@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`statechange`**-Ereignis tritt auf, wenn sich der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) Zustand ändert. Der [`state`](/de/docs/Web/API/RTCIceTransport/state) kann verwendet werden, um zu bestimmen, wie weit der Prozess des Prüfens, Verifizierens und Auswählens eines gültigen Kandidatenpaares fortgeschritten ist, bevor die Verbindung der beiden Peers für die WebRTC-Kommunikation erfolgreich hergestellt wird.
+Ein **`statechange`**-Ereignis tritt auf, wenn sich der Zustand des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) ändert. Der [`state`](/de/docs/Web/API/RTCIceTransport/state) kann verwendet werden, um zu bestimmen, wie weit der Prozess des Prüfens, Verifizierens und Auswählens eines gültigen Kandidatenpaares fortgeschritten ist, bevor die beiden Peers erfolgreich für WebRTC-Kommunikationen verbunden werden.
 
-Dieses Ereignis ist nicht abbruchbar und „bubbelt“ nicht.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Angenommen, ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, wird verwendet. Der folgende Code erstellt einen Ereignishandler, der eine Funktion namens `handleFailure()` aufruft, falls der ICE-Transport in einen Fehlerzustand gerät.
+Falls eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, existiert, erstellt der folgende Code einen Ereignishandler, der eine Funktion namens `handleFailure()` aufruft, wenn der ICE-Transport in einen Fehlerzustand übergeht.
 
 ```js
 let iceTransport = pc.getSenders()[0].transport.iceTransport;
@@ -44,7 +44,7 @@ iceTransport.addEventListener(
 );
 ```
 
-Der gleiche Code unter Nutzung der `onstatechange`-Ereignis-Handler-Eigenschaft sieht folgendermaßen aus:
+Der gleiche Code, unter Verwendung der `onstatechange`-Ereignishandler-Eigenschaft, sieht so aus:
 
 ```js
 let iceTransport = pc.getSenders()[0].transport.iceTransport;

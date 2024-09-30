@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: playing Ereignis"
+title: "HTMLMediaElement: playing Event"
 short-title: playing
 slug: Web/API/HTMLMediaElement/playing_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `playing` Ereignis wird ausgelöst, nachdem die Wiedergabe zunächst gestartet wurde und wann immer sie neu gestartet wird. Beispielsweise wird es ausgelöst, wenn die Wiedergabe nach einer Pause oder Verzögerung aufgrund von Datenmangel fortgesetzt wird.
+Das `playing` Event wird ausgelöst, nachdem die Wiedergabe zum ersten Mal gestartet wurde und immer wenn sie neu gestartet wird. Beispielsweise wird es ausgelöst, wenn die Wiedergabe nach einer Pause oder Verzögerung aufgrund fehlender Daten fortgesetzt wird.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrichbar und propagiert nicht.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einem HTMLMediaElement einen Ereignislistener für das `playing` Ereignis hinzu und geben eine Nachricht aus, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `playing` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 

@@ -1,5 +1,5 @@
 ---
-title: "CanMakePaymentEvent: respondWith() Methode"
+title: "CanMakePaymentEvent: respondWith()-Methode"
 short-title: respondWith()
 slug: Web/API/CanMakePaymentEvent/respondWith
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`respondWith()`** Methode des [`CanMakePaymentEvent`](/de/docs/Web/API/CanMakePaymentEvent) Interfaces ermöglicht es dem Service Worker, entsprechend darauf zu reagieren, ob er bereit ist, Zahlungen zu bearbeiten.
+Die **`respondWith()`**-Methode der [`CanMakePaymentEvent`](/de/docs/Web/API/CanMakePaymentEvent)-Schnittstelle ermöglicht es dem Service Worker, entsprechend darauf zu reagieren, ob er bereit ist, Zahlungen zu bearbeiten.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ respondWith(response)
 ### Parameter
 
 - `response`
-  - : Ein {{jsxref("Promise")}}, das mit einem booleschen Wert auflöst, um zu signalisieren, dass es bereit ist, eine Zahlungsanforderung zu bearbeiten: (`true`), oder nicht (`false`).
+  - : Ein {{jsxref("Promise")}}, das mit einem booleschen Wert aufgelöst wird, um anzuzeigen, dass es bereit ist, eine Zahlungsanforderung zu bearbeiten: (`true`) oder nicht (`false`).
 
 ### Rückgabewert
 
@@ -54,7 +54,7 @@ self.addEventListener("canmakepayment", (e) => {
 ## Siehe auch
 
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)

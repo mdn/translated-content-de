@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: maxRetransmits-Eigenschaft"
+title: "RTCDataChannel: Eigenschaft maxRetransmits"
 short-title: maxRetransmits
 slug: Web/API/RTCDataChannel/maxRetransmits
 l10n:
@@ -9,12 +9,11 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die schreibgeschützte `RTCDataChannel`-Eigenschaft
-**`maxRetransmits`** gibt die maximale Anzahl von Wiederholungsversuchen an, die der Browser unternehmen sollte, um eine Nachricht erneut zu senden, bevor er aufgibt, wie sie beim Erstellen des Datenkanals festgelegt wurde, oder `null`, was anzeigt, dass es kein Maximum gibt. Dies kann nur festgelegt werden, wenn das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) durch den Aufruf von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wird, unter Verwendung des `maxRetransmits`-Feldes in den angegebenen `options`.
+**`maxRetransmits`** gibt an, wie oft der Browser versuchen soll, eine Nachricht erneut zu übertragen, bevor er aufgibt, so wie es bei der Erstellung des Datenkanals festgelegt wurde, oder `null`, was anzeigt, dass es kein Maximum gibt. Dies kann nur festgelegt werden, wenn der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) durch Aufrufen von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wird, unter Verwendung des `maxRetransmits`-Feldes in den angegebenen `options`.
 
 ## Wert
 
-Die maximale Anzahl von Wiederholungsversuchen, die der Browser unternehmen wird, um eine Nachricht erneut zu senden, bevor er aufgibt, oder `null`, wenn dies bei Aufruf von
-[`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) nicht festgelegt wurde. Der Standardwert ist `null`.
+Die maximale Anzahl von Versuchen, die der Browser unternehmen wird, um eine Nachricht erneut zu übertragen, bevor er aufgibt, oder `null`, wenn dies beim Aufruf von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) nicht festgelegt wurde. Der Standardwert ist `null`.
 
 ## Spezifikationen
 

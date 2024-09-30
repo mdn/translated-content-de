@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaCurrent`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-current`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-current)-Attributs wider, welches das Element angibt, das das aktuelle Element innerhalb eines Containers oder Satzes verwandter Elemente darstellt.
+Die **`ariaCurrent`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-current`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-current)-Attributs wider, das das Element angibt, das das aktuelle Element innerhalb eines Containers oder einer Gruppe von verwandten Elementen darstellt.
 
 > [!NOTE]
-> Durch das Setzen von aria-Attributen auf `ElementInternals` können Standardsemantiken auf einem benutzerdefinierten Element definiert werden. Diese können von vom Autor definierten Attributen überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, sollten die Autoren diese Attribute löschen oder überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Eine Zeichenfolge mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `"page"`
-  - : Repräsentiert die aktuelle Seite innerhalb eines Satzes von Seiten.
+  - : Repräsentiert die aktuelle Seite innerhalb einer Gruppe von Seiten.
 - `"step"`
   - : Repräsentiert den aktuellen Schritt innerhalb eines Prozesses.
 - `"location"`
@@ -26,11 +26,11 @@ Eine Zeichenfolge mit einem der folgenden Werte:
 - `"date"`
   - : Repräsentiert das aktuelle Datum innerhalb einer Sammlung von Daten.
 - `"time"`
-  - : Repräsentiert die aktuelle Uhrzeit innerhalb eines Satzes von Zeiten.
+  - : Repräsentiert die aktuelle Zeit innerhalb einer Gruppe von Zeiten.
 - `"true"`
-  - : Repräsentiert das aktuelle Element innerhalb eines Satzes.
+  - : Repräsentiert das aktuelle Element innerhalb einer Gruppe.
 - `"false"`
-  - : Repräsentiert nicht das aktuelle Element innerhalb eines Satzes.
+  - : Repräsentiert nicht das aktuelle Element innerhalb einer Gruppe.
 
 ## Beispiele
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`createAnchor()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle erstellt einen frei schwebenden [`XRAnchor`](/de/docs/Web/API/XRAnchor), der relativ zur realen Welt fixiert wird.
+Die **`createAnchor()`**-Methode des [`XRFrame`](/de/docs/Web/API/XRFrame)-Interfaces erstellt einen freischwebenden [`XRAnchor`](/de/docs/Web/API/XRAnchor), der relativ zur realen Welt fixiert wird.
 
-Siehe [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor) für das Erstellen eines Ankers aus einem Trefferergebnis, das an ein Objekt in der realen Welt gebunden ist.
+Siehe [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor) für die Erstellung eines Ankers aus einem Hit-Test-Ergebnis, das an ein reales Objekt gebunden ist.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ createAnchor(pose, space)
 ### Parameter
 
 - `pose`
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt mit der anfänglichen Pose, an der der Anker erstellt werden soll. Das System stellt sicher, dass die in diesem Moment hergestellte Beziehung zur physischen Welt aufrechterhalten wird, während sich das Verständnis des Trackingsystems von der Welt weiterentwickelt.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt mit der initialen Pose, an der der Anker erstellt werden soll. Das System stellt sicher, dass die Beziehung zur physischen Welt, die zu diesem Zeitpunkt hergestellt wird, erhalten bleibt, während sich das Verständnis des Trackingsystems von der Welt weiterentwickelt.
 - `space`
   - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, relativ zu dem die Pose ist.
 

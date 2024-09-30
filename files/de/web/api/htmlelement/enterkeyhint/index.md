@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`enterKeyHint`**-Eigenschaft ist eine aufzählbare Eigenschaft, die definiert, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt wird. Sie spiegelt das [`enterkeyhint`](/de/docs/Web/HTML/Global_attributes/enterkeyhint) HTML-Globale Attribut wider und ist eine aufzählbare Eigenschaft, die nur die folgenden Werte als Zeichenkette akzeptiert:
+Die **`enterKeyHint`**-Eigenschaft ist eine aufgezählte Eigenschaft, die kennzeichnet, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll. Sie spiegelt das globale HTML-Attribut [`enterkeyhint`](/de/docs/Web/HTML/Global_attributes/enterkeyhint) wider und ist eine aufgezählte Eigenschaft, die nur die folgenden Werte als Zeichenkette akzeptiert:
 
-- `'enter'`, typischerweise das Einfügen einer neuen Zeile anzeigend.
-- `'done'`, was normalerweise bedeutet, dass nichts weiter eingegeben werden muss und der Eingabemethoden-Editor (IME) geschlossen wird.
-- `'go'`, was typischerweise bedeutet, dass der Benutzer zum Ziel des getippten Textes geführt wird.
-- `'next'`, was den Benutzer typischerweise zum nächsten Feld führt, das die Eingabe von Text akzeptiert.
-- `'previous'`, was den Benutzer typischerweise zum vorherigen Feld führt, das die Eingabe von Text akzeptiert.
-- `'search'`, was den Benutzer typischerweise zu den Ergebnissen der Suche nach dem eingegebenen Text führt.
-- `'send'`, was typischerweise den Text an sein Ziel liefert.
+- `'enter'` deutet typischerweise an, dass eine neue Zeile eingefügt wird.
+- `'done'` bedeutet typischerweise, dass nichts mehr einzugeben ist und die Eingabemethode (IME) geschlossen wird.
+- `'go'` bedeutet typischerweise, dass der Benutzer zum Ziel des eingegebenen Textes geführt wird.
+- `'next'` führt den Benutzer typischerweise zum nächsten Feld, das Text akzeptiert.
+- `'previous'` führt den Benutzer typischerweise zum vorherigen Feld, das Text akzeptiert.
+- `'search'` führt den Benutzer typischerweise zu den Ergebnissen der Suche nach dem eingegebenen Text.
+- `'send'` liefert den Text typischerweise an sein Ziel.
 
-Wenn kein `enterKeyHint`-Wert angegeben wurde oder wenn er auf einen anderen als die erlaubten Werte gesetzt wurde, wird ein leerer String zurückgegeben.
+Wenn kein `enterKeyHint`-Wert angegeben wurde oder ein anderer Wert als die erlaubten gesetzt wurde, wird ein leerer String zurückgegeben.
 
 ## Beispiele
 
@@ -42,4 +42,4 @@ search.enterKeyHint = "search";
 
 ## Siehe auch
 
-- [`enterkeyhint`](/de/docs/Web/HTML/Global_attributes/enterkeyhint) HTML-Globales Attribut
+- [`enterkeyhint`](/de/docs/Web/HTML/Global_attributes/enterkeyhint) Globales HTML-Attribut

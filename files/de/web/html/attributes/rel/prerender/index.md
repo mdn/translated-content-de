@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Das **`prerender`**-Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements ist ein Hinweis für Browser, dass der Benutzer die Zielressource für die nächste Navigation benötigen könnte. Daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er die Ressource im Voraus abruft und verarbeitet — zum Beispiel, indem er ihre Unterressourcen abruft oder einige Renderings im Hintergrund außerhalb des Bildschirms durchführt.
+Das **`prerender`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}} Elements ist ein Hinweis an Browser, dass der Benutzer die Zielressource für die nächste Navigation benötigen könnte. Daher kann der Browser möglicherweise die Benutzererfahrung verbessern, indem er die Ressource vorab abruft und verarbeitet — zum Beispiel, indem er deren Unterressourcen lädt oder einige Renderprozesse im Hintergrund ausführt.
 
 Dieses Feature wird durch die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) ersetzt.
 

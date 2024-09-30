@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`deliveryType`** ist ein String, der angibt, wie die Ressource bereitgestellt wurde — zum Beispiel aus dem Cache oder durch ein navigationales Vorladen.
+Die **`deliveryType`**-Eigenschaft ist eine schreibgeschützte Zeichenfolge, die angibt, wie die Ressource geliefert wurde — zum Beispiel aus dem Cache oder von einem Navigations-Prefetch.
 
 ## Wert
 
-Ein String, der einer der folgenden Werte sein kann:
+Eine Zeichenfolge, die einen der folgenden Werte annehmen kann:
 
 - `"cache"`
   - : Die Ressource wurde aus dem Cache abgerufen.
 - `"navigational-prefetch"` {{experimental_inline}}
-  - : Die Ressource wurde von einer vorgeholten Antwort abgerufen, die in einem In-Memory-Cache über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) gespeichert wurde.
-- `""` (leerer String)
-  - : Wird zurückgegeben, wenn keiner der oben genannten Bereitstellungstypen zutrifft.
+  - : Die Ressource wurde aus einer vorab abgerufenen Antwort abgerufen, die in einem Arbeitsspeicher-Cache über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) gespeichert wurde.
+- `""` (leere Zeichenfolge)
+  - : Wird zurückgegeben, wenn keiner der oben genannten Lieferarten zutrifft.
 
 ## Beispiele
 
-### Ressourcen filtern
+### Filtern von Ressourcen
 
-Die `deliveryType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten; zum Beispiel nur solche, die gecacht wurden.
+Die `deliveryType`-Eigenschaft kann verwendet werden, um spezifische Ressourcentiming-Einträge zu erhalten; zum Beispiel nur diejenigen, die zwischengespeichert wurden.
 
-Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue `resource`-Performance-Einträge zu informieren, sobald sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existierten.
+Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um bei neuen `resource`-Performance-Einträgen zu benachrichtigen, wenn diese in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs der Methode in der Performance-Zeitachse des Browsers vorhanden sind.
+Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs der Methode in der Leistungstimeline des Browsers vorhanden sind.
 
 ```js
 const scripts = performance.getEntriesByType("resource").filter((entry) => {

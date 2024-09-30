@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`value`**-Eigenschaft des [`HTMLDataElement`](/de/docs/Web/API/HTMLDataElement)
-Interfaces gibt einen String zurück, der das [`value`](/de/docs/Web/HTML/Element/data#value) HTML-Attribut widerspiegelt.
+Die **`value`**-Eigenschaft des [`HTMLDataElement`](/de/docs/Web/API/HTMLDataElement)-Interfaces gibt einen String zurück, der das [`value`](/de/docs/Web/HTML/Element/data#value)-HTML-Attribut widerspiegelt.
 
 ## Wert
 

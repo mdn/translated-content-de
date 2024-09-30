@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt eine Zeichenfolge zurück, die die Statusmeldung der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wird. Im Gegensatz zu [`XMLHTTPRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Befindet sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im `UNSENT`- oder `OPENED`-Zustand, wird der Wert von `statusText` eine leere Zeichenfolge sein.
+Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt eine Zeichenkette zurück, die die Statusmeldung der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wird. Im Gegensatz zu [`XMLHTTPRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Befindet sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im `UNSENT`- oder `OPENED`-Zustand, wird der Wert von `statusText` eine leere Zeichenkette sein.
 
-Wenn die Serverantwort keinen Status-Text ausdrücklich festlegt, nimmt `statusText` den Standardwert "OK" an.
+Wenn die Serverantwort keinen Status-Text explizit angibt, nimmt `statusText` den Standardwert "OK" an.
 
 > [!NOTE]
-> Antworten über eine HTTP/2-Verbindung werden immer eine leere Zeichenfolge als Statusmeldung haben, da HTTP/2 diese nicht unterstützt.
+> Antworten über eine HTTP/2-Verbindung werden immer eine leere Zeichenkette als Statusnachricht haben, da HTTP/2 diese nicht unterstützt.
 
 ## Wert
 
-Eine Zeichenfolge.
+Eine Zeichenkette.
 
 ## Beispiele
 

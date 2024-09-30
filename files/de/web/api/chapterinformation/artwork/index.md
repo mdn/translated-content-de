@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`artwork`**-Eigenschaft der [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Schnittstelle gibt ein {{jsxref("Array")}} von Objekten zurück, die Bilder repräsentieren, die mit dem Kapitel verknüpft sind.
+Die **`artwork`** schreibgeschützte Eigenschaft der [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Schnittstelle gibt ein {{jsxref("Array")}} von Objekten zurück, die Bilder repräsentieren, die mit dem Kapitel verknüpft sind.
 
 ## Wert
 
 Ein {{jsxref("Array")}} von Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `src`
-  - : Ein String, der die URL repräsentiert, von der der User Agent die Bilddaten abruft.
+  - : Ein String, der die URL darstellt, von der der Benutzeragent die Bilddaten abruft.
 - `sizes`
-  - : Ein String, der eine oder mehrere Größen für die Ressource darstellt. Sein Wert kann das Schlüsselwort `any` sein (was ein skalierbares Vektorformat wie SVG repräsentiert) oder eine durch Leerzeichen getrennte Liste von Tokens im Format `<Breite in Pixeln>x<Höhe in Pixeln>` oder `<Breite in Pixeln>X<Höhe in Pixeln>`. Wenn mehrere Größen angegeben sind, kann der User Agent die für den aktuellen Kontext am besten geeignete Größe laden, vorausgesetzt, diese Größen sind in der verknüpften Ressource verfügbar.
+  - : Ein String, der eine oder mehrere Größen für die Ressource darstellt. Sein Wert kann das Schlüsselwort `any` sein (was ein skalierbares Vektorformat wie SVG darstellt), oder eine durch Leerzeichen getrennte Liste von Tokens im Format `<Breite in Pixel>x<Höhe in Pixel>` oder `<Breite in Pixel>X<Höhe in Pixel>`. Wenn mehrere Größen angegeben sind, kann der Benutzeragent die für den aktuellen Kontext am besten geeignete Größe laden, vorausgesetzt, diese Größen sind in der verlinkten Ressource verfügbar.
 - `type`
-  - : Ein String, der einen [MIME-Typ](/de/docs/Glossary/MIME_type) Hinweis darstellt, der es dem User Agent ermöglicht, Bildtypen zu ignorieren, die er nicht unterstützt. Der User Agent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Typ-Sniffing verwenden, um dessen Typ zu bestimmen.
+  - : Ein String, der einen [MIME-Typ](/de/docs/Glossary/MIME_type)-Hinweis darstellt, der es dem Benutzeragenten ermöglicht, Bildtypen zu ignorieren, die er nicht unterstützt. Der Benutzeragent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Typ-Erkennung verwenden, um seinen Typ zu bestimmen.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`ChapterInformation`](/de/docs/Web/API/ChapterInformation) für ein Beispiel.
+Siehe die Hauptseite [`ChapterInformation`](/de/docs/Web/API/ChapterInformation) für ein Beispiel.
 
 ## Spezifikationen
 

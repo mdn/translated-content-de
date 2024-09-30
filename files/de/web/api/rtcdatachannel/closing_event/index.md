@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: closing-Ereignis"
+title: "RTCDataChannel: closing Ereignis"
 short-title: closing
 slug: Web/API/RTCDataChannel/closing_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`closing`**-Ereignis wird an ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, kurz bevor der Kanal den Prozess zum Herunterfahren seines zugrunde liegenden Datentransports beginnt.
+Das **`closing`** Ereignis wird an einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, kurz bevor der Kanal beginnt, seinen zugrunde liegenden Datentransport herunterzufahren.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("closing", (event) => {});
@@ -28,11 +28,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beschreibung
 
-Während das `closing`-Ereignis an den Kanal gesendet wird, kurz bevor der Datentransport des Kanals geschlossen wird, wird das [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis gesendet, wenn der Schließvorgang abgeschlossen ist.
+Während das `closing` Ereignis an den Kanal gesendet wird, kurz bevor der Datentransport des Kanals geschlossen wird, wird das [`close`](/de/docs/Web/API/RTCDataChannel/close_event) Ereignis gesendet, sobald der Schließvorgang abgeschlossen ist.
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert eine Verbindungsstatusschnittstelle, wenn das `closing`-Ereignis eintrifft.
+Dieses Beispiel aktualisiert eine Verbindungsstatus-Oberfläche, wenn das `closing` Ereignis eintrifft.
 
 Zuerst ein Beispiel mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
@@ -43,7 +43,7 @@ dataChannel.addEventListener("closing", (ev) => {
 });
 ```
 
-Sie können auch die `onclosing`-Ereignishandler-Eigenschaft direkt setzen:
+Sie können auch direkt die `onclosing` Ereignishandler-Eigenschaft setzen:
 
 ```js
 pc.onclosing = (ev) => {
@@ -62,5 +62,5 @@ pc.onclosing = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)

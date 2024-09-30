@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Schweregrad der Warnung, der das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
+Der Schweregrad der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `"low"`
 - `"medium"`

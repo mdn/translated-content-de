@@ -8,10 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toString()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interfaces gibt einen Abfragezeichensatz zurück, der für die Verwendung in einer URL geeignet ist.
+Die **`toString()`**-Methode der
+[`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle gibt eine Abfragezeichenfolge zurück, die sich für die Verwendung in einer URL eignet.
 
 > [!NOTE]
-> Diese Methode gibt den Abfragezeichensatz ohne das Fragezeichen zurück. Das unterscheidet sich von [`Location.search`](/de/docs/Web/API/Location/search), [`HTMLAnchorElement.search`](/de/docs/Web/API/HTMLAnchorElement/search) und [`URL.search`](/de/docs/Web/API/URL/search), die alle das Fragezeichen einschließen.
+> Diese Methode gibt die Abfragezeichenfolge ohne das Fragezeichen zurück. Dies unterscheidet sich von [`Location.search`](/de/docs/Web/API/Location/search), [`HTMLAnchorElement.search`](/de/docs/Web/API/HTMLAnchorElement/search) und [`URL.search`](/de/docs/Web/API/URL/search), die alle das Fragezeichen einschließen.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Zeichenkette ohne Fragezeichen. (Gibt eine leere Zeichenkette zurück, wenn keine Suchparameter gesetzt wurden.)
+Ein String, ohne das Fragezeichen. (Gibt einen leeren String zurück, wenn keine Suchparameter gesetzt wurden.)
 
 ## Beispiele
 

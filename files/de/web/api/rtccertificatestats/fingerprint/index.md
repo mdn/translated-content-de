@@ -14,7 +14,7 @@ Die **`fingerprint`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/R
 
 Ein String, der den Fingerprint des zugehörigen Zertifikats enthält.
 
-Dies ist ein hexadezimaler Kleinbuchstaben-String, der mit der in der [`fingerprintAlgorithm`](/de/docs/Web/API/RTCCertificateStats/fingerprintAlgorithm)-Eigenschaft angegebenen Hash-Funktion berechnet wird. Das Format ist genauer definiert in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5).
+Dies ist ein hexadezimaler Kleinschrift-String, der unter Verwendung der in der [`fingerprintAlgorithm`](/de/docs/Web/API/RTCCertificateStats/fingerprintAlgorithm)-Eigenschaft angegebenen Hash-Funktion berechnet wird. Das Format ist genauer in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5) definiert.
 
 ## Spezifikationen
 

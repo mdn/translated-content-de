@@ -3,12 +3,14 @@ title: "WebGLRenderingContext: createTexture()-Methode"
 short-title: createTexture()
 slug: Web/API/WebGLRenderingContext/createTexture
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.createTexture()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt.
+Die **`WebGLRenderingContext.createTexture()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
+[`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt.
 
 ## Syntax
 

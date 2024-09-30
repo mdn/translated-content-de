@@ -1,5 +1,5 @@
 ---
-title: "Element: scrollBy() Methode"
+title: "Element: scrollBy()-Methode"
 short-title: scrollBy()
 slug: Web/API/Element/scrollBy
 l10n:
@@ -26,11 +26,11 @@ scrollBy(options)
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, die das Fenster oder Element scrollen soll.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel entlang der X-Achse an, die das Fenster oder Element scrollen soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen weich animiert (`smooth`), sofort in einem Sprung (`instant`) erfolgen soll oder dem Browser überlassen wird (`auto`, Standard).
+      - : Gibt an, ob das Scrollen gleichmäßig animiert werden soll (`smooth`), sofort in einem Sprung geschehen soll (`instant`), oder ob der Browser entscheiden soll (`auto`, Standard).
 
 ### Rückgabewert
 

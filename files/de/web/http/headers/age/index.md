@@ -7,15 +7,15 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Age`**-Header enthält die Zeit in Sekunden, die das Objekt in einem Proxy-Cache war.
+Der **`Age`**-Header enthält die Zeit in Sekunden, die das Objekt in einem Proxy-Cache verbracht hat.
 
-Der `Age`-Header ist normalerweise nahe bei null. Wenn er `Age: 0` ist, wurde er wahrscheinlich vom Ursprungsserver abgerufen; andernfalls wurde er normalerweise als Differenz zwischen dem aktuellen Datum des Proxys und dem allgemeinen {{HTTPHeader("Date")}}-Header berechnet, der in der HTTP-Antwort enthalten ist.
+Der `Age`-Header ist normalerweise nahe bei null. Wenn er `Age: 0` ist, wurde er wahrscheinlich vom Ursprungsserver abgerufen; andernfalls wurde er normalerweise als Differenz zwischen dem aktuellen Datum des Proxys und dem im HTTP-Response enthaltenen allgemeinen Header {{HTTPHeader("Date")}} berechnet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
@@ -33,7 +33,7 @@ Age: <delta-seconds>
 ## Direktiven
 
 - \<delta-seconds>
-  - : Eine nicht-negative Ganzzahl, die die Zeit in Sekunden angibt, die das Objekt in einem Proxy-Cache war.
+  - : Eine nicht-negative ganze Zahl, die die Zeit in Sekunden angibt, die das Objekt in einem Proxy-Cache verbracht hat.
 
 ## Beispiele
 

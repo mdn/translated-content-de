@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`reason`**-Eigenschaft gibt einen JavaScript-Wert zurück, der den Abbruchgrund angibt.
+Die **`reason`**-Eigenschaft (nur lesbar) gibt einen JavaScript-Wert zurück, der den Abbruchgrund angibt.
 
 Die Eigenschaft ist `undefined`, wenn das Signal nicht abgebrochen wurde.
-Sie kann auf einen bestimmten Wert gesetzt werden, wenn das Signal mit [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) oder [`AbortSignal.abort()`](/de/docs/Web/API/AbortSignal/abort_static) abgebrochen wird.
-Wenn in diesen Methoden nicht explizit gesetzt, lautet der Standardwert "AbortError" [`DOMException`](/de/docs/Web/API/DOMException).
+Sie kann auf einen bestimmten Wert gesetzt werden, wenn das Signal abgebrochen wird, indem [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) oder [`AbortSignal.abort()`](/de/docs/Web/API/AbortSignal/abort_static) verwendet wird.
+Wenn sie nicht explizit in diesen Methoden gesetzt wird, ist der Standardwert "AbortError" [`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Wert
 
@@ -20,8 +20,8 @@ Ein JavaScript-Wert, der den Abbruchgrund angibt, oder `undefined`, wenn nicht a
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft).
-Später prüfen wir mit der `aborted`-Eigenschaft, ob das Signal abgebrochen wurde, und protokollieren den Abbruchsstatus und den Grund in der Konsole.
+Im folgenden Schnipsel erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft).
+Später überprüfen wir mit der `aborted`-Eigenschaft, ob das Signal abgebrochen wurde, und loggen den Abbruchstatus und Grund in die Konsole.
 
 ```js
 const controller = new AbortController();
@@ -50,4 +50,4 @@ if (signal.aborted) {
 
 ## Siehe auch
 
-- [Fetch API](/de/docs/Web/API/Fetch_API)
+- [Fetch-API](/de/docs/Web/API/Fetch_API)

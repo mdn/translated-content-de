@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: setHTMLUnsafe() Methode"
+title: "ShadowRoot: setHTMLUnsafe()-Methode"
 short-title: setHTMLUnsafe()
 slug: Web/API/ShadowRoot/setHTMLUnsafe
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`setHTMLUnsafe()`**-Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Interface wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, welches dann den Subtree des Elements im DOM ersetzt. Das eingegebene HTML kann [deklarative Shadow Roots](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten.
+Die **`setHTMLUnsafe()`**-Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, welches dann den Unterbaum des Elements im DOM ersetzt. Der Eingabe-HTML-String kann [deklarative Shadow Roots](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten.
 
-Der Suffix "Unsafe" im Methodennamen weist darauf hin, dass die Methode keine potenziell unsicheren XSS-relevanten Eingaben, wie `<script>`-Elemente, sowie Script- oder Ereignishandler-Attributinhalte bereinigt oder entfernt.
+Das Suffix "Unsafe" im Methodennamen weist darauf hin, dass die Methode keine potenziell unsicheren, XSS-relevanten Eingaben, wie `<script>`-Elemente und Skript- oder Ereignis-Handler-Inhaltsattribute, säubert oder entfernt.
 
-Wenn der HTML-String mehr als einen [deklarativen Shadow Root](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) in einem bestimmten Shadow-Host definiert, wird nur der erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt — nachfolgende Deklarationen werden als `<template>`-Elemente innerhalb dieses Shadow Roots geparst.
+Wenn der HTML-String mehr als eine [deklarative Shadow Root](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) in einem bestimmten Shadow Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt - nachfolgende Deklarationen werden als `<template>`-Elemente innerhalb dieser Shadow Root geparst.
 
 > [!NOTE]
-> Diese Methode sollte anstelle von [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwendet werden, wenn ein HTML-String deklarative Shadow Roots enthalten könnte.
+> Diese Methode sollte anstelle von [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwendet werden, wenn ein HTML-String deklarative Shadow Roots enthalten kann.
 
 ## Syntax
 

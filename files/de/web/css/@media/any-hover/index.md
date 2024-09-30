@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`any-hover`** [CSS](/de/docs/Web/CSS) [media feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob _irgendein_ verfügbares Eingabegerät über Elemente schweben kann.
+Die **`any-hover`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob _irgendein_ verfügbares Eingabegerät über Elemente schweben kann.
 
 ## Syntax
 
-Das `any-hover` Feature wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste gewählt wird.
+Die `any-hover`-Funktion wird als Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Keines der verfügbaren Eingabegeräte kann bequem schweben, oder es gibt kein Zeige-Eingabegerät.
+  - : Keines der verfügbaren Eingabegeräte kann bequem schweben, oder es gibt kein Zeigereingabegerät.
 - `hover`
   - : Ein oder mehrere verfügbare Eingabegeräte können bequem über Elemente schweben.
 
 ## Beispiele
 
-### Test der Fähigkeit von Eingabegeräten, zu schweben
+### Testen, ob Eingabemethoden schweben können
 
 #### HTML
 
@@ -52,4 +52,4 @@ Das `any-hover` Feature wird als ein Schlüsselwortwert angegeben, der aus der f
 
 ## Siehe auch
 
-- [das `hover` Media-Feature](/de/docs/Web/CSS/@media/hover)
+- [die `hover` Medienfunktion](/de/docs/Web/CSS/@media/hover)

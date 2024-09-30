@@ -1,5 +1,5 @@
 ---
-title: Leerer Ausdruck
+title: Empty Statement
 slug: Web/JavaScript/Reference/Statements/Empty
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,8 +7,8 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Ein **leerer Ausdruck** wird verwendet, um keinen Ausdruck bereitzustellen, obwohl die
-JavaScript-Syntax einen erwarten würde.
+Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die
+JavaScript-Syntax eine erwarten würde.
 
 {{EmbedInteractiveExample("pages/js/statement-empty.html")}}
 
@@ -20,15 +20,19 @@ JavaScript-Syntax einen erwarten würde.
 
 ## Beschreibung
 
-Der leere Ausdruck ist ein Semikolon (`;`), das anzeigt, dass kein Ausdruck ausgeführt wird, selbst wenn die JavaScript-Syntax einen verlangt.
+Die leere Anweisung ist ein Semikolon (`;`), das angibt, dass keine Anweisung
+ausgeführt wird, selbst wenn die JavaScript-Syntax eine erwartet.
 
-Das gegenteilige Verhalten, bei dem Sie mehrere Ausdrücke haben möchten, JavaScript jedoch nur einen zulässt, ist mithilfe eines [Block-Ausdrucks](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, der mehrere Ausdrücke zu einem einzigen kombiniert.
+Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen wünschen, aber JavaScript
+nur eine einzige erlaubt, ist durch eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich,
+die mehrere Anweisungen zu einer einzigen kombiniert.
 
 ## Beispiele
 
 ### Leerer Schleifenkörper
 
-Der leere Ausdruck wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel mit einem leeren Schleifenkörper an:
+Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie das folgende Beispiel
+mit einem leeren Schleifenkörper:
 
 ```js-nolint
 const arr = [1, 2, 3];
@@ -40,9 +44,10 @@ console.log(arr);
 // [0, 0, 0]
 ```
 
-### Unbeabsichtigte Verwendung
+### Unbeabsichtigte Nutzung
 
-Es ist eine gute Idee, die _beabsichtigte_ Verwendung des leeren Ausdrucks zu kommentieren, da es nicht wirklich offensichtlich ist, ihn von einem normalen Semikolon zu unterscheiden.
+Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da
+sie sich nicht wirklich offensichtlich von einem normalen Semikolon unterscheidet.
 
 Im folgenden Beispiel ist die Verwendung wahrscheinlich nicht beabsichtigt:
 
@@ -61,4 +66,4 @@ if (condition);      // Caution, this "if" does nothing!
 
 ## Siehe auch
 
-- [Block-Ausdruck](/de/docs/Web/JavaScript/Reference/Statements/block)
+- [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block)

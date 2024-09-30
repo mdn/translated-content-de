@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `gain`-Eigenschaft der [`GainNode`](/de/docs/Web/API/GainNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Betrag des anzuwendenden Gain darstellt.
+Die `gain`-Eigenschaft des [`GainNode`](/de/docs/Web/API/GainNode)-Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Menge des anzuwendenden Verstärkers darstellt.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 ## Beispiele
 
-Sehen Sie sich [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain#examples) für ein Beispiel an, wie ein `AudioContext` zum Erstellen eines `GainNode` verwendet wird, der dann verwendet wird, um die Audio-Ausgabe stummzuschalten und die Stummschaltung durch Ändern des gain-Eigenschaftswerts aufzuheben.
+Siehe [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain#examples) für Beispielcode, der zeigt, wie ein `AudioContext` verwendet wird, um einen `GainNode` zu erstellen, der dann verwendet wird, um das Audio durch Änderung des Werts der gain-Eigenschaft stummzuschalten und die Stummschaltung aufzuheben.
 
 ## Spezifikationen
 

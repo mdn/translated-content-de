@@ -1,14 +1,16 @@
 ---
-title: "WebGL2RenderingContext: Methode deleteSampler()"
+title: "WebGL2RenderingContext: deleteSampler()-Methode"
 short-title: deleteSampler()
 slug: Web/API/WebGL2RenderingContext/deleteSampler
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`WebGL2RenderingContext.deleteSampler()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+Die **`WebGL2RenderingContext.deleteSampler()`**-Methode der
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes
+[`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ deleteSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein zu löschendes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -27,7 +29,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
+`WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sampler = gl.createSampler();

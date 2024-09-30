@@ -7,19 +7,19 @@ l10n:
 
 {{JSRef}}
 
-Das **`RangeError`**-Objekt zeigt einen Fehler an, wenn ein Wert nicht in der Menge oder im Bereich der erlaubten Werte liegt.
+Das **`RangeError`**-Objekt zeigt einen Fehler an, wenn ein Wert nicht in der Menge oder dem Bereich der zulässigen Werte liegt.
 
 ## Beschreibung
 
-Ein `RangeError` wird ausgelöst, wenn versucht wird, einen Wert als Argument an eine Funktion zu übergeben, die einen Bereich umfasst, der den Wert nicht zulässt.
+Ein `RangeError` wird ausgelöst, wenn versucht wird, einen Wert als Argument an eine Funktion zu übergeben, die keinen Bereich zulässt, der diesen Wert einschließt.
 
-Dies kann auftreten, wenn:
+Dies kann vorkommen, wenn:
 
-- ein Wert, der nicht einer der erlaubten Zeichenfolgenwerte ist, an {{jsxref("String.prototype.normalize()")}} übergeben wird, oder
-- wenn versucht wird, ein Array mit einer unzulässigen Länge mit dem {{jsxref("Array")}}-Konstruktor zu erstellen, oder
+- ein Wert übergeben wird, der nicht einer der erlaubten Zeichenfolgenwerte für {{jsxref("String.prototype.normalize()")}} ist, oder
+- wenn versucht wird, ein Array einer unerlaubten Länge mit dem {{jsxref("Array")}}-Konstruktor zu erstellen, oder
 - wenn ungültige Werte an die numerischen Methoden {{jsxref("Number.prototype.toExponential()")}}, {{jsxref("Number.prototype.toFixed()")}} oder {{jsxref("Number.prototype.toPrecision()")}} übergeben werden.
 
-`RangeError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`RangeError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `RangeError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -30,18 +30,18 @@ Dies kann auftreten, wenn:
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}._
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}._
 
 Diese Eigenschaften sind auf `RangeError.prototype` definiert und werden von allen `RangeError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "RangeError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `RangeError`-Instanzen ist der anfängliche Wert der {{jsxref("RangeError/RangeError", "RangeError")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `RangeError`-Instanzen ist der Anfangswert der {{jsxref("RangeError/RangeError", "RangeError")}}-Konstruktor.
 - {{jsxref("Error/name", "RangeError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Für `RangeError.prototype.name` ist der anfängliche Wert `"RangeError"`.
+  - : Repräsentiert den Namen für die Art des Fehlers. Für `RangeError.prototype.name` ist der Anfangswert `"RangeError"`.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}._
+_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}._
 
 ## Beispiele
 

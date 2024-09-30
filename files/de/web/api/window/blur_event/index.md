@@ -1,5 +1,5 @@
 ---
-title: "Window: blur Event"
+title: "Window: blur Ereignis"
 short-title: blur
 slug: Web/API/Window/blur_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`blur`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verloren hat.
+Das **`blur`** Ereignis wird ausgelöst, wenn ein Element den Fokus verliert.
 
 Das Gegenteil von `blur` ist [`focus`](/de/docs/Web/API/Window/focus_event).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("blur", (event) => {});
@@ -30,18 +30,18 @@ Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/W
 
 {{InheritanceDiagram("FocusEvent")}}
 
-## Ereigniseigenschaften
+## Ereignis-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
 - [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
-  - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), das ein sekundäres Ziel für dieses Ereignis darstellt. In einigen Fällen (wie beim Wechsel mit der Tabulatortaste in oder aus einer Seite) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt sein.
+  - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), das ein sekundäres Ziel für dieses Ereignis darstellt. In einigen Fällen (wie beim Wechseln der Seitenansicht) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt werden.
 
 ## Beispiele
 
 ### Live-Beispiel
 
-Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um [`focus`](/de/docs/Web/API/Window/focus_event)- und `blur`-Ereignisse zu überwachen.
+Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um [`focus`](/de/docs/Web/API/Window/focus_event) und `blur` Ereignisse zu überwachen.
 
 #### HTML
 
@@ -90,7 +90,7 @@ window.addEventListener("focus", play);
 
 {{Compat}}
 
-Der Wert von [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) variiert je nach Browser, während dieses Ereignis verarbeitet wird ([Firefox-Bug 452307](https://bugzil.la/452307)): IE10 setzt ihn auf das Element, auf das der Fokus verschoben wird, während Firefox und Chrome ihn oft auf den `body` des Dokuments setzen.
+Der Wert von [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) variiert zwischen Browsern, während dieses Ereignis gehandhabt wird ([Firefox-Bug 452307](https://bugzil.la/452307)): IE10 setzt es auf das Element, zu dem der Fokus wechselt, während Firefox und Chrome es häufig auf den `body` des Dokuments setzen.
 
 ## Siehe auch
 

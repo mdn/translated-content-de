@@ -1,5 +1,5 @@
 ---
-title: "Performance: getEntries()-Methode"
+title: "Performance: getEntries() Methode"
 short-title: getEntries()
 slug: Web/API/Performance/getEntries
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntries()`**-Methode gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Performance-Zeitleiste vorhanden sind.
+Die Methode **`getEntries()`** gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Performance-Zeitleiste vorhanden sind.
 
-Wenn Sie sich nur für Performance-Einträge bestimmter Typen oder mit bestimmten Namen interessieren, schauen Sie sich [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) an.
+Wenn Sie nur an Performance-Einträgen bestimmter Typen oder mit bestimmten Namen interessiert sind, siehe [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName).
 
 > [!NOTE]
 > Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur die Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste vorhanden sind.
-> Um Benachrichtigungen über Einträge zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
+> Um Benachrichtigungen über Einträge zu erhalten, sobald diese verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden auch dann nicht zurückgegeben, wenn Einträge für diese Typen existieren könnten:
+Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn Einträge für diese Typen existieren könnten:
 
 - `"element"` ([`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming))
 - `"event"` ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming))
@@ -24,7 +24,7 @@ Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstü
 - `"layout-shift"` ([`LayoutShift`](/de/docs/Web/API/LayoutShift))
 - `"longtask"` ([`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming))
 
-Um Einträge dieser Typen zu erhalten, müssen Sie stattdessen einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwenden.
+Um auf Einträge dieser Typen zuzugreifen, müssen Sie stattdessen einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwenden.
 
 ## Syntax
 
@@ -42,9 +42,9 @@ Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEnt
 
 ## Beispiele
 
-### Protokollierung aller Performance-Markierungen und Messungen
+### Protokollierung aller Performance-Marker und -Messungen
 
-Wenn Sie Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt haben, möchten Sie möglicherweise alle in der Konsole so protokollieren:
+Angenommen, Sie haben Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt, dann könnten Sie alle im Konsolenprotokoll wie folgt ausgeben:
 
 ```js
 // Example markers/measures

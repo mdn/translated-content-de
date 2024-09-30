@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`offsetY`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent) Schnittstelle liefert den Versatz in der Y-Koordinate des Mauszeigers zwischen diesem Ereignis und dem inneren Rand des Zielknotens.
+Die schreibgeschützte **`offsetY`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert den Versatz in der Y-Koordinate des Mauszeigers zwischen diesem Ereignis und der Polsterkante des Zielknotens.
 
 ## Wert
 
-Ein `double` Gleitkommawert in Pixeln.
+Ein `double`-Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als ganzzahligen Wert.
+Frühere Versionen der Spezifikation definierten dies als Ganzzahl.
 
 ## Spezifikationen
 

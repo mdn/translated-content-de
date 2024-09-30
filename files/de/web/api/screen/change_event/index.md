@@ -1,5 +1,5 @@
 ---
-title: "Screen: change-Ereignis"
+title: "Screen: change Ereignis"
 short-title: change
 slug: Web/API/Screen/change_event
 l10n:
@@ -19,7 +19,7 @@ Das **`change`**-Ereignis der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle 
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});

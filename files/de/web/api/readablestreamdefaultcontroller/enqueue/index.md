@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`enqueue()`**-Methode der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Schnittstelle fügt dem zugehörigen Stream einen gegebenen [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) hinzu.
+Die **`enqueue()`** Methode der
+[`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController) Schnittstelle reiht ein gegebenes [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) in den zugehörigen Stream ein.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ enqueue(chunk)
 ### Parameter
 
 - `chunk`
-  - : Der Chunk, der hinzugefügt werden soll.
+  - : Das Chunk, das eingereiht werden soll.
 
 ### Rückgabewert
 
@@ -32,9 +33,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mit einem Konstruktor erstellt (sehen Sie sich unser [Einfaches Zufallsstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code an). Die `start()`-Funktion generiert jede Sekunde einen zufälligen Textstring und fügt ihn in den Stream ein — siehe `controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Generierung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
+Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe
+eines Konstruktors erstellt (siehe unser [Einfaches zufälliges Stream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion erzeugt jede Sekunde einen
+zufälligen Textstring und reiht ihn in den Stream ein — siehe
+`controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls
+bereitgestellt, um die Erzeugung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
 
-Wenn eine Schaltfläche gedrückt wird, wird die Generierung gestoppt, der Stream mit [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine andere Funktion wird ausgeführt, die die Daten aus dem Stream wieder ausliest.
+Wenn eine Taste gedrückt wird, wird die Erzeugung gestoppt, der Stream wird mit
+[`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine weitere Funktion wird ausgeführt,
+die die Daten aus dem Stream zurückliest.
 
 ```js
 let interval;

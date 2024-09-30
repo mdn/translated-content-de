@@ -1,5 +1,5 @@
 ---
-title: "StyleSheetList: length Eigenschaft"
+title: "StyleSheetList: length-Eigenschaft"
 short-title: length
 slug: Web/API/StyleSheetList/length
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`length`** schreibgeschützte Eigenschaft des [`StyleSheetList`](/de/docs/Web/API/StyleSheetList)-Interfaces gibt die Anzahl der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekte in der Sammlung zurück.
+Die **`length`**-Eigenschaft des [`StyleSheetList`](/de/docs/Web/API/StyleSheetList)-Interfaces gibt die Anzahl der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekte in der Sammlung zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein ganzzahliger Wert, der die Anzahl der Elemente in der Sammlung angibt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `length` in die Konsole ausgegeben und auch in einer For-Schleife verwendet, um jedes einzelne [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt in die Konsole auszugeben.
+Im folgenden Beispiel wird `length` in der Konsole ausgegeben und auch in einer Schleife verwendet, um jedes einzelne [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt in der Konsole auszugeben.
 
 ```js
 let length = document.styleSheets.length;

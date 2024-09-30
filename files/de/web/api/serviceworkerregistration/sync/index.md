@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Background Sync")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`sync`**-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`SyncManager`](/de/docs/Web/API/SyncManager)-Interface zurück, das Hintergrundsynchronisationsprozesse verwaltet.
+Die **`sync`**-Eigenschaft der
+[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz auf die
+[`SyncManager`](/de/docs/Web/API/SyncManager)-Schnittstelle zurück, die Hintergrundsynchronisationsprozesse verwaltet.
 
 ## Wert
 

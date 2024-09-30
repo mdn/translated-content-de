@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLSpanElement`** Interface repräsentiert ein {{HTMLElement("span")}} Element und leitet sich vom [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface ab, ohne jedoch zusätzliche Eigenschaften oder Methoden zu implementieren.
+Die **`HTMLSpanElement`**-Schnittstelle repräsentiert ein {{HTMLElement("span")}}-Element und leitet sich von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ab, ohne zusätzliche Eigenschaften oder Methoden zu implementieren.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, aber erbt Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Instanz-Methoden
 
-_Dieses Interface hat keine eigenen Methoden, erbt jedoch Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine eigenen Methoden, aber erbt Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -29,4 +29,4 @@ _Dieses Interface hat keine eigenen Methoden, erbt jedoch Methoden von: [`HTMLEl
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("span")}}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("span")}}.

@@ -8,13 +8,16 @@ l10n:
 
 {{APIRef}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft `linearVelocity` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zum Basis-`XRSpace` beschreibt.
+Die schreibgeschützte Eigenschaft `linearVelocity` der
+[`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zur Basis-<code>XRSpace</code> beschreibt.
 
 ## Wert
 
-Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zum Basis-`XRSpace` beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzeragent diesen Wert nicht bereitstellen kann.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern
+pro Sekunde relativ zur Basis <code>XRSpace</code> beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
+zurück, wenn der Benutzeragent diesen Wert nicht ermitteln kann.
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 

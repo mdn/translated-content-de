@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode createDataChannel()"
+title: "RTCPeerConnection: createDataChannel()-Methode"
 short-title: createDataChannel()
 slug: Web/API/RTCPeerConnection/createDataChannel
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`createDataChannel()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle erstellt einen neuen Kanal, der mit dem entfernten Peer verknüpft ist und über den jede Art von Daten übertragen werden kann. Dies kann für Backchannel-Inhalte nützlich sein, wie beispielsweise Bilder, Dateitransfer, Text-Chat, Spielaktualisierungspakete und so weiter.
+Die **`createDataChannel()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle erstellt einen neuen Kanal, der mit dem entfernten Peer verbunden ist, über den Daten jeglicher Art übertragen werden können. Dies kann nützlich sein für Nebenkanalinhalte, wie Bilder, Dateitransfer, Text-Chat, Spielaktualisierungspakete und so weiter.
 
-Wenn der neue Datenkanal der erste ist, der der Verbindung hinzugefügt wird, wird eine Neuverhandlung gestartet, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis ausgelöst wird.
+Wenn der neue Datenkanal der erste ist, der zur Verbindung hinzugefügt wird, wird eine Neuverhandlung gestartet, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis ausgelöst wird.
 
 ## Syntax
 
@@ -23,41 +23,43 @@ createDataChannel(label, options)
 
 - `label`
   - : Ein menschenlesbarer Name für den Kanal.
-    Diese Zeichenkette darf nicht länger als 65.535 Bytes sein.
+    Diese Zeichenfolge darf nicht länger als 65.535 Bytes sein.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das Konfigurationsoptionen für den Datenkanal bereitstellt.
     Es kann die folgenden Felder enthalten:
 
     - `ordered` {{optional_inline}}
-      - : Gibt an, ob Nachrichten, die über den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet werden, in der gleichen Reihenfolge am Ziel ankommen müssen, in der sie gesendet wurden (`true`), oder ob es erlaubt ist, dass sie außerhalb der Reihenfolge ankommen (`false`).
+      - : Gibt an, ob Nachrichten auf dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) in der gleichen Reihenfolge ankommen müssen, in der sie gesendet wurden (`true`), oder ob sie außer der Reihenfolge ankommen dürfen (`false`).
         **Standard: `true`.**
     - `maxPacketLifeTime` {{optional_inline}}
-      - : Die maximale Anzahl von Millisekunden, die ein Versuch zum Übertragen einer Nachricht im unzuverlässigen Modus dauern kann.
-        Obwohl dieser Wert eine 16-Bit-unterschriebene Zahl ist, kann jeder Benutzeragent ihn auf das Maximum begrenzen, das er für angemessen hält.
+      - : Die maximale Anzahl von Millisekunden, die Versuche zur Übertragung einer Nachricht im unzuverlässigen Modus dauern dürfen.
+        Obwohl dieser Wert eine 16-Bit-Zahl ohne Vorzeichen ist, kann jeder Benutzeragent ihn auf das Maximum begrenzen, das er für angemessen hält.
         **Standard: `null`.**
     - `maxRetransmits` {{optional_inline}}
-      - : Die maximale Anzahl von Versuchen, die der Benutzeragent unternehmen sollte, um eine Nachricht, die beim ersten Mal im unzuverlässigen Modus fehlgeschlagen ist, erneut zu übertragen.
-        Obwohl dieser Wert eine 16-Bit-unterschriebene Zahl ist, kann jeder Benutzeragent ihn auf das Maximum begrenzen, das er für angemessen hält.
+      - : Die maximale Anzahl von Versuchen, die der Benutzeragent unternehmen sollte, um eine Nachricht, die im unzuverlässigen Modus beim ersten Versuch fehlschlägt, erneut zu senden.
+        Obwohl dieser Wert eine 16-Bit-Zahl ohne Vorzeichen ist, kann jeder Benutzeragent ihn auf das Maximum begrenzen, das er für angemessen hält.
         **Standard: `null`.**
     - `protocol` {{optional_inline}}
-      - : Der Name des Unterprotokolls, das auf dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendet wird, falls vorhanden; andernfalls der leere String (`""`).
+      - : Der Name des auf dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendeten Subprotokolls, falls vorhanden;
+        andernfalls der leere String (`""`).
         **Standard: leerer String (`""`).**
-        Diese Zeichenkette darf nicht länger als 65.535 Bytes sein.
+        Diese Zeichenfolge darf nicht länger als 65.535 _Bytes_ sein.
     - `negotiated` {{optional_inline}}
-      - : Standardmäßig (`false`) werden Datenkanäle im Band verhandelt, wobei eine Seite `createDataChannel` aufruft und die andere Seite das [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)-Ereignis mit dem [`ondatachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignishandler abhört.
-        Alternativ (`true`) können sie außerhalb des Bandes verhandelt werden, wobei beide Seiten `createDataChannel` mit einer vereinbarten ID aufrufen.
+      - : Standardmäßig (`false`) werden Datenkanäle im Inband-Modus verhandelt, wobei eine Seite `createDataChannel` aufruft und die andere Seite das [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)-Ereignis mit dem [`ondatachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignishandler abhört.
+        Alternativ können sie (`true`) außerhalb des Bands gehandelt werden, wobei beide Seiten `createDataChannel` mit einer vereinbarten ID aufrufen.
         **Standard: `false`.**
     - `id` {{optional_inline}}
-      - : Eine 16-Bit-Zahl als ID für den Kanal; erlaubte Werte sind 0 bis 65534.
+      - : Eine 16-Bit-numerische ID für den Kanal;
+        erlaubte Werte sind 0 bis 65534.
         Wenn Sie diese Option nicht angeben, wählt der Benutzeragent eine ID für Sie aus.
 
 > [!NOTE]
-> Diese Optionen stellen den vom Skript festlegbaren Teilmenge der Eigenschaften auf der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Schnittstelle dar.
+> Diese Optionen repräsentieren die durch Skript einstellbare Teilmenge der Eigenschaften auf der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Schnittstelle.
 
 ### Rückgabewert
 
-Ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt mit dem angegebenen `label`, konfiguriert unter Verwendung der durch `options` angegebenen Optionen, wenn dieser Parameter eingeschlossen ist; andernfalls werden die oben aufgeführten Standardwerte festgelegt.
+Ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt mit dem angegebenen `label`, konfiguriert unter Verwendung der durch `options` angegebenen Optionen, falls dieser Parameter enthalten ist; andernfalls werden die oben aufgelisteten Standardwerte festgelegt.
 
 ### Ausnahmen
 
@@ -65,19 +67,19 @@ Ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt mit dem ang
   - : Wird ausgelöst, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geschlossen ist.
 - {{jsxref("TypeError")}}
   - : Wird in den folgenden Situationen ausgelöst:
-    - Die label- und/oder Protokollzeichenfolgen sind zu lang; diese dürfen nicht länger als 65.535 Bytes sein (Bytes, nicht Zeichen).
-    - Die `id` ist 65535. Obwohl dies ein gültiger 16-Bit-Wert ist, ist es kein erlaubter Wert für `id`.
+    - Die `label`- und/oder `protocol`-Zeichenfolge ist zu lang; diese dürfen nicht länger als 65.535 Bytes (Bytes, nicht Zeichen) sein.
+    - Die `id` ist 65535. Obwohl dies ein gültiger Wert ohne Vorzeichen für 16-Bit ist, ist er für `id` nicht erlaubt.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn Werte sowohl für die `maxPacketLifeTime`- als auch die `maxRetransmits`-Optionen angegeben wurden.
-    Sie dürfen für nur eine dieser Optionen einen nicht-`null`-Wert angeben.
+  - : Wird ausgelöst, wenn sowohl für `maxPacketLifeTime` als auch für `maxRetransmits` Werte angegeben wurden.
+    Sie dürfen nur für eine dieser Optionen einen nicht-`null`-Wert angeben.
 - `ResourceInUse` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine `id` angegeben wurde, aber ein anderer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) bereits denselben Wert verwendet.
+  - : Wird ausgelöst, wenn eine `id` angegeben wurde, die jedoch bereits von einem anderen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendet wird.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder die angegebene `id` bereits verwendet wird oder wenn keine `id` angegeben wurde und die WebRTC-Schicht keine ID automatisch generieren konnte, da alle IDs in Gebrauch sind.
+  - : Wird ausgelöst, wenn entweder die angegebene `id` bereits verwendet wird oder wenn keine `id` angegeben wurde und die WebRTC-Schicht keine ID automatisch generieren konnte, da alle IDs verwendet werden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie einen Datenkanal erstellen und Handler für die [`open`](/de/docs/Web/API/RTCDataChannel/open_event)- und [`message`](/de/docs/Web/API/RTCDataChannel/message_event)-Ereignisse einrichten, um Nachrichten darüber zu senden und zu empfangen (Der Übersichtlichkeit halber wird angenommen, dass onnegotiationneeded eingerichtet ist).
+Dieses Beispiel zeigt, wie Sie einen Datenkanal erstellen und Handler für die [`open`](/de/docs/Web/API/RTCDataChannel/open_event)- und [`message`](/de/docs/Web/API/RTCDataChannel/message_event)-Ereignisse einrichten, um Nachrichten darauf zu senden und zu empfangen (der Einfachheit halber wird angenommen, dass `onnegotiationneeded` eingerichtet ist).
 
 ```js
 // Offerer side
@@ -107,7 +109,7 @@ pc.ondatachannel = (event) => {
 };
 ```
 
-Alternativ kann eine symmetrischere Verhandlung außerhalb des Bandes unter Verwendung einer vereinbarten id (hier 0) genutzt werden:
+Alternativ kann eine symmetrischere Verhandlung außerhalb des Bandes verwendet werden, wobei eine vereinbarte ID (hier 0) verwendet wird:
 
 ```js
 // Both sides
@@ -122,7 +124,7 @@ channel.onmessage = (event) => {
 };
 ```
 
-Für ein ausführlicheres Beispiel, das zeigt, wie die Verbindung und der Kanal hergestellt werden, siehe [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample).
+Für ein gründlicheres Beispiel, das zeigt, wie die Verbindung und der Kanal hergestellt werden, siehe [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample).
 
 ## Spezifikationen
 

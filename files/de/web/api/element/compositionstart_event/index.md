@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem, wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor), eine neue Kompositionssitzung startet.
+Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) eine neue Kompositionssitzung startet.
 
-Beispielsweise könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) einzugeben.
+Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) einzugeben.
 
 ## Syntax
 
@@ -33,9 +33,9 @@ Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die von der Eingabemethode generierten Zeichen zurück, die das Ereignis ausgelöst haben; sie variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
+  - : Gibt die vom Eingabemethode erzeugten Zeichen zurück, die das Ereignis ausgelöst haben; es variiert je nach Art des Ereignisses, das das `CompositionEvent` Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Layout-Gebietsschema der Tastatur, wenn die Komposition mit IME verbunden ist).
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit IME verbunden ist).
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ inputElement.addEventListener("compositionstart", (event) => {
 });
 ```
 
-### Lebendiges Beispiel
+### Live-Beispiel
 
 #### HTML
 

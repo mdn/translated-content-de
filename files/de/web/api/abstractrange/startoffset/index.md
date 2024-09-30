@@ -1,5 +1,5 @@
 ---
-title: "AbstractRange: startOffset-Eigenschaft"
+title: "AbstractRange: Startoffset-Eigenschaft"
 short-title: startOffset
 slug: Web/API/AbstractRange/startOffset
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`startOffset`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den Versatz in den Startknoten der Startposition der Range zurück.
+Die schreibgeschützte **`startOffset`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den Versatzknoten in den Startknoten der Startposition des Bereichs zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Zeichen in dem von [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, an der sich das erste Zeichen des Bereichs befindet.
+Ein ganzzahliger Wert, der die Anzahl der Zeichen in dem durch [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, an dem sich das erste Zeichen des Bereichs befindet.
 
 ## Beispiel
 

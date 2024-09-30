@@ -16,7 +16,7 @@ Eine Ganzzahl, die die Anzahl der Elemente im `FontFaceSet` angibt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `size` des `FontFaceSet` in der Konsole ausgegeben.
+Im folgenden Beispiel wird die `size` des `FontFaceSet` in die Konsole ausgegeben.
 
 ```js
 console.log(document.fonts.size);

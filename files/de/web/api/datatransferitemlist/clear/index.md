@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`clear()`** der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) entfernt alle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte aus der Liste der Drag-Datenobjekte, sodass die Liste leer bleibt.
+Die Methode **`clear()`** der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) entfernt alle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte aus der Liste der Drag-Daten-Items, sodass die Liste leer ist.
 
-Der Drag-Datenspeicher, in dem diese Liste geführt wird, ist nur während der Verarbeitung des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses schreibbar. Während der Verarbeitung von [`drop`](/de/docs/Web/API/HTMLElement/drop_event) befindet sich der Drag-Datenspeicher im Nur-Lese-Modus, und diese Methode tut stillschweigend nichts. Es wird keine Ausnahme ausgelöst.
+Der Drag-Datenspeicher, in dem diese Liste gespeichert wird, ist nur während der Verarbeitung des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses beschreibbar. Während der Verarbeitung von [`drop`](/de/docs/Web/API/HTMLElement/drop_event) befindet sich der Drag-Datenspeicher im Nur-Lese-Modus, und diese Methode führt stillschweigend nichts aus. Es wird keine Ausnahme geworfen.
 
 ## Syntax
 

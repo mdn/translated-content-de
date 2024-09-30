@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`ImageData.data`**-Eigenschaft gibt ein
-{{jsxref("Uint8ClampedArray")}} zurück, das die Pixeldaten des [`ImageData`](/de/docs/Web/API/ImageData)-Objekts enthält. Die Daten werden als eindimensionales Array im RGBA-Format gespeichert, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich).
+{{jsxref("Uint8ClampedArray")}} zurück, das die Pixeldaten des [`ImageData`](/de/docs/Web/API/ImageData)-Objekts enthält. Die Daten werden als eindimensionales Array im RGBA-Format gespeichert, mit Ganzzahlen zwischen `0` und `255` (einschließlich).
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein {{jsxref("Uint8ClampedArray")}}.
 
 ### Abrufen der Pixeldaten eines ImageData-Objekts
 
-Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100 Pixel hoch ist, insgesamt also 10.000 Pixel. Das `data`-Array speichert vier Werte für jedes Pixel, insgesamt also 4 x 10.000 oder 40.000 Werte.
+Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100 Pixel hoch ist, insgesamt also 10.000 Pixel. Das `data`-Array speichert vier Werte für jedes Pixel, was insgesamt 4 x 10.000 oder 40.000 Werte ergibt.
 
 ```js
 let imageData = new ImageData(100, 100);
@@ -27,7 +27,7 @@ console.log(imageData.data); // Uint8ClampedArray[40000]
 console.log(imageData.data.length); // 40000
 ```
 
-### Füllen eines leeren ImageData-Objekts
+### Ausfüllen eines leeren ImageData-Objekts
 
 Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixeln.
 
@@ -39,7 +39,7 @@ Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixe
 
 #### JavaScript
 
-Da jedes Pixel aus vier Werten im `data`-Array besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die mit jedem Pixel verbundenen Werte sind R (Rot), G (Grün), B (Blau) und A (Alpha) in dieser Reihenfolge.
+Da jedes Pixel aus vier Werten im `data`-Array besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die Werte, die jedem Pixel zugeordnet sind, sind R (Rot), G (Grün), B (Blau) und A (Alpha), in dieser Reihenfolge.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -70,7 +70,9 @@ ctx.putImageData(imageData, 20, 20);
 
 ### Weitere Beispiele
 
-Weitere Beispiele zur Verwendung von `ImageData.data` finden Sie unter [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas), [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) und [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData).
+Für weitere Beispiele zur Verwendung von `ImageData.data` siehe [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas),
+[`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) und
+[`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData).
 
 ## Spezifikationen
 

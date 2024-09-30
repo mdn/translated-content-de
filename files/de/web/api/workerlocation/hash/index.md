@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`hash`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`hash`](/de/docs/Web/API/URL/hash)-Teil des Standorts des Workers zurück.
+Die **`hash`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Objekts gibt den [`hash`](/de/docs/Web/API/URL/hash)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -31,4 +31,4 @@ const result = location.hash; // Returns '#examples'
 
 ## Siehe auch
 
-- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Interface, zu dem es gehört.

@@ -8,12 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`resultIndex`** schreibgeschützte Eigenschaft des
-[`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt den niedrigsten Indexwert des Ergebnisses in der
-[`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-"Array" zurück, der tatsächlich geändert wurde.
+Die **`resultIndex`**-Eigenschaft des schreibgeschützten [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt den niedrigsten Indexwert des Ergebnisses in der [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-"Array" zurück, der tatsächlich geändert wurde.
 
-Das [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt ist kein Array, aber es besitzt einen
-Getter, der den Zugriff über Array-Syntax ermöglicht.
+Das [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt ist kein Array, verfügt jedoch über einen Getter, der den Zugriff mit Array-Syntax ermöglicht.
 
 ## Wert
 

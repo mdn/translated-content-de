@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`snapToLines`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces ist ein {{jsxref("Boolean")}}, der angibt, ob die [`VTTCue.line`](/de/docs/Web/API/VTTCue/line)-Eigenschaft eine ganze Zahl von Zeilen oder ein Prozentsatz der Videogröße ist.
+Die **`snapToLines`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle ist ein {{jsxref("Boolean")}}, der angibt, ob die [`VTTCue.line`](/de/docs/Web/API/VTTCue/line)-Eigenschaft eine ganze Anzahl von Linien oder ein Prozentsatz der Videoabmessung ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Boolean")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und anschließend der Wert von `snapToLines` auf `true` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `snapToLines` auf `true` gesetzt. Der Wert wird anschließend auf der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: complete-Ereignis"
+title: "IDBTransaction: complete Ereignis"
 short-title: complete
 slug: Web/API/IDBTransaction/complete_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde, entweder nachdem Sie explizit [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Bearbeitung ihrer Ergebnisse keine neuen Anfragen platziert wurden. Weitere Informationen finden Sie unter [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
+Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde. Dies geschieht entweder nachdem Sie [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) explizit aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Bearbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Weitere Informationen finden Sie unter [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
 
 ## Syntax
 

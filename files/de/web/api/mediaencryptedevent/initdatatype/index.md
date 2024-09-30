@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die schreibgeschützte **`initDataType`**-Eigenschaft des [`MediaKeyMessageEvent`](/de/docs/Web/API/MediaKeyMessageEvent) gibt eine Groß- und Kleinschreibung beachtende Zeichenkette zurück, die den Typ der Initialisierungsdaten beschreibt, die mit diesem Ereignis verbunden sind.
+Die schreibgeschützte **`initDataType`**-Eigenschaft des [`MediaKeyMessageEvent`](/de/docs/Web/API/MediaKeyMessageEvent) gibt einen groß- und kleinschreibungssensitiven String zurück, der den Typ der Initialisierungsdaten beschreibt, die mit diesem Ereignis verknüpft sind.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Spezifikationen
 

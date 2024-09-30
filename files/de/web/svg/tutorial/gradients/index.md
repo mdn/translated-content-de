@@ -9,13 +9,13 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Fills_and_Strokes", "Web/SVG/Tutorial/Patterns") }}
 
-Vielleicht spannender als nur Füllungen und Umrandungen ist die Tatsache, dass Sie auch Verläufe erstellen und als Füllungen oder Umrandungen anwenden können.
+Vielleicht noch aufregender als nur Füllungen und Umrisse ist die Tatsache, dass Sie auch Verläufe erstellen und als Füllungen oder Umrisse anwenden können.
 
-Es gibt zwei Arten von SVG-Verläufen: linear und radial. Sie werden getrennt von der Stelle definiert, an der sie verwendet werden, was die Wiederverwendbarkeit fördert. Sie **müssen** jedem Verlauf ein `id`-Attribut geben, damit andere Elemente darauf verweisen können. Verlaufsdefinitionen können in einem {{SVGElement('defs')}}-Element oder einem {{SVGElement('svg')}}-Element platziert werden.
+Es gibt zwei Arten von SVG-Verläufen: linear und radial. Diese werden getrennt von ihrem Verwendungsort definiert, was die Wiederverwendbarkeit fördert. Sie **müssen** jedem Verlauf ein `id`-Attribut geben, damit andere Elemente darauf verweisen können. Verlaufsdefinitionen können in einem {{SVGElement('defs')}}-Element oder einem {{SVGElement('svg')}}-Element platziert werden.
 
 ## Linearer Verlauf
 
-Lineare Verläufe ändern sich entlang einer geraden Linie. Um einen einzufügen, erstellen Sie einen {{SVGElement('linearGradient')}}-Knoten im `<defs>`-Abschnitt Ihrer SVG-Datei.
+Lineare Verläufe ändern sich entlang einer geraden Linie. Um einen hinzuzufügen, erstellen Sie einen {{SVGElement('linearGradient')}}-Knoten innerhalb des `<defs>`-Abschnitts Ihrer SVG-Datei.
 
 ### Einfaches Beispiel
 
@@ -63,13 +63,13 @@ Lineare Verläufe ändern sich entlang einer geraden Linie. Um einen einzufügen
 
 {{ EmbedLiveSample('Linear_Gradient','120','280') }}
 
-Oben sehen Sie ein Beispiel, wie ein linearer Verlauf auf ein `<rect>`-Element angewendet wird. Im linearen Verlauf befinden sich mehrere {{SVGElement('stop')}}-Knoten. Diese Knoten geben dem Verlauf an, welche Farbe er an bestimmten Positionen haben soll, indem sie ein `offset`-Attribut für die Position und ein `stop-color`-Attribut angeben. Dies kann direkt oder über CSS zugewiesen werden. Die beiden Methoden wurden für dieses Beispiel gemischt. Zum Beispiel weist dieser an, dass der Verlauf mit der Farbe Rot beginnt, in der Mitte zu transparentem Schwarz wechselt und mit der Farbe Blau endet. Sie können so viele Stoppfarben einfügen, wie Sie möchten, um einen Farbverlauf zu erzeugen, der so schön oder hässlich ist, wie Sie es benötigen, aber die Offsets sollten immer von 0% (oder 0, wenn Sie das % Zeichen weglassen wollen) bis 100% (oder 1) steigen. Doppelte Werte verwenden den Stop, der weiter unten im XML-Baum zugewiesen ist. Auch wie bei Füllung und Umrandung können Sie ein `stop-opacity`-Attribut angeben, um die Transparenz an dieser Position festzulegen (wiederum können Sie in FF3 auch rgba-Werte verwenden, um dies zu tun).
+Oben ist ein Beispiel für einen linearen Verlauf, der auf ein `<rect>`-Element angewendet wird. Innerhalb des linearen Verlaufes befinden sich mehrere {{SVGElement('stop')}}-Knoten. Diese Knoten teilen dem Verlauf mit, welche Farbe er an bestimmten Positionen haben soll, indem sie ein `offset`-Attribut für die Position und ein `stop-color`-Attribut angeben. Dies kann direkt oder über CSS zugewiesen werden. Die beiden Methoden wurden für dieses Beispiel gemischt. Zum Beispiel wird dem Verlauf gesagt, dass er mit der Farbe Rot beginnen, in der Mitte in transparentes Schwarz übergehen und mit der Farbe Blau enden soll. Sie können so viele Stoppfarben einfügen, wie Sie möchten, um eine Mischung zu erstellen, die so schön oder unschön ist, wie Sie es benötigen, aber die Offsets sollten immer von 0% (oder 0, wenn Sie das %-Zeichen weglassen möchten) bis 100% (oder 1) steigen. Doppelte Werte verwenden den Stopp, der am weitesten unten im XML-Baum zugewiesen ist. Außerdem können wie bei Füllung und Umriss ein `stop-opacity`-Attribut festgelegt werden, um die Deckkraft an dieser Position zu bestimmen (wiederum können Sie in FF3 auch rgba-Werte dafür verwenden).
 
 ```svg
 <stop offset="100%" stop-color="yellow" stop-opacity="0.5"/>
 ```
 
-Um einen Verlauf zu verwenden, müssen Sie ihn über das `fill`- oder `stroke`-Attribut eines Objekts referenzieren. Dies geschieht auf die gleiche Weise wie bei der Referenzierung von Elementen in CSS, unter Verwendung einer `url`. In diesem Fall ist die URL nur ein Verweis auf unseren Verlauf, der die kreative ID "Gradient1" hat. Um ihn anzuhängen, setzen Sie das `fill` auf `url(#Gradient1)`, und voilà! Unser Objekt ist jetzt mehrfarbig. Dasselbe können Sie auch mit `stroke` tun.
+Um einen Verlauf zu verwenden, müssen Sie ihn aus dem `fill`- oder `stroke`-Attribut eines Objekts referenzieren. Dies geschieht auf die gleiche Weise wie das Referenzieren von Elementen in CSS, mittels einer `url`. In diesem Fall ist die URL nur ein Verweis auf unseren Verlauf, der die kreative ID "Gradient1" besitzt. Um es anzufügen, setzen Sie das `fill` auf `url(#Gradient1)`, und voilà! Unser Objekt ist nun mehrfarbig. Das Gleiche können Sie mit `stroke` machen.
 
 ```svg
 <style>
@@ -77,14 +77,14 @@ Um einen Verlauf zu verwenden, müssen Sie ihn über das `fill`- oder `stroke`-A
 </style>
 ```
 
-Das `<linearGradient>`-Element nimmt auch mehrere andere Attribute an, die die Größe und das Erscheinungsbild des Verlaufs angeben. Die Ausrichtung des Verlaufs wird durch zwei Punkte, die durch die Attribute `x1`, `x2`, `y1` und `y2` festgelegt sind, kontrolliert. Diese Attribute definieren eine Linie, entlang derer der Verlauf verläuft. Der Verlauf ist standardmäßig horizontal ausgerichtet, kann aber durch Ändern dieser Attribute gedreht werden. Gradient2 im obigen Beispiel ist so entworfen, dass er einen vertikalen Verlauf erzeugt.
+Das `<linearGradient>`-Element kann auch mehrere andere Attribute enthalten, die die Größe und das Aussehen des Verlaufs bestimmen. Die Orientierung des Verlaufs wird von zwei Punkten kontrolliert, die durch die Attribute `x1`, `x2`, `y1` und `y2` bezeichnet werden. Diese Attribute definieren eine Linie, entlang derer der Verlauf verläuft. Der Verlauf ist standardmäßig horizontal ausgerichtet, kann jedoch durch Änderung dieser Attribute gedreht werden. Gradient2 im obigen Beispiel ist so gestaltet, dass ein vertikaler Verlauf entsteht.
 
 ```html
 <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1"></linearGradient>
 ```
 
 > [!NOTE]
-> Sie können auch das `href`-Attribut auf Verläufen verwenden. Wenn es verwendet wird, können Attribute und Stops von einem Verlauf in einen anderen aufgenommen werden. Im obigen Beispiel müssten Sie nicht alle Stops in Gradient2 neu erstellen.
+> Sie können auch das `href`-Attribut auf Verläufe anwenden. Wenn es verwendet wird, können Attribute und Stops von einem Verlauf in einem anderen einbezogen werden. Im obigen Beispiel müssten Sie nicht alle Stops in Gradient2 neu erstellen.
 >
 > ```html
 > <linearGradient id="Gradient1">
@@ -102,11 +102,11 @@ Das `<linearGradient>`-Element nimmt auch mehrere andere Attribute an, die die G
 >   href="#Gradient1" />
 > ```
 >
-> Ich habe den xlink-Namespace hier direkt auf dem Knoten angegeben, obwohl Sie ihn normalerweise am Anfang Ihres Dokuments definieren würden. Mehr dazu, wenn wir [über Bilder sprechen](/de/docs/Web/SVG/Tutorial/Other_content_in_SVG).
+> Ich habe hier den xlink-Namespace direkt am Knoten eingefügt, obwohl Sie ihn normalerweise am oberen Rand Ihres Dokuments definieren würden. Mehr dazu, wenn wir [über Bilder sprechen](/de/docs/Web/SVG/Tutorial/Other_content_in_SVG).
 
 ## Radialer Verlauf
 
-Radiale Verläufe ähneln linearen, zeichnen jedoch einen Verlauf, der von einem Punkt ausstrahlt. Um einen zu erstellen, fügen Sie ein {{SVGElement('radialGradient')}}-Element in den `<defs>`-Abschnitt Ihres Dokuments ein.
+Radiale Verläufe sind ähnlich wie lineare, zeichnen jedoch einen Verlauf, der sich von einem Punkt aus ausbreitet. Um einen zu erstellen, fügen Sie ein {{SVGElement('radialGradient')}}-Element in den `<defs>`-Bereich Ihres Dokuments ein.
 
 ### Einfaches Beispiel
 
@@ -145,9 +145,9 @@ Radiale Verläufe ähneln linearen, zeichnen jedoch einen Verlauf, der von einem
 
 {{ EmbedLiveSample('Basic_example_2','120','280') }}
 
-Die hier verwendeten Stops sind die gleichen wie zuvor, aber jetzt wird das Objekt in der Mitte rot und in alle Richtungen allmählich bis zum Rand blau. Wie lineare Verläufe kann der `<radialGradient>`-Knoten mehrere Attribute aufnehmen, um seine Position und Ausrichtung zu beschreiben. Im Gegensatz zu linearen Verläufen ist es jedoch etwas komplexer. Der radiale Verlauf wird erneut durch zwei Punkte definiert, die bestimmen, wo seine Kanten sind. Der erste dieser Punkte definiert einen Kreis, um den der Verlauf endet. Er benötigt einen Mittelpunkt, der durch die Attribute `cx` und `cy` festgelegt ist, sowie einen Radius `r`. Durch Festlegen dieser drei Attribute können Sie den Verlauf verschieben und seine Größe ändern, wie im zweiten Rechteck oben gezeigt.
+Die Stops, die hier verwendet werden, sind die gleichen wie zuvor, aber jetzt wird das Objekt in der Mitte rot sein und sich in alle Richtungen allmählich zum Rand hin zu Blau ändern. Wie lineare Verläufe kann auch der `<radialGradient>`-Knoten mehrere Attribute aufnehmen, um seine Position und Orientierung zu beschreiben. Im Gegensatz zu linearen Verläufen ist es jedoch etwas komplexer. Der radiale Verlauf wird erneut durch zwei Punkte definiert, die bestimmen, wo seine Ränder sind. Der erste davon definiert einen Kreis, um den der Verlauf endet. Es erfordert einen Mittelpunkt, bezeichnet durch die Attribute `cx` und `cy`, und einen Radius, `r`. Wenn Sie diese drei Attribute setzen, können Sie den Verlauf verschieben und seine Größe ändern, wie im zweiten `rect` oben gezeigt.
 
-Der zweite Punkt wird als Brennpunkt bezeichnet und durch die Attribute `fx` und `fy` definiert. Während der erste Punkt angibt, wo die Kanten des Verlaufs sind, gibt der Brennpunkt an, wo dessen Mitte liegt. Dies ist leichter mit einem Beispiel zu sehen.
+Der zweite Punkt wird als Brennpunkt bezeichnet und durch die Attribute `fx` und `fy` definiert. Während der erste Punkt beschrieb, wo sich die Ränder des Verlaufs befinden, beschreibt der Brennpunkt, wo sich seine Mitte befindet. Dies ist leichter mit einem Beispiel zu sehen.
 
 ### Mittelpunkt und Brennpunkt
 
@@ -193,9 +193,9 @@ Der zweite Punkt wird als Brennpunkt bezeichnet und durch die Attribute `fx` und
 
 {{ EmbedLiveSample('Center_and_focal_point','120','160') }}
 
-Wenn der Brennpunkt außerhalb des zuvor beschriebenen Kreises bewegt wird, ist es unmöglich, den Verlauf korrekt darzustellen, daher wird angenommen, dass sich der Punkt innerhalb des Randes des Kreises befindet. Wenn der Brennpunkt überhaupt nicht angegeben wird, wird angenommen, dass er sich an der gleichen Stelle wie der Mittelpunkt befindet.
+Wenn der Brennpunkt außerhalb des früher beschriebenen Kreises verlegt wird, ist es unmöglich, den Verlauf korrekt darzustellen, sodass davon ausgegangen wird, dass der Punkt innerhalb des Kreisrandes liegt. Wird der Brennpunkt überhaupt nicht angegeben, geht man davon aus, dass er sich am selben Ort wie der Mittelpunkt befindet.
 
-Sowohl lineare als auch radiale Verläufe nehmen auch einige andere Attribute an, um Transformationen zu beschreiben, die sie durchlaufen können. Das einzige andere, das ich hier erwähnen möchte, ist das `spreadMethod`-Attribut. Dieses Attribut kontrolliert, was passiert, wenn der Verlauf sein Ende erreicht, das Objekt jedoch noch nicht gefüllt ist. Es kann einen von drei Werten annehmen: `"pad"`, `"reflect"` oder `"repeat"`. `"pad"` ist das, was Sie bisher gesehen haben. Wenn der Verlauf sein Ende erreicht, wird die letzte Offset-Farbe verwendet, um den Rest des Objekts zu füllen. `"reflect"` lässt den Verlauf weiterlaufen, jedoch in umgekehrter Richtung reflektiert, beginnend mit der Farbe beim Offset von 100% und zurückgehend zum Offset bei 0%, und dann wieder nach oben. `"repeat"` lässt den Verlauf ebenfalls weiterlaufen, jedoch ohne Rückwärtsgang, springt einfach zurück an den Anfang und läuft erneut.
+Sowohl lineare als auch radiale Verläufe benötigen einige andere Attribute, um Transformationen zu beschreiben, die sie durchlaufen können. Das einzige, das ich hier erwähnen möchte, ist das Attribut `spreadMethod`. Dieses Attribut bestimmt, was passiert, wenn der Verlauf sein Ende erreicht, das Objekt jedoch noch nicht gefüllt ist. Es kann einen von drei Werten annehmen, `"pad"`, `"reflect"` oder `"repeat"`. `"pad"` ist das, was Sie bisher gesehen haben. Wenn der Verlauf sein Ende erreicht, wird die letzte Offset-Farbe verwendet, um den Rest des Objekts zu füllen. `"reflect"` bewirkt, dass der Verlauf weitergeht, jedoch in umgekehrter Richtung reflektiert, beginnend mit der Farb-Offset bei 100% und zurücklaufend zum Offset bei 0% und dann wieder nach oben. `"repeat"` lässt den Verlauf ebenfalls weiterlaufen, aber anstatt rückwärts zu gehen, springt er einfach zurück zum Anfang und läuft erneut ab.
 
 ### spreadMethod
 
@@ -278,7 +278,7 @@ Sowohl lineare als auch radiale Verläufe nehmen auch einige andere Attribute an
 
 {{ EmbedLiveSample('spreadMethod','220','260') }}
 
-Beide Verläufe haben auch ein Attribut namens `gradientUnits`, das das Einheiten-System beschreibt, das Sie verwenden werden, wenn Sie die Größe oder Ausrichtung des Verlaufs beschreiben. Es gibt zwei mögliche Werte: `"userSpaceOnUse"` oder `"objectBoundingBox"`. `"objectBoundingBox"` ist der Standardwert, daher wurde dies bisher gezeigt. Es skaliert den Verlauf im Wesentlichen auf die Größe Ihres Objekts, sodass Sie Koordinaten nur in Werten von null bis eins angeben müssen, und sie werden automatisch für Sie auf die Größe Ihres Objekts skaliert. `userSpaceOnUse` verwendet im Wesentlichen absolute Einheiten. Daher müssen Sie wissen, wo sich Ihr Objekt befindet und den Verlauf an derselben Stelle platzieren. Der obige radialGradient würde umgeschrieben werden:
+Beide Verläufe haben auch ein `gradientUnits`-Attribut, das das Einheitensystem beschreibt, das Sie verwenden, um die Größe oder Orientierung des Verlaufs zu beschreiben. Hier gibt es zwei mögliche Werte: `"userSpaceOnUse"` oder `"objectBoundingBox"`. `"objectBoundingBox"` ist der Standard, und das ist das, was bisher gezeigt wurde. Es skaliert den Verlauf im Wesentlichen auf die Größe Ihres Objekts, sodass Sie nur Koordinaten in Werten von null bis eins angeben müssen, und sie werden automatisch auf die Größe Ihres Objekts skaliert. `userSpaceOnUse` nimmt im Wesentlichen absolute Einheiten an. Sie müssen also wissen, wo sich Ihr Objekt befindet, und den Verlauf an derselben Stelle platzieren. Der obere radialGradient würde umgeschrieben:
 
 ```html
 <radialGradient
@@ -291,8 +291,8 @@ Beide Verläufe haben auch ein Attribut namens `gradientUnits`, das das Einheite
   gradientUnits="userSpaceOnUse"></radialGradient>
 ```
 
-Sie können dann auch eine weitere Transformation auf den Verlauf anwenden, indem Sie das `gradientTransform`-Attribut verwenden, aber da wir noch keine [Transformationen eingeführt haben](/de/docs/Web/SVG/Tutorial/Basic_Transformations), werde ich das für später aufheben.
+Sie können dann auch eine weitere Transformation auf den Verlauf anwenden, indem Sie das `gradientTransform`-Attribut verwenden, aber da wir noch keine [Transformationen eingeführt haben](/de/docs/Web/SVG/Tutorial/Basic_Transformations), werde ich das für später belassen.
 
-Es gibt einige andere Fallstricke im Umgang mit `gradientUnits="objectBoundingBox"`, wenn der Begrenzungsrahmen des Objekts nicht quadratisch ist, aber sie sind ziemlich komplex und müssen warten, bis jemand mehr darüber weiß, um sie zu erklären.
+Es gibt einige andere Besonderheiten beim Umgang mit `gradientUnits="objectBoundingBox"`, wenn der Objektbeschränkungsrahmen nicht quadratisch ist, aber diese sind ziemlich komplex und müssen auf jemanden warten, der mehr darüber weiß, um sie zu erklären.
 
 {{ PreviousNext("Web/SVG/Tutorial/Fills_and_Strokes", "Web/SVG/Tutorial/Patterns") }}

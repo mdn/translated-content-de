@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft des [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Interfaces ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die schreibgeschützte **`label`**-Eigenschaft der [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Schnittstelle ist ein String, der eine Bezeichnung bereitstellt, die zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dieses kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt übergeben wird, das im ursprünglichen Aufruf von [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) verwendet wird. Alternativ können Sie es direkt auf dem `GPUCommandBuffer`-Objekt abrufen und setzen.
+Diese kann durch Angabe einer `label`-Eigenschaft im Beschreibungsobjekt festgelegt werden, das beim ursprünglichen Aufruf von [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) übergeben wird, oder Sie können sie direkt am `GPUCommandBuffer`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn zuvor kein Labelwert gesetzt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Ein String. Wenn noch kein Bezeichnungswert festgelegt wurde, gibt das Abrufen der Bezeichnung einen leeren String zurück.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUCommandBuffer.label`:
+Festlegen und Abrufen einer Bezeichnung über `GPUCommandBuffer.label`:
 
 ```js
 const commandBuffer = commandEncoder.finish();
@@ -26,7 +26,7 @@ commandBuffer.label = "mycommandbuffer";
 console.log(commandBuffer.label); // "mycommandbuffer";
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) und dann Abrufen über `GPUCommandBuffer.label`:
+Festlegen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) und anschließendes Abrufen über `GPUCommandBuffer.label`:
 
 ```js
 const commandBuffer = commandEncoder.finish({

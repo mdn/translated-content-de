@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`RTCDataChannelEvent.channel`** gibt den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück, der mit dem Ereignis verknüpft ist.
+Die schreibgeschützte Eigenschaft **`RTCDataChannelEvent.channel`**
+gibt den mit dem Ereignis verbundenen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück.
 
 ## Wert
 
-Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt, das den Datenkanal darstellt, der die empfangende [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) mit ihrem entfernten Gegenüber verbindet.
+Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt, das den Datenkanal darstellt, der die empfangende [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) mit ihrem entfernten Peer verbindet.
 
 ## Beispiel
 
-Die erste Codezeile im [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignishandler, der unten gezeigt wird, nimmt den Kanal aus dem Ereignisobjekt und speichert ihn lokal für die Verwendung durch den Code, der den Datenverkehr verarbeitet.
+Die erste Zeile des Codes im unten gezeigten [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignishandler nimmt den Kanal aus dem Ereignisobjekt und speichert ihn lokal, um ihn durch den Code zu verwenden, der den Datenverkehr verarbeitet.
 
 ```js
 pc.ondatachannel = (event) => {

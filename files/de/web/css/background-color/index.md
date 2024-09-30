@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Hintergrundfarbe eines Elements fest.
+Die **`background-color`**-Eigenschaft von [CSS](/de/docs/Web/CSS) setzt die Hintergrundfarbe eines Elements.
 
 {{EmbedInteractiveExample("pages/css/background-color.html")}}
 
@@ -46,22 +46,22 @@ background-color: revert-layer;
 background-color: unset;
 ```
 
-Die `background-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
+Die `background-color`-Eigenschaft wird als einzelner `<color>`-Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die einheitliche Farbe des Hintergrunds. Sie wird hinter jedem angegebenen {{cssxref("background-image")}} gerendert, obwohl die Farbe bei Transparenz im Bild weiterhin sichtbar sein wird.
+  - : Die einheitliche Farbe des Hintergrunds. Sie wird hinter jedem angegebenen {{cssxref("background-image")}} gerendert, obwohl die Farbe durch jede Transparenz im Bild sichtbar bleibt.
 
 ## Barrierefreiheit
 
-Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Hintergrundfarbe und der darüber liegenden Textfarbe hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können.
+Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Hintergrundfarbe und der Farbe des darüber platzierten Textes hoch genug ist, damit Personen mit Sehschwäche den Inhalt der Seite lesen können.
 
-Das Farbkontrastverhältnis wird ermittelt, indem die Leuchtdichte der Text- und Hintergrundfarbenwerte verglichen wird. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text ist definiert als 18.66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
+Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtdichte von Text- und Hintergrundfarbwerten bestimmt. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text, wie Überschriften, erforderlich. Großer Text ist definiert als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis der WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
 
@@ -73,9 +73,9 @@ Das Farbkontrastverhältnis wird ermittelt, indem die Leuchtdichte der Text- und
 
 ## Beispiele
 
-### Boxen einfärben
+### Kästchen einfärben
 
-Dieses Beispiel demonstriert die Anwendung von `background-color` auf HTML {{HTMLelement("div")}} Elemente mit verschiedenen CSS {{cssxref("color_value", "&lt;color&gt;")}} Werten.
+Dieses Beispiel zeigt die Anwendung von `background-color` auf HTML-{{HTMLelement("div")}}-Elemente mit verschiedenen CSS-{{cssxref("color_value", "&lt;color&gt;")}}-Werten.
 
 #### HTML
 
@@ -111,7 +111,7 @@ Dieses Beispiel demonstriert die Anwendung von `background-color` auf HTML {{HTM
 
 ### Tabellen einfärben
 
-Dieses Beispiel demonstriert die Verwendung von `background-color` auf HTML {{HTMLelement("table")}} Elemente, einschließlich {{HTMLelement("tr")}} Zeilen und {{HTMLelement("td")}} Zellen.
+Dieses Beispiel zeigt die Verwendung von `background-color` auf HTML-{{HTMLelement("table")}}-Elemente, einschließlich {{HTMLelement("tr")}}-Zeilen und {{HTMLelement("td")}}-Zellen.
 
 #### HTML
 

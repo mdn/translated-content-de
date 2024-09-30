@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `ambient-light-sensor` steuert, ob das aktuelle Dokument Informationen über die Lichtmenge in der Umgebung des Geräts über die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
+Das HTTP-Header {{HTTPHeader('Permissions-Policy')}} `ambient-light-sensor`-Direktive kontrolliert, ob das aktuelle Dokument Informationen über die Lichtmenge in der Umgebung des Geräts über die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des Konstruktors [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor) eine [`DOMException`](/de/docs/Web/API/DOMException) des Typs `SecurityError` auslösen.
+Konkret werden, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, Aufrufe des [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Permissions-Policy: ambient-light-sensor=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Allowed-Liste für `ambient-light-sensor` ist `self`.
+Die Standard-`allowlist` für `ambient-light-sensor` ist `self`.
 
 ## Spezifikationen
 

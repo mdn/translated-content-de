@@ -1,5 +1,5 @@
 ---
-title: "Element: scrollWidth-Eigenschaft"
+title: "Element: scrollWidth Eigenschaft"
 short-title: scrollWidth
 slug: Web/API/Element/scrollWidth
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.scrollWidth`**-Eigenschaft ist ein schreibgeschütztes Maß für die Breite des Inhalts eines Elements, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
+Die **`Element.scrollWidth`** schreibgeschützte Eigenschaft ist ein Maß für die Breite des Inhalts eines Elements, einschließlich nicht sichtbarem Inhalt aufgrund von Überlauf.
 
-Der `scrollWidth`-Wert entspricht der minimalen Breite, die das Element benötigen würde, um den gesamten Inhalt im Ansichtsfenster ohne horizontale Bildlaufleiste anzuzeigen. Die Breite wird auf die gleiche Weise gemessen wie die [`clientWidth`](/de/docs/Web/API/Element/clientWidth): Sie umfasst die Auffüllung des Elements, nicht jedoch die Rahmen, den Rand oder die vertikale Bildlaufleiste (sofern vorhanden). Sie kann auch die Breite von Pseudoelementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} einschließen. Wenn der Inhalt des Elements ohne horizontalen Bildlauf passt, entspricht der `scrollWidth` der [`clientWidth`](/de/docs/Web/API/Element/clientWidth).
+Der `scrollWidth`-Wert entspricht der minimalen Breite, die das Element benötigen würde, um den gesamten Inhalt im Ansichtsfenster ohne horizontale Bildlaufleiste unterzubringen. Die Breite wird auf die gleiche Weise gemessen wie [`clientWidth`](/de/docs/Web/API/Element/clientWidth): Sie umfasst das Padding des Elements, aber nicht dessen Rahmen, Rand oder vertikale Bildlaufleiste (falls vorhanden). Sie kann auch die Breite von Pseudo-Elementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} umfassen. Wenn der Inhalt des Elements ohne horizontale Bildlaufleiste passt, ist dessen `scrollWidth` gleich [`clientWidth`](/de/docs/Web/API/Element/clientWidth).
 
 > [!NOTE]
 > Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Wert
 
-Eine ganze Zahl.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
 ### Erkennen von überlaufendem Inhalt
 
-In diesem Beispiel verwenden wir die `scrollWidth`-Eigenschaft, um zu überprüfen, ob der Inhalt eines Elements seine Grenzen überfließt. Wir haben zwei `div`-Elemente: das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau derselbe, und wir zeigen eine Nachricht darüber an, ob jedes den Container überläuft.
+In diesem Beispiel verwenden wir die `scrollWidth`-Eigenschaft, um zu prüfen, ob der Inhalt eines Elements über seine Grenzen hinausläuft. Wir haben zwei `div`-Elemente, das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau derselbe, und wir zeigen eine Nachricht an, ob jedes über seinen Container hinausläuft.
 
 #### HTML
 
@@ -115,4 +115,4 @@ Klicken Sie auf die Schaltflächen, um zu überprüfen, ob der Inhalt die Contai
 
 - [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
 - [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
-- [Bestimmung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)

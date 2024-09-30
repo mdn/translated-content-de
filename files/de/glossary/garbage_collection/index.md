@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[Garbage Collection](/de/docs/Web/JavaScript/Memory_management#garbage_collection)** ist ein Begriff aus der [Computerprogrammierung](/de/docs/Glossary/computer_programming) und beschreibt den Prozess des Auffindens und Löschens von [Objekten](/de/docs/Glossary/object), die nicht mehr von anderen Objekten [referenziert](/de/docs/Glossary/object_reference) werden.
+**[Garbage Collection](/de/docs/Web/JavaScript/Memory_management#garbage_collection)** ist ein Begriff aus der [Programmierung](/de/docs/Glossary/computer_programming), der den Prozess des Auffindens und Löschens von [Objekten](/de/docs/Glossary/object) beschreibt, die nicht mehr von anderen Objekten [referenziert](/de/docs/Glossary/object_reference) werden.
 
-Mit anderen Worten, Garbage Collection ist der Prozess des Entfernens von Objekten, die von keinem anderen Objekt benutzt werden. Oft abgekürzt als "GC", ist Garbage Collection ein grundlegender Bestandteil des [Speicherverwaltungs](/de/docs/Web/JavaScript/Memory_management)systems, das von [JavaScript](/de/docs/Glossary/JavaScript) verwendet wird.
+Mit anderen Worten: Garbage Collection ist der Prozess der Entfernung von Objekten, die von keinem anderen Objekt verwendet werden. Oft als "GC" abgekürzt, ist die Garbage Collection eine grundlegende Komponente des [Speicherverwaltungssystems](/de/docs/Web/JavaScript/Memory_management), das von [JavaScript](/de/docs/Glossary/JavaScript) verwendet wird.
 
 ## Siehe auch
 

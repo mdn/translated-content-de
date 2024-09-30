@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezogen wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-style.html")}}
 
@@ -34,12 +34,12 @@ column-rule-style: revert-layer;
 column-rule-style: unset;
 ```
 
-Die `column-rule-style`-Eigenschaft wird als einzelner `<'border-style'>`-Wert angegeben.
+Die Eigenschaft `column-rule-style` wird als einzelner `<'border-style'>`-Wert angegeben.
 
 ### Werte
 
 - `<'border-style'>`
-  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-style") }} definiert wird und den Stil der Linie beschreibt. Die Gestaltung muss wie im Kollaps-Grenzmodell interpretiert werden.
+  - : Ist ein Schlüsselwort, das von {{ cssxref("border-style") }} definiert wird und den Stil der Linie beschreibt. Die Gestaltung muss wie im Modell der kollabierenden Ränder interpretiert werden.
 
 ## Formale Definition
 
@@ -51,7 +51,7 @@ Die `column-rule-style`-Eigenschaft wird als einzelner `<'border-style'>`-Wert a
 
 ## Beispiele
 
-### Festlegen eines gestrichelten Spaltenlinie
+### Eine gestrichelte Spaltenlinie festlegen
 
 #### HTML
 
@@ -86,7 +86,7 @@ p {
 
 ## Siehe auch
 
-- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

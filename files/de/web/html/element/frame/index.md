@@ -9,26 +9,26 @@ l10n:
 
 Das **`<frame>`** [HTML](/de/docs/Web/HTML)-Element definiert einen bestimmten Bereich, in dem ein anderes HTML-Dokument angezeigt werden kann. Ein Frame sollte innerhalb eines {{HTMLElement("frameset")}} verwendet werden.
 
-Die Verwendung des `<frame>`-Elements wird nicht empfohlen, da es einige Nachteile wie Leistungsprobleme und mangelnde Barrierefreiheit für Benutzer mit Screenreadern gibt. Statt des `<frame>`-Elements kann ein {{HTMLElement("iframe")}} bevorzugt werden.
+Die Verwendung des `<frame>`-Elements wird aufgrund bestimmter Nachteile wie Leistungsprobleme und fehlender Barrierefreiheit für Benutzer mit Bildschirmlesegeräten nicht empfohlen. Anstelle des `<frame>`-Elements kann ein {{HTMLElement("iframe")}} bevorzugt werden.
 
 ## Attribute
 
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `src` {{Deprecated_Inline}}
-  - : Dieses Attribut gibt das Dokument an, das im Frame angezeigt wird.
+  - : Dieses Attribut gibt das Dokument an, das durch den Frame angezeigt wird.
 - `name` {{Deprecated_Inline}}
-  - : Dieses Attribut wird zur Kennzeichnung von Frames verwendet. Ohne Kennzeichnung öffnet sich jeder Link im Frame, in dem er sich befindet – dem nächstgelegenen übergeordneten Frame. Weitere Informationen finden Sie im [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut.
+  - : Dieses Attribut wird zur Beschriftung von Frames verwendet. Ohne Beschriftung öffnet jeder Link im Frame, in dem er sich befindet – dem nächstgelegenen übergeordneten Frame. Siehe das [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut für mehr Informationen.
 - `noresize` {{Deprecated_Inline}}
-  - : Dieses Attribut verhindert, dass Benutzer die Größe von Frames ändern können.
+  - : Dieses Attribut verhindert die Größenänderung von Frames durch Benutzer.
 - `scrolling` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert das Vorhandensein einer Bildlaufleiste. Wenn dieses Attribut nicht verwendet wird, fügt der Browser bei Bedarf eine Bildlaufleiste hinzu. Es gibt zwei Optionen: "yes", um eine Bildlaufleiste zu erzwingen, auch wenn sie nicht erforderlich ist, und "no", um keine Bildlaufleiste zu erzwingen, selbst wenn sie _erforderlich_ ist.
+  - : Dieses Attribut definiert das Vorhandensein einer Bildlaufleiste. Wenn dieses Attribut nicht verwendet wird, fügt der Browser bei Bedarf eine Bildlaufleiste hinzu. Es gibt zwei Optionen: "yes" für eine erzwungene Bildlaufleiste, auch wenn sie nicht notwendig ist, und "no" für keine Bildlaufleiste, selbst wenn sie notwendig _ist_.
 - `marginheight` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert die Höhe des Abstands zwischen Frames.
+  - : Dieses Attribut definiert die Höhe des Randes zwischen den Frames.
 - `marginwidth` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert die Breite des Abstands zwischen Frames.
+  - : Dieses Attribut definiert die Breite des Randes zwischen den Frames.
 - `frameborder` {{Deprecated_Inline}}
-  - : Dieses Attribut erlaubt es Ihnen, einen Rahmen für den Frame festzulegen.
+  - : Dieses Attribut ermöglicht es Ihnen, die Umrandung eines Frames zu spezifizieren.
 
 ## Beispiel
 
@@ -49,7 +49,7 @@ Ein Frameset-Dokument hat ein {{HTMLElement("frameset")}}-Element anstelle eines
 </html>
 ```
 
-Wenn Sie eine andere HTML-Seite in den {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
+Wenn Sie eine andere HTML-Seite in das {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
 
 ## Spezifikationen
 

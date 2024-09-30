@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`**-Methode der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("button")}}-Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler aufweist.
+Die **`setCustomValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("button")}} Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element keinen benutzerdefinierten Gültigkeitsfehler hat.
 
 ## Syntax
 
@@ -55,4 +55,4 @@ if (errors) {
 - [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

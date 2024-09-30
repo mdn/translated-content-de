@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers}}
 
-Das **`SyncManager`**-Interface der [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API) bietet eine Schnittstelle zum Registrieren und Auflisten von Synchronisierungsregistrierungen.
+Die **`SyncManager`**-Schnittstelle der [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API) bietet eine Schnittstelle zum Registrieren und Auflisten von Sync-Registrierungen.
 
 ## Instanzeigenschaften
 
@@ -16,9 +16,9 @@ Keine.
 ## Instanzmethoden
 
 - [`SyncManager.register()`](/de/docs/Web/API/SyncManager/register)
-  - : Erstellt eine neue Synchronisierungsregistrierung und gibt ein {{jsxref("Promise")}} zurück.
+  - : Erstellt eine neue Sync-Registrierung und gibt ein {{jsxref("Promise")}} zurück.
 - [`SyncManager.getTags()`](/de/docs/Web/API/SyncManager/getTags)
-  - : Gibt eine Liste von entwicklerdefinierten Bezeichnern für `SyncManager`-Registrierungen zurück.
+  - : Gibt eine Liste von entwicklerdefinierten Identifikatoren für `SyncManager`-Registrierungen zurück.
 
 ## Spezifikationen
 

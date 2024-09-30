@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('HTMLIFrameElement')}}
 
-Die **`srcdoc`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) gibt den Inhalt der Seite an.
+Die **`srcdoc`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) spezifiziert den Inhalt der Seite.
 
 ## Beispiele
 

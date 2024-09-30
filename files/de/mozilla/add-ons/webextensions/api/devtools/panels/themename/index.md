@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Name des aktuell ausgewählten DevTools-Themas.
+Der Name des derzeit ausgewählten Devtools-Themas.
 
 Dies ist ein String, dessen mögliche Werte sind:
 
@@ -22,4 +22,4 @@ Dies ist ein String, dessen mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels).
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

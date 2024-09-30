@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} Direktive `identity-credentials-get` steuert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) und genauer die Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option verwenden darf.
+Die HTTP-Direktive {{HTTPHeader("Permissions-Policy")}} `identity-credentials-get` steuert, ob das aktuelle Dokument die Verwendung der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) und insbesondere die Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option erlaubt.
 
-Wenn diese Richtlinie die Nutzung der API verbietet, wird das von dem `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
+Wenn diese Richtlinie die Nutzung der API verbietet, wird das von dem `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: identity-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die standardmäßige Erlaubnisliste für `identity-credentials-get` ist `self`.
+Die Standard-Whitelist für `identity-credentials-get` ist `self`.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Die standardmäßige Erlaubnisliste für `identity-credentials-get` ist `self`.
 ## Siehe auch
 
 - [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API)
-- {{HTTPHeader("Permissions-Policy")}} Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}}-Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

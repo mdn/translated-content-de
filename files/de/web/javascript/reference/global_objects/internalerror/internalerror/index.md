@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}{{Non-standard_Header}}
 
-Der **`InternalError()`** Konstruktor erstellt {{jsxref("InternalError")}}-Objekte.
+Der **`InternalError()`** Konstruktor erstellt {{jsxref("InternalError")}} Objekte.
 
 ## Syntax
 
@@ -25,21 +25,21 @@ InternalError(message, fileName)
 InternalError(message, fileName, lineNumber)
 ```
 
-> **Note:** `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Möglichkeiten erzeugen eine neue `InternalError`-Instanz.
+> **Note:** `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `InternalError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
+  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 
 ## Beispiele
 

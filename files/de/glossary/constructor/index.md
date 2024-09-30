@@ -1,5 +1,5 @@
 ---
-title: Konstruktor
+title: Constructor
 slug: Glossary/Constructor
 l10n:
   sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Konstruktor** gehört zu einer bestimmten Klasse von [Objekten](/de/docs/Glossary/object), die instanziiert wird. Der Konstruktor initialisiert dieses Objekt und kann den Zugriff auf dessen private Informationen ermöglichen. Das Konzept eines Konstruktors kann auf die meisten [objektorientierten Programmier](/de/docs/Glossary/OOP)-Sprachen angewendet werden. Im Wesentlichen wird ein Konstruktor in [JavaScript](/de/docs/Glossary/JavaScript) normalerweise bei der Instanzierung einer [Klasse](/de/docs/Glossary/class) deklariert.
+Ein **Constructor** gehört zu einem bestimmten [Objekt](/de/docs/Glossary/object), das instanziiert wird. Der Constructor initialisiert dieses Objekt und kann Zugriff auf seine privaten Informationen gewähren. Das Konzept eines Constructors kann auf die meisten [objektorientierten Programmiersprachen](/de/docs/Glossary/OOP) angewendet werden. Im Wesentlichen wird ein Constructor in [JavaScript](/de/docs/Glossary/JavaScript) normalerweise beim Instanziieren einer [Klasse](/de/docs/Glossary/class) deklariert.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ function Default() {}
 function Overloaded(arg1, arg2, /* …, */ argN) {}
 ```
 
-Um den Konstruktor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue [Objektreferenz](/de/docs/Glossary/object_reference) einer [Variable](/de/docs/Glossary/variable) zuzuweisen.
+Um den Constructor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue [Objektreferenz](/de/docs/Glossary/object_reference) einer [Variablen](/de/docs/Glossary/variable) zuzuweisen.
 
 ```js
 function Default() {}
@@ -34,4 +34,4 @@ const defaultReference = new Default();
 
 - [Klassen und Konstruktoren in JavaScript](/de/docs/Learn/JavaScript/Objects/Classes_in_JavaScript#classes_and_constructors)
 - [`new` Operator in JavaScript](/de/docs/Web/JavaScript/Reference/Operators/new)
-- [Konstruktor](https://en.wikipedia.org/wiki/Constructor_%28object-oriented_programming%29) auf Wikipedia
+- [Constructor](https://en.wikipedia.org/wiki/Constructor_%28object-oriented_programming%29) auf Wikipedia

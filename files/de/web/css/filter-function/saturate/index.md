@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`saturate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) super-saturiert oder entsättigt das Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`saturate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) über-saturiert oder desaturiert das Eingangsbild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
-> **Note:** `saturate()` wird als Matrixoperation auf der RGB-Farbe angegeben. Es konvertiert die Farbe nicht tatsächlich in das HSL-Modell, was eine nicht-lineare Operation ist. Daher kann es den Farbton oder die Helligkeit der Originalfarbe nicht beibehalten.
+> **Note:** `saturate()` wird als Matrixoperation auf der RGB-Farbe spezifiziert. Es konvertiert die Farbe nicht tatsächlich in das HSL-Modell, welches eine nichtlineare Operation ist. Daher kann es den Farbton oder die Helligkeit der Originalfarbe nicht erhalten.
 
 {{EmbedInteractiveExample("pages/css/function-saturate.html")}}
 
@@ -22,11 +22,11 @@ saturate(amount)
 ### Parameter
 
 - `amount`
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` entsättigt das Bild, während ein Wert über `100%` es übersättigt. Ein Wert von `0%` ist vollständig entsättigt, während ein Wert von `100%` das Eingabebild unverändert lässt. Der anfängliche Wert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
+  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` desaturiert das Bild, während ein Wert über `100%` es über-saturiert. Ein Wert von `0%` ist komplett entsättigt, während ein Wert von `100%` das Eingangsbild unverändert lässt. Der Anfangswert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
 
 ## Beispiele
 
-### Beispiele für korrekte Werte bei saturate()
+### Beispiele für korrekte Werte für saturate()
 
 ```css
 saturate(0)     /* Completely unsaturated */
@@ -35,9 +35,9 @@ saturate(100%)  /* No effect */
 saturate(200%)  /* Double saturation */
 ```
 
-### saturate() bewahrt Farbton oder Helligkeit nicht
+### saturate() erhält den Farbton oder die Helligkeit nicht
 
-Das untenstehende Diagramm vergleicht zwei Farbverlauf mit `hsl(0 50% 50%)` als Mittelpunkt: Der erste wird mit `saturate()` erzeugt und der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `saturate()`-Verlauf Unterschiede im Farbton und in der Helligkeit zu den beiden Enden hin zeigt.
+Das folgende Diagramm vergleicht zwei Farbverläufe mit `hsl(0 50% 50%)` als Mittelpunkt: Der erste wird mit `saturate()` erzeugt, und der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `saturate()`-Farbverlauf zu den beiden Enden Unterschiede im Farbton und in der Helligkeit zeigt.
 
 ```html
 <div>

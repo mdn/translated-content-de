@@ -8,21 +8,22 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.letterSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt den Abstand zwischen Buchstaben an, wenn Text gezeichnet wird.
+Die **`CanvasRenderingContext2D.letterSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) legt den Abstand zwischen Buchstaben beim Zeichnen von Text fest.
 
 Dies entspricht der CSS-Eigenschaft [`letter-spacing`](/de/docs/Web/CSS/letter-spacing).
 
 ## Wert
 
-Der Buchstabenabstand als String im CSS-Datenformat {{cssxref("length")}}.
+Der Buchstabenabstand als Zeichenkette im CSS-Datenformat {{cssxref("length")}}.
 Der Standardwert ist `0px`.
 
-Die Eigenschaft kann verwendet werden, um den Abstand abzurufen oder festzulegen.
-Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/unlesbaren Wert gesetzt wird.
+Die Eigenschaft kann verwendet werden, um den Abstand zu erhalten oder festzulegen.
+Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/nicht analysierbaren Wert gesetzt wird.
 
 ## Beispiele
 
-In diesem Beispiel wird der Text "Hello World" dreimal angezeigt, wobei die `letterSpacing`-Eigenschaft verwendet wird, um den Buchstabenabstand in jedem Fall zu verändern. Der Abstand wird ebenfalls für jeden Fall angezeigt, indem der Wert der Eigenschaft verwendet wird.
+In diesem Beispiel zeigen wir den Text "Hello World" dreimal an und verwenden die `letterSpacing`-Eigenschaft, um den Buchstabenabstand in jedem Fall zu ändern.
+Der Abstand wird auch für jeden Fall angezeigt, unter Verwendung des Wertes der Eigenschaft.
 
 ### HTML
 

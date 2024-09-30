@@ -7,17 +7,17 @@ l10n:
 
 {{Non-standard_header}}{{CSSRef}}{{Deprecated_Header}}
 
-Die **`-moz-force-broken-image-icon`** erweiterte CSS-Eigenschaft kann verwendet werden, um das Symbol für ein defektes Bild anzuzeigen, selbst wenn ein defektes Bild ein `alt`-Attribut hat.
+Die **`-moz-force-broken-image-icon`** erweiterte CSS-Eigenschaft kann verwendet werden, um das Symbol für ein defektes Bild auch dann anzuzeigen, wenn ein defektes Bild ein `alt`-Attribut hat.
 
 ## Syntax
 
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ein Wert von `1` bedeutet, dass das Symbol für das defekte Bild angezeigt wird, auch wenn das Bild ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut hat. Wenn der Wert `0` verwendet wird, verhält sich das Bild wie gewohnt und zeigt nur das `alt`-Attribut.
+  - : Ein Wert von `1` bedeutet, dass das Symbol für ein defektes Bild auch dann angezeigt wird, wenn das Bild ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut hat. Bei einem Wert von `0` verhält sich das Bild wie üblich und zeigt nur das `alt`-Attribut an.
 
 > [!NOTE]
-> Selbst wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin angezeigt, zusammen mit dem Symbol für ein defektes Bild.
+> Auch wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin angezeigt, zusammen mit dem Symbol für das defekte Bild.
 
 ## Formale Definition
 
@@ -52,16 +52,16 @@ img {
 {{EmbedLiveSample('Examples','125','125')}}
 
 > [!NOTE]
-> Wenn das Bild keine spezifizierte Höhe und Breite hat, wird das Symbol für das defekte Bild nicht angezeigt, aber das `alt`-Attribut wird auch nicht angezeigt, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist.
+> Sofern das Bild nicht über eine festgelegte Höhe und Breite verfügt, wird das Symbol für das defekte Bild nicht angezeigt, und das `alt`-Attribut wird ebenfalls ausgeblendet, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist.
 
-## Hinweise
+## Anmerkungen
 
-- Diese Eigenschaft funktioniert nur in auf Gecko basierenden Browsern.
+- Diese Eigenschaft funktioniert nur in Gecko-basierten Browsern.
 - Die Verwendung dieser Eigenschaft wird nicht empfohlen. Stattdessen sollte ein korrektes `alt`-Attribut verwendet werden.
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 
@@ -69,4 +69,4 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Firefox Bug 58646](https://bugzil.la/58646)
+- [Firefox Fehler 58646](https://bugzil.la/58646)

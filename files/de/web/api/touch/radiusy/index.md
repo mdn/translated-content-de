@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`radiusY`**-Eigenschaft der [`Touch`](/de/docs/Web/API/Touch)-Schnittstelle gibt den Y-Radius der Ellipse zurück, die den Berührungsbereich auf der Touch-Oberfläche am besten umschreibt. Der Wert ist in CSS-Pixeln angegeben und hat die gleiche Skalierung wie [`Touch.screenX`](/de/docs/Web/API/Touch/screenX).
+Die schreibgeschützte Eigenschaft **`radiusY`** des [`Touch`](/de/docs/Web/API/Touch)-Interfaces gibt den Y-Radius der Ellipse zurück, die das Kontaktbereich mit der Touch-Oberfläche am genauesten umschreibt. Der Wert wird in CSS-Pixeln derselben Skalierung wie [`Touch.screenX`](/de/docs/Web/API/Touch/screenX) angegeben.
 
-Dieser Wert bildet in Kombination mit [`Touch.radiusX`](/de/docs/Web/API/Touch/radiusX) und [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) eine Ellipse, die die Größe und Form des Berührungsbereichs zwischen Benutzer und Bildschirm approximiert. Dies kann eine große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm darstellt, oder eine kleine, die die Spitze eines Stylus darstellt.
+Dieser Wert bildet zusammen mit [`Touch.radiusX`](/de/docs/Web/API/Touch/radiusX) und [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) eine Ellipse, die Größe und Form des Kontaktbereichs zwischen dem Benutzer und dem Bildschirm annähernd darstellt. Dies kann eine große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm darstellt, oder eine kleine, die den Punkt einer Stiftspitze repräsentiert.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Das [Beispiel zu Touch.radiusX](/de/docs/Web/API/Touch/radiusX#examples) enthält ein Beispiel zur Verwendung dieser Eigenschaft.
+Das [Beispiel für Touch.radiusX](/de/docs/Web/API/Touch/radiusX#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
 
 ## Spezifikationen
 

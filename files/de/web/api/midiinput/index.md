@@ -11,13 +11,13 @@ Die **`MIDIInput`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_A
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanzen-Eigenschaften
 
-_Diese Schnittstelle implementiert keine speziellen Eigenschaften, erbt jedoch Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, aber erbt Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
 ## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine speziellen Methoden, erbt jedoch Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, aber erbt Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
 ### Ereignisse
 
@@ -26,7 +26,7 @@ _Diese Schnittstelle implementiert keine speziellen Methoden, erbt jedoch Method
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Name jedes `MIDIInput` in die Konsole ausgegeben. Dann wird auf allen Eingangsports auf `midimessage`-Ereignisse gehört. Wenn eine Nachricht empfangen wird, wird die [`MIDIMessageEvent.data`](/de/docs/Web/API/MIDIMessageEvent/data)-Eigenschaft in die Konsole ausgegeben.
+Im folgenden Beispiel wird der Name jedes `MIDIInput` in die Konsole ausgegeben. Anschließend werden für alle Eingangsports `midimessage`-Ereignisse abgehört. Wenn eine Nachricht empfangen wird, wird die [`MIDIMessageEvent.data`](/de/docs/Web/API/MIDIMessageEvent/data)-Eigenschaft in die Konsole ausgegeben.
 
 ```js
 inputs.forEach((input) => {

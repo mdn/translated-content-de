@@ -1,5 +1,5 @@
 ---
-title: Verlinkung
+title: Verlinken
 slug: Web/SVG/Linking
 l10n:
   sourceCommit: 32d1c9ff83019f8efae3e7987a55e83035e4b926
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das {{SVGAttr("target")}}-Attribut auf dem SVG-{{SVGElement("a")}}-Element funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente mithilfe des Tags in ein übergeordnetes HTML-Dokument eingebettet werden:
+Das Attribut {{SVGAttr("target")}} im SVG-Element {{SVGElement("a")}} funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments mithilfe des Tags eingebettet werden:
 
 page1.html:
 
@@ -33,11 +33,11 @@ button.svg:
 </svg>
 ```
 
-Die Spezifikation besagt, dass der Browser zum HTML-Dokument page2.html navigieren sollte, wenn die Schaltflächengrafik angeklickt wird. Allerdings funktioniert `target` nicht mit Mozillas Implementierung des SVG-`<a>`-Elements in Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben.)
+Die Spezifikation besagt, dass der Browser zum HTML-Dokument page2.html navigieren sollte, wenn die Buttongrafik angeklickt wird. Jedoch funktioniert `target` mit Mozillas Implementierung des SVG-`<a>`-Elements in Firefox 1.5 nicht. (Das Problem wird in Firefox 2.0 behoben sein.)
 
-Jedenfalls ist das resultierende Verhalten in Moz SVG, dass page2.html in den Frame geladen wird, in dem sich die SVG-Schaltfläche befand (d.h. Sie hätten nun page2.html eingebettet in einem 100x50 Pixel großen Frame innerhalb von page1.html).
+Die resultierende Verhalten in Moz SVG ist jedoch, dass page2.html in den Rahmen geladen wird, in dem sich der SVG-Button befand (d.h. Sie hätten nun page2.html in einem 100x50-Pixel-Rahmen innerhalb von page1.html eingebettet).
 
-Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacken erforderlich:
+Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacking erforderlich:
 
 button.svg:
 
@@ -52,4 +52,4 @@ button.svg:
 
 ## Beispiel
 
-Ein Beispiel für diese Lösung in der Praxis finden Sie unter [www.codedread.com](https://www.codedread.com/).
+Ein Beispiel für diese Lösung in Aktion finden Sie auf [www.codedread.com](https://www.codedread.com/).

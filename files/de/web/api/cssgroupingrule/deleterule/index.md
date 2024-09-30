@@ -1,5 +1,5 @@
 ---
-title: "CSSGroupingRule: deleteRule() Methode"
+title: "CSSGroupingRule: deleteRule()-Methode"
 short-title: deleteRule()
 slug: Web/API/CSSGroupingRule/deleteRule
 l10n:
@@ -19,7 +19,7 @@ deleteRule(index)
 ### Parameter
 
 - `index`
-  - : Der Index der Regel, die gelöscht werden soll.
+  - : Der Index der zu löschenden Regel.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn _index_ größer oder gleich der Anzahl der untergeordneten CSS-Regeln ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die entfernte Regel eine `@namespace`-At-Regel ist und die Liste der untergeordneten CSS-Regeln etwas anderes als `@import`-At-Regeln und `@namespace`-At-Regeln enthält.
+  - : Wird ausgelöst, wenn die zu entfernende Regel eine `@namespace`-At-Regel ist und die Liste der untergeordneten CSS-Regeln etwas anderes als `@import`- und `@namespace`-At-Regeln enthält.
 
 ## Beispiele
 

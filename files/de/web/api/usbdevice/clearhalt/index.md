@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: clearHalt() Methode"
+title: "USBDevice: clearHalt()-Methode"
 short-title: clearHalt()
 slug: Web/API/USBDevice/clearHalt
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`clearHalt()`** Methode der [`USBDevice`](/de/docs/Web/API/USBDevice) Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Halt-Bedingung gelöscht wird. Eine Halt-Bedingung tritt auf, wenn ein Datentransfer zum oder vom Gerät den Status `'stall'` hat, was es erforderlich macht, dass die Webseite (das _Host_-System, in der USB-Terminologie) diese Bedingung aufhebt. Siehe die Details.
+Die **`clearHalt()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Stopp-Bedingung behoben ist. Eine Stopp-Bedingung tritt auf, wenn ein Datentransfer zum oder vom Gerät den Status `'stall'` hat, was erfordert, dass die Webseite (das _Host_-System, in der USB-Terminologie) diese Bedingung behebt. Weitere Details dazu finden Sie .
 
 ## Syntax
 
@@ -29,10 +29,10 @@ Ein {{jsxref("promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man eine `'stall'` Bedingung im Ergebnis eines Datentransfers testet und löscht.
+Das folgende Beispiel zeigt, wie man eine `'stall'`-Bedingung im Ergebnis eines Datentransfers testet und behebt.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übermittelt werden können und wie sie übermittelt werden, ist spezifisch und einzigartig für jedes Gerät.
+> Welche Daten an ein USB-Gerät übergeben werden können und wie sie übergeben werden, ist spezifisch und einzigartig für jedes Gerät.
 
 ```js
 while (true) {

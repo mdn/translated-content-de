@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Die schreibgeschützte Eigenschaft **`collapsed`** des [`StaticRange`](/de/docs/Web/API/StaticRange)-Interfaces gibt `true` zurück, wenn die Start- und Endposition des Bereichs gleich sind.
+Die schreibgeschützte Eigenschaft **`collapsed`**
+der [`StaticRange`](/de/docs/Web/API/StaticRange)-Schnittstelle gibt `true` zurück, wenn die Startposition und Endposition des Bereichs identisch sind.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Bereich **zusammengefallen** ist. Ein zusammengefallener Bereich ist einer, in dem die Start- und Endpositionen gleich sind, was zu einem Bereich von null Zeichen Länge führt.
+Ein boolescher Wert, der `true` ist, wenn der Bereich **zusammengeklappt** ist. Ein zusammengeklappter Bereich ist ein Bereich, in dem Start- und Endposition identisch sind, was zu einem Null-Zeichen-langen Bereich führt.
 
 ## Spezifikationen
 

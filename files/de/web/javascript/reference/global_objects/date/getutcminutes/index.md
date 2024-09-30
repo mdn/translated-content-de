@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getUTCMinutes()`**-Methode von {{jsxref("Date")}} Instanzen gibt die Minuten für dieses Datum gemäß der Weltzeit zurück.
+Die Methode **`getUTCMinutes()`** von {{jsxref("Date")}} Instanzen gibt die Minuten für dieses Datum in koordinierter Weltzeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getutcminutes.html")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl, zwischen 0 und 59, die die Minuten für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 59, die die Minuten für das angegebene Datum in koordinierter Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCMinutes()
 
-Das folgende Beispiel weist den Minutenanteil der aktuellen Zeit der Variablen `minutes` zu.
+Das folgende Beispiel weist die Minutenanteil der aktuellen Zeit der Variablen `minutes` zu.
 
 ```js
 const today = new Date();

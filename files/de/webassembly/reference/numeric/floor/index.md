@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl abgerundet wird.
+Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl abgerundet ist.
 
-**`floor`** unterscheidet sich von **`trunc`**, wenn es auf negative Zahlen angewendet wird, da **`floor`** in diesen Fällen abrunden wird, während **`trunc`** aufrunden wird.
+**`floor`** unterscheidet sich von **`trunc`**, wenn es auf negative Zahlen angewendet wird. **`floor`** wird in diesen Fällen abrunden, während **`trunc`** aufrunden wird.
 
 {{EmbedInteractiveExample("pages/wat/floor.html", "tabbed-standard")}}
 
@@ -26,6 +26,6 @@ f32.floor
 ```
 
 | Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
+|-------------|----------------|
 | `f32.floor` | `0x8e`         |
 | `f64.floor` | `0x9c`         |

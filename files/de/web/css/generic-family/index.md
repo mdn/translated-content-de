@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) steht für die Schlüsselwortwerte der generischen Schriftfamilien, die in der {{cssxref("font")}} Kurzschrift und den {{cssxref("font-family")}} Langschrift-Eigenschaften verwendet werden. Der `<generic-family>` steht für eine oder mehrere lokal installierte Schriftarten, die zu dieser Kategorie von Schriftarten gehören.
+Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert die Schlüsselwortwerte für generische Schriftfamilien, die in den {{cssxref("font")}} Kurzhand- und {{cssxref("font-family")}} Langhand-Eigenschaften verwendet werden. Der `<generic-family>` repräsentiert eine oder mehrere lokal installierte Schriften, die zu dieser Kategorie von Schriften gehören.
 
 ## Syntax
 
@@ -22,58 +22,58 @@ Der `<generic-family>` [enumerierte](/de/docs/Glossary/enumerated) Typ wird mit 
 
 - `serif`
 
-  - : Eine Serife ist eine kleine Linie oder ein Strich, der an das Ende eines größeren Strichs in einem Buchstaben angehängt ist. In Serifenschriften haben Glyphen abschließende Striche, ausgestellte oder sich verjüngende Enden. Beispiele sind Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio und URW Palladio.
+  - : Eine Serif ist eine kleine Linie oder ein Strich, der am Ende eines größeren Strichs in einem Buchstaben angebracht ist. In Serifenschriften haben Glyphen Abschlüsse, ausgefächerte oder zulaufende Enden. Beispiele sind Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio und URW Palladio.
 
 - `sans-serif`
 
-  - : Eine Schrift ohne Serifen; Glyphen haben einfache Strichenden ohne Verzierungen. Beispiele für sans-serif Schriftarten sind Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans und Nimbus Sans L.
+  - : Eine Schrift ohne Serifen; Glyphen haben einfache Strichenden ohne Verzierungen. Beispiele für serifenlose Schriften sind Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans und Nimbus Sans L.
 
 - `monospace`
 
-  - : Alle Glyphen haben die gleiche feste Breite. Beispiele für Monospace-Schriftarten sind Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco und Lucida Console.
+  - : Alle Glyphen haben die gleiche feste Breite. Beispiele für monospaced Schriften sind Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco und Lucida Console.
 
 - `cursive`
 
-  - : Glyphen in Kursivschriften haben in der Regel entweder verbindende Striche oder andere Schreibschriftmerkmale, die über die von kursiven Schriftarten hinausgehen. Die Glyphen sind teilweise oder vollständig verbunden, und das Ergebnis sieht mehr wie handgeschriebene Stift- oder Pinsel-Schrift als gedruckte Buchstabenarbeit aus. Beispiele für Kursivschriften sind Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting und Apple Chancery.
+  - : Glyphen in Kursivschriften haben im Allgemeinen entweder verbundene Striche oder andere kursivtypische Merkmale, die über die von kursive Schriftarten hinausgehen. Die Glyphen sind teilweise oder vollständig verbunden, und das Ergebnis sieht mehr nach handgeschriebenem Stift- oder Pinselstrich als nach gedruckter Buchstabenarbeit aus. Beispielhafte Kursivschriften sind Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting und Apple Chancery.
 
 - `fantasy`
 
-  - : Fantasy-Schriften sind in erster Linie dekorative Schriften, die spielerische Darstellungen von Zeichen enthalten. Beispiele für Fantasy-Schriften sind Papyrus, Herculanum, Party LET, Curlz MT und Harrington.
+  - : Fantasieschriften sind hauptsächlich dekorative Schriften, die verspielte Darstellungen von Zeichen enthalten. Beispielhafte Fantasieschriften sind Papyrus, Herculanum, Party LET, Curlz MT und Harrington.
 
 - `system-ui`
 
-  - : Glyphen stammen aus der Standardschriftart des Benutzerinterfaces auf einer bestimmten Plattform. Da die typografischen Traditionen weltweit stark variieren, wird diese generische Familie für Schriftarten bereitgestellt, die nicht klar in die anderen passen.
+  - : Glyphen stammen aus der Standardschriftart der Benutzeroberfläche auf einer bestimmten Plattform. Da typografische Traditionen weltweit stark variieren, wird diese generische Familie für Schriftarten bereitgestellt, die sich nicht klar den anderen zuordnen lassen.
 
 - `ui-serif`
 
-  - : Die Standardschriftart für Benutzeroberflächen mit Serifen. Siehe die Definition von `serif` oben.
+  - : Die Standard-Serifenschrift der Benutzeroberfläche. Siehe die Definition von `serif` oben.
 
 - `ui-sans-serif`
 
-  - : Die Standardschriftart für Benutzeroberflächen ohne Serifen. Siehe die Definition von `sans-serif` oben.
+  - : Die Standard-sans-serif Schrift der Benutzeroberfläche. Siehe die Definition von `sans-serif` oben.
 
 - `ui-monospace`
 
-  - : Die Standardschriftart für Benutzeroberflächen mit fester Breite. Siehe die Definition von `monospace` oben.
+  - : Die Standard-monospaced Schrift der Benutzeroberfläche. Siehe die Definition von `monospace` oben.
 
 - `ui-rounded`
 
-  - : Die Standardschriftart für Benutzeroberflächen mit abgerundeten Merkmalen.
+  - : Die Standard-Benutzeroberflächenschrift, die abgerundete Merkmale aufweist.
 
 - `math`
 
-  - : Schriften zur Darstellung mathematischer Ausdrücke, beispielsweise Hoch- und Tiefstellungen, Klammern, die mehrere Zeilen übergreifen, geschachtelte Ausdrücke und doppelstrichige Glyphen mit unterschiedlichen Bedeutungen.
+  - : Schriften zum Anzeigen mathematischer Ausdrücke, beispielsweise hoch- und tiefgestellte Zeichen, Klammern, die mehrere Linien umfassen, verschachtelte Ausdrücke und doppelt geschlagene Glyphen mit unterschiedlichen Bedeutungen.
 
 - `emoji`
 
-  - : Schriften, die speziell für die Darstellung von Emoji entwickelt wurden.
+  - : Schriften, die speziell für die Darstellung von Emojis entworfen wurden.
 
 - `fangsong`
-  - : Ein bestimmter Stil chinesischer Zeichen, der zwischen Serif-stilisierten Song- und kursiv-stilisierten Kai-Formen liegt. Dieser Stil wird häufig für Regierungsdokumente verwendet.
+  - : Ein bestimmter Stil chinesischer Schriftzeichen, die zwischen den serifartigen Song- und kursiveartigen Kai-Formen liegen. Dieser Stil wird häufig für Regierungsdokumente verwendet.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert mehrere der `<generic-family>`-enumerierten Werte für die {{cssxref("font-family")}}-Eigenschaft.
+Dieses Beispiel zeigt mehrere der `<generic-family>` aufgezählten Werte für die {{cssxref("font-family")}} Eigenschaft.
 
 ### HTML
 
@@ -126,4 +126,4 @@ ul {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("font-family")}} und {{cssxref("font")}}
-- [CSS-Fonts-Modul](/de/docs/Web/CSS/CSS_fonts)
+- [CSS-Schriftartenmodul](/de/docs/Web/CSS/CSS_fonts)

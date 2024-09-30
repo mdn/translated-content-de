@@ -9,10 +9,10 @@ l10n:
 
 Löscht Daten, die von Browser-Plugins gespeichert wurden.
 
-Sie können den Parameter `removalOptions` verwenden, welches ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
+Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
 
 - nur Plugin-Daten zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden
-- steuern, ob nur Daten gelöscht werden, die von Plugins in normalen Webseiten gespeichert wurden, oder auch Daten, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
+- festzulegen, ob nur Daten gelöscht werden sollen, die von Plugins auf normalen Webseiten gespeichert wurden, oder ob auch Daten gelöscht werden sollen, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ let removing = browser.browsingData.removePluginData(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, welches verwendet werden kann, um nur Plugin-Daten zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und ob nur Daten gelöscht werden, die von Plugins in normalen Webseiten gespeichert wurden, oder auch Daten, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Plugin-Daten zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und festzulegen, ob nur Daten gelöscht werden sollen, die von Plugins auf normalen Webseiten gespeichert wurden, oder ob auch Daten gelöscht werden sollen, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Entfernen von Daten, die von Plugins in der letzten Woche gespeichert wurden:
+Daten löschen, die von Plugins in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -57,7 +57,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Entfernen aller von Plugins gespeicherten Daten:
+Alle Daten löschen, die von Plugins gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -78,7 +78,7 @@ browser.browsingData.removePluginData({}).then(onRemoved, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData).
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

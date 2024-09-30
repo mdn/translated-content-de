@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: stroke() Methode"
+title: "CanvasRenderingContext2D: stroke()-Methode"
 short-title: stroke()
 slug: Web/API/CanvasRenderingContext2D/stroke
 l10n:
@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.stroke()`**
-Methode der Canvas 2D API konturiert den aktuellen oder angegebenen Pfad mit dem
-aktuellen Strichstil.
+Die **`CanvasRenderingContext2D.stroke()`**-Methode der Canvas 2D API umrandet den aktuellen oder angegebenen Pfad mit dem aktuellen Zeichenstil.
 
-Striche sind zur Mitte eines Pfades ausgerichtet; mit anderen Worten, die Hälfte des Striches wird auf der inneren Seite gezeichnet und die andere Hälfte auf der äußeren Seite.
+Linien werden zur Mitte eines Pfades ausgerichtet; mit anderen Worten, die Hälfte der Linie wird auf der Innenseite und die andere Hälfte auf der Außenseite gezeichnet.
 
-Der Strich wird unter Verwendung der [Non-Zero-Winding-Regel](https://en.wikipedia.org/wiki/Nonzero-rule) gezeichnet, was bedeutet, dass Pfadüberschneidungen trotzdem gefüllt werden.
+Die Linie wird unter Verwendung der [Nicht-Null-Umwickelregel](https://en.wikipedia.org/wiki/Nonzero-rule) gezeichnet, was bedeutet, dass sich überschneidende Pfade weiterhin gefüllt werden.
 
 ## Syntax
 
@@ -27,17 +24,17 @@ stroke(path)
 ### Parameter
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, der konturiert werden soll.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad zum Umranden.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein einfaches konturiertes Rechteck
+### Ein einfaches umrandetes Rechteck
 
-Dieses Beispiel erstellt ein Rechteck mit der `rect()` Methode und zeichnet es dann mit `stroke()` auf die Leinwand.
+Dieses Beispiel erstellt ein Rechteck mit der `rect()`-Methode und zeichnet es dann mit `stroke()` auf die Leinwand.
 
 #### HTML
 
@@ -58,9 +55,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('A_simple_stroked_rectangle', 700, 180) }}
 
-### Neu-Konturieren von Pfaden
+### Mehrfaches Umranden von Pfaden
 
-Typischerweise möchten Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) für jedes neue Element, das Sie konturieren möchten, aufrufen. Wenn Sie das nicht tun, bleiben die vorherigen Unterpfade Teil des aktuellen Pfades und werden jedes Mal konturiert, wenn Sie die `stroke()` Methode aufrufen. In einigen Fällen kann dies jedoch der gewünschte Effekt sein.
+Typischerweise werden Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) für jede neue zu umrandende Sache aufrufen wollen. Wenn Sie das nicht tun, bleiben die vorherigen Unterpfade Teil des aktuellen Pfades und werden jedes Mal umrandet, wenn Sie die `stroke()`-Methode aufrufen. In einigen Fällen kann dies jedoch der gewünschte Effekt sein.
 
 #### HTML
 
@@ -70,8 +67,7 @@ Typischerweise möchten Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingCont
 
 #### JavaScript
 
-Dieser Code konturiert den ersten Pfad dreimal, den zweiten Pfad zweimal und den dritten
-Pfad nur einmal.
+Dieser Code umrandet den ersten Pfad dreimal, den zweiten Pfad zweimal und den dritten Pfad nur einmal.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -103,12 +99,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Re-stroking_paths', 700, 180) }}
 
-### Konturieren und Füllen
+### Umranden und Füllen
 
-Wenn Sie sowohl einen Pfad konturieren als auch füllen möchten, bestimmt die Reihenfolge dieser
-Aktionen das Ergebnis. In diesem Beispiel wird das Quadrat auf der linken Seite mit
-dem Strich über der Füllung gezeichnet. Das Quadrat auf der rechten Seite wird mit der Füllung über
-dem Strich gezeichnet.
+Wenn Sie sowohl einen Pfad umranden als auch füllen möchten, bestimmt die Reihenfolge dieser Aktionen das Ergebnis. In diesem Beispiel wird das Quadrat auf der linken Seite mit der Umrandung über der Füllung gezeichnet. Das Quadrat auf der rechten Seite wird mit der Füllung über der Umrandung gezeichnet.
 
 #### HTML
 

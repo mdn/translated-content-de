@@ -1,5 +1,5 @@
 ---
-title: "Selection: collapseToStart()-Methode"
+title: "Selection: Methode collapseToStart()"
 short-title: collapseToStart()
 slug: Web/API/Selection/collapseToStart
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.collapseToStart()`**-Methode reduziert die Auswahl auf den Anfang des ersten Bereichs in der Auswahl. Wenn der Inhalt der Auswahl fokussiert und bearbeitbar ist, blinkt der Cursor dort.
+Die **`Selection.collapseToStart()`**-Methode reduziert die
+Auswahl auf den Beginn des ersten Bereichs in der Auswahl. Wenn der Inhalt der
+Auswahl fokussiert und bearbeitbar ist, blinkt dort der Cursor.
 
 ## Syntax
 
@@ -34,4 +36,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "DataTransfer: DataTransfer() Konstruktor"
+title: "DataTransfer: DataTransfer()-Konstruktor"
 short-title: DataTransfer()
 slug: Web/API/DataTransfer/DataTransfer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Der **`DataTransfer`** Konstruktor erstellt eine neue Instanz des [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekts.
+Der **`DataTransfer`**-Konstruktor erstellt eine neue Instanz des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekts.
 
 ## Syntax
 

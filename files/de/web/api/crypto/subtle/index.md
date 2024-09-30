@@ -1,5 +1,5 @@
 ---
-title: "Crypto: subtle-Eigenschaft"
+title: "Crypto: subtil Eigenschaft"
 short-title: subtle
 slug: Web/API/Crypto/subtle
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`Crypto.subtle`** gibt ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) zurück, das dann zur Durchführung von kryptografischen Operationen auf niedriger Ebene verwendet werden kann.
+Die schreibgeschützte Eigenschaft **`Crypto.subtle`** gibt ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) zurück, das dann verwendet werden kann, um kryptographische Operationen auf niedriger Ebene durchzuführen.
 
 ## Wert
 
-Ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Objekt, das Sie verwenden können, um mit den niedrigstufigen Kryptografie-Funktionen der Web Crypto API zu interagieren.
+Ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Objekt, mit dem Sie auf die kryptographischen Funktionen der Web Crypto API auf niedriger Ebene zugreifen können.
 
 ## Spezifikationen
 

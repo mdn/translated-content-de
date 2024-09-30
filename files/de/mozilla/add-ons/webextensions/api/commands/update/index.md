@@ -26,15 +26,15 @@ browser.commands.update(
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
 
     - `name`
-      - : `string`. Der Name des Befehls, der aktualisiert werden soll. Dieser muss mit dem Namen eines vorhandenen Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
+      - : `string`. Der Name des zu aktualisierenden Befehls. Dieser muss mit dem Namen eines vorhandenen Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}}-Objekts angegeben ist.
     - `description` {{optional_inline}}
       - : `string`. Eine neue Beschreibung, die für den Befehl festgelegt werden soll.
     - `shortcut` {{optional_inline}}
 
-      - : `string`. Eine neue Tastenkombination, die für den Befehl festgelegt werden soll. Dies kann sein:
+      - : `string`. Eine neue Tastenkombination, die für den Befehl festgelegt werden soll. Diese kann sein:
 
-        - ein leerer String, um die Verknüpfung zu entfernen.
-        - ein String, der dem Format des [`commands` manifest.json Schlüssels](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) entspricht, um eine neue Tastenkombination festzulegen. Wenn der String dieses Format nicht erfüllt, löst die Funktion einen Fehler aus.
+        - ein leerer String, um die Tastenkombination zu entfernen.
+        - ein String, der dem Format des [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) entspricht, um einen neuen Tastenkurzbefehl festzulegen. Wenn der String diesem Format nicht entspricht, wirft die Funktion einen Fehler.
 
 ### Rückgabewert
 
@@ -46,7 +46,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Aktualisiert den Befehl mit dem Namen "my-command" mit dem angegebenen Tastenkombinationswert, wenn der Benutzer auf "aktualisieren" klickt:
+Aktualisiert den Befehl mit dem Namen "my-command" mit dem angegebenen Tastenkombinationswert, wenn der Benutzer auf "update" klickt:
 
 ```js
 const commandName = "my-command";

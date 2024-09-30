@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der
-[`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle zerstört das `GPUQuerySet`.
+Die **`destroy()`** Methode der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) Schnittstelle zerstört das `GPUQuerySet`.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keine ({{jsxref("Undefined")}}).
 
 ## Beispiele
 

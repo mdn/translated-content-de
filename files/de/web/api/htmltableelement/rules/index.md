@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellengrenzen in der Tabelle dargestellt werden sollen.
+Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellgrenzen in der Tabelle gerendert werden sollen.
 
 ## Wert
 
-Einer der folgenden Werte:
+Einer der folgenden:
 
 - `none`
   - : Keine Regeln
 - `groups`
   - : Linien nur zwischen Gruppen
 - `rows`
-  - : Linien zwischen Zeilen
+  - : Linien zwischen den Zeilen
 - `cols`
-  - : Linien zwischen Spalten
+  - : Linien zwischen den Spalten
 - `all`
   - : Linien zwischen allen Zellen
 

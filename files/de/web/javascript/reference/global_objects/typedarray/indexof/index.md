@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
+Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-indexof.html")}}
 
@@ -21,9 +21,9 @@ indexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im typisierten Array gefunden werden soll.
+  - : Element, das im typisierten Array gesucht werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Index (beginnend von Null), ab dem die Suche starten soll, [umgewandelt in einen ganzzahligen Wert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : [Zum Ganzzahl konvertierter](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) nullbasierter Index, ab dem gesucht werden soll.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Der erste Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefun
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.indexOf()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Siehe {{jsxref("Array.prototype.indexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 

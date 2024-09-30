@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`time`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der angibt, zu welchem Zeitpunkt die Änderung der Überschneidung im Verhältnis zur Erstellung des Dokuments aufgetreten ist.
+Die schreibgeschützte **`time`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem die Schnittstellenänderung im Verhältnis zu dem Zeitpunkt aufgetreten ist, zu dem das Dokument erstellt wurde.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem das [`target`](/de/docs/Web/API/IntersectionObserverEntry/target)-Element die beschriebene Überschneidungsänderung durch das `IntersectionObserverEntry` erfahren hat. Die Zeit wird in Millisekunden seit der Erstellung des enthaltenen Dokuments angegeben.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem das [`target`](/de/docs/Web/API/IntersectionObserverEntry/target)-Element die in der `IntersectionObserverEntry` beschriebene Schnittstellenänderung erlebte. Die Zeit ist in Millisekunden seit der Erstellung des enthaltenen Dokuments angegeben.
 
 ## Beispiele
 

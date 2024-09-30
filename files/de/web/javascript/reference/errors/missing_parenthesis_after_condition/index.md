@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "missing ) after condition" tritt auf, wenn es einen Fehler bei der Schreibweise einer
+Die JavaScript-Ausnahme "missing ) after condition" tritt auf, wenn ein Fehler in der Schreibweise einer
 [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
-Bedingung gibt. Diese muss in Klammern nach dem `if`-Schlüsselwort erscheinen.
+Bedingung vorliegt. Diese muss in Klammern nach dem `if`-Schlüsselwort erscheinen.
 
 ## Meldung
 
@@ -18,15 +18,15 @@ SyntaxError: missing ) after condition (Firefox)
 SyntaxError: Unexpected token '{'. Expected ')' to end an 'if' condition. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Es gibt einen Fehler bei der Schreibweise einer
+Es gibt einen Fehler in der Schreibweise einer
 [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
-Bedingung. In jeder Programmiersprache muss der Code Entscheidungen treffen und je nach verschiedenen Eingaben entsprechende Aktionen ausführen. Die if-Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung wahrheitsgemäß ist. In JavaScript muss diese Bedingung in Klammern nach dem `if`-Schlüsselwort erscheinen, wie hier:
+Bedingung. In jeder Programmiersprache muss der Code Entscheidungen treffen und je nach unterschiedlichen Eingaben entsprechende Aktionen ausführen. Die `if`-Anweisung führt eine Anweisung aus, wenn eine bestimmte Bedingung wahr ist. In JavaScript muss diese Bedingung in Klammern nach dem `if`-Schlüsselwort erscheinen, so:
 
 ```js
 if (condition) {
@@ -48,7 +48,7 @@ if (Math.PI < 3 {
 // SyntaxError: missing ) after condition
 ```
 
-Um diesen Code zu korrigieren, müssen Sie eine schließende Klammer der Bedingung hinzufügen.
+Um diesen Code zu korrigieren, müssen Sie eine Klammer hinzufügen, die die Bedingung schließt.
 
 ```js example-good
 if (Math.PI < 3) {
@@ -56,9 +56,9 @@ if (Math.PI < 3) {
 }
 ```
 
-### Fehlverwendetes Schlüsselwort
+### Falsch verwendetes Schlüsselwort "is"
 
-Wenn Sie aus einer anderen Programmiersprache kommen, ist es leicht, Schlüsselwörter hinzuzufügen, die nicht dasselbe bedeuten oder in JavaScript überhaupt keine Bedeutung haben.
+Wenn Sie von einer anderen Programmiersprache kommen, ist es auch leicht, Schlüsselwörter hinzuzufügen, die in JavaScript nicht dieselbe Bedeutung haben oder überhaupt keine Bedeutung haben.
 
 ```js-nolint example-bad
 if (done is true) {
@@ -68,8 +68,7 @@ if (done is true) {
 // SyntaxError: missing ) after condition
 ```
 
-Stattdessen müssen Sie einen korrekten [Vergleichsoperator](/de/docs/Web/JavaScript/Reference/Operators) verwenden.
-Zum Beispiel:
+Stattdessen müssen Sie einen korrekten [Vergleichsoperator](/de/docs/Web/JavaScript/Reference/Operators) verwenden. Zum Beispiel:
 
 ```js
 if (done === true) {
@@ -89,4 +88,4 @@ if (done) {
 
 - [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
 - [Relationale Operatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators)
-- [Entscheidungen in Ihrem Code treffen — Konditionale](/de/docs/Learn/JavaScript/Building_blocks/conditionals)
+- [Entscheidungen in Ihrem Code treffen — Konditionalen](/de/docs/Learn/JavaScript/Building_blocks/conditionals)

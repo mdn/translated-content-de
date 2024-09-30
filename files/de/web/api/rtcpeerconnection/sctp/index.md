@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`sctp`** schreibgeschützte Eigenschaft des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interfaces gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Objekt zurück, das den [SCTP](/de/docs/Glossary/SCTP)-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden. Falls SCTP nicht ausgehandelt wurde, ist dieser Wert `null`.
+Die schreibgeschützte Eigenschaft **`sctp`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) zurück, das den [SCTP](/de/docs/Glossary/SCTP)-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden.
+Wenn SCTP nicht verhandelt wurde, ist dieser Wert `null`.
 
-Der SCTP-Transport wird für das Senden und Empfangen von Daten auf allen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s der Peer-Verbindung verwendet.
+Der SCTP-Transport wird für das Senden und Empfangen von Daten aller [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s auf der Peer-Verbindung verwendet.
 
 ## Wert
 
-Ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Objekt, das den SCTP-Transport beschreibt, welcher von der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) für das Senden und Empfangen auf seinen Datenkanälen verwendet wird, oder `null`, falls keine SCTP-Aushandlung stattgefunden hat.
+Ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Objekt, das den von der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendeten SCTP-Transport zum Senden und Empfangen auf seinen Datenkanälen beschreibt, oder `null`, wenn keine SCTP-Verhandlung stattgefunden hat.
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: "RTCCertificate: expires-Eigenschaft"
+title: "RTCCertificate: Eigenschaft expires"
 short-title: expires
 slug: Web/API/RTCCertificate/expires
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`expires`**-Eigenschaft der [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Schnittstelle gibt das Ablaufdatum des Zertifikats zurück.
+Die schreibgeschützte **`expires`**-Eigenschaft der [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Schnittstelle liefert das Ablaufdatum des Zertifikats.
 
-Standardmäßig wird ein neues Zertifikat mit einem auf 2592000000 Millisekunden oder 30 Tage eingestellten `expires`-Wert konfiguriert. Die Ablaufzeit kann 31536000000 Millisekunden oder 365 Tage nicht überschreiten. Es ist auch nützlich zu beachten, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, wenn sie dies wünschen.
+Standardmäßig wird ein neues Zertifikat mit `expires` auf einen Wert von 2592000000 Millisekunden, oder 30 Tagen, konfiguriert. Die Ablaufzeit kann 31536000000 Millisekunden, oder 365 Tage, nicht überschreiten. Es ist auch nützlich zu beachten, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, falls sie dies möchten.
 
 ## Wert
 
-Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Zertifikats enthält.
+Ein Timestamp, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Zertifikats enthält.
 
 ## Beispiele
 

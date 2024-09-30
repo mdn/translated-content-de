@@ -1,5 +1,5 @@
 ---
-title: "NodeList: item()-Methode"
+title: "NodeList: item() Methode"
 short-title: item()
 slug: Web/API/NodeList/item
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Gibt ein Knoten aus einem [`NodeList`](/de/docs/Web/API/NodeList) anhand des Index zurück. Diese Methode löst keine Ausnahmen aus, solange Argumente übergeben werden. Ein Wert von `null` wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt, und ein {{jsxref("TypeError")}} wird ausgelöst, wenn kein Argument bereitgestellt wird.
+Gibt ein Knoten aus einer [`NodeList`](/de/docs/Web/API/NodeList) nach Index zurück. Diese Methode löst keine Ausnahmen aus, solange Sie Argumente übergeben. Ein Wert von `null` wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt, und ein {{jsxref("TypeError")}} wird ausgelöst, wenn kein Argument angegeben wird.
 
-In JavaScript können Sie anstelle des Aufrufs von `nodeList.item(index)` auch direkt auf den `index` zugreifen, wie `nodeList[index]`.
+In JavaScript können Sie statt `nodeList.item(index)` aufzurufen, auch direkt auf den `index` zugreifen, wie `nodeList[index]`.
 
 ## Syntax
 
@@ -25,12 +25,12 @@ item(index)
 
 ### Rückgabewert
 
-Der `index`te Knoten in der `nodeList`, die von der `item`-Methode zurückgegeben wird.
+Der `index`-te Knoten in der `nodeList`, der von der `item`-Methode zurückgegeben wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Argument bereitgestellt wird.
+  - : Wird ausgelöst, wenn kein Argument angegeben wird.
 
 ## Beispiele
 

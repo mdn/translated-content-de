@@ -1,5 +1,5 @@
 ---
-title: "RangeError: precision is out of range"
+title: "RangeError: precision liegt außerhalb des zulässigen Bereichs"
 slug: Web/JavaScript/Reference/Errors/Precision_range
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "precision is out of range" tritt auf, wenn eine Zahl, die außerhalb des erlaubten Bereichs liegt, an `toExponential`, `toFixed` oder `toPrecision` übergeben wurde.
+Die JavaScript-Ausnahme "precision liegt außerhalb des zulässigen Bereichs" tritt auf, wenn eine Zahl, die außerhalb des erlaubten Bereichs liegt, an `toExponential`, `toFixed` oder `toPrecision` übergeben wurde.
 
-## Nachricht
+## Meldung
 
 ```plain
 RangeError: toExponential() argument must be between 0 and 100 (V8-based & Safari)
@@ -24,7 +24,7 @@ RangeError: precision -1 out of range (Firefox)
 
 ## Was ist schiefgelaufen?
 
-Es gab ein Argument für die Genauigkeit, das außerhalb des Bereichs lag, in einer dieser Methoden:
+Es gab ein Präzisionsargument außerhalb des zulässigen Bereichs in einer der folgenden Methoden:
 
 - {{jsxref("Number.prototype.toExponential()")}}, welches erfordert, dass die Argumente zwischen 0 und 100 liegen, einschließlich.
 - {{jsxref("Number.prototype.toFixed()")}}, welches erfordert, dass die Argumente zwischen 0 und 100 liegen, einschließlich.

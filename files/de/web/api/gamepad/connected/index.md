@@ -9,14 +9,15 @@ l10n:
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
 Die **`Gamepad.connected`**-Eigenschaft des
-[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Gamepad noch mit dem System verbunden ist.
+[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen Boolean-Wert zurück, der anzeigt, ob das Gamepad
+noch mit dem System verbunden ist.
 
 Wenn das Gamepad verbunden ist, ist der Wert `true`; andernfalls ist er
 `false`.
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 
@@ -35,4 +36,4 @@ console.log(gp.connected);
 
 ## Siehe auch
 
-[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

@@ -1,5 +1,5 @@
 ---
-title: "CredentialsContainer: Methode create()"
+title: "CredentialsContainer: create()-Methode"
 short-title: create()
 slug: Web/API/CredentialsContainer/create
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`create()`**-Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interfaces erstellt ein neues [Zugangsdaten-Objekt](/de/docs/Glossary/credential), das dann gespeichert und später mit der [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Methode abgerufen werden kann. Die abgerufenen Zugangsdaten können dann von einer Website genutzt werden, um einen Benutzer zu authentifizieren.
+Die **`create()`**-Methode der [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Schnittstelle erstellt eine neue [Berechtigung](/de/docs/Glossary/credential), die dann gespeichert und später mit der [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Methode abgerufen werden kann. Die abgerufene Berechtigung kann dann von einer Website verwendet werden, um einen Benutzer zu authentifizieren.
 
-Diese Methode unterstützt drei verschiedene Arten von Zugangsdaten:
+Diese Methode unterstützt drei verschiedene Arten von Berechtigungen:
 
-- Ein Passwort-Zugangsdaten-Objekt, das es einem Benutzer ermöglicht, sich mit einem Passwort anzumelden.
-- Ein föderiertes Zugangsdaten-Objekt, das es einem Benutzer ermöglicht, sich über einen föderierten Identitätsanbieter anzumelden.
-- Ein Public-Key-Zugangsdaten-Objekt, das es einem Benutzer ermöglicht, sich mit einem Authentifizierungsgerät anzumelden, wie z.B. einem biometrischen Leser, der in die Plattform integriert ist, oder einem entfernbaren Hardware-Token.
+- Eine Passwortberechtigung, die es einem Benutzer ermöglicht, sich mit einem Passwort anzumelden.
+- Eine föderierte Berechtigung, die es einem Benutzer ermöglicht, sich mit einem föderierten Identitätsanbieter anzumelden.
+- Eine Berechtigung mit öffentlichem Schlüssel, die es einem Benutzer ermöglicht, sich mit einem Authenticator wie einem im System integrierten biometrischen Leser oder einem abnehmbaren Hardware-Token anzumelden.
 
-Beachten Sie, dass die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) den föderierten Zugangsdaten-Typ ersetzt.
+Beachten Sie, dass die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) den föderierten Berechtigungstyp ersetzt.
 
 ## Syntax
 
@@ -32,48 +32,48 @@ create(options)
   - : Ein Objekt, das Optionen für das angeforderte neue `Credentials`-Objekt enthält. Es kann die folgenden Eigenschaften enthalten:
 
     - `signal` {{optional_inline}}
-      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts, die es ermöglicht, eine laufende `create()`-Operation abzubrechen. Eine abgebrochene Operation kann normal abgeschlossen werden (im Allgemeinen, wenn der Abbruch nach Abschluss der Operation eingegangen ist) oder mit einem `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) fehlschlagen.
+      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts, die es ermöglicht, eine laufende `create()`-Operation abzubrechen. Eine abgebrochene Operation kann normal abgeschlossen werden (im Allgemeinen, wenn der Abbruch nach Abschluss der Operation eingegangen ist) oder mit einem `AbortError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt werden.
 
-    Jede der folgenden Eigenschaften repräsentiert einen _Zugangsdaten-Typ_, der erstellt wird. Es muss genau einer von ihnen angegeben werden:
+    Jede der folgenden Eigenschaften repräsentiert einen zu erstellenden _Berechtigungstyp_. Es muss genau eine davon angegeben werden:
 
     - `federated` {{optional_inline}}
-      - : Ein [`FederatedCredentialInit`](/de/docs/Web/API/FederatedCredentialInit)-Objekt, das Anforderungen für die Erstellung eines föderierten Identitätsanbieter-Daten enthält.
+      - : Ein [`FederatedCredentialInit`](/de/docs/Web/API/FederatedCredentialInit)-Objekt, das Anforderungen zum Erstellen einer föderierten Identitätsanbieter-Berechtigung enthält.
     - `password` {{optional_inline}}
-      - : Ein [`PasswordCredentialInit`](/de/docs/Web/API/PasswordCredentialInit)-Objekt, das Anforderungen für die Erstellung von Passwort-Zugangsdaten enthält.
+      - : Ein [`PasswordCredentialInit`](/de/docs/Web/API/PasswordCredentialInit)-Objekt, das Anforderungen zum Erstellen einer Passwortberechtigung enthält.
     - `publicKey` {{optional_inline}}
 
-      - : Ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt, das Anforderungen für die Erstellung eines Public-Key-Zugangsdaten-Objekts enthält. Führt dazu, dass der `create()`-Aufruf den Benutzeragenten anweist, neue Zugangsdaten über ein Authentifizierungsgerät zu erstellen – entweder für die Registrierung eines neuen Kontos oder für die Zuordnung eines neuen asymmetrischen Schlüsselpaares mit einem bestehenden Konto.
+      - : Ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt, das Anforderungen zum Erstellen einer Berechtigung mit öffentlichem Schlüssel enthält. Veranlasst den `create()`-Aufruf, den Benutzeragenten aufzufordern, neue Berechtigungen über einen Authenticator zu erstellen – entweder zur Registrierung eines neuen Kontos oder zur Verknüpfung eines neuen asymmetrischen Schlüsselpaares mit einem bestehenden Konto.
 
         > [!NOTE]
-        > Die Verwendung von `create()` mit dem `publicKey`-Parameter kann durch eine auf Ihrem Server gesetzte {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+        > Die Nutzung von `create()` mit dem `publicKey`-Parameter kann durch eine auf Ihrem Server gesetzte {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer der folgenden Auflösungen endet:
+Ein {{jsxref("Promise")}}, das mit einem der folgenden Werte aufgelöst wird:
 
-- Ein [`FederatedCredential`](/de/docs/Web/API/FederatedCredential), wenn der Zugangsdaten-Typ `federated` war.
-- Ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential), wenn der Zugangsdaten-Typ `password` war.
-- Ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), wenn der Zugangsdaten-Typ `publicKey` war.
+- Ein [`FederatedCredential`](/de/docs/Web/API/FederatedCredential), wenn der Berechtigungstyp `federated` war.
+- Ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential), wenn der Berechtigungstyp `password` war.
+- Ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), wenn der Berechtigungstyp `publicKey` war.
 
-Falls kein Zugangsdaten-Objekt erstellt werden kann, löst das Promise mit `null` auf.
+Wenn kein Berechtigungsobjekt erstellt werden kann, wird das Promise mit `null` aufgelöst.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Im Fall einer [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Erstellungsanfrage wurden `id`, `origin` oder `password` nicht angegeben (leer).
+  - : Im Fall einer [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Erstellungsanforderung wurden `id`, `origin` oder `password` nicht bereitgestellt (leer).
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Mögliche Ursachen sind:
+  - : Mögliche Ursachen beinhalten:
     - Die Nutzung wurde durch eine {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
-    - Die Funktion wurde aus einer fremden Quelle aufgerufen, aber das `iframe`-Attribut [`allow`](/de/docs/Web/HTML/Element/iframe#allow) setzt keine passende {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} Richtlinie.
-    - Die Funktion wird aus einer fremden Quelle aufgerufen und das `<iframe>` hat keine [transiente Aktivierung](/de/docs/Glossary/transient_activation).
+    - Die Funktion wird übergreifend aufgerufen, aber das `allow`-Attribut des iframes setzt keine geeignete {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} Richtlinie.
+    - Die Funktion wird übergreifend aufgerufen und das `<iframe>` hat keine [transiente Aktivierung](/de/docs/Glossary/transient_activation).
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Operation wurde abgebrochen.
 
 ## Beispiele
 
-### Erstellen eines Passwort-Zugangsdaten-Objekts
+### Erstellen einer Passwortberechtigung
 
-Dieses Beispiel erstellt ein Passwort-Zugangsdaten-Objekt aus einem [`PasswordCredentialInit`](/de/docs/Web/API/PasswordCredentialInit)-Objekt.
+Dieses Beispiel erstellt eine Passwortberechtigung aus einem [`PasswordCredentialInit`](/de/docs/Web/API/PasswordCredentialInit)-Objekt.
 
 ```js
 const credInit = {
@@ -96,9 +96,9 @@ makeCredential.addEventListener("click", async () => {
 });
 ```
 
-### Erstellen eines föderierten Zugangsdaten-Objekts
+### Erstellen einer föderierten Berechtigung
 
-Dieses Beispiel erstellt ein föderiertes Zugangsdaten-Objekt aus einem [`FederatedCredentialInit`](/de/docs/Web/API/FederatedCredentialInit)-Objekt.
+Dieses Beispiel erstellt eine föderierte Berechtigung aus einem [`FederatedCredentialInit`](/de/docs/Web/API/FederatedCredentialInit)-Objekt.
 
 ```js
 const credInit = {
@@ -120,9 +120,9 @@ makeCredential.addEventListener("click", async () => {
 });
 ```
 
-### Erstellen eines Public-Key-Zugangsdaten-Objekts
+### Erstellen einer Berechtigung mit öffentlichem Schlüssel
 
-Dieses Beispiel erstellt ein Public-Key-Zugangsdaten-Objekt aus einem [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt.
+Dieses Beispiel erstellt eine Berechtigung mit öffentlichem Schlüssel aus einem [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt.
 
 ```js
 const publicKey = {
@@ -139,7 +139,7 @@ const publicKey = {
 const publicKeyCredential = await navigator.credentials.create({ publicKey });
 ```
 
-Der `create()`-Aufruf liefert, falls erfolgreich, ein Promise, das zu einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekt wird, das ein Public-Key-Zugangsdaten-Objekt darstellt, das später verwendet werden kann, um einen Benutzer über einen WebAuthn [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf zu authentifizieren. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält ein [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Objekt, das Zugang zu mehreren nützlichen Informationen bietet, einschließlich der Authenticator-Daten, des öffentlichen Schlüssels, der Transportmechanismen und mehr.
+Der `create()`-Aufruf gibt, wenn er erfolgreich ist, ein Promise zurück, das mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekt aufgelöst wird, das eine Berechtigung mit öffentlichem Schlüssel darstellt, die später über einen WebAuthn-`get()`-Aufruf zur Benutzerauthentifizierung verwendet werden kann. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält ein [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Objekt, das Zugriff auf mehrere nützliche Informationen bietet, einschließlich der Authenticator-Daten, des öffentlichen Schlüssels, der Transportmechanismen und mehr.
 
 ```js
 navigator.credentials.create({ publicKey }).then((publicKeyCredential) => {
@@ -165,10 +165,10 @@ navigator.credentials.create({ publicKey }).then((publicKeyCredential) => {
 });
 ```
 
-Einige dieser Daten müssen auf dem Server für zukünftige Authentifizierungsoperationen gegen diese Zugangsdaten gespeichert werden – zum Beispiel der öffentliche Schlüssel, der verwendete Algorithmus und die zulässigen Transporte.
+Einige dieser Daten müssen auf dem Server für zukünftige Authentifizierungsvorgänge mit dieser Berechtigung gespeichert werden — zum Beispiel der öffentliche Schlüssel, der verwendete Algorithmus und die zulässigen Transporte.
 
 > [!NOTE]
-> Weitere Informationen darüber, wie der gesamte Prozess funktioniert, finden Sie unter [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
+> Weitere Informationen darüber, wie der gesamte Ablauf funktioniert, finden Sie unter [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
 
 ## Spezifikationen
 

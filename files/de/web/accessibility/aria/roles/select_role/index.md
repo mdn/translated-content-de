@@ -7,14 +7,14 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die **`select` Rolle**, eine abstrakte Rolle, ist die Superklasse für Formular-Widgets, die es dem Benutzer ermöglichen, aus einer Vielzahl von Auswahlmöglichkeiten zu wählen.
+Die **`select` Rolle**, eine abstrakte Rolle, ist eine Superklassenrolle für Formular-Widgets, die es dem Benutzer ermöglichen, aus einer Reihe von Auswahlmöglichkeiten auszuwählen.
 
 > [!NOTE]
-> Die `select` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie ist hier der Vollständigkeit halber dokumentiert. Sie **sollte nicht** von Webautoren verwendet werden.
+> Die `select` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier zur Vollständigkeit der Dokumentation aufgeführt. Sie **sollte nicht** von Webautoren verwendet werden.
 
 ## Beschreibung
 
-Die strukturelle `select` Rolle, eine abstrakte Rolle, ist die Superklasse für vier Formular-Widgets, [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role), [`menu`](/de/docs/Web/Accessibility/ARIA/Roles/menu_role), [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) und [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role), die es den Benutzern ermöglichen, aus einer Reihe von Auswahlmöglichkeiten zu wählen.
+Die strukturelle `select` Rolle, eine abstrakte Rolle, ist eine Superklassenrolle für vier Formular-Widgets, [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role), [`menu`](/de/docs/Web/Accessibility/ARIA/Roles/menu_role), [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) und [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role), die es Benutzern ermöglichen, aus einer Reihe von Auswahlmöglichkeiten auszuwählen.
 
 ## Beste Praktiken
 

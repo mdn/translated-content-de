@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `ChannelMergerNode`-Interface, häufig in Verbindung mit seinem Gegenstück, dem [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode), verwendet, kombiniert verschiedene mono Eingänge zu einem einzigen Ausgang. Jeder Eingang wird verwendet, um einen Kanal des Ausganges zu füllen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z. B. für das Mischen von Kanälen, bei dem die Verstärkung für jeden Kanal separat gesteuert werden muss.
+Die `ChannelMergerNode`-Schnittstelle wird häufig in Verbindung mit ihrem Gegenstück, dem [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode), verwendet, um verschiedene mono Eingänge zu einem einzigen Ausgang zusammenzuführen. Jeder Eingang wird verwendet, um einen Kanal des Ausgangs zu füllen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z.B. für das Kanal-Mischen, bei dem der Verstärkungsgrad separat für jeden Kanal kontrolliert werden muss.
 
-![Standard Channel Merger Node mit sechs mono Eingängen, die zu einem einzigen Ausgang kombiniert werden.](webaudiomerger.png)
+![Standard Channel Merger Node mit sechs mono Eingängen, die kombiniert werden, um einen einzigen Ausgang zu bilden.](webaudiomerger.png)
 
-Das `ChannelMergerNode` hat einen einzigen Ausgang, aber so viele Eingänge wie Kanäle zusammengeführt werden sollen; die Anzahl der Eingänge wird als Parameter seines Konstruktors und dem Aufruf von [`AudioContext.createChannelMerger()`](/de/docs/Web/API/BaseAudioContext/createChannelMerger) definiert. Falls kein Wert angegeben wird, beträgt der Standardwert `6`.
+Der `ChannelMergerNode` hat einen einzelnen Ausgang, jedoch genauso viele Eingänge wie es Kanäle zum Zusammenführen gibt; die Anzahl der Eingänge wird als Parameter seines Konstruktors und des Aufrufs von [`AudioContext.createChannelMerger()`](/de/docs/Web/API/BaseAudioContext/createChannelMerger) definiert. Falls kein Wert angegeben wird, beträgt der Standardwert `6`.
 
-Mit einem `ChannelMergerNode` ist es möglich, Ausgänge mit mehr Kanälen zu erstellen, als die Wiedergabehardware verarbeiten kann. In diesem Fall, wenn das Signal an das [`AudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Objekt gesendet wird, werden überzählige Kanäle ignoriert.
+Mit einem `ChannelMergerNode` ist es möglich, Ausgänge mit mehr Kanälen zu erstellen, als die Wiedergabe-Hardware verarbeiten kann. In diesem Fall werden bei der Signalübertragung zum [`AudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Objekt überzählige Kanäle ignoriert.
 
 {{InheritanceDiagram}}
 
@@ -28,12 +28,12 @@ Mit einem `ChannelMergerNode` ist es möglich, Ausgänge mit mehr Kanälen zu er
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count Mode</th>
+      <th scope="row">Channel-Modus</th>
       <td><code>"explicit"</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count</th>
-      <td><code>2</code> (nicht im Standard-Channel-Count Mode verwendet)</td>
+      <th scope="row">Channel-Anzahl</th>
+      <td><code>2</code> (wird im Standard-Zählmodus nicht benutzt)</td>
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
@@ -45,19 +45,19 @@ Mit einem `ChannelMergerNode` ist es möglich, Ausgänge mit mehr Kanälen zu er
 ## Konstruktor
 
 - [`ChannelMergerNode()`](/de/docs/Web/API/ChannelMergerNode/ChannelMergerNode)
-  - : Erstellt eine neue `ChannelMergerNode`-Objektinstanz.
+  - : Erzeugt eine neue `ChannelMergerNode`-Objektinstanz.
 
 ## Instanz-Eigenschaften
 
-_Keine spezifische Eigenschaft; erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Eigenschaft; erbt Eigenschaften von ihrem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Sehen Sie sich [`BaseAudioContext.createChannelMerger()`](/de/docs/Web/API/BaseAudioContext/createChannelMerger#examples) für Beispielcode an.
+Siehe [`BaseAudioContext.createChannelMerger()`](/de/docs/Web/API/BaseAudioContext/createChannelMerger#examples) für Beispielcode.
 
 ## Spezifikationen
 

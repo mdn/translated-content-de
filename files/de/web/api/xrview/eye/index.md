@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`eye`**-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein Zeichenfolgenwert, der angibt, welchen Augenblickpunkt das `XRView` darstellt: `left` oder `right`. Für Ansichten, die kein bestimmtes Auge repräsentieren, wie z.B. monokulare Ansichten, ist der Wert dieser Eigenschaft `none`.
+Die schreibgeschützte **`eye`**-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein String, der angibt, welches Auge durch das `XRView` repräsentiert wird: `left` oder `right`. Für Ansichten, die keines der Augen repräsentieren, wie z.B. monokulare Ansichten, hat diese Eigenschaft den Wert `none`.
 
 ## Wert
 
-Eine Zeichenfolge, die einen der folgenden Werte annehmen kann:
+Ein String, der einer der folgenden Werte sein kann:
 
 - `left`
-  - : Der [`XRView`](/de/docs/Web/API/XRView) stellt die Sicht des linken Auges des Betrachters dar.
+  - : Das [`XRView`](/de/docs/Web/API/XRView) repräsentiert den Blickwinkel des linken Auges des Betrachters.
 - `right`
   - : Die Ansicht repräsentiert das rechte Auge des Betrachters.
 - `none`
-  - : Der `XRView` beschreibt eine monokulare Ansicht oder die Ansicht repräsentiert anderweitig nicht eine bestimmte Augenperspektive.
+  - : Das `XRView` beschreibt eine monokulare Ansicht oder die Ansicht repräsentiert nicht den Blickwinkel eines bestimmten Auges.
 
 ## Verwendungshinweise
 
-Der Hauptzweck dieser Eigenschaft besteht darin, den korrekten Bereich von vorkerstelltem Stereo-Content dem entsprechenden Auge zu präsentieren. Für dynamisch gerenderten 3D-Content können Sie dies normalerweise ignorieren und jede der Ansichten des Betrachters nacheinander rendern.
+Der Hauptzweck dieser Eigenschaft besteht darin, den korrekten Bereich von vorgerendertem stereoskopischem Inhalt dem richtigen Auge zuzuordnen. Bei dynamisch gerenderten 3D-Inhalten können Sie dieses Attribut in der Regel ignorieren und die einzelnen Ansichten des Betrachters nacheinander rendern.
 
 ## Beispiele
 
-Dieser Code aus dem Renderer der Betrachterpose iteriert über die Ansichten der Pose und rendert sie. _Allerdings_ haben wir Flags, die, wenn sie `true` sind, darauf hinweisen, dass ein bestimmtes Auge während des Spiels verletzt wurde. Wenn das entsprechende Flag `true` ist, wird diese Ansicht übersprungen und nicht dargestellt.
+Dieser Code aus dem Renderer der Betrachterposition durchläuft die Ansichten der Position und rendert sie. _Jedoch_ haben wir Flags, die, wenn `true`, anzeigen, dass ein bestimmtes Auge während des Spiels verletzt wurde. Beim Rendern dieses Auges wird, falls das Flag `true` ist, diese Ansicht übersprungen, anstatt gerendert zu werden.
 
 ```js
 glLayer = xrSession.renderState.baseLayer;
@@ -53,9 +53,9 @@ for (const view of xrPose.views) {
 }
 ```
 
-Für jede der Ansichten wird der Wert von `eye` überprüft und, wenn es entweder `left` oder `right` ist, stellen wir fest, ob die `body.leftEye.injured`- oder `body.rightEye.injured`-Eigenschaft `true` ist; wenn ja, rufen wir eine Funktion `updateInjury()` auf diesem Auge auf, um beispielsweise einen gewissen Heilungsprozess zu ermöglichen oder den Fortschritt eines Gift-Effekts zu verfolgen, je nach den Bedürfnissen des Spiels.
+Für jede der Ansichten wird der Wert von `eye` überprüft und wenn er entweder `left` oder `right` ist, prüfen wir, ob die Eigenschaft `body.leftEye.injured` oder `body.rightEye.injured` `true` ist; falls ja, rufen wir eine Funktion `updateInjury()` für dieses Auge auf, um Dinge wie die Möglichkeit einer Heilung zu ermöglichen, den Fortschritt eines Vergiftungseffekts zu verfolgen oder Ähnliches, je nach den Anforderungen des Spiels.
 
-`updateInjury()` gibt `true` zurück, wenn das Auge noch verletzt ist, oder `false`, wenn das Auge durch die Funktion genesen ist. Wenn das Ergebnis `false` ist, was bedeutet, dass das Auge jetzt gesund ist, rendern wir die Szene für dieses Auge. Andernfalls tun wir das nicht.
+`updateInjury()` gibt `true` zurück, wenn das Auge noch verletzt ist, oder `false`, wenn das Auge durch die Funktion wieder gesund ist. Ist das Ergebnis `false`, was anzeigt, dass das Auge jetzt gesund ist, rendern wir die Szene für dieses Auge. Andernfalls tun wir dies nicht.
 
 ## Spezifikationen
 

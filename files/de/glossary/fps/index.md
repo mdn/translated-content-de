@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Bildfrequenz** ist die Geschwindigkeit, mit der der Browser Inhalte neu berechnen, layouten und auf das Display malen kann. Die **Bilder pro Sekunde** oder **fps** geben an, wie viele Bilder in einer Sekunde neu gemalt werden können. Die angestrebte Bildfrequenz für Computergrafiken auf Webseiten beträgt 60fps.
+Eine **Bildrate** ist die Geschwindigkeit, mit der der Browser in der Lage ist, Inhalte neu zu berechnen, zu layouten und auf dem Bildschirm darzustellen. Die **Bilder pro Sekunde** oder **fps** geben an, wie viele Bilder in einer Sekunde neu gezeichnet werden können. Die Zielbildrate für Computergrafiken auf Webseiten beträgt 60 fps.
 
-Filme haben in der Regel eine Bildfrequenz von 24 fps. Sie können weniger Bilder pro Sekunde verwenden, weil die Illusion von Leben mit Bewegungsunschärfen erzeugt wird. Beim Bewegen auf einem Computerbildschirm gibt es keine Bewegungsunschärfen (es sei denn, Sie animieren ein Bild [Sprite](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS) mit Bewegungsunschärfen).
+Filme haben in der Regel eine Bildrate von 24 fps. Sie können weniger Bilder pro Sekunde haben, weil die Illusion des Lebens durch Bewegungsunschärfen entsteht. Bei der Bewegung auf einem Computerbildschirm gibt es keine Bewegungsunschärfen (es sei denn, Sie animieren ein Bild [Sprite](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS) mit Bewegungsunschärfen).
 
 ## Siehe auch
 

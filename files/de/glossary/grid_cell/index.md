@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Grid haben können. Sie ist der Raum zwischen vier sich kreuzenden [Grid-Linien](/de/docs/Glossary/grid_lines) und konzeptionell ähnlich einer Tabellenzelle.
+In einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Raster haben können. Es ist der Raum zwischen vier sich kreuzenden [Rasterlinien](/de/docs/Glossary/grid_lines) und konzeptionell ähnlich wie eine Tabellenzelle.
 
-![Diagramm, das eine einzelne Zelle im Grid zeigt.](1_grid_cell.png)
+![Diagramm, das eine einzelne Zelle im Raster zeigt.](1_grid_cell.png)
 
-Wenn Sie keine Elemente mit einer der Grid-Platzierungsmethoden platzieren, werden die direkten Kinder des Grid-Containers durch den Auto-Platzierungsalgorithmus in jede einzelne Grid-Zelle platziert. Zusätzliche Zeilen- oder Spalten-[Tracks](/de/docs/Glossary/grid_tracks) werden erstellt, um genügend Zellen zur Aufnahme aller Elemente zu schaffen.
+Wenn Sie Elemente nicht mit einer der Rasterplatzierungsmethoden platzieren, werden die direkten Nachkommen des Rastercontainers durch den Autoplatzierungsalgorithmus in eine einzelne Rasterzelle platziert. Zusätzliche Zeilen- oder Spalten-[Tracks](/de/docs/Glossary/grid_tracks) werden erstellt, um genügend Zellen zu schaffen, um alle Elemente aufzunehmen.
 
 ## Beispiel
 
-In dem Beispiel haben wir ein Grid mit drei Spaltentracks erstellt. Die fünf Elemente werden in Grid-Zellen entlang einer Anfangszeile von drei Grid-Zellen platziert, dann wird eine neue Zeile für die verbleibenden zwei erstellt.
+Im Beispiel haben wir ein Raster mit drei Spaltentracks erstellt. Die fünf Elemente werden in Rasterzellen platziert, die entlang einer ersten Zeile von drei Rasterzellen arbeiten, und dann wird eine neue Zeile für die verbleibenden zwei erstellt.
 
 ```css hidden
 * {
@@ -59,7 +59,7 @@ In dem Beispiel haben wir ein Grid mit drei Spaltentracks erstellt. Die fünf El
 
 ## Siehe auch
 
-### Eigenschaftenreferenz
+### Eigenschaftsreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -68,5 +68,5 @@ In dem Beispiel haben wir ein Grid mit drei Spaltentracks erstellt. Die fünf El
 
 ### Weiterführende Literatur
 
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Definition von Grid-Zellen in der CSS Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
+- [Grundlagen von Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Definition von Grid-Zellen in der CSS Grid Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)

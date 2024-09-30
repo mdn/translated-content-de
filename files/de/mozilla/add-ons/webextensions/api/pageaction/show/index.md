@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Zeigt die {{WebExtAPIRef("pageAction")}} für einen gegebenen {{WebExtAPIRef("tabs/Tab", "tab")}} an. Die Page-Action wird angezeigt, wann immer der gegebene Tab der aktive Tab ist.
+Zeigt die {{WebExtAPIRef("pageAction")}} für einen gegebenen {{WebExtAPIRef("tabs/Tab", "Tab")}} an. Die Seitenaktion wird angezeigt, wenn der gegebene Tab der aktive Tab ist.
 
-`show()` überschreibt die Mustererkennung, sodass die Page-Action im angegebenen Tab angezeigt wird, selbst wenn [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) nicht mit der URL übereinstimmt oder [`hide_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) tut.
+`show()` überschreibt das Musterabgleichen, sodass die Seitenaktion im angegebenen Tab angezeigt wird, selbst wenn [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) nicht mit der URL übereinstimmt oder [`hide_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) dies tut.
 
-Beachten Sie, dass der Aufruf von `show()` keine Auswirkung auf einen Tab ohne geladenen Inhalt hat.
+Beachten Sie, dass das Aufrufen von `show()` keine Wirkung auf einen Tab hat, in dem kein Inhalt geladen ist.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ browser.pageAction.show(
 ### Parameter
 
 - `tabId`
-  - : `integer`. Die ID des {{WebExtAPIRef("tabs/Tab", "tab")}}, für den Sie die Page-Action anzeigen möchten.
+  - : `integer`. Die ID des {{WebExtAPIRef("tabs/Tab", "Tabs")}}, für den Sie die Seitenaktion anzeigen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `undefined` erfüllt wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit `undefined` erfüllt wird.
 
 ## Browser-Kompatibilität
 
@@ -36,10 +36,10 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel zeigt die {{WebExtAPIRef("pageAction")}} für den aktiven Tab, wenn der Benutzer ein Kontextmenüelement auswählt.
+Dieses Beispiel zeigt die {{WebExtAPIRef("pageAction")}} für den aktiven Tab, wenn der Benutzer ein Kontextmenü-Element auswählt.
 
 > [!NOTE]
-> Sie benötigen die Berechtigung `contextMenus` in Ihrem [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions), um Kontextmenüelemente zu erstellen.
+> Sie benötigen die `contextMenus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrem [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json), um Kontextmenü-Elemente zu erstellen.
 
 ```js
 browser.contextMenus.create({
@@ -57,7 +57,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.pageAction`-API von Chromium. Diese Dokumentation ist von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf dem [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-show) API von Chromium. Diese Dokumentation leitet sich von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

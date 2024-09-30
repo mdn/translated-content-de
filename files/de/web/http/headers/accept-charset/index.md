@@ -8,19 +8,19 @@ l10n:
 {{HTTPSidebar}}
 
 > [!WARNING]
-> Verwenden Sie diesen Header nicht. Browser lassen diesen Header weg und Server sollten ihn ignorieren.
+> Verwenden Sie diesen Header nicht. Browser verzichten auf diesen Header und Server sollten ihn ignorieren.
 
-Der **`Accept-Charset`** Anfrage-HTTP-Header war ein Header, der die von einem Client unterstützten [Zeichenkodierungen](/de/docs/Glossary/character_encoding) bekannt gab. Er wird heute nicht mehr weit verbreitet verwendet.
+Der **`Accept-Charset`** HTTP-Anforderungsheader war ein Header, der die unterstützten [Zeichenkodierungen](/de/docs/Glossary/character_encoding) eines Clients bekannt machte. Heutzutage wird er kaum noch verwendet.
 
-UTF-8 ist gut unterstützt und die überwältigend bevorzugte Wahl für Zeichenkodierungen. Um [durch weniger konfigurationsbasierte Entropie bessere Privatsphäre zu garantieren](https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy), lassen alle Browser den `Accept-Charset` Header weg.
+UTF-8 wird gut unterstützt und ist die überwiegend bevorzugte Wahl für Zeichenkodierungen. Um [bessere Privatsphäre durch weniger Konfigurations-basierte Entropie zu gewährleisten](https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy), verzichten alle Browser auf den `Accept-Charset` Header.
 
-Heutzutage ist `Accept-Charset` vor allem dafür bekannt, eines von mehreren [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) zu sein.
+Heutzutage ist `Accept-Charset` vor allem dafür bekannt, einer von mehreren [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) zu sein.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anfrage-Header](/de/docs/Glossary/Request_header)</td>
+      <td>[Request header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
@@ -31,7 +31,7 @@ Heutzutage ist `Accept-Charset` vor allem dafür bekannt, eines von mehreren [ve
 
 ## Siehe auch
 
-- HTTP [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
-- [Accept-Charset ist nicht mehr vorhanden](https://hsivonen.fi/accept-charset/)
-- Header mit dem Ergebnis der Inhaltsaushandlung: {{HTTPHeader("Content-Type")}}
+- HTTP [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)
+- [Accept-Charset is no more](https://hsivonen.fi/accept-charset/)
+- Header mit dem Ergebnis der Inhaltsverhandlung: {{HTTPHeader("Content-Type")}}
 - Andere ähnliche Header: {{HTTPHeader("TE")}}, {{HTTPHeader("Accept-Encoding")}}, {{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}}

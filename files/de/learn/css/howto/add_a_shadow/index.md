@@ -1,5 +1,5 @@
 ---
-title: Anleitung zum Hinzufügen eines Schattens zu einem Element
+title: "Anleitung: Wie man einem Element einen Schatten hinzufügt"
 slug: Learn/CSS/Howto/Add_a_shadow
 l10n:
   sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
@@ -7,13 +7,13 @@ l10n:
 
 {{LearnSidebar}}
 
-In diesem Leitfaden erfahren Sie, wie Sie einem beliebigen Kasten auf Ihrer Seite einen Schatten hinzufügen können.
+In diesem Leitfaden erfahren Sie, wie Sie jedem Kasten auf Ihrer Seite einen Schatten hinzufügen können.
 
-## Hinzufügen von Kastenschatten
+## Hinzufügen von Box-Schatten
 
-Schatten sind ein häufiges Designelement, das dabei helfen kann, dass Elemente auf Ihrer Seite auffallen. In CSS werden Schatten auf den Kästen von Elementen mit der {{cssxref("box-shadow")}}-Eigenschaft erzeugt (wenn Sie dem Text selbst einen Schatten hinzufügen möchten, benötigen Sie {{cssxref("text-shadow")}}).
+Schatten sind ein häufiges Designelement, das dazu beiträgt, Elemente auf Ihrer Seite hervorzuheben. In CSS werden Schatten auf den Boxen von Elementen mit der {{cssxref("box-shadow")}}-Eigenschaft erstellt (wenn Sie dem Text selbst einen Schatten hinzufügen möchten, benötigen Sie {{cssxref("text-shadow")}}).
 
-Die `box-shadow`-Eigenschaft benötigt eine Reihe von Werten:
+Die `box-shadow`-Eigenschaft nimmt mehrere Werte an:
 
 - Den Versatz auf der x-Achse
 - Den Versatz auf der y-Achse
@@ -22,14 +22,14 @@ Die `box-shadow`-Eigenschaft benötigt eine Reihe von Werten:
 - Eine Farbe
 - Das Schlüsselwort `inset`
 
-Im untenstehenden Beispiel haben wir die X- und Y-Achsen auf 5px, die Unschärfe auf 10px und die Ausbreitung auf 2px gesetzt. Ich verwende ein halbtransparentes Schwarz als meine Farbe. Experimentieren Sie mit den verschiedenen Werten, um zu sehen, wie sie den Schatten verändern.
+Im folgenden Beispiel haben wir die X- und Y-Achsen auf 5px gesetzt, die Unschärfe auf 10px und die Ausbreitung auf 2px. Ich verwende ein halbtransparentes Schwarz als Farbe. Experimentieren Sie mit den verschiedenen Werten, um zu sehen, wie sie den Schatten verändern.
 
 {{EmbedGHLiveSample("css-examples/howto/box-shadow-button.html", '100%', 500)}}
 
 > [!NOTE]
-> Wir verwenden in diesem Beispiel nicht `inset`, das bedeutet, dass der Schatten der Standardabstandsschatten ist, bei dem der Kasten oben auf dem Schatten liegt. Eingesetzte Schatten erscheinen innerhalb des Kastens, als ob der Inhalt in die Seite zurückgedrängt würde.
+> Wir verwenden in diesem Beispiel nicht `inset`, was bedeutet, dass der Schatten der standardmäßige Schlagschatten ist, wobei die Box auf dem Schatten liegt. Eingesetzte Schatten erscheinen innerhalb der Box, als ob der Inhalt in die Seite zurückgedrückt worden wäre.
 
 ## Siehe auch
 
 - Der [Box Shadow Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator)
-- [CSS lernen: Erweiterte stilistische Effekte.](/de/docs/Learn/CSS/Building_blocks/Advanced_styling_effects)
+- [Learn CSS: Erweiterte Stileffekte.](/de/docs/Learn/CSS/Building_blocks/Advanced_styling_effects)

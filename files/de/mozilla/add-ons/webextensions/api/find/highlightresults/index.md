@@ -9,9 +9,9 @@ l10n:
 
 Hebt die Ergebnisse eines vorherigen Aufrufs von {{WebExtAPIRef("find.find()")}} hervor.
 
-Wenn eine Erweiterung `find()` aufruft, werden die Übereinstimmungen nicht automatisch hervorgehoben, sondern vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
+Wenn eine Erweiterung `find()` aufruft, werden die Treffer nicht automatisch hervorgehoben, aber sie werden vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
 
-Beachten Sie, dass die gespeicherten Ergebnisse global für alle Erweiterungen gelten. Beispielsweise, wenn Erweiterung A `find("apple")` aufruft, dann Erweiterung B `find("banana")` aufruft, und Erweiterung A anschließend `highlightResults()` aufruft, werden die Ergebnisse für "banana" hervorgehoben.
+Beachten Sie, dass die gespeicherten Ergebnisse global über alle Erweiterungen hinweg sind. Wenn beispielsweise Erweiterung A `find("apple")` aufruft und anschließend Erweiterung B `find("banana")`, dann würde ein Aufruf von `highlightResults()` durch Erweiterung A die Ergebnisse für "banana" hervorheben.
 
 ## Syntax
 
@@ -25,14 +25,14 @@ browser.find.highlightResults(
 
 - `options` {{optional_inline}}
 
-  - : Ein `object`, das zusätzliche Optionen angibt. Es kann beliebige der folgenden Eigenschaften enthalten, die alle optional sind:
+  - : `object`. Ein Objekt, das zusätzliche Optionen spezifiziert. Es kann die folgenden Eigenschaften enthalten, die alle optional sind:
 
     - `tabId`
       - : `integer`. ID des Tabs, der hervorgehoben werden soll. Standardmäßig der aktive Tab.
     - `rangeIndex`
-      - : `integer`. Index des zu markierenden Bereichs. Standardmäßig werden alle Bereiche hervorgehoben.
+      - : `integer`. Index des Bereichs, der hervorgehoben werden soll. Standardmäßig werden alle Bereiche hervorgehoben.
     - `noScroll`
-      - : `boolean`. Nicht zum hervorgehobenen Element scrollen. Standardwert ist `true`.
+      - : `boolean`. Nicht zum hervorgehobenen Element scrollen. Standardmäßig `true`.
 
 ### Rückgabewert
 
@@ -44,7 +44,7 @@ Keiner.
 
 ## Beispiele
 
-Durchsuchen Sie den aktiven Tab nach "banana", protokollieren Sie die Anzahl der Übereinstimmungen und heben Sie sie hervor:
+Durchsuchen Sie den aktiven Tab nach "banana", protokollieren Sie die Anzahl der Treffer und heben Sie sie hervor:
 
 ```js
 function found(results) {

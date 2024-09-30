@@ -1,6 +1,6 @@
 ---
-title: "RTCCodecStats: Kanäle-Eigenschaft"
-short-title: Kanäle
+title: "RTCCodecStats: channels-Eigenschaft"
+short-title: channels
 slug: Web/API/RTCCodecStats/channels
 l10n:
   sourceCommit: e82d46feb66ed523ed8f74bd0bd6f4153c87acbb
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`channels`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist eine positive Zahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
+Die **`channels`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist eine positive Zahl, die die Anzahl der vom Codec unterstützten Kanäle enthält.
 
-Für Audiocodecs gibt ein Wert von 1 Mono-Sound an, während 2 Stereo bedeutet.
+Für Audiocodecs gibt ein Wert von 1 monauralen Sound an, während 2 Stereo bedeutet.
 
 ## Werte
 

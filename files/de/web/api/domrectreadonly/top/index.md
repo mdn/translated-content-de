@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`top`**-Eigenschaft des **`DOMRectReadOnly`**-Interfaces ist eine schreibgeschützte Eigenschaft, die den oberen Koordinatenwert des `DOMRect` zurückgibt. (Hat denselben Wert wie `y`, oder `y + height`, wenn `height` negativ ist.)
+Die schreibgeschützte Eigenschaft **`top`** des **`DOMRectReadOnly`** Interfaces gibt den oberen Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `y` oder `y + height`, falls `height` negativ ist.)
 
 ## Wert
 
-Ein Double.
+Ein Doppelwert.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

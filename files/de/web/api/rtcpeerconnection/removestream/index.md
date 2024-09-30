@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`removeStream()`** Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interfaces entfernt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Quelle für Audio oder Video.
-Wenn die Verhandlung bereits stattgefunden hat, wird eine neue notwendig sein, damit der entfernte Teilnehmer sie verwenden kann.
-Da diese Methode veraltet ist, sollten Sie stattdessen [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) verwenden, wenn Ihre Zielbrowser-Versionen sie implementiert haben.
+Die **`removeStream()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle entfernt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Quelle für Audio oder Video.
+Falls die Aushandlung bereits stattgefunden hat, wird eine neue notwendig sein, damit der entfernte Peer sie nutzen kann.
+Da diese Methode veraltet ist, sollten Sie stattdessen [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) verwenden, falls die von Ihnen anvisierten Browserversionen dies implementiert haben.
 
 Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
 Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"stable"` gesetzt ist, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet.
@@ -24,7 +24,7 @@ removeStream(mediaStream)
 ### Parameter
 
 - `mediaStream`
-  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den zu entfernenden Stream aus der Verbindung festlegt.
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream angibt, der aus der Verbindung entfernt werden soll.
 
 ### Rückgabewert
 

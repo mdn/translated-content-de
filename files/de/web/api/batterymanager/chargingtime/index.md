@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: chargingTime Eigenschaft"
+title: "BatteryManager: chargingTime-Eigenschaft"
 short-title: chargingTime
 slug: Web/API/BatteryManager/chargingTime
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`chargingTime`**-Eigenschaft des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces zeigt die verbleibende Zeit in Sekunden an, bis der Akku vollständig aufgeladen ist, oder `0`, wenn der Akku bereits vollständig geladen ist oder der User-Agent nicht in der Lage ist, Informationen über den Batteriestatus zu melden.
-Wenn der Akku derzeit entladen wird, ist sein Wert {{jsxref("Infinity")}}.
-Wenn sich dieser Wert ändert, wird das [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event)-Ereignis ausgelöst.
+Die schreibgeschützte **`chargingTime`**-Eigenschaft des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces gibt die Anzahl der Sekunden an, die verbleiben, bis der Akku vollständig geladen ist, oder `0`, wenn der Akku bereits vollständig geladen ist oder der Benutzeragent den Akkustatus nicht melden kann. Wenn der Akku derzeit entladen wird, ist sein Wert {{jsxref("Infinity")}}. Wenn sich der Wert ändert, wird das [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event)-Ereignis ausgelöst.
 
 > [!NOTE]
 > Auch wenn die zurückgegebene Zeit sekundengenau ist,

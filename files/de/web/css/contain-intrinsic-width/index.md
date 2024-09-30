@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`contain-intrinsic-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite eines Elements fest, die ein Browser für das Layout verwendet, wenn das Element der [Größenbeschränkung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) unterliegt.
+Die **`contain-intrinsic-width`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Breite eines Elements, die ein Browser für das Layout verwendet, wenn das Element einer [Größenbeschränkung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) unterliegt.
 
 ## Syntax
 
@@ -37,20 +37,20 @@ Die folgenden Werte können für ein Element angegeben werden.
 - `none`
   - : Das Element hat keine intrinsische Breite.
 - `<length>`
-  - : Das Element hat die angegebene Breite ({{cssxref("&lt;length&gt;")}}).
+  - : Das Element weist die angegebene Breite auf ({{cssxref("&lt;length&gt;")}}).
 - `auto <length>`
-  - : Ein gemerkter Wert der "normal gerenderten" Elementbreite, falls vorhanden, und das Element überspringt seinen Inhalt (zum Beispiel, wenn es außerhalb des Bildschirms ist); ansonsten die angegebene `<length>`.
+  - : Ein gemerkter Wert der „normalerweise gerenderten“ Elementbreite, falls vorhanden, und das Element seine Inhalte überspringt (zum Beispiel, wenn es außerhalb des Bildschirms ist); sonst die angegebene `<length>`.
 
 ## Beschreibung
 
-Die Eigenschaft wird häufig in Verbindung mit Elementen angewendet, die eine Größenbeschränkung auslösen können, wie [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility), und kann auch mithilfe der [`contain-intrinsic-size`](/de/docs/Web/CSS/contain-intrinsic-size) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) festgelegt werden.
+Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die Größenbeschränkungen auslösen können, wie [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility), und kann auch mit der [`contain-intrinsic-size`](/de/docs/Web/CSS/contain-intrinsic-size) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) gesetzt werden.
 
-Größenbeschränkung ermöglicht es einem Benutzeragenten, ein Element so zu layouten, als hätte es eine feste Größe. Dadurch werden unnötige Neuberechnungen vermieden, indem das Neukonfigurieren von Kindelementen vermieden wird, um die tatsächliche Größe zu bestimmen (dadurch wird die Benutzerfreundlichkeit verbessert).
-Standardmäßig behandelt die Größenbeschränkung Elemente so, als hätten sie keinen Inhalt, und könnte das Layout in gleicher Weise zusammenfallen lassen, als ob der Inhalt keine Breite oder Höhe hätte.
-Die `contain-intrinsic-width`-Eigenschaft erlaubt es Autoren, einen geeigneten Wert anzugeben, der als Breite für das Layout verwendet wird.
+Größenbeschränkungen ermöglichen es einem Benutzeragenten, ein Element so zu layouten, als hätte es eine feste Größe, und unnötige Neuberechnungen zu verhindern, indem das Neurendern von Kindelementen zur Bestimmung der tatsächlichen Größe vermieden wird (wodurch die Benutzererfahrung verbessert wird).
+Standardmäßig behandelt die Größenbeschränkung Elemente so, als hätten sie keine Inhalte, und kann das Layout auf dieselbe Weise zusammenbrechen lassen, als wenn die Inhalte weder Breite noch Höhe hätten.
+Die `contain-intrinsic-width` Eigenschaft ermöglicht es Autoren, einen geeigneten Wert als Breite für das Layout anzugeben.
 
-Der Wert `auto <length>` ermöglicht es, die Breite des Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kindelementen), und dann anstelle der angegebenen Breite zu verwenden, wenn das Element seinen Inhalt überspringt.
-Dies ermöglicht es Elementen außerhalb des Bildschirms mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility), von der Größenbeschränkung zu profitieren, ohne dass Entwickler so präzise in ihren Schätzungen der Elementgröße sein müssen.
+Der Wert `auto <length>` erlaubt es, die Breite des Elements zu speichern, wenn das Element jemals „normal gerendert“ wird (mit seinen Kindelementen), und dann anstelle der angegebenen Breite verwendet wird, wenn das Element seine Inhalte überspringt.
+Dies ermöglicht es, dass außerhalb des Bildschirms befindliche Elemente mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility) von der Größenbeschränkung profitieren, ohne dass Entwickler so präzise Schätzungen der Elementgröße vornehmen müssen.
 Der gemerkte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden (wenn die Größenbeschränkung aktiviert ist, wird die `<length>` verwendet).
 
 ## Formale Definition
@@ -63,11 +63,11 @@ Der gemerkte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden (
 
 ## Beispiele
 
-Zusätzlich zu dem folgenden Beispiel enthält die Seite {{CSSxRef("contain-intrinsic-size")}} ein Live-Beispiel, das die Wirkung der Modifikation der intrinsischen Breite und Höhe demonstriert.
+Zusätzlich zu dem unten stehenden Beispiel enthält die Seite {{CSSxRef("contain-intrinsic-size")}} ein Live-Beispiel, das die Wirkung der Änderung der intrinsischen Breite und Höhe demonstriert.
 
-### Setzen der intrinsischen Breite
+### Einstellung der intrinsischen Breite
 
-Das untenstehende HTML definiert ein Element "contained_element", das der Größenbeschränkung unterliegt und ein Kindelement enthält.
+Das unten stehende HTML definiert ein Element "contained_element", das einer Größenbeschränkung unterliegt und ein Kindelement enthält.
 
 ```html
 <div id="contained_element">
@@ -75,8 +75,8 @@ Das untenstehende HTML definiert ein Element "contained_element", das der Größ
 </div>
 ```
 
-Das untenstehende CSS setzt die [`content-visibility`](/de/docs/Web/CSS/content-visibility) von `contained_element` auf `auto`, sodass, wenn das Element verborgen ist, es der Größenbeschränkung unterliegt.
-Die Breite und Höhe, die verwendet werden, wenn es der Größenbeschränkung unterliegt, werden gleichzeitig mit `contain-intrinsic-width` und `contain-intrinsic-height` festgelegt.
+Der unten stehende CSS setzt die [`content-visibility`](/de/docs/Web/CSS/content-visibility) von `contained_element` auf `auto`, sodass das Element, wenn es versteckt ist, einer Größenbeschränkung unterliegt.
+Die Breite und Höhe, die verwendet werden, wenn es einer Größenbeschränkung unterliegt, werden gleichzeitig mit `contain-intrinsic-width` und `contain-intrinsic-height` festgelegt.
 
 ```css
 #contained_element {

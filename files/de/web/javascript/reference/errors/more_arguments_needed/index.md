@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "mehr Argumente benötigt" tritt auf, wenn es einen Fehler bei der Aufrufweise einer Funktion gibt. Es müssen mehr Argumente bereitgestellt werden.
+Die JavaScript-Ausnahme "mehr Argumente benötigt" tritt auf, wenn ein Fehler bei der Art des Funktionsaufrufs vorliegt. Es müssen mehr Argumente bereitgestellt werden.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Object prototype may only be an Object or null: undefined (V8-based)
@@ -25,14 +25,13 @@ TypeError: Object prototype may only be an Object or null. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es gibt einen Fehler bei der Aufrufweise einer Funktion. Es müssen mehr Argumente bereitgestellt werden.
+Es liegt ein Fehler bei der Art des Funktionsaufrufs vor. Es müssen mehr Argumente bereitgestellt werden.
 
 ## Beispiele
 
 ### Erforderliche Argumente nicht bereitgestellt
 
-Die Methode {{jsxref("Object.create()")}} erfordert mindestens ein Argument und die
-Methode {{jsxref("Object.setPrototypeOf()")}} erfordert mindestens zwei Argumente:
+Die Methode {{jsxref("Object.create()")}} erfordert mindestens ein Argument und die Methode {{jsxref("Object.setPrototypeOf()")}} erfordert mindestens zwei Argumente:
 
 ```js example-bad
 const obj = Object.create();
@@ -42,7 +41,7 @@ const obj2 = Object.setPrototypeOf({});
 // TypeError: Object.setPrototypeOf requires at least 2 arguments, but only 1 were passed
 ```
 
-Sie können dies beheben, indem Sie beispielsweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Prototyp festlegen:
+Sie können dies beheben, indem Sie zum Beispiel [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Prototyp setzen:
 
 ```js example-good
 const obj = Object.create(null);
@@ -52,4 +51,4 @@ const obj2 = Object.setPrototypeOf({}, null);
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
+- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)

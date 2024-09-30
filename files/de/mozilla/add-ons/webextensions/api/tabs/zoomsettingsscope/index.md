@@ -7,20 +7,20 @@ l10n:
 
 {{AddonSidebar}}
 
-Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam werden. Dies ist standardmäßig `per-origin`, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} "automatic" ist, und immer `per-tab` in anderen Fällen.
+Definiert, ob Zoomänderungen für den Ursprung der Seite gespeichert werden oder nur in diesem Tab wirksam sind. Dies ist standardmäßig `per-origin`, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} "automatic" ist, und ist immer `per-tab`, wenn dies nicht der Fall ist.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "per-origin"
-  - : Alle anderen Tabs mit dem gleichen Ursprung wie dieser Tab werden die Zoomänderungen angewendet haben. Dieser Bereich ist nur verfügbar, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} "automatic" ist.
+  - : Alle anderen Tabs mit dem gleichen Ursprung wie dieser Tab haben die Zoomänderungen übernommen. Dieser Geltungsbereich ist nur verfügbar, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} "automatic" ist.
 - "per-tab"
 
-  - : Zoomänderungen wirken sich nur in diesem Tab aus, und Zoomänderungen in anderen Tabs beeinflussen nicht das Zoomen dieses Tabs. Außerdem:
+  - : Zoomänderungen wirken sich nur in diesem Tab aus, und Zoomänderungen in anderen Tabs beeinflussen das Zoomen dieses Tabs nicht. Außerdem:
 
-    - in Firefox bleibt der Zoomfaktor über das Laden von Seiten und die Navigation innerhalb des Tabs hinweg bestehen.
-    - in Chrome-basierten Browsern werden Zoomänderungen beim Navigieren zurückgesetzt; das Navigieren eines Tabs wird Seiten immer mit ihren per-origin Zoomfaktoren laden.
+    - In Firefox bleibt die Zoomstufe beim Neuladen von Seiten und der Navigation innerhalb des Tabs erhalten.
+    - In Chrome-basierten Browsern werden Zoomänderungen beim Navigieren zurückgesetzt; das Navigieren in einem Tab lädt immer Seiten mit ihren per-Origin-Zoomfaktoren.
 
 ## Browser-Kompatibilität
 
@@ -29,7 +29,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsScope) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsScope) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

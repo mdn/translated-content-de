@@ -7,41 +7,41 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die **`BatteryManager`** Schnittstelle der [Battery Status API](/de/docs/Web/API/Battery_Status_API) bietet Informationen über den Batterieladestand des Systems. Die Methode [`navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery) gibt ein `Promise` zurück, das mit einer `BatteryManager`-Schnittstelle aufgelöst wird.
+Das **`BatteryManager`** Interface der [Battery Status API](/de/docs/Web/API/Battery_Status_API) liefert Informationen über den Ladezustand des Systems. Die Methode [`navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery) gibt ein Promise zurück, das mit einem `BatteryManager`-Interface aufgelöst wird.
 
-Seit Chrome 103 wird die `BatteryManager`-Schnittstelle der [Battery Status API](/de/docs/Web/API/Battery_Status_API) nur in sicheren Kontexten angeboten.
+Seit Chrome 103 wird das `BatteryManager`-Interface der [Battery Status API](/de/docs/Web/API/Battery_Status_API) nur in einem sicheren Kontext bereitgestellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von seinem Elterninterface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`BatteryManager.charging`](/de/docs/Web/API/BatteryManager/charging) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Batterie derzeit geladen wird.
+  - : Ein Boolean-Wert, der anzeigt, ob der Akku derzeit geladen wird.
 - [`BatteryManager.chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime) {{ReadOnlyInline}}
-  - : Eine Zahl, die die verbleibende Zeit in Sekunden angibt, bis die Batterie vollständig geladen ist, oder 0, wenn die Batterie bereits vollständig geladen ist.
+  - : Eine Zahl, die die verbleibende Zeit in Sekunden bis zur vollständigen Aufladung des Akkus darstellt, oder 0, wenn der Akku bereits vollständig geladen ist.
 - [`BatteryManager.dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime) {{ReadOnlyInline}}
-  - : Eine Zahl, die die verbleibende Zeit in Sekunden angibt, bis die Batterie vollständig entladen ist und das System in den Ruhezustand wechselt.
+  - : Eine Zahl, die die verbleibende Zeit in Sekunden bis zur vollständigen Entladung des Akkus angibt und das System in den Ruhezustand versetzt.
 - [`BatteryManager.level`](/de/docs/Web/API/BatteryManager/level) {{ReadOnlyInline}}
-  - : Eine Zahl, die den Batterieladestand des Systems auf einen Wert zwischen 0,0 und 1,0 skaliert darstellt.
+  - : Eine Zahl, die den Ladezustand des Systems auf einen Wert zwischen 0,0 und 1,0 skaliert darstellt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von seinem Elterninterface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Events
+## Ereignisse
 
-_Erbt auch Events von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Ereignisse von seinem Elterninterface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event)
-  - : Wird ausgelöst, wenn der Ladezustand der Batterie (die [`charging`](/de/docs/Web/API/BatteryManager/charging)-Eigenschaft) aktualisiert wird.
+  - : Wird ausgelöst, wenn sich der Ladezustand des Akkus (die [`charging`](/de/docs/Web/API/BatteryManager/charging)-Eigenschaft) ändert.
 - [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event)
-  - : Wird ausgelöst, wenn die Ladezeit der Batterie (die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime)-Eigenschaft) aktualisiert wird.
+  - : Wird ausgelöst, wenn sich die Ladezeit des Akkus (die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime)-Eigenschaft) ändert.
 - [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event)
-  - : Wird ausgelöst, wenn die Entladezeit der Batterie (die [`dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime)-Eigenschaft) aktualisiert wird.
+  - : Wird ausgelöst, wenn sich die Entladezeit des Akkus (die [`dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime)-Eigenschaft) ändert.
 - [`levelchange`](/de/docs/Web/API/BatteryManager/levelchange_event)
-  - : Wird ausgelöst, wenn der Batterieladestand (die [`level`](/de/docs/Web/API/BatteryManager/level)-Eigenschaft) aktualisiert wird.
+  - : Wird ausgelöst, wenn sich der Akkuladestand (die [`level`](/de/docs/Web/API/BatteryManager/level)-Eigenschaft) ändert.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`font-variation-settings`** CSS-Deskriptor ermöglicht es Autoren, Low-Level-Variationen von OpenType- oder TrueType-Schriften in der {{cssxref("@font-face")}}-At-Regel anzugeben. Die Werte für diesen Deskriptor sind die gleichen wie für die {{cssxref("font-variation-settings")}}-Eigenschaft, mit Ausnahme der globalen Schlüsselwortwerte.
+Der CSS-Deskriptor **`font-variation-settings`** ermöglicht es Autoren, Low-Level-OpenType- oder TrueType-Schriftvariationen in der {{cssxref("@font-face")}}-At-Regel zu spezifizieren. Die Werte für diesen Deskriptor sind die gleichen wie für die Eigenschaft {{cssxref("font-variation-settings")}}, mit Ausnahme der globalen Schlüsselwortwerte.
 
-Da dieser Deskriptor Variationswerte auf dem Schriftobjekt in der `@font-face`-At-Regel und nicht auf einem gesamten Element setzt, können nur einige Glyphen eines Elements mit diesem Deskriptor gerendert werden.
+Da dieser Deskriptor Variationswerte auf dem Schriftobjekt in der `@font-face`-At-Regel und nicht auf einem ganzen Element festlegt, können nur einige Glyphen in einem Element mit diesem Deskriptor gerendert werden.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ font-variation-settings: "xhgt" 0.7;
 ### Werte
 
 - `normal`
-  - : Text wird mit Standardeinstellungen layoutet.
+  - : Text wird mit den Standardeinstellungen layoutet.
 - `<string> <number>`
-  - : Beim Rendern von Text wird die Liste der OpenType-Achsennamen an die Text-Layout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} aus 4 [ASCII](/de/docs/Glossary/ASCII)-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achsenwert angibt. Falls das `<string>` mehr oder weniger Zeichen hat oder Zeichen außerhalb des U+20 - U+7E Code-Punktbereichs enthält, ist die gesamte Eigenschaft ungültig. Das `<number>` kann bruchteilhaft oder negativ sein.
+  - : Beim Rendern von Text wird die Liste der OpenType-Achsennamen an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} aus 4 [ASCII](/de/docs/Glossary/ASCII)-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achsenwert angibt. Hat der `<string>` mehr oder weniger Zeichen oder enthält Zeichen außerhalb des Codepunktbereichs U+20 - U+7E, ist die gesamte Eigenschaft ungültig. Die `<number>` kann fraktional oder negativ sein.
 
 ## Formale Definition
 
@@ -38,7 +38,7 @@ font-variation-settings: "xhgt" 0.7;
 
 ## Beispiele
 
-### Schriftgewicht und -dehnung in einer @font-face-Regel setzen
+### Festlegen von Schriftgewicht und -dehnung in einer @font-face-Regel
 
 ```css
 @font-face {

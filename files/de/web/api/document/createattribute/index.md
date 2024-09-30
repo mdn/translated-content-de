@@ -1,5 +1,5 @@
 ---
-title: "Document: createAttribute()-Methode"
+title: "Document: createAttribute() Methode"
 short-title: createAttribute()
 slug: Web/API/Document/createAttribute
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.createAttribute()`**-Methode erstellt einen neuen Attributknoten und gibt diesen zurück. Das erstellte Objekt ist ein Knoten, der das [`Attr`](/de/docs/Web/API/Attr)-Interface implementiert. Das DOM erzwingt nicht, welche Art von Attributen einem bestimmten Element auf diese Weise hinzugefügt werden können.
+Die **`Document.createAttribute()`** Methode erstellt einen neuen Attribut-Knoten und gibt ihn zurück. Das erstellte Objekt ist ein Knoten, der das [`Attr`](/de/docs/Web/API/Attr)-Interface implementiert. Das DOM erzwingt nicht, welche Art von Attributen auf diese Weise einem bestimmten Element hinzugefügt werden können.
 
 > [!NOTE]
 > Der im Parameter angegebene String wird in Kleinbuchstaben umgewandelt.
@@ -31,7 +31,7 @@ Ein [`Attr`](/de/docs/Web/API/Attr)-Knoten.
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`name`](#name) kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name) ist; zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
+  - : Wird ausgelöst, wenn der [`name`](#name)-Wert kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name) ist; zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
 
 ## Beispiele
 

@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `bluetooth` Directive steuert, ob das aktuelle Dokument die [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `bluetooth` steuert, ob das aktuelle Dokument die [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) verwenden darf.
 
-Speziell dort, wo eine definierte Richtlinie die Nutzung dieser Funktion untersagt, blockieren die Methoden des [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekts, das durch [`Navigator.bluetooth`](/de/docs/Web/API/Navigator/bluetooth) zurückgegeben wird, den Zugriff:
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features verbietet, werden die Methoden des [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekts, das von [`Navigator.bluetooth`](/de/docs/Web/API/Navigator/bluetooth) zurückgegeben wird, den Zugriff blockieren:
 
-- [`Bluetooth.getAvailability()`](/de/docs/Web/API/Bluetooth/getAvailability) wird die zurückgegebene {{jsxref("Promise")}} immer mit einem Wert von `false` erfüllen.
-- [`Bluetooth.getDevices()`](/de/docs/Web/API/Bluetooth/getDevices) wird die zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ablehnen.
-- [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice) wird die zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ablehnen.
+- [`Bluetooth.getAvailability()`](/de/docs/Web/API/Bluetooth/getAvailability) wird seine zurückgegebene {{jsxref("Promise")}} immer mit einem Wert von `false` erfüllen.
+- [`Bluetooth.getDevices()`](/de/docs/Web/API/Bluetooth/getDevices) wird seine zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ablehnen.
+- [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice) wird seine zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ablehnen.
 
 ## Syntax
 
@@ -22,17 +22,18 @@ Permissions-Policy: bluetooth=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Zugriffsliste für `bluetooth` ist `self`.
+Die Standard-Allowlist für `bluetooth` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Web Bluetooth API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und diejenigen, deren Ursprung `https://example.com` ist. Sie kann dies tun, indem sie den folgenden HTTP-Antwortheader sendet, um eine Permissions Policy zu definieren:
+SecureCorp Inc. möchte die Web Bluetooth API in allen Browsing-Kontexten deaktivieren, außer für ihren eigenen Ursprung und die, deren Ursprung `https://example.com` ist.
+Sie kann dies tun, indem sie den folgenden HTTP-Antwort-Header sendet, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: bluetooth=(self "https://example.com")
@@ -40,19 +41,20 @@ Permissions-Policy: bluetooth=(self "https://example.com")
 
 ### Mit einem \<iframe>-Element
 
-FastCorp Inc. möchte `bluetooth` für alle Cross-Origin-Kinderrahmen deaktivieren, außer für ein bestimmtes `<iframe>`. Sie kann dies tun, indem sie den folgenden HTTP-Antwortheader sendet, um eine Permissions Policy zu definieren:
+FastCorp Inc. möchte `bluetooth` für alle Cross-Origin-Kinderframes deaktivieren, außer für ein bestimmtes `<iframe>`.
+Dies kann durch die Auslieferung des folgenden HTTP-Antwort-Headers erfolgen, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: bluetooth=(self https://other.com/blue)
 ```
 
-Dann ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut im `<iframe>`-Element einschließen:
+Fügen Sie dann ein {{HTMLElement('iframe','allow','#Attributes')}} Attribut zum `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/blue" allow="bluetooth"></iframe>
 ```
 
-`<iframe>`-Attribute können Funktionen selektiv in bestimmten Frames aktivieren, und nicht in anderen, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
+`<iframe>`-Attribute können Features in bestimmten Frames selektiv aktivieren, und nicht in anderen, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
 
 ## Spezifikationen
 

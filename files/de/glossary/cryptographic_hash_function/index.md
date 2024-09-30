@@ -1,5 +1,5 @@
 ---
-title: Kryptografische Hash-Funktion
+title: Cryptographic hash function
 slug: Glossary/Cryptographic_hash_function
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **kryptografische Hash-Funktion**, manchmal auch _Digest-Funktion_ genannt, ist eine [kryptografische](/de/docs/Glossary/cryptography) Primitive, die eine Nachricht beliebiger Größe in eine Nachricht fester Größe umwandelt, genannt [Digest](/de/docs/Glossary/digest). Kryptografische Hash-Funktionen werden für Authentifizierung, [digitale Signaturen](/de/docs/Glossary/digital_signature) und [Message Authentication Codes](/de/docs/Glossary/HMAC) verwendet.
+Eine **kryptographische Hash-Funktion**, auch manchmal _Digest-Funktion_ genannt, ist eine [kryptographische](/de/docs/Glossary/cryptography) Primitive, die eine Nachricht beliebiger Größe in eine Nachricht fester Größe transformiert, die als [Digest](/de/docs/Glossary/digest) bezeichnet wird. Kryptographische Hash-Funktionen werden für Authentifizierung, [digitale Signaturen](/de/docs/Glossary/digital_signature) und [Message Authentication Codes](/de/docs/Glossary/HMAC) verwendet.
 
-Um kryptografisch verwendet werden zu können, muss eine Hash-Funktion folgende Eigenschaften haben:
+Um für kryptographische Zwecke genutzt zu werden, muss eine Hash-Funktion folgende Eigenschaften besitzen:
 
-- schnelle Berechnung (da sie häufig generiert werden)
-- nicht umkehrbar (jedes Digest könnte von einer sehr großen Anzahl von Nachrichten stammen, und nur durch Bruteforce kann eine Nachricht erzeugt werden, die zu einem gegebenen Digest führt)
+- schnell zu berechnen (weil sie häufig generiert werden)
+- nicht umkehrbar (jeder Digest kann von einer sehr großen Anzahl von Nachrichten stammen, und nur durch Brute-Force kann eine Nachricht generiert werden, die zu einem gegebenen Digest führt)
 - manipulationssicher (jede Änderung an einer Nachricht führt zu einem anderen Digest)
-- kollisionsresistent (es sollte unmöglich sein, zwei verschiedene Nachrichten zu finden, die denselben Digest erzeugen)
+- kollisionssicher (es sollte unmöglich sein, zwei unterschiedliche Nachrichten zu finden, die den gleichen Digest erzeugen)
 
-Kryptografische Hash-Funktionen wie MD5 und SHA-1 gelten als unsicher, da Angriffe gefunden wurden, die ihre Kollisionsresistenz erheblich verringern.
+Kryptographische Hash-Funktionen wie MD5 und SHA-1 gelten als unsicher, da Angriffe gefunden wurden, die ihre Kollisionsresistenz erheblich reduzieren.
 
 ## Siehe auch
 
-- [Kryptografische Hash-Funktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) auf Wikipedia
-- Verwandte Glossarbegriffe:
+- [Cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function) auf Wikipedia
+- Verwandte Glossareinträge:
   - [Symmetrische Kryptographie](/de/docs/Glossary/Symmetric-key_cryptography)

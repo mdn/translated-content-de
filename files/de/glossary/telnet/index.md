@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Telnet** ist ein Befehlszeilenwerkzeug und ein zugrunde liegendes TCP/IP-Protokoll für den Zugriff auf entfernte Computer.
+**Telnet** ist ein Befehlszeilenwerkzeug und ein zugrunde liegendes TCP/IP-Protokoll zum Zugriff auf entfernte Computer.
 
 ## Siehe auch
 

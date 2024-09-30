@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stdDeviation`** Attribut definiert die Standardabweichung für die Weichzeichnungsoperation.
+Das **`stdDeviation`**-Attribut definiert die Standardabweichung für die Weichzeichner-Operation.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feGaussianBlur")}}
 
@@ -49,9 +49,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "480", "200")}}
+{{EmbedLiveSample("Beispiel", "480", "200")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -78,9 +78,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl einen Standardabweichungswert entlang der x-Achse. Die zweite Zahl repräsentiert die Standardabweichung entlang der y-Achse. Wenn nur eine Zahl angegeben ist, wird dieser Wert für sowohl X als auch Y verwendet.
+  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl eine Standardabweichung entlang der x-Achse. Der zweite Wert repräsentiert eine Standardabweichung entlang der y-Achse. Wenn eine Zahl angegeben ist, wird dieser Wert sowohl für X als auch für Y verwendet.
 
-    Ein negativer Wert ist verboten. Ein Wert von Null deaktiviert den Effekt der angegebenen Filter-Primitiv (d.h. das Ergebnis ist das Filtereingabebild). Wenn `stdDeviation` nur in einer der Dimensionen X oder Y gleich 0 ist, dann wird die Weichzeichnung nur in die Richtung angewendet, die einen von Null verschiedenen Wert hat.
+    Ein negativer Wert ist verboten. Ein Wert von Null deaktiviert die Wirkung des angegebenen Filterprimitivs (d.h. das Ergebnis ist das Filtereingangsbild). Wenn `stdDeviation` nur in einer der Achsen X oder Y den Wert 0 hat, dann wird der Weichzeichner nur in der Richtung angewendet, die einen Wert ungleich Null hat.
 
 ## Spezifikationen
 

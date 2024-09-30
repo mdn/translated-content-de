@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieser Wert repräsentiert die maximale Anzahl von Sitzungen, die durch einen Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben werden. Er ist schreibgeschützt für WebExtension-Code und ist auf 25 festgelegt.
+Dieser Wert stellt die maximale Anzahl von Sitzungen dar, die durch einen Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben werden. Er ist schreibgeschützt für WebExtension-Code und auf 25 festgelegt.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions) API.

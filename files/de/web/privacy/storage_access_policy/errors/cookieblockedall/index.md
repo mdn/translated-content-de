@@ -17,12 +17,12 @@ CookieBlockedAll=Request to access cookies or storage on "X" was blocked because
 
 ## Was ist schiefgelaufen?
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, weil der Browser den gesamten Speicherzugriff blockiert.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da der Browser alle Speicherzugriffe blockiert.
 
-Die Berechtigung kann geändert oder entfernt werden durch:
+Die Berechtigung kann geändert oder entfernt werden, indem Sie:
 
-- Aufrufen von _Einstellungen > Inhaltsblockierung_
-- Im Abschnitt _Benutzerdefinierte_ Inhaltsblockierung einen anderen Wert als _Alle Cookies_ für den Punkt _Cookies_ auszuwählen
+- Zu _Einstellungen > Inhaltsblockierung_ gehen
+- Im Abschnitt _Benutzerdefinierte_ Inhaltsblockierung für den Punkt _Cookies_ einen anderen Wert als _Alle Cookies_ auswählen
 
 Wenn die Ressource, die blockiert wird, keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie Ihrem Element ein `crossorigin="anonymous"` Attribut hinzufügen.
 

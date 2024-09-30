@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{AvailableInWorkers}}
 
-Die **`Crypto`**-Schnittstelle repräsentiert grundlegende kryptografische Funktionen, die im aktuellen Kontext verfügbar sind. Sie ermöglicht den Zugriff auf einen kryptografisch starken Zufallszahlengenerator und auf kryptografische Primitive.
+Das **`Crypto`** Interface repräsentiert grundlegende Kryptografiefunktionen, die im aktuellen Kontext verfügbar sind. Es ermöglicht den Zugriff auf einen kryptographisch starken Zufallszahlengenerator und auf kryptographische Primitive.
 
-Das `Crypto` ist in Fenstern über die [`Window.crypto`](/de/docs/Web/API/Window/crypto)-Eigenschaft und in Workern über die [`WorkerGlobalScope.crypto`](/de/docs/Web/API/WorkerGlobalScope/crypto)-Eigenschaft verfügbar.
+`Crypto` ist in `windows` über die [`Window.crypto`](/de/docs/Web/API/Window/crypto) Eigenschaft und in `workers` über die [`WorkerGlobalScope.crypto`](/de/docs/Web/API/WorkerGlobalScope/crypto) Eigenschaft verfügbar.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert Eigenschaften, die auf [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
+_Dieses Interface implementiert Eigenschaften, die in [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
 
 - [`Crypto.subtle`](/de/docs/Web/API/Crypto/subtle) {{ReadOnlyInline}} {{SecureContext_inline}}
-  - : Gibt ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Objekt zurück, das Zugriff auf gängige kryptografische Primitive ermöglicht, wie z.B. Hashing, Signierung, Verschlüsselung oder Entschlüsselung.
+  - : Gibt ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Objekt zurück, das Zugriff auf gängige kryptografische Primitive wie Hashing, Signierung, Verschlüsselung oder Entschlüsselung bietet.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert Methoden, die auf [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
+_Dieses Interface implementiert Methoden, die in [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
 
 - [`Crypto.getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)
-  - : Füllt das übergebene {{ jsxref("TypedArray") }} mit kryptografisch sicheren Zufallswerten.
+  - : Füllt das übergebene {{ jsxref("TypedArray") }} mit kryptographisch sicheren Zufallswerten.
 - [`Crypto.randomUUID()`](/de/docs/Web/API/Crypto/randomUUID) {{SecureContext_inline}}
   - : Gibt eine zufällig generierte, 36 Zeichen lange v4 UUID zurück.
 

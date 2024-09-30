@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Befehl mithilfe seiner zugeordneten Tastenkombination ausgeführt wird.
+Wird ausgelöst, wenn ein Befehl mit dem zugeordneten Tastaturkürzel ausgeführt wird.
 
-Dem Listener wird der Name des Befehls übergeben. Dieser Name entspricht dem im [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegebenen Namen des Befehls.
+Dem Listener wird der Name des Befehls übergeben. Dieser stimmt mit dem Namen überein, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) gegeben wurde.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ browser.commands.onCommand.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis abzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -34,16 +34,16 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer die Tastenkombination des Befehls eingibt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer das Tastenkürzel des Befehls eingibt. Der Funktion werden diese Argumente übergeben:
 
     - `name`
-      - : `string`. Name des Befehls. Dieser Name entspricht dem im [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegebenen Namen des Befehls.
+      - : `string`. Name des Befehls. Dieser stimmt mit dem Namen überein, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) gegeben wurde.
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als die Tastenkombination des Befehls eingegeben wurde.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Befehls-Tastenkürzel eingegeben wurde.
 
 ## Beispiele
 
-Angenommen, ein manifest.json-Eintrag sieht so aus:
+Bei einem manifest.json-Eintrag wie diesem:
 
 ```json
 "commands": {
@@ -56,7 +56,7 @@ Angenommen, ein manifest.json-Eintrag sieht so aus:
 }
 ```
 
-Könnten Sie für diesen besonderen Befehl wie folgt einen Listener hinzufügen:
+Könnten Sie auf diesen speziellen Befehl wie folgt hören:
 
 ```js
 browser.commands.onCommand.addListener((command) => {
@@ -73,4 +73,4 @@ browser.commands.onCommand.addListener((command) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.
+> Diese API basiert auf Chromium's [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.

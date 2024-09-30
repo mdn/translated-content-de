@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getLightEstimate()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt zurück, das geschätzte Beleuchtungswerte für eine gegebene [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) enthält.
+Die **`getLightEstimate()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle gibt ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate) Objekt zurück, das geschätzte Beleuchtungswerte für eine gegebene [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) enthält.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ getLightEstimate(lightProbe)
 ### Parameter
 
 - `lightProbe`
-  - : Ein [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Objekt, das den aktuellen Beleuchtungszustand für den Rahmen enthält.
+  - : Ein [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) Objekt, das den aktuellen Beleuchtungszustand für den Frame enthält.
 
 ### Rückgabewert
 
-Ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn das Gerät die Beleuchtung für diesen Rahmen nicht abschätzen kann.
+Ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate) Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn das Gerät das Licht für diesen Frame nicht schätzen kann.
 
 ## Beispiele
 
-### Lichtschätzungen für jeden Rahmen erhalten
+### Beleuchtungsschätzungen für jeden Frame erhalten
 
-Gegeben einer Sitzung's [`XRLightProbe`](/de/docs/Web/API/XRLightProbe), erhält die `getLightEstimate()`-Methode ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt, das die Beleuchtungswerte für jeden Rahmen enthält.
+Anhand einer Sitzung's [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) erhält die `getLightEstimate()` Methode ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate) Objekt, das die Beleuchtungswerte für jeden Frame enthält.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();

@@ -7,21 +7,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCTransformEvent`** der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert ein Ereignis, das in einem dedizierten Worker ausgelöst wird, wenn ein codierter Frame für die Verarbeitung durch ein [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) in die Warteschlange gestellt wurde.
+Die **`RTCTransformEvent`** des [WebRTC-API](/de/docs/Web/API/WebRTC_API) stellt ein Ereignis dar, das in einem dedizierten Worker ausgelöst wird, wenn ein kodierter Frame in die Warteschlange für die Verarbeitung durch einen [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) eingereiht wurde.
 
-Das Interface besitzt eine [`transformer`](/de/docs/Web/API/RTCTransformEvent/transformer) Eigenschaft, die einen lesbaren Stream und einen beschreibbaren Stream bereitstellt.
-Ein Worker sollte codierte Frames von `transformer.readable` lesen, sie bei Bedarf ändern und sie in derselben Reihenfolge und ohne Duplikate in `transformer.writable` schreiben.
+Die Schnittstelle verfügt über eine [`transformer`](/de/docs/Web/API/RTCTransformEvent/transformer) Eigenschaft, die einen lesbaren und einen beschreibbaren Stream bereitstellt. Ein Worker sollte kodierte Frames aus `transformer.readable` lesen, sie nach Bedarf modifizieren und in der gleichen Reihenfolge und ohne Duplikate in `transformer.writable` schreiben.
 
-Zum Zeitpunkt des Schreibens gibt es nur ein Ereignis basierend auf dem `RTCTransformEvent`: [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event).
+Zum Zeitpunkt der Erstellung gibt es nur ein Ereignis basierend auf `RTCTransformEvent`: [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Da `RTCTransformEvent` auf [`Event`](/de/docs/Web/API/Event) basiert, sind dessen Eigenschaften ebenfalls verfügbar._
 
 - [`RTCTransformEvent.transformer`](/de/docs/Web/API/RTCTransformEvent/transformer) {{ReadOnlyInline}}
-  - : Gibt den [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zurück, der mit dem Ereignis verknüpft ist.
+  - : Gibt den mit dem Ereignis verknüpften [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zurück.
 
 ## Transform-Ereignistypen
 
@@ -29,16 +28,15 @@ Es gibt nur einen Typ von Transform-Ereignis.
 
 ### `rtctransform`
 
-Das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis wird im Worker-Global-Scope beim Konstruktion eines assoziierten [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) ausgelöst und immer dann, wenn ein neuer codierter Video- oder Audio-Frame zur Verarbeitung in die Warteschlange gestellt wird.
+Das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis wird im Worker-Global-Scope bei der Erstellung eines zugehörigen [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) sowie jedes Mal ausgelöst, wenn ein neuer kodierter Video- oder Audio-Frame zur Verarbeitung eingereiht wird.
 
-Sie können einen `rtctransform`-Ereignis-Listener hinzufügen, um benachrichtigt zu werden, wenn der neue Frame verfügbar ist, entweder mit [`DedicatedWorkerGlobalScope.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder der `onrtctransform`-Ereignis-Handler-Eigenschaft.
+Sie können einen `rtctransform`-Ereignislistener hinzufügen, um benachrichtigt zu werden, wenn der neue Frame verfügbar ist, indem Sie entweder [`DedicatedWorkerGlobalScope.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder die `onrtctransform`-Ereignis-Handler-Eigenschaft verwenden.
 
 ## Beispiel
 
-Dieses Beispiel erstellt einen Ereignis-Listener für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis.
+Dieses Beispiel erstellt einen Ereignislistener für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis.
 
-Das Beispiel geht davon aus, dass wir einen [`TransformStream`](/de/docs/Web/API/TransformStream) mit einem `options` Objekt haben, das von einem [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) Konstruktor im Haupt-Thread übergeben wird.
-Der Code am Ende zeigt, wie der Stream durch den Transform-Stream von `readable` zu `writable` geleitet wird.
+Das Beispiel geht davon aus, dass wir einen [`TransformStream`](/de/docs/Web/API/TransformStream) mit einem `options`-Objekt haben, das von einem [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) Konstruktor im Haupt-Thread übergeben wird. Der Code am Ende zeigt, wie der Stream durch den Transform-Stream von `readable` nach `writable` geleitet wird.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -56,7 +54,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass dieser Code Teil eines vollständigeren Beispiels ist, das in [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt wird.
+Beachten Sie, dass dieser Code Teil eines ausführlicheren Beispiels ist, das in [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt wird.
 
 ## Spezifikationen
 

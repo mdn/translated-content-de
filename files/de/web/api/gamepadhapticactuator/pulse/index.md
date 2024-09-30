@@ -1,5 +1,5 @@
 ---
-title: "GamepadHapticActuator: pulse() Methode"
+title: "GamepadHapticActuator: pulse()-Methode"
 short-title: pulse()
 slug: Web/API/GamepadHapticActuator/pulse
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}
 
-Die **`pulse()`** Methode der [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Schnittstelle lässt die Hardware mit einer bestimmten Intensität für eine angegebene Dauer pulsieren.
+Die **`pulse()`**-Methode des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Interfaces bewirkt, dass die Hardware mit einer bestimmten Intensität für eine festgelegte Dauer pulsiert.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ pulse(value, duration)
 ### Parameter
 
 - `value`
-  - : Ein Gleitkommawert, der die Intensität des Pulses darstellt. Dieser Wert kann je nach Hardwaretyp variieren, liegt aber im Allgemeinen zwischen 0.0 (keine Intensität) und 1.0 (volle Intensität).
+  - : Ein Double-Wert, der die Intensität des Pulses darstellt. Dieser kann je nach Hardwaretyp variieren, nimmt jedoch im Allgemeinen einen Wert zwischen 0.0 (keine Intensität) und 1.0 (volle Intensität) an.
 - `duration`
-  - : Ein Gleitkommawert, der die Dauer des Pulses in Millisekunden angibt.
+  - : Ein Double-Wert, der die Dauer des Pulses in Millisekunden angibt.
 
 > [!NOTE]
-> Wiederholte Aufrufe von `pulse()` überschreiben vorherige, wenn sie noch andauern.
+> Wiederholte Aufrufe von `pulse()` überschreiben die vorherigen Aufrufe, wenn diese noch andauern.
 
 ### Rückgabewert
 
-Ein Promise, das mit dem Wert `true` aufgelöst wird, wenn der Puls erfolgreich abgeschlossen wurde.
+Ein Promise, das mit einem Wert von `true` aufgelöst wird, wenn der Puls erfolgreich abgeschlossen wurde.
 
 ## Beispiele
 

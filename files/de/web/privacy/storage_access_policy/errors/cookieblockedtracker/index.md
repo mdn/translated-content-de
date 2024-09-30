@@ -1,5 +1,5 @@
 ---
-title: "Blockiert: Speicherzugriffsanfragen von Trackern"
+title: "Blocked: Speicherzugriffsanfragen von Trackern"
 slug: Web/Privacy/Storage_Access_Policy/Errors/CookieBlockedTracker
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -17,18 +17,18 @@ Request to access cookie or storage on “X” was blocked because it came from 
 
 ## Was ist schiefgelaufen?
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da der Browser sie als von einem Tracker stammend identifiziert hat und Inhaltsblockierung aktiviert ist.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, weil der Browser sie als von einem Tracker stammend identifiziert hat und die Inhaltsblockierung aktiviert ist.
 
-Die Berechtigung kann geändert oder entfernt werden, indem Sie:
+Die Berechtigung kann geändert oder entfernt werden durch:
 
-- Zu _Einstellungen > Datenschutz & Sicherheit > Verbesserter Schutz vor Aktivitätenverfolgung_ gehen und entweder
+- Gehen Sie zu _Einstellungen > Datenschutz & Sicherheit > Verbesserter Schutz vor Aktivitätenverfolgung_ und entweder
 
-  - eine Ausnahme mit dem Button _Ausnahmen verwalten_ hinzufügen
-  - _Benutzerdefiniert_ bei der Inhaltsblockierung wählen und das Kontrollkästchen _Tracker_ deaktivieren
+  - fügen Sie eine Ausnahme hinzu mit dem _Ausnahmen verwalten_…-Button
+  - wählen Sie die _Benutzerdefinierte_ Inhaltsblockierung und deaktivieren Sie das _Tracker_-Kontrollkästchen
 
-Wenn die blockierte Ressource keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie ein `crossorigin="anonymous"`-Attribut zum relevanten Element hinzufügen.
+Falls die blockierte Ressource keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie dem entsprechenden Element ein `crossorigin="anonymous"`-Attribut hinzufügen.
 
 ## Siehe auch
 
-- [Erweiterter Schutz vor Aktivitätenverfolgung in Firefox für Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf [support.mozilla.org](https://support.mozilla.org/)
+- [Verbesserter Schutz vor Aktivitätenverfolgung in Firefox für Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf [support.mozilla.org](https://support.mozilla.org/)
 - [Das `crossorigin`-Attribut](/de/docs/Web/HTML/Attributes/crossorigin)

@@ -7,8 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`pop()`** Methode von {{jsxref("Array")}} Instanzen entfernt das **letzte**
-Element aus einem Array und gibt dieses Element zurück. Diese Methode ändert die Länge des Arrays.
+Die **`pop()`**-Methode von {{jsxref("Array")}}-Instanzen entfernt das **letzte**
+Element aus einem Array und gibt dieses Element zurück. Diese Methode ändert die Länge des
+Arrays.
 
 {{EmbedInteractiveExample("pages/js/array-pop.html")}}
 
@@ -28,19 +29,19 @@ Das entfernte Element aus dem Array; {{jsxref("undefined")}}, wenn das Array lee
 
 ## Beschreibung
 
-Die `pop()` Methode entfernt das letzte Element aus einem Array und gibt diesen Wert an den Aufrufer zurück. Wenn Sie `pop()` auf einem leeren Array aufrufen, wird {{jsxref("undefined")}} zurückgegeben.
+Die `pop()`-Methode entfernt das letzte Element aus einem Array und gibt diesen Wert an den Aufrufer zurück. Wenn Sie `pop()` auf ein leeres Array aufrufen, gibt es {{jsxref("undefined")}} zurück.
 
-{{jsxref("Array.prototype.shift()")}} zeigt ein ähnliches Verhalten wie `pop()`, wird jedoch auf das erste Element in einem Array angewendet.
+{{jsxref("Array.prototype.shift()")}} hat ein ähnliches Verhalten wie `pop()`, wird jedoch auf das erste Element in einem Array angewendet.
 
-Die `pop()` Methode ist eine verändernde Methode. Sie ändert die Länge und den Inhalt von `this`. Falls Sie möchten, dass der Wert von `this` gleich bleibt, aber ein neues Array mit dem letzten entfernten Element zurückgegeben wird, können Sie stattdessen [`arr.slice(0, -1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) verwenden.
+Die `pop()`-Methode ist eine mutierende Methode. Sie ändert die Länge und den Inhalt von `this`. Falls Sie den Wert von `this` beibehalten möchten, aber ein neues Array mit dem letzten entfernten Element zurückgeben möchten, können Sie stattdessen [`arr.slice(0, -1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) verwenden.
 
-Die `pop()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-indizierte Eigenschaften hat. Obwohl Zeichenfolgen auch array-ähnlich sind, ist diese Methode nicht geeignet, um auf sie angewendet zu werden, da Zeichenfolgen unveränderlich sind.
+Die `pop()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der Wert von `this` eine `length`-Eigenschaft und integer-nummerierte Eigenschaften hat. Obwohl Zeichenfolgen auch array-ähnlich sind, ist diese Methode nicht dafür geeignet, auf sie angewendet zu werden, da Zeichenfolgen unveränderlich sind.
 
 ## Beispiele
 
 ### Entfernen des letzten Elements eines Arrays
 
-Der folgende Code erstellt das `myFish` Array mit vier Elementen und entfernt dann das letzte Element.
+Der folgende Code erstellt das `myFish`-Array mit vier Elementen und entfernt dann das letzte Element.
 
 ```js
 const myFish = ["angel", "clown", "mandarin", "sturgeon"];
@@ -52,9 +53,9 @@ console.log(myFish); // ['angel', 'clown', 'mandarin' ]
 console.log(popped); // 'sturgeon'
 ```
 
-### Aufruf von pop() auf Nicht-Array-Objekten
+### Aufrufen von pop() auf Nicht-Array-Objekten
 
-Die `pop()` Methode liest die `length` Eigenschaft von `this`. Ist die [normierte Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) 0, wird `length` wieder auf `0` gesetzt (während sie möglicherweise negativ oder `undefined` war). Andernfalls wird die Eigenschaft bei `length - 1` zurückgegeben und [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete).
+Die `pop()`-Methode liest die `length`-Eigenschaft von `this`. Wenn die [normalisierte Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) 0 ist, wird `length` wieder auf `0` gesetzt (wobei sie vorher negativ oder `undefined` sein kann). Andernfalls wird die Eigenschaft bei `length - 1` zurückgegeben und [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete).
 
 ```js
 const arrayLike = {
@@ -74,9 +75,9 @@ console.log(plainObj);
 // { length: 0 }
 ```
 
-### Verwenden eines Objekts in einer array-ähnlichen Weise
+### Verwenden eines Objekts in array-ähnlicher Weise
 
-`push` und `pop` sind absichtlich generisch, und wir können das zu unserem Vorteil nutzen, wie das folgende Beispiel zeigt.
+`push` und `pop` sind absichtlich generisch, und das können wir zu unserem Vorteil nutzen – wie das folgende Beispiel zeigt.
 
 Beachten Sie, dass wir in diesem Beispiel kein Array erstellen, um eine Sammlung von Objekten zu speichern. Stattdessen speichern wir die Sammlung auf dem Objekt selbst und verwenden `call` auf `Array.prototype.push` und `Array.prototype.pop`, um diese Methoden dazu zu bringen, zu denken, dass wir es mit einem Array zu tun haben.
 

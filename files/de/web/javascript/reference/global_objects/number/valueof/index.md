@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den primitiven Wert des angegebenen {{jsxref("Number")}} Objekts darstellt.
+Eine Zahl, die den primitiven Wert des angegebenen {{jsxref("Number")}}-Objekts darstellt.
 
 ## Beschreibung
 
-Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Webcode.
+Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Webcode verwendet.
 
 ## Beispiele
 

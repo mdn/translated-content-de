@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `strikethrough-thickness` stellt die ideale Dicke des Durchstreichens dar. Die Dicke des Durchstreichens wird im Koordinatensystem der Schriftart ausgedrückt.
+Das `strikethrough-thickness`-Attribut repräsentiert die ideale Dicke des Durchstreichens. Die Dicke des Durchstreichens wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{ SVGElement("font-face") }}
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 <table class="properties">
   <tbody>

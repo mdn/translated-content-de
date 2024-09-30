@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePairStats: bytesReceived-Eigenschaft"
+title: "RTCIceCandidatePairStats: Eigenschaft bytesReceived"
 short-title: bytesReceived
 slug: Web/API/RTCIceCandidatePairStats/bytesReceived
 l10n:
@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`bytesReceived`** gibt die Gesamtanzahl der Nutzlast-Bytes an, das heißt, Bytes, die keinen Overhead wie Header oder Padding darstellen, die bis dato über die Verbindung, die von dem Kandidatenpaar beschrieben wird, empfangen wurden.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Eigenschaft
+**`bytesReceived`** gibt die Gesamtanzahl der Nutzdaten-Bytes an - das heißt, Bytes, die kein Overhead wie Header oder Auffüllung sind -, die bis dato über die Verbindung des Kandidatenpaares empfangen wurden.
 
-Die [`bytesSent`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesSent)-Eigenschaft gibt die Anzahl der bisher über die beschriebene Verbindung gesendeten Bytes an.
+Die [`bytesSent`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesSent) Eigenschaft berichtet die Anzahl der bisher über die beschriebene Verbindung gesendeten Bytes.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Gesamtanzahl der bisher über die von diesem Kandidatenpaar beschriebene Verbindung empfangenen Bytes angibt. Es werden nur Nutzdaten-Bytes gezählt; Overhead wie Padding, Header und Ähnliches sind in dieser Zählung nicht enthalten.
+Ein ganzzahliger Wert, der die Gesamtanzahl der bisher auf der durch dieses Kandidatenpaar beschriebenen Verbindung empfangenen Bytes angibt. Es werden nur Nutzdaten-Bytes gezählt; Overhead wie Auffüllungen, Header und Ähnliches sind in dieser Zählung nicht enthalten.
 
 ## Spezifikationen
 

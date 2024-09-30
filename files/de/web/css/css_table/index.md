@@ -1,5 +1,5 @@
 ---
-title: CSS table
+title: CSS-Tabelle
 slug: Web/CSS/CSS_table
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS table** Modul hilft Ihnen, wie Sie Tabellendaten layouten.
+Das **CSS-Tabelle** Modul hilft Ihnen, die Anordnung von Tabellendaten zu definieren.
 
-Dieses CSS-Modul definiert Stile, die auf das HTML-{{htmlelement("table")}}-Element anwendbar sind, das zur Darstellung tabellarischer Daten verwendet wird. Standardmäßig werden Tabellen als zweidimensionales Raster gerendert, mit Zellen, die in einer Reihe von aufeinanderfolgenden Zeilen und Spalten angeordnet sind. Dieses Layout wird aus der Tabellenstruktur generiert und gemäß dem Inhalt der Zellen dimensioniert. Dieses Modul ermöglicht auch das Definieren der Position der {{htmlelement("caption")}} der Tabelle, falls vorhanden.
+Dieses CSS-Modul definiert Stile, die für das HTML-Element {{htmlelement("table")}} anwendbar sind, welches zur Darstellung tabellarischer Daten verwendet wird. Standardmäßig werden Tabellen als zweidimensionales Raster mit Zellen dargestellt, die in einer Reihe aufeinanderfolgender Zeilen und Spalten angeordnet sind. Dieses Layout wird aus der Tabellenstruktur generiert und anhand des Inhalts der Zellen dimensioniert. Dieses Modul ermöglicht es auch, die Position der {{htmlelement("caption")}} der Tabelle, sofern vorhanden, zu definieren.
 
-Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Elemente beschränkt; sie können auf jedes Element angewendet werden, das einen tabellenbezogenen CSS-{{cssxref("display")}}-Wert hat.
+Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Elemente beschränkt; sie können auf jedes Element angewendet werden, das einen tabellenbezogenen CSS-{{cssxref("display")}}-Wert besitzt.
 
 ## Referenz
 
@@ -23,23 +23,23 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Element
 - {{cssxref("empty-cells")}}
 - {{cssxref("table-layout")}}
 
-## Leitfaden
+## Leitfäden
 
 - [Lernen: CSS-Tabellenlayout](/de/docs/Learn/CSS/CSS_layout/Introduction#table_layout)
 
-  - : Ein Überblick über CSS-Layouts, einschließlich wie man tabellenbezogene `display`-Werte festsetzt, um CSS-Tabelleneigenschaften auf jedes Element anzuwenden.
+  - : Ein Überblick über CSS-Layouts, einschließlich der Festlegung tabellenbezogener `display`-Werte, um CSS-Tabelleneigenschaften auf jedes Element anzuwenden.
 
-- [Lernen: Styling von Tabellen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [Lernen: Tabellenstil](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
 
-  - : Ein Leitfaden zur Verbesserung des Aussehens von HTML-Tabellen, der Techniken zur Tabellenstilisierung abdeckt.
+  - : Ein Leitfaden zur Verbesserung des Erscheinungsbildes von HTML-Tabellen, der Techniken zum Table-Styling behandelt.
 
-- [Lernen: Grundlagen der HTML-Tabellen](/de/docs/Learn/HTML/Tables/Basics)
+- [Lernen: HTML-Tabellengrundlagen](/de/docs/Learn/HTML/Tables/Basics)
 
-  - : Eine Einführung in HTML-Tabellen, einschließlich des HTMLs zum Erstellen von Zeilen und Zellen, Überschriften, Zellen, die sich über mehrere Spalten und Zeilen erstrecken, und das Gruppieren von Zellen in einer Spalte zu Stilisierungszwecken.
+  - : Eine Einführung in HTML-Tabellen, einschließlich des HTML zum Erstellen von Zeilen und Zellen, Überschriften, dem Zusammenführen von Zellen über mehrere Spalten und Zeilen hinweg und dem Gruppieren von Zellen in einer Spalte zu Styling-Zwecken.
 
-- [Lernen: Erweiterte Funktionen und Barrierefreiheit von HTML-Tabellen](/de/docs/Learn/HTML/Tables/Advanced)
+- [Lernen: Erweiterte HTML-Tabellenfunktionen und Barrierefreiheit](/de/docs/Learn/HTML/Tables/Advanced)
 
-  - : Ein Blick auf erweiterte Funktionen von HTML-Tabellen, einschließlich Beschriftungen und das Gruppen von Tabellenzeilen in Kopf-, Körper- und Fußabschnitte — sowie ein Blick auf die Barrierefreiheit von Tabellen für sehbehinderte Nutzer.
+  - : Ein Blick auf erweiterte HTML-Tabellenfunktionen, einschließlich Beschriftungen und das Gruppieren von Tabellenzeilen in Kopf-, Körper- und Fußabschnitte – sowie die Betrachtung der Zugänglichkeit von Tabellen für sehbehinderte Benutzer.
 
 ## Verwandte Konzepte
 
@@ -47,7 +47,7 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Element
 - {{cssxref("vertical-align")}} Eigenschaft
 - {{cssxref("text-align")}} Eigenschaft
 
-- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Box-Größe](/de/docs/Web/CSS/CSS_box_sizing) Modul
 
   - {{cssxref("box-sizing")}}
   - {{cssxref("height")}}
@@ -57,7 +57,7 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Element
   - {{cssxref("width")}}
   - {{cssxref("min-content")}} Schlüsselwort
 
-- [CSS Hintergründe und Umrandungen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
 
   - {{cssxref("border")}} Kurzform
   - {{cssxref("border-width")}}
@@ -82,11 +82,11 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf `<table>`-Element
 {{Specifications}}
 
 > [!NOTE]
-> Die CSS 2.2-Spezifikation definiert stabile Standards für Web-Designs, einschließlich detaillierter Spezifikationen für die Tabellenformatierung. Die [CSS Table Module Level 3](https://drafts.csswg.org/css-tables-3/) Spezifikation versucht, diese Fähigkeiten mit erweiterten Funktionen für Tabellendesign und -darstellung zu erweitern. Allerdings wird die Tabellenspezifikation noch entwickelt und ist noch nicht bereit für die Implementierung.
+> Die CSS 2.2 Spezifikation definiert stabile Standards für Web-Styling, einschließlich detaillierter Spezifikationen für die Tabellenformatierung. Die [CSS Table Module Level 3](https://drafts.csswg.org/css-tables-3/) Spezifikation strebt an, diese Fähigkeiten durch erweiterte Funktionen für Tabellenlayout und -darstellung auszubauen. Das Tabellenspezifikationsmodul befindet sich jedoch noch in der Entwicklung und ist noch nicht zur Implementierung bereit.
 
 ## Siehe auch
 
-- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS Flexibles Boxlayout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
 - [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul

@@ -17,9 +17,9 @@ Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie di
 
 - {{SVGATTR("name")}} {{Deprecated_Inline}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGFontFaceNameElement`](/de/docs/Web/API/SVGFontFaceNameElement)-Schnittstelle.
+Dieses Element implementiert das [`SVGFontFaceNameElement`](/de/docs/Web/API/SVGFontFaceNameElement) Interface.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die [`SVGFontFaceNameElement`](/de/docs/Web/API/SVG
 ## Siehe auch
 
 - {{SVGElement("font-face-src")}}
-- [SVG-Leitfaden: SVG fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)

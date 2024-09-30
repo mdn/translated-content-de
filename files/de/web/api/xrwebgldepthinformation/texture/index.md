@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die _schreibgeschützte_ **`texture`**-Eigenschaft der [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Schnittstelle ist ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), das Depth-Buffer-Informationen als undurchsichtige Textur enthält.
+Die _schreibgeschützte_ **`texture`**-Eigenschaft des [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Interfaces ist ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), der Tiefenpufferinformationen als eine undurchsichtige Textur enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture).
 
 ## Beispiele
 
-Verwenden Sie [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation), um GPU-Tiefeninformationen zu erhalten. Das zurückgegebene `XRWebGLDepthInformation`-Objekt enthält den `texture`-Puffer, der dann an eine Textur gebunden werden kann, und Tiefeninformationen können einem WebGL-Fragmentshader zur Verfügung gestellt werden.
+Verwenden Sie [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation), um die GPU-Tiefeninformation abzurufen. Das zurückgegebene `XRWebGLDepthInformation`-Objekt enthält den `texture`-Puffer, der dann an eine Textur gebunden werden kann, sodass die Tiefenpufferinformationen einem WebGL-Fragment-Shader zur Verfügung gestellt werden können.
 
 ```js
 const depthInfo = glBinding.getDepthInformation(view);

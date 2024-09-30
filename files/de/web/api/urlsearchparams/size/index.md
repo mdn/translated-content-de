@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`size`**-Eigenschaft, die schreibgeschützt ist, des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interfaces gibt die Gesamtanzahl der Suchparameter-Einträge an.
+Die **`size`** schreibgeschützte Eigenschaft der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) gibt die Gesamtzahl der Sucheintragparameter an.
 
 ## Wert
 
-Eine Zahl, die die Gesamtanzahl der Suchparameter-Einträge im [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt angibt.
+Eine Zahl, die die Gesamtanzahl der Sucheintragparameter im [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt angibt.
 
 ## Beispiele
 
-### Ermitteln der Anzahl der Suchparameter-Einträge
+### Ermitteln der Anzahl der Sucheintragparameter
 
-Sie können die Gesamtanzahl der Suchparameter-Einträge wie folgt ermitteln:
+Sie können die Gesamtanzahl der Sucheintragparameter folgendermaßen abrufen:
 
 ```js
 const searchParams = new URLSearchParams("c=4&a=2&b=3&a=1");
 searchParams.size; // 4
 ```
 
-Beachten Sie, dass der Parameter `a` zweimal angegeben wird, aber `size` die Anzahl aller gegebenen Einträge (4) und nicht 3 zurückgibt. Um die Anzahl der eindeutigen Schlüssel zu ermitteln, können Sie beispielsweise ein {{jsxref("Set")}} verwenden:
+Beachten Sie, wie der `a`-Parameter zweimal angegeben wird, aber `size` gibt die Anzahl aller angegebenen Einträge (4) und nicht 3 zurück. Um die Anzahl der eindeutigen Schlüssel zu erhalten, können Sie zum Beispiel ein {{jsxref("Set")}} verwenden:
 
 ```js
 [...new Set(searchParams.keys())].length; // 3
 ```
 
-### Überprüfen, ob Suchparameter existieren
+### Überprüfen, ob Sucheintragparameter existieren
 
-Die `size`-Eigenschaft ist nützlich, um zu überprüfen, ob überhaupt Suchparameter vorhanden sind:
+Die `size`-Eigenschaft ist nützlich, um zu überprüfen, ob überhaupt Sucheintragparameter vorhanden sind:
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2");

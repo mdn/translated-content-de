@@ -1,5 +1,5 @@
 ---
-title: "EXT_disjoint_timer_query: isQueryEXT()-Methode"
+title: "EXT_disjoint_timer_query: isQueryEXT() Methode"
 short-title: isQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/isQueryEXT
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.isQueryEXT()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt ist.
+Die **`EXT_disjoint_timer_query.isQueryEXT()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das
+übergebene Objekt ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt ist.
 
 ## Syntax
 
@@ -19,12 +21,13 @@ isQueryEXT(query)
 ### Parameter
 
 - `query`
-  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, das getestet werden soll.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, das überprüft werden soll.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das angegebene Objekt ein
-[`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt (`true`) ist oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein
+[`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt ist (`true`) oder nicht
+(`false`).
 
 ## Beispiele
 

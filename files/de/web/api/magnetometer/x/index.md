@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die **`x`** schreibgeschützte Eigenschaft des [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Interfaces gibt eine Zahl zurück, die das Magnetfeld um die x-Achse des Geräts angibt.
+Die **`x`**-Schreibgeschützte Eigenschaft der [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Schnittstelle gibt eine Zahl zurück, die das Magnetfeld um die x-Achse des Geräts angibt.
 
 ## Wert
 
-Ein {{jsxref('Number')}}.
+Eine {{jsxref('Number')}}.
 
 ## Beispiele
 
-Der Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im unten stehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Das Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let magSensor = new Magnetometer({ frequency: 60 });

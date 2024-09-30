@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPoint`**-Schnittstelle besitzt die **`z`**-Eigenschaft, die die Tiefenkoordinate eines Punkts im Raum angibt.
+Die **`DOMPoint`**-Schnittstelle hat die Eigenschaft **`z`**, die die Tiefenkoordinate eines Punktes im Raum angibt.
 
-Sofern Transformationen die Orientierung nicht verändert haben, liegt ein `z` von 0 in der Ebene des Bildschirms, wobei positive Werte sich vom Bildschirm in Richtung des Benutzers erstrecken und negative Werte in die Ferne hinter den Bildschirm zurückweichen.
+Sofern Transformationen die Ausrichtung nicht verändert haben, liegt bei einer `z` von 0 die Ebene des Bildschirms vor. Positive Werte erstrecken sich vom Bildschirm aus in Richtung des Benutzers, während negative Werte in die Entfernung hinter dem Bildschirm zurückgehen.
 
 ## Wert
 
-Ein doppelpräziser Gleitkommawert, der den Wert der _z_-Koordinate für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der _z_-Koordinate für den Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -26,4 +26,5 @@ Ein doppelpräziser Gleitkommawert, der den Wert der _z_-Koordinate für den Pun
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x), [`y`](/de/docs/Web/API/DOMPoint/y) und der Perspektivwert, [`w`](/de/docs/Web/API/DOMPoint/w).
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x),
+  [`y`](/de/docs/Web/API/DOMPoint/y), und der Perspektivenwert [`w`](/de/docs/Web/API/DOMPoint/w).

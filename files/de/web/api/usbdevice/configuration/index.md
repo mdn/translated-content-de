@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`configuration`** schreibgeschützte Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt für das aktuell ausgewählte Interface eines gekoppelten USB-Geräts zurück.
+Die schreibgeschützte Eigenschaft **`configuration`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt für das derzeit ausgewählte Interface eines verbundenen USB-Geräts zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet diese Eigenschaft, um das Vorhandensein einer `USBConfiguration`-Eigenschaft zu prüfen, um eine Konfiguration auszuwählen, bevor ein Interface beansprucht wird.
+Das folgende Beispiel verwendet diese Eigenschaft, um das Vorhandensein einer USBConfiguration-Eigenschaft zu testen, um eine Konfiguration auszuwählen, bevor es ein Interface beansprucht.
 
 ```js
 async function connectDevice(usbDevice) {

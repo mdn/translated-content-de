@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die Methode **`setResourceTimingBufferSize()`** legt die gewünschte Größe des Resource-Timing-Puffers des Browsers fest, der die `"resource"`-Performance-Einträge speichert.
+Die **`setResourceTimingBufferSize()`**-Methode legt die gewünschte Größe des Ressourcentimingspeichers des Browsers fest, in dem die Performance-Einträge vom Typ `"resource"` gespeichert werden.
 
-Die Spezifikation erfordert, dass der Resource-Timing-Puffer anfangs 250 oder größer ist.
+Die Spezifikation verlangt, dass der Ressourcentimingspeicher zunächst 250 oder größer ist.
 
-Um den Performance-Resource-Datenpuffer des Browsers zu leeren, verwenden Sie die Methode [`Performance.clearResourceTimings()`](/de/docs/Web/API/Performance/clearResourceTimings).
+Um den Speicher für Performance-Ressourcendaten des Browsers zu löschen, verwenden Sie die Methode
+[`Performance.clearResourceTimings()`](/de/docs/Web/API/Performance/clearResourceTimings).
 
-Um benachrichtigt zu werden, wenn der Resource-Timing-Puffer des Browsers voll ist, hören Sie auf das [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event)-Ereignis.
+Um benachrichtigt zu werden, wenn der Ressourcentimingspeicher des Browsers voll ist, verfolgen Sie das [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event)-Ereignis.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ setResourceTimingBufferSize(maxSize)
 ### Parameter
 
 - `maxSize`
-  - : Eine `number`, die die maximale Anzahl von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten darstellt, die der Browser in seinem Performance-Eintrags-Puffer halten soll.
+  - : Eine `number`, die die maximale Anzahl von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten darstellt, die der Browser im Performance-Eintragspeicher halten soll.
 
 ### Rückgabewert
 
@@ -33,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einstellen einer Resource-Timing-Puffergröße
+### Festlegen einer Ressourcentimingspeichergröße
 
 Der folgende Aufruf erlaubt 500 `"resource"`-Performance-Einträge in der Performance-Zeitleiste des Browsers.
 
@@ -41,7 +42,7 @@ Der folgende Aufruf erlaubt 500 `"resource"`-Performance-Einträge in der Perfor
 performance.setResourceTimingBufferSize(500);
 ```
 
-Wenn Sie die Puffergröße auf eine Zahl kleiner als die Anzahl der aktuellen Einträge im Puffer setzen, werden keine Einträge entfernt. Stattdessen rufen Sie zur Pufferlöschung [`Performance.clearResourceTimings()`](/de/docs/Web/API/Performance/clearResourceTimings) auf.
+Wenn Sie die Größe des Speichers auf eine Zahl setzen, die kleiner ist als die Anzahl der aktuellen Einträge im Speicher, werden keine Einträge entfernt. Um den Speicher zu leeren, rufen Sie stattdessen [`Performance.clearResourceTimings()`](/de/docs/Web/API/Performance/clearResourceTimings) auf.
 
 ```js
 performance.getEntriesByType("resource").length; // 20

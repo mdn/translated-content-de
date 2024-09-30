@@ -10,9 +10,11 @@ l10n:
 
 Die **`get()`**-Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Schnittstelle gibt ein angegebenes Element aus einem `RTCStatsReport` zurück.
 
-Elemente im `RTCStatsReport` werden durch eindeutige `id`-Werte identifiziert, die die überwachten Statistikobjekte darstellen, von denen die Statistiken abgeleitet sind. Das zurückgegebene Element ist eine Instanz eines der [Statistik-Wörterbuchobjekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types) und enthält Statistiken für das Objekt mit der angegebenen `id`. Der abgerufene Wert ist eine Referenz auf das Statistik-Wörterbuch, und jede Änderung an diesem Objekt wird es effektiv innerhalb des `RTCStatsReport`-Objekts modifizieren.
+Elemente im `RTCStatsReport` werden durch eindeutige `id`-Werte identifiziert, die die überwachten Statistikobjekte repräsentieren, aus denen die Statistiken abgeleitet werden.
+Das zurückgegebene Element wird eine Instanz eines der [Statistik-Wörterbuchobjekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types) sein und Statistiken für das Objekt mit der angegebenen `id` enthalten.
+Der abgerufene Wert ist eine Referenz auf das Statistik-Wörterbuch, und jede Änderung an diesem Objekt wird effektiv innerhalb des `RTCStatsReport`-Objekts modifiziert.
 
-Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.get()")}}.
+Die Methode verhält sich ansonsten genauso wie {{jsxref("Map.prototype.get()")}}.
 
 ## Syntax
 
@@ -23,7 +25,8 @@ get(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID des Elements angibt, das aus dem `RTCStatsReport`-Objekt zurückgegeben werden soll. IDs sind eindeutige Strings, die das überwachte Objekt identifizieren, von dem die entsprechenden Statistiken abgeleitet sind.
+  - : Ein String, der die ID des Elements angibt, das vom `RTCStatsReport`-Objekt zurückgegeben werden soll.
+    IDs sind eindeutige Zeichenfolgen, die das überwachte Objekt identifizieren, aus dem die entsprechenden Statistiken abgeleitet werden.
 
 ### Rückgabewert
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Methode **`getAllResponseHeaders()`** gibt alle Antwort-Header, getrennt durch [CRLF](/de/docs/Glossary/CRLF), als String zurück oder `null`, wenn keine Antwort empfangen wurde.
+Die Methode **`getAllResponseHeaders()`** des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) gibt alle Antwort-Header, getrennt durch [CRLF](/de/docs/Glossary/CRLF), als Zeichenkette zurück oder `null`, wenn keine Antwort empfangen wurde.
 
-Wenn ein Netzwerkfehler aufgetreten ist, wird ein leerer String zurückgegeben.
+Wenn ein Netzwerkfehler aufgetreten ist, wird eine leere Zeichenkette zurückgegeben.
 
 > [!NOTE]
 > Bei Multipart-Anfragen gibt dies die Header des _aktuellen_ Teils der Anfrage zurück, nicht vom ursprünglichen Kanal.
@@ -27,9 +27,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der alle Header der Antwort (außer denen, deren Feldname `Set-Cookie` ist) durch [CRLF](/de/docs/Glossary/CRLF) getrennt repräsentiert, oder `null`, wenn keine Antwort empfangen wurde. Wenn ein Netzwerkfehler aufgetreten ist, wird ein leerer String zurückgegeben.
+Eine Zeichenkette, die alle Antwort-Header darstellt (außer denen, deren Feldname `Set-Cookie` ist), getrennt durch [CRLF](/de/docs/Glossary/CRLF), oder `null`, wenn keine Antwort empfangen wurde. Bei einem Netzwerkfehler wird eine leere Zeichenkette zurückgegeben.
 
-Ein Beispiel dafür, wie ein roher Header-String aussieht:
+Ein Beispiel dafür, wie eine rohe Header-Zeichenkette aussieht:
 
 ```http
 date: Fri, 08 Dec 2017 21:04:30 GMT\r\n
@@ -45,14 +45,14 @@ content-length: 6502\r\n
 x-xss-protection: 1; mode=block\r\n
 ```
 
-Jede Zeile wird durch sowohl Wagenrücklauf- als auch Zeilenumbruch-Zeichen (`\r\n`) beendet. Diese dienen im Wesentlichen als Trennzeichen zwischen den einzelnen Headern.
+Jede Zeile wird durch sowohl Wagenrücklauf- als auch Zeilenvorschubzeichen (`\r\n`) beendet. Diese dienen im Wesentlichen als Trennzeichen, die jeden der Header voneinander abtrennen.
 
 > [!NOTE]
-> In modernen Browsern werden die Header-Namen gemäß der neuesten Spezifikation in Kleinbuchstaben zurückgegeben.
+> In modernen Browsern werden die Header-Namen gemäß der neuesten Spezifikation in Kleinschreibung zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel untersucht die Header im `readystatechange`-Ereignis der Anfrage. Der Code zeigt, wie man den rohen Header-String erhält, ihn in ein Array einzelner Header konvertiert und dann erstellt, wie man dieses Array verwendet, um eine Zuordnung der Header-Namen zu ihren Werten zu erstellen.
+Dieses Beispiel untersucht die Header im [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Ereignis der Anfrage. Der Code zeigt, wie man die rohe Header-Zeichenkette erhält, sie in ein Array einzelner Header umwandelt und anschließend eine Zuordnung der Header-Namen zu ihren Werten erstellt.
 
 ```js
 const request = new XMLHttpRequest();
@@ -80,13 +80,13 @@ request.onreadystatechange = () => {
 };
 ```
 
-Sobald dies erledigt ist, können Sie zum Beispiel:
+Sobald dies erledigt ist, können Sie beispielsweise:
 
 ```js
 const contentType = headerMap["content-type"];
 ```
 
-Dies erhält den Wert des {{httpheader("Content-Type")}} Headers in die Variable `contentType`.
+Dies erhält den Wert des {{httpheader("Content-Type")}}-Headers in der Variablen `contentType`.
 
 ## Spezifikationen
 
@@ -99,4 +99,4 @@ Dies erhält den Wert des {{httpheader("Content-Type")}} Headers in die Variable
 ## Siehe auch
 
 - [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
-- Setzen von Anfrage-Headern: [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)
+- Setzen von Anforderungs-Headern: [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)

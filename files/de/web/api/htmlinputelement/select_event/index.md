@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: select event"
+title: "HTMLInputElement: select Ereignis"
 short-title: select
 slug: Web/API/HTMLInputElement/select_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`select`**-Ereignis wird ausgelöst, wenn Text ausgewählt wurde.
+Das **`select`**-Ereignis wird ausgelöst, wenn ein Text ausgewählt wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("select", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Auswahlprotokoll
+### Auswahl-Protokollierer
 
 ```html
 <input value="Try selecting some text in this element." />

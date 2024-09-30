@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`loadEventEnd`** gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit unmittelbar nach Abschluss des [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlers des aktuellen Dokuments darstellt.
+Die **`loadEventEnd`**-Eigenschaft gibt ein schreibgeschütztes [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, das die Zeit unmittelbar nach dem Abschluss des [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlers des aktuellen Dokuments darstellt.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar nach Abschluss des [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlers des aktuellen Dokuments darstellt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die Zeit unmittelbar nach dem Abschluss des [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlers des aktuellen Dokuments darstellt.
 
 ## Beispiele
 
-### Messung der `load`-Ereignis-Handler-Zeit
+### Messung der Zeit des `load`-Ereignis-Handlers
 
-Die `loadEventEnd`-Eigenschaft kann verwendet werden, um zu messen, wie lange es dauert, um den [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handler zu verarbeiten.
+Die `loadEventEnd`-Eigenschaft kann verwendet werden, um zu messen, wie lange es dauert, den [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handler zu verarbeiten.
 
-Dies ist nützlich, um die Zeit von lang laufenden [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlern zu messen.
+Dies ist nützlich, um die Zeit von langen [`load`](/de/docs/Web/API/Window/load_event)-Ereignis-Handlern zu messen.
 
 ```js
 window.addEventListener("load", (event) => {
@@ -28,7 +28,7 @@ window.addEventListener("load", (event) => {
 });
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Leistungseinträge benachrichtigt, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellerstellung zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Performance-Einträge informiert, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -43,7 +43,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), welches nur die `navigation`-Leistungseinträge zeigt, die im Leistungstimeline des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitachse des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");
@@ -66,4 +66,4 @@ entries.forEach((entry) => {
 
 ## Siehe auch
 
-- [`load`](/de/docs/Web/API/Window/load_event) Ereignis
+- [`load`](/de/docs/Web/API/Window/load_event)-Ereignis

@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`stroke-opacity`** ist ein Präsentationsattribut, das die Opazität des Mal-Servers (_Farbe_, _Gradient_, _Muster_ usw.) definiert, der auf den Umriss einer Form angewendet wird.
+Das **`stroke-opacity`** Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbgebers (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf den Rand einer Form angewendet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-opacity` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-opacity')}} für mehr Informationen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -54,7 +54,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Nutzungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
   </tbody>
 </table>
 
-Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form überdeckt. Ein Umriss mit einer Opazität, die von `1` abweicht, zeigt teilweise die darunterliegende Füllung. Um diesen Effekt zu vermeiden, kann eine globale Opazität mit dem Attribut {{SVGAttr('opacity')}} angewendet werden oder der Umriss kann hinter die Füllung mit dem Attribut {{SVGAttr('paint-order')}} gelegt werden.
+Es ist wichtig zu wissen, dass der Rand teilweise die Füllung einer Form überdeckt. Ein Rand mit einer Deckkraft ungleich `1` wird die darunterliegende Füllung teilweise sichtbar machen. Um diesen Effekt zu vermeiden, kann eine globale Deckkraft mit dem {{SVGAttr('opacity')}} Attribut angewendet oder der Rand hinter die Füllung mit dem {{SVGAttr('paint-order')}} Attribut verschoben werden.
 
 ## Spezifikationen
 
@@ -92,14 +92,14 @@ Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form übe
 
 ## Siehe auch
 
-CSS-Eigenschaften:
+CSS Eigenschaften:
 
 - {{cssxref('stroke-opacity')}}
 - {{cssxref('stroke')}}
 - {{cssxref('opacity')}}
 - {{cssxref('fill-opacity')}}
 
-SVG-Attribute:
+SVG Attribute:
 
 - {{SVGAttr("stroke")}}
 - {{SVGAttr("opacity")}}

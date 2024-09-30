@@ -1,5 +1,5 @@
 ---
-title: CSS-Schriften
+title: CSS fonts
 slug: Web/CSS/CSS_fonts
 l10n:
   sourceCommit: a7d55b06a92d339bfdf109eef85c20a262ca9032
@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Schriften** Modul definiert Schriftbezogene Eigenschaften und wie Schriftressourcen geladen werden. Es ermöglicht Ihnen, den Stil einer Schrift zu definieren, wie deren Familie, Größe und Gewicht, sowie die Glyphenvarianten, die verwendet werden sollen, wenn mehrere für ein einzelnes Zeichen verfügbar sind.
+Das **CSS fonts** Modul definiert schriftbezogene Eigenschaften und wie Schriftartenressourcen geladen werden. Es ermöglicht Ihnen, den Stil einer Schriftart zu definieren, wie ihre Familie, Größe und Gewicht sowie die zu verwendenden Glyphenvarianten, wenn mehrere für ein einzelnes Zeichen verfügbar sind.
 
-Eine Schrift ist eine Ressourcendatei, die die visuelle Darstellung von Zeichen enthält und Zeichencodes auf Glyphen abbildet, die Buchstaben, Zahlen, Satzzeichen und sogar Emojis eines Schriftbildes darstellen. Eine Schriftfamilie ist eine Gruppe von Schriften, die gemeinsame Designstile und Schrifteigenschaften teilen, wobei jedes Mitglied der Gruppe verschiedene Möglichkeiten der Darstellung der Glyphen bietet, variierend in Strichstärke, Neigung oder relativer Breite, unter anderen Attributen. Eine Schrift stellt typischerweise einen einzelnen Stil eines Schriftbildes dar, wie z.B. Helvetica, das fett und kursiv ist. Eine Schriftfamilie ist der komplette Satz von Stilen. Die Einbindung einer solchen Schrift in ein Dokument oder Design erfolgt durch die Definition einer separaten `@font-face` Deklaration für jede Schriftressource.
+Eine Schriftart ist eine Ressourcendatei, die die visuelle Darstellung von Zeichen enthält, indem sie Zeichencodes Glyphen zuordnet, die Buchstaben, Zahlen, Satzzeichen und sogar Emojis einer Schriftart darstellen. Eine Schriftfamilie ist eine Gruppe von Schriftarten, die gemeinsame Designstile und Schriftsatzeigenschaften teilen, wobei jedes Mitglied der Gruppe verschiedene Möglichkeiten bietet, die Glyphen darzustellen, die sich durch Strichstärke, Neigung oder relative Breite, unter anderem, unterscheiden. Eine Schriftart repräsentiert typischerweise einen einzelnen Stil einer Schriftart, wie z.B. Helvetica, das fett und kursiv ist. Eine Schriftfamilie ist die vollständige Palette von Stilen. Der Einschluss einer solchen Schriftart in ein Dokument oder Design erfolgt durch die Definition einer separaten `@font-face` Deklaration für jede Schriftressource.
 
-Die Eigenschaften, At-Regeln und Deskriptoren des CSS-Schriften Moduls ermöglichen das Herunterladen mehrerer Variationen einer Schrift. Sie definieren auch die Schriftdatei, die für ein bestimmtes Schriftenmerkmal verwendet werden soll, sowie Rückfallanweisungen für den Fall, dass eine Ressource nicht geladen werden kann. Der CSS-Schriftselektionsmechanismus beschreibt den Prozess des Abgleichs eines gegebenen Satzes von CSS-Schrifteigenschaften mit einem einzigen Schriftschnitt.
+Die Eigenschaften, @-Regeln und Deskriptoren des CSS fonts Moduls ermöglichen das Herunterladen mehrerer Variationen einer Schriftart. Sie definieren auch die Schriftartdatei für eine bestimmte Schriftsatzeigenschaft zusammen mit Fallback-Anweisungen für den Fall, dass eine Ressource nicht geladen werden kann. Der CSS-Schriftauswahlmechanismus beschreibt den Prozess des Abgleichens einer gegebenen Menge von CSS-Schriftarteigenschaften mit einem einzelnen Schriftschnitt.
 
-Das CSS-Schriften Modul unterstützt auch variable Schriften. Im Gegensatz zu regulären Schriften, bei denen jeder Stil als separate Schriftdatei implementiert wird, können variable Schriften alle Stile innerhalb einer einzigen Datei enthalten. Mit einer einzigen `@font-face` Deklaration können Sie eine variable Schrift importieren, die alle Stile enthält. Abhängig von der Schrift können dies eine Vielzahl von Schriftvarianten sein. Variable Schriften sind Teil der OpenType-Schriftgestaltungsspezifikation.
+Das CSS fonts Modul unterstützt auch variable Schriftarten. Im Gegensatz zu regulären Schriftarten, bei denen jeder Stil als separate Schriftdatei implementiert ist, können variable Schriftarten alle Stile in einer einzigen Datei enthalten. Durch die Verwendung einer einzigen `@font-face` Deklaration können Sie eine variable Schriftart importieren, die alle Stile umfasst. Abhängig von der Schriftart kann dies eine Vielzahl von Schriftvarianten umfassen. Variable Schriftarten sind Teil der OpenType-Schriftartspezifikation.
 
 ## Referenz
 
 ### Eigenschaften
 
-- {{cssxref("font")}} Kurzform
+- {{cssxref("font")}} Abkürzung
 - {{cssxref("font-family")}}
 - {{cssxref("font-feature-settings")}}
 - {{cssxref("font-kerning")}}
@@ -32,12 +32,12 @@ Das CSS-Schriften Modul unterstützt auch variable Schriften. Im Gegensatz zu re
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
 
-- {{cssxref("font-synthesis")}} Kurzform
+- {{cssxref("font-synthesis")}} Abkürzung
 - {{cssxref("font-synthesis-small-caps")}}
 - {{cssxref("font-synthesis-style")}}
 - {{cssxref("font-synthesis-weight")}}
 
-- {{cssxref("font-variant")}} Kurzform
+- {{cssxref("font-variant")}} Abkürzung
 - {{cssxref("font-variant-alternates")}}
 - {{cssxref("font-variant-caps")}}
 - {{cssxref("font-variant-east-asian")}}
@@ -47,7 +47,7 @@ Das CSS-Schriften Modul unterstützt auch variable Schriften. Im Gegensatz zu re
 - {{cssxref("font-variant-position")}}
 - {{cssxref("font-variation-settings")}}
 
-### At-Regeln und Deskriptoren
+### At-Rules und Deskriptoren
 
 - At-Regel: {{cssxref("@font-face")}}
 
@@ -139,29 +139,29 @@ Das CSS-Schriften Modul unterstützt auch variable Schriften. Im Gegensatz zu re
 
 - [Lernen: Grundlegendes Text- und Schriftstyling](/de/docs/Learn/CSS/Styling_text/Fundamentals)
 
-  - : Dieser Lernartikel für Anfänger behandelt die grundlegenden Grundlagen des Text- und Schriftstylings. Es wird behandelt, wie das Schriftgewicht, die Familie und der Stil mit der {{cssxref("font")}} Kurzform gesetzt werden und wie Text ausgerichtet sowie Zeilen- und Buchstabenabstand verwaltet werden.
+  - : Dieser Lernartikel für Anfänger behandelt die grundlegenden Grundlagen des Text- und Schriftstylings. Er zeigt, wie Sie das Schriftgewicht, die Familie und den Stil mit der {{cssxref("font")}} Abkürzung setzen und wie Sie Text ausrichten und Zeilen- und Buchstabenabstände verwalten.
 
-- [Lernen: Webschriften](/de/docs/Learn/CSS/Styling_text/Web_fonts)
+- [Lernen: Web-Schriftarten](/de/docs/Learn/CSS/Styling_text/Web_fonts)
 
-  - : Dieser Lernartikel für Anfänger erklärt, wie Sie benutzerdefinierte Schriften auf Ihrer Webseite verwenden, um variierteres und benutzerdefiniertes Textstyling zu ermöglichen.
+  - : Dieser Lernartikel für Anfänger erklärt, wie Sie benutzerdefinierte Schriftarten auf Ihrer Webseite verwenden können, um ein vielfältigeres und individuelles Textstyling zu ermöglichen.
 
-- [OpenType-Schriftfunktionen Leitfaden](/de/docs/Web/CSS/CSS_fonts/OpenType_fonts_guide)
+- [OpenType-Schriftarten-Leitfaden](/de/docs/Web/CSS/CSS_fonts/OpenType_fonts_guide)
 
-  - : Schriftfunktionen oder Varianten beziehen sich auf verschiedene Glyphen oder Zeichenstile, die innerhalb einer OpenType-Schrift enthalten sind. Dazu gehören Dinge wie Ligaturen (besondere Glyphen, die Zeichen wie 'fi' oder 'ffl' kombinieren), Unterschneidung (Anpassungen des Abstands zwischen bestimmten Buchstabenkombinationen), Brüche, Zahlenstile und viele andere. Diese werden alle als OpenType-Funktionen bezeichnet und sind im Web über spezielle Eigenschaften und eine Low-Level-Steuerungseigenschaft — {{cssxref("font-feature-settings")}} — zugänglich. Dieser Artikel bietet Ihnen alles, was Sie über die Verwendung von OpenType-Schriftfunktionen in CSS wissen müssen.
+  - : Schriftartenmerkmale oder -varianten beziehen sich auf verschiedene Glyphen oder Zeichenstile, die in einer OpenType-Schriftart enthalten sind. Dazu gehören Dinge wie Ligaturen (besondere Glyphen, die Zeichen wie 'fi' oder 'ffl' kombinieren), Kerning (Anpassungen am Abstand zwischen bestimmten Buchstabenpaaren), Brüche, Zahlenstile und viele andere. Diese werden alle als OpenType-Features bezeichnet und stehen über spezifische Eigenschaften und eine niedrigstufige Steuerungseigenschaft — {{cssxref("font-feature-settings")}} — zur Verwendung im Web zur Verfügung. Dieser Artikel bietet Ihnen alles, was Sie über die Verwendung von OpenType-Schriftarten in CSS wissen müssen.
 
-- [Variable Schriften Leitfaden](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide)
+- [Variable-Schriftarten-Leitfaden](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide)
 
-  - : Dieser Artikel wird Ihnen helfen, mit der Verwendung von variablen Schriften zu beginnen.
+  - : Dieser Artikel hilft Ihnen beim Einstieg in die Verwendung von variablen Schriftarten.
 
-- [Schriftenleistung verbessern](/de/docs/Learn/Performance/CSS#improving_font_performance)
+- [Verbesserung der Schriftleistung](/de/docs/Learn/Performance/CSS#improving_font_performance)
 
-  - : Dieser Artikel, Teil des CSS-Leistungsleitfadens, behandelt das Laden von Schriften, das Laden nur der benötigten Glyphen und das Definieren des Schriftanzeigeverhaltens mit dem `font-display` Deskriptor.
+  - : Dieser Artikel, Teil des CSS-Performance-Leitfadens, behandelt das Laden von Schriftarten, das Laden nur der benötigten Glyphen und das Definieren des Schriftdarstellungsverhaltens mit dem `font-display` Deskriptor.
 
 ## Verwandte Konzepte
 
-- {{cssxref("letter-spacing")}} CSS-Eigenschaft
-- {{cssxref("line-height")}} CSS-Eigenschaft
-- {{cssxref("text-transform")}} CSS-Eigenschaft
+- {{cssxref("letter-spacing")}} CSS Eigenschaft
+- {{cssxref("line-height")}} CSS Eigenschaft
+- {{cssxref("text-transform")}} CSS Eigenschaft
 
 ## Spezifikationen
 
@@ -169,7 +169,7 @@ Das CSS-Schriften Modul unterstützt auch variable Schriften. Im Gegensatz zu re
 
 ## Siehe auch
 
-- [CSS-Schriftlade](/de/docs/Web/CSS/CSS_font_loading) Modul
-- [CSS-Schriftlade-API](/de/docs/Web/API/CSS_Font_Loading_API)
-- [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Schriftarten-Laden](/de/docs/Web/CSS/CSS_font_loading) Modul
+- [CSS-Schrift-Laden-API](/de/docs/Web/API/CSS_Font_Loading_API)
+- [CSS-Text](/de/docs/Web/CSS/CSS_text) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul

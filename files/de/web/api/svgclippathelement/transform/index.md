@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`transform`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)-Interfaces spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von Transformationen ist, die auf das Element angewendet werden.
+Die schreibgeschützte **`transform`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement) Interfaces spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von auf das Element angewendeten Transformationen darstellt.
 
 ## Wert
 

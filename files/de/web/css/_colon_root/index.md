@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Wurzelelement eines Baums, der das Dokument darstellt. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, außer dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
+Die CSS-Pseudoklasse **`:root`** entspricht dem Wurzelelement eines Baumes, der das Dokument darstellt. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, mit der Ausnahme, dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
 
 ```css
 /* Selects the root element of the document:

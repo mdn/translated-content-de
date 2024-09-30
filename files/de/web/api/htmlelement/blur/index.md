@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: `blur()` Methode"
+title: "HTMLElement: blur() Methode"
 short-title: blur()
 slug: Web/API/HTMLElement/blur
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLElement.blur()`** Methode entfernt den Tastaturfokus von dem aktuellen Element.
+Die **`HTMLElement.blur()`** Methode entfernt den Tastaturfokus vom aktuellen Element.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

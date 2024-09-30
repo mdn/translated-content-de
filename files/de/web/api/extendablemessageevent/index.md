@@ -7,39 +7,39 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`ExtendableMessageEvent`**-Schnittstelle der [Service Worker API](/de/docs/Web/API/Service_Worker_API) repräsentiert das Ereignisobjekt eines [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event)-Ereignisses, das in einem Service Worker ausgelöst wird (wenn im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eine Nachricht aus einem anderen Kontext empfangen wird) — und verlängert die Dauer solcher Ereignisse.
+Das **`ExtendableMessageEvent`** Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) repräsentiert das Ereignisobjekt eines [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event) Ereignisses, das auf einem Service Worker ausgelöst wird (wenn eine Nachricht auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) aus einem anderen Kontext empfangen wird) – es verlängert die Lebensdauer solcher Ereignisse.
 
-Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)-Schnittstelle.
+Dieses Interface erbt vom [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) Interface.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`ExtendableMessageEvent()`](/de/docs/Web/API/ExtendableMessageEvent/ExtendableMessageEvent)
-  - : Erstellt eine neue `ExtendableMessageEvent`-Objektinstanz.
+  - : Erstellt eine neue `ExtendableMessageEvent` Objektinstanz.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
+_Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 - [`ExtendableMessageEvent.data`](/de/docs/Web/API/ExtendableMessageEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Daten des Ereignisses zurück. Es kann sich um einen beliebigen Datentyp handeln. Wenn es im `messageerror`-Ereignis ausgelöst wird, ist die Eigenschaft `null`.
+  - : Gibt die Daten des Ereignisses zurück. Es kann sich um jeden Datentyp handeln. Wenn im `messageerror` Ereignis ausgelöst, wird die Eigenschaft `null` sein.
 - [`ExtendableMessageEvent.origin`](/de/docs/Web/API/ExtendableMessageEvent/origin) {{ReadOnlyInline}}
   - : Gibt den Ursprung des [`Client`](/de/docs/Web/API/Client) zurück, der die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.lastEventId`](/de/docs/Web/API/ExtendableMessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Repräsentiert bei [server-sent events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle.
 - [`ExtendableMessageEvent.source`](/de/docs/Web/API/ExtendableMessageEvent/source) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
+  - : Gibt eine Referenz des [`Client`](/de/docs/Web/API/Client) Objekts zurück, das die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.ports`](/de/docs/Web/API/ExtendableMessageEvent/ports) {{ReadOnlyInline}}
-  - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte darstellt, die die Ports des zugehörigen Nachrichtenkanals repräsentieren.
+  - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort) Objekte repräsentiert, die die Ports des zugehörigen Nachrichtenkanals darstellen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von ihrem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
+_Erbt Methoden von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 ## Beispiele
 
-Im folgenden Beispiel erhält eine Seite Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann die `postMessage()`-Funktion auf.
+Im untenstehenden Beispiel erhält eine Seite eine Referenz auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann seine `postMessage()` Funktion auf.
 
 ```js
 // in the page being controlled
@@ -57,7 +57,7 @@ if (navigator.serviceWorker) {
 }
 ```
 
-Der Service Worker kann die Nachricht empfangen, indem er dem `message`-Ereignis zugehört:
+Der Service Worker kann die Nachricht empfangen, indem er auf das `message` Ereignis hört:
 
 ```js
 // in the service worker
@@ -79,6 +79,6 @@ addEventListener("message", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)
+- [Die Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Beispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API)

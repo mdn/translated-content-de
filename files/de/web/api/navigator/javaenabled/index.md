@@ -1,5 +1,5 @@
 ---
-title: "Navigator: javaEnabled() Methode"
+title: "Navigator: javaEnabled()-Methode"
 short-title: javaEnabled()
 slug: Web/API/Navigator/javaEnabled
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Diese Methode gibt immer false zurück.
+Diese Methode gibt immer `false` zurück.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameter[bindings](/de/docs/Glossary/binding) mit demselben Namen erstellt und die Funktion keine [non-strict](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern ist.
+Die JavaScript-Ausnahme "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameterbindungen mit demselben Namen erstellt und die Funktion keine [non-strict](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern ist.
 
 ## Meldung
 
@@ -21,13 +21,13 @@ SyntaxError: Duplicate parameter 'x' not allowed in function with a rest paramet
 SyntaxError: Duplicate parameter 'x' not allowed in function with destructuring parameters. (Safari)
 ```
 
-## Fehlerart
+## Fehler-Typ
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler - das zweite Vorkommen würde das erste Vorkommen über den Parameternamen unzugänglich machen. In älterem JavaScript war dies erlaubt. Um bestehenden Code nicht zu brechen, ist dies nur ein Fehler, wenn der Code garantiert nicht alt ist - entweder weil er sich im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet oder moderne Parametersyntax verwendet ([rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter).
+Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler - das zweite Vorkommen würde das erste Vorkommen unzugänglich durch den Parameternamen machen. In legacy JavaScript war dies erlaubt. Um bestehende Codes nicht zu zerstören, ist dies nur ein Fehler, wenn der Code garantiert keine legacy ist - entweder weil er im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder moderne Parametersyntax verwendet ([rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter).
 
 ## Beispiele
 
@@ -64,4 +64,4 @@ function doSomething(name, user) {
 ## Siehe auch
 
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
-- [Strikter Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)

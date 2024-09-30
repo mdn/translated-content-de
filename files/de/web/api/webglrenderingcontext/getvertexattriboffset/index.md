@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode getVertexAttribOffset()"
+title: "WebGLRenderingContext: getVertexAttribOffset()-Methode"
 short-title: getVertexAttribOffset()
 slug: Web/API/WebGLRenderingContext/getVertexAttribOffset
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getVertexAttribOffset()`**-Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Adresse eines
-angegebenen Vertex-Attributs zurück.
+Die **`WebGLRenderingContext.getVertexAttribOffset()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) gibt die Adresse eines angegebenen Vertex-Attributs zurück.
 
 ## Syntax
 

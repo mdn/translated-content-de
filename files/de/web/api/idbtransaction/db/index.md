@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`db`**-Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt die Datenbankverbindung zurück,
-mit der diese Transaktion verknüpft ist.
+Die **`db`** schreibgeschützte Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt die Datenbankverbindung zurück, mit der diese Transaktion verknüpft ist.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Store hinzu. Beachten Sie auch die Funktionen, die den Transaktionsereignishandlern hinzugefügt wurden, um über das Ergebnis der Transaktionsöffnung im Erfolgs- oder Fehlerfall zu berichten. Am Ende geben wir die zugehörige Datenbankverbindung unter Verwendung von `db` zurück. Für ein vollständig funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion in unserer Datenbank und fügen einige Daten zu einem Objektspeicher hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignis-Handler angehängt sind, um das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder Fehlers zu melden. Am Ende geben wir die zugehörige Datenbankverbindung mit `db` zurück. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -101,5 +100,5 @@ function addData() {
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursor: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Live-Beispiel ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

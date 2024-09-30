@@ -12,9 +12,10 @@ Die **`preferredStyleSheetSet`**-Eigenschaft gibt das bevorzugte Stylesheet-Set 
 
 ## Wert
 
-Das bevorzugte Stylesheet-Set des Autors. Dies wird durch die Reihenfolge der Stylesheet-Deklarationen und den `Default-Style` HTTP-Header bestimmt.
+Das bevorzugte Stylesheet-Set des Autors. Dies wird durch die Reihenfolge der Stylesheet-Deklarationen und den
+`Default-Style`-HTTP-Header bestimmt.
 
-Wenn kein bevorzugtes Stylesheet-Set vom Autor definiert wurde, wird der leere String (`""`) zurückgegeben.
+Wenn kein bevorzugtes Stylesheet-Set vom Autor definiert ist, wird der leere String (`""`) zurückgegeben.
 
 ## Beispiele
 

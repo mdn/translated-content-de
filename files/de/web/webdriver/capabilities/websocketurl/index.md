@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Capabilities")}}
 
-Mit der Fähigkeit `webSocketUrl` auf `true` wird ein WebSocket-Server im Browser gestartet, der durch das Verwenden des [WebDriver BiDi-Protokolls](https://w3c.github.io/webdriver-bidi/) bidirektionale Kommunikation unterstützt. Wenn die [New Session](/de/docs/Web/WebDriver/Commands/NewSession)-Anfrage die Fähigkeit `webSocketUrl` auf `true` gesetzt hat und die Sitzung erfolgreich gestartet wird, hat das Feld `capabilities` in der Antwort eine `webSocketUrl`-Eigenschaft, die auf die URL des WebSocket-Servers gesetzt ist.
+Mit der `webSocketUrl`-Fähigkeit, die auf `true` gesetzt ist, wird ein WebSocket-Server im Browser gestartet, der bidirektionale Kommunikation durch das [WebDriver BiDi-Protokoll](https://w3c.github.io/webdriver-bidi/) unterstützt. Wenn die [New Session](/de/docs/Web/WebDriver/Commands/NewSession)-Anfrage die `webSocketUrl`-Fähigkeit auf `true` gesetzt hat und die Sitzung erfolgreich startet, wird der Wert des `capabilities`-Feldes in der Antwort eine `webSocketUrl`-Eigenschaft haben, die auf die URL des WebSocket-Servers gesetzt ist.
 
 ## Beispiel
 
-Anfordern der WebSocket-URL, indem die Fähigkeit `webSocketUrl` auf `true` gesetzt wird:
+Anfordern der WebSocket-URL, indem die `webSocketUrl`-Fähigkeit auf `true` gesetzt wird:
 
 Anfrage:
 

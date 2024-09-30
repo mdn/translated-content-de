@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`keys()`** Methode des [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) Interfaces ist ein Alias für [`CustomStateSet.values`](/de/docs/Web/API/CustomStateSet/values).
+Die **`keys()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle ist ein Alias für [`CustomStateSet.values`](/de/docs/Web/API/CustomStateSet/values).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das die Werte für jedes Element im angegebenen `CustomStateSet` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das die Werte für jedes Element im gegebenen `CustomStateSet` in Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Enumerieren Sie die Slots eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Slot enthält. Jeder Eintrag enthält den Namen des Slots und, wenn der Slot ein Token enthält, Informationen über das Token.
+Enumeriert die Slots eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Slot enthält. Jeder Eintrag enthält den Namen des Slots und, falls der Slot ein Token enthält, Informationen über das Token.
 
 Sie können dies nur für ein Modul aufrufen, das in Firefox installiert ist.
 
@@ -28,7 +28,7 @@ let getting = browser.pkcs11.getModuleSlots(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Slot, auf den das Modul Zugriff bietet. Jedes Objekt hat zwei Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Slot, auf den das Modul Zugriff gewährt. Jedes Objekt hat zwei Eigenschaften:
 
 - `name`: der Name des Slots
 - `token`: wenn ein Token in diesem Slot vorhanden ist, ein `Token`-Objekt. Wenn kein Token im Slot vorhanden ist, ist diese Eigenschaft `null`.
@@ -40,13 +40,13 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `manufacturer`
   - : `string`. Name des Herstellers des Tokens.
 - `HWVersion`
-  - : `string`. Hardware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0".
+  - : `string`. Hardware-Version, als eine PKCS #11 Versionsnummer (zwei 32-Bit Integer, getrennt durch einen Punkt, zum Beispiel "1.0").
 - `FWVersion`
-  - : `string`. Firmware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0".
+  - : `string`. Firmware-Version, als eine PKCS #11 Versionsnummer (zwei 32-Bit Integer, getrennt durch einen Punkt, zum Beispiel "1.0").
 - `serial`
-  - : `string`. Seriennummer, deren Format durch die Tokenspezifikation definiert ist.
+  - : `string`. Seriennummer, deren Format durch die Token-Spezifikation definiert ist.
 - `isLoggedIn`
-  - : `boolean`: `true`, wenn das Token bereits angemeldet ist, `false` andernfalls.
+  - : `boolean`: `true`, wenn das Token bereits angemeldet ist, `false` sonst.
 
 Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
@@ -56,7 +56,7 @@ Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wi
 
 ## Beispiele
 
-Installiert ein Modul, listet dann dessen Slots und die darin enthaltenen Tokens auf:
+Installiert ein Modul, listet dann seine Slots auf und die Tokens, die sie enthalten:
 
 ```js
 function onInstalled() {

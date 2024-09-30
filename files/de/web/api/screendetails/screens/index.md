@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`screens`**-Eigenschaft der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten enthält. Jedes dieser Objekte repräsentiert detaillierte Informationen über einen bestimmten Bildschirm, der auf dem Gerät des Benutzers verfügbar ist.
+Die schreibgeschützte Eigenschaft **`screens`** der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle enthält ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, wobei jedes Objekt detaillierte Informationen über einen bestimmten Bildschirm darstellt, der dem Gerät des Benutzers zur Verfügung steht.
 
 ## Wert
 
 Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten.
 
-> **Note:** `screens` umfasst nur "erweiterte" Displays, nicht solche, die ein anderes Display spiegeln.
+> **Note:** `screens` umfasst nur "erweiterte" Anzeigen, nicht solche, die eine andere Anzeige spiegeln.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von [`ScreenDetails`](/de/docs/Web/API/ScreenDetails#examples) für Beispielanwendungen an.
+Sehen Sie sich die Hauptseite von [`ScreenDetails`](/de/docs/Web/API/ScreenDetails#examples) für Anwendungsbeispiele an.
 
 ## Spezifikationen
 

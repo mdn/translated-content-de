@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: Methode substringData()"
+title: "CharacterData: substringData()-Methode"
 short-title: substringData()
 slug: Web/API/CharacterData/substringData
 l10n:
@@ -11,7 +11,7 @@ l10n:
 Die **`substringData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
 gibt einen Teil der vorhandenen Daten zurück,
 beginnend am angegebenen Index
-und danach für eine bestimmte Anzahl von Zeichen.
+und erstreckt sich über eine bestimmte Anzahl von Zeichen danach.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ und danach für eine bestimmte Anzahl von Zeichen.
 ### Parameter
 
 - `offset`
-  - : Der Index des ersten Zeichens, das in der zurückgegebenen Teilzeichenfolge enthalten sein soll.
-    `0` ist das erste Zeichen der Zeichenkette.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten ist.
+    `0` ist das erste Zeichen des Strings.
 - `count`
   - : Die Anzahl der zurückzugebenden Zeichen.
 
 ### Rückgabewert
 
-Ein String mit der Teilzeichenfolge.
+Ein String mit dem Teilstring.
 
 ### Ausnahmen
 

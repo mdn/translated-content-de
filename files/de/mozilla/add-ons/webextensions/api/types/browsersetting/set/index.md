@@ -7,23 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Verwenden Sie `BrowserSetting.set()`, um die Browsereinstellung auf einen neuen Wert zu ändern.
+Verwenden Sie `BrowserSetting.set()`, um die Browser-Einstellung auf einen neuen Wert zu ändern.
 
-Es gibt einige Regeln, die einschränken können, wann Erweiterungen in der Lage sind, Einstellungen zu ändern:
+Es gibt einige Regeln, die einschränken können, wann Erweiterungen Einstellungen ändern dürfen:
 
-- Einige Einstellungen sind gesperrt, sodass sie überhaupt nicht von Erweiterungen geändert werden können.
-- Wenn mehrere Erweiterungen versuchen, die gleiche Einstellung zu ändern, wird den Erweiterungen eine Vorrangordnung basierend auf ihrem Installationsdatum zugewiesen. Jüngere Erweiterungen haben Vorrang vor älteren.
+- Einige Einstellungen sind gesperrt und können von Erweiterungen überhaupt nicht geändert werden.
+- Wenn mehrere Erweiterungen versuchen, dieselbe Einstellung zu ändern, wird den Erweiterungen eine Vorrangordnung zugewiesen, basierend darauf, wann sie installiert wurden. Neuere Erweiterungen haben Vorrang vor älteren.
 
 Das bedeutet, wenn Erweiterung X versucht, eine Einstellung zu ändern:
 
-1. Wenn die Einstellung gesperrt ist, wird die Einstellung nicht geändert. Allerdings wird die Änderung von X gespeichert und in einer Warteschlange gespeichert, geordnet nach der Vorrangstellung von X im Verhältnis zu anderen Erweiterungen, die versucht haben, die Einstellung zu ändern. Wenn die Einstellung später entsperrt wird, darf die erste Erweiterung in der Warteschlange die Einstellung ändern.
-2. Andernfalls, wenn keine andere Erweiterung die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern, und wird dann gesagt, sie "kontrolliere" die Einstellung.
-3. Andernfalls, wenn eine Erweiterung Y mit niedrigerem Vorrang die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern, und kontrolliert sie nun. Allerdings wird die Änderung von Y gespeichert und in einer nach Vorrang geordneten Warteschlange gespeichert. Wenn X anschließend ihren Wert löscht oder X deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung der Einstellung vornehmen.
-4. Andernfalls, wenn eine Erweiterung Z mit höherem Vorrang die Einstellung bereits geändert hat, gelingt es X nicht, die Einstellung zu ändern, aber die Änderung wird in die Warteschlange gestellt. Wenn Z anschließend ihren Wert löscht oder Z deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung der Einstellung vornehmen.
+1. Wenn die Einstellung gesperrt ist, wird die Einstellung nicht geändert. X's Änderung wird jedoch gespeichert und in einer Warteschlange gespeichert, die nach X's Vorrang relativ zu anderen Erweiterungen, die versucht haben, die Einstellung zu ändern, geordnet ist. Wenn die Einstellung später entriegelt wird, darf die erste Erweiterung in der Warteschlange die Einstellung ändern.
+2. Andernfalls, wenn keine andere Erweiterung bereits die Einstellung geändert hat, ändert X die Einstellung erfolgreich und wird dann als "kontrollierend" für die Einstellung betrachtet.
+3. Andernfalls, wenn eine Erweiterung Y mit niedrigerem Vorrang bereits die Einstellung geändert hat, ändert X die Einstellung erfolgreich und kontrolliert nun die Einstellung. Die Änderung von Y wird jedoch gespeichert und in einer Vorrang-Warteschlange gespeichert. Wenn X seinen Wert später löscht oder wenn X deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung vornehmen.
+4. Andernfalls, wenn eine Erweiterung Z mit höherem Vorrang bereits die Einstellung geändert hat, dann gelingt es X nicht, die Einstellung zu ändern, aber seine Änderung wird in die Warteschlange gestellt. Wenn Z seinen Wert später löscht oder wenn Z deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung vornehmen.
 
-Eine Erweiterung kann herausfinden, welches dieser Szenarien zutrifft, indem sie die Eigenschaft "`levelOfControl`" untersucht, die von einem Aufruf von [`BrowserSetting.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/get) zurückgegeben wird.
+Eine Erweiterung kann herausfinden, welches dieser Szenarien zutrifft, indem sie die "`levelOfControl`"-Eigenschaft überprüft, die von einem Aufruf von [`BrowserSetting.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/get) zurückgegeben wird.
 
-Die Methode `BrowserSetting.set()` gibt ein Promise zurück, das sich in ein Boolean auflöst: Wenn ein Versuch, eine Einstellung zu ändern, tatsächlich dazu führt, dass die Einstellung geändert wird (Szenarien 2 und 3 oben), ist das Boolean `true`, andernfalls ist es `false`.
+Die Methode `BrowserSetting.set()` gibt ein Promise zurück, das auf einen Boolean aufgelöst wird: Wenn ein Versuch, eine Einstellung zu ändern, tatsächlich dazu führt, dass die Einstellung geändert wird (Szenarien 2 und 3 oben), ist der Boolean `true`: andernfalls ist er `false`.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
 
 ## Beispiel
 
-Ändern der Einstellung `hyperlinkAuditingEnabled` (dies erfordert die Berechtigung "privacy"):
+Ändern Sie die Einstellung `hyperlinkAuditingEnabled` (dies erfordert die Berechtigung "privacy"):
 
 ```js
 function onSet(result) {
@@ -74,4 +74,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.

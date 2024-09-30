@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Translations-Transformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu spezifizieren. Dies passt besser zu typischen Benutzeroberflächenanwendungen und erspart es Ihnen, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden sollen.
+Die **`translate`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen einzeln und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu spezifizieren. Dies passt besser zu typischer Benutzeroberflächennutzung und erspart das Erinnern der genauen Reihenfolge der Transformationsfunktionen, die im `transform`-Wert angegeben werden müssen.
 
 {{EmbedInteractiveExample("pages/css/translate.html")}}
 
@@ -38,28 +38,28 @@ translate: unset;
 
 ### Werte
 
-- Einzelner {{cssxref("&lt;length-percentage&gt;")}} Wert
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Translation entlang der X-Achse angibt. Entspricht einer `translate()` (2D-Translation) Funktion mit einem angegebenen Wert.
-- Zwei {{cssxref("&lt;length-percentage&gt;")}} Werte
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Translationswerte (jeweils) einer 2D-Translation angeben. Entspricht einer `translate()` (2D-Translation) Funktion mit zwei angegebenen Werten.
+- Einfache {{cssxref("&lt;length-percentage&gt;")}} Angabe
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das eine Übersetzung entlang der X-Achse spezifiziert. Entspricht einer `translate()`-Funktion (2D Translation) mit einem angegebenen Wert.
+- Zwei {{cssxref("&lt;length-percentage&gt;")}} Angaben
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen Übersetzungswerte (jeweils) einer 2D-Translation spezifizieren. Entspricht einer `translate()`-Funktion (2D Translation) mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen-Translationswerte (jeweils) einer 3D-Translation angeben. Entspricht einer `translate3d()` (3D-Translation) Funktion.
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen Übersetzungswerte (jeweils) einer 3D-Translation spezifizieren. Entspricht einer `translate3d()`-Funktion (3D Translation).
 - `none`
-  - : Gibt an, dass keine Translation angewendet werden soll.
+  - : Spezifiziert, dass keine Übersetzung angewendet werden soll.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Übersetzen eines Elements bei Hover
+### Übersetzung eines Elements bei Hover
 
-Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben. Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben. Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und erweckt den Anschein, sich aufgrund der Hinzufügung von {{cssxref('perspective')}} zum Elternelement auf den Betrachter zu zubewegen.
+Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben. Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben. Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und erweckt den Eindruck, auf den Betrachter zuzubewegen, da dem Elternelement {{cssxref('perspective')}} hinzugefügt wurde.
 
 #### HTML
 
@@ -117,5 +117,4 @@ Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein El
 - {{cssxref('rotate')}}
 - {{cssxref('transform')}}
 
-> [!NOTE]
-> skew ist kein unabhängiger Transformationswert.
+Note: skew ist kein unabhängiger Transformationswert

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode der {{jsxref("Iterator")}}-Instanzen ähnelt {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
+Die **`forEach()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes durch den Iterator produzierte Element aus.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ forEach(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Der Rückgabewert wird verworfen. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes durch den Iterator produzierte Element ausgeführt wird. Ihr Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuell verarbeitete Element.
+      - : Das aktuelle Element, das verarbeitet wird.
     - `index`
-      - : Der Index des aktuell verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das verarbeitet wird.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ forEach(callbackFn)
 
 ## Beschreibung
 
-`forEach()` iteriert den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Hilfsmethoden für Iteratoren funktioniert sie nicht gut mit unendlichen Iteratoren, da sie nicht lazy ist.
+`forEach()` iteriert über den Iterator und ruft die `callbackFn`-Funktion einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Helfer-Methoden von Iteratoren funktioniert es nicht gut mit unendlichen Iteratoren, da es nicht lazy ist.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ new Set([1, 2, 3]).values().forEach((v) => console.log(v));
 // 3
 ```
 
-Dies entspricht:
+Dies ist gleichwertig mit:
 
 ```js
 for (const v of new Set([1, 2, 3]).values()) {

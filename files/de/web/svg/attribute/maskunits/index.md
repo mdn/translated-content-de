@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`maskUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("mask") }}-Elements verwendet werden soll.
+Das **`maskUnits`**-Attribut gibt an, welches Koordinatensystem für die geometrischen Eigenschaften des {{ SVGElement("mask") }}-Elements verwendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -65,9 +65,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Maske
+## mask
 
-Für {{SVGElement('mask')}} definiert `maskUnits` das Koordinatensystem, das für die Geometrieattribute ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements verwendet wird.
+Für {{SVGElement('mask')}} definiert `maskUnits` das verwendete Koordinatensystem für die Geometrieattribute ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements.
 
 <table class="properties">
   <tbody>
@@ -87,9 +87,9 @@ Für {{SVGElement('mask')}} definiert `maskUnits` das Koordinatensystem, das fü
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass sich alle Koordinaten für die Geometrieattribute auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung der Maske definiert wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute sich auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung der Maske definiert wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute Bruchteile oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als äquivalent betrachtet werden, als ob der Inhalt der {{ SVGElement("mask") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
+  - : Dieser Wert zeigt an, dass alle Koordinaten für die Geometrieattribute Bruchteile oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als ähnlich betrachtet werden, als wäre der Inhalt des {{ SVGElement("mask") }} an einen `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden.
 
 ## Spezifikationen
 

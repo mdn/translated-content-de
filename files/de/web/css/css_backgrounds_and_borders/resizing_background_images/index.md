@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **{{cssxref("background-size")}}** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, das Hintergrundbild eines Elements zu skalieren, indem das Standardverhalten, das Bild in voller Größe zu kacheln, überschrieben wird. Dadurch kann das Bild nach Belieben vergrößert oder verkleinert werden.
+Die **{{cssxref("background-size")}}** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, das Hintergrundbild eines Elements zu skalieren, indem Sie das Standardverhalten des Kachelns des Bildes in seiner vollen Größe überschreiben, indem Sie die Breite und/oder Höhe des Bildes angeben. Auf diese Weise können Sie das Bild nach Bedarf vergrößern oder verkleinern.
 
-## Eine großes Bild kacheln
+## Kacheln eines großen Bildes
 
-Betrachten wir ein großes Bild, ein 2982x2808 Firefox-Logo. Wir möchten (aus irgendeinem Grund, der wahrscheinlich mit einem erschreckend schlechten Seitendesign zu tun hat) vier Kopien dieses Bildes in ein 300x300-Pixel-Element kacheln. Dazu können wir einen festen `background-size`-Wert von 150 Pixel verwenden.
+Betrachten wir ein großes Bild, ein 2982x2808 Firefox-Logo-Bild. Wir möchten (aus Gründen, die wahrscheinlich ein entsetzlich schlechtes Design der Website betreffen) vier Kopien dieses Bildes in ein 300x300-Pixel-Element kacheln. Dazu können wir einen festen `background-size` Wert von 150 Pixeln verwenden.
 
 ### HTML
 
@@ -36,9 +36,9 @@ Betrachten wir ein großes Bild, ein 2982x2808 Firefox-Logo. Wir möchten (aus i
 
 {{EmbedLiveSample("Tiling_a_large_image", 340, 340)}}
 
-## Ein Bild strecken
+## Dehnen eines Bildes
 
-Sie können auch sowohl die horizontale als auch die vertikale Größe des Bildes angeben, wie folgt:
+Sie können auch die horizontalen und vertikalen Größen des Bildes angeben, so:
 
 ```css
 background-size: 300px 150px;
@@ -48,9 +48,9 @@ Das Ergebnis sieht so aus:
 
 ![Firefox-Logo gestreckt](stretched_firefox_logo.png)
 
-## Ein Bild vergrößern
+## Hochskalieren eines Bildes
 
-Am anderen Ende des Spektrums können Sie ein Bild im Hintergrund vergrößern. Hier skalieren wir ein 32x32 Pixel Favicon auf 300x300 Pixel:
+Am anderen Ende des Spektrums können Sie ein Bild im Hintergrund hochskalieren. Hier skalieren wir ein 32x32 Pixel favicon auf 300x300 Pixel:
 
 ![MDN-Logo skaliert](scaled_mdn_logo.png)
 
@@ -66,15 +66,15 @@ Am anderen Ende des Spektrums können Sie ein Bild im Hintergrund vergrößern. 
 }
 ```
 
-Wie Sie sehen können, ist das CSS tatsächlich im Wesentlichen identisch, bis auf den Namen der Bilddatei.
+Wie Sie sehen können, ist das CSS tatsächlich im Wesentlichen identisch, abgesehen vom Namen der Bilddatei.
 
 ## Spezielle Werte: `contain` und `cover`
 
-Zusätzlich zu {{cssxref("&lt;length&gt;")}}-Werten bietet die {{cssxref("background-size")}} CSS-Eigenschaft zwei spezielle Größenwerte, `contain` und `cover`. Schauen wir uns diese an.
+Zusätzlich zu {{cssxref("&lt;length&gt;")}} Werten bietet die {{cssxref("background-size")}} CSS-Eigenschaft zwei spezielle Größenwerte, `contain` und `cover`. Schauen wir uns diese an.
 
 ### `contain`
 
-Der `contain`-Wert gibt an, dass das Hintergrundbild unabhängig von der Größe des umgebenden Kastens so skaliert werden soll, dass jede Seite so groß wie möglich ist, ohne die Länge der entsprechenden Seite des Containers zu überschreiten. Versuchen Sie, das Beispiel unten zu verändern, um dies in Aktion zu sehen.
+Der `contain` Wert gibt an, dass das Hintergrundbild unabhängig von der Größe des umgebenden Kastens so skaliert werden sollte, dass jede Seite so groß wie möglich ist, ohne die Länge der entsprechenden Seite des Containers zu überschreiten. Versuchen Sie, das folgende Beispiel zu skalieren, um dies in Aktion zu sehen.
 
 #### HTML
 
@@ -104,7 +104,7 @@ Der `contain`-Wert gibt an, dass das Hintergrundbild unabhängig von der Größe
 
 ### `cover`
 
-Der `cover`-Wert gibt an, dass das Hintergrundbild so dimensioniert sein soll, dass es so klein wie möglich ist, während sichergestellt wird, dass beide Dimensionen größer oder gleich der entsprechenden Größe des Containers sind. Versuchen Sie, das Beispiel unten zu verändern, um dies in Aktion zu sehen.
+Der `cover` Wert gibt an, dass das Hintergrundbild in einer Weise dimensioniert werden sollte, dass es so klein wie möglich ist, während sichergestellt wird, dass beide Dimensionen größer oder gleich der entsprechenden Größe des Containers sind. Versuchen Sie, das folgende Beispiel zu skalieren, um dies in Aktion zu sehen.
 
 #### HTML
 

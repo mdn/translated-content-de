@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGNumber`**-Schnittstelle entspricht dem {{cssxref("&lt;number&gt;")}}-Basisdatentyp.
+Die **`SVGNumber`**-Schnittstelle entspricht dem {{cssxref("&lt;number&gt;")}} Grunddatentyp.
 
-Ein `SVGNumber`-Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGNumber`-Objekt kann als schreibgeschützt gekennzeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`SVGNumber.value`](/de/docs/Web/API/SVGNumber/value)
 
-  - : Ein Float, der die Zahl darstellt.
+  - : Ein float, der die Zahl darstellt.
 
-    Hinweis: Wenn das `SVGNumber`-Objekt schreibgeschützt ist, wird bei einem Versuch, den Wert zu ändern, eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code NO_MODIFICATION_ALLOWED_ERR ausgelöst.
+    Hinweis: Wenn das `SVGNumber` schreibgeschützt ist, wird bei einem Versuch, den Wert zu ändern, eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code NO_MODIFICATION_ALLOWED_ERR ausgelöst.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden._
+_Diese Schnittstelle stellt keine spezifischen Methoden zur Verfügung._
 
 ## Spezifikationen
 

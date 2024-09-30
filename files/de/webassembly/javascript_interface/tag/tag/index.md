@@ -1,5 +1,5 @@
 ---
-title: WebAssembly.Tag()-Konstruktor
+title: WebAssembly.Tag() Konstruktor
 slug: WebAssembly/JavaScript_interface/Tag/Tag
 l10n:
   sourceCommit: 2c528c9e485b17846bb482534ac6b36dd666cc67
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.Tag()`**-Konstruktor erstellt ein neues [`WebAssembly.Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag)-Objekt.
+Der **`WebAssembly.Tag()`** Konstruktor erstellt ein neues [`WebAssembly.Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag) Objekt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ new WebAssembly.Tag(type)
 
   - : Wird ausgelöst, wenn mindestens eine der folgenden Bedingungen erfüllt ist:
     - Der `type`-Parameter ist kein Objekt.
-    - Die `type.parameters`-Eigenschaft wird nicht bereitgestellt.
+    - Die `type.parameters`-Eigenschaft wird nicht angegeben.
     - Die `type.parameters` enthält einen nicht unterstützten Datentyp.
 
 ## Beispiele
@@ -52,5 +52,5 @@ const tag = new WebAssembly.Tag({ parameters: ["i32", "i64"] });
 ## Siehe auch
 
 - [WebAssembly](/de/docs/WebAssembly) Übersicht
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

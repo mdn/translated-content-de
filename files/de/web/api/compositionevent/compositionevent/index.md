@@ -1,5 +1,5 @@
 ---
-title: "CompositionEvent: CompositionEvent() Konstruktor"
+title: "CompositionEvent: Konstruktor CompositionEvent()"
 short-title: CompositionEvent()
 slug: Web/API/CompositionEvent/CompositionEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Der **`CompositionEvent()`** Konstruktor erstellt ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Objekt.
+Der **`CompositionEvent()`**-Konstruktor erstellt ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Objekt.
 
 ## Syntax
 
@@ -21,17 +21,16 @@ new CompositionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es unterscheidet zwischen Groß- und Kleinschreibung und Browser setzen es auf `compositionstart`, `compositionupdate` oder `compositionend`.
+    Es ist case-sensitiv und Browser setzen es auf `compositionstart`, `compositionupdate` oder `compositionend`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das, _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_, die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften enthält:
     - `data` {{optional_inline}}
-      - : Ein String, der verwendet wird, um die [`data`](/de/docs/Web/API/CompositionEvent/data) Eigenschaft des neuen
-        [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu initialisieren. Von Browsern generierte Ereignisse setzen es auf die von der IME
-        Komposition erzeugten Zeichen.
+      - : Ein String, der verwendet wird, um die [`data`](/de/docs/Web/API/CompositionEvent/data)-Eigenschaft des neuen
+        [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu initialisieren. Von Browsern generierte Ereignisse setzen dies auf die von der IME-Zusammensetzung erzeugten Zeichen.
 
 ### Rückgabewert
 
-Ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Objekt.
+Ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -43,4 +42,4 @@ Ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Objekt.
 
 ## Siehe auch
 
-- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent), das Interface der Objekte, die es konstruiert.
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent), die Schnittstelle der Objekte, die es konstruiert.

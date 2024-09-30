@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`videoTracks`**-Eigenschaft bei [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt zurück, das alle [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekte auflistet, die die Videospuren des Mediaelements darstellen.
+Die schreibgeschützte **`videoTracks`**-Eigenschaft bei [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt zurück, welches alle [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekte auflistet, die die Videospuren des Medienelements repräsentieren.
 
-Die zurückgegebene Liste ist _live_; das bedeutet, dass sich die Inhalte der Liste dynamisch ändern, wenn Spuren zum Mediaelement hinzugefügt oder entfernt werden. Sobald Sie eine Referenz zu der Liste haben, können Sie Änderungen überwachen, um zu erkennen, wann neue Videospuren hinzugefügt oder bestehende entfernt werden. Siehe [VideoTrackList-Ereignisse](/de/docs/Web/API/VideoTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen an der Spurliste eines Mediaelements beobachten können.
+Die zurückgegebene Liste ist _live_; das bedeutet, dass sich die Inhalte der Liste dynamisch ändern, wenn Spuren zum Medienelement hinzugefügt oder daraus entfernt werden. Sobald Sie eine Referenz zur Liste haben, können Sie diese überwachen, um Änderungen zu erkennen, wenn neue Videospuren hinzugefügt oder vorhandene entfernt werden. Siehe [VideoTrackList-Ereignisse](/de/docs/Web/API/VideoTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen an der Spur-Liste eines Medienelements beobachten können.
 
 ## Wert
 
-Ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt, das die Liste der im Mediaelement enthaltenen Videospuren darstellt. Die Liste der Spuren kann über die Array-Notation oder über die Methode [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) des Objekts zugegriffen werden.
+Ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt, das die Liste der im Medienelement enthaltenen Videospuren repräsentiert. Die Liste der Spuren kann mit Array-Notation oder mit der [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById)-Methode des Objekts abgerufen werden.
 
-Jede Spur wird durch ein [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt repräsentiert, das Informationen über die Spur bereitstellt.
+Jede Spur wird durch ein [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt dargestellt, das Informationen über die Spur liefert.
 
 ## Spezifikationen
 

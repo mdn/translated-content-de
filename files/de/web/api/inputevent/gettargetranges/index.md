@@ -1,5 +1,5 @@
 ---
-title: "InputEvent: getTargetRanges()-Methode"
+title: "InputEvent: Methode getTargetRanges()"
 short-title: getTargetRanges()
 slug: Web/API/InputEvent/getTargetRanges
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`getTargetRanges()`**-Methode der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die bei einer Änderung am DOM betroffen sein würden, falls das `input`-Ereignis nicht abgebrochen wird.
+Die Methode **`getTargetRanges()`** der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die von einer Änderung des DOM betroffen sein werden, wenn das Eingabeereignis nicht abgebrochen wird.
 
-Dies ermöglicht es Webanwendungen, das Verhalten der Texterstellung vor der Änderung des DOM-Baums durch den Browser zu überschreiben und bietet mehr Kontrolle über `input`-Ereignisse, um die Leistung zu verbessern.
+Dies ermöglicht es Webanwendungen, das Textbearbeitungsverhalten zu überschreiben, bevor der Browser den DOM-Baum ändert, und bietet mehr Kontrolle über Eingabeereignisse, um die Leistung zu verbessern.
 
 Je nach Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erwartete Rückgabewert dieser Methode:
 
@@ -29,15 +29,16 @@ Je nach Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erw
       <td>leeres Array</td>
     </tr>
     <tr>
-      <td>Alle verbleibend</td>
+      <td>Alle übrigen</td>
       <td><code>contenteditable</code></td>
       <td>
         ein Array von
-        [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten in Verbindung mit dem Ereignis
+        [`StaticRange`](/de/docs/Web/API/StaticRange)- 
+        Objekten, die mit dem Ereignis verbunden sind
       </td>
     </tr>
     <tr>
-      <td>Alle verbleibend</td>
+      <td>Alle übrigen</td>
       <td>
         <a href="/de/docs/Web/HTML/Element/input"><code>input</code></a>
         oder <a href="/de/docs/Web/HTML/Element/textarea"><code>textarea</code></a>
@@ -65,9 +66,10 @@ Ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten.
 
 ## Beispiele
 
-### Feature-Erkennung
+### Merkmals-Erkennung
 
-Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und somit `getTargetRanges` unterstützt wird.
+Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und damit
+`getTargetRanges` unterstützt wird.
 
 ```js
 function isBeforeInputEventAvailable() {
@@ -78,9 +80,10 @@ function isBeforeInputEventAvailable() {
 }
 ```
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Das folgende Beispiel wählt ein `contenteditable`-Element aus und nutzt das [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)-Ereignis, um das Ergebnis von `getTargetRanges()` zu protokollieren.
+Das folgende Beispiel wählt ein `contenteditable`-Element aus und nutzt das
+[`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)-Ereignis, um das Ergebnis von `getTargetRanges()` zu protokollieren.
 
 ```js
 const editableElem = document.querySelector('[contenteditable="true"]');

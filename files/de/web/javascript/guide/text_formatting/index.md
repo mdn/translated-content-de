@@ -7,26 +7,26 @@ l10n:
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Numbers_and_dates", "Web/JavaScript/Guide/Regular_expressions")}}
 
-Dieses Kapitel führt Sie in die Arbeit mit Strings und Text in JavaScript ein.
+Dieses Kapitel führt ein, wie man mit Zeichenketten und Text in JavaScript arbeitet.
 
 ## Strings
 
-Der JavaScript-[String](/de/docs/Glossary/String)-Typ wird verwendet, um Textdaten darzustellen. Es handelt sich um eine Menge von „Elementen“ aus 16-Bit-Integer-Werten (UTF-16-Codeeinheiten). Jedes Element im String nimmt eine Position im String ein. Das erste Element befindet sich an Index 0, das nächste an Index 1 und so weiter. Die Länge eines Strings ist die Anzahl der darin enthaltenen Elemente. Sie können Strings mithilfe von String-Literalen oder String-Objekten erstellen.
+Der [String](/de/docs/Glossary/String) Typ in JavaScript wird verwendet, um textuelle Daten darzustellen. Es handelt sich um eine Menge von "Elementen" aus 16-Bit-Integer-Werten ohne Vorzeichen (UTF-16 Code-Einheiten). Jedes Element im String nimmt eine Position im String ein. Das erste Element befindet sich am Index 0, das nächste am Index 1, und so weiter. Die Länge eines Strings ist die Anzahl der Elemente darin. Sie können Strings mit Hilfe von String-Literalen oder String-Objekten erstellen.
 
 ### String-Literale
 
-Sie können einfache Strings erstellen, indem Sie entweder einfache oder doppelte Anführungszeichen verwenden:
+Sie können einfache Strings mit einfachen oder doppelten Anführungszeichen erstellen:
 
 ```js-nolint
 'foo'
 "bar"
 ```
 
-Komplexere Strings können mit Escape-Sequenzen erstellt werden:
+Fortgeschrittenere Strings können mit Escape-Sequenzen erstellt werden:
 
 #### Hexadezimale Escape-Sequenzen
 
-Die Zahl nach \x wird als [Hexadezimalzahl](https://en.wikipedia.org/wiki/Hexadecimal) interpretiert.
+Die Zahl nach \x wird als [hexadezimale](https://en.wikipedia.org/wiki/Hexadecimal) Nummer interpretiert.
 
 ```js-nolint
 "\xA9" // "©"
@@ -40,9 +40,9 @@ Die Unicode-Escape-Sequenzen erfordern mindestens vier hexadezimale Ziffern nach
 "\u00A9" // "©"
 ```
 
-#### Unicode-Codepoint-Escapes
+#### Unicode Code Point Escapes
 
-Mit Unicode-Codepoint-Escapes kann jedes Zeichen mit hexadezimalen Zahlen escapet werden, sodass es möglich ist, Unicode-Codepunkte bis zu `0x10FFFF` zu verwenden. Bei einfachen Unicode-Escapes ist es häufig notwendig, die Surrogathälften separat zu schreiben, um dasselbe Ergebnis zu erzielen.
+Mit Unicode Code Point Escapes kann jedes Zeichen mit hexadezimalen Zahlen entkommen werden, sodass es möglich ist, Unicode-Codepunkte bis zu `0x10FFFF` zu verwenden. Mit einfachen Unicode-Escapes ist es oft notwendig, die Surrogat-Hälften separat zu schreiben, um dasselbe Ergebnis zu erzielen.
 
 Siehe auch {{jsxref("String.fromCodePoint()")}} oder {{jsxref("String.prototype.codePointAt()")}}.
 
@@ -63,9 +63,9 @@ console.log(foo); // [String: 'foo']
 typeof foo; // 'object'
 ```
 
-Sie können jede der Methoden des `String`-Objekts auf einem String-Literalwert aufrufen—JavaScript konvertiert das String-Literal automatisch in ein temporäres `String`-Objekt, ruft die Methode auf und verwirft dann das temporäre `String`-Objekt. Sie können auch die `length`-Eigenschaft mit einem String-Literal verwenden.
+Sie können jede der Methoden des `String`-Objekts auf einen String-Literal-Wert aufrufen—JavaScript konvertiert den String-Literal-Wert automatisch zu einem temporären `String`-Objekt, ruft die Methode auf und verwirft dann das temporäre `String`-Objekt. Sie können auch die Eigenschaft `length` mit einem String-Literal verwenden.
 
-Sie sollten String-Literale verwenden, es sei denn, Sie müssen explizit ein `String`-Objekt verwenden, da `String`-Objekte ein kontraintuitives Verhalten haben können. Zum Beispiel:
+Sie sollten String-Literale verwenden, es sei denn, Sie müssen speziell ein `String`-Objekt verwenden, da `String`-Objekte ein widersprüchliches Verhalten haben können. Beispiel:
 
 ```js
 const firstString = "2 + 2"; // Creates a string literal value
@@ -74,7 +74,7 @@ eval(firstString); // Returns the number 4
 eval(secondString); // Returns a String object containing "2 + 2"
 ```
 
-Ein `String`-Objekt besitzt eine Eigenschaft, `length`, die die Anzahl der UTF-16-Codeeinheiten im String angibt. Zum Beispiel weist der folgende Code `helloLength` den Wert 13 zu, weil "Hello, World!" 13 Zeichen hat, die jeweils durch eine UTF-16-Codeeinheit dargestellt werden. Sie können auf jedes Codeeinheit mithilfe eines Array-Klammern-Stils zugreifen. Sie können einzelne Zeichen nicht ändern, da Strings unveränderliche array-ähnliche Objekte sind:
+Ein `String`-Objekt hat eine Eigenschaft, `length`, die die Anzahl der UTF-16-Codeeinheiten im String angibt. Zum Beispiel weist der folgende Code `helloLength` den Wert 13 zu, weil "Hello, World!" 13 Zeichen hat, die jeweils durch eine UTF-16-Codeeinheit dargestellt werden. Sie können auf jede Codeeinheit mit einer Array-Klammer-Syntax zugreifen. Sie können keine einzelnen Zeichen ändern, da Strings unveränderliche array-ähnliche Objekte sind:
 
 ```js
 const hello = "Hello, World!";
@@ -83,11 +83,11 @@ hello[0] = "L"; // This has no effect, because strings are immutable
 hello[0]; // This returns "H"
 ```
 
-Zeichen, deren Unicode-Skalare Werte größer als U+FFFF sind (wie einige seltene chinesische/japanische/koreanische/vietnamesische Zeichen und einige Emojis), werden in UTF-16 mit jeweils zwei Surrogatcodeeinheiten gespeichert. Zum Beispiel hat ein String, der das Einzelzeichen U+1F600 "Emoji grinsendes Gesicht" enthält, die Länge 2. Das Zugreifen auf die einzelnen Codeeinheiten in einem solchen String mittels eckiger Klammern kann unerwünschte Konsequenzen haben, wie die Bildung von Strings mit unpassenden Surrogatcodeeinheiten, entgegen dem Unicode-Standard. (Beispiele sollten dieser Seite hinzugefügt werden, nachdem MDN-Bug 857438 behoben ist.) Siehe auch {{jsxref("String.fromCodePoint()")}} oder {{jsxref("String.prototype.codePointAt()")}}.
+Zeichen, deren Unicode-Skalarwerte größer sind als U+FFFF (wie einige seltene chinesische/japanische/koreanische/vietnamesische Zeichen und einige Emojis), werden in UTF-16 mit jeweils zwei Surrogat-Codeeinheiten gespeichert. Beispielsweise hat ein String, der das einzelne Zeichen U+1F600 "Emoji grinning face" enthält, die Länge 2. Der Zugriff auf die einzelnen Codeeinheiten in einem solchen String mit eckigen Klammern kann unerwünschte Konsequenzen haben, wie die Bildung von Strings mit nicht übereinstimmenden Surrogat-Codeeinheiten, was gegen den Unicode-Standard verstößt. (Beispiele sollten dieser Seite hinzugefügt werden, nachdem der MDN-Fehler 857438 behoben ist.) Siehe auch {{jsxref("String.fromCodePoint()")}} oder {{jsxref("String.prototype.codePointAt()")}}.
 
-Ein `String`-Objekt hat verschiedene Methoden: zum Beispiel diejenigen, die eine Variation des Strings selbst zurückgeben, wie `substring` und `toUpperCase`.
+Ein `String`-Objekt bietet eine Vielzahl von Methoden: Zum Beispiel solche, die eine Variation des Strings selbst zurückgeben, wie `substring` und `toUpperCase`.
 
-Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusammen.
+Die folgende Tabelle fasst die Methoden von {{jsxref("String")}} Objekten zusammen.
 
 <table class="standard-table">
   <caption>
@@ -106,7 +106,7 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
         {{jsxref("String/codePointAt", "codePointAt()")}}
       </td>
       <td>
-        Gibt das Zeichen oder den Zeichencode an der angegebenen Position im
+        Gibt das Zeichen oder den Zeichen-Code an der angegebenen Position im
         String zurück.
       </td>
     </tr>
@@ -127,19 +127,19 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
         {{jsxref("String/includes", "includes()")}}
       </td>
       <td>
-        Gibt zurück, ob der String mit einem bestimmten String beginnt, endet
-        oder diesen enthält.
+        Gibt zurück, ob der String mit einem bestimmten String beginnt, endet oder
+        ihn enthält.
       </td>
     </tr>
     <tr>
       <td>{{jsxref("String/concat", "concat()")}}</td>
-      <td>Kombiniert den Text von zwei Strings und gibt einen neuen String zurück.</td>
+      <td>Verbindet den Text von zwei Strings und gibt einen neuen String zurück.</td>
     </tr>
     <tr>
       <td>{{jsxref("String/split", "split()")}}</td>
       <td>
-        Teilt ein <code>String</code>-Objekt in ein Array von Strings, indem es den
-        String in Substrings trennt.
+        Teilt ein <code>String</code>-Objekt in ein Array von Strings, indem der
+        String in Substrings aufgeteilt wird.
       </td>
     </tr>
     <tr>
@@ -152,8 +152,8 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
         {{jsxref("String/substr", "substr()")}}
       </td>
       <td>
-        Gibt das angegebene Teilstück des Strings zurück, entweder durch Angabe
-        des Start- und Endindexes oder des Startindexes sowie einer Länge.
+        Gibt den angegebenen Teil des Strings zurück, entweder durch Angabe der
+        Start- und Endindizes oder des Startindex und einer Länge.
       </td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
         {{jsxref("String/replace", "replace()")}}, {{jsxref("String/replaceAll", "replaceAll()")}},
         {{jsxref("String/search", "search()")}}
       </td>
-      <td>Arbeiten mit regulären Ausdrücken.</td>
+      <td>Arbeitet mit regulären Ausdrücken.</td>
     </tr>
     <tr>
       <td>
@@ -171,7 +171,7 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
       </td>
       <td>
         <p>
-          Gibt den String entweder in Klein- oder Großbuchstaben zurück.
+          Gibt den String in komplett kleingeschriebenem oder großgeschriebenem Format zurück.
         </p>
       </td>
     </tr>
@@ -184,26 +184,26 @@ Die folgende Tabelle fasst die Methoden von {{jsxref("String")}}-Objekten zusamm
     <tr>
       <td>{{jsxref("String/repeat", "repeat()")}}</td>
       <td>
-        Gibt einen String zurück, der aus den Elementen des Objekts besteht,
-        die die angegebenen Male wiederholt werden.
+        Gibt einen String zurück, der aus den wiederholten Elementen des Objekts
+        in der angegebenen Anzahl besteht.
       </td>
     </tr>
     <tr>
       <td>{{jsxref("String/trim", "trim()")}}</td>
-      <td>Trimmt Leerzeichen vom Anfang und Ende des Strings.</td>
+      <td>Entfernt Leerzeichen vom Anfang und Ende des Strings.</td>
     </tr>
   </tbody>
 </table>
 
-### Mehrzeilige Template-Literals
+### Mehrzeilige Template-Literale
 
-[Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) sind String-Literale, die eingebettete Ausdrücke ermöglichen. Sie können damit mehrzeilige Strings und Interpolationsfunktionen verwenden.
+[Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) sind String-Literale, die eingebettete Ausdrücke ermöglichen. Sie können mehrzeilige Strings und String-Interpolation mit ihnen verwenden.
 
-Template Literals werden durch Backticks ([Gravis](https://en.wikipedia.org/wiki/Grave_accent)) (`) anstatt durch doppelte oder einfache Anführungszeichen eingeschlossen. Template Literals können Platzhalter enthalten, die durch ein Dollarzeichen und geschweifte Klammern (`${expression}`) angezeigt werden.
+Template-Literale werden von Backticks ([Gravis](https://en.wikipedia.org/wiki/Grave_accent)) (` ` `) umschlossen, anstelle von doppelten oder einfachen Anführungszeichen. Template-Literale können Platzhalter enthalten, die durch das Dollarzeichen und geschweifte Klammern (`${expression}`) angegeben werden.
 
-#### Mehrzeilige
+#### Mehrzeilig
 
-Alle neuen Zeilenzeichen, die in den Quellcode eingefügt werden, sind Teil des Template-Literals. Mit normalen Strings müssten Sie die folgende Syntax verwenden, um mehrzeilige Strings zu erhalten:
+Alle neuen Zeilenzeichen, die in der Quelle eingefügt werden, sind Teil des Template-Literals. Bei normalen Strings müssten Sie folgende Syntax verwenden, um mehrzeilige Strings zu erhalten:
 
 ```js
 console.log(
@@ -214,7 +214,7 @@ string text line 2",
 // string text line 2"
 ```
 
-Um denselben Effekt mit mehrzeiligen Strings zu erzielen, können Sie jetzt schreiben:
+Um denselben Effekt mit mehrzeiligen Strings zu erzielen, können Sie jetzt Folgendes schreiben:
 
 ```js
 console.log(`string text line 1
@@ -225,7 +225,7 @@ string text line 2`);
 
 #### Eingebettete Ausdrücke
 
-Um Ausdrücke in normale Strings einzubetten, würden Sie die folgende Syntax verwenden:
+Um Ausdrücke innerhalb normaler Strings einzubetten, würden Sie folgende Syntax verwenden:
 
 ```js
 const five = 5;
@@ -236,7 +236,7 @@ console.log(
 // "Fifteen is 15 and not 20."
 ```
 
-Jetzt können Sie mit Template Literals den syntaktischen Zucker nutzen, um solche Substitutionen lesbarer zu machen:
+Jetzt können Sie mit Template-Literalen die syntaktische Zuckung verwenden, um solche Ersetzungen lesbarer zu machen:
 
 ```js
 const five = 5;
@@ -245,15 +245,15 @@ console.log(`Fifteen is ${five + ten} and not ${2 * five + ten}.`);
 // "Fifteen is 15 and not 20."
 ```
 
-Für weitere Informationen lesen Sie über [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+Weitere Informationen finden Sie im Artikel über [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
 
 ## Internationalisierung
 
-Das {{jsxref("Intl")}}-Objekt ist der Namensraum für die ECMAScript-Internationalisierungs-API, die sprachsensitiven String-Vergleich, Zahlenformatierung und Datums- und Uhrzeit-Formatierung bietet. Die Konstruktoren für {{jsxref("Intl.Collator")}}, {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.DateTimeFormat")}}-Objekte sind Eigenschaften des `Intl`-Objekts.
+Das {{jsxref("Intl")}}-Objekt ist der Namensraum für die ECMAScript Internationalization API, die sprachsensitive Zeichenfolgenvergleiche, Zahlenformate und Datums- und Uhrzeitformate bietet. Die Konstruktoren für {{jsxref("Intl.Collator")}}, {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.DateTimeFormat")}} Objekte sind Eigenschaften des `Intl`-Objekts.
 
-### Datums- und Uhrzeit-Formatierung
+### Datums- und Uhrzeitformatierung
 
-Das {{jsxref("Intl.DateTimeFormat")}}-Objekt ist nützlich zur Formatierung von Datum und Uhrzeit. Das folgende Beispiel formatiert ein Datum für Englisch, wie es in den Vereinigten Staaten verwendet wird. (Das Ergebnis ist in einer anderen Zeitzone unterschiedlich.)
+Das {{jsxref("Intl.DateTimeFormat")}}-Objekt ist nützlich für die Formatierung von Datum und Uhrzeit. Im Folgenden wird ein Datum für Englisch, wie in den Vereinigten Staaten verwendet, formatiert. (Das Ergebnis ist in einer anderen Zeitzone unterschiedlich.)
 
 ```js
 // July 17, 2014 00:00:00 UTC:
@@ -277,7 +277,7 @@ console.log(americanDateTime(july172014));
 
 ### Zahlenformatierung
 
-Das {{jsxref("Intl.NumberFormat")}}-Objekt ist nützlich zur Formatierung von Zahlen, beispielsweise Währungen.
+Das {{jsxref("Intl.NumberFormat")}}-Objekt ist nützlich für die Formatierung von Zahlen, beispielsweise Währungen.
 
 ```js
 const gasPrice = new Intl.NumberFormat("en-US", {
@@ -296,11 +296,11 @@ const hanDecimalRMBInChina = new Intl.NumberFormat("zh-CN-u-nu-hanidec", {
 console.log(hanDecimalRMBInChina.format(1314.25)); // ￥ 一,三一四.二五
 ```
 
-### Sortierung
+### Kollision
 
-Das {{jsxref("Intl.Collator")}}-Objekt ist nützlich zum Vergleichen und Sortieren von Strings.
+Das {{jsxref("Intl.Collator")}}-Objekt ist nützlich zum Vergleichen und Sortieren von Zeichenfolgen.
 
-Zum Beispiel gibt es im Deutschen tatsächlich zwei verschiedene Sortierreihenfolgen: _Telefonbuch_ und _Wörterbuch_. Die Telefonbuchsortierung betont den Klang, und es ist, als ob "ä", "ö" und so weiter vor dem Sortieren in "ae", "oe" und so weiter expandiert würden.
+Zum Beispiel gibt es im Deutschen tatsächlich zwei verschiedene Sortierreihenfolgen, _Telefonbuch_ und _Wörterbuch_. Die Telefonbuchsortierung betont den Klang, und es ist, als ob "ä", "ö" und so weiter vor dem Sortieren zu "ae", "oe" und so weiter ausgeweitet würden.
 
 ```js
 const names = ["Hochberg", "Hönigswald", "Holzman"];
@@ -312,7 +312,7 @@ console.log(names.sort(germanPhonebook.compare).join(", "));
 // "Hochberg, Hönigswald, Holzman"
 ```
 
-Einige deutsche Wörter konjugieren mit zusätzlichen Umlauten, daher ist es in Wörterbüchern sinnvoll, Umlauten beim Ordnen zu ignorieren (außer beim Ordnen von Wörtern, die sich _nur_ durch Umlaute unterscheiden: _schon_ vor _schön_).
+Einige deutsche Wörter werden mit zusätzlichen Umlauten konjugiert, daher ist es in Wörterbüchern sinnvoll, Umlauten zu ignorieren (außer beim Sortieren von Wörtern, die sich nur durch Umlaute unterscheiden: _schon_ vor _schön_).
 
 ```js
 const germanDictionary = new Intl.Collator("de-DE-u-co-dict");
@@ -322,6 +322,6 @@ console.log(names.sort(germanDictionary.compare).join(", "));
 // "Hochberg, Holzman, Hönigswald"
 ```
 
-Für weitere Informationen zur {{jsxref("Intl")}}-API siehe auch [Introducing the JavaScript Internationalization API](https://hacks.mozilla.org/2014/12/introducing-the-javascript-internationalization-api/).
+Weitere Informationen zur {{jsxref("Intl")}} API finden Sie im Artikel [Introducing the JavaScript Internationalization API](https://hacks.mozilla.org/2014/12/introducing-the-javascript-internationalization-api/).
 
 {{PreviousNext("Web/JavaScript/Guide/Numbers_and_dates", "Web/JavaScript/Guide/Regular_expressions")}}

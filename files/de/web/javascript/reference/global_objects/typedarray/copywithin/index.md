@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`copyWithin()`** Methode von {{jsxref("TypedArray")}} Instanzen kopiert flach einen Teil dieses typisierten Arrays an eine andere Position im selben typisierten Array und gibt dieses typisierte Array zurück, ohne seine Länge zu ändern. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.copyWithin()")}}.
+Die Methode **`copyWithin()`** von {{jsxref("TypedArray")}}-Instanzen kopiert flach einen Teil dieses typisierten Arrays an eine andere Position im selben typisierten Array und gibt dieses typisierte Array zurück, ohne dessen Länge zu ändern. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.copyWithin()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-copywithin.html")}}
 
@@ -21,11 +21,11 @@ copyWithin(target, start, end)
 ### Parameter
 
 - `target`
-  - : Nullbasierter Index, bei dem die Sequenz kopiert werden soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dies entspricht der Position, zu der das Element bei `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden auf aufeinanderfolgende Indizes kopiert.
+  - : Der nullbasierte Index, an den die Sequenz kopiert wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dies entspricht der Stelle, an die das Element bei `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden an nachfolgende Indizes kopiert.
 - `start`
-  - : Nullbasierter Index, ab dem begonnen wird, Elemente zu kopieren, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, ab dem die Elemente kopiert werden, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, bei dem das Kopieren von Elementen endet, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis, aber nicht einschließlich `end`.
+  - : Der nullbasierte Index, bei dem das Kopieren der Elemente endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis, aber nicht einschließlich `end`.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Das modifizierte typisierte Array.
 
 ## Beschreibung
 
-Für weitere Details siehe {{jsxref("Array.prototype.copyWithin()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Für weitere Details siehe {{jsxref("Array.prototype.copyWithin()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 

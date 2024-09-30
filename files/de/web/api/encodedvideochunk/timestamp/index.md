@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`timestamp`** des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
+Die schreibgeschützte Eigenschaft **`timestamp`** des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt eine ganze Zahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 

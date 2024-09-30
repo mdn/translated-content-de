@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Der **`TaskController()`** Konstruktor erstellt ein neues [`TaskController`](/de/docs/Web/API/TaskController)-Objekt und setzt optional die anfängliche [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) seines zugehörigen [`signal`](/de/docs/Web/API/TaskController#taskcontroller.signal).
+Der **`TaskController()`** Konstruktor erstellt ein neues [`TaskController`](/de/docs/Web/API/TaskController)-Objekt, bei dem optional die anfängliche [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) seines zugehörigen [`signal`](/de/docs/Web/API/TaskController#taskcontroller.signal) festgelegt wird.
 
-Wird keine Priorität festgelegt, wird die Signalpriorität standardmäßig auf [`user-visible`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible) gesetzt.
+Wird keine Priorität festgelegt, beträgt die Standardpriorität des Signals [`user-visible`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible).
 
 ## Syntax
 
@@ -37,7 +37,7 @@ Dieser Code zeigt, wie man einen Task-Controller erstellt, der ein Signal mit St
 const controller = new TaskController();
 ```
 
-Um einen Task-Controller zu erstellen, der eine spezifische Signalpriorität hat, übergeben Sie die `priority` als Eigenschaft des optionalen Arguments.
+Um einen Task-Controller mit einer spezifischen Signalpriorität zu erstellen, übergeben Sie die `priority` als Eigenschaft des optionalen Arguments.
 
 ```js
 controller2 = new TaskController({ priority: "user-blocking" });

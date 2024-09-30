@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechRecognitionEvent`** Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert das Ereignisobjekt für die [`result`](/de/docs/Web/API/SpeechRecognition/result_event) und [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event) Ereignisse und enthält alle Daten, die mit einem vorläufigen oder endgültigen Spracherkennungsergebnis verbunden sind.
+Die **`SpeechRecognitionEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert das Ereignisobjekt für die [`result`](/de/docs/Web/API/SpeechRecognition/result_event)- und [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event)-Ereignisse und enthält alle Daten, die mit einem vorläufigen oder endgültigen Ergebnis der Spracherkennung verbunden sind.
 
 {{InheritanceDiagram}}
 
@@ -16,17 +16,17 @@ Die **`SpeechRecognitionEvent`** Schnittstelle der [Web Speech API](/de/docs/Web
 _`SpeechRecognitionEvent` erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent/emma) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
+  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Repräsentation des Ergebnisses zurück.
 - [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent/interpretation) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
 - [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
-  - : Gibt den niedrigsten Indexwert des Ergebnisses in der [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) "Array" zurück, der tatsächlich geändert wurde.
+  - : Gibt den niedrigsten Indexwert im Ergebnis der [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) "Array" zurück, der tatsächlich geändert wurde.
 - [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results) {{ReadOnlyInline}}
-  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
+  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung repräsentiert.
 
 ## Beispiele
 
-Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 ```js
 recognition.onresult = (event) => {

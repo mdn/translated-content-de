@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Smoke-Test besteht aus funktionalen oder Unit-Tests kritischer Software-Funktionalitäten. Smoke-Tests werden vor weiteren, detaillierten Tests durchgeführt.
+Ein Smoke-Test besteht aus funktionalen oder Einheitentests kritischer Software-Funktionalitäten. Smoke-Testing erfolgt vor weiteren, ausführlichen Tests.
 
-Smoke-Tests beantworten Fragen wie
+Smoke-Tests beantworten Fragen wie:
 
 - "Startet das Programm korrekt?"
 - "Funktionieren die Hauptsteuerungstasten?"
-- "Können Sie ein einfaches leeres neues Test-Benutzerkonto speichern?"
+- "Können Sie ein einfaches, leeres neues Testbenutzerkonto speichern?"
 
-Wenn diese grundlegende Funktionalität fehlschlägt, hat es keinen Sinn, zu diesem Zeitpunkt Zeit in detailliertere QA-Arbeiten zu investieren.
+Wenn diese grundlegende Funktionalität fehlschlägt, lohnt es sich nicht, zu diesem Zeitpunkt mehr Zeit in detailliertere QA-Arbeiten zu investieren.
 
 ## Siehe auch
 

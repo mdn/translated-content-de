@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`pathname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den Pfad der URL für den Standort enthält. Wenn kein Pfad vorhanden ist, wird `pathname` leer sein; andernfalls enthält `pathname` ein initiales '/' gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder das Fragment.
+Die **`pathname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den Pfad der URL für die Position enthält. Wenn kein Pfad vorhanden ist, wird `pathname` leer sein; andernfalls enthält `pathname` ein anfängliches '/' gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder den Fragment.
 
 ## Wert
 

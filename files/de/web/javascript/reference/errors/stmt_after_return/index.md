@@ -7,30 +7,30 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Warnung "unerreichbarer Code nach return-Anweisung" tritt auf, wenn ein Ausdruck nach einer {{jsxref("Statements/return", "return")}}-Anweisung verwendet wird oder wenn eine Rückgabeanweisung ohne Semikolon verwendet wird, gefolgt von einem direkt darauf folgenden Ausdruck.
+Die JavaScript-Warnung "unreachable code after return statement" tritt auf, wenn Sie einen Ausdruck nach einer {{jsxref("Statements/return", "return")}}-Anweisung oder eine return-Anweisung ohne Semikolon verwenden, aber direkt danach einen Ausdruck einschließen.
 
-## Meldung
+## Nachricht
 
 ```plain
 Warning: unreachable code after return statement (Firefox)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 Warnung
 
 ## Was ist schiefgelaufen?
 
-Unerreichbarer Code nach einer return-Anweisung kann in diesen Situationen auftreten:
+Unerreichbarer Code nach einer return-Anweisung kann in folgenden Situationen auftreten:
 
 - Wenn ein Ausdruck nach einer {{jsxref("Statements/return", "return")}}-Anweisung verwendet wird, oder
-- wenn eine Rückgabeanweisung ohne Semikolon verwendet wird, gefolgt von einem direkt darauf folgenden Ausdruck.
+- wenn eine return-Anweisung ohne Semikolon verwendet wird, aber direkt danach ein Ausdruck eingeschlossen wird.
 
-Wenn ein Ausdruck nach einer gültigen `return`-Anweisung existiert, wird eine Warnung ausgegeben, um anzuzeigen, dass der Code nach der `return`-Anweisung nicht erreichbar ist, das heißt, er kann nie ausgeführt werden.
+Wenn ein Ausdruck nach einer gültigen `return`-Anweisung existiert, wird eine Warnung ausgegeben, um anzuzeigen, dass der Code nach der `return`-Anweisung unerreichbar ist, was bedeutet, dass er niemals ausgeführt werden kann.
 
-Warum sollte ich Semikolons nach `return`-Anweisungen setzen? Im Fall von Rückgabeanweisungen ohne Semikolon kann es unklar sein, ob der Entwickler beabsichtigt, die Anweisung in der folgenden Zeile zurückzugeben oder die Ausführung zu beenden und zurückzukehren. Die Warnung weist darauf hin, dass es eine Mehrdeutigkeit in der Art gibt, wie die `return`-Anweisung geschrieben ist.
+Warum sollte ich Semikolons nach `return`-Anweisungen verwenden? Bei return-Anweisungen ohne Semikolon kann es unklar sein, ob der Entwickler beabsichtigte, die Anweisung in der folgenden Zeile zurückzugeben oder die Ausführung zu stoppen und zurückzukehren. Die Warnung weist darauf hin, dass es eine Zweideutigkeit in der Art und Weise gibt, wie die `return`-Anweisung geschrieben ist.
 
-Warnungen werden nicht angezeigt für Rückgabeanweisungen ohne Semikolon, wenn diesen Anweisungen Folgendes folgt:
+Warnungen werden nicht für return-Anweisungen ohne Semikolon angezeigt, wenn diesen Anweisungen folgende Anweisungen folgen:
 
 - {{jsxref("Statements/throw", "throw")}}
 - {{jsxref("Statements/break", "break")}}
@@ -72,4 +72,4 @@ function g() {
 
 ## Siehe auch
 
-- [Automatische Semikolon-Einfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)
+- [Automatische Semikoloneinfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)

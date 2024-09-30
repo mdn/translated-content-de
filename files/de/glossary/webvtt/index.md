@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-WebVTT (Web Video Text Tracks) ist eine [W3C](/de/docs/Glossary/W3C)-Spezifikation für ein Dateiformat, das Textspurenressourcen in Kombination mit dem HTML-{{HTMLElement("track")}}-Element auszeichnet.
+WebVTT (Web Video Text Tracks) ist eine [W3C](/de/docs/Glossary/W3C)-Spezifikation für ein Dateiformat zur Auszeichnung von Textspur-Ressourcen in Kombination mit dem HTML-{{HTMLElement("track")}}-Element.
 
-WebVTT-Dateien bieten Metadaten, die zeitlich mit Audio- oder Videoinhalten wie Untertiteln oder Untertitelungen für Videoinhalte, textliche Videobeschreibungen, Kapiteln für die Inhaltsnavigation und mehr synchronisiert sind.
+WebVTT-Dateien bieten Metadaten, die zeitlich mit Audio- oder Videoinhalten abgestimmt sind, wie z.B. Untertitel oder Übersetzungen für Videoinhalte, textliche Videobeschreibungen, Kapitel für die Inhaltsnavigation und mehr.
 
 ## Siehe auch
 

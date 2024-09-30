@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die statische Zugriffseigenschaft **`Array[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus Array-Methoden zu konstruieren.
+Die statische Zugriffs-eigenschaft **`Array[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus Array-Methoden zu konstruieren.
 
 > [!WARNING]
-> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von willkürlichem Code und kann Sicherheitslücken schaffen. Es macht auch bestimmte Optimierungen erheblich schwieriger. Entwickler der Engines [untersuchen, ob diese Funktion entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie, sich darauf zu verlassen, wenn möglich. Moderne Array-Methoden, wie zum Beispiel {{jsxref("Array/toReversed", "toReversed()")}}, verwenden `[Symbol.species]` nicht und geben immer eine neue Instanz der `Array`-Basisklasse zurück.
+> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Außerdem erschwert sie bestimmte Optimierungen erheblich. Entwickler von Engines untersuchen, [ob diese Funktion entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich nach Möglichkeit darauf zu verlassen. Moderne Array-Methoden, wie {{jsxref("Array/toReversed", "toReversed()")}}, verwenden `[Symbol.species]` nicht und geben immer eine neue Instanz der `Array`-Basisklasse zurück.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ Array[Symbol.species]
 
 ### Rückgabewert
 
-Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte von Array-Methoden zu konstruieren, die neue Arrays erstellen.
+Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte aus Array-Methoden zu konstruieren, die neue Arrays erstellen.
 
 ## Beschreibung
 
-Die `[Symbol.species]` Zugriffseigenschaft gibt den Standardkonstruktor für `Array`-Objekte zurück. Konstruktoren von Unterklassen können sie überschreiben, um die Konstruktorzuweisung zu ändern. Die Standardimplementierung ist im Wesentlichen:
+Die `[Symbol.species]` Zugriffs-eigenschaft gibt den Standardkonstruktor für `Array`-Objekte zurück. Unterklassenkonstruktoren können sie überschreiben, um die Zuweisung des Konstruktors zu ändern. Die Standardimplementierung ist im Wesentlichen:
 
 ```js
 // Hypothetical underlying implementation for illustration
@@ -35,14 +35,14 @@ class Array {
 }
 ```
 
-Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig ebenfalls den Konstruktor selbst zurückgeben.
+Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig auch den Konstruktor selbst zurückgeben.
 
 ```js
 class SubArray extends Array {}
 SubArray[Symbol.species] === SubArray; // true
 ```
 
-Beim Aufrufen von Array-Methoden, die das bestehende Array nicht verändern, sondern eine neue Array-Instanz zurückgeben (zum Beispiel, [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) und [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), wird das `constructor[Symbol.species]` des Arrays abgerufen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Methode zu konstruieren. Dadurch ist es technisch möglich, dass Array-Methoden Objekte zurückgeben, die nicht mit Arrays verwandt sind.
+Wenn Array-Methoden aufgerufen werden, die das bestehende Array nicht ändern, sondern eine neue Array-Instanz zurückgeben (zum Beispiel [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) und [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), wird auf den `constructor[Symbol.species]` des Arrays zugegriffen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Methode zu konstruieren. Es ist damit technisch möglich, dass Array-Methoden Objekte zurückgeben, die nicht mit Arrays verwandt sind.
 
 ```js
 class NotAnArray {
@@ -62,7 +62,7 @@ arr.concat([1, 2]); // NotAnArray { '0': 0, '1': 1, '2': 2, '3': 1, '4': 2, leng
 
 ### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktorfunktion zurück, die für `Array` der `Array`-Konstruktor ist.
+Die `[Symbol.species]`-Eigenschaft gibt die Standard-Konstruktorfunktion zurück, die der `Array`-Konstruktor für `Array` ist.
 
 ```js
 Array[Symbol.species]; // [Function: Array]
@@ -70,7 +70,7 @@ Array[Symbol.species]; // [Function: Array]
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `Array`-Unterklasse, wie `MyArray`, ist die `MyArray`-Species der `MyArray`-Konstruktor. Sie könnten dies jedoch überschreiben wollen, um in Ihren abgeleiteten Klassenmethoden Eltern-`Array`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `Array`-Unterklasse, wie `MyArray`, ist die `MyArray`-Species der `MyArray`-Konstruktor. Sie möchten dies jedoch möglicherweise überschreiben, um Eltern-`Array`-Objekte in Ihren Methoden der abgeleiteten Klasse zurückzugeben:
 
 ```js
 class MyArray extends Array {
@@ -92,6 +92,6 @@ class MyArray extends Array {
 ## Siehe auch
 
 - [Polyfill von `Array[Symbol.species]` und Unterstützung von `[Symbol.species]` in allen betroffenen `Array`-Methoden in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Symbol.species")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`search()`** Funktion der {{WebExtAPIRef("downloads")}} API durchsucht die im Download-Manager des Browsers verfügbaren {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} und gibt diejenigen zurück, die den angegebenen Suchkriterien entsprechen.
+Die **`search()`** Funktion der {{WebExtAPIRef("downloads")}} API fragt die im Download-Manager des Browsers verfügbaren {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} ab und gibt diejenigen zurück, die den angegebenen Suchkriterien entsprechen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -32,7 +32,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das P
 
 ## Beispiele
 
-Im Allgemeinen schränken Sie die abgerufenen Elemente mit dem `query` Parameter ein.
+Im Allgemeinen beschränken Sie die abgerufenen Elemente unter Verwendung des `query` Parameters.
 
 ### Downloads abrufen, die "query" entsprechen
 
@@ -57,7 +57,7 @@ browser.downloads
 
 ### Ein spezifisches Element abrufen
 
-Um ein spezifisches {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} zu erhalten, ist es am einfachsten, nur das `id` Feld festzulegen, wie im folgenden Codeausschnitt gezeigt:
+Um einen bestimmten {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} zu erhalten, ist es am einfachsten, nur das Feld `id` zu setzen, wie im folgenden Beispiel gezeigt:
 
 ```js
 function logDownloads(downloads) {
@@ -127,35 +127,31 @@ Sie können diesen Code in unserem [latest-download](https://github.com/mdn/webe
 > Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-search) API von Chromium.
 
 <!--
-// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Die Weitergabe und Nutzung in sowohl nicht modifizierter als auch
-// modifizierter Form sind unter folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weitergaben des Quellcodes müssen den obigen Urheberrechtshinweis,
-//      diese Liste der Bedingungen und den folgenden Haftungsausschluss
-//      enthalten.
-//    * Weitergaben in binärer Form müssen den obigen Urheberrechtshinweis,
-//      diese Liste der Bedingungen und den folgenden Haftungsausschluss
-//      in der Dokumentation und/oder anderen Materialien enthalten, die mit
-//      der Weitergabe verteilt werden.
-//    * Weder der Name von Google Inc. noch die Namen der Mitwirkenden
-//      dürfen zur Unterstützung oder Werbung für Produkte, die von dieser
-//      Software abgeleitet wurden, ohne spezifische vorherige schriftliche
-//      Genehmigung verwendet werden.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VOM COPYRIGHT-INHABER UND DEN BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
-// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF
-// DIE IMPLIZIERTE GEWÄHRLEISTUNG DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SIND DER
-// COPYRIGHT-INHABER ODER DIE BEITRAGENDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN,
-// ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN HAFTBAR (EINSCHLIESSLICH,
-// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN;
-// NUTZUNGSAUSFALL, DATEN- ODER GEWINNAUSFALL; GESCHÄFTSUNTERBRECHUNG),
-// WIE AUCH IMMER VERURSACHT UND DURCH JEGLICHE HAFTUNGSTHEORIE,
-// OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE DURCH DIE
-// NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT EINES SOLCHEN SCHADENS
-// HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

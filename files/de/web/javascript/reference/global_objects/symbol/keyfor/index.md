@@ -7,8 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.keyFor()`**-statische Methode ruft einen gemeinsamen Schlüsselsymbol
-aus dem globalen Symbol-Register für das gegebene Symbol ab.
+Die statische Methode **`Symbol.keyFor()`** ruft einen gemeinsamen Symbolschlüssel aus dem globalen Symbolregister für das angegebene Symbol ab.
 
 {{EmbedInteractiveExample("pages/js/symbol-keyfor.html")}}
 
@@ -25,7 +24,7 @@ Symbol.keyFor(sym)
 
 ### Rückgabewert
 
-Ein String, der den Schlüssel für das gegebene Symbol darstellt, falls einer im [globalen Register](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) gefunden wird; andernfalls {{jsxref("undefined")}}.
+Ein String, der den Schlüssel für das gegebene Symbol darstellt, wenn einer im [globalen Register](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) gefunden wird; andernfalls {{jsxref("undefined")}}.
 
 ## Beispiele
 

@@ -8,15 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`queueMicrotask()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces reiht eine Microtask ein, die zu einem sicheren Zeitpunkt ausgeführt wird, bevor die Kontrolle an die Ereignisschleife des Browsers zurückgegeben wird.
+Die **`queueMicrotask()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle
+reiht eine Mikrotask ein, die zu einem sicheren Zeitpunkt vor der Rückgabe der Kontrolle an die
+Eventschleife des Browsers ausgeführt wird.
 
-Die Microtask ist eine kurze Funktion, die nach Abschluss der aktuellen Aufgabe ausgeführt wird und wenn kein anderer Code darauf wartet, ausgeführt zu werden, bevor die Kontrolle des Ausführungskontextes an die Ereignisschleife des Browsers zurückgegeben wird.
+Die Mikrotask ist eine kurze Funktion, die ausgeführt wird, nachdem
+die aktuelle Aufgabe ihre Arbeit abgeschlossen hat und wenn kein anderer Code darauf wartet,
+ausgeführt zu werden, bevor die Kontrolle des Ausführungskontextes an die Eventschleife des Browsers übergeben wird.
 
-Dies ermöglicht es Ihrem Code, ohne Beeinträchtigung anderer potenziell höher priorisierter Aufgaben ausgeführt zu werden, aber bevor der Browser die Kontrolle über den Ausführungskontext zurückerhält, abhängig von der Arbeit, die Sie abschließen müssen. Sie können mehr über die Verwendung von Microtasks und warum Sie sich dafür entscheiden könnten, in unserem [Microtask-Leitfaden](/de/docs/Web/API/HTML_DOM_API/Microtask_guide) erfahren.
+Dies ermöglicht es Ihrem Code, auszuführen, ohne andere möglicherweise höher
+priorisierte, ausstehende Codes zu stören, aber bevor der Browser die Kontrolle über den
+Ausführungskontext zurückerhält, möglicherweise basierend auf der Arbeit, die Sie abschließen müssen. Mehr über die Verwendung von Mikrotasks und warum Sie sich dafür entscheiden könnten, erfahren Sie in unserem [Mikrotask-Leitfaden](/de/docs/Web/API/HTML_DOM_API/Microtask_guide).
 
-Die Bedeutung von Microtasks liegt in ihrer Fähigkeit, Aufgaben asynchron, aber in einer bestimmten Reihenfolge, auszuführen. Weitere Details finden Sie unter [Verwendung von Microtasks in JavaScript mit `queueMicrotask()`](/de/docs/Web/API/HTML_DOM_API/Microtask_guide).
+Die Bedeutung von Mikrotasks liegt in ihrer Fähigkeit, Aufgaben asynchron, aber in einer bestimmten Reihenfolge auszuführen. Weitere Details finden Sie unter [Verwendung von Mikrotasks in JavaScript mit `queueMicrotask()`](/de/docs/Web/API/HTML_DOM_API/Microtask_guide).
 
-Microtasks sind besonders nützlich für Bibliotheken und Frameworks, die Abschlüsse oder andere Aufgaben unmittelbar vor dem Rendern durchführen müssen.
+Mikrotasks sind besonders nützlich für Bibliotheken und Frameworks, die abschließende Bereinigungen oder andere Aufgaben kurz vor dem Rendern durchführen müssen.
 
 ## Syntax
 
@@ -27,7 +33,9 @@ queueMicrotask(callback)
 ### Parameter
 
 - `callback`
-  - : Eine {{jsxref("function")}}, die ausgeführt wird, wenn die Browser-Engine bestimmt hat, dass es sicher ist, Ihren Code aufzurufen. Eingereihte Microtasks werden ausgeführt, nachdem alle anstehenden Aufgaben abgeschlossen sind, aber bevor die Kontrolle an die Ereignisschleife des Browsers übergeben wird.
+  - : Eine {{jsxref("function")}}, die ausgeführt wird, wenn die Browser-Engine bestimmt, dass es
+    sicher ist, Ihren Code zu verwenden. Eingereihte Mikrotasks werden ausgeführt, nachdem alle ausstehenden Aufgaben
+    abgeschlossen wurden, aber bevor die Steuerung an die Eventschleife des Browsers übergeben wird.
 
 ### Rückgabewert
 
@@ -41,7 +49,7 @@ queueMicrotask(() => {
 });
 ```
 
-Entnommen aus der [queueMicrotask-Spezifikation](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#microtask-queuing):
+Übernommen aus der [queueMicrotask Spezifikation](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#microtask-queuing):
 
 ```js
 MyElement.prototype.loadData = function (url) {
@@ -74,7 +82,7 @@ MyElement.prototype.loadData = function (url) {
 
 - [`WorkerGlobalScope.queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
 - [Polyfill von `queueMicrotask()` in `core-js`](https://github.com/zloirock/core-js#queuemicrotask)
-- [Verwendung von Microtasks in JavaScript mit queueMicrotask()](/de/docs/Web/API/HTML_DOM_API/Microtask_guide)
+- [Verwendung von Mikrotasks in JavaScript mit queueMicrotask()](/de/docs/Web/API/HTML_DOM_API/Microtask_guide)
 - [Asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous)
-- [queueMicrotask Erklärungsdokument](https://github.com/fergald/docs/blob/master/explainers/queueMicrotask.md)
-- [Aufgaben, Microtasks, Warteschlangen und Zeitpläne](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/) von Jake Archibald
+- [queueMicrotask Erklärer](https://github.com/fergald/docs/blob/master/explainers/queueMicrotask.md)
+- [Tasks, Mikrotasks, Warteschlangen und Zeitpläne](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/) von Jake Archibald

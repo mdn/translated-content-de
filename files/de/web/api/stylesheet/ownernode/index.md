@@ -9,12 +9,11 @@ l10n:
 {{APIRef("CSSOM")}}
 
 Die **`ownerNode`**-Eigenschaft des
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Knoten zurück, der dieses Stylesheet
-mit dem Dokument verknüpft.
+[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Knoten zurück, der dieses Stylesheet mit dem Dokument verknüpft.
 
-Dies ist in der Regel ein HTML-
+Dies ist in der Regel ein HTML
 [`<link>`](/de/docs/Web/HTML/Element/link)- oder
-[`<style>`](/de/docs/Web/HTML/Element/style)-Element, kann jedoch auch einen [Verarbeitungshinweis-Knoten](/de/docs/Web/API/ProcessingInstruction) im Fall von `<?xml-stylesheet ?>` zurückgeben.
+[`<style>`](/de/docs/Web/HTML/Element/style)-Element, kann aber auch einen [Verarbeitungshinweis-Knoten](/de/docs/Web/API/ProcessingInstruction) im Fall von `<?xml-stylesheet ?>` zurückgeben.
 
 ## Wert
 
@@ -38,7 +37,7 @@ Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Hinweise
 
-Für Stylesheets, die durch andere Stylesheets inkludiert werden, wie z.B. mit
+Für Stylesheets, die von anderen Stylesheets einbezogen werden, wie etwa mit
 [`@import`](/de/docs/Web/CSS/@import), ist der Wert dieser
 Eigenschaft `null`.
 

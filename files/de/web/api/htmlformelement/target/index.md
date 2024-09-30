@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
-Interfaces repräsentiert das Ziel der Aktion des Formulars (d.h., den Frame, in dem
-die Ausgabe gerendert werden soll).
+Die **`target`**-Eigenschaft der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle repräsentiert das Ziel der Formularaktion (d.h., den Rahmen, in dem die Ausgabe gerendert werden soll).
 
 ## Wert
 

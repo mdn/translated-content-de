@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`dataTransfer`** schreibgeschützte Eigenschaft der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt zurück, das Informationen über Richtext- oder Klartextdaten enthält, die zu bearbeitbarem Inhalt hinzugefügt oder daraus entfernt werden.
+Die schreibgeschützte **`dataTransfer`**-Eigenschaft der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt zurück, das Informationen über Richtext- oder Klartextdaten enthält, die dem bearbeitbaren Inhalt hinzugefügt oder daraus entfernt werden.
 
 ## Wert
 
-Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt oder `null`. Die Spezifikation bietet einen [Überblick](https://w3c.github.io/input-events/#overview) über seinen Wert in verschiedenen Fällen.
+Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt oder `null`. Die Spezifikation enthält eine [Übersicht](https://w3c.github.io/input-events/#overview) über seinen Wert in verschiedenen Fällen.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel haben wir einen Ereignislistener auf das [Eingabe](/de/docs/Web/API/Element/input_event)-Ereignis gesetzt, so dass, wenn irgendwelcher Inhalt in das bearbeitbare {{htmlelement("p")}}-Element eingefügt wird, dessen HTML-Quelle über die [`InputEvent.dataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData)-Methode abgerufen und im Absatz unter der Eingabe gemeldet wird.
+Im folgenden einfachen Beispiel haben wir einen Event-Listener für das [input](/de/docs/Web/API/Element/input_event)-Ereignis eingerichtet. Wenn Inhalte in das contenteditable {{htmlelement("p")}}-Element eingefügt werden, wird dessen HTML-Quelle über die [`InputEvent.dataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData)-Methode abgerufen und im Absatz unter der Eingabe gemeldet.
 
 Versuchen Sie, einige der bereitgestellten Inhalte zu kopieren und einzufügen, um die Effekte zu sehen.
 

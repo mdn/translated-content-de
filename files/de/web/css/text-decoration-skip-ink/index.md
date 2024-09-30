@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-decoration-skip-ink`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie Über- und Unterstriche gezeichnet werden, wenn sie über die Auf- und Abstriche von Glyphen verlaufen.
+Die **`text-decoration-skip-ink`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie Über- und Unterstreichungen gezeichnet werden, wenn sie über die Auf- und Abstriche von Glyphen verlaufen.
 
 {{EmbedInteractiveExample("pages/css/text-decoration-skip-ink.html")}}
 
-`text-decoration-skip-ink` ist nicht Teil der {{cssxref("text-decoration")}} Kurzform.
+`text-decoration-skip-ink` ist kein Bestandteil der {{cssxref("text-decoration")}} Kurznotation.
 
 ## Syntax
 
@@ -32,12 +32,12 @@ text-decoration-skip-ink: unset;
 ### Werte
 
 - `none`
-  - : Unterstriche und Überstriche werden über die gesamte Länge des Textinhalts gezeichnet, einschließlich der Teile, die über Glyphenabstriche und -aufstriche verlaufen.
+  - : Unter- und Überstriche werden über die gesamte Länge des Textinhalts gezeichnet, einschließlich der Teile, die über die Auf- und Abstriche von Glyphen verlaufen.
 - `auto`
-  - : Der Standard — der Browser _kann_ Unterstriche und Überstriche unterbrechen, sodass sie eine Glyphe nicht berühren oder ihr sehr nahekommen. Das heißt, sie werden unterbrochen, wo sie sonst über eine Glyphe verlaufen würden.
+  - : Der Standardwert — der Browser _kann_ Unter- und Überstriche unterbrechen, damit sie eine Glyphe nicht berühren oder sich ihr eng nähern. Das bedeutet, dass sie dort unterbrochen werden, wo sie sonst über eine Glyphe verlaufen würden.
 - `all`
 
-  - : Der Browser _muss_ Unterstriche und Überstriche unterbrechen, sodass sie eine Glyphe nicht berühren oder ihr sehr nahekommen. Dies kann bei bestimmten chinesischen, japanischen oder koreanischen (CJK) Schriftarten hilfreich sein, bei denen das `auto` Verhalten möglicherweise keine Unterbrechungen erzeugt.
+  - : Der Browser _muss_ Unter- und Überstriche unterbrechen, damit sie eine Glyphe nicht berühren oder sich ihr eng nähern. Dies kann bei bestimmten chinesischen, japanischen oder koreanischen (CJK) Schriften hilfreich sein, bei denen das `auto` Verhalten möglicherweise keine Unterbrechungen erzeugt.
 
     ![Ein Beispiel für "text-decoration-skip-ink".](decoration-skip-ink.png)
 

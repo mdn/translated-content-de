@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`getAllowlistForFeature()`**-Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle ermöglicht das Abfragen der Allowlist für ein bestimmtes Feature für die aktuelle Berechtigungspolicy.
+Die **`getAllowlistForFeature()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces ermöglicht das Abfragen der Zulassungsliste für ein bestimmtes Feature in der aktuellen Permissions Policy.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getAllowlistForFeature(feature)
 ### Parameter
 
 - `feature`
-  - : Der spezifische Feature-Name, dessen Allowlist abgerufen werden soll.
+  - : Der spezifische Feature-Name, um seine Zulassungsliste zu erhalten.
 
 ### Rückgabewert
 
@@ -27,11 +27,11 @@ Ein Array von Zeichenfolgen, das die serialisierte Liste der erlaubten Ursprüng
 
 ### Ausnahmen
 
-Die Funktion gibt eine Warnung aus, wenn der angegebene Berechtigungspolicy-Direktivname nicht bekannt ist. Es wird jedoch auch ein leeres Array zurückgegeben, was darauf hinweist, dass keinem Ursprung die Nutzung des Features gestattet ist.
+Die Funktion wird eine Warnung ausgeben, wenn der angegebene Permissions Policy-Direktivenname unbekannt ist. Sie gibt jedoch auch ein leeres Array zurück, was darauf hinweist, dass kein Ursprung berechtigt ist, das Feature zu verwenden.
 
 ## Beispiel
 
-Das folgende Beispiel gibt alle Ursprünge aus, denen die Nutzung der Kamera-API durch die Berechtigungspolicy gestattet ist. Beachten Sie bitte, dass die Kamera-API auch durch die [Permissions API](/de/docs/Web/API/Permissions_API) eingeschränkt werden kann, wenn der Benutzer die entsprechende Berechtigung nicht erteilt hat.
+Das folgende Beispiel gibt alle Ursprünge aus, die berechtigt sind, die Camera API gemäß der Permissions Policy zu verwenden. Bitte beachten Sie, dass die Camera API ebenfalls durch die [Permissions API](/de/docs/Web/API/Permissions_API) eingeschränkt sein kann, wenn der Benutzer die entsprechende Berechtigung nicht erteilt hat.
 
 ```js
 // First, get the FeaturePolicy object

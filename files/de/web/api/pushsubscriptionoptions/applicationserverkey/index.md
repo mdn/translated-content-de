@@ -1,5 +1,5 @@
 ---
-title: "PushSubscriptionOptions: Eigenschaft applicationServerKey"
+title: "PushSubscriptionOptions: applicationServerKey-Eigenschaft"
 short-title: applicationServerKey
 slug: Web/API/PushSubscriptionOptions/applicationServerKey
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`applicationServerKey`** der Schnittstelle [`PushSubscriptionOptions`](/de/docs/Web/API/PushSubscriptionOptions) enthält den öffentlichen Schlüssel, der vom Push-Server verwendet wird.
+Die schreibgeschützte **`applicationServerKey`**-Eigenschaft der [`PushSubscriptionOptions`](/de/docs/Web/API/PushSubscriptionOptions)-Schnittstelle enthält den öffentlichen Schlüssel, der vom Push-Server verwendet wird.
 
 ## Wert
 
-Ein öffentlicher Schlüssel, den Ihr Push-Server verwendet, um Nachrichten über einen Push-Server an Client-Anwendungen zu senden. Dieser Wert ist Teil eines Schlüsselpaares zur Signaturerstellung, das von Ihrem Anwendungsserver generiert wird und mit einer elliptischen Kurve digitale Signatur (ECDSA), über die P-256-Kurve, nutzbar ist. Wenn beim Initialisieren kein `applicationServerKey`-Mitglied übergeben wird, wird es auf `null` gesetzt.
+Ein öffentlicher Schlüssel, den Ihr Push-Server verwendet, um Nachrichten über einen Push-Server an Client-Apps zu senden. Dieser Wert ist Teil eines vom Anwendungsserver generierten Signierschlüsselpaares und kann mit der elliptischen Kurve für digitale Signaturen (ECDSA) über die P-256-Kurve verwendet werden. Wenn beim Initialisieren kein `applicationServerKey`-Mitglied übergeben wird, wird es auf `null` gesetzt.
 
 ## Beispiele
 
-Im unten stehenden Beispiel wird der Wert von `applicationServerKey` in die Konsole ausgegeben.
+Im untenstehenden Beispiel wird der Wert von `applicationServerKey` in die Konsole ausgegeben.
 
 ```js
 navigator.serviceWorker.ready.then((reg) => {

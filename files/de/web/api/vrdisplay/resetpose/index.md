@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`resetPose()`**-Methode der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle setzt die Pose des `VRDisplay` zurück, indem sie die aktuelle [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) als "Ursprung/Nullwerte" behandelt.
+Die **`resetPose()`**-Methode des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces setzt die Pose für das `VRDisplay` zurück und behandelt die aktuelle [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) als "Ursprung/Null"-Werte.
 
 > [!NOTE]
 > Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Nachdem `resetPose()` aufgerufen wurde, beschreiben zukünftige Posen, die von [`VRDisplay.getPose()`](/de/docs/Web/API/VRDisplay/getPose)/[`VRDisplay.getImmediatePose()`](/de/docs/Web/API/VRDisplay/getImmediatePose) zurückgegeben werden, Positionen relativ zu der Position des `VRDisplay`, als `resetPose()` zuletzt aufgerufen wurde, und behandeln das Yaw des Displays, als `resetPose()` zuletzt aufgerufen wurde, als die Vorwärtsausrichtung.
+Nachdem `resetPose()` aufgerufen wurde, beschreiben zukünftige Posen, die von [`VRDisplay.getPose()`](/de/docs/Web/API/VRDisplay/getPose)/[`VRDisplay.getImmediatePose()`](/de/docs/Web/API/VRDisplay/getImmediatePose) zurückgegeben werden, Positionen relativ zu der Position des `VRDisplay`, als `resetPose()` zuletzt aufgerufen wurde und behandeln die Yaw-Lage des Displays zu diesem Zeitpunkt als Vorwärtsausrichtung.
 
-Der von VRDisplay gemeldete Roll und Pitch ändern sich nicht, wenn `resetPose()` aufgerufen wird, da sie relativ zur Schwerkraft sind. Der Aufruf von `resetPose()` kann die [`VRStageParameters.sittingToStandingTransform`](/de/docs/Web/API/VRStageParameters/sittingToStandingTransform)-Matrix ändern.
+Der vom VRDisplay gemeldete Roll- und Pitch-Wert ändert sich nicht, wenn `resetPose()` aufgerufen wird, da sie relativ zur Schwerkraft sind. Der Aufruf von `resetPose()` kann die Matrix [`VRStageParameters.sittingToStandingTransform`](/de/docs/Web/API/VRStageParameters/sittingToStandingTransform) verändern.
 
 ## Syntax
 
@@ -44,9 +44,9 @@ btn.addEventListener("click", () => {
 
 ## Spezifikationen
 
-Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie strebt nicht mehr an, ein Standard zu werden.
+Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR nach WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Anleitung zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

@@ -1,5 +1,5 @@
 ---
-title: "Element: getAttributeNS()-Methode"
+title: "Element: Methode getAttributeNS()"
 short-title: getAttributeNS()
 slug: Web/API/Element/getAttributeNS
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getAttributeNS()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Zeichenfolgenwert des Attributs mit dem angegebenen Namensraum und Namen zurück. Wenn das benannte Attribut nicht existiert, wird entweder `null` oder `""` (die leere Zeichenkette) zurückgegeben; siehe [Anmerkungen](#anmerkungen) für Details.
+Die **`getAttributeNS()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Zeichenfolgenwert des Attributs mit dem angegebenen Namensraum und Namen zurück. Wenn das benannte Attribut nicht existiert, wird entweder `null` oder `""` (die leere Zeichenkette) zurückgegeben; siehe [Hinweise](#hinweise) für Details.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`getAttribute()`](/de/docs/Web/API/Element/getAttribute)-Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums spezifizieren müssen, verwenden Sie stattdessen die Methode [`getAttribute()`](/de/docs/Web/API/Element/getAttribute).
 
 ## Syntax
 
@@ -30,7 +30,7 @@ getAttributeNS(namespace, name)
 Der Zeichenfolgenwert des angegebenen Attributs. Wenn das Attribut nicht existiert, ist das Ergebnis `null`.
 
 > [!NOTE]
-> Frühere Versionen der DOM-Spezifikation beschrieben diese Methode als Rückgabe einer leeren Zeichenkette für nicht existierende Attribute, aber sie wurde typischerweise nicht so implementiert, da null sinnvoller ist. Die DOM4-Spezifikation besagt jetzt, dass diese Methode null für nicht existierende Attribute zurückgeben soll.
+> Frühere Versionen der DOM-Spezifikation beschrieben diese Methode als eine leere Zeichenkette für nicht existierende Attribute zurückzugeben, was jedoch normalerweise nicht so implementiert wurde, da `null` sinnvoller ist. Die DOM4-Spezifikation legt jetzt fest, dass diese Methode `null` für nicht existierende Attribute zurückgeben sollte.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ Das folgende SVG-Dokument liest den Wert des `foo`-Attributs in einem benutzerde
 </svg>
 ```
 
-In einem HTML-Dokument muss das Attribut mit `test:foo` zugegriffen werden, da Namensräume nicht unterstützt werden.
+In einem HTML-Dokument muss auf das Attribut mit `test:foo` zugegriffen werden, da Namensräume nicht unterstützt werden.
 
 ```html
 <!doctype html>
@@ -87,11 +87,11 @@ In einem HTML-Dokument muss das Attribut mit `test:foo` zugegriffen werden, da N
 </html>
 ```
 
-## Anmerkungen
+## Hinweise
 
-`getAttributeNS()` unterscheidet sich von [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) darin, dass Sie das angeforderte Attribut als Teil eines bestimmten Namensraums weiter spezifizieren können, wie im obigen Beispiel, wo das Attribut Teil des fiktiven "test"-Namensraums ist.
+`getAttributeNS()` unterscheidet sich von [`getAttribute()`](/de/docs/Web/API/Element/getAttribute), indem es Ihnen ermöglicht, das angeforderte Attribut weiter als Teil eines bestimmten Namensraums zu spezifizieren, wie im obigen Beispiel, wo das Attribut Teil des fiktiven "test"-Namensraums ist.
 
-Vor der DOM4-Spezifikation war diese Methode so spezifiziert, dass sie eine leere Zeichenkette anstelle von null für nicht existierende Attribute zurückgeben sollte. Die meisten Browser gaben jedoch stattdessen null zurück. Ab DOM4 spezifiziert die Spezifikation jetzt, dass null zurückgegeben werden soll. Einige ältere Browser geben jedoch eine leere Zeichenkette zurück. Aus diesem Grund sollten Sie [`hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS) verwenden, um die Existenz eines Attributs zu überprüfen, bevor Sie `getAttributeNS()` aufrufen, wenn es möglich ist, dass das angeforderte Attribut nicht auf dem angegebenen Element existiert.
+Vor der DOM4-Spezifikation war diese Methode so definiert, dass sie eine leere Zeichenkette anstelle von `null` für nicht existierende Attribute zurückgeben sollte. Die meisten Browser gaben jedoch stattdessen `null` zurück. Ab DOM4 gibt die Spezifikation nun an, `null` zurückzugeben. Einige ältere Browser geben jedoch eine leere Zeichenkette zurück. Aus diesem Grund sollten Sie [`hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS) verwenden, um die Existenz eines Attributs zu überprüfen, bevor Sie `getAttributeNS()` aufrufen, falls das angeforderte Attribut möglicherweise nicht auf dem angegebenen Element existiert.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`concat()`**-Methode von {{jsxref("String")}}-Werten verknüpft die übergebenen Zeichenfolgen mit dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück.
+Die **`concat()`**-Methode von {{jsxref("String")}}-Werten verkettet die Zeichenfolgen-Argumente mit dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück.
 
 {{EmbedInteractiveExample("pages/js/string-concat.html")}}
 
@@ -23,25 +23,25 @@ concat(str1, str2, /* …, */ strN)
 ### Parameter
 
 - `str1`, …, `strN`
-  - : Eine oder mehrere Zeichenfolgen, die mit `str` verknüpft werden sollen.
+  - : Eine oder mehrere Zeichenfolgen, die an `str` angehängt werden sollen.
 
 ### Rückgabewert
 
-Eine neue Zeichenfolge, die den kombinierten Text der übergebenen Zeichenfolgen enthält.
+Eine neue Zeichenfolge, die den kombinierten Text der bereitgestellten Zeichenfolgen enthält.
 
 ## Beschreibung
 
-Die `concat()`-Funktion verknüpft die Zeichenfolgenargumente mit der aufrufenden Zeichenfolge und gibt eine neue Zeichenfolge zurück.
+Die `concat()`-Funktion verkettet die Zeichenfolgen-Argumente mit der aufrufenden Zeichenfolge und gibt eine neue Zeichenfolge zurück.
 
-Wenn die Argumente nicht vom Typ Zeichenfolge sind, werden sie vor dem Verknüpfen in Zeichenfolgenwerte umgewandelt.
+Wenn die Argumente nicht vom Typ Zeichenfolge sind, werden sie vor dem Verketten in Zeichenfolgenwerte umgewandelt.
 
-Die `concat()`-Methode ähnelt stark den [Addition/String-Verknüpfungs-Operatoren](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`), mit dem Unterschied, dass `concat()` [seine Argumente direkt in Zeichenfolgen umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während die Addition ihre Operanden zuerst in Primitive umwandelt. Weitere Informationen finden Sie auf der Referenzseite des [`+`-Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition).
+Die `concat()`-Methode ist der [Addition/String-Verkettungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`) sehr ähnlich, außer dass `concat()` [seine Argumente direkt in Zeichenfolgen umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während Addition ihre Operanden zuerst in primitive Typen umwandelt. Weitere Informationen finden Sie auf der Referenzseite für den [`+`-Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition).
 
 ## Beispiele
 
 ### Verwendung von concat()
 
-Das folgende Beispiel kombiniert Zeichenfolgen zu einer neuen Zeichenfolge.
+Das folgende Beispiel kombiniert Zeichenfolgen in eine neue Zeichenfolge.
 
 ```js
 const hello = "Hello, ";

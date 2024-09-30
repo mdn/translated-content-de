@@ -1,5 +1,5 @@
 ---
-title: 'ReferenceError: Zuweisung an nicht erklärte Variable "x"'
+title: "ReferenceError: Zuordnung zu einer nicht deklarierten Variable \"x\""
 slug: Web/JavaScript/Reference/Errors/Undeclared_var
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-only Ausnahme "Zuweisung an nicht erklärte Variable" tritt auf, wenn einem nicht erklärten Variable ein Wert zugewiesen wird.
+Die JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)-only-Ausnahme "Assignment to undeclared variable" tritt auf, wenn ein Wert einer nicht deklarierten Variablen zugewiesen wurde.
 
 ## Meldung
 
@@ -19,33 +19,27 @@ ReferenceError: Can't find variable: x (Safari)
 
 ## Fehlertyp
 
-{{jsxref("ReferenceError")}} in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) nur.
+{{jsxref("ReferenceError")}} nur im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Was ist schiefgelaufen?
 
-Ein Wert wurde einer nicht erklärten Variable zugewiesen.
-Mit anderen Worten fand eine Zuweisung ohne das `var` Schlüsselwort statt.
-Es gibt einige Unterschiede zwischen erklärten und nicht erklärten Variablen, die zu unerwarteten Ergebnissen führen können, und deshalb präsentiert JavaScript einen Fehler im strict mode.
+Ein Wert wurde einer nicht deklarierten Variablen zugewiesen. Mit anderen Worten, es gab eine Zuweisung ohne das `var`-Schlüsselwort. Es gibt einige Unterschiede zwischen deklarierten und nicht deklarierten Variablen, die zu unerwarteten Ergebnissen führen können, und deshalb stellt JavaScript im Strict-Modus einen Fehler dar.
 
-Drei Dinge, die man über erklärte und nicht erklärte Variablen wissen sollte:
+Drei Dinge, die bei deklarierten und nicht deklarierten Variablen zu beachten sind:
 
-- Erklärte Variablen sind im Ausführungskontext eingeschränkt, in dem sie erklärt sind.
-  Nicht erklärte Variablen sind immer global.
-- Erklärte Variablen werden erstellt, bevor irgendein Code ausgeführt wird.
-  Nicht erklärte Variablen existieren erst, wenn der Code, der ihnen zugewiesen wird, ausgeführt wird.
-- Erklärte Variablen sind eine nicht konfigurierbare Eigenschaft ihres Ausführungskontextes (Funktion oder global).
-  Nicht erklärte Variablen sind konfigurierbar (z.B. können gelöscht werden).
+- Deklarierte Variablen sind auf den Ausführungskontext beschränkt, in dem sie deklariert werden. Nicht deklarierte Variablen sind immer global.
+- Deklarierte Variablen werden erstellt, bevor irgendein Code ausgeführt wird. Nicht deklarierte Variablen existieren erst, wenn der Code, der ihnen einen Wert zuweist, ausgeführt wird.
+- Deklarierte Variablen sind eine nicht konfigurierbare Eigenschaft ihres Ausführungskontexts (Funktion oder global). Nicht deklarierte Variablen sind konfigurierbar (z.B. können gelöscht werden).
 
-Für weitere Details und Beispiele sehen Sie die [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) Referenzseite.
+Weitere Details und Beispiele finden Sie auf der Referenzseite zu [`var`](/de/docs/Web/JavaScript/Reference/Statements/var).
 
-Fehler bei der Zuweisung von nicht erklärten Variablen treten nur in [strict mode code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf.
-In nicht-striktem Code werden sie stillschweigend ignoriert.
+Fehler bei Zuweisungen an nicht deklarierte Variablen treten nur im [Strict-Modus-Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-striktem Code werden sie stillschweigend ignoriert.
 
 ## Beispiele
 
 ### Ungültige Fälle
 
-In diesem Fall ist die Variable "bar" eine nicht erklärte Variable.
+In diesem Fall ist die Variable "bar" eine nicht deklarierte Variable.
 
 ```js example-bad
 function foo() {
@@ -57,7 +51,7 @@ foo(); // ReferenceError: assignment to undeclared variable bar
 
 ### Gültige Fälle
 
-Um "bar" zu einer erklärten Variable zu machen, können Sie ein [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/var) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) Schlüsselwort davor setzen.
+Um "bar" zu einer deklarierten Variablen zu machen, können Sie ein [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/var) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) Schlüsselwort davor hinzufügen.
 
 ```js example-good
 function foo() {
@@ -69,4 +63,4 @@ foo();
 
 ## Siehe auch
 
-- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)

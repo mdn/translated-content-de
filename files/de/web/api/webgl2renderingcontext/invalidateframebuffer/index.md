@@ -3,14 +3,12 @@ title: "WebGL2RenderingContext: invalidateFramebuffer() Methode"
 short-title: invalidateFramebuffer()
 slug: Web/API/WebGL2RenderingContext/invalidateFramebuffer
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.invalidateFramebuffer()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) invalidiert den Inhalt
-von Anhängen in einem Framebuffer.
+Die **`WebGL2RenderingContext.invalidateFramebuffer()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) ungültigt die Inhalte von Anhängen in einem Framebuffer.
 
 ## Syntax
 
@@ -22,10 +20,10 @@ invalidateFramebuffer(target, attachments)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Buffer-Datenspeichern von Farb-, Alpha-, Tiefen- und Stencil-Buffern, die zum Rendern eines Bildes verwendet werden.
+      - : Sammlung von Pufferspeicherdaten von Farb-, Alpha-, Tiefen- und Stencil-Puffern, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
     - `gl.READ_FRAMEBUFFER`
@@ -33,20 +31,20 @@ invalidateFramebuffer(target, attachments)
 
 - `attachments`
 
-  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Anhangspunkte angibt, die invalidiert werden sollen. Mögliche Werte:
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Anhangspunkte angibt, die ungültig gemacht werden sollen. Mögliche Werte:
 
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Invalidiert einen der Farb-Buffer des Framebuffers.
+      - : Macht einen der Farbpuffer des Framebuffers ungültig.
     - `gl.DEPTH_ATTACHMENT`
-      - : Invalidiert den Tiefen-Buffer des Framebuffers.
+      - : Macht den Tiefenpuffer des Framebuffers ungültig.
     - `gl.STENCIL_ATTACHMENT`
-      - : Invalidiert den Stencil-Buffer des Framebuffers.
+      - : Macht den Stencil-Puffer des Framebuffers ungültig.
     - `gl.DEPTH_STENCIL_ATTACHMENT`
-      - : Invalidiert sowohl den Tiefen- als auch den Stencil-Buffer des Framebuffers.
+      - : Macht sowohl den Tiefen- als auch den Stencil-Puffer des Framebuffers ungültig.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

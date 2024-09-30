@@ -9,9 +9,13 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete **`PerformanceTiming.secureConnectionStart`** schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, an dem das sichere Verbindungshandshake beginnt. Wenn keine solche Verbindung angefordert wird, gibt sie `0` zurück.
+Die veraltete, schreibgeschützte Eigenschaft
+**`PerformanceTiming.secureConnectionStart`**
+gibt ein `unsigned long long` zurück, das den Moment darstellt,
+in Millisekunden seit der UNIX-Epoche, an dem der sichere Verbindungshandshake beginnt. Wenn
+keine solche Verbindung angefordert wird, gibt sie `0` zurück.
 
 ## Wert
 
@@ -27,4 +31,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der sie gehört.

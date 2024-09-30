@@ -9,18 +9,18 @@ l10n:
 
 Die **`TRACE`** HTTP-Methode führt einen Nachrichtenschleifen-Test entlang des Pfades zur Zielressource durch.
 
-Der endgültige Empfänger der Anfrage sollte die Nachricht so, wie sie empfangen wurde (mit Ausnahme von Feldern, die sensible Daten enthalten könnten), als Nachrichtentext einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurücksenden. Der endgültige Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` in der Anfrage erhält.
+Der finale Empfänger der Anfrage sollte die empfangene Nachricht (ausgenommen Felder, die sensible Daten enthalten könnten) als Nachrichtentext einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurückspiegeln. Der finale Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` in der Anfrage erhält.
 
-Der Client darf keinen [Inhalt](/de/docs/Glossary/HTTP_Content) in der Anfrage senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverinhaber haben historisch die Verwendung der `TRACE`-Methode aus Sicherheitsgründen untersagt. In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
+Der Client darf keine [Inhalte](/de/docs/Glossary/HTTP_Content) in der Anfrage senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverbetreiber haben die Verwendung der `TRACE`-Methode aufgrund von Sicherheitsbedenken historisch untersagt. In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Körper</th>
+      <th scope="row">Anfrage hat Körper</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <th scope="row">Erfolgreiche Antwort hat Körper</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -49,23 +49,23 @@ TRACE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage in Kombination mit den Informationen, die im {{HTTPHeader("Host")}}-Header bereitgestellt werden.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
+    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxy-Server (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Ein optionaler Abfrage-Komponent, der durch ein Fragezeichen `?` eingeleitet wird.
-    Wird oft verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übertragen.
+  - : Eine optionale Query-Komponente, die durch ein Fragezeichen `?` eingeleitet wird.
+    Oft verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
 
 ## Beispiele
 
 ### Erfolgreiche TRACE-Anfrage
 
-Eine `TRACE`-Anfrage kann mit `curl` durchgeführt werden:
+Eine `TRACE`-Anfrage kann mit `curl` ausgeführt werden:
 
 ```bash
 curl -v -X TRACE example.com
 ```
 
-Dies ergibt die folgende HTTP-Anfrage:
+Dies erzeugt die folgende HTTP-Anfrage:
 
 ```http
 TRACE / HTTP/1.1
@@ -74,7 +74,7 @@ User-Agent: curl/8.7.1
 Accept: */*
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort mit den Anfrage-Headern im Antworttext wird an den Client zurückgesendet:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort mit den Anfrage-Headern, die im Antworttext enthalten sind, wird an den Client zurückgesendet:
 
 ```http
 HTTP/1.1 200 OK

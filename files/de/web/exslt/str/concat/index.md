@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`str:concat()` gibt einen String zurück, der alle Zeichenfolgenwerte in einer Knotenmengen zusammengefügt enthält.
+`str:concat()` gibt eine Zeichenfolge zurück, die alle Zeichenfolgenwerte in einem Knoten-Set miteinander verkettet enthält.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ str:concat(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Die Knotenmengen, deren Knotenzeichenfolgenwerte zu einem String verkettet werden sollen.
+  - : Das Knoten-Set, dessen Knoten-Stringwerte zu einer einzigen Zeichenfolge verkettet werden sollen.
 
 ### Rückgabewert
 
-Ein String, dessen Wert alle Zeichenfolgenwerte der Knoten in `nodeSet` zusammengefügt enthält. Wenn `nodeSet` leer ist, wird ein leerer String zurückgegeben.
+Eine Zeichenfolge, deren Wert alle Zeichenfolgenwerte der Knoten in `nodeSet` sind, die miteinander verkettet wurden. Wenn `nodeSet` leer ist, wird eine leere Zeichenfolge zurückgegeben.
 
 ## Spezifikationen
 

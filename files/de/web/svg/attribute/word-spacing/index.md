@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`word-spacing`** Attribut spezifiziert das Abstandsverhalten zwischen Wörtern.
+Das **`word-spacing`**-Attribut legt das Abstandsverhalten zwischen Wörtern fest.
 
-Wenn eine {{cssxref("length")}} ohne eine Einheitskennung angegeben wird (z.B. eine unqualifizierte Zahl wie 128), verarbeitet der Browser das \<length> als Breitenwert im aktuellen Benutzerkoordinatensystem.
+Wenn eine {{cssxref("length")}} ohne Einheit angegeben wird (z. B. eine unqualifizierte Zahl wie 128), verarbeitet der Browser die \<length> als Breitenwert im aktuellen Benutzerkoordinatensystem.
 
-Wenn eine \<length> mit einer der Einheitskennungen angegeben wird (z.B. .25em oder 1%), konvertiert der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
+Wird eine \<length> mit einer der Einheiten (z. B. .25em oder 1%) angegeben, dann wandelt der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `word-spacing` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("word-spacing")}}.
@@ -44,11 +44,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte beachten Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
+Für eine Beschreibung der Werte siehe bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
 
 ## Beispiele
 
-Dieses Beispiel enthält zwei {{SVGElement("text")}}-Elemente mit unterschiedlichen `word-spacing` Werten.
+Dieses Beispiel enthält zwei {{SVGElement("text")}}-Elemente mit unterschiedlichen `word-spacing`-Werten.
 
 ```css hidden
 html,

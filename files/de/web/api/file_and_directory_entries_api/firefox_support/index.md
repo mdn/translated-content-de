@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("File and Directory Entries API")}}
 
-Die ursprüngliche Dateisystem-API wurde entwickelt, um es Browsern zu ermöglichen, den Zugriff auf ein sandboxed virtuelles Dateisystem auf dem Speichergerät des Benutzers zu unterstützen. Die Arbeit an der Standardisierung der Spezifikation wurde 2012 eingestellt, aber zu diesem Zeitpunkt hatte Google Chrome bereits eine eigene Implementierung der API eingeführt. Im Laufe der Zeit begannen eine Reihe beliebter Websites und Webanwendungen, diese zu nutzen, oft ohne eine Alternative zu den Standard-APIs zu bieten oder sogar zu überprüfen, ob die API verfügbar ist, bevor sie verwendet wird. Mozilla entschied sich stattdessen, andere APIs zu implementieren, die zur Lösung vieler der gleichen Probleme verwendet werden können, wie zum Beispiel [IndexedDB](/de/docs/Web/API/IndexedDB_API); siehe den Blogbeitrag [Warum keine FileSystem API in Firefox?](https://hacks.mozilla.org/2012/07/why-no-filesystem-api-in-firefox/) für weitere Einblicke.
+Die ursprüngliche File System API wurde entwickelt, um Browsern die Unterstützung für den Zugriff auf ein sandboxed virtuelles Dateisystem auf dem Speichermedium eines Benutzers zu ermöglichen. Die Standardisierung der Spezifikation wurde 2012 aufgegeben, aber zu diesem Zeitpunkt hatte Google Chrome bereits eine eigene Implementierung der API integriert. Im Laufe der Zeit haben viele beliebte Websites und Webanwendungen begonnen, diese zu nutzen, oft ohne Alternativen zu den Standard-APIs anzubieten oder überhaupt zu überprüfen, ob die API verfügbar ist, bevor sie verwendet wird. Mozilla entschied sich stattdessen, andere APIs zu implementieren, die viele der gleichen Probleme lösen können, wie zum Beispiel [IndexedDB](/de/docs/Web/API/IndexedDB_API); lesen Sie den Blogartikel [Why no FileSystem API in Firefox?](https://hacks.mozilla.org/2012/07/why-no-filesystem-api-in-firefox/) für weitere Einblicke.
 
-Dies führte dazu, dass eine Reihe beliebter Websites in Browsern, die nicht Chrome sind, nicht richtig funktionierten. Aus diesem Grund wurde ein Versuch unternommen, eine Spezifikation zu erstellen, die die Funktionen von Googles API bietet, auf die ein Konsens erzielt werden konnte. Das Ergebnis war die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API). Dieses Teilset der von Chrome bereitgestellten API ist noch nicht vollständig spezifiziert; jedoch wurde aus Gründen der Web-Kompatibilität beschlossen, ein Teilset der API in Firefox zu implementieren; dies wurde in Firefox 50 eingeführt.
+Dies hat dazu geführt, dass eine Reihe beliebter Websites nicht richtig auf anderen Browsern außer Chrome funktionieren. Daher wurde ein Versuch unternommen, eine Spezifikation zu erstellen, die die Funktionen von Googles API bietet, auf die man sich einigen könnte. Das Ergebnis war die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API). Dieses von Chrome bereitgestellte API-Subset ist noch nicht vollständig spezifiziert; aus Gründen der Web-Kompatibilität wurde jedoch beschlossen, ein Subset der API in Firefox zu implementieren; dieses wurde in Firefox 50 eingeführt.
 
-Dieser Artikel beschreibt, wie sich die Implementierung der File and Directory Entries API in Firefox von anderen Implementierungen und/oder der Spezifikation unterscheidet.
+Dieser Artikel beschreibt, wie sich die Firefox-Implementierung der File and Directory Entries API von anderen Implementierungen und/oder der Spezifikation unterscheidet.
 
-## Abweichungen Chromes von der Spezifikation
+## Abweichungen von der Spezifikation in Chrome
 
-Das größte noch verbleibende Kompatibilitätsproblem ist, dass Chrome immer noch ältere Namen für viele der Schnittstellen in der API verwendet, da sie eine verwandte, aber unterschiedliche Spezifikation implementiert haben:
+Das größte verbleibende Kompatibilitätsproblem ist, dass Chrome immer noch ältere Namen für viele der Schnittstellen in der API verwendet, da sie eine verwandte, aber unterschiedliche Spezifikation implementiert haben:
 
 <table class="standard-table">
   <thead>
@@ -62,7 +62,7 @@ Das größte noch verbleibende Kompatibilitätsproblem ist, dass Chrome immer no
 
 Stellen Sie sicher, dass Sie dies in Ihrem Code berücksichtigen, indem Sie beide Namen zulassen. Hoffentlich wird Chrome bald aktualisiert, um die neueren Namen zu verwenden!
 
-Um sicherzustellen, dass Ihr Code sowohl in Chrome als auch in anderen Browsern funktioniert, können Sie Code ähnlich dem folgenden verwenden:
+Um sicherzustellen, dass Ihr Code sowohl in Chrome als auch in anderen Browsern funktioniert, können Sie Code ähnlich dem folgenden einschließen:
 
 ```js
 const FileSystemDirectoryEntry =
@@ -72,18 +72,18 @@ const FileSystemEntry = window.FileSystemEntry || window.Entry;
 
 ## Einschränkungen in Firefox
 
-Nun lassen Sie uns einen Blick auf die Einschränkungen der Firefox-Implementierung der API werfen. Im Großen und Ganzen lassen sich diese Einschränkungen wie folgt zusammenfassen:
+Als nächstes betrachten wir die Einschränkungen der Firefox-Implementierung der API. Grob gesagt lassen sich diese Einschränkungen wie folgt zusammenfassen:
 
-- Inhaltsskripts können keine Dateisysteme erstellen oder den Zugriff auf ein Dateisystem initiieren. Es gibt derzeit nur zwei Möglichkeiten, um Zugriff auf Dateisystemeinträge zu erhalten:
+- Inhaltsskripte können keine Dateisysteme erstellen oder den Zugriff auf ein Dateisystem initiieren. Derzeit gibt es nur zwei Möglichkeiten, auf Dateisystemeinträge zuzugreifen:
 
-  - Das {{HTMLElement("input")}} Element, das die [`HTMLInputElement.webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries) Eigenschaft verwendet, um auf ein Array von [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Objekten zuzugreifen, die die Dateisystemeinträge beschreiben, die Sie dann lesen können.
-  - Die Verwendung von Drag & Drop durch Aufruf der [`DataTransferItem.webkitGetAsEntry`](/de/docs/Web/API/DataTransferItem/webkitGetAsEntry) Methode, die es Ihnen ermöglicht, eine [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) für Dateien zu erhalten, die auf ein Ablegefeld fallen.
+  - Das {{HTMLElement("input")}}-Element, unter Verwendung der [`HTMLInputElement.webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries)-Eigenschaft, um auf ein Array von [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Objekten zuzugreifen, die die Dateisystemeinträge beschreiben, die Sie dann lesen können.
+  - Drag-and-Drop, indem die [`DataTransferItem.webkitGetAsEntry`](/de/docs/Web/API/DataTransferItem/webkitGetAsEntry)-Methode aufgerufen wird, mit der Sie ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) für Dateien erhalten können, die auf eine Drop-Zone gezogen wurden.
 
-- Firefox unterstützt das URL-Schema `"filesystem:"` nicht.
+- Firefox unterstützt das `"filesystem:"` URL-Schema nicht.
 
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [File and Directory Entries API](https://wicg.github.io/entries-api/) Spezifikation
-- Original-Spezifikation für die [File API: Directories and System](https://dev.w3.org/2009/dap/file-system/file-dir-sys.html) (oft als "FileSystem API" bezeichnet); Google Chrome war der einzige Browser, der diese **aufgegebene** API implementierte.
+- Ursprüngliche Spezifikation für die [File API: Directories and System](https://dev.w3.org/2009/dap/file-system/file-dir-sys.html) (oft als "FileSystem API" bezeichnet); Google Chrome war der einzige Browser, der diese **aufgegebene** API implementierte.

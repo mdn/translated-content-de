@@ -1,5 +1,5 @@
 ---
-title: CSS-Ruby-Layout
+title: CSS ruby layout
 slug: Web/CSS/CSS_ruby_layout
 l10n:
   sourceCommit: 7e1956dbec8369ae5533be89e21cbce2d5a2ae1c
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Ruby-Layout**-Modul bietet das Rendering-Modell und die Formatierungssteuerungen, die mit der Anzeige von Ruby-Anmerkungen verbunden sind. Ruby-Anmerkung ist eine Form von Zwischenzeilenanmerkung, die aus kurzen Textabschnitten neben dem Haupttext besteht. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder eine kurze Anmerkung bereitzustellen.
+Das **CSS ruby layout** Modul bietet das Render-Modell und Formatierungssteuerungen, die sich auf die Anzeige von Ruby-Anmerkungen beziehen. Ruby-Anmerkungen sind eine Form der interlinearen Anmerkung, bestehend aus kurzen Textstücken neben dem Haupttext. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder um eine kurze Anmerkung bereitzustellen.
 
 ## Referenz
 

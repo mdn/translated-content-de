@@ -1,5 +1,5 @@
 ---
-title: "URLPattern: URLPattern() Konstruktor"
+title: "URLPattern: URLPattern()-Konstruktor"
 short-title: URLPattern()
 slug: Web/API/URLPattern/URLPattern
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URLPattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Der **`URLPattern()`** Konstruktor gibt ein neues [`URLPattern`](/de/docs/Web/API/URLPattern)
+Der **`URLPattern()`**-Konstruktor gibt ein neues [`URLPattern`](/de/docs/Web/API/URLPattern)
 Objekt zurück, das das durch die Parameter definierte URL-Muster repräsentiert.
 
 ## Syntax
@@ -24,9 +24,9 @@ new URLPattern(input, baseURL, options)
 
 - `input`
 
-  - : Das Eingabemuster, das für das Matching verwendet wird. Dies kann entweder eine
-    Zeichenfolge sein oder ein Objekt, das Muster für jedes URL-Teil
-    einzeln bereitstellt. Die Objektelemente können eines der folgenden sein:
+  - : Das Eingabemuster, das zur Übereinstimmung verwendet wird. Dies kann entweder eine
+    Zeichenkette oder ein Objekt sein, das Muster für jeden URL-Teil
+    einzeln bereitstellt. Die Objektmitglieder können Folgendes sein:
 
     - `protocol`
     - `username`
@@ -42,24 +42,24 @@ new URLPattern(input, baseURL, options)
     > Ausgelassene Teile des Objekts werden als Platzhalter (`*`) behandelt.
 
 - `baseURL` {{Optional_Inline}}
-  - : Eine Zeichenfolge, die die Basis-URL darstellt, die verwendet wird, wenn
-    `input` ein relatives Muster ist. Wird sie nicht angegeben, wird standardmäßig `undefined` verwendet.
+  - : Eine Zeichenkette, die die Basis-URL darstellt, die verwendet wird, wenn
+    `input` ein relatives Muster ist. Falls nicht angegeben, wird es als `undefined` behandelt.
 - `options` {{Optional_Inline}}
-  - : Ein Objekt, das Optionen für das Matching des gegebenen Musters bereitstellt. Die möglichen Objektelemen sind wie folgt:
+  - : Ein Objekt, das Optionen für die Übereinstimmung mit dem angegebenen Muster bereitstellt. Mögliche Objektmitglieder sind:
     - `ignoreCase` {{Optional_Inline}}
-      - : Ermöglicht ein case-insensitives Matching, wenn auf `true` gesetzt. Wenn es weggelassen wird oder auf `false` gesetzt ist, wird das Matching case-sensitiv sein.
+      - : Ermöglicht die Groß-/Kleinschreibung-ignorierende Übereinstimmung, wenn auf `true` gesetzt. Wenn weggelassen oder auf `false` gesetzt, ist die Übereinstimmung groß-/kleinschreibungssensitiv.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Weist auf eines der folgenden Probleme hin:
+  - : Gibt eines der folgenden Probleme an:
     - Das gegebene `input` oder `baseURL` ist nicht gültig oder syntaktisch korrekt.
-    - Das gegebene `input` ist relativ, aber es wurde keine `baseURL` angegeben, um eine vollständige absolute URL zu bilden.
-    - Eine `baseURL` wird bereitgestellt, und `input` ist ein absolutes Muster oder ein strukturiertes Objekt.
+    - Das gegebene `input` ist relativ, aber es wird kein `baseURL` bereitgestellt, um eine vollständige absolute URL zu bilden.
+    - Ein `baseURL` wird bereitgestellt und `input` ist ein absolutes Muster oder ein strukturiertes Objekt.
 
 ## Beispiele
 
-### Pfadname abgleichen
+### Übereinstimmen eines Pfadnamens
 
 ```js
 let pattern1 = new URLPattern("https://example.com/books/:id");
@@ -81,7 +81,7 @@ let pattern4 = new URLPattern({
 });
 ```
 
-### Protokoll und Hostname abgleichen
+### Protokoll und Hostname übereinstimmen
 
 ```js
 let pattern = new URLPattern({
@@ -90,7 +90,7 @@ let pattern = new URLPattern({
 });
 ```
 
-### Alle möglichen strukturierten Teile abgleichen
+### Alle möglichen strukturierten Teile übereinstimmen
 
 ```js
 let pattern = new URLPattern({
@@ -105,7 +105,7 @@ let pattern = new URLPattern({
 });
 ```
 
-### Case-insensitives Matching
+### Groß-/Kleinschreibungsunabhängige Übereinstimmung
 
 ```js
 // Case-sensitive matching by default
@@ -114,7 +114,7 @@ console.log(pattern.test("https://example.com/2022/feb/xc44rsz")); // true
 console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // false
 ```
 
-Das Setzen der `ignoreCase` Option auf `true` im Konstruktor schaltet alle Matching-Operationen für das gegebene Muster auf case-insensitive um:
+Das Setzen der `ignoreCase`-Option auf `true` im Konstruktor schaltet alle Übereinstimmungsoperationen auf groß-/kleinschreibungsunabhängig für das gegebene Muster um:
 
 ```js
 // Case-insensitive matching
@@ -125,10 +125,10 @@ console.log(pattern.test("https://example.com/2022/feb/xc44rsz")); // true
 console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // true
 ```
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Das Eingabemuster des `URLPattern` Konstruktors kann zwei Formen annehmen — ein
-Musterobjekt oder eine Musterzeichenfolge und optional eine baseURL.
+Das Eingabemuster des `URLPattern`-Konstruktors kann zwei Formen annehmen — ein
+Musterobjekt oder ein Musterzeichenkette und optionales `baseURL`.
 
 ```js
 new URLPattern(obj);
@@ -136,18 +136,21 @@ new URLPattern(pattern);
 new URLPattern(pattern, baseURL);
 ```
 
-Der erste Konstruktortyp nimmt ein Objekt, das die
-URLs beschreibt, die durch das Angeben von Mustern für jedes einzelne URL-Teil übereinstimmen sollen.
-Seine Elemente können eines der `protocol`, `username`, `password`, `hostname`,
-`port`, `pathname`, `search`, `hash` oder `baseURL` sein. Wenn die `baseURL`-Eigenschaft
-bereitgestellt wird, wird sie als URL geparst und verwendet, um andere fehlende Eigenschaften
-zu füllen. Wenn die `baseURL`-Eigenschaft fehlt, dann standardisieren sich alle fehlenden
-Eigenschaften auf das Muster `*` Platzhalter, der jeden Input akzeptiert.
+Der erste Konstruktionstyp nimmt ein Objekt an, das beschreibt,
+welche URLs durch die Angabe von Mustern für jeden einzelnen URL-Teil übereinstimmen sollten.
+Seine Mitglieder können `protocol`, `username`, `password`, `hostname`,
+`port`, `pathname`, `search`, `hash` oder `baseURL` sein. Falls die `baseURL`-Eigenschaft
+angegeben ist, wird sie als URL geparst und verwendet, um alle anderen fehlenden Eigenschaften
+zu füllen. Fehlt die `baseURL`-Eigenschaft, dann werden alle anderen fehlenden
+Eigenschaften standardmäßig mit dem Muster-`*`-Platzhalter versehen und akzeptieren jede Eingabe.
 
-Der zweite Konstruktortyp nimmt eine URL-Zeichenfolge an, die
-Muster darin eingebettet hat. Die URL-Zeichenfolge kann relativ sein, wenn eine `baseURL` als zweites Argument bereitgestellt wird. Beachten Sie, dass es notwendig sein kann, einige
-Zeichen in der URL-Zeichenfolge zu maskieren, wenn nicht klar ist, ob das Zeichen
-verschiedene URL-Komponenten trennt oder Teil eines Musters ist. Zum Beispiel müssen Sie `about\\:blank` schreiben, um anzuzeigen, dass `:` das Protokollsuffix ist und nicht der Beginn eines `:blank` benannten Gruppenmusters.
+Der zweite Konstruktionstyp akzeptiert eine URL-Zeichenkette, die
+Muster eingebettet enthält. Die URL-Zeichenkette kann relativ sein, wenn ein `baseURL` als
+zweites Argument bereitgestellt wird. Beachten Sie, dass es notwendig sein könnte, einige
+Zeichen in der URL-Zeichenkette zu maskieren, falls unklar ist, ob das Zeichen
+verschiedene URL-Komponenten trennt oder Teil eines Musters ist. Zum
+Beispiel müssen Sie `about\\:blank` schreiben, um anzuzeigen, dass das `:`
+das Protokollsuffix ist und nicht der Beginn eines `:blank` genannten Gruppenmusters.
 
 ## Spezifikationen
 
@@ -159,5 +162,5 @@ verschiedene URL-Komponenten trennt oder Teil eines Musters ist. Zum Beispiel m�
 
 ## Siehe auch
 
-- Ein Polyfill von `URLPattern` ist verfügbar
-  [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)
+- Ein Polyfill von `URLPattern` ist
+  [auf GitHub verfügbar](https://github.com/kenchris/urlpattern-polyfill)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.forEach()`** Methode führt eine Callback-Funktion einmal pro Schlüssel/Wert-Paar im [`Headers`](/de/docs/Web/API/Headers) Objekt aus.
+Die **`Headers.forEach()`**-Methode führt eine Callback-Funktion einmal pro Schlüssel/Wert-Paar im [`Headers`](/de/docs/Web/API/Headers)-Objekt aus.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente:
+  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente entgegen:
     - `value`
       - : Wert des aktuell besuchten Header-Eintrags.
     - `key`
@@ -36,13 +36,13 @@ forEach(callbackFn, thisArg)
 
 ## Beschreibung
 
-Die `Headers.forEach()` Methode führt die bereitgestellte Callback-Funktion einmal für jeden existierenden Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Allerdings wird sie für Schlüssel, die vorhanden sind, aber den Wert undefined haben, ausgeführt.
+Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden existierenden Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 ## Beispiele
 
-### Inhalt eines Headers-Objekts ausgeben
+### Anzeigen der Inhalte eines Headers-Objekts
 
-Der folgende Code protokolliert eine Zeile für jedes Schlüssel/Wert-Paar im `myHeaders`-Objekt.
+Der folgende Code protokolliert eine Zeile für jeden Schlüssel/Wert im `myHeaders`-Objekt.
 
 ```js
 // Create a new test Headers object

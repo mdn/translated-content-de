@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: error-Event"
+title: "SpeechRecognition: error-Ereignis"
 short-title: error
 slug: Web/API/SpeechRecognition/error_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`error`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API)-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts wird ausgelöst, wenn ein Fehler bei der Spracherkennung auftritt.
+Das **`error`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Fehler bei der Spracherkennung tritt auf.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ Ein [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error) {{ReadOnlyInline}}
-  - : Gibt den Typ des aufgetretenen Fehlers zurück.
+  - : Gibt die Art des aufgetretenen Fehlers zurück.
 - [`SpeechRecognitionErrorEvent.message`](/de/docs/Web/API/SpeechRecognitionErrorEvent/message) {{ReadOnlyInline}}
-  - : Gibt eine detailliertere Beschreibung des Fehlers zurück.
+  - : Gibt eine Nachricht zurück, die den Fehler genauer beschreibt.
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ recognition.addEventListener("error", (event) => {
 });
 ```
 
-Oder Sie verwenden die `onerror`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die `onerror`-Ereignis-Handler-Eigenschaft:
 
 ```js
 recognition.onerror = (event) => {

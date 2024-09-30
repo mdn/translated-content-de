@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: add() Methode"
+title: "CSSNumericValue: add()-Methode"
 short-title: add()
 slug: Web/API/CSSNumericValue/add
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`add()`** Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle fügt einen angegebenen Wert zur
+Die **`add()`**-Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle fügt eine angegebene Zahl zum
 `CSSNumericValue` hinzu.
 
 ## Syntax

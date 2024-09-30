@@ -1,5 +1,5 @@
 ---
-title: "CustomStateSet: add() Methode"
+title: "CustomStateSet: add()-Methode"
 short-title: add()
 slug: Web/API/CustomStateSet/add
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`add`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle fügt einen Wert, der einen benutzerdefinierten Zustand darstellt, dem `CustomStateSet` hinzu.
+Die **`add`**-Methode der Schnittstelle [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) fügt einen Wert hinzu, der einen benutzerdefinierten Zustand im `CustomStateSet` darstellt.
 
-Benutzerdefinierte Elemente mit einem bestimmten Zustand können mit der [`:state()`](/de/docs/Web/CSS/:state)-Pseudoklasse ausgewählt werden, indem der gewünschte Zustand als Argument angegeben wird.
+Benutzerdefinierte Elemente mit einem speziellen Zustand können mithilfe der [`:state()`](/de/docs/Web/CSS/:state)-Pseudo-Klasse ausgewählt werden, indem der gewünschte Zustand als Argument angegeben wird.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ add(value)
 
 ### Rückgabewert
 
-Undefiniert.
+Undefined.
 
 ## Beispiele
 
-Die folgende Funktion fügt den Zustand `checked` einem `CustomStateSet` hinzu.
+Die folgende Funktion fügt den Zustand `checked` zu einem `CustomStateSet` hinzu.
 
 ```js
 class MyCustomElement extends HTMLElement {

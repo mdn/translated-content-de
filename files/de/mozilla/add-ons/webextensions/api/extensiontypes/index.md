@@ -12,15 +12,15 @@ Einige allgemeine Typen, die in anderen WebExtension-APIs verwendet werden.
 ## Typen
 
 - {{WebExtAPIRef("extensionTypes.ImageDetails")}}
-  - : Details über das Format und die Qualität eines Bildes.
+  - : Details zum Format und zur Qualität eines Bildes.
 - {{WebExtAPIRef("extensionTypes.ImageFormat")}}
   - : Das Format eines Bildes.
 - {{WebExtAPIRef("extensionTypes.InjectDetails")}}
   - : Fügt Details in eine Seite ein.
 - {{WebExtAPIRef("extensionTypes.RunAt")}}
-  - : Der früheste Zeitpunkt, zu dem das JavaScript oder CSS in den Tab injiziert wird.
+  - : Der früheste Zeitpunkt, zu dem das JavaScript oder CSS in das Tab eingefügt wird.
 - `extensionTypes.CSSOrigin`
-  - : Gibt an, ob ein durch [`tabs.insertCSS`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) injiziertes CSS-Stylesheet als "author" oder "user" Stylesheet behandelt werden soll.
+  - : Gibt an, ob ein von [`tabs.insertCSS`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) eingefügtes CSS-Stylesheet als „Author“ oder „User“ Stylesheet behandelt werden soll.
 
 ## Browser-Kompatibilität
 
@@ -29,7 +29,7 @@ Einige allgemeine Typen, die in anderen WebExtension-APIs verwendet werden.
 {{WebExtExamples("h2")}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes). Diese Dokumentation stammt von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes) API von Chromium. Diese Dokumentation stammt aus [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die schreibgeschützte Eigenschaft **`width`** des **`DOMRectReadOnly`**-Interfaces stellt die Breite des `DOMRect` dar.
+Die **`width`** schreibgeschützte Eigenschaft des **`DOMRectReadOnly`**-Interfaces stellt die Breite des `DOMRect` dar.
 
 ## Wert
 

@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`receiveFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle empfängt einen Feature-Report vom HID-Gerät. Feature-Reports sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
+Die **`receiveFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle empfängt einen Feature-Bericht vom HID-Gerät. Feature-Berichte sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
 
-Die `reportId` für jedes der vom Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
+Die `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ receiveFeatureReport(reportId)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem {{jsxref("DataView")}}-Objekt aufgelöst wird, das den Feature-Report enthält.
+Ein {{jsxref("Promise")}}, das mit einem {{jsxref("DataView")}}-Objekt aufgelöst wird, das den Feature-Bericht enthält.
 
 ### Ausnahmen
 

@@ -27,7 +27,7 @@ let ruleIds = await browser.declarativeNetRequest.getDisabledRuleIds(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von statischen [Regel-IDs](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Rule#id) oder einem leeren Array erfüllt wird, falls keine deaktivierten Regeln vorhanden sind. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von statischen [Regel-IDs](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Rule#id) oder einem leeren Array erfüllt wird, wenn keine deaktivierten Regeln vorhanden sind. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

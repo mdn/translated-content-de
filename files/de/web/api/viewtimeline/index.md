@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Das **`ViewTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert eine Ansichtsfortschritts-Zeitleiste (siehe [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details).
+Das **`ViewTimeline`** Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert eine Fortschrittszeitleiste einer Ansicht (siehe [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für mehr Details).
 
-Übergeben Sie eine `ViewTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um sie als Zeitleiste festzulegen, die den Fortschritt der Animation steuert.
+Übergeben Sie eine `ViewTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um sie als Zeitleiste zu spezifizieren, die den Fortschritt der Animation steuert.
 
 {{InheritanceDiagram}}
 
@@ -18,26 +18,26 @@ Das **`ViewTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_A
 - [`ViewTimeline()`](/de/docs/Web/API/ViewTimeline/ViewTimeline) {{Experimental_Inline}}
   - : Erstellt eine neue `ViewTimeline`-Objektinstanz.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Dieses Interface erbt auch die Eigenschaften seines Elternteils, [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)._
 
 - [`subject`](/de/docs/Web/API/ViewTimeline/subject) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb des nächstgelegenen vorfahren Scroll-Elements (Scroller) den Fortschritt der Zeitleiste und damit die Animation steuert.
+  - : Gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb seines nächstgelegenen vorfahrbasierten scrollbaren Elements (Scroller) den Fortschritt der Zeitleiste und somit der Animation steuert.
 - [`startOffset`](/de/docs/Web/API/ViewTimeline/startOffset) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Start-Scroll-Position (0% Fortschritt) der Zeitleiste als Offset vom Beginn des überfüllten Inhaltsbereichs im Scroller darstellt.
+  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Startposition (0% Fortschritt) der Scroll-Zeitleiste als Versatz vom Beginn des überlaufenden Inhalts im Scroller darstellt.
 - [`endOffset`](/de/docs/Web/API/ViewTimeline/endOffset) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die End-Scroll-Position (100% Fortschritt) der Zeitleiste als Offset vom Beginn des überfüllten Inhaltsbereichs im Scroller darstellt.
+  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Endposition (100% Fortschritt) der Scroll-Zeitleiste als Versatz vom Beginn des überlaufenden Inhalts im Scroller darstellt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Dieses Interface erbt die Methoden seines Elternteils, [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)._
 
 ## Beispiele
 
-### Anzeigedisplay des Subjekts und der Offsets einer Ansichtsfortschritts-Zeitleiste
+### Anzeige des Subjekts und der Offsets einer Fortschrittszeitleiste der Ansicht
 
-In diesem Beispiel animieren wir ein Element mit einer `class` von `subject` entlang einer Ansichtsfortschritts-Zeitleiste – es wird animiert, wenn es beim Scrollen nach oben durch das Dokument bewegt wird. Wir geben außerdem die Werte für `subject`, `startOffset` und `endOffset` in einem Ausgabeelement in der oberen rechten Ecke aus.
+In diesem Beispiel animieren wir ein Element mit einer `class` von `subject` entlang einer Fortschrittszeitleiste der Ansicht — es wird animiert, wenn es beim Scrollen nach oben durch das Dokument bewegt wird. Wir geben auch die Werte `subject`, `startOffset` und `endOffset` an ein Ausgabeelement in der oberen rechten Ecke aus.
 
 #### HTML
 
@@ -82,7 +82,7 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das CSS für das Beispiel sieht folgendermaßen aus:
+Das CSS für das Beispiel sieht so aus:
 
 ```css
 .subject {
@@ -122,9 +122,9 @@ p {
 
 #### JavaScript
 
-Im JavaScript holen wir Referenzen zu den `subject` und `output`-`<div>`s, dann erstellen wir eine neue `ViewTimeline`, assoziieren diese mit dem `subject`-Element, um festzulegen, dass der Zeitleistenfortschritt auf der Sichtbarkeit dieses Elements durch seinen scrollenden Vorfahren basiert, setzen eine `block`-Achse und setzen `inset`-Werte, um die Position des Bereichs anzupassen, in dem das Subject als sichtbar angesehen wird.
+Im JavaScript holen wir uns Referenzen zu den `<div>`s `subject` und `output`, dann erstellen wir ein neues `ViewTimeline`, das es mit dem `subject`-Element verknüpft, um zu spezifizieren, dass der Fortschritt der Zeitleiste auf der Sichtbarkeit dieses Elements durch seinen scrollenden Vorfahren basiert, eine `block`-Achse einstellen und `inset`-Werte setzen, um die Position der Box anzupassen, in der das Subjekt sichtbar sein soll.
 
-Wir animieren dann das `subject`-Element mit der Web Animations API. Schließlich zeigen wir die `subject`, `startOffset` und `endOffset` Werte im `output`-Element an.
+Anschließend animieren wir das `subject`-Element mit der Web Animations API. Zum Schluss zeigen wir die Werte `subject`, `startOffset` und `endOffset` im `output`-Element an.
 
 ```js
 const subject = document.querySelector(".subject");
@@ -154,7 +154,7 @@ output.textContent += `end offset: ${timeline.endOffset}.`;
 
 #### Ergebnis
 
-Scrollen Sie, um das Subjektelement animiert zu sehen.
+Scrollen Sie, um das animierte Subjektelement zu sehen.
 
 {{EmbedLiveSample("Tracking the progress of a view progress timeline", "100%", "480px")}}
 
@@ -169,5 +169,5 @@ Scrollen Sie, um das Subjektelement animiert zu sehen.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

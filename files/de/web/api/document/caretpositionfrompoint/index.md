@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM View")}}
 
-Die **`caretPositionFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das den DOM-Knoten sowie die Einfügemarke und deren Zeichenoffset innerhalb dieses Knotens enthält.
+Die **`caretPositionFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das den DOM-Knoten sowie die Einfügemarke und den Zeichenoffset der Einfügemarke innerhalb dieses Knotens enthält.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ Ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt.
 
 ## Beispiele
 
-Klicken Sie irgendwo im **Demo**-Absatz unten, um an der Stelle, auf die Sie klicken, einen Zeilenumbruch einzufügen. Der Code dazu befindet sich unter der Demo.
+Klicken Sie irgendwo im **Demo**-Absatz unten, um an der Stelle, an der Sie klicken, einen Zeilenumbruch einzufügen. Der Code dafür befindet sich unterhalb der Demo.
 
 ### Demo
 
 {{EmbedLiveSample('Examples')}}
 
-Der folgende Code überprüft zuerst die Unterstützung von `document.caretPositionFromPoint`, aber wenn der Browser dies nicht unterstützt, prüft der Code stattdessen auf [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet dies alternativ.
+Der untenstehende Code prüft zunächst die Unterstützung von `document.caretPositionFromPoint`, aber wenn der Browser dies nicht unterstützt, wird stattdessen [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) geprüft und verwendet.
 
 ### JavaScript
 

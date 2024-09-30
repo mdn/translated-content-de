@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Crypto API")}}
 
-Das **`CryptoKeyPair`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert ein Schlüsselpaar für einen asymmetrischen Kryptographie-Algorithmus, auch bekannt als Public-Key-Algorithmus.
+Das **`CryptoKeyPair`**-Dictionary der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert ein Schlüsselpaar für einen asymmetrischen Kryptographie-Algorithmus, auch bekannt als Public-Key-Algorithmus.
 
 Ein `CryptoKeyPair`-Objekt kann mit [`SubtleCrypto.generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) erhalten werden, wenn der ausgewählte Algorithmus einer der asymmetrischen Algorithmen ist: RSASSA-PKCS1-v1_5, RSA-PSS, RSA-OAEP, ECDSA oder ECDH.
 
@@ -18,7 +18,7 @@ Es enthält zwei Eigenschaften, die beide [`CryptoKey`](/de/docs/Web/API/CryptoK
 - `CryptoKeyPair.privateKey`
   - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt, das den privaten Schlüssel darstellt. Bei Verschlüsselungs- und Entschlüsselungsalgorithmen wird dieser Schlüssel zum Entschlüsseln verwendet. Bei Signier- und Verifizierungsalgorithmen wird er zum Signieren verwendet.
 - `CryptoKeyPair.publicKey`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt, das den öffentlichen Schlüssel darstellt. Bei Verschlüsselungs- und Entschlüsselungsalgorithmen wird dieser Schlüssel zum Verschlüsseln verwendet. Bei Signier- und Verifizierungsalgorithmen wird er zur Verifizierung von Signaturen verwendet.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt, das den öffentlichen Schlüssel darstellt. Bei Verschlüsselungs- und Entschlüsselungsalgorithmen wird dieser Schlüssel zum Verschlüsseln verwendet. Bei Signier- und Verifizierungsalgorithmen wird er zur Signaturüberprüfung verwendet.
 
 ## Beispiele
 

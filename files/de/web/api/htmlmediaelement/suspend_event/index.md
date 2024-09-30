@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: suspend Ereignis"
+title: "HTMLMediaElement: suspend-Ereignis"
 short-title: suspend
 slug: Web/API/HTMLMediaElement/suspend_event
 l10n:
@@ -10,11 +10,11 @@ l10n:
 
 Das `suspend`-Ereignis wird ausgelöst, wenn das Laden von Mediendaten unterbrochen wurde.
 
-Dieses Ereignis ist nicht abbrichbar und breitet sich nicht aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("suspend", (event) => {});
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `suspend`-Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `suspend`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 

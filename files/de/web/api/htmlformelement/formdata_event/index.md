@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`formdata`** Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
+Das **`formdata`** Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular übermittelt wird, kann jedoch auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
 
-Dieses Ereignis ist nicht stornierbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und es verbreitet sich nicht weiter.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("formdata", (event) => {});
@@ -30,10 +30,10 @@ Ein [`FormDataEvent`](/de/docs/Web/API/FormDataEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)
-  - : Enthält das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die Daten des Formulars repräsentiert, als das Ereignis ausgelöst wurde.
+  - : Enthält das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die im Formular enthaltenen Daten darstellt, als das Ereignis ausgelöst wurde.
 
 ## Beispiele
 

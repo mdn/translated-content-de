@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: createCylinderLayer()-Methode"
+title: "XRWebGLBinding: Methode createCylinderLayer()"
 short-title: createCylinderLayer()
 slug: Web/API/XRWebGLBinding/createCylinderLayer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`createCylinderLayer()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt zurück, das eine Schicht darstellt, die in einem gebogenen rechteckigen Raum in der virtuellen Umgebung platziert wird.
+Die **`createCylinderLayer()`**-Methode des [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Interfaces gibt ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt zurück, welches eine Ebene darstellt, die einen gekrümmten rechteckigen Raum in der virtuellen Umgebung einnimmt.
 
 ## Syntax
 
@@ -19,74 +19,74 @@ createCylinderLayer(init)
 ### Parameter
 
 - `init`
-  - : Ein Objekt zur Konfiguration des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer). Es muss die Eigenschaften `space`, `viewPixelHeight` und `viewPixelWidth` enthalten. `init` hat folgende Eigenschaften:
+  - : Ein Objekt zur Konfiguration des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer). Es muss die Eigenschaften `space`, `viewPixelHeight` und `viewPixelWidth` enthalten. `init` hat die folgenden Eigenschaften:
     - `aspectRatio` {{optional_inline}}
-      - : Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts angibt. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders, geteilt durch dessen Höhe. Die Breite wird berechnet, indem der `radius` mit dem `centralAngle` multipliziert wird. Der Standardwert ist `2.0`.
+      - : Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts angibt. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders zu seiner Höhe. Die Breite wird berechnet, indem der `radius` mit dem `centralAngle` multipliziert wird. Der Standardwert ist `2.0`.
     - `centralAngle` {{optional_inline}}
-      - : Eine Zahl, die den Winkel in Radiant des sichtbaren Abschnitts des Zylinders angibt. Standardwert: `0.78539` (π / 4).
+      - : Eine Zahl, die den Winkel in Bogenmaß des sichtbaren Abschnitts des Zylinders angibt. Standardwert: `0.78539` (π / 4).
     - `colorFormat` {{optional_inline}}
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Farbtextur-Daten definiert. Mögliche Werte:
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Farbtexturdaten definiert. Mögliche Werte:
         - `gl.RGB`
         - `gl.RGBA`
-          Zusätzlich für Kontexte mit aktivierter [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)-Erweiterung:
+          Zusätzlich, für Kontexte mit der aktivierten [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)-Erweiterung:
         - `ext.SRGB_EXT`
         - `ext.SRGB_ALPHA_EXT`
-          Zusätzlich für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte:
+          Zusätzlich, für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte:
         - `gl.RGBA8`
         - `gl.RGB8`
         - `gl.SRGB8`
         - `gl.RGB8_ALPHA8`
-          Zusätzlich für Kontexte mit aktivierter [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung:
+          Zusätzlich, für Kontexte mit der [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung:
         - `ext.COMPRESSED_RGB8_ETC2`
         - `ext.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2`
         - `ext.COMPRESSED_RGBA8_ETC2_EAC`
         - `ext.COMPRESSED_SRGB8_ETC2`
         - `ext.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2`
         - `ext.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC`
-          Zusätzlich für Kontexte mit aktivierter [`WEBGL_compressed_texture_astc`](/de/docs/Web/API/WEBGL_compressed_texture_astc)-Erweiterung:
+          Zusätzlich, für Kontexte mit der [`WEBGL_compressed_texture_astc`](/de/docs/Web/API/WEBGL_compressed_texture_astc)-Erweiterung:
         - `Alle` der vom Erweiterung unterstützten Formate.
           Der Standardwert ist `gl.RGBA`.
     - `depthFormat` {{optional_inline}}
-      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Tiefentextur-Daten definiert oder `0`, wenn die Schicht keine Tiefentextur bereitstellen soll (in diesem Fall wird [`XRProjectionLayer.ignoreDepthValues`](/de/docs/Web/API/XRProjectionLayer/ignoreDepthValues) `true` sein).
-        Mögliche Werte innerhalb von [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontexten mit aktivierter [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung oder innerhalb von [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten (keine Erweiterung erforderlich):
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Tiefentexturdaten definiert, oder `0`, was darauf hinweist, dass die Ebene keine Tiefentextur bereitstellen soll (in diesem Fall ist [`XRProjectionLayer.ignoreDepthValues`](/de/docs/Web/API/XRProjectionLayer/ignoreDepthValues) `true`).
+        Mögliche Werte innerhalb von [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontexten mit der aktivierten [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung oder innerhalb von [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten (ohne die Notwendigkeit einer Erweiterung):
         - `gl.DEPTH_COMPONENT`
         - `gl.DEPTH_STENCIL`
-          Zusätzlich für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten:
+          Zusätzlich, für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte:
         - `gl.DEPTH_COMPONENT24`
         - `gl.DEPTH24_STENCIL24`
           Der Standardwert ist `gl.DEPTH_COMPONENT`.
     - `isStatic` {{optional_inline}}
-      - : Ein boolescher Wert, der, wenn er wahr ist, anzeigt, dass Sie nur dann auf diese Schicht zeichnen können, wenn [`needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw) `true` ist. Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der, falls `true`, anzeigt, dass Sie nur dann auf diese Ebene zeichnen können, wenn [`needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw) `true` ist. Der Standardwert ist `false`.
     - `layout` {{optional_inline}}
-      - : Ein String, der das Layout der Schicht angibt. Mögliche Werte:
+      - : Ein String, der das Layout der Ebene angibt. Mögliche Werte:
         - `default`
-          - : Die Schicht passt sich allen Ansichten der Sitzung an.
+          - : Die Ebene bietet Platz für alle Ansichten der Sitzung.
         - `mono`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen und beiden Augen präsentiert.
+          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird erstellt und für beide Augen präsentiert.
         - `stereo`
-          - : Der Benutzeragent entscheidet, wie er das [`XRSubImage`](/de/docs/Web/API/XRSubImage) (eines oder zwei) zuweist und das Layout (oben/unten oder links/rechts) gestaltet.
+          - : Der User-Agent entscheidet, wie es das [`XRSubImage`](/de/docs/Web/API/XRSubImage) (eins oder zwei) anordnet und das Layout (oben/unten oder links/rechts).
         - `stereo-left-right`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten Bereich.
+          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird erstellt. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten.
         - `stereo-top-bottom`
-          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren.
+          - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird erstellt. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren.
             Der Standardwert ist `mono`.
     - `mipLevels` {{optional_inline}}
-      - : Eine Zahl, die die gewünschte Anzahl an mip Levels angibt. Der Standardwert ist `1`.
+      - : Eine Zahl, die die gewünschte Anzahl der Mipmap-Level angibt. Der Standardwert ist `1`.
     - `radius` {{optional_inline}}
       - : Eine Zahl, die den Radius des Zylinders angibt. Standardwert: `2.0`.
     - `space` **Erforderlich**
-      - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, das die räumliche Beziehung der Schicht zur physischen Umgebung des Benutzers definiert.
+      - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, das die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers definiert.
     - `textureType` {{optional_inline}}
-      - : Ein String, der den Typ der Textur der Schicht definiert. Mögliche Werte:
-        - `texture`: Die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) sind vom Typ `gl.TEXTURE_2D`.
-        - `texture-array`: die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) sind vom Typ `gl.TEXTURE_2D_ARRAY` (nur WebGL 2 Kontexte).
+      - : Ein String, der den Typ der Textur definiert, die die Ebene haben wird. Mögliche Werte:
+        - `texture`: Die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) werden vom Typ `gl.TEXTURE_2D` sein.
+        - `texture-array`: die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) werden vom Typ `gl.TEXTURE_2D_ARRAY` sein (nur für WebGL 2-Kontexte).
           Der Standardwert ist `texture`.
     - `transform` {{optional_inline}}
       - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das den Versatz und die Ausrichtung relativ zu `space` definiert.
     - `viewPixelHeight` **Erforderlich**
-      - : Eine Zahl, die die Pixelhöhe der Schichtansicht angibt.
+      - : Eine Zahl, die die Pixelhöhe der Ebenenansicht angibt.
     - `viewPixelWidth` **Erforderlich**
-      - : Eine Zahl, die die Pixelbreite der Schichtansicht angibt.
+      - : Eine Zahl, die die Pixelbreite der Ebenenansicht angibt.
 
 ### Rückgabewert
 
@@ -96,7 +96,7 @@ Ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Objekt.
 
 ### Erstellen eines `XRCylinderLayer`
 
-Konfigurieren Sie das Zylinderschichtobjekt unter Verwendung der oben aufgelisteten Eigenschaften in einem Aufruf von `createCylinderLayer()`. Um Schichten dem XR-Gerät zu präsentieren, fügen Sie sie dem `layers`-Renderstatus mit [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzu.
+Konfigurieren Sie die Zylinder-Ebene mit den oben genannten Eigenschaften in einem Aufruf von `createCylinderLayer()`. Um Ebenen auf dem XR-Gerät darzustellen, fügen Sie sie dem `layers`-Render-State mit [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzu.
 
 ```js
 function onXRSessionStarted(xrSession) {

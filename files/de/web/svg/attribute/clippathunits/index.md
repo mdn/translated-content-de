@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`clipPathUnits`** Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("clipPath") }} Elements verwendet werden soll.
+Das **`clipPathUnits`** Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("clipPath") }}-Elements verwendet werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -49,11 +49,11 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", '100%', 200)}}
+{{EmbedLiveSample("Example", '100%', 200)}}
 
 ## clipPath
 
-Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
+Für {{SVGElement('clipPath')}} definieren `clipPathUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
 
 <table class="properties">
   <tbody>
@@ -73,9 +73,9 @@ Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem,
 </table>
 
 - userSpaceOnUse
-  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als der Clip-Pfad erstellt wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung des Clipping-Pfads definiert wurde.
 - objectBoundingBox
-  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zur Begrenzungsbox des Elements beziehen, auf das der Clip-Pfad angewendet wird. Dies bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objekt-Begrenzungsbox ist und die Breite und Höhe der Objekt-Begrenzungsbox auf eine Länge von 1 Einheitwert betrachtet werden.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Begrenzungsrahmens des Objekts ist und die Breite und Höhe des Begrenzungsrahmens des Objekts als Länge von 1 Einheit betrachtet werden.
 
 ## Spezifikationen
 

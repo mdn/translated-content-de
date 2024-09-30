@@ -9,7 +9,7 @@ l10n:
 {{ APIRef("DOM") }}
 
 Die **`TreeWalker.nextSibling()`**-Methode bewegt den aktuellen
-[`Node`](/de/docs/Web/API/Node) zu seinem nächsten Geschwisterknoten, falls vorhanden, und gibt das gefundene Geschwister zurück. Wenn es keinen solchen Knoten gibt, wird `null` zurückgegeben und der aktuelle Knoten bleibt unverändert.
+[`Node`](/de/docs/Web/API/Node) zu seinem nächsten Geschwisterknoten, falls vorhanden, und gibt das gefundene Geschwister zurück. Wenn es keinen solchen Knoten gibt, gibt sie `null` zurück und der aktuelle Knoten wird nicht verändert.
 
 ## Syntax
 
@@ -52,4 +52,4 @@ const node = treeWalker.nextSibling(); // returns null if the first child of the
 
 ## Siehe auch
 
-- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle, zu der es gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.

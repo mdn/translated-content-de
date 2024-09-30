@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`map()`** von {{jsxref("Iterator")}}-Instanzen gibt einen neuen [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers) zurück, der Elemente des Iterators liefert, wobei jedes Element durch eine Abbildungsfunktion transformiert wird.
+Die **`map()`**-Methode von {{jsxref("Iterator")}}-Instanzen gibt einen neuen [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers) zurück, der Elemente des Iterators liefert, die jeweils durch eine Mapping-Funktion transformiert wurden.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ map(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Der Rückgabewert wird vom Iterator-Helfer geliefert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt werden soll. Der Rückgabewert wird vom Iterator-Helfer geliefert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -26,17 +26,17 @@ map(callbackFn)
 
 ### Rückgabewert
 
-Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Jedes Mal, wenn die `next()`-Methode des Iterator-Helfers aufgerufen wird, erhält sie das nächste Element vom zugrunde liegenden Iterator, wendet `callbackFn` an und liefert den Rückgabewert. Wenn der zugrunde liegende Iterator abgeschlossen ist, ist auch der Iterator-Helfer abgeschlossen (die `next()`-Methode produziert `{ value: undefined, done: true }`).
+Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Jedes Mal, wenn die `next()`-Methode des Iterator-Helfers aufgerufen wird, erhält sie das nächste Element vom zugrunde liegenden Iterator, wendet `callbackFn` an und liefert den Rückgabewert. Wenn der zugrunde liegende Iterator abgeschlossen ist, wird auch der Iterator-Helfer abgeschlossen (die `next()`-Methode liefert `{ value: undefined, done: true }`).
 
 ## Beschreibung
 
-Der Hauptvorteil von Iterator-Helfern im Vergleich zu Array-Methoden ist ihre Fähigkeit, mit unendlichen Iteratoren zu arbeiten. Bei unendlichen Iteratoren ermöglicht `map()` das Erstellen eines neuen Iterators, der beim Durchlaufen transformierte Elemente erzeugt.
+Der Hauptvorteil von Iterator-Helfern gegenüber Array-Methoden ist ihre Fähigkeit, mit unendlichen Iteratoren zu arbeiten. Bei unendlichen Iteratoren ermöglicht `map()`, einen neuen Iterator zu erstellen, der bei der Iteration transformierte Elemente produziert.
 
 ## Beispiele
 
 ### Verwendung von map()
 
-Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Folge liefert, wandelt diese in eine neue Folge um, bei der jeder Term quadriert wird, und liest dann die ersten paar Terme:
+Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Folge liefert, wandelt ihn in eine neue Folge um, wobei jeder Term quadriert wird, und liest dann die ersten paar Terme:
 
 ```js
 function* fibonacci() {
@@ -56,7 +56,7 @@ console.log(seq.next().value); // 4
 
 ### Verwendung von map() mit einer for...of-Schleife
 
-`map()` ist am praktischsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterabel sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
+`map()` ist am bequemsten, wenn Sie den Iterator nicht manuell schreiben. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife iterieren:
 
 ```js
 for (const n of fibonacci().map((x) => x ** 2)) {

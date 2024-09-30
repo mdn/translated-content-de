@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`overlaysContent`**-Eigenschaft der `VirtualKeyboard`-Schnittstelle kann verwendet werden, um sich von der automatischen Art, wie Browser mit virtuellen On-Screen-Tastaturen umgehen, abzumelden, indem die Größe des Viewports verkleinert wird, um Platz für sie zu schaffen.
+Die **`overlaysContent`**-Eigenschaft des `VirtualKeyboard`-Interfaces kann verwendet werden, um die automatische Art und Weise, wie Browser mit virtuellen On-Screen-Tastaturen umgehen, zu deaktivieren, indem die Größe des Viewports reduziert wird, um Platz für diese zu schaffen.
 
-Wenn die `overlaysContent`-Eigenschaft auf `true` gesetzt ist, verkleinert der Browser den Viewport nicht mehr, wenn die virtuelle Tastatur erscheint. Stattdessen überlagert die virtuelle Tastatur den Inhalt der Webseite, und Sie können das Seitenlayout anhand der [Virtual Keyboard API](/de/docs/Web/API/VirtualKeyboard_API) sowie Ihrem eigenen benutzerdefinierten CSS und JavaScript entsprechend anpassen.
+Wenn die `overlaysContent`-Eigenschaft auf `true` gesetzt wird, ändert der Browser die Größe des Viewports nicht mehr, wenn die virtuelle Tastatur erscheint. Stattdessen überlagert die virtuelle Tastatur den Inhalt der Webseite, und Sie können das Seitenlayout entsprechend mit der [Virtual Keyboard API](/de/docs/Web/API/VirtualKeyboard_API) sowie Ihrem eigenen benutzerdefinierten CSS und JavaScript anpassen.
 
 ## Wert
 
-Ein boolean. Standardmäßig `false`, setzen Sie es auf `true`, um die automatische Behandlung der virtuellen On-Screen-Tastatur durch den Browser zu deaktivieren.
+Ein boolescher Wert. Standardmäßig `false`, setzen Sie es auf `true`, um sich von der automatischen Behandlung der On-Screen-Tastatur durch den Browser abzumelden.
 
 ## Beispiel
 
@@ -35,5 +35,5 @@ if ("virtualKeyboard" in navigator) {
 
 ## Siehe auch
 
-- [Die VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API)
-- [Vollständige Kontrolle mit der VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)
+- [Die VirtualKeyboard-API](/de/docs/Web/API/VirtualKeyboard_API)
+- [Volle Kontrolle mit der VirtualKeyboard-API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)

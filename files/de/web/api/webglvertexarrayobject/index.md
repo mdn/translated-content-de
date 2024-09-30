@@ -2,12 +2,12 @@
 title: WebGLVertexArrayObject
 slug: Web/API/WebGLVertexArrayObject
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLVertexArrayObject`**-Schnittstelle ist Teil der [WebGL 2 API](/de/docs/Web/API/WebGL_API), repräsentiert Vertex-Array-Objekte (VAOs), die auf Vertex-Array-Daten verweisen, und stellt Namen für verschiedene Sätze von Vertex-Daten bereit.
+Das **`WebGLVertexArrayObject`**-Interface ist Teil der [WebGL 2 API](/de/docs/Web/API/WebGL_API), repräsentiert Vertex-Array-Objekte (VAOs), die auf Vertex-Array-Daten verweisen, und bietet Namen für verschiedene Sätze von Vertex-Daten.
 
 {{InheritanceDiagram}}
 
@@ -19,7 +19,7 @@ Beim Arbeiten mit `WebGLVertexArrayObject`-Objekten sind die folgenden Methoden 
 - [`WebGL2RenderingContext.bindVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/bindVertexArray)
 
 > [!NOTE]
-> Die Erweiterung [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object) ermöglicht die Verwendung von Vertex-Array-Objekten in einem WebGL-1-Kontext.
+> Die [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object)-Erweiterung ermöglicht die Nutzung von Vertex-Array-Objekten in einem WebGL-1-Kontext.
 
 ## Beispiele
 

@@ -2,12 +2,12 @@
 title: WebGLSampler
 slug: Web/API/WebGLSampler
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Das **`WebGLSampler`**-Interface ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und speichert Abtastparameter für den Zugriff auf [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) innerhalb eines Shaders.
+Die **`WebGLSampler`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und speichert Abtastparameter für den Zugriff auf [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) innerhalb eines Shaders.
 
 {{InheritanceDiagram}}
 

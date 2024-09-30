@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`patternUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
+Das Attribut **`patternUnits`** gibt an, welches Koordinatensystem für die geometrischen Eigenschaften des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -59,7 +59,7 @@ svg {
 
 ## pattern
 
-Für {{SVGElement('pattern')}} definiert `patternUnits` das verwendete Koordinatensystem für die Geometrieeigenschaften ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements.
+Für {{SVGElement('pattern')}} definiert `patternUnits` das Koordinatensystem, das für die geometrischen Eigenschaften ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -79,9 +79,9 @@ Für {{SVGElement('pattern')}} definiert `patternUnits` das verwendete Koordinat
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass sich alle Koordinaten für die Geometrieeigenschaften auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als das Muster angewendet wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten für die geometrischen Eigenschaften sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als das Muster angewendet wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieeigenschaften Brüche oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe angesehen werden, als ob der Inhalt des {{ SVGElement("pattern") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
+  - : Dieser Wert gibt an, dass alle Koordinaten für die geometrischen Eigenschaften Brüche oder Prozentsätze des Begrenzungsrahmens des Elements repräsentieren, auf das das Muster angewendet wird. Ein Begrenzungsrahmen kann als dasselbe angesehen werden, als ob der Inhalt des {{ SVGElement("pattern") }} an ein `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
 
 ## Spezifikationen
 

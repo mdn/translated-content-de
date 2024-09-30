@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Das **`MessageChannel`**-Interface der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es, einen neuen Nachrichtenkanal zu erstellen und Daten über diesen mithilfe seiner beiden [`MessagePort`](/de/docs/Web/API/MessagePort)-Eigenschaften zu senden.
+Das **`MessageChannel`**-Interface der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es uns, einen neuen Nachrichtenkanal zu erstellen und Daten über seine beiden [`MessagePort`](/de/docs/Web/API/MessagePort)-Eigenschaften zu senden.
 
 ## Konstruktor
 
 - [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)
   - : Gibt ein neues `MessageChannel`-Objekt mit zwei neuen [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) {{ReadOnlyInline}}
-  - : Gibt den port1 des Kanals zurück.
+  - : Gibt port1 des Kanals zurück.
 - [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) {{ReadOnlyInline}}
-  - : Gibt den port2 des Kanals zurück.
+  - : Gibt port2 des Kanals zurück.
 
 ## Beispiel
 
-Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mithilfe des [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktors erstellt wird.
+Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mit Hilfe des [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktors erstellt wird.
 
-Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mithilfe der [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode zusammen mit einer Nachricht.
+Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) zusammen mit einer Nachricht an das IFrame über die Methode [`window.postMessage`](/de/docs/Web/API/Window/postMessage).
 
-Wenn eine Nachricht vom IFrame zurückempfangen wird, gibt die `onMessage`-Funktion die Nachricht in einem Absatz aus.
+Wenn eine Nachricht vom IFrame zurückgesendet wird, gibt die Funktion `onMessage` die Nachricht in einem Absatz aus.
 
 ```js
 const channel = new MessageChannel();
@@ -53,7 +53,7 @@ function onMessage(e) {
 }
 ```
 
-Für ein vollständiges funktionierendes Beispiel sehen Sie sich unser [Channel Messaging Basic Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Ein komplett funktionierendes Beispiel finden Sie in unserem [Grunddemonstrationsprojekt zur Kanalnachrichtübermittlung](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ Für ein vollständiges funktionierendes Beispiel sehen Sie sich unser [Channel 
 
 ## Siehe auch
 
-- [Verwenden von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

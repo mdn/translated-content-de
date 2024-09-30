@@ -14,13 +14,13 @@ Die schreibgeschützte **`media`**-Eigenschaft der [`CSSImportRule`](/de/docs/We
 
 Gibt ein [`MediaList`](/de/docs/Web/API/MediaList)-Objekt zurück.
 
-Der Wert von `media` kann gesetzt werden, indem ein String übergeben wird, der das `media`-Attribut enthält; zum Beispiel `"print"`.
+Der Wert von `media` kann festgelegt werden, indem ein String übergeben wird, der das `media`-Attribut enthält; beispielsweise `"print"`.
 
 ## Beispiele
 
 ### Abrufen der media-Eigenschaft
 
-Das folgende Stylesheet enthält eine einzige {{cssxref("@import")}}-Regel. Daher ist das erste Element in der Liste der CSS-Regeln eine `CSSImportRule`. Die `media`-Eigenschaft gibt ein [`MediaList`](/de/docs/Web/API/MediaList)-Objekt zurück. Dies umfasst die `mediaText`-Eigenschaft mit einem Wert von `screen`.
+Das folgende Stylesheet enthält eine einzelne {{cssxref("@import")}}-Regel. Daher wird das erste Element in der Liste der CSS-Regeln eine `CSSImportRule` sein. Die `media`-Eigenschaft gibt ein [`MediaList`](/de/docs/Web/API/MediaList)-Objekt zurück. Dies beinhaltet die `mediaText`-Eigenschaft mit einem Wert von `screen`.
 
 ```css
 @import url("style.css") screen;
@@ -31,9 +31,9 @@ let myRules = document.styleSheets[0].cssRules;
 console.log(myRules[0].media); //returns a MediaList
 ```
 
-### Setzen der media-Eigenschaft
+### Festlegen der media-Eigenschaft
 
-Um das `media`-Attribut des zugehörigen Stylesheets zu ändern, setzen Sie den Wert von `media` auf einen String, der den neuen Wert enthält.
+Um das `media`-Attribut des zugehörigen Stylesheets zu ändern, setzen Sie den Wert von `media` auf einen String mit dem neuen Wert.
 
 ```js
 let myRules = document.styleSheets[0].cssRules;

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.shiftKey`** ist ein boolescher Wert, der anzeigt, ob die <kbd>Umschalt</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
+Die schreibgeschützte Eigenschaft **`MouseEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Shift</kbd>-Taste gedrückt wurde oder nicht, wenn ein bestimmtes Mausereignis auftritt.
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 

@@ -9,13 +9,11 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die schreibgeschützte **[`VideoTrackList`](/de/docs/Web/API/VideoTrackList)**
-Eigenschaft **`selectedIndex`** gibt den Index des
-aktuell ausgewählten Tracks zurück, falls vorhanden, oder `-1`, wenn kein Track ausgewählt ist.
+Eigenschaft **`selectedIndex`** gibt den Index des aktuell ausgewählten Tracks zurück, falls vorhanden, oder `-1`, wenn keiner ausgewählt ist.
 
 ## Wert
 
-Eine Zahl, die den Index des aktuell ausgewählten Tracks angibt, falls vorhanden, oder
-`-1`, wenn kein Track ausgewählt ist.
+Eine Zahl, die den Index des aktuell ausgewählten Tracks angibt, falls vorhanden, oder `-1` andernfalls.
 
 ## Spezifikationen
 

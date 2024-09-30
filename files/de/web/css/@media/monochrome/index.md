@@ -11,7 +11,7 @@ Das **`monochrome`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@m
 
 ## Syntax
 
-Das `monochrome`-Feature wird als {{cssxref("&lt;integer&gt;")}} spezifiziert, das die Anzahl der Bits pro Pixel im monochromen Framebuffer darstellt. Wenn das Gerät kein monochromes Gerät ist, beträgt der Wert Null. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um minimale und maximale Werte abzufragen.
+Das `monochrome`-Feature wird als ein {{cssxref("&lt;integer&gt;")}} angegeben, der die Anzahl der Bits pro Pixel im monochromen Framebuffer darstellt. Wenn das Gerät kein monochromes Gerät ist, beträgt der Wert null. Es handelt sich um ein Bereichsfeature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um minimale bzw. maximale Werte abzufragen.
 
 ## Beispiele
 

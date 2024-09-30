@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.getQueryEXT()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über ein Query-Ziel.
+Die **`EXT_disjoint_timer_query.getQueryEXT()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über ein Abfrageziel zurück.
 
 ## Syntax
 
@@ -20,10 +20,10 @@ getQueryEXT(target, pname)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Zeitabfrage spezifiziert. Muss
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Zeitabfrage spezifiziert. Muss
     `ext.TIMESTAMP_EXT` oder `ext.TIME_ELAPSED_EXT` sein.
 - `pname`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Information zurückgegeben werden soll. Muss
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche Information zurückgegeben werden soll. Muss
     `ext.CURRENT_QUERY_EXT` oder `ext.QUERY_COUNTER_BITS_EXT` sein.
 
 ### Rückgabewert
@@ -31,11 +31,10 @@ getQueryEXT(target, pname)
 Abhängig von `pname`:
 
 - Wenn `pname` `ext.CURRENT_QUERY_EXT` ist: Ein
-  [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt, welches die aktuell aktive Abfrage für das
-  angegebene Ziel ist.
+  [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, das die derzeit aktive Abfrage für das
+  angegebene Ziel darstellt.
 - Wenn `pname` `ext.QUERY_COUNTER_BITS_EXT` ist: Ein
-  [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bits angibt, die zur Speicherung des Abfrageergebnisses für das
-  angegebene Ziel verwendet werden.
+  [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bits angibt, die zur Speicherung des Abfrageergebnisses für das angegebene Ziel verwendet werden.
 
 ## Beispiele
 

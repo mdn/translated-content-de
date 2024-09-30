@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: iceconnectionstatechange-Ereignis"
+title: "RTCPeerConnection: iceconnectionstatechange Ereignis"
 short-title: iceconnectionstatechange
 slug: Web/API/RTCPeerConnection/iceconnectionstatechange_event
 l10n:
@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`iceconnectionstatechange`**-Ereignis wird an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet, jedes Mal wenn sich der [ICE](/de/docs/Glossary/ICE)-Verbindungszustand während des Aushandlungsprozesses ändert. Der neue ICE-Verbindungszustand ist in der [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)-Eigenschaft des Objekts verfügbar.
+Ein **`iceconnectionstatechange`** Ereignis wird an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet, jedes Mal, wenn sich der [ICE](/de/docs/Glossary/ICE)-Verbindungszustand während des Verhandlungsprozesses ändert.
+Der neue ICE-Verbindungszustand ist in der [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)-Eigenschaft des Objekts verfügbar.
 
-Eine häufig durch den `iceconnectionstatechange`-Ereignislistener durchgeführte Aufgabe besteht darin, einen [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) auszulösen, wenn der Zustand auf `failed` wechselt.
+Eine häufig durchgeführte Aufgabe des `iceconnectionstatechange` Event-Listeners ist das Auslösen eines [ICE-Restarts](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart), wenn sich der Zustand auf `failed` ändert.
 
-Dieses Ereignis kann nicht abgebrochen werden und es tritt keine Bubbling auf.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("iceconnectionstatechange", (event) => {});
@@ -30,21 +31,21 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Nutzungshinweise
 
-Ein erfolgreicher Verbindungsversuch umfasst in der Regel den Zustand, der bei `new` beginnt, dann über `checking`, dann `connected` und schließlich `completed` geht. Unter bestimmten Umständen kann der `connected`-Zustand übersprungen werden, wodurch eine Verbindung direkt vom `checking`-Zustand zu `completed` wechselt. Dies kann geschehen, wenn nur der zuletzt überprüfte Kandidat erfolgreich ist und sowohl das Sammeln als auch das End-of-Candidates-Signal auftreten, bevor die erfolgreiche Aushandlung abgeschlossen ist.
+Ein erfolgreicher Verbindungsversuch beginnt typischerweise im Zustand `new`, wechselt dann zu `checking`, dann `connected` und schließlich zu `completed`. Unter bestimmten Umständen kann der Zustand `connected` übersprungen werden, wodurch die Verbindung direkt vom Zustand `checking` zu `completed` wechselt. Dies kann geschehen, wenn nur der zuletzt geprüfte Kandidat erfolgreich ist und sowohl die Signalsammlung als auch das Ende der Kandidaten stattfinden, bevor die erfolgreiche Verhandlung abgeschlossen ist.
 
-### ICE-Verbindungszustand während ICE-Neustarts
+### ICE-Verbindungszustand während ICE-Restarts
 
-Wenn ein ICE-Neustart verarbeitet wird, wird der Sammel- und Konnektivitätsprüfungsprozess von Beginn an neu gestartet, was dazu führt, dass der `iceConnectionState` in `connected` wechselt, wenn der ICE-Neustart im `completed`-Zustand ausgelöst wurde. Wenn der ICE-Neustart im vorübergehenden `disconnected`-Zustand initiiert wird, wechselt der Zustand stattdessen zu `checking`, was im Wesentlichen anzeigt, dass die Aushandlung ignoriert, dass die Verbindung vorübergehend verloren war.
+Wenn ein ICE-Restart verarbeitet wird, wird der Sammlung- und Konnektivitätsprüfprozess von vorne begonnen, was dazu führt, dass der `iceConnectionState` zu `connected` wechselt, wenn der ICE-Restart im `completed`-Zustand ausgelöst wurde. Wenn der ICE-Restart im temporären `disconnected`-Zustand eingeleitet wird, wechselt der Zustand stattdessen zu `checking`, was im Wesentlichen anzeigt, dass die Verhandlung ignoriert, dass die Verbindung vorübergehend verloren gegangen war.
 
-### Zustandsübergänge beim Abschluss der Aushandlung
+### Zustandsübergänge, wenn die Verhandlung endet
 
-Wenn der Aushandlungsprozess keine weiteren Kandidaten zu überprüfen hat, wechselt die ICE-Verbindung in einen von zwei Zuständen. Wenn keine geeigneten Kandidaten gefunden wurden, wechselt der Zustand zu `failed`. Wenn mindestens ein geeigneter Kandidat erfolgreich identifiziert wurde, wechselt der Zustand zu `completed`. Die ICE-Schicht trifft diese Entscheidung bei Empfang des End-of-Candidates-Signals, das durch Aufruf von [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) mit einem Kandidaten bereitgestellt wird, dessen [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate)-Eigenschaft eine leere Zeichenfolge ("") ist, oder durch Setzen der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Eigenschaft [`canTrickleIceCandidates`](/de/docs/Web/API/RTCPeerConnection/canTrickleIceCandidates) auf `false`.
+Wenn im Verhandlungsprozess keine weiteren Kandidaten mehr zu prüfen sind, wechselt die ICE-Verbindung in einen von zwei Zuständen. Wenn keine geeigneten Kandidaten gefunden wurden, wechselt der Zustand zu `failed`. Wenn mindestens ein geeigneter Kandidat erfolgreich identifiziert wurde, wechselt der Zustand zu `completed`. Die ICE-Schicht trifft diese Entscheidung beim Empfang des Endes der Kandidaten-Signals, das durch Aufrufen von [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) mit einem Kandidaten bereitgestellt wird, dessen [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate)-Eigenschaft ein leerer String ("") ist, oder durch Setzen der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Eigenschaft [`canTrickleIceCandidates`](/de/docs/Web/API/RTCPeerConnection/canTrickleIceCandidates) auf `false`.
 
 ## Beispiele
 
-Ein Ereignishandler für dieses Ereignis kann mithilfe der `oniceconnectionstatechange`-Eigenschaft oder durch Verwenden von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) an der `RTCPeerConnection` hinzugefügt werden.
+Ein Event-Handler für dieses Ereignis kann durch die `oniceconnectionstatechange`-Eigenschaft oder durch Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf der `RTCPeerConnection` hinzugefügt werden.
 
-In diesem Beispiel wird ein Handler für `iceconnectionstatechange` eingerichtet, um einen Anrufstatus-Indikator zu aktualisieren, indem der Wert von [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) verwendet wird, um einen String zu erstellen, der dem Namen einer CSS-Klasse entspricht, die wir dem Statusindikator zuweisen können, damit er den aktuellen Zustand der Verbindung widerspiegelt.
+In diesem Beispiel wird ein Handler für `iceconnectionstatechange` eingerichtet, um einen Anrufstatus-Anzeiger zu aktualisieren, indem der Wert von [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) verwendet wird, um eine Zeichenfolge zu erstellen, die dem Namen einer CSS-Klasse entspricht, die wir dem Statusanzeiger zuweisen können, um ihn den aktuellen Zustand der Verbindung widerspiegeln zu lassen.
 
 ```js
 pc.addEventListener(
@@ -76,6 +77,6 @@ pc.oniceconnectionstatechange = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
 - [`RTCPeerConnection.iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)

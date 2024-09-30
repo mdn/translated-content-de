@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`autofocus`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert einen booleschen Wert, der das [`autofocus`](/de/docs/Web/HTML/Element/select#autofocus) HTML-Globale Attribut widerspiegelt. Dieses Attribut gibt an, ob die Steuerung fokussiert werden soll, wenn die Seite geladen wird oder wenn ein Dialog oder ein Popover angezeigt wird, falls es in einem Element innerhalb von {{htmlelement("dialog")}}-Elementen oder Elementen, deren `popover`-Attribut gesetzt ist, spezifiziert ist.
+Die **`autofocus`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle stellt einen booleschen Wert dar, der das HTML-Globale-Attribut [`autofocus`](/de/docs/Web/HTML/Element/select#autofocus) widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement beim Laden der Seite, oder wenn ein Dialog oder Popover angezeigt wird, fokussiert werden soll, wenn es in einem Element innerhalb von {{htmlelement("dialog")}}-Elementen oder Elementen mit gesetztem `popover`-Attribut spezifiziert ist.
 
-Nur ein Formular-assoziiertes Element innerhalb eines Dokuments oder ein {{htmlelement("dialog")}}-Element oder ein Element, dessen `popover`-Attribut gesetzt ist, kann dieses Attribut spezifiziert haben. Falls es mehrere gibt, erhält das erste eingefügte Element mit gesetztem Attribut, gewöhnlich das erste solche Element auf der Seite, den initialen Fokus.
+Innerhalb eines Dokuments, eines {{htmlelement("dialog")}}-Elements oder eines Elements mit gesetztem `popover`-Attribut kann nur ein form-assoziiertes Element dieses Attribut spezifiziert haben. Wenn es mehrere gibt, erhält das erste eingefügte Element mit gesetztem Attribut, in der Regel das erste solche Element auf der Seite, den initialen Fokus.
 
 > [!NOTE]
-> Das Setzen dieser Eigenschaft setzt den Fokus nicht auf das zugehörige Element: Es teilt dem Browser lediglich mit, beim _Einfügen des Elements_ in das Dokument den Fokus darauf zu setzen. Das Setzen der Eigenschaft nach dem Einfügen, also meistens nach dem Laden des Dokuments, hat keinen sichtbaren Effekt.
+> Das Setzen dieser Eigenschaft fokussiert das zugehörige Element nicht: Es teilt dem Browser lediglich mit, dieses Element zu fokussieren, _wenn das Element in das Dokument eingefügt wird_. Das Setzen nach der Einfügung, also meist nach dem Laden des Dokuments, hat keine sichtbare Wirkung.
 
 ## Wert
 

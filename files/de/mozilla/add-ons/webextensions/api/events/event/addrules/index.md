@@ -30,37 +30,34 @@ events.Event.addRules(rules, callback)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.events` API von Chromium ([Dokumentation bei chrome.events](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addRules)). Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addRules) API. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Die Verbreitung und Nutzung im Quell- und Binärformat, mit oder ohne
-// Modifizierung, sind unter den folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Redistributions des Quellcodes müssen den obigen Copyright-Hinweis,
-//      diese Liste von Bedingungen und den folgenden Haftungsausschluss
-//      enthalten.
-//    * Redistributions in Binärform müssen den obigen Copyright-Hinweis,
-//      diese Liste von Bedingungen und den folgenden Haftungsausschluss
-//      in der Dokumentation und/oder anderen Materialien, die mit der
-//      Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-//      Mitwirkenden dürfen verwendet werden, um Produkte, die aus
-//      dieser Software hervorgehen, ohne vorherige schriftliche
-//      Genehmigung zu unterstützen oder zu bewerben.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITSCHREIBERN
-// "WIE BESEHEN" BEREITGESTELLT UND JEDER AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
-// GEWÄHRLEISTUNG, EINSCHLIESSLICH, ABER NICHT BEGRENZT AUF, DIE STILLSCHWEIGENDE
-// GEWÄHRLEISTUNG DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK
-// WIRD ABGELEHNT. IN KEINEM FALL SIND DIE COPYRIGHTINHABER ODER MITSCHREIBER
-// HAFTBAR FÜR IRGENDWELCHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, SPEZIELLEN,
-// EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BEGRENZT AUF,
-// DIE BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN; VERLUST VON NUTZUNG,
-// DATEN ODER PROFITEN; ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND
-// AUF JEDER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG, ODER TORT
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF IRGENDEINE WEISE
-// AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT
-// SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

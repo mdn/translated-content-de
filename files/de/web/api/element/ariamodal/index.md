@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaModal`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des `aria-modal`-Attributs wider, welches angibt, ob ein Element im angezeigten Zustand modal ist. Die Anwendung der `aria-modal`-Eigenschaft auf ein Element mit `role="dialog"` ersetzt die Technik, `aria-hidden` im Hintergrund zu verwenden, um unterstützenden Technologien mitzuteilen, dass der Inhalt außerhalb eines Dialogs inaktiv ist.
+Die **`ariaModal`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-modal`-Attributs wider, das angibt, ob ein Element modale Eigenschaften hat, wenn es angezeigt wird. Die Anwendung der `aria-modal`-Eigenschaft auf ein Element mit `role="dialog"` ersetzt die Technik der Verwendung von `aria-hidden` im Hintergrund, um unterstützenden Technologien mitzuteilen, dass Inhalte außerhalb eines Dialogs inaktiv sind.
 
 ## Wert
 
@@ -21,7 +21,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-modal`-Attribut des Elements mit der ID `address-modal` auf "true" gesetzt, um anzugeben, dass es sich um einen modalen Dialog handelt. Mit `ariaModal` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-modal`-Attribut des Elements mit der ID `address-modal` auf "true" gesetzt, was anzeigt, dass es sich um einen modalen Dialog handelt. Mit `ariaModal` wird der Wert auf "false" aktualisiert.
 
 ```html
 <div
@@ -49,4 +49,4 @@ console.log(el.ariaModal); // "false"
 
 ## Siehe auch
 
-- [ARIA: dialog-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [ARIA: dialog role](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)

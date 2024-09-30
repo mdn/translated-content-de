@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich das derzeit fokussierte Fenster ändert. Es wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
+Wird ausgelöst, wenn das aktuell fokussierte Fenster wechselt. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
 
 > [!NOTE]
 > In Windows und einigen Linux-Fenstermanagern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zu einem anderen gesendet.
@@ -25,17 +25,17 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` sonst.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `windowId`
       - : `integer`. ID des neu fokussierten Fensters.
@@ -46,7 +46,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren von Fokusänderungen:
+Fokusänderungen protokollieren:
 
 ```js
 browser.windows.onFocusChanged.addListener((windowId) => {
@@ -57,7 +57,7 @@ browser.windows.onFocusChanged.addListener((windowId) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API von Chromium. Diese Dokumentation basiert auf [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

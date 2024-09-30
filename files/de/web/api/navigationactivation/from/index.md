@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`**-Eigenschaft der [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt enthält, das den Verlaufseintrag für das ausgehende ("from") Dokument in der Navigation darstellt.
+Die **`from`**-Schreibgeschützte-Eigenschaft des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Interfaces enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das ausgehende ("from") Dokument in der Navigation darstellt.
 
 ## Wert
 
 Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt oder `null`, wenn das ausgehende Dokument:
 
-- Nicht gleichen Ursprungs wie das eingehende Dokument ist.
-- Das anfängliche `about:blank`-Dokument ist.
+- Nicht demselben Ursprung wie das eingehende Dokument entstammt.
+- Das initiale `about:blank` Dokument ist.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`NavigationActivation`](/de/docs/Web/API/NavigationActivation).
+Sehen Sie sich die Hauptseite des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) an.
 
 ## Spezifikationen
 

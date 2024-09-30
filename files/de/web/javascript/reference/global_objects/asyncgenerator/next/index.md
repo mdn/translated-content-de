@@ -19,18 +19,18 @@ next(value)
 ### Parameter
 
 - `value` {{optional_inline}}
-  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein an die `next()`-Methode übergebener Wert wird von `yield` empfangen.
+  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein Wert, der der `next()`-Methode übergeben wird, wird von `yield` empfangen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das, wenn es aufgelöst wird, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
+Ein {{jsxref("Promise")}}, der, wenn er aufgelöst wird, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
 
 - `done`
   - : Ein boolescher Wert:
-    - `true`, wenn der Generator über das Ende seines Kontrollflusses hinaus ist. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der undefiniert sein kann).
-    - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
+    - `true`, wenn der Generator das Ende seines Kontrollflusses überschritten hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der undefiniert sein kann).
+    - `false`, wenn der Generator in der Lage ist, mehr Werte zu erzeugen.
 - `value`
-  - : Jeder von dem Generator zurückgegebene oder erzeugte JavaScript-Wert.
+  - : Jeder JavaScript-Wert, der vom Generator erzeugt oder zurückgegeben wird.
 
 ## Beispiele
 
@@ -65,7 +65,7 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf protokolliert nichts, da der Generator zunächst nichts liefert.
+> Der erste Aufruf protokolliert nichts, da der Generator anfänglich nichts geliefert hat.
 
 ```js
 // An async task. Pretend it's doing something more useful

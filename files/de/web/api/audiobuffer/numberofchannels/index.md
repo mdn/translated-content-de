@@ -8,12 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `numberOfChannels`-Eigenschaft der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)
-Schnittstelle gibt eine ganze Zahl zurück, die die Anzahl der diskreten Audiokanäle darstellt, die durch die im Puffer gespeicherten PCM-Daten beschrieben werden.
+Die `numberOfChannels`-Eigenschaft des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Interfaces gibt eine Ganzzahl zurück, die die Anzahl der diskreten Audiokanäle beschreibt, die von den im Puffer gespeicherten PCM-Daten beschrieben werden.
 
 ## Wert
 
-Eine ganze Zahl.
+Eine Ganzzahl.
 
 ## Beispiele
 

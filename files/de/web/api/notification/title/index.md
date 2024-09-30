@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`title`** schreibgeschützte Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle zeigt den Titel der Benachrichtigung an, wie im `title`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die **`title`** schreibgeschützte Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt den Titel der Benachrichtigung an, wie im `title`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 

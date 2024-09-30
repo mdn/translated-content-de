@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG)-Element verweist auf eine externe Definition der aktuellen Schriftart.
+Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG) Element verweist auf eine entfernte Definition der aktuellen Schriftart.
 
 ## Verwendungskontext
 
@@ -19,7 +19,7 @@ Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG)-Element verweist auf eine exte
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGFontFaceUriElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGFontFaceUriElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGF
 ## Siehe auch
 
 - {{SVGElement("font-face-src")}}
-- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG Leitfaden: SVG Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)

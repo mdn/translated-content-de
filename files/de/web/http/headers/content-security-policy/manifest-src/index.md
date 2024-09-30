@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP
+Die HTTP-
 {{HTTPHeader("Content-Security-Policy")}}`: manifest-src`
-Direktive gibt an, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource angewendet werden kann.
+Direktive legt fest, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource angewendet werden kann.
 
 <table class="properties">
   <tbody>
@@ -18,13 +18,13 @@ Direktive gibt an, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource a
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
+      <th scope="row">Direktivtyp</th>
       <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der Benutzer-Agent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
         <code>default-src</code> Direktive.
       </td>
     </tr>
@@ -33,7 +33,7 @@ Direktive gibt an, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource a
 
 ## Syntax
 
-Für die `manifest-src` Richtlinie können eine oder mehrere Quellen erlaubt werden:
+Einer oder mehrere Quellen können für die `manifest-src` Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: manifest-src <source>;
@@ -42,21 +42,21 @@ Content-Security-Policy: manifest-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
+`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Bei folgendem CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: manifest-src https://example.com/
 ```
 
-Wird das folgende {{HTMLElement("link")}} blockiert und nicht geladen:
+Die folgende {{HTMLElement("link")}} wird blockiert und nicht geladen:
 
 ```html
 <link rel="manifest" href="https://not-example.com/manifest" />

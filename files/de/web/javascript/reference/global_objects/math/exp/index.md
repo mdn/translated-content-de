@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das bedeutet
+Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das heißt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚎𝚡𝚙</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.exp}(x)} = \mathrm{e}^x</annotation></semantics>
+  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚎𝚡𝚙</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.exp}(x)}} = \mathrm{e}^x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -30,13 +30,13 @@ Math.exp(x)
 
 ### Rückgabewert
 
-Eine nicht negative Zahl, die e<sup>x</sup> darstellt, wobei e [die Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
+Eine nichtnegative Zahl, die e<sup>x</sup> darstellt, wobei e die [Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
 
 ## Beschreibung
 
-Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `exp()` eine statische Methode von `Math` ist, wird sie stets als `Math.exp()` verwendet, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Beachten Sie, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 liegen wird und an Präzision verlieren kann. In diesem Fall möchten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen viel präziseren Bruchanteil der Antwort zu erhalten.
+Seien Sie vorsichtig, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 liegt und an Präzision verliert. In diesem Fall sollten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen Bruchteil der Antwort mit wesentlich höherer Präzision zu erhalten.
 
 ## Beispiele
 

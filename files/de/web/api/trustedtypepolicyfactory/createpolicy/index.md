@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicyFactory: createPolicy()-Methode"
+title: "TrustedTypePolicyFactory: Methode createPolicy()"
 short-title: createPolicy()
 slug: Web/API/TrustedTypePolicyFactory/createPolicy
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`createPolicy()`**-Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle erstellt ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt, das die als `policyOptions` übergebenen Regeln implementiert.
+Die **`createPolicy()`**-Methode des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Interfaces erstellt ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt, das die als `policyOptions` übergebenen Regeln implementiert.
 
 ### Die Standardrichtlinie
 
-In Chrome erstellt eine Richtlinie mit dem Namen "default" eine spezielle Richtlinie, die verwendet wird, wenn ein String (statt eines Trusted Type-Objekts) an eine Injektionsstelle übergeben wird. Dies kann in einer Übergangsphase genutzt werden, während man von einer Anwendung wechselt, die Strings in Injektionsstellen einfügt.
+In Chrome erstellt eine Richtlinie mit dem Namen "default" eine spezielle Richtlinie, die verwendet wird, wenn ein String (anstatt eines Trusted Type-Objekts) in einen Injektionspunkt übergeben wird. Dies kann in einer Übergangsphase genutzt werden, während eine Anwendung von der Einfügung von Zeichenfolgen in Injektionspunkte umgestellt wird.
 
 > [!NOTE]
-> Das oben beschriebene Verhalten ist in der Spezifikation noch nicht festgelegt und kann sich in der Zukunft ändern.
+> Das oben beschriebene Verhalten ist in der Spezifikation noch nicht endgültig festgelegt und kann sich in Zukunft ändern.
 
 > [!WARNING]
-> Eine lockere Standardrichtlinie könnte den Zweck von Trusted Types zunichtemachen und sollte daher mit strengen Regeln definiert werden, um sicherzustellen, dass sie nicht verwendet werden kann, um gefährlichen Code auszuführen.
+> Eine lax definierte Standardrichtlinie könnte den Zweck der Verwendung von Trusted Types vereiteln. Daher sollte sie mit strengen Regeln definiert werden, um sicherzustellen, dass sie nicht zum Ausführen gefährlichen Codes verwendet werden kann.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ createPolicy(policyName, policyOptions)
   - : Ein String mit dem Namen der Richtlinie.
 - `policyOptions` {{optional_inline}}
 
-  - : Benutzerdefinierte Funktionen zur Umwandlung von Strings in vertrauenswürdige Werte.
+  - : Vom Benutzer definierte Funktionen zum Konvertieren von Strings in vertrauenswürdige Werte.
 
     - `createHTML(input[,args])`
       - : Eine Callback-Funktion in Form eines Strings, der Code enthält, der beim Erstellen eines [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekts ausgeführt wird.
@@ -48,13 +48,13 @@ Ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn Richtliniennamen durch die [Content Security Policy `trusted-types`-Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types) eingeschränkt sind und dieser Name nicht auf der Whitelist steht.
+  - : Wird ausgelöst, wenn Richtliniennamen durch die [Content Security Policy `trusted-types` Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types) eingeschränkt sind und dieser Name nicht auf der Positivliste steht.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der Name ein Duplikat ist und die [Content Security Policy trusted-types Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types) nicht `allow-duplicates` verwendet.
 
 ## Beispiele
 
-Der unten stehende Code erstellt eine Richtlinie mit dem Namen `"myEscapePolicy"` mit einer definierten Funktion für `createHTML()`, die HTML bereinigt.
+Der unten stehende Code erstellt eine Richtlinie mit dem Namen `"myEscapePolicy"` mit einer Funktion, die für `createHTML()` definiert ist und HTML bereinigt.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {
@@ -64,9 +64,9 @@ const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {
 
 ### Erstellen einer Standardrichtlinie
 
-Auf einer Website, auf der Trusted Types über eine Content Security Policy mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)-Direktive, die auf `script` gesetzt ist, erzwungen werden, erwartet ein Injektionsskript, das ein Skript akzeptiert, ein Trusted Type-Objekt. Falls stattdessen ein String eingefügt wird, wird die folgende Standardrichtlinie verwendet.
+Auf einer Seite, auf der Trusted Types über eine Content Security Policy mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)-Direktive und dem Wert `script` durchgesetzt werden, erwartet jedes Injektionsskript, das ein Skript akzeptiert, ein Trusted Type-Objekt. Im Fall, dass stattdessen ein String eingefügt wird, wird die folgende Standardrichtlinie verwendet.
 
-Die Richtlinie protokolliert eine Nachricht in der Konsole, um den Entwickler daran zu erinnern, diesen Teil der Anwendung zu überarbeiten, um ein Trusted Type-Objekt zu verwenden. Sie fügt außerdem Details zur Verwendung der Standardrichtlinie, Typ und Injektionsstelle dem zurückgegebenen Wert hinzu.
+Die Richtlinie protokolliert eine Nachricht in der Konsole, um den Entwickler daran zu erinnern, diesen Teil der Anwendung in die Verwendung eines Trusted Type-Objekts umzuwandeln. Sie fügt auch Details zur Verwendung der Standardrichtlinie, des Typs und des Injektionspunkts dem zurückgegebenen Wert hinzu.
 
 ```js
 trustedTypes.createPolicy("default", {

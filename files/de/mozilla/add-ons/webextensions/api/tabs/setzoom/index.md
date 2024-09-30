@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Vergrößert den angegebenen Tab.
+Zoomt den angegebenen Tab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,13 +23,13 @@ let zooming = browser.tabs.setZoom(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der vergrößert werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, der gezoomt werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
 - `zoomFactor`
-  - : `number`. Der neue Zoomfaktor. Verwenden Sie hier einen Wert von 0, um den Tab auf seinen aktuellen Standard-Zoomfaktor einzustellen. Ansonsten muss dies eine Zahl zwischen 0,3 und 5 sein, die einen Zoomfaktor angibt.
+  - : `number`. Der neue Zoomfaktor. Nutzen Sie hier den Wert 0, um den Tab auf seinen aktuellen Standardzoomfaktor einzustellen. Ansonsten muss dies eine Zahl zwischen 0,3 und 5 sein, die einen Zoomfaktor angibt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das nach der Änderung des Zoomfaktors ohne Argumente erfüllt wird. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, nachdem der Zoomfaktor geändert wurde. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ setting.then(null, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-setZoom). Diese Dokumentation basiert auf [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-setZoom) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

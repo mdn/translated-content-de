@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die **`getProperties()`**-Methode der [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, welches mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, die angeben, welche Kontaktinformationen verfügbar sind.
+Die **`getProperties()`** Methode der [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird. Diese Zeichenfolgen geben an, welche Kontakteigenschaften verfügbar sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, die die Kontaktinformationen benennen, die vom aktuellen System zurückgegeben werden können.
+Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, die die Kontakteigenschaften benennen, die vom aktuellen System zurückgegeben werden können.
 
 Eigenschaften können Folgendes umfassen:
 
@@ -30,7 +30,7 @@ Eigenschaften können Folgendes umfassen:
 - `'tel'`: Die Telefonnummer(n) des Kontakts.
 - `'email'`: Die E-Mail-Adresse des Kontakts.
 - `'address'`: Die Postanschrift des Kontakts.
-- `'icon'`: Das Avatar des Kontakts.
+- `'icon'`: Das Avatarbild des Kontakts.
 
 ### Ausnahmen
 
@@ -38,7 +38,7 @@ Es werden keine Ausnahmen ausgelöst.
 
 ## Beispiele
 
-### Überprüfung der Unterstützung von Eigenschaften
+### Unterstützung von Eigenschaften überprüfen
 
 Die folgende asynchrone Funktion verwendet die `getProperties()`-Methode, um zu überprüfen, ob das aktuelle System die `icon`-Eigenschaft unterstützt.
 
@@ -51,9 +51,9 @@ async function checkProperties() {
 }
 ```
 
-### Auswahl nur unterstützter Eigenschaften
+### Auswahl nur mit unterstützten Eigenschaften
 
-Das folgende Beispiel ähnelt einem für die [`select()`](/de/docs/Web/API/ContactsManager/select)-Methode. Anstatt die an `select()` übergebenen Eigenschaften fest zu codieren, verwendet es `getProperties()`, um sicherzustellen, dass nur unterstützte Eigenschaften übergeben werden. Andernfalls könnte `select()` einen {{jsxref("TypeError")}} auslösen. `handleResults()` ist eine vom Entwickler definierte Funktion.
+Das folgende Beispiel ist ähnlich einem für die [`select()`](/de/docs/Web/API/ContactsManager/select)-Methode. Anstatt die an `select()` übergebenen Eigenschaften fest zu codieren, nutzt es `getProperties()`, um sicherzustellen, dass nur unterstützte Eigenschaften übergeben werden. Andernfalls könnte `select()` einen {{jsxref("TypeError")}} auslösen. `handleResults()` ist eine entwicklerdefinierte Funktion.
 
 ```js
 const supportedProperties = await navigator.contacts.getProperties();

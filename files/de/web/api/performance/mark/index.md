@@ -1,5 +1,5 @@
 ---
-title: "Performance: mark()-Methode"
+title: "Performance: mark() Methode"
 short-title: mark()
 slug: Web/API/Performance/mark
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`mark()`**-Methode erstellt ein benanntes [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt, das einen Hochaufgelösten Zeitstempel in der Performance-Zeitachse des Browsers darstellt.
+Die **`mark()`** Methode erstellt ein benanntes [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) Objekt, das einen hochauflösenden Zeitstempel-Marker in der Leistungszeitleiste des Browsers darstellt.
 
 ## Syntax
 
@@ -20,28 +20,28 @@ mark(name, markOptions)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen der Markierung darstellt. Der Name darf nicht identisch mit einem der Eigenschaften des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Interfaces sein.
+  - : Ein String, der den Namen der Markierung darstellt. Darf nicht derselbe Name wie eine der Eigenschaften des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Interface sein.
 - `markOptions` {{optional_inline}}
   - : Ein Objekt zur Angabe eines Zeitstempels und zusätzlicher Metadaten für die Markierung.
     - `detail` {{optional_inline}}
-      - : Beliebige Metadaten, die in die Markierung aufgenommen werden sollen. Standardmäßig `null`. Muss [structured-cloneable](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Beliebige Metadaten, die in die Markierung aufgenommen werden sollen. Standardwert ist `null`. Muss [strukturierbar](https://developer.mozilla.org/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `startTime` {{optional_inline}}
-      - : [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der als Markierungszeit verwendet werden soll. Standardmäßig [`performance.now()`](/de/docs/Web/API/Performance/now).
+      - : [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der als Markierungszeit verwendet werden soll. Standardwert ist [`performance.now()`](/de/docs/Web/API/Performance/now).
 
 ### Rückgabewert
 
-Der erstellte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Eintrag.
+Der erstellte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) Eintrag.
 
 ### Ausnahmen
 
-- {{jsxref("SyntaxError")}}: Wird ausgelöst, wenn der `name` eine der Eigenschaften des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Interfaces ist. Siehe das [Beispiel unten](#reservierte_namen).
-- {{jsxref("TypeError")}}: Wird ausgelöst, wenn `startTime` negativ ist.
+- {{jsxref("SyntaxError")}}: Ausgelöst, wenn der `name` eine der Eigenschaften des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Interface ist. Siehe das [Beispiel unten](#reservierte_namen).
+- {{jsxref("TypeError")}}: Ausgelöst, wenn `startTime` negativ ist.
 
 ## Beispiele
 
-### Erstellen benannter Markierungen
+### Erstellen benannter Marker
 
-Das folgende Beispiel verwendet `mark()`, um benannte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Einträge zu erstellen. Sie können mehrere Markierungen mit demselben Namen erstellen. Sie können sie auch zuweisen, um eine Referenz auf das erstellte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt zu haben.
+Das folgende Beispiel verwendet `mark()`, um benannte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) Einträge zu erstellen. Sie können mehrere Markierungen mit demselben Namen erstellen. Sie können ihnen auch einen Verweis auf das erstellte [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) Objekt zuweisen.
 
 ```js
 performance.mark("login-started");
@@ -52,9 +52,9 @@ performance.mark("form-sent");
 const videoMarker = performance.mark("video-loaded");
 ```
 
-### Erstellen von Markierungen mit Details
+### Erstellen von Markern mit Details
 
-Die Leistungsmarkierung ist mithilfe des `markOptions`-Objekts konfigurierbar, in dem Sie zusätzliche Informationen in der `detail`-Eigenschaft speichern können, die jeglicher Typ sein kann.
+Der Performance-Mark kann mithilfe des `markOptions` Objekts konfiguriert werden, in dem Sie zusätzliche Informationen in der `detail` Eigenschaft speichern können, die von jedem Typ sein kann.
 
 ```js
 performance.mark("login-started", {
@@ -66,9 +66,9 @@ performance.mark("login-started", {
 });
 ```
 
-### Erstellen von Markierungen mit einer anderen Startzeit
+### Erstellen von Markern mit einer anderen Startzeit
 
-Der Standardzeitstempel der `mark()`-Methode ist [`performance.now()`](/de/docs/Web/API/Performance/now). Sie können ihn mit der `startTime`-Option in `markOptions` auf eine andere Zeit einstellen.
+Der Standard-Zeitstempel der `mark()` Methode ist [`performance.now()`](/de/docs/Web/API/Performance/now). Sie können ihn auf eine andere Zeit einstellen, indem Sie die `startTime` Option in `markOptions` verwenden.
 
 ```js
 performance.mark("start-checkout", {
@@ -82,7 +82,7 @@ performance.mark("login-button-pressed", {
 
 ### Reservierte Namen
 
-Beachten Sie, dass aus Gründen der Abwärtskompatibilität Namen, die Teil des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Interfaces sind, nicht verwendet werden können. Das folgende Beispiel löst einen Fehler aus:
+Beachten Sie, dass zur Aufrechterhaltung der Rückwärtskompatibilität Namen, die Teil des veralteten [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Interface sind, nicht verwendet werden können. Das folgende Beispiel wirft einen Fehler:
 
 ```js example-bad
 performance.mark("navigationStart");

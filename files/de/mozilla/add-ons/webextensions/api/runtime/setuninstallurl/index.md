@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt die URL fest, die besucht werden soll, wenn die Erweiterung deinstalliert wird. Dies kann verwendet werden, um serverseitige Daten aufzuräumen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Dieses Limit war früher auf 255 begrenzt, siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Details.
+Legt die URL fest, die aufgerufen wird, wenn die Erweiterung deinstalliert wird. Dies kann verwendet werden, um serverseitige Daten zu bereinigen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Dieses Limit betrug früher 255, siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Details.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,7 +26,7 @@ let settingUrl = browser.runtime.setUninstallURL(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL gesetzt ist, oder mit einer Fehlermeldung abgelehnt wird, falls die Operation fehlschlägt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL gesetzt wurde, oder mit einer Fehlermeldung abgelehnt wird, falls die Operation fehlschlägt.
 
 ## Browser-Kompatibilität
 
@@ -50,7 +50,7 @@ settingUrl.then(onSetURL, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-setUninstallURL) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-setUninstallURL) API von Chromium. Diese Dokumentation stammt von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

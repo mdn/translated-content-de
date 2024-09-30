@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: item()-Methode"
+title: "DOMTokenList: item() Methode"
 short-title: item()
 slug: Web/API/DOMTokenList/item
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`item()`**-Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Interfaces gibt ein Element in der Liste zurück,
-bestimmt durch seine Position in der Liste, seinem Index.
+Die **`item()`** Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Interfaces gibt ein Element in der Liste zurück, das durch seine Position in der Liste, seinem Index, bestimmt wird.
 
 > [!NOTE]
-> Diese Methode ist äquivalent zur [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation).
-> Daher ist `aList.item(i)` dasselbe wie `aList[i]`.
+> Diese Methode ist gleichbedeutend mit der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation).
+> Also ist `aList.item(i)` das gleiche wie `aList[i]`.
 
 ## Syntax
 
@@ -24,25 +23,22 @@ tokenList.item(index)
 ### Parameter
 
 - `index`
-  - : Eine Zahl, die den Index des Elements darstellt, das Sie zurückgeben möchten. Wenn es keine Ganzzahl ist, wird nur der Ganzzahlanteil berücksichtigt.
+  - : Eine Zahl, die den Index des Elements darstellt, das Sie zurückgeben möchten. Wenn es keine ganze Zahl ist, wird nur der ganzzahlige Teil berücksichtigt.
 
 ### Rückgabewert
 
-Ein String, der das zurückgegebene Element darstellt,
-oder `null`, wenn die Zahl größer oder gleich der `length` der Liste ist.
+Ein String, der das zurückgegebene Element repräsentiert, oder `null`, wenn die Zahl größer oder gleich der `length` der Liste ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `index` nicht in eine Ganzzahl umgewandelt werden kann.
+  - : Wird ausgelöst, wenn der `index` nicht in eine ganze Zahl umgewandelt werden kann.
 
 ## Beispiele
 
 Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
-{{htmlelement("span")}}-Element als `DOMTokenList` über
-[`Element.classList`](/de/docs/Web/API/Element/classList) gesetzt sind. Wir rufen dann das letzte Element in der Liste mit
-`item(tokenList.length - 1)` ab und schreiben es in das
-`<span>`-Element's [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+{{htmlelement("span")}} Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Dann rufen wir das letzte Element in der Liste mit `item(tokenList.length - 1)` ab und schreiben es in das
+`s`<span>'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
 
 Zuerst das HTML:
 
@@ -59,7 +55,7 @@ const item = classes.item(classes.length - 1);
 span.textContent = item;
 ```
 
-Die Ausgabe sieht so aus:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

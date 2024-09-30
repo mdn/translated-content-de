@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.title`**-Eigenschaft
-repräsentiert den Titel des Elements: den Text, der normalerweise in einem 'Tooltip'-Popup angezeigt wird, wenn die Maus über dem Knoten schwebt.
+Die **`HTMLElement.title`**-Eigenschaft repräsentiert den Titel des Elements: den Text, der normalerweise in einem 'Tooltip'-Popup angezeigt wird, wenn die Maus über dem Knoten schwebt.
 
 ## Wert
 
@@ -34,5 +33,4 @@ link.title = "Wikipedia page on grapes";
 
 ## Siehe auch
 
-- Das HTML [**title**](/de/docs/Web/HTML/Global_attributes/title)
-  globale Attribut.
+- Das HTML [**title**](/de/docs/Web/HTML/Global_attributes/title) globale Attribut.

@@ -7,24 +7,24 @@ l10n:
 
 {{AddonSidebar}}
 
-Der **`omnibox.SuggestResult`** Typ definiert einen Vorschlag, den die Erweiterung zur Dropdown-Liste der Adressleiste hinzufügen kann.
+Der **`omnibox.SuggestResult`**-Typ definiert einen Vorschlag, den die Erweiterung zur Auswahlliste der Adressleiste hinzufügen kann.
 
-Der Event-Listener der Erweiterung für {{WebExtAPIRef("omnibox.onInputChanged")}} wird ein Callback übergeben. Um die Dropdown-Liste der Adressleiste als Reaktion auf die Benutzereingabe zu füllen, kann die Erweiterung ein Array von `omnibox.SuggestResult` Objekten an diesen Callback übergeben.
+Der {{WebExtAPIRef("omnibox.onInputChanged")}}-Ereignis-Listener der Erweiterung erhält einen Rückruf. Um die Auswahlliste der Adressleiste als Reaktion auf die Benutzereingabe zu füllen, kann die Erweiterung ein Array von `omnibox.SuggestResult`-Objekten an diesen Rückruf übergeben.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie haben die folgenden Eigenschaften:
 
 - `content`
-  - : Dies ist der Wert, der in der Adressleiste selbst erscheint, wenn der Benutzer diesen Vorschlag in der Dropdown-Liste hervorhebt. Dies ist auch der String, der an den {{WebExtAPIRef("omnibox.onInputEntered")}} Event-Listener gesendet wird, wenn der Benutzer diesen Vorschlag auswählt. Wenn der String mit dem übereinstimmt, was der Benutzer bereits eingegeben hat, wird dieser Eintrag nicht in der Dropdown-Liste angezeigt.
+  - : Dies ist der Wert, der in der Adressleiste erscheint, wenn der Benutzer diesen Vorschlag in der Auswahlliste hervorhebt. Dies ist auch die Zeichenkette, die an den {{WebExtAPIRef("omnibox.onInputEntered")}}-Ereignis-Listener gesendet wird, wenn der Benutzer diesen Vorschlag auswählt. Wenn die Zeichenkette mit dem übereinstimmt, was der Benutzer bereits eingegeben hat, wird dieser Eintrag nicht in der Auswahlliste angezeigt.
 - `deletable`
-  - : Ob das Ergebnis des Vorschlags vom Benutzer gelöscht werden kann.
+  - : Gibt an, ob das Vorschlagsergebnis vom Benutzer gelöscht werden kann.
 - `description`
-  - : Dies ist der String, der in der Dropdown-Liste der Adressleiste angezeigt wird.
+  - : Dies ist die Zeichenkette, die in der Auswahlliste der Adressleiste angezeigt wird.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der API von Chromium's [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox).
+> Diese API basiert auf Chromiums [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.

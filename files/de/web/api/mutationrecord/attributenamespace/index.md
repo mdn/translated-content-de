@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeNamespace`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist der Namespace des veränderten Attributs im [`MutationRecord`](/de/docs/Web/API/MutationRecord), der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
+Die schreibgeschützte Eigenschaft **`attributeNamespace`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) gibt den Namensraum des mutierten Attributs im [`MutationRecord`](/de/docs/Web/API/MutationRecord) an, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes `attributes` ist, ist die Eigenschaft eine Zeichenkette, die den Namespace des veränderten Attributs des Mutationstargets repräsentiert. Andernfalls ist der Wert `null`.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes `attributes` ist, ist die Eigenschaft ein String, der den Namensraum des mutierten Attributs des Mutationsziels darstellt. Andernfalls ist der Wert `null`.
 
 ## Spezifikationen
 

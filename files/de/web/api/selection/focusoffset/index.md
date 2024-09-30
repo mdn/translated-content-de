@@ -1,5 +1,5 @@
 ---
-title: "Selection: Eigenschaft focusOffset"
+title: "Selection: focusOffset-Eigenschaft"
 short-title: focusOffset
 slug: Web/API/Selection/focusOffset
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.focusOffset`** gibt die Anzahl der Zeichen zurück, um die der Fokus der Auswahl innerhalb des [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode) verschoben ist.
+Die schreibgeschützte **`Selection.focusOffset`** Eigenschaft gibt die Anzahl der Zeichen zurück, um die der Fokus der Auswahl innerhalb des [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode) versetzt ist.
 
 Diese Zahl ist nullbasiert. Wenn die Auswahl mit dem ersten Zeichen im [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode) endet, wird `0` zurückgegeben.
 
@@ -26,4 +26,4 @@ Eine Zahl.
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.

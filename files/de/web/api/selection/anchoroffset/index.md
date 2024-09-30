@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.anchorOffset`** gibt die Anzahl der Zeichen zurück, um die der Anker der Auswahl innerhalb des [`Selection.anchorNode`](/de/docs/Web/API/Selection/anchorNode) versetzt ist.
+Die schreibgeschützte **`Selection.anchorOffset`**-Eigenschaft gibt die Anzahl der Zeichen zurück, um die der Anker der Auswahl innerhalb des [`Selection.anchorNode`](/de/docs/Web/API/Selection/anchorNode) verschoben ist.
 
 Diese Zahl ist nullbasiert. Wenn die Auswahl mit dem ersten Zeichen im [`Selection.anchorNode`](/de/docs/Web/API/Selection/anchorNode) beginnt, wird `0` zurückgegeben.
 
@@ -26,4 +26,4 @@ Eine Zahl.
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem sie gehört.

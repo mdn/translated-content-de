@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`layer`**-Eigenschaft des [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)-Interfaces ist eine Referenz auf die [`XRLayer`](/de/docs/Web/API/XRLayer), die das Ereignis erzeugt hat.
+Die **`layer`**-Eigenschaft des [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)-Interfaces ist ein Verweis auf die [`XRLayer`](/de/docs/Web/API/XRLayer), die das Ereignis generiert hat.
 
 ## Wert
 
-Ein [`XRLayer`](/de/docs/Web/API/XRLayer).
+Eine [`XRLayer`](/de/docs/Web/API/XRLayer).
 
 ## Beispiele
 

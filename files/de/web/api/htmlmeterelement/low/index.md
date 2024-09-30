@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`low`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut des Elements wider oder den Wert von `min`, wenn nicht definiert. Der Wert von `low` wird durch die Werte von `min` und `max` begrenzt.
+Die **`low`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut des Elements wider oder den Wert von `min`, wenn es nicht definiert ist. Der Wert von `low` wird durch die Werte von `min` und `max` begrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, beispielsweise um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel, um einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 

@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Nachricht an, ob etwas auf der Seite ausgewählt ist oder nicht. Es geschieht, indem auf das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis im Dokument gehört wird. Es gibt auch einen Button, der jede Auswahl entfernt, indem `Selection.removeAllRanges()` aufgerufen wird. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht aktualisiert.
+Dieses Beispiel zeigt eine Nachricht an, wenn etwas auf der Seite ausgewählt ist oder nicht. Es tut dies, indem es dem Dokument auf das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis lauscht. Es gibt auch eine Schaltfläche, die jede Auswahl löscht, indem sie `Selection.removeAllRanges()` aufruft. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht wird aktualisiert.
 
 ```html
 <p>

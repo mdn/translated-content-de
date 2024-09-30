@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`length`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt die Anzahl der {{htmlelement("option")}}-Elemente im {{htmlelement("select")}}-Element an. Sie repräsentiert die Anzahl der Knoten in der [`options`](/de/docs/Web/API/HTMLSelectElement/options)-Sammlung. Beim Setzen verhält sie sich wie ([`HTMLOptionsCollection.length`](/de/docs/Web/API/HTMLOptionsCollection/length)).
+Die **`length`**-Eigenschaft des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces gibt die Anzahl der {{htmlelement("option")}}-Elemente im {{htmlelement("select")}}-Element an. Sie repräsentiert die Anzahl der Knoten in der [`options`](/de/docs/Web/API/HTMLSelectElement/options)-Sammlung. Beim Setzen verhält sie sich wie ([`HTMLOptionsCollection.length`](/de/docs/Web/API/HTMLOptionsCollection/length)).
 
 ## Wert
 

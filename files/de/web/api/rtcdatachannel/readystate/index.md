@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: readyState-Eigenschaft"
+title: "RTCDataChannel: readyState Eigenschaft"
 short-title: readyState
 slug: Web/API/RTCDataChannel/readyState
 l10n:
@@ -8,27 +8,28 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`readyState`** gibt einen String zurück, der den Zustand der zugrunde liegenden Datenverbindung des Datenkanals anzeigt.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`readyState`** gibt einen String zurück, der den Zustand der zugrunde liegenden Datenverbindung des Datenkanals angibt.
 
 ## Werte
 
-Ein String, der den aktuellen Zustand des zugrunde liegenden Datentransports angibt, einer der folgenden Werte:
+Ein String, der den aktuellen Zustand des zugrunde liegenden Datentransports angibt und einen der folgenden Werte hat:
 
 - `connecting`
   - : Der User-Agent (Browser) ist dabei, den zugrunde liegenden Datentransport zu erstellen;
-    dies ist der Zustand eines neuen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), nachdem er durch [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wurde, auf der Seite des Peers, der den Verbindungsprozess gestartet hat.
+    dies ist der Zustand eines neuen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) nachdem es durch [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wurde,
+    auf dem Peer, der den Verbindungsprozess gestartet hat.
 - `open`
   - : Der zugrunde liegende Datentransport wurde hergestellt
     und Daten können bidirektional darüber übertragen werden.
     Dies ist der Standardzustand eines neuen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), das von der WebRTC-Schicht erstellt wurde,
     wenn der entfernte Peer den Kanal erstellt
-    und ihn der Website oder App
-    in einem [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis bereitgestellt hat.
+    und ihn der Site oder App
+    in einem [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis zugestellt hat.
 - `closing`
   - : Der Prozess des Schließens des zugrunde liegenden Datentransports hat begonnen.
-    Es ist nicht mehr möglich, neue Nachrichten zur Übermittlung in die Warteschlange zu stellen,
-    aber zuvor eingereihten Nachrichten können noch gesendet oder empfangen werden,
-    bevor der Zustand `closed` erreicht wird.
+    Es ist nicht mehr möglich, neue Nachrichten zum Senden in die Warteschlange zu stellen,
+    aber zuvor in die Warteschlange gestellte Nachrichten können möglicherweise noch gesendet oder empfangen werden,
+    bevor der `closed` Zustand eintritt.
 - `closed`
   - : Der zugrunde liegende Datentransport wurde geschlossen,
     oder der Versuch, die Verbindung herzustellen, ist fehlgeschlagen.

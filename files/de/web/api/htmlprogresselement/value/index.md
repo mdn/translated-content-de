@@ -1,5 +1,5 @@
 ---
-title: "HTMLProgressElement: value Eigenschaft"
+title: "HTMLProgressElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLProgressElement/value
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`value`**-Eigenschaft des [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Interfaces repräsentiert den aktuellen Fortschritt des {{HTMLElement("progress")}}-Elements.
+Die **`value`**-Eigenschaft der Schnittstelle [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement) stellt den aktuellen Fortschritt des {{HTMLElement("progress")}}-Elements dar.
 
 ## Wert
 
-Eine Fließkommazahl. Wenn der [`max`](/de/docs/Web/API/HTMLProgressElement/max)-Wert nicht auf der Fortschrittsleiste gesetzt ist, liegt der Wert zwischen 0,0 und 1,0. Ist der `max`-Wert gesetzt, dann liegt der `value` zwischen `0` und dem `max`-Wert.
+Eine Gleitkommazahl. Wenn kein [`max`](/de/docs/Web/API/HTMLProgressElement/max)-Wert auf der Fortschrittsanzeige gesetzt ist, liegt der Wert zwischen 0,0 und 1,0. Wenn der `max`-Wert gesetzt ist, liegt der `value` zwischen `0` und dem `max`-Wert.
 
-Wenn die `value`-Eigenschaft am [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Objekt nicht gesetzt ist, bleibt die Fortschrittsleiste unbestimmt.
+Wenn die `value`-Eigenschaft nicht auf das [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Objekt gesetzt ist, bleibt die Fortschrittsanzeige unbestimmt.
 
 ## Beispiele
 

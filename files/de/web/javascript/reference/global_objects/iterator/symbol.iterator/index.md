@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`[Symbol.iterator]()`**-Methode von {{jsxref("Iterator")}}-Instanzen implementiert das [iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es eingebauten Iteratoren, von den meisten Syntaxen, die Iterables erwarten, konsumiert zu werden, wie z.B. die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zurück, welcher das Iterator-Objekt selbst ist.
+Die Methode **`[Symbol.iterator]()`** von {{jsxref("Iterator")}} Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, dass eingebaute Iteratoren durch die meisten Syntaxen, die Iterables erwarten, wie der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen, konsumiert werden. Sie gibt den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zurück, welches das Iterator-Objekt selbst ist.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Keine.
 
 ### Rückgabewert
 
-Der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), welcher das Iterator-Objekt selbst ist.
+Der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), welches das Iterator-Objekt selbst ist.
 
 ## Beispiele
 
-### Iteration mit der for...of-Schleife
+### Iteration mit for...of Schleife
 
-Beachten Sie, dass es selten notwendig ist, diese Methode direkt aufzurufen. Die Existenz der `[Symbol.iterator]()`-Methode macht eingebaute Iteratoren [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
+Beachten Sie, dass diese Methode selten direkt aufgerufen werden muss. Die Existenz der `[Symbol.iterator]()`-Methode macht eingebaute Iteratoren [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten, über den iteriert werden soll.
 
 ```js
 const arrIterator = [1, 2, 3].values();

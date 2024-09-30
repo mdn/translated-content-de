@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:processing-instruction>`-Element schreibt eine Verarbeitungsanweisung in das Ausgabedokument.
+Das `<xsl:processing-instruction>`-Element schreibt eine Anweisungsanweisung in das Ausgabedokument.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Das `<xsl:processing-instruction>`-Element schreibt eine Verarbeitungsanweisung 
 ### Erforderliche Attribute
 
 - `name`
-  - : Gibt den Namen dieser Verarbeitungsanweisung an.
+  - : Gibt den Namen dieser Anweisungsanweisung an.
 
 ### Optionale Attribute
 

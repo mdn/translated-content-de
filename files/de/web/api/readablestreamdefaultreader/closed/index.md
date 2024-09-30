@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`closed`** des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder die Sperre des Readers freigegeben wird. Diese Eigenschaft ermöglicht es, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert.
+Die schreibgeschützte **`closed`**-Eigenschaft der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder die Sperre des Readers freigegeben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Promise")}}.
 
 ## Beispiele
 
-In diesem Beispiel wird ein zuvor erstellter Reader abgefragt, um festzustellen, ob der Stream geschlossen wurde. Wenn er geschlossen ist, wird das Promise erfüllt und die Nachricht wird in die Konsole protokolliert.
+In diesem Codeausschnitt wird ein zuvor erstellter Reader abgefragt, um festzustellen, ob der Stream geschlossen wurde. Wenn er geschlossen ist, wird das Versprechen erfüllt und die Nachricht in die Konsole protokolliert.
 
 ```js
 reader.closed.then(() => {

@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hints](/de/docs/Web/HTTP/Client_hints)-Header ein Client in nachfolgenden Anfragen einschließen soll.
+Der **`Accept-CH`** Header kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)-Header ein Client in zukünftige Anfragen einfügen sollte.
 
 <table class="properties">
   <tbody>
@@ -21,7 +21,7 @@ Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, w
     </tr>
     <tr>
       <th scope="row">
-        [CORS-Safelisted-Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        [CORS-sicher gelisteter Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
@@ -29,7 +29,7 @@ Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, w
 </table>
 
 > [!NOTE]
-> Client-Hints sind nur auf sicheren Ursprüngen (via TLS) zugänglich. Der `Accept-CH`-Header sollte bei allen sicheren Anfragen beibehalten werden, um sicherzustellen, dass Client-Hints zuverlässig gesendet werden.
+> Client-Hinweise sind nur auf sicheren Ursprüngen (über TLS) zugänglich. Der `Accept-CH` Header sollte für alle sicheren Anfragen beibehalten werden, um sicherzustellen, dass Client-Hinweise zuverlässig gesendet werden.
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Vary: Viewport-Width, Width
 ```
 
 > [!NOTE]
-> Denken Sie daran, die [Antwort zu variieren](/de/docs/Web/HTTP/Client_hints#caching_and_client_hints) basierend auf den akzeptierten Client-Hints.
+> Denken Sie daran, die [Antwort zu variieren](/de/docs/Web/HTTP/Client_hints#caching_and_client_hints) basierend auf den akzeptierten Client-Hinweisen.
 
 ## Spezifikationen
 

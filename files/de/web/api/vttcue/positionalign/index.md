@@ -15,22 +15,22 @@ Die **`positionAlign`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Inte
 Ein String, der einen der folgenden Werte enthält:
 
 - `"line-left"`
-  - : Zeilen-linksbündige Ausrichtung.
+  - : Linien-linke Ausrichtung.
 - `"center"`
-  - : Zentrierte Ausrichtung.
+  - : Zentrums-Ausrichtung.
 - `"line-right"`
-  - : Zeilen-rechtsbündige Ausrichtung.
+  - : Linien-rechte Ausrichtung.
 - `"auto"`
 
-  - : Automatische Ausrichtung, die von der Textausrichtung des Hinweises abhängt, interpretiert wie folgt:
+  - : Automatische Ausrichtung, die von der Textausrichtung des Cue abhängt und wie folgt interpretiert wird:
 
-    - **line-left:** wenn die Textausrichtung links ist, der Hinweis eine LTR-Sprache benutzt und die Textausrichtung Start ist, oder der Hinweis eine RTL-Sprache benutzt und die Textausrichtung Ende ist.
-    - **line-right:** wenn die Textausrichtung rechts ist, der Hinweis eine RTL-Sprache benutzt und die Textausrichtung Start ist, oder der Hinweis eine LTR-Sprache benutzt und die Textausrichtung Ende ist.
-    - **center:** wenn keine Textausrichtung gesetzt ist.
+    - **line-left:** wenn die Textausrichtung links ist, der Cue eine LTR-Sprache verwendet und die Textausrichtung Anfang ist, oder der Cue eine RTL-Sprache verwendet und die Textausrichtung Ende ist.
+    - **line-right:** wenn die Textausrichtung rechts ist, der Cue eine RTL-Sprache verwendet und die Textausrichtung Anfang ist, oder der Cue eine LTR-Sprache verwendet und die Textausrichtung Ende ist.
+    - **center:** wenn keine Textausrichtungsposition festgelegt ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `positionAlign` auf `"line-right"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `positionAlign` auf `"line-right"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

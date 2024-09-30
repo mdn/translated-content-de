@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`needsRedraw`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist ein boolean, der signalisiert, dass die Ebene im nächsten Frame neu gerendert werden sollte.
+Die schreibgeschützte **`needsRedraw`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist ein boolescher Wert, der signalisiert, dass die Ebene im nächsten Frame neu gerendert werden soll.
 
-Das Bedürfnis nach einem Neuzeichnen kann auftreten, wenn die zugrunde liegenden Ressourcen einer Ebene verloren gehen, weil Texturen möglicherweise im Verborgenen vom Kompositor freigegeben wurden. Dies könnte passieren, wenn das Gerät in den Ruhemodus wechselt oder wenn der Browser den Kontext wechselt (zu einem Betriebssystemdialog oder Ähnlichem) und dann zurückkehrt.
+Das Bedürfnis nach Neuzeichnung kann auftreten, wenn die zugrunde liegenden Ressourcen einer Ebene verloren gehen, da Texturen möglicherweise im Hintergrund vom Kompositor freigegeben wurden. Dies könnte passieren, wenn das Gerät in den Schlafmodus geht oder wenn der Browser den Kontext wechselt (zu einem Betriebssystem-Dialog oder ähnlichem) und dann zurückkommt.
 
-Neuzeichnen ist kein Problem für Ebenen, die mit jedem Frame aktualisiert werden. Bei Ebenen, die nur selten aktualisiert werden, oder bei statischen Ebenen (bei denen Sie nur einmal nach der Erstellung oder nach einem `redraw`-Ereignis zeichnen können), könnte der Inhalt der Ebene verloren gehen und neu gezeichnet werden müssen. Wenn die Ressourcen der Ebene verloren gehen, wird die `needsRedraw`-Eigenschaft `true` sein und ein `redraw`-Ereignis wird auf der Ebene ausgelöst.
+Das Neuzeichnen ist kein Problem für Ebenen, die mit jedem Frame aktualisiert werden. Für Ebenen, die selten aktualisiert werden, oder für statische Ebenen (bei denen Sie nur einmal nach der Erstellung oder nach einem `redraw`-Ereignis zeichnen können), könnten die Inhalte der Ebene verloren gehen und müssen neu gezeichnet werden. Wenn die Ressourcen der Ebene verloren gehen, wird die `needsRedraw`-Eigenschaft `true` und ein `redraw`-Ereignis wird auf der Ebene ausgelöst.
 
 ## Wert
 
-Ein boolean. `true` bedeutet, dass ein Neurendern im nächsten Frame erforderlich ist, `false` bedeutet, dass kein Neurendern erforderlich ist.
+Ein boolescher Wert. `true` zeigt an, dass im nächsten Frame ein Neurendering erforderlich ist, `false` zeigt an, dass kein Neurendering erforderlich ist.
 
 ## Beispiele
 

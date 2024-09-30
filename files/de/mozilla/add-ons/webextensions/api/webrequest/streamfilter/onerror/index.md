@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meist, weil eine ungültige Anforderungs-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
+Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meist, wenn eine ungültige Anfrage-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
 
-Nachdem dieses Ereignis ausgelöst wurde, wird die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht enthalten, die weitere Informationen über den Fehler gibt.
+Nach diesem Ereignis beinhaltet die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht, die weitere Informationen über den Fehler gibt.
 
 Beachten Sie, dass dieses Ereignis **nicht** bei Netzwerkfehlern ausgelöst wird.
 
@@ -19,7 +19,7 @@ Beachten Sie, dass dieses Ereignis **nicht** bei Netzwerkfehlern ausgelöst wird
 
 ## Beispiele
 
-Dieses Beispiel fügt einen `onerror` Listener hinzu, der den Wert von {{WebExtAPIRef("webRequest.StreamFilter.error")}} protokolliert.
+Dieses Beispiel fügt einen `onerror`-Listener hinzu, der den Wert von {{WebExtAPIRef("webRequest.StreamFilter.error")}} protokolliert.
 
 ```js
 function listener(details) {

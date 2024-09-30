@@ -1,5 +1,5 @@
 ---
-title: "PresentationRequest: start()-Methode"
+title: "PresentationRequest: start() Methode"
 short-title: start()
 slug: Web/API/PresentationRequest/start
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`start()`**-Eigenschaft der [`PresentationRequest`](/de/docs/Web/API/PresentationRequest)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgelöst wird, nachdem der Benutzeragent den Benutzer auffordert, ein Display auszuwählen und die Erlaubnis zur Nutzung dieses Displays zu erteilen.
+Die **`start()`** Eigenschaft des [`PresentationRequest`](/de/docs/Web/API/PresentationRequest) Interfaces gibt ein {{jsxref("Promise")}} zurück, das nach der Aufforderung des Benutzers durch den User-Agent aufgelöst wird. Der Benutzer wählt ein Display aus und erteilt die Erlaubnis, dieses Display zu verwenden, danach wird ein [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) bereitgestellt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein {{jsxref("Promise")}}, das mit einer [`PresentationConnection`](/de/docs/Web
 
 ## Sicherheit
 
-Eine [vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Eingeforderte Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Spezifikationen
 

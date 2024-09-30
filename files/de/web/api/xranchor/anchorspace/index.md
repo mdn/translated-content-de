@@ -1,5 +1,5 @@
 ---
-title: "XRAnchor: anchorSpace-Eigenschaft"
+title: "XRAnchor: anchorSpace Eigenschaft"
 short-title: anchorSpace
 slug: Web/API/XRAnchor/anchorSpace
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`anchorSpace`**-Eigenschaft des [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Interfaces gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt zurück, um den Anker relativ zu anderen `XRSpace`-Objekten zu lokalisieren. Es kann anschließend an [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) übergeben werden.
+Die schreibgeschützte **`anchorSpace`** Eigenschaft der [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Schnittstelle gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt zurück, um den Anker relativ zu anderen `XRSpace`-Objekten zu lokalisieren. Es kann anschließend an [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) übergeben werden.
 
 ## Wert
 

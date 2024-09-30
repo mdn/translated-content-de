@@ -1,5 +1,5 @@
 ---
-title: "VideoColorSpace: primaries Eigenschaft"
+title: "VideoColorSpace: primaries-Eigenschaft"
 short-title: primaries
 slug: Web/API/VideoColorSpace/primaries
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`primaries`** schreibgeschützte Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt den Farbraum ([Gamut](/de/docs/Glossary/gamut)) des Videos zurück.
+Die schreibgeschützte Eigenschaft **`primaries`** der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle gibt den [Farbraum](/de/docs/Glossary/gamut) des Videos zurück.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"bt709"`
-  - : Farbprimärfarben, die von BT.709 und sRGB verwendet werden.
+  - : Farbprimärwerte, die von BT.709 und sRGB verwendet werden.
 - `"bt470bg"`
-  - : Farbprimärfarben, die von BT.601 PAL verwendet werden.
+  - : Farbprimärwerte, die von BT.601 PAL verwendet werden.
 - `"smpte170m"`
-  - : Farbprimärfarben, die von BT.601 NTSC verwendet werden.
+  - : Farbprimärwerte, die von BT.601 NTSC verwendet werden.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `primaries` wird in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `primaries` wird in die Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`readOnly`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle zeigt an, dass der Benutzer den Wert des {{htmlelement("input")}} nicht ändern kann. Sie spiegelt das boolesche Attribut [`readonly`](/de/docs/Web/HTML/Element/input#readonly) des {{htmlelement("input")}}-Elements wider; gibt `true` zurück, wenn das Attribut vorhanden ist, und `false`, wenn es weggelassen wird.
+Die **`readOnly`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle zeigt an, dass der Benutzer den Wert des {{htmlelement("input")}} nicht ändern kann. Sie spiegelt das booleanische Attribut [`readonly`](/de/docs/Web/HTML/Element/input#readonly) des {{htmlelement("input")}}-Elements wider; sie gibt `true` zurück, wenn das Attribut vorhanden ist, und `false`, wenn es weggelassen wird.
 
-Im Gegensatz zu einem Formularsteuerungs-Element mit einer `true`-[`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft verhindert ein `true`-Wert der `readOnly`-Eigenschaft nicht, dass der Benutzer im Steuerungs-Element klickt oder eine Auswahl trifft.
+Im Gegensatz zu einem Formularelement mit einer `true` [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled) Eigenschaft hindert ein `true` `readOnly`-Eigenschaftswert den Benutzer nicht daran, im Kontrollfeld zu klicken oder zu markieren.
 
-Während das HTML `readonly`-Attribut ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `checkbox`, `radio`, `file`, `submit`, `reset`, `button` und `image` ist, ist die `readOnly`-Eigenschaft für diese Eingabetypen `true`, wenn das Attribut vorhanden ist, ansonsten `false`.
+Während das HTML-Attribut `readonly` ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `checkbox`, `radio`, `file`, `submit`, `reset`, `button` und `image` ist, ist die `readOnly`-Eigenschaft für diese Eingabetypen `true`, wenn das Attribut vorhanden ist, andernfalls `false`.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 

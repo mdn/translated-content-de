@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `enterpictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Picture-in-Picture-Modus wechselt.
+Das `enterpictureinpicture` Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Bild-in-Bild-Modus wechselt.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("enterpictureinpicture", (event) => {});
@@ -24,7 +24,7 @@ onenterpictureinpicture = (event) => {};
 
 ## Ereignistyp
 
-Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
@@ -34,7 +34,7 @@ Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`Event`](/de/d
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `enterpictureinpicture`-Ereignis des HTMLVideoElements hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `enterpictureinpicture` Ereignis des HTMLVideoElement hinzu und senden eine Nachricht, wenn dieser Ereignis-Handler auf die Auslösung des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -53,7 +53,7 @@ button.onclick = () => {
 };
 ```
 
-Verwendung der `onenterpictureinpicture`-Ereignishandler-Eigenschaft:
+Verwendung der `onenterpictureinpicture` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("#video");

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getMonth()`**-Methode von {{jsxref("Date")}} Instanzen gibt den Monat für dieses Datum entsprechend der lokalen Zeit als nullbasierten Wert zurück (wobei Null den ersten Monat des Jahres angibt).
+Die **`getMonth()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Monat für dieses Datum gemäß der lokalen Zeit zurück, als nullbasierter Wert (wobei null den ersten Monat des Jahres angibt).
 
 {{EmbedInteractiveExample("pages/js/date-getmonth.html", "shorter")}}
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 11, die den Monat für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein ganzzahliger Wert, zwischen 0 und 11, der den Monat für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Der Rückgabewert von `getMonth()` ist nullbasiert, was nützlich ist, um in Arrays von Monaten zu indizieren, zum Beispiel:
+Der Rückgabewert von `getMonth()` ist nullbasiert, was nützlich ist zum Indizieren von Arrays von Monaten, zum Beispiel:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -37,7 +37,7 @@ const monthNames = ["January", "February", "March" /* , … */];
 console.log(monthNames[month]); // "February"
 ```
 
-Für Internationalisierungszwecke sollten Sie allerdings lieber {{jsxref("Intl.DateTimeFormat")}} mit dem `options` Parameter verwenden.
+Für Internationalisierungszwecke sollten Sie jedoch stattdessen {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter bevorzugen.
 
 ```js
 const options = { month: "long" };
@@ -51,7 +51,7 @@ console.log(new Intl.DateTimeFormat("de-DE", options).format(valentines));
 
 ### Verwendung von getMonth()
 
-Die Variable `month` hat den Wert `11`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`.
+Die `month`-Variable hat den Wert `11`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

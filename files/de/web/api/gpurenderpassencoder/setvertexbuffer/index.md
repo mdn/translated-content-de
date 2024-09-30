@@ -1,5 +1,5 @@
 ---
-title: "GPURenderPassEncoder: Methode setVertexBuffer()"
+title: "GPURenderPassEncoder: setVertexBuffer() Methode"
 short-title: setVertexBuffer()
 slug: Web/API/GPURenderPassEncoder/setVertexBuffer
 l10n:
@@ -19,13 +19,13 @@ setVertexBuffer(slot, buffer, offset, size)
 ### Parameter
 
 - `slot`
-  - : Eine Zahl, die den Vertex-Buffer-Slot referenziert, für den der Vertex-Buffer gesetzt werden soll.
+  - : Eine Zahl, die auf den Vertex-Puffer-Slot verweist, für den der Vertex-Puffer festgelegt werden soll.
 - `buffer`
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, welcher die Vertex-Daten für nachfolgende Zeichenbefehle enthält, oder `null`, in diesem Fall wird ein zuvor gesetzter Puffer im angegebenen Slot entfernt.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, der die Vertex-Daten für nachfolgende Zeichenbefehle enthält, oder `null`, in welchem Fall ein zuvor in diesem Slot gesetzter Puffer entfernt wird.
 - `offset` {{optional_inline}}
-  - : Eine Zahl, die den Versatz in Bytes innerhalb von `buffer` darstellt, wo die Vertex-Daten beginnen. Wenn weggelassen, ist `offset` standardmäßig 0.
+  - : Eine Zahl, die den Versatz in Bytes in `buffer` darstellt, wo die Vertex-Daten beginnen. Wenn weggelassen, ist der Standardwert von `offset` 0.
 - `size` {{optional_inline}}
-  - : Eine Zahl, die die Größe in Bytes der Vertex-Daten enthält, die in `buffer` enthalten sind. Wenn weggelassen, ist `size` standardmäßig die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffer` abzüglich `offset`.
+  - : Eine Zahl, die die Größe in Bytes der im `buffer` enthaltenen Vertex-Daten darstellt. Wenn weggelassen, ist der Standardwert von `size` die `buffer`'s [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) - `offset`.
 
 ### Rückgabewert
 
@@ -33,18 +33,18 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setVertexBuffer()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`setVertexBuffer()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `buffer` enthält das `GPUBufferUsage.VERTEX`-Flag.
-- `slot` ist kleiner als das `maxVertexBuffers`-[Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- `offset` + `size` ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffer`.
+- `buffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.VERTEX`-Flag.
+- `slot` ist kleiner als das `maxVertexBuffers` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- `offset` + `size` ist kleiner oder gleich der `buffer`'s [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size).
 - `offset` ist ein Vielfaches von 4.
 
 ## Beispiele
 
-### Vertex-Buffer setzen
+### Vertex-Puffer setzen
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `setVertexBuffer()` wird wie erforderlich verwendet, um die Quelle der Vertex-Daten festzulegen.
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen aus dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `setVertexBuffer()` wird verwendet, um die Quelle der Vertex-Daten festzulegen.
 
 ```js
 // ...
@@ -83,7 +83,7 @@ device.queue.submit([commandEncoder.finish()]);
 // ...
 ```
 
-### Vertex-Buffer entfernen
+### Vertex-Puffer entfernen
 
 ```js
 // Set vertex buffer in slot 0

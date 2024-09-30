@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Das **`MediaMetadata`**-Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, reichhaltige Medien-Metadaten zur Anzeige in einer Plattform-UI bereitzustellen.
+Die **`MediaMetadata`**-Schnittstelle der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, umfassende Medienmetadaten zur Anzeige in einer Plattform-Benutzeroberfläche bereitzustellen.
 
 ## Konstruktor
 
 - [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)
-  - : Erstellt ein neues `MediaMetaData`-Objekt.
+  - : Erstellt ein neues `MediaMetadata`-Objekt.
 
 ## Instanzeigenschaften
 
 - [`MediaMetadata.album`](/de/docs/Web/API/MediaMetadata/album)
-  - : Gibt den Namen des Albums oder der Sammlung zurück, in dem die zu spielenden Medien enthalten sind, oder setzt diesen Namen.
+  - : Gibt den Namen des Albums oder der Sammlung zurück oder legt ihn fest, die oder das das abzuspielende Medium enthält.
 - [`MediaMetadata.artist`](/de/docs/Web/API/MediaMetadata/artist)
-  - : Gibt den Namen des Künstlers, der Gruppe, des Erstellers usw. der zu spielenden Medien zurück oder setzt diesen Namen.
+  - : Gibt den Namen des Künstlers, der Gruppe, des Erstellers usw. zurück oder legt ihn fest, die oder der das abzuspielende Medium erstellt hat.
 - [`MediaMetadata.artwork`](/de/docs/Web/API/MediaMetadata/artwork)
-  - : Gibt ein Array von Bildern zurück, die mit den abzuspielenden Medien verbunden sind, oder setzt dieses Array.
+  - : Gibt ein Array von Bildern zurück oder legt dieses fest, die mit dem abzuspielenden Medium verknüpft sind.
 - [`MediaMetadata.chapterInfo`](/de/docs/Web/API/MediaMetadata/chapterInfo) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein Array von Kapitel-Informationsmetadaten zurück, die mit den abzuspielenden Medien verbunden sind, dargestellt durch [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objektinstanzen.
+  - : Gibt ein Array von Metadaten der Kapitelinformationen zurück, die mit dem abzuspielenden Medium verknüpft sind, dargestellt durch Instanzen des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objekts.
 - [`MediaMetadata.title`](/de/docs/Web/API/MediaMetadata/title)
-  - : Gibt den Titel der abzuspielenden Medien zurück oder setzt diesen Titel.
+  - : Gibt den Titel des abzuspielenden Mediums zurück oder legt ihn fest.
 
 ## Beispiele
 
-Das folgende Beispiel prüft die Browser-Kompatibilität und setzt die aktuellen Metadaten für die Mediensitzung.
+Das folgende Beispiel überprüft die Browser-Kompatibilität und setzt die aktuellen Metadaten für die Mediensitzung.
 
 ```js
 if ("mediaSession" in navigator) {

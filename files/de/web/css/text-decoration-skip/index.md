@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, über welche Teile des Inhalts eines Elements eine auf das Element wirkende Textdekoration überspringen muss. Sie steuert alle von dem Element gezeichneten Textdekorationen sowie alle von seinen Vorfahren gezeichneten Textdekorationen.
+Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, welche Teile des Inhalts eines Elements bei der Anwendung von Textdekorationen übersprungen werden müssen. Sie steuert alle vom Element gezeichneten Textdekorationen sowie alle Textdekorationen, die von seinen Vorfahren gezeichnet werden.
 
 > [!NOTE]
-> Die meisten anderen Browser nähern sich an, die einfachere Eigenschaft {{cssxref("text-decoration-skip-ink")}} zu unterstützen.
+> Die meisten anderen Browser bewegen sich dahin, die einfachere Eigenschaft {{cssxref("text-decoration-skip-ink")}} zu unterstützen.
 
 ## Syntax
 
@@ -40,21 +40,21 @@ text-decoration-skip: unset;
 - `none`
   - : Es wird nichts übersprungen. Somit wird die Textdekoration für alle Textinhalte und über atomare Inline-Level-Boxen hinweg gezeichnet.
 - `objects`
-  - : Der gesamte Randbereich des Elements wird übersprungen, wenn es sich um ein atomares Inline-Element wie ein Bild oder Inline-Block handelt.
+  - : Die gesamte Margin-Box des Elements wird übersprungen, wenn es sich um ein atomare Inline-Formatierungseinheit wie ein Bild oder ein Inline-Block handelt.
 - `spaces`
-  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrenner sowie alle angrenzenden {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
+  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrennzeichen, plus alle angrenzenden {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
 - `leading-spaces`
   - : Dasselbe wie `spaces`, außer dass nur führende Leerzeichen übersprungen werden.
 - `trailing-spaces`
   - : Dasselbe wie `spaces`, außer dass nur nachfolgende Leerzeichen übersprungen werden.
 - `edges`
 
-  - : Der Anfang und das Ende der Textdekoration sind leicht (zum Beispiel um die Hälfte der Linienstärke) vom Inhaltsrand der dekorierenden Box eingerückt. So erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist im Chinesischen wichtig, wo Unterstreichungen eine Form der Interpunktion darstellen.)
+  - : Der Anfang und das Ende der Textdekoration sind leicht (z.B. um die Hälfte der Linienstärke) vom Inhaltsrand der dekorierenden Box eingezogen. Somit erhalten benachbarte Elemente separate Unterstreichungen. (Dies ist im Chinesischen wichtig, wo Unterstreichen eine Form der Interpunktion darstellt.)
 
     ![Ein Beispiel für "text-decoration-skip: edges;".](decoration-skip-edges.png)
 
 - `box-decoration`
-  - : Die Textdekoration wird über den Rand-, Rahmen- und Pufferbereichen der Box übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet niemals über ihre eigene Boxdekoration.
+  - : Die Textdekoration wird über den Rand, die Umrandung und den Padding-Bereich der Box übersprungen. Dies hat nur eine Auswirkung auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _Dekorationsbox_ wird niemals über ihre eigene Boxdekoration zeichnen.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ text-decoration-skip: unset;
 
 ## Beispiele
 
-### Edges überspringen
+### Überspringen von Rändern
 
 #### HTML
 

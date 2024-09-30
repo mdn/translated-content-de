@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces gibt die Länge des "Arrays" zurück — die Anzahl der [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte, die im Ergebnis enthalten sind (auch als "n-best alternatives" bezeichnet).
+Die **`length`** schreibgeschützte Eigenschaft der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Schnittstelle gibt die Länge des "Arrays" zurück — die Anzahl der [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte, die im Ergebnis enthalten sind (auch als "n-beste Alternativen" bezeichnet).
 
-Die Anzahl der im Ergebnis enthaltenen Alternativen hängt davon ab, auf welchen Wert die [`SpeechRecognition.maxAlternatives`](/de/docs/Web/API/SpeechRecognition/maxAlternatives)-Eigenschaft gesetzt wurde, als die Spracherkennung erstmals initiiert wurde.
+Die Anzahl der im Ergebnis enthaltenen Alternativen hängt davon ab, auf welchen Wert die Eigenschaft [`SpeechRecognition.maxAlternatives`](/de/docs/Web/API/SpeechRecognition/maxAlternatives) gesetzt wurde, als die Spracherkennung zuerst gestartet wurde.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code ist ein Auszug aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
 
 ```js
 recognition.onresult = (event) => {

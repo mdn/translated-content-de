@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen einer [Umrandung](/de/docs/Web/CSS/outline) und dem Rand oder der Grenze eines Elements fest.
+Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Menge an Raum zwischen einem [Kontur](/de/docs/Web/CSS/outline) und dem Rand oder der Grenze eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/outline-offset.html")}}
 
@@ -29,11 +29,11 @@ outline-offset: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Raums zwischen dem Element und seiner Umrandung. Ein negativer Wert platziert die Umrandung innerhalb des Elements. Ein Wert von `0` platziert die Umrandung so, dass kein Abstand zwischen ihr und dem Element besteht.
+  - : Die Breite des Raums zwischen dem Element und seiner Kontur. Ein negativer Wert platziert die Kontur innerhalb des Elements. Ein Wert von `0` platziert die Kontur so, dass kein Raum zwischen ihr und dem Element besteht.
 
 ## Beschreibung
 
-Eine Umrandung ist eine Linie, die um ein Element gezogen wird, außerhalb der Randbegrenzung. Der Raum zwischen einem Element und seiner Umrandung ist transparent. Mit anderen Worten, es ist derselbe wie der Hintergrund des Elternelements.
+Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb der Randlinie. Der Raum zwischen einem Element und seiner Kontur ist transparent. Mit anderen Worten, er ist derselbe wie der des Elternelements Hintergrund.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ Eine Umrandung ist eine Linie, die um ein Element gezogen wird, außerhalb der R
 
 ## Beispiele
 
-### Umrandungsoffset in Pixeln festlegen
+### Festlegen des Outline-Offsets in Pixeln
 
 #### HTML
 

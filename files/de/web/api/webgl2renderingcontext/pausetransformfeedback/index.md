@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: pauseTransformFeedback()-Methode"
+title: "WebGL2RenderingContext: pauseTransformFeedback() Methode"
 short-title: pauseTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/pauseTransformFeedback
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.pauseTransformFeedback()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) pausiert einen Transformations-Feedback-Vorgang.
+Die **`WebGL2RenderingContext.pauseTransformFeedback()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) pausiert eine Transform-Feedback-Operation.
 
 ## Syntax
 

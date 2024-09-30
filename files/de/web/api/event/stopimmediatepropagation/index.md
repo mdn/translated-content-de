@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`stopImmediatePropagation()`** Methode der [`Event`](/de/docs/Web/API/Event) Schnittstelle verhindert, dass andere Listener desselben Ereignisses aufgerufen werden.
+Die **`stopImmediatePropagation()`** Methode der
+[`Event`](/de/docs/Web/API/Event)-Schnittstelle verhindert, dass andere Listener desselben Events aufgerufen werden.
 
-Wenn mehrere Listener an dasselbe Element für denselben Ereignistyp angehängt sind, werden sie in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Wenn `stopImmediatePropagation()` während eines solchen Aufrufs aufgerufen wird, werden keine verbleibenden Listener aufgerufen, weder an diesem Element noch an einem anderen Element.
+Wenn mehrere Listener an dasselbe Element für denselben Eventtyp gebunden sind, werden sie in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Wenn `stopImmediatePropagation()` während eines solchen Aufrufs aufgerufen wird, werden keine verbleibenden Listener aufgerufen, weder auf diesem Element noch auf einem anderen.
 
 ## Syntax
 
@@ -20,13 +21,13 @@ event.stopImmediatePropagation()
 
 ## Beispiele
 
-### Vergleich von Funktionen zur Ereignisbeendigung
+### Vergleich der Funktionen zur Ereignisunterbrechung
 
-Das folgende Beispiel enthält drei Schaltflächen innerhalb von drei verschachtelten Divs. Jede Schaltfläche hat drei Event-Listener für Klickereignisse registriert, und jedes Div hat ebenfalls einen Event-Listener, der für Klickereignisse registriert ist.
+Das folgende Beispiel enthält drei Schaltflächen innerhalb von drei verschachtelten `<div>`-Elementen. Jede Schaltfläche hat drei Event-Listener, die für Klick-Events registriert sind, und jedes `<div>`-Element hat ebenfalls einen Event-Listener, der für Klick-Events registriert ist.
 
-- Die obere Schaltfläche ermöglicht die normale Ereignisfortpflanzung.
+- Die oberste Schaltfläche ermöglicht normale Ereignisausbreitung.
 - Die mittlere Schaltfläche ruft `stopPropagation()` in ihrem ersten Event-Handler auf.
-- Die untere Schaltfläche ruft `stopImmediatePropagation()` in ihrem ersten Event-Handler auf.
+- Die unterste Schaltfläche ruft `stopImmediatePropagation()` in ihrem ersten Event-Handler auf.
 
 #### HTML
 
@@ -112,7 +113,7 @@ document
 
 #### Ergebnis
 
-Jeder Klick-Event-Handler zeigt eine Statusmeldung an, wenn er aufgerufen wird. Wenn Sie die mittlere Schaltfläche drücken, werden Sie feststellen, dass `stopPropagation()` alle Event-Handler, die für Klicks auf dieser Schaltfläche registriert sind, ausführen lässt, aber die Ausführung der Klick-Event-Handler für die Divs verhindert, die normalerweise folgen würden. Wenn Sie jedoch die untere Schaltfläche drücken, stoppt `stopImmediatePropagation()` jegliche Fortpflanzung nach dem Ereignis, das sie aufgerufen hat.
+Jeder Klick-Event-Handler zeigt eine Statusmeldung an, wenn er aufgerufen wird. Wenn Sie die mittlere Schaltfläche drücken, sehen Sie, dass `stopPropagation()` es ermöglicht, dass alle registrierten Event-Handler für Klicks auf dieser Schaltfläche ausgeführt werden, aber die Ausführung der Klick-Event-Handler für die `<div>`-Elemente verhindert, die normalerweise folgen würden. Wenn Sie jedoch die unterste Schaltfläche drücken, stoppt `stopImmediatePropagation()` jegliche Ausbreitung nach dem aufrufenden Event.
 
 {{ EmbedLiveSample("Comparing event-stopping functions", 500, 550) }}
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `fontBoundingBoxAscent` des [`TextMetrics`](/de/docs/Web/API/TextMetrics) Schnittstelle gibt die Entfernung von der horizontalen Linie an, die durch das Attribut [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angezeigt wird, bis zur Oberseite des höchsten Begrenzungsrechtecks aller Schriften, die zum Rendern des Textes verwendet werden, in CSS-Pixeln zurück.
+Die schreibgeschützte `fontBoundingBoxAscent`-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle gibt die Entfernung von der durch das [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Attribut angegebenen Horizontalen zur Oberseite des höchsten Begrenzungsrechtecks aller für die Textdarstellung verwendeten Schriftarten in CSS-Pixeln zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl, in CSS-Pixeln.
 
 ## Beispiele
 
-Der untenstehende Code zeigt, wie Sie die `fontBoundingBoxAscent` für einen Text in einer bestimmten Schriftart erhalten können.
+Der untenstehende Code zeigt, wie Sie die `fontBoundingBoxAscent` für einen bestimmten Text in einer bestimmten Schriftart erhalten können.
 
 ```js
 const canvas = document.createElement("canvas");
@@ -38,7 +38,7 @@ const log = document.getElementById("log");
 log.innerText = `fontBoundingBoxAscent: ${ascentCssPixels}`;
 ```
 
-Der Anstieg in CSS-Pixeln für den Text "Foo" in einer 25px-Serifenschrift wird unten gezeigt.
+Der Anstieg in CSS-Pixeln für den Text "Foo" in einer 25px Serifenschrift ist unten dargestellt.
 
 {{EmbedLiveSample('Examples', 100, 50)}}
 

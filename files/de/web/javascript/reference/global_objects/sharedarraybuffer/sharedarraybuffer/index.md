@@ -21,26 +21,26 @@ new SharedArrayBuffer(length)
 new SharedArrayBuffer(length, options)
 ```
 
-> **Hinweis:** `SharedArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `SharedArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Wird versucht, ihn ohne `new` aufzurufen, wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ### Parameter
 
 - `length`
-  - : Die Größe, in Bytes, des zu erstellenden Array-Buffers.
+  - : Die Größe des zu erstellenden Array-Buffers in Bytes.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `maxByteLength` {{optional_inline}}
-      - : Die maximale Größe, in Bytes, auf die der gemeinsam genutzte Array-Buffer vergrößert werden kann.
+      - : Die maximale Größe in Bytes, auf die der Shared Array Buffer vergrößert werden kann.
 
 ### Rückgabewert
 
-Ein neues `SharedArrayBuffer`-Objekt der angegebenen Größe, dessen Eigenschaft {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} auf den angegebenen `maxByteLength` gesetzt ist, wenn einer spezifiziert wurde. Der Inhalt ist auf 0 initialisiert.
+Ein neues `SharedArrayBuffer`-Objekt der angegebenen Größe, dessen {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf das angegebene `maxByteLength` gesetzt ist, falls eines angegeben wurde. Sein Inhalt wird auf 0 initialisiert.
 
 ## Beispiele
 
-### Verwenden Sie immer den new-Operator, um einen SharedArrayBuffer zu erstellen
+### Immer den new-Operator verwenden, um einen SharedArrayBuffer zu erstellen
 
-`SharedArrayBuffer`-Konstruktoren müssen mit einem {{jsxref("Operators/new", "new")}}-Operator erstellt werden. Ein Aufruf eines `SharedArrayBuffer`-Konstruktors als Funktion ohne `new` führt zu einem {{jsxref("TypeError")}}.
+`SharedArrayBuffer`-Konstruktoren müssen mit einem {{jsxref("Operators/new", "new")}}-Operator konstruiert werden. Das Aufrufen eines `SharedArrayBuffer`-Konstruktors als Funktion ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ```js example-bad
 const sab = SharedArrayBuffer(1024);
@@ -52,9 +52,9 @@ const sab = SharedArrayBuffer(1024);
 const sab = new SharedArrayBuffer(1024);
 ```
 
-### Wachstum eines vergrößerbaren SharedArrayBuffer
+### Wachsen eines vergrößerbaren SharedArrayBuffer
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößerbar ist, und erweitern ihn dann mit {{jsxref("SharedArrayBuffer/grow", "grow()")}} auf 12 Bytes:
+In diesem Beispiel erstellen wir einen 8-Byte-Buffer, der auf eine maximale Länge von 16 Bytes vergrößerbar ist, und vergrößern ihn dann mit {{jsxref("SharedArrayBuffer/grow", "grow()")}} auf 12 Bytes:
 
 ```js
 const buffer = new SharedArrayBuffer(8, { maxByteLength: 16 });
@@ -63,7 +63,7 @@ buffer.grow(12);
 ```
 
 > [!NOTE]
-> Es wird empfohlen, dass `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall gesetzt wird. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speicherüberlauf-Fehlern zu reduzieren.
+> Es wird empfohlen, `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall zu setzen. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von "Out of Memory"-Fehlern zu verringern.
 
 ## Spezifikationen
 
@@ -77,4 +77,4 @@ buffer.grow(12);
 
 - {{jsxref("Atomics")}}
 - {{jsxref("ArrayBuffer")}}
-- [JavaScript getypte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden

@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}} {{ Non-standard_header() }}
 
-Die nicht standardisierte, vorangestellte **`-webkit-mask-box-image`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) legt das Maskenbild für den Rahmenkasten eines Elements fest.
+Die nicht standardisierte, mit **`-webkit-mask-box-image`** [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt das Maskenbild für das Randfeld eines Elements fest.
 
 > [!NOTE]
-> Diese Eigenschaft ist nicht standardisiert und gehört zu keinem Standard. Erwägen Sie stattdessen die Verwendung der {{CSSXref("mask-border")}}-Eigenschaft.
+> Diese Eigenschaft ist nicht standardisiert und befindet sich nicht in einer Normierungsphase. Erwägen Sie stattdessen die Verwendung der {{CSSXref("mask-border")}}-Eigenschaft.
 
-## Bestandteileigenschaften
+## Einzelne Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -20,7 +20,7 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 - [`-webkit-mask-box-image-outset`](/de/docs/Web/CSS/mask-border-outset)
 - [`-webkit-mask-box-image-repeat`](/de/docs/Web/CSS/mask-border-repeat)
 
-Die Werte umfassen das `<image>`, das als Maskenrand verwendet werden soll, sowie optional vier Werte für den Rahmenversatz und bis zu zwei Stile für den Rahmenwiederholungsmodus.
+Die Werte umfassen das `<image>`, das als Maskenrand verwendet werden soll, optional vier Randverlies-Abstandswerte und bis zu zwei Wiederholungsstile des Randes.
 
 ## Syntax
 
@@ -52,31 +52,31 @@ Die Werte umfassen das `<image>`, das als Maskenrand verwendet werden soll, sowi
 ### Werte
 
 - {{cssxref("&lt;image&gt;")}}
-  - : Der Ort der Bildressource, die als Maskenbild verwendet wird, {{cssxref("&lt;gradient&gt;")}}, oder anderer {{cssxref("&lt;image&gt;")}}-Wert.
+  - : Der Speicherort der Bildressource, die als Maskenbild verwendet werden soll, {{cssxref("&lt;gradient&gt;")}} oder andere {{cssxref("&lt;image&gt;")}}-Werte.
 - `none`
-  - : Wird verwendet, um anzugeben, dass ein Rahmenkasten kein Maskenbild haben soll.
+  - : Wird verwendet, um zu spezifizieren, dass ein Randkasten kein Maskenbild haben soll.
 - {{cssxref("length")}}
-  - : Die Größe des Versatzes des Maskenbildes. Siehe {{cssxref("&lt;length&gt;")}} für mögliche Einheiten.
+  - : Die Größe der Abweichung des Maskenbildes. Siehe {{cssxref("&lt;length&gt;")}} für mögliche Einheiten.
 - {{cssxref("percentage")}}
-  - : Der Versatz des Maskenbildes hat einen prozentualen Wert, der relativ zu der entsprechenden Dimension (Breite oder Höhe) des Rahmenkastens ist.
+  - : Die Abweichung des Maskenbildes hat einen Prozentwert relativ zur entsprechenden Dimension (Breite oder Höhe) des Randkastens.
 - {{cssxref("number")}}
-  - : Die Größe des Versatzes des Maskenbildes in Pixeln.
+  - : Die Größe der Abweichung des Maskenbildes in Pixeln.
 - `repeat`
-  - : Das Maskenbild wird so oft wiederholt, wie nötig, um den Rahmenkasten zu überbrücken. Kann ein Teilbild enthalten, wenn das Maskenbild nicht gleichmäßig in den Rahmenkasten passt.
+  - : Das Maskenbild wird so oft wiederholt, wie es erforderlich ist, um den Randkasten zu überspannen. Es kann ein Teilbild enthalten, wenn das Maskenbild nicht gleichmäßig in den Randkasten passt.
 - `stretch`
-  - : Das Maskenbild wird gestreckt, um den Rahmenkasten genau zu enthalten.
+  - : Das Maskenbild wird gedehnt, um den Randkasten exakt zu enthalten.
 - `round`
-  - : Das Maskenbild wird etwas gestreckt und wiederholt, so dass am Ende des Rahmenkastens kein Teilmaskenbild vorhanden ist.
+  - : Das Maskenbild wird etwas gedehnt und wiederholt, sodass es am Ende des Randkastens kein Teilbild gibt.
 - `space`
-  - : Das Maskenbild wird so oft wie möglich ohne Dehnung wiederholt. Es gibt kein Teilmaskenbild am Ende des Rahmenkastens.
+  - : Das Maskenbild wird so oft wie möglich wiederholt, ohne es zu dehnen. Am Ende des Randkastens gibt es kein Teilbild.
 
-Die Versatzwerte oder Kantenversätze definieren die Abstände von den oberen, rechten, unteren und linken Kanten des Bildes, in dieser Reihenfolge. Die Werte können als {{cssxref("length")}}, {{cssxref("number")}}, oder {{cssxref("percentage")}} festgelegt werden, wobei Zahlen als Pixelweiten interpretiert werden.
+Die Aussetzwert- oder Kantenversatzwerte definieren die Abstände von den oberen, rechten, unteren und linken Rändern des Bildes, in dieser Reihenfolge. Die Werte können als {{cssxref("length")}}, {{cssxref("number")}} oder {{cssxref("percentage")}} gesetzt werden, wobei Zahlen als Pixellängen interpretiert werden.
 
-Rahmenwiederholungsstile, falls enthalten, werden in der Reihenfolge von `<repeat-x> <repeat-y>` interpretiert. Wenn nur ein Wert angegeben ist, gilt dieser Wert für beide Achsen. Während es {{cssxref("background-repeat")}} ähnelt, werden die Werte `cover` und `contain` nicht unterstützt.
+Randwiederholungsstile werden in der Reihenfolge `<repeat-x> <repeat-y>` interpretiert. Wenn nur ein Wert angegeben ist, gilt dieser Wert für beide Achsen. Anders als bei {{cssxref("background-repeat")}} werden die Werte `cover` und `contain` nicht unterstützt.
 
 ## Formale Definition
 
-- [Initialwert](/de/docs/Web/CSS/initial_value): `none`
+- [Anfangswert](/de/docs/Web/CSS/initial_value): `none`
 - Gilt für: alle Elemente
 - [Vererbt](/de/docs/Web/CSS/Inheritance): nein
 - [Berechneter Wert](/de/docs/Web/CSS/computed_value): wie angegeben
@@ -97,7 +97,7 @@ Where:
 
 ## Beispiele
 
-### Ein Bild einstellen
+### Einstellen eines Bildes
 
 ```css
 .exampleone {
@@ -105,7 +105,7 @@ Where:
 }
 ```
 
-### Ein Bild versetzen und füllen
+### Verschieben und Füllen eines Bildes
 
 ```css
 .exampletwo {

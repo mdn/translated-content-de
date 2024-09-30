@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruleset-ID für die dynamischen Regeln, die von der Erweiterung mithilfe von {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules","updateDynamicRules")}} hinzugefügt werden.
+Regelsatz-ID für die dynamischen Regeln, die von der Erweiterung mit {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules","updateDynamicRules")}} hinzugefügt wurden.
 
 Der Wert ist `"_dynamic"`.
 

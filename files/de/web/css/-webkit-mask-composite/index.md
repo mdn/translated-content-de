@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`-webkit-mask-composite`** Eigenschaft legt fest, wie mehrere auf dasselbe Element angewendete Maskenbilder miteinander zusammengesetzt werden. Maskenbilder werden in der umgekehrten Reihenfolge zusammengesetzt, in der sie mit der {{CSSxRef("mask-image", "-webkit-mask-image")}} Eigenschaft deklariert sind.
+Die **`-webkit-mask-composite`**-Eigenschaft spezifiziert die Art und Weise, wie mehrere Maskenbilder, die auf dasselbe Element angewendet werden, zusammengesetzt werden. Maskenbilder werden in umgekehrter Reihenfolge zusammengesetzt, in der sie mit der {{CSSxRef("mask-image", "-webkit-mask-image")}}-Eigenschaft deklariert werden.
 
 > [!NOTE]
-> Es gibt eine standardisierte {{CSSxRef("mask-composite")}} Eigenschaft, die Teile dieser nicht standardisierten Eigenschaft mit anderen Schlüsselwörtern abdeckt.
+> Es gibt eine standardisierte {{CSSxRef("mask-composite")}}-Eigenschaft, die Teile dieser nicht standardisierten Eigenschaft unter Verwendung unterschiedlicher Schlüsselwörter abdeckt.
 
 ## Syntax
 
@@ -39,27 +39,27 @@ Die **`-webkit-mask-composite`** Eigenschaft legt fest, wie mehrere auf dasselbe
 ### Werte
 
 - `clear`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild werden gelöscht.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild werden gelöscht.
 - `copy`
-  - : Das Quell-Maskenbild ersetzt das Ziel-Maskenbild.
+  - : Das Quellmaskenbild ersetzt das Zielmaskenbild.
 - `source-over`
-  - : Das Quell-Maskenbild wird über das Ziel-Maskenbild gerendert.
+  - : Das Quellmaskenbild wird über das Zielmaskenbild gerendert.
 - `source-in`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild werden durch die Pixel des Quell-Maskenbildes ersetzt; alle anderen Pixel werden gelöscht.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild werden durch die Pixel des Quellmaskenbilds ersetzt; alle anderen Pixel werden gelöscht.
 - `source-out`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild werden gelöscht; alle verbleibenden Pixel des Quell-Maskenbildes werden gerendert.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild werden gelöscht; alle verbleibenden Pixel des Quellmaskenbilds werden gerendert.
 - `source-atop`
-  - : Die Pixel des Ziel-Maskenbildes werden gerendert. Die Pixel des Quell-Maskenbildes werden nur gerendert, wenn sie einen nichttransparenten Teil des Ziel-Maskenbildes überlappen. Dies führt dazu, dass das Quell-Maskenbild keine Wirkung hat.
+  - : Die Pixel des Zielmaskenbilds werden gerendert. Die Pixel des Quellmaskenbilds werden nur dann gerendert, wenn sie einen nicht transparenten Teil des Zielmaskenbilds überlappen. Dies hat zur Folge, dass das Quellmaskenbild keinen Effekt hat.
 - `destination-over`
-  - : Das Ziel-Maskenbild wird über das Quell-Maskenbild gerendert.
+  - : Das Zielmaskenbild wird über das Quellmaskenbild gerendert.
 - `destination-in`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild bleiben die Pixel des Ziel-Maskenbildes; alle anderen Pixel werden gelöscht.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild bleiben die Pixel des Zielmaskenbilds; alle anderen Pixel werden gelöscht.
 - `destination-out`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild werden gelöscht; alle verbleibenden Pixel des Quell-Maskenbildes werden gerendert.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild werden gelöscht; alle verbleibenden Pixel des Quellmaskenbilds werden gerendert.
 - `destination-atop`
-  - : Die Pixel des Quell-Maskenbildes werden gerendert. Die Pixel des Ziel-Maskenbildes werden nur gerendert, wenn sie einen nichttransparenten Teil des Ziel-Maskenbildes überlappen. Dies führt dazu, dass das Ziel-Maskenbild keine Wirkung hat.
+  - : Die Pixel des Quellmaskenbilds werden gerendert. Die Pixel des Zielmaskenbilds werden nur dann gerendert, wenn sie einen nicht transparenten Teil des Zielmaskenbilds überlappen. Dies hat zur Folge, dass das Zielmaskenbild keinen Effekt hat.
 - `xor`
-  - : Überlappende Pixel im Quell-Maskenbild und im Ziel-Maskenbild werden vollständig transparent, wenn beide vollständig opak sind.
+  - : Überlappende Pixel im Quellmaskenbild und im Zielmaskenbild werden vollständig transparent, wenn sie beide vollständig undurchsichtig sind.
 
 ## Formale Definition
 
@@ -74,7 +74,7 @@ Die **`-webkit-mask-composite`** Eigenschaft legt fest, wie mehrere auf dasselbe
 
 ## Beispiele
 
-### Komposition mit XOR
+### Zusammensetzung mit XOR
 
 ```css
 .example {
@@ -85,7 +85,7 @@ Die **`-webkit-mask-composite`** Eigenschaft legt fest, wie mehrere auf dasselbe
 
 ## Spezifikationen
 
-Nicht Teil eines Standards. Diese Eigenschaft wird als {{CSSxRef("mask-composite")}} mit anderen Werten spezifiziert.
+Teil keiner Norm. Diese Eigenschaft wird als {{CSSxRef("mask-composite")}} mit unterschiedlichen Werten spezifiziert.
 
 ## Browser-Kompatibilität
 

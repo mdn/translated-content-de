@@ -1,5 +1,5 @@
 ---
-title: "PeriodicSyncEvent: PeriodicSyncEvent() Konstruktor"
+title: "PeriodicSyncEvent: PeriodicSyncEvent()-Konstruktor"
 short-title: PeriodicSyncEvent()
 slug: Web/API/PeriodicSyncEvent/PeriodicSyncEvent
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`PeriodicSyncEvent()`** Konstruktor
-erstellt ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt. Dieser Konstruktor wird in der Regel nicht verwendet. Der Browser erstellt diese Objekte selbst und stellt sie dem [`onperiodicsync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event)-Callback zur Verfügung.
+Der **`PeriodicSyncEvent()`**-Konstruktor erstellt ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt. Dieser Konstruktor wird normalerweise nicht verwendet. Der Browser erstellt diese Objekte selbst und stellt sie dem [`onperiodicsync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event)-Callback zur Verfügung.
 
 ## Syntax
 
@@ -20,21 +19,19 @@ new PeriodicSyncEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Es ist case-sensitiv und Browser setzen es auf `periodicsync`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitive und Browser setzen es auf `periodicsync`.
 - `options`
-  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind_, die folgenden Eigenschaften haben kann:
     - `tag`
-      - : Der Tag, der auf das Sync-Ereignis verweist.
+      - : Das Tag, das das Sync-Ereignis referenziert.
 
 ### Rückgabewert
 
-Ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt, das mit den gegebenen Eingaben konfiguriert wurde.
+Ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt, das mit den angegebenen Eingaben konfiguriert ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) mit dem entsprechenden
-zugehörigen Tag.
+Dieses Beispiel konstruiert ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) mit dem entsprechenden zugehörigen Tag.
 
 ```js
 const psEvent = new ExtendableEvent("periodicsync", { tag: "unique-tag" });
@@ -50,5 +47,5 @@ const psEvent = new ExtendableEvent("periodicsync", { tag: "unique-tag" });
 
 ## Siehe auch
 
-- [Umfassendere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Reichere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Demonstrations-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

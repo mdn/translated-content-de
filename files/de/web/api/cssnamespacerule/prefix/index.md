@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`prefix`**-Eigenschaft des [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt eine Zeichenkette mit dem Namen des Präfixes zurück, das mit diesem Namensraum verknüpft ist. Wenn kein solches Präfix existiert, wird eine leere Zeichenkette zurückgegeben.
+Die schreibgeschützte **`prefix`**-Eigenschaft des [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt einen String mit dem Namen des Präfixes zurück, das mit diesem Namespace verknüpft ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
 
 ## Wert
 
-Eine Zeichenkette, die das Präfix enthält, das mit diesem Namensraum verknüpft ist. Wenn kein Präfix vorhanden ist, eine leere Zeichenkette.
+Ein String, der das Präfix enthält, das mit diesem Namespace verknüpft ist. Wenn kein Präfix vorhanden ist, ein leerer String.
 
 ## Beispiele
 
-Das Stylesheet enthält zwei Namensraum-Regeln. Die erste hat kein Präfix, die zweite das Präfix `svg`. Zwei `CSSNamespaceRule`-Objekte werden zurückgegeben. Der Wert der `prefix`-Eigenschaft für das erste wird eine leere Zeichenkette sein, für das zweite `svg`.
+Das Stylesheet enthält zwei Namespace-Regeln. Die erste hat kein Präfix, die zweite hat das Präfix `svg`. Zwei `CSSNamespaceRule`-Objekte werden zurückgegeben. Der Wert der `prefix`-Eigenschaft für das erste wird ein leerer String sein, für das zweite `svg`.
 
 ```css
 @namespace url(http://www.w3.org/1999/xhtml);

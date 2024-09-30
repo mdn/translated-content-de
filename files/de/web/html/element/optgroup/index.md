@@ -1,5 +1,5 @@
 ---
-title: "<optgroup>: Das Option Group-Element"
+title: "<optgroup>: Das Option Group Element"
 slug: Web/HTML/Element/optgroup
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,21 +7,21 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppe von Optionen innerhalb eines {{HTMLElement("select")}} Elements.
+Das **`<optgroup>`** [HTML](/de/docs/Web/HTML) Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}} Elements.
 
 {{EmbedInteractiveExample("pages/tabbed/optgroup.html", "tabbed-standard")}}
 
 > [!NOTE]
-> Optgroup-Elemente können nicht verschachtelt werden.
+> Optgroup-Elemente dürfen nicht geschachtelt werden.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, kann keines der Elemente in dieser Optionsgruppe ausgewählt werden. Oftmals blenden Browser solche Steuerungen aus und sie empfangen keine Browsing-Ereignisse, wie Mausklicks oder fokussierungsbezogene Ereignisse.
+  - : Wenn dieses boolesche Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oftmals werden solche Steuerelemente in Browsern ausgegraut und sie erhalten keine Browsing-Ereignisse, wie Mausklicks oder fokusbezogene Ereignisse.
 - `label`
-  - : Der Name der Optionsgruppe, den der Browser verwenden kann, um die Optionen in der Benutzeroberfläche zu kennzeichnen. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser verwenden kann, um die Optionen in der Benutzeroberfläche zu beschriften. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -65,7 +65,9 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist zwingend erforderlich. Das End-Tag ist optional, wenn dieses Element direkt von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder wenn das Elternelement keinen weiteren Inhalt hat.
+        Der Start-Tag ist obligatorisch. Der End-Tag ist optional, wenn dieses Element
+        unmittelbar von einem anderen <code>&#x3C;optgroup></code> Element gefolgt wird oder
+        wenn das Elternelement keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>

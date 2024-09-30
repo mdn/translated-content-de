@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleDeclaration: item()-Methode"
+title: "CSSStyleDeclaration: item() Methode"
 short-title: item()
 slug: Web/API/CSSStyleDeclaration/item
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die Schnittstellenmethode `CSSStyleDeclaration.item()` gibt einen CSS-Eigenschaftsnamen von einer [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) anhand des Indexes zurück.
+Die `CSSStyleDeclaration.item()`
+Methoden-Schnittstelle gibt einen CSS-Eigenschaften-Namen aus einem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)
+durch Index zurück.
 
-Diese Methode löst keine Ausnahmen aus, solange Sie Argumente bereitstellen; der leere String wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt und ein {{jsxref("TypeError")}} wird ausgelöst, wenn kein Argument bereitgestellt wird.
+Diese Methode wirft keine Ausnahmen, solange Sie Argumente bereitstellen; ein leerer String wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt, und ein {{jsxref("TypeError")}} wird geworfen, wenn kein Argument bereitgestellt wird.
 
 ## Syntax
 
@@ -21,13 +23,13 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Der Index des Knotens, der abgerufen werden soll. Der Index beginnt bei null.
+  - : Der Index des zu holenden Knotens. Der Index ist nullbasiert.
 
 ### Rückgabewert
 
-Ein String, der der Name der CSS-Eigenschaft an dem angegebenen Index ist.
+Ein String, der der Name der CSS-Eigenschaft am angegebenen Index ist.
 
-JavaScript hat eine spezielle, einfachere Syntax, um ein Element aus einer NodeList anhand des Indexes zu erhalten:
+JavaScript hat eine spezielle, einfachere Syntax, um ein Element von einer NodeList durch den Index zu erhalten:
 
 ```js
 const propertyName = style[index];
@@ -36,7 +38,7 @@ const propertyName = style[index];
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Argument bereitgestellt wird.
+  - : Wird geworfen, wenn kein Argument bereitgestellt wird.
 
 ## Beispiele
 

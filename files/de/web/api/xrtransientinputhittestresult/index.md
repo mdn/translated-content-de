@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Die **`XRTransientInputHitTestResult`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält ein Array von Ergebnissen eines Hit-Tests für transientes Input, gruppiert nach Eingabequelle.
+Das **`XRTransientInputHitTestResult`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält ein Array von Ergebnissen eines Hit-Tests für transienten Input, gruppiert nach Eingabequelle.
 
 Sie können ein Array von `XRHitTestResult`-Objekten für einen Frame erhalten, indem Sie [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufrufen.
 
@@ -16,7 +16,7 @@ Sie können ein Array von `XRHitTestResult`-Objekten für einen Frame erhalten, 
 - [`XRTransientInputHitTestResult.inputSource`](/de/docs/Web/API/XRTransientInputHitTestResult/inputSource) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Repräsentiert die [`XRInputSource`](/de/docs/Web/API/XRInputSource), die verwendet wurde, um das `results`-Array zu berechnen.
 - [`XRTransientInputHitTestResult.results`](/de/docs/Web/API/XRTransientInputHitTestResult/results) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Repräsentiert ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten, die die Hit-Test-Ergebnisse für die Eingabequelle enthalten. Diese sind nach der Entfernung entlang des Strahls geordnet, der für den Hit-Test verwendet wurde, wobei das nächstgelegene Ergebnis an Position 0 steht.
+  - : Repräsentiert ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten, die die Hit-Test-Ergebnisse für die Eingabequelle enthalten, geordnet nach der Entfernung entlang des Strahls, der zur Durchführung des Hit-Tests verwendet wurde, wobei das nächste Ergebnis an Position 0 steht.
 
 ## Instanzmethoden
 
@@ -24,9 +24,9 @@ Keine.
 
 ## Beispiele
 
-### Zugriff auf transiente Eingabe-Hit-Test-Ergebnisse
+### Zugriff auf transienten Input-Hit-Test-Ergebnisse
 
-Zwei Arrays werden verwendet, um auf transiente Eingabe-Hit-Test-Ergebnisse zuzugreifen. Zuerst erhalten Sie ein Array von `XRTransientInputHitTestResult`-Objekten, indem Sie [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufrufen. Um dann zu den tatsächlichen [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten für eine Eingabequelle zu gelangen, dereferenzieren Sie die `results`-Eigenschaft eines der `XRTransientInputHitTestResult`-Objekte.
+Zwei Arrays werden verwendet, um auf transiente Input-Hit-Test-Ergebnisse zuzugreifen. Zuerst erhalten Sie ein Array von `XRTransientInputHitTestResult`-Objekten, indem Sie [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufrufen. Zweitens, um zu den eigentlichen [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten für eine Eingabequelle zu gelangen, dereferenzieren Sie die `results`-Eigenschaft eines der `XRTransientInputHitTestResult`-Objekte.
 
 ```js
 // frame loop
@@ -46,7 +46,7 @@ function onXRFrame(time, xrFrame) {
 
 ### Filtern von Eingabequellen
 
-Die Eigenschaft [`inputSource`](/de/docs/Web/API/XRTransientInputHitTestResult/inputSource) ermöglicht es Ihnen, Hit-Test-Ergebnisse nach Eingabequelle zu filtern.
+Die [`inputSource`](/de/docs/Web/API/XRTransientInputHitTestResult/inputSource)-Eigenschaft ermöglicht es Ihnen, Hit-Test-Ergebnisse nach Eingabequelle zu filtern.
 
 ```js
 // frame loop

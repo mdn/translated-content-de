@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) am Ende der Liste hinzu.
+Die **`appendItem()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) am Ende der Liste hinzu.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ appendItem(obj)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des hinzuzufügenden Punktes enthält.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des hinzuzufügenden Punktes enthält.
 
 ### Rückgabewert
 
-Das [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das hinzugefügt wurde.
+Das angehängte [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
 
 ### Ausnahmen
 

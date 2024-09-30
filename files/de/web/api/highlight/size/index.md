@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`size`**-Eigenschaft gibt die Anzahl der [`Range`](/de/docs/Web/API/Range)-Objekte in einem
-[`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück.
+Die **`size`**-Eigenschaft gibt die Anzahl der [`Range`](/de/docs/Web/API/Range)-Objekte in einem [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück.
 
 ## Wert
 
-Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt hat.
+Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt enthält.
 
 ## Beispiele
 
@@ -39,4 +38,4 @@ console.log(highlight.size); // 3
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

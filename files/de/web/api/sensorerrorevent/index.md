@@ -16,7 +16,7 @@ Die **`SensorErrorEvent`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sens
 - [`SensorErrorEvent()`](/de/docs/Web/API/SensorErrorEvent/SensorErrorEvent)
   - : Erstellt ein neues `SensorErrorEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SensorErrorEvent.error`](/de/docs/Web/API/SensorErrorEvent/error) {{ReadOnlyInline}}
   - : Gibt das [`DOMException`](/de/docs/Web/API/DOMException)-Objekt zurück, das im Konstruktor des Ereignisses übergeben wurde.

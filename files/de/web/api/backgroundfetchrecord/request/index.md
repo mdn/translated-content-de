@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchRecord: request-Eigenschaft"
+title: "BackgroundFetchRecord: request Eigenschaft"
 short-title: request
 slug: Web/API/BackgroundFetchRecord/request
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`request`**-Eigenschaft der [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Schnittstelle (nur lesbar) gibt die Details der abzurufenden Ressource zurück.
+Die schreibgeschützte Eigenschaft **`request`** des [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Interfaces gibt die Details der abzurufenden Ressource zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Request`](/de/docs/Web/API/Request).
 
 ## Beispiele
 
-In diesem Beispiel wird ein einzelnes `BackgroundFetchRecord` mit [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) zurückgegeben. Der `request` wird abgerufen und in der Konsole protokolliert.
+In diesem Beispiel wird ein individuelles `BackgroundFetchRecord` mittels [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) zurückgegeben. Der `request` wird zurückgegeben und im Konsolenprotokoll angezeigt.
 
 ```js
 bgFetch.match("/ep-5.mp3").then(async (record) => {

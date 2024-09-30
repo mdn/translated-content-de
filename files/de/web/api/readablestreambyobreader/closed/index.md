@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`closed`** schreibgeschützte Eigenschaft der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder die Sperre des Readers freigegeben wird.
+Die **`closed`** schreibgeschützte Eigenschaft der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder das Leseschloss des Readers freigegeben wird.
 
 Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert.
 
@@ -18,7 +18,7 @@ Ein {{jsxref("Promise")}}.
 
 ## Beispiele
 
-Der untenstehende Code zeigt das Muster zur Behandlung des geschlossenen/Fehlerzustands eines BYOBReaders.
+Der folgende Code zeigt das Muster zum Umgang mit dem geschlossen/Fehlerzustand eines BYOBReaders.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
@@ -42,4 +42,4 @@ reader.closed
 ## Siehe auch
 
 - [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
-- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

@@ -3,13 +3,13 @@ title: "WebGLRenderingContext: Methode checkFramebufferStatus()"
 short-title: checkFramebufferStatus()
 slug: Web/API/WebGLRenderingContext/checkFramebufferStatus
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.checkFramebufferStatus()`**-Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Vollständigkeitsstatus
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Komplettheitsstatus
 des [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekts zurück.
 
 ## Syntax
@@ -22,44 +22,43 @@ checkFramebufferStatus(target)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
 
-      - : Sammlung von Pufferdatenspeichern für Farbe, Alpha,
-        Tiefe und Stencil-Puffer, die zur Bilddarstellung verwendet werden.
+      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die verwendet werden, um ein Bild darzustellen.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
-        Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
+        Wird als Ziel für Zeichnungs-, Render-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
-      - : Wird als Quelle für Leseoperationen verwendet.
+      - : Wird als Quelle für Lesevorgänge verwendet.
 
 ### Rückgabewert
 
-Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Vollständigkeitsstatus des Framebuffers angibt, oder
-`0`, wenn ein Fehler auftritt. Mögliche Rückgabewerte für Aufzählungen:
+Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Komplettheitsstatus des Framebuffers angibt, oder
+`0`, wenn ein Fehler auftritt. Mögliche Rückgabewerte des Enums:
 
 - `gl.FRAMEBUFFER_COMPLETE`: Der Framebuffer ist bereit zur Anzeige.
-- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Typen der Anhänge sind
-  nicht übereinstimmend oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhang
-  vollständig.
+- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Anhangstypen
+  sind nicht übereinstimmend oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhangs-komplett.
 - `gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT`: Es gibt keinen Anhang.
 - `gl.FRAMEBUFFER_INCOMPLETE_DIMENSIONS`: Höhe und Breite des
-  Anhangs sind nicht identisch.
+  Anhangs sind nicht gleich.
 - `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht
   unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht derselbe Renderbuffer sind.
-- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} können zusätzlich die
-  folgenden Werte zurückgegeben werden:
+- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
+  können zusätzlich die folgenden Werte zurückgegeben werden:
 
   - `gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE`: Die Werte von
-    `gl.RENDERBUFFER_SAMPLES` sind unterschiedlich zwischen angehängten Renderbuffern,
+    `gl.RENDERBUFFER_SAMPLES` sind zwischen den angehängten Renderbuffern unterschiedlich
     oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffern und Texturen sind.
 
-- Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)-Erweiterung kann zusätzlich der folgende Wert zurückgegeben werden:
+- Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)-Erweiterung kann der folgende Wert
+  zusätzlich zurückgegeben werden:
 
   - `ext.FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR`: Wenn
     `baseViewIndex` nicht für alle Framebuffer-Anhangspunkte gleich ist,

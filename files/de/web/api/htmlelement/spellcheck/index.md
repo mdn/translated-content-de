@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`spellcheck`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert einen booleschen Wert, der den Hinweis für die [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) steuert. Sie ist auf allen HTML-Elementen verfügbar, obwohl sie nicht alle betrifft.
+Die **`spellcheck`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert einen booleschen Wert, der den Hinweis zur [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) steuert. Sie ist auf allen HTML-Elementen verfügbar, beeinflusst jedoch nicht alle von ihnen.
 
 Sie spiegelt den Wert des globalen HTML-Attributs [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) wider.
 
@@ -18,7 +18,7 @@ Ein boolescher Wert, der `true` ist, wenn die Rechtschreibung und Grammatik des 
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der Hinweis für die [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) per Skript gesteuert werden kann:
+Das folgende Beispiel zeigt, wie der Hinweis zur [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) über ein Skript gesteuert werden kann:
 
 ```html
 <div>
@@ -47,7 +47,7 @@ controller.addEventListener("change", (e) => {
 
 {{EmbedLiveSample('Examples', 600, 200)}}
 
-Beachten Sie, dass Sie die Browser-Einstellung aktivieren müssen, um Rechtschreibung und Grammatik zu überprüfen.
+Beachten Sie, dass Sie die Browsereinstellung zur Überprüfung von Rechtschreibung und Grammatik aktivieren müssen.
 
 ## Spezifikationen
 

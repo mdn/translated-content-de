@@ -1,5 +1,5 @@
 ---
-title: Desktop-Gamepad-Steuerungen
+title: Desktop-Spielsteuerung mit Gamepad
 slug: Games/Techniques/Control_mechanisms/Desktop_with_gamepad
 l10n:
   sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
@@ -9,23 +9,23 @@ l10n:
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-Jetzt betrachten wir das Hinzufügen von etwas Besonderem — Unterstützung für Gamepad-Steuerungen über die Gamepad API. Sie bringt ein konsolenähnliches Erlebnis in Ihre Web-Spiele.
+Nun werden wir etwas hinzufügen — Support für Gamepad-Steuerungen über die Gamepad-API. Dies bringt ein konsolenähnliches Erlebnis zu Ihren Webspielen.
 
-Die Gamepad API ermöglicht es Ihnen, ein Gamepad an Ihren Computer anzuschließen und gedrückte Tasten direkt aus dem JavaScript-Code zu erkennen, dank der Browser, die diese Funktion implementieren. Eine API stellt alle Informationen zur Verfügung, die Sie benötigen, um die Logik Ihres Spiels zu verknüpfen und erfolgreich die Benutzeroberfläche und das Gameplay zu steuern.
+Die Gamepad-API ermöglicht es Ihnen, ein Gamepad an Ihren Computer anzuschließen und gedrückte Tasten direkt aus dem JavaScript-Code zu erkennen, dank der Implementierung durch die Browser. Eine API stellt alle Informationen bereit, die Sie benötigen, um die Logik Ihres Spiels zu verbinden und die Benutzeroberfläche und das Gameplay erfolgreich zu steuern.
 
-## API-Status, Browser- und Hardwareunterstützung
+## API-Status, Unterstützung durch Browser und Hardware
 
-Die [Gamepad API](/de/docs/Web/API/Gamepad_API) befindet sich noch im Working Draft-Status, obwohl die Browser-Unterstützung bereits recht gut ist — laut [caniuse.com](https://caniuse.com/#search=gamepad) etwa 63 % globale Abdeckung. Die Liste der unterstützten Geräte ist ebenfalls ziemlich umfangreich — die meisten beliebten Gamepads (z.B. XBox 360 oder PS3) sollten für Web-Implementierungen geeignet sein.
+Die [Gamepad API](/de/docs/Web/API/Gamepad_API) befindet sich noch im Working Draft Status, obwohl die Browser-Unterstützung bereits recht gut ist — laut [caniuse.com](https://caniuse.com/#search=gamepad) liegt die globale Abdeckung bei etwa 63%. Die Liste der unterstützten Geräte ist ebenfalls ziemlich umfangreich — die meisten beliebten Gamepads (z. B. XBox 360 oder PS3) sollten für Webimplementierungen geeignet sein.
 
-## Pure JavaScript-Ansatz
+## Reiner JavaScript-Ansatz
 
-Lassen Sie uns zunächst überlegen, wie wir reine JavaScript-Gamepad-Steuerungen in unserem [kleinen Steuerungs-Demo](https://github.com/end3r/JavaScript-Game-Controls/) umsetzen würden, um zu sehen, wie es funktionieren könnte. Zuerst benötigen wir einen Ereignis-Listener, um die Verbindung neuer Geräte zu erkennen:
+Lassen Sie uns überlegen, wie eine Implementierung von Gamepad-Steuerungen mit reinem JavaScript in unserem [kleinen Steuerungsdemo](https://github.com/end3r/JavaScript-Game-Controls/) aussehen würde. Zuerst benötigen wir einen Event-Listener, um auf die Verbindung des neuen Geräts zu hören:
 
 ```js
 window.addEventListener("gamepadconnected", gamepadHandler);
 ```
 
-Dies wird einmal ausgeführt, sodass wir einige Variablen erstellen können, die wir später zum Speichern der Controller-Informationen und der gedrückten Tasten benötigen werden:
+Er wird einmal ausgeführt, sodass wir einige Variablen erstellen können, die wir später zum Speichern der Controller-Informationen und der gedrückten Tasten benötigen:
 
 ```js
 let controller = {};
@@ -36,13 +36,13 @@ function gamepadHandler(e) {
 }
 ```
 
-Die zweite Zeile in der `gamepadHandler`-Funktion wird angezeigt, wenn das Gerät verbunden wird:
+Die zweite Zeile in der `gamepadHandler`-Funktion erscheint auf dem Bildschirm, wenn das Gerät verbunden ist:
 
-![Gamepad verbunden-Nachricht unter dem Captain Rogers-Spiel - kabelloser XBox 360-Controller.](controls-gamepadtext.png)
+![Gamepad-verbunden-Nachricht unter dem Captain Rogers-Spiel - kabelloser XBox 360 Controller.](controls-gamepadtext.png)
 
-Wir können auch die `id` des Geräts anzeigen — im obigen Fall verwenden wir den kabellosen XBox 360-Controller.
+Wir können auch die `id` des Geräts anzeigen — im obigen Beispiel verwenden wir den kabellosen XBox 360 Controller.
 
-Um den Zustand der aktuell gedrückten Tasten des Gamepads zu aktualisieren, benötigen wir eine Funktion, die dies genau bei jedem Frame erledigt:
+Um den Zustand der aktuell gedrückten Tasten des Gamepads zu aktualisieren, benötigen wir eine Funktion, die genau dies in jedem Frame tut:
 
 ```js
 function gamepadUpdateHandler() {
@@ -57,7 +57,7 @@ function gamepadUpdateHandler() {
 }
 ```
 
-Wir setzen zuerst das `buttonsPressed`-Array zurück, um es bereit zu machen, die neuesten Informationen zu speichern, die wir vom aktuellen Frame schreiben werden. Wenn die Tasten verfügbar sind, durchlaufen wir sie; wenn die `pressed`-Eigenschaft auf `true` gesetzt ist, fügen wir sie dem `buttonsPressed`-Array zur späteren Verarbeitung hinzu. Als nächstes betrachten wir die `gamepadButtonPressedHandler()`-Funktion:
+Zuerst setzen wir das `buttonsPressed`-Array zurück, um es vorzubereiten und die neuesten Informationen aus dem aktuellen Frame hineinzuschreiben. Dann durchlaufen wir, falls die Tasten verfügbar sind, die Tasten. Wenn die Eigenschaft `pressed` auf `true` gesetzt ist, fügen wir sie dem `buttonsPressed`-Array zur späteren Verarbeitung hinzu. Als Nächstes betrachten wir die Funktion `gamepadButtonPressedHandler()`:
 
 ```js
 function gamepadButtonPressedHandler(button) {
@@ -71,9 +71,9 @@ function gamepadButtonPressedHandler(button) {
 }
 ```
 
-Die Funktion nimmt eine Taste als Parameter; in der Schleife prüft sie, ob die angegebene Tasten-Nummer zu den aktuell im `buttonsPressed`-Array verfügbaren gedrückten Tasten gehört. Falls ja, gibt die Funktion `true` zurück, andernfalls `false`.
+Die Funktion nimmt einen Button als Parameter; in der Schleife wird überprüft, ob die gegebene Tasten-Nummer zu den aktuell gedrückten Tasten im `buttonsPressed`-Array gehört. Wenn ja, dann gibt die Funktion `true` zurück; andernfalls `false`.
 
-Als Nächstes tun wir in der `draw()`-Funktion zwei Dinge — die `gamepadUpdateHandler()`-Funktion wird aufgerufen, um den aktuellen Zustand der gedrückten Tasten bei jedem Frame zu erhalten, und die `gamepadButtonPressedHandler()`-Funktion wird verwendet, um die Tasten, die uns interessieren, darauf zu überprüfen, ob sie gedrückt sind, und etwas zu tun, falls sie es sind:
+Als nächstes führen wir in der `draw()`-Funktion zwei Dinge aus — die `gamepadUpdateHandler()`-Funktion, um in jedem Frame den aktuellen Zustand der gedrückten Tasten zu erhalten, und die `gamepadButtonPressedHandler()`-Funktion, um die Tasten zu überprüfen, an denen wir interessiert sind, ob sie gedrückt sind, und etwas zu tun, wenn sie es sind:
 
 ```js
 function draw() {
@@ -106,17 +106,17 @@ function draw() {
 In diesem Fall überprüfen wir die vier D-Pad-Tasten (0-3) und die A-Taste (11).
 
 > [!NOTE]
-> Bitte denken Sie daran, dass unterschiedliche Geräte unterschiedliche Tastenzuordnungen haben können, d.h. die D-Pad-Rechtstaste hat möglicherweise einen Index von 3 auf dem kabellosen XBox 360, könnte aber auf einem anderen Gerät eine andere Position haben.
+> Bitte beachten Sie, dass unterschiedliche Geräte möglicherweise unterschiedliche Tastenbelegungen haben, d. h. die D-Pad-Rechts-Taste hat beim kabellosen XBox 360 die Indexnummer 3, könnte jedoch bei einem anderen Gerät eine andere haben.
 
-Sie könnten auch eine Hilfsfunktion erstellen, die die aufgelisteten Tasten mit den richtigen Namen versieht, sodass Sie z.B. statt `gamepadButtonPressedHandler(3)` zu prüfen, eine anschaulichere Überprüfung durchführen könnten: `gamepadButtonPressedHandler('DPad-Right')`.
+Sie könnten auch eine Hilfsfunktion erstellen, die den aufgelisteten Tasten richtige Namen zuweist, sodass Sie z. B. statt zu überprüfen, ob `gamepadButtonPressedHandler(3)` gedrückt ist, eine aussagekräftigere Überprüfung durchführen könnten: `gamepadButtonPressedHandler('DPad-Right')`.
 
-Sie können eine [Live-Demo](https://end3r.github.io/JavaScript-Game-Controls/) in Aktion sehen — versuchen Sie, Ihr Gamepad anzuschließen und die Tasten zu drücken.
+Sie können eine [Live-Demo](https://end3r.github.io/JavaScript-Game-Controls/) in Aktion sehen — versuchen Sie, Ihr Gamepad zu verbinden und die Tasten zu drücken.
 
 ## Phaser-Ansatz
 
-Gehen wir zur endgültigen Gamepad API-Implementierung im Spiel [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/), das wir mit Phaser erstellt haben. Dies ist jedoch auch reiner JavaScript-Code und kann in jedem anderen Projekt verwendet werden, unabhängig davon, welches Framework verwendet wurde.
+Kommen wir zur finalen Implementierung der Gamepad-API im Spiel [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/), das wir mit Phaser erstellt haben. Dies ist jedoch auch reiner JavaScript-Code, sodass er in jedem anderen Projekt verwendet werden kann, unabhängig davon, welches Framework verwendet wurde.
 
-Zuerst erstellen wir eine kleine Bibliothek, die sich um die Eingabesteuerung kümmert. Hier ist das `GamepadAPI`-Objekt, das nützliche Variablen und Funktionen enthält:
+Zuerst erstellen wir eine kleine Bibliothek, die die Eingaben für uns handhabt. Hier ist das `GamepadAPI`-Objekt, das nützliche Variablen und Funktionen enthält:
 
 ```js
 const GamepadAPI = {
@@ -137,20 +137,20 @@ const GamepadAPI = {
 };
 ```
 
-Die `controller`-Variable speichert die Informationen über das angeschlossene Gamepad und es gibt eine `active`-Boolesche Variable, die wir verwenden können, um zu wissen, ob der Controller angeschlossen ist oder nicht. Die `connect()`- und `disconnect()`-Funktionen sind an die folgenden Ereignisse gebunden:
+Die Variable `controller` speichert die Informationen über das verbundene Gamepad, und es gibt eine boolesche Variable `active`, die wir nutzen können, um zu wissen, ob der Controller verbunden ist oder nicht. Die Funktionen `connect()` und `disconnect()` sind an die folgenden Ereignisse gebunden:
 
 ```js
 window.addEventListener("gamepadconnected", GamepadAPI.connect);
 window.addEventListener("gamepaddisconnected", GamepadAPI.disconnect);
 ```
 
-Sie werden ausgelöst, wenn das Gamepad angeschlossen bzw. getrennt wird. Die nächste Funktion ist `update()`, die die Informationen über die gedrückten Tasten und Achsen aktualisiert.
+Sie werden ausgelöst, wenn das Gamepad verbunden bzw. getrennt wird. Die nächste Funktion ist `update()`, die Informationen über die gedrückten Tasten und Achsen aktualisiert.
 
-Die `buttons`-Variable enthält das `layout` eines bestimmten Controllers (zum Beispiel, welche Tasten wo sind, weil ein XBox 360-Layout sich von einem generischen unterscheiden kann), der `cache`, der die Informationen über die Tasten aus dem vorherigen Frame enthält und der `status`, der die Informationen aus dem aktuellen Frame enthält.
+Die Variable `buttons` enthält das `layout` eines gegebenen Controllers (zum Beispiel, wo sich welche Tasten befinden, da der XBox 360-Layout sich von einem generischen unterscheiden kann), den `cache`, der die Informationen über die Tasten aus dem vorherigen Frame enthält, und den `status`, der die Informationen aus dem aktuellen Frame enthält.
 
-Die `pressed()`-Funktion erhält die Eingabedaten und legt die Informationen darüber in unserem Objekt fest, und die `axes`-Eigenschaft speichert das Array mit den Werten, die angeben, um wie viel eine Achse in den `x`- und `y`-Richtungen gedrückt wird, dargestellt durch eine Fließkommazahl im Bereich von `(-1, 1)`.
+Die Funktion `pressed()` holt die Eingabedaten und setzt die Informationen darüber in unserem Objekt, und die Eigenschaft `axes` speichert das Array, das die Werte enthält, die signalisieren, wie stark eine Achse in den `x`- und `y`-Richtungen gedrückt wird, dargestellt durch einen Float im Bereich `(-1, 1)`.
 
-Nachdem das Gamepad angeschlossen ist, werden die Informationen über den Controller im Objekt gespeichert:
+Nach der Verbindung des Gamepads werden die Informationen über den Controller im Objekt gespeichert:
 
 ```js
 connect(event) {
@@ -168,7 +168,7 @@ disconnect(event) {
 },
 ```
 
-Die `update()`-Funktion wird in der Aktualisierungschleife des Spiels bei jedem Frame ausgeführt und enthält somit die neuesten Informationen über die gedrückten Tasten:
+Die `update()`-Funktion wird in der Update-Schleife des Spiels in jedem Frame ausgeführt, sodass sie die neuesten Informationen über die gedrückten Tasten enthält:
 
 ```js
 update() {
@@ -198,9 +198,9 @@ update() {
 },
 ```
 
-Die obige Funktion leert den Button-Cache und kopiert ihren Status vom vorherigen Frame in den Cache. Der Button-Status wird gelöscht und die neuen Informationen hinzugefügt. Das Gleiche gilt für die Achseninformationen — Durchlaufen der Achsen fügt die Werte zum Array hinzu. Die erhaltenen Werte werden den entsprechenden Objekten zugewiesen und geben die gedrückten Informationen zu Debugging-Zwecken zurück.
+Die obige Funktion leert den Tasten-Cache und kopiert ihren Status aus dem vorherigen Frame in den Cache. Als nächstes wird der Tastenstatus gelöscht und die neuen Informationen hinzugefügt. Dasselbe gilt für die Informationen der Achsen — das Durchlaufen der Achsen fügt die Werte dem Array hinzu. Empfangene Werte werden den entsprechenden Objekten zugewiesen und geben die gedrückten Informationen für Debugging-Zwecke zurück.
 
-Die `button.pressed()`-Funktion erkennt die tatsächlichen Tastendrücke:
+Die Funktion `button.pressed()` erkennt die tatsächlichen Tastendrücke:
 
 ```js
 pressed(button, hold) {
@@ -221,13 +221,13 @@ pressed(button, hold) {
 },
 ```
 
-Sie durchläuft die gedrückten Tasten und wenn die gesuchte Taste gedrückt ist, wird die entsprechende boolesche Variable auf `true` gesetzt. Wenn wir prüfen möchten, ob die Taste noch nicht gehalten wird (also ein neuer Druck ist), dann erledigt das Durchlaufen der zwischengespeicherten Zustände des vorherigen Frames die Aufgabe — wenn die Taste bereits gedrückt war, ignorieren wir den neuen Druck und setzen ihn auf `false`.
+Sie durchläuft die gedrückten Tasten, und wenn die von uns gesuchte Taste gedrückt wird, wird die entsprechende boolesche Variable auf `true` gesetzt. Wenn wir überprüfen möchten, dass die Taste nicht bereits gehalten wird (also ein neuer Druck ist), dann übernimmt das Durchlaufen der zwischengespeicherten Zustände aus dem vorherigen Frame die Aufgabe — wenn die Taste bereits gedrückt war, ignorieren wir den neuen Druck und setzen ihn auf `false`.
 
 ## Implementierung
 
-Wir wissen nun, wie das `GamepadAPI`-Objekt aussieht und welche Variablen und Funktionen es enthält, also lernen wir, wie all dies tatsächlich im Spiel verwendet wird. Um anzuzeigen, dass der Gamepad-Controller aktiv ist, können wir dem Benutzer einen benutzerdefinierten Text auf dem Hauptmenübildschirm des Spiels anzeigen.
+Nun wissen wir, wie das `GamepadAPI`-Objekt aussieht und welche Variablen und Funktionen es enthält, lassen Sie uns also lernen, wie all dies tatsächlich im Spiel verwendet wird. Um anzuzeigen, dass der Gamepad-Controller aktiv ist, können wir dem Benutzer einen benutzerdefinierten Text auf dem Hauptmenübildschirm des Spiels anzeigen.
 
-Das `textGamepad`-Objekt enthält den Text, der besagt, dass ein Gamepad angeschlossen wurde, und ist standardmäßig verborgen. Hier ist der von uns vorbereitete Code in der `create()`-Funktion, die einmal ausgeführt wird, wenn der neue Zustand erstellt wird:
+Das `textGamepad`-Objekt hält den Text, der sagt, dass ein Gamepad verbunden wurde, und ist standardmäßig verborgen. Hier ist der Code, den wir in der `create()`-Funktion vorbereitet haben, die einmal ausgeführt wird, wenn der neue Zustand erstellt wird:
 
 ```js
 create() {
@@ -238,7 +238,7 @@ create() {
 }
 ```
 
-In der `update()`-Funktion, die jede Frame ausgeführt wird, können wir warten, bis der Controller tatsächlich angeschlossen ist, sodass der entsprechende Text angezeigt werden kann. Dann können wir die Informationen über gedrückte Tasten mithilfe der `Gamepad.update()`-Methode verfolgen und entsprechend der gegebenen Informationen reagieren:
+In der `update()`-Funktion, die in jedem Frame ausgeführt wird, können wir warten, bis der Controller tatsächlich verbunden ist, sodass der entsprechende Text angezeigt werden kann. Dann können wir die Informationen über gedrückte Tasten verfolgen, indem wir die `Gamepad.update()`-Methode verwenden, und auf die gegebenen Informationen reagieren:
 
 ```js
 update() {
@@ -259,13 +259,13 @@ update() {
 }
 ```
 
-Beim Drücken der `Start`-Taste wird die relevante Funktion aufgerufen, um das Spiel zu starten, und der gleiche Ansatz wird verwendet, um den Ton ein- und auszuschalten. Es gibt eine Option, `screenGamepadHelp` zu zeigen, das ein Bild mit allen erklärten Tastensteuerungen enthält — wenn die `Y`-Taste gedrückt und gehalten wird, wird die Hilfe sichtbar; wenn sie losgelassen wird, verschwindet die Hilfe.
+Beim Druck der `Start`-Taste wird die relevante Funktion aufgerufen, um das Spiel zu beginnen, und derselbe Ansatz wird verwendet, um den Ton ein- und auszuschalten. Es gibt eine Option, die mit `screenGamepadHelp` verbunden ist, die ein Bild mit allen erklärten Tastenkontrollen hält — wenn die `Y`-Taste gedrückt und gehalten wird, wird die Hilfe sichtbar; wenn sie freigegeben wird, verschwindet die Hilfe.
 
-![Gamepad-Info mit allen verfügbaren und erklärten Tasten.](controls-gamepadinfo.png)
+![Gamepad-Infos mit allen verfügbaren Tasten beschrieben und erklärt.](controls-gamepadinfo.png)
 
 ## Anweisungen auf dem Bildschirm
 
-Wenn das Spiel gestartet wird, wird ein Einführungstext angezeigt, der die verfügbaren Steuerungen zeigt — wir erkennen bereits, ob das Spiel auf Desktop oder Mobilgerät gestartet wird, und zeigen dann eine relevante Nachricht für das jeweilige Gerät an, aber wir können noch weiter gehen, um die Präsenz eines Gamepads zu ermöglichen:
+Wenn das Spiel gestartet wird, wird ein Einführungstext angezeigt, der Ihnen die verfügbaren Steuerelemente zeigt — wir erkennen bereits, ob das Spiel auf einem Desktop oder Mobilgerät gestartet wurde und zeigen dann eine relevante Nachricht für das Gerät an, aber wir können noch weiter gehen und die Anwesenheit eines Gamepads ermöglichen:
 
 ```js
 create() {
@@ -285,11 +285,11 @@ create() {
 }
 ```
 
-Auf dem Desktop können wir prüfen, ob der Controller aktiv ist und die Gamepad-Steuerungen anzeigen — wenn nicht, werden die Tastatursteuerungen angezeigt.
+Auf dem Desktop können wir überprüfen, ob der Controller aktiv ist und die Gamepad-Steuerelemente anzeigen — wenn nicht, werden die Tastatursteuerungen angezeigt.
 
 ## Gameplay-Steuerungen
 
-Wir können dem Spieler noch mehr Flexibilität bieten, indem wir ihm Haupt- und alternative Gamepad-Bewegungssteuerungen geben:
+Wir können dem Spieler noch mehr Flexibilität bieten, indem wir ihm die Haupt- und alternativen Gamepad-Bewegungssteuerungen geben:
 
 ```js
 if (GamepadAPI.buttons.pressed("DPad-Up", "hold")) {
@@ -321,11 +321,11 @@ if (GamepadAPI.axes.status) {
 }
 ```
 
-Sie können nun das Schiff auf dem Bildschirm bewegen, indem sie die `DPad`-Tasten oder die linken Joystick-Achsen verwenden.
+Sie können das Schiff jetzt auf dem Bildschirm mit den `DPad`-Tasten oder den Achsen des linken Sticks bewegen.
 
-Haben Sie bemerkt, dass der aktuelle Wert der Achsen gegen `0.5` bewertet wird? Das liegt daran, dass Achsen Fließkommawerte haben, während Tasten Boolesche sind. Nachdem ein gewisser Schwellenwert erreicht ist, können wir annehmen, dass die Eingabe bewusst vom Benutzer vorgenommen wurde und entsprechend handeln.
+Haben Sie bemerkt, dass der aktuelle Wert der Achsen gegenüber `0.5` bewertet wird? Das liegt daran, dass die Achsen Gleitkommawerte haben, während die Tasten boolesche Werte sind. Wenn ein bestimmter Schwellenwert erreicht wird, können wir annehmen, dass die Eingabe absichtlich vom Benutzer getätigt wurde und entsprechend handeln.
 
-Für die Schießsteuerungen haben wir die `A`-Taste verwendet — wenn sie gehalten wird, wird ein neues Projektil erzeugt und alles andere wird vom Spiel gehandhabt:
+Für die Schusssteuerungen haben wir die `A`-Taste verwendet — wenn sie gedrückt gehalten wird, wird ein neues Projektil erzeugt, und alles andere wird vom Spiel gehandhabt:
 
 ```js
 if (GamepadAPI.buttons.pressed("A", "hold")) {
@@ -333,7 +333,7 @@ if (GamepadAPI.buttons.pressed("A", "hold")) {
 }
 ```
 
-Das Anzeigen des Bildschirms mit allen Steuerungen sieht genauso aus wie im Hauptmenü:
+Das Anzeigen des Bildschirms mit allen Steuerelementen sieht im Hauptmenü genau gleich aus:
 
 ```js
 this.screenGamepadHelp.visible = GamepadAPI.buttons.pressed("Y", "hold");
@@ -347,9 +347,9 @@ if (gamepadAPI.buttonPressed("B")) {
 }
 ```
 
-## Die Pausen- und Spielbeenden-Zustände
+## Der pausierte und der Spielende-Zustand
 
-Wir haben bereits gelernt, wie wir den gesamten Lebenszyklus des Spiels steuern können: das Gameplay pausieren, neu starten oder zum Hauptmenü zurückkehren. Es funktioniert reibungslos auf Mobil- und Desktop und das Hinzufügen von Gamepad-Steuerungen ist ebenso unkompliziert — in der `update()`-Funktion prüfen wir, ob der aktuelle Status `paused` ist — wenn ja, sind die entsprechenden Aktionen aktiviert:
+Wir haben bereits gelernt, wie wir den gesamten Lebenszyklus des Spiels steuern können: das Gameplay pausieren, neu starten oder zum Hauptmenü zurückkehren. Es funktioniert reibungslos auf Mobilgeräten und Desktops, und das Hinzufügen von Gamepad-Steuerungen ist genauso einfach — in der `update()`-Funktion überprüfen wir, ob der aktuelle Status `paused` ist — wenn dies der Fall ist, sind die relevanten Aktionen aktiviert:
 
 ```js
 if (GamepadAPI.buttons.pressed("Start")) {
@@ -361,7 +361,7 @@ if (GamepadAPI.buttons.pressed("Back")) {
 }
 ```
 
-Ähnlich, wenn der `gameover`-Status aktiv ist, können wir dem Benutzer erlauben, das Spiel neu zu starten, anstatt es fortzusetzen:
+Ebenso können wir, wenn der `gameover`-Status aktiv ist, dem Benutzer erlauben, das Spiel neu zu starten, anstatt es fortzusetzen:
 
 ```js
 if (GamepadAPI.buttons.pressed("Start")) {
@@ -372,12 +372,12 @@ if (GamepadAPI.buttons.pressed("Back")) {
 }
 ```
 
-Wenn der Game-Over-Bildschirm sichtbar ist, startet die `Start`-Taste das Spiel neu, während die `Back`-Taste uns zum Hauptmenü zurückführt. Das Gleiche gilt, wenn das Spiel pausiert ist: die `Start`-Taste hebt die Pause auf und die `Back`-Taste geht zurück, genau wie zuvor.
+Wenn der Spielende-Bildschirm sichtbar ist, startet die `Start`-Taste das Spiel neu, während die `Back`-Taste uns zurück zum Hauptmenü bringt. Dasselbe gilt, wenn das Spiel pausiert ist: die `Start`-Taste setzt das Spiel fort und die `Back`-Taste geht zurück, wie zuvor.
 
 ## Zusammenfassung
 
-Das war's! Wir haben erfolgreich Gamepad-Steuerungen in unser Spiel eingebaut — versuchen Sie, einen beliebigen beliebten Controller wie den XBox 360 anzuschließen und sehen Sie selbst, wie viel Spaß es macht, mit einem Gamepad den Asteroiden auszuweichen und die Außerirdischen zu schießen.
+Das war's! Wir haben erfolgreich Gamepad-Steuerungen in unser Spiel implementiert — versuchen Sie, einen beliebigen beliebten Controller wie den XBox 360 zu verbinden und sehen Sie selbst, wie viel Spaß es macht, den Asteroiden auszuweichen und die Aliens mit einem Gamepad zu schießen.
 
-Jetzt können wir weitergehen und neue, noch unkonventionellere Wege erkunden, um das HTML-Spiel zu steuern, wie z.B. durch Winken mit der Hand vor dem Laptop oder Schreien ins Mikrofon.
+Jetzt können wir fortfahren und neue, sogar noch unkonventionellere Wege erkunden, das HTML-Spiel zu steuern, wie z.B. indem Sie Ihre Hand vor dem Laptop bewegen oder in Ihr Mikrofon schreien.
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}

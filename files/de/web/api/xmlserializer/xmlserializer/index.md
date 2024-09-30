@@ -26,9 +26,9 @@ Ein neues [`XMLSerializer`](/de/docs/Web/API/XMLSerializer) Objekt.
 
 ## Beispiele
 
-### Serialisierung von XML in eine Zeichenkette
+### XML in einen String serialisieren
 
-Dieses Beispiel serialisiert ein gesamtes Dokument in eine Zeichenkette, die XML enthält.
+Dieses Beispiel serialisiert ein gesamtes Dokument in einen String, der XML enthält.
 
 ```js
 const s = new XMLSerializer();
@@ -37,7 +37,7 @@ const str = s.serializeToString(d);
 saveXML(str);
 ```
 
-Dies beinhaltet das Erstellen eines neuen `XMLSerializer` Objekts und dann das Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) an [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die dann die serialisierte Zeichenkette speichert.
+Dies beinhaltet das Erstellen eines neuen `XMLSerializer` Objekts, gefolgt vom Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) in [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die dann den serialisierten String speichern würde.
 
 ## Spezifikationen
 

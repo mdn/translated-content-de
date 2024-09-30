@@ -11,18 +11,18 @@ Die **`SVGFEDistantLightElement`**-Schnittstelle entspricht dem {{SVGElement("fe
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFEDistantLightElement.azimuth`](/de/docs/Web/API/SVGFEDistantLightElement/azimuth) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("azimuth")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("azimuth")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFEDistantLightElement.elevation`](/de/docs/Web/API/SVGFEDistantLightElement/elevation) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("elevation")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGFEDistantLightElement/elevation), das dem {{SVGAttr("elevation")}}-Attribut des gegebenen Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

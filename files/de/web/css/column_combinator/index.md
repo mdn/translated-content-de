@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}} {{SeeCompatTable}}
 
-Der **Column-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er matcht nur die Elemente, die vom zweiten Selektor erfasst werden und zu den Spaltenelementen gehören, die vom ersten Selektor erfasst werden.
+Der **Column-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er trifft nur auf jene Elemente zu, die vom zweiten Selektor erfasst werden und zu den Spaltenelementen gehören, die vom ersten Selektor erfasst werden.
 
 ```css
 /* Table cells that belong to the "selected" column */

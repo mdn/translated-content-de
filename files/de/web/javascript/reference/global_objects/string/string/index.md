@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`String()`** Konstruktor erstellt {{jsxref("String")}} Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte des Typs String zurück.
+Der **`String()`** Konstruktor erstellt {{jsxref("String")}} Objekte. Wenn er als Funktion aufgerufen wird, liefert er primitive Werte des Typs String zurück.
 
 ## Syntax
 
@@ -16,27 +16,27 @@ new String(thing)
 String(thing)
 ```
 
-> **Hinweis:** `String()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
+> **Note:** `String()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `thing`
-  - : Alles, was in einen String umgewandelt werden soll.
+  - : Beliebiges Objekt, das in einen String umgewandelt werden soll.
 
 ### Rückgabewert
 
-Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [in einen String-Primitivwert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurück. Insbesondere werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)-Werte in `"Symbol(description)"` umgewandelt, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt einen Fehler auszulösen.
+Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, wird `value` in einen [zum String-Primitiv gezwungenen Wert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurückgegeben. Insbesondere werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)-Werte in `"Symbol(description)"` umgewandelt, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt einen Fehler auszulösen.
 
-Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen String-Primitivwert umgewandelt (ohne spezielle Symbolbehandlung) und ein umschließendes {{jsxref("String")}} Objekt zurückgegeben, das **kein** Primitivwert ist.
+Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen String-Primitiv gezwungen (ohne spezielle Symbolbehandlung) und ein umschließendes {{jsxref("String")}} Objekt zurückgegeben, das **kein** Primitiv ist.
 
 > [!WARNING]
-> Sie sollten selten in die Verlegenheit kommen, `String` als Konstruktor zu verwenden.
+> Sie sollten selten den `String` Konstruktor verwenden.
 
 ## Beispiele
 
 ### String Konstruktor und String Funktion
 
-String-Funktion und String-Konstruktor erzeugen unterschiedliche Ergebnisse:
+Die String-Funktion und der String-Konstruktor erzeugen unterschiedliche Ergebnisse:
 
 ```js
 const a = new String("Hello world"); // a === "Hello world" is false
@@ -47,13 +47,13 @@ typeof a; // "object"
 typeof b; // "string"
 ```
 
-Hier produziert die Funktion einen String (den [primitiven](/de/docs/Glossary/primitive) Typ), wie versprochen.
-Der Konstruktor hingegen erzeugt eine Instanz des Typs String (einen Objekt-Wrapper), und
-deshalb sollten Sie den String-Konstruktor in der Regel gar nicht verwenden.
+Hier erzeugt die Funktion wie versprochen einen String (den [primitiven](/de/docs/Glossary/primitive) Typ).
+Der Konstruktor hingegen erzeugt eine Instanz des Typs String (ein Objekt-Wrapper) und
+daher sollten Sie den String-Konstruktor selten verwenden.
 
-### Verwendung von String() zur Umwandlung eines Symbols in einen String
+### Verwendung von String() zur Stringifizierung eines Symbols
 
-`String()` ist der einzige Fall, in dem ein Symbol in einen String umgewandelt werden kann, ohne dass ein Fehler ausgelöst wird, da dies sehr explizit erfolgt.
+`String()` ist der einzige Fall, bei dem ein Symbol in einen String umgewandelt werden kann, ohne einen Fehler auszulösen, da es sehr explizit ist.
 
 ```js example-bad
 const sym = Symbol("example");

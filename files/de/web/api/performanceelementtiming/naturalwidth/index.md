@@ -1,5 +1,5 @@
 ---
-title: "PerformanceElementTiming: Eigenschaft naturalWidth"
+title: "PerformanceElementTiming: naturalWidth-Eigenschaft"
 short-title: naturalWidth
 slug: Web/API/PerformanceElementTiming/naturalWidth
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`naturalWidth`** schreibgeschützte Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die intrinsische Breite des Bildelements zurück.
+Die **`naturalWidth`**-Eigenschaft des Lesezugriffs der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt die intrinsische Breite des Bildelements zurück.
 
 ## Wert
 
-Eine nicht signierte 32-Bit-Ganzzahl (unsigned long), die die intrinsische Breite des Bildes darstellt, wenn sie auf ein Bild angewendet wird, `0` für Text.
+Ein vorzeichenloser 32-Bit-Integer (unsigned long), der die intrinsische Breite des Bildes darstellt, wenn dies auf ein Bild angewendet wird, oder `0` für Text.
 
 ## Beispiele
 
-### Protokollierung von `naturalWidth`
+### `naturalWidth` protokollieren
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden waren. Die Bilddatei hat eine Breite von 1000px und eine Höhe von 750px. Der Aufruf von `entry.naturalWidth` gibt `1000` zurück, was die intrinsische Breite in Pixeln darstellt.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten von vor der Erstellung des Observers zuzugreifen. Die Bilddatei hat eine Breite von 1000px und eine Höhe von 750px. Der Aufruf von `entry.naturalWidth` gibt `1000` zurück, was die intrinsische Breite in Pixeln ist.
 
 ```html
 <img

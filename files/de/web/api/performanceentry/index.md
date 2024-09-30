@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-Das **`PerformanceEntry`** Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Leistungszeitleiste des Browsers ist.
+Das **`PerformanceEntry`** Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Performance-Zeitleiste des Browsers ist.
 
-Die Performance API bietet eingebaute Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dazu gehören Einträge für das Laden von Ressourcen, Ereignis-Timing, [first input delay](/de/docs/Glossary/first_input_delay) (FID) und mehr.
+Die Performance-API bietet integrierte Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dazu gehören Einträge für Ressourcenladen, Ereigniszeiten, [First Input Delay](/de/docs/Glossary/first_input_delay) (FID) und mehr.
 
-Ein Performance-Eintrag kann auch erstellt werden, indem die Methoden [`Performance.mark()`](/de/docs/Web/API/Performance/mark) oder [`Performance.measure()`](/de/docs/Web/API/Performance/measure) an einem expliziten Punkt in einer Anwendung aufgerufen werden. Damit können Sie eigene Metriken zur Leistungszeitleiste hinzufügen.
+Ein Performance-Eintrag kann auch erstellt werden, indem Sie die Methoden [`Performance.mark()`](/de/docs/Web/API/Performance/mark) oder [`Performance.measure()`](/de/docs/Web/API/Performance/measure) zu einem bestimmten Zeitpunkt in einer Anwendung aufrufen. Dies ermöglicht es Ihnen, eigene Metriken zur Performance-Zeitleiste hinzuzufügen.
 
-Die `PerformanceEntry` Instanzen sind immer eine der folgenden Unterklassen:
+Die Instanzen von `PerformanceEntry` werden immer eine der folgenden Unterklassen sein:
 
 - [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)
 - [`LayoutShift`](/de/docs/Web/API/LayoutShift)
@@ -30,10 +30,10 @@ Die `PerformanceEntry` Instanzen sind immer eine der folgenden Unterklassen:
 - [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)
 - [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
-  - : Ein String, der den Namen für einen Performance-Eintrag darstellt. Der Wert hängt vom Untertyp ab.
+  - : Ein String, der den Namen für einen Performance-Eintrag darstellt. Der Wert hängt vom Subtyp ab.
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Ein String, der den Typ der Leistungsmetrik darstellt. Zum Beispiel `"mark"`, wenn [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) verwendet wird.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
@@ -41,7 +41,7 @@ Die `PerformanceEntry` Instanzen sind immer eine der folgenden Unterklassen:
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des Performance-Eintrags darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)
   - : Gibt eine JSON-Darstellung des `PerformanceEntry` Objekts zurück.
@@ -50,7 +50,7 @@ Die `PerformanceEntry` Instanzen sind immer eine der folgenden Unterklassen:
 
 ### Arbeiten mit Performance-Einträgen
 
-Das folgende Beispiel erstellt `PerformanceEntry` Objekte, die von den Typen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) sind. Die Unterklassen `PerformanceMark` und `PerformanceMeasure` erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf ihre entsprechenden Werte.
+Das folgende Beispiel erstellt `PerformanceEntry` Objekte, die von den Typen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) sind. Die `PerformanceMark` und `PerformanceMeasure` Unterklassen erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf ihre entsprechenden Werte.
 
 ```js
 // Place at a location in the code that starts login

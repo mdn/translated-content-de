@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode setPointerCapture()"
+title: "Element: setPointerCapture() Methode"
 short-title: setPointerCapture()
 slug: Web/API/Element/setPointerCapture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setPointerCapture()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces wird verwendet, um ein bestimmtes Element als _Erfassungsziel_ für zukünftige Zeigerereignisse zu bestimmen. Nachfolgende Ereignisse für den Zeiger werden auf das Erfassungselement gerichtet, bis die Erfassung freigegeben wird (über [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture) oder das [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignis ausgelöst wird).
+Die **`setPointerCapture()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces wird verwendet, um ein bestimmtes Element als _Erfassungsziel_ zukünftiger Zeigerereignisse festzulegen. Nachfolgende Ereignisse für den Zeiger werden auf das Erfassungselement gerichtet, bis die Erfassung beendet wird (entweder durch [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture) oder nachdem das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignis ausgelöst wurde).
 
 Siehe [Zeigerereignisse](/de/docs/Web/API/Pointer_events#pointer_capture) für einen Überblick und Beispiele, wie Zeigererfassung funktioniert.
 
@@ -22,7 +22,7 @@ setPointerCapture(pointerId)
 
 - `pointerId`
   - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
-    [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekts.
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel setzt eine Zeigererfassung auf ein {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, selbst wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
+Dieses Beispiel setzt die Zeigererfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, selbst wenn der Zeiger sich außerhalb seiner Grenzen bewegt.
 
 ### HTML
 

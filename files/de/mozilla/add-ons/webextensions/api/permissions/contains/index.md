@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Überprüfen Sie, ob die Erweiterung die im angegebenen {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgeführten Berechtigungen besitzt.
+Prüfen Sie, ob die Erweiterung die im angegebenen {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgelisteten Berechtigungen hat.
 
 Das `Permissions`-Argument kann entweder eine `origins`-Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions`-Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Das Promise wird nur dann mit `true` erfüllt, wenn die Erweiterung derzeit alle angegebenen Berechtigungen hat. Für Host-Berechtigungen, wenn die Berechtigungen der Erweiterung [Muster-Übereinstimmungen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) mit den in `origins` aufgelisteten Berechtigungen haben, werden sie als übereinstimmend angesehen.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Das Promise wird nur dann mit `true` erfüllt, wenn die Erweiterung aktuell alle angegebenen Berechtigungen hat. Für Host-Berechtigungen gilt: Wenn die Berechtigungen der Erweiterung mit den in `origins` aufgeführten Berechtigungen [musterübereinstimmen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), werden sie als übereinstimmend betrachtet.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ let getContains = browser.permissions.contains(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Erweiterung bereits alle im `permissions`-Argument aufgelisteten Berechtigungen besitzt, oder `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Erweiterung bereits alle im `permissions`-Argument aufgelisteten Berechtigungen hat, oder andernfalls mit `false`.
 
 ## Browser-Kompatibilität
 
@@ -75,4 +75,4 @@ console.log(testResult4); // false: "https://example.org/", `origins` doesn't ma
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.

@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTCharacteristic: writeValueWithResponse() Methode"
+title: "BluetoothRemoteGATTCharacteristic: writeValueWithResponse()-Methode"
 short-title: writeValueWithResponse()
 slug: Web/API/BluetoothRemoteGATTCharacteristic/writeValueWithResponse
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.writeValueWithResponse()`** Methode setzt die `value`-Eigenschaft eines [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)-Objekts auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind. Sie [schreibt den Eigenschaftswert mit erforderlicher Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
+Die Methode **`BluetoothRemoteGATTCharacteristic.writeValueWithResponse()`** setzt die `value`-Eigenschaft eines [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)-Objekts auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Charakteristikwert mit erforderlicher Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
 
 ## Syntax
 

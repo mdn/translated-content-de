@@ -27,7 +27,7 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ### Verwendung von keys()
 
-Die `keys()`-Methode ist genau gleichwertig mit der {{jsxref("Set/values", "values()")}}-Methode.
+Die `keys()`-Methode ist exakt gleichwertig zur {{jsxref("Set/values", "values()")}}-Methode.
 
 ```js
 const mySet = new Set();

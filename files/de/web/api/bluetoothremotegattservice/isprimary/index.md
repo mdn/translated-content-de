@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothGATTService.isPrimary`** gibt einen boolean-Wert zurück, der angibt, ob es sich um einen primären Dienst handelt. Wenn es sich nicht um einen primären Dienst handelt, ist es ein sekundärer Dienst.
+Die schreibgeschützte Eigenschaft **`BluetoothGATTService.isPrimary`** gibt einen booleschen Wert zurück, der angibt, ob dies ein primärer Dienst ist. Wenn es sich nicht um einen primären Dienst handelt, ist es ein sekundärer Dienst.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 

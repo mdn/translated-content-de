@@ -7,16 +7,16 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Time to Interactive** (TTI) ist eine nicht-standardisierte Webleistungskennzahl, die als der Zeitpunkt definiert wird, an dem die letzte [Long Task](/de/docs/Web/API/PerformanceLongTaskTiming) beendet wurde und von 5 Sekunden Inaktivität im Netzwerk und Haupt-Thread gefolgt ist.
+**Time to Interactive** (TTI) ist ein nicht-standardisiertes Web-Performance-„Fortschritts“-Metrik, das als der Zeitpunkt definiert ist, an dem die letzte [Long Task](/de/docs/Web/API/PerformanceLongTaskTiming) abgeschlossen wurde und von 5 Sekunden Netzwerk- und Hauptthread-Inaktivität gefolgt wurde.
 
-TTI, vorgeschlagen von der Web Incubator Community Group im Jahr 2018, soll eine Metrik bereitstellen, die beschreibt, wann eine Seite oder Anwendung nützliche Inhalte enthält und der Haupt-Thread inaktiv und bereit ist, um auf Benutzerinteraktionen zu reagieren, einschließlich der Registrierung von Ereignis-Handlern.
+TTI wurde 2018 von der Web Incubator Community Group vorgeschlagen und soll eine Metrik bieten, die beschreibt, wann eine Seite oder Anwendung hilfreiche Inhalte enthält und der Hauptthread untätig ist und bereit, auf Benutzerinteraktionen zu reagieren, einschließlich der Registrierung von Event-Handlern.
 
 #### Vorbehalt
 
-TTI wird abgeleitet, indem Informationen von der [Long Task API](/de/docs/Web/API/PerformanceLongTaskTiming) genutzt werden. Obwohl TTI in einigen Leistungsüberwachungstools verfügbar ist, ist es zum Zeitpunkt der Erstellung dieses Textes kein Teil irgendeiner offiziellen Webspezifikation.
+TTI wird abgeleitet, indem Informationen von der [Long Task API](/de/docs/Web/API/PerformanceLongTaskTiming) genutzt werden. Obwohl in einigen Performance-Überwachungstools verfügbar, ist TTI zum Zeitpunkt der Erstellung dieses Textes kein Teil einer offiziellen Web-Spezifikation.
 
 ## Siehe auch
 
 - [Definition von TTI](https://github.com/WICG/time-to-interactive) von der Web Incubator Community Group
-- [Time to Interactive — Fokus auf benutzerzentrierte Metriken](https://calibreapp.com/blog/time-to-interactive) von Radimir Bitsov
-- [Verfolgung von TTI](https://web.dev/articles/user-centric-performance-metrics#tracking_tti)
+- [Time to Interactive – mit Fokus auf menschengerechte Metriken](https://calibreapp.com/blog/time-to-interactive) von Radimir Bitsov
+- [Verfolgen von TTI](https://web.dev/articles/user-centric-performance-metrics#tracking_tti)

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft Informationen über eine Kontext-Identität ab, basierend auf ihrer Cookie-Store-ID.
+Liefert Informationen über eine kontextuelle Identität basierend auf ihrer Cookie-Store-ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +22,11 @@ let getContext = browser.contextualIdentities.get(
 ### Parameter
 
 - `cookieStoreId`
-  - : `string`. Die ID des Cookie-Stores dieser Kontext-Identität. Da jede Kontext-Identität über ihren eigenen Cookie-Store verfügt, dient dies als Identifier für die Kontext-Identität selbst.
+  - : `string`. Die ID des Cookie-Stores dieser kontextuellen Identität. Da kontextuelle Identitäten jeweils ihren eigenen Cookie-Store haben, dient dies als Identifikator für die kontextuelle Identität selbst.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die Identität beschreibt. Sollte die Identität nicht gefunden werden oder das Feature der Kontext-Identitäten nicht aktiviert sein, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die Funktionalität für kontextuelle Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel versucht, die Kontext-Identität abzurufen, deren ID "firefox-container-1" ist:
+Dieses Beispiel versucht, die kontextuelle Identität abzurufen, deren ID "firefox-container-1" ist:
 
 ```js
 function onGot(context) {

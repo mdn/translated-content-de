@@ -8,26 +8,25 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`timestampOffset`**-Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle steuert den Versatz, der auf Zeitstempel innerhalb von Mediensegmenten angewendet wird, die dem `SourceBuffer` hinzugefügt werden.
+Die **`timestampOffset`**-Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces steuert den Offset, der auf Zeitstempel innerhalb von Mediensegmenten angewendet wird, die dem `SourceBuffer` hinzugefügt werden.
 
 Der Anfangswert von `timestampOffset` ist 0.
 
 ## Wert
 
-Ein Double, wobei der Versatzbetrag in Sekunden ausgedrückt wird.
+Ein `double`, wobei die Offset-Menge in Sekunden ausgedrückt wird.
 
 ### Ausnahmen
 
-Die folgende Ausnahme kann ausgelöst werden, wenn ein neuer Wert für diese Eigenschaft gesetzt wird:
+Die folgende Ausnahme kann auftreten, wenn ein neuer Wert für diese Eigenschaft gesetzt wird:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein oder mehrere der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in
+  - : Wird ausgelöst, wenn eines oder mehrere der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in
     [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) aktualisiert werden
-    (d. h. deren [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft
-    derzeit `true` ist), ein Mediensegment innerhalb des
-    `SourceBuffer` gerade analysiert wird oder dieser
-    `SourceBuffer` aus der
-    [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
+    (d. h. ihre [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft ist
+    derzeit `true`), ein Mediensegment im
+    `SourceBuffer` wird gerade analysiert oder dieser
+    `SourceBuffer` wurde aus der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt.
 
 ## Beispiele
 

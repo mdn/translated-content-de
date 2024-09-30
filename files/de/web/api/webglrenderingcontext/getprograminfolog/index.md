@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode getProgramInfoLog()"
+title: "WebGLRenderingContext: getProgramInfoLog()-Methode"
 short-title: getProgramInfoLog()
 slug: Web/API/WebGLRenderingContext/getProgramInfoLog
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLRenderingContext.getProgramInfoLog** gibt das Informationsprotokoll für das angegebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt zurück. Es enthält Fehler, die während des fehlgeschlagenen Verknüpfens oder der Validierung von `WebGLProgram`-Objekten aufgetreten sind.
+Die **WebGLRenderingContext.getProgramInfoLog**-Methode gibt das Informationsprotokoll für das angegebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt zurück. Es enthält Fehler, die während eines fehlgeschlagenen Verknüpfens oder der Validierung von `WebGLProgram`-Objekten aufgetreten sind.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getProgramInfoLog(program)
 ### Parameter
 
 - `program`
-  - : Das zu abfragende [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
+  - : Das [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das abgefragt wird.
 
 ### Rückgabewert
 
-Ein String, der Diagnosemeldungen, Warnmeldungen und andere Informationen über den letzten Verknüpfungs- oder Validierungsvorgang enthält. Wenn ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt ursprünglich erstellt wird, ist sein Informationsprotokoll ein String der Länge 0.
+Ein String, der Diagnosemeldungen, Warnmeldungen und andere Informationen über den letzten Verknüpfungs- oder Validierungsvorgang enthält. Wenn ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt zunächst erstellt wird, ist sein Informationsprotokoll ein String mit der Länge 0.
 
 ## Beispiele
 
-### Überprüfung von Programmfehlern
+### Überprüfen von Programmfehlern
 
 ```js
 const program = gl.createProgram();

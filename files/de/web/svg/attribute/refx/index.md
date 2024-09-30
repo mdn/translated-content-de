@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}
 
-Das **`refX`**-Attribut definiert die x-Koordinate des Referenzpunktes eines Elements.
+Das **`refX`**-Attribut definiert die x-Koordinate des Bezugspunkts eines Elements.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("marker")}}
 - {{SVGElement("symbol")}}
 
 ## marker
 
-Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunktes des Markers, der genau an der Position des Markers auf der Form platziert werden soll.
+Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Bezugspunkts des Markers, der genau an der Position des Markers auf der Form platziert wird.
 
 <table class="properties">
   <tbody>
@@ -41,27 +41,27 @@ Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunk
 
 - `<length-percentage>`
 
-  - : Längen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
+  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
-    Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der {{SVGAttr("viewBox")}}-Breite interpretiert.
 
 - `<number>`
-  - : Zahlen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
+  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 - `left`
-  - : Der Referenzpunkt des Markers wird an der linken Kante der Form platziert.
+  - : Der Bezugspunkt des Markers wird an der linken Kante der Form platziert.
 - `center`
-  - : Der Referenzpunkt des Markers wird am horizontalen Zentrum der Form platziert.
+  - : Der Bezugspunkt des Markers wird im horizontalen Zentrum der Form platziert.
 - `right`
-  - : Der Referenzpunkt des Markers wird an der rechten Kante der Form platziert.
+  - : Der Bezugspunkt des Markers wird an der rechten Kante der Form platziert.
 
 ## symbol
 
-Für {{SVGElement("symbol")}} definiert `refX` die x-Koordinate des Symbols, die durch den kumulativen Effekt des {{SVGAttr("x")}}-Attributs und aller Transformationen auf das {{SVGElement("symbol")}} und sein Host-{{SVGElement("use")}}-Element bestimmt wird.
+Für {{SVGElement("symbol")}} definiert `refX` die x-Koordinate des Symbols, die durch den kumulativen Effekt des {{SVGAttr("x")}}-Attributs und aller Transformationen auf das {{SVGElement("symbol")}} und sein zugehöriges {{SVGElement("use")}}-Element festgelegt wird.
 
-Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensystem der Symbolinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute. Wenn das Attribut nicht angegeben ist, wird keine horizontale Anpassung vorgenommen, und die linke Seite des rechteckigen Ansichtsbereichs des Symbols (unabhängig von der `viewBox`-Koordinate) wird an der x-Koordinate positioniert.
+Anders als bei anderen Positionierungsattributen wird `refX` im Koordinatensystem der Symbolinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}. Wenn das Attribut nicht angegeben ist, erfolgt keine horizontale Anpassung, und die linke Seite des symbolischen rechteckigen Ansichtsbereichs (unabhängig von den `viewBox`-Koordinaten) wird an der x-Koordinate positioniert.
 
 > [!NOTE]
-> Aus Kompatibilitätsgründen verhält sich das Fehlen des `refX`-Attributs auf einem `<symbol>`-Element anders als wenn es mit einem Wert von `0` angegeben wird, und somit anders als wenn ein ähnliches Attribut auf einem {{SVGElement("marker")}}-Element nicht angegeben wird.
+> Aus Gründen der Rückwärtskompatibilität unterscheidet sich das Verhalten, wenn `refX` auf einem `<symbol>`-Element nicht angegeben ist, von dem, wenn es mit einem Wert von `0` angegeben wird, und daher unterschiedlich vom Verhalten, wenn ein gleichwertiges Attribut auf einem {{SVGElement("marker")}}-Element nicht angegeben ist.
 
 <table class="properties">
   <tbody>
@@ -74,7 +74,7 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensyst
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Keiner</td>
+      <td>Keine</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -85,18 +85,18 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensyst
 
 - `<length-percentage>`
 
-  - : Längen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
+  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
-    Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der {{SVGAttr("viewBox")}}-Breite interpretiert.
 
 - `<number>`
-  - : Zahlen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
+  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 - `left`
-  - : Der Referenzpunkt des Markers wird an der linken Kante der Form platziert.
+  - : Der Bezugspunkt des Markers wird an der linken Kante der Form platziert.
 - `center`
-  - : Der Referenzpunkt des Markers wird am horizontalen Zentrum der Form platziert.
+  - : Der Bezugspunkt des Markers wird im horizontalen Zentrum der Form platziert.
 - `right`
-  - : Der Referenzpunkt des Markers wird an der rechten Kante der Form platziert.
+  - : Der Bezugspunkt des Markers wird an der rechten Kante der Form platziert.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers("service")}}
 
-Die **`SyncEvent`**-Schnittstelle der [Hintergrund-Synchronisations-API](/de/docs/Web/API/Background_Synchronization_API) repräsentiert eine Synchronisationsaktion, die im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines ServiceWorkers ausgelöst wird.
+Die **`SyncEvent`**-Schnittstelle der [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API) repräsentiert eine Synchronisationsaktion, die auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines ServiceWorkers ausgelöst wird.
 
 Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)-Schnittstelle.
 
@@ -20,16 +20,16 @@ Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/Extendable
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von den Eltern, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
 - [`SyncEvent.tag`](/de/docs/Web/API/SyncEvent/tag) {{ReadOnlyInline}}
   - : Gibt den vom Entwickler definierten Bezeichner für dieses `SyncEvent` zurück.
 - [`SyncEvent.lastChance`](/de/docs/Web/API/SyncEvent/lastChance) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn der User-Agent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt.
+  - : Gibt `true` zurück, wenn der Benutzeragent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternehmen wird.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von den Eltern, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Methoden von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
 Keine.
 

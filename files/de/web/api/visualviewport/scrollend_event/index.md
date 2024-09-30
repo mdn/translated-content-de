@@ -1,5 +1,5 @@
 ---
-title: "VisualViewport: scrollend Ereignis"
+title: "VisualViewport: scrollend-Ereignis"
 short-title: scrollend
 slug: Web/API/VisualViewport/scrollend_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Das **`scrollend`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn ein Scrollvorgang auf dem visuellen Viewport endet. Dadurch können Sie ein Element aktualisieren, wenn eine Scrollaktion abgeschlossen ist. Zum Beispiel könnten Sie die [`resize`](/de/docs/Web/API/VisualViewport/resize_event)- und [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)-Ereignisse verwenden, um ein Element am visuellen Viewport fixiert zu halten, während es gezoomt und gescrollt wird, und es mit neuem Inhalt aktualisieren, wenn das Scrollen mit `scrollend` endet.
+Das **`scrollend`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport) Schnittstelle wird ausgelöst, wenn eine Bildlaufoperation im visuellen Viewport endet. Dies ermöglicht es Ihnen, ein Element zu aktualisieren, wenn eine Bildlaufaktion abgeschlossen ist. Zum Beispiel könnten Sie die [`resize`](/de/docs/Web/API/VisualViewport/resize_event) und [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) Ereignisse verwenden, um ein Element während des Pinch-Zoomens und Scrollens fest an den visuellen Viewport zu binden und es mit neuem Inhalt zu aktualisieren, sobald der Bildlauf mit `scrollend` endet.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sehen Sie sich die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Demo zur Verwendung an.
+Sehen Sie sich die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Nutzungsdemo an.
 
 ## Spezifikationen
 

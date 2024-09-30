@@ -1,5 +1,5 @@
 ---
-title: "Element: attributes-Eigenschaft"
+title: "Element: attributes Eigenschaft"
 short-title: attributes
 slug: Web/API/Element/attributes
 l10n:
@@ -8,18 +8,15 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.attributes`**-Eigenschaft gibt eine Live-Sammlung
-aller Attributknoten zurück, die dem angegebenen Knoten zugeordnet sind. Es handelt sich um ein
-[`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), kein `Array`, daher hat es keine {{jsxref("Array")}}
-Methoden und die Indizes der [`Attr`](/de/docs/Web/API/Attr) Knoten können je nach Browser unterschiedlich sein. Genauer gesagt, `attributes` ist ein Schlüssel/Wert-Paar von Zeichenfolgen, das Informationen zu diesem Attribut darstellt.
+Die **`Element.attributes`**-Eigenschaft gibt eine live Sammlung aller Attributsknoten zurück, die dem angegebenen Knoten zugeordnet sind. Es handelt sich um ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), kein `Array`, daher hat es keine {{jsxref("Array")}}-Methoden, und die Indizes der [`Attr`](/de/docs/Web/API/Attr)-Knoten können zwischen Browsern variieren. Konkret gesagt ist `attributes` ein Schlüssel/Wert-Paar von Strings, das jede Information bezüglich dieses Attributs darstellt.
 
 ## Wert
 
-Ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) Objekt.
+Ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Objekt.
 
 ## Beispiele
 
-### Grundlegende Beispiele
+### Einfache Beispiele
 
 ```js
 // Get the first <p> element in the document
@@ -27,11 +24,9 @@ const paragraph = document.querySelector("p");
 const attributes = paragraph.attributes;
 ```
 
-### Aufzählen von Attributen eines Elements
+### Aufzählen der Attribute eines Elements
 
-Sie können die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) aufzählen.
-Im folgenden Beispiel werden die Attributknoten für das Element im Dokument
-mit der ID "paragraph" durchlaufen und der Wert jedes Attributs wird ausgegeben.
+Sie können die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) durchlaufen. Im folgenden Beispiel werden die Attributknoten für das Element im Dokument mit der ID "paragraph" durchlaufen und jeder Attributwert wird ausgedruckt.
 
 ```html
 <!doctype html>
@@ -85,4 +80,4 @@ mit der ID "paragraph" durchlaufen und der Wert jedes Attributs wird ausgegeben.
 ## Siehe auch
 
 - [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), die Schnittstelle des zurückgegebenen Objekts
-- Überlegungen zur Browser-Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)
+- Überlegungen zur plattformübergreifenden Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)

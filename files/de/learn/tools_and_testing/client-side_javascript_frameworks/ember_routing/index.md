@@ -8,7 +8,7 @@ l10n:
 {{LearnSidebar}}
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_conditional_footer","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_resources", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-In diesem Artikel lernen wir etwas über **Routing**, oder URL-basiertes Filtern, wie es manchmal genannt wird. Wir werden es nutzen, um eine eindeutige URL für jede der drei Todo-Ansichten — "Alle", "Aktive" und "Abgeschlossene" — bereitzustellen.
+In diesem Artikel lernen wir über **Routing**, oder auch URL-basiertes Filtern. Wir verwenden es, um für jede der drei Todo-Ansichten — "All", "Active" und "Completed" — eine einzigartige URL bereitzustellen.
 
 <table>
   <tbody>
@@ -16,40 +16,40 @@ In diesem Artikel lernen wir etwas über **Routing**, oder URL-basiertes Filtern
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird mindestens empfohlen, dass Sie mit den grundlegenden
+          Es wird mindestens empfohlen, dass Sie mit den Kernsprachen
           <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a>-Sprachen vertraut sind und
-          über Kenntnisse der
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a> vertraut sind und
+          Kenntnisse über das
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminal-/Kommandozeile</a
-          >verfügen.
+            >Terminal/Befehlszeile</a
+          > haben.
         </p>
         <p>
           Ein tieferes Verständnis moderner JavaScript-Funktionen (wie Klassen,
-          Module, etc.) wird äußerst hilfreich sein, da Ember diese intensiv nutzt.
+          Module usw.) wird von großem Vorteil sein, da Ember diese intensiv nutzt.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Das Implementieren von Routing in Ember zu lernen.</td>
+      <td>Das Implementieren von Routing in Ember zu erlernen.</td>
     </tr>
   </tbody>
 </table>
 
 ## URL-basiertes Filtern
 
-Ember verfügt über ein Routingsystem, das eng mit der Browser-URL integriert ist. Typischerweise möchten Sie beim Schreiben von Webanwendungen, dass die Seite durch die URL repräsentiert wird, damit der Benutzer, falls (aus irgendeinem Grund) die Seite aktualisiert werden muss, nicht von dem Zustand der Webanwendung überrascht wird — sie können direkt zu bedeutenden Ansichten der App verlinken.
+Ember verfügt über ein Routingsystem, das eng mit der Browser-URL integriert ist. Typischerweise möchten Sie beim Schreiben von Webanwendungen, dass die Seite durch die URL repräsentiert wird, damit der Benutzer im Falle eines Seitenneuladens nicht von dem Zustand der Web-App überrascht wird. Er kann direkt zu bedeutenden Ansichten der App verlinken.
 
-Im Moment haben wir bereits die "Alle"-Seite, da wir derzeit kein Filtern auf der Seite vornehmen, an der wir arbeiten, aber wir müssen sie ein wenig umorganisieren, um eine andere Ansicht für die "Aktiven" und "Abgeschlossenen" Todos zu handhaben.
+Derzeit haben wir bereits die "All"-Seite, da wir momentan keine Filterung auf der Seite durchführen, mit der wir gearbeitet haben. Wir müssen sie jedoch ein wenig umorganisieren, um eine andere Ansicht für die "Active" und "Completed" Todos zu ermöglichen.
 
-Eine Ember-Anwendung hat eine Standard-"Anwendung"-Route, die mit der `app/templates/application.hbs`-Vorlage verknüpft ist. Da diese Anwendungs-Vorlage der Einstiegspunkt für unsere Todo-App ist, müssen wir einige Änderungen vornehmen, um das Routing zu ermöglichen.
+Eine Ember-Anwendung hat eine Standard-Route "application", die an die `app/templates/application.hbs`-Vorlage gebunden ist. Da diese Anwendungsvorlage der Einstiegspunkt für unsere Todo-App ist, müssen wir einige Änderungen vornehmen, um das Routing zu ermöglichen.
 
 ## Erstellen der Routen
 
-Beginnen wir mit dem Erstellen von drei neuen Routen: "Index", "Active" und "Completed". Dazu müssen Sie die folgenden Befehle in Ihr Terminal eingeben, innerhalb des Stammverzeichnisses Ihrer App:
+Lassen Sie uns beginnen, indem wir drei neue Routen erstellen: "Index", "Active" und "Completed". Dazu müssen Sie die folgenden Befehle in Ihrem Terminal im Wurzelverzeichnis Ihrer App eingeben:
 
 ```bash
 ember generate route index
@@ -57,7 +57,7 @@ ember generate route completed
 ember generate route active
 ```
 
-Die zweiten und dritten Befehle sollten nicht nur neue Dateien generiert, sondern auch eine vorhandene Datei, `app/router.js`, aktualisiert haben. Sie enthält den folgenden Inhalt:
+Die zweiten und dritten Befehle sollten nicht nur neue Dateien generiert, sondern auch eine bestehende Datei, `app/router.js`, aktualisiert haben. Sie enthält den folgenden Inhalt:
 
 ```js
 import EmberRouter from "@ember/routing/router";
@@ -74,27 +74,27 @@ Router.map(function () {
 });
 ```
 
-Die hervorgehobenen Zeilen wurden hinzugefügt, als die 2. und 3. Befehle ausgeführt wurden.
+Die hervorgehobenen Zeilen wurden hinzugefügt, als die obigen 2. und 3. Befehle ausgeführt wurden.
 
-`router.js` funktioniert als "Sitemap" für Entwickler, um schnell zu sehen, wie die gesamte App strukturiert ist. Es zeigt Ember auch, wie mit Ihrer Route interagiert werden soll, z.B. beim Laden beliebiger Daten, beim Umgang mit Fehlern beim Laden dieser Daten oder beim Interpretieren dynamischer Segmente der URL. Da unsere Daten statisch sind, gelangen wir nicht zu diesen besonderen Funktionen, aber wir werden sicherstellen, dass die Route die minimal erforderlichen Daten bereitstellt, um eine Seite anzuzeigen.
+`router.js` fungiert als "Sitemap" für Entwickler, um schnell zu sehen, wie die gesamte App strukturiert ist. Es zeigt Ember auch, wie es mit Ihrer Route interagieren soll, z. B. beim Laden von beliebigen Daten, beim Behandeln von Fehlern beim Laden dieser Daten oder beim Interpretieren dynamischer Teile der URL. Da unsere Daten statisch sind, werden wir nicht auf diese fortgeschrittenen Funktionen eingehen, aber wir werden sicherstellen, dass die Route die minimal erforderlichen Daten bereitstellt, um eine Seite anzuzeigen.
 
-Das Erstellen der "Index"-Route hat keine Routendefinitionszeile zu `router.js` hinzugefügt, da "Index" wie bei der URL-Navigation und dem Laden von JavaScript-Modulen ein spezielles Wort ist, das die Standardroute angibt, die gerendert, geladen usw. werden soll.
+Das Erstellen der "Index"-Route hat keine Routendefinitionszeile zu `router.js` hinzugefügt, da "Index", wie bei der URL-Navigation und dem Laden von JavaScript-Modulen, ein spezielles Wort ist, das die Standardroute zum Rendern, Laden usw. anzeigt.
 
-Um unsere alte Methode zum Rendern der TodoList-App anzupassen, müssen wir zunächst die TodoList-Komponentenaufrufung aus der Anwendungsvorlage mit einem `\{{outlet}}`-Aufruf ersetzen, was bedeutet, dass "jede Unterroute hier anstelle gerendert wird".
+Um unsere alte Art des Renderns der TodoList-App anzupassen, müssen wir zuerst die TodoList-Komponentenaufruf von der Anwendungsvorlage durch einen `\{{outlet}}`-Aufruf ersetzen, was bedeutet, dass "jede Teilroute hier eingefügt wird".
 
-Gehen Sie zur Datei `todomvc/app/templates/application.hbs` und ersetzen Sie
+Gehen Sie zu der Datei `todomvc/app/templates/application.hbs` und ersetzen Sie
 
 ```hbs
 <TodoList />
 ```
 
-durch
+Mit
 
 ```hbs
 \{{outlet}}
 ```
 
-Als nächstes können wir in unseren `index.hbs`-, `completed.hbs`- und `active.hbs`-Vorlagen (ebenfalls im Vorlagenverzeichnis zu finden) vorerst einfach die TodoList-Komponentenaufrufung eingeben.
+Als nächstes können wir in unseren `index.hbs`, `completed.hbs` und `active.hbs` Vorlagen (ebenfalls im Vorlagenverzeichnis zu finden) vorerst einfach den Aufruf der TodoList-Komponente eingeben.
 
 Ersetzen Sie in jedem Fall
 
@@ -108,15 +108,15 @@ mit
 <TodoList />
 ```
 
-An diesem Punkt, wenn Sie die App erneut ausprobieren und eine der drei Routen besuchen, werden Sie genau das Gleiche sehen.
+Wenn Sie die App nun erneut ausprobieren und eine der drei Routen besuchen
 
 `localhost:4200 localhost:4200/active localhost:4200/completed`
 
-An jeder URL wird die Vorlage, die dem spezifischen Pfad ("Active", "Completed" oder "Index") entspricht, die `<TodoList />`-Komponente rendern. Der Ort auf der Seite, an dem `<TodoList />` gerendert wird, wird durch das `\{{ outlet }}` innerhalb der übergeordneten Route bestimmt, die in diesem Fall `application.hbs` ist. So haben wir unsere Routen eingerichtet. Großartig!
+sehen Sie genau dasselbe. An jeder URL wird die Vorlage, die dem spezifischen Pfad entspricht ("Active", "Completed" oder "Index"), die `<TodoList />`-Komponente rendern. Der Ort auf der Seite, an dem `<TodoList />` gerendert wird, wird durch `\{{ outlet }}` innerhalb der übergeordneten Route bestimmt, die in diesem Fall `application.hbs` ist. Also haben wir unsere Routen an Ort und Stelle. Großartig!
 
-Aber jetzt brauchen wir einen Weg, um zwischen jeder dieser Routen zu unterscheiden, damit sie das anzeigen, was sie anzeigen sollen.
+Aber jetzt brauchen wir einen Weg, um zwischen jeder dieser Routen zu unterscheiden, damit sie das zeigen, was sie anzeigen sollen.
 
-Zuerst kehren Sie einmal mehr zu unserer Datei `todo-data.js` zurück. Sie enthält bereits einen Getter, der alle Todos zurückgibt, und einen Getter, der unvollständige Todos zurückgibt. Der Getter, den wir vermissen, ist einer, der nur die abgeschlossenen Todos zurückgibt. Fügen Sie den folgenden unter den vorhandenen Gettern hinzu:
+Gehen Sie zunächst einmal zurück zu unserer `todo-data.js`-Datei. Sie enthält bereits einen Getter, der alle Todos zurückgibt, und einen Getter, der unvollständige Todos zurückgibt. Der fehlende Getter ist einer, der nur die abgeschlossenen Todos zurückgibt. Fügen Sie den folgenden unterhalb der vorhandenen Getter hinzu:
 
 ```js
 get completed() {
@@ -126,11 +126,11 @@ get completed() {
 
 ## Modelle
 
-Nun müssen wir Modelle zu unseren JavaScript-Dateien für die Route hinzufügen, um es uns zu erleichtern, bestimmte Datensätze in diesen Modellen anzuzeigen. `model` ist ein Datenlade-Lifecycle-Hook. Für TodoMVC sind die Fähigkeiten des Modells für uns nicht so wichtig; Sie können im [Ember-Modell-Leitfaden](https://guides.emberjs.com/release/routing/specifying-a-routes-model/) mehr Informationen finden, wenn Sie tiefer eintauchen möchten. Wir bieten auch Zugriff auf den Dienst, wie wir es für die Komponenten getan haben.
+Nun müssen wir Modelle zu unseren JavaScript-Routen-Dateien hinzufügen, damit wir leicht spezifische Datensätze zur Anzeige in diesen Modellen zurückgeben können. `model` ist ein Datenlade-Lebenszyklus-Hook. Für TodoMVC sind die Fähigkeiten von model nicht so wichtig für uns; Sie können im [Ember-Modell-Leitfaden](https://guides.emberjs.com/release/routing/specifying-a-routes-model/) mehr Informationen finden, wenn Sie tiefer eintauchen möchten. Wir gewähren auch Zugriff auf den Service, ähnlich wie wir es für die Komponenten getan haben.
 
-### Das Index-Routenmodell
+### Das Modell der Index-Route
 
-Aktualisieren Sie zuerst `todomvc/app/routes/index.js`, sodass es wie folgt aussieht:
+Aktualisieren Sie zunächst `todomvc/app/routes/index.js`, sodass es wie folgt aussieht:
 
 ```js
 import Route from "@ember/routing/route";
@@ -151,7 +151,7 @@ export default class IndexRoute extends Route {
 }
 ```
 
-Wir können jetzt die Datei `todomvc/app/templates/index.hbs` aktualisieren, sodass bei der Einbindung der `<TodoList />`-Komponente diese explizit mit dem verfügbaren Modell erfolgt, indem ihr `allTodos()`-Getter aufgerufen wird, um sicherzustellen, dass alle Todos angezeigt werden.
+Wir können nun die Datei `todomvc/app/templates/index.hbs` aktualisieren, so dass sie bei der Einbindung der `<TodoList />`-Komponente explizit mit dem verfügbaren Modell arbeitet, indem sie dessen `allTodos()`-Getter aufruft, um sicherzustellen, dass alle Todos angezeigt werden.
 
 Ändern Sie in dieser Datei
 
@@ -165,9 +165,9 @@ zu
 <TodoList @todos=\{{ @model.allTodos }} />
 ```
 
-### Das Modell der abgeschlossenen Route
+### Das Modell der Completed-Route
 
-Aktualisieren Sie nun `todomvc/app/routes/completed.js`, sodass es wie folgt aussieht:
+Aktualisieren Sie als Nächstes `todomvc/app/routes/completed.js`, sodass es wie folgt aussieht:
 
 ```js
 import Route from "@ember/routing/route";
@@ -188,7 +188,7 @@ export default class CompletedRoute extends Route {
 }
 ```
 
-Wir können jetzt die Datei `todomvc/app/templates/completed.hbs` aktualisieren, sodass bei der Einbindung der `<TodoList />`-Komponente diese explizit mit dem verfügbaren Modell erfolgt, indem ihr `completedTodos()`-Getter aufgerufen wird, um sicherzustellen, dass nur die abgeschlossenen Todos angezeigt werden.
+Wir können nun die Datei `todomvc/app/templates/completed.hbs` aktualisieren, so dass sie bei der Einbindung der `<TodoList />`-Komponente explizit mit dem verfügbaren Modell arbeitet, indem sie dessen `completedTodos()`-Getter aufruft, um sicherzustellen, dass nur die abgeschlossenen Todos angezeigt werden.
 
 Ändern Sie in dieser Datei
 
@@ -202,9 +202,9 @@ zu
 <TodoList @todos=\{{ @model.completedTodos }} />
 ```
 
-### Das Modell der aktiven Route
+### Das Modell der Active-Route
 
-Zuletzt für die Routen klären wir unsere aktive Route. Beginnen Sie, indem Sie `todomvc/app/routes/active.js` aktualisieren, sodass es wie folgt aussieht:
+Schließlich kümmern wir uns um unsere Active-Route. Beginnen Sie, indem Sie `todomvc/app/routes/active.js` aktualisieren, sodass es wie folgt aussieht:
 
 ```js
 import Route from "@ember/routing/route";
@@ -225,7 +225,7 @@ export default class ActiveRoute extends Route {
 }
 ```
 
-Wir können jetzt die Datei `todomvc/app/templates/active.hbs` aktualisieren, sodass bei der Einbindung der `<TodoList />`-Komponente diese explizit mit dem verfügbaren Modell erfolgt, indem ihr `activeTodos()`-Getter aufgerufen wird, um sicherzustellen, dass nur die aktiven (unvollständigen) Todos angezeigt werden.
+Wir können nun die Datei `todomvc/app/templates/active.hbs` aktualisieren, so dass sie bei der Einbindung der `<TodoList />`-Komponente explizit mit dem verfügbaren Modell arbeitet, indem sie dessen `activeTodos()`-Getter aufruft, um sicherzustellen, dass nur die aktiven (unvollständigen) Todos angezeigt werden.
 
 Ändern Sie in dieser Datei
 
@@ -239,13 +239,13 @@ zu
 <TodoList @todos=\{{ @model.activeTodos }} />
 ```
 
-Beachten Sie, dass wir in jedem der Routenmodell-Hooks ein Objekt mit einem Getter anstelle eines statischen Objekts oder nur der statischen Liste von Todos (zum Beispiel `this.todos.completed`) zurückgeben. Der Grund dafür ist, dass wir möchten, dass die Vorlage eine dynamische Referenz zur Todo-Liste hat, und wenn wir die Liste direkt zurückgeben würden, würde sich die Daten nie neu berechnen, was dazu führen würde, dass die Navigierungen nicht zu funktionieren scheinen / das Filtern nicht tatsächlich erfolgt. Indem wir einen Getter im Rückgabeobjekt der Modelldaten definieren, werden die Todos neu abgerufen, sodass unsere Änderungen an der Todo-Liste in der gerenderten Liste angezeigt werden.
+Beachten Sie, dass wir in jedem der Routemodell-Hooks ein Objekt mit einem Getter zurückgeben, anstatt eines statischen Objekts oder einfach der statischen Liste von Todos (zum Beispiel `this.todos.completed`). Der Grund dafür ist, dass wir möchten, dass die Vorlage eine dynamische Referenz zur Todo-Liste hat, und wenn wir die Liste direkt zurückgeben würden, würden die Daten nie neu berechnet, was dazu führen würde, dass die Navigationen den Anschein erwecken, zu versagen / nicht tatsächlich zu filtern. Durch das Definieren eines Getters im Rückgabeobjekt aus den Modelldaten werden die Todos erneut abgefragt, sodass unsere Änderungen an der Todo-Liste in der dargestellten Liste angezeigt werden.
 
-## Die Links im Footer zum Arbeiten bringen
+## Die Funktionsfähigkeit der Footer-Links herstellen
 
-Unsere Routenfunktionalität ist also nun vollständig vorhanden, aber wir können nicht von unserer App darauf zugreifen. Lassen Sie uns die Links im Footer aktivieren, damit das Klicken auf sie zu den gewünschten Routen führt.
+Unser Route-Feature ist nun voll funktionsfähig, aber wir können nicht von unserer App darauf zugreifen. Lassen Sie uns die Footer-Links aktivieren, damit das Klicken auf sie zu den gewünschten Routen führt.
 
-Gehen Sie zurück zu `todomvc/app/components/footer.hbs` und finden Sie den folgenden Markup-Teil:
+Gehen Sie zurück zu `todomvc/app/components/footer.hbs` und finden Sie das folgende Markup-Stück:
 
 ```hbs
 <a href="#">All</a>
@@ -261,32 +261,32 @@ Aktualisieren Sie es zu
 <LinkTo @route="completed">Completed</LinkTo>
 ```
 
-`<LinkTo>` ist eine eingebettete Ember-Komponente, die alle Statusänderungen beim Navigieren durch Routen handhabt und eine "aktive" Klasse auf jeden Link setzt, der der URL entspricht, falls es gewünscht wird, ihn anders als inaktive Links zu gestalten.
+`<LinkTo>` ist eine eingebaute Ember-Komponente, die alle Statusänderungen bei der Navigation zwischen Routen verwaltet, sowie eine "aktive" Klasse auf jeden Link setzt, der die URL entspricht, falls man den Wunsch hat, sie anders als inaktive Links zu gestalten.
 
-## Aktualisieren der Todos-Anzeige innerhalb von TodoList
+## Aktualisieren der Todo-Anzeige innerhalb von TodoList
 
-Eine kleine letzte Sache, die wir anpassen müssen, ist, dass wir vorher in `todomvc/app/components/todo-list.hbs` den `todo-data`-Dienst direkt aufgerufen und über alle Todos iteriert haben, wie hier gezeigt:
+Eine kleine letzte Sache, die wir beheben müssen, ist, dass wir zuvor in `todomvc/app/components/todo-list.hbs` den todo-data Service direkt angesprochen und über alle Todos iteriert haben, wie hier gezeigt:
 
 ```hbs
 \{{#each this.todos.all as |todo| }}
 ```
 
-Da wir jetzt möchten, dass unsere TodoList-Komponente eine gefilterte Liste anzeigt, möchten wir ein Argument an die TodoList-Komponente übergeben, das die "aktuelle Liste von Todos" darstellt, wie hier gezeigt:
+Da wir jetzt wollen, dass unsere TodoList-Komponente eine gefilterte Liste zeigt, werden wir ein Argument an die TodoList-Komponente übergeben, das die "aktuelle Liste von Todos" darstellt, wie hier gezeigt:
 
 ```hbs
 \{{#each @todos as |todo| }}
 ```
 
-Und das war's für dieses Tutorial! Ihre App sollte jetzt voll funktionsfähige Links im Footer haben, die die "Index"/Standard-, "Active"- und "Completed"-Routen anzeigen.
+Und das war's für dieses Tutorial! Ihre App sollte jetzt vollständig funktionierende Links im Footer haben, die die Routen "Index"/Standard, "Active" und "Completed" anzeigen.
 
-![Die Todo-App-Liste, die zeigt, dass das Routing für alle, aktive und abgeschlossene Todos funktioniert.](todos-navigation.gif)
+![Die Todo-Listen-App, die das Routing für alle, aktive und abgeschlossene Todos zeigt.](todos-navigation.gif)
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch! Sie haben dieses Tutorial erfolgreich abgeschlossen!
+Herzlichen Glückwunsch! Sie haben dieses Tutorial abgeschlossen!
 
-Es gibt noch viel mehr zu implementieren, bevor das, was wir hier behandelt haben, mit der ursprünglichen [TodoMVC-App](https://todomvc.com/) gleichwertig ist, wie z.B. das Bearbeiten, Löschen und Persistieren von Todos über Seitenladungen hinweg.
+Es gibt noch viel mehr zu implementieren, bevor das, was wir hier behandelt haben, gleichwertig mit der ursprünglichen [TodoMVC-App](https://todomvc.com/) ist, wie z. B. das Bearbeiten, Löschen und Speichern von Todos über Seitenneuladungen hinweg.
 
-Um unsere fertige Ember-Implementierung zu sehen, schauen Sie sich den fertiggestellten App-Ordner im Repository für [den Code dieses Tutorials](https://github.com/NullVoxPopuli/ember-todomvc-tutorial/tree/master/steps/00-finished-todomvc/todomvc) an oder sehen Sie sich hier die [live bereitgestellte Version](https://nullvoxpopuli.github.io/ember-todomvc-tutorial/) an. Studieren Sie den Code, um mehr über Ember zu erfahren, und sehen Sie sich auch den nächsten Artikel an, der Links zu weiteren Ressourcen und etwas Fehlerbehebung bietet.
+Um unsere fertige Ember-Implementierung zu sehen, laden Sie das abschließende App-Verzeichnis im Repository mit dem [Code dieses Tutorials](https://github.com/NullVoxPopuli/ember-todomvc-tutorial/tree/master/steps/00-finished-todomvc/todomvc) herunter oder sehen Sie sich hier die [live bereitgestellte Version](https://nullvoxpopuli.github.io/ember-todomvc-tutorial/) an. Studieren Sie den Code, um mehr über Ember zu erfahren, und sehen Sie sich auch den nächsten Artikel an, der Links zu weiteren Ressourcen und einige Tipps zur Fehlerbehebung enthält.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_conditional_footer","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_resources", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

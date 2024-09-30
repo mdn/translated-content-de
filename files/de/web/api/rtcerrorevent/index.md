@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCErrorEvent`**-Interface der WebRTC-API repräsentiert einen Fehler, der an ein WebRTC-Objekt gesendet wird. Es basiert auf dem standardmäßigen [`Event`](/de/docs/Web/API/Event)-Interface, erweitert jedoch um RTC-spezifische Informationen, die den Fehler beschreiben, wie unten gezeigt.
+Die **`RTCErrorEvent`**-Schnittstelle der WebRTC API stellt einen Fehler dar, der an ein WebRTC-Objekt gesendet wird. Sie basiert auf der Standard-[`Event`](/de/docs/Web/API/Event)-Schnittstelle, fügt jedoch RTC-spezifische Informationen hinzu, die den Fehler beschreiben, wie unten gezeigt.
 
 {{InheritanceDiagram}}
 
@@ -16,20 +16,20 @@ Das **`RTCErrorEvent`**-Interface der WebRTC-API repräsentiert einen Fehler, de
 - [`RTCErrorEvent()`](/de/docs/Web/API/RTCErrorEvent/RTCErrorEvent)
   - : Erstellt und gibt ein neues `RTCErrorEvent`-Objekt zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Zusätzlich zu den standardmäßigen Eigenschaften, die im [`Event`](/de/docs/Web/API/Event)-Interface verfügbar sind, enthält `RTCErrorEvent` auch die folgenden:_
+_Zusätzlich zu den auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle verfügbaren Standard-Eigenschaften enthält `RTCErrorEvent` auch folgende:_
 
 - [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt umfasst den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie die Zeilennummer im [SDP](/de/docs/Glossary/SDP) oder welcher [SCTP](/de/docs/Glossary/SCTP)-Fehlercode problematisch war).
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie die Zeilennummer im [SDP](/de/docs/Glossary/SDP) oder welcher [SCTP](/de/docs/Glossary/SCTP)-Fehlercode betroffen war).
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Es werden keine zusätzlichen Methoden bereitgestellt, abgesehen von denen, die im übergeordneten Interface [`Event`](/de/docs/Web/API/Event) zu finden sind._
+_Es werden keine zusätzlichen Methoden bereitgestellt, die über die auf der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) gefundenen hinausgehen._
 
 ## Beschreibung
 
-Es gibt andere Datentypen, die für Fehlerereignisse in WebRTC verwendet werden, wenn Fehler spezielle Informationsanforderungen beim Teilen erfordern. Der wahrscheinlich häufigste davon ist [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent), der vom [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignis verwendet wird, das einen Fehler signalisiert, der während der Sammlung von ICE-Kandidaten während der Verbindungsverhandlung aufgetreten ist.
+Es gibt andere Datentypen, die für Fehlerereignisse in WebRTC verwendet werden, wenn besondere Anforderungen an die Informationsübermittlung bestehen. Der vielleicht häufigste davon ist [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent), der vom [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignis verwendet wird, welches ein Fehler signalisiert, der beim Sammeln von ICE-Kandidaten während der Verbindungsverhandlung aufgetreten ist.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ Es gibt andere Datentypen, die für Fehlerereignisse in WebRTC verwendet werden,
 
 - WebRTC API
 - [`RTCError`](/de/docs/Web/API/RTCError)
-- Das `error`-Ereignis tritt in den folgenden Schnittstellen auf: [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) und [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)
+- Das `error`-Ereignis tritt bei den folgenden Schnittstellen auf: [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) und [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)
 - [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent)

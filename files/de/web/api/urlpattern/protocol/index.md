@@ -1,5 +1,5 @@
 ---
-title: "URLPattern: protocol Eigenschaft"
+title: "URLPattern: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/URLPattern/protocol
 l10n:
@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`protocol`** der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein
-String, der das Muster enthält, das verwendet wird, um den Protokollteil einer URL zu matchen. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe des Konstruktors unterscheiden.
+Die schreibgeschützte **`protocol`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein Zeichenfolgenwert, der das Muster enthält, das verwendet wird, um den Protokollteil einer URL zu matchen. Dieser Wert kann aufgrund der Normalisierung vom Eingabewert des Konstruktors abweichen.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `http{s}?` für den `protocol`-Teil. Dieses Muster passt zu den Protokollen `http` und `https`.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `http{s}?` für den `protocol`-Teil. Dieses Muster matcht die `http`- und `https`-Protokolle.
 
 ```js
 const pattern = new URLPattern({ protocol: "http{s}?" });

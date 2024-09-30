@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die Menge der dynamischen Regeln der Erweiterung zurück.
+Gibt die Menge der dynamischen Regeln für die Erweiterung zurück.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ let gettingDynamicRules = browser.declarativeNetRequest.getDynamicRules();
 
   - : Ein Objekt, um die Liste der zurückgegebenen Regeln zu filtern.
     - `ruleIds` {{optional_inline}}
-      - : Ein Array von `integer`. Die IDs der zurückzugebenden Regeln.
+      - : Ein Array von `integer`. Die IDs der Regeln, die zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}-Objekten erfüllt. Jedes davon repräsentiert eine Regel, die zur Erweiterung gehört. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}} Objekten erfüllt. Jedes dieser Objekte repräsentiert eine Regel, die zur Erweiterung gehört. Wenn keine Regeln aktiv sind, ist das Array leer. Schlägt die Anfrage fehl, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

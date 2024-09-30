@@ -17,14 +17,14 @@ browser.alarms.onAlarm.removeListener(listener)
 browser.alarms.onAlarm.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Event hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Hören auf dieses Event. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,14 +32,14 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Event auftritt. Der Funktion wird folgendes Argument übergeben:
 
     - `alarm`
-      - : {{WebExtAPIRef('alarms.Alarm')}}. Der Alarm, der ausgelöst wurde. Verwenden Sie `Alarm.name`, um festzustellen, welcher Alarm ausgelöst wurde.
+      - : {{WebExtAPIRef('alarms.Alarm')}}. Der ausgelöste Alarm. Verwenden Sie `Alarm.name`, um festzustellen, welcher Alarm ausgelöst wurde.
 
 ## Beispiele
 
-Einen Alarm behandeln, der ausgelöst wird:
+Verarbeitung eines ausgelösten Alarms:
 
 ```js
 function handleAlarm(alarmInfo) {

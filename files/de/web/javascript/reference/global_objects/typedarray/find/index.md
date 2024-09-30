@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`find()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt das erste Element im angegebenen Typ-Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Wert die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.find()")}}.
+Die **`find()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt das erste Element im bereitgestellten `typed array` zurück, das die angegebene Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-find.html")}}
 
@@ -21,30 +21,29 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Typ-Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy)-Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen [falsy](/de/docs/Glossary/Falsy)-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im `typed array` ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im Typ-Array verarbeitet wird.
+      - : Das aktuelle Element, das im `typed array` verarbeitet wird.
     - `index`
-      - : Der Index des aktuellen Elements, das im Typ-Array verarbeitet wird.
+      - : Der Index des aktuellen Elements, das im `typed array` verarbeitet wird.
     - `array`
-      - : Das Typ-Array, auf das `find()` aufgerufen wurde.
+      - : Das `typed array`, auf dem `find()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Das erste Element im Typ-Array, das die bereitgestellte Testfunktion erfüllt.
-Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
+Das erste Element im `typed array`, das die angegebene Testfunktion erfüllt. Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typ-Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf `typed array`-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Eine Primzahl in einem Typ-Array finden
+### Eine Primzahl in einem `typed array` finden
 
-Das folgende Beispiel findet ein Element im Typ-Array, das eine Primzahl ist (oder gibt {{jsxref("undefined")}} zurück, wenn es keine Primzahl gibt).
+Im folgenden Beispiel wird ein Element im `typed array` gefunden, das eine Primzahl ist (oder {{jsxref("undefined")}} zurückgegeben, wenn keine Primzahl vorhanden ist).
 
 ```js
 function isPrime(element, index, array) {
@@ -72,7 +71,7 @@ console.log(uint8.find(isPrime)); // 5
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.find` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript `typed arrays`](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLast()")}}

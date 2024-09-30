@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property Descriptors eines gegebenen Objekts zurück.
+Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Eigenschaftenbeschreibungen eines gegebenen Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/object-getownpropertydescriptors.html")}}
 
@@ -20,47 +20,36 @@ Object.getOwnPropertyDescriptors(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, für das alle eigenen Property Descriptors abgerufen werden sollen.
+  - : Das Objekt, für das alle eigenen Eigenschaftenbeschreibungen abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Objekt, das alle eigenen Property Descriptors eines Objekts enthält. Es könnte ein leeres
-Objekt sein, wenn keine Eigenschaften vorhanden sind.
+Ein Objekt, das alle eigenen Eigenschaftenbeschreibungen eines Objekts enthält. Kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
 
 ## Beschreibung
 
-Diese Methode erlaubt die Untersuchung der genauen Beschreibung aller eigenen Eigenschaften eines
-Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem Zeichenkettenwert als Name oder einem
-{{jsxref("Symbol")}} und einem Property Descriptor. Weitere Informationen über Typen von Property Descriptors und deren Attribute finden Sie in
-{{jsxref("Object.defineProperty()")}}.
+Diese Methode ermöglicht die Untersuchung der genauen Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem string-wertigen Namen oder einem {{jsxref("Symbol")}} und einer Eigenschaftenbeschreibung. Weitere Informationen über Arten von Eigenschaftenbeschreibungen und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
 
-Ein _Property Descriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
+Eine _Eigenschaftenbeschreibung_ ist ein Datensatz mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der der Eigenschaft zugeordnete Wert (nur für Datendeskriptoren).
+  - : Der Wert, der mit der Eigenschaft verknüpft ist (nur Datenbeschreibungen).
 - `writable`
-  - : `true`, wenn und nur wenn der der Eigenschaft zugeordnete Wert
-    geändert werden kann (nur für Datendeskriptoren).
+  - : `true` genau dann, wenn der mit der Eigenschaft verknüpfte Wert geändert werden darf (nur Datenbeschreibungen).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn
-    es keinen Getter gibt (nur für Accessor-Deskriptoren).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt (nur Zugriffs-Beschreibungen).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn
-    es keinen Setter gibt (nur für Accessor-Deskriptoren).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt (nur Zugriffs-Beschreibungen).
 - `configurable`
-  - : `true`, wenn und nur wenn der Typ dieses Property Descriptors geändert
-    werden kann und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
+  - : `true` genau dann, wenn der Typ dieser Eigenschaftenbeschreibung geändert werden darf und wenn die Eigenschaft vom entsprechenden Objekt gelöscht werden darf.
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der
-    Eigenschaften des entsprechenden Objekts angezeigt wird.
+  - : `true` genau dann, wenn diese Eigenschaft bei der Aufzählung der Eigenschaften des entsprechenden Objekts angezeigt wird.
 
 ## Beispiele
 
-### Eine flache Kopie erstellen
+### Erstellen einer flachen Kopie
 
-Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene
-Eigenschaften von einem Quellobjekt in ein Zielobjekt kopiert, können Sie diese Methode und
-{{jsxref("Object.create()")}} für eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zwischen zwei unbekannten Objekten verwenden:
+Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt zu einem Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zwischen zwei unbekannten Objekten verwenden:
 
 ```js
 Object.create(
@@ -69,12 +58,9 @@ Object.create(
 );
 ```
 
-### Eine Unterklasse erstellen
+### Erstellen einer Unterklasse
 
-Eine typische Art, eine Unterklasse zu erstellen, besteht darin, die Unterklasse zu definieren, ihr Prototyp auf eine
-Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann
-umständlich werden, insbesondere für Getter und Setter. Stattdessen können Sie diesen Code verwenden, um das
-Prototyp zu setzen:
+Ein typischer Weg, eine Unterklasse zu erstellen, ist das Definieren der Unterklasse, das Setzen ihres Prototyps auf eine Instanz der Oberklasse und das anschließende Definieren von Eigenschaften auf dieser Instanz. Dies kann besonders für Getter und Setter umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototyp festzulegen:
 
 ```js
 function superclass() {}

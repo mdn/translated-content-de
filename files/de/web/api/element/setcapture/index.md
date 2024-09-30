@@ -1,5 +1,5 @@
 ---
-title: "Element: setCapture() Methode"
+title: "Element: setCapture()-Methode"
 short-title: setCapture()
 slug: Web/API/Element/setCapture
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{Deprecated_Header}}{{non-standard_header}}{{ APIRef("DOM") }}
 
-Rufen Sie diese Methode während der Behandlung eines mousedown-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen wird oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
+Rufen Sie diese Methode während der Behandlung eines mousedown-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
 
 > [!WARNING]
-> Dieses Interface hatte nie viel Unterstützung in verschiedenen Browsern und Sie suchen wahrscheinlich nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture) aus der Pointer Events API.
+> Diese Schnittstelle hatte nie viel plattformübergreifende Unterstützung, und Sie suchen wahrscheinlich stattdessen nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture)
+> aus der Pointer Events API.
 
 ## Syntax
 
@@ -22,15 +23,16 @@ setCapture(retargetToElement)
 ### Parameter
 
 - `retargetToElement`
-  - : Wenn `true`, werden alle Ereignisse direkt auf dieses Element ausgerichtet; wenn `false`, können Ereignisse auch bei Nachkommen dieses Elements auftreten.
+  - : Wenn `true`, werden alle Ereignisse direkt auf dieses Element gerichtet; wenn
+    `false`, können Ereignisse auch bei Nachkommen dieses Elements ausgelöst werden.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie die Maus bewegen, nachdem Sie auf ein Element geklickt und die Maustaste gehalten haben.
+In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie nach einem Klick und Halten der Maustaste auf einem Element herummäusen.
 
 ```html
 <!doctype html>
@@ -87,9 +89,9 @@ In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie
 
 [Live-Beispiele ansehen](https://mdn.dev/archives/media/samples/domref/mousecapture.html)
 
-## Hinweise
+## Anmerkungen
 
-Das Element ist möglicherweise nicht vollständig bis zum oberen oder unteren Rand gescrollt, abhängig vom Layout anderer Elemente.
+Das Element ist möglicherweise nicht vollständig nach oben oder unten gescrollt, abhängig vom Layout anderer Elemente.
 
 ## Spezifikationen
 

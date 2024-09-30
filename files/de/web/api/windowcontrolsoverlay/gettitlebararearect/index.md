@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die **`getTitlebarAreaRect()`** Methode des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay) Interfaces fragt die aktuelle Geometrie des Titelbereichs des Progressive Web App-Fensters ab.
+Die **`getTitlebarAreaRect()`** Methode der Schnittstelle [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay) ruft die aktuelle Geometrie des Titelleistenbereichs des Fensters einer Progressiven Web App ab.
 
-Dies gilt nur für Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind und die das [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
+Dies gilt nur für Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind und die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Koordinaten und die Größe des Titelbereichs innerhalb des Inhalts der App bereitstellt.
+Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Koordinaten und die Größe des Titelleistenbereichs innerhalb des Inhalts der App bereitstellt.
 
 ## Spezifikationen
 

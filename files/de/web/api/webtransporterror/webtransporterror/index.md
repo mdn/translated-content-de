@@ -27,7 +27,7 @@ new WebTransportError(init)
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError` Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, z. B. ein Serverfehler oder ein Netzwerkverbindungsproblem.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError` Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
 
 ```js
 const url = "notaurl";

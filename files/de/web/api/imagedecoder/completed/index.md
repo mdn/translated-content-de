@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`completed`**-Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald die kodierten Daten vollständig gepuffert sind.
+Die schreibgeschützte **`completed`**-Eigenschaft der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle gibt ein Versprechen zurück, das aufgelöst wird, sobald die codierten Daten vollständig gepuffert sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, soba
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `completed` `undefined` sein, sobald das Promise aufgelöst wird.
+Im folgenden Beispiel ist der Wert von `completed` `undefined`, sobald das Versprechen aufgelöst wird.
 
 ```js
 let completed = await imageDecoder.completed;

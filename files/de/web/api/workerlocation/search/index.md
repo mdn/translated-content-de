@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`search`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`search`](/de/docs/Web/API/URL/search)-Teil der Position des Workers zurück.
+Die **`search`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`search`](/de/docs/Web/API/URL/search)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -31,4 +31,4 @@ const result = location.search; // Returns:'?t=67'
 
 ## Siehe auch
 
-- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Schnittstelle, zu der es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

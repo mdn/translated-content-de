@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das `min-content` Größen-Schlüsselwort stellt die minimale [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Inhalts dar. Für Textinhalte bedeutet dies, dass der Inhalt alle weichen Zeilenumbruch-Möglichkeiten nutzt und so klein wie das längste Wort wird.
+Das `min-content` Größenschlüsselwort repräsentiert die minimale [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt alle weichen Umbruchmöglichkeiten nutzt und dabei so klein wie das längste Wort wird.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Beispiele
 
-### Verwendung von min-content für Box-Größenbestimmung
+### Verwendung von min-content für Box-Größen
 
 #### HTML
 
@@ -94,5 +94,5 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Siehe auch
 
-- Verwandte Größen-Schlüsselwörter: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
-- [CSS-Box-Größenbestimmung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Verwandte Größenschlüsselwörter: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
+- [CSS Boxgrößenbestimmung](/de/docs/Web/CSS/CSS_box_sizing) Modul

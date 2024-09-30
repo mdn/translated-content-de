@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`required`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt an, dass der Benutzer einen Wert eingeben muss, bevor ein Formular abgeschickt werden kann. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`required`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, dass der Benutzer einen Wert eingeben muss, bevor er ein Formular abschickt. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Während das HTML-Boolean-`required`-Attribut ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `submit`, `reset`, `button` und `image` ist, ist die `required`-Eigenschaft `true` für diese Eingabetypen, wenn das Attribut vorhanden ist, `false` andernfalls.
+Während das HTML-Boolean-`required`-Attribut ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `submit`, `reset`, `button` und `image` ist, ist die `required`-Eigenschaft für diese Eingabetypen `true`, wenn das Attribut vorhanden ist, andernfalls `false`.
 
-Wenn ein erforderliches Eingabefeld keinen Wert enthält, wird die schreibgeschützte [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts `true` sein.
+Wenn eine erforderliche Eingabe keinen Wert hat, wird die schreibgeschützte [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein.
 
 ## Wert
 
-Ein boolean.
+Ein Boolean.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: cancel() Methode"
+title: "SpeechSynthesis: cancel()-Methode"
 short-title: cancel()
 slug: Web/API/SpeechSynthesis/cancel
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`cancel()`** Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces entfernt alle Äußerungen aus der Äußerungsschlange.
+Die **`cancel()`**-Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)
+Schnittstelle entfernt alle Äußerungen aus der Warteschlange.
 
-Wenn gerade eine Äußerung gesprochen wird, stoppt das Sprechen sofort.
+Wenn eine Äußerung gerade gesprochen wird, wird das Sprechen sofort gestoppt.
 
 ## Syntax
 

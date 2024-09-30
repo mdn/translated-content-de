@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CDN** (Content Delivery Network) ist eine Gruppe von Servern, die über viele Standorte verteilt sind. Diese Server speichern duplizierte Kopien von Daten, sodass Datenanforderungen von den Servern erfüllt werden können, die den jeweiligen Endbenutzern am nächsten sind. CDNs sorgen für schnellen Service, der weniger von hohem Datenverkehr betroffen ist.
+Ein **CDN** (Content Delivery Network) ist eine Gruppe von Servern, die über viele Standorte verteilt sind. Diese Server speichern Duplikate von Daten, sodass Server Datenanfragen basierend darauf erfüllen können, welche Server den jeweiligen Endbenutzern am nächsten sind. CDNs sorgen für schnelle Dienste, die weniger von hohem Traffic betroffen sind.
 
-CDNs werden häufig für die Bereitstellung von Stylesheets und JavaScript-Dateien (statische Ressourcen) von Bibliotheken wie Bootstrap, jQuery usw. verwendet. Die Verwendung von CDNs für diese Bibliotheksdateien ist aus mehreren Gründen vorzuziehen:
+CDNs werden häufig verwendet, um Stylesheets und JavaScript-Dateien (statische Assets) von Bibliotheken wie Bootstrap, jQuery usw. bereitzustellen. Die Verwendung eines CDNs für diese Bibliotheksdateien ist aus mehreren Gründen vorzuziehen:
 
-- Die Bereitstellung statischer Ressourcen von Bibliotheken über ein CDN verringert die Anfragelast auf den eigenen Servern einer Organisation.
-- Die meisten CDNs verfügen über Server auf der ganzen Welt, sodass CDN-Server möglicherweise geografisch näher an Ihren Benutzern sind als Ihre eigenen Server. Die geografische Entfernung beeinflusst die Latenz proportional.
-- CDNs sind bereits mit den richtigen Cache-Einstellungen konfiguriert. Die Nutzung eines CDNs spart zusätzliche Konfigurationen für statische Ressourcen auf Ihren eigenen Servern.
+- Das Bereitstellen statischer Assets von Bibliotheken über ein CDN verringert die Anfragelast auf den eigenen Servern einer Organisation.
+- Die meisten CDNs haben Server auf der ganzen Welt verteilt, sodass CDN-Server geografisch näher bei Ihren Benutzern sein können als Ihre eigenen Server. Geografische Entfernung beeinflusst die Latenz proportional.
+- CDNs sind bereits mit richtigen Cache-Einstellungen konfiguriert. Die Verwendung eines CDNs spart zusätzliche Konfiguration für statische Assets auf Ihren eigenen Servern.

@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten für ein scrollendes Element fest, wenn das Scrollen durch Navigations- oder CSSOM-Scrolling-APIs ausgelöst wird.
+Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten für ein Scroll-Element fest, wenn das Scrollen durch die Navigation oder die CSSOM-Scrolling-APIs ausgelöst wird.
 
 {{EmbedInteractiveExample("pages/css/scroll-behavior.html")}}
 
-Beachten Sie, dass alle anderen Scrollvorgänge, wie z. B. die vom Benutzer durchgeführten, von dieser Eigenschaft nicht betroffen sind. Wenn diese Eigenschaft auf dem `root`-Element angegeben ist, gilt sie stattdessen für das Ansichtsfenster. Diese Eigenschaft, die auf das `body`-Element angewendet wird, wird _nicht_ auf das Ansichtsfenster übertragen.
+Beachten Sie, dass alle anderen Scrollvorgänge, wie z.B. vom Benutzer durchgeführte Scrolls, von dieser Eigenschaft nicht beeinflusst werden. Wenn diese Eigenschaft auf das Root-Element angewendet wird, gilt sie stattdessen für das Viewport. Diese Eigenschaft, die auf das `body`-Element angewendet wird, wird _nicht_ auf das Viewport übertragen.
 
-Benutzeragenten können diese Eigenschaft ignorieren.
+Benutzeragenten dürfen diese Eigenschaft ignorieren.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ Die `scroll-behavior` Eigenschaft wird als einer der unten aufgeführten Schlüs
 - `auto`
   - : Das Scroll-Element scrollt sofort.
 - `smooth`
-  - : Das Scroll-Element scrollt auf sanfte Weise unter Verwendung einer vom Benutzeragenten definierten Dämpfungsfunktion über einen vom Benutzeragenten definierten Zeitraum. Benutzeragenten sollten, falls vorhanden, Plattformkonventionen folgen.
+  - : Das Scroll-Element scrollt in einer sanften Weise unter Verwendung einer vom Benutzeragent definierten Abklingfunktion über einen vom Benutzeragent definierten Zeitraum. Benutzeragenten sollten, falls vorhanden, Plattformkonventionen folgen.
 
 ## Formale Definition
 

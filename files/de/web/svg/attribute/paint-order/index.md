@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`paint-order`** legt die Reihenfolge fest, in der die Füllung, der Umriss und die Markierungen eines bestimmten Form- oder Textelements gezeichnet werden.
+Das **`paint-order`**-Attribut gibt an, in welcher Reihenfolge die Füllung, die Kontur und die Markierungen eines bestimmten Form- oder Textelements gezeichnet werden.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `paint-order` auch als CSS-Eigenschaft verwendet werden.
@@ -25,7 +25,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -48,9 +48,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - normal
-  - : Dieser Wert gibt an, dass zuerst die Füllung, dann der Umriss und schließlich die Markierungen gezeichnet werden.
+  - : Dieser Wert gibt an, dass zuerst die Füllung, dann die Kontur und schließlich die Markierungen gezeichnet werden.
 - \[ fill || stroke || markers ]
-  - : Die Anordnung dieser drei Schlüsselwörter gibt die Reihenfolge an, in der die Zeichnung erfolgt, von links nach rechts. Wenn eine der drei Zeichnungskomponenten weggelassen wird, werden sie in ihrer Standardreihenfolge nach den angegebenen Komponenten gezeichnet. Zum Beispiel entspricht die Verwendung von `stroke` der Reihenfolge `stroke fill markers`.
+  - : Die Reihenfolge dieser drei Schlüsselwörter gibt die Reihenfolge an, in der die Zeichnung erfolgt, von links nach rechts. Wenn einer der drei Zeichnungskomponenten weggelassen wird, werden sie in ihrer Standardreihenfolge nach den angegebenen Komponenten gezeichnet. Zum Beispiel ist `stroke` äquivalent zu `stroke fill markers`.
 
 ## Beispiel
 
@@ -82,7 +82,7 @@ Das Beispiel würde wie folgt gerendert werden:
 
 ![Ein Bild, das zeigt, wie das paint-order-Beispiel in einem UA aussieht, der die paint-order-Eigenschaft unterstützt.](paint-order-2.png)
 
-Der Effekt des unteren Umrisses könnte durch die folgende CSS-Eigenschaft erreicht werden:
+Der Effekt des Strichs darunter könnte über die folgende CSS-Eigenschaft erreicht werden:
 
 ```css
 #stroke-under {

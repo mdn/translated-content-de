@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPoint`**-Schnittstelle hat die **`w`**-Eigenschaft, die den Perspektivwert w für einen Punkt im Raum hält.
+Die **`DOMPoint`**-Schnittstelle
+besitzt die **`w`**-Eigenschaft, welche den Perspektivwert, w, eines Punktes im Raum hält.
 
 ## Wert
 
-Ein Gleitkommawert doppelter Genauigkeit, der den _w_-Perspektivwert für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist 1.0.
+Ein doppelt-genauer Gleitkommawert, der den _w_-Perspektivwert für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (d.h., sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist 1,0.
 
 ## Spezifikationen
 
@@ -24,4 +25,5 @@ Ein Gleitkommawert doppelter Genauigkeit, der den _w_-Perspektivwert für den Pu
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x), [`y`](/de/docs/Web/API/DOMPoint/y) und [`z`](/de/docs/Web/API/DOMPoint/z).
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x),
+  [`y`](/de/docs/Web/API/DOMPoint/y) und [`z`](/de/docs/Web/API/DOMPoint/z).

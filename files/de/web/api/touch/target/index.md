@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`target`**-Eigenschaft der `Touch`-Schnittstelle gibt das ([`EventTarget`](/de/docs/Web/API/EventTarget)) zurück, auf dem der Berührungskontakt begann, als er zum ersten Mal auf die Oberfläche gelegt wurde, selbst wenn der Berührungspunkt seitdem außerhalb des interaktiven Bereichs dieses Elements verschoben wurde oder sogar aus dem Dokument entfernt wurde. Beachten Sie, dass Ereignisse weiterhin auf das Ziel-Element gerichtet werden, auch wenn es aus dem Dokument entfernt wird, und daher möglicherweise nicht mehr bis zum Fenster oder Dokument hochblasen. Wenn das Risiko besteht, dass ein Element entfernt wird, während es berührt wird, ist es am besten, die Touch-Listener direkt an das Ziel zu binden.
+Die schreibgeschützte **`target`**-Eigenschaft des `Touch`-Interfaces gibt das ([`EventTarget`](/de/docs/Web/API/EventTarget)) zurück, auf dem der Touch-Kontakt begann, als er erstmals auf der Oberfläche platziert wurde. Dies gilt selbst dann, wenn der Berührpunkt sich inzwischen außerhalb des interaktiven Bereichs dieses Elements bewegt hat oder sogar aus dem Dokument entfernt wurde. Beachten Sie, dass, wenn das Ziel-Element aus dem Dokument entfernt wird, Ereignisse immer noch auf es gerichtet werden, und folglich nicht mehr unbedingt zum Fenster oder Dokument weiterblubbern. Wenn die Gefahr besteht, dass ein Element entfernt wird, während es berührt wird, ist es am besten, die Touch-Listener direkt am Ziel anzubinden.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Das [`EventTarget`](/de/docs/Web/API/EventTarget), auf das sich das [`Touch`](/d
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie auf die `Touch.target`-Eigenschaft des [`Touch`](/de/docs/Web/API/Touch)-Objekts zugegriffen werden kann. Die `Touch.target`-Eigenschaft ist ein [`Element`](/de/docs/Web/API/Element) ([`EventTarget`](/de/docs/Web/API/EventTarget)), auf dem ein Berührungspunkt gestartet wird, wenn der Kontakt zum ersten Mal auf die Oberfläche gelegt wird.
+Dieses Beispiel veranschaulicht, wie auf die `Touch.target`-Eigenschaft des [`Touch`](/de/docs/Web/API/Touch)-Objekts zugegriffen wird. Die `Touch.target`-Eigenschaft ist ein [`Element`](/de/docs/Web/API/Element) ([`EventTarget`](/de/docs/Web/API/EventTarget)), bei dem ein Berührungspunkt gestartet wird, wenn der Kontakt erstmals auf die Oberfläche gelegt wird.
 
-Im folgenden einfachen Codeausschnitt nehmen wir an, dass der Benutzer einen oder mehrere Berührungskontakte auf dem `source`-Element initiiert. Wenn der [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignishandler für dieses Element aufgerufen wird, wird auf die `Touch.target`-Eigenschaft jedes Berührungspunktes über die [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches)-Liste des Ereignisses zugegriffen.
+Im folgenden einfachen Code-Schnipsel nehmen wir an, dass der Benutzer einen oder mehrere Berührungskontakte auf dem `source`-Element startet. Wenn der [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignishandler für dieses Element aufgerufen wird, wird auf jede `Touch.target`-Eigenschaft der Berührungspunkte über die [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches)-Liste des Ereignisses zugegriffen.
 
 ```js
 // Register a touchmove listener for the 'source' element

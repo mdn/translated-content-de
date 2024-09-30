@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`rotl`**-Anweisungen, kurz für _rotate-left_, werden zum Ausführen einer bitweisen Linksdrehung verwendet.
+Die **`rotl`** Anweisungen, kurz für _rotate-left_, werden verwendet, um eine bitweise Linksrotation durchzuführen.
 
 {{EmbedInteractiveExample("pages/wat/rotl.html", "tabbed-taller")}}
 
@@ -25,7 +25,7 @@ i32.rotl
 ;; (11000000_00000000_00000000_00000001)
 ```
 
-| Instruction | Binary opcode |
-| ----------- | ------------- |
-| `i32.rotl`  | `0x77`        |
-| `i64.rotl`  | `0x89`        |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.rotl`  | `0x77`         |
+| `i64.rotl`  | `0x89`         |

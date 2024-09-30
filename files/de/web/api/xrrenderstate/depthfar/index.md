@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`depthFar`**-Eigenschaft des [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Interfaces gibt die Entfernung in Metern der Fern-Clipping-Ebene vom Betrachter zurück.
+Die schreibgeschützte **`depthFar`**-Eigenschaft der [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Schnittstelle gibt die Distanz in Metern der Fernclip-Ebene vom Betrachter zurück.
 
 ## Wert
 

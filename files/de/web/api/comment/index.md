@@ -7,24 +7,24 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Das **`Comment`**-Interface repräsentiert textuelle Notationen innerhalb von Markup. Obwohl sie in der Regel nicht visuell angezeigt werden, sind solche Kommentare im Quellansichtsmodus lesbar.
+Das **`Comment`**-Interface repräsentiert textuelle Notizen innerhalb von Markup; obwohl es im Allgemeinen nicht visuell angezeigt wird, sind solche Kommentare im Quellansichtsmodus lesbar.
 
-Kommentare werden in HTML und XML als Inhalt zwischen `<!--` und `-->` dargestellt. In XML, wie innerhalb von SVG- oder MathML-Markup, darf die Zeichenfolge `--` nicht in einem Kommentar verwendet werden.
+Kommentare werden in HTML und XML als Inhalt zwischen `<!--` und `-->` dargestellt. In XML, z. B. innerhalb von SVG- oder MathML-Markup, kann die Zeichenfolge `--` nicht innerhalb eines Kommentars verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface hat keine spezifischen Eigenschaften, erbt jedoch die von seinem Elternteil [`CharacterData`](/de/docs/Web/API/CharacterData) und indirekt die von [`Node`](/de/docs/Web/API/Node)._
+_Dieses Interface besitzt keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften seines Elternteils, [`CharacterData`](/de/docs/Web/API/CharacterData), und indirekt die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Konstruktor
 
 - [`Comment()`](/de/docs/Web/API/Comment/Comment)
-  - : Gibt ein neues `Comment`-Objekt mit dem Parameter als seinem Textinhalt zurück. Wenn dieser nicht vorhanden ist, ist der Standardwert der leere String `''`.
+  - : Gibt ein neues `Comment`-Objekt mit dem Parameter als seinem Textinhalt zurück. Wenn der Parameter nicht vorhanden ist, ist der Standardwert der leere String, `''`.
 
 ## Instanz-Methoden
 
-_Dieses Interface hat keine spezifischen Methoden, erbt jedoch die von seinem Elternteil [`CharacterData`](/de/docs/Web/API/CharacterData) und indirekt die von [`Node`](/de/docs/Web/API/Node)._
+_Dieses Interface besitzt keine spezifischen Methoden, erbt jedoch die Methoden seines Elternteils, [`CharacterData`](/de/docs/Web/API/CharacterData), und indirekt die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Spezifikationen
 

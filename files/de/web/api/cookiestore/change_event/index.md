@@ -1,5 +1,5 @@
 ---
-title: "CookieStore: change Event"
+title: "CookieStore: change-Ereignis"
 short-title: change
 slug: Web/API/CookieStore/change_event
 l10n:
@@ -28,7 +28,7 @@ Ein [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent). Erbt von [`Event`
 
 ## Beispiele
 
-Um informiert zu werden, wenn sich ein Cookie ändert, können Sie einen Handler zur `cookieStore`-Instanz hinzufügen, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, wie hier:
+Um informiert zu werden, wenn sich ein Cookie geändert hat, können Sie einen Handler zur `cookieStore`-Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie hier:
 
 ```js
 cookieStore.addEventListener("change", (event) => {

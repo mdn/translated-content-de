@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`clear()`** Methode von {{jsxref("Set")}} Instanzen entfernt alle Elemente aus diesem Set.
+Die **`clear()`**-Methode von {{jsxref("Set")}}-Instanzen entfernt alle Elemente aus diesem Set.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-clear.html")}}
 

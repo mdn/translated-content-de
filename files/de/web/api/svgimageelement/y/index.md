@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft des schreibgeschützten [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+Die **`y`** schreibgeschützte Eigenschaft der
+[`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Schnittstelle gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)
+zurück, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("image")}}
+Elements entspricht.
 
 ## Wert
 

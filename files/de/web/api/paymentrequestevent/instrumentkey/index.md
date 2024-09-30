@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers("service")}}
 
-Die **`instrumentKey`**-Eigenschaft ist eine schreibgeschützte Eigenschaft des
-[`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces und gibt ein
-`PaymentInstrument`-Objekt zurück, das das vom Benutzer ausgewählte Zahlungsinstrument widerspiegelt oder einen leeren String, wenn der Benutzer kein Zahlungsinstrument registriert oder ausgewählt hat.
+Die schreibgeschützte **`instrumentKey`**-Eigenschaft der [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Schnittstelle gibt ein `PaymentInstrument`-Objekt zurück, das das vom Benutzer ausgewählte Zahlungsmittel widerspiegelt, oder einen leeren String, falls der Benutzer kein Zahlungsmittel registriert oder ausgewählt hat.
 
 ## Wert
 

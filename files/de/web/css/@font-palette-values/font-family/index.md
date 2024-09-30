@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) [Bezeichner](/de/docs/Glossary/CSS_Descriptor) **`font-family`** wird verwendet, um anzugeben, auf welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau mit den Werten übereinstimmen, die beim Festlegen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
+Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) [Descriptor](/de/docs/Glossary/CSS_Descriptor) **`font-family`** wird verwendet, um festzulegen, auf welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau den Werten entsprechen, die beim Festlegen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) [Bezeichner](/
 }
 ```
 
-Andere folgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie dieselben [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Das bedeutet, dass Sie, wenn Sie mehrere Farb-Schriftarten haben, denselben Bezeichner für jede verwenden können.
+Andere Palettenwerte, die folgen, gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie denselben [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Dies bedeutet, dass Sie, wenn Sie mehrere Farbtypen verwenden, denselben Bezeichner für jeden verwenden können.
 
 ### Werte
 
@@ -35,9 +35,9 @@ Andere folgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie
 
 ## Beispiele
 
-### Verwendung von übereinstimmenden Schriftfamiliennamen
+### Verwenden übereinstimmender Schriftnamen
 
-In diesem Beispiel wird, wenn der `font-family`-Bezeichner in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values)-Regel verwendet wird, derselbe Wert wie bei der Deklaration für die `font-family` verwendet.
+In diesem Beispiel wird beim Verwenden des `font-family` Descriptors innerhalb der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel derselbe Wert für die `font-family` verwendet, wie er deklariert ist.
 
 #### HTML
 
@@ -70,9 +70,9 @@ h2.extra-spicy {
 
 {{EmbedLiveSample("Using matching family names")}}
 
-### Verwendung desselben Palettenidentifikators für mehrere Schriftfamilien
+### Verwenden desselben Palettenbezeichners für mehrere Schriftfamilien
 
-In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values)-Regeln für zwei Schriftfamilien festgelegt, aber beide Regeln verwenden denselben gestrichelten Bezeichner, `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette)-Eigenschaft für mehrere Elemente, in diesem Fall `h1` und `h2`, gleichzeitig festzulegen. Dies kann nützlich sein, wenn Sie die Schriftfarben so aktualisieren möchten, dass sie zum Branding Ihrer Website passen.
+In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regeln für zwei Schriftfamilien festgelegt, aber beide At-Regeln verwenden denselben `dashed-ident`-Bezeichner `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, `h1` und `h2` in diesem Fall, gleichzeitig einzustellen. Dies kann nützlich sein, wenn Sie die Schriftfarben an die Markenfarben Ihrer Website anpassen möchten.
 
 ```css
 @font-palette-values --Dark-Mode {
@@ -111,6 +111,6 @@ h2 {
 
 - {{cssxref("@font-face/font-family", "font-family")}}
 - {{cssxref("@font-palette-values/", "@font-palette-values")}}
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Bezeichner
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Descriptor
 - {{cssxref("font-palette/", "font-palette")}} Eigenschaft
 - [`CSSFontPaletteValuesRule.fontFamily`](/de/docs/Web/API/CSSFontPaletteValuesRule/fontFamily)

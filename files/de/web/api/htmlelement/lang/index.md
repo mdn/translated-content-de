@@ -8,15 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.lang`**-Eigenschaft ruft die Basissprache der Attributwerte und des Textinhalts eines Elements ab oder legt sie fest.
+Die **`HTMLElement.lang`**-Eigenschaft holt oder setzt die Basissprache der Attributwerte und des Textinhalts eines Elements.
 
-Der von dieser Eigenschaft zurückgegebene Sprachcode ist definiert in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}.
-Gängige Beispiele sind "en" für Englisch, "ja" für
-Japanisch, "es" für Spanisch und so weiter. Der Standardwert dieses Attributs ist
-`unknown`. Beachten Sie, dass dieses Attribut, obwohl es auf der Ebene einzelner Elemente wie hier beschrieben gültig ist, am häufigsten für das Wurzelelement des Dokuments angegeben wird.
+Der von dieser Eigenschaft zurückgegebene Sprachcode ist in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Häufige Beispiele sind "en" für Englisch, "ja" für Japanisch, "es" für Spanisch und so weiter. Der Standardwert dieses Attributs ist `unknown`. Beachten Sie, dass dieses Attribut, obwohl es auf der hier beschriebenen Ebene individueller Elemente gültig ist, am häufigsten für das Wurzelelement des Dokuments angegeben wird.
 
-Dies funktioniert auch nur mit dem `lang`-Attribut und nicht mit
-`xml:lang`.
+Dies funktioniert auch nur mit dem `lang`-Attribut und nicht mit `xml:lang`.
 
 ## Wert
 

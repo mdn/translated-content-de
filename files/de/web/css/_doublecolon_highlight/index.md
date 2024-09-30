@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::highlight()`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
+Das **`::highlight()`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf eine benutzerdefinierte Hervorhebung an.
 
-Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Eine benutzerdefinierte Hervorhebung ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
 ## Zulässige Eigenschaften
 
@@ -31,7 +31,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Hervorheben von Zeichen
+### Zeichen hervorheben
 
 #### HTML
 

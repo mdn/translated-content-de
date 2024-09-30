@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`br`**-Befehl verzweigt zu einer Schleife, einem Block oder einer `if`-Anweisung.
+Die **`br`**-Anweisung verzweigt zu einer Schleife, einem Block oder einer if-Anweisung.
 
-Andere Varianten von `br` sind `br_if` für bedingtes Verzweigen und `br_table` für das Verzweigen zu verschiedenen Blöcken basierend auf einem Argument.
+Andere Varianten von `br` sind `br_if` für die Verzweigung basierend auf einer Bedingung und `br_table` für die Verzweigung zu verschiedenen Blöcken basierend auf einem Argument.
 
 {{EmbedInteractiveExample("pages/wat/br.html", "tabbed-taller")}}
 
@@ -27,8 +27,8 @@ Andere Varianten von `br` sind `br_if` für bedingtes Verzweigen und `br_table` 
 )
 ```
 
-| Befehl     | Binärer Opcode |
-| ---------- | -------------- |
-| `br`       | `0x0c`         |
-| `br_if`    | `0x0d`         |
-| `br_table` | `0x0e`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `br`        | `0x0c`         |
+| `br_if`     | `0x0d`         |
+| `br_table`  | `0x0e`         |

@@ -12,9 +12,9 @@ Die schreibgeschützte Eigenschaft **`HTMLAreaElement.origin`** ist ein String, 
 
 Das bedeutet:
 
-- für URLs, die `http` oder `https` verwenden, das Schema gefolgt von `'://'`, gefolgt von der Domain, gefolgt von `':'`, gefolgt von dem Port (der Standardport, `80` und `443` jeweils, falls explizit angegeben);
-- für URLs, die das `file:`-Schema verwenden, ist der Wert browserabhängig;
-- für URLs, die das `blob:`-Schema verwenden, der Ursprung der URL nach `blob:`. Beispielsweise wird `"blob:https://mozilla.org"` den Wert `"https://mozilla.org"` haben.
+- Für URLs, die `http` oder `https` verwenden, das Schema gefolgt von `'://'`, gefolgt von der Domain, gefolgt von `':'`, gefolgt von dem Port (der Standardport, `80` und `443` jeweils, wenn explizit angegeben);
+- Für URLs, die das `file:`-Schema verwenden, ist der Wert abhängig vom Browser;
+- Für URLs, die das `blob:`-Schema verwenden, ist der Ursprung der URL, die auf `blob:` folgt. Z.B. wird `"blob:https://mozilla.org"` `"https://mozilla.org"` als Ursprung haben. 
 
 ## Wert
 
@@ -38,4 +38,4 @@ area.origin; // returns 'https://developer.mozilla.org'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

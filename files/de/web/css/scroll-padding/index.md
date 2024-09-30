@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Padding auf allen Seiten eines Elements gleichzeitig, ähnlich wie die {{cssxref("padding")}}-Eigenschaft das Padding eines Elements bestimmt.
+Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt das Scroll-Padding auf allen Seiten eines Elements gleichzeitig fest, ähnlich wie die {{cssxref("padding")}}-Eigenschaft das Padding eines Elements beeinflusst.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding.html")}}
 
-Die `scroll-padding-*`-Eigenschaften definieren Offsets für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielregion für die Platzierung von Inhalten im Blickfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die `scroll-padding-*` Eigenschaften definieren Versätze für den _optimalen Ansichtsbereich_ des Scrollbereichs: den Bereich, der als Zielregion verwendet wird, um Dinge in die Sicht des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollbereichs auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder zusätzlichen Abstand zwischen einem Ziel-Element und den Rändern des Scrollbereichs zu schaffen.
 
-## Entsprechende Eigenschaften
+## Bestandteile der Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -44,9 +44,9 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein innerer Offset vom entsprechenden Rand des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein Innenabstand vom entsprechenden Rand des Scrollbereichs, entweder als gültige {{cssxref("&lt;length&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist normalerweise `0px`, aber der Benutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen `0px`, aber der User-Agent kann auch eine andere Entscheidung treffen, wenn ein anderer Wert angemessener ist.
 
 ## Formale Definition
 
@@ -67,4 +67,4 @@ scroll-padding: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

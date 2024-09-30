@@ -7,16 +7,16 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL", "Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL")}}
 
-Sobald Sie erfolgreich [einen WebGL-Kontext erstellt haben](/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL), können Sie anfangen, in ihm zu rendern. Eine einfache Sache, die wir tun können, ist, eine untexturierte quadratische Ebene zu zeichnen, also fangen wir damit an.
+Sobald Sie erfolgreich [einen WebGL-Kontext erstellt haben](/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL), können Sie anfangen, darin zu rendern. Eine einfache Sache, die wir tun können, ist, eine untexturierte quadratische Ebene zu zeichnen, also beginnen wir hier.
 
-Der komplette Quellcode für dieses Projekt ist [auf GitHub verfügbar](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample2).
+Der vollständige Quellcode für dieses Projekt ist [auf GitHub verfügbar](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample2).
 
 ## Einbinden der glMatrix-Bibliothek
 
-Dieses Projekt verwendet die [glMatrix](https://glmatrix.net/) Bibliothek, um seine Matrixoperationen durchzuführen. Daher müssen Sie diese in Ihr Projekt einbinden. Wir laden eine Kopie von einem CDN.
+Dieses Projekt verwendet die [glMatrix](https://glmatrix.net/)-Bibliothek, um seine Matrixoperationen durchzuführen. Daher müssen Sie diese in Ihr Projekt einbinden. Wir laden eine Kopie von einem CDN.
 
 > [!NOTE]
-> Aktualisieren Sie Ihre "index.html", damit sie so aussieht:
+> Aktualisieren Sie Ihre "index.html", sodass sie folgendermaßen aussieht:
 
 ```html
 <!doctype html>
@@ -39,30 +39,30 @@ Dieses Projekt verwendet die [glMatrix](https://glmatrix.net/) Bibliothek, um se
 </html>
 ```
 
-## Zeichnen der Szene
+## Die Szene zeichnen
 
-Das Wichtigste, das Sie verstehen müssen, bevor wir beginnen, ist, dass wir, obwohl wir in diesem Beispiel nur ein quadratisches Ebenenobjekt rendern, immer noch in einem 3D-Raum zeichnen. Wir zeichnen jedoch ein Quadrat und platzieren es direkt vor der Kamera senkrecht zur Blickrichtung. Wir müssen die Shader definieren, die die Farbe für unsere einfache Szene erzeugen sowie unser Objekt zeichnen werden. Diese bestimmen, wie die quadratische Ebene auf dem Bildschirm erscheint.
+Das Wichtigste, bevor wir beginnen, ist zu verstehen, dass wir, obwohl wir in diesem Beispiel nur ein quadratisches Flächenobjekt rendern, trotzdem im 3D-Raum zeichnen. Wir zeichnen lediglich ein Quadrat und platzieren es direkt vor der Kamera senkrecht zur Blickrichtung. Wir müssen die Shader definieren, die die Farbe für unsere einfache Szene erzeugen und unser Objekt zeichnen. Diese definieren, wie die quadratische Ebene auf dem Bildschirm erscheint.
 
 ### Die Shader
 
-Ein **Shader** ist ein Programm, geschrieben in der [OpenGL ES Shading Language](https://registry.khronos.org/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.pdf) (**GLSL**), das Informationen über die Vertices, die eine Form bilden, nimmt und die Daten generiert, die benötigt werden, um die Pixel auf dem Bildschirm zu rendern: nämlich die Positionen der Pixel und deren Farben.
+Ein **Shader** ist ein Programm, das mit der [OpenGL ES Shading Language](https://registry.khronos.org/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.pdf) (**GLSL**) geschrieben wird. Es nimmt Informationen über die Scheitelpunkte, aus denen eine Form besteht, und generiert die Daten, die zum Rendern der Pixel auf dem Bildschirm benötigt werden, nämlich die Positionen der Pixel und deren Farben.
 
-Beim Zeichnen von WebGL-Inhalten werden zwei Shader-Funktionen ausgeführt: der **Vertex-Shader** und der **Fragment-Shader**. Diese schreiben Sie in GLSL und übergeben den Text des Codes an WebGL, um ihn für die Ausführung auf der GPU zu kompilieren. Zusammen wird ein Satz von Vertex- und Fragment-Shadern als **Shader-Programm** bezeichnet.
+Beim Zeichnen von WebGL-Inhalten werden zwei Shader-Funktionen ausgeführt: der **Vertex-Shader** und der **Fragment-Shader**. Diese schreiben Sie in GLSL und übergeben den Code als Text an WebGL, um ihn für die Ausführung auf der GPU zu kompilieren. Zusammen wird ein Satz von Vertex- und Fragment-Shadern als **Shader-Programm** bezeichnet.
 
-Lassen Sie uns einen kurzen Blick auf die beiden Shader-Typen werfen, mit dem Beispiel im Kopf, eine 2D-Form in den WebGL-Kontext zu zeichnen.
+Werfen wir einen kurzen Blick auf die beiden Shader-Arten, im Hinblick darauf, eine 2D-Form in den WebGL-Kontext zu zeichnen.
 
 #### Vertex-Shader
 
-Jedes Mal, wenn eine Form gerendert wird, wird der Vertex-Shader für jeden Vertex in der Form ausgeführt. Seine Aufgabe ist es, den Eingabevertex von seinem ursprünglichen Koordinatensystem in das von WebGL verwendete **[Clip-Space](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#clip_space)**-Koordinatensystem zu transformieren, in dem jede Achse einen Bereich von -1.0 bis 1.0 hat, unabhängig von Seitenverhältnis, tatsächlicher Größe oder anderen Faktoren.
+Jedes Mal, wenn eine Form gerendert wird, wird der Vertex-Shader für jeden Scheitelpunkt der Form ausgeführt. Seine Aufgabe ist es, den Eingabescheitelpunkt von seinem ursprünglichen Koordinatensystem in das von WebGL verwendete **[Clip-Space](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#clip_space)**-Koordinatensystem zu transformieren, in dem jede Achse einen Bereich von -1,0 bis 1,0 hat, unabhängig vom Seitenverhältnis, der tatsächlichen Größe oder anderen Faktoren.
 
-Der Vertex-Shader muss die erforderlichen Transformationen auf der Position des Vertexes durchführen, alle anderen Anpassungen oder Berechnungen vornehmen, die er auf einer Pro-Vertex-Basis vornehmen muss, dann den transformierten Vertex zurückgeben, indem er ihn in einer speziellen von GLSL bereitgestellten Variablen speichert, die `gl_Position` genannt wird.
+Der Vertex-Shader muss die notwendigen Transformationen auf die Position des Scheitelpunkts anwenden, alle notwendigen Anpassungen oder Berechnungen auf per-Scheitelpunkt-Basis durchführen und dann den transformierten Scheitelpunkt in einer speziellen von GLSL bereitgestellten Variablen namens `gl_Position` speichern.
 
-Der Vertex-Shader kann nach Bedarf auch Dinge wie die Bestimmung der Koordinaten innerhalb der Textur der Fläche des [Texels](/de/docs/Glossary/texel) vornehmen, das auf den Vertex angewendet werden soll, die Normalen anwenden, um den Beleuchtungsfaktor zu bestimmen, der auf den Vertex angewendet werden soll, und so weiter. Diese Informationen können dann in [Varyings](/de/docs/Web/API/WebGL_API/Data#varyings) oder [Attributes](/de/docs/Web/API/WebGL_API/Data#attributes) gespeichert werden, um mit dem Fragment-Shader geteilt zu werden.
+Der Vertex-Shader kann bei Bedarf auch Dinge wie die Bestimmung der Koordinaten innerhalb der Textur der Fläche des [Texels](/de/docs/Glossary/texel), das auf den Scheitelpunkt angewendet wird, die Anwendung der Normalen zur Bestimmung des Beleuchtungsfaktors für den Scheitelpunkt usw. machen. Diese Informationen können dann in [Varyings](/de/docs/Web/API/WebGL_API/Data#varyings) oder [Attributes](/de/docs/Web/API/WebGL_API/Data#attributes) gespeichert werden, um mit dem Fragment-Shader geteilt zu werden.
 
-Unser untenstehender Vertex-Shader erhält Vertex-Positionswerte von einem Attribut, das wir `aVertexPosition` nennen. Diese Position wird dann mit zwei von uns bereitgestellten 4x4-Matrizen multipliziert, die `uProjectionMatrix` und `uModelViewMatrix` genannt werden; `gl_Position` wird auf das Ergebnis gesetzt. Für weitere Informationen über Projektionen und andere Matrizen [könnten Sie diesen Artikel nützlich finden](https://webglfundamentals.org/webgl/lessons/webgl-3d-perspective.html).
+Unser unten stehender Vertex-Shader empfängt Scheitelpunktpositionswerte von einem Attribut, das wir `aVertexPosition` nennen. Diese Position wird dann mit zwei 4x4-Matrizen multipliziert, die wir bereitstellen, genannt `uProjectionMatrix` und `uModelViewMatrix`; `gl_Position` wird auf das Ergebnis gesetzt. Für weitere Informationen über Projektion und andere Matrizen [könnten Sie diesen Artikel nützlich finden](https://webglfundamentals.org/webgl/lessons/webgl-3d-perspective.html).
 
 > [!NOTE]
-> Fügen Sie diesen Code Ihrer `main()`-Funktion hinzu:
+> Fügen Sie diesen Code zu Ihrer `main()`-Funktion hinzu:
 
 ```js
 // Vertex shader program
@@ -76,18 +76,18 @@ const vsSource = `
   `;
 ```
 
-Es ist erwähnenswert, dass wir ein `vec4`-Attribut für die Vertex-Position verwenden, das eigentlich keinen 4-Komponenten-Vektor verwendet; das heißt, es könnte abhängig von der Situation als `vec2` oder `vec3` behandelt werden. Aber wenn wir unsere Mathematik machen, werden wir es als `vec4` benötigen, also anstatt es jedes Mal in ein `vec4` zu konvertieren, wenn wir Mathematik machen, verwenden wir von Anfang an ein `vec4`. Dies eliminiert Operationen aus jeder Berechnung, die wir in unserem Shader durchführen. Leistung spielt eine Rolle.
+Es ist erwähnenswert, dass wir ein `vec4`-Attribut für die Scheitelpunktposition verwenden, das eigentlich keinen 4-Komponenten-Vektor verwendet, d.h., es könnte je nach Situation als `vec2` oder `vec3` behandelt werden. Aber wenn wir unsere Mathematik durchführen, benötigen wir es als `vec4`, also konvertieren wir es nicht jedes Mal in ein `vec4`, sondern verwenden von Anfang an ein `vec4`. Dies eliminiert Operationen aus jeder Berechnung, die wir in unserem Shader durchführen. Leistung ist wichtig.
 
-In diesem Beispiel berechnen wir überhaupt keine Beleuchtung, da wir noch keine auf die Szene angewandt haben. Das kommt später, im Beispiel [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL). Beachten Sie auch das Fehlen von Arbeiten mit Texturen hier; dies wird in [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL) hinzugefügt.
+In diesem Beispiel berechnen wir überhaupt keine Beleuchtung, da wir noch keine auf die Szene angewendet haben. Das kommt später, im Beispiel [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL). Beachten Sie auch das Fehlen jeglicher Arbeit mit Texturen hier; das wird in [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL) hinzugefügt.
 
 #### Fragment-Shader
 
-Der **Fragment-Shader** wird einmal für jedes Pixel auf jeder zu zeichnenden Form aufgerufen, nachdem die Vertices der Form vom Vertex-Shader verarbeitet wurden. Seine Aufgabe ist es, die Farbe dieses Pixels zu bestimmen, indem er herausfindet, welches Texel (das heißt, das Pixel innerhalb der Textur der Form) auf das Pixel angewendet werden soll, die Farbe dieses Texels zu erhalten und dann die entsprechende Beleuchtung auf die Farbe anzuwenden. Die Farbe wird dann an die WebGL-Schicht zurückgegeben, indem sie in der speziellen Variablen `gl_FragColor` gespeichert wird. Diese Farbe wird dann in der richtigen Position für das entsprechende Pixel der Form auf dem Bildschirm gezeichnet.
+Der **Fragment-Shader** wird einmal für jedes Pixel auf jeder zu zeichnenden Form aufgerufen, nachdem die Scheitelpunkte der Form durch den Vertex-Shader verarbeitet wurden. Seine Aufgabe ist es, die Farbe dieses Pixels zu bestimmen, indem er herausfindet, welches Texel (das ist, das Pixel aus der Textur der Form) auf das Pixel angewendet werden soll, die Farbe dieses Texels abruft und dann die entsprechende Beleuchtung auf die Farbe anwendet. Die Farbe wird dann an die WebGL-Schicht durch Speichern in der speziellen Variablen `gl_FragColor` zurückgegeben. Diese Farbe wird dann an der richtigen Position für das entsprechende Pixel der Form auf den Bildschirm gezeichnet.
 
-In diesem Fall geben wir jedes Mal Weiß zurück, da wir nur ein weißes Quadrat zeichnen, ohne Beleuchtung zu verwenden.
+In diesem Fall geben wir jedes Mal Weiß zurück, da wir nur ein weißes Quadrat ohne Beleuchtung zeichnen.
 
 > [!NOTE]
-> Fügen Sie diesen Code Ihrer `main()`-Funktion hinzu:
+> Fügen Sie diesen Code zu Ihrer `main()`-Funktion hinzu:
 
 ```js
 const fsSource = `
@@ -99,7 +99,7 @@ const fsSource = `
 
 ### Initialisieren der Shader
 
-Jetzt, da wir die beiden Shader definiert haben, müssen wir sie an WebGL übergeben, kompilieren und miteinander verknüpfen. Der untenstehende Code erstellt die beiden Shader, indem er `loadShader()` aufruft und den Typ und den Quellcode für den Shader übergibt. Dann wird ein Programm erstellt, die Shader werden angehängt und diese miteinander verknüpft. Wenn das Kompilieren oder Verknüpfen fehlschlägt, zeigt der Code eine Warnung an.
+Nachdem wir die beiden Shader definiert haben, müssen wir sie an WebGL übergeben, kompilieren und zusammenfügen. Der unten stehende Code erstellt die beiden Shader, indem er `loadShader()` aufruft und den Typ und den Quellcode für den Shader übergibt. Dann erstellt er ein Programm, hängt die Shader an und verlinkt sie. Wenn das Kompilieren oder Verlinken fehlschlägt, zeigt der Code eine Warnung an.
 
 > [!NOTE]
 > Fügen Sie diese beiden Funktionen Ihrem "webgl-demo.js"-Skript hinzu:
@@ -162,16 +162,16 @@ function loadShader(gl, type, source) {
 }
 ```
 
-Die Funktion `loadShader()` nimmt den WebGL-Kontext, den Shader-Typ und den Quellcode als Eingabe, erstellt und kompiliert dann den Shader wie folgt:
+Die `loadShader()`-Funktion nimmt als Eingabe den WebGL-Kontext, den Shader-Typ und den Quellcode, erstellt und kompiliert den Shader wie folgt:
 
-1. Ein neuer Shader wird durch Aufruf von [`gl.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader) erstellt.
-2. Der Quellcode des Shaders wird an den Shader gesendet, indem [`gl.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) aufgerufen wird.
+1. Ein neuer Shader wird durch Aufrufen von [`gl.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader) erstellt.
+2. Der Quellcode des Shaders wird dem Shader durch Aufrufen von [`gl.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) übermittelt.
 3. Sobald der Shader den Quellcode hat, wird er mit [`gl.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) kompiliert.
-4. Um sicherzustellen, dass der Shader erfolgreich kompiliert wurde, wird der Shader-Parameter `gl.COMPILE_STATUS` überprüft. Um seinen Wert zu erhalten, rufen wir [`gl.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter) auf und spezifizieren den Shader und den Namen des Parameters, den wir überprüfen möchten (`gl.COMPILE_STATUS`). Wenn das `false` ist, wissen wir, dass der Shader nicht kompiliert wurde, daher zeigen wir eine Warnung mit Protokollinformationen an, die vom Compiler mit [`gl.getShaderInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getShaderInfoLog) erhalten wurden, löschen dann den Shader und geben `null` zurück, um ein Fehlschlagen beim Laden des Shaders anzuzeigen.
-5. Wenn der Shader geladen und erfolgreich kompiliert wurde, wird der kompilierte Shader an den Aufrufer zurückgegeben.
+4. Um sicherzugehen, dass der Shader erfolgreich kompiliert wurde, wird der Shader-Parameter `gl.COMPILE_STATUS` überprüft. Um seinen Wert zu erhalten, wird [`gl.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter) aufgerufen, wobei der Shader und der Name des zu prüfenden Parameters (`gl.COMPILE_STATUS`) angegeben werden. Wenn das `false` ist, wissen wir, dass der Shader nicht kompiliert wurde, also zeigen wir eine Warnung mit Protokollinformationen vom Compiler an, die mit [`gl.getShaderInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getShaderInfoLog) abgerufen werden, löschen den Shader und geben `null` zurück, um ein Fehlschlagen des Ladevorgangs anzuzeigen.
+5. Wenn der Shader geladen und erfolgreich kompiliert wurde, wird der kompilierte Shader an den Anrufer zurückgegeben.
 
 > [!NOTE]
-> Fügen Sie diesen Code Ihrer `main()`-Funktion hinzu:
+> Fügen Sie diesen Code zu Ihrer `main()`-Funktion hinzu:
 
 ```js
 // Initialize a shader program; this is where all the lighting
@@ -179,10 +179,10 @@ Die Funktion `loadShader()` nimmt den WebGL-Kontext, den Shader-Typ und den Quel
 const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
 ```
 
-Nachdem wir ein Shader-Programm erstellt haben, müssen wir die Orte suchen, die WebGL unseren Eingaben zugewiesen hat. In diesem Fall haben wir ein Attribut und zwei Uniforms. Attribute erhalten Werte aus Buffern. Jede Iteration des Vertex-Shaders erhält den nächsten Wert aus dem Puffer, der diesem Attribut zugewiesen ist. [Uniforms](/de/docs/Web/API/WebGL_API/Data#uniforms) sind ähnlich wie JavaScript-Globale Variablen. Sie bleiben für alle Iterationen eines Shaders gleich. Da die Attribut- und Uniform-Orte spezifisch für ein einzelnes Shader-Programm sind, speichern wir sie zusammen, um sie leicht weitergeben zu können.
+Nachdem wir ein Shader-Programm erstellt haben, müssen wir die von WebGL unseren Eingaben zugewiesenen Positionen ermitteln. In diesem Fall haben wir ein Attribut und zwei Uniforms. Attribute empfangen Werte aus Buffern. Jede Iteration des Vertex-Shaders erhält den nächsten Wert aus dem Buffer, der dem Attribut zugewiesen ist. [Uniforms](/de/docs/Web/API/WebGL_API/Data#uniforms) sind ähnlich wie globale JavaScript-Variablen. Sie behalten denselben Wert für alle Iterationen eines Shaders. Da die Attribut- und Uniform-Positionen spezifisch für ein einzelnes Shader-Programm sind, speichern wir sie zusammen, um sie leichter weitergeben zu können.
 
 > [!NOTE]
-> Fügen Sie diesen Code Ihrer `main()`-Funktion hinzu:
+> Fügen Sie diesen Code zu Ihrer `main()`-Funktion hinzu:
 
 ```js
 // Collect all the info needed to use the shader program.
@@ -202,12 +202,12 @@ const programInfo = {
 
 ## Erstellen der quadratischen Ebene
 
-Bevor wir unsere quadratische Ebene rendern können, müssen wir den Buffer erstellen, der ihre Vertex-Positionen enthält und die Vertex-Positionen darin ablegen.
+Bevor wir unsere quadratische Ebene rendern können, müssen wir den Buffer erstellen, der ihre Scheitelpunktpositionen enthält, und die Scheitelpunktpositionen darin platzieren.
 
-Das werden wir mit einer Funktion namens `initBuffers()` tun, die wir in einem separaten [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) implementieren werden. Während wir fortgeschrittenere WebGL-Konzepte erkunden, wird dieses Modul erweitert, um mehr und komplexere 3D-Objekte zu erstellen.
+Das machen wir mit einer Funktion, die wir `initBuffers()` nennen, die wir in einem separaten [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) implementieren. Während wir fortgeschrittenere WebGL-Konzepte erkunden, wird dieses Modul erweitert, um mehr — und kompliziertere — 3D-Objekte zu erstellen.
 
 > [!NOTE]
-> Erstellen Sie eine neue Datei namens "init-buffers.js" und geben Sie ihr folgenden Inhalt:
+> Erstellen Sie eine neue Datei namens "init-buffers.js" und geben Sie ihr den folgenden Inhalt:
 
 ```js
 function initBuffers(gl) {
@@ -240,16 +240,16 @@ function initPositionBuffer(gl) {
 export { initBuffers };
 ```
 
-Diese Routine ist ziemlich einfach angesichts der grundlegenden Natur der Szene in diesem Beispiel. Sie beginnt mit dem Aufruf der Methode [`createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer) des `gl`-Objekts, um einen Buffer zu erhalten, in dem wir die Vertex-Positionen speichern werden. Dieser wird dann an den Kontext gebunden, indem die Methode [`bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) aufgerufen wird.
+Diese Routine ist ziemlich einfach, angesichts der grundlegenden Natur der Szene in diesem Beispiel. Sie beginnt damit, die Methode [`createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer) des `gl`-Objekts aufzurufen, um einen Buffer zu erhalten, in dem wir die Scheitelpunktpositionen speichern. Dieser wird dann an den Kontext gebunden, indem die Methode [`bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) aufgerufen wird.
 
-Sobald das erledigt ist, erstellen wir ein JavaScript-Array, das die Position für jeden Vertex der quadratischen Ebene enthält. Dies wird dann in ein Array von Floats konvertiert und in die Methode [`bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData) des `gl`-Objekts übergeben, um die Vertex-Positionen für das Objekt festzulegen.
+Sobald das erledigt ist, erstellen wir ein JavaScript-Array mit den Positionen für jeden Scheitelpunkt der quadratischen Ebene. Dieses wird dann in ein Float-Array konvertiert und in die Methode [`bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData) des `gl`-Objekts übergeben, um die Scheitelpunktpositionen für das Objekt festzulegen.
 
-## Rendern der Szene
+## Die Szene rendern
 
-Sobald die Shader festgelegt, die Orte nachgeschlagen und die Vertex-Positionen der quadratischen Ebene in einen Buffer gelegt wurden, können wir die Szene tatsächlich rendern. Wir werden dies in einer Funktion `drawScene()` tun, die wir ebenfalls in einem separaten JavaScript-Modul implementieren werden.
+Sobald die Shader festgelegt sind, die Positionen ermittelt wurden und die Scheitelpunktpositionen der quadratischen Ebene in einem Buffer platziert wurden, können wir tatsächlich die Szene rendern. Wir tun dies in einer `drawScene()`-Funktion, die wir ebenfalls in einem separaten JavaScript-Modul implementieren.
 
 > [!NOTE]
-> Erstellen Sie eine neue Datei namens "draw-scene.js" und geben Sie ihr folgenden Inhalt:
+> Erstellen Sie eine neue Datei namens "draw-scene.js" und geben Sie ihr den folgenden Inhalt:
 
 ```js
 function drawScene(gl, programInfo, buffers) {
@@ -341,14 +341,14 @@ function setPositionAttribute(gl, buffers, programInfo) {
 export { drawScene };
 ```
 
-Der erste Schritt ist, die Leinwand mit unserer Hintergrundfarbe zu löschen; dann etablieren wir die Perspektive der Kamera. Wir setzen ein Sichtfeld von 45°, mit einem Breite-zu-Höhe-Verhältnis, das den Anzeigemaßen unserer Leinwand entspricht. Wir geben auch an, dass wir nur Objekte zwischen 0.1 und 100 Einheiten von der Kamera entfernt rendern wollen.
+Der erste Schritt ist es, die Leinwand in unserer Hintergrundfarbe zu löschen; dann stellen wir die Perspektive der Kamera fest. Wir setzen ein Sichtfeld von 45°, mit einem Breite-zu-Höhe-Verhältnis, das den Anzeigeabmessungen unserer Leinwand entspricht. Wir geben auch an, dass wir nur Objekte zwischen 0,1 und 100 Einheiten von der Kamera entfernt rendern möchten.
 
-Dann legen wir die Position der quadratischen Ebene fest, indem wir die Identitätsposition laden und um 6 Einheiten von der Kamera weg übersetzen. Danach binden wir den Vertex-Buffer des Quadrats an das Attribut, das der Shader für `aVertexPosition` verwendet, und sagen WebGL, wie es die Daten daraus extrahiert. Schließlich zeichnen wir das Objekt, indem wir die Methode [`drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) aufrufen.
+Danach legen wir die Position der quadratischen Ebene fest, indem wir die Identitätsposition laden und 6 Einheiten von der Kamera weg übersetzen. Anschließend binden wir den Scheitelpunktbuffer des Quadrats an das Attribut, das der Shader für `aVertexPosition` verwendet, und weisen WebGL an, wie es die Daten daraus extrahieren soll. Schließlich zeichnen wir das Objekt, indem wir die Methode [`drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) aufrufen.
 
-Zum Schluss rufen wir `initBuffers()` und `drawScene()` auf.
+Am Ende rufen wir `initBuffers()` und `drawScene()` auf.
 
 > [!NOTE]
-> Fügen Sie diesen Code am Anfang Ihrer "webgl-demo.js"-Datei hinzu:
+> Fügen Sie diesen Code am Anfang Ihrer "webgl-demo.js"-Datei ein:
 
 ```js
 import { initBuffers } from "./init-buffers.js";
@@ -371,11 +371,11 @@ Das Ergebnis sollte so aussehen:
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample2/index.html', 670, 510) }}
 
-[Vollständigen Code ansehen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample2) | [Dieses Demo auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample2/)
+[Vollständigen Code anzeigen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample2) | [Öffnen Sie dieses Demo auf einer neuen Seite](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample2/)
 
-## Matrix-Dienstprogramme
+## Matrix-Hilfsoperationen
 
-Matrixoperationen mögen kompliziert erscheinen, aber [sie sind eigentlich ziemlich einfach, wenn Sie sie Schritt für Schritt angehen](https://webglfundamentals.org/webgl/lessons/webgl-2d-matrices.html). Im Allgemeinen verwenden Menschen eine Matrix-Bibliothek anstelle ihre eigene zu schreiben. In unserem Fall verwenden wir die beliebte [glMatrix-Bibliothek](https://glmatrix.net/).
+Matrixoperationen mögen kompliziert erscheinen, aber [sie sind tatsächlich ziemlich einfach, wenn Sie sie Schritt für Schritt durchführen](https://webglfundamentals.org/webgl/lessons/webgl-2d-matrices.html). Im Allgemeinen verwenden die Leute eher eine Matrix-Bibliothek, anstatt ihre eigene zu schreiben. In unserem Fall verwenden wir die beliebte [glMatrix-Bibliothek](https://glmatrix.net/).
 
 ### Siehe auch
 

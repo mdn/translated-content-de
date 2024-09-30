@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`EncodedAudioChunk()`** Konstruktor erstellt ein neues [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt, das ein Stück kodierten Audio repräsentiert.
+Der **`EncodedAudioChunk()`** Konstruktor erstellt ein neues [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk) Objekt, das einen Chunk von kodiertem Audio repräsentiert.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ new EncodedAudioChunk(options)
 - `options`
   - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `type`
-      - : Gibt an, ob der Chunk ein Schlüssel-Chunk ist, das nicht auf andere Frames zur Kodierung angewiesen ist. Eines von:
+      - : Gibt an, ob der Chunk ein Schlüssel-Chunk ist, der nicht von anderen Frames für die Kodierung abhängt. Einer von:
         - `"key"`
           - : Die Daten sind ein Schlüssel-Chunk.
         - `"delta"`
           - : Die Daten sind kein Schlüssel-Chunk.
     - `timestamp`
-      - : Ein Integer, der den Zeitstempel des Audios in Mikrosekunden repräsentiert.
+      - : Ein ganzzahliger Wert, der den Zeitstempel des Audios in Mikrosekunden darstellt.
     - `duration`
-      - : Ein Integer, der die Länge des Audios in Mikrosekunden repräsentiert.
+      - : Ein ganzzahliger Wert, der die Länge des Audios in Mikrosekunden darstellt.
     - `data`
-      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}, die die Audiodaten enthält.
+      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, das die Audiodaten enthält.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `EncodedAudioChunk` abtrennen wird und in den Besitz nehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `EncodedAudioChunk` diesen Puffer direkt verwenden, anstatt davon zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, das `EncodedAudioChunk` ablöst und in Besitz nimmt. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `EncodedAudioChunk` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
 
 ## Beispiele
 

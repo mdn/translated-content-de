@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Objekt, das Eigenschaftswerte repräsentiert, die auf benutzerdefinierte Eigenschaften verweisen.
+Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Objekt, das Eigenschaftswerte darstellt, die auf benutzerdefinierte Eigenschaften verweisen.
 
 ## Syntax
 
@@ -19,7 +19,8 @@ new CSSUnparsedValue(members)
 ### Parameter
 
 - `members`
-  - : Ein Array, dessen Werte entweder ein String oder ein [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) sein müssen.
+  - : Ein Array, dessen Werte entweder ein String oder ein
+    [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) sein müssen.
 
 ## Beispiele
 

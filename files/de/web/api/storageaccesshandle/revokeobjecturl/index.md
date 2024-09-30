@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: revokeObjectURL() Eigenschaft"
+title: "StorageAccessHandle: revokeObjectURL()-Eigenschaft"
 short-title: revokeObjectURL()
 slug: Web/API/StorageAccessHandle/revokeObjectURL
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Lesen Sie [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Verwendung zu verstehen.
+> Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Nutzung zu verstehen.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 - `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static).
+Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ document.requestStorageAccess({ revokeObjectURL: true }).then(
 ```
 
 > [!NOTE]
-> Sehen Sie sich [Die Storage Access API verwenden](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ document.requestStorageAccess({ revokeObjectURL: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Die Storage Access API verwenden](/de/docs/Web/API/Storage_Access_API/Using)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

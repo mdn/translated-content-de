@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt den Portalzustand als einen der folgenden Werte zurück: `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
+Gibt den Portalstatus als einen der folgenden Werte zurück: `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
 
 ## Syntax
 

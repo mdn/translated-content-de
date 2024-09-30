@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: deleteProgram()-Methode"
+title: "WebGLRenderingContext: deleteProgram() Methode"
 short-title: deleteProgram()
 slug: Web/API/WebGLRenderingContext/deleteProgram
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteProgram()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes
-[`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt. Diese Methode hat keine Wirkung, wenn das Programm bereits gelöscht wurde.
+Die **`WebGLRenderingContext.deleteProgram()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt. Diese Methode hat keine Wirkung, wenn das Programm bereits gelöscht wurde.
 
 ## Syntax
 

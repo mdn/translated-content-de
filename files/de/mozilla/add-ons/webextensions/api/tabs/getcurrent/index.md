@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhalten Sie ein {{WebExtAPIRef("tabs.Tab")}} mit Informationen über den Tab, in dem dieses Skript ausgeführt wird.
+Holen Sie ein {{WebExtAPIRef("tabs.Tab")}}, das Informationen über den Tab enthält, in dem dieses Skript ausgeführt wird.
 
 > [!NOTE]
-> Diese Funktion ist nur in Kontexten nützlich, in denen es einen Browser-Tab gibt, wie zum Beispiel auf einer [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#options_pages).
+> Diese Funktion ist nur in Kontexte nützlich, in denen es einen Browser-Tab gibt, wie zum Beispiel eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#options_pages).
 >
-> Wenn Sie diese Funktion in einem Hintergrundskript oder einem Popup aufrufen, wird `undefined` zurückgegeben.
+> Wenn Sie sie aus einem Hintergrundskript oder einem Popup aufrufen, wird `undefined` zurückgegeben.
 
 Dies ist eine asynchrone Funktion, die ein {{jsxref("Promise")}} zurückgibt.
 
@@ -28,11 +28,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt vom Typ {{WebExtAPIRef('tabs.Tab')}} erfüllt wird und Informationen über den aktuellen Tab enthält. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, welches Informationen über den aktuellen Tab enthält. Bei einem Fehler wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
-Erhalten Sie Informationen über den aktuellen Tab:
+Informationen über den aktuellen Tab abrufen:
 
 ```js
 function onGot(tabInfo) {
@@ -54,4 +54,34 @@ gettingCurrent.then(onGot, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.tabs`-API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getCurrent) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

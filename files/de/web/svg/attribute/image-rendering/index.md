@@ -7,18 +7,18 @@ l10n:
 
 {{SVGRef}}
 
-Das **`image-rendering`** Attribut gibt dem Browser einen Hinweis darauf, wie bei der Bildverarbeitung zwischen Geschwindigkeit und Qualität abgewogen werden soll.
+Das **`image-rendering`**-Attribut gibt dem Browser einen Hinweis darauf, wie er Kompromisse zwischen Geschwindigkeit und Qualität beim Bildverarbeitungsprozess machen soll.
 
-Das Resampling erfolgt immer in einem Truecolor-Farbraum (z. B. 24-Bit), auch wenn die Originaldaten und/oder das Zielgerät indizierte Farben verwenden.
+Das Resampling wird immer in einem Truecolor-Farbraum (z. B. 24-Bit) durchgeführt, auch wenn die Originaldaten und/oder das Zielgerät indizierte Farben verwenden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `image-rendering` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("image-rendering")}}.
+> Als Präsentationsattribut kann `image-rendering` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("image-rendering")}} für weitere Informationen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("image")}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -41,11 +41,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent geeignete Abwägungen treffen soll, um Geschwindigkeit und Qualität auszubalancieren, wobei jedoch der Qualität mehr Bedeutung als der Geschwindigkeit beigemessen werden soll.
+  - : Gibt an, dass der Benutzeragent geeignete Kompromisse machen soll, um Geschwindigkeit und Qualität auszubalancieren, wobei der Qualität mehr Bedeutung beigemessen werden soll als der Geschwindigkeit.
 - `optimizeSpeed`
-  - : Gibt an, dass der Benutzeragent die Wiedergabegeschwindigkeit über die Qualität betonen soll.
+  - : Gibt an, dass der Benutzeragent die Rendering-Geschwindigkeit über die Qualität stellen soll.
 - `optimizeQuality`
-  - : Gibt an, dass der Benutzeragent die Qualität über die Wiedergabegeschwindigkeit betonen soll.
+  - : Gibt an, dass der Benutzeragent die Qualität über die Rendering-Geschwindigkeit stellen soll.
 
 ## Spezifikationen
 

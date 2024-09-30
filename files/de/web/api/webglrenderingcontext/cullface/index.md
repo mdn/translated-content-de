@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: cullFace()-Methode"
 short-title: cullFace()
 slug: Web/API/WebGLRenderingContext/cullFace
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.cullFace()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt an, ob Front- und/oder Rückseiten-Polygone entfernt werden können.
+Die **`WebGLRenderingContext.cullFace()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt an, ob Vorder- und/oder Rückflächen von Polygonen entfernt werden können.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ cullFace(mode)
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob Front- oder Rückseiten-Polygone Kandidaten für das Entfernen sind. Der Standardwert ist `gl.BACK`. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob Vorder- oder Rückflächen von Polygonen für das Entfernen infrage kommen. Der Standardwert ist `gl.BACK`. Mögliche Werte sind:
 
     - `gl.FRONT`
     - `gl.BACK`
@@ -28,18 +28,18 @@ cullFace(mode)
 
 ### Rückgabewert
 
-Keinen ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das Entfernen von Polygonen ist standardmäßig deaktiviert. Um das Entfernen zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und [`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument `gl.CULL_FACE`.
+Polygonentfernung ist standardmäßig deaktiviert. Um das Entfernen zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und [`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument `gl.CULL_FACE`.
 
 ```js
 gl.enable(gl.CULL_FACE);
 gl.cullFace(gl.FRONT_AND_BACK);
 ```
 
-Um den aktuellen Modus für die zu entfernenden Flächen abzufragen, verwenden Sie die Konstante `CULL_FACE_MODE`.
+Um den aktuellen Entfernungsmodus der Polygone zu überprüfen, fragen Sie die `CULL_FACE_MODE`-Konstante ab.
 
 ```js
 gl.getParameter(gl.CULL_FACE_MODE) === gl.FRONT_AND_BACK;

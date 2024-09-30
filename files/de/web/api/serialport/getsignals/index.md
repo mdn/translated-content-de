@@ -1,5 +1,5 @@
 ---
-title: "SerialPort: getSignals() Methode"
+title: "SerialPort: Methode getSignals()"
 short-title: getSignals()
 slug: Web/API/SerialPort/getSignals
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`SerialPort.getSignals()`**-Methode der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, welches den aktuellen Zustand der Steuerungssignale des Ports enthält.
+Die **`SerialPort.getSignals()`**-Methode des [`SerialPort`](/de/docs/Web/API/SerialPort)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das den aktuellen Status der Steuerungssignale des Ports enthält.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, welches die folgenden Mitglieder enthält:
+Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
 
 - `clearToSend`
-  - : Ein boolescher Wert, der dem anderen Ende einer seriellen Verbindung anzeigt, dass es in Ordnung ist, Daten zu senden.
+  - : Ein Boolean, der dem anderen Ende einer seriellen Verbindung signalisiert, dass Daten gesendet werden können.
 - `dataCarrierDetect`
-  - : Ein boolescher Wert, der das benötigte Steuersignal umschaltet, um über eine serielle Verbindung zu kommunizieren.
+  - : Ein Boolean, der das Steuersignal umschaltet, das für die Kommunikation über eine serielle Verbindung erforderlich ist.
 - `dataSetReady`
-  - : Ein boolescher Wert, der anzeigt, ob das Gerät bereit ist, Daten zu senden und zu empfangen.
+  - : Ein Boolean, der angibt, ob das Gerät bereit ist, Daten zu senden und zu empfangen.
 - `ringIndicator`
-  - : Ein boolescher Wert, der anzeigt, ob ein Klingelsignal über die serielle Verbindung gesendet werden soll.
+  - : Ein Boolean, der angibt, ob ein Klingelsignal über die serielle Verbindung gesendet werden soll.
 
 ### Ausnahmen
 

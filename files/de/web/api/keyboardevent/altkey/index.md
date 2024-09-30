@@ -1,5 +1,5 @@
 ---
-title: "KeyboardEvent: altKey-Eigenschaft"
+title: "KeyboardEvent: altKey Eigenschaft"
 short-title: altKey
 slug: Web/API/KeyboardEvent/altKey
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.altKey`** ist ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste (<kbd>Option</kbd> oder <kbd>⌥</kbd> auf macOS) gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.altKey`** ist ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste (<kbd>Option</kbd> oder <kbd>⌥</kbd> auf macOS) beim Auftreten des Ereignisses gedrückt wurde (`true`) oder nicht (`false`).
 
 ## Wert
 

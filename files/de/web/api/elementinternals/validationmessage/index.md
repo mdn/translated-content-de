@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte Eigenschaft **`validationMessage`** des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces gibt die Validierungsnachricht für das Element zurück.
+Die schreibgeschützte **`validationMessage`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die Validierungsnachricht für das Element zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der die Validierungsnachricht dieses Elements enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die Validierungsnachricht mit [`ElementInternals.setValidity()`](/de/docs/Web/API/ElementInternals/setValidity) gesetzt und dann mit `validationMessage` zurückgegeben.
+Im folgenden Beispiel wird die Validierungsnachricht mit [`ElementInternals.setValidity()`](/de/docs/Web/API/ElementInternals/setValidity) festgelegt und dann mit `validationMessage` zurückgegeben.
 
 ```js
 this.internals_.setValidity({ valueMissing: true }, "my message");

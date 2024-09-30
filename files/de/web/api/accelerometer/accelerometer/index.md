@@ -1,5 +1,5 @@
 ---
-title: "Accelerometer: Accelerometer() Konstruktor"
+title: "Accelerometer: Accelerometer()-Konstruktor"
 short-title: Accelerometer()
 slug: Web/API/Accelerometer/Accelerometer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`Accelerometer()`** Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer) Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt des Ablesens zurückgibt.
+Der **`Accelerometer()`**-Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zu dem Zeitpunkt zurückgibt, zu dem es gelesen wird.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ new Accelerometer(options)
   - : Die Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Proben pro Sekunde, d.h. die Anzahl der Aufrufe des [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignisses pro Sekunde. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
+      - : Die gewünschte Anzahl von Messungen pro Sekunde, das bedeutet die Anzahl der Male pro Sekunde, die das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder ein Dezimalwert kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lese-Frequenz hängt von der Gerätehardware ab und kann daher geringer als angefordert sein.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ new Accelerometer(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

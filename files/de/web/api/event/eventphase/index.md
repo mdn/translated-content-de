@@ -1,5 +1,5 @@
 ---
-title: "Event: EventPhase-Eigenschaft"
+title: "Event: eventPhase-Eigenschaft"
 short-title: eventPhase
 slug: Web/API/Event/eventPhase
 l10n:
@@ -8,34 +8,33 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`eventPhase`** des
-[`Event`](/de/docs/Web/API/Event)-Interfaces zeigt an, welche Phase des Ereignisablaufs momentan
+Die schreibgeschützte **`eventPhase`**-Eigenschaft des
+[`Event`](/de/docs/Web/API/Event)-Interfaces gibt an, welche Phase des Ereignisflusses derzeit
 ausgewertet wird.
 
 ## Wert
 
-Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Ereignisablaufs angibt. Mögliche Werte sind:
+Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Ereignisflusses angibt. Mögliche Werte sind:
 
 - `Event.NONE` (0)
-  - : Das Ereignis wird derzeit nicht bearbeitet.
+  - : Das Ereignis wird derzeit nicht verarbeitet.
 - `Event.CAPTURING_PHASE` (1)
-  - : Das Ereignis wird durch die Vorfahrenobjekte des Ziels propagiert.
+  - : Das Ereignis wird durch die übergeordneten Objekte des Ziels propagiert.
     Dieser Prozess beginnt mit dem [`Window`](/de/docs/Web/API/Window), dann [`Document`](/de/docs/Web/API/Document),
-    dann das [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement) und so weiter durch die Elemente,
-    bis der Elternteil des Ziels erreicht ist.
-    {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}}
-    die im Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden während dieser Phase ausgelöst.
+    dann dem [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement) und so weiter durch die Elemente,
+    bis das übergeordnete Element des Ziels erreicht ist.
+    {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}},
+    die für den Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden in dieser Phase ausgelöst.
 - `Event.AT_TARGET` (2)
-  - : Das Ereignis hat
-    {{domxref("EventTarget", "das Ziel des Ereignisses", "", 1)}} erreicht.
-    In dieser Phase registrierte Event-Listener werden zu diesem Zeitpunkt aufgerufen. Wenn
-    [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, ist die Bearbeitung
-    des Ereignisses nach Abschluss dieser Phase beendet.
+  - : Das Ereignis ist bei
+    {{domxref("EventTarget", "dem Ziel des Ereignisses", "", 1)}} angekommen.
+    In dieser Phase werden die registrierten Event-Listener aufgerufen. Wenn
+    [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, wird die
+    Verarbeitung des Ereignisses nach Abschluss dieser Phase beendet.
 - `Event.BUBBLING_PHASE` (3)
-  - : Das Ereignis wird in umgekehrter Reihenfolge zurück durch die Vorfahren des Ziels propagiert,
-    beginnend mit dem Elternteil, und erreicht schließlich das enthaltene [`Window`](/de/docs/Web/API/Window).
-    Dies ist als _Bubbling_ bekannt und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles)
-    `true` ist. {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}} registrierte für diese Phase werden während dieses Prozesses ausgelöst.
+  - : Das Ereignis propagiert sich in umgekehrter Reihenfolge wieder durch die Vorfahren des Ziels nach oben,
+    beginnend mit dem übergeordneten Element, und erreicht schließlich das umgebende [`Window`](/de/docs/Web/API/Window).
+    Dies ist bekannt als _Bubbling_ und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `true` ist. {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}} registriert für diese Phase werden während dieses Prozesses ausgelöst.
 
 ## Beispiel
 

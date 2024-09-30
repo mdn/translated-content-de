@@ -1,6 +1,6 @@
 ---
-title: "RTCEncodedAudioFrame: data-Eigenschaft"
-short-title: data
+title: "RTCEncodedAudioFrame: Daten-Eigenschaft"
+short-title: Daten
 slug: Web/API/RTCEncodedAudioFrame/data
 l10n:
   sourceCommit: 7cf04da4f63ea96edfddde0a74ac0d0b1bc4d12e
@@ -16,10 +16,10 @@ Ein {{jsxref("ArrayBuffer")}}.
 
 ## Beispiele
 
-Dieses Beispiel für eine [WebRTC-kodierte Transformation](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Rahmendaten in einer `transform()`-Funktion eines [`TransformStream`](/de/docs/Web/API/TransformStream) erhalten und die Bits modifizieren könnten.
+Dieses Beispiel eines [WebRTC-kodierten Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Frame-Daten in einer [`TransformStream`](/de/docs/Web/API/TransformStream)-`transform()`-Funktion abrufen und die Bits modifizieren könnten.
 
-Die `transform()`-Funktion erstellt eine {{jsxref("DataView")}} auf dem Puffer in der Frame-Eigenschaft `data` und erstellt auch eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
-Dann schreibt sie die negierten Bytes der Originaldaten in den neuen Puffer, weist den Puffer der kodierten Frame-Eigenschaft `data` zu und stellt den modifizierten Frame in den Stream ein.
+Die `transform()`-Funktion erstellt ein {{jsxref("DataView")}} auf dem Puffer in der `data`-Eigenschaft des Frames und erzeugt ebenfalls eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
+Dann schreibt sie die negierten Bytes der ursprünglichen Daten in den neuen Puffer, weist den Puffer der `data`-Eigenschaft des kodierten Frames zu und stellt den modifizierten Frame im Stream in die Warteschlange.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -47,7 +47,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass der umgebende Code, der hier gezeigt wird, in [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
+Beachten Sie, dass der umgebende Code hier im Abschnitt [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Beachten Sie, dass der umgebende Code, der hier gezeigt wird, in [Verwendung von
 
 ## Siehe auch
 
-- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

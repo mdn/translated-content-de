@@ -36,7 +36,7 @@ range.setEnd(endNode, endOffset);
 
 ## Hinweise
 
-Sobald ein `Range` erstellt ist, müssen Sie seine Begrenzungspunkte festlegen, bevor Sie die meisten seiner Methoden nutzen können.
+Sobald ein `Range` erstellt wurde, müssen Sie seine Grenzpunkte festlegen, bevor Sie die meisten seiner Methoden nutzen können.
 
 ## Spezifikationen
 

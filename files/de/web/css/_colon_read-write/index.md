@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
+Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie zum Beispiel `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-write.html", "tabbed-shorter")}}
 
@@ -21,11 +21,11 @@ Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Ps
 
 ## Beispiele
 
-### Bestätigung von Formularinformationen in nur-lesbare/lesbare und beschreibbare Steuerungen
+### Bestätigung von Formularinformationen in schreibgeschützten/schreibbaren Steuerelementen
 
-Eine Verwendung von `readonly`-Formularsteuerungen besteht darin, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Lieferdetails), während er weiterhin in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu übermitteln. Genau das tun wir im folgenden Beispiel.
+Eine Verwendung von `readonly`-Formularsteuerelementen besteht darin, dem Benutzer zu erlauben, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Lieferdetails), während er die Informationen zusammen mit dem Rest des Formulars dennoch absenden kann. Genau das tun wir im untenstehenden Beispiel.
 
-Die `:read-only`-Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingaben wie klickbare Felder aussehen lässt, und sie eher wie nur-lesbare Absätze wirken zu lassen. Die `:read-write`-Pseudoklasse hingegen wird verwendet, um dem bearbeitbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
+Die `:read-only` Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, und sie stattdessen wie schreibgeschützte Absätze erscheinen zu lassen. Die `:read-write` Pseudoklasse hingegen wird verwendet, um das bearbeitbare `<textarea>` ansprechend zu gestalten.
 
 ```css
 input:-moz-read-only,
@@ -44,13 +44,13 @@ textarea:read-write {
 }
 ```
 
-Den vollständigen Quellcode finden Sie unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html); dies wird wie folgt gerendert:
+Der vollständige Quellcode befindet sich unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html); dies wird wie folgt dargestellt:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/readonly-confirmation.html", '100%', 660)}}
 
-### Styling von beschreibbaren Nicht-Formular-Steuerungen
+### Styling schreibbarer Nicht-Formular-Steuerelemente
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie etwa ein {{htmlelement("p")}}-Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie beispielsweise ein {{htmlelement("p")}}-Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -88,4 +88,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-only")}}
-- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut
+- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)

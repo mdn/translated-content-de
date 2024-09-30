@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Screen Orientation API")}}
 
-Die **Screen Orientation API** bietet Informationen über die Ausrichtung des Bildschirms.
+Die **Screen Orientation API** liefert Informationen über die Ausrichtung des Bildschirms.
 
 ## Schnittstellen
 

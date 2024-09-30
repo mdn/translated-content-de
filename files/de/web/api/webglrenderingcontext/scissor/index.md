@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: scissor()-Methode"
 short-title: scissor()
 slug: Web/API/WebGLRenderingContext/scissor
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.scissor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt einen Schereneffektbereich, der das Zeichnen auf ein bestimmtes Rechteck beschränkt.
+Die **`WebGLRenderingContext.scissor()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) setzt eine "Scissor Box", die das Zeichnen auf ein angegebenes Rechteck begrenzt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ scissor(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die horizontale Koordinate für die untere linke Ecke des Bereichs spezifiziert. Standardwert: 0.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die horizontale Koordinate für die linke untere Ecke der Box angibt. Standardwert: 0.
 - `y`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die vertikale Koordinate für die untere linke Ecke des Bereichs spezifiziert. Standardwert: 0.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die vertikale Koordinate für die linke untere Ecke der Box angibt. Standardwert: 0.
 - `width`
-  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Schereneffektbereichs spezifiziert. Standardwert: Breite der Leinwand.
+  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der "Scissor Box" angibt. Standardwert: Breite der Leinwand.
 - `height`
-  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Schereneffektbereichs spezifiziert. Standardwert: Höhe der Leinwand.
+  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der "Scissor Box" angibt. Standardwert: Höhe der Leinwand.
 
 ### Rückgabewert
 
@@ -33,11 +33,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn entweder _width_ oder _height_ ein negativer Wert ist, wird ein Fehler `gl.INVALID_VALUE` ausgelöst.
+Wenn entweder _width_ oder _height_ ein negativer Wert ist, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
 
 ## Beispiele
 
-Wenn der Scherentest aktiviert ist, können nur die Pixel innerhalb des Schereneffektbereichs durch Zeichenbefehle modifiziert werden.
+Wenn der "Scissor Test" aktiviert ist, können nur Pixel innerhalb der "Scissor Box" durch Zeichenbefehle verändert werden.
 
 ```js
 // turn on scissor test
@@ -52,7 +52,7 @@ gl.scissor(x, y, width, height);
 gl.disable(gl.SCISSOR_TEST);
 ```
 
-Um die aktuellen Dimensionen des Schereneffektbereichs zu erhalten, fragen Sie die Konstante `SCISSOR_BOX` ab, die einen {{jsxref("Int32Array")}} zurückgibt.
+Um die aktuellen Abmessungen der "Scissor Box" zu erhalten, fragen Sie die `SCISSOR_BOX`-Konstante ab, die ein {{jsxref("Int32Array")}} zurückgibt.
 
 ```js
 gl.scissor(0, 0, 200, 200);

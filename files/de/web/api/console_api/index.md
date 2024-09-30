@@ -7,23 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("Console API")}} {{AvailableInWorkers}}
 
-Die Console API bietet Funktionen, die es Entwicklern ermöglichen, Debugging-Aufgaben durchzuführen, wie zum Beispiel das Protokollieren von Nachrichten oder den Werten von Variablen an bestimmten Stellen im Code, oder das Messen der Zeit, die eine Operation für den Abschluss benötigt.
+Die Console API bietet Funktionen, mit denen Entwickler Debugging-Aufgaben durchführen können, wie das Protokollieren von Nachrichten oder Werten von Variablen an bestimmten Stellen im Code oder das Messen, wie lange eine Operation dauert, um abzuschließen.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Die Console API begann als weitgehend proprietäre API, wobei verschiedene Browser sie auf unterschiedliche, oft inkonsistente Weise implementierten. Die [Console API-Spezifikation](https://console.spec.whatwg.org/) wurde erstellt, um ein konsistentes Verhalten zu definieren, und alle modernen Browser einigten sich schließlich darauf, dieses Verhalten zu implementieren — obwohl einige Implementierungen ihre eigenen zusätzlichen proprietären Funktionen beibehalten haben. Weitere Informationen dazu finden Sie unter:
+Die Console API begann als weitgehend proprietäre API, wobei verschiedene Browser sie auf unterschiedliche, oft inkonsistente Weisen implementierten. [Die Console API Spezifikation](https://console.spec.whatwg.org/) wurde erstellt, um konsistentes Verhalten zu definieren, und alle modernen Browser einigten sich schließlich darauf, dieses Verhalten zu implementieren — obwohl einige Implementierungen immer noch ihre eigenen zusätzlichen proprietären Funktionen haben. Weitere Informationen finden Sie unter:
 
-- [Google Chrome DevTools-Implementierung](https://developer.chrome.com/docs/devtools/console/api/)
-- [Safari DevTools-Implementierung](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Console/Console.html)
+- [Google Chrome DevTools Implementation](https://developer.chrome.com/docs/devtools/console/api/)
+- [Safari DevTools Implementation](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Console/Console.html)
 
-Die Verwendung ist sehr einfach — das [`console`](/de/docs/Web/API/Console)-Objekt enthält viele Methoden, die Sie aufrufen können, um grundlegende Debugging-Aufgaben durchzuführen, die sich im Allgemeinen auf das Protokollieren verschiedener Werte zur [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) des Browsers konzentrieren.
+Die Nutzung ist sehr einfach — das [`console`](/de/docs/Web/API/Console) Objekt enthält viele Methoden, die Sie aufrufen können, um grundlegende Debugging-Aufgaben durchzuführen, die sich im Allgemeinen darauf konzentrieren, verschiedene Werte zur [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) des Browsers zu protokollieren.
 
-Bei weitem die am häufigsten verwendete Methode ist [`console.log()`](/de/docs/Web/API/Console/log_static), die verwendet wird, um den aktuellen Wert, der in einer bestimmten Variablen enthalten ist, zu protokollieren.
+Mit Abstand die am häufigsten verwendete Methode ist [`console.log()`](/de/docs/Web/API/Console/log_static), die verwendet wird, um den aktuellen Wert zu protokollieren, der in einer bestimmten Variablen enthalten ist.
 
 ## Schnittstellen
 
 - [`console`](/de/docs/Web/API/Console)
-  - : Bietet grundlegende Debugging-Funktionen, einschließlich Protokollierung, Stack-Traces, Timer und Zähler.
+  - : Bietet grundlegende Debugging-Funktionalität, einschließlich Protokollierung, Stack-Traces, Timer und Zähler.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ let myString = "Hello world";
 console.log(myString);
 ```
 
-Siehe die [console](/de/docs/Web/API/console)-Referenzseite für weitere Beispiele.
+Weitere Beispiele finden Sie auf der [console](/de/docs/Web/API/console) Referenzseite.
 
 ## Spezifikationen
 
@@ -46,6 +46,6 @@ Siehe die [console](/de/docs/Web/API/console)-Referenzseite für weitere Beispie
 
 ## Siehe auch
 
-- [Tools](https://firefox-source-docs.mozilla.org/devtools-user/index.html)
-- [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) — wie die Webkonsole in Firefox mit Console-API-Aufrufen umgeht
-- [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html) — wie Sie Konsolenausgaben sehen können, wenn das Debugging-Ziel ein mobiles Gerät ist
+- [Werkzeuge](https://firefox-source-docs.mozilla.org/devtools-user/index.html)
+- [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) — wie die Web-Konsole in Firefox Konsolen-API-Aufrufe behandelt
+- [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html) — wie die Konsolenausgabe angezeigt wird, wenn das Debug-Ziel ein mobiles Gerät ist

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`pending`**-Eigenschaft der
-[`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle ist ein boolescher Wert, der
-`true` zurückgibt, wenn die Warteschlange der Äußerungen noch nicht gesprochene Äußerungen enthält.
+Die **`pending`** schreibgeschützte Eigenschaft des
+[`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) Interfaces ist ein boolescher Wert, der
+`true` zurückgibt, wenn sich unausgesprochene Äußerungen in der Warteschlange befinden.
 
 ## Wert
 

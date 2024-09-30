@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Hyperlinks verbinden Webseiten oder Datenpunkte miteinander. In HTML definieren {{HTMLElement("a")}}-Elemente Hyperlinks von einem Punkt auf einer Webseite (wie ein Textstring oder Bild) zu einem anderen Punkt auf einer anderen Webseite (oder sogar auf derselben Seite).
+Hyperlinks verbinden Webseiten oder Datenelemente miteinander. In HTML definieren {{HTMLElement("a")}}-Elemente Hyperlinks von einer Stelle auf einer Webseite (wie ein Textstring oder Bild) zu einer anderen Stelle auf einer anderen Webseite (oder sogar auf derselben Seite).
 
 ## Siehe auch
 

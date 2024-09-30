@@ -1,5 +1,5 @@
 ---
-title: "Animation: playState-Eigenschaft"
+title: "Animation: playState Eigenschaft"
 short-title: playState
 slug: Web/API/Animation/playState
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die schreibgeschützte **`Animation.playState`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen enumerierten Wert zurück, der den Wiedergabestatus einer Animation beschreibt.
+Die schreibgeschützte **`Animation.playState`** Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen enumerierten Wert zurück, der den Wiedergabestatus einer Animation beschreibt.
 
 ## Wert
 
 - `idle`
-  - : Die aktuelle Zeit der Animation ist nicht aufgelöst und es gibt keine ausstehenden Aufgaben.
+  - : Die aktuelle Zeit der Animation ist nicht aufgelöst, und es gibt keine ausstehenden Aufgaben.
 - `running`
   - : Die Animation läuft.
 - `paused`
-  - : Die Animation wurde angehalten und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime)-Eigenschaft wird nicht aktualisiert.
+  - : Die Animation wurde angehalten, und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) Eigenschaft wird nicht aktualisiert.
 - `finished`
-  - : Die Animation hat einen ihrer Grenzen erreicht und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime)-Eigenschaft wird nicht aktualisiert.
+  - : Die Animation hat eine ihrer Grenzen erreicht, und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) Eigenschaft wird nicht aktualisiert.
 
-Früher definierte Web Animations einen **`pending`**-Wert, um anzuzeigen, dass ein asynchroner Vorgang wie das Starten der Wiedergabe noch nicht abgeschlossen war. Dies wird nun durch die separate [`Animation.pending`](/de/docs/Web/API/Animation/pending)-Eigenschaft angezeigt.
+Früher definierte Web Animations einen **`pending`** Wert, um anzuzeigen, dass ein asynchroner Vorgang wie das Initiieren der Wiedergabe noch nicht abgeschlossen war. Dies wird nun durch die separate [`Animation.pending`](/de/docs/Web/API/Animation/pending) Eigenschaft angezeigt.
 
 ## Beispiele
 
-Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) können Spieler ein Ende erreichen, bei dem [Alice in einen Tränenpool weint](https://codepen.io/rachelnabors/pen/EPJdJx?editors=0010). Im Spiel sollten aus Leistungsgründen die Tränen nur dann animiert werden, wenn sie sichtbar sind. Sie müssen daher wie folgt pausiert werden, sobald sie animiert sind:
+Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) Beispiel können die Spieler ein Ende erleben, in dem [Alice in einen Tränenpool weint](https://codepen.io/rachelnabors/pen/EPJdJx?editors=0010). Im Spiel sollten aus Leistungsgründen die Tränen nur animiert werden, wenn sie sichtbar sind. Daher müssen sie sofort pausiert werden, sobald sie animiert sind, wie folgt:
 
 ```js
 // Setting up the tear animations
@@ -65,4 +65,4 @@ tears.forEach((el) => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung der Animation auf Webseiten verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Web-Seiten-Animationen verwenden können.

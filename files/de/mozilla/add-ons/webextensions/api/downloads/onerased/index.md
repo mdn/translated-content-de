@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Das **`onErased()`** Event der {{WebExtAPIRef("downloads")}} API wird ausgelöst, wenn ein Download aus dem Browserverlauf gelöscht wird.
+Das **`onErased()`**-Ereignis der {{WebExtAPIRef("downloads")}} API wird ausgelöst, wenn ein Download aus dem Browserverlauf gelöscht wird.
 
-Dem Listener wird die `downloadId` des betreffenden {{WebExtAPIRef('downloads.DownloadItem')}} Objekts als Parameter übergeben.
+Der Listener erhält die `downloadId` des betreffenden {{WebExtAPIRef('downloads.DownloadItem')}}-Objekts als Parameter.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ browser.downloads.onErased.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Event einen Listener hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Event. Das `listener` Argument ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob ein gegebener `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
+  - : Überprüft, ob ein gegebener `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, `false` sonst.
 
 ## addListener-Syntax
 
@@ -34,10 +34,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Event eintritt. Dieser Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Diese Funktion erhält das folgende Argument:
 
     - `downloadId`
-      - : Ein `integer`, der die `id` des gelöschten {{WebExtAPIRef('downloads.DownloadItem')}} darstellt.
+      - : Eine `integere` Zahl, die die `id` des gelöschten {{WebExtAPIRef('downloads.DownloadItem')}} darstellt.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +45,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Fügen Sie einen Listener für `onErased` Events hinzu und löschen Sie dann den zuletzt heruntergeladenen Eintrag:
+Fügen Sie einen Listener für `onErased`-Ereignisse hinzu und löschen Sie dann den neuesten Download:
 
 ```js
 function handleErased(item) {
@@ -63,7 +63,7 @@ let erasing = browser.downloads.erase({
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onErased) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onErased) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Schließt die Seitenleiste im aktiven Fenster, wenn es sich um die eigene Seitenleiste der Erweiterung handelt.
+Schließt die Seitenleiste im aktiven Fenster, falls es sich um die eigene Seitenleiste der Erweiterung handelt.
 
 Diese Funktion kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufgerufen werden.
 

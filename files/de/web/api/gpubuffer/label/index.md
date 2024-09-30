@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Interfaces bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Interfaces bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das im ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) übergeben wird, oder Sie können sie direkt am `GPUBuffer`-Objekt abrufen und festlegen.
+Dieses kann durch Bereitstellen einer `label`-Eigenschaft im Deskriptorobjekt, das in den ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) übergeben wird, gesetzt werden. Alternativ kann es direkt im `GPUBuffer`-Objekt abgerufen und gesetzt werden.
 
 ## Wert
 
-Ein String. Wenn dies nicht zuvor wie oben beschrieben gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Setzen und Abrufen einer Bezeichnung über `GPUBuffer.label`:
+Setzen und Abrufen eines Labels über `GPUBuffer.label`:
 
 ```js
 const output = device.createBuffer({
@@ -31,7 +31,7 @@ output.label = "mybuffer";
 console.log(output.label); // "mybuffer"
 ```
 
-Setzen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) und dann Abrufen über `GPUBuffer.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) und anschließendem Abrufen über `GPUBuffer.label`:
 
 ```js
 const output = device.createBuffer({
@@ -53,4 +53,4 @@ console.log(output.label); // "mybuffer"
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

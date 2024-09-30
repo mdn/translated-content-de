@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Privilegierter Code** - JavaScript-Code Ihrer Erweiterung. Zum Beispiel Code in Content-Skripten.
+**Privileged code** - JavaScript-Code Ihrer Erweiterung. Zum Beispiel Code in Content Scripts.
 
-**Nicht privilegiert** - JavaScript auf der Webseite.
+**Non-privileged** - JavaScript auf einer Webseite.

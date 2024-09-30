@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: for-in Schleifen-Kopfanweisungen dürfen keine Initialisierer haben"
+title: "SyntaxError: Deklarationen im Kopf einer for-in-Schleife dürfen keine Initialisierer enthalten"
 slug: Web/JavaScript/Reference/Errors/Invalid_for-in_initializer
 l10n:
   sourceCommit: a71b8929628a2187794754c202ad399fe357141b
@@ -7,9 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-Ausnahme
-"for-in loop head declarations may not have initializers"
-tritt auf, wenn der Kopf eines [for...in](/de/docs/Web/JavaScript/Reference/Statements/for...in) eine Initialisierungsanweisung enthält, wie zum Beispiel `for (var i = 0 in obj)`. Dies ist in for-in-Schleifen im Strict Mode nicht erlaubt. Darüber hinaus sind lexikalische Deklarationen mit Initialisierern wie `for (const i = 0 in obj)` auch außerhalb des Strict Mode nicht erlaubt.
+Die JavaScript-Ausnahme im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) "Deklarationen im Kopf einer for-in-Schleife dürfen keine Initialisierer enthalten" tritt auf, wenn der Kopf einer [for...in](/de/docs/Web/JavaScript/Reference/Statements/for...in) eine Initialisierungs-Ausdruck enthält, wie in `for (var i = 0 in obj)`. Dies ist in for-in-Schleifen im Strict-Modus nicht erlaubt. Darüber hinaus sind lexikalische Deklarationen mit Initialisierern wie `for (const i = 0 in obj)` auch außerhalb des Strict-Modus nicht erlaubt.
 
 ## Nachricht
 
@@ -24,12 +22,9 @@ SyntaxError: Cannot assign to the loop variable inside a for-in loop header. (Sa
 
 {{jsxref("SyntaxError")}}.
 
-## Was schief lief
+## Was schiefgelaufen ist
 
-Der Kopf einer [for...in](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife enthält eine Initialisierungsanweisung.
-Das heißt, eine Variable wird deklariert und erhält einen Wert `for (var i = 0 in obj)`.
-Im Nicht-Strict Mode wird diese Kopfanweisung stillschweigend ignoriert und verhält sich wie `for (var i in obj)`.
-Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird jedoch ein `SyntaxError` ausgelöst. Darüber hinaus sind lexikalische Deklarationen mit Initialisierern wie `for (const i = 0 in obj)` auch außerhalb des Strict Mode nicht erlaubt und führen immer zu einem `SyntaxError`.
+Der Kopf einer [for...in](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife enthält einen Initialisierungs-Ausdruck. Das heißt, eine Variable wird deklariert und ein Wert zugewiesen `for (var i = 0 in obj)`. Im Nicht-Strict-Modus wird diese Kopfdeklaration stillschweigend ignoriert und verhält sich wie `for (var i in obj)`. Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) wird jedoch ein `SyntaxError` ausgelöst. Darüber hinaus sind lexikalische Deklarationen mit Initialisierern wie `for (const i = 0 in obj)` auch außerhalb des Strict-Modus nicht erlaubt und erzeugen immer einen `SyntaxError`.
 
 ## Beispiele
 
@@ -45,7 +40,7 @@ for (const i = 0 in obj) {
 // SyntaxError: for-in loop head declarations may not have initializers
 ```
 
-### Gültige for-in Schleife
+### Gültige for-in-Schleife
 
 Sie können den Initialisierer (`i = 0`) im Kopf der for-in-Schleife entfernen.
 
@@ -59,9 +54,7 @@ for (const i in obj) {
 
 ### Array-Iteration
 
-Die for...in-Schleife [sollte nicht für die Array-Iteration verwendet werden](/de/docs/Web/JavaScript/Reference/Statements/for...in#array_iteration_and_for...in).
-Wollten Sie statt einer `for-in`-Schleife eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife verwenden, um über ein {{jsxref("Array")}} zu iterieren? Die
-`for`-Schleife ermöglicht es Ihnen auch, einen Initialisierer zu setzen:
+Die for...in-Schleife [sollte nicht für die Array-Iteration verwendet werden](/de/docs/Web/JavaScript/Reference/Statements/for...in#array_iteration_and_for...in). Haben Sie beabsichtigt, eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife anstelle einer `for-in`-Schleife zu verwenden, um ein {{jsxref("Array")}} zu iterieren? Die `for`-Schleife ermöglicht es Ihnen, dann auch einen Initialisierer festzulegen:
 
 ```js example-good
 const arr = ["a", "b", "c"];

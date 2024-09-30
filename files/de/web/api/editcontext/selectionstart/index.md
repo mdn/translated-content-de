@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`selectionStart`**-Eigenschaft des [`EditContext`](/de/docs/Web/API/EditContext) bezieht sich auf den Versatz innerhalb des bearbeitbaren Textinhalts des Beginns der aktuellen Auswahl.
+Die schreibgeschützte Eigenschaft **`selectionStart`** des [`EditContext`](/de/docs/Web/API/EditContext) gibt den Versatz innerhalb des bearbeitbaren Textinhalts an, ab dem die aktuelle Auswahl beginnt.
 
 ## Wert
 
-Ein {{jsxref("Number")}}
+Eine {{jsxref("Number")}}
 
 ## Beispiele
 
 ### Verwendung von `selectionStart` zur Darstellung der Benutzerauswahl in einem bearbeitbaren Canvas
 
-Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` verwendet werden, um die aktuelle Auswahl in einem `<canvas>`-Element darzustellen, das mit einem `EditContext` verbunden ist.
+Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` verwendet werden, um die aktuelle Auswahl in einem `<canvas>`-Element zu zeichnen, das mit einem `EditContext` verbunden ist.
 
 ```html
 <canvas id="editor-canvas"></canvas>

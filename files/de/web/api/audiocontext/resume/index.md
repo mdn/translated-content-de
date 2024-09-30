@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`resume()`**-Methode des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces setzt die zeitliche Fortschreitung in einem Audio-Kontext fort, der zuvor angehalten wurde.
+Die **`resume()`**-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle setzt den Zeitverlauf in einem Audio-Kontext fort, der zuvor ausgesetzt wurde.
 
-Diese Methode führt zu einer `INVALID_STATE_ERR`-Ausnahme, wenn sie bei einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
+Diese Methode löst eine `INVALID_STATE_ERR`-Ausnahme aus, wenn sie auf einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der aufgelöst wird, wenn der Kontext fortgesetzt wurde. Das Versprechen wird abgelehnt, wenn der Kontext bereits geschlossen wurde.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn der Kontext fortgesetzt wurde. Das Promise wird abgelehnt, wenn der Kontext bereits geschlossen wurde.
 
 ## Beispiele
 
-Der folgende Codeausschnitt stammt aus unserem [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples/tree/main/audiocontext-states) ([siehe es live](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Wenn die Suspendieren/Fortsetzen-Schaltfläche gedrückt wird, wird der [`AudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) abgefragt — wenn er `running` ist, wird [`suspend()`](/de/docs/Web/API/AudioContext/suspend) aufgerufen; wenn er `suspended` ist, wird `resume()` aufgerufen. In jedem Fall wird das Textlabel der Schaltfläche entsprechend aktualisiert, sobald das Versprechen aufgelöst wird.
+Der folgende Ausschnitt stammt aus unserem [AudioContext-Zustände-Demo](https://github.com/mdn/webaudio-examples/tree/main/audiocontext-states) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Wenn die Suspendieren/Fortsetzen-Schaltfläche geklickt wird, wird der [`AudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) abgefragt — wenn er `running` ist, wird [`suspend()`](/de/docs/Web/API/AudioContext/suspend) aufgerufen; wenn er `suspended` ist, wird `resume()` aufgerufen. In jedem Fall wird das Textlabel der Schaltfläche entsprechend aktualisiert, sobald das Promise aufgelöst wird.
 
 ```js
 susresBtn.onclick = () => {

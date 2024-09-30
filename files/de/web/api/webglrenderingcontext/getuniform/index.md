@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: getUniform() Methode"
+title: "WebGLRenderingContext: Methode getUniform()"
 short-title: getUniform()
 slug: Web/API/WebGLRenderingContext/getUniform
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getUniform()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Wert einer Uniform-Variablen an einer bestimmten Position zurück.
+Die **`WebGLRenderingContext.getUniform()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Wert einer Uniform-Variable an einer gegebenen Position zurück.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getUniform(program, location)
 - `program`
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das Uniform-Attribut enthält.
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das die Position des abzurufenden Uniform-Attributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das die Position des zu holenden Uniform-Attributs enthält.
 
 ### Rückgabewert
 
@@ -162,7 +162,7 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
       <td>{{jsxref("Float32Array")}} (mit 12 Elementen)</td>
     </tr>
     <tr>
-      <td>jeder Sampler-Typ</td>
+      <td>Jeder Sampler-Typ</td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
   </tbody>

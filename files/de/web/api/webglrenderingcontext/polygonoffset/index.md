@@ -1,18 +1,18 @@
 ---
-title: "WebGLRenderingContext: polygonOffset() Methode"
+title: "WebGLRenderingContext: polygonOffset()-Methode"
 short-title: polygonOffset()
 slug: Web/API/WebGLRenderingContext/polygonOffset
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.polygonOffset()`**-Methode der
 [WebGL API](/de/docs/Web/API/WebGL_API) legt die Skalierungsfaktoren und
-Einheiten zur Berechnung von Tiefenwerten fest.
+Einheiten fest, um Tiefenwerte zu berechnen.
 
-Der Offset wird hinzugefügt, bevor der Tiefentest durchgeführt wird und bevor der Wert
+Der Offset wird hinzugefügt, bevor der Tiefentest durchgeführt und bevor der Wert
 in den Tiefenpuffer geschrieben wird.
 
 ## Syntax
@@ -37,8 +37,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der Polygon-Offset-Fill ist standardmäßig deaktiviert. Um den Polygon-Offset-Fill zu aktivieren oder zu deaktivieren, verwenden Sie die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
-[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) Methoden mit dem Argument
+Das Polygon-Offset-Fill ist standardmäßig deaktiviert. Um das Polygon-Offset-Fill zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
+[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument
 `gl.POLYGON_OFFSET_FILL`.
 
 ```js
@@ -46,8 +46,8 @@ gl.enable(gl.POLYGON_OFFSET_FILL);
 gl.polygonOffset(2, 3);
 ```
 
-Um den aktuellen Polygon-Offset-Faktor oder die Einheiten zu überprüfen, fragen Sie die
-`POLYGON_OFFSET_FACTOR` und `POLYGON_OFFSET_UNITS` Konstanten ab.
+Um den aktuellen Polygon-Offset-Faktor oder die Einheiten zu überprüfen, fragen Sie die Konstanten
+`POLYGON_OFFSET_FACTOR` und `POLYGON_OFFSET_UNITS` ab.
 
 ```js
 gl.getParameter(gl.POLYGON_OFFSET_FACTOR); // 2

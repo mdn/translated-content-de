@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformComponent: Eigenschaft is2D"
+title: "CSSTransformComponent: is2D-Eigenschaft"
 short-title: is2D
 slug: Web/API/CSSTransformComponent/is2D
 l10n:
@@ -12,11 +12,11 @@ Die **`is2D`** schreibgeschützte Eigenschaft der [`CSSTransformComponent`](/de/
 
 ## Wert
 
-Ein Boolescher Wert. Wahr bedeutet, dass die Transformation eine 2D-Transformation ist, falsch, wenn es sich um eine 3D-Transformation handelt.
+Ein boolescher Wert. `True` zeigt an, dass die Transformation eine 2D-Transformation ist, `false`, wenn es sich um eine 3D-Transformation handelt.
 
 ## Beispiele
 
-In Kürze
+In Bearbeitung
 
 ## Spezifikationen
 

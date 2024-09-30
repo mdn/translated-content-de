@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
 
-Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Methode **`complete()`** nimmt zuvor empfangene händlerspezifische Informationen von der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) und verwendet sie zur Validierung des Händlers.
+Die Methode **`complete()`** von [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) verwendet zuvor von der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) empfangene händlerspezifische Informationen, um den Händler zu validieren.
 
-Alles, was Sie tun müssen, ist `complete()` innerhalb Ihres Handlers für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis aufzurufen und die von der `validationURL` abgerufenen Daten zu übergeben.
+Alles, was Sie tun müssen, ist `complete()` aus Ihrem Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis aufzurufen, wobei die von der `validationURL` abgerufenen Daten übergeben werden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ complete(merchantSessionPromise)
 ### Parameter
 
 - `validationData` oder `merchantSessionPromise`
-  - : Ein Objekt, das die Daten enthält, die zum Abschluss des Händler-Validierungsprozesses benötigt werden, oder ein {{jsxref("Promise")}}, das die Validierungsdaten liefert.
+  - : Ein Objekt, das die Daten enthält, die benötigt werden, um den Händler-Validierungsprozess abzuschließen, oder ein {{jsxref("Promise")}}, welches sich auf die Validierungsdaten auflöst.
 
 ### Rückgabewert
 
@@ -30,14 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Ausnahme kann in den Ablehnungshandler für das Promise übergeben werden:
+Diese Ausnahme kann an den Ablehnungs-Handler für das Promise übergeben werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom Benutzeragenten stammt, sondern durch andere Codes ausgelöst wurde. Ein anderer Zahlungsauftrag wird derzeit verarbeitet, der aktuelle Zahlungsantrag wird dem Benutzer nicht angezeigt oder Zahlungsinformationen werden derzeit aktualisiert.
+  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom Benutzeragenten stammt, sondern stattdessen von anderem Code gesendet wurde. Eine andere Zahlungsanforderung wird derzeit verarbeitet, die aktuelle Zahlungsanforderung wird dem Benutzer momentan nicht angezeigt, oder Zahlungsinformationen werden derzeit aktualisiert.
 
 ## Beispiele
 
-In diesem Beispiel sehen wir den clientseitigen Code, der erforderlich ist, um die Händler-Validierung für einen Zahlungsauftrag namens `payRequest` zu unterstützen:
+In diesem Beispiel sehen wir den clientseitigen Code, der benötigt wird, um die Händler-Validierung für eine Zahlungsanforderung namens `payRequest` zu unterstützen:
 
 ```js
 payRequest.onmerchantvalidation = (event) => {

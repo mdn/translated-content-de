@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`adoptedStyleSheets`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces legt ein Array von konstruierten Stylesheets fest, die vom Shadow-DOM-Teilbaum verwendet werden sollen.
+Die **`adoptedStyleSheets`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces legt ein Array von erstellten Stylesheets fest, das vom Schatten-DOM-Teilbaum verwendet wird.
 
 > [!NOTE]
-> Ein konstruiertes Stylesheet ist ein Stylesheet, das programmgesteuert über den [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet) erstellt wurde (im Vergleich zu einem, das von einem User-Agent beim Import eines Stylesheets aus einem Skript erstellt wurde, importiert mit {{HTMLElement('style')}} und {{CSSXref('@import')}}, oder verlinkt über {{HTMLElement('link')}}).
+> Ein erstelltes Stylesheet ist ein Stylesheet, das programmatisch mit dem [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet) erstellt wurde (im Vergleich zu einem, das von einem User-Agent erstellt wird, wenn ein Stylesheet aus einem Skript importiert, mit {{HTMLElement('style')}} und {{CSSXref('@import')}} importiert oder über {{HTMLElement('link')}} verknüpft wird).
 
-Dasselbe konstruierte Stylesheet kann von mehreren [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Instanzen sowie vom übergeordneten Dokument übernommen werden (mittels der [`Document.adoptedStyleSheets`](/de/docs/Web/API/Document/adoptedStyleSheets)-Eigenschaft).
+Dasselbe erstellte Stylesheet kann von mehreren [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Instanzen sowie vom übergeordneten Dokument (mithilfe der [`Document.adoptedStyleSheets`](/de/docs/Web/API/Document/adoptedStyleSheets)-Eigenschaft) übernommen werden.
 Änderungen an einem übernommenen Stylesheet wirken sich auf alle übernehmenden Objekte aus.
 
-Stylesheets in der `adoptedStyleSheets`-Eigenschaft werden zusammen mit den anderen Stylesheets des Shadow-DOM betrachtet.
-Zur Bestimmung des endgültigen berechneten CSS eines Elements werden sie als _nach_ den anderen Stylesheets im Shadow-DOM ([`ShadowRoot.styleSheets`](/de/docs/Web/API/ShadowRoot/styleSheets)) hinzugefügt betrachtet.
+Stylesheets in der `adoptedStyleSheets`-Eigenschaft werden zusammen mit den anderen Stylesheets des Schatten-DOMs betrachtet.
+Für die Bestimmung des endgültigen berechneten CSS eines Elements gelten sie als _nach_ den anderen Stylesheets im Schatten-DOM ([`ShadowRoot.styleSheets`](/de/docs/Web/API/ShadowRoot/styleSheets)) hinzugefügt.
 
-Nur Stylesheets, die über den [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet) erstellt wurden und sich im selben übergeordneten [`Document`](/de/docs/Web/API/Document) wie das Shadow-Root befinden, können übernommen werden.
+Nur Stylesheets, die mit dem [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet) erstellt wurden und sich im selben übergeordneten [`Document`](/de/docs/Web/API/Document) wie der Schattenwurzel befinden, können übernommen werden.
 
 ## Wert
 
-Der Wert ist ein Array von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Instanzen, die mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor im Kontext des übergeordneten [`Document`](/de/docs/Web/API/Document) des Shadow-Root erstellt worden sein müssen.
+Der Wert ist ein Array von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Instanzen, die mit dem [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet) im Kontext des übergeordneten [`Document`](/de/docs/Web/API/Document) der Schattenwurzel erstellt wurden.
 
-Wenn das Array geändert werden muss, verwenden Sie In-place-Änderungen wie `push()`. Die [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Instanzen selbst können ebenfalls geändert werden, und diese Änderungen werden überall dort übernommen, wo das Stylesheet übernommen wurde.
+Falls das Array geändert werden muss, verwenden Sie in-place Mutationen wie `push()`. Die [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Instanzen selbst können ebenfalls geändert werden, und diese Änderungen gelten überall dort, wo das Stylesheet übernommen wird.
 
-In einer früheren Version der Spezifikation war das Array nicht änderbar, sodass die einzige Möglichkeit, neue Stylesheets hinzuzufügen, darin bestand, ein neues Array `adoptedStyleSheets` zuzuweisen.
+In einer früheren Version der Spezifikation war das Array nicht modifizierbar, sodass die einzige Möglichkeit, neue Stylesheets hinzuzufügen, darin bestand, ein neues Array der `adoptedStyleSheets`-Eigenschaft zuzuweisen.
 
 ## Beispiele
 
-### Ein Stylesheet übernehmen
+### Übernahme eines Stylesheets
 
-Der folgende Code zeigt zuerst, wie ein Stylesheet konstruiert wird, und dann wird [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) aufgerufen, um dem Sheet eine Regel hinzuzufügen.
+Der untenstehende Code zeigt zunächst, wie ein Stylesheet erstellt wird, und dann wird [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) aufgerufen, um eine Regel zum Stylesheet hinzuzufügen.
 
 ```js
 // Create an empty "constructed" stylesheet
@@ -42,7 +42,7 @@ const sheet = new CSSStyleSheet();
 sheet.replaceSync("a { color: red; }");
 ```
 
-Anschließend erstellen wir ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) und übergeben das Sheet-Objekt in einem Array an `adoptedStyleSheets`.
+Dann erstellen wir ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) und übergeben das Stylesheet-Objekt innerhalb eines Arrays an `adoptedStyleSheets`.
 
 ```js
 // Create an element in the document and then create a shadow root:
@@ -53,8 +53,8 @@ const shadow = node.attachShadow({ mode: "open" });
 shadow.adoptedStyleSheets = [sheet];
 ```
 
-Wir können die Stylesheets auch nach dem Hinzufügen zum Array weiterhin ändern.
-Unten fügen wir mit [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) eine neue Regel zum selben Sheet hinzu.
+Wir können die Stylesheets immer noch ändern, nachdem sie dem Array hinzugefügt wurden.
+Unten fügen wir dem gleichen Stylesheet mit [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) eine neue Regel hinzu.
 
 ```js
 sheet.insertRule("* { background-color: blue; }");
@@ -63,7 +63,7 @@ sheet.insertRule("* { background-color: blue; }");
 
 ### Ein neues Stylesheet anhängen
 
-Neue Stylesheets können dem Dokument oder dem Shadow-Root _angehängt_ werden, indem `adoptedStyleSheets.push()` verwendet wird:
+Neue Stylesheets können dem Dokument oder dem Schatten-Wurzel durch die Verwendung von `adoptedStyleSheets.push()` _angehängt_ werden:
 
 ```js
 const extraSheet = new CSSStyleSheet();
@@ -84,8 +84,8 @@ shadow.adoptedStyleSheets.push(extraSheet);
 ## Siehe auch
 
 - [Constructable Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
-- [Verwendung des Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
-- [`CSSStyleSheet()`-Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)
+- [Verwendung des Shadow DOMs](/de/docs/Web/API/Web_components/Using_shadow_DOM)
+- [`CSSStyleSheet()` Konstruktor](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)
 - [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync)
 - [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace)
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

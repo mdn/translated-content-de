@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte **`Document.contentType`**-Eigenschaft gibt den MIME-Typ zurück, unter dem das Dokument gerendert wird. Dieser kann aus HTTP-Headern oder anderen Quellen von MIME-Informationen stammen und möglicherweise durch automatische Typkonvertierungen beeinflusst werden, die entweder vom Browser oder durch Erweiterungen durchgeführt werden.
+Die schreibgeschützte Eigenschaft **`Document.contentType`** gibt den MIME-Typ zurück, mit dem das Dokument gerendert wird. Dieser kann aus HTTP-Headern oder anderen Quellen für MIME-Informationen stammen und könnte durch automatische Typkonvertierungen, die entweder vom Browser oder von Erweiterungen durchgeführt werden, beeinflusst werden.
 
 > [!NOTE]
-> Diese Eigenschaft wird nicht durch {{HTMLElement("meta")}}
-> Elemente beeinflusst.
+> Diese Eigenschaft wird nicht von {{HTMLElement("meta")}}
+> Elementen beeinflusst.
 
 ## Wert
 

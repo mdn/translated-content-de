@@ -1,5 +1,5 @@
 ---
-title: "FetchEvent: isReload Eigenschaft"
+title: "FetchEvent: isReload-Eigenschaft"
 short-title: isReload
 slug: Web/API/FetchEvent/isReload
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{deprecated_header}}{{Non-standard_header}}{{AvailableInWorkers("service")}}
 
-Die **`isReload`** schreibgeschützte Eigenschaft des
-[`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt `true` zurück, wenn das Ereignis
-ausgelöst wurde, indem der Benutzer versucht hat, die Seite neu zu laden, und `false` anderenfalls.
-Das Drücken der Aktualisierungs-Schaltfläche ist ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Schaltfläche kein Neuladen ist.
+Die schreibgeschützte Eigenschaft **`isReload`** des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt `true` zurück, wenn das Ereignis durch den Versuch des Benutzers ausgelöst wurde, die Seite neu zu laden, und `false` andernfalls. Das Drücken der Aktualisieren-Taste ist ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Taste kein Neuladen sind.
 
 ## Wert
 

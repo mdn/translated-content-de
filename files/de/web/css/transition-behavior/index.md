@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`transition-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob Übergänge für Eigenschaften, deren Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist, gestartet werden.
+Die **`transition-behavior`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Transitionen für Eigenschaften gestartet werden, deren Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ transition-behavior: unset;
 ### Werte
 
 - `allow-discrete`
-  - : Übergänge werden für diskret animierte Eigenschaften auf dem Element gestartet.
+  - : Transitionen werden für diskrete animierte Eigenschaften auf dem Element gestartet.
 - `normal`
-  - : Übergänge werden _nicht_ für diskret animierte Eigenschaften auf dem Element gestartet.
+  - : Transitionen werden _nicht_ für diskrete animierte Eigenschaften auf dem Element gestartet.
 
 ## Beschreibung
 
-Die Eigenschaft `transition-behavior` ist nur relevant, wenn sie in Verbindung mit anderen Übergangseigenschaften verwendet wird, insbesondere {{cssxref("transition-property")}} und {{cssxref("transition-duration")}}, da kein Übergang erfolgt, wenn keine Eigenschaften über eine Zeitdauer ungleich Null animiert werden.
+Die `transition-behavior`-Eigenschaft ist nur relevant, wenn sie in Verbindung mit anderen Transitionseigenschaften verwendet wird, insbesondere {{cssxref("transition-property")}} und {{cssxref("transition-duration")}}, da keine Transition stattfindet, wenn keine Eigenschaften über eine nicht-null-zählige Dauer animiert werden.
 
 ```css
 .card {
@@ -48,7 +48,7 @@ Die Eigenschaft `transition-behavior` ist nur relevant, wenn sie in Verbindung m
 }
 ```
 
-Der Wert `transition-behavior` kann als Teil einer Kurzform {{cssxref("transition")}} Deklaration enthalten sein. Wenn er in der Kurzform enthalten ist, hat der Wert `allow-discrete` keine Auswirkung auf regulär animierbare Eigenschaften, wenn für alle Eigenschaften verwendet oder auf sie zurückgegriffen wird. Das folgende CSS entspricht den oben genannten Langformdeklarationen:
+Der Wert von `transition-behavior` kann als Teil einer Kurzschreibweise {{cssxref("transition")}}-Deklaration enthalten sein. Wenn er in der Kurzschreibweise enthalten ist, hat der `allow-discrete`-Wert keine Auswirkungen auf reguläre animierbare Eigenschaften, wenn man alle Eigenschaften verwendet oder auf sie zurückgreift. Das folgende CSS entspricht den Langform-Deklarationen oben:
 
 ```css
 .card {
@@ -62,18 +62,18 @@ Der Wert `transition-behavior` kann als Teil einer Kurzform {{cssxref("transitio
 }
 ```
 
-Im obigen Code-Schnipsel wird die `transition` Eigenschaft zweimal angegeben. Die erste Instanz enthält den Wert `allow-discrete` nicht — dies sorgt für Unterstützung in verschiedenen Browsern, indem sichergestellt wird, dass die anderen Eigenschaften der Karte immer noch in Browsern übergehen, die `transition-behavior` nicht unterstützen.
+Im obigen Ausschnitt wird die `transition`-Eigenschaft zweimal verwendet. Die erste Instanz enthält den `allow-discrete`-Wert nicht — dies gewährleistet die Unterstützung in verschiedenen Browsern, sodass die anderen Eigenschaften der Karte auch in Browsern, die `transition-behavior` nicht unterstützen, weiterhin Transitionen durchführen.
 
 ### Diskretes Animationsverhalten
 
-Diskret animierte Eigenschaften wechseln in der Regel zwischen zwei Werten 50% der Zeit während der Animation zwischen den beiden.
+Diskret-animierte Eigenschaften wechseln im Allgemeinen in der Mitte zwischen zwei Werten, also bei 50%, während sie zwischen den beiden animieren.
 
-Es gibt jedoch eine Ausnahme, und zwar beim Animieren von oder zu `display: none` oder `content-visibility: hidden`. In diesem Fall wechselt der Browser zwischen den beiden Werten, sodass der Übergangsinhalt während der gesamten Animationsdauer angezeigt wird.
+Es gibt jedoch eine Ausnahme, wenn zu oder von `display: none` oder `content-visibility: hidden` animiert wird. In diesem Fall wechselt der Browser zwischen den beiden Werten, sodass der übergangene Inhalt während der gesamten Animationsdauer angezeigt wird.
 
 Zum Beispiel:
 
-- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, sodass er durchgehend sichtbar ist.
-- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none`, wird der Wert bei `100%` der Animationsdauer auf `none` umgeschaltet, sodass er durchgehend sichtbar ist.
+- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wechselt der Wert bei `0%` der Animationsdauer zu `block`, damit er während der gesamten Zeit sichtbar ist.
+- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wechselt der Wert bei `100%` der Animationsdauer zu `none`, sodass er während der gesamten Zeit sichtbar ist.
 
 ## Formale Definition
 
@@ -87,11 +87,11 @@ Zum Beispiel:
 
 ### Übergang eines Popovers
 
-In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) animiert, während es von verborgen zu sichtbar und wieder zurückschaltet, wenn eine [Übergangsanimation](/de/docs/Web/CSS/CSS_transitions) stattfindet.
+In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) animiert, wenn es vom versteckten zum sichtbaren Zustand wechselt und umgekehrt.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}}-Element, das als Popover mit dem [popover](/de/docs/Web/HTML/Global_attributes/popover)-Attribut deklariert ist, und ein {{htmlelement("button")}}-Element, das als Anzeige-Steuerung des Popovers über sein [popovertarget](/de/docs/Web/HTML/Element/button#popovertarget)-Attribut bezeichnet wird.
+Das HTML enthält ein {{htmlelement("div")}}-Element, das als Popover unter Verwendung des [popover](/de/docs/Web/HTML/Global_attributes/popover)-Attributs deklariert ist, und ein {{htmlelement("button")}}-Element, das als Anzeigesteuerung des Popovers mit Hilfe seines [popovertarget](/de/docs/Web/HTML/Element/button#popovertarget)-Attributs festgelegt ist.
 
 ```html
 <button popovertarget="mypopover">Show the popover</button>
@@ -147,25 +147,25 @@ html {
 }
 ```
 
-Die beiden Eigenschaften, die wir animieren möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform): Wir möchten, dass das Popover ein- und ausgeblendet wird, während es sich in horizontaler Richtung vergrößert und verkleinert. Wir setzen einen Anfangszustand für diese Eigenschaften im Standardzustand des verborgenen Popovers (ausgewählt über `[popover]`) und einen Endzustand im geöffneten Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open)-Pseudo-Klasse). Anschließend setzen wir eine [`transition`](/de/docs/Web/CSS/transition)-Eigenschaft, um zwischen den beiden zu animieren.
+Die beiden Eigenschaften, die wir animieren möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform): wir möchten, dass das Popover ein- und ausgeblendet wird, während es in horizontaler Richtung wächst und schrumpft. Wir setzen einen Anfangszustand für diese Eigenschaften im standardmäßigen versteckten Zustand des Popover-Elements (ausgewählt über `[popover]`) und einen Endzustand im offenen Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open)-Pseudoklasse). Wir setzen dann eine [`transition`](/de/docs/Web/CSS/transition)-Eigenschaft, um zwischen den beiden zu animieren.
 
-Da das animierte Element in die [oberste Ebene](/de/docs/Glossary/Top_layer) verschoben wird, wenn es angezeigt wird und aus dieser entfernt wird, wenn es verborgen ist — was auch bedeutet, dass im verborgenen Zustand [`display: none`](/de/docs/Web/CSS/display) auf ihm gesetzt ist — werden die folgenden Eigenschaften der Liste der übergehenden Elemente hinzugefügt, um die Animation in beiden Richtungen zu realisieren. In beiden Fällen wird `transition-behavior: allow-discrete` in der Kurzform gesetzt, um diskrete Animationen zu ermöglichen.
+Weil das animierte Element in die [obere Ebene](/de/docs/Glossary/Top_layer) verschoben wird, wenn es sichtbar gemacht wird, und aus der oberen Ebene entfernt wird, wenn es versteckt wird — was auch bedeutet, dass sein versteckter Zustand auf [`display: none`](/de/docs/Web/CSS/display) gesetzt ist — werden die folgenden Eigenschaften zur Liste der übergangenen Elemente hinzugefügt, damit die Animation in beiden Richtungen funktioniert. In beiden Fällen wird `transition-behavior: allow-discrete` in der Kurzschreibweise gesetzt, um diskrete Animation zu ermöglichen.
 
-- `display`: Erforderlich, damit das animierte Element während beider Animationen sichtbar ist (auf `display: block` gesetzt). Ohne dies wäre die Ausgangsanimation nicht sichtbar; effektiv würde das Popover einfach verschwinden.
-- [`overlay`](/de/docs/Web/CSS/overlay): Erforderlich, um sicherzustellen, dass die Entfernung des Elements aus der oberen Ebene verschoben wird, bis die Animation abgeschlossen ist. Dies macht bei einfachen Animationen wie dieser keinen großen Unterschied, aber in komplexeren Fällen kann es dazu führen, dass das Element zu schnell aus dem Overlay entfernt wird, was bedeutet, dass die Animation nicht glatt oder effektiv ist.
+- `display`: Erforderlich, damit das animierte Element während beider Animationsphasen (Eintritt und Austritt) sichtbar ist (auf `display: block` gesetzt). Ohne dies wäre die Austrittsanimation nicht sichtbar; das Popover würde im Grunde einfach verschwinden.
+- [`overlay`](/de/docs/Web/CSS/overlay): Erforderlich, um sicherzustellen, dass die Entfernung des Elements aus der oberen Ebene bis zum Abschluss der Animation verzögert wird. Dies macht bei einfachen Animationen wie dieser keinen großen Unterschied, aber in komplexeren Fällen kann es dazu führen, dass das Element zu schnell aus dem Overlay entfernt wird, wodurch die Animation nicht glatt oder effektiv ist.
 
-Darüber hinaus wird ein Anfangszustand der Animation innerhalb der [`@starting-style`](/de/docs/Web/CSS/@starting-style)-Regel festgelegt. Dies ist erforderlich, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden Übergänge nicht bei den ersten Stilaktualisierungen von Elementen ausgelöst oder wenn der `display`-Typ von `none` in einen anderen Typ geändert wird. `@starting-style` ermöglicht es Ihnen, diesen Standard in einer spezifischen, kontrollierten Weise zu überschreiben. Ohne dies würde die Eintrittsanimation nicht stattfinden und das Popover einfach erscheinen.
+Zusätzlich wird ein Startzustand für die Animation innerhalb der [`@starting-style`](/de/docs/Web/CSS/@starting-style)-At-Regel definiert. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden Transitionen nicht bei den ersten Stilaktualisierungen von Elementen ausgelöst, oder wenn sich der `display`-Typ von `none` in einen anderen Typ ändert. `@starting-style` ermöglicht es Ihnen, diesen Standard in einer spezifisch gesteuerten Weise zu überschreiben. Ohne dies würde die Eintrittsanimation nicht stattfinden und das Popover würde einfach erscheinen.
 
 #### Ergebnis
 
-Der Code wird wie folgt gerendert:
+Der Code wird wie folgt ausgeführt:
 
 {{ EmbedLiveSample("Transitioning a popover", "100%", "200") }}
 
 > [!NOTE]
-> Da Popovers bei jeder Anzeige vom `display: none` zu `display: block` wechseln, wechselt das Popover jedes Mal, wenn die Eintrittsanimation stattfindet, von seinen `@starting-style`-Stilen zu seinen `[popover]:popover-open`-Stilen. Wenn das Popover schließt, wechselt es von seinem `[popover]:popover-open`-Zustand zum Standardzustand `[popover]`.
+> Da Popovers von `display: none` zu `display: block` wechseln, jedes Mal wenn sie angezeigt werden, wechselt das Popover bei jedem Eintrittsübergang von seinen `@starting-style`-Stilen zu seinen `[popover]:popover-open`-Stilen. Wenn das Popover geschlossen wird, wechselt es von seinem `[popover]:popover-open`-Zustand zu seinem Standard-`[popover]`-Zustand.
 >
-> Es ist möglich, dass der Stilübergang beim Eintritt und Austritt in solchen Fällen unterschiedlich ist. Sehen Sie sich unser [Beispiel zur Demonstration, wann Anfangsstile verwendet werden](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) an, um einen Beweis dafür zu erhalten.
+> Es ist möglich, dass sich der Stilübergang beim Eintritt und Austritt in solchen Fällen unterscheidet. Siehe unser [Beispiel, wann Startstile verwendet werden](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) für einen Beweis dafür.
 
 ## Spezifikationen
 
@@ -179,5 +179,5 @@ Der Code wird wie folgt gerendert:
 
 - [`overlay`](/de/docs/Web/CSS/overlay)
 - [`@starting-style`](/de/docs/Web/CSS/@starting-style)
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
-- [Vier neue CSS-Funktionen für sanfte Ein- und Austrittsanimationen](https://developer.chrome.com/blog/entry-exit-animations/) auf developer.chrome.com (2023)
+- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)-Modul
+- [Vier neue CSS-Funktionen für fließende Ein- und Ausgangsanimationen](https://developer.chrome.com/blog/entry-exit-animations/) auf developer.chrome.com (2023)

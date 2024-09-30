@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`online`**-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät wieder mit dem Internet verbunden ist.
+Das **`online`**-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät wieder eine Verbindung zum Internet herstellt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js
 addEventListener("online", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wurde:
+Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wird:
 
 ```js
 self.ononline = () => {
@@ -34,7 +34,7 @@ self.ononline = () => {
 };
 ```
 
-Dasselbe Snippet, aber mit `addEventListener()`:
+Der gleiche Codeausschnitt, aber mit `addEventListener()`:
 
 ```js
 self.addEventListener("online", () => {
@@ -52,4 +52,4 @@ self.addEventListener("online", () => {
 
 ## Siehe auch
 
-Das [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface, zu dem es gehört.
+Die [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle, zu der es gehört.

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.isContentEditable`** gibt zurück einen booleschen Wert, der `true` ist, wenn die Inhalte des Elements bearbeitbar sind; ansonsten gibt sie `false` zurück.
+Die schreibgeschützte **`HTMLElement.isContentEditable`**-Eigenschaft gibt einen booleschen Wert zurück, der `true` ist, wenn der Inhalt des Elements bearbeitbar ist; andernfalls wird `false` zurückgegeben.
 
 ## Wert
 

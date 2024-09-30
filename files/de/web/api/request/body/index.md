@@ -1,5 +1,5 @@
 ---
-title: "Request: body Eigenschaft"
+title: "Request: body-Eigenschaft"
 short-title: body
 slug: Web/API/Request/body
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`body`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit den Körperinhalten, die der Anfrage hinzugefügt wurden. Beachten Sie, dass eine Anfrage, die die `GET`- oder `HEAD`-Methode verwendet, keinen Körper haben kann und in diesen Fällen `null` zurückgegeben wird.
+Die schreibgeschützte **`body`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit den im Antrag hinzugefügten Inhalt. Beachten Sie, dass eine Anfrage, die die `GET`- oder `HEAD`-Methode verwendet, keinen Body haben kann und in diesen Fällen `null` zurückgegeben wird.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: deleteData() Methode"
+title: "CharacterData: Methode deleteData()"
 short-title: deleteData()
 slug: Web/API/CharacterData/deleteData
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`deleteData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-entfernt alle oder einen Teil der Daten aus diesem `CharacterData`-Knoten.
+Die **`deleteData()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData) Schnittstelle entfernt alle oder einen Teil der Daten von diesem `CharacterData` Knoten.
 
 ## Syntax
 
@@ -20,13 +19,14 @@ characterData.deleteData(offset, count)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Bytes, von denen aus die Daten entfernt werden sollen, beginnend bei `0`, was dem ersten Zeichen der Zeichenkette entspricht.
+  - : Die Anzahl der Bytes vom Beginn der Daten, ab dem entfernt werden soll.
+    `0` ist das erste Zeichen der Zeichenkette.
 - `count`
   - : Die Anzahl der zu entfernenden Bytes.
 
 ### Rückgabewert
 
-Keiner.
+Keine.
 
 ### Ausnahmen
 

@@ -1,5 +1,5 @@
 ---
-title: "SVGElement: attributeStyleMap-Eigenschaft"
+title: "SVGElement: Eigenschaft attributeStyleMap"
 short-title: attributeStyleMap
 slug: Web/API/SVGElement/attributeStyleMap
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`attributeStyleMap`** schreibgeschützte Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces gibt ein lebendes [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurück, das eine Liste von Stileigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über das [`style`](/de/docs/Web/API/SVGElement/style)-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces per Skript zugewiesen wurden.
+Die **`attributeStyleMap`**-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement) Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein aktuelles [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurückgibt. Dieses enthält eine Liste von Stil-Eigenschaften des Elements, die im Inline-`style`-Attribut des Elements definiert sind oder über die [`style`](/de/docs/Web/API/SVGElement/style)-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement) Schnittstelle per Skript zugewiesen wurden.
 
-Kurzschlüsse werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden die Langformen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}}, und {{cssxref("border-top-width")}}) stattdessen gesetzt.
+Kurzschrift-Eigenschaften werden aufgeschlüsselt. Wenn Sie `border-top: 1px solid black` setzen, werden stattdessen die Langschrift-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) gesetzt.
 
 Der Hauptunterschied zwischen der [`style`](/de/docs/Web/API/SVGElement/style)-Eigenschaft und der `attributeStyleMap`-Eigenschaft ist, dass die `style`-Eigenschaft ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurückgibt.
 
-Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile über das [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt, das sie zurückgibt, lesen und schreiben, genau wie über das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
+Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile sowohl über das zurückgegebene [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt lesen und schreiben als auch über das über die `style`-Eigenschaft zurückgegebene [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt.
 
 ## Wert
 
-Ein lebendes [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt.
+Ein aktuelles [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Beziehung zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft:
+Der folgende Code zeigt das Verhältnis zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft:
 
 ```html
 <div style="white-space: pre-line;">

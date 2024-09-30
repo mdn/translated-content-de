@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Eigenschaft **`responseText`** gibt den vom Server empfangenen Text zurück, nachdem eine Anfrage gesendet wurde.
+Die schreibgeschützte [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Eigenschaft **`responseText`** gibt den Text zurück, der von einem Server empfangen wurde, nachdem eine Anfrage gesendet wurde.
 
 ## Wert
 
-Ein String, der entweder die mithilfe des `XMLHttpRequest` empfangenen Textdaten enthält oder `""`, wenn die Anfrage fehlgeschlagen ist oder noch keine Inhalte empfangen wurden.
+Ein Zeichenstring, der entweder die mit `XMLHttpRequest` empfangenen Textdaten enthält oder `""`, wenn die Anfrage fehlgeschlagen ist oder noch kein Inhalt empfangen wurde.
 
-Bei der Bearbeitung einer asynchronen Anfrage hat der Wert von `responseText` immer den aktuellen Inhalt vom Server, auch wenn dieser unvollständig ist, weil die Daten noch nicht vollständig empfangen wurden.
+Bei der Bearbeitung einer asynchronen Anfrage hat `responseText` immer den aktuellen Inhalt, der vom Server empfangen wurde, selbst wenn er unvollständig ist, weil die Daten noch nicht vollständig empfangen wurden.
 
-Sie wissen, dass der gesamte Inhalt empfangen wurde, wenn der Wert von [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu `XMLHttpRequest.DONE` (`4`) wird und [`status`](/de/docs/Web/API/XMLHttpRequest/status) 200 (`"OK"`) erreicht.
+Sie wissen, dass der gesamte Inhalt empfangen wurde, wenn der Wert von [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) `XMLHttpRequest.DONE` (`4`) wird und [`status`](/de/docs/Web/API/XMLHttpRequest/status) 200 (`"OK"`) erreicht.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn [`XMLHttpRequest.responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) nicht auf entweder den leeren String oder `"text"` gesetzt ist. Da die `responseText`-Eigenschaft nur für Textinhalte gültig ist, ist jeder andere Wert eine Fehlerbedingung.
+  - : Wird ausgelöst, wenn [`XMLHttpRequest.responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) nicht auf entweder die leere Zeichenfolge oder `"text"` gesetzt ist. Da die `responseText`-Eigenschaft nur für Textinhalte gültig ist, ist jeder andere Wert ein Fehlerzustand.
 
 ## Beispiele
 

@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`type`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) gibt den Typ des [`MutationRecord`](/de/docs/Web/API/MutationRecord) an, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
+Die schreibgeschützte Eigenschaft **`type`** von [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist der Typ des [`MutationRecord`](/de/docs/Web/API/MutationRecord), der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wurde.
 
 ## Wert
 
-Die Eigenschaft ist auf den Typ der Mutation als Zeichenkette gesetzt. Der Wert kann einer der folgenden sein:
+Die Eigenschaft ist auf den Typ der Mutation als String festgelegt. Der Wert kann einer der folgenden sein:
 
-- `attributes`, wenn die Mutation eine Attributmutation war.
+- `attributes`, wenn die Mutation eine Attribut-Mutation war.
 
 - `characterData`, wenn es sich um eine Mutation an einem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten handelte.
 
-- `childList`, wenn die Mutation eine Mutation des Knotensbaums war.
+- `childList`, wenn die Mutation eine Mutation im Knotenbaum war.
 
 ## Beispiele
 
-### Protokollieren des Mutationstyps
+### Typ einer Mutation protokollieren
 
-Das folgende Beispiel gibt Ihnen zwei Schaltflächen, um das DOM zu manipulieren. Die erste Schaltfläche fügt dem Beispiel einen neuen Knoten hinzu, und die zweite Schaltfläche ändert das `color`-Attribut aller hinzugefügten Knoten. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird erstellt, um alles zu beobachten, und der Observer ist so eingestellt, dass er den `type` des Mutation-Records im `#log` protokolliert.
+Das folgende Beispiel gibt Ihnen zwei Schaltflächen, um das DOM zu manipulieren. Die erste Schaltfläche fügt dem Beispiel einen neuen Knoten hinzu, und die zweite Schaltfläche ändert das `color`-Attribut aller hinzugefügten Knoten. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird erstellt, um alles zu beobachten, und der Observer ist so eingestellt, dass er den `type` des Mutation Records auf `#log` protokolliert.
 
-Sie werden feststellen, dass, wenn Sie einen Knoten hinzufügen, der `type` `childList` ist, und wenn Sie das `color`-Attribut ändern, der `type` `attributes` ist.
+Sie werden bemerken, dass der `type` `childList` ist, wenn Sie einen Knoten hinzufügen, und `attributes`, wenn Sie das `color`-Attribut ändern.
 
 #### HTML
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/At-rule) verwendet wird und steuert, ob die durch `@property` angegebene Registrierung der benutzerdefinierten Eigenschaft standardmäßig vererbt wird.
+Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird und steuert, ob die durch `@property` spezifizierte benutzerdefinierte Eigenschaft standardmäßig vererbt wird.
 
 ## Syntax
 
@@ -42,9 +42,9 @@ Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die
 
 ## Beispiele
 
-Fügen Sie der benutzerdefinierten Eigenschaft `--my-color` eine Typprüfung als Farbe hinzu, einen Standardwert und verhindern Sie, dass der Wert vererbt wird:
+Fügen Sie der benutzerdefinierten Eigenschaft `--my-color` eine Typprüfung als Farbe hinzu, einen Standardwert, und verhindern Sie, dass sie ihren Wert vererbt:
 
-Verwendung des [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [at-rule](/de/docs/Web/CSS/At-rule):
+Mit der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule):
 
 ```css
 @property --my-color {
@@ -54,7 +54,7 @@ Verwendung des [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [at-rule](/de/do
 }
 ```
 
-Verwendung von [JavaScript](/de/docs/Web/JavaScript) [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static):
+Mit [JavaScript](/de/docs/Web/JavaScript) [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static):
 
 ```js
 window.CSS.registerProperty({

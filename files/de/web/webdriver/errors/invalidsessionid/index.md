@@ -1,5 +1,5 @@
 ---
-title: Ungültige Sitzungs-ID
+title: Invalid session ID
 slug: Web/WebDriver/Errors/InvalidSessionID
 l10n:
   sourceCommit: 4a6dacf8c68925a8538585be3b2728bcb271241e
@@ -7,13 +7,13 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der Fehler **ungültige Sitzungs-ID** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der Server die eindeutige Sitzungskennung nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
+Der Fehler **invalid session ID** ist ein [WebDriver Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der Server den eindeutigen Sitzungsbezeichner nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
 
 ## Beispiel
 
-### Explizites Löschen der Sitzung
+### Explizite Sitzungs-Löschung
 
-Eine WebDriver-Sitzung wird explizit gelöscht, wenn sie beendet wird:
+Eine WebDriver-Sitzung wird explizit bei Beendigung gelöscht:
 
 ```python
 from selenium import webdriver
@@ -36,7 +36,7 @@ Current session is 46197c16-8373-469b-bc56-4c4d9e4132b4
 No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 ```
 
-### Implizites Löschen der Sitzung
+### Implizite Sitzungs-Löschung
 
 Die Sitzung kann auch _implizit gelöscht_ werden, wenn Sie das letzte Fenster oder den letzten Tab schließen:
 
@@ -66,8 +66,8 @@ No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 ## Siehe auch
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Errors)
-- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+- [Session not created](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
 - Verwandte WebDriver-Befehle:
 
-  - [Neue Sitzung](/de/docs/Web/WebDriver/Commands/NewSession)
-  - [Sitzung löschen](/de/docs/Web/WebDriver/Commands/DeleteSession)
+  - [New Session](/de/docs/Web/WebDriver/Commands/NewSession)
+  - [Delete Session](/de/docs/Web/WebDriver/Commands/DeleteSession)

@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`periodicSync`** des
-[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das
-[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interface zurück, das es ermöglicht, Aufgaben zur Ausführung in bestimmten Intervallen zu registrieren.
+Die **`periodicSync`** schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Schnittstelle gibt eine Referenz auf die [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) Schnittstelle zurück, die das Registrieren von Aufgaben ermöglicht, die in bestimmten Intervallen ausgeführt werden sollen.
 
 ## Wert
 
-Ein [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Objekt.
+Ein [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) Objekt.
 
 ## Beispiele
 
-Sie können auf die Eigenschaft sowohl aus Ihrem Hauptskript als auch aus dem registrierten Service Worker zugreifen.
+Sie können auf die Eigenschaft sowohl von Ihrem Hauptskript als auch vom registrierten Service Worker aus zugreifen.
 
 Hier ist ein Beispiel aus dem Hauptskript:
 
@@ -51,5 +49,5 @@ const periodicSync = self.registration.periodicSync;
 
 ## Siehe auch
 
-- [Umfangreichere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Beispiel-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Periodic Background Sync Demounterlage](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

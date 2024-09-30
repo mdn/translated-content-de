@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<defs>`**-Element wird verwendet, um grafische Objekte zu speichern, die zu einem späteren Zeitpunkt verwendet werden. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie sie referenzieren (zum Beispiel mit einem {{SVGElement("use")}}-Element).
+Das **`<defs>`**-Element wird verwendet, um grafische Objekte zu speichern, die später verwendet werden sollen. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie sie referenzieren (zum Beispiel mit einem {{SVGElement("use")}}-Element).
 
-Grafische Objekte können von überall referenziert werden, jedoch fördert das Definieren dieser Objekte innerhalb eines `<defs>`-Elements die Verständlichkeit des SVG-Inhalts und ist vorteilhaft für die Gesamtzugänglichkeit des Dokuments.
+Grafische Objekte können von überall aus referenziert werden. Das Definieren dieser Objekte innerhalb eines `<defs>`-Elements fördert jedoch das Verständnis des SVG-Inhalts und ist vorteilhaft für die allgemeine Zugänglichkeit des Dokuments.
 
 ## Beispiel
 
@@ -40,7 +40,7 @@ svg {
 
 {{EmbedLiveSample('Example', 150, '100%')}}
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`isFirstPersonObserver`** des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein boolean, der angibt, ob das `XRView` eine Egoperspektive ist.
+Die schreibgeschützte **`isFirstPersonObserver`**-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein boolescher Wert, der anzeigt, ob das `XRView` eine First-Person-Observer-Ansicht ist.
 
-Um Videoaufnahmen von AR-Gerätekameras zu erstellen, können Sie nicht einfach eines der gerenderten Augen verwenden, da es oft einen physischen Abstand gibt. Einige Geräte bieten eine sekundäre Ansicht, die Egoperspektive, die ein `eye` von `none` hat.
+Um Videoaufnahmen von Kamera-AR-Geräten zu erstellen, kann man nicht einfach eines der gerenderten Augen verwenden, da es oft eine physische Verschiebung gibt. Einige Geräte bieten eine sekundäre Ansicht, die First-Person-Observer-Ansicht, die ein `eye` von `none` hat.
 
-Um eine Egoperspektive zu erhalten, müssen Sie den "secondary-views" Feature-Descriptor explizit aktivieren (typischerweise als optionales Feature). Weitere Details finden Sie unter [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession).
+Um eine First-Person-Observer-Ansicht zu erhalten, müssen Sie den Deskriptor der Funktion "secondary-views" explizit aktivieren (typischerweise als optionale Funktion). Siehe [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) für Details.
 
-Die Eigenschaft `isFirstPersonObserver` ermöglicht es Ihnen dann zu überprüfen, welche sekundäre Ansicht eine Egoperspektive ist.
+Die `isFirstPersonObserver`-Eigenschaft ermöglicht es Ihnen dann zu überprüfen, welche sekundäre Ansicht eine First-Person-Observer-Ansicht ist.
 
 ## Beispiele
 
-### Überprüfung auf Egoperspektiven
+### Überprüfung auf First-Person-Observer-Ansichten
 
 ```js
 // Make sure to enable "secondary-view"

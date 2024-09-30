@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`assign()`**-Methode der [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Schnittstelle setzt die _manuell zugewiesenen Knoten_ des Slots in eine geordnete Menge von slottables. Diese Menge der manuell zugewiesenen Knoten ist zunächst leer, bis Knoten mit `assign()` zugewiesen werden.
+Die **`assign()`**-Methode der [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Schnittstelle setzt die _manuell zugewiesenen Knoten_ des Slots auf eine geordnete Menge von Slottables. Die manuell zugewiesene Knotmenge ist zunächst leer, bis Knoten mit `assign()` zugewiesen werden.
 
 > [!NOTE]
-> Sie können manuelle (imperative) und benannte (deklarative, automatische) Slot-Zuweisungen nicht mischen. Daher muss für das Funktionieren dieser Methode der Schattenbaum mit der Option `slotAssignment: "manual"` [erstellt](/de/docs/Web/API/Element/attachShadow) worden sein.
+> Sie können manuelle (imperative) und benannte (deklarative, automatische) Slot-Zuweisungen nicht mischen. Daher muss für diese Methode der Schattenbaum mit der Option `slotAssignment: "manual"` [erstellt](/de/docs/Web/API/Element/attachShadow) worden sein.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `assign()`-Methode verwendet, um den richtigen Tab in einer Registerkartenanwendung anzuzeigen. Die Funktion wird aufgerufen und das anzuzeigende Panel übergeben, das dann dem Slot zugewiesen wird.
+Im Beispiel unten wird die `assign()`-Methode verwendet, um die korrekte Registerkarte in einer Registerkartenanwendung anzuzeigen. Die Funktion wird aufgerufen und das Panel übergeben, das angezeigt werden soll. Dieses wird dann dem Slot zugewiesen.
 
 ```js
 function UpdateDisplayTab(elem, tabIdx) {

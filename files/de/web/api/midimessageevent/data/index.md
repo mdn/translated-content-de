@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte **`data`**-Eigenschaft des [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Interfaces gibt die MIDI-Datenbytes einer einzelnen MIDI-Nachricht zurück.
+Die schreibgeschützte **`data`**-Eigenschaft der [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Schnittstelle gibt die MIDI-Datenbytes einer einzelnen MIDI-Nachricht zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Uint8Array")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel wird auf [`midimessage`](/de/docs/Web/API/MIDIInput/midimessage_event)-Ereignisse auf allen Eingangsports gehört. Wenn eine Nachricht empfangen wird, wird der Wert von `data` in die Konsole ausgegeben.
+Im folgenden Beispiel werden [`midimessage`](/de/docs/Web/API/MIDIInput/midimessage_event)-Ereignisse an allen Eingangsports überwacht. Wenn eine Nachricht empfangen wird, wird der Wert von `data` in der Konsole ausgegeben.
 
 ```js
 inputs.forEach((input) => {

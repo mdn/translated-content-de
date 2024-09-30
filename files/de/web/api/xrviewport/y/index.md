@@ -8,18 +8,25 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Schnittstelle [`XRViewport`](/de/docs/Web/API/XRViewport) verfügt über die Eigenschaft **`y`**, die den Versatz vom unteren Rand der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) bis zum unteren Rand des Viewports innerhalb der Oberfläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die [`x`](/de/docs/Web/API/XRViewport/x)-Eigenschaft des Viewports identifiziert die `x`-Komponente des Ursprungs, und dieser wird durch die Eigenschaften [`width`](/de/docs/Web/API/XRViewPort/width) und [`height`](/de/docs/Web/API/XRViewport/height) definiert.
+Die schreibgeschützte Schnittstelle [`XRViewport`](/de/docs/Web/API/XRViewport)
+enthält die **`y`**-Eigenschaft, die den Versatz von der Unterkante der
+Zielfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) bis zur Unterkante des
+Ansichtsfensters innerhalb der Fläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die
+Eigenschaft [`x`](/de/docs/Web/API/XRViewport/x) des Ansichtsfensters identifiziert die `x`-Komponente des Ursprungs, und die Dimensionen werden durch die Eigenschaften [`width`](/de/docs/Web/API/XRViewport/width)
+und [`height`](/de/docs/Web/API/XRViewport/height) angegeben.
 
 ## Wert
 
-Der Versatz vom unteren Rand der Rendering-Oberfläche zum unteren Rand des Viewports, in Pixeln.
+Der Versatz von der Unterkante der Rendering-Fläche bis zur Unterkante des
+Ansichtsfensters, in Pixeln.
 
 > [!NOTE]
-> Obwohl andere Web-APIs typischerweise davon ausgehen, dass die `y`-Achse am oberen Rand beginnt und mit zunehmendem Abstand nach unten größer wird, kehrt WebGL dies um, sodass `y` größer wird, wenn es nach oben auf dem Bildschirm geht.
+> Obwohl andere Web-APIs typischerweise die `y`-Achse am oberen Bildschirmrand beginnen und nach unten hin wachsen lassen, kehrt WebGL dies um,
+> mit `y`, das nach oben auf dem Bildschirm größer wird.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
+Siehe die Hauptseite zu [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
 
 ## Spezifikationen
 

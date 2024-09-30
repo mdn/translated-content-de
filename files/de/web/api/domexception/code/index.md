@@ -1,5 +1,5 @@
 ---
-title: "DOMException: code Eigenschaft"
+title: "DOMException: code-Eigenschaft"
 short-title: code
 slug: Web/API/DOMException/code
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("DOM") }} {{deprecated_header}}
 
-Die schreibgeschützte **`code`**-Eigenschaft der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle gibt einen der alten [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) zurück, oder `0`, wenn keine übereinstimmen.
+Die schreibgeschützte **`code`**-Eigenschaft der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle gibt eine der veralteten [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) oder `0` zurück, wenn keine übereinstimmen.
 
-Dieses Feld wird aus historischen Gründen verwendet. Neue DOM-Ausnahmen verwenden dies nicht mehr: Sie setzen diese Information in das [`DOMException.name`](/de/docs/Web/API/DOMException/name)-Attribut.
+Dieses Feld wird aus historischen Gründen verwendet. Neue DOM-Ausnahmen verwenden dies nicht mehr: Sie legen diese Informationen im [`DOMException.name`](/de/docs/Web/API/DOMException/name)-Attribut ab.
 
 ## Wert
 
-Einer der [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) oder `0`, wenn keine übereinstimmen.
+Eine der [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) oder `0`, wenn keine übereinstimmen.
 
 ## Spezifikationen
 

@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Bei Bookmarks können Benutzer Listen von Webseiten sammeln und organisieren, sodass sie leicht zu ihren Favoriten zurückkehren können. Mithilfe der Bookmarks API können Ihre Erweiterungen Bookmarks auf ähnliche Weise wie Benutzer manipulieren.
+Lesezeichen ermöglichen es Benutzern, Listen von Webseiten zu sammeln und zu organisieren, sodass sie einfach zu ihren Favoriten zurückkehren können. Mit der Bookmarks API können Ihre Erweiterungen Lesezeichen auf ähnliche Weise manipulieren, wie es die Benutzer tun können.
 
 ## Berechtigungen
 
-Um die Bookmarks API nutzen zu können, müssen Sie die Berechtigung `"bookmarks"` in der manifest.json-Datei Ihrer Erweiterung anfordern:
+Um die Bookmarks API zu nutzen, müssen Sie die Berechtigung `"bookmarks"` in der Datei manifest.json Ihrer Erweiterung anfordern:
 
 ```json
 "permissions": [
@@ -21,9 +21,9 @@ Um die Bookmarks API nutzen zu können, müssen Sie die Berechtigung `"bookmarks
 
 ## Funktionen
 
-Die Bookmarks API ermöglicht es Ihrer Erweiterung, die gleichen Aktionen mit Bookmarks auszuführen, wie Benutzer sie durchführen können, und bietet Funktionen für:
+Die Bookmarks API ermöglicht es Ihrer Erweiterung, die Dinge mit Lesezeichen zu tun, die Benutzer auch tun können, und umfasst Funktionen für:
 
-- Grundlegende Manipulation von Bookmarks, einschließlich:
+- Grundlegende Manipulation von Lesezeichen, einschließlich:
 
   - Hinzufügen ({{WebExtAPIRef("bookmarks.create")}}).
   - Abrufen ({{WebExtAPIRef("bookmarks.get")}}).
@@ -32,30 +32,30 @@ Die Bookmarks API ermöglicht es Ihrer Erweiterung, die gleichen Aktionen mit Bo
   - Löschen ({{WebExtAPIRef("bookmarks.remove")}}).
   - Suchen ({{WebExtAPIRef("bookmarks.search")}}).
 
-- Abrufen einer Liste von kürzlich hinzugefügten Bookmarks ({{WebExtAPIRef("bookmarks.getRecent")}}).
-- Manipulation des Bookmark-Ordnerbaums, um:
+- Erhalten einer Liste von kürzlich hinzugefügten Lesezeichen ({{WebExtAPIRef("bookmarks.getRecent")}}).
+- Manipulation des Lesezeichen-Ordnerbaums, um:
 
-  - Baumdaten zu erhalten ({{WebExtAPIRef("bookmarks.getTree")}}, {{WebExtAPIRef("bookmarks.getChildren")}}, und {{WebExtAPIRef("bookmarks.getSubTree")}}).
+  - Bauminformationen abzurufen ({{WebExtAPIRef("bookmarks.getTree")}}, {{WebExtAPIRef("bookmarks.getChildren")}} und {{WebExtAPIRef("bookmarks.getSubTree")}}).
   - Äste hinzuzufügen ({{WebExtAPIRef("bookmarks.create")}}).
   - Knoten zu löschen ({{WebExtAPIRef("bookmarks.removeTree")}}).
   - Knoten zu verschieben ({{WebExtAPIRef("bookmarks.move")}}).
 
-- Abhören von Bookmarks (oder Bookmark-Ordnerbaum) Ereignissen, die:
+- Überwachen von Ereignissen bei Lesezeichen (oder Lesezeichenordnern), die:
 
   - Hinzufügen ({{WebExtAPIRef("bookmarks.onCreated")}}).
-  - Ändern ({{WebExtAPIRef("bookmarks.onChanged")}}).
+  - Änderungen ({{WebExtAPIRef("bookmarks.onChanged")}}).
   - Verschieben ({{WebExtAPIRef("bookmarks.onMoved")}}).
-  - Neu anordnen ({{WebExtAPIRef("bookmarks.onChildrenReordered")}}).
-  - Entfernen ({{WebExtAPIRef("bookmarks.onRemoved")}}).
+  - Umordnen ({{WebExtAPIRef("bookmarks.onChildrenReordered")}}).
+  - Löschen ({{WebExtAPIRef("bookmarks.onRemoved")}}).
 
-- Abhören von Bookmark-Importen, die genutzt werden können, um andere Bookmark-Verarbeitungen während eines Imports auszusetzen:
+- Überwachen von Lesezeichenimporten, die genutzt werden können, um andere Lesezeichenverarbeitungen während eines laufenden Imports auszusetzen:
 
   - Import gestartet ({{WebExtAPIRef("bookmarks.onImportBegan")}}).
   - Import abgeschlossen ({{WebExtAPIRef("bookmarks.onImportEnded")}}).
 
-## Beispiel-Durchgang
+## Beispielanleitung
 
-Um zu verstehen, wie man mit der Bookmarks API arbeitet, betrachten wir das [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it) Beispiel. Dieses Beispiel fügt ein Symbol zur Symbolleiste hinzu ({{WebExtAPIRef("browserAction")}}), das beim Anklicken die aktuelle Seite zu den Bookmarks hinzufügt oder daraus entfernt. Wenn die Seite auf andere Weise ein Lesezeichen erhält (oder entfernt wird), wird das Symbol aktualisiert, um den Status der Seite bezüglich des Bookmarkings anzuzeigen.
+Um zu verstehen, wie man mit der Bookmarks API arbeitet, betrachten wir das Beispiel [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it). Dieses Beispiel fügt ein Symbol in der Werkzeugleiste hinzu ({{WebExtAPIRef("browserAction")}}), das beim Klicken die aktuelle Seite zu den Lesezeichen hinzufügt oder daraus entfernt. Wenn die Seite auf andere Weise zu den Lesezeichen hinzugefügt oder daraus entfernt wird, wird das Symbol aktualisiert, um den Status des Lesezeichens der Seite anzuzeigen.
 
 Dieses Video zeigt die Erweiterung in Aktion:
 
@@ -74,7 +74,7 @@ Die [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/book
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/bookmark-it",
 ```
 
-Definiert die Symbole, die zur Darstellung der Erweiterung an Orten wie dem Add-On-Manager verwendet werden.
+Definiert die Symbole, die verwendet werden, um die Erweiterung darzustellen, beispielsweise im Add-on-Manager.
 
 ```json
   "icons": {
@@ -83,7 +83,7 @@ Definiert die Symbole, die zur Darstellung der Erweiterung an Orten wie dem Add-
   },
 ```
 
-Fordert Berechtigungen an. `"bookmarks"` wird angefordert, um die Nutzung der Bookmarks API zu ermöglichen. `"tabs"` wird angefordert, damit die URL und der Titel des aktiven Tabs gelesen und verwendet werden können, um das Bookmark der Seite zu erstellen oder zu finden. Die Notwendigkeit der Tabs API, um auf diese Details zuzugreifen, bedeutet, dass Sie die Bookmarks API wahrscheinlich nicht ohne die Tabs API nutzen werden.
+Fordert Berechtigungen an. `"bookmarks"` wird angefordert, um die Nutzung der Bookmarks API zu ermöglichen. `"tabs"` wird angefordert, damit die URL und der Titel des aktiven Tabs gelesen und zur Erstellung oder Suche des Lesezeichens der Seite verwendet werden können. Da zur Nutzung dieser Details die Tabs API benötigt wird, werden Sie die Bookmark API wahrscheinlich nicht ohne die Tabs API nutzen.
 
 ```json
   "permissions": [
@@ -92,7 +92,7 @@ Fordert Berechtigungen an. `"bookmarks"` wird angefordert, um die Nutzung der Bo
   ],
 ```
 
-Richtet die grundlegenden Details der Schaltfläche in der Symbolleiste ein. Die meisten Funktionen dieser Schaltfläche werden im Code eingerichtet, nachdem der Lesezeichenstatus der Seite bekannt ist.
+Legt die grundlegenden Details für die Schaltfläche in der Werkzeugleiste fest. Die meisten Funktionen der Schaltfläche werden im Code eingerichtet, nachdem der Lesezeichenstatus der Seite bekannt ist.
 
 ```json
   "browser_action": {
@@ -101,7 +101,7 @@ Richtet die grundlegenden Details der Schaltfläche in der Symbolleiste ein. Die
   },
 ```
 
-Definiert das Hintergrundskript, das das Bookmark der Seite hinzufügt und entfernt und die Merkmale der Schaltfläche in der Symbolleiste festlegt.
+Definiert das Hintergrundskript, das das Lesezeichen der Seite hinzufügt oder entfernt und die Merkmale der Schaltfläche in der Werkzeugleiste festlegt.
 
 ```json
   "background": {
@@ -113,7 +113,7 @@ Definiert das Hintergrundskript, das das Bookmark der Seite hinzufügt und entfe
 
 ### background.js
 
-Wie jedes Hintergrundskript wird [background.js](https://github.com/mdn/webextensions-examples/blob/main/bookmark-it/background.js) ausgeführt, sobald die Erweiterung gestartet wird. Das Skript ruft initial `updateActiveTab()` auf, das beginnt, indem es das `Tabs`-Objekt für den aktuellen Tab erhält, mithilfe von {{WebExtAPIRef("tabs.query")}}, und das Objekt mit diesem Code an `updateTab()` übergibt:
+Wie bei jedem Hintergrundskript wird [background.js](https://github.com/mdn/webextensions-examples/blob/main/bookmark-it/background.js) ausgeführt, sobald die Erweiterung gestartet wird. Anfangs ruft das Skript `updateActiveTab()` auf, das beginnt, indem es das `Tabs`-Objekt für den aktuellen Tab mit {{WebExtAPIRef("tabs.query")}} abruft und das Objekt mit folgendem Code an `updateTab()` übergibt:
 
 ```js
 let gettingActiveTab = browser.tabs.query({
@@ -132,7 +132,7 @@ gettingActiveTab.then(updateTab);
       if (isSupportedProtocol(currentTab.url)) {
 ```
 
-`isSupportedProtocol()` stellt fest, ob die URL, die im aktiven Tab angezeigt wird, eine ist, die ein Lesezeichen erhalten kann. Um das Protokoll aus der URL des Tabs zu extrahieren, nutzt die Erweiterung das [HTMLAnchorElement](/de/docs/Web/API/HTMLAnchorElement), indem sie die URL des Tabs einem `<a>`-Element hinzufügt und dann das Protokoll mit der `protocol`-Eigenschaft erhält.
+`isSupportedProtocol()` bestimmt, ob die in der aktiven Registerkarte angezeigte URL eine ist, die in einem Lesezeichen gespeichert werden kann. Um das Protokoll von der URL der Registerkarte zu extrahieren, nutzt die Erweiterung das [HTMLAnchorElement](/de/docs/Web/API/HTMLAnchorElement), indem sie die URL der Registerkarte zu einem `<a>`-Element hinzufügt und dann das Protokoll über die `protocol`-Eigenschaft abfragt.
 
 ```js
 function isSupportedProtocol(urlString) {
@@ -143,7 +143,7 @@ function isSupportedProtocol(urlString) {
 }
 ```
 
-Wenn das Protokoll eines ist, das von Bookmarks unterstützt wird, stellt die Erweiterung fest, ob die URL des Tabs bereits ein Lesezeichen hat, und wenn ja, ruft `updateIcon()` auf:
+Wenn das Protokoll eines ist, das von Lesezeichen unterstützt wird, überprüft die Erweiterung, ob die URL des Tabs bereits in einem Lesezeichen gespeichert ist, und wenn ja, ruft sie `updateIcon()` auf:
 
 ```js
       let searching = browser.bookmarks.search({url: currentTab.url});
@@ -152,7 +152,7 @@ Wenn das Protokoll eines ist, das von Bookmarks unterstützt wird, stellt die Er
         updateIcon();
 ```
 
-`updateIcon()` setzt das Symbol und den Titel der Schaltfläche in der Symbolleiste, abhängig davon, ob die URL ein Lesezeichen hat oder nicht.
+`updateIcon()` setzt das Symbol und den Titel der Schaltfläche in der Werkzeugleiste, abhängig davon, ob die URL in einem Lesezeichen enthalten ist oder nicht.
 
 ```js
 function updateIcon() {
@@ -176,13 +176,13 @@ function updateIcon() {
 }
 ```
 
-Sobald die Schaltfläche in der Symbolleiste initialisiert ist, beginnt die Erweiterung, auf einen Klick auf die Schaltfläche in der Symbolleiste zu hören, und ruft `toggleBookmark()` auf, wenn dies geschieht.
+Nach der Initialisierung der Schaltfläche in der Werkzeugleiste beginnt die Erweiterung, auf einen Klick auf die Schaltfläche zu hören, und ruft bei diesem Ereignis `toggleBookmark()` auf.
 
 ```js
 browser.browserAction.onClicked.addListener(toggleBookmark);
 ```
 
-`toggleBookmark()` verwendet das Ergebnis der von `updateTabs()` durchgeführten Suche, die das Vorhandensein der URL in einem Bookmark überprüft, um zu bestimmen, ob das Bookmark für die aktuelle URL entfernt oder hinzugefügt werden soll.
+`toggleBookmark()` verwendet das Ergebnis der Suche, die von `updateTabs()` durchgeführt wurde, um festzustellen, ob ein Lesezeichen für die aktuelle URL entfernt oder hinzugefügt werden soll.
 
 ```js
 function toggleBookmark() {
@@ -194,7 +194,7 @@ function toggleBookmark() {
 }
 ```
 
-Um das Symbol in der Symbolleiste zu aktualisieren, hört die Erweiterung auf die Erstellung oder Entfernung von Bookmarks. Diese Vorgehensweise hat den Vorteil, sowohl die von der Erweiterung durchgeführte Lesezeichenaktualisierung als auch jede von einem Benutzer außerhalb der Erweiterung durchgeführte Aktualisierung zu erfassen.
+Um das Symbol in der Werkzeugleiste zu aktualisieren, hört die Erweiterung auf die Erstellung oder Entfernung von Lesezeichen. Dieser Ansatz hat den Vorteil, sowohl die von der Erweiterung vorgenommene Lesezeichenaktualisierung als auch jede vom Benutzer außerhalb der Erweiterung vorgenommene Aktualisierung zu erfassen.
 
 ```js
 // listen for bookmarks being created
@@ -204,7 +204,7 @@ browser.bookmarks.onCreated.addListener(updateActiveTab);
 browser.bookmarks.onRemoved.addListener(updateActiveTab);
 ```
 
-Schließlich hört die Erweiterung auf Änderungen der URL des aktiven Tabs, oder wenn der Benutzer zu einem anderen Tab oder Fenster wechselt. Diese Aktionen könnten die angezeigte URL ändern und somit den Status des Symbols in der Symbolleiste der Erweiterung.
+Schließlich hört die Erweiterung auf eine Änderung der URL des aktiven Tabs oder darauf, dass der Benutzer zu einem anderen Tab oder Fenster wechselt. Diese Aktionen könnten die angezeigte URL ändern und deshalb den Status des Symbols in der Werkzeugleiste der Erweiterung beeinflussen.
 
 ```js
 // listen to tab URL changes
@@ -217,6 +217,6 @@ browser.tabs.onActivated.addListener(updateActiveTab);
 browser.windows.onFocusChanged.addListener(updateActiveTab);
 ```
 
-## Mehr erfahren
+## Erfahren Sie mehr
 
-Wenn Sie mehr erfahren möchten, sehen Sie sich das [Bookmarks API Reference](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks) an.
+Wenn Sie mehr erfahren möchten, werfen Sie einen Blick auf die [Bookmarks API-Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks).

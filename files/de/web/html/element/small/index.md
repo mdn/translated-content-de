@@ -1,5 +1,5 @@
 ---
-title: "<small>: das Seitentext-Element"
+title: "<small>: das Seitenskommentarelement"
 slug: Web/HTML/Element/small
 l10n:
   sourceCommit: 533dc583856cfc95c1b9129335cd24793eac1093
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitentexte und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der darin enthaltene Text in einer Schriftgröße kleiner dargestellt, z.B. von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitenskommentare und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von der dargestellten Formatierung. Standardmäßig rendert es den Text darin eine Schriftgröße kleiner, z. B. von `small` zu `x-small`.
 
 {{EmbedInteractiveExample("pages/tabbed/small.html", "tabbed-shorter")}}
 
@@ -45,9 +45,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Hinweise
 
-Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verstoß gegen das Prinzip der Trennung von Struktur und Präsentation angesehen werden kann, sind alle drei in HTML zulässig. Autoren sind aufgefordert, ihr bestes Urteilsvermögen zu nutzen, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, möglicherweise das Prinzip der Trennung von Struktur und Darstellung verletzt, sind alle drei in HTML gültig. Autoren werden ermutigt, ihr bestes Urteilsvermögen anzuwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -67,7 +67,7 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
@@ -79,12 +79,12 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternteile</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        > oder
+        > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
         > akzeptiert.
@@ -101,7 +101,7 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>

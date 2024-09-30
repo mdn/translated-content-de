@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`oldURL`** des [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)-Interfaces gibt die vorherige URL zurück, von der das Fenster navigiert wurde.
+Die **`oldURL`**-Eigenschaft des [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)-Interfaces gibt die vorherige URL zurück, von der das Fenster navigiert wurde.
 
 ## Wert
 

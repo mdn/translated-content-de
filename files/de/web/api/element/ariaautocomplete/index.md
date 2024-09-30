@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaAutoComplete`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)-Attributs wider, welches angibt, ob die Eingabe von Text die Anzeige einer oder mehrerer Vorhersagen des beabsichtigten Werts des Benutzers für ein Kombinationsfeld, Suchfeld oder Textfeld auslösen könnte, und spezifiziert, wie Vorhersagen präsentiert würden, wenn sie gemacht würden.
+Die **`ariaAutoComplete`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)-Attributs wider, das angibt, ob das Eingeben von Text die Anzeige von einer oder mehreren Vorhersagen des vom Benutzer beabsichtigten Werts für ein Kombinationsfeld, Suchfeld oder Textfeld auslösen könnte und wie diese Vorhersagen präsentiert würden, falls sie gemacht wurden.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"inline"`
-  - : Wenn ein Benutzer Eingaben macht, kann der Text, der eine Möglichkeit zur Vervollständigung der Eingabe vorschlägt, dynamisch nach dem Cursor eingefügt werden.
+  - : Wenn ein Benutzer eine Eingabe macht, kann ein Text, der eine Möglichkeit zur Vervollständigung der eingegebenen Daten vorschlägt, dynamisch nach dem Cursor eingefügt werden.
 - `"list"`
-  - : Wenn ein Benutzer Eingaben macht, kann ein Element, das eine Sammlung von Werten enthält, die die Eingabe vervollständigen könnten, angezeigt werden.
+  - : Wenn ein Benutzer eine Eingabe macht, kann ein Element angezeigt werden, das eine Sammlung von Werten enthält, die die eingegebene Information vervollständigen könnten.
 - `"both"`
-  - : Wenn ein Benutzer Eingaben macht, kann ein Element, das eine Sammlung von Werten enthält, die die Eingabe vervollständigen könnten, angezeigt werden. Wenn angezeigt, wird ein Wert in der Sammlung automatisch ausgewählt, und der Text, der benötigt wird, um den automatisch ausgewählten Wert zu vervollständigen, erscheint nach dem Cursor in der Eingabe.
+  - : Wenn ein Benutzer eine Eingabe macht, kann ein Element angezeigt werden, das eine Sammlung von Werten enthält, die die eingegebene Information vervollständigen könnten. Falls angezeigt, wird ein Wert in der Sammlung automatisch ausgewählt, und der Text, der benötigt wird, um den automatisch ausgewählten Wert zu vervollständigen, erscheint nach dem Cursor in der Eingabe.
 - `"none"`
-  - : Wenn ein Benutzer Eingaben macht, gibt es keine Anzeige eines automatischen Vorschlags, der versucht vorherzusagen, wie der Benutzer die Eingabe vervollständigen möchte.
+  - : Wenn ein Benutzer eine Eingabe macht, gibt es keine Anzeige eines automatischen Vorschlags, der versucht vorherzusagen, wie der Benutzer die Eingabe abschließen möchte.
 
 ## Beispiele
 

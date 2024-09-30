@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Transparenz des Stils einer [SVG](/de/docs/Web/SVG) Form. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, außer dass er nur auf den Stil angewendet wird, nicht auf das gesamte Element. Falls vorhanden, überschreibt diese Eigenschaft das {{SVGAttr("stroke-opacity")}} Attribut des Elements.
+Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft eines [SVG](/de/docs/Web/SVG) Linienzugs. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, wird jedoch nur auf den Linienzug angewendet und nicht auf das gesamte Element. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-opacity")}} Attribut des Elements.
 
-Diese Eigenschaft gilt für SVG-Formen und Textinhaltselemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), kann aber als vererbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem den gewünschten Effekt auf die Stile der untergeordneten Elemente haben.
+Diese Eigenschaft gilt für SVG-Formen und textbasierte Elemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste). Da sie eine vererbte Eigenschaft ist, kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch den gewünschten Effekt auf die Linienzüge der Nachkommenelemente.
 
-Beachten Sie, dass der Stil einer Form teilweise die Füllung dieser Form überlagert. Ein Stil mit einer Transparenz von weniger als `1` zeigt die Füllung gemischt mit dem Stil, wo sie sich überlappen. Um diesen Effekt zu vermeiden, kann eine globale Transparenz mit der {{cssxref('opacity')}} Eigenschaft angewendet werden oder der Stil hinter die Füllung mit dem {{cssxref('paint-order')}} Attribut gesetzt werden.
+Beachten Sie, dass ein Linienzug teilweise die Füllung dieser Form überdeckt, sodass ein Linienzug mit einer Deckkraft von weniger als `1` die Füllung mit dem Linienzug dort vermischt, wo sie sich überlappen. Um diesen Effekt zu vermeiden, kann eine globale Deckkraft mit der {{cssxref('opacity')}} Eigenschaft angewendet oder der Linienzug mit dem {{cssxref('paint-order')}} Attribut hinter die Füllung gelegt werden.
 
 ## Syntax
 
@@ -33,11 +33,11 @@ stroke-opacity: unset;
 
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Stil komplett transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs 0 – 1 werden auf das nächste Ende dieses Bereichs begrenzt; negative Werte werden also auf `0` begrenzt.
+  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Linienzug vollständig transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs von 0 – 1 werden an das nächstgelegene Ende dieses Bereichs geclippt, sodass negative Werte zu `0` geclippt werden.
 
 - {{cssxref("&lt;percentage&gt;")}}
 
-  - : Gleiche wie `<number>` (siehe oben), außer der erlaubte Bereich ist 0% bis 100%, und die Begrenzung erfolgt im Hinblick auf diesen Bereich.
+  - : Dasselbe wie `<number>` (siehe oben), außer dass der erlaubte Bereich von 0% bis 100% reicht und Clipping in Bezug auf diesen Bereich erfolgt.
 
 ## Formale Definition
 
@@ -49,13 +49,13 @@ stroke-opacity: unset;
 
 ## Beispiele
 
-### Verschiedene Stopacity-Werte
+### Verschiedene Deckkräfte des Linienzugs
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-opacity` Eigenschaft und wie, da der Stil einer Form teilweise ihre Füllung überlagert, ein Stil mit einer Transparenz von weniger als `1` mit der Füllung an den Stellen, an denen sie sich überlappen, vermischt wird.
+Dieses Beispiel zeigt die grundlegende Verwendung der `stroke-opacity` Eigenschaft und wie, da ein Linienzug einer Form teilweise ihre Füllung überdeckt, ein Linienzug mit einer Deckkraft von weniger als `1` sich mit der Füllung dort vermischt, wo sie sich überlappen.
 
 #### HTML
 
-Zuerst richten wir fünf Multi-Segment-Pfade ein, die alle einen schwarzen Stil mit einer Breite von eins und eine `dodgerblue` Füllung für die Unterpfade verwenden. Jeder Pfad erzeugt eine Serie von Bergsymbolen, von links (ein flacher Winkel) nach rechts (ein extremer Winkel).
+Zuerst erstellen wir fünf mehrsegmentige Pfade, die alle einen schwarzen Linienzug mit einer Breite von eins und eine `dodgerblue` Füllung für die Teilpfade verwenden. Jeder Pfad erzeugt eine Reihe von Bergsymbolen, die von links (ein flacher Winkel) nach rechts (ein extremer Winkel) geht.
 
 ```html
 <svg viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ Zuerst richten wir fünf Multi-Segment-Pfade ein, die alle einen schwarzen Stil 
 
 #### CSS
 
-Auf diese Pfade wenden wir sukzessiv höhere Stopacity-Werte an. Bei den ersten vier Pfaden kann die Füllung durch die innere Hälfte des Stilpfads gesehen werden, auch wenn es beim vierten Pfad schwer zu erkennen sein mag. Für den fünften und letzten Pfad ist der Stil vollständig undurchsichtig und daher kann die Füllung nicht durch den Stil gesehen werden.
+Auf diese Pfade wenden wir sukzessiv höhere Deckkraftwerte für den Linienzug an. Bei den ersten vier Pfaden kann die Füllung durch die innere Hälfte des Linienzuges gesehen werden, obwohl es beim vierten Pfad möglicherweise schwer zu erkennen ist. Beim fünften und letzten Pfad ist der Linienzug vollständig undurchsichtig, sodass die Füllung nicht durch den Linienzug sichtbar ist.
 
 ```css
 g path:nth-child(1) {

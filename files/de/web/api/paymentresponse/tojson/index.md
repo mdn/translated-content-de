@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts ist.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ payment.show().then((paymentResponse) => {
 });
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(paymentResponse)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft `toJSON()` automatisch auf.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(paymentResponse)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; diese Funktion wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

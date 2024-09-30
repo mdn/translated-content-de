@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.exchange()`** tauscht einen gegebenen Wert an einer bestimmten Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass zwischen dem Lesen des alten Wertes und dem Schreiben des neuen Wertes keine anderen Schreibvorgänge stattfinden.
+Die statische Methode **`Atomics.exchange()`** tauscht einen gegebenen Wert an einer bestimmten Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass zwischen dem Auslesen des alten Wertes und dem Schreiben des neuen Wertes keine anderen Schreibvorgänge stattfinden.
 
 {{EmbedInteractiveExample("pages/js/atomics-exchange.html")}}
 
@@ -20,7 +20,7 @@ Atomics.exchange(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
   - : Die Position im `typedArray`, an der ein `value` ausgetauscht werden soll.
 - `value`
@@ -35,7 +35,7 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`).
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beispiele
 

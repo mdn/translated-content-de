@@ -1,5 +1,5 @@
 ---
-title: "ScreenOrientation: change Ereignis"
+title: "ScreenOrientation: change-Ereignis"
 short-title: change
 slug: Web/API/ScreenOrientation/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Screen Orientation API")}}
 
-Das **`change`** Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle wird ausgelöst, wenn sich die Orientierung des Bildschirms ändert, beispielsweise wenn ein Benutzer sein Mobiltelefon dreht.
+Das **`change`**-Ereignis des [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interfaces tritt auf, wenn sich die Ausrichtung des Bildschirms ändert, z. B. wenn ein Benutzer sein Mobiltelefon dreht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel gibt der `change` Callback den neuen [Screen-Orientation-Typ](/de/docs/Web/API/ScreenOrientation/type) und den [Winkel](/de/docs/Web/API/ScreenOrientation/angle) aus.
+Im folgenden Beispiel gibt der `change`-Callback den neuen [Bildschirmausrichtungstyp](/de/docs/Web/API/ScreenOrientation/type) und den [Winkel](/de/docs/Web/API/ScreenOrientation/angle) aus.
 
 ```js
 screen.orientation.addEventListener("change", (event) => {

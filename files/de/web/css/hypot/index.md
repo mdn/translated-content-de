@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hypot()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) der Summe der Quadrate ihrer Parameter zurückgibt.
+Die **`hypot()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://de.wikipedia.org/wiki/Quadratwurzel) der Summe der Quadrate ihrer Parameter zurückgibt.
 
-Während {{CSSxRef("pow")}} und {{CSSxRef("sqrt")}} nur mit einheitenlosen Zahlen arbeiten, akzeptiert `hypot()` Werte mit Einheiten, aber sie müssen alle den gleichen [Typ](/de/docs/Web/CSS/CSS_Types) haben.
+Während {{CSSxRef("pow")}} und {{CSSxRef("sqrt")}} nur mit einheitslosen Zahlen arbeiten, akzeptiert `hypot()` Werte mit Einheiten, jedoch müssen alle die gleiche [Art](/de/docs/Web/CSS/CSS_Types) haben.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ width: hypot(3px, 4px, 5px); /* 7.0710678118654755px */
 
 ### Parameter
 
-Die Funktion `hypot(x [, ...]#)` akzeptiert eine oder mehrere durch Kommas getrennte Berechnungen als ihre Parameter.
+Die `hypot(x [, ...]#)` Funktion akzeptiert eine oder mehrere durch Kommas getrennte Berechnungen als ihre Parameter.
 
 - `x`, `x2`, ..., `xN`
-  - : Eine Berechnung, die sich zu einem {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}}, oder {{CSSxRef("&lt;percentage&gt;")}} auflöst.
+  - : Eine Berechnung, die sich zu einem {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}} auflöst.
 
 ### Rückgabewert
 
-Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}}, oder {{CSSxRef("&lt;percentage&gt;")}} (basierend auf den Eingaben) zurück, das die Quadratwurzel der Summe der Quadrate seiner Parameter ist.
+Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}}, oder {{CSSxRef("&lt;percentage&gt;")}} (basierend auf den Eingaben) zurück, welches die Quadratwurzel der Summe der Quadrate ihrer Parameter ist.
 
-- Wenn einer der Eingabewerte `unendlich` ist, ist das Ergebnis `+∞`.
-- Wenn nur ein Parameter angegeben wird, ist das Ergebnis der Absolutwert seines Eingabewerts. `hypot(2em)` und `hypot(-2em)` lösen sich beide zu `2em` auf.
+- Wenn einer der Eingaben `unendlich` ist, ist das Ergebnis `+∞`.
+- Wenn ein einziger Parameter bereitgestellt wird, ist das Ergebnis der Absolutwert seiner Eingabe. `hypot(2em)` und `hypot(-2em)` lösen sich beide zu `2em` auf.
 
 ### Formale Syntax
 
@@ -42,9 +42,9 @@ Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}}, oder {
 
 ## Beispiele
 
-### Größen basierend auf der hypot Funktion
+### Größen basierend auf der hypot-Funktion
 
-Dieses Beispiel zeigt, wie Sie die Funktion `hypot()` verwenden können, um Größen zu berechnen.
+Dieses Beispiel zeigt, wie Sie die `hypot()` Funktion zur Berechnung von Größen verwenden können.
 
 #### HTML
 
@@ -59,11 +59,11 @@ Dieses Beispiel zeigt, wie Sie die Funktion `hypot()` verwenden können, um Grö
 
 #### CSS
 
-Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
+Hier verwenden wir [CSS- benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
 
-- `--size-1` wird mit der Hypotenuse von `--size-0` (100px) berechnet. Dies nimmt den Quadratwert und gibt, da es keinen anderen Wert gibt, die Quadratwurzel des Wertes zurück, was 100px ergibt.
-- `--size-2` wird mit der Hypotenuse von `--size-0` (100px) zweimal berechnet. Dies nimmt das Quadrat des Wertes (100px \* 100px = 10000px<sup>2</sup>) und fügt es erneut dem Quadrat von `--size-0` hinzu (10000px<sup>2</sup> + 10000px<sup>2</sup> = 20000px<sup>2</sup>) und gibt die Quadratwurzel der Summe (√(20000px<sup>2</sup>)), was 141,42px ergibt.
-- `--size-3` wird mit der Hypotenuse `--size-0` \* 1,5 (150px) und `--size-0` \* 2 (200px) berechnet. Das Ergebnis ist die Quadratwurzel der Summe ihrer Quadrate: Die Werte werden quadriert (22500px<sup>2</sup> und 40000px<sup>2</sup>) und zusammen addiert (62500px<sup>2</sup>), die Summe wird quadratgewurzelt (√(62500px<sup>2</sup>)), was 250px ergibt.
+- `--size-1` wird mit der Hypotenuse von `--size-0` (100px) berechnet. Dies nimmt den Quadratwert und da es keinen weiteren Wert gibt, wird die Quadratwurzel des Wertes zurückgegeben, was zu 100px führt.
+- `--size-2` wird mit der Hypotenuse von `--size-0` (100px), zweimal berechnet. Dies nimmt das Quadrat des Wertes (100px \* 100px = 10000px<sup>2</sup>) und addiert es zum Quadrat von `--size-0` erneut (10000px<sup>2</sup> + 10000px<sup>2</sup> = 20000px<sup>2</sup>) und gibt die Quadratwurzel der Summe (√(20000px<sup>2</sup>)) zurück, was zu 141.42px führt.
+- `--size-3` wird mit der Hypotenuse `--size-0` \* 1.5 (150px) und `--size-0` \* 2 (200px) berechnet. Das Ergebnis ist die Quadratwurzel der Summe ihrer Quadrate: Die Werte werden quadriert (22500px<sup>2</sup> und 40000px<sup>2</sup>) und zusammenaddiert (62500px<sup>2</sup>), wobei die Summe quadratgewurzelt wird (√(62500px<sup>2</sup>)), was 250px ergibt.
 
 ```css
 :root {
@@ -114,7 +114,7 @@ Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewend
 
 #### Ergebnis
 
-{{EmbedLiveSample('Größen basierend auf der hypot Funktion', '100%', '270px')}}
+{{EmbedLiveSample('Sizes based on hypot function', '100%', '270px')}}
 
 ## Spezifikationen
 

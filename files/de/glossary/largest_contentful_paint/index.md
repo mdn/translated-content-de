@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **Largest Contentful Paint** (LCP) Leistungsmerkmal liefert die Renderzeit des größten Bilds oder Textblocks, der innerhalb des Viewports sichtbar ist, und wird ab dem Zeitpunkt aufgezeichnet, an dem die Seite erstmals geladen wird.
+Die Leistungskennzahl **Largest Contentful Paint** (LCP) gibt die Renderzeit des größten Bild- oder Textblocks an, der innerhalb des Ansichtsfensters sichtbar ist, gemessen ab dem Zeitpunkt, an dem die Seite zu laden beginnt.
 
 Die folgenden Elemente werden bei der Bestimmung des LCP berücksichtigt:
 
 - {{HTMLElement("img")}}-Elemente.
-- [`<image>`](/de/docs/Web/SVG/Element/image)-Elemente innerhalb eines SVG.
-- Die Poster-Bilder von {{HTMLElement("video")}}-Elementen.
+- [`<image>`](/de/docs/Web/SVG/Element/image)-Elemente innerhalb einer SVG.
+- Die Posterbilder von {{HTMLElement("video")}}-Elementen.
 - Elemente mit einem {{cssxref("background-image")}}.
 - Gruppen von Textknoten, wie z.B. {{HTMLElement("p")}}.
 
@@ -21,5 +21,5 @@ Die folgenden Elemente werden bei der Bestimmung des LCP berücksichtigt:
 
 - [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)
 - Verwandte Glossarbegriffe:
-  - [First Contentful Paint](/de/docs/Glossary/First_contentful_paint)
-  - [First Paint](/de/docs/Glossary/First_paint)
+  - [First contentful paint](/de/docs/Glossary/First_contentful_paint)
+  - [First paint](/de/docs/Glossary/First_paint)

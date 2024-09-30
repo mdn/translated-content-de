@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`PageTransitionEvent`**-Ereignisobjekt ist in Handler-Funktionen für die [`pageshow`](/de/docs/Web/API/Window/pageshow_event) und [`pagehide`](/de/docs/Web/API/Window/pagehide_event) Ereignisse verfügbar, die ausgelöst werden, wenn ein Dokument geladen oder entladen wird.
+Das **`PageTransitionEvent`**-Ereignisobjekt steht innerhalb von Handlerfunktionen für die Ereignisse [`pageshow`](/de/docs/Web/API/Window/pageshow_event) und [`pagehide`](/de/docs/Web/API/Window/pagehide_event) zur Verfügung, die ausgelöst werden, wenn ein Dokument geladen oder entladen wird.
 
 {{InheritanceDiagram}}
 
@@ -16,7 +16,7 @@ Das **`PageTransitionEvent`**-Ereignisobjekt ist in Handler-Funktionen für die 
 - [`PageTransitionEvent()`](/de/docs/Web/API/PageTransitionEvent/PageTransitionEvent)
   - : Erstellt ein neues `PageTransitionEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 

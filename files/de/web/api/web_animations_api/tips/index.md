@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-CSS-Animationen ermöglichen es, unglaubliche Dinge mit den Elementen zu tun, die Ihre Dokumente und Apps ausmachen. Es gibt Dinge, die Sie möglicherweise tun möchten, die nicht offensichtlich sind, und viele clevere Möglichkeiten, Dinge zu tun, die nicht sofort erkennbar sind. Dieser Artikel ist eine Sammlung von Tipps und Tricks, die wir gefunden haben und die hoffentlich Ihre Arbeit erleichtern, einschließlich wie man eine abgeschlossene Animation erneut ausführt.
+CSS-Animationen ermöglichen erstaunliche Dinge mit den Elementen, aus denen Ihre Dokumente und Apps bestehen. Es gibt Dinge, die Sie vielleicht tun möchten, die nicht offensichtlich sind, und viele clevere Möglichkeiten, Dinge zu tun, die nicht sofort sichtbar sind. Dieser Artikel ist eine Sammlung von Tipps und Tricks, die wir gefunden haben und die hoffentlich Ihre Arbeit erleichtern werden, einschließlich wie man eine abgeschlossene Animation erneut abspielen kann.
 
 ## Eine Animation erneut ausführen
 
-Die [CSS-Animationsspezifikation](/de/docs/Web/CSS/CSS_animations) bietet keine Möglichkeit, eine Animation erneut auszuführen. Sie können das `{{cssxref("animation-play-state")}}` eines Elements nicht einfach wieder auf `"running"` setzen, wenn die Animation endet. Stattdessen müssen Sie JavaScript verwenden, um eine abgeschlossene Animation erneut abzuspielen.
+Die [CSS Animationen](/de/docs/Web/CSS/CSS_animations) Spezifikation bietet keine Möglichkeit, eine Animation erneut auszuführen. Sie können das {{cssxref("animation-play-state")}} des Elements nicht einfach wieder auf `"running"` setzen, sobald die Animation endet. Stattdessen müssen Sie JavaScript verwenden, um eine abgeschlossene Animation erneut abzuspielen.
 
-Dies ist eine Möglichkeit, die stabil und zuverlässig ist.
+Dies ist eine Möglichkeit, dies zu tun, die stabil und zuverlässig ist.
 
 ### HTML
 
-Zuerst definieren wir das HTML für ein {{HTMLElement("div")}}, das wir animieren möchten, und einen Button, der die Animation abspielen (oder erneut abspielen) wird.
+Lassen Sie uns zunächst das HTML für ein {{HTMLElement("div")}} definieren, das wir animieren möchten, sowie einen Button, der die Animation abspielen (oder erneut abspielen) wird.
 
 ```html
 <div class="box"></div>
@@ -26,7 +26,7 @@ Zuerst definieren wir das HTML für ein {{HTMLElement("div")}}, das wir animiere
 
 ### CSS
 
-Lassen Sie uns die Box mit CSS gestalten.
+Lassen Sie uns die Box mit CSS stylen.
 
 ```css
 .box {
@@ -39,7 +39,7 @@ Lassen Sie uns die Box mit CSS gestalten.
 
 ### JavaScript
 
-Als nächstes betrachten wir das JavaScript, das die Arbeit erledigt. Die Funktion `playAnimation()` soll aufgerufen werden, wenn der Benutzer auf den Abspielbutton klickt. Anstatt die {{cssxref("@keyframes")}} at-rule zu verwenden, [definieren wir die Keyframes in JavaScript](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats).
+Als Nächstes betrachten wir das JavaScript, das die Arbeit erledigt. Die Funktion `playAnimation()` soll aufgerufen werden, wenn der Benutzer auf den Ausführen-Button klickt. Anstatt die {{cssxref("@keyframes")}} At-Regel zu verwenden, [definieren wir die Keyframes in JavaScript](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats).
 
 ```js
 const box = document.querySelector(".box");
@@ -64,9 +64,9 @@ function playAnimation() {
 }
 ```
 
-Die Methode `playAnimation` ruft die Methode [`Element.animate()`](/de/docs/Web/API/Element/animate) am Box-Element auf, um die Animation abzuspielen. Die Methode `animate()` nimmt ein Keyframe-Objekt oder ein Array von Keyframe-Objekten und Animationsoptionen als Argument. In diesem Fall übergeben wir der Methode das `colorChangeFrames` Keyframe-Objekt und eine Animationsdauer.
+Die Methode `playAnimation` ruft die Methode [`Element.animate()`](/de/docs/Web/API/Element/animate) auf der Box auf, um die Animation abzuspielen. Die Methode `animate()` nimmt ein Keyframe-Objekt oder ein Array von Keyframe-Objekten sowie Animationsoptionen als Argumente. In diesem Fall übergeben wir der Methode das `colorChangeFrames` Keyframe-Objekt und eine Animationsdauer.
 
-Wir müssen unserem Abspielbutton auch einen Ereignishandler hinzufügen, damit dieser tatsächlich etwas tut:
+Wir müssen auch einen Ereignishandler zu unserem Ausführen-Button hinzufügen, damit er tatsächlich etwas tut:
 
 ```js
 button.addEventListener("click", playAnimation);
@@ -76,11 +76,11 @@ button.addEventListener("click", playAnimation);
 
 {{ EmbedLiveSample("Run_an_animation_again", "100%", "160") }}
 
-## Warten auf eine Animation, bis sie vollständig abgeschlossen ist, bevor sie gestoppt wird
+## Warten, bis eine Animation abgeschlossen ist, bevor sie gestoppt wird
 
-Im vorherigen Beispiel, wenn der Abspielbutton geklickt wird, bevor die Animation abgeschlossen ist, stoppt die aktuelle Animation abrupt und startet von dem `0%` oder `from` Start-Keyframe neu. Wenn Sie möchten, dass die aktuelle Animationsiteration abgeschlossen ist, bevor eine neue gestartet wird, können wir den `run`-Button deaktivieren, während die Animation läuft, und ihn basierend auf dem [`finish`](/de/docs/Web/API/Animation/finish) Ereignis wieder aktivieren. Alternativ, wenn wir mehrere Iterationen der Animation aktivieren möchten, können wir überprüfen, ob eine Animation auf dem Element läuft, und die `animation-iteration`-Zahl für jeden Tastendruck erhöhen, während die Animation läuft.
+Im vorherigen Beispiel, wenn der Ausführen-Button geklickt wird, bevor die Animation abgeschlossen ist, stoppt die aktuelle Animation abrupt und die Animation startet neu von dem `0%` oder `from` Start-Keyframe. Wenn Sie möchten, dass die aktuelle Animationsiteration abgeschlossen wird, bevor eine neue gestartet wird, können wir den `run` Button während der Animation deaktivieren und ihn basierend auf dem [`finish`](/de/docs/Web/API/Animation/finish) Ereignis wieder aktivieren. Alternativ, wenn wir mehrere Iterationen der Animation ermöglichen möchten, können wir überprüfen, ob eine Animation auf dem Element läuft, und die `animation-iteration` Zählung für jeden Button-Klick erhöhen, während die Animation läuft.
 
-In diesem Beispiel aktualisieren wir unsere `playAnimation()`-Funktion, um den Button bei einem Klick zu deaktivieren, und hören auf das `finish`-Ereignis, um den Button wieder zu aktivieren.
+In diesem Beispiel aktualisieren wir unsere `playAnimation()` Funktion, um den Button beim Klicken zu deaktivieren und das `finish` Ereignis zu überwachen, um den Button wieder zu aktivieren.
 
 ```html hidden
 <div class="box"></div>
@@ -119,14 +119,14 @@ function playAnimation() {
 
 Der Code deaktiviert den Button und startet die Animation. Der Button wird wieder aktiviert, wenn die Animation abgeschlossen ist.
 
-## Stapelkontext in Animationen
+## Stacking-Kontext in Animationen
 
-Die Eigenschaften, die während einer CSS-Animation animiert werden, verhalten sich so, als wären sie in der [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftsdeklaration enthalten. Jede Eigenschaft, die einen Stapelkontext erstellen würde, wenn sie als `will-change` markiert ist, führt dazu, dass das Element einen neuen Stapelkontext erhält.
+Die Eigenschaften, die während einer CSS-Animation animiert werden, verhalten sich so, als ob sie in der [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftsdeklaration enthalten wären. Jede Eigenschaft, die einen Stacking-Kontext erstellen würde, wenn sie als `will-change` markiert ist, sorgt dafür, dass das Element einen neuen Stacking-Kontext erhält.
 
-Im Falle von [`animation-fill-mode: forwards`](/de/docs/Web/CSS/animation-fill-mode#forwards) (und `both`), bleiben die animierten Eigenschaften im Zustand des letzten Keyframes, nachdem die Animation beendet ist. Die Eigenschaften behalten den `will-change`-Status, sodass, wenn ein neuer Stapelkontext während der Animation erstellt wird und am Ende der Animation noch vorhanden ist, das Zielelement den Stapelkontext nach der Animation behält.
+Im Fall von [`animation-fill-mode: forwards`](/de/docs/Web/CSS/animation-fill-mode#forwards) (und `both`) bleiben die animierten Eigenschaften nach dem Abschluss der Animation im Zustand des letzten Keyframes. Die Eigenschaften behalten den `will-change` Status, sodass, wenn ein neuer Stacking-Kontext während der Animation erstellt wird und am Ende der Animation noch vorhanden ist, das Ziel-Element den Stacking-Kontext nach dem Abschluss der Animation beibehält.
 
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [Animation Interface](/de/docs/Web/API/Animation/Animation)
-- [CSS-Animationsmodul](/de/docs/Web/CSS/CSS_animations)
+- [CSS Animations](/de/docs/Web/CSS/CSS_animations) Modul

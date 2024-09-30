@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `statechange`-Ereignis wird ausgelöst, wenn sich der [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
+Das `statechange`-Ereignis wird jedes Mal ausgelöst, wenn sich der [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt aus dem [service worker registration-events sample](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([live demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code lauscht auf jede Änderung im [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state)
+Dieser Codeausschnitt stammt aus dem [Beispiel für Service Worker Registrierungsevents](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code lauscht auf jede Änderung des [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state)
 und gibt dessen Wert zurück.
 
 ```js
@@ -50,7 +50,7 @@ if (serviceWorker) {
 }
 ```
 
-Beachten Sie, dass wenn `statechange` ausgelöst wird, sich die Referenzen des Service Workers geändert haben können. Beispielsweise:
+Beachten Sie, dass, wenn `statechange` ausgelöst wird, die Referenzen des Service Workers möglicherweise geändert wurden. Zum Beispiel:
 
 ```js
 navigator.serviceWorker.register("/sw.js").then((swr) => {

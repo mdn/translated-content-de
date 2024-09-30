@@ -12,7 +12,7 @@ Die **`confidence`** schreibgeschützte Eigenschaft des
 [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces gibt eine numerische Schätzung zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
 
 > [!NOTE]
-> An der Implementierung von `confidence` in Mozilla wird noch gearbeitet — derzeit scheint sie immer 1 zurückzugeben.
+> Mozillas Implementierung von `confidence` befindet sich noch in Arbeit — momentan scheint es immer 1 zurückzugeben.
 
 ## Wert
 
@@ -20,8 +20,8 @@ Eine Zahl zwischen 0 und 1.
 
 ## Beispiele
 
-Dieser Code ist ein Ausschnitt aus unserem
-[Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem
+[Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {

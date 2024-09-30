@@ -7,15 +7,15 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-Das `screenshots`-Mitglied definiert ein Array von Screenshots, die zur Präsentation der Applikation dienen. Diese Bilder sind für die Nutzung in Progressiven Web-App-Stores vorgesehen.
+Das `screenshots`-Mitglied definiert ein Array von Screenshots, um die Anwendung zu präsentieren. Diese Bilder sind für progressive Web-App-Stores bestimmt.
 
 ### Werte
 
-Das `screenshots`-Mitglied ist ein Array von Objekten, die jeweils einen Screenshot darstellen. Jedes Screenshot-Objekt kann die folgenden Eigenschaften enthalten:
+Das `screenshots`-Mitglied ist ein Array von Objekten, von denen jedes einen Screenshot darstellt. Jedes Screenshot-Objekt kann die folgenden Eigenschaften enthalten:
 
 - `form_factor`
 
-  - : String, der eine Klasse von Geräten repräsentiert. Dies sollte nur verwendet werden, wenn der Screenshot nur für einen bestimmten Formfaktor zutrifft.
+  - : Ein String, der eine Klasse von Geräten darstellt. Dies sollte nur verwendet werden, wenn der Screenshot nur für einen bestimmten Formfaktor gilt.
 
     Diese Eigenschaft kann einen der folgenden Werte annehmen:
 
@@ -24,11 +24,11 @@ Das `screenshots`-Mitglied ist ein Array von Objekten, die jeweils einen Screens
 
 - `label`
 
-  - : String, der den zugänglichen Namen des Screenshot-Objekts darstellt. Dieses Mitglied kann als Alternativtext für den Screenshot dienen.
+  - : Ein String, der den zugänglichen Namen des Screenshot-Objekts darstellt. Dieses Mitglied kann als alternativer Text für den Screenshot dienen.
 
 - `platform`
 
-  - : String, der die Plattform repräsentiert, auf die der Screenshot zutrifft. Dies sollte verwendet werden, wenn ein Screenshot nur für ein bestimmtes Gerät oder eine bestimmte Distributionsplattform anwendbar ist. Benutzeragenten sollten keine Screenshots anzeigen, die einen `platform`-Wert enthalten, der sich von der aktuellen Plattform unterscheidet (zum Beispiel sollte Google Play keine Screenshots anzeigen, deren `platform` `"ios"` ist).
+  - : Ein String, der die Plattform darstellt, auf die der Screenshot zutrifft. Dies sollte verwendet werden, wenn ein Screenshot nur auf ein bestimmtes Gerät oder eine bestimmte Distributionsplattform anwendbar ist. Benutzeragenten sollten keine Screenshots anzeigen, die einen `platform`-Wert enthalten, der von der aktuellen Plattform abweicht (zum Beispiel sollte Google Play keine Screenshots anzeigen, deren `platform` `"ios"` ist).
 
     Diese Eigenschaft kann einen der folgenden Werte annehmen:
 
@@ -49,11 +49,11 @@ Das `screenshots`-Mitglied ist ein Array von Objekten, die jeweils einen Screens
       - `"play"`
 
 - `sizes`
-  - : String, der die Größe des Bildes beschreibt, oder mehrere Größen für Bildformate wie ICO, die mehrere Bilder enthalten können. Diese Eigenschaft ist äquivalent zu und wird in derselben Weise spezifiziert wie das [`sizes`](/de/docs/Web/HTML/Element/link#sizes)-Attribut des {{htmlelement("link")}}-Elements.
+  - : Ein String, der die Größe des Bildes beschreibt, oder mehrere Größen für Bildformate wie ICO, die mehrere Bilder enthalten können. Diese Eigenschaft ist äquivalent zu und wird auf die gleiche Weise wie das [`sizes`](/de/docs/Web/HTML/Element/link#sizes)-Attribut des {{htmlelement("link")}}-Elements angegeben.
 - `src`
-  - : String, der eine URL darstellt, über die der Benutzeragent die Bilddaten abrufen kann.
+  - : Ein String, der eine URL darstellt, von der der Benutzeragent die Bilddaten abrufen kann.
 - `type`
-  - : String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) für das Bild repräsentiert.
+  - : Ein String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) für das Bild darstellt.
 
 ## Beispiele
 
@@ -82,4 +82,4 @@ Das `screenshots`-Mitglied ist ein Array von Objekten, die jeweils einen Screens
 
 ## Browser-Kompatibilität
 
-Dieses Manifest-Mitglied wird von App-Stores und Katalogen verwendet, wenn Web-Apps veröffentlicht und aufgelistet werden, daher ist `Browser-Kompatibilität` nicht anwendbar. Browser können diese Informationen parsen, aber es ist optional und beeinträchtigt nicht die Kernfunktionalität einer Web-App.
+Dieses Manifest-Mitglied wird von App-Stores und Katalogen verwendet, wenn sie Web-Apps veröffentlichen und auflisten, daher ist die Browser-Kompatibilität nicht anwendbar. Browser können diese Informationen parsen, aber es ist optional und beeinflusst die Kernfunktionalität einer Web-App nicht.

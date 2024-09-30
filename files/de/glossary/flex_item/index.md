@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die direkten Kinder eines [Flex Containers](/de/docs/Glossary/Flex_Container) (Elemente mit `display: flex` oder `display: inline-flex`) werden zu **flex items**.
+Die direkten Kinder eines [Flex-Containers](/de/docs/Glossary/Flex_Container) (Elemente, bei denen `display: flex` oder `display: inline-flex` gesetzt ist) werden zu **Flex-Items**.
 
-Fortlaufende Textabschnitte innerhalb von Flex-Containern werden ebenfalls zu Flex-Items.
+Fortlaufende Textzeilen innerhalb von Flex-Containern werden ebenfalls zu Flex-Items.
 
 ## Siehe auch
 
-### Eigenschaftsreferenz
+### Eigenschaften-Referenz
 
 - {{cssxref("align-self")}}
 - {{cssxref("flex-basis")}}
@@ -23,6 +23,6 @@ Fortlaufende Textabschnitte innerhalb von Flex-Containern werden ebenfalls zu Fl
 
 ### Weiterführende Literatur
 
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Flex-Elemente anordnen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-- [Verhältnis von Flex-Items entlang der Hauptachse steuern](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Grundkonzepte des Flexboxmodells](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Reihenfolge der Flex-Items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Verhältnissteuerung von Flex-Items entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)

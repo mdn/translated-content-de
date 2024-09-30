@@ -1,5 +1,5 @@
 ---
-title: "Document: queryCommandEnabled() Methode"
+title: "Document: queryCommandEnabled()-Methode"
 short-title: queryCommandEnabled()
 slug: Web/API/Document/queryCommandEnabled
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`Document.queryCommandEnabled()`**-Methode gibt an, ob der angegebene Editorkommando vom Browser aktiviert ist oder nicht.
+Die Methode **`Document.queryCommandEnabled()`** gibt an, ob der angegebene Bearbeitungsbefehl vom Browser aktiviert ist oder nicht.
 
 ## Syntax
 
@@ -25,10 +25,10 @@ document.queryCommandEnabled(command)
 
 Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl aktiviert ist, und `false`, wenn der Befehl nicht aktiviert ist.
 
-## Hinweise
+## Anmerkungen
 
-- Für die Befehle `"cut"` und `"copy"` gibt die Methode nur dann `true` zurück, wenn sie aus einem benutzerinitiierten Thread aufgerufen wird.
-- Der `"paste"`-Befehl gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch wenn das Skript, das den Aufruf tätigt, nicht über ausreichende Berechtigungen verfügt, um die Aktion auszuführen.
+- Für die Befehle `"cut"` und `"copy"` gibt die Methode nur dann `true` zurück, wenn sie von einem benutzerinitiierten Thread aufgerufen wird.
+- Der Befehl `"paste"` gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch wenn das Skript, das sie aufruft, nicht über ausreichende Berechtigungen verfügt, um die Aktion auszuführen.
 
 ## Beispiel
 
@@ -42,7 +42,7 @@ if (flg) {
 
 ## Spezifikationen
 
-Dieses Merkmal ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist derzeit nicht Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

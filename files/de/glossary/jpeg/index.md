@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**JPEG** (Joint Photographic Experts Group) ist eine häufig verwendete Methode zur verlustbehafteten Komprimierung für digitale Bilder.
+**JPEG** (Joint Photographic Experts Group) ist ein häufig verwendetes Verfahren zur verlustbehafteten Kompression digitaler Bilder.
 
-Die JPEG-Komprimierung besteht aus drei Komprimierungstechniken, die in aufeinanderfolgenden Schichten angewendet werden, darunter Chrominanzsubsampling, diskrete Kosinustransformation und Quantisierung sowie Lauflängenkodierung Delta & Huffman-Kodierung. Das Chrominanzsubsampling beinhaltet eine geringere Auflösung für Chrominanzinformationen als für Luminanzinformationen, da das menschliche visuelle System Farbunterschiede weniger genau wahrnimmt als Helligkeitsunterschiede. Eine diskrete Kosinustransformation drückt eine endliche Datenfolge in Form einer Summe von Kosinusfunktionen aus, die bei verschiedenen Frequenzen schwingen.
+Die JPEG-Komprimierung besteht aus drei Komprimierungstechniken, die in aufeinanderfolgenden Schichten angewendet werden: Chrominanz-Subsampling, diskrete Kosinustransformation und Quantisierung sowie Lauflängencodierung & Huffman-Codierung. Beim Chroma-Subsampling wird für Chroma-Informationen eine geringere Auflösung als für Luma-Informationen umgesetzt, da das menschliche visuelle System Unterschiede in der Farbgenauigkeit weniger wahrnimmt als Unterschiede in der Helligkeit. Eine diskrete Kosinustransformation drückt eine endliche Folge von Datenpunkten durch eine Summe von Kosinusfunktionen aus, die mit unterschiedlichen Frequenzen schwingen.
 
 ## Siehe auch
 

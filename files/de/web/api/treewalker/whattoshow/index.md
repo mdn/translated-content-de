@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmaske zurück, die die anzuzeigenden Typen von [Knoten](/de/docs/Web/API/Node) angibt. Nicht übereinstimmende Knoten werden übersprungen, aber ihre Kinder können einbezogen werden, wenn es relevant ist. Die möglichen Werte sind:
+Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmaske zurück, die die Typen von [Knoten](/de/docs/Web/API/Node) anzeigt, die angezeigt werden sollen. Nicht übereinstimmende Knoten werden übersprungen, aber ihre Kinder können einbezogen werden, wenn zutreffend. Die möglichen Werte sind:
 
 <table class="no-markdown">
   <thead>
@@ -22,7 +22,7 @@ Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmask
     <tr>
       <td><code>NodeFilter.SHOW_ALL</code></td>
       <td>
-        <code>4294967295</code> (das ist der Maximalwert von <code>unsigned long</code>)
+        <code>4294967295</code> (das ist der maximale Wert von <code>unsigned long</code>)
       </td>
       <td>Zeigt alle Knoten an.</td>
     </tr>
@@ -32,7 +32,7 @@ Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmask
       </td>
       <td><code>2</code></td>
       <td>
-        Zeigt Attribut[`Attr`](/de/docs/Web/API/Attr)-Knoten an. Dies ist nur dann sinnvoll, wenn ein [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird; in diesem Fall bedeutet es, dass der Attributknoten in der ersten Position der Iteration oder Traversierung erscheint. Da Attribute nie Kinder anderer Knoten sind, erscheinen sie nicht, wenn man über den Dokumentbaum traversiert.
+        Zeigt Attributknoten [`Attr`](/de/docs/Web/API/Attr) an. Dies ist nur sinnvoll, wenn ein [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird; in diesem Fall bedeutet es, dass der Attributknoten an erster Stelle der Iteration oder des Durchlaufs erscheint. Da Attribute nie Kinder anderer Knoten sind, erscheinen sie nicht, wenn über den Dokumentbaum navigiert wird.
       </td>
     </tr>
     <tr>
@@ -70,7 +70,7 @@ Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmask
     <tr>
       <td><code>NodeFilter.SHOW_ENTITY</code> {{deprecated_inline}}</td>
       <td><code>32</code></td>
-      <td>Veraltet, nicht mehr verwendet.</td>
+      <td>Veraltet, wird nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td>
@@ -78,14 +78,14 @@ Die **`TreeWalker.whatToShow`** schreibgeschützte Eigenschaft gibt eine Bitmask
         {{deprecated_inline}}
       </td>
       <td><code>16</code></td>
-      <td>Veraltet, nicht mehr verwendet.</td>
+      <td>Veraltet, wird nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td>
         <code>NodeFilter.SHOW_NOTATION</code> {{deprecated_inline}}
       </td>
       <td><code>2048</code></td>
-      <td>Veraltet, nicht mehr verwendet.</td>
+      <td>Veraltet, wird nicht mehr verwendet.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_PROCESSING_INSTRUCTION</code></td>
@@ -132,4 +132,4 @@ if (
 
 ## Siehe auch
 
-- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface.

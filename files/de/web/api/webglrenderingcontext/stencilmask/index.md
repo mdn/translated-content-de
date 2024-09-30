@@ -3,14 +3,14 @@ title: "WebGLRenderingContext: stencilMask() Methode"
 short-title: stencilMask()
 slug: Web/API/WebGLRenderingContext/stencilMask
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.stencilMask()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) steuert das Aktivieren und Deaktivieren des Schreibens einzelner Bits in den Stencil-Ebenen sowohl für die Vorder- als auch die Rückseite.
+Die **`WebGLRenderingContext.stencilMask()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) steuert das Aktivieren und Deaktivieren des Schreibens einzelner Bits in den Stencil-Ebenen, sowohl für die Vorder- als auch die Rückseite.
 
-Die [`WebGLRenderingContext.stencilMaskSeparate()`](/de/docs/Web/API/WebGLRenderingContext/stencilMaskSeparate)-Methode kann unterschiedliche Werte für die Schreibmasken der Vorder- und Rückseite festlegen.
+Die Methode [`WebGLRenderingContext.stencilMaskSeparate()`](/de/docs/Web/API/WebGLRenderingContext/stencilMaskSeparate) kann vordere und hintere Stencil-Writemasks auf unterschiedliche Werte setzen.
 
 ## Syntax
 
@@ -33,7 +33,8 @@ Keiner ({{jsxref("undefined")}}).
 gl.stencilMask(110101);
 ```
 
-Um die aktuellen Stencil-Masken zu erhalten, fragen Sie die Konstanten `STENCIL_WRITEMASK`, `STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS` ab.
+Um die aktuellen Stencil-Masken abzufragen, verwenden Sie die Konstanten `STENCIL_WRITEMASK`,
+`STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS`.
 
 ```js
 gl.getParameter(gl.STENCIL_WRITEMASK);

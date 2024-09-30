@@ -9,8 +9,8 @@ l10n:
 {{APIRef("File and Directory Entries API")}}
 
 Die schreibgeschützte **`name`**-Eigenschaft des
-[`FileSystem`](/de/docs/Web/API/FileSystem)-Interfaces gibt den Namen des Dateisystems an. Dieser
-String ist einzigartig unter allen Dateisystemen, die derzeit durch die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) bereitgestellt werden.
+[`FileSystem`](/de/docs/Web/API/FileSystem)-Interfaces zeigt den Namen des Dateisystems an. Dieser
+String ist einzigartig unter allen Dateisystemen, die derzeit von der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) bereitgestellt werden.
 
 ## Wert
 

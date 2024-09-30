@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das WebRTC **`message`**-Ereignis wird an den `onmessage` Ereignis-Handler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn eine Nachricht vom entfernten Peer empfangen wurde.
+Das WebRTC-**`message`**-Ereignis wird an den `onmessage`-Ereignishandler auf einem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt gesendet, wenn eine Nachricht von der entfernten Gegenstelle empfangen wurde.
 
 > [!NOTE]
-> Das `message`-Ereignis verwendet als Objekttyp das [`MessageEvent`](/de/docs/Web/API/MessageEvent) Interface, das in der HTML-Spezifikation definiert ist.
+> Das `message`-Ereignis verwendet als sein Ereignisobjekttyp die [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle, die von der HTML-Spezifikation definiert wird.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -33,7 +33,7 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-Interface, [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
   - : Die vom Nachrichtensender gesendeten Daten.
@@ -42,13 +42,13 @@ _Erbt auch Eigenschaften von seinem Eltern-Interface, [`Event`](/de/docs/Web/API
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein Verweis auf den Nachrichtensender, einer von [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
+  - : Eine Referenz auf den Nachrichtensender, eines der [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z.B. beim Channel-Messaging oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die Ports darstellt, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. in der Kanalkommunikation oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 
 ## Beispiele
 
-Für einen gegebenen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), `dc`, der für eine Peer-Verbindung mit seiner [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)-Methode erstellt wurde, richtet dieser Code einen Handler für eingehende Nachrichten ein und verarbeitet diese, indem er die im Nachrichtendaten enthaltenen Elemente als neues {{HTMLElement("p")}} (Absatz) Element zum aktuellen Dokument hinzufügt.
+Für ein gegebenes [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), `dc`, das für eine Peer-Verbindung mit seiner [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)-Methode erstellt wurde, richtet dieser Code einen Handler für eingehende Nachrichten ein und bearbeitet sie, indem er die in der Nachricht enthaltenen Daten als neues {{HTMLElement("p")}} (Absatz)-Element zum aktuellen Dokument hinzufügt.
 
 ```js
 dc.addEventListener(
@@ -64,9 +64,9 @@ dc.addEventListener(
 );
 ```
 
-Zuerst erstellen wir das neue Absatzelement und fügen die Nachrichtendaten als neuen Textknoten hinzu. Anschließend fügen wir den neuen Absatz ans Ende des Dokuments im `body` an.
+Zuerst erstellen wir das neue Absatz-Element und fügen die Nachrichtendaten als neuen Textknoten hinzu. Dann fügen wir den neuen Absatz am Ende des Body-Dokuments an.
 
-Sie können auch die `onmessage` Ereignis-Handler-Eigenschaft eines `RTCDataChannel`-Objekts verwenden, um den Ereignis-Handler zu setzen:
+Sie können auch die `onmessage`-Ereignishandler-Eigenschaft eines `RTCDataChannel`-Objekts verwenden, um den Ereignishandler festzulegen:
 
 ```js
 dc.onmessage = (event) => {
@@ -88,7 +88,7 @@ dc.onmessage = (event) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
 - Verwandte Ereignisse: [`open`](/de/docs/Web/API/RTCDataChannel/open_event), [`close`](/de/docs/Web/API/RTCDataChannel/close_event), und [`error`](/de/docs/Web/API/RTCDataChannel/error_event)
 - [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)

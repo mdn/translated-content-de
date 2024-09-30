@@ -1,5 +1,5 @@
 ---
-title: "Navigator: Eigenschaft productSub"
+title: "Navigator: productSub-Eigenschaft"
 short-title: productSub
 slug: Web/API/Navigator/productSub
 l10n:
@@ -22,9 +22,9 @@ document.body.textContent = `productSub: ${navigator.productSub}`;
 
 {{ EmbedLiveSample("Examples") }}
 
-## Anmerkungen
+## Hinweise
 
-In IE gibt diese Eigenschaft undefined zurück.
+In IE gibt diese Eigenschaft `undefined` zurück.
 
 In Apple Safari und Google Chrome gibt diese Eigenschaft immer `20030107` zurück.
 

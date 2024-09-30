@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getUTCMilliseconds()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Millisekunden für dieses Datum gemäß der koordinierten Weltzeit zurück.
+Die Methode **`getUTCMilliseconds()`** von {{jsxref("Date")}}-Instanzen gibt die Millisekunden für dieses Datum gemäß der Weltzeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getutcmilliseconds.html", "shorter")}}
 
@@ -23,15 +23,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl zwischen 0 und 999, die die Millisekunden des angegebenen Datums gemäß der koordinierten Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein Ganzzahlwert, zwischen 0 und 999, der die Millisekunden für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
-Nicht zu verwechseln mit dem Zeitstempel. Um die Gesamtanzahl der Millisekunden seit der Epoche zu erhalten, verwenden Sie die Methode [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime).
+Nicht mit dem Zeitstempel zu verwechseln. Um die Gesamtanzahl der Millisekunden seit der Epoche zu erhalten, verwenden Sie die Methode [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime).
 
 ## Beispiele
 
 ### Verwendung von getUTCMilliseconds()
 
-Das folgende Beispiel weist den Millisekundenanteil der aktuellen Zeit der Variablen `milliseconds` zu.
+Im folgenden Beispiel wird der Millisekundenteil der aktuellen Zeit der Variablen `milliseconds` zugewiesen.
 
 ```js
 const today = new Date();

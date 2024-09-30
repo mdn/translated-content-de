@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableRowElement: rowIndex Eigenschaft"
+title: "HTMLTableRowElement: rowIndex-Eigenschaft"
 short-title: rowIndex
 slug: Web/API/HTMLTableRowElement/rowIndex
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowIndex`** Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces ist eine schreibgeschützte Eigenschaft, die die Position einer Zeile innerhalb der gesamten {{HtmlElement("table")}} repräsentiert.
+Die **`rowIndex`**-Eigenschaft der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Position einer Zeile innerhalb der gesamten {{HtmlElement("table")}} darstellt.
 
-Selbst wenn die {{HtmlElement("thead")}}, {{HtmlElement("tbody")}} und {{HtmlElement("tfoot")}} Elemente in der HTML-Quelle außer der Reihenfolge stehen, rendern Browser die Tabelle in der richtigen Reihenfolge. Daher zählen die Zeilen vom `<thead>` über das `<tbody>` bis zum `<tfoot>`.
+Selbst wenn die {{HtmlElement("thead")}}, {{HtmlElement("tbody")}} und {{HtmlElement("tfoot")}}-Elemente in der HTML-Datei außerhalb der Reihenfolge stehen, rendern Browser die Tabelle in der richtigen Reihenfolge. Daher werden die Zeilen von `<thead>` zu `<tbody>`, von `<tbody>` zu `<tfoot>` gezählt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Der Index der Zeile oder `-1`, wenn die Zeile nicht Teil einer Tabelle ist.
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um alle Zeilennummern in einer Tabelle zu kennzeichnen.
+Dieses Beispiel verwendet JavaScript, um alle Zeilennummern in einer Tabelle zu beschriften.
 
 ### HTML
 

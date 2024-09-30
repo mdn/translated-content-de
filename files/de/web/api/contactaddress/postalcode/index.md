@@ -1,5 +1,5 @@
 ---
-title: "ContactAddress: postalCode-Eigenschaft"
+title: "ContactAddress: postalCode Eigenschaft"
 short-title: postalCode
 slug: Web/API/ContactAddress/postalCode
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die **`postalCode`** schreibgeschützte Eigenschaft des [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Interfaces gibt eine Zeichenkette zurück, die einen Code enthält, der von einer Gerichtsbarkeit für den Postversand verwendet wird, zum Beispiel der [ZIP Code](https://en.wikipedia.org/wiki/ZIP_Code) in den Vereinigten Staaten oder die [Postal Index Number](https://en.wikipedia.org/wiki/Postal_Index_Number) (PIN-Code) in Indien.
+Die schreibgeschützte Eigenschaft **`postalCode`** des [`ContactAddress`](/de/docs/Web/API/ContactAddress) Interfaces gibt eine Zeichenkette zurück, die einen von einer Jurisdiktion für die Postzustellung verwendeten Code enthält, zum Beispiel die [ZIP-Code](https://en.wikipedia.org/wiki/ZIP_Code) in den Vereinigten Staaten oder die [Postal Index Number](https://en.wikipedia.org/wiki/Postal_Index_Number) (PIN-Code) in Indien.
 
 ## Wert
 
-Eine Zeichenkette, die den Postleitzahl-Teil der Adresse enthält. Eine Postleitzahl ist eine Zeichenkette (entweder numerisch oder alphanumerisch), die von einem Postdienst zur Optimierung des Postversands und der Zustellung verwendet wird.
+Eine Zeichenkette, die den Postleitzahlenteil der Adresse enthält. Eine Postleitzahl ist eine Zeichenkette (entweder numerisch oder alphanumerisch), die von einem Postdienst zur Optimierung der Briefzustellung und -verteilung verwendet wird.
 
-Verschiedene Länder verwenden unterschiedliche Begriffe dafür. In den meisten Teilen der Welt ist es als "post code" oder "postal code" bekannt. In den Vereinigten Staaten wird der ZIP Code verwendet. Indien verwendet PIN-Codes.
+Verschiedene Länder verwenden unterschiedliche Begriffe dafür. In den meisten Teilen der Welt ist sie als "Post Code" oder "Postal Code" bekannt. In den Vereinigten Staaten wird der ZIP-Code verwendet. Indien verwendet PIN-Codes.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Verschiedene Länder verwenden unterschiedliche Begriffe dafür. In den meisten 
 
 ## Siehe auch
 
-- Universelle Postunion: [Universal Post\*Code® Database](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions)
+- Universal Postal Union: [Universal Post\*Code® Database](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions)

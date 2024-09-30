@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`reduceRight()`**-Methode von {{jsxref("Array")}}-Instanzen wendet eine Funktion auf einen Akkumulator und jeden Wert des Arrays (von rechts nach links) an, um es auf einen einzigen Wert zu reduzieren.
+Die **`reduceRight()`** Methode von {{jsxref("Array")}} Instanzen wendet eine Funktion auf einen Akkumulator und jeden Wert des Arrays (von rechts nach links) an, um es auf einen einzelnen Wert zu reduzieren.
 
 Siehe auch {{jsxref("Array.prototype.reduce()")}} für von links nach rechts.
 
@@ -23,17 +23,17 @@ reduceRight(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt werden soll. Deren Rückgabewert wird der Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduceRight()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Ihr Rückgabewert wird zum Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert von `reduceRight()` zurückgegeben. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der aus dem vorherigen Aufruf von `callbackFn` resultiert. Beim ersten Aufruf entspricht sein Wert `initialValue`, wenn letzteres angegeben ist; andernfalls ist es der letzte Wert des Arrays.
+      - : Der Wert, der sich aus dem vorherigen Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist sein Wert `initialValue`, falls dieser angegeben wurde; andernfalls ist sein Wert das letzte Element des Arrays.
     - `currentValue`
-      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert der letzte Wert, wenn `initialValue` angegeben ist; andernfalls ist es der vorletzte Wert.
+      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert das letzte Element, falls `initialValue` angegeben ist; andernfalls ist sein Wert das vorletzte Element.
     - `currentIndex`
-      - : Die Indexposition von `currentValue` im Array. Beim ersten Aufruf entspricht sein Wert `array.length - 1`, wenn `initialValue` angegeben ist; andernfalls `array.length - 2`.
+      - : Die Indexposition von `currentValue` im Array. Beim ersten Aufruf ist sein Wert `array.length - 1`, falls `initialValue` angegeben ist; andernfalls `array.length - 2`.
     - `array`
-      - : Das Array, auf dem `reduceRight()` aufgerufen wurde.
+      - : Das Array, auf dem `reduceRight()` angewendet wurde.
 - `initialValue` {{optional_inline}}
-  - : Wert, der als Akkumulator beim ersten Aufruf von `callbackFn` verwendet wird. Wenn kein Initialwert angegeben wird, wird das letzte Element im Array verwendet und übersprungen. Das Aufrufen von `reduceRight()` auf einem leeren Array ohne Initialwert führt zu einem `TypeError`.
+  - : Wert, der als Akkumulator beim ersten Aufruf von `callbackFn` verwendet wird. Wenn kein Anfangswert angegeben ist, wird das letzte Element im Array verwendet und übersprungen. Wird `reduceRight()` auf ein leeres Array ohne Anfangswert aufgerufen, wird ein `TypeError` erzeugt.
 
 ### Rückgabewert
 
@@ -41,21 +41,21 @@ Der Wert, der aus der Reduktion resultiert.
 
 ## Beschreibung
 
-Die `reduceRight()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie führt eine "Reducer"-Callbackfunktion über alle Elemente des Arrays aus, in absteigender Indexreihenfolge, und akkumuliert sie zu einem einzigen Wert. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
+Die `reduceRight()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie führt eine "Reducer" Callback-Funktion über alle Elemente im Array in absteigender Indizes-Reihenfolge aus und akkumuliert sie zu einem einzigen Wert. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, die zugewiesene Werte haben. Es wird nicht für leere Slots in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Sie wird nicht für leere Slots in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 
-Im Gegensatz zu anderen [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) akzeptiert `reduceRight()` kein `thisArg`-Argument. `callbackFn` wird immer mit `undefined` als `this` aufgerufen, welches durch `globalThis` ersetzt wird, wenn `callbackFn` nicht strikt ist.
+Im Gegensatz zu anderen [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) akzeptiert `reduceRight()` kein `thisArg` Argument. `callbackFn` wird immer mit `undefined` als `this` aufgerufen, das mit `globalThis` ersetzt wird, wenn `callbackFn` nicht strikt ist.
 
-Die `reduceRight()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integerbasierte Schlüsselwerteigenschaften hat.
+Die `reduceRight()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-indizierte Eigenschaften hat.
 
-Alle Warnhinweise bezüglich `reduce`, die in [wann man reduce nicht verwenden sollte](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#when_to_not_use_reduce) besprochen werden, gelten auch für `reduceRight`. Da JavaScript keine Lazy-Evaluation-Semantik hat, gibt es keinen Leistungsunterschied zwischen `reduce` und `reduceRight`.
+Alle Warnhinweise zu `reduce`, die in [wann reduce() nicht verwenden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#when_to_not_use_reduce) besprochen werden, gelten auch für `reduceRight`. Da JavaScript keine Lazy Evaluation Semantik hat, gibt es keinen Leistungsunterschied zwischen `reduce` und `reduceRight`.
 
 ## Beispiele
 
 ### Wie reduceRight() ohne Anfangswert funktioniert
 
-Der Aufruf von `reduceRight` `callbackFn` würde in etwa so aussehen:
+Der Aufruf der `reduceRight` `callbackFn` könnte so aussehen:
 
 ```js
 arr.reduceRight((accumulator, currentValue, index, array) => {
@@ -63,11 +63,11 @@ arr.reduceRight((accumulator, currentValue, index, array) => {
 });
 ```
 
-Beim ersten Aufruf der Funktion können `accumulator` und `currentValue` einen von zwei Werten haben. Wenn ein `initialValue` im Aufruf von `reduceRight` angegeben wurde, ist `accumulator` gleich `initialValue` und `currentValue` gleich dem letzten Wert im Array. Wenn kein `initialValue` angegeben wurde, ist `accumulator` gleich dem letzten Wert im Array und `currentValue` gleich dem vorletzten Wert.
+Beim ersten Aufruf der Funktion können die `accumulator` und `currentValue` einer von zwei Werten sein. Wenn ein `initialValue` beim Aufruf von `reduceRight` bereitgestellt wurde, dann ist `accumulator` gleich `initialValue` und `currentValue` ist gleich dem letzten Wert im Array. Wenn kein `initialValue` bereitgestellt wurde, dann ist `accumulator` gleich dem letzten Wert im Array und `currentValue` ist gleich dem vorletzten Wert.
 
-Wenn das Array leer ist und kein `initialValue` angegeben wurde, wird {{jsxref("TypeError")}} ausgelöst. Wenn das Array nur ein Element hat (unabhängig von der Position) und kein `initialValue` angegeben wurde, oder wenn `initialValue` angegeben wird, das Array jedoch leer ist, wird der Einzelwert ohne Aufruf von `callbackFn` zurückgegeben.
+Wenn das Array leer ist und kein `initialValue` bereitgestellt wurde, wird ein {{jsxref("TypeError")}} geworfen. Wenn das Array nur ein Element hat (unabhängig von seiner Position) und kein `initialValue` bereitgestellt wurde, oder wenn `initialValue` angegeben ist, aber das Array leer ist, wird der Einzelwert ohne Aufruf von `callbackFn` zurückgegeben.
 
-Einige Beispiel-Durchläufe der Funktion würden etwa so aussehen:
+Einige Beispiel-Durchläufe der Funktion könnten so aussehen:
 
 ```js
 [0, 1, 2, 3, 4].reduceRight(
@@ -75,18 +75,18 @@ Einige Beispiel-Durchläufe der Funktion würden etwa so aussehen:
 );
 ```
 
-Das Callback würde viermal aufgerufen, wobei die Argumente und Rückgabewerte bei jedem Aufruf wie folgt sind:
+Der Callback würde vier Mal aufgerufen, wobei die Argumente und Rückgabewerte bei jedem Aufruf wie folgt sind:
 
-|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| -------------- | ------------- | -------------- | ------- | ------------ |
+|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| ----------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `4`           | `3`            | `3`     | `7`          |
 | Zweiter Aufruf | `7`           | `2`            | `2`     | `9`          |
-| Dritter Aufruf | `9`           | `1`            | `1`     | `10`         |
+| Dritter Aufruf  | `9`           | `1`            | `1`     | `10`         |
 | Vierter Aufruf | `10`          | `0`            | `0`     | `10`         |
 
-Der `array`-Parameter ändert sich während des Prozesses nie — er ist immer `[0, 1, 2, 3, 4]`. Der von `reduceRight` zurückgegebene Wert wäre der des letzten Callback-Aufrufs (`10`).
+Der `array` Parameter ändert sich während des Prozesses nie – er ist immer `[0, 1, 2, 3, 4]`. Der von `reduceRight` zurückgegebene Wert wäre der des letzten Callback-Aufrufs (`10`).
 
-### Wie reduceRight() mit Anfangswert funktioniert
+### Wie reduceRight() mit einem Anfangswert funktioniert
 
 Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `initialValue` von `10`, der als zweites Argument an `reduceRight()` übergeben wird:
 
@@ -97,24 +97,24 @@ Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `in
 );
 ```
 
-|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| -------------- | ------------- | -------------- | ------- | ------------ |
+|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| ----------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `10`          | `4`            | `4`     | `14`         |
 | Zweiter Aufruf | `14`          | `3`            | `3`     | `17`         |
-| Dritter Aufruf | `17`          | `2`            | `2`     | `19`         |
+| Dritter Aufruf  | `17`          | `2`            | `2`     | `19`         |
 | Vierter Aufruf | `19`          | `1`            | `1`     | `20`         |
-| Fünfter Aufruf | `20`          | `0`            | `0`     | `20`         |
+| Fünfter Aufruf  | `20`          | `0`            | `0`     | `20`         |
 
-Der von `reduceRight` zurückgegebene Wert wäre diesmal natürlich `20`.
+Der von `reduceRight` zurückgegebene Wert wäre dieses Mal natürlich `20`.
 
-### Alle Werte innerhalb eines Arrays summieren
+### Alle Werte innerhalb eines Arrays zusammenzählen
 
 ```js
 const sum = [0, 1, 2, 3].reduceRight((a, b) => a + b);
 // sum is 6
 ```
 
-### Eine Liste von asynchronen Funktionen mit Callbacks in Serie ausführen, die jeweils ihre Ergebnisse an die nächste weitergeben
+### Eine Liste von asynchronen Funktionen mit Callbacks nacheinander ausführen, wobei jede das Ergebnis an die nächste übergibt
 
 ```js
 const waterfall =
@@ -176,9 +176,9 @@ console.log(right); // "54321"
 
 ### Komponierbare Funktionen definieren
 
-Funktionale Komposition ist ein Mechanismus zum Kombinieren von Funktionen, bei dem die Ausgabe jeder Funktion in die nächste übergeben wird und die Ausgabe der letzten Funktion das Endergebnis ist. In diesem Beispiel verwenden wir `reduceRight()`, um die funktionale Komposition zu implementieren.
+Funktionale Komposition ist ein Mechanismus zur Kombination von Funktionen, bei dem die Ausgabe jeder Funktion in die nächste übergeht und die Ausgabe der letzten Funktion das Endergebnis ist. In diesem Beispiel verwenden wir `reduceRight()`, um die funktionale Komposition zu implementieren.
 
-Siehe auch [Function composition](<https://en.wikipedia.org/wiki/Function_composition_(computer_science)>) auf Wikipedia.
+Siehe auch [Funktionale Komposition](<https://de.wikipedia.org/wiki/Funktionskomposition>) auf Wikipedia.
 
 ```js
 const compose =
@@ -199,9 +199,9 @@ console.log(compose(double, inc)(2)); // 6
 console.log(compose(inc, double)(2)); // 5
 ```
 
-### Verwendung von reduceRight() mit lückenhaften Arrays
+### Verwenden von reduceRight() mit sparsamen Arrays
 
-`reduceRight()` überspringt fehlende Elemente in lückenhaften Arrays, aber es überspringt keine `undefined`-Werte.
+`reduceRight()` überspringt fehlende Elemente in sparsamen Arrays, überspringt jedoch keine `undefined` Werte.
 
 ```js
 console.log([1, 2, , 4].reduceRight((a, b) => a + b)); // 7
@@ -210,7 +210,7 @@ console.log([1, 2, undefined, 4].reduceRight((a, b) => a + b)); // NaN
 
 ### Aufrufen von reduceRight() auf Nicht-Array-Objekten
 
-Die Methode `reduceRight()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nicht-negativer Integer kleiner als `length` ist.
+Die `reduceRight()`-Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -235,7 +235,7 @@ console.log(Array.prototype.reduceRight.call(arrayLike, (x, y) => x - y));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.reduceRight` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indizierte Kollektionen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.map()")}}
 - {{jsxref("Array.prototype.flat()")}}

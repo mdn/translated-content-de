@@ -8,19 +8,19 @@ l10n:
 {{CSSRef}}
 
 > [!WARNING]
-> Wo möglich, wird Autoren empfohlen, die Verwendung der `direction` CSS-Eigenschaft zu vermeiden und stattdessen das HTML-Globale Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) zu verwenden.
+> Wo möglich, sollten Autoren vermeiden, die CSS-Eigenschaft `direction` zu verwenden, und stattdessen das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) nutzen.
 
-Die **`direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Richtung von Text, Tabellenspalten und horizontalem Überlauf fest. Verwenden Sie `rtl` für Sprachen, die von rechts nach links geschrieben werden (wie Hebräisch oder Arabisch), und `ltr` für solche, die von links nach rechts geschrieben werden (wie Englisch und die meisten anderen Sprachen).
+Die **`direction`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Richtung von Text, Tabellenspalten und horizontalem Überlauf fest. Verwenden Sie `rtl` für Sprachen, die von rechts nach links geschrieben werden (wie Hebräisch oder Arabisch), und `ltr` für diejenigen, die von links nach rechts geschrieben werden (wie Englisch und die meisten anderen Sprachen).
 
 {{EmbedInteractiveExample("pages/css/direction.html")}}
 
-Beachten Sie, dass die Textrichtung normalerweise innerhalb eines Dokuments definiert wird (z.B. mit [dem `dir` Attribut von HTML](/de/docs/Web/HTML/Global_attributes/dir)), anstatt direkt die `direction` Eigenschaft zu verwenden.
+Beachten Sie, dass die Textrichtung normalerweise innerhalb eines Dokuments definiert wird (z. B. mit dem [HTML-Attribut `dir`](/de/docs/Web/HTML/Global_attributes/dir)) und nicht direkt durch die Verwendung der `direction`-Eigenschaft.
 
-Die Eigenschaft legt die Basis-Textrichtung von Blockebenen-Elementen und die Richtung von Einbettungen fest, die durch die {{Cssxref("unicode-bidi")}} Eigenschaft erstellt werden. Sie legt auch die Standardausrichtung von Text, Blockebenen-Elementen und die Richtung fest, in die Zellen innerhalb einer Tabellenzeile fließen.
+Die Eigenschaft legt die Basis-Textrichtung von Block-Elementen und die Richtung von Einbettungen fest, die durch die {{Cssxref("unicode-bidi")}}-Eigenschaft erstellt werden. Sie legt auch die Standardausrichtung von Text, Block-Elementen und die Richtung fest, in der Zellen innerhalb einer Tabellenzeile fließen.
 
-Im Gegensatz zum `dir` Attribut in HTML wird die `direction` Eigenschaft nicht von Tabellenspalten auf Tabellenzellen vererbt, da die CSS-Vererbung dem Dokument-Baum folgt und Tabellenzellen sich in Zeilen, aber nicht in Spalten befinden.
+Im Gegensatz zum `dir`-Attribut in HTML wird die `direction`-Eigenschaft nicht von Tabellenspalten in Tabellenzellen vererbt, da die CSS-Vererbung dem Dokumentenbaum folgt und Tabellenzellen innerhalb von Zeilen, aber nicht innerhalb von Spalten liegen.
 
-Die `direction` und {{cssxref("unicode-bidi")}} Eigenschaften sind die einzigen beiden Eigenschaften, die nicht von der {{cssxref("all")}} Kurzschreibweise beeinflusst werden.
+Die `direction`- und die {{Cssxref("unicode-bidi")}}-Eigenschaften sind die einzigen beiden Eigenschaften, die nicht von der {{cssxref("all")}}-Shorthand-Eigenschaft betroffen sind.
 
 ## Syntax
 
@@ -44,7 +44,7 @@ direction: unset;
 - `rtl`
   - : Text und andere Elemente gehen von rechts nach links.
 
-Damit die `direction` Eigenschaft eine Wirkung auf Inline-Elemente hat, muss der Wert der {{Cssxref("unicode-bidi")}} Eigenschaft `embed` oder `override` sein.
+Damit die `direction`-Eigenschaft auf Inline-Elemente Wirkung zeigt, muss der Wert der Eigenschaft {{Cssxref("unicode-bidi")}} `embed` oder `override` sein.
 
 ## Formale Definition
 
@@ -56,9 +56,9 @@ Damit die `direction` Eigenschaft eine Wirkung auf Inline-Elemente hat, muss der
 
 ## Beispiele
 
-### Festlegen der Rechts-nach-Links-Richtung
+### Einstellen der Rechts-nach-Links-Richtung
 
-Im folgenden Beispiel sind zwei Textstrings, die beide mit `direction: rtl` angezeigt werden. Während der arabische Text mit dieser Einstellung korrekt angezeigt wird, befindet sich der Punkt im englischen Text jetzt an einer ungewöhnlichen Stelle.
+Im untenstehenden Beispiel sind zwei Textzeichenfolgen, die beide mit `direction: rtl` angezeigt werden. Während der arabische Text mit dieser Einstellung korrekt angezeigt wird, befindet sich der Punkt im englischen Text an einer ungewöhnlichen Stelle.
 
 ```css
 blockquote {
@@ -93,5 +93,5 @@ blockquote {
 
 - {{Cssxref("unicode-bidi")}}
 - {{Cssxref("writing-mode")}}
-- Das Globale Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) in HTML
-- [Vertikale Formularelemente erstellen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- Das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir)
+- [Erstellen vertikaler Formularelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)

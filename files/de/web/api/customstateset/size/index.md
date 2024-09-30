@@ -1,5 +1,5 @@
 ---
-title: "CustomStateSet: size-Eigenschaft"
+title: "CustomStateSet: Größe Eigenschaft"
 short-title: size
 slug: Web/API/CustomStateSet/size
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`size`**-Eigenschaft des [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Interfaces gibt die Anzahl der Werte im `CustomStateSet` zurück.
+Die **`size`** Eigenschaft der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) Schnittstelle gibt die Anzahl der Werte im `CustomStateSet` zurück.
 
 ## Wert
 
-Eine ganze Zahl, die angibt, wie viele Eigenschaften das `CustomStateSet` hat.
+Eine ganze Zahl, die angibt, wie viele Eigenschaften das `CustomStateSet` besitzt.
 
 ## Spezifikationen
 

@@ -7,44 +7,44 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Compositing", "Web/API/Canvas_API/Tutorial/Advanced_animations")}}
 
-Da wir JavaScript verwenden, um {{HTMLElement("canvas")}}-Elemente zu steuern, ist es auch sehr einfach, (interaktive) Animationen zu erstellen. In diesem Kapitel werden wir uns ansehen, wie man einige grundlegende Animationen erstellt.
+Da wir JavaScript benutzen, um {{HTMLElement("canvas")}}-Elemente zu steuern, ist es auch sehr einfach, (interaktive) Animationen zu erstellen. In diesem Kapitel werden wir uns ansehen, wie man grundlegende Animationen erstellt.
 
-Wahrscheinlich die größte Einschränkung ist, dass, sobald eine Form gezeichnet wurde, sie so bleibt. Wenn wir sie bewegen müssen, müssen wir sie und alles, was davor gezeichnet wurde, neu zeichnen. Es dauert viel Zeit, komplexe Frames neu zu zeichnen, und die Leistung hängt stark von der Geschwindigkeit des Computers ab, auf dem es läuft.
+Wahrscheinlich die größte Einschränkung ist, dass eine Form, wenn sie einmal gezeichnet wurde, so bleibt. Wenn wir sie bewegen müssen, müssen wir sie und alles, was davor gezeichnet wurde, neu zeichnen. Es kostet viel Zeit, komplexe Frames neu zu zeichnen, und die Leistung hängt stark von der Geschwindigkeit des Computers ab, auf dem sie ausgeführt wird.
 
 ## Grundlegende Animationsschritte
 
-Dies sind die Schritte, die Sie befolgen müssen, um einen Frame zu zeichnen:
+Dies sind die Schritte, die Sie ausführen müssen, um einen Frame zu zeichnen:
 
-1. **Leeren Sie das Canvas**
-   Es sei denn, die Formen, die Sie zeichnen werden, füllen das gesamte Canvas (zum Beispiel ein Hintergrundbild), müssen Sie alle zuvor gezeichneten Formen löschen. Der einfachste Weg, dies zu tun, ist die Verwendung der [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)-Methode.
-2. **Speichern Sie den Zustand des Canvas**
-   Wenn Sie irgendeine Einstellung ändern (wie z.B. Stile, Transformationen usw.), die den Zustand des Canvas beeinflusst und Sie möchten sicherstellen, dass der ursprüngliche Zustand jedes Mal verwendet wird, wenn ein Frame gezeichnet wird, müssen Sie diesen ursprünglichen Zustand speichern.
-3. **Zeichnen Sie animierte Formen**
-   Der Schritt, in dem Sie das tatsächliche Frame-Rendering durchführen.
-4. **Stellen Sie den Canvas-Zustand wieder her**
-   Falls Sie den Zustand gespeichert haben, stellen Sie ihn wieder her, bevor Sie einen neuen Frame zeichnen.
+1. **Löschen der Leinwand**
+   Es sei denn, die Formen, die Sie zeichnen, füllen die komplette Leinwand (zum Beispiel ein Hintergrundbild), müssen Sie alle zuvor gezeichneten Formen löschen. Der einfachste Weg, dies zu tun, ist die Verwendung der Methode [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect).
+2. **Den Zustand der Leinwand speichern**
+   Wenn Sie eine Einstellung (wie Stile, Transformationen, etc.), die den Zustand der Leinwand beeinflusst, verändern und sicherstellen möchten, dass der ursprüngliche Zustand jedes Mal verwendet wird, wenn ein Frame gezeichnet wird, müssen Sie diesen ursprünglichen Zustand speichern.
+3. **Animierte Formen zeichnen**
+   Der Schritt, in dem Sie das eigentliche Frame-Rendering durchführen.
+4. **Den Zustand der Leinwand wiederherstellen**
+   Wenn Sie den Zustand gespeichert haben, stellen Sie ihn wieder her, bevor Sie einen neuen Frame zeichnen.
 
 ## Steuerung einer Animation
 
-Formen werden auf das Canvas gezeichnet, indem direkt die Canvas-Methoden verwendet oder benutzerdefinierte Funktionen aufgerufen werden. Unter normalen Umständen sehen wir diese Ergebnisse erst auf dem Canvas erscheinen, wenn das Skript die Ausführung beendet hat. Es ist beispielsweise nicht möglich, eine Animation innerhalb einer `for`-Schleife auszuführen.
+Formen werden auf die Leinwand gezeichnet, indem direkt die Methoden des Canvas verwendet oder benutzerdefinierte Funktionen aufgerufen werden. Normalerweise sehen wir diese Ergebnisse auf der Leinwand erscheinen, wenn das Skript die Ausführung beendet. Zum Beispiel ist es nicht möglich, eine Animation innerhalb einer `for`-Schleife zu machen.
 
-Das bedeutet, dass wir eine Möglichkeit brauchen, unsere Zeichnungsfunktionen über einen bestimmten Zeitraum auszuführen. Es gibt zwei Möglichkeiten, eine solche Animation zu steuern.
+Das bedeutet, dass wir eine Möglichkeit brauchen, unsere Zeichenfunktionen über einen längeren Zeitraum auszuführen. Es gibt zwei Möglichkeiten, eine Animation auf diese Weise zu steuern.
 
 ### Geplante Aktualisierungen
 
-Zuerst gibt es die Funktionen [`setInterval()`](/de/docs/Web/API/SetInterval), [`setTimeout()`](/de/docs/Web/API/SetTimeout) und [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die verwendet werden können, um eine bestimmte Funktion über einen festgelegten Zeitraum hinweg aufzurufen.
+Zuerst gibt es die Funktionen [`setInterval()`](/de/docs/Web/API/SetInterval), [`setTimeout()`](/de/docs/Web/API/SetTimeout) und [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die verwendet werden können, um eine bestimmte Funktion über einen festgelegten Zeitraum aufzurufen.
 
 - [`setInterval()`](/de/docs/Web/API/SetInterval)
-  - : Beginnt mit der wiederholten Ausführung der durch `function` angegebenen Funktion alle `delay` Millisekunden.
+  - : Beginnt mit der wiederholten Ausführung der von `function` angegebenen Funktion alle `delay` Millisekunden.
 - [`setTimeout()`](/de/docs/Web/API/SetTimeout)
-  - : Führt die durch `function` angegebene Funktion in `delay` Millisekunden aus.
+  - : Führt die von `function` angegebene Funktion nach `delay` Millisekunden aus.
 - [`requestAnimationFrame(callback)`](/de/docs/Web/API/Window/requestAnimationFrame)
-  - : Teilt dem Browser mit, dass Sie eine Animation ausführen möchten, und fordert den Browser auf, eine bestimmte Funktion aufzurufen, um eine Animation vor dem nächsten Neuzeichnen zu aktualisieren.
+  - : Teilt dem Browser mit, dass Sie eine Animation ausführen möchten, und fordert, dass der Browser eine angegebene Funktion aufruft, um eine Animation zu aktualisieren, bevor das nächste Neuzeichnen erfolgt.
 
-Wenn Sie keine Benutzerinteraktion wünschen, können Sie die `setInterval()`-Funktion verwenden, die den übergebenen Code wiederholt ausführt. Wenn wir ein Spiel erstellen möchten, könnten wir Tastatur- oder Mausereignisse verwenden, um die Animation zu steuern und `setTimeout()` verwenden. Durch das Setzen von Listenern mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) erfassen wir jede Benutzerinteraktion und führen unsere Animationsfunktionen aus.
+Wenn Sie keine Benutzerinteraktion wünschen, können Sie die Funktion `setInterval()` verwenden, die den gelieferten Code wiederholt ausführt. Wenn wir ein Spiel erstellen wollten, könnten wir Tastatur- oder Mausereignisse verwenden, um die Animation zu steuern und `setTimeout()` verwenden. Indem wir Listener mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) setzen, fangen wir jede Benutzerinteraktion ab und führen unsere Animationsfunktionen aus.
 
 > [!NOTE]
-> In den unten stehenden Beispielen verwenden wir die [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Methode, um die Animation zu steuern. Die `requestAnimationFrame`-Methode bietet eine flüssigere und effizientere Weise zum Animieren, indem sie den Animationsframe aufruft, wenn das System bereit ist, den Frame zu zeichnen. Die Anzahl der Rückrufe beträgt normalerweise 60 Mal pro Sekunde und kann verringert werden, wenn in Hintergrund-Tabs ausgeführt wird. Für weitere Informationen über die Animationsschleife, insbesondere für Spiele, lesen Sie den Artikel [Anatomy of a video game](/de/docs/Games/Anatomy) in unserer [Game development zone](/de/docs/Games).
+> In den folgenden Beispielen verwenden wir die Methode [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um die Animation zu steuern. Die Methode `requestAnimationFrame` bietet eine flüssigere und effizientere Möglichkeit für Animationen, indem sie das Animations-Frame aufruft, wenn das System bereit ist, das Frame zu zeichnen. Die Anzahl der Rückrufe beträgt normalerweise 60 Mal pro Sekunde und kann auf eine niedrigere Rate reduziert werden, wenn sie in Hintergrundregisterkarten ausgeführt wird. Für weitere Informationen über die Animationsschleife, insbesondere für Spiele, lesen Sie den Artikel [Anatomy of a video game](/de/docs/Games/Anatomy) in unserer [Game development zone](/de/docs/Games).
 
 ## Ein animiertes Sonnensystem
 
@@ -120,7 +120,7 @@ init();
 
 ## Eine animierte Uhr
 
-Dieses Beispiel zeichnet eine animierte Uhr, die Ihre aktuelle Uhrzeit anzeigt.
+Dieses Beispiel zeichnet eine animierte Uhr, die Ihre aktuelle Zeit anzeigt.
 
 ### HTML
 
@@ -241,17 +241,18 @@ window.requestAnimationFrame(clock);
 ### Ergebnis
 
 > [!NOTE]
-> Obwohl die Uhr nur einmal pro Sekunde aktualisiert wird, wird das animierte Bild mit 60 Frames pro Sekunde (oder mit der Bildwiederholrate Ihres Webbrowsers) aktualisiert. Um die Uhr mit einem schwingenden Sekundenzeiger anzuzeigen, ersetzen Sie die Definition von `const sec` oben durch die auskommentierte Version.
+> Obwohl sich die Uhr nur einmal pro Sekunde aktualisiert, wird das animierte Bild mit 60 Bildern pro Sekunde (oder bei der Bildwiederholrate Ihres Webbrowsers) aktualisiert.
+> Um die Uhr mit einem Sekundenzeiger im Schwung anzuzeigen, ersetzen Sie die Definition von `const sec` oben mit der Version, die auskommentiert wurde.
 
 {{EmbedLiveSample("An_animated_clock", "180", "200")}}
 
-## Ein sich wiederholendes Panorama
+## Panorama in Schleife
 
-In diesem Beispiel wird ein Panorama von links nach rechts gescrollt. Wir verwenden ein [Bild des Yosemite-Nationalparks](https://commons.wikimedia.org/wiki/File:Capitan_Meadows,_Yosemite_National_Park.jpg), das wir von Wikipedia genommen haben, aber Sie könnten jedes Bild verwenden, das größer ist als das Canvas.
+In diesem Beispiel wird ein Panorama von links nach rechts gescrollt. Wir verwenden [ein Bild des Yosemite-Nationalparks](https://commons.wikimedia.org/wiki/File:Capitan_Meadows,_Yosemite_National_Park.jpg), das wir von Wikipedia entnommen haben, aber Sie könnten jedes Bild verwenden, das größer als die Leinwand ist.
 
 ### HTML
 
-Das HTML enthält das {{HTMLElement("canvas")}}, in dem das Bild gescrollt wird. Beachten Sie, dass die hier angegebenen Breiten- und Höhenwerte mit den Variablen `canvasXSize` und `canvasYSize` im JavaScript-Code übereinstimmen müssen.
+Das HTML enthält die {{HTMLElement("canvas")}}, in der das Bild gescrollt wird. Beachten Sie, dass die hier angegebene Breite und Höhe mit den Werten der Variablen `canvasXSize` und `canvasYSize` im JavaScript-Code übereinstimmen müssen.
 
 ```html
 <canvas id="canvas" width="800" height="200"
@@ -346,7 +347,7 @@ function draw() {
 
 {{EmbedLiveSample("A_looping_panorama", "830", "250")}}
 
-## Mausfolgende Animation
+## Mausnachfolgeanimation
 
 ### HTML
 
@@ -476,6 +477,6 @@ function anim() {
 ## Weitere Beispiele
 
 - [Erweiterte Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Advanced_animations)
-  - : Im nächsten Kapitel werden wir uns einige fortgeschrittene Animationstechniken und Physik ansehen.
+  - : Im nächsten Kapitel werden wir uns einige erweiterte Animationstechniken und Physik ansehen.
 
 {{PreviousNext("Web/API/Canvas_API/Tutorial/Compositing", "Web/API/Canvas_API/Tutorial/Advanced_animations")}}

@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`test()`** Methode von {{jsxref("RegExp")}} Instanzen führt eine Suche mit diesem regulären Ausdruck nach einer Übereinstimmung zwischen einem regulären Ausdruck und einem angegebenen String durch. Gibt `true` zurück, wenn es eine Übereinstimmung gibt; andernfalls `false`.
+Die **`test()`**-Methode von {{jsxref("RegExp")}}-Instanzen führt eine Suche mit diesem regulären Ausdruck durch, um eine Übereinstimmung zwischen einem regulären Ausdruck und einer angegebenen Zeichenkette zu finden. Sie gibt `true` zurück, wenn eine Übereinstimmung vorliegt; ansonsten `false`.
 
-JavaScript {{jsxref("RegExp")}} Objekte sind **zustandsbehaftet**, wenn sie die {{jsxref("RegExp/global", "global")}} oder {{jsxref("RegExp/sticky", "sticky")}} Flags gesetzt haben (z. B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} des vorherigen Matches. Indem `test()` dies intern nutzt, kann es verwendet werden, um über mehrere Übereinstimmungen in einem Text-String (mit Erfassungsgruppen) zu iterieren.
+JavaScript-{{jsxref("RegExp")}}-Objekte sind **zustandsbehaftet**, wenn sie die {{jsxref("RegExp/global", "global")}}- oder {{jsxref("RegExp/sticky", "sticky")}}-Flags gesetzt haben (z. B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} aus dem vorherigen Match. Durch die interne Nutzung kann `test()` verwendet werden, um über mehrere Übereinstimmungen in einem Textstring zu iterieren (mit Capture-Gruppen).
 
 {{EmbedInteractiveExample("pages/js/regexp-prototype-test.html", "taller")}}
 
@@ -22,25 +22,25 @@ test(str)
 ### Parameter
 
 - `str`
-  - : Der String, gegen den der reguläre Ausdruck gematcht werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder das Übergeben von `undefined` dazu, dass `test()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichenkette, gegen die der reguläre Ausdruck abgeglichen wird. Alle Werte werden [in Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `test()` nach der Zeichenkette `"undefined"` sucht, was selten gewünscht ist.
 
 ### Rückgabewert
 
-`true`, wenn es eine Übereinstimmung zwischen dem regulären Ausdruck und dem String `str` gibt. Andernfalls `false`.
+`true`, wenn eine Übereinstimmung zwischen dem regulären Ausdruck und der Zeichenkette `str` vorliegt. Andernfalls `false`.
 
 ## Beschreibung
 
-Verwenden Sie `test()`, wann immer Sie wissen möchten, ob ein Muster in einem String gefunden wird. `test()` gibt einen booleschen Wert zurück, im Gegensatz zur {{jsxref("String.prototype.search()")}} Methode (die den Index eines Matches oder `-1` zurückgibt, wenn nichts gefunden wurde).
+Verwenden Sie `test()`, wenn Sie wissen möchten, ob ein Muster in einer Zeichenkette gefunden wird. `test()` gibt einen booleschen Wert zurück, im Gegensatz zur {{jsxref("String.prototype.search()")}}-Methode (die den Index eines Treffers oder `-1` zurückgibt, wenn kein Treffer gefunden wird).
 
-Um mehr Informationen zu erhalten (aber mit langsamerer Ausführung), verwenden Sie die {{jsxref("RegExp/exec", "exec()")}} Methode. (Dies ist ähnlich zur {{jsxref("String.prototype.match()")}} Methode.)
+Um mehr Informationen zu erhalten (jedoch mit langsamerer Ausführung), verwenden Sie die {{jsxref("RegExp/exec", "exec()")}}-Methode. (Dies ist ähnlich der {{jsxref("String.prototype.match()")}}-Methode.)
 
-Wie bei `exec()` (oder in Kombination damit) wird `test()`, mehrmals auf derselben globalen regulären Ausdrucksinstanz aufgerufen, über das vorherige Match hinausgehen.
+Wie bei `exec()` (oder in Kombination mit dieser) wird `test()`, das mehrfach auf dieselbe globale RegExp-Instanz angewendet wird, den `lastIndex` über den vorherigen Treffer hinaus verschieben.
 
 ## Beispiele
 
 ### Verwendung von test()
 
-Ein einfaches Beispiel, das prüft, ob `"hello"` ganz am Anfang eines Strings enthalten ist und ein boolesches Ergebnis zurückgibt.
+Einfaches Beispiel, das prüft, ob `"hello"` direkt am Anfang einer Zeichenkette enthalten ist, und ein boolesches Ergebnis zurückgibt.
 
 ```js
 const str = "hello world!";
@@ -58,16 +58,16 @@ function testInput(re, str) {
 }
 ```
 
-### Verwendung von test() bei einem Regex mit dem "global" Flag
+### Verwendung von test() bei einem Regex mit dem "global"-Flag
 
-Wenn ein Regex das [globale Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regex weiterführen. ({{jsxref("RegExp.prototype.exec()")}} führt auch die `lastIndex` Eigenschaft weiter.)
+Wenn ein Regex das [globale Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regex voranbringen. (Auch {{jsxref("RegExp.prototype.exec()")}} erhöht die `lastIndex`-Eigenschaft.)
 
-Weitere Aufrufe von `test(str)` setzen die Suche in `str` ab `lastIndex` fort. Die `lastIndex` Eigenschaft wird jedes Mal weiter erhöht, wenn `test()` `true` zurückgibt.
+Weitere Aufrufe von `test(str)` werden die Suche in `str` von `lastIndex` aus fortsetzen. Die `lastIndex`-Eigenschaft wird jedes Mal weiter erhöht, wenn `test()` `true` zurückgibt.
 
 > [!NOTE]
-> Solange `test()` `true` zurückgibt, wird `lastIndex` _nicht_ zurückgesetzt—auch nicht, wenn ein anderer String getestet wird!
+> Solange `test()` `true` zurückgibt, wird `lastIndex` sich _nicht_ zurücksetzen – selbst wenn eine andere Zeichenkette getestet wird!
 
-Wenn `test()` `false` zurückgibt, wird die `lastIndex` Eigenschaft des aufrufenden Regex auf `0` zurückgesetzt.
+Wenn `test()` `false` zurückgibt, wird die `lastIndex`-Eigenschaft des aufrufenden Regex auf `0` zurückgesetzt.
 
 Das folgende Beispiel demonstriert dieses Verhalten:
 

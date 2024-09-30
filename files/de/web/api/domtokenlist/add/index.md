@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: add()-Methode"
+title: "DOMTokenList: add() Methode"
 short-title: add()
 slug: Web/API/DOMTokenList/add
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`add()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle fügt die angegebenen Tokens zur Liste hinzu und lässt dabei alle bereits vorhandenen weg.
+Die **`add()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle fügt die angegebenen Tokens zur Liste hinzu und lässt dabei alle weg, die bereits vorhanden sind.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ add(token1, token2, /* …, */ tokenN)
 ### Parameter
 
 - `tokenN`
-  - : Ein String, der ein Token (oder Tokens) repräsentiert, die zu der `DOMTokenList` hinzugefügt werden sollen.
+  - : Ein String, der ein Token (oder Tokens) darstellt, das der `DOMTokenList` hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -30,14 +30,14 @@ Keiner.
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eines der Argumente ein leerer String ist.
+  - : Ausgelöst, wenn eines der Argumente ein leerer String ist
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Token ASCII-Leerzeichen enthält.
+  - : Ausgelöst, wenn ein Token ASCII-Leerzeichen enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList).
-Wir fügen dann ein neues Token zur Liste hinzu und schreiben die Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}} Element als `DOMTokenList` festgelegt sind, und verwenden [`Element.classList`](/de/docs/Web/API/Element/classList).
+Dann fügen wir ein neues Token zur Liste hinzu und schreiben die Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 
@@ -45,7 +45,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Jetzt das JavaScript:
+Nun der JavaScript:
 
 ```js
 const span = document.querySelector("span");

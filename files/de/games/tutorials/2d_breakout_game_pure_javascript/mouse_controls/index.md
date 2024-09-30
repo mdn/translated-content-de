@@ -1,5 +1,5 @@
 ---
-title: Maussteuerung
+title: Mouse controls
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls
 l10n:
   sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
@@ -9,13 +9,13 @@ l10n:
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
 
-Dies ist der **9. Schritt** von 10 des [Gamedev Canvas Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson9.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson09.html).
+Dies ist der **9. Schritt** von 10 des [Gamedev Canvas-Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson9.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson09.html) finden.
 
-Das Spiel selbst ist eigentlich fertig, also lass es uns noch etwas aufpolieren. Wir haben bereits Tastatursteuerungen hinzugefügt, aber wir könnten ebenso leicht Maussteuerungen hinzufügen.
+Das Spiel selbst ist tatsächlich fertig, also lassen Sie uns daran arbeiten, es zu verfeinern. Wir haben bereits Tastatursteuerungen hinzugefügt, aber wir könnten ebenso gut auch Maussteuerungen hinzufügen.
 
-## Auf Mausbewegungen lauschen
+## Lauschen der Mausbewegung
 
-Auf Mausbewegungen zu lauschen ist sogar einfacher als auf Tastendrücke: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis. Fügen Sie die folgende Zeile an derselben Stelle ein wie die anderen Event-Listener, direkt unter dem `keyup event`:
+Das Lauschen von Mausbewegungen ist sogar einfacher als das Lauschen von Tastendrücken: alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis. Fügen Sie die folgende Zeile an derselben Stelle wie die anderen Ereignislistener hinzu, direkt unter dem `keyup event`:
 
 ```js
 document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -23,7 +23,7 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 
 ## Verankerung der Paddelbewegung an die Mausbewegung
 
-Wir können die Paddelposition anhand der Zeigerkoordinaten aktualisieren — die folgende Handler-Funktion wird genau das tun. Fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der vorher hinzugefügten Zeile:
+Wir können die Paddelposition basierend auf den Zeigerkoordinaten aktualisieren — die folgende Handler-Funktion wird genau das tun. Fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der zuvor hinzugefügten Zeile:
 
 ```js
 function mouseMoveHandler(e) {
@@ -34,13 +34,13 @@ function mouseMoveHandler(e) {
 }
 ```
 
-In dieser Funktion ermitteln wir zunächst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Viewport (`e.clientX`) minus dem Abstand zwischen dem linken Rand des Canvas und dem linken Rand des Viewports (`canvas.offsetLeft`) ist — effektiv entspricht dies dem Abstand zwischen dem linken Rand des Canvas und dem Mauszeiger. Wenn die relative X-Zeigerposition größer als null und kleiner als die Canvas-Breite ist, befindet sich der Zeiger innerhalb der Canvas-Grenzen, und die `paddleX`-Position (verankert am linken Rand des Paddels) wird auf den `relativeX`-Wert minus der halben Paddelbreite gesetzt, sodass die Bewegung tatsächlich relativ zur Mitte des Paddels ist.
+In dieser Funktion berechnen wir zuerst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Viewport (`e.clientX`) minus der Entfernung zwischen dem linken Rand des Canvas und dem linken Rand des Viewports (`canvas.offsetLeft`) ist — effektiv entspricht dies der Entfernung zwischen dem linken Canvas-Rand und dem Mauszeiger. Wenn die relative X-Position des Zeigers größer als null und kleiner als die Canvas-Breite ist, befindet sich der Zeiger innerhalb der Canvas-Grenzen, und die `paddleX`-Position (verankert am linken Rand des Paddels) wird auf den `relativeX`-Wert minus der halben Breite des Paddels gesetzt, so dass die Bewegung tatsächlich in Bezug auf die Mitte des Paddels erfolgt.
 
-Das Paddel folgt jetzt der Position des Mauszeigers, aber da wir die Bewegung auf die Größe des Canvas beschränken, wird es nicht vollständig von beiden Seiten verschwinden.
+Das Paddel wird nun der Position des Mauszeigers folgen, aber da wir die Bewegung auf die Größe der Canvas beschränken, wird es nicht komplett auf einer der beiden Seiten verschwinden.
 
 ## Vergleichen Sie Ihren Code
 
-Dies ist der aktuelle Stand des Codes zum Vergleichen:
+Dies ist der aktuellste Zustand des Codes zum Vergleich:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -226,10 +226,10 @@ document.getElementById("runButton").addEventListener("click", function () {
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, die Grenzen der Paddelbewegung anzupassen, sodass das gesamte Paddel auf beiden Seiten des Canvas sichtbar ist, anstatt nur die Hälfte davon.
+> Versuchen Sie, die Grenzen der Paddelbewegung anzupassen, so dass das gesamte Paddel an beiden Rändern der Canvas sichtbar ist, anstatt nur die Hälfte davon.
 
 ## Nächste Schritte
 
-Jetzt, wo wir ein vollständiges Spiel haben, werden wir unsere Serie von Lektionen mit weiteren kleinen Anpassungen abschließen — [Abschluss](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
+Jetzt haben wir ein vollständiges Spiel und werden unsere Serie von Lektionen mit einigen weiteren kleinen Anpassungen abschließen — [Finishing up](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Finishing_up")}}

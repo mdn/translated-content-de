@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
 
-Der Handler kann über die `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mithilfe von [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
+Der Handler kann der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mithilfe der Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -30,7 +30,7 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der untenstehende Code zeigt, wie Sie möglicherweise eine Ereignis-Handler-Funktion mit der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft hinzufügen oder die `addEventListener()` Methode aufrufen.
+Der folgende Code zeigt, wie Sie eine Ereignis-Handler-Funktion unter Verwendung der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft hinzufügen oder die `addEventListener()` Methode aufrufen können.
 
 ```js
 self.onsecuritypolicyviolation = (e) => {

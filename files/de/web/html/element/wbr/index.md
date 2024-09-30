@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Gelegenheit für einen Zeilenumbruch—eine Position im Text, an der der Browser optional eine Zeile umbrechen kann, obwohl seine Zeilenumbruchsregeln an dieser Stelle keinen Umbruch erzeugen würden.
+Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Worttrennungsmöglichkeit — eine Position im Text, an der der Browser optional eine Zeile brechen kann, obwohl seine Zeilenumbruchregeln ansonsten keinen Umbruch an dieser Stelle erzeugen würden.
 
 {{EmbedInteractiveExample("pages/tabbed/wbr.html", "tabbed-shorter")}}
 
@@ -17,13 +17,13 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Hinweise
 
-Auf UTF-8 kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode-bidi-BN-Codepunkt, was bedeutet, dass es keinen Einfluss auf die [bidi](/de/docs/Glossary/bidi)-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn es nicht auf zwei Zeilen aufgeteilt wird, `123,456` an und nicht `456,123`.
+Auf UTF-8 codierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keinen Effekt auf die [bidi](/de/docs/Glossary/bidi)-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn nicht auf zwei Zeilen gebrochen, `123,456` und nicht `456,123`.
 
-Aus dem gleichen Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das Soft-Hyphen-Zeichen-Entity (`&shy;`).
+Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Zeilenende anzuzeigen, verwenden Sie stattdessen das weiche Bindestrich-Zeichen (`&shy;`).
 
 ## Beispiele
 
-_Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ einem Satzzeichen umzubrechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Zeilenende stehen bleibt, das der Leser möglicherweise für das Ende der URL hält.
+_[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [einen URL _vor_ einem Satzzeichen zu brechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Zeilenende stehen bleibt, das der Leser möglicherweise als Ende des URL missversteht.
 
 ```html
 <p>
@@ -47,10 +47,10 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ einem Satzzeichen umzubrechen
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
@@ -60,15 +60,16 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ einem Satzzeichen umzubrechen
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <td>Muss einen Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        > akzeptiert.
+          >Phraseninhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>

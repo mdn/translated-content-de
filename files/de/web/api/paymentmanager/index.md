@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`PaymentManager`**-Interface der [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) wird verwendet, um verschiedene Aspekte der Funktionalität von Zahlungsanwendungen zu verwalten.
+Das **`PaymentManager`**-Interface der [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) wird verwendet, um verschiedene Aspekte der Funktionalität von Zahlungs-Apps zu verwalten.
 
 Es wird über die [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager)-Eigenschaft aufgerufen.
 
@@ -21,7 +21,7 @@ Es wird über die [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/
 ## Instanzmethoden
 
 - [`enableDelegations()`](/de/docs/Web/API/PaymentManager/enableDelegations) {{Experimental_Inline}}
-  - : Überträgt die Verantwortung für die Bereitstellung verschiedener Teile der erforderlichen Zahlungsinformationen auf die Zahlungs-App, anstatt sie vom Browser zu erheben (zum Beispiel über das automatische Ausfüllen).
+  - : Überträgt die Verantwortung für das Bereitstellen verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungs-App, anstatt sie vom Browser zu sammeln (z.B. über die automatische Vervollständigung).
 
 ## Beispiele
 
@@ -52,6 +52,6 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Grundbegriffe der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte zur Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

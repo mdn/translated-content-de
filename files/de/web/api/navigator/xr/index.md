@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`xr`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt zurück, das verwendet werden kann, um auf die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) zuzugreifen.
+Die schreibgeschützte **`xr`**-Eigenschaft, die von der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle bereitgestellt wird, gibt ein [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt zurück, das zum Zugriff auf die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwendet werden kann.
 
 ## Wert
 
-Das [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt, das verwendet wird, um mit der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) im aktuellen Kontext zu interagieren. Dies kann verwendet werden, um dem Benutzer erweiterte und/oder virtuelle Realität zu präsentieren.
+Das [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt, das verwendet wird, um mit der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) im aktuellen Kontext zu interagieren. Dies kann verwendet werden, um dem Benutzer erweiterte und/oder virtuelle Realität darzustellen.
 
 ## Beispiele
 
-Jedes [`Window`](/de/docs/Web/API/Window) hat seine eigene Instanz von [`Navigator`](/de/docs/Web/API/Navigator), die als [`window.navigator`](/de/docs/Web/API/Window/navigator) oder als [`navigator`](/de/docs/Web/API/Window/navigator) aufgerufen werden kann. Gleichzeitig wird eine neue [`XRSystem`](/de/docs/Web/API/XRSystem)-Instanz erstellt und an die `navigator`-Instanz als `navigator.xr` angehängt. Wenn die `xr`-Eigenschaft existiert, können Sie sie verwenden, um auf die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) zuzugreifen.
+Jedes [`Window`](/de/docs/Web/API/Window) hat seine eigene Instanz von [`Navigator`](/de/docs/Web/API/Navigator), die als [`window.navigator`](/de/docs/Web/API/Window/navigator) oder als [`navigator`](/de/docs/Web/API/Window/navigator) zugänglich ist. Gleichzeitig wird auch eine neue Instanz von [`XRSystem`](/de/docs/Web/API/XRSystem) erstellt und an die `navigator`-Instanz als `navigator.xr` angehängt. Wenn die `xr`-Eigenschaft existiert, können Sie sie verwenden, um auf die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) zuzugreifen.
 
-Um festzustellen, ob WebXR verfügbar ist, können Sie etwas wie folgt tun:
+Um festzustellen, ob WebXR verfügbar ist, können Sie Folgendes tun:
 
 ```js
 if ("xr" in window.navigator) {

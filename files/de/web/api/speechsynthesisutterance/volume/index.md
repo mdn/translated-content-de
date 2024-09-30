@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`volume`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Lautstärke ab und setzt sie, mit der die Äußerung gesprochen wird.
+Die **`volume`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle erhält und setzt die Lautstärke, mit der die Äußerung gesprochen wird.
 
-Wenn sie nicht gesetzt ist, wird der Standardwert 1 verwendet.
+Wenn sie nicht festgelegt ist, wird der Standardwert 1 verwendet.
 
 ## Wert
 
-Ein `float`, der den Lautstärkewert darstellt, zwischen 0 (niedrigste) und 1 (höchste).
+Ein Gleitkommawert, der den Lautstärkewert darstellt, zwischen 0 (niedrigste) und 1 (höchste).
 
-Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosodie-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
+Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosody-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
 
 ## Beispiele
 

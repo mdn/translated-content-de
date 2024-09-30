@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`track`** schreibgeschützte Eigenschaft des [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent)-Interfaces gibt das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, das mit diesem Ereignis verknüpft ist.
+Die schreibgeschützte **`track`**-Eigenschaft des [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent)-Interfaces gibt den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der mit diesem Ereignis verknüpft ist.
 
 ## Wert
 
@@ -34,5 +34,5 @@ stream.addEventListener("removetrack", (event) => {
 
 ## Siehe auch
 
-- [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event) und [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event) Ereignisse
+- [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event)- und [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignisse
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `normalize-space`-Funktion entfernt führende und nachfolgende Leerzeichen von einem String, ersetzt Sequenzen von Leerzeichen durch ein einzelnes Leerzeichen und gibt den resultierenden String zurück.
+Die Funktion `normalize-space` entfernt führende und nachgestellte Leerzeichen aus einem String, ersetzt Sequenzen von Leerzeichenzwischenräumen durch ein einzelnes Leerzeichen und gibt den resultierenden String zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ normalize-space( [string] )
 ### Parameter
 
 - `string` (optional)
-  - : Der zu normalisierende String. Wenn dieser weggelassen wird, wird der String des Kontextknotens verwendet, konvertiert zu einem String.
+  - : Der String, der normalisiert werden soll. Wenn dieser weggelassen wird, wird der String verwendet, der dem Kontextknoten entspricht, konvertiert in einen String.
 
 ### Rückgabewert
 

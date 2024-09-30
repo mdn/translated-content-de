@@ -1,5 +1,5 @@
 ---
-title: "XRView: requestViewportScale() Methode"
+title: "XRView: requestViewportScale()-Methode"
 short-title: requestViewportScale()
 slug: Web/API/XRView/requestViewportScale
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestViewportScale()`** Methode der [`XRView`](/de/docs/Web/API/XRView) Schnittstelle fordert den Benutzeragenten auf, die angeforderte Anzeigebereichsskala für diesen Anzeigebereich auf den angegebenen Wert einzustellen. Dies wird für die dynamische Anzeigebereichsskalierung verwendet, die das Rendern auf einen Teilbereich des WebXR-Anzeigebereichs mit einem Skalierungsfaktor ermöglicht, der bei jedem Animationsrahmen geändert werden kann.
+Die **`requestViewportScale()`**-Methode der [`XRView`](/de/docs/Web/API/XRView)-Schnittstelle fordert, dass der Benutzeragent den angeforderten Viewport-Skalierungsfaktor für diesen Viewport auf den angegebenen Wert setzt. Dies wird für dynamische Viewport-Skalierungen verwendet, die es ermöglichen, in einem Teilbereich des WebXR-Viewports mit einem Skalierungsfaktor zu rendern, der in jedem Animationsrahmen geändert werden kann.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ requestViewportScale(scale)
 
 Keiner ({{jsxref("undefined")}}).
 
-## Dynamische Anzeigebereichsskalierung
+## Dynamische Viewport-Skalierung
 
-Die dynamische Anzeigebereichsskalierung ermöglicht es Anwendungen, nur einen Teil des verfügbaren [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) zu verwenden. Diese Funktion ist möglicherweise nicht auf allen Systemen verfügbar, da sie auf Treiberunterstützung angewiesen ist, daher sollten Sie sicherstellen, dass `requestViewportScale()` existiert, bevor Sie es aufrufen.
+Dynamische Viewport-Skalierung ermöglicht es Anwendungen, nur einen Teil des verfügbaren [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) zu verwenden. Die Funktion ist möglicherweise nicht auf allen Systemen verfügbar, da sie von der Treiberunterstützung abhängt. Daher sollten Sie sicherstellen, dass `requestViewportScale()` existiert, bevor Sie es aufrufen.
 
-Der `scale` Parameter kann eine Zahl größer als 0,0 und kleiner oder gleich 1,0 sein.
+Der `scale`-Parameter kann eine Zahl größer als 0,0 und kleiner oder gleich 1,0 sein.
 
-Alternativ können Sie die [`XRView.recommendedViewportScale`](/de/docs/Web/API/XRView/recommendedViewportScale) Eigenschaft verwenden, die den vom Benutzeragenten empfohlenen Wert basierend auf internen Heuristiken enthält. Wenn der Benutzeragent keinen empfohlenen Anzeigebereichsmaßstab bereitstellt, ist sein Wert `null` und der Aufruf von `requestViewportScale()` wird ignoriert.
+Alternativ können Sie die [`XRView.recommendedViewportScale`](/de/docs/Web/API/XRView/recommendedViewportScale)-Eigenschaft verwenden, die den vom Benutzeragenten empfohlenen Wert basierend auf internen Heuristiken enthält. Wenn der Benutzeragent keinen empfohlenen Viewport-Skalierungsfaktor bereitstellt, ist sein Wert `null` und der Aufruf von `requestViewportScale()` wird ignoriert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie eine neue Anzeigebereichsskala angefordert und angewendet wird. Der Aufruf von [`XRWebGLLayer.getViewport()`](/de/docs/Web/API/XRWebGLLayer/getViewport) wendet die Änderung an und gibt den aktualisierten Anzeigebereich zurück.
+Das folgende Beispiel zeigt, wie Sie eine neue Viewport-Skalierung anfordern und anwenden können. Der Aufruf von [`XRWebGLLayer.getViewport()`](/de/docs/Web/API/XRWebGLLayer/getViewport) wendet die Änderung an und gibt den aktualisierten Viewport zurück.
 
 ```js
 for (const view of pose.views) {

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`perspective`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt die Entfernung zwischen der Ebene z=0 und dem Benutzer, um einem 3D-positionierten Element Perspektive zu verleihen.
+Die **`perspective`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Abstand zwischen der z=0-Ebene und dem Benutzer, um einem 3D-positionierten Element eine Perspektive zu verleihen.
 
 {{EmbedInteractiveExample("pages/css/perspective.html")}}
 
@@ -32,19 +32,21 @@ perspective: unset;
 ### Werte
 
 - `none`
-  - : Gibt an, dass keine Perspektiven-Transformation angewendet werden soll.
+  - : Gibt an, dass keine Perspektiventransformation angewendet werden soll.
 - `<length>`
-  - : Eine {{cssxref("&lt;length&gt;")}}, die die Entfernung vom Benutzer zur z=0 Ebene angibt. Es wird verwendet, um eine Perspektiven-Transformation auf die Kinder des Elements anzuwenden. Negative Werte sind Syntaxfehler. Ist der Wert kleiner als `1px`, wird er auf `1px` begrenzt.
+  - : Ein {{cssxref("&lt;length&gt;")}}, der den Abstand vom Benutzer zur z=0-Ebene angibt. Es wird verwendet, um eine Perspektiventransformation auf die Kinder des Elements anzuwenden. Negative Werte sind Syntaxfehler. Wenn der Wert kleiner als `1px` ist, wird er auf `1px` begrenzt.
 
 ## Beschreibung
 
-Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt. Große Werte von `perspective` verursachen eine kleine Transformation; kleine Werte von `perspective` verursachen eine große Transformation.
+Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt.
+Große Werte von `perspective` verursachen eine kleine Transformation;
+kleine Werte von `perspective` verursachen eine große Transformation.
 
-Die Teile der 3D-Elemente, die sich hinter dem Benutzer befinden — d.h. ihre z-Achsen-Koordinaten sind größer als der Wert der `perspective`-CSS-Eigenschaft — werden nicht gezeichnet.
+Die Teile der 3D-Elemente, die hinter dem Benutzer liegen — d. h. ihre z-Achsen-Koordinaten sind größer als der Wert der `perspective`-CSS-Eigenschaft — werden nicht gezeichnet.
 
-Der _Fluchtpunkt_ wird standardmäßig in die Mitte des Elements gesetzt, aber seine Position kann mit der {{cssxref("perspective-origin")}}-Eigenschaft verändert werden.
+Der _Fluchtpunkt_ befindet sich standardmäßig in der Mitte des Elements, aber seine Position kann mit der {{cssxref("perspective-origin")}} Eigenschaft geändert werden.
 
-Die Verwendung dieser Eigenschaft mit einem Wert ungleich `none` erzeugt einen neuen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). In diesem Fall wirkt das Objekt auch als beinhaltender Block für `position: fixed` Elemente, die es enthält.
+Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). In diesem Fall agiert das Objekt zudem als enthaltender Block für `position: fixed` Elemente, die es enthält.
 
 ## Formale Definition
 
@@ -58,7 +60,7 @@ Die Verwendung dieser Eigenschaft mit einem Wert ungleich `none` erzeugt einen n
 
 ### Perspektive festlegen
 
-Ein Beispiel, das zeigt, wie ein Würfel variiert, wenn die `perspective` an verschiedenen Positionen gesetzt wird, finden Sie unter [Using CSS transforms > Setting perspective](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#setting_perspective).
+Ein Beispiel, das zeigt, wie ein Würfel variiert, wenn die `perspective` an verschiedenen Positionen eingestellt wird, finden Sie unter [CSS-Transformationen verwenden > Perspektive festlegen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#setting_perspective).
 
 ## Spezifikationen
 
@@ -70,4 +72,4 @@ Ein Beispiel, das zeigt, wie ein Würfel variiert, wenn die `perspective` an ver
 
 ## Siehe auch
 
-- [Using CSS Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [CSS-Transformationen verwenden](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)

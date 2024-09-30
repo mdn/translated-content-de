@@ -1,5 +1,5 @@
 ---
-title: "SVGRect: x-Eigenschaft"
+title: "SVGRect: x Eigenschaft"
 short-title: x
 slug: Web/API/SVGRect/x
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty)-Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
+Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty) Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
 
 ## Verwendungskontext
 
@@ -56,7 +56,7 @@ Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty)-Eigenschaft beschr
     <tr>
       <td>Prozentsätze</td>
       <td>
-        beziehen sich auf die Größe des aktuellen Viewports (siehe <a
+        beziehen sich auf die Größe des aktuellen Ansichtsfensters (siehe <a
           href="https://svgwg.org/svg2-draft/coords.html#Units"
           >Einheiten</a
         >)
@@ -79,7 +79,7 @@ Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty)-Eigenschaft beschr
 
 ## Einfache Verwendung
 
-Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse (der x-Achse für X-Koordinaten, der y-Achse für Y-Koordinaten) darstellt. Seine Syntax ist die gleiche wie die für [\<length>](https://www.w3.org/TR/SVG11/types.html#DataTypeLength).
+Ein \<coordinate> ist eine Länge im Benutzerkoordinatensystem, die der angegebenen Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse entspricht (der x-Achse für X-Koordinaten, der y-Achse für Y-Koordinaten). Seine Syntax ist dieselbe wie die für [\<length>](https://www.w3.org/TR/SVG11/types.html#DataTypeLength).
 
 ```html
 <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">

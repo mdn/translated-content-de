@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUInternalError`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) beschreibt einen Anwendungsfehler, der darauf hinweist, dass eine Operation aus einem system- oder implementationsspezifischen Grund fehlgeschlagen ist, selbst wenn alle Validierungsanforderungen erfüllt waren.
+Das **`GPUInternalError`**-Interface der [WebGPU-API](/de/docs/Web/API/WebGPU_API) beschreibt einen Anwendungsfehler, der auftritt, wenn eine Operation aus einem system- oder implementierungsspezifischen Grund fehlschlägt, selbst wenn alle Validierungsanforderungen erfüllt waren.
 
-Er repräsentiert einen der Fehlertypen, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis gemeldet werden.
+Es stellt eine der Fehlertypen dar, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden.
 
-Interne Fehler treten auf, wenn in der WebGPU-Implementierung etwas passiert, das von der Validierung nicht erfasst wurde und nicht eindeutig als Speicherüberlauf-Fehler identifiziert werden konnte. Im Allgemeinen bedeutet dies, dass eine Operation, die Ihr Code ausgeführt hat, ein Systemlimit auf eine Weise erreicht hat, die mit den [unterstützten Limits](/de/docs/Web/API/GPUSupportedLimits) von WebGPU schwer zu formulieren war. Dieselbe Operation könnte auf einem anderen Gerät erfolgreich sein. Diese können nur bei der Erzeugung von Pipelines ausgelöst werden, in der Regel, wenn der Shader zu komplex für das Gerät ist.
+Interne Fehler treten auf, wenn etwas in der WebGPU-Implementierung geschieht, das nicht durch Validierung abgefangen wurde und nicht klar als Speicherplatzfehler identifiziert werden konnte. Dies bedeutet im Allgemeinen, dass eine Operation in Ihrem Code auf ein Systemlimit gestoßen ist, das schwer mit den [unterstützten Limits](/de/docs/Web/API/GPUSupportedLimits) von WebGPU auszudrücken war. Die gleiche Operation könnte auf einem anderen Gerät erfolgreich sein. Diese können nur durch die Erstellung von Pipelines ausgelöst werden, normalerweise, wenn der Shader für das Gerät zu komplex ist.
 
 {{InheritanceDiagram}}
 
@@ -22,14 +22,14 @@ Interne Fehler treten auf, wenn in der WebGPU-Implementierung etwas passiert, da
 
 ## Instanz-Eigenschaften
 
-Die `message`-Eigenschaft wird von ihrem Elternteil, [`GPUError`](/de/docs/Web/API/GPUError), geerbt:
+Die Eigenschaft `message` wird von ihrem übergeordneten Element [`GPUError`](/de/docs/Web/API/GPUError) geerbt:
 
 - [`message`](/de/docs/Web/API/GPUError/message) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der eine verständliche Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
+  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in die Konsole zu protokollieren.
+Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn im Konsolenprotokoll auszugeben.
 
 ```js
 device.pushErrorScope("internal");
@@ -58,4 +58,4 @@ device.popErrorScope().then((error) => {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlung: bewährte Verfahren](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU-Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

@@ -35,11 +35,11 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `optional_host_permissions`, um Laufzeitanfragen für den Zugriff zu aktivieren (Zugriff, der vom Benutzer gewährt wird, nachdem Ihre Erweiterung installiert wurde) für die APIs in Ihrer Erweiterung, die Hostdaten lesen oder ändern, wie z.B. {{WebExtAPIRef("cookies")}}, {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("tabs")}}. Dieser Schlüssel ist ein Array von Zeichenketten.
+Verwenden Sie den Schlüssel `optional_host_permissions`, um zur Laufzeit Zugriffsanfragen für APIs in Ihrer Erweiterung zu ermöglichen, die Hostdaten lesen oder ändern, wie zum Beispiel {{WebExtAPIRef("cookies")}}, {{WebExtAPIRef("webRequest")}}, und {{WebExtAPIRef("tabs")}}. Dieser Schlüssel ist ein Array von Zeichenketten.
 
 Siehe [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) für weitere Informationen zur Definition von Hosts.
 
-Verwenden Sie die {{webextapiref("permissions")}} API, um zur Laufzeit eine optionale Host-Berechtigung anzufordern. Das Anfordern einer Host-Berechtigung kann dem Benutzer einen Dialog anzeigen, der fragt, ob er Ihrer Erweiterung die Berechtigung erteilen möchte.
+Verwenden Sie die {{webextapiref("permissions")}} API, um zur Laufzeit um eine optionale Hostberechtigung zu bitten. Das Anfordern einer Hostberechtigung kann den Benutzer mit einem Dialogfeld konfrontieren, in dem gefragt wird, ob er die Berechtigung Ihrer Erweiterung erteilen möchte.
 
 ## Beispiel
 
@@ -47,7 +47,7 @@ Verwenden Sie die {{webextapiref("permissions")}} API, um zur Laufzeit eine opti
  "optional_host_permissions": ["*://developer.mozilla.org/*"]
 ```
 
-Ermöglicht es Ihrer Erweiterung, eine Laufzeitanfrage für privilegierten Zugriff auf Seiten unter `developer.mozilla.org` zu stellen.
+Ermöglicht es Ihrer Erweiterung, zur Laufzeit eine privilegierte Zugriffsanfrage zu Seiten unter `developer.mozilla.org` zu stellen.
 
 ## Browser-Kompatibilität
 

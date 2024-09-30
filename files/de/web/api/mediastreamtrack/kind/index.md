@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`kind`** schreibgeschützte Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen String zurück, der auf `"audio"` gesetzt ist, wenn die Spur eine Audio-Spur ist, und auf `"video"`, wenn es sich um eine Video-Spur handelt. Diese Eigenschaft ändert sich nicht, wenn die Spur von ihrer Quelle getrennt wird.
+Die schreibgeschützte Eigenschaft **`kind`** der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen String zurück, der auf `"audio"` gesetzt ist, wenn der Track ein Audio-Track ist, und auf `"video"`, wenn es sich um einen Video-Track handelt. Dies ändert sich nicht, wenn der Track von seiner Quelle getrennt wird.
 
 ## Wert
 
 Die möglichen Werte sind ein String mit einem der folgenden Werte:
 
-- `"audio"`: Die Spur ist eine Audio-Spur.
-- `"video"`: Die Spur ist eine Video-Spur.
+- `"audio"`: der Track ist ein Audio-Track.
+- `"video"`: der Track ist ein Video-Track.
 
 ## Spezifikationen
 

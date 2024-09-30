@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle searchbox"
+title: "ARIA: searchbox-Rolle"
 slug: Web/Accessibility/ARIA/Roles/searchbox_role
 l10n:
   sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
@@ -7,15 +7,15 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `searchbox`-Rolle zeigt an, dass ein Element eine Art `textbox` ist, die zur Angabe von Suchkriterien gedacht ist.
+Die `searchbox`-Rolle kennzeichnet ein Element als eine Art `textbox`, die für die Angabe von Suchkriterien vorgesehen ist.
 
 ## Beschreibung
 
-Die `searchbox` kann anstelle der [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role) verwendet werden, wenn sich das Textfeld innerhalb eines Elements mit der Rolle [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role) befindet. Eine `searchbox` ist das semantische Äquivalent zu HTMLs {{HTMLElement('input')}} vom Typ `search`, [`<input type="search">`](/de/docs/Web/HTML/Element/input/search), das nach Möglichkeit verwendet werden sollte.
+Die `searchbox` kann anstelle einer [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role) verwendet werden, wenn sich das Textfeld innerhalb eines Elements mit der Rolle [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role) befindet. Eine `searchbox` ist das semantische Äquivalent zu HTMLs {{HTMLElement('input')}} vom Typ `search`, [`<input type="search">`](/de/docs/Web/HTML/Element/input/search), das nach Möglichkeit stattdessen verwendet werden sollte.
 
-Die `searchbox` muss einen zugänglichen Namen haben. Wenn die `searchbox`-Rolle auf ein HTML {{HTMLElement('input')}}-Element angewendet wird, sollte ein zugehöriges {{HTMLElement('label')}} verwendet werden. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
+Die `searchbox` muss einen zugänglichen Namen haben. Ist die `searchbox`-Rolle auf ein HTML-{{HTMLElement('input')}}-Element angewendet, sollte ein zugeordnetes {{HTMLElement('label')}} verwendet werden. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
 
-Der Screenreader wird "search box", "search edit" oder "search field" plus den zugänglichen Namen ansagen. Dies kann redundant sein, wenn "search" im Label enthalten ist.
+Der Screenreader wird "Suchfeld", "Sucheingabefeld" oder "Suchbereich" plus den zugänglichen Namen ankündigen. Dies kann redundant sein, wenn "Suche" im Label enthalten ist.
 
 ## Beispiele
 
@@ -23,13 +23,13 @@ Der Screenreader wird "search box", "search edit" oder "search field" plus den z
 <div tabindex="0" aria-label="search" role="searchbox" contenteditable></div>
 ```
 
-Während das obige Beispiel gültig ist, ist es für den Screenreader-Benutzer einfacher, prägnanter und weniger redundant, Folgendes zu schreiben:
+Obwohl das oben Genannte gültig ist, ist es einfacher, prägnanter und für den Screenreader-Benutzer weniger redundant, Folgendes zu schreiben:
 
 ```html
 <input type="search" />
 ```
 
-Das folgende Beispiel zeigt ein Suchformular mit einer Suchbox und einem Button, einem ARIA-Live-Bereich und einem Container für Suchergebnisse.
+Das Folgende ist ein Suchformular mit einem Suchfeld und Button, einem ARIA-Live-Bereich und einem Container für die Suchergebnisse.
 
 ```html
 <form role="search">
@@ -48,7 +48,7 @@ Das folgende Beispiel zeigt ein Suchformular mit einer Suchbox und einem Button,
 <div id="search-results"></div>
 ```
 
-Die Angabe von `role="searchbox"`, wenn das Formular eine `search` ist und das Label darauf hinweist, dass es sich um eine Suche handelt, kann dazu führen, dass Hilfstechnologien etwas wie "search search this site search box" ansagen, was redundant ist. Die Angabe von `role="searchbox"` ist nicht notwendig:
+Das Einschließen von `role="searchbox"` wenn das Formular eine `search` ist und das Label darauf hinweist, dass das Element eine Suche ist, kann dazu führen, dass unterstützende Technologien etwas in der Art von "Suche diese Seite Suchfeld" ankündigen, was redundant ist. Die Einbeziehung von `role="searchbox"` ist nicht notwendig:
 
 ```html
 <input
@@ -65,5 +65,5 @@ Die Angabe von `role="searchbox"`, wenn das Formular eine `search` ist und das L
 ## Siehe auch
 
 - [`<input type="search">`](/de/docs/Web/HTML/Element/input/search)
-- [ARIA: `search` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/search_role)
-- [ARIA: `textbox` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: `search`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/search_role)
+- [ARIA: `textbox`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)

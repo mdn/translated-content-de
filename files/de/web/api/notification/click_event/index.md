@@ -1,5 +1,5 @@
 ---
-title: "Notification: click Ereignis"
+title: "Notification: click Event"
 short-title: click
 slug: Web/API/Notification/click_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`click`**-Ereignis der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle tritt auf, wenn der Benutzer auf die angezeigte [`Notification`](/de/docs/Web/API/Notification) klickt.
+Das **`click`** Event des [`Notification`](/de/docs/Web/API/Notification)-Interfaces wird ausgelöst, wenn der Benutzer auf eine angezeigte [`Notification`](/de/docs/Web/API/Notification) klickt.
 
-Das Standardverhalten ist, den Fokus auf den Viewport des mit der Benachrichtigung verknüpften [Browsing-Kontexts](https://html.spec.whatwg.org/multipage/browsers.html#browsing-context) zu verschieben. Wenn Sie dieses Verhalten nicht wünschen, rufen Sie [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) am Ereignisobjekt auf.
+Das Standardverhalten besteht darin, den Fokus auf den Viewport des mit der Benachrichtigung verbundenen [Browsing-Kontextes](https://html.spec.whatwg.org/multipage/browsers.html#browsing-context) zu verschieben. Wenn Sie dieses Verhalten nicht wünschen, rufen Sie [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem Event-Objekt auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("click", (event) => {});
@@ -22,13 +22,13 @@ addEventListener("click", (event) => {});
 onclick = (event) => {};
 ```
 
-## Ereignistyp
+## Eventtyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Im folgenden Beispiel verwenden wir einen `onclick`-Handler, um beim Anklicken einer Benachrichtigung eine Webseite in einem neuen Tab zu öffnen (angegeben durch die Einbindung des `'_blank'` Parameters):
+Im folgenden Beispiel verwenden wir einen `onclick`-Handler, um eine Webseite in einem neuen Tab zu öffnen (angegeben durch die Einbeziehung des `'_blank'` Parameters), sobald eine Benachrichtigung angeklickt wird:
 
 ```js
 notification.onclick = (event) => {

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **Literalzeichen** gibt genau sich selbst an, um im Eingabetext übereinzustimmen.
+Ein **Literalzeichen** spezifiziert genau sich selbst, um im Eingabetext gefunden zu werden.
 
 ## Syntax
 
@@ -18,19 +18,19 @@ c
 ### Parameter
 
 - `c`
-  - : Ein einzelnes Zeichen, das kein Syntaxzeichen ist, wie unten beschrieben.
+  - : Ein einzelnes Zeichen, das keines der unten beschriebenen Syntaxzeichen ist.
 
 ## Beschreibung
 
-In regulären Ausdrücken können die meisten Zeichen wörtlich erscheinen. Sie sind normalerweise die grundlegendsten Bausteine von Mustern. Beispielsweise hier ist ein Muster aus dem [Entfernen von HTML-Tags](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier#removing_html_tags) Beispiel:
+In regulären Ausdrücken können die meisten Zeichen buchstäblich auftreten. Sie sind in der Regel die grundlegendsten Bausteine von Mustern. Zum Beispiel, hier ist ein Muster aus dem Beispiel [Entfernen von HTML-Tags](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier#removing_html_tags):
 
 ```js
 const pattern = /<.+?>/g;
 ```
 
-In diesem Beispiel werden `.`, `+` und `?` als _Syntaxzeichen_ bezeichnet. Sie haben spezielle Bedeutungen in regulären Ausdrücken. Der Rest der Zeichen im Muster (`<` und `>`) sind Literalzeichen. Sie stimmen im Eingabetext mit sich selbst überein: die linken und rechten spitzen Klammern.
+In diesem Beispiel werden `.`, `+`, und `?` als _Syntaxzeichen_ bezeichnet. Sie haben spezielle Bedeutungen in regulären Ausdrücken. Die restlichen Zeichen im Muster (`<` und `>`) sind Literalzeichen. Sie stimmen im Eingabetext mit sich selbst überein: die linken und rechten spitzen Klammern.
 
-Die folgenden Zeichen sind Syntaxzeichen in regulären Ausdrücken und können nicht als Literalzeichen erscheinen:
+Die folgenden Zeichen sind Syntaxzeichen in regulären Ausdrücken und können nicht als Literalzeichen auftreten:
 
 - [`^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
 - [`\`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
@@ -39,23 +39,23 @@ Die folgenden Zeichen sind Syntaxzeichen in regulären Ausdrücken und können n
 - [`[`, `]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
 - [`|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
 
-Innerhalb von Zeichenklassen können mehr Zeichen wörtlich erscheinen. Für weitere Informationen siehe die Seite [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class). Zum Beispiel stimmen `\.` und `[.]` beide mit einem wörtlichen `.` überein. In [`v`-Modus Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) gibt es jedoch eine andere Menge von Zeichen, die als Syntaxzeichen reserviert sind. Um am umfassendsten zu sein, finden Sie unten eine Tabelle von ASCII-Zeichen und ob sie in verschiedenen Kontexten entkommen oder nicht entkommen erscheinen dürfen, wobei "✅" bedeutet, dass das Zeichen sich selbst darstellt, "❌" bedeutet, dass es einen Syntaxfehler auslöst, und "⚠️" bedeutet, dass das Zeichen gültig ist, aber etwas anderes als sich selbst bedeutet.
+Innerhalb von Zeichengruppen können mehr Zeichen buchstäblich auftreten. Weitere Informationen finden Sie auf der Seite [Character class](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class). Zum Beispiel stimmen `\.` und `[.]` beide mit einem buchstäblichen `.` überein. In [`v`-Modus-Zeichengruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) jedoch gibt es eine andere Gruppe von Zeichen, die als Syntaxzeichen reserviert sind. Um umfassend zu sein, ist unten eine Tabelle von ASCII-Zeichen und ob sie in verschiedenen Kontexten maskiert oder unmaskiert auftreten können, wobei "✅" bedeutet, dass das Zeichen sich selbst darstellt, "❌" bedeutet, dass es einen Syntaxfehler verursacht, und "⚠️" bedeutet, dass das Zeichen gültig ist, aber etwas anderes als sich selbst bedeutet.
 
 <table class="fullwidth-table">
   <thead>
     <tr>
       <th scope="col" rowspan="2">Zeichen</th>
-      <th scope="col" colspan="2">Außerhalb von Zeichenklassen im <code>u</code>- oder <code>v</code>-Modus</th>
-      <th scope="col" colspan="2">In <code>u</code>-Modus Zeichenklassen</th>
-      <th scope="col" colspan="2">In <code>v</code>-Modus Zeichenklassen</th>
+      <th scope="col" colspan="2">Außerhalb von Zeichengruppen im <code>u</code>- oder <code>v</code>-Modus</th>
+      <th scope="col" colspan="2">In <code>u</code>-Modus-Zeichengruppen</th>
+      <th scope="col" colspan="2">In <code>v</code>-Modus-Zeichengruppen</th>
     </tr>
     <tr>
-      <th scope="col">Nicht entkommen</th>
-      <th scope="col">Entkommen</th>
-      <th scope="col">Nicht entkommen</th>
-      <th scope="col">Entkommen</th>
-      <th scope="col">Nicht entkommen</th>
-      <th scope="col">Entkommen</th>
+      <th scope="col">Unmaskiert</th>
+      <th scope="col">Maskiert</th>
+      <th scope="col">Unmaskiert</th>
+      <th scope="col">Maskiert</th>
+      <th scope="col">Unmaskiert</th>
+      <th scope="col">Maskiert</th>
     </tr>
   </thead>
   <tbody>
@@ -115,26 +115,26 @@ Innerhalb von Zeichenklassen können mehr Zeichen wörtlich erscheinen. Für wei
 </table>
 
 > [!NOTE]
-> Die Zeichen, die sowohl entkommen als auch nicht entkommen in `v`-Modus Zeichenklassen auftreten können, sind genau diejenigen, die als "Doppelpunktriche" verboten sind. Siehe [`v`-Modus Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) für weitere Informationen.
+> Die Zeichen, die sowohl maskiert als auch unmaskiert in `v`-Modus-Zeichengruppen auftreten können, sind genau diejenigen, die als "doppelte Punktuatoren" verboten sind. Siehe [`v`-Modus-Zeichengruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) für weitere Informationen.
 
-Wann immer Sie ein Syntaxzeichen wortwörtlich übereinstimmen wollen, müssen Sie es mit einem Rückwärtsschrägstrich (`\`) [escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape). Zum Beispiel, um ein wörtliches `*` in einem Muster zu übereinstimmen, müssen Sie `\*` im Muster schreiben. Die Verwendung von Syntaxzeichen als Literalzeichen führt entweder zu unerwarteten Ergebnissen oder verursacht Syntaxfehler — zum Beispiel ist `/*/` kein gültiger regulärer Ausdruck, da der Quantifizierer nicht von einem Muster vorangestellt wird. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können `]`, `{` und `}` wörtlich erscheinen, wenn es nicht möglich ist, sie als das Ende einer Zeichenklasse oder Quantifizierergrenzen zu interpretieren. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
+Wann immer Sie ein Syntaxzeichen buchstäblich darstellen möchten, müssen Sie es mit einem Backslash (`\`) [escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape). Zum Beispiel, um ein buchstäbliches `*` in einem Muster zu matchen, müssen Sie `\*` im Muster schreiben. Die Verwendung von Syntaxzeichen als Literalzeichen führt entweder zu unerwarteten Ergebnissen oder zu Syntaxfehlern — zum Beispiel ist `/*/` kein gültiger regulärer Ausdruck, weil der Quantifier nicht von einem Muster vorangegangen wird. Im [Unicode-unempfindlichen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können `]`, `{` und `}` buchstäblich auftreten, wenn es nicht möglich ist, sie als das Ende einer Zeichenklasse oder Quantifier-Delimiter zu analysieren. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
 
-Reguläre Ausdruck-Literale können nicht mit bestimmten nicht-Syntax Literalzeichen spezifiziert werden. `/` kann nicht als Literalzeichen in einem regulären Ausdruck-Literal erscheinen, da `/` als Trennzeichen des Literals selbst verwendet wird. Sie müssen es als `\/` escapen, wenn Sie ein wörtliches `/` übereinstimmen möchten. Zeilenendzeichen können ebenfalls nicht als Literalzeichen in einem regulären Ausdruck-Literal erscheinen, da ein Literal sich nicht über mehrere Zeilen erstrecken kann. Sie müssen stattdessen eine [Zeichenflucht](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) wie `\n` verwenden. Es gibt keine solchen Beschränkungen bei der Verwendung des {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktors, obwohl Zeichenfolgenliterale ihre eigenen Escape-Regeln haben (zum Beispiel bedeutet `"\\"` tatsächlich ein einzelnes Rückwärtsschrägstrichzeichen, sodass `new RegExp("\\*")` und `/\*/` gleichwertig sind).
+Literale reguläre Ausdrücke können nicht mit bestimmten nicht-Syntax-Literalzeichen spezifiziert werden. `/` kann nicht als Literalzeichen in einem regulären Ausdrucksliteral auftreten, da `/` als Trennzeichen des Literals selbst verwendet wird. Sie müssen es als `\/` escapen, wenn Sie ein buchstäbliches `/` matchen möchten. Zeilenabschlüsse können auch nicht als Literalzeichen in einem regulären Ausdrucksliteral auftreten, da ein Literal nicht über mehrere Zeilen spannt. Sie müssen einen [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) wie `\n` verwenden. Diese Einschränkungen gibt es nicht, wenn Sie den {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor verwenden, obwohl Zeichenkettenliterale ihre eigenen Escaping-Regeln haben (zum Beispiel steht `"\\"` tatsächlich für ein einzelnes Backslash-Zeichen, sodass `new RegExp("\\*")` und `/\*/` äquivalent sind).
 
-Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) wird das Muster als eine Folge von [UTF-16 Code-Einheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) interpretiert. Dies bedeutet, dass Surrogatpaare tatsächlich zwei Literalzeichen darstellen. Dies führt zu unerwarteten Verhaltensweisen, wenn es mit anderen Funktionen kombiniert wird:
+Im [Unicode-unempfindlichen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) wird das Muster als eine Sequenz von [UTF-16-Codeeinheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) interpretiert. Das bedeutet, dass Surrogatpaare tatsächlich zwei Literalzeichen darstellen. Dies führt zu unerwarteten Verhaltensweisen, wenn es mit anderen Funktionen kombiniert wird:
 
 ```js
 /^[😄]$/.test("😄"); // false, because the pattern is interpreted as /^[\ud83d\udc04]$/
 /^😄+$/.test("😄😄"); // false, because the pattern is interpreted as /^\ud83d\udc04+$/
 ```
 
-Im Unicode-bewussten Modus wird das Muster als eine Folge von Unicode-Codepunkten interpretiert, und Surrogatpaare werden nicht aufgeteilt. Daher sollten Sie immer den `u`-Flag verwenden.
+Im Unicode-empfindlichen Modus wird das Muster als eine Sequenz von Unicode-Codepunkten interpretiert, und Surrogatpaare werden nicht aufgeteilt. Deshalb sollten Sie immer die Verwendung des `u`-Flags bevorzugen.
 
 ## Beispiele
 
 ### Verwendung von Literalzeichen
 
-Das folgende Beispiel ist aus [Zeichenflucht](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape#using_character_escapes) kopiert. Die Zeichen `a` und `b` sind Literalzeichen im Muster, und `\n` ist ein entkommenes Zeichen, da es nicht wörtlich in einem regulären Ausdruck-Literal erscheinen kann.
+Das folgende Beispiel ist aus dem Artikel [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape#using_character_escapes) kopiert. Die Zeichen `a` und `b` sind Literalzeichen im Muster, und `\n` ist ein maskiertes Zeichen, weil es nicht buchstäblich in einem regulären Ausdrucksliteral vorkommen kann.
 
 ```js
 const pattern = /a\nb/;
@@ -155,4 +155,4 @@ console.log(pattern.test(string)); // true
 
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Zeichenflucht: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichen-Escape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces kopiert das codierte Stück von Videodaten.
+Die **`copyTo()`**-Methode des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces kopiert den kodierten Videodaten-Chunk.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) erstellt und dann kopiert.
+Im folgenden Beispiel wird ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) erstellt und anschließend kopiert.
 
 ```js
 const init = {

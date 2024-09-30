@@ -1,5 +1,5 @@
 ---
-title: "GPUAdapterInfo: Architektur-Eigenschaft"
+title: "GPUAdapterInfo: architecture-Eigenschaft"
 short-title: architecture
 slug: Web/API/GPUAdapterInfo/architecture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`architecture`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt den Namen der Familie oder Klasse von GPUs zurück, zu der der Adapter gehört, oder einen leeren String, wenn diese Information nicht verfügbar ist.
+Die **`architecture`**-Eigenschaft des schreibgeschützten [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Interfaces gibt den Namen der Familie oder Klasse von GPUs zurück, zu der der Adapter gehört, oder einen leeren String, wenn sie nicht verfügbar ist.
 
 ## Wert
 

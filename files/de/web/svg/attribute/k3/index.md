@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}
 
-Das **`k3`** Attribut definiert einen der Werte, die innerhalb der `arithmetic`-Operation der {{SVGElement("feComposite")}}-Filter-Primitiven verwendet werden.
+Das **`k3`**-Attribut definiert einen der Werte, der innerhalb der `arithmetic`-Operation des {{SVGElement("feComposite")}}-Filterprimitivs verwendet wird.
 
-Die Pixelzusammensetzung wird mit der folgenden Formel berechnet:
+Die Pixelkomposition wird mit der folgenden Formel berechnet:
 
 ```js
 result = k1 * i1 * i2 + k2 * i1 + k3 * i2 + k4;
 ```
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feComposite")}}
 
@@ -69,7 +69,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

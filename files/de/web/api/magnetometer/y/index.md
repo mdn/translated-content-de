@@ -12,11 +12,11 @@ Die schreibgeschützte **`y`**-Eigenschaft des [`Magnetometer`](/de/docs/Web/API
 
 ## Wert
 
-Eine {{jsxref('Number')}}.
+Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Der Magnetometer-Wert wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im folgenden Beispiel tritt dies sechzig Mal pro Sekunde auf.
+Das Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let magSensor = new Magnetometer({ frequency: 60 });

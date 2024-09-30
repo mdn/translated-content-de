@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`min-height`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindesthöhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/used_value) der {{cssxref("height")}}-Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
+Die **`min-height`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Mindesthöhe eines Elements. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/used_value) der {{cssxref("height")}} Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
 
 {{EmbedInteractiveExample("pages/css/min-height.html")}}
 
@@ -46,21 +46,21 @@ min-height: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Definiert die `min-height` als Prozentsatz der Höhe des umgebenden Blocks.
 - `auto`
-  - : Der Browser berechnet und wählt eine `min-height` für das angegebene Element.
+  - : Der Browser berechnet und wählt eine `min-height` für das angegebene Element aus.
 - `max-content`
   - : Die intrinsische bevorzugte `min-height`.
 - `min-content`
   - : Die intrinsische minimale `min-height`.
 - `fit-content`
-  - : Nutzt den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Raum, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
   - : Verwendet die `fit-content` Formel mit dem verfügbaren Raum ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
 
-  - : Begrenzen Sie die minimale Höhe des [Margin-Box](/de/docs/Learn/CSS/Building_blocks/The_box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box so zu machen, dass sie den verfügbaren Platz im umgebenden Block ausfüllt, was in gewisser Weise ähnlich wie `100%` ist, dabei aber die resultierende Größe auf die Margin-Box anstatt auf die Box anzuwenden, die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmt wird.
+  - : Begrenzt die Mindesthöhe der [Margin Box](/de/docs/Learn/CSS/Building_blocks/The_box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Sie versucht, die Margin Box den verfügbaren Raum im umgebenden Block ausfüllen zu lassen, und verhält sich in gewisser Weise ähnlich wie `100%`, wobei die resultierende Größe auf die Margin Box, nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box angewendet wird.
 
     > [!NOTE]
-    > Um Aliase zu überprüfen, die von Browsern für den `stretch`-Wert verwendet werden, und deren Implementierungsstatus, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um die von Browsern verwendeten Aliase für den `stretch` Wert und dessen Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ min-height: unset;
 
 ## Beispiele
 
-### Festlegen der min-height
+### Einstellen von min-height
 
 ```css
 table {
@@ -94,5 +94,5 @@ form {
 
 ## Siehe auch
 
-- [Das Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model), {{cssxref("box-sizing")}}
+- [Das Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model), {{cssxref("box-sizing")}}
 - {{cssxref("height")}}, {{cssxref("max-height")}}

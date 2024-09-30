@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die abstrakte `input`-Rolle ist ein generischer Typ eines Widgets, das Benutzereingaben ermöglicht.
+Die abstrakte Rolle `input` ist ein generischer Typ von Widget, der Benutzereingaben zulässt.
 
 > [!NOTE]
-> Die `input`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie ist hier der Vollständigkeit halber dokumentiert. Sie sollte nicht von Webautoren verwendet werden.
+> Die `input`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie ist hier der Vollständigkeit halber dokumentiert und sollte nicht von Web-Autoren verwendet werden.
 
 ## Beschreibung
 
-Die `input`-Rolle ist eine abstrakte Rolle. Sie darf nicht von Webautoren verwendet werden. Sie ist die Oberklasse für Eingabewidgets, die Benutzereingaben ermöglichen, einschließlich [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role), [`radio`](/de/docs/Web/Accessibility/ARIA/Roles/radio_role) und [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role). Für alle drei sollten Sie das {{HTMLElement("input")}}-Element vom Typ [`checkbox`](/de/docs/Web/HTML/Element/input/checkbox), [`radio`](/de/docs/Web/HTML/Element/input/radio) und [`text`](/de/docs/Web/HTML/Element/input/text) in Betracht ziehen.
+Die `input`-Rolle ist eine abstrakte Rolle und darf nicht von Web-Autoren verwendet werden. Sie ist die Superklasse für Eingabe-Widgets, die Benutzereingaben zulassen, einschließlich [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role), [`radio`](/de/docs/Web/Accessibility/ARIA/Roles/radio_role) und [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role). Für alle drei sollten Sie das {{HTMLElement("input")}}-Element vom Typ [`checkbox`](/de/docs/Web/HTML/Element/input/checkbox), [`radio`](/de/docs/Web/HTML/Element/input/radio) und [`text`](/de/docs/Web/HTML/Element/input/text) in Betracht ziehen.
 
-## Beste Praktiken
+## Best Practices
 
 Nicht verwenden.
 

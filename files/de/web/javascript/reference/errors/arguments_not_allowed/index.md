@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "SyntaxError: arguments ist in Feldern nicht gültig" tritt auf, wenn der Bezeichner [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) in einem Klassenfeld-Initializer oder in einem statischen Initialisierungsblock außerhalb einer nicht-[Arrow-Funktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) gelesen wird.
+Die JavaScript-Ausnahme "SyntaxError: arguments ist in Feldern nicht gültig" tritt auf, wenn der [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) Identifikator in einem Klassenfeld-Initializer oder in einem statischen Initialisierungsblock außerhalb einer nicht-[Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) gelesen wird.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: 'arguments' is not allowed in class field initializer or static initialization block (V8-based)
@@ -21,12 +21,12 @@ SyntaxError: Unexpected identifier 'arguments'. Cannot reference 'arguments' in 
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ging schief?
 
-Ein Klassenfeld-Initializer-Ausdruck oder ein statischer Initialisierungsblock einer Klasse haben `arguments` nicht in ihrem Geltungsbereich. Der Versuch, darauf zuzugreifen, führt zu einem Syntaxfehler.
+Ein Klassenfeld-Initialisierungs-Ausdruck oder ein Klassenstatischer Initialisierungsblock hat `arguments` nicht in seinem Gültigkeitsbereich. Der Versuch, darauf zuzugreifen, ist ein Syntaxfehler.
 
-- Dies gilt auch, wenn `arguments` in einem übergeordneten Geltungsbereich gebunden ist (z. B. wenn die Klasse in einer nicht-Arrow-Funktion verschachtelt ist).
-- Eine innerhalb dieses Geltungsbereichs deklarierte nicht-Arrow-Funktion bindet weiterhin ihre eigenen `arguments` und liest sie normal.
+- Dies gilt selbst dann, wenn `arguments` in einem übergeordneten Gültigkeitsbereich gebunden ist (z. B. wenn die Klasse in einer nicht-Pfeilfunktion verschachtelt ist).
+- Eine nicht-Pfeilfunktion, die innerhalb dieses Gültigkeitsbereichs deklariert ist, wird dennoch ihr eigenes `arguments` binden und es normal lesen.
 
 ## Beispiele
 

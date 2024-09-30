@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: Eigenschaft dischargingTime"
+title: "BatteryManager: dischargingTime-Eigenschaft"
 short-title: dischargingTime
 slug: Web/API/BatteryManager/dischargingTime
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`dischargingTime`** des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces gibt die verbleibende Zeit in Sekunden an, bis die Batterie vollständig entladen ist, oder {{jsxref("Infinity")}}, wenn die Batterie gerade geladen wird und nicht entladen wird oder der Benutzer-Agent nicht in der Lage ist, die Batterie-Statusinformationen zu melden. Wenn sich ihr Wert ändert, wird das [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event)-Ereignis ausgelöst.
+Die schreibgeschützte **`dischargingTime`**-Eigenschaft des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces gibt die verbleibende Zeit in Sekunden an, bis der Akku vollständig entladen ist, oder {{jsxref("Infinity")}}, wenn der Akku derzeit geladen wird, anstatt entladen zu werden oder der Benutzeragent nicht in der Lage ist, die Batteriestatus-Informationen zu melden. Wenn sich der Wert ändert, wird das [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event)-Ereignis ausgelöst.
 
 > [!NOTE]
-> Auch wenn die zurückgegebene Zeit auf die Sekunde genau ist, runden Browser diese in ein höheres Intervall (typischerweise auf die nächsten 15 Minuten) aus Datenschutzgründen.
+> Auch wenn die zurückgegebene Zeit auf die Sekunde genau ist, runden Browser sie aus Datenschutzgründen auf ein höheres Intervall (typischerweise auf die nächsten 15 Minuten) auf.
 
 ## Wert
 

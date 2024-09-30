@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `range` abstrakte Rolle ist eine generische Art von Strukturrolle, die einen Wertebereich repräsentiert.
+Die `range` abstrakte Rolle ist eine generische Art von Strukturrolle, die einen Bereich von Werten darstellt.
 
 > [!NOTE]
-> Die `range` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier der Vollständigkeit halber dokumentiert. Sie sollte von Web-Autoren nicht verwendet werden.
+> Die `range` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie ist hier zur Vollständigkeit der Dokumentation enthalten und soll nicht von Web-Autoren verwendet werden.
 
 ## Beschreibung
 
-Die `range` Rolle ist eine abstrakte Rolle. Sie darf von Web-Autoren nicht verwendet werden. Sie ist die Superklasse für Strukturrollen von Elementen, die einen Wert innerhalb eines Wertebereichs akzeptieren, einschließlich der [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role) Rolle, [`progressbar`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role) und [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role). Für diese drei sollten Sie das {{HTMLElement("meter")}} Element, das {{HTMLElement("progress")}} Element und das {{HTMLElement("input/range")}} entsprechend in Betracht ziehen.
+Die `range` Rolle ist eine abstrakte Rolle. Sie darf nicht von Web-Autoren verwendet werden. Sie ist die Superklasse für strukturelle Rollen für Elemente, die einen Wert innerhalb eines Wertebereichs akzeptieren, einschließlich der [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role) Rolle, der [`progressbar`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role) und der [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role). Für diese drei sollten Sie das {{HTMLElement("meter")}} Element, das {{HTMLElement("progress")}} Element und das {{HTMLElement("input/range")}} verwenden.
 
-## Bewährte Praktiken
+## Beste Praktiken
 
 Nicht verwenden.
 

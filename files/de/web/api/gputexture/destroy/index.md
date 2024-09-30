@@ -1,5 +1,5 @@
 ---
-title: "GPUTexture: destroy() Methode"
+title: "GPUTexture: destroy()-Methode"
 short-title: destroy()
 slug: Web/API/GPUTexture/destroy
 l10n:
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "PressureObserver: unobserve()-Methode"
+title: "PressureObserver: unobserve() Methode"
 short-title: unobserve()
 slug: Web/API/PressureObserver/unobserve
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`unobserve()`**-Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Schnittstelle stoppt den Aufruf der Druckbeobachter-Rückruffunktion, sodass keine Druckdaten mehr von der angegebenen Quelle empfangen werden.
+Die **`unobserve()`**-Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Schnittstelle stoppt den Druckbeobachter-Callback, damit dieser keine Druckdatensätze mehr von der angegebenen Quelle erhält.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Beobachtung einer spezifischen Quelle stoppen
+### Beobachtung einer spezifischen Quelle beenden
 
-Das folgende Beispiel zeigt, wie die Beobachtung der Quelle "gpu" gestoppt wird, nachdem der Beobachter zuvor sowohl die "cpu"- als auch die "gpu"-Quellen beobachtet hat.
+Das folgende Beispiel zeigt, wie die Beobachtung der "gpu"-Quelle beendet wird, nachdem der Beobachter zuvor sowohl die "cpu"- als auch die "gpu"-Quellen beobachtet hat.
 
 ```js
 const observer = new PressureObserver(callback);

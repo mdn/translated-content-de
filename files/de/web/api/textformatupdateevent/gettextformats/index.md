@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`getTextFormats()`**-Methode der [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Schnittstelle gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den Text anwenden möchte, der gerade eingegeben wird.
+Die **`getTextFormats()`**-Methode des [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Interfaces gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den zu komponierenden Text anwenden möchte.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Ein {{jsxref("Array")}}, das [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekte
 
 ## Beispiele
 
-### Stil von IME-eingebettetem Text
+### Formatierung von durch IME komponiertem Text
 
 Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren.
 

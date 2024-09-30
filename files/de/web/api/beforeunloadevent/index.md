@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`BeforeUnloadEvent`**-Schnittstelle repräsentiert das Ereignisobjekt für das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignis, das ausgelöst wird, wenn das aktuelle Fenster, das darin enthaltene Dokument und die zugehörigen Ressourcen entladen werden sollen.
+Das **`BeforeUnloadEvent`** Interface repräsentiert das Ereignisobjekt für das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis, das ausgelöst wird, wenn das aktuelle Fenster, das darin enthaltene Dokument und die zugehörigen Ressourcen entladen werden sollen.
 
-Sehen Sie die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignisreferenz für detaillierte Anleitungen zur Verwendung dieses Ereignisses.
+Siehe die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignisreferenz für detaillierte Anleitungen zur Verwendung dieses Ereignisses.
 
 {{InheritanceDiagram}}
 
@@ -18,7 +18,7 @@ Sehen Sie die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereig
 _Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) {{Deprecated_Inline}}
-  - : Wenn auf einen [truthy](/de/docs/Glossary/Truthy)-Wert festgelegt wird, löst es ein von Browsern gesteuertes Bestätigungsdialogfeld aus, das Benutzer fragt, ob sie die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es ist Best Practice, den Dialog auszulösen, indem `event.preventDefault()` aufgerufen wird, während auch `returnValue` gesetzt wird, um ältere Fälle zu unterstützen.
+  - : Wenn es auf einen [truthy](/de/docs/Glossary/Truthy) Wert gesetzt ist, wird ein vom Browser gesteuertes Bestätigungsdialogfeld ausgelöst, das Benutzer auffordert, zu bestätigen, ob sie die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es wird empfohlen, den Dialog auszulösen, indem `event.preventDefault()` aufgerufen wird, während `returnValue` ebenfalls gesetzt wird, um ältere Fälle zu unterstützen.
 
 ## Instanz-Methoden
 

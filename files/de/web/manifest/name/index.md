@@ -16,17 +16,17 @@ l10n:
   </tbody>
 </table>
 
-Das `name`-Element ist ein String, der den Namen der Webanwendung darstellt, wie er normalerweise dem Benutzer angezeigt wird (z. B. in einer Liste von anderen Anwendungen oder als Beschriftung für ein Symbol). `name` ist richtungsfähig, was bedeutet, dass es basierend auf den Werten der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest)-Manifestmitglieder von links nach rechts oder von rechts nach links angezeigt werden kann.
+Das `name`-Mitglied ist ein String, der den Namen der Webanwendung repräsentiert, wie er normalerweise dem Benutzer angezeigt wird (z. B. in einer Liste von anderen Anwendungen oder als Beschriftung für ein Symbol). `name` ist richtungsfähig, was bedeutet, dass es basierend auf den Werten der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest) Manifestmitglieder entweder von links nach rechts oder von rechts nach links angezeigt werden kann.
 
 ## Beispiele
 
-Einfaches `name` in einer von links nach rechts verlaufenden Sprache:
+Einfaches `name` in einer Sprache von links nach rechts:
 
 ```json
 "name": "Awesome application"
 ```
 
-Rechts-nach-links `name` auf Arabisch:
+Von rechts nach links `name` in Arabisch:
 
 ```json
 "dir": "rtl",

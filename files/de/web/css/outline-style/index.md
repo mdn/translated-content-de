@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil des Rahmens eines Elements fest. Ein Rahmen ist eine Linie, die um ein Element gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
 {{EmbedInteractiveExample("pages/css/outline-style.html")}}
 
-Es ist oft praktischer, die Kurzschreibweise {{cssxref("outline")}} zu verwenden, um das Erscheinungsbild eines Rahmens zu definieren.
+Es ist oft praktischer, die Kurzschreibweiseigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Umrandung definiert werden soll.
 
 ## Syntax
 
@@ -36,30 +36,30 @@ outline-style: revert-layer;
 outline-style: unset;
 ```
 
-Die Eigenschaft `outline-style` wird als einer der unten aufgeführten Werte angegeben.
+Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Ermöglicht es dem User-Agent, einen benutzerdefinierten Rahmenstil darzustellen.
+  - : Ermöglicht dem User-Agent, einen benutzerdefinierten Umrandungsstil darzustellen.
 - `none`
-  - : Es wird kein Rahmen verwendet. Die {{cssxref("outline-width")}} ist `0`.
+  - : Keine Umrandung wird verwendet. Die {{cssxref("outline-width")}} ist `0`.
 - `dotted`
-  - : Der Rahmen besteht aus einer Reihe von Punkten.
+  - : Die Umrandung ist eine Reihe von Punkten.
 - `dashed`
-  - : Der Rahmen besteht aus einer Reihe von kurzen Liniensegmenten.
+  - : Die Umrandung ist eine Reihe von kurzen Liniensegmenten.
 - `solid`
-  - : Der Rahmen ist eine durchgehende Linie.
+  - : Die Umrandung ist eine einzige Linie.
 - `double`
-  - : Der Rahmen besteht aus zwei durchgehenden Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Abstands zwischen ihnen.
+  - : Die Umrandung besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Zwischenraums.
 - `groove`
-  - : Der Rahmen sieht aus, als wäre er in die Seite geschnitzt.
+  - : Die Umrandung sieht aus, als wäre sie in die Seite geschnitzt.
 - `ridge`
-  - : Das Gegenteil von `groove`: Der Rahmen sieht aus, als würde er aus der Seite herausragen.
+  - : Das Gegenteil von `groove`: Die Umrandung sieht aus, als wäre sie aus der Seite herausgehoben.
 - `inset`
-  - : Der Rahmen lässt die Box aussehen, als wäre sie in die Seite eingebettet.
+  - : Die Umrandung lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
 - `outset`
-  - : Das Gegenteil von `inset`: Der Rahmen lässt die Box aussehen, als würde sie aus der Seite hervorkommen.
+  - : Das Gegenteil von `inset`: Die Umrandung lässt die Box so aussehen, als käme sie aus der Seite heraus.
 
 ## Formale Definition
 
@@ -71,9 +71,9 @@ Die Eigenschaft `outline-style` wird als einer der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Rahmen-Stil auf auto setzen
+### Umrandungsstil auf auto setzen
 
-Der `auto` Wert gibt einen benutzerdefinierten Rahmenstil an, der in [der Spezifikation](https://www.w3.org/TR/css-ui-3/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder ein Benutzeroberflächenstandard für die Plattform ist oder möglicherweise ein Stil, der reicher ist, als es im Detail in CSS beschrieben werden kann, z. B. ein abgerundeter Kantenrahmen mit halbtransparenten äußeren Pixeln, der zu leuchten scheint".
+Der `auto`-Wert zeigt einen benutzerdefinierten Umrandungsstil an, der in [der Spezifikation](https://www.w3.org/TR/css-ui-3/#outline-style) beschrieben wird als "typischerweise ein Stil, der entweder ein Benutzeroberflächenstandard der Plattform ist oder vielleicht ein Stil, der reicher ist, als es in CSS im Detail beschrieben werden kann, z. B. eine Umrandung mit abgerundeten Kanten und halbtransluzenten äußeren Pixeln, die leuchtet".
 
 #### HTML
 
@@ -101,7 +101,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Rahmenstil an, der in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_auto') }}
 
-### Rahmen-Stil auf gestrichelt und gepunktet setzen
+### Umrandungsstil auf gestrichelt und gepunktet setzen
 
 #### HTML
 
@@ -134,7 +134,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Rahmenstil an, der in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_dashed_and_dotted') }}
 
-### Rahmen-Stil auf durchgehend und doppelt setzen
+### Umrandungsstil auf solid und double setzen
 
 #### HTML
 
@@ -167,7 +167,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Rahmenstil an, der in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_solid_and_double') }}
 
-### Rahmen-Stil auf vertieft und erhoben setzen
+### Umrandungsstil auf groove und ridge setzen
 
 #### HTML
 
@@ -200,7 +200,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Rahmenstil an, der in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_groove_and_ridge') }}
 
-### Rahmen-Stil auf eingebettet und hervortretend setzen
+### Umrandungsstil auf inset und outset setzen
 
 #### HTML
 

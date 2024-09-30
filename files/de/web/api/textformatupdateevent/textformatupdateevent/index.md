@@ -20,7 +20,7 @@ new TextFormatUpdateEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Mögliche Werte: `"textformatupdate"`.
+  - : Ein Zeichenfolgenwert, der den Typ des Ereignisses darstellt. Mögliche Werte: `"textformatupdate"`.
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `textFormats`
@@ -36,4 +36,4 @@ new TextFormatUpdateEvent(type, options)
 
 ## Siehe auch
 
-- Das [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent) Interface, zu dem es gehört.
+- Die [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent) Schnittstelle, zu der es gehört.

@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `xr-spatial-tracking` steuert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `xr-spatial-tracking`-Direktive steuert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf.
 
 Konkret, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert:
 
-- Rückgaben von [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) rufen ein {{jsxref("Promise")}} auf, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
+- Die Aufrufe von [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) werden ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
 
-- [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event)-Ereignisse werden nicht auf dem [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Objekt ausgelöst.
+- [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event)-Events werden auf dem [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Objekt nicht ausgelöst.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Permissions-Policy: xr-spatial-tracking=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `xr-spatial-tracking` ist `self`.
+Die Standard-allowlist für `xr-spatial-tracking` ist `self`.
 
 ## Spezifikationen
 
@@ -39,6 +39,6 @@ Die Standard-Whitelist für `xr-spatial-tracking` ist `self`.
 ## Siehe auch
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
-- [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession), und [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event)-Ereignis auf [`navigator.xr`](/de/docs/Web/API/Navigator/xr)
+- [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) und [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event) Event auf [`navigator.xr`](/de/docs/Web/API/Navigator/xr)
 - {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

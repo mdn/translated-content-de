@@ -12,15 +12,15 @@ Die schreibgeschützte **`usages`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/A
 
 ## Wert
 
-Ein {{jsxref("Array")}} von Zeichenfolgen aus der folgenden Liste:
+Ein {{jsxref("Array")}} von Zeichenketten aus der folgenden Liste:
 
 - `"encrypt"`: Der Schlüssel kann verwendet werden, um Nachrichten zu [verschlüsseln](/de/docs/Web/API/SubtleCrypto/encrypt).
 - `"decrypt"`: Der Schlüssel kann verwendet werden, um Nachrichten zu [entschlüsseln](/de/docs/Web/API/SubtleCrypto/decrypt).
 - `"sign"`: Der Schlüssel kann verwendet werden, um Nachrichten zu [signieren](/de/docs/Web/API/SubtleCrypto/sign).
 - `"verify"`: Der Schlüssel kann verwendet werden, um Signaturen zu [verifizieren](/de/docs/Web/API/SubtleCrypto/verify).
-- `"deriveKey"`: Der Schlüssel kann beim [Ableiten eines neuen Schlüssels](/de/docs/Web/API/SubtleCrypto/deriveKey) verwendet werden.
-- `"deriveBits"`: Der Schlüssel kann beim [Ableiten von Bits](/de/docs/Web/API/SubtleCrypto/deriveBits) verwendet werden.
-- `"wrapKey"`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [verpacken](/de/docs/Web/API/SubtleCrypto/wrapKey).
+- `"deriveKey"`: Der Schlüssel kann bei der [Ableitung eines neuen Schlüssels](/de/docs/Web/API/SubtleCrypto/deriveKey) verwendet werden.
+- `"deriveBits"`: Der Schlüssel kann bei der [Ableitung von Bits](/de/docs/Web/API/SubtleCrypto/deriveBits) verwendet werden.
+- `"wrapKey"`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [umhüllen](/de/docs/Web/API/SubtleCrypto/wrapKey).
 - `"unwrapKey"`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [entpacken](/de/docs/Web/API/SubtleCrypto/unwrapKey).
 
 ## Beispiele

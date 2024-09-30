@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`resize`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element skalierbar ist und, falls ja, in welche Richtungen.
+Die **`resize`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element größenveränderbar ist und, falls ja, in welche Richtungen.
 
 {{EmbedInteractiveExample("pages/css/resize.html")}}
 
-`resize` gilt nicht für:
+`resize` gilt nicht für die folgenden:
 
 - Inline-Elemente
 - Block-Elemente, für die die {{cssxref("overflow")}}-Eigenschaft auf `visible` oder `clip` gesetzt ist
@@ -35,22 +35,22 @@ resize: revert-layer;
 resize: unset;
 ```
 
-Die `resize`-Eigenschaft wird als ein einzelner Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Die `resize`-Eigenschaft wird als einzelner Schlüsselwortwert aus der folgenden Liste angegeben.
 
 ### Werte
 
 - `none`
-  - : Das Element bietet keine vom Benutzer kontrollierbare Möglichkeit, es zu skalieren.
+  - : Das Element bietet keine benutzerkontrollierte Methode zum Ändern seiner Größe.
 - `both`
-  - : Das Element zeigt einen Mechanismus, der dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu skalieren.
+  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu vergrößern oder zu verkleinern.
 - `horizontal`
-  - : Das Element zeigt einen Mechanismus, der dem Benutzer erlaubt, es in _horizontaler_ Richtung zu skalieren.
+  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in horizontaler Richtung zu vergrößern oder zu verkleinern.
 - `vertical`
-  - : Das Element zeigt einen Mechanismus, der dem Benutzer erlaubt, es in _vertikaler_ Richtung zu skalieren.
+  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in vertikaler Richtung zu vergrößern oder zu verkleinern.
 - `block`
-  - : Das Element zeigt einen Mechanismus, der dem Benutzer erlaubt, es in der _Block_-Richtung zu skalieren (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in der Block-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}}- und {{cssxref("direction")}}-Wert) zu vergrößern oder zu verkleinern.
 - `inline`
-  - : Das Element zeigt einen Mechanismus, der dem Benutzer erlaubt, es in der _Inline_-Richtung zu skalieren (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in der Inline-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}}- und {{cssxref("direction")}}-Wert) zu vergrößern oder zu verkleinern.
 
 ## Formale Definition
 
@@ -62,9 +62,9 @@ Die `resize`-Eigenschaft wird als ein einzelner Schlüsselwortwert aus der unten
 
 ## Beispiele
 
-### Deaktivieren der Skalierbarkeit von Textareas
+### Deaktivierung der Größenänderbarkeit von Textbereichen
 
-In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig skalierbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
+In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig größenveränderbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
 
 #### HTML
 
@@ -84,9 +84,9 @@ textarea {
 
 {{EmbedLiveSample("Disabling_resizability_of_textareas","200","100")}}
 
-### Verwendung von `resize` mit beliebigen Elementen
+### Verwendung von resize mit beliebigen Elementen
 
-Sie können die `resize`-Eigenschaft verwenden, um jedes Element skalierbar zu machen. Im folgenden Beispiel enthält ein skalierbares {{HTMLElement("div")}} ein skalierbares Absatz-Element ({{HTMLElement("p")}}).
+Sie können die `resize`-Eigenschaft verwenden, um beliebige Elemente größenveränderbar zu machen. Im folgenden Beispiel enthält ein größenveränderbares {{HTMLElement("div")}} einen größenveränderbaren Absatz ({{HTMLElement("p")}}-Element).
 
 #### HTML
 

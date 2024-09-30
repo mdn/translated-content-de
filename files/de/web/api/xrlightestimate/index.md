@@ -7,29 +7,28 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Das **`XRLightEstimate`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) liefert die geschätzten Beleuchtungswerte für eine [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) zur Zeit, die durch ein [`XRFrame`](/de/docs/Web/API/XRFrame) repräsentiert wird.
+Die **`XRLightEstimate`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) liefert die geschätzten Lichtwerte für eine [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) zu dem Zeitpunkt, der durch ein [`XRFrame`](/de/docs/Web/API/XRFrame) dargestellt wird.
 
 Um ein `XRLightEstimate`-Objekt zu erhalten, rufen Sie die Methode [`XRFrame.getLightEstimate()`](/de/docs/Web/API/XRFrame/getLightEstimate) auf.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`XRLightEstimate.primaryLightDirection`](/de/docs/Web/API/XRLightEstimate/primaryLightDirection) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Richtung zur primären Lichtquelle vom `probeSpace` einer [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
 - [`XRLightEstimate.primaryLightIntensity`](/de/docs/Web/API/XRLightEstimate/primaryLightIntensity) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) (mit den `x`, `y`, `z`-Werten, die auf RGB abgebildet sind), der die Intensität der primären Lichtquelle vom `probeSpace` einer [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) (mit den `x`, `y`, `z` Werten auf RGB abgebildet), der die Intensität der primären Lichtquelle vom `probeSpace` einer [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
 - [`XRLightEstimate.sphericalHarmonicsCoefficients`](/de/docs/Web/API/XRLightEstimate/sphericalHarmonicsCoefficients) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{jsxref("Float32Array")}}, der 9 kugelförmige Harmonische Koeffizienten enthält.
+  - : Ein {{jsxref("Float32Array")}}, das 9 Kugeloberflächenharmonische Koeffizienten enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Keine.
 
 ## Beispiele
 
-### Erhalten eines `XRLightProbe`-Objekts
+### Erhalt eines `XRLightProbe`-Objekts
 
-Verwenden Sie zuerst die Methode [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe), um eine Lichtsonde aus einer Sitzung zu erhalten.
-Dann wird innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife die Methode [`getLightEstimate()`](/de/docs/Web/API/XRFrame/getLightEstimate) ein `XRLightEstimate`-Objekt zurückgeben, das die Beleuchtungswerte für jedes Frame enthält.
+Verwenden Sie zunächst die Methode [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe), um eine Lichtsonde von einer Sitzung zu erhalten. Innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife gibt die Methode [`getLightEstimate()`](/de/docs/Web/API/XRFrame/getLightEstimate) ein `XRLightEstimate`-Objekt zurück, das die Lichtwerte für jeden Frame enthält.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`endOffset`**-Eigenschaft des [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Interfaces gibt den Offset im Endknoten der Endposition des Bereichs zurück.
+Die **`endOffset`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den Versatz in das Endknoten der Endposition des Bereichs zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Zeichen im [`Node`](/de/docs/Web/API/Node) angibt, die durch [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) angegeben sind, an dem sich das letzte Zeichen des Bereichs befindet.
+Ein ganzzahliger Wert, der die Anzahl der Zeichen in den durch [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, bei dem sich das letzte Zeichen des Bereichs befindet.
 
 ## Beispiel
 

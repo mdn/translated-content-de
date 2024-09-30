@@ -7,14 +7,14 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das `AnimationEffect`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) ist ein Interface, das Animationseffekte darstellt.
+Das `AnimationEffect`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) ist ein Interface, das Animationseffekte repräsentiert.
 
-`AnimationEffect` ist ein abstraktes Interface und kann daher nicht direkt instanziiert werden. Konkrete Interfaces wie [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) erben jedoch von ihm, und Instanzen dieser Interfaces können an [`Animation`](/de/docs/Web/API/Animation)-Objekte übergeben werden, um abgespielt zu werden. Sie können auch von [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und [Übergängen](/de/docs/Web/CSS/CSS_transitions) verwendet werden.
+`AnimationEffect` ist ein abstraktes Interface und kann daher nicht direkt instanziiert werden. Jedoch erben konkrete Interfaces wie [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) davon, und Instanzen dieser Interfaces können an [`Animation`](/de/docs/Web/API/Animation)-Objekte zum Abspielen übergeben werden. Sie können auch von [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und [Transitionen](/de/docs/Web/CSS/CSS_transitions) verwendet werden.
 
 ## Instanzmethoden
 
 - [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming)
-  - : Gibt das Objekt zurück, das mit der Animation verknüpft ist und alle Zeitwerte der Animation enthält.
+  - : Gibt das mit der Animation verbundene Objekt zurück, das alle Timing-Werte der Animation enthält.
 - [`AnimationEffect.getComputedTiming()`](/de/docs/Web/API/AnimationEffect/getComputedTiming)
   - : Gibt die berechneten Timing-Eigenschaften für dieses `AnimationEffect` zurück.
 - [`AnimationEffect.updateTiming()`](/de/docs/Web/API/AnimationEffect/updateTiming)

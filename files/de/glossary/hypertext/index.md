@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Hypertext ist Text, der Links zu anderen Texten enthält, im Gegensatz zu einem einzelnen linearen Fluss wie in einem Roman.
+Hypertext ist Text, der Links zu anderen Texten enthält, im Gegensatz zu einem einzigen linearen Fluss wie in einem Roman.
 
-Der Begriff wurde etwa 1965 von Ted Nelson geprägt.
+Der Begriff wurde von Ted Nelson um 1965 geprägt.
 
 ## Siehe auch
 

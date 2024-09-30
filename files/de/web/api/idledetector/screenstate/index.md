@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`screenState`** des [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist. Mögliche Werte sind `"locked"` oder `"unlocked"`.
+Die schreibgeschützte Eigenschaft **`screenState`** der Schnittstelle [`IdleDetector`](/de/docs/Web/API/IdleDetector) gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist, entweder `"locked"` oder `"unlocked"`.
 
 ## Wert
 
-Entweder `"locked"` oder `"unlocked"`, wenn [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) aufgerufen wurde, oder `null` andernfalls.
+Entweder `"locked"` oder `"unlocked"`, wenn [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) aufgerufen wurde, oder `null` anderweitig.
 
 ## Beispiele
 
-Im folgenden Beispiel gibt der `change`-Callback den Status von `userState` und `screenState` in der Konsole aus.
+Im folgenden Beispiel gibt der `change` Callback den Status von `userState` und `screenState` in der Konsole aus.
 
 ```js
 idleDetector.addEventListener("change", () => {

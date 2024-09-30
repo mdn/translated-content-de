@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die **`WebSocket.protocol`** Eigenschaft (nur lesbar) gibt den Namen des vom Server ausgewählten [Sub-Protokolls](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) zurück. Dies wird einer der Zeichenfolgen sein, die im [`protocols`](/de/docs/Web/API/WebSocket/WebSocket#protocols)-Parameter beim Erstellen des [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekts angegeben wurden, oder der leere String, wenn keine Verbindung hergestellt wird.
+Die schreibgeschützte Eigenschaft **`WebSocket.protocol`** gibt den Namen des vom Server ausgewählten [Subprotokolls](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) zurück. Dies wird einer der im [`protocols`](/de/docs/Web/API/WebSocket/WebSocket#protocols)-Parameter bei der Erstellung des [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekts angegebenen Zeichenfolgen sein oder die leere Zeichenfolge, wenn keine Verbindung hergestellt wurde.
 
 ## Wert
 

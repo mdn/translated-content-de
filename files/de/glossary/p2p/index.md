@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-P2P (Peer-to-peer) ist eine Rechnernetzarchitektur, bei der alle beteiligten Knoten (_Peers_) gleichberechtigt sind und sich die Arbeitslast teilen. P2P unterscheidet sich von einer Client-Server-Netzwerkarchitektur, bei der mehrere _Client_-Knoten mit zentralen _Servern_ für Dienste verbunden sind. P2P findet sich häufig in Blockchain-Anwendungen.
+P2P (Peer-to-peer) ist eine Computer-Netzwerkarchitektur, bei der alle teilnehmenden Knoten (_Peers_) gleiche Privilegien haben und die Arbeitslast teilen. P2P unterscheidet sich von einer Client-Server-Netzwerkarchitektur, bei der mehrere _Client_-Knoten mit zentralisierten _Servern_ für Dienste verbunden sind. P2P findet man häufig in Blockchain-Anwendungen.
 
 ## Siehe auch
 

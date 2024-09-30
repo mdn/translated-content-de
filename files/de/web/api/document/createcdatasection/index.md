@@ -1,5 +1,5 @@
 ---
-title: "Dokument: createCDATASection()-Methode"
+title: "Document: createCDATASection()-Methode"
 short-title: createCDATASection()
 slug: Web/API/Document/createCDATASection
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`createCDATASection()`**-Methode erstellt einen neuen CDATA-Abschnittsknoten und gibt diesen zurück.
+**`createCDATASection()`** erstellt einen neuen CDATA-Abschnittsknoten und gibt ihn zurück.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ createCDATASection(data)
 ### Parameter
 
 - `data`
-  - : Ein Zeichenkette, die die dem CDATA-Abschnitt hinzuzufügenden Daten enthält.
+  - : Ein String, der die Daten enthält, die dem CDATA-Abschnitt hinzugefügt werden sollen.
 
 ### Rückgabewert
 
-Ein [CDATA-Abschnitt](/de/docs/Web/API/CDATASection)-Knoten.
+Ein [CDATA Section](/de/docs/Web/API/CDATASection)-Knoten.
 
 ## Beispiele
 
@@ -35,15 +35,10 @@ console.log(new XMLSerializer().serializeToString(docu));
 // Displays: <xml><![CDATA[Some <CDATA> data & then some]]></xml>
 ```
 
-## Hinweise
+## Anmerkungen
 
-- Dies funktioniert nur mit XML- und nicht mit HTML-Dokumenten (da HTML-Dokumente keine
-  CDATA-Abschnitte unterstützen); der Versuch, dies bei einem HTML-Dokument durchzuführen, wird
-  einen `NOT_SUPPORTED_ERR` auslösen.
-- Es wird eine `NS_ERROR_DOM_INVALID_CHARACTER_ERR`-Ausnahme ausgelöst, wenn versucht wird,
-  die Abschlusssequenz des CDATA-Abschnitts (`]]>`) als Teil der Daten einzureichen, sodass
-  nicht escapte, benutzerbereitgestellte Daten nicht sicher verwendet werden können, ohne dass
-  diese Methode diese Ausnahme auslöst ([`createTextNode()`](/de/docs/Web/API/Document/createTextNode) kann oft anstelle dessen verwendet werden).
+- Dies funktioniert nur mit XML-Dokumenten, nicht mit HTML-Dokumenten (da HTML-Dokumente CDATA-Abschnitte nicht unterstützen); der Versuch, es bei einem HTML-Dokument anzuwenden, wird einen `NOT_SUPPORTED_ERR` auslösen.
+- Es wird eine `NS_ERROR_DOM_INVALID_CHARACTER_ERR`-Ausnahme auslösen, wenn man versucht, die schließende CDATA-Sequenz (`]]>`) als Teil der Daten zu übergeben. Daher können nicht-escapierte, benutzerbereitgestellte Daten ohne diese Methode sicher verwendet werden, um diese Ausnahme zu vermeiden ([`createTextNode()`](/de/docs/Web/API/Document/createTextNode) kann oft als Ersatz verwendet werden).
 
 ## Spezifikationen
 

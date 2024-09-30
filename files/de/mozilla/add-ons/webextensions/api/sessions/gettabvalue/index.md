@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft einen Wert ab, der zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeichert wurde.
+Ruft einen zuvor gespeicherten Wert durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} ab.
 
-Sie können einen Wert von einem Tab auch über einen Zyklus von Schließen/Wiederherstellen abrufen: Das bedeutet, wenn Sie einen Wert setzen und der Nutzer den Tab schließt und dann den Tab mit der „Tab wiederherstellen“-Funktion des Browsers wiederherstellt (zum Beispiel durch Drücken von Strg+Umschalt+T), dann können Sie den Wert aus dem wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht die gleiche ID wie der ursprüngliche hat, sodass die ID, die Sie an `getTabValue()` übergeben, von der ID abweicht, die Sie an `setTabValue()` übergeben haben, obwohl sie sich auf denselben Tab beziehen.
+Sie können einen Wert von einem Tab abrufen, auch nach einem Schließen/Wiederherstellen-Zyklus: Das bedeutet, wenn Sie einen Wert setzen und der Benutzer dann den Tab schließt und mithilfe der Browserfunktion "Tab wiederherstellen" (zum Beispiel durch Drücken von Strg+Umschalt+T) den Tab wiederherstellt, können Sie den Wert vom wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht die gleiche ID wie das Original erhält, sodass die ID, die Sie in `getTabValue()` übergeben, sich von der ID unterscheidet, die Sie in `setTabValue()` übergeben haben, obwohl sie sich auf denselben Tab beziehen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,7 +31,7 @@ let retrieving = browser.sessions.getTabValue(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, wenn er existiert, oder `undefined`, wenn er nicht existiert. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, falls er existiert, oder `undefined`, falls er nicht existiert. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dies schließt alle wiederhergestellten Tabs ein):
+Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dazu gehören auch alle Tabs, die wiederhergestellt wurden):
 
 ```js
 function onGetResolved(r) {

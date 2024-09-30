@@ -9,24 +9,24 @@ l10n:
 
 Das **`display`**-Attribut ermöglicht es Ihnen, die Darstellung von grafischen oder Container-Elementen zu steuern.
 
-Ein Wert von `display="none"` bedeutet, dass das angegebene Element und seine Kinder nicht dargestellt werden. Jeder andere Wert als `none` oder `inherit` bedeutet, dass das angegebene Element vom Browser dargestellt wird.
+Ein Wert von `display="none"` zeigt an, dass das betreffende Element und seine Kinder nicht gerendert werden. Jeder andere Wert als `none` oder `inherit` zeigt an, dass das betreffende Element vom Browser gerendert wird.
 
-Wenn es auf ein Container-Element angewendet wird, führt das Setzen von `display` auf `none` dazu, dass der Container und alle seine Kinder unsichtbar sind; es wirkt also auf Gruppen von Elementen als Gruppe. Das bedeutet, dass ein Kind eines Elements mit `display="none"` niemals dargestellt wird, selbst wenn das Kind einen anderen Wert für `display` als `none` hat.
+Wenn `display` auf `none` bei einem Container-Element gesetzt wird, bewirkt dies, dass der Container und alle seine Kinder unsichtbar werden; es wirkt also auf Gruppen von Elementen als Gruppe. Das bedeutet, dass jedes Kind eines Elements mit `display="none"` niemals gerendert wird, selbst wenn das Kind einen anderen Wert für `display` als `none` hat.
 
-Wenn das `display`-Attribut auf `none` gesetzt ist, wird das angegebene Element nicht Teil des Rendering-Baums. Dies hat Auswirkungen auf die {{SVGElement("tspan")}} und {{SVGElement("tref")}} Elemente, die Ereignisverarbeitung, die Berechnung des Begrenzungsrahmens und die Berechnung von Schnittpfaden:
+Wenn das `display`-Attribut auf `none` gesetzt ist, wird das betreffende Element nicht Teil des Rendering-Baums. Dies hat Auswirkungen auf die {{SVGElement("tspan")}}- und {{SVGElement("tref")}}-Elemente, die Ereignisverarbeitung, Berechnungen der Begrenzungsrahmen und Berechnungen von Clipping-Pfaden:
 
-- Wenn `display` auf `none` für ein {{SVGElement("tspan")}} oder {{SVGElement("tref")}}-Element gesetzt ist, wird die Textzeichenfolge für Zwecke der Textlayout ignoriert.
-- In Bezug auf Ereignisse erhält das Element, wenn `display` auf `none` gesetzt ist, keine Ereignisse.
-- Die Geometrie eines [Grafikelements](/de/docs/Web/SVG/Element#graphics_elements) mit `display` auf `none` wird bei der Berechnung von Begrenzungsrahmen und Schnittpfaden nicht einbezogen.
+- Wenn `display` auf einem {{SVGElement("tspan")}}- oder {{SVGElement("tref")}}-Element auf `none` gesetzt ist, wird der Textstring für die Textlayout-Zwecke ignoriert.
+- Bezüglich Ereignissen: Wenn `display` auf `none` gesetzt ist, erhält das Element keine Ereignisse.
+- Die Geometrie eines [Grafikelements](/de/docs/Web/SVG/Element#graphics_elements) mit `display` auf `none` wird nicht in Berechnungen von Begrenzungsrahmen und Clipping-Pfaden eingeschlossen.
 
-Das `display`-Attribut beeinflusst nur die direkte Darstellung eines gegebenen Elements, verhindert jedoch nicht, dass Elemente von anderen Elementen referenziert werden. Beispielsweise wird durch das Setzen auf `none` bei einem {{SVGElement("path")}}-Element verhindert, dass dieses Element direkt auf die Leinwand gezeichnet wird, aber das {{SVGElement("path")}}-Element kann immer noch von einem {{SVGElement("textPath")}}-Element referenziert werden; außerdem wird seine Geometrie in der Text-auf-einem-Pfad-Verarbeitung verwendet, selbst wenn das {{SVGElement("path")}}-Element einen `display`-Wert von `none` hat.
+Das `display`-Attribut beeinflusst nur das direkte Rendering eines gegebenen Elements, verhindert jedoch nicht, dass Elemente von anderen Elementen referenziert werden. Beispielsweise verhindert das Setzen von `none` auf einem {{SVGElement("path")}}-Element, dass dieses Element direkt auf die Leinwand gerendert wird, aber das {{SVGElement("path")}}-Element kann trotzdem von einem {{SVGElement("textPath")}}-Element referenziert werden; zudem wird seine Geometrie im Text-auf-einem-Pfad-Prozess verwendet, selbst wenn das {{SVGElement("path")}} den `display`-Wert `none` hat.
 
-Dieses Attribut beeinflusst auch die direkte Darstellung in Offscreen-Leinwänden, wie sie bei Masken oder Schnittpfaden auftreten. Das Setzen von `display="none"` auf ein Kind eines {{SVGElement("mask")}} wird das gegebene Kind-Element daran hindern, als Teil der Maske dargestellt zu werden. Ebenso wird das Setzen von `display="none"` auf ein Kind eines {{SVGElement("clipPath")}}-Elements verhindern, dass das gegebene Kind-Element zum Schnittpfad beiträgt.
+Dieses Attribut beeinflusst auch das direkte Rendering auf Offscreen-Leinwänden, wie es bei Masken oder Clipping-Pfaden der Fall ist. Wenn `display="none"` auf ein Kind eines {{SVGElement("mask")}} gesetzt wird, verhindert dies, dass das betreffende Kindelement als Teil der Maske gerendert wird. Ebenso wird das Setzen von `display="none"` auf ein Kind eines {{SVGElement("clipPath")}}-Elements verhindern, dass das betreffende Kindelement zum Clipping-Pfad beiträgt.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `display` als CSS-Eigenschaft verwendet werden. Siehe CSS {{cssxref("display")}} für weitere Informationen.
 
-Sie können dieses Attribut mit jedem SVG-Element verwenden.
+Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 
 ## Beispiel
 
@@ -58,7 +58,7 @@ svg {
 
 {{EmbedLiveSample("Example", "240", "120")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte verweisen wir auf die CSS {{cssxref("display")}}-Eigenschaft.
+Für eine Beschreibung der Werte verweisen Sie bitte auf die CSS {{cssxref("display")}} Eigenschaft.
 
 ## Spezifikationen
 

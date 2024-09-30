@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSSOM view**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, insbesondere dessen Scrollverhalten.
+Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, insbesondere sein Scrollverhalten.
 
 ## Referenz
 
@@ -18,7 +18,7 @@ Das **CSSOM view**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokume
 ## Leitfäden
 
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Ein Leitfaden zu den Koordinatensystemen, die verwendet werden, um die Position eines Ortes in einem Anzeigekontext zu bestimmen, unabhängig davon, ob es sich um ein Fenster auf einem Monitor, einen Viewport auf einem mobilen Gerät oder eine Position auf einem Blatt Papier beim Drucken handelt.
+  - : Ein Leitfaden zu den Koordinatensystemen, die verwendet werden, um die Position eines Ortes in einem Anzeigezusammenhang zu spezifizieren, sei es ein Fenster auf einem Monitor, ein Viewport auf einem mobilen Gerät oder ein Ort auf einem Blatt Papier beim Drucken.
 
 ## Verwandte Konzepte
 

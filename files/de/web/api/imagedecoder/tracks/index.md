@@ -1,5 +1,5 @@
 ---
-title: "ImageDecoder: Eigenschaft tracks"
+title: "ImageDecoder: tracks-Eigenschaft"
 short-title: tracks
 slug: Web/API/ImageDecoder/tracks
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`tracks`** schreibgeschützte Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt eine Liste der Tracks in den codierten Bilddaten zurück.
+Die **`tracks`** schreibgeschützte Eigenschaft der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle gibt eine Liste der Spuren in den kodierten Bilddaten zurück.
 
 ## Wert
 

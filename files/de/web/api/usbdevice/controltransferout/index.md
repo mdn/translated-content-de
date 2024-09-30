@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: Methode controlTransferOut()"
+title: "USBDevice: controlTransferOut()-Methode"
 short-title: controlTransferOut()
 slug: Web/API/USBDevice/controlTransferOut
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`controlTransferOut()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird, wenn ein Steuer- oder Statusbefehl vom USB-Gerät übertragen wurde.
+Die **`controlTransferOut()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird, wenn ein Befehl oder eine Statusoperation vom USB-Gerät übertragen wurde.
 
 ## Syntax
 
@@ -23,20 +23,20 @@ controlTransferOut(setup, data)
   - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
 
     - `requestType`
-      - : Muss einer von drei Werten sein, die angeben, ob die Übertragung `"standard"` (für alle USB-Geräte üblich), `"class"` (für eine branchenübliche Gerätegruppe üblich) oder `"vendor"` ist.
+      - : Muss einer der drei Werte sein, die angeben, ob die Übertragung `"standard"` (gemeinsam für alle USB-Geräte), `"class"` (gemeinsam für eine industrienormierte Gerätegruppe) oder `"vendor"` ist.
     - `recipient`
       - : Gibt das Ziel der Übertragung auf dem Gerät an, eines von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
     - `request`
-      - : Ein gerätespezifischer Befehl.
+      - : Ein herstellerspezifischer Befehl.
     - `value`
-      - : Gerätespezifische Anforderungsparameter.
+      - : Herstellerspezifische Anforderungsparameter.
     - `index`
       - : Die Schnittstellennummer des Empfängers.
 
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen.
-    Nicht alle Befehle erfordern Daten; einige Befehle können Daten allein über den Wertparameter senden.
-    Überprüfen Sie mit Ihrem Gerät, welche spezifische Anfrage erforderlich ist.
+  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen. 
+    Nicht alle Befehle benötigen Daten; einige Befehle können Daten nur über den Wertparameter senden.
+    Überprüfen Sie mit Ihrem Gerät, was die spezifische Anforderung erfordert.
 
 ### Rückgabewert
 

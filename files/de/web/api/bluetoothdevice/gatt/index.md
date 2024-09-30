@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API") }}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die
-**`BluetoothDevice.gatt`** Leseeigenschaft gibt eine Referenz auf den [`BluetoothRemoteGATTServer`](/de/docs/Web/API/BluetoothRemoteGATTServer) des Geräts zurück.
+Die schreibgeschützte Eigenschaft **`BluetoothDevice.gatt`** gibt eine Referenz auf den [`BluetoothRemoteGATTServer`](/de/docs/Web/API/BluetoothRemoteGATTServer) des Geräts zurück.
 
 ## Wert
 

@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<desc>`** Element bietet eine zugängliche, Langtextbeschreibung eines beliebigen SVG-[Container-Elements](/de/docs/Web/SVG/Element#container_elements) oder [Grafik-Elements](/de/docs/Web/SVG/Element#graphics_elements).
+Das **`<desc>`**-Element bietet eine zugängliche Langtextbeschreibung eines beliebigen SVG-[Container-Elements](/de/docs/Web/SVG/Element#container_elements) oder [Grafik-Elements](/de/docs/Web/SVG/Element#graphics_elements).
 
-Text in einem `<desc>` Element wird nicht als Teil der Grafik gerendert. Wenn das Element durch sichtbaren Text beschrieben werden kann, ist es möglich, diesen Text mit dem [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) Attribut zu referenzieren. Wenn `aria-describedby` verwendet wird, hat es Vorrang vor `<desc>`.
+Text in einem `<desc>`-Element wird nicht als Teil der Grafik gerendert. Wenn das Element durch sichtbaren Text beschrieben werden kann, ist es möglich, diesen Text mit dem [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)-Attribut zu referenzieren. Wenn `aria-describedby` verwendet wird, hat es Vorrang vor `<desc>`.
 
-Der versteckte Text eines `<desc>` Elements kann auch mit dem sichtbaren Text anderer Elemente verkettet werden, indem mehrere IDs in einem `aria-describedby` Wert verwendet werden. In diesem Fall muss das `<desc>` Element eine ID zur Referenz bereitstellen.
+Der versteckte Text eines `<desc>`-Elements kann auch mit dem sichtbaren Text anderer Elemente unter Verwendung mehrerer IDs in einem `aria-describedby`-Wert verkettet werden. In diesem Fall muss das `<desc>`-Element eine ID zur Referenzierung bereitstellen.
 
 ## Beispiel
 
@@ -34,13 +34,13 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample('Example', 150, '100%')}}
+{{EmbedLiveSample('Beispiel', 150, '100%')}}
 
 ## Attribute
 
-Dieses Element beinhaltet nur globale Attribute.
+Dieses Element enthält nur globale Attribute
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-align-last`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder einer Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
+Die **`text-align-last`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder eine Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
 
 {{EmbedInteractiveExample("pages/css/text-align-last.html")}}
 
@@ -34,19 +34,19 @@ text-align-last: unset;
 ### Werte
 
 - `auto`
-  - : Die betroffene Zeile wird gemäß dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`. In diesem Fall hat `text-align-last` den gleichen Effekt wie `start`.
+  - : Die betroffene Zeile wird entsprechend dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`, in welchem Fall der Effekt dem gleichkommt, als wäre `text-align-last` auf `start` gesetzt.
 - `start`
-  - : Das gleiche wie `left`, wenn die Schreibrichtung von links nach rechts verläuft, und `right`, wenn die Schreibrichtung von rechts nach links verläuft.
+  - : Entspricht `left`, wenn die Richtung von links nach rechts ist, und `right`, wenn die Richtung von rechts nach links ist.
 - `end`
-  - : Das gleiche wie `right`, wenn die Schreibrichtung von links nach rechts verläuft, und `left`, wenn die Schreibrichtung von rechts nach links verläuft.
+  - : Entspricht `right`, wenn die Richtung von links nach rechts ist, und `left`, wenn die Richtung von rechts nach links ist.
 - `left`
-  - : Der Inline-Inhalt wird am linken Rand des Linienkastens ausgerichtet.
+  - : Der Inline-Inhalt wird am linken Rand der Linienbox ausgerichtet.
 - `right`
-  - : Der Inline-Inhalt wird am rechten Rand des Linienkastens ausgerichtet.
+  - : Der Inline-Inhalt wird am rechten Rand der Linienbox ausgerichtet.
 - `center`
-  - : Der Inline-Inhalt wird innerhalb des Linienkastens zentriert.
+  - : Der Inline-Inhalt wird in der Linienbox zentriert.
 - `justify`
-  - : Der Text wird ausgerichtet. Der Text sollte mit seinen linken und rechten Rändern zu den linken und rechten Inhaltsrändern des Absatzes übereinstimmen.
+  - : Der Text wird ausgerichtet. Der Text sollte mit seinen linken und rechten Rändern an den linken und rechten Inhaltsrändern des Absatzes ausgerichtet sein.
 
 ## Formale Definition
 

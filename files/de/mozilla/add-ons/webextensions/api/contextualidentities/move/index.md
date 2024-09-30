@@ -23,17 +23,17 @@ let moveContainers = browser.contextualIdentities.move(
 ### Parameter
 
 - `cookieStoreIds`
-  - : `string` oder `array` von `string`. Eine geordnete Liste der Cookie Store-IDs kontextueller Identitäten, die verschoben werden sollen.
+  - : `string` oder `array` von `string`. Eine geordnete Liste der IDs der kontextuellen Identität (Cookie Store IDs), die verschoben werden sollen.
 - `position`
-  - : `integer`. Die Position, an die `cookieStoreIds` in der Liste der kontextuellen Identitäten verschoben werden sollen. Nullbasiert; `0` bedeutet die erste Position. `-1` bedeutet, dass die Elemente ans Ende der Liste verschoben werden.
+  - : `integer`. Die Position, an die `cookieStoreIds` in der Liste der kontextuellen Identitäten verschoben werden sollen. Nullbasiert; `0` gibt die erste Position an. `-1` bedeutet, dass die Elemente an das Ende der Liste verschoben werden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextuellen Identitäten neu geordnet sind. Das Promise wird abgelehnt, wenn die Anfrage für einen ungültigen Verschiebevorgang ist oder die Funktion der kontextuellen Identitäten nicht aktiviert ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextuellen Identitäten neu geordnet wurden. Das Versprechen wird abgelehnt, wenn die Anforderung für eine ungültige Verschiebung erfolgt oder die Funktion für kontextuelle Identitäten nicht aktiviert ist.
 
 ## Beispiele
 
-Dieses Beispiel verschiebt die erste Identität an das Ende und dann zurück an den Anfang.
+Dieses Beispiel verschiebt die erste Identität ans Ende und dann zurück an den Anfang.
 
 ```js
 let identities = await browser.contextualIdentities.query({});
@@ -59,7 +59,7 @@ let otherIds = ids.slice(1);
 await browser.contextualIdentities.move(otherIds, 0);
 ```
 
-Dieses Beispiel verschiebt die "Personal"-Identität vor "Work". Das Beispiel setzt voraus, dass Container mit diesen Namen existieren. Dies könnte in angepassten oder lokalisierten (nicht-englischen) Firefox-Instanzen nicht der Fall sein.
+Dieses Beispiel verschiebt die "Personal"-Identität vor "Work". Das Beispiel geht davon aus, dass Container mit diesen Namen existieren. Dies ist möglicherweise nicht der Fall in angepassten oder lokalisierten (nicht englischen) Firefox-Instanzen.
 
 ```js
 let identities = await browser.contextualIdentities.query({});

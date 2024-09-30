@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTDescriptor.characteristic`** schreibgeschützte Eigenschaft gibt die [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic) zurück, zu der dieser Descriptor gehört.
+Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTDescriptor.characteristic`** gibt die [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic) zurück, zu der dieser Deskriptor gehört.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhält Informationen über alle geöffneten Fenster und übergibt diese an einen Callback.
+Ruft Informationen über alle geöffneten Fenster ab und übergibt sie an einen Callback.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,16 +23,16 @@ let gettingAll = browser.windows.getAll(
 
 - `getInfo` {{optional_inline}}
 
-  - : `object`. Dieses steuert, welche {{WebExtAPIRef('windows.Window')}} Objekte abgerufen werden.
+  - : `object`. Dies steuert, welche {{WebExtAPIRef('windows.Window')}} Objekte abgerufen werden.
 
     - `populate` {{optional_inline}}
-      - : `boolean`. Standardmäßig `false`. Wenn auf `true` gesetzt, wird jedes {{WebExtAPIRef('windows.Window')}} Objekt eine `tabs` Eigenschaft haben, die eine Liste von {{WebExtAPIRef('tabs.Tab')}} Objekten enthält, die die Tabs in diesem Fenster darstellen. Die `Tab` Objekte werden die Eigenschaften `url`, `title` und `favIconUrl` nur dann enthalten, wenn die Manifestdatei der Erweiterung die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die zur URL des Tabs passen.
+      - : `boolean`. Standardmäßig `false`. Wenn auf `true` gesetzt, enthält jedes {{WebExtAPIRef('windows.Window')}} Objekt eine `tabs` Eigenschaft, die eine Liste von {{WebExtAPIRef('tabs.Tab')}} Objekten repräsentiert, die die Tabs in diesem Fenster darstellen. Die `Tab` Objekte enthalten die Eigenschaften `url`, `title` und `favIconUrl` nur, wenn die Manifestdatei der Erweiterung die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die mit der URL des Tabs übereinstimmen.
     - `windowTypes` {{optional_inline}}
-      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}} Objekten. Wenn gesetzt, werden die zurückgegebenen {{WebExtAPIRef('windows.Window')}} Objekte basierend auf ihrem Typ gefiltert. Wenn nicht gesetzt, wird der Standardfilter auf `['normal', 'panel', 'popup']` gesetzt, wobei `'panel'` Fenstertypen auf die eigenen Fenster der Erweiterung beschränkt sind.
+      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}} Objekten. Wenn gesetzt, werden die zurückgegebenen {{WebExtAPIRef('windows.Window')}} Objekte basierend auf ihrem Typ gefiltert. Wenn nicht gesetzt, ist der Standardfilter auf `['normal', 'panel', 'popup']` gesetzt, wobei `'panel'` Fenstertypen auf die eigenen Fenster der Erweiterung beschränkt sind.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('windows.Window')}} Objekten erfüllt wird, das alle Fenster darstellt, die den angegebenen Kriterien entsprechen. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('windows.Window')}} Objekten erfüllt wird, die alle Fenster repräsentieren, die den angegebenen Kriterien entsprechen. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -40,7 +40,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie die URLs für die Tabs in allen "normalen" Browserfenstern. Beachten Sie, dass Sie die "tabs" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf Tab-URLs zuzugreifen.
+Protokollieren Sie die URLs für die Tabs über alle "normalen" Browserfenster. Beachten Sie, dass Sie die "tabs" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf Tab-URLs zuzugreifen.
 
 ```js
 function logTabsForWindows(windowInfoArray) {
@@ -67,7 +67,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getAll) API. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getAll) API von Chromium. Diese Dokumentation ist von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

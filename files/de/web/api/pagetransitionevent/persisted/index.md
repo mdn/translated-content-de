@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`persisted`**-Eigenschaft zeigt an, ob eine Webseite aus einem Cache geladen wird.
+Die schreibgeschützte Eigenschaft **`persisted`** gibt an, ob eine Webseite aus einem Cache geladen wird.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Spezifikationen
 

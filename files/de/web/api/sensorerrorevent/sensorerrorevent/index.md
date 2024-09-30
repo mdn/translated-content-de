@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`SensorErrorEvent()`**-Konstruktor erstellt ein neues [`SensorErrorEvent`](/de/docs/Web/API/SensorErrorEvent)-Objekt, das Informationen über Fehler bereitstellt, die von einer der auf [`Sensor`](/de/docs/Web/API/Sensor) basierenden Schnittstellen ausgelöst werden.
+Der **`SensorErrorEvent()`**-Konstruktor
+erstellt ein neues [`SensorErrorEvent`](/de/docs/Web/API/SensorErrorEvent)-Objekt, das Informationen über
+Fehler bereitstellt, die von einer der auf [`Sensor`](/de/docs/Web/API/Sensor) basierenden Schnittstellen ausgelöst wurden.
 
 ## Syntax
 
@@ -19,11 +21,12 @@ new SensorErrorEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist abhängig von Groß- und Kleinschreibung, und Browser setzen es immer auf `error`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn immer auf `error`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `error`
-      - : Ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das den Fehler beschreibt.
+      - : Ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, welches den Fehler beschreibt.
 
 ### Rückgabewert
 

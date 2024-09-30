@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nodeType`**-Eigenschaft eines [`Node`](/de/docs/Web/API/Node)-Interfaces ist eine Ganzzahl, die identifiziert, was der Knoten ist. Sie unterscheidet verschiedene Arten von Knoten voneinander, wie zum Beispiel [`Elemente`](/de/docs/Web/API/Element), [`Text`](/de/docs/Web/API/Text) und [`Kommentare`](/de/docs/Web/API/Comment).
+Die schreibgeschützte **`nodeType`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces ist eine Ganzzahl,
+die angibt, was der Knoten ist. Sie unterscheidet verschiedene Knotenarten voneinander,
+wie [`Elements`](/de/docs/Web/API/Element), [`Text`](/de/docs/Web/API/Text) und [`Kommentare`](/de/docs/Web/API/Comment).
 
 ## Wert
 
@@ -17,11 +19,11 @@ Eine Ganzzahl, die den Typ des Knotens angibt. Mögliche Werte sind:
 - `Node.ELEMENT_NODE` (`1`)
   - : Ein [`Element`](/de/docs/Web/API/Element)-Knoten wie {{HTMLElement("p")}} oder {{HTMLElement("div")}}.
 - `Node.ATTRIBUTE_NODE` (`2`)
-  - : Ein [`Attribut`](/de/docs/Web/API/Attr) eines [`Element`](/de/docs/Web/API/Element).
+  - : Ein [`Attribute`](/de/docs/Web/API/Attr) eines [`Elements`](/de/docs/Web/API/Element).
 - `Node.TEXT_NODE` (`3`)
-  - : Der eigentliche [`Text`](/de/docs/Web/API/Text) innerhalb eines [`Element`](/de/docs/Web/API/Element) oder [`Attr`](/de/docs/Web/API/Attr).
+  - : Der tatsächliche [`Text`](/de/docs/Web/API/Text) in einem [`Element`](/de/docs/Web/API/Element) oder [`Attr`](/de/docs/Web/API/Attr).
 - `Node.CDATA_SECTION_NODE` (`4`)
-  - : Ein [`CDATASection`](/de/docs/Web/API/CDATASection), wie `<!CDATA[[ … ]]>`.
+  - : Ein [`CDATASection`](/de/docs/Web/API/CDATASection), wie `<!CDATA[[ … ]]>`
 - `Node.PROCESSING_INSTRUCTION_NODE` (`7`)
   - : Eine [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) eines XML-Dokuments, wie `<?xml-stylesheet … ?>`.
 - `Node.COMMENT_NODE` (`8`)
@@ -33,7 +35,8 @@ Eine Ganzzahl, die den Typ des Knotens angibt. Mögliche Werte sind:
 - `Node.DOCUMENT_FRAGMENT_NODE` (`11`)
   - : Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten.
 
-Die folgenden Konstanten sind veraltet und werden nicht mehr verwendet: `Node.ENTITY_REFERENCE_NODE` (`5`), `Node.ENTITY_NODE` (`6`), und `Node.NOTATION_NODE` (`12`).
+Die folgenden Konstanten sind veraltet und werden nicht mehr verwendet: `Node.ENTITY_REFERENCE_NODE` (`5`),
+`Node.ENTITY_NODE` (`6`) und `Node.NOTATION_NODE` (`12`).
 
 ## Beispiele
 
@@ -54,7 +57,8 @@ p.firstChild.nodeType === Node.TEXT_NODE; // true
 
 ### Kommentare
 
-Dieses Beispiel überprüft, ob der erste Knoten innerhalb des Dokumentenelements ein Kommentar ist, und zeigt eine Nachricht an, wenn nicht.
+Dieses Beispiel prüft, ob der erste Knoten innerhalb des Dokument-Elements ein Kommentar ist, und
+zeigt eine Nachricht an, wenn dies nicht der Fall ist.
 
 ```js
 const node = document.documentElement.firstChild;

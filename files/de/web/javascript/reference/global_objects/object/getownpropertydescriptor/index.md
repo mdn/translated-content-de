@@ -8,10 +8,7 @@ l10n:
 {{JSRef}}
 
 Die statische Methode **`Object.getOwnPropertyDescriptor()`** gibt ein
-Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft eines gegebenen Objekts beschreibt (das heißt,
-einer, die direkt im Objekt vorhanden ist und nicht in der Prototypen-Kette des Objekts). Das zurückgegebene
-Objekt ist veränderbar, aber Änderungen daran haben keinen Einfluss auf die Konfiguration der ursprünglichen
-Eigenschaft.
+Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft auf einem gegebenen Objekt beschreibt (d.h. eine, die direkt auf einem Objekt vorhanden ist und nicht in der Prototypenkette des Objekts). Das zurückgegebene Objekt ist veränderbar, aber das Verändern hat keinen Einfluss auf die Konfiguration der ursprünglichen Eigenschaft.
 
 {{EmbedInteractiveExample("pages/js/object-getownpropertydescriptor.html")}}
 
@@ -30,36 +27,36 @@ Object.getOwnPropertyDescriptor(obj, prop)
 
 ### Rückgabewert
 
-Ein Eigenschaftsbeschreiber der angegebenen Eigenschaft, wenn diese auf dem Objekt existiert,
+Ein Eigenschaftsdescriptor der gegebenen Eigenschaft, falls sie auf dem Objekt existiert,
 ansonsten {{jsxref("undefined")}}.
 
 ## Beschreibung
 
 Diese Methode ermöglicht die Untersuchung der genauen Beschreibung einer Eigenschaft. Eine
 _Eigenschaft_ in JavaScript besteht entweder aus einem String-Wert-Namen oder einem
-{{jsxref("Symbol")}} und einem Eigenschaftsbeschreiber. Weitere Informationen zu den Typen von Eigenschaftsbeschreibern
-und ihren Attributen finden Sie in
+{{jsxref("Symbol")}} und einem Eigenschaftsdescriptor. Weitere Informationen über
+Eigenschaftsdescriptor-Typen und deren Attribute finden Sie in
 {{jsxref("Object.defineProperty()")}}.
 
-Ein _Eigenschaftsbeschreiber_ ist ein Datensatz mit einigen der folgenden Attribute:
+Ein _Eigenschaftsdescriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der Wert, der mit der Eigenschaft verknüpft ist (nur Datendeskriptoren).
+  - : Der mit der Eigenschaft verbundene Wert (nur Daten-Deskriptoren).
 - `writable`
-  - : `true`, wenn und nur wenn der Wert, der mit der Eigenschaft verknüpft ist,
-    geändert werden kann (nur Datendeskriptoren).
+  - : `true`, wenn und nur wenn der mit der Eigenschaft verbundene Wert
+    geändert werden kann (nur Daten-Deskriptoren).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, falls
-    kein Getter vorhanden ist (nur Zugriffsbeschreiber).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn
+    es keinen Getter gibt (nur Zugriffs-Deskriptoren).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, falls
-    kein Setter vorhanden ist (nur Zugriffsbeschreiber).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn
+    es keinen Setter gibt (nur Zugriffs-Deskriptoren).
 - `configurable`
-  - : `true`, wenn und nur wenn der Typ dieses Eigenschaftsbeschreibers geändert
-    werden kann und wenn die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
+  - : `true`, wenn und nur wenn die Art dieses Eigenschaftsdescriptors geändert
+    und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der
-    Eigenschaften des entsprechenden Objekts erscheint.
+  - : `true`, wenn und nur wenn diese Eigenschaft während der Aufzählung der
+    Eigenschaften auf dem entsprechenden Objekt erscheint.
 
 ## Beispiele
 
@@ -118,11 +115,9 @@ console.log(d);
 // }
 ```
 
-### Umwandlung nicht-objektartiger Werte
+### Nicht-Objekt-Typumwandlung
 
-In ES5 wird, wenn das erste Argument dieser Methode kein Objekt (ein primitiver Wert) ist, ein
-{{jsxref("TypeError")}} ausgelöst. In ES2015 wird ein nicht-objektartiges erstes Argument zuerst in
-ein Objekt umgewandelt.
+In ES5 führt ein nicht-Objekt-Argument (ein primitiver Wert) als erstes Argument dieser Methode zu einem {{jsxref("TypeError")}}. In ES2015 wird ein nicht-Objekt-Argument zuerst in ein Objekt umgewandelt.
 
 ```js
 Object.getOwnPropertyDescriptor("foo", 0);

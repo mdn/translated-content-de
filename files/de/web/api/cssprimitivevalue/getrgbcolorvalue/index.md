@@ -1,5 +1,5 @@
 ---
-title: "CSSPrimitiveValue: getRGBColorValue() Methode"
+title: "CSSPrimitiveValue: Methode getRGBColorValue()"
 short-title: getRGBColorValue()
 slug: Web/API/CSSPrimitiveValue/getRGBColorValue
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die **`getRGBColorValue()`**-Methode der Schnittstelle [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) wird verwendet, um einen RGB-Farbwert zu erhalten. Wenn dieser CSS-Wert keinen RGB-Farbwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Änderungen an der entsprechenden Stileigenschaft können über die [`RGBColor`](/de/docs/Web/API/RGBColor) Schnittstelle vorgenommen werden.
+Die Methode **`getRGBColorValue()`** der Schnittstelle [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) wird verwendet, um einen RGB-Farbwert zu erhalten. Wenn dieser CSS-Wert keinen RGB-Farbwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Änderungen an der entsprechenden Stil-Eigenschaft können über die Schnittstelle [`RGBColor`](/de/docs/Web/API/RGBColor) vorgenommen werden.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren es nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren es nicht.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
-> - die moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), die weniger unterstützt und als experimentell angesehen wird.
+> - das untypisierte [CSS Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
+> - die moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), die weniger unterstützt wird und als experimentell gilt.
 
 ## Syntax
 
@@ -30,12 +30,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`RGBColor`](/de/docs/Web/API/RGBColor)-Objekt, das den Farbwert darstellt.
+Ein [`RGBColor`](/de/docs/Web/API/RGBColor) Objekt, das den Farbwert darstellt.
 
 ### Ausnahmen
 
-| **Typ**        | **Beschreibung**                                                                                                                                    |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Typ**        | **Beschreibung**                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn die angehängte Eigenschaft keinen RGB-Farbwert zurückgeben kann (d.h. dies ist nicht `CSS_RGBCOLOR`). |
 
 ## Beispiele
@@ -48,9 +48,9 @@ console.log(cssValue.getRGBColorValue());
 
 ## Spezifikationen
 
-Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde aber seitdem aus jedem Standardisierungsversuch entfernt.
+Dieses Merkmal wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/) Spezifikation definiert, wurde jedoch seitdem aus allen Standardisierungsbemühungen gestrichen.
 
-Es wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Standardpfad befindet.
+Es wurde durch eine moderne, aber inkompatible, [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Weg zur Standardisierung befindet.
 
 ## Browser-Kompatibilität
 

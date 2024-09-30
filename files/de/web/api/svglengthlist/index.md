@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGLengthList`-Schnittstelle definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
+Die Schnittstelle `SVGLengthList` definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength) Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
 
 Ein `SVGLengthList`-Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-Ein `SVGLengthList`-Objekt ist indexierbar und kann wie ein Array angesprochen werden.
+Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen werden.
 
 ## Instanz-Eigenschaften
 
@@ -25,13 +25,13 @@ Ein `SVGLengthList`-Objekt ist indexierbar und kann wie ein Array angesprochen w
 - [`appendItem()`](/de/docs/Web/API/SVGLengthList/appendItem)
   - : Fügt ein neues Element am Ende der Liste ein.
 - [`clear()`](/de/docs/Web/API/SVGLengthList/clear)
-  - : Entfernt alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
+  - : Löscht alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
 - [`initialize()`](/de/docs/Web/API/SVGLengthList/initialize)
-  - : Entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten.
+  - : Löscht alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten.
 - [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem)
   - : Gibt das angegebene Element aus der Liste zurück.
 - [`insertItemBefore()`](/de/docs/Web/API/SVGLengthList/insertItemBefore)
-  - : Fügt ein neues Element in die Liste an der angegebenen Position ein.
+  - : Fügt ein neues Element an die angegebene Position in der Liste ein.
 - [`removeItem()`](/de/docs/Web/API/SVGLengthList/removeItem)
   - : Entfernt ein vorhandenes Element aus der Liste.
 - [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem)
@@ -41,7 +41,7 @@ Ein `SVGLengthList`-Objekt ist indexierbar und kann wie ein Array angesprochen w
 
 ### Verwendung von SVGLengthList
 
-Ein `SVGLengthList`-Objekt kann aus einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, das selbst aus vielen animierbaren Längenattributen abrufbar ist, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x).
+Ein `SVGLengthList`-Objekt kann von einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) Objekt abgerufen werden, welches selbst von vielen animierbaren Längenattributen, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x), abgerufen werden kann.
 
 #### HTML
 

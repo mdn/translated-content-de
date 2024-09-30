@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`sourceCharPosition`**-Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Zahl zurückgibt, welche die Skriptzeichenposition des Skriptmerkmals darstellt, das zum langen Animationsrahmen (LoAF) beigetragen hat.
+Die schreibgeschützte Eigenschaft **`sourceCharPosition`** des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt eine Zahl zurück, die die Skriptzeichenposition des Skriptfeatures darstellt, das zum langen Animationsrahmen (LoAF) beigetragen hat.
 
-Es ist wichtig zu beachten, dass der gemeldete Funktionsstandort der "Einstiegspunkt" des Skripts sein wird, also die oberste Ebene des Stacks und nicht eine spezifische langsame Unterfunktion. Siehe [`PerformanceScriptTiming.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName) für eine weitere Diskussion zu diesem Thema.
+Es ist wichtig zu beachten, dass der gemeldete Funktionsstandort der "Einstiegspunkt" des Skripts sein wird, also die oberste Ebene des Stapels, nicht eine spezifische langsame Unterfunktion. Siehe [`PerformanceScriptTiming.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName) für weitere Diskussionen dazu.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl. Gibt `-1` zurück, wenn die Skriptzeichenposition nicht gefunden wurd
 
 ## Beispiele
 
-Siehe [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Siehe [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_ani
 
 ## Siehe auch
 
-- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

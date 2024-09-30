@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`specularConstant`** Attribut steuert das Verhältnis der Reflexion des spekulären Lichts. Es repräsentiert den k<sub>s</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). Je größer der Wert, desto stärker die Reflexion.
+Das Attribut **`specularConstant`** steuert das Verhältnis der Reflexion der spekulären Beleuchtung. Es repräsentiert den k<sub>s</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). Je größer der Wert, desto stärker die Reflexion.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -53,7 +53,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -82,4 +82,4 @@ svg {
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Beleuchtungsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

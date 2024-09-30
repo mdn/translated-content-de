@@ -1,5 +1,5 @@
 ---
-title: "OrientationSensor: populateMatrix()-Methode"
+title: "OrientationSensor: Methode populateMatrix()"
 short-title: populateMatrix()
 slug: Web/API/OrientationSensor/populateMatrix
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
 Die **`populateMatrix()`**-Methode der
-[`OrientationSensor`](/de/docs/Web/API/OrientationSensor)-Schnittstelle füllt die gegebene Zielmatrix mit der Rotationsmatrix basierend auf der neuesten Sensorablesung. Die Rotationsmatrix ist unten gezeigt.
+[`OrientationSensor`](/de/docs/Web/API/OrientationSensor)-Schnittstelle füllt die angegebene Zielmatrix mit der Rotationsmatrix basierend auf dem neuesten Sensorwert. Die Rotationsmatrix wird unten dargestellt.
 
 ![Die Formeln zur Umwandlung des Quaternions des Sensors in die bereitgestellte Matrix.](quaternion_to_rotation_matrix.png)
 
@@ -27,7 +27,7 @@ populateMatrix(targetMatrix)
 ```
 
 Da [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) eine Basisklasse ist, kann `populateMatrix`
-nur aus einer ihrer abgeleiteten Klassen gelesen werden.
+nur von einer ihrer abgeleiteten Klassen gelesen werden.
 
 ### Parameter
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die maximale horizontale oder vertikale Größe eines Blockelements, abhängig vom Schreibmodus. Sie entspricht entweder der {{cssxref("max-width")}}- oder der {{cssxref("max-height")}}-Eigenschaft, abhängig vom Wert von {{cssxref("writing-mode")}}.
+Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale Maximalgröße eines Blockelements, abhängig von dessen Schreibrichtung. Sie entspricht entweder der {{cssxref("max-width")}} oder der {{cssxref("max-height")}} Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; andernfalls bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; ansonsten bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, die die andere Dimension des Elements definiert.
 
 {{EmbedInteractiveExample("pages/css/max-inline-size.html")}}
 
@@ -42,7 +42,7 @@ max-inline-size: unset;
 
 ### Werte
 
-Die `max-inline-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("max-width")}}- und {{cssxref("max-height")}}-Eigenschaften an.
+Die `max-inline-size` Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}}.
 
 ## Formale Definition
 

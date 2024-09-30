@@ -1,5 +1,5 @@
 ---
-title: "EncodedAudioChunk: copyTo()-Methode"
+title: "EncodedAudioChunk: copyTo() Methode"
 short-title: copyTo()
 slug: Web/API/EncodedAudioChunk/copyTo
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode der [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Schnittstelle kopiert das kodierte Audio-Datenstück.
+Die **`copyTo()`**-Methode des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces kopiert den kodierten Chunk von Audiodaten.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ copyTo(destination)
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

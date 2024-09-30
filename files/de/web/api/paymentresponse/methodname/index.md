@@ -8,17 +8,17 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte **`methodName`**-Eigenschaft des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt einen String zurück, der den vom Benutzer ausgewählten Zahlungsanbieter eindeutig identifiziert.
+Die schreibgeschützte **`methodName`**-Eigenschaft der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Schnittstelle gibt einen String zurück, der den vom Benutzer ausgewählten Zahlungsdienstleister eindeutig identifiziert.
 
-Dieser String kann entweder einer der standardisierten Zahlungsmethoden-Bezeichner oder eine URL sein, die vom Zahlungsanbieter zur Abwicklung von Zahlungen verwendet wird.
+Dieser String kann entweder einer der standardisierten Zahlungsarten-Identifikatoren sein oder eine URL, die vom Zahlungsdienstleister zur Abwicklung von Zahlungen verwendet wird.
 
 ## Wert
 
-Ein String, der den Zahlungsanbieter, der zur Abwicklung der Zahlung verwendet wird, eindeutig identifiziert. Dies kann entweder ein standardisierter Bezeichner oder eine URL sein, die vom Zahlungsanbieter zur Zahlungsabwicklung verwendet wird. Siehe, wie [Händlervalidierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) funktioniert.
+Ein String, der den zur Zahlungsabwicklung verwendeten Zahlungsdienstleister eindeutig identifiziert. Dies kann entweder ein standardisierter Identifikator oder eine URL sein, die vom Zahlungsdienstleister zur Zahlungsabwicklung verwendet wird. Siehe, wie [Händler-Validierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) funktioniert.
 
 ## Beispiele
 
-Das folgende Beispiel extrahiert den Methodennamen aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt zum Promise, der von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet.
+Das folgende Beispiel extrahiert den Methodennamen aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt in das von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegebene Promise. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
 
 ```js
 payment.show().then((paymentResponse) => {

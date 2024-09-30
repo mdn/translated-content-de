@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die schreibgeschützte Eigenschaft **`scale`** des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces gibt den beim Pinch-Zoom angewendeten Skalierungsfaktor auf das visuelle Viewport zurück, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist, oder `1`, wenn es kein Ausgabegerät gibt.
+Die schreibgeschützte **`scale`**-Eigenschaft der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle gibt den Pinch-Zoom-Skalierungsfaktor zurück, der auf den visuellen Ansichtsbereich angewendet wird, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist, oder `1`, wenn kein Ausgabegerät vorhanden ist.
 
 ## Wert
 
-Ein Double.
+Ein Doppelwert.
 
 ## Spezifikationen
 

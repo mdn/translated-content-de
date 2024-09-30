@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`Uint8ClampedArray`** typisierte Array stellt ein Array von 8-Bit-Integern dar, die auf 0–255 begrenzt sind. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nachdem es erstellt wurde, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. über Klammernotation) zugreifen.
+Das **`Uint8ClampedArray`** Typ-Array repräsentiert ein Array von 8-Bit-Ganzzahlen ohne Vorzeichen, die auf den Bereich 0–255 begrenzt sind. Die Inhalte sind auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente entweder über die Methoden des Objekts oder mit der standardmäßigen Array-Index-Syntax (d. h. mit Klammernotation) zugreifen.
 
-`Uint8ClampedArray` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
+`Uint8ClampedArray` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
@@ -36,7 +36,7 @@ Diese Eigenschaften sind auf `Uint8ClampedArray.prototype` definiert und werden 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint8ClampedArray.prototype.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall eines `Uint8ClampedArray`.
 - {{jsxref("Object/constructor", "Uint8ClampedArray.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Uint8ClampedArray` Instanzen ist der Anfangswert der {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint8ClampedArray` Instanzen ist der Anfangswert der {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}} Konstruktor.
 
 ## Instanz-Methoden
 
@@ -44,7 +44,7 @@ _Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Wege, um ein Uint8ClampedArray zu erstellen
+### Verschiedene Möglichkeiten zur Erstellung eines Uint8ClampedArray
 
 ```js
 // From a length
@@ -89,7 +89,7 @@ console.log(uint8cFromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint8ClampedArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript getypte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-Typ-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

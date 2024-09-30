@@ -1,5 +1,5 @@
 ---
-title: "DataTransfer: addElement() Methode"
+title: "DataTransfer: addElement()-Methode"
 short-title: addElement()
 slug: Web/API/DataTransfer/addElement
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`DataTransfer.addElement()`** Methode legt die Quelle des Ziehens auf das angegebene Element fest. Dieses Element wird das Element sein, auf das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignisse ausgelöst werden, und nicht das Standardziel (der Knoten, der gezogen wurde).
+Die **`DataTransfer.addElement()`**-Methode setzt die Drag-Quelle auf das angegebene Element. Dieses Element wird das Element sein, an das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisse gesendet werden, und nicht das Standardziel (der Knoten, der gezogen wurde).
 
 > [!NOTE]
 > Diese Methode ist spezifisch für Firefox.
@@ -22,7 +22,7 @@ addElement(element)
 ### Parameter
 
 - `element`
-  - : Das [`Element`](/de/docs/Web/API/Element), das als Quelle des Ziehens festgelegt werden soll.
+  - : Das [`Element`](/de/docs/Web/API/Element), das als Drag-Quelle gesetzt werden soll.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `addElement()` Methode
+Dieses Beispiel zeigt die Verwendung der `addElement()`-Methode
 
 ```js
 function change_drag_node(event, node) {
@@ -50,6 +50,6 @@ Diese Methode ist in keinem Web-Standard definiert.
 ## Siehe auch
 
 - [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

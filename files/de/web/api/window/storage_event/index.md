@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef}}
 
-Das **`storage`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments geändert wurde.
+Das **`storage`** Ereignis des [`Window`](/de/docs/Web/API/Window) Interfaces wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments modifiziert wurde.
 
-Dieses Ereignis ist nicht abbrechbar und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 > [!NOTE]
-> Dies funktioniert nicht im gleichen [Browsing-Kontext](/de/docs/Glossary/browsing_context), der die Änderungen vornimmt — es ist vielmehr ein Weg, dass andere Browsing-Kontexte in der Domain, die den Speicher verwenden, alle vorgenommenen Änderungen synchronisieren können. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
+> Dies funktioniert nicht im selben [Browsing-Kontext](/de/docs/Glossary/browsing_context), der die Änderungen vornimmt — es ist wirklich eine Möglichkeit für andere Browsing-Kontexte auf der Domain, die den Speicher verwenden, jegliche vorgenommenen Änderungen zu synchronisieren. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("storage", (event) => {});
@@ -33,24 +33,24 @@ Ein [`StorageEvent`](/de/docs/Web/API/StorageEvent). Erbt von [`Event`](/de/docs
 ## Ereigniseigenschaften
 
 - [`key`](/de/docs/Web/API/StorageEvent/key) {{ReadOnlyInline}}
-  - : Gibt einen String mit dem Schlüssel des geänderten Speicheritems zurück.
-    Das `key`-Attribut ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers verursacht wird.
+  - : Gibt einen String mit dem Schlüssel des geänderten Speicherelements zurück.
+    Das `key` Attribut ist `null`, wenn die Änderung durch die `clear()` Methode des Speichers verursacht wurde.
 - [`newValue`](/de/docs/Web/API/StorageEvent/newValue) {{ReadOnlyInline}}
-  - : Gibt einen String mit dem neuen Wert des geänderten Speicheritems zurück.
-    Dieser Wert ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers aufgerufen wurde
-    oder das Speicheritem aus dem Speicher entfernt wurde.
+  - : Gibt einen String mit dem neuen Wert des geänderten Speicherelements zurück.
+    Dieser Wert ist `null`, wenn die Änderung durch die `clear()` Methode des Speichers aufgerufen wurde
+    oder das Speicherelement aus dem Speicher entfernt wurde.
 - [`oldValue`](/de/docs/Web/API/StorageEvent/oldValue) {{ReadOnlyInline}}
-  - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicheritems zurück.
-    Dieser Wert ist `null`, wenn das Speicheritem neu hinzugefügt wurde
+  - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicherelements zurück.
+    Dieser Wert ist `null`, wenn das Speicherelement neu hinzugefügt wurde
     und daher keinen vorherigen Wert hat.
 - [`storageArea`](/de/docs/Web/API/StorageEvent/storageArea) {{ReadOnlyInline}}
-  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, das das betroffene Speicherobjekt darstellt.
+  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage) Objekt zurück, das das betroffene Speicherobjekt repräsentiert.
 - [`url`](/de/docs/Web/API/StorageEvent/url) {{ReadOnlyInline}}
   - : Gibt einen String mit der URL des Dokuments zurück, dessen Speicher geändert wurde.
 
-## Ereignishandler-Aliasse
+## Alias für Ereignishandler
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zum `Window` Interface ist die Ereignishandler-Eigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -58,7 +58,7 @@ Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `ons
 
 ## Beispiele
 
-Protokollieren Sie das `sampleList`-Element in der Konsole, wenn das `storage`-Ereignis ausgelöst wird:
+Protokollieren Sie das `sampleList` Element in der Konsole, wenn das `storage` Ereignis ausgelöst wird:
 
 ```js
 window.addEventListener("storage", () => {
@@ -68,7 +68,7 @@ window.addEventListener("storage", () => {
 });
 ```
 
-Die gleiche Aktion kann mit der Ereignis-Handler-Eigenschaft `onstorage` erreicht werden:
+Dieselbe Aktion kann mit der `onstorage` Ereignishandler-Eigenschaft erreicht werden:
 
 ```js
 window.onstorage = () => {
@@ -90,4 +90,4 @@ window.onstorage = () => {
 
 - [Web Storage API](/de/docs/Web/API/Web_Storage_API)
 - [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Reaktion auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)
+- [Reagieren auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)

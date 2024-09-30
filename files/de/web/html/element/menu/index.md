@@ -1,5 +1,5 @@
 ---
-title: "<menu>: Das Menu-Element"
+title: "<menu>: Das Menü-Element"
 slug: Web/HTML/Element/menu
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,20 +7,20 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<menu>`** [HTML](/de/docs/Web/HTML) Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern (und über den Zugänglichkeitsbaum verfügbar gemacht) nicht anders behandelt als {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}} Elemente dargestellt werden).
+Das **`<menu>`**-[HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern (und durch den Accessibility-Baum) nicht anders behandelt als {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
 
 {{EmbedInteractiveExample("pages/tabbed/menu.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Verwendungshinweise
 
-Die `<menu>` und {{HTMLElement("ul")}} Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` für interaktive Elemente gedacht war.
+Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` für interaktive Elemente gedacht war.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>` Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht mehr in der Spezifikation enthalten.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Verwendungszweck als Kontextmenü. Diese Funktionalität wird als veraltet betrachtet und ist nicht in der Spezifikation enthalten.
 
 ## Beispiele
 
@@ -85,12 +85,12 @@ button {
       <td>
         <p>
           <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-            >Fluss-Inhalt</a
+            >Flow-Inhalt</a
           >. Wenn die Kinder des Elements mindestens ein
-          {{HTMLElement("li")}} Element enthalten:
+          {{HTMLElement("li")}}-Element enthalten:
           <a
             href="/de/docs/Web/HTML/Content_categories#palpable_content"
-            >Greifbarer Inhalt</a
+            >Tastbarer Inhalt</a
           >.
         </p>
       </td>
@@ -100,26 +100,26 @@ button {
       <td>
         <p>
           Null oder mehr Vorkommen von {{HTMLElement("li")}},
-          {{HTMLElement("script")}}, und
+          {{HTMLElement("script")}} und
           {{HTMLElement("template")}}.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flow-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/list_role"
@@ -159,4 +159,4 @@ button {
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.

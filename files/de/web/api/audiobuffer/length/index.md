@@ -8,11 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`length`**-Eigenschaft der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt eine ganze Zahl zurück, die die Länge der im Puffer gespeicherten PCM-Daten in Sample-Frames darstellt.
+Die **`length`**-Eigenschaft des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)
+Interfaces gibt eine Ganzzahl zurück, die die Länge der PCM-Daten in Abtastrahmen darstellt, die im Puffer gespeichert sind.
 
 ## Wert
 
-Eine ganze Zahl.
+Eine Ganzzahl.
 
 ## Beispiele
 

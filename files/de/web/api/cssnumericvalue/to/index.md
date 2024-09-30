@@ -9,7 +9,7 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`to()`**-Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle wandelt einen numerischen Wert von einer Einheit in eine andere um.
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert einen numerischen Wert von einer Einheit in eine andere.
 
 ## Syntax
 

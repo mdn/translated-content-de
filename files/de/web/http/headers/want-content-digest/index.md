@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}}-Header an. Es ist das `Content-` Gegenstück zu {{HTTPHeader("Want-Repr-Digest")}}.
+Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}} Header an. Es ist das `Content-`-Äquivalent von {{HTTPHeader("Want-Repr-Digest")}}.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Darstellungs-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>[Repräsentation-Header](/de/docs/Glossary/Representation_header)</td>
     </tr>
     <tr>
       <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
@@ -24,14 +24,14 @@ Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch n
 
 ## Syntax
 
-`Want-Content-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Hashing-Algorithmen und seinen Werten als die ganze Zahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (vermitteln steigende, relative, gewichtete Präferenzen).
+`Want-Content-Digest` beschreibt ein [RFC8941 Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Hashing-Algorithmen und seinen Werten als Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (vermitteln aufsteigende, relative, gewichtete Präferenz).
 
 > [!NOTE]
 > Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über [q-Werte](/de/docs/Glossary/Quality_values) angegeben.
 
 ## Direktiven
 
-Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
+Zulässige Digest-Algorithmen finden Sie unter {{HTTPHeader("Repr-Digest")}}.
 
 ## Beispiele
 

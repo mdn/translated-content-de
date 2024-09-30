@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.name`**-Eigenschaft stellt den Namen des aktuellen {{HtmlElement("form")}}-Elements als Zeichenkette dar.
+Die **`HTMLFormElement.name`**-Eigenschaft repräsentiert den Namen des aktuellen {{HtmlElement("form")}}-Elements als Zeichenkette.
 
-Wenn Ihr {{HTMLElement("Form")}}-Element ein Element mit dem Namen _name_ enthält, überschreibt dieses Element die `form.name`-Eigenschaft, sodass Sie keinen Zugriff darauf haben.
+Wenn Ihr {{HTMLElement("Form")}}-Element ein Element mit dem Namen _name_ enthält, überschreibt dieses Element die `form.name`-Eigenschaft, sodass Sie nicht darauf zugreifen können.
 
 ## Wert
 

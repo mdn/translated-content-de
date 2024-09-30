@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Nachrichtenwarteschlange und aller ausstehenden Rückrufe.
+Die **`reset()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle setzt alle Zustände zurück, einschließlich der Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und alle ausstehenden Rückrufe.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel setzt den `AudioEncoder` zurück.
+Im folgenden Beispiel wird der `AudioEncoder` zurückgesetzt.
 
 ```js
 AudioEncoder.reset();

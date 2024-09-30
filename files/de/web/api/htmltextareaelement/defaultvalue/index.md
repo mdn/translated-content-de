@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: Eigenschaft defaultValue"
+title: "HTMLTextAreaElement: defaultValue-Eigenschaft"
 short-title: defaultValue
 slug: Web/API/HTMLTextAreaElement/defaultValue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`defaultValue`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle repräsentiert den standardmäßigen Textinhalt dieses Textbereichs. Das Abrufen und Setzen dieses Wertes ist gleichbedeutend mit dem Abrufen und Setzen von [`textContent`](/de/docs/Web/API/Node/textContent) auf dem {{htmlelement("textarea")}}.
+Die **`defaultValue`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces repräsentiert den Standardtextinhalt dieses Textbereichs. Das Abrufen und Setzen dieses Wertes ist gleichbedeutend mit dem Abrufen und Setzen von [`textContent`](/de/docs/Web/API/Node/textContent) auf dem {{htmlelement("textarea")}}.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im untenstehenden Beispiel gibt `defaultValue` weiterhin den ursprünglich im HTML geschriebenen Wert zurück. Wenn ein Standardwert entweder über HTML oder die `defaultValue`-Eigenschaft festgelegt wird, aktualisiert eine Benutzereingabe den `value`, überschreibt jedoch nicht den `defaultValue`.
+Im folgenden Beispiel gibt `defaultValue` weiterhin den ursprünglich im HTML geschriebenen Wert zurück. Wenn ein Standardwert gesetzt ist, entweder über HTML oder die `defaultValue`-Eigenschaft, aktualisieren Benutzereingaben den `value`, überschreiben jedoch nicht den `defaultValue`.
 
 ```js
 const textareaElement = document.getElementById("comment");

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Der **`PageSwapEvent()`**-Konstruktor erstellt eine neue Instanz eines [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Objekts.
+Der **`PageSwapEvent()`**-Konstruktor erstellt eine neue Instanz des [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Objekts.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new PageSwapEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `PageSwapEvent` ist dies immer `pageswap`.
+  - : Ein String, der den Ereignistyp darstellt. Im Fall von `PageSwapEvent` ist dies immer `pageswap`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `activation`
-      - : Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp und die aktuellen sowie die Ziel-Dokumenthistorie-Einträge darstellt. Setzt auf `null` zurück, wenn die zugehörige Navigation eine Cross-Origin-Navigation ist.
+      - : Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die aktuellen und Ziel-Dokumenthistorieneinträge darstellt. Standardmäßig `null`, wenn die zugehörige Navigation eine Cross-Origin-Navigation ist.
     - `viewTransition`
-      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Ansichtstransition für die zugehörige Navigation darstellt. Setzt auf `null` zurück, wenn keine aktive Ansichtstransition vorhanden ist.
+      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven Ansichtsübergang für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis der Auslösung des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses aufgerufen wird.
 
 ## Spezifikationen
 

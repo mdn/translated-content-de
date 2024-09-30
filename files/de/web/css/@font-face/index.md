@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@font-face`** [CSS](/de/docs/Web/CSS) [Regel](/de/docs/Web/CSS/At-rule) spezifiziert eine benutzerdefinierte Schriftart, mit der Text angezeigt werden soll; die Schriftart kann entweder von einem entfernten Server oder von einem lokal installierten Font auf dem Computer des Benutzers geladen werden.
+Die **`@font-face`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) spezifiziert eine benutzerdefinierte Schriftart, mit der Text angezeigt wird; die Schriftart kann entweder von einem entfernten Server oder von einer lokal auf dem Computer des Nutzers installierten Schriftart geladen werden.
 
 ## Syntax
 
@@ -25,54 +25,54 @@ Die **`@font-face`** [CSS](/de/docs/Web/CSS) [Regel](/de/docs/Web/CSS/At-rule) s
 ### Deskriptoren
 
 - {{cssxref("@font-face/ascent-override", "ascent-override")}}
-  - : Definiert die Ascent-Metrik für den Font.
+  - : Definiert das Aszendenz-Metrik für die Schriftart.
 - {{cssxref("@font-face/descent-override", "descent-override")}}
-  - : Definiert die Descent-Metrik für den Font.
+  - : Definiert das Deszendenz-Metrik für die Schriftart.
 - {{cssxref("@font-face/font-display", "font-display")}}
-  - : Bestimmt, wie ein Schrifttyp basierend darauf angezeigt wird, ob und wann er heruntergeladen und gebrauchsfertig ist.
+  - : Bestimmt, wie eine Schriftart dargestellt wird, basierend darauf, ob und wann sie heruntergeladen und einsatzbereit ist.
 - {{cssxref("@font-face/font-family", "font-family")}}
-  - : Gibt einen Namen an, der als Wert für die Schriftarteneigenschaften verwendet wird.
+  - : Gibt einen Namen an, der als Schriftartwert für Schriftattribute verwendet wird.
 - {{cssxref("@font-face/font-stretch", "font-stretch")}}
-  - : Ein {{cssxref("font-stretch")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einem Schrifttyp unterstützt wird, z. B. `font-stretch: 50% 200%;`
+  - : Ein {{cssxref("font-stretch")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einer Schriftart unterstützt wird, zum Beispiel `font-stretch: 50% 200%;`
 - {{cssxref("@font-face/font-style", "font-style")}}
-  - : Ein {{cssxref("font-style")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einem Schrifttyp unterstützt wird, z. B. `font-style: oblique 20deg 50deg;`
+  - : Ein {{cssxref("font-style")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einer Schriftart unterstützt wird, zum Beispiel `font-style: oblique 20deg 50deg;`
 - {{cssxref("@font-face/font-weight", "font-weight")}}
 
-  - : Ein {{cssxref("font-weight")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einem Schrifttyp unterstützt wird, z. B. `font-weight: 100 400;`
+  - : Ein {{cssxref("font-weight")}} Wert. Akzeptiert zwei Werte, um einen Bereich anzugeben, der von einer Schriftart unterstützt wird, zum Beispiel `font-weight: 100 400;`
 
     > [!NOTE]
-    > Der font-variant Deskriptor wurde 2018 aus der Spezifikation entfernt. Der Wert der {{cssxref("font-variant")}} Eigenschaft wird unterstützt, es gibt jedoch kein Äquivalent als Deskriptor.
+    > Der font-variant Deskriptor wurde 2018 aus der Spezifikation entfernt. Der {{cssxref("font-variant")}} Wert ist unterstützt, aber es gibt kein äquivalentes Deskriptor.
 
 - {{cssxref("@font-face/font-feature-settings", "font-feature-settings")}}
   - : Ermöglicht die Kontrolle über erweiterte typografische Funktionen in OpenType-Schriftarten.
 - {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
-  - : Ermöglicht die niedrigstufige Kontrolle über OpenType- oder TrueType-Schriftvariationen, indem die vier Buchstabenachsen der zu variierenden Funktionen zusammen mit ihren Variationswerten angegeben werden.
+  - : Ermöglicht eine niedrige Ebene der Kontrolle über OpenType- oder TrueType-Schriftvariationen, indem die vier Buchstabenachsen der Merkmale, die variiert werden sollen, zusammen mit ihren Variationswerten angegeben werden.
 - {{cssxref("@font-face/line-gap-override", "line-gap-override")}}
-  - : Definiert die Zeilenabstandsmetrik für den Font.
+  - : Definiert den Zeilenabstand-Metrik für die Schriftart.
 - {{cssxref("@font-face/size-adjust", "size-adjust")}}
-  - : Definiert einen Multiplikator für die Glyphenkonturen und mit dieser Schriftart verbundenen Metriken. Dies erleichtert die Harmonisierung der Designs verschiedener Schriften bei der Darstellung in derselben Schriftgröße.
+  - : Definiert einen Multiplikator für Schriftkonturen und Metriken, die mit dieser Schrift verbunden sind. Dies erleichtert die Harmonisierung der Designs verschiedener Schriftarten bei gleicher Schriftgröße.
 - {{cssxref("@font-face/src", "src")}}
-  - : Gibt Verweise auf Schriftressourcen an, einschließlich Hinweise zum Schriftformat und -technologie. Dies ist erforderlich, damit die @font-face-Regel gültig ist.
+  - : Gibt Verweise auf Schriftressourcen einschließlich Hinweise über das Schriftformat und die Technologie an. Es ist erforderlich, dass die @font-face-Regel gültig ist.
 - {{cssxref("@font-face/unicode-range", "unicode-range")}}
-  - : Der Bereich der Unicode-Codepunkte, die aus der Schriftart verwendet werden sollen.
+  - : Der Bereich der Unicode-Codepoints, die aus der Schrift verwendet werden sollen.
 
 ## Beschreibung
 
-Es ist üblich, `url()` und `local()` zusammen zu verwenden, sodass die auf dem Benutzergerät installierte Kopie der Schrift verwendet wird, falls verfügbar, und andernfalls eine Kopie der Schriftart heruntergeladen wird, wenn sie auf dem Benutzergerät nicht gefunden wird.
+Es ist üblich, sowohl `url()` als auch `local()` zusammen zu verwenden, sodass die auf dem Gerät des Benutzers installierte Schriftart benutzt wird, falls verfügbar, wobei andernfalls eine Kopie der Schriftart heruntergeladen wird.
 
-Wenn die `local()` Funktion bereitgestellt wird, und einen Schriftartnamen angibt, nach dem auf dem Benutzergerät gesucht werden soll, und der [Benutzeragent](/de/docs/Glossary/user_agent) übereinstimmt, wird diese lokale Schrift verwendet. Andernfalls wird die mit der `url()` Funktion angegebene Schriftressource heruntergeladen und verwendet.
+Wenn die `local()` Funktion bereitgestellt wird, um eine Schriftart zu spezifizieren, nach der auf dem Gerät des Nutzers gesucht werden soll, und wenn der [User-Agent](/de/docs/Glossary/user_agent) eine Übereinstimmung findet, wird diese lokale Schriftart verwendet. Andernfalls wird die Schriftressource, die mit der `url()` Funktion angegeben ist, heruntergeladen und verwendet.
 
-Browser versuchen, Ressourcen in der Reihenfolge ihrer Listendeklaration zu laden; daher sollte `local()` normalerweise vor `url()` geschrieben werden. Beide Funktionen sind optional, sodass ein Regelblock nur mit einem oder mehreren `local()` ohne `url()` möglich ist.
-Wenn spezifischere Schriften mit `format()` oder `tech()` Werten gewünscht werden, sollten diese _vor_ Versionen ohne diese Werte aufgeführt werden, da sonst die unspezifischere Variante zuerst ausprobiert und verwendet wird.
+Browser versuchen, Ressourcen in der Reihenfolge ihrer Deklarationsliste zu laden, daher sollte `local()` in der Regel vor `url()` geschrieben werden. Beide Funktionen sind optional, sodass ein Regelblock, der nur ein oder mehrere `local()` ohne `url()` enthält, möglich ist.
+Wenn spezifischere Schriftarten mit `format()` oder `tech()` Werten gewünscht sind, sollten diese _vor_ Versionen aufgelistet werden, die diese Werte nicht besitzen, da ansonsten die weniger spezifische Variante zuerst ausprobiert und verwendet würde.
 
-Durch die Möglichkeit, eigene Schriftarten provideieren zu lassen, ermöglicht `@font-face` das Entwerfen von Inhalten, ohne auf die sogenannten "websicheren" Schriftarten beschränkt zu sein (das heißt, die Schriftarten, die so verbreitet sind, dass sie als universell verfügbar gelten). Die Möglichkeit, den Namen einer lokal installierten Schrift anzugeben, nach der gesucht und verwendet werden soll, ermöglicht es, die Schrift über die Grundlagen hinaus anzupassen, ohne auf eine Internetverbindung angewiesen zu sein.
+Indem Autoren ihre eigenen Schriftarten bereitstellen können, ermöglicht `@font-face` das Design von Inhalten, ohne auf die sogenannten "web-sicheren" Schriftarten (d.h. Schriftarten, die so verbreitet sind, dass sie als universell verfügbar gelten) beschränkt zu sein. Die Möglichkeit, den Namen einer lokal installierten Schriftart anzugeben, nach der gesucht und verwendet werden soll, ermöglicht es, die Schrift jenseits der Grundlagen anzupassen, ohne auf eine Internetverbindung angewiesen zu sein.
 
 > [!NOTE]
-> Fallback-Strategien zum Laden von Schriftarten in älteren Browsern sind auf der [Seite des 'src'-Deskriptors](/de/docs/Web/CSS/@font-face/src#specifying_fallbacks_for_older_browsers) beschrieben.
+> Fallback-Strategien zum Laden von Schriftarten in älteren Browsern sind auf der [`src` Deskriptorseite](/de/docs/Web/CSS/@font-face/src#specifying_fallbacks_for_older_browsers) beschrieben.
 
-Die @font-face-Regel kann nicht nur auf der obersten Ebene eines CSS verwendet werden, sondern auch in jeder [CSS Bedingungsgruppenregel](/de/docs/Web/CSS/CSS_conditional_rules#at-rules).
+Die `@font-face` At-Regel kann nicht nur auf der obersten Ebene eines CSS verwendet werden, sondern auch innerhalb jeder [CSS bedingten Gruppen-At-Regel](/de/docs/Web/CSS/CSS_conditional_rules#at-rules).
 
-### Schrift-MIME-Typen
+### MIME-Typen für Schriftarten
 
 | Format                 | MIME-Typ     |
 | ---------------------- | ------------ |
@@ -81,9 +81,9 @@ Die @font-face-Regel kann nicht nur auf der obersten Ebene eines CSS verwendet w
 | Web Open Font Format   | `font/woff`  |
 | Web Open Font Format 2 | `font/woff2` |
 
-### Hinweise
+### Anmerkungen
 
-- Webfonts unterliegen der selben Domänenbeschränkung (Schriftdateien müssen sich auf derselben Domain befinden wie die Seite, die sie verwendet), es sei denn, es werden [HTTP-Zugriffskontrollen](/de/docs/Web/HTTP/CORS) verwendet, um diese Beschränkung zu lockern.
+- Web-Schriften unterliegen denselben Domain-Beschränkungen (Schriftdateien müssen sich auf derselben Domain wie die Seite befinden, die sie verwendet), es sei denn, [HTTP-Zugriffskontrollen](/de/docs/Web/HTTP/CORS) werden verwendet, um diese Beschränkung zu lockern.
 - `@font-face` kann nicht innerhalb eines CSS-Selektors deklariert werden. Zum Beispiel funktioniert Folgendes nicht:
 
   ```css example-bad
@@ -103,9 +103,9 @@ Die @font-face-Regel kann nicht nur auf der obersten Ebene eines CSS verwendet w
 
 ## Beispiele
 
-### Eine herunterladbare Schriftart angeben
+### Spezifizieren einer herunterladbaren Schriftart
 
-Dieses Beispiel gibt eine herunterladbare Schriftart an, die für den gesamten Text des Dokuments verwendet werden soll:
+Dieses Beispiel spezifiziert eine herunterladbare Schriftart zur Verwendung und wendet sie auf den gesamten Dokumentenkörper an:
 
 ```html
 <!doctype html>
@@ -131,13 +131,13 @@ Dieses Beispiel gibt eine herunterladbare Schriftart an, die für den gesamten T
 </html>
 ```
 
-Der Output dieses Beispielcodes sieht folgendermaßen aus:
+Die Ausgabe dieses Beispielcodes sieht folgendermaßen aus:
 
 {{EmbedGHLiveSample("css-examples/web-fonts/basic-web-font.html", '100%', '100')}}
 
-### Lokale Schriftarten-Alternativen angeben
+### Spezifizieren von lokalen Schriftalternativen
 
-In diesem Beispiel wird die lokale Kopie des Benutzers von "Helvetica Neue Bold" verwendet; wenn der Benutzer diese Schriftart nicht installiert hat (es wird sowohl der volle Schriftname als auch der Postscript-Name versucht), wird stattdessen die herunterladbare Schriftart namens "MgOpenModernaBold.ttf" verwendet:
+In diesem Beispiel wird die lokale Kopie des Nutzers von "Helvetica Neue Bold" verwendet; wenn der Nutzer diese Schriftart nicht installiert hat (sowohl der vollständige Schriftname als auch der Postscript-Name werden versucht), wird stattdessen die herunterladbare Schriftart "MgOpenModernaBold.ttf" verwendet:
 
 ```css
 @font-face {
@@ -161,4 +161,4 @@ In diesem Beispiel wird die lokale Kopie des Benutzers von "Helvetica Neue Bold"
 - [Über WOFF](/de/docs/Web/CSS/CSS_fonts/WOFF)
 - [FontSquirrel @font-face Generator](https://www.fontsquirrel.com/tools/webfont-generator)
 - [Schöne Schriftarten mit @font-face](https://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/)
-- [Schriftbibliothek](https://fontlibrary.org/)
+- [Font Library](https://fontlibrary.org/)

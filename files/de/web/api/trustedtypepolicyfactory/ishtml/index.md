@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicyFactory: isHTML()-Methode"
+title: "TrustedTypePolicyFactory: isHTML() Methode"
 short-title: isHTML()
 slug: Web/API/TrustedTypePolicyFactory/isHTML
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`isHTML()`**-Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle gibt `true` zurück, wenn ihr ein gültiges [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt übergeben wird.
+Die **`isHTML()`** Methode des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) Interfaces gibt true zurück, wenn ein gültiges [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekt übergeben wird.
 
 > [!NOTE]
-> Der Zweck der Funktionen `isHTML()`, [`isScript()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScript) und [`isScriptURL()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScriptURL) besteht darin, zu überprüfen, ob das Objekt ein gültiges TrustedType-Objekt ist, das durch eine konfigurierte Richtlinie erstellt wurde.
+> Der Zweck der Funktionen `isHTML()`, [`isScript()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScript) und [`isScriptURL()`](/de/docs/Web/API/TrustedTypePolicyFactory/isScriptURL) besteht darin, zu überprüfen, ob das Objekt ein gültiges TrustedType-Objekt ist, das von einer konfigurierten Richtlinie erstellt wurde.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ isHTML(value)
 ### Parameter
 
 - `value`
-  - : Ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt.
+  - : Ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekt.
 
 ### Rückgabewert
 
-Ein {{jsxref("boolean")}}, der true ist, wenn das Objekt ein gültiges [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt ist.
+Ein {{jsxref("boolean")}}, der true ist, wenn das Objekt ein gültiges [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekt ist.
 
 ## Beispiele
 
-Im untenstehenden Beispiel wurde die Konstante `html` durch eine Richtlinie erstellt, daher gibt `isHTML()` true zurück. Das zweite Beispiel ist ein Versuch, ein Objekt zu fälschen, und das dritte ist ein String. Beide geben false zurück, wenn sie an `isHTML()` übergeben werden.
+Im folgenden Beispiel wurde die Konstante `html` von einer Richtlinie erstellt, daher gibt `isHTML()` true zurück. Das zweite Beispiel ist ein Versuch, ein Objekt vorzutäuschen, und das dritte ist ein String. Beide geben false zurück, wenn sie an `isHTML()` übergeben werden.
 
 ```js
 const html = policy.createHTML("<div>");

@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`format`** nur-lesbare Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt das Sample-Format des `AudioData`-Objekts zurück.
+Die schreibgeschützte **`format`**-Eigenschaft der [`AudioData`](/de/docs/Web/API/AudioData)-Schnittstelle gibt das Sample-Format des `AudioData`-Objekts zurück.
 
 ## Wert
 
-Ein String. Einer von:
+Ein String. Einer der folgenden:
 
 - `"u8"`
-  - : 8-Bit vorzeichenlose Ganzzahl-Samples im interleaved-Format.
+  - : 8-Bit unsignierte Ganzzahlen, in einem verknüpften Format.
 - `"s16"`
-  - : 16-Bit vorzeichenbehaftete Ganzzahl-Samples im interleaved-Format.
+  - : 16-Bit signierte Ganzzahlen, in einem verknüpften Format.
 - `"s32"`
-  - : 32-Bit vorzeichenbehaftete Ganzzahl-Samples im interleaved-Format.
+  - : 32-Bit signierte Ganzzahlen, in einem verknüpften Format.
 - `"f32"`
-  - : 32-Bit Fließkomma-Samples im interleaved-Format.
+  - : 32-Bit Gleitkommazahlen, in einem verknüpften Format.
 - `"u8-planar"`
-  - : 8-Bit vorzeichenlose Ganzzahl-Samples im Planar-Format.
+  - : 8-Bit unsignierte Ganzzahlen, in einem Planar-Format.
 - `"s16-planar"`
-  - : 16-Bit vorzeichenbehaftete Ganzzahl-Samples im Planar-Format.
+  - : 16-Bit signierte Ganzzahlen, in einem Planar-Format.
 - `"s32-planar"`
-  - : 32-Bit vorzeichenbehaftete Ganzzahl-Samples im Planar-Format.
+  - : 32-Bit signierte Ganzzahlen, in einem Planar-Format.
 - `"f32-planar"`
-  - : 32-Bit Fließkomma-Samples im Planar-Format.
+  - : 32-Bit Gleitkommazahlen, in einem Planar-Format.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `format` auf der Konsole aus.
+Das folgende Beispiel gibt den Wert von `format` in der Konsole aus.
 
 ```js
 console.log(AudioData.format);

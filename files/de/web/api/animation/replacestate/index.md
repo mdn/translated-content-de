@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die schreibgeschützte **`Animation.replaceState`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt an, ob die Animation [vom Browser automatisch entfernt wurde](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations), nachdem sie durch eine andere Animation ersetzt wurde.
+Die schreibgeschützte **`Animation.replaceState`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt an, ob die Animation [vom Browser automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wurde, nachdem sie durch eine andere Animation ersetzt wurde.
 
 ## Wert
 
 Ein String, der den Ersetzungszustand der Animation darstellt. Der Wert kann einer der folgenden sein:
 
 - `active`
-  - : Der anfängliche Wert des Ersetzungszustands der Animation beim Erstellen der Animation.
+  - : Der Anfangswert des Ersetzungszustands der Animation, wenn die Animation erstellt wird.
 - `persisted`
-  - : Die Animation wurde explizit durch den Aufruf von [`Animation.persist()`](/de/docs/Web/API/Animation/persist) auf ihr gespeichert.
+  - : Die Animation wurde explizit durch den Aufruf von [`Animation.persist()`](/de/docs/Web/API/Animation/persist) auf ihr beibehalten.
 - `removed`
-  - : Die Animation wurde vom Browser automatisch entfernt.
+  - : Die Animation wurde automatisch vom Browser entfernt.
 
 ## Spezifikationen
 

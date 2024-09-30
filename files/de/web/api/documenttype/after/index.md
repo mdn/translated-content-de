@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.after()`** Methode fügt eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kinderliste des
-Elternteils von `DocumentType` ein, direkt nach dem `DocumentType`.
-Strings werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die **`DocumentType.after()`**-Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des
+Elternteils des `DocumentType` ein, direkt nach dem `DocumentType`.
+Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ after(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 

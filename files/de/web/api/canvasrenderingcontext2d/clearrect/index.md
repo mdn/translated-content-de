@@ -8,15 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.clearRect()`**
-Methode der Canvas 2D API löscht die Pixel in einem rechteckigen Bereich, indem sie auf
-transparente schwarze Farbe gesetzt werden.
+Die Methode **`CanvasRenderingContext2D.clearRect()`** der Canvas 2D API löscht die Pixel in einem rechteckigen Bereich, indem sie auf transparentes Schwarz gesetzt werden.
 
 > [!NOTE]
-> Beachten Sie, dass `clearRect()` unbeabsichtigte
-> Nebeneffekte haben kann, wenn Sie nicht [Pfade richtig verwenden](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#drawing_paths). Stellen Sie sicher, dass Sie
-> [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) aufrufen, bevor Sie mit dem Zeichnen neuer Elemente nach dem Aufruf von `clearRect()` beginnen.
+> Beachten Sie, dass `clearRect()` zu unbeabsichtigten Nebeneffekten führen kann, wenn Sie nicht [Pfade richtig verwenden](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#drawing_paths). Stellen Sie sicher, dass Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) aufrufen, bevor Sie nach dem Aufrufen von `clearRect()` neue Elemente zeichnen.
 
 ## Syntax
 
@@ -24,21 +19,18 @@ transparente schwarze Farbe gesetzt werden.
 clearRect(x, y, width, height)
 ```
 
-Die `clearRect()` Methode setzt die Pixel in einem rechteckigen Bereich auf
-transparentes Schwarz (`rgb(0 0 0 / 0%)`). Die obere linke Ecke des Rechtecks befindet sich bei
-`(x, y)`, und seine Größe wird durch `width` und
-`height` angegeben.
+Die `clearRect()` Methode setzt die Pixel in einem rechteckigen Bereich auf transparentes Schwarz (`rgb(0 0 0 / 0%)`). Die obere linke Ecke des Rechtecks befindet sich bei `(x, y)`, und seine Größe wird durch `width` und `height` angegeben.
 
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des Startpunkts des Rechtecks.
+  - : Die x-Achsenkoordinate des Startpunkts des Rechtecks.
 - `y`
-  - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
+  - : Die y-Achsenkoordinate des Startpunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte sind nach rechts, und negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte sind nach unten, und negative nach oben.
 
 ### Rückgabewert
 
@@ -46,11 +38,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen der gesamten Leinwand
+### Löschen des gesamten Canvas
 
-Dieser Codeausschnitt löscht die gesamte Leinwand. Dies ist häufig zu Beginn
-jedes Frames in einer Animation erforderlich. Die Abmessungen des gelöschten Bereichs entsprechen den
-`width` und `height` Attributen des {{HtmlElement("canvas")}} Elements.
+Dieser Code-Schnipsel löscht das gesamte Canvas. Dies ist häufig am Anfang jedes Frames in einer Animation erforderlich. Die Dimensionen des gelöschten Bereichs sind gleich den `width` und `height` Attributen des {{HtmlElement("canvas")}} Elements.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -58,10 +48,9 @@ const ctx = canvas.getContext("2d");
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 ```
 
-### Löschen eines Teils einer Leinwand
+### Löschen eines Teils eines Canvas
 
-Dieses Beispiel zeichnet ein blaues Dreieck auf einem gelblichen Hintergrund. Die
-`clearRect()` Methode löscht dann einen Teil der Leinwand.
+Dieses Beispiel zeichnet ein blaues Dreieck auf einem gelblichen Hintergrund. Die `clearRect()` Methode löscht dann einen Teil des Canvas.
 
 #### HTML
 
@@ -71,8 +60,7 @@ Dieses Beispiel zeichnet ein blaues Dreieck auf einem gelblichen Hintergrund. Di
 
 #### JavaScript
 
-Der gelöschte Bereich ist rechteckig und die obere linke Ecke befindet sich bei (10, 10).
-Der gelöschte Bereich hat eine Breite von 120 und eine Höhe von 100.
+Der gelöschte Bereich ist rechteckig mit der oberen linken Ecke bei (10, 10). Der gelöschte Bereich hat eine Breite von 120 und eine Höhe von 100.
 
 ```js
 const canvas = document.getElementById("canvas");

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die schreibgeschützte Eigenschaft **`attrChange`** der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt eine Zahl zurück, die anzeigt, welche Art von Änderung das `DOMAttrModified`-Ereignis ausgelöst hat. Die drei möglichen Werte sind `MODIFICATION` (`1`), `ADDITION` (`2`) oder `REMOVAL` (`3`). Für andere Ereignisse hat dies keine Bedeutung und wird dann auf `0` gesetzt.
+Die **`attrChange`** schreibgeschützte Eigenschaft des [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Interfaces gibt eine Zahl zurück, die anzeigt, welche Art von Änderung das `DOMAttrModified`-Ereignis ausgelöst hat. Die drei möglichen Werte sind `MODIFICATION` (`1`), `ADDITION` (`2`) oder `REMOVAL` (`3`). Für andere Ereignisse hat sie keine Bedeutung und wird dann auf `0` gesetzt.
 
 ## Wert
 
-Ein Ganzzahlwert: `0`, `1` (`MODIFICATION`), `2` (`ADDITION`) oder `3` (`REMOVAL`).
+Ein Integer: `0`, `1` (`MODIFICATION`), `2` (`ADDITION`) oder `3` (`REMOVAL`).
 
 ## Beispiele
 

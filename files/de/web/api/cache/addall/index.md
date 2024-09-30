@@ -1,5 +1,5 @@
 ---
-title: "Cache: addAll() Methode"
+title: "Cache: addAll()-Methode"
 short-title: addAll()
 slug: Web/API/Cache/addAll
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`addAll()`** Methode des [`Cache`](/de/docs/Web/API/Cache)-Interfaces nimmt ein Array von URLs, ruft sie ab und fügt die resultierenden Antwortobjekte dem angegebenen Cache hinzu. Die Anforderungsobjekte, die während des Abrufs erstellt werden, werden zu Schlüsseln für die gespeicherten Antwortoperationen.
+Die **`addAll()`**-Methode der [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle nimmt ein Array von URLs, ruft diese ab und fügt die resultierenden Antwortobjekte zum angegebenen Cache hinzu. Die während des Abrufs erstellten Anfrageobjekte werden zu Schlüsseln für die gespeicherten Antwortoperationen.
 
-> **Note:** `addAll()` wird alle zuvor im Cache gespeicherten Schlüssel/Werte-Paare überschreiben, die der Anforderung entsprechen, jedoch fehlschlagen, wenn ein resultierender `put()`-Vorgang einen vorherigen Cacheeintrag überschreiben würde, der durch die gleiche `addAll()`-Methode gespeichert wurde.
+> **Note:** `addAll()` überschreibt alle Schlüssel/Wert-Paare,
+> die zuvor im Cache gespeichert wurden und mit der Anfrage übereinstimmen, schlägt jedoch fehl, wenn eine
+> resultierende `put()`-Operation einen vorherigen Cache-Eintrag überschreiben würde, der von derselben `addAll()`-Methode gespeichert wurde.
 
 ## Syntax
 
@@ -22,13 +24,13 @@ addAll(requests)
 
 - `requests`
 
-  - : Ein Array von Anforderungen für die Ressourcen, die Sie dem Cache hinzufügen möchten. Diese können [`Request`](/de/docs/Web/API/Request)-Objekte oder URLs sein.
+  - : Ein Array von Anfragen für die Ressourcen, die Sie dem Cache hinzufügen möchten. Diese können [`Request`](/de/docs/Web/API/Request)-Objekte oder URLs sein.
 
-    Diese Anforderungen werden als Parameter an den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor verwendet, daher folgen URLs den gleichen Regeln wie für diesen Konstruktor. URLs können insbesondere relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) ist.
+    Diese Anfragen werden als Parameter für den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor verwendet, sodass URLs den gleichen Regeln wie für diesen Konstruktor folgen. Insbesondere können URLs relativ zur Basis-URL sein, die das [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments im Fensterkontext oder [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) im Worker-Kontext ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird.
 
 ### Ausnahmen
 
@@ -36,11 +38,14 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
 
   - : Das URL-Schema ist nicht `http` oder `https`.
 
-    Der Antwortstatus ist nicht im 200er-Bereich (d. h. keine erfolgreiche Antwort). Dies tritt auf, wenn die Anforderung nicht erfolgreich zurückkehrt, aber auch, wenn die Anforderung eine _cross-origin no-cors_-Anforderung ist (in diesem Fall wird der Status immer mit 0 angegeben.)
+    Der Antwortstatus liegt nicht im 200-Bereich (d. h. keine erfolgreiche Antwort.) Dies tritt auf, wenn die Anfrage nicht erfolgreich zurückkehrt, aber auch, wenn es sich um eine _cross-origin no-cors_ Anfrage handelt (in diesem Fall wird der Status immer als 0 angegeben.)
 
 ## Beispiele
 
-Dieser Codeblock wartet auf das Eintreten eines [`InstallEvent`](/de/docs/Web/API/InstallEvent), dann wird [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) ausgeführt, um den Installationsprozess der App zu handhaben. Dies besteht darin, [`CacheStorage.open`](/de/docs/Web/API/CacheStorage/open) aufzurufen, um einen neuen Cache zu erstellen, und dann `addAll()` zu verwenden, um eine Reihe von Assets hinzuzufügen.
+Dieser Codeblock wartet darauf, dass ein [`InstallEvent`](/de/docs/Web/API/InstallEvent) ausgelöst wird, und führt dann
+[`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) aus, um den Installationsprozess für
+die App zu bearbeiten. Dies besteht darin, [`CacheStorage.open`](/de/docs/Web/API/CacheStorage/open) aufzurufen, um einen neuen
+Cache zu erstellen, und dann `addAll()` zu verwenden, um eine Reihe von Ressourcen hinzuzufügen.
 
 ```js
 this.addEventListener("install", (event) => {
@@ -75,6 +80,6 @@ this.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [`Cache`](/de/docs/Web/API/Cache)
 - [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

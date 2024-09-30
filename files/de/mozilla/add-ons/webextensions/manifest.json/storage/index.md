@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Obligatorisch</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -36,12 +36,12 @@ l10n:
 
 Verwenden Sie den `storage`-Schlüssel, um den Namen der Schema-Datei anzugeben, die die Struktur der Daten im verwalteten Speicher definiert.
 
-Verwaltete Daten geben die von der App unterstützten Unternehmensrichtlinien an. Richtlinien sind analog zu Optionen, werden jedoch von einem Systemadministrator statt vom Benutzer konfiguriert, sodass die App für alle Benutzer einer Organisation konfiguriert werden kann.
+Verwaltete Daten erklären die von der App unterstützten Unternehmensrichtlinien. Richtlinien sind Optionen ähnlich, werden jedoch von einem Systemadministrator anstelle des Benutzers konfiguriert, sodass die App für alle Benutzer einer Organisation konfiguriert werden kann.
 
-Nach der Deklaration der Richtlinien werden diese von der {{WebExtAPIRef("storage.managed")}}-API gelesen. Wenn jedoch ein Richtlinienwert nicht dem Schema entspricht, wird er von der `storage.managed`-API nicht veröffentlicht. Es liegt in der Verantwortung der App, die vom Administrator konfigurierten Richtlinien durchzusetzen.
+Nachdem die Richtlinien deklariert wurden, werden sie über die {{WebExtAPIRef("storage.managed")}} API gelesen. Wenn jedoch ein Richtlinienwert nicht dem Schema entspricht, wird er von der `storage.managed` API nicht veröffentlicht. Es liegt an der App, die vom Administrator konfigurierten Richtlinien durchzusetzen.
 
 > [!NOTE]
-> Firefox definiert kein Schema für verwalteten Speicher, siehe {{WebExtAPIRef("storage.managed")}} für weitere Details.
+> Firefox definiert kein Schema für den verwalteten Speicher, siehe {{WebExtAPIRef("storage.managed")}} für weitere Details.
 
 Der `storage`-Schlüssel ist ein Objekt, das die folgende erforderliche Eigenschaft besitzt:
 
@@ -51,8 +51,8 @@ Der `storage`-Schlüssel ist ein Objekt, das die folgende erforderliche Eigensch
       <td><code>managed_schema</code></td>
       <td>
         <p>
-          Eine <code>String</code>-Angabe des vollständigen Pfads der Datei innerhalb der
-          Erweiterung, die das Schema des verwalteten Speichers definiert.
+          Ein <code>String</code>, der den vollständigen Pfad der Datei innerhalb der
+          Erweiterung angibt, die das Schema des verwalteten Speichers definiert.
         </p>
       </td>
     </tr>
@@ -65,4 +65,4 @@ Der `storage`-Schlüssel ist ein Objekt, das die folgende erforderliche Eigensch
 
 > [!NOTE]
 >
-> Diese Seite enthält Details von der Chrome-Entwicklerwebseite [Manifest for storage areas](https://developer.chrome.com/docs/extensions/mv2/manifest/storage/), die hier unter der Creative Commons Attribution 3.0 United States License enthalten sind.
+> Diese Seite enthält Details von der Chrome-Entwickler-Website-Seite [Manifest for storage areas](https://developer.chrome.com/docs/extensions/mv2/manifest/storage/), die hier unter der Creative Commons Attribution 3.0 United States-Lizenz enthalten sind.

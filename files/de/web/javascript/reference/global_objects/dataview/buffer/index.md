@@ -7,17 +7,17 @@ l10n:
 
 {{JSRef}}
 
-Die **`buffer`**-Zugriffseigenschaft von {{jsxref("DataView")}}-Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, auf den dieser View zur Erstellungszeit verweist.
+Die **`buffer`** Accessor-Eigenschaft von {{jsxref("DataView")}} Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, der bei der Konstruktion dieser Ansicht referenziert wurde.
 
 {{EmbedInteractiveExample("pages/js/dataview-buffer.html")}}
 
 ## Beschreibung
 
-Die `buffer`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des `DataView` festgelegt und kann nicht geändert werden.
+Die `buffer`-Eigenschaft ist eine Accessor-Eigenschaft, deren set Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird bei der Konstruktion des `DataView` festgelegt und kann nicht geändert werden.
 
 ## Beispiele
 
-### Verwendung der buffer-Eigenschaft
+### Verwenden der buffer-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);

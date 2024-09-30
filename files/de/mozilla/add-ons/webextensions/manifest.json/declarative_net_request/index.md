@@ -14,11 +14,11 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifestversion</th>
+      <th scope="row">Manifest-Version</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -38,16 +38,16 @@ l10n:
   </tbody>
 </table>
 
-Geben Sie statische Regelsätze zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}} an. Siehe [statische Regelsatzlimits](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits) für Informationen zur Anzahl der Regelsätze, aktivierten Regelsätze und Regeln, die angegeben werden können.
+Spezifizieren Sie statische Regelsätze zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}}. Weitere Informationen zur Anzahl der Regelsätze, aktivierten Regelsätzen und Regeln, die angegeben werden können, finden Sie unter [statische Regelsatzgrenzen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a> für weitere Informationen zu den Berechtigungsanforderungen.
+Weitere Informationen zu Berechtigungserfordernissen finden Sie unter <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a>.
 
 > [!NOTE]
-> Eine Regel, die nicht erkannte Eigenschaften enthält, wird geladen, wenn sie ansonsten gültig ist, das heißt, nicht erkannte Eigenschaften werden ignoriert. Vor Firefox 128 wurde eine Regel mit nicht erkannten Eigenschaften als ungültig angesehen und nicht geladen.
+> Eine Regel mit nicht erkannten Eigenschaften wird geladen, wenn sie ansonsten gültig ist, das heißt, nicht erkannte Eigenschaften werden ignoriert. Vor Firefox 128 wurde eine Regel mit nicht erkannten Eigenschaften als ungültig betrachtet und nicht geladen.
 
 ## Syntax
 
-Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss, ein Array, das mindestens ein Objekt mit diesen Eigenschaften enthalten muss:
+Der `"declarative_net_request"` Schlüssel ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss, ein Array, das mindestens ein Objekt mit diesen Eigenschaften enthalten muss:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -71,7 +71,7 @@ Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `
     <tr>
       <td><code>"path"</code></td>
       <td><code>String</code></td>
-      <td>Der Pfad des JSON-Regelsatzes relativ zum Erweiterungsverzeichnis. Siehe den <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a>-Abschnitt der <code>declarativeNetRequest</code>-API für Informationen zum Inhalt der JSON-Regelsatzdatei.</td>
+      <td>Der Pfad des JSON-Regelsatzes relativ zum Erweiterungsverzeichnis. Siehe den Abschnitt <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a> der <code>declarativeNetRequest</code> API für Informationen über den Inhalt der Regelsatz-JSON-Datei.</td>
     </tr>
   </tbody>
 </table>

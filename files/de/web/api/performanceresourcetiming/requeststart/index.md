@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`requestStart`**-Eigenschaft gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt unmittelbar davor angibt, wenn der Browser die Ressource vom Server, Cache oder einer lokalen Ressource anfordert. Wenn die Transportverbindung fehlschlägt und der Browser die Anfrage erneut versucht, wird der Wert des Beginns der erneuten Anfrage zurückgegeben.
+Die **`requestStart`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurückgibt, der den Zeitpunkt unmittelbar vor dem Start der Anforderung des Browsers an den Server, den Cache oder die lokale Ressource darstellt. Wenn die Transportverbindung fehlschlägt und der Browser die Anforderung erneut versucht, wird der Beginn der erneuten Anforderung als Wert zurückgegeben.
 
-Es gibt keine _end_-Eigenschaft für `requestStart`. Um die Anforderungszeit zu messen, berechnen Sie [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) - `requestStart` (siehe das Beispiel unten).
+Es gibt keine _end_-Eigenschaft für `requestStart`. Um die Anforderungszeit zu messen, berechnen Sie [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) - `requestStart` (siehe Beispiel unten).
 
 ## Wert
 
-Die `requestStart`-Eigenschaft kann die folgenden Werte haben:
+Die `requestStart`-Eigenschaft kann folgende Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt unmittelbar davor angibt, wenn der Browser die Ressource vom Server anfordert.
-- `0`, wenn die Ressource augenblicklich aus einem Cache abgerufen wurde.
-- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
+- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt unmittelbar vor dem Start der Anforderung des Browsers an den Server darstellt.
+- `0`, wenn die Ressource unmittelbar aus einem Cache abgerufen wurde.
+- `0`, wenn es sich um eine Cross-Origin-Anforderung handelt und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
 
 ## Beispiele
 
-### Anforderungszeit messen
+### Messung der Anforderungszeit
 
-Die Eigenschaften `requestStart` und [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) können verwendet werden, um zu messen, wie lange die Anfrage dauert.
+Die Eigenschaften `requestStart` und [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) können verwendet werden, um zu messen, wie lange die Anforderung dauert.
 
 ```js
 const request = entry.responseStart - entry.requestStart;
 ```
 
-Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, wenn sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Timeline des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erzeugung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -45,7 +45,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die in der Performance-Zeitleiste des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -57,11 +57,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Informationen über Cross-Origin-Timing
+### Cross-Origin-Timing-Informationen
 
-Wenn der Wert der `requestStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Informationen über Cross-Origin-Timings sehen zu können, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Wenn der Wert der `requestStart`-Eigenschaft `0` ist, könnte es sich bei der Ressource um eine Cross-Origin-Anforderung handeln. Um Cross-Origin-Timing-Informationen anzuzeigen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
 
-Um zum Beispiel `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Beispielsweise sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` den Zugriff auf Timing-Ressourcen zu ermöglichen, Folgendes senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

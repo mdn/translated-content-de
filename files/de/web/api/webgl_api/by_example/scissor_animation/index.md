@@ -1,5 +1,5 @@
 ---
-title: Scherenschnitt-Animation
+title: Scheren-Animation
 slug: Web/API/WebGL_API/By_example/Scissor_animation
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Boilerplate_1","Learn/WebGL/By_example/Raining_rectangles")}}
 
-Ein einfaches WebGL-Beispiel, bei dem wir mit Scherenschnitt- und Löschoperationen etwas Animationsspaß haben.
+Ein einfaches WebGL-Beispiel, bei dem wir mit Scheren- und Löschoperationen etwas Animationsspaß haben.
 
-## Animation mit Scherenschnitt
+## Animation mit Scheren
 
 {{EmbedLiveSample("Animation_with_scissoring",660,425)}}
 
-In diesem Beispiel animieren wir Quadrate mithilfe von [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir richten erneut eine Animationsschleife mit Timern ein. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenbereich) ist, die in jedem Frame aktualisiert wird (wir setzen die Bildrate auf ungefähr eine alle 17 ms, oder etwa 60 fps – Bilder pro Sekunde).
+In diesem Beispiel animieren wir Quadrate mithilfe von [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir erstellen erneut eine Animationsschleife mit Timern. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenbereich) in jedem Frame aktualisiert wird (wir setzen die Bildrate auf etwa alle 17 ms, oder ungefähr 60 fps – Bilder pro Sekunde).
 
-Im Gegensatz dazu wird die Farbe des Quadrats (festgelegt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von [WebGL](/de/docs/Glossary/WebGL) als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe und aktualisieren dann in jedem Frame nur seine Position. Der Löschfarbenzustand von WebGL bleibt beim eingestellten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
+Im Gegensatz dazu wird die Farbe des Quadrats (gesetzt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von [WebGL](/de/docs/Glossary/WebGL) als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe fest und aktualisieren dann in jedem Frame nur seine Position. Der Löschfarbzustand von WebGL bleibt auf dem festgelegten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
 
 ```html hidden
 <p>
@@ -153,6 +153,6 @@ function getRenderingContext() {
 })();
 ```
 
-Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/scissor-animation) verfügbar.
+Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/scissor-animation) verfügbar.
 
 {{PreviousNext("Learn/WebGL/By_example/Boilerplate_1","Learn/WebGL/By_example/Raining_rectangles")}}

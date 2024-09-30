@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`max`**-Anweisungen werden verwendet, um die größere von zwei Zahlen zu ermitteln.
+Die **`max`**-Instruktionen werden verwendet, um die höhere von zwei Zahlen zu bestimmen.
 
 {{EmbedInteractiveExample("pages/wat/max.html", "tabbed-taller")}}
 
@@ -24,7 +24,7 @@ f32.max
 ;; the top item on the stack will now be 10
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `f32.max` | `0x97`         |
-| `f64.max` | `0xa5`         |
+| Instruktion | Binäroperationscode |
+| ----------- | ------------------- |
+| `f32.max`   | `0x97`              |
+| `f64.max`   | `0xa5`              |

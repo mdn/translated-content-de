@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLInputElement.labels`** schreibgeschützte Eigenschaft gibt eine
-[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
-{{HTMLElement("input")}}-Element verbunden sind, wenn dieses nicht versteckt ist. Wenn das Element den Typ `hidden` hat, gibt die Eigenschaft `null` zurück.
+Die **`HTMLInputElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("input")}}-Element verknüpft sind, sofern das Element nicht versteckt ist. Hat das Element den Typ `hidden`, gibt die Eigenschaft `null` zurück.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<input>`-Element verbundenen `<label>`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<input>`-Element verknüpft sind.
 
 ## Beispiele
 

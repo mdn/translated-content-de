@@ -8,22 +8,19 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`referrer`** schreibgeschützte Eigenschaft des
-[`Request`](/de/docs/Web/API/Request)-Interfaces wird vom User-Agent als Referrer der
-Anfrage festgelegt (z.B. `client`, `no-referrer` oder eine URL).
+Die schreibgeschützte **`referrer`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle wird vom Benutzeragenten als der Referrer der Anfrage festgelegt (z. B. `client`, `no-referrer` oder eine URL).
 
 > [!NOTE]
 > Wenn der Wert von `referrer` `no-referrer` ist,
-> gibt er einen leeren String zurück.
+> wird eine leere Zeichenkette zurückgegeben.
 
 ## Wert
 
-Ein String, der den Referrer der Anfrage darstellt.
+Eine Zeichenkette, die den Referrer der Anfrage darstellt.
 
 ## Beispiele
 
-Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem
-[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), dann speichert das Skript den Referrer der Anfrage in einer Variable:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript), und speichern dann den Referrer der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

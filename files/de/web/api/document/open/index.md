@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.open()`**-Methode öffnet ein Dokument zum [Schreiben](/de/docs/Web/API/Document/write).
+Die **`Document.open()`**-Methode öffnet ein Dokument zum
+[Schreiben](/de/docs/Web/API/Document/write).
 
-Dies hat einige Nebeneffekte. Beispielsweise:
+Dies hat einige Nebeneffekte. Zum Beispiel:
 
-- Alle aktuell im Dokument, in Knoten innerhalb des Dokuments oder im Fenster des Dokuments registrierten Event-Listener werden entfernt.
-- Alle bestehenden Knoten werden aus dem Dokument entfernt.
+- Alle derzeit im Dokument, in Dokumentknoten oder im Fenster des Dokuments registrierten Event-Listener werden entfernt.
+- Alle vorhandenen Knoten werden aus dem Dokument entfernt.
 
 ## Syntax
 
@@ -27,11 +28,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine `Document` Objektinstanz.
+Eine `Document`-Objektinstanz.
 
 ## Beispiele
 
-Der folgende einfache Code öffnet das Dokument und ersetzt seinen Inhalt mit einer Reihe verschiedener HTML-Fragmente, bevor es wieder geschlossen wird.
+Der folgende einfache Code öffnet das Dokument und ersetzt seinen Inhalt durch eine Reihe unterschiedlicher HTML-Fragmente, bevor es wieder geschlossen wird.
 
 ```js
 document.open();
@@ -43,17 +44,21 @@ document.close();
 
 ## Hinweise
 
-Ein automatischer `document.open()`-Aufruf erfolgt, wenn [`document.write()`](/de/docs/Web/API/Document/write) nach dem Laden der Seite aufgerufen wird.
+Ein automatischer `document.open()`-Aufruf erfolgt, wenn
+[`document.write()`](/de/docs/Web/API/Document/write) nach dem Laden der Seite aufgerufen wird.
 
 ### Inhaltssicherheit
 
-Diese Methode unterliegt der gleichen [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies die Ursprungsquelle des Dokuments ändern würde.
+Diese Methode unterliegt derselben [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies dazu führen würde, dass der Ursprung des Dokuments geändert wird.
 
 ## Drei-Argumente document.open()
 
-Es gibt eine weniger bekannte und wenig genutzte Version von `document.open()` mit drei Argumenten, die ein Alias von [`Window.open()`](/de/docs/Web/API/Window/open) ist (siehe die entsprechende Seite für umfassende Details).
+Es gibt eine weniger bekannte und kaum genutzte Drei-Argumente-Version von
+`document.open()`, die ein Alias für [`Window.open()`](/de/docs/Web/API/Window/open) ist (siehe
+die entsprechende Seite für vollständige Details).
 
-Dieser Aufruf öffnet beispielsweise github.com in einem neuen Fenster, wobei der `Opener` auf `null` gesetzt ist:
+Dieser Aufruf öffnet beispielsweise github.com in einem neuen Fenster, wobei sein Opener auf
+`null` gesetzt ist:
 
 ```js
 document.open("https://www.github.com", "", "noopener=true");
@@ -61,15 +66,19 @@ document.open("https://www.github.com", "", "noopener=true");
 
 ## Zwei-Argumente document.open()
 
-Browser unterstützten früher ein `document.open()` mit zwei Argumenten und folgender Signatur:
+Browser unterstützten früher eine Zwei-Argumente-Version von `document.open()`, mit der
+folgenden Signatur:
 
 ```js
 document.open(type, replace);
 ```
 
-Wobei `type` den MIME-Typ der Daten spezifizierte, die Sie schreiben (z.B. `text/html`), und `replace`, wenn gesetzt (d.h. ein String `"replace"`), spezifizierte, dass der Historieneintrag für das neue Dokument den aktuellen Historieneintrag des Dokuments ersetzen würde, zu dem geschrieben wird.
+Dabei spezifizierte `type` den MIME-Typ der Daten, die Sie schreiben (z.B.
+`text/html`) und wenn `replace` gesetzt war (d.h. ein String von `"replace"`), wurde angegeben, dass der Verlaufs-Eintrag für das neue Dokument den aktuellen Verlaufs-Eintrag des Dokuments ersetzt, zu dem geschrieben wird.
 
-Diese Form ist nun veraltet; es wird keinen Fehler werfen, sondern stattdessen nur `document.open()` weiterleiten (d.h. es entspricht dem Ausführen ohne Argumente). Das Verhalten des Ersetzens der Historie tritt nun immer auf.
+Diese Form ist jetzt veraltet; sie wirft keinen Fehler, sondern leitet einfach an
+`document.open()` weiter (d.h. ist gleichbedeutend mit dem Ausführen ohne
+Argumente). Das Verhalten der Verlaufsersetzung erfolgt nun immer.
 
 ## Spezifikationen
 

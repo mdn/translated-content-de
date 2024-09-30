@@ -7,12 +7,12 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der immer dann ausgelöst wird, wenn WebAssembly einen [Trap](https://webassembly.github.io/spec/core/intro/overview.html#trap) spezifiziert.
+Das **`WebAssembly.RuntimeError`** Objekt ist der Fehlertyp, der ausgelöst wird, wann immer WebAssembly eine [Falle](https://webassembly.github.io/spec/core/intro/overview.html#trap) spezifiziert.
 
 ## Konstruktor
 
 - [`WebAssembly.RuntimeError()`](/de/docs/WebAssembly/JavaScript_interface/RuntimeError/RuntimeError)
-  - : Erstellt ein neues `WebAssembly.RuntimeError`-Objekt.
+  - : Erstellt ein neues `WebAssembly.RuntimeError` Objekt.
 
 ## Instanz-Eigenschaften
 
@@ -29,18 +29,18 @@ Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der immer dann ausg
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.RuntimeError.prototype.columnNumber")}} {{non-standard_inline}}
   - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.RuntimeError.prototype.stack")}} {{non-standard_inline}}
-  - : Stack-Trace. Übernommen von {{jsxref("Error")}}.
+  - : Stapelverfolgung. Übernommen von {{jsxref("Error")}}.
 
 ## Instanz-Methoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.RuntimeError.prototype.toString()")}}
-  - : Gibt eine Zeichenfolge zurück, die das angegebene `Error`-Objekt repräsentiert. Übernommen von {{jsxref("Error")}}.
+  - : Gibt eine Zeichenkette zurück, die das angegebene `Error` Objekt darstellt. Übernommen von {{jsxref("Error")}}.
 
 ## Beispiele
 
 ### Erstellen einer neuen RuntimeError-Instanz
 
-Der folgende Codeausschnitt erstellt eine neue `RuntimeError`-Instanz und gibt deren Details in der Konsole aus:
+Das folgende Beispiel erstellt eine neue `RuntimeError`-Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {
@@ -66,6 +66,6 @@ try {
 
 ## Siehe auch
 
-- Überblicksseite [WebAssembly](/de/docs/WebAssembly)
-- [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

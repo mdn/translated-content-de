@@ -1,5 +1,5 @@
 ---
-title: "ProgressEvent: ProgressEvent() Konstruktor"
+title: "ProgressEvent: ProgressEvent()-Konstruktor"
 short-title: ProgressEvent()
 slug: Web/API/ProgressEvent/ProgressEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}}
 
-Der **`ProgressEvent()`** Konstruktor gibt ein neues [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Objekt zurück, das den aktuellen Abschluss eines langen Prozesses darstellt.
+Der **`ProgressEvent()`**-Konstruktor gibt ein neues [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Objekt zurück, das den aktuellen Abschluss eines langen Prozesses darstellt.
 
 ## Syntax
 
@@ -20,16 +20,16 @@ new ProgressEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `loadstart`, `progress`, `abort`, `error`, `load`, `timeout` oder `loadend`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitive und Browser setzen es auf `loadstart`, `progress`, `abort`, `error`, `load`, `timeout` oder `loadend`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
     - `lengthComputable` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die gesamte zu erledigende Arbeit und die bereits erledigte Arbeit des zugrunde liegenden Prozesses berechenbar sind. Anders ausgedrückt, es zeigt an, ob der Fortschritt messbar ist oder nicht. Es ist standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, ob der Fortschritt messbar ist oder nicht. Standardmäßig `false`.
     - `loaded` {{optional_inline}}
-      - : Eine Zahl, die die von dem zugrunde liegenden Prozess bereits geleistete Arbeit darstellt. Das Verhältnis der geleisteten Arbeit kann mit dieser Eigenschaft und `ProgressEvent.total` berechnet werden. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Teil des Inhalts selbst dar, nicht jedoch die Header und andere Overheads. Es ist standardmäßig `0`.
+      - : Eine Zahl, die die bereits vom zugrunde liegenden Prozess geleistete Arbeit darstellt. Das Verhältnis der geleisteten Arbeit kann mit dieser Eigenschaft und `ProgressEvent.total` berechnet werden. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Teil des Inhalts selbst dar, nicht aber Header und anderen Overhead. Standardmäßig `0`.
     - `total` {{optional_inline}}
-      - : Eine Zahl, die die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess noch zu leisten hat. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Inhalt selbst dar, nicht jedoch die Header und andere Overheads. Es ist standardmäßig `0`.
+      - : Eine Zahl, die die gesamte Arbeit darstellt, die der zugrunde liegende Prozess gerade erbringt. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Inhalt selbst dar, nicht aber Header und anderen Overhead. Standardmäßig `0`.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Ein neues [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Objekt.
 
 ## Beispiel
 
-Das Beispiel zeigt, wie ein `ProgressEvent` mithilfe eines Konstruktors erstellt wird. Dies ist besonders nützlich, um den Fortschritt von Prozessen wie Datei-Uploads, Downloads oder anderen lang andauernden Aufgaben zu verfolgen.
+Das Beispiel zeigt, wie ein `ProgressEvent` mithilfe eines Konstruktors erstellt wird. Dies ist besonders nützlich zur Verfolgung des Fortschritts von Prozessen wie Datei-Uploads, Downloads oder anderen langwierigen Aufgaben.
 
 ```js
 function updateProgress(loaded, total) {
@@ -67,4 +67,4 @@ updateProgress(50, 100);
 
 ## Siehe auch
 
-- Die [`ProgressEvent`](/de/docs/Web/API/ProgressEvent) Schnittstelle, zu der es gehört.
+- Das [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Interface, zu dem es gehört.

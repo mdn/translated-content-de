@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `self`-Achse bezeichnet den Kontextknoten selbst. Sie kann als ein einzelner Punkt (`.`) abgekürzt werden.
+Der Self-Axis kennzeichnet den Kontextknoten selbst. Er kann als ein einzelner Punkt (`.`) abgekürzt werden.

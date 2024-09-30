@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("History API") }}
 
-Die schreibgeschützte **`state`**-Eigenschaft des [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)-Interfaces repräsentiert den Zustand, der gespeichert wurde, als das Ereignis erstellt wurde.
+Die **`state`**-Eigenschaft, die nur gelesen werden kann, des [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)-Interfaces repräsentiert den Zustand, der gespeichert wurde, als das Ereignis erstellt wurde.
 
 Praktisch ist es ein Wert, der durch den Aufruf von [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) bereitgestellt wird.
 
@@ -18,8 +18,7 @@ Ein Objekt oder `null`.
 
 ## Beispiele
 
-Der unten stehende Code protokolliert den Wert von `state`, wenn die
-[`pushState()`](/de/docs/Web/API/History/pushState)-Methode verwendet wird, um einen Wert in den Verlauf zu schieben.
+Der unten stehende Code protokolliert den Wert von `state`, wenn die Methode [`pushState()`](/de/docs/Web/API/History/pushState) verwendet wird, um einen Wert in den Verlauf zu übergeben.
 
 ```js
 // Log the state of

@@ -17,11 +17,11 @@ Der Standardwert ist 1.
 
 ## Wert
 
-Eine Zahl, die die maximale Anzahl der zurückgegebenen Alternativen für jedes Ergebnis darstellt.
+Eine Zahl, die die maximale Anzahl zurückgegebener Alternativen für jedes Ergebnis darstellt.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem Beispielprojekt [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 const grammar =

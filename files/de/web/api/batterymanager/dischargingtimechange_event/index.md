@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`dischargingtimechange`**-Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces wird ausgelöst, wenn die [`dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime)-Eigenschaft der Batterie aktualisiert wird.
+Das **`dischargingtimechange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Schnittstelle wird ausgelöst, wenn die [`dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime)-Eigenschaft des Akkus aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("dischargingtimechange", (event) => { })

@@ -1,5 +1,5 @@
 ---
-title: "RTCStatsReport: has()-Methode"
+title: "RTCStatsReport: has() Methode"
 short-title: has()
 slug: Web/API/RTCStatsReport/has
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`has()`**-Methode des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Interfaces gibt einen Boolean-Wert zurück, der angibt, ob ein Bericht ein Statistik-Wörterbuch mit der angegebenen ID enthält.
+Die **`has()`**-Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein Bericht ein Statistik-Wörterbuch mit der angegebenen ID enthält.
 
-Die Methode entspricht ansonsten der {{jsxref("Map.prototype.has()")}}.
+Die Methode funktioniert ansonsten genauso wie {{jsxref("Map.prototype.has()")}}.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ has(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID eines Statistik-Objekts enthält, das möglicherweise in diesem `RTCStatsReport` vorhanden ist.
+  - : Ein String, der die ID eines Statistikobjekts enthält, das in diesem `RTCStatsReport` vorhanden sein könnte.
 
 ### Rückgabewert
 

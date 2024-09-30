@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`remove()`** Methode von [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den Text, der im Knoten enthalten ist.
+Die **`remove()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den im Knoten enthaltenen Text.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ const textnode = span.nextSibling;
 textnode.remove(); // Removes the text
 ```
 
-{{EmbedLiveSample("Example", "100%", 50)}}
+{{EmbedLiveSample("Beispiel", "100%", 50)}}
 
 ## Spezifikationen
 

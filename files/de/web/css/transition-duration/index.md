@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`transition-duration`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Dauer fest, die eine Übergangsanimation benötigt, um abgeschlossen zu werden. Standardmäßig beträgt der Wert `0s`, was bedeutet, dass keine Animation erfolgt.
+Die **`transition-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Dauer fest, die eine Übergangsanimation zur Fertigstellung benötigen soll. Standardmäßig ist der Wert `0s`, was bedeutet, dass keine Animation stattfindet.
 
 {{EmbedInteractiveExample("pages/css/transition-duration.html")}}
 
-Sie können mehrere Dauern angeben; jede Dauer wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{ cssxref("transition-property") }} Eigenschaft spezifiziert wurde, die als Masterliste fungiert. Wenn die Anzahl der angegebenen Dauern geringer ist als in der Masterliste, wiederholt der User-Agent die Liste der Dauern. Wenn die Anzahl der angegebenen Dauern größer ist als in der Masterliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
+Sie können mehrere Dauern angeben; jede Dauer wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{ cssxref("transition-property") }} Eigenschaft, die als Hauptliste fungiert, spezifiziert ist. Wenn die Anzahl der angegebenen Dauern geringer ist als in der Hauptliste, wiederholt der Benutzeragent die Liste der Dauern. Wenn die Anzahl der angegebenen Dauern größer ist als in der Hauptliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration valide.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ transition-duration: unset;
 ### Werte
 
 - `<time>`
-  - : Ist ein {{cssxref("&lt;time&gt;")}}, das die Zeitdauer angibt, die der Übergang vom alten Wert einer Eigenschaft zum neuen Wert benötigt. Eine Zeitdauer von `0s` zeigt an, dass kein Übergang stattfindet, also der Wechsel zwischen den zwei Zuständen sofort erfolgt. Ein negativer Wert für die Zeit macht die Deklaration ungültig.
+  - : Ist ein {{cssxref("&lt;time&gt;")}}, der die Zeitdauer bestimmt, die der Übergang vom alten Wert einer Eigenschaft zum neuen Wert in Anspruch nehmen soll. Eine Zeit von `0s` bedeutet, dass kein Übergang stattfinden wird, das heißt, der Wechsel zwischen den beiden Zuständen erfolgt sofort. Ein negativer Wert für die Zeit macht die Deklaration ungültig.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ transition-duration: unset;
 
 ## Beispiele
 
-### Beispiel mit unterschiedlichen Dauern
+### Beispiel, das verschiedene Dauern zeigt
 
 #### HTML
 

@@ -1,5 +1,5 @@
 ---
-title: "FormData: keys()-Methode"
+title: "FormData: keys() Methode"
 short-title: keys()
 slug: Web/API/FormData/keys
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.keys()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüsselnamen der [`FormData`](/de/docs/Web/API/FormData) iteriert. Die Schlüsselnamen sind Zeichenfolgen.
+Die **`FormData.keys()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der über alle im [`FormData`](/de/docs/Web/API/FormData) enthaltenen Schlüssel iteriert. Die Schlüssel sind Strings.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlüsselnamen von [`FormData`](/de/docs/Web/API/FormData).
+Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlüssel von [`FormData`](/de/docs/Web/API/FormData).
 
 ## Beispiele
 

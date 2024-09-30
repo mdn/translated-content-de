@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`noModule`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein boolescher Wert, der angibt, ob das Skript in Browsern ausgeführt werden soll, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen. Praktisch kann dies verwendet werden, um älteren Browsern, die keine JavaScript-Module unterstützen, Fallback-Skripte bereitzustellen.
+Die **`noModule`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist ein boolescher Wert, der angibt, ob das Skript in Browsern ausgeführt werden soll, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen. Praktisch kann dies verwendet werden, um älteren Browsern, die keine JavaScript-Module unterstützen, Fallback-Skripts bereitzustellen.
 
-Es spiegelt das `nomodule`-Attribut des {{HTMLElement("script")}}-Elements wider.
+Sie spiegelt das `nomodule`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein boolescher Wert, `true` bedeutet, dass das Skript in Browsern, die ES-Module unterstützen, nicht ausgeführt werden soll, `false` andernfalls.
+Ein boolescher Wert: `true` bedeutet, dass das Skript in Browsern, die ES-Module unterstützen, nicht ausgeführt werden soll, andernfalls `false`.
 
 ## Beispiele
 

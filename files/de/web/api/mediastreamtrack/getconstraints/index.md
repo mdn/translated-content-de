@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getConstraints()`**-Methode des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt zurück, welches die zuletzt für den Track mit einem vorherigen Aufruf von [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegten Einschränkungen enthält. Diese Einschränkungen geben Werte und Wertbereiche an, die die Website oder Anwendung als erforderlich oder akzeptabel für die enthaltenen beeinflussbaren Eigenschaften spezifiziert hat.
+Die **`getConstraints()`**-Methode der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt zurück, das die zuletzt für den Track festgelegten Einschränkungen enthält, welche durch einen vorherigen Aufruf von [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) definiert wurden. Diese Einschränkungen geben Werte und Wertbereiche an, die die Website oder Anwendung als erforderlich oder akzeptabel für die enthaltenen Einschränkungs-Eigenschaften festgelegt hat.
 
-Einschränkungen können verwendet werden, um sicherzustellen, dass die Medien bestimmte von Ihnen bevorzugte Richtlinien erfüllen. Beispielsweise bevorzugen Sie möglicherweise hochauflösendes Video, verlangen jedoch, dass die Bildrate etwas niedriger ist, um die Datenrate niedrig genug zu halten, um das Netzwerk nicht zu überlasten. Einschränkungen können auch ideale und/oder akzeptable Größen oder Größenbereiche angeben. Siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für Details zur Arbeit mit beeinflussbaren Eigenschaften.
+Einschränkungen können verwendet werden, um sicherzustellen, dass die Medien bestimmte von Ihnen bevorzugte Richtlinien erfüllen. Beispielsweise bevorzugen Sie möglicherweise hochauflösendes Video, aber verlangen, dass die Bildrate etwas niedrig ist, um die Datenrate niedrig genug zu halten, damit das Netzwerk nicht überlastet wird. Einschränkungen können auch ideale und/oder akzeptable Größen oder Größenbereiche angeben. Siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für Details, wie mit einschränkbaren Eigenschaften gearbeitet wird.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt, das die beeinflussbaren Eigenschaften anzeigt, die von der Website oder App zuletzt mit [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegt wurden. Die Eigenschaften im zurückgegebenen Objekt sind in der gleichen Reihenfolge aufgeführt, in der sie gesetzt wurden, und es sind nur die Eigenschaften enthalten, die speziell von der Seite oder App festgelegt wurden.
+Ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt, das die von der Website oder App zuletzt gesetzten einschränkbaren Eigenschaften angibt, die über [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegt wurden. Die Eigenschaften im zurückgegebenen Objekt sind in der gleichen Reihenfolge aufgelistet, wie sie festgelegt wurden, und es sind nur Eigenschaften enthalten, die explizit von der Website oder App gesetzt wurden.
 
 > [!NOTE]
-> Der zurückgegebene Satz von Einschränkungen beschreibt nicht unbedingt den tatsächlichen Zustand der Medien. Selbst wenn eine der Einschränkungen nicht erfüllt werden konnte, werden sie als ursprünglich vom Code der Seite festgelegt im zurückgegebenen Objekt aufgenommen. Um die aktuell aktiven Einstellungen für alle beeinflussbaren Eigenschaften zu erhalten, sollten Sie stattdessen [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aufrufen.
+> Der zurückgegebene Satz von Einschränkungen beschreibt nicht unbedingt den aktuellen Zustand der Medien. Auch wenn keine der Einschränkungen erfüllt werden konnten, sind sie im zurückgegebenen Objekt so enthalten, wie ursprünglich vom Code der Website festgelegt. Um die aktuell aktiven Einstellungen für alle einschränkbaren Eigenschaften zu erhalten, sollten Sie stattdessen [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aufrufen.
 
 ## Beispiele
 
-Dieses Beispiel ruft die aktuellen Einschränkungen für einen Track ab, setzt den [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) und wendet die aktualisierten Einschränkungen an.
+Dieses Beispiel ermittelt die aktuellen Einschränkungen für einen Track, setzt den [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) und wendet die aktualisierten Einschränkungen an.
 
 ```js
 function switchCameras(track, camera) {

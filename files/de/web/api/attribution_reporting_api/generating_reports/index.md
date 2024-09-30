@@ -1,5 +1,5 @@
 ---
-title: Generieren von Attributionsberichten
+title: Generierung von Attributionsberichten
 slug: Web/API/Attribution_Reporting_API/Generating_reports
 l10n:
   sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
@@ -7,31 +7,31 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Attribution Reporting API")}}
 
-Dieser Artikel erklärt, wie Berichte der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) generiert werden — sowohl Attributionsberichte als auch Debug-Berichte — und wie Sie die generierten Berichte steuern können. Dies umfasst das Handling von Rauschen, das Priorisieren von Berichten, Filtern von Berichten und das Erstellen von Debug-Berichten.
+Dieser Artikel erklärt, wie Berichte der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) generiert werden – sowohl Attributionsberichte als auch Debug-Berichte – und wie Sie die generierten Berichte steuern können. Dazu gehört das Handhaben von Rauschen, das Priorisieren von Berichten, das Filtern von Berichten und das Generieren von Debug-Berichten.
 
-## Grundlegender Prozess
+## Basisprozess
 
-Wenn eine Übereinstimmung zwischen einem Trigger und einer Quelle auftritt, erstellt der Browser einen Bericht und sendet ihn über eine nicht-credentialisierte [`POST`](/de/docs/Web/HTTP/Methods/POST)-Anfrage an einen bestimmten Endpunkt im Reporting-Ursprung:
+Wenn eine Übereinstimmung zwischen einem Auslöser und einer Quelle auftritt, generiert der Browser einen Bericht und sendet diesen über eine nicht authentifizierte [`POST`](/de/docs/Web/HTTP/Methods/POST)-Anfrage an einen bestimmten Endpunkt im Reporting-Ursprung:
 
-- Für Ereignis-Ebenenberichte ist dies `<reporting-origin>/.well-known/attribution-reporting/report-event-attribution`.
+- Für ereignisbasierte Berichte ist dies `<reporting-origin>/.well-known/attribution-reporting/report-event-attribution`.
 - Für Zusammenfassungsberichte ist dies `<reporting-origin>/.well-known/attribution-reporting/report-aggregate-attribution`.
 
-Der `<reporting-origin>` wird mit dem Ursprung identisch sein, der die Quelle und den Trigger registriert hat.
+Der `<reporting-origin>` ist dasselbe wie derjenige, der die Quelle und den Auslöser registriert hat.
 
-Die Berichtsdaten sind in einer JSON-Struktur enthalten.
+Die Berichtsdatendaten sind in einer JSON-Struktur enthalten.
 
-## Ereignis-Ebenen-Berichte
+## Ereignisbasierte Berichte
 
-Ereignis-Ebenen-Berichte werden erzeugt und geplant, um am Ende ihres jeweiligen **Berichtsfensters** gesendet zu werden. Die Länge des Berichtsfensters wird durch die im [`"event_report_window"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_window) oder [`"event_report_windows"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_windows) gesetzten Werte im {{httpheader("Attribution-Reporting-Register-Source")}}-Header der Quelle bestimmt.
+Ereignisbasierte Berichte werden erstellt und geplant, um am Ende ihres **Berichtsfensters** gesendet zu werden. Die Länge des Berichtsfensters wird durch die im Feld [`"event_report_window"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_window) oder [`"event_report_windows"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_windows) festgelegten Werte im Header {{httpheader("Attribution-Reporting-Register-Source")}} der Quelle bestimmt.
 
-Falls keiner dieser Felder spezifiziert ist, fällt das Berichtsfenster auf die folgenden Standardwerte zurück:
+Wenn keines dieser Felder angegeben ist, wird das Berichtsfenster auf die folgenden Standardwerte zurückgesetzt:
 
-- Für [ereignisbasierte Quellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) endet das Standardberichtsfenster mit dem Ablaufdatum der Quelle, das im `Attribution-Reporting-Register-Source`-Feld [`"expiry"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#expiry) eingestellt ist. Dies endet standardmäßig 30 Tage nach der Registrierung, wenn nicht explizit gesetzt.
-- Für [navigationsbasierte Quellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) betragen die Standardberichtsfenster 2 Tage, 7 Tage und das Ablaufdatum der Quelle.
+- Für [ereignisbasierte Quellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) endet das Standardberichtsfenster mit dem Ablaufdatum der Quelle, das im `Attribution-Reporting-Register-Source` [`"expiry"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#expiry)-Feld festgelegt ist. Dies wird standardmäßig 30 Tage nach der Registrierung gesetzt, wenn es nicht explizit festgelegt wird.
+- Für [navigationsbasierte Quellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) sind die Standardberichtsfenster 2 Tage, 7 Tage und das `"expiry"` der Quelle.
 
-Siehe [Benutzerdefinierte Berichtsfenster](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/custom-report-windows) für weitere Details.
+Für weitere Details siehe [Benutzerdefinierte Berichtsfenster](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/custom-report-windows).
 
-Sobald ein Ereignis-Ebenen-Bericht am entsprechenden Endpunkt eingegangen ist, liegt es vollkommen beim Entwickler, wie die Daten verarbeitet, gespeichert und angezeigt werden. Ein typisches Ereignis-Ebenen-Bericht könnte so aussehen:
+Sobald ein ereignisbasierter Bericht am entsprechenden Endpunkt eingegangen ist, liegt es vollständig am Entwickler, wie die Daten verarbeitet, gespeichert und angezeigt werden. Ein typischer ereignisbasierter Bericht könnte so aussehen:
 
 ```json
 {
@@ -50,34 +50,34 @@ Sobald ein Ereignis-Ebenen-Bericht am entsprechenden Endpunkt eingegangen ist, l
 Die Eigenschaften sind wie folgt:
 
 - `"attribution_destination"`
-  - : Ein String oder ein Array von 2–3 Strings, abhängig davon, ob die Quelle mit mehreren Zielen registriert wurde oder nicht. Diese Strings repräsentieren die Attributions-["destination"](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#destination)-Website(n), die in der Quellenregistrierung über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Antwort-Header eingestellt wurden.
+  - : Ein String oder ein Array von 2–3 Strings, abhängig davon, ob die Quelle mit mehreren Zielen registriert wurde oder nicht. Diese Strings repräsentieren die Attributionsziel-`"destination"`-Seite(n), die in der Quellregistrierung über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Antwortheader festgelegt wurden.
 - `"source_event_id"`
-  - : Ein String, der die ID der Attributionsquelle darstellt. Dies entspricht der [`"source_event_id"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#source_event_id), die in der Quellenregistrierung gesetzt ist (über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Antwort-Header).
+  - : Ein String, der die Attributionsquellen-ID repräsentiert. Dieser entspricht der `"source_event_id"`, die in der Quellregistrierung (über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Antwortheader) festgelegt wird.
 - `"trigger_data"`
-  - : Ein String, der Daten repräsentiert, die vom Attributionstrigger stammen, der in der Trigger-Registrierung gesetzt wurde (die [`"trigger_data"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) über den zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}}-Antwort-Header eingestellt).
+  - : Ein String, der Daten repräsentiert, die vom Attributionstrigger stammen und in der Triggerregistrierung (die `"trigger_data"`, die über den zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}} Antwortheader festgelegt wurden) eingestellt wird.
 - `"report_id"`
-  - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht darstellt, um doppelte Zählung zu verhindern.
+  - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
 - `"source_type"`
-  - : Ein String, der entweder `"navigation"` oder `"event"` entspricht, was jeweils angibt, ob die zugehörige Attributionsquelle [navigationsbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) oder [ereignisbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) ist.
+  - : Ein String, der entweder `"navigation"` oder `"event"` entspricht, was darauf hinweist, ob die zugehörige Attributionsquelle [navigationsbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) oder [ereignisbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) ist.
 - `"randomized_trigger_rate"`
-  - : Eine Zufallszahl zwischen 0 und 1, die angibt, wie oft [Rauschen](#hinzufügen_von_rauschen_zu_berichten) für diese bestimmte Quellenkonfiguration angewendet wird.
+  - : Eine Zufallszahl zwischen 0 und 1, die anzeigt, wie oft [Rauschen](#hinzufügen_von_rauschen_zu_berichten) für diese bestimmte Quellenkonfiguration angewendet wird.
 - `"scheduled_report_time"`
-  - : Ein String, der die Anzahl der Sekunden ab dem Unix-Epoch angibt, bis der Browser den Bericht ursprünglich geplant hat (um Ungenauigkeiten zu vermeiden, die durch offline gemeldete Geräte verursacht werden).
+  - : Ein String, der die Anzahl von Sekunden seit der Unix-Epoche darstellt, bis der Browser den Bericht ursprünglich für den Versand geplant hatte (um Ungenauigkeiten aufgrund von Offline-Geräten, die verspätet berichten, zu vermeiden).
 - `"source_debug_key"` {{optional_inline}}
-  - : Ein 64-Bit-Unsigned-Integer, der den Debugging-Schlüssel für die Attributionsquelle darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Header [`"debug_key"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#debug_key) gesetzt wurde. Weitere Informationen finden Sie unter [Debug-Berichte](#debug-berichte).
+  - : Ein 64-Bit-unsigned Integer, der den Debug-Schlüssel für die Attributionsquelle darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Header's [`"debug_key"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#debug_key)-Feld gesetzt ist. Siehe [Debug-Berichte](#debug-berichte) für weitere Informationen.
 - `"trigger_debug_key"` {{optional_inline}}
-  - : Ein 64-Bit-Unsigned-Integer, der den Debugging-Schlüssel für den Attributionstrigger darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header `"debug_key"` gesetzt wurde. Weitere Informationen finden Sie unter [Debug-Berichte](#debug-berichte).
+  - : Ein 64-Bit-unsigned Integer, der den Debug-Schlüssel für den Attributionstrigger darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}} Header's `"debug_key"` Feld gesetzt ist. Siehe [Debug-Berichte](#debug-berichte) für weitere Informationen.
 
 ## Zusammenfassungsberichte
 
-Ein Zusammenfassungsbericht wird aus mehreren aggregierbaren Berichten erstellt, die am entsprechenden Endpunkt eingegangen sind, und dann [gepoolt](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/summary-reports-intro#batching), um sie von einem [Aggregationsdienst](https://developers.google.com/privacy-sandbox/private-advertising/aggregation-service) verarbeiten zu lassen. Wenn dies geschehen ist, liegt es vollständig beim Entwickler, wie die Daten verarbeitet, gespeichert, und angezeigt werden.
+Ein Zusammenfassungsbericht wird aus mehreren aggregierbaren Berichten erstellt, die am entsprechenden Endpunkt empfangen und dann [gebündelt](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/summary-reports-intro#batching) werden, um sie für die Verarbeitung durch einen [Aggregationsdienst](https://developers.google.com/privacy-sandbox/private-advertising/aggregation-service) vorzubereiten. Wenn dies erfolgt ist, liegt es völlig am Entwickler, wie die Daten verarbeitet, gespeichert und angezeigt werden.
 
-Ein aggregierbarer Bericht wird standardmäßig erstellt und geplant, um nach einer Interaktion mit einem Trigger gesendet zu werden, mit einer zufälligen Verzögerung, um die Zeiten zu verschleiern und die Privatsphäre zu verbessern. Für eine gegebene registrierte Attributionsquelle werden Attributionsquellenereignisse von der Registrierung bis zum Ablauf der Quelle aufgezeichnet - dies wird als **Berichtsfenster** bezeichnet.
+Ein aggregierbarer Bericht wird standardmäßig generiert und geplant, um nach der Interaktion mit einem Trigger mit einer zufälligen Verzögerung gesendet zu werden, um die Timings zu verschleiern und die Privatsphäre zu verbessern. Für eine gegebene registrierte Attributionsquelle werden Attributionsquellenereignisse von der Registrierung bis zum Ablauf der Quelle aufgezeichnet - dies wird als **Berichtsfenster** bezeichnet.
 
-Die Ablaufzeit wird durch den `expiry`-Wert im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Header definiert, der standardmäßig 30 Tage nach der Registrierung endet, wenn nicht explizit gesetzt. Beachten Sie, dass die Länge des Berichtsfensters weiter angepasst werden kann, indem ein `aggregatable_report_window`-Wert im `Attribution-Reporting-Register-Source`-Header gesetzt wird. Weitere Details finden Sie unter [Benutzerdefinierte Berichtsfenster](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/custom-report-windows).
+Die Ablaufzeit wird durch den `expiry`-Wert festgelegt, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Header gesetzt ist, welcher standardmäßig 30 Tage nach der Registrierung beträgt, wenn er nicht explizit festgelegt wird. Beachten Sie, dass die Länge des Berichtsfensters durch Setzen eines `aggregatable_report_window`-Werts im `Attribution-Reporting-Register-Source` Header weiter modifiziert werden kann. Siehe [Benutzerdefinierte Berichtsfenster](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/custom-report-windows) für weitere Details.
 
 > [!NOTE]
-> Um die Privatsphäre der Benutzer weiter zu schützen, haben die Zusammenfassungsberichtswerte, die mit jeder Attributionsquelle verbunden sind, einen begrenzten Gesamtwert — dies wird als **Beitragsbudget** bezeichnet. Dieser Wert kann je nach Implementierung der API variieren; in Chrome beträgt er 65.536. Alle Umrechnungen, die Berichte erzeugen würden, die Werte über diesem Limit hinzufügen, werden nicht aufgezeichnet. Stellen Sie sicher, dass Sie das Budget im Auge behalten und es zwischen den verschiedenen Metriken, die Sie messen möchten, teilen.
+> Um den Schutz der Benutzerprivatsphäre weiter zu erhöhen, haben die mit jeder Attributionsquelle verbundenen Werte im Zusammenfassungsbericht einen begrenzten Gesamtwert – dies wird als **Beitragsbudget** bezeichnet. Dieser Wert kann bei verschiedenen Implementierungen der API unterschiedlich sein; in Chrome beträgt er 65.536. Alle Konversionen, die Berichte mit Werten über diesem Limit erzeugen würden, werden nicht erfasst. Stellen Sie sicher, dass Sie das Budget im Auge behalten und es zwischen den verschiedenen Metriken, die Sie messen möchten, aufteilen.
 
 Ein typischer aggregierbarer Bericht könnte so aussehen:
 
@@ -100,28 +100,28 @@ Ein typischer aggregierbarer Bericht könnte so aussehen:
 Die Eigenschaften sind wie folgt:
 
 - `"shared_info"`
-  - : Dies ist ein serialisiertes JSON-Objekt, das Informationen bereitstellt, die ein Aggregationsdienst verwendet, um einen Zusammenfassungsbericht zusammenzustellen. Diese Daten werden [verschlüsselt](/de/docs/Glossary/Encryption) mit [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption), um Manipulationen zu verhindern. Die folgenden Eigenschaften sind im serialisierten String dargestellt:
+  - : Dies ist ein serialisiertes JSON-Objekt, das Informationen bereitstellt, die ein Aggregationsdienst verwendet, um einen Zusammenfassungsbericht zu erstellen. Diese Daten sind [verschlüsselt](/de/docs/Glossary/Encryption) unter Verwendung von [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption), um Manipulationen zu verhindern. Die folgenden Eigenschaften sind in der serialisierten Zeichenkette dargestellt:
     - `"api"`
-      - : Ein enumerierter Wert, der die API darstellt, die die Berichtserstellung ausgelöst hat. Derzeit wird dieser immer gleich `"attribution-reporting"` sein, könnte aber in Zukunft mit zusätzlichen Werten erweitert werden, um andere APIs zu unterstützen.
+      - : Ein aufgezählter Wert, der die API repräsentiert, die die Berichterstellung ausgelöst hat. Derzeit wird dies immer gleich `"attribution-reporting"` sein, kann jedoch mit zusätzlichen Werten erweitert werden, um in Zukunft andere APIs zu unterstützen.
     - `"attribution_destination"`
-      - : Ein String, der die Attributions-[`"destination"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#destination) URL darstellt, die in der Quellenregistrierung gesetzt wurde (über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Antwort-Header).
+      - : Ein String, der die Attributionsziel-URL [`"destination"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#destination) darstellt, die in der Quellregistrierung (über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Antwortheader) festgelegt wurde.
     - `"report_id"`
-      - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht darstellt, um doppelte Zählung zu verhindern.
+      - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
     - `"reporting_origin"`
-      - : Der Ursprung, der die Berichtserstellung ausgelöst hat.
+      - : Der Ursprung, der die Berichterstellung ausgelöst hat.
     - `"scheduled_report_time"`
-      - : Ein String, der die Anzahl der Sekunden ab dem Unix-Epoch angibt, bis der Browser den Bericht ursprünglich geplant hat (um Ungenauigkeiten zu vermeiden, die durch offline gemeldete Geräte verursacht werden).
+      - : Ein String, der die Anzahl von Sekunden seit der Unix-Epoche darstellt, bis der Browser den Bericht ursprünglich für den Versand geplant hatte (um Ungenauigkeiten aufgrund von Offline-Geräten, die verspätet berichten, zu vermeiden).
     - `"source_registration_time"`
-      - : Ein String, der die Anzahl der Sekunden ab dem Unix-Epoch angibt, bis die Attributionsquelle registriert wurde, auf einen ganzen Tag abgerundet.
+      - : Ein String, der die Anzahl von Sekunden seit der Unix-Epoche darstellt, bis die Attributionsquelle registriert wurde, abgerundet auf einen ganzen Tag.
     - `"version"`
-      - : Ein String, der die Version der API darstellt, die verwendet wurde, um den Bericht zu erstellen.
+      - : Ein String, der die Version der API darstellt, die zur Generierung des Berichts verwendet wurde.
 - `"aggregation_service_payloads"`
 
-  - : Ein Array von Objekten, die Nutzlastobjekte darstellen, die die Histogramm-Beiträge enthalten, die der Aggregationsdienst verwendet, um die in dem Bericht enthaltenen Daten zu erstellen. Derzeit wird nur eine einzelne Nutzlast pro Bericht unterstützt, die vom Browser konfiguriert wird. In Zukunft könnten mehrere, anpassbare Nutzlasten unterstützt werden. Jedes Nutzlastobjekt kann die folgenden Eigenschaften enthalten:
+  - : Ein Array von Objekten, die Nutzlastobjekte darstellen, die die Histogrammbeiträge enthalten, die vom Aggregationsdienst verwendet werden, um die im Bericht enthaltenen Daten zusammenzustellen. Derzeit wird nur eine einzelne Nutzlast pro Bericht unterstützt, die vom Browser konfiguriert wird. In Zukunft können multiple, anpassbare Nutzlasten unterstützt werden. Jedes Nutzlastobjekt kann folgende Eigenschaften enthalten:
 
     - `"payload"`
 
-      - : Eine [CBOR](https://cbor.io/)-Map, die über [HPKE](https://datatracker.ietf.org/doc/rfc9180/) verschlüsselt und dann [Base64](/de/docs/Glossary/Base64) kodiert wird, mit der folgenden Struktur:
+      - : Eine [CBOR](https://cbor.io/) Karte, die über [HPKE](https://datatracker.ietf.org/doc/rfc9180/) verschlüsselt und dann [base64](/de/docs/Glossary/Base64)-codiert ist, mit folgender Struktur:
 
         ```js
         {
@@ -134,55 +134,55 @@ Die Eigenschaften sind wie folgt:
         ```
 
     - `"key_id"`
-      - : Ein String, der den öffentlichen Schlüssel identifiziert, der verwendet wurde, um die Nutzlast zu verschlüsseln.
+      - : Ein String, der den öffentlichen Schlüssel identifiziert, der zur Verschlüsselung der Nutzlast verwendet wird.
     - `"debug_cleartext_payload"` {{optional_inline}}
       - : Optionale Debugging-Informationen.
 
 - `"aggregation_coordinator_origin"`
   - : Die Bereitstellungsoption für den Aggregationsdienst.
 - `"source_debug_key"` {{optional_inline}}
-  - : Ein 64-Bit-Unsigned-Integer, der den Debugging-Schlüssel für die Attributionsquelle darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Header [`"debug_key"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#debug_key) gesetzt wurde. Weitere Informationen finden Sie unter [Debug-Berichte](#debug-berichte).
+  - : Ein 64-Bit-unsigned Integer, der den Debug-Schlüssel für die Attributionsquelle darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Header's [`"debug_key"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#debug_key)-Feld gesetzt ist. Siehe [Debug-Berichte](#debug-berichte) für weitere Informationen.
 - `"trigger_debug_key"` {{optional_inline}}
-  - : Ein 64-Bit-Unsigned-Integer, der den Debugging-Schlüssel für den Attributionstrigger darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header `"debug_key"` gesetzt wurde. Weitere Informationen finden Sie unter [Debug-Berichte](#debug-berichte).
+  - : Ein 64-Bit-unsigned Integer, der den Debug-Schlüssel für den Attributionstrigger darstellt. Dieser spiegelt den Wert wider, der im zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}} Header's `"debug_key"` Feld gesetzt ist. Siehe [Debug-Berichte](#debug-berichte) für weitere Informationen.
 
 ## Hinzufügen von Rauschen zu Berichten
 
-Rauschen wird den Berichten hinzugefügt, um die Ausgabe, die mit einer bestimmten Quelle verbunden ist, zu verschleiern und damit die Privatsphäre des Benutzers zu schützen. Die genauen Quelldaten können nicht identifiziert und auf einzelne Benutzer zurückgeführt werden, aber die insgesamt aus den Daten gewonnenen Muster werden immer noch die gleiche Bedeutung liefern.
+Rauschen wird zu Berichten hinzugefügt, um die Ausgabe, die einer bestimmten Quelle zugeordnet ist, zu verschleiern und dadurch die Benutzerprivatsphäre zu schützen. Die genauen Quelldaten können nicht identifiziert und einzelnen Benutzern zugewiesen werden, aber die Gesamtmuster aus den Daten behalten dieselbe Bedeutung.
 
-Für Informationen darüber, wie Rauschen bei der Attributionsberichterstellung funktioniert, siehe:
+Weitere Informationen darüber, wie Rauschen in der Attributionsberichterstattung funktioniert, finden Sie unter:
 
 - [Verstehen von Rauschen in Zusammenfassungsberichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/understanding-noise).
-- [Datenbeschränkungen und Rauschen](https://github.com/WICG/attribution-reporting-api/blob/main/EVENT.md#data-limits-and-noise)
+- [Datenbegrenzungen und Rauschen](https://github.com/WICG/attribution-reporting-api/blob/main/EVENT.md#data-limits-and-noise)
 - [Arbeiten mit Rauschen](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/working-with-noise)
 
-## Prioritäten und Grenzen von Berichten
+## Berichtsprioritäten und -limits
 
-Standardmäßig haben alle Attributionsquellen die gleiche Priorität, und das Attributionsmodell ist last-touch, was bedeutet, dass eine Konversion der neuesten übereinstimmenden Quellen-Ereignis zugeordnet wird. Sowohl für Ereignis-Ebenen- als auch für aggregierbare Berichte können Sie die Quellenpriorität ändern, indem Sie einen neuen Wert für das `"priority"`-Feld im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}}-Header festlegen. Der Standardwert ist `0`; wenn Sie einen `"priority"`-Wert von `1` auf einer bestimmten Quelle einstellen, wird diese Quelle zuerst abgeglichen, vor allen Prioritäts-`0`-Quellen. Quellen mit `"priority": "2"` werden vor `"priority": "1"`-Quellen abgeglichen, usw.
+Standardmäßig haben alle Attributionsquellen die gleiche Priorität, und das Attributionsmodell ist last-touch, was bedeutet, dass eine Konversion dem jüngsten übereinstimmenden Quellenereignis zugeordnet wird. Für sowohl ereignisbasierte als auch aggregierbare Berichte können Sie die Quellenpriorität ändern, indem Sie einen neuen Wert für das `"priority"`-Feld im zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Header festlegen. Der Standardwert ist `0`; Wenn Sie einen `"priority"`-Wert von `1` auf einer bestimmten Quelle festlegen, wird diese Quelle zuerst übereinstimmt, vor allen Quellen der Priorität `0`. Quellen mit `"priority": "2"` sind zuerst vor Quellen der `"priority": "1"` usw. zugeordnet.
 
-Attribution-Trigger-Prioritäten funktionieren auf die gleiche Weise; Sie können auch Trigger-Prioritäten festlegen, indem Sie ein `"priority"`-Feld zum zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header hinzufügen, jedoch nur für Ereignis-Ebenen-Berichte.
+Die Prioritäten von Attributionstriggern funktionieren auf die gleiche Weise; Sie können auch Triggerprioritäten festlegen, indem Sie ein `"priority"`-Feld im zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}} Header hinzufügen, jedoch nur für ereignisbasierte Berichte.
 
 Verschiedene Quelltypen haben unterschiedliche Standardlimits:
 
-- [Navigationsbasierte Attributionsquellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) haben standardmäßig ein Drei-Bericht-Limit. Zum Beispiel, wenn ein Benutzer auf eine Anzeige klickt und viermal konvertiert: Sie besuchen die Homepage der Werbeseite, dann eine Produktseite, melden sich für den Newsletter an und tätigen schließlich einen Kauf. Der Kaufbericht würde fallengelassen, da es von der vierten Umwandlung kommt.
-- [Ereignisbasierte Attributionsquellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) haben standardmäßig ein Ein-Bericht-Limit.
+- [Navigationsbasierte Attributionsquellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) haben standardmäßig ein Limit von drei Berichten. Beispiel: Ein Benutzer klickt auf eine Anzeige und konvertiert viermal: Er besucht die Startseite der Werbeseite, besucht dann eine Produktseite, abonniert den Newsletter und tätigt schließlich einen Kauf. Der Kaufbericht würde storniert, da er aus der vierten Konversion stammt.
+- [Ereignisbasierte Attributionsquellen](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) haben standardmäßig ein Limit von einem Bericht.
 
 > [!NOTE]
-> Das Berichtslimit kann angepasst werden, indem Sie eine andere Anzahl von `"end_times"` in den [`"event_report_windows"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_windows)-Feldern im zugehörigen `Attribution-Reporting-Register-Source`-Header festlegen.
+> Das Berichtslimit kann angepasst werden, indem eine andere Anzahl von `"end_times"` in den [`"event_report_windows"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#event_report_windows) Feldern des zugehörigen `Attribution-Reporting-Register-Source` Headers festgelegt wird.
 
-Wenn eine Attribution für ein gegebenes Quellenereignis ausgelöst wird und die maximale Anzahl von Attributions (drei für Klicks, eine für Bilder/Skripte) für diese Quelle erreicht wurde, wird der Browser:
+Wenn eine Attribution für ein bestimmtes Quellenereignis ausgelöst wird und die maximale Anzahl von Attributierungen (drei für Klicks, eine für Bilder/Skripte) für diese Quelle erreicht wurde, wird der Browser:
 
-- Die Priorität des neuen Berichts mit den Prioritäten der vorhandenen geplanten Berichte für dieselbe Quelle vergleichen.
+- Die Priorität des neuen Berichts mit den Prioritäten der bereits geplanten Berichte für diese Quelle vergleichen.
 - Den Bericht mit der niedrigsten Priorität löschen, um den neuen Bericht stattdessen zu planen. Wenn der neue Bericht der mit der niedrigsten Priorität ist, wird er ignoriert und Sie erhalten ihn nicht.
 
-Wenn keine Prioritäten gesetzt sind, fällt der Browser auf sein Standardverhalten zurück: Jede Umwandlung, die nach der dritten Umwandlung für Klicks oder der ersten Umwandlung für Ansichten auftritt, wird fallengelassen.
+Wenn keine Prioritäten gesetzt sind, fällt der Browser auf sein Standardverhalten zurück: Konversionen, die nach der dritten Konversion für Klicks oder der ersten Konversion für Ansichten auftreten, werden fallengelassen.
 
 ## Filter
 
-Sie können Regeln definieren, welche Umwandlungen Berichte erzeugen, indem Sie Filter verwenden. Zum Beispiel könnten Sie wählen, nur Umwandlungen für eine spezifische Produktkategorie zu zählen und Umwandlungen für andere Kategorien herauszufiltern.
+Sie können Regeln festlegen, welche Konversionen Berichte erzeugen, indem Sie Filter verwenden. Beispiel: Sie könnten sich entscheiden, nur Konversionen für eine bestimmte Produktkategorie zu zählen und Konversionen für andere Kategorien herauszufiltern.
 
 Um Filter zu deklarieren:
 
-1. Fügen Sie bei der Quellenregistrierung ein `filter_data`-Feld dem {{httpheader("Attribution-Reporting-Register-Source")}}-Header hinzu, das die Filter-Schlüssel definiert, die Sie verwenden werden, um die Umwandlungen auf der Trigger-Seite zu filtern. Diese sind vollständig kundenspezifische Felder. Zum Beispiel, um nur Umwandlungen auf bestimmten Subdomains und für bestimmte Produkte zu spezifizieren:
+1. Fügen Sie bei der Quellregistrierung ein `filter_data`-Feld zum {{httpheader("Attribution-Reporting-Register-Source")}} Header hinzu, das die Filters keys definiert, die Sie verwenden, um die Konversionen auf der Triggerseite zu filtern. Dies sind vollständig benutzerdefinierte Felder. Um beispielsweise nur Konversionen bei bestimmten Subdomains und für bestimmte Produkte anzugeben:
 
    ```json
    "filter_data": {
@@ -191,7 +191,7 @@ Um Filter zu deklarieren:
    }
    ```
 
-2. Fügen Sie bei der Trigger-Registrierung ein `filters`-Feld dem {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header hinzu. Das folgende Beispiel führt dazu, dass Trigger-Interaktionen sich mit der obigen Quellenregistrierung abgleichen, da beide das `"electronics.megastore"` `"conversion_subdomain"`-Feld enthalten. Der `"directory"`-Filter wird hingegen ignoriert, wenn ein Abgleich versucht wird, da er nicht in der obigen Quellenregistrierung enthalten war.
+2. Fügen Sie bei der Triggerregistrierung ein `filters`-Feld zum {{httpheader("Attribution-Reporting-Register-Trigger")}} Header hinzu. Das folgende Beispiel führt dazu, dass Triggerinteraktionen mit der obigen Quellregistrierung übereinstimmen, da beide das `"electronics.megastore"` `"conversion_subdomain"`-Feld enthalten. Der `"directory"`-Filter wird hingegen bei einem Übereinstimmungsversuch ignoriert, da er nicht in der obigen Quellregistrierung enthalten war.
 
    ```json
    "filters": {
@@ -200,13 +200,13 @@ Um Filter zu deklarieren:
    }
    ```
 
-Wenn die `"filter_data"` und `"filters"`-Felder übereinstimmende Unterfelder enthalten (wie `"conversion_subdomain"` im obigen Beispiel), aber keine der Werte der Unterfelder übereinstimmen, wird der Trigger ignoriert, was zu keinem Abgleich führt.
+Wenn die `"filter_data"`- und `"filters"`-Felder übereinstimmende Unterfelder enthalten (wie `"conversion_subdomain"` im obigen Beispiel), aber keiner der Werte des Unterfelds übereinstimmt, wird der Trigger ignoriert, was zu keiner Übereinstimmung führt.
 
-### Filtern von Trigger-Daten
+### Filtern von Triggerdaten
 
-Das `event_trigger_data`-Feld im {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header kann erweitert werden, um selektives Filtern durchzuführen, um `trigger_data`, `priority` oder `deduplication_key` basierend auf `filter_data` zu setzen, das im {{httpheader("Attribution-Reporting-Register-Source")}}-Header definiert ist.
+Das `event_trigger_data`-Feld im {{httpheader("Attribution-Reporting-Register-Trigger")}} Header kann erweitert werden, um selektives Filtern auszuführen, um `trigger_data`, `priority` oder `deduplication_key` auf Grundlage von `filter_data` zu setzen, die im {{httpheader("Attribution-Reporting-Register-Source")}} Header definiert sind.
 
-Zum Beispiel:
+Beispiel:
 
 ```json
 {
@@ -223,11 +223,11 @@ Zum Beispiel:
 }
 ```
 
-> **Note:** `"source_type"` ist ein automatisch ausgefülltes Feld, das auf den `"filter_data"` der Quelle verfügbar ist.
+> **Hinweis:** `"source_type"` ist ein automatisch befülltes Feld, das in der `"filter_data"` der Quelle verfügbar ist.
 
-> **Note:** `not_filters`, die mit Negation filtern, werden ebenfalls unterstützt.
+> **Hinweis:** `not_filters`, die mit Negation filtern, werden ebenfalls unterstützt.
 
-In diesem Kontext kann `filters` ein Objekt oder ein Array von Objekten sein. Wenn eine Liste angegeben wird, muss nur ein Dictionary übereinstimmen, damit der Trigger berücksichtigt wird.
+In diesem Kontext kann `filters` ein Objekt oder ein Array von Objekten sein. Wenn eine Liste angegeben wird, muss nur ein Wörterbuch übereinstimmen, damit der Trigger berücksichtigt wird.
 
 ```json
 {
@@ -249,31 +249,31 @@ In diesem Kontext kann `filters` ein Objekt oder ein Array von Objekten sein. We
 }
 ```
 
-Wenn die Filter für keines der Ereignistrigger übereinstimmen, wird kein Ereignis-Ebenen-Bericht erstellt. Wenn die Filter für mehrere Ereignistrigger übereinstimmen, wird der erste übereinstimmende Ereignistrigger verwendet.
+Wenn die Filter für keine der Ereigtrigger übereinstimmen, wird kein ereignisbasierter Bericht erstellt. Wenn die Filter für mehrere Ereigtrigger übereinstimmen, wird der erste übereinstimmende Ereigtrigger verwendet.
 
 ## Debug-Berichte
 
-Sie können Debug-Berichte aktivieren, um Fehlerbehebungsinformationen über Ihre Attributionsberichte zurückzugeben. Diese können beispielsweise verwendet werden, um zu prüfen, ob Ihre Einrichtung ordnungsgemäß funktioniert und Lücken in den Messergebnissen zwischen Ihrer alten cookie-basierten Implementierung und Ihrer neuen Attribution Reporting-Implementierung zu verstehen. Debug-Berichte werden sofort gesendet; sie unterliegen nicht dem gleichen Zeitplan wie Ereignis-Ebenen- und Zusammenfassungsberichte.
+Sie können Debug-Berichte aktivieren, um Troubleshooting-Informationen über Ihre Attributionsberichte zurückzugeben. Diese können beispielsweise verwendet werden, um zu überprüfen, ob Ihre Einrichtung ordnungsgemäß funktioniert, und um Lücken in den Messergebnissen zwischen Ihrem alten cookie-basierten und Ihrem neuen Attribution Reporting Implementierung zu verstehen. Debug-Berichte werden sofort gesendet; sie unterliegen nicht demselben Zeitplan wie ereignisbasierte und Zusammenfassungsberichte.
 
 Es gibt zwei verschiedene Arten von Debug-Berichten:
 
-- **Erfolgs-Debug-Berichte** verfolgen die erfolgreiche Erstellung eines spezifischen Attributionsberichts. Erfolgs-Debug-Berichte werden erstellt und gesendet, sobald der entsprechende Trigger registriert wird.
-- **Ausführliche Debug-Berichte** geben Ihnen mehr Einsicht in die Attributionsquellen- und Attributionstrigger-Ereignisse, die mit einem Attributionsbericht verbunden sind. Sie ermöglichen es Ihnen sicherzustellen, dass Quellen erfolgreich registriert wurden, oder fehlende Berichte zu verfolgen und zu bestimmen, warum sie fehlen (z.B. aufgrund eines Fehlers bei der Registrierung des Quellen- oder Triggerereignisses oder eines Fehlers beim Senden oder Erstellen des Berichts). Ausführliche Debug-Berichte werden sofort bei der Registrierung der Quelle oder des Triggers gesendet.
+- **Erfolgsdebugberichte** verfolgen die erfolgreiche Erstellung eines bestimmten Attributionsberichts. Erfolgsdebugberichte werden generiert und gesendet, sobald der entsprechende Trigger registriert wird.
+- **Ausführliche Debugberichte** geben Ihnen mehr Einblick in die Attributionsquellen und Attributionstriggerereignisse, die mit einem Attributionsbericht verbunden sind. Sie ermöglichen es Ihnen, sicherzustellen, dass Quellen erfolgreich registriert wurden, oder fehlende Berichte zu verfolgen und zu bestimmen, warum sie fehlen (zum Beispiel aufgrund eines Fehlers bei der Quellen- oder Triggerereignisregistrierung oder eines Fehlers beim Senden oder Generieren des Berichts). Ausführliche Debugberichte werden unmittelbar bei Quellen- oder Triggerregistrierung gesendet.
 
 > [!NOTE]
-> Um Debug-Berichte zu verwenden, muss der Reporting-Ursprung ein Cookie setzen. Wenn der zum Empfangen der Berichte konfigurierte Ursprung ein Dritter ist, wird dieses Cookie ein [Drittanbieter-Cookie](/de/docs/Web/Privacy/Third-party_cookies) sein, was bedeutet, dass Debug-Berichte in Browsern, in denen Drittanbieter-Cookies deaktiviert oder nicht verfügbar sind, nicht verfügbar sein werden.
+> Um Debugberichte zu verwenden, muss der Reporting-Ursprung ein Cookie setzen. Wenn der Ursprung, der konfiguriert ist, Berichte zu empfangen, ein Drittanbieter ist, wird dieses Cookie ein [Third-Party Cookie](/de/docs/Web/Privacy/Third-party_cookies) sein, was bedeutet, dass Debugberichte in Browsern, in denen Third-Party Cookies deaktiviert/nicht verfügbar sind, nicht verfügbar sein werden.
 
 ### Verwendung von Debug-Berichten
 
 Um Debug-Berichte zu verwenden, müssen Sie:
 
-1. Setzen Sie das `ar_debug`-Cookie auf Ihrem Reporting-Ursprung. Dies muss sowohl bei der Quellen- als auch bei der Trigger-Registrierung vorhanden sein:
+1. Das `ar_debug`-Cookie auf Ihrem Reporting-Ursprung setzen. Dies muss sowohl während der Quellen- als auch der Triggerregistrierung vorhanden sein:
 
    ```http
    Set-Cookie: ar_debug=1; SameSite=None; Secure; Path=/; HttpOnly
    ```
 
-2. Setzen Sie das `debug_key`-Feld in allen {{httpheader("Attribution-Reporting-Register-Source")}}- und {{httpheader("Attribution-Reporting-Register-Trigger")}}-Antwort-Headern, die sich auf die Attributionsberichte beziehen, für die Sie Debugging-Informationen bereitstellen möchten. Jeder `debug_key`-Wert muss ein 64-Bit-Unsigned-Integer sein, das als Basis-10-String formatiert ist. Machen Sie jeden Debug-Schlüssel zu einer eindeutigen ID - Sie könnten zum Beispiel jeden als Cookie-ID + Quellen-/Kleiner-Timestamp setzen (und diesen Timestamp in Ihrem älteren cookie-basierten System erfassen, wenn Sie die beiden vergleichen möchten).
+2. Das `debug_key`-Feld in allen {{httpheader("Attribution-Reporting-Register-Source")}} und {{httpheader("Attribution-Reporting-Register-Trigger")}} Antwortheadern hinzufügen, die sich auf Attributionsberichte beziehen, für die Sie Debugging-Informationen anzeigen möchten. Jeder `debug_key`-Wert muss ein 64-Bit-unsigned Integer im Basis-10-Format sein. Machen Sie jeden Debug-Schlüssel zu einer eindeutigen ID – Sie könnten beispielsweise jeden als Cookie-ID + Quell-/Trigger-Zeitstempel festlegen (und diesen gleichen Zeitstempel in Ihrem älteren system, das auf Cookies basiert, erfassen, wenn Sie die beiden vergleichen möchten).
 
    ```json
    {
@@ -282,9 +282,9 @@ Um Debug-Berichte zu verwenden, müssen Sie:
    ```
 
    > [!NOTE]
-   > Machen Sie den Debug-Schlüssel der Quelle anders als die `source_event_id`, damit Sie einzelne Berichte unterscheiden können, die dieselbe Quellenereignis-ID haben.
+   > Machen Sie den Debug-Schlüssel auf der Quellseite unterschiedlich von der `source_event_id`, so dass Sie einzelne Berichte unterscheiden können, die dieselbe Quellereignis-ID haben.
 
-3. Optional können Sie das `debug_reporting`-Feld auf `true` setzen, sowohl in den `Attribution-Reporting-Register-Source`- als auch in den `Attribution-Reporting-Register-Trigger`-Headern. Wenn Sie dies tun, wird ein ausführlicher Debug-Bericht erstellt. Wenn Sie dies nicht tun, wird ein Erfolgs-Debug-Bericht erstellt, der den Typ des Attributionsberichts widerspiegelt, den Sie erstellen (Ereignis-Ebene oder aggregierbar).
+3. Optional, das `debug_reporting`-Feld auf `true` setzen, sowohl im `Attribution-Reporting-Register-Source` als auch im `Attribution-Reporting-Register-Trigger` Header. Wenn Sie dies tun, wird ein ausführlicher Debug-Bericht generiert. Wenn Sie dies nicht tun, wird ein Erfolgsdebugbericht generiert, der den von Ihnen generierten Attributionsbericht widerspiegelt (ereignisbasiert oder aggregierbar).
 
    ```json
    {
@@ -293,16 +293,16 @@ Um Debug-Berichte zu verwenden, müssen Sie:
    }
    ```
 
-4. Richten Sie geeignete Endpunkte ein, um die Debug-Berichte zu empfangen, die Sie erstellen möchten. Debug-Berichte werden an drei separate Endpunkte im Reporting-Ursprung gesendet:
+4. Geeignete Endpunkte einrichten, um die Debugberichte zu empfangen, die Sie generieren möchten. Debugberichte werden an drei separate Endpunkte im Reporting-Ursprung gesendet:
 
-   - Endpunkt für Ereignis-Ebenen-Erfolgs-Debug-Berichte: `<reporting-origin>/.well-known/attribution-reporting/debug/report-event-attribution`
-   - Endpunkt für aggregierbare Erfolgs-Debug-Berichte: `<reporting-origin>/.well-known/attribution-reporting/debug/report-aggregate-attribution`
-   - Endpunkt für ausführliche Debug-Berichte: `<reporting-origin>/.well-known/attribution-reporting/debug/verbose`
+   - Endpunkt für ereignisbasierte Erfolgsdebugberichte: `<reporting-origin>/.well-known/attribution-reporting/debug/report-event-attribution`
+   - Endpunkt für aggregierbare Erfolgsdebugberichte: `<reporting-origin>/.well-known/attribution-reporting/debug/report-aggregate-attribution`
+   - Endpunkt für ausführliche Debugberichte: `<reporting-origin>/.well-known/attribution-reporting/debug/verbose`
 
-Erzeugte Erfolgs-Debug-Berichte sind mit Attributionsberichten identisch und enthalten die Debug-Schlüssel der Quellseite und der Triggerseite in den Feldern `"source_debug_key"` und `"trigger_debug_key"`.
+Generierte Erfolgsdebugberichte sind identisch mit Attributionsberichten und enthalten die Debug-Schlüssel auf der Quell- und der Triggerseite in den Feldern `"source_debug_key"` und `"trigger_debug_key"`.
 
-Für weitere Informationen und Beispiele siehe:
+Weitere Informationen und Beispiele finden Sie unter:
 
-- [Einführung in Debug-Berichte](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/attribution-reporting-debugging/) auf developers.google.com (2023)
-- [Debug-Berichte einrichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/attribution-reporting-debugging/part-2/) auf developers.google.com (2023)
+- [Einführung in Debugberichte](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/attribution-reporting-debugging/) auf developers.google.com (2023)
+- [Einrichten von Debugberichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/attribution-reporting-debugging/part-2/) auf developers.google.com (2023)
 - [Debugging-Kochbuch](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/attribution-reporting-debugging/part-3/) auf developers.google.com (2023)

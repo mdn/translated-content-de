@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`start`**-Eigenschaft des [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Interfaces gibt den Startwert der geordneten Liste an, wobei der Standardwert 1 ist.
+Die **`start`**-Eigenschaft des [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Interfaces gibt den Startwert der geordneten Liste an, mit einem Standardwert von 1.
 
 Sie spiegelt das [`start`](/de/docs/Web/HTML/Element/ol#start)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
 > [!NOTE]
-> Der Wert der `start`-Eigenschaft ist unabhängig von der [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern ist.
+> Der Wert der `start`-Eigenschaft ist unabhängig von der [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern sind.
 
 ## Wert
 

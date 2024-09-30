@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Der **`XRReferenceSpaceEvent()`** Konstruktor wird verwendet, um ein neues [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent) Objekt zu erstellen, das ein Ereignis bezüglich des Zustands eines WebXR-Referenzraumobjekts, [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), darstellt.
+Der **`XRReferenceSpaceEvent()`** Konstruktor wird verwendet, um ein neues [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent) Objekt zu erstellen, welches ein Ereignis im Zusammenhang mit dem Zustand eines WebXR-Referenzraumobjekts darstellt, [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace).
 
 ## Syntax
 
@@ -19,21 +19,22 @@ new XRReferenceSpaceEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist groß-/kleinschreibungssensitiv und Browser setzen es immer auf `reset`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitive und Browser setzen es immer auf `reset`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthalten kann:
+  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `referenceSpace`
-      - : Der [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), von dem das Ereignis stammt.
+      - : Der [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), von dem das Ereignis ausgeht.
     - `transform`
-      - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das das alte Koordinatensystem (von vor den durch dieses Ereignis angezeigten Änderungen) auf das neue Koordinatensystem abbildet.
+      - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der das alte Koordinatensystem (von vor den Änderungen, die durch dieses Ereignis angezeigt werden) auf das neue Koordinatensystem abbildet.
 
 ### Rückgabewert
 
-Ein neues `XRReferenceSpaceEvent`-Objekt, das gemäß den Eingabeparametern initialisiert wurde.
+Ein neues `XRReferenceSpaceEvent` Objekt, initialisiert entsprechend der angegebenen Eingabeparameter.
 
 ## Beispiele
 
-Dieses einfache Snippet ruft den Konstruktor auf, um ein neues Referenzraumereignis des Typs [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event) zu erstellen.
+Dieses einfache Snippet ruft den Konstruktor auf, um ein neues Referenzraum-Ereignis des Typs [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event) zu erstellen.
 
 ```js
 let refSpaceEvent = new XRReferenceSpaceEvent("reset", {

@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef()}}
 
-Das SVG-Attribut **`transform-origin`** legt den Ursprung für die Transformationen eines Elements fest.
+Das **`transform-origin`** SVG-Attribut legt den Ursprung für die Transformationen eines Elements fest.
 
-Dieses Attribut kann mit jedem SVG-Element verwendet werden.
+Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 > [!NOTE]
-> Als Präsentationsattribut in SVG entspricht `transform-origin` in Syntax und Verhalten der `transform-origin`-Eigenschaft in CSS und kann als CSS-Eigenschaft verwendet werden, um SVG zu stylen. Weitere Informationen finden Sie in der CSS-Eigenschaft [transform-origin](/de/docs/Web/CSS/transform-origin).
+> Als Präsentationsattribut in SVG entspricht `transform-origin` im Syntax und Verhalten der CSS-Eigenschaft `transform-origin` und kann als CSS-Eigenschaft zur Gestaltung von SVG verwendet werden. Weitere Informationen finden Sie in der [CSS transform-origin](/de/docs/Web/CSS/transform-origin) Eigenschaft.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -34,27 +34,27 @@ Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 </table>
 
 > [!NOTE]
-> Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direktes Kind eines [foreignObject](/de/docs/Web/SVG/Element/foreignObject) sind, deren `transform-origin` `50% 50%` beträgt, wie andere CSS-Elemente.
+> Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente, außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direktes Kind eines [foreignObject](/de/docs/Web/SVG/Element/foreignObject) sind und deren transform-origin `50% 50%` beträgt, wie bei anderen CSS-Elementen.
 
-Die `transform-origin`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden, wobei jeder Wert einen Versatz darstellt. Nicht explizit definierte Versätze werden auf ihre entsprechenden [Initialwerte](/de/docs/Web/CSS/initial_value) zurückgesetzt.
+Die `transform-origin`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden, wobei jeder Wert einen Versatz darstellt. Nicht explizit definierte Versätze werden auf ihre entsprechenden [Anfangswerte](/de/docs/Web/CSS/initial_value) zurückgesetzt.
 
-Wenn ein einzelner {{cssxref("&lt;length&gt;")}}- oder {{cssxref("&lt;percentage&gt;")}}-Wert definiert ist, stellt er den horizontalen Versatz dar.
+Wenn ein einzelner {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert definiert ist, stellt er den horizontalen Versatz dar.
 
-Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann stellt der erste Wert den horizontalen Versatz und der zweite den vertikalen Versatz dar.
+Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann repräsentiert der erste Wert den horizontalen Versatz und der zweite den vertikalen Versatz.
 
-- Ein-Wert-Syntax:
+- Einwert-Syntax:
 
-  - Der Wert muss eine {{cssxref("length")}} sein oder eines der Schlüsselwörter `left`, `center`, `right`, `top` und `bottom`.
+  - Der Wert muss eine {{cssxref("length")}} oder eines der Schlüsselwörter `left`, `center`, `right`, `top` und `bottom` sein.
 
-- Zwei-Wert-Syntax:
+- Zweiwert-Syntax:
 
   - Ein Wert muss eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder eines der Schlüsselwörter `left`, `center` und `right` sein.
   - Der andere Wert muss eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder eines der Schlüsselwörter `top`, `center` und `bottom` sein.
 
-- Drei-Wert-Syntax:
+- Dreiwert-Syntax:
 
-  - Die ersten beiden Werte sind dieselben wie für die Zwei-Wert-Syntax.
-  - Der dritte Wert muss eine {{cssxref("length")}} sein. Er stellt immer den Z-Versatz dar.
+  - Die ersten beiden Werte sind dieselben wie bei der Zweiwert-Syntax.
+  - Der dritte Wert muss eine {{cssxref("length")}} sein. Er repräsentiert immer den Z-Versatz.
 
 ## Beispiel
 
@@ -62,13 +62,13 @@ Dieses Beispiel zeigt den Code für ein PNG-Bild und drei SVG-Bilder:
 
 1. Ein PNG-Referenzbild.
 2. Ein SVG-Referenzbild, das keine Transformation verwendet.
-3. Ein SVG-Bild, das `transform-origin` verwendet, um eine Transformation durchzuführen, wobei das erwartete Ergebnis ein Bild ist, das mit dem Referenzbild identisch ist.
-4. Ein SVG-Bild, das `transform-origin` nicht verwendet, aber dieselbe Transformation nur mit [`transform`](/de/docs/Web/SVG/Attribute/transform) durchführt, wobei das erwartete Ergebnis ein Bild ist, das mit dem Referenzbild identisch ist.
+3. Ein SVG-Bild, das `transform-origin` zur Transformation verwendet, wobei das erwartete Ergebnis ein Bild ist, das mit dem Referenzbild identisch ist.
+4. Ein SVG-Bild, das nicht `transform-origin`, sondern nur [`transform`](/de/docs/Web/SVG/Attribute/transform) zur Transformation verwendet, mit dem erwarteten Ergebnis eines Bildes, das dem Referenzbild identisch ist.
 
-Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt wird, die `transform-origin` nicht unterstützen — da der Code für das vierte Bild dieselbe Transformation wie der `transform-origin`-basierte Code des dritten Bildes durchführt, aber nur `transform` verwendet, ohne `transform-origin`.
+Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt werden kann, die `transform-origin` nicht unterstützen — da der Code für das vierte Bild dieselbe Transformation wie der `transform-origin`-basierte Code des dritten Bildes durchführt, jedoch nur mithilfe von `transform` und ohne `transform-origin`.
 
 > [!NOTE]
-> Diese Beispiele verwenden eine modifizierte Version eines Code-Snippets aus einer Stack Overflow-[Frage](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute) von [Maxim Kulikov](https://stackoverflow.com/users/1033939/maxim-kulikov) sowie eine modifizierte Version eines Code-Snippets in einer [Antwort](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute/67057754) von [Michael Mullany](https://stackoverflow.com/users/271353/michael-mullany), die die Frage begleitet. Beide Code-Snippets werden unter den Bedingungen der [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) Lizenz verwendet.
+> Diese Beispiele verwenden eine modifizierte Version eines Code-Snippets in einer Stack Overflow [Frage](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute) von [Maxim Kulikov](https://stackoverflow.com/users/1033939/maxim-kulikov) sowie eine modifizierte Version eines Code-Snippets in einer [Antwort](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute/67057754) von [Michael Mullany](https://stackoverflow.com/users/271353/michael-mullany), die die Frage begleitet. Beide Code-Snippets werden unter den Bedingungen der [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) Lizenz verwendet.)
 
 ### HTML
 

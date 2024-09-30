@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`WebSocket.url`** gibt die absolute URL des [`WebSocket`](/de/docs/Web/API/WebSocket) zurück, wie sie durch den Konstruktor aufgelöst wurde.
+Die schreibgeschützte **`WebSocket.url`**-Eigenschaft gibt die absolute URL des [`WebSocket`](/de/docs/Web/API/WebSocket) zurück, wie sie durch den Konstruktor aufgelöst wurde.
 
 ## Wert
 

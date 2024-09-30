@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: strokeText()-Methode"
+title: "CanvasRenderingContext2D: strokeText() Methode"
 short-title: strokeText()
 slug: Web/API/CanvasRenderingContext2D/strokeText
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`strokeText()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), ein Teil der Canvas 2D API, zeichnet die Umrisse der Zeichen eines Textstrings an den angegebenen Koordinaten. Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der [User Agent](/de/docs/Glossary/user_agent) erreicht, indem er den Text verdichtet oder eine kleinere Schriftgröße verwendet.
+Die Methode **`strokeText()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), Teil der Canvas 2D API, zeichnet die Umrisse der Zeichen einer Textzeichenfolge an den angegebenen Koordinaten. Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der [User Agent](/de/docs/Glossary/user_agent) durch Textverdichtung oder durch die Verwendung einer kleineren Schriftgröße erreicht.
 
-Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) darauf keinen Einfluss haben werden.
+Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keine Wirkung darauf haben.
 
 > [!NOTE]
-> Verwenden Sie die [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)-Methode, um die Textzeichen auszufüllen, anstatt nur ihre Umrisse zu zeichnen.
+> Verwenden Sie die Methode [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText), um die Textzeichen zu füllen, anstatt nur deren Umrisse zu zeichnen.
 
 ## Syntax
 
@@ -25,23 +25,28 @@ strokeText(text, x, y, maxWidth)
 ### Parameter
 
 - `text`
-  - : Ein String, der den zu rendernden Textstring in den Kontext spezifiziert. Der Text wird unter Verwendung der Einstellungen für [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) gerendert.
+  - : Eine Zeichenfolge, die den zu rendernden Text im Kontext angibt.
+    Der Text wird unter Verwendung der in
+    [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font),
+    [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign),
+    [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und
+    [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) angegebenen Einstellungen gerendert.
 - `x`
-  - : Die x-Achsen-Koordinate des Punktes, an dem das Zeichnen des Textes beginnen soll.
+  - : Die x-Achsen-Koordinate des Punktes, an dem mit dem Zeichnen des Textes begonnen wird.
 - `y`
-  - : Die y-Achsen-Koordinate des Punktes, an dem das Zeichnen des Textes beginnen soll.
+  - : Die y-Achsen-Koordinate des Punktes, an dem mit dem Zeichnen des Textes begonnen wird.
 - `maxWidth` {{optional_inline}}
-  - : Die maximale Breite, die der Text bei der Darstellung haben darf. Falls nicht angegeben, gibt es keine Begrenzung für die Breite des Textes. Wenn dieser Wert jedoch angegeben wird, passt der User Agent das Kerning an, wählt eine mehr horizontal verdichtete Schriftart (falls verfügbar oder ohne Qualitätsverlust generierbar), oder skaliert auf eine kleinere Schriftgröße herunter, um den Text in die angegebene Breite zu bringen.
+  - : Die maximale Breite, die der Text nach dem Rendern haben darf. Wenn sie nicht angegeben ist, gibt es keine Begrenzung für die Breite des Textes. Falls dieser Wert angegeben wird, passt der User Agent das Kerning an, wählt eine horizontal komprimiertere Schriftart (falls verfügbar oder ohne Qualitätsverlust generierbar) oder verkleinert die Schriftgröße, um den Text in die angegebene Breite einzupassen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Zeichnen von Textumrissen
 
-Dieses Beispiel schreibt die Worte "Hello world" mit der `strokeText()`-Methode.
+In diesem Beispiel wird der Text "Hello world" mit der Methode `strokeText()` geschrieben.
 
 #### HTML
 
@@ -63,17 +68,17 @@ ctx.font = "50px serif";
 ctx.strokeText("Hello world", 50, 90);
 ```
 
-Dieser Code erhält eine Referenz zum {{HTMLElement("canvas")}}, dann eine Referenz auf den 2D-Grafikkontext.
+Dieser Code erhält eine Referenz zum {{HTMLElement("canvas")}}, dann eine Referenz zu seinem 2D-Grafikkontext.
 
-Mit dieser in der Hand setzen wir die [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) auf eine 50-Pixel-hohe "serif" (die Standard-Serifenschrift des Nutzers), und rufen dann `strokeText()` auf, um den Text "Hello world" an den Koordinaten (50, 90) zu zeichnen.
+Damit in der Hand setzen wir das [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) auf 50 Pixel hohe "serif" (die Standard-Serifenschrift des Benutzers), dann rufen wir `strokeText()` auf, um den Text "Hello world" zu zeichnen, beginnend bei den Koordinaten (50, 90).
 
 #### Ergebnis
 
 {{ EmbedLiveSample('Drawing_text_outlines', 700, 180) }}
 
-### Begrenzung der Textgröße
+### Einschränkung der Textgröße
 
-Dieses Beispiel schreibt die Worte "Hello world", wobei die Breite auf 140 Pixel begrenzt wird.
+Dieses Beispiel schreibt die Worte "Hello world" und beschränkt deren Breite auf 140 Pixel.
 
 #### HTML
 
@@ -105,6 +110,6 @@ ctx.strokeText("Hello world", 50, 90, 140);
 
 ## Siehe auch
 
-- [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
+- [Zeichnen von Text](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
 - Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)

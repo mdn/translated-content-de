@@ -25,7 +25,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
       </td>
     </tr>
     <tr>
-      <th scope="row">Standardwert</th>
+      <th scope="row">Vorgabewert</th>
       <td><code>isolated</code></td>
     </tr>
     <tr>
@@ -36,13 +36,13 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `initial`
-  - : Dieser Wert zeigt an, dass das Glyph die Anfangsform darstellt.
+  - : Dieser Wert gibt an, dass das Glyph die initiale Form darstellt.
 - `medial`
-  - : Dieser Wert zeigt an, dass das Glyph die mittlere Form darstellt.
+  - : Dieser Wert gibt an, dass das Glyph die mediale Form darstellt.
 - `terminal`
-  - : Dieser Wert zeigt an, dass das Glyph die Endform darstellt.
+  - : Dieser Wert gibt an, dass das Glyph die terminale Form darstellt.
 - `isolated`
-  - : Dieser Wert zeigt an, dass das Glyph die isolierte Form darstellt.
+  - : Dieser Wert gibt an, dass das Glyph die isolierte Form darstellt.
 
 ## Spezifikationen
 

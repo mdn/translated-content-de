@@ -8,19 +8,19 @@ l10n:
 {{JSRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
 > [!NOTE]
-> Die `arguments`-Eigenschaft von {{jsxref("Function")}} Objekten ist veraltet. Der empfohlene Weg, um auf das `arguments`-Objekt zuzugreifen, ist die Verwendung der Variable {{jsxref("Functions/arguments", "arguments")}}, die innerhalb von Funktionen verfügbar ist.
+> Die `arguments` Eigenschaft von {{jsxref("Function")}} Objekten ist veraltet. Der empfohlene Weg, um auf das `arguments` Objekt zuzugreifen, besteht darin, auf die Variable {{jsxref("Functions/arguments", "arguments")}} zu verweisen, die innerhalb von Funktionen verfügbar ist.
 
-Die **`arguments`** Zugriffseigenschaft von {{jsxref("Function")}} Instanzen gibt die an diese Funktion übergebenen Argumente zurück. Für [strict](/de/docs/Web/JavaScript/Reference/Strict_mode), Pfeil-, async- und Generatorfunktionen führt der Zugriff auf die `arguments`-Eigenschaft zu einem {{jsxref("TypeError")}}.
+Die **`arguments`** Accessor-Eigenschaft von {{jsxref("Function")}} Instanzen gibt die an diese Funktion übergebenen Argumente zurück. Für [strict](/de/docs/Web/JavaScript/Reference/Strict_mode), Arrow-, Async- und Generator-Funktionen führt der Zugriff auf die `arguments` Eigenschaft zu einem {{jsxref("TypeError")}}.
 
 ## Beschreibung
 
-Der Wert von `arguments` ist ein arrayähnliches Objekt, das den an eine Funktion übergebenen Argumenten entspricht.
+Der Wert von `arguments` ist ein array-ähnliches Objekt, das den an eine Funktion übergebenen Argumenten entspricht.
 
-Im Falle einer Rekursion, d.h. wenn die Funktion `f` mehrmals im Aufrufstapel erscheint, repräsentiert der Wert von `f.arguments` die Argumente, die mit dem letzten Aufruf der Funktion übereinstimmen.
+Im Fall von Rekursion, d.h. wenn die Funktion `f` mehrmals im Aufruf-Stack erscheint, repräsentiert der Wert von `f.arguments` die Argumente der jüngsten Ausführung der Funktion.
 
-Der Wert der `arguments`-Eigenschaft ist normalerweise {{jsxref("Operators/null", "null")}}, wenn kein laufender Aufruf der Funktion im Gange ist (d.h. die Funktion wurde aufgerufen, aber hat noch nicht zurückgegeben).
+Der Wert der `arguments` Eigenschaft ist normalerweise {{jsxref("Operators/null", "null")}}, wenn kein ausstehender Aufruf der Funktion im Gange ist (d.h. die Funktion wurde aufgerufen, hat aber noch nicht zurückgegeben).
 
-Beachten Sie, dass das einzige vom ECMAScript-Spezifikationen festgelegte Verhalten darin besteht, dass `Function.prototype` einen anfänglichen `arguments` Zugang hat, der bedingungslos einen {{jsxref("TypeError")}} für jede `get`- oder `set`-Anfrage auslöst (bekannt als "Poison Pill Accessor"), und dass Implementierungen nicht erlaubt sind, diese Semantik für irgendeine Funktion außer nicht-strikten normalen Funktionen zu ändern. Das tatsächliche Verhalten der `arguments`-Eigenschaft, wenn es etwas anderes ist als einen Fehler auszulösen, ist implementierungsabhängig. Beispielsweise definiert Chrome es als eigene Daten-Eigenschaft, während Firefox und Safari den initialen "Poison-Pill" `Function.prototype.arguments` Accessor erweitern, um speziell mit `this`-Werten umzugehen, die nicht-strikte Funktionen sind.
+Beachten Sie, dass das einzige Verhalten, das durch die ECMAScript-Spezifikation festgelegt ist, darin besteht, dass `Function.prototype` einen initialen `arguments` Accessor hat, der bedingungslos für jede `get` oder `set` Anfrage einen {{jsxref("TypeError")}} auslöst (bekannt als ein "poison pill accessor"), und dass Implementierungen nicht erlaubt sind, diese Semantik für irgendeine Funktion außer nicht-strikten einfachen Funktionen zu ändern. Das tatsächliche Verhalten der `arguments` Eigenschaft, falls es etwas anderes als das Auslösen eines Fehlers ist, ist implementierungsspezifisch. Zum Beispiel definiert Chrome es als eine eigene Dateneigenschaft, während Firefox und Safari den initialen poison-pill `Function.prototype.arguments` Accessor erweitern, um speziell mit `this` Werten umzugehen, die nicht-strikte Funktionen sind.
 
 ```js
 (function f() {
@@ -81,7 +81,7 @@ console.log(`returned: ${g.arguments}`);
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

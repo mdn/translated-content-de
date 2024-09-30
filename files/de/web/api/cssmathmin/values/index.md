@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte `values`-Eigenschaft von der [`CSSMathMin`](/de/docs/Web/API/CSSMathMin) Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
+Die schreibgeschützte Eigenschaft `CSSMathMin.values` der [`CSSMathMin`](/de/docs/Web/API/CSSMathMin)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray).
 
 ## Beispiele
 
-To do
+Wird noch vervollständigt
 
 ## Spezifikationen
 

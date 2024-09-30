@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`blob()`** Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfragetext und gibt ihn als Promise zurück, die mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
+Die **`blob()`** Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfragetext und gibt ihn als ein Promise zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, der mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
+Ein Promise, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Beispiele
 

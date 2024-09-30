@@ -8,31 +8,42 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`error`**-Eigenschaft des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Fehler im Falle einer fehlgeschlagenen Anfrage zurück.
+Die **`error`** schreibgeschützte Eigenschaft des
+[`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Fehler im Falle einer fehlgeschlagenen
+Anfrage zurück.
 
 ## Wert
 
-Ein [`DOMException`](/de/docs/Web/API/DOMException) oder `null`, falls kein Fehler vorliegt. Die folgenden Fehlermeldungen werden im Ausnahmeobjekt zurückgegeben:
+Ein [`DOMException`](/de/docs/Web/API/DOMException) oder `null`, wenn kein Fehler vorliegt. Folgende Fehlernamen werden im Ausnahmeobjekt zurückgegeben:
 
 - `AbortError`
   - : Wenn Sie die Transaktion abbrechen, erhalten alle noch laufenden Anfragen diesen Fehler.
 - `ConstraintError`
-  - : Wenn Sie Daten einfügen, die nicht einer Einschränkung entsprechen.
-    Es handelt sich um einen Ausnahmetyp für das Erstellen von Stores und Indexen.
-    Sie erhalten diesen Fehler zum Beispiel, wenn Sie versuchen, einen neuen Schlüssel hinzuzufügen, der bereits im Record existiert.
+  - : Wenn Sie Daten einfügen, die nicht mit einer Einschränkung übereinstimmen.
+    Es ist ein Ausnahmetyp für das Erstellen von Stores und Indizes.
+    Dieser Fehler tritt zum Beispiel auf, wenn Sie versuchen, einen neuen Schlüssel hinzuzufügen, der bereits im Datensatz existiert.
 - `QuotaExceededError`
-  - : Wenn Ihnen der Festplattenspeicherplatz ausgeht und der Benutzer Ihnen nicht mehr Platz gewährt.
+  - : Wenn Ihnen der Speicherplatz ausgeht und der Benutzer Ihnen nicht mehr Platz gewährt.
 - `UnknownError`
-  - : Wenn die Operation aus Gründen fehlschlägt, die nicht direkt mit der Datenbank verbunden sind.
-    Ein Beispiel hierfür ist ein Fehler aufgrund von Festplatten-E/A-Fehlern.
+  - : Wenn die Operation aus Gründen scheitert, die nicht direkt mit der Datenbank zusammenhängen.
+    Ein Beispiel für ein Scheitern sind Festplatten-IO-Fehler.
 - `VersionError`
   - : Wenn Sie versuchen, eine Datenbank mit einer niedrigeren Version zu öffnen, als sie bereits hat.
 
-Zusätzlich zu den Fehlercodes, die an das [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt gesendet werden, können auch asynchrone Operationen Ausnahmen auslösen. Die Liste beschreibt Probleme, die bei der Ausführung der Anfrage auftreten könnten, aber Sie könnten auch auf andere Probleme stoßen, wenn die Anfrage gestellt wird. Beispielsweise wird die `InvalidStateError`-Ausnahme ausgelöst, wenn auf das Ergebnis zugegriffen wird, während die Anfrage noch nicht abgeschlossen ist.
+Zusätzlich zu den an das [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt gesendeten Fehlercodes
+können asynchrone Operationen auch Ausnahmen auslösen. Die Liste beschreibt Probleme, die
+beim Ausführen der Anfrage auftreten könnten, Sie können jedoch auch auf andere
+Probleme stoßen, wenn die Anfrage gestellt wird. Wenn z. B. auf das Ergebnis zugegriffen wird,
+während die Anfrage nicht abgeschlossen ist, wird die Ausnahme `InvalidStateError` ausgelöst.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein bestimmter Titel eines Records angefordert, `onsuccess` erhält den zugehörigen Record aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar gemacht als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Records und speichert dann den aktualisierten Record zurück in den Objekt-Store. Am Ende ist auch eine `onerror`-Funktion enthalten, die berichtet, was der Fehler war, falls die Anfrage fehlschlägt. Ein vollständiges Arbeitsbeispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Das folgende Beispiel fordert einen bestimmten Datensatz-Titel an, `onsuccess` erhält den
+zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar als
+`objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt den
+aktualisierten Datensatz wieder in den Object Store ab. Am Ende ist auch eine
+`onerror`-Funktion enthalten, die den Fehler meldet, wenn die Anfrage fehlschlägt.
+Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -83,8 +94,8 @@ objectStoreTitleRequest.onerror = () => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursors verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

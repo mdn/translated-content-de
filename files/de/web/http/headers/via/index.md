@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der allgemeine Header **`Via`** wird von Proxys hinzugefügt, sowohl vorwärts- als auch rückwärtsgerichtet, und kann in den Anfrage- oder Antwortheaders erscheinen. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anfrageschleifen zu vermeiden und die Protokollfähigkeiten der Absender entlang der Anfrage-/Antwortkette zu identifizieren.
+Der **`Via`** allgemeine Header wird von Proxys hinzugefügt, sowohl vorwärts als auch rückwärts, und kann in den Anforderungs- oder Antwort-Headern erscheinen. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anforderungsschleifen zu vermeiden und die Protokollfähigkeiten von Sendern entlang der Anforderungs-/Antwortkette zu identifizieren.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anfrage-Header](/de/docs/Glossary/Request_header),
+        [Anforderungs-Header](/de/docs/Glossary/Request_header),
         [Antwort-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
@@ -35,10 +35,10 @@ Via: [ <protocol-name> "/" ] <protocol-version> <pseudonym>
 ## Direktiven
 
 - \<protocol-name>
-  - : Optional. Der Name des verwendeten Protokolls, wie z. B. "HTTP".
+  - : Optional. Der Name des verwendeten Protokolls, wie zum Beispiel "HTTP".
 - \<protocol-version>
-  - : Die Version des verwendeten Protokolls, wie z. B. "1.1".
-- \<host> and \<port>
+  - : Die Version des verwendeten Protokolls, wie zum Beispiel "1.1".
+- \<host> und \<port>
   - : Öffentliche Proxy-URL und Port.
 - \<pseudonym>
   - : Name/Alias eines internen Proxys.

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSUnitValue.unit`** schreibgeschützte Eigenschaft
-der Schnittstelle [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) gibt einen String zurück,
-der den Einheitstyp angibt.
+Die schreibgeschützte Eigenschaft **`CSSUnitValue.unit`**
+des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen String zurück,
+der den Typ der Einheit angibt.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String.
 ## Beispiele
 
 Das folgende Beispiel erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen
-`CSSUnitValue`-Konstruktoren und ruft dann die
+`CSSUnitValue` Konstruktoren und fragt dann das
 `CSSUnitValue.unit` ab.
 
 ```js
@@ -43,6 +43,6 @@ console.log(pos.y.unit); // "em"
 ## Siehe auch
 
 - [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
-- [Dimensionen in CSS-Einheiten und -Werten](/de/docs/Web/CSS/CSS_Values_and_Units#dimensions)
+- [Dimensionen in CSS-Einheiten und Werten](/de/docs/Web/CSS/CSS_Values_and_Units#dimensions)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

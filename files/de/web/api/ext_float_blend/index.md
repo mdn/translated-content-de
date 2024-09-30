@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `EXT_float_blend`-Erweiterung der [WebGL API](/de/docs/Web/API/WebGL_API) ermöglicht das Mischen und Zeichnen von Puffer mit 32-Bit-Gleitkomma-Komponenten.
+Die `EXT_float_blend`-Erweiterung der [WebGL-API](/de/docs/Web/API/WebGL_API) ermöglicht das Blending und Zeichnungs-Puffer mit 32-Bit-Floating-Point-Komponenten.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen lesen Sie bitte auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung steht sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexte zur Verfügung. Um sie jedoch zu verwenden, müssen Sie die Nutzung von 32-Bit-Gleitkomma-Zeichenpuffern durch das Aktivieren der Erweiterung [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) (für WebGL1) oder [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) (für WebGL2) aktivieren. Dadurch wird `EXT_float_blend` ebenfalls automatisch aktiviert, jedoch nur, wenn `EXT_float_blend` auch unterstützt wird. Die Unterstützung für `EXT_color_buffer_float` impliziert nicht die Unterstützung für `EXT_float_blend`.
+> Diese Erweiterung steht sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte zur Verfügung. Um sie jedoch zu verwenden, müssen Sie die Verwendung von 32-Bit-Floating-Point-Zeichnungspuffern durch Aktivierung der Erweiterung [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) (für WebGL1) oder [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) (für WebGL2) ermöglichen. Dadurch wird `EXT_float_blend` automatisch aktiviert, aber nur, wenn `EXT_float_blend` ebenfalls unterstützt wird. Die Unterstützung von `EXT_color_buffer_float` impliziert nicht die Unterstützung von `EXT_float_blend`.
 
-Wenn diese Erweiterung aktiviert ist, führt der Aufruf von [`drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) oder [`drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) mit aktiviertem Mischen und einem Zeichenpuffer mit 32-Bit-Gleitkomma-Komponenten nicht mehr zu einem `INVALID_OPERATION`-Fehler.
+Wenn diese Erweiterung aktiviert ist, führt der Aufruf von [`drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) oder [`drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) mit aktiviertem Blending und einem Zeichnungspuffer mit 32-Bit-Floating-Point-Komponenten nicht mehr zu einem `INVALID_OPERATION`-Fehler.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-Auf Geräten, die die `EXT_float_blend`-Erweiterung unterstützen, wird sie automatisch und implizit aktiviert, wenn eine oder mehrere der folgenden Erweiterungen aktiviert werden: [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float), [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) oder [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float). Dies stellt sicher, dass Inhalte, die vor der Einführung von `EXT_float_blend` durch WebGL erstellt wurden, wie erwartet funktionieren.
+Auf Geräten, die die `EXT_float_blend`-Erweiterung unterstützen, wird sie automatisch und implizit aktiviert, wenn eine oder mehrere der Erweiterungen [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float), [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) oder [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) aktiviert sind. Dies gewährleistet, dass Inhalte, die vor der Einführung von `EXT_float_blend` durch WebGL erstellt wurden, wie erwartet funktionieren.
 
 ## Beispiele
 
@@ -63,7 +63,7 @@ gl.drawArrays(gl.POINTS, 0, 1);
 
 ## Siehe auch
 
-- [WebGL API](/de/docs/Web/API/WebGL_API)
+- [WebGL-API](/de/docs/Web/API/WebGL_API)
 - [Verwendung von WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions)
 - [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial)
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)

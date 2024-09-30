@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.body`**-Eigenschaft repräsentiert den
-{{HTMLElement("body")}} oder {{HTMLElement("frameset")}} Knoten des aktuellen Dokuments, oder
-`null`, wenn ein solches Element nicht existiert.
+Die **`Document.body`**-Eigenschaft repräsentiert das
+{{HTMLElement("body")}}- oder {{HTMLElement("frameset")}}-Element des aktuellen Dokuments oder
+`null`, wenn kein solches Element existiert.
 
 ## Wert
 
-Eine der folgenden:
+Eines der folgenden:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -33,16 +33,15 @@ document.body = aNewBodyElement;
 alert(document.body.id); // "newBodyElement"
 ```
 
-## Hinweise
+## Anmerkungen
 
-`document.body` ist das Element, das den Inhalt für das Dokument enthält.
-In Dokumenten mit `<body>`-Inhalt wird das
-`<body>`-Element zurückgegeben, und in Frameset-Dokumenten wird das äußerste
+`document.body` ist das Element, das den Inhalt des Dokuments enthält.
+In Dokumenten mit `<body>`-Inhalten gibt es das
+`<body>`-Element zurück, und in Frame-Set-Dokumenten wird das äußerste
 `<frameset>`-Element zurückgegeben.
 
-Obwohl die `body`-Eigenschaft setzbar ist, wird das Setzen eines neuen Bodys auf einem Dokument
-effektiv alle aktuellen Kinder des bestehenden
-`<body>`-Elements entfernen.
+Obwohl die `body`-Eigenschaft gesetzt werden kann, führt das Setzen eines neuen Bodys in einem Dokument dazu, dass alle aktuellen Kinder des bestehenden
+`<body>`-Elements entfernt werden.
 
 ## Spezifikationen
 

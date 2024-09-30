@@ -1,5 +1,5 @@
 ---
-title: WEBGL_depth_texture-Erweiterung
+title: WEBGL_depth_texture Erweiterung
 short-title: WEBGL_depth_texture
 slug: Web/API/WEBGL_depth_texture
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_depth_texture`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und definiert zweidimensionale Tiefen- und Tiefenstencil-Texturen.
+Die **`WEBGL_depth_texture`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und definiert 2D-Tiefen- und Tiefen-Stencil-Texturen.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Die Konstante in WebGL2 ist `gl.UNSIGNED_INT_24_8`.
+> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Die Konstante in WebGL2 ist `gl.UNSIGNED_INT_24_8`.
 
 ## Konstanten
 
 Diese Erweiterung fügt eine neue Konstante hinzu:
 
 - `ext.UNSIGNED_INT_24_8_WEBGL`
-  - : Typ für nicht signierte Ganzzahlen für 24-Bit-Tiefentexturdaten.
+  - : Unsigned Integer Typ für 24-Bit-Tiefentexturdaten.
 
 ## Erweiterte Methoden
 
@@ -28,7 +28,7 @@ Diese Erweiterung erweitert [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/
 
 - Die Parameter `format` und `internalformat` akzeptieren nun `gl.DEPTH_COMPONENT` und `gl.DEPTH_STENCIL`.
 - Der Parameter `type` akzeptiert nun `gl.UNSIGNED_SHORT`, `gl.UNSIGNED_INT` und `ext.UNSIGNED_INT_24_8_WEBGL`.
-- Der Parameter `pixels` akzeptiert nun ein {{jsxref("Uint16Array")}} oder ein {{jsxref("Uint32Array")}}-Objekt.
+- Der Parameter `pixels` akzeptiert nun ein {{jsxref("Uint16Array")}} oder ein {{jsxref("Uint32Array")}} Objekt.
 
 Diese Erweiterung erweitert [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D):
 

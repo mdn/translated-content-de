@@ -46,7 +46,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein einfacher Selektor geschrieben ist.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein einfacher Selektor geschrieben wird.
 
 #### HTML
 
@@ -76,7 +76,7 @@ article :last-of-type {
 
 ### Elemente mit mehreren Selektoren
 
-Dieses HTML-Beispiel enthält verschachtelte Elemente unterschiedlicher Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
+Dieses HTML-Beispiel enthält verschachtelte Elemente verschiedener Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
 
 #### HTML
 
@@ -118,7 +118,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind beide rot und fettgedruckt, da `.item:last-of-type` das letzte eines jeden Typs auswählt, wenn dieses letzte Element auch die `item` Klasse hat.
+Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element auch die Klasse `item` hat.
 
 ## Spezifikationen
 

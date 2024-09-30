@@ -7,44 +7,44 @@ l10n:
 
 {{JSRef}}
 
-Das **`Uint16Array`**-Typarray repräsentiert ein Array von 16-Bit-Integer-Zahlen ohne Vorzeichen in der Byte-Reihenfolge der Plattform. Wenn eine Steuerung der Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder der standardmäßigen Array-Index-Syntax (d. h. die Klammernotation) zugreifen.
+Das **`Uint16Array`** typisierte Array repräsentiert ein Array von 16-Bit-ungezeichneten Ganzzahlen in der byteweisen Reihenfolge der Plattform. Wenn die Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten angegeben. Sobald das Array erstellt wurde, können Sie die Elemente im Array mithilfe der Methoden des Objekts oder mit der Standard-Array-Indizierungssyntax (also der Klammernotation) referenzieren.
 
-`Uint16Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}}-Klasse.
+`Uint16Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
 - {{jsxref("Uint16Array/Uint16Array", "Uint16Array()")}}
-  - : Erstellt ein neues `Uint16Array`-Objekt.
+  - : Erstellt ein neues `Uint16Array` Objekt.
 
 ## Statische Eigenschaften
 
-_Übernimmt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint16Array.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall von `Uint16Array`.
 
 ## Statische Methoden
 
-_Übernimmt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Instanz-Eigenschaften
 
-_Übernimmt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `Uint16Array.prototype` definiert und werden von allen `Uint16Array`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Uint16Array.prototype` definiert und werden von allen `Uint16Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint16Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall eines `Uint16Array`.
+  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall einer `Uint16Array`.
 - {{jsxref("Object/constructor", "Uint16Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint16Array`-Instanzen ist der anfängliche Wert der {{jsxref("Uint16Array/Uint16Array", "Uint16Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint16Array` Instanzen ist der Anfangswert der {{jsxref("Uint16Array/Uint16Array", "Uint16Array")}} Konstruktor.
 
 ## Instanz-Methoden
 
-_Übernimmt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Uint16Array zu erstellen
+### Verschiedene Wege, ein Uint16Array zu erstellen
 
 ```js
 // From a length
@@ -87,7 +87,7 @@ console.log(uint16FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint16Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typarrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.toStringTag`** repräsentiert das [allgemein bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.toStringTag`. {{jsxref("Object.prototype.toString()")}} nutzt dieses Symbol auf dem `this`-Wert für die Eigenschaft, die einen String enthält, der den Typ des Objekts repräsentiert.
+Die statische Dateneigenschaft **`Symbol.toStringTag`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.toStringTag`. {{jsxref("Object.prototype.toString()")}} sucht dieses Symbol im `this`-Wert nach der Eigenschaft, die einen String enthält, der den Typ des Objekts repräsentiert.
 
 {{EmbedInteractiveExample("pages/js/symbol-tostringtag.html")}}
 
 ## Wert
 
-Das allgemein bekannte Symbol `Symbol.toStringTag`.
+Das wohlbekannte Symbol `Symbol.toStringTag`.
 
 {{js_property_attributes(0, 0, 0)}}
 
@@ -35,9 +35,9 @@ Object.prototype.toString.call(null); // "[object Null]"
 
 ### Eingebaute toStringTag-Symbole
 
-Die meisten eingebauten Objekte stellen ihre eigene `[Symbol.toStringTag]`-Eigenschaft zur Verfügung. Fast alle `[Symbol.toStringTag]`-Eigenschaften von eingebauten Objekten sind nicht beschreibbar, nicht aufzählbar und konfigurierbar; die Ausnahme ist {{jsxref("Iterator")}}, der aus Kompatibilitätsgründen beschreibbar ist.
+Die meisten eingebauten Objekte stellen ihre eigene `[Symbol.toStringTag]`-Eigenschaft bereit. Fast alle `[Symbol.toStringTag]`-Eigenschaften von eingebauten Objekten sind nicht schreibbar, nicht aufzählbar und konfigurierbar; die Ausnahme ist {{jsxref("Iterator")}}, welche aus Kompatibilitätsgründen schreibbar ist.
 
-Bei Konstruktorobjekten wie {{jsxref("Promise")}} wird die Eigenschaft auf `Constructor.prototype` installiert, sodass alle Instanzen des Konstruktors `[Symbol.toStringTag]` erben und zu Strings umgewandelt werden können. Bei Nicht-Konstruktor-Objekten wie {{jsxref("Math")}} und {{jsxref("JSON")}} wird die Eigenschaft als statische Eigenschaft installiert, sodass das Namensraumobjekt selbst zu Strings umgewandelt werden kann. Manchmal bietet der Konstruktor auch eine eigene `toString`-Methode an (zum Beispiel {{jsxref("Intl.Locale")}}), in diesem Fall wird die `[Symbol.toStringTag]`-Eigenschaft nur verwendet, wenn `Object.prototype.toString` explizit darauf aufgerufen wird.
+Bei Konstruktor-Objekten wie {{jsxref("Promise")}} wird die Eigenschaft auf `Constructor.prototype` installiert, sodass alle Instanzen des Konstruktors `[Symbol.toStringTag]` erben und in Strings umgewandelt werden können. Bei Nicht-Konstruktor-Objekten wie {{jsxref("Math")}} und {{jsxref("JSON")}} wird die Eigenschaft als statische Eigenschaft installiert, sodass das Namespace-Objekt selbst in Strings umgewandelt werden kann. Manchmal stellt der Konstruktor auch seine eigene `toString`-Methode bereit (zum Beispiel {{jsxref("Intl.Locale")}}), in diesem Fall wird die `[Symbol.toStringTag]`-Eigenschaft nur verwendet, wenn `Object.prototype.toString` explizit darauf aufgerufen wird.
 
 ```js
 Object.prototype.toString.call(new Map()); // "[object Map]"
@@ -48,7 +48,7 @@ Object.prototype.toString.call(Promise.resolve()); // "[object Promise]"
 
 ### Benutzerdefiniertes Tag mit toStringTag
 
-Beim Erstellen einer eigenen Klasse verwendet JavaScript standardmäßig das "Object"-Tag:
+Beim Erstellen einer eigenen Klasse verwendet JavaScript standardmäßig den "Object"-Tag:
 
 ```js
 class ValidatorClass {}
@@ -56,7 +56,7 @@ class ValidatorClass {}
 Object.prototype.toString.call(new ValidatorClass()); // "[object Object]"
 ```
 
-Mit Hilfe von `toStringTag` können Sie jetzt Ihr eigenes benutzerdefiniertes Tag festlegen:
+Nun können Sie mit `toStringTag` Ihr eigenes benutzerdefiniertes Tag festlegen:
 
 ```js
 class ValidatorClass {
@@ -70,7 +70,7 @@ Object.prototype.toString.call(new ValidatorClass()); // "[object Validator]"
 
 ### toStringTag verfügbar auf allen DOM-Prototyp-Objekten
 
-Aufgrund einer [WebIDL-Spezifikationsänderung](https://github.com/whatwg/webidl/pull/357) Mitte 2020 fügen Browser eine `Symbol.toStringTag`-Eigenschaft zu allen DOM-Prototyp-Objekten hinzu. Zum Beispiel, um auf die `Symbol.toStringTag`-Eigenschaft auf [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) zuzugreifen:
+Aufgrund einer [WebIDL-Spezifikationsänderung](https://github.com/whatwg/webidl/pull/357) von Mitte 2020 fügen Browser eine `Symbol.toStringTag`-Eigenschaft zu allen DOM-Prototyp-Objekten hinzu. Zum Beispiel, um auf die `Symbol.toStringTag`-Eigenschaft auf [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) zuzugreifen:
 
 ```js
 const test = document.createElement("button");

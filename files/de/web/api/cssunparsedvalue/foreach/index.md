@@ -1,5 +1,5 @@
 ---
-title: "CSSUnparsedValue: forEach() Methode"
+title: "CSSUnparsedValue: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/CSSUnparsedValue/forEach
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.forEach()`** Methode
-führt eine bereitgestellte Funktion einmal für jedes Element von
+Die **`CSSUnparsedValue.forEach()`**-Methode
+führt eine bereitgestellte Funktion einmal für jedes Element der
 [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) aus.
 
 ## Syntax
@@ -23,22 +23,22 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die Funktion, die für jedes Element ausgeführt werden soll, unter Verwendung von drei Argumenten:
+  - : Die Funktion, die für jedes Element ausgeführt werden soll und drei Argumente entgegennimmt:
 
     - `currentValue`
-      - : Der Wert des aktuell verarbeiteten Elements.
+      - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
-      - : Der Index des aktuell verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das verarbeitet wird.
     - `array` {{optional_inline}}
-      - : Der `CSSUnparsedValue`, auf den `forEach()` aufgerufen wird.
+      - : Die `CSSUnparsedValue`, auf der `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d. h. die Referenz
-    `Object`) bei der Ausführung von `callback` verwendet wird.
+  - : Wert, der als **`this`** (d.h. das Referenz
+    `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

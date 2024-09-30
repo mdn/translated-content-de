@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte `items`-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [`Liste`](/de/docs/Web/API/DataTransferItemList) der [Datentransfer-Items](/de/docs/Web/API/DataTransferItem) in einem Ziehvorgang. Die Liste enthält ein Item für jedes Element in der Operation und ist leer, wenn die Operation keine Elemente hatte.
+Die schreibgeschützte `items`-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [`Liste`](/de/docs/Web/API/DataTransferItemList) der [Datenübertragungs-Elemente](/de/docs/Web/API/DataTransferItem) in einer Ziehoperation. Die Liste enthält ein Element für jedes Element in der Operation und ist leer, wenn die Operation keine Elemente hatte.
 
 ## Wert
 
-Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die in einem Ziehvorgang gezogenen Items repräsentieren, mit einem Listeneintrag für jedes Objekt, das gezogen wird. Wenn der Ziehvorgang keine Daten hatte, ist die Liste leer.
+Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die Elemente repräsentieren, die in einer Ziehoperation gezogen werden, ein Listenelement für jedes gezogene Objekt. Wenn die Ziehoperation keine Daten hatte, ist die Liste leer.
 
 ## Beispiele
 
-### Protokollierung gezogener Items
+### Protokollierung von gezogenen Elementen
 
-Dieses Beispiel verwendet `items`, um Informationen über gezogene Items zu protokollieren.
+Dieses Beispiel verwendet `items`, um Informationen über gezogene Elemente zu protokollieren.
 
 #### HTML
 
@@ -90,7 +90,7 @@ reset.addEventListener("click", () => document.location.reload());
 
 #### Ergebnis
 
-{{EmbedLiveSample("Logging dragged items", 0, 400)}}
+{{EmbedLiveSample("Protokollierung von gezogenen Elementen", 0, 400)}}
 
 ## Spezifikationen
 
@@ -102,7 +102,7 @@ reset.addEventListener("click", () => document.location.reload());
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Drag-and-Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

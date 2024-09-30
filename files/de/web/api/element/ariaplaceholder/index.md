@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaPlaceholder`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des `aria-placeholder`-Attributs wider, das einen kurzen Hinweis definiert, der dem Benutzer bei der Dateneingabe helfen soll, wenn das Steuerelement keinen Wert hat.
+Die **`ariaPlaceholder`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-placeholder`-Attributs wider, das einen kurzen Hinweis definiert, um den Benutzer bei der Dateneingabe zu unterstützen, wenn das Steuerelement keinen Wert hat.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute benötigen.
+> Verwenden Sie, wenn möglich, ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wurde das `aria-placeholder`-Attribut des Elements mit der ID `txtBoxInput` auf eine Zeichenkette gesetzt. Mit `ariaPlaceholder` aktualisieren wir die Zeichenkette auf einen anderen Wert.
+In diesem Beispiel wurde das `aria-placeholder`-Attribut auf dem Element mit der ID `txtBoxInput` auf einen String gesetzt. Mit `ariaPlaceholder` aktualisieren wir den String auf einen anderen Wert.
 
 ```html
 <div id="txtboxLabel">Enter your five-digit zipcode</div>
@@ -48,4 +48,4 @@ console.log(el.ariaPlaceholder); // "12345"
 
 ## Siehe auch
 
-- [ARIA: textbox-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: Rolle textbox](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)

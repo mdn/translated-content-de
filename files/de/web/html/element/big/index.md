@@ -1,5 +1,5 @@
 ---
-title: "<big>: Das Größere Textelement"
+title: "<big>: Das Bigger Text-Element"
 slug: Web/HTML/Element/big
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,10 +7,10 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<big>`** [HTML](/de/docs/Web/HTML) veraltete Element zeigt den umschlossenen Text in einer Schriftgröße an, die eine Stufe größer ist als der umgebende Text (`medium` wird beispielsweise zu `large`). Die Größe ist auf die maximal zulässige Schriftgröße des Browsers begrenzt.
+Das veraltete **`<big>`** [HTML](/de/docs/Web/HTML)-Element rendert den eingeschlossenen Text in einer Schriftgröße, die eine Stufe größer ist als die umgebende Schriftgröße (zum Beispiel wird `medium` zu `large`). Die Größe ist auf die maximal zulässige Schriftgröße des Browsers beschränkt.
 
 > [!WARNING]
-> Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
+> Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
 
 ## Attribute
 
@@ -18,11 +18,11 @@ Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs
 
 ## Beispiele
 
-Hier sehen wir Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, das zeigt, wie dieselben Ergebnisse mit moderner CSS-Syntax erreicht werden können.
+Hier sehen wir Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, das zeigt, wie dieselben Ergebnisse mit moderner CSS-Syntax erzielt werden können.
 
 ### Verwendung von big
 
-Dieses Beispiel verwendet das veraltete `<big>` Element, um die Größe einiger Texte zu erhöhen.
+Dieses Beispiel verwendet das veraltete `<big>`-Element, um die Größe eines Textes zu erhöhen.
 
 #### HTML
 
@@ -64,7 +64,9 @@ Dieses Beispiel verwendet die CSS-Eigenschaft {{cssxref("font-size")}}, um die S
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle.
+Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+
+<!-- ## Technische Zusammenfassung -->
 
 ## Spezifikationen
 

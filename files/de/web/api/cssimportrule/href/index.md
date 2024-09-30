@@ -8,9 +8,12 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`href`**-Eigenschaft des [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Interfaces gibt die URL zurück, die durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) festgelegt wurde.
+Die schreibgeschützte **`href`**-Eigenschaft der
+[`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt die URL zurück, die durch die
+{{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) angegeben wird.
 
-Die aufgelöste URL wird das [`href`](/de/docs/Web/HTML/Element/link#href)-Attribut des zugehörigen Stylesheets sein.
+Die aufgelöste URL wird das [`href`](/de/docs/Web/HTML/Element/link#href)-Attribut des
+zugehörigen Stylesheets sein.
 
 ## Wert
 
@@ -18,7 +21,9 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Stylesheet enthält eine einzige {{cssxref("@import")}}-Regel. Daher wird das erste Element in der Liste der CSS-Regeln ein `CSSImportRule` sein. Die `href`-Eigenschaft gibt die URL des importierten Stylesheets zurück.
+Das folgende Stylesheet enthält eine einzige {{cssxref("@import")}}-Regel. Daher wird das
+erste Element in der Liste der CSS-Regeln eine `CSSImportRule` sein. Die
+`href`-Eigenschaft gibt die URL des importierten Stylesheets zurück.
 
 ```css
 @import url("style.css") screen;

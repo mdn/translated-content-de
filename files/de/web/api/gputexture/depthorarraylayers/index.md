@@ -1,5 +1,5 @@
 ---
-title: "GPUTexture: depthOrArrayLayers Eigenschaft"
+title: "GPUTexture: depthOrArrayLayers-Eigenschaft"
 short-title: depthOrArrayLayers
 slug: Web/API/GPUTexture/depthOrArrayLayers
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`depthOrArrayLayers`** schreibgeschützte Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture) Schnittstelle gibt die Tiefe oder Anzahl der Schichten der `GPUTexture` an.
+Die schreibgeschützte Eigenschaft **`depthOrArrayLayers`** der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Tiefe oder die Anzahl der Schichten der `GPUTexture`.
 
-Dieser Wert wird basierend auf der `size` Eigenschaft im Deskriptionsobjekt festgelegt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wurde.
+Dies wird basierend auf der `size`-Eigenschaft im Deskriptorobjekt festgelegt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl. Diese repräsentiert:
 - Die Tiefe in Pixeln im Fall von Texturen mit einer `"3d"` [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension).
 - Die Anzahl der Schichten im Fall von geschichteten Texturen mit einer `"2d"` [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension).
 
-In Fällen, in denen die `GPUTexture` keine Tiefe oder Schichten hat, ist der Wert 1.
+In Fällen, in denen die `GPUTexture` keine Tiefe oder Schichten hat, beträgt der Wert 1.
 
 ## Beispiele
 

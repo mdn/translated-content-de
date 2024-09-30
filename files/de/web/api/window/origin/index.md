@@ -1,5 +1,5 @@
 ---
-title: "Window: origin-Eigenschaft"
+title: "Window: origin Eigenschaft"
 short-title: origin
 slug: Web/API/Window/origin
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`origin`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt den Ursprung des globalen Scopes zurück, als Zeichenkette serialisiert.
+Die **`origin`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window) Schnittstelle gibt den Ursprung des globalen Geltungsbereichs zurück, serialisiert als Zeichenkette.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-Ausgeführt innerhalb des Fenster-Scopes, wird das folgende Snippet den Ursprung des globalen Scopes des Dokuments in der Konsole protokollieren.
+Ausgeführt im Fensterbereich, wird das folgende Snippet den Ursprung des globalen Dokumentsbereichs in der Konsole protokollieren.
 
 ```js
 console.log(window.origin); // On this page returns 'https://developer.mozilla.org'
 ```
 
-Wenn der Ursprung kein Schema/Host/Port-Tupel ist (angenommen, Sie führen es lokal aus, z.B. über eine `file://`-URL), gibt `origin` die Zeichenkette `"null"` zurück.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (angenommen, Sie versuchen es lokal auszuführen, z. B. über eine `file://` URL), gibt `origin` die Zeichenkette `"null"` zurück.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "GPURenderPassEncoder: Methode pushDebugGroup()"
+title: "GPURenderPassEncoder: pushDebugGroup()-Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderPassEncoder/pushDebugGroup
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Renderpass-Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden codierten Befehle bis zur Aufruf der Methode [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup) enthält.
+Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Render-Pass-Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden codierten Befehle enthält, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode aufgerufen wird.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklertools des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten hilfreich sein, um beim Debuggen zu unterstützen.
 
 ## Syntax
 

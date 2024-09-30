@@ -8,7 +8,7 @@ l10n:
 {{jsSidebar("Statements")}}{{Deprecated_Header}}
 
 > [!NOTE]
-> Die Verwendung der `with`-Anweisung wird nicht empfohlen, da sie verwirrende Fehler und Kompatibilitätsprobleme verursachen kann, Optimierungen unmöglich macht und im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) verboten ist. Die empfohlene Alternative besteht darin, das Objekt, dessen Eigenschaften Sie zugreifen möchten, einer temporären Variablen zuzuweisen.
+> Die Verwendung der `with`-Anweisung wird nicht empfohlen, da sie die Quelle für verwirrende Fehler und Kompatibilitätsprobleme sein kann, Optimierungen unmöglich macht und im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) verboten ist. Die empfohlene Alternative ist, das Objekt, auf dessen Eigenschaften Sie zugreifen möchten, einer temporären Variablen zuzuweisen.
 
 Die **`with`**-Anweisung erweitert die Scope-Kette für eine Anweisung.
 
@@ -20,9 +20,9 @@ with (expression)
 ```
 
 - `expression`
-  - : Fügt die angegebene Ausdruck der Scope-Kette hinzu, die bei der Auswertung der Anweisung verwendet wird. Die Klammern um den Ausdruck sind erforderlich.
+  - : Fügt den gegebenen Ausdruck der Scope-Kette hinzu, die bei der Auswertung der Anweisung verwendet wird. Die Klammern um den Ausdruck sind erforderlich.
 - `statement`
-  - : Jede Anweisung. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ ... }`), um diese Anweisungen zu gruppieren.
+  - : Jede beliebige Anweisung. Um mehrere Anweisungen auszuführen, verwenden Sie eine [block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ ... }`), um diese Anweisungen zu gruppieren.
 
 ## Beschreibung
 
@@ -33,7 +33,7 @@ foo; // unqualified identifier
 foo.bar; // bar is a qualified identifier
 ```
 
-Normalerweise wird ein nicht qualifizierter Bezeichner aufgelöst, indem in der Scope-Kette nach einer Variablen mit diesem Namen gesucht wird, während ein qualifizierter Bezeichner aufgelöst wird, indem in der Prototyp-Kette eines Objekts nach einer Eigenschaft mit diesem Namen gesucht wird.
+Normalerweise wird ein nicht qualifizierter Bezeichner aufgelöst, indem die Scope-Kette nach einer Variablen mit diesem Namen durchsucht wird, während ein qualifizierter Bezeichner aufgelöst wird, indem die Prototyp-Kette eines Objekts nach einer Eigenschaft mit diesem Namen durchsucht wird.
 
 ```js
 const foo = { bar: 1 };
@@ -42,15 +42,15 @@ console.log(foo.bar);
 // bar is found in foo as a property
 ```
 
-Eine Ausnahme bildet das [Globalobjekt](/de/docs/Glossary/Global_object), das an der Spitze der Scope-Kette steht und dessen Eigenschaften automatisch globale Variablen werden, auf die ohne Qualifikatoren verwiesen werden kann.
+Eine Ausnahme ist das [global object](/de/docs/Glossary/Global_object), das sich an der Spitze der Scope-Kette befindet und dessen Eigenschaften automatisch zu globalen Variablen werden, die ohne Qualifikatoren referenziert werden können.
 
 ```js
 console.log(globalThis.Math === Math); // true
 ```
 
-Die `with`-Anweisung fügt das angegebene Objekt während der Auswertung ihres Anweisungskörpers an den Anfang dieser Scope-Kette hinzu. Jeder nicht qualifizierte Name wird zunächst innerhalb des Objekts (durch eine [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Überprüfung) gesucht, bevor in der oberen Scope-Kette gesucht wird.
+Die `with`-Anweisung fügt das gegebene Objekt dem Kopf dieser Scope-Kette während der Auswertung ihres Anweisungskörpers hinzu. Jeder nicht qualifizierte Name wird zuerst innerhalb des Objekts (durch einen [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Check) gesucht, bevor er in der oberen Scope-Kette gesucht wird.
 
-Beachten Sie, dass, wenn sich der nicht qualifizierte Verweis auf eine Methode des Objekts bezieht, die Methode mit dem Objekt als seinem `this`-Wert aufgerufen wird.
+Beachten Sie, dass, wenn sich die nicht qualifizierte Referenz auf eine Methode des Objekts bezieht, die Methode mit dem Objekt als ihrem `this`-Wert aufgerufen wird.
 
 ```js
 with ([1, 2, 3]) {
@@ -58,12 +58,12 @@ with ([1, 2, 3]) {
 }
 ```
 
-Das Objekt kann eine [`[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables)-Eigenschaft haben, die eine Liste von Eigenschaften definiert, die nicht zur Scope-Kette hinzugefügt werden sollen (zur Rückwärtskompatibilität). Weitere Informationen finden Sie in der Dokumentation zu [`Symbol.unscopables`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables).
+Das Objekt kann eine [`[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables)-Eigenschaft haben, die eine Liste von Eigenschaften definiert, die nicht zur Scope-Kette hinzugefügt werden sollten (zur Abwärtskompatibilität). Weitere Informationen finden Sie in der Dokumentation zu [`Symbol.unscopables`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables).
 
-Die Gründe für die Verwendung einer `with`-Anweisung umfassen das Einsparen einer temporären Variablen und die Reduzierung der Dateigröße, indem eine wiederholte lange Objektreferenz vermieden wird. Es gibt jedoch mehr Gründe, warum `with`-Anweisungen nicht wünschenswert sind:
+Die Gründe, eine `with`-Anweisung zu verwenden, umfassen das Sparen einer temporären Variablen und die Reduzierung der Dateigröße, indem ein langer Objektreferenz nicht wiederholt werden muss. Es gibt jedoch weit mehr Gründe, warum `with`-Anweisungen nicht wünschenswert sind:
 
-- Leistung: Die `with`-Anweisung erzwingt, dass das angegebene Objekt zuerst bei allen Namensauflösungen durchsucht wird. Daher werden alle Bezeichner, die keine Mitglieder des angegebenen Objekts sind, in einem `with`-Block langsamer gefunden. Darüber hinaus kann der Optimierer keine Annahmen darüber treffen, auf welchen Bezeichner sich jeder nicht qualifizierte Bezeichner bezieht, sodass er dieselbe Eigenschaftsauflösung jedes Mal wiederholen muss, wenn der Bezeichner verwendet wird.
-- Lesbarkeit: Die `with`-Anweisung erschwert es einem menschlichen Leser oder JavaScript-Compiler zu entscheiden, ob ein nicht qualifizierter Name entlang der Scope-Kette gefunden wird und, wenn ja, in welchem Objekt. Zum Beispiel:
+- Leistung: Die `with`-Anweisung erzwingt, dass das angegebene Objekt zuerst bei allen Namenssuchvorgängen durchsucht wird. Daher werden alle Bezeichner, die keine Mitglieder des angegebenen Objekts sind, innerhalb eines `with`-Blocks langsamer gefunden. Darüber hinaus kann der Optimierer keine Annahmen darüber treffen, worauf sich jeder nicht qualifizierte Bezeichner bezieht, so dass er bei jeder Verwendung des Bezeichners denselben Eigenschaftslookup wiederholen muss.
+- Lesbarkeit: Die `with`-Anweisung macht es schwer für einen menschlichen Leser oder JavaScript-Compiler zu entscheiden, ob ein nicht qualifizierter Name entlang der Scope-Kette gefunden wird und, falls ja, in welchem Objekt. Zum Beispiel:
 
   ```js
   function f(x, o) {
@@ -73,9 +73,9 @@ Die Gründe für die Verwendung einer `with`-Anweisung umfassen das Einsparen ei
   }
   ```
 
-  Wenn Sie sich nur die Definition von `f` ansehen, ist es unmöglich zu sagen, worauf sich das `x` im `with`-Körper bezieht. Erst wenn `f` aufgerufen wird, kann `x` als `o.x` oder als erster formaler Parameter von `f` bestimmt werden. Wenn Sie vergessen, `x` im Objekt zu definieren, das Sie als zweiten Parameter übergeben, erhalten Sie keinen Fehler – stattdessen erhalten Sie nur unerwartete Ergebnisse. Es ist auch unklar, was die eigentliche Absicht eines solchen Codes wäre.
+  Betrachten Sie nur die Definition von `f`, ist es unmöglich zu sagen, worauf sich das `x` im `with`-Körper bezieht. Erst wenn `f` aufgerufen wird, kann bestimmt werden, ob `x` `o.x` oder der erste formale Parameter von `f` ist. Wenn Sie vergessen, `x` im Objekt zu definieren, das Sie als zweiten Parameter übergeben, erhalten Sie keinen Fehler — stattdessen erhalten Sie einfach unerwartete Ergebnisse. Es ist auch unklar, was die tatsächliche Absicht eines solchen Codes wäre.
 
-- Zukunftskompatibilität: Code, der `with` verwendet, ist möglicherweise nicht zukunftskompatibel, insbesondere wenn er mit etwas anderem als einem einfachen Objekt verwendet wird, das in Zukunft mehr Eigenschaften erhalten könnte. Betrachten Sie dieses Beispiel:
+- Zukunftskompatibilität: Code mit `with` ist möglicherweise nicht zukunftskompatibel, insbesondere wenn er mit etwas anderem als einem einfachen Objekt verwendet wird, das in Zukunft möglicherweise mehr Eigenschaften erhält. Betrachten Sie dieses Beispiel:
 
   ```js
   function f(foo, values) {
@@ -85,15 +85,15 @@ Die Gründe für die Verwendung einer `with`-Anweisung umfassen das Einsparen ei
   }
   ```
 
-  Wenn Sie `f([1, 2, 3], obj)` in einer ECMAScript 5-Umgebung aufrufen, wird der `values`-Bezug innerhalb der `with`-Anweisung auf `obj` aufgelöst. Allerdings führt ECMAScript 2015 eine [`values`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/values)-Eigenschaft auf dem `Array.prototype` ein (sodass sie in jedem Array verfügbar ist). Nach einem Upgrade der Umgebung wird der `values`-Bezug innerhalb der `with`-Anweisung daher als `[1, 2, 3].values` aufgelöst, was wahrscheinlich zu Fehlern führt.
+  Wenn Sie `f([1, 2, 3], obj)` in einer ECMAScript 5-Umgebung aufrufen, wird die `values`-Referenz innerhalb der `with`-Anweisung zu `obj` aufgelöst. ECMAScript 2015 führt jedoch eine [`values`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/values)-Eigenschaft auf `Array.prototype` ein (sie wird also in jedem Array verfügbar sein). Nach einem Update der Umgebung wird die `values`-Referenz innerhalb der `with`-Anweisung stattdessen zu `[1, 2, 3].values` aufgelöst und wird wahrscheinlich Fehler verursachen.
 
-  In diesem speziellen Beispiel ist `values` als nicht durchsuchbar über [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) definiert, sodass es weiterhin korrekt auf den `values`-Parameter aufgelöst wird. Wenn es nicht als nicht durchsuchbar definiert wäre, kann man sehen, wie dies ein schwierig zu debuggendes Problem wäre.
+  In diesem speziellen Beispiel ist `values` durch [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) als unscopable definiert, sodass es immer noch korrekt auf den `values`-Parameter aufgelöst wird. Wäre es nicht als unscopable definiert, können Sie sehen, wie dies ein schwer zu beheben Problem wäre.
 
 ## Beispiele
 
-### Die Verwendung der with-Anweisung
+### Verwendung der with-Anweisung
 
-Die folgende `with`-Anweisung gibt an, dass das {{jsxref("Math")}}-Objekt das Standardobjekt ist. Die Anweisungen nach der `with`-Anweisung beziehen sich auf die {{jsxref("Math/PI", "PI")}}-Eigenschaft und die {{jsxref("Math/cos", "cos")}}- und {{jsxref("Math/sin", "sin")}}-Methoden, ohne ein Objekt anzugeben. JavaScript nimmt für diese Verweise das `Math`-Objekt an.
+Die folgende `with`-Anweisung legt fest, dass das {{jsxref("Math")}}-Objekt das Standardobjekt ist. Die Anweisungen nach der `with`-Anweisung beziehen sich auf die {{jsxref("Math/PI", "PI")}}-Eigenschaft und die {{jsxref("Math/cos", "cos")}}- und {{jsxref("Math/sin", "sin")}}-Methoden, ohne ein Objekt anzugeben. JavaScript nimmt an, dass es sich bei diesen Referenzen um das `Math`-Objekt handelt.
 
 ```js
 let a, x, y;
@@ -106,9 +106,9 @@ with (Math) {
 }
 ```
 
-### Vermeidung der with-Anweisung durch Destrukturierung von Eigenschaften in den aktuellen Scope
+### Vermeiden der with-Anweisung durch Destrukturierung von Eigenschaften in den aktuellen Scope
 
-Sie können die Verwendung von `with` in der Regel durch [Eigenschaftsdestrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) vermeiden. Hier erstellen wir einen zusätzlichen Block, um das Verhalten von `with` nachzuahmen, indem ein zusätzlicher Scope erstellt wird - aber in der tatsächlichen Nutzung kann dieser Block normalerweise weggelassen werden.
+Sie können die Verwendung von `with` normalerweise durch [property destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) vermeiden. Hier erstellen wir einen zusätzlichen Block, um das Verhalten von `with` nachzuahmen, das einen zusätzlichen Scope erstellt — aber in der tatsächlichen Verwendung kann dieser Block normalerweise weggelassen werden.
 
 ```js
 let a, x, y;
@@ -122,9 +122,9 @@ const r = 10;
 }
 ```
 
-### Vermeidung der with-Anweisung durch Verwendung eines IIFE
+### Vermeiden der with-Anweisung durch Verwendung einer IIFE
 
-Wenn Sie einen Ausdruck erzeugen, der einen lang benannten Verweis mehrfach wiederverwenden muss, und Ihr Ziel darin besteht, diesen langen Namen innerhalb Ihres Ausdrucks zu eliminieren, können Sie den Ausdruck in einer [IIFE](/de/docs/Glossary/IIFE) umschließen und den langen Namen als Argument übergeben.
+Wenn Sie einen Ausdruck erzeugen, der einen langen Namen mehrmals wiederverwenden muss, und Ihr Ziel darin besteht, diesen langen Namen innerhalb Ihres Ausdrucks zu eliminieren, können Sie den Ausdruck in einer [IIFE](/de/docs/Glossary/IIFE) umschließen und den langen Namen als Argument übergeben.
 
 ```js
 const objectHavingAnEspeciallyLengthyName = { foo: true, bar: false };
@@ -134,9 +134,9 @@ if (((o) => o.foo && !o.bar)(objectHavingAnEspeciallyLengthyName)) {
 }
 ```
 
-### Erstellen dynamischer Namensräume mit der with-Anweisung und einem Proxy
+### Erstellen dynamischer Namespaces mit der with-Anweisung und einem Proxy
 
-`with` verwandelt jede Variablenauflösung in eine Eigenschaftsauflösung, während [Proxies](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy) das Abfangen jedes Eigenschaftsaufrufs ermöglichen. Sie können einen dynamischen Namensraum erstellen, indem Sie sie kombinieren.
+`with` wandelt jede Variablenabfrage in eine Eigenschaftsabfrage um, während [Proxies](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy) das Abfangen jeder Eigenschaftsabfrage ermöglichen. Sie können einen dynamischen Namespace erstellen, indem Sie sie kombinieren.
 
 ```js
 const namespace = new Proxy(
@@ -171,7 +171,7 @@ with (namespace) {
 
 ## Siehe auch
 
-- {{jsxref("Statements/block", "Block", "", 1)}}
+- {{jsxref("Statements/block", "block", "", 1)}}
 - [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
 - {{jsxref("Symbol.unscopables")}}
 - [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables)

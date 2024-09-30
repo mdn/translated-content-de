@@ -1,5 +1,5 @@
 ---
-title: "CaptureController: CaptureController() Konstruktor"
+title: "CaptureController: CaptureController()-Konstruktor"
 short-title: CaptureController()
 slug: Web/API/CaptureController/CaptureController
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der [`CaptureController`](/de/docs/Web/API/CaptureController) Konstruktor erstellt eine neue Instanz eines `CaptureController` Objekts.
+Der [`CaptureController`](/de/docs/Web/API/CaptureController)-Konstruktor erstellt eine neue Instanz des `CaptureController`-Objekts.
 
 ## Syntax
 
@@ -55,4 +55,4 @@ if (displaySurface == "browser") {
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Besseres Bildschirmteilen mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)
+- [Besseres Bildschirmteilen mit Conditional Focus](https://developer.chrome.com/docs/web-platform/conditional-focus/)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: rows-Eigenschaft"
+title: "HTMLTextAreaElement: rows Eigenschaft"
 short-title: rows
 slug: Web/API/HTMLTextAreaElement/rows
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rows`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces ist eine positive Ganzzahl, die die sichtbaren Textzeilen des Textelements darstellt. Sie spiegelt das [`rows`](/de/docs/Web/HTML/Element/textarea#rows)-Attribut des `<textarea>`-Elements wider.
+Die **`rows`** Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Interfaces ist eine positive ganze Zahl, die die sichtbaren Textzeilen des Textelements darstellt. Sie spiegelt das [`rows`](/de/docs/Web/HTML/Element/textarea#rows) Attribut des `<textarea>` Elements wider.
 
 ## Wert
 
-Eine positive Ganzzahl. Voreinstellung ist `2`.
+Eine positive ganze Zahl. Standardmäßig `2`.
 
 ## Beispiele
 
@@ -35,4 +35,4 @@ textArea.rows = textLines + 2;
 - {{HTMLElement("textarea")}}
 - [`HTMLTextAreaElement.cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)
 - [`HTMLTextAreaElement.wrap`](/de/docs/Web/API/HTMLTextAreaElement/wrap)
-- CSS {{cssxref("resize")}}-Eigenschaft
+- CSS {{cssxref("resize")}} Eigenschaft

@@ -1,5 +1,5 @@
 ---
-title: "XRRenderState: depthNear Eigenschaft"
+title: "XRRenderState: depthNear-Eigenschaft"
 short-title: depthNear
 slug: Web/API/XRRenderState/depthNear
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`depthNear`** der [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Schnittstelle gibt die Entfernung in Metern der vorderen Clipping-Ebene vom Betrachter zurück.
+Die schreibgeschützte Eigenschaft **`depthNear`** des [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Interfaces gibt die Entfernung in Metern der Nahen-Abschneideebene vom Betrachter zurück.
 
 ## Wert
 
-Eine {{jsxref("Number")}}.
+Ein {{jsxref("Number")}}.
 
 ## Spezifikationen
 

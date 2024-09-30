@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Das **`IDBDatabase`**-Interface der IndexedDB-API bietet eine [Verbindung zu einer Datenbank](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#database_connection); Sie können ein `IDBDatabase`-Objekt nutzen, um eine [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction) auf Ihrer Datenbank zu öffnen, und dann Objekte (Daten) in dieser Datenbank zu erstellen, zu manipulieren und zu löschen. Das Interface bietet die einzige Möglichkeit, an Versionsinformationen der Datenbank zu gelangen und diese zu verwalten.
+Das **`IDBDatabase`**-Interface der IndexedDB-API bietet eine [Verbindung zu einer Datenbank](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#database_connection); Sie können ein `IDBDatabase`-Objekt verwenden, um eine [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction) auf Ihrer Datenbank zu öffnen und dann Objekte (Daten) in dieser Datenbank zu erstellen, zu manipulieren und zu löschen. Die Schnittstelle bietet die einzige Möglichkeit, Versionen der Datenbank zu erhalten und zu verwalten.
 
 > [!NOTE]
-> Alles, was Sie in IndexedDB tun, geschieht immer im Kontext einer [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction), die Interaktionen mit den Daten in der Datenbank repräsentiert. Alle Objekte in IndexedDB — einschließlich Object Stores, Indizes und Cursor — sind an eine bestimmte Transaktion gebunden. Daher können Sie keine Befehle ausführen, auf Daten zugreifen oder etwas außerhalb einer Transaktion öffnen.
+> Alles, was Sie in IndexedDB tun, geschieht immer im Kontext einer [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction), die Interaktionen mit den Daten in der Datenbank darstellt. Alle Objekte in IndexedDB — einschließlich Objektstores, Indizes und Cursor — sind an eine bestimmte Transaktion gebunden. Daher können Sie keine Befehle ausführen, Daten abrufen oder etwas außerhalb einer Transaktion öffnen.
 
 {{InheritanceDiagram}}
 
@@ -21,7 +21,7 @@ Das **`IDBDatabase`**-Interface der IndexedDB-API bietet eine [Verbindung zu ein
 - [`IDBDatabase.version`](/de/docs/Web/API/IDBDatabase/version) {{ReadOnlyInline}}
   - : Ein 64-Bit-Integer, der die Version der verbundenen Datenbank enthält. Wenn eine Datenbank erstmals erstellt wird, ist dieses Attribut ein leerer String.
 - [`IDBDatabase.objectStoreNames`](/de/docs/Web/API/IDBDatabase/objectStoreNames) {{ReadOnlyInline}}
-  - : Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList), die eine Liste der Namen der [Object Stores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält, die sich derzeit in der verbundenen Datenbank befinden.
+  - : Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList), die eine Liste der Namen der derzeit in der verbundenen Datenbank vorhandenen [Objektstores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält.
 
 ## Instanz-Methoden
 
@@ -30,33 +30,33 @@ Erbt von: [EventTarget](/de/docs/Web/API/EventTarget)
 - [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close)
   - : Gibt sofort zurück und schließt die Verbindung zu einer Datenbank in einem separaten Thread.
 - [`IDBDatabase.createObjectStore()`](/de/docs/Web/API/IDBDatabase/createObjectStore)
-  - : Erstellt und gibt einen neuen Object Store oder Index zurück.
+  - : Erstellt und gibt einen neuen Objektstore oder Index zurück.
 - [`IDBDatabase.deleteObjectStore()`](/de/docs/Web/API/IDBDatabase/deleteObjectStore)
-  - : Zerstört den Object Store mit dem angegebenen Namen in der verbundenen Datenbank sowie alle Indizes, die darauf verweisen.
+  - : Zerstört den Objektstore mit dem gegebenen Namen in der verbundenen Datenbank, zusammen mit allen Indizes, die ihn referenzieren.
 - [`IDBDatabase.transaction()`](/de/docs/Web/API/IDBDatabase/transaction)
-  - : Gibt sofort ein Transaktionsobjekt ([`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) mit der Methode [`IDBTransaction.objectStore`](/de/docs/Web/API/IDBTransaction/objectStore) zurück, das Sie verwenden können, um auf Ihren Object Store zuzugreifen. Läuft in einem separaten Thread.
+  - : Gibt sofort ein Transaktionsobjekt ([`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) zurück, das die Methode [`IDBTransaction.objectStore`](/de/docs/Web/API/IDBTransaction/objectStore) enthält, die Sie verwenden können, um auf Ihren Objektstore zuzugreifen. Läuft in einem separaten Thread.
 
 ## Ereignisse
 
-Diese Ereignisse können mit `addEventListener()` überwacht oder einem Event-Listener über die `oneventname`-Eigenschaft dieses Interfaces zugewiesen werden.
+Lauschen Sie auf diese Ereignisse mit `addEventListener()` oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces.
 
 - [`close`](/de/docs/Web/API/IDBDatabase/close_event)
 
   - : Ein Ereignis, das ausgelöst wird, wenn die Datenbankverbindung unerwartet geschlossen wird.
 
 - [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)
-  - : Ein Ereignis, das ausgelöst wird, wenn eine Änderung der Datenbankstruktur angefordert wird.
+  - : Ein Ereignis, das ausgelöst wird, wenn eine Strukturänderung der Datenbank angefordert wurde.
 
-Die folgenden Ereignisse sind für `IDBDatabase` über Event-Bubbling von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) verfügbar:
+Die folgenden Ereignisse sind für `IDBDatabase` über Ereignisweiterleitung von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) verfügbar:
 
 - `IDBTransaction` [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)
   - : Ein Ereignis, das ausgelöst wird, wenn eine Transaktion abgebrochen wird.
 - `IDBTransaction` [`error`](/de/docs/Web/API/IDBTransaction/error_event)
-  - : Ein Ereignis, das ausgelöst wird, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Verbindungsobjekt nach oben weitergeleitet wird.
+  - : Ein Ereignis, das ausgelöst wird, wenn eine Anforderung einen Fehler zurückgibt und das Ereignis zum Verbindungsobjekt hochblubbert.
 
 ## Beispiel
 
-Im folgenden Codeausschnitt öffnen wir eine Datenbank asynchron ([`IDBFactory`](/de/docs/Web/API/IDBFactory)), behandeln Erfolgs- und Fehlerfälle und erstellen, falls ein Upgrade erforderlich ist, einen neuen Object Store (`IDBDatabase`). Ein vollständiges Arbeitsbeispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Datenbank asynchron ([`IDBFactory`](/de/docs/Web/API/IDBFactory)), behandeln Erfolgs- und Fehlerszenarien und erstellen einen neuen Objektstore, falls ein Upgrade erforderlich ist (`IDBDatabase`). Für ein vollständig funktionierendes Beispiel, siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -117,7 +117,7 @@ DBOpenRequest.onupgradeneeded = (event) => {
 };
 ```
 
-Diese nächste Zeile öffnet eine Transaktion auf der Datenbank und danach einen Object Store, in dem wir die Daten manipulieren können.
+Diese nächste Zeile öffnet eine Transaktion auf der Datenbank und öffnet dann einen Objektstore, den wir dann manipulieren können, um die Daten darin zu verändern.
 
 ```js
 const objectStore = db
@@ -135,9 +135,9 @@ const objectStore = db
 
 ## Siehe auch
 
-- [Verwenden von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

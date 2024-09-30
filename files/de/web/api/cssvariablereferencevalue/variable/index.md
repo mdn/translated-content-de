@@ -14,7 +14,7 @@ Die **`variable`**-Eigenschaft des
 
 ## Wert
 
-Ein String, der mit `--` beginnt (also ein [Name einer benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*)).
+Ein String, der mit `--` beginnt (das heißt, ein [benutzerdefinierter Eigenschaftsname](/de/docs/Web/CSS/--*)).
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`tab-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
 {{EmbedInteractiveExample("pages/css/tab-size.html")}}
 
@@ -33,7 +33,7 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Vorbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet werden soll. Muss nicht negativ sein. Die Vorbreite ist der Abstand, den ein Cursor oder ein Druckkopf bewegt, bevor der nächste Buchstabe gedruckt wird.
+  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), die als Breite der Tabs verwendet werden soll. Muss nicht negativ sein. Die Vorschubbreite ist der Abstand, den ein Cursor oder ein Druckkopf zurücklegt, bevor er das nächste Zeichen druckt.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Die Breite der Tabs. Muss nicht negativ sein.
 
@@ -47,7 +47,7 @@ tab-size: unset;
 
 ## Beispiele
 
-### Erweiterung nach Zeichenanzahl
+### Erweiterung durch Zeichenanzahl
 
 ```css
 pre {
@@ -55,7 +55,7 @@ pre {
 }
 ```
 
-### Tabs zusammenfassen
+### Tabs kollabieren
 
 ```css
 pre {
@@ -63,9 +63,9 @@ pre {
 }
 ```
 
-### Standard-Tab-Größe vs. benutzerdefinierte Größen
+### Standard-Tabsgröße vs. benutzerdefinierte Größen
 
-Dieses Beispiel vergleicht eine Standard-Tab-Größe mit einer benutzerdefinierten Tab-Größe. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammenfallen.
+Dieses Beispiel vergleicht eine Standard-Tabsgröße mit einer benutzerdefinierten Tabsgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um das Zusammenfallen der Tabs zu verhindern.
 
 #### HTML
 

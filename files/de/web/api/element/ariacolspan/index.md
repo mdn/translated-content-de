@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaColSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan)-Attributs wider, das die Anzahl der Spalten definiert, die von einer Zelle oder einem Gitterfeld innerhalb einer Tabelle, eines Gitters oder eines Baumgitters überspannt werden.
+Die **`ariaColSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan)-Attributs wider, das die Anzahl der Spalten definiert, die von einer Zelle oder Rasterzelle innerhalb einer Tabelle, eines Rasters oder eines Baumrasters überspannt werden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colspan`-Attribut des Elements mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
+In diesem Beispiel ist das `aria-colspan`-Attribut des Elements mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
 
 ```html
 <table>

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{non-standard_header}}
 
-Das `afterscriptexecute` Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} Element mit der Ausführung seines Skripts fertig ist. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, beispielsweise mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `afterscriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen seines Skripts abgeschlossen hat. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, wie beispielsweise mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("afterscriptexecute", (event) => {});
@@ -36,11 +36,11 @@ document.addEventListener("afterscriptexecute", finished, true);
 document.onafterscriptexecute = finished;
 ```
 
-[Live-Beispiel anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Beispiel Live anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -48,5 +48,5 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) Ereignis des `Document`
+- [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) Ereignis von `Document`
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

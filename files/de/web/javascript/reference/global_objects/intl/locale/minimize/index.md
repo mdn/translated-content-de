@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`minimize()`**-Methode von {{jsxref("Intl.Locale")}} Instanzen versucht,
+Die **`minimize()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen versucht,
 Informationen über diese Locale zu entfernen, die durch den Aufruf von
 {{jsxref("Intl/Locale/maximize", "maximize()")}} hinzugefügt würden.
 
@@ -25,20 +25,22 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}} Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) Algorithmus zurückgibt,
-ausgeführt auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
+Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des
+[Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt,
+der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wurde.
 
 ## Beschreibung
 
-Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}} aus,
-indem sie alle Sprach-, Schrift- oder Region-Subtags aus dem Sprachkennzeichen der Locale
-(enthaltend im Wesentlichen die Inhalte von `baseName`) entfernt. Dies ist nützlich,
-wenn überflüssige Subtags im Sprachkennzeichen vorhanden sind; zum Beispiel kann "en-Latn"
-zu "en" vereinfacht werden, da "Latn" das einzige Skript ist, das Englisch geschrieben wird.
-`minimize()` beeinflusst nur die Haupt-Subtags, die den [Sprachkennzeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) ausmachen:
-sprachliche, schriftliche und regionale Subtags. Andere Subtags nach dem "-u"
-im Locale-Kennzeichner werden als Erweiterungs-Subtags bezeichnet und sind von der
-`minimize()`-Methode nicht betroffen. Beispiele für diese Subtags sind
+Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}} durch,
+indem sie alle Sprach-, Skript- oder Regionsuntertags aus dem Sprachbezeichner der Locale entfernt
+(im Wesentlichen den Inhalt von `baseName`). Dies ist nützlich, wenn überflüssige Untertags im
+Sprachbezeichner vorhanden sind; beispielsweise kann "en-Latn" zu "en" vereinfacht werden,
+da "Latn" das einzige Skript ist, das zur Darstellung von Englisch verwendet wird.
+`minimize()` betrifft nur die Hauptuntertags, die den
+[Sprachbezeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) bilden:
+Sprach-, Skript- und Regionsuntertags. Andere Untertags nach dem "-u"
+im Locale-Bezeichner werden als Erweiterungsuntertags bezeichnet und sind von der
+`minimize()`-Methode nicht betroffen. Beispiele für diese Untertags sind
 {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele

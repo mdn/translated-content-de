@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`hasPointerCapture()`**-Methode der
-[`Element`](/de/docs/Web/API/Element)-Schnittstelle überprüft, ob das Element, auf dem sie aufgerufen wird,
-[pointer capture](/de/docs/Web/API/Pointer_events#pointer_capture) für den durch die gegebene Zeiger-ID identifizierten Zeiger hat.
+Die Methode **`hasPointerCapture()`** des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element, auf dem sie aufgerufen wird, [Pointer Capture](/de/docs/Web/API/Pointer_events#pointer_capture) für den Zeiger mit der angegebenen Zeiger-ID hat.
 
 ## Syntax
 
@@ -21,12 +19,11 @@ hasPointerCapture(pointerId)
 ### Parameter
 
 - `pointerId`
-  - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
-    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
+  - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
-Ein Boolean-Wert — `true`, wenn das Element tatsächlich über pointer capture für den durch die gegebene Zeiger-ID identifizierten Zeiger verfügt, `false`, wenn nicht.
+Ein boolescher Wert — `true`, wenn das Element Pointer Capture für den durch die angegebene Zeiger-ID identifizierten Zeiger hat, `false` nicht.
 
 ## Beispiele
 

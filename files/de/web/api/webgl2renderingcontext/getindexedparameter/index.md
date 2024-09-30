@@ -1,16 +1,16 @@
 ---
-title: "WebGL2RenderingContext: getIndexedParameter() Methode"
+title: "WebGL2RenderingContext: Methode getIndexedParameter()"
 short-title: getIndexedParameter()
 slug: Web/API/WebGL2RenderingContext/getIndexedParameter
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.getIndexedParameter()`**-Methode
 der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt indizierte
-Informationen über ein angegebenes `target` zurück.
+Informationen über ein bestimmtes `target` zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ getIndexedParameter(target, index)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel spezifiziert, für das Informationen zurückgegeben werden sollen.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel angibt, für das Informationen zurückgegeben werden sollen.
     Mögliche Werte:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER_BINDING`: Gibt ein
@@ -37,20 +37,20 @@ getIndexedParameter(target, index)
 
     Bei Verwendung der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL 2 Erweiterung sind zusätzlich folgende Werte verfügbar:
 
-    - `gl.BLEND_EQUATION_RGB`: Gibt die RGB-Bland-Gleichung für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_EQUATION_ALPHA`: Gibt die Alpha-Bland-Gleichung für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_SRC_RGB`: Gibt die Quell-RGB-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_SRC_ALPHA`: Gibt die Quell-Alpha-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_DST_RGB`: Gibt die Ziel-RGB-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_DST_ALPHA`: Gibt die Ziel-Alpha-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.COLOR_WRITEMASK`: Gibt ein Array zurück, das die Farbkomponenten enthält, die für den Zeichnungspuffer bei `index` aktiviert sind.
+    - `gl.BLEND_EQUATION_RGB`: Gibt die RGB-Blending-Gleichung für den Zeichenpuffer bei `index` zurück.
+    - `gl.BLEND_EQUATION_ALPHA`: Gibt die Alpha-Blending-Gleichung für den Zeichenpuffer bei `index` zurück.
+    - `gl.BLEND_SRC_RGB`: Gibt die Quell-RGB-Blending-Funktion für den Zeichenpuffer bei `index` zurück.
+    - `gl.BLEND_SRC_ALPHA`: Gibt die Quell-Alpha-Blending-Funktion für den Zeichenpuffer bei `index` zurück.
+    - `gl.BLEND_DST_RGB`: Gibt die Ziel-RGB-Blending-Funktion für den Zeichenpuffer bei `index` zurück.
+    - `gl.BLEND_DST_ALPHA`: Gibt die Ziel-Alpha-Blending-Funktion für den Zeichenpuffer bei `index` zurück.
+    - `gl.COLOR_WRITEMASK`: Gibt ein Array zurück, das die Farbkomponenten enthält, die für den Zeichenpuffer bei `index` aktiviert sind.
 
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des abgefragten `target` spezifiziert.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des abgefragten `target` angibt.
 
 ### Rückgabewert
 
-Hängt von der angeforderten Information ab (wie mit `target` angegeben).
+Hängt von den angeforderten Informationen ab (wie durch `target` angegeben).
 
 ## Beispiele
 

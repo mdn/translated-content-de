@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`unicode-range`** Attribut definiert den Bereich von [ISO 10646](https://www.iso.org/standard/56921.html) Zeichen, der möglicherweise durch die Glyphen in einer Schriftart abgedeckt wird.
+Das Attribut **`unicode-range`** definiert den Bereich der [ISO 10646](https://www.iso.org/standard/56921.html)-Zeichen, die möglicherweise von den Glyphen in einer Schriftart abgedeckt werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -23,7 +23,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
         <code
           >&#x3C;urange><a
             href="/de/docs/Web/CSS/Value_definition_syntax#hash_mark"
-            title="Das Rautezeichen-Multiplikator bedeutet, dass die Entität ein- oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), aber jede Vorkommen wird durch ein Komma (&#x27;,&#x27;) getrennt."
+            title="Das Hash-Mark-Multiplikator zeigt an, dass die Entität einmal oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), aber jedes Vorkommen wird durch ein Komma (&#x27;,&#x27;) getrennt."
             >#</a
           ></code
         >
@@ -41,7 +41,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<urange>#`
-  - : Dieser Wert ist eine durch Komma getrennte Liste von ISO 10646 Zeichen, die möglicherweise durch die Glyphen in der Schriftart abgedeckt werden.
+  - : Dieser Wert ist eine kommagetrennte Liste von ISO 10646-Zeichen, die möglicherweise von den Glyphen in der Schriftart abgedeckt werden.
 
 ## Spezifikationen
 

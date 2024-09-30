@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`computedStyleMap()`** Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet, der eine Alternative zur [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
+Die **`computedStyleMap()`**-Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet und eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Sch
 
 ## Beispiele
 
-Wir beginnen mit etwas einfachem HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschafts-/Wertpaare hinzufügen werden.
+Wir beginnen mit einem einfachen HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschafts-/Wertepaare hinzufügen.
 
 ```html
 <p>
@@ -44,7 +44,7 @@ a {
 }
 ```
 
-Wir fügen JavaScript hinzu, um unseren Link zu erfassen und eine Definitionsliste aller CSS-Eigenschaftswerte mit `computedStyleMap().` zurückzugeben.
+Wir fügen JavaScript hinzu, um unseren Link zu erfassen und eine Definitionsliste aller CSS-Eigenschaftswerte mit `computedStyleMap()` zurückzugeben.
 
 ```js
 // get the element
@@ -70,11 +70,11 @@ for (const [prop, val] of allComputedStyles) {
 }
 ```
 
-In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität), sehen Sie eine Liste aller CSS-Eigenschaften und Werte. In anderen Browsern sehen Sie nur einen Link.
+In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität), sehen Sie eine Liste aller CSS-Eigenschaften und -Werte. In anderen Browsern sehen Sie nur einen Link.
 
 {{EmbedLiveSample("Examples", 300, 300)}}
 
-Haben Sie bemerkt, wie viele Standard-CSS-Eigenschaften ein Link hatte? Aktualisieren Sie `document.querySelector("a")` zu `document.querySelector("p")`, und Sie werden einen Unterschied bei den standardmäßig berechneten Werten von `margin-top` und `margin-bottom` bemerken.
+Haben Sie bemerkt, wie viele Standard-CSS-Eigenschaften ein Link hat? Aktualisieren Sie `document.querySelector("a")` zu `document.querySelector("p")`, und Sie werden einen Unterschied in den standardmäßig berechneten Werten für `margin-top` und `margin-bottom` bemerken.
 
 ## Spezifikationen
 

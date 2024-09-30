@@ -21,6 +21,6 @@ i32.const 2
 global.set $val
 ```
 
-| Anweisung    | Binärer Opcode |
-| ------------ | -------------- |
-| `global.set` | `0x24`         |
+| Anweisung    | Binäre Opcode |
+| ------------ | ------------- |
+| `global.set` | `0x24`        |

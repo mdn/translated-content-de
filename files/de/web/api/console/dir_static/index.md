@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.dir()`** statische Methode zeigt eine Liste der Eigenschaften des angegebenen JavaScript-Objekts an. In Browser-Konsolen wird die Ausgabe als hierarchische Auflistung mit Aufklappdreiecken dargestellt, die es Ihnen ermöglichen, die Inhalte von Kindobjekten zu sehen.
+Die statische Methode **`console.dir()`** zeigt eine Liste der Eigenschaften des angegebenen JavaScript-Objekts an. In Browser-Konsolen wird die Ausgabe als hierarchische Liste mit Aufklappdreiecken präsentiert, die es Ihnen ermöglichen, die Inhalte von Kindobjekten zu sehen.
 
-Im Gegensatz zu anderen Protokollierungsmethoden versucht `console.dir()` nicht, das Objekt hübsch zu formatieren. Wenn Sie beispielsweise ein DOM-Element an `console.dir()` übergeben, wird es nicht wie im Elementinspektor angezeigt, sondern stattdessen als Liste von Eigenschaften.
+Im Gegensatz zu anderen Protokollierungsmethoden versucht `console.dir()` nicht, das Objekt schön darzustellen. Wenn Sie zum Beispiel ein DOM-Element an `console.dir()` übergeben, wird es nicht wie im Elementinspektor angezeigt, sondern es wird stattdessen eine Liste von Eigenschaften angezeigt.
 
 ![Ein Screenshot der Firefox-Konsole, in dem console.dir(document.location) ausgeführt wird. Wir können die URL der Seite sehen, gefolgt von einem Block von Eigenschaften. Wenn die Eigenschaft eine Funktion oder ein Objekt ist, wird ein Aufklappdreieck vorangestellt.](console-dir.png)
 
-In Laufzeiten wie [Node](/de/docs/Glossary/Node.js) und [Deno](/de/docs/Glossary/Deno), in denen Konsolenausgaben an das Terminal gehen und daher nicht interaktiv sind, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
+In Laufzeitumgebungen wie [Node](/de/docs/Glossary/Node.js) und [Deno](/de/docs/Glossary/Deno), wo Konsolenausgaben an das Terminal gehen und daher nicht interaktiv sind, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
 
 ## Syntax
 
@@ -30,15 +30,15 @@ dir(object, options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften, alle optional:
     - `colors` {{non-standard_inline}} {{optional_inline}}
-      - : Ein boolescher Wert: Wenn `true`, werden die Eigenschaften des Objekts entsprechend ihrem Typ gestylt. Standardmäßig `true`.
+      - : Ein boolescher Wert: Wenn `true`, werden die Eigenschaften des Objekts entsprechend ihrem Typ formatiert. Standard ist `true`.
     - `depth` {{non-standard_inline}} {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Verschachtelungsebenen angibt, die gedruckt werden sollen, wenn ein Objekt andere Objekte oder Arrays enthält. Der Wert `null` bedeutet: Alle Ebenen drucken. Standardmäßig 2.
+      - : Eine Zahl, die die Anzahl der Verschachtelungsebenen angibt, die gedruckt werden sollen, wenn ein Objekt andere Objekte oder Arrays enthält. Der Wert `null` bedeutet: alle Ebenen drucken. Standard ist 2.
     - `showHidden` {{non-standard_inline}} {{optional_inline}}
-      - : Ein boolescher Wert: Wenn `true`, werden die nicht aufgezählten und Symbol-Eigenschaften des Objekts angezeigt. Standardmäßig `false`.
+      - : Ein boolescher Wert: Wenn `true`, werden nicht aufzählbare und Symbol-Eigenschaften des Objekts gedruckt. Standard ist `false`.
 
 ### Rückgabewert
 
-None ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

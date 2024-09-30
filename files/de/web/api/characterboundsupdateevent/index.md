@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das **`CharacterBoundsUpdateEvent`**-Interface ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Anfrage des Betriebssystems darstellt, um die Grenzen bestimmter Zeichen in einem bearbeitbaren Bereich zu ermitteln, der mit einer [`EditContext`](/de/docs/Web/API/EditContext)-Instanz verbunden ist.
+Die **`CharacterBoundsUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Anfrage des Betriebssystems darstellt, um die Begrenzungen bestimmter Zeichen innerhalb eines bearbeitbaren Bereichs zu kennen, der mit einer [`EditContext`](/de/docs/Web/API/EditContext)-Instanz verbunden ist.
 
-Dieses Interface erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
+Diese Schnittstelle erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram}}
 
@@ -18,18 +18,18 @@ Dieses Interface erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 - [`CharacterBoundsUpdateEvent()`](/de/docs/Web/API/CharacterBoundsUpdateEvent/CharacterBoundsUpdateEvent) {{experimental_inline}}
   - : Erstellt ein neues `CharacterBoundsUpdateEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`CharacterBoundsUpdateEvent.rangeStart`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeStart) {{readonlyinline}} {{experimental_inline}}
-  - : Der Versatz des ersten Zeichens innerhalb des Textes des bearbeitbaren Bereichs, für das das Betriebssystem die Grenzen benötigt.
+  - : Der Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs, für den das Betriebssystem die Begrenzungen benötigt.
 - [`CharacterBoundsUpdateEvent.rangeEnd`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeEnd) {{readonlyinline}} {{experimental_inline}}
-  - : Der Versatz des letzten Zeichens innerhalb des Textes des bearbeitbaren Bereichs, für das das Betriebssystem die Grenzen benötigt.
+  - : Der Offset des letzten Zeichens innerhalb des bearbeitbaren Textbereichs, für den das Betriebssystem die Begrenzungen benötigt.
 
 ## Beispiele
 
 ### Aktualisieren der Zeichenbegrenzungen bei Bedarf
 
-Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis und die `updateCharacterBounds`-Methode verwendet werden, um das Betriebssystem über die erforderlichen Zeichenbegrenzungen zu informieren. Beachten Sie, dass der Rückruf des Ereignis-Listeners nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zum Textverfassen verwendet werden.
+Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis und die Methode `updateCharacterBounds` verwendet werden, um dem Betriebssystem die benötigten Zeichenbegrenzungen mitzuteilen. Beachten Sie, dass der Ereignis-Listener-Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen verwendet werden, um Text zu komponieren.
 
 ```html
 <canvas id="editor-canvas"></canvas>

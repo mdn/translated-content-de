@@ -7,13 +7,13 @@ l10n:
 
 {{jsSidebar("JavaScript Guide")}}{{PreviousNext("Web/JavaScript/Guide/Iterators_and_generators", "Web/JavaScript/Guide/Modules")}}
 
-Die Objekte {{jsxref("Proxy")}} und {{jsxref("Reflect")}} ermöglichen es Ihnen, grundlegende Sprachoperationen (z. B. Eigenschaftsabfrage, Zuweisung, Aufzählung, Funktionsaufruf usw.) abzufangen und benutzerdefiniertes Verhalten zu definieren. Mit Hilfe dieser beiden Objekte können Sie auf der Metaebene von JavaScript programmieren.
+Die Objekte {{jsxref("Proxy")}} und {{jsxref("Reflect")}} ermöglichen es Ihnen, fundamentale Sprachoperationen (z.B. Eigenschaftslookup, Zuweisung, Aufzählung, Funktionsaufruf usw.) abzufangen und benutzerdefiniertes Verhalten zu definieren. Mit Hilfe dieser beiden Objekte können Sie auf der Meta-Ebene von JavaScript programmieren.
 
 ## Proxies
 
-{{jsxref("Proxy")}}-Objekte ermöglichen es Ihnen, bestimmte Operationen abzufangen und benutzerdefinierte Verhaltensweisen zu implementieren.
+{{jsxref("Proxy")}}-Objekte ermöglichen es Ihnen, bestimmte Operationen abzufangen und benutzerdefiniertes Verhalten zu implementieren.
 
-Zum Beispiel das Abfragen einer Eigenschaft eines Objekts:
+Zum Beispiel, das Abrufen einer Eigenschaft auf einem Objekt:
 
 ```js
 const handler = {
@@ -27,32 +27,32 @@ p.a = 1;
 console.log(p.a, p.b); // 1, 42
 ```
 
-Das `Proxy`-Objekt definiert ein `target` (ein leeres Objekt hier) und ein `handler`-Objekt, in dem eine `get`-Falle implementiert ist. Hier wird ein Objekt, das durch einen Proxy virtualisiert wurde, nicht `undefined` zurückgeben, wenn undefinierte Eigenschaften abgefragt werden, sondern stattdessen die Zahl `42` zurückgeben.
+Das `Proxy`-Objekt definiert ein `target` (hier ein leeres Objekt) und ein `handler`-Objekt, in dem eine `get` _trap_ implementiert ist. Hier wird ein Objekt, das durch einen Proxy geschützt ist, nicht `undefined` zurückgeben, wenn auf undefinierte Eigenschaften zugegriffen wird, sondern stattdessen die Zahl `42`.
 
-Weitere Beispiele finden Sie auf der {{jsxref("Proxy")}}-Referenzseite.
+Weitere Beispiele finden Sie auf der {{jsxref("Proxy")}} Referenzseite.
 
 ### Terminologie
 
 Die folgenden Begriffe werden verwendet, wenn über die Funktionalität von Proxies gesprochen wird.
 
 - {{jsxref("Proxy/Proxy", "handler", "", 1)}}
-  - : Platzhalter-Objekt, das Fallen enthält.
+  - : Platzhalterobjekt, das Traps enthält.
 - traps
-  - : Die Methoden, die den Zugriff auf Eigenschaften bereitstellen. (Dies ist analog zum Konzept der _Fallen_ in Betriebssystemen.)
+  - : Die Methoden, die den Zugriff auf Eigenschaften bereitstellen. (Dies ist dem Konzept von _traps_ in Betriebssystemen analog.)
 - target
-  - : Objekt, das der Proxy virtualisiert. Es wird oft als Speicher-Backend für den Proxy verwendet. Invarianten (Semantiken, die unverändert bleiben) in Bezug auf Nicht-Erweiterbarkeit oder nicht konfigurierbare Eigenschaften werden am Target überprüft.
+  - : Objekt, das der Proxy virtualisiert. Es wird oft als Speicherbackend für den Proxy verwendet. Invarianten (Semantiken, die unverändert bleiben) bezüglich der Nicht-Erweiterbarkeit von Objekten oder nicht-konfigurierbaren Eigenschaften werden gegen das Zielobjekt überprüft.
 - invariants
-  - : Semantiken, die unverändert bleiben, wenn benutzerdefinierte Operationen implementiert werden, werden _Invarianten_ genannt. Wenn Sie die Invarianten eines Handlers verletzen, wird ein {{jsxref("TypeError")}} ausgelöst.
+  - : Semantiken, die unverändert bleiben, wenn benutzerdefinierte Operationen implementiert werden, werden als _Invarianten_ bezeichnet. Wenn Sie die Invarianten eines Handlers verletzen, wird ein {{jsxref("TypeError")}} ausgelöst.
 
-## Handler und Fallen
+## Handler und Traps
 
-Die folgende Tabelle fasst die für `Proxy`-Objekte verfügbaren Fallen zusammen. Siehe die [Referenzseiten](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) für detaillierte Erklärungen und Beispiele.
+Die folgende Tabelle fasst die für `Proxy`-Objekte verfügbaren Traps zusammen. Siehe die [Referenzseiten](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) für detaillierte Erklärungen und Beispiele.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th>Handler / Falle</th>
-      <th>Abfangvorgänge</th>
+      <th>Handler / Trap</th>
+      <th>Abfangoperationen</th>
     </tr>
   </thead>
   <tbody>
@@ -110,9 +110,9 @@ Die folgende Tabelle fasst die für `Proxy`-Objekte verfügbaren Fallen zusammen
       </td>
       <td>
         <dl>
-          <dt>Eigenschaftsabfrage</dt>
+          <dt>Eigenschatfsabfrage</dt>
           <dd><code>foo in proxy</code></dd>
-          <dt>Vererbte Eigenschaftsabfrage</dt>
+          <dt>Vererbte Eigenschatfsabfrage</dt>
           <dd>
             <code>foo in Object.create(<var>proxy</var>)</code
             ><br />{{jsxref("Reflect.has()")}}
@@ -209,9 +209,9 @@ Die folgende Tabelle fasst die für `Proxy`-Objekte verfügbaren Fallen zusammen
 
 ## Widerrufbarer `Proxy`
 
-Die Methode {{jsxref("Proxy.revocable()")}} wird verwendet, um ein widerrufbares `Proxy`-Objekt zu erstellen. Das bedeutet, dass der Proxy über die Funktion `revoke` widerrufen und deaktiviert werden kann.
+Die Methode {{jsxref("Proxy.revocable()")}} wird verwendet, um ein widerrufbares `Proxy`-Objekt zu erstellen. Dies bedeutet, dass der Proxy über die Funktion `revoke` widerrufen und der Proxy abgeschaltet werden kann.
 
-Danach führt jede Operation am Proxy zu einem {{jsxref("TypeError")}}.
+Danach führt jede Operation auf dem Proxy zu einem {{jsxref("TypeError")}}.
 
 ```js
 const revocable = Proxy.revocable(
@@ -233,15 +233,15 @@ delete proxy.foo; // TypeError: Cannot perform 'deleteProperty' on a proxy that 
 console.log(typeof proxy); // "object", typeof doesn't trigger any trap
 ```
 
-## Reflection
+## Reflexion
 
-{{jsxref("Reflect")}} ist ein eingebautes Objekt, das Methoden für abfangbare JavaScript-Operationen bereitstellt. Die Methoden sind identisch mit denen des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
+{{jsxref("Reflect")}} ist ein eingebautes Objekt, das Methoden für abfangbare JavaScript-Operationen bereitstellt. Die Methoden sind die gleichen wie die des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
 
 `Reflect` ist kein Funktionsobjekt.
 
-`Reflect` hilft dabei, Standardoperationen vom Handler auf das `target` weiterzuleiten.
+`Reflect` hilft beim Weiterleiten von Standardoperationen vom Handler zum `target`.
 
-Mit {{jsxref("Reflect.has()")}} erhalten Sie beispielsweise den [`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion:
+Mit {{jsxref("Reflect.has()")}} erhalten Sie zum Beispiel den [`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion:
 
 ```js
 Reflect.has(Object, "assign"); // true
@@ -249,13 +249,13 @@ Reflect.has(Object, "assign"); // true
 
 ### Eine bessere apply() Funktion
 
-Vor `Reflect` verwendeten Sie normalerweise die Methode {{jsxref("Function.prototype.apply()")}}, um eine Funktion mit einem bestimmten `this`-Wert und `arguments`, die als Array (oder als [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)) bereitgestellt wurden, aufzurufen.
+Vor `Reflect` verwenden Sie typischerweise die Methode {{jsxref("Function.prototype.apply()")}}, um eine Funktion mit einem gegebenen `this`-Wert und `arguments`, die als Array (oder als [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)) bereitgestellt werden, aufzurufen.
 
 ```js
 Function.prototype.apply.call(Math.floor, undefined, [1.75]);
 ```
 
-Mit {{jsxref("Reflect.apply")}} wird dies weniger umständlich und verständlicher:
+Mit {{jsxref("Reflect.apply")}} wird dies weniger umständlich und leichter verständlich:
 
 ```js
 Reflect.apply(Math.floor, undefined, [1.75]);
@@ -273,7 +273,7 @@ Reflect.apply("".charAt, "ponies", [3]);
 
 ### Überprüfen, ob die Eigenschaftsdefinition erfolgreich war
 
-Mit {{jsxref("Object.defineProperty")}}, die ein Objekt zurückgibt, wenn sie erfolgreich ist, oder sonst einen {{jsxref("TypeError")}} wirft, würden Sie einen {{jsxref("Statements/try...catch", "try...catch")}}-Block verwenden, um jeden Fehler abzufangen, der bei der Definition einer Eigenschaft aufgetreten ist. Da {{jsxref("Reflect.defineProperty()")}} einen booleschen Erfolgsstatus zurückgibt, können Sie hier einfach einen {{jsxref("Statements/if...else", "if...else")}}-Block verwenden:
+Mit {{jsxref("Object.defineProperty")}}, das ein Objekt zurückgibt, wenn es erfolgreich ist, oder andernfalls einen {{jsxref("TypeError")}} auslöst, würden Sie einen {{jsxref("Statements/try...catch", "try...catch")}} Block verwenden, um einen etwaigen Fehler abzufangen, der bei der Definition einer Eigenschaft aufgetreten ist. Da {{jsxref("Reflect.defineProperty()")}} einen booleschen Erfolgsstatus zurückgibt, können Sie hier einfach einen {{jsxref("Statements/if...else", "if...else")}} Block verwenden:
 
 ```js
 if (Reflect.defineProperty(target, property, attributes)) {

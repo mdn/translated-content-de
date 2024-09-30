@@ -1,15 +1,15 @@
 ---
-title: "WebGLRenderingContext: getShaderSource() Methode"
+title: "WebGLRenderingContext: getShaderSource()-Methode"
 short-title: getShaderSource()
 slug: Web/API/WebGLRenderingContext/getShaderSource
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getShaderSource()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt den Quellcode eines
+Die **`WebGLRenderingContext.getShaderSource()`**-Methode der
+[WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Quellcode eines
 [`WebGLShader`](/de/docs/Web/API/WebGLShader) als Zeichenkette zurück.
 
 ## Syntax
@@ -21,7 +21,7 @@ getShaderSource(shader)
 ### Parameter
 
 - `shader`
-  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader) Objekt, von dem der Quellcode abgerufen werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, aus dem der Quellcode abgerufen werden soll.
 
 ### Rückgabewert
 

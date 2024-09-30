@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `listener`-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces
-gibt ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt zurück, das dann für die Implementierung der 3D-Audio-Räumlichkeit verwendet werden kann.
+Die `listener`-Eigenschaft der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle
+gibt ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt zurück, das dann für die Implementierung von 3D-Audio-Räumlichkeit verwendet werden kann.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt.
 ## Beispiele
 
 > [!NOTE]
-> Für ein vollständiges Beispiel zur Web-Audio-Räumlichkeit, sehen Sie sich unser [panner-node](https://github.com/mdn/webaudio-examples/tree/main/panner-node) Demo an.
+> Für ein vollständiges Web Audio Spatialization-Beispiel, sehen Sie sich unser [panner-node](https://github.com/mdn/webaudio-examples/tree/main/panner-node) Demo an.
 
 ```js
 const audioCtx = new AudioContext();

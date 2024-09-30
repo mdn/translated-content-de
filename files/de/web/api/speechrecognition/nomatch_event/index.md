@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: nomatch-Ereignis"
+title: "SpeechRecognition: nomatch Ereignis"
 short-title: nomatch
 slug: Web/API/SpeechRecognition/nomatch_event
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`nomatch`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein endgültiges Ergebnis ohne signifikante Erkennung zurückgibt.
+Das **`nomatch`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein finales Ergebnis zurückgibt, das keine signifikante Erkennung enthält.
 
-Dies kann ein gewisses Maß an Erkennung umfassen, das jedoch nicht den [`confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence)-Schwellenwert erreicht oder überschreitet.
+Dies kann ein gewisses Maß an Erkennung beinhalten, das nicht den [`confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence) Schwellenwert erreicht oder überschreitet.
 
 ## Syntax
 
@@ -30,20 +30,20 @@ Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt vo
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent/emma) {{ReadOnlyInline}}
-  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
+  - : Gibt eine Darstellung in Extensible MultiModal Annotation Markup Language (EMMA) — XML — des Ergebnisses zurück.
 - [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent/interpretation) {{ReadOnlyInline}}
   - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
 - [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
-  - : Gibt den niedrigsten Indexwert des Ergebnisses in dem "Array" von [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) zurück, das tatsächlich geändert wurde.
+  - : Gibt den niedrigsten Indexwert des Ergebnisses zurück, das sich tatsächlich in der [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) "Array" verändert hat.
 - [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results) {{ReadOnlyInline}}
-  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
+  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
 
 ## Beispiele
 
-Sie können das `nomatch`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `nomatch` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
 
 ```js
 const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
@@ -53,7 +53,7 @@ recognition.addEventListener("nomatch", () => {
 });
 ```
 
-Oder verwenden Sie die `onnomatch`-Ereignishandlereigenschaft:
+Oder die `onnomatch` Ereignishandler-Eigenschaft nutzen:
 
 ```js
 recognition.onnomatch = () => {

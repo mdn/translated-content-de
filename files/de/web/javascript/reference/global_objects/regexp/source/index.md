@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`source`** Accessor-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt einen String zurück, der den Quelltext dieses regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
+Die **`source`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt einen String zurück, der den Quelltext des regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
 
 {{EmbedInteractiveExample("pages/js/regexp-prototype-source.html")}}
 
 ## Beschreibung
 
-Konzepthafterweise ist die `source` Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdrucksliteral. Die Sprache verlangt, dass der zurückgegebene String korrekt maskiert wird, sodass, wenn das `source` mit einem Schrägstrich auf beiden Enden verbunden wird, ein analysierbares Regex-Literal entsteht. Zum Beispiel ist für `new RegExp("/")` das `source` `\\/`, weil, wenn es `/` generiert, das resultierende Literal `///` wird, was einem Kommentar für die Zeile entspricht. Ebenso werden alle [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) maskiert, weil Zeichen von Zeilenendzeichen das Regex-Literal zerbrechen würden. Es gibt keine Anforderung für andere Zeichen, solange das Ergebnis analysierbar ist. Für leere reguläre Ausdrücke wird der String `(?:)` zurückgegeben.
+Konzeptionell ist die `source`-Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdrucksliteral. Die Sprache erfordert, dass der zurückgegebene String ordnungsgemäß maskiert ist, sodass, wenn `source` mit einem Schrägstrich an beiden Enden verkettet wird, ein auswertbares Regex-Literal gebildet wird. Zum Beispiel für `new RegExp("/")` ist die `source` `\\/`, da, wenn es `/` ergibt, das resultierende Literal `///` wird, welches ein Zeilenkommentar ist. Ebenso werden alle [Zeilentrenner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) maskiert, da Zeilentrenner-_Zeichen_ das Regex-Literal unterbrechen würden. Es gibt keine Anforderung für andere Zeichen, solange das Ergebnis auswertbar ist. Für leere reguläre Ausdrücke wird der String `(?:)` zurückgegeben.
 
 ## Beispiele
 

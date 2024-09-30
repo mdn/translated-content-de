@@ -7,18 +7,17 @@ l10n:
 
 {{SVGRef}}
 
-Das **`viewBox`**-Attribut definiert die Position und Größe des SVG-Viewports im Benutzerkoordinatensystem.
+Das **`viewBox`**-Attribut definiert die Position und Dimension im Benutzerraum eines SVG-Viewports.
 
-Der Wert des `viewBox`-Attributs ist eine Liste von vier durch Leerzeichen und/oder Kommas getrennten Zahlen: `min-x`, `min-y`, `width` und `height`. `min-x` und `min-y` repräsentieren die kleinsten X- und Y-Koordinaten, die das `viewBox` haben kann (die Ursprungspunkte des `viewBox`), und `width` und `height` geben die Größe des `viewBox` an. Das resultierende `viewBox` ist ein Rechteck im Benutzerkoordinatensystem, das auf die Grenzen des Viewports eines SVG-Elements abgebildet wird (nicht auf den [Browser-Viewport](/de/docs/Glossary/Viewport)).
-Wenn ein SVG ein `viewBox`-Attribut enthält (oft in Kombination mit einem [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio)-Attribut), erfolgt eine Transformation, die den SVG-Viewport so streckt oder skaliert, dass er in ein bestimmtes Containerelement passt.
+Der Wert des `viewBox`-Attributes besteht aus einer Liste von vier Zahlen, die durch Leerzeichen und/oder ein Komma getrennt sind: `min-x`, `min-y`, `width` und `height`. `min-x` und `min-y` repräsentieren die kleinsten X- und Y-Koordinaten, die das `viewBox` haben kann (die Ursprungspunkte des `viewBox`), und `width` sowie `height` bestimmen die Größe des `viewBox`. Das resultierende `viewBox` ist ein Rechteck im Benutzerraum, das auf die Grenzen des Viewports eines SVG-Elements abgebildet wird (nicht auf den [Browser-Viewport](/de/docs/Glossary/Viewport)). Wenn ein SVG ein `viewBox`-Attribut enthält (oft in Kombination mit einem [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio) Attribut), wird eine Transformation vorgenommen, die den SVG-Viewport dehnt oder anpasst, um in ein bestimmtes Containerelement zu passen.
 
 ## Elemente
 
-Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den im Folgenden beschriebenen SVG-Elementen verwenden.
 
 ### `<marker>`
 
-Für {{SVGElement('marker')}} definiert `viewBox` die Position und Größe des Inhalts des `<marker>`-Elements.
+Für {{SVGElement('marker')}} definiert `viewBox` die Position und Dimension für den Inhalt des `<marker>`-Elements.
 
 <table class="properties">
   <tbody>
@@ -60,7 +59,7 @@ Für {{SVGElement('marker')}} definiert `viewBox` die Position und Größe des I
 
 ### `<pattern>`
 
-Für {{SVGElement('pattern')}} definiert `viewBox` die Position und Größe des Inhalts der Musterkachel.
+Für {{SVGElement('pattern')}} definiert `viewBox` die Position und Dimension für den Inhalt der Musterscheibe.
 
 <table class="properties">
   <tbody>
@@ -102,7 +101,7 @@ Für {{SVGElement('pattern')}} definiert `viewBox` die Position und Größe des 
 
 ### `<svg>`
 
-Für {{SVGElement('svg')}} definiert `viewBox` die Position und Größe des Inhalts des `<svg>`-Elements.
+Für {{SVGElement('svg')}} definiert `viewBox` die Position und Dimension für den Inhalt des `<svg>`-Elements.
 
 <table class="properties">
   <tbody>
@@ -144,7 +143,7 @@ Für {{SVGElement('svg')}} definiert `viewBox` die Position und Größe des Inha
 
 ### `<symbol>`
 
-Für {{SVGElement('symbol')}} definiert `viewBox` die Position und Größe des Inhalts des `<symbol>`-Elements.
+Für {{SVGElement('symbol')}} definiert `viewBox` die Position und Dimension für den Inhalt des `<symbol>`-Elements.
 
 <table class="properties">
   <tbody>
@@ -186,7 +185,7 @@ Für {{SVGElement('symbol')}} definiert `viewBox` die Position und Größe des I
 
 ### `<view>`
 
-Für {{SVGElement('view')}} definiert `viewBox` die Position und Größe des Inhalts des `<view>`-Elements.
+Für {{SVGElement('view')}} definiert `viewBox` die Position und Dimension für den Inhalt des `<view>`-Elements.
 
 <table class="properties">
   <tbody>
@@ -228,11 +227,40 @@ Für {{SVGElement('view')}} definiert `viewBox` die Position und Größe des Inh
 
 ## Beispiele
 
-Der untenstehende Codeausschnitt enthält drei {{SVGElement("svg")}}s mit unterschiedlichen `viewbox`-Attributwerten und identischen {{SVGElement("rect")}}- und {{SVGElement("circle")}}-Nachkommen, die sehr unterschiedliche Ergebnisse erzeugen. Die Größe von `<rect>` wird unter Verwendung relativer Einheiten definiert, sodass die visuelle Größe des erzeugten Quadrats unabhängig vom `viewBox`-Wert unverändert aussieht. Das Radiuslängenattribut {{SVGAttr("r")}} des `<circle>` ist in jedem Fall dasselbe, aber dieser Benutzerkoordinateneinheitswert wird gegen die im `viewBox` definierte Größe aufgelöst, was in jedem Fall unterschiedliche Ergebnisse erzeugt.
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+  vertical-align: top;
+}
+svg:not(:root) {
+  display: inline-block;
+}
+```
+
+Der folgende Codeausschnitt enthält drei {{SVGElement("svg")}}, die unterschiedliche Werte für das `viewBox`-Attribut besitzen und identische {{SVGElement("rect")}}- und {{SVGElement("circle")}}-Nachfahren aufweisen, was sehr unterschiedliche Ergebnisse erzeugt. Die Größe von `<rect>` wird mit relativen Einheiten definiert, sodass die visuelle Größe des erstellten Quadrats unabhängig vom `viewBox`-Wert unverändert aussieht. Das Radiuslängenattribut {{SVGAttr("r")}} des `<circle>` ist in jedem Fall gleich, aber dieser Benutzerwert wird im Verhältnis zur Größe, die im `viewBox` definiert ist, aufgelöst und führt in jedem Fall zu unterschiedlichen Ergebnissen.
+
+```html
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="100%" height="100%" />
+  <circle cx="50%" cy="50%" r="4" fill="white" />
+</svg>
+
+<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="100%" height="100%" />
+  <circle cx="50%" cy="50%" r="4" fill="white" />
+</svg>
+
+<svg viewBox="-5 -5 10 10" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="100%" height="100%" />
+  <circle cx="50%" cy="50%" r="4" fill="white" />
+</svg>
+```
 
 {{EmbedLiveSample("Examples", '100%', 200)}}
 
-Die Benutzereinheiten von `r="4"` werden gegen die `viewBox`-Größen aufgelöst, was drastisch unterschiedliche Kreisgrößen erzeugt. Der genaue Effekt des `viewbox`-Attributs wird durch das {{ SVGAttr("preserveAspectRatio") }}-Attribut beeinflusst.
+Die Benutzereinheiten von `r="4"` werden im Zusammenhang mit den `viewBox`-Größen aufgelöst und erzeugen dramatisch unterschiedliche Kreisgrößen. Der genaue Effekt des `viewBox`-Attributs wird durch das {{ SVGAttr("preserveAspectRatio") }}-Attribut beeinflusst.
 
 > [!NOTE]
 > Werte für `width` oder `height`, die kleiner oder gleich `0` sind, deaktivieren die Darstellung des Elements.

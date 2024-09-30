@@ -1,5 +1,5 @@
 ---
-title: Verwenden von DTMF mit WebRTC
+title: Verwendung von DTMF mit WebRTC
 slug: Web/API/WebRTC_API/Using_DTMF
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,43 +7,43 @@ l10n:
 
 {{DefaultAPISidebar("WebRTC")}}
 
-Um Audio-/Videokonferenzen umfassender zu unterstützen, ermöglicht [WebRTC](/de/docs/Web/API/WebRTC_API) das Senden von [DTMF](/de/docs/Glossary/DTMF) an den Remote-Peer über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Dieser Artikel bietet einen kurzen Überblick über die Funktionsweise von DTMF über WebRTC und liefert anschließend einen Leitfaden für Alltagsentwickler zur Übertragung von DTMF über eine `RTCPeerConnection`. Das DTMF-System wird oft als "Tonwahl" bezeichnet, nach einem alten Markennamen für das System.
+Um Audio-/Videokonferenzen umfassender zu unterstützen, ermöglicht [WebRTC](/de/docs/Web/API/WebRTC_API) das Senden von [DTMF](/de/docs/Glossary/DTMF) an den entfernten Teilnehmer über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Dieser Artikel bietet einen kurzen Überblick darüber, wie DTMF über WebRTC funktioniert, und liefert dann einen Leitfaden für Entwickler, wie man DTMF über eine `RTCPeerConnection` sendet. Das DTMF-System wird oft als "Tonwahl" bezeichnet, nach einem alten Markennamen für das System.
 
-WebRTC sendet keine DTMF-Codes als Audiodaten. Stattdessen werden sie außerhalb des Bandes als RTP-Nutzdaten gesendet. Beachten Sie jedoch, dass es zwar möglich ist, DTMF mit WebRTC zu _senden_, es derzeit aber keine Möglichkeit gibt, eingehende DTMF zu erkennen oder zu empfangen. WebRTC ignoriert derzeit diese Nutzdaten; dies liegt daran, dass die DTMF-Unterstützung von WebRTC hauptsächlich für die Verwendung mit älteren Telefonsystemen gedacht ist, die auf DTMF-Töne angewiesen sind, um Aufgaben wie die folgenden zu erledigen:
+WebRTC sendet DTMF-Codes nicht als Audiodaten. Stattdessen werden sie außerhalb der Bandbreite als RTP-Nutzlast gesendet. Beachten Sie jedoch, dass es zwar möglich ist, DTMF mit WebRTC zu _senden_, es jedoch derzeit keinen Weg gibt, _eingehende_ DTMF zu erkennen oder zu empfangen. WebRTC ignoriert aktuell diese Nutzlasten, da die Unterstützung von DTMF in WebRTC in erster Linie für die Verwendung mit älteren Telefonsystemen gedacht ist, die auf DTMF-Töne angewiesen sind, um Aufgaben wie folgende auszuführen:
 
-- Telekonferenzsysteme
-- Menüsysteme
+- Telefonkonferenzsysteme
+- Menüs
 - Voicemail-Systeme
 - Eingabe von Kreditkarten- oder anderen Zahlungsinformationen
 - Eingabe von Passcodes
 
 > [!NOTE]
-> Auch wenn die DTMF nicht als Audio an den Remote-Peer gesendet wird, können Browser dennoch den entsprechenden Ton für den lokalen Benutzer abspielen, um deren Benutzererlebnis zu verbessern, da Benutzer in der Regel daran gewöhnt sind, dass ihr Telefon die Töne hörbar abspielt.
+> Während DTMF nicht als Audio an den entfernten Teilnehmer gesendet wird, können Browser wählen, den entsprechenden Ton dem lokalen Benutzer als Teil ihrer Benutzererfahrung abzuspielen, da Benutzer typischerweise daran gewöhnt sind, ihre Telefone die Töne hörbar abspielen zu lassen.
 
-## Senden von DTMF über eine RTCPeerConnection
+## Senden von DTMF auf einer RTCPeerConnection
 
-Eine bestimmte [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) kann mehrere Medienspuren haben, die darauf gesendet oder empfangen werden. Wenn Sie DTMF-Signale übertragen möchten, müssen Sie zunächst entscheiden, auf welcher Spur Sie diese senden möchten, da DTMF als Reihe von außerhalb des Bandes liegenden Nutzdaten auf dem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet wird, der für die Übertragung der Daten dieser Spur an den anderen Peer verantwortlich ist.
+Eine gegebene [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) kann mehrere Medientracks senden oder empfangen. Wenn Sie DTMF-Signale übertragen möchten, müssen Sie zuerst entscheiden, auf welchem Track Sie diese senden möchten, da DTMF als eine Reihe von außerhalb der Bandbreite gesendeten Nutzlasten auf dem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet wird, der für die Übertragung der Daten dieses Tracks an den anderen Teilnehmer verantwortlich ist.
 
-Sobald die Spur ausgewählt ist, können Sie vom `RTCRtpSender` der Spur das [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt erhalten, das Sie zum Senden von DTMF verwenden. Von dort aus können Sie [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) aufrufen, um DTMF-Signale zur Übertragung auf der Spur an den anderen Peer einzureihen. Der `RTCRtpSender` sendet dann die Töne als Pakete zusammen mit den Audiodaten der Spur an den anderen Peer.
+Sobald der Track ausgewählt ist, können Sie vom `RTCRtpSender` das [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) Objekt erhalten, das Sie zum Senden von DTMF verwenden werden. Von dort aus können Sie [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) aufrufen, um DTMF-Signale in die Warteschlange zu stellen, die auf dem Track an den anderen Teilnehmer gesendet werden sollen. Der `RTCRtpSender` wird dann die Töne als Pakete neben den Audiodaten des Tracks an den anderen Teilnehmer senden.
 
-Jedes Mal, wenn ein Ton gesendet wird, erhält die `RTCPeerConnection` ein [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis mit einer [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft, die angibt, welcher Ton gerade zuende gespielt wurde. Dies bietet die Möglichkeit, beispielsweise Schnittstellenelemente zu aktualisieren. Wenn der Tonpuffer leer ist, was anzeigt, dass alle Töne gesendet wurden, wird ein `tonechange`-Ereignis mit einer leeren `tone`-Eigenschaft (ein leerer String) an das Verbindungsobjekt gesendet.
+Jedes Mal, wenn ein Ton gesendet wird, erhält die `RTCPeerConnection` ein [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event) Ereignis mit einer [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) Eigenschaft, die angibt, welcher Ton gerade beendet wurde, was eine Gelegenheit bietet, beispielsweise Interface-Elemente zu aktualisieren. Wenn der Ton-Puffer leer ist und alle Töne gesendet wurden, wird ein `tonechange` Ereignis mit seiner `tone` Eigenschaft auf "" (ein leerer String) auf das Verbindungsobjekt geliefert.
 
-Wenn Sie mehr darüber erfahren möchten, lesen Sie {{RFC(3550, "RTP: A Transport Protocol for Real-Time Applications")}} und {{RFC(4733, "RTP Payload for DTMF Digits, Telephony Tones, and Telephony Signals")}}. Die Details, wie DTMF-Nutzdaten auf RTP behandelt werden, sind nicht Gegenstand dieses Artikels. Stattdessen konzentrieren wir uns darauf, wie DTMF innerhalb des Kontexts einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet wird, indem wir uns ein Beispiel ansehen.
+Wenn Sie mehr darüber erfahren möchten, wie dies funktioniert, lesen Sie {{RFC(3550, "RTP: A Transport Protocol for Real-Time Applications")}} und {{RFC(4733, "RTP Payload for DTMF Digits, Telephony Tones, and Telephony Signals")}}. Die Details, wie DTMF-Nutzlasten auf RTP behandelt werden, liegen außerhalb des Geltungsbereichs dieses Artikels. Stattdessen konzentrieren wir uns darauf, wie man DTMF im Kontext einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet, indem wir untersuchen, wie ein Beispiel funktioniert.
 
 ## Einfaches Beispiel
 
-Dieses einfache Beispiel erstellt zwei [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)s, stellt eine Verbindung zwischen ihnen her und wartet dann darauf, dass der Benutzer auf eine Schaltfläche "Wählen" klickt. Wenn die Schaltfläche angeklickt wird, wird eine DTMF-Zeichenfolge über die Verbindung mit [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) gesendet. Sobald die Töne fertig übertragen sind, wird die Verbindung geschlossen.
+Dieses einfache Beispiel konstruiert zwei [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekte, stellt eine Verbindung zwischen ihnen her und wartet dann, bis der Benutzer auf einen "Wählen"-Button klickt. Wenn der Button geklickt wird, wird eine DTMF-Zeichenkette über die Verbindung gesendet, indem [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) verwendet wird. Sobald die Töne übertragen wurden, wird die Verbindung geschlossen.
 
 > [!NOTE]
-> Dieses Beispiel ist offensichtlich etwas konstruiert, da normalerweise die beiden `RTCPeerConnection`-Objekte auf verschiedenen Geräten vorhanden wären und die Signalisierung über das Netzwerk erfolgen würde, anstatt alles wie hier verknüpft zu werden.
+> Dieses Beispiel ist offensichtlich etwas konstruiert, da normalerweise die beiden `RTCPeerConnection` Objekte auf verschiedenen Geräten existieren würden und das Signaling über das Netzwerk stattfindet, anstatt dass alles hier inline verbunden wird.
 
 ### HTML
 
-Das HTML für dieses Beispiel ist sehr grundlegend; es gibt nur drei wichtige Elemente:
+Das HTML für dieses Beispiel ist sehr einfach; es gibt nur drei wichtige Elemente:
 
-- Ein {{HTMLElement("audio")}}-Element, um das über die `RTCPeerConnection` empfangene Audio abzuspielen, das "angerufen" wird.
-- Ein {{HTMLElement("button")}}-Element, um das Erstellen und Verbinden der beiden `RTCPeerConnection`-Objekte und dann das Senden der DTMF-Töne auszulösen.
-- Ein {{HTMLElement("div")}}, um Protokolltexte zu empfangen und anzuzeigen, um Statusinformationen anzuzeigen.
+- Ein {{HTMLElement("audio")}}-Element, um das Audio abzuspielen, das von der "zu rufenden" `RTCPeerConnection` empfangen wird.
+- Ein {{HTMLElement("button")}}-Element, um das Erstellen und Verbinden der beiden `RTCPeerConnection`-Objekte zu triggern und dann die DTMF-Töne zu senden.
+- Ein {{HTMLElement("div")}}, um Log-Text zu empfangen und anzuzeigen, um Statusinformationen zu zeigen.
 
 ```html
 <p>
@@ -60,7 +60,7 @@ Das HTML für dieses Beispiel ist sehr grundlegend; es gibt nur drei wichtige El
 
 ### JavaScript
 
-Schauen wir uns als Nächstes den JavaScript-Code an. Beachten Sie, dass der Prozess des Aufbauens der Verbindung hier etwas konstruiert ist; normalerweise bauen Sie nicht beide Enden der Verbindung im selben Dokument auf.
+Schauen wir uns als Nächstes den JavaScript-Code an. Beachten Sie, dass der Prozess des Aufbauens der Verbindung hier etwas konstruiert ist; normalerweise baut man nicht beide Enden der Verbindung im selben Dokument auf.
 
 #### Globale Variablen
 
@@ -89,26 +89,26 @@ let dialButton = null;
 let logElement = null;
 ```
 
-Diese sind in der Reihenfolge:
+Dies sind in der Reihenfolge:
 
 - `dialString`
-  - : Die DTMF-Zeichenfolge, die der Anrufer senden wird, wenn die "Wählen"-Taste geklickt wird.
+  - : Die DTMF-Zeichenkette, die gesendet wird, wenn der "Wählen"-Button geklickt wird.
 - `callerPC` und `receiverPC`
-  - : Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekte, die den Anrufer bzw. den Empfänger darstellen. Diese werden beim Start des Anrufs in unserer `connectAndDial()`-Funktion initialisiert, wie unten unter [Verbindungsaufbau starten](#verbindungsaufbau_starten) gezeigt.
+  - : Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Objekte, die den Anrufer bzw. den Empfänger darstellen. Diese werden bei Beginn des Anrufs in unserer `connectAndDial()` Funktion initialisiert, wie im Abschnitt [Starten des Verbindungsprozesses](#starten_des_verbindungsprozesses) unten gezeigt.
 - `dtmfSender`
-  - : Das [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt für die Verbindung. Es wird beim Einrichten der Verbindung in der `gotStream()`-Funktion bezogen, wie in [Hinzufügen des Audios zur Verbindung](#hinzufügen_des_audios_zur_verbindung) gezeigt.
+  - : Das [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) Objekt für die Verbindung. Dieses wird während der Einrichtung der Verbindung in der `gotStream()` Funktion, die im Abschnitt [Hinzufügen des Audios zur Verbindung](#hinzufügen_des_audios_zur_verbindung) gezeigt wird, erhalten.
 - `hasAddTrack`
-  - : Da einige Browser [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) noch nicht implementiert haben und daher die Verwendung der veralteten [`addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream)-Methode erfordern, verwenden wir diese Boolesche Variable, um festzustellen, ob der Benutzeragent `addTrack()` unterstützt. Wenn nicht, verwenden wir alternativ `addStream()`. Dies wird in `connectAndDial()` ermittelt, wie unten unter [Verbindungsaufbau starten](#verbindungsaufbau_starten) gezeigt.
+  - : Da einige Browser [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) noch nicht implementiert haben und daher die Verwendung der veralteten [`addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream) Methode erfordern, verwenden wir diese Boolesche Variable, um zu bestimmen, ob der Benutzeragent `addTrack()` unterstützt; wenn nicht, fallen wir auf `addStream()` zurück. Dies wird in `connectAndDial()` festgestellt, wie im Abschnitt [Starten des Verbindungsprozesses](#starten_des_verbindungsprozesses) gezeigt.
 - `mediaConstraints`
-  - : Ein Objekt, das die Einschränkungen angibt, die beim Start der Verbindung verwendet werden sollen. Wir wollen eine Audio-Verbindung, daher ist `video` `false`, während `audio` `true` ist.
+  - : Ein Objekt, das die Einschränkungen angibt, die beim Starten der Verbindung verwendet werden sollen. Wir wollen eine audio-only Verbindung, daher ist `video` auf `false` und `audio` auf `true`.
 - `offerOptions`
-  - : Ein Objekt, das Optionen angibt, die beim Aufrufen von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) festgelegt werden sollen. In diesem Fall geben wir an, dass wir Audio, aber kein Video empfangen möchten.
+  - : Ein Objekt, das Optionen bereitstellt, die beim Aufrufen von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) spezifiziert werden sollen. In diesem Fall geben wir an, dass wir Audio, aber kein Video empfangen möchten.
 - `dialButton` und `logElement`
-  - : Diese Variablen werden verwendet, um Referenzen zur Wähltaste und dem {{HTMLElement("div")}}, in das Protokollinformationen geschrieben werden, zu speichern. Sie werden eingerichtet, wenn die Seite erstmals geladen wird. Siehe [Initialisierung](#initialisierung) unten.
+  - : Diese Variablen werden verwendet, um Referenzen auf den Wählbutton und das {{HTMLElement("div")}}, in das Protokollinformationen geschrieben werden, zu speichern. Sie werden eingerichtet, wenn die Seite zum ersten Mal geladen wird. Siehe [Initialisierung](#initialisierung) unten.
 
 #### Initialisierung
 
-Beim Laden der Seite führen wir einige grundlegende Einrichtungsarbeiten durch: Wir holen Referenzen zur Wähltaste und zu den Protokollausgabe-Elementen und verwenden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um dem Wähltasten-Klickereignis einen Listener hinzuzufügen, sodass beim Klicken die `connectAndDial()`-Funktion aufgerufen wird, um den Verbindungsprozess zu starten.
+Wenn die Seite geladen wird, führen wir einige grundlegende Setups durch: Wir holen Referenzen auf den Wählbutton und das Log-Ausgabeelement ab, und verwenden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Ereignis-Listener zum Wählbutton hinzuzufügen, sodass beim Klicken darauf die `connectAndDial()` Funktion aufgerufen wird, um den Verbindungsprozess zu beginnen.
 
 ```js
 window.addEventListener("load", () => {
@@ -119,9 +119,9 @@ window.addEventListener("load", () => {
 });
 ```
 
-#### Verbindungsaufbau starten
+#### Starten des Verbindungsprozesses
 
-Wenn die Wähltaste geklickt wird, wird `connectAndDial()` aufgerufen. Dies beginnt mit dem Aufbau der WebRTC-Verbindung zur Vorbereitung auf das Senden der DTMF-Codes.
+Wenn der Wählbutton geklickt wird, wird `connectAndDial()` aufgerufen. Dies beginnt mit dem Aufbau der WebRTC-Verbindung zur Vorbereitung des Sendens der DTMF-Codes.
 
 ```js
 function connectAndDial() {
@@ -151,19 +151,19 @@ function connectAndDial() {
 }
 ```
 
-Nachdem die `RTCPeerConnection` für den Anrufer (`callerPC`) erstellt wurde, prüfen wir, ob sie eine [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-Methode hat. Wenn ja, setzen wir `hasAddTrack` auf `true`; andernfalls setzen wir es auf `false`. Diese Variable lässt das Beispiel auch auf Browsern laufen, die die neuere `addTrack()`-Methode noch nicht implementiert haben; wir tun dies, indem wir auf die ältere [`addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream)-Methode zurückgreifen.
+Nachdem die `RTCPeerConnection` für den Anrufer (`callerPC`) erstellt wurde, prüfen wir, ob sie eine [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) Methode hat. Wenn dies der Fall ist, setzen wir `hasAddTrack` auf `true`; andernfalls setzen wir es auf `false`. Diese Variable ermöglicht es dem Beispiel, auch in Browsern zu funktionieren, die die neuere `addTrack()` Methode noch nicht implementiert haben; wir tun dies, indem wir auf die ältere [`addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream) Methode zurückgreifen.
 
-Als Nächstes werden die Ereignis-Handler für den Anrufer festgelegt. Wir werden diese später ausführlich behandeln.
+Als Nächstes werden die Ereignishandler für den Anrufer eingerichtet. Wir werden diese später im Detail behandeln.
 
-Dann wird eine zweite `RTCPeerConnection`, die das empfangende Ende des Anrufs darstellt, erstellt und in `receiverPC` gespeichert; ihr `onicecandidate`-Ereignis-Handler wird ebenfalls eingerichtet.
+Dann wird eine zweite `RTCPeerConnection`, die das Empfangsende des Anrufs darstellt, erstellt und in `receiverPC` gespeichert; sein `onicecandidate` Ereignishandler wird ebenfalls eingerichtet.
 
-Wenn `addTrack()` unterstützt wird, richten wir den `ontrack`-Ereignis-Handler des Empfängers ein; andernfalls richten wir `onaddstream` ein. Die [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)- und [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event)-Ereignisse werden gesendet, wenn Medien zur Verbindung hinzugefügt werden.
+Wenn `addTrack()` unterstützt wird, richten wir den `ontrack` Ereignishandler des Empfängers ein; andernfalls richten wir `onaddstream` ein. Die [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) und [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event) Ereignisse werden gesendet, wenn Medien zur Verbindung hinzugefügt werden.
 
-Schließlich rufen wir [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf, um Zugriff auf das Mikrofon des Anrufers zu erhalten. Wenn dies erfolgreich ist, wird die Funktion `gotStream()` aufgerufen, andernfalls protokollieren wir den Fehler, da der Anruf fehlgeschlagen ist.
+Schließlich rufen wir [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf, um Zugang zum Mikrofon des Anrufers zu erhalten. Bei Erfolg wird die Funktion `gotStream()` aufgerufen, andernfalls protokollieren wir den Fehler, weil der Anruf fehlgeschlagen ist.
 
 #### Hinzufügen des Audios zur Verbindung
 
-Wie oben erwähnt, wird `gotStream()` aufgerufen, wenn der Audioeingang vom Mikrofon erhalten wird. Seine Aufgabe ist es, den Stream zu erstellen, der an den Empfänger gesendet wird, sodass der eigentliche Übertragungsprozess beginnen kann. Es erhält auch Zugriff auf den `RTCDTMFSender`, den wir verwenden werden, um DTMF über die Verbindung zu senden.
+Wie oben erwähnt, wird `gotStream()` aufgerufen, wenn das Audioeingangssignal vom Mikrofon erfasst wird. Die Aufgabe von `gotStream()` ist es, den Stream aufzubauen, der an den Empfänger gesendet wird, damit der eigentliche Übertragungsprozess beginnen kann. Es erhält auch Zugang zu dem `RTCDTMFSender`, den wir verwenden werden, um DTMF auf der Verbindung auszugeben.
 
 ```js
 function gotStream(stream) {
@@ -198,19 +198,19 @@ function gotStream(stream) {
 }
 ```
 
-Nachdem `audioTracks` auf eine Liste der Audiotracks im Stream vom Mikrofon des Benutzers gesetzt wurde, ist es an der Zeit, die Medien zur `RTCPeerConnection` des Anrufers hinzuzufügen. Wenn `addTrack()` auf der `RTCPeerConnection` verfügbar ist, fügen wir jeden Audiotrack des Streams einzeln mit [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) zur Verbindung hinzu. Andernfalls rufen wir [`RTCPeerConnection.addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream) auf, um den Stream als Einheit zum Anruf hinzuzufügen.
+Nachdem `audioTracks` auf eine Liste der Audiospuren des Streams vom Mikrofon des Benutzers gesetzt wurde, ist es an der Zeit, die Medien zur `RTCPeerConnection` des Anrufers hinzuzufügen. Falls `addTrack()` auf der `RTCPeerConnection` verfügbar ist, fügen wir jede der Audiospuren des Streams einzeln mithilfe von [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) zur Verbindung hinzu. Andernfalls rufen wir [`RTCPeerConnection.addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream) auf, um den Stream als Einheit dem Anruf hinzuzufügen.
 
-Als Nächstes prüfen wir, ob die Methode [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) implementiert ist. Wenn dies der Fall ist, rufen wir sie auf `callerPC` auf und erhalten den ersten Eintrag in der zurückgegebenen Liste der Sender; dies ist der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der für die Übertragung der Daten des ersten Audiotracks im Anruf verantwortlich ist (dies ist der Track, über den wir DTMF senden werden). Wir erhalten dann die [`dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft des `RTCRtpSender`, die ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt ist, das DTMF über die Verbindung vom Anrufer an den Empfänger senden kann.
+Als Nächstes überprüfen wir, ob die Methode [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) implementiert ist. Falls ja, rufen wir sie auf `callerPC` auf und holen den ersten Eintrag in der zurückgegebenen Liste von Sendern; dies ist der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der für die Übertragung von Daten für die erste Audiospur des Anrufs verantwortlich ist (was die Spur ist, über die wir DTMF senden werden). Dann erhalten wir die `dtmf` Eigenschaft des `RTCRtpSender`, welche ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) Objekt ist, das DTMF auf der Verbindung vom Anrufer zum Empfänger senden kann.
 
-Wenn `getSenders()` nicht verfügbar ist, rufen wir stattdessen [`RTCPeerConnection.createDTMFSender()`](/de/docs/Web/API/RTCPeerConnection/createDTMFSender) auf, um das `RTCDTMFSender`-Objekt zu erhalten. Obwohl diese Methode veraltet ist, unterstützt dieses Beispiel sie als Fallback, um älteren Browsern (und solchen, die noch nicht auf die aktuelle WebRTC DTMF API aktualisiert wurden) zu ermöglichen, das Beispiel auszuführen.
+Falls `getSenders()` nicht verfügbar ist, rufen wir stattdessen [`RTCPeerConnection.createDTMFSender()`](/de/docs/Web/API/RTCPeerConnection/createDTMFSender) auf, um das `RTCDTMFSender` Objekt zu erhalten. Obwohl diese Methode veraltet ist, unterstützt dieses Beispiel sie als Fallback, damit ältere Browser (und solche, die noch nicht aktualisiert wurden, um die aktuelle WebRTC DTMF API zu unterstützen) das Beispiel ausführen können.
 
-Schließlich setzen wir den [`ontonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis-Handler des DTMF-Senders, damit wir benachrichtigt werden, wenn jedes DTMF-Signal das Abspielen beendet.
+Schließlich setzen wir den [`ontonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event) Ereignishandler des DTMF-Senders, damit wir jedes Mal benachrichtigt werden, wenn ein DTMF-Ton zu Ende gespielt ist.
 
-Sie finden die Protokollfunktion am Ende der Dokumentation.
+Die Log-Funktion finden Sie am Ende der Dokumentation.
 
-#### Wenn ein Ton das Abspielen beendet
+#### Wenn ein Ton zu Ende gespielt ist
 
-Jedes Mal, wenn ein DTMF-Signal das Abspielen beendet, wird ein [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis an `callerPC` gesendet. Der Ereignis-Listener dafür ist als die Funktion `handleToneChangeEvent()` implementiert.
+Jedes Mal, wenn ein DTMF-Ton zu Ende gespielt ist, wird ein [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event) Ereignis an `callerPC` gesendet. Der Ereignis-Listener für diese ist als die Funktion `handleToneChangeEvent()` implementiert.
 
 ```js
 function handleToneChangeEvent(event) {
@@ -237,19 +237,19 @@ function handleToneChangeEvent(event) {
 }
 ```
 
-Das [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis wird sowohl verwendet, um anzuzeigen, wann ein einzelnes Signal abgespielt wurde, als auch wenn alle Signale das Abspielen beendet haben. Die [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft des Ereignisses ist ein String, der anzeigt, welches Signal gerade abgespielt wurde. Wenn alle Signale abgespielt wurden, ist `tone` ein leerer String; wenn das der Fall ist, ist [`RTCDTMFSender.toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) leer.
+Das `tonechange` Ereignis wird sowohl verwendet, um anzuzeigen, wann ein individueller Ton gespielt wurde, als auch wann alle Töne zu Ende gespielt sind. Die Eigenschaft `tone` des Ereignisses ist eine Zeichenkette, die angibt, welcher Ton gerade beendet wurde. Wenn alle Töne zu Ende gespielt sind, ist `tone` eine leere Zeichenkette; in diesem Fall ist der `toneBuffer` des `RTCDTMFSender` leer.
 
-In diesem Beispiel protokollieren wir auf dem Bildschirm, welches Signal gerade abgespielt wurde. In einer fortschrittlicheren Anwendung könnten Sie die Benutzeroberfläche aktualisieren, um beispielsweise anzuzeigen, welche Note aktuell abgespielt wird.
+In diesem Beispiel protokollieren wir auf dem Bildschirm, welcher Ton gerade zu Ende gespielt wurde. In einer fortgeschritteneren Anwendung könnten Sie das Benutzerinterface aktualisieren, beispielsweise um anzugeben, welcher Ton gerade gespielt wird.
 
-Andererseits, wenn der Tonpuffer leer ist, ist unser Beispiel so konzipiert, dass es den Anruf trennt. Dies geschieht, indem jeder Stream sowohl beim Anrufer als auch beim Empfänger gestoppt wird, indem wir jede `RTCPeerConnection`-Trackliste (wie von ihrer [`getTracks()`](/de/docs/Web/API/MediaStream/getTracks)-Methode zurückgegeben) durchgehen und die [`stop()`](/de/docs/Web/API/MediaStreamTrack/stop)-Methode jedes Tracks aufrufen.
+Wenn der Ton-Puffer leer ist, ist unser Beispiel so gestaltet, dass der Anruf getrennt wird. Dies geschieht, indem jeder Stream sowohl auf der Seite des Anrufers als auch des Empfängers gestoppt wird, indem über jede Trackliste des `RTCPeerConnection` (wie sie durch die Methode `getTracks()` zurückgegeben wird) iteriert und die `stop()` Methode jedes Tracks aufgerufen wird.
 
-Sobald alle Medien-Streams sowohl des Anrufers als auch des Empfängers gestoppt sind, pausieren wir das {{HTMLElement("audio")}}-Element und setzen seine [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) auf `null`. Dies trennt den Audio-Stream vom {{HTMLElement("audio")}}-Element.
+Sobald alle Medienspuren des Anrufers und des Empfängers gestoppt sind, pausieren wir das {{HTMLElement("audio")}}-Element und setzen dessen `srcObject` auf `null`. Dies löst den Audio-Stream vom `HTMLMediaElement`.
 
-Dann wird schließlich jede `RTCPeerConnection` durch Aufruf ihrer [`close()`](/de/docs/Web/API/RTCPeerConnection/close)-Methode geschlossen.
+Schließlich wird jede `RTCPeerConnection` durch Aufrufen ihrer `close()`-Methode geschlossen.
 
 #### Hinzufügen von Kandidaten zum Anrufer
 
-Wenn die ICE-Schicht der `RTCPeerConnection` des Anrufers einen neuen Kandidaten vorschlägt, tritt ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis bei `callerPC` auf. Der `icecandidate`-Ereignis-Handler hat die Aufgabe, den Kandidaten an den Empfänger zu übermitteln. In unserem Beispiel steuern wir direkt sowohl den Anrufer als auch den Empfänger, sodass wir den Kandidaten direkt an den Empfänger übergeben können, indem wir seine [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)-Methode aufrufen. Dies wird von `handleCallerIceEvent()` gehandhabt:
+Wenn die ICE-Schicht von `RTCPeerConnection` des Anrufers einen neuen Vorschlag für einen Kandidaten hat, gibt sie ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis an `callerPC` aus. Der `icecandidate` Ereignishhandler hat die Aufgabe, den Kandidaten an den Empfänger zu übermitteln. In unserem Beispiel kontrollieren wir sowohl den Anrufer als auch den Empfänger direkt, also können wir den Kandidaten einfach direkt an den Empfänger anfügen, indem wir dessen Methode `addIceCandidate()` aufrufen. Das wird von `handleCallerIceEvent()` behandelt:
 
 ```js
 function handleCallerIceEvent(event) {
@@ -265,13 +265,13 @@ function handleCallerIceEvent(event) {
 }
 ```
 
-Wenn das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis eine nicht-`null` `candidate`-Eigenschaft hat, erstellen wir ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt aus dem String `event.candidate` und "übermitteln" es an den Empfänger, indem wir `receiverPC.addIceCandidate()` aufrufen und den neuen `RTCIceCandidate` als Eingabe übergeben. Falls `addIceCandidate()` fehlschlägt, gibt der `catch()`-Abschnitt den Fehler in unsere Protokollbox aus.
+Wenn das `icecandidate` Ereignis eine nicht-`null` Eigenschaft `candidate` hat, erzeugen wir ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt aus der `event.candidate` Zeichenkette und "übermitteln" es an den Empfänger, indem wir `receiverPC.addIceCandidate()` mit dem neuen `RTCIceCandidate` als Eingabe aufrufen. Wenn `addIceCandidate()` fehlschlägt, gibt der `catch()`-Klausel den Fehler in unserem Protokollfeld aus.
 
-Wenn `event.candidate` `null` ist, deutet dies darauf hin, dass keine weiteren Kandidaten verfügbar sind, und wir protokollieren diese Informationen.
+Wenn `event.candidate` `null` ist, bedeutet das, dass keine weiteren Kandidaten verfügbar sind, und wir protokollieren diese Information.
 
-#### Wählen, sobald die Verbindung geöffnet ist
+#### Wählen, sobald die Verbindung offen ist
 
-Unser Design erfordert, dass wir die DTMF-Zeichenfolge sofort senden, wenn die Verbindung hergestellt ist. Dazu beobachten wir, ob der Anrufer ein [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis erhält. Dieses Ereignis wird gesendet, wenn eine von mehreren Änderungen des Zustands des ICE-Verbindungsprozesses auftritt, einschließlich der erfolgreichen Herstellung einer Verbindung.
+Unser Entwurf erfordert, dass, sobald die Verbindung hergestellt ist, wir sofort die DTMF-Zeichenkette senden. Um dies zu erreichen, überwachen wir, ob der Anrufer ein [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event) Ereignis erhält. Dieses Ereignis wird gesendet, wenn eine der zahlreichen Änderungen am Zustand des ICE-Verbindungsprozesses auftritt, einschließlich der erfolgreichen Herstellung einer Verbindung.
 
 ```js
 function handleCallerIceConnectionStateChange() {
@@ -283,13 +283,13 @@ function handleCallerIceConnectionStateChange() {
 }
 ```
 
-Das `iceconnectionstatechange`-Ereignis enthält eigentlich nicht innerhalb von sich selbst den neuen Zustand, also holen wir den aktuellen Zustand des Verbindungsprozesses von der [`RTCPeerConnection.iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)-Eigenschaft von `callerPC`. Nachdem wir den neuen Zustand protokolliert haben, prüfen wir, ob der Zustand `"connected"` ist. Wenn ja, protokollieren wir die Tatsache, dass wir im Begriff sind, die DTMF zu senden, und rufen dann [`dtmf.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf, um die DTMF über denselben Track wie die Audiodaten-Methode auf dem zuvor in `dtmfSender` gespeicherten `RTCDTMFSender`-Objekt zu senden.
+Das `iceconnectionstatechange` Ereignis beinhaltet nicht direkt den neuen Zustand, daher erhalten wir den aktuellen Zustand des Verbindungsprozesses von der `iceConnectionState` Eigenschaft von `callerPC`. Nach dem Protokollieren des neuen Zustands prüfen wir, ob der Zustand `connected` ist. Wenn dies der Fall ist, protokollieren wir, dass wir dabei sind, die DTMF zu senden, und rufen dann [`dtmf.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf, um die DTMF auf dem gleichen Track wie die Audiodaten auszugeben mit der Methode `RTCDTMFSender` Objekt, das wir [zuvor gespeichert haben](#hinzufügen_des_audios_zur_verbindung) in `dtmfSender`.
 
-Unser Aufruf von `insertDTMF()` gibt nicht nur die zu sendende DTMF-Zeichenfolge (`dialString`) an, sondern auch die Länge jedes Tones in Millisekunden (400 ms) und die Zeit zwischen den Tönen (50 ms).
+Unser Aufruf von `insertDTMF()` spezifiziert nicht nur die DTMF, die gesendet werden soll (`dialString`), sondern auch die Länge jedes Tons in Millisekunden (400 ms) und die Zeitspanne zwischen den Tönen (50 ms).
 
-#### Verhandeln der Verbindung
+#### Aushandeln der Verbindung
 
-Wenn die Anruf-`RTCPeerConnection` beginnt, Medien zu empfangen (nachdem der Mikrofonstream hinzugefügt wurde), wird dem Anrufer ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis zugestellt, das ihm signalisiert, dass es an der Zeit ist, die Verbindung mit dem Empfänger zu verhandeln. Wie bereits erwähnt, ist unser Beispiel etwas vereinfacht, da wir sowohl den Anrufer als auch den Empfänger steuern, sodass `handleCallerNegotiationNeeded()` in der Lage ist, die Verbindung schnell zu konstruieren, indem die erforderlichen Anrufe sowohl für den Anrufer als auch für den Empfänger, wie unten gezeigt, miteinander verknüpft werden.
+Wenn die anrufende [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) beginnt, Medien zu empfangen (nachdem der Mikrofonstream hinzugefügt wurde), wird ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) Ereignis an den Anrufer gesendet, das ihn darüber informiert, dass es Zeit ist, die Verbindung mit dem Empfänger auszuhandeln. Wie bereits erwähnt, ist unser Beispiel somewhat vereinfacht, da wir sowohl den Anrufer als auch den Empfänger kontrollieren, sodass `handleCallerNegotiationNeeded()` in der Lage ist, die Verbindung schnell zu konstruieren, indem es die erforderlichen Aufrufe sowohl für den Anrufer als auch den Empfänger zusammen-kettet, wie unten gezeigt.
 
 ```js
 function handleCallerNegotiationNeeded() {
@@ -322,19 +322,19 @@ function handleCallerNegotiationNeeded() {
 }
 ```
 
-Da die verschiedenen Methoden, die an der Verhandlung der Verbindung beteiligt sind, {{jsxref("promise")}}s zurückgeben, können wir sie auf diese Weise verknüpfen:
+Da die verschiedenen Methoden, die zur Aushandlung der Verbindung erforderlich sind, {{jsxref("promise")}}-Objekte zurückgeben, können wir sie wie folgt verketten:
 
-1. Aufruf von [`callerPC.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer), um ein Angebot zu erhalten.
-2. Dann das Angebot nehmen und die lokale Beschreibung des Anrufers durch Aufrufen von [`callerPC.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) darauf einstellen.
-3. Übermitteln Sie das Angebot an den Empfänger, indem Sie [`receiverPC.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufrufen. Dies konfiguriert den Empfänger, damit er weiß, wie der Anrufer konfiguriert ist.
-4. Der Empfänger erstellt dann eine Antwort, indem er [`receiverPC.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) aufruft.
-5. Der Empfänger legt dann seine lokale Beschreibung auf die neu erstellte Antwort fest, indem er [`receiverPC.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufruft.
-6. Dann wird die Antwort dem Anrufer durch Aufrufen von [`callerPC.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) "übermittelt". Dies lässt den Anrufer wissen, wie die Konfiguration des Empfängers ist.
-7. Wenn zu irgendeinem Zeitpunkt ein Fehler auftritt, gibt der `catch()`-Abschnitt eine Fehlermeldung in das Protokoll aus.
+1. Rufen Sie [`callerPC.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) auf, um ein Angebot zu erhalten.
+2. Nehmen Sie dann dieses Angebot und setzen Sie die lokale Beschreibung des Anrufers entsprechend durch Aufrufen von [`callerPC.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription).
+3. "Übermitteln" Sie dann das Angebot an den Empfänger, indem Sie [`receiverPC.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufrufen. Dies konfiguriert den Empfänger so, dass er weiß, wie der Anrufer konfiguriert ist.
+4. Lassen Sie dann den Empfänger eine Antwort erstellen, indem Sie [`receiverPC.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) aufrufen.
+5. Lassen Sie den Empfänger seine lokale Beschreibung entsprechend der neu erstellten Antwort durch Aufrufen von [`receiverPC.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) anpassen.
+6. "Übermitteln" Sie dann die Antwort an den Anrufer, indem Sie [`callerPC.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufrufen. Dies teilt dem Anrufer mit, wie die Konfiguration des Empfängers ist.
+7. Wenn zu irgendeinem Zeitpunkt ein Fehler auftritt, gibt die `catch()`-Klausel eine Fehlermeldung in das Protokoll aus.
 
-#### Verfolgen anderer Statusänderungen
+#### Überwachen von anderen Statusänderungen
 
-Wir können auch Änderungen des Signalierungszustands beobachten (indem wir [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)-Ereignisse akzeptieren) und den Zustand der ICE-Sammlung (indem wir [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignisse akzeptieren). Wir verwenden diese für nichts, sodass wir sie nur protokollieren. Wir hätten diese Ereignis-Listener überhaupt nicht einrichten müssen.
+Wir können auch Änderungen des Signalisierungszustands (durch Akzeptieren von [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event) Ereignissen) und des ICE-Sammezustands (durch Akzeptieren von [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignissen) beobachten. Wir verwenden diese für nichts, daher protokollieren wir sie nur. Wir hätten diese Ereignis-Listener auch gar nicht einrichten können.
 
 ```js
 function handleCallerSignalingStateChangeEvent() {
@@ -348,9 +348,9 @@ function handleCallerGatheringStateChangeEvent() {
 
 #### Hinzufügen von Kandidaten zum Empfänger
 
-Wenn die ICE-Schicht der `RTCPeerConnection` des Empfängers einen neuen Kandidaten vorschlägt, tritt ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis bei `receiverPC` auf. Der `icecandidate`-Ereignis-Handler hat die Aufgabe, den Kandidaten an den Anrufer zu übermitteln. In unserem Beispiel steuern wir direkt sowohl den Anrufer als auch den Empfänger, sodass wir den Kandidaten direkt an den Anrufer übergeben können, indem wir seine [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)-Methode aufrufen. Das wird von `handleReceiverIceEvent()` gehandhabt.
+Wenn die ICE-Schicht von `RTCPeerConnection` des Empfängers einen neuen Vorschlag für einen Kandidaten hat, gibt sie ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis an `receiverPC` aus. Der `icecandidate` Ereignis-Handler ist dafür verantwortlich, den Kandidaten an den Anrufer zu übermitteln. In unserem Beispiel kontrollieren wir sowohl den Anrufer als auch den Empfänger direkt, sodass wir den Kandidaten einfach direkt an den Anrufer anfügen können, indem wir dessen Methode `addIceCandidate()` aufrufen. Das wird von `handleReceiverIceEvent()` behandelt.
 
-Dieser Code ist analog zum `icecandidate`-Ereignis-Handler für den Anrufer, der oben unter [Hinzufügen von Kandidaten zum Anrufer](#hinzufügen_von_kandidaten_zum_anrufer) zu sehen ist.
+Dieser Code ist analog zum `icecandidate` Ereignis-Handler für den Anrufer, wie im Abschnitt [Hinzufügen von Kandidaten zum Anrufer](#hinzufügen_von_kandidaten_zum_anrufer) oben zu sehen ist.
 
 ```js
 function handleReceiverIceEvent(event) {
@@ -366,13 +366,13 @@ function handleReceiverIceEvent(event) {
 }
 ```
 
-Wenn das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis eine nicht-`null` `candidate`-Eigenschaft hat, erstellen wir ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt aus dem String `event.candidate` und übermitteln es dem Anrufer, indem wir es an `callerPC.addIceCandidate()` übergeben. Falls `addIceCandidate()` fehlschlägt, gibt der `catch()`-Abschnitt den Fehler in unsere Protokollbox aus.
+Wenn das `icecandidate` Ereignis eine nicht-`null` Eigenschaft `candidate` hat, erzeugen wir ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt aus der `event.candidate` Zeichenkette und überliefern es an den Anrufer, indem wir dieses an `callerPC.addIceCandidate()` übergeben. Wenn `addIceCandidate()` fehlschlägt, gibt der `catch()`-Klausel den Fehler in unser Protokollfeld aus.
 
-Wenn `event.candidate` `null` ist, deutet dies darauf hin, dass keine weiteren Kandidaten verfügbar sind, und wir protokollieren diese Informationen.
+Wenn `event.candidate` `null` ist, bedeutet das, dass keine weiteren Kandidaten verfügbar sind, und wir protokollieren diese Information.
 
 #### Hinzufügen von Medien zum Empfänger
 
-Wenn der Empfänger beginnt, Medien zu empfangen, wird ein Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Empfängers, `receiverPC`, gesendet. Wie in [Verbindungsaufbau starten](#verbindungsaufbau_starten) erklärt, verwendet die aktuelle WebRTC-Spezifikation das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis dafür. Da einige Browser noch nicht aktualisiert wurden, um dies zu unterstützen, müssen wir auch das [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event)-Ereignis behandeln. Dies wird in den unten gezeigten Methoden `handleReceiverTrackEvent()` und `handleReceiverAddStreamEvent()` demonstriert.
+Wenn der Empfänger beginnt, Medien zu empfangen, wird ein Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Empfängers, `receiverPC`, ausgeliefert. Wie im Abschnitt [Starten des Verbindungsprozesses](#starten_des_verbindungsprozesses) erläutert, verwendet die aktuelle WebRTC-Spezifikation das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis hierfür. Da einige Browser hierfür noch nicht aktualisiert wurden, müssen wir auch das [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event) Ereignis behandeln. Dies wird in den Methoden `handleReceiverTrackEvent()` und `handleReceiverAddStreamEvent()` unten dargestellt.
 
 ```js
 function handleReceiverTrackEvent(event) {
@@ -384,13 +384,13 @@ function handleReceiverAddStreamEvent(event) {
 }
 ```
 
-Das `track`-Ereignis enthält eine [`streams`](/de/docs/Web/API/RTCTrackEvent/streams)-Eigenschaft, die ein Array der Streams enthält, von denen der Track Mitglied ist (ein Track kann Teil vieler Streams sein). Wir nehmen den ersten Stream und hängen ihn an das {{HTMLElement("audio")}}-Element.
+Das `track` Ereignis enthält eine `streams` Eigenschaft, die ein Array der Streams enthält, deren Mitglied der Track ist (ein Track kann Teil vieler Streams sein). Wir nehmen den ersten Stream und binden ihn an das {{HTMLElement("audio")}}-Element.
 
-Das `addstream`-Ereignis enthält eine [`stream`](/de/docs/Web/API/MediaStreamEvent/stream)-Eigenschaft, die einen einzelnen Stream angibt, der zum Track hinzugefügt wurde. Wir hängen es an das `<audio>`-Element.
+Das `addstream` Ereignis enthält eine `stream` Eigenschaft, die einen einzelnen zum Track hinzugefügten Stream angibt. Wir binden ihn an das `<audio>`-Element.
 
 #### Protokollierung
 
-Eine einfache `log()`-Funktion wird im gesamten Code verwendet, um Text an eine {{HTMLElement("div")}}-Box anzuhängen, um dem Benutzer Status und Fehler anzuzeigen.
+Eine einfache `log()` Funktion wird im gesamten Code verwendet, um Text an eine {{HTMLElement("div")}}-Box anzuhängen, in der dem Benutzer Status und Fehler angezeigt werden.
 
 ```js
 function log(msg) {
@@ -400,7 +400,7 @@ function log(msg) {
 
 ### Ergebnis
 
-Sie können dieses Beispiel hier ausprobieren. Wenn Sie auf die Taste "Wählen" klicken, sollten eine Reihe von Protokollnachrichten ausgegeben werden; dann beginnt das Wählen. Wenn Ihr Browser die Töne als Teil seines Benutzererlebnisses hörbar abspielt, sollten Sie sie hören, während sie übertragen werden.
+Sie können dieses Beispiel hier ausprobieren. Wenn Sie den "Wählen"-Button klicken, sollten Sie eine Reihe von Protokollnachrichten angezeigt bekommen; dann beginnt das Wählen. Wenn Ihr Browser die Töne hörbar wiedergibt als Teil seiner Benutzererfahrung, sollten Sie sie hören, während sie gesendet werden.
 
 {{ EmbedLiveSample('Simple_example', 600, 500, "", "", "", "microphone") }}
 
@@ -410,5 +410,5 @@ Sobald die Übertragung der Töne abgeschlossen ist, wird die Verbindung geschlo
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
-- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) (ein Tutorial und Beispiel, das den Signalisierungsprozess im Detail erklärt)
+- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) (ein Tutorial und Beispiel, das den Signalisierungsprozess detaillierter erklärt)
 - [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)

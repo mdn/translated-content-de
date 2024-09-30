@@ -1,5 +1,5 @@
 ---
-title: "CustomStateSet: entries() Methode"
+title: "CustomStateSet: entries()-Methode"
 short-title: entries()
 slug: Web/API/CustomStateSet/entries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`entries`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols)-Objekt zurück, das ein Array von `[value,value]` für jedes Element im `CustomStateSet` enthält.
+Die **`entries`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols)-Objekt zurück, das ein Array von `[value, value]` für jedes Element im `CustomStateSet` enthält.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das ein Array von `[value, value]` für jedes Element im `CustomStateSet` in der Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das ein Array von `[value, value]` für jedes Element im `CustomStateSet` in Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

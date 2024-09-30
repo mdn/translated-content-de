@@ -1,5 +1,5 @@
 ---
-title: Zähle abschließende Nullen
+title: Anzahl der nachgestellten Nullen
 slug: WebAssembly/Reference/Numeric/Count_trailing_zeros
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -23,7 +23,7 @@ i32.ctz
 ;; the top item on the stack will now be 23
 ```
 
-| Anweisung | Binäropcode |
-| --------- | ----------- |
-| `i32.ctz` | `0x68`      |
-| `i64.ctz` | `0x7a`      |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.ctz`   | `0x68`         |
+| `i64.ctz`   | `0x7a`         |

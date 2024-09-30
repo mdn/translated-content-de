@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekts zurück.
 
 ## Syntax
 
@@ -78,7 +78,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; diese Methode ruft automatisch `toJSON()` auf.
 
 ## Spezifikationen
 

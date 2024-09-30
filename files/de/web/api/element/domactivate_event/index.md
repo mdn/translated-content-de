@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, etwa wenn es mit der Maus angeklickt oder durch einen Tastendruck angesteuert wird.
+Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, zum Beispiel, wenn es mit der Maus angeklickt oder per Tastendruck darauf zugegriffen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("DOMActivate", (event) => {});

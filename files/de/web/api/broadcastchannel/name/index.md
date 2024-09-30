@@ -1,5 +1,5 @@
 ---
-title: "BroadcastChannel: name-Eigenschaft"
+title: "BroadcastChannel: name Eigenschaft"
 short-title: name
 slug: Web/API/BroadcastChannel/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Interfaces gibt einen String zurück, der den gegebenen Kanal durch seinen Namen eindeutig identifiziert. Dieser Name wird bei der Erstellung an den [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadCastChannel)-Konstruktor übergeben und ist daher schreibgeschützt.
+Die **`name`**-Eigenschaft der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle ist eine schreibgeschützte Zeichenfolge, die den gegebenen Kanal eindeutig mit seinem Namen identifiziert. Dieser Name wird beim Erstellen an den [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadCastChannel)-Konstruktor übergeben und ist daher schreibgeschützt.
 
 ## Werte
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ bc.close();
 
 ## Siehe auch
 
-- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), das Interface, zu dem es gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die zugehörige Schnittstelle.

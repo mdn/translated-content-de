@@ -8,12 +8,19 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.rect()`**-Methode der Canvas 2D API fügt dem aktuellen Pfad ein Rechteck hinzu.
+Die
+**`CanvasRenderingContext2D.rect()`**
+Methode der Canvas 2D API fügt dem aktuellen Pfad ein Rechteck hinzu.
 
-Wie andere Methoden, die den aktuellen Pfad ändern, rendert diese Methode nicht direkt irgendetwas. Um das Rechteck auf einer Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
+Wie andere Methoden, die den aktuellen Pfad modifizieren, rendert diese Methode nicht direkt
+etwas. Um das Rechteck auf eine Leinwand zu zeichnen, können Sie die
+Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
+[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
 
 > [!NOTE]
-> Um ein Rechteck in einem Schritt zu erstellen und zu rendern, verwenden Sie die Methoden [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect).
+> Um sowohl ein Rechteck zu erstellen als auch in einem Schritt zu rendern, verwenden Sie die
+> Methoden [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder
+> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect).
 
 ## Syntax
 
@@ -21,7 +28,9 @@ Wie andere Methoden, die den aktuellen Pfad ändern, rendert diese Methode nicht
 rect(x, y, width, height)
 ```
 
-Die `rect()`-Methode erstellt einen rechteckigen Pfad, dessen Startpunkt bei `(x, y)` liegt und dessen Größe durch `width` und `height` angegeben wird.
+Die `rect()` Methode erstellt einen rechteckigen Pfad, dessen Startpunkt sich bei
+`(x, y)` befindet und dessen Größe durch `width` und
+`height` angegeben wird.
 
 ### Parameter
 
@@ -42,7 +51,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Zeichnen eines Rechtecks
 
-Dieses Beispiel erstellt einen rechteckigen Pfad mithilfe der `rect()`-Methode. Der Pfad wird anschließend mit der `fill()`-Methode gerendert.
+Dieses Beispiel erstellt einen rechteckigen Pfad mit der `rect()` Methode. Der Pfad
+wird dann mit der `fill()` Methode gerendert.
 
 #### HTML
 
@@ -52,7 +62,8 @@ Dieses Beispiel erstellt einen rechteckigen Pfad mithilfe der `rect()`-Methode. 
 
 #### JavaScript
 
-Die Ecke des Rechtecks befindet sich bei (10, 20). Es hat eine Breite von 150 und eine Höhe von 100.
+Die Ecke des Rechtecks befindet sich bei (10, 20). Es hat eine Breite von 150 und eine Höhe von
+100.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -76,7 +87,7 @@ ctx.fill(); // Render the path
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)
 - [`CanvasRenderingContext2D.strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect)
 - [`CanvasRenderingContext2D.fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill)

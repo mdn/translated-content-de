@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`submitFrame()`**-Methode der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle erfasst den aktuellen Zustand der derzeit präsentierten [`VRLayerInit`](/de/docs/Web/API/VRLayerInit) und zeigt ihn auf dem `VRDisplay` an.
+Die **`submitFrame()`**-Methode der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle erfasst den aktuellen Zustand des derzeit präsentierten [`VRLayerInit`](/de/docs/Web/API/VRLayerInit) und zeigt ihn auf dem `VRDisplay` an.
 
 > [!NOTE]
-> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Methode gehörte zur alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Der Frame sollte anschließend unter Verwendung des [`VRPose`](/de/docs/Web/API/VRPose) und der Matrizen gerendert werden, die durch den letzten Aufruf von [`getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData) bereitgestellt wurden.
+Der Frame sollte anschließend unter Verwendung des [`VRPose`](/de/docs/Web/API/VRPose) und der Matrizen gerendert werden, die vom letzten Aufruf von [`getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData) bereitgestellt wurden.
 
 ## Syntax
 
@@ -110,7 +110,7 @@ function drawVRScene() {
 
 Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neue [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Meta-Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden zum Portieren von WebVR zu WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

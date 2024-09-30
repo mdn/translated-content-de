@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overscroll-behavior-x`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt das Verhalten des Browsers, wenn die horizontale Grenze eines Scrollbereichs erreicht wird.
+Die **`overscroll-behavior-x`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt das Verhalten des Browsers fest, wenn der horizontale Rand eines scrollbaren Bereichs erreicht wird.
 
-Siehe {{cssxref("overscroll-behavior")}} für eine umfassende Erklärung.
+Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
 
 ## Syntax
 
@@ -27,18 +27,18 @@ overscroll-behavior-x: revert-layer;
 overscroll-behavior-x: unset;
 ```
 
-Die `overscroll-behavior-x` Eigenschaft wird als Schlüsselwort aus der folgenden Liste von Werten angegeben.
+Die Eigenschaft `overscroll-behavior-x` wird als ein Schlüsselwort aus der unten stehenden Werteliste angegeben.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten für Scroll-Überlauf tritt wie gewohnt auf.
+  - : Das standardmäßige Verhalten bei Überlauf-Scrollen tritt wie gewohnt auf.
 - `contain`
-  - : Standardverhalten für Scroll-Überlauf (z.B. „Bounce“-Effekte) wird innerhalb des Elements beobachtet, bei dem dieser Wert gesetzt ist. Es tritt jedoch kein [Scroll-Chaining](/de/docs/Glossary/Scroll_chaining) bei benachbarten Scrollbereichen auf; die zugrunde liegenden Elemente werden nicht scrollen. Der `contain` Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Das standardmäßige Verhalten bei Überlauf-Scrollen (z. B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert eingestellt ist. Es tritt jedoch kein [Scroll Chaining](/de/docs/Glossary/Scroll_chaining) zu benachbarten scrollbaren Bereichen auf; die zugrunde liegenden Elemente werden nicht gescrollt. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
 - `none`
-  - : Es tritt kein Scroll-Chaining bei benachbarten Scrollbereichen auf, und das Standardverhalten für Scroll-Überlauf wird verhindert.
+  - : Es tritt kein Scroll Chaining zu benachbarten scrollbaren Bereichen auf, und das standardmäßige Verhalten bei Überlauf-Scrollen wird verhindert.
 
-## Formale Definition
+## Formal Definition
 
 {{cssinfo}}
 
@@ -48,11 +48,11 @@ Die `overscroll-behavior-x` Eigenschaft wird als Schlüsselwort aus der folgende
 
 ## Beispiele
 
-### Verhindern des horizontalen Scrollens eines zugrunde liegenden Elements
+### Das horizontale Scrollen eines darunterliegenden Elements verhindern
 
-In unserem einfachen [overscroll-behavior-x Beispiel](https://mdn.github.io/css-examples/overscroll-behavior/overscroll-behavior-x) (siehe auch [Quellcode](https://github.com/mdn/css-examples/blob/main/overscroll-behavior/overscroll-behavior-x.html)) haben wir zwei block-level Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("width")}} gesetzt, sodass die Seite horizontal scrollt. Die innere Box hat eine kleine Breite (und {{cssxref("height")}}) gesetzt, sodass sie bequem im Ansichtsfenster sitzt, aber ihr Inhalt hat eine große `width`, sodass sie horizontal scrollt.
+In unserem einfachen [Beispiel für overscroll-behavior-x](https://mdn.github.io/css-examples/overscroll-behavior/overscroll-behavior-x) (siehe auch [Quellcode](https://github.com/mdn/css-examples/blob/main/overscroll-behavior/overscroll-behavior-x.html)), haben wir zwei Block-Level-Boxen, eine in der anderen. Die äußere Box hat eine große {{cssxref("width")}}-Angabe, sodass die Seite horizontal scrollt. Die innere Box hat eine kleine Breite (und {{cssxref("height")}}), sodass sie bequem im Sichtfenster sitzt, aber ihr Inhalt hat eine große `width`, sodass sie horizontal scrollt.
 
-Standardmäßig, wenn die innere Box gescrollt wird und eine Scroll-Grenze erreicht ist, beginnt die ganze Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies zu vermeiden, können Sie `overscroll-behavior-x: contain` auf die innere Box setzen:
+Normalerweise beginnt der gesamte Bildschirm zu scrollen, wenn die innere Box gescrollt wird und eine Scroll-Grenze erreicht ist, was wahrscheinlich nicht gewünscht ist. Um dies zu vermeiden, können Sie `overscroll-behavior-x: contain` auf der inneren Box setzen:
 
 ```css
 main > div {
@@ -76,5 +76,5 @@ main > div {
 
 ## Siehe auch
 
-- [Übernehmen Sie die Kontrolle über Ihren Scroll: Anpassung von Pull-to-Refresh und Überlaufeffekten](https://developer.chrome.com/blog/overscroll-behavior/#full-demo)
+- [Take control of your scroll: customizing pull-to-refresh and overflow effects](https://developer.chrome.com/blog/overscroll-behavior/#full-demo)
 - Die zugeordneten logischen Eigenschaften: {{cssxref("overscroll-behavior-inline")}}, {{cssxref("overscroll-behavior-block")}}

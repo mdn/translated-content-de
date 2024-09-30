@@ -8,9 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`setBaseAndExtent()`** Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle legt die Auswahl als einen Bereich fest, der alle oder Teile von zwei angegebenen DOM-Knoten sowie jeglichen Inhalt, der sich dazwischen befindet, umfasst.
+Die **`setBaseAndExtent()`** Methode des [`Selection`](/de/docs/Web/API/Selection) Interfaces setzt die Auswahl auf einen Bereich, der alle oder Teile von zwei angegebenen DOM-Knoten und jegliche Inhalte dazwischen enthält.
 
-Die Anker- und Fokusknoten können sich in einem [Shadow-Baum](/de/docs/Glossary/shadow_tree) befinden, falls dies vom Browser unterstützt wird.
+Die Anker- und Fokus-Knoten können sich in einem [Schattenbaum](/de/docs/Glossary/shadow_tree) befinden, wenn dieser vom Browser unterstützt wird.
 
 ## Syntax
 
@@ -24,26 +24,26 @@ setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)
   - : Der Knoten am Anfang der Auswahl.
 - `anchorOffset`
 
-  - : Die Anzahl der Kindknoten vom Anfang des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen.
-    Wenn der Wert zum Beispiel 0 ist, wird der gesamte Knoten eingeschlossen.
-    Wenn der Wert 1 ist, wird der gesamte Knoten minus dem ersten Kindknoten eingeschlossen.
+  - : Die Anzahl der Kindknoten vom Beginn des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen.
+    Wenn der Wert z.B. 0 ist, ist der gesamte Knoten eingeschlossen.
+    Ist der Wert 1, ist der gesamte Knoten minus dem ersten Kindknoten eingeschlossen.
     Und so weiter.
 
-    Wenn `anchorNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die von der Auswahl ausgeschlossen werden sollen.
+    Wenn `anchorNode` ein [`Text`](/de/docs/Web/API/Text) Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Beginn des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die von der Auswahl ausgeschlossen werden sollen.
 
 - `focusNode`
   - : Der Knoten am Ende der Auswahl.
 - `focusOffset`
 
-  - : Die Anzahl der Kindknoten vom Anfang des Fokusknotens, die in die Auswahl eingeschlossen werden sollen.
-    Wenn der Wert zum Beispiel 0 ist, wird der ganze Knoten ausgeschlossen.
-    Wenn der Wert 1 ist, wird der erste Kindknoten eingeschlossen. Und so weiter.
+  - : Die Anzahl der Kindknoten vom Beginn des Fokus-Knotens, die in der Auswahl enthalten sein sollen.
+    Wenn der Wert z.B. 0 ist, ist der gesamte Knoten ausgeschlossen.
+    Ist der Wert 1, ist der erste Kindknoten eingeschlossen. Und so weiter.
 
-    Wenn `focusNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die in die Auswahl eingeschlossen werden sollen.
+    Wenn `focusNode` ein [`Text`](/de/docs/Web/API/Text) Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Beginn des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die in der Auswahl enthalten sein sollen.
 
 > [!NOTE]
-> Wenn die Fokusposition im Dokument vor der Ankerposition liegt, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes statt am Ende platziert, was für jegliche nachfolgende Tastaturbefehle von Bedeutung ist.
-> Zum Beispiel würde <kbd>Shift</kbd> + <kbd>➡︎</kbd> die Auswahl vom Anfang verengen anstatt sie am Ende zu erweitern.
+> Wenn die Fokusposition im Dokument vor der Ankerposition erscheint, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes statt am Ende platziert, was für alle folgenden Tastaturbefehle wichtig ist.
+> Beispielsweise würde <kbd>Shift</kbd> + <kbd>➡︎</kbd> dazu führen, dass die Auswahl vom Anfang her verengt statt am Ende erweitert wird.
 
 ### Rückgabewert
 
@@ -52,17 +52,17 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `anchorOffset` größer ist als die Anzahl der Kindknoten innerhalb des `anchorNode`, oder wenn `focusOffset` größer ist als die Anzahl der Kindknoten innerhalb des `focusNode`.
+  - : Wird ausgelöst, wenn `anchorOffset` größer ist als die Anzahl der Kindknoten innerhalb von `anchorNode`, oder wenn `focusOffset` größer ist als die Anzahl der Kindknoten innerhalb von `focusNode`.
 
 ## Beispiele
 
-In diesem Beispiel haben wir zwei Absätze mit jeweils einem `span`, das ein einzelnes Wort enthält.
-Der erste wird als `anchorNode` und der zweite als `focusNode` gesetzt.
-Es gibt außerdem einen weiteren Absatz, der zwischen den beiden Knoten liegt.
+In diesem Beispiel haben wir zwei Absätze, die jeweils ein <span> enthalten, das ein einziges Wort enthält.
+Der erste ist als `anchorNode` und der zweite als `focusNode` festgelegt.
+Wir haben auch einen zusätzlichen Absatz, der zwischen den beiden Knoten liegt.
 
-Darüber hinaus haben wir zwei Formulareingaben, die es Ihnen ermöglichen, `anchorOffset` und `focusOffset` zu setzen — beide haben einen Standardwert von 0.
+Des Weiteren gibt es zwei Formulareingaben, mit denen Sie den `anchorOffset` und `focusOffset` festlegen können — beide haben einen Standardwert von 0.
 
-Wir haben auch einen Knopf, der, wenn gedrückt, eine Funktion aufruft, die die `setBaseAndExtent()`-Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabepunkt am unteren Ende des HTML kopiert.
+Ebenfalls gibt es einen Button, der beim Drücken eine Funktion aufruft, die die `setBaseAndExtent()` Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabepunkt am Ende des HTML kopiert.
 
 ```html
 <h1>setBaseAndExtent example</h1>
@@ -92,9 +92,9 @@ Wir haben auch einen Knopf, der, wenn gedrückt, eine Funktion aufruft, die die 
 ```
 
 > [!NOTE]
-> Es gibt absichtlich keinen [Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) zwischen den Start-Tags `<p class="one">` und `<p class="two">` und den danach folgenden `<span>`-Starttags — um das Vorhandensein von Textknoten zu vermeiden, die die erwartete Anzahl von Kindknoten beeinflussen würden. (Selbst wenn diese Textknoten nur Leerraum enthalten würden, wären sie dennoch zusätzliche Kindknoten; erfahren Sie mehr im [`Node.firstChild`-Beispiel](/de/docs/Web/API/Node/firstChild#example)).
+> Es gibt absichtlich keinen [Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) zwischen den `<p class="one">` und `<p class="two">` Start-Tags und den darauf folgenden `<span>` Start-Tags — um die Anwesenheit von Textknoten zu vermeiden, die die erwartete Anzahl von Kindknoten beeinflussen könnten. (Auch wenn diese Textknoten nur Leerzeichen enthalten würden, wären sie dennoch zusätzliche Kindknoten; erfahren Sie mehr im [`Node.firstChild` Beispiel](/de/docs/Web/API/Node/firstChild#example)).
 
-Das JavaScript sieht so aus:
+Das JavaScript sieht folgendermaßen aus:
 
 ```js
 const one = document.querySelector(".one");
@@ -121,12 +121,12 @@ button.onclick = () => {
 };
 ```
 
-Probieren Sie das Live-Beispiel unten aus, indem Sie verschiedene Offset-Werte einstellen, um zu sehen, wie sich das auf die Auswahl auswirkt.
+Spielen Sie mit dem Live-Beispiel unten und ändern Sie die Offset-Werte, um zu sehen, wie sich dies auf die Auswahl auswirkt.
 
 {{ EmbedLiveSample('Examples', '100%', 370) }}
 
 > [!NOTE]
-> Sie können dieses [Beispiel auf GitHub finden](https://github.com/chrisdavidmills/selection-api-examples/blob/master/setBaseAndExtent.html) ([sehen Sie es auch live](https://chrisdavidmills.github.io/selection-api-examples/setBaseAndExtent.html).)
+> Sie können dieses [Beispiel auf GitHub finden](https://github.com/chrisdavidmills/selection-api-examples/blob/master/setBaseAndExtent.html) ([sehen Sie es sich auch live an](https://chrisdavidmills.github.io/selection-api-examples/setBaseAndExtent.html).)
 
 ## Spezifikationen
 

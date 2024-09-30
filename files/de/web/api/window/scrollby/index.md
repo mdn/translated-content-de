@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.scrollBy()`**-Methode scrollt das Dokument im Fenster um den angegebenen Betrag.
+Die **`Window.scrollBy()`** Methode scrollt das Dokument im Fenster um den angegebenen Betrag.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ scrollBy(options)
 ### Parameter
 
 - `xCoord`
-  - : Der horizontale Pixelwert, um den Sie scrollen möchten.
+  - : Der horizontale Pixelwert, um den gescrollt werden soll.
 - `yCoord`
-  - : Der vertikale Pixelwert, um den Sie scrollen möchten.
+  - : Der vertikale Pixelwert, um den gescrollt werden soll.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl von Pixeln entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl von Pixeln entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen sanft animiert werden soll (`smooth`), sofort in einem Sprung erfolgen soll (`instant`) oder dem Browser die Wahl gelassen wird (`auto`, Standard).
+      - : Gibt an, ob das Scrollen sanft animiert werden soll (`smooth`), sofort in einem Sprung erfolgen soll (`instant`), oder vom Browser gewählt werden soll (`auto`, Standard).
 
 ### Rückgabewert
 
@@ -60,7 +60,7 @@ window.scrollBy({
 });
 ```
 
-## Hinweise
+## Anmerkungen
 
 `window.scrollBy()` scrollt um einen bestimmten Betrag, während [`window.scroll()`](/de/docs/Web/API/Window/scroll) zu einer absoluten Position im Dokument scrollt. Siehe auch [`window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 

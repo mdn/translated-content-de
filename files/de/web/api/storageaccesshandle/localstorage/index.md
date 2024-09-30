@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`localStorage`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein unpartitioniertes lokales [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft ansonsten einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException).
+Die **`localStorage`**-Eigenschaft der [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Schnittstelle gibt ein nicht partitioniertes lokales [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, wenn der Zugriff gewährt wurde. Andernfalls wird ein `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Wert
 

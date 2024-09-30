@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`ge`**-Anweisungen, kurz für _greater or equal_, überprüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
+Die **`ge`**-Anweisungen, kurz für _greater or equal_, prüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stack geschoben, andernfalls wird `0` auf den Stack geschoben.
 
-Die Ganzzahltypen haben separate Anweisungen für größer oder gleich für vorzeichenbehaftete (**`ge_s`**) und vorzeichenlose (**`ge_u`**) Zahlen.
+Die ganzzahligen Typen haben separate Anweisungen für größer oder gleich für vorzeichenbehaftete (**`ge_s`**) und vorzeichenlose (**`ge_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/ge.html", "tabbed-taller")}}
 

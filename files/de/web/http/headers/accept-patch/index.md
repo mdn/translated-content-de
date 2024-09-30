@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Patch`** HTTP-Antwort-Header gibt an, welchen Medientyp der Server in einer PATCH-Anfrage verarbeiten kann.
+Der **`Accept-Patch`** HTTP-Antwort-Header gibt an, welchen Medientyp der Server in einer PATCH-Anfrage verstehen kann.
 
-**`Accept-Patch`** als Antwort auf jede Methode bedeutet, dass PATCH auf der durch die Request-URI identifizierten Ressource erlaubt ist. Zwei häufige Fälle führen zu diesem Ergebnis:
+**`Accept-Patch`** als Antwort auf eine beliebige Methode bedeutet, dass PATCH auf der durch die Request-URI identifizierten Ressource erlaubt ist. Zwei häufige Fälle führen dazu:
 
-Ein Server, der eine PATCH-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen Accept-Patch-Header angeben, der einen oder mehrere unterstützte Medientypen referenziert.
+Ein Server, der eine PATCH-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen `Accept-Patch`-Header zurückgeben, der einen oder mehrere unterstützte Medientypen referenziert.
 
 > [!NOTE]
-> Ein IANA-Register pflegt [eine Liste von Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml).
+> Ein IANA-Register führt [eine Liste von Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 <table class="properties">
   <tbody>
@@ -57,9 +57,9 @@ Accept-Patch: application/merge-patch+json
 
 ## Browser-Kompatibilität
 
-Browser-Kompatibilität ist für diesen Header nicht relevant (Header wird vom Server gesendet, und die Spezifikation definiert kein Clientverhalten).
+Die Browser-Kompatibilität ist für diesen Header nicht relevant (der Header wird vom Server gesendet und die Spezifikation definiert kein Clientverhalten).
 
 ## Siehe auch
 
-- HTTP-Methode {{HTTPMethod("PATCH")}}
-- HTTP Semantik und Kontext {{RFC("7231", "PUT", "4.3.4")}}
+- Http-Methode {{HTTPMethod("PATCH")}}
+- HTTP-Semantik und Kontext {{RFC("7231", "PUT", "4.3.4")}}

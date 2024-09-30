@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`divisor`**-Attribut gibt den Wert an, durch den die resultierende Zahl des Anwendens von {{SVGAttr("kernelMatrix")}} eines {{SVGElement("feConvolveMatrix")}}-Elements auf den Farbeingabewert des Bildes geteilt wird, um den Zielfarbwert zu erhalten.
+Das **`divisor`**-Attribut gibt den Wert an, durch den das Ergebnis der Anwendung der {{SVGAttr("kernelMatrix")}} eines {{SVGElement("feConvolveMatrix")}}-Elements auf den Farbwert des Eingabebildes geteilt wird, um den Zielfarbwert zu erhalten.
 
-Ein Divisor, der die Summe aller Matrixwerte ist, tendiert dazu, eine ausgleichende Wirkung auf die allgemeine Farbintensität des Ergebnisses zu haben.
+Ein Divisor, der die Summe aller Matrixwerte ist, neigt dazu, eine ausgleichende Wirkung auf die Gesamtfarbintensität des Ergebnisses zu haben.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Gebrauchshinweise
 
 <table class="properties">
   <tbody>

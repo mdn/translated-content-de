@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getRemoteCandidates()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein Array zurück, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für jeden der Kandidaten enthält, die bisher vom entfernten Partner während der aktuellen [ICE](/de/docs/Glossary/ICE)-Sitzung empfangen wurden.
+Die **`getRemoteCandidates()`**-Methode des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Interfaces gibt ein Array zurück, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für jeden Kandidaten enthält, der während der aktuellen [ICE](/de/docs/Glossary/ICE)-Erfassungssitzung bisher vom entfernten Peers empfangen wurde.
 
-Jedes Mal, wenn Ihr Signalisierungscode [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufruft, um einen empfangenen Kandidaten zur ICE-Sitzung hinzuzufügen, platziert der ICE-Agent ihn in der von dieser Funktion zurückgegebenen Liste.
+Jedes Mal, wenn Ihr Signalisierungscode [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufruft, um einen empfangenen Kandidaten zur ICE-Sitzung hinzuzufügen, platziert der ICE-Agent ihn in der Liste, die von dieser Funktion zurückgegeben wird.
 
 ## Syntax
 
@@ -24,14 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt für jeden Kandidaten enthält, der bisher vom entfernten Partner während der aktuellen ICE-Kandidatensammlungssitzung empfangen wurde.
+Ein Array, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt für jeden bisher vom entfernten Peers empfangenen Kandidaten während der aktuellen ICE-Kandidatenerfassungssitzung enthält.
 
-Es ist wichtig zu beachten, dass es keine Möglichkeit gibt, diese entfernten Kandidaten mit kompatiblen lokalen Kandidaten zu korrelieren.
-Um das bisher beste gefundene Paar zu ermitteln, rufen Sie [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) auf.
+Es ist wichtig zu beachten, dass es keinen Weg gibt, diese entfernten Kandidaten mit kompatiblen lokalen Kandidaten zu korrelieren. Um das bisher beste gefundene Paar zu ermitteln, rufen Sie [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) auf.
 
 ## Beispiel
 
-Dieses einfache Beispiel ruft die Liste der entfernten Kandidaten von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) für den ersten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ab und gibt dann alle Kandidaten in der Liste in der Konsole aus.
+Dieses einfache Beispiel ruft die Liste der entfernten Kandidaten vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) für den ersten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ab und gibt dann alle Kandidaten in der Liste auf der Konsole aus.
 
 ```js
 const remoteCandidates = pc

@@ -10,9 +10,9 @@ l10n:
 
 Öffnet den Druckdialog, um das aktuelle Dokument zu drucken.
 
-Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Laden des Dokuments abgeschlossen, bevor der Druckdialog geöffnet wird.
+Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Dokument das Laden abschließen, bevor der Druckdialog geöffnet wird.
 
-Diese Methode blockiert, während der Druckdialog geöffnet ist.
+Diese Methode wird blockieren, solange der Druckdialog geöffnet ist.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -39,5 +39,5 @@ Keine ({{jsxref("undefined")}}).
 ## Siehe auch
 
 - [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)
-- [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) Ereignis
-- [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignis
+- [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)-Ereignis
+- [`afterprint`](/de/docs/Web/API/Window/afterprint_event)-Ereignis

@@ -7,18 +7,15 @@ l10n:
 
 {{LearnSidebar}}
 
-In diesem Abschnitt werden Fragen zu Ästhetik, Seitenstruktur, Barrierefreiheitstechniken usw. aufgelistet.
+In diesem Abschnitt werden Fragen zu Ästhetik, Seitenstruktur, Techniken der Barrierefreiheit usw. behandelt.
 
 - [Wie beginne ich mit dem Design meiner Website?](/de/docs/Learn/Common_questions/Design_and_accessibility/Thinking_before_coding)
   - : Dieser Artikel behandelt den entscheidenden ersten Schritt jedes Projekts: Definieren Sie, was Sie damit erreichen möchten.
-- [Was enthalten gängige Webdesign-Layouts?](/de/docs/Learn/Common_questions/Design_and_accessibility/Common_web_layouts)
-  - : Beim Entwerfen von Seiten für Ihre Website ist es gut, eine Vorstellung von den häufigsten Layouts zu haben. Dieser Artikel geht
-    auf einige typische Weblayouts ein und betrachtet die Bestandteile jedes einzelnen.
+- [Was beinhalten gängige Weblayouts?](/de/docs/Learn/Common_questions/Design_and_accessibility/Common_web_layouts)
+  - : Wenn Sie Seiten für Ihre Website gestalten, ist es gut, eine Vorstellung von den gängigsten Layouts zu haben. Dieser Artikel beschreibt einige typische Weblayouts und die Bestandteile, aus denen sie bestehen.
 - [Was ist Barrierefreiheit?](/de/docs/Learn/Common_questions/Design_and_accessibility/What_is_accessibility)
-  - : Dieser Artikel führt in die grundlegenden Konzepte der Web-Barrierefreiheit ein.
-- [Wie können wir für alle Arten von Benutzern gestalten?](/de/docs/Learn/Common_questions/Design_and_accessibility/Design_for_all_types_of_users)
-  - : Dieser Artikel bietet grundlegende Techniken, die Ihnen helfen, Websites für jede Art von Benutzer zu entwerfen – schnelle Erfolge in der Barrierefreiheit
-    und andere solche Dinge.
-- [Welche HTML-Features fördern die Barrierefreiheit?](/de/docs/Learn/Common_questions/Design_and_accessibility/HTML_features_for_accessibility)
-  - : Dieser Artikel beschreibt spezifische HTML-Features, die verwendet werden können, um eine Webseite für Menschen mit
-    unterschiedlichen Behinderungen zugänglicher zu machen.
+  - : Dieser Artikel führt in die Grundkonzepte der Web-Barrierefreiheit ein.
+- [Wie können wir für alle Arten von Nutzern gestalten?](/de/docs/Learn/Common_questions/Design_and_accessibility/Design_for_all_types_of_users)
+  - : Dieser Artikel bietet grundlegende Techniken, die Ihnen helfen, Websites für alle Arten von Nutzern zu gestalten — schnelle Erfolge in Bezug auf Barrierefreiheit und Ähnliches.
+- [Welche HTML-Funktionen fördern die Barrierefreiheit?](/de/docs/Learn/Common_questions/Design_and_accessibility/HTML_features_for_accessibility)
+  - : Dieser Artikel beschreibt spezifische HTML-Funktionen, die verwendet werden können, um eine Webseite für Menschen mit unterschiedlichen Behinderungen zugänglicher zu machen.

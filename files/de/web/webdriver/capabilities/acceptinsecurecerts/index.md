@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Capabilities")}}
 
-Die **`acceptInsecureCerts`-Eigenschaft** gibt an, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Eigenschaft auf false gesetzt ist, wird ein Fehler bezüglich eines [unsicheren Zertifikats](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn bei der Navigation auf Domänen mit Zertifikatsproblemen gestoßen wird. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate bei der Navigation vom Browser implizit vertraut. Die Eigenschaft hat Auswirkungen für die gesamte Lebensdauer der Sitzung.
+Die **`acceptInsecureCerts`-Fähigkeit** gibt an, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Fähigkeit auf false gesetzt ist, wird ein Fehler mit einem [unsicheren Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn die Navigation auf Domains mit Zertifikatsproblemen trifft. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate vom Browser bei der Navigation implizit vertraut. Die Fähigkeit gilt für die Dauer der Sitzung.
 
 ## Beispiel
 
-Mit der `acceptInsecureCerts`-Eigenschaft können Sie TLS-Zertifikate umgehen oder diesen implizit vertrauen, wenn der Zertifikatsservice im Browser ihnen nicht vertraut:
+Mit der `acceptInsecureCerts`-Fähigkeit können Sie TLS-Zertifikate umgehen oder diesen implizit vertrauen, die der Zertifikatsdienst im Browser nicht vertraut:
 
 ```python
 from selenium import webdriver
@@ -30,6 +30,6 @@ https://self-signed.badssl.com/
 
 ## Siehe auch
 
-- [Liste der WebDriver-Eigenschaften](/de/docs/Web/WebDriver/Capabilities)
+- [Liste der WebDriver-Fähigkeiten](/de/docs/Web/WebDriver/Capabilities)
 - Befehl [Navigate To](/de/docs/Web/WebDriver/Commands/NavigateTo)
 - Befehl [New Session](/de/docs/Web/WebDriver/Commands/NewSession)

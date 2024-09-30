@@ -1,5 +1,5 @@
 ---
-title: "Event: Methode initEvent()"
+title: "Event: initEvent() Methode"
 short-title: initEvent()
 slug: Web/API/Event/initEvent
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{AvailableInWorkers}}
 
-Die Methode **`Event.initEvent()`** wird verwendet, um den Wert eines mit [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellten [`Event`](/de/docs/Web/API/Event) zu initialisieren.
+Die Methode **`Event.initEvent()`** wird verwendet, um den Wert eines [`event`](/de/docs/Web/API/Event), das mit [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt wurde, zu initialisieren.
 
-Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgesendet wird. Sobald es ausgesendet ist, tut es nichts mehr.
+Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird. Einmal ausgelöst, hat es keine Wirkung mehr.
 
 > **Note:** _Verwenden Sie diese Methode nicht mehr, da sie veraltet ist._
-> Stattdessen sollten Sie spezifische Ereignis-Konstruktoren wie [`Event()`](/de/docs/Web/API/Event/Event) verwenden.
-> Die Seite [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events) bietet mehr Informationen über den Weg, diese zu nutzen.
+> Stattdessen nutzen Sie spezifische Ereignis-Konstruktoren, wie [`Event()`](/de/docs/Web/API/Event/Event).
+> Die Seite [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen über die Nutzung dieser.
 
 ## Syntax
 
@@ -25,12 +25,11 @@ event.initEvent(type, bubbles, cancelable)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolgenwert, der den Typ des Ereignisses definiert.
+  - : Ein String, der den Typ des Ereignisses definiert.
 - `bubbles`
-  - : Ein boolescher Wert, der bestimmt, ob das Ereignis durch die
-    Ereigniskette nach oben weitergegeben werden soll oder nicht. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) ihren Wert wieder.
+  - : Ein boolescher Wert, der bestimmt, ob das Ereignis in der Ereigniskette nach oben steigen soll oder nicht. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) seinen Wert an.
 - `cancelable`
-  - : Ein boolescher Wert, der festlegt, ob das Ereignis abgebrochen werden kann. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) ihren Wert wieder.
+  - : Ein boolescher Wert, der definiert, ob das Ereignis abgebrochen werden kann. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) seinen Wert an.
 
 ### Rückgabewert
 
@@ -68,5 +67,5 @@ elem.dispatchEvent(event);
 
 ## Siehe auch
 
-- Den Konstruktor, den Sie anstelle dieser veralteten Methode verwenden sollten:
+- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden soll:
   [`Event()`](/de/docs/Web/API/Event/Event). Um spezifischere Ereignisschnittstellen als `Event` zu erstellen, verwenden Sie den für die gewünschte Ereignisschnittstelle definierten Konstruktor.

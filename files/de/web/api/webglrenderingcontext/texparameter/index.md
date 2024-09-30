@@ -1,14 +1,15 @@
 ---
-title: "WebGLRenderingContext: texParameter[fi]() Methode"
+title: "WebGLRenderingContext: Methode texParameter[fi]()"
 short-title: texParameter[fi]()
 slug: Web/API/WebGLRenderingContext/texParameter
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.texParameter[fi]()`** Methoden der [WebGL-API](/de/docs/Web/API/WebGL_API) setzen die Texturparameter.
+Die **`WebGLRenderingContext.texParameter[fi]()`** Methoden des
+[WebGL-API](/de/docs/Web/API/WebGL_API) setzen Texturparameter.
 
 ## Syntax
 
@@ -21,7 +22,7 @@ texParameteri(target, pname, param)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine würfelgemappte Textur.
@@ -33,11 +34,11 @@ texParameteri(target, pname, param)
 
 - `param`
 
-  - : Der `param` Parameter ist ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) oder
-    [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Wert für den angegebenen Parameter angibt
+  - : Der `param`-Parameter ist ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) oder
+    [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Wert für den angegebenen Parameter angibt.
 
 - `pname`
-  - : Der `pname` Parameter ist ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den zu setzenden Texturparameter angibt.
+  - : Der `pname`-Parameter ist ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den einzustellenden Texturparameter angibt.
 
 <table class="standard-table">
   <thead>
@@ -58,7 +59,7 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MIN_FILTER</code></td>
-      <td>Texturverkleinerungsfilter</td>
+      <td>Texturminimierungsfilter</td>
       <td>
         <code>gl.LINEAR</code>, <code>gl.NEAREST</code>,
         <code>gl.NEAREST_MIPMAP_NEAREST</code>,
@@ -95,7 +96,7 @@ texParameteri(target, pname, param)
       <td>Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) Wert.</td>
     </tr>
     <tr>
-      <th colspan="3">Zusätzlich verfügbar bei Verwendung eines WebGL 2 Kontextes</th>
+      <th colspan="3">Zusätzlich verfügbar bei Verwendung eines WebGL 2 Kontexts</th>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_BASE_LEVEL</code></td>
@@ -104,7 +105,7 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_COMPARE_FUNC</code></td>
-      <td>Texturvergleichsfunktion</td>
+      <td>Textur-Vergleichsfunktion</td>
       <td>
         <code>gl.LEQUAL</code> (Standardwert), <code>gl.GEQUAL</code>,
         <code>gl.LESS</code>, <code>gl.GREATER</code>, <code>gl.EQUAL</code>,
@@ -113,7 +114,7 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_COMPARE_MODE</code></td>
-      <td>Texturvergleichsmodus</td>
+      <td>Textur-Vergleichsmodus</td>
       <td>
         <code>gl.NONE</code> (Standardwert),
         <code>gl.COMPARE_REF_TO_TEXTURE</code>.
@@ -126,12 +127,12 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MAX_LOD</code></td>
-      <td>Maximaler Detailgrad der Textur</td>
+      <td>Maximaler Detailgradwert der Textur</td>
       <td>Beliebige float-Werte.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MIN_LOD</code></td>
-      <td>Minimaler Detailgrad der Textur</td>
+      <td>Minimaler Detailgradwert der Textur</td>
       <td>Beliebige float-Werte.</td>
     </tr>
     <tr>
@@ -147,7 +148,7 @@ texParameteri(target, pname, param)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`sourceFile`** des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interfaces gibt den Pfad zur Quelldatei zurück, in der die Intervention auftrat.
+Die schreibgeschützte **`sourceFile`**-Eigenschaft der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle gibt den Pfad zur Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft kann zusammen mit [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber) und [`InterventionReportBody.columnNumber`](/de/docs/Web/API/InterventionReportBody/columnNumber) verwendet werden, um die Spalte und Zeile in der Datei zu bestimmen, in der das Feature verwendet wird.
+> Diese Eigenschaft kann zusammen mit [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber) und [`InterventionReportBody.columnNumber`](/de/docs/Web/API/InterventionReportBody/columnNumber) verwendet werden, um die Spalte und Zeile in der Datei zu lokalisieren, in der die Funktion verwendet wird.
 
 ## Wert
 
-Ein String oder `null`, wenn der Pfad unbekannt ist.
+Ein String oder `null`, wenn der Pfad nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `sourceFile` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und dann den Wert von `sourceFile` in die Konsole zu drucken.
 
 ```js
 const options = {

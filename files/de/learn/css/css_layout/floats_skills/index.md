@@ -7,20 +7,20 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Skilltests ist es, zu bewerten, ob Sie [Floats in CSS](/de/docs/Learn/CSS/CSS_layout/Floats) mithilfe der Eigenschaften {{CSSxRef("float")}} und {{CSSxRef("clear")}} sowie anderer Methoden zum Clearing von Floats verstehen. Sie werden drei kleine Aufgaben bearbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade durchgenommen haben.
+Das Ziel dieses Fähigkeitstests ist es festzustellen, ob Sie [Floats in CSS](/de/docs/Learn/CSS/CSS_layout/Floats) mit Hilfe der {{CSSxRef("float")}} und {{CSSxRef("clear")}} Eigenschaften und Werte sowie anderer Methoden zum Löschen von Floats verstehen. Sie werden drei kleine Aufgaben bearbeiten, die unterschiedliche Elemente des Materials, das Sie gerade behandelt haben, verwenden.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie feststecken, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie hängen bleiben, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe müssen Sie die beiden Elemente mit der Klasse `float1` und `float2` jeweils links und rechts floaten. Der Text sollte dann zwischen den beiden Kästen erscheinen, wie im Bild unten:
+In dieser Aufgabe müssen Sie die beiden Elemente mit einer Klasse von `float1` und `float2` links bzw. rechts floaten. Der Text sollte dann zwischen den beiden Kästchen erscheinen, wie im Bild unten dargestellt:
 
-![Zwei Blöcke anzeigen links und rechts von einem Text.](float-task1.png)
+![Zwei Blöcke, die links und rechts von einem Text angezeigt werden.](float-task1.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den unten stehenden Live-Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/float/float1.html", '100%', 900)}}
 
@@ -30,13 +30,13 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe sollte das Element mit der Klasse `float` nach links gefloatet werden. Dann möchten wir, dass die erste Textzeile neben diesem Element angezeigt wird, aber die folgende Textzeile (die die Klasse `below` hat) darunter angezeigt wird.
+In dieser Aufgabe sollte das Element mit einer Klasse von `float` nach links floaten. Dann möchten wir, dass die erste Textzeile neben diesem Element angezeigt wird, die folgende Textzeile (die eine Klasse von `below` hat) jedoch darunter angezeigt wird.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Kasten wird links von einer Textzeile angezeigt, mit etwas mehr Text darunter.](float-task2.png)
+![Ein Kasten, der links von einer Textzeile angezeigt wird, mit mehr Text darunter.](float-task2.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den unten stehenden Live-Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/float/float2.html", '100%', 800)}}
 
@@ -46,11 +46,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 3
 
-In dieser Aufgabe haben wir ein gefloatetes Element. Der Kasten, der den Float und den Text umschließt, wird hinter dem Float angezeigt. Verwenden Sie die aktuellste verfügbare Methode, um den Hintergrund des Kastens unter den Float zu erweitern, wie im Bild unten:
+In dieser Aufgabe haben wir ein gefloatetes Element. Der Kasten, der den Float und den Text umschließt, wird hinter dem Float angezeigt. Verwenden Sie die modernste verfügbare Methode, um den Kastenhintergrund zu veranlassen, sich bis unter den Float zu erstrecken, wie im Bild unten dargestellt:
 
-![Ein Block wird rechts von einem Text angezeigt, beide von einem Kasten mit Hintergrundfarbe umschlossen.](float-task3.png)
+![Ein Block, der rechts von einem Text angezeigt wird, beide umschlossen von einem Kasten mit Hintergrundfarbe.](float-task3.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den unten stehenden Live-Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/float/float3.html", '100%', 800)}}
 

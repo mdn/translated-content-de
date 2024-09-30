@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Die schreibgeschützte **`indexedDB`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces bietet Anwendungen einen Mechanismus, um asynchron auf die Fähigkeiten von indizierten Datenbanken zuzugreifen.
+Die **`indexedDB`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces bietet Anwendungen einen Mechanismus, um asynchron auf die Funktionen von indizierten Datenbanken zuzugreifen.
 
 ## Wert
 
@@ -39,9 +39,9 @@ function openDB() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

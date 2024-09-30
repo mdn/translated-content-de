@@ -7,20 +7,20 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`itemid`**-[Globale Attribut](/de/docs/Web/HTML/Global_attributes) bietet Mikrodaten in Form eines eindeutigen, globalen Identifikators eines Elements.
+Das **`itemid`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) bietet Mikrodatendaten in Form eines eindeutigen, globalen Bezeichners eines Elements.
 
-Ein `itemid`-Attribut kann nur für ein Element angegeben werden, das sowohl ein [`itemscope`](/de/docs/Web/HTML/Global_attributes/itemscope) als auch ein [`itemtype`](/de/docs/Web/HTML/Global_attributes/itemtype) Attribut besitzt. Außerdem kann `itemid` nur für Elemente angegeben werden, die ein `itemscope`-Attribut haben, deren entsprechendes `itemtype` auf ein Vokabular verweist oder eines definiert, das globale Identifikatoren unterstützt.
+Ein `itemid`-Attribut kann nur für ein Element angegeben werden, das sowohl die Attribute [`itemscope`](/de/docs/Web/HTML/Global_attributes/itemscope) als auch [`itemtype`](/de/docs/Web/HTML/Global_attributes/itemtype) besitzt. Außerdem kann `itemid` nur auf Elementen angegeben werden, die ein `itemscope`-Attribut besitzen, dessen entsprechendes `itemtype` auf ein Vokabular verweist oder ein solches definiert, das globale Bezeichner unterstützt.
 
-Die genaue Bedeutung eines globalen Identifikators eines `itemtype` wird durch die Definition dieses Identifikators im angegebenen Vokabular bereitgestellt. Das Vokabular legt fest, ob mehrere Elemente mit demselben globalen Identifikator koexistieren können und, wenn ja, wie mit Elementen mit demselben Identifikator umgegangen wird.
+Die genaue Bedeutung eines globalen Bezeichners eines `itemtype` wird durch die Definition dieses Bezeichners innerhalb des angegebenen Vokabulars bereitgestellt. Das Vokabular definiert, ob mehrere Elemente mit demselben globalen Bezeichner koexistieren können und, falls ja, wie Elemente mit demselben Bezeichner gehandhabt werden.
 
 > [!NOTE]
-> Die [WHATWG](/de/docs/Glossary/WHATWG)-Definition spezifiziert, dass ein `itemid` eine [URL](/de/docs/Glossary/URL) sein muss. Das folgende Beispiel zeigt jedoch korrekt, dass auch ein [URN](/de/docs/Glossary/URN) verwendet werden kann. Diese Inkonsistenz spiegelt möglicherweise die unvollständige Natur der Mikrodaten-Spezifikation wider.
+> Die [WHATWG](/de/docs/Glossary/WHATWG)-Definition legt fest, dass ein `itemid` eine [URL](/de/docs/Glossary/URL) sein muss. Das folgende Beispiel zeigt jedoch korrekt, dass auch eine [URN](/de/docs/Glossary/URN) verwendet werden kann. Diese Inkonsistenz könnte die unvollständige Natur der Microdata-Spezifikation widerspiegeln.
 
 ## Beispiele
 
-### Darstellung strukturierter Daten für ein Buch
+### Strukturierte Daten für ein Buch darstellen
 
-Dieses Beispiel verwendet Mikrodatenattribute, um die folgenden strukturierten Daten darzustellen:
+Dieses Beispiel verwendet Microdata-Attribute, um die folgenden strukturierten Daten darzustellen:
 
 <table class="standard-table">
   <tbody>
@@ -76,7 +76,7 @@ Dieses Beispiel verwendet Mikrodatenattribute, um die folgenden strukturierten D
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
-- Weitere mit Mikrodaten verwandte globale Attribute:
+- Andere mit Mikrodatendaten verbundene globale Attribute:
 
   - [`itemprop`](/de/docs/Web/HTML/Global_attributes/itemprop)
   - [`itemref`](/de/docs/Web/HTML/Global_attributes/itemref)

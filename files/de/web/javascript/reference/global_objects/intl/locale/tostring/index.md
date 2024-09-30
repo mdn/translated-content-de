@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt den vollständigen [Lokalisierungsbezeichner-String](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieser Locale zurück.
+Die **`toString()`** Methode von {{jsxref("Intl.Locale")}} Instanzen gibt die vollständige [Locale-Kennzeichnerzeichenkette](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieses Locales zurück.
 
 {{EmbedInteractiveExample("pages/js/intl-locale-prototype-tostring.html", "taller")}}
 
@@ -23,11 +23,19 @@ Keine.
 
 ### Rückgabewert
 
-Der Unicode-Lokalisierungsbezeichner-String der _locale_.
+Die Unicode-Locale-Kennzeichnerzeichenkette des _locale_.
 
 ## Beschreibung
 
-Das `Locale`-Objekt ist eine JavaScript-Repräsentation eines Konzepts des Unicode-Lokalisierungsbezeichners. Informationen über eine bestimmte Locale (Sprache, Skript, Kalendertyp usw.) können in einem Lokalisierungsbezeichner-String kodiert werden. Um die Arbeit mit diesen Lokalisierungsbezeichnern zu erleichtern, wurde das `Locale`-Objekt in JavaScript eingeführt. Ein Aufruf der `toString`-Methode an einem Locale-Objekt wird den Bezeichner-String für diese bestimmte Locale zurückgeben. Die `toString`-Methode ermöglicht es, `Locale`-Instanzen als Argument für vorhandene `Intl`-Konstruktoren bereitzustellen, in JSON zu serialisieren oder in jedem anderen Kontext zu verwenden, in dem eine genaue String-Darstellung nützlich ist.
+Das `Locale`-Objekt ist eine JavaScript-Darstellung eines Konzepts
+Unicode-Locale-Kennzeichner. Informationen über ein bestimmtes Locale (Sprache, Schrift,
+Kalendertyp, etc.) können in einer Locale-Kennzeichnerzeichenkette kodiert werden. Um die Arbeit
+mit diesen Locale-Kennzeichnern zu erleichtern, wurde das `Locale`-Objekt
+in JavaScript eingeführt. Ein Aufruf der `toString`-Methode an einem Locale-Objekt
+gibt die Kennzeichnerzeichenkette für dieses bestimmte Locale zurück. Die
+`toString`-Methode ermöglicht es, `Locale`-Instanzen als Argument
+für bestehende `Intl`-Konstruktoren bereitzustellen, in JSON zu serialisieren
+oder in jedem anderen Kontext zu verwenden, in dem eine genaue Zeichenfolgenrepräsentation nützlich ist.
 
 ## Beispiele
 

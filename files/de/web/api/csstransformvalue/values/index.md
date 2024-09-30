@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSTransformValue.values()`** gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSTransformValue`-Objekt enthält.
+Die **`CSSTransformValue.values()`** -Methode gibt ein
+neues _Array-Iterator_-Objekt zurück, das die Werte für
+jeden Index im CSSTransformValue-Objekt enthält.
 
 ## Syntax
 
@@ -26,7 +28,7 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-To Do
+In Arbeit
 
 ## Spezifikationen
 

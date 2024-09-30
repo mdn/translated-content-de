@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaSetSize`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)-Attributs wider, welches die Anzahl der Elemente im aktuellen Satz von Listenelementen oder Baumelementen definiert.
+Die **`ariaSetSize`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)-Attributs wider, das die Anzahl der Elemente in der aktuellen Menge von Listenelementen oder Baumelementen definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-setsize`-Attribut am Element mit der ID `tab-id` auf "3" gesetzt, um einem Gerät mitzuteilen, dass es derzeit 3 Tabs in der Gruppe gibt. Mit `ariaSetSize` aktualisieren wir den Wert auf "4".
+In diesem Beispiel wird das `aria-setsize`-Attribut des Elements mit der ID `tab-id` auf "3" gesetzt, um einem Gerät mitzuteilen, dass sich derzeit 3 Tabs in der Gruppe befinden. Mit `ariaSetSize` aktualisieren wir den Wert auf "4".
 
 ```html
 <button

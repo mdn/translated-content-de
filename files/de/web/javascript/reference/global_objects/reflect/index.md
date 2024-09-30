@@ -7,15 +7,15 @@ l10n:
 
 {{JSRef}}
 
-Das **`Reflect`**-Namensraumobjekt enthält statische Methoden zum Aufrufen von abfangbaren internen Methoden von JavaScript-Objekten. Die Methoden sind die gleichen wie die der [Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
+Das **`Reflect`** Namespace-Objekt enthält statische Methoden zum Aufrufen von abfangbaren internen JavaScript-Objektmethoden. Die Methoden sind dieselben wie die der [Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
 
 ## Beschreibung
 
-Im Gegensatz zu den meisten globalen Objekten ist `Reflect` kein Konstruktor. Sie können es nicht mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `Reflect`-Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Reflect` sind statisch (wie das {{jsxref("Math")}}-Objekt).
+Im Gegensatz zu den meisten globalen Objekten ist `Reflect` kein Konstruktor. Sie können es weder mit dem [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden noch das `Reflect`-Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Reflect` sind statisch (genau wie das {{jsxref("Math")}}-Objekt).
 
-Das `Reflect`-Objekt bietet eine Sammlung von statischen Funktionen, die die gleichen Namen wie die [Proxy-Handler-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) haben.
+Das `Reflect`-Objekt bietet eine Sammlung statischer Funktionen, die dieselben Namen wie die [Proxy-Handler-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) haben.
 
-Der Hauptanwendungsfall von `Reflect` ist das Bereitstellen eines Standardweiterleitungsverhaltens in `Proxy`-Handler-Fallen. Eine [Falle](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#terminology) wird verwendet, um einen Vorgang an einem Objekt abzufangen – sie bietet eine benutzerdefinierte Implementierung für eine [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods). Die `Reflect`-API wird verwendet, um die entsprechende interne Methode aufzurufen. Zum Beispiel erstellt der untenstehende Code einen Proxy `p` mit einer [`deleteProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty)-Falle, die die interne Methode `[[Delete]]` abfängt. `Reflect.deleteProperty()` wird verwendet, um das Standardverhalten von `[[Delete]]` direkt auf `targetObject` aufzurufen. Sie können es durch [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) ersetzen, aber die Verwendung von `Reflect` erspart Ihnen das Merken der Syntax, die jeder internen Methode entspricht.
+Der Hauptanwendungsfall von `Reflect` besteht darin, ein Standardweiterleitungsverhalten in `Proxy`-Handler-Fallen bereitzustellen. Eine [Falle](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#terminology) wird verwendet, um eine Operation an einem Objekt abzufangen — sie bietet eine benutzerdefinierte Implementierung für eine [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods). Die `Reflect`-API wird verwendet, um die entsprechende interne Methode auszuführen. Zum Beispiel erstellt der folgende Code einen Proxy `p` mit einer [`deleteProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty)-Falle, die die interne Methode `[[Delete]]` abfängt. `Reflect.deleteProperty()` wird verwendet, um das Standardverhalten `[[Delete]]` direkt am `targetObject` auszuführen. Sie können es mit [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) ersetzen, aber die Verwendung von `Reflect` erspart Ihnen, sich die Syntax zu merken, die jeder internen Methode entspricht.
 
 ```js
 const p = new Proxy(
@@ -32,9 +32,9 @@ const p = new Proxy(
 );
 ```
 
-Die `Reflect`-Methoden ermöglichen auch eine feinere Kontrolle darüber, wie die interne Methode aufgerufen wird. Zum Beispiel ist {{jsxref("Reflect.construct()")}} der einzige Weg, um eine Ziel-Funktion mit einem bestimmten [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)-Wert zu konstruieren. Wenn Sie den [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden, um eine Funktion aufzurufen, ist der `new.target`-Wert immer die Funktion selbst. Dies hat wichtige Auswirkungen beim [Subklassifizieren](/de/docs/Web/JavaScript/Reference/Operators/new.target#new.target_using_reflect.construct). Ein weiteres Beispiel ist {{jsxref("Reflect.get()")}}, das es Ihnen ermöglicht, einen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) mit einem benutzerdefinierten `this`-Wert auszuführen, während [Eigenschaftsaccessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) immer das aktuelle Objekt als `this`-Wert verwenden.
+Die `Reflect`-Methoden ermöglichen auch eine feinere Kontrolle darüber, wie die interne Methode aufgerufen wird. Beispielsweise ist {{jsxref("Reflect.construct()")}} der einzige Weg, um eine Ziel-Funktion mit einem bestimmten [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)-Wert zu konstruieren. Wenn Sie den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator verwenden, um eine Funktion aufzurufen, ist der `new.target`-Wert immer die Funktion selbst. Dies hat wichtige Auswirkungen beim [Subklassieren](/de/docs/Web/JavaScript/Reference/Operators/new.target#new.target_using_reflect.construct). Ein weiteres Beispiel ist {{jsxref("Reflect.get()")}}, welches es Ihnen ermöglicht, einen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) mit einem benutzerdefinierten `this`-Wert auszuführen, während [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) immer das aktuelle Objekt als `this`-Wert verwenden.
 
-Das Verhalten nahezu jeder `Reflect`-Methode kann mit einer anderen Syntax oder Methode realisiert werden. Einige dieser Methoden haben entsprechende statische Methoden mit demselben Namen auf {{jsxref("Object")}}, obwohl sie einige subtile Unterschiede aufweisen. Für die genauen Unterschiede siehe die Beschreibung der jeweiligen `Reflect`-Methode.
+Das Verhalten fast jeder `Reflect`-Methode kann mit einer anderen Syntax oder Methode erreicht werden. Einige dieser Methoden haben entsprechende statische Methoden gleichen Namens in {{jsxref("Object")}}, obwohl sie einige subtile Unterschiede aufweisen. Für die genauen Unterschiede siehe die Beschreibung für jede `Reflect`-Methode.
 
 ## Statische Eigenschaften
 
@@ -44,31 +44,31 @@ Das Verhalten nahezu jeder `Reflect`-Methode kann mit einer anderen Syntax oder 
 ## Statische Methoden
 
 - {{jsxref("Reflect.apply()")}}
-  - : Ruft eine `target`-Funktion mit Argumenten auf, die durch den Parameter `argumentsList` angegeben sind. Siehe auch {{jsxref("Function.prototype.apply()")}}.
+  - : Ruft eine `target`-Funktion mit den durch den Parameter `argumentsList` angegebenen Argumenten auf. Siehe auch {{jsxref("Function.prototype.apply()")}}.
 - {{jsxref("Reflect.construct()")}}
-  - : Der [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) als Funktion. Entspricht dem Aufruf von `new target(...argumentsList)`. Ermöglicht zudem die Angabe eines anderen Prototyps.
+  - : Der [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) als Funktion. Entspricht dem Aufruf von `new target(...argumentsList)`. Bietet zudem die Möglichkeit, ein anderes Prototyp zu spezifizieren.
 - {{jsxref("Reflect.defineProperty()")}}
-  - : Ähnlich wie {{jsxref("Object.defineProperty()")}}. Gibt einen Boolean zurück, der `true` ist, wenn die Eigenschaft erfolgreich definiert wurde.
+  - : Ähnlich wie {{jsxref("Object.defineProperty()")}}. Gibt einen booleschen Wert zurück, der `true` ist, wenn die Eigenschaft erfolgreich definiert wurde.
 - {{jsxref("Reflect.deleteProperty()")}}
-  - : Der [`delete` Operator](/de/docs/Web/JavaScript/Reference/Operators/delete) als Funktion. Entspricht dem Aufruf von `delete target[propertyKey]`.
+  - : Der [`delete`-Operator](/de/docs/Web/JavaScript/Reference/Operators/delete) als Funktion. Entspricht dem Aufruf von `delete target[propertyKey]`.
 - {{jsxref("Reflect.get()")}}
-  - : Gibt den Wert der Eigenschaft zurück. Funktioniert wie das Abrufen einer Eigenschaft von einem Objekt (`target[propertyKey]`) als Funktion.
+  - : Gibt den Wert der Eigenschaft zurück. Funktioniert wie das Abrufen einer Eigenschaft aus einem Objekt (`target[propertyKey]`) als Funktion.
 - {{jsxref("Reflect.getOwnPropertyDescriptor()")}}
-  - : Ähnlich wie {{jsxref("Object.getOwnPropertyDescriptor()")}}. Gibt einen Eigenschaftsdescriptor der gegebenen Eigenschaft zurück, wenn sie auf dem Objekt existiert, {{jsxref("undefined")}} andernfalls.
+  - : Ähnlich wie {{jsxref("Object.getOwnPropertyDescriptor()")}}. Gibt einen Eigenschafts-Deskriptor der angegebenen Eigenschaft zurück, wenn sie auf dem Objekt existiert, anderenfalls {{jsxref("undefined")}}.
 - {{jsxref("Reflect.getPrototypeOf()")}}
   - : Entspricht {{jsxref("Object.getPrototypeOf()")}}.
 - {{jsxref("Reflect.has()")}}
-  - : Gibt einen Boolean zurück, der anzeigt, ob das Ziel die Eigenschaft hat. Entweder als eigene oder geerbte. Funktioniert wie der [`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das target die Eigenschaft entweder als eigene oder geerbte Eigenschaft hat. Funktioniert wie der [`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion.
 - {{jsxref("Reflect.isExtensible()")}}
-  - : Entspricht {{jsxref("Object.isExtensible()")}}. Gibt einen Boolean zurück, der `true` ist, wenn das Ziel erweiterbar ist.
+  - : Entspricht {{jsxref("Object.isExtensible()")}}. Gibt einen booleschen Wert zurück, der `true` ist, wenn das Ziel erweiterbar ist.
 - {{jsxref("Reflect.ownKeys()")}}
   - : Gibt ein Array der eigenen (nicht geerbten) Eigenschaftsschlüssel des Zielobjekts zurück.
 - {{jsxref("Reflect.preventExtensions()")}}
-  - : Ähnlich wie {{jsxref("Object.preventExtensions()")}}. Gibt einen Boolean zurück, der `true` ist, wenn das Update erfolgreich war.
+  - : Ähnlich wie {{jsxref("Object.preventExtensions()")}}. Gibt einen booleschen Wert zurück, der `true` ist, wenn das Update erfolgreich war.
 - {{jsxref("Reflect.set()")}}
-  - : Eine Funktion, die Werte Eigenschaften zuweist. Gibt einen Boolean zurück, der `true` ist, wenn das Update erfolgreich war.
+  - : Eine Funktion, die Werte für Eigenschaften zuweist. Gibt einen booleschen Wert zurück, der `true` ist, wenn das Update erfolgreich war.
 - {{jsxref("Reflect.setPrototypeOf()")}}
-  - : Eine Funktion, die den Prototyp eines Objekts setzt. Gibt einen Boolean zurück, der `true` ist, wenn das Update erfolgreich war.
+  - : Eine Funktion, die das Prototyp eines Objekts setzt. Gibt einen booleschen Wert zurück, der `true` ist, wenn das Update erfolgreich war.
 
 ## Beispiele
 
@@ -89,7 +89,7 @@ Reflect.has(duck, "haircut");
 // false
 ```
 
-### Zurückgeben der eigenen Schlüssel des Objekts
+### Rückgabe der eigenen Schlüssel des Objekts
 
 ```js
 Reflect.ownKeys(duck);

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) der Umrisse von Textzeichen fest. Dies ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) von Umrandungen für Textzeichen fest. Diese Eigenschaft ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
 ```css
 /* Width and color values */
@@ -34,9 +34,9 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Umrisses.
+  - : Die Breite der Umrandung.
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des Umrisses.
+  - : Die Farbe der Umrandung.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 ## Beispiele
 
-### Einen roten Textumriss hinzufügen
+### Hinzufügen einer roten Textrandlinie
 
 #### HTML
 
@@ -80,8 +80,8 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 ## Siehe auch
 
-- [Surfin' Safari Blogpost, der dieses Feature ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
-- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Blog-Beitrag auf Surfin' Safari, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-fill-color")}}

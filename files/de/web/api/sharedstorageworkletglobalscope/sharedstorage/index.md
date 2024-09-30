@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`context`**-Eigenschaft des [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)-Interfaces enthält eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz, die den freigegebenen Speicher für einen bestimmten Ursprungsort darstellt, wie er einem Worklet-Kontext zur Verfügung gestellt wird.
+Die **`context`** schreibgeschützte Eigenschaft der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) Schnittstelle enthält eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz, die den gemeinsam genutzten Speicher für einen bestimmten Ursprung darstellt, wie er einem Worklet-Kontext zur Verfügung gestellt wird.
 
 ## Wert
 

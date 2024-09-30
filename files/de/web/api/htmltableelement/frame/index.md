@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`frame`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces
-ist ein String, der angibt, welche der äußeren Ränder der Tabelle gezeichnet werden sollen.
+Die **`frame`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces ist ein String, der angibt, welche der äußeren Rahmen der Tabelle gezeichnet werden sollen.
 
 ## Wert
 
@@ -18,13 +17,13 @@ Einer der folgenden:
 - `void`
   - : Keine Seiten. Dies ist der Standardwert.
 - `"above"`
-  - : Obere Seite
+  - : Oberseite
 - `"below"`
-  - : Untere Seite
+  - : Unterseite
 - `"hsides"`
   - : Nur oben und unten
 - `"vsides"`
-  - : Nur rechte und linke Seite
+  - : Nur rechte und linke Seiten
 - `"lhs"`
   - : Nur linke Seite
 - `"rhs"`

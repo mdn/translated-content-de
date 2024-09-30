@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`WritableStreamDefaultController`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der die Kontrolle über den Zustand eines [`WritableStream`](/de/docs/Web/API/WritableStream) ermöglicht. Beim Erstellen eines `WritableStream` wird dem zugrunde liegenden Sink ein entsprechendes `WritableStreamDefaultController`-Instance übergeben, um es zu manipulieren.
+Das **`WritableStreamDefaultController`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der die Steuerung des Zustands eines [`WritableStream`](/de/docs/Web/API/WritableStream) ermöglicht. Beim Erstellen eines `WritableStream` erhält das zugrunde liegende Sink eine entsprechende `WritableStreamDefaultController`-Instanz zur Manipulation.
 
 ## Konstruktor
 
-Keiner. `WritableStreamDefaultController`-Instanzen werden automatisch während der Erstellung von `WritableStream` erstellt.
+Keiner. `WritableStreamDefaultController`-Instanzen werden während der Konstruktion von `WritableStream` automatisch erstellt.
 
 ## Instanz-Eigenschaften
 
 - [`WritableStreamDefaultController.signal`](/de/docs/Web/API/WritableStreamDefaultController/signal) {{ReadOnlyInline}}
-  - : Gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit dem Controller verknüpft ist.
+  - : Gibt das mit dem Controller verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Instanz-Methoden
 
 - [`WritableStreamDefaultController.error()`](/de/docs/Web/API/WritableStreamDefaultController/error)
-  - : Verursacht einen Fehler bei allen zukünftigen Interaktionen mit dem zugehörigen Stream.
+  - : Verursacht, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream fehlschlagen.
 
 ## Beispiele
 

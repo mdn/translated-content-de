@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`getAll()`**-Methode des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, das die Werte für die angegebene Eigenschaft enthält.
+Die **`getAll()`**-Methode der
+[`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt ein Array von
+[`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, die die Werte für die angegebene Eigenschaft enthalten.
 
 ## Syntax
 
@@ -27,7 +29,8 @@ Ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet `getAll()` mit der {{cssxref('background-image')}}-Eigenschaft. Ein {{jsxref('Array')}} wird zurückgegeben, das ein Element für jedes deklarierte Hintergrundbild enthält.
+Das folgende Beispiel verwendet `getAll()` mit der
+{{cssxref('background-image')}}-Eigenschaft. Ein {{jsxref('Array')}} wird zurückgegeben, das ein Element für jedes deklarierte Hintergrundbild enthält.
 
 ```js
 // get a button element

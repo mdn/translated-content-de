@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die funktionale Notation **`color-contrast()`** nimmt einen {{cssxref("color_value","color")}}-Wert und vergleicht ihn mit einer Liste anderer {{cssxref("color_value","color")}}-Werte und wählt den mit dem höchsten Kontrast aus der Liste aus.
+Die funktionale Notation **`color-contrast()`** nimmt einen {{cssxref("color_value","Farbwert")}} und vergleicht ihn mit einer Liste anderer {{cssxref("color_value","Farbwerte")}}, indem sie den mit dem höchsten Kontrast aus der Liste auswählt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Funktionale Notation: `color-contrast(color vs color-list)`
 
 - `color-list`
 
-  - : Eine kommagetrennte Liste von mindestens zwei Farbwerten, die mit dem ersten Wert verglichen werden.
+  - : Eine durch Kommata getrennte Liste von mindestens zwei Farbwerten, die mit dem ersten Wert verglichen werden sollen.
 
 ## Spezifikationen
 
@@ -43,8 +43,8 @@ Funktionale Notation: `color-contrast(color vs color-list)`
 ## Siehe auch
 
 - {{cssxref("color_value", "&lt;color>")}} Datentyp
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
 - [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast) und [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) {{cssxref("@media")}} Funktionen
 - [`contrast()`](/de/docs/Web/CSS/filter-function/contrast)
 - [WCAG: Farbkontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast)
-- [CSS-Custom-Properties](/de/docs/Web/CSS/--*) und {{cssxref("var")}}
+- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und {{cssxref("var")}}

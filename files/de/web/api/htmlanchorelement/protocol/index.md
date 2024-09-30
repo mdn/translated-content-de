@@ -10,7 +10,8 @@ l10n:
 
 Die
 **`HTMLAnchorElement.protocol`**
-Eigenschaft ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
+Eigenschaft ist ein String, der das Protokollschema der URL darstellt,
+einschließlich des abschließenden `':'`.
 
 ## Wert
 
@@ -18,7 +19,7 @@ Ein String.
 
 ## Beispiele
 
-### Abrufen des Protokolls eines Anker-Links
+### Das Protokoll eines Anker-Links ermitteln
 
 ```js
 // An <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> element is in the document
@@ -36,4 +37,4 @@ anchor.protocol; // returns 'https:'
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der sie gehört.

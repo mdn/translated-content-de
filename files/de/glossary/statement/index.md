@@ -1,5 +1,5 @@
 ---
-title: Anweisung
+title: Statement
 slug: Glossary/Statement
 l10n:
   sourceCommit: 67bdb4038f716716955b3bebc72aa7fa0f525a11
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einer Programmiersprache ist eine **Anweisung** eine Codezeile, die eine Aufgabe ausführt. Jedes Programm besteht aus einer Abfolge von Anweisungen.
+In einer Programmiersprache ist eine **Anweisung** eine Codezeile, die eine Aufgabe ausführt. Jedes Programm besteht aus einer Sequenz von Anweisungen.
 
 ## Siehe auch
 

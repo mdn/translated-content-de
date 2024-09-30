@@ -1,5 +1,5 @@
 ---
-title: "DOMImplementation: createHTMLDocument() Methode"
+title: "DOMImplementation: createHTMLDocument()-Methode"
 short-title: createHTMLDocument()
 slug: Web/API/DOMImplementation/createHTMLDocument
 l10n:
@@ -20,7 +20,7 @@ createHTMLDocument(title)
 ### Parameter
 
 - `title` {{optional_inline}}
-  - : Ein String, der den Titel des neuen HTML-Dokuments enthält.
+  - : Ein String, der den Titel enthält, der dem neuen HTML-Dokument gegeben werden soll.
 
 ### Rückgabewert
 
@@ -68,13 +68,13 @@ function makeDocument() {
 }
 ```
 
-Der Code behandelt das Erstellen des neuen HTML-Dokuments und das Einfügen einiger Inhalte in dieses. `createHTMLDocument()` erstellt ein neues HTML-Dokument, dessen {{ HTMLElement("title") }} `"Neues Dokument"` ist. Dann erstellen wir ein neues Absatz-Element mit einfachem Inhalt und der neue Absatz wird in das neue Dokument eingefügt.
+Der Code behandelt das Erstellen des neuen HTML-Dokuments und das Einfügen einiger Inhalte darin. `createHTMLDocument()` konzipiert ein neues HTML-Dokument, dessen {{HTMLElement("title")}} `"New Document"` ist. Dann erstellen wir ein neues Paragraphen-Element mit einigem einfachen Inhalt und fügen den neuen Paragraphen in das neue Dokument ein.
 
-`destDocument` speichert das `contentDocument` des Frames; dies ist das Dokument, in das wir den neuen Inhalt einfügen werden. Die nächsten zwei Zeilen kümmern sich um den Import der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich den Inhalt des Frames mit dem Inhalt des neuen Dokuments.
+`destDocument` speichert das `contentDocument` des Rahmens; dies ist das Dokument, in das wir die neuen Inhalte einfügen werden. Die nächsten beiden Zeilen behandeln den Import der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich die Inhalte des Rahmens durch die Inhalte des neuen Dokuments.
 
-[Ansehen von Live-Beispielen](https://mdn.dev/archives/media/samples/domref/createHTMLDocument.html)
+[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/createHTMLDocument.html)
 
-Das zurückgegebene Dokument ist mit dem folgenden HTML vorab erstellt:
+Das zurückgegebene Dokument ist mit dem folgenden HTML vorstrukturiert:
 
 ```html
 <!doctype html>
@@ -99,4 +99,4 @@ Das zurückgegebene Dokument ist mit dem folgenden HTML vorab erstellt:
 
 ## Siehe auch
 
-- Die [`DOMImplementation`](/de/docs/Web/API/DOMImplementation) Schnittstelle, zu der es gehört.
+- Das [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Interface, zu dem es gehört.

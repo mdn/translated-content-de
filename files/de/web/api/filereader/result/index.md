@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`result`**-Eigenschaft des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces ist eine schreibgeschützte Eigenschaft und gibt den Inhalt der Datei zurück. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist. Das Format der Daten hängt davon ab, welche der Methoden verwendet wurde, um den Lesevorgang zu starten.
+Die schreibgeschützte **`result`**-Eigenschaft der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle gibt den Inhalt der Datei zurück. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist, und das Format der Daten hängt davon ab, welche Methode verwendet wurde, um den Lesevorgang zu starten.
 
 ## Wert
 
-Ein geeigneter String oder ein {{jsxref("ArrayBuffer")}} basierend darauf, welche der Lesemethoden verwendet wurde, um den Lesevorgang zu starten. Der Wert ist `null`, wenn das Lesen noch nicht abgeschlossen ist oder erfolglos war.
+Ein entsprechender String oder {{jsxref("ArrayBuffer")}}, je nachdem, welche der Lesemethoden verwendet wurde, um den Lesevorgang zu starten. Der Wert ist `null`, wenn das Lesen noch nicht abgeschlossen oder erfolglos war.
 
 Die Ergebnistypen sind unten beschrieben.
 
@@ -48,24 +48,24 @@ Die Ergebnistypen sind unten beschrieben.
         [`readAsDataURL()`](/de/docs/Web/API/FileReader/readAsDataURL)
       </td>
       <td>
-        Das <code>result</code> ist ein String mit einer <code>data:</code> URL,
-        die die Daten der Datei repräsentiert.
+        Das <code>result</code> ist ein String mit einer <code>data:</code>-URL,
+        die die Daten der Datei darstellt.
       </td>
     </tr>
     <tr>
       <td>
         [`readAsText()`](/de/docs/Web/API/FileReader/readAsText)
       </td>
-      <td>Das <code>result</code> ist Text in einem String.</td>
+      <td>Das <code>result</code> ist Text als String.</td>
     </tr>
   </tbody>
 </table>
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion `reader()`, die eine Datei aus einem [file-input](/de/docs/Web/HTML/Element/input/file) liest. Es funktioniert, indem ein [`FileReader`](/de/docs/Web/API/FileReader)-Objekt erstellt und ein Listener für [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignisse eingerichtet wird, sodass, wenn die Datei gelesen wird, das `result` abgerufen und an die der `reader()` übergebene Callback-Funktion weitergeleitet wird.
+Dieses Beispiel zeigt eine Funktion `reader()`, die eine Datei von einem [File-Input](/de/docs/Web/HTML/Element/input/file) liest. Sie funktioniert, indem ein [`FileReader`](/de/docs/Web/API/FileReader)-Objekt erstellt und ein Listener für [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignisse erstellt wird, sodass, wenn die Datei gelesen ist, das `result` abgerufen und zur Callback-Funktion übergeben wird, die an `reader()` übergeben wurde.
 
-Der Inhalt wird als rohe Textdaten behandelt.
+Der Inhalt wird als Rohtextdaten behandelt.
 
 ```js
 // Given this HTMLInputElement of type="file":
@@ -89,7 +89,7 @@ document.querySelector("#image").addEventListener("change", (evt) => {
 });
 ```
 
-Angesichts der asynchronen Natur des [`FileReader`](/de/docs/Web/API/FileReader) könnten Sie einen auf `Promise`-basierten Ansatz verwenden. Hier ist ein Beispiel für einen [file-input](/de/docs/Web/HTML/Element/input/file) mit dem Attribut `multiple`, das ein {{jsxref("Promise")}} zurückgibt.
+Angesichts der asynchronen Natur von [`FileReader`](/de/docs/Web/API/FileReader) könnten Sie einen auf Promise basierenden Ansatz verwenden. Hier ist ein Beispiel für ein [File-Input](/de/docs/Web/HTML/Element/input/file) mit dem Attribut `multiple`, das ein {{jsxref("Promise")}} zurückgibt.
 
 ```js
 // Given this HTMLInputElement:

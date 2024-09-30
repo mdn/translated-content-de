@@ -51,7 +51,7 @@ async function readDirectory(directory) {
 }
 ```
 
-Dies funktioniert, indem wiederholt [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten. Jeder Batch wird an das Array angehängt. Wenn eine leere Liste zurückgegeben wird, wurden alle Einträge gelesen und die Schleife endet.
+Dies funktioniert, indem die Methode [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) wiederholt aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten und jede Charge zum Array hinzuzufügen. Wenn sie ein leeres Array zurückgibt, wurden alle Einträge gelesen und die Schleife endet.
 
 ## Spezifikationen
 

@@ -12,7 +12,7 @@ Die **`HTMLTableElement.width`**-Eigenschaft repräsentiert die gewünschte Brei
 
 ## Wert
 
-Ein String, der die Breite in Pixeln oder als Prozentwert darstellt.
+Ein String, der die Breite in Pixeln oder als Prozentwert angibt.
 
 ## Beispiele
 

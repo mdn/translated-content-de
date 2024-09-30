@@ -8,38 +8,38 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`usernameFragment`**-Eigenschaft der [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Schnittstelle ist ein String, der das Benutzername-Fragment ("ufrag") angibt, das eine einzelne ICE-Interaktionssitzung eindeutig identifiziert.
+Die schreibgeschützte **`usernameFragment`**-Eigenschaft auf der [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Schnittstelle ist ein String, der das Benutzername-Fragment ("ufrag") angibt, das eine einzelne ICE-Interaktionssitzung eindeutig identifiziert.
 
-Dieser Wert wird mithilfe der `usernameFragment`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Wenn Sie den Konstruktor mit einem m-line-String statt mit dem Optionsobjekt aufrufen, wird der Wert von `usernameFragment` aus dem angegebenen Kandidaten-m-line-String extrahiert.
+Dieser Wert wird mithilfe der `usernameFragment`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Wenn Sie den Konstruktor mit einem m-line-String anstelle des Optionsobjekts aufrufen, wird der Wert von `usernameFragment` aus dem angegebenen Kandidaten-m-line-String extrahiert.
 
-Beachten Sie, dass 24 Bits des Benutzernamen-Fragments vom Browser randomisiert sein müssen. Siehe [Randomisierung](#randomisierung) weiter unten für Details.
+Beachten Sie, dass 24 Bits des Benutzername-Fragments vom Browser zufällig sein müssen. Siehe [Randomisierung](#randomisierung) unten für Details.
 
 ## Wert
 
-Ein String, der das Benutzername-Fragment enthält (in der Kurzform normalerweise als "ufrag" oder "ice-ufrag" bezeichnet), das zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig identifiziert, einschließlich jeglicher Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server. Der String kann bis zu 256 Zeichen lang sein und hat keinen Standardwert.
+Ein String, der das Benutzername-Fragment enthält (üblicherweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet), das zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig identifiziert, einschließlich aller Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server. Der String kann bis zu 256 Zeichen lang sein und hat keinen Standardwert.
 
 ### Randomisierung
 
-Mindestens 24 Bits des Textes im `ufrag` müssen zu Beginn der ICE-Sitzung zufällig von der ICE-Schicht ausgewählt werden. Die genauen Bits, die zufällig sind, und was der Rest des `ufrag`-Textes betrifft, sind der Entscheidung der Browser-Implementierung überlassen. Zum Beispiel könnte ein Browser immer ein 24-Zeichen `ufrag` verwenden, bei dem Bit 4 jedes Zeichens zufällig zwischen 0 und 1 gewählt wird. Ein anderes Beispiel: Es könnte ein benutzerdefinierten String nehmen und drei 8-Bit zufällige Bytes am Ende anhängen. Oder vielleicht ist jedes Zeichen vollständig zufällig.
+Mindestens 24 Bits des Textes im `ufrag` müssen zufällig vom ICE-Layer zu Beginn der ICE-Sitzung ausgewählt werden. Die genauen Bits, die zufällig sind, und was der Rest des `ufrag`-Textes ist, bleibt der Entscheidung der Browser-Implementierung überlassen. Zum Beispiel könnte ein Browser immer ein 24-stelliges `ufrag` verwenden, bei dem Bit 4 jedes Zeichens zufällig zwischen 0 und 1 ausgewählt wird. Ein weiteres Beispiel: Es könnte einen benutzerdefinierten String nehmen und drei 8-Bit-Zufallsbytes an das Ende anhängen. Oder vielleicht ist jedes Zeichen vollständig zufällig.
 
 ## Verwendungshinweise
 
-ICE verwendet das `usernameFragment` und das Passwort, um die Integrität der Nachrichten sicherzustellen. Dies vermeidet Übersprechen zwischen mehreren laufenden ICE-Sitzungen und trägt wichtiger noch dazu bei, ICE-Transaktionen (und alle WebRTC im weiteren Sinne) gegen Angriffe zu schützen, die versuchen könnten, sich in einen ICE-Austausch einzuschleichen.
+ICE verwendet das `usernameFragment` und das Passwort, um die Integrität der Nachrichten zu gewährleisten. Dies verhindert Übersprechen zwischen mehreren laufenden ICE-Sitzungen, und noch wichtiger, es hilft, ICE-Transaktionen (und im weiteren Sinne das gesamte WebRTC) gegen Angriffe zu sichern, die versuchen könnten, sich in einen ICE-Austausch einzuschleichen.
 
 > [!NOTE]
-> Es gibt keine API, um das ICE-Passwort zu erhalten, aus offensichtlich recht guten Sicherheitsgründen.
+> Es gibt keine API, um das ICE-Passwort zu erhalten, aus ziemlich offensichtlichen Sicherheitsgründen.
 
-Das `usernameFragment` und das Passwort ändern sich jedes Mal, wenn ein [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) erfolgt.
+Das `usernameFragment` und das Passwort ändern sich jedes Mal, wenn ein [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) auftritt.
 
 ## Beispiele
 
-Obwohl die WebRTC-Infrastruktur veraltete Kandidaten nach einem ICE-Neustart für Sie herausfiltert, können Sie es selbst tun, wenn Sie die Anzahl der hin und her gesendeten Nachrichten absolut minimieren möchten.
+Obwohl die WebRTC-Infrastruktur veraltete Kandidaten für Sie nach einem ICE-Neustart herausfiltert, können Sie es selbst tun, wenn Sie versuchen, die Anzahl der hin- und hergehenden Nachrichten absolut zu minimieren.
 
-Um dies zu tun, können Sie den Wert von `usernameFragment` mit dem aktuellen `usernameFragment` vergleichen, das für die Verbindung verwendet wird, nachdem Sie den Kandidaten vom Signalisierungsserver erhalten haben und bevor Sie [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufrufen, um ihn zu den möglichen Kandidaten hinzuzufügen.
+Um dies zu tun, können Sie den Wert von `usernameFragment` mit dem aktuellen `usernameFragment` vergleichen, das für die Verbindung verwendet wird, nachdem Sie den Kandidaten vom Signalisierungsserver empfangen haben und bevor Sie [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufrufen, um ihn zum Satz möglicher Kandidaten hinzuzufügen.
 
-Wenn die Web-App eine Nachricht vom Signalisierungsserver erhält, die einen Kandidaten enthält, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt werden soll, können (und sollten) Sie `addIceCandidate()` aufrufen. Normalerweise gibt es keinen Bedarf, sich manuell um das Filtern der Kandidaten zu kümmern.
+Wenn die Webanwendung eine Nachricht vom Signalisierungsserver erhält, die einen Kandidaten enthält, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt werden soll, können Sie (und sollten im Allgemeinen auch) `addIceCandidate()` aufrufen. Es besteht normalerweise keine Notwendigkeit, die Kandidaten manuell zu filtern.
 
-Angenommen, wir müssen den Datenverkehr minimieren. Die folgende Funktion, `ssNewCandidate()`, wird aufgerufen, wenn eine Nachricht, `signalMsg`, vom Signalisierungsserver eintrifft, die einen ICE-Kandidaten enthält, der zur `RTCPeerConnection` hinzugefügt werden soll. Um das Einbeziehen von Kandidaten zu vermeiden, die durch einen ICE-Neustart veraltet sind, können wir einen Code wie diesen verwenden:
+Stellen wir uns jedoch vor, dass wir den Datenverkehr minimieren müssen. Die unten stehende Funktion `ssNewCandidate()` wird aufgerufen, wenn eine Nachricht, `signalMsg`, vom Signalisierungsserver eintrifft, die einen ICE-Kandidaten enthält, der zur `RTCPeerConnection` hinzugefügt werden soll. Um zu vermeiden, dass Kandidaten einbezogen werden, die durch einen ICE-Neustart veraltet sind, können wir folgenden Code verwenden:
 
 ```js
 const ssNewCandidate = (signalMsg) => {
@@ -58,7 +58,7 @@ const ssNewCandidate = (signalMsg) => {
 };
 ```
 
-Dies geht die Liste der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekte durch, die zum Empfangen von ICE-Daten verwendet werden, und überprüft, ob das im Kandidaten angegebene `usernameFragment` zu einem von ihnen passt. Wenn ja, bricht `ssNewCandidate()` ab. Andernfalls fügt es nach Überprüfung jedes Empfängers den neuen Kandidaten zur Verbindung hinzu.
+Dies durchläuft die Liste der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekte, die verwendet werden, um ICE-Daten zu empfangen, und überprüft, ob das im Kandidaten angegebene `usernameFragment` mit einem von ihnen übereinstimmt. Wenn es das tut, bricht `ssNewCandidate()` ab. Andernfalls wird, nachdem jeder Empfänger überprüft wurde, der neue Kandidat zur Verbindung hinzugefügt.
 
 ## Spezifikationen
 

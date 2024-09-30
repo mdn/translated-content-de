@@ -12,7 +12,7 @@ Das `durationchange` Ereignis wird ausgelöst, wenn das `duration` Attribut aktu
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("durationchange", (event) => {});
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `durationchange` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `durationchange` Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Ereignis reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -38,7 +38,7 @@ video.addEventListener("durationchange", (event) => {
 });
 ```
 
-Verwendung der `ondurationchange` Ereignishandler-Eigenschaft:
+Verwendung der `ondurationchange` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

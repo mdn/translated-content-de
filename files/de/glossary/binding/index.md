@@ -1,5 +1,5 @@
 ---
-title: Bindung
+title: Binding
 slug: Glossary/Binding
 l10n:
   sourceCommit: 1f7c54fce7dc72e99e3d22ece8958db1290a7062
@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Programmierung ist eine **Bindung** eine Zuordnung eines [Bezeichners](/de/docs/Glossary/identifier) zu einem Wert. Nicht alle Bindungen sind [Variablen](/de/docs/Glossary/variable) — beispielsweise sind Funktions[parameter](/de/docs/Glossary/parameter) und die Bindung, die durch den {{jsxref("Statements/try...catch", "catch (e)")}} Block erstellt wird, im strengen Sinne keine "Variablen". Darüber hinaus werden einige Bindungen implizit durch die Sprache erstellt — zum Beispiel {{jsxref("Operators/this", "this")}} und [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) in JavaScript.
+In der Programmierung ist ein **Binding** eine Zuordnung eines [Bezeichners](/de/docs/Glossary/identifier) zu einem Wert. Nicht alle Bindings sind [Variablen](/de/docs/Glossary/variable) — zum Beispiel sind Funktions[parameter](/de/docs/Glossary/parameter) und das Binding, das durch den {{jsxref("Statements/try...catch", "catch (e)")}}-Block erstellt wird, im strengen Sinne keine "Variablen". Darüber hinaus werden einige Bindings implizit durch die Programmiersprache erstellt — zum Beispiel {{jsxref("Operators/this", "this")}} und [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) in JavaScript.
 
-Eine Bindung ist [veränderbar](/de/docs/Glossary/mutable), wenn sie neu zugewiesen werden kann, und [unveränderlich](/de/docs/Glossary/immutable), wenn nicht; dies bedeutet jedoch _nicht_, dass der Wert, den sie hält, unveränderlich ist.
+Ein Binding ist [änderbar](/de/docs/Glossary/mutable), wenn es neu zugewiesen werden kann, und [unveränderbar](/de/docs/Glossary/immutable), wenn dies nicht möglich ist; das bedeutet _nicht_, dass der Wert, den es hält, unveränderbar ist.
 
-Eine Bindung ist oft mit einem [Gültigkeitsbereich](/de/docs/Glossary/scope) verbunden. Einige Sprachen erlauben es, Bindungen (auch als erneutes Deklarieren bezeichnet) innerhalb desselben Gültigkeitsbereichs neu zu erstellen, während andere dies nicht zulassen; in JavaScript hängt es vom Konstrukt ab, das zur Erstellung der Bindung verwendet wird, ob Bindungen neu deklariert werden können.
+Ein Binding wird oft mit einem [Gültigkeitsbereich](/de/docs/Glossary/scope) in Verbindung gebracht. Einige Programmiersprachen erlauben die Neuerstellung von Bindings (auch als Neudeklaration bezeichnet) innerhalb desselben Gültigkeitsbereichs, andere nicht; ob Bindings in JavaScript neu deklariert werden können, hängt von der verwendeten Konstruktion ab, um das Binding zu erstellen.
 
 ## Siehe auch
 

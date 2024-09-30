@@ -1,5 +1,5 @@
 ---
-title: "Document: createExpression()-Methode"
+title: "Document: Methode createExpression()"
 short-title: createExpression()
 slug: Web/API/Document/createExpression
 l10n:
@@ -10,7 +10,7 @@ l10n:
 
 Diese Methode kompiliert ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das dann für (wiederholte) Auswertungen verwendet werden kann.
 
-Sie müssen diese Methode auf demselben Dokument aufrufen, auf das Sie den Ausdruck anwenden möchten.
+Sie müssen diese Methode auf demselben Dokument aufrufen, auf dem Sie den Ausdruck ausführen.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ createExpression(xpathText, namespaceURLMapper)
 - `xpathText`
   - : Ein String, der den zu kompilierenden XPath-Ausdruck darstellt.
 - `namespaceURLMapper`
-  - : Eine Funktion, die ein Namensraum-Präfix einer Namensraum-URL zuordnet (oder null, wenn keine benötigt wird).
+  - : Eine Funktion, die ein Namespace-Präfix einer Namespace-URL zuordnet (oder null, wenn keine benötigt wird).
 
 ### Rückgabewert
 

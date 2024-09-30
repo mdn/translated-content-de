@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`VRFieldOfView`**-Schnittstelle der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert ein Sichtfeld, das durch 4 verschiedene Gradwerte definiert wird, die die Ansicht von einem Mittelpunkt beschreiben.
+Die **`VRFieldOfView`**-Schnittstelle der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert ein Sichtfeld, das durch 4 verschiedene Gradwerte beschrieben wird, die die Ansicht von einem Mittelpunkt aus beschreiben.
 
 > [!NOTE]
 > Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`VRFieldOfView.upDegrees`](/de/docs/Web/API/VRFieldOfView/upDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad, die das Sichtfeld nach oben erweitert.
+  - : Die Anzahl der Grad nach oben, um die sich das Sichtfeld erstreckt.
 - [`VRFieldOfView.rightDegrees`](/de/docs/Web/API/VRFieldOfView/rightDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad, die das Sichtfeld nach rechts erweitert.
+  - : Die Anzahl der Grad nach rechts, um die sich das Sichtfeld erstreckt.
 - [`VRFieldOfView.downDegrees`](/de/docs/Web/API/VRFieldOfView/downDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad, die das Sichtfeld nach unten erweitert.
+  - : Die Anzahl der Grad nach unten, um die sich das Sichtfeld erstreckt.
 - [`VRFieldOfView.leftDegrees`](/de/docs/Web/API/VRFieldOfView/leftDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad, die das Sichtfeld nach links erweitert.
+  - : Die Anzahl der Grad nach links, um die sich das Sichtfeld erstreckt.
 
 ## Beispiele
 
@@ -86,7 +86,7 @@ Left degrees: ${rFOV.leftDegrees}`;
 
 Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill), zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Meta-Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu stützen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

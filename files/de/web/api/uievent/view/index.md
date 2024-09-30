@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`UIEvent.view`**-Eigenschaft, die nur lesbar ist, gibt das [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt zurück, von dem das Ereignis generiert wurde. In Browsern ist dies das [`Window`](/de/docs/Web/API/Window)-Objekt, in dem das Ereignis aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`UIEvent.view`** gibt das [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt zurück, aus dem das Ereignis erzeugt wurde. In Browsern ist dies das [`Window`](/de/docs/Web/API/Window)-Objekt, in dem das Ereignis stattgefunden hat.
 
 ## Wert
 

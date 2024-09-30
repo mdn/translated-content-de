@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`writable`** schreibgeschützte Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream) Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
+Die **`writable`** schreibgeschützte Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man einen `WritableStream` von einem `TextEncoderStream`-Objekt zurückgibt.
+Das folgende Beispiel zeigt, wie ein `WritableStream` von einem `TextEncoderStream`-Objekt zurückgegeben wird.
 
 ```js
 stream = new TextEncoderStream();

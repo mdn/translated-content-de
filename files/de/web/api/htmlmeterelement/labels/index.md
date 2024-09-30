@@ -1,5 +1,5 @@
 ---
-title: "HTMLMeterElement: labels Eigenschaft"
+title: "HTMLMeterElement: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLMeterElement/labels
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLMeterElement.labels`** gibt eine
-[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
-{{HTMLElement("meter")}}-Element verknüpft sind.
+Die **`HTMLMeterElement.labels`** schreibgeschützte Eigenschaft gibt eine
+[`NodeList`](/de/docs/Web/API/NodeList) der zugehörigen {{HTMLElement("label")}}-Elemente zurück, die mit dem
+{{HTMLElement("meter")}}-Element verbunden sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<meter>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<meter>`-Element verbundenen `<label>`-Elemente enthält.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-{{EmbedLiveSample("Examples", "100%", 30)}}
+{{EmbedLiveSample("Beispiele", "100%", 30)}}
 
 ## Spezifikationen
 

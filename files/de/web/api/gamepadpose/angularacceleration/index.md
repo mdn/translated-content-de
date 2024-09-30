@@ -1,5 +1,5 @@
 ---
-title: "GamepadPose: angularAcceleration-Eigenschaft"
+title: "GamepadPose: angularAcceleration Eigenschaft"
 short-title: angularAcceleration
 slug: Web/API/GamepadPose/angularAcceleration
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die **`angularAcceleration`** schreibgeschützte Eigenschaft des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt ein Array zurück, das den Winkelbeschleunigungsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Metern pro Sekunde² darstellt.
+Die schreibgeschützte Eigenschaft **`angularAcceleration`** des Interfaces [`GamepadPose`](/de/docs/Web/API/GamepadPose) gibt ein Array zurück, das den Winkelbeschleunigungsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Metern pro Sekunde zum Quadrat darstellt.
 
-Mit anderen Worten, die aktuelle Beschleunigung der Drehung des Sensors um die `x`-, `y`- und `z`-Achsen.
+Mit anderen Worten, die aktuelle Beschleunigung der Rotation des Sensors um die Achsen `x`, `y` und `z`.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Informationen zur Winkelbeschleunigung bereitstellen kann.
+Ein {{jsxref("Float32Array")}} oder `null`, wenn das Gamepad keine Winkelbeschleunigungsinformationen bereitstellen kann.
 
 ## Beispiele
 

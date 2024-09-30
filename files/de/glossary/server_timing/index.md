@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die [Server Timing Spezifikation](https://www.w3.org/TR/server-timing/) ermöglicht es dem Server, Leistungsmetriken aus dem Anfrage-Antwort-Zyklus an den User-Agent zu übermitteln und verwendet eine JavaScript-Schnittstelle, damit Anwendungen diese Metriken sammeln, verarbeiten und darauf reagieren können, um die Anwendungsbereitstellung zu optimieren.
+Die [Server Timing-Spezifikation](https://www.w3.org/TR/server-timing/) ermöglicht es dem Server, Leistungskennzahlen aus dem Anforderungs-Antwort-Zyklus an den Benutzeragenten zu übermitteln und nutzt eine JavaScript-Schnittstelle, damit Anwendungen diese Kennzahlen sammeln, verarbeiten und darauf reagieren können, um die Bereitstellung der Anwendung zu optimieren.
 
 ## Siehe auch
 

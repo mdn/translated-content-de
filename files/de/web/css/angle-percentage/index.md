@@ -9,13 +9,13 @@ l10n:
 
 Der **`<angle-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder ein {{Cssxref("angle")}} oder ein {{Cssxref("percentage")}} sein kann.
 
-Wenn ein `<angle-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einem Winkel aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann.
+Wenn ein `<angle-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in einen Winkel aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}} Ausdruck verwendet werden kann.
 
 ## Syntax
 
-Bitte beziehen Sie sich auf die Dokumentation für {{Cssxref("angle")}} und {{Cssxref("percentage")}}, um Einzelheiten zu den einzelnen Syntaxformen zu erfahren, die durch diesen Typ erlaubt sind.
+Verweisen Sie auf die Dokumentation für {{Cssxref("angle")}} und {{Cssxref("percentage")}} für Details zu den einzelnen Syntaxen, die von diesem Typ erlaubt sind.
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -30,5 +30,5 @@ Bitte beziehen Sie sich auf die Dokumentation für {{Cssxref("angle")}} und {{Cs
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/CSS_Types)
-- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 - [`conic-gradient()`](/de/docs/Web/CSS/gradient/conic-gradient) und [`repeating-conic-gradient()`](/de/docs/Web/CSS/gradient/repeating-conic-gradient)

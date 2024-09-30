@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT Sets-Paket bietet Funktionen, die es Ihnen ermöglichen, Mengenoperationen durchzuführen. Der Namespace für diese Funktionen ist `http://exslt.org/sets`.
+Das EXSLT Sets-Paket bietet Funktionen zur Durchführung von Mengenoperationen. Der Namensraum für diese Funktionen ist `http://exslt.org/sets`.
 
 {{SubpagesWithSummaries}}

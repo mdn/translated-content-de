@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Alphakanal-Schwellenwert fest, der verwendet wird, um die Form zu extrahieren, wenn ein Bild als Wert für {{cssxref("shape-outside")}} verwendet wird.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Schwelle für den Alphakanal fest, die verwendet wird, um die Form mit einem Bild als Wert für {{cssxref("shape-outside")}} zu extrahieren.
 
 {{EmbedInteractiveExample("pages/css/shape-image-threshold.html")}}
 
-Alle Pixel, deren Alpha-Komponente einen Wert größer als der Schwellenwert hat, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Ein Wert von `0.5` bedeutet beispielsweise, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
+Alle Pixel, deren Alpha-Komponente den Schwellenwert überschreitet, gelten als Teil der Form zur Bestimmung ihrer Grenzen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Legt den Schwellenwert fest, der verwendet wird, um eine Form aus einem Bild zu extrahieren. Die Form wird durch die Pixel definiert, deren Alphawert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
+  - : Legt die Schwelle fest, die zur Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als die Schwelle ist. Werte außerhalb des Bereichs 0,0 (vollständig transparent) bis 1,0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -42,9 +42,9 @@ shape-image-threshold: unset;
 
 ## Beispiele
 
-### Text an einen Farbverlauf ausrichten
+### Text an einem Verlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild, das ein Farbverlauf ist. Der Farbverlauf wird als CSS-Form unter Verwendung von `shape-outside` festgelegt, sodass Pixel innerhalb des Farbverlaufs, die mindestens 20% undurchsichtig sind (also diejenigen Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild-Verlauf. Der Verlauf wird als CSS-Form unter Verwendung von `shape-outside` festgelegt, so dass Pixel innerhalb des Verlaufs, die mindestens 20% undurchsichtig sind (das heißt, jene Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
 
 #### HTML
 
@@ -78,9 +78,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrun
 }
 ```
 
-Die Form wird hier mit {{cssxref("background-image")}} unter Verwendung eines linearen Farbverlaufs anstelle einer Bilddatei festgelegt. Der gleiche Farbverlauf wird auch als das Bild verwendet, aus dem die Form für den festgelegten Schweberaum abgeleitet wird, unter Verwendung der Eigenschaft {{cssxref("shape-outside")}}.
+Die Form wird hier unter Verwendung von {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei erstellt. Derselbe Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Fließbereichs abgeleitet wird, unter Verwendung der {{cssxref("shape-outside")}} Eigenschaft.
 
-Der 20%ige Opazitätsschwellenwert, um Verlaufspixel als Teil der Form zu betrachten, wird dann unter Verwendung von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
+Die 20% Opazitätsschwelle, um Verlaufs-Pixel als Teil der Form zu behandeln, wird dann unter Verwendung von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 

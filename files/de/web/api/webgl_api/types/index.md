@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-Die folgenden Typen werden in [WebGL](/de/docs/Web/API/WebGL_API) Schnittstellen verwendet.
+Die folgenden Typen werden in [WebGL](/de/docs/Web/API/WebGL_API)-Schnittstellen verwendet.
 
 ## WebGL 1
 
@@ -17,7 +17,7 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
   <thead>
     <tr>
       <th>Typ</th>
-      <th>Web IDL-Typ</th>
+      <th>Web IDL Typ</th>
       <th>Beschreibung</th>
     </tr>
   </thead>
@@ -26,7 +26,7 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
       <td><code>GLenum</code></td>
       <td><code>unsigned long</code></td>
       <td>
-        Wird für Enums verwendet. Siehe auch die Liste der
+        Für Enums verwendet. Siehe auch die Liste der
         <a href="/de/docs/Web/API/WebGL_API/Constants">Konstanten</a>.
       </td>
     </tr>
@@ -39,7 +39,7 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
       <td><code>GLbitfield</code></td>
       <td><code>unsigned long</code></td>
       <td>
-        Ein Bitfeld, das mehrere, logische Bits speichert. Wird beispielsweise in
+        Ein Bitfeld, das mehrere logische Bits speichert. Wird beispielsweise in
         [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) verwendet.
       </td>
     </tr>
@@ -61,7 +61,7 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
     <tr>
       <td><code>GLsizei</code></td>
       <td><code>long</code></td>
-      <td>Wird für Größen verwendet (z.B. Breite und Höhe des Zeichenpuffers).</td>
+      <td>Verwendet für Größen (z.B. Breite und Höhe des Zeichenpuffers).</td>
     </tr>
     <tr>
       <td><code>GLintptr</code></td>
@@ -76,17 +76,17 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
     <tr>
       <td><code>GLubyte</code></td>
       <td><code>octet</code></td>
-      <td>8-Bit Nicht-Vorzeichen-Ganzzahl.</td>
+      <td>8-Bit vorzeichenlose Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLushort</code></td>
       <td><code>unsigned short</code></td>
-      <td>16-Bit Nicht-Vorzeichen-Ganzzahl.</td>
+      <td>16-Bit vorzeichenlose Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLuint</code></td>
       <td><code>unsigned long</code></td>
-      <td>32-Bit Nicht-Vorzeichen-Ganzzahl.</td>
+      <td>32-Bit vorzeichenlose Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLfloat</code></td>
@@ -105,17 +105,17 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
 
 Diese Typen werden innerhalb eines [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwendet. Alle WebGL 1-Typen werden ebenfalls verwendet.
 
-| Typ       | Web IDL-Typ | Beschreibung                         |
-| --------- | ----------- | ------------------------------------ |
-| `GLint64` | `long long` | Vorzeichenbehaftete 64-Bit-Ganzzahl. |
+| Typ       | Web IDL Typ   | Beschreibung                     |
+| --------- | ------------- | -------------------------------- |
+| `GLint64` | `long long`   | Signierte 64-Bit Ganzzahl.       |
 
 ## WebGL-Erweiterungen
 
 Diese Typen werden innerhalb von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) verwendet.
 
-| Typ           | Web IDL-Typ | Beschreibung                      |
-| ------------- | ----------- | --------------------------------- |
-| `GLuint64EXT` | `long long` | Nicht-Vorzeichen-64-Bit-Ganzzahl. |
+| Typ           | Web IDL Typ   | Beschreibung                     |
+| ------------- | ------------- | -------------------------------- |
+| `GLuint64EXT` | `long long`   | Vorzeichenlose 64-Bit Ganzzahl.  |
 
 ## Spezifikationen
 

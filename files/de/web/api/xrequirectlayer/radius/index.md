@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`radius`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den Radius der Kugel.
+Die **`radius`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den Radius der Sphäre.
 
 ## Wert
 
-Eine Zahl, die den nicht-negativen Radius (in Metern) der Kugel darstellt. Werte von Null oder Unendlichkeit werden als Darstellung einer unendlichen Kugel behandelt. Wenn `radius` auf einen Wert kleiner als 0 gesetzt wird, wird er auf 0 gesetzt.
+Eine Zahl, die den nicht-negativen Radius (in Metern) der Sphäre darstellt. Werte von null oder unendlich werden als Darstellung einer unendlichen Sphäre behandelt. Wenn `radius` auf einen Wert kleiner als 0 gesetzt wird, wird er auf 0 gesetzt.
 
 ## Beispiele
 
-### Abrufen des Radius eines Layers
+### Den Radius einer Ebene abrufen
 
-Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt einen equirectangular Layer und ermöglicht die Angabe eines `radius`. Die `XREquirectLayer.radius`-Eigenschaft kann nach der Erstellung des Layers verwendet werden, um den verwendeten Radius zu erhalten oder um ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equirektanguläre Ebene und ermöglicht die Angabe eines `radius`. Die Eigenschaft `XREquirectLayer.radius` kann nach der Erstellung der Ebene verwendet werden, um den verwendeten Radius abzurufen oder ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({

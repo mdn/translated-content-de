@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DragEvent.dataTransfer`** enthält die Daten der Drag-Operation (als ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt).
+Die schreibgeschützte **`DragEvent.dataTransfer`**-Eigenschaft enthält die Daten des Ziehvorgangs (als [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt).
 
 ## Wert
 
-Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die {{domxref("DragEvent","Daten des Drag-Ereignisses", "", 1)}} enthält.
+Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die {{domxref("DragEvent","Daten des Ziehereignisses", "", 1)}} enthält.
 
 Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wurde. Sie ist niemals `null`, wenn sie vom Browser ausgelöst wird.
 

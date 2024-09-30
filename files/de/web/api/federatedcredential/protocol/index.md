@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Die **`protocol`**-Eigenschaft des
-[`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Interfaces gibt einen schreibgeschützten
+Die **`protocol`**-Eigenschaft der
+[`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Schnittstelle gibt einen schreibgeschützten
 String zurück, der das föderierte Identitätsprotokoll eines Berechtigungsnachweises enthält. Wenn diese
 Eigenschaft [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, kann das Protokoll aus der
 [`FederatedCredential.provider`](/de/docs/Web/API/FederatedCredential/provider)-Eigenschaft abgeleitet werden.
 
 ## Wert
 
-Ein String, der das föderierte Identitätsprotokoll eines Berechtigungsnachweises enthält (z.B.
+Ein String, der das föderierte Identitätsprotokoll eines Berechtigungsnachweises enthält (z. B.
 `openidconnect`).
 
 ## Beispiele

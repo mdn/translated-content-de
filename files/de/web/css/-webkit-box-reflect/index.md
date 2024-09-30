@@ -35,7 +35,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 ### Werte
 
 - `above`_,_ `below`_,_ `right`_,_ `left`
-  - : Sind Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
+  - : Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Gibt die Größe der Spiegelung an.
 - {{CSSxRef("&lt;image&gt;")}}
@@ -54,7 +54,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 
 ## Spezifikationen
 
-Kein Teil eines Standards. Der standardmäßige Weg, um Spiegelungen in CSS zu erstellen, ist die Verwendung der CSS {{CSSxRef("element", "element()")}} Funktion.
+Nicht Teil eines Standards. Der standardmäßige Weg, eine Spiegelung in CSS zu erzeugen, ist die Verwendung der CSS-{{CSSxRef("element", "element()")}}-Funktion.
 
 ## Browser-Kompatibilität
 

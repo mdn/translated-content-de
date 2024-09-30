@@ -1,20 +1,18 @@
 ---
-title: "WebGL2RenderingContext: uniform[1234][uif][v]() Methode"
+title: "WebGL2RenderingContext: uniform[1234][uif][v]()-Methode"
 short-title: uniform[1234][uif][v]()
 slug: Web/API/WebGL2RenderingContext/uniform
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.uniform[1234][uif][v]()`**
-Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen die Werte von
-Uniform-Variablen fest.
+Die **`WebGL2RenderingContext.uniform[1234][uif][v]()`**-Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen die Werte der Uniform-Variablen fest.
 
-> **Note:** `ui` steht für _unsigned integer_, `i` für _integer_, `f` für _float_, und `v` für _vector_.
+> **Note:** `ui` steht für _unsigned integer_, `i` für _integer_, `f` für _float_ und `v` für _vector_.
 > Nicht alle Kombinationen sind gültig: `u` kann nicht mit `f` kombiniert werden.
-> Siehe die Syntax-Tabelle unten. Äquivalenter Regex: `uniform[1234](u?i|f)v?`
+> Siehe die Syntax-Tabelle unten. Entsprechender Regex: `uniform[1234](u?i|f)v?`
 
 ## Syntax
 
@@ -76,15 +74,15 @@ uniform4uiv(location, data, srcOffset, srcLength)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das den Ort des zu ändernden Uniform-Attributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position des zu ändernden Uniform-Attributs enthält.
 - `data`, `v0`, `v1`, `v2`, `v3`
 
   - : Ein neuer Wert, der für die Uniform-Variable verwendet werden soll. Mögliche Typen:
 
-    - Eine {{jsxref("Number")}} für unsigned integer Werte (Methoden mit
-      `ui`), für integer Werte (Methoden mit `i`), oder für floats
+    - Eine {{jsxref("Number")}} für unsigned Integer-Werte (Methoden mit
+      `ui`), Integer-Werte (Methoden mit `i`) oder für Floats
       (Methoden mit `f`).
-    - Eine {{jsxref("Uint32Array")}} für unsigned integer Vektormethoden (Methoden mit
+    - Ein {{jsxref("Uint32Array")}} für unsigned Integer-Vector-Methoden (Methoden mit
       `uiv`).
 
 ### Rückgabewert

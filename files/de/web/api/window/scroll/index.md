@@ -1,5 +1,5 @@
 ---
-title: "Window: scroll()-Methode"
+title: "Window: scroll() Methode"
 short-title: scroll()
 slug: Web/API/Window/scroll
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.scroll()`**-Methode scrollt das Fenster zu einer bestimmten Position im Dokument.
+Die **`Window.scroll()`**-Methode scrollt das Fenster zu einer bestimmten Stelle im Dokument.
 
 ## Syntax
 
@@ -30,9 +30,9 @@ scroll(options)
     - `left`
       - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder animiert fließend erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen sollte fließend animiert sein
-        - `instant`: Das Scrollen sollte sofort in einem Sprung erfolgen
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgen soll. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Das Scrollen sollte sanft animiert erfolgen
+        - `instant`: Das Scrollen sollte sofort in einem einzigen Sprung erfolgen
         - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
 
 ### Rückgabewert
@@ -61,7 +61,8 @@ window.scroll({
 
 [`Window.scrollTo()`](/de/docs/Web/API/Window/scrollTo) ist im Wesentlichen dasselbe wie diese Methode. Für relatives Scrollen siehe [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy), [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 
-Für das Scrollen von Elementen siehe [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft).
+Für das Scrollen von Elementen siehe [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und
+[`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft).
 
 ## Spezifikationen
 

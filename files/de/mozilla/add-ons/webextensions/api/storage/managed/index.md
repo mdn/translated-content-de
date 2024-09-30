@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("storage.StorageArea")}}-Objekt, das den `managed`-Speicherbereich darstellt. Elemente im `managed`-Speicher werden vom Domänenadministrator oder anderen nativen Anwendungen auf dem Computer des Benutzers festgelegt und sind für die Erweiterung schreibgeschützt. Der Versuch, diesen Speicherbereich zu ändern, führt zu einem Fehler.
+Ein {{WebExtAPIRef("storage.StorageArea")}} Objekt, das den `managed` Speicherbereich repräsentiert. Elemente im `managed` Speicher werden vom Domain-Administrator oder anderen nativen Anwendungen, die auf dem Computer des Benutzers installiert sind, festgelegt und sind für die Erweiterung schreibgeschützt. Versuche, diesen Speicherbereich zu ändern, führen zu einem Fehler.
 
 ## Bereitstellung von verwaltetem Speicher
 
-Das Verfahren zur Bereitstellung von verwaltetem Speicher variiert zwischen den Browsern. Für Chrome-Anweisungen lesen Sie den Artikel ["Manifest for storage areas"](https://developer.chrome.com/docs/extensions/reference/manifest/storage).
+Das Verfahren zur Bereitstellung von verwaltetem Speicher variiert zwischen den Browsern. Für Anweisungen zu Chrome siehe den Artikel ["Manifest für Speicherbereiche"](https://developer.chrome.com/docs/extensions/reference/manifest/storage).
 
-Für Firefox müssen Sie eine JSON-Manifestdatei in einem bestimmten Format und an einem bestimmten Ort erstellen. Details zur Manifest-Syntax und -Lage finden Sie unter [Native manifests](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests).
+Für Firefox müssen Sie eine JSON-Manifestdatei in einem bestimmten Format und Standort erstellen. Für die Details zur Manifestsyntax und zum Standort siehe [Native Manifeste](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests).
 
 Hier ist ein Beispielmanifest:
 
@@ -39,16 +39,16 @@ storageItem.then((res) => {
 
 ## Methoden
 
-Das `managed`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definierten Methoden:
+Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definierten Methoden:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.managed.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.managed.getBytesInUse()")}}
-  - : Ermittelt die Menge des genutzten Speicherplatzes (in Bytes) für ein oder mehrere Elemente im Speicherbereich.
+  - : Gibt den für ein oder mehrere Elemente im Speicherbereich genutzten Speicherplatz (in Bytes) zurück.
 
 ## Ereignisse
 
-Das `managed`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definierten Ereignisse:
+Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definierten Ereignisse:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.managed.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.
@@ -60,7 +60,7 @@ Das `managed`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.Stora
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-managed) API. Diese Dokumentation leitet sich von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-managed) API von Chromium. Diese Dokumentation leitet sich von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

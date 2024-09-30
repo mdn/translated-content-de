@@ -8,9 +8,13 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`disconnect()`**-Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle stoppt einen zuvor gestarteten Reporting-Observer von der Sammlung von Berichten.
+Die **`disconnect()`**-Methode der
+[`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle stoppt einen zuvor gestarteten Reporting-Observer, sodass er keine Berichte mehr sammelt.
 
-Nach dem Aufruf von `disconnect()` werden weder [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) noch der `records`-Parameter des [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Callbacks Berichte zurückgeben. Der zugehörige Observer wird nicht mehr aktiv sein.
+Nach dem Aufruf von `disconnect()` werden weder
+[`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) noch der `records`-Parameter des
+[`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)
+Callbacks irgendwelche Berichte zurückgeben. Der zugehörige Observer wird nicht mehr aktiv sein.
 
 ## Syntax
 
@@ -24,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

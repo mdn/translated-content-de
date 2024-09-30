@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`body`** schreibgeschützte Eigenschaft des [`Report`](/de/docs/Web/API/Report)-Interfaces gibt den Inhalt des Berichts zurück, der ein `ReportBody`-Objekt ist und die detaillierten Berichts-Informationen enthält.
+Die **`body`**-Eigenschaft der [`Report`](https://developer.mozilla.org/de/docs/Web/API/Report)-Schnittstelle, welche nur-lesen ist, gibt den Hauptteil des Berichts zurück, der ein `ReportBody`-Objekt mit den detaillierten Berichtsinformationen enthält.
 
 ## Wert
 
-Ein `ReportBody`-Objekt, das die detaillierten Berichts-Informationen enthält. Abhängig davon, welcher `type` der [`Report`](/de/docs/Web/API/Report) ist, wird das zurückgegebene Objekt tatsächlich ein [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody), [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) oder [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) sein. Diese alle erben von der grundlegenden `ReportBody`-Klasse — studieren Sie deren Referenzseiten, um mehr über den Inhalt der spezifischen Berichtskörpertypen zu erfahren.
+Ein `ReportBody`-Objekt, das die detaillierten Berichtsinformationen enthält. Abhängig davon, welchen `type` der [`Report`](https://developer.mozilla.org/de/docs/Web/API/Report) hat, wird das zurückgegebene Objekt tatsächlich ein
+[`DeprecationReportBody`](https://developer.mozilla.org/de/docs/Web/API/DeprecationReportBody), [`InterventionReportBody`](https://developer.mozilla.org/de/docs/Web/API/InterventionReportBody) oder
+[`CSPViolationReportBody`](https://developer.mozilla.org/de/docs/Web/API/CSPViolationReportBody) sein.
+Diese alle erben von der Basisklasse `ReportBody` — studieren Sie ihre Referenzseiten für weitere Informationen darüber, was die speziellen Berichts-Haupttypen enthalten.
 
 ## Beispiele
 
@@ -38,4 +41,4 @@ const observer = new ReportingObserver(([firstReport], observer) => {
 
 ## Siehe auch
 
-- [Reporting API](/de/docs/Web/API/Reporting_API)
+- [Reporting API](https://developer.mozilla.org/de/docs/Web/API/Reporting_API)

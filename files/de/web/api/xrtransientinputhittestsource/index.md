@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Das **`XRTransientInputHitTestSource`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) behandelt transiente Eingabe-Treffer-Test-Abonnements. Sie können ein `XRTransientInputHitTestSource`-Objekt erhalten, indem Sie die Methode [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) aufrufen.
+Das **`XRTransientInputHitTestSource`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwaltet flüchtige Eingabe-Hittests-Abonnements. Sie können ein `XRTransientInputHitTestSource`-Objekt erhalten, indem Sie [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) aufrufen.
 
-Dieses Objekt enthält selbst keine transienten Eingabe-Treffer-Testergebnisse, sondern wird verwendet, um Treffer-Tests für jedes [`XRFrame`](/de/docs/Web/API/XRFrame) zu berechnen, indem [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufgerufen wird, was [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)-Objekte zurückgibt.
+Dieses Objekt selbst enthält keine flüchtigen Eingabe-Hittest-Ergebnisse, sondern es wird verwendet, um für jedes [`XRFrame`](/de/docs/Web/API/XRFrame) Hittests zu berechnen, indem [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) aufgerufen wird, was [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)-Objekte zurückgibt.
 
 ## Instanz-Eigenschaften
 
@@ -18,13 +18,13 @@ Keine.
 ## Instanz-Methoden
 
 - [`XRTransientInputHitTestSource.cancel()`](/de/docs/Web/API/XRTransientInputHitTestSource/cancel) {{Experimental_Inline}}
-  - : Kündigt das Abonnement für den transienten Eingabe-Treffer-Test.
+  - : Kündigt das Abonnement für den flüchtigen Eingabe-Hittest.
 
 ## Beispiele
 
-### Ein `XRTransientInputHitTestSource`-Objekt für eine Sitzung erhalten
+### Erhalten eines `XRTransientInputHitTestSource`-Objekts für eine Sitzung
 
-Verwenden Sie die Methode [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput), um eine Quelle für transiente Eingabe-Treffer-Tests zu erhalten.
+Verwenden Sie die Methode [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput), um eine Quelle für flüchtige Eingabe-Hittests zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -52,9 +52,9 @@ function onXRFrame(time, xrFrame) {
 }
 ```
 
-### Vom transienten Eingabe-Treffer-Test abmelden
+### Abbestellen eines flüchtigen Eingabe-Hittests
 
-Um sich von einer Quelle für transiente Eingabe-Treffer-Tests abzumelden, verwenden Sie die Methode [`XRTransientInputHitTestSource.cancel()`](/de/docs/Web/API/XRTransientInputHitTestSource/cancel). Da das Objekt nicht mehr nutzbar sein wird, können Sie es bereinigen und das `XRTransientInputHitTestSource`-Objekt auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
+Um ein Abonnement für eine flüchtige Eingabe-Hittest-Quelle zu kündigen, verwenden Sie die Methode [`XRTransientInputHitTestSource.cancel()`](/de/docs/Web/API/XRTransientInputHitTestSource/cancel). Da das Objekt danach nicht mehr nutzbar ist, können Sie bereinigen und das `XRTransientInputHitTestSource`-Objekt auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
 
 ```js
 transientHitTestSource.cancel();

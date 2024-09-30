@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft `angularVelocity` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Bogenmaß pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt.
+Die schreibgeschützte Eigenschaft `angularVelocity` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Radianten pro Sekunde relativ zur Basis-<code>XRSpace</code> beschreibt.
 
 ## Wert
 
-Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Bogenmaß pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzeragent diesen Wert nicht bereitstellen kann.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Radianten pro Sekunde relativ zur Basis-<code>XRSpace</code> beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzeragent diesen Wert nicht bereitstellen kann.
 
 ## Spezifikationen
 

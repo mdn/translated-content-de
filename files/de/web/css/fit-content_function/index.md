@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) begrenzt eine angegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximum size, max(minimum size, argument))`.
+Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) begrenzt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximale Größe, max(minimale Größe, Argument))`.
 
 {{EmbedInteractiveExample("pages/css/function-fit-content.html")}}
 
-Die Funktion kann als Spurgröße in [CSS gitter](/de/docs/Web/CSS/CSS_grid_layout) Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert wird. Diese wird ähnlich wie `auto` berechnet (d.h. [`minmax(auto, max-content)`](/de/docs/Web/CSS/minmax)), außer dass die Spurgröße bei _argument_ begrenzt wird, wenn sie größer als das `auto`-Minimum ist.
+Die Funktion kann als Spurengröße in [CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout)-Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert ist. Dies wird ähnlich wie `auto` berechnet (d.h. [`minmax(auto, max-content)`](/de/docs/Web/CSS/minmax)), außer dass die Spurengröße auf das _Argument_ begrenzt ist, wenn es größer ist als das `auto`-Minimum.
 
 Weitere Informationen zu den Schlüsselwörtern `max-content` und `auto` finden Sie auf der Seite {{cssxref("grid-template-columns")}}.
 
-Die Funktion `fit-content()` kann auch als festgelegte Boxgröße für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet werden, wobei sich die maximalen und minimalen Größen auf die Inhaltsgröße beziehen.
+Die `fit-content()`-Funktion kann auch als ausgelegte Box-Größe für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet werden, wobei sich die maximalen und minimalen Größen auf die Inhaltsgröße beziehen.
 
 ## Syntax
 
-Die Funktion `fit-content()` akzeptiert `<length>` oder `<percentage>` als Argument.
+Die `fit-content()`-Funktion akzeptiert eine `<length>` oder einen `<percentage>` als Argument.
 
 ```css
 /* <length> values */
@@ -38,13 +38,13 @@ fit-content(40%)
   - : Eine absolute Länge.
 - {{cssxref("&lt;percentage&gt;")}}
 
-  - : Ein Prozentsatz relativ zum verfügbaren Platz in der gegebenen Achse.
+  - : Ein prozentualer Anteil relativ zum verfügbaren Raum in der gegebenen Achse.
 
-    In Gitter-Eigenschaften bezieht es sich auf die Inline-Größe des Gittercontainers in Spuren und auf die Blockgröße des Gittercontainers für Zeilenspuren. Andernfalls bezieht es sich auf die verfügbare Inline-Größe oder Blockgröße der festgelegten Box, abhängig vom Schreibmodus.
+    Bei Gridir Eigenschaften bezieht es sich auf die Inline-Größe des Grid-Containers in Spuren und auf die Blockgröße des Grid-Containers für Zeilenspuren. Andernfalls bezieht es sich auf die verfügbare Inline-Größe oder Blockgröße der ausgelegten Box, abhängig vom Schreibmodus.
 
 ## Beispiele
 
-### Größe von Gitterspalten mit fit-content
+### Größenanpassung von Gittern in Spalten mit fit-content
 
 #### HTML
 
@@ -103,5 +103,5 @@ fit-content(40%)
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Zeilenbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Gittervorlagenbereiche: Gitterdefinitions-Kurzformate](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Linienbasierte Positionierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid-Template-Bereiche: Grid-Definitions-Verkürzungen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)

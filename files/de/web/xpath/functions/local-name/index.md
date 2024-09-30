@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `local-name` gibt einen String zurück, der den lokalen Namen des ersten Knotens in einer gegebenen Knotenmengen darstellt.
+Die Funktion `local-name` gibt einen String zurück, der den lokalen Namen des ersten Knotens in einer gegebenen Knotengruppe darstellt.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ local-name( [node-set] )
 ### Parameter
 
 - `node-set` (optional)
-  - : Der lokale Name des ersten Knotens in dieser Knotenmengen wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
+  - : Der lokale Name des ersten Knotens in dieser Knotengruppe wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
 
 ### Rückgabewert
 
@@ -26,7 +26,7 @@ Ein String.
 
 ## Beschreibung
 
-- Der lokale Name ist der lokale Teil eines [expanded-name](https://www.w3.org/TR/xpath/#dt-expanded-name).
+- Der lokale Name ist der lokale Teil eines [erweiterten Namens](https://www.w3.org/TR/xpath/#dt-expanded-name).
 
 ## Spezifikationen
 

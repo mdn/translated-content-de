@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`protocol`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`protocol`](/de/docs/Web/API/URL/protocol)-Teil des Standortes des Workers zurück.
+Die **`protocol`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`protocol`](/de/docs/Web/API/URL/protocol)-Teil des Standorts des Workers zurück.
 
 ## Wert
 

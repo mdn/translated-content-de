@@ -7,21 +7,21 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`DocumentTimeline`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationstimeline, einschließlich der Standard-Dokument-Timeline (zugänglich über [`Document.timeline`](/de/docs/Web/API/Document/timeline)).
+Das **`DocumentTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationszeitleisten, einschließlich der standardmäßigen Dokumentzeitleiste (zugreifbar über [`Document.timeline`](/de/docs/Web/API/Document/timeline)).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`DocumentTimeline()`](/de/docs/Web/API/DocumentTimeline/DocumentTimeline)
-  - : Erstellt ein neues `DocumentTimeline`-Objekt, das mit dem aktiven Dokument des aktuellen Browsing-Kontextes verbunden ist.
+  - : Erstellt ein neues `DocumentTimeline`-Objekt, das dem aktiven Dokument des aktuellen Browsing-Kontextes zugeordnet ist.
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt ihre Eigenschaft von ihrem übergeordneten Element, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
+_Dieses Interface erbt seine Eigenschaft von seinem Elternteil, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
 
 - [`AnimationTimeline.currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime)
-  - : Gibt den Zeitwert in Millisekunden für diese Timeline zurück oder `null`, wenn sie inaktiv ist.
+  - : Gibt den Zeitwert in Millisekunden für diese Zeitleiste zurück oder `null`, wenn sie inaktiv ist.
 
 ## Spezifikationen
 

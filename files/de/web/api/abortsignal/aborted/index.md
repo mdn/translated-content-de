@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`aborted`** gibt einen Wert zurück, der angibt, ob die asynchronen Operationen, mit denen das Signal kommuniziert, abgebrochen wurden (`true`) oder nicht (`false`).
+Die **`aborted`**-Eigenschaft (nur lesbar) gibt einen Wert zurück, der angibt, ob die asynchronen Operationen, mit denen das Signal kommuniziert, abgebrochen sind (`true`) oder nicht (`false`).
 
 ## Wert
 
@@ -16,8 +16,7 @@ Die schreibgeschützte Eigenschaft **`aborted`** gibt einen Wert zurück, der an
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft).
-Später prüfen wir mit der Eigenschaft `aborted`, ob das Signal abgebrochen wurde oder nicht, und senden eine entsprechende Meldung an die Konsole.
+Im folgenden Beispiel erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft). Später überprüfen wir mit der `aborted`-Eigenschaft, ob das Signal abgebrochen wurde, und senden eine entsprechende Meldung an die Konsole.
 
 ```js
 const controller = new AbortController();

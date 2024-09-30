@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode getIdentityAssertion()"
+title: "RTCPeerConnection: getIdentityAssertion()-Methode"
 short-title: getIdentityAssertion()
 slug: Web/API/RTCPeerConnection/getIdentityAssertion
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getIdentityAssertion()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert das Sammeln einer Identitätsbestätigung.
-Dies hat nur eine Wirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
+Die **`getIdentityAssertion()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces initiiert das Sammeln eines Identitätsnachweises.
+Dies hat nur eine Auswirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
 
-Die Methode gibt ein JavaScript-{{jsxref("Promise")}} zurück, das zu einer als Zeichenkette codierten Identitätsbestätigung aufgelöst wird.
+Die Methode gibt ein JavaScript {{jsxref("Promise")}} zurück, das zu einem als String codierten Identitätsnachweis aufgelöst wird.
 
-Es wird nicht erwartet, dass die Anwendung, die sich mit der `RTCPeerConnection` befasst, dies manuell durchführt; ein expliziter Aufruf ermöglicht lediglich, den Bedarf vorwegzunehmen.
+Es wird nicht erwartet, dass die Anwendung, die mit der `RTCPeerConnection` arbeitet, dies ausführt: dies geschieht automatisch; ein expliziter Aufruf erlaubt nur, den Bedarf vorherzusehen.
 
 ## Syntax
 

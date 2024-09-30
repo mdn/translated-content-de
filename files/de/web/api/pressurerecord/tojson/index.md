@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`toJSON()`**-Methode ist ein [Serializer](/de/docs/Glossary/Serialization) und gibt eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
+Die **`toJSON()`**-Methode ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts ist.
 
 ## Beispiele
 
-### Verwendung der `toJSON`-Methode
+### Die `toJSON`-Methode verwenden
 
 In diesem Beispiel gibt der Aufruf von `lastRecord.toJSON()` eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
 

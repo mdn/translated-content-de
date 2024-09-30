@@ -7,38 +7,35 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.Memory`**-Objekt ist ein skalierbarer {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der rohe Bytes von Speicher hält, auf die von einer [`WebAssembly.Instance`](/de/docs/WebAssembly/JavaScript_interface/Instance) zugegriffen wird.
+Das **`WebAssembly.Memory`** Objekt ist ein anpassbarer {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der rohe Bytes des Speichers enthält, auf die von einer [`WebAssembly.Instance`](/de/docs/WebAssembly/JavaScript_interface/Instance) zugegriffen wird.
 
-Sowohl WebAssembly als auch JavaScript können `Memory`-Objekte erstellen.
-Wenn Sie auf den Speicher zugreifen möchten, der in JS von WebAssembly erstellt wurde, oder umgekehrt, können Sie den Speicher vom Modul nach JavaScript exportieren oder Speicher von JavaScript zum Modul importieren, wenn es [instanziiert](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) wird.
+Sowohl WebAssembly als auch JavaScript können `Memory`-Objekte erstellen. Wenn Sie auf den Speicher zugreifen möchten, der in JS von WebAssembly erstellt wurde oder umgekehrt, können Sie den Speicher aus dem Modul nach JavaScript exportieren oder Speicher aus JavaScript in das Modul importieren, wenn es [instanziiert](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) wird.
 
-Ursprünglich konnte man Speicheroperationen nur auf einem einzelnen Speicher im Wasm-Modul ausführen, sodass es keinen Sinn machte, mehrere `Memory`-Objekte zu erstellen.
-Neuere Implementierungen erlauben es WebAssembly, [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) auf einen bestimmten Speicher anzuwenden.
-Weitere Informationen finden Sie unter [Mehrere Speicher](/de/docs/WebAssembly/Understanding_the_text_format#multiple_memories) im Abschnitt _Understanding WebAssembly text format_.
+Ursprünglich konnten Sie Speicheroperationen nur auf einen einzelnen Speicher im Wasm-Modul ausführen. Obwohl mehrere `Memory`-Objekte erstellt werden konnten, machte es keinen Sinn, dies zu tun. Neuere Implementierungen ermöglichen es WebAssembly-[Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) auf einen bestimmten Speicher zuzugreifen. Weitere Informationen finden Sie unter [Mehrere Speicher](/de/docs/WebAssembly/Understanding_the_text_format#multiple_memories) im Abschnitt _Verstehen des WebAssembly-Textformats_.
 
 > [!NOTE]
-> WebAssembly-Speicher hat immer das Little-Endian-Format, unabhängig von der Plattform, auf der es ausgeführt wird. Daher sollten Sie für Portabilität mehrbyteige Werte in JavaScript mit {{jsxref("DataView")}} lesen und schreiben.
+> WebAssembly-Speicher ist immer im Little-Endian-Format, unabhängig von der Plattform, auf der es läuft. Daher sollten Sie Mehrbyte-Werte in JavaScript mit {{jsxref("DataView")}} lesen und schreiben, um die Portabilität zu gewährleisten.
 
 ## Konstruktor
 
 - [`WebAssembly.Memory()`](/de/docs/WebAssembly/JavaScript_interface/Memory/Memory)
-  - : Erstellt ein neues `Memory`-Objekt.
+  - : Erzeugt ein neues `Memory`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`Memory.prototype.buffer`](/de/docs/WebAssembly/JavaScript_interface/Memory/buffer) {{ReadOnlyInline}}
   - : Gibt den im Speicher enthaltenen Puffer zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`Memory.prototype.grow()`](/de/docs/WebAssembly/JavaScript_interface/Memory/grow)
-  - : Erhöht die Größe der Speicher-Instanz um eine angegebene Anzahl von WebAssembly-Seiten (jede hat eine Größe von 64KiB). Trennt den vorherigen `buffer`.
+  - : Erhöht die Größe der Speicherinstanz um eine angegebene Anzahl von WebAssembly-Seiten (jede ist 64KiB groß). Trennt den vorherigen `buffer`.
 
 ## Beispiele
 
 ### Erstellen eines neuen Memory-Objekts
 
-Es gibt zwei Möglichkeiten, ein `WebAssembly.Memory`-Objekt zu erhalten. Die erste Möglichkeit ist, es aus JavaScript zu konstruieren. Das folgende Beispiel erstellt eine neue WebAssembly-Memory-Instanz mit einer Anfangsgröße von 10 Seiten (640KiB) und einer Maximalgröße von 100 Seiten (6,4MiB). Seine [`buffer`](/de/docs/WebAssembly/JavaScript_interface/Memory/buffer)-Eigenschaft wird einen {{jsxref("ArrayBuffer")}} zurückgeben.
+Es gibt zwei Möglichkeiten, ein `WebAssembly.Memory`-Objekt zu erhalten. Die erste Möglichkeit besteht darin, es aus JavaScript zu konstruieren. Das folgende Beispiel erzeugt eine neue WebAssembly Memory-Instanz mit einer anfänglichen Größe von 10 Seiten (640KiB) und einer maximalen Größe von 100 Seiten (6,4MiB). Die [`buffer`](/de/docs/WebAssembly/JavaScript_interface/Memory/buffer) Eigenschaft gibt einen {{jsxref("ArrayBuffer")}} zurück.
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -47,7 +44,7 @@ const memory = new WebAssembly.Memory({
 });
 ```
 
-Das folgende Beispiel (siehe [memory.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/memory.html) auf GitHub, und [sehen Sie es sich auch live an](https://mdn.github.io/webassembly-examples/js-api-examples/memory.html)) lädt und instanziiert den geladenen "memory.wasm"-Bytecode mithilfe der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), während der in der obigen Zeile erstellte Speicher importiert wird. Anschließend speichert es einige Werte in diesem Speicher, exportiert eine Funktion und verwendet die exportierte Funktion, um diese Werte zu summieren. Beachten Sie die Verwendung von {{jsxref("DataView")}} zum Zugriff auf den Speicher, sodass wir immer das Little-Endian-Format verwenden.
+Das folgende Beispiel (siehe [memory.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/memory.html) auf GitHub, und [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/memory.html)) lädt und instanziiert den geladenen "memory.wasm"-Bytecode mit der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), während der im obigen Schritt erstellte Speicher importiert wird. Es speichert dann einige Werte in diesem Speicher, exportiert eine Funktion und verwendet die exportierte Funktion, um diese Werte zu summieren. Beachten Sie die Verwendung von {{jsxref("DataView")}}, um auf den Speicher zuzugreifen, sodass stets das Little-Endian-Format verwendet wird.
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -67,7 +64,7 @@ WebAssembly.instantiateStreaming(fetch("memory.wasm"), {
 });
 ```
 
-Eine andere Möglichkeit, ein `WebAssembly.Memory`-Objekt zu erhalten, besteht darin, es von einem WebAssembly-Modul exportieren zu lassen. Dieser Speicher kann in der `exports`-Eigenschaft der WebAssembly-Instanz (nachdem der Speicher innerhalb des WebAssembly-Moduls exportiert wurde) zugegriffen werden. Das folgende Beispiel importiert einen aus WebAssembly exportierten Speicher mit dem Namen `memory` und gibt dann das erste Element des Speichers aus, interpretiert als {{jsxref("Uint32Array")}}.
+Eine andere Möglichkeit, ein `WebAssembly.Memory`-Objekt zu erhalten, besteht darin, es von einem WebAssembly-Modul exportieren zu lassen. Dieser Speicher kann in der Eigenschaft `exports` der WebAssembly-Instanz zugegriffen werden (nachdem der Speicher im WebAssembly-Modul exportiert wurde). Das folgende Beispiel importiert einen Speicher, der aus WebAssembly mit dem Namen `memory` exportiert wurde, und gibt dann das erste Element des Speichers als {{jsxref("Uint32Array")}} interpretiert aus.
 
 ```js
 WebAssembly.instantiateStreaming(fetch("memory.wasm")).then((obj) => {
@@ -76,9 +73,9 @@ WebAssembly.instantiateStreaming(fetch("memory.wasm")).then((obj) => {
 });
 ```
 
-### Erstellen eines geteilten Speichers
+### Erstellen eines gemeinsamen Speichers
 
-Standardmäßig sind WebAssembly-Speicher ungeteilt. Sie können einen [gemeinsamen Speicher](/de/docs/WebAssembly/Understanding_the_text_format#shared_memories) aus JavaScript erstellen, indem Sie `shared: true` im Initialisierungsobjekt des Konstruktors übergeben:
+Standardmäßig sind WebAssembly-Speicher nicht gemeinsam genutzt. Sie können einen [gemeinsamen Speicher](/de/docs/WebAssembly/Understanding_the_text_format#shared_memories) aus JavaScript erstellen, indem Sie `shared: true` im Initialisierungsobjekt des Konstruktors übergeben:
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -100,6 +97,6 @@ Die `buffer`-Eigenschaft dieses Speichers gibt einen {{jsxref("SharedArrayBuffer
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [WebAssembly](/de/docs/WebAssembly) Überblicksseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Die WebAssembly JavaScript API verwenden](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

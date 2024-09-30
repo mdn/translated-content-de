@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`activeElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element innerhalb des Schattenbaums zurück, das den Fokus hat.
+Die **`activeElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element innerhalb des Schattenbaums zurück, das den Fokus hat.
 
 ## Wert
 
-Das [`Element`](/de/docs/Web/API/Element), welches derzeit den Fokus hat, oder `null`, wenn kein Element fokussiert ist.
+Das [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat, oder `null`, wenn es kein fokussiertes Element gibt.
 
 ## Beispiele
 

@@ -23,10 +23,7 @@ add(item, before)
   - : Ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) oder
     [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)
 - `before` {{optional_inline}}
-  - : Ein Element der Sammlung oder ein Index vom Typ
-    _long_, der angibt, vor welchem _item_ das neue Element eingefügt werden soll. Wenn dieser
-    Parameter `null` ist (oder der Index nicht existiert), wird das neue Element
-    am Ende der Sammlung angehängt.
+  - : Ein Element der Sammlung oder ein Index vom Typ _long_, vor welchem der _item_ eingefügt werden soll. Wenn dieser Parameter `null` ist (oder der Index nicht existiert), wird das neue Element am Ende der Sammlung angehängt.
 
 ### Rückgabewert
 
@@ -35,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das an die Methode übergebene _item_ ein Vorfahre des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) ist.
+  - : Ausgelöst, wenn das _item_, das an die Methode übergeben wird, ein Vorfahre des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) ist.
 
 ## Beispiele
 
@@ -65,7 +62,7 @@ sel.add(opt2, null);
 */
 ```
 
-Der `before`-Parameter ist optional. Daher wird Folgendes akzeptiert.
+Der before-Parameter ist optional. Daher ist Folgendes akzeptiert.
 
 ```js
 sel.add(opt1);
@@ -101,7 +98,7 @@ sel.add(opt, null);
 */
 ```
 
-Der `before`-Parameter ist optional. Daher wird Folgendes akzeptiert.
+Der before-Parameter ist optional. Daher ist Folgendes akzeptiert.
 
 ```js
 sel.add(opt);

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`bold()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("b")}}-Element (`<b>str</b>`) einbettet, wodurch dieser String fett angezeigt wird.
+Die **`bold()`**-Methode von {{jsxref("String")}}-Werten erzeugt eine Zeichenkette, die diese Zeichenkette in ein {{HTMLElement("b")}}-Element (`<b>str</b>`) einbettet, was dazu führt, dass diese Zeichenkette fett angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<b>`-Start-Tag beginnt, dann den Text `str` und dann ein `</b>`-End-Tag enthält.
+Eine Zeichenkette, die mit einem `<b>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</b>`-End-Tag endet.
 
 ## Beispiele
 
 ### Verwendung von bold()
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erzeugt eine HTML-Zeichenkette und ersetzt dann den Inhalt des Dokumentkörpers damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,13 +38,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.bold();
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erzeugt das folgende HTML:
 
 ```html
 <b>Hello, world</b>
 ```
 
-Anstatt `bold()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Anstatt `bold()` zu verwenden und HTML-Text direkt zu erzeugen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

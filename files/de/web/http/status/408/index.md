@@ -7,12 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`408 Request Timeout`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server diese ungenutzte Verbindung schließen möchte.
-Ein `408` wird von einigen Servern auf einer inaktiven Verbindung gesendet, _selbst ohne vorherige Anfrage durch den Client_.
+Der HTTP-Statuscode **`408 Request Timeout`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server diese ungenutzte Verbindung schließen möchte. Ein `408` wird auf einer Leerlaufverbindung von einigen Servern gesendet, _selbst ohne vorherige Anfrage des Clients_.
 
-Ein Server sollte das {{HTTPHeader("Connection", "Connection: close")}} Header-Feld in der Antwort senden, da `408` impliziert, dass der Server entschieden hat, die Verbindung zu schließen, anstatt weiter zu warten.
+Ein Server sollte das Header-Feld {{HTTPHeader("Connection", "Connection: close")}} in der Antwort senden, da `408` impliziert, dass der Server entschieden hat, die Verbindung zu schließen, anstatt weiter zu warten.
 
-Diese Antwort wird viel häufiger genutzt, seit einige Browser, wie Chrome und Firefox, HTTP-Vorverbindungsmechanismen verwenden, um das Surfen zu beschleunigen.
+Diese Antwort wird häufiger verwendet, da einige Browser, wie Chrome und Firefox, HTTP-Vorverbindungsmechanismen nutzen, um das Surfen zu beschleunigen.
 
 > [!NOTE]
 > Einige Server werden eine Verbindung schließen, ohne diese Nachricht zu senden.
@@ -27,7 +26,7 @@ Diese Antwort wird viel häufiger genutzt, seit einige Browser, wie Chrome und F
 
 ### Timeout bei der Formularübermittlung
 
-Das folgende Beispiel zeigt, was ein Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element beim Übermitteln eines Formulars mit `method="post"` ein Bild verwendet:
+Das folgende Beispiel zeigt, was ein Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` verwendet:
 
 ```http
 POST /upload HTTP/1.1
@@ -43,8 +42,7 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Wenn die Daten aufgrund von Netzwerkproblemen oder Latenz nicht vollständig empfangen werden, kann der Server die Verbindung wegen Zeitüberschreitung beenden.
-Clients können die Anfrage erneut senden, und es wird eine neue Verbindung verwendet:
+Wenn die Daten aufgrund von Netzwerkproblemen oder Latenz nicht vollständig empfangen werden, kann der Server die Verbindung wegen Zeitüberschreitung beenden. Clients können die Anfrage erneut senden, und es wird eine neue Verbindung verwendet:
 
 ```http
 HTTP/1.1 408 Request Timeout

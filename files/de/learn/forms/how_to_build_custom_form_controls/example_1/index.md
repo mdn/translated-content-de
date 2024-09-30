@@ -281,7 +281,7 @@ Dies ist das erste Codebeispiel, das erklärt, [wie man ein benutzerdefiniertes 
 
 {{ EmbedLiveSample('Active_state', 120, 130) }}
 
-## Geöffneter Zustand
+## Offener Zustand
 
 ### HTML
 
@@ -413,6 +413,6 @@ Dies ist das erste Codebeispiel, das erklärt, [wie man ein benutzerdefiniertes 
 }
 ```
 
-### Ergebnis für den geöffneten Zustand
+### Ergebnis für den offenen Zustand
 
 {{ EmbedLiveSample('Open_state', 120, 130) }}

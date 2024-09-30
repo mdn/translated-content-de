@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`pow()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die den Wert einer Basis berechnet, der auf die Potenz einer Zahl erhöht wird.
+Die **`pow()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die den Wert einer Basis, die auf die Potenz einer Zahl erhoben wird, zurückgibt.
 
-Die {{CSSxRef("exp")}} Funktion ist ein Spezialfall von `pow()`, bei dem der Wert der Basis die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist.
+Die {{CSSxRef("exp")}} Funktion ist ein Sonderfall von `pow()`, bei dem der Wert der Basis die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ width: calc(10px * pow(2, 10)); /* 10px * 1024 = 10240px */
 
 ### Parameter
 
-Die `pow(base, number)` Funktion akzeptiert zwei durch Kommas getrennte Werte als ihre Parameter.
+Die Funktion `pow(base, number)` akzeptiert zwei durch Komma getrennte Werte als Parameter.
 
 - `base`
-  - : Eine Berechnung, die zu einer {{CSSxRef("&lt;number&gt;")}} aufgelöst wird, welches die Basis darstellt.
+  - : Eine Berechnung, die sich zu einer {{CSSxRef("&lt;number&gt;")}} auflöst und die Basis darstellt.
 - `number`
-  - : Eine Berechnung, die zu einer {{CSSxRef("&lt;number&gt;")}} aufgelöst wird, welches den Exponenten darstellt.
+  - : Eine Berechnung, die sich zu einer {{CSSxRef("&lt;number&gt;")}} auflöst und den Exponenten darstellt.
 
 ### Rückgabewert
 
-Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darstellt, das heißt, `base` erhöht auf die Potenz von `number`.
+Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darstellt, also die `base`, die auf die Potenz von `number` erhoben wird.
 
 ## Formale Syntax
 
@@ -39,9 +39,9 @@ Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darst
 
 ## Beispiele
 
-### Überschriften mit festem Verhältnis skalieren
+### Überschriften nach festem Verhältnis skalieren
 
-Die `pow()` Funktion kann nützlich für Strategien wie CSS Modular Scale sein, welches alle Schriftgrößen auf einer Seite durch ein festes Verhältnis miteinander verbindet.
+Die `pow()` Funktion kann für Strategien wie die CSS Modular Scale nützlich sein, die alle Schriftgrößen auf einer Seite durch ein festes Verhältnis miteinander verbindet.
 
 #### HTML
 

@@ -1,5 +1,5 @@
 ---
-title: MIME types (IANA Medientypen)
+title: MIME-Typen (IANA-Medientypen)
 slug: Web/HTTP/Basics_of_HTTP/MIME_types
 l10n:
   sourceCommit: ef46a4ac6bfec3e33c9209244e7cb1a9206165d6
@@ -7,111 +7,114 @@ l10n:
 
 {{HTTPSidebar}}
 
-Ein **Medientyp** (auch bekannt als **Multipurpose Internet Mail Extensions oder MIME-Typ**) gibt die Art und das Format eines Dokuments, einer Datei oder einer Sammlung von Bytes an. MIME-Typen sind im IETF {{RFC(6838)}} definiert und standardisiert.
+Ein **Medientyp** (auch bekannt als **Multipurpose Internet Mail Extensions oder MIME-Typ**) zeigt die Art und das Format eines Dokuments, einer Datei oder einer Anordnung von Bytes an. MIME-Typen sind in IETF's {{RFC(6838)}} definiert und standardisiert.
 
-Die [Internet Assigned Numbers Authority (IANA)](https://www.iana.org/) ist für alle offiziellen MIME-Typen verantwortlich, und Sie können die aktuellste und vollständigste Liste auf deren [Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml) Seite finden.
+Die [Internet Assigned Numbers Authority (IANA)](https://www.iana.org/) ist für alle offiziellen MIME-Typen verantwortlich, und Sie finden die aktuellste und vollständige Liste auf ihrer [Medientypen-Seite](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 > [!WARNING]
-> Browser verwenden den MIME-Typ, _nicht die Dateierweiterung_, um zu bestimmen, wie eine URL verarbeitet werden soll, daher ist es wichtig, dass Webserver den korrekten MIME-Typ im {{HTTPHeader("Content-Type")}}-Header der Antwort senden. Wenn dies nicht korrekt konfiguriert ist, werden Browser wahrscheinlich die Inhalte von Dateien falsch interpretieren, Websites funktionieren nicht richtig, und heruntergeladene Dateien können falsch behandelt werden.
+> Browser verwenden den MIME-Typ, _nicht die Dateierweiterung_, um zu bestimmen, wie eine URL verarbeitet wird,
+> daher ist es wichtig, dass Webserver den korrekten MIME-Typ im {{HTTPHeader("Content-Type")}}-Header der Antwort senden.
+> Wenn dies nicht korrekt konfiguriert ist, werden Browser die Inhalte von Dateien wahrscheinlich falsch interpretieren, Websites funktionieren nicht korrekt und heruntergeladene Dateien werden möglicherweise falsch behandelt.
 
 ## Struktur eines MIME-Typs
 
-Ein MIME-Typ besteht normalerweise aus zwei Teilen: einem _Typ_ und einem _Subtyp_, getrennt durch einen Schrägstrich (`/`) — ohne Leerzeichen dazwischen:
+Ein MIME-Typ besteht meistens aus zwei Teilen: einem _Typ_ und einem _Subtyp_, getrennt durch einen Schrägstrich (`/`) — ohne Leerzeichen dazwischen:
 
 ```plain
 type/subtype
 ```
 
-Der **_Typ_** repräsentiert die allgemeine Kategorie, in die der Datentyp fällt, etwa `video` oder `text`.
+Der **_type_** repräsentiert die allgemeine Kategorie, in die der Datentyp fällt, wie `video` oder `text`.
 
-Der **_Subtyp_** identifiziert die genaue Art der Daten des angegebenen Typs, die der MIME-Typ darstellt. Zum Beispiel könnte für den MIME-Typ `text` der Subtyp `plain` (reintext), `html` ([HTML](/de/docs/Glossary/HTML)-Quellcode) oder `calendar` (für iCalendar/`.ics`-Dateien) sein.
+Der **_subtype_** identifiziert die genaue Art der Daten des angegebenen Typs, die der MIME-Typ repräsentiert. Zum Beispiel könnte für den MIME-Typ `text` der Subtyp `plain` (Klartext), `html` ([HTML](/de/docs/Glossary/HTML) Quellcode) oder `calendar` (für iCalendar/`.ics`) Dateien sein.
 
 Jeder Typ hat seine eigene Reihe möglicher Subtypen. Ein MIME-Typ hat immer sowohl einen Typ als auch einen Subtyp, niemals nur einen von beiden.
 
-Ein optionaler **Parameter** kann hinzugefügt werden, um weitere Details bereitzustellen:
+Ein optionaler **Parameter** kann hinzugefügt werden, um zusätzliche Details bereitzustellen:
 
 ```plain
 type/subtype;parameter=value
 ```
 
-Zum Beispiel kann für einen MIME-Typ, dessen Haupttyp `text` ist, der optionale Parameter `charset` hinzugefügt werden, um den Zeichensatz anzugeben, der für die Zeichen in den Daten verwendet wird. Wenn kein `charset` angegeben ist, wird standardmäßig [ASCII](/de/docs/Glossary/ASCII) (`US-ASCII`) verwendet, sofern dies nicht von den Einstellungen des [User-Agents](/de/docs/Glossary/user_agent) überschrieben wird. Um eine UTF-8-Textdatei zu spezifizieren, wird der MIME-Typ `text/plain;charset=UTF-8` verwendet.
+Zum Beispiel kann für jeden MIME-Typ, dessen Haupttyp `text` ist, der optionale `charset` Parameter hinzugefügt werden, um den Zeichensatz anzugeben, der für die Zeichen in den Daten verwendet wird. Wenn kein `charset` angegeben ist, ist der Standardwert [ASCII](/de/docs/Glossary/ASCII) (`US-ASCII`), es sei denn, er wird durch die Einstellungen des [User-Agents](/de/docs/Glossary/user_agent) überschrieben. Um eine UTF-8-Textdatei anzugeben, wird der MIME-Typ `text/plain;charset=UTF-8` verwendet.
 
-MIME-Typen sind nicht zwischen Groß- und Kleinschreibung empfindlich, werden aber traditionell in Kleinbuchstaben geschrieben. Die Parameterwerte können zwischen Groß- und Kleinschreibung empfindlich sein.
+MIME-Typen sind nicht case-sensitiv, werden aber traditionell in Kleinbuchstaben geschrieben. Die Parameterwerte können case-sensitiv sein.
 
 ### Typen
 
-Es gibt zwei Klassen von Typen: **diskrete** und **multiparte**. Diskrete Typen sind Typen, die eine einzelne Datei oder ein einzelnes Medium repräsentieren, wie eine einzelne Text- oder Musikdatei oder ein einzelnes Video. Ein multipart-Typ repräsentiert ein Dokument, das aus mehreren Komponenten besteht, von denen jede ihren eigenen individuellen MIME-Typ haben kann; oder ein multipart-Typ kann mehrere Dateien kapseln, die in einer Transaktion zusammen gesendet werden. Zum Beispiel werden multipart-MIME-Typen verwendet, wenn mehrere Dateien an eine E-Mail angehängt werden.
+Es gibt zwei Klassen von Typ: **diskret** und **multipart**. Diskrete Typen sind Typen, die eine einzelne Datei oder ein Medium repräsentieren, wie z.B. eine einzelne Text- oder Musikdatei oder ein einzelnes Video. Ein Multipart-Typ repräsentiert ein Dokument, das aus mehreren Komponenten besteht, von denen jede ihren eigenen MIME-Typ haben kann; oder ein Multipart-Typ kann mehrere Dateien kapseln, die zusammen in einer Transaktion gesendet werden. Zum Beispiel werden Multipart-MIME-Typen verwendet, wenn mehrere Dateien an eine E-Mail angehängt werden.
 
 #### Diskrete Typen
 
 Die derzeit bei der IANA registrierten diskreten Typen sind:
 
 - `application`
-  - : Jede Art von Binärdaten, die nicht explizit in einen der anderen Typen fallen; entweder Daten, die ausgeführt oder interpretiert werden, oder Binärdaten, die eine bestimmte Anwendung oder Kategorie von Anwendung erfordern, um verwendet zu werden. Allgemeine Binärdaten (oder Binärdaten, deren wahrer Typ unbekannt ist) sind `application/octet-stream`. Andere häufige Beispiele sind `application/pdf`, `application/pkcs8` und `application/zip`. [(siehe Anwendungs-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#application)
+  - : Jede Art von Binärdaten, die nicht explizit in eine der anderen Arten fällt; entweder Daten, die in irgendeiner Weise ausgeführt oder interpretiert werden sollen, oder Binärdaten, für die eine spezielle Anwendung oder Kategorie von Anwendungen erforderlich ist. Generische Binärdaten (oder Binärdaten, deren wahrer Typ unbekannt ist) sind `application/octet-stream`. Weitere übliche Beispiele sind `application/pdf`, `application/pkcs8` und `application/zip`. [(Siehe Application-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#application)
 - `audio`
-  - : Audio- oder Musikdaten. Beispiele sind `audio/mpeg`, `audio/vorbis`. [(siehe Audio-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#audio)
+  - : Audio- oder Musikdaten. Beispiele sind `audio/mpeg`, `audio/vorbis`. [(Siehe Audio-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#audio)
 - `example`
-  - : Reserviert für die Verwendung als Platzhalter in Beispielen, die zeigen, wie MIME-Typen verwendet werden. Diese sollten nie außerhalb von Beispiel-Code-Listings und Dokumentationen verwendet werden. `example` kann auch als Subtyp verwendet werden; zum Beispiel kann in einem Beispiel, das sich mit Audio im Web beschäftigt, der MIME-Typ `audio/example` verwendet werden, um anzuzeigen, dass der Typ ein Platzhalter ist und beim tatsächlichen Einsatz durch einen geeigneten ersetzt werden sollte.
+  - : Reserviert für die Verwendung als Platzhalter in Beispielen, die zeigen, wie MIME-Typen verwendet werden. Diese sollten niemals außerhalb von Beispiel-Code-Listings und Dokumentationen verwendet werden. `example` kann auch als Subtyp verwendet werden; zum Beispiel kann in einem Beispiel, das sich mit der Arbeit mit Audio im Web befasst, der MIME-Typ `audio/example` verwendet werden, um anzuzeigen, dass der Typ ein Platzhalter ist und bei der Anwendung des Codes in der realen Welt durch einen geeigneten ersetzt werden sollte.
 - `font`
-  - : Schrift-/Schriftdaten. Häufige Beispiele sind `font/woff`, `font/ttf` und `font/otf`. [(siehe Schrift-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#font)
+  - : Font/Schriftartendaten. Häufige Beispiele sind `font/woff`, `font/ttf` und `font/otf`. [(Siehe Font-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#font)
 - `image`
-  - : Bild- oder Grafikdaten, einschließlich sowohl Bitmap- als auch Vektorstandbilder als auch animierte Versionen von Standbildformaten wie animierte [GIF](/de/docs/Glossary/GIF) oder APNG. Gängige Beispiele sind `image/jpeg`, `image/png` und `image/svg+xml`. [(siehe Bild-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#image)
+  - : Bild- oder Grafikdaten, einschließlich sowohl Bitmap- als auch Vektor-Standbilder sowie animierte Versionen von Standbildformaten wie animierte [GIF](/de/docs/Glossary/GIF) oder APNG. Häufige Beispiele sind `image/jpeg`, `image/png` und `image/svg+xml`. [(Siehe Image-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#image)
 - `model`
-  - : Modelldaten für ein 3D-Objekt oder eine Szene. Beispiele sind `model/3mf` und `model/vrml`. [(siehe Modell-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#model)
+  - : Modelldaten für ein 3D-Objekt oder eine Szene. Beispiele sind `model/3mf` und `model/vrml`. [(Siehe Model-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#model)
 - `text`
-  - : Nur-Text-Daten einschließlich aller menschenlesbaren Inhalte, Quellcode oder Textdaten wie Daten im kommaseparierten Wert-Format (CSV). Beispiele sind: `text/plain`, `text/csv` und `text/html`. [(siehe Text-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#text)
+  - : Nur-Text-Daten, einschließlich aller menschenlesbaren Inhalte, Quellcode oder textbasierter Daten wie durch Komma getrennte Wertekategorie (CSV) formatierter Daten. Beispiele sind: `text/plain`, `text/csv`, und `text/html`. [(Siehe Text-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#text)
 - `video`
-  - : Videodaten oder -dateien, wie MP4-Filme (`video/mp4`). [(siehe Video-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#video)
+  - : Videodaten oder -dateien, wie z.B. MP4-Filme (`video/mp4`). [(Siehe Video-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#video)
 
 Für Textdokumente ohne spezifischen Subtyp sollte `text/plain` verwendet werden. Ebenso sollte für Binärdokumente ohne spezifischen oder bekannten Subtyp `application/octet-stream` verwendet werden.
 
 #### Multipart-Typen
 
-**Multipart**-Typen zeigen eine Kategorie von Dokumenten an, die in Teile gebrochen sind, oft mit unterschiedlichen MIME-Typen; sie können auch verwendet werden – insbesondere in E-Mail-Szenarien – um mehrere, separate Dateien darzustellen, die alle Teil derselben Transaktion sind. Sie repräsentieren ein **zusammengesetztes Dokument**.
+**Multipart**-Typen kennzeichnen eine Kategorie von Dokumenten, die in Stücke zerlegt sind, oft mit unterschiedlichen MIME-Typen; sie können auch verwendet werden – insbesondere in E-Mail-Szenarien – um mehrere, separate Dateien zu repräsentieren, die alle Teil derselben Transaktion sind. Sie repräsentieren ein **zusammengesetztes Dokument**.
 
-Mit Ausnahme von `multipart/form-data`, das in der {{HTTPMethod("POST")}}-Methode von [HTML-Formularen](/de/docs/Learn/Forms) verwendet wird, und `multipart/byteranges`, das mit {{HTTPStatus("206")}} `Partial Content` verwendet wird, um einen Teil eines Dokuments zu senden, behandelt HTTP Multipart-Dokumente nicht auf besondere Weise: Die Nachricht wird an den Browser übermittelt (der wahrscheinlich ein "Speichern unter"-Fenster anzeigt, wenn er nicht weiß, wie das Dokument angezeigt werden soll).
+Mit Ausnahme von `multipart/form-data`, das in der {{HTTPMethod("POST")}}-Methode von [HTML-Formularen](/de/docs/Learn/Forms) und `multipart/byteranges`, das mit {{HTTPStatus("206")}} `Partial Content` verwendet wird, um einen Teil eines Dokuments zu senden, behandelt HTTP Multipart-Dokumente nicht auf eine spezielle Weise: Die Nachricht wird an den Browser übertragen (der wahrscheinlich ein "Speichern unter"-Fenster anzeigt, wenn er nicht weiß, wie das Dokument angezeigt werden soll).
 
 Es gibt zwei Multipart-Typen:
 
 - `message`
-  - : Eine Nachricht, die andere Nachrichten kapselt. Dies kann zum Beispiel verwendet werden, um eine E-Mail darzustellen, die eine weitergeleitete Nachricht als Teil ihrer Daten enthält, oder um es zu ermöglichen, sehr große Nachrichten in Chunks zu senden, als ob es mehrere Nachrichten wären. Beispiele sind `message/rfc822` (für weitergeleitete oder zitierte Nachrichten) und `message/partial`, um eine große Nachricht in kleinere zu unterteilen, die automatisch vom Empfänger wieder zusammengeführt werden. [(siehe Nachrichten-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#message)
+  - : Eine Nachricht, die andere Nachrichten kapselt. Dies kann z.B. verwendet werden, um eine E-Mail darzustellen, die eine weitergeleitete Nachricht als Teil ihrer Daten enthält, oder um das Senden sehr großer Nachrichten in Stücken zu ermöglichen, als wären es mehrere Nachrichten. Beispiele umfassen `message/rfc822` (für weitergeleitetes oder beantwortetes Nachrichtenquoting) und `message/partial`, um das automatische Aufteilen einer großen Nachricht in kleinere zur Wiederzusammenstellung durch den Empfänger zu ermöglichen. [(Siehe Message-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#message)
 - `multipart`
-  - : Daten, die aus mehreren Komponenten bestehen, die jeweils unterschiedliche MIME-Typen haben können. Beispiele sind `multipart/form-data` (für Daten, die mit der [`FormData`](/de/docs/Web/API/FormData)-API erzeugt wurden) und `multipart/byteranges` (definiert in {{RFC(7233, "", "5.4.1")}} und verwendet mit [HTTP](/de/docs/Glossary/HTTP)'s {{HTTPStatus(206)}} "Partial Content"-Antwort, wenn die abgerufenen Daten nur ein Teil des Inhalts sind, wie es beim {{HTTPHeader("Range")}}-Header geliefert wird). [(siehe Multipart-Typ-Registrierung bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
+  - : Daten, die aus mehreren Komponenten bestehen, die jeweils unterschiedliche MIME-Typen haben können. Beispiele umfassen `multipart/form-data` (für Daten, die mit der [`FormData`](/de/docs/Web/API/FormData) API erstellt wurden) und `multipart/byteranges` (definiert in {{RFC(7233, "", "5.4.1")}} und verwendet mit [HTTP](/de/docs/Glossary/HTTP)'s {{HTTPStatus(206)}} "Partial Content"-Antwort, die zurückgegeben wird, wenn die abgerufenen Daten nur ein Teil des Inhalts sind, wie ihn der {{HTTPHeader("Range")}}-Header liefert). [(Siehe Multipart-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
 
 ## Wichtige MIME-Typen für Webentwickler
 
 ### application/octet-stream
 
-Dies ist der Standard für Binärdateien. Da es bedeutet _unbekannte Binärdatei_, führen Browser sie normalerweise nicht aus oder fragen nicht einmal, ob sie ausgeführt werden soll. Sie behandeln es, als ob der {{HTTPHeader("Content-Disposition")}}-Header auf `attachment` gesetzt wäre und schlagen einen "Speichern unter"-Dialog vor.
+Dies ist der Standard für Binärdateien. Da es _unbekannte Binärdatei_ bedeutet, führen Browser sie normalerweise nicht aus oder fragen sogar, ob sie ausgeführt werden sollten. Sie behandeln es so, als ob der {{HTTPHeader("Content-Disposition")}}-Header auf `attachment` gesetzt wäre und schlagen einen "Speichern unter"-Dialog vor.
 
 ### text/plain
 
-Dies ist der Standard für Textdateien. Auch wenn es wirklich bedeutet "unbekannte Textdatei", gehen Browser davon aus, dass sie es anzeigen können.
+Dies ist der Standard für Textdateien. Selbst wenn es wirklich "unbekannte Textdatei" bedeutet, gehen Browser davon aus, dass sie es anzeigen können.
 
 > **Hinweis:** `text/plain` bedeutet nicht "jede Art von Textdaten."
-> Wenn sie eine spezifische Art von Textdaten erwarten, werden sie es wahrscheinlich nicht als Übereinstimmung betrachten. Speziell, wenn sie eine `text/plain`-Datei von einem {{HTMLElement("link")}}-Element herunterladen, das eine CSS-Datei deklariert, werden sie es nicht als gültige CSS-Datei erkennen, wenn es mit `text/plain` präsentiert wird. Der CSS-Mime-Typ `text/css` muss verwendet werden.
+> Wenn sie eine bestimmte Art von Textdaten erwarten, werden sie es wahrscheinlich nicht als Übereinstimmung betrachten.
+> Insbesondere wenn sie eine `text/plain` Datei aus einem {{HTMLElement("link")}} Element herunterladen, das eine CSS-Datei deklariert, erkennen sie es nicht als gültige CSS-Datei, wenn es als `text/plain` präsentiert wird.
+> Der CSS-MIME-Typ `text/css` muss verwendet werden.
 
 ### text/css
 
-CSS-Dateien, die zum Stil einer Webseite verwendet werden, **müssen** mit `text/css` gesendet werden. Wenn ein Server das `.css`-Suffix für CSS-Dateien nicht erkennt, kann er sie mit `text/plain` oder `application/octet-stream` MIME-Typen senden. Wenn dies der Fall ist, werden sie von den meisten Browsern nicht als CSS erkannt und ignoriert.
+CSS-Dateien, die eine Webseite gestalten, **müssen** mit `text/css` gesendet werden. Wenn ein Server das `.css`-Suffix für CSS-Dateien nicht erkennt, kann er sie mit `text/plain` oder `application/octet-stream` MIME-Typen senden. Wenn dies der Fall ist, werden sie von den meisten Browsern nicht als CSS erkannt und ignoriert.
 
 ### text/html
 
-Alle HTML-Inhalte sollten mit diesem Typ bedient werden. Alternative MIME-Typen für XHTML (wie `application/xhtml+xml`) sind heute größtenteils nutzlos.
+Alle HTML-Inhalte sollten mit diesem Typ geliefert werden. Alternative MIME-Typen für XHTML (wie `application/xhtml+xml`) sind heutzutage größtenteils unnötig.
 
 > [!NOTE]
-> Verwenden Sie `application/xml` oder `application/xhtml+xml`, wenn Sie die strengen Parsing-Regeln von XML, [`<![CDATA[…]]>`](/de/docs/Web/API/CDATASection)-Abschnitte oder Elemente, die nicht aus den HTML/SVG/MathML-Namensräumen stammen, benötigen.
+> Verwenden Sie `application/xml` oder `application/xhtml+xml`, wenn Sie die strikten Parsing-Regeln von XML, [`<![CDATA[…]]>`](/de/docs/Web/API/CDATASection) Abschnitte oder Elemente, die nicht aus den HTML/SVG/MathML Namespace stammen, wünschen.
 
 ### text/javascript
 
-Gemäß dem [IANA Media Types Registry](https://www.iana.org/assignments/media-types/media-types.xhtml#text), [RFC 9239](https://www.rfc-editor.org/rfc/rfc9239.html) und der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages:text/javascript) sollte JavaScript-Inhalt immer unter Verwendung des MIME-Typs `text/javascript` bereitgestellt werden. Keine anderen MIME-Typen gelten als gültig für JavaScript, und die Verwendung eines anderen MIME-Typs als `text/javascript` kann dazu führen, dass Skripte nicht geladen oder ausgeführt werden.
+Gemäß dem [IANA Media Types-Register](https://www.iana.org/assignments/media-types/media-types.xhtml#text), [RFC 9239](https://www.rfc-editor.org/rfc/rfc9239.html), und den [HTML-Spezifikationen](https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages:text/javascript), sollte JavaScript-Inhalt immer mit dem MIME-Typ `text/javascript` serviert werden. Keine anderen MIME-Typen werden für JavaScript als gültig betrachtet, und die Verwendung eines anderen MIME-Typs als `text/javascript` kann dazu führen, dass Skripte nicht geladen oder ausgeführt werden.
 
-Sie können feststellen, dass einige JavaScript-Inhalte fälschlicherweise mit einem `charset`-Parameter als Teil des MIME-Typs bereitgestellt werden – als Versuch, den Zeichensatz für den Skriptinhalt anzugeben. Dieser `charset`-Parameter ist für JavaScript-Inhalte nicht gültig und führt in den meisten Fällen dazu, dass ein Skript nicht geladen wird.
+Möglicherweise finden Sie einige JavaScript-Inhalte, die fälschlicherweise mit einem `charset`-Parameter als Teil des MIME-Typs geliefert werden – ein Versuch, den Zeichensatz für den Skriptinhalt anzugeben. Dieser `charset`-Parameter ist für JavaScript-Inhalte nicht gültig und führt in den meisten Fällen dazu, dass ein Skript nicht geladen wird.
 
-#### Veraltete JavaScript-MIME-Typen
+#### Alte JavaScript-MIME-Typen
 
-Zusätzlich zum MIME-Typ `text/javascript` erlaubt der [MIME Sniffing Standard](https://mimesniff.spec.whatwg.org/)
-(die Definition, wie Browser MIME-Typen interpretieren und feststellen sollen, was mit Inhalten zu tun ist, die keinen gültigen haben) auch, dass JavaScript mit einem der folgenden veralteten JavaScript-MIME-Typen bereitgestellt wird:
+Zusätzlich zum `text/javascript`-MIME-Typ darf JavaScript, aus historischen Gründen, gemäß dem [MIME Sniffing-Standard](https://mimesniff.spec.whatwg.org/) (der definiert, wie Browser MIME-Typen interpretieren und herausfinden sollen, was mit Inhalten zu tun ist, die keinen gültigen haben), auch mit einem der folgenden alten JavaScript-MIME-Typen bereitgestellt werden:
 
 - `application/javascript` {{deprecated_inline}}
 - `application/ecmascript` {{deprecated_inline}}
@@ -130,41 +133,41 @@ Zusätzlich zum MIME-Typ `text/javascript` erlaubt der [MIME Sniffing Standard](
 - `text/x-javascript` {{Non-standard_Inline}}
 
 > [!NOTE]
-> Obwohl jeder [User Agent](/de/docs/Glossary/user_agent) möglicherweise einen oder alle diese unterstützt, sollten Sie nur `text/javascript` verwenden. Es ist der einzige MIME-Typ, der jetzt und in Zukunft garantiert funktioniert.
+> Obwohl jeder beliebige [User-Agent](/de/docs/Glossary/user_agent) einige oder alle diese unterstützen kann, sollten Sie nur `text/javascript` verwenden. Es ist der einzige MIME-Typ, der jetzt und in Zukunft garantiert funktioniert.
 
 ### Bildtypen
 
-Dateien, deren MIME-Typ `image` ist, enthalten Bilddaten. Der Subtyp gibt an, welches spezifische Bilddateiformat die Daten darstellen.
+Dateien, deren MIME-Typ `image` ist, enthalten Bilddaten. Der Subtyp gibt an, welches spezielle Bilddateiformat die Daten darstellen.
 
-Die folgenden Bildtypen werden oft genug verwendet, um als _sicher_ für die Verwendung auf Webseiten angesehen zu werden:
+Die folgenden Bildtypen werden häufig genug verwendet, um als _sicher_ für den Einsatz auf Webseiten zu gelten:
 
-- [`image/apng`](/de/docs/Web/Media/Formats/Image_types#apng_animated_portable_network_graphics): Animierte Portable Network Graphics (APNG)
+- [`image/apng`](/de/docs/Web/Media/Formats/Image_types#apng_animated_portable_network_graphics): Animated Portable Network Graphics (APNG)
 - [`image/avif`](/de/docs/Web/Media/Formats/Image_types#avif_image): AV1 Image File Format (AVIF)
 - [`image/gif`](/de/docs/Web/Media/Formats/Image_types#gif_graphics_interchange_format): Graphics Interchange Format (GIF)
-- [`image/jpeg`](/de/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image): Joint Photographic Expert Group image (JPEG)
+- [`image/jpeg`](/de/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image): Joint Photographic Expert Group-Bild (JPEG)
 - [`image/png`](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics): Portable Network Graphics (PNG)
 - [`image/svg+xml`](/de/docs/Web/Media/Formats/Image_types#svg_scalable_vector_graphics): Scalable Vector Graphics (SVG)
-- [`image/webp`](/de/docs/Web/Media/Formats/Image_types#webp_image): Web Picture format (WEBP)
+- [`image/webp`](/de/docs/Web/Media/Formats/Image_types#webp_image): Web Picture Format (WEBP)
 
-Der [Leitfaden für Bilddateitypen und -formate](/de/docs/Web/Media/Formats/Image_types#common_image_file_types) bietet Informationen und Empfehlungen darüber, wann die verschiedenen Bildformate verwendet werden sollten.
+Der [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types#common_image_file_types) bietet Informationen und Empfehlungen dazu, wann die verschiedenen Bildformate verwendet werden sollten.
 
 ### Audio- und Videotypen
 
-Wie bei Bildern schreibt HTML nicht vor, dass Webbrowser bestimmte Datei- und Codec-Typen für die {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente unterstützen müssen, daher ist es wichtig, Ihre Zielgruppe und die Bandbreite der Browser (und Versionen dieser Browser), die sie verwenden könnten, zu berücksichtigen, wenn Sie den Dateityp und die Codecs für Medien wählen.
+Wie bei Bildern verlangt HTML nicht, dass Webbrowser bestimmte Datei- und Codec-Typen für die {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente unterstützen, daher ist es wichtig, Ihr Zielpublikum und die Bandbreite der Browser (und Versionen dieser Browser), die sie möglicherweise verwenden, zu berücksichtigen, wenn Sie den Dateityp und die Codecs für Medien auswählen.
 
-Unser [Leitfaden für Mediencontainerformate](/de/docs/Web/Media/Formats/Containers) bietet eine Liste der Dateitypen, die häufig von Webbrowsern unterstützt werden, einschließlich Informationen über ihre besonderen Anwendungsfälle, eventuelle Nachteile und Kompatibilitätsinformationen sowie weitere Details.
+Unser [Leitfaden zu Mediencontainerformaten](/de/docs/Web/Media/Formats/Containers) bietet eine Liste der Dateitypen, die häufig von Webbrowsern unterstützt werden, einschließlich Informationen darüber, welche speziellen Anwendungsfälle sie haben können, welche Nachteile sie haben und Kompatibilitätsinformationen sowie andere Details.
 
-Die [Audio-Codec](/de/docs/Web/Media/Formats/Audio_codecs)- und [Video-Codec](/de/docs/Web/Media/Formats/Video_codecs)-Leitfäden listen die verschiedenen Codecs auf, die Webbrowser oft unterstützen, und bieten Kompatibilitätsdetails sowie technische Informationen wie die Anzahl der unterstützten Audiokanäle, die Art der Kompression und welche Bitraten etc. sie unterstützen. Der [Leitfaden zu den von WebRTC verwendeten Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) erweitert dies, indem er speziell die von den wichtigsten Webbrowsern unterstützten Codecs behandelt, damit Sie die Codecs auswählen können, die am besten die Bandbreite der Browser abdecken, die Sie unterstützen möchten.
+Die Leitfäden zu [Audiocodecs](/de/docs/Web/Media/Formats/Audio_codecs) und [Videocodecs](/de/docs/Web/Media/Formats/Video_codecs) listen die verschiedenen Codecs auf, die Webbrowser oft unterstützen, und bieten Kompatibilitätsinformationen zusammen mit technischen Informationen wie der Anzahl der unterstützten Audiokanäle, welche Art von Kompression verwendet wird und bei welchen Bitraten usw. sie nützlich sind. Der [Leitfaden zu Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Formats/WebRTC_codecs) erweitert dies, indem er spezifisch die von den großen Webbrowsern unterstützten Codecs abdeckt, sodass Sie die Codecs auswählen können, die am besten die Bandbreite der von Ihnen unterstützen Browser abdecken.
 
-Was die MIME-Typen von Audio- oder Videodateien betrifft, spezifizieren sie typischerweise das Containerformat (Dateityp). Der optionale [Codecs-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) kann dem MIME-Typ hinzugefügt werden, um weiter anzugeben, welche Codecs verwendet werden sollen und welche Optionen verwendet wurden, um die Medien zu kodieren, wie zum Beispiel das Codec-Profil, die Stufe oder andere solche Informationen.
+Was die MIME-Typen von Audio- oder Videodateien betrifft, so geben diese typischerweise das Containerformat (Dateityp) an. Der optionale [codecs-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) kann dem MIME-Typ hinzugefügt werden, um genauer anzugeben, welche Codecs zu verwenden sind und welche Optionen zum Kodieren der Medien verwendet wurden, wie Codec-Profil, Ebene oder ähnliche Informationen.
 
-Für weitere Informationen über gängige Medientypen siehe die Seite [Common MIME types](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+Für weitere Informationen zu gängigen Medientypen siehe die Seite [Gängige MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 ### multipart/form-data
 
-Der Typ `multipart/form-data` kann verwendet werden, wenn die Werte eines fertiggestellten [HTML-Formulars](/de/docs/Learn/Forms) vom Browser an den Server gesendet werden.
+Der `multipart/form-data` Typ kann verwendet werden, wenn die Werte eines abgeschlossenen [HTML-Formulars](/de/docs/Learn/Forms) vom Browser an den Server gesendet werden.
 
-Als multipart-Dokumentformat besteht es aus verschiedenen Teilen, die durch eine Grenze (eine Zeichenfolge, die mit einem Doppeldash `--` beginnt) abgegrenzt sind. Jeder Teil ist eine eigene Entität mit eigenen HTTP-Headern, {{HTTPHeader("Content-Disposition")}} und {{HTTPHeader("Content-Type")}} für Datei-Upload-Felder.
+Als Multipart-Dokumentenformat besteht es aus verschiedenen Teilen, die durch eine Grenze (eine Zeichenfolge, die mit einem doppelten Bindestrich `--` beginnt) getrennt sind. Jeder Teil ist eine eigene Einheit mit eigenen HTTP-Headern, {{HTTPHeader("Content-Disposition")}} und {{HTTPHeader("Content-Type")}} für hochgeladene Dateien.
 
 ```http
 Content-Type: multipart/form-data; boundary=aBoundaryString
@@ -232,9 +235,9 @@ Simple file.
 
 ### multipart/byteranges
 
-Der MIME-Typ `multipart/byteranges` wird verwendet, um dem Browser Teilantworten zu senden.
+Der `multipart/byteranges` MIME-Typ wird verwendet, um Teilantworten an den Browser zu senden.
 
-Wenn der {{HTTPStatus("206", "206 Partial Content")}}-Statuscode gesendet wird, zeigt dieser MIME-Typ an, dass das Dokument aus mehreren Teilen besteht, je einem für die angeforderten Bereiche. Wie bei anderen Multipart-Typen verwendet der {{HTTPHeader("Content-Type")}} eine `Grenze`, um die Teile zu trennen. Jeder Teil hat einen {{HTTPHeader("Content-Type")}}-Header mit seinem tatsächlichen Typ und einen {{HTTPHeader("Content-Range")}}, der den Bereich angibt, den er repräsentiert.
+Wenn der {{HTTPStatus("206", "206 Partial Content")}} Statuscode gesendet wird, zeigt dieser MIME-Typ an, dass das Dokument aus mehreren Teilen besteht, eines für jeden der angeforderten Bereiche. Wie andere Multipart-Typen verwendet der {{HTTPHeader("Content-Type")}} einen `boundary`, um die Stücke zu trennen. Jedes Stück hat einen {{HTTPHeader("Content-Type")}}-Header mit seinem tatsächlichen Typ und einen {{HTTPHeader("Content-Range")}} für den Bereich, den es darstellt.
 
 ```http
 HTTP/1.1 206 Partial Content
@@ -259,33 +262,33 @@ Content-Range: bytes 300-400/1270
 --3d6b6a416f9b5--
 ```
 
-## Bedeutung der richtigen Einstellung des MIME-Typs
+## Bedeutung der korrekten Einstellung des MIME-Typs
 
-Einige Serverkonfigurationen können den zugehörigen MIME-Typ verwenden, um Optimierungen wie Dateikonkatenation, Komprimierung oder Caching vorzunehmen. Siehe [h5bp/server-configs-apache](https://github.com/h5bp/server-configs-apache/blob/main/h5bp/web_performance/compression.conf) für ein Beispiel einer Apache-Konfiguration, die Dateien bestimmter MIME-Typen komprimiert.
+Einige Serverkonfigurationen können den zugehörigen MIME-Typ verwenden, um Optimierungen durchzuführen, wie z.B. Dateizusammenführung, Komprimierung oder Caching. Siehe [h5bp/server-configs-apache](https://github.com/h5bp/server-configs-apache/blob/main/h5bp/web_performance/compression.conf) für ein Beispiel einer Apache-Konfiguration, die Dateien bestimmter MIME-Typen komprimiert.
 
-Die meisten Webserver senden nicht erkannte Ressourcen als den `application/octet-stream` MIME-Typ. Aus Sicherheitsgründen erlauben die meisten Browser das Setzen einer benutzerdefinierten Standardaktion (wie "Öffnen in Word") für solche Ressourcen nicht, was den Benutzer zwingt, sie auf die Festplatte zu speichern, um sie zu nutzen.
+Die meisten Webserver senden nicht erkannte Ressourcen als den MIME-Typ `application/octet-stream`. Aus Sicherheitsgründen erlauben die meisten Browser es nicht, eine benutzerdefinierte Standardaktion (wie "In Word öffnen") für solche Ressourcen einzustellen, wodurch der Benutzer gezwungen wird, sie auf die Festplatte zu speichern, um sie zu verwenden.
 
 Einige häufige fehlerhafte Serverkonfigurationen:
 
-- RAR-komprimierte Dateien. In diesem Fall wäre der Idealzustand der wahre Typ der ursprünglichen Dateien; dies ist oft unmöglich, da .RAR-Dateien mehrere Ressourcen unterschiedlicher Typen enthalten können. In diesem Fall konfigurieren Sie den Server, um `application/x-rar-compressed` zu senden.
-- Audio und Video. Nur Ressourcen mit dem korrekten MIME-Typ werden in {{HTMLElement("video")}} oder {{HTMLElement("audio")}}-Elementen abgespielt. Stellen Sie sicher, den korrekten [Medientyp für Audio und Video](/de/docs/Web/Media/Formats) anzugeben.
-- Proprietäre Dateitypen. Ein spezifischer Typ wie `application/vnd.mspowerpoint` ermöglicht es Nutzern, solche Dateien automatisch in der Präsentationssoftware ihrer Wahl zu öffnen.
+- RAR-komprimierte Dateien. In diesem Fall wäre das Ideal der echte Typ der ursprünglichen Dateien; dies ist oft unmöglich, da .RAR-Dateien mehrere Ressourcen unterschiedlicher Typen enthalten können. In diesem Fall konfigurieren Sie den Server, um `application/x-rar-compressed` zu senden.
+- Audio und Video. Nur Ressourcen mit dem korrekten MIME-Typ werden in {{HTMLElement("video")}}- oder {{HTMLElement("audio")}}-Elementen abgespielt. Achten Sie darauf, den richtigen [Medientyp für Audio und Video](/de/docs/Web/Media/Formats) anzugeben.
+- Proprietäre Dateitypen. Ein spezifischer Typ wie `application/vnd.mspowerpoint` ermöglicht es Benutzern, solche Dateien automatisch in der Präsentationssoftware ihrer Wahl zu öffnen.
 
-## MIME Sniffing
+## MIME-Sniffing
 
-In Abwesenheit eines MIME-Typs oder in bestimmten Fällen, in denen Browser glauben, dass sie falsch sind, können Browser _MIME Sniffing_ durchführen – den korrekten MIME-Typ erraten, indem sie die Bytes der Ressource betrachten.
+In Abwesenheit eines MIME-Typs oder in bestimmten Fällen, in denen Browser glauben, dass sie falsch sind, können Browser _MIME-Sniffing_ durchführen – den korrekten MIME-Typ erraten, indem sie die Bytes der Ressource betrachten.
 
-Jeder Browser führt MIME Sniffing unterschiedlich und unter unterschiedlichen Umständen durch. (Zum Beispiel schaut Safari auf die Dateierweiterung in der URL, wenn der gesendete MIME-Typ ungeeignet ist.) Es gibt Sicherheitsbedenken, da einige MIME-Typen ausführbare Inhalte darstellen. Server können MIME Sniffing verhindern, indem sie den {{HTTPHeader("X-Content-Type-Options")}}-Header senden.
+Jeder Browser führt MIME-Sniffing anders und unter unterschiedlichen Umständen durch. (Zum Beispiel wird Safari die Dateierweiterung in der URL betrachten, wenn der gesendete MIME-Typ ungeeignet ist.) Es gibt Sicherheitsbedenken, da einige MIME-Typen ausführbare Inhalte darstellen. Server können MIME-Sniffing verhindern, indem sie den {{HTTPHeader("X-Content-Type-Options")}}-Header senden.
 
-## Andere Methoden zur Übermittlung des Dokumenttyps
+## Andere Methoden zur Übermittlung von Dokumenttypen
 
-MIME-Typen sind nicht der einzige Weg, um Dokumenttypinformationen zu übermitteln:
+MIME-Typen sind nicht die einzige Möglichkeit, Informationen zum Dokumenttyp zu übermitteln:
 
-- Dateinamen-Suffixe werden manchmal verwendet, insbesondere unter Microsoft Windows. Nicht alle Betriebssysteme betrachten diese Suffixe als bedeutungsvoll (wie Linux und macOS), und es gibt keine Garantie, dass sie korrekt sind.
-- Magic Numbers. Die Syntax unterschiedlicher Formate erlaubt die Ableitung des Dateityps durch Betrachtung ihrer Byte-Struktur. Zum Beispiel beginnen GIF-Dateien mit dem Hexadezimalwert `47 49 46 38 39` (`GIF89`), und PNG-Dateien mit `89 50 4E 47` (`.PNG`). Nicht alle Dateitypen haben Magic Numbers, daher ist auch dies nicht 100% zuverlässig.
+- Dateinamensuffixe werden manchmal verwendet, insbesondere unter Microsoft Windows. Nicht alle Betriebssysteme betrachten diese Suffixe als bedeutungsvoll (wie Linux und macOS), und es gibt keine Garantie, dass sie korrekt sind.
+- Magische Zahlen. Die Syntax verschiedener Formate ermöglicht die Ableitung des Dateityps, indem ihre Byte-Struktur betrachtet wird. Zum Beispiel beginnen GIF-Dateien mit dem hexadezimalen Wert `47 49 46 38 39` (`GIF89`), und PNG-Dateien mit `89 50 4E 47` (`.PNG`). Nicht alle Dateitypen haben magische Zahlen, so dass dies nicht zu 100% zuverlässig ist.
 
 ## Siehe auch
 
-- [Webtechnologien für Medien](/de/docs/Web/Media)
+- [Webmedientechnologien](/de/docs/Web/Media)
 - [Leitfaden zu Medientypen, die im Web verwendet werden](/de/docs/Web/Media/Formats)
-- [Serverkonfiguration von MIME-Typen richtig durchführen](/de/docs/Learn/Server-side/Configuring_server_MIME_types)
+- [Richtige Konfiguration der Server-MIME-Typen](/de/docs/Learn/Server-side/Configuring_server_MIME_types)

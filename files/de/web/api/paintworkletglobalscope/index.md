@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("CSS Painting API")}}{{SeeCompatTable}}
 
-Das **`PaintWorkletGlobalScope`** Interface der [CSS Painting API](/de/docs/Web/API/CSS_Painting_API) repräsentiert das globale Objekt, das innerhalb eines Paint-`Worklet` verfügbar ist.
+Das **`PaintWorkletGlobalScope`**-Interface der [CSS Painting API](/de/docs/Web/API/CSS_Painting_API) repräsentiert das globale Objekt, das innerhalb eines Paint-`Worklet` verfügbar ist.
 
 ## Datenschutzbedenken
 
-Um ein Auslaufen von besuchten Links zu vermeiden, ist diese Funktion derzeit in Chrome-basierten Browsern für {{HTMLElement("a")}}-Elemente mit einem [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut und für Kinder solcher Elemente deaktiviert. Weitere Informationen finden Sie in den folgenden Abschnitten:
+Um ein Ausspähen besuchter Links zu vermeiden, ist diese Funktion in Chrome-basierten Browsern für {{HTMLElement("a")}}-Elemente mit einem [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut und für deren Kindelemente derzeit deaktiviert. Details finden Sie in den folgenden Quellen:
 
-- Im Abschnitt Datenschutzüberlegungen der CSS Painting API [Privacy Considerations section](https://drafts.css-houdini.org/css-paint-api/#privacy-considerations)
-- Das Problem in der CSS Painting API Spezifikation ["CSS Paint API leaks browsing history"](https://github.com/w3c/css-houdini-drafts/issues/791)
+- Der Abschnitt über [datenschutzbezogene Überlegungen](https://drafts.css-houdini.org/css-paint-api/#privacy-considerations) in der CSS Painting API
+- Das CSS Painting API Spezifikationsproblem ["CSS Paint API leaks browsing history"](https://github.com/w3c/css-houdini-drafts/issues/791)
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Dieses Interface erbt Eigenschaften von [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope)._
 
 - [`PaintWorkletGlobalScope.devicePixelRatio`](/de/docs/Web/API/PaintWorkletGlobalScope/devicePixelRatio) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das aktuelle Verhältnis von physischen Pixeln zu logischen Pixeln des Geräts zurück.
+  - : Gibt das aktuelle Verhältnis der physischen zu den logischen Pixeln des Geräts zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Dieses Interface erbt Methoden von [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope)._
 
 - [`PaintWorkletGlobalScope.registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint) {{Experimental_Inline}}
-  - : Registriert eine Klasse, um programmgesteuert ein Bild zu erzeugen, wo eine CSS-Eigenschaft eine Datei erwartet.
+  - : Registriert eine Klasse, um programmatisch ein Bild zu generieren, wo eine CSS-Eigenschaft eine Datei erwartet.
 
 ## Beispiele
 
-Die folgenden drei Beispiele zeigen zusammen das Erstellen, Laden und Verwenden eines Paint-`Worklet`.
+Die folgenden drei Beispiele zeigen zusammen das Erstellen, Laden und Verwenden eines Paint-`Worklets`.
 
-### Erstellen eines Paint-Worklet
+### Erstellen eines Paint-Worklets
 
 Das folgende Beispiel zeigt ein Worklet-Modul. Dies sollte in einer separaten JS-Datei sein. Beachten Sie, dass `registerPaint()` ohne einen Verweis auf ein Paint-`Worklet` aufgerufen wird.
 
@@ -65,9 +65,9 @@ class CheckerboardPainter {
 registerPaint("checkerboard", CheckerboardPainter);
 ```
 
-### Laden eines Paint-Worklet
+### Laden eines Paint-Worklets
 
-Das folgende Beispiel demonstriert das Laden des oben genannten Worklets aus seiner JS-Datei und tut dies durch Feature-Erkennung.
+Das folgende Beispiel zeigt, wie das oben beschriebene Worklet aus seiner JS-Datei geladen wird und dies durch Feature-Erkennung geschieht.
 
 ```js
 if ("paintWorklet" in CSS) {
@@ -75,9 +75,9 @@ if ("paintWorklet" in CSS) {
 }
 ```
 
-### Verwenden eines Paint-Worklet
+### Verwenden eines Paint-Worklets
 
-Dieses Beispiel zeigt, wie ein Paint-`Worklet` in einem Stylesheet verwendet wird, einschließlich der einfachsten Möglichkeit, ein Fallback bereitzustellen, wenn `CSS.paintWorklet` nicht unterstützt wird.
+Dieses Beispiel zeigt, wie man ein Paint-`Worklet` in einem Stylesheet verwendet, einschließlich der einfachsten Möglichkeit, eine Rückfalllösung bereitzustellen, wenn `CSS.paintWorklet` nicht unterstützt wird.
 
 ```html
 <style>
@@ -89,7 +89,7 @@ Dieses Beispiel zeigt, wie ein Paint-`Worklet` in einem Stylesheet verwendet wir
 <textarea></textarea>
 ```
 
-Sie können auch die {{cssxref('@supports')}}-Regel verwenden.
+Sie können auch die {{cssxref('@supports')}}-At-Regel verwenden.
 
 ```css
 @supports (background: paint(id)) {

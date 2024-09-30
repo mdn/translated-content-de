@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`devicePixelRatio`**-Eigenschaft der [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt die Geräte-Pixel-Ratio des Bildschirms als Zahl zurück.
+Die schreibgeschützte **`devicePixelRatio`**-Eigenschaft des [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist eine Zahl, die das Device-Pixel-Verhältnis des Bildschirms darstellt.
 
-Dies ist dasselbe wie der Wert, der von [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) zurückgegeben wird. Dabei unterscheidet sich jedoch `Window.devicePixelRatio` dadurch, dass es:
+Dies entspricht dem Wert, der von [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) zurückgegeben wird, außer dass `Window.devicePixelRatio`:
 
-- immer die Geräte-Pixel-Ratio für den [aktuellen Bildschirm](/de/docs/Web/API/ScreenDetails/currentScreen) zurückgibt.
-- auch die Skalierung des Fensters selbst, also das Seitenzoom (zumindest in einigen Browser-Implementierungen), einbezieht.
+- immer das Device-Pixel-Verhältnis für den [aktuellen Bildschirm](/de/docs/Web/API/ScreenDetails/currentScreen) zurückgibt.
+- auch das Skalieren des Fensters selbst einschließt, d.h. Seitenzoom (zumindest in einigen Browserimplementierungen).
 
 ## Wert
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`clear()`** Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) Interface entfernt alle Deklarationen im `StylePropertyMap`.
+Die **`clear()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle entfernt alle Deklarationen im `StylePropertyMap`.
 
 ## Syntax
 

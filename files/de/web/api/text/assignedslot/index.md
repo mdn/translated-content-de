@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`assignedSlot`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle
-gibt das [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Objekt zurück, das dem Element zugeordnet ist.
+Die schreibgeschützte **`assignedSlot`** Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle
+gibt das [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Objekt zurück, das mit dem Element verknüpft ist.
 
 ## Wert
 
 Ein [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement),
-oder `null`, wenn keinem Textknoten ein {{HTMLElement("slot")}}-Element zugeordnet ist.
+oder `null`, wenn kein {{HTMLElement("slot")}}-Element mit dem Textknoten verknüpft ist.
 
 ## Spezifikationen
 

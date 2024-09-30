@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteOutboundRtpStreamStats: Kind-Eigenschaft"
+title: "RTCRemoteOutboundRtpStreamStats: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/RTCRemoteOutboundRtpStreamStats/kind
 l10n:
@@ -8,19 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`kind`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der beschriebene [RTP](/de/docs/Glossary/RTP)-Stream Audio- oder Videomaterial enthält.
+Die **`kind`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der beschriebene [RTP](/de/docs/Glossary/RTP)-Stream Audio- oder Videomedien enthält.
 
-Dieser String wird immer derselbe sein wie die [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts, das vom Stream getragen wird.
-Er wird auch mit der Medientyp-Eigenschaft der Statistiken des [`RTCCodecStats.codec`](/de/docs/Web/API/RTCCodecStats/codec)-Objekts übereinstimmen.
+Dieser String entspricht immer dem [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts, das von dem Stream übertragen wird. Es wird auch mit dem Medientyp der [`RTCCodecStats.codec`](/de/docs/Web/API/RTCCodecStats/codec)-Eigenschaft des Statistikobjekts übereinstimmen.
 
 ## Wert
 
-Die möglichen Werte sind immer einer der folgenden:
+Die Arten sind immer eine der folgenden:
 
 - `"audio"`
-  - : Der Stream enthält Audiomaterial.
+  - : Der Stream enthält Audiodaten.
 - `"video"`
-  - : Der Stream enthält Videomaterial.
+  - : Der Stream enthält Videodaten.
 
 ## Spezifikationen
 

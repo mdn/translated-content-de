@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `position` gibt eine Zahl zurück, die der Kontextposition aus dem Ausdrucksauswertungskontext entspricht.
+Die Funktion `position` gibt eine Zahl zurück, die der Kontextposition aus dem Ausdrucks-Evaluierungskontext entspricht.
 
 ## Syntax
 
@@ -17,13 +17,13 @@ position()
 
 ### Rückgabewert
 
-Eine ganze Zahl, die der Kontextposition aus dem Ausdrucksauswertungskontext entspricht.
+Ein ganzzahliger Wert, der der Kontextposition aus dem Ausdrucks-Evaluierungskontext entspricht.
 
 ## Beschreibung
 
-- Beachten Sie, dass die Position eines Knotens in einem Kontext nicht nullbasiert ist. Der erste Knoten hat eine Position von 1.
+- Beachten Sie, dass die Position eines Knotens in einem Kontext nicht nullbasiert ist. Der erste Knoten hat die Position 1.
 
-- Der Kontext wird durch den Rest des Pfades bestimmt.
+- Der Kontext wird durch den restlichen Pfad bestimmt.
 
   ```xml
   <xsl:template match="//a[position() = 5]">
@@ -43,6 +43,6 @@ Eine ganze Zahl, die der Kontextposition aus dem Ausdrucksauswertungskontext ent
 
 [XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-position)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`getFile()`**-Methode des [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das zu einem [`File`](/de/docs/Web/API/File)-Objekt aufgelöst wird, welches den Zustand auf der Festplatte des durch das Handle repräsentierten Eintrags darstellt.
+Die **`getFile()`**-Methode des [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das auf ein [`File`](/de/docs/Web/API/File)-Objekt auflöst, welches den Zustand auf der Festplatte des durch den Handle repräsentierten Eintrags darstellt.
 
 Wenn die Datei auf der Festplatte geändert oder entfernt wird, nachdem diese Methode aufgerufen wurde, ist das zurückgegebene [`File`](/de/docs/Web/API/File)-Objekt wahrscheinlich nicht mehr lesbar.
 
@@ -24,18 +24,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das zu einem [`File`](/de/docs/Web/API/File)-Objekt aufgelöst wird.
+Ein {{jsxref('Promise')}}, das auf ein [`File`](/de/docs/Web/API/File)-Objekt auflöst.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) im `read`-Modus nicht `granted` ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` im `read`-Modus ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion präsentiert einen Dateiauswahldialog und verwendet, nachdem eine Datei ausgewählt wurde, die `getFile()`-Methode, um den Inhalt abzurufen.
+Die folgende asynchrone Funktion zeigt einen Datei-Auswahldialog an und nutzt, sobald eine Datei ausgewählt wurde, die `getFile()`-Methode, um die Inhalte abzurufen.
 
 ```js
 async function getTheFile() {

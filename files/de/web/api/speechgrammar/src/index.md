@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`src`**-Eigenschaft des [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces wird verwendet, um einen String, der die Grammatik innerhalb des `SpeechGrammar`-Objekts enthält, zu erhalten oder festzulegen.
+Die **`src`**-Eigenschaft des [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces wird verwendet, um eine Zeichenkette abzurufen oder festzulegen, die die Grammatik innerhalb des `SpeechGrammar`-Objekts enthält.
 
 ## Wert
 
-Ein String, der die Grammatik darstellt.
+Eine Zeichenkette, die die Grammatik darstellt.
 
 ## Beispiele
 

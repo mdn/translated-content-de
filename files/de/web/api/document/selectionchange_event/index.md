@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Document`](/de/docs/Web/API/Document) geändert wird.
+Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Document`](/de/docs/Web/API/Document) geändert wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht fortgepflanzt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
-Das Ereignis kann durch Hinzufügen eines Event-Listeners für `selectionchange` oder durch Verwendung des `onselectionchange` Event-Handlers behandelt werden.
+Das Ereignis kann durch Hinzufügen eines Event-Listeners für `selectionchange` oder durch die Verwendung des `onselectionchange` Ereignishandlers behandelt werden.
 
 > [!NOTE]
-> Dieses Ereignis ist nicht genau dasselbe wie die `selectionchange`-Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element geändert wird. Siehe das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis des `HTMLInputElement` für nähere Details.
+> Dieses Ereignis ist nicht dasselbe wie die `selectionchange` Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element geändert wird. Weitere Informationen finden Sie im [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis des `HTMLInputElement`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("selectionchange", (event) => {});

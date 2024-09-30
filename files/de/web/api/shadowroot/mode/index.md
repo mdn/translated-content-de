@@ -8,21 +8,20 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`mode`** Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), die nur gelesen werden kann, gibt ihren Modus an — entweder `open` oder `closed`.
-Dies definiert, ob die internen Merkmale des Shadow Roots von JavaScript aus zugänglich sind oder nicht.
+Die schreibgeschützte **`mode`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gibt den Modus an — entweder `open` oder `closed`. Sie definiert, ob die internen Merkmale des Shadow-Roots vom JavaScript aus zugänglich sind oder nicht.
 
-Wenn der `mode` eines Shadow Roots `"closed"` ist, sind die internen Implementierungsdetails des Shadow Roots von JavaScript aus nicht zugänglich und unveränderlich — auf die gleiche Weise, wie die Implementierungsdetails des beispielsweise {{HTMLElement("video")}} Elements von JavaScript aus nicht zugänglich und unveränderlich sind.
+Wenn der `mode` eines Shadow-Roots `"closed"` ist, sind die Implementierungsdetails des Shadow-Roots vom JavaScript aus nicht zugänglich und unveränderlich, auf die gleiche Weise, wie die Implementierungsdetails des {{HTMLElement("video")}}-Elements vom JavaScript aus unzugänglich und unveränderlich sind.
 
-Der Eigenschaftswert wird mithilfe der `options.mode` Eigenschaft des Objekts festgelegt, das an [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) übergeben wird, oder mithilfe des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) Attributs des [`<template>`](/de/docs/Web/HTML/Element/template) Elements, wenn ein Shadow Root deklarativ erstellt wird.
+Der Eigenschaftswert wird mithilfe der `options.mode`-Eigenschaft des Objekts festgelegt, das an [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) übergeben wird, oder mithilfe des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attributs des [`<template>`](/de/docs/Web/HTML/Element/template)-Elements, wenn ein Shadow-Root deklarativ erstellt wird.
 
 ## Wert
 
-Ein Zeichenfolgenwert, der einen der folgenden Werte haben kann:
+Ein String-Wert, der einen der folgenden Werte haben kann:
 
 - `open`
-  - : Elemente des Shadow Roots sind von JavaScript außerhalb des Roots zugänglich.
+  - : Elemente des Shadow-Roots sind vom JavaScript außerhalb des Roots aus zugänglich.
 - `closed`
-  - : Knoten innerhalb des geschlossenen Shadow Trees können von JavaScript außerhalb des Roots nicht erreicht werden.
+  - : Knoten innerhalb des geschlossenen Shadow-Trees können vom JavaScript außerhalb des Roots nicht zugegriffen werden.
 
 ## Beispiele
 

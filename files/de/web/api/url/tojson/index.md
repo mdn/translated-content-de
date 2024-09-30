@@ -1,5 +1,5 @@
 ---
-title: "URL: toJSON() Methode"
+title: "URL: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/URL/toJSON
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toJSON()`** Methode der [`URL`](/de/docs/Web/API/URL) Schnittstelle
-gibt einen String zurück, der eine serialisierte Version der URL enthält,
-obwohl sie in der Praxis denselben Effekt wie
-[`URL.toString()`](/de/docs/Web/API/URL/toString) zu haben scheint.
+Die **`toJSON()`**-Methode der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen String zurück, der eine serialisierte Version der URL enthält. In der Praxis scheint sie jedoch den gleichen Effekt wie [`URL.toString()`](/de/docs/Web/API/URL/toString) zu haben.
 
 ## Syntax
 

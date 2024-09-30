@@ -1,5 +1,5 @@
 ---
-title: "Request: json() Methode"
+title: "Request: json()-Methode"
 short-title: json()
 slug: Web/API/Request/json
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`json()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragetext und gibt ihn als ein Promise zurück, das mit dem Ergebnis des Parsens des Textes als {{JSxRef("JSON")}} aufgelöst wird.
+Die **`json()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragekörper und gibt ein Promise zurück, das mit dem Ergebnis der Verarbeitung des Körpertexts als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass das Ergebnis trotz der Bezeichnung `json()` nicht JSON ist, sondern das Ergebnis der Eingabe von JSON und deren Parsen zu einem JavaScript-Objekt.
+Beachten Sie, dass trotz des Namens der Methode `json()` das Ergebnis kein JSON ist, sondern das Resultat der Eingabe eines JSON, das geparst wird, um ein JavaScript-Objekt zu erzeugen.
 
 ## Syntax
 

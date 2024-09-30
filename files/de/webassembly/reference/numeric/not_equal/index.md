@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`ne`** Anweisungen, kurz für _not equal_, überprüfen, ob zwei Zahlen ungleich sind. Wenn die Zahlen ungleich sind, wird `1` auf den Stapel gelegt, ansonsten wird `0` auf den Stapel gelegt.
+Die **`ne`**-Instruktionen, kurz für _nicht gleich_, prüfen, ob zwei Zahlen nicht gleich sind. Wenn die Zahlen nicht gleich sind, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
 
 {{EmbedInteractiveExample("pages/wat/ne.html", "tabbed-taller")}}
 
@@ -25,9 +25,9 @@ i32.ne
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.ne`  | `0x47`         |
-| `i64.ne`  | `0x52`         |
-| `f32.ne`  | `0x5c`         |
-| `f64.ne`  | `0x62`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.ne`    | `0x47`         |
+| `i64.ne`    | `0x52`         |
+| `f32.ne`    | `0x5c`         |
+| `f64.ne`    | `0x62`         |

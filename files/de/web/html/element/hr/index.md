@@ -1,5 +1,5 @@
 ---
-title: "<hr>: Das Thematic Break (Horizontal Rule) Element"
+title: "<hr>: Das Thematische Unterbrechungselement (Horizontale Linie)"
 slug: Web/HTML/Element/hr
 l10n:
   sourceCommit: d7e274e727920f0f85f14e0bdd18e6e585419a90
@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Paragraphen-Elementen: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine thematische Unterbrechung zwischen Absatzelementen: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
 
 {{EmbedInteractiveExample("pages/tabbed/hr.html", "tabbed-shorter")}}
 
-Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Linie angezeigt werden kann, ist dieses Element nun in semantischen Begriffen definiert und nicht mehr in Präsentationsbegriffen. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit angemessenem CSS tun.
+Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern noch als horizontale Linie angezeigt werden kann, wird dieses Element nun semantisch und nicht mehr präsentationstechnisch definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit geeignetem CSS tun.
 
 ## Attribute
 
@@ -20,11 +20,11 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Farbe der Linie durch Farbnamen oder einen hexadezimalen Wert.
+  - : Legt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert fest.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Setzt die Linie auf keine Schattierung.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Höhe der Linie in Pixeln.
+  - : Legt die Höhe der Linie in Pixeln fest.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Legt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert fest.
 
@@ -50,7 +50,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 {{EmbedLiveSample("Example")}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -62,13 +62,13 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [Leerelement](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
@@ -78,7 +78,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       <th scope="row">Erlaubte Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert</li>
           <li><a href="/de/docs/Web/HTML/Element/select"><code>&lt;select></code></a> Element</li>
         </ul>
       </td>

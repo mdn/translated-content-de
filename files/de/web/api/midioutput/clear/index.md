@@ -1,5 +1,5 @@
 ---
-title: "MIDIOutput: clear() Methode"
+title: "MIDIOutput: clear()-Methode"
 short-title: clear()
 slug: Web/API/MIDIOutput/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`clear()`** Methode der [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Schnittstelle löscht die Warteschlange von Nachrichten, die an das Ausgabegerät gesendet werden.
+Die **`clear()`**-Methode des [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)-Interfaces leert die Warteschlange der an das Ausgabegerät gesendeten Nachrichten.
 
 ## Syntax
 

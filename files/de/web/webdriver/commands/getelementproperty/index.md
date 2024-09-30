@@ -7,31 +7,31 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der _Get Element Property_ [Befehl](/de/docs/Web/WebDriver/Commands) des [WebDriver](/de/docs/Web/WebDriver) APIs gibt die Eigenschaft des referenzierten [Web-Elements](/de/docs/Web/WebDriver/WebElement) zurück. Angenommen, es gibt ein `<input value=foo>`, bei dem der Benutzer den Wert auf `bar` ändert, dann ist die zurückgegebene Eigenschaft `bar` statt des ursprünglichen Wertes `foo`. Dies entspricht dem Zugriff auf die Eigenschaft des Elements.
+Der _Get Element Property_ [Befehl](/de/docs/Web/WebDriver/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Eigenschaft des referenzierten [Web-Elements](/de/docs/Web/WebDriver/WebElement) zurück. Bei `<input value=foo>`, wo der Benutzer den Wert in `bar` ändert, wird die Eigenschaft `bar` zurückgegeben anstelle des ursprünglichen Wertes `foo`. Dies entspricht dem Zugriff auf die Eigenschaft des Elements.
 
 ## Syntax
 
-| Methode | URI-Vorlage                                                  |
+| Methode | URI-Vorlage                                                 |
 | ------- | ------------------------------------------------------------ |
 | `GET`   | `/session/{session id}/element/{element id}/property/{name}` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Kennung der Sitzung.
 - `element id`
-  - : Bezeichner des [Web-Elements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Kennung des [Web-Elements](/de/docs/Web/WebDriver/WebElement), um den Tag-Namen zu erhalten.
 - `name`
-  - : Bezeichner der Eigenschaft des [Web-Elements](/de/docs/Web/WebDriver/WebElement), die abgerufen werden soll.
+  - : Kennung der Eigenschaft des [Web-Elements](/de/docs/Web/WebDriver/WebElement), die abgefragt werden soll.
 
 ### Fehler
 
-- [Session not created](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
   - : Sitzung existiert nicht.
-- [No such window](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass das Tab oder Fenster geschlossen wurde.
-- [Unexpected alert open](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
+  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
+- [Unerwartetes Warnfenster offen](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Beispiele
 
@@ -71,5 +71,5 @@ bar
 
 ## Siehe auch
 
-- [Get Element Attribute](/de/docs/Web/WebDriver/Commands/GetElementAttribute) Befehl
+- [Get Element Attribute](/de/docs/Web/WebDriver/Commands/GetElementAttribute)-Befehl
 - _[Was ist der Unterschied zwischen Eigenschaften und Attributen?](https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html)_ auf Stack Overflow

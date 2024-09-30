@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`writeText()`** Methode des [`Clipboard`](/de/docs/Web/API/Clipboard)-Interfaces schreibt den angegebenen Text in die Zwischenablage des Systems und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die System-Zwischenablage aktualisiert wurde.
+Die **`writeText()`** Methode der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle schreibt den angegebenen Text in die System-Zwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die System-Zwischenablage aktualisiert wurde.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ writeText(newClipText)
 ### Parameter
 
 - `newClipText`
-  - : Der Text, der in die Zwischenablage geschrieben werden soll.
+  - : Der String, der in die Zwischenablage geschrieben werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald die Inhalte der Zwischenablage aktualisiert wurden.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Inhalt der Zwischenablage aktualisiert wurde.
 
 ### Ausnahmen
 
@@ -63,7 +63,7 @@ async function writeClipboardText(text) {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Bildunterstützung im Artikel zum asynchronen Clipboard](https://web.dev/articles/async-clipboard)
+- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
 - [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write)
 - [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read)
 - [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)

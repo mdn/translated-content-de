@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`style`**-Eigenschaft der schreibgeschützten [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Schnittstelle gibt ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt zurück. Dies repräsentiert einen [CSS-Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) für eine CSS-{{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/At-rule) und stellt Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften für die Seite bereit.
+Die **`style`**-Eigenschaft des [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Interfaces gibt ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt zurück. Dieses stellt einen [CSS-Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) für eine CSS-{{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/At-rule) dar und bietet Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften für die Seite.
 
 ## Wert
 
-Ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt mit Eigenschaften, die der zugehörigen {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/At-rule) entsprechen.
+Ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt mit Eigenschaften, die der zugehörigen {{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/At-rule) entsprechen.
 
 > [!NOTE]
 > Frühere Versionen der Spezifikation definierten diese Eigenschaft als [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration).
-> Prüfen Sie die Kompatibilitätsdaten unten für Ihren Browser.
+> Prüfen Sie die unten stehenden Kompatibilitätsdaten für Ihren Browser.
 
 ## Beispiele
 
-### Untersuchen einer Seitenregel
+### Eine Seitenregel inspizieren
 
-Dieses Beispiel verwendet die Web API, um den Inhalt einer {{cssxref("@page")}}-Regel zu inspizieren.
+Dieses Beispiel verwendet die Web-API, um den Inhalt einer {{cssxref("@page")}}-Regel zu inspizieren.
 
 ```html hidden
 <pre id="log"></pre>
@@ -47,7 +47,7 @@ function log(text) {
 
 #### CSS
 
-Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@page")}}-Regel. Wir weisen jedem Randattribut unterschiedliche Werte unter Verwendung der `margin`-Kurzform zu und spezifizieren auch die `size`. Wir setzen die `page-orientation` nicht fest. Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web API-Objekt abgebildet werden.
+Unten definieren wir Stile für die Seite mithilfe einer {{cssxref("@page")}}-Regel. Wir weisen verschiedene Werte für jede Margin-Eigenschaft mithilfe der `margin`-Kurzschrift zu und legen auch die `size` fest. Wir setzen die `page-orientation` nicht fest. Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web-API-Objekt zugeordnet werden.
 
 ```css
 @page {
@@ -59,13 +59,13 @@ Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@pag
 
 #### JavaScript
 
-Der Code erhält zunächst das Stylesheet des Dokuments an der Position `1` und dann die `cssRules`, die in diesem Stylesheet definiert sind. Wir müssen dieses Stylesheet holen, weil das Beispiel in einem separaten Rahmen mit eigenem Sheet eingebettet ist (Index `0` ist das CSS für diese Seite).
+Der Code holt zuerst das Dokumentstylesheet an Index `1` und dann die darin definierten `cssRules`. Wir müssen dieses Stylesheet abrufen, weil das Beispiel in einem separaten Rahmen mit eigenem Stylesheet eingebettet ist (Index `0` ist das CSS für diese Seite).
 
 ```js
 const myRules = document.styleSheets[1].cssRules;
 ```
 
-Wir durchlaufen dann die für das Live-Beispiel definierten Regeln und vergleichen alle, die vom Typ `CSSPageRule` sind, da diese `@page`-Regeln entsprechen. Für die passenden Objekte protokollieren wir dann den `style` und alle seine Werte.
+Wir iterieren dann durch die für das Live-Beispiel definierten Regeln und filtern solche, die vom Typ `CSSPageRule` sind, da diese den `@page`-Regeln entsprechen. Für die passenden Objekte protokollieren wir dann den `style` und alle seine Werte.
 
 ```js
 for (let i = 0; i < myRules.length; i++) {
@@ -95,9 +95,9 @@ for (let i = 0; i < myRules.length; i++) {
 
 #### Ergebnisse
 
-Die Ergebnisse sind unten dargestellt. Beachten Sie, dass das Objekt ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, aber in einigen Browsern möglicherweise ein `CSSStyleDeclaration` ist. Beachten Sie auch, dass die entsprechenden Werte für Eigenschaften sowohl in camel- als auch snake-case einander und der `@page`-Deklaration entsprechen und dass `page-orientation` die leere Zeichenfolge `""` ist, weil es in `@page` nicht definiert ist.
+Die Ergebnisse werden unten gezeigt. Beachten Sie, dass das Objekt ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, aber in einigen Browsern möglicherweise ein `CSSStyleDeclaration` ist. Beachten Sie auch, dass die entsprechenden Werte für Eigenschaften im Camel- und Snake-Case einander und der `@page`-Deklaration entsprechen, und dass `page-orientation` die leere Zeichenkette `""` ist, weil es in `@page` nicht definiert ist.
 
-{{EmbedLiveSample("Untersuchen einer Seitenregel", "100%", "300px")}}
+{{EmbedLiveSample("Inspecting a page rule", "100%", "300px")}}
 
 ## Spezifikationen
 

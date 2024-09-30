@@ -1,5 +1,5 @@
 ---
-title: "MediaSource: MediaSource()-Konstruktor"
+title: "MediaSource: MediaSource() Konstruktor"
 short-title: MediaSource()
 slug: Web/API/MediaSource/MediaSource
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`MediaSource()`**-Konstruktor der
-[`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle erstellt und gibt ein neues
-`MediaSource`-Objekt ohne zugehörige Quellpuffer zurück.
+Der **`MediaSource()`** Konstruktor der [`MediaSource`](/de/docs/Web/API/MediaSource) Schnittstelle erzeugt und gibt ein neues `MediaSource` Objekt zurück, das keine zugeordneten Quellpuffer hat.
 
 ## Syntax
 
@@ -24,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-Der folgende Code-Schnipsel stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen).
+Der folgende Ausschnitt stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie die Quelle herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen).
 
 ```js
 const video = document.querySelector("video");

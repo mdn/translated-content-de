@@ -1,5 +1,5 @@
 ---
-title: "DataTransferItem: webkitGetAsEntry()-Methode"
+title: "DataTransferItem: webkitGetAsEntry() Methode"
 short-title: webkitGetAsEntry()
 slug: Web/API/DataTransferItem/webkitGetAsEntry
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn das durch das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) beschriebene Element eine Datei ist, gibt `webkitGetAsEntry()` entweder ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) zurück, das es repräsentiert. Wenn das Element keine Datei ist, wird `null` zurückgegeben.
+Wenn das durch das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) beschriebene Element eine Datei ist, gibt `webkitGetAsEntry()` ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) zurück, das es repräsentiert. Wenn das Element keine Datei ist, wird `null` zurückgegeben.
 
 > [!NOTE]
-> Diese Funktion wird derzeit in nicht-WebKit-Browsern, einschließlich Firefox, als `webkitGetAsEntry()` implementiert; es ist möglich, dass sie in Zukunft in `getAsEntry()` umbenannt wird. Sie sollten vorsichtig programmieren und beide überprüfen.
+> Diese Funktion wird derzeit in nicht-WebKit-Browsern, einschließlich Firefox, als `webkitGetAsEntry()` implementiert; sie könnte in Zukunft in `getAsEntry()` umbenannt werden, daher sollten Sie defensiv programmieren und auf beides achten.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierendes Objekt, das das fallengelassene Element beschreibt. Dies wird entweder [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) sein. Die Methode bricht ab und gibt `null` zurück, wenn das fallengelassene Element keine Datei ist oder wenn das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt nicht im Lese- oder Lese/Schreib-Modus ist.
+Ein auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierendes Objekt, das das fallen gelassene Element beschreibt. Dies wird entweder [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) sein. Die Methode bricht ab und gibt `null` zurück, wenn das fallengelassene Element keine Datei ist oder wenn das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt nicht im Lese- oder Lese/Schreibmodus ist.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Drop-Zone erstellt, die auf das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis reagiert, indem sie die fallengelassenen Dateien und Verzeichnisse durchsucht und eine hierarchische Verzeichnisauflistung ausgibt.
+In diesem Beispiel wird eine Drop-Zone erstellt, die auf das [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis reagiert, indem sie die fallengelassenen Dateien und Verzeichnisse durchgeht und eine hierarchische Verzeichnisauflistung ausgibt.
 
 ### HTML
 
-Das HTML etabliert die Drop-Zone selbst, die ein {{HTMLElement("div")}}-Element mit der ID `"dropzone"` ist, und ein ungeordnetes Listelement mit der ID `"listing"`.
+Das HTML erstellt die Drop-Zone selbst, die ein {{HTMLElement("div")}} Element mit der ID `"dropzone"` und ein ungeordnetes Listenelement mit der ID `"listing"` ist.
 
 ```html
 <p>Drag files and/or directories to the box below!</p>
@@ -49,7 +49,7 @@ Das HTML etabliert die Drop-Zone selbst, die ein {{HTMLElement("div")}}-Element 
 
 ### CSS
 
-Die im Beispiel verwendeten Stilvorlagen werden hier gezeigt.
+Die in diesem Beispiel verwendeten Stile sind hier gezeigt.
 
 ```css
 #dropzone {
@@ -83,10 +83,10 @@ body {
 
 ### JavaScript
 
-Zuerst betrachten wir die rekursive `scanFiles()`-Funktion. Diese Funktion nimmt als Eingabe ein [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), das einen Eintrag im Dateisystem darstellt, der gescannt und verarbeitet werden soll (der `item`-Parameter), sowie ein Element, in das die Liste der Inhalte eingefügt werden soll (der `container`-Parameter).
+Zuerst schauen wir uns die rekursive Funktion `scanFiles()` an. Diese Funktion erhält als Eingabe ein [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), das einen Eintrag im Dateisystem darstellt, der gescannt und verarbeitet werden soll (der `item`-Parameter), und ein Element, in das die Liste der Inhalte eingefügt werden soll (der `container`-Parameter).
 
 > [!NOTE]
-> Um alle Dateien in einem Verzeichnis zu lesen, muss `readEntries` wiederholt aufgerufen werden, bis es ein leeres Array zurückgibt. In auf Chromium basierenden Browsern wird das folgende Beispiel maximal 100 Einträge zurückgeben.
+> Um alle Dateien in einem Verzeichnis zu lesen, muss `readEntries` wiederholt aufgerufen werden, bis es ein leeres Array zurückgibt. In Chromium-basierten Browsern wird das folgende Beispiel maximal 100 Einträge zurückgeben.
 
 ```js
 let dropzone = document.getElementById("dropzone");
@@ -110,13 +110,13 @@ function scanFiles(item, container) {
 }
 ```
 
-`scanFiles()` beginnt damit, ein neues {{HTMLElement("li")}}-Element zu erstellen, um das zu scannende Element darzustellen. Der Name des Elements wird als Textinhalt eingefügt und dann dem Container hinzugefügt. Der Container ist in diesem Beispiel immer ein Listenelement, wie Sie gleich sehen werden.
+`scanFiles()` beginnt damit, ein neues {{HTMLElement("li")}} Element zu erstellen, das das gescannte Element repräsentiert. Es setzt den Namen des Elements als Textinhalt ein und fügt es dem Container hinzu. Der Container ist in diesem Beispiel immer ein Listenelement, wie Sie in Kürze sehen werden.
 
-Sobald das aktuelle Element in der Liste ist, wird die [`isDirectory`](/de/docs/Web/API/FileSystemEntry/isDirectory)-Eigenschaft des Elements überprüft. Wenn das Element ein Verzeichnis ist, müssen wir in dieses Verzeichnis rekursiv eintreten. Der erste Schritt besteht darin, einen [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader) zu erstellen, um den Abruf der Inhalte des Verzeichnisses zu behandeln. Das wird durch Aufrufen der [`createReader()`](/de/docs/Web/API/FileSystemDirectoryEntry/createReader)-Methode des Elements durchgeführt. Dann wird ein neues {{HTMLElement("ul")}} erstellt und der übergeordneten Liste hinzugefügt; dieses wird die Inhalte des Verzeichnisses in der nächsten Ebene der Hierarchie der Liste enthalten.
+Nachdem das aktuelle Element auf der Liste ist, wird die [`isDirectory`](/de/docs/Web/API/FileSystemEntry/isDirectory) Eigenschaft des Elements überprüft. Wenn das Element ein Verzeichnis ist, müssen wir in dieses Verzeichnis eintauchen. Der erste Schritt ist, einen [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader) zu erstellen, um das Abrufen der Verzeichnisinhalte zu handhaben. Das erfolgt durch Aufrufen der [`createReader()`](/de/docs/Web/API/FileSystemDirectoryEntry/createReader) Methode des Elements. Dann wird ein neues {{HTMLElement("ul")}} erstellt und zur Elternliste hinzugefügt; dies wird die Inhalte des Verzeichnisses auf der nächsten Ebene in der Hierarchie der Liste enthalten.
 
-Danach wird [`directoryReader.readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) aufgerufen, um alle Einträge im Verzeichnis einzulesen. Diese werden der Reihe nach in einem rekursiven Aufruf von `scanFiles()` zur Verarbeitung übergeben. Dateien werden in die Liste eingefügt; Verzeichnisse werden ebenfalls eingefügt und ein neues Ebene der Listenhierarchie wird darunter hinzugefügt, und so weiter.
+Danach wird [`directoryReader.readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) aufgerufen, um alle Einträge im Verzeichnis einzulesen. Diese werden jeweils in einem rekursiven Aufruf von `scanFiles()` weiterverarbeitet. Alle, die Dateien sind, werden in die Liste eingefügt; alle, die Verzeichnisse sind, werden in die Liste eingefügt und eine neue Ebene in der Hierarchie der Liste wird darunter hinzugefügt, und so weiter.
 
-Dann folgen die Ereignishandler. Zuerst verhindern wir, dass das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis von dem Standardhandler behandelt wird, damit unsere Drop-Zone den Drop empfangen kann:
+Dann kommen die Ereignishandler. Zuerst verhindern wir, dass das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis vom Standardhandler behandelt wird, damit unsere Drop-Zone den Fall empfangen kann:
 
 ```js
 dropzone.addEventListener(
@@ -128,7 +128,7 @@ dropzone.addEventListener(
 );
 ```
 
-Der Ereignishandler, der alles auslöst, ist natürlich der Handler für das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis:
+Der Ereignishandler, der alles in Gang setzt, ist natürlich der Handler für das [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis:
 
 ```js
 dropzone.addEventListener(
@@ -151,15 +151,15 @@ dropzone.addEventListener(
 );
 ```
 
-Dies holt die Liste der [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte ab, die die fallengelassenen Elemente aus `event.dataTransfer.items` repräsentieren. Dann rufen wir [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um zu verhindern, dass das Ereignis weiter behandelt wird, nachdem wir fertig sind.
+Dieser ruft die Liste der [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekte ab, die die fallengelassenen Elemente aus `event.dataTransfer.items` darstellen. Dann rufen wir [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um zu verhindern, dass das Ereignis weiter behandelt wird, nachdem wir fertig sind.
 
-Jetzt ist es an der Zeit, die Liste zu erstellen. Zuerst wird die Liste geleert, indem [`listing.textContent`](/de/docs/Web/API/Node/textContent) auf leer gesetzt wird. Das lässt eine leere {{HTMLElement("ul")}} übrig, damit Verzeichniseinträge eingefügt werden können.
+Jetzt ist es an der Zeit, die Liste zu erstellen. Erst wird die Liste geleert, indem [`listing.textContent`](/de/docs/Web/API/Node/textContent) auf leer gesetzt wird. Das lässt uns mit einem leeren {{HTMLElement("ul")}} zurück, um mit dem Einfügen von Verzeichniseinträgen zu beginnen.
 
-Dann iterieren wir über die Elemente in der Liste der fallengelassenen Elemente. Für jedes einzelne rufen wir seine `webkitGetAsEntry()`-Methode auf, um ein [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) zu erhalten, das die Datei darstellt. Wenn das erfolgreich ist, rufen wir `scanFiles()` auf, um das Element zu verarbeiten—entweder indem es in die Liste eingefügt wird, wenn es nur eine Datei ist, oder indem es eingefügt wird und wir in es hineinsteigen, wenn es ein Verzeichnis ist.
+Dann iterieren wir über die Elemente in der Liste der fallengelassenen Elemente. Für jedes rufen wir die `webkitGetAsEntry()` Methode auf, um ein [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) zu erhalten, das die Datei darstellt. Wenn das erfolgreich ist, rufen wir `scanFiles()` auf, um das Element zu verarbeiten—entweder indem es zur Liste hinzugefügt wird, wenn es nur eine Datei ist, oder indem es hinzugefügt wird und in das Verzeichnis eingestiegen wird, wenn es ein Verzeichnis ist.
 
 ### Ergebnis
 
-Sie können sehen, wie dies funktioniert, indem Sie es unten ausprobieren. Finden Sie einige Dateien und Verzeichnisse und ziehen Sie sie hinein, und werfen Sie einen Blick auf die resultierende Ausgabe.
+Sie können sehen, wie dies funktioniert, indem Sie es unten ausprobieren. Finden Sie einige Dateien und Verzeichnisse und ziehen Sie sie herein, und schauen Sie sich die resultierende Ausgabe an.
 
 {{EmbedLiveSample('Examples', 600, 400)}}
 
@@ -173,8 +173,8 @@ Sie können sehen, wie dies funktioniert, indem Sie es unten ausprobieren. Finde
 
 ## Siehe auch
 
-- [Datei- und Verzeichniseinträge-API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die Datei- und Verzeichniseinträge-API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
+- [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
+- [Einführung in die File und Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)
-- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) und [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry), und [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
 - Ereignisse: [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)

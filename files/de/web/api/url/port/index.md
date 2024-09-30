@@ -1,5 +1,5 @@
 ---
-title: "URL: port Eigenschaft"
+title: "URL: port-Eigenschaft"
 short-title: port
 slug: Web/API/URL/port
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`port`** Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist
-ein String, der die Portnummer der URL enthält.
+Die **`port`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein String, der die Portnummer der URL enthält.
 
 > [!NOTE]
-> Wenn ein Eingabestring, der an den [`URL()`](/de/docs/Web/API/URL/URL)-Konstruktor übergeben wird, keine explizite Portnummer enthält (z. B. `https://localhost`) oder eine Portnummer enthält, die der Standardportnummer entspricht, die zum Protokollteil des Eingabestrings gehört (z. B. `https://localhost:443`), dann wird der Wert der Port-Eigenschaft im [`URL`](/de/docs/Web/API/URL)-Objekt, das der Konstruktor zurückgibt, der leere String sein: `''`.
+> Falls ein Eingabestring, der dem [`URL()`](/de/docs/Web/API/URL/URL)-Konstruktor übergeben wird, keine explizite Portnummer enthält (z.B. `https://localhost`) oder eine Portnummer enthält, die der Standardportnummer entspricht, die dem Protokollteil des Eingabestrings zugeordnet ist (z.B. `https://localhost:443`), dann wird im [`URL`](/de/docs/Web/API/URL)-Objekt, das vom Konstruktor zurückgegeben wird, der Wert der Port-Eigenschaft der leere String sein: `''`.
 
 ## Wert
 
@@ -49,4 +48,4 @@ new URL("ftp://example.com:21/svn/Repos/").port; // '' (empty string)
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

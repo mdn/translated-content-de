@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`InputDeviceInfo`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) ermöglicht den Zugriff auf die Fähigkeiten des Eingabegeräts, das sie repräsentiert.
+Die **`InputDeviceInfo`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bietet Zugriff auf die Fähigkeiten des Eingabegeräts, das sie repräsentiert.
 
 `InputDeviceInfo`-Objekte werden von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben, wenn das zurückgegebene Gerät ein Audio- oder Videoeingabegerät ist.
 
 {{InheritanceDiagram}}
 
-## Instanz Eigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt auch Methoden von ihrer übergeordneten Schnittstelle, [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)._
 
 - [`InputDeviceInfo.getCapabilities()`](/de/docs/Web/API/InputDeviceInfo/getCapabilities)
-  - : Gibt ein `MediaTrackCapabilities`-Objekt zurück, das die primäre Audio- oder Videospur eines Geräts im `MediaStream` beschreibt.
+  - : Gibt ein `MediaTrackCapabilities`-Objekt zurück, das den primären Audio- oder Videotrack des `MediaStream` eines Geräts beschreibt.
 
 ## Beispiele
 

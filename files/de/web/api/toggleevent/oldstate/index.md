@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die schreibgeschützte **`oldState`**-Eigenschaft des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Interfaces ist ein String, der den Zustand darstellt, von dem das Element übergeht.
+Die **`oldState`**-Eigenschaft der schreibgeschützten [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist ein String, der den Zustand darstellt, von dem das Element übergeht.
 
 ## Wert
 
-Ein String. Mögliche Werte sind `"open"` (das Popover wechselt von sichtbar zu verborgen) oder `"closed"` (das Popover wechselt von verborgen zu sichtbar).
+Ein String. Mögliche Werte sind `"open"` (das Popover wechselt von sichtbar zu versteckt) oder `"closed"` (das Popover wechselt von versteckt zu sichtbar).
 
 ## Beispiele
 

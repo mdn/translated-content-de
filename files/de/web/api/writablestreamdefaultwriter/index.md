@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`WritableStreamDefaultWriter`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) ist das Objekt, das von [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) zurückgegeben wird und beim Erstellen den Schreiber an den `WritableStream` bindet, wodurch sichergestellt wird, dass keine anderen Streams in das zugrunde liegende Ziel schreiben können.
+Die **`WritableStreamDefaultWriter`**-Schnittstelle der [Streams-API](/de/docs/Web/API/Streams_API) ist das Objekt, das von [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) zurückgegeben wird, und sperrt nach der Erstellung den Writer an den `WritableStream`, um sicherzustellen, dass keine anderen Streams auf das zugrunde liegende Sink schreiben können.
 
 ## Konstruktor
 
 - [`WritableStreamDefaultWriter()`](/de/docs/Web/API/WritableStreamDefaultWriter/WritableStreamDefaultWriter)
-  - : Erstellt eine neue Instanz des `WritableStreamDefaultWriter`-Objekts.
+  - : Erzeugt eine neue Instanz eines `WritableStreamDefaultWriter`-Objekts.
 
 ## Instanz-Eigenschaften
 
 - [`WritableStreamDefaultWriter.closed`](/de/docs/Web/API/WritableStreamDefaultWriter/closed) {{ReadOnlyInline}}
-  - : Ermöglicht Ihnen das Schreiben von Code, der auf das Ende des Streaming-Prozesses reagiert. Gibt ein Versprechen zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream fehlerhaft ist oder die Sperre des Schreibers freigegeben wird.
+  - : Ermöglicht es Ihnen, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert. Gibt ein Versprechen zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream fehlerhaft ist oder die Sperre des Writers freigegeben wird.
 - [`WritableStreamDefaultWriter.desiredSize`](/de/docs/Web/API/WritableStreamDefaultWriter/desiredSize) {{ReadOnlyInline}}
   - : Gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
 - [`WritableStreamDefaultWriter.ready`](/de/docs/Web/API/WritableStreamDefaultWriter/ready) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die gewünschte Größe der internen Warteschlange des Streams von nicht-positiv zu positiv wechselt und signalisiert, dass kein Backpressure mehr angewendet wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die gewünschte Größe der internen Warteschlange des Streams vom nicht positiven Bereich in den positiven Bereich übergeht und signalisiert, dass kein Backpressure mehr angewendet wird.
 
 ## Instanz-Methoden
 
 - [`WritableStreamDefaultWriter.abort()`](/de/docs/Web/API/WritableStreamDefaultWriter/abort)
-  - : Bricht den Stream ab und signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann und er sofort in einen Fehlerzustand versetzt wird, wobei alle wartenden Schreibvorgänge verworfen werden.
+  - : Bricht den Stream ab und signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann, und es wird sofort in einen Fehlerzustand überführt, wobei alle aufgestauten Schreibvorgänge verworfen werden.
 - [`WritableStreamDefaultWriter.close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close)
   - : Schließt den zugehörigen beschreibbaren Stream.
 - [`WritableStreamDefaultWriter.releaseLock()`](/de/docs/Web/API/WritableStreamDefaultWriter/releaseLock)
-  - : Gibt die Sperre des Schreibers auf dem entsprechenden Stream frei. Nachdem die Sperre freigegeben wurde, ist der Schreiber nicht mehr aktiv. Wenn der zugehörige Stream fehlerhaft ist, wenn die Sperre freigegeben wird, erscheint der Schreiber von nun an in gleicher Weise fehlerhaft; andernfalls erscheint der Schreiber geschlossen.
+  - : Gibt die Sperre des Writers für den entsprechenden Stream frei. Nachdem die Sperre freigegeben wurde, ist der Writer nicht mehr aktiv. Wenn der zugehörige Stream beim Freigeben der Sperre fehlerhaft ist, wird der Writer denselben Fehlerzustand beibehalten; andernfalls wird der Writer als geschlossen angezeigt.
 - [`WritableStreamDefaultWriter.write()`](/de/docs/Web/API/WritableStreamDefaultWriter/write)
-  - : Schreibt ein übergebenes Datenstück in einen [`WritableStream`](/de/docs/Web/API/WritableStream) und dessen zugrunde liegendes Ziel und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, um den Erfolg oder Misserfolg des Schreibvorgangs anzuzeigen.
+  - : Schreibt ein übergebenes Datenstück in einen [`WritableStream`](/de/docs/Web/API/WritableStream) und dessen zugrunde liegendes Sink und gibt ein {{jsxref("Promise")}} zurück, das die Erfolgs- oder Fehlschlaganzeige des Schreibvorgangs angibt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten Ziel und einer von der API bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens `sendMessage()` auf, die den neu erstellten Stream und einen String übergibt. Diese Funktion ruft die `getWriter()`-Methode des Streams auf, die eine Instanz von `WritableStreamDefaultWriter` zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Stück des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Versprechen zurück, die verarbeitet werden, um mit dem Erfolg oder Misserfolg von Stücken und Streams umzugehen.
+Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten Sink und einer von der API bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens `sendMessage()` auf, wobei der neu erstellte Stream und ein String übergeben werden. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von `WritableStreamDefaultWriter` zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jeden Teil des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Versprechen zurück, die verarbeitet werden, um den Erfolg oder das Scheitern von Teilen und Streams zu behandeln.
 
 ```js
 const list = document.querySelector("ul");
@@ -97,7 +97,7 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [einfachen Schreiber-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Sie können den vollständigen Code in unserem [einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/) finden.
 
 ## Spezifikationen
 

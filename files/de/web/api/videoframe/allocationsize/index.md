@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: allocationSize()-Methode"
+title: "VideoFrame: allocationSize() Methode"
 short-title: allocationSize()
 slug: Web/API/VideoFrame/allocationSize
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`allocationSize()`**-Methode des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Anzahl der Bytes zurück, die erforderlich sind, um das Video so zu halten, wie es durch Optionen gefiltert wird, die in die Methode übergeben werden.
+Die **`allocationSize()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle gibt die Anzahl der Bytes zurück, die erforderlich sind, um das Video zu speichern, gefiltert durch die in die Methode übergebenen Optionen.
 
 ## Syntax
 
@@ -22,25 +22,25 @@ allocationSize(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das Folgendes enthält:
     - `rect` {{optional_inline}}
-      - : Das Rechteck der Pixel, die aus dem `VideoFrame` kopiert werden sollen. Wenn nicht angegeben, wird das [`visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect) verwendet. Dies ist im Format eines Wörterbuchobjekts, das Folgendes enthält:
+      - : Das Rechteck von Pixeln, das aus dem `VideoFrame` kopiert werden soll. Falls nicht angegeben, wird das [`visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect) verwendet. Dies erfolgt im Format eines Wörterbuchobjekts, das enthält:
         - `x`: Die x-Koordinate.
         - `y`: Die y-Koordinate.
         - `width`: Die Breite des Rahmens.
         - `height`: Die Höhe des Rahmens.
     - `layout` {{optional_inline}}
-      - : Eine Liste, die die folgenden Werte für jede Ebene im `VideoFrame` enthält. Ebenen dürfen sich nicht überlappen. Wenn nicht angegeben, werden die Ebenen eng gepackt:
+      - : Eine Liste, die folgende Werte für jede Ebene im `VideoFrame` enthält. Ebenen dürfen sich nicht überlappen. Falls nicht angegeben, werden die Ebenen dicht gepackt:
         - `offset`
-          - : Eine ganze Zahl, die den Versatz in Bytes darstellt, an dem die gegebene Ebene beginnt.
+          - : Ein ganzzahliger Wert, der das Offset in Bytes angibt, ab dem die gegebene Ebene beginnt.
         - `stride`
-          - : Eine ganze Zahl, die die Anzahl der Bytes darstellt, einschließlich Auffüllung, die von jeder Zeile der Ebene verwendet werden.
+          - : Ein ganzzahliger Wert, der die Anzahl der Bytes, einschließlich Padding, angibt, die von jeder Zeile der Ebene verwendet werden.
     - `format` {{Optional_Inline}}
-      - : Ein Pixelformat für die Pixeldaten in der `destination`. Kann auf `"RGBA"`, `"RGBX"`, `"BGRA"`, `"BGRX"` gesetzt werden. Wenn nicht angegeben, wird das [`format`](/de/docs/Web/API/VideoFrame/format) verwendet.
+      - : Ein Pixelformat für die Pixel-Daten im `destination`. Kann auf `"RGBA"`, `"RGBX"`, `"BGRA"`, `"BGRX"` gesetzt werden. Falls nicht angegeben, wird das [`format`](/de/docs/Web/API/VideoFrame/format) verwendet.
     - `colorSpace` {{Optional_Inline}}
-      - : Gibt den Farbraum der Pixeldaten in der `destination` an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden. Nur anwendbar für RGB-Pixelformate. Wenn nicht angegeben, wird `"srgb"` verwendet.
+      - : Gibt den Farbraum der Pixel-Daten im `destination` an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden. Nur anwendbar für RGB-Pixelformate. Falls nicht angegeben, wird `"srgb"` verwendet.
 
 ### Rückgabewert
 
-Eine ganze Zahl, die die Anzahl der Bytes enthält, die benötigt werden, um den Rahmen gemäß `options` zu halten.
+Ein ganzzahliger Wert, der die Anzahl der Bytes enthält, die benötigt werden, um den Rahmen gemäß den `options` zu speichern.
 
 ## Beispiele
 

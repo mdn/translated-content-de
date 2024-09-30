@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSNumericArray`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) enthält eine Liste von [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekten.
+Das **`CSSNumericArray`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) enthält eine Liste von [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekten.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`CSSNumericArray.length`](/de/docs/Web/API/CSSNumericArray/length) {{ReadOnlyInline}}
-  - : Gibt zurück, wie viele [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der `CSSNumericArray` enthalten sind.
+  - : Gibt zurück, wie viele [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte im `CSSNumericArray` enthalten sind.
 
 ## Beispiele
 
-In Bearbeitung.
+Zu erledigen.
 
 ## Spezifikationen
 

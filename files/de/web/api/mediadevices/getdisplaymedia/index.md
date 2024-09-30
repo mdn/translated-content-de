@@ -1,5 +1,5 @@
 ---
-title: "MediaDevices: getDisplayMedia()-Methode"
+title: "MediaDevices: getDisplayMedia() Methode"
 short-title: getDisplayMedia()
 slug: Web/API/MediaDevices/getDisplayMedia
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Screen Capture API")}}{{SecureContext_Header}}
 
-Die **`getDisplayMedia()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle fordert den Nutzer auf, eine Auswahl zu treffen und die Erlaubnis zu erteilen, die Inhalte eines Displays oder eines Teils davon (wie ein Fenster) als [`MediaStream`](/de/docs/Web/API/MediaStream) zu erfassen.
+Die **`getDisplayMedia()`** Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices) Schnittstelle fordert den Benutzer auf, eine Auswahl zu treffen und die Erlaubnis zu erteilen, die Inhalte eines Bildschirms oder eines Teils davon (z.B. ein Fenster) als einen [`MediaStream`](/de/docs/Web/API/MediaStream) zu erfassen.
 
-Der resultierende Stream kann dann mithilfe der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) aufgezeichnet oder als Teil einer [WebRTC](/de/docs/Web/API/WebRTC_API)-Sitzung übertragen werden.
+Der resultierende Stream kann dann mit der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) aufgezeichnet oder als Teil einer [WebRTC](/de/docs/Web/API/WebRTC_API)-Sitzung übertragen werden.
 
-Siehe [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture) für weitere Details und ein Beispiel.
+Weitere Details und ein Beispiel finden Sie unter [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture).
 
 ## Syntax
 
@@ -25,71 +25,83 @@ getDisplayMedia(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein optionales Objekt, das Anforderungen für den zurückgegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) spezifiziert. Die Optionen für `getDisplayMedia()` funktionieren genauso wie die [Einschränkungen](/de/docs/Web/API/MediaDevices/getUserMedia#parameters) für die [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)-Methode, obwohl in diesem Fall nur `audio` und `video` angegeben werden können. Die Liste der möglichen Optionseigenschaften für `getDisplayMedia()` lautet wie folgt:
+  - : Ein optionales Objekt, das Anforderungen für den zurückgegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) angibt. Die Optionen für `getDisplayMedia()` funktionieren ähnlich wie die [Einschränkungen](/de/docs/Web/API/MediaDevices/getUserMedia#parameters) für die Methode [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), obwohl in diesem Fall nur `audio` und `video` angegeben werden können. Die Liste der möglichen Options-Eigenschaften für `getDisplayMedia()` lautet wie folgt:
 
     - `video` {{optional_inline}}
-      - : Ein Boolean oder eine Instanz von [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints); der Standardwert ist `true`. Wenn diese Option weggelassen oder auf `true` gesetzt wird, enthält der Stream einen Videotrack. Ein Wert von `true` gibt an, dass der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) einen Videotrack enthält. Da `getDisplayMedia()` einen Videotrack erfordert, wird das Versprechen abgelehnt, wenn diese Option auf `false` gesetzt ist, mit einem `TypeError`.
+      - : Ein Boolean oder eine Instanz von [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints); der Standardwert ist `true`. Wenn diese Option weggelassen oder auf `true` gesetzt wird, enthält der Stream einen Videotrack. Ein Wert von `true` zeigt an, dass der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) einen Videotrack enthalten wird. Da `getDisplayMedia()` einen Videotrack erfordert, schlägt die Promise fehl, wenn diese Option auf `false` gesetzt ist, und löst einen `TypeError` aus.
     - `audio` {{optional_inline}}
-      - : Ein Boolean oder eine Instanz von [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints); der Standardwert ist `false`. Ein Wert von `true` gibt an, dass der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) einen Audiotrack enthält, wenn Audio unterstützt und für die vom Nutzer gewählte Anzeigeoberfläche verfügbar ist.
+      - : Ein Boolean oder eine Instanz von [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints); der Standardwert ist `false`. Ein Wert von `true` zeigt an, dass der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) einen Audiotrack enthalten wird, wenn Audio unterstützt und für die vom Benutzer gewählte Bildschirmoberfläche verfügbar ist.
     - `controller` {{Experimental_Inline}} {{optional_inline}}
-      - : Eine [`CaptureController`](/de/docs/Web/API/CaptureController)-Objektinstanz, die Methoden enthält, mit denen die Aufnahmesitzung weiter manipuliert werden kann, wenn sie enthalten ist.
+      - : Eine Instanz eines [`CaptureController`](/de/docs/Web/API/CaptureController)-Objekts, das Methoden enthält, die zur weiteren Manipulation der Erfassungssitzung verwendet werden können, wenn sie enthalten ist.
     - `monitorTypeSurfaces` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der angibt, ob der Browser ganze Bildschirme in den dem Nutzer präsentierten Bildschirmaufnahmeoptionen neben Tab- und Fensteroptionen anbieten sollte. Diese Option soll Unternehmen davor schützen, dass private Informationen durch einen Bedienfehler beim Einsatz von Videokonferenz-Apps preisgegeben werden. Mögliche Werte sind `include`, was darauf hinweist, dass der Browser Bildschirmoptionen einschließen soll, und `exclude`, was darauf hinweist, dass sie ausgeschlossen werden sollen. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein enumerierter Wert, der angibt, ob der Browser in den dem Benutzer präsentierten Bildschirmaufnahmeoptionen vollständige Bildschirme zusammen mit Registerkarten- und Fensteroptionen anbieten sollte. Diese Option soll Unternehmen davor schützen, dass durch einen Mitarbeiterfehler in Videokonferenz-Apps private Informationen durchsickern. Mögliche Werte sind `include`, was darauf hindeutet, dass der Browser Bildschirmoptionen einschließen sollte, und `exclude`, was darauf hindeutet, dass sie ausgeschlossen werden sollten. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
 
         > [!NOTE]
-        > Sie können `monitorTypeSurfaces: "exclude"` nicht gleichzeitig mit [`displaySurface: "monitor"`](/de/docs/Web/API/MediaTrackConstraints/displaySurface) einstellen, da die beiden Einstellungen widersprüchlich sind. Der Versuch, dies zu tun, führt dazu, dass der `getDisplayMedia()`-Aufruf mit einem `TypeError` fehlschlägt.
+        > Sie können nicht `monitorTypeSurfaces: "exclude"` gleichzeitig mit [`displaySurface: "monitor"`](/de/docs/Web/API/MediaTrackConstraints/displaySurface) setzen, da die beiden Einstellungen widersprüchlich sind. Ein solcher Versuch führt dazu, dass der `getDisplayMedia()`-Aufruf mit einem `TypeError` fehlschlägt.
 
     - `preferCurrentTab` {{non-standard_inline}} {{Experimental_Inline}} {{optional_inline}}
-      - : Ein Boolean; ein Wert von `true` weist den Browser an, den aktuellen Tab als die hervorstechendste Aufnahmequelle anzubieten, d. h. als separate "Dieser Tab"-Option in den "Teilen, was Sie möchten"-Optionen, die dem Benutzer präsentiert werden. Dies ist nützlich, da viele Anwendungstypen im Allgemeinen nur den aktuellen Tab teilen möchten. Zum Beispiel könnte eine Präsentations-App es dem Benutzer ermöglichen, den aktuellen Tab mit der Präsentation zu einem virtuellen Meeting zu streamen. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein Boolean; ein Wert von `true` weist den Browser an, die aktuelle Registerkarte als die hervorstechendste Erfassen-Quelle anzubieten, d.h. als separate "Diese Registerkarte"-Option in den "Wählen Sie aus, was Sie teilen möchten"-Optionen, die dem Benutzer präsentiert werden. Dies ist nützlich, da viele App-Typen normalerweise nur die aktuelle Registerkarte teilen möchten. Beispielsweise kann eine Folienpräsentation-App dem Benutzer erlauben, die aktuelle Registerkarte, die die Präsentation enthält, zu einem virtuellen Konferenz-Stream hinzuzufügen. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
     - `selfBrowserSurface` {{Experimental_Inline}} {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, ob der Browser dem Benutzer erlauben sollte, den aktuellen Tab für die Aufnahme auszuwählen. Dies hilft, den "unendlichen Spiegeleffekte"-Effekt zu vermeiden, der auftritt, wenn eine Videokonferenz-App versehentlich ihr eigenes Display teilt. Mögliche Werte sind `include`, was darauf hinweist, dass der Browser den aktuellen Tab in die Auswahlmöglichkeiten für die Aufnahme einbeziehen soll, und `exclude`, was darauf hinweist, dass er ausgeschlossen werden soll. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein enumerierter Wert, der angibt, ob der Browser dem Benutzer erlauben sollte, die aktuelle Registerkarte zur Erfassung auszuwählen. Dies hilft, den Effekt des "endlosen Spiegelkorridors" zu vermeiden, der auftritt, wenn eine Videokonferenz-App versehentlich ihre eigene Anzeige teilt. Mögliche Werte sind `include`, was darauf hindeutet, dass der Browser die aktuelle Registerkarte in den Auswahlmöglichkeiten für die Erfassung einschließen sollte, und `exclude`, was darauf hindeutet, dass sie ausgeschlossen werden sollte. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
     - `surfaceSwitching` {{Experimental_Inline}} {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, ob der Browser während der Bildschirmfreigabe ein Steuerelement anzeigen soll, das es dem Benutzer ermöglicht, den geteilten Tab dynamisch zu wechseln. Dies ist viel bequemer, als jedes Mal den gesamten Teilen-Prozess durchlaufen zu müssen, wenn ein Benutzer den geteilten Tab wechseln möchte. Mögliche Werte sind `include`, was darauf hinweist, dass der Browser das Steuerelement einschließen soll, und `exclude`, was darauf hinweist, dass es nicht angezeigt werden soll. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein enumerierter Wert, der angibt, ob der Browser eine Steuerung anzeigen sollte, um dem Benutzer zu ermöglichen, während der Bildschirmfreigabe dynamisch die geteilte Registerkarte zu wechseln. Dies ist viel bequemer, als jedes Mal den gesamten Freigabeprozess erneut durchlaufen zu müssen, wenn ein Benutzer die geteilte Registerkarte wechseln möchte. Mögliche Werte sind `include`, was darauf hindeutet, dass der Browser die Steuerung einschließen sollte, und `exclude`, was darauf hindeutet, dass sie nicht angezeigt werden sollte. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
     - `systemAudio` {{Experimental_Inline}} {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, ob der Browser das Systemaudio unter den dem Benutzer angebotenen möglichen Audioquellen einschließen soll. Mögliche Werte sind `include`, was darauf hinweist, dass der Browser das Systemaudio in die Liste der Auswahlmöglichkeiten einbeziehen soll, und `exclude`, was darauf hinweist, dass es ausgeschlossen werden soll. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein enumerierter Wert, der angibt, ob der Browser das Systemaudio zu den dem Benutzer angebotenen möglichen Audioquellen hinzufügen sollte. Mögliche Werte sind `include`, was darauf hindeutet, dass der Browser das Systemaudio in die Liste der Auswahlmöglichkeiten aufnehmen sollte, und `exclude`, was darauf hindeutet, dass es ausgeschlossen werden sollte. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
     - `monitorTypeSurfaces` {{Experimental_Inline}} {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, ob die Anwendung den Benutzeragenten dazu bringen möchte, dem Benutzer die Option zu bieten, Display-Oberflächen auszuwählen, deren Typ "Monitor" ist. Mögliche Werte sind `include`, was darauf hinweist, dass der Browser die Display-Oberflächen, deren Typ "Monitor" ist, einbeziehen soll, und `exclude`, was darauf hinweist, dass sie ausgeschlossen werden sollen. Ein Standardwert wird von der Spezifikation nicht vorgegeben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browserspezifische Standardwerte.
+      - : Ein enumerierter Wert, der angibt, ob die Anwendung dem Benutzeragenten anbieten möchte, die Option für die Auswahl von Anzeigeflächen, deren Typ Monitor ist, zu präsentieren. Mögliche Werte sind `include`, was darauf hindeutet, dass der Browser die Anzeigeflächen, deren Typ Monitor ist, einbeziehen sollte, und `exclude`, was darauf hindeutet, dass es ausgeschlossen werden sollte. Ein Standardwert ist in der Spezifikation nicht vorgeschrieben; siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für browser-spezifische Standardeinstellungen.
 
 > [!NOTE]
-> Im Artikel [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) finden Sie viel mehr Details darüber, wie diese Optionen funktionieren.
+> Siehe den Artikel [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für viel mehr Details darüber, wie diese Optionen funktionieren.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst wird, der einen Videotrack enthält, dessen Inhalte aus einem vom Benutzer ausgewählten Bildschirmbereich stammen, sowie optional einen Audiotrack.
+Ein {{jsxref("Promise")}}, das sich zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) auflöst, der eine
+Videospur enthält, deren Inhalte aus einem vom Benutzer ausgewählten Bildschirmbereich stammen, sowie eventuell eine
+Audiospur.
 
 > [!NOTE]
-> Die Unterstützung für Audiotracks variiert pro Browser, sowohl darin, ob sie überhaupt unterstützt werden, als auch in Bezug auf die unterstützten Audioquellen. Bitte überprüfen Sie die [Kompatibilitätstabelle](#browser-kompatibilität), um Details für jeden Browser zu erhalten.
+> Die Browserunterstützung für Audiospuren variiert, sowohl dahingehend, ob sie vom Medienrekorder überhaupt unterstützt werden, als auch, welche Audioquellen unterstützt werden. Überprüfen Sie die [Kompatibilitätstabelle](#browser-kompatibilität) für Details zu jedem Browser.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Fehler oder Problem nicht zu einem der anderen hier aufgeführten Ausnahmen passt.
+  - : Wird ausgelöst, wenn ein Fehler oder Fehlschlag keinem der hier aufgelisteten anderen Ausnahmen entspricht.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf von `getDisplayMedia()` nicht von einem Code gemacht wurde, der aufgrund einer [flüchtigen Aktivierung](/de/docs/Glossary/transient_activation), wie einem Event-Handler, ausgeführt wird. Oder wenn der Browser-Kontext nicht vollständig aktiv ist oder der Fokus nicht darauf liegt. Oder wenn die `controller`-Option bereits für die Erstellung eines anderen [`MediaStream`](/de/docs/Web/API/MediaStream) verwendet wurde.
+  - : Wird ausgelöst, wenn der Aufruf von `getDisplayMedia()` nicht von Code ausgeführt wurde, der aufgrund eines
+    [flüchtigen Aktivierung](/de/docs/Glossary/transient_activation), wie einem Ereignis-Handler, ausgeführt wurde. Oder wenn der Browserkontext
+    nicht vollständig aktiv oder nicht fokussiert ist. Oder wenn die `controller`-Option bereits zur Erstellung
+    eines anderen [`MediaStream`](/de/docs/Web/API/MediaStream) verwendet wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Erlaubnis zum Zugriff auf einen Bildschirmbereich vom Benutzer verweigert wurde, oder wenn die aktuelle Browserinstanz keinen Zugriff auf die Bildschirmfreigabe hat (zum Beispiel durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)).
+  - : Wird ausgelöst, wenn die Erlaubnis zum Zugriff auf einen Bildschirmbereich vom Benutzer verweigert wurde oder die aktuelle Browsersitzung nicht die Berechtigung zum Zugriff auf Bildschirmfreigabe hat (zum Beispiel durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)).
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn keine Quellen für Bildschirmvideo zur Erfassung verfügbar sind.
+  - : Wird ausgelöst, wenn keine Quellen von Bildschirmvideo zur Erfassung verfügbar sind.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Benutzer einen Bildschirm, ein Fenster, einen Tab oder eine andere Quelle von Bildschirmdaten auswählt, aber ein Hardware- oder Betriebssystemsperre oder -Fehler auftritt, der die Freigabe der ausgewählten Quelle verhindert.
+  - : Wird ausgelöst, wenn der Benutzer einen Bildschirm, ein Fenster, eine Registerkarte oder eine andere Quelle von Bildschirmdaten ausgewählt hat, jedoch ein
+    Hardware- oder Betriebssystemebenenfehler oder -aussperrung aufgetreten ist, der das Teilen
+    der ausgewählten Quelle verhindert.
 - `OverconstrainedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nach der Erstellung des Streams das Anwenden der angegebenen Einschränkungen fehlschlägt, weil kein kompatibler Stream generiert werden konnte.
+  - : Wird ausgelöst, wenn nach Erstellung des Streams das Anwenden der angegebenen Einschränkungen fehlschlägt,
+    weil kein kompatibler Stream erzeugt werden konnte.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die angegebenen `options` Werte enthalten, die bei einem Aufruf von `getDisplayMedia()` nicht erlaubt sind, zum Beispiel eine `video`-Eigenschaft, die auf false gesetzt ist, oder wenn angegebene [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) nicht zulässig sind. `min` und `exact`-Werte sind in den Einschränkungen bei `getDisplayMedia()`-Anrufen nicht erlaubt.
+  - : Wird ausgelöst, wenn die angegebenen `options` Werte enthalten, die nicht zulässig sind,
+    wenn `getDisplayMedia()` aufgerufen wird, zum Beispiel eine `video`-Eigenschaft, die auf false gesetzt ist, oder wenn angegebene [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) nicht erlaubt sind. `min`- und `exact`-Werte sind in Constraints, die bei `getDisplayMedia()`-Aufrufen verwendet werden, nicht zulässig.
 
 ## Sicherheit
 
-Da `getDisplayMedia()` auf böswillige Weise verwendet werden könnte, kann es eine Quelle erheblicher Datenschutz- und Sicherheitsbedenken sein. Aus diesem Grund spezifiziert die Spezifikation Maßnahmen, die Browser ergreifen müssen, um `getDisplayMedia()` vollständig zu unterstützen.
+Da `getDisplayMedia()` auf bösartige Weise eingesetzt werden könnte, kann es eine
+Quelle erheblich beeinträchtigender Privatsphäre- und Sicherheitsbedenken sein. Aus diesem Grund beschreibt die Spezifikation
+Maßnahmen, die Browser ergreifen müssen, um die volle Unterstützung von
+`getDisplayMedia()` sicherzustellen.
 
-- Die angegebenen Optionen können nicht dazu verwendet werden, die dem Benutzer zur Verfügung stehenden Auswahlmöglichkeiten zu beschränken. Stattdessen müssen sie nach der Auswahl einer Quelle durch den Benutzer angewandt werden, um eine Ausgabe zu erzeugen, die den Optionen entspricht.
-- Die Erlaubnis zur Verwendung von `getDisplayMedia()` kann nicht für wiederholte Nutzung gespeichert werden. Der Benutzer muss jedes Mal um Erlaubnis gefragt werden.
+- Die angegebenen Optionen können nicht verwendet werden, um die dem Benutzer verfügbaren Auswahlmöglichkeiten einzuschränken. Stattdessen müssen sie nach der Quellenauswahl durch den Benutzer angewendet werden, um eine Ausgabe zu erzeugen, die den Optionen entspricht.
+- Die Genehmigung zur Nutzung von `getDisplayMedia()` kann nicht gespeichert werden. Der Benutzer muss jedes Mal um Erlaubnis gefragt werden.
 - Eine [flüchtige Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
-- Browser werden ermutigt, Benutzern eine Warnung darüber zu geben, Displays oder Fenster zu teilen, die Browser enthalten, und genau darauf zu achten, welche anderen Inhalte möglicherweise erfasst und anderen Benutzern angezeigt werden.
+- Browser werden dazu angehalten, den Benutzern eine Warnung auszugeben, wenn sie Displays oder Fenster teilen, die Browser enthalten, und genau darauf zu achten, welche anderen Inhalte möglicherweise erfasst und anderen Benutzern gezeigt werden könnten.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine `startCapture()`-Methode erstellt, die eine Bildschirmaufnahme mit einem Satz von Optionen startet, die durch den `displayMediaOptions`-Parameter spezifiziert werden.
+Im folgenden Beispiel wird eine `startCapture()`-Methode erstellt, die mit einem Satz von Spezifikationen durch den Parameter `displayMediaOptions` die Bildschirmerfassung initiiert.
 
 ```js
 const displayMediaOptions = {
@@ -119,10 +131,14 @@ async function startCapture(displayMediaOptions) {
 }
 ```
 
-Dies verwendet {{jsxref("Operators/await", "await")}}, um asynchron darauf zu warten, dass `getDisplayMedia()` mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst wird, der die angeforderten Display-Inhalte gemäß den angegebenen Optionen enthält. Der Stream wird dann an den Aufrufer zur Verwendung zurückgegeben, beispielsweise zum Hinzufügen zu einem WebRTC-Anruf mit [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack), um den Videotrack aus dem Stream hinzuzufügen.
+Dies verwendet {{jsxref("Operators/await", "await")}}, um asynchron auf die Auflösung von `getDisplayMedia()`
+mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) zu warten, der die Anzeigesergebnisse enthält, wie
+durch die angegebenen Optionen angefordert. Der Stream wird dann dem Aufrufer zur Nutzung zurückgegeben,
+vielleicht um ihn zu einem WebRTC-Anruf mit [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) hinzuzufügen, um
+den Videotrack aus dem Stream hinzuzufügen.
 
 > [!NOTE]
-> Die [Bildschirmfreigabesteuerung](https://screen-sharing-controls.glitch.me/) Demo bietet eine vollständige Implementierung, die es Ihnen erlaubt, eine Bildschirmaufnahme mit Ihrer Wahl von `getDisplayMedia()`-Einschränkungen und Optionen zu erstellen.
+> Die [Bildschirmfreigabe-Steuerungen](https://screen-sharing-controls.glitch.me/) Demo bietet eine vollständige Implementierung, die es Ihnen ermöglicht, eine Bildschirmaufnahme mit Ihrer Wahl an `getDisplayMedia()`-Einschränkungen und Optionen zu erstellen.
 
 ## Spezifikationen
 
@@ -138,5 +154,5 @@ Dies verwendet {{jsxref("Operators/await", "await")}}, um asynchron darauf zu wa
 - [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia): Erfassung von Medien von
-  einer Kamera und/oder Mikrofon
+- [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia): Erfassen von Medien von einer
+  Kamera und/oder einem Mikrofon

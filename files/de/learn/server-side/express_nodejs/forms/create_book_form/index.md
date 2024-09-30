@@ -1,5 +1,5 @@
 ---
-title: Erstellen Sie das Buchformular
+title: Erstellen eines Buchformulars
 slug: Learn/Server-side/Express_Nodejs/forms/Create_book_form
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,19 +7,19 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser Unterartikel zeigt, wie Sie eine Seite/ein Formular zum Erstellen von `Book`-Objekten definieren. Dies ist etwas komplexer als die entsprechenden `Author`- oder `Genre`-Seiten, da wir verfügbare `Author`- und `Genre`-Datensätze in unserem `Book`-Formular abrufen und anzeigen müssen.
+Dieser Unterartikel zeigt, wie Sie eine Seite/ein Formular definieren, um `Book`-Objekte zu erstellen. Dies ist etwas komplizierter als die entsprechenden Seiten für `Author` oder `Genre`, da wir die verfügbaren `Author`- und `Genre`-Einträge in unserem `Book`-Formular abrufen und anzeigen müssen.
 
-## Importieren von Validierungs- und Bereinigungsmethoden
+## Methoden zur Validierung und Bereinigung importieren
 
-Öffnen Sie **/controllers/bookController.js** und fügen Sie die folgende Zeile am Anfang der Datei (vor den Routenfunktionen) hinzu:
+Öffnen Sie **/controllers/bookController.js**, und fügen Sie die folgende Zeile am Anfang der Datei (vor den Routenfunktionen) hinzu:
 
 ```js
 const { body, validationResult } = require("express-validator");
 ```
 
-## Controller—GET-Route
+## Controller—get Route
 
-Suchen Sie die exportierte `book_create_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code:
+Suchen Sie die exportierte Methode `book_create_get()` und ersetzen Sie sie durch den folgenden Code:
 
 ```js
 // Display book create form on GET.
@@ -38,12 +38,12 @@ exports.book_create_get = asyncHandler(async (req, res, next) => {
 });
 ```
 
-Dies verwendet `await` für das Ergebnis von `Promise.all()`, um alle `Author`- und `Genre`-Objekte parallel abzurufen (die gleiche Vorgehensweise wird im [Express Tutorial Teil 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data) verwendet).
-Diese werden dann als Variablen namens `authors` und `genres` (zusammen mit dem Seiten-`title`) an die Ansicht **`book_form.pug`** übergeben.
+Dies verwendet `await` für das Ergebnis von `Promise.all()`, um alle `Author`- und `Genre`-Objekte parallel abzurufen (der gleiche Ansatz wird im [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data) verwendet).
+Diese werden dann an die Ansicht **`book_form.pug`** als Variablen namens `authors` und `genres` übergeben (zusammen mit dem Seiten-`title`).
 
-## Controller—POST-Route
+## Controller—post Route
 
-Suchen Sie die exportierte `book_create_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Suchen Sie die exportierte Methode `book_create_post()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Handle book create on POST.
@@ -118,10 +118,10 @@ exports.book_create_post = [
 ];
 ```
 
-Die Struktur und das Verhalten dieses Codes sind fast identisch mit den POST-Routenfunktionen der Formulare [`Genre`](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form) und [`Author`](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_author_form). Zuerst validieren und bereinigen wir die Daten. Wenn die Daten ungültig sind, zeigen wir das Formular erneut zusammen mit den ursprünglich vom Benutzer eingegebenen Daten und einer Liste von Fehlermeldungen an. Wenn die Daten gültig sind, speichern wir den neuen `Book`-Datensatz und leiten den Benutzer zur Buchdetailseite um.
+Die Struktur und das Verhalten dieses Codes sind fast genau gleich wie die der Post-Routenfunktionen für die [`Genre`](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form) und [`Author`](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_author_form) Formulare. Zuerst validieren und bereinigen wir die Daten. Wenn die Daten ungültig sind, zeigen wir das Formular erneut an zusammen mit den Daten, die ursprünglich vom Benutzer eingegeben wurden, und einer Liste von Fehlermeldungen. Wenn die Daten gültig sind, speichern wir den neuen `Book`-Eintrag und leiten den Benutzer zur Buchdetailseite weiter.
 
-Der Hauptunterschied im Vergleich zum anderen Formularbearbeitungscode ist, wie wir die Genreinformationen bereinigen.
-Das Formular gibt ein Array von `Genre`-Elementen zurück (während für andere Felder ein String zurückgegeben wird).
+Der Hauptunterschied im Vergleich zu den anderen Formularverarbeitungscodes ist, wie wir die Genre-Informationen bereinigen.
+Das Formular gibt ein Array von `Genre`-Elementen zurück (während es für andere Felder einen String zurückgibt).
 Um die Informationen zu validieren, konvertieren wir die Anfrage zunächst in ein Array (erforderlich für den nächsten Schritt).
 
 ```js
@@ -138,7 +138,7 @@ Um die Informationen zu validieren, konvertieren wir die Anfrage zunächst in ei
 ];
 ```
 
-Wir verwenden dann ein Platzhalterzeichen (`*`) im Bereinigungsprogramm, um jedes Element des Genre-Arrays individuell zu validieren. Der folgende Code zeigt, wie - das bedeutet "bereinigen Sie jedes Element unter dem Schlüssel `genre`".
+Dann verwenden wir ein Platzhalterzeichen (`*`) im Bereinigungsprogramm, um jeden Eintrag im Genre-Array einzeln zu validieren. Der untenstehende Code zeigt, wie das aussieht - dies bedeutet "jeden Artikel unter dem Schlüssel `genre` bereinigen".
 
 ```js
 [
@@ -148,8 +148,8 @@ Wir verwenden dann ein Platzhalterzeichen (`*`) im Bereinigungsprogramm, um jede
 ];
 ```
 
-Der letzte Unterschied im Vergleich zum anderen Formularbearbeitungscode besteht darin, dass wir alle vorhandenen Genres und Autoren an das Formular übergeben müssen.
-Um die Genres zu markieren, die vom Benutzer ausgewählt wurden, durchlaufen wir alle Genres und fügen den `checked="true"`-Parameter denen hinzu, die in unseren POST-Daten enthalten waren (wie im unten wiedergegebenen Codefragment).
+Der letzte Unterschied im Vergleich zu den anderen Formularverarbeitungscodes besteht darin, dass wir alle vorhandenen Genres und Autoren an das Formular übergeben müssen.
+Um die Genres zu markieren, die vom Benutzer ausgewählt wurden, durchlaufen wir alle Genres und fügen das `checked="true"`-Attribut zu denen hinzu, die in unseren Post-Daten waren (wie im folgenden Codefragment reproduziert).
 
 ```js
 // Mark our selected genres as checked.
@@ -162,7 +162,7 @@ for (const genre of allGenres) {
 
 ## Ansicht
 
-Erstellen Sie **/views/book_form.pug** und kopieren Sie den folgenden Text hinein.
+Erstellen Sie **/views/book_form.pug** und kopieren Sie den untenstehenden Text hinein.
 
 ```pug
 extends layout
@@ -210,25 +210,25 @@ block content
         li!= error.msg
 ```
 
-Die Struktur und das Verhalten der Ansicht sind fast gleich wie beim **genre_form.pug**-Template.
+Die Struktur und das Verhalten der Ansicht sind fast gleich wie bei der Vorlage **genre_form.pug**.
 
-Die Hauptunterschiede bestehen darin, wie wir die Auswahlfelder umsetzen: `Author` und `Genre`.
+Die Hauptunterschiede bestehen darin, wie wir die Felder vom Typ Auswahl implementieren: `Author` und `Genre`.
 
-- Die Genres werden als Kontrollkästchen angezeigt und verwenden den `checked`-Wert, den wir im Controller festgelegt haben, um zu bestimmen, ob das Kästchen ausgewählt werden sollte oder nicht.
-- Die Autoren werden als alphabetisch geordnete Einzelauswahl-Dropdown-Liste angezeigt (die an das Template übergebene Liste ist bereits sortiert, sodass wir dies nicht im Template tun müssen).
-  Wenn der Benutzer zuvor einen Buchautor ausgewählt hat (z.B. beim Korrigieren ungültiger Feldwerte nach der ursprünglichen Formulareinreichung oder beim Aktualisieren von Buchdetails), wird der Autor erneut ausgewählt, wenn das Formular angezeigt wird. Hier bestimmen wir, welchen Autor wir auswählen, indem wir die ID der aktuellen Autorenoption mit dem Wert vergleichen, der zuvor vom Benutzer eingegeben wurde (über die `book`-Variable übergeben).
+- Die Gruppe der Genres wird als Kontrollkästchen angezeigt, und der im Controller gesetzte `checked`-Wert wird verwendet, um zu bestimmen, ob das Kästchen ausgewählt sein soll oder nicht.
+- Die Gruppe der Autoren wird als alphabetisch geordnete Einzelauswahl-Dropdown-Liste angezeigt (die Liste, die an die Vorlage übergeben wird, ist bereits sortiert, sodass wir das in der Vorlage nicht tun müssen).
+  Wenn der Benutzer zuvor einen Buchautor ausgewählt hat (d. h. beim Korrigieren ungültiger Feldwerte nach der ersten Formularübermittlung oder beim Aktualisieren der Buchdetails), wird der Autor erneut ausgewählt, wenn das Formular angezeigt wird. Hier bestimmen wir, welcher Autor ausgewählt wird, indem wir die ID der aktuellen Autorenoption mit dem vom Benutzer zuvor eingegebenen Wert vergleichen (über die Variable `book` übergeben).
 
 > [!NOTE]
-> Wenn ein Fehler im übermittelten Formular vorliegt und das Formular erneut gerendert werden soll, sind die ID des neuen Buchautors und die IDs der vorhandenen Buchautoren vom Typ `Schema.Types.ObjectId`. Um sie zu vergleichen, müssen wir sie zuerst in Strings umwandeln.
+> Wenn ein Fehler im übermittelten Formular auftritt, dann, wenn das Formular neu gerendert werden soll, sind die ID des neuen Buchautors und die bestehenden IDs der Buchautoren vom Typ `Schema.Types.ObjectId`. Also müssen wir sie zuerst in Strings konvertieren, um sie zu vergleichen.
 
-## Wie sieht es aus?
+## Wie sieht das aus?
 
-Starten Sie die Anwendung, öffnen Sie Ihren Browser unter `http://localhost:3000/` und wählen Sie den Link _Create new book_ aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Website ungefähr wie der folgende Screenshot aussehen. Nachdem Sie ein gültiges Buch eingereicht haben, sollte es gespeichert werden und Sie werden zur Buchdetailseite weitergeleitet.
+Führen Sie die Anwendung aus, öffnen Sie Ihren Browser mit `http://localhost:3000/`, und wählen Sie den Link _Create new book_ aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite etwa wie der folgende Screenshot aussehen. Nachdem Sie ein gültiges Buch eingereicht haben, sollte es gespeichert werden und Sie werden zur Buchdetailseite weitergeleitet.
 
-![Screenshot des leeren Bucherstellungsformulars der lokalen Bibliothek auf localhost:3000. Die Seite ist in zwei Spalten unterteilt. Die schmale linke Spalte hat eine vertikale Navigationsleiste mit 10 Links, die durch eine hellfarbene horizontale Linie in zwei Abschnitte unterteilt sind. Der obere Abschnitt verlinkt zu bereits erstellten Daten. Die unteren Links führen zu Formularen zum Erstellen neuer Daten. Die breite rechte Spalte enthält das Bucherstellungsformular mit einer Überschrift 'Create Book' und vier Eingabefeldern mit den Bezeichnungen 'Title', 'Author', 'Summary', 'ISBN' und 'Genre', gefolgt von vier Genre-Kontrollkästchen: Fantasy, Science Fiction, französische Poesie und Action. Am unteren Ende des Formulars befindet sich eine 'Submit'-Schaltfläche.](locallibary_express_book_create_empty.png)
+![Screenshot des leeren Formulars zur Erstellung eines Buches der lokalen Bibliothek auf localhost:3000. Die Seite ist in zwei Spalten unterteilt. Die schmale linke Spalte hat eine vertikale Navigationsleiste mit 10 Links, die durch eine helle horizontale Linie in zwei Abschnitte unterteilt sind. Der obere Abschnitt verlinkt zu bereits erstellten Daten. Die unteren Links führen zu Formularen für neue Daten. Die breite rechte Spalte enthält das Formular zur Erstellung eines Buches mit einer Überschrift 'Create Book' und vier Eingabefeldern mit den Beschriftungen 'Title', 'Author', 'Summary', 'ISBN' und 'Genre', gefolgt von vier Genre-Kontrollkästchen: Fantasy, Science Fiction, französische Poesie und Action. Unten im Formular befindet sich ein 'Submit'-Button.](locallibary_express_book_create_empty.png)
 
 ## Nächste Schritte
 
 Kehren Sie zurück zu [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn/Server-side/Express_Nodejs/forms).
 
-Fahren Sie mit dem nächsten Unterartikel von Teil 6 fort: [Create BookInstance form](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_BookInstance_form).
+Fahren Sie mit dem nächsten Unterartikel von Teil 6 fort: [Erstellen eines BookInstance-Formulars](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_BookInstance_form).

@@ -1,6 +1,6 @@
 ---
-title: "IDBKeyRange: obere Grenze() statische Methode"
-short-title: obere Grenze()
+title: "IDBKeyRange: obereGrenze() statische Methode"
+short-title: obereGrenze()
 slug: Web/API/IDBKeyRange/upperBound_static
 l10n:
   sourceCommit: d16706e4e930c57161d473287374a9286c663147
@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die statische Methode **`upperBound()`** der [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Schnittstelle erstellt einen neuen Schlüsselbereich mit oberer Grenze. Standardmäßig ist der obere Endpunktwert enthalten und geschlossen.
+Die **`upperBound()`** statische Methode der
+[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Schnittstelle erstellt einen neuen Schlüsselbereich mit oberer Grenze. Standardmäßig enthält er den oberen Endpunktwert und ist geschlossen.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ IDBKeyRange.upperBound(upper, open)
 - `upper`
   - : Gibt die obere Grenze des neuen Schlüsselbereichs an.
 - `open` {{optional_inline}}
-  - : Gibt an, ob die obere Grenze den Endpunktwert ausschließt. Der Standardwert ist false.
+  - : Gibt an, ob die obere Grenze den Endpunktwert ausschließt. Standardmäßig ist dies false.
 
 ### Rückgabewert
 
@@ -31,18 +32,17 @@ IDBKeyRange.upperBound(upper, open)
 ### Ausnahmen
 
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Schlüssel, der mit dem `upper`-Parameter verknüpft ist, kein gültiger Schlüssel ist.
+  - : Wird ausgelöst, wenn der Schlüssel, der dem `upper` Parameter zugeordnet ist, kein gültiger Schlüssel ist.
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich mit oberer Grenze verwenden würden. Hier deklarieren wir `keyRangeValue = IDBKeyRange.upperBound("F");` — ein Bereich, der den Wert "F" und alles davor einschließt. Wir öffnen eine Transaktion (mithilfe von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und einen Objektspeicher und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei wir `keyRangeValue` als optionalen Schlüsselbereichswert deklarieren.
+Das folgende Beispiel zeigt, wie Sie einen Schlüsselbereich mit einer oberen Grenze verwenden würden. Hier deklarieren wir `keyRangeValue = IDBKeyRange.upperBound("F");` — einen Bereich, der den Wert "F" und alles davor einschließt. Wir eröffnen eine Transaktion (unter Verwendung von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und einen Objektspeicher und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), indem wir `keyRangeValue` als seinen optionalen Schlüsselbereichswert deklarieren.
 
-Wenn wir `IDBKeyRange.upperBound("F", true);` verwenden würden, würde der Bereich "F" ausschließen; und stattdessen nur die Werte davor einschließen.
+Wenn wir `IDBKeyRange.upperBound("F", true);` verwenden würden, dann würde der Bereich "F" ausschließen und stattdessen nur die Werte davor einschließen.
 
 > [!NOTE]
-> Für ein vollständigeres Beispiel, das Ihnen erlaubt, mit dem
-> Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository
-> ([sehen Sie sich das Beispiel auch live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).)
+> Für ein vollständigeres Beispiel, das Ihnen erlaubt, mit dem Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange)-Repo
+> ([Beispiel auch live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).)
 
 ```js
 function displayData() {
@@ -76,10 +76,10 @@ function displayData() {
 
 ## Siehe auch
 
-- [Verwenden von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
-Die **`removeAsync()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces startet den Prozess des asynchronen Entfernens von Mediensegmenten aus dem `SourceBuffer`, die innerhalb eines bestimmten Zeitbereichs gefunden werden. Ein {{jsxref("Promise")}} wird zurückgegeben, der erfüllt wird, wenn die Puffer im angegebenen Zeitbereich entfernt wurden.
+Die **`removeAsync()`**-Methode des
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces beginnt den Prozess des asynchronen Entfernens von Mediensegmenten aus dem `SourceBuffer`, die sich innerhalb eines bestimmten Zeitbereichs befinden. Ein {{jsxref("Promise")}} wird zurückgegeben, das erfüllt wird, wenn die Puffer im angegebenen Zeitbereich entfernt wurden.
 
-Diese Methode kann nur aufgerufen werden, wenn [`updating`](/de/docs/Web/API/SourceBuffer/updating) `false` ist. Ist dies nicht der Fall, rufen Sie stattdessen [`abort()`](/de/docs/Web/API/SourceBuffer/abort) auf.
+Diese Methode kann nur aufgerufen werden, wenn [`updating`](/de/docs/Web/API/SourceBuffer/updating) ist
+`false`. Andernfalls sollte [`abort()`](/de/docs/Web/API/SourceBuffer/abort) aufgerufen werden.
 
 ## Syntax
 
@@ -21,17 +23,19 @@ removeAsync(start, end)
 ### Parameter
 
 - `start`
-  - : Ein Double, das den Beginn des Zeitbereichs in Sekunden darstellt.
+  - : Ein Double, das den Anfang des Zeitbereichs in Sekunden darstellt.
 - `end`
   - : Ein Double, das das Ende des Zeitbereichs in Sekunden darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, dessen Erfüllungs-Handler ausgeführt wird, sobald die Puffer im angegebenen Zeitbereich aus dem `SourceBuffer` entfernt wurden.
+Ein {{jsxref("Promise")}}, dessen fulfillment handler ausgeführt wird, sobald die Puffer im
+angegebenen Zeitbereich aus dem `SourceBuffer` entfernt wurden.
 
 ## Beispiele
 
-Dieses Beispiel etabliert eine asynchrone Funktion, `emptySourceBuffer()`, die den Inhalt des angegebenen `SourceBuffer` leert.
+Dieses Beispiel zeigt eine asynchrone Funktion, `emptySourceBuffer()`,
+die den Inhalt des angegebenen `SourceBuffer` löscht.
 
 ```js
 async function emptySourceBuffer(msBuffer) {

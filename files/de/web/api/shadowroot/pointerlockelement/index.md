@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Die **`pointerLockElement`** schreibgeschützte Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt das Element an, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist. Es ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel sich in einem anderen Baum befindet.
+Die schreibgeschützte **`pointerLockElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element an, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist.
+Es ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel sich in einem anderen Baum befindet.
 
 ## Wert
 

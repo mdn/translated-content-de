@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Max-Forwards`** Anforderungs-HTTP-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode verwendet, um die Anzahl der Knoten (normalerweise Proxies) zu begrenzen, die die Anforderung durchläuft. Sein Wert ist ein ganzzahliger Wert, der die _maximale Anzahl_ der Knoten angibt, die er besuchen muss. An jedem Knoten wird der Wert verringert, und die `TRACE`-Anforderung wird an den nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anforderung wird dann, mit Ausnahme einiger Header, als der Body einer `200 OK`-Antwort zurückgesendet.
+Der **`Max-Forwards`** Anforderungs-HTTP-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) Methode verwendet, um die Anzahl der Knoten (normalerweise Proxys) zu begrenzen, die eine Anfrage durchläuft. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ von Knoten angibt, die es passieren muss. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage wird zum nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anfrage wird dann, abgesehen von einigen Headern, als der Körper einer `200 OK` Antwort zurückgesendet.
 
-Wenn der `Max-Forwards`-Header in einer `TRACE`-Anforderung nicht vorhanden ist, nimmt ein Knoten an, dass es keine maximale Anzahl von Weiterleitungen gibt.
+Wenn der `Max-Forwards` Header in einer `TRACE`-Anfrage nicht vorhanden ist, wird ein Knoten davon ausgehen, dass es keine maximale Anzahl von Weiterleitungen gibt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">[Forbidden header name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -43,8 +43,8 @@ Max-Forwards: 10
 
 ## Browser-Kompatibilität
 
-Dieses Feature ist weder für Browser gedacht noch in ihnen implementiert.
+Diese Funktion ist weder auf Browser abgestimmt noch in Browsern implementiert.
 
 ## Siehe auch
 
-- Die HTTP-[`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode
+- Die HTTP [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) Methode

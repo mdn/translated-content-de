@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`postscriptName`**-Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt den PostScript-Namen des Schriftartensatzes zurück.
+Die schreibgeschützte Eigenschaft **`postscriptName`** der Schnittstelle [`FontData`](/de/docs/Web/API/FontData) gibt den PostScript-Namen des Zeichensatzes zurück.
 
-Dies ist der Name, der verwendet wird, um die PostScript-Schriftart eindeutig zu identifizieren. Er besteht normalerweise aus einer ununterbrochenen Zeichenfolge, die den Namen und Stil der Schriftart enthält.
+Dies ist der Name, der verwendet wird, um den PostScript-Schriftart eindeutig zu identifizieren, und besteht im Allgemeinen aus einer ununterbrochenen Zeichenfolge, die den Namen und Stil der Schriftart enthält.
 
-Beispiele hierfür sind:
+Beispiele umfassen:
 
 - AppleSDGothicNeo-UltraLight
 - Arial-Black
@@ -26,7 +26,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel wird nach allen verfügbaren Schriftarten suchen und Metadaten protokollieren. Dies könnte beispielsweise verwendet werden, um ein Schriftartenauswahl-Steuerelement zu füllen.
+Der folgende Codeausschnitt wird nach allen verfügbaren Schriftarten abfragen und Metadaten protokollieren. Dies könnte z.B. verwendet werden, um ein Schriftart-Auswahlwerkzeug zu füllen.
 
 ```js
 async function logFontData() {
@@ -54,5 +54,5 @@ async function logFontData() {
 
 ## Siehe auch
 
-- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Erweiterte Typografie mit lokalen Schriftarten verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

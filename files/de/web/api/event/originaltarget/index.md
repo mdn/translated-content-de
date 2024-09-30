@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`originalTarget`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt das ursprüngliche Ziel des Ereignisses zurück, bevor eine Weiterleitung stattfand. Im Gegensatz zu [`Event.explicitOriginalTarget`](/de/docs/Web/API/Event/explicitOriginalTarget) kann es auch nativen anonymen Inhalt umfassen.
+Die schreibgeschützte **`originalTarget`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt das ursprüngliche Ziel des Ereignisses zurück, bevor irgendwelche Retargetings stattgefunden haben. Im Gegensatz zu [`Event.explicitOriginalTarget`](/de/docs/Web/API/Event/explicitOriginalTarget) kann es sich dabei auch um native anonyme Inhalte handeln.
 
 ## Spezifikationen
 
-_Dies ist eine Mozilla-spezifische Eigenschaft und ist Teil keiner aktuellen Spezifikation. Es gibt keine Pläne, diese zu einem Standard zu machen._
+_Dies ist eine Mozilla-spezifische Eigenschaft und gehört zu keiner aktuellen Spezifikation. Sie ist nicht auf dem Weg, zu einem Standard zu werden._
 
 ## Browser-Kompatibilität
 

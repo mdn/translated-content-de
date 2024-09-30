@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`updateCurrentEntry()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces aktualisiert den `state` des [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry); sie wird verwendet in Situationen, in denen die Zustandsänderung unabhängig von einer Navigation oder einem Neuladen sein soll.
+Die **`updateCurrentEntry()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces aktualisiert den `state` des [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry); dies wird in Fällen verwendet, in denen die Zustandsänderung unabhängig von einer Navigation oder einem Neuladen erfolgt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ updateCurrentEntry(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `state`
-      - : Entwicklerdefinierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden sollen, sobald die Navigation abgeschlossen ist, abrufbar über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState). Dies kann jeder Datentyp sein. Sie möchten beispielsweise eine Seitenbesuchszahl für Analysezwecke speichern oder UI-Zustandsdetails speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [strukturierbar klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Vom Entwickler definierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden sollen, sobald die Navigation abgeschlossen ist, und abrufbar über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState). Dies kann ein beliebiger Datentyp sein. Sie möchten beispielsweise möglicherweise die Anzahl der Seitenbesuche für Analysezwecke speichern oder UI-Zustandsdetails speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [struktur-klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
 
 ### Rückgabewert
 
@@ -31,13 +31,13 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `state`-Parameter Werte enthielt, die nicht strukturierbar klonbar sind.
+  - : Wird ausgelöst, wenn der `state`-Parameter Werte enthält, die nicht struktur-klonbar sind.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) `null` ist, d.h. es gibt keinen aktuellen Verlaufseintrag. Dies könnte beispielsweise auftreten, wenn die aktuelle Seite `about:blank` ist.
+  - : Wird ausgelöst, wenn das [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) `null` ist, d. h. es gibt keinen aktuellen Verlaufseintrag. Dies könnte zum Beispiel auftreten, wenn die aktuelle Seite `about:blank` ist.
 
 ## Beispiele
 
-Sie könnten so etwas wie das Folgende verwenden, um den offenen/geschlossenen Zustand eines {{htmlelement("details")}}-Elements zu aktualisieren, sodass der Zustand beim Neuladen der Seite oder bei der Rückkehr von einem anderen Ort wiederhergestellt werden kann.
+Sie könnten etwa Folgendes verwenden, um den offenen/geschlossenen Zustand eines {{htmlelement("details")}}-Elements zu aktualisieren, sodass der Zustand beim Neuladen der Seite oder beim Zurückkehren von anderswoher wiederhergestellt werden kann.
 
 ```js
 detailsElem.addEventListener("toggle", () => {
@@ -56,5 +56,5 @@ detailsElem.addEventListener("toggle", () => {
 ## Siehe auch
 
 - [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

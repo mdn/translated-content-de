@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerrichtlinie `hid` steuert, ob es dem aktuellen Dokument erlaubt ist, die [WebHID API](/de/docs/Web/API/WebHID_API) zu verwenden, um sich mit ungewöhnlichen oder exotischen Human Interface Devices wie alternativen Tastaturen oder Gamepads zu verbinden.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `hid` steuert, ob das aktuelle Dokument die [WebHID-API](/de/docs/Web/API/WebHID_API) verwenden darf, um sich mit ungewöhnlichen oder exotischen Human Interface Devices wie alternativen Tastaturen oder Gamepads zu verbinden.
 
-Insbesondere wird die [`Navigator.hid`](/de/docs/Web/API/Navigator/hid)-Eigenschaft nicht verfügbar sein, wenn eine definierte Richtlinie die Nutzung von WebHID blockiert.
+Insbesondere, wo eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die Eigenschaft [`Navigator.hid`](/de/docs/Web/API/Navigator/hid) nicht verfügbar sein.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: hid=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen (Origins), für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `hid` ist `self`.
+Die standardmäßige Erlaubnisliste für `hid` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-Allowlist für `hid` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- HTTP-Header {{HTTPHeader("Permissions-Policy")}}
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

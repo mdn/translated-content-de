@@ -1,14 +1,15 @@
 ---
-title: "WebGLRenderingContext: Methode getVertexAttrib()"
+title: "WebGLRenderingContext: getVertexAttrib() Methode"
 short-title: getVertexAttrib()
 slug: Web/API/WebGLRenderingContext/getVertexAttrib
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getVertexAttrib()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) liefert Informationen über ein Vertex-Attribut an einer gegebenen Position zurück.
+Die **`WebGLRenderingContext.getVertexAttrib()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über ein Vertex-Attribut an einer angegebenen Position zurück.
 
 ## Syntax
 
@@ -25,16 +26,16 @@ getVertexAttrib(index, pname)
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragende Information angibt. Mögliche Werte:
 
     - `gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING`
-      - : Gibt den aktuell gebundenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
+      - : Gibt den derzeit gebundenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
     - `gl.VERTEX_ATTRIB_ARRAY_ENABLED`
-      - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der `true` ist, wenn das Vertex-Attribut an diesem `index` aktiviert ist. Andernfalls `false`.
+      - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der `true` ist, wenn das Vertex-Attribut bei diesem `index` aktiviert ist. Andernfalls `false`.
     - `gl.VERTEX_ATTRIB_ARRAY_SIZE`
       - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Größe eines Elements des Vertex-Arrays angibt.
     - `gl.VERTEX_ATTRIB_ARRAY_STRIDE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Anzahl der Bytes zwischen aufeinanderfolgenden Elementen im Array angibt. 0 bedeutet, dass die Elemente sequentiell sind.
+      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Anzahl der Bytes zwischen aufeinanderfolgenden Elementen im Array angibt. 0 bedeutet, dass die Elemente aufeinanderfolgend sind.
     - `gl.VERTEX_ATTRIB_ARRAY_TYPE`
 
-      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Array-Typ darstellt. Einer der folgenden Werte:
+      - : Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Array-Typ repräsentiert. Einer von
 
         - `gl.BYTE`
         - `gl.UNSIGNED_BYTE`
@@ -43,25 +44,22 @@ getVertexAttrib(index, pname)
         - `gl.FLOAT`
 
     - `gl.VERTEX_ATTRIB_ARRAY_NORMALIZED`
-      - : Gibt einen
-        [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der `true` ist, wenn Festkomma-Datentypen für das Vertex-Attribut-Array am angegebenen `index` normalisiert sind.
+      - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der true ist, wenn Festkomma-Datentypen für das Vertex-Attribut-Array am angegebenen `index` normalisiert sind.
     - `gl.CURRENT_VERTEX_ATTRIB`
 
-      - : Gibt eine {{jsxref("Float32Array")}} (mit 4 Elementen) zurück, die den aktuellen Wert des Vertex-Attributs am angegebenen `index` darstellt.
+      - : Gibt ein {{jsxref("Float32Array")}} (mit 4 Elementen) zurück, das den aktuellen Wert des Vertex-Attributs am angegebenen `index` darstellt.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Wenn ein {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} verwendet wird, sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.VERTEX_ATTRIB_ARRAY_INTEGER`
-      - : Gibt einen
-        [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der anzeigt, ob ein ganzzahliger Datentyp im Vertex-Attribut-Array am angegebenen `index` vorhanden ist.
+      - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der angibt, ob ein ganzzahliger Datentyp im Vertex-Attribut-Array am angegebenen `index` vorliegt.
     - `gl.VERTEX_ATTRIB_ARRAY_DIVISOR`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenzdivisor beschreibt, der für instanziertes Rendering verwendet wird.
+      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenz-Divisor beschreibt, der für instanzbasiertes Rendering verwendet wird.
 
-    Bei Verwendung der [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays)-Erweiterung:
+    Bei Verwendung der [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung:
 
     - `ext.VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE`
-      - : Gibt einen
-        [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenzdivisor beschreibt, der für instanziertes Rendering verwendet wird.
+      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenz-Divisor beschreibt, der für instanzbasiertes Rendering verwendet wird.
 
 ### Rückgabewert
 

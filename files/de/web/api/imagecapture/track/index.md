@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`track`**-Eigenschaft des [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Interfaces gibt eine Referenz auf den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wurde.
+Die schreibgeschützte **`track`**-Eigenschaft der [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Schnittstelle gibt eine Referenz auf den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wurde.
 
 ## Wert
 

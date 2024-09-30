@@ -1,5 +1,5 @@
 ---
-title: "StyleSheet: media Eigenschaft"
+title: "StyleSheet: media-Eigenschaft"
 short-title: media
 slug: Web/API/StyleSheet/media
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`media`** Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet) Interfaces gibt das vorgesehene Zielmedium für Stilinformationen an. Sie ist ein schreibgeschütztes, array-ähnliches `MediaList` Objekt und kann mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden.
+Die **`media`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt das beabsichtigte Zielmedium für Stilinformationen an. Es handelt sich um ein schreibgeschütztes, arrayähnliches `MediaList`-Objekt, das mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden kann.
 
 ## Wert
 
-Ein schreibgeschütztes, array-ähnliches `MediaList` Objekt.
+Ein schreibgeschütztes, arrayähnliches `MediaList`-Objekt.
 
 ## Beispiele
 

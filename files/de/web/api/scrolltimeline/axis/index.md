@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`axis`**-Eigenschaft der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Schnittstelle gibt einen Aufzählungswert zurück, der die Scroll-Achse darstellt, die den Fortschritt der Timeline bestimmt.
+Die **`axis`** schreibgeschützte Eigenschaft des [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Interfaces gibt einen enumerierten Wert zurück, der die Scrollachse repräsentiert, die den Fortschritt der Zeitleiste steuert.
 
 ## Wert
 
-Ein Aufzählungswert. Mögliche Werte sind:
+Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"block"`
-  - : Die Scrollleiste auf der Block-Achse des Scroll-Containers, die die Achse in der Richtung senkrecht zum Fluss des Textes innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie Standard-Englisch, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
+  - : Der Scrollbalken auf der Block-Achse des Scroll-Containers, welche die Achse in Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie im Standard-Englischen, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
 - `"inline"`
-  - : Die Scrollleiste auf der Inline-Achse des Scroll-Containers, die die Achse in der Richtung parallel zum Fluss des Textes in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
+  - : Der Scrollbalken auf der Inline-Achse des Scroll-Containers, welche die Achse in Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
 - `"y"`
-  - : Die Scrollleiste auf der vertikalen Achse des Scroll-Containers.
+  - : Der Scrollbalken auf der vertikalen Achse des Scroll-Containers.
 - `"x"`
-  - : Die Scrollleiste auf der horizontalen Achse des Scroll-Containers.
+  - : Der Scrollbalken auf der horizontalen Achse des Scroll-Containers.
 
 ## Beispiele
 
@@ -40,4 +40,4 @@ Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) fü
 - [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-getriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`for...in`** Anweisung iteriert über alle [enumerierbaren String-Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) eines Objekts (ignoriert dabei Eigenschaften, die durch [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) gekennzeichnet sind), einschließlich geerbter enumerierbarer Eigenschaften.
+Die **`for...in`**-Anweisung iteriert über alle [enumerierbaren String-Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) eines Objekts (ignoring properties keyed by [symbols](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)), einschließlich geerbter enumerierbarer Eigenschaften.
 
 {{EmbedInteractiveExample("pages/js/statement-forin.html")}}
 
@@ -21,73 +21,73 @@ for (variable in object)
 ### Parameter
 
 - `variable`
-  - : Erhält bei jeder Iteration einen String-Eigenschaftsnamen. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) sein, oder ein [Zuweisungsziel](/de/docs/Web/JavaScript/Reference/Operators/Assignment) (z.B. eine vorher deklarierte Variable, eine Objekteigenschaft oder ein [Destructuring-Zuweisungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)). Mit `var` deklarierte Variablen sind nicht lokal zur Schleife, d.h. sie befinden sich im gleichen Geltungsbereich, in dem auch die `for...in` Schleife ist.
+  - : Erhält bei jeder Iteration einen String-Eigenschaftsnamen. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) sein oder ein [Zuweisungsziel](/de/docs/Web/JavaScript/Reference/Operators/Assignment) (z.B. eine zuvor deklarierte Variable, eine Objekteigenschaft oder ein [Destrukturierungszuweisung-Muster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)). Mit `var` deklarierte Variablen sind nicht lokal zur Schleife, d.h., sie befinden sich im selben Scope, in dem sich die `for...in`-Schleife befindet.
 - `object`
-  - : Objekt, dessen nicht symbolische enumerierbare Eigenschaften durchlaufen werden.
+  - : Objekt, dessen nicht-symbolische enumerierbare Eigenschaften durchlaufen werden.
 - `statement`
-  - : Eine Anweisung, die bei jeder Iteration ausgeführt wird. Kann sich auf `variable` beziehen. Sie können einen [Blocksatz](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die bei jeder Iteration ausgeführt wird. Kann auf `variable` verweisen. Sie können einen [Blocksatz](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 
 ## Beschreibung
 
-Die Schleife wird über alle enumerierbaren Eigenschaften des Objekts selbst und derjenigen iterieren, die das Objekt aus seiner Prototypenkette erbt (Eigenschaften näherer Prototypen haben Vorrang vor denen von Prototypen, die weiter vom Objekt in seiner Prototypenkette entfernt sind).
+Die Schleife iteriert über alle enumerierbaren Eigenschaften des Objekts selbst und über jene, die das Objekt von seiner Prototypen-Kette erbt (Eigenschaften näherer Prototypen haben Vorrang vor denen von Prototypen, die weiter vom Objekt in seiner Prototypen-Kette entfernt sind).
 
-Wie andere Schleifenanweisungen können Sie [Steuerungsflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
+Wie andere Schleifenanweisungen können Sie [Steuerflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
 
 - {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
 - {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und geht zur nächsten Iteration der Schleife.
 
-Eine `for...in` Schleife iteriert nur über enumerierbare, nicht-symbolische Eigenschaften. Objekte, die von eingebauten Konstruktoren wie `Array` und `Object` erstellt werden, haben geerbte nicht-enumerierbare Eigenschaften von `Array.prototype` und `Object.prototype`, wie die {{jsxref("Array")}} Methode {{jsxref("Array/indexOf", "indexOf()")}} oder die {{jsxref("Object")}} Methode {{jsxref("Object/toString", "toString()")}}, die in der `for...in` Schleife nicht besucht werden.
+Eine `for...in`-Schleife iteriert nur über enumerierbare, nicht-symbolische Eigenschaften. Von eingebauten Konstruktoren wie `Array` und `Object` erstellte Objekte haben geerbte nicht-enumerierbare Eigenschaften von `Array.prototype` und `Object.prototype`, wie die {{jsxref("Array")}}-Methode {{jsxref("Array/indexOf", "indexOf()")}} oder die {{jsxref("Object")}}-Methode {{jsxref("Object/toString", "toString()")}}, die in der `for...in`-Schleife nicht besucht werden.
 
-Die Traversierungsreihenfolge ist laut moderner ECMAScript-Spezifikation gut definiert und konsistent über Implementierungen hinweg. Innerhalb jeder Komponente der Prototypenkette werden zuerst alle nicht-negativen ganzzahligen Schlüssel (die Array-Indizes sein können) in aufsteigender Reihenfolge von Werten durchlaufen, dann andere String-Schlüssel in aufsteigender chronologischer Reihenfolge der Erstellung.
+Die Traversierungsreihenfolge ist laut moderner ECMAScript-Spezifikation gut definiert und konsistent über alle Implementierungen hinweg. Innerhalb jeder Komponente der Prototypenkette werden alle nicht-negativen ganzzahligen Schlüssel (die als Array-Indizes verwendet werden können) zuerst in aufsteigender Reihenfolge durchlaufen, dann andere String-Schlüssel in aufsteigender chronologischer Reihenfolge der Eigenschaftserstellung.
 
-Der `variable` Teil von `for...in` akzeptiert alles, was vor dem `=` Operator stehen kann. Sie können {{jsxref("Statements/const", "const")}} verwenden, um die Variable zu deklarieren, solange sie nicht im Schleifenkörper neu zugewiesen wird (sie kann sich zwischen den Iterationen ändern, da es sich um zwei separate Variablen handelt). Andernfalls können Sie {{jsxref("Statements/let", "let")}} verwenden. Sie können [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um mehrere lokale Variablen zuzuweisen, oder einen Eigenschafts-Accessor wie `for (x.y in iterable)` verwenden, um den Wert einer Objekteigenschaft zuzuweisen.
+Der `variable`-Teil von `for...in` akzeptiert alles, was vor dem `=`-Operator stehen kann. Sie können {{jsxref("Statements/const", "const")}} verwenden, um die Variable zu deklarieren, solange sie nicht innerhalb des Schleifenkörpers erneut zugewiesen wird (sie kann zwischen den Iterationen wechseln, da dies zwei separate Variablen sind). Andernfalls können Sie {{jsxref("Statements/let", "let")}} verwenden. Sie können [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um mehrere lokale Variablen zuzuweisen, oder einen Eigenschafts-Accessor wie `for (x.y in iterable)` verwenden, um den Wert einer Objekteigenschaft zuzuweisen.
 
-Eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements) erlaubt `var` Deklarationen der Schleifenvariablen mit einem Initialisierer. Dies wirft einen [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) im strikten Modus und wird im nicht-strikten Modus ignoriert.
+Ein [veraltetes Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements) erlaubt `var`-Deklarationen der Schleifenvariable mit einem Initialisierer. Dies führt zu einem [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) im strikten Modus und wird im nicht-strikten Modus ignoriert.
 
-### Gelöschte, hinzugefügte oder geänderte Eigenschaften
+### Gelöschte, hinzugefügte oder modifizierte Eigenschaften
 
-`for...in` besucht die Schlüsseln von Eigenschaften auf folgende Weise:
+`for...in` besucht Eigenschaftsschlüssel in folgender Weise:
 
-1. Es erhält zuerst alle eigenen String-Schlüssel des aktuellen Objekts, in einer Art sehr ähnlich zu {{jsxref("Object.getOwnPropertyNames()")}}.
-2. Für jeden Schlüssel, wenn noch kein gleichnamiger String besucht wurde, wird der [Eigenschaftsdescriptor abgerufen](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor), und die Eigenschaft wird nur besucht, wenn sie enumerierbar ist. Dieser Eigenschaftsstring wird jedoch als besucht markiert, selbst wenn er nicht enumerierbar ist.
-3. Dann wird das aktuelle Objekt durch seinen Prototyp ersetzt, und der Prozess wird wiederholt.
+1. Es erhält zuerst alle eigenen String-Schlüssel des aktuellen Objekts, in einer Art, die der von {{jsxref("Object.getOwnPropertyNames()")}} sehr ähnlich ist.
+2. Für jeden Schlüssel, falls noch kein String mit dem gleichen Wert besucht wurde, wird der [Eigenschaftsbeschreiber abgerufen](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor) und die Eigenschaft wird nur besucht, wenn sie enumerierbar ist. Dieser Eigenschaftsstring wird jedoch als besucht markiert, selbst wenn er nicht enumerierbar ist.
+3. Dann wird das aktuelle Objekt durch seinen Prototyp ersetzt und der Prozess wird wiederholt.
 
-Das bedeutet:
+Dies bedeutet:
 
-- Jede Eigenschaft, die dem gerade besuchten Objekt während der Iteration hinzugefügt wird, wird nicht besucht, da alle eigenen Eigenschaften des aktuellen Objekts im Voraus gespeichert wurden.
-- Wenn mehrere Objekte in der Prototypenkette eine Eigenschaft mit demselben Namen haben, wird nur die erste berücksichtigt, und sie wird nur besucht, wenn sie enumerierbar ist. Wenn sie nicht enumerierbar ist, werden keine anderen Eigenschaften mit demselben Namen weiter oben in der Prototypenkette besucht, selbst wenn sie enumerierbar sind.
+- Jede während der Iteration dem aktuell besuchten Objekt hinzugefügte Eigenschaft wird nicht besucht, da alle eigenen Eigenschaften des aktuellen Objekts bereits zuvor gespeichert wurden.
+- Wenn mehrere Objekte in der Prototypenkette eine Eigenschaft mit demselben Namen haben, wird nur die erste berücksichtigt, und sie wird nur besucht, wenn sie enumerierbar ist. Wenn sie nicht enumerierbar ist, werden keine anderen Eigenschaften mit demselben Namen weiter oben in der Prototypenkette besucht, auch wenn sie enumerierbar sind.
 
-Im Allgemeinen ist es am besten, keine Eigenschaften des Objekts während der Iteration hinzuzufügen, zu ändern oder zu entfernen, außer der gerade besuchten Eigenschaft. Die Spezifikation erlaubt es explizit der Implementierung, dem oben genannten Algorithmus nicht zu folgen, in einem der folgenden Fälle:
+Im Allgemeinen ist es am besten, Eigenschaften des Objekts während der Iteration nicht hinzuzufügen, zu ändern oder zu entfernen, außer der aktuell besuchten Eigenschaft. Die Spezifikation erlaubt es ausdrücklich, dass die Implementierung nicht dem oben beschriebenen Algorithmus folgt, wenn einer der folgenden Fälle auftritt:
 
-- Die Prototypenkette des Objekts wird während der Iteration geändert.
+- Die Prototypenkette des Objekts wird während der Iteration verändert.
 - Eine Eigenschaft wird während der Iteration vom Objekt oder seiner Prototypenkette gelöscht.
 - Eine Eigenschaft wird während der Iteration zur Prototypenkette des Objekts hinzugefügt.
 - Die Enumerierbarkeit einer Eigenschaft wird während der Iteration geändert.
 
-In diesen Fällen können Implementierungen anders als erwartet verhalten, oder sogar unterschiedlich voneinander.
+In diesen Fällen können Implementierungen anders verhalten als Sie vielleicht erwarten, oder sogar voneinander abweichen.
 
 ### Array-Iteration und for...in
 
-Array-Indizes sind einfach enumerierbare Eigenschaften mit ganzzahligen Namen und ansonsten identisch mit allgemeinen Objekteigenschaften. Die `for...in` Schleife wird alle ganzzahligen Schlüssel vor anderen Schlüsseln durchlaufen und in streng aufsteigender Reihenfolge, was das Verhalten von `for...in` der normalen Array-Iteration nahe bringt. Jedoch gibt die `for...in` Schleife alle enumerierbaren Eigenschaften zurück, einschließlich solcher mit nicht-ganzzahligen Namen und geerbten Eigenschaften. Im Gegensatz zu `for...of` verwendet `for...in` die Aufzählung von Eigenschaften anstelle des Iterators des Arrays. In [lückenhaften Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird `for...of` die leeren Plätze besuchen, aber `for...in` wird dies nicht.
+Array-Indizes sind nur enumerierbare Eigenschaften mit ganzzahligen Namen und sind ansonsten identisch mit allgemeinen Objekteigenschaften. Die `for...in`-Schleife durchläuft alle ganzzahligen Schlüssel, bevor sie andere Schlüssel durchläuft, und in strikt aufsteigender Reihenfolge, was das Verhalten von `for...in` der normalen Array-Iteration nahe bringt. Die `for...in`-Schleife gibt jedoch alle enumerierbaren Eigenschaften zurück, einschließlich solcher mit nicht-ganzzahligen Namen und solchen, die geerbt sind. Im Gegensatz zu `for...of` verwendet `for...in` die Eigenschaften-Aufzählung anstelle des Iterators des Arrays. In [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird `for...of` die leeren Slots besuchen, aber `for...in` wird dies nicht tun.
 
-Es ist besser, eine {{jsxref("Statements/for", "for")}} Schleife mit einem numerischen Index, {{jsxref("Array.prototype.forEach()")}}, oder die {{jsxref("Statements/for...of", "for...of")}} Schleife zu verwenden, da sie den Index als Zahl statt als String zurückgeben und nicht-Index-Eigenschaften vermeiden.
+Es ist besser, eine {{jsxref("Statements/for", "for")}}-Schleife mit einem numerischen Index, {{jsxref("Array.prototype.forEach()")}} oder die {{jsxref("Statements/for...of", "for...of")}}-Schleife zu verwenden, da sie den Index als Zahl und nicht als String zurückgeben und auch nicht-Index-Eigenschaften vermeiden.
 
 ### Nur eigene Eigenschaften iterieren
 
-Wenn Sie nur die an das Objekt selbst angehängten Eigenschaften betrachten möchten und nicht deren Prototypen, können Sie eine der folgenden Techniken verwenden:
+Wenn Sie nur die Eigenschaften betrachten möchten, die an das Objekt selbst angehängt sind, und nicht seine Prototypen, können Sie eine der folgenden Techniken verwenden:
 
 - {{jsxref("Object.keys()")}}
 - {{jsxref("Object.getOwnPropertyNames()")}}
 
-`Object.keys` wird eine Liste der enumerierbaren eigenen String-Eigenschaften zurückgeben, während `Object.getOwnPropertyNames` auch nicht-enumerierbare enthalten wird.
+`Object.keys` wird eine Liste der eigenen enumerierbaren String-Eigenschaften zurückgeben, während `Object.getOwnPropertyNames` auch nicht-enumerierbare enthält.
 
-Viele JavaScript-Stilrichtlinien und Linter empfehlen, `for...in` nicht zu verwenden, da es über die gesamte Prototypenkette iteriert, was selten das gewünschte Verhalten ist und möglicherweise mit der weiter verbreiteten `for...of` Schleife verwechselt werden kann. `for...in` ist am praktischsten für Debugging-Zwecke verwendbar, da es eine einfache Möglichkeit bietet, die Eigenschaften eines Objekts zu überprüfen (durch Ausgabe an die Konsole oder anderweitig). In Situationen, in denen Objekte als ad hoc Schlüssel-Wert-Paare verwendet werden, ermöglicht `for...in` Ihnen, zu überprüfen, ob einer dieser Schlüssel einen bestimmten Wert hält.
+Viele JavaScript-Stilrichtlinien und -Linter raten von der Verwendung von `for...in` ab, da es über die gesamte Prototypenkette iteriert, was selten gewünscht ist, und möglicherweise eine Verwechslung mit der weiter verbreiteten `for...of`-Schleife besteht. `for...in` wird am praktischsten für Debugging-Zwecke verwendet, da es eine einfache Möglichkeit bietet, die Eigenschaften eines Objekts zu überprüfen (indem es auf die Konsole ausgegeben wird oder auf andere Weise). In Situationen, in denen Objekte als Ad-hoc-Schlüssel-Wert-Paare verwendet werden, ermöglicht `for...in` Ihnen, zu überprüfen, ob einer dieser Schlüssel einen bestimmten Wert hält.
 
 ## Beispiele
 
 ### Verwendung von for...in
 
-Die `for...in` Schleife unten iteriert über alle enumerierbaren, nicht-symbolischen Eigenschaften des Objekts und protokolliert eine Zeichenfolge der Eigenschaftsnamen und ihrer Werte.
+Die `for...in`-Schleife unten iteriert über alle enumerierbaren, nicht-symbolische Eigenschaften des Objekts und protokolliert einen String der Eigenschaftsnamen und ihrer Werte.
 
 ```js
 const obj = { a: 1, b: 2, c: 3 };
@@ -102,9 +102,9 @@ for (const prop in obj) {
 // "obj.c = 3"
 ```
 
-### Iteration über eigene Eigenschaften
+### Eigene Eigenschaften iterieren
 
-Die folgende Funktion veranschaulicht die Verwendung von {{jsxref("Object.hasOwn()")}}: Die geerbten Eigenschaften werden nicht angezeigt.
+Die folgende Funktion veranschaulicht die Verwendung von {{jsxref("Object.hasOwn()")}}: die geerbten Eigenschaften werden nicht angezeigt.
 
 ```js
 const triangle = { a: 1, b: 2, c: 3 };
@@ -130,9 +130,9 @@ for (const prop in obj) {
 ### Gleichzeitige Modifikation
 
 > [!WARNING]
-> Sie sollten solchen Code nicht selbst schreiben. Er ist hier nur enthalten, um das Verhalten von `for...in` in einigen Randfällen zu verdeutlichen.
+> Sie sollten keinen solchen Code selbst schreiben. Er ist hier nur enthalten, um das Verhalten von `for...in` in einigen Grenzfällen zu veranschaulichen.
 
-Eigenschaften, die während der Iteration zum aktuellen Objekt hinzugefügt werden, werden niemals besucht:
+Eigenschaften, die dem aktuellen Objekt während der Iteration hinzugefügt werden, werden niemals besucht:
 
 ```js
 const obj = { a: 1, b: 2 };
@@ -147,7 +147,7 @@ for (const prop in obj) {
 // obj.b = 2
 ```
 
-Schatteneigenschaften werden nur einmal besucht:
+Überschattete Eigenschaften werden nur einmal besucht:
 
 ```js
 const proto = { a: 1 };
@@ -168,7 +168,7 @@ for (const prop in obj) {
 // Logs nothing, because the first "a" property visited is non-enumerable.
 ```
 
-Betrachten Sie zusätzlich die folgenden Fälle, in denen das Verhalten nicht bestimmt ist und Implementierungen tendenziell vom spezifizierten Algorithmus abweichen:
+Zusätzlich beachten Sie folgende Fälle, in denen das Verhalten nicht spezifiziert ist und Implementierungen dazu neigen können, vom spezifizierten Algorithmus abzuweichen:
 
 Ändern des Prototyps während der Iteration:
 
@@ -201,7 +201,7 @@ for (const prop in obj2) {
 }
 ```
 
-Enumerierbare Eigenschaften, die während der Iteration zum Prototyp hinzugefügt werden:
+Enumerierbare Eigenschaften, die während der Iteration zur Prototypenkette hinzugefügt werden:
 
 ```js
 const proto = {};
@@ -236,7 +236,7 @@ for (const prop in obj) {
 
 - {{jsxref("Statements/for...of", "for...of")}}
 - {{jsxref("Statements/for", "for")}}
-- [Enumerierbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Enumerierbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.hasOwn()")}}
 - {{jsxref("Array.prototype.forEach()")}}

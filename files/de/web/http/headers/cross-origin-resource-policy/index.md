@@ -7,7 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Cross-Origin-Resource-Policy`** Antwort-Header vermittelt den Wunsch, dass der Browser `no-cors` Cross-Origin/Cross-Site-Anfragen an die gegebene Ressource blockiert.
+Der HTTP **`Cross-Origin-Resource-Policy`** Antwort-Header
+vermittelt den Wunsch, dass der Browser `no-cors`-Anfragen von verschiedenen Ursprüngen/Sites auf die
+angegebene Ressource blockiert.
 
 <table class="properties">
   <tbody>
@@ -30,7 +32,7 @@ Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
 
 ## Beispiele
 
-Der folgende Antwort-Header führt dazu, dass kompatible Benutzeragenten Cross-Origin `no-cors` Anfragen nicht zulassen:
+Der untenstehende Antwort-Header führt dazu, dass kompatible Benutzeragenten `no-cors`-Anfragen von verschiedenen Ursprüngen blockieren:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
@@ -49,5 +51,5 @@ Für weitere Beispiele siehe <https://resourcepolicy.fyi/>.
 ## Siehe auch
 
 - [Cross-Origin Resource Policy (CORP) Erklärung](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy)
-- [Überlegen Sie, die Cross-Origin Resource Policy einzusetzen](https://resourcepolicy.fyi/)
+- [Erwägen Sie die Bereitstellung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
 - {{httpheader("Access-Control-Allow-Origin")}}

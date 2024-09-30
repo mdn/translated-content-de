@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Clipboard API")}}
 
-Das **`ClipboardEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die Informationen im Zusammenhang mit der Änderung der Zwischenablage bereitstellen, nämlich die [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) Ereignisse.
+Das **`ClipboardEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die Informationen im Zusammenhang mit der Änderung der Zwischenablage bereitstellen, also Ereignisse wie [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event).
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Das **`ClipboardEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboar
 - [`ClipboardEvent()`](/de/docs/Web/API/ClipboardEvent/ClipboardEvent)
   - : Erstellt ein `ClipboardEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die durch den benutzerinitiierten [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) oder [`paste`](/de/docs/Web/API/Element/paste_event) Vorgang betroffenen Daten sowie deren MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die von der vom Benutzer initiierten [`cut`](/de/docs/Web/API/Element/cut_event)-, [`copy`](/de/docs/Web/API/Element/copy_event)- oder [`paste`](/de/docs/Web/API/Element/paste_event)-Operation betroffenen Daten sowie deren MIME-Typ enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Keine spezifischen Methoden; erbt Methoden von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
@@ -39,4 +39,4 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil [`Event`](/de/
 
 - Kopierbezogene Ereignisse: [`copy`](/de/docs/Web/API/Element/copy_event), [`cut`](/de/docs/Web/API/Element/cut_event), [`paste`](/de/docs/Web/API/Element/paste_event)
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Artikel über Bildunterstützung für Async Clipboard](https://web.dev/articles/async-clipboard)
+- [Artikel zur Unterstützung von Bildern in der asynchronen Zwischenablage](https://web.dev/articles/async-clipboard)

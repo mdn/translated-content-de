@@ -1,5 +1,5 @@
 ---
-title: EvalError()-Konstruktor
+title: EvalError() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/EvalError/EvalError
 l10n:
   sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`EvalError()`**-Konstruktor erstellt {{jsxref("EvalError")}}-Objekte.
+Der **`EvalError()`** Konstruktor erstellt {{jsxref("EvalError")}} Objekte.
 
 ## Syntax
 
@@ -25,24 +25,25 @@ EvalError(message, fileName)
 EvalError(message, fileName, lineNumber)
 ```
 
-> **Note:** `EvalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erstellen eine neue `EvalError`-Instanz.
+> **Note:** `EvalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `EvalError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften besitzt:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Auffangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
+  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 
 ## Beispiele
 
-`EvalError` wird in der aktuellen ECMAScript-Spezifikation nicht verwendet und wird daher nicht zur Laufzeit ausgelöst. Das Objekt selbst bleibt jedoch aus Gründen der Rückwärtskompatibilität mit früheren Versionen der Spezifikation bestehen.
+`EvalError` wird in der aktuellen ECMAScript-Spezifikation nicht verwendet und wird daher nicht von der Laufzeitumgebung ausgelöst. Das Objekt selbst bleibt jedoch aus Gründen der Abwärtskompatibilität mit früheren Versionen der Spezifikation bestehen.
 
 ### Erstellen eines EvalError
 

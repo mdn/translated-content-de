@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setEndBefore()`**-Methode setzt die Endposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node). Der übergeordnete `Node` des Endes des `Range` wird derselbe sein wie der des `referenceNode`.
+Die **`Range.setEndBefore()`**-Methode setzt die Endposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node). Der übergeordnete `Node` des Endes des `Range` wird derselbe wie der für den `referenceNode`.
 
 ## Syntax
 
@@ -44,4 +44,4 @@ range.setEndBefore(referenceNode);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

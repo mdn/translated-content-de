@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Der **`SecurityPolicyViolationEvent()`** Konstruktor erstellt ein neues [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) Objekt.
+Der **`SecurityPolicyViolationEvent()`**-Konstruktor erstellt ein neues [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Objekt.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ new SecurityPolicyViolationEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv, und Browser setzen es immer auf `securitypolicyviolation`.
+    Er ist case-sensitiv und Browser setzen ihn immer auf `securitypolicyviolation`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `blockedURI` {{optional_inline}}
       - : Die [`blockedURI`](/de/docs/Web/API/SecurityPolicyViolationEvent/blockedURI) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `""`.
+        Wenn nicht angegeben, ist der Standardwert `""`.
     - `columnNumber` {{optional_inline}}
       - : Die [`columnNumber`](/de/docs/Web/API/SecurityPolicyViolationEvent/columnNumber) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `0`.
+        Wenn nicht angegeben, ist der Standardwert `0`.
     - `disposition`
       - : Die [`disposition`](/de/docs/Web/API/SecurityPolicyViolationEvent/disposition) des `SecurityPolicyViolationEvent`.
     - `documentURI`
@@ -38,18 +38,18 @@ new SecurityPolicyViolationEvent(type, options)
       - : Die [`effectiveDirective`](/de/docs/Web/API/SecurityPolicyViolationEvent/effectiveDirective) des `SecurityPolicyViolationEvent`.
     - `lineNumber` {{optional_inline}}
       - : Die [`lineNumber`](/de/docs/Web/API/SecurityPolicyViolationEvent/lineNumber) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `0`.
+        Wenn nicht angegeben, ist der Standardwert `0`.
     - `originalPolicy`
       - : Die [`originalPolicy`](/de/docs/Web/API/SecurityPolicyViolationEvent/originalPolicy) des `SecurityPolicyViolationEvent`.
     - `referrer` {{optional_inline}}
       - : Der [`referrer`](/de/docs/Web/API/SecurityPolicyViolationEvent/referrer) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `""`.
+        Wenn nicht angegeben, ist der Standardwert `""`.
     - `sample` {{optional_inline}}
       - : Das [`sample`](/de/docs/Web/API/SecurityPolicyViolationEvent/sample) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `""`.
+        Wenn nicht angegeben, ist der Standardwert `""`.
     - `sourceFile` {{optional_inline}}
       - : Die [`sourceFile`](/de/docs/Web/API/SecurityPolicyViolationEvent/sourceFile) des `SecurityPolicyViolationEvent`.
-        Wenn nicht enthalten, ist der Standardwert `""`.
+        Wenn nicht angegeben, ist der Standardwert `""`.
     - `statusCode`
       - : Der [`statusCode`](/de/docs/Web/API/SecurityPolicyViolationEvent/statusCode) des `SecurityPolicyViolationEvent`.
     - `violatedDirective`
@@ -57,7 +57,7 @@ new SecurityPolicyViolationEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues `SecurityPolicyViolationEvent` Objekt.
+Ein neues `SecurityPolicyViolationEvent`-Objekt.
 
 ## Beispiele
 

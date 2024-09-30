@@ -8,10 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}
 
-Die **`getAsFileSystemHandle()`**-Methode des
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Interfaces gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)
-zurück, wenn das gezogene Element eine Datei ist, oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das
-gezogene Element ein Verzeichnis ist.
+Die **`getAsFileSystemHandle()`**-Methode des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Interfaces gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurück, wenn das gezogene Element eine Datei ist, oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
 
 ## Syntax
 
@@ -27,7 +24,7 @@ Keine.
 
 Ein {{jsxref('Promise')}}.
 
-Wenn die [`kind`](/de/docs/Web/API/DataTransferItem/kind)-Eigenschaft des Elements `"file"` ist und auf dieses Element innerhalb der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- oder [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Event-Handler zugegriffen wird, wird das zurückgegebene Promise mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt, wenn das gezogene Element eine Datei ist, oder mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
+Wenn die [`kind`](/de/docs/Web/API/DataTransferItem/kind)-Eigenschaft des Elements `"file"` ist und dieses Element in den [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- oder [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandlern zugegriffen wird, wird das zurückgegebene Promise mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt, wenn das gezogene Element eine Datei ist, oder einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
 
 Andernfalls wird das Promise mit `null` erfüllt.
 
@@ -37,7 +34,7 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet die `getAsFileSystemHandle()`-Methode, um [Datei-Handles](/de/docs/Web/API/FileSystemHandle) für abgelegte Elemente zurückzugeben.
+Dieses Beispiel verwendet die `getAsFileSystemHandle()`-Methode, um [Dateihandles](/de/docs/Web/API/FileSystemHandle) für abgelegte Elemente zurückzugeben.
 
 ```js
 elem.addEventListener("dragover", (e) => {
@@ -74,4 +71,4 @@ elem.addEventListener("drop", async (e) => {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

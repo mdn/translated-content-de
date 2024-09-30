@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Das Hypertext Transfer Protocol (HTTP) **`If-Unmodified-Since`** Anforderungsheader macht die Anfrage für die Ressource bedingt: Der Server wird die angeforderte Ressource senden oder sie im Falle eines {{HTTPMethod("POST")}} oder einer anderen nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methode akzeptieren, nur wenn die Ressource nach dem durch diesen HTTP-Header angegebenen Datum nicht geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}} Fehler sein.
+Der HyperText Transfer Protocol (HTTP) **`If-Unmodified-Since`** Anforderungsheader macht die Anfrage für die Ressource bedingt: Der Server wird die angeforderte Ressource senden oder sie im Falle einer {{HTTPMethod("POST")}} oder einer anderen nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methode akzeptieren, nur wenn die Ressource nicht nach dem in diesem HTTP-Header angegebenen Datum geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}} Fehler sein.
 
 Der **`If-Unmodified-Since`** HTTP-Header wird häufig in den folgenden Situationen verwendet:
 
-- In Verbindung mit nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methoden wie {{HTTPMethod("POST")}}, kann dieser Header zur Implementierung einer [optimistischen Nebenläufigkeitskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) verwendet werden, wie es bei einigen Wikis gemacht wird: Änderungen werden abgelehnt, wenn das gespeicherte Dokument seit dem Abruf des Originals geändert wurde.
-- In Verbindung mit einer Bereichsanfrage unter Verwendung des {{HTTPHeader("Range")}} Headers, kann dieser Header verwendet werden, um sicherzustellen, dass das neu angeforderte Fragment aus einem unveränderten Dokument stammt.
+- In Verbindung mit nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methoden, wie {{HTTPMethod("POST")}}, kann dieser Header verwendet werden, um eine [optimistische Parallelitätskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) zu implementieren, wie es einige Wikis tun: Bearbeitungen werden abgelehnt, wenn das gespeicherte Dokument seit der ursprünglichen Abruf verändert wurde.
+- In Verbindung mit einer Bereichsanfrage mittels des {{HTTPHeader("Range")}} Headers kann dieser Header verwendet werden, um sicherzustellen, dass das neu angeforderte Fragment aus einem unveränderten Dokument stammt.
 
 <table class="properties">
   <tbody>
@@ -36,21 +36,21 @@ If-Unmodified-Since: <day-name>, <day> <month> <year> <hour>:<minute>:<second> G
 ## Direktiven
 
 - \<day-name>
-  - : Eine 3-Buchstaben-Beschreibung des Wochentags. Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (Groß-/Kleinschreibung beachten).
+  - : Eine 3-Buchstaben-Beschreibung des Wochentags. Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", oder "Sun" (beachten Sie die Groß- und Kleinschreibung).
 - \<day>
-  - : Eine 2-stellige Tagesnummer des Monats. Beispiele: "04", "23".
+  - : Eine zweistellige Tageszahl des Monats. Beispiele: "04", "23".
 - \<month>
-  - : Eine 3-Buchstaben-Beschreibung des Monats. Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (Groß-/Kleinschreibung beachten).
+  - : Eine 3-Buchstaben-Beschreibung des Monats. Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (beachten Sie die Groß- und Kleinschreibung).
 - \<year>
-  - : Eine 4-stellige Jahreszahl. Beispiele: "1990", "2016".
+  - : Eine vierstellige Jahreszahl. Beispiele: "1990", "2016".
 - \<hour>
-  - : Eine 2-stellige Stundenzahl basierend auf einem 24-Stunden-System. Beispiele: "09", "23".
+  - : Eine zweistellige Stundenzahl basierend auf einem 24-Stunden-System. Beispiele: "09", "23".
 - \<minute>
-  - : Eine 2-stellige Minutenzahl. Beispiele: "04", "59".
+  - : Eine zweistellige Minutenzahl. Beispiele: "04", "59".
 - \<second>
-  - : Eine 2-stellige Sekundenzahl. Beispiele: "04", "59".
+  - : Eine zweistellige Sekundenzahl. Beispiele: "04", "59".
 - `GMT`
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in lokaler Zeit.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT ausgedrückt, niemals in Ortszeit.
 
 ## Beispiele
 

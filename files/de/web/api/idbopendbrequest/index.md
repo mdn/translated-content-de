@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`IDBOpenDBRequest`**-Schnittstelle der IndexedDB API bietet Zugriff auf die Ergebnisse von Anfragen zum Öffnen oder Löschen von Datenbanken (durchgeführt mit [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) und [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)), unter Verwendung spezifischer Ereignis-Handler-Attribute.
+Die **`IDBOpenDBRequest`**-Schnittstelle der IndexedDB-API bietet Zugriff auf die Ergebnisse von Anfragen zum Öffnen oder Löschen von Datenbanken (durchgeführt mit [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) und [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)), unter Verwendung spezifischer Ereignishandler-Attribute.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinen Eltern-Schnittstellen [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Eigenschaften von seinen Eltern [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 ## Instanz-Methoden
 
-_Keine Methoden, aber erbt Methoden von seinen Eltern-Schnittstellen [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Keine Methoden, erbt jedoch Methoden von seinen Eltern [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_Ereignisse, die auf Eltern-Schnittstellen [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget) definiert sind, können auch auf `IDBOpenDBRequest`-Objekten ausgelöst werden._
+_Ereignisse, die bei übergeordneten Schnittstellen definiert sind, [`IDBRequest`](/de/docs/Web/API/IDBRequest) und [`EventTarget`](/de/docs/Web/API/EventTarget), können auch bei `IDBOpenDBRequest`-Objekten ausgelöst werden._
 
-Sie können auf diese generischen und spezifischen Ereignisse hören, indem Sie `addEventListener()` verwenden oder einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Hören Sie diese generischen und spezifischen Ereignisse mit `addEventListener()` oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle ab.
 
-Ereignisse, die spezifisch für diese Schnittstelle sind:
+Ereignisse, die spezifisch für diese Schnittstelle sind, umfassen:
 
 - [`blocked`](/de/docs/Web/API/IDBOpenDBRequest/blocked_event)
-  - : Wird ausgelöst, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert. Auch verfügbar über die [`onblocked`](/de/docs/Web/API/IDBOpenDBRequest/blocked_event) Eigenschaft.
+  - : Wird ausgelöst, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert. Auch über die [`onblocked`](/de/docs/Web/API/IDBOpenDBRequest/blocked_event) Eigenschaft verfügbar.
 - [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)
-  - : Wird ausgelöst, wenn versucht wurde, eine Datenbank mit einer höheren Versionsnummer als der aktuellen zu öffnen. Auch verfügbar über die [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Eigenschaft.
+  - : Wird ausgelöst, wenn versucht wurde, eine Datenbank mit einer Versionsnummer zu öffnen, die höher ist als die aktuelle Version. Auch über die [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Eigenschaft verfügbar.
 
 ## Beispiel
 
-Im folgenden Beispiel können Sie sehen, wie der onupgradeneeded-Handler verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/).)
+Im folgenden Beispiel sehen Sie, wie der `onupgradeneeded`-Handler verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/).)
 
 ```js
 let db;
@@ -100,10 +100,10 @@ DBOpenRequest.onupgradeneeded = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [Verwenden von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

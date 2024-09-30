@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Der Wert der **`Navigator.appName`**-Eigenschaft ist in jedem Browser immer `"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`Navigator.appName`**-Eigenschaft ist immer
+`"Netscape"`, unabhängig vom Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen realen Browsernamen zurückgibt. Alle Browser geben `"Netscape"` als Wert für diese Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Browsernamen zurückgibt. Alle Browser geben `"Netscape"` als Wert dieser Eigenschaft zurück.
 
 ## Wert
 

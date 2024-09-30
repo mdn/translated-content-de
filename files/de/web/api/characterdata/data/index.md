@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`data`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle repräsentiert den Wert der Dateneigenschaft des aktuellen Objekts.
+Die **`data`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle repräsentiert den Wert der Daten des aktuellen Objekts.
 
 ## Wert
 
 Ein String mit den Zeicheninformationen, die im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthalten sind.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `cd.data = null` gleichbedeutend mit `cd.data = ""` ist.
+Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `cd.data = null` gleichbedeutend mit `cd.data = ""` ist.
 
 ## Beispiel
 
 > **Note:** [`CharacterData`](/de/docs/Web/API/CharacterData) ist eine abstrakte Schnittstelle.
 > Die untenstehenden Beispiele verwenden zwei konkrete Schnittstellen, die sie implementieren: [`Text`](/de/docs/Web/API/Text) und [`Comment`](/de/docs/Web/API/Comment).
 
-### Ein Kommentar mit data lesen
+### Lesen eines Kommentars mithilfe von data
 
 ```html
 <!-- This is an HTML comment -->
@@ -37,7 +37,7 @@ output.value = comment.data;
 
 {{EmbedLiveSample("Reading_a_comment_using_data", "100%", 50)}}
 
-### Den Inhalt eines Textknotens mit data setzen
+### Setzen des Inhalts eines Textknotens mithilfe von data
 
 ```html
 <span>Result: </span>Not set.
@@ -62,4 +62,4 @@ textnode.data = "This text has been set using 'textnode.data'.";
 
 ## Siehe auch
 
-- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length), die die Länge der im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Daten zurückgibt.
+- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length), das die Länge der in dem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Daten zurückgibt.

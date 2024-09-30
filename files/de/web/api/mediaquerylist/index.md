@@ -7,42 +7,42 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Ein **`MediaQueryList`**-Objekt speichert Informationen zu einer [Media Query](/de/docs/Web/CSS/CSS_media_queries), die auf ein Dokument angewendet wird, und unterstützt sowohl die unmittelbare als auch die ereignisgesteuerte Übereinstimmung mit dem Zustand des Dokuments.
+Ein **`MediaQueryList`**-Objekt speichert Informationen über eine [Media Query](/de/docs/Web/CSS/CSS_media_queries), die auf ein Dokument angewendet wird, mit Unterstützung für sowohl unmittelbare als auch ereignisgesteuerte Übereinstimmung mit dem Zustand des Dokuments.
 
-Sie können ein `MediaQueryList`-Objekt erstellen, indem Sie [`matchMedia()`](/de/docs/Web/API/Window/matchMedia) auf dem [`window`](/de/docs/Web/API/Window)-Objekt aufrufen. Das resultierende Objekt verwaltet das Senden von Benachrichtigungen an Listener, wenn sich der Media Query-Zustand ändert (d. h. wenn der Media Query-Test beginnt oder aufhört, zu `true` zu evaluieren).
+Sie können ein `MediaQueryList`-Objekt erstellen, indem Sie [`matchMedia()`](/de/docs/Web/API/Window/matchMedia) am [`window`](/de/docs/Web/API/Window)-Objekt aufrufen. Das resultierende Objekt kümmert sich um das Senden von Benachrichtigungen an Listener, wenn sich der Status der Media Query ändert (d.h. wenn der Test der Media Query zu `true` beginnt oder aufhört zu evaluieren).
 
-Dies ist sehr nützlich für adaptives Design, da es möglich macht, ein Dokument zu beobachten, um zu erkennen, wenn sich seine Media Queries ändern, anstatt die Werte periodisch abzufragen. Es erlaubt Ihnen, programmatisch Änderungen an einem Dokument basierend auf dem Media Query-Status vorzunehmen.
+Dies ist sehr nützlich für adaptives Design, da es möglich macht, ein Dokument zu beobachten, um zu erkennen, wann sich seine Media Queries ändern, anstatt die Werte periodisch abzufragen, und da es Ihnen ermöglicht, programmgesteuert Änderungen an einem Dokument basierend auf dem Status der Media Query vorzunehmen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Das `MediaQueryList`-Interface erbt Eigenschaften von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Die `MediaQueryList`-Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`matches`](/de/docs/Web/API/MediaQueryList/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` zurückgibt, wenn das [`document`](/de/docs/Web/API/Document) derzeit der Media Query-Liste entspricht, oder `false`, wenn nicht.
+  - : Ein boolescher Wert, der `true` zurückgibt, wenn das [`document`](/de/docs/Web/API/Document) aktuell der Media Query Liste entspricht, oder `false` wenn nicht.
 - [`media`](/de/docs/Web/API/MediaQueryList/media) {{ReadOnlyInline}}
   - : Ein String, der eine serialisierte Media Query darstellt.
 
 ## Instanz-Methoden
 
-_Das `MediaQueryList`-Interface erbt Methoden von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Die `MediaQueryList`-Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`addListener()`](/de/docs/Web/API/MediaQueryList/addListener) {{deprecated_inline}}
-  - : Fügt der `MediaQueryList` einen Callback hinzu, der aufgerufen wird, wann immer sich der Media Query-Status ändert—ob das Dokument den Media Queries in der Liste entspricht oder nicht. Diese Methode existiert hauptsächlich aus Gründen der Abwärtskompatibilität; nach Möglichkeit sollten Sie stattdessen [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um auf das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis zu achten.
+  - : Fügt der `MediaQueryList` einen Rückruf hinzu, der aufgerufen wird, wann immer sich der Media Query Status—ob das Dokument den Media Queries in der Liste entspricht oder nicht—ändert. Diese Methode existiert hauptsächlich für die Abwärtskompatibilität; wenn möglich, sollten Sie stattdessen [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um auf das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis zu reagieren.
 - [`removeListener()`](/de/docs/Web/API/MediaQueryList/removeListener) {{deprecated_inline}}
-  - : Entfernt den angegebenen Listener-Callback aus den Rückrufen, die bei einer Statusänderung der Media Query in der `MediaQueryList` aufgerufen werden sollen. Diese Methode wurde zur Abwärtskompatibilität beibehalten; nach Möglichkeit sollten Sie im Allgemeinen [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) verwenden, um Änderungsbenachrichtigungs-Callbacks zu entfernen (die zuvor mit `addEventListener()` hinzugefügt worden sein sollten).
+  - : Entfernt den angegebenen Listener-Rückruf aus den Rückrufen, die aufgerufen werden, wenn die `MediaQueryList` den Media Query Status ändert, was passiert, sobald das Dokument zwischen dem Entsprechen und Nicht-Entsprechen der in der `MediaQueryList` aufgeführten Media Queries wechselt. Diese Methode wurde für die Abwärtskompatibilität beibehalten; wo möglich, sollten Sie im Allgemeinen [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) verwenden, um Änderungs-Benachrichtigungsrückrufe zu entfernen (die zuvor mit `addEventListener()` hinzugefügt wurden).
 
 ## Ereignisse
 
 _Die folgenden Ereignisse werden an `MediaQueryList`-Objekte gesendet:_
 
 - [`change`](/de/docs/Web/API/MediaQueryList/change_event)
-  - : An die `MediaQueryList` gesendet, wenn sich das Ergebnis der Ausführung der Media Query gegen das Dokument ändert. Zum Beispiel, wenn die Media Query `(min-width: 400px)` lautet, wird das `change`-Ereignis jedes Mal ausgelöst, wenn sich die Breite des [Viewports](/de/docs/Glossary/viewport) des Dokuments der 400px-Grenze in eine der beiden Richtungen annähert.
+  - : Wird an die `MediaQueryList` gesendet, wenn sich das Ergebnis der Überprüfung der Media Query gegen das Dokument ändert. Wenn beispielsweise die Media Query `(min-width: 400px)` ist, wird das `change`-Ereignis jede Mal ausgelöst, wenn sich die Breite des [Viewports](/de/docs/Glossary/viewport) des Dokuments so ändert, dass sich seine Breite über die 400px-Grenze in beide Richtungen bewegt.
 
 ## Beispiele
 
-Dieses einfache Beispiel erstellt eine `MediaQueryList` und richtet dann einen Listener ein, um zu erkennen, wann sich der Media Query-Status ändert. Es führt eine benutzerdefinierte Funktion aus, um das Erscheinungsbild der Seite zu ändern.
+Dieses einfache Beispiel erstellt eine `MediaQueryList` und richtet dann einen Listener ein, um zu erkennen, wenn sich der Media Query Status ändert, und führt eine benutzerdefinierte Funktion aus, um das Erscheinungsbild der Seite zu ändern.
 
 ```js
 const para = document.querySelector("p");
@@ -64,9 +64,9 @@ mql.addEventListener("change", screenTest);
 ```
 
 > [!NOTE]
-> Sie finden dieses Beispiel auf GitHub (siehe den [Quellcode](https://github.com/mdn/dom-examples/blob/main/mediaquerylist/index.html) und auch den [live laufenden Code](https://mdn.github.io/dom-examples/mediaquerylist/index.html)).
+> Sie können dieses Beispiel auf GitHub finden (siehe den [Quellcode](https://github.com/mdn/dom-examples/blob/main/mediaquerylist/index.html), und auch live [ausführen](https://mdn.github.io/dom-examples/mediaquerylist/index.html)).
 
-Sie finden weitere Beispiele auf den einzelnen Eigenschafts- und Methodenseiten.
+Weitere Beispiele finden Sie auf den einzelnen Seiten der Eigenschaften und Methoden.
 
 ## Spezifikationen
 
@@ -79,7 +79,7 @@ Sie finden weitere Beispiele auf den einzelnen Eigenschafts- und Methodenseiten.
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)
-- Der Artikel [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) enthält ebenfalls ein nützliches Beispiel
+- Der Artikel [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) enthält ebenfalls ein nützliches Beispiel.

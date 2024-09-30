@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`lineNumber`** des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interfaces gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`lineNumber`** der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile), da sie es ermöglicht, die Zeile in dieser Datei zu lokalisieren, in der die Funktion verwendet wird.
+> Diese Eigenschaft ist am nützlichsten in Verbindung mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile), da sie es ermöglicht, die Zeile in der Datei zu lokalisieren, in der die Funktion verwendet wird.
 
 ## Wert
 
-Ein Ganzzahlwert oder `null`, wenn die Zeile unbekannt ist.
+Ein ganzzahliger Wert, oder `null`, wenn die Zeile nicht bekannt ist.
 
 ## Beispiele
 

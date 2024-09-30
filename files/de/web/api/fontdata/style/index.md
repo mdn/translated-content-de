@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die **`style`** schreibgeschützte Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt den Stil des Schriftsatzes zurück.
+Die schreibgeschützte **`style`**-Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt den Stil des Schriftbildes zurück.
 
-Dies ist der Wert, der verwendet wird, um den Stil der Schriftart auszuwählen, die Sie verwenden möchten, zum Beispiel innerhalb der {{cssxref("font-style")}}-Eigenschaft.
+Dies ist der Wert, der verwendet wird, um den gewünschten Stil der Schriftart auszuwählen, z.B. innerhalb der {{cssxref("font-style")}}-Eigenschaft.
 
-Beispiele sind:
+Beispiele umfassen:
 
 - UltraLight
 - Regular
@@ -26,7 +26,7 @@ Ein String.
 
 ## Beispiele
 
-Der folgende Ausschnitt sucht nach allen verfügbaren Schriftarten und protokolliert Metadaten. Dies könnte beispielsweise verwendet werden, um eine Schriftart-Auswahlsteuerung zu füllen.
+Der folgende Codeausschnitt fragt alle verfügbaren Schriftarten ab und loggt Metadaten. Dies könnte beispielsweise verwendet werden, um ein Schriftartenauswahl-Steuerelement zu füllen.
 
 ```js
 async function logFontData() {

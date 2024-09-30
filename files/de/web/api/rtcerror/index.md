@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCError`**-Schnittstelle beschreibt einen Fehler, der bei der Verarbeitung von [WebRTC](/de/docs/Web/API/WebRTC_API)-Operationen aufgetreten ist. Sie basiert auf der standardisierten [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle, die allgemeine DOM-Fehler beschreibt.
+Das **`RTCError`**-Interface beschreibt einen Fehler, der bei der Verarbeitung von [WebRTC](/de/docs/Web/API/WebRTC_API)-Operationen aufgetreten ist. Es basiert auf dem standardmäßigen [`DOMException`](/de/docs/Web/API/DOMException)-Interface, das allgemeine DOM-Fehler beschreibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`RTCError()`](/de/docs/Web/API/RTCError/RTCError)
-  - : Erstellt und gibt ein neues `RTCError`-Objekt zurück, das mit den verschiedenen Parametern initialisiert ist und optional einen String enthält, der als Wert der [`message`](/de/docs/Web/API/DOMException/message)-Eigenschaft des Fehlers verwendet wird.
+  - : Erstellt und gibt ein neues `RTCError`-Objekt zurück, das mit verschiedenen Parametern und optional einem String initialisiert wird, der als Wert der [`message`](/de/docs/Web/API/DOMException/message)-Eigenschaft des Fehlers verwendet wird.
 
 ## Instanz-Eigenschaften
 
-_Zusätzlich zu den Eigenschaften der übergeordneten Schnittstelle [`DOMException`](/de/docs/Web/API/DOMException) beinhaltet `RTCError` die folgenden Eigenschaften:_
+_Neben den von der übergeordneten Schnittstelle [`DOMException`](/de/docs/Web/API/DOMException) definierten Eigenschaften enthält `RTCError` folgende Eigenschaften:_
 
 - [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) {{ReadOnlyInline}}
-  - : Ein String, der den WebRTC-spezifischen Fehlercode angibt, der den aufgetretenen Fehlertyp identifiziert.
+  - : Ein String, der den WebRTC-spezifischen Fehlercode angibt, der den Typ des aufgetretenen Fehlers identifiziert.
 - [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) {{ReadOnlyInline}}
-  - : Ein unsigned long Integer-Wert, der den fatalen [DTLS](/de/docs/Glossary/DTLS)-Fehler angibt, der vom Netzwerk empfangen wurde. Nur gültig, wenn der `errorDetail`-String `dtls-failure` ist. Wenn `null`, wurde kein DTLS-Fehler empfangen.
+  - : Ein unsignierter langer Integer-Wert, der den fatalen [DTLS](/de/docs/Glossary/DTLS)-Fehler angibt, der aus dem Netzwerk empfangen wurde. Nur gültig, wenn der `errorDetail`-String `dtls-failure` ist. Wenn `null`, wurde kein DTLS-Fehler empfangen.
 - [`sctpCauseCode`](/de/docs/Web/API/RTCError/sctpCauseCode) {{ReadOnlyInline}}
-  - : Wenn `errorDetail` `sctp-failure` ist, ist diese Eigenschaft ein long Integer, der den [SCTP](/de/docs/Glossary/SCTP)-Ursachencode angibt, der die Ursache der fehlgeschlagenen SCTP-Verhandlung beschreibt. `null`, wenn der Fehler kein SCTP-Fehler ist.
+  - : Wenn `errorDetail` `sctp-failure` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der den [SCTP](/de/docs/Glossary/SCTP)-Ursachencode angibt, der die Ursache für das Scheitern der SCTP-Verhandlung angibt. `null`, wenn der Fehler kein SCTP-Fehler ist.
 - [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber) {{ReadOnlyInline}}
-  - : Wenn `errorDetail` `sdp-syntax-error` ist, ist diese Eigenschaft ein long Integer, der die Zeilennummer des [SDP](/de/docs/Glossary/SDP) identifiziert, in der der Syntaxfehler aufgetreten ist. `null`, wenn der Fehler kein SDP-Syntaxfehler ist.
+  - : Wenn `errorDetail` `sdp-syntax-error` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der die Zeilennummer des [SDP](/de/docs/Glossary/SDP) identifiziert, auf der der Syntaxfehler aufgetreten ist. `null`, wenn der Fehler kein SDP-Syntaxfehler ist.
 - [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) {{ReadOnlyInline}}
-  - : Wenn `errorDetail` `dtls-failure` ist, ist diese Eigenschaft ein unsigned long Integer, der den fatalen DTLS-Fehler angibt, der von diesem Gerät gesendet wurde. Wenn `null`, wurde kein DTLS-Fehler gesendet.
+  - : Wenn `errorDetail` `dtls-failure` ist, handelt es sich bei dieser Eigenschaft um einen unsignierten langen Integer, der den fatalen DTLS-Fehler angibt, der von diesem Gerät gesendet wurde. Wenn `null`, wurde kein DTLS-Fehler gesendet.
 
 > [!NOTE]
 > Alle `RTCError`-Objekte haben ihren [`name`](/de/docs/Web/API/DOMException/name) auf `OperationError` gesetzt.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Handler für das [`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) eingerichtet.
+In diesem Beispiel wird ein Handler für das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) [`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis eingerichtet.
 
 ```js
 dataChannel.addEventListener("error", (event) => {
@@ -54,11 +54,11 @@ dataChannel.addEventListener("error", (event) => {
 });
 ```
 
-Wenn der Fehler ein SDP-Syntaxfehler ist—angezeigt durch die Eigenschaft [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail), die `sdp-syntax-error` enthält—, wird eine Nachrichtenzeichenfolge erstellt, um die Fehlermeldung und die Zeilennummer im SDP anzuzeigen, bei der der Fehler aufgetreten ist. Diese Nachricht wird dann mit einer Funktion namens `showMyAlertMessage()` angezeigt, die stellvertretend für den Ausgabe-Mechanismus steht, den dieser Code verwendet.
+Wenn der Fehler ein SDP-Syntaxfehler ist – angezeigt durch die [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail)-Eigenschaft als `sdp-syntax-error` – wird ein Nachrichten-String zusammengestellt, um die Fehlermeldung und die Zeilennummer innerhalb der SDP, an der der Fehler aufgetreten ist, darzustellen. Diese Nachricht wird dann mit einer Funktion namens `showMyAlertMessage()` angezeigt, die als Platzhalter für einen beliebigen Ausgabemechanismus dient, den dieser Code verwenden könnte.
 
-Jeder andere Fehler wird als terminal angesehen und löst die Ausführung einer Funktion `terminateMyConnection()` aus.
+Jeder andere Fehler wird als terminal behandelt, wodurch eine Funktion namens `terminateMyConnection()` aufgerufen wird.
 
-Das obige Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um den Handler für `error`-Ereignisse hinzuzufügen. Sie können auch die `onerror`-Ereignis-Handler-Eigenschaft des `RTCDataChannel`-Objekts verwenden, wie folgt:
+Das obige Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um den Handler für `error`-Ereignisse hinzuzufügen. Sie können auch die [`onerror`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignishandler-Eigenschaft des `RTCDataChannel`-Objekts wie folgt verwenden:
 
 ```js
 dataChannel.onerror = (event) => {

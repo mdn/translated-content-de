@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Der **`MediaStreamTrackEvent()`** Konstruktor gibt ein neues [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent) Objekt zurück, welches ein Ereignis darstellt, das signalisiert, dass ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) hinzugefügt oder daraus entfernt wurde.
+Der **`MediaStreamTrackEvent()`** Konstruktor gibt ein neues [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent) Objekt zurück,
+das ein Ereignis darstellt, das signalisiert, dass ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) hinzugefügt oder daraus entfernt wurde.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ new MediaStreamTrackEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `addtrack` oder `removetrack`.
+    Es ist groß-/kleinschreibungssensitiv und sorgt dafür, dass Browser ihn auf `addtrack` oder `removetrack` setzen.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `track`
@@ -28,7 +29,7 @@ new MediaStreamTrackEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent) Objekt, basierend auf den bereitgestellten Optionen initialisiert.
+Ein neues [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent) Objekt, das basierend auf den angegebenen Optionen initialisiert wird.
 
 ## Spezifikationen
 

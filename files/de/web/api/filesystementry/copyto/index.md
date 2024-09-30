@@ -1,5 +1,5 @@
 ---
-title: "FileSystemEntry: copyTo()-Methode"
+title: "FileSystemEntry: `copyTo()`-Methode"
 short-title: copyTo()
 slug: Web/API/FileSystemEntry/copyTo
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`copyTo()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces kopiert die Datei, die durch den Eintrag angegeben wird, an einen neuen Ort im Dateisystem.
+Die Methode **`copyTo()`** der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Schnittstelle kopiert die Datei, die durch den Eintrag angegeben wird, an einen neuen Speicherort im Dateisystem.
 
 Es gibt einige typische Einschränkungen, was Sie tun können:
 
 - Ein Verzeichnis kann nicht in sich selbst kopiert werden.
 - Ein Eintrag kann nicht in sein übergeordnetes Verzeichnis kopiert werden, es sei denn, Sie geben einen neuen Namen an.
-- Beim Kopieren eines Verzeichnisses ist die Kopie immer rekursiv; Sie können keine Unterordner auslassen.
+- Beim Kopieren eines Verzeichnisses ist das Kopieren immer rekursiv; Sie können keine Unterordner weglassen.
 
 ## Syntax
 
@@ -28,13 +28,13 @@ copyTo(newParent, newName, successCallback, errorCallback)
 ### Parameter
 
 - `newParent`
-  - : Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) Objekt, das das Zielverzeichnis für den Kopiervorgang angibt.
+  - : Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Zielverzeichnis für die Kopieroperation angibt.
 - `newName` {{optional_inline}}
-  - : Wenn dieser Parameter angegeben wird, erhält die Kopie diesen String als ihren neuen Datei- oder Verzeichnisnamen.
+  - : Wenn dieser Parameter angegeben wird, erhält die Kopie diesen String als neuen Datei- oder Verzeichnisnamen.
 - `successCallback` {{optional_inline}}
-  - : Eine Funktion, die aufgerufen wird, wenn der Kopiervorgang erfolgreich abgeschlossen ist. Sie erhält einen einzelnen Eingabeparameter: Ein Objekt auf Basis von [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), das die neuen Details des kopierten Elements bereitstellt.
+  - : Eine Funktion, die aufgerufen wird, wenn die Kopieroperation erfolgreich abgeschlossen wird. Sie erhält einen einzigen Eingabeparameter: ein [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-basiertes Objekt, das die neuen Details des kopierten Elements bereitstellt.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Rückruf, der ausgeführt wird, wenn beim Kopieren der Elemente ein Fehler auftritt. Es gibt einen einzigen Parameter: ein [`FileError`](/de/docs/Web/API/FileError), das beschreibt, was schiefgelaufen ist.
+  - : Ein optionaler Callback, der ausgeführt wird, wenn beim Kopieren der Elemente ein Fehler auftritt. Es gibt einen einzelnen Parameter: einen [`FileError`](/de/docs/Web/API/FileError), der beschreibt, was schiefgelaufen ist.
 
 ### Rückgabewert
 
@@ -43,13 +43,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `FileError.INVALID_MODIFICATION_ERR`
-  - : Die angeforderte Operation beinhaltet eine unmögliche Änderung, wie das Verschieben eines Verzeichnisses in sich selbst oder in eines seiner eigenen Unterverzeichnisse oder das Kopieren eines Elements innerhalb desselben Verzeichnisses ohne Umbenennen.
+  - : Der angeforderte Vorgang beinhaltet eine unmögliche Änderung, wie das Verschieben eines Verzeichnisses in sich selbst oder eines seiner eigenen Unterverzeichnisse, oder das Kopieren eines Elements innerhalb desselben Verzeichnisses ohne es umzubenennen.
 - `FileError.QUOTA_EXCEEDED_ERR`
-  - : Die Operation hat das Speicherlimit des Benutzers überschritten, oder es ist nicht genug Speicherplatz vorhanden, um die Operation abzuschließen.
+  - : Der Vorgang hat das Speicherkontingent des Benutzers überschritten oder es ist nicht genügend Speicherplatz vorhanden, um den Vorgang abzuschließen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie eine temporäre Protokolldatei in ein dauerhaftes "log" Verzeichnis verschoben werden könnte.
+Dieses Beispiel zeigt, wie eine temporäre Protokolldatei in ein permanenteres "log"-Verzeichnis verschoben werden kann.
 
 ```js
 workingDirectory.getFile(

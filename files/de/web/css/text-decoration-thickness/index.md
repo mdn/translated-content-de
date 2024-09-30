@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strichstärke der Dekorationslinie fest, die auf Text in einem Element verwendet wird, wie z.B. Durchstreichung, Unterstreichung oder Oberstrich.
+Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strichstärke der Dekorationslinie fest, die auf Text in einem Element verwendet wird, wie z.B. ein Durchstreichen, Unterstreichen oder Überstreichen.
 
 {{EmbedInteractiveExample("pages/css/text-decoration-thickness.html")}}
 
@@ -36,13 +36,13 @@ text-decoration-thickness: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser wählt eine geeignete Breite für die Textdekoration aus.
+  - : Der Browser wählt eine geeignete Breite für die Textdekoration.
 - `from-font`
-  - : Wenn die Schriftdatei Informationen über eine bevorzugte Stärke enthält, wird dieser Wert verwendet. Wenn die Schriftdatei diese Informationen nicht enthält, verhält es sich so, als ob `auto` gesetzt ist, wobei der Browser eine geeignete Stärke auswählt.
+  - : Wenn die Schriftdatei Informationen über eine bevorzugte Stärke enthält, verwenden Sie diesen Wert. Falls nicht, verhält es sich so, als ob `auto` gesetzt wäre, wobei der Browser eine geeignete Stärke wählt.
 - `<length>`
-  - : Gibt die Stärke der Textdekoration als {{cssxref('length')}} an und überschreibt den Vorschlag der Schriftdatei oder die Standardeinstellung des Browsers.
+  - : Bestimmt die Dicke der Textdekoration mittels einer {{cssxref('length')}}, wobei die Vorschläge der Schriftdatei oder die Standardeinstellung des Browsers überschrieben werden.
 - `<percentage>`
-  - : Gibt die Stärke der Textdekoration als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart an. Ein Prozentsatz wird als relativer Wert vererbt und skaliert daher mit Änderungen in der Schriftart. Der Browser muss mindestens 1 Pixel verwenden. Bei einer Anwendung dieser Eigenschaft bleibt der Dickenwert konstant über das gesamte Element, auf das sie angewendet wird, auch wenn es untergeordnete Elemente mit einer anderen Schriftgröße gibt.
+  - : Gibt die Dicke der Textdekoration als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart an. Ein Prozentsatz wird als relativer Wert vererbt und skaliert daher mit Änderungen in der Schriftart. Der Browser muss mindestens 1 Gerätepixel verwenden. Für eine gegebene Anwendung dieser Eigenschaft bleibt die Dicke im gesamten angewendeten Bereich konstant, auch wenn es Kindelemente mit einer anderen Schriftgröße gibt.
 
 ## Formale Definition
 

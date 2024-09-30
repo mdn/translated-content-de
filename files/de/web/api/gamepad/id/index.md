@@ -8,16 +8,17 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`Gamepad.id`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen String zurück, der einige Informationen über den Controller enthält.
+Die **`Gamepad.id`** Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)
+Interfaces gibt einen String zurück, der einige Informationen über den Controller enthält.
 
-Die genaue Syntax ist nicht streng festgelegt, aber in Firefox enthält sie drei Informationsstücke, die durch Bindestriche (`-`) getrennt sind:
+Die genaue Syntax ist nicht streng festgelegt, aber in Firefox enthält sie drei Informationen, die durch Bindestriche (`-`) getrennt sind:
 
-- Zwei 4-stellige hexadezimale Strings, die die USB-Anbieter- und Produkt-ID des Controllers enthalten
+- Zwei 4-stellige hexadezimale Zeichenfolgen, die die USB-Hersteller- und Produkt-ID des Controllers enthalten
 - Der Name des Controllers, wie er vom Treiber bereitgestellt wird.
 
-Zum Beispiel gibt ein PS2-Controller **810-3-USB Gamepad** zurück.
+Zum Beispiel kehrte ein PS2-Controller **810-3-USB Gamepad** zurück.
 
-Diese Informationen sollen Ihnen ermöglichen, eine Zuordnung für die Bedienelemente auf dem Gerät zu finden sowie nützliches Feedback für den Benutzer anzuzeigen.
+Diese Informationen sollen Ihnen helfen, die Steuerung des Geräts zuzuordnen und nützliches Feedback an den Benutzer zu geben.
 
 ## Wert
 

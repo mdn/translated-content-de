@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Schreibgeschützt-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("button")}} besitzt, oder `null`, wenn dieses Button von keinem Formular besessen ist.
+Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das {{htmlelement("button")}}-Element besitzt, oder `null`, wenn dieses Button-Element keinem Formular zugeordnet ist.
 
 ## Wert
 

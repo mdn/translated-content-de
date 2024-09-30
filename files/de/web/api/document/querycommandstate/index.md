@@ -19,7 +19,7 @@ queryCommandState(command)
 ### Parameter
 
 - `command`
-  - : Ein Befehl aus [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
+  - : Ein Befehl von [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
 
 ### Rückgabewert
 
@@ -73,7 +73,7 @@ function makeBold() {
 
 ## Spezifikationen
 
-Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie wird nicht mehr als Standard verfolgt.
+Dieses Feature ist Teil keiner aktuellen Spezifikation. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -83,4 +83,4 @@ Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie wird nicht mehr als 
 
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - [`document.designMode`](/de/docs/Web/API/Document/designMode)
-- Browserfehler im Zusammenhang mit `queryCommandState()`: [Scribe's "Browser Inconsistencies" Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
+- Browser-Bugs im Zusammenhang mit `queryCommandState()`: [Scribes Dokumentation zu "Browser Inconsistencies"](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)

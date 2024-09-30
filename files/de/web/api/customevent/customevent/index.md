@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`CustomEvent()`** Konstruktor erstellt ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
+Der **`CustomEvent()`**-Konstruktor erstellt ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Objekt.
 
 ## Syntax
 
@@ -20,16 +20,16 @@ new CustomEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Namen des Ereignisses angibt. Ereignisnamen sind groß- und kleinschreibungssensitiv.
+  - : Ein String, der den Namen des Ereignisses angibt. Ereignisnamen sind groß- und kleinschreibungsabhängig.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `detail` {{optional_inline}}
-      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verknüpft ist. Dieser Wert ist dann im Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) Eigenschaft verfügbar.
-        Standardmäßig ist er `null`.
+      - : Ein ereignisabhängiger Wert, der dem Ereignis zugeordnet ist. Dieser Wert ist dann für den Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail)-Eigenschaft verfügbar.
+        Standardmäßig ist dieser Wert `null`.
 
 ### Rückgabewert
 
-Ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
+Ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Objekt.
 
 ## Beispiel
 
@@ -58,7 +58,7 @@ element.dispatchEvent(dogFound);
 // "cat" and "dog" logged in the console
 ```
 
-Zusätzliche Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
+Weitere Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
 
 ## Spezifikationen
 

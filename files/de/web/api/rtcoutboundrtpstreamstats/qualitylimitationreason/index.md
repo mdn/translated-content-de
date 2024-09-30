@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`qualityLimitationReason`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der den Grund angibt, warum die Medienqualität im Stream derzeit vom Codec während der Kodierung reduziert wird oder `none`, wenn keine Qualitätsreduzierung vorgenommen wird.
+Die **`qualityLimitationReason`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der den Grund angibt, warum die Medienqualität im Stream derzeit vom Codec während der Kodierung reduziert wird, oder `none`, wenn keine Qualitätsreduktion erfolgt.
 
-Diese Qualitätsreduzierung kann Änderungen wie eine reduzierte Bildrate oder Auflösung oder eine Erhöhung des Kompressionsfaktors beinhalten.
+Diese Qualitätsreduktion kann Änderungen wie eine verringerte Bildrate oder Auflösung oder eine erhöhte Kompressionsrate beinhalten.
 
-Die Dauer der Zeit, in der die kodierten Medien in jeder der möglichen Weisen, die durchgeführt werden können, in ihrer Qualität reduziert wurden, kann in [`qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations) gefunden werden.
+Die Zeit, in der das kodierte Medium auf jede der möglichen Arten in seiner Qualität reduziert wurde, kann in [`qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations) gefunden werden.
 
 ## Wert
 
-Ein {{jsxref("Map")}}, dessen Schlüssel Strings sind und deren Werte `none`, `cpu`, `bandwidth` oder `other` sind, und dessen Werte die Dauer der Medien in Sekunden sind, deren Qualität aus diesem Grund reduziert wurde.
+Eine {{jsxref("Map")}}, deren Schlüssel Strings sind, deren Werte `none`, `cpu`, `bandwidth` oder `other` sind, und deren Werte die Dauer des Mediums in Sekunden angeben, dessen Qualität aus diesem Grund reduziert wurde.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`get()`** Methode von {{jsxref("Map")}} Instanzen gibt ein angegebenes Element aus dieser Map zurück. Wenn der Wert, der mit dem angegebenen Schlüssel verknüpft ist, ein Objekt ist, erhalten Sie eine Referenz zu diesem Objekt, und jede Änderung an diesem Objekt wird es effektiv innerhalb des `Map`-Objekts ändern.
+Die **`get()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein bestimmtes Element aus dieser Map zurück. Wenn der Wert, der dem angegebenen Schlüssel zugeordnet ist, ein Objekt ist, erhalten Sie eine Referenz auf dieses Objekt, und jede Änderung, die an diesem Objekt vorgenommen wird, modifiziert es effektiv innerhalb des `Map`-Objekts.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-get.html")}}
 
@@ -24,8 +24,7 @@ get(key)
 
 ### Rückgabewert
 
-Das Element, das mit dem angegebenen Schlüssel verknüpft ist, oder
-{{jsxref("undefined")}}, wenn der Schlüssel im `Map`-Objekt nicht gefunden werden kann.
+Das Element, das dem angegebenen Schlüssel zugeordnet ist, oder {{jsxref("undefined")}}, wenn der Schlüssel im `Map`-Objekt nicht gefunden werden kann.
 
 ## Beispiele
 
@@ -39,7 +38,7 @@ console.log(myMap.get("bar")); // Returns "foo"
 console.log(myMap.get("baz")); // Returns undefined
 ```
 
-### Verwendung von get() zum Abrufen einer Referenz zu einem Objekt
+### Verwendung von get(), um eine Referenz auf ein Objekt abzurufen
 
 ```js
 const arr = [];
@@ -52,7 +51,7 @@ console.log(arr); // ["foo"]
 console.log(myMap.get("bar")); // ["foo"]
 ```
 
-Beachten Sie, dass die Map, die eine Referenz zum Originalobjekt hält, effektiv bedeutet, dass das Objekt nicht vom Garbage Collector entfernt werden kann, was zu unerwarteten Speicherproblemen führen kann. Wenn Sie möchten, dass das in der Map gespeicherte Objekt dieselbe Lebensdauer wie das Originalobjekt hat, ziehen Sie die Verwendung eines {{jsxref("WeakMap")}} in Betracht.
+Beachten Sie, dass die Map, die eine Referenz auf das Originalobjekt hält, effektiv bedeutet, dass das Objekt nicht durch die Speicherbereinigung entfernt werden kann, was zu unerwarteten Speicherproblemen führen kann. Wenn Sie möchten, dass das in der Map gespeicherte Objekt dieselbe Lebensdauer wie das Original hat, sollten Sie die Verwendung eines {{jsxref("WeakMap")}} in Betracht ziehen.
 
 ## Spezifikationen
 

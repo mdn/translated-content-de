@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`inputsourceschange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn sich die Menge der verfügbaren WebXR-Eingabegeräte ändert.
+Das **`inputsourceschange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn sich die verfügbare Menge der WebXR-Eingabegeräte ändert.
 
 ## Syntax
 
@@ -28,20 +28,20 @@ Ein [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent). E
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`added`](/de/docs/Web/API/XRInputSourcesChangeEvent/added) {{ReadOnlyInline}}
-  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die jeweils ein Eingabegerät darstellen, das kürzlich verbunden oder aktiviert wurde.
+  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, von denen jedes ein kürzlich verbundenes oder aktiviertes Eingabegerät darstellt.
 - [`removed`](/de/docs/Web/API/XRInputSourcesChangeEvent/removed) {{ReadOnlyInline}}
-  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die die kürzlich getrennten oder deaktivierten Eingabegeräte darstellen.
+  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die die kürzlich getrennten oder deaktivierten Eingabegeräte repräsentieren.
 - [`session`](/de/docs/Web/API/XRInputSourcesChangeEvent/session) {{ReadOnlyInline}}
-  - : Die [`XRSession`](/de/docs/Web/API/XRSession), auf die dieses Input-Source-Change-Ereignis gerichtet ist.
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), an die sich dieses Eingabequellen-Änderungsereignis richtet.
 
 ## Beschreibung
 
 ### Auslöser
 
-Wird ausgelöst, wenn sich die Menge der verfügbaren WebXR-Eingabegeräte ändert.
+Ausgelöst, wenn sich die Menge der verfügbaren WebXR-Eingabegeräte ändert.
 
 ### Anwendungsfälle
 
@@ -49,7 +49,7 @@ Sie können dieses Ereignis verwenden, um neu verfügbare Geräte zu erkennen od
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Ereignis-Handler eingerichtet wird, der `inputsourceschange`-Ereignisse verwendet, um neu verfügbare Zeigegeräte zu erkennen und deren Modelle zu laden, um sie im nächsten Animationsrahmen darzustellen.
+Das folgende Beispiel zeigt, wie man einen Ereignis-Handler einrichtet, der `inputsourceschange`-Ereignisse verwendet, um neu verfügbare Zeigegeräte zu erkennen und deren Modelle zu laden, um sie im nächsten Animationsrahmen anzuzeigen.
 
 ```js
 xrSession.addEventListener("inputsourceschange", onInputSourcesChange);

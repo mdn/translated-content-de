@@ -1,5 +1,5 @@
 ---
-title: "Notification: tag-Eigenschaft"
+title: "Benachrichtigung: tag Eigenschaft"
 short-title: tag
 slug: Web/API/Notification/tag
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`tag`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle stellt ein identifizierendes Tag für die Benachrichtigung dar, wie im `tag`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die **`tag`**-Eigenschaft des
+[`Notification`](/de/docs/Web/API/Notification)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein Identifikations-Tag für die Benachrichtigung kennzeichnet, wie im `tag`-Parameter des
+[`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
-Die Idee von Benachrichtigungstags ist, dass mehr als eine Benachrichtigung dasselbe Tag teilen kann, wodurch sie miteinander verknüpft werden. Eine Benachrichtigung kann dann programmatisch durch eine andere ersetzt werden, um zu verhindern, dass der Bildschirm der Benutzer mit einer großen Anzahl ähnlicher Benachrichtigungen überflutet wird.
+Die Idee von Benachrichtigungstags ist, dass mehrere Benachrichtigungen denselben Tag teilen können, um sie miteinander zu verknüpfen. Eine Benachrichtigung kann dann programmatisch durch eine andere ersetzt werden, um zu verhindern, dass der Bildschirm des Benutzers mit einer großen Anzahl ähnlicher Benachrichtigungen überfüllt wird.
 
 ## Wert
 
@@ -18,7 +20,7 @@ Ein String.
 
 ## Beispiele
 
-Unser Artikel [Using the Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#replacing_existing_notifications) enthält ein gutes Beispiel für die Verwendung von Tags.
+Unser Artikel [Verwenden der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#replacing_existing_notifications) enthält ein gutes Beispiel für die Verwendung von Tags.
 
 ## Spezifikationen
 
@@ -30,4 +32,4 @@ Unser Artikel [Using the Notifications API](/de/docs/Web/API/Notifications_API/U
 
 ## Siehe auch
 
-- [Using the Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwenden der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

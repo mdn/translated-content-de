@@ -1,5 +1,5 @@
 ---
-title: "DragEvent: DragEvent() Konstruktor"
+title: "DragEvent: DragEvent()-Konstruktor"
 short-title: DragEvent()
 slug: Web/API/DragEvent/DragEvent
 l10n:
@@ -10,10 +10,9 @@ l10n:
 
 Dieser Konstruktor wird verwendet, um ein synthetisches [`DragEvent`](/de/docs/Web/API/DragEvent)-Objekt zu erstellen.
 
-Obwohl dieses Interface einen Konstruktor hat, ist es nicht möglich, ein nützliches [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt über ein Skript zu erstellen, da [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte ein Verarbeitungs- und Sicherheitsmodell haben, das vom Browser während Drag-and-Drop-Vorgängen koordiniert wird.
+Obwohl diese Schnittstelle einen Konstruktor hat, ist es nicht möglich, ein nützliches [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt aus einem Skript zu erstellen, da [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte ein Verarbeitungs- und Sicherheitsmodell haben, das während Drag-and-Drop-Vorgängen vom Browser koordiniert wird.
 
-Dieses Interface erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und
-[`Event`](/de/docs/Web/API/Event).
+Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event).
 
 ## Syntax
 
@@ -26,7 +25,7 @@ new DragEvent(type, dragEventInit)
 
 - `type`
 
-  - : Ein String, der den Namen des Events repräsentiert (siehe [DragEvent-Typen](/de/docs/Web/API/DragEvent#event_types)).
+  - : Ein String, der den Namen des Ereignisses repräsentiert (siehe [DragEvent-Ereignistypen](/de/docs/Web/API/DragEvent#event_types)).
 
 - `eventInitDict` {{optional_inline}}
 

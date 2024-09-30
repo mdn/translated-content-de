@@ -1,5 +1,5 @@
 ---
-title: "HTMLDetailsElement: toggle-Event"
+title: "HTMLDetailsElement: toggle-Ereignis"
 short-title: toggle
 slug: Web/API/HTMLDetailsElement/toggle_event
 l10n:
@@ -10,14 +10,14 @@ l10n:
 
 Das **`toggle`**-Ereignis wird ausgelöst, wenn der `open`/`closed`-Zustand eines {{HtmlElement("details")}}-Elements umgeschaltet wird.
 
-Dieses Ereignis ist nicht abbruchbar und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 > [!NOTE]
-> Das `toggle`-Ereignis ist auch in einer anderen Form auf [`HTMLElement`](/de/docs/Web/API/HTMLElement) verfügbar; diese Version wird auf [Popover-Elementen](/de/docs/Web/API/Popover_API) unmittelbar nach deren Anzeige oder Ausblendung ausgelöst. Weitere Informationen finden Sie auf der `HTMLElement`-[`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisseite.
+> Das `toggle`-Ereignis ist auch in einer anderen Form auf [`HTMLElement`](/de/docs/Web/API/HTMLElement) verfügbar; diese Version wird bei [Popover-Elementen](/de/docs/Web/API/Popover_API) ausgelöst, unmittelbar nachdem sie angezeigt oder verborgen wurden. Weitere Informationen finden Sie auf der `HTMLElement`-[`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisseite.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js example-good
 addEventListener("toggle", (event) => {});
@@ -30,7 +30,7 @@ ontoggle = (event) => {};
 ```
 
 > [!NOTE]
-> Im obigen Beispiel wird der Event-Listener einmal ohne Benutzereingriff aufgerufen, weil das `open`-Attribut gesetzt ist. Die Verwendung von Event-Handlern auf diese Weise [wird nicht empfohlen](/de/docs/Web/HTML/Attributes#event_handler_attributes).
+> Im obigen Beispiel wird der Ereignis-Listener einmal aufgerufen, ohne dass eine Benutzerinteraktion stattfindet, da das `open`-Attribut gesetzt ist. Der Einsatz von Ereignishandlern auf diese Weise [wird nicht empfohlen](/de/docs/Web/HTML/Attributes#event_handler_attributes).
 
 ## Ereignistyp
 

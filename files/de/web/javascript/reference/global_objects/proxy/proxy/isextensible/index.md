@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`handler.isExtensible()`** ist ein Fang für die `[[IsExtensible]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
+Die **`handler.isExtensible()`** Methode ist ein Trap für die `[[IsExtensible]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), welche von Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-isextensible.html", "taller")}}
 
@@ -22,20 +22,20 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird an die Methode `isExtensible()` übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird an die `isExtensible()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die Methode `isExtensible()` muss einen {{jsxref("Boolean")}} zurückgeben, der anzeigt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden [zu Booleans gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die `isExtensible()`-Methode muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Abfangen von Operationen
 
-Dieser Fang kann diese Operationen abfangen:
+Dieser Trap kann diese Operationen abfangen:
 
 - {{jsxref("Object.isExtensible()")}}
 - {{jsxref("Reflect.isExtensible()")}}
@@ -46,7 +46,7 @@ Oder jede andere Operation, die die `[[IsExtensible]]` [interne Methode](/de/doc
 
 Die `[[IsExtensible]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das Ergebnis muss mit dem von {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt übereinstimmen.
+- Das Ergebnis muss dasselbe sein wie bei {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt.
 
 ## Beispiele
 

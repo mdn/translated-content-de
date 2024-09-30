@@ -7,28 +7,28 @@ l10n:
 
 {{AddonSidebar}}
 
-Ermöglicht Browsererweiterungen, Details zum Browser-Theme zu erhalten und das Theme zu aktualisieren.
+Ermöglicht es Browser-Erweiterungen, Details zum Browser-Design zu erhalten und das Design zu aktualisieren.
 
-Sie können diese API verwenden, um ein Theme in Ihre Erweiterung aufzunehmen, das Sie als {{WebExtAPIRef("theme.Theme")}} definieren und mit {{WebExtAPIRef("theme.update()")}} anwenden. Sie können kein statisches Theme in Ihre Erweiterung aufnehmen, das mit dem Manifest-Schlüssel ["theme"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) definiert ist. Der Manifest-Schlüssel "theme" wird nur zur Definition statischer Themes verwendet. Weitere Informationen finden Sie unter [Themes](https://extensionworkshop.com/documentation/themes/) im Extension Workshop.
+Mit dieser API können Sie ein Design in Ihre Erweiterung einbinden, das Sie als {{WebExtAPIRef("theme.Theme")}} definieren und mit {{WebExtAPIRef("theme.update()")}} anwenden. Sie können kein statisches Design in Ihre Erweiterung einbinden, das mit dem ["theme"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Manifestschlüssel definiert wird. Der "theme"-Manifestschlüssel wird nur zur Definition statischer Designs verwendet. Weitere Informationen finden Sie unter [Designs](https://extensionworkshop.com/documentation/themes/) im Extension Workshop.
 
 ## Typen
 
 - {{WebExtAPIRef("theme.Theme")}}
-  - : Repräsentiert den Inhalt eines Themes.
+  - : Repräsentiert den Inhalt eines Designs.
 
 ## Funktionen
 
 - {{WebExtAPIRef("theme.getCurrent()")}}
-  - : Ruft das aktuelle Browser-Theme ab.
+  - : Ruft das aktuelle Browser-Design ab.
 - {{WebExtAPIRef("theme.update()")}}
-  - : Aktualisiert das Browser-Theme.
+  - : Aktualisiert das Design des Browsers.
 - {{WebExtAPIRef("theme.reset()")}}
-  - : Entfernt alle Theme-Aktualisierungen, die in einem Aufruf von {{WebExtAPIRef("theme.update()")}} vorgenommen wurden.
+  - : Entfernt alle Designaktualisierungen, die in einem Aufruf von {{WebExtAPIRef("theme.update()")}} vorgenommen wurden.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("theme.onUpdated")}}
-  - : Wird ausgelöst, wenn sich das Browser-Theme ändert.
+  - : Wird ausgelöst, wenn sich das Browser-Design ändert.
 
 {{WebExtExamples("h2")}}
 

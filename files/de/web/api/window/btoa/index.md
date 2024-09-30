@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`btoa()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces erstellt einen [Base64](/de/docs/Glossary/Base64)-kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem _binären String_ (d. h. einem String, bei dem jedes Zeichen als Byte von Binärdaten behandelt wird).
+Die **`btoa()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erzeugt einen [Base64](/de/docs/Glossary/Base64)-kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem _binären String_ (d. h. ein String, bei dem jedes Zeichen im String als Byte von Binärdaten behandelt wird).
 
-Sie können diese Methode verwenden, um Daten zu kodieren, die sonst Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die [`Window.atob()`](/de/docs/Web/API/Window/atob)-Methode zu verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
+Sie können diese Methode verwenden, um Daten zu kodieren, die andernfalls Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die [`Window.atob()`](/de/docs/Web/API/Window/atob) Methode zu verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein ASCII-String, der die Base64-Darstellung von `stringToEncode` enthält.
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Siehe unten "Unicode-Strings" für weitere Details.
+  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Siehe "Unicode-Strings" unten für mehr Details.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ const decodedData = window.atob(encodedData); // decode the string
 
 ## Unicode-Strings
 
-Base64 erwartet von Haus aus Binärdaten als Eingabe. In Bezug auf JavaScript-Strings bedeutet dies Strings, bei denen der Codepunkt jedes Zeichens nur ein Byte belegt. Wenn Sie also einen String mit Zeichen, die mehr als ein Byte belegen, an `btoa()` übergeben, erhalten Sie einen Fehler, da dies nicht als Binärdaten betrachtet wird:
+Base64 erwartet von Haus aus Binärdaten als Eingabe. Bei JavaScript-Strings bedeutet dies Strings, bei denen der Codepunkt jedes Zeichens nur ein Byte beansprucht. Wenn Sie also einen String in `btoa()` übergeben, der Zeichen enthält, die mehr als ein Byte beanspruchen, erhalten Sie einen Fehler, da dies nicht als Binärdaten betrachtet wird:
 
 ```js
 const ok = "a";
@@ -54,7 +54,7 @@ console.log(window.btoa(ok)); // YQ==
 console.log(window.btoa(notOK)); // error
 ```
 
-Wie Sie dieses Problem beim Umgang mit beliebigem Unicode-Text umgehen können, wird unter _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64)-Glossareintrag beschrieben.
+Wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Unicode-Text arbeiten, finden Sie unter _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64)-Glossareintrag.
 
 ## Spezifikationen
 
@@ -68,6 +68,6 @@ Wie Sie dieses Problem beim Umgang mit beliebigem Unicode-Text umgehen können, 
 
 - [Ein Polyfill von `btoa`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
 - [`data` URLs](/de/docs/Web/URI/Schemes/data)
-- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): die gleiche Methode, aber in Worker-Scopes.
+- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): die gleiche Methode, aber in Worker-Kontexten.
 - [`Window.atob()`](/de/docs/Web/API/Window/atob)
 - [Base64](/de/docs/Glossary/Base64)

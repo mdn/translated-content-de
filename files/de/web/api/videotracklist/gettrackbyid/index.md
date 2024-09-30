@@ -1,5 +1,5 @@
 ---
-title: "VideoTrackList: getTrackById()-Methode"
+title: "VideoTrackList: Methode getTrackById()"
 short-title: getTrackById()
 slug: Web/API/VideoTrackList/getTrackById
 l10n:
@@ -21,13 +21,13 @@ getTrackById(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID des Tracks angibt, der in der Trackliste gefunden werden soll.
+  - : Ein String, der die ID des Tracks angibt, der in der Track-Liste gefunden werden soll.
 
 ### Rückgabewert
 
-Ein [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt, das den ersten Track innerhalb der `VideoTrackList` angibt, dessen `id` mit dem angegebenen String übereinstimmt. Wenn kein Match gefunden wird, gibt diese Methode `null` zurück.
+Ein [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt, das den ersten Track angibt, der innerhalb des `VideoTrackList` gefunden wird und dessen `id` mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, gibt diese Methode `null` zurück.
 
-Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht; das heißt, in der Reihenfolge, die von der Mediaressource selbst definiert wird, oder, wenn die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge, in der die Tracks von der Mediaressource deklariert werden.
+Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht; das heißt, in der Reihenfolge, die durch die Medienressource selbst definiert wird, oder, falls die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge, in der die Tracks durch die Medienressource deklariert werden.
 
 ## Spezifikationen
 

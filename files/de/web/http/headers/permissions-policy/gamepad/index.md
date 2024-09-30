@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `gamepad` steuert, ob das aktuelle Dokument die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `gamepad` steuert, ob das aktuelle Dokument die Nutzung der [Gamepad API](/de/docs/Web/API/Gamepad_API) erlaubt.
 
-Speziell in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe an [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen. Außerdem werden die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
+Insbesondere wird bei einer definierten Richtlinie, die die Nutzung dieses Features blockiert, ein `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) bei Aufrufen von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) ausgelöst. Zusätzlich werden die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
 
 ## Syntax
 
@@ -18,39 +18,39 @@ Permissions-Policy: gamepad=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die standardmäßige erlaubte Liste für `gamepad` ist `self`.
+Die Standard-`allowlist` für `gamepad` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Gamepad API in allen Browsing-Kontexten deaktivieren, außer für ihren eigenen Ursprung und die, deren Ursprung `https://example.com` ist.
-Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers geschehen, um eine Berechtigungsrichtlinie zu definieren:
+SecureCorp Inc. möchte die Gamepad API in allen Browserkontexten deaktivieren, außer für den eigenen Ursprung und diejenigen mit dem Ursprung `https://example.com`.
+Dies kann durch das Senden des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self "https://example.com")
 ```
 
-### Mit einem `<iframe>`-Element
+### Mit einem \<iframe>-Element
 
-FastCorp Inc. möchte `gamepad` für alle Cross-Origin-Kind-Frames deaktivieren, außer für ein bestimmtes `<iframe>`.
-Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers geschehen, um eine Berechtigungsrichtlinie zu definieren:
+FastCorp Inc. möchte `gamepad` für alle Cross-Origin-Kindrahmen deaktivieren, außer für ein bestimmtes `<iframe>`.
+Dies kann durch das Senden des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self)
 ```
 
-Dann fügen Sie ein Attribut {{HTMLElement('iframe','allow','#Attributes')}} zu dem `<iframe>`-Element hinzu:
+Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut zum `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/game" allow="gamepad"></iframe>
 ```
 
-Iframe-Attribute können Funktionen selektiv in bestimmten Frames aktivieren, in anderen jedoch nicht, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
+Iframe-Attribute können Funktionen selektiv in bestimmten Rahmen aktivieren und in anderen nicht, selbst wenn diese Rahmen Dokumente desselben Ursprungs enthalten.
 
 ## Spezifikationen
 

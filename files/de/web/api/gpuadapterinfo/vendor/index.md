@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`vendor`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt den Namen des Adapterherstellers zurück oder einen leeren String, wenn er nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`vendor`** des Schnittstellen-Objekts [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo) gibt den Namen des Adapter-Herstellers zurück oder einen leeren String, wenn dieser nicht verfügbar ist.
 
 ## Wert
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle ist eine Zeichenkette, die eine Kennzeichnung bereitstellt, die zur Identifikation des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die schreibgeschützte **`label`**-Eigenschaft der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle ist ein Zeichenfolgen-Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellen einer `label`-Eigenschaft im Deskripturobjekt, das im ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) übergeben wird, gesetzt werden, oder Sie können es direkt am `GPUCommandEncoder`-Objekt holen und setzen.
+Dies kann durch das Bereitstellen eines `label`-Eigenschafts im Deskriptorobjekt gesetzt werden, das beim aufrufenden [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)-Aufruf übergeben wird. Alternativ können Sie es direkt auf dem `GPUCommandEncoder`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Eine Zeichenkette. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
+Eine Zeichenfolge. Wenn vorher kein Label-Wert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenfolge zurück.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ commandEncoder.label = "mycommandencoder";
 console.log(commandEncoder.label); // "mycommandencoder";
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) und anschließendes Abrufen über `GPUCommandEncoder.label`:
+Festlegen eines Labels über den aufrufenden [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)-Aufruf und anschließendes Abrufen über `GPUCommandEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder({

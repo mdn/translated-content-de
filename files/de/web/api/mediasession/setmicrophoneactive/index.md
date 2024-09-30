@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die **`setMicrophoneActive()`** Methode des [`MediaSession`](/de/docs/Web/API/MediaSession) Interfaces wird verwendet, um dem User-Agent mitzuteilen, ob das Mikrofon des Benutzers aktuell als stummgeschaltet betrachtet wird.
+Die **`setMicrophoneActive()`**-Methode des [`MediaSession`](/de/docs/Web/API/MediaSession)-Interfaces wird verwendet, um dem User-Agent anzuzeigen, ob das Mikrofon des Benutzers derzeit als stummgeschaltet angesehen wird.
 
-Rufen Sie diese Methode am `navigator`-Objekt des [`mediaSession`](/de/docs/Web/API/Navigator/mediaSession) Objekts auf.
+Rufen Sie diese Methode am `navigator`-Objekt im [`mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Objekt auf.
 
-Beachten Sie, dass der Status des Mikrofons nicht in der [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat erfasst werden muss.
+Beachten Sie, dass der Status des Mikrofons nicht im [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat erfasst werden muss.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ setMicrophoneActive(active)
 ### Parameter
 
 - `active`
-  - : Ein Boolean, der angibt, ob das Mikrofon als stummgeschaltet betrachtet wird oder nicht.
+  - : Ein Boolean, der angibt, ob das Mikrofon als stummgeschaltet angesehen wird oder nicht.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Unten finden Sie ein Beispiel zum Aktualisieren des Mikrofon-Stummschaltungsstatus der aktuellen [`MediaSession`](/de/docs/Web/API/MediaSession) sowie zum Anhören von Anfragen zur Änderung des Stummschaltungsstatus mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler).
+Nachfolgend ein Beispiel zum Aktualisieren des Mikrofon-Stummschaltungszustandes der aktuellen [`MediaSession`](/de/docs/Web/API/MediaSession) und zum Zuhören von Anforderungen zur Änderung des Stummschaltungsstatus mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler).
 
 ```js
 let microphoneActive = false;

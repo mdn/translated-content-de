@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`rangeStart`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Startposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden muss.
+Die **`rangeStart`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interfaces gibt die Startposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden muss.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des zu formatierenden Textbereichs
+### Lesen des Bereichs des zu formatierenden Textes
 
-Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereignis-Eigenschaften `rangeStart` und `rangeEnd` verwendet werden, um den zu formatierenden Textbereich zu bestimmen. Beachten Sie, dass der Callback des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
+Das folgende Beispiel zeigt, wie die `rangeStart`- und `rangeEnd`-Eigenschaften des `textformatupdate`-Ereignisses verwendet werden, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>
@@ -50,4 +50,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der es gehört.
+- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.

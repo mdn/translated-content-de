@@ -7,14 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("UI Events")}}
 
-Die folgenden Tabellen zeigen, welche Code-Werte für jeden nativen Scancode oder virtuellen Keycode auf den wichtigsten Plattformen verwendet werden. Der Grund dafür ist, dass einige Browser physische Tasten unterschiedlich interpretieren und es daher Unterschiede gibt, welche Tasten welchen Codes zugeordnet sind. Diese Tabellen zeigen diese Variationen, wenn sie bekannt sind.
+Die folgenden Tabellen zeigen, welche Code-Werte für jeden nativen Scancode oder virtuellen Keycode auf den wichtigsten Plattformen verwendet werden. Der Grund dafür ist, dass einige Browser physische Tasten unterschiedlich interpretieren, es gibt einige Unterschiede darin, welche Tasten zu welchen Codes zugeordnet sind. Diese Tabellen zeigen diese Abweichungen, sofern bekannt.
 
 ## Code-Werte auf Windows
 
-Diese Tabelle zeigt die Windows-Scan-Codes, die Tasten repräsentieren, und die `KeyboardEvent.code`-Werte, die diesen Hardware-Tasten entsprechen. Es sind nur Tasten aufgeführt, die Scan-Codes auf Windows generieren.
+Diese Tabelle zeigt die Windows-Scan-Codes, die Tasten repräsentieren, und die `KeyboardEvent.code`-Werte, die diesen Hardware-Tasten entsprechen. Aufgelistet sind nur die Tasten, die auf Windows Scancodes erzeugen.
 
-In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser nicht erkannt werden kann;
-"(⚠️ Nicht dasselbe auf xyz)" bedeutet, dass dieser String einen anderen Code-Wert auf dem Browser xyz darstellt und bei der Verwendung besondere Vorsicht geboten ist.
+In den Zellen bedeutet "(❌ Missing)", dass dieser Code-Wert in diesem Browser nicht erkannt werden kann; "(⚠️ Not the same on xyz)" bedeutet, dass dieser String einen anderen Code-Wert im Browser xyz repräsentiert und bei der Nutzung besondere Vorsicht geboten ist.
 
 <table class="standard-table">
   <thead>
@@ -457,8 +456,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
       <th scope="row">
         <code>0x0054 (<kbd>Alt</kbd> + <kbd>PrintScreen</kbd>)</code>
       </th>
-      <td><code>"PrintScreen"</code> (⚠️ Nicht dasselbe auf Chrome)</td>
-      <td><code>""</code> (❌ Fehlend)</td>
+      <td><code>"PrintScreen"</code> (⚠️ Not the same on Chrome)</td>
+      <td><code>""</code> (❌ Missing)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0055</code></th>
@@ -483,7 +482,7 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x0059</code></th>
       <td><code>"NumpadEqual"</code></td>
-      <td><code>"NumpadEqual"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"NumpadEqual"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x005A</code></th>
@@ -493,17 +492,17 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x005B</code></th>
       <td><code>"Unidentified"</code></td>
-      <td><code>""</code> (früher <code>"F13"</code> vor Chrome 48)</td>
+      <td><code>""</code> (war <code>"F13"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x005C</code></th>
       <td><code>"Unidentified"</code></td>
-      <td><code>""</code> (früher <code>"F14"</code> vor Chrome 48)</td>
+      <td><code>""</code> (war <code>"F14"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x005D</code></th>
       <td><code>"Unidentified"</code></td>
-      <td><code>""</code> (früher <code>"F15"</code> vor Chrome 48)</td>
+      <td><code>""</code> (war <code>"F15"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x005E</code></th>
@@ -533,62 +532,62 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x0063</code></th>
       <td><code>"Unidentified"</code></td>
-      <td><code>""</code> (früher <code>"F16"</code> vor Chrome 48)</td>
+      <td><code>""</code> (war <code>"F16"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0064</code></th>
       <td><code>"F13"</code></td>
-      <td><code>"F13"</code> (früher <code>"F17"</code> vor Chrome 48)</td>
+      <td><code>"F13"</code> (war <code>"F17"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0065</code></th>
       <td><code>"F14"</code></td>
-      <td><code>"F14"</code> (früher <code>"F18"</code> vor Chrome 48)</td>
+      <td><code>"F14"</code> (war <code>"F18"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0066</code></th>
       <td><code>"F15"</code></td>
-      <td><code>"F15"</code> (früher <code>"F19"</code> vor Chrome 48)</td>
+      <td><code>"F15"</code> (war <code>"F19"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0067</code></th>
       <td><code>"F16"</code></td>
-      <td><code>"F16"</code> (früher <code>"F20"</code> vor Chrome 48)</td>
+      <td><code>"F16"</code> (war <code>"F20"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0068</code></th>
       <td><code>"F17"</code></td>
-      <td><code>"F17"</code> (früher <code>"F21"</code> vor Chrome 48)</td>
+      <td><code>"F17"</code> (war <code>"F21"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0069</code></th>
       <td><code>"F18"</code></td>
-      <td><code>"F18"</code> (früher <code>"F22"</code> vor Chrome 48)</td>
+      <td><code>"F18"</code> (war <code>"F22"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006A</code></th>
       <td><code>"F19"</code></td>
-      <td><code>"F19"</code> (früher <code>"F23"</code> vor Chrome 48)</td>
+      <td><code>"F19"</code> (war <code>"F23"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006B</code></th>
       <td><code>"F20"</code></td>
-      <td><code>"F20"</code> (früher <code>"F24"</code> vor Chrome 48)</td>
+      <td><code>"F20"</code> (war <code>"F24"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006C</code></th>
       <td><code>"F21"</code></td>
-      <td><code>"F21"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"F21"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006D</code></th>
       <td><code>"F22"</code></td>
-      <td><code>"F22"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"F22"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006E</code></th>
       <td><code>"F23"</code></td>
-      <td><code>"F23"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"F23"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x006F</code></th>
@@ -598,26 +597,26 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x0070</code></th>
       <td><code>"KanaMode"</code></td>
-      <td><code>"KanaMode"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"KanaMode"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row">
-        <code>0x0071</code> (<kbd>Hanja</kbd>-Taste ohne koreanisches Tastaturlayout)
+        <code>0x0071</code> (<kbd>Hanja</kbd>-Taste ohne koreanische Tastaturlayout)
       </th>
       <td><code>"Lang2"</code></td>
-      <td><code>"Lang2"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"Lang2"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row">
-        <code>0x0072</code> (<kbd>Han/Yeong</kbd>-Taste ohne koreanisches Tastaturlayout)
+        <code>0x0072</code> (<kbd>Han/Yeong</kbd>-Taste ohne koreanische Tastaturlayout)
       </th>
       <td><code>"Lang1"</code></td>
-      <td><code>"Lang1"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"Lang1"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0073</code></th>
       <td><code>"IntlRo"</code></td>
-      <td><code>"IntlRo"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"IntlRo"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0074</code>, <code>0x0075</code></th>
@@ -627,22 +626,22 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x0076</code></th>
       <td><code>"F24"</code></td>
-      <td><code>"F24"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"F24"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0077</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Lang4"</code> (früher <code>""</code> vor Chrome 48) (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Lang4"</code> (war <code>""</code> vor Chrome 48) (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0078</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Lang3"</code> (früher <code>""</code> vor Chrome 48) (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Lang3"</code> (war <code>""</code> vor Chrome 48) (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x0079</code></th>
       <td><code>"Convert"</code></td>
-      <td><code>"Convert"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"Convert"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x007A</code></th>
@@ -652,7 +651,7 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x007B</code></th>
       <td><code>"NonConvert"</code></td>
-      <td><code>"NonConvert"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"NonConvert"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x007C</code></th>
@@ -667,7 +666,7 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0x007E</code></th>
       <td><code>"NumpadComma"</code></td>
-      <td><code>"NumpadComma"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"NumpadComma"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0x007F</code></th>
@@ -681,8 +680,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE008</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Undo"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Undo"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE009</code></th>
@@ -691,8 +690,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE00A</code></th>
-      <td><code>""</code> (❌ Fehlend)</td>
-      <td><code>"Paste"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>""</code> (❌ Missing)</td>
+      <td><code>"Paste"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE00B</code> ～ <code>0xE00F</code></th>
@@ -711,13 +710,13 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE017</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Cut"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Cut"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE018</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Copy"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Copy"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE019</code></th>
@@ -742,7 +741,7 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0xE01E</code></th>
       <td><code>"Unidentified"</code></td>
-      <td><code>""</code> (früher <code>"LaunchMail"</code> vor Chrome 48)</td>
+      <td><code>""</code> (war <code>"LaunchMail"</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE01F</code></th>
@@ -757,7 +756,7 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0xE021</code></th>
       <td><code>"LaunchApp2"</code></td>
-      <td><code>"LaunchApp2"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"LaunchApp2"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE022</code></th>
@@ -781,8 +780,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE02C</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Eject"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Eject"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE02D</code></th>
@@ -791,10 +790,10 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE02E</code></th>
-      <td><code>"VolumeDown"</code> (⚠️ Nicht dasselbe auf Chrome)</td>
+      <td><code>"VolumeDown"</code> (⚠️ Not the same on Chrome)</td>
       <td>
-        <code>"AudioVolumeDown"</code> (früher <code>"VolumeDown"</code> vor
-        Chrome 52) (⚠️ Nicht dasselbe auf Firefox)
+        <code>"AudioVolumeDown"</code> (war <code>"VolumeDown"</code> vor
+        Chrome 52) (⚠️ Not the same on Firefox)
       </td>
     </tr>
     <tr>
@@ -804,10 +803,10 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE030</code></th>
-      <td><code>"VolumeUp"</code> (⚠️ Nicht dasselbe auf Chrome)</td>
+      <td><code>"VolumeUp"</code> (⚠️ Not the same on Chrome)</td>
       <td>
-        <code>"AudioVolumeUp"</code> (früher <code>"VolumeUp"</code> vor Chrome
-        52) (⚠️ Nicht dasselbe auf Firefox)
+        <code>"AudioVolumeUp"</code> (war <code>"VolumeUp"</code> vor Chrome
+        52) (⚠️ Not the same on Firefox)
       </td>
     </tr>
     <tr>
@@ -852,8 +851,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE03B</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Help"</code> (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Help"</code> (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE03C</code> ～ <code>0xE044</code></th>
@@ -944,13 +943,13 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row"><code>0xE05B</code></th>
-      <td><code>"MetaLeft"</code> (früher <code>"OSLeft"</code> vor Firefox 118)</td>
-      <td><code>"MetaLeft"</code> (früher <code>"OSLeft"</code> vor Chrome 52)</td>
+      <td><code>"MetaLeft"</code> (war <code>"OSLeft"</code> vor Firefox 118)</td>
+      <td><code>"MetaLeft"</code> (war <code>"OSLeft"</code> vor Chrome 52)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE05C</code></th>
-      <td><code>"MetaRight"</code> (früher <code>"OSRight"</code> vor Firefox 118)</td>
-      <td><code>"MetaRight"</code> (früher <code>"OSRight"</code> vor Chrome 52)</td>
+      <td><code>"MetaRight"</code> (war <code>"OSRight"</code> vor Firefox 118)</td>
+      <td><code>"MetaRight"</code> (war <code>"OSRight"</code> vor Chrome 52)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE05D</code></th>
@@ -960,12 +959,12 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0xE05E</code></th>
       <td><code>"Power"</code></td>
-      <td><code>"Power"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"Power"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE05F</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"Sleep"</code> (früher <code>""</code> vor Chrome 48) (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"Sleep"</code> (war <code>""</code> vor Chrome 48) (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE060</code> ～ <code>0xE062</code></th>
@@ -974,8 +973,8 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
       <tr>
       <th scope="row"><code>0xE063</code></th>
-      <td><code>"Unidentified"</code> (❌ Fehlend)</td>
-      <td><code>"WakeUp"</code> (früher <code>""</code> vor Chrome 48) (⚠️ Nicht dasselbe auf Firefox)</td>
+      <td><code>"Unidentified"</code> (❌ Missing)</td>
+      <td><code>"WakeUp"</code> (war <code>""</code> vor Chrome 48) (⚠️ Not the same on Firefox)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE064</code></th>
@@ -1015,17 +1014,17 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     <tr>
       <th scope="row"><code>0xE06B</code></th>
       <td><code>"LaunchApp1"</code></td>
-      <td><code>"LaunchApp1"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"LaunchApp1"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE06C</code></th>
       <td><code>"LaunchMail"</code></td>
-      <td><code>"LaunchMail"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"LaunchMail"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE06D</code></th>
       <td><code>"MediaSelect"</code></td>
-      <td><code>"MediaSelect"</code> (früher <code>""</code> vor Chrome 48)</td>
+      <td><code>"MediaSelect"</code> (war <code>""</code> vor Chrome 48)</td>
     </tr>
     <tr>
       <th scope="row"><code>0xE06E ～ 0xE0F0</code></th>
@@ -1034,31 +1033,31 @@ In den Zellen bedeutet "(❌ Fehlend)", dass dieser Code-Wert in diesem Browser 
     </tr>
     <tr>
       <th scope="row">
-        <code>0xE0F1</code> (<kbd>Hanja</kbd>-Taste mit koreanischem Tastaturlayout)
+        <code>0xE0F1</code> (<kbd>Hanja</kbd>-Taste mit koreanischer Tastaturlayout)
       </th>
-      <td><code>"Lang2"</code> (⚠️ Nicht dasselbe auf Chrome)</td>
-      <td><code>""</code> (❌ Fehlend)</td>
+      <td><code>"Lang2"</code> (⚠️ Not the same on Chrome)</td>
+      <td><code>""</code> (❌ Missing)</td>
     </tr>
     <tr>
       <th scope="row">
-        <code>0xE0F2</code> (<kbd>Han/Yeong</kbd>-Taste mit koreanischem Tastaturlayout)
+        <code>0xE0F2</code> (<kbd>Han/Yeong</kbd>-Taste mit koreanischer Tastaturlayout)
       </th>
-      <td><code>"Lang1"</code> (⚠️ Nicht dasselbe auf Chrome)</td>
-      <td><code>""</code> (❌ Fehlend)</td>
+      <td><code>"Lang1"</code> (⚠️ Not the same on Chrome)</td>
+      <td><code>""</code> (❌ Missing)</td>
     </tr>
   </tbody>
 </table>
 
-## Code-Werte auf Mac
+## Code-Werte auf dem Mac
 
-Unter macOS ist es schwierig, Scancodes oder etwas zu erhalten, das eine physische Taste von einem Tastenereignis unterscheiden kann. Daher ordnet Firefox immer den Wert `code` vom virtuellen Keycode zu.
+Auf macOS ist es schwierig, Scancodes oder etwas zu erhalten, das eine physische Taste von einem Tastenereignis unterscheiden kann. Daher ordnet Firefox immer den `code`-Wert vom virtuellen Keycode zu.
 
 In den Zellen:
 
-- "(❌ Fehlend)" bedeutet, dass dieser Code-Wert in diesem Browser nicht erkannt werden kann;
-- "(⚠️ Nicht dasselbe auf xyz)" bedeutet, dass dieser String einen anderen Code-Wert auf dem Browser xyz darstellt und bei der Verwendung besondere Vorsicht geboten ist;
-- "(⚠️ Selber String für `0xab`)" bedeutet, dass Sie diese Taste nicht mit derjenigen unterscheiden können, die `0xab` zugeordnet ist;
-- "(⚠️ Tatsächlich keine Ereignisse ausgelöst)" bedeutet, dass auch wenn Sie technisch einen spezifischen String für diesen Code haben, kein Ereignis verbreitet wird.
+- "(❌ Missing)" bedeutet, dass dieser Code-Wert in diesem Browser nicht erkannt werden kann;
+- "(⚠️ Not the same on xyz)" bedeutet, dass dieser String einen anderen Code-Wert im Browser xyz repräsentiert und bei der Nutzung besondere Vorsicht geboten ist;
+- "(⚠️ Same string for `0xab`)" bedeutet, dass Sie diese Taste nicht mit derjenigen unterscheiden können, die `0xab` zugeordnet ist;
+- "(⚠️ No events fired actually)" bedeutet, dass technisch zwar ein spezifischer String für diesen Code vorhanden ist, aber kein Ereignis tatsächlich ausgelöst wird;
 
 <table class="standard-table">
   <thead>
@@ -1330,9 +1329,9 @@ In den Zellen:
       <td><code>"Backspace"</code></td>
     </tr>
     <tr>
-      <th scope="row">Enter-Taste auf dem Ziffernblock des PowerBook (<code>0x34</code>)</th>
-      <td><code>"NumpadEnter"</code> (⚠️ Selber String für <code>0x4C</code>) (⚠️ Nicht dasselbe auf Chromium)</td>
-      <td><code>""</code> (❌ Fehlend)</td>
+      <th scope="row">Eingabetaste auf dem Ziffernblock von PowerBook (<code>0x34</code>)</th>
+      <td><code>"NumpadEnter"</code> (⚠️ Same string for <code>0x4C</code>) (⚠️ Not the same on Chromium)</td>
+      <td><code>""</code> (❌ Missing)</td>
     </tr>
     <tr>
       <th scope="row"><code>kVK_Escape (0x35)</code></th>
@@ -1340,14 +1339,14 @@ In den Zellen:
       <td><code>"Escape"</code></td>
     </tr>
     <tr>
-      <th scope="row">rechte Befehls-Taste (<code>0x36</code>)</th>
-      <td><code>"MetaRight"</code> (früher <code>"OSRight"</code> vor Firefox 118)</td>
-      <td><code>"MetaRight"</code> (früher <code>"OSRight"</code> vor Chromium 52)</td>
+      <th scope="row">rechte Befehlstaste (<code>0x36</code>)</th>
+      <td><code>"MetaRight"</code> (war <code>"OSRight"</code> vor Firefox 118)</td>
+      <td><code>"MetaRight"</code> (war <code>"OSRight"</code> vor Chromium 52)</td>
     </tr>
     <tr>
       <th scope="row"><code>kVK_Command (0x37)</code></th>
-      <td><code>"MetaLeft"</code> (früher <code>"OSLeft"</code> vor Firefox 118)</td>
-      <td><code>"MetaLeft"</code> (früher <code>"OSLeft"</code> vor Chromium 52)</td>
+      <td><code>"MetaLeft"</code> (war <code>"OSLeft"</code> vor Firefox 118)</td>
+      <td><code>"MetaLeft"</code> (war <code>"OSLeft"</code> vor Chromium 52)</td>
     </tr>
     <tr>
       <th scope="row"><code>kVK_Shift (0x38)</code></th>
@@ -1386,8 +1385,8 @@ In den Zellen:
     </tr>
     <tr>
       <th scope="row"><code>kVK_Function (0x3F)</code></th>
-      <td><code>"Fn"</code> (⚠️ Tatsächlich keine Ereignisse ausgelöst)</td>
-      <td><code>""</code> (❌ Fehlend) (⚠️ Tatsächlich keine Ereignisse ausgelöst)</td>
+      <td><code>"Fn"</code> (⚠️ No events fired actually)</td>
+      <td><code>""</code> (❌ Missing) (⚠️ No events fired actually)</td>
     </tr>
     <tr>
       <th scope="row"><code>kVK_F17 (0x40)</code></th>
@@ -1416,10 +1415,19 @@ In den Zellen:
     </tr>
     <tr>
       <th scope="row"><code>kVK_VolumeUp (0x48)</code></th>
-      <td><code>"VolumeUp"</code> (⚠️ Nicht dasselbe auf Chromium)</td>
+      <td><code>"VolumeUp"</code> (⚠️ Not the same on Chromium)</td>
       <td>
-        <code>"AudioVolumeUp"</code> (war <code>"VolumeUp"</code> vor Chromium 1) (⚠️ Nicht dasselbe auf Firefox)
+        <code>"AudioVolumeUp"</code> (war <code>"VolumeUp"</code> vor Chromium
+        1) (⚠️ Not the same on Firefox)
       </td>
     </tr>
     <tr>
-      <th scope="row"><code>kVK_Volume
+      <th scope="row"><code>kVK_VolumeDown (0x49)</code></th>
+      <td><code>"VolumeDown"</code> (⚠️ Not the same on Chromium)</td>
+      <td>
+        <code>"AudioVolumeDown"</code> (war <code>"VolumeDown"</code> vor
+        Chromium 52) (⚠️ Not the same on Firefox)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><code>kVK_Mute (0x4A

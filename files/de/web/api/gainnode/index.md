@@ -7,11 +7,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Das `GainNode`-Interface repräsentiert eine Änderung der Lautstärke. Es handelt sich um ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Audioverarbeitungsmodul, das einen bestimmten Verstärkungswert auf die Eingangsdaten anwendet, bevor diese an den Ausgang weitergeleitet werden. Ein `GainNode` hat immer genau einen Eingang und einen Ausgang, beide mit der gleichen Anzahl von Kanälen.
+Die `GainNode`-Schnittstelle repräsentiert eine Veränderung der Lautstärke. Es handelt sich um ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audioverarbeitungsmodul, das einen bestimmten Verstärkungsfaktor auf die Eingangsdaten anwendet, bevor diese an den Ausgang weitergeleitet werden. Ein `GainNode` hat immer genau einen Eingang und einen Ausgang, beide mit der gleichen Anzahl an Kanälen.
 
-Die Verstärkung ist ein einheitenloser Wert, der sich mit der Zeit ändert und mit jedem entsprechenden Sample aller Eingabekanäle multipliziert wird. Wird dieser verändert, wird die neue Verstärkung sofort angewendet, was unästhetische 'Klicks' im resultierenden Audio verursachen kann. Um dies zu verhindern, sollte der Wert nicht direkt geändert werden, sondern die exponentiellen Interpolationsmethoden der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle verwendet werden.
+Der Verstärkungsfaktor ist ein einheitsloser Wert, der sich mit der Zeit ändert und mit jeder entsprechenden Probe aller Eingangskanäle multipliziert wird. Wenn er verändert wird, wird der neue Verstärkungsfaktor sofort angewendet, was zu unästhetischen 'Klicks' im resultierenden Audio führen kann. Um dies zu vermeiden, sollte der Wert niemals direkt geändert werden, sondern die exponentiellen Interpolationsmethoden der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle verwendet werden.
 
-![Der GainNode erhöht die Verstärkung des Ausgangs.](webaudiogainnode.png)
+![Der GainNode erhöht den Verstärkungsfaktor des Ausgangs.](webaudiogainnode.png)
 
 {{InheritanceDiagram}}
 
@@ -34,7 +34,7 @@ Die Verstärkung ist ein einheitenloser Wert, der sich mit der Zeit ändert und 
       <td><code>2</code> (nicht verwendet im Standardzählmodus)</td>
     </tr>
     <tr>
-      <th scope="row">Kanalinterpretation</th>
+      <th scope="row">Kanalauslegung</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -43,22 +43,22 @@ Die Verstärkung ist ein einheitenloser Wert, der sich mit der Zeit ändert und 
 ## Konstruktor
 
 - [`GainNode()`](/de/docs/Web/API/GainNode/GainNode)
-  - : Erstellt und gibt ein neues `GainNode`-Objekt zurück. Alternativ können Sie die [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain)-Fabrikmethode verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+  - : Erstellt und gibt ein neues `GainNode`-Objekt zurück. Alternativ können Sie die [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain) Fabrikmethode verwenden; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`GainNode.gain`](/de/docs/Web/API/GainNode/gain) {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Höhe der anzuwendenden Verstärkung repräsentiert. Sie müssen [`AudioParam.value`](/de/docs/Web/API/AudioParam/value) festlegen oder die Methoden von `AudioParam` verwenden, um die Wirkung der Verstärkung zu ändern.
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den anzuwendenden Verstärkungsfaktor darstellt. Sie müssen [`AudioParam.value`](/de/docs/Web/API/AudioParam/value) festlegen oder die Methoden von `AudioParam` verwenden, um den Einfluss des Verstärkungsfaktors zu ändern.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Siehe [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain#examples) für Beispielcode, der zeigt, wie man einen `AudioContext` verwendet, um ein `GainNode` zu erstellen.
+Siehe [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain#examples) für Beispielcode, der zeigt, wie ein `AudioContext` verwendet wird, um einen `GainNode` zu erstellen.
 
 ## Spezifikationen
 

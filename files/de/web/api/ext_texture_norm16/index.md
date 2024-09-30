@@ -8,36 +8,36 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_texture_norm16`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet eine Reihe neuer 16-Bit signierter und unsignierter normalisierter Formate (Fixed-Point-Textur, Renderbuffer und Texture Buffer).
+Die **`EXT_texture_norm16`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet eine Reihe neuer 16-Bit-signierter und unsignierter normierter Formate (Fixed-Point-Textur, Renderbuffer und Texture-Buffer).
 
 Wenn diese Erweiterung aktiviert ist:
 
 - Die Methoden [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D) akzeptieren neue Formate, die von dieser Erweiterung bereitgestellt werden.
-- Die 16-Bit normalisierten Fixed-Point-Typen `ext.R16_EXT`, `ext.RG16_EXT` und `ext.RGBA16_EXT` werden als farb-darstellbare Formate verfügbar, und Renderbuffer können in diesen Formaten erstellt werden.
+- Die 16-Bit-normierten Fixed-Point-Typen `ext.R16_EXT`, `ext.RG16_EXT` und `ext.RGBA16_EXT` sind als farbrenderbare Formate verfügbar, und Renderbuffer können in diesen Formaten erstellt werden.
 
-WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexten verfügbar.
+> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexte verfügbar.
 
 ## Konstanten
 
 - `ext.R16_EXT`
-  - : 16-Bit unsigniertes Rotes Format. Farb-darstellbar.
+  - : Red 16-Bit unsigniertes Format. Farbrenderbar.
 - `ext.RG16_EXT`
-  - : 16-Bit unsigniertes RG-Format. Farb-darstellbar.
+  - : RG 16-Bit unsigniertes Format. Farbrenderbar.
 - `ext.RGB16_EXT`
-  - : 16-Bit unsigniertes RGB-Format.
+  - : RGB 16-Bit unsigniertes Format.
 - `ext.RGBA16_EXT`
-  - : 16-Bit unsigniertes RGBA-Format. Farb-darstellbar.
+  - : RGBA 16-Bit unsigniertes Format. Farbrenderbar.
 - `ext.R16_SNORM_EXT`
-  - : 16-Bit signiertes normalisiertes Rotes Format.
+  - : Red 16-Bit signiertes normiertes Format.
 - `ext.RG16_SNORM_EXT`
-  - : 16-Bit signiertes normalisiertes RG-Format.
+  - : RG 16-Bit signiertes normiertes Format.
 - `ext.RGB16_SNORM_EXT`
-  - : 16-Bit signiertes normalisiertes RGB-Format.
+  - : RGB 16-Bit signiertes normiertes Format.
 - `ext.RGBA16_SNORM_EXT`
-  - : 16-Bit signiertes normalisiertes RGBA-Format.
+  - : RGBA 16-Bit signiertes normiertes Format.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ let ext = gl.getExtension("EXT_texture_norm16");
 
 ### Texturformate
 
-Die [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) Methode akzeptiert neue Formate, wenn `EXT_texture_norm16` aktiviert ist. Beispielaufrufe:
+Die Methode [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) akzeptiert neue Formate, wenn `EXT_texture_norm16` aktiviert ist. Beispielaufrufe:
 
 ```js-nolint
 // imageData = Uint16Array
@@ -67,7 +67,7 @@ gl.texImage2D(gl.TEXTURE_2D, 0, ext.RGBA16_SNORM_EXT, 1, 1, 0, gl.RGBA, gl.SHORT
 
 ### Renderbuffer-Formate
 
-Die [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage) Methode akzeptiert `ext.R16_EXT`,
+Die Methode [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage) akzeptiert `ext.R16_EXT`,
 `ext.RG16_EXT` und `ext.RGBA16_EXT` als interne Formate, um Renderbuffer in diesen Formaten zu erstellen. Beispielaufrufe:
 
 ```js

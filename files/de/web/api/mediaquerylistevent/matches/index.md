@@ -1,5 +1,5 @@
 ---
-title: "MediaQueryListEvent: matches-Eigenschaft"
+title: "MediaQueryListEvent: matches Eigenschaft"
 short-title: matches
 slug: Web/API/MediaQueryListEvent/matches
 l10n:
@@ -8,11 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`matches`** schreibgeschützte Eigenschaft der [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt, oder `false`, wenn nicht.
+Die schreibgeschützte Eigenschaft **`matches`** des
+[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent) Interfaces ist ein boolescher Wert, der
+`true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt,
+oder `false`, wenn nicht.
 
 ## Wert
 
-Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt, `false`, wenn nicht.
+Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document)
+derzeit mit der Media Query-Liste übereinstimmt, `false`, wenn nicht.
 
 ## Beispiele
 
@@ -44,7 +48,7 @@ mql.addEventListener("change", (event) => {
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

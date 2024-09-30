@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("WebXR Device API")}}
 
-Die **`XRJointPose`**-Schnittstelle ist eine [`XRPose`](/de/docs/Web/API/XRPose) mit zusätzlichen Informationen über die Größe des Knochengelenks, das sie repräsentiert.
+Die **`XRJointPose`**-Schnittstelle ist ein [`XRPose`](/de/docs/Web/API/XRPose) mit zusätzlichen Informationen über die Größe des Skelettgelenks, das sie darstellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`XRJointPose.radius`](/de/docs/Web/API/XRJointPose/radius) {{ReadOnlyInline}}
-  - : Der Radius (Abstand von der Haut) für ein Gelenk.
+  - : Der Radius (Abstand von der Haut) eines Gelenks.
 
 ## Beispiele
 

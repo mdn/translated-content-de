@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`get()`**-Methode der [`FormData`](/de/docs/Web/API/FormData)-Schnittstelle gibt den ersten Wert zurück, der mit einem bestimmten Schlüssel in einem `FormData`-Objekt verknüpft ist. Wenn Sie mehrere Werte erwarten und alle erhalten möchten, verwenden Sie stattdessen die [`getAll()`](/de/docs/Web/API/FormData/getAll)-Methode.
+Die **`get()`**-Methode des [`FormData`](/de/docs/Web/API/FormData)-Interfaces
+gibt den ersten Wert zurück, der mit einem bestimmten Schlüssel innerhalb eines `FormData`-
+Objekts verknüpft ist. Wenn Sie mehrere Werte erwarten und alle erhalten möchten, verwenden Sie stattdessen die [`getAll()`](/de/docs/Web/API/FormData/getAll)-Methode.
 
 ## Syntax
 
@@ -27,14 +29,14 @@ Ein Wert, dessen Schlüssel mit dem angegebenen `name` übereinstimmt. Andernfal
 
 ## Beispiele
 
-Wenn wir zwei `username`-Werte zu einem [`FormData`](/de/docs/Web/API/FormData) mithilfe von [`append()`](/de/docs/Web/API/FormData/append) hinzufügen:
+Wenn wir zwei `username`-Werte zu einem [`FormData`](/de/docs/Web/API/FormData) mit [`append()`](/de/docs/Web/API/FormData/append) hinzufügen:
 
 ```js
 formData.append("username", "Chris");
 formData.append("username", "Bob");
 ```
 
-Die folgende `get()`-Methode wird nur den ersten `username`-Wert zurückgeben:
+Wird die folgende `get()`-Methode nur den ersten `username`-Wert zurückgeben:
 
 ```js
 formData.get("username"); // Returns "Chris"

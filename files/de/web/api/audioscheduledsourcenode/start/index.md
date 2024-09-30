@@ -1,5 +1,5 @@
 ---
-title: "AudioScheduledSourceNode: start() Methode"
+title: "AudioScheduledSourceNode: start()-Methode"
 short-title: start()
 slug: Web/API/AudioScheduledSourceNode/start
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `start()`-Methode des [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) plant einen Klang so ein, dass er zu einem bestimmten Zeitpunkt mit der Wiedergabe beginnt.
-Wenn kein Zeitpunkt angegeben wird, beginnt der Klang sofort zu spielen.
+Die `start()`-Methode auf einem [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) plant die Wiedergabe eines Sounds zu der angegebenen Zeit zu beginnen. Wenn keine Zeit angegeben ist, beginnt der Sound sofort mit der Wiedergabe.
 
 ## Syntax
 
@@ -21,7 +20,7 @@ start(when)
 ### Parameter
 
 - `when` {{optional_inline}}
-  - : Die Zeit in Sekunden, zu der der Klang beginnen soll zu spielen. Dieser Wert wird in demselben Zeitkoordinatensystem angegeben, das auch der [`AudioContext`](/de/docs/Web/API/AudioContext) für sein Attribut [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) verwendet. Ein Wert von 0 (oder das vollständige Weglassen des `when`-Parameters) lässt den Klang sofort mit der Wiedergabe beginnen.
+  - : Die Zeit, in Sekunden, zu der der Sound beginnen soll zu spielen. Dieser Wert wird im gleichen Zeitkoordinatensystem angegeben, das auch der [`AudioContext`](/de/docs/Web/API/AudioContext) für sein [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Attribut verwendet. Ein Wert von 0 (oder das vollständige Weglassen des `when`-Parameters) führt dazu, dass der Sound sofort mit der Wiedergabe beginnt.
 
 ### Rückgabewert
 
@@ -36,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel demonstriert, wie ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, der so geplant ist, dass er in 2 Sekunden mit der Wiedergabe beginnt und 1 Sekunde danach aufhört zu spielen. Die Zeiten werden berechnet, indem die gewünschte Anzahl von Sekunden zur aktuellen Zeitmarke des Kontexts hinzugefügt wird, die von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgegeben wird.
+Dieses Beispiel zeigt, wie ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, der so geplant ist, dass er in 2 Sekunden zu spielen beginnt und 1 Sekunde danach aufhört zu spielen. Die Zeiten werden berechnet, indem die gewünschte Anzahl Sekunden zum aktuellen Zeitstempel des Kontextes hinzugefügt wird, der von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgegeben wird.
 
 ```js
 context = new AudioContext();

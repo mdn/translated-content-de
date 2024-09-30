@@ -1,5 +1,5 @@
 ---
-title: "PaymentResponse: retry()-Methode"
+title: "PaymentResponse: retry() Methode"
 short-title: retry()
 slug: Web/API/PaymentResponse/retry
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`retry()`**-Methode des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces ermöglicht es, den Benutzer zu bitten, eine Zahlung nach Auftreten eines Fehlers während der Verarbeitung erneut zu versuchen.
+Die **`retry()`** Methode des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Interfaces ermöglicht es, den Benutzer aufzufordern, eine Zahlung nach einem Fehler während der Bearbeitung erneut zu versuchen.
 
-Damit kann Ihre Anwendung auf elegante Weise mit Situationen wie ungültigen Versandadressen oder abgelehnten Kreditkarten umgehen.
+Dies ermöglicht es Ihrer App, Situationen wie ungültige Lieferadressen oder abgelehnte Kreditkarten elegant zu behandeln.
 
 ## Syntax
 
@@ -22,32 +22,33 @@ retry(errorFields)
 
 - `errorFields`
 
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `error` {{optional_inline}}
-      - : Eine allgemeine Beschreibung eines Zahlungsfehlers, von dem sich der Benutzer möglicherweise erholen kann, indem er die Zahlung erneut versucht, eventuell nachdem Fehler in den Zahlungsinformationen korrigiert wurden. `error` kann allein bereitgestellt werden, um nur eine allgemeine Fehlermeldung bereitzustellen, oder in Kombination mit den anderen Eigenschaften, um als Überblick zu dienen, während die Werte der anderen Eigenschaften den Benutzer auf Fehler in bestimmten Feldern des Zahlungsformulars hinweisen.
+      - : Eine allgemeine Beschreibung eines Zahlungsfehlers, von dem sich der Benutzer möglicherweise erholen kann, indem er die Zahlung erneut versucht, möglicherweise nachdem Fehler in den Zahlungsinformationen korrigiert wurden. `error` kann alleine bereitgestellt werden, um nur eine generische Fehlermeldung bereitzustellen, oder in Verbindung mit den anderen Eigenschaften, um als Übersicht zu dienen, während die Werte anderer Eigenschaften den Benutzer zu Fehlern in bestimmten Feldern des Zahlungsformulars führen.
     - `paymentMethod {{optional_inline}}
-      - : Alle zahlungsmethodenspezifischen Fehler, die möglicherweise aufgetreten sind. Der Inhalt dieses Objekts variiert je nach verwendeter Zahlungsmethode.
+      - : Alle spezifischen Fehler, die bei der Zahlungsmethode aufgetreten sein könnten. Der Inhalt dieses Objekts variiert je nach verwendeter Zahlungsmethode.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn die Zahlung erfolgreich abgeschlossen ist. Das Versprechen wird mit einem entsprechenden Ausnahmewert abgelehnt, wenn die Zahlung erneut fehlschlägt.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn die Zahlung erfolgreich abgeschlossen ist. Das Promise wird mit einem entsprechenden Ausnahme-Wert abgelehnt, wenn die Zahlung erneut fehlschlägt.
 
-Normalerweise verwenden Sie dies, indem Sie [`show()`](/de/docs/Web/API/PaymentRequest/show) aufrufen, dann eine Schleife oder rekursive Funktion eingeben, die die [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) auf Fehler oder andere Gründe überprüft, den Zahlungsantrag erneut zu versuchen.
-Wenn ein erneuter Versuch erforderlich ist, ruft die Schleife `retry()` auf, und kehrt dann zur Überprüfung der Antwort zurück, sobald sie eintrifft. Die Schleife endet nur, wenn der Benutzer entweder den Zahlungsantrag abbricht oder der Antrag erfolgreich ist.
+Normalerweise verwenden Sie dies, indem Sie [`show()`](/de/docs/Web/API/PaymentRequest/show) aufrufen und dann eine Schleife oder rekursive Funktion betreten, die die [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) auf Fehler oder andere Gründe überprüft, um die Zahlungsanforderung erneut zu versuchen. Wenn ein erneuter Versuch erforderlich ist, ruft die Schleife `retry()` auf und kehrt dann zur Überprüfung der Antwort zurück, wenn sie eingeht. Die Schleife wird nur beendet, wenn der Benutzer entweder die Zahlungsanfrage storniert oder die Anfrage erfolgreich ist.
 
-Sehen Sie sich das [Beispiel](#beispiele) unten für ein ausführliches Beispiel an, aber das grundlegende Konzept in Umrissform ist:
+Siehe das [Beispiel](#beispiele) unten für ein ausführliches Beispiel, aber das Grundkonzept in Umrissform ist:
 
-1. Erstellen Sie eine neue [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)
-   (`new` [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest))
-2. Zeigen Sie den Zahlungsantrag an ([`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show))
-3. Wenn `show()` aufgelöst wird, beschreibt die zurückgegebene [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)
-   die angeforderte Zahlung und die vom Benutzer gewählten Optionen. Fahren Sie mit den folgenden Schritten fort:
+1. Erstellen Sie eine neue [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) (`new` [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest))
+2. Zeigen Sie die Zahlungsanfrage an ([`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)
+3. Wenn `show()` aufgelöst wird, beschreibt die zurückgegebene [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) die angeforderte Zahlung und die vom Benutzer gewählten Optionen. Fahren Sie mit den folgenden Schritten fort:
 
-   1. Validieren Sie die zurückgegebene Antwort; wenn es Felder gibt, deren Werte nicht akzeptabel sind, rufen Sie die [`complete()`](/de/docs/Web/API/PaymentResponse/complete)-Methode der Antwort mit einem Wert von `"fail"` auf, um einen Fehler anzuzeigen.
-   2. Wenn die Daten der Antwort gültig und akzeptabel sind, rufen Sie `complete("success")` auf, um die Zahlung abzuschließen und zu verarbeiten.
+   1. Überprüfen Sie die zurückgegebene Antwort; wenn es Felder gibt, deren Werte nicht akzeptabel sind, rufen Sie die [`complete()`](/de/docs/Web/API/PaymentResponse/complete) Methode der Antwort mit einem Wert von `"fail"` auf, um ein Scheitern anzuzeigen.
+   2. Wenn die Daten der Antwort gültig und akzeptabel sind, rufen Sie
+      `complete("success")` auf, um die Zahlung abzuschließen und zu verarbeiten.
 
-4. Wenn `show()` abgelehnt wird, ist der Zahlungsantrag fehlgeschlagen, in der Regel, weil entweder bereits einer verarbeitet wird, der [User Agent](/de/docs/Glossary/user_agent) keine der angegebenen Zahlungsmethoden unterstützt oder aufgrund eines Sicherheitsproblems.
-   Siehe die [Liste der Ausnahmen](/de/docs/Web/API/PaymentRequest/show#exceptions) für `show()` für weitere Details. Rufen Sie `complete("fail")` auf, um den Zahlungsantrag zu schließen.
+4. Wenn `show()` abgelehnt wird, ist die Zahlungsanforderung fehlgeschlagen, normalerweise weil
+   entweder bereits eine bearbeitet wird, weil der [User Agent](/de/docs/Glossary/user_agent)
+   keine der angegebenen Zahlungsmethoden unterstützt oder wegen eines Sicherheitsproblems.
+   Siehe die [Liste der Ausnahmen](/de/docs/Web/API/PaymentRequest/show#exceptions) für `show()` für weitere Details. Rufen Sie
+   `complete("fail")` auf, um die Zahlungsanforderung zu schließen.
 
 ```js
 async function handlePayment() {
@@ -132,4 +133,4 @@ doPaymentRequest();
 
 ## Siehe auch
 
-- [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interface.
+- [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Interface.

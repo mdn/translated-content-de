@@ -1,5 +1,5 @@
 ---
-title: "Location: toString()-Methode"
+title: "Location: toString() Methode"
 short-title: toString()
 slug: Web/API/Location/toString
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`toString()`** [Stringifizierer](/de/docs/Glossary/stringifier) Methode des
-[`Location`](/de/docs/Web/API/Location) Interfaces gibt einen String zurück, der die
-komplette URL enthält. Es ist eine schreibgeschützte Version von [`Location.href`](/de/docs/Web/API/Location/href).
+Die **`toString()`**-[Stringifizierer](/de/docs/Glossary/stringifier)-Methode des
+[`Location`](/de/docs/Web/API/Location)-Interfaces gibt einen String zurück, der die
+gesamte URL enthält. Es ist eine schreibgeschützte Version von [`Location.href`](/de/docs/Web/API/Location/href).
 
 ## Syntax
 

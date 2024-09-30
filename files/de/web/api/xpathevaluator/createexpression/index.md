@@ -1,5 +1,5 @@
 ---
-title: "XPathEvaluator: Methode createExpression()"
+title: "XPathEvaluator: createExpression()-Methode"
 short-title: createExpression()
 slug: Web/API/XPathEvaluator/createExpression
 l10n:
@@ -22,7 +22,7 @@ createExpression(expression, resolver)
 - `expression`
   - : Ein String, der den zu erstellenden XPath-Ausdruck darstellt.
 - `resolver` {{optional_inline}}
-  - : Ein [`Node`](/de/docs/Web/API/Node), `null` oder ein beliebiges Objekt, das die Methode [`lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI) implementiert. Ermöglicht die Übersetzung aller Präfixe, einschließlich des `xml`-Namespace-Präfixes, innerhalb des XPath-Ausdrucks in entsprechende Namespace-URIs.
+  - : Ein [`Node`](/de/docs/Web/API/Node), `null` oder ein Objekt, das die Methode [`lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI) implementiert. Erlaubt die Übersetzung aller Präfixe, einschließlich des `xml`-Namensraum-Präfixes, innerhalb des XPath-Ausdrucks in geeignete Namensraum-URIs.
 
 ### Rückgabewert
 
@@ -32,15 +32,19 @@ Ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das die kompilierte F
 
 #### INVALID_EXPRESSION_ERR
 
-Wenn der Ausdruck nicht den Regeln des `XPathEvaluator` entspricht, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `INVALID_EXPRESSION_ERR` ausgelöst.
+Wenn der Ausdruck gemäß den Regeln des
+`XPathEvaluator` nicht zulässig ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ
+`INVALID_EXPRESSION_ERR` ausgelöst.
 
 #### NAMESPACE_ERR
 
-Wenn der Ausdruck Namespace-Präfixe enthält, die vom angegebenen `XPathNSResolver` nicht aufgelöst werden können, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NAMESPACE_ERROR` ausgelöst.
+Wenn der Ausdruck Namensraum-Präfixe enthält, die vom angegebenen
+`XPathNSResolver` nicht aufgelöst werden können, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ
+`NAMESPACE_ERROR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der Methode `evaluate()`.
+Das folgende Beispiel zeigt die Verwendung der `evaluate()`-Methode.
 
 ### HTML
 

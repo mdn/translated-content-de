@@ -10,18 +10,18 @@ l10n:
 
 Die **`Animation.playbackRate`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt die Wiedergabegeschwindigkeit der Animation zurück oder setzt diese.
 
-Animationen haben eine **Wiedergabegeschwindigkeit**, die einen Skalierungsfaktor von der Änderungsrate der [`timeline`](/de/docs/Web/API/DocumentTimeline)-Zeitwerte der Animation zur aktuellen Zeit der Animation bietet. Die anfängliche Wiedergabegeschwindigkeit ist `1`.
+Animationen haben eine **Wiedergabegeschwindigkeit**, die einen Skalierungsfaktor vom Änderungsrate der Zeitwerte der [`timeline`](/de/docs/Web/API/DocumentTimeline) der Animation zur aktuellen Zeit der Animation bereitstellt. Die Wiedergabegeschwindigkeit ist anfänglich `1`.
 
 ## Wert
 
 Nimmt eine Zahl an, die 0, negativ oder positiv sein kann. Negative Werte kehren die Animation um. Der Wert ist ein Skalierungsfaktor, sodass beispielsweise ein Wert von 2 die Wiedergabegeschwindigkeit verdoppeln würde.
 
 > [!NOTE]
-> Das Setzen der `playbackRate` einer Animation auf `0` pausiert effektiv die Animation (jedoch wird ihr [`playstate`](/de/docs/Web/API/Animation/playstate) nicht notwendigerweise `paused`).
+> Das Setzen der `playbackRate` einer Animation auf `0` pausiert die Animation effektiv (allerdings wird ihr [`playstate`](/de/docs/Web/API/Animation/playstate) nicht unbedingt zu `paused`).
 
 ## Beispiele
 
-Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) Beispiel führt ein Klicken oder Tippen auf die Flasche dazu, dass die Wachstumsanimation von Alice (`aliceChange`) umgekehrt wird, wodurch sie schrumpft:
+Im Beispiel [Wachsende/Schrumpfende Alice Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) bewirkt ein Klicken oder Tippen auf die Flasche, dass die Wachstumsanimation von Alice (`aliceChange`) umkehrt und sie schrumpft:
 
 ```js
 const shrinkAlice = () => {
@@ -34,7 +34,7 @@ bottle.addEventListener("mousedown", shrinkAlice, false);
 bottle.addEventListener("touchstart", shrinkAlice, false);
 ```
 
-Umgekehrt führt das Klicken auf den Kuchen dazu, dass sie "wächst", indem `aliceChange` wieder vorwärts abgespielt wird:
+Andererseits, führt ein Klicken auf den Kuchen dazu, dass sie "wächst" und `aliceChange` wieder vorwärts abspielt:
 
 ```js
 const growAlice = () => {
@@ -47,7 +47,7 @@ cake.addEventListener("mousedown", growAlice, false);
 cake.addEventListener("touchstart", growAlice, false);
 ```
 
-In einem anderen Beispiel im [Red Queen's Race Game](https://codepen.io/rachelnabors/pen/PNGGaV?editors=0010) verlangsamen sich Alice und die Rote Königin ständig:
+In einem anderen Beispiel, dem [Red Queen's Race Game](https://codepen.io/rachelnabors/pen/PNGGaV?editors=0010), verlangsamen Alice und die Rote Königin ständig:
 
 ```js
 setInterval(() => {
@@ -59,7 +59,7 @@ setInterval(() => {
 }, 3000);
 ```
 
-Aber durch Klicken oder Tippen auf sie beschleunigen sie, indem ihre `playbackRate` multipliziert wird:
+Aber durch Klicken oder Tippen auf sie werden sie schneller, indem ihre `playbackRate` multipliziert wird:
 
 ```js
 const goFaster = () => {

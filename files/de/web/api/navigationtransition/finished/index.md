@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`finished`** des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das zur gleichen Zeit erfüllt wird, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird, oder es wird zur gleichen Zeit abgelehnt, wenn das [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignis ausgelöst wird.
+Die schreibgeschützte Eigenschaft **`finished`** des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das sich erfüllt, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird, oder abgelehnt wird, wenn das [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignis ausgelöst wird.
 
 ## Wert
 
@@ -34,6 +34,6 @@ async function cleanupNavigation() {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: Die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)

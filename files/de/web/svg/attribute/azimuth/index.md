@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`azimuth`**-Attribut gibt den Richtungwinkel für die Lichtquelle auf der XY-Ebene (im Uhrzeigersinn) in Grad von der x-Achse an.
+Das **`azimuth`**-Attribut gibt den Richtungswinkel für die Lichtquelle auf der XY-Ebene (im Uhrzeigersinn) in Grad von der x-Achse an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -47,7 +47,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

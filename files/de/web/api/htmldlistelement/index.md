@@ -7,20 +7,20 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLDListElement`**-Schnittstelle bietet spezielle Eigenschaften (über die regulären Eigenschaften der von ihr auch durch Vererbung verfügbaren [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle hinaus) zur Manipulation von Definitionslisten-({{HtmlElement("dl")}})-Elementen.
+Die **`HTMLDListElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu denen der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle, die sie auch durch Vererbung nutzt) zur Manipulation von Definitionslisten ({{HtmlElement("dl")}})-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von ihrem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDListElement.compact`](/de/docs/Web/API/HTMLDListElement/compact) {{deprecated_inline}}
   - : Ein boolescher Wert, der angibt, dass der Abstand zwischen Listenelementen verringert werden sollte.
 
 ## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifischen Methoden; erbt Methoden von ihrem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

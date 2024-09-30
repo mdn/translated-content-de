@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`resume()`**-Methode des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird verwendet, um die Medienaufnahme fortzusetzen, wenn sie zuvor pausiert wurde.
+Die **`resume()`**-Methode des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird verwendet, um das Medienaufzeichnen fortzusetzen, wenn es zuvor pausiert wurde.
 
-Wenn der [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) bereits "recording" ist, hat ein Aufruf von `resume()` keine Wirkung.
+Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) bereits "recording" ist, hat der Aufruf von `resume()` keine Wirkung.
 
-Wenn die `resume()`-Methode aufgerufen wird, reiht der Browser einen Task ein, der die folgenden Schritte ausführt:
+Wenn die `resume()`-Methode aufgerufen wird, stellt der Browser eine Aufgabe in die Warteschlange, die die folgenden Schritte ausführt:
 
-1. Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) "inactive" ist, wird eine `InvalidStateError`-Ausnahme des DOM ausgelöst und diese Schritte beendet. Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) nicht "inactive" ist, fahren Sie mit dem nächsten Schritt fort.
+1. Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) "inactive" ist, werfen Sie eine DOM
+   `InvalidStateError`-Ausnahme und beenden Sie diese Schritte. Wenn
+   [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) nicht "inactive" ist, fahren Sie mit dem nächsten Schritt fort.
 2. Setzen Sie [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) auf "recording".
-3. Fahren Sie fort, Daten in das aktuelle [`Blob`](/de/docs/Web/API/Blob) zu sammeln.
+3. Fahren Sie mit dem Sammeln von Daten in das aktuelle [`Blob`](/de/docs/Web/API/Blob) fort.
 4. Lösen Sie ein `resume`-Ereignis aus.
 
 ## Syntax
@@ -31,7 +33,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -62,8 +64,8 @@ pause.onclick = () => {
 
 ## Siehe auch
 
-- [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
+- [Verwendung der MediaStream-Aufzeichnungs-API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
 - [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Visualisierungs-Demo der Web Audio API, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
-- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
+  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [simpl.info MediaStream Recording demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
 - [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

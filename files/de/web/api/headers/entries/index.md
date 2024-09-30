@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.entries()`**-Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare, die in diesem Objekt enthalten sind, zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind
-{{jsxref("String")}}-Objekte.
+Die **`Headers.entries()`** Methode gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind {{jsxref("String")}} Objekte.
 
 ## Syntax
 

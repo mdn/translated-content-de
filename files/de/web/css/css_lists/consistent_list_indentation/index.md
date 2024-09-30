@@ -1,5 +1,5 @@
 ---
-title: Konsistente Listeneinrückung
+title: Konsequente Listeneinrückung
 slug: Web/CSS/CSS_lists/Consistent_list_indentation
 l10n:
   sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Eine der häufigsten Stiländerungen an Listen besteht darin, den Abstand der Einrückung zu ändern – also, wie weit die Listenelemente nach rechts verschoben werden. Dieser Artikel hilft Ihnen zu verstehen, wie Sie Listenelemente einrücken, sodass die Listenelementmarkierungen sichtbar sind.
+Eine der häufigsten Stiländerungen bei Listen ist eine Änderung des Einrückungsabstands, das heißt, wie weit die Listenelemente nach rechts verschoben werden. Dieser Artikel hilft Ihnen zu verstehen, wie Sie Listenelemente einrücken, sodass die Listenmarkierungen sichtbar sind.
 
-Um zu verstehen, warum das so ist und vor allem, wie man das Problem insgesamt vermeiden kann, ist es notwendig, die Details der Listenstruktur zu untersuchen.
+Um zu verstehen, warum das so ist, und vor allem, wie man das Problem insgesamt vermeidet, ist es notwendig, die Details der Listenkonstruktion zu untersuchen.
 
 ## Eine Liste erstellen
 
 ### Das eigenständige Listenelement
 
-Zuerst betrachten wir das reine Listenelement, das nicht in einer Liste von Elementen eingebettet ist. Beim Verwenden des HTML-Elements {{htmlelement("li")}} setzt der Browser den {{cssxref("display")}}-Wert auf `list-item`. Ob Listenelemente, die nicht in einer Liste eingebettet sind, eine Markierung (auch bekannt als "Bullet") erhalten, hängt vom Browser ab. Wir können dieses Bullet mit {{cssxref("list-style-type", "list-style-type: none")}} entfernen.
+Zuerst betrachten wir das reine Listenelement, das nicht in einer Liste von Elementen verschachtelt ist. Beim Verwenden des HTML-Elements `<li>` setzt der Browser den `display`-Wert auf `list-item`. Ob Listenelemente, die nicht in einer Liste verschachtelt sind, eine Markierung (auch als „Bullet“ bekannt) erhalten, hängt vom Browser ab. Wir können dieses Bullet mit `list-style-type: none` entfernen.
 
 ```css
 li {
@@ -45,11 +45,11 @@ li {
 
 {{EmbedLiveSample("Das eigenständige Listenelement", "100%", 200)}}
 
-Dieser gepunktete rote Rand stellt die äußeren Kanten des Inhaltsbereichs jedes Listenelements dar. An diesem Punkt haben die Listenelemente weder Auffüllung noch Ränder.
+Die gestrichelte rote Umrandung stellt die äußeren Ränder des Inhaltsbereichs jedes Listenelements dar. An diesem Punkt haben die Listenelemente weder Padding noch Ränder.
 
-### Listenelemente, die in einer Liste verschachtelt sind
+### Listenelemente in einer Liste verschachtelt
 
-Jetzt umschließen wir diese mit einem Elternelement; in diesem Fall umschließen wir sie mit einer ungeordneten Liste (z.B. `<ul>`). Laut dem CSS-Box-Modell müssen die Boxen der Listenelemente im Inhaltsbereich des Elternelements angezeigt werden.
+Nun umschließen wir diese mit einem übergeordneten Element; in diesem Fall umschließen wir sie mit einer ungeordneten Liste (d. h. `<ul>`). Laut dem CSS-Boxmodell müssen die Boxen der Listenelemente im Inhaltsbereich des übergeordneten Elements angezeigt werden.
 
 ```css
 ul {
@@ -75,9 +75,9 @@ body {
 </ul>
 ```
 
-{{EmbedLiveSample("Listenelemente, die in einer Liste verschachtelt sind", "100%", 150)}}
+{{EmbedLiveSample("Listenelemente in einer Liste verschachtelt", "100%", 150)}}
 
-Der gepunktete blaue Rand zeigt uns die Kanten des Inhaltsbereichs des `<ul>`-Elements. Dieses Elternelement kommt sowohl mit einem Rand als auch einer Auffüllung. Browser setzen folgende Standardstile bei ungeordneten Listen:
+Die gestrichelte blaue Umrandung zeigt uns die Ränder des Inhaltsbereichs des `<ul>`-Elements. Dieses übergeordnete Element kommt sowohl mit Rand als auch mit Auffüllung. Browser setzen die folgenden Standardstile für ungeordnete Listen:
 
 ```css
 ul {
@@ -92,7 +92,7 @@ ul {
 
 ### Standardposition der Bullets
 
-Jetzt fügen wir die Listenelementmarkierungen wieder hinzu. Da dies eine ungeordnete Liste ist, erben die Listenelemente die Browserstile `list-style-type: disc;`, welche gefüllte Kreis-"Bullets" sind, von ihrem `<ul>`-Elternteil.
+Jetzt fügen wir die Listenmarkierungen wieder hinzu. Da es sich um eine ungeordnete Liste handelt, erben die Listenelemente die Browserstile `list-style-type: disc;`, welche gefüllte Kreis-"Bullets" sind, von ihrem `<ul>`-Übergeordneten.
 
 ```css
 li {
@@ -129,13 +129,13 @@ ul {
 
 {{EmbedLiveSample("Vererbung von `list-style-type`", "100%", 220)}}
 
-Visuell sind die Markierungen _außerhalb_ des Inhaltsbereichs des `<ul>`, aber das ist hier nicht der wichtige Teil. Entscheidend ist, dass die Markierungen außerhalb der "Hauptbox" der `<li>`-Elemente platziert werden, nicht des `<ul>`. Sie sind sozusagen Anhängsel der Listenelemente, die außerhalb des Inhaltsbereichs des `<li>` hängen, aber immer noch mit dem `<li>` verbunden sind.
+Visuell befinden sich die Markierungen _außerhalb_ des Inhaltsbereichs des `<ul>`, aber das ist hier nicht der entscheidende Punkt. Wichtig ist, dass die Markierungen außerhalb der "Hauptbox" der `<li>`-Elemente platziert sind, nicht des `<ul>`. Sie sind gewissermaßen Anhängsel der Listenelemente, die außerhalb des Inhaltsbereichs des `<li>` hängen, aber dennoch mit dem `<li>` verbunden sind.
 
-Deshalb werden in jedem modernen Browser Markierungen außerhalb eines für ein `<li>`-Element gesetzten Randes platziert, wenn der Wert von {{cssxref("list-style-position")}} standardmäßig auf `outside` oder explizit darauf gesetzt ist. Wenn wir es auf `inside` geändert haben, wurden die Markierungen in den Inhalt des `<li>` hineingebracht, als wären sie eine Inline-Box, die ganz am Anfang des `<li>` platziert wird.
+Deshalb werden in allen modernen Browsern Markierungen außerhalb jeder Grenze angezeigt, die für ein `<li>`-Element festgelegt ist, wenn der Wert von `list-style-position` standardmäßig oder explizit auf `outside` gesetzt ist. Als wir ihn auf `inside` änderten, wurden die Markierungen in den Inhalt des `<li>` hineingebracht, als wären sie eine Inline-Box, die ganz am Anfang des `<li>` platziert ist.
 
-## Standard-Einrückung
+## Standardmäßige Einrückung
 
-Wie oben erwähnt, bieten alle Browser dem `<ul>`-Elternteil sowohl einen Rand als auch eine Auffüllung. Während sich die CSS der Benutzeragenten etwas unterscheiden, beinhalten sie alle:
+Wie oben erwähnt, bieten alle Browser der `<ul>`-Elternelement sowohl Rand als auch Auffüllung. Während sich die CSS der Benutzeragenten etwas unterscheiden, beinhalten sie alle:
 
 ```css
 ul,
@@ -161,9 +161,9 @@ li {
 }
 ```
 
-Alle Browser setzen {{cssxref("padding-inline-start")}} standardmäßig auf 40 Pixel für das `<ul>`-Element. In von links nach rechts verlaufenden Sprachen wie Englisch ist dies die linke _Auffüllung_. Jede im Autor-Stylesheet (das ist Ihr Stylesheet) festgelegte Auffüllung hat Vorrang.
+Alle Browser setzen `padding-inline-start` standardmäßig auf 40 Pixel für das `<ul>`-Element. In links-nach-rechts-Sprachen, wie Englisch, ist dies das linke _Padding_. Jedes Padding, das in den Autoren-Stylesheets (das ist Ihr Stylesheet) festgelegt ist, hat Vorrang.
 
-Wenn Sie explizit sein möchten, setzen Sie das Folgende in Ihren Stylesheets, um sicherzustellen, dass die Listenelemente im Hauptinhaltsbereich Ihres Dokuments, enthalten im {{htmlelement("main")}}-Abschnitt, ordnungsgemäß eingerückt sind, es sei denn, es wird diesbezüglich etwas anderes überschrieben:
+Wenn Sie deutlich werden möchten, setzen Sie das Folgende in Ihren Stylesheets, um sicherzustellen, dass, sofern nicht anderweitig überschrieben, die Listenelemente im Hauptinhaltsbereich Ihres Dokuments, das im `<main>`-Abschnitt enthalten ist, korrekt eingezogen sind:
 
 ```css
 :where(main ol, main ul) {

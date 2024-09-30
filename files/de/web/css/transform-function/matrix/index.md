@@ -11,11 +11,13 @@ Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Funct
 
 {{EmbedInteractiveExample("pages/css/function-matrix.html")}}
 
-> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
+> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für
+> `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
 
 ## Syntax
 
-Die `matrix()` Funktion wird mit sechs Werten spezifiziert. Die konstanten Werte sind implizit und werden nicht als Parameter übergeben; die anderen Parameter werden in spaltenmajorer Reihenfolge beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten angegeben. Die Konstanten sind implizit und werden nicht als
+Parameter übergeben; die anderen Parameter sind in der spaltenweisen Anordnung beschrieben.
 
 ```css
 matrix(a, b, c, d, tx, ty)
@@ -66,7 +68,8 @@ matrix(a, b, c, d, tx, ty)
   </tbody>
 </table>
 
-Die Werte repräsentieren die folgenden Funktionen: `matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
+Die Werte repräsentieren die folgenden Funktionen:
+`matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
 
 ## Beispiele
 
@@ -107,7 +110,7 @@ div {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Individuelle Transformations-Eigenschaften:
+- Einzelne Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

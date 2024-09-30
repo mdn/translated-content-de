@@ -21,13 +21,13 @@ new ExtendableMessageEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `messageerror` oder `message`.
+    Er ist case-sensitiv und Browser setzen ihn auf `messageerror` oder `message`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften enthalten kann:
     - `data` {{optional_inline}}
-      - : Die Daten des Ereignisses; dies kann ein beliebiger Datentyp sein. Standardmäßig `null`.
+      - : Die Daten des Ereignisses; dies kann jeder Datentyp sein. Standardmäßig `null`.
     - `origin` {{optional_inline}}
-      - : Ein String, der den Ursprung des entsprechenden Service-Worker-Umgebungs-Einstellungsobjekts definiert.
+      - : Ein String, der den Ursprung des entsprechenden Service Workers-Umgebungsobjekts definiert.
         Standardmäßig `""`.
     - `lastEventId` {{optional_inline}}
       - : Ein String, der die letzte Ereignis-ID der Ereignisquelle definiert. Standardmäßig `""`.
@@ -65,5 +65,5 @@ const myEME = new ExtendableMessageEvent("message", init);
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API)
+- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)

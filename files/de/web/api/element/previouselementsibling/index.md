@@ -1,5 +1,5 @@
 ---
-title: "Element: previousElementSibling-Eigenschaft"
+title: "Element: previousElementSibling Eigenschaft"
 short-title: previousElementSibling
 slug: Web/API/Element/previousElementSibling
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Element.previousElementSibling`**
-gibt das [`Element`](/de/docs/Web/API/Element) unmittelbar vor dem angegebenen Element in der Kindliste des übergeordneten Elements zurück oder `null`, wenn das angegebene Element das erste in der Liste ist.
+Die **`Element.previousElementSibling`**-Eigenschaft (nur lesbar) gibt das [`Element`](/de/docs/Web/API/Element) zurück, das unmittelbar vor dem angegebenen Element in der Kindliste des übergeordneten Elements steht, oder `null`, wenn das angegebene Element das erste in der Liste ist.
 
 ## Wert
 
@@ -35,7 +34,7 @@ Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 </script>
 ```
 
-Dieses Beispiel zeigt beim Laden der Seite den folgenden Inhalt an:
+Dieses Beispiel gibt beim Laden der Seite folgendes aus:
 
 ```plain
 Siblings of div-03

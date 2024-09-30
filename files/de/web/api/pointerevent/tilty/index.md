@@ -8,24 +8,21 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`tiltY`** des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces ist der Winkel (in Grad) zwischen der _X-Z-Ebene_ des Zeigers und dem Bildschirm.
-Diese Eigenschaft ist typischerweise nur für einen Stift-/Stylus-Zeigertyp nützlich.
+Die schreibgeschützte Eigenschaft **`tiltY`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle ist der Winkel (in Grad) zwischen der _X-Z-Ebene_ des Zeigers und dem Bildschirm. Diese Eigenschaft ist in der Regel nur für einen Pen/Stylus-Zeigertyp von Nutzen.
 
-Je nach spezifischer Hardware und Plattform werden Benutzeragenten wahrscheinlich nur einen Satz von Werten für die Ausrichtung des Überträgers relativ zur Bildebene empfangen — entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltx) und `tiltY` oder [`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) und [`azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle).
+Abhängig von der spezifischen Hardware und Plattform werden Benutzeragenten wahrscheinlich nur eine Reihe von Werten für die Transducer-Ausrichtung relativ zur Bildschirmebene erhalten — entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltx) und `tiltY` oder [`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) und [`azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle).
 
 ![Der tiltX-Winkel eines Zeigers im Vergleich zum tiltY-Winkel](tilt_x_y_angles.svg)
 
-Für eine zusätzliche Illustration dieser Eigenschaft siehe [Abbildung 3 in der Spezifikation](https://w3c.github.io/pointerevents/#dom-pointerevent-tilty).
+Für eine zusätzliche Darstellung dieser Eigenschaft siehe [Abbildung 3 in der Spezifikation](https://w3c.github.io/pointerevents/#dom-pointerevent-tilty).
 
 ## Wert
 
-Der Winkel in Grad zwischen der X-Z-Ebene des Zeigers (Stylus) und dem Bildschirm.
-Der Wertebereich liegt zwischen `-90` und `90`, einschließlich, wobei ein positiver Wert eine Neigung zum Benutzer hin darstellt.
-Für Geräte, die diese Eigenschaft nicht unterstützen, beträgt der Wert `0`.
+Der Winkel in Grad zwischen der X-Z-Ebene des Zeigers (Stylus) und dem Bildschirm. Der Wertebereich reicht von `-90` bis `90`, einschließlich, wobei ein positiver Wert eine Neigung in Richtung des Benutzers ist. Für Geräte, die diese Eigenschaft nicht unterstützen, beträgt der Wert `0`.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht das einfache Zugreifen auf die [`tiltX`](/de/docs/Web/API/PointerEvent/tiltX) und `tiltY`-Eigenschaften.
+Dieses Beispiel zeigt den einfachen Zugriff auf die [`tiltX`](/de/docs/Web/API/PointerEvent/tiltX)- und `tiltY`-Eigenschaften.
 
 ```js
 someElement.addEventListener(

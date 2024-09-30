@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`pointsAtZ`** repräsentiert die y-Position im durch das Attribut {{SVGAttr("primitiveUnits")}} etablierten Koordinatensystem des Elements {{SVGElement("filter")}} des Punktes, auf den die Lichtquelle zeigt, unter der Annahme, dass in dem ursprünglichen lokalen Koordinatensystem die positive z-Achse auf die Person, die den Inhalt betrachtet, zeigt und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das **`pointsAtZ`**-Attribut stellt die y-Position im Koordinatensystem dar, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, bei der der Lichtpunkt ausgerichtet ist. Dabei wird angenommen, dass in dem ursprünglichen lokalen Koordinatensystem die positive z-Achse auf die Person, die den Inhalt sieht, hinweist und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -48,7 +48,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel", "220", "220")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

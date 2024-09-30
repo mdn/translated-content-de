@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`slope`** definiert die Werte für lineare Filter, wie Helligkeit.
+Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie zum Beispiel Helligkeit.
 
-Das Attribut `slope` wird von den Kindern des {{SVGElement("feComponentTransfer")}} Filterprimitivs unterstützt, einschließlich der `feFunc-RGBA` Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
+Das `slope`-Attribut wird von den Kindern der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
 
-Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktions-Elementen verwenden, wenn `type="linear"` festgelegt ist:
+Dieses Attribut kann mit den folgenden SVG-Komponententransferfunktionselementen verwendet werden, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncG")}}
@@ -19,9 +19,9 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktions-
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das Attribut `slope` innerhalb von {{SVGElement("font-face")}} verwendet, um den vertikalen Strichwinkel einer Schriftart anzuzeigen. Dieser Anwendungsfall wurde verworfen.
+> Ursprünglich wurde das `slope`-Attribut innerhalb von {{SVGElement("font-face")}} verwendet, um den vertikalen Winkel des Strichs einer Schriftart anzugeben. Diese Verwendung wurde veraltet.
 
-## Anmerkungen zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -51,7 +51,7 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktions-
 
 ## Beispiele
 
-In diesem Beispiel hat ein Verlaufsfeld zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
+In diesem Beispiel hat ein Gradientenfeld zwei Textelemente, auf die lineare Filter angewendet werden. Die Steigungen der Filtertransferfunktionen jedes Filters sind unterschiedlich.
 
 ```html
 <svg

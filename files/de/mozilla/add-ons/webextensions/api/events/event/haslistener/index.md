@@ -19,7 +19,7 @@ events.Event.hasListener(listener)
 
 - `listener`
 
-  - : `function`. Der zu überprüfende Listener.
+  - : `function`. Der zu prüfende Listener.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Ein boolescher Wert: `true`, wenn der Listener für das Ereignis registriert ist
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListener) API. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListener) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: ODER
+title: OR
 slug: WebAssembly/Reference/Numeric/OR
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`or`**-Anweisungen werden verwendet, um ein bitweises ODER durchzuführen, ähnlich dem **`|`**-Operator in anderen Sprachen.
+Die **`or`**-Anweisungen werden für eine bitweise OR-Operation verwendet, ähnlich dem **`|`**-Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/or.html", "tabbed-taller")}}
 
@@ -24,7 +24,7 @@ i32.or
 ;; the top item on the stack will now be 7 (00000111)
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.or`  | `0x72`         |
-| `i64.or`  | `0x84`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `i32.or`   | `0x72`         |
+| `i64.or`   | `0x84`         |

@@ -1,5 +1,5 @@
 ---
-title: "Node: replaceChild()-Methode"
+title: "Node: replaceChild() Methode"
 short-title: replaceChild()
 slug: Web/API/Node/replaceChild
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replaceChild()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces ersetzt ein Kindknoten innerhalb des angegebenen (Eltern-)Knotens.
+Die **`replaceChild()`** Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle ersetzt ein Kindknoten innerhalb des angegebenen (Eltern-)Knotens.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ replaceChild(newChild, oldChild)
 - `newChild`
   - : Der neue Knoten, der `oldChild` ersetzen soll.
     > [!WARNING]
-    > Wenn der neue Knoten bereits an einer anderen Stelle im DOM vorhanden ist, wird er zuerst von dieser Position entfernt.
+    > Wenn sich der neue Knoten bereits an einer anderen Stelle im DOM befindet, wird er zuerst von dieser Position entfernt.
 - `oldChild`
   - : Das zu ersetzende Kind.
 
 > [!NOTE]
 > Die Reihenfolge der Parameter, _neu_ vor _alt_, ist ungewöhnlich.
-> [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith), das nur auf Elemente anzuwendende Knoten,
-> ist möglicherweise leichter zu lesen und zu verwenden.
+> [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith), das nur auf Knoten angewendet wird, die Elemente sind,
+> könnte leichter zu lesen und zu verwenden sein.
 
 ### Rückgabewert
 
@@ -37,17 +37,17 @@ Der ersetzte [`Node`](/de/docs/Web/API/Node). Dies ist derselbe Knoten wie `oldC
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Beschränkungen des DOM-Baums verletzt werden, d. h. wenn einer der folgenden Fälle eintritt:
-    - Wenn der Elternknoten von `oldChild` kein [`Document`](/de/docs/Web/API/Document), [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) oder ein [`Element`](/de/docs/Web/API/Element) ist.
-    - Wenn der Austausch von `oldChild` durch `newChild` zu einem Zyklus führen würde, d. h. wenn `newChild` ein Vorfahre des Knotens ist.
+  - : Wird ausgelöst, wenn die Beschränkungen des DOM-Baums verletzt werden, das heißt, wenn einer der folgenden Fälle eintritt:
+    - Wenn das Elternteil von `oldChild` nicht ein [`Document`](/de/docs/Web/API/Document), [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) oder ein [`Element`](/de/docs/Web/API/Element) ist.
+    - Wenn der Austausch von `oldChild` durch `newChild` zu einem Zyklus führen würde, das heißt, wenn `newChild` ein Vorfahre des Knotens ist.
     - Wenn `newChild` kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), ein [`DocumentType`](/de/docs/Web/API/DocumentType), ein [`Element`](/de/docs/Web/API/Element) oder ein [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
     - Wenn der aktuelle Knoten ein [`Text`](/de/docs/Web/API/Text) ist und sein Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
-    - Wenn der aktuelle Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) ist und sein Elternteil _kein_ [`Document`](/de/docs/Web/API/Document) ist, da ein _doctype_ immer ein direkter Nachkomme eines _dokuments_ sein sollte.
-    - Wenn der Elternknoten der Knoten ein [`Document`](/de/docs/Web/API/Document) ist und `newChild` ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind oder einem [`Text`](/de/docs/Web/API/Text)-Kind ist.
+    - Wenn der aktuelle Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) ist und sein Elternteil _nicht_ ein [`Document`](/de/docs/Web/API/Document) ist, da ein _doctype_ immer ein direkter Nachfahre eines _Dokuments_ sein sollte.
+    - Wenn das Elternteil des Knotens ein [`Document`](/de/docs/Web/API/Document) ist und `newChild` ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind ist, oder das einen [`Text`](/de/docs/Web/API/Text)-Kind hat.
     - Wenn der Austausch von `oldChild` durch `newChild` zu einem [`Document`](/de/docs/Web/API/Document) mit mehr als einem [`Element`](/de/docs/Web/API/Element) als Kind führen würde.
-    - Wenn der Austausch von `oldChild` durch `newChild` zur Präsenz eines [`Element`](/de/docs/Web/API/Element)-Knotens vor einem [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten führen würde.
+    - Wenn der Austausch von `oldChild` durch `newChild` zur Anwesenheit eines [`Element`](/de/docs/Web/API/Element)-Knotens vor einem [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten führen würde.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Elternknoten von `oldChild` nicht der aktuelle Knoten ist.
+  - : Wird ausgelöst, wenn das Elternteil von `oldChild` nicht der aktuelle Knoten ist.
 
 ## Beispiel
 

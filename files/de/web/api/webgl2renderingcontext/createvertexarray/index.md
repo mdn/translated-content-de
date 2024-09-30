@@ -1,14 +1,16 @@
 ---
-title: "WebGL2RenderingContext: createVertexArray() Methode"
+title: "WebGL2RenderingContext: Methode createVertexArray()"
 short-title: createVertexArray()
 slug: Web/API/WebGL2RenderingContext/createVertexArray
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.createVertexArray()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt, das ein Vertex-Array-Objekt (VAO) darstellt. Dieses zeigt auf Vertex-Array-Daten und bietet Bezeichnungen für verschiedene Sätze von Vertex-Daten.
+Die **`WebGL2RenderingContext.createVertexArray()`** Methode der
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
+[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt, das ein Vertex Array Objekt (VAO) darstellt. Dieses verweist auf Vertex-Array-Daten und bietet Namen für verschiedene Sätze von Vertex-Daten.
 
 ## Syntax
 
@@ -22,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex-Array-Objekt (VAO) darstellt, welches auf Vertex-Array-Daten zeigt.
+Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex Array Objekt (VAO) darstellt, das auf Vertex-Array-Daten verweist.
 
 ## Beispiele
 

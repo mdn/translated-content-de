@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: chargingtimechange-Ereignis"
+title: "BatteryManager: chargingtimechange Ereignis"
 short-title: chargingtimechange
 slug: Web/API/BatteryManager/chargingtimechange_event
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`chargingtimechange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Schnittstelle wird ausgelöst, wenn die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime)-Eigenschaft des Akkus aktualisiert wird.
+Das **`chargingtimechange`** Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryManager) Interfaces wird ausgelöst, wenn die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime) Eigenschaft des Akkus aktualisiert wird.
 
 ## Syntax
 

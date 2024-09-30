@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `substring-after` gibt eine Zeichenkette zurück, die der Rest einer gegebenen Zeichenkette nach einer gegebenen Teilzeichenkette ist.
+Die Funktion `substring-after` gibt einen String zurück, der der restliche Teil eines gegebenen Strings nach einem gegebenen Teilstring ist.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ substring-after( haystack, needle )
 ### Parameter
 
 - `haystack`
-  - : Die zu bewertende Zeichenkette. Ein Teil dieser Zeichenkette wird zurückgegeben.
+  - : Der zu evaluierende String. Ein Teil dieses Strings wird zurückgegeben.
 - `needle`
-  - : Die zu suchende Teilzeichenkette. Alles nach dem ersten Auftreten von `needle` in `haystack` wird zurückgegeben.
+  - : Der zu suchende Teilstring. Alles nach dem ersten Auftreten von `needle` in `haystack` wird zurückgegeben.
 
 ### Rückgabewert
 
-Eine Zeichenkette.
+Ein String.
 
 ### Beispiele
 
-| XPath-Beispiel                 | Ausgabe              |
-| ------------------------------ | -------------------- |
-| `substring-after('aa-bb','-')` | `bb`                 |
-| `substring-after('aa-bb','a')` | `a-bb`               |
-| `substring-after('aa-bb','b')` | `b`                  |
-| `substring-after('aa-bb','q')` | (leere Zeichenkette) |
+| XPath-Beispiel                 | Ausgabe        |
+| ------------------------------ | -------------- |
+| `substring-after('aa-bb','-')` | `bb`           |
+| `substring-after('aa-bb','a')` | `a-bb`         |
+| `substring-after('aa-bb','b')` | `b`            |
+| `substring-after('aa-bb','q')` | (leerer String)|
 
 ## Spezifikationen
 

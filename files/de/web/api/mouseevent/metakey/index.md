@@ -8,21 +8,22 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`MouseEvent.metaKey`**-Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>meta</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis aufgetreten ist.
+Die schreibgeschützte **`MouseEvent.metaKey`**-Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>meta</kbd>-Taste gedrückt wurde oder nicht, als ein bestimmtes Mausereignis auftrat.
 
-Bitte beachten Sie, dass viele Betriebssysteme spezielle Funktionen mit der <kbd>meta</kbd>-Taste verknüpfen, sodass diese Eigenschaft `false` sein kann, auch wenn die Taste tatsächlich gedrückt ist. Unter Windows kann diese Taste beispielsweise das Startmenü öffnen.
+Seien Sie sich bewusst, dass viele Betriebssysteme spezielle Funktionen an die <kbd>meta</kbd>-Taste binden, sodass diese Eigenschaft `false` sein kann, auch wenn die Taste tatsächlich gedrückt ist.
+Unter Windows kann diese Taste beispielsweise das Startmenü öffnen.
 
 > [!NOTE]
 > Auf Macintosh-Tastaturen ist diese Taste die <kbd>command</kbd>-Taste (<kbd>⌘</kbd>).
-> Auf Windows-Tastaturen ist es die Windows-Taste (<kbd>⊞</kbd>).
+> Auf Windows-Tastaturen ist diese Taste die Windows-Taste (<kbd>⊞</kbd>).
 
 ## Wert
 
-Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false`, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die `metaKey`-Eigenschaft, wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auslösen.
+Dieses Beispiel gibt die Eigenschaft `metaKey` aus, wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auslösen.
 
 ### HTML
 

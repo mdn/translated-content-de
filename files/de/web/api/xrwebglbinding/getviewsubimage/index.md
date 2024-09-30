@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getViewSubImage()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die WebGL-Textur darstellt, die für eine Ansicht gerendert werden soll.
+Die **`getViewSubImage()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die WebGL-Textur für eine Ansicht repräsentiert.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ getViewSubImage(layer, view)
 ### Parameter
 
 - `layer`
-  - : Der zu verwendende [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) zum Rendern (um andere Schichttypen zu rendern, siehe [`XRWebGLBinding.getSubImage()`](/de/docs/Web/API/XRWebGLBinding/getSubImage)).
+  - : Das [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer), das zum Rendern verwendet wird (um andere Schichttypen zu rendern, siehe [`XRWebGLBinding.getSubImage()`](/de/docs/Web/API/XRWebGLBinding/getSubImage)).
 - `view`
-  - : Die zu verwendende [`XRView`](/de/docs/Web/API/XRView) zum Rendern.
+  - : Die [`XRView`](/de/docs/Web/API/XRView), die zum Rendern verwendet wird.
 
 ### Rückgabewert
 
@@ -31,13 +31,13 @@ Ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt.
 
 Ein {{jsxref("TypeError")}} wird ausgelöst,
 
-- wenn `layer` sich nicht im [session's `layer` array](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) befindet.
+- wenn `layer` sich nicht im [Schicht-Array der Sitzung](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) befindet.
 
 ## Beispiele
 
 ### Rendern eines `XRProjectionLayer`
 
-Das folgende Beispiel rendert einen [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) zu einer Ansicht.
+Das folgende Beispiel rendert ein [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) in eine Ansicht.
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);

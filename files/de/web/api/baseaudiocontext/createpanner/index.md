@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: Methode createPanner()"
+title: "BaseAudioContext: createPanner()-Methode"
 short-title: createPanner()
 slug: Web/API/BaseAudioContext/createPanner
 l10n:
@@ -8,13 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createPanner()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen neuen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen, der verwendet wird, um einen eingehenden Audiostream im 3D-Raum zu räumlich zu gestalten.
+Die `createPanner()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen neuen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen, der zur räumlichen Anordnung eines eingehenden Audiostreams im 3D-Raum genutzt wird.
 
-Der Panner-Knoten ist in Bezug auf den [`AudioListener`](/de/docs/Web/API/AudioListener) des AudioContext räumlich positioniert (definiert durch das [`AudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Attribut), das die Position und Orientierung der Person repräsentiert, die das Audio hört.
+Der Panner-Knoten ist in Bezug auf den [`AudioListener`](/de/docs/Web/API/AudioListener) der AudioContext (definiert durch das [`AudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Attribut) räumlich angeordnet, welcher die Position und Orientierung der Person darstellt, die das Audio hört.
 
 > [!NOTE]
-> Der [`PannerNode()`](/de/docs/Web/API/PannerNode/PannerNode)-Konstruktor ist der empfohlene Weg, um einen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`PannerNode()`](/de/docs/Web/API/PannerNode/PannerNode)-Konstruktor ist der empfohlene Weg, um einen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen; siehe [Anlegen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -32,11 +31,11 @@ Ein [`PannerNode`](/de/docs/Web/API/PannerNode).
 
 ## Beispiele
 
-Im folgenden Beispiel sehen Sie, wie die `createPanner()`-Methode, [`AudioListener`](/de/docs/Web/API/AudioListener) und [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet werden, um die Audio-Räumlierung zu steuern. In der Regel definieren Sie zunächst die Position im 3D-Raum, die Ihr Audio-Listener und Panner (Quelle) einnehmen, und aktualisieren dann die Position eines oder beider, während die Anwendung verwendet wird. Sie könnten zum Beispiel einen Charakter innerhalb einer Spielwelt bewegen und wünschen, dass die Lieferung von Audio sich realistisch ändert, wenn sich Ihr Charakter einem Musikspieler wie einem Stereo näher oder entfernt. Im Beispiel sehen Sie, wie dies durch die Funktionen `moveRight()`, `moveLeft()`, usw. gesteuert wird, die neue Werte für die Panner-Position über die `PositionPanner()`-Funktion festlegen.
+Im folgenden Beispiel sehen Sie, wie die `createPanner()`-Methode, [`AudioListener`](/de/docs/Web/API/AudioListener) und [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet werden können, um die Audiowiedergabe zu steuern. Im Allgemeinen wird die Position im 3D-Raum definiert, die Ihr Audio-Listener und Panner (Quelle) anfangs einnehmen, und dann wird die Position von einem oder beiden während der Nutzung der Anwendung aktualisiert. Beispielsweise könnte eine Figur in einer Spielwelt bewegt werden, wobei die Audioausgabe realistisch verändert wird, wenn sich die Figur einem Musikspieler wie einem Stereo näher oder weiter entfernt. Im Beispiel sehen Sie, wie dies durch die Funktionen `moveRight()`, `moveLeft()`, etc. gesteuert wird, welche neue Werte für die Panner-Position über die `PositionPanner()`-Funktion setzen.
 
-Um eine vollständige Implementierung zu sehen, werfen Sie einen Blick auf unser [panner-node Beispiel](https://mdn.github.io/webaudio-examples/panner-node/) ([sehen Sie sich den Quellcode an](https://github.com/mdn/webaudio-examples/tree/main/panner-node)) — dieses Demo transportiert Sie in den 2.5D "Raum aus Metall", wo Sie einen Track auf einem Boom Box abspielen und dann um die Boom Box herumgehen können, um zu sehen, wie sich der Klang ändert!
+Um eine vollständige Implementierung zu sehen, schauen Sie sich unser [Panner-Node-Beispiel](https://mdn.github.io/webaudio-examples/panner-node/) ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/panner-node)) an — dieses Demo versetzt Sie in den 2.5D "Raum aus Metall", in dem Sie einen Track auf einem Boom Box abspielen können und dann um diese herumgehen, um zu sehen, wie sich der Klang verändert!
 
-Beachten Sie, wie wir einige Funktionserkennungen verwendet haben, um dem Browser entweder die neueren Eigenschaftswerte (wie [`AudioListener.forwardX`](/de/docs/Web/API/AudioListener/forwardX)) für die Positionierung zu geben, wenn er diese unterstützt, oder ältere Methoden (wie [`AudioListener.setOrientation()`](/de/docs/Web/API/AudioListener/setOrientation)), wenn er diese noch unterstützt, aber nicht die neuen Eigenschaften.
+Beachten Sie, wie wir eine Funktionsweiseerkennung nutzen, um dem Browser entweder die neueren Eigenschaftswerte (wie [`AudioListener.forwardX`](/de/docs/Web/API/AudioListener/forwardX)) zur Positionsbestimmung zu geben, wenn er diese unterstützt, oder ältere Methoden (wie [`AudioListener.setOrientation()`](/de/docs/Web/API/AudioListener/setOrientation)), wenn diese unterstützt werden, aber die neuen Eigenschaften nicht.
 
 ```js
 // set up listener and panner position information
@@ -123,7 +122,7 @@ function positionPanner() {
 ```
 
 > [!NOTE]
-> Um herauszufinden, welche Positionswerte auf den Listener und den Panner angewendet werden sollen, damit der Klang zu dem passt, was auf dem Bildschirm visuell geschieht, ist einiges an Mathematik erforderlich, aber mit ein wenig Experimentieren werden Sie sich schnell daran gewöhnen.
+> Um herauszufinden, welche Positionswerte auf den Listener und Panner angewendet werden sollen, damit der Klang den visuellen Darstellungen auf dem Bildschirm entspricht, ist eine ganze Menge Mathematik erforderlich, aber mit etwas Experimentieren gewöhnen Sie sich bald daran.
 
 ## Spezifikationen
 

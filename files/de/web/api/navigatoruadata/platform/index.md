@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`platform`**-Eigenschaft des schreibgeschützten [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt die Plattformmarkeninformationen zurück.
+Die **`platform`**-Schreibgeschützte Eigenschaft des [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt die Plattformmarkeninformation zurück.
 
 ## Wert
 
 Ein String, der die Plattformmarke enthält.
-Zum Beispiel, `"Windows"`.
+Zum Beispiel `"Windows"`.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ console.log(navigator.userAgentData.platform);
 
 ## Siehe auch
 
-- Der {{HTTPHeader("Sec-CH-UA-Platform")}}-Header (ein [low-entropy client hint](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält dieselben Informationen.
+- Der {{HTTPHeader("Sec-CH-UA-Platform")}}-Header (ein [niedrig-Entropie Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.

@@ -1,5 +1,5 @@
 ---
-title: "FileSystemSyncAccessHandle: close()-Methode"
+title: "FileSystemSyncAccessHandle: close() Methode"
 short-title: close()
 slug: Web/API/FileSystemSyncAccessHandle/close
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`close()`**-Methode des
-[`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Interfaces schließt einen geöffneten synchronen Dateihandle, deaktiviert alle weiteren Operationen darauf und gibt die exklusive Sperre frei, die zuvor auf die mit dem Dateihandle verbundene Datei gelegt wurde.
+Die **`close()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle schließt einen geöffneten synchronen Datei-Handle, deaktiviert jegliche weiteren Operationen darauf und gibt die exklusive Sperre frei, die zuvor auf die mit dem Datei-Handle verbundene Datei gelegt wurde.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden `close()`, [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden `close()`, [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Syntax
 
@@ -34,13 +33,13 @@ Keine.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignisbehandlungsfunktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread führt sie folgende Schritte aus:
+Die folgende asynchrone Ereignis-Handler-Funktion wird in einem Web Worker ausgeführt. Beim Empfang einer Nachricht vom Hauptthread:
 
-- Erstellt einen synchronen Dateizugriffshandle.
-- Ruft die Größe der Datei ab und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
-- Liest den Dateiinhalte in den Puffer.
+- Erstellt sie einen synchronen Datei-Zugriffs-Handle.
+- Ermittelt die Größe der Datei und erstellt ein {{jsxref("ArrayBuffer")}}, um sie aufzunehmen.
+- Liest den Dateiinhalte in den Puffer ein.
 - Kodiert die Nachricht und schreibt sie ans Ende der Datei.
-- Speichert die Änderungen auf der Festplatte und schließt den Zugriffshandle.
+- Speichert die Änderungen auf der Festplatte und schließt den Zugriffs-Handle.
 
 ```js
 onmessage = async (e) => {

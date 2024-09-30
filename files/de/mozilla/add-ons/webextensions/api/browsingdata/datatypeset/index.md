@@ -9,12 +9,12 @@ l10n:
 
 Der Typ **`browsingData.DataTypeSet`** beschreibt eine Menge von Datentypen.
 
-Er enthält eine Anzahl von booleschen Eigenschaften. Der Name jeder Eigenschaft ist der Name eines bestimmten Typs von Browserdaten: "downloads", "history" und so weiter. Alle Eigenschaften sind optional.
+Er enthält eine Anzahl von boolean-Eigenschaften. Der Name jeder Eigenschaft ist der Name eines bestimmten Typs von Browser-Daten: "downloads", "history" und so weiter. Alle Eigenschaften sind optional.
 
 Dieser Typ wird verwendet:
 
-- in {{WebExtAPIRef("browsingData.remove()")}}, um zu beschreiben, welche Datentypen entfernt werden sollen
-- in {{WebExtAPIRef("browsingData.settings()")}}, um zu beschreiben, welche Datentypen derzeit im "Verlauf löschen"-Feature des Browsers ausgewählt sind.
+- in {{WebExtAPIRef("browsingData.remove()")}} um zu beschreiben, welche Datentypen entfernt werden sollen
+- in {{WebExtAPIRef("browsingData.settings()")}} um zu beschreiben, welche Datentypen derzeit in der "Chronik löschen"-Funktion des Browsers ausgewählt sind.
 
 ## Typ
 
@@ -23,34 +23,34 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `cache` {{optional_inline}}
   - : `boolean`. Der Cache des Browsers.
 - `cookies` {{optional_inline}}
-  - : `boolean`. Beim Browsen erworbene Cookies.
+  - : `boolean`. Beim Surfen erworbene Cookies.
 - `downloads` {{optional_inline}}
-  - : `boolean`. Der Download-Verlauf des Benutzers.
+  - : `boolean`. Die Download-Historie des Nutzers.
 - `fileSystems` {{optional_inline}}
-  - : `boolean`. Dateisysteme der Website.
+  - : `boolean`. Dateisysteme der Websites.
 - `formData` {{optional_inline}}
   - : `boolean`. Gespeicherte Formulardaten, für die Autovervollständigung.
 - `history` {{optional_inline}}
-  - : `boolean`. Der Browsing-Verlauf des Benutzers.
+  - : `boolean`. Die Surf-Historie des Nutzers.
 - `indexedDB` {{optional_inline}}
   - : `boolean`. IndexedDB-Daten.
 - `localStorage` {{optional_inline}}
-  - : `boolean`. Lokale Speicher-Daten.
+  - : `boolean`. Daten des lokalen Speichers.
 - `passwords` {{optional_inline}}
   - : `boolean`. Gespeicherte Passwörter, für die Autovervollständigung.
 - `pluginData` {{optional_inline}}
   - : `boolean`. Gespeicherte Daten, die mit Plugins verbunden sind.
 - `serverBoundCertificates` {{optional_inline}}
-  - : `boolean`. Gespeicherte Server-gebundene Zertifikate.
+  - : `boolean`. Gespeicherte servergebundene Zertifikate.
 - `serviceWorkers` {{optional_inline}}
-  - : `boolean`. Vom Service Workers zwischengespeicherte Daten.
+  - : `boolean`. Von Service-Workern zwischengespeicherte Daten.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

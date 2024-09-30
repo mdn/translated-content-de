@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`Lock`**-Interface der [Web Locks API](/de/docs/Web/API/Web_Locks_API) gibt den Namen und den Modus eines Locks an.
-Dies kann ein neu angefordertes Lock sein, das im Callback von [`LockManager.request()`](/de/docs/Web/API/LockManager/request) empfangen wird, oder ein Eintrag eines aktiven oder in der Warteschlange befindlichen Locks, das von [`LockManager.query()`](/de/docs/Web/API/LockManager/query) zurückgegeben wird.
+Die **`Lock`**-Schnittstelle der [Web Locks API](/de/docs/Web/API/Web_Locks_API) liefert den Namen und den Modus eines Locks.
+Dies kann ein neu angeforderter Lock sein, der im Rückruf an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) empfangen wird, oder ein Datensatz eines aktiven oder in der Warteschlange befindlichen Locks, der von [`LockManager.query()`](/de/docs/Web/API/LockManager/query) zurückgegeben wird.
 
 ## Instanz-Eigenschaften
 
 - [`Lock.mode`](/de/docs/Web/API/Lock/mode) {{ReadOnlyInline}}
-  - : Gibt den Zugriffsmodus zurück, der bei der Anforderung des Locks an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde.
+  - : Gibt den Zugriffsmodus zurück, der an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde, als der Lock angefordert wurde.
     Der Modus ist entweder `"exclusive"` (Standard) oder `"shared"`.
 - [`Lock.name`](/de/docs/Web/API/Lock/name) {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der bei der Anforderung des Locks an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde.
+  - : Gibt den Namen zurück, der an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde, als der Lock angefordert wurde.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie die Eigenschaften `mode` und `name` im Aufruf von [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben werden.
+Die folgenden Beispiele zeigen, wie die Eigenschaften Modus und Name beim Aufruf von [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben werden.
 [`LockManager`](/de/docs/Web/API/LockManager) ist das Objekt, das von [`navigator.locks`](/de/docs/Web/API/Navigator/locks) zurückgegeben wird.
 
 ```js

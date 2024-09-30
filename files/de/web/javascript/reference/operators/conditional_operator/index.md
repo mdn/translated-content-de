@@ -1,5 +1,5 @@
 ---
-title: Bedingter (ternärer) Operator
+title: Conditional (ternary) operator
 slug: Web/JavaScript/Reference/Operators/Conditional_operator
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,9 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator, der drei Operanden nimmt:
-eine Bedingung, gefolgt von einem Fragezeichen (`?`), dann ein Ausdruck, der ausgeführt wird, wenn die Bedingung [wahrheitsgemäß](/de/docs/Glossary/truthy) ist, gefolgt von einem Doppelpunkt (`:`), und schließlich der Ausdruck, der ausgeführt wird, wenn die Bedingung [falsch](/de/docs/Glossary/falsy) ist.
-Dieser Operator wird häufig als Alternative zu einer [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verwendet.
+Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator, der drei Operanden benötigt: eine Bedingung, gefolgt von einem Fragezeichen (`?`), dann einem Ausdruck, der ausgeführt wird, wenn die Bedingung [wahrhaftig](/de/docs/Glossary/truthy) ist, gefolgt von einem Doppelpunkt (`:`), und schließlich der Ausdruck, der ausgeführt wird, wenn die Bedingung [falsch](/de/docs/Glossary/falsy) ist. Dieser Operator wird häufig als Alternative zu einer [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verwendet.
 
 {{EmbedInteractiveExample("pages/js/expressions-conditionaloperators.html")}}
 
@@ -24,14 +22,13 @@ condition ? exprIfTrue : exprIfFalse
 - `condition`
   - : Ein Ausdruck, dessen Wert als Bedingung verwendet wird.
 - `exprIfTrue`
-  - : Ein Ausdruck, der ausgeführt wird, wenn die `condition` zu einem [wahrheitsgemäßen](/de/docs/Glossary/truthy) Wert ausgewertet wird (einer, der gleich `true` ist oder in `true` umgewandelt werden kann).
+  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` zu einem [wahrhaftigen](/de/docs/Glossary/truthy) Wert evaluiert (einem, der gleich `true` ist oder zu `true` konvertiert werden kann).
 - `exprIfFalse`
-  - : Ein Ausdruck, der ausgeführt wird, wenn die `condition` [falsch](/de/docs/Glossary/falsy) ist (d.h. einen Wert hat, der in `false` umgewandelt werden kann).
+  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` [falsch](/de/docs/Glossary/falsy) ist (das heißt, einen Wert hat, der zu `false` konvertiert werden kann).
 
 ## Beschreibung
 
-Neben `false` sind mögliche falsche Ausdrücke: `null`, `NaN`, `0`, der leere String (`""`) und `undefined`.
-Wenn `condition` einer davon ist, wird das Ergebnis des bedingten Ausdrucks das Ergebnis der Ausführung des Ausdrucks `exprIfFalse` sein.
+Neben `false` sind mögliche falsche Ausdrücke: `null`, `NaN`, `0`, der leere String (`""`) und `undefined`. Wenn `condition` einer dieser Werte ist, wird das Ergebnis des bedingten Ausdrucks das Ergebnis der Ausführung des Ausdrucks `exprIfFalse` sein.
 
 ## Beispiele
 
@@ -45,7 +42,7 @@ console.log(beverage); // "Beer"
 
 ### Umgang mit null-Werten
 
-Eine häufige Verwendung ist der Umgang mit einem Wert, der `null` sein kann:
+Eine häufige Anwendung ist der Umgang mit einem Wert, der möglicherweise `null` ist:
 
 ```js
 const greeting = (person) => {
@@ -57,9 +54,9 @@ console.log(greeting({ name: "Alice" })); // "Howdy, Alice"
 console.log(greeting(null)); // "Howdy, stranger"
 ```
 
-### Bedingte Ketten
+### Bedingte Verkettungen
 
-Der ternäre Operator ist rechtsassoziativ, was bedeutet, dass er auf folgende Weise "verkettet" werden kann, ähnlich einer `if … else if … else if … else`-Kette:
+Der ternäre Operator ist rechtsassoziativ, was bedeutet, dass er in der folgenden Weise "verkettet" werden kann, ähnlich einer `if … else if … else if … else`-Kette:
 
 ```js-nolint
 function example() {
@@ -70,7 +67,7 @@ function example() {
 }
 ```
 
-Dies entspricht der folgenden [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Kette.
+Dies ist äquivalent zur folgenden [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Kette.
 
 ```js
 function example() {
@@ -97,7 +94,7 @@ function example() {
 ## Siehe auch
 
 - [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
-- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Optional chaining (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Entscheidungen in Ihrem Code treffen — Bedingungsanweisungen](/de/docs/Learn/JavaScript/Building_blocks/conditionals)
+- [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Optional Chaining (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Entscheidungen in Ihrem Code treffen — Bedingungen](/de/docs/Learn/JavaScript/Building_blocks/conditionals)
 - [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators) Leitfaden

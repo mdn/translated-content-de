@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`trackedAnchors`**-Eigenschaft des [`XRFrame`](/de/docs/Web/API/XRFrame)-Interfaces gibt ein [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)-Objekt zurück, das alle Anker enthält, die im Frame noch verfolgt werden.
+Die schreibgeschützte **`trackedAnchor`**-Eigenschaft des [`XRFrame`](/de/docs/Web/API/XRFrame)-Interfaces gibt ein [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)-Objekt zurück, das alle im Frame noch verfolgten Anker enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)-Objekt.
 
 ## Beispiele
 
-### Aktualisieren von Ankern
+### Aktualisierung von Ankern
 
 ```js
 for (const anchor of frame.trackedAnchors) {

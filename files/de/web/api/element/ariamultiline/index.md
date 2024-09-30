@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaMultiLine`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiline)-Attributs wider, das angibt, ob ein Textfeld mehrere Zeilen Eingabe oder nur eine einzige Zeile akzeptiert.
+Die **`ariaMultiLine`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiline)-Attributs wider, das angibt, ob ein Textfeld mehrere Zeilen der Eingabe akzeptiert oder nur eine einzelne Zeile.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik besitzen und keine ARIA-Attribute erfordern.
+> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-multiline`-Attribut auf dem Element mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass dieses Feld Eingaben über mehrere Zeilen zulässt. Mithilfe von `ariaMultiLine` aktualisieren wir den Wert auf "false".
+In diesem Beispiel ist das `aria-multiline`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass dieses Feld mehrere Zeilen der Eingabe erlaubt. Mit `ariaMultiLine` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="txtboxMultilineLabel">Enter the tags for the article</div>
@@ -54,4 +54,4 @@ console.log(el.ariaMultiLine); // "false"
 
 ## Siehe auch
 
-- [ARIA: textbox role](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: Rolle textbox](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)

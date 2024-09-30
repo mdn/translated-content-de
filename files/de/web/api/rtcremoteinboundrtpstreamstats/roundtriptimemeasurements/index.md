@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: Eigenschaft roundTripTimeMeasurements"
+title: "RTCRemoteInboundRtpStreamStats: roundTripTimeMeasurements-Eigenschaft"
 short-title: roundTripTimeMeasurements
 slug: Web/API/RTCRemoteInboundRtpStreamStats/roundTripTimeMeasurements
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`roundTripTimeMeasurements`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs enthält einen positiven ganzzahligen Wert, der die Gesamtanzahl der gültigen Round-Trip-Time-Messungen repräsentiert, die für diese [synchronisierende Quelle](#ssrc) empfangen wurden.
+Die **`roundTripTimeMeasurements`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs enthält einen positiven Ganzzahlwert, der die Gesamtanzahl der gültigen Laufzeitmessungen (round trip time) darstellt, die für diese [Synchronisationsquelle](#ssrc) empfangen wurden.
 
-Die Anzahl kann als Maß für die Verfügbarkeit und Zuverlässigkeit der Round-Trip-Time-Messdaten verwendet werden.
+Diese Anzahl kann als Maß für die Verfügbarkeit und Zuverlässigkeit der Daten zur Laufzeitmessung verwendet werden.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der gültigen Round-Trip-Time-Messungen angibt.
+Eine positive Zahl, die die Anzahl der gültigen Laufzeitmessungen angibt.
 
-Dies ist die Anzahl der empfangenen _RTCP Receiver Reports (RR)_ für diese [synchronisierende Quelle](#ssrc), die einen nicht nullwertigen Eintrag im Feld "delay since last SR (DLSR)" enthalten.
+Dies ist die Anzahl der empfangenen _RTCP Receiver Reports (RR)_ für diese [Synchronisationsquelle](#ssrc), die einen ungleich null Wert für das Feld "delay since last SR (DLSR)" enthalten.
 
 ## Spezifikationen
 

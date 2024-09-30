@@ -8,18 +8,18 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`state`**-Eigenschaft der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle gibt den aktuellen Zustand des darunterliegenden Codecs zurück.
+Die **`state`** schreibgeschützte Eigenschaft der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle gibt den aktuellen Zustand des zugrunde liegenden Codecs zurück.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"unconfigured"`
-  - : Der Codec ist nicht zum Dekodieren konfiguriert.
+  - : Der Codec ist nicht für das Dekodieren konfiguriert.
 - `"configured"`
   - : Der Codec hat eine gültige Konfiguration und ist bereit.
 - `"closed"`
-  - : Der Codec ist nicht mehr verwendbar und die Systemressourcen wurden freigegeben.
+  - : Der Codec ist nicht mehr verwendbar und Systemressourcen wurden freigegeben.
 
 ## Beispiele
 

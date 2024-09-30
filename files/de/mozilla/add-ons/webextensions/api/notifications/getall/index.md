@@ -23,9 +23,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird. Jede aktuell aktive Benachrichtigung ist eine Eigenschaft dieses Objekts: der Name der Eigenschaft ist die ID der Benachrichtigung, und der Wert der Eigenschaft ist ein {{WebExtAPIRef("notifications.NotificationOptions")}}-Objekt, das diese Benachrichtigung beschreibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird. Jede aktuell aktive Benachrichtigung ist eine Eigenschaft dieses Objekts: Der Name der Eigenschaft ist die ID der Benachrichtigung, und der Wert der Eigenschaft ist ein {{WebExtAPIRef("notifications.NotificationOptions")}}-Objekt, das diese Benachrichtigung beschreibt.
 
-Beachten Sie, dass Sie eine ID für eine Benachrichtigung explizit definieren können, indem Sie sie in {{WebExtAPIRef("notifications.create()")}} übergeben. Wenn Sie dies nicht tun, wird der Browser eine generieren. Explizit angegebene IDs sind Zeichenfolgen, während generierte IDs Zahlen sind.
+Beachten Sie, dass Sie eine ID für eine Benachrichtigung explizit definieren können, indem Sie sie zu {{WebExtAPIRef("notifications.create()")}} übergeben. Wenn Sie dies nicht tun, generiert der Browser eine. Explizit angegebene IDs sind Zeichenfolgen, aber generierte IDs sind Zahlen.
 
 ## Browser-Kompatibilität
 
@@ -33,7 +33,7 @@ Beachten Sie, dass Sie eine ID für eine Benachrichtigung explizit definieren k�
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Benachrichtigung an, wenn der Benutzer auf eine Browseraktion klickt, es sei denn, die Benachrichtigung wurde bereits angezeigt. In diesem Fall wird die Benachrichtigung entfernt. Es verwendet getAll(), um herauszufinden, ob die Benachrichtigung angezeigt wird:
+Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browseraktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt. In diesem Fall wird die Benachrichtigung gelöscht. Es verwendet `getAll()`, um festzustellen, ob die Benachrichtigung angezeigt wird:
 
 ```js
 const myNotification = "my-notification";
@@ -76,4 +76,4 @@ browser.notifications.getAll().then(logNotifications);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

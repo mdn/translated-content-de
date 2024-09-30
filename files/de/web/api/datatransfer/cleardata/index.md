@@ -8,14 +8,15 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.clearData()`**-Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) des Zieh-Vorgangs für den angegebenen Typ. Wenn keine Daten für den angegebenen Typ vorhanden sind, bewirkt diese Methode nichts.
+Die **`DataTransfer.clearData()`** Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) einer Ziehoperation für den angegebenen Typ. Wenn für den angegebenen Typ keine Daten existieren, unternimmt diese Methode nichts.
 
 Wird diese Methode ohne Argumente oder mit einem leeren Zeichenfolgenformat aufgerufen, werden die Daten aller Typen entfernt.
 
-Diese Methode entfernt _keine_ Dateien aus dem Zieh-Vorgang, daher kann es dennoch einen Eintrag mit dem Typ `"Files"` in der [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) Liste des Objekts geben, wenn Dateien in das Ziehen einbezogen wurden.
+Diese Methode entfernt _nicht_ die Dateien aus der Ziehoperation, sodass es möglich ist, dass weiterhin ein Eintrag mit dem Typ `"Files"` in der [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) Liste des Objekts vorhanden ist, wenn Dateien im Ziehen enthalten sind.
 
 > [!NOTE]
-> Diese Methode kann nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis verwendet werden, da dies die einzige Zeit ist, in der der Datenspeicher des Zieh-Vorgangs schreibbar ist.
+> Diese Methode kann nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis verwendet werden,
+> da dies der einzige Zeitpunkt ist, zu dem der Daten-Store der Ziehoperation beschreibbar ist.
 
 ## Syntax
 
@@ -27,8 +28,8 @@ clearData(format)
 ### Parameter
 
 - `format` {{optional_inline}}
-  - : Eine Zeichenkette, die den zu entfernenden Datentyp angibt. Wenn
-    dieser Parameter eine leere Zeichenkette ist oder nicht bereitgestellt wird, werden die Daten aller Typen entfernt.
+  - : Ein string, der den zu entfernenden Datentyp angibt. Wenn
+    dieser Parameter eine leere Zeichenfolge ist oder nicht bereitgestellt wird, werden die Daten aller Typen entfernt.
 
 ### Rückgabewert
 
@@ -36,8 +37,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekts
-der Methoden [`getData()`](/de/docs/Web/API/DataTransfer/getData),
+Dieses Beispiel zeigt die Verwendung der [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objektmethoden
+[`getData()`](/de/docs/Web/API/DataTransfer/getData),
 [`setData()`](/de/docs/Web/API/DataTransfer/setData) und
 `clearData()`.
 
@@ -173,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Zieh-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Ziehen und Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehen-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

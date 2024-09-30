@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die `-webkit-mask-repeat-y`-Eigenschaft legt fest, ob und wie ein Maskenbild vertikal wiederholt (gekachelt) wird.
+Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild vertikal wiederholt (gekachelt) wird.
 
 ## Syntax
 
@@ -34,13 +34,13 @@ Die `-webkit-mask-repeat-y`-Eigenschaft legt fest, ob und wie ein Maskenbild ver
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - no-repeat
-  - : Das Maskenbild wird vertikal nicht wiederholt; nur eine Kopie des Maskenbildes wird in vertikaler Richtung gezeichnet. Der vertikale Rest des maskierten Inhalts wird nicht angezeigt.
+  - : Das Maskenbild wird vertikal nicht wiederholt; es wird nur eine Kopie des Maskenbildes in vertikaler Richtung gezeichnet. Der verbleibende vertikale Inhalt des maskierten Elements wird nicht angezeigt.
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich ohne Zuschneiden wiederholt. Die ersten und letzten Bilder werden an den oberen und unteren Rand des Elements angeheftet, und der freie Raum wird gleichmäßig zwischen den Bildern verteilt. Die {{cssxref("mask-position")}}-Eigenschaft wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden angezeigt werden. Die einzige Situation, in der beim Verwenden von `space` Zuschneiden auftritt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
+  - : Das Bild wird so oft wie möglich ohne Beschneidung wiederholt. Die ersten und letzten Bilder werden an den oberen und unteren Rand des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Beschneidung angezeigt werden. Der einzige Fall, in dem bei der Verwendung von 'space' eine Beschneidung erfolgt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
 - round
-  - : Wenn der verfügbare vertikale Platz größer wird, strecken sich die wiederholten Bilder (ohne Lücken), bis Platz für ein weiteres Bild ist. Wenn das neue Bild hinzugefügt wird, komprimieren alle aktuellen Bilder, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, dreifach wiederholt, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
+  - : Mit zunehmendem vertikalen Platzangebot dehnen sich die wiederholten Bilder aus (ohne Lücken), bis Platz für ein weiteres Bild vorhanden ist. Wenn ein weiteres Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer Originalhöhe von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die `-webkit-mask-repeat-y`-Eigenschaft legt fest, ob und wie ein Maskenbild ver
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines sich wiederholenden oder nicht wiederholenden Maskenbildes
 
 ```css
 .exampleone {
@@ -71,7 +71,7 @@ Die `-webkit-mask-repeat-y`-Eigenschaft legt fest, ob und wie ein Maskenbild ver
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild eine andere `<repeat-style>` angeben, getrennt durch Kommas:
+Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommas:
 
 ```css
 .examplethree {
@@ -80,7 +80,7 @@ Sie können für jedes Maskenbild eine andere `<repeat-style>` angeben, getrennt
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen, vom ersten bis zum letzten angegebenen Stil.
+Jedes Bild wird dem entsprechend spezifizierten Wiederholungsstil zugeordnet, vom zuerst bis zuletzt angegebenen.
 
 ## Spezifikationen
 

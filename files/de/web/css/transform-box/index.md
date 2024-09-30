@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`transform-box`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Layout-Box, auf die sich die {{cssxref("transform")}}, individuellen Transformations-Eigenschaften {{cssxref("translate")}}, {{cssxref("scale")}}, und {{cssxref("rotate")}} sowie die {{cssxref("transform-origin")}} Eigenschaften beziehen.
+Die **`transform-box`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Layout-Box, auf die sich die {{cssxref("transform")}}, individuelle Transform-Eigenschaften {{cssxref("translate")}}, {{cssxref("scale")}}, und {{cssxref("rotate")}}, sowie die {{cssxref("transform-origin")}} Eigenschaften beziehen.
 
 ## Syntax
 
@@ -27,20 +27,20 @@ transform-box: revert-layer;
 transform-box: unset;
 ```
 
-Die `transform-box` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `transform-box` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `content-box`
-  - : Die Content-Box wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Border-Box ihres [Table Wrapper Box](/de/docs/Glossary/Table_Wrapper_Box), nicht ihre Tabellenbox.
+  - : Die Inhaltsbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner [Tabellenrahmenbox](/de/docs/Glossary/Table_Wrapper_Box), nicht seiner Tabellenbox.
 - `border-box`
-  - : Die Border-Box wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Border-Box ihres [Table Wrapper Box](/de/docs/Glossary/Table_Wrapper_Box), nicht ihre Tabellenbox.
+  - : Die Rahmenbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner [Tabellenrahmenbox](/de/docs/Glossary/Table_Wrapper_Box), nicht seiner Tabellenbox.
 - `fill-box`
-  - : Die Objekt-Umrandungsbox wird als Referenzbox verwendet. Für Elemente mit zugehörigem CSS-Layout-Box verhält es sich wie `content-box`.
+  - : Die Objektbegrenzungsbox wird als Referenzbox verwendet. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `content-box`.
 - `stroke-box`
-  - : Die Strichbegrenzungsbox wird als Referenzbox verwendet. Für Elemente mit zugehörigem CSS-Layout-Box verhält es sich wie `border-box`.
+  - : Die Strichbegrenzungsbox wird als Referenzbox verwendet. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `border-box`.
 - `view-box`
-  - : Der nächste [SVG](/de/docs/Glossary/SVG) Viewport wird als Referenzbox verwendet. Wenn ein {{SVGAttr("viewBox")}} Attribut für das SVG-Viewport-erstellende Element angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox` Attribut festgelegten Koordinatensystems positioniert, und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox` Attributs gesetzt. Für Elemente mit zugehörigem CSS-Layout-Box verhält es sich wie `border-box`.
+  - : Der nächste [SVG](/de/docs/Glossary/SVG) Viewport wird als Referenzbox verwendet. Wenn ein {{SVGAttr("viewBox")}} Attribut für das den SVG Viewport erzeugende Element angegeben ist, wird die Referenzbox am Ursprung des vom `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox auf die Breite und Höhe des `viewBox` Attributs gesetzt. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `border-box`.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `transform-box` Eigenschaft wird als einer der unten aufgeführten Schlüsse
 
 ## Beispiele
 
-### SVG transform-origin Abgrenzung
+### SVG transform-origin Bereich
 
 In diesem Beispiel haben wir ein SVG:
 
@@ -75,7 +75,7 @@ In diesem Beispiel haben wir ein SVG:
 </svg>
 ```
 
-Im CSS haben wir eine Animation, die eine Transformation nutzt, um das Rechteck unendlich zu drehen. `transform-box: fill-box` wird verwendet, um `transform-origin` zum Zentrum der Begrenzungsbox zu machen, sodass sich das Rechteck an Ort und Stelle dreht. Ohne dies ist der Ursprung der Transformation das Zentrum der SVG-Leinwand, was zu einem ganz anderen Effekt führt.
+Im CSS haben wir eine Animation, die ein Transform verwendet, um das Rechteck unendlich zu drehen. `transform-box: fill-box` wird verwendet, um die `transform-origin` zum Zentrum der Begrenzungsbox zu machen, sodass sich das Rechteck an Ort und Stelle dreht. Ohne diese Einstellung ist der Transform-Ursprung das Zentrum der SVG-Leinwand, was zu einem sehr unterschiedlichen Effekt führt.
 
 ```css
 svg {
@@ -102,7 +102,7 @@ svg {
 }
 ```
 
-Der volle Dank für dieses Beispiel geht an [Pogany](https://codepen.io/giaco); sehen Sie [diesen Codepen](https://codepen.io/giaco/pen/OwowJQ) für eine Live-Version.
+Vollständiger Dank für dieses Beispiel geht an [Pogany](https://codepen.io/giaco); sehen Sie sich [diesen Codepen](https://codepen.io/giaco/pen/OwowJQ) für eine Live-Version an.
 
 ## Spezifikationen
 
@@ -116,7 +116,7 @@ Der volle Dank für dieses Beispiel geht an [Pogany](https://codepen.io/giaco); 
 
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
 - {{cssxref("transform")}}, {{cssxref("transform-origin")}}
-- Individuelle Transformations-Eigenschaften:
+- Individuelle Transform-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

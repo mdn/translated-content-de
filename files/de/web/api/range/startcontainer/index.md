@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.startContainer`** Leseeigenschaft gibt das [`Node`](/de/docs/Web/API/Node) zurück, innerhalb dessen das `Range` beginnt. Um die Startposition eines Knotens zu ändern, verwenden Sie eine der [`Range.setStart()`](/de/docs/Web/API/Range/setStart)-Methoden.
+Die schreibgeschützte Eigenschaft **`Range.startContainer`** gibt den [`Node`](/de/docs/Web/API/Node) zurück, innerhalb dessen der `Range` beginnt. Um die Startposition eines Knotens zu ändern, verwenden Sie eine der Methoden [`Range.setStart()`](/de/docs/Web/API/Range/setStart).
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node) Objekt.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ startRangeNode = range.startContainer;
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

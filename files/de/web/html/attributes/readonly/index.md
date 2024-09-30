@@ -8,41 +8,41 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das boolesche **`readonly`**-Attribut bewirkt, dass das Element unveränderbar ist, was bedeutet, dass der Benutzer die Kontrolle nicht bearbeiten kann.
+Das boolesche **`readonly`**-Attribut sorgt dafür, dass das Element nicht veränderbar ist, was bedeutet, dass der Benutzer das Steuerungselement nicht bearbeiten kann.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-readonly.html", "tabbed-shorter")}}
 
 ## Überblick
 
-Wenn das `readonly`-Attribut bei einem Eingabeelement angegeben ist, kann der Benutzer die Eingabe nicht bearbeiten, wodurch das Element nicht an der Eingabefeldvalidierung teilnimmt.
+Wenn das `readonly`-Attribut bei einem Eingabeelement angegeben ist, nimmt das Element nicht an der Constraints-Validierung teil, da der Benutzer die Eingabe nicht bearbeiten kann.
 
-Das `readonly`-Attribut wird von `{{HTMLElement("input/text","text")}}`, `{{HTMLElement("input/search","search")}}`, `{{HTMLElement("input/url","url")}}`, `{{HTMLElement("input/tel","tel")}}`, `{{HTMLElement("input/email","email")}}`, `{{HTMLElement("input/password","password")}}`, `{{HTMLElement("input/date","date")}}`, `{{HTMLElement("input/month","month")}}`, `{{HTMLElement("input/week","week")}}`, `{{HTMLElement("input/time","time")}}`, `{{HTMLElement("input/datetime-local","datetime-local")}}` und `{{HTMLElement("input/number","number")}}` {{HTMLElement("input")}}-Typen sowie den {{HTMLElement("textarea")}}-Formularelementen unterstützt. Wenn es bei einem dieser Eingabetypen und Elemente vorhanden ist, wird die {{cssxref(':read-only')}} Pseudo-Klasse übereinstimmen. Ist das Attribut nicht enthalten, wird die {{cssxref(':read-write')}} Pseudo-Klasse übereinstimmen.
+Das `readonly`-Attribut wird von den `{{HTMLElement("input/text","text")}}`, `{{HTMLElement("input/search","search")}}`, `{{HTMLElement("input/url","url")}}`, `{{HTMLElement("input/tel","tel")}}`, `{{HTMLElement("input/email","email")}}`, `{{HTMLElement("input/password","password")}}`, `{{HTMLElement("input/date","date")}}`, `{{HTMLElement("input/month","month")}}`, `{{HTMLElement("input/week","week")}}`, `{{HTMLElement("input/time","time")}}`, `{{HTMLElement("input/datetime-local","datetime-local")}}` und `{{HTMLElement("input/number","number")}}` {{HTMLElement("input")}}-Typen und den Formularsteuerelementen {{HTMLElement("textarea")}} unterstützt. Wenn es bei einem dieser Eingabetypen und Elemente vorhanden ist, wird die {{cssxref(':read-only')}} Pseudoklasse übereinstimmen. Wenn das Attribut nicht enthalten ist, wird die {{cssxref(':read-write')}} Pseudoklasse übereinstimmen.
 
-Das Attribut wird nicht unterstützt oder ist nicht relevant für {{HTMLElement("select")}} oder Eingabetypen, die bereits nicht veränderbar sind, wie `{{HTMLElement("input/checkbox","checkbox")}}` und `{{HTMLElement("input/radio","radio")}}` oder die definitionsgemäß keinen Startwert haben können, wie der Eingabetyp `{{HTMLElement("input/file","file")}}`. `{{HTMLElement("input/range","range")}}` und `{{HTMLElement("input/color","color")}}`, da beide Standardwerte haben. Es wird auch nicht bei `{{HTMLElement("input/hidden","hidden")}}` unterstützt, da nicht erwartet werden kann, dass ein Benutzer ein verstecktes Formularfeld ausfüllt. Ebenso wird es bei keinem der Buttentypen, einschließlich `image`, unterstützt.
+Das Attribut wird bei {{HTMLElement("select")}} oder Eingabetypen, die bereits unveränderlich sind, wie `{{HTMLElement("input/checkbox","checkbox")}}` und `{{HTMLElement("input/radio","radio")}}`, oder die definitionsgemäß nicht mit einem Wert beginnen können, wie der `{{HTMLElement("input/file","file")}}` Eingabetyp, nicht unterstützt oder ist nicht relevant. `{{HTMLElement("input/range","range")}}` und `{{HTMLElement("input/color","color")}}` haben beide Standardwerte. Es wird auch nicht bei `{{HTMLElement("input/hidden","hidden")}}` unterstützt, da es nicht erwartet werden kann, dass Benutzer ein verstecktes Formular ausfüllen. Ebenso wird es bei keinem der Button-Typen, einschließlich `image`, unterstützt.
 
 > [!NOTE]
-> Nur Texteingaben können schreibgeschützt gemacht werden, da es bei anderen Steuerelementen (wie Kontrollkästchen und Schaltflächen) keinen nützlichen Unterschied zwischen schreibgeschützt und deaktiviert gibt, sodass das `readonly`-Attribut nicht zutrifft.
+> Nur Textsteuerungen können schreibgeschützt gemacht werden, da bei anderen Steuerungen (wie Kontrollkästchen und Schaltflächen) keine sinnvolle Unterscheidung zwischen schreibgeschützt und deaktiviert besteht. Das `readonly`-Attribut gilt daher nicht.
 
-Wenn eine Eingabe das `readonly`-Attribut hat, gilt auch die {{cssxref(":read-only")}}-Pseudo-Klasse. Im Gegensatz dazu stimmen Eingaben, die das `readonly`-Attribut unterstützen, aber nicht gesetzt haben, mit der {{cssxref(":read-write")}}-Pseudo-Klasse überein.
+Wenn eine Eingabe das `readonly`-Attribut hat, gilt auch die {{cssxref(":read-only")}} Pseudoklasse dafür. Umgekehrt werden Eingaben, die das `readonly`-Attribut unterstützen, aber nicht gesetzt haben, mit der {{cssxref(":read-write")}} Pseudoklasse übereinstimmen.
 
 ### Attribut-Interaktionen
 
-Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Attributes/disabled) und `readonly` besteht darin, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerelemente keinen Fokus erhalten können und nicht mit dem Formular übermittelt werden und im Allgemeinen nicht funktionieren, bis sie aktiviert werden.
+Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Attributes/disabled) und `readonly` besteht darin, dass schreibgeschützte Steuerungen weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerungen keinen Fokus erhalten können, nicht mit dem Formular gesendet werden und im Allgemeinen nicht als Steuerungen funktionieren, bis sie aktiviert werden.
 
-Weil ein schreibgeschütztes Feld seinen Wert durch Benutzerinteraktion nicht ändern kann, hat [`required`](/de/docs/Web/HTML/Attributes/required) keine Auswirkung auf Eingaben, bei denen auch das `readonly`-Attribut angegeben ist.
+Da ein schreibgeschütztes Feld seinen Wert nicht durch eine Benutzerinteraktion ändern kann, hat [`required`](/de/docs/Web/HTML/Attributes/required) keine Wirkung auf Eingaben, bei denen das `readonly`-Attribut auch angegeben ist.
 
-Der einzige Weg, den Wert des `readonly`-Attributs dynamisch zu ändern, ist über ein Skript.
+Der einzige Weg, den Wert des readonly-Attributs dynamisch zu ändern, ist über ein Skript.
 
 > [!NOTE]
-> Das `required`-Attribut ist bei Eingaben, bei denen das `readonly`-Attribut angegeben ist, nicht zulässig.
+> Das `required`-Attribut ist bei Eingaben, die das `readonly`-Attribut spezifiziert haben, nicht zulässig.
 
 ### Benutzerfreundlichkeit
 
 Browser zeigen das `readonly`-Attribut an.
 
-### Eingabefeldvalidierung
+### Constraints-Validierung
 
-Wenn das Element schreibgeschützt ist, kann der Wert des Elements vom Benutzer nicht aktualisiert werden und nimmt nicht an der Eingabefeldvalidierung teil.
+Wenn das Element schreibgeschützt ist, kann der Wert des Elements nicht vom Benutzer aktualisiert werden und nimmt nicht an der Constraints-Validierung teil.
 
 ## Beispiel
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSTransformValue.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element von `CSSTransformValue` aus.
+Die **`CSSTransformValue.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element des `CSSTransformValue` aus.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird, mit drei Argumenten:
+  - : Die Funktion, die für jedes Element ausgeführt werden soll, nimmt drei Argumente:
 
     - `currentValue`
-      - : Der Wert des aktuellen, verarbeiteten Elements.
+      - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
-      - : Der Index des aktuellen, verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das verarbeitet wird.
     - `array` {{optional_inline}}
-      - : Der `CSSTransformValue`, auf dem `forEach()` aufgerufen wird.
+      - : Das `CSSTransformValue`, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (also das referenzierte `Object`) beim Ausführen des `callback` verwendet wird.
+  - : Wert, der als **`this`** (d.h. das Referenz-`Object`) beim Ausführen des `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-To Do
+Noch erledigen
 
 ## Spezifikationen
 

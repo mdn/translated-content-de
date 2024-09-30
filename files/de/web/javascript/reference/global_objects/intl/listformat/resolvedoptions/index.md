@@ -2,13 +2,12 @@
 title: Intl.ListFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/resolvedOptions
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen
-gibt ein neues Objekt mit Eigenschaften zurück, die die während der Konstruktion dieses `Intl.ListFormat`-Objekts berechneten Locale- und Stilformatierungsoptionen widerspiegeln.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `ListFormat` Objekts berechneten Optionen widerspiegeln.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat-prototype-resolvedoptions.html")}}
 
@@ -24,18 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt mit Eigenschaften, die die während der Konstruktion des gegebenen {{jsxref("Intl.ListFormat")}}-Objekts berechneten Locale- und Formatierungsoptionen widerspiegeln.
-
-## Beschreibung
-
-Das durch `resolvedOptions()` zurückgegebene Objekt hat die folgenden Eigenschaften:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `ListFormat` Objekts berechneten Optionen widerspiegeln. Das Objekt enthält die folgenden Eigenschaften in der aufgelisteten Reihenfolge:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Locale. Wenn im Eingabe-BCP 47-Sprachcode Unicode-Erweiterungswerte angefordert wurden, die zu diesem Locale führten, sind die angeforderten und für dieses Locale unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
-- `style`
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument des Konstruktors bereitgestellt wurde, oder der Standardwert (`"long"`). Der Wert ist entweder `"long"`, `"short"` oder `"narrow"`.
+  - : Der BCP 47 Sprach-Tag für das tatsächlich verwendete Gebietsschema, ermittelt durch den [locale negotiation](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) Prozess. Es wird kein Unicode-Erweiterungsschlüssel in die Ausgabe aufgenommen.
 - `type`
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument des Konstruktors bereitgestellt wurde, oder der Standardwert (`"conjunction"`). Der Wert ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`.
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßiger Auffüllung nach Bedarf. Es ist entweder `"conjunction"`, `"disjunction"`, oder `"unit"`. Der Standardwert ist `"conjunction"`.
+- `style`
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßiger Auffüllung nach Bedarf. Es ist entweder `"long"`, `"short"`, oder `"narrow"`. Der Standardwert ist `"long"`.
 
 ## Beispiele
 

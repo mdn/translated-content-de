@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Der **`MIDIMessageEvent()`** Konstruktor erstellt ein neues [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Objekt. Normalerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erzeugt werden, wenn ein [`MIDIInput`](/de/docs/Web/API/MIDIInput) das Empfangen von einem oder mehreren MIDI-Nachrichten abschließt.
+Der **`MIDIMessageEvent()`** Konstruktor erstellt ein neues [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Objekt. In der Regel wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn ein [`MIDIInput`](/de/docs/Web/API/MIDIInput) das Empfangen von einem oder mehreren MIDI-Nachrichten abschließt.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ new MIDIMessageEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß-/Kleinschreibung-sensitiv und von Browsern immer auf `MIDIMessageEvent` gesetzt.
+    Er ist case-sensitiv und Browser setzen ihn immer auf `MIDIMessageEvent`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften, die folgenden Eigenschaften haben kann:
     - `data`
-      - : Eine {{jsxref("Uint8Array")}}-Instanz, die die Datenbytes der MIDI-Nachricht enthält.
+      - : Eine {{jsxref("Uint8Array")}} Instanz, die die Datenbytes der MIDI-Nachricht enthält.
 
 ### Rückgabewert
 

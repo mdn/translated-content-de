@@ -8,19 +8,19 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`checked`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, ob das Element derzeit angekreuzt ist; das heißt, ob das Eingabefeld aktiviert ist oder nicht.
+Die **`checked`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, ob das Element aktuell ausgewählt ist oder nicht; das heißt, ob das Formularsteuerelement aktiviert ist.
 
-Die boolesche `checked`-Eigenschaft ist relevant für die Eingabetypen `radio` ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)) und `checkbox` ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)).
+Die boolesche `checked`-Eigenschaft ist relevant für die Input-Typen `radio` ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)) und `checkbox` ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)).
 
-Das Vorhandensein des HTML-Attributs [`checked`](/de/docs/Web/HTML/Element/input#checked) zeigt an, dass das Kontrollkästchen standardmäßig aktiviert ist. Es gibt nicht an, ob dieses Kontrollkästchen derzeit aktiviert ist: Wenn sich der Zustand des Kontrollkästchens ändert, spiegelt dieses Inhaltsattribut die Änderung nicht wider; nur die IDL-Eigenschaft `checked` des `HTMLInputElement` wird aktualisiert. Das `checked`-Attribut wird durch die [`defaultChecked`](/de/docs/Web/API/HTMLInputElement/defaultChecked)-Eigenschaft widergespiegelt.
+Das Vorhandensein des HTML-Attributes [`checked`](/de/docs/Web/HTML/Element/input#checked) zeigt an, dass die Checkbox standardmäßig aktiviert ist. Es gibt jedoch nicht an, ob diese Checkbox momentan aktiviert ist: Wenn der Zustand der Checkbox geändert wird, spiegelt dieses Inhaltsattribut die Änderung nicht wider; nur die `HTMLInputElement`-Eigenschaft `checked` wird aktualisiert. Das `checked`-Attribut wird durch die [`defaultChecked`](/de/docs/Web/API/HTMLInputElement/defaultChecked)-Eigenschaft reflektiert.
 
-Wenn die `checked`-Eigenschaft eines Radio-Eingabefelds `true` ist, sind alle anderen Radio-Eingabefelder mit demselben [`name`](/de/docs/Web/API/HTMLInputElement/name) `false`. Wenn irgendein Radiobutton in einer Gruppe von Radiobuttons mit demselben Namen [`required`](/de/docs/Web/API/HTMLInputElement/required) ist, gilt: Solange ein Button in der Gruppe aktiviert ist, wird die nur lesbare [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts für jeden Radiobutton in der Gruppe `false` sein.
+Wenn eine `radio`-Input-Eigenschaft `checked` `true` ist, sind alle anderen Radio-Inputs mit demselben [`name`](/de/docs/Web/API/HTMLInputElement/name) `false`. Sollte ein Radiobutton in einer gleichnamigen Gruppe von Radiobuttons [`required`](/de/docs/Web/API/HTMLInputElement/required) sein, muss mindestens ein Button in der Gruppe `checked` sein, damit die schreibgeschützte [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts für jeden Radiobutton in der Gruppe `false` ist.
 
-Der Wert eines Kontrollkästchens wird nur in die gesendeten Daten aufgenommen, wenn `checked` wahr ist. Der Wert der [`HTMLInputElement.indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Eigenschaft hat keinen Einfluss auf den `checked`-Wert eines Kontrollkästchens.
+Ein Checkbox-Wert wird nur bei der Formularübermittlung in die übermittelten Daten aufgenommen, wenn `checked` wahr ist. Der Wert der [`HTMLInputElement.indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Eigenschaft hat keinen Einfluss auf den `checked`-Wert einer Checkbox.
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -42,4 +42,4 @@ inputElement.checked = true;
 
 - {{HTMLElement("input")}}
 - [`HTMLInputElement.validity`](/de/docs/Web/API/HTMLInputElement/validity)
-- {{cssxref(":checked")}} Pseudoklasse
+- {{cssxref(":checked")}} Pseudo-Klasse

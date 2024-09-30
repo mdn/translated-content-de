@@ -2,14 +2,12 @@
 title: Intl.DisplayNames.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/resolvedOptions
 l10n:
-  sourceCommit: fca3d118b765a990f223308b712fc78bc159043f
+  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`** Methode von {{jsxref("Intl.DisplayNames")}} Instanzen
-gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und Stilformatierungsoptionen widerspiegeln, die während der Erstellung dieses `Intl.DisplayNames`
-Objekts ermittelt wurden.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.DisplayNames")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die Optionen widerspiegeln, die während der Initialisierung dieses `DisplayNames`-Objekts berechnet wurden.
 
 ## Syntax
 
@@ -23,34 +21,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt mit Eigenschaften, die die Locale und Formatierungsoptionen widerspiegeln, die während
-der Erstellung des gegebenen {{jsxref("Intl.DisplayNames")}} Objekts ermittelt wurden.
-
-## Beschreibung
-
-Das von `resolvedOptions()` zurückgegebene Objekt hat die folgenden Eigenschaften:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DisplayNames`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, wie sie aufgelistet sind:
 
 - `locale`
-  - : Das BCP 47 Sprach-Tag für die tatsächlich verwendete Locale. Wenn in dem Eingabe-BCP 47 Sprach-Tag Unicode-Erweiterungswerte angefordert wurden, die zu dieser Locale führten, sind die angeforderten und für diese Locale unterstützbaren Schlüssel-Wert-Paare in `locale` enthalten.
+  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Gebietsschema, bestimmt durch den [locale negotiation](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation)-Prozess. Kein Unicode-Erweiterungsschlüssel wird in die Ausgabe aufgenommen.
 - `style`
-  - : Der in das `options` Argument des Konstruktors eingegebene Wert oder der Standardwert (`"long"`). Sein Wert ist entweder
-    `"long"`, `"short"` oder `"narrow"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde, mit Standards, die bei Bedarf ausgefüllt wurden. Es ist entweder `"narrow"`, `"short"` oder `"long"`. Der Standard ist `"long"`.
 - `type`
-  - : Der in das `options` Argument des Konstruktors eingegebene Wert oder der Standardwert (`"language"`). Sein Wert ist entweder
-    `"language"`, `"region"`, `"script"` oder
-    `"currency"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde. Es ist entweder `"language"`, `"region"`, `"script"`, `"currency"`, `"calendar"` oder `"dateTimeField"`. Es ist erforderlich, daher gibt es keinen Standard.
 - `fallback`
-  - : Der in das `options` Argument des Konstruktors eingegebene Wert oder
-    der Standardwert (`"code"`). Sein Wert ist entweder `"code"`
-    oder `"none"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde. Es ist entweder `"code"` oder `"none"`. Der Standard ist `"code"`.
 - `languageDisplay`
-  - : Der in das `options` Argument des Konstruktors eingegebene Wert oder
-    der Standardwert (`"dialect"`). Sein Wert ist entweder `"dialect"`
-    oder `"standard"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde. Es ist entweder `"dialect"` oder `"standard"`. Der Standard ist `"dialect"`.
 
 ## Beispiele
 
-### Verwendung von resolvedOptions
+### Verwenden von resolvedOptions
 
 ```js
 const displayNames = new Intl.DisplayNames(["de-DE"], { type: "region" });

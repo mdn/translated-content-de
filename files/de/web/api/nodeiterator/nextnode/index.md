@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.nextNode()`** Methode gibt den nächsten Knoten
-in der durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellten Menge zurück und verschiebt die Position des Iterators innerhalb der Menge. Der erste Aufruf von `nextNode()` gibt den
-ersten Knoten in der Menge zurück.
+Die Methode **`NodeIterator.nextNode()`** gibt den nächsten Knoten in der durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellten Menge zurück und verschiebt die Position des Iterators innerhalb der Menge. Der erste Aufruf von `nextNode()` gibt den ersten Knoten in der Menge zurück.
 
 Diese Methode gibt `null` zurück, wenn keine Knoten mehr in der Menge vorhanden sind.
 
-In alten Browsern, wie in früheren Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach) Methode aufgerufen wird. Neuere Browser werfen diesen Fehler nie.
+In alten Browsern, wie in früheren Versionen der Spezifikationen festgelegt, kann die Methode den `INVALID_STATE_ERR` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der Methode [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach) aufgerufen wird. Aktuelle Browser werfen diesen Fehler jedoch nie.
 
 ## Syntax
 
@@ -55,4 +53,4 @@ currentNode = nodeIterator.nextNode(); // returns the next node
 
 ## Siehe auch
 
-- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).
+- Die Schnittstelle, zu der es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

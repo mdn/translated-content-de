@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`locked`** schreibgeschützte Eigenschaft der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt zurück, ob der lesbare Stream an einen Leser gebunden ist oder nicht.
+Die schreibgeschützte **`locked`**-Eigenschaft der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt an, ob der lesbare Stream an einen Leser gebunden ist oder nicht.
 
-Ein lesbarer Stream kann jeweils höchstens einen aktiven Leser haben und ist an diesen Leser gebunden, bis er freigegeben wird.
-Ein Leser kann mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erworben und mit der `releaseLock()`-Methode des Lesers freigegeben werden.
+Ein lesbarer Stream kann höchstens einen aktiven Leser gleichzeitig haben und bleibt an diesen Leser gebunden, bis er freigegeben wird. Ein Leser kann durch Verwenden von [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erhalten und durch die Methode `releaseLock()` des Lesers freigegeben werden.
 
 ## Wert
 

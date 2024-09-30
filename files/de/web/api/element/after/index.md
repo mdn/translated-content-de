@@ -1,5 +1,5 @@
 ---
-title: "Element: after()-Methode"
+title: "Element: after() Methode"
 short-title: after()
 slug: Web/API/Element/after
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.after()`**-Methode fügt eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils des
-`Element` ein, direkt nach dem `Element`.
-Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die **`Element.after()`**-Methode fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils des `Element` ein, direkt nach dem `Element`. Zeichenfolgen werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,7 +21,7 @@ after(node1, node2, /* …, */ nodeN)
 ### Parameter
 
 - `node1`, …, `nodeN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -64,7 +61,7 @@ console.log(container.outerHTML);
 // "<div><p></p>Text</div>"
 ```
 
-### Einfügen eines Elements und Text
+### Einfügen eines Elements und von Text
 
 ```js
 let container = document.createElement("div");

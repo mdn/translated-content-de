@@ -33,7 +33,7 @@ column-count: unset;
 - `auto`
   - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist ein streng positiver {{cssxref("&lt;integer&gt;")}}, der die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen Wert ungleich `auto` gesetzt ist, gibt sie lediglich die maximal zulässige Anzahl von Spalten an.
+  - : Ist ein strikt positiver {{cssxref("&lt;integer&gt;")}}, der die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements geflossen wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen anderen Wert als `auto` gesetzt ist, zeigt sie lediglich die maximal zulässige Anzahl von Spalten an.
 
 ## Formale Definition
 
@@ -79,7 +79,7 @@ column-count: unset;
 
 ## Siehe auch
 
-- {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurzschreibweise
-- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
+- {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurznotation
+- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurznotation
 - [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) (Layout lernen)
-- [Grundkonzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- [Grundlegende Konzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)

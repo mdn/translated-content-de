@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{SeeCompatTable}}
 
-Das **`side`** Attribut bestimmt, auf welcher Seite eines Pfades der Text platziert wird (relativ zur Richtung des Pfades).
+Das **`side`**-Attribut bestimmt, auf welcher Seite eines Pfads der Text platziert wird (relativ zur Pfadrichtung).
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
@@ -58,7 +58,7 @@ text {
 
 {{EmbedLiveSample("Example", "420", "220")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -78,9 +78,9 @@ text {
 </table>
 
 - `left`
-  - : Dieser Wert platziert den Text auf der linken Seite des Pfades (relativ zur Richtung des Pfades).
+  - : Dieser Wert platziert den Text auf der linken Seite des Pfads (relativ zur Pfadrichtung).
 - `right`
-  - : Dieser Wert platziert den Text auf der rechten Seite des Pfades (relativ zur Richtung des Pfades). Dies kehrt die Pfadrichtung effektiv um.
+  - : Dieser Wert platziert den Text auf der rechten Seite des Pfads (relativ zur Pfadrichtung). Dies kehrt die Pfadrichtung effektiv um.
 
 ## Spezifikationen
 

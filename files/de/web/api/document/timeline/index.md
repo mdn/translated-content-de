@@ -8,18 +8,19 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die `timeline` schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document) Schnittstelle repräsentiert die Standard-Zeitleiste des aktuellen Dokuments. Diese Zeitleiste ist eine spezielle Instanz von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline).
+Die schreibgeschützte Eigenschaft `timeline` der [`Document`](/de/docs/Web/API/Document)-Schnittstelle repräsentiert die Standard-Timeline des aktuellen Dokuments. Diese Timeline ist eine spezielle Instanz von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline).
 
-Diese Zeitleiste ist für jedes `document` einzigartig und bleibt für die gesamte Lebensdauer des `document` bestehen, einschließlich Aufrufen von [`Document.open()`](/de/docs/Web/API/Document/open).
+Diese Timeline ist einzigartig für jedes `document` und bleibt während der gesamten Lebensdauer des `document` bestehen, einschließlich Aufrufen von [`Document.open()`](/de/docs/Web/API/Document/open).
 
-Diese Zeitleiste drückt die Zeit in Millisekunden seit [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) aus. Vor dem Zeitursprung ist die Zeitleiste inaktiv und ihre [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) ist `null`.
+Diese Timeline drückt die Zeit in Millisekunden seit [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) aus.
+Vor dem Zeitursprung ist die Timeline inaktiv, und ihre [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) ist `null`.
 
 > [!NOTE]
-> Eine Dokumenten-Zeitleiste, die mit einem inaktiven Dokument (einem [`Document`](/de/docs/Web/API/Document), das nicht mit einem [`Window`](/de/docs/Web/API/Window), {{htmlelement("iframe")}}, oder {{htmlelement("frame")}} assoziiert ist) verknüpft ist, wird ebenfalls als inaktiv betrachtet.
+> Eine Dokument-Timeline, die mit einem nicht aktiven Dokument (einem [`Document`](/de/docs/Web/API/Document), das nicht mit einem [`Window`](/de/docs/Web/API/Window), {{htmlelement("iframe")}} oder {{htmlelement("frame")}} verbunden ist) verknüpft ist, wird ebenfalls als inaktiv betrachtet.
 
 ## Wert
 
-Ein [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) Objekt.
+Ein [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline)-Objekt.
 
 ## Spezifikationen
 

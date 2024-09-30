@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Format und Ausgabe-Fähigkeiten (wie im [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert) bereitstellen kann.
+Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Format und die Ausgabefähigkeiten (wie durch die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert) bereitstellen kann.
 
 ## Wert
 

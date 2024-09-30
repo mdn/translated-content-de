@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Informatik ist ein **enumerated** Typ ein Datentyp, der aus einer begrenzten Menge benannter Werte besteht.
+In der Informatik ist ein **enumerierter** Typ ein Datentyp, der aus einer begrenzten Menge benannter Werte besteht.
 
-## HTML enumerierte Attribute
+## HTML eindimensionale Attribute
 
-In HTML sind [enumerierte Attribute](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#enumerated-attribute) Attribute mit einer begrenzten, vordefinierten Menge von Textwerten. Beispielsweise hat das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir) drei gültige Werte: `ltr`, `rtl` und `auto`.
+In HTML sind [eindimensionale Attribute](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#enumerated-attribute) Attribute mit einem begrenzten, vordefinierten Satz von Textwerten. Zum Beispiel hat das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir) drei gültige Werte: `ltr`, `rtl` und `auto`.
 
-Jedes enumerierte Attribut hat einen Standardwert für den Fall, dass das Attribut ohne Wert vorhanden ist (der Wert fehlt), und einen Standardwert für den Fall, dass dem Attribut ein ungültiger Wert zugewiesen wird. Im Gegensatz zu [Boolean-Attributen](/de/docs/Glossary/Boolean/HTML) von HTML — die immer wahr sind, wenn das Attribut vorhanden ist, unabhängig davon, ob der Wert vorhanden, weggelassen oder ungültig ist — kann bei enumerierten HTML-Attributen der Standardwert bei einem fehlenden Wert von dem Standardwert für ungültige Werte abweichen. Beispielsweise hat das globale HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) zwei gültige Schlüsselwörter: `true` und `false`. Ist das Attribut vorhanden, aber kein Wert gesetzt, ist der Wert `true`. Wenn ein Wert gesetzt ist, aber ungültig ist, wie z.B. `contenteditable="contenteditable"`, wird der Wert einer dritten Zustandsvariante `inherit` zugeordnet.
+Jedes eindimensionale Attribut hat einen Standardwert für den Fall, dass das Attribut ohne Wert vorhanden ist (der Wert fehlt), und einen Standardwert für den Fall, dass dem Attribut ein ungültiger Wert zugewiesen wird. Im Gegensatz zu [Boolean-Attributen](/de/docs/Glossary/Boolean/HTML) in HTML — die immer wahr sind, wenn das Attribut vorhanden ist, unabhängig davon, ob der Wert vorhanden, weggelassen oder ungültig ist — kann bei eindimensionalen HTML-Attributen der Standardwert für einen fehlenden Wert von dem Standard für ungültige Werte abweichen. Zum Beispiel hat das globale HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) zwei gültige Schlüsselwörter: `true` und `false`. Ist das Attribut vorhanden, aber kein Wert gesetzt, ist der Wert `true`. Wenn ein Wert gesetzt, aber ungültig ist, wie `contenteditable="contenteditable"`, wird der Wert auf einen dritten Zustand, `inherit`, abgebildet.
 
-## ARIA enumerierte Attribute
+## ARIA eindimensionale Attribute
 
-ARIA-Zustände und -Eigenschaften, die auf HTML basieren, haben ebenfalls enumerierte Attribute. Wenn ein ARIA-Attribut sowohl einen `true`- als auch einen `false`-Wert in der enumerierten Liste enthält, wird ein ausgelassenes Attribut im Allgemeinen als `false` und ein ungültiger Wert als `true` behandelt, während der Standardwert für den leeren String oder ein ausgelassener Wert vom Attribut abhängt.
+ARIA-Zustände und -Eigenschaften haben als HTML ebenfalls eindimensionale Attribute. Wenn ein ARIA-Attribut sowohl einen `true`- als auch einen `false`-Wert in der Liste der eindimensionalen Werte enthält, behandelt es ein ausgelassenes Attribut im Allgemeinen als `false` und einen ungültigen Wert als `true`, während der Standard für den leeren String oder fehlende Wert vom Attribut abhängt.
 
-Beispielsweise akzeptiert das Attribut `aria-current` eine begrenzte Liste von Werten, darunter `page`, `step`, `location`, `date`, `time`, `true` und `false`. In diesem Fall, wenn das Attribut nicht vorhanden ist, ein leerer String ist, ohne Wert vorhanden ist oder auf `aria-current="false"` gesetzt ist, ist das Attribut falsch und wird dem Benutzer nicht angezeigt. Ein beliebiger nicht leerer String-Wert, der nicht in der Liste der enumerierten Werte enthalten ist, wird so behandelt, als ob `aria-current="true"` gesetzt wäre.
+Zum Beispiel akzeptiert das Attribut `aria-current` eine begrenzte Liste von Werten, zu denen `page`, `step`, `location`, `date`, `time`, `true` und `false` gehören. In diesem Fall, wenn das Attribut nicht vorhanden ist, einen leeren String hat, ohne Wert vorhanden ist oder auf `aria-current="false"` gesetzt ist, ist das Attribut false und wird dem Benutzer nicht angezeigt. Jeder nicht-leere Zeichenfolgenwert, der nicht in der Liste der eindimensionalen Werte enthalten ist, wird behandelt, als wäre `aria-current="true"` gesetzt.
 
 ## JavaScript aufzählbare Eigenschaften
 
-In JavaScript sind aufzählbare Eigenschaften jene Eigenschaften, bei denen das interne aufzählbare Flag auf true gesetzt ist, was der Standard für Eigenschaften ist, die durch einfache Zuweisung oder über einen Eigenschaftsinitialisierer erstellt wurden. Die meisten Iterationsmechanismen (wie z.B. [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen und [`Object.keys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)) besuchen nur aufzählbare Schlüssel.
+In JavaScript sind aufzählbare Eigenschaften jene Eigenschaften, deren internes "enumerable"-Flag auf true gesetzt ist, was der Standard für über einfache Zuweisung oder über einen Eigenschafts-Initialisierer erstellte Eigenschaften ist. Die meisten Iterationsmechanismen (wie [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen und [`Object.keys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)) besuchen nur aufzählbare Schlüssel.
 
 ## Siehe auch
 

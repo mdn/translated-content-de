@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`contains()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein Knoten ein Nachfahre eines bestimmten Knotens ist, also der Knoten selbst, eines seiner direkten Kinder ([`childNodes`](/de/docs/Web/API/Node/childNodes)), eines der direkten Kinder der Kinder und so weiter.
+Die **`contains()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein Knoten ein Nachfahre eines gegebenen Knotens ist, also der Knoten selbst, einer seiner direkten Kinder ([`childNodes`](/de/docs/Web/API/Node/childNodes)), eines der direkten Kinder dieser Kinder und so weiter.
 
 > [!NOTE]
 > Ein Knoten ist _in sich selbst enthalten_.
@@ -22,18 +22,18 @@ contains(otherNode)
 ### Parameter
 
 - `otherNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), mit dem getestet werden soll.
-    > **Hinweis:** `otherNode` ist nicht optional, kann aber auf `null` gesetzt werden.
+  - : Der zu testende [`Node`](/de/docs/Web/API/Node).
+    > **Hinweis:** `otherNode` ist nicht optional, kann jedoch auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn `otherNode` im Knoten enthalten ist, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn `otherNode` in dem Knoten enthalten ist, `false` wenn nicht.
 
 Wenn der Parameter `otherNode` `null` ist, gibt `contains()` immer `false` zurück.
 
 ## Beispiel
 
-Diese Funktion prüft, ob ein Element im Body der Seite ist. Da `contains` inklusiv ist und die Bestimmung, ob der Body sich selbst enthält, nicht die Absicht von `isInPage` ist, gibt dieser Fall explizit `false` zurück.
+Diese Funktion prüft, ob ein Element im Body der Seite ist. Da `contains` inklusiv ist und feststellen soll, ob der Body sich selbst enthält, was nicht im Sinne von `isInPage` ist, gibt dieser Fall explizit `false` zurück.
 
 ```js
 function isInPage(node) {

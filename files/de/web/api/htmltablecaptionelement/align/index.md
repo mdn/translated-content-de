@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`align`**-Eigenschaft der Schnittstelle [`HTMLTableCaptionElement`](/de/docs/Web/API/HTMLTableCaptionElement) ist ein string, der angibt, wie der Text im {{htmlelement("caption")}}-Tabellenelement horizontal ausgerichtet werden soll.
+Die **`align`**-Eigenschaft der [`HTMLTableCaptionElement`](/de/docs/Web/API/HTMLTableCaptionElement)-Schnittstelle ist ein String, der angibt, wie der Text im {{htmlelement("caption")}}-Tabellenelement horizontal ausgerichtet werden soll.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text horizontal in einer Zelle auszurichten. Verwenden Sie die CSS-{{cssxref("text-align")}}-Eigenschaft, die Vorrang hat, um Text in der Caption-Zelle horizontal auszurichten.
+> Diese Eigenschaft ist veraltet und es sollte CSS verwendet werden, um den Text in einer Zelle horizontal auszurichten. Verwenden Sie die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um den Text in der Caption-Zelle horizontal auszurichten.
 
 ## Wert
 
 Die möglichen Werte sind:
 
 - `left`
-  - : Richten Sie den Text linksbündig aus. Verwenden Sie stattdessen `text-align: left`.
+  - : Den Text nach links ausrichten. Verwenden Sie stattdessen `text-align: left`.
 - `right`
-  - : Richten Sie den Text rechtsbündig aus. Verwenden Sie stattdessen `text-align: right`.
+  - : Den Text nach rechts ausrichten. Verwenden Sie stattdessen `text-align: right`.
 - `center`
-  - : Zentrieren Sie den Text in der Zelle. Verwenden Sie stattdessen `text-align: center`.
+  - : Den Text in der Zelle zentrieren. Verwenden Sie stattdessen `text-align: center`.
 
 ## Beispiele
 

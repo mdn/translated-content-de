@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft **`size`** des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt eine vorzeichenlose Ganzzahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
+Die schreibgeschützte **`size`**-Eigenschaft des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt eine vorzeichenlose Ganzzahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine vorzeichenlose Ganzzahl.
 
 ## Beispiele
 
-Hier verwenden wir die size-Eigenschaft, um die gesamte Anzahl der Einträge innerhalb des [`computedStyleMap`](/de/docs/Web/API/Element/computedStyleMap) der Schaltflächenelemente zurückzugeben.
+Hier verwenden wir die size-Eigenschaft, um die Gesamtanzahl der Einträge innerhalb der `computedStyleMap` der Schaltflächenelemente zurückzugeben.
 
 ```js
 // grab our element

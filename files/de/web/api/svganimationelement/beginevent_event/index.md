@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`beginEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn die lokale Zeitlinie des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht, wenn es wiederholt wird).
+Das **`beginEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d. h. wenn es neu startet, aber nicht bei Wiederholungen).
 
-Es kann sowohl im Verlauf des normalen (d.h. geplanten oder interaktiven) Zeitlinienverlaufs als auch dann ausgelöst werden, wenn das Element mit einer DOM-Methode gestartet wurde.
+Es kann sowohl im Verlauf eines normalen (d. h. geplanten oder interaktiven) Zeitleisten-Spiels als auch im Fall, dass das Element mit einer DOM-Methode gestartet wurde, ausgelöst werden.
 
-Dieses Ereignis ist nicht abbrechbar und bubblet nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht an übergeordnete Elemente weitergeleitet.
 
 ## Syntax
 
@@ -33,9 +33,9 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ## Ereigniseigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, das je nach Typ des Ereignisses einige Detailinformationen über das Ereignis angibt. Für diesen Ereignistyp gibt die Wiederholungsnummer für die Animation an.
+  - : Ein `long`, das einige Detailinformationen über das Ereignis je nach Ereignistyp angibt. Für diesen Ereignistyp gibt es die Wiederholungsnummer für die Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), der das Fenster identifiziert, von dem das Ereignis ausgelöst wurde.
+  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, von dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -87,9 +87,9 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '270')}}
 
-### Äquivalent zu einem Ereignis-Handler-Eigenschaft
+### Äquivalent zur Ereignis-Handler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `begin` Ereignis mit der `onbegin` Ereignis-Handler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `begin` Ereignis mit der `onbegin` Ereignis-Handler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onbegin = () => {

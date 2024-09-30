@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Der **`GamepadEvent()`**-Konstruktor erstellt ein neues [`GamepadEvent`](/de/docs/Web/API/GamepadEvent)-Objekt.
+Der **`GamepadEvent()`** Konstruktor erstellt ein neues [`GamepadEvent`](/de/docs/Web/API/GamepadEvent) Objekt.
 
 ## Syntax
 
@@ -19,15 +19,16 @@ new GamepadEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Er ist groß-/klein-schreibungssensitiv und Browser setzen ihn auf `gamepadconnected` oder `gamepaddisconnected`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitive und die Browser setzen es auf `gamepadconnected` oder `gamepaddisconnected`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind_, die folgenden Eigenschaften haben kann:
     - `gamepad`
-      - : Ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt, das das mit dem Ereignis verknüpfte Gamepad beschreibt.
+      - : Ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt, das das Gamepad beschreibt, das mit dem Ereignis verbunden ist.
 
 ### Rückgabewert
 
-Ein neues [`GamepadEvent`](/de/docs/Web/API/GamepadEvent)-Objekt.
+Ein neues [`GamepadEvent`](/de/docs/Web/API/GamepadEvent) Objekt.
 
 ## Spezifikationen
 

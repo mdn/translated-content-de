@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Definiert, wie Änderungen des Zooms gehandhabt werden. Erweiterungen können diesen Wert in {{WebExtAPIRef("tabs.setZoomSettings()")}} übergeben, um zu steuern, wie der Browser Versuche zur Änderung der Zoom-Einstellungen für einen Tab behandelt. Standardmäßig auf "automatic".
+Definiert, wie Zoomänderungen behandelt werden. Erweiterungen können diesen Wert in {{WebExtAPIRef("tabs.setZoomSettings()")}} übergeben, um zu steuern, wie der Browser Versuche zur Änderung der Zoom-Einstellungen für einen Tab behandelt. Standardmäßig ist "automatic".
 
-## Type
+## Typ
 
 Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "automatic"
-  - : Änderungen des Zooms werden vom Browser normal gehandhabt.
+  - : Zoomänderungen werden normal vom Browser behandelt.
 - "disabled"
-  - : Deaktiviert jegliches Zoomen in dem Tab. Der Tab kehrt zur Standard-Zoomstufe zurück, und alle Versuche, den Zoom zu ändern, werden ignoriert.
+  - : Deaktiviert das Zoomen im Tab vollständig. Der Tab wird auf die Standard-Zoomebene zurückgesetzt, und alle versuchten Zoomänderungen werden ignoriert.
 - "manual"
-  - : Die Erweiterung wird Zoom-Änderungen selbst handhaben, indem sie das {{WebExtAPIRef("tabs.onZoomChange")}}-Ereignis abhört und die Seite entsprechend skaliert. Dieser Modus unterstützt kein `per-origin`-Zoomen: er ignoriert die `scope` [Zoom-Einstellung](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings) und verwendet immer `per-tab`.
+  - : Die Erweiterung wird Zoomänderungen selbst behandeln, indem sie das {{WebExtAPIRef("tabs.onZoomChange")}}-Ereignis abfängt und die Seite entsprechend skaliert. Dieser Modus unterstützt kein `per-origin`-Zoomen: er ignoriert die `scope` [Zoom-Einstellung](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings) und verwendet immer `per-tab`.
 
 ## Browser-Kompatibilität
 
@@ -27,34 +27,4 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsMode) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsMode) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

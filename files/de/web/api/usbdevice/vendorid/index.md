@@ -8,11 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}
 
-Die schreibgeschützte **`vendorId`**-Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist die offizielle von usb.org zugewiesene Vendor-ID.
+Die schreibgeschützte Eigenschaft **`vendorId`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist die offizielle von usb.org zugewiesene Hersteller-ID.
 
 ## Wert
 
-Die offizielle von usb.org zugewiesene Vendor-ID.
+Die offizielle von usb.org zugewiesene Hersteller-ID.
 
 ## Spezifikationen
 

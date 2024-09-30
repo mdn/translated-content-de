@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Start-Abstand eines Elements, der sich je nach Schreibmodus, Richtung und Textorientierung des Elements auf einen physischen Abstand abbildet.
+Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Startabstand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements in einen physikalischen Abstand umgerechnet wird.
 
 {{EmbedInteractiveExample("pages/css/padding-inline-start.html")}}
 
@@ -34,15 +34,15 @@ padding-inline-start: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, bezogen auf die Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-In einer englischen Sprache, die von links nach rechts und von oben nach unten verläuft, entspricht die `padding-inline-start`-Eigenschaft für diesen Textabschnitt der {{cssxref("padding-top")}}-Eigenschaft. Ob diese logische Eigenschaft der `padding-top`, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}} oder {{cssxref("padding-left")}} entspricht, hängt jedoch vom {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements ab.
+In einer englischen Sprache, die von links nach rechts und von oben nach unten geht, entspricht die `padding-inline-start` Eigenschaft dieses Textabschnitts der {{cssxref("padding-top")}} Eigenschaft. Ob diese logische Eigenschaft jedoch der `padding-top`, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, oder {{cssxref("padding-left")}} entspricht, hängt vom {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements ab.
 
-Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, die die anderen Abstände des Elements definieren.
+Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, die die anderen Abstände des Elements definieren.
 
-## Formaldefinition
+## Formale Definition
 
 {{cssinfo}}
 
@@ -92,6 +92,6 @@ div {
 
 ## Siehe auch
 
-- [CSS-Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

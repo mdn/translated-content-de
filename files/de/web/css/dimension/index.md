@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) stellt eine {{CSSxRef("&lt;number&gt;")}} mit einer Einheit dar, zum Beispiel `10px`.
+Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert ein {{CSSxRef("&lt;number&gt;")}} mit einer angehängten Einheit, zum Beispiel `10px`.
 
-CSS verwendet Dimensionen, um Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{CSSxRef("&lt;resolution&gt;")}}) und andere Größen zu spezifizieren.
+CSS verwendet Dimensionen, um Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitspannen ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{CSSxRef("&lt;resolution&gt;")}}) und andere Größenangaben zu spezifizieren.
 
 ## Syntax
 
-Die Syntax von `<dimension>` ist eine {{CSSxRef("&lt;number&gt;")}}, gefolgt von einer Einheit, die ein Bezeichner ist. Einheitenbezeichner sind nicht case-sensitiv.
+Die Syntax von `<dimension>` ist ein {{CSSxRef("&lt;number&gt;")}}, dem sofort eine Einheit folgt, die ein Bezeichner ist. Einheitsbezeichner sind nicht case-sensitiv.
 
 ## Beispiele
 
@@ -48,5 +48,5 @@ Die Syntax von `<dimension>` ist eine {{CSSxRef("&lt;number&gt;")}}, gefolgt von
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/CSS_Types)
-- [Lernen Sie, HTML mit CSS zu gestalten](/de/docs/Learn/CSS)
-- CSS Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{CSSxRef("&lt;resolution&gt;")}})
+- [Lernen Sie, HTML mit CSS zu stylen](/de/docs/Learn/CSS)
+- CSS-Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitspannen ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{CSSxRef("&lt;resolution&gt;")}})

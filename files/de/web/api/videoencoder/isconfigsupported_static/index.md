@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`isConfigSupported()`** statische Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) Schnittstelle überprüft, ob [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) erfolgreich mit der angegebenen Konfiguration konfiguriert werden kann.
+Die statische Methode **`isConfigSupported()`** des [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Interfaces überprüft, ob [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) erfolgreich mit der angegebenen Konfiguration eingerichtet werden kann.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ VideoEncoder.isConfigSupported(config)
 ### Parameter
 
 - `config`
-  - : Das Wörterbuchobjekt, das von [`VideoEncoder.configure`](/de/docs/Web/API/VideoEncoder/configure) akzeptiert wird.
+  - : Das Wörterbuchobjekt, das von [`VideoEncoder.configure`](/de/docs/Web/API/VideoEncoder/configure) akzeptiert wird
 
 ### Rückgabewert
 
@@ -33,11 +33,11 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgend
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder wenn ungültige Werte vorhanden sind (wie eine negative `width`).
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte vorhanden sind (wie eine negative `width`).
 
 ## Beispiele
 
-Im folgenden Beispiel wird getestet, ob der Browser beschleunigte und nicht beschleunigte Versionen verschiedener Videocodecs unterstützt.
+Das folgende Beispiel testet, ob der Browser beschleunigte und unbeschleunigte Versionen mehrerer Videocodecs unterstützt.
 
 ```js
 const codecs = ["avc1.42001E", "vp8", "vp09.00.10.08", "av01.0.04M.08"];

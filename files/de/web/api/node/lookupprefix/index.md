@@ -1,5 +1,5 @@
 ---
-title: "Node: lookupPrefix() Methode"
+title: "Node: lookupPrefix()-Methode"
 short-title: lookupPrefix()
 slug: Web/API/Node/lookupPrefix
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`lookupPrefix()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
-gibt einen String zurück, der das Präfix für einen angegebenen Namespace-URI enthält, falls vorhanden,
-und `null`, wenn nicht.
-Wenn mehrere Präfixe möglich sind, wird das erste Präfix zurückgegeben.
+Die **`lookupPrefix()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt einen String zurück, der das Präfix für einen gegebenen Namespace-URI enthält, sofern vorhanden, und `null`, wenn nicht. Wenn mehrere Präfixe möglich sind, wird das erste Präfix zurückgegeben.
 
 ## Syntax
 
@@ -22,17 +19,15 @@ lookupPrefix(namespace)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace enthält, um das Präfix nachzuschlagen.
+  - : Ein String, der den Namespace enthält, für den das Präfix gesucht wird.
     > [!NOTE]
     > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein String, der das entsprechende Präfix enthält, oder `null`, wenn keines gefunden wurde.
-Wenn `namespace` null oder der leere String ist, gibt `lookupPrefix()` `null` zurück.
+Ein String, der das entsprechende Präfix enthält, oder `null`, wenn keines gefunden wurde. Wenn `namespace` null oder der leere String ist, gibt `lookupPrefix()` `null` zurück.
 
-Wenn der Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) oder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist,
-gibt `lookupPrefix()` immer `null` zurück.
+Wenn der Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) oder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, gibt `lookupPrefix()` immer `null` zurück.
 
 ## Beispiel
 

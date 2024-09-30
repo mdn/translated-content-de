@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Wenn ein [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Objekt erstellt wird, _MUSS_ sein `binaryType` IDL-Attribut auf den String `"arraybuffer"` gesetzt werden. Beim Abrufen _MUSS_ das Attribut seinen zuletzt gesetzten Wert zurückgeben (der Wert, auf den es zuletzt gesetzt wurde). Beim Setzen _MUSS_ der Benutzeragent das IDL-Attribut auf den neuen Wert setzen.
+Wenn ein [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Objekt erstellt wird, muss sein `binaryType`-IDL-Attribut auf den String `"arraybuffer"` gesetzt werden. Beim Abrufen muss das Attribut seinen neuesten Wert zurückgeben (den Wert, den es zuletzt hatte). Beim Setzen muss der User-Agent das IDL-Attribut auf den neuen Wert setzen.
 
 > [!NOTE]
-> Das `binaryType`-Attribut ermöglicht es Autoren, zu steuern, wie Binärdaten in Skripten dargestellt werden. Durch Setzen des Attributs auf `"blob"` werden Binärdaten in `Blob`-Form zurückgegeben; durch Setzen auf `"arraybuffer"` werden sie in {{JSxRef("ArrayBuffer")}}-Form zurückgegeben. Das Attribut hat standardmäßig den Wert `"arraybuffer"`. Dieses Attribut hat keinen Einfluss auf Daten, die in String-Form versendet werden.
+> Das `binaryType`-Attribut ermöglicht es den Autoren, zu steuern, wie Binärdaten Skripten zugänglich gemacht werden. Indem das Attribut auf `"blob"` gesetzt wird, werden Binärdaten in `Blob`-Form zurückgegeben; durch Setzen auf `"arraybuffer"` werden sie in {{JSxRef("ArrayBuffer")}}-Form zurückgegeben. Das Attribut hat standardmäßig den Wert `"arraybuffer"`. Dieses Attribut hat keinen Einfluss auf Daten, die in String-Form gesendet werden.
 
 ## Spezifikationen
 

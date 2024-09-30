@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`expectedImprovement`**-Eigenschaft der [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Schnittstelle gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die durch die Verwendung dieses Presenters erwartet werden kann.
+Die **`expectedImprovement`**-Eigenschaft des [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Interfaces ist eine schreibgeschützte Eigenschaft, die einen Wert in Millisekunden zurückgibt, welcher die zu erwartende Latenzverbesserung bei Verwendung dieses Presenters anzeigt.
 
 ### Wert
 

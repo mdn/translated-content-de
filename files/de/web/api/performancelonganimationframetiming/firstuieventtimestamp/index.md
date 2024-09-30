@@ -1,5 +1,5 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: Eigenschaft firstUIEventTimestamp"
+title: "PerformanceLongAnimationFrameTiming: firstUIEventTimestamp-Eigenschaft"
 short-title: firstUIEventTimestamp
 slug: Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`firstUIEventTimestamp`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt des ersten UI-Ereignisses angibt — wie z.B. ein Maus- oder Tastaturereignis — das während des aktuellen Animationsframes in die Warteschlange eingereiht wird.
+Die schreibgeschützte Eigenschaft **`firstUIEventTimestamp`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit des ersten UI-Events angibt – wie ein Maus- oder Tastatur-Event –, das während des aktuellen Animationsframes in die Warteschlange gestellt wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Timing von langen Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Timing von langen Animationsframes](/de/docs/Web/API/Performance_API/Long
 
 ## Siehe auch
 
-- [Timing von langen Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

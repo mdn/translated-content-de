@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb der Zeilenbox platziert werden.
+Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb der Zeilenbox platziert werden.
 
 ## Syntax
 
@@ -52,9 +52,9 @@ Die `hanging-punctuation`-Eigenschaft kann mit einem, zwei oder drei durch Leerz
     - alle Zeichen in den Unicode-Kategorien [Pe](https://unicodeplus.com/category/Pe), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
     - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
 - `allow-end`
-  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es sonst vor der Ausrichtung nicht passt.
+  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es sonst nicht vor der Ausrichtung passt.
 
-Punkte und Kommas, die hängen dürfen, umfassen:
+Erlaubte Punkte und Kommas zum Hängen umfassen:
 
 - `U+002C`, KOMMA
 - `U+002E`, PUNKT
@@ -62,13 +62,13 @@ Punkte und Kommas, die hängen dürfen, umfassen:
 - `U+06D4`, ARABISCHER PUNKT
 - `U+3001`, IDEOGRAPHISCHES KOMMA
 - `U+3002`, IDEOGRAPHISCHER PUNKT
-- `U+FF0C`, KOMMA IN VOLLBREITE
-- `U+FF0E`, PUNKT IN VOLLBREITE
+- `U+FF0C`, VOLLBREITES KOMMA
+- `U+FF0E`, VOLLBREITER PUNKT
 - `U+FE50`, KLEINES KOMMA
 - `U+FE51`, KLEINES IDEOGRAPHISCHES KOMMA
 - `U+FE52`, KLEINER PUNKT
 - `U+FF61`, HALBBREITER IDEOGRAPHISCHER PUNKT
-- `U+FF64`, HALBBREITEN IDEOGRAPHISCHES KOMMA
+- `U+FF64`, HALBBREITES IDEOGRAPHISCHES KOMMA
 
 Benutzeragenten können zusätzliche Zeichen einschließen.
 
@@ -82,7 +82,7 @@ Benutzeragenten können zusätzliche Zeichen einschließen.
 
 ## Beispiele
 
-### Eröffnende und schließende Anführungszeichen hängen lassen
+### Öffnende und schließende Anführungszeichen hängen lassen
 
 #### HTML
 

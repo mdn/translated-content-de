@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`bytes()`**-Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus.
-Sie gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
+Die **`bytes()`**-Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn bis zum Ende. Sie gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Syntax
 
@@ -30,9 +29,9 @@ Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 - [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Ausgeworfen aus einem der folgenden Gründe:
+  - : Wird aus einem der folgenden Gründe ausgelöst:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
+    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil das {{httpheader("Content-Encoding")}}-Header fehlerhaft ist).
 - {{jsxref("RangeError")}}
   - : Es gab ein Problem beim Erstellen des zugehörigen `ArrayBuffer`.
     Zum Beispiel, wenn die Datengröße mehr als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) beträgt.
@@ -41,7 +40,7 @@ Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ### Abrufen und Dekodieren einer Datei
 
-Der untenstehende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und dann in einen String dekodieren können.
+Der untenstehende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und dann diesen in einen String dekodieren könnten.
 
 ```js
 const response = await fetch("https://www.example.com/textfile.txt");
@@ -56,7 +55,7 @@ Dieses Beispiel zeigt, wie Sie `bytes()` verwenden können, um die Signatur-Byte
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("select")}}-Element zur Auswahl des Dateityps mit entsprechenden Werten, die die spezifische Datei auf WikiMedia Commons angeben, die abgerufen werden soll.
+Zunächst definieren wir ein {{htmlelement("select")}}-Element zur Auswahl des Dateityps, mit entsprechenden Werten, die die spezifische Datei auf Wikimedia Commons zum Abrufen anzeigen.
 
 ```html
 <label for="file-select">Choose a file:</label>
@@ -101,10 +100,7 @@ function log(text) {
 }
 ```
 
-Der Code prüft zuerst, ob die `bytes()`-Methode unterstützt wird.
-Wenn die Methode unterstützt wird, fügt sie einen Ereignishandler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event) Ereignis auf dem `<select>`-Element hinzu.
-Wenn sich der Wert ändert, wird der Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte `checkSignature()`-Methode übergeben.
-Wenn die Methode nicht unterstützt wird, wird diese Information protokolliert.
+Der Code prüft zuerst, ob die `bytes()`-Methode unterstützt wird. Wenn die Methode unterstützt wird, fügt er einen Ereignishandler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auf dem `<select>`-Element hinzu. Wenn sich der Wert ändert, übergibt er den Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte `checkSignature()`-Methode. Wenn die Methode nicht unterstützt wird, protokolliert er diese Information.
 
 ```js
 if ("bytes" in Response.prototype) {
@@ -121,10 +117,7 @@ if ("bytes" in Response.prototype) {
 }
 ```
 
-Die `checkSignature()`-Methode wird unten definiert.
-Diese ruft eine Datei unter der angegebenen `url` ab und verwendet `response.bytes()`, um deren Inhalt als Byte-Array zu erhalten.
-Die Anfangsbytes werden dann mit den Anfangssignatur-Bytes einer Anzahl gängiger Dateitypen verglichen.
-Der Dateiname und der Dateityp werden dann protokolliert.
+Die `checkSignature()`-Methode ist unten definiert. Diese holt eine Datei von der angegebenen `url` und verwendet `response.bytes()`, um deren Inhalt als Byte-Array zu erhalten. Die ersten Bytes werden dann mit den initialen Signatur-Bytes einer Reihe von gebräuchlichen Dateitypen verglichen. Der Dateiname und der Dateityp werden dann protokolliert.
 
 ```js
 async function checkSignature(url) {
@@ -164,8 +157,7 @@ async function checkSignature(url) {
 
 #### Ergebnis
 
-Wählen Sie einen Bildtyp aus der Auswahlliste.
-Das Protokoll sollte dann den Dateinamen sowie den Dateityp anzeigen, der aus der Signatur der Datei ermittelt wurde.
+Wählen Sie einen Bildtyp aus der Auswahlliste. Das Protokoll sollte dann den Dateinamen zusammen mit dem Dateityp anzeigen, der aus der Signatur der Datei ermittelt wurde.
 
 {{EmbedLiveSample("Getting an image file signature", "100", "200px")}}
 

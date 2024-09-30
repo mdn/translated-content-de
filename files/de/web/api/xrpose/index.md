@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{securecontext_header}}
 
-`XRPose` ist eine [WebXR API](/de/docs/Web/API/WebXR_Device_API) Schnittstelle, die eine Position und Orientierung im 3D-Raum darstellt, relativ zum [`XRSpace`](/de/docs/Web/API/XRSpace), in dem sie sich befindet. Das `XRSpace`—entweder ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) oder ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)—definiert das Koordinatensystem, das für die Pose verwendet wird, und im Falle einer [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) ihre zugrunde liegenden Ansichten.
+`XRPose` ist ein [WebXR API](/de/docs/Web/API/WebXR_Device_API)-Interface, das eine Position und Orientierung im 3D-Raum darstellt, relativ zu dem [`XRSpace`](/de/docs/Web/API/XRSpace), in dem es sich befindet. Der `XRSpace`—entweder ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) oder ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)—definiert das Koordinatensystem, das für die Pose verwendet wird und, im Fall eines [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), dessen zugrundeliegende Ansichten.
 
-Um die `XRPose` für das `XRSpace` zu erhalten, das als lokales Koordinatensystem eines Objekts verwendet wird, rufen Sie [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) auf und geben Sie das lokale `XRSpace` und den Raum an, in den Sie konvertieren möchten:
+Um das `XRPose` für den `XRSpace` zu erhalten, das als lokales Koordinatensystem eines Objekts verwendet wird, rufen Sie [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) auf, und geben Sie diesen lokalen `XRSpace` und den Raum an, in den Sie umwandeln möchten:
 
 ```js
 thePose = xrFrame.getPose(localSpace, baseSpace);
 ```
 
-Die Pose für einen Betrachter (oder eine Kamera) wird durch die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) Unterklasse von `XRPose` dargestellt. Diese wird mit [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) anstelle von `getPose()` erhalten, indem ein Referenzraum spezifiziert wird, der angepasst wurde, um den Knoten so zu positionieren und auszurichten, dass die gewünschte Betrachtungsposition und der gewünschte Betrachtungswinkel bereitgestellt werden:
+Die Pose für einen Betrachter (oder eine Kamera) wird durch die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Unterklasse von `XRPose` dargestellt. Diese wird mit [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) anstelle von `getPose()` erhalten, indem ein Referenzraum spezifiziert wird, der angepasst wurde, um den Knoten so zu positionieren und auszurichten, dass die gewünschte Betrachtungsposition und -winkel bereitgestellt werden:
 
 ```js
 viewerPose = xrFrame.getViewerPose(adjReferenceSpace);
 ```
 
-Hierbei ist `adjReferenceSpace` ein Referenzraum, der mithilfe des Basisreferenzrahmens für den Rahmen und aller Anpassungen aktualisiert wurde, die erforderlich sind, um den Betrachter basierend auf Bewegungen oder Rotationen zu positionieren, die aus einer anderen Quelle als dem XR-Gerät bereitgestellt werden, wie z.B. Tastatur- oder Maus-Eingaben.
+Hierbei ist `adjReferenceSpace` ein Referenzraum, der unter Verwendung des Basisrahmens des Referenzrahmens und aller Anpassungen, die zur Positionierung des Betrachters aufgrund von Bewegungen oder Rotationen erforderlich sind, aktualisiert wurde, die von einer anderen Quelle als dem XR-Gerät bereitgestellt werden, wie zum Beispiel Eingaben von Tastatur oder Maus.
 
-Für weitere Details und ein Beispiel mit ausführlichen Erklärungen dazu, was passiert, siehe den Artikel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion).
+Siehe den Artikel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) für weitere Informationen und ein Beispiel mit ausführlichen Erklärungen zum Ablauf.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`XRPose.angularVelocity`](/de/docs/Web/API/XRPose/angularVelocity) {{ReadOnlyInline}}
-  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Bogenmaß pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt.
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Radianten pro Sekunde relativ zum Basis-`XRSpace` beschreibt.
 - [`XRPose.emulatedPosition`](/de/docs/Web/API/XRPose/emulatedPosition) {{ReadOnlyInline}}
-  - : Ein Boolescher Wert, der `false` ist, wenn die durch [`transform`](/de/docs/Web/API/XRPose/transform) gegebene Position und Orientierung direkt von einem vollständigen Sechs-Grad-of-Freedom (6DoF) XR-Gerät erhalten wird (das heißt, ein Gerät, das nicht nur die Neigung, das Gieren und Rollen des Kopfes, sondern auch die Vorwärts-, Rückwärts- und Seitenbewegungen des Betrachters verfolgt). Wenn eine Komponente des `transform` berechnet oder künstlich erstellt wird (z.B. durch Verwendung von Maus- oder Tastatursteuerungen, um sich durch den Raum zu bewegen), ist dieser Wert stattdessen `true`, was darauf hinweist, dass der `transform` teilweise in Software emuliert wird.
+  - : Ein boolescher Wert, der `false` ist, wenn die von [`transform`](/de/docs/Web/API/XRPose/transform) angegebene Position und Orientierung direkt von einem vollwertigen XR-Gerät mit sechs Freiheitsgraden (6DoF) bezogen wird (also einem Gerät, das nicht nur die Neigung, Gier und Rollbewegung des Kopfes, sondern auch die vorwärts-, rückwärts- und seitwärtsgerichtete Bewegung des Betrachters verfolgt). Wenn eine Komponente des `transform` berechnet oder künstlich erstellt wird (z. B. durch die Verwendung von Maus- oder Tastatursteuerungen, um sich durch den Raum zu bewegen), ist dieser Wert stattdessen `true`, was darauf hinweist, dass der `transform` teilweise softwarebasiert emuliert ist.
 - [`XRPose.linearVelocity`](/de/docs/Web/API/XRPose/linearVelocity) {{ReadOnlyInline}}
-  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt.
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zum Basis-`XRSpace` beschreibt.
 - [`XRPose.transform`](/de/docs/Web/API/XRPose/transform) {{ReadOnlyInline}}
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die Position und Orientierung der Pose relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) bereitstellt.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die Position und Orientierung der Pose relativ zum Basis-`XRSpace` bereitstellt.
 
 ## Spezifikationen
 

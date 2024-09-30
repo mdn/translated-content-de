@@ -9,7 +9,7 @@ l10n:
 
 Verschiebt einen oder mehrere Tabs an eine neue Position im selben Fenster oder in ein anderes Fenster.
 
-Sie können Tabs nur zu und von Fenstern bewegen, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
+Sie können Tabs nur in und aus Fenstern verschieben, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,22 +31,22 @@ let moving = browser.tabs.move(
   - : `object`. Ein Objekt, das angibt, wohin der/die Tab(s) verschoben werden soll(en).
 
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in das Sie den/die Tab(s) verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` im aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der in `tabIds` angegebenen Reihenfolge.
+      - : `integer`. Die ID des Fensters, in das Sie den/die Tab(s) verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` in seinem aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der angegebenen Reihenfolge in `tabIds`.
     - `index`
 
       - : `integer`. Die Indexposition, an die der Tab verschoben werden soll, beginnend bei 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
 
-        Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler auslösen.
+        Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler werfen.
 
-        Beachten Sie, dass Sie keine angehefteten Tabs an eine Position verschieben können, die nach nicht angehefteten Tabs in einem Fenster liegt, oder nicht angeheftete Tabs vor angeheftete Tabs verschieben können. Wenn Sie beispielsweise ein oder mehrere angeheftete Tabs im Ziel-Fenster haben und `tabIds` auf einen nicht angehefteten Tab verweist, können Sie hier nicht 0 übergeben. Wenn Sie versuchen, dies zu tun, wird die Funktion leise fehlschlagen (sie wird keinen Fehler auslösen).
+        Beachten Sie, dass Sie keine fixierten Tabs an eine Position hinter einem nicht fixierten Tab in einem Fenster verschieben können oder umgekehrt. Wenn Sie beispielsweise in dem Ziel-Fenster einen oder mehrere fixierte Tabs haben und `tabIds` auf einen nicht fixierten Tab verweist, können Sie hier nicht 0 angeben. Wenn Sie dies versuchen, schlägt die Funktion stillschweigend fehl (es wird kein Fehler geworfen).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('tabs.Tab')}}` Objekt oder einem `array` von `{{WebExtAPIRef('tabs.Tab')}}` Objekten erfüllt wird, die Details über die verschobenen Tabs enthalten. Wenn keine Tabs verschoben wurden (z.B. weil Sie versucht haben, einen nicht angehefteten Tab vor einen angehefteten Tab zu verschieben), wird dies ein leeres Array sein. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('tabs.Tab')}}`-Objekt oder einem `array` von `{{WebExtAPIRef('tabs.Tab')}}`-Objekten erfüllt wird, das Details über die verschobenen Tabs enthält. Wenn keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht fixierten Tab vor einen fixierten Tab zu verschieben), wird dies ein leeres Array sein. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Verschieben Sie den ersten Tab im aktuellen Fenster an die letzte Position im aktuellen Fenster:
+Verschieben Sie den ersten Tab im aktuellen Fenster in die letzte Position im aktuellen Fenster:
 
 ```js
 function onMoved(tab) {
@@ -71,7 +71,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, an das Ende ihres Fensters:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, an das Ende ihres Fensters:
 
 ```js
 function onMoved(tab) {
@@ -94,7 +94,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, in das Fenster, das den ersten solchen Tab beherbergt, beginnend bei Position 0:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, in das Fenster, das den ersten solchen Tab hostet, beginnend bei Position 0:
 
 ```js
 function onMoved(tab) {
@@ -128,7 +128,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

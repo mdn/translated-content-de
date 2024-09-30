@@ -7,27 +7,27 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Das `scope`-Element ist ein String, der den Navigationsbereich des Anwendungskontexts dieser Webanwendung definiert. Es beschränkt, welche Webseiten angezeigt werden können, während das Manifest angewendet wird. Navigiert der Benutzer außerhalb des Geltungsbereichs, kehrt die Ansicht zu einer normalen Webseite innerhalb eines Browser-Tabs oder -Fensters zurück.
+Das `scope`-Element ist eine Zeichenfolge, die den Navigationsbereich des Anwendungsbereichs dieser Webanwendung definiert. Es beschränkt, welche Webseiten angezeigt werden können, während das Manifest angewendet wird. Wenn der Benutzer außerhalb des Bereichs navigiert, wird es auf eine normale Webseite in einem Browser-Tab oder -Fenster zurückgesetzt.
 
-Ein gültiger `scope` muss es ermöglichen, dass die [`start_url`](/de/docs/Web/Manifest/start_url) im Geltungsbereich liegt. Wenn der `scope` eine relative URL ist, wird die Basis-URL die URL des Manifests sein. Die Abfrage und das Fragment der URL werden immer ignoriert.
+Ein gültiger `scope` muss zulassen, dass [`start_url`](/de/docs/Web/Manifest/start_url) im Bereich ist. Wenn `scope` eine relative URL ist, wird die Basis-URL die URL des Manifests sein. Die Abfrage und das Fragment der URL werden immer ignoriert.
 
-Wenn `scope` nicht angegeben oder in irgendeiner Weise ungültig ist (zum Beispiel kein String, keine gültige URL oder dazu führt, dass `start_url` außerhalb des Geltungsbereichs liegt), wird die `start_url` verwendet, wobei das letzte Pfadsegment entfernt wird.
+Wenn `scope` nicht angegeben oder in irgendeiner Weise ungültig ist (zum Beispiel keine Zeichenfolge, keine gültige URL, oder `start_url` aus dem Bereich herausbringt), wird `start_url` verwendet, wobei das letzte Pfadsegment entfernt wird.
 
 ## Beispiele
 
-Wenn der Geltungsbereich relativ ist, wird die Manifest-URL als Basis-URL verwendet:
+Ist der Bereich relativ, wird die Manifest-URL als Basis-URL verwendet:
 
 ```json
 "scope": "/app/"
 ```
 
-Der folgende Geltungsbereich beschränkt die Navigation auf die aktuelle Seite:
+Der folgende Bereich beschränkt die Navigation auf die aktuelle Website:
 
 ```json
 "scope": "https://example.com/"
 ```
 
-Schließlich beschränkt das folgende Beispiel die Navigation auf ein Unterverzeichnis der aktuellen Seite:
+Schließlich beschränkt das folgende Beispiel die Navigation auf ein Unterverzeichnis der aktuellen Website:
 
 ```json
 "scope": "https://example.com/subdirectory/"

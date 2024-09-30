@@ -11,7 +11,7 @@ Pixeldaten für ein Bild.
 
 ## Typ
 
-Ein [`ImageData`](/de/docs/Web/API/ImageData) Objekt, z.B. von einem {{htmlelement("canvas")}} Element.
+Ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt, z.B. von einem {{htmlelement("canvas")}}-Element.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Ein [`ImageData`](/de/docs/Web/API/ImageData) Objekt, z.B. von einem {{htmleleme
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#type-ImageDataType). Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#type-ImageDataType) von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

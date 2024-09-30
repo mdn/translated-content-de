@@ -9,11 +9,11 @@ l10n:
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
 > [!NOTE]
-> Diese Methode ist von Web-Inhalten aus nicht verfügbar. Sie erfordert erhöhte Berechtigungen zum Zugriff.
+> Diese Methode ist nicht aus Web-Inhalten verfügbar. Sie erfordert erhöhte Zugriffsrechte.
 
-**`XMLHttpRequest.mozBackgroundRequest`** ist ein Boolean, der angibt, ob das Objekt einen Hintergrunddienst-Anfrage darstellt. Wenn `true`, ist keine Ladegruppe mit der Anfrage verbunden, und Sicherheitsdialoge werden dem Benutzer nicht angezeigt.
+**`XMLHttpRequest.mozBackgroundRequest`** ist ein Boolean, der angibt, ob das Objekt eine Hintergrunddienstanfrage darstellt. Wenn `true`, ist keine Ladegruppe mit der Anfrage verbunden und Sicherheitsdialoge werden daran gehindert, dem Benutzer angezeigt zu werden.
 
-In Fällen, in denen normalerweise ein Sicherheitsdialog (wie zum Beispiel eine Authentifizierung oder eine Benachrichtigung über ein ungültiges Zertifikat) angezeigt werden würde, schlägt diese Anfrage stattdessen fehl.
+In Fällen, in denen normalerweise ein Sicherheitsdialog (wie eine Authentifizierung oder eine Benachrichtigung über ein ungültiges Zertifikat) angezeigt würde, schlägt diese Anfrage stattdessen fehl.
 
 > [!NOTE]
 > Diese Eigenschaft muss gesetzt werden, bevor `open()` aufgerufen wird.

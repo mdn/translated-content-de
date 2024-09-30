@@ -7,17 +7,17 @@ l10n:
 
 {{JSRef}}
 
-Die **`growable`** Accessor-Eigenschaft von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt an, ob dieser `SharedArrayBuffer` erweiterbar ist oder nicht.
+Die **`growable`** Accessoreigenschaft von Instanzen des {{jsxref("SharedArrayBuffer")}} gibt zurück, ob dieser `SharedArrayBuffer` erweiterbar ist oder nicht.
 
 ## Beschreibung
 
-Die `growable`-Eigenschaft ist eine Accessor-Eigenschaft, deren set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Arrays festgelegt. Wenn eine `maxByteLength`-Option im Konstruktor gesetzt wurde, gibt `growable` `true` zurück; wenn nicht, wird `false` zurückgegeben.
+Die `growable`-Eigenschaft ist eine Accessoreigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das Array erstellt wird. Wenn eine `maxByteLength`-Option im Konstruktor gesetzt wurde, wird `growable` `true` zurückgeben; andernfalls wird es `false` zurückgeben.
 
 ## Beispiele
 
 ### Verwendung von growable
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der bis zu einer maximalen Länge von 16 Bytes erweiterbar ist, und prüfen anschließend seine `growable`-Eigenschaft, um ihn zu erweitern, falls `growable` `true` zurückgibt:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes erweiterbar ist, und prüfen dann seine `growable`-Eigenschaft, indem wir ihn erweitern, wenn `growable` `true` zurückgibt:
 
 ```js
 const buffer = new SharedArrayBuffer(8, { maxByteLength: 16 });

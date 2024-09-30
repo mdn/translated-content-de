@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`uncapturederror`**-Ereignis des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces wird ausgelöst, wenn ein Fehler auftritt, der nicht von einem GPU-Fehlerbereich erfasst wurde, um eine Möglichkeit zur Meldung unerwarteter Fehler bereitzustellen.
+Das **`uncapturederror`** Ereignis der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle wird ausgelöst, wenn ein Fehler auftritt, der nicht von einem GPU-Fehlerbereich beobachtet wurde, um eine Möglichkeit zum Melden unerwarteter Fehler bereitzustellen.
 
 Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("uncapturederror", (event) => {});
@@ -30,7 +30,7 @@ Ein [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent). Erbt 
 
 ## Beispiele
 
-Sie könnten so etwas wie das Folgende als globalen Mechanismus verwenden, um alle Fehler zu erfassen, die nicht von Fehlerbereichen behandelt und aufgefangen werden.
+Sie könnten etwas wie Folgendes als globale Mechanismus benutzen, um Fehler, die nicht von Fehlerbereichen behandelt werden, aufzufangen und zu erfassen.
 
 ```js
 device.addEventListener("uncapturederror", (event) => {
@@ -44,7 +44,7 @@ device.addEventListener("uncapturederror", (event) => {
 });
 ```
 
-Weitere Beispiele und Informationen finden Sie in den [besten Praktiken zur Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling).
+Siehe [WebGPU Error Handling best practices](https://toji.dev/webgpu-best-practices/error-handling) für weitere Beispiele und Informationen.
 
 ## Spezifikationen
 

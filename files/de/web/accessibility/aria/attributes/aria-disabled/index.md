@@ -7,32 +7,32 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Der Zustand `aria-disabled` gibt an, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedienbar ist.
+Der `aria-disabled` Zustand zeigt an, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitbar oder anderweitig bedienbar ist.
 
 ## Beschreibung
 
-Das Attribut `aria-disabled`, wenn es auf `true` gesetzt ist, zeigt an, dass das Element, auf dem es gesetzt ist, und alle seine fokussierbaren Nachkommen in einem deaktivierten Zustand sein sollen. Diese Deklaration informiert Personen, die unterstützende Technologien nutzen, z. B. Screenreader, dass solche Elemente nicht bearbeitet oder anderweitig bedienbar sein sollen.
+Das `aria-disabled` Attribut zeigt, wenn es auf `true` gesetzt ist, an, dass das Element, auf das es angewendet wird, und alle seine fokussierbaren Nachkommen im deaktivierten Zustand sein sollen. Diese Deklaration informiert Menschen, die unterstützende Technologien verwenden, wie Bildschirmlesegeräte, dass solche Elemente nicht bearbeitbar oder anderweitig bedienbar sind.
 
-Im Gegensatz zum HTML-Boolean-Attribut [`disabled`](/de/docs/Web/HTML/Element/input#disabled), das ein Formularelement semantisch als deaktiviert kennzeichnet, dessen Styling ändert, um seinen Zustand widerzuspiegeln und alle Funktionen unterdrückt sowie den Elementwert von der Teilnahme an der Formularübermittlung ausschließt, macht `aria-disabled="true"` <strong>nur</strong> semantisch solche Elemente als deaktiviert erkennbar. Web-Entwickler müssen manuell sicherstellen, dass solche Elemente ihre Funktionalität verlieren, wenn sie im deaktivierten Zustand sind.
+Im Gegensatz zum HTML-Boolean-Attribut [`disabled`](/de/docs/Web/HTML/Element/input#disabled), das ein Formularsteuerelement semantisch als deaktiviert kommuniziert, dessen Styling ändert, um seinen Zustand widerzuspiegeln, und alle Funktionalitäten unterbindet, während der Wert des Elements nicht an der Formularübermittlung teilnehmen kann, wird durch `aria-disabled="true"` <strong>nur</strong> semantisch angezeigt, dass diese Elemente deaktiviert sind. Webentwickler müssen manuell sicherstellen, dass solche Elemente ihre Funktionalität verlieren, wenn sie als deaktiviert angezeigt werden.
 
-Wenn native HTML-Formularsteuerelemente deaktiviert werden müssen, müssen Entwickler das Attribut `disabled` angeben, da es alle allgemein erwarteten Funktionen zur Deaktivierung eines Steuerelements standardmäßig bietet. Es kann jedoch Fälle geben, in denen Elemente als deaktiviert angezeigt werden müssen, aber dennoch für Benutzer auffindbar sind, wenn sie über die <kbd>Tab</kbd>-Taste navigieren. Dadurch kann ihre Auffindbarkeit verbessert werden, da sie nicht aus der Fokusreihenfolge der Webseite entfernt werden. `aria-disabled` ändert nicht die Fokussierbarkeit solcher Elemente, noch werden die Elemente durch Standard-Browser-Styling abgedunkelt, was sie leichter lesbar macht. Einige Beispiele, bei denen dies nützlich sein kann, sind:
+Beim Deaktivieren nativer HTML-Formularsteuerelemente müssen Entwickler das `disabled` Attribut angeben, da es standardmäßig alle allgemein erwarteten Funktionen zum Deaktivieren eines Steuerelements bietet. Es kann jedoch Fälle geben, in denen Elemente als deaktiviert angezeigt werden müssen, aber dennoch den Nutzern zur Navigation über die <kbd>Tab</kbd>-Taste zur Verfügung stehen müssen. Dadurch kann ihre Auffindbarkeit verbessert werden, da sie nicht aus der Fokusreihenfolge der Webseite entfernt werden, da `aria-disabled` die Fokussierbarkeit solcher Elemente nicht ändert und die Elemente nicht durch das Standardbrowser-Styling abgedimmt werden, was sie leichter lesbar macht. Einige Beispiele, wo dies nützlich sein könnte, sind:
 
-- Das Header-Schaltflächenelement, das mit einem nicht kollabierbaren Akkordeon-Panel verbunden ist,
-- Eine Schaltfläche, die in der Fokusreihenfolge der Seite bleiben sollte, aber deren Aktion derzeit nicht verfügbar ist, z. B. bei der Einsendung eines Formulars,
-- Vorübergehend inaktive Elemente in einem Menü-Widget, das andernfalls über die Standardtastaturnavigation übersprungen würde.
+- Das Kopfzeilenelement eines nicht zusammenklappbaren Akkordeonelements,
+- Eine Schaltfläche, die in der Fokusreihenfolge der Seite bleiben muss, deren Aktion momentan jedoch nicht verfügbar ist - wie z.B. das Absenden eines Formulars,
+- Vorübergehend inaktive Elemente in einem Menü-Widget, die über die standardmäßige Tastaturnavigation übersprungen würden.
 
-In jedem dieser Fälle könnte es wünschenswert sein, dass die Benutzer diese Elemente über die Standardtastaturnavigation finden, obwohl die Funktion dieser Steuerung entfernt oder "deaktiviert" ist. Entwickler müssen weiterhin JavaScript verwenden, um die Funktionalität des Elements vollständig zu deaktivieren, während auch das Erscheinungsbild des Elements geändert wird, sodass sehende Benutzer wissen, dass es deaktiviert ist.
+In jedem dieser Fälle möchte man möglicherweise, dass Benutzer diese Elemente über die standardmäßige Tastaturnavigation finden, obwohl die Funktionalität dieser Steuerung entfernt oder "deaktiviert" ist. Entwickler müssen weiterhin JavaScript verwenden, um die Funktionalität des Elements vollständig zu deaktivieren und gleichzeitig das Erscheinungsbild des Elements zu ändern, damit sehende Benutzer wissen, dass es deaktiviert ist.
 
 > [!NOTE]
-> Der Zustand des Deaktiviertseins gilt für das Element mit `aria-disabled="true"` und alle seine fokussierbaren Nachkommen. Seien Sie vorsichtig, wenn Sie dieses Attribut auf Container-Elementen verwenden. Besonders in Fällen, in denen ein Container sowohl Formularsteuerelemente als auch Links enthält – wobei die Absicht darin bestehen kann, die Formularsteuerelemente als im deaktivierten Zustand anzuzeigen, aber <strong>nicht</strong>, die Links als "deaktiviert" zu kommunizieren.
+> Der Zustand des Deaktiviertseins gilt für das Element mit `aria-disabled="true"` und alle seine fokussierbaren Nachkommen. Achten Sie darauf, dieses Attribut auf Container-Elementen zu verwenden. Besonders in Fällen, in denen ein Container sowohl Formularsteuerelemente als auch Links enthalten kann - wobei die Absicht darin bestehen könnte, die Formularsteuerelemente als deaktiviert anzuzeigen, aber <strong>nicht</strong> zu kommunizieren, dass die Links "deaktiviert" sind.
 
-Ein weiterer Grund zur Verwendung des Attributs `aria-disabled` anstelle des HTML-Attributs `disabled` besteht darin, wenn benutzerdefinierte Steuerelemente erstellt wurden, die als deaktiviert gekennzeichnet werden müssen, aber kein Element verwenden, das das Attribut `disabled` zulässt. Beispielsweise wurde im folgenden Snippet ein `<div>` verwendet, um eine benutzerdefinierte Schaltfläche zu erstellen, die als deaktiviert gekennzeichnet werden muss. Das `<div>`-Element erwartet oder respektiert jedoch nicht das Attribut `disabled`, selbst wenn ihm eine `role="button"` zugewiesen wird, um seine exponierte ARIA-Rolle zu ändern. Das Attribut `aria-disabled` ist erforderlich, um solche benutzerdefinierten Steuerelemente zu deaktivieren.
+Ein weiterer Grund, das `aria-disabled` Attribut gegenüber dem HTML-`disabled` Attribut zu verwenden, ist, wenn Sie benutzerdefinierte Steuerelemente erstellt haben, die als deaktiviert markiert werden müssen, aber kein Element verwenden, das das `disabled` Attribut zulässt. In folgendem Beispiel wurde ein `<div>` verwendet, um eine benutzerdefinierte Schaltfläche zu erstellen, die als deaktiviert markiert werden muss. Das `<div>`-Element erwartet jedoch nicht und beachtet das `disabled`-Attribut nicht - selbst wenn es eine `role="button"` erhält, um seine exponierte ARIA-Rolle zu ändern. Das `aria-disabled` Attribut ist erforderlich, um solche benutzerdefinierten Steuerelemente zu deaktivieren.
 
 ```html
 <div role="button" aria-disabled="true" tabindex="-1">Edit</div>
 ```
 
-Ähnlich wie beim Einsatz von JavaScript, um sicherzustellen, dass ein Element mit `aria-disabled="true"` nicht funktionsfähig ist, muss das Element auch stilistisch angepasst werden. Im Gegensatz zum HTML-Attribut `disabled`, bei dem die Angabe dazu führt, dass `:disabled`-Benutzeragenten-Stile angewendet werden, tut `aria-disabled="true"` dies nicht. Das Element kann mit dem [Attribut-Selektor](/de/docs/Web/CSS/Attribute_selectors) `[aria-disabled="true"]` gestylt werden.
+Ähnlich wie beim Verwenden von JavaScript, um sicherzustellen, dass ein Element mit `aria-disabled="true"` keine Funktionalität besitzt, müssen auch Stylinganpassungen vorgenommen werden. Im Gegensatz zum HTML-`disabled` Attribut, bei dem dessen Spezifikation `:disabled` Benutzeragentenstile angewendet werden, fehlt bei `aria-disabled="true"` dieser Effekt. Das Element kann mit dem [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) `[aria-disabled="true"]` gestylt werden.
 
 ```css
 [aria-disabled="true"] {
@@ -40,7 +40,7 @@ Ein weiterer Grund zur Verwendung des Attributs `aria-disabled` anstelle des HTM
 }
 ```
 
-Wenn Sie das Attribut `aria-disabled` bewusst verwenden, um ein Formularelement in der Tastaturfokusreihenfolge der Seite zu belassen, insbesondere wenn das Element wichtigen Inhalt repräsentiert, den alle Benutzer wahrnehmen können sollten, müssen Sie möglicherweise ein Styling verwenden, das weiterhin die Anforderungen an den Farbkontrast erfüllt. Beispielsweise ist eine deaktivierte Schaltfläche/Überschrift, die ein nicht kollabierbares Akkordeon-Panel einführt, Inhalt, der weiterhin lesbar bleiben muss.
+Wenn Sie das `aria-disabled` Attribut absichtlich verwenden, um ein Formularsteuerelement in der Fokustastennavigationsreihenfolge der Seite zu belassen, insbesondere wenn das Element wichtige Inhalte darstellt, die für alle Benutzer wahrnehmbar sein sollten, dann sollten Sie Styling verwenden, das weiterhin die Anforderungen der Farbkonstrastre erfüllt. Beispielsweise ist eine deaktivierte Schaltfläche/Überschrift, die ein nicht zusammenklappbares Akkordeon-Panel einführt, Inhalt, der lesbar bleiben muss.
 
 ```css
 @media (forced-colors: active) {
@@ -51,12 +51,12 @@ Wenn Sie das Attribut `aria-disabled` bewusst verwenden, um ein Formularelement 
 }
 ```
 
-Die [`forced-colors` Media Query](/de/docs/Web/CSS/@media/forced-colors) erkennt, ob der [Benutzeragent](/de/docs/Glossary/User_agent) einen Zwangsfarbenmodus aktiviert hat; in diesem Fall werden sowohl die Text- als auch die Randfarben auf die [Systemfarbe `greyText`](/de/docs/Web/CSS/system-color#syntax) gesetzt.
+Die [`forced-colors` Media Query](/de/docs/Web/CSS/@media/forced-colors) erkennt, ob der [User Agent](/de/docs/Glossary/User_agent) einen Modus mit erzwungenen Farben aktiviert hat; wenn dies der Fall ist, werden Text- und Rahmenfarben beide auf die [Systemfarbe `greyText`](/de/docs/Web/CSS/system-color#syntax) gesetzt.
 
-Es ist auch wichtig zu beachten, dass beim Einsatz von `aria-disabled` anstelle des nativen HTML-Attributs das ARIA-Attribut die manuelle Stilgestaltung erfordert, die notwendig ist, um das Element in Windows High Contrast Mode visuell als deaktiviert zu kommunizieren.
+Neben dem Verwenden von `aria-disabled` statt des nativen HTML-Attributs müssen Sie bedenken, dass das ARIA-Attribut eine manuelle Gestaltung erfordert, um das Element als deaktiviert im Windows-Hochkontrastmodus visuell zu kommunizieren.
 
 > [!NOTE]
-> Wenn Sie CSS's [`pointer-events: none;`](/de/docs/Web/CSS/pointer-events) verwenden, um ein Element nicht anklickbar zu machen, stellen Sie sicher, dass Sie die Interaktivität zusätzlich mit JavaScript deaktivieren. `pointer-events: none;` verhindert Mausklicks, aber nicht die Aktivierung des Elements über die Tastatur.
+> Wenn Sie CSS's [`pointer-events: none;`](/de/docs/Web/CSS/pointer-events) verwenden, um ein Element nicht anklickbar zu machen, stellen Sie sicher, dass Sie die Interaktivität auch mit JavaScript deaktivieren. `pointer-events: none;` verhindert Mausklicks, unterbindet jedoch nicht, dass das Element über die Tastatur aktiviert wird.
 
 ```js
 function onClick(event) {
@@ -78,13 +78,13 @@ function toggleDisabled(element, status, update) {
 }
 ```
 
-Wenn Sie zwischen `aria-disabled="true"` und `"false"` umschalten, verwenden Sie JavaScript, um:
+Beim Umschalten von `aria-disabled="true"` auf `"false"`, verwenden Sie JavaScript, um:
 
-1. Den Wert auf `false` zu setzen (oder das Attribut ganz zu entfernen),
-2. Das Element zu aktivieren, und
-3. Den Benutzer wissen zu lassen, dass die Steuerung jetzt aktiviert ist.
+1. Den Wert auf `false` zu ändern (oder das Attribut vollständig zu entfernen),
+2. Das Element zu aktivieren und
+3. Den Benutzer darüber zu informieren, dass die Steuerung jetzt aktiviert ist.
 
-Wenn Sie lediglich CSS verwenden, um den deaktivierten Zustand mit einem Attribut-Selektor zu stylen, wird der Selektor nicht mehr zutreffen und das Styling des deaktivierten Zustands wird nicht mehr wirksam sein.
+Wenn Sie nur CSS verwenden, um den deaktivierten Zustand mit einem Attributselektor zu stylen, passt der Selektor nicht mehr, und das Styling für den deaktivierten Zustand wird nicht mehr angewendet.
 
 ## Werte
 
@@ -98,9 +98,9 @@ Wenn Sie lediglich CSS verwenden, um den deaktivierten Zustand mit einem Attribu
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaDisabled`](/de/docs/Web/API/Element/ariaDisabled)
-  - : Die [`ariaDisabled`](/de/docs/Web/API/Element/ariaDisabled) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des Attributs `aria-disabled` wider, das angibt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedienbar ist.
+  - : Die [`ariaDisabled`](/de/docs/Web/API/Element/ariaDisabled) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-disabled` Attributs wider, das angibt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitbar oder anderweitig bedienbar ist.
 - [`ElementInternals.ariaDisabled`](/de/docs/Web/API/ElementInternals/ariaDisabled)
-  - : Die [`ariaDisabled`](/de/docs/Web/API/ElementInternals/ariaDisabled) Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle spiegelt den Wert des Attributs `aria-disabled` wider.
+  - : Die [`ariaDisabled`](/de/docs/Web/API/ElementInternals/ariaDisabled) Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle spiegelt den Wert des `aria-disabled` Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -118,7 +118,7 @@ Verwendet in Rollen:
 - [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role)
 - [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
 
-Vererbt in Rollen:
+Erbt in Rollen:
 
 - [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)

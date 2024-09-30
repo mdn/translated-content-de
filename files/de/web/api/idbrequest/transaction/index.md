@@ -1,5 +1,5 @@
 ---
-title: "IDBRequest: transaction Eigenschaft"
+title: "IDBRequest: Eigenschaft transaction"
 short-title: transaction
 slug: Web/API/IDBRequest/transaction
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`transaction`** schreibgeschützte Eigenschaft der IDBRequest-Schnittstelle gibt die Transaktion für die Anforderung zurück, also die Transaktion, in der die Anforderung gestellt wird.
+Die **`transaction`** schreibgeschützte Eigenschaft des IDBRequest-Interfaces gibt die Transaktion für die Anfrage zurück, also die Transaktion, in der die Anfrage gestellt wird.
 
-Diese Eigenschaft kann `null` sein für Anforderungen, die nicht innerhalb von Transaktionen gestellt werden, wie z. B. für Anforderungen, die von [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) zurückgegeben werden — in diesem Fall verbinden Sie sich lediglich mit einer Datenbank, sodass es keine Transaktion gibt, die zurückgegeben werden kann. Wenn beim Öffnen einer Datenbank ein Versions-Upgrade erforderlich ist, dann wird während des [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignishandlers die **`transaction`** Eigenschaft ein [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) mit [`mode`](/de/docs/Web/API/IDBTransaction/mode) gleich `"versionchange"` sein und kann verwendet werden, um auf bestehende Objektspeicher und Indizes zuzugreifen oder das Upgrade abzubrechen. Nach dem Upgrade wird die **`transaction`** Eigenschaft wieder `null` sein.
+Diese Eigenschaft kann `null` sein für Anfragen, die nicht innerhalb von Transaktionen gestellt werden, wie beispielsweise für Anfragen, die von [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) zurückgegeben werden – in diesem Fall verbinden Sie sich lediglich mit einer Datenbank, sodass keine Transaktion zurückgegeben werden kann. Wenn beim Öffnen einer Datenbank ein Versions-Upgrade erforderlich ist, dann ist während des [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Ereignishandlers die **`transaction`** Eigenschaft ein [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) mit [`mode`](/de/docs/Web/API/IDBTransaction/mode) gleich `"versionchange"` und kann verwendet werden, um auf bestehende Objektläden und Indizes zuzugreifen oder das Upgrade abzubrechen. Nach dem Upgrade wird die **`transaction`** Eigenschaft wieder `null` sein.
 
 ## Wert
 
-Eine [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
+Ein [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
 
 ## Beispiele
 
-Das folgende Beispiel fordert einen bestimmten Datensatztitel an, `onsuccess` erhält den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar gemacht als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt den aktualisierten Datensatz dann in einer anderen Anforderung zurück in den Objektspeicher. Die Quelle der Anforderungen wird in der Entwicklerkonsole protokolliert – beide stammen aus derselben Transaktion. Für ein vollständiges funktionierendes Beispiel siehe unsere [Aufgabenlisten-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel wird ein bestimmter Datensatz angefordert, `onsuccess` erhält den zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) (verfügbar als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt dann den aktualisierten Datensatz in einer weiteren Anfrage zurück in den Objektladen. Die Quelle der Anfragen wird in der Entwicklerkonsole protokolliert – beide stammen aus der gleichen Transaktion. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -55,7 +55,7 @@ objectStoreTitleRequest.onsuccess = () => {
 };
 ```
 
-Dieses Beispiel zeigt, wie die **`transaction`** Eigenschaft während eines Versions-Upgrades verwendet werden kann, um auf bestehende Objektspeicher zuzugreifen:
+Dieses Beispiel zeigt, wie die **`transaction`** Eigenschaft während eines Versions-Upgrades verwendet werden kann, um auf bestehende Objektläden zuzugreifen:
 
 ```js
 const openRequest = indexedDB.open("db", 2);
@@ -93,7 +93,7 @@ openRequest.onsuccess = () => {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
 - Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [Aufgabenlisten-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`id`**-Schreibgeschützte Eigenschaft des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt eine Kopie der Hintergrundabholung-`ID` zurück.
+Die **`id`**-Schreibgeschützte Eigenschaft des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt eine Kopie der `ID` des Hintergrundabholens zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Wenn dieser Teil im Konsolenprotokoll ausgegeben wird, wird die Kennung, die beim Registrieren des Abrufs festgelegt wurde, zurückgegeben. In diesem Fall `"my-fetch"`.
+Wenn dieser Teil in die Konsole protokolliert wird, wird die beim Registrieren des Abrufs gesetzte Kennung zurückgegeben. In diesem Fall `"my-fetch"`.
 
 ```js
 console.log(bgFetch.id); // "my-fetch"

@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Ein **`DOMPoint`**-Objekt repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; es enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivwert. `DOMPoint` basiert auf [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), erlaubt jedoch Änderungen der Werte seiner Eigenschaften.
+Ein **`DOMPoint`** Objekt repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; es enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivwert. `DOMPoint` basiert auf [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), erlaubt jedoch das Ändern der Werte seiner Eigenschaften.
 
-Im Allgemeinen repräsentiert eine positive `x`-Komponente eine Position rechts vom Ursprung, eine positive `y`-Komponente ist nach unten vom Ursprung und eine positive `z`-Komponente erstreckt sich vom Bildschirm nach außen (also in Richtung des Benutzers).
+Im Allgemeinen repräsentiert eine positive `x`-Komponente eine Position rechts vom Ursprung, eine positive `y`-Komponente verläuft nach unten vom Ursprung, und eine positive `z`-Komponente erstreckt sich von der Bildschirmoberfläche nach außen (also zum Nutzer hin).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`DOMPoint()`](/de/docs/Web/API/DOMPoint/DOMPoint)
-  - : Erstellt und gibt ein neues `DOMPoint`-Objekt zurück, das die Werte von null oder mehr seiner Koordinatenkomponenten und optional den `w`-Perspektivwert erhält. Sie können auch einen vorhandenen `DOMPoint` oder `DOMPointReadOnly` oder ein Objekt verwenden, um einen neuen Punkt zu erstellen, indem Sie die statische Methode [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen.
+  - : Erstellt und gibt ein neues `DOMPoint` Objekt zurück, das auf den Werten von null oder mehr seiner Koordinatenkomponenten und optional dem `w` Perspektivwert basiert. Sie können auch einen bestehenden `DOMPoint` oder `DOMPointReadOnly` oder ein Objekt verwenden, um einen neuen Punkt zu erstellen, indem Sie die statische Methode [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen.
 
 ## Instanz-Eigenschaften
 
@@ -40,11 +40,11 @@ _`DOMPoint` erbt Instanz-Methoden von seinem Elternteil [`DOMPointReadOnly`](/de
 _`DOMPoint` kann auch statische Methoden von seinem Elternteil [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) erben._
 
 - [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static)
-  - : Erstellt ein neues veränderbares `DOMPoint`-Objekt basierend auf einem vorhandenen Punkt (oder einem Objekt mit passenden Eigenschaften), das die Werte für seine Eigenschaften bereitstellt.
+  - : Erstellt ein neues veränderliches `DOMPoint` Objekt, basierend auf einem bestehenden Punkt (oder einem Objekt mit passenden Eigenschaften), der die Werte für seine Eigenschaften bereitstellt.
 
 ## Beispiele
 
-In der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) repräsentieren `DOMPointReadOnly`-Werte Positionen und Orientierungen. Im folgenden Beispiel kann die Pose des XR-Geräts (wie ein VR-Headset oder ein Telefon mit AR-Fähigkeiten) durch Aufrufen von [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) während eines [`XRSession`](/de/docs/Web/API/XRSession)-Animationsframes abgerufen werden. Danach wird auf die resultierende [`XRPose`](/de/docs/Web/API/XRPose)'s [`transform`](/de/docs/Web/API/XRPose/transform)-Eigenschaft zugegriffen, die zwei `DOMPointReadOnly`-Attribute enthält: [`position`](/de/docs/Web/API/XRRigidTransform/position) als Vektor und [`orientation`](/de/docs/Web/API/XRRigidTransform/orientation) als Quaternion.
+Im [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) repräsentieren `DOMPointReadOnly` Werte Positionen und Orientierungen. Im folgenden Codeausschnitt kann die Pose des XR-Geräts (wie etwa eines VR-Headsets oder eines Telefons mit AR-Fähigkeiten) abgerufen werden, indem während eines [`XRSession`](/de/docs/Web/API/XRSession) Animationsrahmens [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) aufgerufen wird und dann auf die resultierende [`XRPose`](/de/docs/Web/API/XRPose)'s [`transform`](/de/docs/Web/API/XRPose/transform) Eigenschaft zugegriffen wird, die zwei `DOMPointReadOnly`-Attribute enthält: [`position`](/de/docs/Web/API/XRRigidTransform/position) als Vektor und [`orientation`](/de/docs/Web/API/XRRigidTransform/orientation) als Quaternion.
 
 ```js
 function onXRFrame(time, xrFrame) {

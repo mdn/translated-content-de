@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Das **`::-webkit-slider-thumb`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Schieberegler", den der Benutzer innerhalb der "Leiste" eines {{HTMLElement("input")}} mit `type="range"` bewegen kann, um seinen numerischen Wert anzupassen.
+Das **`::-webkit-slider-thumb`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Schieberegler", den der Benutzer innerhalb der "Nut" eines {{HTMLElement("input")}} vom `type="range"` bewegen kann, um dessen Zahlenwert zu ändern.
 
 ## Syntax
 
@@ -34,4 +34,4 @@ Teil keiner Norm.
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)
-- [Ein paar Fallstricke, auf die Sie achten sollten](https://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html)
+- [Einige Stolperfallen, auf die man achten sollte](https://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html)

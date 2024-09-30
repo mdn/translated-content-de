@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.detach()`**-Methode tut nichts. Sie wurde früher verwendet, um das [`Range`](/de/docs/Web/API/Range)-Objekt zu deaktivieren und dem Browser zu ermöglichen, die zugehörigen Ressourcen freizugeben. Die Methode wurde zur Kompatibilität beibehalten.
+Die **`Range.detach()`** Methode bewirkt nichts. Sie wurde früher verwendet, um das [`Range`](/de/docs/Web/API/Range)-Objekt zu deaktivieren und dem Browser zu ermöglichen, die zugehörigen Ressourcen freizugeben. Die Methode wurde aus Gründen der Kompatibilität beibehalten.
 
 ## Syntax
 

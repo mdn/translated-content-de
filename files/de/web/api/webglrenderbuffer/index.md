@@ -2,18 +2,18 @@
 title: WebGLRenderbuffer
 slug: Web/API/WebGLRenderbuffer
 l10n:
-  sourceCommit: db3325720c44ca35eeeb4c87f253d1d55fe00fa3
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Das **WebGLRenderbuffer**-Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert einen Puffer, der ein Bild enthalten kann oder eine Quelle oder ein Ziel einer Rendering-Operation sein kann.
+Das **WebGLRenderbuffer**-Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert einen Puffer, der ein Bild enthalten kann oder Quelle oder Ziel einer Renderoperation sein kann.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Das `WebGLRenderbuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLRenderbuffer`-Objekten sind die folgenden Methoden nützlich:
+Das `WebGLRenderbuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften, und sein Inhalt ist nicht direkt zugänglich. Bei der Arbeit mit `WebGLRenderbuffer`-Objekten sind die folgenden Methoden nützlich:
 
 - [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
 - [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)

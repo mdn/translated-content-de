@@ -1,5 +1,5 @@
 ---
-title: Benachrichtigungen
+title: Notifications
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Notifications
 l10n:
   sourceCommit: 33cada2d06f8d0cd009d9d5348de6e3165bba67f
@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Benachrichtigungen ermöglichen es Ihnen, Informationen über Ihre Erweiterung oder deren Inhalte mithilfe des Benachrichtigungsdienstes des zugrunde liegenden Betriebssystems zu kommunizieren.
+Mit Benachrichtigungen können Sie Informationen zu Ihrer Erweiterung oder deren Inhalt mithilfe des Benachrichtigungsdienstes des zugrundeliegenden Betriebssystems kommunizieren.
 
-![Beispiel einer Benachrichtigung auf macOS, unterhalb der Systemuhr mit dem fettgedruckten Titel "Click notification" und normalem Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung zeigt links das Firefox Nightly Logo und rechts ein Link-Symbol.](notify-shadowed.png)
+![Ein Beispiel für eine Benachrichtigung auf macOS, die sich unterhalb der Systemuhr befindet, mit einem fettgedruckten Titel "Click notification" und einem regulären Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung zeigt links das Firefox Nightly-Logo und rechts ein Link-Symbol.](notify-shadowed.png)
 
-Benachrichtigungen können eine Handlungsaufforderung für den Benutzer beinhalten, und Ihr Add-on kann darauf hören, ob der Benutzer die Benachrichtigung anklickt oder sie schließt.
+Benachrichtigungen können eine Aufforderung zum Handeln für den Benutzer enthalten, und Ihr Add-on kann darauf hören, dass der Benutzer die Benachrichtigung anklickt oder die Benachrichtigung schließt.
 
-## Festlegung von Benachrichtigungen
+## Benachrichtigungen spezifizieren
 
-Sie verwalten Benachrichtigungen programmgesteuert über die {{WebExtAPIRef("notifications")}} API. Um diese API nutzen zu können, müssen Sie die Berechtigung `notifications` in Ihrer manifest.json anfordern:
+Sie verwalten Benachrichtigungen programmgesteuert mit der {{WebExtAPIRef("notifications")}} API. Um diese API zu verwenden, müssen Sie die Berechtigung `notifications` in Ihrer manifest.json anfordern:
 
 ```json
 "permissions": ["notifications"]
@@ -34,20 +34,20 @@ browser.notifications.create({
 });
 ```
 
-Dieser Code erstellt eine Benachrichtigung mit einem Symbol, einem Titel und einer Nachricht.
+Dieser Code erstellt eine Benachrichtigung mit einem Icon, einem Titel und einer Nachricht.
 
-Wenn die Benachrichtigung eine Handlungsaufforderung beinhaltet, können Sie darauf hören, ob der Benutzer die Benachrichtigung anklickt, um die Funktion zur Handhabung der Aktion aufzurufen:
+Wenn die Benachrichtigung eine Handlungaufforderung enthält, können Sie darauf hören, dass der Benutzer die Benachrichtigung anklickt, um die Funktion zur Handhabung der Aktion aufzurufen:
 
 ```js
 browser.notifications.onClicked.addListener(handleClick);
 ```
 
-Wenn Sie Handlungsaufforderungen über Benachrichtigungen ausgeben, sollten Sie auch die optionale Benachrichtigungs-`id` definieren, um herauszufinden, welche Handlungsaufforderung der Benutzer ausgewählt hat.
+Wenn Sie Handlungaufforderungen über Benachrichtigungen ausgeben, sollten Sie auch die optionale Benachrichtigungs-`id` definieren, um festzustellen, welche Handlungaufforderung der Benutzer ausgewählt hat.
 
-## Symbole
+## Icons
 
-Für Details, wie Sie Symbole für Ihre Benachrichtigung erstellen können, siehe [Iconography](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) in der Dokumentation des [Acorn Design Systems](https://acorn.firefox.com/latest).
+Für Details zur Erstellung von Icons zur Verwendung mit Ihrer Benachrichtigung schauen Sie in die [Ikonographie](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) im [Acorn Design System](https://acorn.firefox.com/latest) nach.
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das Beispiel [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n), welches Benachrichtigungen implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das Beispiel [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n), das Benachrichtigungen implementiert.

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-**`MouseEvent.webkitForce`** ist eine proprietäre, WebKit-spezifische numerische Eigenschaft, deren Wert den Druck darstellt, der auf das Touchpad oder den Touchscreen ausgeübt wird.
+**`MouseEvent.webkitForce`** ist eine proprietäre, WebKit-spezifische numerische Eigenschaft, deren Wert den auf das Touchpad oder den Touchscreen ausgeübten Druck darstellt.
 
 ## Spezifikationen
 
-_Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Teil keiner Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
 
 ## Siehe auch
 

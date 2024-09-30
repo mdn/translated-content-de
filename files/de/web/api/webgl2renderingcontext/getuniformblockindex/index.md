@@ -1,15 +1,15 @@
 ---
-title: "WebGL2RenderingContext: getUniformBlockIndex() Methode"
+title: "WebGL2RenderingContext: Methode getUniformBlockIndex()"
 short-title: getUniformBlockIndex()
 slug: Web/API/WebGL2RenderingContext/getUniformBlockIndex
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.getUniformBlockIndex()`** Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ermittelt den Index eines Uniform-Blocks innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
+Die **`WebGL2RenderingContext.getUniformBlockIndex()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft den Index eines Uniform-Blocks innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ getUniformBlockIndex(program, uniformBlockName)
 
 ### Rückgabewert
 
-Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Uniform-Block-Index angibt.
+Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des Uniform-Blocks angibt.
 
 ## Beispiele
 

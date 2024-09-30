@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ist ein String, der den MIME-Typ der verlinkten Ressource angibt.
+Die **`type`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle ist ein String, der den MIME-Typ der verlinkten Ressource angibt.
 
 Sie spiegelt das `type`-Attribut des {{HTMLElement("a")}}-Elements wider.
 

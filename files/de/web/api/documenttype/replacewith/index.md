@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.replaceWith()`**-Methode ersetzt den Dokumenttyp durch eine Reihe gegebener Knoten.
+Die **`DocumentType.replaceWith()`**-Methode ersetzt den Dokumenttyp durch eine Menge gegebener Knoten.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ replaceWith(node1, node2, /* …, */ nodeN)
 ### Parameter
 
 - `node1`, …, `nodeN`
-  - : Eine Menge von Knoten, mit denen der [`DocumentType`](/de/docs/Web/API/DocumentType) ersetzt wird.
+  - : Eine Menge von Knoten, mit der der [`DocumentType`](/de/docs/Web/API/DocumentType) ersetzt werden soll.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
 
 ## Beispiele
 

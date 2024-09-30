@@ -1,5 +1,5 @@
 ---
-title: "HTMLLinkElement: sheet Eigenschaft"
+title: "HTMLLinkElement: sheet-Eigenschaft"
 short-title: sheet
 slug: Web/API/HTMLLinkElement/sheet
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`sheet`**-Eigenschaft des schreibgeschützten `HTMLLinkElement`-Interfaces enthält das mit diesem Element verknüpfte Stylesheet.
+Die **`sheet`** schreibgeschützte Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) Interfaces enthält das Stylesheet, das mit diesem Element verknüpft ist.
 
 Ein Stylesheet ist mit einem `HTMLLinkElement` verknüpft, wenn `rel="stylesheet"` mit `<link>` verwendet wird.
 
 ## Wert
 
-Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines mit dem Element verknüpft ist.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet) Objekt, oder `null`, wenn keines mit dem Element assoziiert ist.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines 
 </html>
 ```
 
-Die `sheet`-Eigenschaft des `HTMLLinkElement`-Objekts gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, das `styles.css` beschreibt.
+Die `sheet`-Eigenschaft des `HTMLLinkElement`-Objekts wird das [`StyleSheet`](/de/docs/Web/API/StyleSheet) Objekt zurückgeben, das `styles.css` beschreibt.
 
 ## Spezifikationen
 

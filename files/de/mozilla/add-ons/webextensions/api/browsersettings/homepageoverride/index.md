@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um eine Zeichenkette zu erhalten, die die aktuell als Startseite des Browsers festgelegte URL darstellt.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um eine Zeichenkette zu erhalten, die die URL darstellt, die derzeit als Startseite des Browsers festgelegt ist.
 
 Beachten Sie, dass dies eine schreibgeschützte Einstellung ist. Um die Startseite zu ändern, siehe [chrome_settings_overrides](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides).
 
@@ -17,7 +17,7 @@ Beachten Sie, dass dies eine schreibgeschützte Einstellung ist. Um die Startsei
 
 ## Beispiele
 
-Erhalten Sie den aktuellen Wert der Startseiten-URL:
+Holen Sie sich den aktuellen Wert der Startseiten-URL:
 
 ```js
 browser.browserSettings.homepageOverride.get({}).then((result) => {

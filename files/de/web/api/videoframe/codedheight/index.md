@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: codedHeight-Eigenschaft"
+title: "VideoFrame: codedHeight Eigenschaft"
 short-title: codedHeight
 slug: Web/API/VideoFrame/codedHeight
 l10n:
@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`codedHeight`**-Eigenschaft der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle gibt die Höhe des `VideoFrame` in Pixeln zurück. Dies kann potenziell nicht sichtbare Polsterung einschließen und erfolgt vor der Berücksichtigung möglicher Verhältnis-Anpassungen.
+Die **`codedHeight`** Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame) Interfaces gibt die Höhe des `VideoFrame` in Pixeln zurück. Diese kann möglicherweise nicht sichtbares Padding beinhalten und berücksichtigt potenzielle Verhältnis-Anpassungen noch nicht.
 
 ## Wert
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
-Das folgende Beispiel druckt die `codedHeight` in die Konsole.
+Das folgende Beispiel gibt die `codedHeight` in der Konsole aus.
+
+```js
+console.log(VideoFrame.codedHeight);
+```
 
 ## Spezifikationen
 

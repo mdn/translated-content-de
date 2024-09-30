@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overflow-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn Inhalte über die Blockanfangs- und -endkanten eines Kastens hinausgehen. Dies kann nichts, eine Bildlaufleiste oder der überlaufende Inhalt sein.
+Die **`overflow-block`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, was angezeigt wird, wenn Inhalte die Block-Anfangs- und Block-Endkanten eines Rahmens überlaufen. Dies kann nichts sein, ein Scrollbalken oder der Überlaufinhalt.
 
 > [!NOTE]
-> Die `overflow-block` Eigenschaft ordnet sich {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} zu, abhängig vom Schreibmodus des Dokuments.
+> Die `overflow-block`-Eigenschaft wird auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet, abhängig vom Schreibmodus des Dokuments.
 
 ## Syntax
 
@@ -30,20 +30,20 @@ overflow-block: revert-layer;
 overflow-block: unset;
 ```
 
-Die `overflow-block` Eigenschaft wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben:
+Die `overflow-block`-Eigenschaft wird als ein einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben:
 
 ### Werte
 
 - `visible`
-  - : Der Inhalt wird nicht abgeschnitten und kann außerhalb der Blockanfangs- und -endkanten des Innenabstandsrahmens angezeigt werden.
+  - : Inhalt wird nicht abgeschnitten und kann außerhalb der Block-Anfangs- und Block-Endkanten des Rahmeninnenbereichs gerendert werden.
 - `hidden`
-  - : Der Inhalt wird falls nötig abgeschnitten, um die Blockdimension im Innenabstandsrahmen zu passen. Es werden keine Scrollleisten bereitgestellt.
+  - : Inhalt wird bei Bedarf abgeschnitten, um in die Blockdimension des Rahmeninnenbereichs zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird an der Überlaufclipkante des Elements abgeschnitten, die unter Verwendung der {{CSSXref("overflow-clip-margin")}} Eigenschaft definiert ist.
+  - : Überlaufender Inhalt wird an der Überlauf-Clipleiste des Elements abgeschnitten, die mit der {{CSSXref("overflow-clip-margin")}}-Eigenschaft definiert wird.
 - `scroll`
-  - : Der Inhalt wird falls nötig abgeschnitten, um in die Blockdimension im Innenabstandsrahmen zu passen. Browser zeigen Scrollleisten, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert das Erscheinen oder Verschwinden von Scrollleisten, wenn sich der Inhalt ändert.) Drucker können überlaufenden Inhalt dennoch drucken.
+  - : Inhalt wird bei Bedarf abgeschnitten, um in die Blockdimension des Rahmeninnenbereichs zu passen. Browser zeigen Scrollleisten an, unabhängig davon, ob tatsächlich Inhalte abgeschnitten sind oder nicht. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können trotzdem überlaufende Inhalte drucken.
 - `auto`
-  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in den Innenabstandsrahmen passt, sieht es genauso aus wie `visible`, setzt jedoch dennoch einen neuen Blockformatierungskontext.
+  - : Hängt vom User-Agent ab. Wenn der Inhalt in den Rahmeninnenbereich passt, sieht es genauso aus wie `visible`, etabliert aber dennoch einen neuen Blockformatierungskontext.
 
 ## Formale Definition
 
@@ -163,6 +163,6 @@ div {
 - {{cssxref("text-overflow")}}, {{cssxref("white-space")}}, {{Cssxref("overflow")}}, {{Cssxref("overflow-inline")}}, {{Cssxref("overflow-x")}}, {{Cssxref("overflow-y")}}, {{Cssxref("clip")}}, {{Cssxref("display")}}
 - [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scrollleistenstil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS Scrollleisten-Stil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
 - [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
-- [CSS Bausteine: Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- [CSS-Bausteine: Überlaufende Inhalte](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)

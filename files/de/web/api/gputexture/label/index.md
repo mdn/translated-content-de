@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der
-[`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, z. B. in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann gesetzt werden, indem ein `label` in dem Deskriptor-Objekt bereitgestellt wird, das in den ursprünglichen [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture)-Aufruf übergeben wird, oder Sie können es direkt auf dem `GPUTexture`-Objekt setzen und abfragen.
+Dieses kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird, angegeben wird, oder Sie können es direkt am `GPUTexture`-Objekt festlegen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dieses vorher nicht wie oben beschrieben gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Ein Label über `GPUTexture.label` setzen und abfragen:
+Setzen und Abrufen eines Labels über `GPUTexture.label`:
 
 ```js
 // ...
@@ -35,7 +34,7 @@ depthTexture.label = "mytexture";
 console.log(depthTexture.label); // "mytexture"
 ```
 
-Ein Label über den ursprünglichen [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture)-Aufruf setzen und es anschließend über `GPUTexture.label` abfragen:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) und dann Abrufen über `GPUTexture.label`:
 
 ```js
 // ...

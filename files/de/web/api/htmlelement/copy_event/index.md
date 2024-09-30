@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: copy event"
+title: "HTMLElement: copy Event"
 short-title: copy
 slug: Web/API/HTMLElement/copy_event
 l10n:
@@ -28,14 +28,14 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die vom Benutzer initiierten Daten der [`cut`](/de/docs/Web/API/HTMLElement/cut_event), `copy` oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Operation sowie dessen MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die von der vom Benutzer initiierten [`cut`](/de/docs/Web/API/HTMLElement/cut_event)-, `copy`- oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Operation betroffenen Daten sowie ihren MIME-Typ enthält.
 
 ## Beispiel
 
-Dieses Beispiel blockiert jeden Kopier- und Einfügeversuch aus dem {{htmlElement("textarea")}}.
+Dieses Beispiel blockiert jeden Kopier- und Einfügeversuch innerhalb des {{htmlElement("textarea")}}.
 
 ### HTML
 

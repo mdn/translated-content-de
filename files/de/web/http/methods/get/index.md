@@ -7,19 +7,20 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`GET`**-Methode des HTTP-Protokolls fordert eine Darstellung der angegebenen Ressource an. `GET`-Anfragen sollten nur verwendet werden, um Daten anzufordern und sollten keinen Rumpf enthalten.
+Die **`GET`** HTTP-Methode fordert eine Darstellung der angegebenen Ressource an. Anfragen mit `GET` sollten nur verwendet werden, um Daten anzufordern und dürfen keinen Body enthalten.
 
 > [!NOTE]
-> Die Semantik zum Senden eines Nachrichtenrumpfs in `GET`-Anfragen ist undefiniert. Einige Server können die Anfrage mit einer [4XX-Clientfehler](/de/docs/Web/HTTP/Status#client_error_responses)-Antwort ablehnen.
+> Die Semantik des Sendens eines Nachrichten-Bodys in `GET`-Anfragen ist undefiniert.
+> Einige Server könnten die Anfrage mit einer [4XX-Client-Fehlermeldung](/de/docs/Web/HTTP/Status#client_error_responses) ablehnen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Rumpf</th>
+      <th scope="row">Anfrage hat Body</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Rumpf</th>
+      <th scope="row">Erfolgreiche Antwort hat Body</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -31,11 +32,11 @@ Die **`GET`**-Methode des HTTP-Protokolls fordert eine Darstellung der angegeben
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Zwischenspeicherbar](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">[Cache-fähig](/de/docs/Glossary/Cacheable)</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">In HTML-Formularen erlaubt</th>
+      <th scope="row">Erlaubt in HTML-Formularen</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -48,11 +49,11 @@ GET <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, kombiniert mit den Informationen, die im {{HTTPHeader("Host")}} Header bereitgestellt werden.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxy-Server (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den Informationen im {{HTTPHeader("Host")}}-Header kombiniert wird.
+    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Ein optionaler Abfragekomponenten, die einem Fragezeichen `?` folgt.
-    Häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
+  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird.
+    Wird häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übertragen.
 
 ## Beispiele
 
@@ -67,7 +68,7 @@ User-Agent: curl/8.6.0
 Accept: */*
 ```
 
-Der Server sendet die Ressource mit einem {{HTTPStatus("200", "200 OK")}} Statuscode zurück, was auf einen Erfolg hinweist:
+Der Server sendet die Ressource mit einem {{HTTPStatus("200", "200 OK")}} Statuscode zurück, was auf Erfolg hinweist:
 
 ```http
 HTTP/1.1 200 OK
@@ -93,5 +94,5 @@ Content-Length: 1234
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Headers)
-- {{HTTPHeader("Range")}} Header
-- {{HTTPMethod("POST")}} Methode
+- {{HTTPHeader("Range")}}-Header
+- {{HTTPMethod("POST")}}-Methode

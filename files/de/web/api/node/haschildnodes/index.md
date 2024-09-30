@@ -1,5 +1,5 @@
 ---
-title: "Node: hasChildNodes()-Methode"
+title: "Node: hasChildNodes() Methode"
 short-title: hasChildNodes()
 slug: Web/API/Node/hasChildNodes
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`hasChildNodes()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der gegebene [`Node`](/de/docs/Web/API/Node) [Kinderknoten](/de/docs/Web/API/Node/childNodes) hat oder nicht.
+Die **`hasChildNodes()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der gegebene [`Node`](/de/docs/Web/API/Node) [Kindknoten](/de/docs/Web/API/Node/childNodes) hat oder nicht.
 
 ## Syntax
 
@@ -22,7 +22,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Knoten Kinderknoten hat, und sonst `false`.
+Ein boolescher Wert, der `true` ist, wenn der Knoten Kindknoten hat, und
+`false`, andernfalls.
 
 ## Beispiel
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`uploadTotal`**-Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt die Gesamtanzahl der Bytes zurück, die an den Server gesendet werden sollen.
+Die schreibgeschützte Eigenschaft **`uploadTotal`** des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt die Gesamtzahl der Bytes zurück, die an den Server gesendet werden sollen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine {{jsxref("number")}}.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole gibt die Gesamtanzahl dieses Uploads zurück.
+Wenn Sie diese Eigenschaft in die Konsole protokollieren, wird die Gesamtanzahl dieses Uploads zurückgegeben.
 
 ```js
 console.log(bgFetch.uploadTotal);

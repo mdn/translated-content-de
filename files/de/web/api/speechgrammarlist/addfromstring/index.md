@@ -1,5 +1,5 @@
 ---
-title: "SpeechGrammarList: Methode addFromString()"
+title: "SpeechGrammarList: addFromString() Methode"
 short-title: addFromString()
 slug: Web/API/SpeechGrammarList/addFromString
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Die **`addFromString()`**-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces nimmt eine Grammatik, die in einer bestimmten Zeichenkette im Code vorhanden ist (z.B. in einer Variablen gespeichert), und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+Die **`addFromString()`**-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) Interfaces nimmt eine Grammatik, die in einem bestimmten String innerhalb des Codebases vorhanden ist (z.B. in einer Variablen gespeichert), und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ addFromString(string, weight)
 ### Parameter
 
 - `string`
-  - : Eine Zeichenkette, die die hinzuzufügende Grammatik darstellt.
+  - : Ein String, der die hinzuzufügende Grammatik darstellt.
 - `weight` {{optional_inline}}
-  - : Ein Fließkommawert, der das Gewicht der Grammatik im Verhältnis zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) darstellt. Das Gewicht bedeutet die Wichtigkeit dieser Grammatik oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; Wenn nicht angegeben, wird standardmäßig `1.0` verwendet.
+  - : Ein Float, der das Gewicht der Grammatik relativ zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) repräsentiert. Das Gewicht gibt die Bedeutung dieser Grammatik an oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; falls nicht angegeben, wird der Standardwert `1.0` verwendet.
 
 ### Rückgabewert
 

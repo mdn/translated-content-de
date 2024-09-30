@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Schreibt einige Antwortdaten in den Ausgabestream.
+Schreibt einige Antwortdaten in den Ausgabestrom.
 
-Sie können diese Funktion nur nach dem Auslösen des {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignisses aufrufen.
+Sie können diese Funktion nur aufrufen, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
 
 ## Syntax
 

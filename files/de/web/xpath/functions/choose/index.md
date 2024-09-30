@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `choose`-Funktion gibt eines der angegebenen Objekte basierend auf einem booleschen Parameter zurück.
+Die Funktion `choose` gibt basierend auf einem booleschen Parameter eines der angegebenen Objekte zurück.
 
 > [!NOTE]
 > Diese Methode sollte anstelle von `if ()` verwendet werden, das veraltet ist.
@@ -21,7 +21,7 @@ choose( boolean, object1, object2 )
 ### Parameter
 
 - `boolean`
-  - : Die boolesche Operation, um zu bestimmen, welches Objekt zurückgegeben werden soll.
+  - : Die boolesche Operation, die verwendet wird, um zu bestimmen, welches Objekt zurückgegeben wird.
 - `object1`
   - : Das erste Objekt, das in Betracht gezogen wird, zurückgegeben zu werden.
 - `object2`

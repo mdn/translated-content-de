@@ -7,10 +7,10 @@ l10n:
 
 {{APIRef("CSS3 Transforms")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-**`Point`** ist eine Schnittstelle, die einen Punkt im zweidimensionalen Raum darstellt. Sie ist nicht standardisiert, nicht breit kompatibel und sollte nicht verwendet werden.
+Das **`Point`**-Interface repräsentiert einen Punkt im zweidimensionalen Raum. Es ist nicht standardisiert, nicht weitgehend kompatibel und sollte nicht verwendet werden.
 
 > [!NOTE]
-> Obwohl es nicht direkt mit dieser veralteten Schnittstelle zusammenhängt, suchen Sie wahrscheinlich nach [`DOMPoint`](/de/docs/Web/API/DOMPoint).
+> Obwohl es nicht direkt mit diesem obsoleten Interface zusammenhängt, suchen Sie wahrscheinlich nach [`DOMPoint`](/de/docs/Web/API/DOMPoint).
 
 ## Instanz-Eigenschaften
 
@@ -21,7 +21,7 @@ l10n:
 
 ## Spezifikationen
 
-Diese Klasse wurde im [veralteten Working Draft vom 20. März 2009 des CSS 2D Transforms Module Level 3](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist in keiner aktuellen Spezifikation enthalten.
+Diese Klasse wurde im [veralteten Entwurf vom 20. März 2009 des CSS 2D Transforms Module Level 3](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist in keiner aktuellen Spezifikation enthalten.
 
 ## Browser-Kompatibilität
 

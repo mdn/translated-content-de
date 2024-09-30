@@ -10,7 +10,8 @@ l10n:
 
 Die
 **`CanvasRenderingContext2D.isPointInStroke()`**
-Methode des Canvas 2D API ermittelt, ob der angegebene Punkt innerhalb des Bereichs liegt, der durch das Nachziehen eines Pfads umschlossen wird.
+Methode der Canvas 2D API gibt an, ob der angegebene Punkt innerhalb des
+Bereichs liegt, der durch die Umrandung eines Pfads eingeschlossen ist.
 
 ## Syntax
 
@@ -22,22 +23,22 @@ isPointInStroke(path, x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des zu überprüfenden Punkts.
+  - : Die x-Achsen-Koordinate des zu überprüfenden Punktes.
 - `y`
-  - : Die y-Achsen-Koordinate des zu überprüfenden Punkts.
+  - : Die y-Achsen-Koordinate des zu überprüfenden Punktes.
 - `path`
   - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolescher Wert, der `true` ist, wenn der Punkt innerhalb des Bereichs liegt, der durch das Nachziehen eines Pfads umschlossen wird, andernfalls `false`.
+  - : Ein Boolean, der `true` ist, wenn der Punkt innerhalb des von der Pfadumrandung eingeschlossenen Bereichs liegt, ansonsten `false`.
 
 ## Beispiele
 
-### Überprüfen eines Punkts im aktuellen Pfad
+### Überprüfung eines Punkts im aktuellen Pfad
 
-Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu prüfen, ob ein Punkt innerhalb des Bereichs des Strichs des aktuellen Pfads liegt.
+Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu überprüfen, ob ein Punkt innerhalb des Bereichs der Umrandung des aktuellen Pfads liegt.
 
 #### HTML
 
@@ -62,9 +63,9 @@ result.innerText = ctx.isPointInStroke(50, 10);
 
 {{ EmbedLiveSample('Checking_a_point_in_the_current_path', 700, 220) }}
 
-### Überprüfen eines Punkts im angegebenen Pfad
+### Überprüfung eines Punkts im angegebenen Pfad
 
-Wann immer Sie die Maus bewegen, prüft dieses Beispiel, ob sich der Cursor im Strich eines elliptischen `Path2D`-Pfads befindet. Wenn ja, wird der Strich der Ellipse grün, andernfalls rot.
+Immer wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor im Strich eines elliptischen `Path2D`-Pfads befindet. Wenn ja, wird der Strich der Ellipse grün, andernfalls rot.
 
 #### HTML
 
@@ -117,4 +118,4 @@ canvas.addEventListener("mousemove", (event) => {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

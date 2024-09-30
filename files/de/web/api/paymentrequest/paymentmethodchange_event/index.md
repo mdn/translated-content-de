@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: paymentmethodchange Ereignis"
+title: "PaymentRequest: paymentmethodchange-Ereignis"
 short-title: paymentmethodchange
 slug: Web/API/PaymentRequest/paymentmethodchange_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Das **`paymentmethodchange`** Ereignis wird über die [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt gesendet, wenn der Benutzer die Zahlungsmethode innerhalb eines bestimmten Zahlungsdienstes ändert.
+Das **`paymentmethodchange`**-Ereignis wird über die [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt geliefert, wenn der Benutzer die Zahlungsmethode innerhalb eines bestimmten Zahlungsabwicklers ändert.
 
-Zum Beispiel, wenn der Benutzer innerhalb seines [Apple Pay](https://www.apple.com/apple-pay/) Kontos von einer Kreditkarte zu einer anderen wechselt, wird ein `paymentmethodchange` Ereignis ausgelöst, um Sie über die Änderung zu informieren.
+Zum Beispiel, wenn der Benutzer von einer Kreditkarte zu einer anderen in seinem [Apple Pay](https://www.apple.com/apple-pay/) Konto wechselt, wird ein `paymentmethodchange`-Ereignis ausgelöst, um Sie über die Änderung zu informieren.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("paymentmethodchange", (event) => {});
@@ -32,18 +32,18 @@ Ein [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent). Erb
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten stehenden Eigenschaften enthält dieses Interface auch Eigenschaften, die von [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) geerbt wurden._
+_Neben den unten stehenden Eigenschaften enthält diese Schnittstelle Eigenschaften, die von [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) geerbt wurden._
 
 - [`methodDetails`](/de/docs/Web/API/PaymentMethodChangeEvent/methodDetails) {{ReadOnlyInline}}
-  - : Ein Objekt, das zahlungsmethodenspezifische Daten enthält, die nützlich beim Umgang mit einer Zahlungsmethodenänderung sind. Wenn solche Informationen nicht verfügbar sind, ist dieser Wert `null`.
+  - : Ein Objekt, das zahlungsmethodenspezifische Daten enthält, die nützlich sind, wenn eine Zahlungsmethode geändert wird. Wenn keine solche Information verfügbar ist, ist dieser Wert `null`.
 - [`methodName`](/de/docs/Web/API/PaymentMethodChangeEvent/methodName) {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die den Bezeichner der Zahlungsmethode enthält, eine Zeichenkette, die eine bestimmte Zahlungsmethode eindeutig identifiziert. Dieser Bezeichner ist normalerweise eine URL, die während des Zahlungsvorganges verwendet wird, kann aber auch ein standardisierter, nicht-URL-String sein, wie z.B. `basic-card`. Der Standardwert ist die leere Zeichenkette, `""`.
+  - : Ein String, der den Bezeichner der Zahlungsmethode enthält, ein String, der eine bestimmte Zahlungsmethode eindeutig identifiziert. Dieser Bezeichner ist üblicherweise eine URL, die während des Zahlungsprozesses verwendet wird, kann aber auch eine standardisierte nicht-URL-Zeichenkette sein, wie `basic-card`. Der Standardwert ist der leere String, `""`.
 
 ## Beispiele
 
-Schauen wir uns ein Beispiel an. Dieser Code erstellt ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest), fügt einen Handler für das `paymentmethodchange` Ereignis hinzu, indem er die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufruft, und ruft dann [`show()`](/de/docs/Web/API/PaymentRequest/show) auf, um die Zahlungsoberfläche dem Benutzer zu präsentieren.
+Schauen wir uns ein Beispiel an. Dieser Code erstellt ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest), fügt einen Handler für das `paymentmethodchange`-Ereignis hinzu, indem er die `addEventListener()`-Methode des Requests aufruft, und ruft dann [`show()`](/de/docs/Web/API/PaymentRequest/show) auf, um dem Benutzer die Zahlungsschnittstelle zu präsentieren.
 
-Der Code geht von der Existenz einer Methode `detailsForTransaction()` aus, die ein Objekt zurückgeben wird, das als [`details`](/de/docs/Web/API/PaymentRequest/PaymentRequest#details) Argument an den `PaymentRequest` Konstruktor übergeben werden kann.
+Der Code setzt die Existenz einer Methode `detailsForTransaction()` voraus, die ein Objekt zurückgibt, das als [`details`](/de/docs/Web/API/PaymentRequest/PaymentRequest#details)-Argument an den `PaymentRequest`-Konstruktor übergeben werden kann.
 
 ```js
 const paymentRequest = new PaymentRequest(
@@ -63,7 +63,7 @@ paymentRequest
   .catch((err) => console.error(`Error handling payment request: ${err}`));
 ```
 
-Die Ereignishandler-Funktion selbst, `handlePaymentChange()`, sieht folgendermaßen aus:
+Die Ereignis-Handler-Funktion selbst, `handlePaymentChange()`, sieht folgendermaßen aus:
 
 ```js
 handlePaymentChange = (event) => {
@@ -78,9 +78,9 @@ handlePaymentChange = (event) => {
 };
 ```
 
-Zu Beginn wird die [`methodName`](/de/docs/Web/API/PaymentMethodChangeEvent/methodName) Eigenschaft des Ereignisses überprüft; wenn diese angibt, dass der Benutzer versucht, Apple Pay zu verwenden, übergeben wir die [`methodDetails`](/de/docs/Web/API/PaymentMethodChangeEvent/methodDetails) an eine Funktion namens `calculateServiceFee()`, die wir erstellen könnten, um die Informationen über die Transaktion, wie die zugrunde liegende Kreditkarte, die zur Abwicklung der Apple Pay-Anfrage verwendet wird, zu nutzen und ein Objekt zu berechnen und zu retournieren, das die Änderungen spezifiziert, die am [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) vorgenommen werden müssen, um etwaige Servicegebühren hinzuzufügen, die die Zahlungsmethode erfordern könnte.
+Diese beginnt mit dem Blick auf die [`methodName`](/de/docs/Web/API/PaymentMethodChangeEvent/methodName)-Eigenschaft des Ereignisses; wenn diese darauf hinweist, dass der Benutzer versucht, Apple Pay zu verwenden, übergeben wir die [`methodDetails`](/de/docs/Web/API/PaymentMethodChangeEvent/methodDetails) an eine Funktion namens `calculateServiceFee()`, die wir erstellen könnten, um die Informationen über die Transaktion zu nutzen, wie z.B. die zugrunde liegende Kreditkarte, die für die Abwicklung der Apple Pay-Anfrage verwendet wird, um ein Objekt zu berechnen und zurückzugeben, das Änderungen spezifiziert, die am [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) vorgenommen werden müssen, um eventuell erforderliche Servicegebühren der Zahlungsmethode hinzuzufügen.
 
-Bevor der Ereignishandler zurückkehrt, ruft er die [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) Methode des Ereignisses auf, um die Änderungen in die Anfrage zu integrieren.
+Bevor der Ereignis-Handler zurückkehrt, ruft er die [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith)-Methode des Ereignisses auf, um die Änderungen in die Anfrage zu integrieren.
 
 ## Spezifikationen
 

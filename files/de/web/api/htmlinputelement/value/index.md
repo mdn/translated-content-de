@@ -8,23 +8,23 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als String.
+Die **`value`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zeichenkette.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung zu setzen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung einzustellen.
 
 ## Wert
 
-Ein String, der den Wert des {{htmlelement("input")}}-Elements enthält, oder der leere String, wenn das Eingabeelement keinen gesetzten Wert hat.
+Eine Zeichenkette, die den Wert des {{htmlelement("input")}}-Elements enthält, oder die leere Zeichenkette, wenn das Eingabeelement keinen gesetzten Wert hat.
 
 ## Beispiele
 
 ### Abrufen des Werts einer Texteingabe
 
-In diesem Beispiel zeigt das Protokoll den aktuellen Wert an, während der Benutzer Daten in die Eingabe eingibt.
+In diesem Beispiel wird der aktuelle Wert angezeigt, während der Benutzer Daten in das Eingabefeld eingibt.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("label")}} ein, mit einem {{htmlelement("pre")}}-Container für unsere Ausgabe.
+Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("label")}} hinzu, mit einem {{htmlelement("pre")}}-Container für unsere Ausgabe.
 
 ```html
 <label for="givenname">Your name:</label>
@@ -36,7 +36,7 @@ Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("labe
 
 #### JavaScript
 
-Der `innerText` des `<pre>`-Elements wird bei jedem ausgelösten [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis auf den aktuellen Wert des `<input>` gesetzt.
+Das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird jedes Mal auf den aktuellen Wert des `<input>` aktualisiert, wenn ein [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis ausgelöst wird.
 
 ```js
 const logElement = document.getElementById("log");
@@ -59,9 +59,9 @@ inputElement.addEventListener("keyup", () => {
 
 {{EmbedLiveSample("Retrieving a text input's value", "", 100)}}
 
-### Abrufen eines Farbwertes
+### Abrufen eines Farbwerts
 
-Dieses Beispiel demonstriert die `value`-Eigenschaft mit einem `<input>` vom Typ {{HTMLElement("input/color", "color")}}.
+Dieses Beispiel zeigt, dass die `value`-Eigenschaft mit einem `<input>` vom Typ {{HTMLElement("input/color", "color")}} verwendet wird.
 
 #### HTML
 
@@ -77,7 +77,7 @@ Wir fügen ein `<input>` vom Typ `color` ein:
 
 #### JavaScript
 
-Der `innerText` des `<pre>`-Elements wird mit dem Standardfarbwert (`#000000`) aktualisiert und dann jedes Mal aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
+Das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird mit dem Standardfarbwert (`#000000`) und dann jedes Mal aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
 
 ```js
 const logElement = document.getElementById("log");

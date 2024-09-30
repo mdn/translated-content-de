@@ -31,4 +31,4 @@ const result = location.href; // Returns 'https://developer.mozilla.org/en-US/do
 
 ## Siehe auch
 
-- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der sie gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

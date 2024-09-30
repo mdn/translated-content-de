@@ -7,18 +7,18 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unseren Artikel über [Arrays](/de/docs/Learn/JavaScript/First_steps/Arrays) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie unseren Artikel zu [Arrays](/de/docs/Learn/JavaScript/First_steps/Arrays) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Wenn Sie feststecken, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Arrays 1
 
-Lassen Sie uns mit etwas grundlegender Array-Praxis beginnen. In dieser Aufgabe möchten wir, dass Sie ein Array mit drei Elementen erstellen, das in einer Variablen namens `myArray` gespeichert ist. Die Elemente können beliebig sein — wie wäre es mit Ihren Lieblingsspeisen oder -bands?
+Beginnen wir mit etwas grundlegender Array-Praxis. In dieser Aufgabe möchten wir, dass Sie ein Array mit drei Elementen erstellen, das in einer Variablen namens `myArray` gespeichert wird. Die Elemente können alles sein, was Sie möchten – zum Beispiel Ihre Lieblingsspeisen oder -bands.
 
-Ändern Sie als Nächstes die ersten beiden Elemente im Array mithilfe einfacher Klammernotation und Zuweisung. Fügen Sie dann ein neues Element am Anfang des Arrays hinzu.
+Als Nächstes ändern Sie die ersten beiden Elemente im Array mit einfacher Klammernotation und Zuweisung. Fügen Sie dann ein neues Element am Anfang des Arrays hinzu.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -30,11 +30,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Arrays 2
 
-Kommen wir jetzt zu einer anderen Aufgabe. Hier wird Ihnen ein String zur Verfügung gestellt, mit dem Sie arbeiten sollen. Wir möchten, dass Sie:
+Gehen wir nun zu einer anderen Aufgabe über. Hier wird Ihnen ein String zur Verfügung gestellt, mit dem Sie arbeiten sollen. Wir möchten, dass Sie:
 
-1. Den String in ein Array umwandeln und dabei die `+`-Zeichen entfernen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
+1. Den String in ein Array umwandeln und dabei die `+` Zeichen entfernen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
 2. Die Länge des Arrays in einer Variablen namens `arrayLength` speichern.
-3. Das letzte Element im Array in einer Variablen namens `lastItem` speichern.
+3. Das letzte Element des Arrays in einer Variablen namens `lastItem` speichern.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -46,12 +46,12 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Arrays 3
 
-Für diese Array-Aufgabe stellen wir Ihnen ein Anfangsarray zur Verfügung, und Sie werden in gewisser Weise in die entgegengesetzte Richtung arbeiten. Sie müssen:
+Für diese Array-Aufgabe geben wir Ihnen ein Ausgangsarray und Sie arbeiten in gewisser Weise in die entgegengesetzte Richtung. Sie müssen:
 
 1. Das letzte Element im Array entfernen.
 2. Zwei neue Namen am Ende des Arrays hinzufügen.
-3. Jedes Element im Array durchgehen und seine Indexnummer in Klammern nach dem Namen hinzufügen, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir im Artikel über Arrays nicht lehren, wie man dies tut, sodass Sie etwas recherchieren müssen.
-4. Schließlich die Array-Elemente in einem einzelnen String namens `myString` zusammenfügen, mit einem Trennzeichen von `"-"`.
+3. Jedes Element im Array durchgehen und seine Indexnummer in Klammern hinter dem Namen hinzufügen, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir nicht beibringen, wie das im Arrays-Artikel gemacht wird, Sie müssen also etwas recherchieren.
+4. Schließlich die Array-Elemente zu einem einzigen String namens `myString` zusammenfügen, mit einem Trennzeichen von `"-"`.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -63,10 +63,10 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Arrays 4
 
-Für diese Array-Aufgabe stellen wir Ihnen ein Anfangsarray zur Verfügung, das die Namen einiger Vögel auflistet.
+Für diese Array-Aufgabe geben wir Ihnen ein Ausgangsarray, das die Namen einiger Vögel auflistet.
 
-- Finden Sie den Index des Elements `"Eagles"` und verwenden Sie diesen, um das Element `"Eagles"` zu entfernen.
-- Erstellen Sie ein neues Array aus diesem, genannt `eBirds`, das nur Vögel aus dem ursprünglichen Array enthält, deren Namen mit dem Buchstaben "E" beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} eine großartige Möglichkeit ist, um zu prüfen, ob ein String mit einem bestimmten Zeichen beginnt.
+- Finden Sie den Index des Elements `"Eagles"` und verwenden Sie ihn, um das Element `"Eagles"` zu entfernen.
+- Erstellen Sie ein neues Array aus diesem, namens `eBirds`, das nur Vögel aus dem Original-Array enthält, deren Namen mit dem Buchstaben "E" beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} eine großartige Möglichkeit ist, zu überprüfen, ob ein String mit einem bestimmten Zeichen beginnt.
 
 Wenn es funktioniert, sollten Sie `"Emus,Egrets"` auf der Seite erscheinen sehen.
 

@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createMediaElementSource()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Objekt zu erstellen, ausgehend von einem bestehenden HTML-{{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element, wobei der Ton abgespielt und manipuliert werden kann.
+Die `createMediaElementSource()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Objekt zu erstellen, basierend auf einem vorhandenen HTML-{{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element. Der Ton dieses Elements kann dann abgespielt und manipuliert werden.
 
-Für weitere Details über Media Element Audio Source Nodes sehen Sie sich die [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Referenzseite an.
+Für weitere Details zu Media-Element-Audioquellknoten besuchen Sie die [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Referenzseite.
 
 ## Syntax
 
@@ -29,10 +29,10 @@ Ein [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode
 
 ## Beispiele
 
-Dieses einfache Beispiel erstellt eine Quelle aus einem {{htmlelement("audio")}}-Element mithilfe von `createMediaElementSource()`, leitet dann den Ton durch einen [`GainNode`](/de/docs/Web/API/GainNode), bevor er in den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zur Wiedergabe eingespeist wird. Wenn der Mauszeiger bewegt wird, wird die Funktion `updatePage()` aufgerufen, die den aktuellen Gain als Verhältnis des Maus-Y-Position zur gesamten Fensterhöhe berechnet. Dadurch können Sie die Lautstärke der laufenden Musik durch Bewegen des Mauszeigers nach oben oder unten erhöhen oder verringern.
+In diesem einfachen Beispiel wird eine Quelle aus einem {{htmlelement("audio")}}-Element mit `createMediaElementSource()` erstellt, dann wird das Audio durch einen [`GainNode`](/de/docs/Web/API/GainNode) geleitet, bevor es in den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zur Wiedergabe eingespeist wird. Wenn der Mauszeiger bewegt wird, wird die Funktion `updatePage()` aufgerufen, die den aktuellen Gewinn als Verhältnis der Y-Position der Maus zur Gesamthöhe des Fensters berechnet. Sie können die Lautstärke der abgespielten Musik erhöhen und verringern, indem Sie den Mauszeiger nach oben und unten bewegen.
 
 > [!NOTE]
-> Sie können sich dieses Beispiel auch [live ansehen](https://mdn.github.io/webaudio-examples/media-source-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/media-source-buffer).
+> Sie können dieses [Beispiel auch live sehen](https://mdn.github.io/webaudio-examples/media-source-buffer/) oder den [Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/media-source-buffer).
 
 ```js
 const audioCtx = new AudioContext();
@@ -67,7 +67,7 @@ gainNode.connect(audioCtx.destination);
 ```
 
 > [!NOTE]
-> Durch den Aufruf von `createMediaElementSource()` wird die Audiowiedergabe von dem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) in den Verarbeitungsgrafen des AudioContext umgeleitet. Das Abspielen/Pausieren der Medien kann jedoch weiterhin über die Media-Element-API und die Player-Steuerelemente erfolgen.
+> Durch den Aufruf von `createMediaElementSource()` wird die Audio-Wiedergabe vom [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) in den Verarbeitungs-Graphen des AudioContext umgeleitet. Das Abspielen/Pausieren des Mediums kann weiterhin über die Media-Element-API und die Player-Steuerelemente erfolgen.
 
 ## Spezifikationen
 

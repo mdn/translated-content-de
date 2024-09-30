@@ -12,10 +12,10 @@ Die schreibgeschützte **`readyState`**-Eigenschaft des [`MediaStreamTrack`](/de
 
 ## Wert
 
-Sie nimmt einen der folgenden Werte an:
+Die Eigenschaft kann einen der folgenden Werte annehmen:
 
-- `"live"`, was anzeigt, dass eine Eingabe verbunden ist und ihr Bestes tut, um Echtzeitdaten bereitzustellen. In diesem Fall kann die Ausgabe der Daten mit der [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Eigenschaft ein- oder ausgeschaltet werden.
-- `"ended"`, was bedeutet, dass die Eingabe keine Daten mehr liefert und auch keine neuen Daten bereitstellen wird.
+- `"live"`, was darauf hinweist, dass ein Eingang verbunden ist und sein Bestes tut, um Echtzeitdaten bereitzustellen. In diesem Fall kann die Ausgabe von Daten ein- oder ausgeschaltet werden, indem die [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Eigenschaft verwendet wird.
+- `"ended"`, was darauf hinweist, dass der Eingang keine weiteren Daten liefert und auch in Zukunft keine neuen Daten bereitstellen wird.
 
 ## Spezifikationen
 

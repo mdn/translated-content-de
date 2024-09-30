@@ -1,5 +1,5 @@
 ---
-title: "MediaStreamTrack: unmute-Ereignis"
+title: "MediaStreamTrack: unmute Ereignis"
 short-title: unmute
 slug: Web/API/MediaStreamTrack/unmute_event
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`unmute`**-Ereignis wird an ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) gesendet, wenn die Quelle des Tracks wieder in der Lage ist, Mediendaten bereitzustellen, nachdem sie für eine Weile nicht dazu in der Lage war.
+Das **`unmute`** Ereignis wird an ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) gesendet, wenn die Quelle des Tracks nach einer Periode, in der sie keine Mediendaten liefern konnte, wieder in der Lage ist, diese bereitzustellen.
 
-Dies beendet den [`muted`](/de/docs/Web/API/MediaStreamTrack/muted)-Zustand, der mit dem [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event)-Ereignis begann.
+Dies beendet den [`muted`](/de/docs/Web/API/MediaStreamTrack/muted) Zustand, der mit dem [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event) Ereignis begann.
 
 > [!NOTE]
-> Der Zustand, den die meisten Leute als "stummgeschaltet" betrachten (das heißt, eine benutzerkontrollierte Methode, um einen Track stummzuschalten), wird tatsächlich durch die [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Eigenschaft verwaltet, für die es keine Ereignisse gibt.
+> Die Bedingung, die die meisten Menschen als "stummgeschaltet" betrachten (also eine benutzerkontrollierbare Möglichkeit, einen Track stummzuschalten), wird tatsächlich über die [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled) Eigenschaft verwaltet, für die es keine Ereignisse gibt.
 
-Dieses Ereignis ist nicht abbrichtbar und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisblase aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("unmute", (event) => {});
@@ -33,7 +33,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel werden Ereignishandler für die [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event)- und `unmute`-Ereignisse eingerichtet, um zu erkennen, wann die Medien nicht mehr von der Quelle des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) fließen, das in der Variablen `musicTrack` gespeichert ist.
+In diesem Beispiel werden Ereignisbehandler für die [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event) und `unmute` Ereignisse eingerichtet, um zu erkennen, wann das Medium nicht mehr von der Quelle des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), das in der Variable `musicTrack` gespeichert ist, fließt.
 
 ```js
 musicTrack.addEventListener(
@@ -53,9 +53,9 @@ musicTrack.addEventListener(
 );
 ```
 
-Mit diesen Ereignishandlern ändert sich beim Eintritt in den [`muted`](/de/docs/Web/API/MediaStreamTrack/muted)-Zustand des Tracks `musicTrack` die Hintergrundfarbe des Elements mit der ID `timeline-widget` auf `#aaa`. Wenn der Track den stummgeschalteten Zustand verlässt – erkannt durch das Eintreffen eines `unmute`-Ereignisses – wird die Hintergrundfarbe wieder auf Weiß zurückgesetzt.
+Mit diesen Ereignisbehandlern wechselt das Element mit der ID `timeline-widget` seine Hintergrundfarbe zu `#aaa`, wenn der Track `musicTrack` seinen [`muted`](/de/docs/Web/API/MediaStreamTrack/muted) Zustand erreicht. Wenn der Track den stummgeschalteten Zustand verlässt—erkannt durch das Eintreffen eines `unmuted` Ereignisses—wird die Hintergrundfarbe auf Weiß zurückgesetzt.
 
-Sie können auch die `onunmute`-Ereignishandler-Eigenschaft verwenden, um einen Handler für dieses Ereignis einzurichten; ähnlich ist die [`onmute`](/de/docs/Web/API/MediaStreamTrack/mute_event)-Ereignishandlereigenschaft verfügbar, um einen Handler für das `mute`-Ereignis einzurichten. Das folgende Beispiel zeigt dies:
+Sie können auch die `onunmute` Ereignisbehandlereigenschaft verwenden, um einen Behandler für dieses Ereignis einzurichten; ähnlich steht die [`onmute`](/de/docs/Web/API/MediaStreamTrack/mute_event) Ereignisbehandlereigenschaft zur Verfügung, um einen Behandler für das `mute` Ereignis einzurichten. Das folgende Beispiel zeigt dies:
 
 ```js
 musicTrack.onmute = (event) => {
@@ -67,9 +67,9 @@ musicTrack.onunmute = (event) => {
 };
 ```
 
-### Tracks durch Empfänger unmute
+### Tracks über Receiver unmute
 
-Das folgende Beispiel zeigt, wie Tracks mit Hilfe von Empfängern unmute werden.
+Das folgende Beispiel zeigt, wie Sie Tracks mithilfe von Receivern unmute.
 
 ```js
 // Peer 1 (Receiver)
@@ -91,7 +91,7 @@ const videoTrack = transceivers[1];
 videoTrack.direction = "sendrecv";
 ```
 
-`transceivers` ist ein Array von [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), in dem Sie den gesendeten und empfangenen Audio- oder Videotrack finden können. Weitere Informationen finden Sie im Artikel über die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction).
+`transceivers` ist ein Array von [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), in dem Sie die gesendeten und empfangenen Audio- oder Videospuren finden können. Weitere Informationen finden Sie im [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) Artikel.
 
 ## Spezifikationen
 
@@ -103,4 +103,4 @@ videoTrack.direction = "sendrecv";
 
 ## Siehe auch
 
-- Das [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event)-Ereignis
+- Das [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event) Ereignis

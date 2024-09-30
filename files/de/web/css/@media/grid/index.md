@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Das **`grid`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen rasterbasierten Bildschirm verwendet.
+Die **`grid`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen rasterbasierten Bildschirm verwendet.
 
-Die meisten modernen Computer und Smartphones haben bitmapbasierte Bildschirme. Beispiele für rasterbasierte Geräte sind Text-terminals und einfache Telefone mit nur einer festen Schriftart.
+Die meisten modernen Computer und Smartphones verfügen über bitmap-basierte Bildschirme. Beispiele für rasterbasierte Geräte sind textbasierte Terminals und einfache Telefone mit nur einer festen Schriftart.
 
 ## Syntax
 
-Das `grid`-Feature wird als {{cssxref("CSS_media_queries/Using_media_queries", "&lt;mq-boolean&gt;")}}-Wert (`0` oder `1`) angegeben, der darstellt, ob das Ausgabegerät rasterbasiert ist oder nicht.
+Das `grid`-Feature wird als {{cssxref("CSS_media_queries/Using_media_queries", "&lt;mq-boolean&gt;")}} Wert (`0` oder `1`) angegeben, der darstellt, ob das Ausgabegerät rasterbasiert ist oder nicht.
 
 ## Beispiele
 

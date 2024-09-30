@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognitionResult: item() Methode"
+title: "SpeechRecognitionResult: item()-Methode"
 short-title: item()
 slug: Web/API/SpeechRecognitionResult/item
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Der **`item`**-Getter der
-[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Schnittstelle ist ein Standard-Getter, der es ermöglicht,
+Der **`item`**-Getter des
+[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces ist ein Standard-Getter, der es ermöglicht,
 [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte innerhalb des Ergebnisses über
 Array-Syntax zuzugreifen.
 
@@ -22,7 +22,7 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Index des abzurufenden Elements.
+  - : Index des Elements, das abgerufen werden soll.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Ein [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternati
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 recognition.onresult = (event) => {

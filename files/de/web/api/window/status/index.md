@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef}}{{Deprecated_Header}}
 
-Die **`status`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle war ursprünglich dafür vorgesehen, den Text in der Statusleiste am unteren Rand des Browserfensters festzulegen. Der HTML-Standard erfordert jedoch jetzt, dass das Setzen von `window.status` keine Wirkung auf den angezeigten Text in der Statusleiste hat.
+Die **`status`**-Eigenschaft der
+[`Window`](/de/docs/Web/API/Window)-Schnittstelle war ursprünglich dazu gedacht, den Text in der Statusleiste am unteren Rand des Browserfensters zu setzen. Der HTML-Standard fordert jedoch jetzt, dass das Setzen von `window.status` keinen Effekt auf den in der Statusleiste angezeigten Text hat.
 
 ## Wert
 

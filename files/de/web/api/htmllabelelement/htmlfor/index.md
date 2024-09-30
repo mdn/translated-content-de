@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLLabelElement.htmlFor`**-Eigenschaft spiegelt den Wert der [`for`](/de/docs/Web/HTML/Element/label#for)-Inhaltseigenschaft wider. Das bedeutet, dass diese skriptzugängliche Eigenschaft verwendet wird, um den Wert der Inhaltseigenschaft `for` zu setzen und auszulesen. Diese enthält die ID des mit dem Label verbundenen Steuerelements.
+Die **`HTMLLabelElement.htmlFor`**-Eigenschaft spiegelt den Wert der [`for`](/de/docs/Web/HTML/Element/label#for)-Inhaltseigenschaft wider. Das bedeutet, dass diese skriptzugängliche Eigenschaft verwendet wird, um den Wert der Inhaltseigenschaft `for` zu setzen und auszulesen, welche die ID des zugeordneten Steuerelements des Labels ist.
 
 ## Wert
 
@@ -31,4 +31,4 @@ Ein String, der die ID des Elements enthält, das mit dem Steuerelement verbunde
 - [`HTMLLabelElement.control`](/de/docs/Web/API/HTMLLabelElement/control)
 - [`HTMLElement`](/de/docs/Web/API/HTMLElement)
 - {{HTMLElement("label")}}
-- [HTML-Formular-Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden für HTML-Formulare](/de/docs/Learn/Forms)

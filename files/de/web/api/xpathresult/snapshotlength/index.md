@@ -8,17 +8,19 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`snapshotLength`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces repräsentiert die Anzahl der Knoten im Ergebnis-Snapshot.
+Die schreibgeschützte **`snapshotLength`**-Eigenschaft der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle stellt die Anzahl der Knoten im Ergebnissnapshot dar.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Knoten im Ergebnis-Snapshot darstellt.
+Ein Integer-Wert, der die Anzahl der Knoten im Ergebnissnapshot darstellt.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
+`UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine
+[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

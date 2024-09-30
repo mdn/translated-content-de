@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`resultingClientId`** schreibgeschützte Eigenschaft des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces ist die [`id`](/de/docs/Web/API/Client/id) des [`client`](/de/docs/Web/API/Client), der den vorherigen Client während einer Seitennavigation ersetzt.
+Die **`resultingClientId`**-Eigenschaft des
+[`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces ist die [`id`](/de/docs/Web/API/Client/id) des
+[`client`](/de/docs/Web/API/Client), der bei einer Seitennavigation den vorherigen Client ersetzt.
 
-Zum Beispiel ist bei der Navigation von Seite A zu Seite B `resultingClientId` die ID des Clients, der mit Seite B verbunden ist.
+Zum Beispiel ist beim Navigieren von Seite A zu Seite B `resultingClientId` die ID des Clients, die mit Seite B verknüpft ist.
 
-Wenn die Fetch-Anfrage eine Subressourcenanfrage ist oder das [`destination`](/de/docs/Web/API/Request/destination) der Anfrage `report` ist, wird `resultingClientId` eine leere Zeichenkette sein.
+Wenn es sich bei der Fetch-Anfrage um eine Subressourcenanfrage handelt oder das
+[`destination`](/de/docs/Web/API/Request/destination) der Anfrage `report` ist, wird `resultingClientId` ein leerer String sein.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -36,6 +39,6 @@ self.addEventListener("fetch", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispiel für Service Worker-Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

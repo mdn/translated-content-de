@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`[Symbol.iterator]()`** von {{jsxref("TypedArray")}} Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es typisierten Arrays, durch die meisten Syntaxen, die Iterable erwarten, wie z. B. den [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen, genutzt zu werden. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im typisierten Array liefert.
+Die **`[Symbol.iterator]()`** Methode von {{jsxref("TypedArray")}} Instanzen implementiert das [Iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, dass typisierte Arrays von den meisten Syntaxen, die Iterables erwarten, wie der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen, konsumiert werden. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im typisierten Array liefert.
 
-Der Anfangswert dieser Eigenschaft ist das gleiche Funktionsobjekt wie der Anfangswert der {{jsxref("TypedArray.prototype.values")}}-Eigenschaft.
+Der anfängliche Wert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der anfängliche Wert der {{jsxref("TypedArray.prototype.values")}} Eigenschaft.
 
 {{EmbedInteractiveExample("pages/js/typedarray-prototype-@@iterator.html")}}
 
@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Der gleiche Rückgabewert wie {{jsxref("TypedArray.prototype.values()")}}: ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im typisierten Array liefert.
+Der gleiche Rückgabewert wie {{jsxref("TypedArray.prototype.values()")}}: ein neues [Iterable-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im typisierten Array liefert.
 
 ## Beispiele
 
-### Iteration mittels for...of-Schleife
+### Iteration mit der for...of Schleife
 
-Beachten Sie, dass es selten erforderlich ist, diese Methode direkt aufzurufen. Die Existenz der `[Symbol.iterator]()`-Methode macht typisierte Arrays [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterationssyntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zur Durchlauf zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Das Vorhandensein der `[Symbol.iterator]()` Methode macht typisierte Arrays [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -42,7 +42,7 @@ for (const n of arr) {
 
 ### Manuelles Erstellen des Iterators
 
-Sie können dennoch manuell die `next()`-Methode des zurückgegebenen Iterator-Objekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu erreichen.
+Sie können dennoch manuell die `next()` Methode des zurückgegebenen Iterator-Objekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu erreichen.
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -65,10 +65,10 @@ console.log(arrIter.next().value); // 50
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype[Symbol.iterator]` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.entries()")}}
 - {{jsxref("TypedArray.prototype.keys()")}}
 - {{jsxref("TypedArray.prototype.values()")}}
 - {{jsxref("Symbol.iterator")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterative Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

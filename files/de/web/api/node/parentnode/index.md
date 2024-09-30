@@ -8,22 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`parentNode`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
-gibt das übergeordnete Element des angegebenen Knotens im DOM-Baum zurück.
+Die schreibgeschützte **`parentNode`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt das Elternteil des angegebenen Knotens im DOM-Baum zurück.
 
-`Document`- und `DocumentFragment`-[Knoten](/de/docs/Web/API/Node/nodeType) können niemals ein übergeordnetes Element haben, daher wird `parentNode` immer `null` zurückgeben.
-Es wird auch `null` zurückgegeben, wenn der Knoten gerade erstellt wurde und noch nicht an den Baum angehängt ist. [`Node.parentElement`](/de/docs/Web/API/Node/parentElement) hingegen gibt nur `Element`-Knoten zurück.
+`Document` und `DocumentFragment` [Knoten](/de/docs/Web/API/Node/nodeType) können niemals ein Elternteil haben, daher gibt `parentNode` immer `null` zurück. Es gibt auch `null` zurück, wenn der Knoten gerade erstellt wurde und noch nicht mit dem Baum verbunden ist. [`Node.parentElement`](/de/docs/Web/API/Node/parentElement) hingegen gibt nur `Element`-Knoten zurück.
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node), das das übergeordnete Element des aktuellen Knotens ist. Das übergeordnete Element eines Elements ist
-ein `Element`-Knoten, ein `Document`-Knoten oder ein `DocumentFragment`-Knoten.
+Ein [`Node`](/de/docs/Web/API/Node), der das Elternteil des aktuellen Knotens ist. Das Elternteil eines Elements ist ein `Element`-Knoten, ein `Document`-Knoten oder ein `DocumentFragment`-Knoten.
 
 ## Beispiel
 
 ### Verwendung von parentNode
 
-Dieses Beispiel entfernt einen Knoten vom Baum, es sei denn, er befindet sich bereits nicht im Baum.
+Dieses Beispiel entfernt einen Knoten aus dem Baum, es sei denn, dieser ist bereits nicht im Baum vorhanden.
 
 ```js
 if (node.parentNode) {

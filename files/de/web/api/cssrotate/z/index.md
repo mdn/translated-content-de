@@ -9,15 +9,15 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`z`**-Eigenschaft des
-[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element zum Betrachter hin, und ein negativer Wert weiter weg.
+[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces repräsentiert die z-Komponente des Übersetzungvektors. Ein positiver Wert bewegt das Element auf den Betrachter zu, ein negativer Wert weiter weg.
 
 ## Wert
 
-Ein Doppel-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein ganzzahliger Wert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-Zu erledigen
+In Arbeit
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`OverconstrainedError`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) zeigt an, dass die gewünschten Fähigkeiten für den aktuellen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit nicht erfüllt werden können. Wenn dieses Ereignis auf einem MediaStreamTrack ausgelöst wird, wird es stummgeschaltet, bis entweder die aktuellen Einschränkungen erfüllt werden können oder bis erfüllbare Einschränkungen angewendet werden.
+Die **`OverconstrainedError`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) zeigt an, dass der gewünschte Satz von Fähigkeiten für den aktuellen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit nicht erfüllt werden kann. Wenn dieses Ereignis auf einem MediaStreamTrack ausgelöst wird, wird dieser stummgeschaltet, bis entweder die aktuellen Einschränkungen hergestellt werden können oder bis erfüllbare Einschränkungen angewendet werden.
 
 {{InheritanceDiagram}}
 
@@ -16,12 +16,12 @@ Die **`OverconstrainedError`**-Schnittstelle der [Media Capture and Streams API]
 - [`OverconstrainedError()`](/de/docs/Web/API/OverconstrainedError/OverconstrainedError)
   - : Erstellt ein neues `OverconstrainedError`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`DOMException`](/de/docs/Web/API/DOMException)._
 
 - [`OverconstrainedError.constraint`](/de/docs/Web/API/OverconstrainedError/constraint) {{ReadOnlyInline}}
-  - : Gibt die Einschränkung zurück, die im Konstruktor angegeben wurde, d. h. die Einschränkung, die nicht erfüllt wurde.
+  - : Gibt die Einschränkung zurück, die im Konstruktor angegeben wurde, also die Einschränkung, die nicht erfüllt wurde.
 
 ## Instanzmethoden
 

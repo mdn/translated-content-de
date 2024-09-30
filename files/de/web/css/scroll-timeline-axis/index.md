@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`scroll-timeline-axis`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Richtung des Scrollbalkens anzugeben, die genutzt wird, um die Zeitachse für eine _benannte Scroll-Fortschritts-Zeitachsen_ Animation bereitzustellen. Diese wird erzielt, indem ein scrollbares Element (_Scroller_) zwischen oben und unten (oder links und rechts) gescrollt wird. `scroll-timeline` wird auf dem Scroller festgelegt, der die Zeitachse bereitstellt. Weitere Details finden Sie unter [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
+Die **`scroll-timeline-axis`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Scrollbarrichtung anzugeben, die verwendet wird, um die Timeline für eine _benannte Scrollfortschritts-Timeline_ Animation bereitzustellen, die durch Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) fortschreitet. `scroll-timeline` wird auf dem Scroller gesetzt, der die Timeline bereitstellt. Siehe [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details.
 
 > [!NOTE]
-> Wenn das Scroller-Element in der Achsen-Dimension nicht seinen Container überläuft oder wenn der Überlauf verborgen oder abgeschnitten ist, wird keine Scroll-Fortschritts-Zeitachse erstellt.
+> Wenn das Scroller-Element in der Achsendimension seinen Container nicht überläuft oder wenn der Überlauf verborgen oder abgeschnitten ist, wird keine Scrollfortschritts-Timeline erstellt.
 
-Die Eigenschaften `scroll-timeline-axis` und {{cssxref("scroll-timeline-name")}} können auch mit der Abkürzung [`scroll-timeline`](/de/docs/Web/CSS/scroll-timeline) eingestellt werden.
+Die Eigenschaften `scroll-timeline-axis` und {{cssxref("scroll-timeline-name")}} können auch mit der Abkürzungseigenschaft [`scroll-timeline`](/de/docs/Web/CSS/scroll-timeline) gesetzt werden.
 
 ## Syntax
 
@@ -30,13 +30,13 @@ scroll-timeline-axis: x;
 Erlaubte Werte für `scroll-timeline-axis` sind:
 
 - `block`
-  - : Der Scrollbalken auf der Blockachse des Scroller-Elements, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi, wie zum Beispiel Standard-Englisch, ist dies dasselbe wie `y`, während es für vertikale Schreibmodi dasselbe wie `x` ist. Dies ist der Standardwert.
+  - : Die Scrollbar auf der Blockachse des Scroller-Elements, die Achse senkrecht zum Textfluss innerhalb einer Zeile. Für horizontale Schreibrichtungen, wie z.B. Standard-Englisch, entspricht dies `y`, während es für vertikale Schreibrichtungen `x` entspricht. Dies ist der Standardwert.
 - `inline`
-  - : Der Scrollbalken auf der Inline-Achse des Scroller-Elements, welche die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibmodi ist dies dasselbe wie `x`, während es für vertikale Schreibmodi dasselbe wie `y` ist.
+  - : Die Scrollbar auf der Inline-Achse des Scroller-Elements, die Achse parallel zum Textfluss in einer Zeile. Für horizontale Schreibrichtungen entspricht dies `x`, während es für vertikale Schreibrichtungen `y` entspricht.
 - `y`
-  - : Der Scrollbalken auf der vertikalen Achse des Scroller-Elements.
+  - : Die Scrollbar auf der vertikalen Achse des Scroller-Elements.
 - `x`
-  - : Der Scrollbalken auf der horizontalen Achse des Scroller-Elements.
+  - : Die Scrollbar auf der horizontalen Achse des Scroller-Elements.
 
 ## Formale Definition
 
@@ -48,15 +48,15 @@ Erlaubte Werte für `scroll-timeline-axis` sind:
 
 ## Beispiele
 
-### Festlegen der Achse der Scroll-Fortschritts-Zeitachse
+### Definieren der Achse der Scrollfortschritts-Timeline
 
-In diesem Beispiel wird eine Scroll-Fortschritts-Zeitachse namens `--myScroller` mit der Eigenschaft `scroll-timeline-name` auf dem <code>:root</code>-Element ({{htmlelement("html")}}) definiert. Diese Zeitachse wird dann auf die Animation des Elements mit der `animation` Klasse durch `animation-timeline: --myScroller` angewendet.
+In diesem Beispiel wird eine Scrollfortschritts-Timeline namens `--myScroller` definiert, indem die Eigenschaft `scroll-timeline-name` auf dem <code>:root</code>-Element ({{htmlelement("html")}}) verwendet wird. Diese Timeline wird dann auf die Animation des Elements mit der Klasse `animation` angewendet, indem `animation-timeline: --myScroller` verwendet wird.
 
-Um die Wirkung von `scroll-timeline-axis` zu demonstrieren, wird in diesem Beispiel ein horizontaler (nicht standardmäßiger) Scrollbalken verwendet, um die Animation zu steuern.
+Um die Wirkung von `scroll-timeline-axis` zu demonstrieren, wird in diesem Beispiel eine horizontale (nicht standardmäßige) Scrollbar verwendet, um die Animation zu steuern.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <body>
@@ -67,12 +67,12 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Der CSS-Code für den Container legt das <code>:root</code> Element als Quelle einer Scroll-Fortschritts-Zeitachse namens `--myScroller` mit der Eigenschaft `scroll-timeline-name` fest.
-Die Scrollachse wird mit `scroll-timeline-axis: x;` (Chromium) und `scroll-timeline-axis: horizontal;` (Firefox) eingestellt — dies bewirkt, dass die Position des _horizontalen Scrollbalkens_ die Animations-Zeitachse bestimmt.
+Das CSS für den Container setzt das <code>:root</code> als Quelle einer Scrollfortschritts-Timeline namens `--myScroller` unter Verwendung der Eigenschaft `scroll-timeline-name`.
+Die Scrollachse wird mit `scroll-timeline-axis: x;` (Chromium) und `scroll-timeline-axis: horizontal;` (Firefox) eingestellt — dies bewirkt, dass die _horizontale Scrollbar_-Position die Animations-Timeline bestimmt.
 
-Die Breite des `.content`-Elements wird auf einen großen Wert gesetzt, damit es das `:root`-Element überläuft.
+Die Breite des `.content`-Elements wird auf einen hohen Wert gesetzt, damit es das `:root`-Element überläuft.
 
-Bemerkenswert ist auch, dass das `.animation`-Element die Zeitachse mit `animation-timeline: --myScroller;` angewendet hat und dass ihm eine `animation-duration` zugewiesen wurde, damit das Beispiel in Firefox funktioniert.
+Außerdem ist zu beachten, dass das `.animation`-Element die Timeline mit `animation-timeline: --myScroller;` zugewiesen hat und auch eine `animation-duration` angewendet hat, damit das Beispiel in Firefox funktioniert.
 
 ```css
 :root {
@@ -125,7 +125,7 @@ body {
 
 #### Ergebnis
 
-Scrollen Sie den horizontalen Balken unten, um zu sehen, wie das Quadrat animiert wird, während Sie scrollen.
+Scrollen Sie die horizontale Leiste unten, um zu sehen, wie das Quadrat animiert wird, während Sie scrollen.
 
 {{EmbedLiveSample("Defining_the_axis_of_the_scroll_progress_timeline", "100%", "200px")}}
 

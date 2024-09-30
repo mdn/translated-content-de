@@ -1,5 +1,5 @@
 ---
-title: "SerialPort: readable-Eigenschaft"
+title: "SerialPort: readable Eigenschaft"
 short-title: readable
 slug: Web/API/SerialPort/readable
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`readable`** schreibgeschützte Eigenschaft des [`SerialPort`](/de/docs/Web/API/SerialPort) Interface liefert einen [`ReadableStream`](/de/docs/Web/API/ReadableStream), um Daten vom mit dem Port verbundenen Gerät zu empfangen. Die von diesem Stream gelesenen Blöcke sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, solange der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`readable`** des [`SerialPort`](/de/docs/Web/API/SerialPort)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, um Daten von dem mit dem Port verbundenen Gerät zu empfangen. Die aus diesem Stream gelesenen Teile sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, solange der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man Daten von einem Port liest. Die äußere Schleife behandelt nicht-schwerwiegende Fehler und erstellt einen neuen Leser, bis ein schwerwiegender Fehler auftritt und `readable` null wird.
+Das folgende Beispiel zeigt, wie man Daten von einem Port liest. Die äußere Schleife behandelt nicht-schwerwiegende Fehler und erstellt einen neuen Leser, bis ein schwerwiegender Fehler auftritt und `readable` `null` wird.
 
 ```js
 while (port.readable) {

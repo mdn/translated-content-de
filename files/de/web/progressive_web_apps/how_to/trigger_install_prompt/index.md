@@ -8,30 +8,30 @@ l10n:
 {{PWASidebar}}
 
 > [!WARNING]
-> Die hier beschriebene Technik hängt vom [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event)-Ereignis ab, das nicht standardisiert ist und derzeit nur in Chromium-basierten Browsern implementiert ist.
+> Die hier beschriebene Technik hängt vom [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Event ab, das nicht standardisiert und derzeit nur in Chromium-basierten Browsern implementiert ist.
 
-Standardmäßig zeigt der Browser, wenn ein Nutzer Ihre Website besucht und der Browser feststellt, dass die Site [als PWA installierbar ist](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#installability), eine eingebaute Benutzeroberfläche an - beispielsweise ein Symbol in der URL-Leiste - um die Site zu installieren. Wenn der Nutzer auf das Symbol klickt, zeigt der Browser eine Installationsaufforderung an, die mindestens den [Namen](/de/docs/Web/Manifest/name) und das [Symbol](/de/docs/Web/Manifest/icons) der App enthält. Wenn der Nutzer zustimmt, die App zu installieren, wird sie installiert.
+Standardmäßig zeigt der Browser, wenn ein Benutzer Ihre Website besucht und der Browser feststellt, dass die Website [als PWA installierbar ist](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#installability), eine eingebaute Benutzeroberfläche an, z. B. ein Symbol in der URL-Leiste, um die Website zu installieren. Wenn der Benutzer auf das Symbol klickt, zeigt der Browser ein Installationsfenster an, das mindestens den [Namen](/de/docs/Web/Manifest/name) und das [Icon](/de/docs/Web/Manifest/icons) der App enthält. Wenn der Benutzer zustimmt, die App zu installieren, wird diese installiert.
 
-Sie können jedoch Ihre eigene In-App-Benutzeroberfläche implementieren, um den Nutzer zu fragen, ob er die App installieren möchte, wodurch die Installationsaufforderung ausgelöst wird. Die Vorteile dessen sind:
+Sie können jedoch auch eine eigene Benutzeroberfläche in der App implementieren, um den Benutzer zu fragen, ob er die App installieren möchte, wodurch das Installationsfenster ausgelöst wird. Die Vorteile sind:
 
-- Sie können den Nutzern mehr Kontext über die App bieten und erklären, warum sie diese als PWA installieren sollten.
-- Eine In-App-Installationsoberfläche ist wahrscheinlich leichter von den Nutzern zu entdecken und zu verstehen als die Standardbenutzeroberfläche des Browsers.
+- Sie können mehr Kontext über die App liefern und dem Benutzer erklären, warum er sie als PWA installieren sollte.
+- Eine in-App-Installationsoberfläche ist für Benutzer wahrscheinlich einfacher zu entdecken und zu verstehen als die standardmäßige Benutzeroberfläche des Browsers.
 
-## Hinzufügen einer In-App-Installationsoberfläche
+## Hinzufügen einer in-App-Installationsoberfläche
 
-Fügen Sie zuerst der App eine Benutzeroberfläche hinzu, die anzeigt, dass der Nutzer diese installieren kann. Zum Beispiel:
+Fügen Sie zuerst der App eine Benutzeroberfläche hinzu, die darauf hinweist, dass der Benutzer sie installieren kann. Zum Beispiel:
 
 ```html
 <button id="install" hidden>Install</button>
 ```
 
-Wir setzen das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attribut des Buttons, weil wir nicht möchten, dass die Installationsoberfläche sichtbar ist, wenn der Nutzer die App mit einem Browser besucht, der sie nicht installieren kann. Als Nächstes sehen wir, wie man den Button nur auf Browsern sichtbar macht, die die lokale Installation von PWAs unterstützen.
+Wir setzen das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) Attribut des Buttons, denn wenn der Benutzer die App mit einem Browser besucht, der sie nicht installieren kann, soll die Installationsoberfläche nicht sichtbar sein. Als nächstes sehen wir, wie der Button nur in Browsern sichtbar gemacht wird, die die Installation von PWAs lokal unterstützen.
 
-## Abhören von beforeinstallprompt
+## Auf das beforeinstallprompt-Ereignis hören
 
-Sobald der Browser festgestellt hat, dass er die App installieren kann, löst er das [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event)-Ereignis im globalen [`Window`](/de/docs/Web/API/Window)-Scope aus.
+Sobald der Browser festgestellt hat, dass er die App installieren kann, wird im globalen [`Window`](/de/docs/Web/API/Window) Bereich das [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Event ausgelöst.
 
-In unserem Haupt-App-Code werden wir auf dieses Ereignis lauschen:
+In unserem Haupt-App-Code werden wir auf dieses Ereignis hören:
 
 ```js
 // main.js
@@ -46,15 +46,15 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 ```
 
-Der Ereignishandler hier tut drei Dinge:
+Der Ereignishandler tut hier drei Dinge:
 
-- Er ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf das Ereignis auf. Dies verhindert, dass der Browser seine eigene Installationsoberfläche anzeigt.
-- Er nimmt eine Referenz auf das Ereignisobjekt, das an den Handler übergeben wird. Dies ist eine Instanz von [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) und ermöglicht es uns, den Nutzer zur Installation der App aufzufordern.
-- Er zeigt unsere In-App-Installationsoberfläche an, indem er das `hidden`-Attribut des Buttons entfernt.
+- Ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf das Ereignis auf. Dies verhindert, dass der Browser seine eigene Installationsoberfläche anzeigt.
+- Nimmt eine Referenz auf das Ereignisobjekt, das in den Handler übergeben wird. Dies ist eine Instanz von [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) und ermöglicht es uns, den Benutzer zur Installation der App aufzufordern.
+- Zeigt unsere in-App-Installationsoberfläche an, indem das `hidden` Attribut des Buttons entfernt wird.
 
-## Auslösen der Installationsaufforderung
+## Das Installationsfenster auslösen
 
-Als Nächstes müssen wir einen Klick-Handler zu unserem In-App-Installations-Button hinzufügen:
+Als nächstes müssen wir einen Klick-Handler für unseren in-App-Installationsbutton hinzufügen:
 
 ```js
 // main.js
@@ -74,17 +74,17 @@ function disableInAppInstallPrompt() {
 }
 ```
 
-Die Variable `installPrompt` wurde im `beforeinstallprompt`-Ereignishandler mit dem `BeforeInstallPromptEvent`-Objekt initialisiert. Wenn `installPrompt` aus irgendeinem Grund nicht initialisiert wurde, tun wir nichts.
+Die `installPrompt` Variable wurde mit dem `BeforeInstallPromptEvent` Objekt in unserem `beforeinstallprompt` Ereignishandler initialisiert. Wenn `installPrompt` aus irgendeinem Grund nicht initialisiert wurde, tun wir nichts.
 
-Andernfalls rufen wir die Methode [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) auf. Diese zeigt die Installationsaufforderung an und gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, welches angibt, ob die App installiert wurde oder nicht. Insbesondere ist das `outcome`-Eigenschaft `"accepted"`, wenn der Nutzer die App installieren wollte, oder `"dismissed"`, wenn er die Aufforderung abgelehnt hat.
+Andernfalls rufen wir seine [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) Methode auf. Dies zeigt das Installationsfenster an und gibt ein {{jsxref("Promise")}} zurück, welches mit einem Objekt aufgelöst wird, das angibt, ob die App installiert wurde oder nicht. Insbesondere ist seine `outcome` Eigenschaft `"accepted"` wenn der Benutzer sich entschieden hat, die App zu installieren, oder `"dismissed"` wenn er das Fenster abgelehnt hat.
 
-In jedem Fall müssen wir unseren Zustand nach dem Aufrufen von `prompt()` zurücksetzen, da wir es nur einmal für jede `BeforeInstallPromptEvent`-Instanz aufrufen können. Also setzen wir unsere `installPrompt`-Variable zurück und blenden den Installationsbutton erneut aus.
+In jedem Fall müssen wir unseren Status nach dem Aufruf von `prompt()` zurücksetzen, da wir es nur einmal pro `BeforeInstallPromptEvent` Instanz aufrufen können. Daher setzen wir unsere `installPrompt` Variable zurück und verbergen den Installationsbutton erneut.
 
 ## Reagieren auf App-Installation
 
-Je nach Browser und Plattform kann der Browser weiterhin seine eigene Benutzeroberfläche zur Installation der App anbieten. Das bedeutet, dass die App möglicherweise ohne Durchlaufen unserer In-App-Installationsoberfläche installiert wird. Wenn dies passiert, möchten wir verhindern, dass die In-App-Installationsoberfläche angezeigt wird, oder wir zeigen sie in einer bereits installierten App an.
+Je nach Browser und Plattform kann der Browser weiterhin seine eigene Oberfläche zur Installation der App anbieten. Das bedeutet, dass die App möglicherweise installiert wird, ohne dass unsere in-App-Installationsoberfläche verwendet wird. Wenn dies geschieht, möchten wir die in-App-Installationsoberfläche deaktivieren, um sie nicht in einer bereits installierten App anzuzeigen.
 
-Um dies zu tun, können wir das [`appinstalled`](/de/docs/Web/API/Window/appinstalled_event)-Ereignis abhören, das im globalen [`Window`](/de/docs/Web/API/Window)-Scope ausgelöst wird, wenn die App installiert wurde:
+Dazu können wir das [`appinstalled`](/de/docs/Web/API/Window/appinstalled_event) Ereignis abhören, das im globalen [`Window`](/de/docs/Web/API/Window) Bereich ausgelöst wird, wenn die App installiert wurde:
 
 ```js
 // main.js
@@ -99,11 +99,11 @@ function disableInAppInstallPrompt() {
 }
 ```
 
-## Reagieren auf plattform-spezifische installierte Apps
+## Reagieren auf plattformspezifische App-Installationen
 
-Ein Fall, der in den obigen Beispielen nicht abgedeckt ist, ist, wenn Sie sowohl eine plattform-spezifische Version der App als auch eine Web-App haben und das Erlebnis der Web-App personalisieren möchten, je nachdem, ob die plattform-spezifische App bereits installiert ist. Möglicherweise möchten Sie Nutzer nicht einladen, die PWA zu installieren, wenn sie bereits die plattform-spezifische App installiert haben, und/oder Sie möchten sie möglicherweise einladen, die plattform-spezifische App zu öffnen, um Inhalte anzusehen.
+Ein Fall, der in den obigen Beispielen nicht abgedeckt ist, ist, dass Sie eine plattformspezifische Version der App sowie eine Web-App haben, und Sie die Web-App-Erfahrung personalisieren möchten, abhängig davon, ob die plattformspezifische App bereits installiert ist. Sie möchten den Benutzer möglicherweise nicht einladen, die PWA zu installieren, wenn er bereits die plattformspezifische App installiert hat, und/oder Sie möchten ihn möglicherweise einladen, zur plattformspezifischen App zu wechseln, um Inhalte anzusehen.
 
-Dies kann mit der Methode [`Navigator.getInstalledRelatedApps()`](/de/docs/Web/API/Navigator/getInstalledRelatedApps) gehandhabt werden, die es Ihnen ermöglicht, installierte verwandte plattform-spezifische Apps (oder PWAs) zu erkennen und angemessen zu reagieren.
+Dies kann mit der [`Navigator.getInstalledRelatedApps()`](/de/docs/Web/API/Navigator/getInstalledRelatedApps) Methode gehandhabt werden, die es Ihnen ermöglicht, installierte verwandte plattformspezifische Apps (oder PWAs) zu erkennen und entsprechend zu reagieren.
 
 Zum Beispiel:
 
@@ -118,7 +118,7 @@ if (psApp) {
 }
 ```
 
-Diese Methode könnte auch mit `beforeinstallprompt` kombiniert werden, um die Installations-Benutzeroberfläche des Browsers basierend auf der Verfügbarkeit einer plattform-spezifischen App zu unterdrücken:
+Diese Methode könnte auch mit `beforeinstallprompt` kombiniert werden, um die Installationsoberfläche des Browsers basierend auf der Verfügbarkeit einer plattformspezifischen App zu unterdrücken:
 
 ```js
 window.addEventListener("beforeinstallprompt", async (event) => {
@@ -136,6 +136,6 @@ window.addEventListener("beforeinstallprompt", async (event) => {
 
 ## Siehe auch
 
-- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Ereignis
-- [Wie Sie Ihre eigene In-App-Installationserfahrung bieten](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Making PWAs installable](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Event
+- [How to provide your own in-app install experience](https://web.dev/articles/customize-install) auf web.dev (2021)

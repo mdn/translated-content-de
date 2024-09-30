@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`type`** der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle gibt eine String-Darstellung des aktuell erworbenen [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Typs zurück.
+Die schreibgeschützte Eigenschaft **`type`** des [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Interfaces gibt eine String-Repräsentation des aktuell erworbenen [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Typs zurück.
 
 ## Wert
 
-Eine String-Darstellung des aktuell erworbenen `wake lock`-Typs.
+Eine String-Repräsentation des aktuell erworbenen Wake-Lock-Typs.
 Derzeit ist der Wert immer `screen`, was einen Bildschirm-Wake-Lock darstellt.
 Er verhindert, dass Geräte den Bildschirm dimmen oder sperren.
 

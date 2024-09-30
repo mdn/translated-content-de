@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`alignment-baseline`** Attribut legt fest, wie ein Objekt in Bezug auf sein übergeordnetes Element ausgerichtet wird. Diese Eigenschaft legt fest, welche Grundlinie dieses Elements mit der entsprechenden Grundlinie des übergeordneten Elements ausgerichtet werden soll. Zum Beispiel ermöglicht dies, dass alphabetische Grundlinien in römischem Text über Änderungen der Schriftgröße hinweg ausgerichtet bleiben. Standardmäßig wird die Grundlinie mit dem gleichen Namen wie der berechnete Wert der `alignment-baseline` Eigenschaft verwendet.
+Das **`alignment-baseline`**-Attribut bestimmt, wie ein Objekt in Bezug auf sein übergeordnetes Element ausgerichtet wird. Diese Eigenschaft gibt an, welche Grundlinie dieses Elements mit der entsprechenden Grundlinie des übergeordneten Elements ausgerichtet werden soll. Zum Beispiel ermöglicht dies, dass alphabetische Grundlinien in römischem Text über Schriftgrößenänderungen hinweg ausgerichtet bleiben. Standardmäßig wird die Grundlinie mit dem gleichen Namen wie der berechnete Wert der `alignment-baseline`-Eigenschaft verwendet.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `alignment-baseline` als CSS-Eigenschaft verwendet werden.
@@ -46,51 +46,51 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto` {{deprecated_inline}}
-  - : Der Wert ist die dominante Grundlinie des Skripts, zu dem das Zeichen gehört - d. h. verwenden Sie die dominante Grundlinie des Elternteils.
+  - : Der Wert ist die dominierende Grundlinie des Schriftsystems, zu dem das Zeichen gehört - d. h. verwenden Sie die dominierende Grundlinie des übergeordneten Elements.
 - `baseline`
-  - : Verwendet die Auswahl der [dominanten Grundlinie](/de/docs/Glossary/dominant_baseline) des übergeordneten Elements. Passt die entsprechende [Grundlinie](/de/docs/Glossary/baseline/typography) des Rahmens an die seines Elternteils an.
+  - : Verwendet die Wahl der [dominierenden Grundlinie](/de/docs/Glossary/dominant_baseline) des übergeordneten Elements. Passt die entsprechende [Grundlinie](/de/docs/Glossary/baseline/typography) des Rahmens an die des übergeordneten Elements an.
 - `before-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "before-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
+  - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "before-edge"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 - `text-bottom`
-  - : Passt den unteren Rand des Rahmens an den oberen Rand des Inhaltsbereichs des Elternteils an.
+  - : Passt den unteren Rand des Rahmens an den oberen Rand des Inhaltsbereichs des übergeordneten Elements an.
 - `text-before-edge`
 
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-before-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
+  - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "text-before-edge"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 
     > [!NOTE]
-    > Dieses Schlüsselwort kann `text-top` zugeordnet werden.
+    > Dieses Schlüsselwort kann auf `text-top` gemappt werden.
 
 - `middle`
-  - : Richtet den vertikalen Mittelpunkt des Rahmens mit der Basislinie des übergeordneten Rahmens plus Hälfte der x-Höhe des Elternteils aus.
+  - : Richte den vertikalen Mittelpunkt des Rahmens mit der Grundlinie des übergeordneten Rahmens plus die halbe x-Höhe des übergeordneten Elements aus.
 - `central`
-  - : Passt die zentrale Grundlinie des Rahmens an die zentrale Grundlinie seines Elternteils an.
+  - : Passt die zentrale Grundlinie des Rahmens an die zentrale Grundlinie seines übergeordneten Elements an.
 - `after-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "after-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
+  - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "after-edge"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 - `text-top`
-  - : Passt den oberen Rand des Rahmens an den oberen Rand des Inhaltsbereichs des Elternteils an.
+  - : Passt den oberen Rand des Rahmens an den oberen Rand des Inhaltsbereichs des übergeordneten Elements an.
 - `text-after-edge`
 
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-after-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
+  - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "text-after-edge"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 
     > [!NOTE]
-    > Dieses Schlüsselwort kann `text-bottom` zugeordnet werden.
+    > Dieses Schlüsselwort kann auf `text-bottom` gemappt werden.
 
 - `ideographic`
-  - : Passt die ideografische Zeichenfläche des Rahmens an die des Elternteils an.
+  - : Passt die ideographische Zeichenfläche unter der Grundlinie des Rahmens an die des übergeordneten Elements an.
 - `alphabetic`
-  - : Passt die alphabetische Grundlinie des Rahmens an die des Elternteils an.
+  - : Passt die alphabetische Grundlinie des Rahmens an die des übergeordneten Elements an.
 - `hanging`
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "hanging" Grundlinie des übergeordneten Textelementes ausgerichtet.
+  - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "hanging"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 - `mathematical`
-  - : Passt die mathematische Grundlinie des Rahmens an die des Elternteils an.
+  - : Passt die mathematische Grundlinie des Rahmens an die des übergeordneten Elements an.
 - `top`
-  - : Richtet den oberen Rand des ausgerichteten Teilbaums mit dem oberen Rand des Linienrahmens aus.
+  - : Richtet den oberen Rand des ausgerichteten Teilbaums am oberen Rand des Linienkastens aus.
 - `center`
-  - : Richtet das Zentrum des ausgerichteten Teilbaums mit dem Zentrum des Linienrahmens aus.
+  - : Richtet das Zentrum des ausgerichteten Teilbaums am Zentrum des Linienkastens aus.
 - `bottom`
-  - : Richtet den unteren Rand des ausgerichteten Teilbaums mit dem unteren Rand des Linienrahmens aus.
+  - : Richtet den unteren Rand des ausgerichteten Teilbaums am unteren Rand des Linienkastens aus.
 
-SVG 2 führt einige Änderungen an der Definition dieser Eigenschaft ein. Insbesondere: Die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Aus Gründen der Rückwärtskompatibilität kann `text-before-edge` `text-top` und `text-after-edge` `text-bottom` zugeordnet werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}} Eigenschaft verwendet werden.
+SVG 2 führt einige Änderungen an der Definition dieser Eigenschaft ein. Insbesondere die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Aus Gründen der Rückwärtskompatibilität kann `text-before-edge` auf `text-top` und `text-after-edge` auf `text-bottom` gemappt werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}}-Eigenschaft verwendet werden.
 
 ## Beispiel
 
@@ -133,7 +133,7 @@ SVG 2 führt einige Änderungen an der Definition dieser Eigenschaft ein. Insbes
 
 {{EmbedLiveSample("Example")}}
 
-Für die Objektausrichtung in anderen Elementen (wie {{SVGElement("text")}}) siehe {{SVGAttr("dominant-baseline")}}.
+Um die Ausrichtung von Objekten in anderen Elementen (wie {{SVGElement("text")}}) zu sehen, schauen Sie sich {{SVGAttr("dominant-baseline")}} an.
 
 ## Spezifikationen
 
@@ -145,4 +145,4 @@ Für die Objektausrichtung in anderen Elementen (wie {{SVGElement("text")}}) sie
 
 ## Siehe auch
 
-- [CSS-Basislinienausrichtung](/de/docs/Web/CSS/CSS_box_alignment#baseline_alignment)
+- [CSS-Grundlinienausrichtung](/de/docs/Web/CSS/CSS_box_alignment#baseline_alignment)

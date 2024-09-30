@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`patternTransform`**-Attribut definiert eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Attribute/transform#transform_functions), die auf ein Musterfliese angewendet werden.
+Das **`patternTransform`**-Attribut definiert eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Attribute/transform#transform_functions), die auf ein Mustertile angewendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -45,10 +45,10 @@ svg {
 
 ## Muster
 
-Für {{SVGElement('pattern')}} definiert `patternTransform` eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Attribute/transform#transform_functions), die auf ein Musterfliese angewendet werden.
+Für {{SVGElement('pattern')}} definiert `patternTransform` eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Attribute/transform#transform_functions), die auf ein Mustertile angewendet werden.
 
 > [!NOTE]
-> Seit SVG2 ist es auch erlaubt, die CSS-Eigenschaft {{ cssxref('transform') }} zu verwenden. Der aktuelle Umsetzungsstand ist jedoch nicht sehr gut. Aus Gründen der Abwärtskompatibilität wird dringend empfohlen, weiterhin das `patternTransform`-Attribut zu verwenden.
+> Ab SVG2 ist es auch erlaubt, die CSS-Eigenschaft {{ cssxref('transform') }} zu verwenden. Der aktuelle Implementierungsstand ist jedoch nicht sehr gut. Aus Gründen der Abwärtskompatibilität wird dringend empfohlen, weiterhin das `patternTransform`-Attribut zu verwenden.
 
 <table class="properties">
   <tbody>
@@ -73,7 +73,7 @@ Für {{SVGElement('pattern')}} definiert `patternTransform` eine Liste von [Tran
 
 ### Transformationsfunktionen
 
-Um mehr über die Definition von Transformationsfunktionen zu erfahren, sehen Sie sich die Definition des {{ SVGAttr("transform") }}-Attributs an.
+Um mehr über die Definition von Transformationsfunktionen zu erfahren, siehe die Definition des {{ SVGAttr("transform") }}-Attributs.
 
 ## Spezifikationen
 

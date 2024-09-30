@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [JavaScript](/de/docs/Glossary/JavaScript) wird ein **truthy** Wert als `true` angesehen, wenn er in einem [Boolean](/de/docs/Glossary/Boolean)-Kontext auftritt. Alle Werte sind truthy, es sei denn, sie sind als [falsy](/de/docs/Glossary/Falsy) definiert. Das bedeutet, alle Werte sind _truthy_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und [`document.all`](/de/docs/Web/API/Document/all).
+Im [JavaScript](/de/docs/Glossary/JavaScript) ist ein **truthy** Wert ein Wert, der in einem [Boolean](/de/docs/Glossary/Boolean)-Kontext als `true` angesehen wird. Alle Werte sind truthy, es sei denn, sie sind als [falsy](/de/docs/Glossary/Falsy) definiert. Das heißt, alle Werte sind _truthy_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und [`document.all`](/de/docs/Web/API/Document/all).
 
-[JavaScript](/de/docs/Glossary/JavaScript) verwendet [Type Coercion](/de/docs/Glossary/Type_Coercion) in booleschen Kontexten.
+[JavaScript](/de/docs/Glossary/JavaScript) verwendet [Typumwandlung](/de/docs/Glossary/Type_Coercion) in booleschen Kontexten.
 
-Beispiele für _truthy_ Werte in JavaScript (die in booleschen Kontexten zu `true` umgewandelt werden und somit den `if` Block ausführen):
+Beispiele für _truthy_ Werte in JavaScript (die in booleschen Kontexten zu `true` umgeformt werden und somit den `if`-Block ausführen):
 
 ```js
 if (true)
@@ -31,7 +31,7 @@ if (-Infinity)
 
 ### Der logische UND-Operator, &&
 
-Wenn der erste Operand truthy ist, gibt der [logische UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) den zweiten Operand zurück:
+Wenn der erste Operant truthy ist, gibt der [logische UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) den zweiten Operanden zurück:
 
 ```js
 true && "dog"
@@ -45,6 +45,6 @@ true && "dog"
 
 - Verwandte Glossarbegriffe:
   - [Falsy](/de/docs/Glossary/Falsy)
-  - [Type Coercion](/de/docs/Glossary/Type_Coercion)
+  - [Typumwandlung](/de/docs/Glossary/Type_Coercion)
   - [Boolean](/de/docs/Glossary/Boolean)
-- [Boolean Coercion](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)
+- [Boolean-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)

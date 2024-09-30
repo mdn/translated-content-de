@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Storage")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`storage`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das Singleton-Objekt [`StorageManager`](/de/docs/Web/API/StorageManager) zurück, das verwendet wird, um auf die allgemeinen Speichermöglichkeiten des Browsers für die aktuelle Website oder App zuzugreifen. Das zurückgegebene Objekt erlaubt es, die Persistenz von Datenspeichern zu prüfen und zu konfigurieren sowie ungefähr zu erfahren, wie viel Speicherplatz der Browser für die lokale Speicherung noch verfügbar hat.
+Die **`storage`** schreibgeschützte Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das Singleton-Objekt [`StorageManager`](/de/docs/Web/API/StorageManager) zurück, das verwendet wird, um auf die allgemeinen Speicherkapazitäten des Browsers für die aktuelle Website oder App zuzugreifen. Das zurückgegebene Objekt ermöglicht es Ihnen, die Persistenz von Datenspeichern zu überprüfen und zu konfigurieren und ungefähr zu erfahren, wie viel zusätzlicher Speicherplatz Ihr Browser für die lokale Speicherung zur Verfügung hat.
 
 ## Wert
 
-Ein [`StorageManager`](/de/docs/Web/API/StorageManager)-Objekt, das verwendet werden kann, um die Persistenz für gespeicherte Daten aufrechtzuerhalten und um grob zu bestimmen, wie viel Platz für die Speicherung von Daten vorhanden ist.
+Ein [`StorageManager`](/de/docs/Web/API/StorageManager)-Objekt, das Sie verwenden können, um die Persistenz für gespeicherte Daten aufrechtzuerhalten und um grob zu bestimmen, wie viel Platz für die Speicherung von Daten verfügbar ist.
 
 ## Spezifikationen
 

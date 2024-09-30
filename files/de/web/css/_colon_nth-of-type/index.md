@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter den Geschwistern des gleichen Typs (Tag-Name) aus.
+Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern desselben Typs (Tag-Name) aus.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-nth-of-type.html", "tabbed-shorter")}}
 
 ## Syntax
 
-Die `nth-of-type`-Pseudoklasse wird mit einem einzigen Argument angegeben, das das Muster für das Matching von Elementen darstellt.
+Die `nth-of-type` Pseudoklasse wird mit einem einzelnen Argument angegeben, das das Muster für die Auswahl von Elementen repräsentiert.
 
 Siehe {{Cssxref(":nth-child")}} für eine detailliertere Erklärung der Syntax.
 
@@ -70,7 +70,7 @@ p.fancy:nth-of-type(2n + 1) {
 {{EmbedLiveSample('Basic_example', 250, 250)}}
 
 > [!NOTE]
-> Es gibt keine Möglichkeit, die nth-of-class mit diesem Selektor auszuwählen. Der Selektor betrachtet nur den Typ, wenn die Liste der Übereinstimmungen erstellt wird. Sie können jedoch CSS auf ein Element basierend auf der `:nth-of-type`-Position **und** einer Klasse anwenden, wie im obigen Beispiel gezeigt.
+> Es gibt keine Möglichkeit, das nth-of-class mit diesem Selektor auszuwählen. Der Selektor betrachtet nur den Typ bei der Erstellung der Liste der Übereinstimmungen. Sie können jedoch CSS auf ein Element anwenden, das auf `:nth-of-type`-Position **und** eine Klasse basiert, wie im obigen Beispiel gezeigt.
 
 ## Spezifikationen
 

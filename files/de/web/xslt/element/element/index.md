@@ -25,9 +25,9 @@ Das `<xsl:element>`-Element erstellt ein Element im Ausgabedokument.
 ### Optionale Attribute
 
 - `namespace`
-  - : Gibt den Namensraum des Ausgabeelements an.
+  - : Gibt den Namespace des Ausgabeelements an.
 - `use-attribute-sets`
-  - : Eine durch Leerzeichen getrennte Liste von [`attribute-set`-Element](/de/docs/Web/XSLT/Element/attribute-set)-Namen, die auf das Ausgabeelement des `element`-Elements angewendet werden sollen. Angewendete Attribute können über verschachtelte `attribute`-Elemente überschrieben werden.
+  - : Eine durch Leerzeichen getrennte Liste von Namen von [`attribute-set`-Elementen](/de/docs/Web/XSLT/Element/attribute-set), die auf das Ausgabeelement des `element`-Elements angewendet werden sollen. Zugewiesene Attribute können durch verschachtelte `attribute`-Elemente überschrieben werden.
 
 ### Typ
 
@@ -37,6 +37,6 @@ Anweisung, erscheint innerhalb einer Vorlage.
 
 XSLT, Abschnitt 7.1.2.
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

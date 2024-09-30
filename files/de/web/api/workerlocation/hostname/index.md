@@ -12,7 +12,7 @@ Die **`hostname`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerL
 
 ## Wert
 
-Ein string.
+Ein Zeichenfolge.
 
 ## Beispiele
 
@@ -31,4 +31,4 @@ const result = location.hostname; // Returns 'localhost'
 
 ## Siehe auch
 
-- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

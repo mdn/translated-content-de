@@ -1,5 +1,5 @@
 ---
-title: "WEBGL_lose_context: loseContext()-Methode"
+title: "WEBGL_lose_context: loseContext() Methode"
 short-title: loseContext()
 slug: Web/API/WEBGL_lose_context/loseContext
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WEBGL_lose_context.loseContext()**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, den Verlust des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontexts zu simulieren.
+Die **WEBGL_lose_context.loseContext()**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht Ihnen eine Simulation des Verlusts des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontextes.
 
-Sie löst die im WebGL-Standard beschriebenen Schritte zur Handhabung eines verloren gegangenen Kontextes aus. Der Kontext bleibt verloren, bis [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext) aufgerufen wird.
+Es löst die Schritte aus, die in der WebGL-Spezifikation zur Handhabung von verlorenem Kontext beschrieben sind. Der Kontext bleibt verloren, bis [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext) aufgerufen wird.
 
 ## Syntax
 

@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS scroll snap** Modul bietet Eigenschaften, mit denen Sie das Panning- und Scrollverhalten durch die Definition von Snap-Positionen steuern können. Inhalte können in Position eingerastet werden, während der Benutzer überlagernde Inhalte in einem [scroll container](/de/docs/Glossary/scroll_container) scrollt, was eine Seiteneinbettung und Scroll-Positionierung ermöglicht.
+Das **CSS scroll snap** Modul bietet Eigenschaften, mit denen Sie das Schwenk- und Scrollverhalten durch Definition von Snap-Positionen steuern können. Inhalt kann in Position geschnappt werden, während der Benutzer überlaufenden Inhalt in einem [Scroll-Container](/de/docs/Glossary/scroll_container) scrollt, was Paging und Scrollpositionierung ermöglicht.
 
-Dieses Modul umfasst die `scroll-padding`-Eigenschaften des Scroll-Containers, um den optimalen Betrachtungsbereich beim Scrollen-in-Ansicht-Operationen anzupassen. Es umfasst auch `scroll-margin` und `scroll-alignment`, die auf den Kindern des Scroll-Containers gesetzt werden, um den visuellen Bereich der Kinder anzupassen, wenn dieses Kind in die Ansicht gescrollt wird, sowie eine Eigenschaft, um das Scrollen auf einzelne Kinder zu erzwingen.
+Dieses Modul enthält die Scroll-Container-Eigenschaften `scroll-padding`, um die optimale Betrachtungsregion beim Scrollen in die Ansicht anzupassen. Es enthält auch `scroll-margin` und `scroll-alignment`, die auf die Kinder des Scroll-Containers gesetzt werden, um den visuellen Bereich der Kinder anzupassen, wenn dieses Kind in die Ansicht gescrollt wird, sowie eine Eigenschaft, um zu erzwingen, dass das Scrollen bei einzelnen Kindern stoppt.
 
-## Scroll Snap in Aktion
+## Scroll snap in Aktion
 
-Um das Scroll-Snapping im untenstehenden Kasten zu sehen, scrollen Sie nach oben und unten sowie nach links und rechts durch das Raster von 45 nummerierten Kästchen im scrollbaren Ansichtsfenster.
+Um das Scroll-Snappen im unten stehenden Kasten zu sehen, scrollen Sie auf und ab sowie nach links und rechts durch das Raster von 45 nummerierten Kästchen im scrollbaren Ansichtsfenster.
 
 {{EmbedGHLiveSample("css-examples/modules/scroll_snap.html", '100%', 250)}}
 
-Mit Scroll-Snap wird eines der nummerierten Kästchen, zu dem Sie scrollen, in Position einrasten. Der anfängliche CSS-Code lässt das nummerierte Kästchen in der Mitte des Ansichtsfensters einrasten. Verwenden Sie die Schieberegler, um die block- und inline-Snap-Positionen zu ändern.
+Mit Scroll Snap wird eins der nummerierten Kästchen, zu dem Sie scrollen, in Position geschnappt. Das anfängliche CSS sorgt dafür, dass das nummerierte Kästchen in der Mitte des Ansichtsfensters einrastet. Verwenden Sie die Schieberegler, um die Block- und Inline-Snap-Positionen zu ändern.
 
-Durch die Verwendung von Snap-Eigenschaften können Sie das Scrollen über ein Element hinaus erlauben oder blockieren, in diesem Fall ein nummeriertes Kästchen. Aktivieren Sie das Kontrollkästchen "Verhindern, dass über Boxen hinaus gescrollt wird", um zu erzwingen, dass alle Scrollaktionen auf das Scrollen zu einer benachbarten Box begrenzt werden.
+Durch die Verwendung der Snap-Eigenschaften können Sie das Scrollen an einem Element, in diesem Fall einem nummerierten Kästchen, erlauben oder blockieren. Aktivieren Sie das Kontrollkästchen "Verhindern des Scrollens über Kästchen hinaus", um alle Scrollaktionen auf das Scrollen zu einem benachbarten Kästchen zu beschränken.
 
-Um das Scroll-Snapping mit dem regulären Scrollen zu vergleichen, aktivieren Sie das Kontrollkästchen "Snapping deaktivieren" und versuchen Sie erneut zu scrollen.
+Um Scroll-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das Kontrollkästchen "Snapping deaktivieren" und versuchen Sie erneut zu scrollen.
 
 Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf GitHub an](https://github.com/mdn/css-examples/blob/main/modules/scroll_snap.html).
 
@@ -42,7 +42,7 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf Git
   - {{cssxref("scroll-padding-block-start")}}
   - {{cssxref("scroll-padding-block-end")}}
 
-### Eigenschaften auf Kindern
+### Eigenschaften auf Kinder
 
 - {{cssxref("scroll-snap-align")}}
 - {{cssxref("scroll-margin")}}
@@ -61,7 +61,7 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf Git
 ## Leitfäden
 
 - [Grundlegende Konzepte von CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
-  - : Ein Überblick und Beispiele der CSS scroll snap Funktionen.
+  - : Ein Überblick und Beispiele zu den Funktionen von CSS scroll snap.
 
 ## Verwandte Konzepte
 
@@ -73,7 +73,7 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf Git
 - Element [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
 - Dokument [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
-- [Scroll container](/de/docs/Glossary/Scroll_container) Glossarbegriff
+- [Scroll-Container](/de/docs/Glossary/Scroll_container) Glossarbegriff
 
 ## Spezifikationen
 
@@ -83,8 +83,8 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf Git
 
 - [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
 - [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [Nur mit der Tastatur scrollbare Bereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
+- [Bereiche nur für Tastatur-Scrolling](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
 - [Scroll snap Beispiele](https://codepen.io/collection/KpqBGW) auf Codepen (2022)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
-- [Praktisches CSS Scroll Snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
+- [Praktisches CSS scroll snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
 - [CSS scroll snap](https://12daysofweb.dev/2022/css-scroll-snap/) auf 12 Days of Web (2019)

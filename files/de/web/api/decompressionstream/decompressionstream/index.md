@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Der **`DecompressionStream()`** Konstruktor erstellt ein neues [`DecompressionStream`](/de/docs/Web/API/DecompressionStream) Objekt, das einen Datenstrom dekomprimiert.
+Der **`DecompressionStream()`** Konstruktor erzeugt ein neues [`DecompressionStream`](/de/docs/Web/API/DecompressionStream) Objekt, das einen Datenstrom dekomprimiert.
 
 ## Syntax
 
@@ -20,24 +20,24 @@ new DecompressionStream(format)
 
 - `format`
 
-  - : Einer der folgenden Kompressionsformate:
+  - : Eine der folgenden Komprimierungsformate:
 
     - `"gzip"`
-      - : Dekomprimieren Sie den Strom mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Format.
+      - : Dekompimiert den Stream im [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Format.
     - `"deflate"`
-      - : Dekomprimieren Sie den Strom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-komprimierten Datenformat.
-        Das ZLIB-Format enthält einen Header mit Informationen über die Kompressionsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Integrität der Daten
+      - : Dekomprimiert den Stream unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-Komprimierungsdatenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine nachgestellte Prüfsumme zur Überprüfung der Integrität der Daten.
     - `"deflate-raw"`
-      - : Dekomprimieren Sie den Strom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und abschließende Prüfsumme.
+      - : Dekomprimiert den Stream unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und nachgestellte Prüfsumme.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn das an den Konstruktor übergebene Format nicht unterstützt wird.
+  - : Wird ausgelöst, wenn das an den Konstruktor übergebene Format nicht unterstützt wird.
 
 ## Beispiele
 
-In diesem Beispiel wird ein gzip-komprimiertes Blob dekomprimiert.
+In diesem Beispiel wird ein GZIP-komprimiertes Blob dekomprimiert.
 
 ```js
 const ds = new DecompressionStream("gzip");

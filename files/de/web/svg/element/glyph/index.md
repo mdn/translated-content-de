@@ -92,4 +92,4 @@ Dieses Element implementiert die [`SVGGlyphElement`](/de/docs/Web/API/SVGGlyphEl
 
 - {{SVGElement("font")}}
 - {{SVGElement("missing-glyph")}}
-- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)

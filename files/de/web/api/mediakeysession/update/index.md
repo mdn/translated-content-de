@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die `update()`-Methode der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle lädt Nachrichten und Lizenzen in das CDM und gibt dann ein {{jsxref('Promise')}} zurück.
+Die `update()`-Methode des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces lädt Nachrichten und Lizenzen in das CDM und gibt dann ein {{jsxref('Promise')}} zurück.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ update(response)
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das sich zu `undefined` auflöst.
+Ein {{jsxref('Promise')}} das zu `undefined` aufgelöst wird.
 
 ## Spezifikationen
 

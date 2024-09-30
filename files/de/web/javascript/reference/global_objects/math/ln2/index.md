@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.LN2`** repräsentiert den natürlichen Logarithmus von 2, ungefähr 0,693:
+Die statische Dateneigenschaft **`Math.LN2`** stellt den natürlichen Logarithmus von 2 dar, ungefähr 0.693:
 
 {{EmbedInteractiveExample("pages/js/math-ln2.html", "shorter")}}
 
@@ -23,7 +23,7 @@ Die statische Dateneigenschaft **`Math.LN2`** repräsentiert den natürlichen Lo
 
 ## Beschreibung
 
-Da `LN2` eine statische Eigenschaft von `Math` ist, verwenden Sie sie stets als `Math.LN2` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LN2` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.LN2` und nicht als Eigenschaft eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

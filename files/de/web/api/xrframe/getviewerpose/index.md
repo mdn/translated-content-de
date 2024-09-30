@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: getViewerPose() Methode"
+title: "XRFrame: getViewerPose()-Methode"
 short-title: getViewerPose()
 slug: Web/API/XRFrame/getViewerPose
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getViewerPose()`**-Methode, ein Mitglied des [`XRFrame`](/de/docs/Web/API/XRFrame) Interfaces, gibt ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekt zurück, das die Pose (Position und Orientierung) des Betrachters relativ zum angegebenen Referenzraum beschreibt.
+Die **`getViewerPose()`**-Methode, ein Mitglied der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle, gibt ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekt zurück, welches die Pose (Position und Orientierung) des Betrachters relativ zum angegebenen Referenzraum beschreibt.
 
-Sehen Sie die [`getPose()`](/de/docs/Web/API/XRFrame/getPose) Methode für eine Möglichkeit, eine Pose zu berechnen, die den Unterschied zwischen zwei Räumen darstellt.
+Sehen Sie sich die [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode an, um eine Pose zu berechnen, die die Differenz zwischen zwei Räumen darstellt.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getViewerPose(referenceSpace)
 ### Parameter
 
 - `referenceSpace`
-  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) Objekt, das den Raum angibt, der als Referenzpunkt oder Basis für die Berechnung der aktuellen Pose des Betrachters verwendet werden soll.
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Objekt, das den Raum angibt, der als Referenzpunkt oder Basis für die Berechnung der aktuellen Pose des Betrachters verwendet werden soll.
 
 ### Rückgabewert
 
@@ -30,11 +30,11 @@ Ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), das die Position und Orient
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `getViewerPose()` nicht im Kontext eines Rückrufs an die [`XRSession.requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Session aufgerufen wurde.
+  - : Wird ausgelöst, wenn `getViewerPose()` nicht im Kontext eines Rückrufs an [`XRSession.requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) einer Sitzung aufgerufen wurde.
 
 ## Beispiele
 
-In dieser Rückruffunktion für [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) wird die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), die den Blickpunkt des Betrachters auf die Welt beschreibt, durch einen Aufruf von `getViewerPose()` auf dem [`XRFrame`](/de/docs/Web/API/XRFrame), der in den Rückruf übergeben wurde, erhalten.
+In dieser Rückruffunktion für [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) wird die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), die den Blickpunkt des Betrachters auf die Welt beschreibt, durch Aufrufen von `getViewerPose()` auf dem an den Rückruf übergebenen [`XRFrame`](/de/docs/Web/API/XRFrame) erhalten.
 
 ```js
 viewerPose = xrFrame.getViewerPose(xrReferenceSpace);
@@ -44,7 +44,7 @@ if (viewerPose) {
 }
 ```
 
-Um ein vollständiges Beispiel zu sehen, werfen Sie einen Blick auf [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion).
+Um ein vollständiges Beispiel zu sehen, schauen Sie sich [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) an.
 
 ## Spezifikationen
 

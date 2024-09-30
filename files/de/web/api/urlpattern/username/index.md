@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`username`**-Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein Musterzeichen enthält, das verwendet wird, um den Benutzername-Teil einer URL zu matchen. Dieser Wert kann sich aufgrund von Normalisierung von der Eingabe des Konstruktors unterscheiden.
+Die schreibgeschützte **`username`**-Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Benutzernamen-Teil einer URL zu matchen. Dieser Wert kann aufgrund von Normalisierung von der Eingabe des Konstruktors abweichen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `admin` für den `username`-Teil erstellt. Dieses Muster matcht nur, wenn der Benutzername-Teil der URL `admin` ist.
+Das untenstehende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `admin` für den `username`-Teil. Dieses Muster matcht nur, wenn der Benutzername-Teil der URL `admin` ist.
 
 ```js
 const pattern = new URLPattern({ username: "admin" });

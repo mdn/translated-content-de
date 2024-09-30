@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: actions-Eigenschaft"
+title: "Notification: actions-Eigenschaft"
 short-title: actions
 slug: Web/API/Notification/actions
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`actions`** des [`Notification`](/de/docs/Web/API/Notification)-Interfaces bietet die Aktionen, die den Benutzern zur Auswahl stehen, um mit der Benachrichtigung zu interagieren.
+Die schreibgeschützte **`actions`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces bietet die Aktionen, die Benutzern zur Auswahl für die Interaktion mit der Benachrichtigung zur Verfügung stehen.
 
-Die Aktionen werden mithilfe der `actions`-Option des zweiten Arguments der [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode und des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors festgelegt.
+Die Aktionen werden mit der `actions`-Option des zweiten Arguments für die [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode und den [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor festgelegt.
 
 > [!NOTE]
-> Browser begrenzen typischerweise die maximale Anzahl an Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Überprüfen Sie die statische [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static)-Eigenschaft, um das Limit zu bestimmen.
+> Browser beschränken typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Überprüfen Sie die statische [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static)-Eigenschaft, um das Limit zu bestimmen.
 
 ## Wert
 
-Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objekt mit folgenden Mitgliedern:
+Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objekt mit den folgenden Mitgliedern:
 
 - `action`
   - : Ein String, der eine Benutzeraktion identifiziert, die auf der Benachrichtigung angezeigt werden soll.
 - `title`
-  - : Ein String, der den anzuzeigenden Aktionstext enthält.
+  - : Ein String, der den Aktionstext enthält, der dem Benutzer angezeigt werden soll.
 - `icon`
   - : Ein String, der die URL eines Symbols enthält, das mit der Aktion angezeigt werden soll.
 

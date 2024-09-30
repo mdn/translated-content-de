@@ -1,5 +1,5 @@
 ---
-title: "AudioParam: setValueCurveAtTime()-Methode"
+title: "AudioParam: setValueCurveAtTime() Methode"
 short-title: setValueCurveAtTime()
 slug: Web/API/AudioParam/setValueCurveAtTime
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die Methode **`setValueCurveAtTime()`** der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant die Änderung des Parameterwerts gemäß einer Kurve, die durch eine Liste von Werten definiert ist.
+Die Methode **`setValueCurveAtTime()`** der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant, dass sich der Wert des Parameters entlang einer durch eine Liste von Werten definierten Kurve ändert.
 
-Die Kurve ist eine lineare Interpolation zwischen der Sequenz von Werten, die in einem Array von Gleitkommazahlen definiert sind. Diese werden skaliert, um in das gegebene Intervall zu passen, das bei `startTime` beginnt und eine spezifische Dauer hat.
+Die Kurve ist eine lineare Interpolation zwischen der Reihenfolge von Werten, die in einem Array von Gleitkommazahlen definiert sind. Diese werden skaliert, um in das angegebene Intervall zu passen, beginnend bei `startTime` und einer bestimmten Dauer.
 
 ## Syntax
 
@@ -21,35 +21,35 @@ setValueCurveAtTime(values, startTime, duration)
 ### Parameter
 
 - `values`
-  - : Ein Array von Gleitkommazahlen, das die Wertkurve darstellt, durch die sich das [`AudioParam`](/de/docs/Web/API/AudioParam) innerhalb der angegebenen `duration` ändert. Jeder Wert im Array muss eine endliche Zahl sein; wenn ein Wert `NaN`, `Infinity` oder `-Infinity` ist, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+  - : Ein Array von Gleitkommazahlen, das die Wertkurve repräsentiert, durch die das [`AudioParam`](/de/docs/Web/API/AudioParam) im Verlauf der angegebenen `duration` geändert wird. Jeder Wert im Array muss eine endliche Zahl sein. Ist ein Wert `NaN`, `Infinity` oder `-Infinity`, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 - `startTime`
-  - : Eine Gleitkommazahl, die die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) erstmals erstellt wurde, zu der die Wertänderung erfolgt. Wenn dieser Wert niedriger ist als [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime), wird er auf `currentTime` begrenzt.
+  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) zuerst erstellt wurde und zu der die Wertänderung stattfinden wird. Wenn dieser Wert kleiner als [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) ist, wird er auf `currentTime` geklammert.
 - `duration`
-  - : Eine Gleitkommazahl, die die Gesamtzeit (in Sekunden) darstellt, über die sich der Parameterwert gemäß der angegebenen Kurve ändert. Die angegebenen Werte sind entlang dieser Dauer gleichmäßig verteilt.
+  - : Ein Double, das die gesamte Zeit (in Sekunden) darstellt, über die sich der `value` des Parameters entsprechend der angegebenen Kurve ändern wird. Die angegebenen Werte sind entlang dieser Dauer gleichmäßig verteilt.
 
 ### Rückgabewert
 
-Ein Verweis auf dieses `AudioParam`-Objekt. Einige ältere Browser-Implementierungen dieser Schnittstelle geben `undefined` zurück.
+Eine Referenz auf dieses `AudioParam`-Objekt. Einige ältere Browser-Implementierungen dieser Schnittstelle geben `undefined` zurück.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das angegebene Array von `values` weniger als 2 Elemente enthält.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die angegebene `startTime` entweder negativ oder ein nicht-endlicher Wert ist oder `duration` keine endliche, strikt positive Zahl ist.
+  - : Wird ausgelöst, wenn der angegebene `startTime` entweder negativ oder ein nicht-endlicher Wert ist, oder `duration` keine endliche, strikt positive Zahl ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn einer oder mehrere der Werte im `values`-Array nicht endlich sind. Nicht-endliche Werte sind `NaN`, `Infinity` und `-Infinity`.
+  - : Wird ausgelöst, wenn ein oder mehrere Werte im `values`-Array nicht endlich sind. Nicht-endliche Werte sind `NaN`, `Infinity` und `-Infinity`.
 
 ## Verwendungshinweise
 
-Wenn der Parameterwert der Kurve folgt und diese abgeschlossen ist, entspricht sein Wert garantiert dem letzten der im `values`-Parameter angegebenen Werte.
+Wenn der Parameterwert der Kurve folgt, wird garantiert, dass sein Wert mit dem letzten Wert in der im `values`-Parameter angegebenen Wertemenge übereinstimmt.
 
 > [!NOTE]
 > Einige frühe Implementierungen der Web Audio API stellten dies nicht sicher, was zu unerwarteten Ergebnissen führte.
 
 ## Beispiele
 
-In diesem Beispiel haben wir eine Medienquelle mit einem einzigen Button (siehe das [webaudio-examples-Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) für den Quellcode oder [sehen Sie das Beispiel live](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn dieser Button gedrückt wird, wird `setValueCurveAtTime()` verwendet, um den Verstärkungswert zwischen den im waveArray enthaltenen Werten zu ändern:
+In diesem Beispiel haben wir eine Medienquelle mit einem einzigen Button (siehe das [webaudio-examples Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) für den Quellcode, oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn dieser Button gedrückt wird, wird `setValueCurveAtTime()` verwendet, um den Verstärkungswert zwischen den im waveArray enthaltenen Werten zu ändern:
 
 ```js
 // create audio context
@@ -100,7 +100,7 @@ valueCurve.onclick = () => {
 
 {{Compat}}
 
-Versionen vor Chrome 46 verwenden die Nächster-Nachbar-Methode anstelle von linearer Interpolation.
+Versionen vor Chrome 46 verwenden eine nächstliegende Nachbarinterpolation anstelle einer linearen Interpolation.
 
 ## Siehe auch
 

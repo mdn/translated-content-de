@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Authentication** ist im Allgemeinen der Prozess, um zu beweisen, dass eine Tatsache echt ist. Spezifischer, in der Web-Sicherheit, ist es der Prozess der Überprüfung der behaupteten Identität einer Entität, wie eines Benutzers. Dies ermöglicht dann zu entscheiden, ob dem Benutzer der angeforderte Zugang gewährt wird, wie z.B. das Einloggen in ein bestimmtes Konto.
+**Authentication** ist im Allgemeinen der Prozess, bei dem bewiesen wird, dass eine Tatsache echt ist. Genauer gesagt, ist sie in der Web-Sicherheit der Prozess der Überprüfung der angegebenen Identität einer Entität, zum Beispiel eines Benutzers. Dies ermöglicht es dann, zu entscheiden, ob dem Benutzer der angeforderte Zugriff gewährt wird, wie zum Beispiel das Anmelden in einem bestimmten Konto.
 
-Die Authentifizierung wird typischerweise durchgeführt, indem ein Benutzer einen Benutzeridentifikator zusammen mit einem [Credential](/de/docs/Glossary/credential) vorlegt, wie ein Passwort, ein einmaliger SMS-Code oder eine mit einem privaten Schlüssel signierte Bestätigung. Das System überprüft dann die Verbindung zwischen dem Benutzeridentifikator und dem Credential, um entscheiden zu können, ob der Benutzer authentifiziert wird oder nicht.
+Die Authentifizierung erfolgt typischerweise dadurch, dass ein Benutzer einen Benutzeridentifikator zusammen mit einem [credential](/de/docs/Glossary/credential), wie ein Passwort, einen einmaligen SMS-Code oder eine mit einem privaten Schlüssel signierte Assertion, präsentiert. Das System überprüft dann die Verbindung zwischen dem Benutzeridentifikator und dem Berechtigungsnachweis, um zu entscheiden, ob der Benutzer authentifiziert werden soll oder nicht.
 
-Arten von Authentifizierungsinformationen, auch _Authentifizierungsfaktoren_ genannt, werden üblicherweise in drei Kategorien unterteilt:
+Arten von Authentifizierungsinformationen, auch als _Authentifizierungsfaktoren_ bezeichnet, werden üblicherweise in drei Kategorien unterteilt:
 
-- Etwas, das der Benutzer weiß, wie zum Beispiel ein Passwort.
-- Etwas, das der Benutzer hat, wie zum Beispiel ein Telefon.
-- Etwas, das der Benutzer ist, wie zum Beispiel ein Fingerabdruck.
+- Etwas, das der Benutzer weiß, wie ein Passwort.
+- Etwas, das der Benutzer hat, wie ein Telefon.
+- Etwas, das der Benutzer ist, wie ein Fingerabdruck.
 
-Multi-Faktor-Authentifizierung (MFA)-Systeme erfordern, dass der Benutzer mehr als einen Faktor bereitstellt: zum Beispiel ein Passwort kombiniert mit einem einmaligen Code, der an das Telefon des Benutzers gesendet wird.
+Multi-Factor-Authentication (MFA)-Systeme erfordern, dass der Benutzer mehr als einen Faktor bereitstellt: zum Beispiel ein Passwort in Kombination mit einem einmaligen Code, der an das Telefon des Benutzers gesendet wird.
 
 ## Siehe auch
 

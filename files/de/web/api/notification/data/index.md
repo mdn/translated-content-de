@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: Daten-Eigenschaft"
+title: "Notification: data-Eigenschaft"
 short-title: data
 slug: Web/API/Notification/data
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`data`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt einen strukturierten Klon der Benachrichtigungsdaten zurück, wie sie in der `data`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben sind.
+Die **`data`**-Schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt einen strukturierten Klon der Benachrichtigungsdaten zurück, wie im `data`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktors angegeben.
 
 Die Daten der Benachrichtigung können beliebige Daten sein, die Sie mit der Benachrichtigung verknüpfen möchten.
 
@@ -18,7 +18,7 @@ Ein strukturierter Klon.
 
 ## Beispiele
 
-Der folgende Codeausschnitt löst eine Benachrichtigung aus; ein einfaches `options`-Objekt wird erstellt, und dann wird die Benachrichtigung mit dem `Notification()`-Konstruktor ausgelöst.
+Der folgende Codeausschnitt löst eine Benachrichtigung aus; ein einfaches `options`-Objekt wird erstellt und dann wird die Benachrichtigung mit dem `Notification()`-Konstruktor ausgelöst.
 
 ```js
 const options = {
@@ -44,4 +44,4 @@ console.log(n.data); // Logs the data object
 
 ## Siehe auch
 
-- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwenden der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

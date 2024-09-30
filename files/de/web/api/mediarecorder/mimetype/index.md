@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: mimeType-Eigenschaft"
+title: "MediaRecorder: mimeType Eigenschaft"
 short-title: mimeType
 slug: Web/API/MediaRecorder/mimeType
 l10n:
@@ -8,22 +8,18 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die schreibgeschützte Eigenschaft **`mimeType`** des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den [MIME](/de/docs/Glossary/MIME)-Medientyp zurück, der bei der Erstellung des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekts angegeben wurde, oder, falls keiner angegeben wurde, den der Browser gewählt hat. Dies ist das Dateiformat der Datei, die entstehen würde, wenn alle aufgezeichneten Daten auf die Festplatte geschrieben würden.
+Die schreibgeschützte Eigenschaft **`mimeType`** des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den [MIME](/de/docs/Glossary/MIME)-Medientyp zurück, der bei der Erstellung des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekts angegeben wurde. Wenn keiner angegeben wurde, wird der von dem Browser gewählte Typ verwendet. Dies ist das Dateiformat der Datei, die entstehen würde, wenn alle aufgezeichneten Daten auf die Festplatte geschrieben würden.
 
-Beachten Sie, dass nicht alle Codecs von einem bestimmten Container unterstützt werden; wenn Sie Medien mit einem Codec schreiben, der von einem bestimmten Mediencontainer nicht unterstützt wird, kann es sein, dass die resultierende Datei beim Abspielen unzuverlässig funktioniert oder gar nicht. Weitere Informationen über Container- und Codec-Unterstützung in verschiedenen Browsern finden Sie in unserem [Leitfaden zu Medientypen und Formaten](/de/docs/Web/Media/Formats).
+Beachten Sie, dass nicht alle Codecs von einem bestimmten Container unterstützt werden. Wenn Sie Medien mit einem Codec aufzeichnen, der von einem bestimmten Mediencontainer nicht unterstützt wird, funktioniert die resultierende Datei möglicherweise nicht zuverlässig oder überhaupt nicht, wenn Sie versuchen, sie abzuspielen. Weitere Informationen zur Unterstützung von Containern und Codecs in verschiedenen Browsern finden Sie in unserem [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats).
 
 > [!NOTE]
-> Der Begriff "MIME type" wird offiziell als historisch betrachtet; diese Zeichenfolgen sind jetzt offiziell als **Medientypen** bekannt.
-> MDN Web Docs-Inhalte verwenden die Begriffe austauschbar.
+> Der Begriff "MIME-Typ" wird offiziell als historisch betrachtet; diese Zeichenfolgen werden nun offiziell als **Medientypen** bezeichnet. MDN Web Docs Inhalte verwenden die Begriffe austauschbar.
 
 ## Wert
 
-Der MIME-Medientyp, der das Format der aufgezeichneten Medien beschreibt, als Zeichenfolge.
-Diese Zeichenfolge _kann_ den [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthalten, der Details über die vom Media Recorder verwendeten Codecs und Codec-Konfigurationen angibt.
+Der MIME-Medientyp, der das Format der aufgezeichneten Medien beschreibt, als Zeichenkette. Diese Zeichenfolge _kann_ den [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthalten, der Details über die von dem Media Recorder verwendeten Codecs und die Codec-Konfigurationen gibt.
 
-Die Medientyp-Zeichenfolgen sind von der Internet Assigned Numbers Authority (IANA) standardisiert.
-Für ihre offizielle Liste der definierten Medientyp-Zeichenfolgen, siehe den Artikel [Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) auf der IANA-Website.
-Siehe auch [Medientypen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), um mehr über Medientypen zu erfahren und wie sie in Webinhalten und von Webbrowsern verwendet werden.
+Die Medientyp-Zeichenfolgen werden von der Internet Assigned Numbers Authority (IANA) standardisiert. Für ihre offizielle Liste der definierten Medientyp-Zeichenfolgen, siehe den Artikel [Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) auf der IANA-Website. Weitere Informationen über Medientypen und wie sie in Webinhalten und von Webbrowsern verwendet werden, finden Sie unter [Medientypen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types).
 
 ## Beispiele
 
@@ -54,9 +50,9 @@ if (navigator.mediaDevices) {
 }
 ```
 
-Die Änderung von `mimeType` in `options` zu `'video/mp4; codecs="avc1.424028, mp4a.40.2"'` führt dazu, dass `MediaRecorder` versucht, das AVC Constrained Baseline Profile Level 4 für Video und AAC-LC (Low Complexity) für Audio zu verwenden, was gut für mobile und andere möglicherweise ressourcenbeschränkte Situationen ist.
+Das Ändern des `mimeType` in `options` zu `'video/mp4; codecs="avc1.424028, mp4a.40.2"'` führt dazu, dass `MediaRecorder` versucht, das AVC Constrained Baseline Profile Level 4 für Video und AAC-LC (Low Complexity) für Audio zu verwenden, was gut für mobile und andere möglicherweise ressourcenbegrenzte Situationen ist.
 
-Vorausgesetzt, diese Konfiguration ist für den User Agent akzeptabel, würde der später von `m.mimeType` zurückgegebene Wert dann `video/mp4; codecs="avc1.424028, mp4a.40.2"` sein.
+Wenn diese Konfiguration für den User Agent akzeptabel ist, würde der später von `m.mimeType` zurückgegebene Wert dann `video/mp4; codecs="avc1.424028, mp4a.40.2"` sein.
 
 ## Spezifikationen
 
@@ -69,7 +65,7 @@ Vorausgesetzt, diese Konfiguration ist für den User Agent akzeptabel, würde de
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Codecs in gängigen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Source auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
-- [simpl.info MediaStream-Aufnahme-Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
+- [Codecs in üblichen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)
+- [Web Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)

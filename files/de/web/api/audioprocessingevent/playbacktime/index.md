@@ -1,5 +1,5 @@
 ---
-title: "AudioProcessingEvent: `playbackTime`-Eigenschaft"
+title: "AudioProcessingEvent: playbackTime-Eigenschaft"
 short-title: playbackTime
 slug: Web/API/AudioProcessingEvent/playbackTime
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{Deprecated_header}}
 
-Die schreibgeschützte **`playbackTime`**-Eigenschaft der [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle repräsentiert den Zeitpunkt, zu dem das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom [`AudioContext`](/de/docs/Web/API/AudioContext) verwendet wird.
+Die **`playbackTime`**-Schreibgeschützte-Eigenschaft der [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle repräsentiert die Zeit, zu der das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom [`AudioContext`](/de/docs/Web/API/AudioContext) verwendet wird.
 
 ## Wert
 

@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-**TCP (Transmission Control Protocol)** ist ein wichtiges Netzwerk-[Protokoll](/de/docs/Glossary/protocol), das es zwei Hosts ermöglicht, sich zu verbinden und Datenströme auszutauschen. TCP garantiert die Zustellung von Daten und Paketen in der gleichen Reihenfolge, in der sie gesendet wurden. Vint Cerf und Bob Kahn, die zu der Zeit DARPA-Wissenschaftler waren, entwarfen TCP in den 1970er Jahren.
+**TCP (Transmission Control Protocol)** ist ein wichtiges Netzwerk-[Protokoll](/de/docs/Glossary/protocol), das es zwei Hosts ermöglicht, sich zu verbinden und Datenströme auszutauschen. TCP garantiert die Zustellung von Daten und Paketen in der gleichen Reihenfolge, in der sie gesendet wurden. Vint Cerf und Bob Kahn, die damals Wissenschaftler bei DARPA waren, entwarfen TCP in den 1970er Jahren.
 
-Die Rolle von TCP besteht darin, sicherzustellen, dass die Pakete zuverlässig und fehlerfrei geliefert werden. TCP implementiert [Staukontrolle](https://en.wikipedia.org/wiki/TCP_congestion_control), was bedeutet, dass die anfänglichen Anfragen klein beginnen und dann in der Größe zunehmen, um den Bandbreiten zu entsprechen, die die Computer, Server und das Netzwerk unterstützen können.
+Die Rolle von TCP besteht darin, sicherzustellen, dass die Pakete zuverlässig und fehlerfrei zugestellt werden. TCP implementiert die [Staukontrolle](https://en.wikipedia.org/wiki/TCP_congestion_control), was bedeutet, dass die initialen Anfragen klein beginnen und sich je nach den Bandbreitenkapazitäten der Computer, Server und des Netzwerks vergrößern.
 
 ## Siehe auch
 
 - [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) (Wikipedia)
 - [HTTP-Übersicht](/de/docs/Web/HTTP/Overview)
-- [Wie Browser funktionieren](/de/docs/Web/Performance/How_browsers_work)
+- [Wie Browser arbeiten](/de/docs/Web/Performance/How_browsers_work)
 - Verwandte Glossarbegriffe:
   - [IPv4](/de/docs/Glossary/IPv4)
   - [IPv6](/de/docs/Glossary/IPv6)

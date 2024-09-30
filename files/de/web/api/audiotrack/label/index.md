@@ -8,20 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
-Eigenschaft **`label`** liefert eine Zeichenkette zurück, die das für Menschen lesbare Label des Audiotracks angibt, falls vorhanden; andernfalls wird eine leere Zeichenkette zurückgegeben.
+Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**-Eigenschaft **`label`** gibt eine Zeichenfolge zurück, die das menschenlesbare Label der Audio-Spur angibt, falls eines verfügbar ist; andernfalls wird eine leere Zeichenfolge zurückgegeben.
 
 ## Wert
 
-Eine Zeichenkette, die das für Menschen lesbare Label des Tracks angibt, falls eines in den Spurmetadaten verfügbar ist. Andernfalls wird eine leere Zeichenkette (`""`) zurückgegeben.
+Eine Zeichenfolge, die das menschenlesbare Label der Spur angibt, wenn eines in den Spurdaten verfügbar ist. Andernfalls wird eine leere Zeichenfolge (`""`) zurückgegeben.
 
-Zum Beispiel könnte ein Track, dessen [`kind`](/de/docs/Web/API/AudioTrack/kind) `"commentary"` ist,
-ein `label` wie
-`"Commentary with director Mark Markmarkimark and star Donna Donnalidon"` haben.
+Zum Beispiel könnte eine Spur, deren [`kind`](/de/docs/Web/API/AudioTrack/kind) `"commentary"` ist, ein `label` wie `"Commentary with director Mark Markmarkimark and star Donna Donnalidon"` haben.
 
 ## Beispiele
 
-Dieses Beispiel gibt ein Array von Track-Arten und Labels zurück, das potenziell in einer Benutzeroberfläche verwendet werden kann, um Audiotracks für ein angegebenes Medien-Element auszuwählen. Die Liste wird gefiltert, um nur bestimmte Track-Arten zuzulassen.
+Dieses Beispiel gibt ein Array von Spurarten und Labels zurück, die potenziell in einer Benutzeroberfläche zur Auswahl von Audiotracks für ein angegebenes Medienelement verwendet werden können. Die Liste ist so gefiltert, dass nur bestimmte Spurarten zugelassen werden.
 
 ```js
 function getTrackList(el) {
@@ -47,8 +44,7 @@ function getTrackList(el) {
 }
 ```
 
-Das resultierende `trackList` enthält ein Array von Audio-Tracks, deren
-`kind` einer der Einträge im Array `wantedKinds` ist, wobei jeder Eintrag die [`id`](/de/docs/Web/API/AudioTrack/id), [`kind`](/de/docs/Web/API/AudioTrack/kind) und `label` des Tracks bereitstellt.
+Das resultierende `trackList` enthält ein Array von Audiotracks, deren `kind` eines der in dem Array `wantedKinds` genannten ist, und jeder Eintrag bietet die [`id`](/de/docs/Web/API/AudioTrack/id), [`kind`](/de/docs/Web/API/AudioTrack/kind) und `label` der Spur.
 
 ## Spezifikationen
 

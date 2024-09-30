@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`pathname`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Objekts gibt den [`pathname`](/de/docs/Web/API/URL/pathname) Teil des Standorts des Workers zurück.
+Die **`pathname`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`pathname`](/de/docs/Web/API/URL/pathname)-Teil des Speicherorts des Workers zurück.
 
 ## Wert
 
@@ -31,4 +31,4 @@ const result = location.pathname; // Returns '/en-US/docs/Web'
 
 ## Siehe auch
 
-- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Schnittstelle, zu der sie gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`maxLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die maximale Anzahl von Zeichen (in UTF-16 Codeeinheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, und die maximale Anzahl von Zeichen, die für den Wert gültig sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Begrenzung der Wertelänge existiert.
+Die **`maxLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die maximale Anzahl von Zeichen (in UTF-16 Codeeinheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, die für den Wert gültig sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung der Wertlänge gibt.
 
 > [!NOTE]
-> Browser verhindern im Allgemeinen, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge länger sein, wird das Element als ungültig betrachtet, und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
+> Browser verhindern generell, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge überschritten werden, wird das Element als ungültig angesehen und die [`tooLong`](/de/docs/Web/API/ValidityState/tooLong)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `maxlength` des Elements repräsentiert, falls vorhanden, oder `-1`.
+Eine Zahl, die das `maxlength`-Attribut des Elements darstellt, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Bei folgendem HTML:
+Angenommen, folgendes HTML:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Bei folgendem HTML:
 </p>
 ```
 
-Sie können die `maxLength`-Eigenschaft verwenden, um den `maxlength`-Attributwert des `<input>`-Elements abzurufen oder festzulegen:
+Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<input>`-Elements zu erhalten oder festzulegen:
 
 ```js
 const inputElement = document.querySelector("#password");

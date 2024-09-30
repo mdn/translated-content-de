@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `ElementsPanel` stellt den HTML/CSS-Inspektor in den Developer-Tools des Browsers dar. Dieser wird in Firefox als Seiteninspektor und in Chrome als Elementpanel bezeichnet.
+Ein `ElementsPanel` repräsentiert den HTML/CSS-Inspektor in den Entwickler-Tools des Browsers. Dieser wird in Firefox als Seiteninspektor und in Chrome als Elemente-Panel bezeichnet.
 
 ## Funktionen
 
 - [`devtools.panels.ElementsPanel.createSidebarPane()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/createSidebarPane)
-  - : Erstellt einen Bereich in der Seitenleiste des Inspektors.
+  - : Erstellt ein Fenster im Seitenbereich des Inspektors.
 
 ## Ereignisse
 
 - [`devtools.panels.ElementsPanel.onSelectionChanged`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/onSelectionChanged)
-  - : Wird ausgelöst, wenn der Benutzer ein anderes Element auf der Seite auswählt, zum Beispiel über das Kontextmenü "Element untersuchen".
+  - : Wird ausgelöst, wenn der Benutzer ein anderes Element auf der Seite auswählt, zum Beispiel durch das Kontextmenü-Element "Element untersuchen".
 
 ## Browser-Kompatibilität
 

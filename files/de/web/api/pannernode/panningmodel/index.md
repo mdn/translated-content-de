@@ -1,5 +1,5 @@
 ---
-title: "PannerNode: Eigenschaft panningModel"
+title: "PannerNode: panningModel-Eigenschaft"
 short-title: panningModel
 slug: Web/API/PannerNode/panningModel
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `panningModel` des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein enumerierter Wert, der bestimmt, welcher Räumlichkeitsalgorithmus verwendet wird, um das Audio in einem 3D-Raum zu positionieren.
+Die `panningModel`-Eigenschaft der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle ist ein aufgezählter Wert, der bestimmt, welcher Spatialization-Algorithmus verwendet wird, um das Audio im 3D-Raum zu positionieren.
 
 Die möglichen Werte sind:
 
-- `equalpower`: Repräsentiert den Equal-Power-Panning-Algorithmus, der im Allgemeinen als einfach und effizient angesehen wird. `equalpower` ist der Standardwert.
+- `equalpower`: Steht für den Equal-Power-Panning-Algorithmus, der allgemein als einfach und effizient angesehen wird. `equalpower` ist der Standardwert.
 - `HRTF`: Erzeugt eine Stereoausgabe von höherer Qualität als `equalpower` — es wird eine Faltung mit gemessenen Impulsantworten von menschlichen Probanden verwendet.
 
 ## Wert

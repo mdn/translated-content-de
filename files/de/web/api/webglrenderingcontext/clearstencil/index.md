@@ -3,14 +3,14 @@ title: "WebGLRenderingContext: clearStencil() Methode"
 short-title: clearStencil()
 slug: Web/API/WebGLRenderingContext/clearStencil
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.clearStencil()`** Methode des [WebGL API](/de/docs/Web/API/WebGL_API) legt den Löschwert für den Stencil-Buffer fest.
+Die **`WebGLRenderingContext.clearStencil()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt den Löschwert für den Stencil-Buffer fest.
 
-Diese Methode gibt an, welcher Stencil-Wert verwendet werden soll, wenn die [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) Methode aufgerufen wird.
+Dieser Wert gibt an, welcher Stencil-Wert verwendet werden soll, wenn die [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)-Methode aufgerufen wird.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.clearStencil(1);
 ```
 
-Um den aktuellen Löschwert des Stencils zu erhalten, fragen Sie die Konstante `STENCIL_CLEAR_VALUE` ab.
+Um den aktuellen Löschwert für den Stencil-Wert zu erhalten, fragen Sie die `STENCIL_CLEAR_VALUE`-Konstante ab.
 
 ```js
 gl.getParameter(gl.STENCIL_CLEAR_VALUE);

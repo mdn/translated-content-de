@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: bindAttribLocation()-Methode"
 short-title: bindAttribLocation()
 slug: Web/API/WebGLRenderingContext/bindAttribLocation
 l10n:
-  sourceCommit: 245715b48674c1729cb63417e4a27628e30ae28c
+  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindAttribLocation()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet einen generischen Vertex-Index an eine Attributvariable.
+Die **`WebGLRenderingContext.bindAttribLocation()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) ordnet einem generischen Scheitelpunktindex eine Attributvariable zu.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ bindAttribLocation(program, index, name)
 - `program`
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das gebunden werden soll.
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des generischen Vertex angibt, der gebunden werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des generischen Scheitelpunkts angibt, der gebunden werden soll.
 - `name`
-  - : Ein String, der den Namen der Variable angibt, die an den generischen Vertex-Index gebunden werden soll. Dieser Name darf nicht mit `"webgl_"` oder `"_webgl_"` beginnen, da diese für die Verwendung durch WebGL reserviert sind.
+  - : Ein String, der den Namen der Variable angibt, die dem generischen Scheitelpunktindex zugeordnet werden soll. Dieser Name darf nicht mit `"webgl_"` oder `"_webgl_"` beginnen, da diese für die Verwendung durch WebGL reserviert sind.
 
 ### Rückgabewert
 

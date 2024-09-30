@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das HyperText Transfer Protocol (**HTTP**) ist das zugrunde liegende Netzwerk-[Protokoll](/de/docs/Glossary/protocol), das den Transfer von Hypermedia-Dokumenten im [Web](/de/docs/Glossary/World_Wide_Web) ermöglicht, typischerweise zwischen einem Browser und einem Server, damit Menschen sie lesen können. Die aktuelle Version der HTTP-Spezifikation wird [HTTP/2](/de/docs/Glossary/HTTP_2) genannt.
+Das HyperText Transfer Protocol (**HTTP**) ist das zugrunde liegende Netzwerk[protokoll](/de/docs/Glossary/protocol), das den Transfer von Hypermediendokumenten im [Web](/de/docs/Glossary/World_Wide_Web) ermöglicht, typischerweise zwischen einem Browser und einem Server, sodass Menschen sie lesen können. Die aktuelle Version der HTTP-Spezifikation wird als [HTTP/2](/de/docs/Glossary/HTTP_2) bezeichnet.
 
-Als Teil eines [URI](/de/docs/Glossary/URI) wird das "http" innerhalb "http\://example.com/" als "Schema" bezeichnet. Ressourcen, die das "http"-Schema verwenden, werden typischerweise über unverschlüsselte Verbindungen mit dem HTTP-Protokoll transportiert. Das "https"-Schema (wie in "https\://developer.mozilla.org") zeigt an, dass eine Ressource unter Verwendung des HTTP-Protokolls, jedoch über einen sicheren [TLS](/de/docs/Glossary/TLS)-Kanal, transportiert wird.
+Als Teil eines [URI](/de/docs/Glossary/URI) wird das "http" in "http\://example.com/" als "Schema" bezeichnet. Ressourcen, die das "http"-Schema verwenden, werden typischerweise über unverschlüsselte Verbindungen mit dem HTTP-Protokoll transportiert. Das "https"-Schema (wie in "https\://developer.mozilla.org") zeigt an, dass eine Ressource mit dem HTTP-Protokoll, aber über einen sicheren [TLS](/de/docs/Glossary/TLS)-Kanal transportiert wird.
 
-HTTP ist textbasiert (alle Kommunikation erfolgt im Klartext) und zustandslos (keine Kommunikation kennt vorherige Kommunikationen). Diese Eigenschaft macht es ideal, um Dokumente (Webseiten) im World Wide Web zu lesen. Allerdings kann HTTP auch als Basis für [REST](/de/docs/Glossary/REST)-Webdienste von Server zu Server oder für `fetch()`-Anfragen innerhalb von Webseiten verwendet werden, um diese dynamischer zu gestalten.
+HTTP ist textbasiert (alle Kommunikation erfolgt im Klartext) und zustandslos (keine Kommunikation ist sich früherer Kommunikationen bewusst). Diese Eigenschaft macht es ideal für Menschen, Dokumente (Websites) im World Wide Web zu lesen. HTTP kann jedoch auch als Grundlage für [REST](/de/docs/Glossary/REST)-Webdienste von Server zu Server oder [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfragen innerhalb von Websites genutzt werden, um sie dynamischer zu gestalten.
 
 ## Siehe auch
 

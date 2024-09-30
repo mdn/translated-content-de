@@ -7,31 +7,31 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Der `aria-grabbed` Zustand zeigt den "ergriffenen" Zustand eines Elements in einer Drag-and-Drop-Operation an. {{deprecated_inline}}
+Der `aria-grabbed`-Zustand zeigt an, ob sich ein Element in einem "gegriffenen" Zustand in einer Drag-and-Drop-Operation befindet. {{deprecated_inline}}
 
 ## Beschreibung
 
-Textauswahlen, Bilder und Links können standardmäßig gezogen werden. Durch Setzen des globalen Attributs [`draggable="true"`](/de/docs/Web/HTML/Global_attributes/draggable), Teil der HTML5 [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API), zusammen mit einem [`dragstart` Ereignis-Handler](/de/docs/Web/API/HTMLElement/dragstart_event), kann jedes DOM-Knoten auch als ziehbar gemacht werden.
+Textauswahlen, Bilder und Links können standardmäßig gezogen werden. Durch das Setzen des globalen [`draggable="true"`](/de/docs/Web/HTML/Global_attributes/draggable)-Attributs, das Teil der [Drag-and-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API) von HTML5 ist, mit einem [`dragstart`-Ereignishandler](/de/docs/Web/API/HTMLElement/dragstart_event), kann jeder DOM-Knoten ebenfalls ziehbar gemacht werden.
 
-Das `aria-grabbed` Attribut wurde verwendet, um anzuzeigen, ob ein Element in einem "ergriffenen" Zustand in einer Drag-and-Drop-Operation mit `aria-grabbed="true"` ist, oder ob das Element greifbar, aber nicht aktuell ergriffen ist, mit `aria-grabbed="false"`.
+Das `aria-grabbed`-Attribut wurde verwendet, um anzuzeigen, ob sich ein Element in einem "gegriffenen" Zustand in einer Drag-and-Drop-Operation mit `aria-grabbed="true"` befindet oder ob das Element greifbar, aber nicht aktuell gegriffen ist, mit `aria-grabbed="false"`.
 
-Durch Setzen von `aria-grabbed="true"` wurde angezeigt, dass das Element für das Ziehen ausgewählt wurde. Das Setzen von `aria-grabbed="false"` zeigte an, dass das Element für eine Drag-and-Drop-Operation gegriffen werden konnte, aber derzeit nicht gegriffen ist.
+Das Setzen von `aria-grabbed="true"` zeigte an, dass das Element für das Ziehen ausgewählt wurde. Das Setzen von `aria-grabbed="false"` zeigte an, dass das Element für eine Drag-and-Drop-Operation gegriffen werden kann, aber aktuell nicht gegriffen ist.
 
-Wenn `aria-grabbed` auf `true` gesetzt ist, sollte das [`aria-dropeffect`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect) Attribut aller potenziellen Zielbereiche aktualisiert werden, mit der Art von Funktion oder Effekt, der auf das ergriffene Element ausgeführt wird, wenn es fallengelassen wird. Wenn sich kein Element in einem ergriffenen Zustand befindet, setzen Sie die `aria-dropeffect` Attribute aller Zielbereiche zurück.
+Wenn `aria-grabbed` auf `true` gesetzt ist, sollte das [`aria-dropeffect`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect)-Attribut aller potenziellen Zielobjekte mit der Art der Funktion oder dem Effekt aktualisiert werden, der auf das gegriffene Element angewendet wird, wenn es fallen gelassen wird. Wenn sich kein Element in einem gegriffenen Zustand befindet, setzen Sie die `aria-dropeffect`-Attribute aller Ihrer Zielobjekte zurück.
 
-Die `aria-grabbed` Eigenschaft soll in einer zukünftigen Version von WAI-ARIA durch eine neue Funktion ersetzt werden und gilt als veraltet.
+Es wird erwartet, dass die `aria-grabbed`-Eigenschaft in einer zukünftigen Version von WAI-ARIA durch eine neue Funktion ersetzt wird und sie gilt als veraltet.
 
 > [!NOTE]
-> ARIA ermöglicht keine barrierefreie Funktionalität. ARIA vermittelt nur das beabsichtigte Verhalten Ihrer Funktionalität.
+> ARIA ermöglicht keine zugängliche Funktionalität. ARIA vermittelt lediglich das beabsichtigte Verhalten Ihrer Funktionalität.
 
 ## Werte
 
 - `true`
-  - : Das Element wurde zum Ziehen ausgewählt.
+  - : Das Element wurde für das Ziehen ausgewählt.
 - `false`
-  - : Das Element ist derzeit nicht zum Ziehen ausgewählt, kann aber durch Einstellen der Eigenschaft auf `true` zum Ziehen bereitgestellt werden.
+  - : Das Element ist derzeit nicht für das Ziehen ausgewählt, kann aber durch Setzen der Eigenschaft auf `true` verfügbar gemacht werden.
 - `undefined` (Standard)
-  - : Das Element unterstützt das Ziehen nicht
+  - : Das Element unterstützt kein Ziehen
 
 ## Zugehörige Rollen
 
@@ -44,8 +44,8 @@ Wird in **ALLEN** [Rollen](/de/docs/Web/Accessibility/ARIA/Roles) verwendet.
 ## Siehe auch
 
 - [`aria-dropeffect`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-dropeffect)
-- [HTML globales `draggable` Attribut](/de/docs/Web/HTML/Global_attributes/draggable)
-- HTML [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [HTML globales `draggable`-Attribut](/de/docs/Web/HTML/Global_attributes/draggable)
+- HTML [Drag-and-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [`dataTransfer`](/de/docs/Web/API/DataTransfer)
 - [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)
 - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)

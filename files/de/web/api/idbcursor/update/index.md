@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`update()`**-Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und aktualisiert in einem separaten Thread den Wert an der aktuellen Position des Cursors im Objektspeicher. Wenn der Cursor auf einen Datensatz zeigt, der gerade gelöscht wurde, wird ein neuer Datensatz erstellt.
+Die **`update()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und aktualisiert in einem separaten Thread den Wert an der aktuellen Position des Cursors im Objekt-Store. Wenn der Cursor auf einen Datensatz zeigt, der gerade gelöscht wurde, wird ein neuer Datensatz erstellt.
 
-Es sei darauf hingewiesen, dass Sie `update()` (oder [`IDBCursor.delete()`](/de/docs/Web/API/IDBCursor/delete)) nicht für Cursors aufrufen können, die von [`IDBIndex.openKeyCursor()`](/de/docs/Web/API/IDBIndex/openKeyCursor) erhalten wurden. Für solche Anforderungen müssen Sie stattdessen [`IDBIndex.openCursor()`](/de/docs/Web/API/IDBIndex/openCursor) verwenden.
+Beachten Sie, dass Sie `update()` (oder
+[`IDBCursor.delete()`](/de/docs/Web/API/IDBCursor/delete)) nicht auf Cursorn aufrufen können, die aus
+[`IDBIndex.openKeyCursor()`](/de/docs/Web/API/IDBIndex/openKeyCursor) heruntergeladen wurden. In solchen Fällen müssen Sie stattdessen [`IDBIndex.openCursor()`](/de/docs/Web/API/IDBIndex/openCursor) verwenden.
 
 ## Syntax
 
@@ -25,32 +27,32 @@ update(value)
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse in Bezug auf diese Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage der Schlüssel für den aktualisierten Datensatz.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anforderung der Schlüssel für den aktualisierten Datensatz.
 
 ### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion dieses IDBCursors inaktiv ist.
+  - : Wird ausgelöst, wenn die Transaktion des IDBCursors inaktiv ist.
 - `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Transaktionsmodus schreibgeschützt ist.
+  - : Wird ausgelöst, wenn der Transaktionsmodus nur lesen ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, gerade iteriert wird oder über sein Ende hinaus iteriert hat.
+  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, gerade iteriert wird oder über sein Ende hinaus iteriert wurde.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der zugrunde liegende Objektspeicher eingebettete Schlüssel verwendet und die Eigenschaft im Wert des Schlüsselfeldpfades des Objektspeichers nicht mit dem Schlüssel in der Position dieses Cursors übereinstimmt.
+  - : Wird ausgelöst, wenn der zugrunde liegende Objekt-Store Inline-Schlüssel verwendet und die Eigenschaft im Wert am Schlüsselpfad des Objekt-Stores nicht mit dem Schlüssel in der Position dieses Cursors übereinstimmt.
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die zu speichernden Daten nicht durch den internen strukturierten Klonalgorithmus geklont werden konnten.
+  - : Wird ausgelöst, wenn die Daten, die gespeichert werden sollen, nicht vom internen strukturierten Klonalgorithmus geklont werden konnten.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Wenn der `albumTitle` des aktuellen Cursors "A farewell to kings" ist, aktualisieren wir das Jahr, in dem das Album veröffentlicht wurde, mit `const request = cursor.update();`.
+In diesem einfachen Fragment erstellen wir eine Transaktion, greifen auf einen Objekt-Store zu und verwenden dann einen Cursor, um durch alle Datensätze im Objekt-Store zu iterieren. Wenn der `albumTitle` des aktuellen Cursors "A farewell to kings" ist, aktualisieren wir das Jahr, in dem das Album veröffentlicht wurde, indem wir `const request = cursor.update();` verwenden.
 
-Beachten Sie, dass Sie keine Primärschlüssel mit `cursor.update()` ändern können, daher ändern wir nicht den Albumtitel; dies würde die Integrität der Daten beeinträchtigen. In einem solchen Fall müssten Sie den Datensatz vollständig löschen und dann mit [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add) einen neuen hinzufügen. Beachten Sie auch, dass Sie `cursor.value` nicht direkt in einem Update-Aufruf verwenden können, weshalb im untenstehenden Beispiel eine zwischengeschaltete `updateData`-Variable verwendet wird.
+Beachten Sie, dass Sie mit `cursor.update()` keine Primärschlüssel ändern können, weshalb wir den Albumtitel nicht ändern; dies würde die Datenintegrität beeinträchtigen. In einer solchen Situation müssten Sie den Datensatz vollständig löschen und dann einen neuen mit [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add) hinzufügen. Beachten Sie auch, dass Sie `cursor.value` nicht direkt in einem Update-Aufruf verwenden können, daher wird im folgenden Beispiel eine Zwischenvariable `updateData` verwendet.
 
-Der Cursor erfordert von uns nicht, die Daten basierend auf einem Schlüssel auszuwählen; wir können einfach alle davon abrufen. Beachten Sie außerdem, dass Sie pro Iteration der Schleife die Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function updateResult() {
@@ -92,10 +94,10 @@ function updateResult() {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Einstellen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [Aufgabenbenachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

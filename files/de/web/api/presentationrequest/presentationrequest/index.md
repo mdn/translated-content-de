@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`PresentationRequest()`** Konstruktor erstellt ein neues [`PresentationRequest`](/de/docs/Web/API/PresentationRequest)-Objekt, das eine neue PresentationRequest erstellt.
+Der **`PresentationRequest()`**
+Konstruktor erstellt ein neues [`PresentationRequest`](/de/docs/Web/API/PresentationRequest)-Objekt, das eine neue PresentationRequest erstellt.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ new PresentationRequest(urls)
 ### Parameter
 
 - `url` oder `urls\[]`
-  - : Eine URL oder ein Array von URLs, die potenzielle URLs sind, die verwendet werden, um eine Präsentation für die PresentationRequest-Instanz zu erstellen oder wiederzuverbinden.
+  - : Eine URL oder ein Array von URLs, die mögliche URLs sind, die verwendet werden, um eine Präsentation für die PresentationRequest-Instanz zu erstellen oder erneut zu verbinden.
 
 ## Spezifikationen
 

@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`CSSTransition`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert ein [`Animation`](/de/docs/Web/API/Animation)-Objekt, das für eine [CSS Transition](/de/docs/Web/CSS/CSS_transitions) verwendet wird.
+Das **`CSSTransition`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert ein [`Animation`](/de/docs/Web/API/Animation)-Objekt, das für einen [CSS Übergang](/de/docs/Web/CSS/CSS_transitions) verwendet wird.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
 
 - [`CSSTransition.transitionProperty`](/de/docs/Web/API/CSSTransition/transitionProperty) {{ReadOnlyInline}}
-  - : Gibt den Namen der CSS-Eigenschaft der Transition als Zeichenkette zurück.
+  - : Gibt den Namen der Übergangs-CSS-Eigenschaft als Zeichenfolge zurück.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Dieses Interface erbt Methoden von seinem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
 
 Keine spezifischen Methoden.
 
 ## Beispiele
 
-### Überprüfung der zurückgegebenen CSSTransition
+### Untersuchen der zurückgegebenen CSSTransition
 
-Die Transition im folgenden Beispiel ändert die Breite der Box beim Hover. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array von allen [`Animation`](/de/docs/Web/API/Animation)-Objekten zurück. In unserem Fall wird ein `CSSTransition`-Objekt zurückgegeben, das die erstellte Animation darstellt.
+Der Übergang im folgenden Beispiel ändert die Breite des Kastens beim Hover. Ein Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück. In unserem Fall wird dadurch ein `CSSTransition`-Objekt zurückgegeben, das die erstellte Animation repräsentiert.
 
 ```css
 .box {

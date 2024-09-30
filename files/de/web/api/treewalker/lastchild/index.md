@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.lastChild()`**-Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum letzten _sichtbaren_ Kindknoten des aktuellen Knotens und gibt das gefundene Kind zurück. Falls kein solches Kind existiert, gibt sie `null` zurück und der aktuelle Knoten bleibt unverändert.
+Die **`TreeWalker.lastChild()`**-Methode bewegt den aktuellen
+[`Node`](/de/docs/Web/API/Node) zum letzten _sichtbaren_ Kindknoten des aktuellen Knotens und gibt
+dieses gefundene Kind zurück. Wenn ein solcher Kindknoten nicht existiert, wird `null` zurückgegeben und der aktuelle Knoten wird nicht verändert.
 
 ## Syntax
 
@@ -49,4 +51,4 @@ const node = treeWalker.lastChild(); // returns the last visible child of the ro
 
 ## Siehe auch
 
-- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle, zu der sie gehört.

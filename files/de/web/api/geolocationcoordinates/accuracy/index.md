@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`accuracy`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein streng positives `double`, das die Genauigkeit der Eigenschaften [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude) mit einem Konfidenzniveau von 95% in Metern ausgedrückt darstellt.
+Die schreibgeschützte Eigenschaft **`accuracy`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein strikt positives `double`, das die Genauigkeit mit einem Konfidenzniveau von 95 % der [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude)-Eigenschaften in Metern angibt.
 
 ## Wert
 
-Ein positives `double`, das die Genauigkeit der Eigenschaften [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude) mit einem Konfidenzniveau von 95% in Metern ausgedrückt darstellt.
+Ein positives `double`, das die Genauigkeit mit einem Konfidenzniveau von 95 % der [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude)-Eigenschaften in Metern angibt.
 
 ## Spezifikationen
 

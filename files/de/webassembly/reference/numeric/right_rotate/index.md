@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`rotr`** Anweisungen, kurz für _rotate-right_, werden verwendet, um eine bitweise Rechtsdrehung durchzuführen.
+Die **`rotr`** Anweisungen, eine Abkürzung für _rotate-right_, werden verwendet, um eine bitweise Rechtsrotation durchzuführen.
 
 {{EmbedInteractiveExample("pages/wat/rotr.html", "tabbed-taller")}}
 
@@ -25,7 +25,7 @@ i32.rotr
 ;; (10000000_00000000_00000000_00000011)
 ```
 
-| Anweisung  | Binärer Opcode |
-| ---------- | -------------- |
-| `i32.rotr` | `0x78`         |
-| `i64.rotr` | `0x8a`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.rotr`  | `0x78`         |
+| `i64.rotr`  | `0x8a`         |

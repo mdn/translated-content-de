@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`align`**-Eigenschaft des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement) Interfaces ist ein String, der angibt, wie Text in einem {{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}} Tabellenabschnitt horizontal ausgerichtet werden soll. Einzelne Zeilen und Zellen können diese Einstellung überschreiben.
+Die **`align`**-Eigenschaft der Schnittstelle [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement) ist ein String, der angibt, wie Text horizontal in einem {{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}} Tabellenabschnitt ausgerichtet wird. Einzelne Zeilen und Zellen können diese überschreiben.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie die CSS-{{cssxref("text-align")}}-Eigenschaft, die Vorrang hat, um Text in Abschnittszellen horizontal auszurichten.
+> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um Text in Abschnittszellen horizontal auszurichten.
 
 ## Wert
 
@@ -26,7 +26,7 @@ Die möglichen Werte sind:
 
 ## Beispiele
 
-Verwenden Sie stattdessen CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/text-align#table_alignment) finden Sie auf der {{cssxref("text-align")}}-Seite.
+Verwenden Sie stattdessen CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/text-align#table_alignment) ist auf der Seite {{cssxref("text-align")}} verfügbar.
 
 ## Spezifikationen
 

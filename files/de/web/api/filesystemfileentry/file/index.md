@@ -1,5 +1,5 @@
 ---
-title: "FileSystemFileEntry: file()-Methode"
+title: "FileSystemFileEntry: file() Methode"
 short-title: file()
 slug: Web/API/FileSystemFileEntry/file
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die Methode **`file()`** des [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Interfaces gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das verwendet werden kann, um Daten aus der Datei zu lesen, die durch den Verzeichniseintrag repräsentiert wird.
+Die **`file()`**-Methode des [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Interfaces gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das verwendet werden kann, um Daten von der durch den Verzeichniseintrag repräsentierten Datei zu lesen.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ file(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Callback-Funktion, die aufgerufen wird, wenn die [`File`](/de/docs/Web/API/File) erfolgreich erstellt wurde; die `File` wird als einziger Parameter an den Callback übergeben.
+  - : Eine Callback-Funktion, die aufgerufen wird, wenn die [`File`](/de/docs/Web/API/File) erfolgreich erstellt wurde; die `File` wird als einziger Parameter an das Callback übergeben.
 - `errorCallback` {{optional_inline}}
-  - : Wenn angegeben, muss dies eine Methode sein, die aufgerufen wird, wenn beim Versuch, die [`File`](/de/docs/Web/API/File) zu erstellen, ein Fehler auftritt. Dieser Callback erhält ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das den Fehler beschreibt, als Eingabe.
+  - : Falls angegeben, muss diese Methode aufgerufen werden, wenn ein Fehler beim Erstellen der [`File`](/de/docs/Web/API/File) auftritt. Dieses Callback erhält als Eingabe ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das den Fehler beschreibt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel definiert eine Methode `readFile()`, die eine Textdatei liest und eine angegebene Callback-Funktion mit dem empfangenen Text (in einem String) aufruft, sobald das Lesen abgeschlossen ist. Wenn ein Fehler auftritt, wird ein angegebener (optional) Fehler-Callback aufgerufen.
+Dieses Beispiel definiert eine Methode `readFile()`, die eine Textdatei liest und eine spezifizierte Callback-Funktion mit dem empfangenen Text (als Zeichenkette) aufruft, sobald das Lesen abgeschlossen ist. Wenn ein Fehler auftritt, wird ein spezifiziertes (optionales) Fehler-Callback aufgerufen.
 
 ```js
 function readFile(entry, successCallback, errorCallback) {
@@ -50,7 +50,7 @@ function readFile(entry, successCallback, errorCallback) {
 }
 ```
 
-Diese Funktion ruft `file()` auf und gibt als Erfolgscallback eine Methode an, die dann einen [`FileReader`](/de/docs/Web/API/FileReader) verwendet, um die Datei als Text zu lesen. Der Event-Handler für das [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignis des FileReaders ist so eingerichtet, dass er den geladenen String an den bei Aufruf der Methode `readFile()` angegebenen `successCallback` übergibt; ebenso wird sein [`error`](/de/docs/Web/API/FileReader/error_event)-Handler so eingerichtet, dass er den angegebenen `errorCallback` aufruft.
+Diese Funktion ruft `file()` auf und gibt als Erfolgs-Callback eine Methode an, die einen [`FileReader`](/de/docs/Web/API/FileReader) verwendet, um die Datei als Text zu lesen. Der [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignishandler des FileReaders ist so eingerichtet, dass er die geladene Zeichenkette an das bei der Methode `readFile()` angegebene `successCallback` liefert; ebenso ist der [`error`](/de/docs/Web/API/FileReader/error_event)-Handler so eingerichtet, dass er das angegebene `errorCallback` aufruft.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankerverhalten des Browsers zu deaktivieren, das die Scrollposition anpasst, um Inhaltsverschiebungen zu minimieren.
+Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankerverhalten des Browsers zu deaktivieren, welches die Scroll-Position anpasst, um Inhaltverschiebungen zu minimieren.
 
-Das Scroll-Ankerverhalten ist standardmäßig in jedem unterstützenden Browser aktiviert. Daher ist es in der Regel nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scroll-Ankerverhalten in einem Dokument oder einem Teil eines Dokuments haben und das Verhalten deaktivieren müssen.
+Das Scroll-Ankerverhalten ist standardmäßig in jedem unterstützenden Browser aktiviert. Daher muss der Wert dieser Eigenschaft in der Regel nur geändert werden, wenn Sie Probleme mit dem Scroll-Ankerverhalten in einem Dokument oder einem Teil eines Dokuments haben und dieses Verhalten deaktivieren möchten.
 
 {{EmbedInteractiveExample("pages/css/overflow-anchor.html")}}
 
@@ -31,7 +31,7 @@ overflow-anchor: unset;
 ### Werte
 
 - `auto`
-  - : Das Element wird beim Anpassen der Scrollposition zu einem potenziellen Anker.
+  - : Das Element wird ein potenzieller Anker, wenn die Scroll-Position angepasst wird.
 - `none`
   - : Das Element wird nicht als potenzieller Anker ausgewählt.
 
@@ -45,7 +45,7 @@ overflow-anchor: unset;
 
 ## Beispiele
 
-### Scroll-Anker verhindern
+### Scroll-Ankerverhalten verhindern
 
 Um das Scroll-Ankerverhalten in einem Dokument zu verhindern, verwenden Sie die `overflow-anchor` Eigenschaft.
 
@@ -65,4 +65,4 @@ Um das Scroll-Ankerverhalten in einem Dokument zu verhindern, verwenden Sie die 
 
 ## Siehe auch
 
-- [Leitfaden zum Scroll-Ankerverhalten](/de/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring)
+- [Leitfaden für Scroll-Ankerverhalten](/de/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring)

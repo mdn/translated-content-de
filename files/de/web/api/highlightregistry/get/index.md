@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: get()-Methode"
+title: "HighlightRegistry: get() Methode"
 short-title: get()
 slug: Web/API/HighlightRegistry/get
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`get()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt das benannte [`Highlight`](/de/docs/Web/API/Highlight)-Objekt aus dem Register zurück.
+Die **`get()`** Methode des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) Interfaces liefert das benannte [`Highlight`](/de/docs/Web/API/Highlight) Objekt aus dem Register zurück.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich der Verwendung von {{jsxref("Map.get()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.get()")}}.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ get(name)
 ### Parameter
 
 - `name`
-  - : Der Name des `Highlight`-Objekts, das aus dem Register zurückgegeben werden soll. Der Name muss ein {{jsxref("String")}} sein.
+  - : Der Name des `Highlight` Objekts, das aus dem Register zurückgegeben werden soll. Der Name muss ein {{jsxref("String")}} sein.
 
 ### Rückgabewert
 
-Das `Highlight`-Objekt, das mit dem angegebenen Namen verknüpft ist, oder {{jsxref("undefined")}}, wenn der Name im `HighlightRegistry` nicht gefunden werden kann.
+Das `Highlight` Objekt, das mit dem angegebenen Namen verknüpft ist, oder {{jsxref("undefined")}}, wenn der Name im `HighlightRegistry` nicht gefunden werden kann.
 
 ## Beispiele
 
-Das folgende Codebeispiel demonstriert, wie ein neues `Highlight` erstellt, dem Register hinzugefügt und mittels der `get()`-Methode anhand seines Namens abgerufen wird:
+Das folgende Codebeispiel zeigt, wie ein neues `Highlight` erstellt, dem Register hinzugefügt und anschließend mithilfe der `get()` Methode über seinen Namen abgerufen werden kann:
 
 ```js
 const fooHighlight = new Highlight();
@@ -49,4 +49,4 @@ console.log(CSS.highlights.get("foo")); // Returns the fooHighlight object.
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Texthighlightings im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

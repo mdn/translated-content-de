@@ -9,11 +9,12 @@ l10n:
 {{APIRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
 > [!WARNING]
-> Diese Funktion wurde entfernt. Bitte beheben Sie Ihre Websites und Anwendungen.
+> Dieses Feature wurde entfernt. Bitte beheben Sie Ihre Websites und Anwendungen.
 >
 > Diese Methode wurde in Chrome 43 und Firefox 56 entfernt.
 
-Die **`Window.showModalDialog()`** Methode erstellte und zeigte ein modales Dialogfenster an, das ein bestimmtes HTML-Dokument enthielt.
+Die **`Window.showModalDialog()`** Methode
+erstellte und zeigte ein modales Dialogfeld an, das ein angegebenes HTML-Dokument enthält.
 
 ## Syntax
 
@@ -30,7 +31,8 @@ showModalDialog(uri, arguments, options)
 - `arguments` {{optional_inline}}
   - : An den Dialog übergebene Werte.
 - `options` {{optional_inline}}
-  - : Ein String, der die Fensterverzierungen für den Dialog angibt und eine oder mehrere durch Semikolon getrennte Werte verwendet:
+  - : Ein String, der das Fensterornament für den
+    Dialog angibt. Er verwendet ein oder mehrere durch Semikolon getrennte Werte:
 
 <table class="no-markdown">
   <tbody>
@@ -41,58 +43,64 @@ showModalDialog(uri, arguments, options)
     <tr>
       <td><code>center: {on | off | yes | no | 1 | 0 }</code></td>
       <td>
-        Wenn <code>on</code>, <code>yes</code> oder <code>1</code> angegeben ist, wird das Dialogfenster auf dem Desktop zentriert; andernfalls ist es verborgen. Standard ist <code>yes</code>.
+        Ist der Wert <code>on</code>, <code>yes</code> oder <code>1</code>,
+        wird das Dialogfenster auf dem Desktop zentriert; andernfalls ist es
+        verborgen. Standardwert ist <code>yes</code>.
       </td>
     </tr>
     <tr>
       <td>
         <code>dialogheight: <em>height</em></code>
       </td>
-      <td>Die Höhe des Dialogfensters in Pixeln.</td>
+      <td>Die Höhe des Dialogfeldes in Pixel.</td>
     </tr>
     <tr>
       <td>
         <code>dialogleft: <em>left</em></code>
       </td>
-      <td>Abstand des Dialogfensters vom linken Rand des Desktops.</td>
+      <td>Abstand des Dialogfeldes vom linken Rand des Desktops.</td>
     </tr>
     <tr>
       <td>
         <code>dialogwidth: <em>width</em></code>
       </td>
-      <td>Die Breite des Dialogfensters in Pixeln.</td>
+      <td>Die Breite des Dialogfeldes in Pixel.</td>
     </tr>
     <tr>
       <td>
         <code>dialogtop: <em>top</em></code>
       </td>
-      <td>Abstand des Dialogfensters vom oberen Rand des Desktops.</td>
+      <td>Abstand des Dialogfeldes vom oberen Rand des Desktops.</td>
     </tr>
     <tr>
       <td><code>resizable: {on | off | yes | no | 1 | 0 }</code></td>
       <td>
-        Wenn der Wert dieses Arguments <code>on</code>, <code>yes</code> oder 1 ist, kann das Dialogfenster von der Benutzerin oder dem Benutzer skaliert werden; andernfalls ist seine Größe fest. Der Standardwert ist <code>no</code>.
+        Ist der Wert <code>on</code>, <code>yes</code> oder <code>1</code>, kann
+        das Dialogfenster vom Benutzer in der Größe verändert werden; andernfalls
+        bleibt seine Größe fest. Der Standardwert ist <code>no</code>.
       </td>
     </tr>
     <tr>
       <td><code>scroll: {on | off | yes | no | 1 | 0 }</code></td>
       <td>
-        Wenn <code>on</code>, <code>yes</code> oder 1 angegeben ist, hat das Dialogfenster Scrollleisten; andernfalls ist seine Größe fest. Standard ist <code>no</code>.
+        Ist der Wert <code>on</code>, <code>yes</code> oder <code>1</code>, hat
+        das Dialogfenster Scrollleisten; andernfalls bleibt seine Größe fest.
+        Der Standardwert ist <code>no</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Firefox implementiert nicht die `dialogHide`, `edge`, `status` oder `unadorned` Argumente.
+> Firefox implementiert die `dialogHide`, `edge`, `status` oder `unadorned` Argumente nicht.
 
 ### Rückgabewert
 
-Beinhaltet die `returnValue` Eigenschaft, wie sie durch das Dokument, das durch `uri` spezifiziert ist, festgelegt wurde.
+Enthält die `returnValue` Eigenschaft, wie vom Dokument angegeben, das durch `uri` spezifiziert wurde.
 
 ## Spezifikationen
 
-- [MSDN Seite für `showModalDialog`](<https://learn.microsoft.com/en-us/previous-versions/ms536759(v=vs.85)>)
+- [MSDN-Seite für `showModalDialog`](<https://learn.microsoft.com/en-us/previous-versions/ms536759(v=vs.85)>)
 
 ## Browser-Kompatibilität
 
@@ -101,5 +109,4 @@ Beinhaltet die `returnValue` Eigenschaft, wie sie durch das Dokument, das durch 
 ## Siehe auch
 
 - {{HTMLElement("dialog")}}, ein Ersatz für `window.showModalDialog()`.
-- [showModalDialog Polyfill](https://github.com/niutech/showModalDialog)
-  mittels {{HTMLElement("dialog")}} und [Generatoren](/de/docs/Web/JavaScript/Reference/Statements/function*)
+- [showModalDialog Polyfill](https://github.com/niutech/showModalDialog) mit einem {{HTMLElement("dialog")}} und [generators](/de/docs/Web/JavaScript/Reference/Statements/function*)

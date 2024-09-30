@@ -1,5 +1,5 @@
 ---
-title: "VideoColorSpace: fullRange-Eigenschaft"
+title: "VideoColorSpace: Eigenschaft fullRange"
 short-title: fullRange
 slug: Web/API/VideoColorSpace/fullRange
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`fullRange`**-Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt `true` zurück, wenn Vollbereichsfarbwerte verwendet werden.
+Die **`fullRange`** schreibgeschützte Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt `true` zurück, wenn Farbbereiche im vollen Spektrum verwendet werden.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, `true`, wenn Vollbereichsfarbwerte verwendet werden.
+Ein {{jsxref("Boolean")}}, `true`, wenn Farbbereiche im vollen Spektrum verwendet werden.
 
 ## Beispiele
 

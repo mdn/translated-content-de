@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`DELETE`** HTTP-Methode fordert den Server auf, eine angegebene Ressource zu löschen.
+Die **`DELETE`** HTTP-Methode fordert den Server auf, eine spezifizierte Ressource zu löschen.
 
-Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtenkörper, daher sollte dieser leer sein.
+Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtentext, daher sollte dieser leer sein.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Request hat Body</th>
-      <td>Kann</td>
+      <th scope="row">Anfrage hat einen Textkörper</th>
+      <td>Darf</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Body</th>
-      <td>Kann</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Textkörper</th>
+      <td>Darf</td>
     </tr>
     <tr>
       <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
@@ -49,29 +49,32 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage in Kombination mit den Informationen, die im {{HTTPHeader("Host")}}-Header angegeben sind. Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Origin-Server und eine absolute URL bei Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert das Ziel der Anfrage, wenn es mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
+    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Origin-Server und eine absolute URL bei Anfragen an Proxies (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die einem Fragezeichen `?` folgt. Häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
+  - : Ein optionaler Abfragekomponent, der einem Fragezeichen `?` vorangestellt ist.
+    Häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
 ### Erfolgreiches Löschen einer Ressource
 
-Die folgende Anfrage fordert den Server auf, die Ressource `file.html` zu löschen:
+Die folgende Anfrage fordert den Server dazu auf, die Ressource `file.html` zu löschen:
 
 ```http
 DELETE /file.html HTTP/1.1
 Host: example.com
 ```
 
-Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [Statuscodes für erfolgreiche Antworten](/de/docs/Web/HTTP/Status#successful_responses). Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client zurückgesendet werden müssen:
+Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [erfolgreiche Antwortstatus-Codes](/de/docs/Web/HTTP/Status#successful_responses).
+Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client zurückgesendet werden müssen:
 
 ```http
 HTTP/1.1 204 No Content
 Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung des Ergebnisses umfasst:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung des Ergebnisses enthält:
 
 ```http
 HTTP/1.1 200 OK
@@ -112,7 +115,7 @@ Content-Length: 1234
 
 ## Siehe auch
 
-- HTTP-Statuscodes: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
+- HTTP-Status: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatus-Codes](/de/docs/Web/HTTP/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Headers)

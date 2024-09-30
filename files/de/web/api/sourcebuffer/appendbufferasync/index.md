@@ -1,5 +1,5 @@
 ---
-title: "SourceBuffer: appendBufferAsync() Methode"
+title: "SourceBuffer: appendBufferAsync()-Methode"
 short-title: appendBufferAsync()
 slug: Web/API/SourceBuffer/appendBufferAsync
 l10n:
@@ -9,9 +9,10 @@ l10n:
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
 Die **`appendBufferAsync()`**-Methode
-des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces startet den Prozess des asynchronen Hinzufügens von Mediendatensegmenten aus einem {{jsxref("ArrayBuffer")}},
-einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt zum `SourceBuffer`-Objekt.
-Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Puffer hinzugefügt wurde.
+des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces beginnt den Prozess des asynchronen
+Anhängevorgangs von Mediensegmentdaten aus einem {{jsxref("ArrayBuffer")}},
+einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt an das `SourceBuffer`-Objekt.
+Es gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Puffer angehängt wurde.
 
 ## Syntax
 
@@ -22,15 +23,17 @@ appendBufferAsync(source)
 ### Parameter
 
 - `source`
-  - : Entweder ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das die Mediendaten enthält, die Sie dem `SourceBuffer` hinzufügen möchten.
+  - : Entweder ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das die Mediensegmentdaten enthält, die Sie dem `SourceBuffer` hinzufügen möchten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird, wenn der Puffer erfolgreich dem `SourceBuffer`-Objekt hinzugefügt wurde, oder `null`, wenn die Anfrage nicht gestartet werden konnte.
+Ein {{jsxref("Promise")}}, das erfüllt wird, wenn der Puffer erfolgreich zum `SourceBuffer`-Objekt hinzugefügt wurde,
+oder `null`, wenn die Anforderung nicht initiiert werden konnte.
 
 ## Beispiele
 
-Diese vereinfachte asynchrone Funktion `fillSourceBuffer()` nimmt als Eingabeparameter `buffer`, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, und ein `SourceBuffer`-Objekt, dem die Medienquelle aus dem Puffer hinzugefügt werden soll.
+Diese vereinfachte asynchrone Funktion, `fillSourceBuffer()`, nimmt als Eingabeparameter `buffer`, einen {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder einen {{jsxref("DataView")}}, und ein
+`SourceBuffer`-Objekt, an welches die Quellmedien aus dem Puffer angehängt werden sollen.
 
 ```js
 async function fillSourceBuffer(buffer, msBuffer) {
@@ -46,7 +49,7 @@ async function fillSourceBuffer(buffer, msBuffer) {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation. Es ist nicht auf dem Weg, ein Standard zu werden.
+Dieses Feature ist Teil keiner Spezifikation. Es steht nicht auf der Agenda, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

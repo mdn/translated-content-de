@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`userHandle`** schreibgeschützte Eigenschaft der [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)-Schnittstelle ist ein {{jsxref("ArrayBuffer")}}-Objekt, das einen undurchsichtigen Bezeichner für den angegebenen Benutzer bereitstellt. Ein solcher Bezeichner kann vom Server der vertrauenden Partei verwendet werden, um das Benutzerkonto mit den entsprechenden Anmeldedaten und anderen Daten zu verknüpfen.
+Die **`userHandle`**-Eigenschaft des Lesezugriffs des [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt, das einen undurchsichtigen Bezeichner für den angegebenen Benutzer bereitstellt. Ein solcher Bezeichner kann vom Server der vertrauenden Partei verwendet werden, um das Benutzerkonto mit den entsprechenden Anmeldeinformationen und anderen Daten zu verknüpfen.
 
-Dieser Wert wird als `user.id` in den Optionen angegeben, die beim ursprünglichen Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) übergeben werden.
+Dieser Wert wird als `user.id` in den Optionen angegeben, die dem ursprünglichen [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufruf übergeben werden.
 
 ## Wert
 
-Ein {{jsxref("ArrayBuffer")}}-Objekt, das einen Bezeichner für den aktuellen Benutzer darstellt. Dieser ist nicht dazu gedacht, von Menschen gelesen zu werden. Die vertrauende Partei sollte sicherstellen, dass die in den ursprünglichen `create()`-Aufruf übermittelte `user.id` **keine** persönlichen Informationen (wie Benutzername, E-Mail oder Telefonnummer) enthält.
+Ein {{jsxref("ArrayBuffer")}}-Objekt, das einen Bezeichner für den aktuellen Benutzer darstellt. Dieser ist nicht für den Menschen lesbar. Die vertrauende Partei sollte sicherstellen, dass die in den ursprünglichen `create()`-Aufruf übergebene `user.id` **keine** persönlich identifizierbaren Informationen (wie zum Beispiel Benutzername, E-Mail oder Telefonnummer) enthält.
 
-Für [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufrufe mit einem nicht-leeren `allowCredentials`-Eigenschaften kann die zurückgegebene `userHandle` null sein.
+Für [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufrufe, die mit nicht-leeren `allowCredentials`-Eigenschaften erfolgen, kann das zurückgegebene `userHandle` null sein.
 
 ## Beispiele
 
-Sehen Sie sich [Benutzeranmeldung mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/get#user_login_using_the_webauthn_api) für ein detailliertes Beispiel an.
+Siehe [Benutzeranmeldung mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/get#user_login_using_the_webauthn_api) für ein ausführliches Beispiel.
 
 ## Spezifikationen
 

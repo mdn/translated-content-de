@@ -7,20 +7,20 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie das [Positionieren in CSS](/de/docs/Learn/CSS/CSS_layout/Positioning) unter Verwendung der CSS-{{CSSxRef("position")}}-Eigenschaft und ihrer Werte verstanden haben. Sie werden zwei kleine Aufgaben bearbeiten, die verschiedene Elemente des gerade behandelten Materials verwenden.
+Ziel dieses Fähigkeitentests ist es zu beurteilen, ob Sie das [Positionieren in CSS](/de/docs/Learn/CSS/CSS_layout/Positioning) mittels der CSS {{CSSxRef("position")}} Eigenschaft und Werten verstehen. Sie werden durch zwei kleine Aufgaben arbeiten, die verschiedene Elemente des gerade behandelten Materials nutzen.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie das Element mit der Klasse `target` oben rechts im Container positionieren, der den grauen 5px-Rand hat.
+In dieser Aufgabe möchten wir, dass Sie das Element mit der Klasse `target` oben rechts im Container mit der 5px grauen Umrandung positionieren.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Das grüne Feld befindet sich oben rechts in einem Container mit grauem Rand.](position-task1.png)
+![Der grüne Kasten befindet sich oben rechts in einem Container mit grauer Umrandung.](position-task1.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -28,7 +28,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 Zusätzliche Frage:
 
-- Als zusätzliche Herausforderung: Können Sie das Ziel so ändern, dass es unter dem Text angezeigt wird?
+- Als zusätzliche Herausforderung, können Sie das Ziel unter dem Text anzeigen lassen?
 
 > [!CALLOUT]
 >
@@ -36,9 +36,9 @@ Zusätzliche Frage:
 
 ## Aufgabe 2
 
-In dieser Aufgabe scrollt im unten stehenden Beispiel die Seitenleiste mit dem Inhalt. Ändern Sie es so, dass die Seitenleiste an Ort und Stelle bleibt und nur der Inhalt scrollt.
+In dieser Aufgabe, wenn Sie den Kasten im untenstehenden Beispiel scrollen, scrollt die Seitenleiste mit dem Inhalt. Ändern Sie es so, dass die Seitenleiste an Ort und Stelle bleibt und nur der Inhalt scrollt.
 
-![Der Inhalt wurde gescrollt, aber die Seitenleiste ist an Ort und Stelle geblieben.](position-task2.png)
+![Der Inhalt wird gescrollt, aber die Seitenleiste bleibt an Ort und Stelle.](position-task2.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
